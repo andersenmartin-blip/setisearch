@@ -1,8 +1,12 @@
 # SETI Repeater Pipeline
 
 This package implements a transparent multi-epoch search for intermittent
-artificial narrowband emission from an exoplanet. The working hypothesis is a
-transmitter whose frequency is stable in the planet frame and whose beam is not
+narrowband signals that become coherent under the predicted motion of a
+selected exoplanet. The planet supplies a motion hypothesis, not a proven
+source location: a detected feature could instead arise from terrestrial or
+spaceborne interference, an instrumental effect, or any source within the
+telescope response. The working technosignature hypothesis is a transmitter
+whose frequency is stable in the selected planet frame and whose beam is not
 necessarily aimed at Earth.
 
 Version 0.4.0 is the frozen detector used for both frequency and temporal
