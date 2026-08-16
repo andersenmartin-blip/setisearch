@@ -1,0 +1,97 @@
+{
+  "project": {
+    "name": "Proxima Milestone 7 wideband clustered search",
+    "scientific_target": "A narrowband transmitter stable in the planet frame and not necessarily aimed at Earth",
+    "preregistered_utc": "2026-08-15T14:11:13Z",
+    "selection_rule": "Two disjoint 1 MHz planet-frame bands inside the 1400-1427 MHz passive allocation, away from the 1420.4058 MHz neutral-hydrogen line and from the four Milestone 5/6 centers.",
+    "method_note": "The bands, 1/3/5/9-channel bank, candidate floor, clustering tolerance, RFI flags, seeds, and recovery rule were frozen before inspecting Milestone 7 data.",
+    "postrun_recurrence_guard_utc": "2026-08-15T14:32:47Z",
+    "postrun_recurrence_guard_note": "The initial calibrated run exposed one-epoch-dominated maxima. Before interpreting candidates, the pipeline was corrected to require S/N >= 3.0 in every claimed active epoch, use sqrt(N) times the weakest active-epoch S/N as the recurrence statistic, and mask strong isolated single-epoch features with a 9-channel guard. The mask follows each epoch during null and completeness shifts. The entire search/null/completeness chain was rerun. These corrections are disclosed as post-run and require confirmation on independently selected future bands.",
+    "data_release": "Breakthrough Listen Parkes PKSUWL blc06"
+  },
+  "observatory": {
+    "name": "Parkes",
+    "longitude_deg": 148.2635101,
+    "latitude_deg": -32.9984064,
+    "height_m": 414.8
+  },
+  "target": {
+    "name": "Proxima Centauri",
+    "ra": "14h29m42.9461331854s",
+    "dec": "-62d40m46.164680672s",
+    "pm_ra_cosdec_mas_yr": -3781.741,
+    "pm_dec_mas_yr": 769.465,
+    "parallax_mas": 768.0665,
+    "radial_velocity_km_s": -20.578199,
+    "reference_epoch_jyear": 2000.0
+  },
+  "orbit": {
+    "name": "Proxima b working template",
+    "period_days": 11.18427,
+    "semi_major_axis_au": 0.04855,
+    "eccentricity": 0.124,
+    "t_periastron_bjd_tdb": 2458530.1,
+    "omega_rad": -1.32
+  },
+  "search": {
+    "projected_scales": [0.0, 0.25, 0.5, 0.75, 1.0],
+    "phase_offsets_cycles": [-0.2, -0.1, 0.0, 0.1, 0.2],
+    "minimum_active_epochs": 2,
+    "minimum_active_epoch_snr": 3.0,
+    "stack_statistic": "minimum_epoch",
+    "rfi_excision": {
+      "single_epoch_strong_snr": 10.0,
+      "other_epochs_below_snr": 3.0,
+      "guard_channels": 9
+    },
+    "spectral_widths_channels": [1, 3, 5, 9],
+    "candidate_snr_reference": 7.0,
+    "scrambles": 256,
+    "scramble_seed": 720260815,
+    "min_scramble_shift_bins": 4096,
+    "candidate_reporting": {
+      "peaks_per_hypothesis": 3,
+      "snr_floor": 5.5,
+      "cluster_tolerance_hz": 20.0,
+      "max_report_clusters": 50,
+      "template_multiplicity_flag": 8,
+      "family_spacing_tolerance_hz": 20.0,
+      "family_min_members": 3
+    },
+    "completeness": {
+      "background_window": "m7_1403",
+      "active_epochs_zero_based": [0, 2],
+      "truth_template_indices": [0, 8, 14, 20],
+      "ideal_single_epoch_snr_grid": [8, 10, 12, 16],
+      "trials_per_level": 16,
+      "seed": 7620260815,
+      "subintegrations": 32
+    }
+  },
+  "windows": [
+    {
+      "id": "m7_1403",
+      "fmin_mhz": 1402.7,
+      "fmax_mhz": 1404.3,
+      "rest_center_mhz": 1403.5,
+      "rest_half_width_khz": 500.0,
+      "selection_note": "One-megahertz lower passive-band interval with 300 kHz extraction guard on each side."
+    },
+    {
+      "id": "m7_1416",
+      "fmin_mhz": 1415.7,
+      "fmax_mhz": 1417.3,
+      "rest_center_mhz": 1416.5,
+      "rest_half_width_khz": 500.0,
+      "selection_note": "One-megahertz mid-band interval, separated from the H I line, with 300 kHz extraction guards."
+    }
+  ],
+  "scans": [
+    {"epoch": 1, "kind": "on", "label": "epoch1_on", "url": "http://blpd2.ssl.berkeley.edu/PKSUWL/blc06/PKSUWL/blc06_ProxCen_S_2019-04-29T15:21:41.000.fil"},
+    {"epoch": 1, "kind": "off", "label": "epoch1_off", "url": "http://blpd2.ssl.berkeley.edu/PKSUWL/blc06/PKSUWL/blc06_1421-490_S_2019-04-29T15:15:10.000.fil"},
+    {"epoch": 2, "kind": "on", "label": "epoch2_on", "url": "http://blpd2.ssl.berkeley.edu/PKSUWL/blc06/PKSUWL/blc06_ProxCen_S_2019-04-30T13:42:12.000.fil"},
+    {"epoch": 2, "kind": "off", "label": "epoch2_off", "url": "http://blpd2.ssl.berkeley.edu/PKSUWL/blc06/PKSUWL/blc06_1421-490_S_2019-04-30T14:13:59.000.fil"},
+    {"epoch": 3, "kind": "on", "label": "epoch3_on", "url": "http://blpd2.ssl.berkeley.edu/PKSUWL/blc06/PKSUWL/blc06_ProxCen_S_2019-05-01T13:30:15.000.fil"},
+    {"epoch": 3, "kind": "off", "label": "epoch3_off", "url": "http://blpd2.ssl.berkeley.edu/PKSUWL/blc06/PKSUWL/blc06_1421-490_S_2019-05-01T13:23:29.000.fil"}
+  ]
+}

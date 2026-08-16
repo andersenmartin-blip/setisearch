@@ -1,0 +1,97 @@
+{
+  "software_version": "0.4.0",
+  "known_answer": {
+    "test": "synthetic intermittent drifting tone",
+    "seed": 481516,
+    "truth": {
+      "template_index": 2,
+      "active_epochs_zero_based": [
+        0,
+        2
+      ],
+      "frequency_index": 2113,
+      "single_epoch_target_snr": 9.0
+    },
+    "recovered": {
+      "snr": 13.132186540079436,
+      "frequency_mhz": 2113.0,
+      "frequency_index": 2113,
+      "template_index": 2,
+      "projected_scale": 2.0,
+      "phase_offset_cycles": 0.0,
+      "active_epochs_zero_based": [
+        0,
+        2
+      ]
+    },
+    "passed": true,
+    "multi_channel_known_answer": {
+      "truth_width_channels": 5,
+      "recovered": {
+        "snr": 15.811388195813166,
+        "frequency_mhz": 2113.0,
+        "frequency_index": 2113,
+        "template_index": 0,
+        "projected_scale": 0.0,
+        "phase_offset_cycles": 0.0,
+        "active_epochs_zero_based": [
+          0,
+          2
+        ],
+        "spectral_width_channels": 5,
+        "spectral_width_index": 2
+      },
+      "passed": true
+    }
+  },
+  "spectral_leakage": {
+    "model": "rectangular FFT window; one-bin power statistic",
+    "mean_retained_fraction_uniform_bin_phase": 0.7736931678538949,
+    "worst_retained_fraction_half_bin": 0.40528473456935116,
+    "best_retained_fraction_bin_center": 1.0
+  },
+  "acceleration_smearing_table": [
+    {
+      "drift_hz_s": 0.0,
+      "bins_crossed_per_integration": 0.0,
+      "approx_peak_retained_fraction": 1.0,
+      "approx_flux_penalty": 1.0,
+      "model": "uniform power across bins traversed during one integration"
+    },
+    {
+      "drift_hz_s": 0.1,
+      "bins_crossed_per_integration": 0.43980465111039996,
+      "approx_peak_retained_fraction": 1.0,
+      "approx_flux_penalty": 1.0,
+      "model": "uniform power across bins traversed during one integration"
+    },
+    {
+      "drift_hz_s": 0.25,
+      "bins_crossed_per_integration": 1.099511627776,
+      "approx_peak_retained_fraction": 0.9094947017729282,
+      "approx_flux_penalty": 1.099511627776,
+      "model": "uniform power across bins traversed during one integration"
+    },
+    {
+      "drift_hz_s": 0.5,
+      "bins_crossed_per_integration": 2.199023255552,
+      "approx_peak_retained_fraction": 0.4547473508864641,
+      "approx_flux_penalty": 2.199023255552,
+      "model": "uniform power across bins traversed during one integration"
+    },
+    {
+      "drift_hz_s": 1.0,
+      "bins_crossed_per_integration": 4.398046511104,
+      "approx_peak_retained_fraction": 0.22737367544323206,
+      "approx_flux_penalty": 4.398046511104,
+      "model": "uniform power across bins traversed during one integration"
+    },
+    {
+      "drift_hz_s": 2.0,
+      "bins_crossed_per_integration": 8.796093022208,
+      "approx_peak_retained_fraction": 0.11368683772161603,
+      "approx_flux_penalty": 8.796093022208,
+      "model": "uniform power across bins traversed during one integration"
+    }
+  ]
+}

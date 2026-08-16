@@ -1,0 +1,389 @@
+{
+  "pipeline": {
+    "name": "seti-repeater",
+    "version": "0.1.0",
+    "python": "3.12.13",
+    "numpy": "2.3.5"
+  },
+  "preregistration": {
+    "name": "Proxima four-window intermittent planet-frame search",
+    "scientific_target": "A narrowband transmitter stable in the planet frame and not necessarily aimed at Earth",
+    "preregistered_utc": "2026-08-15T11:30:01Z",
+    "selection_rule": "Four disjoint 0.5 MHz windows inside or adjacent to the 1400-1427 MHz passive radio astronomy allocation; avoid the 1420.4058 MHz neutral-hydrogen line; use a 40 kHz rest-frequency grid at each center.",
+    "data_release": "Breakthrough Listen Parkes PKSUWL blc06"
+  },
+  "known_answer_validation": {
+    "test": "synthetic intermittent drifting tone",
+    "seed": 481516,
+    "truth": {
+      "template_index": 2,
+      "active_epochs_zero_based": [
+        0,
+        2
+      ],
+      "frequency_index": 2113,
+      "single_epoch_target_snr": 9.0
+    },
+    "recovered": {
+      "snr": 13.132186540079436,
+      "frequency_mhz": 2113.0,
+      "frequency_index": 2113,
+      "template_index": 2,
+      "projected_scale": 2.0,
+      "phase_offset_cycles": 0.0,
+      "active_epochs_zero_based": [
+        0,
+        2
+      ]
+    },
+    "passed": true
+  },
+  "search_dimensions": {
+    "windows": 4,
+    "templates": 21,
+    "epoch_subsets": 4,
+    "scrambles": 256,
+    "approx_nominal_trials": 3522960
+  },
+  "global_result": {
+    "observed_max_snr": 5.707834403101581,
+    "empirical_global_p_value": 0.31906614785992216,
+    "null_median": 5.597555716340667,
+    "null_99th_percentile": 6.463440405806584,
+    "pre_registered_snr_reference": 7.0,
+    "assessment": "NO CANDIDATE: every ON maximum is below the pre-registered S/N reference."
+  },
+  "windows": {
+    "w1401": {
+      "window": {
+        "id": "w1401",
+        "fmin_mhz": 1401.0,
+        "fmax_mhz": 1401.5,
+        "rest_center_mhz": 1401.25,
+        "rest_half_width_khz": 20.0,
+        "selection_note": "Lower passive-band window; disjoint from the prior test and the H I line."
+      },
+      "rest_bins": 10485,
+      "on_best": {
+        "snr": 5.013673785078428,
+        "frequency_mhz": 1401.2308731079102,
+        "frequency_index": 228,
+        "template_index": 14,
+        "projected_scale": 0.75,
+        "phase_offset_cycles": 0.1,
+        "active_epochs_zero_based": [
+          1,
+          2
+        ],
+        "off_at_same_hypothesis_snr": -0.01310754344634251
+      },
+      "off_global_best": {
+        "snr": 5.860317654916539,
+        "frequency_mhz": 1401.2535438537598,
+        "frequency_index": 6171,
+        "template_index": 18,
+        "projected_scale": 1.0,
+        "phase_offset_cycles": 0.0,
+        "active_epochs_zero_based": [
+          1,
+          2
+        ]
+      },
+      "diagnostics_for_on_best": {
+        "spectral_leakage": {
+          "model": "rectangular FFT window; one-bin power statistic",
+          "mean_retained_fraction_uniform_bin_phase": 0.7736950098960615,
+          "worst_retained_fraction_half_bin": 0.40528473456935116,
+          "best_retained_fraction_bin_center": 1.0
+        },
+        "acceleration_smearing_by_active_epoch": [
+          {
+            "observer_start_m_s": 7307.707135641658,
+            "planet_start_m_s": 10113.101705843803,
+            "predicted_drift_hz_s": -0.8874731345510307,
+            "max_track_shift_bins": 413,
+            "drift_hz_s": -0.8874731345510307,
+            "bins_crossed_per_integration": 3.9031481231106913,
+            "approx_peak_retained_fraction": 0.25620344615644003,
+            "approx_flux_penalty": 3.9031481231106913,
+            "model": "uniform power across bins traversed during one integration",
+            "epoch_zero_based": 1
+          },
+          {
+            "observer_start_m_s": 6977.088485932888,
+            "planet_start_m_s": 23575.722915463477,
+            "predicted_drift_hz_s": -0.7149682534988052,
+            "max_track_shift_bins": 333,
+            "drift_hz_s": -0.7149682534988052,
+            "bins_crossed_per_integration": 3.1444636328505404,
+            "approx_peak_retained_fraction": 0.318019260758145,
+            "approx_flux_penalty": 3.1444636328505404,
+            "model": "uniform power across bins traversed during one integration",
+            "epoch_zero_based": 2
+          }
+        ],
+        "channel_width_hz": 3.814697265625,
+        "integration_time_s": 16.777216,
+        "important_note": "The known-answer injection is nearest-bin and therefore does not simulate these two losses; the loss fields are completeness diagnostics, not candidate significance corrections."
+      },
+      "empirical_null": {
+        "p_value_window": 0.9571984435797666,
+        "null_median": 5.320991446185744,
+        "null_99th_percentile": 6.149519214154651
+      }
+    },
+    "w1410": {
+      "window": {
+        "id": "w1410",
+        "fmin_mhz": 1410.0,
+        "fmax_mhz": 1410.5,
+        "rest_center_mhz": 1410.25,
+        "rest_half_width_khz": 20.0,
+        "selection_note": "Mid-band control window; disjoint from the H I line."
+      },
+      "rest_bins": 10485,
+      "on_best": {
+        "snr": 5.707834403101581,
+        "frequency_mhz": 1410.230712890625,
+        "frequency_index": 186,
+        "template_index": 9,
+        "projected_scale": 0.5,
+        "phase_offset_cycles": 0.1,
+        "active_epochs_zero_based": [
+          0,
+          1
+        ],
+        "off_at_same_hypothesis_snr": 0.7602266460009498
+      },
+      "off_global_best": {
+        "snr": 5.1492419892994175,
+        "frequency_mhz": 1410.2356224060059,
+        "frequency_index": 1473,
+        "template_index": 2,
+        "projected_scale": 0.25,
+        "phase_offset_cycles": -0.1,
+        "active_epochs_zero_based": [
+          1,
+          2
+        ]
+      },
+      "diagnostics_for_on_best": {
+        "spectral_leakage": {
+          "model": "rectangular FFT window; one-bin power statistic",
+          "mean_retained_fraction_uniform_bin_phase": 0.7736950098960615,
+          "worst_retained_fraction_half_bin": 0.40528473456935116,
+          "best_retained_fraction_bin_center": 1.0
+        },
+        "acceleration_smearing_by_active_epoch": [
+          {
+            "observer_start_m_s": 7548.206383611804,
+            "planet_start_m_s": -2945.9254869220968,
+            "predicted_drift_hz_s": -0.6538188879631311,
+            "max_track_shift_bins": 305,
+            "drift_hz_s": -0.6538188879631311,
+            "bins_crossed_per_integration": 2.8755258791001457,
+            "approx_peak_retained_fraction": 0.3477624761676412,
+            "approx_flux_penalty": 2.8755258791001457,
+            "model": "uniform power across bins traversed during one integration",
+            "epoch_zero_based": 0
+          },
+          {
+            "observer_start_m_s": 7307.707135641658,
+            "planet_start_m_s": 6742.067803895868,
+            "predicted_drift_hz_s": -0.6220049136284321,
+            "max_track_shift_bins": 290,
+            "drift_hz_s": -0.6220049136284321,
+            "bins_crossed_per_integration": 2.735606540273071,
+            "approx_peak_retained_fraction": 0.3655496451255666,
+            "approx_flux_penalty": 2.735606540273071,
+            "model": "uniform power across bins traversed during one integration",
+            "epoch_zero_based": 1
+          }
+        ],
+        "channel_width_hz": 3.814697265625,
+        "integration_time_s": 16.777216,
+        "important_note": "The known-answer injection is nearest-bin and therefore does not simulate these two losses; the loss fields are completeness diagnostics, not candidate significance corrections."
+      },
+      "empirical_null": {
+        "p_value_window": 0.0933852140077821,
+        "null_median": 5.336311530351431,
+        "null_99th_percentile": 6.04769782294894
+      }
+    },
+    "w1421": {
+      "window": {
+        "id": "w1421",
+        "fmin_mhz": 1421.0,
+        "fmax_mhz": 1421.5,
+        "rest_center_mhz": 1421.25,
+        "rest_half_width_khz": 20.0,
+        "selection_note": "Previously analyzed window, retained as an exact regression check."
+      },
+      "rest_bins": 10485,
+      "on_best": {
+        "snr": 5.056610971292598,
+        "frequency_mhz": 1421.2546730041504,
+        "frequency_index": 6467,
+        "template_index": 20,
+        "projected_scale": 1.0,
+        "phase_offset_cycles": 0.2,
+        "active_epochs_zero_based": [
+          1,
+          2
+        ],
+        "off_at_same_hypothesis_snr": 0.060113459975209
+      },
+      "off_global_best": {
+        "snr": 5.0440100751122054,
+        "frequency_mhz": 1421.2424011230469,
+        "frequency_index": 3250,
+        "template_index": 10,
+        "projected_scale": 0.5,
+        "phase_offset_cycles": 0.2,
+        "active_epochs_zero_based": [
+          0,
+          1
+        ]
+      },
+      "diagnostics_for_on_best": {
+        "spectral_leakage": {
+          "model": "rectangular FFT window; one-bin power statistic",
+          "mean_retained_fraction_uniform_bin_phase": 0.7736950098960615,
+          "worst_retained_fraction_half_bin": 0.40528473456935116,
+          "best_retained_fraction_bin_center": 1.0
+        },
+        "acceleration_smearing_by_active_epoch": [
+          {
+            "observer_start_m_s": 7307.707135641658,
+            "planet_start_m_s": -9874.398428274038,
+            "predicted_drift_hz_s": -1.2439796279808648,
+            "max_track_shift_bins": 580,
+            "drift_hz_s": -1.2439796279808648,
+            "bins_crossed_per_integration": 5.471080262725694,
+            "approx_peak_retained_fraction": 0.18277925966704783,
+            "approx_flux_penalty": 5.471080262725694,
+            "model": "uniform power across bins traversed during one integration",
+            "epoch_zero_based": 1
+          },
+          {
+            "observer_start_m_s": 6977.088485932888,
+            "planet_start_m_s": 10934.874895208852,
+            "predicted_drift_hz_s": -1.191446894105475,
+            "max_track_shift_bins": 555,
+            "drift_hz_s": -1.191446894105475,
+            "bins_crossed_per_integration": 5.240038855786281,
+            "approx_peak_retained_fraction": 0.19083827954744192,
+            "approx_flux_penalty": 5.240038855786281,
+            "model": "uniform power across bins traversed during one integration",
+            "epoch_zero_based": 2
+          }
+        ],
+        "channel_width_hz": 3.814697265625,
+        "integration_time_s": 16.777216,
+        "important_note": "The known-answer injection is nearest-bin and therefore does not simulate these two losses; the loss fields are completeness diagnostics, not candidate significance corrections."
+      },
+      "empirical_null": {
+        "p_value_window": 0.9260700389105059,
+        "null_median": 5.341379215663162,
+        "null_99th_percentile": 6.203591685893773
+      }
+    },
+    "w1426": {
+      "window": {
+        "id": "w1426",
+        "fmin_mhz": 1426.0,
+        "fmax_mhz": 1426.5,
+        "rest_center_mhz": 1426.25,
+        "rest_half_width_khz": 20.0,
+        "selection_note": "Upper passive-band window; disjoint from the H I line."
+      },
+      "rest_bins": 10485,
+      "on_best": {
+        "snr": 5.2356026575366945,
+        "frequency_mhz": 1426.2499046325684,
+        "frequency_index": 5217,
+        "template_index": 8,
+        "projected_scale": 0.5,
+        "phase_offset_cycles": 0.0,
+        "active_epochs_zero_based": [
+          0,
+          1,
+          2
+        ],
+        "off_at_same_hypothesis_snr": -0.7475001577871666
+      },
+      "off_global_best": {
+        "snr": 4.929679499268461,
+        "frequency_mhz": 1426.2470474243164,
+        "frequency_index": 4468,
+        "template_index": 18,
+        "projected_scale": 1.0,
+        "phase_offset_cycles": 0.0,
+        "active_epochs_zero_based": [
+          0,
+          2
+        ]
+      },
+      "diagnostics_for_on_best": {
+        "spectral_leakage": {
+          "model": "rectangular FFT window; one-bin power statistic",
+          "mean_retained_fraction_uniform_bin_phase": 0.7736950098960615,
+          "worst_retained_fraction_half_bin": 0.40528473456935116,
+          "best_retained_fraction_bin_center": 1.0
+        },
+        "acceleration_smearing_by_active_epoch": [
+          {
+            "observer_start_m_s": 7548.206383611804,
+            "planet_start_m_s": 8586.832327710645,
+            "predicted_drift_hz_s": -0.6087765811459886,
+            "max_track_shift_bins": 283,
+            "drift_hz_s": -0.6087765811459886,
+            "bins_crossed_per_integration": 2.6774277187509363,
+            "approx_peak_retained_fraction": 0.37349280916032207,
+            "approx_flux_penalty": 2.6774277187509363,
+            "model": "uniform power across bins traversed during one integration",
+            "epoch_zero_based": 0
+          },
+          {
+            "observer_start_m_s": 7307.707135641658,
+            "planet_start_m_s": 16689.59341756536,
+            "predicted_drift_hz_s": -0.49044512394120654,
+            "max_track_shift_bins": 229,
+            "drift_hz_s": -0.49044512394120654,
+            "bins_crossed_per_integration": 2.157000466237592,
+            "approx_peak_retained_fraction": 0.4636067611725081,
+            "approx_flux_penalty": 2.157000466237592,
+            "model": "uniform power across bins traversed during one integration",
+            "epoch_zero_based": 1
+          },
+          {
+            "observer_start_m_s": 6977.088485932888,
+            "planet_start_m_s": 22189.444844362148,
+            "predicted_drift_hz_s": -0.25553721063040197,
+            "max_track_shift_bins": 119,
+            "drift_hz_s": -0.25553721063040197,
+            "bins_crossed_per_integration": 1.1238645376702874,
+            "approx_peak_retained_fraction": 0.8897869507235702,
+            "approx_flux_penalty": 1.1238645376702874,
+            "model": "uniform power across bins traversed during one integration",
+            "epoch_zero_based": 2
+          }
+        ],
+        "channel_width_hz": 3.814697265625,
+        "integration_time_s": 16.777216,
+        "important_note": "The known-answer injection is nearest-bin and therefore does not simulate these two losses; the loss fields are completeness diagnostics, not candidate significance corrections."
+      },
+      "empirical_null": {
+        "p_value_window": 0.5680933852140078,
+        "null_median": 5.274806217557861,
+        "null_99th_percentile": 6.364691845120815
+      }
+    }
+  },
+  "interpretation_limits": [
+    "This is a narrowband search of four 40 kHz rest-frame intervals, not a search of the full receiver band.",
+    "A null result constrains only signals present in at least two of the three epochs and represented by the orbital template bank.",
+    "The one-bin statistic loses power to spectral leakage and intra-integration drift; per-candidate approximations are reported separately.",
+    "Scramble p-values are empirical ranks with resolution 1/(N+1), not Gaussian sigma conversions."
+  ]
+}

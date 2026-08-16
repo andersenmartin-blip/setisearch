@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "seti-repeater"
+version = "0.4.0"
+description = "Transparent multi-epoch, smearing-aware planet-frame SETI search pipeline"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "astropy>=6.0", "matplotlib>=3.7"]
+
+[project.scripts]
+seti-repeater = "seti_repeater.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = true
+
+[tool.setuptools.package-data]
+seti_repeater = ["dedoppler_max.c"]

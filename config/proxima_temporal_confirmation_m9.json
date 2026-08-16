@@ -1,0 +1,134 @@
+{
+  "project": {
+    "name": "Proxima Milestone 9 frozen-detector temporal confirmation",
+    "scientific_target": "A narrowband transmitter stable in the planet frame and not necessarily aimed at Earth",
+    "preregistered_utc": "2026-08-15T19:02:57Z",
+    "detector_version_frozen": "0.4.0",
+    "frozen_detector_source_sha256": "80201e8c2061122dedf5b166c648c7c31c9f223873c231fc9403030ed1f9641e",
+    "selection_rule": "For each of 2021-04-29, 2021-04-30, and 2021-05-01, use the earliest complete 30-minute 2 Hz PROXCEN_S scan in the public archive and its immediately following complete 5-minute 1421-490_S control scan. Search the same 1405.25-1405.75 MHz planet-frame interval used in Milestone 8.",
+    "confirmation_scope": "Independent in observing epoch from Milestones 7 and 8, and acquired about two years later at 2 Hz rather than 3.814697 Hz resolution; not independent in frequency because it directly retests the Milestone 8 1405.25-1405.75 MHz interval.",
+    "method_note": "The Milestone 8 v0.4.0 recurrence statistic, S/N floor, moving per-epoch RFI mask, spectral widths, candidate clustering, family flags, orbital bank, and completeness procedure are copied without adjustment. Only the predeclared scans, one confirmation band, and random seeds differ.",
+    "prior_data_contact": "Archive table metadata and SIGPROC headers were inspected to verify source, completeness, cadence, resolution, and coverage. No spectral payload from these six files was extracted or inspected before this preregistration.",
+    "control_cadence_limit": "Each 30-minute ON scan is paired with the immediately following 5-minute 1421-490_S scan. OFF controls therefore have one-sixth the integration time and are less sensitive than the ON scans.",
+    "data_release": "Breakthrough Listen Parkes P1018_2 blc05 public filterbanks"
+  },
+  "observatory": {
+    "name": "Parkes",
+    "longitude_deg": 148.2635101,
+    "latitude_deg": -32.9984064,
+    "height_m": 414.8
+  },
+  "target": {
+    "name": "Proxima Centauri",
+    "ra": "14h29m42.9461331854s",
+    "dec": "-62d40m46.164680672s",
+    "pm_ra_cosdec_mas_yr": -3781.741,
+    "pm_dec_mas_yr": 769.465,
+    "parallax_mas": 768.0665,
+    "radial_velocity_km_s": -20.578199,
+    "reference_epoch_jyear": 2000.0
+  },
+  "orbit": {
+    "name": "Proxima b working template",
+    "period_days": 11.18427,
+    "semi_major_axis_au": 0.04855,
+    "eccentricity": 0.124,
+    "t_periastron_bjd_tdb": 2458530.1,
+    "omega_rad": -1.32
+  },
+  "search": {
+    "projected_scales": [0.0, 0.25, 0.5, 0.75, 1.0],
+    "phase_offsets_cycles": [-0.2, -0.1, 0.0, 0.1, 0.2],
+    "minimum_active_epochs": 2,
+    "minimum_active_epoch_snr": 3.0,
+    "stack_statistic": "minimum_epoch",
+    "rfi_excision": {
+      "single_epoch_strong_snr": 10.0,
+      "other_epochs_below_snr": 3.0,
+      "guard_channels": 9
+    },
+    "spectral_widths_channels": [1, 3, 5, 9],
+    "candidate_snr_reference": 7.0,
+    "scrambles": 256,
+    "scramble_seed": 920260815,
+    "min_scramble_shift_bins": 4096,
+    "candidate_reporting": {
+      "peaks_per_hypothesis": 3,
+      "snr_floor": 5.5,
+      "cluster_tolerance_hz": 20.0,
+      "max_report_clusters": 50,
+      "template_multiplicity_flag": 8,
+      "family_spacing_tolerance_hz": 20.0,
+      "family_min_members": 3
+    },
+    "completeness": {
+      "background_window": "m9_1405p5",
+      "active_epochs_zero_based": [0, 2],
+      "truth_template_indices": [0, 8, 14, 20],
+      "ideal_single_epoch_snr_grid": [8, 12, 16, 20, 24, 32, 40],
+      "trials_per_level": 32,
+      "seed": 9620260815,
+      "subintegrations": 32
+    }
+  },
+  "windows": [
+    {
+      "id": "m9_1405p5",
+      "fmin_mhz": 1404.9,
+      "fmax_mhz": 1406.1,
+      "rest_center_mhz": 1405.5,
+      "rest_half_width_khz": 250.0,
+      "selection_note": "Direct temporal retest of the Milestone 8 lower confirmation interval with a 350 kHz extraction guard on each side."
+    }
+  ],
+  "scans": [
+    {
+      "epoch": 1,
+      "kind": "on",
+      "label": "epoch1_on",
+      "archive_utc": "2021-04-29T12:38:59Z",
+      "archive_md5": "1086c2d1f8bde9921360a3b3008be715",
+      "url": "http://blpd1.ssl.berkeley.edu/P1018_2/blc05/P1018/GUPPI/guppi_59333_45539_6178664928_ProxCen_S_0001.0000.fil"
+    },
+    {
+      "epoch": 1,
+      "kind": "off",
+      "label": "epoch1_off",
+      "archive_utc": "2021-04-29T13:14:04Z",
+      "archive_md5": "31110d8deaabc40bf5642b5f525901ee",
+      "url": "http://blpd1.ssl.berkeley.edu/P1018_2/blc05/P1018/GUPPI/guppi_59333_47644_6178672958_1421-490_S_0001.0000.fil"
+    },
+    {
+      "epoch": 2,
+      "kind": "on",
+      "label": "epoch2_on",
+      "archive_utc": "2021-04-30T12:14:25Z",
+      "archive_md5": "c970b42dc6d702652cff3cac9c99b541",
+      "url": "http://blpd1.ssl.berkeley.edu/P1018_2/blc05/P1018/GUPPI/guppi_59334_44065_6178988895_ProxCen_S_0001.0000.fil"
+    },
+    {
+      "epoch": 2,
+      "kind": "off",
+      "label": "epoch2_off",
+      "archive_utc": "2021-04-30T12:45:54Z",
+      "archive_md5": "7a4b85112368148050065b6ba3a24f99",
+      "url": "http://blpd1.ssl.berkeley.edu/P1018_2/blc05/P1018/GUPPI/guppi_59334_45954_6178996101_1421-490_S_0001.0000.fil"
+    },
+    {
+      "epoch": 3,
+      "kind": "on",
+      "label": "epoch3_on",
+      "archive_utc": "2021-05-01T12:05:21Z",
+      "archive_md5": "41d6144d4d551033b4d4d84c955f888e",
+      "url": "http://blpd1.ssl.berkeley.edu/P1018_2/blc05/P1018/GUPPI/guppi_59335_43521_6179316410_ProxCen_S_0001.0000.fil"
+    },
+    {
+      "epoch": 3,
+      "kind": "off",
+      "label": "epoch3_off",
+      "archive_utc": "2021-05-01T12:36:47Z",
+      "archive_md5": "a4fed0d4eebb7f1eada108ec449f9c59",
+      "url": "http://blpd1.ssl.berkeley.edu/P1018_2/blc05/P1018/GUPPI/guppi_59335_45407_6179323604_1421-490_S_0001.0000.fil"
+    }
+  ]
+}

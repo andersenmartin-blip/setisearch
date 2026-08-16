@@ -1,0 +1,939 @@
+{
+  "pipeline": {
+    "name": "seti-repeater",
+    "version": "0.2.0",
+    "python": "3.12.13",
+    "numpy": "2.3.5"
+  },
+  "preregistration": {
+    "name": "Proxima four-window intermittent planet-frame search",
+    "scientific_target": "A narrowband transmitter stable in the planet frame and not necessarily aimed at Earth",
+    "preregistered_utc": "2026-08-15T11:30:01Z",
+    "milestone6_method_frozen_utc": "2026-08-15T13:34:00Z",
+    "milestone6_method_note": "The 1/3/5/9-channel bank, completeness grid, seeds, and recovery rule were fixed before the Milestone 6 real-data search was run.",
+    "selection_rule": "Four disjoint 0.5 MHz windows inside or adjacent to the 1400-1427 MHz passive radio astronomy allocation; avoid the 1420.4058 MHz neutral-hydrogen line; use a 40 kHz rest-frequency grid at each center.",
+    "data_release": "Breakthrough Listen Parkes PKSUWL blc06"
+  },
+  "known_answer_validation": {
+    "test": "synthetic intermittent drifting tone",
+    "seed": 481516,
+    "truth": {
+      "template_index": 2,
+      "active_epochs_zero_based": [
+        0,
+        2
+      ],
+      "frequency_index": 2113,
+      "single_epoch_target_snr": 9.0
+    },
+    "recovered": {
+      "snr": 13.132186540079436,
+      "frequency_mhz": 2113.0,
+      "frequency_index": 2113,
+      "template_index": 2,
+      "projected_scale": 2.0,
+      "phase_offset_cycles": 0.0,
+      "active_epochs_zero_based": [
+        0,
+        2
+      ]
+    },
+    "passed": true,
+    "multi_channel_known_answer": {
+      "truth_width_channels": 5,
+      "recovered": {
+        "snr": 15.811388195813166,
+        "frequency_mhz": 2113.0,
+        "frequency_index": 2113,
+        "template_index": 0,
+        "projected_scale": 0.0,
+        "phase_offset_cycles": 0.0,
+        "active_epochs_zero_based": [
+          0,
+          2
+        ],
+        "spectral_width_channels": 5,
+        "spectral_width_index": 2
+      },
+      "passed": true
+    }
+  },
+  "search_dimensions": {
+    "windows": 4,
+    "templates": 21,
+    "epoch_subsets": 4,
+    "spectral_width_templates": [
+      1,
+      3,
+      5,
+      9
+    ],
+    "scrambles": 256,
+    "approx_nominal_trials": 14091840
+  },
+  "global_result": {
+    "observed_max_snr": 6.724750192224551,
+    "empirical_global_p_value": 0.3463035019455253,
+    "null_median": 6.633267591545957,
+    "null_99th_percentile": 7.482961881691892,
+    "pre_registered_snr_reference": 7.0,
+    "operational_threshold_snr": 7.482961881691892,
+    "assessment": "NO CANDIDATE: every ON maximum is below the calibrated operational threshold."
+  },
+  "windows": {
+    "w1401": {
+      "window": {
+        "id": "w1401",
+        "fmin_mhz": 1401.0,
+        "fmax_mhz": 1401.5,
+        "rest_center_mhz": 1401.25,
+        "rest_half_width_khz": 20.0,
+        "selection_note": "Lower passive-band window; disjoint from the prior test and the H I line."
+      },
+      "rest_bins": 10485,
+      "on_best": {
+        "snr": 6.724750192224551,
+        "frequency_mhz": 1401.2449798583984,
+        "frequency_index": 3926,
+        "template_index": 14,
+        "projected_scale": 0.75,
+        "phase_offset_cycles": 0.1,
+        "active_epochs_zero_based": [
+          1,
+          2
+        ],
+        "spectral_width_channels": 9,
+        "spectral_width_index": 3,
+        "off_at_same_hypothesis_snr": 0.3162743555714182
+      },
+      "one_channel_regression_best": {
+        "snr": 5.013673785078428,
+        "frequency_mhz": 1401.2308731079102,
+        "frequency_index": 228,
+        "template_index": 14,
+        "projected_scale": 0.75,
+        "phase_offset_cycles": 0.1,
+        "active_epochs_zero_based": [
+          1,
+          2
+        ]
+      },
+      "off_global_best": {
+        "snr": 5.860317654916539,
+        "frequency_mhz": 1401.2535438537598,
+        "frequency_index": 6171,
+        "template_index": 18,
+        "projected_scale": 1.0,
+        "phase_offset_cycles": 0.0,
+        "active_epochs_zero_based": [
+          1,
+          2
+        ],
+        "spectral_width_channels": 1,
+        "spectral_width_index": 0
+      },
+      "diagnostics_for_on_best": {
+        "spectral_leakage": {
+          "model": "rectangular FFT window; one-bin power statistic",
+          "mean_retained_fraction_uniform_bin_phase": 0.7736931678538949,
+          "worst_retained_fraction_half_bin": 0.40528473456935116,
+          "best_retained_fraction_bin_center": 1.0
+        },
+        "acceleration_smearing_by_active_epoch": [
+          {
+            "observer_start_m_s": 7307.707135641658,
+            "planet_start_m_s": 10113.101705843803,
+            "predicted_drift_hz_s": -0.8874731345510307,
+            "max_track_shift_bins": 413,
+            "drift_hz_s": -0.8874731345510307,
+            "bins_crossed_per_integration": 3.9031481231106913,
+            "approx_peak_retained_fraction": 0.25620344615644003,
+            "approx_flux_penalty": 3.9031481231106913,
+            "model": "uniform power across bins traversed during one integration",
+            "epoch_zero_based": 1
+          },
+          {
+            "observer_start_m_s": 6977.088485932888,
+            "planet_start_m_s": 23575.722915463477,
+            "predicted_drift_hz_s": -0.7149682534988052,
+            "max_track_shift_bins": 333,
+            "drift_hz_s": -0.7149682534988052,
+            "bins_crossed_per_integration": 3.1444636328505404,
+            "approx_peak_retained_fraction": 0.318019260758145,
+            "approx_flux_penalty": 3.1444636328505404,
+            "model": "uniform power across bins traversed during one integration",
+            "epoch_zero_based": 2
+          }
+        ],
+        "channel_width_hz": 3.814697265625,
+        "integration_time_s": 16.777216,
+        "important_note": "Milestone 6 searches normalized multi-channel boxcars and measures their recovery with time-averaged sinc-squared injections. These analytic loss fields remain approximations."
+      },
+      "empirical_null": {
+        "p_value_window": 0.16731517509727625,
+        "null_median": 6.380575948171731,
+        "null_99th_percentile": 7.482961881691892
+      }
+    },
+    "w1410": {
+      "window": {
+        "id": "w1410",
+        "fmin_mhz": 1410.0,
+        "fmax_mhz": 1410.5,
+        "rest_center_mhz": 1410.25,
+        "rest_half_width_khz": 20.0,
+        "selection_note": "Mid-band control window; disjoint from the H I line."
+      },
+      "rest_bins": 10485,
+      "on_best": {
+        "snr": 6.437740269109006,
+        "frequency_mhz": 1410.2561492919922,
+        "frequency_index": 6854,
+        "template_index": 18,
+        "projected_scale": 1.0,
+        "phase_offset_cycles": 0.0,
+        "active_epochs_zero_based": [
+          0,
+          1
+        ],
+        "spectral_width_channels": 9,
+        "spectral_width_index": 3,
+        "off_at_same_hypothesis_snr": 1.4436076174615626
+      },
+      "one_channel_regression_best": {
+        "snr": 5.707834403101581,
+        "frequency_mhz": 1410.230712890625,
+        "frequency_index": 186,
+        "template_index": 9,
+        "projected_scale": 0.5,
+        "phase_offset_cycles": 0.1,
+        "active_epochs_zero_based": [
+          0,
+          1
+        ]
+      },
+      "off_global_best": {
+        "snr": 6.176315168913513,
+        "frequency_mhz": 1410.2660789489746,
+        "frequency_index": 9457,
+        "template_index": 7,
+        "projected_scale": 0.5,
+        "phase_offset_cycles": -0.1,
+        "active_epochs_zero_based": [
+          0,
+          2
+        ],
+        "spectral_width_channels": 9,
+        "spectral_width_index": 3
+      },
+      "diagnostics_for_on_best": {
+        "spectral_leakage": {
+          "model": "rectangular FFT window; one-bin power statistic",
+          "mean_retained_fraction_uniform_bin_phase": 0.7736931678538949,
+          "worst_retained_fraction_half_bin": 0.40528473456935116,
+          "best_retained_fraction_bin_center": 1.0
+        },
+        "acceleration_smearing_by_active_epoch": [
+          {
+            "observer_start_m_s": 7548.206383611804,
+            "planet_start_m_s": 17173.66465542129,
+            "predicted_drift_hz_s": -1.128748480622655,
+            "max_track_shift_bins": 526,
+            "drift_hz_s": -1.128748480622655,
+            "bins_crossed_per_integration": 4.9642883171164085,
+            "approx_peak_retained_fraction": 0.20143874330427025,
+            "approx_flux_penalty": 4.9642883171164085,
+            "model": "uniform power across bins traversed during one integration",
+            "epoch_zero_based": 0
+          },
+          {
+            "observer_start_m_s": 7307.707135641658,
+            "planet_start_m_s": 33379.18683513072,
+            "predicted_drift_hz_s": -0.8902181134906257,
+            "max_track_shift_bins": 415,
+            "drift_hz_s": -0.8902181134906257,
+            "bins_crossed_per_integration": 3.915220668159031,
+            "approx_peak_retained_fraction": 0.2554134453091269,
+            "approx_flux_penalty": 3.915220668159031,
+            "model": "uniform power across bins traversed during one integration",
+            "epoch_zero_based": 1
+          }
+        ],
+        "channel_width_hz": 3.814697265625,
+        "integration_time_s": 16.777216,
+        "important_note": "Milestone 6 searches normalized multi-channel boxcars and measures their recovery with time-averaged sinc-squared injections. These analytic loss fields remain approximations."
+      },
+      "empirical_null": {
+        "p_value_window": 0.28793774319066145,
+        "null_median": 6.2876765835733615,
+        "null_99th_percentile": 7.159670602679016
+      }
+    },
+    "w1421": {
+      "window": {
+        "id": "w1421",
+        "fmin_mhz": 1421.0,
+        "fmax_mhz": 1421.5,
+        "rest_center_mhz": 1421.25,
+        "rest_half_width_khz": 20.0,
+        "selection_note": "Previously analyzed window, retained as an exact regression check."
+      },
+      "rest_bins": 10485,
+      "on_best": {
+        "snr": 6.100559338717815,
+        "frequency_mhz": 1421.2382316589355,
+        "frequency_index": 2157,
+        "template_index": 16,
+        "projected_scale": 1.0,
+        "phase_offset_cycles": -0.2,
+        "active_epochs_zero_based": [
+          0,
+          1,
+          2
+        ],
+        "spectral_width_channels": 9,
+        "spectral_width_index": 3,
+        "off_at_same_hypothesis_snr": 0.7965116332182706
+      },
+      "one_channel_regression_best": {
+        "snr": 5.056610971292598,
+        "frequency_mhz": 1421.2546730041504,
+        "frequency_index": 6467,
+        "template_index": 20,
+        "projected_scale": 1.0,
+        "phase_offset_cycles": 0.2,
+        "active_epochs_zero_based": [
+          1,
+          2
+        ]
+      },
+      "off_global_best": {
+        "snr": 5.284161469228127,
+        "frequency_mhz": 1421.2585525512695,
+        "frequency_index": 7484,
+        "template_index": 17,
+        "projected_scale": 1.0,
+        "phase_offset_cycles": -0.1,
+        "active_epochs_zero_based": [
+          0,
+          1
+        ],
+        "spectral_width_channels": 9,
+        "spectral_width_index": 3
+      },
+      "diagnostics_for_on_best": {
+        "spectral_leakage": {
+          "model": "rectangular FFT window; one-bin power statistic",
+          "mean_retained_fraction_uniform_bin_phase": 0.7736931678538949,
+          "worst_retained_fraction_half_bin": 0.40528473456935116,
+          "best_retained_fraction_bin_center": 1.0
+        },
+        "acceleration_smearing_by_active_epoch": [
+          {
+            "observer_start_m_s": 7548.206383611804,
+            "planet_start_m_s": 45840.730576505324,
+            "predicted_drift_hz_s": -0.21910095276869612,
+            "max_track_shift_bins": 102,
+            "drift_hz_s": -0.21910095276869612,
+            "bins_crossed_per_integration": 0.9636161809039263,
+            "approx_peak_retained_fraction": 1.0,
+            "approx_flux_penalty": 1.0,
+            "model": "uniform power across bins traversed during one integration",
+            "epoch_zero_based": 0
+          },
+          {
+            "observer_start_m_s": 7307.707135641658,
+            "planet_start_m_s": 42148.63088858644,
+            "predicted_drift_hz_s": 0.554670640623524,
+            "max_track_shift_bins": 258,
+            "drift_hz_s": 0.554670640623524,
+            "bins_crossed_per_integration": 2.4394672758061104,
+            "approx_peak_retained_fraction": 0.4099255644532287,
+            "approx_flux_penalty": 2.4394672758061104,
+            "model": "uniform power across bins traversed during one integration",
+            "epoch_zero_based": 1
+          },
+          {
+            "observer_start_m_s": 6977.088485932888,
+            "planet_start_m_s": 22330.609920073406,
+            "predicted_drift_hz_s": 1.4688291262421758,
+            "max_track_shift_bins": 684,
+            "drift_hz_s": 1.4688291262421758,
+            "bins_crossed_per_integration": 6.4599788140773375,
+            "approx_peak_retained_fraction": 0.1547992692825615,
+            "approx_flux_penalty": 6.4599788140773375,
+            "model": "uniform power across bins traversed during one integration",
+            "epoch_zero_based": 2
+          }
+        ],
+        "channel_width_hz": 3.814697265625,
+        "integration_time_s": 16.777216,
+        "important_note": "Milestone 6 searches normalized multi-channel boxcars and measures their recovery with time-averaged sinc-squared injections. These analytic loss fields remain approximations."
+      },
+      "empirical_null": {
+        "p_value_window": 0.6926070038910506,
+        "null_median": 6.219919999597728,
+        "null_99th_percentile": 6.881913941629983
+      }
+    },
+    "w1426": {
+      "window": {
+        "id": "w1426",
+        "fmin_mhz": 1426.0,
+        "fmax_mhz": 1426.5,
+        "rest_center_mhz": 1426.25,
+        "rest_half_width_khz": 20.0,
+        "selection_note": "Upper passive-band window; disjoint from the H I line."
+      },
+      "rest_bins": 10485,
+      "on_best": {
+        "snr": 6.178473087557271,
+        "frequency_mhz": 1426.2319641113281,
+        "frequency_index": 514,
+        "template_index": 8,
+        "projected_scale": 0.5,
+        "phase_offset_cycles": 0.0,
+        "active_epochs_zero_based": [
+          0,
+          1
+        ],
+        "spectral_width_channels": 9,
+        "spectral_width_index": 3,
+        "off_at_same_hypothesis_snr": -1.0085718932295715
+      },
+      "one_channel_regression_best": {
+        "snr": 5.2356026575366945,
+        "frequency_mhz": 1426.2499046325684,
+        "frequency_index": 5217,
+        "template_index": 8,
+        "projected_scale": 0.5,
+        "phase_offset_cycles": 0.0,
+        "active_epochs_zero_based": [
+          0,
+          1,
+          2
+        ]
+      },
+      "off_global_best": {
+        "snr": 5.352100840328536,
+        "frequency_mhz": 1426.2488059997559,
+        "frequency_index": 4929,
+        "template_index": 16,
+        "projected_scale": 1.0,
+        "phase_offset_cycles": -0.2,
+        "active_epochs_zero_based": [
+          1,
+          2
+        ],
+        "spectral_width_channels": 9,
+        "spectral_width_index": 3
+      },
+      "diagnostics_for_on_best": {
+        "spectral_leakage": {
+          "model": "rectangular FFT window; one-bin power statistic",
+          "mean_retained_fraction_uniform_bin_phase": 0.7736931678538949,
+          "worst_retained_fraction_half_bin": 0.40528473456935116,
+          "best_retained_fraction_bin_center": 1.0
+        },
+        "acceleration_smearing_by_active_epoch": [
+          {
+            "observer_start_m_s": 7548.206383611804,
+            "planet_start_m_s": 8586.832327710645,
+            "predicted_drift_hz_s": -0.6087765811459886,
+            "max_track_shift_bins": 283,
+            "drift_hz_s": -0.6087765811459886,
+            "bins_crossed_per_integration": 2.6774277187509363,
+            "approx_peak_retained_fraction": 0.37349280916032207,
+            "approx_flux_penalty": 2.6774277187509363,
+            "model": "uniform power across bins traversed during one integration",
+            "epoch_zero_based": 0
+          },
+          {
+            "observer_start_m_s": 7307.707135641658,
+            "planet_start_m_s": 16689.59341756536,
+            "predicted_drift_hz_s": -0.49044512394120654,
+            "max_track_shift_bins": 229,
+            "drift_hz_s": -0.49044512394120654,
+            "bins_crossed_per_integration": 2.157000466237592,
+            "approx_peak_retained_fraction": 0.4636067611725081,
+            "approx_flux_penalty": 2.157000466237592,
+            "model": "uniform power across bins traversed during one integration",
+            "epoch_zero_based": 1
+          }
+        ],
+        "channel_width_hz": 3.814697265625,
+        "integration_time_s": 16.777216,
+        "important_note": "Milestone 6 searches normalized multi-channel boxcars and measures their recovery with time-averaged sinc-squared injections. These analytic loss fields remain approximations."
+      },
+      "empirical_null": {
+        "p_value_window": 0.6653696498054474,
+        "null_median": 6.2850669316786245,
+        "null_99th_percentile": 7.078388550864423
+      }
+    }
+  },
+  "completeness": {
+    "method": "Real w1421 planet-frame noise vectors are independently circularly shifted by epoch; signals use time-averaged sinc-squared leakage and model acceleration within each integration.",
+    "ideal_snr_definition": "Single-epoch S/N the same total signal power would produce as a stationary bin-centred one-channel tone.",
+    "detection_threshold_snr": 7.482961881691892,
+    "active_epochs_zero_based": [
+      0,
+      2
+    ],
+    "truth_template_indices": [
+      0,
+      8,
+      14,
+      20
+    ],
+    "spectral_widths_channels": [
+      1,
+      3,
+      5,
+      9
+    ],
+    "levels": [
+      {
+        "ideal_single_epoch_snr": 4.0,
+        "trials": 32,
+        "multi_channel_recovered": 0,
+        "multi_channel_recovery_fraction": 0.0,
+        "multi_channel_wilson_95_interval": [
+          0.0,
+          0.1071791982550706
+        ],
+        "one_channel_recovered": 0,
+        "one_channel_recovery_fraction": 0.0,
+        "one_channel_wilson_95_interval": [
+          0.0,
+          0.1071791982550706
+        ],
+        "median_multi_channel_local_snr": 4.109784379718881,
+        "median_one_channel_local_snr": 3.1417103816990624,
+        "selected_width_counts": {
+          "1": 5,
+          "3": 9,
+          "5": 6,
+          "9": 12
+        },
+        "by_truth_template": [
+          {
+            "template_index": 0,
+            "projected_scale": 0.0,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 0.3430989457323306,
+            "multi_channel_recovery_fraction": 0.0,
+            "one_channel_recovery_fraction": 0.0
+          },
+          {
+            "template_index": 8,
+            "projected_scale": 0.5,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 1.8939814613573305,
+            "multi_channel_recovery_fraction": 0.0,
+            "one_channel_recovery_fraction": 0.0
+          },
+          {
+            "template_index": 14,
+            "projected_scale": 0.75,
+            "phase_offset_cycles": 0.1,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 3.684864327066297,
+            "multi_channel_recovery_fraction": 0.0,
+            "one_channel_recovery_fraction": 0.0
+          },
+          {
+            "template_index": 20,
+            "projected_scale": 1.0,
+            "phase_offset_cycles": 0.2,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 5.075730850047459,
+            "multi_channel_recovery_fraction": 0.0,
+            "one_channel_recovery_fraction": 0.0
+          }
+        ]
+      },
+      {
+        "ideal_single_epoch_snr": 6.0,
+        "trials": 32,
+        "multi_channel_recovered": 0,
+        "multi_channel_recovery_fraction": 0.0,
+        "multi_channel_wilson_95_interval": [
+          0.0,
+          0.1071791982550706
+        ],
+        "one_channel_recovered": 0,
+        "one_channel_recovery_fraction": 0.0,
+        "one_channel_wilson_95_interval": [
+          0.0,
+          0.1071791982550706
+        ],
+        "median_multi_channel_local_snr": 5.532375386876788,
+        "median_one_channel_local_snr": 3.8927766630572607,
+        "selected_width_counts": {
+          "1": 6,
+          "3": 7,
+          "5": 10,
+          "9": 9
+        },
+        "by_truth_template": [
+          {
+            "template_index": 0,
+            "projected_scale": 0.0,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 0.3430989457323306,
+            "multi_channel_recovery_fraction": 0.0,
+            "one_channel_recovery_fraction": 0.0
+          },
+          {
+            "template_index": 8,
+            "projected_scale": 0.5,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 1.8939814613573305,
+            "multi_channel_recovery_fraction": 0.0,
+            "one_channel_recovery_fraction": 0.0
+          },
+          {
+            "template_index": 14,
+            "projected_scale": 0.75,
+            "phase_offset_cycles": 0.1,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 3.684864327066297,
+            "multi_channel_recovery_fraction": 0.0,
+            "one_channel_recovery_fraction": 0.0
+          },
+          {
+            "template_index": 20,
+            "projected_scale": 1.0,
+            "phase_offset_cycles": 0.2,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 5.075730850047459,
+            "multi_channel_recovery_fraction": 0.0,
+            "one_channel_recovery_fraction": 0.0
+          }
+        ]
+      },
+      {
+        "ideal_single_epoch_snr": 8.0,
+        "trials": 32,
+        "multi_channel_recovered": 6,
+        "multi_channel_recovery_fraction": 0.1875,
+        "multi_channel_wilson_95_interval": [
+          0.08889544689565954,
+          0.3530915520137596
+        ],
+        "one_channel_recovered": 2,
+        "one_channel_recovery_fraction": 0.0625,
+        "one_channel_wilson_95_interval": [
+          0.017310567031640967,
+          0.2014712314415458
+        ],
+        "median_multi_channel_local_snr": 6.569841304984095,
+        "median_one_channel_local_snr": 4.767923940781107,
+        "selected_width_counts": {
+          "1": 6,
+          "3": 12,
+          "5": 11,
+          "9": 3
+        },
+        "by_truth_template": [
+          {
+            "template_index": 0,
+            "projected_scale": 0.0,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 0.3430989457323306,
+            "multi_channel_recovery_fraction": 0.375,
+            "one_channel_recovery_fraction": 0.25
+          },
+          {
+            "template_index": 8,
+            "projected_scale": 0.5,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 1.8939814613573305,
+            "multi_channel_recovery_fraction": 0.125,
+            "one_channel_recovery_fraction": 0.0
+          },
+          {
+            "template_index": 14,
+            "projected_scale": 0.75,
+            "phase_offset_cycles": 0.1,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 3.684864327066297,
+            "multi_channel_recovery_fraction": 0.25,
+            "one_channel_recovery_fraction": 0.0
+          },
+          {
+            "template_index": 20,
+            "projected_scale": 1.0,
+            "phase_offset_cycles": 0.2,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 5.075730850047459,
+            "multi_channel_recovery_fraction": 0.0,
+            "one_channel_recovery_fraction": 0.0
+          }
+        ]
+      },
+      {
+        "ideal_single_epoch_snr": 10.0,
+        "trials": 32,
+        "multi_channel_recovered": 19,
+        "multi_channel_recovery_fraction": 0.59375,
+        "multi_channel_wilson_95_interval": [
+          0.42260024875382873,
+          0.7448036515733456
+        ],
+        "one_channel_recovered": 9,
+        "one_channel_recovery_fraction": 0.28125,
+        "one_channel_wilson_95_interval": [
+          0.15564580497742764,
+          0.45374509425916565
+        ],
+        "median_multi_channel_local_snr": 7.685989657289842,
+        "median_one_channel_local_snr": 5.486429252853728,
+        "selected_width_counts": {
+          "1": 6,
+          "3": 13,
+          "5": 10,
+          "9": 3
+        },
+        "by_truth_template": [
+          {
+            "template_index": 0,
+            "projected_scale": 0.0,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 0.3430989457323306,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 1.0
+          },
+          {
+            "template_index": 8,
+            "projected_scale": 0.5,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 1.8939814613573305,
+            "multi_channel_recovery_fraction": 0.75,
+            "one_channel_recovery_fraction": 0.125
+          },
+          {
+            "template_index": 14,
+            "projected_scale": 0.75,
+            "phase_offset_cycles": 0.1,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 3.684864327066297,
+            "multi_channel_recovery_fraction": 0.5,
+            "one_channel_recovery_fraction": 0.0
+          },
+          {
+            "template_index": 20,
+            "projected_scale": 1.0,
+            "phase_offset_cycles": 0.2,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 5.075730850047459,
+            "multi_channel_recovery_fraction": 0.125,
+            "one_channel_recovery_fraction": 0.0
+          }
+        ]
+      },
+      {
+        "ideal_single_epoch_snr": 12.0,
+        "trials": 32,
+        "multi_channel_recovered": 28,
+        "multi_channel_recovery_fraction": 0.875,
+        "multi_channel_wilson_95_interval": [
+          0.7193169451834978,
+          0.9502986561251991
+        ],
+        "one_channel_recovered": 15,
+        "one_channel_recovery_fraction": 0.46875,
+        "one_channel_wilson_95_interval": [
+          0.30869387108068835,
+          0.6355048288102536
+        ],
+        "median_multi_channel_local_snr": 9.534604718118537,
+        "median_one_channel_local_snr": 6.644661401984998,
+        "selected_width_counts": {
+          "1": 6,
+          "3": 13,
+          "5": 12,
+          "9": 1
+        },
+        "by_truth_template": [
+          {
+            "template_index": 0,
+            "projected_scale": 0.0,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 0.3430989457323306,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 1.0
+          },
+          {
+            "template_index": 8,
+            "projected_scale": 0.5,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 1.8939814613573305,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 0.875
+          },
+          {
+            "template_index": 14,
+            "projected_scale": 0.75,
+            "phase_offset_cycles": 0.1,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 3.684864327066297,
+            "multi_channel_recovery_fraction": 0.75,
+            "one_channel_recovery_fraction": 0.0
+          },
+          {
+            "template_index": 20,
+            "projected_scale": 1.0,
+            "phase_offset_cycles": 0.2,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 5.075730850047459,
+            "multi_channel_recovery_fraction": 0.75,
+            "one_channel_recovery_fraction": 0.0
+          }
+        ]
+      },
+      {
+        "ideal_single_epoch_snr": 16.0,
+        "trials": 32,
+        "multi_channel_recovered": 31,
+        "multi_channel_recovery_fraction": 0.96875,
+        "multi_channel_wilson_95_interval": [
+          0.8425573617998744,
+          0.9944621398359969
+        ],
+        "one_channel_recovered": 17,
+        "one_channel_recovery_fraction": 0.53125,
+        "one_channel_wilson_95_interval": [
+          0.3644951711897464,
+          0.6913061289193116
+        ],
+        "median_multi_channel_local_snr": 11.440851716775816,
+        "median_one_channel_local_snr": 8.741522074892433,
+        "selected_width_counts": {
+          "1": 9,
+          "3": 10,
+          "5": 11,
+          "9": 2
+        },
+        "by_truth_template": [
+          {
+            "template_index": 0,
+            "projected_scale": 0.0,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 0.3430989457323306,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 1.0
+          },
+          {
+            "template_index": 8,
+            "projected_scale": 0.5,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 1.8939814613573305,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 1.0
+          },
+          {
+            "template_index": 14,
+            "projected_scale": 0.75,
+            "phase_offset_cycles": 0.1,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 3.684864327066297,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 0.125
+          },
+          {
+            "template_index": 20,
+            "projected_scale": 1.0,
+            "phase_offset_cycles": 0.2,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 5.075730850047459,
+            "multi_channel_recovery_fraction": 0.875,
+            "one_channel_recovery_fraction": 0.0
+          }
+        ]
+      },
+      {
+        "ideal_single_epoch_snr": 20.0,
+        "trials": 32,
+        "multi_channel_recovered": 32,
+        "multi_channel_recovery_fraction": 1.0,
+        "multi_channel_wilson_95_interval": [
+          0.8928208017449293,
+          1.0
+        ],
+        "one_channel_recovered": 22,
+        "one_channel_recovery_fraction": 0.6875,
+        "one_channel_wilson_95_interval": [
+          0.5143332169904459,
+          0.8204745836639026
+        ],
+        "median_multi_channel_local_snr": 14.58627236984299,
+        "median_one_channel_local_snr": 10.465875750843853,
+        "selected_width_counts": {
+          "1": 8,
+          "3": 9,
+          "5": 15,
+          "9": 0
+        },
+        "by_truth_template": [
+          {
+            "template_index": 0,
+            "projected_scale": 0.0,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 0.3430989457323306,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 1.0
+          },
+          {
+            "template_index": 8,
+            "projected_scale": 0.5,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 1.8939814613573305,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 1.0
+          },
+          {
+            "template_index": 14,
+            "projected_scale": 0.75,
+            "phase_offset_cycles": 0.1,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 3.684864327066297,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 0.75
+          },
+          {
+            "template_index": 20,
+            "projected_scale": 1.0,
+            "phase_offset_cycles": 0.2,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 5.075730850047459,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 0.0
+          }
+        ]
+      }
+    ]
+  },
+  "interpretation_limits": [
+    "This is a narrowband search of four 40 kHz rest-frame intervals, not a search of the full receiver band.",
+    "A null result constrains only signals present in at least two of the three epochs and represented by the orbital template bank.",
+    "The 1/3/5/9-channel boxcars approximate, but do not exactly match, every fractional-bin and acceleration-smeared line shape.",
+    "Completeness is measured for exact orbital-bank templates active in epochs 1 and 3; it is not yet marginalized over orbital-model error or every duty cycle.",
+    "Scramble p-values are empirical ranks with resolution 1/(N+1), not Gaussian sigma conversions."
+  ]
+}

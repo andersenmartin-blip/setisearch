@@ -1,0 +1,4875 @@
+{
+  "pipeline": {
+    "name": "seti-repeater",
+    "version": "0.4.0",
+    "python": "3.12.13",
+    "numpy": "2.5.2"
+  },
+  "preregistration": {
+    "name": "Proxima Milestone 9 frozen-detector temporal confirmation",
+    "scientific_target": "A narrowband transmitter stable in the planet frame and not necessarily aimed at Earth",
+    "preregistered_utc": "2026-08-15T19:02:57Z",
+    "detector_version_frozen": "0.4.0",
+    "frozen_detector_source_sha256": "80201e8c2061122dedf5b166c648c7c31c9f223873c231fc9403030ed1f9641e",
+    "selection_rule": "For each of 2021-04-29, 2021-04-30, and 2021-05-01, use the earliest complete 30-minute 2 Hz PROXCEN_S scan in the public archive and its immediately following complete 5-minute 1421-490_S control scan. Search the same 1405.25-1405.75 MHz planet-frame interval used in Milestone 8.",
+    "confirmation_scope": "Independent in observing epoch from Milestones 7 and 8, and acquired about two years later at 2 Hz rather than 3.814697 Hz resolution; not independent in frequency because it directly retests the Milestone 8 1405.25-1405.75 MHz interval.",
+    "method_note": "The Milestone 8 v0.4.0 recurrence statistic, S/N floor, moving per-epoch RFI mask, spectral widths, candidate clustering, family flags, orbital bank, and completeness procedure are copied without adjustment. Only the predeclared scans, one confirmation band, and random seeds differ.",
+    "prior_data_contact": "Archive table metadata and SIGPROC headers were inspected to verify source, completeness, cadence, resolution, and coverage. No spectral payload from these six files was extracted or inspected before this preregistration.",
+    "control_cadence_limit": "Each 30-minute ON scan is paired with the immediately following 5-minute 1421-490_S scan. OFF controls therefore have one-sixth the integration time and are less sensitive than the ON scans.",
+    "data_release": "Breakthrough Listen Parkes P1018_2 blc05 public filterbanks"
+  },
+  "known_answer_validation": {
+    "test": "synthetic intermittent drifting tone",
+    "seed": 481516,
+    "truth": {
+      "template_index": 2,
+      "active_epochs_zero_based": [
+        0,
+        2
+      ],
+      "frequency_index": 2113,
+      "single_epoch_target_snr": 9.0
+    },
+    "recovered": {
+      "snr": 13.132186540079436,
+      "frequency_mhz": 2113.0,
+      "frequency_index": 2113,
+      "template_index": 2,
+      "projected_scale": 2.0,
+      "phase_offset_cycles": 0.0,
+      "active_epochs_zero_based": [
+        0,
+        2
+      ]
+    },
+    "passed": true,
+    "multi_channel_known_answer": {
+      "truth_width_channels": 5,
+      "recovered": {
+        "snr": 15.811388195813166,
+        "frequency_mhz": 2113.0,
+        "frequency_index": 2113,
+        "template_index": 0,
+        "projected_scale": 0.0,
+        "phase_offset_cycles": 0.0,
+        "active_epochs_zero_based": [
+          0,
+          2
+        ],
+        "spectral_width_channels": 5,
+        "spectral_width_index": 2
+      },
+      "passed": true
+    }
+  },
+  "search_dimensions": {
+    "windows": 1,
+    "templates": 21,
+    "epoch_subsets": 4,
+    "spectral_width_templates": [
+      1,
+      3,
+      5,
+      9
+    ],
+    "minimum_active_epoch_snr": 3.0,
+    "stack_statistic": "minimum_epoch",
+    "single_epoch_rfi_excision": {
+      "single_epoch_strong_snr": 10.0,
+      "other_epochs_below_snr": 3.0,
+      "guard_channels": 9
+    },
+    "scrambles": 256,
+    "approx_nominal_trials": 84000336
+  },
+  "global_result": {
+    "observed_max_snr": 8.127098559215268,
+    "empirical_global_p_value": 0.4708171206225681,
+    "null_median": 8.108335494995117,
+    "null_99th_percentile": 9.054776191711426,
+    "pre_registered_snr_reference": 7.0,
+    "operational_threshold_snr": 9.054776191711426,
+    "assessment": "NO CANDIDATE: every ON maximum is below the calibrated operational threshold."
+  },
+  "windows": {
+    "m9_1405p5": {
+      "window": {
+        "id": "m9_1405p5",
+        "fmin_mhz": 1404.9,
+        "fmax_mhz": 1406.1,
+        "rest_center_mhz": 1405.5,
+        "rest_half_width_khz": 250.0,
+        "selection_note": "Direct temporal retest of the Milestone 8 lower confirmation interval with a 350 kHz extraction guard on each side."
+      },
+      "rest_bins": 250001,
+      "on_best": {
+        "snr": 8.127098559215268,
+        "frequency_mhz": 1405.5164619999584,
+        "frequency_index": 133231,
+        "template_index": 13,
+        "projected_scale": 0.75,
+        "phase_offset_cycles": 0.0,
+        "active_epochs_zero_based": [
+          0,
+          1,
+          2
+        ],
+        "spectral_width_channels": 9,
+        "spectral_width_index": 3,
+        "off_at_same_hypothesis_snr": null
+      },
+      "one_channel_regression_best": {
+        "snr": 6.399608497974654,
+        "frequency_mhz": 1405.5297759999248,
+        "frequency_index": 139888,
+        "template_index": 16,
+        "projected_scale": 1.0,
+        "phase_offset_cycles": -0.2,
+        "active_epochs_zero_based": [
+          1,
+          2
+        ]
+      },
+      "off_global_best": {
+        "snr": 6.709757238654057,
+        "frequency_mhz": 1405.6523239996154,
+        "frequency_index": 201162,
+        "template_index": 10,
+        "projected_scale": 0.5,
+        "phase_offset_cycles": 0.2,
+        "active_epochs_zero_based": [
+          0,
+          1,
+          2
+        ],
+        "spectral_width_channels": 9,
+        "spectral_width_index": 3
+      },
+      "diagnostics_for_on_best": {
+        "spectral_leakage": {
+          "model": "rectangular FFT window; one-bin power statistic",
+          "mean_retained_fraction_uniform_bin_phase": 0.7736931678538949,
+          "worst_retained_fraction_half_bin": 0.40528473456935116,
+          "best_retained_fraction_bin_center": 1.0
+        },
+        "acceleration_smearing_by_active_epoch": [
+          {
+            "observer_start_m_s": 7544.841818887864,
+            "planet_start_m_s": 21664.805238114128,
+            "predicted_drift_hz_s": 0.918207828175875,
+            "max_track_shift_bins": 819,
+            "drift_hz_s": 0.918207828175875,
+            "bins_crossed_per_integration": 6.8865587287059515,
+            "approx_peak_retained_fraction": 0.1452104076062834,
+            "approx_flux_penalty": 6.8865587287059515,
+            "model": "uniform power across bins traversed during one integration",
+            "epoch_zero_based": 0
+          },
+          {
+            "observer_start_m_s": 7229.386333000178,
+            "planet_start_m_s": -828.0784515586521,
+            "predicted_drift_hz_s": 1.3230602087306504,
+            "max_track_shift_bins": 1181,
+            "drift_hz_s": 1.3230602087306504,
+            "bins_crossed_per_integration": 9.922951590532922,
+            "approx_peak_retained_fraction": 0.10077646664668391,
+            "approx_flux_penalty": 9.922951590532922,
+            "model": "uniform power across bins traversed during one integration",
+            "epoch_zero_based": 1
+          },
+          {
+            "observer_start_m_s": 6897.17263690736,
+            "planet_start_m_s": -24367.758144750514,
+            "predicted_drift_hz_s": 0.9615209779560127,
+            "max_track_shift_bins": 858,
+            "drift_hz_s": 0.9615209779560127,
+            "bins_crossed_per_integration": 7.211407352877148,
+            "approx_peak_retained_fraction": 0.13866918772811082,
+            "approx_flux_penalty": 7.211407352877148,
+            "model": "uniform power across bins traversed during one integration",
+            "epoch_zero_based": 2
+          }
+        ],
+        "channel_width_hz": 1.9999999949504854,
+        "integration_time_s": 15.0,
+        "important_note": "The pipeline searches normalized multi-channel boxcars and measures their recovery with time-averaged sinc-squared injections. These analytic loss fields remain approximations."
+      },
+      "candidate_reduction": {
+        "hypothesis_peak_count": 726,
+        "cluster_count_before_report_limit": 581,
+        "reported_cluster_count": 50,
+        "clusters": [
+          {
+            "cluster_frequency_mhz": 1405.5164619999584,
+            "max_snr": 8.127098559215268,
+            "member_count": 3,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2",
+              "1+2+3",
+              "2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 8.127098559215268,
+              "frequency_mhz": 1405.5164619999584,
+              "frequency_index": 133231,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 13,
+              "projected_scale": 0.75,
+              "phase_offset_cycles": 0.0,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.817993640899658,
+                4.984620571136475,
+                4.692182540893555
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 8.127098559215268,
+                "frequency_mhz": 1405.5164619999584,
+                "frequency_index": 133231,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 13,
+                "projected_scale": 0.75,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.817993640899658,
+                  4.984620571136475,
+                  4.692182540893555
+                ]
+              },
+              {
+                "snr": 6.813671950387625,
+                "frequency_mhz": 1405.5164619999584,
+                "frequency_index": 133231,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 13,
+                "projected_scale": 0.75,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  0,
+                  1
+                ],
+                "epoch_values_at_frequency": [
+                  4.817993640899658,
+                  4.984620571136475,
+                  4.692182540893555
+                ]
+              },
+              {
+                "snr": 6.635748186461915,
+                "frequency_mhz": 1405.5164619999584,
+                "frequency_index": 133231,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 13,
+                "projected_scale": 0.75,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.817993640899658,
+                  4.984620571136475,
+                  4.692182540893555
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [
+              "family_2",
+              "family_8"
+            ],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template",
+              "arithmetic_frequency_family"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.604591999736,
+            "max_snr": 8.038089824546462,
+            "member_count": 3,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              3,
+              5,
+              9
+            ],
+            "distinct_activity_subsets": [
+              "2+3"
+            ],
+            "frequency_span_hz": 3.999999989900971,
+            "best_hypothesis": {
+              "snr": 8.038089824546462,
+              "frequency_mhz": 1405.604591999736,
+              "frequency_index": 177296,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 3,
+              "projected_scale": 0.25,
+              "phase_offset_cycles": 0.0,
+              "active_epochs_zero_based": [
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                2.3255295753479004,
+                6.088193416595459,
+                5.683787822723389
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 8.038089824546462,
+                "frequency_mhz": 1405.604591999736,
+                "frequency_index": 177296,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 3,
+                "projected_scale": 0.25,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  2.3255295753479004,
+                  6.088193416595459,
+                  5.683787822723389
+                ]
+              },
+              {
+                "snr": 6.379091412119551,
+                "frequency_mhz": 1405.604593999736,
+                "frequency_index": 177297,
+                "spectral_width_channels": 5,
+                "spectral_width_index": 2,
+                "template_index": 3,
+                "projected_scale": 0.25,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  1.8578459024429321,
+                  4.5106987953186035,
+                  4.796443462371826
+                ]
+              },
+              {
+                "snr": 5.604952597187337,
+                "frequency_mhz": 1405.604595999736,
+                "frequency_index": 177298,
+                "spectral_width_channels": 3,
+                "spectral_width_index": 1,
+                "template_index": 3,
+                "projected_scale": 0.25,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  2.283684730529785,
+                  3.9632999897003174,
+                  4.5818095207214355
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [
+              "family_1",
+              "family_11"
+            ],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template",
+              "arithmetic_frequency_family"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.5464879998826,
+            "max_snr": 7.865208846751384,
+            "member_count": 3,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              3,
+              5,
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2"
+            ],
+            "frequency_span_hz": 1.9999999949504854,
+            "best_hypothesis": {
+              "snr": 7.865208846751384,
+              "frequency_mhz": 1405.5464879998826,
+              "frequency_index": 148244,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 8,
+              "projected_scale": 0.5,
+              "phase_offset_cycles": 0.0,
+              "active_epochs_zero_based": [
+                0,
+                1
+              ],
+              "epoch_values_at_frequency": [
+                5.805905818939209,
+                5.561542510986328,
+                3.3989646434783936
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.865208846751384,
+                "frequency_mhz": 1405.5464879998826,
+                "frequency_index": 148244,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 8,
+                "projected_scale": 0.5,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  0,
+                  1
+                ],
+                "epoch_values_at_frequency": [
+                  5.805905818939209,
+                  5.561542510986328,
+                  3.3989646434783936
+                ]
+              },
+              {
+                "snr": 7.119950738292775,
+                "frequency_mhz": 1405.5464879998826,
+                "frequency_index": 148244,
+                "spectral_width_channels": 5,
+                "spectral_width_index": 2,
+                "template_index": 8,
+                "projected_scale": 0.5,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  0,
+                  1
+                ],
+                "epoch_values_at_frequency": [
+                  5.034565448760986,
+                  5.112218379974365,
+                  3.0395495891571045
+                ]
+              },
+              {
+                "snr": 6.580077257200846,
+                "frequency_mhz": 1405.5464899998826,
+                "frequency_index": 148245,
+                "spectral_width_channels": 3,
+                "spectral_width_index": 1,
+                "template_index": 8,
+                "projected_scale": 0.5,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  0,
+                  1
+                ],
+                "epoch_values_at_frequency": [
+                  4.652817249298096,
+                  4.74871301651001,
+                  3.0604031085968018
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [
+              "family_10"
+            ],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template",
+              "arithmetic_frequency_family"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.545935999884,
+            "max_snr": 7.813903656646467,
+            "member_count": 2,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              5,
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2"
+            ],
+            "frequency_span_hz": 1.9999999949504854,
+            "best_hypothesis": {
+              "snr": 7.813903656646467,
+              "frequency_mhz": 1405.545935999884,
+              "frequency_index": 147968,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 8,
+              "projected_scale": 0.5,
+              "phase_offset_cycles": 0.0,
+              "active_epochs_zero_based": [
+                0,
+                1
+              ],
+              "epoch_values_at_frequency": [
+                5.722734451293945,
+                5.525264263153076,
+                3.2050154209136963
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.813903656646467,
+                "frequency_mhz": 1405.545935999884,
+                "frequency_index": 147968,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 8,
+                "projected_scale": 0.5,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  0,
+                  1
+                ],
+                "epoch_values_at_frequency": [
+                  5.722734451293945,
+                  5.525264263153076,
+                  3.2050154209136963
+                ]
+              },
+              {
+                "snr": 6.206069495263053,
+                "frequency_mhz": 1405.545933999884,
+                "frequency_index": 147967,
+                "spectral_width_channels": 5,
+                "spectral_width_index": 2,
+                "template_index": 8,
+                "projected_scale": 0.5,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  0,
+                  1
+                ],
+                "epoch_values_at_frequency": [
+                  4.756080150604248,
+                  4.3883538246154785,
+                  2.4357986450195312
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.7303779994184,
+            "max_snr": 7.810631130892946,
+            "member_count": 4,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2",
+              "1+2+3",
+              "2+3"
+            ],
+            "frequency_span_hz": 9.999999974752427,
+            "best_hypothesis": {
+              "snr": 7.810631130892946,
+              "frequency_mhz": 1405.7303779994184,
+              "frequency_index": 240189,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 20,
+              "projected_scale": 1.0,
+              "phase_offset_cycles": 0.2,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.509469985961914,
+                4.776049613952637,
+                4.993599891662598
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.810631130892946,
+                "frequency_mhz": 1405.7303779994184,
+                "frequency_index": 240189,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 20,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": 0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.509469985961914,
+                  4.776049613952637,
+                  4.993599891662598
+                ]
+              },
+              {
+                "snr": 7.265630505759353,
+                "frequency_mhz": 1405.7303879994183,
+                "frequency_index": 240194,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 20,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": 0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.1948137283325195,
+                  4.53068733215332,
+                  4.474820613861084
+                ]
+              },
+              {
+                "snr": 7.167798538120646,
+                "frequency_mhz": 1405.7303839994183,
+                "frequency_index": 240192,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 20,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": 0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  1
+                ],
+                "epoch_values_at_frequency": [
+                  5.20502233505249,
+                  5.068398952484131,
+                  4.281806468963623
+                ]
+              },
+              {
+                "snr": 6.754354138618604,
+                "frequency_mhz": 1405.7303779994184,
+                "frequency_index": 240189,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 20,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": 0.2,
+                "active_epochs_zero_based": [
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.509469985961914,
+                  4.776049613952637,
+                  4.993599891662598
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.278958000558,
+            "max_snr": 7.804016448257726,
+            "member_count": 2,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              5,
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3"
+            ],
+            "frequency_span_hz": 1.9999999949504854,
+            "best_hypothesis": {
+              "snr": 7.804016448257726,
+              "frequency_mhz": 1405.278958000558,
+              "frequency_index": 14479,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 6,
+              "projected_scale": 0.5,
+              "phase_offset_cycles": -0.2,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.505650997161865,
+                4.8046698570251465,
+                4.744288444519043
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.804016448257726,
+                "frequency_mhz": 1405.278958000558,
+                "frequency_index": 14479,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 6,
+                "projected_scale": 0.5,
+                "phase_offset_cycles": -0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.505650997161865,
+                  4.8046698570251465,
+                  4.744288444519043
+                ]
+              },
+              {
+                "snr": 6.458278303259561,
+                "frequency_mhz": 1405.278960000558,
+                "frequency_index": 14480,
+                "spectral_width_channels": 5,
+                "spectral_width_index": 2,
+                "template_index": 6,
+                "projected_scale": 0.5,
+                "phase_offset_cycles": -0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.114483833312988,
+                  3.7286887168884277,
+                  4.978716850280762
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.6487459996245,
+            "max_snr": 7.733816074349807,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.733816074349807,
+              "frequency_mhz": 1405.6487459996245,
+              "frequency_index": 199373,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 3,
+              "projected_scale": 0.25,
+              "phase_offset_cycles": 0.0,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.487231731414795,
+                4.465120792388916,
+                4.564792633056641
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.733816074349807,
+                "frequency_mhz": 1405.6487459996245,
+                "frequency_index": 199373,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 3,
+                "projected_scale": 0.25,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.487231731414795,
+                  4.465120792388916,
+                  4.564792633056641
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [
+              "family_5"
+            ],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template",
+              "arithmetic_frequency_family"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.3159900004646,
+            "max_snr": 7.717172930391296,
+            "member_count": 5,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              3,
+              5,
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3",
+              "1+3"
+            ],
+            "frequency_span_hz": 5.999999984851456,
+            "best_hypothesis": {
+              "snr": 7.717172930391296,
+              "frequency_mhz": 1405.3159900004646,
+              "frequency_index": 32995,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 5,
+              "projected_scale": 0.25,
+              "phase_offset_cycles": 0.2,
+              "active_epochs_zero_based": [
+                0,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                5.756740093231201,
+                3.705885648727417,
+                5.456865310668945
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.717172930391296,
+                "frequency_mhz": 1405.3159900004646,
+                "frequency_index": 32995,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 5,
+                "projected_scale": 0.25,
+                "phase_offset_cycles": 0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  5.756740093231201,
+                  3.705885648727417,
+                  5.456865310668945
+                ]
+              },
+              {
+                "snr": 6.8557601304853915,
+                "frequency_mhz": 1405.3159860004646,
+                "frequency_index": 32993,
+                "spectral_width_channels": 5,
+                "spectral_width_index": 2,
+                "template_index": 5,
+                "projected_scale": 0.25,
+                "phase_offset_cycles": 0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  5.133464336395264,
+                  3.6871707439422607,
+                  4.84775447845459
+                ]
+              },
+              {
+                "snr": 6.38636706468953,
+                "frequency_mhz": 1405.3159860004646,
+                "frequency_index": 32993,
+                "spectral_width_channels": 5,
+                "spectral_width_index": 2,
+                "template_index": 5,
+                "projected_scale": 0.25,
+                "phase_offset_cycles": 0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  5.133464336395264,
+                  3.6871707439422607,
+                  4.84775447845459
+                ]
+              },
+              {
+                "snr": 6.3410091229185594,
+                "frequency_mhz": 1405.3159880004646,
+                "frequency_index": 32994,
+                "spectral_width_channels": 3,
+                "spectral_width_index": 1,
+                "template_index": 5,
+                "projected_scale": 0.25,
+                "phase_offset_cycles": 0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  3.804094076156616,
+                  3.6609833240509033,
+                  3.8712315559387207
+                ]
+              },
+              {
+                "snr": 5.5083058274544,
+                "frequency_mhz": 1405.3159840004646,
+                "frequency_index": 32992,
+                "spectral_width_channels": 3,
+                "spectral_width_index": 1,
+                "template_index": 5,
+                "projected_scale": 0.25,
+                "phase_offset_cycles": 0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.252900123596191,
+                  1.9875699281692505,
+                  3.894960403442383
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [
+              "family_2"
+            ],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template",
+              "arithmetic_frequency_family"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.5770759998054,
+            "max_snr": 7.629001048956929,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.629001048956929,
+              "frequency_mhz": 1405.5770759998054,
+              "frequency_index": 163538,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 18,
+              "projected_scale": 1.0,
+              "phase_offset_cycles": 0.0,
+              "active_epochs_zero_based": [
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                1.5919238328933716,
+                5.3945183753967285,
+                5.605515003204346
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.629001048956929,
+                "frequency_mhz": 1405.5770759998054,
+                "frequency_index": 163538,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 18,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  1.5919238328933716,
+                  5.3945183753967285,
+                  5.605515003204346
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [
+              "family_9"
+            ],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template",
+              "arithmetic_frequency_family"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.6475299996275,
+            "max_snr": 7.611141750981435,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.611141750981435,
+              "frequency_mhz": 1405.6475299996275,
+              "frequency_index": 198765,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 4,
+              "projected_scale": 0.25,
+              "phase_offset_cycles": 0.1,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.394294738769531,
+                4.878075122833252,
+                4.464799404144287
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.611141750981435,
+                "frequency_mhz": 1405.6475299996275,
+                "frequency_index": 198765,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 4,
+                "projected_scale": 0.25,
+                "phase_offset_cycles": 0.1,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.394294738769531,
+                  4.878075122833252,
+                  4.464799404144287
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [
+              "family_6",
+              "family_7",
+              "family_10",
+              "family_11"
+            ],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template",
+              "arithmetic_frequency_family"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.32965600043,
+            "max_snr": 7.586407512554715,
+            "member_count": 4,
+            "distinct_template_count": 2,
+            "distinct_spectral_widths": [
+              3,
+              5,
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2",
+              "1+2+3"
+            ],
+            "frequency_span_hz": 9.999999974752427,
+            "best_hypothesis": {
+              "snr": 7.586407512554715,
+              "frequency_mhz": 1405.32965600043,
+              "frequency_index": 39828,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 16,
+              "projected_scale": 1.0,
+              "phase_offset_cycles": -0.2,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.780252456665039,
+                4.380014419555664,
+                4.497372150421143
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.586407512554715,
+                "frequency_mhz": 1405.32965600043,
+                "frequency_index": 39828,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 16,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": -0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.780252456665039,
+                  4.380014419555664,
+                  4.497372150421143
+                ]
+              },
+              {
+                "snr": 6.920064757370221,
+                "frequency_mhz": 1405.32964800043,
+                "frequency_index": 39824,
+                "spectral_width_channels": 5,
+                "spectral_width_index": 2,
+                "template_index": 13,
+                "projected_scale": 0.75,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  0,
+                  1
+                ],
+                "epoch_values_at_frequency": [
+                  4.893224716186523,
+                  4.897976875305176,
+                  1.7243590354919434
+                ]
+              },
+              {
+                "snr": 6.6979414248237426,
+                "frequency_mhz": 1405.32964600043,
+                "frequency_index": 39823,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 13,
+                "projected_scale": 0.75,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  0,
+                  1
+                ],
+                "epoch_values_at_frequency": [
+                  4.736159801483154,
+                  4.777431011199951,
+                  1.6982959508895874
+                ]
+              },
+              {
+                "snr": 5.824475300593299,
+                "frequency_mhz": 1405.32965000043,
+                "frequency_index": 39825,
+                "spectral_width_channels": 3,
+                "spectral_width_index": 1,
+                "template_index": 13,
+                "projected_scale": 0.75,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  0,
+                  1
+                ],
+                "epoch_values_at_frequency": [
+                  4.510915279388428,
+                  4.118525981903076,
+                  1.3101537227630615
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.544337999888,
+            "max_snr": 7.56621235991934,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.56621235991934,
+              "frequency_mhz": 1405.544337999888,
+              "frequency_index": 147169,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 1,
+              "projected_scale": 0.25,
+              "phase_offset_cycles": -0.2,
+              "active_epochs_zero_based": [
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                2.1454479694366455,
+                5.3501200675964355,
+                5.3654656410217285
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.56621235991934,
+                "frequency_mhz": 1405.544337999888,
+                "frequency_index": 147169,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 1,
+                "projected_scale": 0.25,
+                "phase_offset_cycles": -0.2,
+                "active_epochs_zero_based": [
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  2.1454479694366455,
+                  5.3501200675964355,
+                  5.3654656410217285
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [
+              "family_6",
+              "family_7",
+              "family_10"
+            ],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template",
+              "arithmetic_frequency_family"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.395816000263,
+            "max_snr": 7.520416782471458,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.520416782471458,
+              "frequency_mhz": 1405.395816000263,
+              "frequency_index": 72908,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 11,
+              "projected_scale": 0.75,
+              "phase_offset_cycles": -0.2,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.341914653778076,
+                4.530214786529541,
+                4.844482898712158
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.520416782471458,
+                "frequency_mhz": 1405.395816000263,
+                "frequency_index": 72908,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 11,
+                "projected_scale": 0.75,
+                "phase_offset_cycles": -0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.341914653778076,
+                  4.530214786529541,
+                  4.844482898712158
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.3143600004687,
+            "max_snr": 7.509434707930251,
+            "member_count": 2,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              5,
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3"
+            ],
+            "frequency_span_hz": 3.999999989900971,
+            "best_hypothesis": {
+              "snr": 7.509434707930251,
+              "frequency_mhz": 1405.3143600004687,
+              "frequency_index": 32180,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 16,
+              "projected_scale": 1.0,
+              "phase_offset_cycles": -0.2,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.335574150085449,
+                4.6836161613464355,
+                4.419941425323486
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.509434707930251,
+                "frequency_mhz": 1405.3143600004687,
+                "frequency_index": 32180,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 16,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": -0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.335574150085449,
+                  4.6836161613464355,
+                  4.419941425323486
+                ]
+              },
+              {
+                "snr": 6.643344470510294,
+                "frequency_mhz": 1405.3143640004687,
+                "frequency_index": 32182,
+                "spectral_width_channels": 5,
+                "spectral_width_index": 2,
+                "template_index": 16,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": -0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  3.8355367183685303,
+                  3.838789701461792,
+                  4.302143096923828
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [
+              "family_2"
+            ],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template",
+              "arithmetic_frequency_family"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.7022939994893,
+            "max_snr": 7.498678931683718,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.498678931683718,
+              "frequency_mhz": 1405.7022939994893,
+              "frequency_index": 226147,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 2,
+              "projected_scale": 0.25,
+              "phase_offset_cycles": -0.1,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.727964878082275,
+                4.32936429977417,
+                4.644802570343018
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.498678931683718,
+                "frequency_mhz": 1405.7022939994893,
+                "frequency_index": 226147,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 2,
+                "projected_scale": 0.25,
+                "phase_offset_cycles": -0.1,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.727964878082275,
+                  4.32936429977417,
+                  4.644802570343018
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [
+              "family_2",
+              "family_3"
+            ],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template",
+              "arithmetic_frequency_family"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.5714219998197,
+            "max_snr": 7.486284557566254,
+            "member_count": 3,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2",
+              "1+2+3",
+              "1+3"
+            ],
+            "frequency_span_hz": 3.999999989900971,
+            "best_hypothesis": {
+              "snr": 7.486284557566254,
+              "frequency_mhz": 1405.5714219998197,
+              "frequency_index": 160711,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 16,
+              "projected_scale": 1.0,
+              "phase_offset_cycles": -0.2,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                5.005396366119385,
+                4.322208404541016,
+                4.7036542892456055
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.486284557566254,
+                "frequency_mhz": 1405.5714219998197,
+                "frequency_index": 160711,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 16,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": -0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  5.005396366119385,
+                  4.322208404541016,
+                  4.7036542892456055
+                ]
+              },
+              {
+                "snr": 7.032050619737607,
+                "frequency_mhz": 1405.5714199998197,
+                "frequency_index": 160710,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 16,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": -0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  1
+                ],
+                "epoch_values_at_frequency": [
+                  5.405618190765381,
+                  4.972410678863525,
+                  4.111780166625977
+                ]
+              },
+              {
+                "snr": 6.7821022749790245,
+                "frequency_mhz": 1405.5714239998197,
+                "frequency_index": 160712,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 16,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": -0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.821254253387451,
+                  3.684720754623413,
+                  4.795670509338379
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.3434820003952,
+            "max_snr": 7.479379155953933,
+            "member_count": 2,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              5,
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.479379155953933,
+              "frequency_mhz": 1405.3434820003952,
+              "frequency_index": 46741,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 13,
+              "projected_scale": 0.75,
+              "phase_offset_cycles": 0.0,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.800239562988281,
+                4.467839241027832,
+                4.318221569061279
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.479379155953933,
+                "frequency_mhz": 1405.3434820003952,
+                "frequency_index": 46741,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 13,
+                "projected_scale": 0.75,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.800239562988281,
+                  4.467839241027832,
+                  4.318221569061279
+                ]
+              },
+              {
+                "snr": 7.019394835779979,
+                "frequency_mhz": 1405.3434820003952,
+                "frequency_index": 46741,
+                "spectral_width_channels": 5,
+                "spectral_width_index": 2,
+                "template_index": 13,
+                "projected_scale": 0.75,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.434802532196045,
+                  4.05264949798584,
+                  4.1360554695129395
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.2508180006291,
+            "max_snr": 7.462268857520436,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.462268857520436,
+              "frequency_mhz": 1405.2508180006291,
+              "frequency_index": 409,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 19,
+              "projected_scale": 1.0,
+              "phase_offset_cycles": 0.1,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.463160514831543,
+                4.308342933654785,
+                4.4810471534729
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.462268857520436,
+                "frequency_mhz": 1405.2508180006291,
+                "frequency_index": 409,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 19,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": 0.1,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.463160514831543,
+                  4.308342933654785,
+                  4.4810471534729
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.7162059994541,
+            "max_snr": 7.459205571480477,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.459205571480477,
+              "frequency_mhz": 1405.7162059994541,
+              "frequency_index": 233103,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 17,
+              "projected_scale": 1.0,
+              "phase_offset_cycles": -0.1,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.30657434463501,
+                4.339969635009766,
+                4.873014450073242
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.459205571480477,
+                "frequency_mhz": 1405.7162059994541,
+                "frequency_index": 233103,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 17,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": -0.1,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.30657434463501,
+                  4.339969635009766,
+                  4.873014450073242
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [
+              "family_12"
+            ],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template",
+              "arithmetic_frequency_family"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.6943879995092,
+            "max_snr": 7.424027749345132,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.424027749345132,
+              "frequency_mhz": 1405.6943879995092,
+              "frequency_index": 222194,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 19,
+              "projected_scale": 1.0,
+              "phase_offset_cycles": 0.1,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.286264419555664,
+                4.6645636558532715,
+                4.369815826416016
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.424027749345132,
+                "frequency_mhz": 1405.6943879995092,
+                "frequency_index": 222194,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 19,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": 0.1,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.286264419555664,
+                  4.6645636558532715,
+                  4.369815826416016
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [
+              "family_12"
+            ],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template",
+              "arithmetic_frequency_family"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.4862480000347,
+            "max_snr": 7.422749246570838,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.422749246570838,
+              "frequency_mhz": 1405.4862480000347,
+              "frequency_index": 118124,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 17,
+              "projected_scale": 1.0,
+              "phase_offset_cycles": -0.1,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.336610317230225,
+                4.694602966308594,
+                4.285526275634766
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.422749246570838,
+                "frequency_mhz": 1405.4862480000347,
+                "frequency_index": 118124,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 17,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": -0.1,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.336610317230225,
+                  4.694602966308594,
+                  4.285526275634766
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [
+              "family_4"
+            ],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template",
+              "arithmetic_frequency_family"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.4432320001433,
+            "max_snr": 7.417992852851743,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.417992852851743,
+              "frequency_mhz": 1405.4432320001433,
+              "frequency_index": 96616,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 15,
+              "projected_scale": 0.75,
+              "phase_offset_cycles": 0.2,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.282780170440674,
+                4.5253143310546875,
+                4.4965739250183105
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.417992852851743,
+                "frequency_mhz": 1405.4432320001433,
+                "frequency_index": 96616,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 15,
+                "projected_scale": 0.75,
+                "phase_offset_cycles": 0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.282780170440674,
+                  4.5253143310546875,
+                  4.4965739250183105
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [
+              "family_6"
+            ],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template",
+              "arithmetic_frequency_family"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.269044000583,
+            "max_snr": 7.411269755200075,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.411269755200075,
+              "frequency_mhz": 1405.269044000583,
+              "frequency_index": 9522,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 14,
+              "projected_scale": 0.75,
+              "phase_offset_cycles": 0.1,
+              "active_epochs_zero_based": [
+                0,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                5.467578411102295,
+                1.8162850141525269,
+                5.240559101104736
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.411269755200075,
+                "frequency_mhz": 1405.269044000583,
+                "frequency_index": 9522,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 14,
+                "projected_scale": 0.75,
+                "phase_offset_cycles": 0.1,
+                "active_epochs_zero_based": [
+                  0,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  5.467578411102295,
+                  1.8162850141525269,
+                  5.240559101104736
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [
+              "family_1"
+            ],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template",
+              "arithmetic_frequency_family"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.5831219997901,
+            "max_snr": 7.405579482892025,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.405579482892025,
+              "frequency_mhz": 1405.5831219997901,
+              "frequency_index": 166561,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 6,
+              "projected_scale": 0.5,
+              "phase_offset_cycles": -0.2,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.319817066192627,
+                4.275613307952881,
+                4.9564528465271
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.405579482892025,
+                "frequency_mhz": 1405.5831219997901,
+                "frequency_index": 166561,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 6,
+                "projected_scale": 0.5,
+                "phase_offset_cycles": -0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.319817066192627,
+                  4.275613307952881,
+                  4.9564528465271
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [
+              "family_11"
+            ],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template",
+              "arithmetic_frequency_family"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.274618000569,
+            "max_snr": 7.389061359193135,
+            "member_count": 5,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              3,
+              5,
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2",
+              "1+2+3",
+              "1+3"
+            ],
+            "frequency_span_hz": 5.999999984851456,
+            "best_hypothesis": {
+              "snr": 7.389061359193135,
+              "frequency_mhz": 1405.274618000569,
+              "frequency_index": 12309,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 14,
+              "projected_scale": 0.75,
+              "phase_offset_cycles": 0.1,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                6.829677104949951,
+                4.266076564788818,
+                4.625125885009766
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.389061359193135,
+                "frequency_mhz": 1405.274618000569,
+                "frequency_index": 12309,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 14,
+                "projected_scale": 0.75,
+                "phase_offset_cycles": 0.1,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  6.829677104949951,
+                  4.266076564788818,
+                  4.625125885009766
+                ]
+              },
+              {
+                "snr": 6.572074750780385,
+                "frequency_mhz": 1405.274620000569,
+                "frequency_index": 12310,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 14,
+                "projected_scale": 0.75,
+                "phase_offset_cycles": 0.1,
+                "active_epochs_zero_based": [
+                  0,
+                  1
+                ],
+                "epoch_values_at_frequency": [
+                  6.460203647613525,
+                  4.647158622741699,
+                  4.012290000915527
+                ]
+              },
+              {
+                "snr": 6.139029032147684,
+                "frequency_mhz": 1405.274614000569,
+                "frequency_index": 12307,
+                "spectral_width_channels": 5,
+                "spectral_width_index": 2,
+                "template_index": 14,
+                "projected_scale": 0.75,
+                "phase_offset_cycles": 0.1,
+                "active_epochs_zero_based": [
+                  0,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  5.184834957122803,
+                  3.511139392852783,
+                  4.340949058532715
+                ]
+              },
+              {
+                "snr": 6.09744691125985,
+                "frequency_mhz": 1405.274616000569,
+                "frequency_index": 12308,
+                "spectral_width_channels": 5,
+                "spectral_width_index": 2,
+                "template_index": 14,
+                "projected_scale": 0.75,
+                "phase_offset_cycles": 0.1,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.797310829162598,
+                  3.6756911277770996,
+                  3.520362615585327
+                ]
+              },
+              {
+                "snr": 5.769112449919153,
+                "frequency_mhz": 1405.274616000569,
+                "frequency_index": 12308,
+                "spectral_width_channels": 3,
+                "spectral_width_index": 1,
+                "template_index": 14,
+                "projected_scale": 0.75,
+                "phase_offset_cycles": 0.1,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.042303562164307,
+                  3.70182466506958,
+                  3.330798625946045
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.4411260001486,
+            "max_snr": 7.354457152106542,
+            "member_count": 3,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              3,
+              5,
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3",
+              "1+3"
+            ],
+            "frequency_span_hz": 3.999999989900971,
+            "best_hypothesis": {
+              "snr": 7.354457152106542,
+              "frequency_mhz": 1405.4411260001486,
+              "frequency_index": 95563,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 16,
+              "projected_scale": 1.0,
+              "phase_offset_cycles": -0.2,
+              "active_epochs_zero_based": [
+                0,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                5.2003865242004395,
+                3.4102327823638916,
+                5.309388637542725
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.354457152106542,
+                "frequency_mhz": 1405.4411260001486,
+                "frequency_index": 95563,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 16,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": -0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  5.2003865242004395,
+                  3.4102327823638916,
+                  5.309388637542725
+                ]
+              },
+              {
+                "snr": 7.220144548529716,
+                "frequency_mhz": 1405.4411240001486,
+                "frequency_index": 95562,
+                "spectral_width_channels": 5,
+                "spectral_width_index": 2,
+                "template_index": 16,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": -0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.337364673614502,
+                  4.168552398681641,
+                  5.4620866775512695
+                ]
+              },
+              {
+                "snr": 5.97415976550225,
+                "frequency_mhz": 1405.4411220001487,
+                "frequency_index": 95561,
+                "spectral_width_channels": 3,
+                "spectral_width_index": 1,
+                "template_index": 16,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": -0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  3.4491827487945557,
+                  4.161915302276611,
+                  3.9350955486297607
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [
+              "family_6",
+              "family_7"
+            ],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template",
+              "arithmetic_frequency_family"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.5375239999053,
+            "max_snr": 7.3533277021953225,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.3533277021953225,
+              "frequency_mhz": 1405.5375239999053,
+              "frequency_index": 143762,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 19,
+              "projected_scale": 1.0,
+              "phase_offset_cycles": 0.1,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.262277126312256,
+                4.504575252532959,
+                4.245445728302002
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.3533277021953225,
+                "frequency_mhz": 1405.5375239999053,
+                "frequency_index": 143762,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 19,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": 0.1,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.262277126312256,
+                  4.504575252532959,
+                  4.245445728302002
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [
+              "family_9"
+            ],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template",
+              "arithmetic_frequency_family"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.6008959997453,
+            "max_snr": 7.336596494700715,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.336596494700715,
+              "frequency_mhz": 1405.6008959997453,
+              "frequency_index": 175448,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 12,
+              "projected_scale": 0.75,
+              "phase_offset_cycles": -0.1,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.235785961151123,
+                4.816630840301514,
+                4.290278911590576
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.336596494700715,
+                "frequency_mhz": 1405.6008959997453,
+                "frequency_index": 175448,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 12,
+                "projected_scale": 0.75,
+                "phase_offset_cycles": -0.1,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.235785961151123,
+                  4.816630840301514,
+                  4.290278911590576
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.7431259993862,
+            "max_snr": 7.319444075051787,
+            "member_count": 2,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2",
+              "1+2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.319444075051787,
+              "frequency_mhz": 1405.7431259993862,
+              "frequency_index": 246563,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 4,
+              "projected_scale": 0.25,
+              "phase_offset_cycles": 0.1,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                5.4882941246032715,
+                4.849078178405762,
+                4.2258830070495605
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.319444075051787,
+                "frequency_mhz": 1405.7431259993862,
+                "frequency_index": 246563,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 4,
+                "projected_scale": 0.25,
+                "phase_offset_cycles": 0.1,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  5.4882941246032715,
+                  4.849078178405762,
+                  4.2258830070495605
+                ]
+              },
+              {
+                "snr": 6.857632124908851,
+                "frequency_mhz": 1405.7431259993862,
+                "frequency_index": 246563,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 4,
+                "projected_scale": 0.25,
+                "phase_offset_cycles": 0.1,
+                "active_epochs_zero_based": [
+                  0,
+                  1
+                ],
+                "epoch_values_at_frequency": [
+                  5.4882941246032715,
+                  4.849078178405762,
+                  4.2258830070495605
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.3794400003044,
+            "max_snr": 7.304702291677249,
+            "member_count": 2,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              5,
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+3"
+            ],
+            "frequency_span_hz": 1.9999999949504854,
+            "best_hypothesis": {
+              "snr": 7.304702291677249,
+              "frequency_mhz": 1405.3794400003044,
+              "frequency_index": 64720,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 3,
+              "projected_scale": 0.25,
+              "phase_offset_cycles": 0.0,
+              "active_epochs_zero_based": [
+                0,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                5.1652045249938965,
+                2.8157145977020264,
+                5.562374591827393
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.304702291677249,
+                "frequency_mhz": 1405.3794400003044,
+                "frequency_index": 64720,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 3,
+                "projected_scale": 0.25,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  0,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  5.1652045249938965,
+                  2.8157145977020264,
+                  5.562374591827393
+                ]
+              },
+              {
+                "snr": 6.088281529142263,
+                "frequency_mhz": 1405.3794380003044,
+                "frequency_index": 64719,
+                "spectral_width_channels": 5,
+                "spectral_width_index": 2,
+                "template_index": 3,
+                "projected_scale": 0.25,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  0,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.524966239929199,
+                  0.6930467486381531,
+                  4.305065155029297
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.5264219999333,
+            "max_snr": 7.303609801674029,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.303609801674029,
+              "frequency_mhz": 1405.5264219999333,
+              "frequency_index": 138211,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 20,
+              "projected_scale": 1.0,
+              "phase_offset_cycles": 0.2,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.21674108505249,
+                4.246218204498291,
+                4.278800964355469
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.303609801674029,
+                "frequency_mhz": 1405.5264219999333,
+                "frequency_index": 138211,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 20,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": 0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.21674108505249,
+                  4.246218204498291,
+                  4.278800964355469
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [
+              "family_8"
+            ],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template",
+              "arithmetic_frequency_family"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.7056099994809,
+            "max_snr": 7.27841305578374,
+            "member_count": 2,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              3,
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3"
+            ],
+            "frequency_span_hz": 5.999999984851456,
+            "best_hypothesis": {
+              "snr": 7.27841305578374,
+              "frequency_mhz": 1405.7056099994809,
+              "frequency_index": 227805,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 13,
+              "projected_scale": 0.75,
+              "phase_offset_cycles": 0.0,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.202193737030029,
+                4.351678371429443,
+                4.265574932098389
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.27841305578374,
+                "frequency_mhz": 1405.7056099994809,
+                "frequency_index": 227805,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 13,
+                "projected_scale": 0.75,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.202193737030029,
+                  4.351678371429443,
+                  4.265574932098389
+                ]
+              },
+              {
+                "snr": 6.056475770190213,
+                "frequency_mhz": 1405.705603999481,
+                "frequency_index": 227802,
+                "spectral_width_channels": 3,
+                "spectral_width_index": 1,
+                "template_index": 13,
+                "projected_scale": 0.75,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  3.848414421081543,
+                  3.4967079162597656,
+                  3.7364492416381836
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.5504939998725,
+            "max_snr": 7.268491742485417,
+            "member_count": 2,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              5,
+              9
+            ],
+            "distinct_activity_subsets": [
+              "2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.268491742485417,
+              "frequency_mhz": 1405.5504939998725,
+              "frequency_index": 150247,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 5,
+              "projected_scale": 0.25,
+              "phase_offset_cycles": 0.2,
+              "active_epochs_zero_based": [
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                1.4614248275756836,
+                5.139599800109863,
+                5.140660762786865
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.268491742485417,
+                "frequency_mhz": 1405.5504939998725,
+                "frequency_index": 150247,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 5,
+                "projected_scale": 0.25,
+                "phase_offset_cycles": 0.2,
+                "active_epochs_zero_based": [
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  1.4614248275756836,
+                  5.139599800109863,
+                  5.140660762786865
+                ]
+              },
+              {
+                "snr": 6.773001253098976,
+                "frequency_mhz": 1405.5504939998725,
+                "frequency_index": 150247,
+                "spectral_width_channels": 5,
+                "spectral_width_index": 2,
+                "template_index": 5,
+                "projected_scale": 0.25,
+                "phase_offset_cycles": 0.2,
+                "active_epochs_zero_based": [
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  0.5578890442848206,
+                  4.994477272033691,
+                  4.7892351150512695
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.7427359993872,
+            "max_snr": 7.266374647231988,
+            "member_count": 2,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3",
+              "2+3"
+            ],
+            "frequency_span_hz": 1.9999999949504854,
+            "best_hypothesis": {
+              "snr": 7.266374647231988,
+              "frequency_mhz": 1405.7427359993872,
+              "frequency_index": 246368,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 14,
+              "projected_scale": 0.75,
+              "phase_offset_cycles": 0.1,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.2019877433776855,
+                4.1952433586120605,
+                4.535593509674072
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.266374647231988,
+                "frequency_mhz": 1405.7427359993872,
+                "frequency_index": 246368,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 14,
+                "projected_scale": 0.75,
+                "phase_offset_cycles": 0.1,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.2019877433776855,
+                  4.1952433586120605,
+                  4.535593509674072
+                ]
+              },
+              {
+                "snr": 6.849212196100739,
+                "frequency_mhz": 1405.7427339993872,
+                "frequency_index": 246367,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 14,
+                "projected_scale": 0.75,
+                "phase_offset_cycles": 0.1,
+                "active_epochs_zero_based": [
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.038968563079834,
+                  4.8431243896484375,
+                  4.849313735961914
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.4455180001376,
+            "max_snr": 7.2613316640667165,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.2613316640667165,
+              "frequency_mhz": 1405.4455180001376,
+              "frequency_index": 97759,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 0,
+              "projected_scale": 0.0,
+              "phase_offset_cycles": 0.0,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.192331790924072,
+                5.2882513999938965,
+                4.26454496383667
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.2613316640667165,
+                "frequency_mhz": 1405.4455180001376,
+                "frequency_index": 97759,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 0,
+                "projected_scale": 0.0,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.192331790924072,
+                  5.2882513999938965,
+                  4.26454496383667
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [
+              "family_5"
+            ],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template",
+              "arithmetic_frequency_family"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.3356780004149,
+            "max_snr": 7.26083612035575,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.26083612035575,
+              "frequency_mhz": 1405.3356780004149,
+              "frequency_index": 42839,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 12,
+              "projected_scale": 0.75,
+              "phase_offset_cycles": -0.1,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.19204568862915,
+                4.305846691131592,
+                4.689315319061279
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.26083612035575,
+                "frequency_mhz": 1405.3356780004149,
+                "frequency_index": 42839,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 12,
+                "projected_scale": 0.75,
+                "phase_offset_cycles": -0.1,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.19204568862915,
+                  4.305846691131592,
+                  4.689315319061279
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.4784780000543,
+            "max_snr": 7.255172664006399,
+            "member_count": 2,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              3,
+              9
+            ],
+            "distinct_activity_subsets": [
+              "2+3"
+            ],
+            "frequency_span_hz": 5.999999984851456,
+            "best_hypothesis": {
+              "snr": 7.255172664006399,
+              "frequency_mhz": 1405.4784780000543,
+              "frequency_index": 114239,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 13,
+              "projected_scale": 0.75,
+              "phase_offset_cycles": 0.0,
+              "active_epochs_zero_based": [
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                1.1154478788375854,
+                5.130181789398193,
+                5.458859920501709
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.255172664006399,
+                "frequency_mhz": 1405.4784780000543,
+                "frequency_index": 114239,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 13,
+                "projected_scale": 0.75,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  1.1154478788375854,
+                  5.130181789398193,
+                  5.458859920501709
+                ]
+              },
+              {
+                "snr": 5.543776277986381,
+                "frequency_mhz": 1405.4784720000544,
+                "frequency_index": 114236,
+                "spectral_width_channels": 3,
+                "spectral_width_index": 1,
+                "template_index": 13,
+                "projected_scale": 0.75,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  0.635331928730011,
+                  3.920041799545288,
+                  4.568418502807617
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.2907900005282,
+            "max_snr": 7.241564425436253,
+            "member_count": 2,
+            "distinct_template_count": 2,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3",
+              "1+3"
+            ],
+            "frequency_span_hz": 15.999999959603883,
+            "best_hypothesis": {
+              "snr": 7.241564425436253,
+              "frequency_mhz": 1405.2907900005282,
+              "frequency_index": 20395,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 8,
+              "projected_scale": 0.5,
+              "phase_offset_cycles": 0.0,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.326103210449219,
+                4.180919170379639,
+                4.3690385818481445
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.241564425436253,
+                "frequency_mhz": 1405.2907900005282,
+                "frequency_index": 20395,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 8,
+                "projected_scale": 0.5,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.326103210449219,
+                  4.180919170379639,
+                  4.3690385818481445
+                ]
+              },
+              {
+                "snr": 7.052545452056696,
+                "frequency_mhz": 1405.2907740005282,
+                "frequency_index": 20387,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 18,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  0,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  5.2284369468688965,
+                  0.9383888840675354,
+                  4.986902713775635
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.5356959999099,
+            "max_snr": 7.232693895234204,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.232693895234204,
+              "frequency_mhz": 1405.5356959999099,
+              "frequency_index": 142848,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 8,
+              "projected_scale": 0.5,
+              "phase_offset_cycles": 0.0,
+              "active_epochs_zero_based": [
+                0,
+                1
+              ],
+              "epoch_values_at_frequency": [
+                5.404703617095947,
+                5.11428689956665,
+                3.9243991374969482
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.232693895234204,
+                "frequency_mhz": 1405.5356959999099,
+                "frequency_index": 142848,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 8,
+                "projected_scale": 0.5,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  0,
+                  1
+                ],
+                "epoch_values_at_frequency": [
+                  5.404703617095947,
+                  5.11428689956665,
+                  3.9243991374969482
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [
+              "family_4"
+            ],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template",
+              "arithmetic_frequency_family"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.370446000327,
+            "max_snr": 7.232443943435911,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.232443943435911,
+              "frequency_mhz": 1405.370446000327,
+              "frequency_index": 60223,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 3,
+              "projected_scale": 0.25,
+              "phase_offset_cycles": 0.0,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.175653457641602,
+                4.945539474487305,
+                4.7011542320251465
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.232443943435911,
+                "frequency_mhz": 1405.370446000327,
+                "frequency_index": 60223,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 3,
+                "projected_scale": 0.25,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.175653457641602,
+                  4.945539474487305,
+                  4.7011542320251465
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [
+              "family_3"
+            ],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template",
+              "arithmetic_frequency_family"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.3086400004831,
+            "max_snr": 7.220146200342086,
+            "member_count": 4,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              5,
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2",
+              "1+2+3",
+              "2+3"
+            ],
+            "frequency_span_hz": 3.999999989900971,
+            "best_hypothesis": {
+              "snr": 7.220146200342086,
+              "frequency_mhz": 1405.3086400004831,
+              "frequency_index": 29320,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 6,
+              "projected_scale": 0.5,
+              "phase_offset_cycles": -0.2,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.168553352355957,
+                4.689010143280029,
+                5.315090656280518
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.220146200342086,
+                "frequency_mhz": 1405.3086400004831,
+                "frequency_index": 29320,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 6,
+                "projected_scale": 0.5,
+                "phase_offset_cycles": -0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.168553352355957,
+                  4.689010143280029,
+                  5.315090656280518
+                ]
+              },
+              {
+                "snr": 7.1725425873890325,
+                "frequency_mhz": 1405.3086420004831,
+                "frequency_index": 29321,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 6,
+                "projected_scale": 0.5,
+                "phase_offset_cycles": -0.2,
+                "active_epochs_zero_based": [
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  3.649383306503296,
+                  5.07175350189209,
+                  5.109370708465576
+                ]
+              },
+              {
+                "snr": 7.119516138956069,
+                "frequency_mhz": 1405.3086440004831,
+                "frequency_index": 29322,
+                "spectral_width_channels": 5,
+                "spectral_width_index": 2,
+                "template_index": 6,
+                "projected_scale": 0.5,
+                "phase_offset_cycles": -0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.110454559326172,
+                  4.218460559844971,
+                  4.374759674072266
+                ]
+              },
+              {
+                "snr": 5.8130605853173964,
+                "frequency_mhz": 1405.3086440004831,
+                "frequency_index": 29322,
+                "spectral_width_channels": 5,
+                "spectral_width_index": 2,
+                "template_index": 6,
+                "projected_scale": 0.5,
+                "phase_offset_cycles": -0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  1
+                ],
+                "epoch_values_at_frequency": [
+                  4.110454559326172,
+                  4.218460559844971,
+                  4.374759674072266
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.4385100001552,
+            "max_snr": 7.219672879267855,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.219672879267855,
+              "frequency_mhz": 1405.4385100001552,
+              "frequency_index": 94255,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 17,
+              "projected_scale": 1.0,
+              "phase_offset_cycles": -0.1,
+              "active_epochs_zero_based": [
+                0,
+                1
+              ],
+              "epoch_values_at_frequency": [
+                5.143767833709717,
+                5.105079650878906,
+                1.6162872314453125
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.219672879267855,
+                "frequency_mhz": 1405.4385100001552,
+                "frequency_index": 94255,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 17,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": -0.1,
+                "active_epochs_zero_based": [
+                  0,
+                  1
+                ],
+                "epoch_values_at_frequency": [
+                  5.143767833709717,
+                  5.105079650878906,
+                  1.6162872314453125
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [
+              "family_5"
+            ],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template",
+              "arithmetic_frequency_family"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.62670199968,
+            "max_snr": 7.201195026531103,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.201195026531103,
+              "frequency_mhz": 1405.62670199968,
+              "frequency_index": 188351,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 1,
+              "projected_scale": 0.25,
+              "phase_offset_cycles": -0.2,
+              "active_epochs_zero_based": [
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                1.9489611387252808,
+                5.278600692749023,
+                5.092013835906982
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.201195026531103,
+                "frequency_mhz": 1405.62670199968,
+                "frequency_index": 188351,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 1,
+                "projected_scale": 0.25,
+                "phase_offset_cycles": -0.2,
+                "active_epochs_zero_based": [
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  1.9489611387252808,
+                  5.278600692749023,
+                  5.092013835906982
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.257582000612,
+            "max_snr": 7.197738539638355,
+            "member_count": 2,
+            "distinct_template_count": 2,
+            "distinct_spectral_widths": [
+              3,
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3",
+              "1+3"
+            ],
+            "frequency_span_hz": 5.999999984851456,
+            "best_hypothesis": {
+              "snr": 7.197738539638355,
+              "frequency_mhz": 1405.257582000612,
+              "frequency_index": 3791,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 3,
+              "projected_scale": 0.25,
+              "phase_offset_cycles": 0.0,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.3802103996276855,
+                4.444870471954346,
+                4.155616283416748
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.197738539638355,
+                "frequency_mhz": 1405.257582000612,
+                "frequency_index": 3791,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 3,
+                "projected_scale": 0.25,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.3802103996276855,
+                  4.444870471954346,
+                  4.155616283416748
+                ]
+              },
+              {
+                "snr": 5.7228933034871305,
+                "frequency_mhz": 1405.257588000612,
+                "frequency_index": 3794,
+                "spectral_width_channels": 3,
+                "spectral_width_index": 1,
+                "template_index": 17,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": -0.1,
+                "active_epochs_zero_based": [
+                  0,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.046696662902832,
+                  -0.5399380326271057,
+                  4.493386268615723
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.6957519995058,
+            "max_snr": 7.1971354420825335,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.1971354420825335,
+              "frequency_mhz": 1405.6957519995058,
+              "frequency_index": 222876,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 20,
+              "projected_scale": 1.0,
+              "phase_offset_cycles": 0.2,
+              "active_epochs_zero_based": [
+                0,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                5.141085147857666,
+                2.0675880908966064,
+                5.0891432762146
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.1971354420825335,
+                "frequency_mhz": 1405.6957519995058,
+                "frequency_index": 222876,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 20,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": 0.2,
+                "active_epochs_zero_based": [
+                  0,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  5.141085147857666,
+                  2.0675880908966064,
+                  5.0891432762146
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [
+              "family_8",
+              "family_9",
+              "family_12"
+            ],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template",
+              "arithmetic_frequency_family"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.660813999594,
+            "max_snr": 7.183198461252405,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.183198461252405,
+              "frequency_mhz": 1405.660813999594,
+              "frequency_index": 205407,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 0,
+              "projected_scale": 0.0,
+              "phase_offset_cycles": 0.0,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.442132472991943,
+                4.147221565246582,
+                4.251484394073486
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.183198461252405,
+                "frequency_mhz": 1405.660813999594,
+                "frequency_index": 205407,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 0,
+                "projected_scale": 0.0,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.442132472991943,
+                  4.147221565246582,
+                  4.251484394073486
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.7488559993717,
+            "max_snr": 7.173836664225711,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.173836664225711,
+              "frequency_mhz": 1405.7488559993717,
+              "frequency_index": 249428,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 18,
+              "projected_scale": 1.0,
+              "phase_offset_cycles": 0.0,
+              "active_epochs_zero_based": [
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                1.9740514755249023,
+                5.142115116119385,
+                5.072668552398682
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.173836664225711,
+                "frequency_mhz": 1405.7488559993717,
+                "frequency_index": 249428,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 18,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": 0.0,
+                "active_epochs_zero_based": [
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  1.9740514755249023,
+                  5.142115116119385,
+                  5.072668552398682
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.4368160001595,
+            "max_snr": 7.1729770463075315,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.1729770463075315,
+              "frequency_mhz": 1405.4368160001595,
+              "frequency_index": 93408,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 9,
+              "projected_scale": 0.5,
+              "phase_offset_cycles": 0.1,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.14132022857666,
+                4.21344518661499,
+                4.545846939086914
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.1729770463075315,
+                "frequency_mhz": 1405.4368160001595,
+                "frequency_index": 93408,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 9,
+                "projected_scale": 0.5,
+                "phase_offset_cycles": 0.1,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.14132022857666,
+                  4.21344518661499,
+                  4.545846939086914
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [
+              "family_1",
+              "family_3",
+              "family_4"
+            ],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template",
+              "arithmetic_frequency_family"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.654905999609,
+            "max_snr": 7.1728440754117555,
+            "member_count": 1,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              9
+            ],
+            "distinct_activity_subsets": [
+              "1+2+3"
+            ],
+            "frequency_span_hz": 0.0,
+            "best_hypothesis": {
+              "snr": 7.1728440754117555,
+              "frequency_mhz": 1405.654905999609,
+              "frequency_index": 202453,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 2,
+              "projected_scale": 0.25,
+              "phase_offset_cycles": -0.1,
+              "active_epochs_zero_based": [
+                0,
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                4.1412434577941895,
+                4.288265705108643,
+                4.157365798950195
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.1728440754117555,
+                "frequency_mhz": 1405.654905999609,
+                "frequency_index": 202453,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 2,
+                "projected_scale": 0.25,
+                "phase_offset_cycles": -0.1,
+                "active_epochs_zero_based": [
+                  0,
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  4.1412434577941895,
+                  4.288265705108643,
+                  4.157365798950195
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template"
+            ],
+            "disposition": "below_threshold"
+          },
+          {
+            "cluster_frequency_mhz": 1405.2890760005325,
+            "max_snr": 7.172549330884794,
+            "member_count": 3,
+            "distinct_template_count": 1,
+            "distinct_spectral_widths": [
+              3,
+              5,
+              9
+            ],
+            "distinct_activity_subsets": [
+              "2+3"
+            ],
+            "frequency_span_hz": 3.999999989900971,
+            "best_hypothesis": {
+              "snr": 7.172549330884794,
+              "frequency_mhz": 1405.2890760005325,
+              "frequency_index": 19538,
+              "spectral_width_channels": 9,
+              "spectral_width_index": 3,
+              "template_index": 20,
+              "projected_scale": 1.0,
+              "phase_offset_cycles": 0.2,
+              "active_epochs_zero_based": [
+                1,
+                2
+              ],
+              "epoch_values_at_frequency": [
+                2.5754716396331787,
+                5.624925136566162,
+                5.071758270263672
+              ]
+            },
+            "top_members": [
+              {
+                "snr": 7.172549330884794,
+                "frequency_mhz": 1405.2890760005325,
+                "frequency_index": 19538,
+                "spectral_width_channels": 9,
+                "spectral_width_index": 3,
+                "template_index": 20,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": 0.2,
+                "active_epochs_zero_based": [
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  2.5754716396331787,
+                  5.624925136566162,
+                  5.071758270263672
+                ]
+              },
+              {
+                "snr": 6.7322590747552535,
+                "frequency_mhz": 1405.2890800005325,
+                "frequency_index": 19540,
+                "spectral_width_channels": 5,
+                "spectral_width_index": 2,
+                "template_index": 20,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": 0.2,
+                "active_epochs_zero_based": [
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  1.8022273778915405,
+                  5.900765895843506,
+                  4.760426044464111
+                ]
+              },
+              {
+                "snr": 6.264019051742015,
+                "frequency_mhz": 1405.2890800005325,
+                "frequency_index": 19540,
+                "spectral_width_channels": 3,
+                "spectral_width_index": 1,
+                "template_index": 20,
+                "projected_scale": 1.0,
+                "phase_offset_cycles": 0.2,
+                "active_epochs_zero_based": [
+                  1,
+                  2
+                ],
+                "epoch_values_at_frequency": [
+                  0.7890205979347229,
+                  4.429330348968506,
+                  5.333451271057129
+                ]
+              }
+            ],
+            "off_at_best_hypothesis_snr": null,
+            "frequency_family_ids": [],
+            "flags": [
+              "below_global_threshold",
+              "widest_spectral_template"
+            ],
+            "disposition": "below_threshold"
+          }
+        ],
+        "arithmetic_frequency_families": [
+          {
+            "family_id": "family_1",
+            "spacing_hz": 167771.99957633018,
+            "cluster_indices": [
+              22,
+              47,
+              1
+            ],
+            "member_frequencies_mhz": [
+              1405.269044000583,
+              1405.4368160001595,
+              1405.604591999736
+            ]
+          },
+          {
+            "family_id": "family_2",
+            "spacing_hz": 1629.9999959468842,
+            "cluster_indices": [
+              13,
+              7,
+              0,
+              14
+            ],
+            "member_frequencies_mhz": [
+              1405.3143600004687,
+              1405.3159900004646,
+              1405.5164619999584,
+              1405.7022939994893
+            ]
+          },
+          {
+            "family_id": "family_3",
+            "spacing_hz": 66369.99983239174,
+            "cluster_indices": [
+              39,
+              47,
+              14
+            ],
+            "member_frequencies_mhz": [
+              1405.370446000327,
+              1405.4368160001595,
+              1405.7022939994893
+            ]
+          },
+          {
+            "family_id": "family_4",
+            "spacing_hz": 49431.99987530708,
+            "cluster_indices": [
+              47,
+              20,
+              38
+            ],
+            "member_frequencies_mhz": [
+              1405.4368160001595,
+              1405.4862480000347,
+              1405.5356959999099
+            ]
+          },
+          {
+            "family_id": "family_5",
+            "spacing_hz": 7007.999982357025,
+            "cluster_indices": [
+              41,
+              34,
+              6
+            ],
+            "member_frequencies_mhz": [
+              1405.4385100001552,
+              1405.4455180001376,
+              1405.6487459996245
+            ]
+          },
+          {
+            "family_id": "family_6",
+            "spacing_hz": 2105.9999947547913,
+            "cluster_indices": [
+              25,
+              21,
+              11,
+              9
+            ],
+            "member_frequencies_mhz": [
+              1405.4411260001486,
+              1405.4432320001433,
+              1405.5443379998878,
+              1405.6475299996275
+            ]
+          },
+          {
+            "family_id": "family_7",
+            "spacing_hz": 103211.9997394085,
+            "cluster_indices": [
+              25,
+              11,
+              9
+            ],
+            "member_frequencies_mhz": [
+              1405.4411260001486,
+              1405.5443379998878,
+              1405.6475299996275
+            ]
+          },
+          {
+            "family_id": "family_8",
+            "spacing_hz": 9959.99997472763,
+            "cluster_indices": [
+              0,
+              30,
+              44
+            ],
+            "member_frequencies_mhz": [
+              1405.5164619999584,
+              1405.5264219999333,
+              1405.6957519995058
+            ]
+          },
+          {
+            "family_id": "family_9",
+            "spacing_hz": 39551.999900102615,
+            "cluster_indices": [
+              26,
+              8,
+              44
+            ],
+            "member_frequencies_mhz": [
+              1405.5375239999053,
+              1405.5770759998054,
+              1405.6957519995058
+            ]
+          },
+          {
+            "family_id": "family_10",
+            "spacing_hz": 2149.9999947547913,
+            "cluster_indices": [
+              11,
+              2,
+              9
+            ],
+            "member_frequencies_mhz": [
+              1405.5443379998878,
+              1405.5464879998826,
+              1405.6475299996275
+            ]
+          },
+          {
+            "family_id": "family_11",
+            "spacing_hz": 21469.999945640564,
+            "cluster_indices": [
+              23,
+              1,
+              9
+            ],
+            "member_frequencies_mhz": [
+              1405.5831219997901,
+              1405.604591999736,
+              1405.6475299996275
+            ]
+          },
+          {
+            "family_id": "family_12",
+            "spacing_hz": 1363.9999964237213,
+            "cluster_indices": [
+              19,
+              44,
+              18
+            ],
+            "member_frequencies_mhz": [
+              1405.6943879995094,
+              1405.6957519995058,
+              1405.7162059994541
+            ]
+          }
+        ]
+      },
+      "single_epoch_rfi_excision": {
+        "settings": {
+          "single_epoch_strong_snr": 10.0,
+          "other_epochs_below_snr": 3.0,
+          "guard_channels": 9
+        },
+        "on_masked_template_epoch_frequency_cells": 45,
+        "on_masked_fraction": 2.8571314286171425e-06,
+        "on_masked_cells_by_epoch": [
+          45,
+          0,
+          0
+        ],
+        "off_masked_template_epoch_frequency_cells": 44,
+        "off_masked_fraction": 2.7936396190923173e-06,
+        "mask_moves_with_each_epoch_in_scrambled_controls": true
+      },
+      "empirical_null": {
+        "p_value_window": 0.4708171206225681,
+        "null_median": 8.108335494995117,
+        "null_99th_percentile": 9.054776191711426
+      }
+    }
+  },
+  "candidate_reduction": {
+    "settings": {
+      "peaks_per_hypothesis": 3,
+      "snr_floor": 5.5,
+      "cluster_tolerance_hz": 20.0,
+      "max_report_clusters": 50,
+      "template_multiplicity_flag": 8,
+      "family_spacing_tolerance_hz": 20.0,
+      "family_min_members": 3
+    },
+    "hypothesis_peaks_retained": 726,
+    "frequency_clusters_before_report_limit": 581,
+    "reported_clusters": 50,
+    "dispositions": {
+      "below_threshold": 50
+    }
+  },
+  "completeness": {
+    "method": "Real m9_1405p5 planet-frame noise vectors are independently circularly shifted by epoch; signals use time-averaged sinc-squared leakage and model acceleration within each integration.",
+    "ideal_snr_definition": "Single-epoch S/N the same total signal power would produce as a stationary bin-centred one-channel tone.",
+    "detection_threshold_snr": 9.054776191711426,
+    "minimum_active_epoch_snr": 3.0,
+    "stack_statistic": "minimum_epoch",
+    "single_epoch_rfi_mask_applied": true,
+    "active_epochs_zero_based": [
+      0,
+      2
+    ],
+    "truth_template_indices": [
+      0,
+      8,
+      14,
+      20
+    ],
+    "spectral_widths_channels": [
+      1,
+      3,
+      5,
+      9
+    ],
+    "levels": [
+      {
+        "ideal_single_epoch_snr": 8.0,
+        "trials": 32,
+        "multi_channel_recovered": 3,
+        "multi_channel_recovery_fraction": 0.09375,
+        "multi_channel_wilson_95_interval": [
+          0.032401551298366194,
+          0.24218154728387864
+        ],
+        "one_channel_recovered": 3,
+        "one_channel_recovery_fraction": 0.09375,
+        "one_channel_wilson_95_interval": [
+          0.032401551298366194,
+          0.24218154728387864
+        ],
+        "median_multi_channel_local_snr": 6.709844369192796,
+        "median_one_channel_local_snr": -999.0,
+        "selected_width_counts": {
+          "1": 5,
+          "3": 5,
+          "5": 5,
+          "9": 17
+        },
+        "by_truth_template": [
+          {
+            "template_index": 0,
+            "projected_scale": 0.0,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 0.5621917607797311,
+            "multi_channel_recovery_fraction": 0.375,
+            "one_channel_recovery_fraction": 0.375
+          },
+          {
+            "template_index": 8,
+            "projected_scale": 0.5,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 4.511915788052779,
+            "multi_channel_recovery_fraction": 0.0,
+            "one_channel_recovery_fraction": 0.0
+          },
+          {
+            "template_index": 14,
+            "projected_scale": 0.75,
+            "phase_offset_cycles": 0.1,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 5.438752105966319,
+            "multi_channel_recovery_fraction": 0.0,
+            "one_channel_recovery_fraction": 0.0
+          },
+          {
+            "template_index": 20,
+            "projected_scale": 1.0,
+            "phase_offset_cycles": 0.2,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 5.905486508498656,
+            "multi_channel_recovery_fraction": 0.0,
+            "one_channel_recovery_fraction": 0.0
+          }
+        ]
+      },
+      {
+        "ideal_single_epoch_snr": 12.0,
+        "trials": 32,
+        "multi_channel_recovered": 11,
+        "multi_channel_recovery_fraction": 0.34375,
+        "multi_channel_wilson_95_interval": [
+          0.20410437924433172,
+          0.5168891202103778
+        ],
+        "one_channel_recovered": 6,
+        "one_channel_recovery_fraction": 0.1875,
+        "one_channel_wilson_95_interval": [
+          0.08889544689565954,
+          0.3530915520137596
+        ],
+        "median_multi_channel_local_snr": 8.684330487337093,
+        "median_one_channel_local_snr": 4.575253500323619,
+        "selected_width_counts": {
+          "1": 5,
+          "3": 3,
+          "5": 5,
+          "9": 19
+        },
+        "by_truth_template": [
+          {
+            "template_index": 0,
+            "projected_scale": 0.0,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 0.5621917607797311,
+            "multi_channel_recovery_fraction": 0.75,
+            "one_channel_recovery_fraction": 0.75
+          },
+          {
+            "template_index": 8,
+            "projected_scale": 0.5,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 4.511915788052779,
+            "multi_channel_recovery_fraction": 0.5,
+            "one_channel_recovery_fraction": 0.0
+          },
+          {
+            "template_index": 14,
+            "projected_scale": 0.75,
+            "phase_offset_cycles": 0.1,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 5.438752105966319,
+            "multi_channel_recovery_fraction": 0.0,
+            "one_channel_recovery_fraction": 0.0
+          },
+          {
+            "template_index": 20,
+            "projected_scale": 1.0,
+            "phase_offset_cycles": 0.2,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 5.905486508498656,
+            "multi_channel_recovery_fraction": 0.125,
+            "one_channel_recovery_fraction": 0.0
+          }
+        ]
+      },
+      {
+        "ideal_single_epoch_snr": 16.0,
+        "trials": 32,
+        "multi_channel_recovered": 27,
+        "multi_channel_recovery_fraction": 0.84375,
+        "multi_channel_wilson_95_interval": [
+          0.682458504024696,
+          0.9313557971749429
+        ],
+        "one_channel_recovered": 8,
+        "one_channel_recovery_fraction": 0.25,
+        "one_channel_wilson_95_interval": [
+          0.1325240091850904,
+          0.4210655899424448
+        ],
+        "median_multi_channel_local_snr": 10.408881073364755,
+        "median_one_channel_local_snr": 5.638447709223309,
+        "selected_width_counts": {
+          "1": 8,
+          "3": 1,
+          "5": 10,
+          "9": 13
+        },
+        "by_truth_template": [
+          {
+            "template_index": 0,
+            "projected_scale": 0.0,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 0.5621917607797311,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 1.0
+          },
+          {
+            "template_index": 8,
+            "projected_scale": 0.5,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 4.511915788052779,
+            "multi_channel_recovery_fraction": 0.875,
+            "one_channel_recovery_fraction": 0.0
+          },
+          {
+            "template_index": 14,
+            "projected_scale": 0.75,
+            "phase_offset_cycles": 0.1,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 5.438752105966319,
+            "multi_channel_recovery_fraction": 0.625,
+            "one_channel_recovery_fraction": 0.0
+          },
+          {
+            "template_index": 20,
+            "projected_scale": 1.0,
+            "phase_offset_cycles": 0.2,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 5.905486508498656,
+            "multi_channel_recovery_fraction": 0.875,
+            "one_channel_recovery_fraction": 0.0
+          }
+        ]
+      },
+      {
+        "ideal_single_epoch_snr": 20.0,
+        "trials": 32,
+        "multi_channel_recovered": 32,
+        "multi_channel_recovery_fraction": 1.0,
+        "multi_channel_wilson_95_interval": [
+          0.8928208017449293,
+          1.0
+        ],
+        "one_channel_recovered": 8,
+        "one_channel_recovery_fraction": 0.25,
+        "one_channel_wilson_95_interval": [
+          0.1325240091850904,
+          0.4210655899424448
+        ],
+        "median_multi_channel_local_snr": 11.986581923936821,
+        "median_one_channel_local_snr": 6.384271765563723,
+        "selected_width_counts": {
+          "1": 6,
+          "3": 2,
+          "5": 8,
+          "9": 16
+        },
+        "by_truth_template": [
+          {
+            "template_index": 0,
+            "projected_scale": 0.0,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 0.5621917607797311,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 1.0
+          },
+          {
+            "template_index": 8,
+            "projected_scale": 0.5,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 4.511915788052779,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 0.0
+          },
+          {
+            "template_index": 14,
+            "projected_scale": 0.75,
+            "phase_offset_cycles": 0.1,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 5.438752105966319,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 0.0
+          },
+          {
+            "template_index": 20,
+            "projected_scale": 1.0,
+            "phase_offset_cycles": 0.2,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 5.905486508498656,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 0.0
+          }
+        ]
+      },
+      {
+        "ideal_single_epoch_snr": 24.0,
+        "trials": 32,
+        "multi_channel_recovered": 32,
+        "multi_channel_recovery_fraction": 1.0,
+        "multi_channel_wilson_95_interval": [
+          0.8928208017449293,
+          1.0
+        ],
+        "one_channel_recovered": 9,
+        "one_channel_recovery_fraction": 0.28125,
+        "one_channel_wilson_95_interval": [
+          0.15564580497742764,
+          0.45374509425916565
+        ],
+        "median_multi_channel_local_snr": 14.25971386713355,
+        "median_one_channel_local_snr": 7.19675173717369,
+        "selected_width_counts": {
+          "1": 7,
+          "3": 1,
+          "5": 8,
+          "9": 16
+        },
+        "by_truth_template": [
+          {
+            "template_index": 0,
+            "projected_scale": 0.0,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 0.5621917607797311,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 1.0
+          },
+          {
+            "template_index": 8,
+            "projected_scale": 0.5,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 4.511915788052779,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 0.125
+          },
+          {
+            "template_index": 14,
+            "projected_scale": 0.75,
+            "phase_offset_cycles": 0.1,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 5.438752105966319,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 0.0
+          },
+          {
+            "template_index": 20,
+            "projected_scale": 1.0,
+            "phase_offset_cycles": 0.2,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 5.905486508498656,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 0.0
+          }
+        ]
+      },
+      {
+        "ideal_single_epoch_snr": 32.0,
+        "trials": 32,
+        "multi_channel_recovered": 32,
+        "multi_channel_recovery_fraction": 1.0,
+        "multi_channel_wilson_95_interval": [
+          0.8928208017449293,
+          1.0
+        ],
+        "one_channel_recovered": 16,
+        "one_channel_recovery_fraction": 0.5,
+        "one_channel_wilson_95_interval": [
+          0.33630882869327483,
+          0.6636911713067252
+        ],
+        "median_multi_channel_local_snr": 18.257569029849442,
+        "median_one_channel_local_snr": 9.299524432815446,
+        "selected_width_counts": {
+          "1": 8,
+          "3": 0,
+          "5": 9,
+          "9": 15
+        },
+        "by_truth_template": [
+          {
+            "template_index": 0,
+            "projected_scale": 0.0,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 0.5621917607797311,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 1.0
+          },
+          {
+            "template_index": 8,
+            "projected_scale": 0.5,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 4.511915788052779,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 1.0
+          },
+          {
+            "template_index": 14,
+            "projected_scale": 0.75,
+            "phase_offset_cycles": 0.1,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 5.438752105966319,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 0.0
+          },
+          {
+            "template_index": 20,
+            "projected_scale": 1.0,
+            "phase_offset_cycles": 0.2,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 5.905486508498656,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 0.0
+          }
+        ]
+      },
+      {
+        "ideal_single_epoch_snr": 40.0,
+        "trials": 32,
+        "multi_channel_recovered": 32,
+        "multi_channel_recovery_fraction": 1.0,
+        "multi_channel_wilson_95_interval": [
+          0.8928208017449293,
+          1.0
+        ],
+        "one_channel_recovered": 23,
+        "one_channel_recovery_fraction": 0.71875,
+        "one_channel_wilson_95_interval": [
+          0.5462549057408342,
+          0.8443541950225723
+        ],
+        "median_multi_channel_local_snr": 22.11643804751751,
+        "median_one_channel_local_snr": 10.70995051079396,
+        "selected_width_counts": {
+          "1": 7,
+          "3": 1,
+          "5": 8,
+          "9": 16
+        },
+        "by_truth_template": [
+          {
+            "template_index": 0,
+            "projected_scale": 0.0,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 0.5621917607797311,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 1.0
+          },
+          {
+            "template_index": 8,
+            "projected_scale": 0.5,
+            "phase_offset_cycles": 0.0,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 4.511915788052779,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 1.0
+          },
+          {
+            "template_index": 14,
+            "projected_scale": 0.75,
+            "phase_offset_cycles": 0.1,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 5.438752105966319,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 0.125
+          },
+          {
+            "template_index": 20,
+            "projected_scale": 1.0,
+            "phase_offset_cycles": 0.2,
+            "trials": 8,
+            "mean_bins_swept_per_integration": 5.905486508498656,
+            "multi_channel_recovery_fraction": 1.0,
+            "one_channel_recovery_fraction": 0.75
+          }
+        ]
+      }
+    ]
+  },
+  "interpretation_limits": [
+    "This search covers 1 disjoint planet-frame bands totaling 0.5 MHz, not the full receiver band.",
+    "A null result constrains only signals present in at least two of the three epochs and represented by the orbital template bank.",
+    "The 1/3/5/9-channel boxcars approximate, but do not exactly match, every fractional-bin and acceleration-smeared line shape.",
+    "Completeness is measured for exact orbital-bank templates active in epochs 1 and 3; it is not yet marginalized over orbital-model error or every duty cycle.",
+    "When configured, the recurrence guard requires every claimed active epoch to exceed its stated single-epoch S/N floor.",
+    "Confirmation scope: Independent in observing epoch from Milestones 7 and 8, and acquired about two years later at 2 Hz rather than 3.814697 Hz resolution; not independent in frequency because it directly retests the Milestone 8 1405.25-1405.75 MHz interval.",
+    "The per-epoch RFI mask follows each circularly shifted epoch in the empirical null and completeness trials.",
+    "Scramble p-values are empirical ranks with resolution 1/(N+1), not Gaussian sigma conversions."
+  ]
+}
