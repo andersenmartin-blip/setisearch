@@ -14,6 +14,33 @@ confirmation. The Milestone 7 recurrence statistic, spectral filters,
 per-epoch interference mask, candidate clustering, and RFI-family flags were
 retained without tuning.
 
+## Milestone 11 result
+
+Milestone 11 transfers the unchanged v0.4.0 detector to the complete public
+2017-01-21 Green Bank Telescope L-band ABACAD cadence for LHS 1140. It changes
+the target, telescope, date, cadence, and spectral payload while deliberately
+reusing the five Milestone 10 planet-frame bands.
+
+Across approximately 601,293,840 nominal frequency/orbit/activity/width trials:
+
+- observed global maximum: **S/N 105.8952** at 1400.926242128 MHz;
+- scrambled-null median: **S/N 7.5012**;
+- scrambled-null 99th percentile and operational threshold: **S/N 10.3893**;
+- empirical global p-value: **1/257 = 0.003891**;
+- assessment: **FOLLOW-UP REQUIRED**.
+
+The result is not a technosignature claim. The 1406.707600 MHz maximum is
+stronger in its matched OFF hypothesis. The 1425.063540 MHz ON maximum survives
+the frozen exact-hypothesis veto, but a strong OFF-bank maximum lies only about
+5.6 Hz away. The strongest 1400.926242 MHz feature has arithmetic-family flags,
+which are triage evidence rather than a sufficient physical veto.
+
+Candidate reduction reported 109 clusters: 80 below threshold, 8 exact matched
+OFF vetoes, 16 arithmetic-family flags pending manual review, and 5 formal
+follow-up survivors. A complete repeat produced byte-identical primary outputs.
+The next step is a labelled post-hoc topocentric/ON-OFF/cross-cadence
+investigation with the detector settings left frozen.
+
 ## Milestone 10 result
 
 Milestone 10 applies the frozen detector to five fresh 1 MHz planet-frame bands
@@ -124,15 +151,16 @@ Requirements are Python 3.10+, NumPy, Astropy, Matplotlib, GCC, and OpenMP.
 python -m venv .venv
 . .venv/bin/activate
 python -m pip install -e .
-seti-repeater validate --tsamp 15 --channel-width 2 \
-  --output results_m10/validation.json
+seti-repeater validate --tsamp 18.253611008 \
+  --channel-width 2.7939677238464355 \
+  --output results_m11/validation.json
 seti-repeater extract \
-  --config config/proxima_small_survey_m10.json \
-  --data-dir data_m10 --workers 12
-sha256sum -c DATA_MANIFEST_M10.sha256
+  --config config/lhs1140b_new_target_m11.json \
+  --data-dir data_m11 --workers 12
+sha256sum -c DATA_MANIFEST_M11.sha256
 seti-repeater search \
-  --config config/proxima_small_survey_m10.json \
-  --data-dir data_m10 --output-dir results_m10
+  --config config/lhs1140b_new_target_m11.json \
+  --data-dir data_m11 --output-dir results_m11
 python -m unittest discover -s tests -v
 ```
 
@@ -149,6 +177,16 @@ while destroying the inter-epoch coherence being tested. The empirical p-value
 is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Limits
+
+- Milestone 11 covers one 28-minute ABACAD cadence, not independent
+  observing nights.
+- Milestone 11 contains strong structured ON and OFF features. Its minimum
+  empirical p-value shows departure from the circular-shift null, not evidence
+  of an extraterrestrial origin.
+- Exact-hypothesis OFF vetoes can miss nearby interference with a different
+  best width, activity subset, or template.
+- Five Milestone 11 reported clusters remain formally follow-up-required; no
+  technosignature claim is made.
 
 - Milestone 10 covers five disjoint bands totaling 5 MHz, not the full receiver
   band.
@@ -176,6 +214,15 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Key files
 
+- `MILESTONE_11_PREREGISTRATION.md` — frozen LHS 1140 transfer design.
+- `config/lhs1140b_new_target_m11.json` — target, cadence, orbit, and bands.
+- `DATA_MANIFEST_M11.sha256` — checksums for all 30 reproducible extracts.
+- `results_m11/search_summary.json` — complete search and candidate evidence.
+- `results_m11/completeness.json` — aggregate and per-injection recovery data.
+- `results_m11/completeness_thresholds.json` — coarse recovery thresholds.
+- `results_m11/reproducibility_audit.json` — byte-identical repeat evidence.
+- `results_m11/scramble_nulls.npz` — empirical global and per-band null maxima.
+- `MILESTONE_11_REPORT.md` — scientific handoff and follow-up boundary.
 - `MILESTONE_10_PREREGISTRATION.md` — frozen five-band survey design.
 - `config/proxima_small_survey_m10.json` — Milestone 10 scan and search config.
 - `DATA_MANIFEST_M10.sha256` — checksums for all 30 reproducible extracts.
