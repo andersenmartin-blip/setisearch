@@ -209,6 +209,8 @@ def add_coincidences(candidate: dict) -> None:
             "on_peak_snr": float(on["best_stationary_snr"]),
             "nearest_off_peak": nearest,
             "within_20_hz": bool(nearest is not None and abs(nearest["delta_hz"]) <= COINCIDENCE_TOLERANCE_HZ),
+            "off_candidate_track_snr": float(off["candidate_track_snr"]),
+            "off_candidate_track_snr_ge_5p5": bool(float(off["candidate_track_snr"]) >= LOCAL_PEAK_FLOOR),
         })
     candidate["adjacent_off_receiver_frame_checks"] = coincidences
     candidate["off_coincidence_count"] = sum(item["within_20_hz"] for item in coincidences)
@@ -219,21 +221,58 @@ def add_coincidences(candidate: dict) -> None:
     reasons = []
     if candidate["off_coincidence_count"]:
         reasons.append("adjacent_OFF_peak_within_20_Hz")
-    if near_integer_mhz_hz <= 1000.0:
-        reasons.append("within_1_kHz_of_integer_MHz_boundary")
+    if any(item["off_candidate_track_snr_ge_5p5"] for item in coincidences):
+        reasons.append("adjacent_OFF_same_candidate_track_SNR_ge_5p5")
     if int(best["spectral_width_channels"]) == 9:
         reasons.append("selected_widest_frozen_boxcar")
     candidate["integer_mhz_distance_hz"] = float(near_integer_mhz_hz)
     candidate["posthoc_triage_reasons"] = reasons
-    if "adjacent_OFF_peak_within_20_Hz" in reasons or "within_1_kHz_of_integer_MHz_boundary" in reasons:
-        candidate["posthoc_classification"] = "RFI_OR_INSTRUMENTAL"
-    elif all(
-        float(candidate["scans"][f"epoch{epoch + 1}_on"]["candidate_track_snr"]) < 3.0
-        for epoch in active
-    ):
-        candidate["posthoc_classification"] = "NOT_REPRODUCED_BY_LOCAL_TRACK_CHECK"
-    else:
-        candidate["posthoc_classification"] = "UNRESOLVED_REQUIRES_INDEPENDENT_CADENCE"
+    candidate["posthoc_classification"] = "PENDING_CROSS_CANDIDATE_CHECK"
+
+
+def add_cross_candidate_aliases(candidates: list[dict]) -> None:
+    """Find different rest/template solutions mapping to one receiver feature."""
+    for candidate in candidates:
+        candidate["cross_candidate_receiver_aliases"] = []
+    for left_index, left in enumerate(candidates):
+        left_active = set(int(value) for value in left["best_hypothesis"]["active_epochs_zero_based"])
+        for right in candidates[left_index + 1:]:
+            right_active = set(int(value) for value in right["best_hypothesis"]["active_epochs_zero_based"])
+            matches = []
+            for epoch in sorted(left_active & right_active):
+                left_frequency = float(left["scans"][f"epoch{epoch + 1}_on"]["best_stationary_frequency_mhz"])
+                right_frequency = float(right["scans"][f"epoch{epoch + 1}_on"]["best_stationary_frequency_mhz"])
+                delta_hz = (right_frequency - left_frequency) * 1e6
+                if abs(delta_hz) <= COINCIDENCE_TOLERANCE_HZ:
+                    matches.append({"epoch_zero_based": epoch, "delta_hz": float(delta_hz)})
+            if len(matches) >= 2:
+                left["cross_candidate_receiver_aliases"].append({
+                    "other_candidate_ordinal": right["ordinal"], "matched_active_epochs": matches,
+                })
+                right["cross_candidate_receiver_aliases"].append({
+                    "other_candidate_ordinal": left["ordinal"], "matched_active_epochs": matches,
+                })
+
+    for candidate in candidates:
+        reasons = candidate["posthoc_triage_reasons"]
+        if candidate["cross_candidate_receiver_aliases"]:
+            reasons.append("different_planet_templates_map_to_same_receiver_feature")
+        rfi_reasons = {
+            "adjacent_OFF_peak_within_20_Hz",
+            "adjacent_OFF_same_candidate_track_SNR_ge_5p5",
+            "different_planet_templates_map_to_same_receiver_feature",
+        }
+        if rfi_reasons.intersection(reasons):
+            candidate["posthoc_classification"] = "RFI_OR_INSTRUMENTAL"
+        else:
+            active = set(int(value) for value in candidate["best_hypothesis"]["active_epochs_zero_based"])
+            if all(
+                float(candidate["scans"][f"epoch{epoch + 1}_on"]["candidate_track_snr"]) < 3.0
+                for epoch in active
+            ):
+                candidate["posthoc_classification"] = "NOT_REPRODUCED_BY_LOCAL_TRACK_CHECK"
+            else:
+                candidate["posthoc_classification"] = "UNRESOLVED_REQUIRES_INDEPENDENT_CADENCE"
 
 
 def plot_candidate(candidate: dict, output: Path) -> None:
@@ -295,23 +334,37 @@ def probe_archive(config: dict) -> dict:
         probes.append(record)
 
     selected_urls = {scan["url"] for scan in config["scans"] if scan["kind"] == "on"}
-    discovered = set()
+    observation_pattern = re.compile(r"guppi_\d+_\d+_LHS1140_\d+", re.IGNORECASE)
+
+    def observation_id(name: str) -> str | None:
+        match = observation_pattern.search(name)
+        return None if match is None else match.group(0).upper()
+
+    discovered_names = set()
     for probe in probes:
         for href in probe.get("lhs1140_fil_hrefs", []):
-            discovered.add(href.rsplit("/", 1)[-1])
+            discovered_names.add(href.rsplit("/", 1)[-1])
     selected_names = {url.rsplit("/", 1)[-1] for url in selected_urls}
-    additional = sorted(discovered - selected_names)
+    selected_observations = {observation_id(name) for name in selected_names}
+    discovered_observations = {observation_id(name) for name in discovered_names}
+    selected_observations.discard(None)
+    discovered_observations.discard(None)
+    additional_observations = sorted(discovered_observations - selected_observations)
+    product_variants = sorted(discovered_names - selected_names)
     return {
         "scope": "public blpd0 LHS1140 directory index, checked 2026-08-20",
         "probes": probes,
         "selected_on_files": sorted(selected_names),
-        "additional_lhs1140_filterbank_names": additional,
-        "independent_cadence_found": bool(additional),
+        "selected_observation_ids": sorted(selected_observations),
+        "same_observation_product_variants": product_variants,
+        "additional_observation_ids": additional_observations,
+        "independent_cadence_found": bool(additional_observations),
         "interpretation": (
-            "No independent cadence was exposed by the checked directory index. "
-            "This is an archive-availability result, not evidence of non-recurrence."
-            if not additional else
-            "Additional archive filenames were exposed and require a separately preregistered recurrence test."
+            "No independent cadence was exposed by the checked directory index. The extra .0002 "
+            "and .8.0001 files are alternate products of the same three observation IDs, not new "
+            "pointings. This is an archive-availability result, not evidence of non-recurrence."
+            if not additional_observations else
+            "Additional observation IDs were exposed and require a separately preregistered recurrence test."
         ),
     }
 
@@ -371,6 +424,8 @@ def main() -> None:
         plot_candidate(candidate, args.output_dir / f"{slug}.png")
         candidate.pop("_plots")
         output_candidates.append(candidate)
+
+    add_cross_candidate_aliases(output_candidates)
 
     archive = probe_archive(config)
     result = {
