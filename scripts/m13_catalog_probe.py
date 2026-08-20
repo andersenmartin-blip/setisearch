@@ -19,6 +19,7 @@ from seti_repeater.sigproc import remote_header
 
 ARCHIVE_API = "https://seti.berkeley.edu/opendata/api/query-files"
 TARGETS_API = "https://seti.berkeley.edu/opendata/api/list-targets"
+NASA_TAP_API = "https://exoplanetarchive.ipac.caltech.edu/TAP/sync"
 CANDIDATE_TARGETS = {
     # Query both common and Hipparcos designations.  GJ 273 and GJ 1002 are
     # deliberately absent:
@@ -128,6 +129,25 @@ def global_filterbank_queries(limit: int) -> list[dict]:
     return [
         {**common, "file_type": value}
         for value in ("FILTERBANK", "filterbank", "FIL")
+    ]
+
+
+def nasa_metadata_queries() -> list[dict]:
+    return [
+        {
+            "label": "composite_planet_parameters",
+            "query": (
+                "select top 1 * from pscomppars "
+                "where hostname='GJ 411'"
+            ),
+        },
+        {
+            "label": "published_planet_solutions",
+            "query": (
+                "select * from ps where hostname='GJ 411' "
+                "and default_flag=1"
+            ),
+        },
     ]
 
 
@@ -315,6 +335,7 @@ def main() -> None:
     parser.add_argument("--max-records-per-query", type=int, default=200)
     parser.add_argument("--max-cadences-per-alias", type=int, default=0)
     parser.add_argument("--global-query-limit", type=int, default=0)
+    parser.add_argument("--probe-hdf5-headers", action="store_true")
     args = parser.parse_args()
 
     catalog_payload = fetch_json(TARGETS_API)
@@ -340,6 +361,21 @@ def main() -> None:
                 compact_api_record(item)
                 for item in payload.get("data", [])
             ],
+        })
+    nasa_queries = []
+    for query in nasa_metadata_queries():
+        payload = fetch_json(
+            NASA_TAP_API,
+            {"query": query["query"], "format": "json"},
+        )
+        nasa_queries.append({
+            "label": query["label"],
+            "query": query["query"],
+            "api_url": payload.get("url"),
+            "status": payload.get("status"),
+            "result": payload.get("result"),
+            "error": payload.get("error"),
+            "records": payload.get("data", []),
         })
     targets = []
     for target_id, requested_aliases in CANDIDATE_TARGETS.items():
@@ -393,9 +429,13 @@ def main() -> None:
         "target_catalog_error": catalog_payload.get("error"),
         "target_catalog_count": len(catalog),
         "global_filterbank_queries": global_queries,
+        "nasa_exoplanet_archive_queries": nasa_queries,
         "gj411_fine_hdf5_header_probe": [
             hdf5_header_record(url)
-            for url in GJ411_FINE_HDF5_URLS
+            for url in (
+                GJ411_FINE_HDF5_URLS
+                if args.probe_hdf5_headers else []
+            )
         ],
         "required_guarded_range_mhz": [1399.65, 1425.85],
         "targets": targets,
