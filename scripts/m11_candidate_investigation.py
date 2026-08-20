@@ -166,14 +166,28 @@ def analyse_scan(scan: dict, best: dict, config: dict) -> tuple[dict, dict]:
     stationary = np.sum(filtered, axis=0) / np.sqrt(filtered.shape[0])
     stationary_index = int(local_indices[np.nanargmax(stationary[local])])
 
-    free_snr, free_drift, margin = dedoppler_max(
-        filtered, float(scan["header"]["tsamp"]), df_hz, max_drift_hz_s=2.0,
+    max_free_drift_hz_s = 2.0
+    padded_half_width_hz = (
+        LOCAL_HALF_WIDTH_HZ + max_free_drift_hz_s * duration_s + 2 * df_hz
     )
-    safe_local = local.copy()
+    padded = np.abs((frequencies - center_mhz) * 1e6) <= padded_half_width_hz
+    padded_indices = np.flatnonzero(padded)
+    free_snr, free_drift, margin = dedoppler_max(
+        filtered[:, padded],
+        float(scan["header"]["tsamp"]),
+        df_hz,
+        max_drift_hz_s=max_free_drift_hz_s,
+    )
+    safe_local = (
+        np.abs((frequencies[padded] - center_mhz) * 1e6) <= LOCAL_HALF_WIDTH_HZ
+    )
     safe_local[:margin] = False
     if margin:
         safe_local[-margin:] = False
-    free_index = int(np.flatnonzero(safe_local)[np.nanargmax(free_snr[safe_local])])
+    free_padded_index = int(
+        np.flatnonzero(safe_local)[np.nanargmax(free_snr[safe_local])]
+    )
+    free_index = int(padded_indices[free_padded_index])
     peaks = greedy_peaks(
         frequencies[local], stationary[local], LOCAL_PEAK_FLOOR,
         separation_bins=max(1, width // 2),
@@ -190,8 +204,8 @@ def analyse_scan(scan: dict, best: dict, config: dict) -> tuple[dict, dict]:
         "best_stationary_snr": float(stationary[stationary_index]),
         "best_stationary_offset_from_prediction_hz": float((frequencies[stationary_index] - center_mhz) * 1e6),
         "best_free_frequency_mhz": float(frequencies[free_index]),
-        "best_free_snr": float(free_snr[free_index]),
-        "best_free_drift_hz_s": float(free_drift[free_index]),
+        "best_free_snr": float(free_snr[free_padded_index]),
+        "best_free_drift_hz_s": float(free_drift[free_padded_index]),
         "stationary_peaks_snr_ge_5p5": peaks,
     }
     plot = {
