@@ -28,6 +28,12 @@ the fixed post-hoc review. That review classifies two as RFI or instrumental
 from adjacent-OFF evidence and leaves three unresolved pending an independent
 cadence. There is no clean survivor and no technosignature claim.
 
+A metadata-only archive enumeration found one additional L-band data set from
+2016-07-15, seven days earlier, but only an incomplete A-B-A-D fine-product
+sequence survives. A targeted three-frequency follow-up plan is frozen before
+opening that independent spectral payload; it cannot substitute for a complete
+ABACAD confirmation.
+
 ## Milestone 13 status
 
 Milestone 13 preregistered the first independent detector-v0.5.0 application
@@ -251,6 +257,9 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 - `MILESTONE_14_REPORT.md` — held-out result and scientific interpretation.
 - `MILESTONE_14_CANDIDATE_INVESTIGATION_PLAN.md` — fixed post-hoc protocol.
 - `MILESTONE_14_CANDIDATE_INVESTIGATION.md` — five-case disposition record.
+- `MILESTONE_14_INDEPENDENT_CADENCE_METADATA.md` — complete GJ 687 cadence inventory.
+- `MILESTONE_14_INDEPENDENT_CADENCE_PLAN.md` — frozen partial-cadence follow-up rules.
+- `config/gj687b_m14_partial_independent_followup.json` — four-scan identities and geometry.
 - `results_m14_candidate_investigation/candidate_investigation.json` —
   machine-readable morphology and ON/OFF evidence.
 - `RESULTS_MANIFEST_M14_CANDIDATE_INVESTIGATION.sha256` — investigation

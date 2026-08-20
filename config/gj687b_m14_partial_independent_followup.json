@@ -1,0 +1,126 @@
+{
+  "project": {
+    "name": "GJ 687 b Milestone 14 partial independent-cadence follow-up",
+    "status": "frozen_before_independent_spectral_contact",
+    "preregistered_utc": "2026-08-20T17:20:00Z",
+    "detector_version_frozen": "0.5.0",
+    "analysis_type": "targeted_labelled_posthoc_followup",
+    "metadata_workflow_run": 32396758942,
+    "metadata_artifact_id": 9416940844,
+    "metadata_artifact_digest": "sha256:6cd4e23bc9df4ca4c1891dc56cd244460f1c2ce4119c3582a166beeee1ffe56b",
+    "cadence_limitation": "Only A-B-A-D fine HDF5 products are public; this is not a complete ABACAD cadence."
+  },
+  "target": {
+    "name": "GJ 687",
+    "ra": "17h36m25.00154s",
+    "dec": "+68d20m01.2268s",
+    "pm_ra_cosdec_mas_yr": -320.636,
+    "pm_dec_mas_yr": -1269.53,
+    "parallax_mas": 219.781,
+    "radial_velocity_km_s": -28.8,
+    "reference_epoch_jyear": 2000.0,
+    "metadata_source": "NASA Exoplanet Archive ps/pscomppars"
+  },
+  "observatory": {
+    "name": "Green Bank Telescope",
+    "longitude_deg": -79.839835,
+    "latitude_deg": 38.433121111111106,
+    "height_m": 807.43
+  },
+  "orbit": {
+    "name": "GJ 687 b published RV working template",
+    "period_days": 38.142,
+    "semi_major_axis_au": 0.163,
+    "eccentricity": 0.17,
+    "t_periastron_bjd_tdb": 2450592.7,
+    "omega_rad": 2.0420352248333655
+  },
+  "windows": [
+    {
+      "id": "m14_independent_1425",
+      "fmin_mhz": 1423.9,
+      "fmax_mhz": 1426.1,
+      "rest_center_mhz": 1425.0,
+      "rest_half_width_khz": 500.0,
+      "selection_note": "Pre-contact extraction guard reused from the validated Milestone 14 1425 MHz window."
+    }
+  ],
+  "scans": [
+    {
+      "epoch": 1,
+      "kind": "on",
+      "label": "independent_on1",
+      "archive_utc": "2016-07-15T01:48:14Z",
+      "format": "HDF5",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16A_999_238/holding/spliced_blc0001020304050607_guppi_57584_06494_Gj687_0039.gpuspec.0000.h5",
+      "expected_remote_size_bytes": 15593627098,
+      "expected_etag": "\"5dd982c5-3a173ddda\"",
+      "expected_header": {
+        "source_name": "Gj687",
+        "tstart_mjd": 57584.075162037036,
+        "tsamp_s": 18.253611008,
+        "dataset_shape": [16, 1, 322961408],
+        "dataset_dtype": "float32",
+        "fch1_mhz": 1926.26953125,
+        "foff_mhz": -0.0000027939677238464355
+      }
+    },
+    {
+      "epoch": 1,
+      "kind": "off",
+      "label": "independent_off1",
+      "archive_utc": "2016-07-15T01:53:51Z",
+      "format": "HDF5",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16A_999_238/holding/spliced_blc0001020304050607_guppi_57584_06831_Hip85098_0040.gpuspec.0000.h5",
+      "expected_remote_size_bytes": 15615035607,
+      "expected_etag": "\"5dd9844c-3a2ba88d7\"",
+      "expected_header": {
+        "source_name": "Hip85098",
+        "tstart_mjd": 57584.0790625,
+        "tsamp_s": 18.253611008,
+        "dataset_shape": [16, 1, 322961408],
+        "dataset_dtype": "float32",
+        "fch1_mhz": 1926.26953125,
+        "foff_mhz": -0.0000027939677238464355
+      }
+    },
+    {
+      "epoch": 2,
+      "kind": "on",
+      "label": "independent_on2",
+      "archive_utc": "2016-07-15T01:59:27Z",
+      "format": "HDF5",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16A_999_238/holding/spliced_blc0001020304050607_guppi_57584_07167_Gj687_0041.gpuspec.0000.h5",
+      "expected_remote_size_bytes": 15604867168,
+      "expected_etag": "\"5dd985ca-3a21f6060\"",
+      "expected_header": {
+        "source_name": "Gj687",
+        "tstart_mjd": 57584.08295138889,
+        "tsamp_s": 18.253611008,
+        "dataset_shape": [16, 1, 322961408],
+        "dataset_dtype": "float32",
+        "fch1_mhz": 1926.26953125,
+        "foff_mhz": -0.0000027939677238464355
+      }
+    },
+    {
+      "epoch": 3,
+      "kind": "off",
+      "label": "independent_off_late",
+      "archive_utc": "2016-07-15T02:16:18Z",
+      "format": "HDF5",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16A_999_238/holding/spliced_blc0001020304050607_guppi_57584_08178_Hip85612_0044.gpuspec.0000.h5",
+      "expected_remote_size_bytes": 15602629686,
+      "expected_etag": "\"5dd9873c-3a1fd3c36\"",
+      "expected_header": {
+        "source_name": "Hip85612",
+        "tstart_mjd": 57584.09465277778,
+        "tsamp_s": 18.253611008,
+        "dataset_shape": [16, 1, 322961408],
+        "dataset_dtype": "float32",
+        "fch1_mhz": 1926.26953125,
+        "foff_mhz": -0.0000027939677238464355
+      }
+    }
+  ]
+}
