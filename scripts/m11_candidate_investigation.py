@@ -30,6 +30,8 @@ from seti_repeater.search import load_scan
 from seti_repeater.sigproc import extract_frequency_window
 from seti_repeater.spectral import normalized_boxcar
 
+from m13_hdf5_extract import extract_scan as extract_hdf5_scan
+
 
 WINDOW_IDS = ("m11_1400p5", "m11_1425p0")
 LOCAL_HALF_WIDTH_HZ = 100.0
@@ -46,13 +48,18 @@ def write_json(path: Path, value: object) -> None:
     path.write_text(json.dumps(value, indent=2, sort_keys=True, allow_nan=False) + "\n")
 
 
-def find_survivors(summary: dict, windows: list[dict]) -> list[dict]:
+def find_survivors(
+    summary: dict,
+    windows: list[dict],
+    disposition: str = "survives_for_followup",
+    expected_count: int = 5,
+) -> list[dict]:
     """Find cluster records without depending on the summary's nesting layout."""
     found: list[dict] = []
 
     def walk(value: object) -> None:
         if isinstance(value, dict):
-            if value.get("disposition") == "survives_for_followup" and "best_hypothesis" in value:
+            if value.get("disposition") == disposition and "best_hypothesis" in value:
                 found.append(value)
             for child in value.values():
                 walk(child)
@@ -84,12 +91,23 @@ def find_survivors(summary: dict, windows: list[dict]) -> list[dict]:
             raise RuntimeError(f"Could not assign {frequency:.9f} MHz to exactly one search window")
         records.append({"window_id": matches[0], "cluster": item})
     records.sort(key=lambda item: -float(item["cluster"]["max_snr"]))
-    if len(records) != 5:
-        raise RuntimeError(f"Expected five formal survivors, found {len(records)}")
+    if len(records) != expected_count:
+        raise RuntimeError(
+            f"Expected {expected_count} records with disposition {disposition}, "
+            f"found {len(records)}"
+        )
     return records
 
 
 def extract_needed(config: dict, data_dir: Path, window_ids: set[str], workers: int) -> None:
+    selected_windows = [
+        window for window in config["windows"] if window["id"] in window_ids
+    ]
+    if all(str(scan.get("format", "")).upper() == "HDF5" for scan in config["scans"]):
+        for scan in config["scans"]:
+            print(f"extract HDF5 {scan['label']}", flush=True)
+            extract_hdf5_scan(scan, selected_windows, data_dir)
+        return
     for window in config["windows"]:
         if window["id"] not in window_ids:
             continue
@@ -300,7 +318,7 @@ def plot_candidate(candidate: dict, output: Path) -> None:
     fig.colorbar(image, ax=axes[:, 0], label="robust per-row normalized power", shrink=0.5)
     best = candidate["best_hypothesis"]
     fig.suptitle(
-        f"M11 post-hoc candidate {best['frequency_mhz']:.9f} MHz; "
+        f"Post-hoc candidate {best['frequency_mhz']:.9f} MHz; "
         f"frozen S/N {best['snr']:.3f}, width {best['spectral_width_channels']} ch",
         fontsize=12,
     )
@@ -377,11 +395,19 @@ def main() -> None:
     parser.add_argument("--output-dir", type=Path, default=Path("results_m11_candidate_investigation"))
     parser.add_argument("--extract", action="store_true")
     parser.add_argument("--workers", type=int, default=12)
+    parser.add_argument("--candidate-disposition", default="survives_for_followup")
+    parser.add_argument("--expected-candidates", type=int, default=5)
+    parser.add_argument("--skip-archive-probe", action="store_true")
     args = parser.parse_args()
 
     config = read_json(args.config)
     summary = read_json(args.summary)
-    survivors = find_survivors(summary, config["windows"])
+    survivors = find_survivors(
+        summary,
+        config["windows"],
+        args.candidate_disposition,
+        args.expected_candidates,
+    )
     if args.extract:
         extract_needed(config, args.data_dir, {item["window_id"] for item in survivors}, args.workers)
 
@@ -396,6 +422,9 @@ def main() -> None:
             "frozen_cluster_member_count": int(survivor["cluster"]["member_count"]),
             "frozen_cluster_frequency_span_hz": float(survivor["cluster"]["frequency_span_hz"]),
             "frozen_flags": survivor["cluster"].get("flags", []),
+            "frozen_frequency_family_ids": survivor["cluster"].get(
+                "frequency_family_ids", []
+            ),
             "frozen_off_at_best_hypothesis_snr": survivor["cluster"].get("off_at_best_hypothesis_snr"),
             "best_hypothesis": best,
             "scans": {},
@@ -427,10 +456,23 @@ def main() -> None:
 
     add_cross_candidate_aliases(output_candidates)
 
-    archive = probe_archive(config)
+    archive = (
+        {
+            "scope": "not run in this targeted morphology stage",
+            "independent_cadence_found": False,
+            "interpretation": (
+                "Cross-cadence archive work is deferred; this run is limited to "
+                "the six frozen cadence scans."
+            ),
+        }
+        if args.skip_archive_probe else probe_archive(config)
+    )
     result = {
         "analysis_label": "post-hoc candidate investigation",
-        "detector_status": "frozen v0.4.0; no search or threshold setting changed",
+        "detector_status": (
+            f"frozen v{config['project'].get('detector_version_frozen', '0.4.0')}; "
+            "no search or threshold setting changed"
+        ),
         "date_utc": "2026-08-20",
         "local_half_width_hz": LOCAL_HALF_WIDTH_HZ,
         "receiver_frame_coincidence_tolerance_hz": COINCIDENCE_TOLERANCE_HZ,
