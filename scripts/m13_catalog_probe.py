@@ -107,6 +107,22 @@ def target_queries(alias: str, limit: int) -> list[dict]:
     ]
 
 
+def global_filterbank_queries(limit: int) -> list[dict]:
+    common = {
+        "target": "",
+        "telescope": "GBT",
+        "cadence": "True",
+        "primaryTarget": "True",
+        "center_freq": "1475.09765625",
+        "grades": "fine",
+        "limit": str(limit),
+    }
+    return [
+        {**common, "file_type": value}
+        for value in ("FILTERBANK", "filterbank", "FIL")
+    ]
+
+
 def header_record(url: str) -> dict:
     record: dict = {"url": url, "name": url.rsplit("/", 1)[-1]}
     try:
@@ -203,7 +219,8 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, default=Path("results_m13/catalog_probe.json"))
     parser.add_argument("--max-records-per-query", type=int, default=200)
-    parser.add_argument("--max-cadences-per-alias", type=int, default=10)
+    parser.add_argument("--max-cadences-per-alias", type=int, default=0)
+    parser.add_argument("--global-query-limit", type=int, default=1000)
     args = parser.parse_args()
 
     catalog_payload = fetch_json(TARGETS_API)
@@ -212,6 +229,21 @@ def main() -> None:
         for item in catalog_payload.get("data", [])
         if isinstance(item, str)
     ]
+    global_queries = []
+    for params in global_filterbank_queries(args.global_query_limit):
+        payload = fetch_json(ARCHIVE_API, params)
+        global_queries.append({
+            "params": params,
+            "api_url": payload.get("url"),
+            "status": payload.get("status"),
+            "result": payload.get("result"),
+            "message": payload.get("message"),
+            "error": payload.get("error"),
+            "records": [
+                compact_api_record(item)
+                for item in payload.get("data", [])
+            ],
+        })
     targets = []
     for target_id, requested_aliases in CANDIDATE_TARGETS.items():
         aliases = resolve_catalog_names(requested_aliases, catalog)
@@ -263,6 +295,7 @@ def main() -> None:
         "target_catalog_result": catalog_payload.get("result"),
         "target_catalog_error": catalog_payload.get("error"),
         "target_catalog_count": len(catalog),
+        "global_filterbank_queries": global_queries,
         "required_guarded_range_mhz": [1399.65, 1425.85],
         "targets": targets,
     }
