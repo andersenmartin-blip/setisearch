@@ -9,11 +9,23 @@ telescope response. The working technosignature hypothesis is a transmitter
 whose frequency is stable in the selected planet frame and whose beam is not
 necessarily aimed at Earth.
 
-Version 0.4.0 is the frozen detector used for both frequency and temporal
-confirmation. The Milestone 7 recurrence statistic, spectral filters,
-per-epoch interference mask, candidate clustering, and RFI-family flags were
-retained without tuning.
+Version 0.5.0 is the frozen detector used for new held-out validation. It
+retains the Milestone 7 recurrence statistic, spectral filters, per-epoch
+interference mask, candidate clustering, and RFI-family flags, and adds the
+Milestone 12 local-OFF and receiver-frame alias vetoes.
 
+## Milestone 14 result
+
+Milestone 14 applies detector v0.5.0 to a previously unused public GJ 687
+cadence after a successful 630-case full-bank extraction-coverage proof.
+
+Across approximately 601,293,840 nominal trials, the observed maximum is S/N
+61,308.5941 and the empirical global p-value is 1/257. The maximum is rejected
+by the frozen local-OFF veto; every other window maximum is also automatically
+vetoed. Of 85 reported clusters, 34 are below threshold, 46 receive a specific
+v0.5/OFF veto, and 5 weak 1425 MHz arithmetic-family cases remain pending
+manual review. There is no clean survivor and no null claim while those five
+cases remain unresolved.
 
 ## Milestone 13 status
 
