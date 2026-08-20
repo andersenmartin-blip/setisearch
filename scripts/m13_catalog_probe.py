@@ -32,12 +32,12 @@ CANDIDATE_TARGETS = {
     "gj_667c": ["GJ667C", "HIP84709"],
 }
 GJ411_FINE_HDF5_URLS = [
-    "http://blpd7.ssl.berkeley.edu/dl/GBT_57542_84369_GJ411_fine.h5",
-    "http://blpd7.ssl.berkeley.edu/dl/GBT_57542_84744_HIP52936_fine.h5",
-    "http://blpd7.ssl.berkeley.edu/dl/GBT_57542_85092_GJ411_fine.h5",
-    "http://blpd7.ssl.berkeley.edu/dl/GBT_57542_85446_HIP52941_fine.h5",
-    "http://blpd7.ssl.berkeley.edu/dl/GBT_57542_85812_GJ411_fine.h5",
-    "http://blpd7.ssl.berkeley.edu/dl/GBT_57542_86169_HIP53002_fine.h5",
+    "https://bldata.berkeley.edu/pipeline/AGBT16A_999_213/holding/spliced_blc0001020304050607_guppi_57542_84369_GJ411_0003.gpuspec.0000.h5",
+    "https://bldata.berkeley.edu/pipeline/AGBT16A_999_213/holding/spliced_blc0001020304050607_guppi_57542_84744_HIP52936_0004.gpuspec.0000.h5",
+    "https://bldata.berkeley.edu/pipeline/AGBT16A_999_213/holding/spliced_blc0001020304050607_guppi_57542_85092_GJ411_0005.gpuspec.0000.h5",
+    "https://bldata.berkeley.edu/pipeline/AGBT16A_999_213/holding/spliced_blc0001020304050607_guppi_57542_85446_HIP52941_0006.gpuspec.0000.h5",
+    "https://bldata.berkeley.edu/pipeline/AGBT16A_999_213/holding/spliced_blc0001020304050607_guppi_57542_85812_GJ411_0007.gpuspec.0000.h5",
+    "https://bldata.berkeley.edu/pipeline/AGBT16A_999_213/holding/spliced_blc0001020304050607_guppi_57542_86169_HIP53002_0008.gpuspec.0000.h5",
 ]
 
 
