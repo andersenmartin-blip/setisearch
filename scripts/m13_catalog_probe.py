@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from pathlib import Path
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
@@ -17,6 +18,7 @@ from seti_repeater.sigproc import remote_header
 
 
 ARCHIVE_API = "https://seti.berkeley.edu/opendata/api/query-files"
+TARGETS_API = "https://seti.berkeley.edu/opendata/api/list-targets"
 CANDIDATE_TARGETS = {
     # Query both common and Hipparcos designations.  GJ 273 and GJ 1002 are
     # deliberately absent:
@@ -44,9 +46,13 @@ def fetch_json(url: str, params: dict | None = None) -> dict:
             record["status"] = int(getattr(response, "status", response.getcode()))
             record["final_url"] = response.geturl()
         decoded = json.loads(payload.decode("utf-8"))
-        record["result"] = decoded.get("result")
-        record["message"] = decoded.get("message")
-        record["data"] = decoded.get("data", [])
+        if isinstance(decoded, list):
+            record["result"] = "success"
+            record["data"] = decoded
+        else:
+            record["result"] = decoded.get("result")
+            record["message"] = decoded.get("message")
+            record["data"] = decoded.get("data", [])
     except Exception as exc:
         record["error"] = f"{type(exc).__name__}: {exc}"
     return record
@@ -71,23 +77,31 @@ def compact_api_record(record: dict) -> dict:
     }
 
 
+def normalized_name(value: str) -> str:
+    return re.sub(r"[^a-z0-9]", "", value.lower())
+
+
+def resolve_catalog_names(requested: list[str], catalog: list[str]) -> list[str]:
+    requested_keys = {normalized_name(value) for value in requested}
+    matches = sorted({
+        value
+        for value in catalog
+        if normalized_name(value) in requested_keys
+    })
+    return matches or requested
+
+
 def target_queries(alias: str, limit: int) -> list[dict]:
     return [
         {
             "target": alias,
-            "telescopes": "GBT",
-            "file-types": "filterbank",
-            "grades": "fine",
             "limit": str(limit),
         },
         {
             "target": alias,
             "telescope": "GBT",
-            "cadence": "true",
-            "file_type": "FILTERBANK",
-            "center_freq": "1475.09765625",
-            "primaryTarget": "true",
-            "grades": "fine",
+            "cadence": "True",
+            "primaryTarget": "True",
             "limit": str(limit),
         },
     ]
@@ -192,8 +206,15 @@ def main() -> None:
     parser.add_argument("--max-cadences-per-alias", type=int, default=10)
     args = parser.parse_args()
 
+    catalog_payload = fetch_json(TARGETS_API)
+    catalog = [
+        item
+        for item in catalog_payload.get("data", [])
+        if isinstance(item, str)
+    ]
     targets = []
-    for target_id, aliases in CANDIDATE_TARGETS.items():
+    for target_id, requested_aliases in CANDIDATE_TARGETS.items():
+        aliases = resolve_catalog_names(requested_aliases, catalog)
         alias_records = []
         for alias in aliases:
             query_records = []
@@ -226,12 +247,22 @@ def main() -> None:
                 "cadence_urls_found": len(cadence_urls),
                 "cadences_inspected": inspected,
             })
-        targets.append({"target_id": target_id, "aliases": alias_records})
+        targets.append({
+            "target_id": target_id,
+            "requested_aliases": requested_aliases,
+            "catalog_matches": aliases,
+            "aliases": alias_records,
+        })
 
     result = {
         "purpose": "Milestone 13 metadata/header-only target selection",
         "spectral_payload_inspected": False,
         "archive_api": ARCHIVE_API,
+        "targets_api": TARGETS_API,
+        "target_catalog_status": catalog_payload.get("status"),
+        "target_catalog_result": catalog_payload.get("result"),
+        "target_catalog_error": catalog_payload.get("error"),
+        "target_catalog_count": len(catalog),
         "required_guarded_range_mhz": [1399.65, 1425.85],
         "targets": targets,
     }
