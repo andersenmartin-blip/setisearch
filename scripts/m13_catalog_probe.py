@@ -20,18 +20,16 @@ from seti_repeater.sigproc import remote_header
 
 ARCHIVE_ROOT = "http://blpd0.ssl.berkeley.edu/"
 CANDIDATE_ALIASES = {
-    "trappist_1": ["TRAPPIST1", "TRAPPIST-1"],
-    "toi_700": ["TOI700", "TOI-700"],
-    "k2_18": ["K2-18", "K218"],
-    "gj_667c": ["GJ667C", "GJ667"],
-    "gj_273": ["GJ273", "LUYTEN"],
-    "gj_581": ["GJ581"],
-    "ross_128": ["ROSS128"],
-    "tau_ceti": ["TAUCETI", "TAU-CETI"],
-    "teegarden": ["TEEGARDEN", "TEEGARDENSSTAR"],
-    "gj_1002": ["GJ1002"],
-    "wolf_1061": ["WOLF1061"],
-    "gj_1061": ["GJ1061"],
+    # The 2017 GBT catalogue primarily identifies these nearby planet hosts by
+    # their Hipparcos designations.  GJ 273 and GJ 1002 are deliberately absent:
+    # their published hit-summary pages were exposed while discovering the
+    # archive naming convention, so neither remains eligible for held-out use.
+    "gj_411": ["HIP54035"],
+    "gj_687": ["HIP86162"],
+    "tau_ceti": ["HIP8102"],
+    "ross_128": ["HIP57548"],
+    "gj_581": ["HIP74995"],
+    "gj_667c": ["HIP84709"],
 }
 HREF_PATTERN = re.compile(r'href=["\']([^"\']+)', re.IGNORECASE)
 
