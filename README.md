@@ -23,9 +23,10 @@ Across approximately 601,293,840 nominal trials, the observed maximum is S/N
 61,308.5941 and the empirical global p-value is 1/257. The maximum is rejected
 by the frozen local-OFF veto; every other window maximum is also automatically
 vetoed. Of 85 reported clusters, 34 are below threshold, 46 receive a specific
-v0.5/OFF veto, and 5 weak 1425 MHz arithmetic-family cases remain pending
-manual review. There is no clean survivor and no null claim while those five
-cases remain unresolved.
+v0.5/OFF veto, and 5 weak 1425 MHz arithmetic-family cases were referred to
+the fixed post-hoc review. That review classifies two as RFI or instrumental
+from adjacent-OFF evidence and leaves three unresolved pending an independent
+cadence. There is no clean survivor and no technosignature claim.
 
 ## Milestone 13 status
 
@@ -203,6 +204,13 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Limits
 
+- Milestone 14 covers one cadence and five 1 MHz windows, not the full receiver
+  band or an independent observing epoch.
+- The three unresolved Milestone 14 clusters are follow-up targets, not
+  detections; their present evidence cannot establish persistence, sky
+  localization, or an interference-free origin.
+- Arithmetic-frequency-family and widest-boxcar flags are triage evidence, not
+  physical vetoes.
 - Milestone 11 covers one 28-minute ABACAD cadence, not independent
   observing nights.
 - Milestone 11 contains strong structured ON and OFF features. Its minimum
@@ -239,6 +247,14 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Key files
 
+- `MILESTONE_14_PREREGISTRATION.md` — frozen GJ 687 held-out design.
+- `MILESTONE_14_REPORT.md` — held-out result and scientific interpretation.
+- `MILESTONE_14_CANDIDATE_INVESTIGATION_PLAN.md` — fixed post-hoc protocol.
+- `MILESTONE_14_CANDIDATE_INVESTIGATION.md` — five-case disposition record.
+- `results_m14_candidate_investigation/candidate_investigation.json` —
+  machine-readable morphology and ON/OFF evidence.
+- `RESULTS_MANIFEST_M14_CANDIDATE_INVESTIGATION.sha256` — investigation
+  output checksums.
 - `MILESTONE_11_PREREGISTRATION.md` — frozen LHS 1140 transfer design.
 - `config/lhs1140b_new_target_m11.json` — target, cadence, orbit, and bands.
 - `DATA_MANIFEST_M11.sha256` — checksums for all 30 reproducible extracts.
