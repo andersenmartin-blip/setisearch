@@ -31,6 +31,14 @@ CANDIDATE_TARGETS = {
     "gj_581": ["GJ581", "HIP74995"],
     "gj_667c": ["GJ667C", "HIP84709"],
 }
+GJ411_FINE_HDF5_URLS = [
+    "http://blpd7.ssl.berkeley.edu/dl/GBT_57542_84369_GJ411_fine.h5",
+    "http://blpd7.ssl.berkeley.edu/dl/GBT_57542_84744_HIP52936_fine.h5",
+    "http://blpd7.ssl.berkeley.edu/dl/GBT_57542_85092_GJ411_fine.h5",
+    "http://blpd7.ssl.berkeley.edu/dl/GBT_57542_85446_HIP52941_fine.h5",
+    "http://blpd7.ssl.berkeley.edu/dl/GBT_57542_85812_GJ411_fine.h5",
+    "http://blpd7.ssl.berkeley.edu/dl/GBT_57542_86169_HIP53002_fine.h5",
+]
 
 
 def fetch_json(url: str, params: dict | None = None) -> dict:
@@ -121,6 +129,92 @@ def global_filterbank_queries(limit: int) -> list[dict]:
         {**common, "file_type": value}
         for value in ("FILTERBANK", "filterbank", "FIL")
     ]
+
+
+def json_value(value):
+    if hasattr(value, "tolist"):
+        value = value.tolist()
+    if isinstance(value, bytes):
+        return value.decode("utf-8", errors="replace")
+    if isinstance(value, list):
+        return [json_value(item) for item in value]
+    if isinstance(value, tuple):
+        return [json_value(item) for item in value]
+    if isinstance(value, (str, int, float, bool)) or value is None:
+        return value
+    return str(value)
+
+
+def hdf5_header_record(url: str) -> dict:
+    record: dict = {"url": url, "spectral_dataset_values_read": False}
+    try:
+        import fsspec
+        import h5py
+
+        request = Request(
+            url,
+            method="HEAD",
+            headers={"User-Agent": "setisearch-m13-metadata/1.0"},
+        )
+        with urlopen(request, timeout=60) as response:
+            record["http_status"] = int(
+                getattr(response, "status", response.getcode())
+            )
+            record["remote_size_bytes"] = int(response.headers["Content-Length"])
+            record["accept_ranges"] = response.headers.get("Accept-Ranges")
+            record["etag"] = response.headers.get("ETag")
+
+        with fsspec.open(
+            url,
+            mode="rb",
+            block_size=1_048_576,
+            cache_type="blockcache",
+        ) as remote:
+            with h5py.File(remote, "r") as handle:
+                dataset = handle["data"]
+                root_attrs = {
+                    key: json_value(value)
+                    for key, value in handle.attrs.items()
+                }
+                data_attrs = {
+                    key: json_value(value)
+                    for key, value in dataset.attrs.items()
+                }
+                record.update({
+                    "root_attributes": root_attrs,
+                    "data_attributes": data_attrs,
+                    "dataset_shape": [int(value) for value in dataset.shape],
+                    "dataset_dtype": str(dataset.dtype),
+                    "dataset_chunks": (
+                        [int(value) for value in dataset.chunks]
+                        if dataset.chunks else None
+                    ),
+                    "dataset_compression": dataset.compression,
+                })
+                attrs = {**root_attrs, **data_attrs}
+                fch1 = float(attrs["fch1"])
+                foff = float(attrs["foff"])
+                nchans = int(dataset.shape[-1])
+                end_mhz = fch1 + (nchans - 1) * foff
+                low_mhz, high_mhz = sorted((fch1, end_mhz))
+                record.update({
+                    "source_name": attrs.get("source_name"),
+                    "tstart_mjd": float(attrs["tstart"]),
+                    "tsamp_s": float(attrs["tsamp"]),
+                    "nchans": nchans,
+                    "fch1_mhz": fch1,
+                    "foff_mhz": foff,
+                    "frequency_low_mhz": low_mhz,
+                    "frequency_high_mhz": high_mhz,
+                    "ntime": int(dataset.shape[0]),
+                    "duration_s": float(dataset.shape[0] * float(attrs["tsamp"])),
+                    "covers_required_guarded_range": bool(
+                        low_mhz <= 1399.65 and high_mhz >= 1425.85
+                    ),
+                })
+    except Exception as exc:
+        record["error"] = f"{type(exc).__name__}: {exc}"
+    return record
 
 
 def header_record(url: str) -> dict:
@@ -220,7 +314,7 @@ def main() -> None:
     parser.add_argument("--output", type=Path, default=Path("results_m13/catalog_probe.json"))
     parser.add_argument("--max-records-per-query", type=int, default=200)
     parser.add_argument("--max-cadences-per-alias", type=int, default=0)
-    parser.add_argument("--global-query-limit", type=int, default=1000)
+    parser.add_argument("--global-query-limit", type=int, default=0)
     args = parser.parse_args()
 
     catalog_payload = fetch_json(TARGETS_API)
@@ -230,7 +324,10 @@ def main() -> None:
         if isinstance(item, str)
     ]
     global_queries = []
-    for params in global_filterbank_queries(args.global_query_limit):
+    for params in (
+        global_filterbank_queries(args.global_query_limit)
+        if args.global_query_limit > 0 else []
+    ):
         payload = fetch_json(ARCHIVE_API, params)
         global_queries.append({
             "params": params,
@@ -296,6 +393,10 @@ def main() -> None:
         "target_catalog_error": catalog_payload.get("error"),
         "target_catalog_count": len(catalog),
         "global_filterbank_queries": global_queries,
+        "gj411_fine_hdf5_header_probe": [
+            hdf5_header_record(url)
+            for url in GJ411_FINE_HDF5_URLS
+        ],
         "required_guarded_range_mhz": [1399.65, 1425.85],
         "targets": targets,
     }
