@@ -1,0 +1,66 @@
+name: Milestone 14 candidate morphology investigation
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - ".github/workflows/m14_candidate_investigation.yml"
+      - "scripts/m11_candidate_investigation.py"
+      - "MILESTONE_14_CANDIDATE_INVESTIGATION_PLAN.md"
+      - "m14-investigation-trigger.md"
+
+permissions:
+  contents: read
+
+jobs:
+  investigate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      MPLCONFIGDIR: /tmp/matplotlib
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install frozen detector and HDF5 adapter dependencies
+        run: |
+          python -m pip install -e . \
+            'h5py>=3.11,<4' \
+            'fsspec[http]>=2024.6,<2027' \
+            'hdf5plugin>=4.4,<7'
+
+      - name: Confirm detector tests remain green
+        run: python -m unittest discover -s tests -v
+
+      - name: Run labelled post-hoc morphology checks
+        run: |
+          python scripts/m11_candidate_investigation.py \
+            --config config/gj687b_heldout_m14.json \
+            --summary results_m14/search_summary.json \
+            --data-dir data_m14_posthoc \
+            --output-dir results_m14_candidate_investigation \
+            --extract \
+            --candidate-disposition rfi_family_veto_pending_manual_review \
+            --expected-candidates 5 \
+            --skip-archive-probe
+
+      - name: Hash investigation outputs
+        run: |
+          find results_m14_candidate_investigation -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M14_CANDIDATE_INVESTIGATION.sha256
+
+      - name: Upload investigation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-14-candidate-investigation
+          if-no-files-found: warn
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M14_CANDIDATE_INVESTIGATION.sha256
+            results_m14_candidate_investigation/
