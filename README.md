@@ -25,14 +25,11 @@ by the frozen local-OFF veto; every other window maximum is also automatically
 vetoed. Of 85 reported clusters, 34 are below threshold, 46 receive a specific
 v0.5/OFF veto, and 5 weak 1425 MHz arithmetic-family cases were referred to
 the fixed post-hoc review. That review classifies two as RFI or instrumental
-from adjacent-OFF evidence and leaves three unresolved pending an independent
-cadence. There is no clean survivor and no technosignature claim.
-
-A metadata-only archive enumeration found one additional L-band data set from
-2016-07-15, seven days earlier, but only an incomplete A-B-A-D fine-product
-sequence survives. A targeted three-frequency follow-up plan is frozen before
-opening that independent spectral payload; it cannot substitute for a complete
-ABACAD confirmation.
+from adjacent-OFF evidence. The other three were then tested in the only
+additional public L-band GJ 687 data set, an incomplete A-B-A-D sequence from
+2016-07-15, seven days earlier. None reached the fixed S/N 3 recurrence floor
+in either independent ON scan. There is no surviving candidate and no
+technosignature claim.
 
 ## Milestone 13 status
 
@@ -212,9 +209,9 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 - Milestone 14 covers one cadence and five 1 MHz windows, not the full receiver
   band or an independent observing epoch.
-- The three unresolved Milestone 14 clusters are follow-up targets, not
-  detections; their present evidence cannot establish persistence, sky
-  localization, or an interference-free origin.
+- The partial independent Milestone 14 cadence contains only two target scans
+  and is not a complete ABACAD observation. Non-redetection does not exclude an
+  intermittent signal that was inactive on 2016-07-15.
 - Arithmetic-frequency-family and widest-boxcar flags are triage evidence, not
   physical vetoes.
 - Milestone 11 covers one 28-minute ABACAD cadence, not independent
@@ -259,7 +256,9 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 - `MILESTONE_14_CANDIDATE_INVESTIGATION.md` — five-case disposition record.
 - `MILESTONE_14_INDEPENDENT_CADENCE_METADATA.md` — complete GJ 687 cadence inventory.
 - `MILESTONE_14_INDEPENDENT_CADENCE_PLAN.md` — frozen partial-cadence follow-up rules.
+- `MILESTONE_14_INDEPENDENT_CADENCE_RESULT.md` — three-candidate non-redetection record.
 - `config/gj687b_m14_partial_independent_followup.json` — four-scan identities and geometry.
+- `results_m14_independent_followup/independent_followup.json` — machine-readable follow-up evidence.
 - `results_m14_candidate_investigation/candidate_investigation.json` —
   machine-readable morphology and ON/OFF evidence.
 - `RESULTS_MANIFEST_M14_CANDIDATE_INVESTIGATION.sha256` — investigation
