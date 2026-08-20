@@ -1,0 +1,76 @@
+{
+  "milestone": 14,
+  "created_utc": "2026-08-20T16:26:07Z",
+  "purpose": "Held-out target selection and full-bank geometry evidence before spectral extraction",
+  "spectral_payload_inspected": false,
+  "frozen_config_sha256": "8b996ffef7166056bd089b58ea317668c7692294324347118a3e39b462ed5df7",
+  "selected_target": {
+    "target": "GJ 687",
+    "planet_template": "GJ 687 b",
+    "archive_target": "GJ687",
+    "cadence_url": "http://seti.berkeley.edu/opendata/api/get-cadence/--75045",
+    "telescope": "Green Bank Telescope",
+    "band": "L",
+    "session_date_utc": "2016-07-22",
+    "sequence": ["Gj687", "Hip85098", "Gj687", "Hip85417", "Gj687", "Hip85612"]
+  },
+  "non_reuse_and_exclusions": {
+    "previous_project_targets": ["Proxima Centauri", "LHS 1140"],
+    "aborted_after_spectral_contact": ["GJ 411"],
+    "excluded_after_result_page_exposure": ["GJ 273", "GJ 1002"]
+  },
+  "archive_evidence": {
+    "workflow_run": 32391250698,
+    "artifact_id": 9414921943,
+    "artifact_digest": "sha256:16e43269b7fceed1f7a88cd28613d6124a6bb1260ae413c3b888502f54eb3adf",
+    "all_http_status_200": true,
+    "all_accept_ranges_bytes": true,
+    "all_headers_error_free": true,
+    "all_cover_required_frequency_range": true,
+    "common_geometry": {
+      "dataset_shape": [16, 1, 322961408],
+      "dataset_dtype": "float32",
+      "dataset_chunks": [1, 1, 1048576],
+      "tsamp_s": 18.253611008,
+      "duration_s": 292.057776128,
+      "fch1_mhz": 1926.26953125,
+      "foff_mhz": -0.0000027939677238464355,
+      "channel_width_hz": 2.7939677238464355,
+      "frequency_low_mhz": 1023.9257840439677,
+      "frequency_high_mhz": 1926.26953125
+    }
+  },
+  "coverage_preflight": {
+    "workflow_run": 32391826661,
+    "artifact_id": 9415134758,
+    "artifact_digest": "sha256:e6f5c75da5737d1c729472be224b71bdd6e0aeec61c803ff625d48f31cda8726",
+    "spectral_payload_inspected": false,
+    "remote_files_opened": false,
+    "templates": 21,
+    "scans": 6,
+    "windows": 5,
+    "checks": 630,
+    "passed": true,
+    "minimum_headroom_channels": 142496,
+    "minimum_headroom_approx_khz": 398.201
+  },
+  "target_and_orbit_evidence": {
+    "source": "NASA Exoplanet Archive TAP service",
+    "selected_planet_record": {
+      "pl_name": "GJ 687 b",
+      "pl_orbper_days": 38.142,
+      "pl_orbsmax_au": 0.163,
+      "pl_orbeccen": 0.17,
+      "pl_orbtper_bjd": 2450592.7,
+      "pl_orblper_deg": 117.0
+    },
+    "host_record": {
+      "ra_deg": 264.1041731,
+      "dec_deg": 68.3336741,
+      "pm_ra_cosdec_mas_yr": -320.636,
+      "pm_dec_mas_yr": -1269.53,
+      "parallax_mas": 219.781,
+      "radial_velocity_km_s": -28.8
+    }
+  }
+}
