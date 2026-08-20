@@ -404,3 +404,5 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+# Temporary pull-request run marker; never merged.
