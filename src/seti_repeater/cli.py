@@ -14,8 +14,9 @@ import numpy as np
 
 from . import __version__
 from .candidates import (
-    apply_candidate_flags, build_single_epoch_rfi_mask, cluster_peaks, collect_hypothesis_peaks,
-    detect_arithmetic_frequency_families,
+    annotate_local_off_vetoes, annotate_receiver_frame_aliases,
+    apply_candidate_flags, build_single_epoch_rfi_mask, cluster_peaks,
+    collect_hypothesis_peaks, detect_arithmetic_frequency_families,
 )
 from .dedoppler import dedoppler_shifts
 from .diagnostics import acceleration_smearing, leakage_summary, smearing_table
@@ -440,6 +441,7 @@ def command_search(args: argparse.Namespace) -> None:
     completeness_window = config["search"]["completeness"]["background_window"]
     reporting = config["search"].get("candidate_reporting")
     rfi_excision = config["search"].get("rfi_excision")
+    candidate_veto_v0p5 = config["search"].get("candidate_veto_v0p5")
 
     for window in config["windows"]:
         window_id = window["id"]
@@ -511,6 +513,21 @@ def command_search(args: argparse.Namespace) -> None:
                     off_spectral, cluster["best_hypothesis"],
                     minimum_active_epoch_snr, stack_statistic,
                 )
+            if candidate_veto_v0p5:
+                annotate_local_off_vetoes(
+                    retained_clusters, off_spectral, rest_grid, templates, subsets,
+                    spectral_widths,
+                    candidate_veto_v0p5["local_off_tolerance_hz"],
+                    candidate_veto_v0p5["single_epoch_snr_floor"],
+                    minimum_active_epoch_snr, stack_statistic,
+                )
+                annotate_receiver_frame_aliases(
+                    retained_clusters, scans_by_kind["on"], config,
+                    candidate_veto_v0p5["receiver_local_half_width_hz"],
+                    candidate_veto_v0p5["receiver_alias_tolerance_hz"],
+                    candidate_veto_v0p5["receiver_alias_minimum_shared_epochs"],
+                    candidate_veto_v0p5["single_epoch_snr_floor"],
+                )
             families = detect_arithmetic_frequency_families(
                 retained_clusters,
                 reporting["family_spacing_tolerance_hz"],
@@ -522,6 +539,7 @@ def command_search(args: argparse.Namespace) -> None:
                 "reported_cluster_count": len(retained_clusters),
                 "clusters": retained_clusters,
                 "arithmetic_frequency_families": families,
+                "candidate_veto_v0p5": candidate_veto_v0p5,
             }
         on_banks[window_id] = on_spectral
         if on_mask is not None:
@@ -656,6 +674,7 @@ def command_search(args: argparse.Namespace) -> None:
             "minimum_active_epoch_snr": minimum_active_epoch_snr,
             "stack_statistic": stack_statistic,
             "single_epoch_rfi_excision": rfi_excision,
+            "candidate_veto_v0p5": candidate_veto_v0p5,
             "scrambles": n_scrambles,
             "approx_nominal_trials": int(sum(
                 len(spectral_widths) * len(templates) * len(subsets) * product["rest_bins"]

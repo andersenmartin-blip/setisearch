@@ -1,0 +1,44 @@
+name: Milestone 12 detector validation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/seti_repeater/**"
+      - "tests/**"
+      - "scripts/m12_detector_validation.py"
+      - ".github/workflows/m12_detector_validation.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Run regression and v0.5 unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Validate labelled M11 development set
+        run: >-
+          python scripts/m12_detector_validation.py
+          --extract
+          --workers 12
+          --output results_m12/development_validation.json
+      - name: Upload development validation
+        uses: actions/upload-artifact@v4
+        with:
+          name: m12-development-validation
+          path: results_m12/development_validation.json
+          if-no-files-found: error
+          retention-days: 7
