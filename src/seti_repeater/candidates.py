@@ -466,7 +466,8 @@ def apply_candidate_flags(
         flags = []
         if cluster["max_snr"] < operational_threshold:
             flags.append("below_global_threshold")
-        if cluster.get("off_at_best_hypothesis_snr", -np.inf) >= operational_threshold:
+        off_at_best = cluster.get("off_at_best_hypothesis_snr")
+        if off_at_best is not None and off_at_best >= operational_threshold:
             flags.append("off_source_coincidence")
         v0p5_off = cluster.get("v0p5_off_diagnostics")
         if v0p5_off:
