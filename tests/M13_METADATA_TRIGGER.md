@@ -2,4 +2,4 @@
 
 Temporary branch-only marker. No spectral payload is inspected and this file will not be merged.
 
-Probe revision: catalog-resolved target names and cadence metadata.
+Probe revision: global preserved GBT L-band filterbank cadences.
