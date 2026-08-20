@@ -223,8 +223,6 @@ def add_coincidences(candidate: dict) -> None:
         reasons.append("adjacent_OFF_peak_within_20_Hz")
     if any(item["off_candidate_track_snr_ge_5p5"] for item in coincidences):
         reasons.append("adjacent_OFF_same_candidate_track_SNR_ge_5p5")
-    if near_integer_mhz_hz <= 1000.0:
-        reasons.append("within_1_kHz_of_integer_MHz_boundary")
     if int(best["spectral_width_channels"]) == 9:
         reasons.append("selected_widest_frozen_boxcar")
     candidate["integer_mhz_distance_hz"] = float(near_integer_mhz_hz)
@@ -262,7 +260,6 @@ def add_cross_candidate_aliases(candidates: list[dict]) -> None:
         rfi_reasons = {
             "adjacent_OFF_peak_within_20_Hz",
             "adjacent_OFF_same_candidate_track_SNR_ge_5p5",
-            "within_1_kHz_of_integer_MHz_boundary",
             "different_planet_templates_map_to_same_receiver_feature",
         }
         if rfi_reasons.intersection(reasons):
