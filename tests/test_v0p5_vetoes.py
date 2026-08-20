@@ -126,6 +126,12 @@ class V0p5VetoTests(unittest.TestCase):
         self.assertEqual(cluster["flags"], [])
         self.assertEqual(cluster["disposition"], "survives_for_followup")
 
+    def test_rehydrated_null_off_score_is_not_a_veto(self):
+        cluster = candidate()
+        cluster["off_at_best_hypothesis_snr"] = None
+        apply_candidate_flags([cluster], [], 8.0, 8)
+        self.assertEqual(cluster["disposition"], "survives_for_followup")
+
 
 if __name__ == "__main__":
     unittest.main()
