@@ -1,61 +1,96 @@
 #!/usr/bin/env python3
 """Metadata-only probe for a new Milestone 13 Breakthrough Listen cadence.
 
-This script reads directory indexes, HTTP metadata, and SIGPROC headers only.
+This script reads the public catalogue API, HTTP metadata, and SIGPROC headers only.
 It never requests bytes from the spectral payload beyond the header prefix.
 """
 
 from __future__ import annotations
 
 import argparse
-import html
 import json
-import re
 from pathlib import Path
-from urllib.parse import urljoin
+from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
 from seti_repeater.sigproc import remote_header
 
 
-ARCHIVE_ROOT = "http://blpd0.ssl.berkeley.edu/"
-CANDIDATE_ALIASES = {
-    # The 2017 GBT catalogue primarily identifies these nearby planet hosts by
-    # their Hipparcos designations.  GJ 273 and GJ 1002 are deliberately absent:
+ARCHIVE_API = "https://seti.berkeley.edu/opendata/api/query-files"
+CANDIDATE_TARGETS = {
+    # Query both common and Hipparcos designations.  GJ 273 and GJ 1002 are
+    # deliberately absent:
     # their published hit-summary pages were exposed while discovering the
     # archive naming convention, so neither remains eligible for held-out use.
-    "gj_411": ["HIP54035"],
-    "gj_687": ["HIP86162"],
-    "tau_ceti": ["HIP8102"],
-    "ross_128": ["HIP57548"],
-    "gj_581": ["HIP74995"],
-    "gj_667c": ["HIP84709"],
+    "gj_411": ["GJ411", "HIP54035"],
+    "gj_687": ["GJ687", "HIP86162"],
+    "tau_ceti": ["TAUCETI", "HIP8102"],
+    "ross_128": ["ROSS128", "HIP57548"],
+    "gj_581": ["GJ581", "HIP74995"],
+    "gj_667c": ["GJ667C", "HIP84709"],
 }
-HREF_PATTERN = re.compile(r'href=["\']([^"\']+)', re.IGNORECASE)
 
 
-def fetch_index(url: str) -> dict:
-    record: dict = {"url": url}
+def fetch_json(url: str, params: dict | None = None) -> dict:
+    request_url = url if not params else f"{url}?{urlencode(params)}"
+    record: dict = {"url": request_url}
     try:
-        request = Request(url, headers={"User-Agent": "setisearch-m13-metadata/1.0"})
+        request = Request(
+            request_url,
+            headers={"User-Agent": "setisearch-m13-metadata/1.0"},
+        )
         with urlopen(request, timeout=60) as response:
-            payload = response.read(10_000_000)
+            payload = response.read(25_000_000)
             record["status"] = int(getattr(response, "status", response.getcode()))
             record["final_url"] = response.geturl()
-        text = payload.decode("utf-8", errors="replace")
-        record["hrefs"] = [html.unescape(value) for value in HREF_PATTERN.findall(text)]
+        decoded = json.loads(payload.decode("utf-8"))
+        record["result"] = decoded.get("result")
+        record["message"] = decoded.get("message")
+        record["data"] = decoded.get("data", [])
     except Exception as exc:
         record["error"] = f"{type(exc).__name__}: {exc}"
     return record
 
 
-def standard_filterbanks(index: dict) -> list[str]:
-    files = []
-    for href in index.get("hrefs", []):
-        name = href.rsplit("/", 1)[-1]
-        if name.lower().endswith(".gpuspec.0000.fil"):
-            files.append(urljoin(index["final_url"], href))
-    return sorted(set(files))
+def compact_api_record(record: dict) -> dict:
+    return {
+        key: record.get(key)
+        for key in (
+            "id",
+            "target",
+            "telescope",
+            "utc",
+            "mjd",
+            "center_freq",
+            "file_type",
+            "quality",
+            "size",
+            "url",
+            "cadence_url",
+        )
+    }
+
+
+def target_queries(alias: str, limit: int) -> list[dict]:
+    return [
+        {
+            "target": alias,
+            "telescopes": "GBT",
+            "file-types": "filterbank",
+            "grades": "fine",
+            "limit": str(limit),
+        },
+        {
+            "target": alias,
+            "telescope": "GBT",
+            "cadence": "true",
+            "file_type": "FILTERBANK",
+            "center_freq": "1475.09765625",
+            "primaryTarget": "true",
+            "grades": "fine",
+            "limit": str(limit),
+        },
+    ]
 
 
 def header_record(url: str) -> dict:
@@ -86,6 +121,28 @@ def header_record(url: str) -> dict:
     except Exception as exc:
         record["error"] = f"{type(exc).__name__}: {exc}"
     return record
+
+
+def inspect_cadence(cadence_url: str) -> dict:
+    payload = fetch_json(cadence_url)
+    rows = [compact_api_record(item) for item in payload.get("data", [])]
+    urls = sorted({
+        item["url"]
+        for item in rows
+        if isinstance(item.get("url"), str)
+        and item["url"].lower().endswith(".fil")
+    })
+    headers = [header_record(url) for url in urls]
+    return {
+        "cadence_url": cadence_url,
+        "api_status": payload.get("status"),
+        "api_result": payload.get("result"),
+        "api_error": payload.get("error"),
+        "records": rows,
+        "filterbank_urls": urls,
+        "headers": headers,
+        "qualifying_abacad_cadences": find_abacad(headers),
+    }
 
 
 def find_abacad(headers: list[dict]) -> list[dict]:
@@ -131,34 +188,51 @@ def find_abacad(headers: list[dict]) -> list[dict]:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, default=Path("results_m13/catalog_probe.json"))
-    parser.add_argument("--max-files-per-alias", type=int, default=60)
+    parser.add_argument("--max-records-per-query", type=int, default=200)
+    parser.add_argument("--max-cadences-per-alias", type=int, default=10)
     args = parser.parse_args()
 
-    top_level = fetch_index(ARCHIVE_ROOT)
     targets = []
-    for target_id, aliases in CANDIDATE_ALIASES.items():
+    for target_id, aliases in CANDIDATE_TARGETS.items():
         alias_records = []
         for alias in aliases:
-            root_index = fetch_index(urljoin(ARCHIVE_ROOT, alias + "/"))
-            band_index = fetch_index(urljoin(ARCHIVE_ROOT, alias + "/L/"))
-            urls = standard_filterbanks(band_index)[:args.max_files_per_alias]
-            headers = [header_record(url) for url in urls]
+            query_records = []
+            cadence_urls = set()
+            for params in target_queries(alias, args.max_records_per_query):
+                payload = fetch_json(ARCHIVE_API, params)
+                rows = [compact_api_record(item) for item in payload.get("data", [])]
+                query_records.append({
+                    "params": params,
+                    "api_url": payload.get("url"),
+                    "status": payload.get("status"),
+                    "result": payload.get("result"),
+                    "message": payload.get("message"),
+                    "error": payload.get("error"),
+                    "records": rows,
+                })
+                cadence_urls.update(
+                    item["cadence_url"]
+                    for item in rows
+                    if isinstance(item.get("cadence_url"), str)
+                    and item["cadence_url"]
+                )
+            inspected = [
+                inspect_cadence(url)
+                for url in sorted(cadence_urls)[:args.max_cadences_per_alias]
+            ]
             alias_records.append({
                 "alias": alias,
-                "root_index": root_index,
-                "l_band_index": band_index,
-                "standard_filterbank_count": len(urls),
-                "headers": headers,
-                "qualifying_abacad_cadences": find_abacad(headers),
+                "queries": query_records,
+                "cadence_urls_found": len(cadence_urls),
+                "cadences_inspected": inspected,
             })
         targets.append({"target_id": target_id, "aliases": alias_records})
 
     result = {
         "purpose": "Milestone 13 metadata/header-only target selection",
         "spectral_payload_inspected": False,
-        "archive_root": ARCHIVE_ROOT,
+        "archive_api": ARCHIVE_API,
         "required_guarded_range_mhz": [1399.65, 1425.85],
-        "top_level_index": top_level,
         "targets": targets,
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -169,9 +243,20 @@ def main() -> None:
             "aliases": [
                 {
                     "alias": alias["alias"],
-                    "files": alias["standard_filterbank_count"],
-                    "cadences": len(alias["qualifying_abacad_cadences"]),
-                    "error": alias["l_band_index"].get("error"),
+                    "query_records": [
+                        len(query["records"])
+                        for query in alias["queries"]
+                    ],
+                    "cadence_urls": alias["cadence_urls_found"],
+                    "qualifying_cadences": sum(
+                        len(cadence["qualifying_abacad_cadences"])
+                        for cadence in alias["cadences_inspected"]
+                    ),
+                    "errors": [
+                        query["error"]
+                        for query in alias["queries"]
+                        if query.get("error")
+                    ],
                 }
                 for alias in item["aliases"]
             ],
