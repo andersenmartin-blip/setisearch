@@ -8,6 +8,13 @@ on:
       - "tests/**"
       - "scripts/m12_detector_validation.py"
       - ".github/workflows/m12_detector_validation.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "src/seti_repeater/**"
+      - "tests/**"
+      - "scripts/m12_detector_validation.py"
+      - ".github/workflows/m12_detector_validation.yml"
   workflow_dispatch:
 
 permissions:
