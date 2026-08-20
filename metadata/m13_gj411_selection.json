@@ -1,0 +1,109 @@
+{
+  "milestone": 13,
+  "created_utc": "2026-08-20T15:55:47Z",
+  "purpose": "Held-out target selection and geometry evidence before spectral extraction",
+  "spectral_payload_inspected": false,
+  "selected_target": {
+    "target": "GJ 411",
+    "planet_template": "GJ 411 b",
+    "archive_target": "GJ411",
+    "cadence_url": "http://seti.berkeley.edu/opendata/api/get-cadence/--72283",
+    "telescope": "Green Bank Telescope",
+    "band": "L",
+    "session_date_utc": "2016-06-03",
+    "sequence": ["GJ411", "HIP52936", "GJ411", "HIP52941", "GJ411", "HIP53002"],
+    "selection_reason": "Nearest eligible confirmed-planet host in the preregistered metadata screen with a complete public ABACAD cadence, identical fine-resolution geometry, full five-window coverage, and byte-range-accessible current products."
+  },
+  "non_reuse_and_exclusions": {
+    "previous_project_targets": ["Proxima Centauri", "LHS 1140"],
+    "excluded_after_result_page_exposure_during_archive_discovery": ["GJ 273", "GJ 1002"],
+    "rule": "An excluded or previously used target cannot be selected for the Milestone 13 held-out test."
+  },
+  "archive_evidence": {
+    "catalog_api": "https://seti.berkeley.edu/opendata/api/query-files",
+    "target_catalog_api": "https://seti.berkeley.edu/opendata/api/list-targets",
+    "metadata_workflow_run": 32388221712,
+    "metadata_artifact_id": 9413799668,
+    "metadata_artifact_digest": "sha256:b0efc590048b0af4a11fd1c6177a2c5d07a80a331c23cabfbd979d1a7531e849",
+    "all_http_status_200": true,
+    "all_accept_ranges_bytes": true,
+    "all_headers_error_free": true,
+    "all_cover_required_guarded_range": true,
+    "required_guarded_range_mhz": [1399.65, 1425.85],
+    "common_geometry": {
+      "dataset_shape": [16, 1, 318230528],
+      "dataset_dtype": "float32",
+      "dataset_chunks": [1, 1, 1048576],
+      "tsamp_s": 17.986224128,
+      "duration_s": 287.779586048,
+      "fch1_mhz": 1926.26953125,
+      "foff_mhz": -0.000002835503418452676,
+      "channel_width_hz": 2.835503418452676,
+      "frequency_low_mhz": 1023.9257840855033,
+      "frequency_high_mhz": 1926.26953125
+    },
+    "scans": [
+      {
+        "source_name": "GJ411",
+        "tstart_mjd": 57542.976493055554,
+        "remote_size_bytes": 15299523705,
+        "etag": "\"5aba6fd3-38fec3479\""
+      },
+      {
+        "source_name": "HIP52936",
+        "tstart_mjd": 57542.980833333335,
+        "remote_size_bytes": 15286862330,
+        "etag": "\"5aba70d3-38f2b01fa\""
+      },
+      {
+        "source_name": "GJ411",
+        "tstart_mjd": 57542.98486111111,
+        "remote_size_bytes": 15293249775,
+        "etag": "\"5aba71de-38f8c78ef\""
+      },
+      {
+        "source_name": "HIP52941",
+        "tstart_mjd": 57542.988958333335,
+        "remote_size_bytes": 15292095076,
+        "etag": "\"5aba72f4-38f7ada64\""
+      },
+      {
+        "source_name": "GJ411",
+        "tstart_mjd": 57542.99319444445,
+        "remote_size_bytes": 15292265526,
+        "etag": "\"5aba73ee-38f7d7436\""
+      },
+      {
+        "source_name": "HIP53002",
+        "tstart_mjd": 57542.99732638889,
+        "remote_size_bytes": 15295626931,
+        "etag": "\"5aba74ed-38fb0beb3\""
+      }
+    ]
+  },
+  "target_and_orbit_evidence": {
+    "source": "NASA Exoplanet Archive TAP service",
+    "tap_url": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync",
+    "metadata_workflow_run": 32388560852,
+    "metadata_artifact_id": 9413934784,
+    "metadata_artifact_digest": "sha256:f63db4b1b36373e3614ecdc70ce2e5363f52e280cd88c828aa820e8b55ac9880",
+    "planetary_systems_default_records": ["HD 95735 c", "GJ 411 b"],
+    "selected_planet_record": {
+      "pl_name": "GJ 411 b",
+      "pl_orbper_days": 12.9394,
+      "pl_orbsmax_au": 0.07879,
+      "pl_orbeccen": 0.063,
+      "pl_orbtper_bjd": 2456307.8,
+      "pl_orblper_deg": -30.0,
+      "reference": "Hurt et al. 2022"
+    },
+    "host_record": {
+      "ra_deg": 165.834471,
+      "dec_deg": 35.972317,
+      "pm_ra_cosdec_mas_yr": -580.0,
+      "pm_dec_mas_yr": -4767.0,
+      "parallax_mas": 392.4,
+      "radial_velocity_km_s": -84.64566
+    }
+  }
+}
