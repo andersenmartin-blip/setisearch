@@ -14,6 +14,19 @@ confirmation. The Milestone 7 recurrence statistic, spectral filters,
 per-epoch interference mask, candidate clustering, and RFI-family flags were
 retained without tuning.
 
+
+## Milestone 13 status
+
+Milestone 13 preregistered the first independent detector-v0.5.0 application
+to a public GJ 411 cadence. All detector tests passed and all 30 configured
+HDF5 slices were extracted and hashed, but the search stopped fail-closed
+before any window completed: the frozen 350 kHz extraction guard did not cover
+the full rest grid for the extreme `scale=1.0`, `phase=-0.2` template.
+
+No candidate statistic, empirical p-value, or completeness result was
+produced. The milestone is recorded as a technical abort, not a null search;
+the frozen extraction range will not be widened after spectral contact.
+
 ## Milestone 11 result
 
 Milestone 11 transfers the unchanged v0.4.0 detector to the complete public
