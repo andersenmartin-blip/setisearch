@@ -1,0 +1,61 @@
+name: Milestone 14 metadata and header preflight
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - ".github/workflows/m14_metadata_preflight.yml"
+      - "scripts/m13_catalog_probe.py"
+      - "m14-metadata-trigger.md"
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install metadata-only dependencies
+        run: |
+          python -m pip install -e . h5py 'fsspec[http]'
+
+      - name: Probe GJ 687 catalogue, cadences, HDF5 headers, and orbit metadata
+        run: |
+          python scripts/m13_catalog_probe.py \
+            --output results_m14/gj687_metadata_preflight.json \
+            --target-id gj_687 \
+            --nasa-host 'GJ 687' \
+            --max-cadences-per-alias 3 \
+            --probe-cadence-hdf5-headers
+
+      - name: Assert metadata-only boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(
+              Path("results_m14/gj687_metadata_preflight.json").read_text()
+          )
+          assert result["spectral_payload_inspected"] is False
+          for target in result["targets"]:
+              for alias in target["aliases"]:
+                  for cadence in alias["cadences_inspected"]:
+                      for header in cadence["hdf5_headers"]:
+                          assert header["spectral_dataset_values_read"] is False
+          PY
+
+      - name: Upload metadata evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-14-gj687-metadata-preflight
+          retention-days: 90
+          path: results_m14/gj687_metadata_preflight.json

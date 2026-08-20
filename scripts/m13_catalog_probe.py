@@ -132,19 +132,20 @@ def global_filterbank_queries(limit: int) -> list[dict]:
     ]
 
 
-def nasa_metadata_queries() -> list[dict]:
+def nasa_metadata_queries(hostname: str) -> list[dict]:
+    escaped_hostname = hostname.replace("'", "''")
     return [
         {
             "label": "composite_planet_parameters",
             "query": (
                 "select top 1 * from pscomppars "
-                "where hostname='GJ 411'"
+                f"where hostname='{escaped_hostname}'"
             ),
         },
         {
             "label": "published_planet_solutions",
             "query": (
-                "select * from ps where hostname='GJ 411' "
+                f"select * from ps where hostname='{escaped_hostname}' "
                 "and default_flag=1"
             ),
         },
@@ -267,7 +268,60 @@ def header_record(url: str) -> dict:
     return record
 
 
-def inspect_cadence(cadence_url: str) -> dict:
+def is_fine_hdf5_url(url: str) -> bool:
+    lowered = url.lower()
+    return lowered.endswith(".h5") and (
+        lowered.endswith(".gpuspec.0000.h5")
+        or lowered.endswith("_fine.h5")
+    )
+
+
+def find_hdf5_abacad(headers: list[dict]) -> list[dict]:
+    usable = sorted(
+        (item for item in headers if "error" not in item),
+        key=lambda item: item["tstart_mjd"],
+    )
+    cadences = []
+    for start in range(max(0, len(usable) - 5)):
+        group = usable[start:start + 6]
+        if len(group) != 6:
+            continue
+        sources = [item["source_name"] for item in group]
+        on_source = sources[0]
+        alternating = (
+            sources[2] == on_source
+            and sources[4] == on_source
+            and all(sources[index] != on_source for index in (1, 3, 5))
+        )
+        geometry_matches = (
+            max(item["tstart_mjd"] for item in group)
+            - min(item["tstart_mjd"] for item in group)
+        ) <= 0.04
+        compatible = len({
+            (
+                tuple(item["dataset_shape"]),
+                item["dataset_dtype"],
+                item["tsamp_s"],
+                item["foff_mhz"],
+            )
+            for item in group
+        }) == 1
+        coverage = all(item["covers_required_guarded_range"] for item in group)
+        if alternating and geometry_matches and compatible and coverage:
+            cadences.append({
+                "on_source": on_source,
+                "start_mjd": group[0]["tstart_mjd"],
+                "elapsed_start_to_start_s": float(
+                    (group[-1]["tstart_mjd"] - group[0]["tstart_mjd"]) * 86400
+                ),
+                "scan_urls": [item["url"] for item in group],
+                "scan_sources": sources,
+                "headers": group,
+            })
+    return cadences
+
+
+def inspect_cadence(cadence_url: str, probe_hdf5_headers: bool = False) -> dict:
     payload = fetch_json(cadence_url)
     rows = [compact_api_record(item) for item in payload.get("data", [])]
     urls = sorted({
@@ -277,6 +331,16 @@ def inspect_cadence(cadence_url: str) -> dict:
         and item["url"].lower().endswith(".fil")
     })
     headers = [header_record(url) for url in urls]
+    hdf5_urls = sorted({
+        item["url"]
+        for item in rows
+        if isinstance(item.get("url"), str)
+        and is_fine_hdf5_url(item["url"])
+    })
+    hdf5_headers = [
+        hdf5_header_record(url)
+        for url in (hdf5_urls if probe_hdf5_headers else [])
+    ]
     return {
         "cadence_url": cadence_url,
         "api_status": payload.get("status"),
@@ -286,6 +350,9 @@ def inspect_cadence(cadence_url: str) -> dict:
         "filterbank_urls": urls,
         "headers": headers,
         "qualifying_abacad_cadences": find_abacad(headers),
+        "fine_hdf5_urls": hdf5_urls,
+        "hdf5_headers": hdf5_headers,
+        "qualifying_hdf5_abacad_cadences": find_hdf5_abacad(hdf5_headers),
     }
 
 
@@ -336,6 +403,9 @@ def main() -> None:
     parser.add_argument("--max-cadences-per-alias", type=int, default=0)
     parser.add_argument("--global-query-limit", type=int, default=0)
     parser.add_argument("--probe-hdf5-headers", action="store_true")
+    parser.add_argument("--probe-cadence-hdf5-headers", action="store_true")
+    parser.add_argument("--target-id", choices=sorted(CANDIDATE_TARGETS))
+    parser.add_argument("--nasa-host", default="GJ 411")
     args = parser.parse_args()
 
     catalog_payload = fetch_json(TARGETS_API)
@@ -363,7 +433,7 @@ def main() -> None:
             ],
         })
     nasa_queries = []
-    for query in nasa_metadata_queries():
+    for query in nasa_metadata_queries(args.nasa_host):
         payload = fetch_json(
             NASA_TAP_API,
             {"query": query["query"], "format": "json"},
@@ -378,7 +448,10 @@ def main() -> None:
             "records": payload.get("data", []),
         })
     targets = []
-    for target_id, requested_aliases in CANDIDATE_TARGETS.items():
+    target_items = CANDIDATE_TARGETS.items()
+    if args.target_id:
+        target_items = [(args.target_id, CANDIDATE_TARGETS[args.target_id])]
+    for target_id, requested_aliases in target_items:
         aliases = resolve_catalog_names(requested_aliases, catalog)
         alias_records = []
         for alias in aliases:
@@ -403,7 +476,7 @@ def main() -> None:
                     and item["cadence_url"]
                 )
             inspected = [
-                inspect_cadence(url)
+                inspect_cadence(url, args.probe_cadence_hdf5_headers)
                 for url in sorted(cadence_urls)[:args.max_cadences_per_alias]
             ]
             alias_records.append({
@@ -455,6 +528,10 @@ def main() -> None:
                     "cadence_urls": alias["cadence_urls_found"],
                     "qualifying_cadences": sum(
                         len(cadence["qualifying_abacad_cadences"])
+                        for cadence in alias["cadences_inspected"]
+                    ),
+                    "qualifying_hdf5_cadences": sum(
+                        len(cadence["qualifying_hdf5_abacad_cadences"])
                         for cadence in alias["cadences_inspected"]
                     ),
                     "errors": [
