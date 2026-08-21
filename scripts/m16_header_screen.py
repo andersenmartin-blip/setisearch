@@ -10,7 +10,7 @@ from pathlib import Path
 from m13_catalog_probe import inspect_cadence
 
 
-EXPECTED_TOP = [
+EXPECTED_DISCOVERY_TOP = [
     {
         "archive_target": "GJ876",
         "planet_name": "GJ 876 e",
@@ -52,6 +52,29 @@ EXPECTED_TOP = [
         ],
     },
 ]
+
+CANONICAL_CADENCE_URLS = {
+    "GJ876": [
+        "http://seti.berkeley.edu/opendata/api/get-cadence/--76697",
+    ],
+    "HIP114622": [
+        "http://seti.berkeley.edu/opendata/api/get-cadence/--63424",
+        "http://seti.berkeley.edu/opendata/api/get-cadence/--65393",
+        "http://seti.berkeley.edu/opendata/api/get-cadence/--66869",
+        "http://seti.berkeley.edu/opendata/api/get-cadence/--67073",
+        "http://seti.berkeley.edu/opendata/api/get-cadence/--67169",
+    ],
+    "HIP65859": [
+        "http://seti.berkeley.edu/opendata/api/get-cadence/--82035",
+    ],
+    "HIP109388": [
+        "http://seti.berkeley.edu/opendata/api/get-cadence/--73890",
+        "http://seti.berkeley.edu/opendata/api/get-cadence/--74424",
+    ],
+    "HIP83043": [
+        "http://seti.berkeley.edu/opendata/api/get-cadence/--70291",
+    ],
+}
 
 
 def read_json(path: Path) -> dict:
@@ -96,7 +119,7 @@ def main() -> None:
         compact_expected(item)
         for item in discovery["top_five_unique_hosts_for_header_screen"]
     ]
-    if observed_top != EXPECTED_TOP:
+    if observed_top != EXPECTED_DISCOVERY_TOP:
         raise RuntimeError(
             "Discovery shortlist does not match the frozen header-screen input: "
             f"{observed_top!r}"
@@ -104,11 +127,12 @@ def main() -> None:
 
     screened = []
     for rank, (expected, discovered) in enumerate(
-        zip(EXPECTED_TOP, discovery["top_five_unique_hosts_for_header_screen"]),
+        zip(EXPECTED_DISCOVERY_TOP, discovery["top_five_unique_hosts_for_header_screen"]),
         1,
     ):
         cadences = []
-        for url in expected["cadence_urls"]:
+        canonical_urls = CANONICAL_CADENCE_URLS[expected["archive_target"]]
+        for url in canonical_urls:
             print(f"header screen rank {rank}: {url}", flush=True)
             cadences.append(inspect_cadence(url, probe_hdf5_headers=True))
         qualifying = []
@@ -143,6 +167,8 @@ def main() -> None:
                     "longitude_periastron_deg",
                 )
             },
+            "discovery_cadence_urls": expected["cadence_urls"],
+            "canonical_cadence_urls": canonical_urls,
             "cadences": cadences,
             "qualifying_hdf5_abacad_cadences": qualifying,
             "qualifying_count": len(qualifying),

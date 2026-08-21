@@ -1,4 +1,4 @@
-name: Milestone 16 HDF5 header-only cadence screen
+name: Milestone 16 corrected HDF5 header-only cadence screen
 
 on:
   workflow_dispatch:
@@ -35,13 +35,13 @@ jobs:
           test "$(sha256sum results_m16_discovery/discovery.json | cut -d' ' -f1)" \
             = "0310d5ba8e0923062bd0a046b1827a4e814fc3f3adf854620d27e3cccb7fd750"
           test "$(sha256sum scripts/m16_header_screen.py | cut -d' ' -f1)" \
-            = "b41f5e1589933fe08b7d0c1e3e9691a05d6546f3103ff96fa0f758b45cfab890"
+            = "c784146aa01919f957d05b42671daea90e8c77da401236430b5cf93e516e4f2a"
 
       - name: Run fixed HDF5-header-only screen
         run: |
           python scripts/m16_header_screen.py \
             --discovery results_m16_discovery/discovery.json \
-            --output results_m16_header_screen/header_screen.json
+            --output results_m16_header_screen_corrected/header_screen.json
 
       - name: Verify spectral boundary and hash result
         run: |
@@ -49,21 +49,21 @@ jobs:
           import json
           from pathlib import Path
 
-          result = json.loads(Path('results_m16_header_screen/header_screen.json').read_text())
+          result = json.loads(Path('results_m16_header_screen_corrected/header_screen.json').read_text())
           assert result['spectral_payload_inspected'] is False
           assert result['spectral_dataset_values_read'] is False
           PY
-          find results_m16_header_screen -type f -print0 \
+          find results_m16_header_screen_corrected -type f -print0 \
             | sort -z \
-            | xargs -0 sha256sum > RESULTS_MANIFEST_M16_HEADER_SCREEN.sha256
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M16_HEADER_SCREEN_CORRECTED.sha256
 
       - name: Upload header-screen evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: milestone-16-header-screen
+          name: milestone-16-header-screen-corrected
           if-no-files-found: warn
           retention-days: 90
           path: |
-            RESULTS_MANIFEST_M16_HEADER_SCREEN.sha256
-            results_m16_header_screen/
+            RESULTS_MANIFEST_M16_HEADER_SCREEN_CORRECTED.sha256
+            results_m16_header_screen_corrected/
