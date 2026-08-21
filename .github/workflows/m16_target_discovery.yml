@@ -1,0 +1,59 @@
+name: Milestone 16 metadata-only target discovery
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m16_target_discovery.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  discover:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify frozen discovery code
+        run: |
+          test "$(sha256sum scripts/m16_target_discovery.py | cut -d' ' -f1)" \
+            = "70aa01220a220b7639bec128c8616ae9f1c044d834a78016cd6ac97eadba075e"
+
+      - name: Run metadata-only discovery
+        run: |
+          python scripts/m16_target_discovery.py \
+            --output results_m16_discovery/discovery.json \
+            --archive-limit 10000
+
+      - name: Verify spectral boundary and hash result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(Path('results_m16_discovery/discovery.json').read_text())
+          assert result['spectral_payload_inspected'] is False
+          assert result['remote_telescope_products_opened'] is False
+          PY
+          find results_m16_discovery -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M16_DISCOVERY.sha256
+
+      - name: Upload discovery evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-16-target-discovery
+          if-no-files-found: warn
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M16_DISCOVERY.sha256
+            results_m16_discovery/
