@@ -9,6 +9,11 @@ telescope response. The working technosignature hypothesis is a transmitter
 whose frequency is stable in the selected planet frame and whose beam is not
 necessarily aimed at Earth.
 
+**Current scientific status:** no surviving candidate and no technosignature
+claim. The repository preserves frozen configurations, checksummed results,
+technical aborts, post-hoc labels, and non-redetections so that positive and
+negative outcomes remain independently auditable.
+
 Version 0.5.0 is the frozen detector used for new held-out validation. It
 retains the Milestone 7 recurrence statistic, spectral filters, per-epoch
 interference mask, candidate clustering, and RFI-family flags, and adds the
@@ -171,6 +176,14 @@ Coarse piecewise-linear estimates put multichannel 50% and 90% recovery near
 ideal S/N 10.29 and 14.17. The corresponding one-channel estimates are 15.5
 and 25.6. These are point estimates rather than confidence bounds; 32/32 has a
 Wilson 95% lower bound of 89.3%.
+
+## Citation and reuse
+
+Citation metadata is provided in `CITATION.cff`. The software is released
+under the MIT License; public telescope data remain subject to their source
+archive terms. Contributions should follow `CONTRIBUTING.md`, especially the
+rule that held-out configurations and disposition rules are fixed before
+spectral contact. Security reports should follow `SECURITY.md`.
 
 ## Install and reproduce
 
