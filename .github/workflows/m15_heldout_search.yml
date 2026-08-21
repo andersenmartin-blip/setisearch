@@ -1,0 +1,116 @@
+name: Milestone 15 held-out GJ 581 search
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m15_heldout_search.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  search:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    env:
+      MPLCONFIGDIR: /tmp/matplotlib
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install frozen detector and HDF5 adapter dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . \
+            'h5py>=3.11,<4' \
+            'fsspec[http]>=2024.6,<2027' \
+            'hdf5plugin>=4.4,<7'
+
+      - name: Verify preregistered configuration
+        run: |
+          test "$(sha256sum config/gj581b_heldout_m15.json | cut -d' ' -f1)" \
+            = "117b689c9a2d12726133e3f53fd6560b80d8d354540310c94ab9b4032c3a8c99"
+
+      - name: Validate detector and repeat coverage proof before spectral contact
+        run: |
+          python -m unittest discover -s tests -v
+          seti-repeater validate \
+            --tsamp 17.986224128 \
+            --channel-width 2.835503418452676 \
+            --output validation_m15.json
+          python scripts/m14_coverage_preflight.py \
+            config/gj581b_heldout_m15.json \
+            --output results_m15/coverage_preflight_repeat.json
+
+      - name: Record execution environment
+        run: |
+          mkdir -p results_m15
+          python -m pip freeze > results_m15/environment.txt
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('results_m15/run_metadata.json').write_text(
+              json.dumps(
+                  {
+                      'github_repository': os.environ['GITHUB_REPOSITORY'],
+                      'github_run_id': os.environ['GITHUB_RUN_ID'],
+                      'github_sha': os.environ['GITHUB_SHA'],
+                      'github_ref': os.environ['GITHUB_REF'],
+                      'detector_version_frozen': '0.5.0',
+                      'frozen_detector_commit': '32720a0b5e097403f864e2b84d53a071d65d7c46',
+                      'preregistration_commit': '0538ed4be0407eb2397d3b1e1d676fdf7fb8e08b',
+                      'frozen_config_sha256': '117b689c9a2d12726133e3f53fd6560b80d8d354540310c94ab9b4032c3a8c99',
+                  },
+                  indent=2,
+              )
+              + '\n'
+          )
+          PY
+
+      - name: Extract preregistered HDF5 slices
+        run: |
+          python scripts/m13_hdf5_extract.py \
+            config/gj581b_heldout_m15.json \
+            --data-dir data_m15
+
+      - name: Hash extracted slices
+        run: |
+          find data_m15 -type f -name '*.npz' -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > DATA_MANIFEST_M15.sha256
+          test "$(wc -l < DATA_MANIFEST_M15.sha256)" -eq 30
+
+      - name: Run frozen detector v0.5.0
+        run: |
+          seti-repeater search \
+            --config config/gj581b_heldout_m15.json \
+            --data-dir data_m15 \
+            --output-dir results_m15
+
+      - name: Hash primary results
+        run: |
+          find results_m15 -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M15.sha256
+
+      - name: Upload held-out evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-15-held-out-results
+          if-no-files-found: warn
+          retention-days: 90
+          path: |
+            validation_m15.json
+            DATA_MANIFEST_M15.sha256
+            RESULTS_MANIFEST_M15.sha256
+            results_m15/
