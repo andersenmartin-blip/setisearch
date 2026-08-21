@@ -1,0 +1,100 @@
+{
+  "milestone": 15,
+  "created_utc": "2026-08-21T16:23:00Z",
+  "purpose": "Held-out target selection and geometry evidence before spectral extraction",
+  "spectral_payload_inspected": false,
+  "selection_rule_commit": "61007e59a81f094ff08b5da47ae8ce371bc81f6c",
+  "selected_target": {
+    "target": "GJ 581",
+    "planet_template": "GJ 581 b",
+    "archive_target": "HIP74995",
+    "cadence_url": "http://seti.berkeley.edu/opendata/api/get-cadence/--87092",
+    "telescope": "Green Bank Telescope",
+    "band": "L",
+    "session_date_utc": "2016-03-30",
+    "sequence": [
+      "HIP74995",
+      "HIP74995_OFF",
+      "HIP74995",
+      "HIP74995_OFF",
+      "HIP74995",
+      "HIP74995_OFF"
+    ],
+    "selection_reason": "The nearest eligible host in the fixed Milestone 15 screen: one complete public ABACAD cadence, identical fine-resolution geometry, full five-band coverage, byte-range-accessible products, and a complete NASA Exoplanet Archive composite orbit/host record."
+  },
+  "screen_outcomes": {
+    "tau_ceti": "ineligible: no qualifying HDF5 ABACAD cadence and no periastron epoch in the official planet records",
+    "gj_581": "eligible: one qualifying HDF5 ABACAD cadence and a complete GJ 581 b composite orbit/host record",
+    "gj_667c": "ineligible: no qualifying HDF5 ABACAD cadence and no periastron epoch in the official composite planet record",
+    "distance_tie_break_rule_applied": true
+  },
+  "non_reuse_and_exclusions": {
+    "previous_project_targets": [
+      "Proxima Centauri",
+      "LHS 1140",
+      "GJ 411",
+      "GJ 687"
+    ],
+    "excluded_after_target_specific_result_page_exposure": [
+      "GJ 273",
+      "GJ 1002",
+      "Ross 128"
+    ]
+  },
+  "archive_evidence": {
+    "metadata_workflow_run": 32502205358,
+    "artifacts": {
+      "tau_ceti": {
+        "artifact_id": 9453963635,
+        "artifact_digest": "sha256:52550bbfcaee486722c9557274f7e72d24c0dd7cfb065669734ac13cfc31d2c9",
+        "result_sha256": "2c23f13a2fad0b21063aac556304f5719ffd2cb89f57aafa4bfa5bb9ba09bfe0"
+      },
+      "gj_581": {
+        "artifact_id": 9453942416,
+        "artifact_digest": "sha256:357c0a074e596bbdc714d512b12ecf7725547f0aeca77a4ec3f55b45468c2b91",
+        "result_sha256": "16dc289d93150da8bf2a5253c1bb120782e71f751d48c25e5fa55c6a8d259a59"
+      },
+      "gj_667c": {
+        "artifact_id": 9454018799,
+        "artifact_digest": "sha256:819a3626a8584952565418078c27f0805935ce9409e4c6df8fa0572c5f3039b0",
+        "result_sha256": "32b6f92b88cb8e69be3ccdf4cb156175e4cafe3f06e6c3cf572487ad69527e3a"
+      }
+    },
+    "all_http_status_200": true,
+    "all_accept_ranges_bytes": true,
+    "all_headers_error_free": true,
+    "all_cover_established_bands": true,
+    "common_geometry": {
+      "dataset_shape": [16, 1, 264503296],
+      "dataset_dtype": "float32",
+      "dataset_chunks": [1, 1, 1048576],
+      "tsamp_s": 17.986224128,
+      "duration_s": 287.779586048,
+      "fch1_mhz": 1876.46484375,
+      "foff_mhz": -0.000002835503418452676,
+      "channel_width_hz": 2.835503418452676,
+      "frequency_low_mhz": 1126.4648465855034,
+      "frequency_high_mhz": 1876.46484375
+    }
+  },
+  "target_and_orbit_evidence": {
+    "source": "NASA Exoplanet Archive pscomppars composite record",
+    "selected_planet_record": {
+      "pl_name": "GJ 581 b",
+      "pl_orbper_days": 5.3686,
+      "pl_orbsmax_au": 0.0399,
+      "pl_orbeccen": 0.0342,
+      "pl_orbtper_bjd": 2454751.76,
+      "pl_orblper_deg": 54.0
+    },
+    "host_record": {
+      "distance_pc": 6.2981,
+      "ra_deg": 229.8564725,
+      "dec_deg": -7.7226935,
+      "pm_ra_cosdec_mas_yr": -1221.47,
+      "pm_dec_mas_yr": -97.1295,
+      "parallax_mas": 158.749,
+      "radial_velocity_km_s": 9.75
+    }
+  }
+}
