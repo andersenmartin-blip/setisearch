@@ -1,0 +1,104 @@
+name: Milestone 15 held-out target metadata screen
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m15_metadata_screen.yml"
+      - "MILESTONE_15_METADATA_SCREEN.md"
+
+permissions:
+  contents: read
+
+jobs:
+  screen:
+    name: screen-${{ matrix.target_id }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target_id: tau_ceti
+            nasa_host: tau Cet
+          - target_id: gj_581
+            nasa_host: GJ 581
+          - target_id: gj_667c
+            nasa_host: GJ 667 C
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install metadata adapters
+        run: |
+          python -m pip install -e . \
+            'h5py>=3.11,<4' \
+            'fsspec[http]>=2024.6,<2027' \
+            'hdf5plugin>=4.4,<7'
+
+      - name: Inspect catalogue and HDF5 metadata only
+        run: |
+          python scripts/m13_catalog_probe.py \
+            --target-id '${{ matrix.target_id }}' \
+            --nasa-host '${{ matrix.nasa_host }}' \
+            --max-records-per-query 300 \
+            --max-cadences-per-alias 30 \
+            --probe-cadence-hdf5-headers \
+            --output 'results_m15_metadata/${{ matrix.target_id }}.json'
+
+      - name: Enforce no-spectral-contact boundary
+        run: |
+          TARGET_ID='${{ matrix.target_id }}' python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          target_id = os.environ['TARGET_ID']
+          path = Path('results_m15_metadata') / f'{target_id}.json'
+          record = json.loads(path.read_text())
+          assert record['spectral_payload_inspected'] is False
+          headers = []
+          for target in record['targets']:
+              for alias in target['aliases']:
+                  for cadence in alias['cadences_inspected']:
+                      headers.extend(cadence['hdf5_headers'])
+          assert all(
+              item.get('spectral_dataset_values_read') is False
+              for item in headers
+          )
+          summary = {
+              'target_id': target_id,
+              'hdf5_headers': len(headers),
+              'header_errors': sum('error' in item for item in headers),
+              'qualifying_hdf5_cadences': sum(
+                  len(cadence['qualifying_hdf5_abacad_cadences'])
+                  for target in record['targets']
+                  for alias in target['aliases']
+                  for cadence in alias['cadences_inspected']
+              ),
+              'spectral_payload_inspected': False,
+          }
+          print(json.dumps(summary, indent=2))
+          PY
+
+      - name: Hash metadata evidence
+        run: |
+          sha256sum 'results_m15_metadata/${{ matrix.target_id }}.json' \
+            > 'RESULTS_MANIFEST_M15_METADATA_${{ matrix.target_id }}.sha256'
+
+      - name: Upload metadata evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-15-metadata-${{ matrix.target_id }}
+          if-no-files-found: warn
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M15_METADATA_${{ matrix.target_id }}.sha256
+            results_m15_metadata/${{ matrix.target_id }}.json
