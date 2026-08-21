@@ -1,0 +1,56 @@
+name: Milestone 16 selected-target official metadata
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m16_selected_metadata.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  metadata:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify frozen metadata query
+        run: |
+          test "$(sha256sum scripts/m16_selected_metadata.py | cut -d' ' -f1)" \
+            = "10508dfc12cf86d7b0e1e8984e3e0e8a3556215d6a02a41d40a016523561e2d5"
+
+      - name: Fetch selected official record
+        run: |
+          python scripts/m16_selected_metadata.py
+
+      - name: Verify boundary and hash result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(Path('results_m16_selected_metadata/hd219134h.json').read_text())
+          assert result['spectral_payload_inspected'] is False
+          assert result['record']['pl_name'] == 'HD 219134 h'
+          PY
+          find results_m16_selected_metadata -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M16_SELECTED_METADATA.sha256
+
+      - name: Upload selected metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-16-selected-metadata
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M16_SELECTED_METADATA.sha256
+            results_m16_selected_metadata/
