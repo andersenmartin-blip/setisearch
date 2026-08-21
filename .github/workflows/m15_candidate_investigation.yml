@@ -1,0 +1,80 @@
+name: Milestone 15 GJ 581 candidate investigation
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m15_candidate_investigation.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  investigate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      MPLCONFIGDIR: /tmp/matplotlib
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install frozen detector and HDF5 adapter dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . \
+            'h5py>=3.11,<4' \
+            'fsspec[http]>=2024.6,<2027' \
+            'hdf5plugin>=4.4,<7'
+
+      - name: Verify frozen inputs
+        run: |
+          test "$(sha256sum config/gj581b_heldout_m15.json | cut -d' ' -f1)" \
+            = "117b689c9a2d12726133e3f53fd6560b80d8d354540310c94ab9b4032c3a8c99"
+          test "$(sha256sum results_m15/search_summary.json | cut -d' ' -f1)" \
+            = "ad61eef857f4cc20ad4f31b3f2a9b5f8d5420fb735114a1bf4ba2bda1ed154db"
+          test "$(sha256sum scripts/m11_candidate_investigation.py | cut -d' ' -f1)" \
+            = "6565eb733fb5b3011564a8e98fce32c907aa90ab3890cfb7e9400c4c6419d2cb"
+
+      - name: Confirm detector tests remain green
+        run: python -m unittest discover -s tests -v
+
+      - name: Run fixed targeted morphology review
+        run: |
+          python scripts/m11_candidate_investigation.py \
+            --config config/gj581b_heldout_m15.json \
+            --summary results_m15/search_summary.json \
+            --data-dir data_m15_candidate_investigation \
+            --output-dir results_m15_candidate_investigation \
+            --extract \
+            --candidate-disposition rfi_family_veto_pending_manual_review \
+            --expected-candidates 2 \
+            --skip-archive-probe \
+            --date-utc 2026-08-21
+
+      - name: Hash extracted slices and results
+        run: |
+          find data_m15_candidate_investigation -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > DATA_MANIFEST_M15_CANDIDATE_INVESTIGATION.sha256
+          find results_m15_candidate_investigation -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M15_CANDIDATE_INVESTIGATION.sha256
+
+      - name: Upload investigation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-15-candidate-investigation
+          if-no-files-found: warn
+          retention-days: 90
+          path: |
+            DATA_MANIFEST_M15_CANDIDATE_INVESTIGATION.sha256
+            RESULTS_MANIFEST_M15_CANDIDATE_INVESTIGATION.sha256
+            results_m15_candidate_investigation/

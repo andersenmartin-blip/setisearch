@@ -298,7 +298,7 @@ def add_cross_candidate_aliases(candidates: list[dict]) -> None:
             candidate["posthoc_classification"] = "RFI_OR_INSTRUMENTAL"
         else:
             active = set(int(value) for value in candidate["best_hypothesis"]["active_epochs_zero_based"])
-            if all(
+            if any(
                 float(candidate["scans"][f"epoch{epoch + 1}_on"]["candidate_track_snr"]) < 3.0
                 for epoch in active
             ):
@@ -412,6 +412,11 @@ def main() -> None:
     parser.add_argument("--candidate-disposition", default="survives_for_followup")
     parser.add_argument("--expected-candidates", type=int, default=5)
     parser.add_argument("--skip-archive-probe", action="store_true")
+    parser.add_argument(
+        "--date-utc",
+        default="2026-08-20",
+        help="Fixed analysis date written to the machine-readable result",
+    )
     args = parser.parse_args()
 
     config = read_json(args.config)
@@ -487,7 +492,7 @@ def main() -> None:
             f"frozen v{config['project'].get('detector_version_frozen', '0.4.0')}; "
             "no search or threshold setting changed"
         ),
-        "date_utc": "2026-08-20",
+        "date_utc": args.date_utc,
         "local_half_width_hz": LOCAL_HALF_WIDTH_HZ,
         "receiver_frame_coincidence_tolerance_hz": COINCIDENCE_TOLERANCE_HZ,
         "local_peak_floor_snr": LOCAL_PEAK_FLOOR,
