@@ -1,0 +1,66 @@
+name: Milestone 16 HD 219134 h coverage preflight
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m16_coverage_preflight.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install detector dependencies
+        run: python -m pip install -e .
+
+      - name: Verify frozen preflight inputs
+        run: |
+          test "$(sha256sum config/hd219134h_m16_preflight.json | cut -d' ' -f1)" \
+            = "392dc471eaf5929c52fb6b51fb2b344a46c91b5990dec510e1e26f74815811ff"
+          test "$(sha256sum scripts/m14_coverage_preflight.py | cut -d' ' -f1)" \
+            = "95eb2dfc6c0b52db391ab09b844e553b5244de48203827134acdde640474115c"
+
+      - name: Run metadata-only full-bank coverage proof
+        run: |
+          python scripts/m14_coverage_preflight.py \
+            config/hd219134h_m16_preflight.json \
+            --output results_m16_preflight/coverage.json
+
+      - name: Verify boundary and hash result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(Path('results_m16_preflight/coverage.json').read_text())
+          assert result['passed'] is True
+          assert result['checks'] == 630
+          assert result['spectral_payload_inspected'] is False
+          assert result['remote_files_opened'] is False
+          PY
+          find results_m16_preflight -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M16_COVERAGE_PREFLIGHT.sha256
+
+      - name: Upload preflight evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-16-coverage-preflight
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M16_COVERAGE_PREFLIGHT.sha256
+            results_m16_preflight/
