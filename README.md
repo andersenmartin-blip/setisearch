@@ -19,6 +19,22 @@ retains the Milestone 7 recurrence statistic, spectral filters, per-epoch
 interference mask, candidate clustering, and RFI-family flags, and adds the
 Milestone 12 local-OFF and receiver-frame alias vetoes.
 
+## Milestone 20 result
+
+Milestone 20 applied detector v0.5.0 to the sole complete compatible GBT
+L-band cadence for rho CrB, using rho CrB c only as the motion template.
+Across approximately 592,487,280 nominal trials, the global maximum reached
+S/N 69,174.5910 at 1400.459812410 MHz, with empirical global p-value 1/257 and
+an operational threshold of S/N 8.0913.
+
+The very strong maxima are matched or locally reproduced in OFF-source data
+and receive the frozen interference vetoes. One separate 1400.196827972 MHz
+arithmetic-family case entered a separately frozen morphology review. Its
+strongest local ON feature in active epoch 1 occurs at exactly the same
+receiver frequency as a stronger adjacent-OFF feature, satisfying the fixed
+20 Hz coincidence veto. There is no surviving candidate and no
+technosignature claim.
+
 ## Milestone 19 result
 
 Milestone 19 extended the frozen low-smearing target ranking to positions
@@ -280,6 +296,12 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Limits
 
+- Milestone 20 searched five 1 MHz windows in one rho CrB cadence, not the full
+  GBT L-band receiver range or independent observing nights.
+- Its strong window maxima recur in OFF-source data; the sole manual-review
+  case is independently rejected by an exact adjacent-OFF frequency match.
+- No second complete compatible rho CrB cadence was present in the frozen
+  public header screen.
 - Milestone 19 searched five 1 MHz windows in one 47 UMa cadence, not the full
   GBT L-band receiver range or independent observing nights.
 - Every Milestone 19 reported cluster was below the globally calibrated
