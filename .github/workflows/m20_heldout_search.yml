@@ -1,0 +1,122 @@
+name: Milestone 20 held-out rho CrB c search
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m20_heldout_search.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  search:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    env:
+      MPLCONFIGDIR: /tmp/matplotlib
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install frozen detector and HDF5 adapter dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . \
+            'h5py>=3.11,<4' \
+            'fsspec[http]>=2024.6,<2027' \
+            'hdf5plugin>=4.4,<7'
+
+      - name: Verify preregistered configuration and provenance
+        run: |
+          test "$(sha256sum MILESTONE_20_PREREGISTRATION.md | cut -d' ' -f1)" \
+            = "1249fb4a7412938c880240a276ceed3c7fc2aec48c536f191c6fffb2924844db"
+          test "$(sha256sum config/rhocrbc_heldout_m20.json | cut -d' ' -f1)" \
+            = "d631241a0b55c8a0c3f81d795ad19e2ccb4946918d57431d2817bc785a591696"
+          test "$(sha256sum results_m20_selected_metadata/rhocrbc.json | cut -d' ' -f1)" \
+            = "0edfd778158680a146c7f7ad216016c27183bd794a2fe0ecd1e72698853e0192"
+          test "$(sha256sum results_m20_preflight/coverage.json | cut -d' ' -f1)" \
+            = "59a278f75c1a18a11279b68c37a1f0b83185b0feb758d8b00109c9a6f131d507"
+
+      - name: Validate detector and repeat coverage proof before spectral contact
+        run: |
+          python -m unittest discover -s tests -v
+          seti-repeater validate \
+            --tsamp 17.986224128 \
+            --channel-width 2.835503418452676 \
+            --output validation_m20.json
+          python scripts/m14_coverage_preflight.py \
+            config/rhocrbc_heldout_m20.json \
+            --output results_m20/coverage_preflight_repeat.json
+
+      - name: Record execution environment
+        run: |
+          mkdir -p results_m20
+          python -m pip freeze > results_m20/environment.txt
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('results_m20/run_metadata.json').write_text(
+              json.dumps(
+                  {
+                      'github_repository': os.environ['GITHUB_REPOSITORY'],
+                      'github_run_id': os.environ['GITHUB_RUN_ID'],
+                      'github_sha': os.environ['GITHUB_SHA'],
+                      'github_ref': os.environ['GITHUB_REF'],
+                      'detector_version_frozen': '0.5.0',
+                      'frozen_detector_commit': '32720a0b5e097403f864e2b84d53a071d65d7c46',
+                      'preregistration_commit': os.environ['GITHUB_SHA'],
+                      'frozen_config_sha256': 'd631241a0b55c8a0c3f81d795ad19e2ccb4946918d57431d2817bc785a591696',
+                  },
+                  indent=2,
+              )
+              + '\n'
+          )
+          PY
+
+      - name: Extract preregistered HDF5 slices
+        run: |
+          python scripts/m13_hdf5_extract.py \
+            config/rhocrbc_heldout_m20.json \
+            --data-dir data_m20
+
+      - name: Hash extracted slices
+        run: |
+          find data_m20 -type f -name '*.npz' -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > DATA_MANIFEST_M20.sha256
+          test "$(wc -l < DATA_MANIFEST_M20.sha256)" -eq 30
+
+      - name: Run frozen detector v0.5.0
+        run: |
+          seti-repeater search \
+            --config config/rhocrbc_heldout_m20.json \
+            --data-dir data_m20 \
+            --output-dir results_m20
+
+      - name: Hash primary results
+        run: |
+          find results_m20 -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M20.sha256
+
+      - name: Upload held-out evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-20-held-out-results
+          if-no-files-found: warn
+          retention-days: 90
+          path: |
+            validation_m20.json
+            DATA_MANIFEST_M20.sha256
+            RESULTS_MANIFEST_M20.sha256
+            results_m20/
