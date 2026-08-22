@@ -1,0 +1,122 @@
+name: Milestone 19 held-out 47 UMa d search
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m19_heldout_search.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  search:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    env:
+      MPLCONFIGDIR: /tmp/matplotlib
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install frozen detector and HDF5 adapter dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . \
+            'h5py>=3.11,<4' \
+            'fsspec[http]>=2024.6,<2027' \
+            'hdf5plugin>=4.4,<7'
+
+      - name: Verify preregistered configuration and provenance
+        run: |
+          test "$(sha256sum MILESTONE_19_PREREGISTRATION.md | cut -d' ' -f1)" \
+            = "08d5a92cd74ec779b8945e7c8746d4bd5793bab76f4ccac09fc42517785ec165"
+          test "$(sha256sum config/47umad_heldout_m19.json | cut -d' ' -f1)" \
+            = "48b82d339409bc62f05fdbab1f4f3427bb7d0c73d8d1a29064527a210aba9823"
+          test "$(sha256sum results_m19_selected_metadata/47umad.json | cut -d' ' -f1)" \
+            = "6142da0cd019aa2aec89c25bbe94c4bd3f850378c81044b9b5ce76d07227f797"
+          test "$(sha256sum results_m19_preflight/coverage.json | cut -d' ' -f1)" \
+            = "27ed208f09319a75d744ca47188b4aaf94f0b0373978909e6139f5908afdf5fe"
+
+      - name: Validate detector and repeat coverage proof before spectral contact
+        run: |
+          python -m unittest discover -s tests -v
+          seti-repeater validate \
+            --tsamp 18.253611008 \
+            --channel-width 2.7939677238464355 \
+            --output validation_m19.json
+          python scripts/m14_coverage_preflight.py \
+            config/47umad_heldout_m19.json \
+            --output results_m19/coverage_preflight_repeat.json
+
+      - name: Record execution environment
+        run: |
+          mkdir -p results_m19
+          python -m pip freeze > results_m19/environment.txt
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('results_m19/run_metadata.json').write_text(
+              json.dumps(
+                  {
+                      'github_repository': os.environ['GITHUB_REPOSITORY'],
+                      'github_run_id': os.environ['GITHUB_RUN_ID'],
+                      'github_sha': os.environ['GITHUB_SHA'],
+                      'github_ref': os.environ['GITHUB_REF'],
+                      'detector_version_frozen': '0.5.0',
+                      'frozen_detector_commit': '32720a0b5e097403f864e2b84d53a071d65d7c46',
+                      'preregistration_commit': os.environ['GITHUB_SHA'],
+                      'frozen_config_sha256': '48b82d339409bc62f05fdbab1f4f3427bb7d0c73d8d1a29064527a210aba9823',
+                  },
+                  indent=2,
+              )
+              + '\n'
+          )
+          PY
+
+      - name: Extract preregistered HDF5 slices
+        run: |
+          python scripts/m13_hdf5_extract.py \
+            config/47umad_heldout_m19.json \
+            --data-dir data_m19
+
+      - name: Hash extracted slices
+        run: |
+          find data_m19 -type f -name '*.npz' -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > DATA_MANIFEST_M19.sha256
+          test "$(wc -l < DATA_MANIFEST_M19.sha256)" -eq 30
+
+      - name: Run frozen detector v0.5.0
+        run: |
+          seti-repeater search \
+            --config config/47umad_heldout_m19.json \
+            --data-dir data_m19 \
+            --output-dir results_m19
+
+      - name: Hash primary results
+        run: |
+          find results_m19 -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M19.sha256
+
+      - name: Upload held-out evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-19-held-out-results
+          if-no-files-found: warn
+          retention-days: 90
+          path: |
+            validation_m19.json
+            DATA_MANIFEST_M19.sha256
+            RESULTS_MANIFEST_M19.sha256
+            results_m19/
