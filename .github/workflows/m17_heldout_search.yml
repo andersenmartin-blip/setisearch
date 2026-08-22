@@ -1,0 +1,120 @@
+name: Milestone 17 held-out GJ 849 b search
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m17_heldout_search.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  search:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    env:
+      MPLCONFIGDIR: /tmp/matplotlib
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install frozen detector and HDF5 adapter dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . \
+            'h5py>=3.11,<4' \
+            'fsspec[http]>=2024.6,<2027' \
+            'hdf5plugin>=4.4,<7'
+
+      - name: Verify preregistered configuration and provenance
+        run: |
+          test "$(sha256sum config/gj849b_heldout_m17.json | cut -d' ' -f1)" \
+            = "87372243bc6f8eec0b9cdf4f80d3a3c37fbffdd13bddd6efeafdfd5f383b2e76"
+          test "$(sha256sum results_m17_selected_metadata/gj849b.json | cut -d' ' -f1)" \
+            = "ee8b5316613e5de08e6ca206dfee0865e58ce89c13a2c1d0c8aa817eb660d849"
+          test "$(sha256sum results_m17_preflight/coverage.json | cut -d' ' -f1)" \
+            = "a95742d359791e6e5b0152d563fbd1c759d7bb921b230c8c25093ebf4e0c6586"
+
+      - name: Validate detector and repeat coverage proof before spectral contact
+        run: |
+          python -m unittest discover -s tests -v
+          seti-repeater validate \
+            --tsamp 18.253611008 \
+            --channel-width 2.7939677238464355 \
+            --output validation_m17.json
+          python scripts/m14_coverage_preflight.py \
+            config/gj849b_heldout_m17.json \
+            --output results_m17/coverage_preflight_repeat.json
+
+      - name: Record execution environment
+        run: |
+          mkdir -p results_m17
+          python -m pip freeze > results_m17/environment.txt
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('results_m17/run_metadata.json').write_text(
+              json.dumps(
+                  {
+                      'github_repository': os.environ['GITHUB_REPOSITORY'],
+                      'github_run_id': os.environ['GITHUB_RUN_ID'],
+                      'github_sha': os.environ['GITHUB_SHA'],
+                      'github_ref': os.environ['GITHUB_REF'],
+                      'detector_version_frozen': '0.5.0',
+                      'frozen_detector_commit': '32720a0b5e097403f864e2b84d53a071d65d7c46',
+                      'preregistration_commit': os.environ['GITHUB_SHA'],
+                      'frozen_config_sha256': '87372243bc6f8eec0b9cdf4f80d3a3c37fbffdd13bddd6efeafdfd5f383b2e76',
+                  },
+                  indent=2,
+              )
+              + '\n'
+          )
+          PY
+
+      - name: Extract preregistered HDF5 slices
+        run: |
+          python scripts/m13_hdf5_extract.py \
+            config/gj849b_heldout_m17.json \
+            --data-dir data_m17
+
+      - name: Hash extracted slices
+        run: |
+          find data_m17 -type f -name '*.npz' -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > DATA_MANIFEST_M17.sha256
+          test "$(wc -l < DATA_MANIFEST_M17.sha256)" -eq 30
+
+      - name: Run frozen detector v0.5.0
+        run: |
+          seti-repeater search \
+            --config config/gj849b_heldout_m17.json \
+            --data-dir data_m17 \
+            --output-dir results_m17
+
+      - name: Hash primary results
+        run: |
+          find results_m17 -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M17.sha256
+
+      - name: Upload held-out evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-17-held-out-results
+          if-no-files-found: warn
+          retention-days: 90
+          path: |
+            validation_m17.json
+            DATA_MANIFEST_M17.sha256
+            RESULTS_MANIFEST_M17.sha256
+            results_m17/
