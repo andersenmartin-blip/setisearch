@@ -19,6 +19,21 @@ retains the Milestone 7 recurrence statistic, spectral filters, per-epoch
 interference mask, candidate clustering, and RFI-family flags, and adds the
 Milestone 12 local-OFF and receiver-frame alias vetoes.
 
+## Milestone 18 result
+
+Milestone 18 applied detector v0.5.0 to the sole complete compatible GBT
+L-band cadence for GJ 649, using GJ 649 b only as the motion template. Across
+approximately 592,487,280 nominal trials, the global maximum reached S/N
+7.8935 at 1425.213204339 MHz, with empirical global p-value 1/257 and an
+operational threshold of S/N 7.2884.
+
+Four 1425 MHz arithmetic-family cases exceeded the threshold without an
+automatic OFF veto. A separately frozen morphology review showed that all four
+different planet-frame solutions select the same receiver-frame feature in
+both shared active epochs. Every case therefore receives the fixed
+cross-template alias disposition `RFI_OR_INSTRUMENTAL`. There is no surviving
+candidate and no technosignature claim.
+
 ## Milestone 17 result
 
 Milestone 17 applied detector v0.5.0 to a previously unused complete GBT
@@ -251,6 +266,13 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Limits
 
+- Milestone 18 searched five 1 MHz windows in one GJ 649 cadence, not the full
+  GBT L-band receiver range or an independent observing epoch.
+- Its four over-threshold planet-frame cases all map to the same receiver-frame
+  feature in two ON epochs and are vetoed as RFI or instrumental under the
+  separately frozen morphology rule.
+- No second complete compatible GJ 649 cadence was present in the frozen public
+  header screen.
 - Milestone 17 searched five 1 MHz windows in one primary GJ 849 cadence, not
   the full GBT L-band receiver range.
 - Its very low empirical rank is driven by strong structured features that
