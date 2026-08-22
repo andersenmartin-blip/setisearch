@@ -1,0 +1,87 @@
+name: Milestone 17 GJ 849 selected-target metadata
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m17_selected_metadata.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  metadata:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify frozen selection inputs and metadata query
+        run: |
+          test "$(sha256sum results_m16_discovery/discovery.json | cut -d' ' -f1)" \
+            = "0310d5ba8e0923062bd0a046b1827a4e814fc3f3adf854620d27e3cccb7fd750"
+          test "$(sha256sum results_m16_header_screen_corrected/header_screen.json | cut -d' ' -f1)" \
+            = "c441713192397b1e7cbf4565a8ef26c57406c436f8cac1833f7cb54ca6342333"
+          test "$(sha256sum MILESTONE_17_TARGET_SELECTION.md | cut -d' ' -f1)" \
+            = "71149df29ca5df4a82d05dff68643b4b6d5063c6a308b61e95442a5b7346274e"
+          test "$(sha256sum scripts/m17_selected_metadata.py | cut -d' ' -f1)" \
+            = "792b60360f1d90ff4c29a8cc9c14b77ddbd3eab41b05d07a2b767a3628311474"
+
+      - name: Verify mechanical GJ 849 selection and cadence reservation
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          screen = json.loads(
+              Path('results_m16_header_screen_corrected/header_screen.json').read_text()
+          )
+          targets = {item['archive_target']: item for item in screen['screened_targets']}
+          selected = targets['HIP109388']
+          assert selected['rank'] == 4
+          assert selected['planet_name'] == 'GJ 849 b'
+          assert selected['qualifying_count'] == 2
+          cadences = selected['qualifying_hdf5_abacad_cadences']
+          assert [item['cadence_url'].rsplit('/', 1)[-1] for item in cadences] == [
+              '--73890', '--74424'
+          ]
+          assert all(len(item['headers']) == 6 for item in cadences)
+          assert all(
+              header['spectral_dataset_values_read'] is False
+              for item in cadences for header in item['headers']
+          )
+          PY
+
+      - name: Fetch selected official record
+        run: python scripts/m17_selected_metadata.py
+
+      - name: Verify boundary and hash result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(Path('results_m17_selected_metadata/gj849b.json').read_text())
+          assert result['spectral_payload_inspected'] is False
+          assert result['record']['pl_name'] == 'GJ 849 b'
+          assert result['record']['hip_name'] == 'HIP 109388'
+          PY
+          find results_m17_selected_metadata -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M17_SELECTED_METADATA.sha256
+
+      - name: Upload selected metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-17-selected-metadata
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M17_SELECTED_METADATA.sha256
+            results_m17_selected_metadata/
