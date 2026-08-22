@@ -32,6 +32,7 @@ FIELDS = (
     "pl_orbtper",
     "pl_orblper",
 )
+REQUIRED_FIELDS = tuple(field for field in FIELDS if field != "hd_name")
 
 
 def main() -> None:
@@ -56,7 +57,7 @@ def main() -> None:
     if status != 200 or len(records) != 1 or records[0].get("pl_name") != PLANET_NAME:
         raise RuntimeError(f"Unexpected official metadata response: {status=} {records=}")
     record = records[0]
-    missing = [field for field in FIELDS if record.get(field) is None]
+    missing = [field for field in REQUIRED_FIELDS if record.get(field) is None]
     if missing:
         raise RuntimeError(f"Selected record is incomplete: {missing}")
 
