@@ -19,6 +19,22 @@ retains the Milestone 7 recurrence statistic, spectral filters, per-epoch
 interference mask, candidate clustering, and RFI-family flags, and adds the
 Milestone 12 local-OFF and receiver-frame alias vetoes.
 
+## Milestone 16 result
+
+Milestone 16 applied detector v0.5.0 to a previously unused complete GBT
+L-band cadence for HD 219134, using the predicted motion of HD 219134 h. Across
+approximately 601,293,840 nominal trials, the held-out maximum was S/N 9.1455
+at 1412.485745177 MHz, with empirical global p-value 1/257 and an operational
+threshold of S/N 7.4288.
+
+Post-hoc morphology left that automated survivor and a separate
+1425.136278570 MHz arithmetic-family case unresolved pending an independent
+cadence. Both exact hypotheses were then tested under frozen rules in the
+earliest later complete qualifying HD 219134 cadence, observed approximately
+40 days later. Neither reached the S/N 3 persistence floor in any of the three
+independent ON scans. Both are formally not redetected, leaving no surviving
+Milestone 16 candidate and no technosignature claim.
+
 ## Milestone 14 result
 
 Milestone 14 applies detector v0.5.0 to a previously unused public GJ 687
@@ -220,6 +236,13 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Limits
 
+- Milestone 16 searched five 1 MHz windows in one primary cadence, not the full
+  GBT L-band receiver range.
+- Its 40-day recurrence test targeted two post-hoc hypotheses in a complete
+  independent cadence; it was not a second blind search and cannot increase
+  the frozen global significance.
+- Milestone 16 non-redetection does not exclude an intermittent transmitter
+  that was inactive during the independent 2016-10-01 cadence.
 - Milestone 14 covers one cadence and five 1 MHz windows, not the full receiver
   band or an independent observing epoch.
 - The partial independent Milestone 14 cadence contains only two target scans
@@ -263,6 +286,18 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Key files
 
+- `MILESTONE_16_PREREGISTRATION.md` — frozen HD 219134 h held-out design.
+- `MILESTONE_16_REPORT.md` — primary held-out result and survivor record.
+- `MILESTONE_16_CANDIDATE_INVESTIGATION_PLAN.md` — frozen morphology protocol.
+- `MILESTONE_16_CANDIDATE_INVESTIGATION.md` — morphology and ON/OFF evidence.
+- `MILESTONE_16_INDEPENDENT_CADENCE_PLAN.md` — frozen 40-day recurrence test.
+- `MILESTONE_16_INDEPENDENT_CADENCE_RESULT.md` — final two-case non-redetection.
+- `config/hd219134h_m16_independent_followup.json` — independent scan
+  identities and geometry.
+- `results_m16_independent_followup/independent_followup.json` —
+  machine-readable dispositions.
+- `DATA_MANIFEST_M16_INDEPENDENT_FOLLOWUP.sha256` — independent extract checksums.
+- `RESULTS_MANIFEST_M16_INDEPENDENT_FOLLOWUP.sha256` — independent result checksums.
 - `MILESTONE_14_PREREGISTRATION.md` — frozen GJ 687 held-out design.
 - `MILESTONE_14_REPORT.md` — held-out result and scientific interpretation.
 - `MILESTONE_14_CANDIDATE_INVESTIGATION_PLAN.md` — fixed post-hoc protocol.
