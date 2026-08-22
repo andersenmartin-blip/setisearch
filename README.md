@@ -19,6 +19,20 @@ retains the Milestone 7 recurrence statistic, spectral filters, per-epoch
 interference mask, candidate clustering, and RFI-family flags, and adds the
 Milestone 12 local-OFF and receiver-frame alias vetoes.
 
+## Milestone 19 result
+
+Milestone 19 extended the frozen low-smearing target ranking to positions
+6-10. Header-only screening selected 47 UMa / HIP 53721 at rank 8: the two
+nearer hosts lacked a complete compatible L-band cadence. The held-out search
+used 47 UMa d only as the motion template and read cadence `--73992` after a
+successful 630-case extraction-coverage proof.
+
+Across approximately 601,293,840 nominal trials, the global maximum reached
+S/N 7.4147 at 1425.240493566 MHz. The frozen operational threshold was S/N
+7.6987 and the empirical global p-value was 9/257. All 89 reported clusters
+were below threshold, so no candidate or post-hoc follow-up was triggered.
+There is no surviving candidate and no technosignature claim.
+
 ## Milestone 18 result
 
 Milestone 18 applied detector v0.5.0 to the sole complete compatible GBT
@@ -266,6 +280,12 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Limits
 
+- Milestone 19 searched five 1 MHz windows in one 47 UMa cadence, not the full
+  GBT L-band receiver range or independent observing nights.
+- Every Milestone 19 reported cluster was below the globally calibrated
+  threshold; no candidate-local review was triggered.
+- No second complete compatible 47 UMa cadence was present in the frozen
+  public header screen.
 - Milestone 18 searched five 1 MHz windows in one GJ 649 cadence, not the full
   GBT L-band receiver range or an independent observing epoch.
 - Its four over-threshold planet-frame cases all map to the same receiver-frame
@@ -329,6 +349,16 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Key files
 
+- `MILESTONE_19_HEADER_SCREEN_PLAN.md` — frozen ranks 6-10 target extension.
+- `MILESTONE_19_HEADER_SCREEN_RESULT.md` — header-only cadence outcome.
+- `MILESTONE_19_TARGET_SELECTION.md` — fixed 47 UMa target and cadence.
+- `MILESTONE_19_SELECTED_METADATA_RESULT.md` — official orbit and astrometry.
+- `MILESTONE_19_PREREGISTRATION.md` — frozen held-out search design.
+- `MILESTONE_19_REPORT.md` — final no-candidate result and limits.
+- `config/47umad_heldout_m19.json` — frozen target, cadence, orbit, and bands.
+- `DATA_MANIFEST_M19.sha256` — checksums for all 30 reproducible extracts.
+- `RESULTS_MANIFEST_M19.sha256` — primary output checksums.
+- `results_m19/search_summary.json` — machine-readable complete search record.
 - `MILESTONE_17_TARGET_SELECTION.md` — frozen GJ 849 target and cadence split.
 - `MILESTONE_17_SELECTED_METADATA_RESULT.md` — official orbit and astrometry.
 - `MILESTONE_17_PREREGISTRATION.md` — frozen held-out search design.
