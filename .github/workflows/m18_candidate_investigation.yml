@@ -1,0 +1,83 @@
+name: Milestone 18 GJ 649 candidate investigation
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m18_candidate_investigation.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  investigate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      MPLCONFIGDIR: /tmp/matplotlib
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install frozen detector and HDF5 adapter dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . \
+            'h5py>=3.11,<4' \
+            'fsspec[http]>=2024.6,<2027' \
+            'hdf5plugin>=4.4,<7'
+
+      - name: Verify frozen inputs and investigation protocol
+        run: |
+          test "$(sha256sum config/gj649b_heldout_m18.json | cut -d' ' -f1)" \
+            = "1dfe92deb385aa39f83af8b1c3c59f01ff8bc405c0c3b0c8671cc57307fd5783"
+          test "$(sha256sum results_m18/search_summary.json | cut -d' ' -f1)" \
+            = "63e8a0d84e3e0940428a29717296e86d5096ee20b5a61cec933bc8ad65b75851"
+          test "$(sha256sum scripts/m11_candidate_investigation.py | cut -d' ' -f1)" \
+            = "6565eb733fb5b3011564a8e98fce32c907aa90ab3890cfb7e9400c4c6419d2cb"
+          test "$(sha256sum scripts/m18_candidate_investigation.py | cut -d' ' -f1)" \
+            = "385696b4d6c1569fb12a53d518d00385c769cf6dc8901fd4ae3baf054d759789"
+          test "$(sha256sum MILESTONE_18_CANDIDATE_INVESTIGATION_PLAN.md | cut -d' ' -f1)" \
+            = "0ffe005a56e70ee0e7405e67cf8527c579b994954e8ce01bba7f20bd3fd1e417"
+
+      - name: Confirm detector tests remain green
+        run: python -m unittest discover -s tests -v
+
+      - name: Run fixed targeted morphology review
+        run: |
+          python scripts/m18_candidate_investigation.py \
+            --config config/gj649b_heldout_m18.json \
+            --summary results_m18/search_summary.json \
+            --data-dir data_m18_candidate_investigation \
+            --output-dir results_m18_candidate_investigation \
+            --extract \
+            --date-utc 2026-08-22
+
+      - name: Hash extracted slices and results
+        run: |
+          find data_m18_candidate_investigation -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > DATA_MANIFEST_M18_CANDIDATE_INVESTIGATION.sha256
+          find results_m18_candidate_investigation -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M18_CANDIDATE_INVESTIGATION.sha256
+          test "$(wc -l < DATA_MANIFEST_M18_CANDIDATE_INVESTIGATION.sha256)" -eq 6
+          test "$(wc -l < RESULTS_MANIFEST_M18_CANDIDATE_INVESTIGATION.sha256)" -eq 7
+
+      - name: Upload investigation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-18-candidate-investigation
+          if-no-files-found: warn
+          retention-days: 90
+          path: |
+            DATA_MANIFEST_M18_CANDIDATE_INVESTIGATION.sha256
+            RESULTS_MANIFEST_M18_CANDIDATE_INVESTIGATION.sha256
+            results_m18_candidate_investigation/
