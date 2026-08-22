@@ -19,6 +19,21 @@ retains the Milestone 7 recurrence statistic, spectral filters, per-epoch
 interference mask, candidate clustering, and RFI-family flags, and adds the
 Milestone 12 local-OFF and receiver-frame alias vetoes.
 
+## Milestone 17 result
+
+Milestone 17 applied detector v0.5.0 to a previously unused complete GBT
+L-band cadence for GJ 849, using GJ 849 b only as the motion template. Across
+approximately 601,293,840 nominal trials, the global maximum reached S/N
+140.9364 at 1400.254871242 MHz, with empirical global p-value 1/257 and an
+operational threshold of S/N 8.9124.
+
+The maximum is decisively rejected by the frozen OFF-source veto: the matched
+OFF statistic is S/N 77.5420 and a nearby OFF recurrence reaches S/N 113.8490
+within 11.176 Hz. All 50 reported above-threshold clusters receive the same
+physical OFF-source disposition, while the remaining 53 are below threshold.
+There is no surviving candidate and no technosignature claim. The complete
+cadence reserved six days later was therefore not opened spectrally.
+
 ## Milestone 16 result
 
 Milestone 16 applied detector v0.5.0 to a previously unused complete GBT
@@ -236,6 +251,12 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Limits
 
+- Milestone 17 searched five 1 MHz windows in one primary GJ 849 cadence, not
+  the full GBT L-band receiver range.
+- Its very low empirical rank is driven by strong structured features that
+  recur in OFF-source data and are rejected as RFI or instrumental.
+- The second complete GJ 849 cadence was deliberately left spectrally
+  untouched because no primary case survived the frozen vetoes.
 - Milestone 16 searched five 1 MHz windows in one primary cadence, not the full
   GBT L-band receiver range.
 - Its 40-day recurrence test targeted two post-hoc hypotheses in a complete
@@ -286,6 +307,14 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Key files
 
+- `MILESTONE_17_TARGET_SELECTION.md` — frozen GJ 849 target and cadence split.
+- `MILESTONE_17_SELECTED_METADATA_RESULT.md` — official orbit and astrometry.
+- `MILESTONE_17_PREREGISTRATION.md` — frozen held-out search design.
+- `MILESTONE_17_REPORT.md` — primary result and final no-survivor disposition.
+- `config/gj849b_heldout_m17.json` — frozen target, cadence, orbit, and bands.
+- `DATA_MANIFEST_M17.sha256` — checksums for all 30 reproducible extracts.
+- `RESULTS_MANIFEST_M17.sha256` — primary output checksums.
+- `results_m17/search_summary.json` — machine-readable complete search record.
 - `MILESTONE_16_PREREGISTRATION.md` — frozen HD 219134 h held-out design.
 - `MILESTONE_16_REPORT.md` — primary held-out result and survivor record.
 - `MILESTONE_16_CANDIDATE_INVESTIGATION_PLAN.md` — frozen morphology protocol.
