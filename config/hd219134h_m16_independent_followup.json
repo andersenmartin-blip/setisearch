@@ -1,0 +1,165 @@
+{
+  "project": {
+    "name": "HD 219134 h Milestone 16 independent-cadence follow-up",
+    "status": "frozen_before_independent_spectral_contact",
+    "preregistered_utc": "2026-08-22T11:30:00Z",
+    "detector_version_frozen": "0.5.0",
+    "analysis_type": "targeted_labelled_posthoc_followup",
+    "original_cadence": "--63424 on 2016-08-22",
+    "independent_cadence": "--65393 on 2016-10-01",
+    "cadence_selection_rule": "Use the earliest complete qualifying HD 219134 HDF5 ABACAD cadence after the original cadence in the corrected pre-contact Milestone 16 header screen."
+  },
+  "target": {
+    "name": "HD 219134",
+    "ra": "23h13m20.93s",
+    "dec": "+57d10m10.65s",
+    "pm_ra_cosdec_mas_yr": 2074.52,
+    "pm_dec_mas_yr": 294.936,
+    "parallax_mas": 153.081,
+    "radial_velocity_km_s": -18.42,
+    "reference_epoch_jyear": 2000.0,
+    "metadata_source": "NASA Exoplanet Archive pscomppars composite HD 219134 h record; coordinates treated as the archive's J2000/ICRS values"
+  },
+  "observatory": {
+    "name": "Green Bank Telescope",
+    "longitude_deg": -79.839835,
+    "latitude_deg": 38.433121111111106,
+    "height_m": 807.43
+  },
+  "orbit": {
+    "name": "HD 219134 h composite RV working template",
+    "period_days": 2247.0,
+    "semi_major_axis_au": 3.11,
+    "eccentricity": 0.06,
+    "t_periastron_bjd_tdb": 2448725.0,
+    "omega_rad": 3.7524578917878086
+  },
+  "windows": [
+    {
+      "id": "m16_independent_1412p5",
+      "fmin_mhz": 1411.2,
+      "fmax_mhz": 1413.8,
+      "rest_center_mhz": 1412.5,
+      "rest_half_width_khz": 500.0,
+      "selection_note": "Reuse the validated Milestone 16 1412 MHz extraction guard for the fixed 1412.485745177 MHz hypothesis."
+    },
+    {
+      "id": "m16_independent_1425p0",
+      "fmin_mhz": 1423.7,
+      "fmax_mhz": 1426.3,
+      "rest_center_mhz": 1425.0,
+      "rest_half_width_khz": 500.0,
+      "selection_note": "Reuse the validated Milestone 16 1425 MHz extraction guard for the fixed 1425.136278570 MHz hypothesis."
+    }
+  ],
+  "scans": [
+    {
+      "epoch": 1,
+      "kind": "on",
+      "label": "independent_epoch1_on",
+      "format": "HDF5",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_34/holding/spliced_blc0001020304050607_guppi_57662_17696_HIP114622_0033.gpuspec.0000.h5",
+      "expected_remote_size_bytes": 15498393970,
+      "expected_etag": "\"5ab975a9-39bc6b972\"",
+      "expected_header": {
+        "source_name": "HIP114622",
+        "tstart_mjd": 57662.20481481482,
+        "tsamp_s": 18.253611008,
+        "dataset_shape": [16, 1, 322961408],
+        "dataset_dtype": "float32",
+        "fch1_mhz": 1926.26953125,
+        "foff_mhz": -0.0000027939677238464355
+      }
+    },
+    {
+      "epoch": 1,
+      "kind": "off",
+      "label": "independent_epoch1_off",
+      "format": "HDF5",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_34/holding/spliced_blc0001020304050607_guppi_57662_18031_HIP113790_0034.gpuspec.0000.h5",
+      "expected_remote_size_bytes": 15532446126,
+      "expected_etag": "\"5ab976a7-39dce51ae\"",
+      "expected_header": {
+        "source_name": "HIP113790",
+        "tstart_mjd": 57662.20869212963,
+        "tsamp_s": 18.253611008,
+        "dataset_shape": [16, 1, 322961408],
+        "dataset_dtype": "float32",
+        "fch1_mhz": 1926.26953125,
+        "foff_mhz": -0.0000027939677238464355
+      }
+    },
+    {
+      "epoch": 2,
+      "kind": "on",
+      "label": "independent_epoch2_on",
+      "format": "HDF5",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_34/holding/spliced_blc0001020304050607_guppi_57662_18366_HIP114622_0035.gpuspec.0000.h5",
+      "expected_remote_size_bytes": 15496618950,
+      "expected_etag": "\"5ab97796-39baba3c6\"",
+      "expected_header": {
+        "source_name": "HIP114622",
+        "tstart_mjd": 57662.21256944445,
+        "tsamp_s": 18.253611008,
+        "dataset_shape": [16, 1, 322961408],
+        "dataset_dtype": "float32",
+        "fch1_mhz": 1926.26953125,
+        "foff_mhz": -0.0000027939677238464355
+      }
+    },
+    {
+      "epoch": 2,
+      "kind": "off",
+      "label": "independent_epoch2_off",
+      "format": "HDF5",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_34/holding/spliced_blc0001020304050607_guppi_57662_18703_HIP113853_0036.gpuspec.0000.h5",
+      "expected_remote_size_bytes": 15503007348,
+      "expected_etag": "\"5ab9788b-39c0d1e74\"",
+      "expected_header": {
+        "source_name": "HIP113853",
+        "tstart_mjd": 57662.216469907406,
+        "tsamp_s": 18.253611008,
+        "dataset_shape": [16, 1, 322961408],
+        "dataset_dtype": "float32",
+        "fch1_mhz": 1926.26953125,
+        "foff_mhz": -0.0000027939677238464355
+      }
+    },
+    {
+      "epoch": 3,
+      "kind": "on",
+      "label": "independent_epoch3_on",
+      "format": "HDF5",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_34/holding/spliced_blc0001020304050607_guppi_57662_19040_HIP114622_0037.gpuspec.0000.h5",
+      "expected_remote_size_bytes": 15545969107,
+      "expected_etag": "\"5ab97976-39e9ca9d3\"",
+      "expected_header": {
+        "source_name": "HIP114622",
+        "tstart_mjd": 57662.22037037037,
+        "tsamp_s": 18.253611008,
+        "dataset_shape": [16, 1, 322961408],
+        "dataset_dtype": "float32",
+        "fch1_mhz": 1926.26953125,
+        "foff_mhz": -0.0000027939677238464355
+      }
+    },
+    {
+      "epoch": 3,
+      "kind": "off",
+      "label": "independent_epoch3_off",
+      "format": "HDF5",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_34/holding/spliced_blc0001020304050607_guppi_57662_19374_HIP113918_0038.gpuspec.0000.h5",
+      "expected_remote_size_bytes": 15501105012,
+      "expected_etag": "\"5ab97a7a-39bf01774\"",
+      "expected_header": {
+        "source_name": "HIP113918",
+        "tstart_mjd": 57662.22423611111,
+        "tsamp_s": 18.253611008,
+        "dataset_shape": [16, 1, 322961408],
+        "dataset_dtype": "float32",
+        "fch1_mhz": 1926.26953125,
+        "foff_mhz": -0.0000027939677238464355
+      }
+    }
+  ]
+}
