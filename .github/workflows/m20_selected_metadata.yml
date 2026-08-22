@@ -1,0 +1,89 @@
+name: Milestone 20 rho CrB selected-target metadata
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m20_selected_metadata.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  metadata:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify frozen selection inputs and metadata query
+        run: |
+          test "$(sha256sum results_m16_discovery/discovery.json | cut -d' ' -f1)" \
+            = "0310d5ba8e0923062bd0a046b1827a4e814fc3f3adf854620d27e3cccb7fd750"
+          test "$(sha256sum results_m19_header_screen/header_screen.json | cut -d' ' -f1)" \
+            = "20ced66ce1b0200d18df3c1a473c57f4a594b5367db5a1448889999cfe02bec1"
+          test "$(sha256sum MILESTONE_20_TARGET_SELECTION.md | cut -d' ' -f1)" \
+            = "5e592413ef302f0d52d112930a0075f4368ecbec65aaef95f0a6b58f76dd0b2a"
+          test "$(sha256sum scripts/m20_selected_metadata.py | cut -d' ' -f1)" \
+            = "3f4c2885d17a12e29a5c26f5fb6d791d712747ab787482e1786b60df3a2c2ad5"
+
+      - name: Verify mechanical rho CrB selection and cadence boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          screen = json.loads(
+              Path('results_m19_header_screen/header_screen.json').read_text()
+          )
+          targets = {item['rank']: item for item in screen['screened_targets']}
+          assert targets[8]['archive_target'] == 'HIP53721'
+          assert targets[8]['qualifying_count'] == 1
+          assert targets[9]['qualifying_count'] == 0
+          selected = targets[10]
+          assert selected['archive_target'] == 'HIP78459'
+          assert selected['planet_name'] == 'rho CrB c'
+          assert selected['qualifying_count'] == 1
+          cadence = selected['qualifying_hdf5_abacad_cadences'][0]
+          assert cadence['cadence_url'].endswith('/--71771')
+          assert len(cadence['headers']) == 6
+          assert all(
+              header['spectral_dataset_values_read'] is False
+              for header in cadence['headers']
+          )
+          PY
+
+      - name: Fetch selected official record
+        run: python scripts/m20_selected_metadata.py
+
+      - name: Verify boundary and hash result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(Path('results_m20_selected_metadata/rhocrbc.json').read_text())
+          assert result['spectral_payload_inspected'] is False
+          assert result['record']['pl_name'] == 'rho CrB c'
+          assert result['record']['hostname'] == 'rho CrB'
+          assert result['record']['hip_name'] == 'HIP 78459'
+          PY
+          find results_m20_selected_metadata -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M20_SELECTED_METADATA.sha256
+
+      - name: Upload selected metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-20-selected-metadata
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M20_SELECTED_METADATA.sha256
+            results_m20_selected_metadata/
