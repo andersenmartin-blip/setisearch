@@ -1,0 +1,72 @@
+name: Milestone 19 HDF5 header-only target extension
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m19_header_screen.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  screen:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install header-adapter dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . \
+            'h5py>=3.11,<4' \
+            'fsspec[http]>=2024.6,<2027'
+
+      - name: Verify frozen inputs
+        run: |
+          test "$(sha256sum results_m16_discovery/discovery.json | cut -d' ' -f1)" \
+            = "0310d5ba8e0923062bd0a046b1827a4e814fc3f3adf854620d27e3cccb7fd750"
+          test "$(sha256sum scripts/m19_header_screen.py | cut -d' ' -f1)" \
+            = "39b6d0f94fe91d3f997f64a9aed3610c724f95b42b4581aab90d495b5772480a"
+          test "$(sha256sum MILESTONE_19_HEADER_SCREEN_PLAN.md | cut -d' ' -f1)" \
+            = "4049e1b128e53b0a8969b8aaabee6d8700e1f9d1c3eb644e8db748c43bb6cfb3"
+
+      - name: Run fixed HDF5-header-only screen
+        run: |
+          python scripts/m19_header_screen.py \
+            --discovery results_m16_discovery/discovery.json \
+            --output results_m19_header_screen/header_screen.json
+
+      - name: Verify spectral boundary and hash result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(Path('results_m19_header_screen/header_screen.json').read_text())
+          assert result['spectral_payload_inspected'] is False
+          assert result['spectral_dataset_values_read'] is False
+          assert result['frozen_extension_ranks'] == [6, 7, 8, 9, 10]
+          PY
+          find results_m19_header_screen -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M19_HEADER_SCREEN.sha256
+
+      - name: Upload header-screen evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-19-header-screen
+          if-no-files-found: warn
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M19_HEADER_SCREEN.sha256
+            results_m19_header_screen/
