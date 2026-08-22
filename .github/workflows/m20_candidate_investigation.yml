@@ -1,0 +1,85 @@
+name: Milestone 20 rho CrB candidate investigation
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m20_candidate_investigation.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  investigate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      MPLCONFIGDIR: /tmp/matplotlib
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install frozen detector and HDF5 adapter dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . \
+            'h5py>=3.11,<4' \
+            'fsspec[http]>=2024.6,<2027' \
+            'hdf5plugin>=4.4,<7'
+
+      - name: Verify frozen inputs and investigation protocol
+        run: |
+          test "$(sha256sum config/rhocrbc_heldout_m20.json | cut -d' ' -f1)" \
+            = "d631241a0b55c8a0c3f81d795ad19e2ccb4946918d57431d2817bc785a591696"
+          test "$(sha256sum results_m20/search_summary.json | cut -d' ' -f1)" \
+            = "40365a16ad417ba00d0904cc67fd0f4c31e65f1197fe044bb7dd9927846aab9f"
+          test "$(sha256sum scripts/m11_candidate_investigation.py | cut -d' ' -f1)" \
+            = "6565eb733fb5b3011564a8e98fce32c907aa90ab3890cfb7e9400c4c6419d2cb"
+          test "$(sha256sum scripts/m18_candidate_investigation.py | cut -d' ' -f1)" \
+            = "385696b4d6c1569fb12a53d518d00385c769cf6dc8901fd4ae3baf054d759789"
+          test "$(sha256sum scripts/m20_candidate_investigation.py | cut -d' ' -f1)" \
+            = "8d113115d336ca42064a5fcbd78466c739835af77bd88cf0e2ef14d8a30bde0b"
+          test "$(sha256sum MILESTONE_20_CANDIDATE_INVESTIGATION_PLAN.md | cut -d' ' -f1)" \
+            = "99fbc4cb55384b71bcbbecb3514fd3080caa14bcbc0d88839bd75dc8d29821ab"
+
+      - name: Confirm detector tests remain green
+        run: python -m unittest discover -s tests -v
+
+      - name: Run fixed targeted morphology review
+        run: |
+          python scripts/m20_candidate_investigation.py \
+            --config config/rhocrbc_heldout_m20.json \
+            --summary results_m20/search_summary.json \
+            --data-dir data_m20_candidate_investigation \
+            --output-dir results_m20_candidate_investigation \
+            --extract \
+            --date-utc 2026-08-22
+
+      - name: Hash extracted slices and results
+        run: |
+          find data_m20_candidate_investigation -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > DATA_MANIFEST_M20_CANDIDATE_INVESTIGATION.sha256
+          find results_m20_candidate_investigation -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M20_CANDIDATE_INVESTIGATION.sha256
+          test "$(wc -l < DATA_MANIFEST_M20_CANDIDATE_INVESTIGATION.sha256)" -eq 6
+          test "$(wc -l < RESULTS_MANIFEST_M20_CANDIDATE_INVESTIGATION.sha256)" -eq 4
+
+      - name: Upload investigation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-20-candidate-investigation
+          if-no-files-found: warn
+          retention-days: 90
+          path: |
+            DATA_MANIFEST_M20_CANDIDATE_INVESTIGATION.sha256
+            RESULTS_MANIFEST_M20_CANDIDATE_INVESTIGATION.sha256
+            results_m20_candidate_investigation/
