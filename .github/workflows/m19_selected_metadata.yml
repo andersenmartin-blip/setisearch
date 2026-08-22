@@ -1,0 +1,84 @@
+name: Milestone 19 47 UMa selected-target metadata
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m19_selected_metadata.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  metadata:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify frozen selection inputs and metadata query
+        run: |
+          test "$(sha256sum results_m16_discovery/discovery.json | cut -d' ' -f1)" \
+            = "0310d5ba8e0923062bd0a046b1827a4e814fc3f3adf854620d27e3cccb7fd750"
+          test "$(sha256sum results_m19_header_screen/header_screen.json | cut -d' ' -f1)" \
+            = "20ced66ce1b0200d18df3c1a473c57f4a594b5367db5a1448889999cfe02bec1"
+          test "$(sha256sum MILESTONE_19_TARGET_SELECTION.md | cut -d' ' -f1)" \
+            = "dc16f73ed6bbcd52c471eb99ebe4e4125abebe89f397291da495c22321e0ee08"
+          test "$(sha256sum scripts/m19_selected_metadata.py | cut -d' ' -f1)" \
+            = "d8281b01baee3c6b88aad29fb7dc046b4d61a9b5a159bf26d1b42e7f6f0f4a10"
+
+      - name: Verify mechanical 47 UMa selection and cadence boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          screen = json.loads(
+              Path('results_m19_header_screen/header_screen.json').read_text()
+          )
+          selected = screen['selected']
+          assert selected['rank'] == 8
+          assert selected['archive_target'] == 'HIP53721'
+          assert selected['planet_name'] == '47 UMa d'
+          assert selected['cadence']['cadence_url'].endswith('/--73992')
+          assert len(selected['cadence']['headers']) == 6
+          assert all(
+              header['spectral_dataset_values_read'] is False
+              for header in selected['cadence']['headers']
+          )
+          PY
+
+      - name: Fetch selected official record
+        run: python scripts/m19_selected_metadata.py
+
+      - name: Verify boundary and hash result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(Path('results_m19_selected_metadata/47umad.json').read_text())
+          assert result['spectral_payload_inspected'] is False
+          assert result['record']['pl_name'] == '47 UMa d'
+          assert result['record']['hostname'] == '47 UMa'
+          assert result['record']['hip_name'] == 'HIP 53721'
+          PY
+          find results_m19_selected_metadata -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M19_SELECTED_METADATA.sha256
+
+      - name: Upload selected metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-19-selected-metadata
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M19_SELECTED_METADATA.sha256
+            results_m19_selected_metadata/
