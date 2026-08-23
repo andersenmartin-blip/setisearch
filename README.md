@@ -19,6 +19,22 @@ retains the Milestone 7 recurrence statistic, spectral filters, per-epoch
 interference mask, candidate clustering, and RFI-family flags, and adds the
 Milestone 12 local-OFF and receiver-frame alias vetoes.
 
+## Milestone 24 result
+
+Milestone 24 applied detector v0.5.0 to the sole complete compatible GBT
+L-band cadence for 16 Cyg B, using 16 Cyg B b only as the motion template.
+Across approximately 601,293,840 nominal trials, the global maximum reached
+S/N 54.2691 at 1400.117483467 MHz, with empirical global p-value 1/257 and an
+operational threshold of S/N 40.3396.
+
+All nine clusters above that threshold are reproduced by exact matched-OFF,
+local-OFF, or single-adjacent-OFF evidence and receive the frozen physical
+interference vetoes. All 388 clusters were retained without a report-cap
+audit. There is no surviving candidate. The heavy-tailed 1400 MHz interference
+also limits sensitivity: the preregistered injection grid reaches only 5/32
+recoveries at ideal single-epoch S/N 40 and does not measure a 50% recovery
+point. No second qualifying 16 Cyg B cadence exists in the frozen screen.
+
 ## Milestone 23 result
 
 Milestone 23 applied detector v0.5.0 to the earliest complete compatible GBT
@@ -343,6 +359,14 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Limits
 
+- Milestone 24 searched five 1 MHz windows in one 16 Cyg B cadence, not the
+  full GBT L-band receiver range or independent observing nights.
+- Its nine over-threshold clusters are all rejected by frozen physical OFF
+  vetoes, but 1400 MHz interference raises the global threshold to S/N 40.34.
+- The Milestone 24 completeness grid does not reach 50% recovery through ideal
+  single-epoch S/N 40, so the null result has limited sensitivity.
+- No second complete compatible 16 Cyg B cadence was present in the frozen
+  public header screen.
 - Milestone 23 searched five 1 MHz windows in one primary HD 33564 cadence,
   not the full GBT L-band receiver range or independent observing nights.
 - Its 77 over-threshold clusters are all rejected by frozen physical OFF or
@@ -436,6 +460,14 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Key files
 
+- `MILESTONE_24_TARGET_SELECTION.md` — fixed 16 Cyg B target and cadence.
+- `MILESTONE_24_SELECTED_METADATA_RESULT.md` — official orbit and astrometry.
+- `MILESTONE_24_PREREGISTRATION.md` — frozen held-out search design.
+- `MILESTONE_24_REPORT.md` — final no-survivor result and sensitivity limits.
+- `config/16cygbb_heldout_m24.json` — frozen target, cadence, orbit, and bands.
+- `DATA_MANIFEST_M24.sha256` — checksums for all 30 reproducible extracts.
+- `RESULTS_MANIFEST_M24.sha256` — checksums for all nine primary outputs.
+- `results_m24/search_summary.json` — complete machine-readable search record.
 - `MILESTONE_23_TARGET_SELECTION.md` — fixed HD 33564 target and cadence split.
 - `MILESTONE_23_SELECTED_METADATA_RESULT.md` — official orbit and astrometry.
 - `MILESTONE_23_PREREGISTRATION.md` — frozen held-out search design.
