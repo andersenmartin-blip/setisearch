@@ -19,6 +19,22 @@ retains the Milestone 7 recurrence statistic, spectral filters, per-epoch
 interference mask, candidate clustering, and RFI-family flags, and adds the
 Milestone 12 local-OFF and receiver-frame alias vetoes.
 
+## Milestone 21 result
+
+Milestone 21 applied detector v0.5.0 to the sole complete compatible GBT
+L-band cadence for HD 154345, using HD 154345 b only as the motion template.
+Across approximately 592,487,280 nominal trials, the global maximum reached
+S/N 328.3539 at 1400.000778429 MHz, with empirical global p-value 1/257 and
+an operational threshold of S/N 9.5556. The maximum is stronger in matched
+OFF-source data and receives the frozen interference veto.
+
+Two separate 1425 MHz arithmetic-family cases entered a separately frozen
+morphology review. Despite different planet-frame frequencies and orbital
+templates, both map to exactly the same recorded receiver feature in both
+claimed active epochs; one also exceeds the fixed adjacent-OFF track
+threshold. Both are classified `RFI_OR_INSTRUMENTAL`. There is no surviving
+candidate and no technosignature claim.
+
 ## Milestone 20 result
 
 Milestone 20 applied detector v0.5.0 to the sole complete compatible GBT
