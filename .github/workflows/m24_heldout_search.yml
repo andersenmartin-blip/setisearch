@@ -1,0 +1,136 @@
+name: Milestone 24 held-out 16 Cyg B b search
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m24_heldout_search.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  search:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    env:
+      MPLCONFIGDIR: /tmp/matplotlib
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install frozen detector and HDF5 adapter dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . \
+            'h5py>=3.11,<4' \
+            'fsspec[http]>=2024.6,<2027' \
+            'hdf5plugin>=4.4,<7'
+
+      - name: Verify preregistered configuration and provenance
+        run: |
+          test "$(sha256sum MILESTONE_24_PREREGISTRATION.md | cut -d' ' -f1)" \
+            = "6fe6f6b1e1a7f1ef7b37fcfe3e099125d2a7568a18ae964906e3a32d73df2b48"
+          test "$(sha256sum config/16cygbb_heldout_m24.json | cut -d' ' -f1)" \
+            = "73cee229fc1696a895444168902f7ae2eb1be5ccced41689206a93f5df4730ca"
+          test "$(sha256sum results_m24_selected_metadata/16cygbb.json | cut -d' ' -f1)" \
+            = "00ae76135eafd8d685efa2e3dae773d434b9f4510faa96971a70ffe4226654b4"
+          test "$(sha256sum results_m24_preflight/coverage.json | cut -d' ' -f1)" \
+            = "c167ccb6c1f9e5218a2c761767d9bfeec211e26115fa16954b76360b0fcce5f4"
+          test "$(git rev-parse 95068209a6ece1f08c92b5cf703452986a364f7a^{commit})" \
+            = "95068209a6ece1f08c92b5cf703452986a364f7a"
+
+      - name: Validate detector and repeat coverage proof before spectral contact
+        run: |
+          python -m unittest discover -s tests -v
+          seti-repeater validate \
+            --tsamp 18.253611008 \
+            --channel-width 2.7939677238464355 \
+            --output validation_m24.json
+          python scripts/m14_coverage_preflight.py \
+            config/16cygbb_heldout_m24.json \
+            --output results_m24/coverage_preflight_repeat.json
+
+      - name: Record execution environment
+        run: |
+          mkdir -p results_m24
+          python -m pip freeze > results_m24/environment.txt
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('results_m24/run_metadata.json').write_text(
+              json.dumps(
+                  {
+                      'github_repository': os.environ['GITHUB_REPOSITORY'],
+                      'github_run_id': os.environ['GITHUB_RUN_ID'],
+                      'github_sha': os.environ['GITHUB_SHA'],
+                      'github_ref': os.environ['GITHUB_REF'],
+                      'detector_version_frozen': '0.5.0',
+                      'frozen_detector_commit': '32720a0b5e097403f864e2b84d53a071d65d7c46',
+                      'preregistration_commit': '95068209a6ece1f08c92b5cf703452986a364f7a',
+                      'execution_commit': os.environ['GITHUB_SHA'],
+                      'frozen_config_sha256': '73cee229fc1696a895444168902f7ae2eb1be5ccced41689206a93f5df4730ca',
+                  },
+                  indent=2,
+              )
+              + '\n'
+          )
+          PY
+
+      - name: Extract preregistered HDF5 slices
+        run: |
+          python scripts/m13_hdf5_extract.py \
+            config/16cygbb_heldout_m24.json \
+            --data-dir data_m24
+
+      - name: Hash extracted slices
+        run: |
+          find data_m24 -type f -name '*.npz' -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > DATA_MANIFEST_M24.sha256
+          test "$(wc -l < DATA_MANIFEST_M24.sha256)" -eq 30
+
+      - name: Run frozen detector v0.5.0 with complete cluster retention
+        run: |
+          seti-repeater search \
+            --config config/16cygbb_heldout_m24.json \
+            --data-dir data_m24 \
+            --output-dir results_m24
+
+      - name: Verify complete report cap and hash primary results
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(Path('results_m24/search_summary.json').read_text())
+          for window in result['windows'].values():
+              reduction = window['candidate_reduction']
+              assert reduction['cluster_count_before_report_limit'] <= 1008
+              assert reduction['reported_cluster_count'] == \
+                  reduction['cluster_count_before_report_limit']
+          PY
+          find results_m24 -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M24.sha256
+
+      - name: Upload held-out evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-24-held-out-results
+          if-no-files-found: warn
+          retention-days: 90
+          path: |
+            validation_m24.json
+            DATA_MANIFEST_M24.sha256
+            RESULTS_MANIFEST_M24.sha256
+            results_m24/
