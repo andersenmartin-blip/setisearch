@@ -19,6 +19,22 @@ retains the Milestone 7 recurrence statistic, spectral filters, per-epoch
 interference mask, candidate clustering, and RFI-family flags, and adds the
 Milestone 12 local-OFF and receiver-frame alias vetoes.
 
+## Milestone 25 result
+
+Milestone 25 extended the frozen target ranking to positions 21-25. The
+header-only screen selected HD 164922 at rank 21 and preserved compatible
+L-band cadences for ranks 22-24 without spectral contact. The held-out search
+used HD 164922 b only as the motion template and cadence `--84744` after a
+successful 630-case coverage proof.
+
+Across approximately 592,487,280 nominal trials, the global maximum reached
+S/N 78.6024 at 1406.207696457 MHz, with empirical global p-value 1/257 and an
+operational threshold of S/N 8.0080. All 83 clusters above threshold receive
+frozen matched-OFF, local-OFF, receiver-frame-alias, or single-adjacent-OFF
+vetoes. All 216 clusters were retained, and there is no surviving candidate.
+The multichannel completeness grid places 50% and 90% recovery near ideal
+single-epoch S/N 9.86 and 11.69.
+
 ## Milestone 24 result
 
 Milestone 24 applied detector v0.5.0 to the sole complete compatible GBT
@@ -359,6 +375,12 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Limits
 
+- Milestone 25 searched five 1 MHz windows in one HD 164922 cadence, not the
+  full GBT L-band receiver range or independent observing nights.
+- Its 83 over-threshold clusters are all rejected by frozen physical OFF or
+  receiver-frame vetoes.
+- No second complete compatible HD 164922 L-band cadence was present; its
+  other frozen cadence is S-band.
 - Milestone 24 searched five 1 MHz windows in one 16 Cyg B cadence, not the
   full GBT L-band receiver range or independent observing nights.
 - Its nine over-threshold clusters are all rejected by frozen physical OFF
@@ -460,6 +482,15 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Key files
 
+- `MILESTONE_25_HEADER_SCREEN_PLAN.md` — frozen ranks 21-25 extension.
+- `MILESTONE_25_TARGET_SELECTION.md` — fixed HD 164922 target and cadence.
+- `MILESTONE_25_SELECTED_METADATA_RESULT.md` — official orbit and astrometry.
+- `MILESTONE_25_PREREGISTRATION.md` — frozen held-out search design.
+- `MILESTONE_25_REPORT.md` — final no-survivor result and limits.
+- `config/hd164922b_heldout_m25.json` — frozen target, cadence, orbit, and bands.
+- `DATA_MANIFEST_M25.sha256` — checksums for all 30 reproducible extracts.
+- `RESULTS_MANIFEST_M25.sha256` — checksums for all nine primary outputs.
+- `results_m25/search_summary.json` — complete machine-readable search record.
 - `MILESTONE_24_TARGET_SELECTION.md` — fixed 16 Cyg B target and cadence.
 - `MILESTONE_24_SELECTED_METADATA_RESULT.md` — official orbit and astrometry.
 - `MILESTONE_24_PREREGISTRATION.md` — frozen held-out search design.
