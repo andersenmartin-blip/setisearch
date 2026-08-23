@@ -1,0 +1,122 @@
+name: Milestone 22 held-out HD 87883 b search
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m22_heldout_search.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  search:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    env:
+      MPLCONFIGDIR: /tmp/matplotlib
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install frozen detector and HDF5 adapter dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . \
+            'h5py>=3.11,<4' \
+            'fsspec[http]>=2024.6,<2027' \
+            'hdf5plugin>=4.4,<7'
+
+      - name: Verify preregistered configuration and provenance
+        run: |
+          test "$(sha256sum MILESTONE_22_PREREGISTRATION.md | cut -d' ' -f1)" \
+            = "926e60e9982b37d68f50d3f0b34f8cb9e2c35130acf96a967f943a15ec0bce5b"
+          test "$(sha256sum config/hd87883b_heldout_m22.json | cut -d' ' -f1)" \
+            = "13870d7dd9b65bed2fc520211e701134bf4a7b9f9b19aa29e017fe3722430e49"
+          test "$(sha256sum results_m22_selected_metadata/hd87883b.json | cut -d' ' -f1)" \
+            = "d620edbc2108738741b74e0465566329cdd20ade60c1886f1e450ccd9273872e"
+          test "$(sha256sum results_m22_preflight/coverage.json | cut -d' ' -f1)" \
+            = "22f68786a3bd07fa67bd87b5405c1cd2a8c3c9557895a82cd66767aa84273e7e"
+
+      - name: Validate detector and repeat coverage proof before spectral contact
+        run: |
+          python -m unittest discover -s tests -v
+          seti-repeater validate \
+            --tsamp 17.986224128 \
+            --channel-width 2.835503418452676 \
+            --output validation_m22.json
+          python scripts/m14_coverage_preflight.py \
+            config/hd87883b_heldout_m22.json \
+            --output results_m22/coverage_preflight_repeat.json
+
+      - name: Record execution environment
+        run: |
+          mkdir -p results_m22
+          python -m pip freeze > results_m22/environment.txt
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('results_m22/run_metadata.json').write_text(
+              json.dumps(
+                  {
+                      'github_repository': os.environ['GITHUB_REPOSITORY'],
+                      'github_run_id': os.environ['GITHUB_RUN_ID'],
+                      'github_sha': os.environ['GITHUB_SHA'],
+                      'github_ref': os.environ['GITHUB_REF'],
+                      'detector_version_frozen': '0.5.0',
+                      'frozen_detector_commit': '32720a0b5e097403f864e2b84d53a071d65d7c46',
+                      'preregistration_commit': os.environ['GITHUB_SHA'],
+                      'frozen_config_sha256': '13870d7dd9b65bed2fc520211e701134bf4a7b9f9b19aa29e017fe3722430e49',
+                  },
+                  indent=2,
+              )
+              + '\n'
+          )
+          PY
+
+      - name: Extract preregistered HDF5 slices
+        run: |
+          python scripts/m13_hdf5_extract.py \
+            config/hd87883b_heldout_m22.json \
+            --data-dir data_m22
+
+      - name: Hash extracted slices
+        run: |
+          find data_m22 -type f -name '*.npz' -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > DATA_MANIFEST_M22.sha256
+          test "$(wc -l < DATA_MANIFEST_M22.sha256)" -eq 30
+
+      - name: Run frozen detector v0.5.0
+        run: |
+          seti-repeater search \
+            --config config/hd87883b_heldout_m22.json \
+            --data-dir data_m22 \
+            --output-dir results_m22
+
+      - name: Hash primary results
+        run: |
+          find results_m22 -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M22.sha256
+
+      - name: Upload held-out evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-22-held-out-results
+          if-no-files-found: warn
+          retention-days: 90
+          path: |
+            validation_m22.json
+            DATA_MANIFEST_M22.sha256
+            RESULTS_MANIFEST_M22.sha256
+            results_m22/
