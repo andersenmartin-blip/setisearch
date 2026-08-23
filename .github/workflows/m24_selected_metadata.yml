@@ -1,0 +1,103 @@
+name: Milestone 24 16 Cyg B selected-target metadata
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m24_selected_metadata.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  metadata:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify frozen selection inputs and metadata query
+        run: |
+          test "$(sha256sum results_m16_discovery/discovery.json | cut -d' ' -f1)" \
+            = "0310d5ba8e0923062bd0a046b1827a4e814fc3f3adf854620d27e3cccb7fd750"
+          test "$(sha256sum results_m23_header_screen/header_screen.json | cut -d' ' -f1)" \
+            = "1df2df247e77747a297e4df2ff0c7d77339275b4fa15dddf007080859ae7fce7"
+          test "$(sha256sum MILESTONE_24_TARGET_SELECTION.md | cut -d' ' -f1)" \
+            = "61eb44b500a0fcdf20d80cec76a9de7da93263a5d1fe9c866961cb8edb24fec2"
+          test "$(sha256sum scripts/m24_selected_metadata.py | cut -d' ' -f1)" \
+            = "af5ee2b8e9d1419e8d558825eceebe35e36eb318df9a0261b6dd74c40495dee7"
+
+      - name: Verify mechanical 16 Cyg B selection and spectral boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          screen = json.loads(
+              Path('results_m23_header_screen/header_screen.json').read_text()
+          )
+          targets = {item['rank']: item for item in screen['screened_targets']}
+          assert targets[16]['qualifying_count'] == 0
+          assert targets[17]['archive_target'] == 'HIP25110'
+          assert targets[17]['qualifying_count'] == 2
+          assert targets[18]['qualifying_count'] == 0
+          target = targets[19]
+          assert target['archive_target'] == 'HIP96901'
+          assert target['planet_name'] == '16 Cyg B b'
+          assert target['qualifying_count'] == 1
+          assert targets[20]['qualifying_count'] == 0
+          qualifying = [
+              item
+              for cadence in target['cadences']
+              for item in cadence['qualifying_hdf5_abacad_cadences']
+          ]
+          assert len(qualifying) == 1
+          primary = qualifying[0]
+          assert primary['cadence_url'].endswith('/--67109')
+          assert len(primary['headers']) == 6
+          assert [h['source_name'] for h in primary['headers']] == [
+              'HIP96901', 'HIP95737', 'HIP96901',
+              'HIP95853', 'HIP96901', 'HIP95872',
+          ]
+          assert all(
+              header['spectral_dataset_values_read'] is False
+              for header in primary['headers']
+          )
+          PY
+
+      - name: Fetch selected official record
+        run: python scripts/m24_selected_metadata.py
+
+      - name: Verify boundary and hash result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(
+              Path('results_m24_selected_metadata/16cygbb.json').read_text()
+          )
+          assert result['spectral_payload_inspected'] is False
+          assert result['record']['pl_name'] == '16 Cyg B b'
+          assert result['record']['hostname'] == '16 Cyg B'
+          assert result['record']['hip_name'] == 'HIP 96901'
+          PY
+          find results_m24_selected_metadata -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M24_SELECTED_METADATA.sha256
+
+      - name: Upload selected metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-24-selected-metadata
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M24_SELECTED_METADATA.sha256
+            results_m24_selected_metadata/
