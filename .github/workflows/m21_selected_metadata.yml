@@ -1,0 +1,89 @@
+name: Milestone 21 HD 154345 selected-target metadata
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m21_selected_metadata.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  metadata:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify frozen selection inputs and metadata query
+        run: |
+          test "$(sha256sum results_m16_discovery/discovery.json | cut -d' ' -f1)" \
+            = "0310d5ba8e0923062bd0a046b1827a4e814fc3f3adf854620d27e3cccb7fd750"
+          test "$(sha256sum results_m21_header_screen/header_screen.json | cut -d' ' -f1)" \
+            = "f15f1718dfcd82c868478e489257a2127c5584bbd8bb62178e4e4a1cffc2831a"
+          test "$(sha256sum MILESTONE_21_TARGET_SELECTION.md | cut -d' ' -f1)" \
+            = "2dd732bcdf7e1f53693123b0f4b2768e49f2e68c6f7784c052b1681e0af1cd6a"
+          test "$(sha256sum scripts/m21_selected_metadata.py | cut -d' ' -f1)" \
+            = "ca5a39bbf9a9f468ebd6f500ca7d52463a250d769ea409387d6857835945dd91"
+
+      - name: Verify mechanical HD 154345 selection and cadence boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          screen = json.loads(
+              Path('results_m21_header_screen/header_screen.json').read_text()
+          )
+          targets = {item['rank']: item for item in screen['screened_targets']}
+          assert targets[11]['archive_target'] == 'HIP79248'
+          assert targets[11]['qualifying_count'] == 0
+          selected = screen['selected']
+          assert selected['rank'] == 12
+          assert selected['archive_target'] == 'HIP83389'
+          assert selected['planet_name'] == 'HD 154345 b'
+          cadence = selected['cadence']
+          assert cadence['cadence_url'].endswith('/--85132')
+          assert len(cadence['headers']) == 6
+          assert not selected['additional_qualifying_cadences']
+          assert all(
+              header['spectral_dataset_values_read'] is False
+              for header in cadence['headers']
+          )
+          PY
+
+      - name: Fetch selected official record
+        run: python scripts/m21_selected_metadata.py
+
+      - name: Verify boundary and hash result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(Path('results_m21_selected_metadata/hd154345b.json').read_text())
+          assert result['spectral_payload_inspected'] is False
+          assert result['record']['pl_name'] == 'HD 154345 b'
+          assert result['record']['hostname'] == 'HD 154345'
+          assert result['record']['hip_name'] == 'HIP 83389'
+          PY
+          find results_m21_selected_metadata -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M21_SELECTED_METADATA.sha256
+
+      - name: Upload selected metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-21-selected-metadata
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M21_SELECTED_METADATA.sha256
+            results_m21_selected_metadata/
