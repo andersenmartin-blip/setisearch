@@ -1,0 +1,211 @@
+name: Milestone 23 complete over-threshold disposition audit
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m23_complete_audit.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    env:
+      MPLCONFIGDIR: /tmp/matplotlib
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install frozen detector and HDF5 adapter dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . \
+            'h5py>=3.11,<4' \
+            'fsspec[http]>=2024.6,<2027' \
+            'hdf5plugin>=4.4,<7'
+
+      - name: Verify frozen audit inputs and sole config difference
+        run: |
+          test "$(sha256sum MILESTONE_23_COMPLETE_AUDIT_PLAN.md | cut -d' ' -f1)" \
+            = "40f09a720e32c8a2b042bcbb257273bc7887a266cde7247cce6e834685af4833"
+          test "$(sha256sum config/hd33564b_m23_complete_audit.json | cut -d' ' -f1)" \
+            = "0af0f6a23308fab5cc83a6bdef9f8e1a7a7e6ac2fc477ab96762a6ad68acb05b"
+          test "$(sha256sum results_m23/search_summary.json | cut -d' ' -f1)" \
+            = "073788b340289c37e2b66a9fede57446b8c9f228ea768a79271db74fd32d1653"
+          test "$(sha256sum DATA_MANIFEST_M23.sha256 | cut -d' ' -f1)" \
+            = "23ba46ad82bde6f0c75035b425fa8f3bb976e6430b91e6395f8234e9983a5fcf"
+          python - <<'PY'
+          import json
+          from copy import deepcopy
+          from pathlib import Path
+
+          primary = json.loads(Path('config/hd33564b_heldout_m23.json').read_text())
+          audit = json.loads(Path('config/hd33564b_m23_complete_audit.json').read_text())
+          assert primary['search']['candidate_reporting']['max_report_clusters'] == 50
+          assert audit['search']['candidate_reporting']['max_report_clusters'] == 500
+          normalized = deepcopy(audit)
+          normalized['search']['candidate_reporting']['max_report_clusters'] = 50
+          assert normalized == primary
+          assert all('AGBT16A_999_196' in scan['url'] for scan in audit['scans'])
+          PY
+
+      - name: Re-extract the frozen primary cadence only
+        run: |
+          python scripts/m13_hdf5_extract.py \
+            config/hd33564b_m23_complete_audit.json \
+            --data-dir data_m23_complete_audit
+
+      - name: Prove byte-identical primary extracts
+        run: |
+          find data_m23_complete_audit -type f -name '*.npz' -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > DATA_MANIFEST_M23_COMPLETE_AUDIT.sha256
+          test "$(wc -l < DATA_MANIFEST_M23_COMPLETE_AUDIT.sha256)" -eq 30
+          awk '{print $1}' DATA_MANIFEST_M23.sha256 > /tmp/m23_primary_hashes.txt
+          awk '{print $1}' DATA_MANIFEST_M23_COMPLETE_AUDIT.sha256 \
+            > /tmp/m23_audit_hashes.txt
+          diff -u /tmp/m23_primary_hashes.txt /tmp/m23_audit_hashes.txt
+
+      - name: Rerun detector with complete report capacity
+        run: |
+          seti-repeater search \
+            --config config/hd33564b_m23_complete_audit.json \
+            --data-dir data_m23_complete_audit \
+            --output-dir results_m23_complete_audit
+
+      - name: Verify primary reproduction and classify every cluster
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          primary = json.loads(Path('results_m23/search_summary.json').read_text())
+          audit_path = Path('results_m23_complete_audit/search_summary.json')
+          audit = json.loads(audit_path.read_text())
+          assert audit['global_result'] == primary['global_result']
+
+          cluster_fields = (
+              'cluster_frequency_mhz',
+              'max_snr',
+              'member_count',
+              'distinct_template_count',
+              'distinct_spectral_widths',
+              'distinct_activity_subsets',
+              'frequency_span_hz',
+              'best_hypothesis',
+              'off_at_best_hypothesis_snr',
+              'disposition',
+          )
+          vetoes = {
+              'rfi_veto_off_source',
+              'rfi_veto_single_adjacent_off',
+              'rfi_veto_local_off_source',
+              'rfi_veto_receiver_frame_alias',
+          }
+          threshold = audit['global_result']['operational_threshold_snr']
+          per_window = []
+          survivors = []
+          for window_id, primary_window in primary['windows'].items():
+              audit_window = audit['windows'][window_id]
+              for field in (
+                  'on_best',
+                  'one_channel_regression_best',
+                  'off_global_best',
+                  'empirical_null',
+                  'single_epoch_rfi_excision',
+              ):
+                  assert audit_window[field] == primary_window[field]
+              p_reduce = primary_window['candidate_reduction']
+              a_reduce = audit_window['candidate_reduction']
+              assert a_reduce['cluster_count_before_report_limit'] == p_reduce[
+                  'cluster_count_before_report_limit'
+              ]
+              assert a_reduce['reported_cluster_count'] == a_reduce[
+                  'cluster_count_before_report_limit'
+              ]
+              p_clusters = p_reduce['clusters']
+              a_clusters = a_reduce['clusters']
+              for p_cluster, a_cluster in zip(p_clusters, a_clusters):
+                  assert {
+                      field: a_cluster.get(field) for field in cluster_fields
+                  } == {
+                      field: p_cluster.get(field) for field in cluster_fields
+                  }
+              above = [c for c in a_clusters if c['max_snr'] >= threshold]
+              window_survivors = [c for c in above if c['disposition'] not in vetoes]
+              for cluster in window_survivors:
+                  survivors.append({
+                      'window_id': window_id,
+                      'frequency_mhz': cluster['cluster_frequency_mhz'],
+                      'snr': cluster['max_snr'],
+                      'disposition': cluster['disposition'],
+                      'best_hypothesis': cluster['best_hypothesis'],
+                  })
+              counts = {}
+              for cluster in above:
+                  counts[cluster['disposition']] = counts.get(cluster['disposition'], 0) + 1
+              per_window.append({
+                  'window_id': window_id,
+                  'clusters_before_primary_report_limit': p_reduce[
+                      'cluster_count_before_report_limit'
+                  ],
+                  'primary_reported_clusters': p_reduce['reported_cluster_count'],
+                  'audit_reported_clusters': a_reduce['reported_cluster_count'],
+                  'over_threshold_clusters': len(above),
+                  'over_threshold_dispositions': counts,
+                  'survivor_count': len(window_survivors),
+              })
+
+          result = {
+              'purpose': 'Milestone 23 complete over-threshold disposition audit',
+              'primary_search_summary_sha256': (
+                  '073788b340289c37e2b66a9fede57446b8c9f228ea768a79271db74fd32d1653'
+              ),
+              'audit_config_sha256': (
+                  '0af0f6a23308fab5cc83a6bdef9f8e1a7a7e6ac2fc477ab96762a6ad68acb05b'
+              ),
+              'operational_threshold_snr': threshold,
+              'primary_reproduced': True,
+              'all_report_caps_unsaturated': True,
+              'reserved_cadence_spectral_values_read': False,
+              'windows': per_window,
+              'survivors': survivors,
+              'survivor_count': len(survivors),
+              'next_action': (
+                  'close_no_survivor_and_leave_reserved_cadence_unopened'
+                  if not survivors
+                  else 'freeze_candidate_local_morphology_protocol'
+              ),
+          }
+          Path('results_m23_complete_audit/audit_summary.json').write_text(
+              json.dumps(result, indent=2, sort_keys=True) + '\n'
+          )
+          print(json.dumps(result, indent=2, sort_keys=True))
+          PY
+
+      - name: Hash audit outputs
+        run: |
+          find results_m23_complete_audit -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M23_COMPLETE_AUDIT.sha256
+
+      - name: Upload complete audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-23-complete-audit
+          if-no-files-found: warn
+          retention-days: 90
+          path: |
+            DATA_MANIFEST_M23_COMPLETE_AUDIT.sha256
+            RESULTS_MANIFEST_M23_COMPLETE_AUDIT.sha256
+            results_m23_complete_audit/
