@@ -117,7 +117,7 @@ The public preregistration commit is
 `dae44c297034a91f1bffaa494de4e9d306d4bd96`. The frozen configuration SHA-256
 is `73cee229fc1696a895444168902f7ae2eb1be5ccced41689206a93f5df4730ca`.
 The complete search record SHA-256 is
-`45b106be893b4b976b93585aef675c97f8f173ea718de8a33b112e6efbf0419`.
+`45b106be893b4b976b93585aef675c97f8f90885ce90d250742e1db44e87c1cb`.
 `DATA_MANIFEST_M24.sha256` identifies all 30 reproducible extracts and
 `RESULTS_MANIFEST_M24.sha256` identifies all nine published outputs. Extracted
 telescope slices are not committed.
