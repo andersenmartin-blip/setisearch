@@ -1,0 +1,83 @@
+name: Milestone 21 HD 154345 candidate investigation
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m21_candidate_investigation.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  investigate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      MPLCONFIGDIR: /tmp/matplotlib
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install frozen detector and HDF5 adapter dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . \
+            'h5py>=3.11,<4' \
+            'fsspec[http]>=2024.6,<2027' \
+            'hdf5plugin>=4.4,<7'
+
+      - name: Verify frozen inputs and investigation protocol
+        run: |
+          test "$(sha256sum config/hd154345b_heldout_m21.json | cut -d' ' -f1)" \
+            = "441597c69c1b3227648ee7aaf4bd6c8b0a09241c807755e03b355baa194b21e7"
+          test "$(sha256sum results_m21/search_summary.json | cut -d' ' -f1)" \
+            = "e098ed1cf2d73a785aa73ece68fc5a490aff80d35758917703b00ef23483dbf0"
+          test "$(sha256sum scripts/m11_candidate_investigation.py | cut -d' ' -f1)" \
+            = "6565eb733fb5b3011564a8e98fce32c907aa90ab3890cfb7e9400c4c6419d2cb"
+          test "$(sha256sum scripts/m21_candidate_investigation.py | cut -d' ' -f1)" \
+            = "5a9819128e04c4cbb469ecde025d0ebea9fa4256cfc3ddc7ebbbc085e3a87c8f"
+          test "$(sha256sum MILESTONE_21_CANDIDATE_INVESTIGATION_PLAN.md | cut -d' ' -f1)" \
+            = "3765560eed92937e713eec2b49fc0c6e36325de31ab01025f7cd0583858c85be"
+
+      - name: Confirm detector tests remain green
+        run: python -m unittest discover -s tests -v
+
+      - name: Run fixed targeted morphology review
+        run: |
+          python scripts/m21_candidate_investigation.py \
+            --config config/hd154345b_heldout_m21.json \
+            --summary results_m21/search_summary.json \
+            --data-dir data_m21_candidate_investigation \
+            --output-dir results_m21_candidate_investigation \
+            --extract \
+            --date-utc 2026-08-23
+
+      - name: Hash extracted slices and results
+        run: |
+          find data_m21_candidate_investigation -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > DATA_MANIFEST_M21_CANDIDATE_INVESTIGATION.sha256
+          find results_m21_candidate_investigation -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M21_CANDIDATE_INVESTIGATION.sha256
+          test "$(wc -l < DATA_MANIFEST_M21_CANDIDATE_INVESTIGATION.sha256)" -eq 6
+          test "$(wc -l < RESULTS_MANIFEST_M21_CANDIDATE_INVESTIGATION.sha256)" -eq 5
+
+      - name: Upload investigation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-21-candidate-investigation
+          if-no-files-found: warn
+          retention-days: 90
+          path: |
+            DATA_MANIFEST_M21_CANDIDATE_INVESTIGATION.sha256
+            RESULTS_MANIFEST_M21_CANDIDATE_INVESTIGATION.sha256
+            results_m21_candidate_investigation/
