@@ -1,0 +1,72 @@
+name: Milestone 23 HDF5 header-only target extension
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m23_header_screen.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  screen:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install header-adapter dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . \
+            'h5py>=3.11,<4' \
+            'fsspec[http]>=2024.6,<2027'
+
+      - name: Verify frozen inputs
+        run: |
+          test "$(sha256sum results_m16_discovery/discovery.json | cut -d' ' -f1)" \
+            = "0310d5ba8e0923062bd0a046b1827a4e814fc3f3adf854620d27e3cccb7fd750"
+          test "$(sha256sum scripts/m23_header_screen.py | cut -d' ' -f1)" \
+            = "d77bb4bc50d0654aa35e595d97c4081ebeac7914677778ea2008dc793cf3162f"
+          test "$(sha256sum MILESTONE_23_HEADER_SCREEN_PLAN.md | cut -d' ' -f1)" \
+            = "a148a17385de722a919dc9b95b7e65691160581847c346e9ebfbc4ee241d98a9"
+
+      - name: Run fixed HDF5-header-only screen
+        run: |
+          python scripts/m23_header_screen.py \
+            --discovery results_m16_discovery/discovery.json \
+            --output results_m23_header_screen/header_screen.json
+
+      - name: Verify spectral boundary and hash result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(Path('results_m23_header_screen/header_screen.json').read_text())
+          assert result['spectral_payload_inspected'] is False
+          assert result['spectral_dataset_values_read'] is False
+          assert result['frozen_extension_ranks'] == [16, 17, 18, 19, 20]
+          PY
+          find results_m23_header_screen -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M23_HEADER_SCREEN.sha256
+
+      - name: Upload header-screen evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-23-header-screen
+          if-no-files-found: warn
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M23_HEADER_SCREEN.sha256
+            results_m23_header_screen/
