@@ -1,0 +1,327 @@
+{
+  "project": {
+    "name": "HD 164922 b Milestone 25 held-out detector-v0.5 validation",
+    "status": "frozen_before_spectral_contact",
+    "detector_version_frozen": "0.5.0",
+    "frozen_detector_commit": "32720a0b5e097403f864e2b84d53a071d65d7c46",
+    "scientific_target": "An intermittent narrowband signal coherent under the selected HD 164922 b motion hypothesis; the signal is not assumed to originate on the planet or to be aimed at Earth",
+    "selection_rule": "Advance HD 164922 at frozen discovery rank 21 as the first compatible host in the preregistered ranks 21-25 header screen; search the sole complete compatible L-band cadence --84744 after all metadata and full-bank coverage checks pass.",
+    "survey_scope": "One complete GBT L-band alternating ON/OFF cadence, five frozen 1 MHz planet-frame windows, and detector v0.5.0. There is no second qualifying HD 164922 L-band cadence, so this milestone cannot establish independent recurrence. Telescope, bands, recurrence statistic, thresholds, spectral widths, orbital scale/phase bank, RFI mask, detector-v0.5 vetoes, empirical calibration, completeness procedure, and complete cluster retention remain frozen. The 1200-cluster report cap exceeds the finite maximum of 1008 pre-clustering peaks per window and cannot truncate a complete disposition record.",
+    "source_format_adapter": "scripts/m13_hdf5_extract.py",
+    "metadata_preflight": {
+      "discovery": {
+        "workflow_run": 32506360670,
+        "artifact_id": 9455425040,
+        "artifact_digest": "sha256:a5e11baab62e32d33da9aaf3b27855d2103a0ed0168a0abcecd389de820dbfc7",
+        "result_sha256": "0310d5ba8e0923062bd0a046b1827a4e814fc3f3adf854620d27e3cccb7fd750"
+      },
+      "milestone_25_header_screen": {
+        "workflow_run": 32655523963,
+        "artifact_id": 9497345233,
+        "artifact_digest": "sha256:9b899ee399619198b7da8d552220a2499f6c8726a73e85653ae862b35402ed2d",
+        "result_sha256": "f9d3b2b75cb6bb49a278b7b97f1d2163d03f054282b0e5904ed6fffe15756748"
+      },
+      "selected_official_metadata": {
+        "workflow_run": 32655763537,
+        "artifact_id": 9497391729,
+        "artifact_digest": "sha256:5872014e58b7f8e2010711e44a9c983be0315dcee31dc76692e4548ea22f893c",
+        "result_sha256": "d826ef7192f68194440e31cec7fe1bd701d60187e60fff48605f50b7d88dde52"
+      }
+    },
+    "preregistered_utc": "2026-08-23T17:47:34Z",
+    "coverage_preflight": {
+      "workflow_run": 32655898967,
+      "artifact_id": 9497428405,
+      "artifact_digest": "sha256:5fa0c40ceb8de2ba7d07a0009fddbb223b87bedb9d44d10d5b74b25a4faa4f24",
+      "result_sha256": "b04834e2dfd3097d329096380520e41b6ee10e7d06992e3bf8c63b1d2f1b4837",
+      "checks": 630,
+      "minimum_headroom_channels": 219489,
+      "minimum_headroom_approx_khz": 622.362,
+      "passed": true,
+      "spectral_payload_inspected": false,
+      "remote_files_opened": false
+    }
+  },
+  "observatory": {
+    "name": "Green Bank Telescope",
+    "longitude_deg": -79.839835,
+    "latitude_deg": 38.433121111111106,
+    "height_m": 807.43
+  },
+  "target": {
+    "name": "HD 164922",
+    "ra": "18h02m31.31s",
+    "dec": "+26d18m37.47s",
+    "pm_ra_cosdec_mas_yr": 389.653,
+    "pm_dec_mas_yr": -602.314,
+    "parallax_mas": 45.4222,
+    "radial_velocity_km_s": 20.3634,
+    "reference_epoch_jyear": 2000,
+    "metadata_source": "NASA Exoplanet Archive pscomppars composite HD 164922 b record; coordinates treated as the archive's J2000/ICRS values"
+  },
+  "orbit": {
+    "name": "HD 164922 b composite RV working template",
+    "period_days": 1207.0,
+    "semi_major_axis_au": 2.16,
+    "eccentricity": 0.08,
+    "t_periastron_bjd_tdb": 2457978.0,
+    "omega_rad": 2.0245819323134224
+  },
+  "search": {
+    "projected_scales": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "phase_offsets_cycles": [
+      -0.2,
+      -0.1,
+      0,
+      0.1,
+      0.2
+    ],
+    "minimum_active_epochs": 2,
+    "minimum_active_epoch_snr": 3,
+    "stack_statistic": "minimum_epoch",
+    "rfi_excision": {
+      "single_epoch_strong_snr": 10,
+      "other_epochs_below_snr": 3,
+      "guard_channels": 9
+    },
+    "spectral_widths_channels": [
+      1,
+      3,
+      5,
+      9
+    ],
+    "candidate_snr_reference": 7,
+    "scrambles": 256,
+    "scramble_seed": 2520260823,
+    "min_scramble_shift_bins": 4096,
+    "candidate_reporting": {
+      "peaks_per_hypothesis": 3,
+      "snr_floor": 5.5,
+      "cluster_tolerance_hz": 20,
+      "max_report_clusters": 1200,
+      "template_multiplicity_flag": 8,
+      "family_spacing_tolerance_hz": 20,
+      "family_min_members": 3
+    },
+    "candidate_veto_v0p5": {
+      "local_off_tolerance_hz": 20,
+      "single_epoch_snr_floor": 5.5,
+      "receiver_local_half_width_hz": 100,
+      "receiver_alias_tolerance_hz": 20,
+      "receiver_alias_minimum_shared_epochs": 2
+    },
+    "completeness": {
+      "background_window": "m25_1412p5",
+      "active_epochs_zero_based": [
+        0,
+        2
+      ],
+      "truth_template_indices": [
+        0,
+        8,
+        14,
+        20
+      ],
+      "ideal_single_epoch_snr_grid": [
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        40
+      ],
+      "trials_per_level": 32,
+      "seed": 252120260823,
+      "subintegrations": 32
+    }
+  },
+  "windows": [
+    {
+      "id": "m25_1400p5",
+      "fmin_mhz": 1399.2,
+      "fmax_mhz": 1401.8,
+      "rest_center_mhz": 1400.5,
+      "rest_half_width_khz": 500,
+      "selection_note": "Frozen Milestone 14 1 MHz search band with a metadata-preflighted 800 kHz extraction guard."
+    },
+    {
+      "id": "m25_1406p5",
+      "fmin_mhz": 1405.2,
+      "fmax_mhz": 1407.8,
+      "rest_center_mhz": 1406.5,
+      "rest_half_width_khz": 500,
+      "selection_note": "Frozen Milestone 14 1 MHz search band with a metadata-preflighted 800 kHz extraction guard."
+    },
+    {
+      "id": "m25_1412p5",
+      "fmin_mhz": 1411.2,
+      "fmax_mhz": 1413.8,
+      "rest_center_mhz": 1412.5,
+      "rest_half_width_khz": 500,
+      "selection_note": "Frozen Milestone 14 1 MHz search band with a metadata-preflighted 800 kHz extraction guard. This window remains the preregistered completeness background."
+    },
+    {
+      "id": "m25_1418p5",
+      "fmin_mhz": 1417.2,
+      "fmax_mhz": 1419.8,
+      "rest_center_mhz": 1418.5,
+      "rest_half_width_khz": 500,
+      "selection_note": "Frozen Milestone 14 1 MHz search band with a metadata-preflighted 800 kHz extraction guard."
+    },
+    {
+      "id": "m25_1425p0",
+      "fmin_mhz": 1423.7,
+      "fmax_mhz": 1426.3,
+      "rest_center_mhz": 1425,
+      "rest_half_width_khz": 500,
+      "selection_note": "Frozen Milestone 14 1 MHz search band with a metadata-preflighted 800 kHz extraction guard."
+    }
+  ],
+  "scans": [
+    {
+      "epoch": 1,
+      "kind": "on",
+      "label": "epoch1_on",
+      "archive_utc": "2016-03-10T13:53:38Z",
+      "format": "HDF5",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16A_999_81/holding/spliced_blc02030405_2bit_guppi_57457_50018_HIP88348_0009.gpuspec.0000.h5",
+      "expected_remote_size_bytes": 12778987933,
+      "expected_etag": "\"5a9e8ea0-2f9afe19d\"",
+      "expected_header": {
+        "source_name": "HIP88348",
+        "tstart_mjd": 57457.57891203704,
+        "tsamp_s": 17.986224128,
+        "dataset_shape": [
+          16,
+          1,
+          264503296
+        ],
+        "dataset_dtype": "float32",
+        "fch1_mhz": 1876.46484375,
+        "foff_mhz": -2.835503418452676e-06
+      }
+    },
+    {
+      "epoch": 1,
+      "kind": "off",
+      "label": "epoch1_off",
+      "archive_utc": "2016-03-10T13:59:13Z",
+      "format": "HDF5",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16A_999_81/holding/spliced_blc02030405_2bit_guppi_57457_50353_HIP88348_OFF_0010.gpuspec.0000.h5",
+      "expected_remote_size_bytes": 12779200637,
+      "expected_etag": "\"5a9e8f0b-2f9b3207d\"",
+      "expected_header": {
+        "source_name": "HIP88348_OFF",
+        "tstart_mjd": 57457.58278935185,
+        "tsamp_s": 17.986224128,
+        "dataset_shape": [
+          16,
+          1,
+          264503296
+        ],
+        "dataset_dtype": "float32",
+        "fch1_mhz": 1876.46484375,
+        "foff_mhz": -2.835503418452676e-06
+      }
+    },
+    {
+      "epoch": 2,
+      "kind": "on",
+      "label": "epoch2_on",
+      "archive_utc": "2016-03-10T14:04:47Z",
+      "format": "HDF5",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16A_999_81/holding/spliced_blc02030405_2bit_guppi_57457_50687_HIP88348_0011.gpuspec.0000.h5",
+      "expected_remote_size_bytes": 12768253568,
+      "expected_etag": "\"5a9e8fd3-2f90c1680\"",
+      "expected_header": {
+        "source_name": "HIP88348",
+        "tstart_mjd": 57457.58665509259,
+        "tsamp_s": 17.986224128,
+        "dataset_shape": [
+          16,
+          1,
+          264503296
+        ],
+        "dataset_dtype": "float32",
+        "fch1_mhz": 1876.46484375,
+        "foff_mhz": -2.835503418452676e-06
+      }
+    },
+    {
+      "epoch": 2,
+      "kind": "off",
+      "label": "epoch2_off",
+      "archive_utc": "2016-03-10T14:10:21Z",
+      "format": "HDF5",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16A_999_81/holding/spliced_blc02030405_2bit_guppi_57457_51021_HIP88348_OFF_0012.gpuspec.0000.h5",
+      "expected_remote_size_bytes": 12772323516,
+      "expected_etag": "\"5a9e9041-2f94a30bc\"",
+      "expected_header": {
+        "source_name": "HIP88348_OFF",
+        "tstart_mjd": 57457.590520833335,
+        "tsamp_s": 17.986224128,
+        "dataset_shape": [
+          16,
+          1,
+          264503296
+        ],
+        "dataset_dtype": "float32",
+        "fch1_mhz": 1876.46484375,
+        "foff_mhz": -2.835503418452676e-06
+      }
+    },
+    {
+      "epoch": 3,
+      "kind": "on",
+      "label": "epoch3_on",
+      "archive_utc": "2016-03-10T14:15:55Z",
+      "format": "HDF5",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16A_999_81/holding/spliced_blc02030405_2bit_guppi_57457_51355_HIP88348_0013.gpuspec.0000.h5",
+      "expected_remote_size_bytes": 12773810833,
+      "expected_etag": "\"5a9e910a-2f960e291\"",
+      "expected_header": {
+        "source_name": "HIP88348",
+        "tstart_mjd": 57457.59438657408,
+        "tsamp_s": 17.986224128,
+        "dataset_shape": [
+          16,
+          1,
+          264503296
+        ],
+        "dataset_dtype": "float32",
+        "fch1_mhz": 1876.46484375,
+        "foff_mhz": -2.835503418452676e-06
+      }
+    },
+    {
+      "epoch": 3,
+      "kind": "off",
+      "label": "epoch3_off",
+      "archive_utc": "2016-03-10T14:28:09Z",
+      "format": "HDF5",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16A_999_81/holding/spliced_blc02030405_2bit_guppi_57457_52089_HIP87938_0015.gpuspec.0000.h5",
+      "expected_remote_size_bytes": 12784183412,
+      "expected_etag": "\"5a9e91a3-2f9ff2874\"",
+      "expected_header": {
+        "source_name": "HIP87938",
+        "tstart_mjd": 57457.60288194445,
+        "tsamp_s": 17.986224128,
+        "dataset_shape": [
+          16,
+          1,
+          264503296
+        ],
+        "dataset_dtype": "float32",
+        "fch1_mhz": 1876.46484375,
+        "foff_mhz": -2.835503418452676e-06
+      }
+    }
+  ]
+}
