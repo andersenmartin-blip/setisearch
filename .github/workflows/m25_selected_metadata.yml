@@ -1,0 +1,91 @@
+name: Milestone 25 HD 164922 selected-target metadata
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m25_selected_metadata.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  metadata:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify frozen selection inputs and metadata query
+        run: |
+          test "$(sha256sum results_m16_discovery/discovery.json | cut -d' ' -f1)" \
+            = "0310d5ba8e0923062bd0a046b1827a4e814fc3f3adf854620d27e3cccb7fd750"
+          test "$(sha256sum results_m25_header_screen/header_screen.json | cut -d' ' -f1)" \
+            = "f9d3b2b75cb6bb49a278b7b97f1d2163d03f054282b0e5904ed6fffe15756748"
+          test "$(sha256sum MILESTONE_25_TARGET_SELECTION.md | cut -d' ' -f1)" \
+            = "e5521c6bf7d992e770685173f16795e32dac679d4de79032886ab800db611fc0"
+          test "$(sha256sum scripts/m25_selected_metadata.py | cut -d' ' -f1)" \
+            = "c5920ed61747ab3de8d90e549c0719e9f5b24093e4750e747ef0abcd3205134a"
+
+      - name: Verify mechanical HD 164922 selection and spectral boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          screen = json.loads(
+              Path('results_m25_header_screen/header_screen.json').read_text()
+          )
+          targets = {item['rank']: item for item in screen['screened_targets']}
+          assert screen['selected']['rank'] == 21
+          target = targets[21]
+          assert target['archive_target'] == 'HIP88348'
+          assert target['planet_name'] == 'HD 164922 b'
+          assert target['qualifying_count'] == 1
+          assert [targets[r]['qualifying_count'] for r in (22, 23, 24, 25)] == [1, 1, 1, 0]
+          primary = screen['selected']['cadence']
+          assert primary['cadence_url'].endswith('/--84744')
+          assert len(primary['headers']) == 6
+          assert len(screen['selected']['additional_qualifying_cadences']) == 0
+          assert all(
+              header['spectral_dataset_values_read'] is False
+              for header in primary['headers']
+          )
+          PY
+
+      - name: Fetch selected official record
+        run: python scripts/m25_selected_metadata.py
+
+      - name: Verify boundary and hash result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(
+              Path('results_m25_selected_metadata/hd164922b.json').read_text()
+          )
+          assert result['spectral_payload_inspected'] is False
+          assert result['record']['pl_name'] == 'HD 164922 b'
+          assert result['record']['hostname'] == 'HD 164922'
+          assert result['record']['hip_name'] == 'HIP 88348'
+          PY
+          find results_m25_selected_metadata -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M25_SELECTED_METADATA.sha256
+
+      - name: Upload selected metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-25-selected-metadata
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M25_SELECTED_METADATA.sha256
+            results_m25_selected_metadata/
