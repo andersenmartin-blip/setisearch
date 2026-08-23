@@ -19,6 +19,20 @@ retains the Milestone 7 recurrence statistic, spectral filters, per-epoch
 interference mask, candidate clustering, and RFI-family flags, and adds the
 Milestone 12 local-OFF and receiver-frame alias vetoes.
 
+## Milestone 22 result
+
+Milestone 22 applied detector v0.5.0 to the sole complete compatible GBT
+L-band cadence for HD 87883, using HD 87883 b only as the motion template.
+Across approximately 592,487,280 nominal trials, the global maximum reached
+S/N 16.1118 at 1400.114068134 MHz, with empirical global p-value 1/257 and an
+operational threshold of S/N 8.3645.
+
+Twenty clusters exceeded the threshold. Nineteen, including the global
+maximum, map to the same recorded receiver feature in both active epochs and
+receive the frozen receiver-frame-alias veto. The remaining case is reproduced
+within 19.849 Hz in OFF-source data and receives the fixed local-OFF veto.
+There is no surviving candidate and no technosignature claim.
+
 ## Milestone 21 result
 
 Milestone 21 applied detector v0.5.0 to the sole complete compatible GBT
@@ -312,6 +326,18 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Limits
 
+- Milestone 22 searched five 1 MHz windows in one HD 87883 cadence, not the
+  full GBT L-band receiver range or independent observing nights.
+- Its 20 over-threshold planet-frame clusters are all rejected by frozen
+  receiver-frame-alias or local-OFF vetoes; no manual review was triggered.
+- The other frozen HD 87883 cadence is S-band and does not cover the search
+  windows.
+- Milestone 21 searched five 1 MHz windows in one HD 154345 cadence, not the
+  full GBT L-band receiver range or independent observing nights.
+- Its two morphology-review cases map to the same receiver features under
+  different planet templates and are rejected as RFI or instrumental.
+- No second complete compatible HD 154345 cadence was present in the frozen
+  public header screen.
 - Milestone 20 searched five 1 MHz windows in one rho CrB cadence, not the full
   GBT L-band receiver range or independent observing nights.
 - Its strong window maxima recur in OFF-source data; the sole manual-review
@@ -387,6 +413,14 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Key files
 
+- `MILESTONE_22_TARGET_SELECTION.md` — fixed HD 87883 target and cadence.
+- `MILESTONE_22_SELECTED_METADATA_RESULT.md` — official orbit and astrometry.
+- `MILESTONE_22_PREREGISTRATION.md` — frozen held-out search design.
+- `MILESTONE_22_REPORT.md` — final no-survivor result and limits.
+- `config/hd87883b_heldout_m22.json` — frozen target, cadence, orbit, and bands.
+- `DATA_MANIFEST_M22.sha256` — checksums for all 30 reproducible extracts.
+- `RESULTS_MANIFEST_M22.sha256` — primary output checksums.
+- `results_m22/search_summary.json` — machine-readable complete search record.
 - `MILESTONE_19_HEADER_SCREEN_PLAN.md` — frozen ranks 6-10 target extension.
 - `MILESTONE_19_HEADER_SCREEN_RESULT.md` — header-only cadence outcome.
 - `MILESTONE_19_TARGET_SELECTION.md` — fixed 47 UMa target and cadence.
