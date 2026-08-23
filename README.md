@@ -19,6 +19,23 @@ retains the Milestone 7 recurrence statistic, spectral filters, per-epoch
 interference mask, candidate clustering, and RFI-family flags, and adds the
 Milestone 12 local-OFF and receiver-frame alias vetoes.
 
+## Milestone 23 result
+
+Milestone 23 applied detector v0.5.0 to the earliest complete compatible GBT
+L-band cadence for HD 33564, using HD 33564 b only as the motion template.
+Across approximately 592,487,280 nominal trials, the global maximum reached
+S/N 184.2732 at 1400.135544237 MHz, with empirical global p-value 1/257 and an
+operational threshold of S/N 7.9455. The maximum is strongly reproduced in
+OFF-source data and receives the frozen interference veto.
+
+Because the primary 1400 MHz output reached its 50-cluster report cap, a
+separately frozen complete audit reproduced the primary result and preserved
+all 124 clusters in that window. Across all five windows, 77 clusters exceeded
+the global threshold; all receive matched-OFF, local-OFF, single-adjacent-OFF,
+or receiver-frame-alias vetoes. There is no surviving candidate. A complete
+independent HD 33564 cadence six days later remains spectrally untouched
+because the preregistered recurrence trigger did not fire.
+
 ## Milestone 22 result
 
 Milestone 22 applied detector v0.5.0 to the sole complete compatible GBT
@@ -326,6 +343,12 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Limits
 
+- Milestone 23 searched five 1 MHz windows in one primary HD 33564 cadence,
+  not the full GBT L-band receiver range or independent observing nights.
+- Its 77 over-threshold clusters are all rejected by frozen physical OFF or
+  receiver-frame vetoes after a complete report-cap audit.
+- The complete compatible HD 33564 cadence six days later remains spectrally
+  untouched because no primary case survived the automatic vetoes.
 - Milestone 22 searched five 1 MHz windows in one HD 87883 cadence, not the
   full GBT L-band receiver range or independent observing nights.
 - Its 20 over-threshold planet-frame clusters are all rejected by frozen
@@ -413,6 +436,17 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Key files
 
+- `MILESTONE_23_TARGET_SELECTION.md` — fixed HD 33564 target and cadence split.
+- `MILESTONE_23_SELECTED_METADATA_RESULT.md` — official orbit and astrometry.
+- `MILESTONE_23_PREREGISTRATION.md` — frozen held-out search design.
+- `MILESTONE_23_PRIMARY_RESULT.md` — primary result and report-cap boundary.
+- `MILESTONE_23_COMPLETE_AUDIT_PLAN.md` — fixed complete-disposition audit.
+- `MILESTONE_23_REPORT.md` — final no-survivor result and limits.
+- `config/hd33564b_heldout_m23.json` — frozen primary search configuration.
+- `config/hd33564b_m23_complete_audit.json` — one-field report-cap expansion.
+- `DATA_MANIFEST_M23.sha256` — checksums for all 30 primary extracts.
+- `RESULTS_MANIFEST_M23.sha256` — primary output checksums.
+- `results_m23_complete_audit/audit_summary.json` — complete veto accounting.
 - `MILESTONE_22_TARGET_SELECTION.md` — fixed HD 87883 target and cadence.
 - `MILESTONE_22_SELECTED_METADATA_RESULT.md` — official orbit and astrometry.
 - `MILESTONE_22_PREREGISTRATION.md` — frozen held-out search design.
