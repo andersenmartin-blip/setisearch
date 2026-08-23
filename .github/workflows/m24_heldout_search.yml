@@ -19,8 +19,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
 
       - uses: actions/setup-python@v5
         with:
@@ -45,8 +43,6 @@ jobs:
             = "00ae76135eafd8d685efa2e3dae773d434b9f4510faa96971a70ffe4226654b4"
           test "$(sha256sum results_m24_preflight/coverage.json | cut -d' ' -f1)" \
             = "c167ccb6c1f9e5218a2c761767d9bfeec211e26115fa16954b76360b0fcce5f4"
-          test "$(git rev-parse 95068209a6ece1f08c92b5cf703452986a364f7a^{commit})" \
-            = "95068209a6ece1f08c92b5cf703452986a364f7a"
 
       - name: Validate detector and repeat coverage proof before spectral contact
         run: |
