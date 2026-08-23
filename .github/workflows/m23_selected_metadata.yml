@@ -1,0 +1,98 @@
+name: Milestone 23 HD 33564 selected-target metadata
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m23_selected_metadata.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  metadata:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify frozen selection inputs and metadata query
+        run: |
+          test "$(sha256sum results_m16_discovery/discovery.json | cut -d' ' -f1)" \
+            = "0310d5ba8e0923062bd0a046b1827a4e814fc3f3adf854620d27e3cccb7fd750"
+          test "$(sha256sum results_m23_header_screen/header_screen.json | cut -d' ' -f1)" \
+            = "1df2df247e77747a297e4df2ff0c7d77339275b4fa15dddf007080859ae7fce7"
+          test "$(sha256sum MILESTONE_23_TARGET_SELECTION.md | cut -d' ' -f1)" \
+            = "97e13843bdb3b921cca20c4b3c6fbbcd529dd187b184e697fb84e48fdc09c66a"
+          test "$(sha256sum scripts/m23_selected_metadata.py | cut -d' ' -f1)" \
+            = "e56f428ec840f22bda09bbb2eb6b1d66c792e9a50df276d8d1575cc31034792b"
+
+      - name: Verify mechanical HD 33564 selection and cadence boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          screen = json.loads(
+              Path('results_m23_header_screen/header_screen.json').read_text()
+          )
+          targets = {item['rank']: item for item in screen['screened_targets']}
+          assert targets[16]['qualifying_count'] == 0
+          target = targets[17]
+          assert target['archive_target'] == 'HIP25110'
+          assert target['planet_name'] == 'HD 33564 b'
+          assert target['qualifying_count'] == 2
+          assert targets[18]['qualifying_count'] == 0
+          assert targets[19]['archive_target'] == 'HIP96901'
+          assert targets[19]['qualifying_count'] == 1
+          assert targets[20]['qualifying_count'] == 0
+          assert screen['selected']['rank'] == 17
+          primary = screen['selected']['cadence']
+          reserved = screen['selected']['additional_qualifying_cadences']
+          assert primary['cadence_url'].endswith('/--71505')
+          assert len(primary['headers']) == 6
+          assert len(reserved) == 1
+          assert reserved[0]['cadence_url'].endswith('/--71747')
+          assert target['cadences'][2]['cadence_url'].endswith('/--81065')
+          assert not target['cadences'][2]['qualifying_hdf5_abacad_cadences']
+          assert all(
+              header['spectral_dataset_values_read'] is False
+              for cadence in [primary, *reserved]
+              for header in cadence['headers']
+          )
+          PY
+
+      - name: Fetch selected official record
+        run: python scripts/m23_selected_metadata.py
+
+      - name: Verify boundary and hash result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(Path('results_m23_selected_metadata/hd33564b.json').read_text())
+          assert result['spectral_payload_inspected'] is False
+          assert result['record']['pl_name'] == 'HD 33564 b'
+          assert result['record']['hostname'] == 'HD 33564'
+          assert result['record']['hip_name'] == 'HIP 25110'
+          PY
+          find results_m23_selected_metadata -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M23_SELECTED_METADATA.sha256
+
+      - name: Upload selected metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-23-selected-metadata
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M23_SELECTED_METADATA.sha256
+            results_m23_selected_metadata/
