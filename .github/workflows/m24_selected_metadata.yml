@@ -52,14 +52,15 @@ jobs:
           assert target['planet_name'] == '16 Cyg B b'
           assert target['qualifying_count'] == 1
           assert targets[20]['qualifying_count'] == 0
-          qualifying = [
-              item
+          qualifying_cadences = [
+              cadence
               for cadence in target['cadences']
-              for item in cadence['qualifying_hdf5_abacad_cadences']
+              if cadence['qualifying_hdf5_abacad_cadences']
           ]
-          assert len(qualifying) == 1
-          primary = qualifying[0]
-          assert primary['cadence_url'].endswith('/--67109')
+          assert len(qualifying_cadences) == 1
+          cadence = qualifying_cadences[0]
+          assert cadence['cadence_url'].endswith('/--67109')
+          primary = cadence['qualifying_hdf5_abacad_cadences'][0]
           assert len(primary['headers']) == 6
           assert [h['source_name'] for h in primary['headers']] == [
               'HIP96901', 'HIP95737', 'HIP96901',
