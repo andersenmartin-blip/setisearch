@@ -115,6 +115,7 @@ The complete search record SHA-256 is
 `RESULTS_MANIFEST_M28.sha256` identifies all nine published outputs. Extracted
 telescope slices are not committed.
 
-Publication verification is appended after the independent verification
-workflow has revalidated the hashes, disposition accounting, execution
-provenance, and this report.
+Publication verification workflow run `32755045083` independently revalidated
+the frozen inputs, all nine result-file hashes, complete disposition accounting,
+known-answer tests, execution provenance, and the pre-verification report hash. Its
+machine-readable receipt is `MILESTONE_28_PUBLICATION_VERIFICATION.json`.
