@@ -1,0 +1,121 @@
+name: Milestone 29 HDF5 header-only target extension
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m29_header_screen.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  screen:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install header-adapter dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . \
+            'h5py>=3.11,<4' \
+            'fsspec[http]>=2024.6,<2027'
+
+      - name: Verify frozen inputs
+        run: |
+          test "$(sha256sum results_m16_discovery/discovery.json | cut -d' ' -f1)" \
+            = "0310d5ba8e0923062bd0a046b1827a4e814fc3f3adf854620d27e3cccb7fd750"
+          test "$(sha256sum scripts/m29_header_screen.py | cut -d' ' -f1)" \
+            = "dfb68fd66c85197b8ef8bc8854eb01e4d45b339503ae601e6522caf4515da8a5"
+          test "$(sha256sum MILESTONE_29_HEADER_SCREEN_PLAN.md | cut -d' ' -f1)" \
+            = "71e5754afffb41c2d4a440e89b3b90258250ef4fe382957f067a06f2afd3610d"
+
+      - name: Run fixed HDF5-header-only screen
+        run: |
+          python scripts/m29_header_screen.py \
+            --discovery results_m16_discovery/discovery.json \
+            --output results_m29_header_screen/header_screen.json
+
+      - name: Verify spectral boundary and hash result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(
+              Path('results_m29_header_screen/header_screen.json').read_text()
+          )
+          assert result['spectral_payload_inspected'] is False
+          assert result['spectral_dataset_values_read'] is False
+          assert result['frozen_extension_ranks'] == [26, 27, 28, 29, 30]
+          assert len(result['screened_targets']) == 5
+          assert [item['rank'] for item in result['screened_targets']] == \
+              [26, 27, 28, 29, 30]
+          PY
+          find results_m29_header_screen -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M29_HEADER_SCREEN.sha256
+          test "$(wc -l < RESULTS_MANIFEST_M29_HEADER_SCREEN.sha256)" -eq 1
+          sha256sum -c RESULTS_MANIFEST_M29_HEADER_SCREEN.sha256
+
+      - name: Upload header-screen evidence
+        id: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-29-header-screen
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M29_HEADER_SCREEN.sha256
+            results_m29_header_screen/
+
+      - name: Record provenance and publish checked screen
+        env:
+          ARTIFACT_ID: ${{ steps.upload.outputs.artifact-id }}
+          ARTIFACT_DIGEST: ${{ steps.upload.outputs.artifact-digest }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('MILESTONE_29_HEADER_SCREEN_PROVENANCE.json').write_text(
+              json.dumps(
+                  {
+                      'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                      'source_commit': os.environ['GITHUB_SHA'],
+                      'artifact_id': int(os.environ['ARTIFACT_ID']),
+                      'artifact_digest': os.environ['ARTIFACT_DIGEST'],
+                      'artifact_name': 'milestone-29-header-screen',
+                      'spectral_payload_inspected': False,
+                      'spectral_dataset_values_read': False,
+                  },
+                  indent=2,
+                  sort_keys=True,
+              )
+              + '\n'
+          )
+          PY
+          jq empty results_m29_header_screen/header_screen.json \
+            MILESTONE_29_HEADER_SCREEN_PROVENANCE.json
+          sha256sum -c RESULTS_MANIFEST_M29_HEADER_SCREEN.sha256
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$GITHUB_SHA"
+          git add RESULTS_MANIFEST_M29_HEADER_SCREEN.sha256 \
+            results_m29_header_screen \
+            MILESTONE_29_HEADER_SCREEN_PROVENANCE.json
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "Publish Milestone 29 header screen"
+          git push origin HEAD:main
