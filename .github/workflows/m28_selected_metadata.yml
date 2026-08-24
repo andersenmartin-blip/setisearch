@@ -8,7 +8,7 @@ on:
       - ".github/workflows/m28_selected_metadata.yml"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   metadata:
@@ -85,6 +85,7 @@ jobs:
             | xargs -0 sha256sum > RESULTS_MANIFEST_M28_SELECTED_METADATA.sha256
 
       - name: Upload selected metadata
+        id: upload
         uses: actions/upload-artifact@v4
         with:
           name: milestone-28-selected-metadata
@@ -93,3 +94,37 @@ jobs:
           path: |
             RESULTS_MANIFEST_M28_SELECTED_METADATA.sha256
             results_m28_selected_metadata/
+
+      - name: Record provenance and publish checked metadata
+        env:
+          ARTIFACT_ID: ${{ steps.upload.outputs.artifact-id }}
+          ARTIFACT_DIGEST: ${{ steps.upload.outputs.artifact-digest }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('MILESTONE_28_SELECTED_METADATA_PROVENANCE.json').write_text(
+              json.dumps(
+                  {
+                      'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                      'github_sha': os.environ['GITHUB_SHA'],
+                      'artifact_id': int(os.environ['ARTIFACT_ID']),
+                      'artifact_digest': os.environ['ARTIFACT_DIGEST'],
+                      'artifact_name': 'milestone-28-selected-metadata',
+                      'spectral_payload_inspected': False,
+                  },
+                  indent=2,
+                  sort_keys=True,
+              )
+              + '\n'
+          )
+          PY
+          git add RESULTS_MANIFEST_M28_SELECTED_METADATA.sha256 \
+            results_m28_selected_metadata \
+            MILESTONE_28_SELECTED_METADATA_PROVENANCE.json
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "Publish Milestone 28 selected metadata"
+          git push origin HEAD:main
