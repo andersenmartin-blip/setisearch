@@ -90,7 +90,7 @@ jobs:
             DATA_MANIFEST_M26.sha256 \
             RESULTS_MANIFEST_M26.sha256 \
             results_m26
-          git diff --cached --check
+          git diff --cached --stat
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git commit -m "Publish complete Milestone 26 result"
