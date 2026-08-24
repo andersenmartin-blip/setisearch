@@ -113,6 +113,11 @@ The complete search record SHA-256 is
 `RESULTS_MANIFEST_M26.sha256` identifies all nine published outputs. Extracted
 telescope slices are not committed.
 
+Publication workflow run `32697527486` independently revalidated the artifact
+digest, all result hashes, the complete disposition accounting, and the frozen
+execution provenance before publishing the full result payload as commit
+`03621b412b5f9ee1604710517a8ae3f74583f8ac`.
+
 The first execution run `32695568295` stopped at provenance verification
 before extraction because the initial Git-Data upload of the 325,711-byte
 coverage JSON was incomplete. Commit
