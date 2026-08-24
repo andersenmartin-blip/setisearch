@@ -1,0 +1,94 @@
+name: Milestone 26 HD 19994 selected-target metadata
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m26_selected_metadata.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  metadata:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify frozen selection inputs and metadata query
+        run: |
+          test "$(sha256sum results_m16_discovery/discovery.json | cut -d' ' -f1)" \
+            = "0310d5ba8e0923062bd0a046b1827a4e814fc3f3adf854620d27e3cccb7fd750"
+          test "$(sha256sum results_m25_header_screen/header_screen.json | cut -d' ' -f1)" \
+            = "f9d3b2b75cb6bb49a278b7b97f1d2163d03f054282b0e5904ed6fffe15756748"
+          test "$(sha256sum MILESTONE_26_TARGET_SELECTION.md | cut -d' ' -f1)" \
+            = "050831198c866826859011169334d25d157f036d1c7ef27b19944bf2b40a886f"
+          test "$(sha256sum scripts/m26_selected_metadata.py | cut -d' ' -f1)" \
+            = "f3b7d846bb1614b271aba96d3dc8c70069b161d8062153271d148a26657ebb45"
+
+      - name: Verify mechanical HD 19994 selection and spectral boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          screen = json.loads(
+              Path('results_m25_header_screen/header_screen.json').read_text()
+          )
+          targets = {item['rank']: item for item in screen['screened_targets']}
+          assert screen['selected']['rank'] == 21
+          target = targets[22]
+          assert target['archive_target'] == 'HIP14954'
+          assert target['planet_name'] == 'HD 19994 b'
+          assert target['qualifying_count'] == 1
+          assert [targets[r]['qualifying_count'] for r in (23, 24, 25)] == [1, 1, 0]
+          primary = target['qualifying_hdf5_abacad_cadences'][0]
+          assert primary['cadence_url'].endswith('/--84358')
+          assert len(primary['headers']) == 6
+          assert primary['scan_sources'] == [
+              'HIP14954', 'HIP14954_OFF', 'HIP14954',
+              'HIP14954_OFF', 'HIP14954', 'HIP14954_OFF'
+          ]
+          assert all(
+              header['spectral_dataset_values_read'] is False
+              for header in primary['headers']
+          )
+          PY
+
+      - name: Fetch selected official record
+        run: python scripts/m26_selected_metadata.py
+
+      - name: Verify boundary and hash result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(
+              Path('results_m26_selected_metadata/hd19994b.json').read_text()
+          )
+          assert result['spectral_payload_inspected'] is False
+          assert result['record']['pl_name'] == 'HD 19994 b'
+          assert result['record']['hostname'] == 'HD 19994'
+          assert result['record']['hip_name'] == 'HIP 14954'
+          PY
+          find results_m26_selected_metadata -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M26_SELECTED_METADATA.sha256
+
+      - name: Upload selected metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-26-selected-metadata
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M26_SELECTED_METADATA.sha256
+            results_m26_selected_metadata/
