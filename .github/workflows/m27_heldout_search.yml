@@ -1,0 +1,134 @@
+name: Milestone 27 held-out HD 127506 b search
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m27_heldout_search.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  search:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    env:
+      MPLCONFIGDIR: /tmp/matplotlib
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install frozen detector and HDF5 adapter dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . \
+            'h5py>=3.11,<4' \
+            'fsspec[http]>=2024.6,<2027' \
+            'hdf5plugin>=4.4,<7'
+
+      - name: Verify preregistered configuration and provenance
+        run: |
+          test "$(sha256sum MILESTONE_27_PREREGISTRATION.md | cut -d' ' -f1)" \
+            = "3ae20561be13a73b2b1e6a5606b4677d0cea57fd0abdbea360673e2406619058"
+          test "$(sha256sum config/hd127506b_heldout_m27.json | cut -d' ' -f1)" \
+            = "7eba3bba8a29676e7f251c2a2fc74b03baec1a7e76d698349255019a9c20d563"
+          test "$(sha256sum results_m27_selected_metadata/hd127506b.json | cut -d' ' -f1)" \
+            = "b96c03ec870dc3db716cdbf47c643c45f18f5683222dc859eee1f27cb4d27e35"
+          test "$(sha256sum results_m27_preflight/coverage.json | cut -d' ' -f1)" \
+            = "6e806e13aace98cdafa730c7448efd7f75e5235fd4c08fd7abb9f7bead04ffad"
+
+      - name: Validate detector and repeat coverage proof before spectral contact
+        run: |
+          python -m unittest discover -s tests -v
+          seti-repeater validate \
+            --tsamp 18.253611008 \
+            --channel-width 2.7939677238464355 \
+            --output validation_m27.json
+          python scripts/m14_coverage_preflight.py \
+            config/hd127506b_heldout_m27.json \
+            --output results_m27/coverage_preflight_repeat.json
+
+      - name: Record execution environment
+        run: |
+          mkdir -p results_m27
+          python -m pip freeze > results_m27/environment.txt
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('results_m27/run_metadata.json').write_text(
+              json.dumps(
+                  {
+                      'github_repository': os.environ['GITHUB_REPOSITORY'],
+                      'github_run_id': os.environ['GITHUB_RUN_ID'],
+                      'github_sha': os.environ['GITHUB_SHA'],
+                      'github_ref': os.environ['GITHUB_REF'],
+                      'detector_version_frozen': '0.5.0',
+                      'frozen_detector_commit': '32720a0b5e097403f864e2b84d53a071d65d7c46',
+                      'preregistration_commit': '1762a7672fdce24ef21031ca4050b17acb7c1b61',
+                      'execution_commit': os.environ['GITHUB_SHA'],
+                      'frozen_config_sha256': '7eba3bba8a29676e7f251c2a2fc74b03baec1a7e76d698349255019a9c20d563',
+                  },
+                  indent=2,
+              )
+              + '\n'
+          )
+          PY
+
+      - name: Extract preregistered HDF5 slices
+        run: |
+          python scripts/m13_hdf5_extract.py \
+            config/hd127506b_heldout_m27.json \
+            --data-dir data_m27
+
+      - name: Hash extracted slices
+        run: |
+          find data_m27 -type f -name '*.npz' -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > DATA_MANIFEST_M27.sha256
+          test "$(wc -l < DATA_MANIFEST_M27.sha256)" -eq 30
+
+      - name: Run frozen detector v0.5.0 with complete cluster retention
+        run: |
+          seti-repeater search \
+            --config config/hd127506b_heldout_m27.json \
+            --data-dir data_m27 \
+            --output-dir results_m27
+
+      - name: Verify complete report cap and hash primary results
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(Path('results_m27/search_summary.json').read_text())
+          for window in result['windows'].values():
+              reduction = window['candidate_reduction']
+              assert reduction['cluster_count_before_report_limit'] <= 1008
+              assert reduction['reported_cluster_count'] == \
+                  reduction['cluster_count_before_report_limit']
+          PY
+          find results_m27 -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M27.sha256
+
+      - name: Upload held-out evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-27-held-out-results
+          if-no-files-found: warn
+          retention-days: 90
+          path: |
+            validation_m27.json
+            DATA_MANIFEST_M27.sha256
+            RESULTS_MANIFEST_M27.sha256
+            results_m27/
