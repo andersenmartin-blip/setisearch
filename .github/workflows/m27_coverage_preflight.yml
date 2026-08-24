@@ -1,0 +1,70 @@
+name: Milestone 27 HD 127506 b coverage preflight
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m27_coverage_preflight.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install detector dependencies
+        run: python -m pip install -e .
+
+      - name: Verify frozen preflight inputs
+        run: |
+          test "$(sha256sum MILESTONE_27_SELECTED_METADATA_RESULT.md | cut -d' ' -f1)" \
+            = "4e707dd7bcca91702fd6364ae574a1f6ee6dc53a1885ff1478aa826773b7bd60"
+          test "$(sha256sum results_m27_selected_metadata/hd127506b.json | cut -d' ' -f1)" \
+            = "b96c03ec870dc3db716cdbf47c643c45f18f5683222dc859eee1f27cb4d27e35"
+          test "$(sha256sum config/hd127506b_m27_preflight.json | cut -d' ' -f1)" \
+            = "48aeb42152785800c82262d31ba57bdeff4d5390b32e80f0b5e4e9a408dc50da"
+          test "$(sha256sum scripts/m14_coverage_preflight.py | cut -d' ' -f1)" \
+            = "95eb2dfc6c0b52db391ab09b844e553b5244de48203827134acdde640474115c"
+
+      - name: Run metadata-only full-bank coverage proof
+        run: |
+          python scripts/m14_coverage_preflight.py \
+            config/hd127506b_m27_preflight.json \
+            --output results_m27_preflight/coverage.json
+
+      - name: Verify boundary and hash result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(Path('results_m27_preflight/coverage.json').read_text())
+          assert result['passed'] is True
+          assert result['checks'] == 630
+          assert result['spectral_payload_inspected'] is False
+          assert result['remote_files_opened'] is False
+          PY
+          find results_m27_preflight -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M27_COVERAGE_PREFLIGHT.sha256
+
+      - name: Upload preflight evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-27-coverage-preflight
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M27_COVERAGE_PREFLIGHT.sha256
+            results_m27_preflight/
