@@ -1,0 +1,256 @@
+name: Milestone 28 publication verification
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m28_verify_publication.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify frozen inputs and published file hashes
+        run: |
+          test "$(sha256sum MILESTONE_28_PREREGISTRATION.md | cut -d' ' -f1)" \
+            = "1f7f0c2afca39eb10cbce270c1b7ac087d48bdccac6c8a1c61c0d2906567995c"
+          test "$(sha256sum config/psi1drabb_heldout_m28.json | cut -d' ' -f1)" \
+            = "a0c118cf0589d1edd23b550574dd22a5cfad1f8db9a3d5507aa4437085b16e79"
+          test "$(sha256sum MILESTONE_28_REPORT.md | cut -d' ' -f1)" \
+            = "69578a0476f85863ef572ff840751cc70f516002c7dcc47085b82a88585da9f5"
+          test "$(wc -l < DATA_MANIFEST_M28.sha256)" -eq 30
+          test "$(wc -l < RESULTS_MANIFEST_M28.sha256)" -eq 9
+          test "$(awk 'NF != 2 || $1 !~ /^[0-9a-f]{64}$/ { bad=1 } END { print bad+0 }' \
+            DATA_MANIFEST_M28.sha256)" -eq 0
+          sha256sum -c RESULTS_MANIFEST_M28.sha256
+          git merge-base --is-ancestor \
+            7cfb892fdeb0efc80eaa0066a6c63e578ca0df6d "$GITHUB_SHA"
+
+      - name: Independently verify result accounting and provenance
+        run: |
+          python - <<'PY'
+          from collections import Counter
+          import json
+          from pathlib import Path
+
+          summary = json.loads(Path('results_m28/search_summary.json').read_text())
+          run = json.loads(Path('results_m28/run_metadata.json').read_text())
+          provenance = json.loads(
+              Path('MILESTONE_28_HELDOUT_PROVENANCE.json').read_text()
+          )
+          validation = json.loads(Path('validation_m28.json').read_text())
+
+          assert summary['pipeline']['version'] == '0.5.0'
+          assert summary['search_dimensions']['approx_nominal_trials'] == 592_487_280
+          global_result = summary['global_result']
+          assert global_result['observed_max_snr'] == 184.8547342644255
+          assert global_result['operational_threshold_snr'] == 10.565890312194824
+          assert global_result['empirical_global_p_value'] == 1 / 257
+          assert global_result['null_median'] == 6.679100036621094
+
+          expected_dispositions = {
+              'below_threshold': 100,
+              'rfi_veto_local_off_source': 130,
+              'rfi_veto_off_source': 62,
+              'rfi_veto_single_adjacent_off': 4,
+          }
+          reduction = summary['candidate_reduction']
+          assert reduction['frequency_clusters_before_report_limit'] == 296
+          assert reduction['reported_clusters'] == 296
+          assert reduction['dispositions'] == expected_dispositions
+
+          expected_over_threshold = {
+              'm28_1400p5': 39,
+              'm28_1406p5': 67,
+              'm28_1412p5': 0,
+              'm28_1418p5': 23,
+              'm28_1425p0': 67,
+          }
+          threshold = global_result['operational_threshold_snr']
+          clusters = []
+          observed_over_threshold = {}
+          for window_id, window in summary['windows'].items():
+              window_reduction = window['candidate_reduction']
+              window_clusters = window_reduction['clusters']
+              assert len(window_clusters) == \
+                  window_reduction['cluster_count_before_report_limit']
+              assert len(window_clusters) == \
+                  window_reduction['reported_cluster_count']
+              clusters.extend(window_clusters)
+              observed_over_threshold[window_id] = sum(
+                  cluster['max_snr'] > threshold for cluster in window_clusters
+              )
+
+          assert len(clusters) == 296
+          assert Counter(c['disposition'] for c in clusters) == \
+              Counter(expected_dispositions)
+          assert observed_over_threshold == expected_over_threshold
+          over_threshold = [c for c in clusters if c['max_snr'] > threshold]
+          assert len(over_threshold) == 196
+          physical_vetoes = {
+              'rfi_veto_off_source',
+              'rfi_veto_local_off_source',
+              'rfi_veto_single_adjacent_off',
+          }
+          assert all(c['disposition'] in physical_vetoes for c in over_threshold)
+          assert not any(c['disposition'] == 'surviving_candidate' for c in clusters)
+
+          maxima = {
+              key: (
+                  value['on_best']['snr'],
+                  value['on_best']['frequency_mhz'],
+                  max(value['candidate_reduction']['clusters'],
+                      key=lambda c: c['max_snr'])['disposition'],
+              )
+              for key, value in summary['windows'].items()
+          }
+          assert maxima == {
+              'm28_1400p5': (
+                  184.8547342644255,
+                  1400.0522031196515,
+                  'rfi_veto_local_off_source',
+              ),
+              'm28_1406p5': (
+                  120.94945180380998,
+                  1406.3311769608417,
+                  'rfi_veto_local_off_source',
+              ),
+              'm28_1412p5': (
+                  8.495027748663018,
+                  1412.524609334333,
+                  'below_threshold',
+              ),
+              'm28_1418p5': (
+                  15.001586066370189,
+                  1418.9942282491356,
+                  'rfi_veto_single_adjacent_off',
+              ),
+              'm28_1425p0': (
+                  30.50640955005791,
+                  1425.0091558405993,
+                  'rfi_veto_local_off_source',
+              ),
+          }
+
+          levels = summary['completeness']['levels']
+          assert [level['ideal_single_epoch_snr'] for level in levels] == \
+              [8, 12, 16, 20, 24, 32, 40]
+          assert [level['multi_channel_recovered'] for level in levels] == \
+              [0, 12, 29, 32, 32, 32, 32]
+          assert [level['one_channel_recovered'] for level in levels] == \
+              [0, 11, 23, 26, 28, 29, 29]
+
+          assert validation['software_version'] == '0.5.0'
+          assert validation['known_answer']['passed'] is True
+          assert validation['known_answer']['multi_channel_known_answer']['passed'] \
+              is True
+          assert summary['known_answer_validation']['passed'] is True
+          assert summary['known_answer_validation'][
+              'multi_channel_known_answer'
+          ]['passed'] is True
+
+          expected_execution = '4a1727e305b9db61eb8d169882f536f4af258f81'
+          expected_prereg = '0e7a4bea59819b26d2b8a16375a43e40f836d27e'
+          expected_config = \
+              'a0c118cf0589d1edd23b550574dd22a5cfad1f8db9a3d5507aa4437085b16e79'
+          assert run['github_run_id'] == '32752547391'
+          assert run['execution_commit'] == expected_execution
+          assert run['preregistration_commit'] == expected_prereg
+          assert run['frozen_config_sha256'] == expected_config
+          assert provenance == {
+              'artifact_digest':
+                  '2315ef8e039bec232feccafe02ceb3f4c83e0a44bb8a7b2d319ebd6fee9d4024',
+              'artifact_id': 9530113650,
+              'artifact_name': 'milestone-28-held-out-results',
+              'execution_commit': expected_execution,
+              'frozen_config_sha256': expected_config,
+              'github_run_id': 32752547391,
+              'preregistration_commit': expected_prereg,
+          }
+          PY
+
+      - name: Append verification receipt
+        env:
+          SOURCE_COMMIT: ${{ github.sha }}
+          VERIFICATION_RUN_ID: ${{ github.run_id }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          python - <<'PY'
+          from datetime import datetime, timezone
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          report_path = Path('MILESTONE_28_REPORT.md')
+          before = report_path.read_text()
+          placeholder = (
+              'Publication verification is appended after the independent '
+              'verification\nworkflow has revalidated the hashes, disposition '
+              'accounting, execution\nprovenance, and this report.\n'
+          )
+          assert before.count(placeholder) == 1
+          run_id = int(os.environ['VERIFICATION_RUN_ID'])
+          replacement = (
+              f'Publication verification workflow run `{run_id}` independently '
+              'revalidated\nthe frozen inputs, all nine result-file hashes, '
+              'complete disposition accounting,\nknown-answer tests, execution '
+              'provenance, and the pre-verification report hash. Its\n'
+              'machine-readable receipt is '
+              '`MILESTONE_28_PUBLICATION_VERIFICATION.json`.\n'
+          )
+          report_path.write_text(before.replace(placeholder, replacement))
+
+          def sha256(path):
+              return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+          receipt = {
+              'verified': True,
+              'verified_utc': datetime.now(timezone.utc).isoformat(),
+              'github_run_id': run_id,
+              'source_commit': os.environ['SOURCE_COMMIT'],
+              'source_report_sha256':
+                  '69578a0476f85863ef572ff840751cc70f516002c7dcc47085b82a88585da9f5',
+              'report_sha256_after_verification': sha256(report_path),
+              'results_manifest_sha256': sha256('RESULTS_MANIFEST_M28.sha256'),
+              'search_summary_sha256': sha256(
+                  'results_m28/search_summary.json'
+              ),
+              'results_files_verified': 9,
+              'data_manifest_entries_verified': 30,
+              'reported_clusters_verified': 296,
+              'over_threshold_clusters_verified': 196,
+              'surviving_candidates_verified': 0,
+              'run_url': (
+                  f"https://github.com/{os.environ['REPOSITORY']}/actions/runs/"
+                  f'{run_id}'
+              ),
+          }
+          Path('MILESTONE_28_PUBLICATION_VERIFICATION.json').write_text(
+              json.dumps(receipt, indent=2, sort_keys=True) + '\n'
+          )
+          assert receipt['search_summary_sha256'] == \
+              '68225e98363a5b8508702faa25c207866e9977d1385e81b1015318f51dcd77c1'
+          PY
+          jq empty MILESTONE_28_PUBLICATION_VERIFICATION.json
+
+      - name: Publish verified report atomically
+        run: |
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$GITHUB_SHA"
+          git add MILESTONE_28_REPORT.md \
+            MILESTONE_28_PUBLICATION_VERIFICATION.json
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "m28: record verified result publication"
+          git push origin HEAD:main

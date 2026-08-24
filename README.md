@@ -19,6 +19,37 @@ retains the Milestone 7 recurrence statistic, spectral filters, per-epoch
 interference mask, candidate clustering, and RFI-family flags, and adds the
 Milestone 12 local-OFF and receiver-frame alias vetoes.
 
+## Milestone 28 result
+
+Milestone 28 advanced the frozen rank 21-25 screen to psi1 Dra B at rank 24.
+The held-out search used psi1 Dra B b only as the motion template and the sole
+complete compatible L-band cadence `--84027` after a successful 630-case
+coverage proof.
+
+Across approximately 592,487,280 nominal trials, the global maximum reached
+S/N 184.8547 at 1400.052203120 MHz, with empirical global p-value 1/257 and an
+operational threshold of S/N 10.5659. All 196 clusters above threshold are
+reproduced by exact matched-OFF, local-OFF, or single-adjacent-OFF evidence;
+all 296 clusters were retained, and there is no surviving candidate.
+Multichannel completeness reaches estimated 50% and 90% recovery near ideal
+single-epoch S/N 12.94 and 15.95. The frozen screen contains no second
+compatible L-band cadence for independent recurrence.
+
+## Milestone 27 result
+
+Milestone 27 advanced the frozen rank 21-25 screen to HD 127506 at rank 23.
+The held-out search used the selected planet hypothesis only as the motion
+template and cadence `--83509` after the metadata-only coverage proof.
+
+Across approximately 601,293,840 nominal trials, the global maximum reached
+S/N 102,410.8607 at 1406.485088594 MHz, with empirical global p-value 1/257
+and an operational threshold of S/N 8.7488. All 18 clusters above threshold
+are reproduced by exact matched-OFF or local-OFF evidence; all 299 clusters
+were retained, and there is no surviving candidate. Multichannel
+completeness reaches estimated 50% and 90% recovery near ideal single-epoch
+S/N 11.11 and 14.93; the corresponding one-channel estimates are 13.71 and
+23.20.
+
 ## Milestone 26 result
 
 Milestone 26 advanced the frozen rank 21-25 screen to HD 19994 at rank 22.
