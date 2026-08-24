@@ -115,5 +115,7 @@ The complete search record SHA-256 is
 `RESULTS_MANIFEST_M27.sha256` identifies all nine published outputs. Extracted
 telescope slices are not committed.
 
-Publication provenance is appended after the independent publication workflow
-has revalidated and committed the complete result payload.
+Publication workflow run `32725332075` independently revalidated the artifact
+digest, all result hashes, the complete disposition accounting, and the frozen
+execution provenance before publishing the full result payload as commit
+`c5b1d20d8540fbcfff905e06b3791f590e71cdbb`.
