@@ -1,0 +1,94 @@
+name: Milestone 27 HD 127506 selected-target metadata
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m27_selected_metadata.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  metadata:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify frozen selection inputs and metadata query
+        run: |
+          test "$(sha256sum results_m16_discovery/discovery.json | cut -d' ' -f1)" \
+            = "0310d5ba8e0923062bd0a046b1827a4e814fc3f3adf854620d27e3cccb7fd750"
+          test "$(sha256sum results_m25_header_screen/header_screen.json | cut -d' ' -f1)" \
+            = "f9d3b2b75cb6bb49a278b7b97f1d2163d03f054282b0e5904ed6fffe15756748"
+          test "$(sha256sum MILESTONE_27_TARGET_SELECTION.md | cut -d' ' -f1)" \
+            = "33f8d546e917806cfe8dc6961782fb44d1009854c32c53949d2ec4aaf802f8a9"
+          test "$(sha256sum scripts/m27_selected_metadata.py | cut -d' ' -f1)" \
+            = "9d8a8f512fade667501b608f068eff11af8bd182c8ad1221808415b51c2ff632"
+
+      - name: Verify mechanical HD 127506 selection and spectral boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          screen = json.loads(
+              Path('results_m25_header_screen/header_screen.json').read_text()
+          )
+          targets = {item['rank']: item for item in screen['screened_targets']}
+          assert screen['selected']['rank'] == 21
+          target = targets[23]
+          assert target['archive_target'] == 'HIP70950'
+          assert target['planet_name'] == 'HD 127506 b'
+          assert target['qualifying_count'] == 1
+          assert [targets[r]['qualifying_count'] for r in (24, 25)] == [1, 0]
+          primary = target['qualifying_hdf5_abacad_cadences'][0]
+          assert primary['cadence_url'].endswith('/--83509')
+          assert len(primary['headers']) == 6
+          assert primary['scan_sources'] == [
+              'HIP70950', 'HIP70142', 'HIP70950',
+              'HIP70297', 'HIP70950', 'HIP70334'
+          ]
+          assert all(
+              header['spectral_dataset_values_read'] is False
+              for header in primary['headers']
+          )
+          PY
+
+      - name: Fetch selected official record
+        run: python scripts/m27_selected_metadata.py
+
+      - name: Verify boundary and hash result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(
+              Path('results_m27_selected_metadata/hd127506b.json').read_text()
+          )
+          assert result['spectral_payload_inspected'] is False
+          assert result['record']['pl_name'] == 'HD 127506 b'
+          assert result['record']['hostname'] == 'HD 127506'
+          assert result['record']['hip_name'] == 'HIP 70950'
+          PY
+          find results_m27_selected_metadata -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M27_SELECTED_METADATA.sha256
+
+      - name: Upload selected metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-27-selected-metadata
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M27_SELECTED_METADATA.sha256
+            results_m27_selected_metadata/
