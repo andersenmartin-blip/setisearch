@@ -121,6 +121,8 @@ Primary and investigation data manifests identify 30 and six reproducible
 extracts; their result manifests identify nine and five published outputs.
 Extracted telescope slices are not committed.
 
-Publication verification is appended after the independent verification
-workflow has revalidated both result sets, disposition accounting, execution
-provenance, and this report.
+Publication verification workflow run `32760075189` independently revalidated
+both result sets, all 14 result-file hashes, complete primary and post-hoc
+disposition accounting, known-answer tests, execution provenance, and the
+pre-verification report hash. Its machine-readable receipt is
+`MILESTONE_29_PUBLICATION_VERIFICATION.json`.
