@@ -19,6 +19,25 @@ retains the Milestone 7 recurrence statistic, spectral filters, per-epoch
 interference mask, candidate clustering, and RFI-family flags, and adds the
 Milestone 12 local-OFF and receiver-frame alias vetoes.
 
+## Milestone 29 result
+
+Milestone 29 completed the frozen rank 26-30 header screen and selected HD
+11964 at rank 28 after ranks 26 and 27 proved to be S-band. The held-out search
+used HD 11964 b only as the motion template and the sole complete compatible
+L-band cadence `--66653`. Rank 29 bet UMi retains one untouched compatible
+L-band cadence for a later milestone.
+
+Across approximately 601,293,840 nominal trials, the global maximum reached
+S/N 13.7849 at 1400.038687989 MHz, with empirical global p-value 1/257 and an
+operational threshold of S/N 7.5677. Twenty-one of 23 above-threshold clusters
+received the frozen single-adjacent-control veto. Two weak 1425 MHz
+arithmetic-family cases entered a separately frozen morphology review; both
+mapped to the identical receiver feature in all three ON scans and had an
+adjacent-control peak within 16.764 Hz. All 344 clusters were retained, all 23
+above-threshold cases are physically vetoed, and there is no surviving
+candidate. Multichannel completeness reaches estimated 50% and 90% recovery
+near ideal single-epoch S/N 9.78 and 11.67.
+
 ## Milestone 28 result
 
 Milestone 28 advanced the frozen rank 21-25 screen to psi1 Dra B at rank 24.
