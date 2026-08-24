@@ -19,6 +19,22 @@ retains the Milestone 7 recurrence statistic, spectral filters, per-epoch
 interference mask, candidate clustering, and RFI-family flags, and adds the
 Milestone 12 local-OFF and receiver-frame alias vetoes.
 
+## Milestone 26 result
+
+Milestone 26 advanced the frozen rank 21-25 screen to HD 19994 at rank 22.
+The held-out search used HD 19994 b only as the motion template and the sole
+complete compatible L-band cadence `--84358` after a successful 630-case
+coverage proof.
+
+Across approximately 592,487,280 nominal trials, the global maximum reached
+S/N 644.9192 at 1406.437003620 MHz, with empirical global p-value 1/257 and an
+operational threshold of S/N 12.7328. All 52 clusters above threshold are
+reproduced by exact matched-OFF or local-OFF evidence; all 353 clusters were
+retained, and there is no surviving candidate. Multichannel completeness
+reaches estimated 50% and 90% recovery near ideal single-epoch S/N 15.75 and
+19.37. One-channel recovery reaches 87.5% at S/N 40 and does not cross 90% on
+the frozen grid.
+
 ## Milestone 25 result
 
 Milestone 25 extended the frozen target ranking to positions 21-25. The
@@ -375,6 +391,12 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Limits
 
+- Milestone 26 searched five 1 MHz windows in one HD 19994 cadence, not the
+  full GBT L-band receiver range or independent observing nights.
+- Its 52 over-threshold clusters are all rejected by frozen matched-OFF or
+  local-OFF vetoes.
+- No second complete compatible HD 19994 L-band cadence was present; its other
+  frozen cadence is S-band.
 - Milestone 25 searched five 1 MHz windows in one HD 164922 cadence, not the
   full GBT L-band receiver range or independent observing nights.
 - Its 83 over-threshold clusters are all rejected by frozen physical OFF or
@@ -482,6 +504,14 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Key files
 
+- `MILESTONE_26_TARGET_SELECTION.md` — fixed HD 19994 target and cadence.
+- `MILESTONE_26_SELECTED_METADATA_RESULT.md` — official orbit and astrometry.
+- `MILESTONE_26_PREREGISTRATION.md` — frozen held-out search design.
+- `MILESTONE_26_REPORT.md` — final no-survivor result and limits.
+- `config/hd19994b_heldout_m26.json` — frozen target, cadence, orbit, and bands.
+- `DATA_MANIFEST_M26.sha256` — checksums for all 30 reproducible extracts.
+- `RESULTS_MANIFEST_M26.sha256` — checksums for all nine primary outputs.
+- `results_m26/search_summary.json` — complete machine-readable search record.
 - `MILESTONE_25_HEADER_SCREEN_PLAN.md` — frozen ranks 21-25 extension.
 - `MILESTONE_25_TARGET_SELECTION.md` — fixed HD 164922 target and cadence.
 - `MILESTONE_25_SELECTED_METADATA_RESULT.md` — official orbit and astrometry.

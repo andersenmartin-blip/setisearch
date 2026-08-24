@@ -1,0 +1,97 @@
+name: Publish complete Milestone 26 result
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m26_publish_results.yml"
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download successful held-out artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: milestone-26-held-out-results
+          path: staged_m26
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: 32695770386
+
+      - name: Verify complete evidence before publication
+        run: |
+          cd staged_m26
+          test "$(sha256sum RESULTS_MANIFEST_M26.sha256 | cut -d' ' -f1)" \
+            = "1216473737b8e9c0ab93b0916a1ab57eda91c226f77a0063c52a37550b79dc1f"
+          test "$(sha256sum DATA_MANIFEST_M26.sha256 | cut -d' ' -f1)" \
+            = "5a4da6ec814bb054230fbf7eda1377fba780858343c39e4579f9865490d9881c"
+          test "$(sha256sum validation_m26.json | cut -d' ' -f1)" \
+            = "d829e952f4bb168b267d49f86772d09c05648762af37b0aeca20825294ba4422"
+          test "$(sha256sum results_m26/search_summary.json | cut -d' ' -f1)" \
+            = "80f61010b440d112d57c288e475f9036e62e49f7b2d96883f3cfb34e72d7c8cf"
+          test "$(wc -l < DATA_MANIFEST_M26.sha256)" -eq 30
+          test "$(wc -l < RESULTS_MANIFEST_M26.sha256)" -eq 9
+          sha256sum -c RESULTS_MANIFEST_M26.sha256
+          jq empty validation_m26.json \
+            results_m26/search_summary.json \
+            results_m26/completeness.json \
+            results_m26/coverage_preflight_repeat.json \
+            results_m26/run_metadata.json
+          test "$(sha256sum results_m26/coverage_preflight_repeat.json | cut -d' ' -f1)" \
+            = "e8630f1275df3a3e1116a4a734c0666a387cdb9b3477cc0ad0e0cc5cb318dea9"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(Path('results_m26/search_summary.json').read_text())
+          assert result['pipeline']['version'] == '0.5.0'
+          assert result['candidate_reduction']['frequency_clusters_before_report_limit'] == 353
+          assert result['candidate_reduction']['reported_clusters'] == 353
+          assert result['candidate_reduction']['dispositions'] == {
+              'below_threshold': 301,
+              'rfi_veto_local_off_source': 31,
+              'rfi_veto_off_source': 21,
+          }
+          assert sum(
+              1
+              for window in result['windows'].values()
+              for cluster in window['candidate_reduction']['clusters']
+              if cluster['disposition'] not in {
+                  'below_threshold',
+                  'rfi_veto_local_off_source',
+                  'rfi_veto_off_source',
+              }
+          ) == 0
+          metadata = json.loads(Path('results_m26/run_metadata.json').read_text())
+          assert metadata['github_run_id'] == '32695770386'
+          assert metadata['execution_commit'] == '5513a61c168828eb6604555e93fae012228d7825'
+          assert metadata['preregistration_commit'] == 'c4f0f977de0a39f2dcafa4b49ee201884707e6d4'
+          PY
+
+      - name: Publish checked result files atomically
+        run: |
+          cp staged_m26/validation_m26.json .
+          cp staged_m26/DATA_MANIFEST_M26.sha256 .
+          cp staged_m26/RESULTS_MANIFEST_M26.sha256 .
+          cp -a staged_m26/results_m26 .
+          git add validation_m26.json \
+            DATA_MANIFEST_M26.sha256 \
+            RESULTS_MANIFEST_M26.sha256 \
+            results_m26
+          git diff --cached --check
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "Publish complete Milestone 26 result"
+          git push origin HEAD:main
