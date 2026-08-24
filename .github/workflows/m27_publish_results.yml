@@ -1,0 +1,104 @@
+name: Publish complete Milestone 27 result
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m27_publish_results.yml"
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download successful held-out artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: milestone-27-held-out-results
+          path: staged_m27
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: 32723600398
+
+      - name: Verify complete evidence before publication
+        run: |
+          cd staged_m27
+          test "$(sha256sum RESULTS_MANIFEST_M27.sha256 | cut -d' ' -f1)" \
+            = "2abff0c9e94884df3e6cf833655ef0063460903582d7a67a33a85ba9ba89d9ba"
+          test "$(sha256sum DATA_MANIFEST_M27.sha256 | cut -d' ' -f1)" \
+            = "70cafef11d379cc4cd51767d87e0b1e0620e45a45cf666d8eeedc867adc25e99"
+          test "$(sha256sum validation_m27.json | cut -d' ' -f1)" \
+            = "e21226e723d16fe564f9d6ebbca414e2973c0c5009209e8e3f3db262cb445b2e"
+          test "$(sha256sum results_m27/search_summary.json | cut -d' ' -f1)" \
+            = "3746bbcf33b345f4a42c0a5f22edd0c49d4f15787cd3536d71c61969f7bb0eac"
+          test "$(wc -l < DATA_MANIFEST_M27.sha256)" -eq 30
+          test "$(wc -l < RESULTS_MANIFEST_M27.sha256)" -eq 9
+          sha256sum -c RESULTS_MANIFEST_M27.sha256
+          jq empty validation_m27.json \
+            results_m27/search_summary.json \
+            results_m27/completeness.json \
+            results_m27/coverage_preflight_repeat.json \
+            results_m27/run_metadata.json
+          test "$(sha256sum results_m27/coverage_preflight_repeat.json | cut -d' ' -f1)" \
+            = "51ea23c6b55633929f3b83f30b8b8468a4c35a6362d02b9f54df4794dbf2cf0e"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(Path('results_m27/search_summary.json').read_text())
+          assert result['pipeline']['version'] == '0.5.0'
+          assert result['global_result']['observed_max_snr'] == 102410.86069205086
+          assert result['global_result']['operational_threshold_snr'] == 8.748773574829102
+          assert result['candidate_reduction']['frequency_clusters_before_report_limit'] == 299
+          assert result['candidate_reduction']['reported_clusters'] == 299
+          assert result['candidate_reduction']['dispositions'] == {
+              'below_threshold': 281,
+              'rfi_veto_local_off_source': 11,
+              'rfi_veto_off_source': 7,
+          }
+          threshold = result['global_result']['operational_threshold_snr']
+          over = [
+              cluster
+              for window in result['windows'].values()
+              for cluster in window['candidate_reduction']['clusters']
+              if cluster['max_snr'] >= threshold
+          ]
+          assert len(over) == 18
+          assert all(
+              cluster['disposition'] in {
+                  'rfi_veto_local_off_source',
+                  'rfi_veto_off_source',
+              }
+              for cluster in over
+          )
+          metadata = json.loads(Path('results_m27/run_metadata.json').read_text())
+          assert metadata['github_run_id'] == '32723600398'
+          assert metadata['execution_commit'] == '5656dd7e9ce091964bc67fd540a5a1db79b84ddb'
+          assert metadata['preregistration_commit'] == '1762a7672fdce24ef21031ca4050b17acb7c1b61'
+          PY
+
+      - name: Publish checked result files atomically
+        run: |
+          cp staged_m27/validation_m27.json .
+          cp staged_m27/DATA_MANIFEST_M27.sha256 .
+          cp staged_m27/RESULTS_MANIFEST_M27.sha256 .
+          cp -a staged_m27/results_m27 .
+          git add validation_m27.json \
+            DATA_MANIFEST_M27.sha256 \
+            RESULTS_MANIFEST_M27.sha256 \
+            results_m27
+          git diff --cached --stat
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "Publish complete Milestone 27 result"
+          git push origin HEAD:main
