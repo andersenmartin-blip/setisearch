@@ -1,0 +1,143 @@
+name: Milestone 31 HD 192263 selected-target metadata
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m31_selected_metadata.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  metadata:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify frozen selection inputs and metadata query
+        run: |
+          test "$(sha256sum results_m16_discovery/discovery.json | cut -d' ' -f1)" \
+            = "0310d5ba8e0923062bd0a046b1827a4e814fc3f3adf854620d27e3cccb7fd750"
+          test "$(sha256sum results_m31_header_screen/header_screen.json | cut -d' ' -f1)" \
+            = "ee169decd0ec0309a274295579241013fa95dc3f088bf4405724f5261b9710f8"
+          test "$(sha256sum MILESTONE_31_TARGET_SELECTION.md | cut -d' ' -f1)" \
+            = "fb28f11f3f93a3ffe8d3a38109da951ba0a3e37ff74d1e5ace8bf5130d7e5446"
+          test "$(sha256sum scripts/m31_selected_metadata.py | cut -d' ' -f1)" \
+            = "b993707229e6bb1fd835000f56fa19caec26136241b090879729f44868f85e36"
+
+      - name: Verify mechanical HD 192263 selection and spectral boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          screen = json.loads(
+              Path('results_m31_header_screen/header_screen.json').read_text()
+          )
+          targets = {item['rank']: item for item in screen['screened_targets']}
+          assert screen['selected']['rank'] == 31
+          assert screen['selected']['archive_target'] == 'HIP99711'
+          assert screen['selected']['planet_name'] == 'HD 192263 b'
+          assert [targets[r]['qualifying_count'] for r in range(31, 36)] == [
+              1, 0, 1, 1, 0
+          ]
+          primary = screen['selected']['cadence']
+          assert primary['cadence_url'].endswith('/--66435')
+          assert len(primary['headers']) == 6
+          assert primary['scan_sources'] == [
+              'HIP99711', 'HIP100159', 'HIP99711',
+              'HIP100786', 'HIP99711', 'HIP98698'
+          ]
+          assert all(
+              header['spectral_dataset_values_read'] is False
+              for header in primary['headers']
+          )
+          assert all(
+              header['covers_required_guarded_range'] is True
+              for header in primary['headers']
+          )
+          PY
+
+      - name: Fetch selected official record
+        run: python scripts/m31_selected_metadata.py
+
+      - name: Verify boundary and hash result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(
+              Path('results_m31_selected_metadata/hd192263b.json').read_text()
+          )
+          assert result['spectral_payload_inspected'] is False
+          assert result['record']['pl_name'] == 'HD 192263 b'
+          assert result['record']['hostname'] == 'HD 192263'
+          assert result['record']['hip_name'] == 'HIP 99711'
+          assert result['record']['hd_name'] == 'HD 192263'
+          PY
+          find results_m31_selected_metadata -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M31_SELECTED_METADATA.sha256
+          test "$(wc -l < RESULTS_MANIFEST_M31_SELECTED_METADATA.sha256)" -eq 1
+          sha256sum -c RESULTS_MANIFEST_M31_SELECTED_METADATA.sha256
+
+      - name: Upload selected metadata
+        id: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-31-selected-metadata
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M31_SELECTED_METADATA.sha256
+            results_m31_selected_metadata/
+
+      - name: Record provenance and publish checked metadata
+        env:
+          ARTIFACT_ID: ${{ steps.upload.outputs.artifact-id }}
+          ARTIFACT_DIGEST: ${{ steps.upload.outputs.artifact-digest }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('MILESTONE_31_SELECTED_METADATA_PROVENANCE.json').write_text(
+              json.dumps(
+                  {
+                      'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                      'source_commit': os.environ['GITHUB_SHA'],
+                      'artifact_id': int(os.environ['ARTIFACT_ID']),
+                      'artifact_digest': os.environ['ARTIFACT_DIGEST'],
+                      'artifact_name': 'milestone-31-selected-metadata',
+                      'spectral_payload_inspected': False,
+                  },
+                  indent=2,
+                  sort_keys=True,
+              )
+              + '\n'
+          )
+          PY
+          jq empty results_m31_selected_metadata/hd192263b.json \
+            MILESTONE_31_SELECTED_METADATA_PROVENANCE.json
+          sha256sum -c RESULTS_MANIFEST_M31_SELECTED_METADATA.sha256
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$GITHUB_SHA"
+          git add RESULTS_MANIFEST_M31_SELECTED_METADATA.sha256 \
+            results_m31_selected_metadata \
+            MILESTONE_31_SELECTED_METADATA_PROVENANCE.json
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "Publish Milestone 31 selected metadata"
+          git push origin HEAD:main
