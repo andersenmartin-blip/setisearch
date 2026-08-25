@@ -119,6 +119,4 @@ The machine-readable search summary SHA-256 is
 The data and result manifests identify 30 reproducible extracted slices and
 nine published result files. Extracted telescope slices are not committed.
 
-Publication verification is appended after an independent workflow has
-revalidated the result hashes, complete cluster accounting, every
-above-threshold physical veto, execution provenance, and this report.
+Publication verification workflow run `32806857727` independently revalidated all nine result-file hashes, complete accounting for 309 clusters, every one of the 25 above-threshold physical vetoes, known-answer tests, execution provenance, and the pre-verification report hash. Its machine-readable receipt is `MILESTONE_30_PUBLICATION_VERIFICATION.json`.
