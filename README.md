@@ -19,6 +19,23 @@ retains the Milestone 7 recurrence statistic, spectral filters, per-epoch
 interference mask, candidate clustering, and RFI-family flags, and adds the
 Milestone 12 local-OFF and receiver-frame alias vetoes.
 
+## Milestone 30 result
+
+Milestone 30 searched bet UMi / HIP 72607 using bet UMi b only as the
+motion template and the sole complete compatible L-band cadence \`--74586\`.
+The metadata-only coverage proof passed all 630 checks before any spectral
+value was read.
+
+Across approximately 601,293,840 nominal trials, the global maximum reached
+S/N 26.0639 at 1425.047656707 MHz, with empirical global p-value 1/257 and an
+operational threshold of S/N 11.2187. All 309 retained clusters are reported.
+Twenty-five exceeded threshold; 18 matched the control data on the candidate
+track and seven had a recurrent control feature within the frozen 20 Hz local
+tolerance. The strongest event had control S/N 19.5502 only 5.588 Hz away.
+All 25 are physically vetoed and no candidate survives. Estimated
+multichannel 50% and 90% recovery occur near ideal single-epoch S/N 13.26 and
+15.96.
+
 ## Milestone 29 result
 
 Milestone 29 completed the frozen rank 26-30 header screen and selected HD

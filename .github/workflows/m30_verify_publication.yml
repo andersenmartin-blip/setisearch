@@ -1,0 +1,236 @@
+name: Milestone 30 publication verification
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m30_verify_publication.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify frozen inputs and all published file hashes
+        run: |
+          test "$(sha256sum MILESTONE_30_PREREGISTRATION.md | cut -d' ' -f1)" \
+            = "3daed4e14c326d3446865f142e5bbe6b9b769862d3950887afd208852708e290"
+          test "$(sha256sum config/betumib_heldout_m30.json | cut -d' ' -f1)" \
+            = "b08e820bb55cc0d1b946890f93cb7a15742825df97274392cb44d97058b989d3"
+          test "$(sha256sum results_m30_selected_metadata/betumib.json | cut -d' ' -f1)" \
+            = "8700ccc93364b7179ca20b3596394aec83fbc276aa3bc06a58812c088282da21"
+          test "$(sha256sum results_m30_preflight/coverage.json | cut -d' ' -f1)" \
+            = "280a997f712b5d3e39e677bf7c036671ac2b24861250b4f41c30502aaff82658"
+          test "$(sha256sum results_m30/search_summary.json | cut -d' ' -f1)" \
+            = "54bc04f4cd2bc399709f9233e12cdc4ca1996c10bdd82fb262e0ef0e8d141ed9"
+          test "$(sha256sum MILESTONE_30_REPORT.md | cut -d' ' -f1)" \
+            = "691b47143e299a2d5adc0cb910bc75f12de0117651c6772f6f82fb3999a96191"
+          test "$(wc -l < DATA_MANIFEST_M30.sha256)" -eq 30
+          test "$(wc -l < RESULTS_MANIFEST_M30.sha256)" -eq 9
+          sha256sum -c RESULTS_MANIFEST_M30.sha256
+          git merge-base --is-ancestor \
+            29fa64d720ac79ed0876970559b9b0fae10a29bd "$GITHUB_SHA"
+
+      - name: Independently verify result accounting and physical vetoes
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from collections import Counter
+          from pathlib import Path
+
+          summary = json.loads(Path('results_m30/search_summary.json').read_text())
+          complete = json.loads(Path('results_m30/completeness.json').read_text())
+          repeated = json.loads(
+              Path('results_m30/coverage_preflight_repeat.json').read_text()
+          )
+          validation = json.loads(Path('validation_m30.json').read_text())
+          run_meta = json.loads(Path('results_m30/run_metadata.json').read_text())
+          provenance = json.loads(
+              Path('MILESTONE_30_HELDOUT_PROVENANCE.json').read_text()
+          )
+          config = json.loads(Path('config/betumib_heldout_m30.json').read_text())
+
+          assert summary['pipeline']['version'] == '0.5.0'
+          assert summary['search_dimensions']['approx_nominal_trials'] == 601293840
+          glob = summary['global_result']
+          assert math.isclose(glob['observed_max_snr'], 26.063907832950388)
+          assert math.isclose(
+              glob['empirical_global_p_value'], 0.0038910505836575876
+          )
+          assert math.isclose(glob['null_median'], 6.521295070648193)
+          assert math.isclose(
+              glob['operational_threshold_snr'], 11.218682289123535
+          )
+
+          windows = summary['windows']
+          expected = {
+              'm30_1400p5': (56, 4, 17.588180643507055),
+              'm30_1406p5': (2, 0, 5.5729465164958585),
+              'm30_1412p5': (1, 0, 5.527776468381963),
+              'm30_1418p5': (8, 0, 5.823329580663379),
+              'm30_1425p0': (242, 21, 26.063907832950388),
+          }
+          threshold = glob['operational_threshold_snr']
+          all_clusters = []
+          above = []
+          for window_id, (n_total, n_above, maximum) in expected.items():
+              clusters = windows[window_id]['candidate_reduction']['clusters']
+              assert len(clusters) == n_total
+              local_above = [c for c in clusters if c['max_snr'] >= threshold]
+              assert len(local_above) == n_above
+              assert math.isclose(max(c['max_snr'] for c in clusters), maximum)
+              reduction = windows[window_id]['candidate_reduction']
+              assert reduction['reported_cluster_count'] == n_total
+              assert reduction['cluster_count_before_report_limit'] == n_total
+              all_clusters.extend(clusters)
+              above.extend(local_above)
+
+          assert len(all_clusters) == 309
+          assert len(above) == 25
+          assert Counter(c['disposition'] for c in all_clusters) == Counter({
+              'below_threshold': 284,
+              'rfi_veto_off_source': 18,
+              'rfi_veto_local_off_source': 7,
+          })
+          assert Counter(c['disposition'] for c in above) == Counter({
+              'rfi_veto_off_source': 18,
+              'rfi_veto_local_off_source': 7,
+          })
+
+          for cluster in above:
+              if cluster['disposition'] == 'rfi_veto_off_source':
+                  assert 'off_source_coincidence' in cluster['flags']
+                  assert cluster['off_at_best_hypothesis_snr'] >= threshold
+              else:
+                  assert cluster['disposition'] == 'rfi_veto_local_off_source'
+                  assert 'off_source_local_hypothesis_coincidence' in cluster['flags']
+                  local = cluster['v0p5_off_diagnostics']['best_local_recurrence']
+                  assert abs(local['offset_from_candidate_hz']) <= 20
+                  assert local['snr'] >= threshold
+
+          strongest = max(above, key=lambda c: c['max_snr'])
+          assert math.isclose(
+              strongest['cluster_frequency_mhz'], 1425.0476567074656
+          )
+          assert strongest['disposition'] == 'rfi_veto_off_source'
+          assert strongest['best_hypothesis']['template_index'] == 18
+          assert strongest['best_hypothesis']['spectral_width_channels'] == 9
+          assert strongest['best_hypothesis']['active_epochs_zero_based'] == [1, 2]
+          local = strongest['v0p5_off_diagnostics']['best_local_recurrence']
+          assert math.isclose(local['snr'], 19.550247939856526)
+          assert math.isclose(
+              local['offset_from_candidate_hz'], -5.587935447692871
+          )
+          assert len(strongest['v0p5_receiver_frame_aliases']) == 20
+
+          levels = complete['levels']
+          assert [x['ideal_single_epoch_snr'] for x in levels] == [
+              8, 12, 16, 20, 24, 32, 40
+          ]
+          assert [x['multi_channel_recovered'] for x in levels] == [
+              0, 10, 29, 31, 32, 32, 32
+          ]
+          assert [x['one_channel_recovered'] for x in levels] == [
+              0, 10, 24, 29, 30, 30, 30
+          ]
+          assert all(x['trials'] == 32 for x in levels)
+          assert config['search']['scramble_seed'] == 3020260825
+          assert config['search']['completeness']['seed'] == 302120260825
+
+          assert repeated['passed'] is True
+          assert repeated['checks'] == 630
+          assert repeated['spectral_payload_inspected'] is False
+          assert repeated['remote_files_opened'] is False
+          assert validation['software_version'] == '0.5.0'
+          assert validation['known_answer']['passed'] is True
+          assert validation['known_answer']['multi_channel_known_answer']['passed'] is True
+          assert run_meta['preregistration_commit'] == \
+              'f0da6dff82dffe37e254534e30cd47ffbf74b067'
+          assert run_meta['execution_commit'] == \
+              '5e6195aa2c20c31a5efd23085e084758f888103e'
+          assert provenance['github_run_id'] == 32805474906
+          assert provenance['artifact_id'] == 9548317287
+          assert provenance['artifact_digest'] == \
+              '01b831e7d7c24538c843a64cfd5c5e3065c0fbfc7dd05ae6744f7dd3650924bc'
+          PY
+
+      - name: Append verification and create machine-readable receipt
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          report = Path('MILESTONE_30_REPORT.md')
+          source_hash = hashlib.sha256(report.read_bytes()).hexdigest()
+          assert source_hash == \
+              '691b47143e299a2d5adc0cb910bc75f12de0117651c6772f6f82fb3999a96191'
+          run_id = int(os.environ['GITHUB_RUN_ID'])
+          report.write_text(
+              report.read_text()
+              .replace(
+                  'Publication verification is appended after an independent workflow has\n'
+                  'revalidated the result hashes, complete cluster accounting, every\n'
+                  'above-threshold physical veto, execution provenance, and this report.\n',
+                  f'Publication verification workflow run `{run_id}` independently '
+                  'revalidated all nine result-file hashes, complete accounting for '
+                  '309 clusters, every one of the 25 above-threshold physical vetoes, '
+                  'known-answer tests, execution provenance, and the pre-verification '
+                  'report hash. Its machine-readable receipt is '
+                  '`MILESTONE_30_PUBLICATION_VERIFICATION.json`.\n',
+              )
+          )
+          final_hash = hashlib.sha256(report.read_bytes()).hexdigest()
+          receipt = {
+              'verified': True,
+              'verified_utc': datetime.now(timezone.utc).isoformat(),
+              'github_run_id': run_id,
+              'run_url': (
+                  f"https://github.com/{os.environ['GITHUB_REPOSITORY']}"
+                  f'/actions/runs/{run_id}'
+              ),
+              'source_commit': os.environ['GITHUB_SHA'],
+              'source_report_sha256': source_hash,
+              'report_sha256_after_verification': final_hash,
+              'search_summary_sha256':
+                  '54bc04f4cd2bc399709f9233e12cdc4ca1996c10bdd82fb262e0ef0e8d141ed9',
+              'results_manifest_sha256': hashlib.sha256(
+                  Path('RESULTS_MANIFEST_M30.sha256').read_bytes()
+              ).hexdigest(),
+              'data_manifest_entries_verified': 30,
+              'result_files_verified': 9,
+              'reported_clusters_verified': 309,
+              'over_threshold_clusters_verified': 25,
+              'matched_control_vetoes_verified': 18,
+              'local_control_vetoes_verified': 7,
+              'surviving_candidates_verified': 0,
+          }
+          Path('MILESTONE_30_PUBLICATION_VERIFICATION.json').write_text(
+              json.dumps(receipt, indent=2, sort_keys=True) + '\n'
+          )
+          PY
+
+      - name: Publish verified report and receipt
+        run: |
+          jq -e '.verified == true and .surviving_candidates_verified == 0' \
+            MILESTONE_30_PUBLICATION_VERIFICATION.json
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$GITHUB_SHA"
+          git add MILESTONE_30_REPORT.md \
+            MILESTONE_30_PUBLICATION_VERIFICATION.json
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "m30: record verified result publication"
+          git push origin HEAD:main
