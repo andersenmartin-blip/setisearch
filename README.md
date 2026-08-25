@@ -19,6 +19,24 @@ retains the Milestone 7 recurrence statistic, spectral filters, per-epoch
 interference mask, candidate clustering, and RFI-family flags, and adds the
 Milestone 12 local-OFF and receiver-frame alias vetoes.
 
+## Milestone 32 result
+
+Milestone 32 advanced the frozen higher-smearing ranking to HD 99492 /
+HIP 55848 at extension rank 33 after rank 32 proved ineligible. HD 99492 b
+supplied only the motion template. A width-aware metadata proof passed all 630
+checks before spectral contact, and the blind search used the sole complete
+compatible L-band cadence `--70969` with the unchanged six-width bank.
+
+Across approximately 888,730,920 nominal trials, the global maximum reached
+S/N 3388.1311 at 1400.167769733 MHz, with empirical global p-value 1/257 and
+an operational threshold of S/N 10.9827. All 691 retained clusters are
+reported. Fourteen exceeded threshold: five matched control data on the
+candidate track, seven had a frozen local-control recurrence, and two mapped
+to the same receiver-frame feature. All 14 are physically vetoed and no
+candidate survives. Estimated multichannel 50% and 90% recovery occur near
+ideal single-epoch S/N 15.50 and 20.80; one-channel recovery reaches 81.25%
+at the highest tested S/N 40 and does not measure a 90% point.
+
 ## Milestone 31 result
 
 Milestone 31 prospectively extended the frozen survey beyond the original 1
@@ -589,6 +607,14 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Key files
 
+- `MILESTONE_32_TARGET_SELECTION.md` — fixed HD 99492 target and cadence.
+- `MILESTONE_32_SELECTED_METADATA_RESULT.md` — official orbit and astrometry.
+- `MILESTONE_32_PREREGISTRATION.md` — frozen higher-smearing search design.
+- `MILESTONE_32_REPORT.md` — final no-survivor result and sensitivity limits.
+- `config/hd99492b_heldout_m32.json` — frozen target, cadence, bands, and widths.
+- `DATA_MANIFEST_M32.sha256` — checksums for all 30 reproducible extracts.
+- `RESULTS_MANIFEST_M32.sha256` — checksums for all nine primary outputs.
+- `results_m32/search_summary.json` — complete machine-readable search record.
 - `MILESTONE_31_HEADER_SCREEN_PLAN.md` — frozen ranks 31-35 extension.
 - `MILESTONE_31_TARGET_SELECTION.md` — fixed HD 192263 target and cadence.
 - `MILESTONE_31_SELECTED_METADATA_RESULT.md` — official orbit and astrometry.
