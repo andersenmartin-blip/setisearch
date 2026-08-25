@@ -1,0 +1,115 @@
+name: Milestone 30 bet UMi b coverage preflight
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m30_coverage_preflight.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  preflight:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install detector dependencies
+        run: python -m pip install -e .
+
+      - name: Verify frozen preflight inputs
+        run: |
+          test "$(sha256sum MILESTONE_30_SELECTED_METADATA_RESULT.md | cut -d' ' -f1)" \
+            = "a15d0ebd81b701594a75eb13f556a6901cb0a1d2820d55baac1ad12325cb8ea0"
+          test "$(sha256sum results_m30_selected_metadata/betumib.json | cut -d' ' -f1)" \
+            = "8700ccc93364b7179ca20b3596394aec83fbc276aa3bc06a58812c088282da21"
+          test "$(sha256sum config/betumib_m30_preflight.json | cut -d' ' -f1)" \
+            = "324419b9c098017a26fc936b586587877c8f393275a12836fc37faa6d4e34c9d"
+          test "$(sha256sum scripts/m14_coverage_preflight.py | cut -d' ' -f1)" \
+            = "95eb2dfc6c0b52db391ab09b844e553b5244de48203827134acdde640474115c"
+
+      - name: Run metadata-only full-bank coverage proof
+        run: |
+          python scripts/m14_coverage_preflight.py \
+            config/betumib_m30_preflight.json \
+            --output results_m30_preflight/coverage.json
+
+      - name: Verify boundary and hash result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(Path('results_m30_preflight/coverage.json').read_text())
+          assert result['passed'] is True
+          assert result['checks'] == 630
+          assert result['spectral_payload_inspected'] is False
+          assert result['remote_files_opened'] is False
+          PY
+          find results_m30_preflight -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M30_COVERAGE_PREFLIGHT.sha256
+          test "$(wc -l < RESULTS_MANIFEST_M30_COVERAGE_PREFLIGHT.sha256)" -eq 1
+          sha256sum -c RESULTS_MANIFEST_M30_COVERAGE_PREFLIGHT.sha256
+
+      - name: Upload preflight evidence
+        id: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-30-coverage-preflight
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M30_COVERAGE_PREFLIGHT.sha256
+            results_m30_preflight/
+
+      - name: Record provenance and publish checked preflight
+        env:
+          ARTIFACT_ID: ${{ steps.upload.outputs.artifact-id }}
+          ARTIFACT_DIGEST: ${{ steps.upload.outputs.artifact-digest }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('MILESTONE_30_COVERAGE_PREFLIGHT_PROVENANCE.json').write_text(
+              json.dumps(
+                  {
+                      'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                      'source_commit': os.environ['GITHUB_SHA'],
+                      'artifact_id': int(os.environ['ARTIFACT_ID']),
+                      'artifact_digest': os.environ['ARTIFACT_DIGEST'],
+                      'artifact_name': 'milestone-30-coverage-preflight',
+                      'spectral_payload_inspected': False,
+                      'remote_files_opened': False,
+                  },
+                  indent=2,
+                  sort_keys=True,
+              )
+              + '\n'
+          )
+          PY
+          jq empty results_m30_preflight/coverage.json \
+            MILESTONE_30_COVERAGE_PREFLIGHT_PROVENANCE.json
+          sha256sum -c RESULTS_MANIFEST_M30_COVERAGE_PREFLIGHT.sha256
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$GITHUB_SHA"
+          git add RESULTS_MANIFEST_M30_COVERAGE_PREFLIGHT.sha256 \
+            results_m30_preflight \
+            MILESTONE_30_COVERAGE_PREFLIGHT_PROVENANCE.json
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "Publish Milestone 30 coverage preflight"
+          git push origin HEAD:main
