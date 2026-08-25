@@ -1,0 +1,152 @@
+name: Milestone 32 HD 99492 selected-target metadata
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m32_selected_metadata.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  metadata:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify frozen selection inputs and metadata query
+        run: |
+          test "$(sha256sum results_m16_discovery/discovery.json | cut -d' ' -f1)" \
+            = "0310d5ba8e0923062bd0a046b1827a4e814fc3f3adf854620d27e3cccb7fd750"
+          test "$(sha256sum results_m31_header_screen/header_screen.json | cut -d' ' -f1)" \
+            = "ee169decd0ec0309a274295579241013fa95dc3f088bf4405724f5261b9710f8"
+          test "$(sha256sum MILESTONE_32_TARGET_SELECTION.md | cut -d' ' -f1)" \
+            = "03dd41c2248cf02f22600e0cd9c596376a0052a13b6613a1cccb9bee8ef3bf5e"
+          test "$(sha256sum scripts/m32_selected_metadata.py | cut -d' ' -f1)" \
+            = "37a119fdc1e213f4ab0fda5d792b5cc2dc08910f90189bc70275c20c866c5b56"
+          jq -e '.verified == true and .surviving_candidates_verified == 0' \
+            MILESTONE_31_PUBLICATION_VERIFICATION.json
+          git merge-base --is-ancestor \
+            3bc69eaa0c5c2ccab50a3f39cc8a0a27be43d6a6 "$GITHUB_SHA"
+
+      - name: Verify mechanical HD 99492 selection and spectral boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          screen = json.loads(
+              Path('results_m31_header_screen/header_screen.json').read_text()
+          )
+          targets = {item['rank']: item for item in screen['screened_targets']}
+          assert [targets[r]['qualifying_count'] for r in range(31, 36)] == [
+              1, 0, 1, 1, 0
+          ]
+          assert targets[31]['hostname'] == 'HD 192263'
+          assert targets[32]['qualifying_count'] == 0
+          selected = targets[33]
+          assert selected['hostname'] == 'HD 99492'
+          assert selected['planet_name'] == 'HD 99492 b'
+          assert selected['archive_target'] == 'HIP55848'
+          assert selected['qualifying_count'] == 1
+          primary = selected['qualifying_hdf5_abacad_cadences'][0]
+          assert primary['cadence_url'].endswith('/--70969')
+          assert len(primary['headers']) == 6
+          assert primary['scan_sources'] == [
+              'HIP55848', 'HIP54998', 'HIP55848',
+              'HIP55211', 'HIP55848', 'HIP55321'
+          ]
+          assert all(
+              header['spectral_dataset_values_read'] is False
+              for header in primary['headers']
+          )
+          assert all(
+              header['covers_required_guarded_range'] is True
+              for header in primary['headers']
+          )
+          assert screen['spectral_payload_inspected'] is False
+          PY
+
+      - name: Fetch selected official record
+        run: python scripts/m32_selected_metadata.py
+
+      - name: Verify boundary and hash result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(
+              Path('results_m32_selected_metadata/hd99492b.json').read_text()
+          )
+          assert result['spectral_payload_inspected'] is False
+          assert result['record']['pl_name'] == 'HD 99492 b'
+          assert result['record']['hostname'] == 'HD 99492'
+          assert result['record']['hip_name'] == 'HIP 55848'
+          assert result['record']['hd_name'] == 'HD 99492'
+          PY
+          find results_m32_selected_metadata -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M32_SELECTED_METADATA.sha256
+          test "$(wc -l < RESULTS_MANIFEST_M32_SELECTED_METADATA.sha256)" -eq 1
+          sha256sum -c RESULTS_MANIFEST_M32_SELECTED_METADATA.sha256
+
+      - name: Upload selected metadata
+        id: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-32-selected-metadata
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M32_SELECTED_METADATA.sha256
+            results_m32_selected_metadata/
+
+      - name: Record provenance and publish checked metadata
+        env:
+          ARTIFACT_ID: ${{ steps.upload.outputs.artifact-id }}
+          ARTIFACT_DIGEST: ${{ steps.upload.outputs.artifact-digest }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('MILESTONE_32_SELECTED_METADATA_PROVENANCE.json').write_text(
+              json.dumps(
+                  {
+                      'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                      'source_commit': os.environ['GITHUB_SHA'],
+                      'artifact_id': int(os.environ['ARTIFACT_ID']),
+                      'artifact_digest': os.environ['ARTIFACT_DIGEST'],
+                      'artifact_name': 'milestone-32-selected-metadata',
+                      'spectral_payload_inspected': False,
+                  },
+                  indent=2,
+                  sort_keys=True,
+              )
+              + '\n'
+          )
+          PY
+          jq empty results_m32_selected_metadata/hd99492b.json \
+            MILESTONE_32_SELECTED_METADATA_PROVENANCE.json
+          sha256sum -c RESULTS_MANIFEST_M32_SELECTED_METADATA.sha256
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$GITHUB_SHA"
+          git add RESULTS_MANIFEST_M32_SELECTED_METADATA.sha256 \
+            results_m32_selected_metadata \
+            MILESTONE_32_SELECTED_METADATA_PROVENANCE.json
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "Publish Milestone 32 selected metadata"
+          git push origin HEAD:main
