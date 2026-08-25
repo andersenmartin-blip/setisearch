@@ -19,6 +19,24 @@ retains the Milestone 7 recurrence statistic, spectral filters, per-epoch
 interference mask, candidate clustering, and RFI-family flags, and adds the
 Milestone 12 local-OFF and receiver-frame alias vetoes.
 
+## Milestone 31 result
+
+Milestone 31 prospectively extended the frozen survey beyond the original 1
+Hz/s conservative smearing group. The header-only screen selected HD 192263 /
+HIP 99711 at extension rank 31; HD 192263 b supplied only the motion template.
+A width-aware metadata proof passed all 630 checks before spectral contact,
+and the blind search used the sole complete compatible L-band cadence
+`--66435` with the frozen six-width bank `[1, 3, 5, 9, 17, 33]`.
+
+Across approximately 901,940,760 nominal trials, the global maximum reached
+S/N 33.1947 at 1400.335505150 MHz, with empirical global p-value 2/257 and an
+operational threshold of S/N 13.2003. All 583 retained clusters are reported.
+Eleven exceeded threshold; six matched the control data on the candidate track
+and five had a recurrent control feature within the frozen 20 Hz tolerance.
+All 11 are physically vetoed and no candidate survives. Estimated
+multichannel 50% and 90% recovery occur near ideal single-epoch S/N 22.25 and
+29.16; one-channel recovery reaches only 15/32 at the highest tested S/N 40.
+
 ## Milestone 30 result
 
 Milestone 30 searched bet UMi / HIP 72607 using bet UMi b only as the
@@ -571,6 +589,15 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Key files
 
+- `MILESTONE_31_HEADER_SCREEN_PLAN.md` — frozen ranks 31-35 extension.
+- `MILESTONE_31_TARGET_SELECTION.md` — fixed HD 192263 target and cadence.
+- `MILESTONE_31_SELECTED_METADATA_RESULT.md` — official orbit and astrometry.
+- `MILESTONE_31_PREREGISTRATION.md` — frozen higher-smearing search design.
+- `MILESTONE_31_REPORT.md` — final no-survivor result and sensitivity limits.
+- `config/hd192263b_heldout_m31.json` — frozen target, cadence, bands, and widths.
+- `DATA_MANIFEST_M31.sha256` — checksums for all 30 reproducible extracts.
+- `RESULTS_MANIFEST_M31.sha256` — checksums for all nine primary outputs.
+- `results_m31/search_summary.json` — complete machine-readable search record.
 - `MILESTONE_26_TARGET_SELECTION.md` — fixed HD 19994 target and cadence.
 - `MILESTONE_26_SELECTED_METADATA_RESULT.md` — official orbit and astrometry.
 - `MILESTONE_26_PREREGISTRATION.md` — frozen held-out search design.
