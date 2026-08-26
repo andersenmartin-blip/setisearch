@@ -1,0 +1,3990 @@
+{
+  "canonical_tuple_columns": [
+    "window",
+    "width_channels",
+    "template_index",
+    "epochs_1_based_compact",
+    "retained_count"
+  ],
+  "canonical_tuple_csv_sha256": "8d9504a3845f4f80d9d4e51187d1c4ef009d7d8579cab0d4d8bb4d8521d86a13",
+  "classification_order": [
+    "count == 0 -> safe_empty",
+    "lowest_retained_snr < threshold -> safe_lowest_below_threshold",
+    "count < 3 and selected_neighborhood_union_channels < 15 -> safe_pigeonhole_pool_not_exhausted",
+    "count == 3 -> unresolved_explicit_top3",
+    "otherwise -> unresolved_top15_pool"
+  ],
+  "constants": {
+    "neighborhood_radius_channels": "max(1, width_channels // 2)",
+    "operational_threshold_snr": 15.89224910736084,
+    "peaks_per_hypothesis": 3,
+    "top_pool_size": 15
+  },
+  "counts": {
+    "categories": {
+      "safe_empty": 2036,
+      "safe_lowest_below_threshold": 1128,
+      "safe_pigeonhole_pool_not_exhausted": 1,
+      "unresolved_explicit_top3": 3,
+      "unresolved_top15_pool": 192
+    },
+    "total_hypotheses": 3360,
+    "unresolved_by_retained_count": {
+      "1": 139,
+      "2": 53,
+      "3": 3
+    },
+    "unresolved_by_width": {
+      "129": 142,
+      "17": 5,
+      "33": 11,
+      "65": 37
+    },
+    "unresolved_by_window": {
+      "m36_1400p5": 40,
+      "m36_1406p5": 36,
+      "m36_1412p5": 26,
+      "m36_1418p5": 36,
+      "m36_1425p0": 57
+    },
+    "unresolved_total": 195
+  },
+  "schema_version": 1,
+  "source": {
+    "repository": "andersenmartin-blip/setisearch",
+    "result_commit": "88db2596090e3a79620bff7e0e2c42dd63560431",
+    "search_summary_path": "results_m36/search_summary.json",
+    "search_summary_sha256": "4da75de622f0ba1bb0427a54998a287a0b0dc7e641bb64bdea829bc235d01211"
+  },
+  "unresolved_details": [
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 622.9072125760002,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 33,
+      "template_index": 1,
+      "width_channels": 33,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 7119.172479539107,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 3,
+      "width_channels": 65,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 7118.679438287381,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 3,
+      "width_channels": 65,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 873.5143321329454,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 11,
+      "width_channels": 65,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 875.7145459821207,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 13,
+      "width_channels": 65,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 5055.08013841192,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 205,
+      "template_index": 0,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 6191.045197476375,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 0,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 5061.861181958065,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 0,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 5056.330695424351,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 0,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 5054.890932105236,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 202,
+      "template_index": 1,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 5055.971617762029,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 1,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 5054.999345937898,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 197,
+      "template_index": 2,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 6191.083255233377,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 2,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 5061.896744457314,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 2,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 5056.260606226801,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 2,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 5056.164622005527,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 3,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 6191.573777434739,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 3,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 5062.934271741233,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 3,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 5055.324587435885,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 195,
+      "template_index": 3,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 5063.091713485482,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 4,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 5054.031907851529,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 6,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 5055.465801631933,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 6,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 5055.063220329754,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 197,
+      "template_index": 7,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 6191.057883395376,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 7,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 5061.787294823703,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 7,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 5056.322409016759,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 7,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 5056.319301613912,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 8,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 5055.282464863959,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 8,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 5061.814225648377,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 11,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 5055.06978040243,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 205,
+      "template_index": 12,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 6191.058729123309,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 12,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 5061.878445307215,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 12,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 5056.364186321702,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 12,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 5063.3188991602965,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 13,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 5061.830798463561,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 16,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 5055.043540111722,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 204,
+      "template_index": 17,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 6191.037585924974,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 17,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 5061.8076655756995,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 17,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 5056.219864722808,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 17,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 4442.237458390407,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 18,
+      "width_channels": 129,
+      "window": "m36_1400p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 803.2318713899579,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 33,
+      "template_index": 1,
+      "width_channels": 33,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 4586.4862059515135,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 1,
+      "width_channels": 65,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 4586.945411038905,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 2,
+      "width_channels": 65,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 4619.059383661816,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 3,
+      "width_channels": 65,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 4587.869000218433,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 3,
+      "width_channels": 65,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 3445.6964727567633,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 6,
+      "width_channels": 65,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 4586.385387992477,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 7,
+      "width_channels": 65,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 571.8867220725505,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 11,
+      "width_channels": 65,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 4619.119114849876,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 12,
+      "width_channels": 65,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 4586.377792118851,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 12,
+      "width_channels": 65,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 4586.274557290933,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 17,
+      "width_channels": 65,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 3279.5577984733777,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 210,
+      "template_index": 0,
+      "width_channels": 129,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 3257.8739961399506,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 234,
+      "template_index": 0,
+      "width_channels": 129,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 3279.7756619396514,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 1,
+      "width_channels": 129,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 3257.980338370715,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 1,
+      "width_channels": 129,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 3279.658961699397,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 211,
+      "template_index": 2,
+      "width_channels": 129,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 3257.8550064558854,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 233,
+      "template_index": 2,
+      "width_channels": 129,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 3279.7432068432495,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 226,
+      "template_index": 3,
+      "width_channels": 129,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 3988.9552962277935,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 235,
+      "template_index": 3,
+      "width_channels": 129,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 3256.9683608435384,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 235,
+      "template_index": 3,
+      "width_channels": 129,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 3257.8153007528404,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 3,
+      "width_channels": 129,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 3073.786963012228,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 4,
+      "width_channels": 129,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 3279.6900357278673,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 6,
+      "width_channels": 129,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 3257.8601854606304,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 6,
+      "width_channels": 129,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 3279.5577984733777,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 210,
+      "template_index": 7,
+      "width_channels": 129,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 3257.5839718742295,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 231,
+      "template_index": 7,
+      "width_channels": 129,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 3279.656544830516,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 8,
+      "width_channels": 129,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 3257.6264397131386,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 8,
+      "width_channels": 129,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 3257.3422849861286,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 11,
+      "width_channels": 129,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 3279.604409516083,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 210,
+      "template_index": 12,
+      "width_channels": 129,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 3257.646810465136,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 232,
+      "template_index": 12,
+      "width_channels": 129,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 3257.6716696879116,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 13,
+      "width_channels": 129,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 3257.5228596182383,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 16,
+      "width_channels": 129,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 3279.5229265080943,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 213,
+      "template_index": 17,
+      "width_channels": 129,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 3257.8159912868064,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 233,
+      "template_index": 17,
+      "width_channels": 129,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 3056.118960958089,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 18,
+      "width_channels": 129,
+      "window": "m36_1406p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 16.350731638138225,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 17,
+      "template_index": 1,
+      "width_channels": 17,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 18.108267359334878,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 26,
+      "template_index": 2,
+      "width_channels": 17,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 18.12273890123958,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 26,
+      "template_index": 7,
+      "width_channels": 17,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 18.073866090055922,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 26,
+      "template_index": 12,
+      "width_channels": 17,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 18.064650428747925,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 26,
+      "template_index": 17,
+      "width_channels": 17,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 16.220642201948607,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 33,
+      "template_index": 2,
+      "width_channels": 33,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 16.667205242935978,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 33,
+      "template_index": 2,
+      "width_channels": 33,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 16.796437565094045,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 33,
+      "template_index": 7,
+      "width_channels": 33,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 16.557824392981352,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 33,
+      "template_index": 7,
+      "width_channels": 33,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 16.214390092128575,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 33,
+      "template_index": 12,
+      "width_channels": 33,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 16.594113841073597,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 33,
+      "template_index": 12,
+      "width_channels": 33,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 16.87666278827482,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 33,
+      "template_index": 17,
+      "width_channels": 33,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 16.590833804735087,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 33,
+      "template_index": 17,
+      "width_channels": 33,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 6104.5695422237195,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 3,
+      "width_channels": 65,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 6076.50762291331,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 3,
+      "width_channels": 65,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 4333.087171253274,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 204,
+      "template_index": 0,
+      "width_channels": 129,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 4314.465196525102,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 0,
+      "width_channels": 129,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 4333.044012880399,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 1,
+      "width_channels": 129,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 4314.305683178955,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 1,
+      "width_channels": 129,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 4333.175904867906,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 206,
+      "template_index": 2,
+      "width_channels": 129,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 4314.45691011751,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 2,
+      "width_channels": 129,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 4334.878071094102,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 3,
+      "width_channels": 129,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 5283.247599606271,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 235,
+      "template_index": 3,
+      "width_channels": 129,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 4313.753601273137,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 235,
+      "template_index": 3,
+      "width_channels": 129,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 4313.945569715685,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 214,
+      "template_index": 3,
+      "width_channels": 129,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 4095.7844833025533,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 4,
+      "width_channels": 129,
+      "window": "m36_1412p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 46.59621780408531,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 0,
+      "width_channels": 65,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 41.63629574937416,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 1,
+      "width_channels": 65,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 46.55678723566725,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 2,
+      "width_channels": 65,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 43.93685821028094,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 3,
+      "width_channels": 65,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 42.61732872319932,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 3,
+      "width_channels": 65,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 34.235929552471255,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 6,
+      "width_channels": 65,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 46.58179211795179,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 7,
+      "width_channels": 65,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 35.40786819391305,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 0,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 39.532438924462284,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 0,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 32.27810121755761,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 0,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 32.27810121755761,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 0,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 35.34516447292206,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 1,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 31.625444118549684,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 1,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 35.46202385967646,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 2,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 31.67152107639052,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 230,
+      "template_index": 2,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 32.54801368151883,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 200,
+      "template_index": 3,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 37.06910104812083,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 229,
+      "template_index": 3,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 30.266794263855047,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 229,
+      "template_index": 3,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 32.346868689937565,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 3,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 29.069427248594863,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 4,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 35.09591947477143,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 6,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 30.68549252090506,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 6,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 31.557860804025495,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 6,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 35.400450348575134,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 7,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 31.714121087816604,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 220,
+      "template_index": 7,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 31.636908061344645,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 8,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 32.33989052052331,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 8,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 19.5020818470287,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 9,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 31.749621546904724,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 11,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 35.34008527191432,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 12,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 31.723775076349114,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 225,
+      "template_index": 12,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 32.17474500671653,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 13,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 31.732924651398648,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 16,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 35.47731271326748,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 17,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 31.693356515667045,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 220,
+      "template_index": 17,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 27.8867691462902,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 18,
+      "width_channels": 129,
+      "window": "m36_1418p5"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 39.87182771453444,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 33,
+      "template_index": 6,
+      "width_channels": 33,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 24.24936799338057,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 0,
+      "width_channels": 65,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 29.256737284271345,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 0,
+      "width_channels": 65,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 28.815146207809363,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 1,
+      "width_channels": 65,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 35.29120253641331,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 1,
+      "width_channels": 65,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 29.283220340826862,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 99,
+      "template_index": 1,
+      "width_channels": 65,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 29.236406993248842,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 1,
+      "width_channels": 65,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 29.566519992574296,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 2,
+      "width_channels": 65,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 29.203574261084068,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 2,
+      "width_channels": 65,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 28.861749158319615,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 101,
+      "template_index": 6,
+      "width_channels": 65,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 29.099430409938012,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 6,
+      "width_channels": 65,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 29.550618829568105,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 7,
+      "width_channels": 65,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 29.189634106645393,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 7,
+      "width_channels": 65,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 29.36109422988347,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 12,
+      "width_channels": 65,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 29.35496034613859,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 65,
+      "template_index": 17,
+      "width_channels": 65,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 20.502602174906144,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 216,
+      "template_index": 0,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 25.110456863898335,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 216,
+      "template_index": 0,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 24.522528124900646,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 0,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 25.431607998948007,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 0,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 22.474563528237244,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 198,
+      "template_index": 1,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 26.105340150657828,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 197,
+      "template_index": 1,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 24.820828008620502,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 1,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 23.053916130916722,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 1,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 20.56477990322772,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 217,
+      "template_index": 2,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 25.186608717774966,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 217,
+      "template_index": 2,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 24.56939002564815,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 2,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 25.476624879255098,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 2,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 23.535318108957732,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 3,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 16.351962937167162,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 258,
+      "template_index": 3,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 24.81141408853711,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 3,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 24.811238757647303,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 6,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 27.80112541764579,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 6,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 22.69952384945069,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 6,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 24.313121002312087,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 6,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 20.503176720745046,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 217,
+      "template_index": 7,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 25.111160535967908,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 217,
+      "template_index": 7,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 24.597750471423737,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 7,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 25.45470042583452,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 7,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_explicit_top3",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 16.066030912314613,
+      "retained_count": 3,
+      "selected_neighborhood_union_channels": 387,
+      "template_index": 8,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 21.738529847631124,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 8,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 21.26588092708886,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 218,
+      "template_index": 8,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 24.772763068229104,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 11,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_explicit_top3",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 16.588259652116914,
+      "retained_count": 3,
+      "selected_neighborhood_union_channels": 387,
+      "template_index": 11,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 23.598787891067257,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 11,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 20.6655776317768,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 216,
+      "template_index": 12,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 25.31006021886337,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 216,
+      "template_index": 12,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 24.73420645686176,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 12,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 25.47871536294124,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 12,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_explicit_top3",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 16.14429213058759,
+      "retained_count": 3,
+      "selected_neighborhood_union_channels": 387,
+      "template_index": 13,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 19.919912890523754,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 13,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 21.875572517200418,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 217,
+      "template_index": 16,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 16.859751533231893,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 16,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 23.911116943369844,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 16,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2
+      ],
+      "lowest_retained_snr": 20.678846134037602,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 215,
+      "template_index": 17,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        2,
+        3
+      ],
+      "lowest_retained_snr": 25.32631074895834,
+      "retained_count": 2,
+      "selected_neighborhood_union_channels": 215,
+      "template_index": 17,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        1,
+        3
+      ],
+      "lowest_retained_snr": 24.712821483102122,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 17,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    },
+    {
+      "category": "unresolved_top15_pool",
+      "epochs_1_based": [
+        2,
+        3
+      ],
+      "lowest_retained_snr": 25.511771979165303,
+      "retained_count": 1,
+      "selected_neighborhood_union_channels": 129,
+      "template_index": 17,
+      "width_channels": 129,
+      "window": "m36_1425p0"
+    }
+  ],
+  "unresolved_tuples": [
+    [
+      "m36_1400p5",
+      33,
+      1,
+      "13",
+      1
+    ],
+    [
+      "m36_1400p5",
+      65,
+      3,
+      "12",
+      1
+    ],
+    [
+      "m36_1400p5",
+      65,
+      3,
+      "23",
+      1
+    ],
+    [
+      "m36_1400p5",
+      65,
+      11,
+      "13",
+      1
+    ],
+    [
+      "m36_1400p5",
+      65,
+      13,
+      "13",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      0,
+      "12",
+      2
+    ],
+    [
+      "m36_1400p5",
+      129,
+      0,
+      "123",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      0,
+      "13",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      0,
+      "23",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      1,
+      "12",
+      2
+    ],
+    [
+      "m36_1400p5",
+      129,
+      1,
+      "23",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      2,
+      "12",
+      2
+    ],
+    [
+      "m36_1400p5",
+      129,
+      2,
+      "123",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      2,
+      "13",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      2,
+      "23",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      3,
+      "12",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      3,
+      "123",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      3,
+      "13",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      3,
+      "23",
+      2
+    ],
+    [
+      "m36_1400p5",
+      129,
+      4,
+      "13",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      6,
+      "12",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      6,
+      "23",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      7,
+      "12",
+      2
+    ],
+    [
+      "m36_1400p5",
+      129,
+      7,
+      "123",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      7,
+      "13",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      7,
+      "23",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      8,
+      "12",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      8,
+      "23",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      11,
+      "13",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      12,
+      "12",
+      2
+    ],
+    [
+      "m36_1400p5",
+      129,
+      12,
+      "123",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      12,
+      "13",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      12,
+      "23",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      13,
+      "13",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      16,
+      "13",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      17,
+      "12",
+      2
+    ],
+    [
+      "m36_1400p5",
+      129,
+      17,
+      "123",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      17,
+      "13",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      17,
+      "23",
+      1
+    ],
+    [
+      "m36_1400p5",
+      129,
+      18,
+      "13",
+      1
+    ],
+    [
+      "m36_1406p5",
+      33,
+      1,
+      "13",
+      1
+    ],
+    [
+      "m36_1406p5",
+      65,
+      1,
+      "13",
+      1
+    ],
+    [
+      "m36_1406p5",
+      65,
+      2,
+      "23",
+      1
+    ],
+    [
+      "m36_1406p5",
+      65,
+      3,
+      "12",
+      1
+    ],
+    [
+      "m36_1406p5",
+      65,
+      3,
+      "23",
+      1
+    ],
+    [
+      "m36_1406p5",
+      65,
+      6,
+      "13",
+      1
+    ],
+    [
+      "m36_1406p5",
+      65,
+      7,
+      "23",
+      1
+    ],
+    [
+      "m36_1406p5",
+      65,
+      11,
+      "13",
+      1
+    ],
+    [
+      "m36_1406p5",
+      65,
+      12,
+      "12",
+      1
+    ],
+    [
+      "m36_1406p5",
+      65,
+      12,
+      "23",
+      1
+    ],
+    [
+      "m36_1406p5",
+      65,
+      17,
+      "23",
+      1
+    ],
+    [
+      "m36_1406p5",
+      129,
+      0,
+      "12",
+      2
+    ],
+    [
+      "m36_1406p5",
+      129,
+      0,
+      "23",
+      2
+    ],
+    [
+      "m36_1406p5",
+      129,
+      1,
+      "12",
+      1
+    ],
+    [
+      "m36_1406p5",
+      129,
+      1,
+      "23",
+      1
+    ],
+    [
+      "m36_1406p5",
+      129,
+      2,
+      "12",
+      2
+    ],
+    [
+      "m36_1406p5",
+      129,
+      2,
+      "23",
+      2
+    ],
+    [
+      "m36_1406p5",
+      129,
+      3,
+      "12",
+      2
+    ],
+    [
+      "m36_1406p5",
+      129,
+      3,
+      "123",
+      2
+    ],
+    [
+      "m36_1406p5",
+      129,
+      3,
+      "13",
+      2
+    ],
+    [
+      "m36_1406p5",
+      129,
+      3,
+      "23",
+      1
+    ],
+    [
+      "m36_1406p5",
+      129,
+      4,
+      "13",
+      1
+    ],
+    [
+      "m36_1406p5",
+      129,
+      6,
+      "12",
+      1
+    ],
+    [
+      "m36_1406p5",
+      129,
+      6,
+      "23",
+      1
+    ],
+    [
+      "m36_1406p5",
+      129,
+      7,
+      "12",
+      2
+    ],
+    [
+      "m36_1406p5",
+      129,
+      7,
+      "23",
+      2
+    ],
+    [
+      "m36_1406p5",
+      129,
+      8,
+      "12",
+      1
+    ],
+    [
+      "m36_1406p5",
+      129,
+      8,
+      "23",
+      1
+    ],
+    [
+      "m36_1406p5",
+      129,
+      11,
+      "13",
+      1
+    ],
+    [
+      "m36_1406p5",
+      129,
+      12,
+      "12",
+      2
+    ],
+    [
+      "m36_1406p5",
+      129,
+      12,
+      "23",
+      2
+    ],
+    [
+      "m36_1406p5",
+      129,
+      13,
+      "13",
+      1
+    ],
+    [
+      "m36_1406p5",
+      129,
+      16,
+      "13",
+      1
+    ],
+    [
+      "m36_1406p5",
+      129,
+      17,
+      "12",
+      2
+    ],
+    [
+      "m36_1406p5",
+      129,
+      17,
+      "23",
+      2
+    ],
+    [
+      "m36_1406p5",
+      129,
+      18,
+      "13",
+      1
+    ],
+    [
+      "m36_1412p5",
+      17,
+      1,
+      "12",
+      1
+    ],
+    [
+      "m36_1412p5",
+      17,
+      2,
+      "23",
+      2
+    ],
+    [
+      "m36_1412p5",
+      17,
+      7,
+      "23",
+      2
+    ],
+    [
+      "m36_1412p5",
+      17,
+      12,
+      "23",
+      2
+    ],
+    [
+      "m36_1412p5",
+      17,
+      17,
+      "23",
+      2
+    ],
+    [
+      "m36_1412p5",
+      33,
+      2,
+      "123",
+      1
+    ],
+    [
+      "m36_1412p5",
+      33,
+      2,
+      "23",
+      1
+    ],
+    [
+      "m36_1412p5",
+      33,
+      7,
+      "123",
+      1
+    ],
+    [
+      "m36_1412p5",
+      33,
+      7,
+      "23",
+      1
+    ],
+    [
+      "m36_1412p5",
+      33,
+      12,
+      "123",
+      1
+    ],
+    [
+      "m36_1412p5",
+      33,
+      12,
+      "23",
+      1
+    ],
+    [
+      "m36_1412p5",
+      33,
+      17,
+      "123",
+      1
+    ],
+    [
+      "m36_1412p5",
+      33,
+      17,
+      "23",
+      1
+    ],
+    [
+      "m36_1412p5",
+      65,
+      3,
+      "12",
+      1
+    ],
+    [
+      "m36_1412p5",
+      65,
+      3,
+      "23",
+      1
+    ],
+    [
+      "m36_1412p5",
+      129,
+      0,
+      "12",
+      2
+    ],
+    [
+      "m36_1412p5",
+      129,
+      0,
+      "23",
+      1
+    ],
+    [
+      "m36_1412p5",
+      129,
+      1,
+      "12",
+      1
+    ],
+    [
+      "m36_1412p5",
+      129,
+      1,
+      "23",
+      1
+    ],
+    [
+      "m36_1412p5",
+      129,
+      2,
+      "12",
+      2
+    ],
+    [
+      "m36_1412p5",
+      129,
+      2,
+      "23",
+      1
+    ],
+    [
+      "m36_1412p5",
+      129,
+      3,
+      "12",
+      1
+    ],
+    [
+      "m36_1412p5",
+      129,
+      3,
+      "123",
+      2
+    ],
+    [
+      "m36_1412p5",
+      129,
+      3,
+      "13",
+      2
+    ],
+    [
+      "m36_1412p5",
+      129,
+      3,
+      "23",
+      2
+    ],
+    [
+      "m36_1412p5",
+      129,
+      4,
+      "13",
+      1
+    ],
+    [
+      "m36_1418p5",
+      65,
+      0,
+      "12",
+      1
+    ],
+    [
+      "m36_1418p5",
+      65,
+      1,
+      "13",
+      1
+    ],
+    [
+      "m36_1418p5",
+      65,
+      2,
+      "12",
+      1
+    ],
+    [
+      "m36_1418p5",
+      65,
+      3,
+      "12",
+      1
+    ],
+    [
+      "m36_1418p5",
+      65,
+      3,
+      "23",
+      1
+    ],
+    [
+      "m36_1418p5",
+      65,
+      6,
+      "13",
+      1
+    ],
+    [
+      "m36_1418p5",
+      65,
+      7,
+      "12",
+      1
+    ],
+    [
+      "m36_1418p5",
+      129,
+      0,
+      "12",
+      1
+    ],
+    [
+      "m36_1418p5",
+      129,
+      0,
+      "123",
+      1
+    ],
+    [
+      "m36_1418p5",
+      129,
+      0,
+      "13",
+      1
+    ],
+    [
+      "m36_1418p5",
+      129,
+      0,
+      "23",
+      1
+    ],
+    [
+      "m36_1418p5",
+      129,
+      1,
+      "12",
+      1
+    ],
+    [
+      "m36_1418p5",
+      129,
+      1,
+      "23",
+      1
+    ],
+    [
+      "m36_1418p5",
+      129,
+      2,
+      "12",
+      1
+    ],
+    [
+      "m36_1418p5",
+      129,
+      2,
+      "23",
+      2
+    ],
+    [
+      "m36_1418p5",
+      129,
+      3,
+      "12",
+      2
+    ],
+    [
+      "m36_1418p5",
+      129,
+      3,
+      "123",
+      2
+    ],
+    [
+      "m36_1418p5",
+      129,
+      3,
+      "13",
+      2
+    ],
+    [
+      "m36_1418p5",
+      129,
+      3,
+      "23",
+      1
+    ],
+    [
+      "m36_1418p5",
+      129,
+      4,
+      "13",
+      1
+    ],
+    [
+      "m36_1418p5",
+      129,
+      6,
+      "12",
+      1
+    ],
+    [
+      "m36_1418p5",
+      129,
+      6,
+      "13",
+      1
+    ],
+    [
+      "m36_1418p5",
+      129,
+      6,
+      "23",
+      1
+    ],
+    [
+      "m36_1418p5",
+      129,
+      7,
+      "12",
+      1
+    ],
+    [
+      "m36_1418p5",
+      129,
+      7,
+      "23",
+      2
+    ],
+    [
+      "m36_1418p5",
+      129,
+      8,
+      "12",
+      1
+    ],
+    [
+      "m36_1418p5",
+      129,
+      8,
+      "23",
+      1
+    ],
+    [
+      "m36_1418p5",
+      129,
+      9,
+      "12",
+      1
+    ],
+    [
+      "m36_1418p5",
+      129,
+      11,
+      "13",
+      1
+    ],
+    [
+      "m36_1418p5",
+      129,
+      12,
+      "12",
+      1
+    ],
+    [
+      "m36_1418p5",
+      129,
+      12,
+      "23",
+      2
+    ],
+    [
+      "m36_1418p5",
+      129,
+      13,
+      "13",
+      1
+    ],
+    [
+      "m36_1418p5",
+      129,
+      16,
+      "13",
+      1
+    ],
+    [
+      "m36_1418p5",
+      129,
+      17,
+      "12",
+      1
+    ],
+    [
+      "m36_1418p5",
+      129,
+      17,
+      "23",
+      2
+    ],
+    [
+      "m36_1418p5",
+      129,
+      18,
+      "13",
+      1
+    ],
+    [
+      "m36_1425p0",
+      33,
+      6,
+      "12",
+      1
+    ],
+    [
+      "m36_1425p0",
+      65,
+      0,
+      "13",
+      1
+    ],
+    [
+      "m36_1425p0",
+      65,
+      0,
+      "23",
+      1
+    ],
+    [
+      "m36_1425p0",
+      65,
+      1,
+      "12",
+      1
+    ],
+    [
+      "m36_1425p0",
+      65,
+      1,
+      "123",
+      1
+    ],
+    [
+      "m36_1425p0",
+      65,
+      1,
+      "13",
+      2
+    ],
+    [
+      "m36_1425p0",
+      65,
+      1,
+      "23",
+      1
+    ],
+    [
+      "m36_1425p0",
+      65,
+      2,
+      "13",
+      1
+    ],
+    [
+      "m36_1425p0",
+      65,
+      2,
+      "23",
+      1
+    ],
+    [
+      "m36_1425p0",
+      65,
+      6,
+      "12",
+      2
+    ],
+    [
+      "m36_1425p0",
+      65,
+      6,
+      "23",
+      1
+    ],
+    [
+      "m36_1425p0",
+      65,
+      7,
+      "13",
+      1
+    ],
+    [
+      "m36_1425p0",
+      65,
+      7,
+      "23",
+      1
+    ],
+    [
+      "m36_1425p0",
+      65,
+      12,
+      "13",
+      1
+    ],
+    [
+      "m36_1425p0",
+      65,
+      17,
+      "13",
+      1
+    ],
+    [
+      "m36_1425p0",
+      129,
+      0,
+      "12",
+      2
+    ],
+    [
+      "m36_1425p0",
+      129,
+      0,
+      "123",
+      2
+    ],
+    [
+      "m36_1425p0",
+      129,
+      0,
+      "13",
+      1
+    ],
+    [
+      "m36_1425p0",
+      129,
+      0,
+      "23",
+      1
+    ],
+    [
+      "m36_1425p0",
+      129,
+      1,
+      "12",
+      2
+    ],
+    [
+      "m36_1425p0",
+      129,
+      1,
+      "123",
+      2
+    ],
+    [
+      "m36_1425p0",
+      129,
+      1,
+      "13",
+      1
+    ],
+    [
+      "m36_1425p0",
+      129,
+      1,
+      "23",
+      1
+    ],
+    [
+      "m36_1425p0",
+      129,
+      2,
+      "12",
+      2
+    ],
+    [
+      "m36_1425p0",
+      129,
+      2,
+      "123",
+      2
+    ],
+    [
+      "m36_1425p0",
+      129,
+      2,
+      "13",
+      1
+    ],
+    [
+      "m36_1425p0",
+      129,
+      2,
+      "23",
+      1
+    ],
+    [
+      "m36_1425p0",
+      129,
+      3,
+      "12",
+      1
+    ],
+    [
+      "m36_1425p0",
+      129,
+      3,
+      "123",
+      2
+    ],
+    [
+      "m36_1425p0",
+      129,
+      3,
+      "23",
+      1
+    ],
+    [
+      "m36_1425p0",
+      129,
+      6,
+      "12",
+      1
+    ],
+    [
+      "m36_1425p0",
+      129,
+      6,
+      "123",
+      1
+    ],
+    [
+      "m36_1425p0",
+      129,
+      6,
+      "13",
+      1
+    ],
+    [
+      "m36_1425p0",
+      129,
+      6,
+      "23",
+      1
+    ],
+    [
+      "m36_1425p0",
+      129,
+      7,
+      "12",
+      2
+    ],
+    [
+      "m36_1425p0",
+      129,
+      7,
+      "123",
+      2
+    ],
+    [
+      "m36_1425p0",
+      129,
+      7,
+      "13",
+      1
+    ],
+    [
+      "m36_1425p0",
+      129,
+      7,
+      "23",
+      1
+    ],
+    [
+      "m36_1425p0",
+      129,
+      8,
+      "123",
+      3
+    ],
+    [
+      "m36_1425p0",
+      129,
+      8,
+      "13",
+      1
+    ],
+    [
+      "m36_1425p0",
+      129,
+      8,
+      "23",
+      2
+    ],
+    [
+      "m36_1425p0",
+      129,
+      11,
+      "12",
+      1
+    ],
+    [
+      "m36_1425p0",
+      129,
+      11,
+      "123",
+      3
+    ],
+    [
+      "m36_1425p0",
+      129,
+      11,
+      "23",
+      1
+    ],
+    [
+      "m36_1425p0",
+      129,
+      12,
+      "12",
+      2
+    ],
+    [
+      "m36_1425p0",
+      129,
+      12,
+      "123",
+      2
+    ],
+    [
+      "m36_1425p0",
+      129,
+      12,
+      "13",
+      1
+    ],
+    [
+      "m36_1425p0",
+      129,
+      12,
+      "23",
+      1
+    ],
+    [
+      "m36_1425p0",
+      129,
+      13,
+      "123",
+      3
+    ],
+    [
+      "m36_1425p0",
+      129,
+      13,
+      "13",
+      1
+    ],
+    [
+      "m36_1425p0",
+      129,
+      16,
+      "12",
+      2
+    ],
+    [
+      "m36_1425p0",
+      129,
+      16,
+      "123",
+      1
+    ],
+    [
+      "m36_1425p0",
+      129,
+      16,
+      "13",
+      1
+    ],
+    [
+      "m36_1425p0",
+      129,
+      17,
+      "12",
+      2
+    ],
+    [
+      "m36_1425p0",
+      129,
+      17,
+      "123",
+      2
+    ],
+    [
+      "m36_1425p0",
+      129,
+      17,
+      "13",
+      1
+    ],
+    [
+      "m36_1425p0",
+      129,
+      17,
+      "23",
+      1
+    ]
+  ]
+}
