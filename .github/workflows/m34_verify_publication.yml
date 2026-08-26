@@ -1,0 +1,593 @@
+name: Milestone 34 publication verification
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m34_verify_publication.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify frozen protocol, repair, report, and result hashes
+        run: |
+          test "$(sha256sum MILESTONE_34_LEGACY_COMPLETE_AUDIT_PLAN.md | cut -d' ' -f1)" \
+            = "a0eae804dd68e7a9fb2c959377641de0da800750c3cab38ee689031832181510"
+          test "$(sha256sum MILESTONE_34_LEGACY_COMPLETE_AUDIT_REPAIR.md | cut -d' ' -f1)" \
+            = "b294063fbdc0ef5a3dad8113bf03f3f6ea0b6bfe094b1dbb8905abf5e4696fe8"
+          test "$(sha256sum config/m34_legacy_complete_audit.json | cut -d' ' -f1)" \
+            = "00d3636d1ecb6032be41c69e219c1ba84873dfa995fe0738a47d75e3d40f9c7f"
+          test "$(sha256sum scripts/m34_legacy_complete_audit.py | cut -d' ' -f1)" \
+            = "fd61008b4c18a6bf18b25240649c016b4e0af37d07e65e07acdacdfee9d2d6ab"
+          test "$(sha256sum MILESTONE_34_LEGACY_COMPLETE_AUDIT_PROVENANCE.json | cut -d' ' -f1)" \
+            = "9860bf98fddcf0b4c435b70fef624ecffb2fdec0bfda00d459d326577dae0a1e"
+          test "$(sha256sum MILESTONE_34_REPORT.md | cut -d' ' -f1)" \
+            = "39848fe4f8712b4da0aa1ff75a5e63e9a06b599652cecea935a574b5cee33fed"
+          test "$(sha256sum RESULTS_MANIFEST_M34_LEGACY_COMPLETE_AUDIT.sha256 | cut -d' ' -f1)" \
+            = "0e7d4d67acc528515e197bc5a39ae75e6be1a09a08a22736d061bd2fb9a9746d"
+          test "$(sha256sum results_m34_legacy_complete_audit/audit_summary.json | cut -d' ' -f1)" \
+            = "742b3c1d88ed52ca60acb56b26704db29c744f7727745bff41872925245de9a0"
+          test "$(wc -l < RESULTS_MANIFEST_M34_LEGACY_COMPLETE_AUDIT.sha256)" -eq 21
+          test "$(wc -l < results_m34_legacy_complete_audit/m17/RESULTS_MANIFEST.sha256)" -eq 9
+          test "$(wc -l < results_m34_legacy_complete_audit/m21/RESULTS_MANIFEST.sha256)" -eq 9
+          sha256sum -c RESULTS_MANIFEST_M34_LEGACY_COMPLETE_AUDIT.sha256
+          sha256sum -c results_m34_legacy_complete_audit/m17/RESULTS_MANIFEST.sha256
+          sha256sum -c results_m34_legacy_complete_audit/m21/RESULTS_MANIFEST.sha256
+          git merge-base --is-ancestor \
+            48452ac8282fdae40ecf242a4e062ba5fc1055f1 "$GITHUB_SHA"
+
+      - name: Independently verify complete accounting and closed debt
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import math
+          import os
+          from collections import Counter
+          from copy import deepcopy
+          from pathlib import Path
+
+          def load(path):
+              return json.loads(Path(path).read_text())
+
+          def sha(path):
+              return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+          def manifest_map(path):
+              result = {}
+              for line in Path(path).read_text().splitlines():
+                  digest, filename = line.split(maxsplit=1)
+                  logical = '/'.join(Path(filename).parts[-2:])
+                  assert logical not in result
+                  result[logical] = digest
+              return result
+
+          def assert_acceleration_diagnostics_reproduce(
+              audit, primary, absolute_tolerance
+          ):
+              audit_copy = deepcopy(audit)
+              primary_copy = deepcopy(primary)
+              audit_epochs = audit_copy.pop(
+                  'acceleration_smearing_by_active_epoch'
+              )
+              primary_epochs = primary_copy.pop(
+                  'acceleration_smearing_by_active_epoch'
+              )
+              assert audit_copy == primary_copy
+              assert len(audit_epochs) == len(primary_epochs)
+              float_fields = (
+                  'observer_start_m_s',
+                  'planet_start_m_s',
+                  'predicted_drift_hz_s',
+                  'drift_hz_s',
+                  'bins_crossed_per_integration',
+                  'approx_peak_retained_fraction',
+                  'approx_flux_penalty',
+              )
+              for audit_epoch, primary_epoch in zip(
+                  audit_epochs, primary_epochs
+              ):
+                  audit_epoch_copy = deepcopy(audit_epoch)
+                  primary_epoch_copy = deepcopy(primary_epoch)
+                  for field in float_fields:
+                      assert math.isclose(
+                          audit_epoch_copy.pop(field),
+                          primary_epoch_copy.pop(field),
+                          rel_tol=0.0,
+                          abs_tol=absolute_tolerance,
+                      )
+                  assert audit_epoch_copy == primary_epoch_copy
+
+          projection_fields = (
+              'cluster_frequency_mhz',
+              'max_snr',
+              'member_count',
+              'distinct_template_count',
+              'distinct_spectral_widths',
+              'distinct_activity_subsets',
+              'frequency_span_hz',
+              'best_hypothesis',
+              'top_members',
+              'off_at_best_hypothesis_snr',
+              'v0p5_off_diagnostics',
+              'v0p5_receiver_frame_signature',
+          )
+          cap_annotations = {
+              'receiver_frame_template_alias',
+              'arithmetic_frequency_family',
+          }
+          physical = {
+              'rfi_veto_off_source',
+              'rfi_veto_single_adjacent_off',
+              'rfi_veto_local_off_source',
+              'rfi_veto_receiver_frame_alias',
+          }
+
+          protocol = load('config/m34_legacy_complete_audit.json')
+          combined = load('results_m34_legacy_complete_audit/audit_summary.json')
+          m17 = load('results_m34_legacy_complete_audit/m17/audit_summary.json')
+          m21 = load('results_m34_legacy_complete_audit/m21/audit_summary.json')
+          provenance = load(
+              'MILESTONE_34_LEGACY_COMPLETE_AUDIT_PROVENANCE.json'
+          )
+
+          manifested_results = {
+              line.split(maxsplit=1)[1]
+              for line in Path(
+                  'RESULTS_MANIFEST_M34_LEGACY_COMPLETE_AUDIT.sha256'
+              ).read_text().splitlines()
+          }
+          actual_results = {
+              str(path)
+              for path in Path('results_m34_legacy_complete_audit').rglob('*')
+              if path.is_file()
+          }
+          assert len(manifested_results) == 21
+          assert actual_results == manifested_results
+
+          assert protocol['analysis']['detector_version'] == '0.5.0'
+          assert protocol['analysis']['primary_report_cap'] == 50
+          assert protocol['analysis']['audit_report_cap'] == 500
+          assert protocol['analysis'][
+              'acceleration_diagnostic_float_absolute_tolerance'
+          ] == 1e-9
+          repair = protocol['analysis']['repair_provenance']
+          assert repair['initial_workflow_run'] == 32965249217
+          assert repair['failing_job'] == 98166205410
+          assert repair['failed_artifact'] == 9605865243
+          assert math.isclose(
+              repair['observed_absolute_difference_m_s'],
+              1.8189894035458565e-12,
+              rel_tol=0.0,
+              abs_tol=0.0,
+          )
+          assert repair[
+              'candidate_lists_or_dispositions_used_to_select_repair'
+          ] is False
+
+          assert provenance['successful_workflow_run'] == 32966998479
+          assert provenance['execution_commit'] == \
+              'a78554d18033961b339bfccca4885a37ae43dd0f'
+          assert provenance['result_publication_commit'] == \
+              '48452ac8282fdae40ecf242a4e062ba5fc1055f1'
+          assert provenance['combined_artifact']['id'] == 9606730936
+          assert provenance['combined_artifact']['digest'] == \
+              'sha256:4a0b964e974fd70e0b586c5f0bc7169f9f6efa3162e8273c34dd047ebfbe80fa'
+          assert [
+              (x['id'], x['digest'])
+              for x in provenance['target_artifacts']
+          ] == [
+              (
+                  9606721624,
+                  'sha256:6b7808c47bd3876f245019eb5ab58fbf3eb6720c2789f185c128311d614e5648',
+              ),
+              (
+                  9606548218,
+                  'sha256:b90083b0ed0f41412ec70dc0faff3fec7460323efaaf74106c3e25aa837638ff',
+              ),
+          ]
+          assert provenance['initial_fail_closed_run'][
+              'combined_results_published'
+          ] is False
+          assert provenance['initial_fail_closed_run'][
+              'failed_artifact_digest'
+          ] == \
+              'sha256:c4a55cd7bb56075defec3f335b68b8ca2331ebc7cdefa9eebb44092358fb3def'
+          assert provenance['results_manifest_sha256'] == sha(
+              'RESULTS_MANIFEST_M34_LEGACY_COMPLETE_AUDIT.sha256'
+          )
+          assert provenance['combined_audit_summary_sha256'] == sha(
+              'results_m34_legacy_complete_audit/audit_summary.json'
+          )
+
+          assert combined['per_target'] == [m17, m21]
+          assert combined['primary_results_reproduced'] is True
+          assert combined['all_report_caps_unsaturated'] is True
+          assert combined['independent_or_reserved_cadences_opened'] is False
+          assert combined['audited_milestones'] == [17, 21]
+          assert combined['total_complete_clusters'] == 776
+          assert combined['total_over_threshold_clusters'] == 177
+          assert combined['newly_exposed_over_threshold_count'] == 17
+          assert combined['open_case_count'] == 0
+          assert combined['known_posthoc_resolutions_applied'] == 2
+          assert combined['published_cluster_disposition_change_count'] == 0
+          assert combined['published_cluster_disposition_changes'] == []
+          assert combined['next_action'] == 'report_closed_legacy_cap_debt'
+
+          expected = {
+              17: {
+                  'target': 'GJ 849',
+                  'complete': 404,
+                  'above': 64,
+                  'new': 14,
+                  'window_counts': [64, 2, 1, 0, 337],
+                  'final': {'rfi_veto_off_source': 64},
+              },
+              21: {
+                  'target': 'HD 154345',
+                  'complete': 372,
+                  'above': 113,
+                  'new': 3,
+                  'window_counts': [53, 81, 43, 6, 189],
+                  'final': {
+                      'posthoc_RFI_OR_INSTRUMENTAL': 2,
+                      'rfi_veto_off_source': 95,
+                      'rfi_veto_single_adjacent_off': 16,
+                  },
+              },
+          }
+          target_records = {17: m17, 21: m21}
+          all_new = []
+          computed_annotation_changes = []
+          computed_disposition_changes = []
+          source_hashes_verified = 0
+
+          for target in protocol['targets']:
+              milestone = target['milestone']
+              record = target_records[milestone]
+              exp = expected[milestone]
+              root = Path(f'results_m34_legacy_complete_audit/m{milestone}')
+              primary_config = load(target['primary_config'])
+              audit_config = load(root / 'audit_config.json')
+              primary_search = load(target['primary_search_summary'])
+              audit_search = load(root / 'search_summary.json')
+
+              normalized = deepcopy(audit_config)
+              assert normalized['search']['candidate_reporting'][
+                  'max_report_clusters'
+              ] == 500
+              normalized['search']['candidate_reporting'][
+                  'max_report_clusters'
+              ] = 50
+              assert normalized == primary_config
+
+              primary_manifest = manifest_map(target['primary_data_manifest'])
+              audit_manifest = manifest_map(root / 'DATA_MANIFEST.sha256')
+              assert len(primary_manifest) == len(audit_manifest) == 30
+              assert audit_manifest == primary_manifest
+              source_hashes_verified += len(audit_manifest)
+
+              assert sha(target['primary_config']) == target[
+                  'primary_config_sha256'
+              ]
+              assert sha(target['primary_search_summary']) == target[
+                  'primary_search_summary_sha256'
+              ]
+              assert sha(target['primary_data_manifest']) == target[
+                  'primary_data_manifest_sha256'
+              ]
+              assert sha(root / 'audit_config.json') == target[
+                  'expected_audit_config_sha256'
+              ]
+              assert sha(root / 'search_summary.json') == record[
+                  'audit_search_summary_sha256'
+              ]
+              assert sha(root / 'DATA_MANIFEST.sha256') == record[
+                  'audit_data_manifest_sha256'
+              ]
+
+              if milestone == 21:
+                  assert sha(target['posthoc_source']) == \
+                      '83bc8f58b11fb8d1c599f7e1a712b0474e20b2f9fbcfeb228ed3d32ff9750335'
+                  posthoc = load(target['posthoc_source'])
+                  assert posthoc['candidate_count'] == 2
+                  assert [
+                      (
+                          candidate['best_hypothesis']['frequency_mhz'],
+                          candidate['posthoc_classification'],
+                      )
+                      for candidate in posthoc['candidates']
+                  ] == [
+                      (1424.954541208892, 'RFI_OR_INSTRUMENTAL'),
+                      (1424.9641847560824, 'RFI_OR_INSTRUMENTAL'),
+                  ]
+
+              assert audit_search['pipeline']['version'] == '0.5.0'
+              assert audit_search['global_result'] == primary_search[
+                  'global_result'
+              ]
+              assert audit_search['search_dimensions'] == primary_search[
+                  'search_dimensions'
+              ]
+              assert audit_search['known_answer_validation'] == primary_search[
+                  'known_answer_validation'
+              ]
+              assert audit_search['completeness'] == primary_search[
+                  'completeness'
+              ]
+
+              threshold = audit_search['global_result'][
+                  'operational_threshold_snr'
+              ]
+              newly_exposed = []
+              complete_count = 0
+              above_count = 0
+              published_above_count = 0
+              raw_final = Counter()
+
+              assert list(audit_search['windows']) == list(
+                  primary_search['windows']
+              )
+              actual_window_counts = []
+              for window_id, primary_window in primary_search['windows'].items():
+                  audit_window = audit_search['windows'][window_id]
+                  for field in (
+                      'window',
+                      'rest_bins',
+                      'on_best',
+                      'one_channel_regression_best',
+                      'off_global_best',
+                      'empirical_null',
+                      'single_epoch_rfi_excision',
+                  ):
+                      assert audit_window[field] == primary_window[field]
+                  assert_acceleration_diagnostics_reproduce(
+                      audit_window['diagnostics_for_on_best'],
+                      primary_window['diagnostics_for_on_best'],
+                      1e-9,
+                  )
+                  p_reduce = primary_window['candidate_reduction']
+                  a_reduce = audit_window['candidate_reduction']
+                  p_clusters = p_reduce['clusters']
+                  a_clusters = a_reduce['clusters']
+                  actual_window_counts.append(len(a_clusters))
+
+                  assert a_reduce['hypothesis_peak_count'] == p_reduce[
+                      'hypothesis_peak_count'
+                  ]
+                  assert a_reduce['candidate_veto_v0p5'] == p_reduce[
+                      'candidate_veto_v0p5'
+                  ]
+                  assert a_reduce['cluster_count_before_report_limit'] == \
+                      p_reduce['cluster_count_before_report_limit']
+                  assert len(a_clusters) == a_reduce['reported_cluster_count']
+                  assert len(a_clusters) == a_reduce[
+                      'cluster_count_before_report_limit'
+                  ]
+                  assert len(a_clusters) < 500
+                  assert len(p_clusters) == p_reduce['reported_cluster_count']
+
+                  for primary_cluster, audit_cluster in zip(
+                      p_clusters, a_clusters
+                  ):
+                      assert {
+                          field: audit_cluster.get(field)
+                          for field in projection_fields
+                      } == {
+                          field: primary_cluster.get(field)
+                          for field in projection_fields
+                      }
+                      primary_flags = set(primary_cluster['flags'])
+                      audit_flags = set(audit_cluster['flags'])
+                      assert primary_flags - cap_annotations == \
+                          audit_flags - cap_annotations
+                      if 'receiver_frame_template_alias' in primary_flags:
+                          assert 'receiver_frame_template_alias' in audit_flags
+                      primary_disposition = primary_cluster['disposition']
+                      audit_disposition = audit_cluster['disposition']
+                      if audit_flags != primary_flags:
+                          computed_annotation_changes.append({
+                              'milestone': milestone,
+                              'window_id': window_id,
+                              'frequency_mhz': audit_cluster[
+                                  'cluster_frequency_mhz'
+                              ],
+                              'snr': audit_cluster['max_snr'],
+                              'primary_flags': sorted(primary_flags),
+                              'audit_flags': sorted(audit_flags),
+                              'added_flags': sorted(
+                                  audit_flags - primary_flags
+                              ),
+                              'removed_flags': sorted(
+                                  primary_flags - audit_flags
+                              ),
+                              'primary_disposition': primary_disposition,
+                              'audit_disposition': audit_disposition,
+                          })
+                      if audit_disposition != primary_disposition:
+                          computed_disposition_changes.append({
+                              'milestone': milestone,
+                              'window_id': window_id,
+                              'frequency_mhz': audit_cluster[
+                                  'cluster_frequency_mhz'
+                              ],
+                              'snr': audit_cluster['max_snr'],
+                              'primary_disposition': primary_disposition,
+                              'audit_disposition': audit_disposition,
+                              'added_flags': sorted(
+                                  audit_flags - primary_flags
+                              ),
+                              'removed_flags': sorted(
+                                  primary_flags - audit_flags
+                              ),
+                          })
+
+                  assert all(
+                      a_clusters[i]['max_snr'] >= a_clusters[i + 1]['max_snr']
+                      for i in range(len(a_clusters) - 1)
+                  )
+                  above = [
+                      c for c in a_clusters if c['max_snr'] >= threshold
+                  ]
+                  published_above = [
+                      c for c in p_clusters if c['max_snr'] >= threshold
+                  ]
+                  extras = [
+                      c for c in a_clusters[len(p_clusters):]
+                      if c['max_snr'] >= threshold
+                  ]
+                  assert len(above) == len(published_above) + len(extras)
+                  for cluster in extras:
+                      assert cluster['disposition'] == 'rfi_veto_off_source'
+                      assert 'off_source_coincidence' in cluster['flags']
+                      assert cluster['off_at_best_hypothesis_snr'] >= threshold
+                      newly_exposed.append({
+                          'window_id': window_id,
+                          'frequency_mhz': cluster['cluster_frequency_mhz'],
+                          'snr': cluster['max_snr'],
+                          'raw_disposition': cluster['disposition'],
+                      })
+                  for cluster in above:
+                      disposition = cluster['disposition']
+                      if disposition in physical:
+                          raw_final[disposition] += 1
+                      else:
+                          assert milestone == 21
+                          assert any(
+                              math.isclose(
+                                  cluster['cluster_frequency_mhz'],
+                                  known['frequency_mhz'],
+                                  rel_tol=0.0,
+                                  abs_tol=1e-12,
+                              )
+                              for known in target['known_posthoc_resolutions']
+                          )
+                          raw_final['posthoc_RFI_OR_INSTRUMENTAL'] += 1
+
+                  complete_count += len(a_clusters)
+                  above_count += len(above)
+                  published_above_count += len(published_above)
+
+              assert actual_window_counts == exp['window_counts']
+              assert complete_count == record['total_complete_clusters'] == \
+                  exp['complete']
+              assert above_count == record['total_over_threshold_clusters'] == \
+                  exp['above']
+              assert len(newly_exposed) == exp['new']
+              assert newly_exposed == record[
+                  'newly_exposed_over_threshold_clusters'
+              ]
+              assert all(
+                  item['raw_disposition'] == 'rfi_veto_off_source'
+                  for item in newly_exposed
+              )
+              assert dict(sorted(raw_final.items())) == exp['final']
+              assert record['final_over_threshold_dispositions'] == exp['final']
+              assert record['primary_reproduced'] is True
+              assert record['all_report_caps_unsaturated'] is True
+              assert record['open_case_count'] == 0
+              assert record['open_cases'] == []
+              assert record['published_cluster_disposition_changes'] == []
+              assert record[
+                  'independent_or_reserved_cadence_spectral_values_read'
+              ] is False
+              assert record['acceleration_diagnostic_float_absolute_tolerance'] \
+                  == 1e-9
+              assert published_above_count + exp['new'] == exp['above']
+              all_new.extend(
+                  {'milestone': milestone, **item} for item in newly_exposed
+              )
+
+          assert source_hashes_verified == 60
+          assert len(all_new) == 17
+          assert all(
+              item['raw_disposition'] == 'rfi_veto_off_source'
+              for item in all_new
+          )
+
+          annotations = combined['published_cluster_annotation_changes']
+          assert computed_annotation_changes == annotations
+          assert computed_disposition_changes == combined[
+              'published_cluster_disposition_changes'
+          ]
+          assert combined['published_cluster_annotation_change_count'] == 7
+          assert len(annotations) == 7
+          assert all(item['milestone'] == 17 for item in annotations)
+          assert all(
+              item['added_flags'] == ['arithmetic_frequency_family']
+              and item['removed_flags'] == []
+              and item['primary_disposition'] == item['audit_disposition']
+              for item in annotations
+          )
+          assert all(
+              ('receiver_frame_template_alias' in item['primary_flags']) ==
+              ('receiver_frame_template_alias' in item['audit_flags'])
+              for item in annotations
+          )
+          m17_threshold = m17['operational_threshold_snr']
+          assert sum(item['snr'] >= m17_threshold for item in annotations) == 1
+
+          receipt = {
+              'purpose': 'Milestone 34 independent publication verification',
+              'verified': True,
+              'verification_workflow_run': int(os.environ['GITHUB_RUN_ID']),
+              'verification_source_commit': os.environ['GITHUB_SHA'],
+              'result_publication_commit': (
+                  '48452ac8282fdae40ecf242a4e062ba5fc1055f1'
+              ),
+              'successful_audit_workflow_run': 32966998479,
+              'results_manifest_sha256': sha(
+                  'RESULTS_MANIFEST_M34_LEGACY_COMPLETE_AUDIT.sha256'
+              ),
+              'combined_audit_summary_sha256': sha(
+                  'results_m34_legacy_complete_audit/audit_summary.json'
+              ),
+              'report_preverification_sha256': sha('MILESTONE_34_REPORT.md'),
+              'published_result_files_verified': 21,
+              'source_slice_hashes_verified': source_hashes_verified,
+              'complete_clusters_verified': 776,
+              'over_threshold_clusters_verified': 177,
+              'newly_exposed_over_threshold_clusters_verified': 17,
+              'newly_exposed_physical_vetoes_verified': 17,
+              'published_annotation_changes_verified': 7,
+              'published_disposition_changes_verified': 0,
+              'open_cases_verified': 0,
+              'confirmed_detections_verified': 0,
+              'independent_or_reserved_cadences_opened': False,
+              'fail_closed_repair_tolerance_verified': 1e-9,
+          }
+          Path('MILESTONE_34_PUBLICATION_VERIFICATION.json').write_text(
+              json.dumps(receipt, indent=2, sort_keys=True) + '\n'
+          )
+          PY
+
+      - name: Publish independently verified report and receipt
+        run: |
+          jq -e '
+            .verified == true and
+            .source_slice_hashes_verified == 60 and
+            .newly_exposed_over_threshold_clusters_verified == 17 and
+            .newly_exposed_physical_vetoes_verified == 17 and
+            .published_disposition_changes_verified == 0 and
+            .open_cases_verified == 0 and
+            .confirmed_detections_verified == 0
+          ' MILESTONE_34_PUBLICATION_VERIFICATION.json
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$GITHUB_SHA"
+          git add MILESTONE_34_REPORT.md \
+            MILESTONE_34_PUBLICATION_VERIFICATION.json
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "m34: record verified legacy audit publication"
+          git push origin HEAD:main

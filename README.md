@@ -10,14 +10,32 @@ whose frequency is stable in the selected planet frame and whose beam is not
 necessarily aimed at Earth.
 
 **Current scientific status:** one unresolved Milestone 33 follow-up case and
-no technosignature claim. The repository preserves frozen configurations,
-checksummed results, technical aborts, post-hoc labels, and non-redetections
-so that positive and negative outcomes remain independently auditable.
+no technosignature claim. Milestone 34 closed the remaining M17/M21 legacy
+report-cap debt without exposing a new open case. The repository preserves
+frozen configurations, checksummed results, technical aborts, post-hoc
+labels, and non-redetections so that positive and negative outcomes remain
+independently auditable.
 
 Version 0.5.0 is the frozen detector used for new held-out validation. It
 retains the Milestone 7 recurrence statistic, spectral filters, per-epoch
 interference mask, candidate clustering, and RFI-family flags, and adds the
 Milestone 12 local-OFF and receiver-frame alias vetoes.
+
+## Milestone 34 result
+
+Milestone 34 reran the legacy Milestone 17 GJ 849 and Milestone 21 HD 154345
+primary cadences with the sole configuration change
+`max_report_clusters: 50 -> 500`. All 30 extracted-slice hashes per target and
+all cap-independent search results reproduced. The complete lists contain 776
+clusters, of which 177 exceed their unchanged primary thresholds.
+
+The audit exposed 17 previously omitted above-threshold clusters: 14 in the
+capped GJ 849 1400 MHz list and three in the corresponding HD 154345 list.
+Every one has the frozen matched-OFF physical veto. The audit creates zero new
+open cases and changes zero published dispositions. Seven already published
+M17 clusters gain only the non-physical arithmetic-family annotation. No
+reserved or independent cadence was opened, and the unresolved Milestone 33
+case is unchanged.
 
 ## Milestone 33 result
 
@@ -236,6 +254,11 @@ claimed active epochs; one also exceeds the fixed adjacent-OFF track
 threshold. Both are classified `RFI_OR_INSTRUMENTAL`. There is no surviving
 candidate and no technosignature claim.
 
+The Milestone 34 complete report-cap audit retained all 372 clusters. Of 113
+above-threshold clusters, 95 receive matched-OFF vetoes, 16 receive
+single-adjacent-OFF vetoes, and the two exact previously reviewed cases retain
+their `RFI_OR_INSTRUMENTAL` resolutions. No M21 case remains open.
+
 ## Milestone 20 result
 
 Milestone 20 applied detector v0.5.0 to the sole complete compatible GBT
@@ -291,10 +314,12 @@ operational threshold of S/N 8.9124.
 
 The maximum is decisively rejected by the frozen OFF-source veto: the matched
 OFF statistic is S/N 77.5420 and a nearby OFF recurrence reaches S/N 113.8490
-within 11.176 Hz. All 50 reported above-threshold clusters receive the same
-physical OFF-source disposition, while the remaining 53 are below threshold.
-There is no surviving candidate and no technosignature claim. The complete
-cadence reserved six days later was therefore not opened spectrally.
+within 11.176 Hz. The Milestone 34 complete report-cap audit retained all 404
+clusters: 64 exceed threshold, including 14 previously omitted by the
+50-cluster cap, and all 64 receive the same physical OFF-source disposition.
+The remaining 340 are below threshold. There is no surviving candidate and no
+technosignature claim. The complete cadence reserved six days later was
+therefore not opened spectrally.
 
 ## Milestone 16 result
 
@@ -547,6 +572,8 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
   windows.
 - Milestone 21 searched five 1 MHz windows in one HD 154345 cadence, not the
   full GBT L-band receiver range or independent observing nights.
+- Its complete Milestone 34 audit retained 372 clusters and closed all 113
+  above-threshold cases, including three previously omitted by the old cap.
 - Its two morphology-review cases map to the same receiver features under
   different planet templates and are rejected as RFI or instrumental.
 - No second complete compatible HD 154345 cadence was present in the frozen
@@ -572,6 +599,8 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
   header screen.
 - Milestone 17 searched five 1 MHz windows in one primary GJ 849 cadence, not
   the full GBT L-band receiver range.
+- Its complete Milestone 34 audit retained 404 clusters and physically vetoed
+  all 64 above-threshold cases, including 14 previously omitted by the old cap.
 - Its very low empirical rank is driven by strong structured features that
   recur in OFF-source data and are rejected as RFI or instrumental.
 - The second complete GJ 849 cadence was deliberately left spectrally
