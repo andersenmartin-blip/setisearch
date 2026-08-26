@@ -1,0 +1,389 @@
+{
+  "audit_is_supplementary_to_primary": true,
+  "audit_name": "Milestone 36 exhaustive above-threshold retention audit",
+  "dimensions": {
+    "activity_subsets": 4,
+    "hypotheses": 3360,
+    "score_cells": 1202587680,
+    "spectral_widths": [
+      1,
+      3,
+      5,
+      9,
+      17,
+      33,
+      65,
+      129
+    ],
+    "templates": 21,
+    "windows": 5
+  },
+  "frozen_operational_threshold_snr": 15.89224910736084,
+  "interpretation_limits": [
+    "The audit changes neither the primary empirical p-value nor its completeness calibration.",
+    "A null outcome is limited to the frozen primary cadence, five windows, motion bank, recurrence model, and measured completeness.",
+    "An unresolved member requires independent data; it is not a detection.",
+    "Milestone 33 remains unresolved and Milestone 35 population/EIRP limitations remain unchanged."
+  ],
+  "outcome": "PRIMARY_CADENCE_NULL_AFTER_COMPLETE_RETENTION_AUDIT",
+  "primary": {
+    "artifact_digest": "sha256:a09c022c39ddc3e3e246731955b621ba741ddd9a0dfd601415fba846ef386c82",
+    "artifact_id": 9616909400,
+    "config_path": "config/hip48714b_heldout_m36.json",
+    "config_sha256": "b2c483a9db4075524319a0cd8e336969de4556bd0f9e5b66266a0b687f84b43c",
+    "data_manifest_path": "DATA_MANIFEST_M36.sha256",
+    "data_manifest_sha256": "a1c32960a21bf650433a4ff4a505aa6869d227764f1bcb2c6718121242f69aba",
+    "detector_commit": "32720a0b5e097403f864e2b84d53a071d65d7c46",
+    "detector_version": "0.5.0",
+    "execution_commit": "a0ceebcf1fd8fc72c81aedd20ceef93e9e5e00bb",
+    "github_run_id": 32993229561,
+    "preregistration_commit": "c17f362028132629b5fbcc9b1c47001acc934e6f",
+    "provenance_path": "MILESTONE_36_HELDOUT_PROVENANCE.json",
+    "provenance_sha256": "11ed24d83a83b35030ed65f9b90ecc66a90a2f0da4a62cc3367eaac9def5d53b",
+    "publication_commit": "88db2596090e3a79620bff7e0e2c42dd63560431",
+    "repository": "andersenmartin-blip/setisearch",
+    "results_manifest_path": "RESULTS_MANIFEST_M36.sha256",
+    "results_manifest_sha256": "c6e85b7016a11fa89b727bfdfd0fda9883e0804852894cea641986c4df3eb5a4",
+    "search_summary_path": "results_m36/search_summary.json",
+    "search_summary_sha256": "4da75de622f0ba1bb0427a54998a287a0b0dc7e641bb64bdea829bc235d01211",
+    "summary_only_inventory_path": "MILESTONE_36_RETENTION_BOUND.json",
+    "summary_only_inventory_sha256": "35fd0d940dd73af6c49b274e686fa0230bfb756427f6473b76f93107d2a8e3f3"
+  },
+  "schema_version": 1,
+  "stopping_rule": {
+    "arithmetic_family_is_not_physical": true,
+    "closure_requires_every_union_member_physical_veto": true,
+    "local_off_closure_uses_literal_maximum_hz": 20.0,
+    "no_second_qualifying_hip48714_cadence": true,
+    "physical_dispositions": [
+      "rfi_veto_off_source",
+      "rfi_veto_local_off_source",
+      "rfi_veto_single_adjacent_off",
+      "rfi_veto_receiver_frame_alias"
+    ],
+    "rounded_v0p5_local_result_reported_separately": true
+  },
+  "summary_only_boundary": {
+    "categories": {
+      "safe_empty": 2036,
+      "safe_lowest_below_threshold": 1128,
+      "safe_pigeonhole_pool_not_exhausted": 1,
+      "unresolved_explicit_top3": 3,
+      "unresolved_top15_pool": 192
+    },
+    "total_hypotheses": 3360,
+    "unresolved_by_retained_count": {
+      "1": 139,
+      "2": 53,
+      "3": 3
+    },
+    "unresolved_by_width": {
+      "129": 142,
+      "17": 5,
+      "33": 11,
+      "65": 37
+    },
+    "unresolved_by_window": {
+      "m36_1400p5": 40,
+      "m36_1406p5": 36,
+      "m36_1412p5": 26,
+      "m36_1418p5": 36,
+      "m36_1425p0": 57
+    },
+    "unresolved_total": 195
+  },
+  "totals": {
+    "above_threshold_score_cells": 7571,
+    "audit_clusters": 637,
+    "audit_union_records": 1081,
+    "legacy_unbounded_nms_peaks": 500,
+    "literal_20hz_nms_peaks": 1070,
+    "newly_exposed_union_records": 677,
+    "primary_crosswalk_only_records": 0,
+    "unaccounted_above_threshold_cells": 0,
+    "unresolved_cluster_count": 0,
+    "unresolved_member_count": 0
+  },
+  "windows": [
+    {
+      "above_threshold_score_cells": 1489,
+      "audit_clusters": 105,
+      "audit_union_records": 195,
+      "channel_width_hz": 2.7939677238464355,
+      "files": {
+        "m36_1400p5_audit_records.jsonl.gz": {
+          "bytes": 44750,
+          "sha256": "01e5a28815848e2233071ea53e68cbce5ec6ab117208e334a41ce6e958f6a322"
+        },
+        "m36_1400p5_clusters.json.gz": {
+          "bytes": 4554,
+          "sha256": "a5688d7fb9b5ceb72096fdc61272e37bb0600053e674a190e5d937b119da5dd2"
+        },
+        "m36_1400p5_coverage_ledger.jsonl.gz": {
+          "bytes": 29142,
+          "sha256": "42810bdabc7865b8ef786bc81b5dc99e4b981ab3264adf1f0b7ef667449aac54"
+        },
+        "m36_1400p5_hypothesis_certificates.json.gz": {
+          "bytes": 8882,
+          "sha256": "f3a5cbd42dca6c1e95f6fbd292ee6a87faa569d8c8578d2fa9248239799c74da"
+        }
+      },
+      "hypotheses_visited": 672,
+      "legacy_unbounded_nms_peaks": 86,
+      "literal_20hz_member_dispositions": {
+        "rfi_veto_local_off_source": 33,
+        "rfi_veto_off_source": 160,
+        "rfi_veto_single_adjacent_off": 2
+      },
+      "literal_20hz_nms_peaks": 195,
+      "literal_20hz_radius_channels": 7,
+      "literal_20hz_radius_hz": 19.55777406692505,
+      "newly_exposed_union_records": 126,
+      "primary_crosswalk_only_records": 0,
+      "primary_reproduction": {
+        "primary_candidate_reduction_exact": true,
+        "primary_clusters_reproduced": 197,
+        "primary_hypothesis_peaks_reproduced": 298,
+        "primary_maxima_exact": true,
+        "rest_bins": 357913
+      },
+      "primary_retained_above_threshold_records": 69,
+      "rounded_v0p5_local_radius_channels": 8,
+      "rounded_v0p5_local_radius_hz": 22.351741790771484,
+      "score_cells_visited": 240517536,
+      "unaccounted_above_threshold_cells": 0,
+      "unresolved_cluster_count": 0,
+      "unresolved_member_count": 0,
+      "v0p5_member_dispositions": {
+        "rfi_veto_local_off_source": 33,
+        "rfi_veto_off_source": 160,
+        "rfi_veto_single_adjacent_off": 2
+      },
+      "window": "m36_1400p5"
+    },
+    {
+      "above_threshold_score_cells": 1167,
+      "audit_clusters": 109,
+      "audit_union_records": 164,
+      "channel_width_hz": 2.7939677238464355,
+      "files": {
+        "m36_1406p5_audit_records.jsonl.gz": {
+          "bytes": 37967,
+          "sha256": "1f8978092c55ab263f823725453e1fe0f5948705a27f7eaaa1a48d1947054459"
+        },
+        "m36_1406p5_clusters.json.gz": {
+          "bytes": 4356,
+          "sha256": "4ad8d6b9b887d5fe935227a51dc12b3ffee8bf5514d4c8853b7680953690266b"
+        },
+        "m36_1406p5_coverage_ledger.jsonl.gz": {
+          "bytes": 25293,
+          "sha256": "117472c29223bba9719a73acbf6aecf1af5ff4cf70cdc90f816abdda527434e4"
+        },
+        "m36_1406p5_hypothesis_certificates.json.gz": {
+          "bytes": 8790,
+          "sha256": "1b8bff32edb60a72f19f03755a710e2ebe48a84d89ef4bd66dc69e91bedcb849"
+        }
+      },
+      "hypotheses_visited": 672,
+      "legacy_unbounded_nms_peaks": 78,
+      "literal_20hz_member_dispositions": {
+        "rfi_veto_local_off_source": 39,
+        "rfi_veto_off_source": 123,
+        "rfi_veto_single_adjacent_off": 2
+      },
+      "literal_20hz_nms_peaks": 164,
+      "literal_20hz_radius_channels": 7,
+      "literal_20hz_radius_hz": 19.55777406692505,
+      "newly_exposed_union_records": 87,
+      "primary_crosswalk_only_records": 0,
+      "primary_reproduction": {
+        "primary_candidate_reduction_exact": true,
+        "primary_clusters_reproduced": 216,
+        "primary_hypothesis_peaks_reproduced": 252,
+        "primary_maxima_exact": true,
+        "rest_bins": 357913
+      },
+      "primary_retained_above_threshold_records": 77,
+      "rounded_v0p5_local_radius_channels": 8,
+      "rounded_v0p5_local_radius_hz": 22.351741790771484,
+      "score_cells_visited": 240517536,
+      "unaccounted_above_threshold_cells": 0,
+      "unresolved_cluster_count": 0,
+      "unresolved_member_count": 0,
+      "v0p5_member_dispositions": {
+        "rfi_veto_local_off_source": 39,
+        "rfi_veto_off_source": 123,
+        "rfi_veto_single_adjacent_off": 2
+      },
+      "window": "m36_1406p5"
+    },
+    {
+      "above_threshold_score_cells": 708,
+      "audit_clusters": 49,
+      "audit_union_records": 109,
+      "channel_width_hz": 2.7939677238464355,
+      "files": {
+        "m36_1412p5_audit_records.jsonl.gz": {
+          "bytes": 25682,
+          "sha256": "1dc3dd9d4d88f92f05de088523c3eda43a811ccc8be48ab6861920be10663f6e"
+        },
+        "m36_1412p5_clusters.json.gz": {
+          "bytes": 2435,
+          "sha256": "4815ecbd99a79c98dc17008446c983d10c66d12c4dcc48247fcaabcd3ed04608"
+        },
+        "m36_1412p5_coverage_ledger.jsonl.gz": {
+          "bytes": 14656,
+          "sha256": "2425c31cef2533f02f90b39669b88c8fdf3aae045b5edb0f960c3feecd0e9b78"
+        },
+        "m36_1412p5_hypothesis_certificates.json.gz": {
+          "bytes": 8217,
+          "sha256": "cccc8e7d5c73ae5070f5e29bbcb716d564761086aec59f7b5afedc627bf7f974"
+        }
+      },
+      "hypotheses_visited": 672,
+      "legacy_unbounded_nms_peaks": 70,
+      "literal_20hz_member_dispositions": {
+        "rfi_veto_local_off_source": 35,
+        "rfi_veto_off_source": 73,
+        "rfi_veto_single_adjacent_off": 1
+      },
+      "literal_20hz_nms_peaks": 103,
+      "literal_20hz_radius_channels": 7,
+      "literal_20hz_radius_hz": 19.55777406692505,
+      "newly_exposed_union_records": 42,
+      "primary_crosswalk_only_records": 0,
+      "primary_reproduction": {
+        "primary_candidate_reduction_exact": true,
+        "primary_clusters_reproduced": 203,
+        "primary_hypothesis_peaks_reproduced": 358,
+        "primary_maxima_exact": true,
+        "rest_bins": 357913
+      },
+      "primary_retained_above_threshold_records": 67,
+      "rounded_v0p5_local_radius_channels": 8,
+      "rounded_v0p5_local_radius_hz": 22.351741790771484,
+      "score_cells_visited": 240517536,
+      "unaccounted_above_threshold_cells": 0,
+      "unresolved_cluster_count": 0,
+      "unresolved_member_count": 0,
+      "v0p5_member_dispositions": {
+        "rfi_veto_local_off_source": 35,
+        "rfi_veto_off_source": 73,
+        "rfi_veto_single_adjacent_off": 1
+      },
+      "window": "m36_1412p5"
+    },
+    {
+      "above_threshold_score_cells": 1221,
+      "audit_clusters": 106,
+      "audit_union_records": 164,
+      "channel_width_hz": 2.7939677238464355,
+      "files": {
+        "m36_1418p5_audit_records.jsonl.gz": {
+          "bytes": 42549,
+          "sha256": "8641536a77de5c8285be67f725a46e0222ad8f49fb046fd7b93bf22d6af4d6be"
+        },
+        "m36_1418p5_clusters.json.gz": {
+          "bytes": 4507,
+          "sha256": "caf4f54a18670c05c67e1c87dc2e75cbf3a72a93ce214c11b1083089c06e7d40"
+        },
+        "m36_1418p5_coverage_ledger.jsonl.gz": {
+          "bytes": 26856,
+          "sha256": "cf430b39780fa6873705fb477cef82482d663f9d275de42814d66940d60a9221"
+        },
+        "m36_1418p5_hypothesis_certificates.json.gz": {
+          "bytes": 8516,
+          "sha256": "bfd845a2fb37caa3d2b3a3981302ceb42c36625c61c97ea540b8a48019543220"
+        }
+      },
+      "hypotheses_visited": 672,
+      "legacy_unbounded_nms_peaks": 77,
+      "literal_20hz_member_dispositions": {
+        "rfi_veto_local_off_source": 30,
+        "rfi_veto_off_source": 132,
+        "rfi_veto_single_adjacent_off": 2
+      },
+      "literal_20hz_nms_peaks": 164,
+      "literal_20hz_radius_channels": 7,
+      "literal_20hz_radius_hz": 19.55777406692505,
+      "newly_exposed_union_records": 97,
+      "primary_crosswalk_only_records": 0,
+      "primary_reproduction": {
+        "primary_candidate_reduction_exact": true,
+        "primary_clusters_reproduced": 293,
+        "primary_hypothesis_peaks_reproduced": 443,
+        "primary_maxima_exact": true,
+        "rest_bins": 357913
+      },
+      "primary_retained_above_threshold_records": 67,
+      "rounded_v0p5_local_radius_channels": 8,
+      "rounded_v0p5_local_radius_hz": 22.351741790771484,
+      "score_cells_visited": 240517536,
+      "unaccounted_above_threshold_cells": 0,
+      "unresolved_cluster_count": 0,
+      "unresolved_member_count": 0,
+      "v0p5_member_dispositions": {
+        "rfi_veto_local_off_source": 30,
+        "rfi_veto_off_source": 132,
+        "rfi_veto_single_adjacent_off": 2
+      },
+      "window": "m36_1418p5"
+    },
+    {
+      "above_threshold_score_cells": 2986,
+      "audit_clusters": 268,
+      "audit_union_records": 449,
+      "channel_width_hz": 2.7939677238464355,
+      "files": {
+        "m36_1425p0_audit_records.jsonl.gz": {
+          "bytes": 125767,
+          "sha256": "5d0a3762898a608c3b93d40cab277a09d960ae6d3f9c54010995cb56c621ccbf"
+        },
+        "m36_1425p0_clusters.json.gz": {
+          "bytes": 10472,
+          "sha256": "4f643da5ffb1f8af554912ba8bd340847e421b8e59e6e209a4c5173872bab53b"
+        },
+        "m36_1425p0_coverage_ledger.jsonl.gz": {
+          "bytes": 62686,
+          "sha256": "8c62a558300016d8b8ab0a0da6e2ac5a8f3460661fd9a8c983b4aecc1c9293a0"
+        },
+        "m36_1425p0_hypothesis_certificates.json.gz": {
+          "bytes": 10572,
+          "sha256": "14c0aeee6aec7a80ef185c480bc5519f2fc706262b637859a1ec6027978beab6"
+        }
+      },
+      "hypotheses_visited": 672,
+      "legacy_unbounded_nms_peaks": 189,
+      "literal_20hz_member_dispositions": {
+        "rfi_veto_local_off_source": 92,
+        "rfi_veto_off_source": 204,
+        "rfi_veto_single_adjacent_off": 153
+      },
+      "literal_20hz_nms_peaks": 444,
+      "literal_20hz_radius_channels": 7,
+      "literal_20hz_radius_hz": 19.55777406692505,
+      "newly_exposed_union_records": 325,
+      "primary_crosswalk_only_records": 0,
+      "primary_reproduction": {
+        "primary_candidate_reduction_exact": true,
+        "primary_clusters_reproduced": 767,
+        "primary_hypothesis_peaks_reproduced": 1253,
+        "primary_maxima_exact": true,
+        "rest_bins": 357913
+      },
+      "primary_retained_above_threshold_records": 124,
+      "rounded_v0p5_local_radius_channels": 8,
+      "rounded_v0p5_local_radius_hz": 22.351741790771484,
+      "score_cells_visited": 240517536,
+      "unaccounted_above_threshold_cells": 0,
+      "unresolved_cluster_count": 0,
+      "unresolved_member_count": 0,
+      "v0p5_member_dispositions": {
+        "rfi_veto_local_off_source": 93,
+        "rfi_veto_off_source": 204,
+        "rfi_veto_single_adjacent_off": 152
+      },
+      "window": "m36_1425p0"
+    }
+  ]
+}
