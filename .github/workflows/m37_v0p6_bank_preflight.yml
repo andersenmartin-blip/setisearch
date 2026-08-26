@@ -1,0 +1,283 @@
+name: Milestone 37 detector-v0.6 discrete bank metadata preflight
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m37_v0p6_bank_preflight.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: milestone-37-v0p6-bank-preflight
+  cancel-in-progress: false
+
+jobs:
+  preflight:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+
+    steps:
+      - name: Check out frozen bank-preflight source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+
+      - name: Require one canonical publication
+        run: |
+          test ! -e results_m37_v0p6_bank_preflight
+          test ! -e RESULTS_MANIFEST_M37_V0P6_BANK_PREFLIGHT.sha256
+          test ! -e MILESTONE_37_V0P6_BANK_PREFLIGHT_PROVENANCE.json
+
+      - name: Verify source boundary and frozen hashes
+        run: |
+          test "$(git rev-parse "$GITHUB_SHA^")" \
+            = "4439c9833984128b79a1dd8ac6b8151d0670fa2c"
+          git merge-base --is-ancestor \
+            4439c9833984128b79a1dd8ac6b8151d0670fa2c "$GITHUB_SHA"
+          test "$(sha256sum MILESTONE_37_DETECTOR_V0P6_BANK_PREFLIGHT_PLAN.md | cut -d' ' -f1)" \
+            = "67bbe2055c126bda14e9dac7a34befd38caaf85fff8f80e76da7f3838b057517"
+          test "$(sha256sum config/hd156668b_m37_v0p6_bank_preflight.json | cut -d' ' -f1)" \
+            = "f7c1eb6ba3492e30f5a9c5b2f95b5ece576acf1efcbf552f57beff911632d8f3"
+          test "$(sha256sum constraints/m37_v0p6_bank_preflight.txt | cut -d' ' -f1)" \
+            = "4283217298d70f4b0ba429c892664a4e3df57e3e4c954e72eea66143798f2b0f"
+          test "$(sha256sum scripts/m37_v0p6_bank_preflight.py | cut -d' ' -f1)" \
+            = "4f9f7376554a7539d3652ae7bf9954d75a7d2083d9d11e15deff061db94ff79b"
+          test "$(sha256sum tests/test_m37_v0p6_bank_preflight.py | cut -d' ' -f1)" \
+            = "2a7a4cf38b7f976b68e316fb10667a6941294df86a561648457c397b7138c924"
+          test "$(sha256sum config/hd156668b_m37_preflight.json | cut -d' ' -f1)" \
+            = "ef8d98b51365939ab1e6f45cf5f2b9a7e21049b265526b6cac9790f03ea56abb"
+          test "$(sha256sum results_m37_preflight/coverage.json | cut -d' ' -f1)" \
+            = "b6823a09003c2687f167109b92dd4d7679e8c2a14ec39272a8f1b2cc791fed04"
+
+      - name: Select frozen Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065b # v5.6.0
+        with:
+          python-version: "3.12.14"
+
+      - name: Install frozen metadata-only numerical stack
+        run: |
+          python -m pip install --disable-pip-version-check --no-deps \
+            -r constraints/m37_v0p6_bank_preflight.txt
+          python -m pip install --disable-pip-version-check --no-deps -e .
+          python - <<'PY'
+          import importlib.metadata
+          import platform
+
+          assert platform.python_version() == '3.12.14'
+          expected = {
+              'numpy': '2.5.2',
+              'astropy': '8.0.1',
+              'astropy-iers-data': '0.2026.8.24.0.24.29',
+              'pyerfa': '2.0.1.5',
+              'packaging': '26.3',
+              'PyYAML': '6.0.3',
+          }
+          assert {
+              name: importlib.metadata.version(name) for name in expected
+          } == expected
+          PY
+
+      - name: Run full regression and bank-preflight test suite
+        env:
+          PYTHONHASHSEED: "0"
+        run: python -m unittest discover -s tests -v
+
+      - name: Run discrete full-orbit bank proof
+        env:
+          PYTHONHASHSEED: "0"
+        run: |
+          python scripts/m37_v0p6_bank_preflight.py \
+            config/hd156668b_m37_v0p6_bank_preflight.json \
+            --output results_m37_v0p6_bank_preflight/bank_preflight.json
+
+      - name: Verify result boundary and hash evidence
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(
+              Path(
+                  'results_m37_v0p6_bank_preflight/bank_preflight.json'
+              ).read_text()
+          )
+          assert result['passed'] is True
+          for flag in (
+              'spectral_payload_inspected',
+              'spectral_dataset_values_read',
+              'remote_files_opened',
+              'telescope_remote_request_made',
+              'network_access_required',
+              'detector_v0p6_implementation_frozen',
+              'spectral_access_authorized',
+              'search_sensitivity_claimed',
+              'native_raw_filter_implementation_verified',
+          ):
+              assert result[flag] is False
+          assert result['environment'] == {
+              'python': '3.12.14',
+              'numpy': '2.5.2',
+              'astropy': '8.0.1',
+              'astropy_iers_data': '0.2026.8.24.0.24.29',
+              'pyerfa': '2.0.1.5',
+          }
+          assert result['factor_basis']['integration_midpoints'] == 96
+          assert result['factor_basis']['basis_sha256'] == \
+              '492d2fe31d8cbe14968c9ce0296e898f42bf298540310f3f06a74ec8c971c143'
+          assert result['template_bank']['count'] == 93
+          assert result['template_bank']['canonical_sha256'] == \
+              '8b0c5488944133db9bf500f7ed108971f42ef4d29ce36aa67f9a89ffac3a2d63'
+          cover = result['selected_93_template_discrete_cover']
+          assert cover['passed'] is True
+          assert cover['minimum_interval_excess_over_lattice_hz'] > 2.05
+          assert all(item['lattice_point_guaranteed'] for item in cover['records'])
+          assert all(
+              item['finite_grid_containment_guaranteed']
+              for item in cover['records']
+          )
+          smaller = result['smaller_bank_discrete_lattice_diagnostics']
+          assert smaller['is_normative'] is False
+          assert smaller['evaluated_counts'] == [89, 91]
+          assert smaller['all_smaller_counts_fail_at_least_one_window'] is True
+          carrier = result['proxy_carrier_semantics']
+          assert carrier['axis_label'] == 'proxy_carrier_mhz'
+          assert carrier['is_physical_rest_frequency'] is False
+          assert carrier['score_bin_count'] == 747665
+          assert carrier['q_support_guard_bins_each_edge'] == 64
+          assert carrier['support_bin_count'] == 747793
+          extraction = result['extraction_coverage']
+          assert extraction['passed'] is True
+          assert extraction['checks'] == 30
+          assert extraction['minimum_proxy_support_headroom_channels'] == 52707
+          assert extraction[
+              'minimum_proxy_support_with_native_filter_headroom_channels'
+          ] == 52643
+          assert extraction['truth_integration_motion_margin_channels'] == 29
+          assert extraction[
+              'minimum_truth_any_integration_time_headroom_channels'
+          ] == 56802
+          capacity = result['capacity']
+          assert capacity['hypotheses_per_window'] == 2976
+          assert capacity['score_cells_per_window'] == 2225051040
+          assert capacity['score_cells_total'] == 11125255200
+          assert capacity['null_score_cells_total'] == 2848065331200
+          assert capacity['core_streaming_arrays_below_live_cap'] is True
+          assert capacity['truncation_permitted'] is False
+          assert result['spectral_budget'][
+              'numeric_guard_dominates_error_bound'
+          ] is True
+          assert result['spectral_budget']['composed_rint_bound_channels'] == 63
+          assert result['spectral_budget'][
+              'composed_rint_bound_within_filter_radius'
+          ] is True
+          assert result['spectral_budget']['filter_coordinate'] == \
+              'native_raw_channel_axis_before_q_track_gather'
+          assert result['spectral_budget']['q_domain_boxcar_permitted'] is False
+          assert result['spectral_budget'][
+              'raw_channel_inclusion_geometry_certified'
+          ] is True
+          mapping = result['q_to_raw_mapping_diagnostic']
+          assert mapping['passed'] is True
+          assert mapping['mapping_evaluations'] == 44640
+          assert mapping['all_nearest_channel_mappings_injective'] is True
+          assert mapping['all_nearest_channel_mappings_non_surjective'] is True
+          assert mapping['minimum_skipped_raw_channels_over_support'] == 38
+          assert mapping['maximum_skipped_raw_channels_over_support'] == 48
+          assert mapping['q_domain_boxcar_permitted'] is False
+          assert mapping[
+              'minimum_native_raw_channels_supplied_by_q_support_guard'
+          ] == 64
+          assert mapping['q_support_guard_covers_native_filter_radius'] is True
+          PY
+          find results_m37_v0p6_bank_preflight -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum \
+            > RESULTS_MANIFEST_M37_V0P6_BANK_PREFLIGHT.sha256
+          test "$(wc -l < RESULTS_MANIFEST_M37_V0P6_BANK_PREFLIGHT.sha256)" -eq 1
+          sha256sum -c RESULTS_MANIFEST_M37_V0P6_BANK_PREFLIGHT.sha256
+
+      - name: Upload complete metadata-only bank evidence
+        id: upload
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: milestone-37-v0p6-bank-preflight
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M37_V0P6_BANK_PREFLIGHT.sha256
+            results_m37_v0p6_bank_preflight/
+
+      - name: Record provenance and atomically publish checked evidence
+        env:
+          ARTIFACT_ID: ${{ steps.upload.outputs.artifact-id }}
+          ARTIFACT_DIGEST: ${{ steps.upload.outputs.artifact-digest }}
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          path = Path(
+              'results_m37_v0p6_bank_preflight/bank_preflight.json'
+          )
+          result = json.loads(path.read_text())
+          provenance = {
+              'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+              'source_commit': os.environ['GITHUB_SHA'],
+              'upstream_publication_commit':
+                  '4439c9833984128b79a1dd8ac6b8151d0670fa2c',
+              'artifact_id': int(os.environ['ARTIFACT_ID']),
+              'artifact_digest': os.environ['ARTIFACT_DIGEST'],
+              'artifact_name': 'milestone-37-v0p6-bank-preflight',
+              'result_sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+              'template_count': 93,
+              'bank_sha256': result['template_bank']['canonical_sha256'],
+              'factor_basis_sha256': result['factor_basis']['basis_sha256'],
+              'score_bin_count': 747665,
+              'support_bin_count': 747793,
+              'filter_coordinate':
+                  'native_raw_channel_axis_before_q_track_gather',
+              'q_domain_boxcar_permitted': False,
+              'q_to_raw_mapping_evaluations': 44640,
+              'minimum_skipped_raw_channels_over_support': 38,
+              'maximum_skipped_raw_channels_over_support': 48,
+              'score_cells_total': 11125255200,
+              'minimum_interval_excess_over_lattice_hz': result[
+                  'selected_93_template_discrete_cover'
+              ]['minimum_interval_excess_over_lattice_hz'],
+              'minimum_proxy_support_headroom_channels': 52707,
+              'minimum_proxy_support_with_native_filter_headroom_channels':
+                  52643,
+              'minimum_truth_any_integration_time_headroom_channels': 56802,
+              'detector_v0p6_implementation_frozen': False,
+              'spectral_access_authorized': False,
+              'search_sensitivity_claimed': False,
+              'native_raw_filter_implementation_verified': False,
+              'spectral_payload_inspected': False,
+              'spectral_dataset_values_read': False,
+              'remote_files_opened': False,
+              'telescope_remote_request_made': False,
+              'environment': result['environment'],
+          }
+          Path(
+              'MILESTONE_37_V0P6_BANK_PREFLIGHT_PROVENANCE.json'
+          ).write_text(
+              json.dumps(provenance, indent=2, sort_keys=True) + '\n'
+          )
+          PY
+          jq empty results_m37_v0p6_bank_preflight/bank_preflight.json \
+            MILESTONE_37_V0P6_BANK_PREFLIGHT_PROVENANCE.json
+          sha256sum -c RESULTS_MANIFEST_M37_V0P6_BANK_PREFLIGHT.sha256
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$GITHUB_SHA"
+          git add RESULTS_MANIFEST_M37_V0P6_BANK_PREFLIGHT.sha256 \
+            results_m37_v0p6_bank_preflight \
+            MILESTONE_37_V0P6_BANK_PREFLIGHT_PROVENANCE.json
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "Publish Milestone 37 detector-v0.6 bank preflight"
+          git push origin HEAD:main
