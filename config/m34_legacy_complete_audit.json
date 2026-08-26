@@ -1,7 +1,7 @@
 {
   "analysis": {
     "name": "Milestone 34 legacy complete-disposition audit",
-    "status": "frozen_before_legacy_primary_rerun",
+    "status": "frozen_before_fail_closed_repair_rerun",
     "detector_version": "0.5.0",
     "detector_commit": "32720a0b5e097403f864e2b84d53a071d65d7c46",
     "runtime_versions": {
@@ -17,6 +17,17 @@
     },
     "primary_report_cap": 50,
     "audit_report_cap": 500,
+    "acceleration_diagnostic_float_absolute_tolerance": 1e-09,
+    "repair_provenance": {
+      "initial_workflow_run": 32965249217,
+      "failing_job": 98166205410,
+      "failed_artifact": 9605865243,
+      "failed_artifact_sha256": "c4a55cd7bb56075defec3f335b68b8ca2331ebc7cdefa9eebb44092358fb3def",
+      "mismatch_window": "m21_1425p0",
+      "mismatch_field": "diagnostics_for_on_best.acceleration_smearing_by_active_epoch[0].planet_start_m_s",
+      "observed_absolute_difference_m_s": 1.8189894035458565e-12,
+      "candidate_lists_or_dispositions_used_to_select_repair": false
+    },
     "cap_dependent_annotations": [
       "receiver_frame_template_alias",
       "arithmetic_frequency_family"

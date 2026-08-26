@@ -36,7 +36,6 @@ WINDOW_REPRODUCTION_FIELDS = (
     "off_global_best",
     "empirical_null",
     "single_epoch_rfi_excision",
-    "diagnostics_for_on_best",
 )
 
 ROOT_REPRODUCTION_FIELDS = (
@@ -131,6 +130,42 @@ def cluster_projection(cluster: dict[str, Any]) -> dict[str, Any]:
     return {field: cluster.get(field) for field in CLUSTER_REPRODUCTION_FIELDS}
 
 
+def assert_acceleration_diagnostics_reproduce(
+    audit: dict[str, Any],
+    primary: dict[str, Any],
+    absolute_tolerance: float,
+) -> None:
+    """Require exact diagnostics except portable ephemeris float roundoff."""
+    audit_copy = deepcopy(audit)
+    primary_copy = deepcopy(primary)
+    audit_epochs = audit_copy.pop("acceleration_smearing_by_active_epoch")
+    primary_epochs = primary_copy.pop("acceleration_smearing_by_active_epoch")
+    assert audit_copy == primary_copy
+    assert len(audit_epochs) == len(primary_epochs)
+    float_fields = (
+        "observer_start_m_s",
+        "planet_start_m_s",
+        "predicted_drift_hz_s",
+        "drift_hz_s",
+        "bins_crossed_per_integration",
+        "approx_peak_retained_fraction",
+        "approx_flux_penalty",
+    )
+    for audit_epoch, primary_epoch in zip(audit_epochs, primary_epochs):
+        audit_epoch_copy = deepcopy(audit_epoch)
+        primary_epoch_copy = deepcopy(primary_epoch)
+        for field in float_fields:
+            audit_value = audit_epoch_copy.pop(field)
+            primary_value = primary_epoch_copy.pop(field)
+            assert math.isclose(
+                audit_value,
+                primary_value,
+                rel_tol=0.0,
+                abs_tol=absolute_tolerance,
+            )
+        assert audit_epoch_copy == primary_epoch_copy
+
+
 def known_posthoc_map(entry: dict[str, Any]) -> dict[float, str]:
     known = {
         float(item["frequency_mhz"]): item["classification"]
@@ -221,11 +256,19 @@ def finalize(
     audit_report_cap = load_json(audit_config_path)["search"]["candidate_reporting"][
         "max_report_clusters"
     ]
+    diagnostic_tolerance = spec["analysis"][
+        "acceleration_diagnostic_float_absolute_tolerance"
+    ]
 
     for window_id, primary_window in primary["windows"].items():
         audit_window = audit["windows"][window_id]
         for field in WINDOW_REPRODUCTION_FIELDS:
             assert audit_window[field] == primary_window[field]
+        assert_acceleration_diagnostics_reproduce(
+            audit_window["diagnostics_for_on_best"],
+            primary_window["diagnostics_for_on_best"],
+            diagnostic_tolerance,
+        )
         p_reduce = primary_window["candidate_reduction"]
         a_reduce = audit_window["candidate_reduction"]
         assert a_reduce["hypothesis_peak_count"] == p_reduce[
@@ -378,6 +421,9 @@ def finalize(
         "primary_data_manifest_sha256": entry["primary_data_manifest_sha256"],
         "audit_data_manifest_sha256": sha256(audit_data_manifest),
         "operational_threshold_snr": threshold,
+        "acceleration_diagnostic_float_absolute_tolerance": (
+            diagnostic_tolerance
+        ),
         "primary_reproduced": True,
         "all_report_caps_unsaturated": True,
         "independent_or_reserved_cadence_spectral_values_read": False,

@@ -64,10 +64,12 @@ jobs:
             --output "/tmp/validation_m${{ matrix.milestone }}.json"
           test "$(sha256sum MILESTONE_34_LEGACY_COMPLETE_AUDIT_PLAN.md | cut -d' ' -f1)" \
             = "a0eae804dd68e7a9fb2c959377641de0da800750c3cab38ee689031832181510"
+          test "$(sha256sum MILESTONE_34_LEGACY_COMPLETE_AUDIT_REPAIR.md | cut -d' ' -f1)" \
+            = "b294063fbdc0ef5a3dad8113bf03f3f6ea0b6bfe094b1dbb8905abf5e4696fe8"
           test "$(sha256sum config/m34_legacy_complete_audit.json | cut -d' ' -f1)" \
-            = "b1531a721edbcf96f30cc8a07ce27d7cbd2c14076408463288988c48d61dc37e"
+            = "00d3636d1ecb6032be41c69e219c1ba84873dfa995fe0738a47d75e3d40f9c7f"
           test "$(sha256sum scripts/m34_legacy_complete_audit.py | cut -d' ' -f1)" \
-            = "b87a6810baa8627395576345d8ffcae3c2cde49040cc607219380430fd229ac2"
+            = "fd61008b4c18a6bf18b25240649c016b4e0af37d07e65e07acdacdfee9d2d6ab"
 
       - name: Generate the one-field audit configuration
         run: |
