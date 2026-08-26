@@ -1,0 +1,247 @@
+{
+  "project": {
+    "name": "HD 156668 b Milestone 37 continuous circular-orbit metadata-only coverage preflight",
+    "status": "metadata_only_before_spectral_contact",
+    "selected_metadata_result_commit": "269c213f256a48bc7f76ae042b98eaa85bf76008",
+    "selected_extension_rank": 37,
+    "selected_archive_target": "HIP84607",
+    "selected_cadence": "--85168",
+    "design_drift_proxy_hz_s_at_1425_mhz": 8.712783061646705,
+    "scientific_scope": "Prove extraction coverage for every circular-orbit projected scale from zero through one and every phase, using only frozen official target metadata and six previously published HDF5 headers. This proof does not freeze detector v0.6.0 and does not claim continuous search sensitivity.",
+    "source_hashes": {
+      "target_selection": "4e33933c7297612961ea2b48f5a24a126facbd36bd81d98c0f6eeb3f20b612c4",
+      "selected_metadata": "b4429646af5ca076778e052666868353eccd5f43def3c456da889378bd3f1ee4",
+      "selected_metadata_manifest": "fa8009bbc16a269691a75cd8d45518992114c3e094a5fcda134fc2fff89cd280",
+      "selected_metadata_provenance": "4b79c3adf60c59306b630b6f851672a7471bda2e44ca6e22735b0badafc5fb56",
+      "header_screen": "45bd84cad0c83e8079ad3fe204ca827c7213954f43121599fbeac893252db19b",
+      "header_screen_manifest": "c180221ff006cbc0d92a3c15ced3382e3c3427c8bf2668a59d20404070dfd6e7",
+      "discovery": "0310d5ba8e0923062bd0a046b1827a4e814fc3f3adf854620d27e3cccb7fd750",
+      "milestone_36_verification_receipt": "9efde86fd305a1f86610992c6ca2a34eb11010f55a703936a548414e206e10ab",
+      "legacy_m36_preflight_config": "b344739cd70835e1032044f09af5b86a4c743b28e3c9b424ea6cf68c9a876131",
+      "orbit_module": "0aca81c6afe669cb4eccd87a85b6be5b6b4bee6c795eafe66073fffea7294fdc",
+      "search_module": "68edfac59fa70cd44ac80b90be8ff9bb438a67de0239b4d7f228514f3e38c73e",
+      "hdf5_extractor": "e358c643b26eb8759d02bbcb440569b6f77a68435c3877a66924189c905005d4"
+    }
+  },
+  "observatory": {
+    "name": "Green Bank Telescope",
+    "longitude_deg": -79.839835,
+    "latitude_deg": 38.433121111111106,
+    "height_m": 807.43
+  },
+  "target": {
+    "name": "HIP 84607",
+    "ra": "17h17m40.40s",
+    "dec": "+29d13m41.38s",
+    "ra_deg": 259.4183491,
+    "dec_deg": 29.228161,
+    "distance_pc": 24.3323,
+    "pm_ra_cosdec_mas_yr": -72.6271,
+    "pm_dec_mas_yr": 216.769,
+    "parallax_mas": 41.0687,
+    "radial_velocity_km_s": -44.57335,
+    "reference_epoch_jyear": 2000,
+    "reference_epoch_note": "Inherited archive J2000/ICRS interpretation used by the frozen coordinate transform."
+  },
+  "orbit": {
+    "name": "HD 156668 b composite circular RV working parameterization",
+    "period_days": 4.6455,
+    "semi_major_axis_au": 0.05,
+    "eccentricity": 0.0,
+    "t_periastron_bjd_tdb": 2454718.57,
+    "omega_rad": 0.6283185307179586,
+    "phase_note": "At eccentricity zero, the nominal periastron epoch and angle are not physically unique. The normative envelope covers every phase."
+  },
+  "coverage_domain": {
+    "projected_scale_min": 0.0,
+    "projected_scale_max": 1.0,
+    "phase_cycles": "all_modulo_one",
+    "requires_exact_zero_eccentricity": true,
+    "orbital_parameter_uncertainties_covered": false,
+    "maximum_spectral_width_channels": 129,
+    "nearest_channel_rounding_guard_channels": 1
+  },
+  "legacy_regression_reference": {
+    "enabled": true,
+    "name": "rank-36-through-40 extension bank frozen before target selection",
+    "template_count": 21,
+    "spectral_width_count": 8,
+    "scope": "Regression and conditional resource arithmetic only; no continuous sensitivity claim and no detector-v0.6 freeze."
+  },
+  "conditional_search_dimensions": {
+    "on_epoch_count": 3,
+    "minimum_active_epochs": 2,
+    "activity_subset_count": 4,
+    "legacy_template_count": 21,
+    "legacy_spectral_width_count": 8
+  },
+  "candidate_geometry_reference": {
+    "literal_frequency_tolerance_hz": 20.0,
+    "scope": "Channel-grid arithmetic for later v0.6 design; it does not define the normative retained-record set in this preflight."
+  },
+  "windows": [
+    {
+      "id": "m37_1400p5",
+      "fmin_mhz": 1399.2,
+      "fmax_mhz": 1401.8,
+      "rest_center_mhz": 1400.5,
+      "rest_half_width_khz": 500
+    },
+    {
+      "id": "m37_1406p5",
+      "fmin_mhz": 1405.2,
+      "fmax_mhz": 1407.8,
+      "rest_center_mhz": 1406.5,
+      "rest_half_width_khz": 500
+    },
+    {
+      "id": "m37_1412p5",
+      "fmin_mhz": 1411.2,
+      "fmax_mhz": 1413.8,
+      "rest_center_mhz": 1412.5,
+      "rest_half_width_khz": 500
+    },
+    {
+      "id": "m37_1418p5",
+      "fmin_mhz": 1417.2,
+      "fmax_mhz": 1419.8,
+      "rest_center_mhz": 1418.5,
+      "rest_half_width_khz": 500
+    },
+    {
+      "id": "m37_1425p0",
+      "fmin_mhz": 1423.7,
+      "fmax_mhz": 1426.3,
+      "rest_center_mhz": 1425.0,
+      "rest_half_width_khz": 500
+    }
+  ],
+  "scans": [
+    {
+      "epoch": 1,
+      "kind": "on",
+      "label": "epoch1_on",
+      "hdf5_header_utc": "2016-03-23T13:56:47Z",
+      "format": "HDF5",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16A_999_104/holding/spliced_blc02030405_2bit_guppi_57470_50207_HIP84607_0021.gpuspec.0000.h5",
+      "expected_remote_size_bytes": 12767089155,
+      "expected_etag": "\"5a9ef622-2f8fa5203\"",
+      "expected_header": {
+        "source_name": "HIP84607",
+        "src_raj_hours": 17.294555833333337,
+        "src_dej_deg": 29.22806,
+        "tstart_mjd": 57470.581099537034,
+        "tsamp_s": 17.986224128,
+        "dataset_shape": [16, 1, 264503296],
+        "dataset_dtype": "float32",
+        "fch1_mhz": 1876.46484375,
+        "foff_mhz": -0.000002835503418452676
+      }
+    },
+    {
+      "epoch": 1,
+      "kind": "off",
+      "label": "epoch1_off",
+      "hdf5_header_utc": "2016-03-23T14:02:17Z",
+      "format": "HDF5",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16A_999_104/holding/spliced_blc02030405_2bit_guppi_57470_50537_HIP84607_OFF_0022.gpuspec.0000.h5",
+      "expected_remote_size_bytes": 12766872410,
+      "expected_etag": "\"5a9ef77d-2f8f7035a\"",
+      "expected_header": {
+        "source_name": "HIP84607_OFF",
+        "src_raj_hours": 17.294555833333337,
+        "src_dej_deg": 31.228053333333342,
+        "tstart_mjd": 57470.58491898148,
+        "tsamp_s": 17.986224128,
+        "dataset_shape": [16, 1, 264503296],
+        "dataset_dtype": "float32",
+        "fch1_mhz": 1876.46484375,
+        "foff_mhz": -0.000002835503418452676
+      }
+    },
+    {
+      "epoch": 2,
+      "kind": "on",
+      "label": "epoch2_on",
+      "hdf5_header_utc": "2016-03-23T14:07:47Z",
+      "format": "HDF5",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16A_999_104/holding/spliced_blc02030405_2bit_guppi_57470_50867_HIP84607_0023.gpuspec.0000.h5",
+      "expected_remote_size_bytes": 12768071820,
+      "expected_etag": "\"5a9ef852-2f909508c\"",
+      "expected_header": {
+        "source_name": "HIP84607",
+        "src_raj_hours": 17.29455527777778,
+        "src_dej_deg": 29.22805916666666,
+        "tstart_mjd": 57470.588738425926,
+        "tsamp_s": 17.986224128,
+        "dataset_shape": [16, 1, 264503296],
+        "dataset_dtype": "float32",
+        "fch1_mhz": 1876.46484375,
+        "foff_mhz": -0.000002835503418452676
+      }
+    },
+    {
+      "epoch": 2,
+      "kind": "off",
+      "label": "epoch2_off",
+      "hdf5_header_utc": "2016-03-23T14:13:17Z",
+      "format": "HDF5",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16A_999_104/holding/spliced_blc02030405_2bit_guppi_57470_51197_HIP84607_OFF_0024.gpuspec.0000.h5",
+      "expected_remote_size_bytes": 12766750881,
+      "expected_etag": "\"5a9ef8f2-2f8f528a1\"",
+      "expected_header": {
+        "source_name": "HIP84607_OFF",
+        "src_raj_hours": 17.294556111111113,
+        "src_dej_deg": 31.22805166666666,
+        "tstart_mjd": 57470.59255787037,
+        "tsamp_s": 17.986224128,
+        "dataset_shape": [16, 1, 264503296],
+        "dataset_dtype": "float32",
+        "fch1_mhz": 1876.46484375,
+        "foff_mhz": -0.000002835503418452676
+      }
+    },
+    {
+      "epoch": 3,
+      "kind": "on",
+      "label": "epoch3_on",
+      "hdf5_header_utc": "2016-03-23T14:18:47Z",
+      "format": "HDF5",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16A_999_104/holding/spliced_blc02030405_2bit_guppi_57470_51527_HIP84607_0025.gpuspec.0000.h5",
+      "expected_remote_size_bytes": 12766340869,
+      "expected_etag": "\"5a9ef989-2f8eee705\"",
+      "expected_header": {
+        "source_name": "HIP84607",
+        "src_raj_hours": 17.294554722222223,
+        "src_dej_deg": 29.22806527777777,
+        "tstart_mjd": 57470.59637731482,
+        "tsamp_s": 17.986224128,
+        "dataset_shape": [16, 1, 264503296],
+        "dataset_dtype": "float32",
+        "fch1_mhz": 1876.46484375,
+        "foff_mhz": -0.000002835503418452676
+      }
+    },
+    {
+      "epoch": 3,
+      "kind": "off",
+      "label": "epoch3_off",
+      "hdf5_header_utc": "2016-03-23T14:24:17Z",
+      "format": "HDF5",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16A_999_104/holding/spliced_blc02030405_2bit_guppi_57470_51857_HIP84607_OFF_0026.gpuspec.0000.h5",
+      "expected_remote_size_bytes": 12766914547,
+      "expected_etag": "\"5a9efa27-2f8f7a7f3\"",
+      "expected_header": {
+        "source_name": "HIP84607_OFF",
+        "src_raj_hours": 17.29455527777778,
+        "src_dej_deg": 31.22805916666666,
+        "tstart_mjd": 57470.60019675926,
+        "tsamp_s": 17.986224128,
+        "dataset_shape": [16, 1, 264503296],
+        "dataset_dtype": "float32",
+        "fch1_mhz": 1876.46484375,
+        "foff_mhz": -0.000002835503418452676
+      }
+    }
+  ]
+}

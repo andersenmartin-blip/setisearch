@@ -1,0 +1,230 @@
+name: Milestone 37 HD 156668 b continuous metadata-only coverage preflight
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m37_coverage_preflight.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: milestone-37-coverage-preflight
+  cancel-in-progress: false
+
+jobs:
+  preflight:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out frozen preflight source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+
+      - name: Require first and only canonical preflight publication
+        run: |
+          test ! -e results_m37_preflight
+          test ! -e RESULTS_MANIFEST_M37_COVERAGE_PREFLIGHT.sha256
+          test ! -e MILESTONE_37_COVERAGE_PREFLIGHT_PROVENANCE.json
+
+      - name: Verify source boundary and frozen file hashes
+        run: |
+          test "$(git rev-parse "$GITHUB_SHA^")" \
+            = "269c213f256a48bc7f76ae042b98eaa85bf76008"
+          git merge-base --is-ancestor \
+            269c213f256a48bc7f76ae042b98eaa85bf76008 "$GITHUB_SHA"
+          test "$(sha256sum MILESTONE_37_SELECTED_METADATA_RESULT.md | cut -d' ' -f1)" \
+            = "d43a3238b652c2ea6dbfddfb6f4334c58403fd05fea4e93a9592632d50f6779a"
+          test "$(sha256sum MILESTONE_37_COVERAGE_PREFLIGHT_PLAN.md | cut -d' ' -f1)" \
+            = "c588426bfb600ebaca481a7cd459a1d4280580dc45cbb97d23920ea0b54290a1"
+          test "$(sha256sum config/hd156668b_m37_preflight.json | cut -d' ' -f1)" \
+            = "ef8d98b51365939ab1e6f45cf5f2b9a7e21049b265526b6cac9790f03ea56abb"
+          test "$(sha256sum constraints/m37_preflight.txt | cut -d' ' -f1)" \
+            = "4283217298d70f4b0ba429c892664a4e3df57e3e4c954e72eea66143798f2b0f"
+          test "$(sha256sum scripts/m37_coverage_preflight.py | cut -d' ' -f1)" \
+            = "e23babb4cd1233b7ea6d13ababb5feb1b07ab00bb5100e695a2f91c08e3b2405"
+          test "$(sha256sum tests/test_m37_coverage_preflight.py | cut -d' ' -f1)" \
+            = "8b19ab9b432081f78fe8657e84ddd77986ac5f36810871d15d040aeedd46ecb5"
+
+      - name: Select frozen Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12.14"
+
+      - name: Install frozen numerical stack
+        run: |
+          python -m pip install --disable-pip-version-check --no-deps \
+            -r constraints/m37_preflight.txt
+          python -m pip install --disable-pip-version-check --no-deps -e .
+          python - <<'PY'
+          import importlib.metadata
+          import platform
+
+          assert platform.python_version() == '3.12.14'
+          expected = {
+              'numpy': '2.5.2',
+              'astropy': '8.0.1',
+              'astropy-iers-data': '0.2026.8.24.0.24.29',
+              'pyerfa': '2.0.1.5',
+              'packaging': '26.3',
+              'PyYAML': '6.0.3',
+          }
+          assert {
+              name: importlib.metadata.version(name) for name in expected
+          } == expected
+          PY
+
+      - name: Run complete detector and M37 preflight test suite
+        env:
+          PYTHONHASHSEED: "0"
+        run: python -m unittest discover -s tests -v
+
+      - name: Run metadata-only continuous coverage proof
+        env:
+          PYTHONHASHSEED: "0"
+        run: |
+          python scripts/m37_coverage_preflight.py \
+            config/hd156668b_m37_preflight.json \
+            --output results_m37_preflight/coverage.json
+
+      - name: Verify result boundary and hash evidence
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(
+              Path('results_m37_preflight/coverage.json').read_text()
+          )
+          assert result['passed'] is True
+          assert result['spectral_payload_inspected'] is False
+          assert result['spectral_dataset_values_read'] is False
+          assert result['remote_files_opened'] is False
+          assert result['telescope_remote_request_made'] is False
+          assert result['network_access_required'] is False
+          assert result['environment'] == {
+              'python': '3.12.14',
+              'numpy': '2.5.2',
+              'astropy': '8.0.1',
+              'astropy_iers_data': '0.2026.8.24.0.24.29',
+              'pyerfa': '2.0.1.5',
+          }
+          envelope = result['continuous_circular_orbit_envelope']
+          assert envelope['is_normative_extraction_guard_proof'] is True
+          assert envelope['does_not_freeze_detector_v0p6'] is True
+          assert envelope['does_not_claim_continuous_search_sensitivity'] is True
+          assert envelope['checks'] == 30
+          assert envelope['scan_window_integration_evaluations'] == 480
+          assert envelope['minimum_lower_headroom_channels'] == 113883
+          assert envelope['minimum_upper_headroom_channels'] == 55929
+          assert envelope['minimum_any_edge_headroom_channels'] == 55929
+          assert envelope['maximum_dedoppler_margin_channels'] == 837
+          assert envelope['maximum_mapped_spectral_support_margin_channels'] == 65
+          assert all(item['passed'] for item in envelope['records'])
+          legacy = result['legacy_m36_v0p5_21_template_regression']
+          assert legacy['is_normative_extraction_guard_proof'] is False
+          assert legacy['template_count'] == 21
+          assert legacy['checks'] == 630
+          assert legacy['maximum_dedoppler_margin_channels'] == 804
+          assert legacy['minimum_any_edge_headroom_channels'] == 115215
+          assert legacy['passed'] is True
+          width = result['width_envelope']
+          assert width['maximum_width_extraction_support_guard_channels'] == 129
+          assert width['spectral_rest_half_width_channels'] == 64
+          assert width['maximum_mapped_extraction_support_margin_channels'] == 65
+          assert width['first_legacy_width_covering_proxy_sweep_channels'] == 65
+          assert width['all_legacy_rest_grid_bins_finite_claim'] is False
+          tolerance = result['literal_frequency_tolerance']
+          assert tolerance['radius_channels'] == 7
+          assert tolerance['radius_hz'] <= 20.0
+          assert tolerance['next_channel_radius_hz'] > 20.0
+          controls = result['control_geometry']
+          assert controls['temporal_control_measurements'] == 3
+          assert controls['distinct_spatial_control_directions'] == 1
+          assert controls['one_repeated_control_direction'] is True
+          dimensions = result[
+              'conditional_search_dimensions_for_legacy_21_template_bank'
+          ]
+          assert dimensions['not_a_detector_freeze'] is True
+          assert dimensions['hypotheses_per_window'] == 672
+          assert dimensions['nominal_score_tensor_cells_total'] == 1184974560
+          assert result['phase_scope']['m37_v0p6_template_bank'] == 'not frozen'
+          assert result['phase_scope']['orbital_parameter_uncertainties_covered'] is False
+          assert result['phase_scope']['full_orbit_search_sensitivity_claim'] is False
+          PY
+          find results_m37_preflight -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum \
+            > RESULTS_MANIFEST_M37_COVERAGE_PREFLIGHT.sha256
+          test "$(wc -l < RESULTS_MANIFEST_M37_COVERAGE_PREFLIGHT.sha256)" -eq 1
+          sha256sum -c RESULTS_MANIFEST_M37_COVERAGE_PREFLIGHT.sha256
+
+      - name: Upload preflight evidence
+        id: upload
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: milestone-37-coverage-preflight
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M37_COVERAGE_PREFLIGHT.sha256
+            results_m37_preflight/
+
+      - name: Record provenance and atomically publish checked preflight
+        env:
+          ARTIFACT_ID: ${{ steps.upload.outputs.artifact-id }}
+          ARTIFACT_DIGEST: ${{ steps.upload.outputs.artifact-digest }}
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          result_path = Path('results_m37_preflight/coverage.json')
+          result = json.loads(result_path.read_text())
+          provenance = {
+              'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+              'source_commit': os.environ['GITHUB_SHA'],
+              'selected_metadata_result_commit':
+                  '269c213f256a48bc7f76ae042b98eaa85bf76008',
+              'artifact_id': int(os.environ['ARTIFACT_ID']),
+              'artifact_digest': os.environ['ARTIFACT_DIGEST'],
+              'artifact_name': 'milestone-37-coverage-preflight',
+              'coverage_result_sha256': hashlib.sha256(
+                  result_path.read_bytes()
+              ).hexdigest(),
+              'continuous_checks': 30,
+              'scan_window_integration_evaluations': 480,
+              'minimum_any_edge_headroom_channels': 55929,
+              'maximum_dedoppler_margin_channels': 837,
+              'maximum_mapped_spectral_support_margin_channels': 65,
+              'legacy_regression_checks': 630,
+              'legacy_regression_is_normative': False,
+              'm37_v0p6_template_bank_frozen': False,
+              'spectral_payload_inspected': False,
+              'spectral_dataset_values_read': False,
+              'remote_files_opened': False,
+              'telescope_remote_request_made': False,
+              'environment': result['environment'],
+          }
+          Path('MILESTONE_37_COVERAGE_PREFLIGHT_PROVENANCE.json').write_text(
+              json.dumps(provenance, indent=2, sort_keys=True) + '\n'
+          )
+          PY
+          jq empty results_m37_preflight/coverage.json \
+            MILESTONE_37_COVERAGE_PREFLIGHT_PROVENANCE.json
+          sha256sum -c RESULTS_MANIFEST_M37_COVERAGE_PREFLIGHT.sha256
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$GITHUB_SHA"
+          git add RESULTS_MANIFEST_M37_COVERAGE_PREFLIGHT.sha256 \
+            results_m37_preflight \
+            MILESTONE_37_COVERAGE_PREFLIGHT_PROVENANCE.json
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "Publish Milestone 37 continuous coverage preflight"
+          git push origin HEAD:main
