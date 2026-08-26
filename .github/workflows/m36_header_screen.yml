@@ -6,16 +6,12 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/m36_header_screen.yml"
-  workflow_run:
-    workflows: ["Test suite"]
-    types: [completed]
 
 permissions:
   contents: write
 
 jobs:
   screen:
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.id == 32977507354 }}
     runs-on: ubuntu-24.04
     timeout-minutes: 120
 
@@ -126,8 +122,6 @@ jobs:
                       'source_commit': os.environ['GITHUB_SHA'],
                       'protocol_commit':
                           '71d2e032f12b63c7d66bf4400663c403bfc8511d',
-                      'trigger_event': os.environ['GITHUB_EVENT_NAME'],
-                      'trigger_test_suite_run_id': 32977507354,
                       'artifact_id': int(os.environ['ARTIFACT_ID']),
                       'artifact_digest': os.environ['ARTIFACT_DIGEST'],
                       'artifact_name': 'milestone-36-header-screen',
@@ -147,33 +141,11 @@ jobs:
           jq empty results_m36_header_screen/header_screen.json \
             MILESTONE_36_HEADER_SCREEN_PROVENANCE.json
           sha256sum -c RESULTS_MANIFEST_M36_HEADER_SCREEN.sha256
-          python - <<'PY'
-          from pathlib import Path
-
-          path = Path('.github/workflows/m36_header_screen.yml')
-          text = path.read_text()
-          temporary_trigger = (
-              '  workflow_run:\n'
-              '    workflows: ["Test suite"]\n'
-              '    types: [completed]\n'
-          )
-          temporary_gate = (
-              "    if: $" +
-              "{{ github.event_name != 'workflow_run' || "
-              "github.event.workflow_run.id == 32977507354 }}\n"
-          )
-          assert text.count(temporary_trigger) == 1
-          assert text.count(temporary_gate) == 1
-          path.write_text(
-              text.replace(temporary_trigger, '').replace(temporary_gate, '')
-          )
-          PY
           git fetch origin main
           test "$(git rev-parse origin/main)" = "$GITHUB_SHA"
           git add RESULTS_MANIFEST_M36_HEADER_SCREEN.sha256 \
             results_m36_header_screen \
-            MILESTONE_36_HEADER_SCREEN_PROVENANCE.json \
-            .github/workflows/m36_header_screen.yml
+            MILESTONE_36_HEADER_SCREEN_PROVENANCE.json
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git commit -m "Publish Milestone 36 header screen"
