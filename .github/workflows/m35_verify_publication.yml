@@ -1,0 +1,546 @@
+name: Milestone 35 publication verification
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m35_verify_publication.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+
+      - name: Verify frozen publication hashes
+        run: |
+          git merge-base --is-ancestor \
+            ec1ab88196323d4b7f849c3a9bc4ae0c9e19d1ce "$GITHUB_SHA"
+          test "$(sha256sum MILESTONE_35_SURVEY_SYNTHESIS_PLAN.md | cut -d' ' -f1)" \
+            = "135320564b08b35b2962af1aa22236399d1c0dc2b5e6e198c13d278b7955d9c2"
+          test "$(sha256sum config/m35_survey_synthesis.json | cut -d' ' -f1)" \
+            = "0bd69af9b9a1fe26e45e080b5bc6feefdfe270d1b38a590ec84f8ff4dddaa0bc"
+          test "$(sha256sum scripts/m35_survey_synthesis.py | cut -d' ' -f1)" \
+            = "dace130da4d4b2c12ad66d5cc27ca64105bd22363e3f9d978b3a7479bd15e2c9"
+          test "$(sha256sum .github/workflows/m35_survey_synthesis.yml | cut -d' ' -f1)" \
+            = "beecd909689c29a9e889ebfa885682438fc7c66ea45c10a819c2d0ba335e7b19"
+          test "$(sha256sum MILESTONE_35_SURVEY_SYNTHESIS_PROVENANCE.json | cut -d' ' -f1)" \
+            = "f9adc21f34eb2ca11edb3ba00e6c144f36b3fa3b1d96055633fd640d4a388cfc"
+          test "$(sha256sum MILESTONE_35_REPORT.md | cut -d' ' -f1)" \
+            = "c658de59e6a8fcf3228dcc1f95a344897346373c4610728c787e674e5e358369"
+          test "$(sha256sum RESULTS_MANIFEST_M35_SURVEY_SYNTHESIS.sha256 | cut -d' ' -f1)" \
+            = "97f9c64a57f58ea8d4086508adf19ed7ae642a485361f3f836b3cad107ee7bb0"
+          test "$(sha256sum results_m35_survey_synthesis/analysis_summary.json | cut -d' ' -f1)" \
+            = "0cdda11d0a8122168952fccb8d54fcf3bea1f8f1ff5c01d61ab33387f04890ef"
+          sha256sum -c RESULTS_MANIFEST_M35_SURVEY_SYNTHESIS.sha256
+          (
+            cd results_m35_survey_synthesis
+            sha256sum -c RESULTS_MANIFEST.sha256
+          )
+          sha256sum -c results_m35_survey_synthesis/INPUT_MANIFEST.sha256
+          test "$(wc -l < RESULTS_MANIFEST_M35_SURVEY_SYNTHESIS.sha256)" -eq 7
+          test "$(wc -l < results_m35_survey_synthesis/INPUT_MANIFEST.sha256)" \
+            -eq 42
+
+      - name: Independently recompute accounting and bounds
+        run: |
+          python -I - <<'PY'
+          import csv
+          import hashlib
+          import json
+          import math
+          import os
+          from collections import Counter, defaultdict
+          from pathlib import Path
+
+          def load(path):
+              return json.loads(Path(path).read_text())
+
+          def digest(path):
+              return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+          def close(actual, expected, tolerance=1e-12):
+              assert math.isclose(
+                  float(actual),
+                  float(expected),
+                  rel_tol=0.0,
+                  abs_tol=tolerance,
+              ), (actual, expected)
+
+          def binomial_tail(n, p, k):
+              return math.fsum(
+                  math.comb(n, j) * p**j * (1.0 - p) ** (n - j)
+                  for j in range(k, n + 1)
+              )
+
+          def heterogeneous_lower(k, n, alpha):
+              if k == 0:
+                  return 0.0
+              if k == 1:
+                  return alpha / n
+              lo, hi = 0.0, 1.0
+              for _ in range(120):
+                  mid = (lo + hi) / 2.0
+                  if binomial_tail(n, mid, k) < alpha:
+                      lo = mid
+                  else:
+                      hi = mid
+              return (lo + hi) / 2.0
+
+          def poisson_binomial_lower_tail(efficiencies, fraction, maximum):
+              probabilities = [fraction * value for value in efficiencies]
+              coefficients = [1.0]
+              for probability in probabilities:
+                  updated = [0.0] * (len(coefficients) + 1)
+                  for detections, coefficient in enumerate(coefficients):
+                      updated[detections] += coefficient * (1.0 - probability)
+                      updated[detections + 1] += coefficient * probability
+                  coefficients = updated
+              return math.fsum(coefficients[:maximum + 1])
+
+          def invert(efficiencies, maximum, alpha):
+              tail_at_one = poisson_binomial_lower_tail(
+                  efficiencies, 1.0, maximum
+              )
+              if tail_at_one > alpha:
+                  return None, tail_at_one
+              lo, hi = 0.0, 1.0
+              for _ in range(120):
+                  mid = (lo + hi) / 2.0
+                  if poisson_binomial_lower_tail(
+                      efficiencies, mid, maximum
+                  ) > alpha:
+                      lo = mid
+                  else:
+                      hi = mid
+              return (lo + hi) / 2.0, tail_at_one
+
+          config = load('config/m35_survey_synthesis.json')
+          summary = load('results_m35_survey_synthesis/analysis_summary.json')
+          metadata = load('results_m35_survey_synthesis/run_metadata.json')
+          provenance = load('MILESTONE_35_SURVEY_SYNTHESIS_PROVENANCE.json')
+          csv_rows = list(csv.DictReader(Path(
+              'results_m35_survey_synthesis/occurrence_bounds.csv'
+          ).open()))
+
+          analysis = config['analysis']
+          levels = [8, 12, 16, 20, 24, 32, 40]
+          physical = set(analysis['physical_veto_dispositions'])
+          assert config['analysis_base_commit'] \
+              == '521b2936214da296cd07a3dd1aeb89a609500119'
+          assert analysis['detector_version'] == '0.5.0'
+          assert analysis['raw_spectral_arrays_read'] is False
+          assert analysis['ideal_single_epoch_snr_levels'] == levels
+          assert analysis['trials_per_target_level'] == 32
+          assert analysis['active_epochs_zero_based'] == [0, 2]
+          assert analysis['truth_template_indices'] == [0, 8, 14, 20]
+          assert analysis['point_estimate_tail_alpha'] == 0.05
+          assert analysis['finite_calibration_alpha'] == 0.025
+          assert analysis['finite_survey_tail_alpha'] == 0.025
+          assert analysis['pointwise_over_snr_not_simultaneous'] is True
+          assert analysis['primary_and_secondary_not_jointly_simultaneous'] \
+              is True
+          assert analysis['calibration_signal_distribution'][
+              'fixed_frequency_worst_case_efficiency_estimated'
+          ] is False
+
+          targets = {}
+          source_paths = []
+          for item in config['targets']:
+              milestone = item['milestone']
+              search_path = Path(item['search_summary'])
+              complete_path = Path(item['completeness'])
+              assert digest(search_path) == item['search_summary_sha256']
+              assert digest(complete_path) == item['completeness_sha256']
+              source_paths.extend([str(search_path), str(complete_path)])
+              search = load(search_path)
+              complete = load(complete_path)
+              assert search['pipeline']['version'] == '0.5.0'
+              assert search['pipeline']['python'] == '3.12.14'
+              assert search['pipeline']['numpy'] == '2.5.2'
+              embedded = dict(complete)
+              trials = embedded.pop('trials')
+              assert search['completeness'] == embedded
+              assert complete['active_epochs_zero_based'] == [0, 2]
+              assert complete['truth_template_indices'] == [0, 8, 14, 20]
+              assert complete['stack_statistic'] == 'minimum_epoch'
+              assert complete['single_epoch_rfi_mask_applied'] is True
+              expected_method = (
+                  f'Real m{milestone}_1412p5 planet-frame noise vectors are '
+                  'independently circularly shifted by epoch; signals use '
+                  'time-averaged sinc-squared leakage and model acceleration '
+                  'within each integration.'
+              )
+              assert complete['method'] == expected_method
+              expected_widths = (
+                  [1, 3, 5, 9, 17, 33]
+                  if milestone >= 31 else [1, 3, 5, 9]
+              )
+              assert complete['spectral_widths_channels'] == expected_widths
+              assert search['search_dimensions'][
+                  'spectral_width_templates'
+              ] == expected_widths
+              threshold = search['global_result'][
+                  'operational_threshold_snr'
+              ]
+              close(complete['detection_threshold_snr'], threshold)
+
+              window = search['windows'][f'm{milestone}_1412p5']
+              info = window['window']
+              assert info['id'] == f'm{milestone}_1412p5'
+              close(info['rest_center_mhz'], 1412.5)
+              close(info['rest_half_width_khz'], 500)
+              assert info['fmin_mhz'] <= 1412.0
+              assert info['fmax_mhz'] >= 1413.0
+              reduction = window['candidate_reduction']
+              clusters = reduction['clusters']
+              assert reduction['cluster_count_before_report_limit'] \
+                  == reduction['reported_cluster_count'] == len(clusters)
+              assert all(
+                  1412.0 <= cluster['cluster_frequency_mhz'] <= 1413.0
+                  for cluster in clusters
+              )
+              above = [
+                  cluster for cluster in clusters
+                  if cluster['max_snr'] >= threshold
+              ]
+              vetoed = [
+                  cluster for cluster in above
+                  if cluster['disposition'] in physical
+              ]
+              candidates = [
+                  cluster for cluster in above
+                  if cluster['disposition'] not in physical
+              ]
+
+              assert len(trials) == 224
+              trial_groups = defaultdict(list)
+              for trial in trials:
+                  level = int(trial['ideal_single_epoch_snr'])
+                  assert level in levels
+                  assert type(trial['multi_channel_recovered']) is bool
+                  assert abs(trial['truth_frequency_mhz'] - 1412.5) <= 0.01001
+                  assert len(trial['noise_shifts_bins']) == 3
+                  assert all(
+                      type(shift) is int
+                      for shift in trial['noise_shifts_bins']
+                  )
+                  trial_groups[level].append(trial)
+              recovery = {}
+              for level_record in complete['levels']:
+                  level = int(level_record['ideal_single_epoch_snr'])
+                  group = trial_groups[level]
+                  assert len(group) == level_record['trials'] == 32
+                  assert sorted(trial['trial_index'] for trial in group) \
+                      == list(range(32))
+                  assert Counter(trial['template_index'] for trial in group) \
+                      == Counter({0: 8, 8: 8, 14: 8, 20: 8})
+                  recovered = sum(
+                      trial['multi_channel_recovered'] for trial in group
+                  )
+                  assert recovered == level_record['multi_channel_recovered']
+                  close(
+                      level_record['multi_channel_recovery_fraction'],
+                      recovered / 32,
+                  )
+                  recovery[level] = recovered
+              assert sorted(recovery) == levels
+              targets[milestone] = {
+                  'clusters': len(clusters),
+                  'above': len(above),
+                  'vetoed': len(vetoed),
+                  'candidate': bool(candidates),
+                  'candidate_frequencies': [
+                      cluster['cluster_frequency_mhz']
+                      for cluster in candidates
+                  ],
+                  'recovery': recovery,
+              }
+
+          assert sorted(targets) == list(range(14, 34))
+          evidence = config['candidate_positive_evidence']
+          for path_key, hash_key in (
+              ('investigation', 'investigation_sha256'),
+              ('followup', 'followup_sha256'),
+          ):
+              assert digest(evidence[path_key]) == evidence[hash_key]
+              source_paths.append(evidence[path_key])
+          assert len(source_paths) == len(set(source_paths)) == 42
+          manifest_pairs = {
+              (line.split(maxsplit=1)[0], line.split(maxsplit=1)[1])
+              for line in Path(
+                  'results_m35_survey_synthesis/INPUT_MANIFEST.sha256'
+              ).read_text().splitlines()
+          }
+          configured_pairs = {
+              (item['search_summary_sha256'], item['search_summary'])
+              for item in config['targets']
+          } | {
+              (item['completeness_sha256'], item['completeness'])
+              for item in config['targets']
+          } | {
+              (evidence['investigation_sha256'], evidence['investigation']),
+              (evidence['followup_sha256'], evidence['followup']),
+          }
+          assert manifest_pairs == configured_pairs
+          assert targets[16]['candidate_frequencies'] \
+              == [1412.485745176673]
+          investigation = load(evidence['investigation'])
+          investigated = next(
+              candidate for candidate in investigation['candidates']
+              if candidate['best_hypothesis']['frequency_mhz']
+              == 1412.485745176673
+          )
+          assert investigated['frozen_original_disposition'] \
+              == 'survives_for_followup'
+          assert investigated['posthoc_classification'] \
+              == 'UNRESOLVED_REQUIRES_INDEPENDENT_CADENCE'
+          followup = load(evidence['followup'])
+          followed = next(
+              candidate for candidate in followup['candidates']
+              if candidate['best_hypothesis']['frequency_mhz']
+              == 1412.485745176673
+          )
+          assert followed['followup_classification'] \
+              == 'NOT_REDETECTED_IN_INDEPENDENT_CADENCE'
+
+          target_rows = list(csv.DictReader(Path(
+              'results_m35_survey_synthesis/target_accounting.csv'
+          ).open()))
+          assert [int(row['milestone']) for row in target_rows] \
+              == list(range(14, 34))
+          for row in target_rows:
+              milestone = int(row['milestone'])
+              target = targets[milestone]
+              assert int(row['complete_1412_cluster_count']) \
+                  == target['clusters']
+              assert int(row['above_threshold_1412_cluster_count']) \
+                  == target['above']
+              assert int(row['physically_vetoed_1412_cluster_count']) \
+                  == target['vetoed']
+              assert (row['candidate_positive'] == 'true') \
+                  is target['candidate']
+              expected_frequencies = ';'.join(
+                  format(frequency, '.12f')
+                  for frequency in target['candidate_frequencies']
+              )
+              assert row['candidate_frequencies_mhz'] == expected_frequencies
+              for level in levels:
+                  assert int(row[f'snr_{level}_recovered']) \
+                      == target['recovery'][level]
+                  assert int(row[f'snr_{level}_trials']) == 32
+                  close(
+                      row[f'snr_{level}_recovery_fraction'],
+                      target['recovery'][level] / 32,
+                  )
+
+          expected_accounting = [
+              (list(range(14, 34)), 267, 49, 48, [16], 1),
+              (list(range(23, 34)), 192, 2, 2, [], 0),
+          ]
+          all_expected_rows = []
+          for cohort, expected in zip(
+              config['cohorts'], expected_accounting
+          ):
+              milestones, clusters, above, vetoed, positive, maximum = expected
+              assert cohort['milestones'] == milestones
+              assert sum(targets[m]['clusters'] for m in milestones) == clusters
+              assert sum(targets[m]['above'] for m in milestones) == above
+              assert sum(targets[m]['vetoed'] for m in milestones) == vetoed
+              assert [m for m in milestones if targets[m]['candidate']] \
+                  == positive
+              assert cohort[
+                  'candidate_positive_system_count_used_as_upper_bound_on_true_detections'
+              ] == maximum
+              per_target_alpha = 0.025 / len(milestones)
+              for level in levels:
+                  observed = [
+                      targets[m]['recovery'][level] / 32
+                      for m in milestones
+                  ]
+                  lower = [
+                      heterogeneous_lower(
+                          targets[m]['recovery'][level],
+                          32,
+                          per_target_alpha,
+                      )
+                      for m in milestones
+                  ]
+                  nominal, nominal_tail = invert(observed, maximum, 0.05)
+                  finite, finite_tail = invert(lower, maximum, 0.025)
+                  all_expected_rows.append({
+                      'cohort_id': cohort['id'],
+                      'level': level,
+                      'exposure': math.fsum(observed),
+                      'lower_exposure': math.fsum(lower),
+                      'nominal': nominal,
+                      'nominal_tail': nominal_tail,
+                      'finite': finite,
+                      'finite_tail': finite_tail,
+                  })
+
+          assert len(csv_rows) == len(all_expected_rows) == 14
+          summary_rows = {
+              (row['cohort_id'], row['ideal_single_epoch_snr']): row
+              for rows in summary['bounds_by_cohort'].values()
+              for row in rows
+          }
+          for expected in all_expected_rows:
+              matching = next(
+                  row for row in csv_rows
+                  if row['cohort_id'] == expected['cohort_id']
+                  and int(row['ideal_single_epoch_snr']) == expected['level']
+              )
+              machine = summary_rows[(expected['cohort_id'], expected['level'])]
+              close(matching['observed_effective_target_exposure'], expected['exposure'])
+              close(
+                  matching['finite_calibration_lower_effective_target_exposure'],
+                  expected['lower_exposure'],
+              )
+              for prefix, value, tail in (
+                  ('nominal_plugin', expected['nominal'], expected['nominal_tail']),
+                  ('finite_pointwise_95', expected['finite'], expected['finite_tail']),
+              ):
+                  csv_value = matching[f'{prefix}_upper_fraction']
+                  json_value = machine[f'{prefix}_upper_fraction']
+                  if value is None:
+                      assert csv_value == ''
+                      assert json_value is None
+                      assert matching[f'{prefix}_status'] \
+                          == 'no_nontrivial_bound'
+                  else:
+                      close(csv_value, value)
+                      close(json_value, value)
+                      assert matching[f'{prefix}_status'] == 'nontrivial_bound'
+                  tail_field = (
+                      'nominal_plugin_tail_probability_at_f_equals_1'
+                      if prefix == 'nominal_plugin'
+                      else 'finite_pointwise_tail_probability_at_f_equals_1'
+                  )
+                  close(
+                      matching[tail_field],
+                      tail,
+                  )
+
+          headline = summary['headline_primary_exact_snr_40']
+          close(headline['observed_effective_target_exposure'], 18.65625)
+          close(
+              headline['nominal_plugin_upper_fraction'],
+              0.23056449483492253,
+          )
+          close(
+              headline['finite_pointwise_95_upper_fraction'],
+              0.33155320217329154,
+          )
+          assert summary['unconditional_end_to_end_result'][
+              'upper_fraction'
+          ] == 1.0
+          assert summary['raw_spectral_arrays_read'] is False
+          assert metadata['python'] == '3.12.14'
+          assert metadata['numpy'] == '2.5.2'
+          assert metadata['matplotlib'] == '3.11.1'
+          assert metadata['plan_sha256'] \
+              == '135320564b08b35b2962af1aa22236399d1c0dc2b5e6e198c13d278b7955d9c2'
+          assert metadata['protocol_sha256'] \
+              == '0bd69af9b9a1fe26e45e080b5bc6feefdfe270d1b38a590ec84f8ff4dddaa0bc'
+          assert metadata['implementation_sha256'] \
+              == 'dace130da4d4b2c12ad66d5cc27ca64105bd22363e3f9d978b3a7479bd15e2c9'
+          assert metadata['workflow_sha256'] \
+              == 'beecd909689c29a9e889ebfa885682438fc7c66ea45c10a819c2d0ba335e7b19'
+          assert provenance['successful_workflow_run'] == 32975816724
+          assert provenance['successful_test_workflow_run'] == 32975816650
+          assert provenance['execution_commit'] \
+              == '187bcbee1f32bf8fb3a83740012e2a1541205ec9'
+          assert provenance['result_publication_commit'] \
+              == 'ec1ab88196323d4b7f849c3a9bc4ae0c9e19d1ce'
+          assert provenance['artifact']['id'] == 9609412002
+          assert provenance['artifact']['digest'] \
+              == 'sha256:d806ae0885d0ace322bdaae4ec90e871dc0eab0ff682b3a72525109b17277cf9'
+          assert provenance[
+              'both_mandatory_sensitivity_transport_assumptions_required'
+          ] is True
+          assert provenance[
+              'unconditional_end_to_end_upper_fraction_if_either_mandatory_sensitivity_transport_assumption_is_not_imposed'
+          ] == 1.0
+          assert provenance['candidate_dispositions_changed'] is False
+
+          receipt = {
+              'purpose': 'Milestone 35 independent publication verification',
+              'verified': True,
+              'verification_source_commit': os.environ['GITHUB_SHA'],
+              'verification_workflow_run': int(os.environ['GITHUB_RUN_ID']),
+              'protocol_execution_commit': provenance['execution_commit'],
+              'result_publication_commit': provenance['result_publication_commit'],
+              'successful_synthesis_workflow_run': provenance[
+                  'successful_workflow_run'
+              ],
+              'successful_test_workflow_run': provenance[
+                  'successful_test_workflow_run'
+              ],
+              'published_result_files_verified': 7,
+              'frozen_source_hashes_verified': 42,
+              'primary_systems_verified': 20,
+              'primary_complete_1412_clusters_verified': 267,
+              'primary_above_threshold_verified': 49,
+              'primary_physical_vetoes_verified': 48,
+              'primary_candidate_positive_system_upper_count_verified': 1,
+              'primary_exact_snr_40_nominal_plugin_upper_fraction_verified': (
+                  headline['nominal_plugin_upper_fraction']
+              ),
+              'primary_exact_snr_40_finite_pointwise_95_upper_fraction_verified': (
+                  headline['finite_pointwise_95_upper_fraction']
+              ),
+              'unconditional_end_to_end_upper_fraction_if_either_mandatory_sensitivity_transport_assumption_is_not_imposed_verified': 1.0,
+              'both_mandatory_sensitivity_transport_assumptions_required_verified': True,
+              'raw_spectral_arrays_read': False,
+              'candidate_dispositions_changed': False,
+              'top_level_results_manifest_sha256': digest(
+                  'RESULTS_MANIFEST_M35_SURVEY_SYNTHESIS.sha256'
+              ),
+              'analysis_summary_sha256': digest(
+                  'results_m35_survey_synthesis/analysis_summary.json'
+              ),
+              'report_preverification_sha256': digest('MILESTONE_35_REPORT.md'),
+              'provenance_sha256': digest(
+                  'MILESTONE_35_SURVEY_SYNTHESIS_PROVENANCE.json'
+              ),
+              'verification_workflow_sha256': digest(
+                  '.github/workflows/m35_verify_publication.yml'
+              ),
+          }
+          Path('MILESTONE_35_PUBLICATION_VERIFICATION.json').write_text(
+              json.dumps(receipt, indent=2, sort_keys=True) + '\n'
+          )
+          PY
+
+      - name: Upload independent verification receipt
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-35-publication-verification
+          if-no-files-found: warn
+          retention-days: 90
+          path: MILESTONE_35_PUBLICATION_VERIFICATION.json
+
+      - name: Publish verification receipt atomically
+        run: |
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$GITHUB_SHA"
+          git add MILESTONE_35_PUBLICATION_VERIFICATION.json
+          test -n "$(git diff --cached --name-only)"
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "m35: record verified survey synthesis publication"
+          git push origin HEAD:main

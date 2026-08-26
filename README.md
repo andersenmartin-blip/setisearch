@@ -10,16 +10,46 @@ whose frequency is stable in the selected planet frame and whose beam is not
 necessarily aimed at Earth.
 
 **Current scientific status:** one unresolved Milestone 33 follow-up case and
-no technosignature claim. Milestone 34 closed the remaining M17/M21 legacy
-report-cap debt without exposing a new open case. The repository preserves
-frozen configurations, checksummed results, technical aborts, post-hoc
-labels, and non-redetections so that positive and negative outcomes remain
-independently auditable.
+no technosignature claim. Milestone 35 adds a retrospective, frequency-matched
+survey synthesis: at exact ideal S/N 40 its finite-injection pointwise 95%
+upper bound on `f(40)` is 33.16%, where `f(40)` is the common archive-cohort
+system-occurrence probability for the frozen injected class. Under the common
+independent-occurrence and independent-injection-trial models, it is additionally
+conditional on the randomized-background model and on score recoveries surviving
+every downstream candidate stage. If either sensitivity-transport condition is
+not imposed, the only supported end-to-end upper bound is the trivial 100%. The
+repository preserves frozen configurations, checksummed results, technical
+aborts, post-hoc labels, and non-redetections so that positive and negative
+outcomes remain independently auditable.
 
 Version 0.5.0 is the frozen detector used for new held-out validation. It
 retains the Milestone 7 recurrence statistic, spectral filters, per-epoch
 interference mask, candidate clustering, and RFI-family flags, and adds the
 Milestone 12 local-OFF and receiver-frame alias vetoes.
+
+## Milestone 35 result
+
+Milestone 35 retrospectively combined the complete M14--M33 detector-v0.5
+cohort in the only frequency interval with a matched injection background,
+1412.0--1413.0 MHz. Across 20 systems, all 267 matched-band clusters are fully
+retained. Forty-nine exceed their target thresholds, 48 have frozen physical
+vetoes, and M16 is conservatively counted as one candidate-positive system
+despite its later independent-cadence non-redetection.
+
+Using exact target-specific Poisson-binomial tails, the nominal plug-in upper
+limit at exact ideal single-epoch S/N 40 is 23.06%. A split-alpha construction
+that also accounts for the 32 finite injection trials per target gives a
+pointwise 95% upper bound of 33.16%. Those 32 trials are per target at that
+exact S/N level; each target has 224 trials over all seven levels. No
+non-trivial bound exists at S/N 8.
+
+These are conditional score-recovery results, not unconditional transmitter
+occurrence limits. Completeness averages the frozen truth-frequency and
+randomly shifted empirical-background generator and does not execute the
+downstream clustering, retention, veto, or adjudication stages. If either
+relationship is not assumed, the documented efficiency lower bound is zero
+and the occurrence upper bound is 100%. No candidate status changes; the
+unresolved Milestone 33 case remains outside the matched 1412 MHz outcome.
 
 ## Milestone 34 result
 
@@ -655,6 +685,14 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Key files
 
+- `MILESTONE_35_SURVEY_SYNTHESIS_PLAN.md` — frozen retrospective analysis plan.
+- `config/m35_survey_synthesis.json` — input hashes, cohorts, and assumptions.
+- `scripts/m35_survey_synthesis.py` — fail-closed accounting and statistics.
+- `results_m35_survey_synthesis/analysis_summary.json` — machine-readable result.
+- `results_m35_survey_synthesis/occurrence_bounds.csv` — exact bound table.
+- `results_m35_survey_synthesis/score_recovery_bounds.png` — primary comparison.
+- `RESULTS_MANIFEST_M35_SURVEY_SYNTHESIS.sha256` — all seven result hashes.
+- `MILESTONE_35_REPORT.md` — scope, results, and interpretation limits.
 - `MILESTONE_33_TARGET_SELECTION.md` — fixed HD 3651 target and cadence.
 - `MILESTONE_33_SELECTED_METADATA_RESULT.md` — official orbit and astrometry.
 - `MILESTONE_33_PREREGISTRATION.md` — frozen higher-smearing search design.
