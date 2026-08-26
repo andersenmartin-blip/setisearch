@@ -1,0 +1,906 @@
+name: Milestone 36 complete publication verification
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m36_verify_publication.yml"
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: milestone-36-complete-publication-verification
+  cancel-in-progress: false
+
+env:
+  PRIMARY_PUBLICATION_COMMIT: 88db2596090e3a79620bff7e0e2c42dd63560431
+  AUDIT_EXECUTION_COMMIT: 7f42ea59396d7fbb5d317043f4d99f6146632c7f
+  AUDIT_PUBLICATION_COMMIT: bd7ff6c196d052d952af18b578d29fe5aad6e20c
+  PRIMARY_ARTIFACT_ID: "9616909400"
+  PRIMARY_ARTIFACT_DIGEST: sha256:a09c022c39ddc3e3e246731955b621ba741ddd9a0dfd601415fba846ef386c82
+  AUDIT_ARTIFACT_ID: "9619833897"
+  AUDIT_ARTIFACT_DIGEST: sha256:6ccdea821e31bb4fa8f2f1fb17543c452a6857efd2913690b3da59b59efae58c
+  PRE_VERIFICATION_REPORT_SHA256: "273566e83589c9cb2c66a191452dc1962356621e7b56c609ddb579051e4a6ae7"
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out verification source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+
+      - name: Select frozen Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12.14"
+
+      - name: Verify frozen commits, manifests, and report input
+        run: |
+          set -euo pipefail
+
+          test "$(sha256sum DATA_MANIFEST_M36.sha256 | cut -d' ' -f1)" \
+            = "a1c32960a21bf650433a4ff4a505aa6869d227764f1bcb2c6718121242f69aba"
+          test "$(wc -l < DATA_MANIFEST_M36.sha256)" -eq 30
+          test "$(sha256sum RESULTS_MANIFEST_M36.sha256 | cut -d' ' -f1)" \
+            = "c6e85b7016a11fa89b727bfdfd0fda9883e0804852894cea641986c4df3eb5a4"
+          test "$(wc -l < RESULTS_MANIFEST_M36.sha256)" -eq 9
+          sha256sum --strict -c RESULTS_MANIFEST_M36.sha256
+
+          test "$(sha256sum MILESTONE_36_EXHAUSTIVE_RETENTION_AUDIT_PROTOCOL.sha256 | cut -d' ' -f1)" \
+            = "c582e32c4e1ff271105f0c70ce2491bb4f7153248ce7a929783dbefed756e278"
+          sha256sum --strict -c \
+            MILESTONE_36_EXHAUSTIVE_RETENTION_AUDIT_PROTOCOL.sha256
+          test "$(sha256sum RESULTS_MANIFEST_M36_EXHAUSTIVE_RETENTION_AUDIT.sha256 | cut -d' ' -f1)" \
+            = "c9bb82a0e96aedffb9a3d39b8b6c5600877cb3280cb5e5c552c930baccc9dfc4"
+          test "$(wc -l < RESULTS_MANIFEST_M36_EXHAUSTIVE_RETENTION_AUDIT.sha256)" \
+            -eq 28
+          sha256sum --strict -c \
+            RESULTS_MANIFEST_M36_EXHAUSTIVE_RETENTION_AUDIT.sha256
+          test "$(sha256sum MILESTONE_36_EXHAUSTIVE_RETENTION_AUDIT_PROVENANCE.json | cut -d' ' -f1)" \
+            = "c2b53fed780bfa818f9fef7c27bf39d8717f74bf7328afb0c4d5832e0372657b"
+          test "$(sha256sum results_m36_exhaustive_retention_audit/audit_summary.json | cut -d' ' -f1)" \
+            = "2f2f375b92e3b3d887ebdb49b422a877020f0d77e38287cc5b70e69ae9a8f088"
+          sha256sum --strict -c \
+            PUBLICATION_MANIFEST_M36_EXHAUSTIVE_RETENTION_AUDIT.sha256
+
+          git merge-base --is-ancestor \
+            "$PRIMARY_PUBLICATION_COMMIT" "$GITHUB_SHA"
+          git merge-base --is-ancestor \
+            "$AUDIT_PUBLICATION_COMMIT" "$GITHUB_SHA"
+          test "$(git show -s --format=%P "$GITHUB_SHA")" \
+            = "$AUDIT_PUBLICATION_COMMIT"
+          test "$(git show -s --format=%P "$AUDIT_PUBLICATION_COMMIT")" \
+            = "$AUDIT_EXECUTION_COMMIT"
+          test "$(git show -s --format=%s "$AUDIT_PUBLICATION_COMMIT")" \
+            = "Publish Milestone 36 exhaustive retention audit"
+          git diff --exit-code "$AUDIT_PUBLICATION_COMMIT" -- \
+            results_m36_exhaustive_retention_audit \
+            RESULTS_MANIFEST_M36_EXHAUSTIVE_RETENTION_AUDIT.sha256 \
+            MILESTONE_36_EXHAUSTIVE_RETENTION_AUDIT_PROVENANCE.json \
+            PUBLICATION_MANIFEST_M36_EXHAUSTIVE_RETENTION_AUDIT.sha256
+
+          python - <<'PY'
+          import hashlib
+          import os
+          import re
+          import subprocess
+          from pathlib import Path, PurePosixPath
+
+          def manifest_paths(path: str, expected_count: int) -> list[str]:
+              rows = Path(path).read_text().splitlines()
+              assert len(rows) == expected_count
+              result = []
+              for row in rows:
+                  digest, name = row.split(maxsplit=1)
+                  assert re.fullmatch(r'[0-9a-f]{64}', digest)
+                  pure = PurePosixPath(name)
+                  assert not pure.is_absolute() and '..' not in pure.parts
+                  result.append(name)
+              assert len(result) == len(set(result))
+              return result
+
+          primary_paths = manifest_paths('RESULTS_MANIFEST_M36.sha256', 9)
+          assert all(name.startswith('results_m36/') for name in primary_paths)
+
+          audit_paths = manifest_paths(
+              'RESULTS_MANIFEST_M36_EXHAUSTIVE_RETENTION_AUDIT.sha256', 28
+          )
+          expected_result_paths = {
+              'results_m36_exhaustive_retention_audit/audit_summary.json',
+              'results_m36_exhaustive_retention_audit/environment.txt',
+              'results_m36_exhaustive_retention_audit/run_metadata.json',
+          }
+          windows = (
+              'm36_1400p5', 'm36_1406p5', 'm36_1412p5',
+              'm36_1418p5', 'm36_1425p0',
+          )
+          for window in windows:
+              expected_result_paths.update({
+                  f'results_m36_exhaustive_retention_audit/{window}_summary.json',
+                  f'results_m36_exhaustive_retention_audit/{window}_audit_records.jsonl.gz',
+                  f'results_m36_exhaustive_retention_audit/{window}_clusters.json.gz',
+                  f'results_m36_exhaustive_retention_audit/{window}_coverage_ledger.jsonl.gz',
+                  f'results_m36_exhaustive_retention_audit/{window}_hypothesis_certificates.json.gz',
+              })
+          assert set(audit_paths) == expected_result_paths
+          actual_result_paths = {
+              path.as_posix()
+              for path in Path('results_m36_exhaustive_retention_audit').rglob('*')
+              if path.is_file()
+          }
+          assert actual_result_paths == expected_result_paths
+
+          published_paths = subprocess.check_output(
+              [
+                  'git', 'diff', '--name-only',
+                  os.environ['AUDIT_EXECUTION_COMMIT'],
+                  os.environ['AUDIT_PUBLICATION_COMMIT'],
+              ],
+              text=True,
+          ).splitlines()
+          expected_published_paths = sorted(expected_result_paths | {
+              'RESULTS_MANIFEST_M36_EXHAUSTIVE_RETENTION_AUDIT.sha256',
+              'MILESTONE_36_EXHAUSTIVE_RETENTION_AUDIT_PROVENANCE.json',
+              'PUBLICATION_MANIFEST_M36_EXHAUSTIVE_RETENTION_AUDIT.sha256',
+          })
+          assert published_paths == expected_published_paths
+
+          verification_source_paths = subprocess.check_output(
+              [
+                  'git', 'diff', '--name-only',
+                  os.environ['AUDIT_PUBLICATION_COMMIT'],
+                  os.environ['GITHUB_SHA'],
+              ],
+              text=True,
+          ).splitlines()
+          assert verification_source_paths == [
+              '.github/workflows/m36_verify_publication.yml',
+              'MILESTONE_36_REPORT.md',
+          ]
+
+          expected_report_hash = os.environ['PRE_VERIFICATION_REPORT_SHA256']
+          assert re.fullmatch(r'[0-9a-f]{64}', expected_report_hash), (
+              'PRE_VERIFICATION_REPORT_SHA256 must be a lowercase SHA-256'
+          )
+          report = Path('MILESTONE_36_REPORT.md')
+          assert report.is_file()
+          assert hashlib.sha256(report.read_bytes()).hexdigest() == (
+              expected_report_hash
+          )
+          assert not Path('MILESTONE_36_PUBLICATION_VERIFICATION.json').exists()
+          PY
+
+      - name: Download immutable primary and exhaustive audit artifacts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          for artifact_id in "$PRIMARY_ARTIFACT_ID" "$AUDIT_ARTIFACT_ID"; do
+            curl --fail --silent --show-error --retry 3 --retry-all-errors \
+              -H "Accept: application/vnd.github+json" \
+              -H "Authorization: Bearer $GITHUB_TOKEN" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/actions/artifacts/$artifact_id" \
+              -o "/tmp/artifact-$artifact_id-metadata.json"
+            curl --fail --silent --show-error --location \
+              --retry 3 --retry-all-errors \
+              -H "Accept: application/vnd.github+json" \
+              -H "Authorization: Bearer $GITHUB_TOKEN" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/actions/artifacts/$artifact_id/zip" \
+              -o "/tmp/artifact-$artifact_id.zip"
+          done
+
+      - name: Verify both artifact identities and every archived byte
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          import re
+          import zipfile
+          from pathlib import Path
+
+          def sha256_bytes(value: bytes) -> str:
+              return hashlib.sha256(value).hexdigest()
+
+          def manifest_paths(path: str) -> list[str]:
+              rows = Path(path).read_text().splitlines()
+              result = []
+              for row in rows:
+                  digest, name = row.split(maxsplit=1)
+                  assert re.fullmatch(r'[0-9a-f]{64}', digest)
+                  assert sha256_bytes(Path(name).read_bytes()) == digest
+                  result.append(name)
+              return result
+
+          def verify_artifact(
+              artifact_id: int,
+              artifact_name: str,
+              artifact_digest: str,
+              expected_head_sha: str,
+              expected_paths: set[str],
+          ) -> None:
+              metadata = json.loads(
+                  Path(f'/tmp/artifact-{artifact_id}-metadata.json').read_text()
+              )
+              assert metadata['id'] == artifact_id
+              assert metadata['name'] == artifact_name
+              assert metadata['digest'] == artifact_digest
+              assert metadata['expired'] is False
+              assert metadata['workflow_run']['head_sha'] == expected_head_sha
+              archive_path = Path(f'/tmp/artifact-{artifact_id}.zip')
+              assert 'sha256:' + sha256_bytes(archive_path.read_bytes()) == (
+                  artifact_digest
+              )
+              with zipfile.ZipFile(archive_path) as archive:
+                  infos = [item for item in archive.infolist() if not item.is_dir()]
+                  names = [item.filename for item in infos]
+                  assert len(names) == len(set(names))
+                  assert set(names) == expected_paths
+                  assert archive.testzip() is None
+                  for name in names:
+                      archived = archive.read(name)
+                      current = Path(name).read_bytes()
+                      assert archived == current
+
+          primary_result_paths = set(manifest_paths('RESULTS_MANIFEST_M36.sha256'))
+          primary_artifact_paths = primary_result_paths | {
+              'DATA_MANIFEST_M36.sha256',
+              'RESULTS_MANIFEST_M36.sha256',
+              'validation_m36.json',
+          }
+          assert len(primary_artifact_paths) == 12
+          verify_artifact(
+              int(os.environ['PRIMARY_ARTIFACT_ID']),
+              'milestone-36-held-out-results',
+              os.environ['PRIMARY_ARTIFACT_DIGEST'],
+              'a0ceebcf1fd8fc72c81aedd20ceef93e9e5e00bb',
+              primary_artifact_paths,
+          )
+
+          audit_result_paths = set(manifest_paths(
+              'RESULTS_MANIFEST_M36_EXHAUSTIVE_RETENTION_AUDIT.sha256'
+          ))
+          audit_artifact_paths = audit_result_paths | {
+              'RESULTS_MANIFEST_M36_EXHAUSTIVE_RETENTION_AUDIT.sha256'
+          }
+          assert len(audit_artifact_paths) == 29
+          verify_artifact(
+              int(os.environ['AUDIT_ARTIFACT_ID']),
+              'milestone-36-exhaustive-retention-audit',
+              os.environ['AUDIT_ARTIFACT_DIGEST'],
+              os.environ['AUDIT_EXECUTION_COMMIT'],
+              audit_artifact_paths,
+          )
+          PY
+
+      - name: Independently verify primary result accounting
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import math
+          from collections import Counter
+          from pathlib import Path
+
+          summary = json.loads(Path('results_m36/search_summary.json').read_text())
+          complete = json.loads(Path('results_m36/completeness.json').read_text())
+          repeated = json.loads(
+              Path('results_m36/coverage_preflight_repeat.json').read_text()
+          )
+          validation = json.loads(Path('validation_m36.json').read_text())
+          run_meta = json.loads(Path('results_m36/run_metadata.json').read_text())
+          provenance = json.loads(
+              Path('MILESTONE_36_HELDOUT_PROVENANCE.json').read_text()
+          )
+
+          widths = [1, 3, 5, 9, 17, 33, 65, 129]
+          assert summary['pipeline']['version'] == '0.5.0'
+          dimensions = summary['search_dimensions']
+          assert dimensions['spectral_width_templates'] == widths
+          assert dimensions['templates'] == 21
+          assert dimensions['epoch_subsets'] == 4
+          assert dimensions['scrambles'] == 256
+          assert dimensions['approx_nominal_trials'] == 1_202_587_680
+          global_result = summary['global_result']
+          assert math.isclose(global_result['observed_max_snr'], 7131.717410099474)
+          assert math.isclose(
+              global_result['empirical_global_p_value'], 0.0038910505836575876
+          )
+          assert math.isclose(
+              global_result['operational_threshold_snr'], 15.89224910736084
+          )
+
+          threshold = global_result['operational_threshold_snr']
+          clusters = [
+              cluster
+              for window in summary['windows'].values()
+              for cluster in window['candidate_reduction']['clusters']
+          ]
+          above = [cluster for cluster in clusters if cluster['max_snr'] >= threshold]
+          assert len(clusters) == 1676
+          assert len(above) == 239
+          assert Counter(item['disposition'] for item in clusters) == Counter({
+              'below_threshold': 1437,
+              'rfi_veto_off_source': 170,
+              'rfi_veto_local_off_source': 44,
+              'rfi_veto_single_adjacent_off': 25,
+          })
+          assert Counter(item['disposition'] for item in above) == Counter({
+              'rfi_veto_off_source': 170,
+              'rfi_veto_local_off_source': 44,
+              'rfi_veto_single_adjacent_off': 25,
+          })
+          assert summary['candidate_reduction']['reported_clusters'] == 1676
+          assert summary['candidate_reduction'][
+              'frequency_clusters_before_report_limit'
+          ] == 1676
+
+          levels = complete['levels']
+          assert [item['multi_channel_recovered'] for item in levels] == [
+              0, 0, 0, 5, 16, 24, 24
+          ]
+          assert [item['one_channel_recovered'] for item in levels] == [
+              0, 0, 0, 4, 8, 9, 9
+          ]
+          assert all(item['trials'] == 32 for item in levels)
+          assert complete['spectral_widths_channels'] == widths
+          assert repeated['passed'] is True and repeated['checks'] == 630
+          assert repeated['spectral_width_bank_channels'] == widths
+          assert repeated['maximum_hypothesis_peaks_per_window'] == 2016
+          assert repeated['candidate_report_cap'] == 2200
+          assert repeated['candidate_report_cap_nontruncating'] is True
+          assert validation['software_version'] == '0.5.0'
+          assert validation['known_answer']['passed'] is True
+          assert validation['known_answer'][
+              'multi_channel_known_answer'
+          ]['passed'] is True
+
+          assert run_meta['github_run_id'] == '32993229561'
+          assert run_meta['execution_commit'] == (
+              'a0ceebcf1fd8fc72c81aedd20ceef93e9e5e00bb'
+          )
+          assert provenance['github_run_id'] == 32993229561
+          assert provenance['artifact_id'] == 9616909400
+          assert provenance['artifact_name'] == 'milestone-36-held-out-results'
+          assert provenance['artifact_digest'] == (
+              'a09c022c39ddc3e3e246731955b621ba741ddd9a0dfd601415fba846ef386c82'
+          )
+          assert provenance['execution_commit'] == (
+              'a0ceebcf1fd8fc72c81aedd20ceef93e9e5e00bb'
+          )
+          PY
+
+      - name: Independently verify exhaustive audit ledgers and stopping outcome
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import gzip
+          import hashlib
+          import json
+          from collections import Counter, defaultdict
+          from pathlib import Path
+
+          root = Path('results_m36_exhaustive_retention_audit')
+          summary = json.loads((root / 'audit_summary.json').read_text())
+          provenance = json.loads(
+              Path(
+                  'MILESTONE_36_EXHAUSTIVE_RETENTION_AUDIT_PROVENANCE.json'
+              ).read_text()
+          )
+          run_meta = json.loads((root / 'run_metadata.json').read_text())
+
+          assert summary['schema_version'] == 1
+          assert summary['audit_is_supplementary_to_primary'] is True
+          assert summary['outcome'] == (
+              'PRIMARY_CADENCE_NULL_AFTER_COMPLETE_RETENTION_AUDIT'
+          )
+          assert summary['dimensions'] == {
+              'windows': 5,
+              'spectral_widths': [1, 3, 5, 9, 17, 33, 65, 129],
+              'templates': 21,
+              'activity_subsets': 4,
+              'hypotheses': 3360,
+              'score_cells': 1_202_587_680,
+          }
+          assert summary['totals'] == {
+              'above_threshold_score_cells': 7571,
+              'legacy_unbounded_nms_peaks': 500,
+              'literal_20hz_nms_peaks': 1070,
+              'audit_union_records': 1081,
+              'primary_crosswalk_only_records': 0,
+              'audit_clusters': 637,
+              'newly_exposed_union_records': 677,
+              'unaccounted_above_threshold_cells': 0,
+              'unresolved_member_count': 0,
+              'unresolved_cluster_count': 0,
+          }
+          assert summary['summary_only_boundary']['total_hypotheses'] == 3360
+          assert summary['summary_only_boundary']['unresolved_total'] == 195
+          assert summary['stopping_rule'][
+              'closure_requires_every_union_member_physical_veto'
+          ] is True
+          assert summary['stopping_rule'][
+              'local_off_closure_uses_literal_maximum_hz'
+          ] == 20.0
+
+          expected_windows = {
+              'm36_1400p5': (1489, 195, 105),
+              'm36_1406p5': (1167, 164, 109),
+              'm36_1412p5': (708, 109, 49),
+              'm36_1418p5': (1221, 164, 106),
+              'm36_1425p0': (2986, 449, 268),
+          }
+          physical = {
+              'rfi_veto_off_source',
+              'rfi_veto_local_off_source',
+              'rfi_veto_single_adjacent_off',
+              'rfi_veto_receiver_frame_alias',
+          }
+          all_dispositions = Counter()
+          ledger_rows_total = 0
+          legacy_selected_total = 0
+          literal_selected_total = 0
+          certificates_total = 0
+          records_total = 0
+          clusters_total = 0
+          primary_records_total = 0
+          newly_exposed_total = 0
+
+          for window in summary['windows']:
+              window_id = window['window']
+              assert window_id in expected_windows
+              above_count, record_count, cluster_count = expected_windows[window_id]
+              assert window['hypotheses_visited'] == 672
+              assert window['score_cells_visited'] == 240_517_536
+              assert window['above_threshold_score_cells'] == above_count
+              assert window['audit_union_records'] == record_count
+              assert window['audit_clusters'] == cluster_count
+              assert window['unaccounted_above_threshold_cells'] == 0
+              assert window['unresolved_member_count'] == 0
+              assert window['unresolved_cluster_count'] == 0
+              assert window['primary_reproduction'][
+                  'primary_candidate_reduction_exact'
+              ] is True
+              assert window['primary_reproduction']['primary_maxima_exact'] is True
+              assert window['primary_reproduction']['rest_bins'] == 357913
+
+              window_summary = json.loads(
+                  (root / f'{window_id}_summary.json').read_text()
+              )
+              assert window_summary == window
+              expected_files = {
+                  f'{window_id}_coverage_ledger.jsonl.gz',
+                  f'{window_id}_hypothesis_certificates.json.gz',
+                  f'{window_id}_audit_records.jsonl.gz',
+                  f'{window_id}_clusters.json.gz',
+              }
+              assert set(window['files']) == expected_files
+              for name, expected in window['files'].items():
+                  path = root / name
+                  assert path.stat().st_size == expected['bytes']
+                  assert path.stat().st_size < 95_000_000
+                  assert hashlib.sha256(path.read_bytes()).hexdigest() == (
+                      expected['sha256']
+                  )
+
+              coverage_hashes = defaultdict(hashlib.sha256)
+              coverage_rows = defaultdict(list)
+              selected_record_ids = set()
+              ledger_rows = 0
+              ledger_path = root / f'{window_id}_coverage_ledger.jsonl.gz'
+              with gzip.open(ledger_path, 'rb') as handle:
+                  for raw in handle:
+                      assert raw.endswith(b'\n')
+                      row = json.loads(raw)
+                      assert row['hypothesis_id'].startswith(window_id + ':')
+                      assert row['snr'] >= summary[
+                          'frozen_operational_threshold_snr'
+                      ]
+                      assert row['legacy_nms'] in {'selected', 'suppressed'}
+                      assert row['literal_20hz_nms'] in {
+                          'selected', 'suppressed'
+                      }
+                      coverage_hashes[row['hypothesis_id']].update(raw)
+                      coverage_rows[row['hypothesis_id']].append(row)
+                      if (
+                          row['legacy_nms'] == 'selected'
+                          or row['literal_20hz_nms'] == 'selected'
+                      ):
+                          selected_record_ids.add(
+                              f"{row['hypothesis_id']}:f{row['frequency_index']}"
+                          )
+                      ledger_rows += 1
+              assert ledger_rows == above_count
+
+              with gzip.open(
+                  root / f'{window_id}_hypothesis_certificates.json.gz',
+                  'rt',
+                  encoding='utf-8',
+              ) as handle:
+                  certificates = json.load(handle)
+              assert len(certificates) == 672
+              certificate_ids = {
+                  item['hypothesis_id'] for item in certificates
+              }
+              assert len(certificate_ids) == 672
+              assert set(coverage_hashes) <= certificate_ids
+              assert sum(item['score_cells_visited'] for item in certificates) \
+                  == 240_517_536
+              assert sum(item['above_threshold_cells'] for item in certificates) \
+                  == ledger_rows
+              assert all(
+                  item['unaccounted_above_threshold_cells'] == 0
+                  for item in certificates
+              )
+              for item in certificates:
+                  rows = coverage_rows[item['hypothesis_id']]
+                  assert coverage_hashes[item['hypothesis_id']].hexdigest() == (
+                      item['coverage_rows_sha256']
+                  )
+                  assert item['score_cells_visited'] == 357913
+                  assert len(rows) == item['above_threshold_cells']
+                  assert item['legacy_radius_channels'] == max(
+                      1, item['spectral_width_channels'] // 2
+                  )
+                  assert item['literal_20hz_radius_channels'] == 7
+                  by_index = {
+                      row['frequency_index']: row for row in rows
+                  }
+                  assert len(by_index) == len(rows)
+                  selected_by_mode = {}
+                  for mode, radius_key, owner_key, expected_key in (
+                      (
+                          'legacy_nms', 'legacy_radius_channels',
+                          'legacy_owner_frequency_index',
+                          'legacy_selected_peaks',
+                      ),
+                      (
+                          'literal_20hz_nms',
+                          'literal_20hz_radius_channels',
+                          'literal_20hz_owner_frequency_index',
+                          'literal_20hz_selected_peaks',
+                      ),
+                  ):
+                      selected = {
+                          row['frequency_index']
+                          for row in rows if row[mode] == 'selected'
+                      }
+                      selected_by_mode[mode] = selected
+                      assert len(selected) == item[expected_key]
+                      for row in rows:
+                          owner_index = row[owner_key]
+                          assert owner_index in selected
+                          owner = by_index[owner_index]
+                          assert abs(
+                              owner_index - row['frequency_index']
+                          ) <= item[radius_key]
+                          assert owner['snr'] >= row['snr']
+                          if row[mode] == 'selected':
+                              assert owner_index == row['frequency_index']
+                  union = selected_by_mode['legacy_nms'] | selected_by_mode[
+                      'literal_20hz_nms'
+                  ]
+                  assert len(union) == item['union_selected_peaks']
+              legacy_in_window = sum(
+                  item['legacy_selected_peaks'] for item in certificates
+              )
+              literal_in_window = sum(
+                  item['literal_20hz_selected_peaks'] for item in certificates
+              )
+              assert legacy_in_window == window['legacy_unbounded_nms_peaks']
+              assert literal_in_window == window['literal_20hz_nms_peaks']
+
+              records = []
+              with gzip.open(
+                  root / f'{window_id}_audit_records.jsonl.gz',
+                  'rt',
+                  encoding='utf-8',
+              ) as handle:
+                  for line in handle:
+                      records.append(json.loads(line))
+              assert len(records) == record_count
+              assert len({item['audit_record_id'] for item in records}) \
+                  == record_count
+              assert {
+                  item['audit_record_id'] for item in records
+              } == selected_record_ids
+              dispositions = Counter(
+                  item['literal_20hz_member_disposition'] for item in records
+              )
+              assert set(dispositions) <= physical
+              assert dict(sorted(dispositions.items())) == window[
+                  'literal_20hz_member_dispositions'
+              ]
+              assert sum(
+                  item['present_in_primary_retained_above_threshold_set']
+                  for item in records
+              ) == window['primary_retained_above_threshold_records']
+              assert sum(
+                  not item['present_in_primary_retained_above_threshold_set']
+                  for item in records
+              ) == window['newly_exposed_union_records']
+              for item in records:
+                  threshold = item['audit_operational_threshold_snr']
+                  assert item['snr'] >= threshold
+                  disposition = item['literal_20hz_member_disposition']
+                  diagnostics = item['literal_20hz_local_off_diagnostics']
+                  local = diagnostics['best_local_recurrence']
+                  same_track = diagnostics['same_candidate_track']
+                  off_same = item['off_at_same_hypothesis_snr']
+                  if disposition == 'rfi_veto_off_source':
+                      assert off_same is not None and off_same >= threshold
+                  elif disposition == 'rfi_veto_local_off_source':
+                      assert off_same is None or off_same < threshold
+                      assert local is not None and local['snr'] >= threshold
+                      assert abs(local['offset_from_candidate_hz']) <= 20.0
+                  elif disposition == 'rfi_veto_single_adjacent_off':
+                      assert off_same is None or off_same < threshold
+                      assert local is None or local['snr'] < threshold
+                      matching = same_track[
+                          'matching_active_epochs_zero_based'
+                      ]
+                      assert matching
+                      assert all(
+                          same_track['epoch_values'][epoch]
+                          >= same_track['single_epoch_snr_floor']
+                          for epoch in matching
+                      )
+                  else:
+                      assert disposition == 'rfi_veto_receiver_frame_alias'
+                      assert item['receiver_frame_alias_witness'] is not None
+
+              with gzip.open(
+                  root / f'{window_id}_clusters.json.gz',
+                  'rt',
+                  encoding='utf-8',
+              ) as handle:
+                  clusters = json.load(handle)
+              assert len(clusters) == cluster_count
+              assert all(item['all_members_physically_vetoed'] for item in clusters)
+              clustered_dispositions = Counter()
+              for cluster in clusters:
+                  clustered_dispositions.update(
+                      cluster['literal_20hz_member_dispositions']
+                  )
+              assert clustered_dispositions == dispositions
+
+              all_dispositions.update(dispositions)
+              ledger_rows_total += ledger_rows
+              legacy_selected_total += legacy_in_window
+              literal_selected_total += literal_in_window
+              certificates_total += len(certificates)
+              records_total += len(records)
+              clusters_total += len(clusters)
+              primary_records_total += window[
+                  'primary_retained_above_threshold_records'
+              ]
+              newly_exposed_total += window['newly_exposed_union_records']
+
+          assert set(item['window'] for item in summary['windows']) \
+              == set(expected_windows)
+          assert ledger_rows_total == 7571
+          assert legacy_selected_total == 500
+          assert literal_selected_total == 1070
+          assert certificates_total == 3360
+          assert records_total == 1081
+          assert clusters_total == 637
+          assert primary_records_total == 404
+          assert newly_exposed_total == 677
+          assert all_dispositions == Counter({
+              'rfi_veto_off_source': 692,
+              'rfi_veto_local_off_source': 229,
+              'rfi_veto_single_adjacent_off': 160,
+          })
+          assert len(list(root.glob('*.gz'))) == 20
+          assert not list(root.glob('*.png'))
+
+          assert provenance == {
+              'artifact_digest':
+                  '6ccdea821e31bb4fa8f2f1fb17543c452a6857efd2913690b3da59b59efae58c',
+              'artifact_id': 9619833897,
+              'artifact_name': 'milestone-36-exhaustive-retention-audit',
+              'execution_commit':
+                  '7f42ea59396d7fbb5d317043f4d99f6146632c7f',
+              'github_run_id': 33002845444,
+              'outcome': 'PRIMARY_CADENCE_NULL_AFTER_COMPLETE_RETENTION_AUDIT',
+              'primary_publication_commit':
+                  '88db2596090e3a79620bff7e0e2c42dd63560431',
+              'protocol_commit':
+                  '3b75e26e88bce835936c8653c3d1c8274cb40710',
+              'protocol_manifest_sha256':
+                  'c582e32c4e1ff271105f0c70ce2491bb4f7153248ce7a929783dbefed756e278',
+          }
+          assert run_meta['github_run_id'] == 33002845444
+          assert run_meta['github_sha'] == (
+              '7f42ea59396d7fbb5d317043f4d99f6146632c7f'
+          )
+          assert run_meta['audit_is_significance_neutral'] is True
+          assert run_meta['protocol_commit'] == provenance['protocol_commit']
+          assert run_meta['protocol_manifest_sha256'] == (
+              provenance['protocol_manifest_sha256']
+          )
+          assert summary['primary']['publication_commit'] == (
+              provenance['primary_publication_commit']
+          )
+          assert summary['primary']['artifact_id'] == 9616909400
+          assert summary['primary']['artifact_digest'] == (
+              'sha256:a09c022c39ddc3e3e246731955b621ba741ddd9a0dfd601415fba846ef386c82'
+          )
+          PY
+
+      - name: Replace verification placeholder and create receipt
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          def sha256(path: str) -> str:
+              return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+          report = Path('MILESTONE_36_REPORT.md')
+          original = report.read_text()
+          source_hash = hashlib.sha256(original.encode()).hexdigest()
+          assert source_hash == os.environ['PRE_VERIFICATION_REPORT_SHA256']
+
+          old = (
+              '## Independent final publication verification\n\n'
+              '**PENDING PLACEHOLDER.** A separate final workflow must '
+              'independently verify\n'
+              'the primary and audit artifact digests, every primary and audit '
+              'manifest\n'
+              'entry, the exact audit stopping outcome and counts, commit '
+              'ancestry, and the\n'
+              'hash of this report. After that workflow succeeds, this section '
+              'must be\n'
+              'replaced with its immutable run ID, machine-readable receipt, '
+              'and the exact\n'
+              'scope of the checks it completed. This placeholder is not itself '
+              'a completed\n'
+              'verification receipt.\n'
+          )
+          assert original.count(old) == 1
+
+          run_id = int(os.environ['GITHUB_RUN_ID'])
+          section = (
+              '## Independent final publication verification\n\n'
+              f'Workflow run `{run_id}` independently revalidated both the '
+              'primary and exhaustive-audit artifact ZIP digests and every '
+              'archived byte, all published manifests, 3,360 hypothesis '
+              'certificates, all 7,571 above-threshold coverage-ledger rows, '
+              'all 1,081 audited union records, the member-level physical '
+              'dispositions, the closed stopping outcome, execution '
+              'provenance, atomic audit publication, and the frozen '
+              'pre-verification report hash. Its machine-readable receipt is '
+              '`MILESTONE_36_PUBLICATION_VERIFICATION.json`.\n'
+          )
+          report.write_text(original.replace(old, section))
+          final_hash = hashlib.sha256(report.read_bytes()).hexdigest()
+
+          receipt = {
+              'schema_version': 1,
+              'verified': True,
+              'verified_utc': datetime.now(timezone.utc).isoformat(),
+              'github_run_id': run_id,
+              'run_url': (
+                  f"https://github.com/{os.environ['GITHUB_REPOSITORY']}"
+                  f'/actions/runs/{run_id}'
+              ),
+              'verification_source_commit': os.environ['GITHUB_SHA'],
+              'source_report_sha256': source_hash,
+              'report_sha256_after_verification': final_hash,
+              'primary_publication_commit': os.environ[
+                  'PRIMARY_PUBLICATION_COMMIT'
+              ],
+              'primary_artifact_id_verified': 9616909400,
+              'primary_artifact_digest_verified': os.environ[
+                  'PRIMARY_ARTIFACT_DIGEST'
+              ],
+              'primary_artifact_files_verified': 12,
+              'primary_result_files_verified': 9,
+              'primary_reported_clusters_verified': 1676,
+              'primary_above_threshold_clusters_verified': 239,
+              'audit_execution_commit': os.environ['AUDIT_EXECUTION_COMMIT'],
+              'audit_publication_commit': os.environ[
+                  'AUDIT_PUBLICATION_COMMIT'
+              ],
+              'audit_artifact_id_verified': 9619833897,
+              'audit_artifact_digest_verified': os.environ[
+                  'AUDIT_ARTIFACT_DIGEST'
+              ],
+              'audit_artifact_files_verified': 29,
+              'audit_result_files_verified': 28,
+              'audit_gzip_files_verified': 20,
+              'audit_hypotheses_verified': 3360,
+              'audit_score_cells_verified': 1_202_587_680,
+              'audit_coverage_ledger_rows_verified': 7571,
+              'audit_union_records_verified': 1081,
+              'audit_clusters_verified': 637,
+              'audit_unaccounted_above_threshold_cells_verified': 0,
+              'audit_unresolved_members_verified': 0,
+              'audit_outcome_verified':
+                  'PRIMARY_CADENCE_NULL_AFTER_COMPLETE_RETENTION_AUDIT',
+              'data_manifest_sha256': sha256('DATA_MANIFEST_M36.sha256'),
+              'primary_results_manifest_sha256': sha256(
+                  'RESULTS_MANIFEST_M36.sha256'
+              ),
+              'audit_protocol_manifest_sha256': sha256(
+                  'MILESTONE_36_EXHAUSTIVE_RETENTION_AUDIT_PROTOCOL.sha256'
+              ),
+              'audit_results_manifest_sha256': sha256(
+                  'RESULTS_MANIFEST_M36_EXHAUSTIVE_RETENTION_AUDIT.sha256'
+              ),
+              'audit_publication_manifest_sha256': sha256(
+                  'PUBLICATION_MANIFEST_M36_EXHAUSTIVE_RETENTION_AUDIT.sha256'
+              ),
+              'milestone_33_status_preserved':
+                  'UNRESOLVED_REQUIRES_INDEPENDENT_CADENCE',
+              'new_population_or_eirp_claim': False,
+          }
+          Path('MILESTONE_36_PUBLICATION_VERIFICATION.json').write_text(
+              json.dumps(receipt, indent=2, sort_keys=True) + '\n'
+          )
+          PY
+
+      - name: Publish verified report and receipt atomically
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          import subprocess
+          from pathlib import Path
+
+          receipt_path = Path('MILESTONE_36_PUBLICATION_VERIFICATION.json')
+          receipt = json.loads(receipt_path.read_text())
+          assert receipt['verified'] is True
+          assert receipt['verification_source_commit'] == os.environ['GITHUB_SHA']
+          assert receipt['source_report_sha256'] == (
+              os.environ['PRE_VERIFICATION_REPORT_SHA256']
+          )
+          assert receipt['audit_publication_commit'] == (
+              'bd7ff6c196d052d952af18b578d29fe5aad6e20c'
+          )
+          assert receipt['audit_artifact_id_verified'] == 9619833897
+          assert receipt['audit_coverage_ledger_rows_verified'] == 7571
+          assert receipt['audit_unresolved_members_verified'] == 0
+          assert receipt['audit_outcome_verified'] == (
+              'PRIMARY_CADENCE_NULL_AFTER_COMPLETE_RETENTION_AUDIT'
+          )
+          assert receipt['new_population_or_eirp_claim'] is False
+          assert hashlib.sha256(
+              Path('MILESTONE_36_REPORT.md').read_bytes()
+          ).hexdigest() == receipt['report_sha256_after_verification']
+          status = subprocess.check_output(
+              ['git', 'status', '--porcelain=v1'], text=True
+          ).splitlines()
+          assert len(status) == 2
+          assert set(status) == {
+              ' M MILESTONE_36_REPORT.md',
+              '?? MILESTONE_36_PUBLICATION_VERIFICATION.json',
+          }
+          PY
+          git diff --check
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$GITHUB_SHA"
+          git add MILESTONE_36_REPORT.md \
+            MILESTONE_36_PUBLICATION_VERIFICATION.json
+          test "$(git diff --cached --name-only | wc -l)" -eq 2
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "m36: record complete publication verification"
+          git push origin HEAD:main
