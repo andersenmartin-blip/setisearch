@@ -1,0 +1,198 @@
+name: Milestone 35 survey synthesis
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m35_survey_synthesis.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  synthesize:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      MPLCONFIGDIR: /tmp/matplotlib
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+          cache: pip
+
+      - name: Install frozen analysis environment
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . \
+            'numpy==2.5.2' \
+            'astropy==8.0.1' \
+            'astropy-iers-data==0.2026.8.18.14.22.31' \
+            'pyerfa==2.0.1.5' \
+            'matplotlib==3.11.1'
+
+      - name: Verify frozen protocol and detector
+        run: |
+          git merge-base --is-ancestor \
+            521b2936214da296cd07a3dd1aeb89a609500119 "$GITHUB_SHA"
+          git diff --exit-code \
+            32720a0b5e097403f864e2b84d53a071d65d7c46 \
+            -- pyproject.toml src/seti_repeater tests
+          test "$(sha256sum MILESTONE_35_SURVEY_SYNTHESIS_PLAN.md | cut -d' ' -f1)" \
+            = "135320564b08b35b2962af1aa22236399d1c0dc2b5e6e198c13d278b7955d9c2"
+          test "$(sha256sum config/m35_survey_synthesis.json | cut -d' ' -f1)" \
+            = "0bd69af9b9a1fe26e45e080b5bc6feefdfe270d1b38a590ec84f8ff4dddaa0bc"
+          test "$(sha256sum scripts/m35_survey_synthesis.py | cut -d' ' -f1)" \
+            = "dace130da4d4b2c12ad66d5cc27ca64105bd22363e3f9d978b3a7479bd15e2c9"
+          python -m json.tool config/m35_survey_synthesis.json >/dev/null
+          python -m py_compile scripts/m35_survey_synthesis.py
+          python -m unittest discover -s tests -v
+
+      - name: Generate the frozen synthesis
+        run: |
+          python scripts/m35_survey_synthesis.py \
+            --spec config/m35_survey_synthesis.json \
+            --output-dir results_m35_survey_synthesis
+
+      - name: Verify generated evidence and headline values
+        run: |
+          jq empty results_m35_survey_synthesis/analysis_summary.json
+          jq empty results_m35_survey_synthesis/run_metadata.json
+          sha256sum -c results_m35_survey_synthesis/INPUT_MANIFEST.sha256
+          (
+            cd results_m35_survey_synthesis
+            sha256sum -c RESULTS_MANIFEST.sha256
+          )
+          test "$(wc -l < results_m35_survey_synthesis/INPUT_MANIFEST.sha256)" \
+            -eq 42
+          test "$(wc -l < results_m35_survey_synthesis/RESULTS_MANIFEST.sha256)" \
+            -eq 6
+          test "$(wc -l < results_m35_survey_synthesis/occurrence_bounds.csv)" \
+            -eq 15
+          test "$(wc -l < results_m35_survey_synthesis/target_accounting.csv)" \
+            -eq 21
+          python - <<'PY'
+          import csv
+          import hashlib
+          import json
+          import math
+          from pathlib import Path
+
+          root = Path('results_m35_survey_synthesis')
+          summary = json.loads((root / 'analysis_summary.json').read_text())
+          metadata = json.loads((root / 'run_metadata.json').read_text())
+          rows = list(csv.DictReader((root / 'occurrence_bounds.csv').open()))
+          targets = list(csv.DictReader((root / 'target_accounting.csv').open()))
+
+          assert summary['status'] == 'retrospective_not_blind'
+          assert summary['raw_spectral_arrays_read'] is False
+          assert summary['input_validation']['frozen_sha256_records_verified'] == 42
+          assert metadata['python'] == '3.12.14'
+          assert metadata['numpy'] == '2.5.2'
+          assert metadata['matplotlib'] == '3.11.1'
+          assert metadata['plan_sha256'] \
+              == '135320564b08b35b2962af1aa22236399d1c0dc2b5e6e198c13d278b7955d9c2'
+          assert metadata['protocol_sha256'] \
+              == '0bd69af9b9a1fe26e45e080b5bc6feefdfe270d1b38a590ec84f8ff4dddaa0bc'
+          assert metadata['implementation_sha256'] \
+              == 'dace130da4d4b2c12ad66d5cc27ca64105bd22363e3f9d978b3a7479bd15e2c9'
+          workflow = Path(metadata['workflow'])
+          assert hashlib.sha256(workflow.read_bytes()).hexdigest() \
+              == metadata['workflow_sha256']
+          primary, secondary = summary['candidate_accounting']
+          assert primary['milestones'] == list(range(14, 34))
+          assert primary['system_count'] == 20
+          assert primary['complete_1412_cluster_count'] == 267
+          assert primary['above_threshold_1412_cluster_count'] == 49
+          assert primary['physically_vetoed_1412_cluster_count'] == 48
+          assert primary['candidate_positive_milestones'] == [16]
+          assert secondary['milestones'] == list(range(23, 34))
+          assert secondary['system_count'] == 11
+          assert secondary['complete_1412_cluster_count'] == 192
+          assert secondary['above_threshold_1412_cluster_count'] == 2
+          assert secondary['physically_vetoed_1412_cluster_count'] == 2
+          assert secondary['candidate_positive_milestones'] == []
+          assert len(rows) == 14
+          assert len(targets) == 20
+
+          primary_rows = [
+              row for row in rows
+              if row['cohort_role'] == 'primary'
+          ]
+          assert [int(row['ideal_single_epoch_snr']) for row in primary_rows] \
+              == [8, 12, 16, 20, 24, 32, 40]
+          assert primary_rows[0]['nominal_plugin_status'] \
+              == 'no_nontrivial_bound'
+          assert primary_rows[0]['nominal_plugin_upper_fraction'] == ''
+          assert primary_rows[0]['finite_pointwise_95_status'] \
+              == 'no_nontrivial_bound'
+          assert primary_rows[0]['finite_pointwise_95_upper_fraction'] == ''
+          headline = summary['headline_primary_exact_snr_40']
+          assert math.isclose(
+              headline['observed_effective_target_exposure'],
+              18.65625,
+              rel_tol=0.0,
+              abs_tol=1e-12,
+          )
+          assert math.isclose(
+              headline['nominal_plugin_upper_fraction'],
+              0.23056449483492253,
+              rel_tol=0.0,
+              abs_tol=1e-12,
+          )
+          assert math.isclose(
+              headline['finite_pointwise_95_upper_fraction'],
+              0.33155320217329154,
+              rel_tol=0.0,
+              abs_tol=1e-12,
+          )
+          unconditional = summary['unconditional_end_to_end_result']
+          assert unconditional['upper_fraction'] == 1.0
+          assert unconditional['status'] \
+              == 'trivial_only_without_both_mandatory_assumptions'
+          PY
+
+      - name: Verify byte-stable regeneration
+        run: |
+          python scripts/m35_survey_synthesis.py \
+            --spec config/m35_survey_synthesis.json \
+            --output-dir /tmp/m35-repeat
+          diff -r results_m35_survey_synthesis /tmp/m35-repeat
+
+      - name: Create complete result manifest
+        run: |
+          find results_m35_survey_synthesis -maxdepth 1 -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum \
+            > RESULTS_MANIFEST_M35_SURVEY_SYNTHESIS.sha256
+          test "$(wc -l < RESULTS_MANIFEST_M35_SURVEY_SYNTHESIS.sha256)" -eq 7
+          sha256sum -c RESULTS_MANIFEST_M35_SURVEY_SYNTHESIS.sha256
+
+      - name: Upload synthesis evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-35-survey-synthesis
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M35_SURVEY_SYNTHESIS.sha256
+            results_m35_survey_synthesis/
+
+      - name: Publish machine-readable synthesis atomically
+        run: |
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$GITHUB_SHA"
+          git add results_m35_survey_synthesis \
+            RESULTS_MANIFEST_M35_SURVEY_SYNTHESIS.sha256
+          test -n "$(git diff --cached --name-only)"
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "Publish Milestone 35 survey synthesis"
+          git push origin HEAD:main

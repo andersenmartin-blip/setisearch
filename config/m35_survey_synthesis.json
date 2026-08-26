@@ -1,0 +1,288 @@
+{
+  "purpose": "Milestone 35 retrospective 1412 MHz score-recovery synthesis",
+  "analysis_base_commit": "521b2936214da296cd07a3dd1aeb89a609500119",
+  "analysis": {
+    "detector_version": "0.5.0",
+    "retrospective_not_blind": true,
+    "raw_spectral_arrays_read": false,
+    "completeness_endpoint": "multi_channel_recovered",
+    "ideal_single_epoch_snr_levels": [
+      8,
+      12,
+      16,
+      20,
+      24,
+      32,
+      40
+    ],
+    "trials_per_target_level": 32,
+    "active_epochs_zero_based": [
+      0,
+      2
+    ],
+    "truth_template_indices": [
+      0,
+      8,
+      14,
+      20
+    ],
+    "background_band": {
+      "rest_center_mhz": 1412.5,
+      "rest_half_width_khz": 500,
+      "rest_min_mhz": 1412.0,
+      "rest_max_mhz": 1413.0
+    },
+    "calibration_signal_distribution": {
+      "truth_frequency_center_mhz": 1412.5,
+      "truth_frequency_uniform_half_width_mhz": 0.01,
+      "truth_frequency_subchannel_jitter_half_width_channels": 0.5,
+      "truth_frequency_validation_maximum_offset_mhz": 0.01001,
+      "background_method": "Each epoch's real mXX_1412p5 planet-frame noise-vector/mask pair is circularly shifted together; shifts are independent across epochs, injection trials, and S/N levels.",
+      "fixed_frequency_worst_case_efficiency_estimated": false
+    },
+    "physical_veto_dispositions": [
+      "rfi_veto_off_source",
+      "rfi_veto_single_adjacent_off",
+      "rfi_veto_local_off_source",
+      "rfi_veto_receiver_frame_alias"
+    ],
+    "point_estimate_tail_alpha": 0.05,
+    "finite_calibration_alpha": 0.025,
+    "finite_survey_tail_alpha": 0.025,
+    "finite_calibration_method": "Mattner-Tasto Theorem 1.2 one-sided lower confidence bound for the average success probability of independent non-identical Bernoulli trials, Bonferroni across targets",
+    "finite_calibration_reference": "https://arxiv.org/abs/1403.0229",
+    "pointwise_over_snr_not_simultaneous": true,
+    "primary_and_secondary_not_jointly_simultaneous": true,
+    "no_interpolation_between_snr_levels": true,
+    "no_poisson_approximation": true,
+    "occurrence_model": "At each exact benchmark S, every system in a cohort independently has an injected-class signal with the same Bernoulli probability f(S); f(S) is a model probability, not the observed finite-cohort fraction.",
+    "candidate_endpoint_assumption": "A true injected-class signal recovered above the operational score threshold is assumed not to be lost during clustering, report retention, physical vetoing, or adjudication.",
+    "calibration_distribution_assumption": "A true signal's local background and RFI relationship is assumed to follow the frozen randomized injection distribution; the measured average recovery is not a lower bound at every fixed frequency in 1412.0-1413.0 MHz.",
+    "interpretation": "Conditional score-recovery sensitivity for the analysed archive cohort, not an end-to-end transmitter occurrence limit, an EIRP limit, or a population-wide exoplanet constraint."
+  },
+  "cohorts": [
+    {
+      "id": "all_heldout_v0p5_m14_m33",
+      "role": "primary",
+      "milestones": [
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "candidate_positive_milestones": [
+        16
+      ],
+      "candidate_positive_system_count_used_as_upper_bound_on_true_detections": 1,
+      "expected_complete_1412_cluster_count": 267,
+      "expected_above_threshold_1412_cluster_count": 49,
+      "expected_physically_vetoed_1412_cluster_count": 48
+    },
+    {
+      "id": "fully_retained_m23_m33",
+      "role": "secondary_complete-retention_check",
+      "milestones": [
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "candidate_positive_milestones": [],
+      "candidate_positive_system_count_used_as_upper_bound_on_true_detections": 0,
+      "expected_complete_1412_cluster_count": 192,
+      "expected_above_threshold_1412_cluster_count": 2,
+      "expected_physically_vetoed_1412_cluster_count": 2
+    }
+  ],
+  "targets": [
+    {
+      "milestone": 14,
+      "search_summary": "results_m14/search_summary.json",
+      "search_summary_sha256": "0d5045644e8ed3ec2fe22a5c370ed378c5e352feda7c47ef50858d6dfd40791b",
+      "completeness": "results_m14/completeness.json",
+      "completeness_sha256": "cc9e85aa03b2db707f3ced57c8467e2e951ad794291ecaf2c149a676f8be5bf5"
+    },
+    {
+      "milestone": 15,
+      "search_summary": "results_m15/search_summary.json",
+      "search_summary_sha256": "ad61eef857f4cc20ad4f31b3f2a9b5f8d5420fb735114a1bf4ba2bda1ed154db",
+      "completeness": "results_m15/completeness.json",
+      "completeness_sha256": "b44d82fe97166a780a1d3a01081a98403fd141c06db2fc57aa1518015cdbbf23"
+    },
+    {
+      "milestone": 16,
+      "search_summary": "results_m16/search_summary.json",
+      "search_summary_sha256": "c68a202f5aacb48bfe1ef3421abff39e8c10ed97f4901076aba186fa5cbccb3b",
+      "completeness": "results_m16/completeness.json",
+      "completeness_sha256": "139e556875ebb6529a4e2692fe4986941094b6b9a2d0cca6d3dbada3bb28722e"
+    },
+    {
+      "milestone": 17,
+      "search_summary": "results_m34_legacy_complete_audit/m17/search_summary.json",
+      "search_summary_sha256": "ec4a751392c19c34d88a47ac765a4901e488ec0f2794ce023bd2dbc6291b1c5a",
+      "completeness": "results_m34_legacy_complete_audit/m17/completeness.json",
+      "completeness_sha256": "d8212cb6609763791682e9cd54ef5d8e0fe3673713abaa45fd5ef3732265f8bb"
+    },
+    {
+      "milestone": 18,
+      "search_summary": "results_m18/search_summary.json",
+      "search_summary_sha256": "63e8a0d84e3e0940428a29717296e86d5096ee20b5a61cec933bc8ad65b75851",
+      "completeness": "results_m18/completeness.json",
+      "completeness_sha256": "4df02e9a8d80e83ae36a6bc73b52aa981bac8545d471345037421054fa47be21"
+    },
+    {
+      "milestone": 19,
+      "search_summary": "results_m19/search_summary.json",
+      "search_summary_sha256": "7c3d2512150148cef54740c264bea7c723b5596f319e601550dc2a176a8e6f4b",
+      "completeness": "results_m19/completeness.json",
+      "completeness_sha256": "8f5036ff707cd8c548af99193117f1728891e06f231e8a8f0cf428c0b57dc817"
+    },
+    {
+      "milestone": 20,
+      "search_summary": "results_m20/search_summary.json",
+      "search_summary_sha256": "40365a16ad417ba00d0904cc67fd0f4c31e65f1197fe044bb7dd9927846aab9f",
+      "completeness": "results_m20/completeness.json",
+      "completeness_sha256": "8f6df5494a49c267c87e693b1f3411de6bca8bcdd6aaffb500e9b2a6e5b4917c"
+    },
+    {
+      "milestone": 21,
+      "search_summary": "results_m34_legacy_complete_audit/m21/search_summary.json",
+      "search_summary_sha256": "92b231f7a10bc09558b40254dc8f630f6bb21f5557446cca1b6ab4d1296994b2",
+      "completeness": "results_m34_legacy_complete_audit/m21/completeness.json",
+      "completeness_sha256": "13bdad0b77987fd04a6f723b72144878440982b70fe1f42114eaf3942a5ee91d"
+    },
+    {
+      "milestone": 22,
+      "search_summary": "results_m22/search_summary.json",
+      "search_summary_sha256": "f80e793463b9807361fbe928c65b1e330e84158adcda00c74c8e3e01802eb428",
+      "completeness": "results_m22/completeness.json",
+      "completeness_sha256": "66087f92f0396c07cce9054315b9af0e0dc4ed588101552f1e273d472707eb47"
+    },
+    {
+      "milestone": 23,
+      "search_summary": "results_m23_complete_audit/search_summary.json",
+      "search_summary_sha256": "052ba5da19814998e746523f1b2b6cbdedfc13823bdc763736fd7d6775c4485a",
+      "completeness": "results_m23_complete_audit/completeness.json",
+      "completeness_sha256": "f0237e5547a956a15ea2685c3feb4bfc6af1605afd4a1560a6216088213f06f7"
+    },
+    {
+      "milestone": 24,
+      "search_summary": "results_m24/search_summary.json",
+      "search_summary_sha256": "45b106be893b4b976b93585aef675c97f8f90885ce90d250742e1db44e87c1cb",
+      "completeness": "results_m24/completeness.json",
+      "completeness_sha256": "4aa13d7033ec8fb28b4b60e828b874431ca86787365d45139b9ed811bc202682"
+    },
+    {
+      "milestone": 25,
+      "search_summary": "results_m25/search_summary.json",
+      "search_summary_sha256": "430c1894f289c9fc4015945633b65ee89b46f45a17824498c2b750835ba5671e",
+      "completeness": "results_m25/completeness.json",
+      "completeness_sha256": "69add5f1370c2fe051957cb8c4886413a79f4e6c2696a4265e5d094875a55e80"
+    },
+    {
+      "milestone": 26,
+      "search_summary": "results_m26/search_summary.json",
+      "search_summary_sha256": "80f61010b440d112d57c288e475f9036e62e49f7b2d96883f3cfb34e72d7c8cf",
+      "completeness": "results_m26/completeness.json",
+      "completeness_sha256": "f45f3683453c7462ca0b582c4283334477d9adf1d5f14be99a4d012bd99541b3"
+    },
+    {
+      "milestone": 27,
+      "search_summary": "results_m27/search_summary.json",
+      "search_summary_sha256": "3746bbcf33b345f4a42c0a5f22edd0c49d4f15787cd3536d71c61969f7bb0eac",
+      "completeness": "results_m27/completeness.json",
+      "completeness_sha256": "32d1e9c76fd92921799d661868beb475cd4b228536f58216328264337225c9e3"
+    },
+    {
+      "milestone": 28,
+      "search_summary": "results_m28/search_summary.json",
+      "search_summary_sha256": "68225e98363a5b8508702faa25c207866e9977d1385e81b1015318f51dcd77c1",
+      "completeness": "results_m28/completeness.json",
+      "completeness_sha256": "38cf19162b11fda1e183f50adfd14c7bbd0006d422cfa4eb57f9f08e96b896df"
+    },
+    {
+      "milestone": 29,
+      "search_summary": "results_m29/search_summary.json",
+      "search_summary_sha256": "6537513cfc08f875328b9fc7887e95a1d130adbad5c14ebc2409b59d316d6ad9",
+      "completeness": "results_m29/completeness.json",
+      "completeness_sha256": "6c2c1256046e08dcd5d1fc234d45582a2f025e97e9e5782370b2e2cbf5a9184d"
+    },
+    {
+      "milestone": 30,
+      "search_summary": "results_m30/search_summary.json",
+      "search_summary_sha256": "54bc04f4cd2bc399709f9233e12cdc4ca1996c10bdd82fb262e0ef0e8d141ed9",
+      "completeness": "results_m30/completeness.json",
+      "completeness_sha256": "7d563e0d0ad0d91440acbcd7338ca80ca651fb90fc404f29b54fbdc89fc935e2"
+    },
+    {
+      "milestone": 31,
+      "search_summary": "results_m31/search_summary.json",
+      "search_summary_sha256": "d85c977d58ca1e85d8918fe905e3b16be40c09e28ce7eae040dc283fadc2501d",
+      "completeness": "results_m31/completeness.json",
+      "completeness_sha256": "d93d76561ff2d46c08500ce500817c4958c4ca15b699d295b492459e1aaa32a9"
+    },
+    {
+      "milestone": 32,
+      "search_summary": "results_m32/search_summary.json",
+      "search_summary_sha256": "e7c0bef19a969589cbf5bec66a4342b845c174eb2be82d34d29f86a5cf649be3",
+      "completeness": "results_m32/completeness.json",
+      "completeness_sha256": "39b7f27134e34f3e78403081d0e310e8214f769b6b9bd28c9122741f26933c61"
+    },
+    {
+      "milestone": 33,
+      "search_summary": "results_m33/search_summary.json",
+      "search_summary_sha256": "8bcc1b7fc2177d93b7a7ef47e7ec9bbe47e8ccc53d38fe7529ae49e389d8ab2b",
+      "completeness": "results_m33/completeness.json",
+      "completeness_sha256": "8605d7ba21c6d9b67e35d3e6e33130a39cd29ee29fbcae9ba3f2b7da8af3f3b8"
+    }
+  ],
+  "candidate_positive_evidence": {
+    "milestone": 16,
+    "frequency_mhz": 1412.485745176673,
+    "primary_disposition": "survives_for_followup",
+    "investigation": "results_m16_candidate_investigation/candidate_investigation.json",
+    "investigation_sha256": "ad408be5061e2f1272469cac03c81e1781e93d2c9bf22afaa18113ee4538ce6f",
+    "investigation_classification": "UNRESOLVED_REQUIRES_INDEPENDENT_CADENCE",
+    "followup": "results_m16_independent_followup/independent_followup.json",
+    "followup_sha256": "894de0260188f5007bbde2e0ccfbe17ff677669b132fe640b1429d41ea28249e",
+    "followup_classification": "NOT_REDETECTED_IN_INDEPENDENT_CADENCE",
+    "count_as_candidate_positive_despite_nonredetection": true
+  },
+  "rejected_primary_analyses": [
+    {
+      "analysis": "M17-M32 zero-candidate product likelihood",
+      "reason": "Outcome-selected clean subset; not an unconditional cohort bound."
+    },
+    {
+      "analysis": "Five-window occurrence bound",
+      "reason": "Completeness was calibrated only with the 1412.5 MHz background window."
+    },
+    {
+      "analysis": "Treat M16 as a primary-cadence null",
+      "reason": "Independent-cadence non-redetection is not a physical primary veto and no two-cadence duty-cycle completeness exists."
+    }
+  ]
+}
