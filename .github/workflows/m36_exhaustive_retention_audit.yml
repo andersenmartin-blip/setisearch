@@ -1,0 +1,275 @@
+name: Milestone 36 exhaustive above-threshold retention audit
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m36_exhaustive_retention_audit.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: milestone-36-exhaustive-retention-audit
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    env:
+      MPLCONFIGDIR: /tmp/matplotlib
+      PYTHONPATH: ${{ github.workspace }}/src
+
+    steps:
+      - name: Check out execution commit
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+
+      - name: Select frozen Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12.14"
+          cache: pip
+
+      - name: Install the frozen primary runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . \
+            'aiohappyeyeballs==2.7.1' \
+            'aiohttp==3.14.3' \
+            'aiosignal==1.4.0' \
+            'astropy==8.0.1' \
+            'astropy-iers-data==0.2026.8.24.0.24.29' \
+            'attrs==26.1.0' \
+            'contourpy==1.3.3' \
+            'cycler==0.12.1' \
+            'fonttools==4.63.0' \
+            'frozenlist==1.8.0' \
+            'fsspec[http]==2026.7.0' \
+            'h5py==3.16.0' \
+            'hdf5plugin==6.0.0' \
+            'idna==3.19' \
+            'kiwisolver==1.5.0' \
+            'matplotlib==3.11.1' \
+            'multidict==6.7.1' \
+            'numpy==2.5.2' \
+            'packaging==26.3' \
+            'pillow==12.3.0' \
+            'propcache==0.5.2' \
+            'pyerfa==2.0.1.5' \
+            'pyparsing==3.3.2' \
+            'python-dateutil==2.9.0.post0' \
+            'PyYAML==6.0.3' \
+            'six==1.17.0' \
+            'typing_extensions==4.16.0' \
+            'yarl==1.24.5'
+
+      - name: Verify frozen protocol, source, and tests
+        run: |
+          test "$(sha256sum MILESTONE_36_EXHAUSTIVE_RETENTION_AUDIT_PROTOCOL.sha256 | cut -d' ' -f1)" \
+            = "c582e32c4e1ff271105f0c70ce2491bb4f7153248ce7a929783dbefed756e278"
+          sha256sum -c MILESTONE_36_EXHAUSTIVE_RETENTION_AUDIT_PROTOCOL.sha256
+          git merge-base --is-ancestor \
+            3b75e26e88bce835936c8653c3d1c8274cb40710 "$GITHUB_SHA"
+          git diff --exit-code \
+            32720a0b5e097403f864e2b84d53a071d65d7c46 \
+            -- pyproject.toml src/seti_repeater
+          python -m unittest discover -s tests -v
+          python scripts/m36_exhaustive_retention_audit.py inventory \
+            --primary-summary results_m36/search_summary.json \
+            --output /tmp/MILESTONE_36_RETENTION_BOUND.json
+          cmp /tmp/MILESTONE_36_RETENTION_BOUND.json \
+            MILESTONE_36_RETENTION_BOUND.json
+          seti-repeater validate \
+            --tsamp 18.253611008 \
+            --channel-width 2.7939677238464355 \
+            --output /tmp/validation_m36_exhaustive_audit.json
+
+      - name: Record execution environment and provenance inputs
+        run: |
+          mkdir -p results_m36_exhaustive_retention_audit
+          python -m pip freeze \
+            > results_m36_exhaustive_retention_audit/environment.txt
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path(
+              'results_m36_exhaustive_retention_audit/run_metadata.json'
+          ).write_text(
+              json.dumps(
+                  {
+                      'github_repository': os.environ['GITHUB_REPOSITORY'],
+                      'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                      'github_sha': os.environ['GITHUB_SHA'],
+                      'github_ref': os.environ['GITHUB_REF'],
+                      'protocol_commit':
+                          '3b75e26e88bce835936c8653c3d1c8274cb40710',
+                      'protocol_manifest_sha256':
+                          'c582e32c4e1ff271105f0c70ce2491bb4f7153248ce7a929783dbefed756e278',
+                      'primary_publication_commit':
+                          '88db2596090e3a79620bff7e0e2c42dd63560431',
+                      'primary_execution_commit':
+                          'a0ceebcf1fd8fc72c81aedd20ceef93e9e5e00bb',
+                      'frozen_detector_commit':
+                          '32720a0b5e097403f864e2b84d53a071d65d7c46',
+                      'audit_is_significance_neutral': True,
+                  },
+                  indent=2,
+                  sort_keys=True,
+              )
+              + '\n'
+          )
+          PY
+
+      - name: Re-extract only the frozen primary cadence
+        run: |
+          python scripts/m13_hdf5_extract.py \
+            config/hip48714b_heldout_m36.json \
+            --data-dir data_m36
+          test "$(find data_m36 -type f -name '*.npz' | wc -l)" -eq 30
+          sha256sum -c DATA_MANIFEST_M36.sha256
+
+      - name: Run complete fail-closed retention audit
+        run: |
+          python scripts/m36_exhaustive_retention_audit.py audit \
+            --spec config/hip48714b_m36_exhaustive_retention_audit.json \
+            --data-dir data_m36 \
+            --output-dir results_m36_exhaustive_retention_audit
+
+      - name: Verify valid stopping outcome and complete evidence
+        run: |
+          python - <<'PY'
+          import gzip
+          import hashlib
+          import json
+          from pathlib import Path
+
+          root = Path('results_m36_exhaustive_retention_audit')
+          summary = json.loads((root / 'audit_summary.json').read_text())
+          assert summary['outcome'] in {
+              'PRIMARY_CADENCE_NULL_AFTER_COMPLETE_RETENTION_AUDIT',
+              'UNRESOLVED_REQUIRES_INDEPENDENT_CADENCE',
+          }
+          assert summary['dimensions']['hypotheses'] == 3360
+          assert summary['dimensions']['score_cells'] == 1_202_587_680
+          assert summary['totals']['unaccounted_above_threshold_cells'] == 0
+          assert (
+              summary['outcome']
+              == 'PRIMARY_CADENCE_NULL_AFTER_COMPLETE_RETENTION_AUDIT'
+          ) == (summary['totals']['unresolved_member_count'] == 0)
+          assert len(summary['windows']) == 5
+          maximum = 95_000_000
+          for path in sorted(root.rglob('*')):
+              if path.is_file():
+                  assert path.stat().st_size < maximum, path
+              if path.suffix == '.gz':
+                  with gzip.open(path, 'rb') as handle:
+                      while handle.read(1024 * 1024):
+                          pass
+          for window in summary['windows']:
+              assert window['hypotheses_visited'] == 672
+              assert window['unaccounted_above_threshold_cells'] == 0
+              assert window['primary_reproduction'][
+                  'primary_candidate_reduction_exact'
+              ] is True
+              assert window['primary_reproduction'][
+                  'primary_maxima_exact'
+              ] is True
+              for name, expected in window['files'].items():
+                  path = root / name
+                  assert path.stat().st_size == expected['bytes']
+                  assert hashlib.sha256(path.read_bytes()).hexdigest() == (
+                      expected['sha256']
+                  )
+          assert not list(root.glob('*.png'))
+          PY
+          find results_m36_exhaustive_retention_audit \
+            -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum \
+            > RESULTS_MANIFEST_M36_EXHAUSTIVE_RETENTION_AUDIT.sha256
+          sha256sum -c \
+            RESULTS_MANIFEST_M36_EXHAUSTIVE_RETENTION_AUDIT.sha256
+
+      - name: Upload complete or partial audit evidence
+        if: always()
+        id: upload
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: milestone-36-exhaustive-retention-audit
+          if-no-files-found: warn
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M36_EXHAUSTIVE_RETENTION_AUDIT.sha256
+            results_m36_exhaustive_retention_audit/
+
+      - name: Record artifact identity for valid audit
+        env:
+          ARTIFACT_ID: ${{ steps.upload.outputs.artifact-id }}
+          ARTIFACT_DIGEST: ${{ steps.upload.outputs.artifact-digest }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import re
+          from pathlib import Path
+
+          artifact_digest = os.environ['ARTIFACT_DIGEST']
+          assert re.fullmatch(
+              r'(?:sha256:)?[0-9a-f]{64}', artifact_digest
+          )
+          summary = json.loads(
+              Path(
+                  'results_m36_exhaustive_retention_audit/audit_summary.json'
+              ).read_text()
+          )
+          Path(
+              'MILESTONE_36_EXHAUSTIVE_RETENTION_AUDIT_PROVENANCE.json'
+          ).write_text(
+              json.dumps(
+                  {
+                      'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                      'execution_commit': os.environ['GITHUB_SHA'],
+                      'protocol_commit':
+                          '3b75e26e88bce835936c8653c3d1c8274cb40710',
+                      'protocol_manifest_sha256':
+                          'c582e32c4e1ff271105f0c70ce2491bb4f7153248ce7a929783dbefed756e278',
+                      'primary_publication_commit':
+                          '88db2596090e3a79620bff7e0e2c42dd63560431',
+                      'artifact_id': int(os.environ['ARTIFACT_ID']),
+                      'artifact_digest': artifact_digest,
+                      'artifact_name':
+                          'milestone-36-exhaustive-retention-audit',
+                      'outcome': summary['outcome'],
+                  },
+                  indent=2,
+                  sort_keys=True,
+              )
+              + '\n'
+          )
+          PY
+          sha256sum \
+            RESULTS_MANIFEST_M36_EXHAUSTIVE_RETENTION_AUDIT.sha256 \
+            MILESTONE_36_EXHAUSTIVE_RETENTION_AUDIT_PROVENANCE.json \
+            > PUBLICATION_MANIFEST_M36_EXHAUSTIVE_RETENTION_AUDIT.sha256
+          sha256sum -c \
+            PUBLICATION_MANIFEST_M36_EXHAUSTIVE_RETENTION_AUDIT.sha256
+
+      - name: Publish valid audit outcome atomically
+        run: |
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$GITHUB_SHA"
+          git add \
+            results_m36_exhaustive_retention_audit \
+            RESULTS_MANIFEST_M36_EXHAUSTIVE_RETENTION_AUDIT.sha256 \
+            MILESTONE_36_EXHAUSTIVE_RETENTION_AUDIT_PROVENANCE.json \
+            PUBLICATION_MANIFEST_M36_EXHAUSTIVE_RETENTION_AUDIT.sha256
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "Publish Milestone 36 exhaustive retention audit"
+          git push origin HEAD:main
