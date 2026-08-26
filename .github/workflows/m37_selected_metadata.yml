@@ -1,0 +1,260 @@
+name: Milestone 37 HD 156668 selected-target metadata
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m37_selected_metadata.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: milestone-37-selected-metadata
+  cancel-in-progress: false
+
+jobs:
+  metadata:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out selection commit
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+
+      - name: Require first and only canonical metadata publication
+        run: |
+          test ! -e results_m37_selected_metadata
+          test ! -e RESULTS_MANIFEST_M37_SELECTED_METADATA.sha256
+          test ! -e MILESTONE_37_SELECTED_METADATA_PROVENANCE.json
+
+      - name: Select frozen Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12.14"
+
+      - name: Verify frozen selection inputs and metadata query
+        run: |
+          test "$(sha256sum results_m16_discovery/discovery.json | cut -d' ' -f1)" \
+            = "0310d5ba8e0923062bd0a046b1827a4e814fc3f3adf854620d27e3cccb7fd750"
+          test "$(sha256sum results_m36_header_screen/header_screen.json | cut -d' ' -f1)" \
+            = "45bd84cad0c83e8079ad3fe204ca827c7213954f43121599fbeac893252db19b"
+          test "$(sha256sum MILESTONE_36_TARGET_SELECTION.md | cut -d' ' -f1)" \
+            = "89834f2f1fcb72ddba602765e5bbc090977b79f9878eedf44c4d32df0c0ff47c"
+          test "$(sha256sum MILESTONE_36_PUBLICATION_VERIFICATION.json | cut -d' ' -f1)" \
+            = "9efde86fd305a1f86610992c6ca2a34eb11010f55a703936a548414e206e10ab"
+          test "$(sha256sum MILESTONE_37_TARGET_SELECTION.md | cut -d' ' -f1)" \
+            = "4e33933c7297612961ea2b48f5a24a126facbd36bd81d98c0f6eeb3f20b612c4"
+          test "$(sha256sum scripts/m37_selected_metadata.py | cut -d' ' -f1)" \
+            = "be603c6c20d7fff956f573e0f3fa6bf775afe819ba16f47f99b2ed73fba9c704"
+          git merge-base --is-ancestor \
+            ee24e87944c27d7b47e7b6fccc764b958945318a "$GITHUB_SHA"
+          git merge-base --is-ancestor \
+            ced77e735f4e1aea13a237def9adba75372d34a0 "$GITHUB_SHA"
+
+      - name: Verify completed Milestone 36 boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          receipt = json.loads(
+              Path('MILESTONE_36_PUBLICATION_VERIFICATION.json').read_text()
+          )
+          assert receipt['verified'] is True
+          assert receipt['audit_outcome_verified'] \
+              == 'PRIMARY_CADENCE_NULL_AFTER_COMPLETE_RETENTION_AUDIT'
+          assert receipt['audit_unaccounted_above_threshold_cells_verified'] == 0
+          assert receipt['audit_unresolved_members_verified'] == 0
+          assert receipt['new_population_or_eirp_claim'] is False
+          PY
+
+      - name: Verify mechanical rank-37 selection and spectral boundary
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+
+          screen = json.loads(
+              Path('results_m36_header_screen/header_screen.json').read_text()
+          )
+          targets = {item['rank']: item for item in screen['screened_targets']}
+          assert screen['selected']['rank'] == 36
+          assert screen['selected']['archive_target'] == 'HIP48714'
+          assert screen['prior_discovery_ranks_already_resolved'] == list(
+              range(1, 36)
+          )
+          assert sorted(targets) == list(range(36, 41))
+          assert [targets[r]['qualifying_count'] for r in range(36, 41)] == [
+              1, 1, 1, 0, 0
+          ]
+
+          target = targets[37]
+          assert target['archive_target'] == 'HIP84607'
+          assert target['hostname'] == 'HD 156668'
+          assert target['planet_name'] == 'HD 156668 b'
+          assert target['distance_pc'] == 24.3323
+          assert target['drift_upper_hz_s_at_1425_mhz'] \
+              == 8.712783061646705
+          assert target['planet_record'] == {
+              'distance_pc': 24.3323,
+              'eccentricity': 0.0,
+              'hd_name': 'HD 156668',
+              'hip_name': 'HIP 84607',
+              'hostname': 'HD 156668',
+              'longitude_periastron_deg': 36.0,
+              'periastron_epoch_bjd': 2454718.57,
+              'period_days': 4.6455,
+              'planet_name': 'HD 156668 b',
+              'semi_major_axis_au': 0.05,
+          }
+          assert len(target['cadences']) == 1
+          cadence = target['cadences'][0]
+          assert cadence['cadence_url'].endswith('/--85168')
+          qualified = cadence['qualifying_hdf5_abacad_cadences']
+          assert len(qualified) == 1
+          primary = qualified[0]
+          assert primary['on_source'] == 'HIP84607'
+          assert primary['scan_sources'] == [
+              'HIP84607', 'HIP84607_OFF', 'HIP84607',
+              'HIP84607_OFF', 'HIP84607', 'HIP84607_OFF'
+          ]
+          assert len(primary['scan_urls']) == 6
+          assert primary['start_mjd'] == 57470.581099537034
+          assert math.isclose(
+              primary['elapsed_start_to_start_s'],
+              1650.000000349246,
+              rel_tol=0.0,
+              abs_tol=1e-9,
+          )
+          headers = primary['headers']
+          assert len(headers) == 6
+          for header, source, url in zip(
+              headers, primary['scan_sources'], primary['scan_urls'], strict=True
+          ):
+              assert header['url'] == url
+              assert header['source_name'] == source
+              assert header['http_status'] == 200
+              assert header['dataset_shape'] == [16, 1, 264503296]
+              assert header['dataset_dtype'] == 'float32'
+              assert header['tsamp_s'] == 17.986224128
+              assert header['fch1_mhz'] == 1876.46484375
+              assert header['foff_mhz'] == -0.000002835503418452676
+              assert header['frequency_low_mhz'] == 1126.4648465855034
+              assert header['frequency_high_mhz'] == 1876.46484375
+              assert header['covers_required_guarded_range'] is True
+              assert header['spectral_dataset_values_read'] is False
+          assert cadence['hdf5_headers'] == headers
+          assert screen['spectral_payload_inspected'] is False
+          assert screen['spectral_dataset_values_read'] is False
+          PY
+
+      - name: Fetch exact selected official record
+        run: python scripts/m37_selected_metadata.py
+
+      - name: Verify boundary and hash result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(
+              Path('results_m37_selected_metadata/hd156668b.json').read_text()
+          )
+          assert result['spectral_payload_inspected'] is False
+          assert result['spectral_dataset_values_read'] is False
+          assert result['telescope_remote_request_made'] is False
+          assert result['http_status'] == 200
+          assert result['response_url'] == result['api_url']
+          assert result['frozen_discovery_match'] \
+              == 'exact numeric and text equality'
+          assert result['record']['pl_name'] == 'HD 156668 b'
+          assert result['record']['hostname'] == 'HD 156668'
+          assert result['record']['hip_name'] == 'HIP 84607'
+          assert result['record']['hd_name'] == 'HD 156668'
+          PY
+          find results_m37_selected_metadata -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum \
+            > RESULTS_MANIFEST_M37_SELECTED_METADATA.sha256
+          test "$(wc -l < RESULTS_MANIFEST_M37_SELECTED_METADATA.sha256)" -eq 1
+          sha256sum -c RESULTS_MANIFEST_M37_SELECTED_METADATA.sha256
+
+      - name: Upload selected metadata
+        id: upload
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: milestone-37-selected-metadata
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M37_SELECTED_METADATA.sha256
+            results_m37_selected_metadata/
+
+      - name: Record provenance and publish checked metadata atomically
+        env:
+          ARTIFACT_ID: ${{ steps.upload.outputs.artifact-id }}
+          ARTIFACT_DIGEST: ${{ steps.upload.outputs.artifact-digest }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import re
+          from pathlib import Path
+
+          digest = os.environ['ARTIFACT_DIGEST']
+          if not re.fullmatch(r'(?:sha256:)?[0-9a-f]{64}', digest):
+              raise RuntimeError(f'Unexpected artifact digest: {digest!r}')
+          artifact_id = int(os.environ['ARTIFACT_ID'])
+          if artifact_id <= 0:
+              raise RuntimeError(f'Unexpected artifact ID: {artifact_id!r}')
+          Path('MILESTONE_37_SELECTED_METADATA_PROVENANCE.json').write_text(
+              json.dumps(
+                  {
+                      'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                      'source_commit': os.environ['GITHUB_SHA'],
+                      'completed_milestone_36_boundary_commit':
+                          'ced77e735f4e1aea13a237def9adba75372d34a0',
+                      'header_screen_result_commit':
+                          'ee24e87944c27d7b47e7b6fccc764b958945318a',
+                      'header_screen_result_sha256':
+                          '45bd84cad0c83e8079ad3fe204ca827c7213954f43121599fbeac893252db19b',
+                      'discovery_result_sha256':
+                          '0310d5ba8e0923062bd0a046b1827a4e814fc3f3adf854620d27e3cccb7fd750',
+                      'target_selection_sha256':
+                          '4e33933c7297612961ea2b48f5a24a126facbd36bd81d98c0f6eeb3f20b612c4',
+                      'milestone_36_verification_receipt_sha256':
+                          '9efde86fd305a1f86610992c6ca2a34eb11010f55a703936a548414e206e10ab',
+                      'selected_extension_rank': 37,
+                      'selected_archive_target': 'HIP84607',
+                      'selected_planet': 'HD 156668 b',
+                      'selected_cadence': '--85168',
+                      'artifact_id': artifact_id,
+                      'artifact_digest': digest,
+                      'artifact_name': 'milestone-37-selected-metadata',
+                      'spectral_payload_inspected': False,
+                      'spectral_dataset_values_read': False,
+                      'telescope_remote_request_made': False,
+                  },
+                  indent=2,
+                  sort_keys=True,
+              )
+              + '\n'
+          )
+          PY
+          jq empty results_m37_selected_metadata/hd156668b.json \
+            MILESTONE_37_SELECTED_METADATA_PROVENANCE.json
+          sha256sum -c RESULTS_MANIFEST_M37_SELECTED_METADATA.sha256
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$GITHUB_SHA"
+          git add RESULTS_MANIFEST_M37_SELECTED_METADATA.sha256 \
+            results_m37_selected_metadata \
+            MILESTONE_37_SELECTED_METADATA_PROVENANCE.json
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "Publish Milestone 37 selected metadata"
+          git push origin HEAD:main
