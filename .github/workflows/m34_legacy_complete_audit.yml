@@ -1,0 +1,192 @@
+name: Milestone 34 legacy complete-disposition audit
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m34_legacy_complete_audit.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    name: Audit Milestone ${{ matrix.milestone }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    strategy:
+      fail-fast: false
+      matrix:
+        milestone: [17, 21]
+    env:
+      MPLCONFIGDIR: /tmp/matplotlib
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+          cache: pip
+
+      - name: Install frozen detector and HDF5 adapter dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . \
+            'numpy==2.5.2' \
+            'astropy==8.0.1' \
+            'astropy-iers-data==0.2026.8.18.14.22.31' \
+            'pyerfa==2.0.1.5' \
+            'matplotlib==3.11.1' \
+            'h5py==3.16.0' \
+            'fsspec[http]==2026.7.0' \
+            'hdf5plugin==6.0.0'
+
+      - name: Verify frozen audit protocol
+        run: |
+          git diff --exit-code \
+            32720a0b5e097403f864e2b84d53a071d65d7c46 \
+            -- pyproject.toml src/seti_repeater tests
+          python -m unittest discover -s tests -v
+          if test "${{ matrix.milestone }}" = 17; then
+            tsamp=18.253611008
+            channel_width=2.7939677238464355
+          else
+            tsamp=17.986224128
+            channel_width=2.835503418452676
+          fi
+          seti-repeater validate \
+            --tsamp "$tsamp" \
+            --channel-width "$channel_width" \
+            --output "/tmp/validation_m${{ matrix.milestone }}.json"
+          test "$(sha256sum MILESTONE_34_LEGACY_COMPLETE_AUDIT_PLAN.md | cut -d' ' -f1)" \
+            = "a0eae804dd68e7a9fb2c959377641de0da800750c3cab38ee689031832181510"
+          test "$(sha256sum config/m34_legacy_complete_audit.json | cut -d' ' -f1)" \
+            = "b1531a721edbcf96f30cc8a07ce27d7cbd2c14076408463288988c48d61dc37e"
+          test "$(sha256sum scripts/m34_legacy_complete_audit.py | cut -d' ' -f1)" \
+            = "b87a6810baa8627395576345d8ffcae3c2cde49040cc607219380430fd229ac2"
+
+      - name: Generate the one-field audit configuration
+        run: |
+          mkdir -p "/tmp/m34/m${{ matrix.milestone }}"
+          python scripts/m34_legacy_complete_audit.py prepare \
+            --spec config/m34_legacy_complete_audit.json \
+            --milestone "${{ matrix.milestone }}" \
+            --output "/tmp/m34/m${{ matrix.milestone }}/audit_config.json"
+
+      - name: Re-extract the frozen primary cadence only
+        run: |
+          python scripts/m13_hdf5_extract.py \
+            "/tmp/m34/m${{ matrix.milestone }}/audit_config.json" \
+            --data-dir "data_m34_legacy_complete_audit/m${{ matrix.milestone }}"
+
+      - name: Hash the reproduced extracts
+        run: |
+          find "data_m34_legacy_complete_audit/m${{ matrix.milestone }}" \
+            -type f -name '*.npz' -print0 \
+            | sort -z \
+            | xargs -0 sha256sum \
+            > "/tmp/m34/m${{ matrix.milestone }}/DATA_MANIFEST.sha256"
+          test "$(wc -l < "/tmp/m34/m${{ matrix.milestone }}/DATA_MANIFEST.sha256")" \
+            -eq 30
+
+      - name: Rerun detector with complete report capacity
+        run: |
+          seti-repeater search \
+            --config "/tmp/m34/m${{ matrix.milestone }}/audit_config.json" \
+            --data-dir "data_m34_legacy_complete_audit/m${{ matrix.milestone }}" \
+            --output-dir "results_m34_legacy_complete_audit/m${{ matrix.milestone }}"
+
+      - name: Verify exact primary reproduction and classify every cluster
+        run: |
+          python scripts/m34_legacy_complete_audit.py finalize \
+            --spec config/m34_legacy_complete_audit.json \
+            --milestone "${{ matrix.milestone }}" \
+            --audit-config "/tmp/m34/m${{ matrix.milestone }}/audit_config.json" \
+            --audit-data-manifest "/tmp/m34/m${{ matrix.milestone }}/DATA_MANIFEST.sha256" \
+            --audit-search-summary \
+              "results_m34_legacy_complete_audit/m${{ matrix.milestone }}/search_summary.json" \
+            --output \
+              "results_m34_legacy_complete_audit/m${{ matrix.milestone }}/audit_summary.json"
+
+      - name: Preserve generated config and complete manifests
+        run: |
+          cp "/tmp/m34/m${{ matrix.milestone }}/audit_config.json" \
+            "results_m34_legacy_complete_audit/m${{ matrix.milestone }}/audit_config.json"
+          cp "/tmp/m34/m${{ matrix.milestone }}/DATA_MANIFEST.sha256" \
+            "results_m34_legacy_complete_audit/m${{ matrix.milestone }}/DATA_MANIFEST.sha256"
+          find "results_m34_legacy_complete_audit/m${{ matrix.milestone }}" \
+            -type f ! -name 'RESULTS_MANIFEST.sha256' -print0 \
+            | sort -z \
+            | xargs -0 sha256sum \
+            > "results_m34_legacy_complete_audit/m${{ matrix.milestone }}/RESULTS_MANIFEST.sha256"
+
+      - name: Upload target audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-34-legacy-audit-m${{ matrix.milestone }}
+          if-no-files-found: warn
+          retention-days: 90
+          path: results_m34_legacy_complete_audit/m${{ matrix.milestone }}/
+
+  publish:
+    name: Combine and publish both audits
+    needs: audit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: milestone-34-legacy-audit-m17
+          path: results_m34_legacy_complete_audit/m17
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: milestone-34-legacy-audit-m21
+          path: results_m34_legacy_complete_audit/m21
+
+      - name: Verify target artifacts and create combined audit record
+        run: |
+          sha256sum -c \
+            results_m34_legacy_complete_audit/m17/RESULTS_MANIFEST.sha256
+          sha256sum -c \
+            results_m34_legacy_complete_audit/m21/RESULTS_MANIFEST.sha256
+          python scripts/m34_legacy_complete_audit.py combine \
+            --spec config/m34_legacy_complete_audit.json \
+            --root results_m34_legacy_complete_audit \
+            --output results_m34_legacy_complete_audit/audit_summary.json
+          find results_m34_legacy_complete_audit -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum \
+            > RESULTS_MANIFEST_M34_LEGACY_COMPLETE_AUDIT.sha256
+
+      - name: Publish complete machine-readable audit atomically
+        run: |
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$GITHUB_SHA"
+          git add results_m34_legacy_complete_audit \
+            RESULTS_MANIFEST_M34_LEGACY_COMPLETE_AUDIT.sha256
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "Publish Milestone 34 legacy complete audits"
+          git push origin HEAD:main
+
+      - name: Upload combined audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-34-legacy-complete-audit
+          if-no-files-found: warn
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M34_LEGACY_COMPLETE_AUDIT.sha256
+            results_m34_legacy_complete_audit/

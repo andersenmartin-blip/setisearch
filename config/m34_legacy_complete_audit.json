@@ -1,0 +1,70 @@
+{
+  "analysis": {
+    "name": "Milestone 34 legacy complete-disposition audit",
+    "status": "frozen_before_legacy_primary_rerun",
+    "detector_version": "0.5.0",
+    "detector_commit": "32720a0b5e097403f864e2b84d53a071d65d7c46",
+    "runtime_versions": {
+      "python": "3.12.14",
+      "numpy": "2.5.2",
+      "astropy": "8.0.1",
+      "astropy-iers-data": "0.2026.8.18.14.22.31",
+      "pyerfa": "2.0.1.5",
+      "matplotlib": "3.11.1",
+      "h5py": "3.16.0",
+      "fsspec": "2026.7.0",
+      "hdf5plugin": "6.0.0"
+    },
+    "primary_report_cap": 50,
+    "audit_report_cap": 500,
+    "cap_dependent_annotations": [
+      "receiver_frame_template_alias",
+      "arithmetic_frequency_family"
+    ],
+    "physical_veto_dispositions": [
+      "rfi_veto_off_source",
+      "rfi_veto_single_adjacent_off",
+      "rfi_veto_local_off_source",
+      "rfi_veto_receiver_frame_alias"
+    ],
+    "new_telescope_targets_opened": false,
+    "independent_or_reserved_cadences_opened": false
+  },
+  "targets": [
+    {
+      "milestone": 17,
+      "target": "GJ 849",
+      "primary_config": "config/gj849b_heldout_m17.json",
+      "primary_config_sha256": "87372243bc6f8eec0b9cdf4f80d3a3c37fbffdd13bddd6efeafdfd5f383b2e76",
+      "primary_search_summary": "results_m17/search_summary.json",
+      "primary_search_summary_sha256": "321b00be48ba9ebbc033427f11c7a811e87b41c1055399671f55081df70f5061",
+      "primary_data_manifest": "DATA_MANIFEST_M17.sha256",
+      "primary_data_manifest_sha256": "8e1ae1559e7c56e3e0a662020c49a7de9025a8bb200fc2923eb5f29e37c65e12",
+      "expected_audit_config_sha256": "4f9e5b643dd98626d3502643136120c47da100fa6b13a87c9b55d45a02b72d6f",
+      "known_posthoc_resolutions": []
+    },
+    {
+      "milestone": 21,
+      "target": "HD 154345",
+      "primary_config": "config/hd154345b_heldout_m21.json",
+      "primary_config_sha256": "441597c69c1b3227648ee7aaf4bd6c8b0a09241c807755e03b355baa194b21e7",
+      "primary_search_summary": "results_m21/search_summary.json",
+      "primary_search_summary_sha256": "e098ed1cf2d73a785aa73ece68fc5a490aff80d35758917703b00ef23483dbf0",
+      "primary_data_manifest": "DATA_MANIFEST_M21.sha256",
+      "primary_data_manifest_sha256": "6ce30183d3f9153ce95fffce5305934ae1bcac2b777b90e40aa7bd3323324d69",
+      "expected_audit_config_sha256": "f9724e05a0c2bbdcdc4b5a5a95471151ef20944300c294c11949a3975fce988a",
+      "posthoc_source": "results_m21_candidate_investigation/candidate_investigation.json",
+      "posthoc_source_sha256": "83bc8f58b11fb8d1c599f7e1a712b0474e20b2f9fbcfeb228ed3d32ff9750335",
+      "known_posthoc_resolutions": [
+        {
+          "frequency_mhz": 1424.954541208892,
+          "classification": "RFI_OR_INSTRUMENTAL"
+        },
+        {
+          "frequency_mhz": 1424.9641847560824,
+          "classification": "RFI_OR_INSTRUMENTAL"
+        }
+      ]
+    }
+  ]
+}
