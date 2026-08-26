@@ -51,6 +51,8 @@ jobs:
           test "$(sha256sum MILESTONE_36_HEADER_SCREEN_PLAN.md | cut -d' ' -f1)" \
             = "a52eaa57683dc9a1b168ee6721eb925745bfee2fda90bc9246e061dbd9c44b7f"
           git merge-base --is-ancestor \
+            71d2e032f12b63c7d66bf4400663c403bfc8511d "$GITHUB_SHA"
+          git merge-base --is-ancestor \
             521b2936214da296cd07a3dd1aeb89a609500119 "$GITHUB_SHA"
 
       - name: Run fixed HDF5-header-only screen
