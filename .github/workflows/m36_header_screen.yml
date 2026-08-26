@@ -1,0 +1,148 @@
+name: Milestone 36 ranks 36--40 high-smearing HDF5 header screen
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m36_header_screen.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  screen:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Require first and only canonical screen publication
+        run: |
+          test ! -e results_m36_header_screen
+          test ! -e RESULTS_MANIFEST_M36_HEADER_SCREEN.sha256
+          test ! -e MILESTONE_36_HEADER_SCREEN_PROVENANCE.json
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install header-adapter dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . \
+            'h5py>=3.11,<4' \
+            'fsspec[http]>=2024.6,<2027'
+
+      - name: Verify frozen inputs and completed prior boundary
+        run: |
+          test "$(sha256sum results_m16_discovery/discovery.json | cut -d' ' -f1)" \
+            = "0310d5ba8e0923062bd0a046b1827a4e814fc3f3adf854620d27e3cccb7fd750"
+          test "$(sha256sum MILESTONE_34_REPORT.md | cut -d' ' -f1)" \
+            = "39848fe4f8712b4da0aa1ff75a5e63e9a06b599652cecea935a574b5cee33fed"
+          test "$(sha256sum scripts/m13_catalog_probe.py | cut -d' ' -f1)" \
+            = "b426646269d717958bc30ab5a15e0b86982b85a3774aa8918dd0a054e972d41d"
+          test "$(sha256sum scripts/m36_header_screen.py | cut -d' ' -f1)" \
+            = "cf0f4261d19e86430f6e2e1efa1debdc184f62c50d0fb204059a5a48cd100a28"
+          test "$(sha256sum MILESTONE_36_HEADER_SCREEN_PLAN.md | cut -d' ' -f1)" \
+            = "a52eaa57683dc9a1b168ee6721eb925745bfee2fda90bc9246e061dbd9c44b7f"
+          git merge-base --is-ancestor \
+            521b2936214da296cd07a3dd1aeb89a609500119 "$GITHUB_SHA"
+
+      - name: Run fixed HDF5-header-only screen
+        run: |
+          python scripts/m36_header_screen.py \
+            --discovery results_m16_discovery/discovery.json \
+            --output results_m36_header_screen/header_screen.json
+
+      - name: Verify spectral boundary and hash result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(
+              Path('results_m36_header_screen/header_screen.json').read_text()
+          )
+          assert result['spectral_payload_inspected'] is False
+          assert result['spectral_dataset_values_read'] is False
+          assert result['frozen_extension_ranks'] == [36, 37, 38, 39, 40]
+          assert result['high_smearing_width_bank_frozen'] == [
+              1, 3, 5, 9, 17, 33, 65, 129
+          ]
+          assert result['candidate_report_cap_frozen'] == 2200
+          assert result['maximum_hypothesis_peaks_per_window'] == 2016
+          assert result['candidate_report_cap_frozen'] > \
+              result['maximum_hypothesis_peaks_per_window']
+          assert len(result['screened_targets']) == 5
+          assert [item['rank'] for item in result['screened_targets']] == \
+              [36, 37, 38, 39, 40]
+          assert all(
+              item['low_smearing_bucket'] is False
+              for item in result['screened_targets']
+          )
+          PY
+          find results_m36_header_screen -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M36_HEADER_SCREEN.sha256
+          test "$(wc -l < RESULTS_MANIFEST_M36_HEADER_SCREEN.sha256)" -eq 1
+          sha256sum -c RESULTS_MANIFEST_M36_HEADER_SCREEN.sha256
+
+      - name: Upload header-screen evidence
+        id: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-36-header-screen
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M36_HEADER_SCREEN.sha256
+            results_m36_header_screen/
+
+      - name: Record provenance and publish checked screen
+        env:
+          ARTIFACT_ID: ${{ steps.upload.outputs.artifact-id }}
+          ARTIFACT_DIGEST: ${{ steps.upload.outputs.artifact-digest }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('MILESTONE_36_HEADER_SCREEN_PROVENANCE.json').write_text(
+              json.dumps(
+                  {
+                      'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                      'source_commit': os.environ['GITHUB_SHA'],
+                      'artifact_id': int(os.environ['ARTIFACT_ID']),
+                      'artifact_digest': os.environ['ARTIFACT_DIGEST'],
+                      'artifact_name': 'milestone-36-header-screen',
+                      'spectral_payload_inspected': False,
+                      'spectral_dataset_values_read': False,
+                      'high_smearing_width_bank_frozen': [
+                          1, 3, 5, 9, 17, 33, 65, 129
+                      ],
+                      'candidate_report_cap_frozen': 2200,
+                  },
+                  indent=2,
+                  sort_keys=True,
+              )
+              + '\n'
+          )
+          PY
+          jq empty results_m36_header_screen/header_screen.json \
+            MILESTONE_36_HEADER_SCREEN_PROVENANCE.json
+          sha256sum -c RESULTS_MANIFEST_M36_HEADER_SCREEN.sha256
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$GITHUB_SHA"
+          git add RESULTS_MANIFEST_M36_HEADER_SCREEN.sha256 \
+            results_m36_header_screen \
+            MILESTONE_36_HEADER_SCREEN_PROVENANCE.json
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "Publish Milestone 36 header screen"
+          git push origin HEAD:main
