@@ -9,15 +9,34 @@ telescope response. The working technosignature hypothesis is a transmitter
 whose frequency is stable in the selected planet frame and whose beam is not
 necessarily aimed at Earth.
 
-**Current scientific status:** no surviving candidate and no technosignature
-claim. The repository preserves frozen configurations, checksummed results,
-technical aborts, post-hoc labels, and non-redetections so that positive and
-negative outcomes remain independently auditable.
+**Current scientific status:** one unresolved Milestone 33 follow-up case and
+no technosignature claim. The repository preserves frozen configurations,
+checksummed results, technical aborts, post-hoc labels, and non-redetections
+so that positive and negative outcomes remain independently auditable.
 
 Version 0.5.0 is the frozen detector used for new held-out validation. It
 retains the Milestone 7 recurrence statistic, spectral filters, per-epoch
 interference mask, candidate clustering, and RFI-family flags, and adds the
 Milestone 12 local-OFF and receiver-frame alias vetoes.
+
+## Milestone 33 result
+
+Milestone 33 completed the eligible targets in the frozen higher-smearing
+ranks 31--35 extension by searching HD 3651 / HIP 3093 at rank 34. HD 3651 b
+supplied only the motion template. A width-aware metadata proof passed all 630
+checks before spectral contact, and the blind search used the sole complete
+compatible L-band cadence `--73274` with the unchanged six-width bank.
+
+Across approximately 901,940,760 nominal trials, the global maximum reached
+S/N 3873.2958 at 1406.087976374 MHz, with empirical global p-value 1/257 and
+an operational threshold of S/N 10.3294. All 951 retained clusters are
+reported. Eighteen exceeded threshold: two have strong local-control
+recurrence and 15 map to recurring receiver-frame features. The remaining
+weak 1424.934238382 MHz arithmetic-family case passed a separately frozen
+six-scan morphology review and remains unresolved because no independent HD
+3651 cadence exists. It is not a detection or technosignature claim. Estimated
+multichannel 50% and 90% recovery occur near ideal single-epoch S/N 13.82 and
+19.40; the corresponding one-channel estimates are 19.00 and 35.20.
 
 ## Milestone 32 result
 
@@ -607,6 +626,16 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Key files
 
+- `MILESTONE_33_TARGET_SELECTION.md` — fixed HD 3651 target and cadence.
+- `MILESTONE_33_SELECTED_METADATA_RESULT.md` — official orbit and astrometry.
+- `MILESTONE_33_PREREGISTRATION.md` — frozen higher-smearing search design.
+- `MILESTONE_33_CANDIDATE_INVESTIGATION_PLAN.md` — fixed post-hoc protocol.
+- `MILESTONE_33_CANDIDATE_INVESTIGATION.md` — unresolved six-scan review.
+- `MILESTONE_33_REPORT.md` — final result, open case, and sensitivity limits.
+- `config/hd3651b_heldout_m33.json` — frozen target, cadence, bands, and widths.
+- `DATA_MANIFEST_M33.sha256` — checksums for all 30 primary extracts.
+- `RESULTS_MANIFEST_M33.sha256` — checksums for all nine primary outputs.
+- `results_m33/search_summary.json` — complete machine-readable search record.
 - `MILESTONE_32_TARGET_SELECTION.md` — fixed HD 99492 target and cadence.
 - `MILESTONE_32_SELECTED_METADATA_RESULT.md` — official orbit and astrometry.
 - `MILESTONE_32_PREREGISTRATION.md` — frozen higher-smearing search design.
