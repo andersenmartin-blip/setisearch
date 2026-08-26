@@ -1,0 +1,155 @@
+name: Milestone 36 HIP 48714 selected-target metadata
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/m36_selected_metadata.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  metadata:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Require first and only canonical metadata publication
+        run: |
+          test ! -e results_m36_selected_metadata
+          test ! -e RESULTS_MANIFEST_M36_SELECTED_METADATA.sha256
+          test ! -e MILESTONE_36_SELECTED_METADATA_PROVENANCE.json
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify frozen selection inputs and metadata query
+        run: |
+          test "$(sha256sum results_m16_discovery/discovery.json | cut -d' ' -f1)" \
+            = "0310d5ba8e0923062bd0a046b1827a4e814fc3f3adf854620d27e3cccb7fd750"
+          test "$(sha256sum results_m36_header_screen/header_screen.json | cut -d' ' -f1)" \
+            = "45bd84cad0c83e8079ad3fe204ca827c7213954f43121599fbeac893252db19b"
+          test "$(sha256sum MILESTONE_36_TARGET_SELECTION.md | cut -d' ' -f1)" \
+            = "89834f2f1fcb72ddba602765e5bbc090977b79f9878eedf44c4d32df0c0ff47c"
+          test "$(sha256sum scripts/m36_selected_metadata.py | cut -d' ' -f1)" \
+            = "646d2de72013006b0cdaf189cbb87197d9adb4f695b4b4cf07be50a133a630f2"
+          git merge-base --is-ancestor \
+            ee24e87944c27d7b47e7b6fccc764b958945318a "$GITHUB_SHA"
+
+      - name: Verify mechanical HIP 48714 selection and spectral boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          screen = json.loads(
+              Path('results_m36_header_screen/header_screen.json').read_text()
+          )
+          targets = {item['rank']: item for item in screen['screened_targets']}
+          assert screen['selected']['rank'] == 36
+          assert screen['selected']['archive_target'] == 'HIP48714'
+          assert screen['selected']['planet_name'] == 'HIP 48714 b'
+          assert [targets[r]['qualifying_count'] for r in range(36, 41)] == [
+              1, 1, 1, 0, 0
+          ]
+          primary = screen['selected']['cadence']
+          assert primary['cadence_url'].endswith('/--76348')
+          assert len(primary['headers']) == 6
+          assert primary['scan_sources'] == [
+              'Hip48714', 'Hip47655', 'Hip48714',
+              'Hip47791', 'Hip48714', 'Hip48132'
+          ]
+          assert all(
+              header['spectral_dataset_values_read'] is False
+              for header in primary['headers']
+          )
+          assert all(
+              header['covers_required_guarded_range'] is True
+              for header in primary['headers']
+          )
+          assert screen['spectral_payload_inspected'] is False
+          assert screen['spectral_dataset_values_read'] is False
+          PY
+
+      - name: Fetch selected official record
+        run: python scripts/m36_selected_metadata.py
+
+      - name: Verify boundary and hash result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(
+              Path('results_m36_selected_metadata/hip48714b.json').read_text()
+          )
+          assert result['spectral_payload_inspected'] is False
+          assert result['http_status'] == 200
+          assert result['record']['pl_name'] == 'HIP 48714 b'
+          assert result['record']['hostname'] == 'HIP 48714'
+          assert result['record']['hip_name'] == 'HIP 48714'
+          PY
+          find results_m36_selected_metadata -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_M36_SELECTED_METADATA.sha256
+          test "$(wc -l < RESULTS_MANIFEST_M36_SELECTED_METADATA.sha256)" -eq 1
+          sha256sum -c RESULTS_MANIFEST_M36_SELECTED_METADATA.sha256
+
+      - name: Upload selected metadata
+        id: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: milestone-36-selected-metadata
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            RESULTS_MANIFEST_M36_SELECTED_METADATA.sha256
+            results_m36_selected_metadata/
+
+      - name: Record provenance and publish checked metadata
+        env:
+          ARTIFACT_ID: ${{ steps.upload.outputs.artifact-id }}
+          ARTIFACT_DIGEST: ${{ steps.upload.outputs.artifact-digest }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('MILESTONE_36_SELECTED_METADATA_PROVENANCE.json').write_text(
+              json.dumps(
+                  {
+                      'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                      'source_commit': os.environ['GITHUB_SHA'],
+                      'header_screen_result_commit':
+                          'ee24e87944c27d7b47e7b6fccc764b958945318a',
+                      'artifact_id': int(os.environ['ARTIFACT_ID']),
+                      'artifact_digest': os.environ['ARTIFACT_DIGEST'],
+                      'artifact_name': 'milestone-36-selected-metadata',
+                      'spectral_payload_inspected': False,
+                  },
+                  indent=2,
+                  sort_keys=True,
+              )
+              + '\n'
+          )
+          PY
+          jq empty results_m36_selected_metadata/hip48714b.json \
+            MILESTONE_36_SELECTED_METADATA_PROVENANCE.json
+          sha256sum -c RESULTS_MANIFEST_M36_SELECTED_METADATA.sha256
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$GITHUB_SHA"
+          git add RESULTS_MANIFEST_M36_SELECTED_METADATA.sha256 \
+            results_m36_selected_metadata \
+            MILESTONE_36_SELECTED_METADATA_PROVENANCE.json
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "Publish Milestone 36 selected metadata"
+          git push origin HEAD:main
