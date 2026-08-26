@@ -277,10 +277,4 @@ Extracted telescope slices are not committed.
 
 ## Independent final publication verification
 
-**PENDING PLACEHOLDER.** A separate final workflow must independently verify
-the primary and audit artifact digests, every primary and audit manifest
-entry, the exact audit stopping outcome and counts, commit ancestry, and the
-hash of this report. After that workflow succeeds, this section must be
-replaced with its immutable run ID, machine-readable receipt, and the exact
-scope of the checks it completed. This placeholder is not itself a completed
-verification receipt.
+Workflow run `33006228557` independently revalidated both the primary and exhaustive-audit artifact ZIP digests and every archived byte, all published manifests, 3,360 hypothesis certificates, all 7,571 above-threshold coverage-ledger rows, all 1,081 audited union records, the member-level physical dispositions, the closed stopping outcome, execution provenance, atomic audit publication, and the frozen pre-verification report hash. Its machine-readable receipt is `MILESTONE_36_PUBLICATION_VERIFICATION.json`.
