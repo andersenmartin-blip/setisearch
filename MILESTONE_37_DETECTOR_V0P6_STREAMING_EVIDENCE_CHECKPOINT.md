@@ -50,9 +50,10 @@ suite; this checkpoint does not replace its earlier independent passing run.
 
 ## Remaining blockers
 
-1. Extend the sparse/local completeness reference through exhaustive
-   retention, OFF and adjacent-OFF disposition, receiver-alias dependencies,
-   rank-p, production receipts and the complete resource envelope.
+1. The bounded phase-2 reference now covers synthetic exhaustive ON/OFF
+   retention, retained-OFF disposition and rank-p. Extend it through
+   adjacent-OFF, receiver-alias dependencies, production receipts and the
+   complete resource envelope without a production-scale dense oracle.
 2. Integrate the now-closed streaming interfaces and evidence-bound resource
    receipts into the restartable end-to-end production runner and journal.
 3. Pin Python, extractor dependencies, OS, compiler, OpenMP runtime, CPU policy

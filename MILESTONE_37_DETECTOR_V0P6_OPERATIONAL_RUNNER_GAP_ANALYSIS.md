@@ -121,10 +121,13 @@ Each of 6,144 trials must obtain a one-shot, seed-selected three-ON background,
 inject into normalized native float32 arrays before filtering, rebuild masks,
 run the operational detector and physical passes, derive rank-p, and add one
 complete trial receipt. Production remains disabled until the full replay or
-a complete bit-identical sparse/local replacement is proven feasible. The
-current phase-1 sparse/local KAT covers only synthetic truth-local gathers,
-mask closure and hypothesis scoring; it does not cover global retention,
-physical disposition, rank-p, production receipts or this runner lifecycle.
+a complete bit-identical sparse/local replacement is proven feasible. Phase 1
+covers synthetic truth-local gathers, mask closure and hypothesis scoring. The
+bounded phase-2 KAT adds byte-identical ON/OFF retention, all three
+retained-OFF branches and rank-p boundaries, but only by requiring a complete
+dense-score oracle capped at 1,000,000 cells. Adjacent-OFF, receiver-alias
+dependencies, production receipts, the full resource envelope and this runner
+lifecycle remain open.
 
 ## Memory lifecycle
 

@@ -15,9 +15,10 @@ primary search and a complete above-threshold retention audit; every retained
 member received physical control evidence and no M36 candidate survives.
 Milestone 37 is now in progress for HD 156668. Its metadata checks, detector
 v0.6 preflight, implementation candidate, restartable metadata-only bootstrap,
-and synthetic width-streaming evidence checkpoint are published, but no
-Milestone 37 telescope spectral payload has been opened or read and there is
-not yet a scientific M37 search result.
+synthetic width-streaming evidence checkpoint, and phase-2 sparse-retention /
+OFF / rank-p reference are published, but no Milestone 37 telescope spectral
+payload has been opened or read and there is not yet a scientific M37 search
+result.
 
 Milestone 35 provides the latest survey-level synthesis. At exact ideal S/N 40
 its finite-injection pointwise 95% upper bound on `f(40)` is 33.16%, where
@@ -54,14 +55,19 @@ reproduced and reopened its factor bundle and stopped at
 `factor_bundle_ready`, before the spectral boundary. Receiver-frame and
 adjacent-OFF evidence can now stream one cache width at a time under explicit
 mapped-byte accounting while reproducing their full-inventory results exactly.
-The full repository suite passes 251 tests with one expected benchmark skip
-and zero failures.
+A bounded phase-2 KAT also reproduces synthetic exhaustive ON/OFF retention,
+all three retained-OFF disposition branches and inclusive rank-p boundaries.
+It requires a complete dense-score oracle and therefore does not unlock the
+production gate. The full repository suite passes 255 tests with one expected
+benchmark skip and zero failures.
 
 M37 remains an engineering milestone, not a scientific result. The complete
-production completeness path, integration of the streaming stages into the
-restartable runner, the final pinned runtime, and the production runner must
-still be closed and frozen before any separate authorization may permit the
-six HD 156668 telescope payloads to be contacted.
+production completeness path still lacks adjacent-OFF and receiver-alias
+reference coverage, production ancestry and the complete resource envelope.
+Integration of the streaming stages into the restartable runner, the final
+pinned runtime, and the production runner must also be closed and frozen
+before any separate authorization may permit the six HD 156668 telescope
+payloads to be contacted.
 
 ## Milestone 36 result
 
@@ -750,6 +756,8 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 - `results_m37_v0p6_runner_progress/progress.json` — machine-readable M37 status.
 - `MILESTONE_37_DETECTOR_V0P6_STREAMING_EVIDENCE_CHECKPOINT.md` — width-streaming evidence checkpoint.
 - `results_m37_v0p6_streaming_evidence/progress.json` — machine-readable streaming status.
+- `MILESTONE_37_DETECTOR_V0P6_SPARSE_RETENTION_CHECKPOINT.md` — bounded phase-2 retention/OFF/rank reference.
+- `results_m37_v0p6_sparse_retention/progress.json` — machine-readable phase-2 status.
 - `MILESTONE_36_REPORT.md` — primary result and exhaustive audit interpretation.
 - `MILESTONE_36_PREREGISTRATION.md` — frozen HIP 48714 search design.
 - `MILESTONE_36_EXHAUSTIVE_RETENTION_AUDIT_PLAN.md` — complete-retention protocol.

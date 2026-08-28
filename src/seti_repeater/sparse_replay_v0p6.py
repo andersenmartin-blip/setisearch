@@ -1,11 +1,13 @@
 """Synthetic truth-local replay references for detector-v0.6.
 
-This module proves only a deliberately narrow numerical statement: selected
-native gathers, coordinate-aware two-pass masks, and pointwise hypothesis
-scores can reproduce their dense synthetic references bit for bit.  It is not
-a production completeness implementation.  In particular, it does not prove
-that exhaustive retention, OFF dispositions, receiver-alias connected
-components, or their transitive dependencies are local.
+The phase-1 reference proves that selected native gathers, coordinate-aware
+two-pass masks and pointwise hypothesis scores reproduce dense synthetic
+references bit for bit.  The bounded phase-2 reference additionally requires
+a complete dense score oracle and proves identical retained-record bytes,
+three OFF-disposition branches and inclusive rank-p boundaries for one small
+fixture.  Neither phase is a production completeness implementation.  In
+particular, receiver-alias and adjacent-OFF dependencies, production ancestry
+and the complete resource envelope remain unproved.
 
 Every materialized truth-distance oracle has a hard cell cap so the reference
 planner cannot accidentally be applied to the full M37 grid.
@@ -76,6 +78,37 @@ SPARSE_LOCAL_KAT_SCORES_SHA256 = (
 )
 SPARSE_LOCAL_KAT_RECEIPT_SHA256 = (
     "32e9208579e435be0cefa72c13e579c8020ec361f23fa9650e9adbf25cfe9201"
+)
+
+SPARSE_RETENTION_REFERENCE_STATUS = (
+    "synthetic-sparse-retention-off-rank-reference-production-unproven"
+)
+SPARSE_RETENTION_REFERENCE_MAXIMUM_SCORE_CELLS = 1_000_000
+SPARSE_RETENTION_REFERENCE_COVERAGE = (
+    "all-eight-widths",
+    "all-four-activity-subsets",
+    "inclusive-retention-threshold",
+    "strict-omitted-cell-upper-bound",
+    "complete-retained-record-bytes",
+    "same-hypothesis-off-disposition",
+    "local-track-off-disposition",
+    "unmatched-off-disposition",
+    "inclusive-rank-p-below-at-above-ceiling",
+)
+SPARSE_RETENTION_REFERENCE_ON_PRODUCT_SHA256 = (
+    "f0ed4bf233173bb4d783b40281776c83c3300443596183b4449268674a8a2915"
+)
+SPARSE_RETENTION_REFERENCE_OFF_PRODUCT_SHA256 = (
+    "2361c65ec692c6f32316283e599856ee55e9c76331f613c3319298adad52dbc2"
+)
+SPARSE_RETENTION_REFERENCE_OFF_RESULT_SHA256 = (
+    "1127508775f50ab653c64d8bcaf22321125591709e972c42088eacb9a4405c02"
+)
+SPARSE_RETENTION_REFERENCE_RANK_RESULT_SHA256 = (
+    "6a63edfbac0bf41df01f49afa0f64d5555ea83b8ad103204dba06dfb9b0fa286"
+)
+SPARSE_RETENTION_REFERENCE_RECEIPT_SHA256 = (
+    "1d70d05ac7b7888cf8071bcbe894bd67bae24fba87636c6c17945b982cf0ca09"
 )
 
 
@@ -1397,4 +1430,843 @@ def validate_sparse_local_reference_kat_receipt(
     ):
         raise core.V0P6IncompleteError(
             "sparse KAT receipt is not the pinned known answer"
+        )
+
+
+@dataclass(frozen=True)
+class SparseRetentionReferenceKATProduct:
+    """Immutable synthetic retention product backed by a dense oracle.
+
+    The dense score inventory is mandatory and hard-capped.  This object can
+    therefore prove one small fixture but cannot certify a production replay.
+    """
+
+    status: str
+    fixture_sha256: str
+    phase1_receipt_sha256: str
+    scan_kind: str
+    retention_certificate_sha256: str
+    threshold_snr: float
+    hypothesis_count: int
+    full_score_cell_count: int
+    local_score_cell_count: int
+    omitted_score_cell_count: int
+    maximum_finite_omitted_score: float | None
+    dense_score_inventory_sha256: str
+    selected_dense_score_inventory_sha256: str
+    local_score_inventory_sha256: str
+    candidate_index_inventory_sha256: str
+    retained_record_count: int
+    retained_records_sha256: str
+    global_retention_equivalence_proven: bool
+    production_equivalence_claimed: bool
+    production_data_used: bool
+    product_sha256: str
+    records_canonical_bytes: bytes = field(repr=False, compare=False)
+
+    def as_record(self, *, include_identity: bool = True) -> dict[str, Any]:
+        record = {
+            "status": self.status,
+            "fixture_sha256": self.fixture_sha256,
+            "phase1_receipt_sha256": self.phase1_receipt_sha256,
+            "scan_kind": self.scan_kind,
+            "retention_certificate_sha256": (
+                self.retention_certificate_sha256
+            ),
+            "threshold_snr": self.threshold_snr,
+            "hypothesis_count": self.hypothesis_count,
+            "full_score_cell_count": self.full_score_cell_count,
+            "local_score_cell_count": self.local_score_cell_count,
+            "omitted_score_cell_count": self.omitted_score_cell_count,
+            "maximum_finite_omitted_score": (
+                self.maximum_finite_omitted_score
+            ),
+            "dense_score_inventory_sha256": (
+                self.dense_score_inventory_sha256
+            ),
+            "selected_dense_score_inventory_sha256": (
+                self.selected_dense_score_inventory_sha256
+            ),
+            "local_score_inventory_sha256": (
+                self.local_score_inventory_sha256
+            ),
+            "candidate_index_inventory_sha256": (
+                self.candidate_index_inventory_sha256
+            ),
+            "retained_record_count": self.retained_record_count,
+            "retained_records_sha256": self.retained_records_sha256,
+            "global_retention_equivalence_proven": (
+                self.global_retention_equivalence_proven
+            ),
+            "production_equivalence_claimed": (
+                self.production_equivalence_claimed
+            ),
+            "production_data_used": self.production_data_used,
+        }
+        if include_identity:
+            record["product_sha256"] = self.product_sha256
+        return record
+
+    def records(self) -> list[dict[str, Any]]:
+        return json.loads(self.records_canonical_bytes)
+
+
+def _reference_retained_record(
+    *,
+    window_id: str,
+    scan_kind: str,
+    grid: core.ProxyCarrierGrid,
+    threshold: float,
+    threshold_certificate_sha256: str,
+    template: Mapping[str, Any],
+    template_index: int,
+    width_index: int,
+    width_channels: int,
+    subset: tuple[int, ...],
+    frequency_index: int,
+    score: np.float32,
+    epoch_values: np.ndarray,
+    minimum_active_epoch_snr: float | None,
+    stack_statistic: str,
+) -> dict[str, Any]:
+    lattice_index = frequency_index - grid.score_half_bins
+    record_key = {
+        "window_id": window_id,
+        "scan_kind": scan_kind,
+        "template_index": template_index,
+        "line_index": int(template["line_index"]),
+        "spectral_width_index": width_index,
+        "active_epochs_zero_based": list(subset),
+        "q_offset_bin": lattice_index,
+    }
+    return {
+        "record_id": _sha256_bytes(core.canonical_json_bytes(record_key)),
+        "record_key": record_key,
+        "window_id": window_id,
+        "scan_kind": scan_kind,
+        "snr": float(score),
+        "proxy_carrier_hz": float(grid.score_hz[frequency_index]),
+        "proxy_carrier_mhz": float(grid.score_hz[frequency_index] / 1e6),
+        "proxy_carrier_index": frequency_index,
+        "proxy_carrier_lattice_index": lattice_index,
+        "q_offset_bin": lattice_index,
+        "spectral_width_channels": width_channels,
+        "spectral_width_index": width_index,
+        "template_index": template_index,
+        "line_index": int(template["line_index"]),
+        "line_coefficient": float(template["line_coefficient"]),
+        "projected_scale": float(template["projected_scale"]),
+        "phase_offset_cycles": float(template["phase_cycles"]),
+        "active_epochs_zero_based": list(subset),
+        "epoch_values_at_proxy_carrier": [
+            float(value) if math.isfinite(float(value)) else None
+            for value in epoch_values
+        ],
+        "epoch_value_is_finite": [
+            bool(math.isfinite(float(value))) for value in epoch_values
+        ],
+        "operational_threshold_snr": threshold,
+        "minimum_active_epoch_snr": minimum_active_epoch_snr,
+        "stack_statistic": stack_statistic,
+        "threshold_certificate_sha256": threshold_certificate_sha256,
+        "epoch_vector_product_sha256": None,
+        "mask_product_sha256": None,
+        "filter_coordinate": core.FILTER_COORDINATE,
+        "member_disposition": "pending_physical_veto_evaluation",
+    }
+
+
+def build_sparse_retention_reference_kat(
+    *,
+    fixture_sha256: str,
+    phase1_receipt: SparseLocalReferenceKATReceipt,
+    dense_records: Sequence[Mapping[str, Any]],
+    retention_certificate: Mapping[str, Any],
+    grid: core.ProxyCarrierGrid,
+    template_bank: Sequence[Mapping[str, Any]],
+    candidate_indices: Sequence[LocalScoreIndexSet],
+    local_epoch_vectors: Mapping[tuple[int, int], np.ndarray],
+    local_masks: Mapping[int, np.ndarray],
+    dense_scores: Mapping[
+        tuple[int, int, tuple[int, ...]], np.ndarray
+    ],
+) -> SparseRetentionReferenceKATProduct:
+    """Prove exact synthetic retention with a mandatory dense-score oracle."""
+    _frozen_sha256(fixture_sha256, "sparse retention fixture")
+    validate_sparse_local_reference_kat_receipt(phase1_receipt)
+    cert = core.validate_retention_certificate(retention_certificate)
+    scan_kind = str(cert["scan_kind"])
+    if (
+        scan_kind not in {"on", "off"}
+        or cert["require_epoch_vector_product"] is not False
+        or cert["require_mask_product"] is not False
+    ):
+        raise core.V0P6ContractError(
+            "synthetic sparse retention requires non-production provenance flags"
+        )
+    bank = json.loads(core.canonical_json_bytes(list(template_bank)))
+    if (
+        not bank
+        or core.template_bank_sha256(bank) != cert["template_bank_sha256"]
+        or core.proxy_carrier_grid_sha256(grid) != cert["proxy_grid_sha256"]
+    ):
+        raise core.V0P6ContractError(
+            "sparse retention bank or grid differs from the reference certificate"
+        )
+    widths = core._strict_widths(cert["spectral_widths"])
+    subsets = core.canonical_activity_subsets(cert["activity_subsets"])
+    if (
+        widths != SPARSE_LOCAL_REQUIRED_WIDTHS
+        or subsets != SPARSE_LOCAL_REQUIRED_ACTIVITY_SUBSETS
+        or core._strict_int(cert["epoch_count"], "retention epoch count")
+        != SPARSE_LOCAL_REQUIRED_EPOCH_COUNT
+    ):
+        raise core.V0P6IncompleteError(
+            "sparse retention did not cover the frozen width/subset inventory"
+        )
+    plans = tuple(candidate_indices)
+    if len(plans) != len(bank):
+        raise core.V0P6IncompleteError(
+            "sparse retention candidate-plan inventory is incomplete"
+        )
+    for plan in plans:
+        validate_local_score_index_set(plan)
+        if plan.score_bin_count != grid.score_bin_count:
+            raise core.V0P6ContractError(
+                "sparse retention candidate plan has the wrong grid"
+            )
+
+    hypothesis_keys = tuple(
+        (template_index, width_index, subset)
+        for template_index in range(len(bank))
+        for width_index in range(len(widths))
+        for subset in subsets
+    )
+    vector_keys = tuple(
+        (template_index, width_index)
+        for template_index in range(len(bank))
+        for width_index in range(len(widths))
+    )
+    _require_exact_mapping_keys(
+        local_epoch_vectors,
+        vector_keys,
+        _canonical_width_mask_key,
+        "retention local-vector",
+    )
+    _require_exact_mapping_keys(
+        local_masks,
+        tuple(range(len(bank))),
+        lambda value: core._strict_int(value, "retention mask template"),
+        "retention local-mask",
+    )
+    _require_exact_mapping_keys(
+        dense_scores,
+        hypothesis_keys,
+        _canonical_score_key,
+        "retention dense-score",
+    )
+    full_score_cells = len(hypothesis_keys) * grid.score_bin_count
+    if full_score_cells > SPARSE_RETENTION_REFERENCE_MAXIMUM_SCORE_CELLS:
+        raise core.V0P6CapacityError(
+            "synthetic sparse-retention dense oracle exceeds its hard cell cap"
+        )
+    if core._strict_int(
+        cert["expected_score_cells"], "reference score-cell count"
+    ) != full_score_cells:
+        raise core.V0P6IncompleteError(
+            "reference certificate score-cell inventory changed"
+        )
+
+    threshold = _finite_json_number(
+        cert["operational_threshold_snr"], "retention threshold"
+    )
+    minimum_active_epoch_snr = cert["minimum_active_epoch_snr"]
+    stack_statistic = str(cert["stack_statistic"])
+    local_scores: dict[tuple[int, int, tuple[int, ...]], np.ndarray] = {}
+    selected_dense_scores: dict[
+        tuple[int, int, tuple[int, ...]], np.ndarray
+    ] = {}
+    records: list[dict[str, Any]] = []
+    finite_omitted: list[float] = []
+    local_score_cells = 0
+    for template_index, width_index in vector_keys:
+        plan = plans[template_index]
+        indices = plan.indices
+        vectors = local_epoch_vectors[(template_index, width_index)]
+        mask = local_masks[template_index]
+        if (
+            not isinstance(vectors, np.ndarray)
+            or vectors.dtype != np.dtype("<f4")
+            or vectors.shape
+            != (SPARSE_LOCAL_REQUIRED_EPOCH_COUNT, indices.size)
+            or not vectors.flags.c_contiguous
+            or not np.all(np.isfinite(vectors))
+            or not isinstance(mask, np.ndarray)
+            or mask.dtype != np.dtype(bool)
+            or mask.shape != vectors.shape
+            or not mask.flags.c_contiguous
+        ):
+            raise core.V0P6ContractError(
+                "sparse retention local vectors or masks are malformed"
+            )
+        for subset in subsets:
+            key = (template_index, width_index, subset)
+            dense = dense_scores[key]
+            if (
+                not isinstance(dense, np.ndarray)
+                or dense.dtype != np.dtype("<f4")
+                or dense.shape != (grid.score_bin_count,)
+                or not dense.flags.c_contiguous
+                or np.any(np.isnan(dense))
+                or np.any(np.isposinf(dense))
+            ):
+                raise core.V0P6ContractError(
+                    "sparse retention dense oracle is malformed"
+                )
+            local = np.ascontiguousarray(
+                core.stack_hypothesis(
+                    vectors,
+                    subset,
+                    minimum_active_epoch_snr=minimum_active_epoch_snr,
+                    stack_statistic=stack_statistic,
+                    exclusion_mask=mask,
+                ),
+                dtype="<f4",
+            )
+            selected = np.ascontiguousarray(dense[indices], dtype="<f4")
+            if local.tobytes() != selected.tobytes():
+                raise core.V0P6IncompleteError(
+                    "sparse retention local scores differ from the dense oracle"
+                )
+            omitted_mask = np.ones(grid.score_bin_count, dtype=bool)
+            omitted_mask[indices] = False
+            omitted = dense[omitted_mask]
+            omitted_finite = omitted[np.isfinite(omitted)]
+            if omitted_finite.size:
+                omitted_maximum = float(np.max(omitted_finite))
+                finite_omitted.append(omitted_maximum)
+                if omitted_maximum >= threshold:
+                    raise core.V0P6IncompleteError(
+                        "sparse retention omitted an above-threshold score cell"
+                    )
+            local_scores[key] = local
+            selected_dense_scores[key] = selected
+            local_score_cells += local.size
+            eligible = np.flatnonzero(
+                np.isfinite(local) & (local >= threshold)
+            )
+            for local_ordinal in eligible:
+                frequency_index = int(indices[int(local_ordinal)])
+                records.append(
+                    _reference_retained_record(
+                        window_id=str(cert["window_id"]),
+                        scan_kind=scan_kind,
+                        grid=grid,
+                        threshold=threshold,
+                        threshold_certificate_sha256=str(
+                            cert["threshold_certificate_sha256"]
+                        ),
+                        template=bank[template_index],
+                        template_index=template_index,
+                        width_index=width_index,
+                        width_channels=widths[width_index],
+                        subset=subset,
+                        frequency_index=frequency_index,
+                        score=local[int(local_ordinal)],
+                        epoch_values=vectors[:, int(local_ordinal)],
+                        minimum_active_epoch_snr=minimum_active_epoch_snr,
+                        stack_statistic=stack_statistic,
+                    )
+                )
+
+    records.sort(key=core._retention_record_sort_key)
+    dense_reference = core._validated_retained_records(
+        dense_records,
+        cert,
+        grid,
+        expected_kind=scan_kind,
+        expected_template_count=len(bank),
+        template_bank=bank,
+    )
+    record_bytes = core.canonical_json_bytes(records)
+    if record_bytes != core.canonical_json_bytes(dense_reference):
+        raise core.V0P6IncompleteError(
+            "sparse retention record bytes differ from exhaustive retention"
+        )
+    candidate_inventory_sha256 = _sha256_bytes(
+        core.canonical_json_bytes([plan.as_record() for plan in plans])
+    )
+    partial = SparseRetentionReferenceKATProduct(
+        status=SPARSE_RETENTION_REFERENCE_STATUS,
+        fixture_sha256=fixture_sha256,
+        phase1_receipt_sha256=phase1_receipt.receipt_sha256,
+        scan_kind=scan_kind,
+        retention_certificate_sha256=str(
+            cert["retention_certificate_sha256"]
+        ),
+        threshold_snr=threshold,
+        hypothesis_count=len(hypothesis_keys),
+        full_score_cell_count=full_score_cells,
+        local_score_cell_count=local_score_cells,
+        omitted_score_cell_count=full_score_cells - local_score_cells,
+        maximum_finite_omitted_score=(
+            None if not finite_omitted else max(finite_omitted)
+        ),
+        dense_score_inventory_sha256=_keyed_array_inventory_sha256(
+            dense_scores, hypothesis_keys
+        ),
+        selected_dense_score_inventory_sha256=(
+            _keyed_array_inventory_sha256(
+                selected_dense_scores, hypothesis_keys
+            )
+        ),
+        local_score_inventory_sha256=_keyed_array_inventory_sha256(
+            local_scores, hypothesis_keys
+        ),
+        candidate_index_inventory_sha256=candidate_inventory_sha256,
+        retained_record_count=len(records),
+        retained_records_sha256=_sha256_bytes(record_bytes),
+        global_retention_equivalence_proven=True,
+        production_equivalence_claimed=False,
+        production_data_used=False,
+        product_sha256="",
+        records_canonical_bytes=record_bytes,
+    )
+    product = replace(
+        partial,
+        product_sha256=_sha256_bytes(
+            core.canonical_json_bytes(partial.as_record(include_identity=False))
+        ),
+    )
+    validate_sparse_retention_reference_kat_product(product)
+    return product
+
+
+def validate_sparse_retention_reference_kat_product(
+    product: SparseRetentionReferenceKATProduct,
+) -> None:
+    if not isinstance(product, SparseRetentionReferenceKATProduct):
+        raise core.V0P6ContractError(
+            "sparse retention reference product has an invalid type"
+        )
+    if (
+        product.status != SPARSE_RETENTION_REFERENCE_STATUS
+        or product.scan_kind not in {"on", "off"}
+        or product.global_retention_equivalence_proven is not True
+        or product.production_equivalence_claimed is not False
+        or product.production_data_used is not False
+    ):
+        raise core.V0P6IncompleteError(
+            "sparse retention reference claim boundary changed"
+        )
+    for name in (
+        "fixture_sha256",
+        "phase1_receipt_sha256",
+        "retention_certificate_sha256",
+        "dense_score_inventory_sha256",
+        "selected_dense_score_inventory_sha256",
+        "local_score_inventory_sha256",
+        "candidate_index_inventory_sha256",
+        "retained_records_sha256",
+        "product_sha256",
+    ):
+        _frozen_sha256(getattr(product, name), name.replace("_", " "))
+    if (
+        product.selected_dense_score_inventory_sha256
+        != product.local_score_inventory_sha256
+    ):
+        raise core.V0P6IncompleteError(
+            "sparse retention selected/local score identities differ"
+        )
+    full_cells = core._strict_int(
+        product.full_score_cell_count, "full score-cell count"
+    )
+    local_cells = core._strict_int(
+        product.local_score_cell_count, "local score-cell count"
+    )
+    omitted_cells = core._strict_int(
+        product.omitted_score_cell_count, "omitted score-cell count"
+    )
+    hypotheses = core._strict_int(
+        product.hypothesis_count, "hypothesis count"
+    )
+    record_count = core._strict_int(
+        product.retained_record_count, "retained record count"
+    )
+    threshold = _finite_json_number(product.threshold_snr, "retention threshold")
+    if (
+        hypotheses < 1
+        or full_cells < 1
+        or full_cells > SPARSE_RETENTION_REFERENCE_MAXIMUM_SCORE_CELLS
+        or not 0 <= local_cells <= full_cells
+        or omitted_cells != full_cells - local_cells
+        or record_count < 0
+    ):
+        raise core.V0P6IncompleteError(
+            "sparse retention reference dimension inventory changed"
+        )
+    if product.maximum_finite_omitted_score is not None and (
+        _finite_json_number(
+            product.maximum_finite_omitted_score,
+            "maximum finite omitted score",
+        )
+        >= threshold
+    ):
+        raise core.V0P6IncompleteError(
+            "sparse retention omitted-score bound is not strict"
+        )
+    if not isinstance(product.records_canonical_bytes, bytes):
+        raise core.V0P6ContractError(
+            "sparse retention records are not immutable canonical bytes"
+        )
+    try:
+        records = json.loads(product.records_canonical_bytes)
+    except (TypeError, ValueError) as error:
+        raise core.V0P6ContractError(
+            "sparse retention records are not canonical JSON"
+        ) from error
+    if (
+        not isinstance(records, list)
+        or len(records) != record_count
+        or core.canonical_json_bytes(records) != product.records_canonical_bytes
+        or _sha256_bytes(product.records_canonical_bytes)
+        != product.retained_records_sha256
+    ):
+        raise core.V0P6IncompleteError(
+            "sparse retention retained-record bytes changed"
+        )
+    expected = _sha256_bytes(
+        core.canonical_json_bytes(product.as_record(include_identity=False))
+    )
+    if expected != product.product_sha256:
+        raise core.V0P6IncompleteError(
+            "sparse retention reference product identity changed"
+        )
+
+
+@dataclass(frozen=True)
+class SparseRetentionOffRankReferenceKATReceipt:
+    """Phase-2 receipt; adjacent-OFF, receiver alias and production stay open."""
+
+    status: str
+    covered_contracts: tuple[str, ...]
+    phase1_receipt_sha256: str
+    on_retention_product_sha256: str
+    off_retention_product_sha256: str
+    off_result_sha256: str
+    rank_result_sha256: str
+    off_disposition_counts: tuple[tuple[str, int], ...]
+    rank_p_relation_counts: tuple[tuple[str, int], ...]
+    global_retention_equivalence_proven: bool
+    off_disposition_equivalence_proven: bool
+    rank_p_equivalence_proven: bool
+    adjacent_off_equivalence_proven: bool
+    receiver_alias_equivalence_proven: bool
+    production_receipt_ancestry_proven: bool
+    complete_resource_envelope_proven: bool
+    production_equivalence_claimed: bool
+    production_feasibility_gate_changed: bool
+    receipt_sha256: str
+
+    def as_record(self, *, include_identity: bool = True) -> dict[str, Any]:
+        record = {
+            "status": self.status,
+            "covered_contracts": list(self.covered_contracts),
+            "phase1_receipt_sha256": self.phase1_receipt_sha256,
+            "on_retention_product_sha256": (
+                self.on_retention_product_sha256
+            ),
+            "off_retention_product_sha256": (
+                self.off_retention_product_sha256
+            ),
+            "off_result_sha256": self.off_result_sha256,
+            "rank_result_sha256": self.rank_result_sha256,
+            "off_disposition_counts": dict(self.off_disposition_counts),
+            "rank_p_relation_counts": dict(self.rank_p_relation_counts),
+            "global_retention_equivalence_proven": (
+                self.global_retention_equivalence_proven
+            ),
+            "off_disposition_equivalence_proven": (
+                self.off_disposition_equivalence_proven
+            ),
+            "rank_p_equivalence_proven": self.rank_p_equivalence_proven,
+            "adjacent_off_equivalence_proven": (
+                self.adjacent_off_equivalence_proven
+            ),
+            "receiver_alias_equivalence_proven": (
+                self.receiver_alias_equivalence_proven
+            ),
+            "production_receipt_ancestry_proven": (
+                self.production_receipt_ancestry_proven
+            ),
+            "complete_resource_envelope_proven": (
+                self.complete_resource_envelope_proven
+            ),
+            "production_equivalence_claimed": (
+                self.production_equivalence_claimed
+            ),
+            "production_feasibility_gate_changed": (
+                self.production_feasibility_gate_changed
+            ),
+        }
+        if include_identity:
+            record["receipt_sha256"] = self.receipt_sha256
+        return record
+
+
+def _equal_canonical_mapping_pair(
+    dense: Mapping[str, Any],
+    local: Mapping[str, Any],
+    label: str,
+) -> tuple[dict[str, Any], str]:
+    try:
+        dense_bytes = core.canonical_json_bytes(dict(dense))
+        local_bytes = core.canonical_json_bytes(dict(local))
+    except (TypeError, ValueError) as error:
+        raise core.V0P6ContractError(
+            f"sparse downstream {label} is not finite JSON"
+        ) from error
+    if dense_bytes != local_bytes:
+        raise core.V0P6IncompleteError(
+            f"sparse downstream {label} differs from the dense reference"
+        )
+    return json.loads(dense_bytes), _sha256_bytes(dense_bytes)
+
+
+def seal_sparse_retention_off_rank_reference_kat_receipt(
+    *,
+    phase1_receipt: SparseLocalReferenceKATReceipt,
+    on_product: SparseRetentionReferenceKATProduct,
+    off_product: SparseRetentionReferenceKATProduct,
+    on_retention_certificate: Mapping[str, Any],
+    off_retention_certificate: Mapping[str, Any],
+    threshold_certificate: core.ThresholdCertificate,
+    global_null_maxima: np.ndarray,
+    grid: core.ProxyCarrierGrid,
+    template_bank: Sequence[Mapping[str, Any]],
+    off_factor_matrix: np.ndarray,
+    window_order: Sequence[str],
+    off_tolerance_hz: float,
+    maximum_off_bucket_entries: int,
+    maximum_off_exact_candidate_visits: int,
+    dense_off_result: Mapping[str, Any],
+    local_off_result: Mapping[str, Any],
+    dense_rank_result: Mapping[str, Any],
+    local_rank_result: Mapping[str, Any],
+    scientific_p_ceiling: float,
+) -> SparseRetentionOffRankReferenceKATReceipt:
+    """Seal exact retention/OFF/rank equality for the bounded phase-2 KAT."""
+    validate_sparse_local_reference_kat_receipt(phase1_receipt)
+    validate_sparse_retention_reference_kat_product(on_product)
+    validate_sparse_retention_reference_kat_product(off_product)
+    if (
+        on_product.scan_kind != "on"
+        or off_product.scan_kind != "off"
+        or on_product.fixture_sha256 != off_product.fixture_sha256
+        or on_product.phase1_receipt_sha256 != phase1_receipt.receipt_sha256
+        or off_product.phase1_receipt_sha256 != phase1_receipt.receipt_sha256
+    ):
+        raise core.V0P6ContractError(
+            "sparse phase-2 retention products have incompatible ancestry"
+        )
+    on_cert = core.validate_retention_certificate(on_retention_certificate)
+    off_cert = core.validate_retention_certificate(off_retention_certificate)
+    if (
+        on_cert["retention_certificate_sha256"]
+        != on_product.retention_certificate_sha256
+        or off_cert["retention_certificate_sha256"]
+        != off_product.retention_certificate_sha256
+    ):
+        raise core.V0P6ContractError(
+            "sparse phase-2 certificate ancestry differs from retention"
+        )
+    off_result, off_digest = _equal_canonical_mapping_pair(
+        dense_off_result, local_off_result, "OFF result"
+    )
+    rank_result, rank_digest = _equal_canonical_mapping_pair(
+        dense_rank_result, local_rank_result, "rank-p result"
+    )
+    if set(off_result) != {"records", "certificate"}:
+        raise core.V0P6ContractError("sparse phase-2 OFF result schema changed")
+    core.validate_off_match_result(
+        off_result["records"],
+        off_result["certificate"],
+        expected_certificate_sha256=off_result["certificate"][
+            "off_match_certificate_sha256"
+        ],
+    )
+    reproduced_off = core.match_retained_off_tracks(
+        on_product.records(),
+        on_cert,
+        off_product.records(),
+        off_cert,
+        grid,
+        off_factor_matrix,
+        window_order=window_order,
+        tolerance_hz=off_tolerance_hz,
+        maximum_bucket_entries=maximum_off_bucket_entries,
+        maximum_exact_candidate_visits=(
+            maximum_off_exact_candidate_visits
+        ),
+        template_bank=template_bank,
+    )
+    if core.canonical_json_bytes(reproduced_off) != core.canonical_json_bytes(
+        off_result
+    ):
+        raise core.V0P6IncompleteError(
+            "sparse phase-2 OFF result does not reproduce from retention"
+        )
+    off_counts_record = off_result["certificate"].get("disposition_counts")
+    required_off = (
+        "rfi_veto_matched_off_same_hypothesis",
+        "rfi_veto_local_off_track",
+        "pending_receiver_alias_evaluation",
+    )
+    if not isinstance(off_counts_record, dict) or set(off_counts_record) != set(
+        required_off
+    ):
+        raise core.V0P6ContractError(
+            "sparse phase-2 OFF disposition inventory changed"
+        )
+    off_counts = tuple(
+        (name, core._strict_int(off_counts_record[name], f"{name} count"))
+        for name in required_off
+    )
+    if any(count < 1 for _, count in off_counts):
+        raise core.V0P6IncompleteError(
+            "sparse phase-2 OFF fixture does not cover every disposition"
+        )
+
+    if set(rank_result) != {"evidence", "certificate", "result_sha256"}:
+        raise core.V0P6ContractError("sparse phase-2 rank-p schema changed")
+    rank_payload = {
+        "evidence": rank_result["evidence"],
+        "certificate": rank_result["certificate"],
+    }
+    if _sha256_bytes(core.canonical_json_bytes(rank_payload)) != str(
+        rank_result["result_sha256"]
+    ):
+        raise core.V0P6IncompleteError(
+            "sparse phase-2 rank-p result identity changed"
+        )
+    from . import significance_v0p6 as significance
+
+    significance.validate_global_rank_significance(
+        rank_result,
+        on_product.records(),
+        on_cert,
+        threshold_certificate,
+        global_null_maxima,
+        grid,
+        template_bank,
+        expected_result_sha256=str(rank_result["result_sha256"]),
+    )
+    ceiling = _finite_json_number(scientific_p_ceiling, "scientific p ceiling")
+    if ceiling != float(threshold_certificate.scientific_empirical_p_ceiling):
+        raise core.V0P6ContractError(
+            "sparse phase-2 scientific p ceiling differs from threshold"
+        )
+    relations = {"below": 0, "equal": 0, "above": 0}
+    for item in rank_result["evidence"]:
+        value = _finite_json_number(
+            item["inclusive_global_rank_p"], "inclusive global rank p"
+        )
+        relation = "below" if value < ceiling else "above" if value > ceiling else "equal"
+        relations[relation] += 1
+        if bool(item["scientifically_eligible"]) != bool(value <= ceiling):
+            raise core.V0P6IncompleteError(
+                "sparse phase-2 rank-p eligibility changed"
+            )
+    if any(relations[name] < 1 for name in ("below", "equal", "above")):
+        raise core.V0P6IncompleteError(
+            "sparse phase-2 rank-p fixture misses a ceiling boundary"
+        )
+    rank_counts = tuple((name, relations[name]) for name in ("below", "equal", "above"))
+    partial = SparseRetentionOffRankReferenceKATReceipt(
+        status=SPARSE_RETENTION_REFERENCE_STATUS,
+        covered_contracts=SPARSE_RETENTION_REFERENCE_COVERAGE,
+        phase1_receipt_sha256=phase1_receipt.receipt_sha256,
+        on_retention_product_sha256=on_product.product_sha256,
+        off_retention_product_sha256=off_product.product_sha256,
+        off_result_sha256=off_digest,
+        rank_result_sha256=rank_digest,
+        off_disposition_counts=off_counts,
+        rank_p_relation_counts=rank_counts,
+        global_retention_equivalence_proven=True,
+        off_disposition_equivalence_proven=True,
+        rank_p_equivalence_proven=True,
+        adjacent_off_equivalence_proven=False,
+        receiver_alias_equivalence_proven=False,
+        production_receipt_ancestry_proven=False,
+        complete_resource_envelope_proven=False,
+        production_equivalence_claimed=False,
+        production_feasibility_gate_changed=False,
+        receipt_sha256="",
+    )
+    receipt = replace(
+        partial,
+        receipt_sha256=_sha256_bytes(
+            core.canonical_json_bytes(partial.as_record(include_identity=False))
+        ),
+    )
+    validate_sparse_retention_off_rank_reference_kat_receipt(receipt)
+    return receipt
+
+
+def validate_sparse_retention_off_rank_reference_kat_receipt(
+    receipt: SparseRetentionOffRankReferenceKATReceipt,
+) -> None:
+    if not isinstance(receipt, SparseRetentionOffRankReferenceKATReceipt):
+        raise core.V0P6ContractError(
+            "sparse retention/OFF/rank receipt has an invalid type"
+        )
+    if (
+        receipt.status != SPARSE_RETENTION_REFERENCE_STATUS
+        or receipt.covered_contracts != SPARSE_RETENTION_REFERENCE_COVERAGE
+        or receipt.global_retention_equivalence_proven is not True
+        or receipt.off_disposition_equivalence_proven is not True
+        or receipt.rank_p_equivalence_proven is not True
+        or receipt.adjacent_off_equivalence_proven is not False
+        or receipt.receiver_alias_equivalence_proven is not False
+        or receipt.production_receipt_ancestry_proven is not False
+        or receipt.complete_resource_envelope_proven is not False
+        or receipt.production_equivalence_claimed is not False
+        or receipt.production_feasibility_gate_changed is not False
+    ):
+        raise core.V0P6IncompleteError(
+            "sparse retention/OFF/rank claim boundary changed"
+        )
+    for name in (
+        "phase1_receipt_sha256",
+        "on_retention_product_sha256",
+        "off_retention_product_sha256",
+        "off_result_sha256",
+        "rank_result_sha256",
+        "receipt_sha256",
+    ):
+        _frozen_sha256(getattr(receipt, name), name.replace("_", " "))
+    expected = _sha256_bytes(
+        core.canonical_json_bytes(receipt.as_record(include_identity=False))
+    )
+    if expected != receipt.receipt_sha256:
+        raise core.V0P6IncompleteError(
+            "sparse retention/OFF/rank receipt identity changed"
+        )
+    pinned = (
+        SPARSE_RETENTION_REFERENCE_ON_PRODUCT_SHA256,
+        SPARSE_RETENTION_REFERENCE_OFF_PRODUCT_SHA256,
+        SPARSE_RETENTION_REFERENCE_OFF_RESULT_SHA256,
+        SPARSE_RETENTION_REFERENCE_RANK_RESULT_SHA256,
+        SPARSE_RETENTION_REFERENCE_RECEIPT_SHA256,
+    )
+    observed = (
+        receipt.on_retention_product_sha256,
+        receipt.off_retention_product_sha256,
+        receipt.off_result_sha256,
+        receipt.rank_result_sha256,
+        receipt.receipt_sha256,
+    )
+    if observed != pinned:
+        raise core.V0P6IncompleteError(
+            "sparse retention/OFF/rank receipt is not the pinned known answer"
         )

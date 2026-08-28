@@ -1,0 +1,119 @@
+{
+  "artifact_type": "m37-detector-v0p6-sparse-retention-phase2-checkpoint-v1",
+  "base_commit": "db7f056fd1943a3b601bd6a58c278a685c69518f",
+  "claim_boundary": {
+    "adjacent_off_equivalence_proven": false,
+    "candidate_outcome_produced": false,
+    "complete_resource_envelope_proven": false,
+    "completeness_measured": false,
+    "detector_frozen": false,
+    "detector_released": false,
+    "global_retention_equivalence_proven_synthetic": true,
+    "null_claimed": false,
+    "off_disposition_equivalence_proven_synthetic": true,
+    "preregistration_published": false,
+    "production_equivalence_claimed": false,
+    "production_feasibility_gate_changed": false,
+    "production_receipt_ancestry_proven": false,
+    "rank_p_equivalence_proven_synthetic": true,
+    "receiver_alias_equivalence_proven": false,
+    "remote_telescope_file_opened": false,
+    "search_executed": false,
+    "signal_claimed": false,
+    "spectral_access_authorized": false,
+    "spectral_dataset_values_read": false
+  },
+  "generated_at_utc": "2026-08-28T17:13:30Z",
+  "gates": [
+    {
+      "evidence": "A mandatory 3,936-cell dense oracle proves 160 ON and 128 OFF retained records are byte-identical while a one-million-cell cap prevents production use.",
+      "id": "synthetic-global-retention-equivalence",
+      "status": "passed_synthetic_production_not_applicable"
+    },
+    {
+      "evidence": "All three retained-OFF branches are independently reproduced: 96 same-hypothesis, 32 local-track and 32 unmatched dispositions.",
+      "id": "synthetic-off-disposition-equivalence",
+      "status": "passed_synthetic_production_not_applicable"
+    },
+    {
+      "evidence": "Inclusive rank-p evidence independently reproduces 154 values below, three equal to and three above the scientific ceiling.",
+      "id": "synthetic-rank-p-equivalence",
+      "status": "passed_synthetic_production_not_applicable"
+    },
+    {
+      "evidence": "Single-adjacent-OFF and receiver-alias dependencies are outside the phase-2 receipt and remain explicitly false.",
+      "id": "synthetic-adjacent-and-receiver-equivalence",
+      "status": "blocked"
+    },
+    {
+      "evidence": "Production ancestry and complete resource accounting are not supplied by a dense-oracle synthetic KAT.",
+      "id": "production-completeness-feasibility",
+      "status": "blocked"
+    },
+    {
+      "evidence": "The restartable runner does not yet invoke and persist the complete detector and physical-evidence chain.",
+      "id": "end-to-end-production-runner",
+      "status": "blocked"
+    },
+    {
+      "evidence": "The final Python, extractor, OS, compiler, OpenMP, CPU and host identities remain prospective rather than frozen.",
+      "id": "final-pinned-runtime",
+      "status": "blocked"
+    }
+  ],
+  "known_answer_sha256s": {
+    "off_result": "1127508775f50ab653c64d8bcaf22321125591709e972c42088eacb9a4405c02",
+    "off_retention_product": "2361c65ec692c6f32316283e599856ee55e9c76331f613c3319298adad52dbc2",
+    "on_retention_product": "f0ed4bf233173bb4d783b40281776c83c3300443596183b4449268674a8a2915",
+    "phase2_receipt": "1d70d05ac7b7888cf8071bcbe894bd67bae24fba87636c6c17945b982cf0ca09",
+    "rank_result": "6a63edfbac0bf41df01f49afa0f64d5555ea83b8ad103204dba06dfb9b0fa286"
+  },
+  "readiness_outcome": "SPARSE_RETENTION_OFF_RANK_PHASE2_PASSED_SYNTHETIC_PRODUCTION_GATE_BLOCKED",
+  "schema_version": 1,
+  "source_sha256s": {
+    "src/seti_repeater/sparse_replay_v0p6.py": "b5bca5e3dad7c55cf98dce0d77d62ff5edde83e2401fa18149a687bb02b7d8a5",
+    "tests/test_v0p6_sparse_retention.py": "e6c56f6b17d3ee8cf33ad0677c82923f1e6052590a15c7ad911518ebc42fb338"
+  },
+  "synthetic_fixture": {
+    "activity_subset_count": 4,
+    "dense_score_cell_count": 3936,
+    "maximum_dense_oracle_score_cells": 1000000,
+    "off_disposition_counts": {
+      "pending_receiver_alias_evaluation": 32,
+      "rfi_veto_local_off_track": 32,
+      "rfi_veto_matched_off_same_hypothesis": 96
+    },
+    "off_local_score_cell_count": 288,
+    "off_omitted_score_cell_count": 3648,
+    "off_retained_record_count": 128,
+    "on_local_score_cell_count": 352,
+    "on_omitted_score_cell_count": 3584,
+    "on_retained_record_count": 160,
+    "rank_p_relation_counts": {
+      "above": 3,
+      "below": 154,
+      "equal": 3
+    },
+    "spectral_width_count": 8,
+    "template_count": 3,
+    "threshold_snr": 50.0
+  },
+  "tests": {
+    "full_repository_suite": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 255,
+      "skipped": 1,
+      "tests_run": 256,
+      "wall_seconds": 118.56
+    },
+    "targeted_phase1_phase2_retention_rank_suite": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 72,
+      "skipped": 0,
+      "tests_run": 72,
+      "wall_seconds": 5.753
+    }
+  }
+}

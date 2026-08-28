@@ -64,19 +64,19 @@ and revalidated all three artifacts.
 
 ## Remaining blockers
 
-1. Receiver-frame and adjacent-OFF evidence still need width-at-a-time cache
-   streaming, arena accounting and bit-identical comparison with the present
-   full-inventory functions.
-2. The sparse/local completeness reference must extend through exhaustive
-   retention, OFF/adjacent disposition, receiver-alias dependencies, rank-p,
+1. Receiver-frame and adjacent-OFF evidence now have width-at-a-time cache
+   streaming, arena accounting and bit-identical comparison with their
+   full-inventory functions; those interfaces still need runner integration.
+2. The bounded phase-2 sparse/local reference now covers synthetic exhaustive
+   ON/OFF retention, retained-OFF disposition and rank-p. It still requires a
+   dense oracle and must extend through adjacent-OFF, receiver-alias,
    production receipts and the full resource envelope.
 3. Only after those pass can the bootstrap become a complete production
    runner and receive a final preregistration.
 4. The final runtime must still pin Python, extractor dependencies, OS,
    compiler, OpenMP runtime, CPU policy and the eight-thread execution host.
-5. The implementation checkpoint and this runner extension are not yet on
-   `main`; publication requires the separately requested default-branch
-   approval.
+5. A final clean-commit package audit and independent verification remain
+   mandatory before a detector freeze.
 
 The machine-readable status is
 `results_m37_v0p6_runner_progress/progress.json`.
