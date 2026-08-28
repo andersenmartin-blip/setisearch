@@ -9,23 +9,76 @@ telescope response. The working technosignature hypothesis is a transmitter
 whose frequency is stable in the selected planet frame and whose beam is not
 necessarily aimed at Earth.
 
-**Current scientific status:** one unresolved Milestone 33 follow-up case and
-no technosignature claim. Milestone 35 adds a retrospective, frequency-matched
-survey synthesis: at exact ideal S/N 40 its finite-injection pointwise 95%
-upper bound on `f(40)` is 33.16%, where `f(40)` is the common archive-cohort
-system-occurrence probability for the frozen injected class. Under the common
-independent-occurrence and independent-injection-trial models, it is additionally
-conditional on the randomized-background model and on score recoveries surviving
-every downstream candidate stage. If either sensitivity-transport condition is
-not imposed, the only supported end-to-end upper bound is the trivial 100%. The
-repository preserves frozen configurations, checksummed results, technical
-aborts, post-hoc labels, and non-redetections so that positive and negative
-outcomes remain independently auditable.
+**Current scientific status:** no technosignature claim. The unresolved
+Milestone 33 follow-up case remains open. Milestone 36 completed the HIP 48714
+primary search and a complete above-threshold retention audit; every retained
+member received physical control evidence and no M36 candidate survives.
+Milestone 37 is now in progress for HD 156668. Its metadata checks, detector
+v0.6 preflight, implementation candidate, and restartable metadata-only
+bootstrap are published, but no Milestone 37 telescope spectral payload has
+been opened or read and there is not yet a scientific M37 search result.
 
-Version 0.5.0 is the frozen detector used for new held-out validation. It
+Milestone 35 provides the latest survey-level synthesis. At exact ideal S/N 40
+its finite-injection pointwise 95% upper bound on `f(40)` is 33.16%, where
+`f(40)` is the common archive-cohort system-occurrence probability for the
+frozen injected class. Under the common independent-occurrence and
+independent-injection-trial models, it is additionally conditional on the
+randomized-background model and on score recoveries surviving every downstream
+candidate stage. If either sensitivity-transport condition is not imposed,
+the only supported end-to-end upper bound is the trivial 100%. The repository
+preserves frozen configurations, checksummed results, technical aborts,
+post-hoc labels, and non-redetections so that positive and negative outcomes
+remain independently auditable.
+
+Version 0.5.0 is the frozen detector used through the Milestone 36 search. It
 retains the Milestone 7 recurrence statistic, spectral filters, per-epoch
 interference mask, candidate clustering, and RFI-family flags, and adds the
-Milestone 12 local-OFF and receiver-frame alias vetoes.
+Milestone 12 local-OFF and receiver-frame alias vetoes. Detector v0.6 is a
+separate Milestone 37 development candidate; it is not yet frozen and does not
+authorize spectral access.
+
+## Milestone 37 in progress
+
+Milestone 37 selected HD 156668 / HIP 84607 at extension rank 37. HD 156668 b
+supplies only the motion template. The metadata-only coverage proof and the
+prospective detector-v0.6 discrete-bank preflight are published. The new bank
+uses 93 motion templates and eight spectral widths to preserve coverage for
+the higher-smearing target without inspecting telescope spectral values.
+
+The non-frozen v0.6 implementation candidate now includes native-channel
+filtering, exhaustive retention, OFF and adjacent-OFF evidence,
+receiver-frame alias handling, global rank-p significance, persistence
+artifacts, and a restartable run journal. A real metadata-only bootstrap
+reproduced and reopened its factor bundle and stopped at
+`factor_bundle_ready`, before the spectral boundary. The full repository suite
+passes 246 tests with one expected benchmark skip and zero failures.
+
+M37 remains an engineering milestone, not a scientific result. Streaming
+physical-evidence stages, the complete production completeness path, the final
+pinned runtime, and the production runner must still be closed and frozen
+before any separate authorization may permit the six HD 156668 telescope
+payloads to be contacted.
+
+## Milestone 36 result
+
+Milestone 36 searched the sole complete compatible HIP 48714 cadence using
+HIP 48714 b only as a motion template. The detector-v0.5 primary search
+reported 1,676 clusters; 239 exceeded the frozen operational threshold and
+all received a physical control disposition.
+
+A later review found that the upstream v0.5 collector was not an exhaustive
+above-threshold recorder. A separately frozen retrospective audit therefore
+replayed the same 30 checksummed extracts without changing the primary
+threshold, significance, or completeness result. It visited all
+1,202,587,680 frozen score cells and accounted for all 7,571 cells at or above
+threshold. The complete audit contains 1,081 member records in 637 clusters,
+with zero unaccounted cells, zero unresolved members, and zero unresolved
+clusters. The published outcome is
+`PRIMARY_CADENCE_NULL_AFTER_COMPLETE_RETENTION_AUDIT`.
+
+This is a null result for one archive cadence under the frozen search model,
+not evidence that no transmitter exists. No second qualifying HIP 48714
+cadence was identified, and the unresolved Milestone 33 case is unchanged.
 
 ## Milestone 35 result
 
@@ -685,6 +738,17 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Key files
 
+- `MILESTONE_37_TARGET_SELECTION.md` — fixed HD 156668 target and untouched cadence.
+- `MILESTONE_37_COVERAGE_PREFLIGHT_PLAN.md` — continuous motion-plus-width proof.
+- `MILESTONE_37_DETECTOR_V0P6_BANK_PREFLIGHT_PLAN.md` — prospective v0.6 bank.
+- `MILESTONE_37_DETECTOR_V0P6_IMPLEMENTATION_READINESS.md` — non-frozen implementation audit.
+- `MILESTONE_37_DETECTOR_V0P6_RUNNER_PROGRESS.md` — metadata-only bootstrap progress.
+- `results_m37_v0p6_runner_progress/progress.json` — machine-readable M37 status.
+- `MILESTONE_36_REPORT.md` — primary result and exhaustive audit interpretation.
+- `MILESTONE_36_PREREGISTRATION.md` — frozen HIP 48714 search design.
+- `MILESTONE_36_EXHAUSTIVE_RETENTION_AUDIT_PLAN.md` — complete-retention protocol.
+- `results_m36/search_summary.json` — primary machine-readable search record.
+- `results_m36_exhaustive_retention_audit/audit_summary.json` — complete audit result.
 - `MILESTONE_35_SURVEY_SYNTHESIS_PLAN.md` — frozen retrospective analysis plan.
 - `config/m35_survey_synthesis.json` — input hashes, cohorts, and assumptions.
 - `scripts/m35_survey_synthesis.py` — fail-closed accounting and statistics.
