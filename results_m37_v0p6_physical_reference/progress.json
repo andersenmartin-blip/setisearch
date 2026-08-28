@@ -1,0 +1,115 @@
+{
+  "artifact_type": "m37-detector-v0p6-physical-reference-phase3-checkpoint-v1",
+  "base_commit": "c5b9ba04169650903104211d59568708cb503a68",
+  "claim_boundary": {
+    "adjacent_off_equivalence_proven_synthetic": true,
+    "candidate_outcome_produced": false,
+    "complete_resource_envelope_proven": false,
+    "completeness_measured": false,
+    "detector_frozen": false,
+    "detector_released": false,
+    "global_retention_equivalence_proven_synthetic": true,
+    "null_claimed": false,
+    "off_disposition_equivalence_proven_synthetic": true,
+    "preregistration_published": false,
+    "production_equivalence_claimed": false,
+    "production_feasibility_gate_changed": false,
+    "production_receipt_ancestry_proven": false,
+    "rank_p_equivalence_proven_synthetic": true,
+    "receiver_alias_equivalence_proven_synthetic": true,
+    "remote_telescope_file_opened": false,
+    "search_executed": false,
+    "signal_claimed": false,
+    "spectral_access_authorized": false,
+    "spectral_dataset_values_read": false,
+    "transitive_identity_component_proven_synthetic": true
+  },
+  "generated_at_utc": "2026-08-28T17:44:42Z",
+  "gates": [
+    {
+      "evidence": "The pinned phase-2 receipt preserves byte-identical ON/OFF retention, all three retained-OFF branches and inclusive rank-p boundaries.",
+      "id": "synthetic-phase2-ancestry",
+      "status": "passed_synthetic_production_not_applicable"
+    },
+    {
+      "evidence": "All 160 ON records and all 24 width-by-paired-OFF synthetic cache-oracle identities are covered; four of 32 prior-pending records veto and 28 pass.",
+      "id": "synthetic-adjacent-off-equivalence",
+      "status": "passed_synthetic_production_not_applicable"
+    },
+    {
+      "evidence": "The receiver-alias result independently reproduces five nodes, two components, five edges, a transitive component, matched and unmatched branches, and all five final dispositions.",
+      "id": "synthetic-receiver-alias-equivalence",
+      "status": "passed_synthetic_production_not_applicable"
+    },
+    {
+      "evidence": "Production ancestry and aggregate mapped-byte ownership are not supplied by the bounded synthetic reference.",
+      "id": "production-completeness-feasibility",
+      "status": "blocked"
+    },
+    {
+      "evidence": "The restartable runner does not yet invoke and persist the complete streaming detector and physical-evidence chain.",
+      "id": "end-to-end-production-runner",
+      "status": "blocked"
+    },
+    {
+      "evidence": "The final Python, extractor, OS, compiler, OpenMP, CPU and host identities remain prospective rather than frozen.",
+      "id": "final-pinned-runtime",
+      "status": "blocked"
+    }
+  ],
+  "known_answer_sha256s": {
+    "adjacent_off_result": "5e14628984549016c459be03a9cbb00f5733c07bf31fe0c0a1db07aee6e6a0f7",
+    "phase2_receipt": "1d70d05ac7b7888cf8071bcbe894bd67bae24fba87636c6c17945b982cf0ca09",
+    "phase3_receipt": "ef46ff54d69fdad918ca2d05d2c27896ae3ee53ecd0c2a20970003738d9a1f11",
+    "receiver_alias_result": "369657f48115b8af63099ed8fc8accd18af540602be570cee78c94647a52b3bf",
+    "receiver_signature_product": "d41241af8c28ab818fef0f1ea63ca4242b2ea9413925f3144a0b40a0332c00bd",
+    "wheel": "f06ca05aa02008c3ca1d0f6eb65de35721799525f7bf11f03c9b2ede47e29c73"
+  },
+  "readiness_outcome": "PHYSICAL_REFERENCE_PHASE3_PASSED_SYNTHETIC_PRODUCTION_GATE_BLOCKED",
+  "schema_version": 1,
+  "source_sha256s": {
+    "src/seti_repeater/sparse_replay_v0p6.py": "5f1d2cf304975687982e0a036d805f8fd4e3c26294278082769fa4ea03b4d6ea",
+    "tests/test_v0p6_sparse_retention.py": "9015f0312d4198c30df3108ea2817e3111bc2961a2fc95c9024b3a6d0f2cde39"
+  },
+  "synthetic_fixture": {
+    "adjacent_branch_counts_among_prior_pending": {
+      "passed": 28,
+      "vetoed": 4
+    },
+    "adjacent_evidence_record_count": 160,
+    "alias_identity_component_count": 2,
+    "alias_identity_edge_count": 5,
+    "alias_identity_node_count": 5,
+    "alias_match_counts": {
+      "matched": 156,
+      "unmatched": 4
+    },
+    "final_disposition_counts": {
+      "pending_receiver_alias_evaluation": 4,
+      "rfi_veto_local_off_track": 32,
+      "rfi_veto_matched_off_same_hypothesis": 96,
+      "rfi_veto_receiver_frame_alias": 24,
+      "rfi_veto_single_adjacent_off": 4
+    },
+    "paired_off_cache_oracle_identity_count": 24,
+    "transitive_identity_component_proven": true
+  },
+  "tests": {
+    "full_repository_suite": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 258,
+      "skipped": 1,
+      "tests_run": 259,
+      "wall_seconds": 116.335
+    },
+    "targeted_phase1_phase2_phase3_physical_suite": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 98,
+      "skipped": 0,
+      "tests_run": 98,
+      "wall_seconds": 9.149
+    }
+  }
+}

@@ -135,19 +135,24 @@ The later phase-2 synthetic reference now extends this numerical-core receipt
 through byte-identical ON/OFF retention, all three retained-OFF disposition
 branches, and inclusive rank-p values below, equal to and above the scientific
 ceiling. It deliberately requires a complete dense-score oracle capped at
-1,000,000 cells. It therefore does not prove a production sparse algorithm,
-single-adjacent-OFF or receiver-alias equivalence, production receipt ancestry,
-or production resource feasibility. The phase-2 receipt SHA-256 is
+1,000,000 cells. The phase-3 physical reference binds that exact ancestry
+through complete synthetic single-adjacent-OFF evidence and receiver-frame
+alias connected components. It covers the inclusive adjacent threshold, a
+transitive five-node/two-component identity partition, match/no-match branches
+and all five final dispositions. The phase-2 receipt SHA-256 is
 `1d70d05ac7b7888cf8071bcbe894bd67bae24fba87636c6c17945b982cf0ca09`.
+The phase-3 receipt SHA-256 is
+`ef46ff54d69fdad918ca2d05d2c27896ae3ee53ecd0c2a20970003738d9a1f11`.
+Neither phase proves a production sparse algorithm, production receipt
+ancestry or production resource feasibility.
 
 Accordingly, the production wrapper still hard-fails with
 `mandatory-full-replay-benchmark-not-yet-passed` until either:
 
 1. the complete replay is benchmarked successfully, or
 2. a separately reviewed sparse/local path extends the passed phase-1 and
-   phase-2 KATs through adjacent-OFF dispositions, receiver-alias dependencies,
-   production receipts, and the full resource envelope without relying on a
-   production-scale dense oracle.
+   phase-2/phase-3 KATs through production receipts and the full resource
+   envelope without relying on a production-scale dense oracle.
 
 ## Blocking gates before a freeze
 

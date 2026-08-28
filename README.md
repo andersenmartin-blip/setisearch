@@ -57,17 +57,20 @@ adjacent-OFF evidence can now stream one cache width at a time under explicit
 mapped-byte accounting while reproducing their full-inventory results exactly.
 A bounded phase-2 KAT also reproduces synthetic exhaustive ON/OFF retention,
 all three retained-OFF disposition branches and inclusive rank-p boundaries.
-It requires a complete dense-score oracle and therefore does not unlock the
-production gate. The full repository suite passes 255 tests with one expected
-benchmark skip and zero failures.
+A phase-3 reference now binds that exact ancestry through complete synthetic
+single-adjacent-OFF evidence and receiver-frame alias connected components,
+including a transitive identity component, match/no-match branches and all
+five final physical dispositions. The reference still depends on the capped
+phase-2 dense-score oracle and therefore does not unlock the production gate.
+The full repository suite now runs 259 tests: 258 pass, the opt-in exact-grid
+benchmark is the one expected skip, and no test fails.
 
 M37 remains an engineering milestone, not a scientific result. The complete
-production completeness path still lacks adjacent-OFF and receiver-alias
-reference coverage, production ancestry and the complete resource envelope.
-Integration of the streaming stages into the restartable runner, the final
-pinned runtime, and the production runner must also be closed and frozen
-before any separate authorization may permit the six HD 156668 telescope
-payloads to be contacted.
+production completeness path still lacks production ancestry and the complete
+resource envelope. Integration of the streaming stages into the restartable
+runner, the final pinned runtime, and the production runner must also be
+closed and frozen before any separate authorization may permit the six HD
+156668 telescope payloads to be contacted.
 
 ## Milestone 36 result
 
@@ -758,6 +761,8 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 - `results_m37_v0p6_streaming_evidence/progress.json` — machine-readable streaming status.
 - `MILESTONE_37_DETECTOR_V0P6_SPARSE_RETENTION_CHECKPOINT.md` — bounded phase-2 retention/OFF/rank reference.
 - `results_m37_v0p6_sparse_retention/progress.json` — machine-readable phase-2 status.
+- `MILESTONE_37_DETECTOR_V0P6_PHYSICAL_REFERENCE_CHECKPOINT.md` — bounded phase-3 adjacent-OFF/receiver-alias reference.
+- `results_m37_v0p6_physical_reference/progress.json` — machine-readable phase-3 status.
 - `MILESTONE_36_REPORT.md` — primary result and exhaustive audit interpretation.
 - `MILESTONE_36_PREREGISTRATION.md` — frozen HIP 48714 search design.
 - `MILESTONE_36_EXHAUSTIVE_RETENTION_AUDIT_PLAN.md` — complete-retention protocol.

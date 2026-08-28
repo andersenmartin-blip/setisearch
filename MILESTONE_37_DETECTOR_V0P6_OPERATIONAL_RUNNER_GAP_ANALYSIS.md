@@ -125,8 +125,10 @@ a complete bit-identical sparse/local replacement is proven feasible. Phase 1
 covers synthetic truth-local gathers, mask closure and hypothesis scoring. The
 bounded phase-2 KAT adds byte-identical ON/OFF retention, all three
 retained-OFF branches and rank-p boundaries, but only by requiring a complete
-dense-score oracle capped at 1,000,000 cells. Adjacent-OFF, receiver-alias
-dependencies, production receipts, the full resource envelope and this runner
+dense-score oracle capped at 1,000,000 cells. Phase 3 binds that receipt
+through complete synthetic adjacent-OFF evidence and receiver-alias connected
+components, including transitive identity closure and all five final
+dispositions. Production receipts, the full resource envelope and this runner
 lifecycle remain open.
 
 ## Memory lifecycle
@@ -165,10 +167,12 @@ proved.
    rehydrated, so the chain can be split by expensive reproduction; it is not
    literally restricted to one process. Cheap restart from the calibration
    or cache stages is nevertheless unproved.
-6. **Receiver streaming:** receiver-signature construction expects all eight
-   by three ON cache arrays at once.
-7. **Adjacent streaming:** adjacent-OFF expects a complete eight by three OFF
-   cache inventory.
+6. **Receiver stage integration:** the width-streaming receiver interface is
+   bit-identical to full-inventory execution, but the runner does not invoke,
+   checkpoint or bind its resource receipt.
+7. **Adjacent stage integration:** the width-streaming adjacent-OFF interface
+   is bit-identical to full-inventory execution, but the runner does not
+   invoke, checkpoint or bind its resource receipt.
 8. **Completeness implementation:** `CompletenessDataSource` and
    `CompletenessOperationalPipeline` remain interfaces, not production
    implementations.
@@ -183,9 +187,9 @@ proved.
    environment.
 2. Add canonical, independently verifiable artifacts for the factor bundle,
    global null vector, cache plans and run-level cache inventory.
-3. Add width-streaming receiver and adjacent interfaces with explicit arena
-   accounting and bit-identical tests against the existing full-inventory
-   functions.
+3. Integrate the existing width-streaming receiver and adjacent interfaces
+   into the runner and bind their explicit arena accounting to the run-level
+   receipt.
 4. Define a run-state journal whose transitions require the prior stage's
    trusted aggregate receipt and whose invalid state is permanent.
 5. Build a synthetic/reference runner against those persistence and streaming

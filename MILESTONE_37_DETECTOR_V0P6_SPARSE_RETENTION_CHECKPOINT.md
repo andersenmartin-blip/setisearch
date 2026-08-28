@@ -69,3 +69,10 @@ runtime must be pinned before a preregistration can be frozen.
 
 The machine-readable checkpoint is
 `results_m37_v0p6_sparse_retention/progress.json`.
+
+## Subsequent checkpoint
+
+The later phase-3 physical-reference checkpoint now closes the synthetic
+single-adjacent-OFF and receiver-alias dependency gates identified above. It
+does not alter this phase-2 receipt or its production-blocked claim boundary.
+See `MILESTONE_37_DETECTOR_V0P6_PHYSICAL_REFERENCE_CHECKPOINT.md`.

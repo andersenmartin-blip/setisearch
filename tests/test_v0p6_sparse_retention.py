@@ -1,10 +1,11 @@
-"""Phase-2 synthetic retention, OFF-disposition and rank-p KATs."""
+"""Synthetic sparse-retention and physical-disposition KATs."""
 
 from __future__ import annotations
 
 from copy import deepcopy
 from dataclasses import replace
 import hashlib
+import json
 import math
 import unittest
 
@@ -18,6 +19,7 @@ from seti_repeater.significance_v0p6 import (
     evaluate_global_rank_significance,
     validate_global_rank_significance,
 )
+from seti_repeater.alias_v0p6 import match_receiver_frame_aliases
 from seti_repeater.sparse_replay_v0p6 import (
     SPARSE_LOCAL_KAT_GATHERS_SHA256,
     SPARSE_LOCAL_KAT_ISOLATED_MASKS_SHA256,
@@ -31,10 +33,13 @@ from seti_repeater.sparse_replay_v0p6 import (
     SPARSE_LOCAL_REQUIRED_COVERAGE,
     SPARSE_LOCAL_REQUIRED_WIDTHS,
     SPARSE_RETENTION_REFERENCE_STATUS,
+    SPARSE_PHYSICAL_REFERENCE_STATUS,
     SparseLocalReferenceKATReceipt,
     build_sparse_retention_reference_kat,
     make_local_score_index_set,
+    seal_sparse_physical_reference_kat_receipt,
     seal_sparse_retention_off_rank_reference_kat_receipt,
+    validate_sparse_physical_reference_kat_receipt,
     validate_sparse_retention_off_rank_reference_kat_receipt,
     validate_sparse_retention_reference_kat_product,
 )
@@ -152,6 +157,23 @@ class SparseRetentionOffRankReferenceTests(unittest.TestCase):
             local_rank_result=cls.local_rank_result,
             scientific_p_ceiling=0.4,
         )
+        cls.dense_adjacent_result = cls._make_adjacent_result(cls.on_records)
+        cls.local_adjacent_result = cls._make_adjacent_result(
+            cls.on_product.records()
+        )
+        cls.on_alias_factors = cls._make_alias_factors()
+        cls.receiver_signatures = cls._make_receiver_signatures(
+            cls.on_records
+        )
+        cls.dense_alias_result = cls._match_alias(
+            cls.dense_off_result,
+            cls.dense_adjacent_result,
+        )
+        cls.local_alias_result = cls._match_alias(
+            cls.local_off_result,
+            cls.local_adjacent_result,
+        )
+        cls.physical_receipt = cls._seal_physical()
 
     @classmethod
     def _make_threshold(cls):
@@ -410,6 +432,288 @@ class SparseRetentionOffRankReferenceTests(unittest.TestCase):
             template_bank=cls.bank,
         )
 
+    @classmethod
+    def _make_adjacent_result(cls, records):
+        detached_records = json.loads(core.canonical_json_bytes(list(records)))
+        evidence = []
+        queries = []
+        for record in detached_records:
+            active = [
+                int(epoch) for epoch in record["active_epochs_zero_based"]
+            ]
+            measurements = []
+            matching = []
+            for position, epoch in enumerate(active):
+                veto = (
+                    int(record["template_index"]) == 2
+                    and int(record["spectral_width_index"]) == 0
+                    and position == 0
+                )
+                snr = 6.0 if veto else 1.0 + 0.1 * epoch
+                if veto:
+                    matching.append(epoch)
+                measurements.append(
+                    {
+                        "epoch_zero_based": epoch,
+                        "paired_on_scan_label": f"epoch{epoch + 1}_on",
+                        "paired_off_scan_label": f"epoch{epoch + 1}_off",
+                        "snr": snr,
+                        "meets_single_epoch_floor": veto,
+                    }
+                )
+                queries.append(
+                    {
+                        "record_id": record["record_id"],
+                        "epoch_zero_based": epoch,
+                        "paired_off_scan_label": f"epoch{epoch + 1}_off",
+                        "template_index": int(record["template_index"]),
+                        "spectral_width_index": int(
+                            record["spectral_width_index"]
+                        ),
+                        "proxy_carrier_index": int(
+                            record["proxy_carrier_index"]
+                        ),
+                    }
+                )
+            evidence.append(
+                {
+                    "record_id": record["record_id"],
+                    "template_index": int(record["template_index"]),
+                    "spectral_width_index": int(
+                        record["spectral_width_index"]
+                    ),
+                    "spectral_width_channels": int(
+                        record["spectral_width_channels"]
+                    ),
+                    "proxy_carrier_index": int(
+                        record["proxy_carrier_index"]
+                    ),
+                    "proxy_carrier_hz": float(record["proxy_carrier_hz"]),
+                    "active_epochs_zero_based": active,
+                    "single_epoch_snr_floor": 5.5,
+                    "comparison": (
+                        "native_gathered_snr >= single_epoch_snr_floor"
+                    ),
+                    "exact_same_q_template_width": True,
+                    "exclusion_mask_applied": False,
+                    "frequency_neighborhood_hz": 0.0,
+                    "paired_adjacent_off_measurements": measurements,
+                    "matching_active_epochs_zero_based": matching,
+                    "maximum_active_epoch_snr": max(
+                        item["snr"] for item in measurements
+                    ),
+                    "vetoed": bool(matching),
+                    "recommended_member_disposition": (
+                        "rfi_veto_single_adjacent_off"
+                        if matching
+                        else "pending_receiver_alias_evaluation"
+                    ),
+                }
+            )
+        cache_inventory = []
+        for width in SPARSE_LOCAL_REQUIRED_WIDTHS:
+            for epoch in range(3):
+                cache_key = {
+                    "artifact_type": "synthetic-adjacent-cache-oracle-v1",
+                    "spectral_width_channels": width,
+                    "epoch_zero_based": epoch,
+                }
+                cache_inventory.append(
+                    {
+                        "spectral_width_channels": width,
+                        "epoch_zero_based": epoch,
+                        "scan_label": f"epoch{epoch + 1}_off",
+                        "cache_plan_sha256": hashlib.sha256(
+                            core.canonical_json_bytes(
+                                {**cache_key, "identity": "plan"}
+                            )
+                        ).hexdigest(),
+                        "cache_payload_sha256": hashlib.sha256(
+                            core.canonical_json_bytes(
+                                {**cache_key, "identity": "payload"}
+                            )
+                        ).hexdigest(),
+                    }
+                )
+        evidence_bytes = core.canonical_json_bytes(evidence)
+        certificate = {
+            "window_id": cls.on_certificate["window_id"],
+            "contract": "exact paired adjacent OFF q/template/width native gather",
+            "comparison": "any active-epoch S/N >= single_epoch_snr_floor",
+            "single_epoch_snr_floor": 5.5,
+            "exact_same_q_template_width": True,
+            "exclusion_mask_applied": False,
+            "frequency_neighborhood_hz": 0.0,
+            "on_retention_certificate_sha256": cls.on_certificate[
+                "retention_certificate_sha256"
+            ],
+            "on_records_sha256": cls.on_certificate["records_sha256"],
+            "proxy_grid_sha256": cls.on_certificate["proxy_grid_sha256"],
+            "template_bank_sha256": cls.on_certificate[
+                "template_bank_sha256"
+            ],
+            "factor_basis_sha256": cls.on_certificate[
+                "factor_basis_sha256"
+            ],
+            "factor_basis_labels_sha256": cls.on_certificate[
+                "factor_basis_labels_sha256"
+            ],
+            "scan_inventory_sha256": cls.on_certificate[
+                "scan_inventory_sha256"
+            ],
+            "on_factor_row_selection_sha256": cls.on_certificate[
+                "factor_row_selection_sha256"
+            ],
+            "off_factor_row_selection_sha256": "7" * 64,
+            "factor_table_sha256": cls.on_certificate[
+                "factor_table_sha256"
+            ],
+            "cache_inventory": cache_inventory,
+            "cache_inventory_sha256": hashlib.sha256(
+                core.canonical_json_bytes(cache_inventory)
+            ).hexdigest(),
+            "cache_count": len(cache_inventory),
+            "query_inventory_sha256": hashlib.sha256(
+                core.canonical_json_bytes(queries)
+            ).hexdigest(),
+            "query_count": len(queries),
+            "maximum_queries": len(queries),
+            "input_record_count": len(evidence),
+            "evidence_record_count": len(evidence),
+            "maximum_records": len(evidence),
+            "maximum_evidence_record_canonical_bytes": cls.on_certificate[
+                "maximum_record_canonical_bytes"
+            ],
+            "maximum_evidence_canonical_bytes": 10_000_000,
+            "evidence_canonical_bytes": len(evidence_bytes),
+            "all_input_records_evaluated_exactly_once": True,
+            "all_active_epoch_queries_evaluated_exactly_once": True,
+            "truncation_permitted": False,
+            "evidence_sha256": hashlib.sha256(evidence_bytes).hexdigest(),
+        }
+        certificate["single_adjacent_off_certificate_sha256"] = (
+            hashlib.sha256(
+                core.canonical_json_bytes(certificate)
+            ).hexdigest()
+        )
+        return {"evidence": evidence, "certificate": certificate}
+
+    @classmethod
+    def _make_alias_factors(cls):
+        carriers = {
+            template: sorted(
+                {
+                    float(record["proxy_carrier_hz"])
+                    for record in cls.on_records
+                    if int(record["template_index"]) == template
+                }
+            )
+            for template in range(3)
+        }
+        target_template_one_hz = carriers[0][0] + 21.0
+        factors = np.asarray(
+            [
+                [1.0, 1.0, 1.0],
+                [
+                    target_template_one_hz / carriers[1][0],
+                    target_template_one_hz / carriers[1][0],
+                    target_template_one_hz / carriers[1][0],
+                ],
+                [1.3, 1.3, 1.3],
+            ],
+            dtype="<f8",
+        )
+        return factors
+
+    @classmethod
+    def _make_receiver_signatures(cls, records):
+        result = {}
+        for record in records:
+            low_snr_control = (
+                int(record["template_index"]) == 2
+                and int(record["spectral_width_index"]) == 7
+            )
+            entries = []
+            for epoch in record["active_epochs_zero_based"]:
+                predicted_mhz = float(record["proxy_carrier_mhz"])
+                peak_mhz = 0.0005
+                entries.append(
+                    {
+                        "epoch_zero_based": int(epoch),
+                        "predicted_mid_mhz": predicted_mhz,
+                        "peak_frequency_mhz": peak_mhz,
+                        "peak_snr": 4.0 if low_snr_control else 8.0,
+                        "offset_from_prediction_hz": (
+                            peak_mhz - predicted_mhz
+                        )
+                        * 1e6,
+                    }
+                )
+            result[str(record["record_id"])] = entries
+        return result
+
+    @classmethod
+    def _match_alias(cls, off_result, adjacent_result):
+        return match_receiver_frame_aliases(
+            off_result["records"],
+            cls.on_certificate,
+            cls.grid,
+            cls.on_alias_factors,
+            cls.receiver_signatures,
+            off_match_certificate=off_result["certificate"],
+            single_adjacent_off_evidence=adjacent_result["evidence"],
+            single_adjacent_off_certificate=adjacent_result["certificate"],
+            expected_off_match_certificate_sha256=off_result[
+                "certificate"
+            ]["off_match_certificate_sha256"],
+            expected_single_adjacent_off_certificate_sha256=(
+                adjacent_result["certificate"][
+                    "single_adjacent_off_certificate_sha256"
+                ]
+            ),
+            window_order=("synthetic-sparse-phase2",),
+            track_tolerance_hz=20.0,
+            local_half_width_hz=100.0,
+            local_peak_snr_floor=5.5,
+            minimum_shared_active_epochs=2,
+            maximum_records=1_000,
+            maximum_bucket_entries=100_000,
+            maximum_identity_track_comparisons=100_000,
+            maximum_distinct_candidate_visits_per_window=100_000,
+            template_bank=cls.bank,
+            expected_on_certificate_sha256=cls.on_certificate[
+                "retention_certificate_sha256"
+            ],
+        )
+
+    @classmethod
+    def _seal_physical(cls, **overrides):
+        arguments = {
+            "phase2_receipt": cls.receipt,
+            "on_product": cls.on_product,
+            "on_retention_certificate": cls.on_certificate,
+            "off_result": cls.local_off_result,
+            "dense_adjacent_result": cls.dense_adjacent_result,
+            "local_adjacent_result": cls.local_adjacent_result,
+            "dense_alias_result": cls.dense_alias_result,
+            "local_alias_result": cls.local_alias_result,
+            "receiver_signatures": cls.receiver_signatures,
+            "grid": cls.grid,
+            "template_bank": cls.bank,
+            "on_factor_matrix": cls.on_alias_factors,
+            "window_order": ("synthetic-sparse-phase2",),
+            "track_tolerance_hz": 20.0,
+            "local_half_width_hz": 100.0,
+            "local_peak_snr_floor": 5.5,
+            "minimum_shared_active_epochs": 2,
+            "maximum_records": 1_000,
+            "maximum_bucket_entries": 100_000,
+            "maximum_identity_track_comparisons": 100_000,
+            "maximum_distinct_candidate_visits_per_window": 100_000,
+        }
+        arguments.update(overrides)
+        return seal_sparse_physical_reference_kat_receipt(**arguments)
+
     def test_phase2_known_answer_is_exact_and_claim_limited(self):
         validate_sparse_retention_reference_kat_product(self.on_product)
         validate_sparse_retention_reference_kat_product(self.off_product)
@@ -632,6 +936,101 @@ class SparseRetentionOffRankReferenceTests(unittest.TestCase):
                 local_rank_result=changed_rank,
                 scientific_p_ceiling=0.4,
             )
+
+    def test_phase3_known_answer_closes_adjacent_and_alias_only(self):
+        validate_sparse_physical_reference_kat_receipt(
+            self.physical_receipt
+        )
+        self.assertEqual(
+            self.physical_receipt.status, SPARSE_PHYSICAL_REFERENCE_STATUS
+        )
+        self.assertTrue(
+            self.physical_receipt.adjacent_off_equivalence_proven
+        )
+        self.assertTrue(
+            self.physical_receipt.receiver_alias_equivalence_proven
+        )
+        self.assertTrue(
+            self.physical_receipt.transitive_identity_component_proven
+        )
+        self.assertFalse(
+            self.physical_receipt.production_receipt_ancestry_proven
+        )
+        self.assertFalse(
+            self.physical_receipt.complete_resource_envelope_proven
+        )
+        self.assertFalse(self.physical_receipt.production_equivalence_claimed)
+        self.assertFalse(
+            self.physical_receipt.production_feasibility_gate_changed
+        )
+        self.assertFalse(self.physical_receipt.production_data_used)
+        self.assertEqual(
+            M37_COMPLETENESS_PRODUCTION_FEASIBILITY_STATUS,
+            "mandatory-full-replay-benchmark-not-yet-passed",
+        )
+        self.assertEqual(
+            set(dict(self.physical_receipt.final_disposition_counts)),
+            {
+                "rfi_veto_matched_off_same_hypothesis",
+                "rfi_veto_local_off_track",
+                "rfi_veto_single_adjacent_off",
+                "rfi_veto_receiver_frame_alias",
+                "pending_receiver_alias_evaluation",
+            },
+        )
+        self.assertTrue(
+            all(
+                count > 0
+                for _, count in self.physical_receipt.final_disposition_counts
+            )
+        )
+
+    def test_phase3_dense_and_sparse_stage_products_are_byte_identical(self):
+        self.assertEqual(
+            core.canonical_json_bytes(self.dense_adjacent_result),
+            core.canonical_json_bytes(self.local_adjacent_result),
+        )
+        self.assertEqual(
+            core.canonical_json_bytes(self.dense_alias_result),
+            core.canonical_json_bytes(self.local_alias_result),
+        )
+
+    def test_phase3_mutations_and_claim_expansion_fail_closed(self):
+        changed_adjacent = deepcopy(self.local_adjacent_result)
+        changed_adjacent["evidence"][0][
+            "paired_adjacent_off_measurements"
+        ][0]["snr"] = 5.5
+        with self.assertRaisesRegex(
+            core.V0P6IncompleteError, "differs from the dense reference"
+        ):
+            self._seal_physical(local_adjacent_result=changed_adjacent)
+
+        changed_alias = deepcopy(self.local_alias_result)
+        changed_alias["records"][0]["receiver_alias_evidence"][
+            "matched"
+        ] = not changed_alias["records"][0]["receiver_alias_evidence"][
+            "matched"
+        ]
+        with self.assertRaisesRegex(
+            core.V0P6IncompleteError, "differs from the dense reference"
+        ):
+            self._seal_physical(local_alias_result=changed_alias)
+
+        forged = replace(
+            self.physical_receipt,
+            production_equivalence_claimed=True,
+            receipt_sha256="",
+        )
+        forged = replace(
+            forged,
+            receipt_sha256=hashlib.sha256(
+                core.canonical_json_bytes(
+                    forged.as_record(include_identity=False)
+                )
+            ).hexdigest(),
+        )
+        with self.assertRaisesRegex(core.V0P6IncompleteError, "claim boundary"):
+            validate_sparse_physical_reference_kat_receipt(forged)
 
 
 if __name__ == "__main__":

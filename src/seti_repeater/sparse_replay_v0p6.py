@@ -5,9 +5,11 @@ two-pass masks and pointwise hypothesis scores reproduce dense synthetic
 references bit for bit.  The bounded phase-2 reference additionally requires
 a complete dense score oracle and proves identical retained-record bytes,
 three OFF-disposition branches and inclusive rank-p boundaries for one small
-fixture.  Neither phase is a production completeness implementation.  In
-particular, receiver-alias and adjacent-OFF dependencies, production ancestry
-and the complete resource envelope remain unproved.
+fixture.  Phase 3 binds the retained ancestry through complete synthetic
+adjacent-OFF evidence and independently reproduced receiver-alias connected
+components.  None of these phases is a production completeness
+implementation.  Production ancestry and the complete resource envelope
+remain unproved.
 
 Every materialized truth-distance oracle has a hard cell cap so the reference
 planner cannot accidentally be applied to the full M37 grid.
@@ -110,6 +112,30 @@ SPARSE_RETENTION_REFERENCE_RANK_RESULT_SHA256 = (
 SPARSE_RETENTION_REFERENCE_RECEIPT_SHA256 = (
     "1d70d05ac7b7888cf8071bcbe894bd67bae24fba87636c6c17945b982cf0ca09"
 )
+
+SPARSE_PHYSICAL_REFERENCE_STATUS = (
+    "synthetic-adjacent-off-receiver-alias-reference-production-unproven"
+)
+SPARSE_PHYSICAL_REFERENCE_COVERAGE = (
+    "complete-single-adjacent-off-evidence",
+    "inclusive-single-adjacent-off-threshold",
+    "adjacent-off-veto-and-pass-branches",
+    "receiver-alias-width-subset-independent-identities",
+    "receiver-alias-connected-components",
+    "transitive-receiver-alias-component",
+    "receiver-alias-match-and-no-match-branches",
+    "all-five-physical-dispositions",
+)
+SPARSE_PHYSICAL_REFERENCE_ADJACENT_RESULT_SHA256 = (
+    "5e14628984549016c459be03a9cbb00f5733c07bf31fe0c0a1db07aee6e6a0f7"
+)
+SPARSE_PHYSICAL_REFERENCE_ALIAS_RESULT_SHA256 = (
+    "369657f48115b8af63099ed8fc8accd18af540602be570cee78c94647a52b3bf"
+)
+SPARSE_PHYSICAL_REFERENCE_RECEIPT_SHA256 = (
+    "ef46ff54d69fdad918ca2d05d2c27896ae3ee53ecd0c2a20970003738d9a1f11"
+)
+SPARSE_PHYSICAL_REFERENCE_MAXIMUM_IDENTITY_NODES = 4_096
 
 
 def _sha256_bytes(payload: bytes) -> str:
@@ -2269,4 +2295,590 @@ def validate_sparse_retention_off_rank_reference_kat_receipt(
     if observed != pinned:
         raise core.V0P6IncompleteError(
             "sparse retention/OFF/rank receipt is not the pinned known answer"
+        )
+
+
+@dataclass(frozen=True)
+class SparsePhysicalReferenceKATReceipt:
+    """Phase-3 receipt for adjacent-OFF and receiver-alias dependencies."""
+
+    status: str
+    covered_contracts: tuple[str, ...]
+    phase2_receipt_sha256: str
+    on_retention_product_sha256: str
+    off_result_sha256: str
+    adjacent_result_sha256: str
+    alias_result_sha256: str
+    receiver_signature_product_sha256: str
+    adjacent_branch_counts: tuple[tuple[str, int], ...]
+    alias_match_counts: tuple[tuple[str, int], ...]
+    final_disposition_counts: tuple[tuple[str, int], ...]
+    alias_identity_node_count: int
+    alias_identity_component_count: int
+    alias_identity_edge_count: int
+    global_retention_equivalence_proven: bool
+    off_disposition_equivalence_proven: bool
+    rank_p_equivalence_proven: bool
+    adjacent_off_equivalence_proven: bool
+    receiver_alias_equivalence_proven: bool
+    transitive_identity_component_proven: bool
+    production_receipt_ancestry_proven: bool
+    complete_resource_envelope_proven: bool
+    production_equivalence_claimed: bool
+    production_feasibility_gate_changed: bool
+    production_data_used: bool
+    receipt_sha256: str
+
+    def as_record(self, *, include_identity: bool = True) -> dict[str, Any]:
+        record = {
+            "status": self.status,
+            "covered_contracts": list(self.covered_contracts),
+            "phase2_receipt_sha256": self.phase2_receipt_sha256,
+            "on_retention_product_sha256": (
+                self.on_retention_product_sha256
+            ),
+            "off_result_sha256": self.off_result_sha256,
+            "adjacent_result_sha256": self.adjacent_result_sha256,
+            "alias_result_sha256": self.alias_result_sha256,
+            "receiver_signature_product_sha256": (
+                self.receiver_signature_product_sha256
+            ),
+            "adjacent_branch_counts": dict(self.adjacent_branch_counts),
+            "alias_match_counts": dict(self.alias_match_counts),
+            "final_disposition_counts": dict(
+                self.final_disposition_counts
+            ),
+            "alias_identity_node_count": self.alias_identity_node_count,
+            "alias_identity_component_count": (
+                self.alias_identity_component_count
+            ),
+            "alias_identity_edge_count": self.alias_identity_edge_count,
+            "global_retention_equivalence_proven": (
+                self.global_retention_equivalence_proven
+            ),
+            "off_disposition_equivalence_proven": (
+                self.off_disposition_equivalence_proven
+            ),
+            "rank_p_equivalence_proven": self.rank_p_equivalence_proven,
+            "adjacent_off_equivalence_proven": (
+                self.adjacent_off_equivalence_proven
+            ),
+            "receiver_alias_equivalence_proven": (
+                self.receiver_alias_equivalence_proven
+            ),
+            "transitive_identity_component_proven": (
+                self.transitive_identity_component_proven
+            ),
+            "production_receipt_ancestry_proven": (
+                self.production_receipt_ancestry_proven
+            ),
+            "complete_resource_envelope_proven": (
+                self.complete_resource_envelope_proven
+            ),
+            "production_equivalence_claimed": (
+                self.production_equivalence_claimed
+            ),
+            "production_feasibility_gate_changed": (
+                self.production_feasibility_gate_changed
+            ),
+            "production_data_used": self.production_data_used,
+        }
+        if include_identity:
+            record["receipt_sha256"] = self.receipt_sha256
+        return record
+
+
+_SPARSE_PHYSICAL_FINAL_DISPOSITIONS = (
+    "rfi_veto_matched_off_same_hypothesis",
+    "rfi_veto_local_off_track",
+    "rfi_veto_single_adjacent_off",
+    "rfi_veto_receiver_frame_alias",
+    "pending_receiver_alias_evaluation",
+)
+
+
+def _transitive_alias_component_is_present(
+    records: Sequence[Mapping[str, Any]],
+    alias_records: Sequence[Mapping[str, Any]],
+    factors: np.ndarray,
+    tolerance_hz: float,
+) -> tuple[bool, int]:
+    """Require a same-component node pair that is not a literal edge."""
+    factor_array = np.asarray(factors)
+    if (
+        factor_array.ndim != 2
+        or not np.issubdtype(factor_array.dtype, np.floating)
+        or factor_array.shape[0] < 1
+        or factor_array.shape[1] < 1
+        or not np.all(np.isfinite(factor_array))
+        or np.any(factor_array <= 0.0)
+    ):
+        raise core.V0P6ContractError(
+            "sparse physical alias factors are malformed"
+        )
+    immutable_factors = np.asarray(factor_array, dtype=np.float64)
+    if len(records) != len(alias_records):
+        raise core.V0P6IncompleteError(
+            "sparse physical alias inventory differs from retention"
+        )
+    component_by_node: dict[tuple[int, int], str] = {}
+    carrier_by_node: dict[tuple[int, int], float] = {}
+    for base, annotated in zip(records, alias_records, strict=True):
+        if str(base["record_id"]) != str(annotated.get("record_id")):
+            raise core.V0P6IncompleteError(
+                "sparse physical alias order differs from retention"
+            )
+        node = (
+            core._strict_int(base["template_index"], "alias template index"),
+            core._strict_int(
+                base["proxy_carrier_index"], "alias proxy-carrier index"
+            ),
+        )
+        evidence = annotated.get("receiver_alias_evidence")
+        if not isinstance(evidence, Mapping):
+            raise core.V0P6IncompleteError(
+                "sparse physical receiver-alias evidence is missing"
+            )
+        component = _frozen_sha256(
+            evidence.get("alias_identity_component_sha256"),
+            "alias identity component",
+        )
+        prior_component = component_by_node.setdefault(node, component)
+        prior_carrier = carrier_by_node.setdefault(
+            node,
+            _finite_json_number(
+                base["proxy_carrier_hz"], "alias proxy carrier"
+            ),
+        )
+        if prior_component != component or prior_carrier != float(
+            base["proxy_carrier_hz"]
+        ):
+            raise core.V0P6IncompleteError(
+                "width/subset realizations changed alias identity"
+            )
+    if not component_by_node or len(component_by_node) > (
+        SPARSE_PHYSICAL_REFERENCE_MAXIMUM_IDENTITY_NODES
+    ):
+        raise core.V0P6CapacityError(
+            "sparse physical identity-node capacity exceeded"
+        )
+    nodes = sorted(component_by_node)
+    tracks: dict[tuple[int, int], np.ndarray] = {}
+    for node in nodes:
+        template_index = node[0]
+        if template_index >= immutable_factors.shape[0]:
+            raise core.V0P6ContractError(
+                "sparse physical alias factor inventory is incomplete"
+            )
+        tracks[node] = carrier_by_node[node] * immutable_factors[
+            template_index
+        ]
+    for left_index, left in enumerate(nodes):
+        for right in nodes[left_index + 1 :]:
+            if component_by_node[left] != component_by_node[right]:
+                continue
+            distance = float(np.max(np.abs(tracks[left] - tracks[right])))
+            if distance > tolerance_hz:
+                return True, len(nodes)
+    return False, len(nodes)
+
+
+def seal_sparse_physical_reference_kat_receipt(
+    *,
+    phase2_receipt: SparseRetentionOffRankReferenceKATReceipt,
+    on_product: SparseRetentionReferenceKATProduct,
+    on_retention_certificate: Mapping[str, Any],
+    off_result: Mapping[str, Any],
+    dense_adjacent_result: Mapping[str, Any],
+    local_adjacent_result: Mapping[str, Any],
+    dense_alias_result: Mapping[str, Any],
+    local_alias_result: Mapping[str, Any],
+    receiver_signatures: Mapping[str, Sequence[Mapping[str, Any]]],
+    grid: core.ProxyCarrierGrid,
+    template_bank: Sequence[Mapping[str, Any]],
+    on_factor_matrix: np.ndarray,
+    window_order: Sequence[str],
+    track_tolerance_hz: float,
+    local_half_width_hz: float,
+    local_peak_snr_floor: float,
+    minimum_shared_active_epochs: int,
+    maximum_records: int,
+    maximum_bucket_entries: int,
+    maximum_identity_track_comparisons: int,
+    maximum_distinct_candidate_visits_per_window: int,
+) -> SparsePhysicalReferenceKATReceipt:
+    """Seal phase-3 equality and replay all receiver-alias dependencies."""
+    validate_sparse_retention_off_rank_reference_kat_receipt(phase2_receipt)
+    validate_sparse_retention_reference_kat_product(on_product)
+    if (
+        phase2_receipt.on_retention_product_sha256
+        != on_product.product_sha256
+        or phase2_receipt.off_result_sha256
+        != _sha256_bytes(core.canonical_json_bytes(dict(off_result)))
+    ):
+        raise core.V0P6ContractError(
+            "sparse physical inputs differ from the phase-2 receipt"
+        )
+    on_cert = core.validate_retention_certificate(on_retention_certificate)
+    if (
+        on_product.scan_kind != "on"
+        or on_product.retention_certificate_sha256
+        != on_cert["retention_certificate_sha256"]
+    ):
+        raise core.V0P6ContractError(
+            "sparse physical ON ancestry differs from retention"
+        )
+    detached_off = json.loads(
+        core.canonical_json_bytes(dict(off_result))
+    )
+    if set(detached_off) != {"records", "certificate"}:
+        raise core.V0P6ContractError(
+            "sparse physical OFF result schema changed"
+        )
+    core.validate_off_match_result(
+        detached_off["records"],
+        detached_off["certificate"],
+        expected_certificate_sha256=detached_off["certificate"][
+            "off_match_certificate_sha256"
+        ],
+    )
+
+    adjacent_result, adjacent_digest = _equal_canonical_mapping_pair(
+        dense_adjacent_result,
+        local_adjacent_result,
+        "single-adjacent-OFF result",
+    )
+    if set(adjacent_result) != {"evidence", "certificate"}:
+        raise core.V0P6ContractError(
+            "sparse physical adjacent-OFF result schema changed"
+        )
+    from . import adjacent_v0p6 as adjacent
+
+    adjacent_cert = adjacent.validate_single_adjacent_off_result(
+        adjacent_result["evidence"],
+        adjacent_result["certificate"],
+        expected_certificate_sha256=adjacent_result["certificate"][
+            "single_adjacent_off_certificate_sha256"
+        ],
+    )
+    if (
+        adjacent_cert["on_retention_certificate_sha256"]
+        != on_cert["retention_certificate_sha256"]
+        or adjacent_cert["on_records_sha256"] != on_cert["records_sha256"]
+        or core._strict_int(
+            adjacent_cert["input_record_count"], "adjacent input count"
+        )
+        != on_product.retained_record_count
+    ):
+        raise core.V0P6IncompleteError(
+            "sparse physical adjacent receipt does not bind retention"
+        )
+    widths = core._strict_widths(on_cert["spectral_widths"])
+    cache_keys = {
+        (
+            core._strict_int(
+                item["spectral_width_channels"], "adjacent cache width"
+            ),
+            core._strict_int(item["epoch_zero_based"], "adjacent cache epoch"),
+        )
+        for item in adjacent_cert["cache_inventory"]
+    }
+    required_cache_keys = {
+        (width, epoch) for width in widths for epoch in range(3)
+    }
+    if (
+        cache_keys != required_cache_keys
+        or len(adjacent_cert["cache_inventory"]) != len(required_cache_keys)
+    ):
+        raise core.V0P6IncompleteError(
+            "sparse physical adjacent cache coverage is incomplete"
+        )
+    off_by_id = {
+        str(item["record_id"]): item for item in detached_off["records"]
+    }
+    adjacent_counts = {"vetoed": 0, "passed": 0}
+    for item in adjacent_result["evidence"]:
+        record_id = str(item["record_id"])
+        if record_id not in off_by_id:
+            raise core.V0P6IncompleteError(
+                "sparse physical adjacent evidence differs from OFF ancestry"
+            )
+        if off_by_id[record_id]["member_disposition"] != (
+            "pending_receiver_alias_evaluation"
+        ):
+            continue
+        branch = "vetoed" if item["vetoed"] else "passed"
+        adjacent_counts[branch] += 1
+    if any(adjacent_counts[name] < 1 for name in ("vetoed", "passed")):
+        raise core.V0P6IncompleteError(
+            "sparse physical adjacent fixture misses a branch"
+        )
+
+    alias_result, alias_digest = _equal_canonical_mapping_pair(
+        dense_alias_result,
+        local_alias_result,
+        "receiver-alias result",
+    )
+    if set(alias_result) != {"records", "certificate"}:
+        raise core.V0P6ContractError(
+            "sparse physical receiver-alias result schema changed"
+        )
+    from . import alias_v0p6 as alias
+
+    alias_cert = alias.validate_receiver_alias_result(
+        alias_result["records"],
+        alias_result["certificate"],
+        expected_certificate_sha256=alias_result["certificate"][
+            "receiver_alias_certificate_sha256"
+        ],
+    )
+    signature_product_sha256 = _frozen_sha256(
+        alias_cert["receiver_signature_product_sha256"],
+        "receiver signature product",
+    )
+    reproduced_alias = alias.match_receiver_frame_aliases(
+        detached_off["records"],
+        on_cert,
+        grid,
+        on_factor_matrix,
+        receiver_signatures,
+        off_match_certificate=detached_off["certificate"],
+        single_adjacent_off_evidence=adjacent_result["evidence"],
+        single_adjacent_off_certificate=adjacent_result["certificate"],
+        expected_off_match_certificate_sha256=detached_off["certificate"][
+            "off_match_certificate_sha256"
+        ],
+        expected_single_adjacent_off_certificate_sha256=adjacent_cert[
+            "single_adjacent_off_certificate_sha256"
+        ],
+        window_order=window_order,
+        track_tolerance_hz=track_tolerance_hz,
+        local_half_width_hz=local_half_width_hz,
+        local_peak_snr_floor=local_peak_snr_floor,
+        minimum_shared_active_epochs=minimum_shared_active_epochs,
+        maximum_records=maximum_records,
+        maximum_bucket_entries=maximum_bucket_entries,
+        maximum_identity_track_comparisons=(
+            maximum_identity_track_comparisons
+        ),
+        maximum_distinct_candidate_visits_per_window=(
+            maximum_distinct_candidate_visits_per_window
+        ),
+        template_bank=template_bank,
+        expected_on_certificate_sha256=on_cert[
+            "retention_certificate_sha256"
+        ],
+        expected_receiver_signature_product_sha256=(
+            signature_product_sha256
+        ),
+    )
+    if core.canonical_json_bytes(reproduced_alias) != (
+        core.canonical_json_bytes(alias_result)
+    ):
+        raise core.V0P6IncompleteError(
+            "sparse physical receiver-alias result does not reproduce"
+        )
+    alias_matches = {"matched": 0, "unmatched": 0}
+    for item in alias_result["records"]:
+        matched = item["receiver_alias_evidence"]["matched"]
+        if not isinstance(matched, bool):
+            raise core.V0P6ContractError(
+                "sparse physical alias match state must be boolean"
+            )
+        alias_matches["matched" if matched else "unmatched"] += 1
+    if any(alias_matches[name] < 1 for name in ("matched", "unmatched")):
+        raise core.V0P6IncompleteError(
+            "sparse physical alias fixture misses a match branch"
+        )
+    disposition_record = alias_cert["disposition_counts"]
+    if not isinstance(disposition_record, dict) or set(disposition_record) != set(
+        _SPARSE_PHYSICAL_FINAL_DISPOSITIONS
+    ):
+        raise core.V0P6ContractError(
+            "sparse physical final disposition inventory changed"
+        )
+    final_counts = tuple(
+        (
+            name,
+            core._strict_int(
+                disposition_record[name], f"{name} disposition count"
+            ),
+        )
+        for name in _SPARSE_PHYSICAL_FINAL_DISPOSITIONS
+    )
+    if any(count < 1 for _, count in final_counts):
+        raise core.V0P6IncompleteError(
+            "sparse physical fixture misses a final disposition"
+        )
+    tolerance = _finite_json_number(
+        track_tolerance_hz, "receiver-alias track tolerance"
+    )
+    if tolerance != _finite_json_number(
+        alias_cert["track_tolerance_hz"], "alias certificate tolerance"
+    ):
+        raise core.V0P6ContractError(
+            "sparse physical alias tolerance differs from its certificate"
+        )
+    transitive, node_count = _transitive_alias_component_is_present(
+        on_product.records(),
+        alias_result["records"],
+        on_factor_matrix,
+        tolerance,
+    )
+    certified_node_count = core._strict_int(
+        alias_cert["alias_identity_node_count"], "alias identity node count"
+    )
+    component_count = core._strict_int(
+        alias_cert["alias_identity_component_count"],
+        "alias identity component count",
+    )
+    edge_count = core._strict_int(
+        alias_cert["alias_identity_edge_count"], "alias identity edge count"
+    )
+    if (
+        not transitive
+        or node_count != certified_node_count
+        or component_count < 2
+        or edge_count < 2
+    ):
+        raise core.V0P6IncompleteError(
+            "sparse physical fixture lacks transitive component coverage"
+        )
+
+    partial = SparsePhysicalReferenceKATReceipt(
+        status=SPARSE_PHYSICAL_REFERENCE_STATUS,
+        covered_contracts=SPARSE_PHYSICAL_REFERENCE_COVERAGE,
+        phase2_receipt_sha256=phase2_receipt.receipt_sha256,
+        on_retention_product_sha256=on_product.product_sha256,
+        off_result_sha256=phase2_receipt.off_result_sha256,
+        adjacent_result_sha256=adjacent_digest,
+        alias_result_sha256=alias_digest,
+        receiver_signature_product_sha256=signature_product_sha256,
+        adjacent_branch_counts=tuple(adjacent_counts.items()),
+        alias_match_counts=tuple(alias_matches.items()),
+        final_disposition_counts=final_counts,
+        alias_identity_node_count=certified_node_count,
+        alias_identity_component_count=component_count,
+        alias_identity_edge_count=edge_count,
+        global_retention_equivalence_proven=True,
+        off_disposition_equivalence_proven=True,
+        rank_p_equivalence_proven=True,
+        adjacent_off_equivalence_proven=True,
+        receiver_alias_equivalence_proven=True,
+        transitive_identity_component_proven=True,
+        production_receipt_ancestry_proven=False,
+        complete_resource_envelope_proven=False,
+        production_equivalence_claimed=False,
+        production_feasibility_gate_changed=False,
+        production_data_used=False,
+        receipt_sha256="",
+    )
+    receipt = replace(
+        partial,
+        receipt_sha256=_sha256_bytes(
+            core.canonical_json_bytes(partial.as_record(include_identity=False))
+        ),
+    )
+    validate_sparse_physical_reference_kat_receipt(receipt)
+    return receipt
+
+
+def validate_sparse_physical_reference_kat_receipt(
+    receipt: SparsePhysicalReferenceKATReceipt,
+) -> None:
+    if not isinstance(receipt, SparsePhysicalReferenceKATReceipt):
+        raise core.V0P6ContractError(
+            "sparse physical reference receipt has an invalid type"
+        )
+    if (
+        receipt.status != SPARSE_PHYSICAL_REFERENCE_STATUS
+        or receipt.covered_contracts != SPARSE_PHYSICAL_REFERENCE_COVERAGE
+        or receipt.global_retention_equivalence_proven is not True
+        or receipt.off_disposition_equivalence_proven is not True
+        or receipt.rank_p_equivalence_proven is not True
+        or receipt.adjacent_off_equivalence_proven is not True
+        or receipt.receiver_alias_equivalence_proven is not True
+        or receipt.transitive_identity_component_proven is not True
+        or receipt.production_receipt_ancestry_proven is not False
+        or receipt.complete_resource_envelope_proven is not False
+        or receipt.production_equivalence_claimed is not False
+        or receipt.production_feasibility_gate_changed is not False
+        or receipt.production_data_used is not False
+    ):
+        raise core.V0P6IncompleteError(
+            "sparse physical reference claim boundary changed"
+        )
+    for name in (
+        "phase2_receipt_sha256",
+        "on_retention_product_sha256",
+        "off_result_sha256",
+        "adjacent_result_sha256",
+        "alias_result_sha256",
+        "receiver_signature_product_sha256",
+        "receipt_sha256",
+    ):
+        _frozen_sha256(getattr(receipt, name), name.replace("_", " "))
+    if (
+        receipt.phase2_receipt_sha256
+        != SPARSE_RETENTION_REFERENCE_RECEIPT_SHA256
+        or receipt.on_retention_product_sha256
+        != SPARSE_RETENTION_REFERENCE_ON_PRODUCT_SHA256
+        or receipt.off_result_sha256
+        != SPARSE_RETENTION_REFERENCE_OFF_RESULT_SHA256
+    ):
+        raise core.V0P6IncompleteError(
+            "sparse physical phase-2 ancestry changed"
+        )
+    adjacent_counts = dict(receipt.adjacent_branch_counts)
+    alias_counts = dict(receipt.alias_match_counts)
+    final_counts = dict(receipt.final_disposition_counts)
+    if (
+        set(adjacent_counts) != {"vetoed", "passed"}
+        or set(alias_counts) != {"matched", "unmatched"}
+        or set(final_counts) != set(_SPARSE_PHYSICAL_FINAL_DISPOSITIONS)
+        or any(
+            core._strict_int(value, "sparse physical branch count") < 1
+            for value in (*adjacent_counts.values(), *alias_counts.values())
+        )
+        or any(
+            core._strict_int(value, "sparse physical disposition count") < 1
+            for value in final_counts.values()
+        )
+        or core._strict_int(
+            receipt.alias_identity_node_count, "alias identity node count"
+        )
+        < 3
+        or core._strict_int(
+            receipt.alias_identity_component_count,
+            "alias identity component count",
+        )
+        < 2
+        or core._strict_int(
+            receipt.alias_identity_edge_count, "alias identity edge count"
+        )
+        < 2
+    ):
+        raise core.V0P6IncompleteError(
+            "sparse physical coverage inventory changed"
+        )
+    expected = _sha256_bytes(
+        core.canonical_json_bytes(receipt.as_record(include_identity=False))
+    )
+    if expected != receipt.receipt_sha256:
+        raise core.V0P6IncompleteError(
+            "sparse physical reference receipt identity changed"
+        )
+    pinned = (
+        SPARSE_PHYSICAL_REFERENCE_ADJACENT_RESULT_SHA256,
+        SPARSE_PHYSICAL_REFERENCE_ALIAS_RESULT_SHA256,
+        SPARSE_PHYSICAL_REFERENCE_RECEIPT_SHA256,
+    )
+    observed = (
+        receipt.adjacent_result_sha256,
+        receipt.alias_result_sha256,
+        receipt.receipt_sha256,
+    )
+    if observed != pinned:
+        raise core.V0P6IncompleteError(
+            "sparse physical receipt is not the pinned known answer"
         )
