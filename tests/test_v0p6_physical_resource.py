@@ -427,6 +427,129 @@ class PhysicalResourceEnvelopeTests(unittest.TestCase):
                 ],
             )
 
+    def test_atomic_read_only_artifact_round_trip(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            result, _, _ = self._execute(root)
+            envelope = result["resource_envelope"]
+            path = root / "physical-resource.json"
+            receipt = physical.publish_physical_resource_artifact(
+                path,
+                envelope,
+                expected_envelope_sha256=envelope[
+                    "resource_envelope_sha256"
+                ],
+            )
+            self.assertEqual(path.stat().st_mode & 0o222, 0)
+            self.assertEqual(
+                receipt.file_sha256,
+                "7a4c5e36042f687265a0ac3844ae29c6cd7803742e5d61f1512d340e5f178e48",
+            )
+            self.assertEqual(receipt.file_nbytes, 8_474)
+            self.assertEqual(
+                receipt.file_sha256,
+                hashlib.sha256(path.read_bytes()).hexdigest(),
+            )
+            opened = physical.open_physical_resource_artifact(
+                path,
+                expected_file_sha256=receipt.file_sha256,
+                expected_envelope_sha256=receipt.resource_envelope_sha256,
+                expected_run_id=receipt.run_id,
+                expected_cache_run_manifest_file_sha256=(
+                    receipt.cache_run_manifest_file_sha256
+                ),
+                expected_factor_bundle_manifest_sha256=(
+                    receipt.factor_bundle_manifest_sha256
+                ),
+                expected_on_retention_certificate_sha256=(
+                    receipt.on_retention_certificate_sha256
+                ),
+            )
+            self.assertEqual(opened.envelope, envelope)
+            self.assertEqual(opened.receipt, receipt)
+            with self.assertRaises(FileExistsError):
+                physical.publish_physical_resource_artifact(
+                    path,
+                    envelope,
+                    expected_envelope_sha256=(
+                        envelope["resource_envelope_sha256"]
+                    ),
+                )
+
+    def test_artifact_requires_independent_file_and_ancestry_roots(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            result, _, _ = self._execute(root)
+            envelope = result["resource_envelope"]
+            path = root / "physical-resource.json"
+            receipt = physical.publish_physical_resource_artifact(
+                path,
+                envelope,
+                expected_envelope_sha256=envelope[
+                    "resource_envelope_sha256"
+                ],
+            )
+            arguments = {
+                "expected_file_sha256": receipt.file_sha256,
+                "expected_envelope_sha256": (
+                    receipt.resource_envelope_sha256
+                ),
+                "expected_run_id": receipt.run_id,
+                "expected_cache_run_manifest_file_sha256": (
+                    receipt.cache_run_manifest_file_sha256
+                ),
+                "expected_factor_bundle_manifest_sha256": (
+                    receipt.factor_bundle_manifest_sha256
+                ),
+                "expected_on_retention_certificate_sha256": (
+                    receipt.on_retention_certificate_sha256
+                ),
+            }
+            wrong_file = dict(arguments)
+            wrong_file["expected_file_sha256"] = "0" * 64
+            with self.assertRaisesRegex(
+                core.V0P6IncompleteError, "file identity"
+            ):
+                physical.open_physical_resource_artifact(path, **wrong_file)
+            wrong_ancestry = dict(arguments)
+            wrong_ancestry["expected_factor_bundle_manifest_sha256"] = (
+                "0" * 64
+            )
+            with self.assertRaisesRegex(
+                core.V0P6IncompleteError, "ancestry"
+            ):
+                physical.open_physical_resource_artifact(
+                    path, **wrong_ancestry
+                )
+            oversized = root / "oversized-resource.json"
+            with oversized.open("wb") as stream:
+                stream.seek(
+                    physical.PHYSICAL_RESOURCE_ARTIFACT_MAXIMUM_BYTES
+                )
+                stream.write(b"x")
+            with self.assertRaisesRegex(
+                core.V0P6CapacityError, "byte cap"
+            ):
+                physical.open_physical_resource_artifact(
+                    oversized, **arguments
+                )
+
+    def test_m37_artifact_gate_rejects_synthetic_before_publication(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            result, _, _ = self._execute(root)
+            envelope = result["resource_envelope"]
+            path = root / "forbidden-m37-resource.json"
+            with self.assertRaisesRegex(core.V0P6ContractError, "M37 contract"):
+                physical.publish_m37_physical_resource_artifact(
+                    path,
+                    envelope,
+                    expected_envelope_sha256=(
+                        envelope["resource_envelope_sha256"]
+                    ),
+                )
+            self.assertFalse(path.exists())
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -18,8 +18,10 @@ v0.6 preflight, implementation candidate, restartable metadata-only bootstrap,
 synthetic width-streaming evidence checkpoint, and phase-2 sparse-retention /
 OFF / rank-p reference are published. A bounded aggregate resource checkpoint
 also now binds real synthetic cache ownership across the sequential receiver
-and adjacent-OFF streams, but no Milestone 37 telescope spectral payload has
-been opened or read and there is not yet a scientific M37 search result.
+and adjacent-OFF streams. That compact resource envelope can now be published
+and reopened as a canonical, read-only, independently hash-gated artifact,
+but no Milestone 37 telescope spectral payload has been opened or read and
+there is not yet a scientific M37 search result.
 
 Milestone 35 provides the latest survey-level synthesis. At exact ideal S/N 40
 its finite-injection pointwise 95% upper bound on `f(40)` is 33.16%, where
@@ -67,17 +69,19 @@ Separately, a physical resource executor now proves that receiver mappings are
 closed before adjacent-OFF mappings open and binds both stages to one run,
 cache manifest, factor bundle, retention ancestry, per-cache receipt inventory
 and measured mapped-byte cap. This resource proof is synthetic and does not
-yet join the phase-3 disposition reference into production ancestry. The full
-repository suite now runs 263 tests: 262 pass, the opt-in exact-grid
-benchmark is the one expected skip, and no test fails.
+yet join the phase-3 disposition reference into production ancestry. Its
+compact envelope can now survive a process restart through atomic read-only
+publication and independently rooted reopening, but is not attached to the
+production journal. The full repository suite now runs 266 tests: 265 pass,
+the opt-in exact-grid benchmark is the one expected skip, and no test fails.
 
 M37 remains an engineering milestone, not a scientific result. The complete
 production completeness path still lacks production ancestry and the complete
-primary-search/completeness resource envelope. Persistence of the integrated
-streaming stages in the restartable production runner, the final pinned
-runtime, and the production lifecycle must also be closed and frozen before
-any separate authorization may permit the six HD 156668 telescope payloads to
-be contacted.
+primary-search/completeness resource envelope. Journal integration of the
+persisted streaming resource receipt, the final pinned runtime, and the
+production lifecycle must also be closed and frozen before any separate
+authorization may permit the six HD 156668 telescope payloads to be
+contacted.
 
 ## Milestone 36 result
 
@@ -772,6 +776,8 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 - `results_m37_v0p6_physical_reference/progress.json` — machine-readable phase-3 status.
 - `MILESTONE_37_DETECTOR_V0P6_RESOURCE_ENVELOPE_CHECKPOINT.md` — bounded aggregate physical-evidence resource checkpoint.
 - `results_m37_v0p6_resource_envelope/progress.json` — machine-readable resource-envelope status.
+- `MILESTONE_37_DETECTOR_V0P6_RESOURCE_PERSISTENCE_CHECKPOINT.md` — restartable synthetic resource-artifact checkpoint.
+- `results_m37_v0p6_resource_persistence/progress.json` — machine-readable resource-artifact persistence status.
 - `MILESTONE_36_REPORT.md` — primary result and exhaustive audit interpretation.
 - `MILESTONE_36_PREREGISTRATION.md` — frozen HIP 48714 search design.
 - `MILESTONE_36_EXHAUSTIVE_RETENTION_AUDIT_PLAN.md` — complete-retention protocol.

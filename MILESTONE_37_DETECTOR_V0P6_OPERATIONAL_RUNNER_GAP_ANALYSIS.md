@@ -8,10 +8,11 @@ metadata-only bootstrap described below now exist locally and pass the full
 repository suite. See `MILESTONE_37_DETECTOR_V0P6_RUNNER_PROGRESS.md`.
 Width-streaming physical evidence now also has a bounded aggregate executor
 and resource envelope: it proves sequential cache ownership against real
-synthetic cache files, but it is not yet joined to phase-3 disposition
-ancestry or persisted by the production runner. Completeness equivalence and
-the complete production runner remain open; this document therefore remains
-non-frozen and does not authorize spectral access.
+synthetic cache files. Its compact envelope can now be atomically persisted
+and reopened against independently supplied ancestry, but it is not yet
+joined to phase-3 disposition ancestry or attached to the production journal.
+Completeness equivalence and the complete production runner remain open; this
+document therefore remains non-frozen and does not authorize spectral access.
 
 This document maps the remaining path from the tested detector-v0.6
 components to a restartable M37 operational run. It does not implement or
@@ -174,12 +175,13 @@ bound is already proved.
    or cache stages is nevertheless unproved.
 6. **Receiver stage integration:** the width-streaming receiver interface is
    bit-identical to full-inventory execution and the physical-resource
-   executor invokes and binds it, but the restartable production journal does
-   not yet persist the stage.
+   executor invokes and binds it. The aggregate envelope is persistable, but
+   the restartable production journal does not yet consume its receipt or the
+   complete receiver evidence payload.
 7. **Adjacent stage integration:** the width-streaming adjacent-OFF interface
    is bit-identical to full-inventory execution and shares the aggregate
-   resource envelope, but its receipt is not yet joined to the phase-3 alias
-   disposition receipt under production ancestry.
+   persistable resource envelope, but its evidence receipt is not yet joined
+   to the phase-3 alias disposition receipt under production ancestry.
 8. **Completeness implementation:** `CompletenessDataSource` and
    `CompletenessOperationalPipeline` remain interfaces, not production
    implementations.
@@ -194,9 +196,10 @@ bound is already proved.
    environment.
 2. Add canonical, independently verifiable artifacts for the factor bundle,
    global null vector, cache plans and run-level cache inventory.
-3. Persist the integrated width-streaming receiver and adjacent executor in
-   the run directory and join its explicit arena accounting to the final
-   physical-disposition receipt.
+3. Attach the persisted width-streaming resource receipt to the run journal,
+   persist or deterministically reproduce its complete evidence payloads and
+   join its explicit arena accounting to the final physical-disposition
+   receipt.
 4. Define a run-state journal whose transitions require the prior stage's
    trusted aggregate receipt and whose invalid state is permanent.
 5. Build a synthetic/reference runner against those persistence and streaming

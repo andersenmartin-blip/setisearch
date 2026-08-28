@@ -1,0 +1,104 @@
+{
+  "artifact_type": "m37-detector-v0p6-physical-resource-artifact-persistence-checkpoint-v1",
+  "base_commit": "005727886da2b7775d6ee2fdea3efd323a9c52c1",
+  "claim_boundary": {
+    "candidate_outcome_produced": false,
+    "complete_production_resource_envelope_proven": false,
+    "completeness_measured": false,
+    "detector_frozen": false,
+    "detector_released": false,
+    "null_claimed": false,
+    "physical_resource_artifact_persistence_proven_synthetic": true,
+    "preregistration_published": false,
+    "production_equivalence_claimed": false,
+    "production_receipt_ancestry_proven": false,
+    "remote_telescope_file_opened": false,
+    "search_executed": false,
+    "signal_claimed": false,
+    "spectral_access_authorized": false,
+    "spectral_dataset_values_read": false
+  },
+  "generated_at_utc": "2026-08-28T19:03:41Z",
+  "gates": [
+    {
+      "evidence": "A validated envelope is emitted as capped canonical JSON through read-only no-replace publication with file and parent-directory fsync.",
+      "id": "atomic-resource-artifact-publication",
+      "status": "passed_synthetic_production_not_applicable"
+    },
+    {
+      "evidence": "Reopening requires independent file, envelope, run, cache-manifest, factor-bundle and ON-retention identities and revalidates the complete nested envelope.",
+      "id": "cross-process-resource-artifact-rehydration",
+      "status": "passed_synthetic_production_not_applicable"
+    },
+    {
+      "evidence": "Wrong file identity, wrong external ancestry and destination reuse fail closed; a generic synthetic envelope is rejected before M37 file creation.",
+      "id": "resource-artifact-adversarial-replay",
+      "status": "passed_synthetic_production_not_applicable"
+    },
+    {
+      "evidence": "The persisted compact envelope is not yet joined to the phase-3 final-disposition receipt or attached to a restartable journal transition under production ancestry.",
+      "id": "production-physical-disposition-join",
+      "status": "blocked"
+    },
+    {
+      "evidence": "No production cache run or retention ancestry exists, and the production-scale primary-search and completeness resource envelopes are not proved.",
+      "id": "production-completeness-feasibility",
+      "status": "blocked"
+    },
+    {
+      "evidence": "The final Python, extractor, OS, compiler, OpenMP, CPU and host identities remain prospective rather than frozen.",
+      "id": "final-pinned-runtime",
+      "status": "blocked"
+    }
+  ],
+  "known_answer_sha256s": {
+    "execution_result": "6d323d2142bfc195514ccd8955331d8e30f2175f37fa8b26324baf89b9e919e7",
+    "physical_resource_artifact_file": "7a4c5e36042f687265a0ac3844ae29c6cd7803742e5d61f1512d340e5f178e48",
+    "physical_resource_envelope": "f64d93cdb027d09ca6486bd533b48990b11c16451fc5c8b2b57c89bd4e898191",
+    "wheel": "7099aa010c01b4e1d6de9046b729d15abba2c15a78f279c1057e77c31a8b7881"
+  },
+  "published_equivalent_base_commit": "469979cef6e5964962557ec73299ac7cef0470be",
+  "readiness_outcome": "PHYSICAL_RESOURCE_ARTIFACT_PERSISTENCE_PASSED_SYNTHETIC_PRODUCTION_GATE_BLOCKED",
+  "resource_fixture": {
+    "aggregate_batch_count": 2,
+    "aggregate_opened_cache_count": 6,
+    "aggregate_peak_handle_count": 3,
+    "aggregate_peak_mapped_bytes": 81600,
+    "artifact_file_nbytes": 8474,
+    "artifact_maximum_bytes": 16777216,
+    "artifact_read_only": true,
+    "artifact_round_trip_exact": true,
+    "destination_replacement_permitted": false,
+    "run_id": "physical-resource-test",
+    "window_id": "synthetic"
+  },
+  "schema_version": 1,
+  "source_sha256s": {
+    "src/seti_repeater/adjacent_v0p6.py": "d2eee97107d26f10f017381537dfdb5e12b14db42978531ed060adc71f0fb0d6",
+    "src/seti_repeater/cache_stream_v0p6.py": "3d858e7213ecd76c240a04b3096f75d29802528f7a5d3ed6047ba49e32628903",
+    "src/seti_repeater/physical_resource_v0p6.py": "09745a129e4c7e2612aab84fe91f3ce41d66159253699a1624fea63fe016c9b0",
+    "src/seti_repeater/receiver_v0p6.py": "da4753196fe3a1b79f4ba854753d95a774204d4e88c8603e65597ff5a93d969c",
+    "tests/test_v0p6_adjacent.py": "f57488ec2ef2efdac2d5b93c62bd24a025752189124ffbdb763a09c8a6e78b24",
+    "tests/test_v0p6_cache_stream.py": "518b940a3865b2b8bc0d0fcd127ce18e0f395558fcbe49d8a283f679165e9d0c",
+    "tests/test_v0p6_physical_resource.py": "e55276218193ab13fa1acb8b47efcfb9f02259a56c6a989a17ff495b7e6215e2",
+    "tests/test_v0p6_receiver.py": "2228c341836139f11aacfe741d4c1bc16a353023e29b3be090f28ee995761ea0"
+  },
+  "tests": {
+    "full_repository_suite": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 265,
+      "skipped": 1,
+      "tests_run": 266,
+      "wall_seconds": 112.151
+    },
+    "targeted_physical_resource_suite": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 30,
+      "skipped": 0,
+      "tests_run": 30,
+      "wall_seconds": 1.077
+    }
+  }
+}

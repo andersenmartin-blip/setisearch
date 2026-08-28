@@ -11,8 +11,12 @@ Importing this module does not open telescope data or cache files.
 
 from __future__ import annotations
 
+from dataclasses import dataclass
 import hashlib
 import json
+import os
+from pathlib import Path
+import secrets
 from typing import Any, Mapping, Sequence
 
 from . import adjacent_v0p6 as adjacent
@@ -26,6 +30,7 @@ PHYSICAL_RESOURCE_ENVELOPE_ARTIFACT_TYPE = (
     "seti_repeater.detector_v0p6_physical_evidence_resource_envelope"
 )
 PHYSICAL_RESOURCE_ENVELOPE_SCHEMA_VERSION = 1
+PHYSICAL_RESOURCE_ARTIFACT_MAXIMUM_BYTES = 16_777_216
 _STREAM_EXECUTION_ORDER = (
     "receiver_frame_signatures",
     "single_adjacent_off",
@@ -92,6 +97,24 @@ _ENVELOPE_FIELDS = frozenset(
         "resource_envelope_sha256",
     }
 )
+
+
+@dataclass(frozen=True)
+class PhysicalResourceArtifactReceipt:
+    file_sha256: str
+    resource_envelope_sha256: str
+    run_id: str
+    window_id: str
+    cache_run_manifest_file_sha256: str
+    factor_bundle_manifest_sha256: str
+    on_retention_certificate_sha256: str
+    file_nbytes: int
+
+
+@dataclass(frozen=True)
+class PhysicalResourceArtifact:
+    envelope: dict[str, Any]
+    receipt: PhysicalResourceArtifactReceipt
 
 
 def _detached_mapping(value: Any, label: str) -> dict[str, Any]:
@@ -842,3 +865,209 @@ def validate_m37_physical_resource_envelope(
             "physical resource envelope differs from the M37 contract"
         )
     return validated
+
+
+def _atomic_read_only_publish(path: Path, payload: bytes) -> None:
+    if not path.parent.is_dir():
+        raise core.V0P6ContractError(
+            "physical resource artifact parent directory is absent"
+        )
+    if path.exists():
+        raise FileExistsError(path)
+    temporary = path.parent / (
+        f".{path.name}.tmp-{os.getpid()}-{secrets.token_hex(8)}"
+    )
+    descriptor = os.open(
+        temporary, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o444
+    )
+    try:
+        offset = 0
+        while offset < len(payload):
+            written = os.write(descriptor, payload[offset:])
+            if written <= 0:
+                raise OSError(
+                    "short write while publishing physical resource artifact"
+                )
+            offset += written
+        os.fsync(descriptor)
+        os.close(descriptor)
+        descriptor = -1
+        try:
+            os.link(temporary, path)
+        except FileExistsError:
+            raise FileExistsError(path) from None
+        temporary.unlink()
+        parent_descriptor = os.open(
+            path.parent, os.O_RDONLY | getattr(os, "O_DIRECTORY", 0)
+        )
+        try:
+            os.fsync(parent_descriptor)
+        finally:
+            os.close(parent_descriptor)
+    finally:
+        if descriptor >= 0:
+            os.close(descriptor)
+        if temporary.exists():
+            temporary.unlink()
+
+
+def _artifact_receipt(
+    raw: bytes, envelope: Mapping[str, Any]
+) -> PhysicalResourceArtifactReceipt:
+    return PhysicalResourceArtifactReceipt(
+        file_sha256=hashlib.sha256(raw).hexdigest(),
+        resource_envelope_sha256=envelope["resource_envelope_sha256"],
+        run_id=envelope["run_id"],
+        window_id=envelope["window_id"],
+        cache_run_manifest_file_sha256=envelope[
+            "cache_run_manifest_file_sha256"
+        ],
+        factor_bundle_manifest_sha256=envelope[
+            "factor_bundle_manifest_sha256"
+        ],
+        on_retention_certificate_sha256=envelope[
+            "on_retention_certificate_sha256"
+        ],
+        file_nbytes=len(raw),
+    )
+
+
+def publish_physical_resource_artifact(
+    path: str | os.PathLike[str],
+    envelope: Mapping[str, Any],
+    *,
+    expected_envelope_sha256: str,
+) -> PhysicalResourceArtifactReceipt:
+    """Atomically persist one validated envelope as canonical read-only JSON."""
+    validated = validate_physical_resource_envelope(
+        envelope, expected_envelope_sha256=expected_envelope_sha256
+    )
+    payload = core.canonical_json_bytes(validated)
+    if len(payload) > PHYSICAL_RESOURCE_ARTIFACT_MAXIMUM_BYTES:
+        raise core.V0P6CapacityError(
+            "physical resource artifact exceeds its byte cap"
+        )
+    destination = Path(path)
+    _atomic_read_only_publish(destination, payload)
+    return _artifact_receipt(payload, validated)
+
+
+def publish_m37_physical_resource_artifact(
+    path: str | os.PathLike[str],
+    envelope: Mapping[str, Any],
+    *,
+    expected_envelope_sha256: str,
+) -> PhysicalResourceArtifactReceipt:
+    """Persist only an envelope that reproduces the exact M37 contract."""
+    validated = validate_m37_physical_resource_envelope(
+        envelope, expected_envelope_sha256=expected_envelope_sha256
+    )
+    return publish_physical_resource_artifact(
+        path,
+        validated,
+        expected_envelope_sha256=expected_envelope_sha256,
+    )
+
+
+def open_physical_resource_artifact(
+    path: str | os.PathLike[str],
+    *,
+    expected_file_sha256: str,
+    expected_envelope_sha256: str,
+    expected_run_id: str,
+    expected_cache_run_manifest_file_sha256: str,
+    expected_factor_bundle_manifest_sha256: str,
+    expected_on_retention_certificate_sha256: str,
+) -> PhysicalResourceArtifact:
+    """Reopen a checkpoint only against independently supplied ancestry."""
+    artifact_path = Path(path)
+    with artifact_path.open("rb") as stream:
+        raw = stream.read(PHYSICAL_RESOURCE_ARTIFACT_MAXIMUM_BYTES + 1)
+    if len(raw) > PHYSICAL_RESOURCE_ARTIFACT_MAXIMUM_BYTES:
+        raise core.V0P6CapacityError(
+            "physical resource artifact exceeds its byte cap"
+        )
+    file_sha256 = hashlib.sha256(raw).hexdigest()
+    if file_sha256 != core._frozen_sha256(
+        expected_file_sha256, "expected physical resource artifact identity"
+    ):
+        raise core.V0P6IncompleteError(
+            "physical resource artifact file identity changed"
+        )
+    try:
+        envelope = json.loads(raw)
+    except (UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise core.V0P6ContractError(
+            "physical resource artifact is invalid JSON"
+        ) from error
+    if (
+        not isinstance(envelope, dict)
+        or core.canonical_json_bytes(envelope) != raw
+    ):
+        raise core.V0P6ContractError(
+            "physical resource artifact is not canonical JSON"
+        )
+    validated = validate_physical_resource_envelope(
+        envelope, expected_envelope_sha256=expected_envelope_sha256
+    )
+    if not isinstance(expected_run_id, str) or not expected_run_id:
+        raise core.V0P6ContractError(
+            "expected physical resource run ID is invalid"
+        )
+    expected_ancestry = {
+        "run_id": expected_run_id,
+        "cache_run_manifest_file_sha256": core._frozen_sha256(
+            expected_cache_run_manifest_file_sha256,
+            "expected cache-run manifest identity",
+        ),
+        "factor_bundle_manifest_sha256": core._frozen_sha256(
+            expected_factor_bundle_manifest_sha256,
+            "expected factor-bundle manifest identity",
+        ),
+        "on_retention_certificate_sha256": core._frozen_sha256(
+            expected_on_retention_certificate_sha256,
+            "expected ON-retention certificate identity",
+        ),
+    }
+    if any(
+        validated[name] != expected
+        for name, expected in expected_ancestry.items()
+    ):
+        raise core.V0P6IncompleteError(
+            "physical resource artifact ancestry changed"
+        )
+    receipt = _artifact_receipt(raw, validated)
+    return PhysicalResourceArtifact(envelope=validated, receipt=receipt)
+
+
+def open_m37_physical_resource_artifact(
+    path: str | os.PathLike[str],
+    *,
+    expected_file_sha256: str,
+    expected_envelope_sha256: str,
+    expected_run_id: str,
+    expected_cache_run_manifest_file_sha256: str,
+    expected_factor_bundle_manifest_sha256: str,
+    expected_on_retention_certificate_sha256: str,
+) -> PhysicalResourceArtifact:
+    """Reopen a persisted resource receipt and enforce exact M37 semantics."""
+    artifact = open_physical_resource_artifact(
+        path,
+        expected_file_sha256=expected_file_sha256,
+        expected_envelope_sha256=expected_envelope_sha256,
+        expected_run_id=expected_run_id,
+        expected_cache_run_manifest_file_sha256=(
+            expected_cache_run_manifest_file_sha256
+        ),
+        expected_factor_bundle_manifest_sha256=(
+            expected_factor_bundle_manifest_sha256
+        ),
+        expected_on_retention_certificate_sha256=(
+            expected_on_retention_certificate_sha256
+        ),
+    )
+    validate_m37_physical_resource_envelope(
+        artifact.envelope,
+        expected_envelope_sha256=expected_envelope_sha256,
+    )
+    return artifact
