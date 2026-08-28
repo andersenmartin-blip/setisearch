@@ -1,0 +1,111 @@
+{
+  "artifact_type": "m37-detector-v0p6-physical-resource-envelope-checkpoint-v1",
+  "base_commit": "705d8ea8294ca8921d6d09377b0b9def7ec6e07a",
+  "claim_boundary": {
+    "candidate_outcome_produced": false,
+    "complete_production_resource_envelope_proven": false,
+    "completeness_measured": false,
+    "detector_frozen": false,
+    "detector_released": false,
+    "null_claimed": false,
+    "physical_evidence_resource_envelope_proven_synthetic": true,
+    "preregistration_published": false,
+    "production_equivalence_claimed": false,
+    "production_receipt_ancestry_proven": false,
+    "remote_telescope_file_opened": false,
+    "search_executed": false,
+    "signal_claimed": false,
+    "spectral_access_authorized": false,
+    "spectral_dataset_values_read": false
+  },
+  "generated_at_utc": "2026-08-28T18:19:37Z",
+  "gates": [
+    {
+      "evidence": "Stream receipt schema v2 records and revalidates the exact source, plan, cache-manifest, cache-payload, path and byte receipt for every opened cache.",
+      "id": "per-cache-stream-ownership",
+      "status": "passed_synthetic_production_not_applicable"
+    },
+    {
+      "evidence": "The executor seals the receiver stream after complete handle closure before opening the adjacent-OFF stream; both evidence results reproduce from real published synthetic caches.",
+      "id": "sequential-physical-evidence-execution",
+      "status": "passed_synthetic_production_not_applicable"
+    },
+    {
+      "evidence": "One aggregate receipt binds run, cache manifest and inventory, factor bundle, ON retention and records, factor contract, evidence identities, cache identities, measured peaks and the shared cap.",
+      "id": "aggregate-physical-resource-envelope",
+      "status": "passed_synthetic_production_not_applicable"
+    },
+    {
+      "evidence": "Independently rehashed run mixing and cache mutation fail; the generic synthetic receipt cannot validate as M37.",
+      "id": "resource-envelope-adversarial-replay",
+      "status": "passed_synthetic_production_not_applicable"
+    },
+    {
+      "evidence": "The phase-3 disposition reference and this real-cache resource fixture are not yet one production receipt chain, and the production-scale completeness resource envelope is not proved.",
+      "id": "production-completeness-feasibility",
+      "status": "blocked"
+    },
+    {
+      "evidence": "The restartable journal does not yet persist the complete authorized extraction-through-outcome and completeness lifecycle.",
+      "id": "end-to-end-production-runner",
+      "status": "blocked"
+    },
+    {
+      "evidence": "The final Python, extractor, OS, compiler, OpenMP, CPU and host identities remain prospective rather than frozen.",
+      "id": "final-pinned-runtime",
+      "status": "blocked"
+    }
+  ],
+  "known_answer_sha256s": {
+    "adjacent_cache_identity_inventory": "ce89d8ff81e8329bc28c8154c189614e7725645eb658b733da1e72d50c7ec266",
+    "execution_result": "6d323d2142bfc195514ccd8955331d8e30f2175f37fa8b26324baf89b9e919e7",
+    "physical_resource_envelope": "f64d93cdb027d09ca6486bd533b48990b11c16451fc5c8b2b57c89bd4e898191",
+    "receiver_cache_identity_inventory": "80db329e7330d6aa57cb099f279f635bae145d96374a2343f6b3a8fc2e94ac81",
+    "wheel": "235060e1e81a813a95f9b673d0644a8339f829d0c930a501022f444bf3f4b183"
+  },
+  "readiness_outcome": "PHYSICAL_RESOURCE_ENVELOPE_PASSED_SYNTHETIC_PRODUCTION_GATE_BLOCKED",
+  "resource_fixture": {
+    "aggregate_batch_count": 2,
+    "aggregate_opened_cache_count": 6,
+    "aggregate_peak_handle_count": 3,
+    "aggregate_peak_mapped_bytes": 81600,
+    "all_handles_closed_before_stage_handoff": true,
+    "evidence_cache_receipts_match_stream_receipts": true,
+    "no_stream_overlap": true,
+    "run_id": "physical-resource-test",
+    "spectral_widths": [
+      1
+    ],
+    "stream_resource_schema_version": 2,
+    "window_id": "synthetic"
+  },
+  "schema_version": 1,
+  "source_sha256s": {
+    "src/seti_repeater/adjacent_v0p6.py": "d2eee97107d26f10f017381537dfdb5e12b14db42978531ed060adc71f0fb0d6",
+    "src/seti_repeater/cache_stream_v0p6.py": "3d858e7213ecd76c240a04b3096f75d29802528f7a5d3ed6047ba49e32628903",
+    "src/seti_repeater/physical_resource_v0p6.py": "534423df5f103cfc68a1e7055c1f2975f43daec71e142f15d950e96bc33b671a",
+    "src/seti_repeater/receiver_v0p6.py": "da4753196fe3a1b79f4ba854753d95a774204d4e88c8603e65597ff5a93d969c",
+    "tests/test_v0p6_adjacent.py": "f57488ec2ef2efdac2d5b93c62bd24a025752189124ffbdb763a09c8a6e78b24",
+    "tests/test_v0p6_cache_stream.py": "518b940a3865b2b8bc0d0fcd127ce18e0f395558fcbe49d8a283f679165e9d0c",
+    "tests/test_v0p6_physical_resource.py": "b12422d846277124dc632548447b69e30f66eaf4f9b989644e0edf822e5a0c06",
+    "tests/test_v0p6_receiver.py": "2228c341836139f11aacfe741d4c1bc16a353023e29b3be090f28ee995761ea0"
+  },
+  "tests": {
+    "full_repository_suite": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 262,
+      "skipped": 1,
+      "tests_run": 263,
+      "wall_seconds": 109.775
+    },
+    "targeted_physical_resource_suite": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 27,
+      "skipped": 0,
+      "tests_run": 27,
+      "wall_seconds": 0.984
+    }
+  }
+}

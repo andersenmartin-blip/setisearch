@@ -6,9 +6,12 @@ Progress update (2026-08-28): the factor bundle, cache-plan rehydration,
 run-level cache manifest, global-null artifact, fail-closed journal and real
 metadata-only bootstrap described below now exist locally and pass the full
 repository suite. See `MILESTONE_37_DETECTOR_V0P6_RUNNER_PROGRESS.md`.
-Width-streaming physical evidence, completeness equivalence and the complete
-production runner remain open; this document therefore remains non-frozen and
-does not authorize spectral access.
+Width-streaming physical evidence now also has a bounded aggregate executor
+and resource envelope: it proves sequential cache ownership against real
+synthetic cache files, but it is not yet joined to phase-3 disposition
+ancestry or persisted by the production runner. Completeness equivalence and
+the complete production runner remain open; this document therefore remains
+non-frozen and does not authorize spectral access.
 
 This document maps the remaining path from the tested detector-v0.6
 components to a restartable M37 operational run. It does not implement or
@@ -144,11 +147,13 @@ lifecycle remain open.
 Consequently, the proposed runner must release source products and cache-build
 scratch before the template stage, open cache handles three scans at a time
 for one width, and retain eight epoch products plus one mask only for one
-template. Completeness already charges these payloads explicitly. Receiver,
-adjacent and the primary-run envelope do not yet enforce the same aggregate
-mapped-byte cap, so their future receipts must add ownership and measured or
-conservatively projected peak bytes rather than assuming the bound is already
-proved.
+template. Completeness already charges these payloads explicitly. Receiver
+and adjacent now share a sequential aggregate envelope that records exact
+per-cache ownership and the measured maximum of their non-overlapping peaks.
+The primary-run and completeness envelopes do not yet enforce the same
+aggregate mapped-byte cap, so their future receipts must add ownership and
+measured or conservatively projected peak bytes rather than assuming the
+bound is already proved.
 
 ## Concrete API and artifact gaps
 
@@ -168,11 +173,13 @@ proved.
    literally restricted to one process. Cheap restart from the calibration
    or cache stages is nevertheless unproved.
 6. **Receiver stage integration:** the width-streaming receiver interface is
-   bit-identical to full-inventory execution, but the runner does not invoke,
-   checkpoint or bind its resource receipt.
+   bit-identical to full-inventory execution and the physical-resource
+   executor invokes and binds it, but the restartable production journal does
+   not yet persist the stage.
 7. **Adjacent stage integration:** the width-streaming adjacent-OFF interface
-   is bit-identical to full-inventory execution, but the runner does not
-   invoke, checkpoint or bind its resource receipt.
+   is bit-identical to full-inventory execution and shares the aggregate
+   resource envelope, but its receipt is not yet joined to the phase-3 alias
+   disposition receipt under production ancestry.
 8. **Completeness implementation:** `CompletenessDataSource` and
    `CompletenessOperationalPipeline` remain interfaces, not production
    implementations.
@@ -187,9 +194,9 @@ proved.
    environment.
 2. Add canonical, independently verifiable artifacts for the factor bundle,
    global null vector, cache plans and run-level cache inventory.
-3. Integrate the existing width-streaming receiver and adjacent interfaces
-   into the runner and bind their explicit arena accounting to the run-level
-   receipt.
+3. Persist the integrated width-streaming receiver and adjacent executor in
+   the run directory and join its explicit arena accounting to the final
+   physical-disposition receipt.
 4. Define a run-state journal whose transitions require the prior stage's
    trusted aggregate receipt and whose invalid state is permanent.
 5. Build a synthetic/reference runner against those persistence and streaming

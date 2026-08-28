@@ -122,10 +122,20 @@ class CacheWidthStreamTests(unittest.TestCase):
             )
             self.assertEqual(receipt["batch_count"], 2)
             self.assertEqual(receipt["opened_cache_count"], 6)
+            self.assertEqual(receipt["schema_version"], 2)
             self.assertEqual(receipt["peak_handle_count"], 3)
             self.assertEqual(receipt["peak_mapped_bytes"], 3 * payload)
             self.assertTrue(receipt["all_handles_closed_before_seal"])
             self.assertEqual(receipt["evidence_sha256"], "f" * 64)
+            self.assertEqual(
+                [
+                    item["scan_label"]
+                    for item in receipt["batch_inventory"][0][
+                        "cache_receipts"
+                    ]
+                ],
+                list(fixture[1]),
+            )
             self.assertEqual(
                 len(receipt["stream_resource_certificate_sha256"]), 64
             )

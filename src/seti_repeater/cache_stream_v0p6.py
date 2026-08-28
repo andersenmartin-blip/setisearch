@@ -16,6 +16,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+from pathlib import PurePosixPath
 from typing import Any, Iterator, Mapping, Sequence
 
 from . import cache_manifest_v0p6 as run_cache
@@ -26,7 +27,7 @@ from . import search_v0p6 as core
 STREAM_RESOURCE_ARTIFACT_TYPE = (
     "seti_repeater.detector_v0p6_width_stream_resource_receipt"
 )
-STREAM_RESOURCE_SCHEMA_VERSION = 1
+STREAM_RESOURCE_SCHEMA_VERSION = 2
 
 
 def _expected_keys(
@@ -351,6 +352,20 @@ class CacheWidthStream:
                 "spectral_width_channels": width,
                 "scan_labels": list(self.scan_labels),
                 "cache_count": len(entries),
+                "cache_receipts": [
+                    {
+                        "scan_label": entry.scan_label,
+                        "relative_path": entry.relative_path,
+                        "source_sha256": entry.source_sha256,
+                        "cache_plan_sha256": entry.plan_sha256,
+                        "cache_manifest_sha256": (
+                            entry.cache_manifest_sha256
+                        ),
+                        "cache_payload_sha256": entry.payload_sha256,
+                        "payload_nbytes": entry.payload_nbytes,
+                    }
+                    for entry in entries
+                ],
                 "planned_payload_nbytes": planned_payload_nbytes,
                 "observed_peak_mapped_bytes": batch_peak_bytes,
                 "observed_peak_handle_count": batch_peak_handles,
@@ -582,13 +597,24 @@ def validate_stream_resource_certificate(
         "spectral_width_channels",
         "scan_labels",
         "cache_count",
+        "cache_receipts",
         "planned_payload_nbytes",
         "observed_peak_mapped_bytes",
         "observed_peak_handle_count",
         "all_handles_closed_after_batch",
     }
+    cache_receipt_fields = {
+        "scan_label",
+        "relative_path",
+        "source_sha256",
+        "cache_plan_sha256",
+        "cache_manifest_sha256",
+        "cache_payload_sha256",
+        "payload_nbytes",
+    }
     observed_batch_peak_bytes = 0
     observed_batch_peak_handles = 0
+    observed_relative_paths: set[str] = set()
     for ordinal, (batch, width) in enumerate(zip(batches, widths, strict=True)):
         if not isinstance(batch, dict) or frozenset(batch) != frozenset(
             batch_fields
@@ -608,6 +634,64 @@ def validate_stream_resource_certificate(
             batch["planned_payload_nbytes"],
             "cache-stream planned batch payload bytes",
         )
+        cache_receipts = batch["cache_receipts"]
+        if (
+            not isinstance(cache_receipts, list)
+            or len(cache_receipts) != len(labels)
+        ):
+            raise core.V0P6IncompleteError(
+                "cache-stream batch cache receipts are incomplete"
+            )
+        receipt_payload_nbytes = 0
+        for label, cache_receipt in zip(
+            labels, cache_receipts, strict=True
+        ):
+            relative_path = (
+                cache_receipt.get("relative_path")
+                if isinstance(cache_receipt, dict)
+                else None
+            )
+            canonical_path = (
+                PurePosixPath(relative_path)
+                if isinstance(relative_path, str) and relative_path
+                else None
+            )
+            if (
+                not isinstance(cache_receipt, dict)
+                or frozenset(cache_receipt)
+                != frozenset(cache_receipt_fields)
+                or cache_receipt["scan_label"] != label
+                or canonical_path is None
+                or canonical_path.is_absolute()
+                or canonical_path.as_posix() != relative_path
+                or any(
+                    part in {"", ".", ".."} for part in canonical_path.parts
+                )
+                or relative_path in observed_relative_paths
+            ):
+                raise core.V0P6ContractError(
+                    "cache-stream batch cache-receipt schema changed"
+                )
+            observed_relative_paths.add(relative_path)
+            for digest_name in (
+                "source_sha256",
+                "cache_plan_sha256",
+                "cache_manifest_sha256",
+                "cache_payload_sha256",
+            ):
+                core._frozen_sha256(
+                    cache_receipt[digest_name],
+                    f"cache-stream {digest_name.replace('_', ' ')}",
+                )
+            payload_nbytes = core._strict_int(
+                cache_receipt["payload_nbytes"],
+                "cache-stream cache payload bytes",
+            )
+            if payload_nbytes < 1:
+                raise core.V0P6ContractError(
+                    "cache-stream cache payload bytes must be positive"
+                )
+            receipt_payload_nbytes += payload_nbytes
         if (
             core._strict_int(batch["width_ordinal"], "stream width ordinal")
             != ordinal
@@ -619,6 +703,7 @@ def validate_stream_resource_certificate(
             or core._strict_int(batch["cache_count"], "stream cache count")
             != len(labels)
             or planned_bytes < 1
+            or receipt_payload_nbytes != planned_bytes
             or batch_bytes != planned_bytes
             or batch_bytes > maximum_bytes
             or batch_handles != len(labels)

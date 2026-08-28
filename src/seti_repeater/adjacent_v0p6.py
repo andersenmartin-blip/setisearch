@@ -25,6 +25,9 @@ M37_SINGLE_ADJACENT_OFF_SNR_FLOOR = 5.5
 M37_MAXIMUM_SINGLE_ADJACENT_OFF_QUERIES = (
     3 * core.M37_MAXIMUM_RECORDS_PER_WINDOW
 )
+SINGLE_ADJACENT_OFF_EVIDENCE_ARTIFACT_TYPE = (
+    "seti_repeater.detector_v0p6_single_adjacent_off_evidence"
+)
 
 _PRIOR_OFF_DISPOSITIONS = frozenset(
     {
