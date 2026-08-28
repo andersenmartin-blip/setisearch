@@ -16,6 +16,13 @@ data_*/
 *.h5
 *.raw
 
+# Detector-v0.6 ships five small, frozen scramble tables as package data.
+# Keep telescope/extraction data ignored while allowing only this exact
+# implementation-resource subtree to be versioned and reproduced from clone.
+!src/seti_repeater/data/
+!src/seti_repeater/data/m37_scrambles/
+!src/seti_repeater/data/m37_scrambles/*.bin
+
 # Reproducibility work directories and local release archives
 results_*_repeat/
 SETI_Repeater_Pipeline_Milestone_*.zip
