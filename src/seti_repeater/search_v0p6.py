@@ -778,6 +778,140 @@ def validate_native_filter_cache_plan(plan: NativeFilterCachePlan) -> None:
         raise V0P6ContractError("native filter cache plan SHA-256 changed")
 
 
+def native_filter_cache_plan_from_record(
+    record: Mapping[str, Any],
+    *,
+    expected_plan_sha256: str,
+) -> NativeFilterCachePlan:
+    """Rehydrate a persisted cache plan against an independent digest.
+
+    Cache manifests already carry the complete plan payload.  This strict
+    constructor turns that canonical JSON record back into the typed plan
+    needed by the disk verifier without trusting a process-local object.
+    """
+    if not isinstance(record, Mapping):
+        raise V0P6ContractError("native filter cache plan record is not a mapping")
+    try:
+        detached = json.loads(canonical_json_bytes(dict(record)))
+    except (TypeError, ValueError) as error:
+        raise V0P6ContractError(
+            "native filter cache plan record is not canonical finite JSON"
+        ) from error
+    expected_fields = {
+        "window_id",
+        "scan_label",
+        "scan_kind",
+        "source_sha256",
+        "factor_basis_sha256",
+        "factor_basis_labels_sha256",
+        "scan_inventory_sha256",
+        "factor_scan_selection_sha256",
+        "template_bank_sha256",
+        "raw_zero_hz",
+        "native_channel_width_hz",
+        "native_channel_count",
+        "width_channels",
+        "integration_count",
+        "raw_center_start",
+        "raw_center_stop",
+        "proxy_grid_sha256",
+        "factor_table_sha256",
+        "factor_row_sha256s",
+        "payload_shape",
+        "payload_dtype",
+        "payload_nbytes",
+    }
+    if set(detached) != expected_fields:
+        raise V0P6ContractError("native filter cache plan record schema changed")
+    if detached["payload_dtype"] != "<f4":
+        raise V0P6ContractError("native filter cache plan dtype changed")
+    expected_digest = _frozen_sha256(
+        expected_plan_sha256, "expected native filter cache plan identity"
+    )
+    observed_digest = hashlib.sha256(canonical_json_bytes(detached)).hexdigest()
+    if observed_digest != expected_digest:
+        raise V0P6IncompleteError(
+            "native filter cache plan differs from its independent identity"
+        )
+    raw_zero_hz = _finite_json_number(
+        detached["raw_zero_hz"], "native raw-zero frequency"
+    )
+    channel_width_hz = _finite_json_number(
+        detached["native_channel_width_hz"], "native channel width"
+    )
+    if channel_width_hz <= 0.0:
+        raise V0P6ContractError("native channel width must be positive")
+    geometry = NativeFrequencyGeometry(
+        raw_zero_hz=raw_zero_hz,
+        channel_width_hz=channel_width_hz,
+        channel_count=_strict_int(
+            detached["native_channel_count"], "native channel count"
+        ),
+    )
+    shape_record = detached["payload_shape"]
+    if not isinstance(shape_record, list) or len(shape_record) != 2:
+        raise V0P6ContractError("native filter cache payload shape changed")
+    rows = detached["factor_row_sha256s"]
+    if not isinstance(rows, list):
+        raise V0P6ContractError("native filter cache factor-row inventory changed")
+    plan = NativeFilterCachePlan(
+        geometry=geometry,
+        window_id=str(detached["window_id"]),
+        scan_label=str(detached["scan_label"]),
+        scan_kind=str(detached["scan_kind"]),
+        source_sha256=_frozen_sha256(detached["source_sha256"], "cache source"),
+        factor_basis_sha256=_frozen_sha256(
+            detached["factor_basis_sha256"], "factor-basis identity"
+        ),
+        factor_basis_labels_sha256=_frozen_sha256(
+            detached["factor_basis_labels_sha256"],
+            "factor-basis labels identity",
+        ),
+        scan_inventory_sha256=_frozen_sha256(
+            detached["scan_inventory_sha256"], "scan-inventory identity"
+        ),
+        factor_scan_selection_sha256=_frozen_sha256(
+            detached["factor_scan_selection_sha256"],
+            "factor scan-selection identity",
+        ),
+        template_bank_sha256=_frozen_sha256(
+            detached["template_bank_sha256"], "template-bank identity"
+        ),
+        width_channels=_strict_int(detached["width_channels"], "spectral width"),
+        integration_count=_strict_int(
+            detached["integration_count"], "integration count"
+        ),
+        raw_center_start=_strict_int(
+            detached["raw_center_start"], "raw center start"
+        ),
+        raw_center_stop=_strict_int(
+            detached["raw_center_stop"], "raw center stop"
+        ),
+        proxy_grid_sha256=_frozen_sha256(
+            detached["proxy_grid_sha256"], "proxy-grid identity"
+        ),
+        factor_table_sha256=_frozen_sha256(
+            detached["factor_table_sha256"], "factor-table identity"
+        ),
+        factor_row_sha256s=tuple(
+            _frozen_sha256(item, "factor-row identity") for item in rows
+        ),
+        payload_shape=tuple(
+            _strict_int(item, "cache payload dimension") for item in shape_record
+        ),
+        payload_nbytes=_strict_int(
+            detached["payload_nbytes"], "cache payload byte count"
+        ),
+        plan_sha256=expected_digest,
+    )
+    validate_native_filter_cache_plan(plan)
+    if _native_filter_cache_plan_payload(plan) != detached:
+        raise V0P6IncompleteError(
+            "rehydrated native filter cache plan changed its canonical record"
+        )
+    return plan
+
+
 def plan_native_filter_cache(
     geometry: NativeFrequencyGeometry,
     template_factor_table: np.ndarray,

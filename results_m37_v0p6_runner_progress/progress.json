@@ -1,0 +1,147 @@
+{
+  "artifact_type": "m37-detector-v0p6-runner-progress-v1",
+  "base_commits": {
+    "local_non_frozen_implementation_checkpoint": "130babbc2f462be9fde8920c5648f4eb745b2ea4",
+    "published_origin_main": "e22ea2297185202defd366356ed6fe9053cd6643"
+  },
+  "bootstrap": {
+    "analysis_contract_sha256": "726571e7b56b684f06ff69bbd6ae70b4c191268d25db8eadfcb8b6e841dc9f2e",
+    "bootstrap_sha256": "9edb59cbfcc2c20ac64eb9748cf10e8b545096fbf3705d3f53140ab295a1a569",
+    "environment_sha256": "06cd85eb22c915ebdae0626396c17e1f35a85990149eaf4f6be5280069b64f6a",
+    "factor_bundle_file_sha256": "f71cd0c0d9f5aae9299d41783e549947e6bb72bcc5c92028a139736830e5fc8a",
+    "factor_bundle_manifest_sha256": "bac04d6b7c8a4e0949373a8971b9f02d0b525ff022d8e5c48b19adbdae403691",
+    "initialization_contract_sha256": "98524b5459093c10f890b88e0aca105aceadce5723dc8450e33e9a1cc84d6880",
+    "journal_event_count": 2,
+    "journal_file_sha256": "6813f2d84dc587a4dbb1f62f5775fa968ebdea53b6a7d2ad5b8c732d43190a7b",
+    "journal_head_sha256": "1dd855fbc72b2ddb7b0a7693f4eb4cd638920f58a0d12ebb0780e95915d1c818",
+    "journal_stage": "factor_bundle_ready",
+    "run_id": "m37-v0p6-bootstrap-candidate-001",
+    "source_metadata_sha256": "ab12b6663b2936228a6641559fdbf4fade9398cb9b11361d84eaf34a4984bc57"
+  },
+  "claim_boundary": {
+    "candidate_outcome_produced": false,
+    "completeness_measured": false,
+    "detector_frozen": false,
+    "detector_released": false,
+    "null_claimed": false,
+    "preregistration_published": false,
+    "production_runner_attested": false,
+    "remote_telescope_file_opened": false,
+    "search_executed": false,
+    "signal_claimed": false,
+    "spectral_access_authorized": false,
+    "spectral_dataset_values_read": false
+  },
+  "environment": {
+    "astropy": "8.0.1",
+    "astropy_iers_data": "0.2026.8.24.0.24.29",
+    "numpy": "2.5.2",
+    "packaging": "26.3",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.39",
+    "pyerfa": "2.0.1.5",
+    "python": "3.12.13",
+    "pyyaml": "6.0.3"
+  },
+  "factor_identities": {
+    "analysis_contract_sha256": "726571e7b56b684f06ff69bbd6ae70b4c191268d25db8eadfcb8b6e841dc9f2e",
+    "factor_basis_labels_sha256": "5e5afd59424d48978148e7aafb3715e2c957c7495610dc98a7f99b44dfe59aee",
+    "factor_basis_sha256": "492d2fe31d8cbe14968c9ce0296e898f42bf298540310f3f06a74ec8c971c143",
+    "factor_table_shape": [
+      93,
+      96
+    ],
+    "factor_table_sha256": "a4d87d8813ec63ff7f3392f5073038f3dc47a9707796a745dd4e752588255fa4",
+    "off_factor_row_selection_sha256": "d70c1f8351fe0e2fc70bf4e11267c119dcbd3fc02bcf890206fbd11ae9c5eedc",
+    "on_factor_row_selection_sha256": "6643d1a0f6265172b995c9084e7b595fe74f35722b6d5e475e811d8c237f85c4",
+    "scan_inventory_sha256": "d7fc931d0a058a561ab07a921d5bcc996b4020caa75085b40c1c37dee3227a93",
+    "template_bank_sha256": "8b0c5488944133db9bf500f7ed108971f42ef4d29ce36aa67f9a89ffac3a2d63"
+  },
+  "gates": [
+    {
+      "evidence": "The 96-row basis and 93-by-96 table round-trip through one read-only atomic artifact and reject changed payloads, manifests, identities, truncation, trailing bytes and overwrite.",
+      "id": "factor-bundle-persistence",
+      "status": "passed_local"
+    },
+    {
+      "evidence": "NativeFilterCachePlan rehydrates from the persisted canonical plan record only against an independent plan digest.",
+      "id": "cache-plan-rehydration",
+      "status": "passed_local"
+    },
+    {
+      "evidence": "The cache-run manifest enforces exact ordered keys, unique safe relative paths, plan/receipt joins and one-at-a-time full cache verification. The exact 240-entry M37 wrapper remains unexecuted before spectral access.",
+      "id": "run-level-cache-manifest",
+      "status": "passed_synthetic_m37_execution_not_applicable"
+    },
+    {
+      "evidence": "The exact global null vector can be persisted and rehydrated only against its threshold certificate and an independent file digest. No M37 null vector exists before calibration.",
+      "id": "global-null-vector-persistence",
+      "status": "passed_synthetic_m37_execution_not_applicable"
+    },
+    {
+      "evidence": "The append-only canonical JSONL journal rejects stale heads, missing/repeated/reordered stages, altered hash chains and continuation after invalid or published. Its spectral authorization transition requires the exact six-file scope and an independent authorization-receipt digest.",
+      "id": "restartable-fail-closed-run-journal",
+      "status": "passed_local"
+    },
+    {
+      "evidence": "The real metadata-only bootstrap reproduced and reopened the factor bundle and stopped at factor_bundle_ready with both spectral flags false.",
+      "id": "non-spectral-operational-bootstrap",
+      "status": "passed_local"
+    },
+    {
+      "evidence": "Receiver and adjacent-OFF factories still require complete multi-width cache inventories in one call; width-at-a-time arena ownership and bit-identical streaming receipts are not yet implemented.",
+      "id": "width-streaming-physical-evidence",
+      "status": "blocked"
+    },
+    {
+      "evidence": "The phase-1 sparse/local KAT does not yet prove global retention, OFF disposition, receiver-alias, rank-p, production receipts or the full 6144-trial resource envelope.",
+      "id": "production-completeness-feasibility",
+      "status": "blocked"
+    },
+    {
+      "evidence": "The bootstrap is not a spectral production runner and cannot advance itself past factor_bundle_ready.",
+      "id": "end-to-end-production-runner",
+      "status": "blocked"
+    },
+    {
+      "evidence": "The full local repository suite now collects under Astropy, but Python 3.12.13 differs from the prospective 3.12.14 pin and the extractor dependencies/runtime host are not frozen.",
+      "id": "final-pinned-runtime",
+      "status": "blocked"
+    }
+  ],
+  "generated_at_utc": "2026-08-28T06:59:54Z",
+  "new_source_sha256s": {
+    "scripts/m37_v0p6_bootstrap.py": "62d0dfc94ec79722803d4d3e2b65368c4db5e779049cd5145a4ab786e130e310",
+    "src/seti_repeater/cache_manifest_v0p6.py": "af173a4838dd67839b0a9414e0fc975ce072075add59b90fef91045dd2ecee58",
+    "src/seti_repeater/factor_bundle_v0p6.py": "75a02c44437596355007ae4162411e24cc6eec58659d59a5013316e95a6a19ce",
+    "src/seti_repeater/null_artifact_v0p6.py": "6a45a0a9c6822a0402fd9fdb6e18f14090f81ba225d1c5f2e82fa3ee12601e03",
+    "src/seti_repeater/run_state_v0p6.py": "b909a7bb6ffa8da39c534d035f1f0a6e8c5cac82f6efd8d953a541fb2776c9c8",
+    "src/seti_repeater/runner_v0p6.py": "60ebab004b0df6c274b3bb180c61fcd3d3e9ee19dbf690aba4b61343a5b0f938"
+  },
+  "readiness_outcome": "BOOTSTRAP_AND_PERSISTENCE_GATES_PASSED_STREAMING_AND_COMPLETENESS_BLOCKED",
+  "schema_version": 1,
+  "tests": {
+    "exact_grid_native_kernel": {
+      "output_sha256": "ec7baa1b7e7f5089dac5cf321c7f5294806057aaf1a2a68f7b56dcb99a8321d4",
+      "passed": 1,
+      "peak_rss_bytes": 100712448,
+      "speedup_over_recorded_python_baseline": 31.52,
+      "wall_seconds": 0.307609
+    },
+    "full_repository_suite": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 246,
+      "skipped": 1,
+      "tests_run": 247,
+      "wall_seconds": 84.024
+    },
+    "v0p6_suite": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 187,
+      "skipped": 1,
+      "tests_run": 188,
+      "wall_seconds": 86.833
+    }
+  }
+}

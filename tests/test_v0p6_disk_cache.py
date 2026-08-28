@@ -28,6 +28,7 @@ from seti_repeater.search_v0p6 import (
     canonical_json_bytes,
     gather_filtered_native,
     make_proxy_carrier_grid,
+    native_filter_cache_plan_from_record,
     plan_native_filter_cache,
     NativeFrequencyGeometry,
 )
@@ -107,6 +108,42 @@ def _rewrite_with_nonfinite_payload(path: Path) -> str:
 
 
 class V0P6DiskCacheTests(unittest.TestCase):
+    def test_cache_plan_round_trip_from_persisted_manifest_record(self):
+        plan, cache = _fixture()
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "native.cache"
+            receipt = disk_cache.publish_native_filter_cache(path, cache)
+            manifest, _ = _read_manifest(path.read_bytes())
+            restored = native_filter_cache_plan_from_record(
+                manifest["plan"],
+                expected_plan_sha256=receipt.plan_sha256,
+            )
+            self.assertEqual(restored, plan)
+            with _open(path, restored, receipt) as handle:
+                np.testing.assert_array_equal(handle._values_for_gather(), cache.values)
+
+    def test_cache_plan_rehydration_requires_independent_identity(self):
+        plan, cache = _fixture()
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "native.cache"
+            disk_cache.publish_native_filter_cache(path, cache)
+            manifest, _ = _read_manifest(path.read_bytes())
+            with self.assertRaisesRegex(V0P6IncompleteError, "independent identity"):
+                native_filter_cache_plan_from_record(
+                    manifest["plan"],
+                    expected_plan_sha256="0" * 64,
+                )
+            changed = dict(manifest["plan"])
+            changed["payload_nbytes"] += 4
+            changed_digest = hashlib.sha256(
+                canonical_json_bytes(changed)
+            ).hexdigest()
+            with self.assertRaisesRegex(V0P6ContractError, "byte count"):
+                native_filter_cache_plan_from_record(
+                    changed,
+                    expected_plan_sha256=changed_digest,
+                )
+
     def test_fixed_header_round_trip_and_single_full_validation(self):
         plan, cache = _fixture()
         with tempfile.TemporaryDirectory() as directory:
