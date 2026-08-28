@@ -22,7 +22,7 @@ from __future__ import annotations
 import hashlib
 import json
 import math
-from typing import Any, Mapping, Sequence
+from typing import Any, Callable, ContextManager, Mapping, Sequence
 
 import numpy as np
 
@@ -352,83 +352,131 @@ def _validate_caches(
     values_by_key: dict[tuple[int, str], np.ndarray] = {}
     inventory: list[dict[str, Any]] = []
     provenance: dict[int, tuple[tuple[str, ...], tuple[str, ...]]] = {}
-    grid_digest = core.proxy_carrier_grid_sha256(grid)
-    scan_digest = core.scan_inventory_sha256(scan_definitions)
     for width_index, width in enumerate(widths):
-        plan_digests: list[str] = []
-        payload_digests: list[str] = []
-        for epoch, (definition, label, scan_table) in enumerate(
-            zip(definitions, labels, scan_tables, strict=True)
-        ):
-            cache = caches[width][label]
-            plan, values = core._cache_values_for_gather(cache)
-            expected_count = core._strict_int(
-                definition["expected_header"]["dataset_shape"][0],
-                "integration count",
-            )
-            expected_factor_row_digests = tuple(
-                core.float64_vector_sha256(row) for row in scan_table
-            )
-            if (
-                plan.window_id != str(cert["window_id"])
-                or plan.scan_label != label
-                or plan.scan_kind != "on"
-                or plan.width_channels != width
-                or plan.integration_count != expected_count
-                or plan.proxy_grid_sha256 != grid_digest
-                or plan.factor_basis_sha256 != factor_basis.basis_sha256
-                or plan.factor_basis_labels_sha256
-                != factor_basis.labels_sha256
-                or plan.scan_inventory_sha256 != scan_digest
-                or plan.factor_scan_selection_sha256
-                != core.factor_scan_selection_sha256(
-                    factor_basis, scan_definitions, label
-                )
-                or plan.template_bank_sha256
-                != factor_table.template_bank_sha256
-                or plan.factor_table_sha256
-                != core.factor_table_sha256(scan_table)
-                or tuple(plan.factor_row_sha256s)
-                != expected_factor_row_digests
-            ):
-                raise core.V0P6ContractError(
-                    "receiver-signature cache identity differs from retention"
-                )
-            payload_digest = core._frozen_sha256(
-                cache.payload_sha256, "receiver-signature cache payload"
-            )
-            values_by_key[(width, label)] = values
-            plan_digests.append(plan.plan_sha256)
-            payload_digests.append(payload_digest)
-            inventory.append(
-                {
-                    "spectral_width_index": width_index,
-                    "spectral_width_channels": width,
-                    "epoch_zero_based": epoch,
-                    "scan_label": label,
-                    "source_sha256": plan.source_sha256,
-                    "cache_plan_sha256": plan.plan_sha256,
-                    "cache_payload_sha256": payload_digest,
-                    "integration_count": plan.integration_count,
-                    "raw_zero_hz": float(plan.geometry.raw_zero_hz),
-                    "native_channel_width_hz": float(
-                        plan.geometry.channel_width_hz
-                    ),
-                    "native_channel_count": plan.geometry.channel_count,
-                    "raw_center_start": plan.raw_center_start,
-                    "raw_center_stop": plan.raw_center_stop,
-                }
-            )
-        provenance[width_index] = (
-            tuple(plan_digests),
-            tuple(payload_digests),
+        values, width_inventory, width_provenance = _validate_cache_width(
+            caches[width],
+            width_index,
+            width,
+            definitions,
+            labels,
+            scan_tables,
+            scan_definitions,
+            factor_basis,
+            factor_table,
+            grid,
+            cert,
         )
+        for label, value in values.items():
+            values_by_key[(width, label)] = value
+        inventory.extend(width_inventory)
+        provenance[width_index] = width_provenance
     observed_provenance = core._cache_provenance_inventory_sha256(provenance)
     if observed_provenance != cert["cache_provenance_inventory_sha256"]:
         raise core.V0P6IncompleteError(
             "receiver-signature cache provenance differs from retention"
         )
     return caches, values_by_key, inventory
+
+
+def _validate_cache_width(
+    scans: Mapping[str, Any],
+    width_index: int,
+    width: int,
+    definitions: tuple[Mapping[str, Any], ...],
+    labels: tuple[str, ...],
+    scan_tables: tuple[np.ndarray, ...],
+    scan_definitions: Sequence[Mapping[str, Any]],
+    factor_basis: core.FactorBasis,
+    factor_table: core.TemplateFactorTable,
+    grid: core.ProxyCarrierGrid,
+    cert: Mapping[str, Any],
+) -> tuple[
+    dict[str, np.ndarray],
+    list[dict[str, Any]],
+    tuple[tuple[str, ...], tuple[str, ...]],
+]:
+    """Validate and expose exactly one width-by-ON-scan cache batch."""
+    if not isinstance(scans, Mapping) or set(scans) != set(labels):
+        raise core.V0P6IncompleteError(
+            "receiver-signature ON scan-cache batch is incomplete or has extras"
+        )
+    width_index = core._strict_int(
+        width_index, "receiver-signature spectral-width index"
+    )
+    width = core._strict_int(width, "receiver-signature spectral width")
+    values_by_label: dict[str, np.ndarray] = {}
+    inventory: list[dict[str, Any]] = []
+    plan_digests: list[str] = []
+    payload_digests: list[str] = []
+    grid_digest = core.proxy_carrier_grid_sha256(grid)
+    scan_digest = core.scan_inventory_sha256(scan_definitions)
+    for epoch, (definition, label, scan_table) in enumerate(
+        zip(definitions, labels, scan_tables, strict=True)
+    ):
+        cache = scans[label]
+        plan, values = core._cache_values_for_gather(cache)
+        expected_count = core._strict_int(
+            definition["expected_header"]["dataset_shape"][0],
+            "integration count",
+        )
+        expected_factor_row_digests = tuple(
+            core.float64_vector_sha256(row) for row in scan_table
+        )
+        if (
+            plan.window_id != str(cert["window_id"])
+            or plan.scan_label != label
+            or plan.scan_kind != "on"
+            or plan.width_channels != width
+            or plan.integration_count != expected_count
+            or plan.proxy_grid_sha256 != grid_digest
+            or plan.factor_basis_sha256 != factor_basis.basis_sha256
+            or plan.factor_basis_labels_sha256
+            != factor_basis.labels_sha256
+            or plan.scan_inventory_sha256 != scan_digest
+            or plan.factor_scan_selection_sha256
+            != core.factor_scan_selection_sha256(
+                factor_basis, scan_definitions, label
+            )
+            or plan.template_bank_sha256
+            != factor_table.template_bank_sha256
+            or plan.factor_table_sha256
+            != core.factor_table_sha256(scan_table)
+            or tuple(plan.factor_row_sha256s)
+            != expected_factor_row_digests
+        ):
+            raise core.V0P6ContractError(
+                "receiver-signature cache identity differs from retention"
+            )
+        payload_digest = core._frozen_sha256(
+            cache.payload_sha256, "receiver-signature cache payload"
+        )
+        values_by_label[label] = values
+        plan_digests.append(plan.plan_sha256)
+        payload_digests.append(payload_digest)
+        inventory.append(
+            {
+                "spectral_width_index": width_index,
+                "spectral_width_channels": width,
+                "epoch_zero_based": epoch,
+                "scan_label": label,
+                "source_sha256": plan.source_sha256,
+                "cache_plan_sha256": plan.plan_sha256,
+                "cache_payload_sha256": payload_digest,
+                "integration_count": plan.integration_count,
+                "raw_zero_hz": float(plan.geometry.raw_zero_hz),
+                "native_channel_width_hz": float(
+                    plan.geometry.channel_width_hz
+                ),
+                "native_channel_count": plan.geometry.channel_count,
+                "raw_center_start": plan.raw_center_start,
+                "raw_center_stop": plan.raw_center_stop,
+            }
+        )
+    return (
+        values_by_label,
+        inventory,
+        (tuple(plan_digests), tuple(payload_digests)),
+    )
 
 
 def _predicted_midpoint_hz(q_hz: float, factors: np.ndarray) -> float:
@@ -518,6 +566,142 @@ def _measure_peak(
     # first maximum implements both frozen tie breakers.
     winner = int(np.argmax(accumulator))
     return winner, np.float32(accumulator[winner])
+
+
+def _finalize_receiver_signatures(
+    *,
+    cert: Mapping[str, Any],
+    records: Sequence[Mapping[str, Any]],
+    widths: tuple[int, ...],
+    labels: tuple[str, ...],
+    factor_table: core.TemplateFactorTable,
+    signatures: dict[str, list[dict[str, Any]]],
+    product: list[dict[str, Any]],
+    cache_inventory: list[dict[str, Any]],
+    query_inventory: list[dict[str, Any]],
+    query_count: int,
+    total_visits: int,
+    minimum_query_visits: int | None,
+    maximum_query_visits: int,
+    local_half_width_hz: float,
+    local_peak_snr_floor: float,
+    maximum_records: int,
+    maximum_queries: int,
+    maximum_local_channel_visits: int,
+    maximum_signature_record_canonical_bytes: int,
+    maximum_evidence_canonical_bytes: int,
+) -> dict[str, Any]:
+    product.sort(key=lambda item: item["record_id"])
+    signatures = {key: signatures[key] for key in sorted(signatures)}
+    product_bytes = core.canonical_json_bytes(product)
+    mapping_bytes = core.canonical_json_bytes(signatures)
+    if len(product_bytes) > maximum_evidence_canonical_bytes:
+        raise core.V0P6CapacityError(
+            "receiver signature product exceeds its evidence-byte capacity"
+        )
+    if len(signatures) != len(records) or len(query_inventory) != query_count:
+        raise core.V0P6IncompleteError(
+            "receiver-signature replay did not cover every input query"
+        )
+
+    cache_inventory_bytes = core.canonical_json_bytes(cache_inventory)
+    query_inventory_bytes = core.canonical_json_bytes(query_inventory)
+    certificate_payload = {
+        "artifact_type": RECEIVER_SIGNATURE_ARTIFACT_TYPE,
+        "schema_version": RECEIVER_SIGNATURE_SCHEMA_VERSION,
+        "detector_version": core.DETECTOR_VERSION,
+        "window_id": str(cert["window_id"]),
+        "source_scan_kind": "on",
+        "signature_sort_order": _SIGNATURE_SORT_ORDER,
+        "cache_inventory_sort_order": _CACHE_SORT_ORDER,
+        "filter_coordinate": core.FILTER_COORDINATE,
+        "predicted_midpoint_contract": _PREDICTED_MIDPOINT_CONTRACT,
+        "local_window_comparison": _LOCAL_WINDOW_COMPARISON,
+        "local_receiver_half_width_hz": local_half_width_hz,
+        "peak_statistic_contract": _PEAK_STATISTIC_CONTRACT,
+        "native_accumulator_dtype": "<f4",
+        "tie_break_contract": _TIE_BREAK_CONTRACT,
+        "downstream_peak_snr_comparison": (
+            "peak_snr >= local_peak_snr_floor"
+        ),
+        "local_peak_snr_floor": local_peak_snr_floor,
+        "on_retention_certificate_sha256": cert[
+            "retention_certificate_sha256"
+        ],
+        "on_records_sha256": cert["records_sha256"],
+        "proxy_grid_sha256": cert["proxy_grid_sha256"],
+        "template_bank_sha256": cert["template_bank_sha256"],
+        "template_count": int(factor_table.factors.shape[0]),
+        "factor_basis_sha256": cert["factor_basis_sha256"],
+        "factor_basis_labels_sha256": cert[
+            "factor_basis_labels_sha256"
+        ],
+        "scan_inventory_sha256": cert["scan_inventory_sha256"],
+        "on_factor_row_selection_sha256": cert[
+            "factor_row_selection_sha256"
+        ],
+        "factor_table_sha256": cert["factor_table_sha256"],
+        "spectral_widths": list(widths),
+        "on_scan_labels": list(labels),
+        "epoch_count": len(labels),
+        "cache_inventory": cache_inventory,
+        "cache_inventory_sha256": hashlib.sha256(
+            cache_inventory_bytes
+        ).hexdigest(),
+        "cache_provenance_inventory_sha256": cert[
+            "cache_provenance_inventory_sha256"
+        ],
+        "cache_count": len(cache_inventory),
+        "query_inventory_sha256": hashlib.sha256(
+            query_inventory_bytes
+        ).hexdigest(),
+        "query_count": query_count,
+        "maximum_queries": maximum_queries,
+        "local_channel_visit_definition": (
+            "one candidate native receiver channel evaluated for one retained "
+            "record active-epoch query"
+        ),
+        "local_channel_visits": total_visits,
+        "minimum_local_channels_per_query": (
+            0 if minimum_query_visits is None else minimum_query_visits
+        ),
+        "maximum_local_channels_per_query": maximum_query_visits,
+        "maximum_local_channel_visits": maximum_local_channel_visits,
+        "input_record_count": len(records),
+        "signature_record_count": len(signatures),
+        "maximum_records": maximum_records,
+        "maximum_signature_record_canonical_bytes": (
+            maximum_signature_record_canonical_bytes
+        ),
+        "maximum_evidence_canonical_bytes": (
+            maximum_evidence_canonical_bytes
+        ),
+        "receiver_signature_product_canonical_bytes": len(product_bytes),
+        "receiver_signature_product_sha256": hashlib.sha256(
+            product_bytes
+        ).hexdigest(),
+        "receiver_signatures_mapping_canonical_bytes": len(mapping_bytes),
+        "receiver_signatures_mapping_sha256": hashlib.sha256(
+            mapping_bytes
+        ).hexdigest(),
+        "all_input_records_signed_exactly_once": True,
+        "all_active_epoch_queries_evaluated_exactly_once": True,
+        "complete_width_by_on_scan_cache_inventory": True,
+        "truncation_permitted": False,
+    }
+    certificate = dict(certificate_payload)
+    certificate["receiver_signature_certificate_sha256"] = hashlib.sha256(
+        core.canonical_json_bytes(certificate_payload)
+    ).hexdigest()
+    result_payload = {
+        "receiver_signatures": signatures,
+        "certificate": certificate,
+    }
+    result = dict(result_payload)
+    result["result_sha256"] = hashlib.sha256(
+        core.canonical_json_bytes(result_payload)
+    ).hexdigest()
+    return json.loads(core.canonical_json_bytes(result))
 
 
 def _derive_receiver_signatures(
@@ -726,117 +910,402 @@ def _derive_receiver_signatures(
         signatures[record_id] = entries
         product.append(item)
 
-    product.sort(key=lambda item: item["record_id"])
-    signatures = {key: signatures[key] for key in sorted(signatures)}
-    product_bytes = core.canonical_json_bytes(product)
-    mapping_bytes = core.canonical_json_bytes(signatures)
-    if len(product_bytes) > maximum_evidence_canonical_bytes:
-        raise core.V0P6CapacityError(
-            "receiver signature product exceeds its evidence-byte capacity"
-        )
-    if len(signatures) != len(records) or len(query_inventory) != query_count:
-        raise core.V0P6IncompleteError(
-            "receiver-signature replay did not cover every input query"
-        )
-
-    cache_inventory_bytes = core.canonical_json_bytes(cache_inventory)
-    query_inventory_bytes = core.canonical_json_bytes(query_inventory)
-    certificate_payload = {
-        "artifact_type": RECEIVER_SIGNATURE_ARTIFACT_TYPE,
-        "schema_version": RECEIVER_SIGNATURE_SCHEMA_VERSION,
-        "detector_version": core.DETECTOR_VERSION,
-        "window_id": str(cert["window_id"]),
-        "source_scan_kind": "on",
-        "signature_sort_order": _SIGNATURE_SORT_ORDER,
-        "cache_inventory_sort_order": _CACHE_SORT_ORDER,
-        "filter_coordinate": core.FILTER_COORDINATE,
-        "predicted_midpoint_contract": _PREDICTED_MIDPOINT_CONTRACT,
-        "local_window_comparison": _LOCAL_WINDOW_COMPARISON,
-        "local_receiver_half_width_hz": local_half_width_hz,
-        "peak_statistic_contract": _PEAK_STATISTIC_CONTRACT,
-        "native_accumulator_dtype": "<f4",
-        "tie_break_contract": _TIE_BREAK_CONTRACT,
-        "downstream_peak_snr_comparison": (
-            "peak_snr >= local_peak_snr_floor"
-        ),
-        "local_peak_snr_floor": local_peak_snr_floor,
-        "on_retention_certificate_sha256": cert[
-            "retention_certificate_sha256"
-        ],
-        "on_records_sha256": cert["records_sha256"],
-        "proxy_grid_sha256": cert["proxy_grid_sha256"],
-        "template_bank_sha256": cert["template_bank_sha256"],
-        "template_count": int(factor_table.factors.shape[0]),
-        "factor_basis_sha256": cert["factor_basis_sha256"],
-        "factor_basis_labels_sha256": cert[
-            "factor_basis_labels_sha256"
-        ],
-        "scan_inventory_sha256": cert["scan_inventory_sha256"],
-        "on_factor_row_selection_sha256": cert[
-            "factor_row_selection_sha256"
-        ],
-        "factor_table_sha256": cert["factor_table_sha256"],
-        "spectral_widths": list(widths),
-        "on_scan_labels": list(labels),
-        "epoch_count": len(labels),
-        "cache_inventory": cache_inventory,
-        "cache_inventory_sha256": hashlib.sha256(
-            cache_inventory_bytes
-        ).hexdigest(),
-        "cache_provenance_inventory_sha256": cert[
-            "cache_provenance_inventory_sha256"
-        ],
-        "cache_count": len(cache_inventory),
-        "query_inventory_sha256": hashlib.sha256(
-            query_inventory_bytes
-        ).hexdigest(),
-        "query_count": query_count,
-        "maximum_queries": maximum_queries,
-        "local_channel_visit_definition": (
-            "one candidate native receiver channel evaluated for one retained "
-            "record active-epoch query"
-        ),
-        "local_channel_visits": total_visits,
-        "minimum_local_channels_per_query": (
-            0 if minimum_query_visits is None else minimum_query_visits
-        ),
-        "maximum_local_channels_per_query": maximum_query_visits,
-        "maximum_local_channel_visits": maximum_local_channel_visits,
-        "input_record_count": len(records),
-        "signature_record_count": len(signatures),
-        "maximum_records": maximum_records,
-        "maximum_signature_record_canonical_bytes": (
+    return _finalize_receiver_signatures(
+        cert=cert,
+        records=records,
+        widths=widths,
+        labels=labels,
+        factor_table=factor_table,
+        signatures=signatures,
+        product=product,
+        cache_inventory=cache_inventory,
+        query_inventory=query_inventory,
+        query_count=query_count,
+        total_visits=total_visits,
+        minimum_query_visits=minimum_query_visits,
+        maximum_query_visits=maximum_query_visits,
+        local_half_width_hz=local_half_width_hz,
+        local_peak_snr_floor=local_peak_snr_floor,
+        maximum_records=maximum_records,
+        maximum_queries=maximum_queries,
+        maximum_local_channel_visits=maximum_local_channel_visits,
+        maximum_signature_record_canonical_bytes=(
             maximum_signature_record_canonical_bytes
         ),
-        "maximum_evidence_canonical_bytes": (
-            maximum_evidence_canonical_bytes
+        maximum_evidence_canonical_bytes=maximum_evidence_canonical_bytes,
+    )
+
+
+def _process_receiver_width_batch(
+    raw_scans: Mapping[str, Any],
+    width_records: Sequence[tuple[int, Mapping[str, Any]]],
+    *,
+    width_index: int,
+    width: int,
+    definitions: tuple[Mapping[str, Any], ...],
+    labels: tuple[str, ...],
+    scan_tables: tuple[np.ndarray, ...],
+    scan_definitions: Sequence[Mapping[str, Any]],
+    factor_basis: core.FactorBasis,
+    factor_table: core.TemplateFactorTable,
+    grid: core.ProxyCarrierGrid,
+    cert: Mapping[str, Any],
+    local_half_width_hz: float,
+    maximum_local_channel_visits: int,
+    maximum_signature_record_canonical_bytes: int,
+) -> tuple[
+    dict[str, list[dict[str, Any]]],
+    list[dict[str, Any]],
+    list[tuple[int, int, dict[str, Any]]],
+    list[dict[str, Any]],
+    tuple[tuple[str, ...], tuple[str, ...]],
+    int,
+    int | None,
+    int,
+]:
+    """Process one validated width batch without leaking mmap array views."""
+    values_by_label, cache_inventory, provenance = _validate_cache_width(
+        raw_scans,
+        width_index,
+        width,
+        definitions,
+        labels,
+        scan_tables,
+        scan_definitions,
+        factor_basis,
+        factor_table,
+        grid,
+        cert,
+    )
+    signatures: dict[str, list[dict[str, Any]]] = {}
+    product: list[dict[str, Any]] = []
+    ordered_queries: list[tuple[int, int, dict[str, Any]]] = []
+    total_visits = 0
+    minimum_query_visits: int | None = None
+    maximum_query_visits = 0
+    for record_ordinal, record in width_records:
+        record_id = str(record["record_id"])
+        template_index = core._strict_int(
+            record["template_index"], "template index"
+        )
+        q_index = core._strict_int(
+            record["proxy_carrier_index"], "proxy-carrier index"
+        )
+        q_hz = float(record["proxy_carrier_hz"])
+        active_epochs = core.canonical_activity_subsets(
+            (record["active_epochs_zero_based"],)
+        )[0]
+        entries: list[dict[str, Any]] = []
+        for active_ordinal, epoch in enumerate(active_epochs):
+            label = labels[epoch]
+            cache = raw_scans[label]
+            plan = cache.plan
+            factors = scan_tables[epoch][template_index]
+            if core.float64_vector_sha256(factors) not in plan.factor_row_sha256s:
+                raise core.V0P6ContractError(
+                    "receiver query factor is absent from its cache plan"
+                )
+            predicted_mid_hz = _predicted_midpoint_hz(q_hz, factors)
+            predicted_mid_mhz = float(predicted_mid_hz / 1e6)
+            raw_indices, frequencies_mhz = _local_raw_indices(
+                plan, predicted_mid_mhz, local_half_width_hz
+            )
+            channel_visits = int(raw_indices.size)
+            if total_visits + channel_visits > maximum_local_channel_visits:
+                raise core.V0P6CapacityError(
+                    "receiver-signature local-channel-visit capacity exceeded"
+                )
+            total_visits += channel_visits
+            minimum_query_visits = (
+                channel_visits
+                if minimum_query_visits is None
+                else min(minimum_query_visits, channel_visits)
+            )
+            maximum_query_visits = max(maximum_query_visits, channel_visits)
+            winner, peak_snr = _measure_peak(
+                values_by_label[label], plan, raw_indices
+            )
+            peak_frequency_mhz = float(frequencies_mhz[winner])
+            literal_offset_hz = float(
+                (peak_frequency_mhz - predicted_mid_mhz) * 1e6
+            )
+            if abs(literal_offset_hz) > local_half_width_hz:
+                raise core.V0P6IncompleteError(
+                    "selected receiver peak escaped the inclusive local window"
+                )
+            entries.append(
+                {
+                    "epoch_zero_based": epoch,
+                    "predicted_mid_mhz": predicted_mid_mhz,
+                    "peak_frequency_mhz": peak_frequency_mhz,
+                    "peak_snr": float(peak_snr),
+                    "offset_from_prediction_hz": literal_offset_hz,
+                }
+            )
+            ordered_queries.append(
+                (
+                    record_ordinal,
+                    active_ordinal,
+                    {
+                        "record_id": record_id,
+                        "epoch_zero_based": epoch,
+                        "scan_label": label,
+                        "template_index": template_index,
+                        "spectral_width_index": width_index,
+                        "spectral_width_channels": width,
+                        "proxy_carrier_index": q_index,
+                        "proxy_carrier_hz": q_hz,
+                        "predicted_mid_mhz": predicted_mid_mhz,
+                        "first_local_raw_channel_index": int(raw_indices[0]),
+                        "last_local_raw_channel_index": int(raw_indices[-1]),
+                        "local_channel_count": channel_visits,
+                    },
+                )
+            )
+        item = {
+            "record_id": record_id,
+            "receiver_frame_signature": entries,
+        }
+        if len(core.canonical_json_bytes(item)) > (
+            maximum_signature_record_canonical_bytes
+        ):
+            raise core.V0P6CapacityError(
+                "receiver signature record exceeds its byte capacity"
+            )
+        signatures[record_id] = entries
+        product.append(item)
+    return (
+        signatures,
+        product,
+        ordered_queries,
+        cache_inventory,
+        provenance,
+        total_visits,
+        minimum_query_visits,
+        maximum_query_visits,
+    )
+
+
+def _derive_receiver_signatures_streaming(
+    on_records: Sequence[Mapping[str, Any]],
+    on_certificate: Mapping[str, Any],
+    open_cache_width: Callable[[int], ContextManager[Mapping[str, Any]]],
+    scan_definitions: Sequence[Mapping[str, Any]],
+    factor_basis: core.FactorBasis,
+    factor_table: core.TemplateFactorTable,
+    template_bank: Sequence[Mapping[str, Any]],
+    grid: core.ProxyCarrierGrid,
+    *,
+    local_half_width_hz: float,
+    local_peak_snr_floor: float,
+    maximum_records: int,
+    maximum_queries: int,
+    maximum_local_channel_visits: int,
+    maximum_signature_record_canonical_bytes: int,
+    maximum_evidence_canonical_bytes: int,
+    expected_on_certificate_sha256: str | None,
+) -> dict[str, Any]:
+    """Derive the identical signature artifact one width batch at a time."""
+    if not callable(open_cache_width):
+        raise core.V0P6ContractError(
+            "receiver-signature width opener must be callable"
+        )
+    maximum_records = core._strict_int(
+        maximum_records, "receiver-signature record capacity"
+    )
+    maximum_queries = core._strict_int(
+        maximum_queries, "receiver-signature query capacity"
+    )
+    maximum_local_channel_visits = core._strict_int(
+        maximum_local_channel_visits,
+        "receiver-signature local-channel-visit capacity",
+    )
+    maximum_signature_record_canonical_bytes = core._strict_int(
+        maximum_signature_record_canonical_bytes,
+        "receiver-signature per-record byte capacity",
+    )
+    maximum_evidence_canonical_bytes = core._strict_int(
+        maximum_evidence_canonical_bytes,
+        "receiver-signature evidence-byte capacity",
+    )
+    if (
+        maximum_records < 0
+        or maximum_queries < 0
+        or maximum_local_channel_visits < 0
+        or maximum_signature_record_canonical_bytes < 1
+        or maximum_evidence_canonical_bytes < 1
+    ):
+        raise core.V0P6ContractError(
+            "receiver-signature capacities are invalid"
+        )
+    local_half_width_hz = float(local_half_width_hz)
+    local_peak_snr_floor = float(local_peak_snr_floor)
+    if (
+        not math.isfinite(local_half_width_hz)
+        or local_half_width_hz <= 0.0
+        or not math.isfinite(local_peak_snr_floor)
+    ):
+        raise core.V0P6ContractError(
+            "receiver-signature thresholds must be finite and valid"
+        )
+    (
+        cert,
+        records,
+        widths,
+        definitions,
+        labels,
+        scan_tables,
+    ) = _validate_inputs(
+        on_records,
+        on_certificate,
+        factor_basis,
+        factor_table,
+        scan_definitions,
+        template_bank,
+        grid,
+        expected_on_certificate_sha256=expected_on_certificate_sha256,
+    )
+    if len(records) > maximum_records:
+        raise core.V0P6CapacityError(
+            "receiver-signature record capacity exceeded"
+        )
+    query_count = sum(
+        len(
+            core.canonical_activity_subsets(
+                (record["active_epochs_zero_based"],)
+            )[0]
+        )
+        for record in records
+    )
+    if query_count > maximum_queries:
+        raise core.V0P6CapacityError(
+            "receiver-signature query capacity exceeded"
+        )
+    record_ids = tuple(str(record["record_id"]) for record in records)
+    if len(set(record_ids)) != len(record_ids):
+        raise core.V0P6IncompleteError(
+            "receiver-signature input repeats a retained record ID"
+        )
+    records_by_width: dict[int, list[tuple[int, Mapping[str, Any]]]] = {
+        index: [] for index in range(len(widths))
+    }
+    for ordinal, record in enumerate(records):
+        width_index = core._strict_int(
+            record["spectral_width_index"], "spectral-width index"
+        )
+        if width_index not in records_by_width:
+            raise core.V0P6ContractError(
+                "retained record spectral-width index is invalid"
+            )
+        records_by_width[width_index].append((ordinal, record))
+
+    signatures: dict[str, list[dict[str, Any]]] = {}
+    product: list[dict[str, Any]] = []
+    ordered_queries: list[tuple[int, int, dict[str, Any]]] = []
+    cache_inventory: list[dict[str, Any]] = []
+    provenance: dict[int, tuple[tuple[str, ...], tuple[str, ...]]] = {}
+    total_visits = 0
+    minimum_query_visits: int | None = None
+    maximum_query_visits = 0
+    for width_index, width in enumerate(widths):
+        with open_cache_width(width) as raw_scans:
+            (
+                width_signatures,
+                width_product,
+                width_queries,
+                width_inventory,
+                width_provenance,
+                width_visits,
+                width_minimum,
+                width_maximum,
+            ) = _process_receiver_width_batch(
+                raw_scans,
+                records_by_width[width_index],
+                width_index=width_index,
+                width=width,
+                definitions=definitions,
+                labels=labels,
+                scan_tables=scan_tables,
+                scan_definitions=scan_definitions,
+                factor_basis=factor_basis,
+                factor_table=factor_table,
+                grid=grid,
+                cert=cert,
+                local_half_width_hz=local_half_width_hz,
+                maximum_local_channel_visits=(
+                    maximum_local_channel_visits - total_visits
+                ),
+                maximum_signature_record_canonical_bytes=(
+                    maximum_signature_record_canonical_bytes
+                ),
+            )
+        signatures.update(width_signatures)
+        product.extend(width_product)
+        ordered_queries.extend(width_queries)
+        cache_inventory.extend(width_inventory)
+        provenance[width_index] = width_provenance
+        total_visits += width_visits
+        if width_minimum is not None:
+            minimum_query_visits = (
+                width_minimum
+                if minimum_query_visits is None
+                else min(minimum_query_visits, width_minimum)
+            )
+        maximum_query_visits = max(maximum_query_visits, width_maximum)
+
+    if (
+        core._cache_provenance_inventory_sha256(provenance)
+        != cert["cache_provenance_inventory_sha256"]
+    ):
+        raise core.V0P6IncompleteError(
+            "receiver-signature cache provenance differs from retention"
+        )
+    query_inventory = [
+        item[2] for item in sorted(ordered_queries, key=lambda item: item[:2])
+    ]
+    return _finalize_receiver_signatures(
+        cert=cert,
+        records=records,
+        widths=widths,
+        labels=labels,
+        factor_table=factor_table,
+        signatures=signatures,
+        product=product,
+        cache_inventory=cache_inventory,
+        query_inventory=query_inventory,
+        query_count=query_count,
+        total_visits=total_visits,
+        minimum_query_visits=minimum_query_visits,
+        maximum_query_visits=maximum_query_visits,
+        local_half_width_hz=local_half_width_hz,
+        local_peak_snr_floor=local_peak_snr_floor,
+        maximum_records=maximum_records,
+        maximum_queries=maximum_queries,
+        maximum_local_channel_visits=maximum_local_channel_visits,
+        maximum_signature_record_canonical_bytes=(
+            maximum_signature_record_canonical_bytes
         ),
-        "receiver_signature_product_canonical_bytes": len(product_bytes),
-        "receiver_signature_product_sha256": hashlib.sha256(
-            product_bytes
-        ).hexdigest(),
-        "receiver_signatures_mapping_canonical_bytes": len(mapping_bytes),
-        "receiver_signatures_mapping_sha256": hashlib.sha256(
-            mapping_bytes
-        ).hexdigest(),
-        "all_input_records_signed_exactly_once": True,
-        "all_active_epoch_queries_evaluated_exactly_once": True,
-        "complete_width_by_on_scan_cache_inventory": True,
-        "truncation_permitted": False,
-    }
-    certificate = dict(certificate_payload)
-    certificate["receiver_signature_certificate_sha256"] = hashlib.sha256(
-        core.canonical_json_bytes(certificate_payload)
-    ).hexdigest()
-    result_payload = {
-        "receiver_signatures": signatures,
-        "certificate": certificate,
-    }
-    result = dict(result_payload)
-    result["result_sha256"] = hashlib.sha256(
-        core.canonical_json_bytes(result_payload)
-    ).hexdigest()
-    return json.loads(core.canonical_json_bytes(result))
+        maximum_evidence_canonical_bytes=maximum_evidence_canonical_bytes,
+    )
+
+
+def _attest_receiver_signature_result(result: dict[str, Any]) -> dict[str, Any]:
+    certificate_digest = result["certificate"][
+        "receiver_signature_certificate_sha256"
+    ]
+    encoded = core.canonical_json_bytes(result)
+    existing = _RESULT_ATTESTATIONS.get(certificate_digest)
+    if existing is not None and existing != encoded:
+        raise core.V0P6IncompleteError(
+            "receiver-signature certificate digest collision"
+        )
+    if existing is None and len(_RESULT_ATTESTATIONS) >= _RESULT_ATTESTATION_CAP:
+        raise core.V0P6CapacityError(
+            "receiver-signature result attestation capacity exceeded"
+        )
+    _RESULT_ATTESTATIONS[certificate_digest] = encoded
+    validate_receiver_signature_result(result)
+    return result
 
 
 def build_receiver_frame_signatures(
@@ -879,22 +1348,50 @@ def build_receiver_frame_signatures(
         maximum_evidence_canonical_bytes=maximum_evidence_canonical_bytes,
         expected_on_certificate_sha256=expected_on_certificate_sha256,
     )
-    certificate_digest = result["certificate"][
-        "receiver_signature_certificate_sha256"
-    ]
-    encoded = core.canonical_json_bytes(result)
-    existing = _RESULT_ATTESTATIONS.get(certificate_digest)
-    if existing is not None and existing != encoded:
-        raise core.V0P6IncompleteError(
-            "receiver-signature certificate digest collision"
-        )
-    if existing is None and len(_RESULT_ATTESTATIONS) >= _RESULT_ATTESTATION_CAP:
-        raise core.V0P6CapacityError(
-            "receiver-signature result attestation capacity exceeded"
-        )
-    _RESULT_ATTESTATIONS[certificate_digest] = encoded
-    validate_receiver_signature_result(result)
-    return result
+    return _attest_receiver_signature_result(result)
+
+
+def build_receiver_frame_signatures_streaming(
+    on_records: Sequence[Mapping[str, Any]],
+    on_certificate: Mapping[str, Any],
+    open_cache_width: Callable[[int], ContextManager[Mapping[str, Any]]],
+    scan_definitions: Sequence[Mapping[str, Any]],
+    factor_basis: core.FactorBasis,
+    factor_table: core.TemplateFactorTable,
+    template_bank: Sequence[Mapping[str, Any]],
+    grid: core.ProxyCarrierGrid,
+    *,
+    local_half_width_hz: float,
+    local_peak_snr_floor: float,
+    maximum_records: int,
+    maximum_queries: int,
+    maximum_local_channel_visits: int,
+    maximum_signature_record_canonical_bytes: int,
+    maximum_evidence_canonical_bytes: int,
+    expected_on_certificate_sha256: str | None = None,
+) -> dict[str, Any]:
+    """Build the exact receiver product from one cache width at a time."""
+    result = _derive_receiver_signatures_streaming(
+        on_records,
+        on_certificate,
+        open_cache_width,
+        scan_definitions,
+        factor_basis,
+        factor_table,
+        template_bank,
+        grid,
+        local_half_width_hz=local_half_width_hz,
+        local_peak_snr_floor=local_peak_snr_floor,
+        maximum_records=maximum_records,
+        maximum_queries=maximum_queries,
+        maximum_local_channel_visits=maximum_local_channel_visits,
+        maximum_signature_record_canonical_bytes=(
+            maximum_signature_record_canonical_bytes
+        ),
+        maximum_evidence_canonical_bytes=maximum_evidence_canonical_bytes,
+        expected_on_certificate_sha256=expected_on_certificate_sha256,
+    )
+    return _attest_receiver_signature_result(result)
 
 
 def validate_receiver_signature_result(
@@ -1321,18 +1818,17 @@ def validate_receiver_signature_result(
     return detached
 
 
-def build_m37_receiver_frame_signatures(
+def _validate_m37_receiver_signature_inputs(
     on_records: Sequence[Mapping[str, Any]],
     on_certificate: Mapping[str, Any],
-    on_caches_by_width: Any,
     scan_definitions: Sequence[Mapping[str, Any]],
     factor_basis: core.FactorBasis,
     factor_table: core.TemplateFactorTable,
     grid: core.ProxyCarrierGrid,
     *,
-    expected_on_certificate_sha256: str | None = None,
-) -> dict[str, Any]:
-    """Build the non-configurable M37 receiver-signature product."""
+    expected_on_certificate_sha256: str | None,
+) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    """Validate the common non-configurable M37 receiver contract."""
     cert = core.validate_retention_certificate(
         on_certificate,
         expected_certificate_sha256=expected_on_certificate_sha256,
@@ -1407,10 +1903,81 @@ def build_m37_receiver_frame_signatures(
         raise core.V0P6ContractError(
             "M37 receiver signatures did not receive the frozen factors/grid"
         )
+    return cert, bank
+
+
+def build_m37_receiver_frame_signatures(
+    on_records: Sequence[Mapping[str, Any]],
+    on_certificate: Mapping[str, Any],
+    on_caches_by_width: Any,
+    scan_definitions: Sequence[Mapping[str, Any]],
+    factor_basis: core.FactorBasis,
+    factor_table: core.TemplateFactorTable,
+    grid: core.ProxyCarrierGrid,
+    *,
+    expected_on_certificate_sha256: str | None = None,
+) -> dict[str, Any]:
+    """Build the non-configurable M37 receiver-signature product."""
+    cert, bank = _validate_m37_receiver_signature_inputs(
+        on_records,
+        on_certificate,
+        scan_definitions,
+        factor_basis,
+        factor_table,
+        grid,
+        expected_on_certificate_sha256=expected_on_certificate_sha256,
+    )
     return build_receiver_frame_signatures(
         on_records,
         cert,
         on_caches_by_width,
+        scan_definitions,
+        factor_basis,
+        factor_table,
+        bank,
+        grid,
+        local_half_width_hz=M37_RECEIVER_SIGNATURE_LOCAL_HALF_WIDTH_HZ,
+        local_peak_snr_floor=M37_RECEIVER_SIGNATURE_PEAK_SNR_FLOOR,
+        maximum_records=core.M37_MAXIMUM_RECORDS_PER_WINDOW,
+        maximum_queries=M37_MAXIMUM_RECEIVER_SIGNATURE_QUERIES,
+        maximum_local_channel_visits=(
+            M37_MAXIMUM_RECEIVER_SIGNATURE_LOCAL_CHANNEL_VISITS
+        ),
+        maximum_signature_record_canonical_bytes=(
+            core.M37_MAXIMUM_RECORD_CANONICAL_BYTES
+        ),
+        maximum_evidence_canonical_bytes=(
+            core.M37_MAXIMUM_EVIDENCE_CANONICAL_BYTES
+        ),
+        expected_on_certificate_sha256=expected_on_certificate_sha256,
+    )
+
+
+def build_m37_receiver_frame_signatures_streaming(
+    on_records: Sequence[Mapping[str, Any]],
+    on_certificate: Mapping[str, Any],
+    open_cache_width: Callable[[int], ContextManager[Mapping[str, Any]]],
+    scan_definitions: Sequence[Mapping[str, Any]],
+    factor_basis: core.FactorBasis,
+    factor_table: core.TemplateFactorTable,
+    grid: core.ProxyCarrierGrid,
+    *,
+    expected_on_certificate_sha256: str | None = None,
+) -> dict[str, Any]:
+    """Build the frozen M37 receiver product one width at a time."""
+    cert, bank = _validate_m37_receiver_signature_inputs(
+        on_records,
+        on_certificate,
+        scan_definitions,
+        factor_basis,
+        factor_table,
+        grid,
+        expected_on_certificate_sha256=expected_on_certificate_sha256,
+    )
+    return build_receiver_frame_signatures_streaming(
+        on_records,
+        cert,
+        open_cache_width,
         scan_definitions,
         factor_basis,
         factor_table,

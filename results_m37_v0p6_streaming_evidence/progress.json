@@ -1,0 +1,106 @@
+{
+  "artifact_type": "m37-detector-v0p6-streaming-evidence-checkpoint-v1",
+  "base_commit": "8298454a7c201199cc3b669753b5ae67060e2c4d",
+  "claim_boundary": {
+    "candidate_outcome_produced": false,
+    "completeness_measured": false,
+    "detector_frozen": false,
+    "detector_released": false,
+    "null_claimed": false,
+    "preregistration_published": false,
+    "production_runner_attested": false,
+    "remote_telescope_file_opened": false,
+    "search_executed": false,
+    "signal_claimed": false,
+    "spectral_access_authorized": false,
+    "spectral_dataset_values_read": false
+  },
+  "generated_at_utc": "2026-08-28T16:36:15Z",
+  "gates": [
+    {
+      "evidence": "A trusted run manifest is independently revalidated before exact ordered width-by-three-scan batches are opened through a bounded NativeFilterCacheArena.",
+      "id": "width-stream-manifest-and-arena",
+      "status": "passed_synthetic_m37_execution_not_applicable"
+    },
+    {
+      "evidence": "Repeated, skipped, overlapping, incomplete and over-cap width batches permanently fail closed; every batch closes all handles and returns mapped bytes to zero before the next width.",
+      "id": "width-stream-order-cap-and-closure",
+      "status": "passed_synthetic_m37_execution_not_applicable"
+    },
+    {
+      "evidence": "Receiver-frame streaming and full-inventory reference functions produce bit-identical result objects; the generic and frozen M37 entry points share the same finalizer.",
+      "id": "receiver-frame-bit-identical-streaming",
+      "status": "passed_synthetic_m37_execution_not_applicable"
+    },
+    {
+      "evidence": "Single-adjacent-OFF streaming and full-inventory reference functions produce bit-identical evidence and certificate objects; the generic and frozen M37 entry points share the same finalizer.",
+      "id": "adjacent-off-bit-identical-streaming",
+      "status": "passed_synthetic_m37_execution_not_applicable"
+    },
+    {
+      "evidence": "The canonical resource certificate binds batch inventory, maximum and observed mapped bytes, handle peaks and complete closure to one evidence SHA-256; resealed semantic mutations are rejected.",
+      "id": "evidence-bound-stream-resource-receipt",
+      "status": "passed_synthetic_m37_execution_not_applicable"
+    },
+    {
+      "evidence": "The sparse/local reference still stops before the full downstream production chain and complete resource envelope.",
+      "id": "production-completeness-feasibility",
+      "status": "blocked"
+    },
+    {
+      "evidence": "The restartable runner does not yet invoke and persist the streaming physical-evidence stages and their resource receipts.",
+      "id": "end-to-end-production-runner",
+      "status": "blocked"
+    },
+    {
+      "evidence": "The final Python, extractor, OS, compiler, OpenMP, CPU and host identities remain prospective rather than frozen.",
+      "id": "final-pinned-runtime",
+      "status": "blocked"
+    }
+  ],
+  "m37_stream_contract": {
+    "all_handles_closed_before_next_width": true,
+    "cache_manifest_entry_count": 240,
+    "maximum_mapped_payload_bytes": 536870912,
+    "scan_batch_size": 3,
+    "spectral_widths": [
+      1,
+      3,
+      7,
+      15,
+      31,
+      63,
+      95,
+      129
+    ],
+    "width_batch_count_per_window_and_scan_kind": 8
+  },
+  "readiness_outcome": "WIDTH_STREAMING_EVIDENCE_GATE_PASSED_SYNTHETIC_M37_EXECUTION_NOT_APPLICABLE",
+  "schema_version": 1,
+  "source_sha256s": {
+    "src/seti_repeater/adjacent_v0p6.py": "382961e9f1b26ad1a94a82e4e6a20c98ff3956af20f0648b9999eb9a6f4cfd13",
+    "src/seti_repeater/cache_stream_v0p6.py": "803116a38fd3b87bc3ced0e19c5b4f82f6c9fdc2ac2c0613f2683018d40e8148",
+    "src/seti_repeater/receiver_v0p6.py": "da4753196fe3a1b79f4ba854753d95a774204d4e88c8603e65597ff5a93d969c",
+    "tests/test_v0p6_adjacent.py": "f57488ec2ef2efdac2d5b93c62bd24a025752189124ffbdb763a09c8a6e78b24",
+    "tests/test_v0p6_cache_stream.py": "5fc1b5bb0f964c46c69f8e9d8c0901c51942e80e0516720b6e8e63dbb0e7af99",
+    "tests/test_v0p6_receiver.py": "2228c341836139f11aacfe741d4c1bc16a353023e29b3be090f28ee995761ea0"
+  },
+  "tests": {
+    "full_repository_suite": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 251,
+      "skipped": 1,
+      "tests_run": 252,
+      "wall_seconds": 113.528
+    },
+    "targeted_streaming_suite": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 23,
+      "skipped": 0,
+      "tests_run": 23,
+      "wall_seconds": 1.0
+    }
+  }
+}

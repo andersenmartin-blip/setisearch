@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from contextlib import ExitStack, contextmanager
 from dataclasses import replace
 import hashlib
 import json
@@ -17,7 +18,9 @@ import seti_repeater.search_v0p6 as core
 from seti_repeater.adjacent_v0p6 import (
     disposition_after_single_adjacent_off,
     evaluate_m37_single_adjacent_off_veto,
+    evaluate_m37_single_adjacent_off_veto_streaming,
     evaluate_single_adjacent_off_veto,
+    evaluate_single_adjacent_off_veto_streaming,
     gather_filtered_native_at_score_indices,
     validate_single_adjacent_off_result,
 )
@@ -418,6 +421,74 @@ class AdjacentOffVetoTests(unittest.TestCase):
                 ],
             )
 
+    def test_width_stream_is_bit_identical_and_closes_the_batch(self):
+        def data(epoch, _factors):
+            amplitude = (1.375, 9.0, 1.0)[epoch]
+            return np.full((16, 1000), amplitude, dtype=np.float32)
+
+        caches = self._off_caches(data)
+        baseline = self._evaluate(caches)
+        with tempfile.TemporaryDirectory() as directory:
+            published = {}
+            for label, cache in caches[1].items():
+                path = Path(directory) / f"1-{label}.cache"
+                receipt = disk_cache.publish_native_filter_cache(path, cache)
+                published[label] = (path, cache.plan, receipt)
+
+            completed_widths = []
+
+            @contextmanager
+            def open_width(width):
+                self.assertEqual(width, 1)
+                arena = disk_cache.NativeFilterCacheArena(1_000_000)
+                retained_handles = []
+                with ExitStack() as stack:
+                    opened = {}
+                    for label, (path, cache_plan, receipt) in published.items():
+                        handle = stack.enter_context(
+                            disk_cache.open_native_filter_cache(
+                                path,
+                                expected_plan=cache_plan,
+                                expected_plan_sha256=receipt.plan_sha256,
+                                expected_manifest_sha256=(
+                                    receipt.manifest_sha256
+                                ),
+                                arena=arena,
+                            )
+                        )
+                        retained_handles.append(handle)
+                        opened[label] = handle
+                    self.assertEqual(arena.handle_count, 3)
+                    yield opened
+                self.assertEqual(arena.handle_count, 0)
+                self.assertEqual(arena.mapped_bytes, 0)
+                self.assertTrue(
+                    all(handle.closed for handle in retained_handles)
+                )
+                arena.close()
+                completed_widths.append(width)
+
+            streamed = evaluate_single_adjacent_off_veto_streaming(
+                self.records,
+                self.certificate,
+                open_width,
+                self.scan_definitions,
+                self.factor_basis,
+                self.factor_table,
+                self.template_bank,
+                self.grid,
+                single_epoch_snr_floor=5.5,
+                maximum_records=10,
+                maximum_queries=2,
+                maximum_evidence_canonical_bytes=100_000,
+                expected_on_certificate_sha256=self.certificate[
+                    "retention_certificate_sha256"
+                ],
+                chunk_bins=1,
+            )
+        self.assertEqual(completed_widths, [1])
+        self.assertEqual(streamed, baseline)
+
     def test_trusted_numeric_fields_reject_strings(self):
         def data(epoch, _factors):
             amplitude = (1.375, 9.0, 1.0)[epoch]
@@ -595,6 +666,11 @@ class AdjacentOffVetoTests(unittest.TestCase):
                 "seti_repeater.adjacent_v0p6.evaluate_single_adjacent_off_veto",
                 return_value=sentinel,
             ),
+            patch(
+                "seti_repeater.adjacent_v0p6."
+                "evaluate_single_adjacent_off_veto_streaming",
+                return_value=sentinel,
+            ),
         ):
             self.assertIs(
                 evaluate_m37_single_adjacent_off_veto(
@@ -602,10 +678,20 @@ class AdjacentOffVetoTests(unittest.TestCase):
                 ),
                 sentinel,
             )
+            self.assertIs(
+                evaluate_m37_single_adjacent_off_veto_streaming(
+                    [], {}, lambda _width: None, [], object(), object(), grid
+                ),
+                sentinel,
+            )
             certificate["stack_statistic"] = "sum"
             with self.assertRaisesRegex(V0P6IncompleteError, "non-canonical"):
                 evaluate_m37_single_adjacent_off_veto(
                     [], {}, {}, [], object(), object(), grid
+                )
+            with self.assertRaisesRegex(V0P6IncompleteError, "non-canonical"):
+                evaluate_m37_single_adjacent_off_veto_streaming(
+                    [], {}, lambda _width: None, [], object(), object(), grid
                 )
 
 

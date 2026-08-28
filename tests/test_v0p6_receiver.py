@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from contextlib import ExitStack
+from contextlib import ExitStack, contextmanager
 from dataclasses import replace
 import hashlib
 import json
@@ -23,7 +23,9 @@ from seti_repeater.receiver_v0p6 import (
     M37_RECEIVER_SIGNATURE_LOCAL_HALF_WIDTH_HZ,
     M37_RECEIVER_SIGNATURE_PEAK_SNR_FLOOR,
     build_m37_receiver_frame_signatures,
+    build_m37_receiver_frame_signatures_streaming,
     build_receiver_frame_signatures,
+    build_receiver_frame_signatures_streaming,
     validate_receiver_signature_result,
 )
 
@@ -630,6 +632,67 @@ class ReceiverSignatureTests(unittest.TestCase):
         )
         self.assertEqual(memory["result_sha256"], disk["result_sha256"])
 
+    def test_width_stream_is_bit_identical_and_closes_each_batch(self):
+        baseline = self._build()
+        with tempfile.TemporaryDirectory() as directory:
+            published = {width: {} for width in self.widths}
+            for width in self.widths:
+                for label, cache in self.caches[width].items():
+                    path = Path(directory) / f"{width}-{label}.cache"
+                    receipt = disk_cache.publish_native_filter_cache(path, cache)
+                    published[width][label] = (path, cache.plan, receipt)
+
+            completed_widths = []
+
+            @contextmanager
+            def open_width(width):
+                arena = disk_cache.NativeFilterCacheArena(1_000_000)
+                retained_handles = []
+                with ExitStack() as stack:
+                    opened = {}
+                    for label, (path, plan, receipt) in published[width].items():
+                        handle = stack.enter_context(
+                            disk_cache.open_native_filter_cache(
+                                path,
+                                expected_plan=plan,
+                                expected_plan_sha256=receipt.plan_sha256,
+                                expected_manifest_sha256=receipt.manifest_sha256,
+                                arena=arena,
+                            )
+                        )
+                        retained_handles.append(handle)
+                        opened[label] = handle
+                    self.assertEqual(arena.handle_count, 3)
+                    yield opened
+                self.assertEqual(arena.handle_count, 0)
+                self.assertEqual(arena.mapped_bytes, 0)
+                self.assertTrue(all(handle.closed for handle in retained_handles))
+                arena.close()
+                completed_widths.append(width)
+
+            streamed = build_receiver_frame_signatures_streaming(
+                self.records,
+                self.certificate,
+                open_width,
+                self.scan_definitions,
+                self.factor_basis,
+                self.factor_table,
+                self.template_bank,
+                self.grid,
+                local_half_width_hz=100.0,
+                local_peak_snr_floor=5.5,
+                maximum_records=2,
+                maximum_queries=4,
+                maximum_local_channel_visits=1_000,
+                maximum_signature_record_canonical_bytes=6_144,
+                maximum_evidence_canonical_bytes=100_000,
+                expected_on_certificate_sha256=self.certificate[
+                    "retention_certificate_sha256"
+                ],
+            )
+        self.assertEqual(completed_widths, list(self.widths))
+        self.assertEqual(streamed, baseline)
+
     def test_m37_wrapper_freezes_thresholds_caps_and_minimum_epoch(self):
         grid = core.make_m37_proxy_carrier_grid(core.M37_WINDOW_IDS[0])
         factor_table_sha = "f" * 64
@@ -677,6 +740,11 @@ class ReceiverSignatureTests(unittest.TestCase):
                 "seti_repeater.receiver_v0p6.build_receiver_frame_signatures",
                 return_value=sentinel,
             ) as generic,
+            patch(
+                "seti_repeater.receiver_v0p6."
+                "build_receiver_frame_signatures_streaming",
+                return_value=sentinel,
+            ) as streaming_generic,
         ):
             self.assertIs(
                 build_m37_receiver_frame_signatures(
@@ -701,10 +769,24 @@ class ReceiverSignatureTests(unittest.TestCase):
                 kwargs["maximum_local_channel_visits"],
                 M37_MAXIMUM_RECEIVER_SIGNATURE_LOCAL_CHANNEL_VISITS,
             )
+            self.assertIs(
+                build_m37_receiver_frame_signatures_streaming(
+                    [], {}, lambda _width: None, [], object(), table, grid
+                ),
+                sentinel,
+            )
+            self.assertEqual(
+                streaming_generic.call_args.kwargs,
+                generic.call_args.kwargs,
+            )
             certificate["stack_statistic"] = "sum"
             with self.assertRaisesRegex(core.V0P6ContractError, "M37"):
                 build_m37_receiver_frame_signatures(
                     [], {}, {}, [], object(), table, grid
+                )
+            with self.assertRaisesRegex(core.V0P6ContractError, "M37"):
+                build_m37_receiver_frame_signatures_streaming(
+                    [], {}, lambda _width: None, [], object(), table, grid
                 )
 
 

@@ -10,10 +10,11 @@ evidence.
 
 from __future__ import annotations
 
+from dataclasses import dataclass
 import hashlib
 import json
 import math
-from typing import Any, Mapping, Sequence
+from typing import Any, Callable, ContextManager, Mapping, Sequence
 
 import numpy as np
 
@@ -63,6 +64,24 @@ _ADJACENT_MEASUREMENT_FIELDS = frozenset(
         "meets_single_epoch_floor",
     }
 )
+
+
+@dataclass(frozen=True)
+class _AdjacentEvaluationPlan:
+    cert: dict[str, Any]
+    records: list[dict[str, Any]]
+    widths: tuple[int, ...]
+    off_definitions: tuple[Mapping[str, Any], ...]
+    off_labels: tuple[str, ...]
+    on_labels: tuple[str, ...]
+    scan_factor_tables: tuple[np.ndarray, ...]
+    floor: float
+    maximum_records: int
+    maximum_queries: int
+    maximum_evidence_canonical_bytes: int
+    chunk_bins: int
+    query_inventory: list[dict[str, Any]]
+    groups: dict[tuple[int, int, int], list[tuple[int, int]]]
 
 
 def _finite_json_number(value: Any, label: str) -> float:
@@ -301,233 +320,109 @@ def _validate_off_cache_inventory(
     inventory: list[dict[str, Any]] = []
     scan_digest = core.scan_inventory_sha256(scan_definitions)
     for width in widths:
-        for epoch, (definition, scan_table) in enumerate(
-            zip(off_definitions, scan_factor_tables, strict=True)
-        ):
-            label = str(definition["label"])
-            cache = caches[width][label]
-            plan, _ = core._cache_values_for_gather(cache)
-            expected_integration_count = core._strict_int(
-                definition["expected_header"]["dataset_shape"][0],
-                "integration count",
+        inventory.extend(
+            _validate_off_cache_width(
+                caches[width],
+                width,
+                off_definitions,
+                scan_factor_tables,
+                scan_definitions,
+                factor_basis,
+                factor_table,
+                grid_sha256=grid_sha256,
+                scan_digest=scan_digest,
+                window_id=window_id,
             )
-            if (
-                plan.window_id != window_id
-                or plan.scan_label != label
-                or plan.scan_kind != "off"
-                or plan.width_channels != width
-                or plan.integration_count != expected_integration_count
-                or plan.proxy_grid_sha256 != grid_sha256
-                or plan.factor_basis_sha256 != factor_basis.basis_sha256
-                or plan.factor_basis_labels_sha256
-                != factor_basis.labels_sha256
-                or plan.scan_inventory_sha256 != scan_digest
-                or plan.factor_scan_selection_sha256
-                != core.factor_scan_selection_sha256(
-                    factor_basis, scan_definitions, label
-                )
-                or plan.template_bank_sha256
-                != factor_table.template_bank_sha256
-                or plan.factor_table_sha256
-                != core.factor_table_sha256(scan_table)
-            ):
-                raise core.V0P6ContractError(
-                    "adjacent OFF cache identity differs from the requested search"
-                )
-            inventory.append(
-                {
-                    "spectral_width_channels": width,
-                    "epoch_zero_based": epoch,
-                    "scan_label": label,
-                    "cache_plan_sha256": plan.plan_sha256,
-                    "cache_payload_sha256": cache.payload_sha256,
-                }
-            )
+        )
     return inventory, scan_factor_tables
 
 
-def evaluate_single_adjacent_off_veto(
-    on_records: Sequence[Mapping[str, Any]],
-    on_certificate: Mapping[str, Any],
-    off_caches_by_width: Mapping[int, Mapping[str, Any]],
+def _validate_off_cache_width(
+    scans: Mapping[str, Any],
+    width: int,
+    off_definitions: tuple[Mapping[str, Any], ...],
+    scan_factor_tables: tuple[np.ndarray, ...],
     scan_definitions: Sequence[Mapping[str, Any]],
     factor_basis: core.FactorBasis,
     factor_table: core.TemplateFactorTable,
-    template_bank: Sequence[Mapping[str, Any]],
-    grid: core.ProxyCarrierGrid,
     *,
-    single_epoch_snr_floor: float,
+    grid_sha256: str,
+    scan_digest: str,
+    window_id: str,
+) -> list[dict[str, Any]]:
+    """Validate exactly one width-by-OFF-scan cache batch."""
+    labels = tuple(str(item["label"]) for item in off_definitions)
+    if not isinstance(scans, Mapping) or set(scans) != set(labels):
+        raise core.V0P6IncompleteError(
+            "adjacent OFF scan-cache batch is incomplete or contains extras"
+        )
+    width = core._strict_int(width, "adjacent OFF spectral width")
+    inventory: list[dict[str, Any]] = []
+    for epoch, (definition, scan_table) in enumerate(
+        zip(off_definitions, scan_factor_tables, strict=True)
+    ):
+        label = str(definition["label"])
+        cache = scans[label]
+        plan, _ = core._cache_values_for_gather(cache)
+        expected_integration_count = core._strict_int(
+            definition["expected_header"]["dataset_shape"][0],
+            "integration count",
+        )
+        if (
+            plan.window_id != window_id
+            or plan.scan_label != label
+            or plan.scan_kind != "off"
+            or plan.width_channels != width
+            or plan.integration_count != expected_integration_count
+            or plan.proxy_grid_sha256 != grid_sha256
+            or plan.factor_basis_sha256 != factor_basis.basis_sha256
+            or plan.factor_basis_labels_sha256
+            != factor_basis.labels_sha256
+            or plan.scan_inventory_sha256 != scan_digest
+            or plan.factor_scan_selection_sha256
+            != core.factor_scan_selection_sha256(
+                factor_basis, scan_definitions, label
+            )
+            or plan.template_bank_sha256
+            != factor_table.template_bank_sha256
+            or plan.factor_table_sha256
+            != core.factor_table_sha256(scan_table)
+        ):
+            raise core.V0P6ContractError(
+                "adjacent OFF cache identity differs from the requested search"
+            )
+        inventory.append(
+            {
+                "spectral_width_channels": width,
+                "epoch_zero_based": epoch,
+                "scan_label": label,
+                "cache_plan_sha256": plan.plan_sha256,
+                "cache_payload_sha256": cache.payload_sha256,
+            }
+        )
+    return inventory
+
+
+def _finalize_single_adjacent_off_result(
+    *,
+    cert: Mapping[str, Any],
+    records: Sequence[Mapping[str, Any]],
+    measured: Mapping[tuple[int, int], np.float32],
+    on_labels: tuple[str, ...],
+    off_labels: tuple[str, ...],
+    floor: float,
+    cache_inventory: list[dict[str, Any]],
+    query_inventory: list[dict[str, Any]],
+    factor_basis: core.FactorBasis,
+    scan_definitions: Sequence[Mapping[str, Any]],
     maximum_records: int,
     maximum_queries: int,
     maximum_evidence_canonical_bytes: int,
-    expected_on_certificate_sha256: str | None = None,
-    chunk_bins: int = 131_072,
 ) -> dict[str, Any]:
-    """Evaluate every retained ON member on its exact paired OFF tracks.
-
-    The cache inventory must contain exactly one cache for every certified
-    width and each of the three OFF scans.  No exclusion mask and no local
-    frequency neighbourhood is used.
-    """
-    cert = core.validate_retention_certificate(
-        on_certificate,
-        expected_certificate_sha256=expected_on_certificate_sha256,
-    )
-    if cert["scan_kind"] != "on":
-        raise core.V0P6ContractError(
-            "single-adjacent-OFF evaluation requires an ON retention product"
-        )
-    maximum_records = core._strict_int(
-        maximum_records, "single-adjacent-OFF record capacity"
-    )
-    maximum_queries = core._strict_int(
-        maximum_queries, "single-adjacent-OFF query capacity"
-    )
-    maximum_evidence_canonical_bytes = core._strict_int(
-        maximum_evidence_canonical_bytes,
-        "single-adjacent-OFF evidence-byte capacity",
-    )
-    if min(maximum_records, maximum_queries) < 0 or (
-        maximum_evidence_canonical_bytes < 1
-    ):
-        raise core.V0P6ContractError(
-            "single-adjacent-OFF capacities must be non-negative"
-        )
-    floor = float(single_epoch_snr_floor)
-    if (
-        not math.isfinite(floor)
-        or floor != M37_SINGLE_ADJACENT_OFF_SNR_FLOOR
-    ):
-        raise core.V0P6ContractError(
-            "single-adjacent-OFF S/N floor changed from the frozen 5.5"
-        )
-    chunk_bins = core._strict_int(chunk_bins, "q-gather chunk size")
-    if chunk_bins < 1:
-        raise core.V0P6ContractError(
-            "q-gather chunk size must be positive"
-        )
-
-    core.validate_factor_basis(factor_basis)
-    core.validate_factor_basis_scan_inventory(factor_basis, scan_definitions)
-    core.validate_template_factor_table(
-        factor_table,
-        factor_basis,
-        template_bank,
-        expected_template_bank_sha256=cert["template_bank_sha256"],
-    )
-    scan_digest = core.scan_inventory_sha256(scan_definitions)
-    if (
-        factor_basis.basis_sha256 != cert["factor_basis_sha256"]
-        or factor_basis.labels_sha256
-        != cert["factor_basis_labels_sha256"]
-        or factor_table.factor_table_sha256 != cert["factor_table_sha256"]
-        or scan_digest != cert["scan_inventory_sha256"]
-        or core.factor_row_selection_sha256(
-            factor_basis, scan_definitions, "on"
-        )
-        != cert["factor_row_selection_sha256"]
-    ):
-        raise core.V0P6ContractError(
-            "retention and adjacent-OFF factor contracts differ"
-        )
-    template_count = int(factor_table.factors.shape[0])
-    records = core._validated_retained_records(
-        on_records,
-        cert,
-        grid,
-        expected_kind="on",
-        expected_template_count=template_count,
-        template_bank=template_bank,
-        expected_certificate_sha256=expected_on_certificate_sha256,
-    )
-    if len(records) > maximum_records:
-        raise core.V0P6CapacityError(
-            "single-adjacent-OFF record capacity exceeded"
-        )
-
-    widths = tuple(core._strict_widths(cert["spectral_widths"]))
-    off_indices = core.m37_scan_indices_for_kind(scan_definitions, "off")
-    on_indices = core.m37_scan_indices_for_kind(scan_definitions, "on")
-    off_definitions = tuple(scan_definitions[index] for index in off_indices)
-    off_labels = tuple(str(item["label"]) for item in off_definitions)
-    on_labels = tuple(str(scan_definitions[index]["label"]) for index in on_indices)
-    caches = _normalise_cache_inventory(
-        off_caches_by_width, widths, off_labels
-    )
-    cache_inventory, scan_factor_tables = _validate_off_cache_inventory(
-        caches,
-        widths,
-        off_definitions,
-        scan_definitions,
-        factor_basis,
-        factor_table,
-        grid,
-        window_id=str(cert["window_id"]),
-    )
-
-    query_inventory: list[dict[str, Any]] = []
-    groups: dict[tuple[int, int, int], list[tuple[int, int]]] = {}
-    for record_ordinal, record in enumerate(records):
-        width_index = core._strict_int(
-            record["spectral_width_index"], "spectral-width index"
-        )
-        template_index = core._strict_int(
-            record["template_index"], "template index"
-        )
-        score_index = core._strict_int(
-            record["proxy_carrier_index"], "proxy-carrier index"
-        )
-        active_epochs = core.canonical_activity_subsets(
-            (record["active_epochs_zero_based"],)
-        )[0]
-        for epoch in active_epochs:
-            groups.setdefault((width_index, template_index, epoch), []).append(
-                (record_ordinal, score_index)
-            )
-            query_inventory.append(
-                {
-                    "record_id": str(record["record_id"]),
-                    "epoch_zero_based": epoch,
-                    "paired_off_scan_label": off_labels[epoch],
-                    "template_index": template_index,
-                    "spectral_width_index": width_index,
-                    "proxy_carrier_index": score_index,
-                }
-            )
-    if len(query_inventory) > maximum_queries:
-        raise core.V0P6CapacityError(
-            "single-adjacent-OFF query capacity exceeded"
-        )
-
-    measured: dict[tuple[int, int], np.float32] = {}
-    for width_index, template_index, epoch in sorted(groups):
-        requests = groups[(width_index, template_index, epoch)]
-        width = widths[width_index]
-        cache = caches[width][off_labels[epoch]]
-        factors = scan_factor_tables[epoch][template_index]
-        values = gather_filtered_native_at_score_indices(
-            cache,
-            factors,
-            grid,
-            np.asarray([item[1] for item in requests], dtype=np.int64),
-            chunk_bins=chunk_bins,
-        )
-        if values.shape != (len(requests),) or not np.all(np.isfinite(values)):
-            raise core.V0P6IncompleteError(
-                "single-adjacent-OFF sparse gather returned incomplete evidence"
-            )
-        for (record_ordinal, _), value in zip(requests, values, strict=True):
-            key = (record_ordinal, epoch)
-            if key in measured:
-                raise core.V0P6IncompleteError(
-                    "single-adjacent-OFF query was evaluated more than once"
-                )
-            measured[key] = np.float32(value)
     if len(measured) != len(query_inventory):
         raise core.V0P6IncompleteError(
             "single-adjacent-OFF query inventory was not evaluated exactly once"
         )
-
     evidence: list[dict[str, Any]] = []
     for record_ordinal, record in enumerate(records):
         active_epochs = core.canonical_activity_subsets(
@@ -574,7 +469,7 @@ def evaluate_single_adjacent_off_veto(
             "paired_adjacent_off_measurements": measurements,
             "matching_active_epochs_zero_based": matching_epochs,
             "maximum_active_epoch_snr": max(
-                item["snr"] for item in measurements
+                value["snr"] for value in measurements
             ),
             "vetoed": vetoed,
             "recommended_member_disposition": (
@@ -665,6 +560,392 @@ def evaluate_single_adjacent_off_veto(
         result["evidence"], result["certificate"]
     )
     return result
+
+
+def _prepare_single_adjacent_off_evaluation(
+    on_records: Sequence[Mapping[str, Any]],
+    on_certificate: Mapping[str, Any],
+    scan_definitions: Sequence[Mapping[str, Any]],
+    factor_basis: core.FactorBasis,
+    factor_table: core.TemplateFactorTable,
+    template_bank: Sequence[Mapping[str, Any]],
+    grid: core.ProxyCarrierGrid,
+    *,
+    single_epoch_snr_floor: float,
+    maximum_records: int,
+    maximum_queries: int,
+    maximum_evidence_canonical_bytes: int,
+    expected_on_certificate_sha256: str | None,
+    chunk_bins: int,
+) -> _AdjacentEvaluationPlan:
+    """Validate shared inputs and freeze the exact sparse-query plan."""
+    cert = core.validate_retention_certificate(
+        on_certificate,
+        expected_certificate_sha256=expected_on_certificate_sha256,
+    )
+    if cert["scan_kind"] != "on":
+        raise core.V0P6ContractError(
+            "single-adjacent-OFF evaluation requires an ON retention product"
+        )
+    maximum_records = core._strict_int(
+        maximum_records, "single-adjacent-OFF record capacity"
+    )
+    maximum_queries = core._strict_int(
+        maximum_queries, "single-adjacent-OFF query capacity"
+    )
+    maximum_evidence_canonical_bytes = core._strict_int(
+        maximum_evidence_canonical_bytes,
+        "single-adjacent-OFF evidence-byte capacity",
+    )
+    if min(maximum_records, maximum_queries) < 0 or (
+        maximum_evidence_canonical_bytes < 1
+    ):
+        raise core.V0P6ContractError(
+            "single-adjacent-OFF capacities must be non-negative"
+        )
+    floor = float(single_epoch_snr_floor)
+    if (
+        not math.isfinite(floor)
+        or floor != M37_SINGLE_ADJACENT_OFF_SNR_FLOOR
+    ):
+        raise core.V0P6ContractError(
+            "single-adjacent-OFF S/N floor changed from the frozen 5.5"
+        )
+    chunk_bins = core._strict_int(chunk_bins, "q-gather chunk size")
+    if chunk_bins < 1:
+        raise core.V0P6ContractError(
+            "q-gather chunk size must be positive"
+        )
+
+    core.validate_factor_basis(factor_basis)
+    core.validate_factor_basis_scan_inventory(factor_basis, scan_definitions)
+    core.validate_template_factor_table(
+        factor_table,
+        factor_basis,
+        template_bank,
+        expected_template_bank_sha256=cert["template_bank_sha256"],
+    )
+    scan_digest = core.scan_inventory_sha256(scan_definitions)
+    if (
+        factor_basis.basis_sha256 != cert["factor_basis_sha256"]
+        or factor_basis.labels_sha256
+        != cert["factor_basis_labels_sha256"]
+        or factor_table.factor_table_sha256 != cert["factor_table_sha256"]
+        or scan_digest != cert["scan_inventory_sha256"]
+        or core.factor_row_selection_sha256(
+            factor_basis, scan_definitions, "on"
+        )
+        != cert["factor_row_selection_sha256"]
+    ):
+        raise core.V0P6ContractError(
+            "retention and adjacent-OFF factor contracts differ"
+        )
+    records = core._validated_retained_records(
+        on_records,
+        cert,
+        grid,
+        expected_kind="on",
+        expected_template_count=int(factor_table.factors.shape[0]),
+        template_bank=template_bank,
+        expected_certificate_sha256=expected_on_certificate_sha256,
+    )
+    if len(records) > maximum_records:
+        raise core.V0P6CapacityError(
+            "single-adjacent-OFF record capacity exceeded"
+        )
+
+    widths = tuple(core._strict_widths(cert["spectral_widths"]))
+    off_indices = core.m37_scan_indices_for_kind(scan_definitions, "off")
+    on_indices = core.m37_scan_indices_for_kind(scan_definitions, "on")
+    off_definitions = tuple(scan_definitions[index] for index in off_indices)
+    off_labels = tuple(str(item["label"]) for item in off_definitions)
+    on_labels = tuple(
+        str(scan_definitions[index]["label"]) for index in on_indices
+    )
+    scan_factor_tables = tuple(
+        core.factor_table_for_scan(
+            factor_table, factor_basis, str(definition["label"])
+        )
+        for definition in off_definitions
+    )
+    query_inventory: list[dict[str, Any]] = []
+    groups: dict[tuple[int, int, int], list[tuple[int, int]]] = {}
+    for record_ordinal, record in enumerate(records):
+        width_index = core._strict_int(
+            record["spectral_width_index"], "spectral-width index"
+        )
+        template_index = core._strict_int(
+            record["template_index"], "template index"
+        )
+        score_index = core._strict_int(
+            record["proxy_carrier_index"], "proxy-carrier index"
+        )
+        active_epochs = core.canonical_activity_subsets(
+            (record["active_epochs_zero_based"],)
+        )[0]
+        for epoch in active_epochs:
+            groups.setdefault((width_index, template_index, epoch), []).append(
+                (record_ordinal, score_index)
+            )
+            query_inventory.append(
+                {
+                    "record_id": str(record["record_id"]),
+                    "epoch_zero_based": epoch,
+                    "paired_off_scan_label": off_labels[epoch],
+                    "template_index": template_index,
+                    "spectral_width_index": width_index,
+                    "proxy_carrier_index": score_index,
+                }
+            )
+    if len(query_inventory) > maximum_queries:
+        raise core.V0P6CapacityError(
+            "single-adjacent-OFF query capacity exceeded"
+        )
+    return _AdjacentEvaluationPlan(
+        cert=cert,
+        records=records,
+        widths=widths,
+        off_definitions=off_definitions,
+        off_labels=off_labels,
+        on_labels=on_labels,
+        scan_factor_tables=scan_factor_tables,
+        floor=floor,
+        maximum_records=maximum_records,
+        maximum_queries=maximum_queries,
+        maximum_evidence_canonical_bytes=(
+            maximum_evidence_canonical_bytes
+        ),
+        chunk_bins=chunk_bins,
+        query_inventory=query_inventory,
+        groups=groups,
+    )
+
+
+def evaluate_single_adjacent_off_veto(
+    on_records: Sequence[Mapping[str, Any]],
+    on_certificate: Mapping[str, Any],
+    off_caches_by_width: Mapping[int, Mapping[str, Any]],
+    scan_definitions: Sequence[Mapping[str, Any]],
+    factor_basis: core.FactorBasis,
+    factor_table: core.TemplateFactorTable,
+    template_bank: Sequence[Mapping[str, Any]],
+    grid: core.ProxyCarrierGrid,
+    *,
+    single_epoch_snr_floor: float,
+    maximum_records: int,
+    maximum_queries: int,
+    maximum_evidence_canonical_bytes: int,
+    expected_on_certificate_sha256: str | None = None,
+    chunk_bins: int = 131_072,
+) -> dict[str, Any]:
+    """Evaluate every retained ON member on its exact paired OFF tracks.
+
+    The cache inventory must contain exactly one cache for every certified
+    width and each of the three OFF scans.  No exclusion mask and no local
+    frequency neighbourhood is used.
+    """
+    plan = _prepare_single_adjacent_off_evaluation(
+        on_records,
+        on_certificate,
+        scan_definitions,
+        factor_basis,
+        factor_table,
+        template_bank,
+        grid,
+        single_epoch_snr_floor=single_epoch_snr_floor,
+        maximum_records=maximum_records,
+        maximum_queries=maximum_queries,
+        maximum_evidence_canonical_bytes=(
+            maximum_evidence_canonical_bytes
+        ),
+        expected_on_certificate_sha256=expected_on_certificate_sha256,
+        chunk_bins=chunk_bins,
+    )
+    caches = _normalise_cache_inventory(
+        off_caches_by_width, plan.widths, plan.off_labels
+    )
+    cache_inventory, _ = _validate_off_cache_inventory(
+        caches,
+        plan.widths,
+        plan.off_definitions,
+        scan_definitions,
+        factor_basis,
+        factor_table,
+        grid,
+        window_id=str(plan.cert["window_id"]),
+    )
+
+    measured: dict[tuple[int, int], np.float32] = {}
+    for width_index, template_index, epoch in sorted(plan.groups):
+        requests = plan.groups[(width_index, template_index, epoch)]
+        width = plan.widths[width_index]
+        cache = caches[width][plan.off_labels[epoch]]
+        factors = plan.scan_factor_tables[epoch][template_index]
+        values = gather_filtered_native_at_score_indices(
+            cache,
+            factors,
+            grid,
+            np.asarray([item[1] for item in requests], dtype=np.int64),
+            chunk_bins=plan.chunk_bins,
+        )
+        if values.shape != (len(requests),) or not np.all(np.isfinite(values)):
+            raise core.V0P6IncompleteError(
+                "single-adjacent-OFF sparse gather returned incomplete evidence"
+            )
+        for (record_ordinal, _), value in zip(requests, values, strict=True):
+            key = (record_ordinal, epoch)
+            if key in measured:
+                raise core.V0P6IncompleteError(
+                    "single-adjacent-OFF query was evaluated more than once"
+                )
+            measured[key] = np.float32(value)
+    return _finalize_single_adjacent_off_result(
+        cert=plan.cert,
+        records=plan.records,
+        measured=measured,
+        on_labels=plan.on_labels,
+        off_labels=plan.off_labels,
+        floor=plan.floor,
+        cache_inventory=cache_inventory,
+        query_inventory=plan.query_inventory,
+        factor_basis=factor_basis,
+        scan_definitions=scan_definitions,
+        maximum_records=plan.maximum_records,
+        maximum_queries=plan.maximum_queries,
+        maximum_evidence_canonical_bytes=(
+            plan.maximum_evidence_canonical_bytes
+        ),
+    )
+
+
+def _process_adjacent_off_width_batch(
+    raw_scans: Mapping[str, Any],
+    plan: _AdjacentEvaluationPlan,
+    *,
+    width_index: int,
+    width: int,
+    scan_definitions: Sequence[Mapping[str, Any]],
+    factor_basis: core.FactorBasis,
+    factor_table: core.TemplateFactorTable,
+    grid: core.ProxyCarrierGrid,
+) -> tuple[dict[tuple[int, int], np.float32], list[dict[str, Any]]]:
+    """Evaluate one OFF width without retaining mmap array views."""
+    cache_inventory = _validate_off_cache_width(
+        raw_scans,
+        width,
+        plan.off_definitions,
+        plan.scan_factor_tables,
+        scan_definitions,
+        factor_basis,
+        factor_table,
+        grid_sha256=core.proxy_carrier_grid_sha256(grid),
+        scan_digest=core.scan_inventory_sha256(scan_definitions),
+        window_id=str(plan.cert["window_id"]),
+    )
+    measured: dict[tuple[int, int], np.float32] = {}
+    for group_width_index, template_index, epoch in sorted(plan.groups):
+        if group_width_index != width_index:
+            continue
+        requests = plan.groups[(group_width_index, template_index, epoch)]
+        values = gather_filtered_native_at_score_indices(
+            raw_scans[plan.off_labels[epoch]],
+            plan.scan_factor_tables[epoch][template_index],
+            grid,
+            np.asarray([item[1] for item in requests], dtype=np.int64),
+            chunk_bins=plan.chunk_bins,
+        )
+        if values.shape != (len(requests),) or not np.all(np.isfinite(values)):
+            raise core.V0P6IncompleteError(
+                "single-adjacent-OFF sparse gather returned incomplete evidence"
+            )
+        for (record_ordinal, _), value in zip(requests, values, strict=True):
+            key = (record_ordinal, epoch)
+            if key in measured:
+                raise core.V0P6IncompleteError(
+                    "single-adjacent-OFF query was evaluated more than once"
+                )
+            measured[key] = np.float32(value)
+    return measured, cache_inventory
+
+
+def evaluate_single_adjacent_off_veto_streaming(
+    on_records: Sequence[Mapping[str, Any]],
+    on_certificate: Mapping[str, Any],
+    open_cache_width: Callable[[int], ContextManager[Mapping[str, Any]]],
+    scan_definitions: Sequence[Mapping[str, Any]],
+    factor_basis: core.FactorBasis,
+    factor_table: core.TemplateFactorTable,
+    template_bank: Sequence[Mapping[str, Any]],
+    grid: core.ProxyCarrierGrid,
+    *,
+    single_epoch_snr_floor: float,
+    maximum_records: int,
+    maximum_queries: int,
+    maximum_evidence_canonical_bytes: int,
+    expected_on_certificate_sha256: str | None = None,
+    chunk_bins: int = 131_072,
+) -> dict[str, Any]:
+    """Build identical adjacent-OFF evidence one cache width at a time."""
+    if not callable(open_cache_width):
+        raise core.V0P6ContractError(
+            "single-adjacent-OFF width opener must be callable"
+        )
+    plan = _prepare_single_adjacent_off_evaluation(
+        on_records,
+        on_certificate,
+        scan_definitions,
+        factor_basis,
+        factor_table,
+        template_bank,
+        grid,
+        single_epoch_snr_floor=single_epoch_snr_floor,
+        maximum_records=maximum_records,
+        maximum_queries=maximum_queries,
+        maximum_evidence_canonical_bytes=(
+            maximum_evidence_canonical_bytes
+        ),
+        expected_on_certificate_sha256=expected_on_certificate_sha256,
+        chunk_bins=chunk_bins,
+    )
+    measured: dict[tuple[int, int], np.float32] = {}
+    cache_inventory: list[dict[str, Any]] = []
+    for width_index, width in enumerate(plan.widths):
+        with open_cache_width(width) as raw_scans:
+            width_measured, width_inventory = (
+                _process_adjacent_off_width_batch(
+                    raw_scans,
+                    plan,
+                    width_index=width_index,
+                    width=width,
+                    scan_definitions=scan_definitions,
+                    factor_basis=factor_basis,
+                    factor_table=factor_table,
+                    grid=grid,
+                )
+            )
+        if set(measured).intersection(width_measured):
+            raise core.V0P6IncompleteError(
+                "single-adjacent-OFF query was evaluated more than once"
+            )
+        measured.update(width_measured)
+        cache_inventory.extend(width_inventory)
+    return _finalize_single_adjacent_off_result(
+        cert=plan.cert,
+        records=plan.records,
+        measured=measured,
+        on_labels=plan.on_labels,
+        off_labels=plan.off_labels,
+        floor=plan.floor,
+        cache_inventory=cache_inventory,
+        query_inventory=plan.query_inventory,
+        factor_basis=factor_basis,
+        scan_definitions=scan_definitions,
+        maximum_records=plan.maximum_records,
+        maximum_queries=plan.maximum_queries,
+        maximum_evidence_canonical_bytes=(
+            plan.maximum_evidence_canonical_bytes
+        ),
+    )
 
 
 def validate_single_adjacent_off_result(
@@ -1030,19 +1311,17 @@ def validate_single_adjacent_off_result(
     return cert
 
 
-def evaluate_m37_single_adjacent_off_veto(
+def _validate_m37_adjacent_off_inputs(
     on_records: Sequence[Mapping[str, Any]],
     on_certificate: Mapping[str, Any],
-    off_caches_by_width: Mapping[int, Mapping[str, Any]],
     scan_definitions: Sequence[Mapping[str, Any]],
     factor_basis: core.FactorBasis,
     factor_table: core.TemplateFactorTable,
     grid: core.ProxyCarrierGrid,
     *,
-    expected_on_certificate_sha256: str | None = None,
-    chunk_bins: int = 131_072,
-) -> dict[str, Any]:
-    """Run the non-configurable M37 single-adjacent-OFF pass."""
+    expected_on_certificate_sha256: str | None,
+) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    """Validate the shared non-configurable M37 adjacent-OFF contract."""
     cert = core.validate_retention_certificate(
         on_certificate,
         expected_certificate_sha256=expected_on_certificate_sha256,
@@ -1111,10 +1390,77 @@ def evaluate_m37_single_adjacent_off_veto(
         raise core.V0P6IncompleteError(
             "single-adjacent-OFF pass received a non-canonical M37 ledger"
         )
+    return cert, bank
+
+
+def evaluate_m37_single_adjacent_off_veto(
+    on_records: Sequence[Mapping[str, Any]],
+    on_certificate: Mapping[str, Any],
+    off_caches_by_width: Mapping[int, Mapping[str, Any]],
+    scan_definitions: Sequence[Mapping[str, Any]],
+    factor_basis: core.FactorBasis,
+    factor_table: core.TemplateFactorTable,
+    grid: core.ProxyCarrierGrid,
+    *,
+    expected_on_certificate_sha256: str | None = None,
+    chunk_bins: int = 131_072,
+) -> dict[str, Any]:
+    """Run the non-configurable M37 single-adjacent-OFF pass."""
+    cert, bank = _validate_m37_adjacent_off_inputs(
+        on_records,
+        on_certificate,
+        scan_definitions,
+        factor_basis,
+        factor_table,
+        grid,
+        expected_on_certificate_sha256=expected_on_certificate_sha256,
+    )
     return evaluate_single_adjacent_off_veto(
         on_records,
         cert,
         off_caches_by_width,
+        scan_definitions,
+        factor_basis,
+        factor_table,
+        bank,
+        grid,
+        single_epoch_snr_floor=M37_SINGLE_ADJACENT_OFF_SNR_FLOOR,
+        maximum_records=core.M37_MAXIMUM_RECORDS_PER_WINDOW,
+        maximum_queries=M37_MAXIMUM_SINGLE_ADJACENT_OFF_QUERIES,
+        maximum_evidence_canonical_bytes=(
+            core.M37_MAXIMUM_EVIDENCE_CANONICAL_BYTES
+        ),
+        expected_on_certificate_sha256=expected_on_certificate_sha256,
+        chunk_bins=chunk_bins,
+    )
+
+
+def evaluate_m37_single_adjacent_off_veto_streaming(
+    on_records: Sequence[Mapping[str, Any]],
+    on_certificate: Mapping[str, Any],
+    open_cache_width: Callable[[int], ContextManager[Mapping[str, Any]]],
+    scan_definitions: Sequence[Mapping[str, Any]],
+    factor_basis: core.FactorBasis,
+    factor_table: core.TemplateFactorTable,
+    grid: core.ProxyCarrierGrid,
+    *,
+    expected_on_certificate_sha256: str | None = None,
+    chunk_bins: int = 131_072,
+) -> dict[str, Any]:
+    """Run the frozen M37 adjacent-OFF pass one width at a time."""
+    cert, bank = _validate_m37_adjacent_off_inputs(
+        on_records,
+        on_certificate,
+        scan_definitions,
+        factor_basis,
+        factor_table,
+        grid,
+        expected_on_certificate_sha256=expected_on_certificate_sha256,
+    )
+    return evaluate_single_adjacent_off_veto_streaming(
+        on_records,
+        cert,
+        open_cache_width,
         scan_definitions,
         factor_basis,
         factor_table,
