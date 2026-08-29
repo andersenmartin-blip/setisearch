@@ -1,0 +1,132 @@
+{
+  "artifact_type": "m37-detector-v0p6-physical-resource-run-manifest-checkpoint-v1",
+  "base_commit": "94f01fd7ff41135409cb039189130f01dc5bab98",
+  "claim_boundary": {
+    "candidate_outcome_produced": false,
+    "complete_m37_window_inventory_proven": false,
+    "complete_production_resource_envelope_proven": false,
+    "completeness_measured": false,
+    "detector_frozen": false,
+    "detector_released": false,
+    "journal_transition_bound": false,
+    "null_claimed": false,
+    "physical_resource_run_manifest_proven_synthetic": true,
+    "preregistration_published": false,
+    "production_equivalence_claimed": false,
+    "production_receipt_ancestry_proven": false,
+    "remote_telescope_file_opened": false,
+    "search_executed": false,
+    "signal_claimed": false,
+    "spectral_access_authorized": false,
+    "spectral_dataset_values_read": false
+  },
+  "generated_at_utc": "2026-08-29T06:47:47Z",
+  "gates": [
+    {
+      "evidence": "Each entry is derived from an opened per-window resource artifact and binds its file, envelope, retention ancestry and resource accounting.",
+      "id": "per-window-resource-entry",
+      "status": "passed_synthetic_production_not_applicable"
+    },
+    {
+      "evidence": "Publication requires an exact ordered window inventory, unique canonical paths, common run/cache/factor ancestry, one mapped-byte cap and an independent ON-retention inventory identity.",
+      "id": "ordered-resource-run-inventory",
+      "status": "passed_synthetic_production_not_applicable"
+    },
+    {
+      "evidence": "Opening verifies the manifest file and semantic identities and fully reopens every referenced child under the run root.",
+      "id": "cross-process-child-rehydration",
+      "status": "passed_synthetic_production_not_applicable"
+    },
+    {
+      "evidence": "The exact M37 wrappers require all five M37 windows in frozen order and apply the M37 validator to every child before publication or acceptance.",
+      "id": "exact-m37-five-window-gate",
+      "status": "passed_negative_path_positive_production_not_applicable"
+    },
+    {
+      "evidence": "No authorized five-window extraction, cache run, retention inventory or physical resource artifact exists.",
+      "id": "production-five-window-resource-manifest",
+      "status": "blocked"
+    },
+    {
+      "evidence": "The compact run manifest is not yet joined to complete receiver, adjacent and alias-disposition payloads or consumed by a journal transition.",
+      "id": "physical-disposition-journal-join",
+      "status": "blocked"
+    },
+    {
+      "evidence": "The declared Astropy dependency is absent from the current runtime, so the dependency-complete 269-test suite could not be rerun here.",
+      "id": "pinned-runtime-full-suite",
+      "status": "blocked"
+    }
+  ],
+  "known_answer_sha256s": {
+    "child_physical_resource_artifact_file": "7a4c5e36042f687265a0ac3844ae29c6cd7803742e5d61f1512d340e5f178e48",
+    "on_retention_inventory": "9d1a971a13fab595ba60caa46ca072dca348db2d24aa514a2d1db23ef88f665a",
+    "resource_artifact_inventory": "266932487d92bb814740b9ff89254f758e652b5912f25c1518ff4a14caf599e7",
+    "resource_run_manifest": "76e751f689c74e17f6abac2be3e855a32387bd0d07000664b199abe220d9e6ea",
+    "resource_run_manifest_file": "4f9f8fad548afb51aabede5703b3a77ee99f48a89e2b1ea4b8d83add3e29fa11",
+    "wheel": "b33dd51b2c131ab9f8ebc44bcbae0b1ed04a90d1cb2578e08ca50362a0d48696"
+  },
+  "readiness_outcome": "RESOURCE_RUN_MANIFEST_PASSED_SYNTHETIC_M37_FIVE_WINDOW_GATE_BLOCKED",
+  "resource_fixture": {
+    "child_artifact_file_nbytes": 8474,
+    "manifest_file_nbytes": 1468,
+    "manifest_maximum_bytes": 4194304,
+    "maximum_process_mapped_bytes": 81600,
+    "maximum_window_peak_handle_count": 3,
+    "maximum_window_peak_mapped_bytes": 81600,
+    "run_id": "physical-resource-test",
+    "total_batch_count": 2,
+    "total_opened_cache_count": 6,
+    "window_count": 1,
+    "window_ids": [
+      "synthetic"
+    ]
+  },
+  "schema_version": 1,
+  "source_sha256s": {
+    "src/seti_repeater/adjacent_v0p6.py": "d2eee97107d26f10f017381537dfdb5e12b14db42978531ed060adc71f0fb0d6",
+    "src/seti_repeater/cache_stream_v0p6.py": "3d858e7213ecd76c240a04b3096f75d29802528f7a5d3ed6047ba49e32628903",
+    "src/seti_repeater/physical_resource_manifest_v0p6.py": "a433cf0205e5f12bb336ce76382ae69dd5b860e20173c3d3233cb79fdfe09b95",
+    "src/seti_repeater/physical_resource_v0p6.py": "09745a129e4c7e2612aab84fe91f3ce41d66159253699a1624fea63fe016c9b0",
+    "src/seti_repeater/receiver_v0p6.py": "da4753196fe3a1b79f4ba854753d95a774204d4e88c8603e65597ff5a93d969c",
+    "tests/test_v0p6_adjacent.py": "f57488ec2ef2efdac2d5b93c62bd24a025752189124ffbdb763a09c8a6e78b24",
+    "tests/test_v0p6_cache_stream.py": "518b940a3865b2b8bc0d0fcd127ce18e0f395558fcbe49d8a283f679165e9d0c",
+    "tests/test_v0p6_physical_resource.py": "7382b88eaf21bff1a7d5eedadf8fc8d520d16e21a2af809aa1d748e889d41b89",
+    "tests/test_v0p6_receiver.py": "2228c341836139f11aacfe741d4c1bc16a353023e29b3be090f28ee995761ea0"
+  },
+  "tests": {
+    "astropy_blocked_modules": [
+      "tests.test_m36_exhaustive_retention_audit",
+      "tests.test_m37_coverage_preflight",
+      "tests.test_m37_v0p6_bank_preflight",
+      "tests.test_pipeline",
+      "tests.test_v0p6_factor_bundle",
+      "tests.test_v0p6_runner"
+    ],
+    "full_discovery_attempt": {
+      "errors": 4,
+      "failures": 0,
+      "passed": 206,
+      "skipped": 11,
+      "status": "blocked_missing_declared_astropy_dependency",
+      "tests_run": 221,
+      "wall_seconds": 169.197
+    },
+    "runtime_compatible_suite": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 206,
+      "skipped": 1,
+      "tests_run": 207,
+      "wall_seconds": 167.404
+    },
+    "targeted_physical_resource_suite": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 33,
+      "skipped": 0,
+      "tests_run": 33,
+      "wall_seconds": 4.112
+    }
+  }
+}

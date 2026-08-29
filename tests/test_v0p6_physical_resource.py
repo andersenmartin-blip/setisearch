@@ -12,6 +12,7 @@ import numpy as np
 
 from seti_repeater import cache_manifest_v0p6 as run_cache
 from seti_repeater import native_cache_v0p6 as disk_cache
+from seti_repeater import physical_resource_manifest_v0p6 as run_resource
 from seti_repeater import physical_resource_v0p6 as physical
 from seti_repeater import search_v0p6 as core
 from seti_repeater.cache_stream_v0p6 import CacheWidthStream
@@ -311,6 +312,56 @@ class PhysicalResourceEnvelopeTests(unittest.TestCase):
         )
         return result, on_stream, off_stream
 
+    def _published_run_child(self, root):
+        result, _, _ = self._execute(root)
+        envelope = result["resource_envelope"]
+        physical_root = root / "physical"
+        physical_root.mkdir()
+        relative_path = "physical/synthetic-resource.json"
+        artifact_path = root / relative_path
+        receipt = physical.publish_physical_resource_artifact(
+            artifact_path,
+            envelope,
+            expected_envelope_sha256=envelope[
+                "resource_envelope_sha256"
+            ],
+        )
+        artifact = physical.open_physical_resource_artifact(
+            artifact_path,
+            expected_file_sha256=receipt.file_sha256,
+            expected_envelope_sha256=receipt.resource_envelope_sha256,
+            expected_run_id=receipt.run_id,
+            expected_cache_run_manifest_file_sha256=(
+                receipt.cache_run_manifest_file_sha256
+            ),
+            expected_factor_bundle_manifest_sha256=(
+                receipt.factor_bundle_manifest_sha256
+            ),
+            expected_on_retention_certificate_sha256=(
+                receipt.on_retention_certificate_sha256
+            ),
+        )
+        entry = run_resource.make_physical_resource_run_entry(
+            relative_path, artifact
+        )
+        retention_inventory_sha256 = (
+            run_resource.on_retention_inventory_sha256((entry,))
+        )
+        arguments = {
+            "expected_window_ids": ("synthetic",),
+            "expected_run_id": receipt.run_id,
+            "expected_cache_run_manifest_file_sha256": (
+                receipt.cache_run_manifest_file_sha256
+            ),
+            "expected_factor_bundle_manifest_sha256": (
+                receipt.factor_bundle_manifest_sha256
+            ),
+            "expected_on_retention_inventory_sha256": (
+                retention_inventory_sha256
+            ),
+        }
+        return artifact_path, entry, arguments
+
     def test_sequential_execution_closes_and_binds_both_streams(self):
         with tempfile.TemporaryDirectory() as directory:
             result, on_stream, off_stream = self._execute(Path(directory))
@@ -547,6 +598,156 @@ class PhysicalResourceEnvelopeTests(unittest.TestCase):
                     expected_envelope_sha256=(
                         envelope["resource_envelope_sha256"]
                     ),
+                )
+            self.assertFalse(path.exists())
+
+    def test_run_manifest_round_trip_reopens_every_child(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            _, entry, arguments = self._published_run_child(root)
+            path = root / "physical-resource-run.json"
+            receipt = run_resource.publish_physical_resource_run_manifest(
+                path, (entry,), **arguments
+            )
+            self.assertEqual(path.stat().st_mode & 0o222, 0)
+            self.assertEqual(
+                receipt.file_sha256,
+                "4f9f8fad548afb51aabede5703b3a77ee99f48a89e2b1ea4b8d83add3e29fa11",
+            )
+            self.assertEqual(
+                receipt.manifest_sha256,
+                "76e751f689c74e17f6abac2be3e855a32387bd0d07000664b199abe220d9e6ea",
+            )
+            self.assertEqual(
+                receipt.resource_artifact_inventory_sha256,
+                "266932487d92bb814740b9ff89254f758e652b5912f25c1518ff4a14caf599e7",
+            )
+            self.assertEqual(
+                receipt.on_retention_inventory_sha256,
+                "9d1a971a13fab595ba60caa46ca072dca348db2d24aa514a2d1db23ef88f665a",
+            )
+            self.assertEqual(receipt.file_nbytes, 1_468)
+            opened = run_resource.open_physical_resource_run_manifest(
+                path,
+                expected_file_sha256=receipt.file_sha256,
+                expected_manifest_sha256=receipt.manifest_sha256,
+                **arguments,
+            )
+            self.assertEqual(opened.entries, (entry,))
+            self.assertEqual(opened.receipt, receipt)
+            self.assertEqual(len(opened.artifacts), 1)
+            self.assertEqual(
+                opened.artifacts[0].receipt.file_sha256,
+                entry.artifact_file_sha256,
+            )
+            self.assertEqual(receipt.window_count, 1)
+            self.assertEqual(
+                receipt.maximum_process_mapped_bytes,
+                entry.maximum_process_mapped_bytes,
+            )
+            self.assertEqual(
+                receipt.maximum_window_peak_mapped_bytes,
+                entry.aggregate_peak_mapped_bytes,
+            )
+            self.assertEqual(
+                receipt.maximum_window_peak_handle_count,
+                entry.aggregate_peak_handle_count,
+            )
+            self.assertEqual(
+                receipt.total_batch_count, entry.aggregate_batch_count
+            )
+            self.assertEqual(
+                receipt.total_opened_cache_count,
+                entry.aggregate_opened_cache_count,
+            )
+            self.assertEqual(
+                receipt.total_artifact_file_nbytes,
+                entry.artifact_file_nbytes,
+            )
+            with self.assertRaises(FileExistsError):
+                run_resource.publish_physical_resource_run_manifest(
+                    path, (entry,), **arguments
+                )
+
+    def test_run_manifest_requires_complete_inventory_and_external_roots(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            _, entry, arguments = self._published_run_child(root)
+            missing_path = root / "missing-window-run.json"
+            missing = dict(arguments)
+            missing["expected_window_ids"] = ("synthetic", "missing")
+            with self.assertRaisesRegex(
+                core.V0P6IncompleteError, "missing"
+            ):
+                run_resource.publish_physical_resource_run_manifest(
+                    missing_path, (entry,), **missing
+                )
+            self.assertFalse(missing_path.exists())
+            wrong_root_path = root / "wrong-root-run.json"
+            wrong_root = dict(arguments)
+            wrong_root["expected_on_retention_inventory_sha256"] = "0" * 64
+            with self.assertRaisesRegex(
+                core.V0P6IncompleteError, "retention inventory"
+            ):
+                run_resource.publish_physical_resource_run_manifest(
+                    wrong_root_path, (entry,), **wrong_root
+                )
+            self.assertFalse(wrong_root_path.exists())
+            with self.assertRaisesRegex(
+                core.V0P6ContractError, "escapes"
+            ):
+                run_resource.make_physical_resource_run_entry(
+                    "../outside.json",
+                    physical.open_physical_resource_artifact(
+                        root / entry.relative_path,
+                        expected_file_sha256=entry.artifact_file_sha256,
+                        expected_envelope_sha256=(
+                            entry.resource_envelope_sha256
+                        ),
+                        expected_run_id=arguments["expected_run_id"],
+                        expected_cache_run_manifest_file_sha256=arguments[
+                            "expected_cache_run_manifest_file_sha256"
+                        ],
+                        expected_factor_bundle_manifest_sha256=arguments[
+                            "expected_factor_bundle_manifest_sha256"
+                        ],
+                        expected_on_retention_certificate_sha256=(
+                            entry.on_retention_certificate_sha256
+                        ),
+                    ),
+                )
+
+    def test_run_manifest_child_mutation_and_m37_expansion_fail_closed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            artifact_path, entry, arguments = self._published_run_child(root)
+            path = root / "physical-resource-run.json"
+            receipt = run_resource.publish_physical_resource_run_manifest(
+                path, (entry,), **arguments
+            )
+            artifact_path.chmod(0o644)
+            with artifact_path.open("ab") as stream:
+                stream.write(b"\n")
+            with self.assertRaisesRegex(
+                core.V0P6IncompleteError, "file identity"
+            ):
+                run_resource.open_physical_resource_run_manifest(
+                    path,
+                    expected_file_sha256=receipt.file_sha256,
+                    expected_manifest_sha256=receipt.manifest_sha256,
+                    **arguments,
+                )
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            _, entry, arguments = self._published_run_child(root)
+            path = root / "forbidden-m37-resource-run.json"
+            m37_arguments = dict(arguments)
+            m37_arguments.pop("expected_window_ids")
+            with self.assertRaisesRegex(
+                core.V0P6IncompleteError, "missing"
+            ):
+                run_resource.publish_m37_physical_resource_run_manifest(
+                    path, (entry,), **m37_arguments
                 )
             self.assertFalse(path.exists())
 

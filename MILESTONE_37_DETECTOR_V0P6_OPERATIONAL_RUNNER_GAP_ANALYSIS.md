@@ -2,17 +2,20 @@
 
 Status: **NON-FROZEN, NON-SPECTRAL ARCHITECTURE ANALYSIS**.
 
-Progress update (2026-08-28): the factor bundle, cache-plan rehydration,
+Progress update (2026-08-29): the factor bundle, cache-plan rehydration,
 run-level cache manifest, global-null artifact, fail-closed journal and real
 metadata-only bootstrap described below now exist locally and pass the full
 repository suite. See `MILESTONE_37_DETECTOR_V0P6_RUNNER_PROGRESS.md`.
 Width-streaming physical evidence now also has a bounded aggregate executor
 and resource envelope: it proves sequential cache ownership against real
 synthetic cache files. Its compact envelope can now be atomically persisted
-and reopened against independently supplied ancestry, but it is not yet
-joined to phase-3 disposition ancestry or attached to the production journal.
-Completeness equivalence and the complete production runner remain open; this
-document therefore remains non-frozen and does not authorize spectral access.
+and reopened against independently supplied ancestry. A run manifest now
+enforces an ordered window inventory and reopens every child; only its generic
+one-window synthetic path has passed, so no complete five-window M37 manifest
+exists. The resource artifacts are not yet joined to phase-3 disposition
+ancestry or attached to the production journal. Completeness equivalence and
+the complete production runner remain open; this document therefore remains
+non-frozen and does not authorize spectral access.
 
 This document maps the remaining path from the tested detector-v0.6
 components to a restartable M37 operational run. It does not implement or
@@ -175,18 +178,21 @@ bound is already proved.
    or cache stages is nevertheless unproved.
 6. **Receiver stage integration:** the width-streaming receiver interface is
    bit-identical to full-inventory execution and the physical-resource
-   executor invokes and binds it. The aggregate envelope is persistable, but
-   the restartable production journal does not yet consume its receipt or the
-   complete receiver evidence payload.
+   executor invokes and binds it. The aggregate envelope is persistable and
+   discoverable through a run manifest, but the exact five-window production
+   inventory and complete receiver evidence payload do not yet exist.
 7. **Adjacent stage integration:** the width-streaming adjacent-OFF interface
    is bit-identical to full-inventory execution and shares the aggregate
-   persistable resource envelope, but its evidence receipt is not yet joined
-   to the phase-3 alias disposition receipt under production ancestry.
+   persistable resource envelope and run manifest, but its evidence receipt is
+   not yet joined to the phase-3 alias disposition receipt under production
+   ancestry.
 8. **Completeness implementation:** `CompletenessDataSource` and
    `CompletenessOperationalPipeline` remain interfaces, not production
    implementations.
-9. **Run envelope:** no run-directory schema, stage journal, restart rule,
-   aggregate manifest, or atomic final-publication contract exists.
+9. **Run envelope:** the stage journal, cache manifest and physical-resource
+   run manifest exist, but no journal transition yet consumes an exact
+   five-window resource receipt and no atomic final-publication contract
+   exists.
 10. **Pinned runtime:** extractor dependencies, OS/compiler/OpenMP runtime,
     CPU/ISA policy and the eight-thread host requirement are not yet frozen.
 
@@ -196,12 +202,12 @@ bound is already proved.
    environment.
 2. Add canonical, independently verifiable artifacts for the factor bundle,
    global null vector, cache plans and run-level cache inventory.
-3. Attach the persisted width-streaming resource receipt to the run journal,
-   persist or deterministically reproduce its complete evidence payloads and
-   join its explicit arena accounting to the final physical-disposition
-   receipt.
+3. Produce an exact five-window resource run manifest, persist or
+   deterministically reproduce its complete evidence payloads and join its
+   explicit arena accounting to the final physical-disposition receipt.
 4. Define a run-state journal whose transitions require the prior stage's
-   trusted aggregate receipt and whose invalid state is permanent.
+   trusted five-window resource and disposition receipts; invalid state must
+   remain permanent.
 5. Build a synthetic/reference runner against those persistence and streaming
    interfaces, including crash/restart, duplicate, missing-stage and cap
    failures.
