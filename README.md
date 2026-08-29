@@ -70,32 +70,34 @@ single-adjacent-OFF evidence and receiver-frame alias connected components,
 including a transitive identity component, match/no-match branches and all
 five final physical dispositions. The reference still depends on the capped
 phase-2 dense-score oracle and therefore does not unlock the production gate.
-Separately, a physical resource executor now proves that receiver mappings are
+Separately, a physical resource executor proves that receiver mappings are
 closed before adjacent-OFF mappings open and binds both stages to one run,
 cache manifest, factor bundle, retention ancestry, per-cache receipt inventory
-and measured mapped-byte cap. This resource proof is synthetic and does not
-yet join the phase-3 disposition reference into production ancestry. Its
-compact envelope can now survive a process restart through atomic read-only
-publication and independently rooted reopening, but is not attached to the
-production journal. A run-level manifest now prevents one window from being
-mistaken for the complete five-window resource inventory and reopens every
-child before acceptance. The complete receiver and adjacent evidence payloads
-now have their own bounded, read-only artifact: restart opening revalidates
-both inner products and their resource-envelope ancestry. Neither artifact is
-a final receiver-alias disposition receipt, and the positive M37 gates remain
-blocked. The resource persistence and run-manifest changes add six tests to
-the prior 266-test baseline. All 36 targeted tests and all 210
-Astropy-independent tests pass in the current runtime, apart from the one
-expected opt-in benchmark skip. The dependency-complete 272-test rerun awaits
-the declared Astropy dependency, which is absent from this runtime.
+and measured mapped-byte cap. Its complete receiver and adjacent payload is
+now joined without rewriting upstream evidence to the retained-OFF and final
+receiver-alias products. The resulting canonical read-only disposition
+artifact revalidates all inner payloads and cross-stage identities after a
+restart. A second run manifest requires the exact ordered window inventory,
+reopens every disposition child and aggregates final-disposition and measured
+resource counts. The M37 journal can enter `physical_disposition_complete`
+only through this reopened exact five-window manifest; its metadata also
+enforces the five-window count and the 512-MiB mapped-byte cap. These remain
+bounded synthetic contract tests rather than an M37 production execution.
+
+The complete 279-test repository suite passes with one expected opt-in
+benchmark skip in an isolated candidate stack using NumPy 2.5.2, Astropy
+8.0.1, h5py 3.16.0, hdf5plugin 6.0.0, fsspec 2026.7.0 and Matplotlib 3.11.1.
+The exact-grid benchmark also passes separately with its frozen output hash.
+The available Python is 3.12.13 rather than the prospective 3.12.14 pin, so
+this is not represented as the final exact runtime.
 
 M37 remains an engineering milestone, not a scientific result. The complete
-production completeness path still lacks production ancestry and the complete
-primary-search/completeness resource envelope. Journal integration of the
-complete five-window streaming resource manifest, the final pinned runtime,
-and the production lifecycle must also be closed and frozen before any
-separate authorization may permit the six HD 156668 telescope payloads to be
-contacted.
+production completeness path still lacks a concrete operational pipeline and
+the mandatory full-replay benchmark or an equivalent production sparse/local
+proof. The final exact runtime and the remaining production lifecycle must
+also be closed and frozen before the already requested six-file authorization
+may safely cross the spectral boundary. No HD 156668 telescope payload was
+contacted by this checkpoint.
 
 ## Milestone 36 result
 

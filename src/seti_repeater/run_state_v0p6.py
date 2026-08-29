@@ -120,6 +120,64 @@ def _validate_stage_metadata(stage: str, metadata: Mapping[str, Any]) -> None:
             metadata.get("authorization_receipt_sha256"),
             "spectral authorization receipt identity",
         )
+    elif stage == "physical_disposition_complete":
+        if (
+            metadata.get("spectral_access_authorized") is not True
+            or metadata.get("spectral_dataset_values_read") is not True
+        ):
+            raise core.V0P6IncompleteError(
+                "post-extraction run stage lacks spectral-contact provenance"
+            )
+        for name in (
+            "physical_disposition_manifest_sha256",
+            "disposition_artifact_inventory_sha256",
+            "on_retention_inventory_sha256",
+            "cache_run_manifest_file_sha256",
+            "factor_bundle_manifest_sha256",
+        ):
+            _sha256(metadata.get(name), name.replace("_", " "))
+        window_count = _strict_int(
+            metadata.get("window_count"), "physical-disposition window count"
+        )
+        final_count = _strict_int(
+            metadata.get("total_final_record_count"),
+            "physical-disposition final record count",
+        )
+        mapped_cap = _strict_int(
+            metadata.get("maximum_process_mapped_bytes"),
+            "physical-disposition mapped-byte cap",
+        )
+        mapped_peak = _strict_int(
+            metadata.get("maximum_window_peak_mapped_bytes"),
+            "physical-disposition mapped-byte peak",
+        )
+        handle_peak = _strict_int(
+            metadata.get("maximum_window_peak_handle_count"),
+            "physical-disposition handle peak",
+        )
+        batch_count = _strict_int(
+            metadata.get("total_batch_count"),
+            "physical-disposition batch count",
+        )
+        cache_count = _strict_int(
+            metadata.get("total_opened_cache_count"),
+            "physical-disposition opened-cache count",
+        )
+        if (
+            window_count != len(core.M37_WINDOW_IDS)
+            or final_count < 0
+            or final_count
+            > len(core.M37_WINDOW_IDS) * core.M37_MAXIMUM_RECORDS_PER_WINDOW
+            or mapped_cap != core.M37_LIVE_NDARRAY_CAP_BYTES
+            or mapped_peak < 0
+            or mapped_peak > mapped_cap
+            or handle_peak < 1
+            or batch_count < 1
+            or cache_count < 1
+        ):
+            raise core.V0P6IncompleteError(
+                "physical-disposition journal accounting is incomplete"
+            )
     elif stage in M37_RUN_STAGES[3:]:
         if (
             metadata.get("spectral_access_authorized") is not True
@@ -475,6 +533,82 @@ def advance_m37_run_journal(
         stage=str(stage),
         artifact_sha256=artifact_sha256,
         metadata=metadata,
+    )
+
+
+def advance_m37_physical_disposition_from_manifest(
+    path: str | os.PathLike[str],
+    *,
+    expected_head_sha256: str,
+    manifest_path: str | os.PathLike[str],
+    expected_manifest_file_sha256: str,
+    expected_manifest_sha256: str,
+    expected_run_id: str,
+    expected_cache_run_manifest_file_sha256: str,
+    expected_factor_bundle_manifest_sha256: str,
+    expected_on_retention_inventory_sha256: str,
+) -> RunJournalReceipt:
+    """Advance only from a fully reopened exact five-window disposition run."""
+    from . import physical_disposition_manifest_v0p6 as disposition_run
+
+    current = read_m37_run_journal(
+        path, expected_head_sha256=expected_head_sha256
+    )
+    if current.run_id != expected_run_id:
+        raise core.V0P6IncompleteError(
+            "physical-disposition manifest run differs from the journal"
+        )
+    opened = disposition_run.open_m37_physical_disposition_run_manifest(
+        manifest_path,
+        expected_file_sha256=expected_manifest_file_sha256,
+        expected_manifest_sha256=expected_manifest_sha256,
+        expected_run_id=expected_run_id,
+        expected_cache_run_manifest_file_sha256=(
+            expected_cache_run_manifest_file_sha256
+        ),
+        expected_factor_bundle_manifest_sha256=(
+            expected_factor_bundle_manifest_sha256
+        ),
+        expected_on_retention_inventory_sha256=(
+            expected_on_retention_inventory_sha256
+        ),
+    )
+    receipt = opened.receipt
+    return advance_m37_run_journal(
+        path,
+        expected_head_sha256=current.head_sha256,
+        stage="physical_disposition_complete",
+        artifact_sha256=receipt.file_sha256,
+        metadata={
+            "spectral_access_authorized": True,
+            "spectral_dataset_values_read": True,
+            "physical_disposition_manifest_sha256": receipt.manifest_sha256,
+            "disposition_artifact_inventory_sha256": (
+                receipt.disposition_artifact_inventory_sha256
+            ),
+            "on_retention_inventory_sha256": (
+                receipt.on_retention_inventory_sha256
+            ),
+            "cache_run_manifest_file_sha256": (
+                receipt.cache_run_manifest_file_sha256
+            ),
+            "factor_bundle_manifest_sha256": (
+                receipt.factor_bundle_manifest_sha256
+            ),
+            "window_count": receipt.window_count,
+            "total_final_record_count": receipt.total_final_record_count,
+            "maximum_process_mapped_bytes": (
+                receipt.maximum_process_mapped_bytes
+            ),
+            "maximum_window_peak_mapped_bytes": (
+                receipt.maximum_window_peak_mapped_bytes
+            ),
+            "maximum_window_peak_handle_count": (
+                receipt.maximum_window_peak_handle_count
+            ),
+            "total_batch_count": receipt.total_batch_count,
+            "total_opened_cache_count": receipt.total_opened_cache_count,
+        },
     )
 
 

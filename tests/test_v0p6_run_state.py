@@ -7,6 +7,8 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from types import SimpleNamespace
+from unittest import mock
 
 from seti_repeater import run_state_v0p6 as state
 from seti_repeater.search_v0p6 import (
@@ -33,6 +35,24 @@ def _metadata(stage: str) -> dict[str, object]:
             "spectral_dataset_values_read": False,
             "authorization_scope": state.M37_SPECTRAL_AUTHORIZATION_SCOPE,
             "authorization_receipt_sha256": _digest(99),
+            "test_stage": stage,
+        }
+    if stage == "physical_disposition_complete":
+        return {
+            "spectral_access_authorized": True,
+            "spectral_dataset_values_read": True,
+            "physical_disposition_manifest_sha256": _digest(201),
+            "disposition_artifact_inventory_sha256": _digest(202),
+            "on_retention_inventory_sha256": _digest(203),
+            "cache_run_manifest_file_sha256": _digest(204),
+            "factor_bundle_manifest_sha256": _digest(205),
+            "window_count": 5,
+            "total_final_record_count": 12,
+            "maximum_process_mapped_bytes": 536_870_912,
+            "maximum_window_peak_mapped_bytes": 500_000_000,
+            "maximum_window_peak_handle_count": 3,
+            "total_batch_count": 80,
+            "total_opened_cache_count": 480,
             "test_stage": stage,
         }
     return {
@@ -214,6 +234,91 @@ class M37RunJournalTests(unittest.TestCase):
             path.write_bytes(original[:-1])
             with self.assertRaisesRegex(V0P6IncompleteError, "final newline"):
                 state.read_m37_run_journal(path)
+
+    def test_physical_disposition_manifest_advances_exact_stage(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            path, receipt = self._create(directory)
+            for index, stage_name in enumerate(
+                state.M37_RUN_STAGES[1:9], start=1
+            ):
+                receipt = state.advance_m37_run_journal(
+                    path,
+                    expected_head_sha256=receipt.head_sha256,
+                    stage=stage_name,
+                    artifact_sha256=_digest(index),
+                    metadata=_metadata(stage_name),
+                )
+            manifest_receipt = SimpleNamespace(
+                file_sha256=_digest(300),
+                manifest_sha256=_digest(301),
+                disposition_artifact_inventory_sha256=_digest(302),
+                on_retention_inventory_sha256=_digest(303),
+                cache_run_manifest_file_sha256=_digest(304),
+                factor_bundle_manifest_sha256=_digest(305),
+                window_count=5,
+                total_final_record_count=12,
+                maximum_process_mapped_bytes=536_870_912,
+                maximum_window_peak_mapped_bytes=500_000_000,
+                maximum_window_peak_handle_count=3,
+                total_batch_count=80,
+                total_opened_cache_count=480,
+            )
+            opened = SimpleNamespace(receipt=manifest_receipt)
+            with mock.patch(
+                "seti_repeater.physical_disposition_manifest_v0p6."
+                "open_m37_physical_disposition_run_manifest",
+                return_value=opened,
+            ) as opener:
+                receipt = state.advance_m37_physical_disposition_from_manifest(
+                    path,
+                    expected_head_sha256=receipt.head_sha256,
+                    manifest_path=Path(directory) / "disposition-run.json",
+                    expected_manifest_file_sha256=manifest_receipt.file_sha256,
+                    expected_manifest_sha256=manifest_receipt.manifest_sha256,
+                    expected_run_id="m37-synthetic-run-001",
+                    expected_cache_run_manifest_file_sha256=(
+                        manifest_receipt.cache_run_manifest_file_sha256
+                    ),
+                    expected_factor_bundle_manifest_sha256=(
+                        manifest_receipt.factor_bundle_manifest_sha256
+                    ),
+                    expected_on_retention_inventory_sha256=(
+                        manifest_receipt.on_retention_inventory_sha256
+                    ),
+                )
+            opener.assert_called_once()
+            self.assertEqual(receipt.stage, "physical_disposition_complete")
+            event = json.loads(path.read_bytes().splitlines()[-1])
+            self.assertEqual(
+                event["artifact_sha256"], manifest_receipt.file_sha256
+            )
+            self.assertEqual(event["metadata"]["window_count"], 5)
+
+    def test_physical_disposition_stage_rejects_incomplete_accounting(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            path, receipt = self._create(directory)
+            for index, stage_name in enumerate(
+                state.M37_RUN_STAGES[1:9], start=1
+            ):
+                receipt = state.advance_m37_run_journal(
+                    path,
+                    expected_head_sha256=receipt.head_sha256,
+                    stage=stage_name,
+                    artifact_sha256=_digest(index),
+                    metadata=_metadata(stage_name),
+                )
+            before = path.read_bytes()
+            metadata = _metadata("physical_disposition_complete")
+            metadata["window_count"] = 4
+            with self.assertRaisesRegex(V0P6IncompleteError, "accounting"):
+                state.advance_m37_run_journal(
+                    path,
+                    expected_head_sha256=receipt.head_sha256,
+                    stage="physical_disposition_complete",
+                    artifact_sha256=_digest(10),
+                    metadata=metadata,
+                )
+            self.assertEqual(path.read_bytes(), before)
 
 
 if __name__ == "__main__":

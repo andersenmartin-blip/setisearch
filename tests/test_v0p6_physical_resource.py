@@ -12,6 +12,9 @@ import numpy as np
 
 from seti_repeater import cache_manifest_v0p6 as run_cache
 from seti_repeater import native_cache_v0p6 as disk_cache
+from seti_repeater import alias_v0p6 as receiver_alias
+from seti_repeater import physical_disposition_v0p6 as disposition
+from seti_repeater import physical_disposition_manifest_v0p6 as disposition_run
 from seti_repeater import physical_resource_manifest_v0p6 as run_resource
 from seti_repeater import physical_resource_v0p6 as physical
 from seti_repeater import search_v0p6 as core
@@ -155,6 +158,7 @@ class PhysicalResourceEnvelopeTests(unittest.TestCase):
             expected_window_ids=("synthetic",),
             reference_floor=7.0,
         )
+        self.threshold = threshold
         ledger = core.ExhaustiveRetentionLedger(
             window_id="synthetic",
             scan_kind="on",
@@ -311,6 +315,217 @@ class PhysicalResourceEnvelopeTests(unittest.TestCase):
             adjacent_chunk_bins=1,
         )
         return result, on_stream, off_stream
+
+    def _off_retention_product(self):
+        bank_sha256 = core.template_bank_sha256(self.template_bank)
+        scan_sha256 = core.scan_inventory_sha256(self.scan_definitions)
+        off_rows_sha256 = core.factor_row_selection_sha256(
+            self.factor_basis, self.scan_definitions, "off"
+        )
+        ledger = core.ExhaustiveRetentionLedger(
+            window_id="synthetic",
+            scan_kind="off",
+            grid=self.grid,
+            threshold_certificate=self.threshold,
+            maximum_records=10,
+            template_bank=self.template_bank,
+            spectral_widths=self.widths,
+            activity_subsets=((0, 2),),
+            expected_template_bank_sha256=bank_sha256,
+            factor_basis_sha256=self.factor_basis.basis_sha256,
+            factor_basis_labels_sha256=self.factor_basis.labels_sha256,
+            scan_inventory_sha256=scan_sha256,
+            factor_row_selection_sha256=off_rows_sha256,
+            factor_table_sha256=self.factor_table.factor_table_sha256,
+            epoch_count=3,
+            minimum_active_epoch_snr=3.0,
+            stack_statistic="sum",
+        )
+        vectors = np.zeros(
+            (3, self.grid.score_bin_count), dtype=np.float32
+        )
+        ledger.add_hypothesis(
+            vectors,
+            (0, 2),
+            template=self.template_bank[0],
+            width_index=0,
+            width_channels=1,
+            exclusion_mask=None,
+        )
+        records = ledger.finalize()
+        certificate = ledger.certificate()
+        off_labels = [
+            str(item["label"])
+            for item in self.scan_definitions
+            if item["kind"] == "off"
+        ]
+        selected = [self.caches["off"][1][label] for label in off_labels]
+        provenance = {
+            0: (
+                tuple(item.plan.plan_sha256 for item in selected),
+                tuple(item.payload_sha256 for item in selected),
+            )
+        }
+        certificate["require_epoch_vector_product"] = True
+        certificate["epoch_product_inventory_sha256"] = (
+            core._epoch_product_inventory_sha256(
+                {(0, 0): hashlib.sha256(b"off:0:0").hexdigest()}
+            )
+        )
+        certificate["cache_provenance_inventory_sha256"] = (
+            core._cache_provenance_inventory_sha256(provenance)
+        )
+        certificate.pop("retention_certificate_sha256")
+        certificate["retention_certificate_sha256"] = hashlib.sha256(
+            core.canonical_json_bytes(certificate)
+        ).hexdigest()
+        core.validate_retention_certificate(
+            certificate,
+            expected_certificate_sha256=certificate[
+                "retention_certificate_sha256"
+            ],
+        )
+        return records, certificate
+
+    def _physical_disposition(self, root):
+        execution, _, _ = self._execute(root)
+        off_records, off_certificate = self._off_retention_product()
+        off_factors = core.factor_matrix_for_kind(
+            self.factor_table,
+            self.factor_basis,
+            self.scan_definitions,
+            "off",
+        )
+        off_result = core.match_retained_off_tracks(
+            self.records,
+            self.retention_certificate,
+            off_records,
+            off_certificate,
+            self.grid,
+            off_factors,
+            window_order=("synthetic",),
+            tolerance_hz=20.0,
+            maximum_bucket_entries=100,
+            maximum_exact_candidate_visits=1_000,
+            template_bank=self.template_bank,
+            expected_on_certificate_sha256=self.retention_certificate[
+                "retention_certificate_sha256"
+            ],
+            expected_off_certificate_sha256=off_certificate[
+                "retention_certificate_sha256"
+            ],
+        )
+        receiver_result = execution["receiver_result"]
+        receiver_certificate = receiver_result["certificate"]
+        adjacent_result = execution["adjacent_result"]
+        adjacent_certificate = adjacent_result["certificate"]
+        on_factors = core.factor_matrix_for_kind(
+            self.factor_table,
+            self.factor_basis,
+            self.scan_definitions,
+            "on",
+        )
+        alias_result = receiver_alias.match_receiver_frame_aliases(
+            off_result["records"],
+            self.retention_certificate,
+            self.grid,
+            on_factors,
+            receiver_result["receiver_signatures"],
+            off_match_certificate=off_result["certificate"],
+            single_adjacent_off_evidence=adjacent_result["evidence"],
+            single_adjacent_off_certificate=adjacent_certificate,
+            expected_off_match_certificate_sha256=off_result[
+                "certificate"
+            ]["off_match_certificate_sha256"],
+            expected_single_adjacent_off_certificate_sha256=(
+                adjacent_certificate[
+                    "single_adjacent_off_certificate_sha256"
+                ]
+            ),
+            window_order=("synthetic",),
+            track_tolerance_hz=20.0,
+            local_half_width_hz=100.0,
+            local_peak_snr_floor=5.5,
+            minimum_shared_active_epochs=2,
+            maximum_records=10,
+            maximum_bucket_entries=100,
+            maximum_identity_track_comparisons=1_000,
+            maximum_distinct_candidate_visits_per_window=1_000,
+            template_bank=self.template_bank,
+            expected_on_certificate_sha256=self.retention_certificate[
+                "retention_certificate_sha256"
+            ],
+            receiver_signature_certificate_sha256=receiver_certificate[
+                "receiver_signature_certificate_sha256"
+            ],
+            expected_receiver_signature_product_sha256=receiver_certificate[
+                "receiver_signature_product_sha256"
+            ],
+        )
+        joined = disposition.seal_physical_disposition_result(
+            execution,
+            off_result,
+            alias_result,
+            expected_physical_evidence_execution_result_sha256=execution[
+                "execution_result_sha256"
+            ],
+            expected_off_match_certificate_sha256=off_result[
+                "certificate"
+            ]["off_match_certificate_sha256"],
+            expected_receiver_alias_certificate_sha256=alias_result[
+                "certificate"
+            ]["receiver_alias_certificate_sha256"],
+        )
+        return joined
+
+    def _published_disposition_child(self, root):
+        result = self._physical_disposition(root)
+        physical_root = root / "physical-disposition"
+        physical_root.mkdir()
+        relative_path = "physical-disposition/synthetic.json"
+        path = root / relative_path
+        receipt = disposition.publish_physical_disposition_artifact(
+            path,
+            result,
+            expected_physical_disposition_certificate_sha256=result[
+                "certificate"
+            ]["physical_disposition_certificate_sha256"],
+        )
+        artifact = disposition.open_physical_disposition_artifact(
+            path,
+            expected_file_sha256=receipt.file_sha256,
+            expected_physical_disposition_certificate_sha256=(
+                receipt.physical_disposition_certificate_sha256
+            ),
+            expected_run_id=receipt.run_id,
+            expected_window_id=receipt.window_id,
+            expected_cache_run_manifest_file_sha256=(
+                receipt.cache_run_manifest_file_sha256
+            ),
+            expected_factor_bundle_manifest_sha256=(
+                receipt.factor_bundle_manifest_sha256
+            ),
+            expected_on_retention_certificate_sha256=(
+                receipt.on_retention_certificate_sha256
+            ),
+        )
+        entry = disposition_run.make_physical_disposition_run_entry(
+            relative_path, artifact
+        )
+        arguments = {
+            "expected_window_ids": ("synthetic",),
+            "expected_run_id": receipt.run_id,
+            "expected_cache_run_manifest_file_sha256": (
+                receipt.cache_run_manifest_file_sha256
+            ),
+            "expected_factor_bundle_manifest_sha256": (
+                receipt.factor_bundle_manifest_sha256
+            ),
+            "expected_on_retention_inventory_sha256": (
+                disposition_run.on_retention_inventory_sha256((entry,))
+            ),
+        }
+        return path, entry, arguments
 
     def _published_run_child(self, root):
         result, _, _ = self._execute(root)
@@ -593,6 +808,132 @@ class PhysicalResourceEnvelopeTests(unittest.TestCase):
                         "execution_result_sha256"
                     ],
                 )
+
+    def test_complete_physical_disposition_round_trip(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            result = self._physical_disposition(root)
+            certificate = result["certificate"]
+            path = root / "physical-disposition.json"
+            receipt = disposition.publish_physical_disposition_artifact(
+                path,
+                result,
+                expected_physical_disposition_certificate_sha256=certificate[
+                    "physical_disposition_certificate_sha256"
+                ],
+            )
+            self.assertEqual(path.stat().st_mode & 0o222, 0)
+            self.assertEqual(
+                receipt.file_sha256,
+                hashlib.sha256(path.read_bytes()).hexdigest(),
+            )
+            opened = disposition.open_physical_disposition_artifact(
+                path,
+                expected_file_sha256=receipt.file_sha256,
+                expected_physical_disposition_certificate_sha256=(
+                    receipt.physical_disposition_certificate_sha256
+                ),
+                expected_run_id=receipt.run_id,
+                expected_window_id=receipt.window_id,
+                expected_cache_run_manifest_file_sha256=(
+                    receipt.cache_run_manifest_file_sha256
+                ),
+                expected_factor_bundle_manifest_sha256=(
+                    receipt.factor_bundle_manifest_sha256
+                ),
+                expected_on_retention_certificate_sha256=(
+                    receipt.on_retention_certificate_sha256
+                ),
+            )
+            self.assertEqual(opened.result, result)
+            self.assertEqual(opened.receipt, receipt)
+            self.assertEqual(
+                sum(certificate["final_disposition_counts"].values()), 1
+            )
+            with self.assertRaises(FileExistsError):
+                disposition.publish_physical_disposition_artifact(
+                    path,
+                    result,
+                    expected_physical_disposition_certificate_sha256=(
+                        receipt.physical_disposition_certificate_sha256
+                    ),
+                )
+
+    def test_complete_physical_disposition_fails_closed_on_cross_ancestry(self):
+        with tempfile.TemporaryDirectory() as directory:
+            result = self._physical_disposition(Path(directory))
+        forged = json.loads(core.canonical_json_bytes(result))
+        forged["certificate"]["factor_bundle_manifest_sha256"] = "0" * 64
+        certificate = forged["certificate"]
+        certificate.pop("physical_disposition_certificate_sha256")
+        certificate["physical_disposition_certificate_sha256"] = hashlib.sha256(
+            core.canonical_json_bytes(certificate)
+        ).hexdigest()
+        with self.assertRaisesRegex(
+            core.V0P6IncompleteError, "differs from its payloads"
+        ):
+            disposition.validate_physical_disposition_result(
+                forged,
+                expected_physical_disposition_certificate_sha256=certificate[
+                    "physical_disposition_certificate_sha256"
+                ],
+            )
+
+    def test_complete_disposition_run_manifest_round_trip(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            _, entry, arguments = self._published_disposition_child(root)
+            path = root / "physical-disposition-run.json"
+            receipt = disposition_run.publish_physical_disposition_run_manifest(
+                path, (entry,), **arguments
+            )
+            opened = disposition_run.open_physical_disposition_run_manifest(
+                path,
+                expected_file_sha256=receipt.file_sha256,
+                expected_manifest_sha256=receipt.manifest_sha256,
+                **arguments,
+            )
+            self.assertEqual(opened.entries, (entry,))
+            self.assertEqual(opened.receipt, receipt)
+            self.assertEqual(len(opened.artifacts), 1)
+            self.assertEqual(receipt.window_count, 1)
+            self.assertEqual(receipt.total_final_record_count, 1)
+            self.assertEqual(
+                receipt.maximum_window_peak_mapped_bytes,
+                entry.aggregate_peak_mapped_bytes,
+            )
+            with self.assertRaises(FileExistsError):
+                disposition_run.publish_physical_disposition_run_manifest(
+                    path, (entry,), **arguments
+                )
+
+    def test_complete_disposition_run_requires_all_windows(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            _, entry, arguments = self._published_disposition_child(root)
+            path = root / "missing-window-run.json"
+            arguments["expected_window_ids"] = ("synthetic", "missing")
+            with self.assertRaisesRegex(
+                core.V0P6IncompleteError, "missing"
+            ):
+                disposition_run.publish_physical_disposition_run_manifest(
+                    path, (entry,), **arguments
+                )
+            self.assertFalse(path.exists())
+
+    def test_m37_disposition_run_gate_rejects_synthetic(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            _, entry, arguments = self._published_disposition_child(root)
+            arguments.pop("expected_window_ids")
+            path = root / "forbidden-m37-disposition-run.json"
+            with self.assertRaisesRegex(
+                core.V0P6IncompleteError, "missing"
+            ):
+                disposition_run.publish_m37_physical_disposition_run_manifest(
+                    path, (entry,), **arguments
+                )
+            self.assertFalse(path.exists())
 
     def test_complete_execution_artifact_fails_closed(self):
         with tempfile.TemporaryDirectory() as directory:

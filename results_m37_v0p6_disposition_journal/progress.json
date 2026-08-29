@@ -1,0 +1,88 @@
+{
+  "artifact_type": "m37-detector-v0p6-disposition-journal-checkpoint-v1",
+  "base_commit": "bcd656ccc4dffebf1a3c133a2d19f5e15a497633",
+  "claim_boundary": {
+    "completeness_measured": false,
+    "detector_frozen": false,
+    "preregistration_published": false,
+    "remote_telescope_file_opened": false,
+    "search_executed": false,
+    "spectral_dataset_values_read": false
+  },
+  "environment": {
+    "astropy": "8.0.1",
+    "astropy_iers_data": "0.2026.8.24.0.24.29",
+    "fsspec": "2026.7.0",
+    "h5py": "3.16.0",
+    "hdf5plugin": "6.0.0",
+    "matplotlib": "3.11.1",
+    "numpy": "2.5.2",
+    "python_available": "3.12.13",
+    "python_prospective_pin": "3.12.14",
+    "python_pin_reproduced": false
+  },
+  "gates": [
+    {
+      "id": "complete-physical-disposition-join",
+      "status": "passed_synthetic"
+    },
+    {
+      "id": "exact-five-window-disposition-manifest",
+      "status": "passed_contract_positive_production_data_absent"
+    },
+    {
+      "id": "restartable-physical-disposition-journal-transition",
+      "status": "passed_local"
+    },
+    {
+      "id": "physical-resource-accounting",
+      "status": "passed_synthetic_positive_m37_data_dependent"
+    },
+    {
+      "id": "production-completeness-feasibility",
+      "status": "blocked_missing_operational_pipeline_and_full_replay_benchmark"
+    },
+    {
+      "id": "candidate-dependency-stack-regression",
+      "status": "passed_python_patch_level_differs"
+    },
+    {
+      "id": "authorized-six-file-spectral-execution",
+      "status": "blocked_by_prior_completeness_gate"
+    }
+  ],
+  "generated_at_utc": "2026-08-29T12:27:55Z",
+  "source_sha256s": {
+    "src/seti_repeater/physical_disposition_manifest_v0p6.py": "71b449c3321b0dc5782c233535bb411ecc94ba529804c96987b3e8962a5df789",
+    "src/seti_repeater/physical_disposition_v0p6.py": "3efb1dde25a4734b25e9d3bd036e8cb24e9658704740e46f153d783d4ea98f47",
+    "src/seti_repeater/run_state_v0p6.py": "7a4edb6c6a005c225defefdf30c508125010c461632ef6651d2e92a5f6db035e"
+  },
+  "status": "NON_FROZEN_SYNTHETIC_DISPOSITION_AND_JOURNAL_CHECKPOINT",
+  "tests": {
+    "exact_grid_benchmark": {
+      "output_sha256": "ec7baa1b7e7f5089dac5cf321c7f5294806057aaf1a2a68f7b56dcb99a8321d4",
+      "passed": 1,
+      "peak_rss_bytes": 99647488,
+      "speedup_over_recorded_python_baseline": 13.33,
+      "wall_seconds": 0.727581
+    },
+    "full_repository_suite": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 278,
+      "skipped": 1,
+      "tests_run": 279
+    },
+    "offline_wheel": {
+      "bytes": 297896,
+      "passed": true,
+      "sha256": "59fc8d15a754b41e948859f8d94f670bb0a6afe6c6881261e06ebe14356b9531"
+    },
+    "targeted_disposition_resource_journal": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 26,
+      "skipped": 0
+    }
+  }
+}
