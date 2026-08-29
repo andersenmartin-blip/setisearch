@@ -21,10 +21,12 @@ also now binds real synthetic cache ownership across the sequential receiver
 and adjacent-OFF streams. That compact resource envelope can now be published
 and reopened as a canonical, read-only, independently hash-gated artifact. A
 new run manifest can also require an ordered window inventory and fully reopen
-every referenced resource artifact. The generic contract has passed on a
-bounded one-window fixture; no complete five-window M37 inventory exists, no
-Milestone 37 telescope spectral payload has been opened or read, and there is
-not yet a scientific M37 search result.
+every referenced resource artifact. The complete receiver and adjacent
+evidence payloads can now also be published and independently reopened rather
+than only hash-bound by the compact envelope. The generic contracts have
+passed on a bounded one-window fixture; no complete five-window M37 inventory
+exists, no Milestone 37 telescope spectral payload has been opened or read,
+and there is not yet a scientific M37 search result.
 
 Milestone 35 provides the latest survey-level synthesis. At exact ideal S/N 40
 its finite-injection pointwise 95% upper bound on `f(40)` is 33.16%, where
@@ -77,10 +79,14 @@ compact envelope can now survive a process restart through atomic read-only
 publication and independently rooted reopening, but is not attached to the
 production journal. A run-level manifest now prevents one window from being
 mistaken for the complete five-window resource inventory and reopens every
-child before acceptance. Its positive M37 gate remains blocked. The change
-adds three tests to the prior 266-test baseline. All 33 targeted tests and all
-207 Astropy-independent tests pass in the current runtime, apart from the one
-expected opt-in benchmark skip. The dependency-complete 269-test rerun awaits
+child before acceptance. The complete receiver and adjacent evidence payloads
+now have their own bounded, read-only artifact: restart opening revalidates
+both inner products and their resource-envelope ancestry. Neither artifact is
+a final receiver-alias disposition receipt, and the positive M37 gates remain
+blocked. The resource persistence and run-manifest changes add six tests to
+the prior 266-test baseline. All 36 targeted tests and all 210
+Astropy-independent tests pass in the current runtime, apart from the one
+expected opt-in benchmark skip. The dependency-complete 272-test rerun awaits
 the declared Astropy dependency, which is absent from this runtime.
 
 M37 remains an engineering milestone, not a scientific result. The complete

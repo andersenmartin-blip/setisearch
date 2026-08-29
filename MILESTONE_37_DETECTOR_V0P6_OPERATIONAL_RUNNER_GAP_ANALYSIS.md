@@ -12,10 +12,12 @@ synthetic cache files. Its compact envelope can now be atomically persisted
 and reopened against independently supplied ancestry. A run manifest now
 enforces an ordered window inventory and reopens every child; only its generic
 one-window synthetic path has passed, so no complete five-window M37 manifest
-exists. The resource artifacts are not yet joined to phase-3 disposition
-ancestry or attached to the production journal. Completeness equivalence and
-the complete production runner remain open; this document therefore remains
-non-frozen and does not authorize spectral access.
+exists. The complete receiver and adjacent evidence payloads can now also be
+persisted and reopened with their compact resource envelope, but that richer
+artifact is not yet inventoried by the run manifest. Neither resource form is
+joined to phase-3 disposition ancestry or attached to the production journal.
+Completeness equivalence and the complete production runner remain open; this
+document therefore remains non-frozen and does not authorize spectral access.
 
 This document maps the remaining path from the tested detector-v0.6
 components to a restartable M37 operational run. It does not implement or
@@ -190,9 +192,11 @@ bound is already proved.
    `CompletenessOperationalPipeline` remain interfaces, not production
    implementations.
 9. **Run envelope:** the stage journal, cache manifest and physical-resource
-   run manifest exist, but no journal transition yet consumes an exact
-   five-window resource receipt and no atomic final-publication contract
-   exists.
+   run manifest exist. Complete receiver and adjacent payload persistence also
+   exists for the bounded synthetic fixture, but the run manifest still
+   inventories only compact resource artifacts. No journal transition yet
+   consumes an exact five-window resource/disposition receipt and no atomic
+   final-publication contract exists.
 10. **Pinned runtime:** extractor dependencies, OS/compiler/OpenMP runtime,
     CPU/ISA policy and the eight-thread host requirement are not yet frozen.
 

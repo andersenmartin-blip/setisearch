@@ -527,6 +527,150 @@ class PhysicalResourceEnvelopeTests(unittest.TestCase):
                     ),
                 )
 
+    def test_complete_execution_artifact_round_trip(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            result, _, _ = self._execute(root)
+            path = root / "physical-evidence-execution.json"
+            receipt = physical.publish_physical_evidence_execution_artifact(
+                path,
+                result,
+                expected_execution_result_sha256=result[
+                    "execution_result_sha256"
+                ],
+            )
+            self.assertEqual(path.stat().st_mode & 0o222, 0)
+            self.assertEqual(
+                receipt.file_sha256,
+                "a2560965b199ca8c1dbeeb81982d3679341f39f0f6fb5951450ff36c34aa0c91",
+            )
+            self.assertEqual(receipt.file_nbytes, 17_632)
+            self.assertEqual(
+                receipt.execution_result_sha256,
+                result["execution_result_sha256"],
+            )
+            self.assertEqual(
+                receipt.resource_envelope_sha256,
+                result["resource_envelope"]["resource_envelope_sha256"],
+            )
+            self.assertEqual(
+                receipt.file_sha256,
+                hashlib.sha256(path.read_bytes()).hexdigest(),
+            )
+            opened = physical.open_physical_evidence_execution_artifact(
+                path,
+                expected_file_sha256=receipt.file_sha256,
+                expected_execution_result_sha256=(
+                    receipt.execution_result_sha256
+                ),
+                expected_resource_envelope_sha256=(
+                    receipt.resource_envelope_sha256
+                ),
+                expected_run_id=receipt.run_id,
+                expected_cache_run_manifest_file_sha256=(
+                    receipt.cache_run_manifest_file_sha256
+                ),
+                expected_factor_bundle_manifest_sha256=(
+                    receipt.factor_bundle_manifest_sha256
+                ),
+                expected_on_retention_certificate_sha256=(
+                    receipt.on_retention_certificate_sha256
+                ),
+            )
+            self.assertEqual(opened.result, result)
+            self.assertEqual(opened.receipt, receipt)
+            self.assertEqual(
+                opened.result["receiver_result"], result["receiver_result"]
+            )
+            self.assertEqual(
+                opened.result["adjacent_result"], result["adjacent_result"]
+            )
+            with self.assertRaises(FileExistsError):
+                physical.publish_physical_evidence_execution_artifact(
+                    path,
+                    result,
+                    expected_execution_result_sha256=result[
+                        "execution_result_sha256"
+                    ],
+                )
+
+    def test_complete_execution_artifact_fails_closed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            result, _, _ = self._execute(root)
+            forged = json.loads(core.canonical_json_bytes(result))
+            record_id = next(
+                iter(forged["receiver_result"]["receiver_signatures"])
+            )
+            forged["receiver_result"]["receiver_signatures"][record_id][0][
+                "peak_snr"
+            ] = 1.0
+            unsealed = dict(forged)
+            unsealed.pop("execution_result_sha256")
+            forged["execution_result_sha256"] = hashlib.sha256(
+                core.canonical_json_bytes(unsealed)
+            ).hexdigest()
+            with self.assertRaisesRegex(
+                core.V0P6IncompleteError, "receiver-signature"
+            ):
+                physical.validate_physical_evidence_execution_result(
+                    forged,
+                    expected_execution_result_sha256=forged[
+                        "execution_result_sha256"
+                    ],
+                )
+
+            path = root / "physical-evidence-execution.json"
+            receipt = physical.publish_physical_evidence_execution_artifact(
+                path,
+                result,
+                expected_execution_result_sha256=result[
+                    "execution_result_sha256"
+                ],
+            )
+            arguments = {
+                "expected_file_sha256": receipt.file_sha256,
+                "expected_execution_result_sha256": (
+                    receipt.execution_result_sha256
+                ),
+                "expected_resource_envelope_sha256": (
+                    receipt.resource_envelope_sha256
+                ),
+                "expected_run_id": receipt.run_id,
+                "expected_cache_run_manifest_file_sha256": (
+                    receipt.cache_run_manifest_file_sha256
+                ),
+                "expected_factor_bundle_manifest_sha256": (
+                    receipt.factor_bundle_manifest_sha256
+                ),
+                "expected_on_retention_certificate_sha256": (
+                    receipt.on_retention_certificate_sha256
+                ),
+            }
+            wrong = dict(arguments)
+            wrong["expected_on_retention_certificate_sha256"] = "0" * 64
+            with self.assertRaisesRegex(
+                core.V0P6IncompleteError, "ancestry"
+            ):
+                physical.open_physical_evidence_execution_artifact(
+                    path, **wrong
+                )
+
+    def test_m37_complete_execution_gate_rejects_synthetic(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            result, _, _ = self._execute(root)
+            path = root / "forbidden-m37-physical-evidence.json"
+            with self.assertRaisesRegex(core.V0P6ContractError, "M37 contract"):
+                physical.publish_m37_physical_evidence_execution_artifact(
+                    path,
+                    result,
+                    expected_execution_result_sha256=result[
+                        "execution_result_sha256"
+                    ],
+                )
+            self.assertFalse(path.exists())
+
     def test_artifact_requires_independent_file_and_ancestry_roots(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

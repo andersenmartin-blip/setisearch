@@ -1,0 +1,107 @@
+{
+  "artifact_type": "m37-detector-v0p6-evidence-payload-persistence-checkpoint-v1",
+  "base_commit": "840751b366da0c7fd01a3a7dab0f1954189168fc",
+  "claim_boundary": {
+    "candidate_outcome_produced": false,
+    "complete_evidence_payload_artifact_proven_synthetic": true,
+    "complete_m37_window_inventory_proven": false,
+    "complete_production_resource_envelope_proven": false,
+    "completeness_measured": false,
+    "detector_frozen": false,
+    "detector_released": false,
+    "journal_transition_bound": false,
+    "null_claimed": false,
+    "physical_disposition_join_proven": false,
+    "preregistration_published": false,
+    "production_equivalence_claimed": false,
+    "production_receipt_ancestry_proven": false,
+    "remote_telescope_file_opened": false,
+    "search_executed": false,
+    "signal_claimed": false,
+    "spectral_access_authorized": false,
+    "spectral_dataset_values_read": false
+  },
+  "generated_at_utc": "2026-08-29T07:13:55Z",
+  "gates": [
+    {
+      "evidence": "The top-level execution result, full receiver product, full adjacent evidence and compact resource envelope are all revalidated and cross-bound.",
+      "id": "complete-physical-evidence-validation",
+      "status": "passed_synthetic_production_not_applicable"
+    },
+    {
+      "evidence": "Canonical read-only publication and restart opening require independent file, result, envelope, run, cache, factor and retention roots.",
+      "id": "complete-evidence-cross-process-rehydration",
+      "status": "passed_synthetic_production_not_applicable"
+    },
+    {
+      "evidence": "A rehashed top-level result containing a changed receiver signature is rejected by the inner evidence validator.",
+      "id": "nested-evidence-mutation",
+      "status": "passed_negative_path"
+    },
+    {
+      "evidence": "The exact M37 wrapper reapplies the production resource contract and rejects the bounded synthetic result before publication.",
+      "id": "exact-m37-execution-artifact-gate",
+      "status": "passed_negative_path_positive_production_not_applicable"
+    },
+    {
+      "evidence": "No authorized five-window extraction, cache run, retention inventory or complete physical evidence result exists.",
+      "id": "production-five-window-evidence-inventory",
+      "status": "blocked"
+    },
+    {
+      "evidence": "Complete receiver and adjacent payloads are not yet joined to the retained-OFF and receiver-alias final-disposition receipt or consumed by a journal transition.",
+      "id": "physical-disposition-journal-join",
+      "status": "blocked"
+    },
+    {
+      "evidence": "The declared Astropy dependency is absent from the current runtime, so the dependency-complete 272-test suite could not be rerun here.",
+      "id": "pinned-runtime-full-suite",
+      "status": "blocked"
+    }
+  ],
+  "known_answer_sha256s": {
+    "adjacent_evidence": "0a52766c9d4aee16a4f814fc9dce79f896395e16db5080d37ac369de4a387bd8",
+    "complete_evidence_artifact_file": "a2560965b199ca8c1dbeeb81982d3679341f39f0f6fb5951450ff36c34aa0c91",
+    "execution_result": "6d323d2142bfc195514ccd8955331d8e30f2175f37fa8b26324baf89b9e919e7",
+    "physical_resource_envelope": "f64d93cdb027d09ca6486bd533b48990b11c16451fc5c8b2b57c89bd4e898191",
+    "receiver_result": "be886ec787b23625f9e63a5b9bd2b16c422c01cea4aa85d22ce4f7d3b3eda1f5",
+    "wheel": "6ab621004c62c2b8358cbeb2f6c3c686a3780981458ac6e7e33f60a6c2956ecb"
+  },
+  "readiness_outcome": "COMPLETE_EVIDENCE_PAYLOAD_PERSISTENCE_PASSED_SYNTHETIC_M37_GATE_BLOCKED",
+  "resource_fixture": {
+    "complete_evidence_artifact_file_nbytes": 17632,
+    "execution_artifact_maximum_bytes": 208777216,
+    "maximum_process_mapped_bytes": 81600,
+    "peak_handle_count": 3,
+    "run_id": "physical-resource-test",
+    "total_batch_count": 2,
+    "total_opened_cache_count": 6,
+    "window_id": "synthetic"
+  },
+  "schema_version": 1,
+  "source_sha256s": {
+    "src/seti_repeater/adjacent_v0p6.py": "d2eee97107d26f10f017381537dfdb5e12b14db42978531ed060adc71f0fb0d6",
+    "src/seti_repeater/physical_resource_v0p6.py": "0907797f042821b53a63d41ac5fa3658993a80118dafda68bc7bcfd11a412233",
+    "src/seti_repeater/receiver_v0p6.py": "da4753196fe3a1b79f4ba854753d95a774204d4e88c8603e65597ff5a93d969c",
+    "tests/test_v0p6_physical_resource.py": "a5172b8a4ba6dea3453181bbbe84d51329801862bd1869f63d5a89886a34ddc3"
+  },
+  "tests": {
+    "dependency_complete_expected_total": 272,
+    "runtime_compatible_suite": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 209,
+      "skipped": 1,
+      "tests_run": 210,
+      "wall_seconds": 169.423
+    },
+    "targeted_physical_resource_suite": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 36,
+      "skipped": 0,
+      "tests_run": 36,
+      "wall_seconds": 4.450
+    }
+  }
+}

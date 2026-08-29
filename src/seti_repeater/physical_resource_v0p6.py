@@ -31,6 +31,10 @@ PHYSICAL_RESOURCE_ENVELOPE_ARTIFACT_TYPE = (
 )
 PHYSICAL_RESOURCE_ENVELOPE_SCHEMA_VERSION = 1
 PHYSICAL_RESOURCE_ARTIFACT_MAXIMUM_BYTES = 16_777_216
+PHYSICAL_EVIDENCE_EXECUTION_ARTIFACT_MAXIMUM_BYTES = (
+    2 * core.M37_MAXIMUM_EVIDENCE_CANONICAL_BYTES
+    + PHYSICAL_RESOURCE_ARTIFACT_MAXIMUM_BYTES
+)
 _STREAM_EXECUTION_ORDER = (
     "receiver_frame_signatures",
     "single_adjacent_off",
@@ -115,6 +119,29 @@ class PhysicalResourceArtifactReceipt:
 class PhysicalResourceArtifact:
     envelope: dict[str, Any]
     receipt: PhysicalResourceArtifactReceipt
+
+
+@dataclass(frozen=True)
+class PhysicalEvidenceExecutionArtifactReceipt:
+    file_sha256: str
+    execution_result_sha256: str
+    resource_envelope_sha256: str
+    receiver_result_sha256: str
+    receiver_signature_certificate_sha256: str
+    adjacent_evidence_sha256: str
+    single_adjacent_off_certificate_sha256: str
+    run_id: str
+    window_id: str
+    cache_run_manifest_file_sha256: str
+    factor_bundle_manifest_sha256: str
+    on_retention_certificate_sha256: str
+    file_nbytes: int
+
+
+@dataclass(frozen=True)
+class PhysicalEvidenceExecutionArtifact:
+    result: dict[str, Any]
+    receipt: PhysicalEvidenceExecutionArtifactReceipt
 
 
 def _detached_mapping(value: Any, label: str) -> dict[str, Any]:
@@ -733,6 +760,12 @@ def execute_physical_evidence_streams(
     result["execution_result_sha256"] = hashlib.sha256(
         core.canonical_json_bytes(result_payload)
     ).hexdigest()
+    validate_physical_evidence_execution_result(
+        result,
+        expected_execution_result_sha256=result[
+            "execution_result_sha256"
+        ],
+    )
     return result
 
 
@@ -816,6 +849,160 @@ def execute_m37_physical_evidence_streams(
         ],
     )
     return result
+
+
+def validate_physical_evidence_execution_result(
+    result: Mapping[str, Any],
+    *,
+    expected_execution_result_sha256: str,
+) -> dict[str, Any]:
+    """Validate the complete receiver/adjacent payload and resource join."""
+    detached = _detached_mapping(result, "physical evidence execution result")
+    if set(detached) != {
+        "receiver_result",
+        "adjacent_result",
+        "resource_envelope",
+        "execution_result_sha256",
+    }:
+        raise core.V0P6ContractError(
+            "physical evidence execution result schema changed"
+        )
+    observed_result_sha256 = core._frozen_sha256(
+        detached.pop("execution_result_sha256"),
+        "physical evidence execution result identity",
+    )
+    calculated_result_sha256 = hashlib.sha256(
+        core.canonical_json_bytes(detached)
+    ).hexdigest()
+    if (
+        observed_result_sha256 != calculated_result_sha256
+        or observed_result_sha256
+        != core._frozen_sha256(
+            expected_execution_result_sha256,
+            "expected physical evidence execution result identity",
+        )
+    ):
+        raise core.V0P6IncompleteError(
+            "physical evidence execution result identity changed"
+        )
+
+    receiver_result = _detached_mapping(
+        detached["receiver_result"], "receiver-signature result"
+    )
+    adjacent_result = _detached_mapping(
+        detached["adjacent_result"], "single-adjacent-OFF result"
+    )
+    envelope_input = _detached_mapping(
+        detached["resource_envelope"], "physical resource envelope"
+    )
+    envelope_sha256 = core._frozen_sha256(
+        envelope_input.get("resource_envelope_sha256"),
+        "physical resource envelope identity",
+    )
+    envelope = validate_physical_resource_envelope(
+        envelope_input,
+        expected_envelope_sha256=envelope_sha256,
+    )
+    receiver_certificate_sha256 = core._frozen_sha256(
+        envelope["receiver_signature_certificate_sha256"],
+        "receiver-signature certificate identity",
+    )
+    validated_receiver = receiver.validate_receiver_signature_result(
+        receiver_result,
+        expected_certificate_sha256=receiver_certificate_sha256,
+    )
+    adjacent_certificate_sha256 = core._frozen_sha256(
+        envelope["single_adjacent_off_certificate_sha256"],
+        "single-adjacent-OFF certificate identity",
+    )
+    validated_adjacent_certificate = (
+        adjacent.validate_single_adjacent_off_result(
+            adjacent_result.get("evidence", []),
+            adjacent_result.get("certificate", {}),
+            expected_certificate_sha256=adjacent_certificate_sha256,
+        )
+    )
+    receiver_certificate = receiver_result.get("certificate")
+    if not isinstance(receiver_certificate, Mapping):
+        raise core.V0P6ContractError(
+            "physical evidence execution lacks a receiver certificate"
+        )
+    if (
+        validated_receiver["result_sha256"]
+        != envelope["receiver_result_sha256"]
+        or receiver_certificate.get(
+            "receiver_signature_certificate_sha256"
+        )
+        != receiver_certificate_sha256
+        or validated_adjacent_certificate["evidence_sha256"]
+        != envelope["adjacent_evidence_sha256"]
+        or validated_adjacent_certificate[
+            "single_adjacent_off_certificate_sha256"
+        ]
+        != adjacent_certificate_sha256
+        or receiver_certificate.get("on_retention_certificate_sha256")
+        != envelope["on_retention_certificate_sha256"]
+        or validated_adjacent_certificate[
+            "on_retention_certificate_sha256"
+        ]
+        != envelope["on_retention_certificate_sha256"]
+    ):
+        raise core.V0P6IncompleteError(
+            "physical evidence payloads differ from the resource envelope"
+        )
+    detached["execution_result_sha256"] = observed_result_sha256
+    return detached
+
+
+def validate_m37_physical_evidence_execution_result(
+    result: Mapping[str, Any],
+    *,
+    expected_execution_result_sha256: str,
+) -> dict[str, Any]:
+    """Apply the exact M37 resource contract to a complete evidence result."""
+    validated = validate_physical_evidence_execution_result(
+        result,
+        expected_execution_result_sha256=(
+            expected_execution_result_sha256
+        ),
+    )
+    envelope = validated["resource_envelope"]
+    validate_m37_physical_resource_envelope(
+        envelope,
+        expected_envelope_sha256=envelope["resource_envelope_sha256"],
+    )
+    receiver_certificate = validated["receiver_result"]["certificate"]
+    adjacent_certificate = validated["adjacent_result"]["certificate"]
+    if (
+        receiver_certificate["local_receiver_half_width_hz"]
+        != receiver.M37_RECEIVER_SIGNATURE_LOCAL_HALF_WIDTH_HZ
+        or receiver_certificate["local_peak_snr_floor"]
+        != receiver.M37_RECEIVER_SIGNATURE_PEAK_SNR_FLOOR
+        or receiver_certificate["maximum_records"]
+        != core.M37_MAXIMUM_RECORDS_PER_WINDOW
+        or receiver_certificate["maximum_queries"]
+        != receiver.M37_MAXIMUM_RECEIVER_SIGNATURE_QUERIES
+        or receiver_certificate["maximum_local_channel_visits"]
+        != receiver.M37_MAXIMUM_RECEIVER_SIGNATURE_LOCAL_CHANNEL_VISITS
+        or receiver_certificate[
+            "maximum_signature_record_canonical_bytes"
+        ]
+        != core.M37_MAXIMUM_RECORD_CANONICAL_BYTES
+        or receiver_certificate["maximum_evidence_canonical_bytes"]
+        != core.M37_MAXIMUM_EVIDENCE_CANONICAL_BYTES
+        or adjacent_certificate["single_epoch_snr_floor"]
+        != adjacent.M37_SINGLE_ADJACENT_OFF_SNR_FLOOR
+        or adjacent_certificate["maximum_records"]
+        != core.M37_MAXIMUM_RECORDS_PER_WINDOW
+        or adjacent_certificate["maximum_queries"]
+        != adjacent.M37_MAXIMUM_SINGLE_ADJACENT_OFF_QUERIES
+        or adjacent_certificate["maximum_evidence_canonical_bytes"]
+        != core.M37_MAXIMUM_EVIDENCE_CANONICAL_BYTES
+    ):
+        raise core.V0P6ContractError(
+            "physical evidence execution differs from the M37 contract"
+        )
+    return validated
 
 
 def validate_m37_physical_resource_envelope(
@@ -930,6 +1117,205 @@ def _artifact_receipt(
         ],
         file_nbytes=len(raw),
     )
+
+
+def _execution_artifact_receipt(
+    raw: bytes, result: Mapping[str, Any]
+) -> PhysicalEvidenceExecutionArtifactReceipt:
+    envelope = result["resource_envelope"]
+    return PhysicalEvidenceExecutionArtifactReceipt(
+        file_sha256=hashlib.sha256(raw).hexdigest(),
+        execution_result_sha256=result["execution_result_sha256"],
+        resource_envelope_sha256=envelope["resource_envelope_sha256"],
+        receiver_result_sha256=envelope["receiver_result_sha256"],
+        receiver_signature_certificate_sha256=envelope[
+            "receiver_signature_certificate_sha256"
+        ],
+        adjacent_evidence_sha256=envelope["adjacent_evidence_sha256"],
+        single_adjacent_off_certificate_sha256=envelope[
+            "single_adjacent_off_certificate_sha256"
+        ],
+        run_id=envelope["run_id"],
+        window_id=envelope["window_id"],
+        cache_run_manifest_file_sha256=envelope[
+            "cache_run_manifest_file_sha256"
+        ],
+        factor_bundle_manifest_sha256=envelope[
+            "factor_bundle_manifest_sha256"
+        ],
+        on_retention_certificate_sha256=envelope[
+            "on_retention_certificate_sha256"
+        ],
+        file_nbytes=len(raw),
+    )
+
+
+def publish_physical_evidence_execution_artifact(
+    path: str | os.PathLike[str],
+    result: Mapping[str, Any],
+    *,
+    expected_execution_result_sha256: str,
+) -> PhysicalEvidenceExecutionArtifactReceipt:
+    """Persist the complete physical evidence payload and resource envelope."""
+    validated = validate_physical_evidence_execution_result(
+        result,
+        expected_execution_result_sha256=(
+            expected_execution_result_sha256
+        ),
+    )
+    payload = core.canonical_json_bytes(validated)
+    if len(payload) > PHYSICAL_EVIDENCE_EXECUTION_ARTIFACT_MAXIMUM_BYTES:
+        raise core.V0P6CapacityError(
+            "physical evidence execution artifact exceeds its byte cap"
+        )
+    destination = Path(path)
+    _atomic_read_only_publish(destination, payload)
+    return _execution_artifact_receipt(payload, validated)
+
+
+def publish_m37_physical_evidence_execution_artifact(
+    path: str | os.PathLike[str],
+    result: Mapping[str, Any],
+    *,
+    expected_execution_result_sha256: str,
+) -> PhysicalEvidenceExecutionArtifactReceipt:
+    """Persist complete evidence only when it reproduces the M37 contract."""
+    validated = validate_m37_physical_evidence_execution_result(
+        result,
+        expected_execution_result_sha256=(
+            expected_execution_result_sha256
+        ),
+    )
+    return publish_physical_evidence_execution_artifact(
+        path,
+        validated,
+        expected_execution_result_sha256=(
+            expected_execution_result_sha256
+        ),
+    )
+
+
+def open_physical_evidence_execution_artifact(
+    path: str | os.PathLike[str],
+    *,
+    expected_file_sha256: str,
+    expected_execution_result_sha256: str,
+    expected_resource_envelope_sha256: str,
+    expected_run_id: str,
+    expected_cache_run_manifest_file_sha256: str,
+    expected_factor_bundle_manifest_sha256: str,
+    expected_on_retention_certificate_sha256: str,
+) -> PhysicalEvidenceExecutionArtifact:
+    """Reopen complete evidence against independently supplied ancestry."""
+    artifact_path = Path(path)
+    with artifact_path.open("rb") as stream:
+        raw = stream.read(
+            PHYSICAL_EVIDENCE_EXECUTION_ARTIFACT_MAXIMUM_BYTES + 1
+        )
+    if len(raw) > PHYSICAL_EVIDENCE_EXECUTION_ARTIFACT_MAXIMUM_BYTES:
+        raise core.V0P6CapacityError(
+            "physical evidence execution artifact exceeds its byte cap"
+        )
+    if hashlib.sha256(raw).hexdigest() != core._frozen_sha256(
+        expected_file_sha256,
+        "expected physical evidence execution file identity",
+    ):
+        raise core.V0P6IncompleteError(
+            "physical evidence execution file identity changed"
+        )
+    try:
+        parsed = json.loads(raw)
+    except (UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise core.V0P6ContractError(
+            "physical evidence execution artifact is invalid JSON"
+        ) from error
+    if core.canonical_json_bytes(parsed) != raw:
+        raise core.V0P6ContractError(
+            "physical evidence execution artifact is not canonical JSON"
+        )
+    validated = validate_physical_evidence_execution_result(
+        parsed,
+        expected_execution_result_sha256=(
+            expected_execution_result_sha256
+        ),
+    )
+    envelope = validated["resource_envelope"]
+    if not isinstance(expected_run_id, str) or not expected_run_id:
+        raise core.V0P6ContractError(
+            "expected physical evidence run ID is invalid"
+        )
+    if (
+        envelope["resource_envelope_sha256"]
+        != core._frozen_sha256(
+            expected_resource_envelope_sha256,
+            "expected physical resource envelope identity",
+        )
+        or envelope["run_id"] != expected_run_id
+        or envelope["cache_run_manifest_file_sha256"]
+        != core._frozen_sha256(
+            expected_cache_run_manifest_file_sha256,
+            "expected cache-run manifest file identity",
+        )
+        or envelope["factor_bundle_manifest_sha256"]
+        != core._frozen_sha256(
+            expected_factor_bundle_manifest_sha256,
+            "expected factor-bundle manifest identity",
+        )
+        or envelope["on_retention_certificate_sha256"]
+        != core._frozen_sha256(
+            expected_on_retention_certificate_sha256,
+            "expected ON-retention certificate identity",
+        )
+    ):
+        raise core.V0P6IncompleteError(
+            "physical evidence execution ancestry changed"
+        )
+    receipt = _execution_artifact_receipt(raw, validated)
+    return PhysicalEvidenceExecutionArtifact(
+        result=validated,
+        receipt=receipt,
+    )
+
+
+def open_m37_physical_evidence_execution_artifact(
+    path: str | os.PathLike[str],
+    *,
+    expected_file_sha256: str,
+    expected_execution_result_sha256: str,
+    expected_resource_envelope_sha256: str,
+    expected_run_id: str,
+    expected_cache_run_manifest_file_sha256: str,
+    expected_factor_bundle_manifest_sha256: str,
+    expected_on_retention_certificate_sha256: str,
+) -> PhysicalEvidenceExecutionArtifact:
+    """Reopen complete evidence only under the exact M37 resource contract."""
+    opened = open_physical_evidence_execution_artifact(
+        path,
+        expected_file_sha256=expected_file_sha256,
+        expected_execution_result_sha256=(
+            expected_execution_result_sha256
+        ),
+        expected_resource_envelope_sha256=(
+            expected_resource_envelope_sha256
+        ),
+        expected_run_id=expected_run_id,
+        expected_cache_run_manifest_file_sha256=(
+            expected_cache_run_manifest_file_sha256
+        ),
+        expected_factor_bundle_manifest_sha256=(
+            expected_factor_bundle_manifest_sha256
+        ),
+        expected_on_retention_certificate_sha256=(
+            expected_on_retention_certificate_sha256
+        ),
+    )
+    validate_m37_physical_evidence_execution_result(
+        opened.result,
+        expected_execution_result_sha256=(
+            expected_execution_result_sha256
+        ),
+    )
+    return opened
 
 
 def publish_physical_resource_artifact(
