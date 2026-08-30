@@ -1,0 +1,99 @@
+{
+  "artifact_type": "m37-detector-v0p6-primary-capacity-result-v1",
+  "schema_version": 1,
+  "generated_at_utc": "2026-08-30T14:53:48Z",
+  "run_id": "m37-v0p6-primary-004",
+  "journal": {
+    "stage": "invalid",
+    "sequence": 7,
+    "head_sha256": "d13d03a5d8430b5c48dd7c9de24158659ce810bfcc44ffbf13f7cac29f3b8e61",
+    "reason_code": "retention-capacity-overflow"
+  },
+  "outcome": "M37_INVALID_NO_CONCLUSION",
+  "claim_boundary": {
+    "spectral_access_authorized": true,
+    "spectral_dataset_values_read": true,
+    "calibration_complete": true,
+    "threshold_complete": true,
+    "on_retention_complete": false,
+    "off_retention_complete": false,
+    "physical_disposition_complete": false,
+    "significance_complete": false,
+    "scientific_signal_claimed": false,
+    "scientific_null_claimed": false
+  },
+  "transport": {
+    "scan_count": 6,
+    "remote_logical_bytes": 5106402756,
+    "independent_segment_sha256_reopen_passed": true
+  },
+  "cache_run": {
+    "entry_count": 240,
+    "payload_nbytes": 11545072128,
+    "manifest_file_sha256": "b85011823dc31e9ed0f7abc4c316f8b4a903cce80919aae676cf56289a80d11b",
+    "inventory_sha256": "50de36cb3c1f6a78f0f81d0c0deda050d6a3e10774543b5227c77c1d96e7a313",
+    "verified_inventory_sha256": "3bc5e5c745043cb5d738b85a89c9f4e8b5917c842c48f32b83f8e8ee43774c97"
+  },
+  "calibration": {
+    "window_count": 5,
+    "hypotheses_evaluated": 14880,
+    "observed_score_cells": 11125255200,
+    "null_score_cells": 2848065331200,
+    "global_null_count": 256,
+    "operational_threshold_snr": 126.20158386230469,
+    "inclusive_rank_p_at_threshold": 0.01556420233463035,
+    "threshold_certificate_sha256": "d65048bd962a247a3763eb58c9cad530d9f7db06586f52a01a34e03b4ba0ad71",
+    "global_null_maxima_sha256": "9f1ced12ece55f149a0f3331a69f11450ef4235b0d23272c38f1b268441bd3d1",
+    "global_null_file_sha256": "c15e1c4b8f83652574e9f2f5e55cef62686d75f67ddd8678d669bb4417804449",
+    "calibration_inventory_file_sha256": "c0cded5c277811dc00c17d4489a17ff376f37f905a3ac12d17ccf181e7e9b202"
+  },
+  "completed_on_retention_windows": {
+    "m37_1400p5": {
+      "record_count": 1800,
+      "artifact_file_sha256": "c1add45c631b29615bacd8cca8e1dccf1070db10d40822193b5f1946553d83e6",
+      "retention_certificate_sha256": "a827638df5035c78126c3d8f55ccac951de73731c315bcf816f7764b70449e90"
+    },
+    "m37_1406p5": {
+      "record_count": 218,
+      "artifact_file_sha256": "05a63164f03278c3e444511799c11bdbe310cba196e7213e235c414e58949b56",
+      "retention_certificate_sha256": "c4965b2943757f10e4719d37c0e7a889ffe49546bce149158781018bfb10bfc8"
+    },
+    "m37_1412p5": {
+      "record_count": 225,
+      "artifact_file_sha256": "4d2ea9e5f6e5d9b7af78c84e4d83afa0f38f823dbb2c4bda869616752fc01b84",
+      "retention_certificate_sha256": "12c1d2104d00560dda8e07b23ec2281d4c1b017f05baf5cce820716ae9ab863f"
+    },
+    "m37_1425p0": {
+      "record_count": 0,
+      "artifact_file_sha256": "322079a29e68e3c6bdfaa97fcd39ac04d7ce8125e2c3b2d7682081d9401432f2",
+      "retention_certificate_sha256": "e3f14be657ad673d42ca09be9342a7719b30e0cff4730153503a8df034ef6818"
+    }
+  },
+  "capacity_failure": {
+    "window_id": "m37_1418p5",
+    "scan_kind": "on",
+    "maximum_records_per_window": 10000,
+    "records_before_failing_hypothesis": 8925,
+    "records_in_failing_hypothesis": 1101,
+    "cumulative_record_lower_bound": 10026,
+    "hypotheses_complete_before_failure": 156,
+    "score_cells_examined_through_failure": 117383405,
+    "first_failing_hypothesis": {
+      "template_index": 4,
+      "line_index": -2,
+      "width_index": 7,
+      "width_channels": 129,
+      "active_epochs_zero_based": [0, 1]
+    },
+    "failing_hypothesis_maximum_snr": 133.93687438964844,
+    "truncation_permitted": false,
+    "threshold_adaptation_permitted": false,
+    "evidence_sha256": "e7a21d172939a54933b762a6afa96670365d6e6eeb57a7a45a98777622265ded",
+    "evidence_file_sha256": "b6f9b1a61c18a5f79e5385f9dcfb81cac8d311859dfc8a28caab6e83fec4a5da"
+  },
+  "source_sha256s": {
+    "scripts/m37_v0p6_primary.py": "1efcc303383c86116e2b4f37dd550fe71024f42981f48c799cb59fb95c1c61ec",
+    "scripts/m37_v0p6_parallel_retention.py": "7cb4ef52850e8f7e5af076a9af9d186cfd259a029b53fed844a8f5159eaf05a7",
+    "scripts/m37_v0p6_capacity_diagnostic.py": "51a67d0ed2f6298695e12e38a739ba6a44746de466e4038173641f525f0e4860"
+  }
+}

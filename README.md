@@ -11,22 +11,15 @@ necessarily aimed at Earth.
 
 **Current scientific status:** no technosignature claim. The unresolved
 Milestone 33 follow-up case remains open. Milestone 36 completed the HIP 48714
-primary search and a complete above-threshold retention audit; every retained
-member received physical control evidence and no M36 candidate survives.
-Milestone 37 is now in progress for HD 156668. Its metadata checks, detector
-v0.6 preflight, implementation candidate, restartable metadata-only bootstrap,
-synthetic width-streaming evidence checkpoint, and phase-2 sparse-retention /
-OFF / rank-p reference are published. A bounded aggregate resource checkpoint
-also now binds real synthetic cache ownership across the sequential receiver
-and adjacent-OFF streams. That compact resource envelope can now be published
-and reopened as a canonical, read-only, independently hash-gated artifact. A
-new run manifest can also require an ordered window inventory and fully reopen
-every referenced resource artifact. The complete receiver and adjacent
-evidence payloads can now also be published and independently reopened rather
-than only hash-bound by the compact envelope. The generic contracts have
-passed on a bounded one-window fixture; no complete five-window M37 inventory
-exists, no Milestone 37 telescope spectral payload has been opened or read,
-and there is not yet a scientific M37 search result.
+primary search and complete-retention audit; no M36 candidate survives.
+Milestone 37 then authorized and read the six HD 156668 cadence files, built
+all 240 native caches, completed all five calibration windows, and sealed an
+operational threshold of S/N 126.20158386230469. Exhaustive ON retention
+stopped fail-closed in `m37_1418p5`: the first 157 hypotheses already implied
+at least 10,026 records, above the frozen 10,000-record capacity. Run 004 is
+therefore permanently `M37_INVALID_NO_CONCLUSION`. OFF retention and physical
+or statistical candidate adjudication were not reached, so this is neither a
+signal nor a null result.
 
 Milestone 35 provides the latest survey-level synthesis. At exact ideal S/N 40
 its finite-injection pointwise 95% upper bound on `f(40)` is 33.16%, where
@@ -43,11 +36,12 @@ remain independently auditable.
 Version 0.5.0 is the frozen detector used through the Milestone 36 search. It
 retains the Milestone 7 recurrence statistic, spectral filters, per-epoch
 interference mask, candidate clustering, and RFI-family flags, and adds the
-Milestone 12 local-OFF and receiver-frame alias vetoes. Detector v0.6 is a
-separate Milestone 37 development candidate; it is not yet frozen and does not
-authorize spectral access.
+Milestone 12 local-OFF and receiver-frame alias vetoes. Detector v0.6 is the
+separate Milestone 37 implementation used by the authorized run. Its frozen
+capacity rule, rather than a candidate disposition, determined the invalid
+outcome.
 
-## Milestone 37 in progress
+## Milestone 37 capacity-invalid result
 
 Milestone 37 selected HD 156668 / HIP 84607 at extension rank 37. HD 156668 b
 supplies only the motion template. The metadata-only coverage proof and the
@@ -55,49 +49,35 @@ prospective detector-v0.6 discrete-bank preflight are published. The new bank
 uses 93 motion templates and eight spectral widths to preserve coverage for
 the higher-smearing target without inspecting telescope spectral values.
 
-The non-frozen v0.6 implementation candidate now includes native-channel
-filtering, exhaustive retention, OFF and adjacent-OFF evidence,
-receiver-frame alias handling, global rank-p significance, persistence
-artifacts, and a restartable run journal. A real metadata-only bootstrap
-reproduced and reopened its factor bundle and stopped at
-`factor_bundle_ready`, before the spectral boundary. Receiver-frame and
-adjacent-OFF evidence can now stream one cache width at a time under explicit
-mapped-byte accounting while reproducing their full-inventory results exactly.
-A bounded phase-2 KAT also reproduces synthetic exhaustive ON/OFF retention,
-all three retained-OFF disposition branches and inclusive rank-p boundaries.
-A phase-3 reference now binds that exact ancestry through complete synthetic
-single-adjacent-OFF evidence and receiver-frame alias connected components,
-including a transitive identity component, match/no-match branches and all
-five final physical dispositions. The reference still depends on the capped
-phase-2 dense-score oracle and therefore does not unlock the production gate.
-Separately, a physical resource executor proves that receiver mappings are
-closed before adjacent-OFF mappings open and binds both stages to one run,
-cache manifest, factor bundle, retention ancestry, per-cache receipt inventory
-and measured mapped-byte cap. Its complete receiver and adjacent payload is
-now joined without rewriting upstream evidence to the retained-OFF and final
-receiver-alias products. The resulting canonical read-only disposition
-artifact revalidates all inner payloads and cross-stage identities after a
-restart. A second run manifest requires the exact ordered window inventory,
-reopens every disposition child and aggregates final-disposition and measured
-resource counts. The M37 journal can enter `physical_disposition_complete`
-only through this reopened exact five-window manifest; its metadata also
-enforces the five-window count and the 512-MiB mapped-byte cap. These remain
-bounded synthetic contract tests rather than an M37 production execution.
+The v0.6 production path includes resumable identity-bound range transport,
+native-channel filtering, exhaustive retention, OFF and adjacent-OFF evidence,
+receiver-frame alias handling, global rank-p significance, immutable
+persistence artifacts and a hash-chained run journal. Before production, the
+synthetic checkpoints exercised the full downstream contracts and resource
+envelopes.
 
-The complete 279-test repository suite passes with one expected opt-in
-benchmark skip in an isolated candidate stack using NumPy 2.5.2, Astropy
-8.0.1, h5py 3.16.0, hdf5plugin 6.0.0, fsspec 2026.7.0 and Matplotlib 3.11.1.
-The exact-grid benchmark also passes separately with its frozen output hash.
-The available Python is 3.12.13 rather than the prospective 3.12.14 pin, so
-this is not represented as the final exact runtime.
+The complete local suite subsequently passed 287 of 288 tests with one
+expected benchmark skip. Run 004 independently reopened every sparse-mirror
+segment, published 30 normalized window/scan products and verified
+11,545,072,128 cache-payload bytes. Its five calibration windows evaluated
+14,880 hypotheses and 2,848,065,331,200 null score cells. The exact 256-member
+global null yielded inclusive rank-p 0.01556420233463035 at the operational
+threshold.
 
-M37 remains an engineering milestone, not a scientific result. The complete
-production completeness path still lacks a concrete operational pipeline and
-the mandatory full-replay benchmark or an equivalent production sparse/local
-proof. The final exact runtime and the remaining production lifecycle must
-also be closed and frozen before the already requested six-file authorization
-may safely cross the spectral boundary. No HD 156668 telescope payload was
-contacted by this checkpoint.
+Retention was parallelized by independent frequency window without changing
+the artifact schema or hypothesis order. Four window artifacts completed with
+1,800, 218, 225 and zero ON records. An exact replay located the first capacity
+overflow in the remaining window at template 4, width 129, epochs `[0, 1]`:
+8,925 prior records plus 1,101 in that hypothesis gave a lower bound of 10,026.
+The journal was permanently advanced to `invalid` with reason
+`retention-capacity-overflow`.
+
+The frozen protocol forbids truncation and threshold adaptation. The partial
+window artifacts cannot support candidate, null, sensitivity or population
+claims. Any new attempt requires a separately documented run and must preserve
+the Run 004 invalid result. See
+`MILESTONE_37_PRIMARY_CAPACITY_RESULT.md` and
+`results_m37_v0p6_primary_004/result.json`.
 
 ## Milestone 36 result
 
@@ -778,6 +758,13 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Key files
 
+- `MILESTONE_37_PRIMARY_CAPACITY_RESULT.md` — authorized spectral execution and fail-closed capacity result.
+- `results_m37_v0p6_primary_004/result.json` — machine-readable Run 004 summary.
+- `results_m37_v0p6_primary_004/retention-capacity-failure.json` — exact immutable overflow evidence.
+- `results_m37_v0p6_primary_004/final-journal-event.json` — terminal invalidation event.
+- `RESULTS_MANIFEST_M37_PRIMARY_004.sha256` — report and result identities.
+- `scripts/m37_v0p6_parallel_retention.py` — restartable parallel window retention.
+- `scripts/m37_v0p6_capacity_diagnostic.py` — deterministic capacity-failure replay and invalidation.
 - `MILESTONE_37_TARGET_SELECTION.md` — fixed HD 156668 target and untouched cadence.
 - `MILESTONE_37_COVERAGE_PREFLIGHT_PLAN.md` — continuous motion-plus-width proof.
 - `MILESTONE_37_DETECTOR_V0P6_BANK_PREFLIGHT_PLAN.md` — prospective v0.6 bank.
