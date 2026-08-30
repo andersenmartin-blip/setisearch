@@ -778,6 +778,33 @@ class V0P6FactorBasisTests(unittest.TestCase):
 
 
 class V0P6NativeFilterTests(unittest.TestCase):
+    def test_real_m37_endpoint_one_ulp_roundoff_is_accepted(self):
+        channel_count = 32
+        raw_zero_hz = 1_400_000_000.0
+        channel_width_hz = 2.7939677238464355
+        geometry = NativeFrequencyGeometry(
+            raw_zero_hz, channel_width_hz, channel_count
+        )
+        frequency = (
+            raw_zero_hz
+            + np.arange(channel_count, dtype=np.float64) * channel_width_hz
+        ) / 1e6
+        # Reproduce the HDF5 header-affine path: MHz-to-Hz conversion can
+        # differ from the preflight geometry by exactly one binary64 ULP.
+        frequency[-1] = np.nextafter(frequency[-1], -np.inf)
+        grid = make_proxy_carrier_grid(
+            float(frequency[channel_count // 2]),
+            channel_width_hz,
+            1,
+            0,
+        )
+        data = np.zeros((1, channel_count), dtype=np.float32)
+        factors = np.ones(1, dtype=np.float64)
+        validated = v06._validate_gather_inputs(
+            data, frequency, geometry, factors, grid, 1
+        )
+        self.assertIs(validated[0], data)
+
     def test_direct_gathers_reject_inexact_spectral_widths(self):
         frequency = native_axis(100)
         data = np.zeros((1, 100), dtype=np.float32)

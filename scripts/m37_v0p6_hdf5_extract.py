@@ -11,9 +11,8 @@ normalization.
 
 Importing this module performs no network or telescope I/O.  The iterator
 requires an explicit spectral-access authorization boolean before even the
-remote HEAD request.  This implementation is prospective software plumbing;
-it must not be invoked until the surrounding M37 protocol publishes its final
-authorization and output receipts.
+remote HEAD request.  Authorized reads use the identity-bound, restartable
+sparse range transport rather than a volatile generic block cache.
 """
 
 from __future__ import annotations
@@ -22,10 +21,10 @@ import gc
 import hashlib
 from pathlib import Path
 from typing import Any, Iterator, Mapping, Sequence
-from urllib.request import Request, urlopen
 
 import numpy as np
 
+from seti_repeater import http_range_v0p6 as transport
 from seti_repeater import source_v0p6 as source
 
 
@@ -41,20 +40,8 @@ def _require_frozen_implementation() -> None:
 
 
 def _remote_identity(url: str) -> tuple[int, str]:
-    request = Request(
-        url,
-        method="HEAD",
-        headers={"User-Agent": M37_V0P6_EXTRACTOR_USER_AGENT},
-    )
-    with urlopen(request, timeout=90) as response:
-        size = int(response.headers["Content-Length"])
-        accepts = str(response.headers.get("Accept-Ranges", ""))
-        etag = response.headers.get("ETag")
-    if "bytes" not in accepts.lower() or not isinstance(etag, str):
-        raise RuntimeError(
-            "M37 source does not advertise byte ranges and an exact ETag"
-        )
-    return size, etag
+    identity = transport.remote_identity(url)
+    return identity.size, identity.etag
 
 
 def _json_scalar(value: Any) -> Any:
@@ -80,12 +67,69 @@ def _observed_header(dataset: Any, attributes: Mapping[str, Any]) -> dict[str, A
     }
 
 
+def _validated_dataset(handle: Any, definition: Mapping[str, Any]) -> tuple[Any, dict[str, Any]]:
+    dataset = handle["data"]
+    attributes = {
+        **{key: _json_scalar(value) for key, value in handle.attrs.items()},
+        **{key: _json_scalar(value) for key, value in dataset.attrs.items()},
+    }
+    header = _observed_header(dataset, attributes)
+    if header != dict(definition["expected_header"]):
+        raise source.core.V0P6ContractError(
+            "M37 HDF5 header differs from the published scan identity"
+        )
+    return dataset, header
+
+
+def _iter_handle_products(
+    handle: Any,
+    *,
+    definition: Mapping[str, Any],
+    scan_definitions: Sequence[Mapping[str, Any]],
+    scan_label: str,
+    requested_windows: Sequence[str],
+    remote_size: int,
+    etag: str,
+) -> Iterator[source.M37NormalizedScanProduct]:
+    dataset, header = _validated_dataset(handle, definition)
+    for window_id in requested_windows:
+        start, stop = source.m37_extraction_interval(window_id)
+        raw_native = np.ascontiguousarray(dataset[:, 0, start:stop], dtype="<f4")
+        frequency_native = np.ascontiguousarray(
+            float(header["fch1_mhz"])
+            + np.arange(start, stop, dtype=np.float64)
+            * float(header["foff_mhz"]),
+            dtype="<f8",
+        )
+        extracted = source.attest_m37_extracted_scan(
+            raw_native,
+            frequency_native,
+            scan_definitions,
+            window_id=window_id,
+            scan_label=scan_label,
+            observed_url=str(definition["url"]),
+            observed_remote_size_bytes=remote_size,
+            observed_etag=etag,
+            observed_header=header,
+            channel_start=start,
+            channel_stop=stop,
+        )
+        product = source.normalize_m37_extracted_scan(extracted)
+        del raw_native, frequency_native, extracted
+        gc.collect()
+        yield product
+        del product
+        gc.collect()
+
+
 def iter_m37_normalized_scan_products(
     scan_definitions: Sequence[Mapping[str, Any]],
     *,
     scan_label: str,
     window_ids: Sequence[str] = source.core.M37_WINDOW_IDS,
     spectral_access_authorized: bool = False,
+    range_mirror_root: str | Path | None = None,
+    range_workers: int = transport.DEFAULT_WORKERS,
 ) -> Iterator[source.M37NormalizedScanProduct]:
     """Yield exact products one window at a time from one authorized HDF5 scan.
 
@@ -117,6 +161,15 @@ def iter_m37_normalized_scan_products(
         raise source.core.V0P6ContractError(
             "M37 extractor window inventory is empty, duplicated, or unknown"
         )
+    if range_mirror_root is None:
+        raise source.core.V0P6ContractError(
+            "M37 extractor requires a persistent sparse range-mirror root"
+        )
+    mirror_root = Path(range_mirror_root)
+    if not mirror_root.is_dir():
+        raise source.core.V0P6ContractError(
+            "M37 sparse range-mirror root does not exist"
+        )
     remote_size, etag = _remote_identity(str(definition["url"]))
     if (
         remote_size != int(definition["expected_remote_size_bytes"])
@@ -127,60 +180,56 @@ def iter_m37_normalized_scan_products(
         )
 
     # Optional extraction dependencies remain isolated from package import.
-    import fsspec
     import h5py
     import hdf5plugin  # noqa: F401  Registers the archive compression filter.
 
-    with fsspec.open(
-        str(definition["url"]),
-        mode="rb",
-        block_size=4_194_304,
-        cache_type="blockcache",
-    ) as remote:
-        with h5py.File(remote, "r") as handle:
-            dataset = handle["data"]
-            attributes = {
-                **{key: _json_scalar(value) for key, value in handle.attrs.items()},
-                **{
-                    key: _json_scalar(value)
-                    for key, value in dataset.attrs.items()
-                },
-            }
-            header = _observed_header(dataset, attributes)
-            if header != dict(definition["expected_header"]):
-                raise source.core.V0P6ContractError(
-                    "M37 HDF5 header differs from the published scan identity"
-                )
-            for window_id in requested_windows:
-                start, stop = source.m37_extraction_interval(window_id)
-                raw_native = np.ascontiguousarray(
-                    dataset[:, 0, start:stop], dtype="<f4"
-                )
-                frequency_native = np.ascontiguousarray(
-                    float(header["fch1_mhz"])
-                    + np.arange(start, stop, dtype=np.float64)
-                    * float(header["foff_mhz"]),
-                    dtype="<f8",
-                )
-                extracted = source.attest_m37_extracted_scan(
-                    raw_native,
-                    frequency_native,
-                    scan_definitions,
-                    window_id=window_id,
-                    scan_label=scan_label,
-                    observed_url=str(definition["url"]),
-                    observed_remote_size_bytes=remote_size,
-                    observed_etag=etag,
-                    observed_header=header,
-                    channel_start=start,
-                    channel_stop=stop,
-                )
-                product = source.normalize_m37_extracted_scan(extracted)
-                del raw_native, frequency_native, extracted
-                gc.collect()
-                yield product
-                del product
-                gc.collect()
+    identity = transport.RemoteIdentity(
+        str(definition["url"]), remote_size, etag
+    )
+    mirror_path = mirror_root / f"{scan_label}.h5.sparse"
+    intervals = tuple(
+        source.m37_extraction_interval(window_id)
+        for window_id in requested_windows
+    )
+    with transport.SparseRangeMirror(
+        mirror_path,
+        identity,
+        workers=range_workers,
+    ) as mirror:
+        mirror.prefetch(
+            (
+                transport.ByteRange(
+                    0,
+                    min(remote_size, transport.HDF5_METADATA_PREFIX_BYTES),
+                ),
+            )
+        )
+        mirror.seek(0)
+        with h5py.File(mirror, "r") as handle:
+            dataset, _ = _validated_dataset(handle, definition)
+            ranges = transport.discover_hdf5_chunk_ranges(dataset, intervals)
+            plan = transport.range_plan_record(
+                identity,
+                dataset_shape=dataset.shape,
+                dataset_chunks=dataset.chunks,
+                channel_intervals=intervals,
+                ranges=ranges,
+            )
+        transport.publish_range_plan(
+            mirror_root / f"{scan_label}.range-plan.json", plan
+        )
+        mirror.prefetch(ranges)
+        mirror.seek(0)
+        with h5py.File(mirror, "r") as handle:
+            yield from _iter_handle_products(
+                handle,
+                definition=definition,
+                scan_definitions=scan_definitions,
+                scan_label=scan_label,
+                requested_windows=requested_windows,
+                remote_size=remote_size,
+                etag=etag,
+            )
 
 
 def main() -> None:

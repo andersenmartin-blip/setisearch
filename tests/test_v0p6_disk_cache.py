@@ -211,6 +211,76 @@ class V0P6DiskCacheTests(unittest.TestCase):
                 [item.name for item in Path(directory).iterdir()], [path.name]
             )
 
+    def test_validation_cache_hashes_each_unchanged_file_state_once(self):
+        plan, cache = _fixture()
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "native.cache"
+            receipt = disk_cache.publish_native_filter_cache(path, cache)
+            validation_cache = disk_cache.NativeFilterCacheValidationCache()
+            arguments = {
+                "expected_plan": plan,
+                "expected_plan_sha256": receipt.plan_sha256,
+                "expected_manifest_sha256": receipt.manifest_sha256,
+                "validation_cache": validation_cache,
+            }
+            with patch.object(
+                disk_cache,
+                "_validate_payload_stream",
+                wraps=disk_cache._validate_payload_stream,
+            ) as validator:
+                with disk_cache.open_native_filter_cache(path, **arguments):
+                    pass
+                with disk_cache.open_native_filter_cache(path, **arguments):
+                    pass
+                self.assertEqual(validator.call_count, 1)
+                self.assertEqual(validation_cache.entry_count, 1)
+
+                path.chmod(0o644)
+                with path.open("r+b") as stream:
+                    stream.seek(disk_cache.HEADER_SIZE)
+                    first = stream.read(1)
+                    stream.seek(disk_cache.HEADER_SIZE)
+                    stream.write(bytes([first[0] ^ 1]))
+                path.chmod(0o444)
+                with self.assertRaisesRegex(V0P6IncompleteError, "payload SHA-256"):
+                    disk_cache.open_native_filter_cache(path, **arguments)
+                self.assertEqual(validator.call_count, 2)
+
+    def test_validation_cache_type_and_capacity_fail_closed(self):
+        plan, cache = _fixture()
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "native.cache"
+            receipt = disk_cache.publish_native_filter_cache(path, cache)
+            arguments = {
+                "expected_plan": plan,
+                "expected_plan_sha256": receipt.plan_sha256,
+                "expected_manifest_sha256": receipt.manifest_sha256,
+            }
+            with self.assertRaisesRegex(V0P6ContractError, "validation cache"):
+                disk_cache.open_native_filter_cache(
+                    path, validation_cache=object(), **arguments
+                )
+            with self.assertRaisesRegex(V0P6CapacityError, "positive"):
+                disk_cache.NativeFilterCacheValidationCache(0)
+
+            first = disk_cache.NativeFilterCacheValidationCache(1)
+            with disk_cache.open_native_filter_cache(
+                path, validation_cache=first, **arguments
+            ):
+                pass
+            second_path = Path(directory) / "second.cache"
+            second_receipt = disk_cache.publish_native_filter_cache(
+                second_path, cache
+            )
+            with self.assertRaisesRegex(V0P6CapacityError, "cap"):
+                disk_cache.open_native_filter_cache(
+                    second_path,
+                    expected_plan=plan,
+                    expected_plan_sha256=second_receipt.plan_sha256,
+                    expected_manifest_sha256=second_receipt.manifest_sha256,
+                    validation_cache=first,
+                )
+
     def test_open_requires_both_independent_identities(self):
         plan, cache = _fixture()
         with tempfile.TemporaryDirectory() as directory:

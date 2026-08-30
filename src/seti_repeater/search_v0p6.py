@@ -577,16 +577,21 @@ def _validate_gather_inputs(
     expected_high_hz = float(geometry.raw_zero_hz) + (
         int(geometry.channel_count) - 1
     ) * float(geometry.channel_width_hz)
+    endpoint_tolerance_hz = max(
+        2e-7,
+        4.0 * math.ulp(float(geometry.raw_zero_hz)),
+        4.0 * math.ulp(expected_high_hz),
+    )
     if not math.isclose(
         observed_low_hz,
         float(geometry.raw_zero_hz),
         rel_tol=0.0,
-        abs_tol=2e-7,
+        abs_tol=endpoint_tolerance_hz,
     ) or not math.isclose(
         observed_high_hz,
         expected_high_hz,
         rel_tol=0.0,
-        abs_tol=2e-7,
+        abs_tol=endpoint_tolerance_hz,
     ):
         raise V0P6ContractError(
             "native frequency array endpoints do not match frozen Hz geometry"

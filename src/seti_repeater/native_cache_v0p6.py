@@ -2,9 +2,10 @@
 
 The artifact format is intentionally small and rigid: a fixed 64-KiB header
 followed by one C-order little-endian float32 payload.  Opening a cache always
-requires identities supplied independently of the file, validates the full
-payload exactly once, and then exposes an O(1)-checked read-only mmap for the
-hot gather path.
+requires identities supplied independently of the file.  A process-local
+validation cache may amortize the full payload pass only while the complete
+inode/stat signature and all independently supplied identities remain exact;
+the returned read-only mmap still receives O(1) stat checks on every gather.
 """
 
 from __future__ import annotations
@@ -472,6 +473,70 @@ def _stat_signature(metadata: os.stat_result) -> tuple[int, ...]:
     )
 
 
+class NativeFilterCacheValidationCache:
+    """Remember fully validated immutable cache inodes within one process.
+
+    The cache is deliberately bounded and is keyed by the absolute path.  A
+    hit additionally requires the exact device/inode, mode, link, ownership,
+    size, mtime and ctime signature plus all three independent content/plan
+    identities.  Any filesystem change therefore falls back to the full
+    streaming payload validation.
+    """
+
+    def __init__(self, maximum_entries: int = 512) -> None:
+        maximum = _exact_int(maximum_entries, "validation-cache entry cap")
+        if maximum < 1:
+            raise core.V0P6CapacityError(
+                "validation-cache entry cap must be positive"
+            )
+        self.maximum_entries = maximum
+        self._entries: dict[
+            Path, tuple[tuple[int, ...], str, str, str]
+        ] = {}
+        self._lock = threading.RLock()
+
+    @property
+    def entry_count(self) -> int:
+        with self._lock:
+            return len(self._entries)
+
+    def _matches(
+        self,
+        path: Path,
+        signature: tuple[int, ...],
+        plan_sha256: str,
+        manifest_sha256: str,
+        payload_sha256: str,
+    ) -> bool:
+        with self._lock:
+            return self._entries.get(path) == (
+                signature,
+                plan_sha256,
+                manifest_sha256,
+                payload_sha256,
+            )
+
+    def _remember(
+        self,
+        path: Path,
+        signature: tuple[int, ...],
+        plan_sha256: str,
+        manifest_sha256: str,
+        payload_sha256: str,
+    ) -> None:
+        with self._lock:
+            if path not in self._entries and len(self._entries) >= self.maximum_entries:
+                raise core.V0P6CapacityError(
+                    "validation-cache entry cap would be exceeded"
+                )
+            self._entries[path] = (
+                signature,
+                plan_sha256,
+                manifest_sha256,
+                payload_sha256,
+            )
+
+
 def _validate_payload_stream(
     mapping: mmap.mmap,
     *,
@@ -689,6 +754,7 @@ def open_native_filter_cache(
     expected_plan_sha256: str,
     expected_manifest_sha256: str,
     arena: NativeFilterCacheArena | None = None,
+    validation_cache: NativeFilterCacheValidationCache | None = None,
 ) -> DiskNativeFilterCache:
     """Open, fully validate once, and mmap one published cache read-only."""
     core.validate_native_filter_cache_plan(expected_plan)
@@ -705,6 +771,12 @@ def open_native_filter_cache(
     if arena is not None and not isinstance(arena, NativeFilterCacheArena):
         raise core.V0P6ContractError(
             "cache arena must be a NativeFilterCacheArena"
+        )
+    if validation_cache is not None and not isinstance(
+        validation_cache, NativeFilterCacheValidationCache
+    ):
+        raise core.V0P6ContractError(
+            "validation cache must be a NativeFilterCacheValidationCache"
         )
 
     payload_nbytes = expected_plan.payload_nbytes
@@ -754,21 +826,36 @@ def open_native_filter_cache(
             observed_file_nbytes=initial_metadata.st_size,
         )
         mapping = mmap.mmap(file_descriptor, 0, access=mmap.ACCESS_READ)
-        _validate_payload_stream(
-            mapping,
-            payload_nbytes=payload_nbytes,
-            expected_payload_sha256=payload_sha256,
-        )
+        signature = _stat_signature(initial_metadata)
+        if validation_cache is None or not validation_cache._matches(
+            cache_path,
+            signature,
+            expected_plan_sha256,
+            manifest_sha256,
+            payload_sha256,
+        ):
+            _validate_payload_stream(
+                mapping,
+                payload_nbytes=payload_nbytes,
+                expected_payload_sha256=payload_sha256,
+            )
 
         final_metadata = os.fstat(file_descriptor)
         final_path_metadata = os.stat(cache_path, follow_symlinks=False)
-        signature = _stat_signature(initial_metadata)
         if (
             _stat_signature(final_metadata) != signature
             or _stat_signature(final_path_metadata) != signature
         ):
             raise core.V0P6IncompleteError(
                 "native filter cache changed during full validation"
+            )
+        if validation_cache is not None:
+            validation_cache._remember(
+                cache_path,
+                signature,
+                expected_plan_sha256,
+                manifest_sha256,
+                payload_sha256,
             )
         values = np.ndarray(
             shape=expected_plan.payload_shape,
