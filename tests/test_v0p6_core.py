@@ -804,6 +804,23 @@ class V0P6NativeFilterTests(unittest.TestCase):
             data, frequency, geometry, factors, grid, 1
         )
         self.assertIs(validated[0], data)
+        plan = plan_native_filter_cache(
+            geometry,
+            factors[None, :],
+            grid,
+            1,
+            window_id="synthetic-ulp",
+            scan_label="synthetic-on",
+            scan_kind="on",
+            source_sha256="1" * 64,
+            factor_basis_sha256_value="2" * 64,
+            factor_basis_labels_sha256_value="3" * 64,
+            scan_inventory_sha256_value="4" * 64,
+            factor_scan_selection_sha256_value="5" * 64,
+            template_bank_sha256_value="6" * 64,
+        )
+        cache = build_native_filter_cache(data, frequency, plan)
+        self.assertEqual(cache.plan, plan)
 
     def test_direct_gathers_reject_inexact_spectral_widths(self):
         frequency = native_axis(100)

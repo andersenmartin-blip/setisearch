@@ -515,6 +515,15 @@ def _native_grid_parameters(frequency_mhz: np.ndarray) -> tuple[float, float]:
     return float(frequency[0]), df_mhz
 
 
+def _frequency_endpoint_tolerance_hz(low_hz: float, high_hz: float) -> float:
+    """Bound header-affine MHz/Hz conversion by four binary64 ULPs."""
+    return max(
+        2e-7,
+        4.0 * math.ulp(float(low_hz)),
+        4.0 * math.ulp(float(high_hz)),
+    )
+
+
 def nearest_native_indices(
     geometry: NativeFrequencyGeometry,
     requested_hz: np.ndarray,
@@ -577,10 +586,8 @@ def _validate_gather_inputs(
     expected_high_hz = float(geometry.raw_zero_hz) + (
         int(geometry.channel_count) - 1
     ) * float(geometry.channel_width_hz)
-    endpoint_tolerance_hz = max(
-        2e-7,
-        4.0 * math.ulp(float(geometry.raw_zero_hz)),
-        4.0 * math.ulp(expected_high_hz),
+    endpoint_tolerance_hz = _frequency_endpoint_tolerance_hz(
+        float(geometry.raw_zero_hz), expected_high_hz
     )
     if not math.isclose(
         observed_low_hz,
@@ -1103,18 +1110,21 @@ def build_native_filter_cache(
     expected_high_hz = plan.geometry.raw_zero_hz + (
         plan.geometry.channel_count - 1
     ) * plan.geometry.channel_width_hz
+    endpoint_tolerance_hz = _frequency_endpoint_tolerance_hz(
+        plan.geometry.raw_zero_hz, expected_high_hz
+    )
     if (
         not math.isclose(
             float(frequency[0]) * 1e6,
             plan.geometry.raw_zero_hz,
             rel_tol=0.0,
-            abs_tol=2e-7,
+            abs_tol=endpoint_tolerance_hz,
         )
         or not math.isclose(
             float(frequency[-1]) * 1e6,
             expected_high_hz,
             rel_tol=0.0,
-            abs_tol=2e-7,
+            abs_tol=endpoint_tolerance_hz,
         )
     ):
         raise V0P6ContractError("cache source frequency geometry changed")
