@@ -32,6 +32,7 @@ import numpy as np
 import m37_v0p6_bootstrap as bootstrap_cli
 import m37_v0p6_hdf5_extract as extractor
 from seti_repeater import cache_manifest_v0p6 as cache_manifest
+from seti_repeater import capacity_v0p6p1 as capacity_v0p6p1
 from seti_repeater import factor_bundle_v0p6 as factor_io
 from seti_repeater import native_cache_v0p6 as native_cache
 from seti_repeater import null_artifact_v0p6 as null_artifact
@@ -50,6 +51,9 @@ EXTRACTION_INVENTORY_PATH = "extraction-inventory.json"
 CALIBRATION_INVENTORY_PATH = "calibration-inventory.json"
 GLOBAL_NULL_PATH = "global-null.json"
 M37_PRODUCT_WIDTH_WORKERS = 2
+CAPACITY_AMENDMENT_PATH = (
+    ROOT / "config/hd156668b_m37_v0p6p1_capacity_amendment.json"
+)
 
 
 def _sha256_bytes(payload: bytes) -> str:
@@ -153,6 +157,9 @@ def _status(root: Path) -> dict[str, Any]:
     )
     if journal.run_id != record["run_id"] or journal.stage != record["stage"]:
         raise core.V0P6IncompleteError("controller and journal differ")
+    amendment = record.get("capacity_amendment")
+    if amendment is not None:
+        capacity_v0p6p1.validate_m37_v0p6p1_capacity_profile_record(amendment)
     return record
 
 
@@ -170,16 +177,25 @@ def _source_hashes() -> dict[str, str]:
         "hdf5_extractor": ROOT / "scripts/m37_v0p6_hdf5_extract.py",
         "http_range_transport": ROOT / "src/seti_repeater/http_range_v0p6.py",
         "native_cache": ROOT / "src/seti_repeater/native_cache_v0p6.py",
+        "capacity_amendment_v0p6p1": (
+            ROOT / "src/seti_repeater/capacity_v0p6p1.py"
+        ),
+        "capacity_amendment_config_v0p6p1": CAPACITY_AMENDMENT_PATH,
         "primary_controller": ROOT / "scripts/m37_v0p6_primary.py",
         "source_boundary": ROOT / "src/seti_repeater/source_v0p6.py",
     }
     return {name: _sha256_file(path) for name, path in sorted(paths.items())}
 
 
-def _environment() -> dict[str, Any]:
+def _environment(*, capacity_amendment: bool = False) -> dict[str, Any]:
     return {
         **bootstrap_cli.environment_record(),
-        "purpose": "m37-detector-v0p6-authorized-primary-analysis",
+        "purpose": (
+            "m37-detector-v0p6p1-authorized-primary-analysis"
+            if capacity_amendment
+            else "m37-detector-v0p6-authorized-primary-analysis"
+        ),
+        "post_contact_capacity_amendment": capacity_amendment,
         "spectral_access_authorized": False,
         "spectral_dataset_values_read": False,
         "range_workers": extractor.transport.DEFAULT_WORKERS,
@@ -187,12 +203,25 @@ def _environment() -> dict[str, Any]:
     }
 
 
-def prepare(root: Path, run_id: str) -> dict[str, Any]:
+def prepare(
+    root: Path, run_id: str, *, capacity_amendment: bool = False
+) -> dict[str, Any]:
     if root.exists():
         record = _status(root)
         if record["run_id"] != run_id:
             raise core.V0P6ContractError("existing run ID differs")
+        if (record.get("capacity_amendment") is not None) != capacity_amendment:
+            raise core.V0P6ContractError(
+                "existing run capacity protocol differs"
+            )
         return record
+    profile = (
+        capacity_v0p6p1.open_m37_v0p6p1_capacity_amendment(
+            CAPACITY_AMENDMENT_PATH
+        )
+        if capacity_amendment
+        else None
+    )
     upstream = json.loads(bootstrap_cli.UPSTREAM.read_text())
     bank_result = json.loads(bootstrap_cli.BANK_RESULT.read_text())
     receipt = bootstrap_runner.bootstrap_m37_run(
@@ -200,7 +229,7 @@ def prepare(root: Path, run_id: str) -> dict[str, Any]:
         run_id=run_id,
         upstream_metadata=upstream,
         bank_preflight_result=bank_result,
-        environment=_environment(),
+        environment=_environment(capacity_amendment=capacity_amendment),
         source_hashes=_source_hashes(),
     )
     record = {
@@ -212,6 +241,8 @@ def prepare(root: Path, run_id: str) -> dict[str, Any]:
         "bootstrap": receipt.__dict__,
         "artifacts": {},
     }
+    if profile is not None:
+        record["capacity_amendment"] = profile.as_record()
     _write_controller(root, record)
     _emit_progress("primary_prepared", run_id=run_id, root=str(root))
     return record
@@ -285,6 +316,8 @@ def authorize(root: Path, record: dict[str, Any]) -> dict[str, Any]:
             "on_demand_read_ahead_bytes": extractor.transport.ON_DEMAND_READ_AHEAD_BYTES,
         },
     }
+    if record.get("capacity_amendment") is not None:
+        basis["capacity_amendment"] = record["capacity_amendment"]
     authorization_sha256 = _publish_or_verify(root / AUTHORIZATION_PATH, basis)
     updated = _advance(
         root,
@@ -766,6 +799,14 @@ def retain(
     validator = validation_cache or native_cache.NativeFilterCacheValidationCache()
     (root / "retention").mkdir(exist_ok=True)
     updated = record
+    amendment = record.get("capacity_amendment")
+    profile = (
+        None
+        if amendment is None
+        else capacity_v0p6p1.validate_m37_v0p6p1_capacity_profile_record(
+            amendment
+        )
+    )
     for kind in kinds:
         stage = f"{kind}_retention_complete"
         if _stage_at_least(updated, stage):
@@ -775,14 +816,25 @@ def retain(
             raise core.V0P6IncompleteError(f"{kind.upper()} retention prerequisite is absent")
         inventory: dict[str, Any] = {}
         for window_id in core.M37_WINDOW_IDS:
-            ledger = core.make_m37_retention_ledger(
-                window_id,
-                kind,
-                global_null.threshold,
-                bundle.template_bank,
-                bundle.basis,
-                bundle.table,
-            )
+            if profile is None:
+                ledger = core.make_m37_retention_ledger(
+                    window_id,
+                    kind,
+                    global_null.threshold,
+                    bundle.template_bank,
+                    bundle.basis,
+                    bundle.table,
+                )
+            else:
+                ledger = capacity_v0p6p1.make_m37_v0p6p1_retention_ledger(
+                    profile,
+                    window_id,
+                    kind,
+                    global_null.threshold,
+                    bundle.template_bank,
+                    bundle.basis,
+                    bundle.table,
+                )
             for template_index, template in enumerate(bundle.template_bank):
                 products, mask = _template_products(
                     root,
@@ -858,14 +910,22 @@ def retain(
     return updated
 
 
-def run_cache(root: Path, run_id: str) -> dict[str, Any]:
-    record = prepare(root, run_id)
+def run_cache(
+    root: Path, run_id: str, *, capacity_amendment: bool = False
+) -> dict[str, Any]:
+    record = prepare(
+        root, run_id, capacity_amendment=capacity_amendment
+    )
     record = authorize(root, record)
     return build_caches(root, record)
 
 
-def analyze(root: Path, run_id: str) -> dict[str, Any]:
-    record = run_cache(root, run_id)
+def analyze(
+    root: Path, run_id: str, *, capacity_amendment: bool = False
+) -> dict[str, Any]:
+    record = run_cache(
+        root, run_id, capacity_amendment=capacity_amendment
+    )
     validator = native_cache.NativeFilterCacheValidationCache()
     record, global_null = calibrate(root, record, validator)
     record = retain(root, record, global_null, validator)
@@ -890,17 +950,38 @@ def main() -> None:
     )
     parser.add_argument("--run-root", type=Path, default=DEFAULT_RUN_ROOT)
     parser.add_argument("--run-id", default=DEFAULT_RUN_ID)
+    parser.add_argument(
+        "--capacity-amendment-v0p6p1",
+        action="store_true",
+        help="use the frozen post-contact capacity-only v0.6.1 amendment",
+    )
     args = parser.parse_args()
     if args.command == "prepare":
-        result = prepare(args.run_root, args.run_id)
+        result = prepare(
+            args.run_root,
+            args.run_id,
+            capacity_amendment=args.capacity_amendment_v0p6p1,
+        )
     elif args.command == "status":
         result = _status(args.run_root)
     elif args.command == "run-cache":
-        result = run_cache(args.run_root, args.run_id)
+        result = run_cache(
+            args.run_root,
+            args.run_id,
+            capacity_amendment=args.capacity_amendment_v0p6p1,
+        )
     elif args.command == "analyze":
-        result = analyze(args.run_root, args.run_id)
+        result = analyze(
+            args.run_root,
+            args.run_id,
+            capacity_amendment=args.capacity_amendment_v0p6p1,
+        )
     else:
-        result = prepare(args.run_root, args.run_id)
+        result = prepare(
+            args.run_root,
+            args.run_id,
+            capacity_amendment=args.capacity_amendment_v0p6p1,
+        )
         if args.command in {
             "authorize",
             "build-caches",

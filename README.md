@@ -60,7 +60,7 @@ persistence artifacts and a hash-chained run journal. Before production, the
 synthetic checkpoints exercised the full downstream contracts and resource
 envelopes.
 
-The complete local suite subsequently passed 291 of 292 tests with one
+The complete local suite subsequently passed 296 of 297 tests with one
 expected benchmark skip. Run 004 independently reopened every sparse-mirror
 segment, published 30 normalized window/scan products and verified
 11,545,072,128 cache-payload bytes. Its five calibration windows evaluated

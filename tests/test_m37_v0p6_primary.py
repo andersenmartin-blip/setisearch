@@ -8,6 +8,7 @@ import tempfile
 import unittest
 
 from seti_repeater import run_state_v0p6 as state
+from seti_repeater import search_v0p6 as core
 from seti_repeater import source_v0p6 as source
 
 
@@ -53,6 +54,26 @@ class M37PrimaryControllerTests(unittest.TestCase):
         )
         self.assertIn("http_range_transport", hashes)
         self.assertIn("primary_controller", hashes)
+
+    def test_capacity_amendment_is_explicit_and_restart_bound(self):
+        primary = _module()
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory) / "run"
+            record = primary.prepare(
+                root, "synthetic-v0p6p1", capacity_amendment=True
+            )
+            self.assertEqual(
+                record["capacity_amendment"]["capacities"][
+                    "maximum_records_per_window"
+                ],
+                50_000,
+            )
+            self.assertEqual(primary._status(root), record)
+            with self.assertRaisesRegex(
+                core.V0P6ContractError,
+                "existing run capacity protocol differs",
+            ):
+                primary.prepare(root, "synthetic-v0p6p1")
 
 
 if __name__ == "__main__":

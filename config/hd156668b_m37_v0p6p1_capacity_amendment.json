@@ -1,0 +1,62 @@
+{
+  "artifact_type": "m37-detector-v0p6p1-post-contact-capacity-amendment-v1",
+  "schema_version": 1,
+  "protocol_label": "detector-v0.6.1-post-contact-capacity-amendment",
+  "target": "HD 156668 / HIP 84607",
+  "basis": {
+    "invalid_run_id": "m37-v0p6-primary-004",
+    "invalid_run_outcome": "M37_INVALID_NO_CONCLUSION",
+    "invalid_run_reason_code": "retention-capacity-overflow",
+    "invalid_run_journal_head_sha256": "d13d03a5d8430b5c48dd7c9de24158659ce810bfcc44ffbf13f7cac29f3b8e61",
+    "capacity_failure_evidence_sha256": "e7a21d172939a54933b762a6afa96670365d6e6eeb57a7a45a98777622265ded",
+    "capacity_census_diagnostic_id": "m37-v0p6-capacity-census-001",
+    "capacity_census_manifest_sha256": "a0c847907278b1317d8fb98f3797896c2d6700c006551d662cb3679f31ca0199",
+    "capacity_census_manifest_file_sha256": "fd30e71981b20424f34ad0b404d3af91127fe88c8e97fd1c38ede031735b5923",
+    "complete_maximum_records_in_one_window_kind": 41640
+  },
+  "capacities": {
+    "maximum_records_per_window": 50000,
+    "maximum_clusters_per_window": 50000,
+    "maximum_alias_bucket_entries_per_window": 150000,
+    "maximum_adjacent_or_receiver_queries_per_window": 150000,
+    "maximum_off_bucket_entries_per_window": 150000,
+    "maximum_alias_identity_track_comparisons_per_window": 125000000,
+    "maximum_alias_distinct_candidate_visits_per_window": 125000000,
+    "maximum_off_exact_candidate_visits_per_window": 125000000,
+    "maximum_record_canonical_bytes": 6144,
+    "maximum_retention_evidence_canonical_bytes_per_window": 480000000,
+    "maximum_retention_evidence_canonical_bytes_total": 2400000000,
+    "maximum_single_compressed_output_file_bytes": 475000000,
+    "maximum_live_ndarray_bytes": 536870912
+  },
+  "derived_checks": {
+    "observed_headroom_records": 8360,
+    "derived_worst_case_retention_evidence_bytes_per_window": 417647424,
+    "record_capacity_scale_from_v0p6": 5,
+    "pairwise_capacity_scale_from_v0p6": 25
+  },
+  "unchanged_scientific_contract": {
+    "threshold": true,
+    "proxy_carrier_grid": true,
+    "template_bank": true,
+    "spectral_widths": true,
+    "activity_subsets": true,
+    "minimum_active_epoch_snr": true,
+    "stack_statistic": true,
+    "off_and_receiver_vetoes": true,
+    "global_rank_significance": true
+  },
+  "rules": {
+    "new_run_required": true,
+    "reuse_invalid_run_journal_permitted": false,
+    "truncation_permitted": false,
+    "threshold_adaptation_permitted": false,
+    "mid_run_capacity_adaptation_permitted": false,
+    "capacity_failure_outcome": "M37_INVALID_NO_CONCLUSION"
+  },
+  "claim_boundary": {
+    "post_contact": true,
+    "capacity_only": true,
+    "scientific_conclusion": false
+  }
+}

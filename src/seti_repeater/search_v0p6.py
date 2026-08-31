@@ -5445,15 +5445,18 @@ class ExhaustiveRetentionLedger:
         return json.loads(self._certificate_bytes)
 
 
-def make_m37_retention_ledger(
+def _make_m37_retention_ledger_with_capacities(
     window_id: str,
     scan_kind: str,
     threshold_certificate: ThresholdCertificate,
     template_bank: Sequence[dict[str, Any]],
     factor_basis: FactorBasis,
     factor_table: TemplateFactorTable,
+    *,
+    maximum_records: int,
+    maximum_evidence_canonical_bytes: int,
 ) -> ExhaustiveRetentionLedger:
-    """Create a retention ledger with no configurable scientific M37 knobs."""
+    """Create an M37 ledger with an already validated resource profile."""
     normalized_kind = str(scan_kind).lower()
     if normalized_kind not in M37_FACTOR_ROW_SELECTION_SHA256S:
         raise V0P6ContractError("M37 retention scan kind must be ON or OFF")
@@ -5502,7 +5505,7 @@ def make_m37_retention_ledger(
         scan_kind=normalized_kind,
         grid=make_m37_proxy_carrier_grid(window_id),
         threshold_certificate=threshold_certificate,
-        maximum_records=M37_MAXIMUM_RECORDS_PER_WINDOW,
+        maximum_records=maximum_records,
         template_bank=template_bank,
         spectral_widths=M37_SPECTRAL_WIDTHS,
         activity_subsets=M37_ACTIVITY_SUBSETS,
@@ -5520,6 +5523,27 @@ def make_m37_retention_ledger(
         require_epoch_vector_product=True,
         require_mask_product=True,
         maximum_record_canonical_bytes=M37_MAXIMUM_RECORD_CANONICAL_BYTES,
+        maximum_evidence_canonical_bytes=maximum_evidence_canonical_bytes,
+    )
+
+
+def make_m37_retention_ledger(
+    window_id: str,
+    scan_kind: str,
+    threshold_certificate: ThresholdCertificate,
+    template_bank: Sequence[dict[str, Any]],
+    factor_basis: FactorBasis,
+    factor_table: TemplateFactorTable,
+) -> ExhaustiveRetentionLedger:
+    """Create a retention ledger with the original frozen v0.6 capacities."""
+    return _make_m37_retention_ledger_with_capacities(
+        window_id,
+        scan_kind,
+        threshold_certificate,
+        template_bank,
+        factor_basis,
+        factor_table,
+        maximum_records=M37_MAXIMUM_RECORDS_PER_WINDOW,
         maximum_evidence_canonical_bytes=M37_MAXIMUM_EVIDENCE_CANONICAL_BYTES,
     )
 
