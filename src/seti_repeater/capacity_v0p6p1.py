@@ -21,7 +21,7 @@ M37_V0P6P1_PROTOCOL_LABEL = (
     "detector-v0.6.1-post-contact-capacity-amendment"
 )
 M37_V0P6P1_AMENDMENT_FILE_SHA256 = (
-    "50a1e14427afe0949aeb1c7c028b8d1ed88755f7c94a78e8da46249131620bab"
+    "544e6eb0696034b1c10a7665d2f46d8e9767dc3af8be26c59e5d9ca2924c4127"
 )
 M37_V0P6P1_INVALID_RUN_JOURNAL_HEAD_SHA256 = (
     "d13d03a5d8430b5c48dd7c9de24158659ce810bfcc44ffbf13f7cac29f3b8e61"
@@ -234,6 +234,7 @@ def open_m37_v0p6p1_capacity_amendment(
         != {
             "new_run_required": True,
             "reuse_invalid_run_journal_permitted": False,
+            "reuse_sealed_run_004_calibration_required": True,
             "truncation_permitted": False,
             "threshold_adaptation_permitted": False,
             "mid_run_capacity_adaptation_permitted": False,

@@ -50,6 +50,8 @@ CACHE_MANIFEST_PATH = "cache-run-manifest.json"
 EXTRACTION_INVENTORY_PATH = "extraction-inventory.json"
 CALIBRATION_INVENTORY_PATH = "calibration-inventory.json"
 GLOBAL_NULL_PATH = "global-null.json"
+CALIBRATION_ADOPTION_PATH = "calibration-adoption.json"
+SOURCE_CALIBRATION_INVENTORY_PATH = "source-calibration-inventory.json"
 M37_PRODUCT_WIDTH_WORKERS = 2
 CAPACITY_AMENDMENT_PATH = (
     ROOT / "config/hd156668b_m37_v0p6p1_capacity_amendment.json"
@@ -751,6 +753,256 @@ def calibrate(
     return updated, opened
 
 
+def adopt_run_004_calibration(
+    root: Path,
+    record: dict[str, Any],
+    invalid_run_root: Path,
+) -> tuple[dict[str, Any], null_artifact.GlobalNullArtifact]:
+    """Adopt the unchanged sealed Run-004 threshold into amended Run 005."""
+    if _stage_at_least(record, "threshold_complete"):
+        return calibrate(root, record)
+    if record["stage"] != "cache_manifest_complete":
+        raise core.V0P6IncompleteError(
+            "calibration adoption requires the complete cache manifest"
+        )
+    amendment = record.get("capacity_amendment")
+    if amendment is None:
+        raise core.V0P6IncompleteError(
+            "calibration adoption requires the v0.6.1 capacity amendment"
+        )
+    profile = capacity_v0p6p1.validate_m37_v0p6p1_capacity_profile_record(
+        amendment
+    )
+    source_record = _read_canonical(invalid_run_root / CONTROLLER_PATH)
+    if (
+        source_record.get("schema_version") != 1
+        or source_record.get("artifact_type")
+        != "m37-detector-v0p6-primary-controller-v1"
+        or source_record.get("run_id") != "m37-v0p6-primary-004"
+        or source_record.get("stage") != state.M37_INVALID_STAGE
+        or source_record.get("journal_head_sha256")
+        != capacity_v0p6p1.M37_V0P6P1_INVALID_RUN_JOURNAL_HEAD_SHA256
+    ):
+        raise core.V0P6IncompleteError(
+            "calibration adoption source is not sealed Run 004"
+        )
+    source_journal = state.read_m37_run_journal(
+        invalid_run_root / "run.journal.jsonl",
+        expected_head_sha256=source_record["journal_head_sha256"],
+    )
+    if (
+        source_journal.run_id != source_record["run_id"]
+        or source_journal.stage != state.M37_INVALID_STAGE
+    ):
+        raise core.V0P6IncompleteError(
+            "calibration adoption source journal changed"
+        )
+    failure_receipt = source_record["artifacts"].get(
+        "retention_capacity_failure"
+    )
+    failure_path = invalid_run_root / "retention-capacity-failure.json"
+    if (
+        not isinstance(failure_receipt, Mapping)
+        or failure_receipt.get("evidence_sha256")
+        != capacity_v0p6p1.M37_V0P6P1_CAPACITY_FAILURE_EVIDENCE_SHA256
+        or _sha256_file(failure_path) != failure_receipt.get("file_sha256")
+    ):
+        raise core.V0P6IncompleteError(
+            "calibration adoption failure ancestry changed"
+        )
+    failure = _read_canonical(failure_path)
+    detached_failure = dict(failure)
+    failure_evidence_sha256 = detached_failure.pop("evidence_sha256", None)
+    if (
+        failure_evidence_sha256
+        != capacity_v0p6p1.M37_V0P6P1_CAPACITY_FAILURE_EVIDENCE_SHA256
+        or _sha256_bytes(core.canonical_json_bytes(detached_failure))
+        != failure_evidence_sha256
+        or failure.get("failure_outcome") != "M37_INVALID_NO_CONCLUSION"
+    ):
+        raise core.V0P6IncompleteError(
+            "calibration adoption failure evidence changed"
+        )
+
+    current_bundle = _bundle(root, record)
+    source_bundle = _bundle(invalid_run_root, source_record)
+    if (
+        current_bundle.receipt.manifest_sha256
+        != source_bundle.receipt.manifest_sha256
+        or current_bundle.receipt.file_sha256
+        != source_bundle.receipt.file_sha256
+        or current_bundle.receipt.factor_table_sha256
+        != source_bundle.receipt.factor_table_sha256
+    ):
+        raise core.V0P6IncompleteError(
+            "calibration adoption factor bundle differs"
+        )
+    current_manifest = _open_manifest(root, record, current_bundle)
+    source_manifest = _open_manifest(
+        invalid_run_root, source_record, source_bundle
+    )
+    current_cache = record["artifacts"]["cache_manifest"]
+    source_cache = source_record["artifacts"]["cache_manifest"]
+    required_cache_fields = (
+        "inventory_sha256",
+        "verified_inventory_sha256",
+        "entry_count",
+        "payload_nbytes",
+        "factor_bundle_manifest_sha256",
+    )
+    if (
+        any(current_cache[field] != source_cache[field]
+            for field in required_cache_fields)
+        or current_manifest.receipt.inventory_sha256
+        != source_manifest.receipt.inventory_sha256
+    ):
+        raise core.V0P6IncompleteError(
+            "calibration adoption cache inventory differs"
+        )
+
+    calibration_receipt = source_record["artifacts"].get(
+        "calibration_inventory"
+    )
+    source_calibration_path = invalid_run_root / CALIBRATION_INVENTORY_PATH
+    if (
+        not isinstance(calibration_receipt, Mapping)
+        or _sha256_file(source_calibration_path)
+        != calibration_receipt.get("file_sha256")
+    ):
+        raise core.V0P6IncompleteError(
+            "calibration adoption inventory identity changed"
+        )
+    source_calibration = _read_canonical(source_calibration_path)
+    global_receipt = source_record["artifacts"].get("global_null")
+    if not isinstance(global_receipt, Mapping):
+        raise core.V0P6IncompleteError(
+            "calibration adoption global-null receipt is absent"
+        )
+    source_global = null_artifact.open_global_null_artifact(
+        invalid_run_root / GLOBAL_NULL_PATH,
+        expected_file_sha256=global_receipt["file_sha256"],
+        expected_threshold_certificate_sha256=global_receipt[
+            "threshold_certificate_sha256"
+        ],
+        require_spectral_dataset_values_read=True,
+    )
+    summaries = source_calibration.get("windows")
+    threshold = source_global.threshold
+    if (
+        source_calibration.get("artifact_type")
+        != "m37-detector-v0p6-calibration-inventory-v1"
+        or source_calibration.get("run_id") != source_record["run_id"]
+        or source_calibration.get("window_count") != len(core.M37_WINDOW_IDS)
+        or not isinstance(summaries, list)
+        or [item.get("window_id") for item in summaries]
+        != list(core.M37_WINDOW_IDS)
+        or [item.get("null_maxima_sha256") for item in summaries]
+        != list(threshold.null_maxima_sha256s)
+        or [item.get("cache_provenance_inventory_sha256") for item in summaries]
+        != list(threshold.calibration_cache_provenance_inventory_sha256s)
+        or threshold.operational_threshold_snr != 126.20158386230469
+    ):
+        raise core.V0P6IncompleteError(
+            "calibration adoption scientific inventory changed"
+        )
+
+    copied_calibration_sha256 = _publish_or_verify(
+        root / SOURCE_CALIBRATION_INVENTORY_PATH, source_calibration
+    )
+    if copied_calibration_sha256 != calibration_receipt["file_sha256"]:
+        raise core.V0P6IncompleteError(
+            "calibration adoption copy identity changed"
+        )
+    source_global_record = _read_canonical(invalid_run_root / GLOBAL_NULL_PATH)
+    copied_global_sha256 = _publish_or_verify(
+        root / GLOBAL_NULL_PATH, source_global_record
+    )
+    if copied_global_sha256 != global_receipt["file_sha256"]:
+        raise core.V0P6IncompleteError(
+            "calibration adoption global-null copy changed"
+        )
+    adoption = {
+        "artifact_type": "m37-detector-v0p6p1-calibration-adoption-v1",
+        "run_id": record["run_id"],
+        "source_run_id": source_record["run_id"],
+        "capacity_amendment_file_sha256": profile.amendment_file_sha256,
+        "source_invalid_journal_head_sha256": source_record[
+            "journal_head_sha256"
+        ],
+        "source_capacity_failure_evidence_sha256": failure_evidence_sha256,
+        "factor_bundle_manifest_sha256": current_bundle.receipt.manifest_sha256,
+        "current_cache_run_manifest_file_sha256": current_cache[
+            "file_sha256"
+        ],
+        "source_cache_run_manifest_file_sha256": source_cache["file_sha256"],
+        "verified_cache_inventory_sha256": current_cache[
+            "verified_inventory_sha256"
+        ],
+        "source_calibration_inventory_file_sha256": (
+            copied_calibration_sha256
+        ),
+        "global_null_file_sha256": copied_global_sha256,
+        "threshold_certificate_sha256": threshold.certificate_sha256,
+        "operational_threshold_snr": threshold.operational_threshold_snr,
+        "calibration_recomputed": False,
+        "scientific_contract_changed": False,
+    }
+    adoption_sha256 = _publish_or_verify(
+        root / CALIBRATION_ADOPTION_PATH, adoption
+    )
+    updated = _advance(
+        root,
+        record,
+        stage="calibration_complete",
+        artifact_sha256=adoption_sha256,
+        metadata={
+            "window_count": len(summaries),
+            "calibration_adopted_from_run_id": source_record["run_id"],
+            "calibration_adoption_sha256": adoption_sha256,
+        },
+    )
+    updated = _advance(
+        root,
+        updated,
+        stage="threshold_complete",
+        artifact_sha256=copied_global_sha256,
+        metadata={
+            "threshold_certificate_sha256": threshold.certificate_sha256,
+            "global_null_maxima_sha256": threshold.global_null_maxima_sha256,
+            "operational_threshold_snr": threshold.operational_threshold_snr,
+            "calibration_adopted_from_run_id": source_record["run_id"],
+        },
+    )
+    artifacts = dict(updated["artifacts"])
+    artifacts["calibration_adoption"] = {
+        "file_sha256": adoption_sha256,
+        "source_run_id": source_record["run_id"],
+    }
+    artifacts["calibration_inventory"] = {
+        "file_sha256": copied_calibration_sha256,
+        "path": SOURCE_CALIBRATION_INVENTORY_PATH,
+        "adopted_from_run_id": source_record["run_id"],
+    }
+    artifacts["global_null"] = dict(global_receipt)
+    updated["artifacts"] = artifacts
+    _write_controller(root, updated)
+    opened = null_artifact.open_global_null_artifact(
+        root / GLOBAL_NULL_PATH,
+        expected_file_sha256=global_receipt["file_sha256"],
+        expected_threshold_certificate_sha256=global_receipt[
+            "threshold_certificate_sha256"
+        ],
+        require_spectral_dataset_values_read=True,
+    )
+    _emit_progress(
+        "calibration_adopted",
+        source_run_id=source_record["run_id"],
+        operational_threshold_snr=threshold.operational_threshold_snr,
+        artifact_sha256=adoption_sha256,
+    )
+    return updated, opened
+
+
 def _retention_artifact_path(root: Path, window_id: str, kind: str) -> Path:
     return root / "retention" / f"{window_id}-{kind}.json"
 
@@ -941,6 +1193,7 @@ def main() -> None:
             "authorize",
             "build-caches",
             "calibrate",
+            "adopt-calibration",
             "retain-on",
             "retain-off",
             "run-cache",
@@ -954,6 +1207,11 @@ def main() -> None:
         "--capacity-amendment-v0p6p1",
         action="store_true",
         help="use the frozen post-contact capacity-only v0.6.1 amendment",
+    )
+    parser.add_argument(
+        "--invalid-calibration-run-root",
+        type=Path,
+        help="sealed invalid Run-004 root used only by adopt-calibration",
     )
     args = parser.parse_args()
     if args.command == "prepare":
@@ -986,12 +1244,30 @@ def main() -> None:
             "authorize",
             "build-caches",
             "calibrate",
+            "adopt-calibration",
             "retain-on",
             "retain-off",
         }:
             result = authorize(args.run_root, result)
-        if args.command in {"build-caches", "calibrate", "retain-on", "retain-off"}:
+        if args.command in {
+            "build-caches",
+            "calibrate",
+            "adopt-calibration",
+            "retain-on",
+            "retain-off",
+        }:
             result = build_caches(args.run_root, result)
+        if args.command == "adopt-calibration":
+            if args.invalid_calibration_run_root is None:
+                parser.error(
+                    "adopt-calibration requires "
+                    "--invalid-calibration-run-root"
+                )
+            result, global_null = adopt_run_004_calibration(
+                args.run_root,
+                result,
+                args.invalid_calibration_run_root,
+            )
         if args.command in {"calibrate", "retain-on", "retain-off"}:
             result, global_null = calibrate(args.run_root, result)
         if args.command == "retain-on":
