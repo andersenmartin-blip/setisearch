@@ -827,15 +827,21 @@ def adopt_run_004_calibration(
     current_bundle = _bundle(root, record)
     source_bundle = _bundle(invalid_run_root, source_record)
     if (
-        current_bundle.receipt.manifest_sha256
-        != source_bundle.receipt.manifest_sha256
-        or current_bundle.receipt.file_sha256
-        != source_bundle.receipt.file_sha256
+        current_bundle.receipt.factor_basis_sha256
+        != source_bundle.receipt.factor_basis_sha256
+        or current_bundle.receipt.factor_basis_labels_sha256
+        != source_bundle.receipt.factor_basis_labels_sha256
         or current_bundle.receipt.factor_table_sha256
         != source_bundle.receipt.factor_table_sha256
+        or current_bundle.receipt.analysis_contract_sha256
+        != source_bundle.receipt.analysis_contract_sha256
+        or current_bundle.table.template_bank_sha256
+        != source_bundle.table.template_bank_sha256
+        or core.canonical_json_bytes(list(current_bundle.scans))
+        != core.canonical_json_bytes(list(source_bundle.scans))
     ):
         raise core.V0P6IncompleteError(
-            "calibration adoption factor bundle differs"
+            "calibration adoption scientific factor inventory differs"
         )
     current_manifest = _open_manifest(root, record, current_bundle)
     source_manifest = _open_manifest(
@@ -848,11 +854,14 @@ def adopt_run_004_calibration(
         "verified_inventory_sha256",
         "entry_count",
         "payload_nbytes",
-        "factor_bundle_manifest_sha256",
     )
     if (
         any(current_cache[field] != source_cache[field]
             for field in required_cache_fields)
+        or current_cache["factor_bundle_manifest_sha256"]
+        != current_bundle.receipt.manifest_sha256
+        or source_cache["factor_bundle_manifest_sha256"]
+        != source_bundle.receipt.manifest_sha256
         or current_manifest.receipt.inventory_sha256
         != source_manifest.receipt.inventory_sha256
     ):
@@ -930,7 +939,20 @@ def adopt_run_004_calibration(
             "journal_head_sha256"
         ],
         "source_capacity_failure_evidence_sha256": failure_evidence_sha256,
-        "factor_bundle_manifest_sha256": current_bundle.receipt.manifest_sha256,
+        "current_factor_bundle_manifest_sha256": (
+            current_bundle.receipt.manifest_sha256
+        ),
+        "source_factor_bundle_manifest_sha256": (
+            source_bundle.receipt.manifest_sha256
+        ),
+        "shared_factor_basis_sha256": current_bundle.receipt.factor_basis_sha256,
+        "shared_factor_basis_labels_sha256": (
+            current_bundle.receipt.factor_basis_labels_sha256
+        ),
+        "shared_factor_table_sha256": current_bundle.receipt.factor_table_sha256,
+        "shared_analysis_contract_sha256": (
+            current_bundle.receipt.analysis_contract_sha256
+        ),
         "current_cache_run_manifest_file_sha256": current_cache[
             "file_sha256"
         ],
