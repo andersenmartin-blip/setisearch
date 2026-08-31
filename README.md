@@ -19,11 +19,14 @@ stopped fail-closed in `m37_1418p5`: the first 157 hypotheses already implied
 at least 10,026 records, above the frozen 10,000-record capacity. Run 004 is
 therefore permanently `M37_INVALID_NO_CONCLUSION`. OFF retention and physical
 or statistical candidate adjudication were not reached, so this is neither a
-signal nor a null result. A separate post-contact census has now replayed all
+signal nor a null result. A separate post-contact census replayed all
 five ON and OFF windows without retaining candidates. It counted 41,640 ON and
 zero OFF records in `m37_1418p5`; all are from the 129-channel filter in two
 adjacent 10 kHz buckets. This diagnostic does not change Run 004 or classify
-the feature physically.
+the feature physically. The resulting capacity-only v0.6.1 amendment has now
+completed normative ON/OFF retention in Run 006 with 43,883 ON and 2,160 OFF
+records. Physical veto and significance stages remain pending, so there is
+still no signal or null claim.
 
 Milestone 35 provides the latest survey-level synthesis. At exact ideal S/N 40
 its finite-injection pointwise 95% upper bound on `f(40)` is 33.16%, where
@@ -95,6 +98,12 @@ widths, activity subsets, vetoes and the immutable Run 004 journal remain
 unchanged. See
 `MILESTONE_37_PRIMARY_CAPACITY_RESULT.md` and
 `MILESTONE_37_CAPACITY_CENSUS.md`.
+
+That amendment is now implemented and Run 006 has completed all ten normative
+retention ledgers. The exact window counts reproduce the census, the largest
+ledger is 41,640, and all immutable artifacts pass restart validation. See
+`MILESTONE_37_V0P6P1_RETENTION_RESULT.md`. The next stage is full physical
+disposition, then rank significance and outcome assembly.
 
 ## Milestone 36 result
 

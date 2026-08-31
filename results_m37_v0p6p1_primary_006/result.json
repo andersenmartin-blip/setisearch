@@ -1,0 +1,75 @@
+{
+  "artifact_type": "m37-detector-v0p6p1-primary-retention-result-v1",
+  "schema_version": 1,
+  "generated_at_utc": "2026-08-30T19:22:57Z",
+  "run_id": "m37-v0p6p1-primary-006",
+  "stage": "off_retention_complete",
+  "journal_sequence": 8,
+  "journal_head_sha256": "4e67cea9081156f365dd33e8f0fb58dd421c48496c80031ede99845de8b7e990",
+  "outcome": "RETENTION_COMPLETE_DOWNSTREAM_ADJUDICATION_PENDING",
+  "claim_boundary": {
+    "spectral_dataset_values_read": true,
+    "calibration_complete": true,
+    "threshold_complete": true,
+    "on_retention_complete": true,
+    "off_retention_complete": true,
+    "physical_disposition_complete": false,
+    "global_significance_complete": false,
+    "scientific_signal_claimed": false,
+    "scientific_null_claimed": false
+  },
+  "protocol": {
+    "label": "detector-v0.6.1-post-contact-capacity-amendment",
+    "amendment_file_sha256": "544e6eb0696034b1c10a7665d2f46d8e9767dc3af8be26c59e5d9ca2924c4127",
+    "source_execution_commit": "a8bbf74ca1a9910da08d559f50d05793be023824",
+    "parallel_retention_orchestrator_sha256": "242b1bd27848e45d94e16f0ae868e0454f9445c3c55b4d17d8ac35d3ada0237c",
+    "maximum_records_per_window": 50000,
+    "truncation_permitted": false,
+    "threshold_adaptation_permitted": false
+  },
+  "cache_reuse": {
+    "entry_count": 240,
+    "payload_nbytes": 11545072128,
+    "inventory_sha256": "50de36cb3c1f6a78f0f81d0c0deda050d6a3e10774543b5227c77c1d96e7a313",
+    "verified_inventory_sha256": "3bc5e5c745043cb5d738b85a89c9f4e8b5917c842c48f32b83f8e8ee43774c97",
+    "run_006_manifest_file_sha256": "c92798fcea88470bd2ee61f448a7ac6bb46621d16dd58ece4ceee928e7eded41"
+  },
+  "calibration_adoption": {
+    "source_run_id": "m37-v0p6-primary-004",
+    "file_sha256": "221056fc7cf47c8ac528ed6aad57558dbfadabe6ee47dcc7e7c338f27dc3e21e",
+    "source_calibration_inventory_file_sha256": "c0cded5c277811dc00c17d4489a17ff376f37f905a3ac12d17ccf181e7e9b202",
+    "global_null_file_sha256": "c15e1c4b8f83652574e9f2f5e55cef62686d75f67ddd8678d669bb4417804449",
+    "threshold_certificate_sha256": "d65048bd962a247a3763eb58c9cad530d9f7db06586f52a01a34e03b4ba0ad71",
+    "operational_threshold_snr": 126.20158386230469,
+    "calibration_recomputed": false,
+    "scientific_contract_changed": false
+  },
+  "retention": {
+    "score_cells_per_window_kind": 2225051040,
+    "total_score_cells": 22250510400,
+    "on_record_count": 43883,
+    "off_record_count": 2160,
+    "combined_record_count": 46043,
+    "on_inventory_file_sha256": "9bf06bf182278714c2f54e1f95b539f7578515f9f54a136fdc088a7dc04737d1",
+    "off_inventory_file_sha256": "f7c16e0e2b93ddc999704dd79f9290360aaf13e06ba48d130fad2707c1a5fb33",
+    "counts": [
+      {"window_id": "m37_1400p5", "on": 1800, "off": 1720},
+      {"window_id": "m37_1406p5", "on": 218, "off": 232},
+      {"window_id": "m37_1412p5", "on": 225, "off": 208},
+      {"window_id": "m37_1418p5", "on": 41640, "off": 0},
+      {"window_id": "m37_1425p0", "on": 0, "off": 0}
+    ],
+    "all_window_counts_match_capacity_census": true,
+    "independent_restart_reopen_passed": true
+  },
+  "predecessor_run_005": {
+    "run_id": "m37-v0p6p1-primary-005",
+    "stage": "invalid",
+    "journal_sequence": 3,
+    "journal_head_sha256": "f6393219f8543880a3e431c0555b7f977f8315be587788a776778d6648844068",
+    "reason_code": "capacity-amendment-factor-bundle-manifest-is-run-specific",
+    "spectral_dataset_values_read": false,
+    "evidence_file_sha256": "f8f86350ffb892ceb5577a69c001e152bd32b4a447125418571f6255407deb71"
+  },
+  "next_required_stage": "complete physical OFF, adjacent-OFF and receiver-frame disposition before global rank significance and outcome assembly"
+}
