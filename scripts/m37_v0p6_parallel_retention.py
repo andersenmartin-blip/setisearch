@@ -25,6 +25,7 @@ for item in (str(ROOT / "src"), str(ROOT / "scripts")):
 import m37_v0p6_primary as primary
 from seti_repeater import native_cache_v0p6 as native_cache
 from seti_repeater import null_artifact_v0p6 as null_artifact
+from seti_repeater import capacity_v0p6p1 as capacity_v0p6p1
 from seti_repeater import search_v0p6 as core
 
 
@@ -48,6 +49,19 @@ def _retain_window(root_text: str, kind: str, window_id: str) -> dict[str, Any]:
     manifest = primary._open_manifest(root, record, bundle)
     validator = native_cache.NativeFilterCacheValidationCache()
     path = primary._retention_artifact_path(root, window_id, kind)
+    amendment = record.get("capacity_amendment")
+    profile = (
+        None
+        if amendment is None
+        else capacity_v0p6p1.validate_m37_v0p6p1_capacity_profile_record(
+            amendment
+        )
+    )
+    expected_maximum_records = (
+        core.M37_MAXIMUM_RECORDS_PER_WINDOW
+        if profile is None
+        else profile.maximum_records_per_window
+    )
 
     if path.exists():
         artifact = primary._read_canonical(path)
@@ -59,6 +73,10 @@ def _retain_window(root_text: str, kind: str, window_id: str) -> dict[str, Any]:
             expected_file_sha256=primary._sha256_file(path),
             expected_certificate_sha256=certificate_sha256,
         )
+        if certificate["maximum_records"] != expected_maximum_records:
+            raise core.V0P6IncompleteError(
+                "retention artifact uses another capacity protocol"
+            )
         return {
             "window_id": window_id,
             "path": path.relative_to(root).as_posix(),
@@ -70,14 +88,25 @@ def _retain_window(root_text: str, kind: str, window_id: str) -> dict[str, Any]:
             "reused": True,
         }
 
-    ledger = core.make_m37_retention_ledger(
-        window_id,
-        kind,
-        global_null.threshold,
-        bundle.template_bank,
-        bundle.basis,
-        bundle.table,
-    )
+    if profile is None:
+        ledger = core.make_m37_retention_ledger(
+            window_id,
+            kind,
+            global_null.threshold,
+            bundle.template_bank,
+            bundle.basis,
+            bundle.table,
+        )
+    else:
+        ledger = capacity_v0p6p1.make_m37_v0p6p1_retention_ledger(
+            profile,
+            window_id,
+            kind,
+            global_null.threshold,
+            bundle.template_bank,
+            bundle.basis,
+            bundle.table,
+        )
     for template_index, template in enumerate(bundle.template_bank):
         products, mask = primary._template_products(
             root,
@@ -194,6 +223,7 @@ def retain_kind(
             "scan_kind": kind,
             "worker_count": workers,
             "orchestrator_sha256": _script_sha256(),
+            "capacity_amendment": record.get("capacity_amendment"),
             "retention_inventory_sha256": inventory_sha256,
         },
     )
