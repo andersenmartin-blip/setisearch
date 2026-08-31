@@ -1,0 +1,100 @@
+{
+  "artifact_type": "m37-detector-v0p6-capacity-census-result-v1",
+  "schema_version": 1,
+  "generated_at_utc": "2026-08-30T18:20:40Z",
+  "diagnostic_id": "m37-v0p6-capacity-census-001",
+  "run_id": "m37-v0p6-primary-004",
+  "outcome": "POST_CONTACT_DIAGNOSTIC_ONLY_NO_SCIENTIFIC_CONCLUSION",
+  "claim_boundary": {
+    "run_004_modified": false,
+    "candidate_records_retained": false,
+    "physical_vetoes_applied": false,
+    "scientific_signal_claimed": false,
+    "scientific_null_claimed": false
+  },
+  "ancestry": {
+    "run_004_outcome": "M37_INVALID_NO_CONCLUSION",
+    "run_004_reason_code": "retention-capacity-overflow",
+    "invalid_run_journal_head_sha256": "d13d03a5d8430b5c48dd7c9de24158659ce810bfcc44ffbf13f7cac29f3b8e61",
+    "capacity_failure_evidence_sha256": "e7a21d172939a54933b762a6afa96670365d6e6eeb57a7a45a98777622265ded",
+    "threshold_certificate_sha256": "d65048bd962a247a3763eb58c9cad530d9f7db06586f52a01a34e03b4ba0ad71",
+    "cache_run_manifest_file_sha256": "b85011823dc31e9ed0f7abc4c316f8b4a903cce80919aae676cf56289a80d11b",
+    "factor_bundle_manifest_sha256": "24a356ae8037fba36d8c900bbe043c10147cd9daa00635bcf1f511a55fef9e2e"
+  },
+  "census": {
+    "operational_threshold_snr": 126.20158386230469,
+    "window_count": 5,
+    "scan_kind_count": 2,
+    "hypotheses_per_window_kind": 2976,
+    "total_score_cells_evaluated": 22250510400,
+    "total_above_threshold_records": 46043,
+    "total_on_records": 43883,
+    "total_off_records": 2160,
+    "manifest_sha256": "a0c847907278b1317d8fb98f3797896c2d6700c006551d662cb3679f31ca0199",
+    "manifest_file_sha256": "fd30e71981b20424f34ad0b404d3af91127fe88c8e97fd1c38ede031735b5923",
+    "diagnostic_orchestrator_sha256": "3ad9f01f68afc917572d74240f24e6163cb042d98ca72dc640e14977a3946f88",
+    "restart_reopen_validation_passed": true
+  },
+  "window_counts": [
+    {"window_id": "m37_1400p5", "on": 1800, "off": 1720},
+    {"window_id": "m37_1406p5", "on": 218, "off": 232},
+    {"window_id": "m37_1412p5", "on": 225, "off": 208},
+    {"window_id": "m37_1418p5", "on": 41640, "off": 0},
+    {"window_id": "m37_1425p0", "on": 0, "off": 0}
+  ],
+  "overflow_characterization": {
+    "window_id": "m37_1418p5",
+    "scan_kind": "on",
+    "above_threshold_record_count": 41640,
+    "fraction_of_all_census_records": 0.9043720000868753,
+    "maximum_snr": 154.97610473632812,
+    "maximum_threshold_multiplier": 1.2280044353913862,
+    "spectral_width_channels": 129,
+    "spectral_width_hz": 365.7799409803952,
+    "records_at_other_spectral_widths": 0,
+    "nonzero_template_count": 42,
+    "minimum_nonzero_line_index": -21,
+    "maximum_nonzero_line_index": 20,
+    "frequency_bucket_hz": 10000,
+    "occupied_frequency_buckets": [
+      {"lower_hz_inclusive": 1419340000, "upper_hz_exclusive": 1419350000, "count": 19017},
+      {"lower_hz_inclusive": 1419350000, "upper_hz_exclusive": 1419360000, "count": 22623}
+    ],
+    "activity_subset_counts": [
+      {"active_epochs_zero_based": [0, 1], "count": 25466},
+      {"active_epochs_zero_based": [0, 2], "count": 8},
+      {"active_epochs_zero_based": [1, 2], "count": 8},
+      {"active_epochs_zero_based": [0, 1, 2], "count": 16158}
+    ],
+    "snr_ratio_counts": [
+      {"lower_inclusive": 1.0, "upper_exclusive": 1.05, "count": 9971},
+      {"lower_inclusive": 1.05, "upper_exclusive": 1.1, "count": 16379},
+      {"lower_inclusive": 1.1, "upper_exclusive": 1.25, "count": 15290},
+      {"lower_inclusive": 1.25, "upper_exclusive": null, "count": 0}
+    ],
+    "interpretation_limit": "One dense broad ON-only score-space feature; no physical RFI or technosignature classification is permitted before the frozen downstream stages run in a new complete protocol."
+  },
+  "recommended_capacity_only_revision": {
+    "protocol_label": "detector-v0.6.1-post-contact-capacity-amendment",
+    "new_run_required": true,
+    "reuse_run_004_journal_permitted": false,
+    "maximum_records_per_window": 50000,
+    "observed_headroom_records": 8360,
+    "observed_headroom_fraction": 0.20076849183477424,
+    "maximum_clusters_per_window": 50000,
+    "maximum_alias_bucket_entries_per_window": 150000,
+    "maximum_adjacent_or_receiver_queries_per_window": 150000,
+    "maximum_alias_identity_or_candidate_visits_per_window": 125000000,
+    "maximum_retention_evidence_canonical_bytes_per_window": 480000000,
+    "maximum_retention_evidence_canonical_bytes_total": 2400000000,
+    "derived_worst_case_retention_evidence_bytes_per_window": 417647424,
+    "maximum_single_compressed_output_file_bytes": 475000000,
+    "maximum_live_ndarray_bytes": 536870912,
+    "threshold_change_permitted": false,
+    "search_grid_change_permitted": false,
+    "template_change_permitted": false,
+    "veto_change_permitted": false,
+    "truncation_permitted": false,
+    "prerequisite": "Publish and test a separately identified capacity amendment before creating Run 005."
+  }
+}

@@ -19,7 +19,11 @@ stopped fail-closed in `m37_1418p5`: the first 157 hypotheses already implied
 at least 10,026 records, above the frozen 10,000-record capacity. Run 004 is
 therefore permanently `M37_INVALID_NO_CONCLUSION`. OFF retention and physical
 or statistical candidate adjudication were not reached, so this is neither a
-signal nor a null result.
+signal nor a null result. A separate post-contact census has now replayed all
+five ON and OFF windows without retaining candidates. It counted 41,640 ON and
+zero OFF records in `m37_1418p5`; all are from the 129-channel filter in two
+adjacent 10 kHz buckets. This diagnostic does not change Run 004 or classify
+the feature physically.
 
 Milestone 35 provides the latest survey-level synthesis. At exact ideal S/N 40
 its finite-injection pointwise 95% upper bound on `f(40)` is 33.16%, where
@@ -41,7 +45,7 @@ separate Milestone 37 implementation used by the authorized run. Its frozen
 capacity rule, rather than a candidate disposition, determined the invalid
 outcome.
 
-## Milestone 37 capacity-invalid result
+## Milestone 37 capacity-invalid result and census
 
 Milestone 37 selected HD 156668 / HIP 84607 at extension rank 37. HD 156668 b
 supplies only the motion template. The metadata-only coverage proof and the
@@ -56,7 +60,7 @@ persistence artifacts and a hash-chained run journal. Before production, the
 synthetic checkpoints exercised the full downstream contracts and resource
 envelopes.
 
-The complete local suite subsequently passed 287 of 288 tests with one
+The complete local suite subsequently passed 291 of 292 tests with one
 expected benchmark skip. Run 004 independently reopened every sparse-mirror
 segment, published 30 normalized window/scan products and verified
 11,545,072,128 cache-payload bytes. Its five calibration windows evaluated
@@ -75,9 +79,22 @@ The journal was permanently advanced to `invalid` with reason
 The frozen protocol forbids truncation and threshold adaptation. The partial
 window artifacts cannot support candidate, null, sensitivity or population
 claims. Any new attempt requires a separately documented run and must preserve
-the Run 004 invalid result. See
+the Run 004 invalid result.
+
+The subsequent diagnostic-only census evaluated all 22,250,510,400 ON/OFF
+score cells and sealed ten restartable child ledgers. The complete counts are
+ON/OFF 1,800/1,720, 218/232, 225/208, 41,640/0 and 0/0. The overflow is one
+dense score-space feature: every record uses width 129, all lie in
+1,419,340,000--1,419,360,000 Hz census buckets, and none reaches 1.25 times the
+frozen threshold. No candidate records or veto dispositions were produced.
+
+The recommended next protocol is an explicitly post-contact, capacity-only
+v0.6.1 amendment with a 50,000-record per-window limit and proportionally
+raised evidence and downstream work envelopes. Threshold, grid, template bank,
+widths, activity subsets, vetoes and the immutable Run 004 journal remain
+unchanged. See
 `MILESTONE_37_PRIMARY_CAPACITY_RESULT.md` and
-`results_m37_v0p6_primary_004/result.json`.
+`MILESTONE_37_CAPACITY_CENSUS.md`.
 
 ## Milestone 36 result
 
