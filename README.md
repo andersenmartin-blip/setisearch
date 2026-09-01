@@ -26,6 +26,14 @@ reports `closed_no_unresolved_scientific_candidates` for this one primary
 cadence and frozen search model. Detector completeness remains pending, so M37
 does not yet provide a quantitative sensitivity or occurrence-rate bound.
 
+Milestone 38 has now frozen the next completeness feasibility boundary without
+opening new spectral data. The original 6,144-trial exhaustive design would
+require 13,670,713,589,760 score-cell evaluations, and its production gate
+remains closed. M38 preserves every trial and selects a separately labelled
+retrospective truth-local score-recovery path. No injections have yet been
+executed and no completeness, sensitivity, or occurrence-rate result is
+claimed. See `MILESTONE_38_M37_COMPLETENESS_FEASIBILITY_RESULT.md`.
+
 Milestone 35 provides the latest survey-level synthesis. At exact ideal S/N 40
 its finite-injection pointwise 95% upper bound on `f(40)` is 33.16%, where
 `f(40)` is the common archive-cohort system-occurrence probability for the
@@ -45,6 +53,22 @@ Milestone 12 local-OFF and receiver-frame alias vetoes. Detector v0.6 is the
 separate Milestone 37 implementation used by the authorized run. Its frozen
 capacity rule, rather than a candidate disposition, determined the invalid
 outcome.
+
+## Milestone 38 M37 completeness feasibility result
+
+Milestone 38 reproduced the closed M37 Run 006 boundary from hash-pinned
+metadata and froze a resource-aware route toward calibration. It leaves the
+13.67-trillion-cell full-replay gate closed, does not promote the three
+synthetic sparse references to production evidence, and forbids silent trial
+reduction or truncation.
+
+The selected future endpoint is conditional truth-local score recovery in the
+frozen 1412.5 MHz background, using all 512 truths at all 12 exact S/N levels.
+It is not end-to-end detector completeness: physical-veto survival and the
+global false-positive field are not calibrated. Before any injection result,
+a production adapter, exact source rehydration, frozen output schema, and
+real-data exhaustive anchor comparisons must pass. The feasibility audit read
+no new spectral values and made no quantitative scientific claim.
 
 ## Milestone 37 invalid run, amendment and closed Run 006 outcome
 
@@ -784,6 +808,12 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Key files
 
+- `MILESTONE_38_M37_COMPLETENESS_FEASIBILITY_RESULT.md` — frozen feasibility decision and claim boundary.
+- `MILESTONE_38_M37_COMPLETENESS_FEASIBILITY_PLAN.md` — retrospective pre-execution calibration plan.
+- `config/m38_m37_completeness_feasibility.json` — hash-pinned M38 inputs, decision and gates.
+- `results_m38_m37_completeness_feasibility/feasibility.json` — machine-readable M38 certificate.
+- `scripts/m38_m37_completeness_feasibility.py` — deterministic offline feasibility audit.
+- `RESULTS_MANIFEST_M38_M37_COMPLETENESS_FEASIBILITY.sha256` — M38 plan, implementation, test and result identities.
 - `MILESTONE_37_V0P6P1_OUTCOME_RESULT.md` — Run 006 physical, rank-p and closed primary-cadence outcome.
 - `MILESTONE_37_V0P6P1_SIGNIFICANCE_OUTCOME_PLAN.md` — frozen post-physical adjudication plan.
 - `results_m37_v0p6p1_primary_006/outcome-summary.json` — machine-readable Run 006 adjudication summary.

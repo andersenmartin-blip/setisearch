@@ -1,0 +1,64 @@
+{
+  "artifact_type": "m38-m37-completeness-feasibility-plan-v1",
+  "analysis_base_commit": "c3d05125064ff179abfc9f556bd1ee8a3b63337b",
+  "status": "retrospective-feasibility-freeze-before-calibration-execution",
+  "scope": {
+    "source_run_id": "m37-v0p6p1-primary-006",
+    "background_window": "m37_1412p5",
+    "detector_or_threshold_changes_permitted": false,
+    "new_spectral_access_during_feasibility_audit": false,
+    "quantitative_sensitivity_claim_permitted": false,
+    "occurrence_rate_claim_permitted": false
+  },
+  "inputs": [
+    {
+      "path": "results_m37_v0p6p1_primary_006/outcome-summary.json",
+      "sha256": "66d8d56a130a78c2af4360815654bd8a5a1d519bd3efed6fa9e9e6c8a3aaf811"
+    },
+    {
+      "path": "results_m37_v0p6p1_primary_006/run-controller.json",
+      "sha256": "9c4bc0e3c42739b2528c656e8f86b4c3146821529a966ed1ac20619c0b586613"
+    },
+    {
+      "path": "MILESTONE_37_V0P6P1_OUTCOME_RESULT.md",
+      "sha256": "9e0c08d1f8850333939619915a4d967f5daf65fa5efcd21c767dd2eaae6f6dc2"
+    },
+    {
+      "path": "src/seti_repeater/completeness_v0p6.py",
+      "sha256": "75d1dd216fe334e6d0d2fd93c8d911cc82db107f8b56f09996699034d8f77ed3"
+    }
+  ],
+  "frozen_full_replay_gate": {
+    "trial_count": 6144,
+    "score_cells_per_trial": 2225051040,
+    "score_cells_total": 13670713589760,
+    "production_feasibility_status": "mandatory-full-replay-benchmark-not-yet-passed",
+    "truncation_permitted": false,
+    "silent_trial_reduction_permitted": false
+  },
+  "existing_sparse_reference_receipts": {
+    "phase_1_truth_local_masks_and_scores_sha256": "32e9208579e435be0cefa72c13e579c8020ec361f23fa9650e9adbf25cfe9201",
+    "phase_2_retention_off_rank_sha256": "1d70d05ac7b7888cf8071bcbe894bd67bae24fba87636c6c17945b982cf0ca09",
+    "phase_3_adjacent_off_receiver_alias_sha256": "ef46ff54d69fdad918ca2d05d2c27896ae3ee53ecd0c2a20970003738d9a1f11",
+    "production_equivalence_proven": false
+  },
+  "decision": {
+    "full_exhaustive_replay_selected": false,
+    "selected_analysis": "retrospective-truth-local-score-recovery-calibration",
+    "trial_inventory": "reuse-the-existing-512-truth-by-12-snr-allocation-without-removal",
+    "recovery_endpoint": "truth-local-score-at-or-above-frozen-threshold-after-native-injection-and-recomputed-two-pass-mask",
+    "interpretation": "conditional-score-recovery-sensitivity-only",
+    "end_to_end_detector_completeness_claimed": false,
+    "physical_veto_survival_calibrated": false,
+    "global_false-positive-field_replayed": false
+  },
+  "mandatory_execution_gates": [
+    "rehydrate-and-hash-verify-the-m37-1412p5-native-source-and-factor-artifacts",
+    "implement-a-restartable-production-truth-local-adapter-with-bounded-resource-receipts",
+    "pass-real-m37-anchor-trials-against-the-exhaustive-operational-window-replay",
+    "freeze-the-production-adapter-and-output-schema-before-running-the-6144-trial-ledger",
+    "account-for-every-preallocated-trial-exactly-once-with-no-truncation",
+    "report-only-pointwise-score-recovery-with-explicit-background-distribution-and-downstream-survival-conditions"
+  ],
+  "stopping_rule": "stop-after-feasibility-certificate-no-spectral-read-no-injection-result"
+}
