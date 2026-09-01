@@ -34,6 +34,15 @@ retrospective truth-local score-recovery path. No injections have yet been
 executed and no completeness, sensitivity, or occurrence-rate result is
 claimed. See `MILESTONE_38_M37_COMPLETENESS_FEASIBILITY_RESULT.md`.
 
+Milestone 39 has started the selected qualification path. A bounded
+truth-local planner and score adapter now pass dense synthetic equivalence
+tests, the compact Run 006 factor ancestry is hash-verified, and three
+real-M37 anchors are frozen. Source/cache rehydration and exhaustive
+real-anchor equivalence remain pending, so all 6,144 calibration trials remain
+blocked. M39 has read zero new spectral values, executed zero injections, and
+makes no quantitative claim. See
+`MILESTONE_39_M37_TRUTH_LOCAL_QUALIFICATION_CHECKPOINT.md`.
+
 Milestone 35 provides the latest survey-level synthesis. At exact ideal S/N 40
 its finite-injection pointwise 95% upper bound on `f(40)` is 33.16%, where
 `f(40)` is the common archive-cohort system-occurrence probability for the
@@ -70,6 +79,19 @@ a production adapter, exact source rehydration, frozen output schema, and
 real-data exhaustive anchor comparisons must pass. The feasibility audit read
 no new spectral values and made no quantitative scientific claim.
 
+## Milestone 39 M37 truth-local qualification checkpoint
+
+Milestone 39 freezes a resource-bounded adapter, its output schema, and three
+factor-derived real-M37 anchors. The compact Run 006 factor bundle passed all
+declared ancestry hashes. The three anchor plans contain 0, 2, and 11 local
+carrier cells; the zero-cell case is deliberately retained as a fail-closed
+boundary test.
+
+The six 1412.5 MHz source products, 48 cache sidecars, restartable anchor
+runner, and exhaustive anchor results are not yet present. Consequently the
+production-equivalence gate and the 6,144-trial calibration gate remain
+closed. This checkpoint is an engineering qualification result only.
+
 ## Milestone 37 invalid run, amendment and closed Run 006 outcome
 
 Milestone 37 selected HD 156668 / HIP 84607 at extension rank 37. HD 156668 b
@@ -85,7 +107,7 @@ persistence artifacts and a hash-chained run journal. Before production, the
 synthetic checkpoints exercised the full downstream contracts and resource
 envelopes.
 
-The current complete local suite runs 306 tests with one expected benchmark
+The current complete local suite runs 322 tests with one expected benchmark
 skip and no failures. Run 004 independently reopened every sparse-mirror
 segment, published 30 normalized window/scan products and verified
 11,545,072,128 cache-payload bytes. Its five calibration windows evaluated

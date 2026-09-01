@@ -1,0 +1,132 @@
+{
+  "artifact_type": "m39-m37-truth-local-qualification-plan-v1",
+  "analysis_base_commit": "1a4b34714cdec531c5c48a226ac652fad14eadf5",
+  "status": "qualification-started-source-rehydration-pending",
+  "scope": {
+    "source_run_id": "m37-v0p6p1-primary-006",
+    "background_window": "m37_1412p5",
+    "analysis": "retrospective-truth-local-score-recovery-calibration",
+    "endpoint": "conditional-pointwise-score-recovery-only",
+    "detector_or_threshold_changes_permitted": false,
+    "calibration_trials_permitted_before_anchor_equivalence": false,
+    "physical_veto_survival_claim_permitted": false,
+    "global_false_positive_replay_claim_permitted": false,
+    "quantitative_sensitivity_claim_permitted": false,
+    "occurrence_rate_claim_permitted": false
+  },
+  "inputs": [
+    {
+      "path": "results_m38_m37_completeness_feasibility/feasibility.json",
+      "sha256": "3d2f116ec3b3b363af905420da9cbddbc33bf1eb66855ce770eb226795653aa0"
+    },
+    {
+      "path": "results_m37_v0p6p1_primary_006/outcome-summary.json",
+      "sha256": "66d8d56a130a78c2af4360815654bd8a5a1d519bd3efed6fa9e9e6c8a3aaf811"
+    },
+    {
+      "path": "src/seti_repeater/completeness_v0p6.py",
+      "sha256": "75d1dd216fe334e6d0d2fd93c8d911cc82db107f8b56f09996699034d8f77ed3"
+    },
+    {
+      "path": "src/seti_repeater/truth_local_v0p6.py",
+      "sha256": "fa0cc32db11760fd8cf5336eaadc571040fb0882049fab0bdeafd352bbda12e2"
+    },
+    {
+      "path": "config/hd156668b_m37_preflight.json",
+      "sha256": "ef8d98b51365939ab1e6f45cf5f2b9a7e21049b265526b6cac9790f03ea56abb"
+    }
+  ],
+  "source_run_artifacts": {
+    "factor_bundle_path": "factor_bundle.v0p6",
+    "factor_bundle_file_sha256": "a43bccc37bff2659c9166c7e5734860fbec88a6a18534e5df0fa4032c4ee5ea9",
+    "factor_bundle_manifest_sha256": "cb986712cfd3a29df1db51db7aafe900f94c553c9085d5e22756e194a3fe8054",
+    "factor_table_sha256": "a4d87d8813ec63ff7f3392f5073038f3dc47a9707796a745dd4e752588255fa4",
+    "factor_basis_sha256": "492d2fe31d8cbe14968c9ce0296e898f42bf298540310f3f06a74ec8c971c143",
+    "factor_basis_labels_sha256": "5e5afd59424d48978148e7aafb3715e2c957c7495610dc98a7f99b44dfe59aee",
+    "analysis_contract_sha256": "726571e7b56b684f06ff69bbd6ae70b4c191268d25db8eadfcb8b6e841dc9f2e",
+    "source_metadata_sha256": "db808aa3b111d20ec5a584ed1248b1b98641214615991e5546232ed05b2d5429",
+    "required_scan_labels": [
+      "epoch1_on",
+      "epoch1_off",
+      "epoch2_on",
+      "epoch2_off",
+      "epoch3_on",
+      "epoch3_off"
+    ],
+    "required_spectral_widths": [1, 3, 5, 9, 17, 33, 65, 129],
+    "required_source_manifest_path": "m39-source-manifest.json",
+    "required_cache_manifest_path": "m39-cache-manifest.v0p6"
+  },
+  "frozen_completeness_inventory": {
+    "truth_count": 512,
+    "snr_grid": [4.0, 5.0, 6.0, 7.0, 8.0, 10.0, 12.0, 16.0, 20.0, 24.0, 32.0, 40.0],
+    "trial_count": 6144,
+    "truth_inventory_sha256": "0c96a4f1b0d09be3e40048a85cf0fbbd48b3ad1352c7224bfef25523cae42f60",
+    "trial_inventory_sha256": "c15e656295d3c40f179a2df58e0eff2b6d9129b2550311c3a7c5825579f3176a",
+    "plan_sha256": "ea83e1c588b78e02e4378036b122890cf286d63d9deb7f45210e7fe8a0ec92dc"
+  },
+  "truth_local_adapter": {
+    "source_path": "src/seti_repeater/truth_local_v0p6.py",
+    "source_sha256": "fa0cc32db11760fd8cf5336eaadc571040fb0882049fab0bdeafd352bbda12e2",
+    "status": "m39-truth-local-score-adapter-real-anchor-equivalence-pending",
+    "recovery_tolerance_hz": 20.0,
+    "interval_padding_bins": 4,
+    "maximum_distance_cells": 1000000,
+    "maximum_local_array_bytes": 67108864,
+    "maximum_mapped_cache_bytes": 536870912,
+    "recomputes_two_pass_mask": true,
+    "physical_veto_survival_calibrated": false,
+    "global_false_positive_field_replayed": false,
+    "production_equivalence_proven": false
+  },
+  "real_m37_anchor_inventory": [
+    {
+      "anchor_id": "no-local-cell-low-snr-upper-carrier-width-1-pair-01",
+      "level_index": 0,
+      "truth_ordinal": 0,
+      "trial_id": "0a881efe1b850bdd10148a8b9884a01e9723a5a3f89ef81ba628fc9df06f7566",
+      "truth_id": "cf1bc91b875ff23ab2499d3d5ef08b95e31d22465b6a7b30c335523eb54bef42",
+      "ideal_single_epoch_snr": 4.0,
+      "spectral_width_channels": 1,
+      "active_epochs_zero_based": [0, 1],
+      "proxy_carrier_index": 709433
+    },
+    {
+      "anchor_id": "mid-snr-lower-carrier-width-129-pair-02",
+      "level_index": 5,
+      "truth_ordinal": 15,
+      "trial_id": "abbb4a04f925d314cff412d6025f9b707cb3014c758d71bb6b17063c0d98b2fa",
+      "truth_id": "0546b07645cb5fb65d56f56bf070561d76b603fd9dbd390b704bc85a5d4d5079",
+      "ideal_single_epoch_snr": 10.0,
+      "spectral_width_channels": 129,
+      "active_epochs_zero_based": [0, 2],
+      "proxy_carrier_index": 38909
+    },
+    {
+      "anchor_id": "high-snr-interior-carrier-width-129-all-epochs",
+      "level_index": 11,
+      "truth_ordinal": 31,
+      "trial_id": "d8234f5a814067464f85408855b301fc4d9528742ec1310bbb5d5d856f325eb4",
+      "truth_id": "c6381e4de663c425d36478c88b7be96332a8890282678be75e695797655aca98",
+      "ideal_single_epoch_snr": 40.0,
+      "spectral_width_channels": 129,
+      "active_epochs_zero_based": [0, 1, 2],
+      "proxy_carrier_index": 220267
+    }
+  ],
+  "anchor_equivalence_contract": {
+    "reference": "exhaustive-operational-replay-of-the-complete-m37_1412p5-window",
+    "required_comparisons": [
+      "best-truth-local-score-float32-bits",
+      "best-template-index",
+      "best-spectral-width-index",
+      "best-activity-subset-index",
+      "best-proxy-carrier-index",
+      "two-pass-mask-candidate-bits"
+    ],
+    "all_anchors_must_pass": true,
+    "mismatch_policy": "stop-no-calibration-trials",
+    "anchor_success_is_global_equivalence_proof": false
+  },
+  "stopping_rule": "stop-after-factor-and-adapter-qualification-until-source-cache-rehydration-and-real-anchor-equivalence"
+}
