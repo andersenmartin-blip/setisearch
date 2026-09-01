@@ -557,8 +557,17 @@ def publish_physical_disposition_artifact(
     result: Mapping[str, Any],
     *,
     expected_physical_disposition_certificate_sha256: str,
+    maximum_artifact_bytes: int = PHYSICAL_DISPOSITION_ARTIFACT_MAXIMUM_BYTES,
 ) -> PhysicalDispositionArtifactReceipt:
     """Atomically publish one complete physical-disposition result."""
+    maximum_artifact_bytes = core._strict_int(
+        maximum_artifact_bytes,
+        "physical-disposition artifact byte capacity",
+    )
+    if maximum_artifact_bytes < 1:
+        raise core.V0P6ContractError(
+            "physical-disposition artifact byte capacity must be positive"
+        )
     validated = validate_physical_disposition_result(
         result,
         expected_physical_disposition_certificate_sha256=(
@@ -566,7 +575,7 @@ def publish_physical_disposition_artifact(
         ),
     )
     payload = core.canonical_json_bytes(validated)
-    if len(payload) > PHYSICAL_DISPOSITION_ARTIFACT_MAXIMUM_BYTES:
+    if len(payload) > maximum_artifact_bytes:
         raise core.V0P6CapacityError(
             "physical-disposition artifact exceeds its byte cap"
         )
@@ -605,12 +614,21 @@ def open_physical_disposition_artifact(
     expected_cache_run_manifest_file_sha256: str,
     expected_factor_bundle_manifest_sha256: str,
     expected_on_retention_certificate_sha256: str,
+    maximum_artifact_bytes: int = PHYSICAL_DISPOSITION_ARTIFACT_MAXIMUM_BYTES,
 ) -> PhysicalDispositionArtifact:
     """Reopen a complete result against independent identity roots."""
+    maximum_artifact_bytes = core._strict_int(
+        maximum_artifact_bytes,
+        "physical-disposition artifact byte capacity",
+    )
+    if maximum_artifact_bytes < 1:
+        raise core.V0P6ContractError(
+            "physical-disposition artifact byte capacity must be positive"
+        )
     artifact_path = Path(path)
     with artifact_path.open("rb") as stream:
-        raw = stream.read(PHYSICAL_DISPOSITION_ARTIFACT_MAXIMUM_BYTES + 1)
-    if len(raw) > PHYSICAL_DISPOSITION_ARTIFACT_MAXIMUM_BYTES:
+        raw = stream.read(maximum_artifact_bytes + 1)
+    if len(raw) > maximum_artifact_bytes:
         raise core.V0P6CapacityError(
             "physical-disposition artifact exceeds its byte cap"
         )

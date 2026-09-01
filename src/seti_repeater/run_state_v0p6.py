@@ -163,11 +163,27 @@ def _validate_stage_metadata(stage: str, metadata: Mapping[str, Any]) -> None:
             metadata.get("total_opened_cache_count"),
             "physical-disposition opened-cache count",
         )
+        amendment_sha256 = metadata.get("capacity_amendment_file_sha256")
+        if amendment_sha256 is None:
+            maximum_final_count = (
+                len(core.M37_WINDOW_IDS)
+                * core.M37_MAXIMUM_RECORDS_PER_WINDOW
+            )
+        else:
+            from . import capacity_v0p6p1 as capacity
+
+            if amendment_sha256 != capacity.M37_V0P6P1_AMENDMENT_FILE_SHA256:
+                raise core.V0P6IncompleteError(
+                    "physical-disposition capacity amendment changed"
+                )
+            maximum_final_count = (
+                len(core.M37_WINDOW_IDS)
+                * capacity.M37_V0P6P1_MAXIMUM_RECORDS_PER_WINDOW
+            )
         if (
             window_count != len(core.M37_WINDOW_IDS)
             or final_count < 0
-            or final_count
-            > len(core.M37_WINDOW_IDS) * core.M37_MAXIMUM_RECORDS_PER_WINDOW
+            or final_count > maximum_final_count
             or mapped_cap != core.M37_LIVE_NDARRAY_CAP_BYTES
             or mapped_peak < 0
             or mapped_peak > mapped_cap

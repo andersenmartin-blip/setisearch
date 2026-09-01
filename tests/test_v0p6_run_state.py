@@ -10,6 +10,7 @@ import unittest
 from types import SimpleNamespace
 from unittest import mock
 
+from seti_repeater import capacity_v0p6p1 as capacity
 from seti_repeater import run_state_v0p6 as state
 from seti_repeater.search_v0p6 import (
     V0P6ContractError,
@@ -319,6 +320,30 @@ class M37RunJournalTests(unittest.TestCase):
                     metadata=metadata,
                 )
             self.assertEqual(path.read_bytes(), before)
+
+    def test_physical_disposition_accepts_only_frozen_amended_capacity(self) -> None:
+        metadata = _metadata("physical_disposition_complete")
+        metadata["total_final_record_count"] = 200_000
+        metadata["capacity_amendment_file_sha256"] = (
+            capacity.M37_V0P6P1_AMENDMENT_FILE_SHA256
+        )
+        state._validate_stage_metadata(
+            "physical_disposition_complete", metadata
+        )
+
+        without_amendment = dict(metadata)
+        without_amendment.pop("capacity_amendment_file_sha256")
+        with self.assertRaisesRegex(V0P6IncompleteError, "accounting"):
+            state._validate_stage_metadata(
+                "physical_disposition_complete", without_amendment
+            )
+
+        changed = dict(metadata)
+        changed["capacity_amendment_file_sha256"] = _digest(999)
+        with self.assertRaisesRegex(V0P6IncompleteError, "amendment"):
+            state._validate_stage_metadata(
+                "physical_disposition_complete", changed
+            )
 
 
 if __name__ == "__main__":

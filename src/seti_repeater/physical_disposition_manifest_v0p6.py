@@ -622,7 +622,18 @@ def open_physical_disposition_run_manifest(
     expected_cache_run_manifest_file_sha256: str,
     expected_factor_bundle_manifest_sha256: str,
     expected_on_retention_inventory_sha256: str,
+    maximum_child_artifact_bytes: int = (
+        disposition.PHYSICAL_DISPOSITION_ARTIFACT_MAXIMUM_BYTES
+    ),
 ) -> PhysicalDispositionRunManifest:
+    maximum_child_artifact_bytes = core._strict_int(
+        maximum_child_artifact_bytes,
+        "disposition-run child artifact byte capacity",
+    )
+    if maximum_child_artifact_bytes < 1:
+        raise core.V0P6ContractError(
+            "disposition-run child artifact byte capacity must be positive"
+        )
     manifest_path = Path(path)
     with manifest_path.open("rb") as stream:
         raw = stream.read(PHYSICAL_DISPOSITION_RUN_MANIFEST_MAXIMUM_BYTES + 1)
@@ -680,6 +691,7 @@ def open_physical_disposition_run_manifest(
             expected_on_retention_certificate_sha256=(
                 entry.on_retention_certificate_sha256
             ),
+            maximum_artifact_bytes=maximum_child_artifact_bytes,
         )
         if _entry_from_artifact(entry.relative_path, artifact) != entry:
             raise core.V0P6IncompleteError(
