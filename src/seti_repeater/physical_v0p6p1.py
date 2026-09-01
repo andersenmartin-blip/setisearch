@@ -637,6 +637,17 @@ def open_m37_v0p6p1_physical_disposition_artifact(
     **expected: Any,
 ) -> disposition.PhysicalDispositionArtifact:
     profile = _profile(profile)
+    artifact_path = Path(path)
+    compressed_path = Path(f"{artifact_path}.gz")
+    if (
+        not artifact_path.is_file()
+        and compressed_path.is_file()
+        and compressed_path.stat().st_size
+        > profile.maximum_single_compressed_output_file_bytes
+    ):
+        raise core.V0P6CapacityError(
+            "compressed physical-disposition artifact exceeds its byte cap"
+        )
     opened = disposition.open_physical_disposition_artifact(
         path,
         maximum_artifact_bytes=(

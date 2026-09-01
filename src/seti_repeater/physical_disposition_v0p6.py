@@ -12,6 +12,7 @@ Importing this module does not open telescope data or artifact files.
 from __future__ import annotations
 
 from dataclasses import dataclass
+import gzip
 import hashlib
 import json
 import os
@@ -626,7 +627,14 @@ def open_physical_disposition_artifact(
             "physical-disposition artifact byte capacity must be positive"
         )
     artifact_path = Path(path)
-    with artifact_path.open("rb") as stream:
+    if artifact_path.is_file():
+        stream = artifact_path.open("rb")
+    else:
+        compressed_path = Path(f"{artifact_path}.gz")
+        if not compressed_path.is_file():
+            raise FileNotFoundError(artifact_path)
+        stream = gzip.open(compressed_path, "rb")
+    with stream:
         raw = stream.read(maximum_artifact_bytes + 1)
     if len(raw) > maximum_artifact_bytes:
         raise core.V0P6CapacityError(

@@ -194,6 +194,104 @@ def _validate_stage_metadata(stage: str, metadata: Mapping[str, Any]) -> None:
             raise core.V0P6IncompleteError(
                 "physical-disposition journal accounting is incomplete"
             )
+    elif stage == "significance_complete":
+        if (
+            metadata.get("spectral_access_authorized") is not True
+            or metadata.get("spectral_dataset_values_read") is not True
+        ):
+            raise core.V0P6IncompleteError(
+                "significance stage lacks spectral-contact provenance"
+            )
+        from . import capacity_v0p6p1 as capacity
+
+        if metadata.get("capacity_amendment_file_sha256") != (
+            capacity.M37_V0P6P1_AMENDMENT_FILE_SHA256
+        ):
+            raise core.V0P6IncompleteError(
+                "significance capacity amendment changed"
+            )
+        for name in (
+            "significance_manifest_sha256",
+            "significance_artifact_inventory_sha256",
+            "threshold_certificate_sha256",
+            "global_null_maxima_sha256",
+        ):
+            _sha256(metadata.get(name), name.replace("_", " "))
+        window_count = _strict_int(
+            metadata.get("window_count"), "significance window count"
+        )
+        record_count = _strict_int(
+            metadata.get("total_record_count"),
+            "significance record count",
+        )
+        eligible_count = _strict_int(
+            metadata.get("total_scientifically_eligible_count"),
+            "scientifically eligible record count",
+        )
+        maximum_records = (
+            len(core.M37_WINDOW_IDS)
+            * capacity.M37_V0P6P1_MAXIMUM_RECORDS_PER_WINDOW
+        )
+        if (
+            window_count != len(core.M37_WINDOW_IDS)
+            or record_count < 0
+            or record_count > maximum_records
+            or eligible_count < 0
+            or eligible_count > record_count
+        ):
+            raise core.V0P6IncompleteError(
+                "significance journal accounting is incomplete"
+            )
+    elif stage == "outcome_complete":
+        if (
+            metadata.get("spectral_access_authorized") is not True
+            or metadata.get("spectral_dataset_values_read") is not True
+        ):
+            raise core.V0P6IncompleteError(
+                "outcome stage lacks spectral-contact provenance"
+            )
+        from . import capacity_v0p6p1 as capacity
+
+        if metadata.get("capacity_amendment_file_sha256") != (
+            capacity.M37_V0P6P1_AMENDMENT_FILE_SHA256
+        ):
+            raise core.V0P6IncompleteError("outcome capacity amendment changed")
+        for name in (
+            "outcome_result_sha256",
+            "outcome_certificate_sha256",
+            "threshold_certificate_sha256",
+        ):
+            _sha256(metadata.get(name), name.replace("_", " "))
+        record_count = _strict_int(
+            metadata.get("outcome_record_count"), "outcome record count"
+        )
+        unresolved_count = _strict_int(
+            metadata.get("unresolved_candidate_count"),
+            "unresolved candidate count",
+        )
+        state = metadata.get("global_search_state")
+        global_outcome = metadata.get("global_outcome")
+        is_open = unresolved_count > 0
+        maximum_records = (
+            len(core.M37_WINDOW_IDS)
+            * capacity.M37_V0P6P1_MAXIMUM_RECORDS_PER_WINDOW
+        )
+        if (
+            record_count < 0
+            or record_count > maximum_records
+            or unresolved_count < 0
+            or unresolved_count > record_count
+            or state != ("open" if is_open else "closed")
+            or global_outcome
+            != (
+                "open_unresolved_scientific_candidates"
+                if is_open
+                else "closed_no_unresolved_scientific_candidates"
+            )
+        ):
+            raise core.V0P6IncompleteError(
+                "outcome journal accounting is incomplete"
+            )
     elif stage in M37_RUN_STAGES[3:]:
         if (
             metadata.get("spectral_access_authorized") is not True

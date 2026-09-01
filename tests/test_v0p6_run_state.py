@@ -56,6 +56,40 @@ def _metadata(stage: str) -> dict[str, object]:
             "total_opened_cache_count": 480,
             "test_stage": stage,
         }
+    if stage == "significance_complete":
+        return {
+            "spectral_access_authorized": True,
+            "spectral_dataset_values_read": True,
+            "capacity_amendment_file_sha256": (
+                capacity.M37_V0P6P1_AMENDMENT_FILE_SHA256
+            ),
+            "significance_manifest_sha256": _digest(211),
+            "significance_artifact_inventory_sha256": _digest(212),
+            "threshold_certificate_sha256": _digest(213),
+            "global_null_maxima_sha256": _digest(214),
+            "window_count": 5,
+            "total_record_count": 12,
+            "total_scientifically_eligible_count": 9,
+            "test_stage": stage,
+        }
+    if stage == "outcome_complete":
+        return {
+            "spectral_access_authorized": True,
+            "spectral_dataset_values_read": True,
+            "capacity_amendment_file_sha256": (
+                capacity.M37_V0P6P1_AMENDMENT_FILE_SHA256
+            ),
+            "outcome_result_sha256": _digest(221),
+            "outcome_certificate_sha256": _digest(222),
+            "threshold_certificate_sha256": _digest(223),
+            "outcome_record_count": 12,
+            "unresolved_candidate_count": 0,
+            "global_search_state": "closed",
+            "global_outcome": (
+                "closed_no_unresolved_scientific_candidates"
+            ),
+            "test_stage": stage,
+        }
     return {
         "spectral_access_authorized": True,
         "spectral_dataset_values_read": True,
@@ -308,6 +342,19 @@ class M37RunJournalTests(unittest.TestCase):
                     artifact_sha256=_digest(index),
                     metadata=_metadata(stage_name),
                 )
+
+    def test_adjudication_stages_reject_inconsistent_counts(self) -> None:
+        bad_significance = _metadata("significance_complete")
+        bad_significance["total_scientifically_eligible_count"] = 13
+        with self.assertRaisesRegex(V0P6IncompleteError, "significance"):
+            state._validate_stage_metadata(
+                "significance_complete", bad_significance
+            )
+
+        bad_outcome = _metadata("outcome_complete")
+        bad_outcome["unresolved_candidate_count"] = 1
+        with self.assertRaisesRegex(V0P6IncompleteError, "outcome"):
+            state._validate_stage_metadata("outcome_complete", bad_outcome)
             before = path.read_bytes()
             metadata = _metadata("physical_disposition_complete")
             metadata["window_count"] = 4

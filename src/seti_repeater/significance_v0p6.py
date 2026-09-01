@@ -790,6 +790,14 @@ def _require_m37_contract(
     threshold_certificate: core.ThresholdCertificate,
     null_maxima: np.ndarray,
     grid: core.ProxyCarrierGrid,
+    *,
+    maximum_records_per_window: int = core.M37_MAXIMUM_RECORDS_PER_WINDOW,
+    maximum_record_canonical_bytes: int = (
+        core.M37_MAXIMUM_RECORD_CANONICAL_BYTES
+    ),
+    maximum_evidence_canonical_bytes: int = (
+        core.M37_MAXIMUM_EVIDENCE_CANONICAL_BYTES
+    ),
 ) -> None:
     window_id = str(cert["window_id"])
     if window_id not in core.M37_WINDOW_IDS:
@@ -873,17 +881,17 @@ def _require_m37_contract(
         or core._strict_int(
             cert["maximum_records"], "M37 retention capacity"
         )
-        != core.M37_MAXIMUM_RECORDS_PER_WINDOW
+        != maximum_records_per_window
         or core._strict_int(
             cert["maximum_record_canonical_bytes"],
             "M37 record-byte capacity",
         )
-        != core.M37_MAXIMUM_RECORD_CANONICAL_BYTES
+        != maximum_record_canonical_bytes
         or core._strict_int(
             cert["maximum_evidence_canonical_bytes"],
             "M37 evidence-byte capacity",
         )
-        != core.M37_MAXIMUM_EVIDENCE_CANONICAL_BYTES
+        != maximum_evidence_canonical_bytes
     ):
         raise core.V0P6IncompleteError(
             "global rank-p pass received a non-canonical M37 contract"

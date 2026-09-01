@@ -12,21 +12,19 @@ necessarily aimed at Earth.
 **Current scientific status:** no technosignature claim. The unresolved
 Milestone 33 follow-up case remains open. Milestone 36 completed the HIP 48714
 primary search and complete-retention audit; no M36 candidate survives.
-Milestone 37 then authorized and read the six HD 156668 cadence files, built
-all 240 native caches, completed all five calibration windows, and sealed an
-operational threshold of S/N 126.20158386230469. Exhaustive ON retention
-stopped fail-closed in `m37_1418p5`: the first 157 hypotheses already implied
-at least 10,026 records, above the frozen 10,000-record capacity. Run 004 is
-therefore permanently `M37_INVALID_NO_CONCLUSION`. OFF retention and physical
-or statistical candidate adjudication were not reached, so this is neither a
-signal nor a null result. A separate post-contact census replayed all
-five ON and OFF windows without retaining candidates. It counted 41,640 ON and
-zero OFF records in `m37_1418p5`; all are from the 129-channel filter in two
-adjacent 10 kHz buckets. This diagnostic does not change Run 004 or classify
-the feature physically. The resulting capacity-only v0.6.1 amendment has now
-completed normative ON/OFF retention in Run 006 with 43,883 ON and 2,160 OFF
-records. Physical veto and significance stages remain pending, so there is
-still no signal or null claim.
+Milestone 37 authorized and read the six HD 156668 cadence files, built all
+240 native caches, completed calibration and sealed an operational threshold
+of S/N 126.20158386230469. The original Run 004 remains permanently
+`M37_INVALID_NO_CONCLUSION` after its 10,000-record capacity overflow. A
+separately documented post-contact, capacity-only v0.6.1 amendment preserved
+that invalid result and completed a new Run 006 with 43,883 ON and 2,160 OFF
+records. Full physical disposition, independent rank-p evidence and the exact
+five-window outcome join are now complete. All 43,883 ON records are
+physically vetoed—41,863 by single-adjacent-OFF evidence, 1,318 by exact OFF
+and 702 by local OFF—and zero unresolved candidates remain. Run 006 therefore
+reports `closed_no_unresolved_scientific_candidates` for this one primary
+cadence and frozen search model. Detector completeness remains pending, so M37
+does not yet provide a quantitative sensitivity or occurrence-rate bound.
 
 Milestone 35 provides the latest survey-level synthesis. At exact ideal S/N 40
 its finite-injection pointwise 95% upper bound on `f(40)` is 33.16%, where
@@ -48,7 +46,7 @@ separate Milestone 37 implementation used by the authorized run. Its frozen
 capacity rule, rather than a candidate disposition, determined the invalid
 outcome.
 
-## Milestone 37 capacity-invalid result and census
+## Milestone 37 invalid run, amendment and closed Run 006 outcome
 
 Milestone 37 selected HD 156668 / HIP 84607 at extension rank 37. HD 156668 b
 supplies only the motion template. The metadata-only coverage proof and the
@@ -63,8 +61,8 @@ persistence artifacts and a hash-chained run journal. Before production, the
 synthetic checkpoints exercised the full downstream contracts and resource
 envelopes.
 
-The complete local suite subsequently passed 296 of 297 tests with one
-expected benchmark skip. Run 004 independently reopened every sparse-mirror
+The current complete local suite runs 306 tests with one expected benchmark
+skip and no failures. Run 004 independently reopened every sparse-mirror
 segment, published 30 normalized window/scan products and verified
 11,545,072,128 cache-payload bytes. Its five calibration windows evaluated
 14,880 hypotheses and 2,848,065,331,200 null score cells. The exact 256-member
@@ -91,19 +89,21 @@ dense score-space feature: every record uses width 129, all lie in
 1,419,340,000--1,419,360,000 Hz census buckets, and none reaches 1.25 times the
 frozen threshold. No candidate records or veto dispositions were produced.
 
-The recommended next protocol is an explicitly post-contact, capacity-only
-v0.6.1 amendment with a 50,000-record per-window limit and proportionally
-raised evidence and downstream work envelopes. Threshold, grid, template bank,
-widths, activity subsets, vetoes and the immutable Run 004 journal remain
-unchanged. See
-`MILESTONE_37_PRIMARY_CAPACITY_RESULT.md` and
-`MILESTONE_37_CAPACITY_CENSUS.md`.
+The explicitly post-contact, capacity-only v0.6.1 amendment raised the
+per-window record limit to 50,000 and proportionally raised evidence and
+downstream work envelopes. Threshold, grid, template bank, widths, activity
+subsets, vetoes and the immutable Run 004 journal remained unchanged. Run 006
+completed all ten normative retention ledgers and exactly reproduced the
+census counts.
 
-That amendment is now implemented and Run 006 has completed all ten normative
-retention ledgers. The exact window counts reproduce the census, the largest
-ledger is 41,640, and all immutable artifacts pass restart validation. See
-`MILESTONE_37_V0P6P1_RETENTION_RESULT.md`. The next stage is full physical
-disposition, then rank significance and outcome assembly.
+Complete physical disposition then classified all 43,883 retained ON records.
+The dense 1418.5 MHz feature's 41,640 members all have qualifying frozen
+single-adjacent-OFF evidence. Independent global rank-p evaluation found
+43,741 statistically eligible records, but statistical eligibility cannot
+override a physical veto. The receipt-bound outcome join therefore contains
+zero `scientific_candidate_unresolved` records and closes the M37 primary
+cadence as `closed_no_unresolved_scientific_candidates`. See
+`MILESTONE_37_V0P6P1_OUTCOME_RESULT.md`.
 
 ## Milestone 36 result
 
@@ -784,6 +784,13 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Key files
 
+- `MILESTONE_37_V0P6P1_OUTCOME_RESULT.md` — Run 006 physical, rank-p and closed primary-cadence outcome.
+- `MILESTONE_37_V0P6P1_SIGNIFICANCE_OUTCOME_PLAN.md` — frozen post-physical adjudication plan.
+- `results_m37_v0p6p1_primary_006/outcome-summary.json` — machine-readable Run 006 adjudication summary.
+- `results_m37_v0p6p1_primary_006/outcome.json.gz` — complete canonical five-window outcome.
+- `results_m37_v0p6p1_primary_006/significance-manifest.json` — complete rank-p child inventory and counts.
+- `results_m37_v0p6p1_primary_006/physical-disposition-manifest.json` — complete physical child inventory and counts.
+- `scripts/m37_v0p6p1_significance_outcome.py` — restartable significance/outcome continuation.
 - `MILESTONE_37_PRIMARY_CAPACITY_RESULT.md` — authorized spectral execution and fail-closed capacity result.
 - `results_m37_v0p6_primary_004/result.json` — machine-readable Run 004 summary.
 - `results_m37_v0p6_primary_004/retention-capacity-failure.json` — exact immutable overflow evidence.

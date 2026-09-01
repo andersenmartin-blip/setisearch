@@ -13,6 +13,7 @@ outcome is emitted.
 
 from __future__ import annotations
 
+from dataclasses import dataclass
 import hashlib
 import json
 import math
@@ -57,6 +58,44 @@ M37_MAXIMUM_OUTCOME_CANONICAL_BYTES = (
     len(core.M37_WINDOW_IDS) * core.M37_MAXIMUM_EVIDENCE_CANONICAL_BYTES
 )
 _MAXIMUM_UPSTREAM_CERTIFICATE_CANONICAL_BYTES = 1_000_000
+
+
+@dataclass(frozen=True)
+class M37OutcomeCapacity:
+    """Explicit storage limits for one otherwise unchanged M37 join."""
+
+    maximum_records_per_window: int
+    maximum_record_canonical_bytes: int
+    maximum_evidence_canonical_bytes_per_window: int
+    maximum_alias_bucket_entries_per_window: int
+    maximum_alias_distinct_candidate_visits_per_window: int
+    maximum_alias_identity_track_comparisons_per_window: int
+    maximum_outcome_records: int
+    maximum_outcome_canonical_bytes: int
+
+
+def _v0p6_outcome_capacity() -> M37OutcomeCapacity:
+    return M37OutcomeCapacity(
+        maximum_records_per_window=core.M37_MAXIMUM_RECORDS_PER_WINDOW,
+        maximum_record_canonical_bytes=core.M37_MAXIMUM_RECORD_CANONICAL_BYTES,
+        maximum_evidence_canonical_bytes_per_window=(
+            core.M37_MAXIMUM_EVIDENCE_CANONICAL_BYTES
+        ),
+        maximum_alias_bucket_entries_per_window=(
+            core.M37_MAXIMUM_ALIAS_BUCKET_ENTRIES
+        ),
+        maximum_alias_distinct_candidate_visits_per_window=(
+            core.M37_MAXIMUM_ALIAS_NEIGHBOR_VISITS
+        ),
+        maximum_alias_identity_track_comparisons_per_window=(
+            alias_stage.M37_MAXIMUM_ALIAS_IDENTITY_TRACK_COMPARISONS
+        ),
+        maximum_outcome_records=M37_MAXIMUM_OUTCOME_RECORDS,
+        maximum_outcome_canonical_bytes=M37_MAXIMUM_OUTCOME_CANONICAL_BYTES,
+    )
+
+
+M37_V0P6_OUTCOME_CAPACITY = _v0p6_outcome_capacity()
 
 _WINDOW_INPUT_FIELDS = frozenset(
     {
@@ -180,9 +219,6 @@ _RESULT_FIELDS = frozenset({"records", "certificate", "result_sha256"})
 
 _OUTCOME_RESULT_ATTESTATIONS: dict[str, bytes] = {}
 _OUTCOME_RESULT_ATTESTATION_CAP = 1_024
-_OUTCOME_RESULT_ATTESTATION_CAP_BYTES = 2 * (
-    M37_MAXIMUM_OUTCOME_CANONICAL_BYTES
-)
 _outcome_attestation_bytes = 0
 
 
@@ -307,6 +343,7 @@ def _validate_alias_product(
     window_id: str,
     window_ordinal: int,
     expected_retention_certificate_sha256: str,
+    capacity: M37OutcomeCapacity = M37_V0P6_OUTCOME_CAPACITY,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     result = _canonical_mapping(raw_result, "receiver-alias result")
     if frozenset(result) != _ALIAS_RESULT_FIELDS:
@@ -317,7 +354,7 @@ def _validate_alias_product(
         raise M37ValidationError(
             "receiver-alias records were duplicated or reordered from canonical retention order"
         )
-    if len(records) > core.M37_MAXIMUM_RECORDS_PER_WINDOW:
+    if len(records) > capacity.maximum_records_per_window:
         raise M37ValidationError("receiver-alias record capacity exceeded")
     try:
         certificate = alias_stage.validate_receiver_alias_result(
@@ -343,7 +380,7 @@ def _validate_alias_product(
         or _strict_int(
             certificate.get("maximum_records"), "alias record capacity"
         )
-        != core.M37_MAXIMUM_RECORDS_PER_WINDOW
+        != capacity.maximum_records_per_window
         or certificate.get("all_on_records_annotated_exactly_once") is not True
         or certificate.get("truncation_permitted") is not False
     ):
@@ -378,12 +415,12 @@ def _validate_alias_product(
             certificate.get("maximum_bucket_entries"),
             "maximum alias bucket entries",
         )
-        != core.M37_MAXIMUM_ALIAS_BUCKET_ENTRIES
+        != capacity.maximum_alias_bucket_entries_per_window
         or _strict_int(
             certificate.get("maximum_distinct_candidate_visits_per_window"),
             "maximum alias candidate visits",
         )
-        != core.M37_MAXIMUM_ALIAS_NEIGHBOR_VISITS
+        != capacity.maximum_alias_distinct_candidate_visits_per_window
     ):
         raise M37ValidationError(
             "receiver-alias certificate uses non-M37 matching limits"
@@ -404,7 +441,7 @@ def _validate_alias_product(
         )
         or track_comparisons < 0
         or track_comparison_cap
-        != alias_stage.M37_MAXIMUM_ALIAS_IDENTITY_TRACK_COMPARISONS
+        != capacity.maximum_alias_identity_track_comparisons_per_window
         or track_comparisons > track_comparison_cap
     ):
         raise M37ValidationError(
@@ -440,6 +477,7 @@ def _validate_significance_product(
     expected_threshold_certificate_sha256: str,
     expected_retention_certificate_sha256: str,
     window_id: str,
+    capacity: M37OutcomeCapacity = M37_V0P6_OUTCOME_CAPACITY,
 ) -> tuple[dict[str, Any], dict[str, Any], list[dict[str, Any]]]:
     try:
         result = significance_stage._validate_result_envelope(
@@ -493,7 +531,7 @@ def _validate_significance_product(
             certificate.get("maximum_evidence_canonical_bytes"),
             "maximum significance evidence bytes",
         )
-        != core.M37_MAXIMUM_EVIDENCE_CANONICAL_BYTES
+        != capacity.maximum_evidence_canonical_bytes_per_window
         or certificate.get("all_input_records_evaluated_exactly_once") is not True
         or certificate.get("truncation_permitted") is not False
     ):
@@ -604,6 +642,7 @@ def _derive_m37_outcome(
     window_inputs: Sequence[Mapping[str, Any]],
     *,
     expected_threshold_certificate_sha256: str,
+    capacity: M37OutcomeCapacity = M37_V0P6_OUTCOME_CAPACITY,
 ) -> dict[str, Any]:
     threshold_receipt = _digest(
         expected_threshold_certificate_sha256,
@@ -648,7 +687,7 @@ def _derive_m37_outcome(
             raw_alias_records, Sequence
         ):
             raise M37ValidationError("receiver-alias records must be a sequence")
-        if len(raw_alias_records) > core.M37_MAXIMUM_RECORDS_PER_WINDOW:
+        if len(raw_alias_records) > capacity.maximum_records_per_window:
             raise M37ValidationError("receiver-alias record capacity exceeded")
         if not isinstance(raw_significance_result, Mapping) or frozenset(
             raw_significance_result
@@ -659,7 +698,7 @@ def _derive_m37_outcome(
             raw_significance_evidence, (str, bytes, bytearray)
         ) or not isinstance(raw_significance_evidence, Sequence):
             raise M37ValidationError("global rank-p evidence must be a sequence")
-        if len(raw_significance_evidence) > core.M37_MAXIMUM_RECORDS_PER_WINDOW:
+        if len(raw_significance_evidence) > capacity.maximum_records_per_window:
             raise M37ValidationError("global rank-p evidence capacity exceeded")
         for product, records_or_evidence, label in (
             (raw_alias_result, raw_alias_records, "receiver-alias"),
@@ -690,12 +729,14 @@ def _derive_m37_outcome(
                     raise M37ValidationError(
                         f"{label} item must be canonical finite JSON"
                     ) from error
-                if item_size > core.M37_MAXIMUM_RECORD_CANONICAL_BYTES:
+                if item_size > capacity.maximum_record_canonical_bytes:
                     raise M37ValidationError(
                         f"{label} item exceeds its canonical-byte capacity"
                     )
                 cumulative_bytes += item_size
-                if cumulative_bytes > core.M37_MAXIMUM_EVIDENCE_CANONICAL_BYTES:
+                if cumulative_bytes > (
+                    capacity.maximum_evidence_canonical_bytes_per_window
+                ):
                     raise M37ValidationError(
                         f"{label} inventory exceeds its canonical-byte capacity"
                     )
@@ -727,6 +768,7 @@ def _derive_m37_outcome(
             window_id=expected_window_id,
             window_ordinal=window_ordinal,
             expected_retention_certificate_sha256=retention_receipt,
+            capacity=capacity,
         )
         receiver_signature_receipt = _digest(
             alias_certificate.get("receiver_signature_certificate_sha256"),
@@ -754,6 +796,7 @@ def _derive_m37_outcome(
                 expected_threshold_certificate_sha256=threshold_receipt,
                 expected_retention_certificate_sha256=retention_receipt,
                 window_id=expected_window_id,
+                capacity=capacity,
             )
         )
         observed_common = _common_significance_identity(significance_certificate)
@@ -786,7 +829,9 @@ def _derive_m37_outcome(
         if any(record_id in seen_global_ids for record_id in alias_ids):
             raise M37ValidationError("a retained record ID occurs in multiple windows")
         seen_global_ids.update(alias_ids)
-        if len(outcome_records) + len(alias_records) > M37_MAXIMUM_OUTCOME_RECORDS:
+        if len(outcome_records) + len(alias_records) > (
+            capacity.maximum_outcome_records
+        ):
             raise M37ValidationError("M37 outcome record capacity exceeded")
 
         alias_hashes: list[str] = []
@@ -869,7 +914,7 @@ def _derive_m37_outcome(
             output_record = dict(payload)
             output_record["outcome_record_sha256"] = _sha256_json(payload)
             if len(core.canonical_json_bytes(output_record)) > (
-                core.M37_MAXIMUM_RECORD_CANONICAL_BYTES
+                capacity.maximum_record_canonical_bytes
             ):
                 raise M37ValidationError(
                     "an M37 outcome record exceeds its canonical-byte capacity"
@@ -928,7 +973,7 @@ def _derive_m37_outcome(
     if common_identity["threshold_certificate_sha256"] != threshold_receipt:
         raise M37ValidationError("M37 threshold receipt changed during join")
     records_bytes = core.canonical_json_bytes(outcome_records)
-    if len(records_bytes) > M37_MAXIMUM_OUTCOME_CANONICAL_BYTES:
+    if len(records_bytes) > capacity.maximum_outcome_canonical_bytes:
         raise M37ValidationError("M37 outcome canonical-byte capacity exceeded")
     candidate_count = disposition_counts[SCIENTIFIC_CANDIDATE_UNRESOLVED]
     is_open = candidate_count > 0
@@ -955,13 +1000,15 @@ def _derive_m37_outcome(
         "input_alias_record_count": len(outcome_records),
         "input_significance_evidence_count": len(outcome_records),
         "outcome_record_count": len(outcome_records),
-        "maximum_records_per_window": core.M37_MAXIMUM_RECORDS_PER_WINDOW,
-        "maximum_outcome_records": M37_MAXIMUM_OUTCOME_RECORDS,
+        "maximum_records_per_window": capacity.maximum_records_per_window,
+        "maximum_outcome_records": capacity.maximum_outcome_records,
         "outcome_record_ids_sha256": _sha256_json(record_ids),
         "outcome_item_sha256s_sha256": _sha256_json(item_hashes),
         "outcome_records_sha256": hashlib.sha256(records_bytes).hexdigest(),
         "outcome_records_canonical_bytes": len(records_bytes),
-        "maximum_outcome_canonical_bytes": M37_MAXIMUM_OUTCOME_CANONICAL_BYTES,
+        "maximum_outcome_canonical_bytes": (
+            capacity.maximum_outcome_canonical_bytes
+        ),
         "disposition_counts": disposition_counts,
         "unresolved_candidate_count": candidate_count,
         "global_search_state": "open" if is_open else "closed",
@@ -982,11 +1029,15 @@ def _derive_m37_outcome(
     return json.loads(core.canonical_json_bytes(result))
 
 
-def _attest_result(result: dict[str, Any]) -> None:
+def _attest_result(
+    result: dict[str, Any],
+    *,
+    capacity: M37OutcomeCapacity = M37_V0P6_OUTCOME_CAPACITY,
+) -> None:
     global _outcome_attestation_bytes
     digest = result["result_sha256"]
     encoded = core.canonical_json_bytes(result)
-    if len(encoded) > M37_MAXIMUM_OUTCOME_CANONICAL_BYTES:
+    if len(encoded) > capacity.maximum_outcome_canonical_bytes:
         raise M37ValidationError("M37 outcome result exceeds its byte capacity")
     prior = _OUTCOME_RESULT_ATTESTATIONS.get(digest)
     if prior is not None:
@@ -996,7 +1047,7 @@ def _attest_result(result: dict[str, Any]) -> None:
     if len(_OUTCOME_RESULT_ATTESTATIONS) >= _OUTCOME_RESULT_ATTESTATION_CAP:
         raise M37ValidationError("M37 outcome attestation count capacity exceeded")
     if _outcome_attestation_bytes + len(encoded) > (
-        _OUTCOME_RESULT_ATTESTATION_CAP_BYTES
+        2 * capacity.maximum_outcome_canonical_bytes
     ):
         raise M37ValidationError("M37 outcome attestation byte capacity exceeded")
     _OUTCOME_RESULT_ATTESTATIONS[digest] = encoded
@@ -1016,15 +1067,34 @@ def assemble_m37_outcome(
     ``expected_threshold_certificate_sha256`` is the one common five-window
     threshold receipt.
     """
+    return _assemble_m37_outcome_with_capacity(
+        window_inputs,
+        expected_threshold_certificate_sha256=(
+            expected_threshold_certificate_sha256
+        ),
+        capacity=_v0p6_outcome_capacity(),
+    )
+
+
+def _assemble_m37_outcome_with_capacity(
+    window_inputs: Sequence[Mapping[str, Any]],
+    *,
+    expected_threshold_certificate_sha256: str,
+    capacity: M37OutcomeCapacity,
+) -> dict[str, Any]:
+    """Internal capacity adapter; callers must authenticate the profile."""
+    if not isinstance(capacity, M37OutcomeCapacity):
+        raise M37ValidationError("M37 outcome capacity has an invalid type")
     try:
         result = _derive_m37_outcome(
             window_inputs,
             expected_threshold_certificate_sha256=(
                 expected_threshold_certificate_sha256
             ),
+            capacity=capacity,
         )
-        _validate_outcome_payload(result)
-        _attest_result(result)
+        _validate_outcome_payload(result, capacity=capacity)
+        _attest_result(result, capacity=capacity)
         return result
     except M37ValidationError:
         raise
@@ -1065,7 +1135,11 @@ def _validate_result_envelope(
     return detached
 
 
-def _validate_outcome_payload(result: Mapping[str, Any]) -> None:
+def _validate_outcome_payload(
+    result: Mapping[str, Any],
+    *,
+    capacity: M37OutcomeCapacity = M37_V0P6_OUTCOME_CAPACITY,
+) -> None:
     records = result.get("records")
     certificate = result.get("certificate")
     if not isinstance(records, list) or not isinstance(certificate, dict):
@@ -1117,17 +1191,17 @@ def _validate_outcome_payload(result: Mapping[str, Any]) -> None:
             certificate["maximum_records_per_window"],
             "maximum records per window",
         )
-        != core.M37_MAXIMUM_RECORDS_PER_WINDOW
+        != capacity.maximum_records_per_window
         or _strict_int(
             certificate["maximum_outcome_records"], "maximum outcome records"
         )
-        != M37_MAXIMUM_OUTCOME_RECORDS
+        != capacity.maximum_outcome_records
         or _strict_int(
             certificate["maximum_outcome_canonical_bytes"],
             "maximum outcome canonical bytes",
         )
-        != M37_MAXIMUM_OUTCOME_CANONICAL_BYTES
-        or len(records) > M37_MAXIMUM_OUTCOME_RECORDS
+        != capacity.maximum_outcome_canonical_bytes
+        or len(records) > capacity.maximum_outcome_records
     ):
         raise M37ValidationError("M37 outcome capacity contract changed")
     for name in (
@@ -1225,7 +1299,7 @@ def _validate_outcome_payload(result: Mapping[str, Any]) -> None:
         ):
             _digest(receipt[name], name.replace("_", "-"))
         count = _strict_int(receipt["record_count"], "window record count")
-        if count < 0 or count > core.M37_MAXIMUM_RECORDS_PER_WINDOW:
+        if count < 0 or count > capacity.maximum_records_per_window:
             raise M37ValidationError("M37 window record count exceeds capacity")
         window_records = records[record_cursor : record_cursor + count]
         if len(window_records) != count:
@@ -1357,7 +1431,7 @@ def _validate_outcome_payload(result: Mapping[str, Any]) -> None:
         raise M37ValidationError("M37 outcome has extra or duplicated records")
     records_bytes = core.canonical_json_bytes(records)
     if (
-        len(records_bytes) > M37_MAXIMUM_OUTCOME_CANONICAL_BYTES
+        len(records_bytes) > capacity.maximum_outcome_canonical_bytes
         or _strict_int(
             certificate["outcome_records_canonical_bytes"],
             "outcome record byte count",
@@ -1404,15 +1478,30 @@ def validate_m37_outcome(
     expected_result_sha256: str | None = None,
 ) -> dict[str, Any]:
     """Validate a live outcome or a persisted outcome with a trusted receipt."""
+    return _validate_m37_outcome_with_capacity(
+        result,
+        expected_result_sha256=expected_result_sha256,
+        capacity=_v0p6_outcome_capacity(),
+    )
+
+
+def _validate_m37_outcome_with_capacity(
+    result: Mapping[str, Any],
+    *,
+    expected_result_sha256: str | None,
+    capacity: M37OutcomeCapacity,
+) -> dict[str, Any]:
+    if not isinstance(capacity, M37OutcomeCapacity):
+        raise M37ValidationError("M37 outcome capacity has an invalid type")
     try:
         detached = _validate_result_envelope(
             result, expected_result_sha256=expected_result_sha256
         )
         if len(core.canonical_json_bytes(detached)) > (
-            M37_MAXIMUM_OUTCOME_CANONICAL_BYTES
+            capacity.maximum_outcome_canonical_bytes
         ):
             raise M37ValidationError("M37 outcome result exceeds its byte capacity")
-        _validate_outcome_payload(detached)
+        _validate_outcome_payload(detached, capacity=capacity)
         return detached
     except M37ValidationError:
         raise
@@ -1432,16 +1521,43 @@ def canonical_m37_outcome_bytes(
     return core.canonical_json_bytes(validated)
 
 
+def _canonical_m37_outcome_bytes_with_capacity(
+    result: Mapping[str, Any],
+    *,
+    expected_result_sha256: str | None,
+    capacity: M37OutcomeCapacity,
+) -> bytes:
+    validated = _validate_m37_outcome_with_capacity(
+        result,
+        expected_result_sha256=expected_result_sha256,
+        capacity=capacity,
+    )
+    return core.canonical_json_bytes(validated)
+
+
 def rehydrate_m37_outcome(
     payload: bytes | bytearray,
     *,
     expected_result_sha256: str,
 ) -> dict[str, Any]:
     """Parse canonical persisted JSON and require its independent receipt."""
+    return _rehydrate_m37_outcome_with_capacity(
+        payload,
+        expected_result_sha256=expected_result_sha256,
+        capacity=_v0p6_outcome_capacity(),
+    )
+
+
+def _rehydrate_m37_outcome_with_capacity(
+    payload: bytes | bytearray,
+    *,
+    expected_result_sha256: str,
+    capacity: M37OutcomeCapacity,
+) -> dict[str, Any]:
     if not isinstance(payload, (bytes, bytearray)):
         raise M37ValidationError("persisted M37 outcome must be bytes")
     raw = bytes(payload)
-    if len(raw) > M37_MAXIMUM_OUTCOME_CANONICAL_BYTES:
+    if len(raw) > capacity.maximum_outcome_canonical_bytes:
         raise M37ValidationError("persisted M37 outcome exceeds its byte capacity")
     try:
         decoded = json.loads(raw.decode("utf-8"))
@@ -1449,8 +1565,10 @@ def rehydrate_m37_outcome(
         raise M37ValidationError("persisted M37 outcome is not valid JSON") from error
     if core.canonical_json_bytes(decoded) != raw:
         raise M37ValidationError("persisted M37 outcome is not canonical JSON")
-    return validate_m37_outcome(
-        decoded, expected_result_sha256=expected_result_sha256
+    return _validate_m37_outcome_with_capacity(
+        decoded,
+        expected_result_sha256=expected_result_sha256,
+        capacity=capacity,
     )
 
 
