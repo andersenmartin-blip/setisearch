@@ -3,6 +3,9 @@
 Status: **STARTED — FACTOR ANCESTRY VERIFIED; SOURCE/CACHE REHYDRATION AND
 REAL-ANCHOR EQUIVALENCE PENDING**.
 
+Historical checkpoint: this state is superseded by
+`MILESTONE_39_M37_TRUTH_LOCAL_QUALIFICATION_RESULT.md`.
+
 ## Completed in this checkpoint
 
 M39 now has a hash-frozen, resource-bounded truth-local planner and score

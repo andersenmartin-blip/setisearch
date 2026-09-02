@@ -316,6 +316,36 @@ class TruthLocalScoreAdapterTests(unittest.TestCase):
                 window_id="synthetic-m39-anchor",
             )
 
+    def test_zero_candidate_inventory_hashes_and_returns_no_best(self):
+        distance_matrix = np.ascontiguousarray(
+            np.concatenate(self.factor_matrices, axis=1), dtype="<f8"
+        )
+        plans = plan_truth_local_template_scores_interval(
+            self.grid,
+            distance_matrix,
+            9_000.0,
+            self.truth_factors,
+        )
+        self.assertEqual(
+            sum(item.candidate_indices.indices.size for item in plans), 0
+        )
+        result = evaluate_truth_local_scores(
+            plans,
+            self.grid,
+            self.factor_matrices,
+            self._open,
+            expected_scan_labels=("epoch1_on", "epoch2_on", "epoch3_on"),
+            expected_source_sha256s=tuple(
+                _source_sha256(item) for item in self.native
+            ),
+            window_id="synthetic-m39-anchor",
+        )
+        self.assertEqual(result["candidate_score_cell_count"], 0)
+        self.assertIsNone(result["best_truth_local_score_snr"])
+        self.assertIsNone(result["best_hypothesis"])
+        self.assertRegex(result["mask_inventory_sha256"], r"^[0-9a-f]{64}$")
+        self.assertRegex(result["score_inventory_sha256"], r"^[0-9a-f]{64}$")
+
 
 if __name__ == "__main__":
     unittest.main()

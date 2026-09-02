@@ -34,14 +34,15 @@ retrospective truth-local score-recovery path. No injections have yet been
 executed and no completeness, sensitivity, or occurrence-rate result is
 claimed. See `MILESTONE_38_M37_COMPLETENESS_FEASIBILITY_RESULT.md`.
 
-Milestone 39 has started the selected qualification path. A bounded
-truth-local planner and score adapter now pass dense synthetic equivalence
-tests, the compact Run 006 factor ancestry is hash-verified, and three
-real-M37 anchors are frozen. Source/cache rehydration and exhaustive
-real-anchor equivalence remain pending, so all 6,144 calibration trials remain
-blocked. M39 has read zero new spectral values, executed zero injections, and
-makes no quantitative claim. See
-`MILESTONE_39_M37_TRUTH_LOCAL_QUALIFICATION_CHECKPOINT.md`.
+Milestone 39 has completed the selected qualification path. All six frozen
+1412.5 MHz source products and 48 derived cache entries passed deep hash
+verification. Three predeclared real-data injection anchors, containing 0, 2,
+and 11 truth-local candidate cells, matched the exhaustive operational
+reference on every required bit-level comparison. The frozen 6,144-trial
+conditional truth-local calibration is therefore authorized but has not been
+executed. M39 reports no completeness, sensitivity, occurrence-rate, or
+technosignature result. See
+`MILESTONE_39_M37_TRUTH_LOCAL_QUALIFICATION_RESULT.md`.
 
 Milestone 35 provides the latest survey-level synthesis. At exact ideal S/N 40
 its finite-injection pointwise 95% upper bound on `f(40)` is 33.16%, where
@@ -79,18 +80,21 @@ a production adapter, exact source rehydration, frozen output schema, and
 real-data exhaustive anchor comparisons must pass. The feasibility audit read
 no new spectral values and made no quantitative scientific claim.
 
-## Milestone 39 M37 truth-local qualification checkpoint
+## Milestone 39 M37 truth-local qualification result
 
-Milestone 39 freezes a resource-bounded adapter, its output schema, and three
-factor-derived real-M37 anchors. The compact Run 006 factor bundle passed all
-declared ancestry hashes. The three anchor plans contain 0, 2, and 11 local
-carrier cells; the zero-cell case is deliberately retained as a fail-closed
-boundary test.
+Milestone 39 freezes and qualifies a resource-bounded adapter, its output
+schema, and three factor-derived real-M37 anchors. The compact Run 006 factor
+bundle passed all declared ancestry hashes. A restartable range-backed reader
+then verified the six frozen source products and produced all 48 required
+cache entries without publishing the large spectral payloads.
 
-The six 1412.5 MHz source products, 48 cache sidecars, restartable anchor
-runner, and exhaustive anchor results are not yet present. Consequently the
-production-equivalence gate and the 6,144-trial calibration gate remain
-closed. This checkpoint is an engineering qualification result only.
+The real-data anchors contain 0, 2, and 11 local carrier cells; the zero-cell
+case is deliberately retained as a fail-closed boundary test. All three
+matched the exhaustive operational replay for float32 score bits, selected
+template, width, activity subset and carrier, mask bits, score-cell count, and
+the full local score inventory. This is anchor-scoped engineering evidence,
+not a proof of global equivalence. It authorizes the separately frozen 6,144
+calibration trials; none of those trials has run yet.
 
 ## Milestone 37 invalid run, amendment and closed Run 006 outcome
 
@@ -107,7 +111,7 @@ persistence artifacts and a hash-chained run journal. Before production, the
 synthetic checkpoints exercised the full downstream contracts and resource
 envelopes.
 
-The current complete local suite runs 322 tests with one expected benchmark
+The current complete local suite runs 332 tests with one expected benchmark
 skip and no failures. Run 004 independently reopened every sparse-mirror
 segment, published 30 normalized window/scan products and verified
 11,545,072,128 cache-payload bytes. Its five calibration windows evaluated

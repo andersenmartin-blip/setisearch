@@ -3,6 +3,9 @@
 Status: **QUALIFICATION STARTED — SOURCE REHYDRATION AND REAL-ANCHOR
 EQUIVALENCE PENDING; NO CALIBRATION RESULT**.
 
+Historical execution plan: the qualification outcome is published in
+`MILESTONE_39_M37_TRUTH_LOCAL_QUALIFICATION_RESULT.md`.
+
 ## Purpose
 
 Milestone 39 implements the first gated stage selected by M38: qualify a
@@ -82,4 +85,3 @@ The frozen configuration is
 writes `qualification.json`, `INPUT_MANIFEST.sha256`, and
 `RESULTS_MANIFEST.sha256`. This qualification command never opens spectral
 values and executes zero injections.
-

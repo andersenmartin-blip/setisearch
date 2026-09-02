@@ -44,7 +44,10 @@ def _sha256(value: Any) -> str:
 
 
 def _sha256_array(values: np.ndarray) -> str:
-    return hashlib.sha256(memoryview(np.ascontiguousarray(values)).cast("B")).hexdigest()
+    array = np.ascontiguousarray(values)
+    if array.size == 0:
+        return hashlib.sha256(b"").hexdigest()
+    return hashlib.sha256(memoryview(array).cast("B")).hexdigest()
 
 
 def _validate_planner_inputs(

@@ -414,6 +414,7 @@ def _source_cache_readiness(run_root: Path, config: Mapping[str, Any]) -> dict[s
     )
     source_manifest = run_root / source["required_source_manifest_path"]
     cache_manifest = run_root / source["required_cache_manifest_path"]
+    completion_path = run_root / "m39-rehydration-completion.json"
     present_source_receipts = sum(path.is_file() for path in source_receipts)
     present_cache_sidecars = sum(path.is_file() for path in cache_sidecars)
     complete = (
@@ -422,16 +423,127 @@ def _source_cache_readiness(run_root: Path, config: Mapping[str, Any]) -> dict[s
         and present_source_receipts == len(source_receipts)
         and present_cache_sidecars == len(cache_sidecars)
     )
+    deep_verified = False
+    completion_sha256 = None
+    source_deep_verification_sha256 = None
+    cache_deep_verification_sha256 = None
+    if complete and completion_path.is_file():
+        completion = load_json(completion_path)
+        claimed = completion.get("completion_sha256")
+        basis = {
+            key: value for key, value in completion.items()
+            if key != "completion_sha256"
+        }
+        require(claimed == sha256_json(basis), "rehydration completion identity changed")
+        require(completion.get("status") == "complete", "rehydration is incomplete")
+        require(completion.get("run_id") == EXPECTED_SOURCE_RUN_ID, "rehydration run changed")
+        require(completion.get("window_id") == window, "rehydration window changed")
+        require(completion.get("source_product_count") == len(source_receipts), "rehydration source count changed")
+        require(completion.get("cache_entry_count") == len(cache_sidecars), "rehydration cache count changed")
+        require(completion.get("all_six_sources_verified") is True, "source deep verification failed")
+        require(completion.get("all_48_caches_verified") is True, "cache deep verification failed")
+        require(completion.get("source_manifest_sha256") == sha256_file(source_manifest), "source manifest identity changed")
+        require(completion.get("cache_manifest_file_sha256") == sha256_file(cache_manifest), "cache manifest identity changed")
+        deep_verified = True
+        completion_sha256 = claimed
+        source_deep_verification_sha256 = completion.get("source_deep_verification_sha256")
+        cache_deep_verification_sha256 = completion.get("cache_deep_verification_sha256")
     return {
         "inventory_present": complete,
-        "deep_hash_verification_executed": False,
+        "deep_hash_verification_executed": deep_verified,
         "required_source_product_count": len(source_receipts),
         "present_source_product_receipt_count": present_source_receipts,
         "required_cache_sidecar_count": len(cache_sidecars),
         "present_cache_sidecar_count": present_cache_sidecars,
         "source_manifest_present": source_manifest.is_file(),
         "cache_manifest_present": cache_manifest.is_file(),
+        "rehydration_completion_present": completion_path.is_file(),
+        "rehydration_completion_sha256": completion_sha256,
+        "source_deep_verification_sha256": source_deep_verification_sha256,
+        "cache_deep_verification_sha256": cache_deep_verification_sha256,
         "spectral_values_read_by_this_audit": False,
+    }
+
+
+def _anchor_equivalence_readiness(
+    run_root: Path,
+    config: Mapping[str, Any],
+) -> dict[str, Any]:
+    aggregate_path = run_root / "m39-anchor-equivalence.json"
+    anchors = tuple(config["real_m37_anchor_inventory"])
+    result_paths = tuple(
+        run_root / "anchors" / anchor["anchor_id"] / "result.json"
+        for anchor in anchors
+    )
+    present = sum(path.is_file() for path in result_paths)
+    result_inventory: list[dict[str, Any]] = []
+    passed = False
+    aggregate_sha256 = None
+    calibration_authorized = False
+    if aggregate_path.is_file() and present == len(result_paths):
+        aggregate = load_json(aggregate_path)
+        claimed = aggregate.get("aggregate_sha256")
+        basis = {
+            key: value for key, value in aggregate.items()
+            if key != "aggregate_sha256"
+        }
+        require(claimed == sha256_json(basis), "anchor aggregate identity changed")
+        require(aggregate.get("status") == "passed", "anchor aggregate did not pass")
+        require(aggregate.get("run_id") == EXPECTED_SOURCE_RUN_ID, "anchor run changed")
+        require(aggregate.get("background_window", aggregate.get("window_id")) == M37_COMPLETENESS_BACKGROUND_WINDOW, "anchor window changed")
+        require(aggregate.get("anchor_count") == len(anchors), "anchor aggregate count changed")
+        require(aggregate.get("passed_anchor_count") == len(anchors), "not all anchors passed")
+        require(aggregate.get("all_required_comparisons_passed") is True, "required anchor comparison failed")
+        require(aggregate.get("anchor_success_is_global_equivalence_proof") is False, "anchors were promoted to global proof")
+        aggregate_entries = {
+            item["anchor_id"]: item for item in aggregate["anchors"]
+        }
+        for anchor, path in zip(anchors, result_paths, strict=True):
+            result = load_json(path)
+            claimed_result = result.get("result_sha256")
+            result_basis = {
+                key: value for key, value in result.items()
+                if key != "result_sha256"
+            }
+            require(claimed_result == sha256_json(result_basis), "anchor result identity changed")
+            require(result.get("anchor_id") == anchor["anchor_id"], "anchor result order changed")
+            require(result.get("trial_id") == anchor["trial_id"], "anchor result trial changed")
+            require(result.get("equivalence_passed") is True, "anchor equivalence failed")
+            require(result.get("comparison", {}).get("passed") is True, "anchor comparisons failed")
+            require(
+                aggregate_entries[anchor["anchor_id"]]["result_sha256"]
+                == claimed_result,
+                "anchor aggregate/result identity changed",
+            )
+            result_inventory.append(
+                {
+                    "anchor_id": anchor["anchor_id"],
+                    "result_sha256": claimed_result,
+                    "candidate_proxy_cell_count": result[
+                        "candidate_proxy_cell_count"
+                    ],
+                }
+            )
+        passed = True
+        aggregate_sha256 = claimed
+        calibration_authorized = (
+            aggregate.get("all_6144_calibration_trials_authorized") is True
+        )
+    return {
+        "aggregate_present": aggregate_path.is_file(),
+        "required_anchor_count": len(result_paths),
+        "present_anchor_result_count": present,
+        "restartable_runner_complete": passed,
+        "equivalence_passed": passed,
+        "all_6144_calibration_trials_authorized": (
+            passed and calibration_authorized
+        ),
+        "aggregate_sha256": aggregate_sha256,
+        "result_inventory": result_inventory,
+        "result_inventory_sha256": (
+            sha256_json(result_inventory) if result_inventory else None
+        ),
+        "anchor_success_is_global_equivalence_proof": False,
     }
 
 
@@ -444,10 +556,19 @@ def build_qualification_result(
     inputs = validate_inputs(repo_root, config)
     factor_gate, bundle = _factor_bundle_gate(run_root, config)
     source_readiness = _source_cache_readiness(run_root, config)
+    anchor_readiness = _anchor_equivalence_readiness(run_root, config)
     anchor_plans: list[dict[str, Any]] = []
     anchor_plan_inventory_sha256: str | None = None
     if bundle is not None:
         anchor_plans, anchor_plan_inventory_sha256 = _anchor_plans(config, bundle)
+        passed_ids = {
+            item["anchor_id"] for item in anchor_readiness["result_inventory"]
+        }
+        for record in anchor_plans:
+            if record["anchor_id"] in passed_ids:
+                record["real_spectral_anchor_executed"] = True
+                record["equivalence_passed"] = True
+        anchor_plan_inventory_sha256 = sha256_json(anchor_plans)
 
     outcome = load_json(repo_root / "results_m37_v0p6p1_primary_006/outcome-summary.json")
     require(outcome.get("run_id") == EXPECTED_SOURCE_RUN_ID, "outcome run changed")
@@ -458,8 +579,10 @@ def build_qualification_result(
         "qualification_started_factor_bundle_pending"
         if not factor_gate["passed"]
         else "qualification_started_source_rehydration_pending"
-        if not source_readiness["inventory_present"]
+        if not source_readiness["deep_hash_verification_executed"]
         else "qualification_started_real_anchor_execution_pending"
+        if not anchor_readiness["equivalence_passed"]
+        else "qualification_complete_calibration_authorized"
     )
     config_record = json.loads(core.canonical_json_bytes(dict(config)))
     result = {
@@ -479,6 +602,7 @@ def build_qualification_result(
         "factor_bundle_gate": factor_gate,
         "truth_local_adapter": config_record["truth_local_adapter"],
         "source_cache_readiness": source_readiness,
+        "anchor_equivalence_readiness": anchor_readiness,
         "real_m37_anchor_inventory": config_record["real_m37_anchor_inventory"],
         "anchor_plan_records": anchor_plans,
         "anchor_plan_inventory_sha256": anchor_plan_inventory_sha256,
@@ -486,15 +610,16 @@ def build_qualification_result(
         "gates": {
             "compact_factor_ancestry_hash_verified": factor_gate["passed"],
             "adapter_source_and_output_schema_frozen": True,
-            "source_and_cache_ancestry_hash_verified": False,
-            "restartable_real_anchor_runner_complete": False,
-            "real_m37_exhaustive_anchor_equivalence_passed": False,
-            "all_6144_calibration_trials_authorized": False,
+            "source_and_cache_ancestry_hash_verified": source_readiness["deep_hash_verification_executed"],
+            "restartable_real_anchor_runner_complete": anchor_readiness["restartable_runner_complete"],
+            "real_m37_exhaustive_anchor_equivalence_passed": anchor_readiness["equivalence_passed"],
+            "all_6144_calibration_trials_authorized": anchor_readiness["all_6144_calibration_trials_authorized"],
         },
         "claim_boundary": {
             "spectral_values_read_by_this_audit": False,
+            "spectral_values_read_by_rehydration": source_readiness["deep_hash_verification_executed"],
             "injection_trials_executed": 0,
-            "real_anchor_trials_executed": 0,
+            "real_anchor_trials_executed": len(anchor_readiness["result_inventory"]),
             "recovery_fraction_reported": False,
             "sensitivity_claimed": False,
             "physical_veto_survival_calibrated": False,
@@ -504,10 +629,12 @@ def build_qualification_result(
         },
         "next_required_stage": (
             "rehydrate-and-hash-verify-m37_1412p5-source-products-and-caches"
-            if factor_gate["passed"] and not source_readiness["inventory_present"]
+            if factor_gate["passed"] and not source_readiness["deep_hash_verification_executed"]
             else "rehydrate-m37-factor-bundle"
             if not factor_gate["passed"]
             else "execute-predeclared-real-m37-exhaustive-anchor-comparisons"
+            if not anchor_readiness["equivalence_passed"]
+            else "execute-frozen-6144-trial-conditional-truth-local-calibration"
         ),
         "stopping_rule": EXPECTED_STOPPING_RULE,
     }
@@ -516,9 +643,10 @@ def build_qualification_result(
         "input_inventory_sha256": sha256_json(inputs),
         "factor_bundle_gate_passed": factor_gate["passed"],
         "anchor_plan_inventory_sha256": anchor_plan_inventory_sha256,
-        "no_spectral_read": True,
-        "no_injection_executed": True,
-        "no_anchor_equivalence_claim": True,
+        "no_spectral_read_by_this_audit": True,
+        "no_calibration_injection_executed": True,
+        "real_anchor_equivalence_passed": anchor_readiness["equivalence_passed"],
+        "anchor_aggregate_sha256": anchor_readiness["aggregate_sha256"],
         "no_quantitative_claim": True,
     }
     result["certificate"]["certificate_sha256"] = sha256_json(result["certificate"])
@@ -544,12 +672,46 @@ def write_outputs(
     result_path = output_dir / "qualification.json"
     atomic_write(result_path, core.canonical_json_bytes(result))
 
+    copied_results: list[Path] = []
+    if result["source_cache_readiness"]["deep_hash_verification_executed"]:
+        destination = output_dir / "rehydration-completion.json"
+        atomic_write(
+            destination,
+            core.canonical_json_bytes(
+                load_json(run_root / "m39-rehydration-completion.json")
+            ),
+        )
+        copied_results.append(destination)
+    if result["anchor_equivalence_readiness"]["equivalence_passed"]:
+        aggregate_destination = output_dir / "anchor-equivalence.json"
+        atomic_write(
+            aggregate_destination,
+            core.canonical_json_bytes(
+                load_json(run_root / "m39-anchor-equivalence.json")
+            ),
+        )
+        copied_results.append(aggregate_destination)
+        for anchor in config["real_m37_anchor_inventory"]:
+            destination = output_dir / "anchors" / f"{anchor['anchor_id']}.json"
+            atomic_write(
+                destination,
+                core.canonical_json_bytes(
+                    load_json(
+                        run_root
+                        / "anchors"
+                        / anchor["anchor_id"]
+                        / "result.json"
+                    )
+                ),
+            )
+            copied_results.append(destination)
+
     input_manifest = output_dir / "INPUT_MANIFEST.sha256"
     input_lines = [f"{item['sha256']}  {item['path']}" for item in result["inputs"]]
     atomic_write(input_manifest, ("\n".join(input_lines) + "\n").encode("utf-8"))
     result_lines = [
         f"{sha256_file(path)}  {path.relative_to(output_dir).as_posix()}"
-        for path in (result_path, input_manifest)
+        for path in (result_path, input_manifest, *copied_results)
     ]
     atomic_write(
         output_dir / "RESULTS_MANIFEST.sha256",
