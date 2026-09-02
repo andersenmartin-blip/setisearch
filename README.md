@@ -44,6 +44,13 @@ executed. M39 reports no completeness, sensitivity, occurrence-rate, or
 technosignature result. See
 `MILESTONE_39_M37_TRUTH_LOCAL_QUALIFICATION_RESULT.md`.
 
+Milestone 40 has frozen the authorized execution boundary for the complete
+6,144-trial conditional truth-local calibration. Its public start certificate
+binds the M39 qualification, exact trial inventory, threshold, runner source,
+output schema, resource limits, and claim boundary before the first M40
+injection. At this checkpoint 0 of 6,144 M40 trials have executed. See
+`MILESTONE_40_M37_TRUTH_LOCAL_CALIBRATION_PLAN.md`.
+
 Milestone 35 provides the latest survey-level synthesis. At exact ideal S/N 40
 its finite-injection pointwise 95% upper bound on `f(40)` is 33.16%, where
 `f(40)` is the common archive-cohort system-occurrence probability for the
@@ -96,6 +103,20 @@ the full local score inventory. This is anchor-scoped engineering evidence,
 not a proof of global equivalence. It authorizes the separately frozen 6,144
 calibration trials; none of those trials has run yet.
 
+## Milestone 40 M37 conditional truth-local calibration
+
+Milestone 40 preserves all 512 continuous truths at all 12 exact S/N levels.
+Each trial uses a deterministic randomized M37 background, native-domain
+injection, all eight spectral widths, recomputation of the two-pass mask, and
+the M39-qualified truth-local adapter. Immutable per-trial receipts make the
+execution restartable and allow deterministic modulo sharding.
+
+The final aggregate remains fail-closed until exactly 6,144 unique trial
+records are present. Its permitted endpoint is pointwise conditional
+truth-local score recovery only; interpolation, physical-veto survival,
+global-field, end-to-end completeness, occurrence-rate, and technosignature
+claims remain outside scope.
+
 ## Milestone 37 invalid run, amendment and closed Run 006 outcome
 
 Milestone 37 selected HD 156668 / HIP 84607 at extension rank 37. HD 156668 b
@@ -111,7 +132,7 @@ persistence artifacts and a hash-chained run journal. Before production, the
 synthetic checkpoints exercised the full downstream contracts and resource
 envelopes.
 
-The current complete local suite runs 332 tests with one expected benchmark
+The current complete local suite runs 340 tests with one expected benchmark
 skip and no failures. Run 004 independently reopened every sparse-mirror
 segment, published 30 normalized window/scan products and verified
 11,545,072,128 cache-payload bytes. Its five calibration windows evaluated
