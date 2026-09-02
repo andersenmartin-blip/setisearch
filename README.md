@@ -47,13 +47,16 @@ occurrence-rate, or technosignature result. See
 
 Milestone 40 v1 stopped fail-closed after 156 of 6,144 trials. A metadata-only
 audit proved that 16 of 512 frozen continuous truth tracks leave the exact
-native background, so no level is complete and no calibration curve exists.
-The partial receipts and abort remain immutable. A separately frozen v2
-protocol reallocates all 512 carriers within one common native-safe interval,
-adopts none of the v1 scores, and has published a zero-execution start
-certificate for 6,144 new trials. See
+native background, so no v1 level is complete and no v1 calibration curve
+exists. The partial receipts and abort remain immutable. The separately
+frozen v2 protocol reallocated all 512 carriers within one common native-safe
+interval and has now completed all 6,144 new trials without adopting any v1
+score. No trial recovered at the frozen threshold: the largest truth-local
+score was 70.08597564697266 at injected S/N 40, below the operational
+threshold 126.20158386230469. The grid therefore does not bracket a recovery
+transition, and no end-to-end completeness or sensitivity claim is made. See
 `MILESTONE_40_M37_TRUTH_LOCAL_CALIBRATION_ABORT.md` and
-`MILESTONE_40_M37_TRUTH_LOCAL_CALIBRATION_V2_PLAN.md`.
+`MILESTONE_40_M37_TRUTH_LOCAL_CALIBRATION_V2_RESULT.md`.
 
 Milestone 35 provides the latest survey-level synthesis. At exact ideal S/N 40
 its finite-injection pointwise 95% upper bound on `f(40)` is 33.16%, where
@@ -125,11 +128,15 @@ alone. No v1 score receipt is reused. Each v2 trial retains the deterministic
 randomized M37 background, native-domain injection, all eight widths,
 recomputed two-pass mask, and M39-qualified truth-local adapter.
 
-The v2 aggregate remains fail-closed until exactly 6,144 unique repaired trial
-records are present. Its permitted endpoint is pointwise conditional
-truth-local score recovery only; interpolation, physical-veto survival,
+The v2 aggregate validated exactly 6,144 unique repaired trial records. Every
+one of the 12 pointwise levels reports 0 recoveries in 512 trials; the common
+Wilson 95% interval is `[0, 0.0074469757]`. Finite maximum scores rise with
+injected S/N but reach only 70.08597564697266 at the highest frozen level,
+S/N 40, against the unchanged threshold 126.20158386230469. No recovery
+transition is therefore estimated. Interpolation, physical-veto survival,
 global-field, end-to-end completeness, occurrence-rate, and technosignature
-claims remain outside scope.
+claims remain outside scope. See
+`MILESTONE_40_M37_TRUTH_LOCAL_CALIBRATION_V2_RESULT.md`.
 
 ## Milestone 37 invalid run, amendment and closed Run 006 outcome
 
@@ -146,7 +153,7 @@ persistence artifacts and a hash-chained run journal. Before production, the
 synthetic checkpoints exercised the full downstream contracts and resource
 envelopes.
 
-The current complete local suite runs 340 tests with one expected benchmark
+The current complete local suite runs 349 tests with one expected benchmark
 skip and no failures. Run 004 independently reopened every sparse-mirror
 segment, published 30 normalized window/scan products and verified
 11,545,072,128 cache-payload bytes. Its five calibration windows evaluated

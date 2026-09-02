@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from copy import deepcopy
+import gzip
 import importlib.util
 import json
 import math
@@ -94,6 +95,59 @@ class M40CoverageRepairTests(unittest.TestCase):
         self.assertEqual(
             start["start_sha256"],
             "a0c81a88563fa55c15d123cc3de087abe71a23a78252f2f042e652f24c7dee92",
+        )
+
+    def test_published_v2_aggregate_and_ledger_are_complete(self):
+        aggregate = V2.m40._read_canonical(
+            V2_RESULT_ROOT / V2.AGGREGATE_NAME
+        )
+        identity = dict(aggregate)
+        observed = identity.pop("aggregate_sha256")
+        self.assertEqual(observed, V2.m40.sha256_json(identity))
+        self.assertEqual(
+            observed,
+            "03e162aea769c2020df6509171217dbf32624e69b4a3ccad4ae159c85836f974",
+        )
+        self.assertEqual(aggregate["status"], "complete")
+        self.assertEqual(aggregate["trial_count"], 6144)
+        self.assertEqual(aggregate["snr_level_count"], 12)
+        self.assertEqual(aggregate["truth_count_per_level"], 512)
+        self.assertEqual(aggregate["recovered_trial_count"], 0)
+        self.assertEqual(aggregate["v1_score_receipts_adopted"], 0)
+        self.assertTrue(aggregate["pointwise_only_no_interpolation"])
+        self.assertEqual(len(aggregate["levels"]), 12)
+        self.assertTrue(
+            all(level["recovered"] == 0 for level in aggregate["levels"])
+        )
+        self.assertEqual(
+            aggregate["levels"][-1]["maximum_best_truth_local_score_snr"],
+            70.08597564697266,
+        )
+
+        ledger_path = V2_RESULT_ROOT / aggregate["ledger_path"]
+        self.assertEqual(
+            V2.m40.sha256_file(ledger_path), aggregate["ledger_sha256"]
+        )
+        record_hashes = []
+        ordinals = []
+        with gzip.open(ledger_path, "rt", encoding="utf-8") as handle:
+            for line in handle:
+                if not line.strip():
+                    continue
+                record = json.loads(line)
+                record_identity = dict(record)
+                record_sha256 = record_identity.pop("record_sha256")
+                self.assertEqual(
+                    record_sha256, V2.m40.sha256_json(record_identity)
+                )
+                record_hashes.append(record_sha256)
+                ordinals.append(record["trial_ordinal"])
+                self.assertFalse(record["score_recovered"])
+        self.assertEqual(ordinals, list(range(6144)))
+        self.assertEqual(len(set(record_hashes)), 6144)
+        self.assertEqual(
+            V2.m40.sha256_json(record_hashes),
+            aggregate["trial_record_inventory_sha256"],
         )
 
     def test_v2_common_interval_and_permutation_are_injective(self):
