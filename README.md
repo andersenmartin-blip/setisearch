@@ -38,18 +38,22 @@ Milestone 39 has completed the selected qualification path. All six frozen
 1412.5 MHz source products and 48 derived cache entries passed deep hash
 verification. Three predeclared real-data injection anchors, containing 0, 2,
 and 11 truth-local candidate cells, matched the exhaustive operational
-reference on every required bit-level comparison. The frozen 6,144-trial
-conditional truth-local calibration is therefore authorized but has not been
-executed. M39 reports no completeness, sensitivity, occurrence-rate, or
-technosignature result. See
+reference on every required bit-level comparison. The frozen conditional
+truth-local calibration was therefore authorized. Its first execution later
+stopped on a native-coverage preflight omission; that does not change the
+completed M39 qualification. M39 reports no completeness, sensitivity,
+occurrence-rate, or technosignature result. See
 `MILESTONE_39_M37_TRUTH_LOCAL_QUALIFICATION_RESULT.md`.
 
-Milestone 40 has frozen the authorized execution boundary for the complete
-6,144-trial conditional truth-local calibration. Its public start certificate
-binds the M39 qualification, exact trial inventory, threshold, runner source,
-output schema, resource limits, and claim boundary before the first M40
-injection. At this checkpoint 0 of 6,144 M40 trials have executed. See
-`MILESTONE_40_M37_TRUTH_LOCAL_CALIBRATION_PLAN.md`.
+Milestone 40 v1 stopped fail-closed after 156 of 6,144 trials. A metadata-only
+audit proved that 16 of 512 frozen continuous truth tracks leave the exact
+native background, so no level is complete and no calibration curve exists.
+The partial receipts and abort remain immutable. A separately frozen v2
+protocol reallocates all 512 carriers within one common native-safe interval,
+adopts none of the v1 scores, and has published a zero-execution start
+certificate for 6,144 new trials. See
+`MILESTONE_40_M37_TRUTH_LOCAL_CALIBRATION_ABORT.md` and
+`MILESTONE_40_M37_TRUTH_LOCAL_CALIBRATION_V2_PLAN.md`.
 
 Milestone 35 provides the latest survey-level synthesis. At exact ideal S/N 40
 its finite-injection pointwise 95% upper bound on `f(40)` is 33.16%, where
@@ -100,18 +104,28 @@ case is deliberately retained as a fail-closed boundary test. All three
 matched the exhaustive operational replay for float32 score bits, selected
 template, width, activity subset and carrier, mask bits, score-cell count, and
 the full local score inventory. This is anchor-scoped engineering evidence,
-not a proof of global equivalence. It authorizes the separately frozen 6,144
-calibration trials; none of those trials has run yet.
+not a proof of global equivalence. It authorized the separately frozen
+calibration execution; the subsequent v1 coverage abort does not alter this
+qualification result.
 
 ## Milestone 40 M37 conditional truth-local calibration
 
-Milestone 40 preserves all 512 continuous truths at all 12 exact S/N levels.
-Each trial uses a deterministic randomized M37 background, native-domain
-injection, all eight spectral widths, recomputation of the two-pass mask, and
-the M39-qualified truth-local adapter. Immutable per-trial receipts make the
-execution restartable and allow deterministic modulo sharding.
+M40 v1 preserved all 512 continuous truths at all 12 exact S/N levels, but its
+carrier margin guarded only the proxy score grid. During level 4, truth
+ordinals 143 and 150 exposed missing native motion-plus-width coverage. The
+workers stopped with 156 immutable receipts, and the complete geometry/factor
+audit found 16 uncovered truths, corresponding to 192 structurally invalid
+trials across all levels. No v1 aggregate or calibration curve is permitted.
 
-The final aggregate remains fail-closed until exactly 6,144 unique trial
+M40 v2 keeps every motion, width, activity, and S/N stratum but reallocates all
+512 carrier indices—rather than selectively keeping the 496 covered v1
+truths—inside the common safe interval 78,748 through 611,204. The original
+master seed and coprime carrier step define the new inventory from metadata
+alone. No v1 score receipt is reused. Each v2 trial retains the deterministic
+randomized M37 background, native-domain injection, all eight widths,
+recomputed two-pass mask, and M39-qualified truth-local adapter.
+
+The v2 aggregate remains fail-closed until exactly 6,144 unique repaired trial
 records are present. Its permitted endpoint is pointwise conditional
 truth-local score recovery only; interpolation, physical-veto survival,
 global-field, end-to-end completeness, occurrence-rate, and technosignature

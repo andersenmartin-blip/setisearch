@@ -1,0 +1,99 @@
+{
+  "artifact_type": "m40-m37-truth-local-calibration-v2-config-v1",
+  "status": "execution-ready-after-v1-native-coverage-abort",
+  "source_run_id": "m37-v0p6p1-primary-006",
+  "background_window": "m37_1412p5",
+  "upstream_files": [
+    {
+      "path": "MILESTONE_40_M37_TRUTH_LOCAL_CALIBRATION_ABORT.md",
+      "sha256": "f900dfa6076226f0375436aff60fb76bf555c6787b915ee8dc8de57af4756944"
+    },
+    {
+      "path": "MILESTONE_40_M37_TRUTH_LOCAL_CALIBRATION_V2_PLAN.md",
+      "sha256": "68a833a1f79dcc7058b5b6a6fc7abab59fc7569d39ea0159da31827d97f4db6f"
+    },
+    {
+      "path": "results_m40_m37_truth_local_calibration/execution-abort.json",
+      "sha256": "0c523387cf2bbcc00477a5b2352e1681a0ea88fab8a27542a1877acf0d50b02d"
+    },
+    {
+      "path": "results_m40_m37_truth_local_calibration/native-coverage-audit.json",
+      "sha256": "2302ba7371e360e0b9f3da4057ede03ceb88be53ac675f14a86983ba324beea9"
+    },
+    {
+      "path": "scripts/m40_m37_truth_local_calibration.py",
+      "sha256": "c8459f1f40a2e4b87378c7e48860af3c5fbe3698848c78728843f0f7e29ef73c"
+    },
+    {
+      "path": "scripts/m40_m37_native_coverage_abort.py",
+      "sha256": "c5e8023a1e128d9d827afec1dbab2ec6f5a1203879bd0bd274a5e863c83935ae"
+    },
+    {
+      "path": "src/seti_repeater/truth_local_v0p6.py",
+      "sha256": "8a1465d50393a58f53847b0bed699b9631f2a901b244a1c0cfd66a6a10bacaa9"
+    },
+    {
+      "path": "src/seti_repeater/completeness_v0p6.py",
+      "sha256": "75d1dd216fe334e6d0d2fd93c8d911cc82db107f8b56f09996699034d8f77ed3"
+    },
+    {
+      "path": "results_m39_m37_truth_local_qualification/qualification.json",
+      "sha256": "15cded85e5f2ba8ed9e7cbe972c22e37856f7c8e5fad5539ccaeaa357d5d5fb5"
+    }
+  ],
+  "m39_qualification": {
+    "status": "qualification_complete_calibration_authorized",
+    "certificate_sha256": "68da73b539b02210ebd3923b61bace3d07158ea7fce434602be44aff98acaaa5",
+    "rehydration_completion_sha256": "e99da4c94f85cbebf5146b19aeea63fcfd73f68adbc5be55a183365055c39b47",
+    "anchor_aggregate_sha256": "504291fce04d9665c024e5de27f09b400ee0667c4e2934e6d3cc1dba39ef1fb2",
+    "all_6144_calibration_trials_authorized": true
+  },
+  "v1_abort": {
+    "abort_sha256": "bb73e7c9144f5da4ea4c1d99e7c4ef635306a2d1cd31bc2356cba61b5d9720ed",
+    "abort_file_sha256": "0c523387cf2bbcc00477a5b2352e1681a0ea88fab8a27542a1877acf0d50b02d",
+    "completed_trial_count": 156,
+    "v1_scores_adopted": false
+  },
+  "frozen_repaired_trial_inventory": {
+    "status": "m40-v2-coverage-repaired-prospective-allocation",
+    "base_plan_sha256": "ea83e1c588b78e02e4378036b122890cf286d63d9deb7f45210e7fe8a0ec92dc",
+    "allocation_contract_sha256": "84347a156e2807e9d906508cd38d2a53e0160ab3091d8b7ced69fc79497be3cf",
+    "truth_inventory_sha256": "17d80136e27d6094993497a7db2e32e7c697248a6240122b6abe6a0506399f45",
+    "trial_inventory_sha256": "5757b7cf324d1e0d5db994e8bf75d24f6f6db76326b914d8147859f7a662104f",
+    "truth_count_per_snr_level": 512,
+    "snr_grid": [4.0, 5.0, 6.0, 7.0, 8.0, 10.0, 12.0, 16.0, 20.0, 24.0, 32.0, 40.0],
+    "expected_trial_count": 6144,
+    "common_safe_proxy_index_start": 78748,
+    "common_safe_proxy_index_stop_inclusive": 611204,
+    "common_safe_proxy_index_count": 532457,
+    "source_geometry_sha256": "9d2673f28f6e83b79248eb2e12e1056d1313ec2fe4375449d170ad21c08da768",
+    "plan_sha256": "e51174ef636d74cc993a871bed43bd919a1b9bdad2125702828870de90b4ec82"
+  },
+  "frozen_threshold": {
+    "operational_threshold_snr": 126.20158386230469,
+    "threshold_certificate_sha256": "d65048bd962a247a3763eb58c9cad530d9f7db06586f52a01a34e03b4ba0ad71",
+    "comparison": "finite best truth-local score >= operational threshold",
+    "threshold_reestimated_after_injection": false
+  },
+  "execution_contract": {
+    "authorization_flag": "--authorize-calibration-injections",
+    "trial_order": "level-index-major-then-truth-ordinal",
+    "shard_assignment": "trial-ordinal-modulo-shard-count",
+    "per_trial_publication": "immutable-canonical-json",
+    "cache_lifetime": "ephemeral-one-epoch-width-at-a-time",
+    "two_pass_mask_recomputed": true,
+    "missing_duplicate_or_extra_trial_policy": "stop-no-aggregate",
+    "v1_score_receipt_adoption": "forbidden",
+    "maximum_trial_record_canonical_bytes": 16384,
+    "maximum_total_trial_record_canonical_bytes": 128000000
+  },
+  "claim_boundary": {
+    "endpoint": "conditional-pointwise-truth-local-score-recovery",
+    "interpolation_permitted": false,
+    "physical_veto_survival_calibrated": false,
+    "global_false_positive_field_replayed": false,
+    "end_to_end_detector_completeness_claimed": false,
+    "occurrence_rate_claimed": false,
+    "technosignature_claimed": false
+  }
+}
