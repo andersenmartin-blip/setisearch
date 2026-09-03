@@ -17,6 +17,7 @@ CONFIG = ROOT / "config/m41_m37_high_snr_truth_local_calibration.json"
 M40_LEDGER = (
     ROOT / "results_m40_m37_truth_local_calibration_v2/trial-ledger.jsonl.gz"
 )
+PUBLISHED = ROOT / "results_m41_m37_high_snr_truth_local_calibration"
 SPEC = importlib.util.spec_from_file_location("m41_calibration_test", SCRIPT)
 assert SPEC is not None and SPEC.loader is not None
 M41 = importlib.util.module_from_spec(SPEC)
@@ -110,6 +111,18 @@ class M41HighSnrTruthLocalCalibrationTests(unittest.TestCase):
             missing = Path(temporary) / "missing"
             with self.assertRaisesRegex(RuntimeError, "not authorized"):
                 M41.execute_trials(missing, missing, authorized=False)
+
+    def test_published_start_freezes_zero_m41_trials(self):
+        start = M41._validate_start(PUBLISHED, self.config, self.plan)
+        self.assertEqual(
+            start["status"], "initialized-no-m41-injection-executed"
+        )
+        self.assertEqual(start["m41_injection_trials_executed"], 0)
+        self.assertEqual(start["m40_score_receipts_adopted"], 0)
+        self.assertEqual(
+            start["start_sha256"],
+            "f2b9198cf25df9503e2f53ed99ab3098ddbb8e7af0689206d143cfd97276facd",
+        )
 
     def test_inclusive_threshold_and_record_identity(self):
         threshold = self.config["frozen_threshold"][
