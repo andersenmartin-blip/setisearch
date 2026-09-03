@@ -58,6 +58,16 @@ transition, and no end-to-end completeness or sensitivity claim is made. See
 `MILESTONE_40_M37_TRUTH_LOCAL_CALIBRATION_ABORT.md` and
 `MILESTONE_40_M37_TRUTH_LOCAL_CALIBRATION_V2_RESULT.md`.
 
+Milestone 41 has now frozen a separately labelled, explicitly post-M40
+higher-S/N extension. It reuses all 512 coverage-repaired M40 v2 truths
+without selection or relocation, creates new independent trial and background
+identities, and evaluates the exact levels 48, 56, 64, 72, 80, 88, 96, 112,
+128, 160, 192 and 256. No M41 injection has yet been executed. The permitted
+endpoint remains pointwise conditional truth-local score recovery with no
+interpolation and no end-to-end completeness, sensitivity, occurrence-rate or
+technosignature claim. See
+`MILESTONE_41_M37_HIGH_SNR_TRUTH_LOCAL_CALIBRATION_PLAN.md`.
+
 Milestone 35 provides the latest survey-level synthesis. At exact ideal S/N 40
 its finite-injection pointwise 95% upper bound on `f(40)` is 33.16%, where
 `f(40)` is the common archive-cohort system-occurrence probability for the
@@ -876,6 +886,12 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Key files
 
+- `MILESTONE_41_M37_HIGH_SNR_TRUTH_LOCAL_CALIBRATION_PLAN.md` — frozen post-M40 higher-S/N calibration plan.
+- `config/m41_m37_high_snr_truth_local_calibration.json` — hash-pinned M41 extension, threshold and claim boundary.
+- `scripts/m41_m37_high_snr_truth_local_calibration.py` — restartable M41 initializer, sharded runner and aggregator.
+- `MILESTONE_40_M37_TRUTH_LOCAL_CALIBRATION_V2_RESULT.md` — completed M40 v2 conditional calibration result.
+- `results_m40_m37_truth_local_calibration_v2/calibration-aggregate.json` — machine-readable M40 v2 aggregate.
+- `MILESTONE_39_M37_TRUTH_LOCAL_QUALIFICATION_RESULT.md` — completed truth-local equivalence qualification.
 - `MILESTONE_38_M37_COMPLETENESS_FEASIBILITY_RESULT.md` — frozen feasibility decision and claim boundary.
 - `MILESTONE_38_M37_COMPLETENESS_FEASIBILITY_PLAN.md` — retrospective pre-execution calibration plan.
 - `config/m38_m37_completeness_feasibility.json` — hash-pinned M38 inputs, decision and gates.

@@ -1,0 +1,117 @@
+{
+  "artifact_type": "m41-m37-high-snr-truth-local-calibration-config-v1",
+  "status": "pre-execution-freeze-post-m40-v2",
+  "source_run_id": "m37-v0p6p1-primary-006",
+  "background_window": "m37_1412p5",
+  "upstream_files": [
+    {
+      "path": "MILESTONE_41_M37_HIGH_SNR_TRUTH_LOCAL_CALIBRATION_PLAN.md",
+      "sha256": "e95e61b7123eb6a4442ead79ca9428d5830caded7d816b4bbfa8f6dd3d38dff5"
+    },
+    {
+      "path": "scripts/m41_m37_high_snr_truth_local_calibration.py",
+      "sha256": "bbcd228d57a350d47b306f0284ae590ed35b5b9da02d80186dcbd0d6c11d7fe8"
+    },
+    {
+      "path": "MILESTONE_40_M37_TRUTH_LOCAL_CALIBRATION_V2_RESULT.md",
+      "sha256": "acc7f5c4394fe085078e69c8c614bec85b261c0e3630aa66a4c782a2b948bf48"
+    },
+    {
+      "path": "results_m40_m37_truth_local_calibration_v2/calibration-aggregate.json",
+      "sha256": "c8db65c5bf4489a291b67a52ef716347e92e3a9a6ed59af166dbfd06f904a708"
+    },
+    {
+      "path": "results_m40_m37_truth_local_calibration_v2/trial-ledger.jsonl.gz",
+      "sha256": "127a3ed5babcdd36385fe1d8cce1a2339b1702511820848c7103aab5a45fd22c"
+    },
+    {
+      "path": "config/m40_m37_truth_local_calibration_v2.json",
+      "sha256": "5b41b74f915f7db58b43fec802fbe33591507e981e77ded66f0021a4677a35f5"
+    },
+    {
+      "path": "scripts/m40_m37_truth_local_calibration_v2.py",
+      "sha256": "c429fe6ed84351b3a573491bc9f8fafd7f606680cb5a72b2e04745543ea682b0"
+    },
+    {
+      "path": "scripts/m40_m37_truth_local_calibration.py",
+      "sha256": "c8459f1f40a2e4b87378c7e48860af3c5fbe3698848c78728843f0f7e29ef73c"
+    },
+    {
+      "path": "src/seti_repeater/truth_local_v0p6.py",
+      "sha256": "8a1465d50393a58f53847b0bed699b9631f2a901b244a1c0cfd66a6a10bacaa9"
+    },
+    {
+      "path": "src/seti_repeater/completeness_v0p6.py",
+      "sha256": "75d1dd216fe334e6d0d2fd93c8d911cc82db107f8b56f09996699034d8f77ed3"
+    },
+    {
+      "path": "results_m39_m37_truth_local_qualification/qualification.json",
+      "sha256": "15cded85e5f2ba8ed9e7cbe972c22e37856f7c8e5fad5539ccaeaa357d5d5fb5"
+    }
+  ],
+  "parent_m40_v2": {
+    "status": "complete",
+    "aggregate_sha256": "03e162aea769c2020df6509171217dbf32624e69b4a3ccad4ae159c85836f974",
+    "aggregate_file_sha256": "c8db65c5bf4489a291b67a52ef716347e92e3a9a6ed59af166dbfd06f904a708",
+    "ledger_sha256": "127a3ed5babcdd36385fe1d8cce1a2339b1702511820848c7103aab5a45fd22c",
+    "trial_count": 6144,
+    "recovered_trial_count": 0,
+    "maximum_tested_snr": 40.0,
+    "maximum_finite_score_snr": 70.08597564697266,
+    "score_receipts_adopted": 0
+  },
+  "frozen_trial_inventory": {
+    "status": "m41-post-m40-v2-higher-snr-extension",
+    "parent_m40_v2_aggregate_sha256": "03e162aea769c2020df6509171217dbf32624e69b4a3ccad4ae159c85836f974",
+    "parent_m40_v2_ledger_sha256": "127a3ed5babcdd36385fe1d8cce1a2339b1702511820848c7103aab5a45fd22c",
+    "extension_contract_sha256": "aa276fe74fad022992882df544cdfb34a675368b666d0a08f1e24cdb175fc944",
+    "truth_inventory_sha256": "17d80136e27d6094993497a7db2e32e7c697248a6240122b6abe6a0506399f45",
+    "trial_inventory_sha256": "b32f881c1887565292034804f6d58d1e4204ed9b935cd1a5979022d3a0592302",
+    "truth_count_per_snr_level": 512,
+    "snr_grid": [
+      48.0,
+      56.0,
+      64.0,
+      72.0,
+      80.0,
+      88.0,
+      96.0,
+      112.0,
+      128.0,
+      160.0,
+      192.0,
+      256.0
+    ],
+    "expected_trial_count": 6144,
+    "noise_derivation_label": "m41-high-snr-independent-noise-v1",
+    "plan_sha256": "ff82d8ff704f28eecafc23f0a7725f9c093838ae62ceeda94adc0ef8155fd98a"
+  },
+  "frozen_threshold": {
+    "operational_threshold_snr": 126.20158386230469,
+    "threshold_certificate_sha256": "d65048bd962a247a3763eb58c9cad530d9f7db06586f52a01a34e03b4ba0ad71",
+    "comparison": "finite best truth-local score >= operational threshold",
+    "threshold_reestimated_after_injection": false
+  },
+  "execution_contract": {
+    "authorization_flag": "--authorize-calibration-injections",
+    "trial_order": "level-index-major-then-truth-ordinal",
+    "shard_assignment": "trial-ordinal-modulo-shard-count",
+    "per_trial_publication": "immutable-canonical-json",
+    "cache_lifetime": "ephemeral-one-epoch-width-at-a-time",
+    "two_pass_mask_recomputed": true,
+    "missing_duplicate_or_extra_trial_policy": "stop-no-aggregate",
+    "m40_score_receipt_adoption": "forbidden",
+    "maximum_trial_record_canonical_bytes": 16384,
+    "maximum_total_trial_record_canonical_bytes": 128000000
+  },
+  "claim_boundary": {
+    "endpoint": "conditional-pointwise-truth-local-score-recovery",
+    "post_m40_adaptive_extension": true,
+    "interpolation_permitted": false,
+    "physical_veto_survival_calibrated": false,
+    "global_false_positive_field_replayed": false,
+    "end_to_end_detector_completeness_claimed": false,
+    "occurrence_rate_claimed": false,
+    "technosignature_claimed": false
+  }
+}
