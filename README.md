@@ -171,6 +171,13 @@ so it is not labelled a close conjunction. LS2D prospectively copies the exact
 LS1 detector and screens `--64524` as an independent-system replication. See
 `LS2C_HEADER_RESULT.md` and `LS2D_HD260655_PREREGISTRATION.md`.
 
+**LS2 final result:** LS2D completed all six HD 260655 L-band scans without
+truncation. The three ON scans produced 805 events at the frozen threshold; all
+805 were rejected by the predeclared adjacent-OFF frequency-coincidence veto.
+Zero events survived, so the frozen rule did not authorize HTR spectral access.
+This closes only one weak-conjunction cadence and makes no general light-sail,
+sensitivity, occurrence-rate or technosignature claim. See `LS2_RESULT.md`.
+
 ## Milestone 38 M37 completeness feasibility result
 
 Milestone 38 reproduced the closed M37 Run 006 boundary from hash-pinned
