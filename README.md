@@ -199,6 +199,11 @@ envelope score was -24.689.
 This remaining event is an **uncalibrated morphology candidate, not a
 detection**. The seven co-temporal Stage-1 bands are suspicious contextual
 evidence; the maximized HTR pulse scores also have a substantial trials factor.
+In a post-result spectrum-context check, 9379.9 MHz falls inside the U.S.
+9300--9500 MHz radar/radiolocation allocation, which includes airborne weather
+radars and ground-based radars; this makes intermittent or directional radar
+RFI a leading explanation, not a retroactive veto. See the
+[FCC allocation record](https://www.federalregister.gov/documents/2012/12/27/2012-31049/wrc-07-implementation#p-223).
 Independent observation plus dedicated RFI and instrumental checks are
 required before any artificial-origin claim. All raw filterbanks and collapsed
 time series were deleted and not published. See the
