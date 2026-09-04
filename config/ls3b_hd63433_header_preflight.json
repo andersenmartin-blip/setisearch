@@ -1,0 +1,108 @@
+{
+  "artifact_type": "seti_repeater.ls3b_header_preflight_plan",
+  "schema_version": 1,
+  "frozen_utc": "2026-09-04T17:10:00Z",
+  "project": {
+    "id": "LS3B",
+    "name": "HD 63433 HDF5-header qualification and three-planet conjunction ranking",
+    "branch": "ls3b-hd63433-header-preflight",
+    "base_commit": "b75a5fc273f621e9d8390f04897fe19dcfc8da34",
+    "spectral_search_authorized": false
+  },
+  "source": {
+    "inventory_path": "results_ls3_inventory/inventory.json",
+    "inventory_sha256": "b81bfa8eeaf79e50c4d96ee11f0cd21761f2a09aec1aae06496e2934f1db0e53",
+    "inventory_result_identity": "3e2a1475b960e0ae4459c099152c50b2cca70b4013f6249afe58879004cf7f5a"
+  },
+  "target": {
+    "target_id": "hd_63433",
+    "hostname": "HD 63433",
+    "archive_source_name": "HIP38228",
+    "stellar_radius_solar": 0.912,
+    "stellar_radius_error_solar": 0.034,
+    "cadence_urls": [
+      "http://seti.berkeley.edu/opendata/api/get-cadence/--87575",
+      "http://seti.berkeley.edu/opendata/api/get-cadence/--524578"
+    ]
+  },
+  "ephemeris": {
+    "reference": "https://arxiv.org/html/2401.04785v1",
+    "reference_table": "Table 5, free-eccentricity solution; stellar radius from Table 2",
+    "time_conversion": "T0 values in TJD are converted to BJD by adding 2457000",
+    "planets": [
+      {
+        "pl_name": "HD 63433 b",
+        "pl_orbper": 7.1079379,
+        "pl_orbpererr1": 0.0000054,
+        "pl_orbpererr2": -0.0000054,
+        "pl_tranmid": 2458916.45262,
+        "pl_tranmiderr1": 0.00062,
+        "pl_tranmiderr2": -0.00065,
+        "pl_orbsmax": 0.0714,
+        "pl_orbsmaxerr1": 0.0036,
+        "pl_orbsmaxerr2": -0.0038
+      },
+      {
+        "pl_name": "HD 63433 c",
+        "pl_orbper": 20.543791,
+        "pl_orbpererr1": 0.000017,
+        "pl_orbpererr2": -0.000018,
+        "pl_tranmid": 2458844.05971,
+        "pl_tranmiderr1": 0.00060,
+        "pl_tranmiderr2": -0.00057,
+        "pl_orbsmax": 0.1448,
+        "pl_orbsmaxerr1": 0.0073,
+        "pl_orbsmaxerr2": -0.0077
+      },
+      {
+        "pl_name": "HD 63433 d",
+        "pl_orbper": 4.209075,
+        "pl_orbpererr1": 0.000012,
+        "pl_orbpererr2": -0.000023,
+        "pl_tranmid": 2459373.82345,
+        "pl_tranmiderr1": 0.00113,
+        "pl_tranmiderr2": -0.00083,
+        "pl_orbsmax": 0.0503,
+        "pl_orbsmaxerr1": 0.0025,
+        "pl_orbsmaxerr2": -0.0027
+      }
+    ]
+  },
+  "network": {
+    "user_agent": "setisearch-ls3b-header/1.0"
+  },
+  "header_criteria": {
+    "medium_product_suffix": ".gpuspec.0002.h5",
+    "htr_product_suffix": ".gpuspec.8.0001.h5",
+    "required_medium_scan_count": 6,
+    "preferred_htr_scan_count": 6,
+    "medium_tsamp_s": [0.5, 2.0],
+    "medium_abs_foff_khz": [1.0, 5.0],
+    "minimum_medium_bandwidth_mhz": 700.0,
+    "htr_tsamp_s": [0.0001, 0.001]
+  },
+  "geometry": {
+    "planet_order": "ascending published semimajor axis",
+    "pairs": "all adjacent pairs (d-b and b-c)",
+    "model": "circular edge-on orbits, common sky-plane nodal line, MJD treated as BJD for archive ranking",
+    "reference_time": "midpoint of first ON medium-resolution scan",
+    "uncertainty_diagnostic": "For each pair, evaluate all 81 combinations formed by -1, 0 and +1 published-sigma perturbations of both periods and both transit epochs.",
+    "uncertainty_is_confidence_interval": false,
+    "semimajor_axis_and_stellar_radius_errors_in_corner_diagnostic": false
+  },
+  "selection_rule": "Among medium-qualified ABACAD cadence-pair combinations, prefer a cadence with all six HTR headers in range; then minimize nominal projected adjacent-pair separation in stellar radii; ties resolve by earliest reference time, cadence URL and planet names.",
+  "data_boundary": {
+    "http_metadata_may_be_read": true,
+    "hdf5_structure_and_attributes_may_be_read": true,
+    "hdf5_data_dataset_may_be_indexed": false,
+    "spectral_dataset_values_may_be_read": false,
+    "raw_spectral_payload_may_be_published": false
+  },
+  "claim_boundary": {
+    "header_preflight_is_a_signal_search": false,
+    "search_authorized": false,
+    "technosignature_claimed": false,
+    "sensitivity_claimed": false,
+    "occurrence_rate_claimed": false
+  }
+}
