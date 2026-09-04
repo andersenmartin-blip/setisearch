@@ -1,0 +1,72 @@
+{
+  "artifact_type": "seti_repeater.ls2c_header_preflight_plan",
+  "schema_version": 1,
+  "frozen_utc": "2026-09-04T14:08:00Z",
+  "project": {
+    "id": "LS2C",
+    "name": "HD 260655 HDF5-header qualification and conjunction ranking",
+    "branch": "ls2c-hd260655-header-preflight",
+    "base_commit": "31c23af3974da170f312a73d386016c06562bf87",
+    "spectral_search_authorized": false
+  },
+  "sources": {
+    "ls2_inventory": {
+      "path": "results_ls2_inventory/inventory.json",
+      "sha256": "1bac3988f2bd659589f0e17819f8a348667c07d347abbd6e5467d45a0ad6d11e",
+      "result_identity": "5ab49d0e71ef3a9fddddbfecd45532ddbe7f48378f33a953b62820771fa142fe"
+    },
+    "ls2b_cadence": {
+      "path": "results_ls2b_cadence/cadences.json",
+      "sha256": "82eb5f2380ba2e5bded8d4f7dd1418c1fdcfcb3c6d6d3b793f475895c5c8afcf",
+      "result_identity": "91f39e7d2772f4397137445a3091e58301d4f39af5acf475ca01aa0dda03cf26"
+    }
+  },
+  "target": {
+    "target_id": "hd_260655",
+    "hostname": "HD 260655",
+    "archive_source_name": "HIP31635",
+    "stellar_radius_solar": 0.439,
+    "planet_pair": [
+      "HD 260655 b",
+      "HD 260655 c"
+    ],
+    "cadence_urls": [
+      "http://seti.berkeley.edu/opendata/api/get-cadence/--64524",
+      "http://seti.berkeley.edu/opendata/api/get-cadence/--78205"
+    ]
+  },
+  "network": {
+    "user_agent": "setisearch-ls2c-header/1.0"
+  },
+  "header_criteria": {
+    "medium_product_suffix": ".gpuspec.0002.h5",
+    "htr_product_suffix": ".gpuspec.8.0001.h5",
+    "required_medium_scan_count": 6,
+    "preferred_htr_scan_count": 6,
+    "medium_tsamp_s": [0.5, 2.0],
+    "medium_abs_foff_khz": [1.0, 5.0],
+    "minimum_medium_bandwidth_mhz": 700.0,
+    "htr_tsamp_s": [0.0001, 0.001]
+  },
+  "geometry": {
+    "model": "circular edge-on orbits, common sky-plane nodal line, MJD treated as BJD for archive ranking",
+    "reference_time": "midpoint of first ON medium-resolution scan",
+    "uncertainty_diagnostic": "Evaluate all 81 corners and nominal combinations formed by -1, 0 and +1 published-sigma perturbations of both periods and both transit epochs.",
+    "uncertainty_is_confidence_interval": false
+  },
+  "selection_rule": "Among medium-qualified ABACAD cadences, prefer a cadence with all six HTR headers in range; then minimize nominal projected b-c separation in stellar radii at the midpoint of the first ON scan; ties resolve by earliest reference time then cadence URL.",
+  "data_boundary": {
+    "http_metadata_may_be_read": true,
+    "hdf5_structure_and_attributes_may_be_read": true,
+    "hdf5_data_dataset_may_be_indexed": false,
+    "spectral_dataset_values_may_be_read": false,
+    "raw_spectral_payload_may_be_published": false
+  },
+  "claim_boundary": {
+    "header_preflight_is_a_signal_search": false,
+    "search_authorized": false,
+    "technosignature_claimed": false,
+    "sensitivity_claimed": false,
+    "occurrence_rate_claimed": false
+  }
+}

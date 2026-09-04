@@ -156,6 +156,13 @@ metadata-only and can authorize at most a separately frozen header preflight.
 See `LS2B_CADENCE_DISCOVERY_PLAN.md` and
 `config/ls2b_cadence_discovery.json`.
 
+**LS2B result:** HD 260655 has two complete six-scan public GBT cadences. The
+selected L-band cadence `--64524` contains six medium-resolution and six HTR
+products; the second cadence `--78205` is S-band and lists six medium-resolution
+but five HTR products. LS2C now freezes a header-only ABACAD, frequency-coverage
+and conjunction comparison of both cadences. No spectral values are authorized.
+See `LS2B_CADENCE_RESULT.md` and `LS2C_HD260655_HEADER_PLAN.md`.
+
 ## Milestone 38 M37 completeness feasibility result
 
 Milestone 38 reproduced the closed M37 Run 006 boundary from hash-pinned
