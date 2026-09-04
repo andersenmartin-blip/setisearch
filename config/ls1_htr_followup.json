@@ -1,0 +1,92 @@
+{
+  "artifact_type": "seti_repeater.ls1_htr_followup_preregistration",
+  "schema_version": 1,
+  "frozen_utc": "2026-09-04T12:24:06Z",
+  "stage1": {
+    "result_path": "results_ls1/screen.json",
+    "result_file_sha256": "5a62b75eda4e5c33c83f35a451258d6d7cd19c9cabd564bf01af44c7d2e1f646",
+    "result_identity_sha256": "212db71cbe8890715cdb74942ecc8651ab1a5c74dd7e62ebd0e4967a74fbc81b",
+    "execution_commit": "4f61db3e664d132f235c3d9f90ce4bb315a2c8bc",
+    "github_run_id": 33872124679,
+    "followup_authorized": true
+  },
+  "freeze_boundary": {
+    "statement": "This exact candidate inventory, source inventory and HTR template bank must be committed after Stage 1 but before any selected gpuspec.8.0001 spectral dataset value is read for LS1.",
+    "htr_values_read_before_freeze": false,
+    "post_stage1_candidate_conditioning": true
+  },
+  "candidates": [
+    {
+      "candidate_id": "LS1-A1-1557",
+      "on_label": "A1",
+      "off_label": "B1",
+      "frequency_start_mhz": 1557.0287704467773,
+      "frequency_stop_mhz": 1568.7446594238281,
+      "frequency_padding_mhz": 0.5,
+      "time_start_s": 228.70700851199996,
+      "time_stop_s": 293.13151795199997,
+      "score": 25.98757893172702,
+      "spectral_width_bins": 4,
+      "duration_samples": 60,
+      "requested_duration_s": 64.0
+    },
+    {
+      "candidate_id": "LS1-A1-1150",
+      "on_label": "A1",
+      "off_label": "B1",
+      "frequency_start_mhz": 1149.8022079467773,
+      "frequency_stop_mhz": 1152.7290344238281,
+      "frequency_padding_mhz": 0.5,
+      "time_start_s": 0.0,
+      "time_stop_s": 64.42450944,
+      "score": 8.198936653090598,
+      "spectral_width_bins": 1,
+      "duration_samples": 60,
+      "requested_duration_s": 64.0
+    }
+  ],
+  "sources": [
+    {
+      "label": "A1",
+      "role": "ON",
+      "expected_source_name": "Hip114622",
+      "expected_tstart_mjd": 57622.33394675926,
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_13/holding/spliced_blc0001020304050607_guppi_57622_28853_Hip114622_0027.gpuspec.8.0001.h5",
+      "expected_size_bytes": 916218720
+    },
+    {
+      "label": "B1",
+      "role": "adjacent-OFF",
+      "expected_source_name": "Hip113498",
+      "expected_tstart_mjd": 57622.33783564815,
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_13/holding/spliced_blc0001020304050607_guppi_57622_29190_Hip113498_0028.gpuspec.8.0001.h5",
+      "expected_size_bytes": 1150544310
+    }
+  ],
+  "expected_htr_class": {
+    "time_resolution_s": [0.0001, 0.001],
+    "frequency_resolution_mhz": [0.1, 1.0]
+  },
+  "analysis": {
+    "reference_guard_s": 2.0,
+    "pulse_width_s": [0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 1.0],
+    "envelope_on_threshold": 8.0,
+    "envelope_off_veto_threshold": 6.0,
+    "pulse_score_threshold": 8.0,
+    "minimum_on_off_pulse_margin": 2.0,
+    "required_subsecond_scales": 2,
+    "score_interpretation": "Robust screening statistics only; serial correlation and template maximization are not calibrated as Gaussian significance."
+  },
+  "decision_rule": {
+    "envelope_confirmation": "ON envelope score >= 8, larger than OFF, and OFF envelope score < 6.",
+    "diffraction_support": "Envelope confirmed and at least two subsecond scales have ON maximum score >= 8 and at least 2 above the OFF maximum.",
+    "boundary_note": "Both events are boundary-aligned; this is reported as suspicious context but is not a retroactive veto.",
+    "independent_observation_required": true
+  },
+  "claim_boundary": {
+    "calibrated_false_alarm_claimed": false,
+    "technosignature_claimed": false,
+    "raw_spectral_payload_may_be_published": false,
+    "negative_result_excludes_light_sails": false
+  }
+}

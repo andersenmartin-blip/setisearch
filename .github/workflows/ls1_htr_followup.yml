@@ -1,0 +1,145 @@
+name: LS1 high-time-resolution follow-up
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ls1-light-sail-search]
+    paths:
+      - ".github/workflows/ls1_htr_followup.yml"
+      - "LS1_HTR_FREEZE.sha256"
+      - "LS1_HTR_FOLLOWUP.md"
+      - "config/ls1_htr_followup.json"
+      - "scripts/ls1_htr_*.py"
+      - "src/seti_repeater/light_sail_htr.py"
+      - "tests/test_ls1_htr.py"
+
+permissions:
+  contents: write
+
+jobs:
+  followup:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Require unpublished HTR result boundary
+        run: |
+          test ! -e results_ls1_htr/followup.json
+          test ! -e RESULTS_MANIFEST_LS1_HTR.sha256
+          test ! -e LS1_HTR_PROVENANCE.json
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install follow-up dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . \
+            'h5py>=3.11,<4' \
+            'hdf5plugin>=5,<7' \
+            'pytest>=8,<10'
+
+      - name: Verify the post-Stage-1 prospective freeze
+        run: |
+          sha256sum -c LS1_HTR_FREEZE.sha256
+          python -m pytest -q tests/test_ls1_htr.py
+          python scripts/ls1_htr_synthetic_validation.py
+          test "$(jq -r .recovered results_ls1_htr/synthetic_validation.json)" = "true"
+          test "$(jq -r .high_time_resolution_followup_authorized results_ls1/screen.json)" = "true"
+
+      - name: Fetch identity-bound A1 and B1 HTR products
+        run: |
+          python scripts/ls1_htr_fetch.py config/ls1_htr_followup.json
+          test "$(wc -l < DATA_MANIFEST_LS1_HTR.sha256)" -eq 2
+          sha256sum -c DATA_MANIFEST_LS1_HTR.sha256
+
+      - name: Execute frozen HTR follow-up
+        run: |
+          python scripts/ls1_htr_followup.py config/ls1_htr_followup.json
+          test "$(jq -r .spectral_dataset_values_read results_ls1_htr/followup.json)" = "true"
+          test "$(jq -r .raw_spectral_payload_published results_ls1_htr/followup.json)" = "false"
+          test "$(jq -r .technosignature_claimed results_ls1_htr/followup.json)" = "false"
+
+      - name: Record and upload derived evidence only
+        id: upload
+        run: |
+          python -m pip freeze > results_ls1_htr/environment.txt
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('results_ls1_htr/run_metadata.json').write_text(
+              json.dumps(
+                  {
+                      'execution_commit': os.environ['GITHUB_SHA'],
+                      'github_repository': os.environ['GITHUB_REPOSITORY'],
+                      'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                      'raw_spectral_payload_published': False,
+                      'technosignature_claimed': False,
+                  },
+                  indent=2,
+                  sort_keys=True,
+              ) + '\n',
+              encoding='utf-8',
+          )
+          PY
+          find results_ls1_htr -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_LS1_HTR.sha256
+          sha256sum -c RESULTS_MANIFEST_LS1_HTR.sha256
+          echo "artifact_ready=true" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/upload-artifact@v4
+        id: evidence
+        with:
+          name: ls1-htr-followup
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            DATA_MANIFEST_LS1_HTR.sha256
+            RESULTS_MANIFEST_LS1_HTR.sha256
+            results_ls1_htr/
+
+      - name: Publish checked HTR result atomically
+        env:
+          ARTIFACT_ID: ${{ steps.evidence.outputs.artifact-id }}
+          ARTIFACT_DIGEST: ${{ steps.evidence.outputs.artifact-digest }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('LS1_HTR_PROVENANCE.json').write_text(
+              json.dumps(
+                  {
+                      'artifact_digest': os.environ['ARTIFACT_DIGEST'],
+                      'artifact_id': int(os.environ['ARTIFACT_ID']),
+                      'artifact_name': 'ls1-htr-followup',
+                      'execution_commit': os.environ['GITHUB_SHA'],
+                      'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                      'raw_spectral_payload_published': False,
+                  },
+                  indent=2,
+                  sort_keys=True,
+              ) + '\n',
+              encoding='utf-8',
+          )
+          PY
+          sha256sum -c DATA_MANIFEST_LS1_HTR.sha256
+          sha256sum -c RESULTS_MANIFEST_LS1_HTR.sha256
+          git fetch origin ls1-light-sail-search
+          test "$(git rev-parse origin/ls1-light-sail-search)" = "$GITHUB_SHA"
+          git add DATA_MANIFEST_LS1_HTR.sha256 RESULTS_MANIFEST_LS1_HTR.sha256 \
+            results_ls1_htr LS1_HTR_PROVENANCE.json
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "Publish LS1 high-time-resolution follow-up"
+          git push origin HEAD:ls1-light-sail-search
