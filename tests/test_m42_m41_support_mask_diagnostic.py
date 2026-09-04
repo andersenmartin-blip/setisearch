@@ -13,6 +13,7 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts/m42_m41_support_mask_diagnostic.py"
 CONFIG = ROOT / "config/m42_m41_support_mask_diagnostic.json"
+PUBLISHED = ROOT / "results_m42_m41_support_mask_diagnostic/diagnostic.json"
 SPEC = importlib.util.spec_from_file_location("m42_support_diagnostic", SCRIPT)
 assert SPEC is not None and SPEC.loader is not None
 M42 = importlib.util.module_from_spec(SPEC)
@@ -86,6 +87,20 @@ class M42SupportMaskDiagnosticTests(unittest.TestCase):
             self.assertEqual(sum(row["candidate_supported"] for row in rows), 98)
             self.assertEqual(sum(row["snr_256_finite"] for row in rows), 49)
             self.assertEqual(sum(row["snr_256_recovered"] for row in rows), 46)
+
+    def test_published_diagnostic_identity(self):
+        result = M42.load_json(PUBLISHED)
+        identity = dict(result)
+        observed = identity.pop("diagnostic_sha256")
+        self.assertEqual(
+            observed,
+            "270fa7c5abb25218894b563d38f3b8b8501e348ec4623fcbed43d6d79bbc9447",
+        )
+        self.assertEqual(observed, M42.M41.sha256_json(identity))
+        self.assertEqual(
+            M42.sha256_file(PUBLISHED),
+            "f6b4f02b4bd04af52374012c20da6f19a4efe81ce21d1041dafc66ce4a4762ac",
+        )
 
     def test_output_manifests_reproduce(self):
         with tempfile.TemporaryDirectory() as temporary:

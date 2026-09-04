@@ -68,6 +68,15 @@ conditional truth-local score recovery, not end-to-end completeness,
 sensitivity, occurrence rate, or a technosignature claim. See
 `MILESTONE_41_M37_HIGH_SNR_TRUTH_LOCAL_CALIBRATION_RESULT.md`.
 
+Milestone 42 has now completed a ledger-only diagnosis of the M41 plateau.
+Only 98 of 512 truths (19.140625%) have any candidate-score cell under the
+frozen ±20 Hz truth-local adapter; this support is invariant across all 12 S/N
+levels. At S/N 256, 49 of those 98 produce a finite post-mask score and 46 of
+49 finite scores exceed the threshold. Because the other 414 truths have no
+score cell, 50% recovery is structurally unreachable by increasing S/N alone.
+This is an adapter diagnosis, not an astronomical completeness or sensitivity
+bound. See `MILESTONE_42_M41_SUPPORT_MASK_DIAGNOSTIC_RESULT.md`.
+
 Milestone 35 provides the latest survey-level synthesis. At exact ideal S/N 40
 its finite-injection pointwise 95% upper bound on `f(40)` is 33.16%, where
 `f(40)` is the common archive-cohort system-occurrence probability for the
@@ -170,6 +179,25 @@ does not support end-to-end completeness, sensitivity transport,
 occurrence-rate, or technosignature claims. See
 `MILESTONE_41_M37_HIGH_SNR_TRUTH_LOCAL_CALIBRATION_RESULT.md`.
 
+## Milestone 42 M41 support and mask diagnostic
+
+M42 used only the published M41 aggregate and hash-reassembled ledger. It
+validated all 6,144 canonical records and found that candidate-score support
+is a fixed property of each truth: 98 truths are supported at every S/N level,
+while 414 have no candidate cell at any level. The unchanged M41 endpoint
+therefore has a hard maximum recovery of 98/512 = 19.140625%, below 50%.
+
+At S/N 256, the nested accounting is 512 total truths, 98 geometrically
+supported, 49 with a finite score after the frozen two-pass mask, and 46 above
+threshold. The corresponding supported-only fractions are diagnostic and may
+not replace the original 46/512 recovery denominator.
+
+M42 performed no spectral read, injection, adapter execution, threshold
+change, or interpolation. It recommends freezing and qualifying an
+adapter-support repair or explicitly renamed endpoint before any further
+injection campaign. See
+`MILESTONE_42_M41_SUPPORT_MASK_DIAGNOSTIC_RESULT.md`.
+
 ## Milestone 37 invalid run, amendment and closed Run 006 outcome
 
 Milestone 37 selected HD 156668 / HIP 84607 at extension rank 37. HD 156668 b
@@ -185,7 +213,7 @@ persistence artifacts and a hash-chained run journal. Before production, the
 synthetic checkpoints exercised the full downstream contracts and resource
 envelopes.
 
-The current complete local suite runs 358 tests with two expected skips and no
+The current complete local suite runs 364 tests with two expected skips and no
 failures. Run 004 independently reopened every sparse-mirror
 segment, published 30 normalized window/scan products and verified
 11,545,072,128 cache-payload bytes. Its five calibration windows evaluated
@@ -908,6 +936,11 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Key files
 
+- `MILESTONE_42_M41_SUPPORT_MASK_DIAGNOSTIC_RESULT.md` — completed nested support, mask/finiteness and recovery diagnosis.
+- `MILESTONE_42_M41_SUPPORT_MASK_DIAGNOSTIC_PLAN.md` — frozen ledger-only diagnostic protocol and decision rule.
+- `config/m42_m41_support_mask_diagnostic.json` — hash-pinned M42 inputs, strata and claim boundary.
+- `scripts/m42_m41_support_mask_diagnostic.py` — deterministic M41 ledger validator and support diagnostic.
+- `results_m42_m41_support_mask_diagnostic/diagnostic.json` — machine-readable M42 diagnostic certificate.
 - `MILESTONE_41_M37_HIGH_SNR_TRUTH_LOCAL_CALIBRATION_RESULT.md` — completed M41 pointwise higher-S/N result and claim boundary.
 - `MILESTONE_41_M37_HIGH_SNR_TRUTH_LOCAL_CALIBRATION_PLAN.md` — frozen post-M40 higher-S/N calibration plan.
 - `config/m41_m37_high_snr_truth_local_calibration.json` — hash-pinned M41 extension, threshold and claim boundary.
