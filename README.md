@@ -24,6 +24,14 @@ stronger archival opportunity at HD 63433. Its selected L-band cadence had the
 best frozen LS geometry so far; 686 ON-threshold events were all rejected by
 the unchanged adjacent-OFF veto. See the [LS3 summary](#ls3-expanded-candidate-and-hd-63433-light-sail-search)
 and [Stage-1 result](https://github.com/andersenmartin-blip/setisearch/blob/ls3c-hd63433-screen/LS3C_STAGE1_RESULT.md).
+LS4 then adapted the frozen detector to LHS 1140's public SIGPROC
+filterbanks and searched 8--12 GHz, the LS track's closest archive test so far
+to the paper-motivated tens-of-GHz regime. Seven Stage-1 events survived; a
+candidate-conditioned HTR follow-up left one morphology candidate requiring
+independent observation. This is not a detection or technosignature claim.
+See the [LS4 summary](#ls4-lhs-1140-x-band-light-sail-search),
+[Stage-1 result](https://github.com/andersenmartin-blip/setisearch/blob/ls4b-lhs1140-x-screen/LS4B_STAGE1_RESULT.md),
+and [HTR result](https://github.com/andersenmartin-blip/setisearch/blob/ls4c-lhs1140-x-htr/LS4C_HTR_RESULT.md).
 
 ## Narrowband repeater pipeline
 
@@ -156,6 +164,46 @@ this cadence, band and frozen morphology; it is not a general light-sail,
 sensitivity, occurrence-rate or technosignature claim. See the
 [preregistration](https://github.com/andersenmartin-blip/setisearch/blob/ls3c-hd63433-screen/LS3C_HD63433_PREREGISTRATION.md)
 and [Stage-1 result](https://github.com/andersenmartin-blip/setisearch/blob/ls3c-hd63433-screen/LS3C_STAGE1_RESULT.md).
+
+## LS4 LHS 1140 X-band light-sail search
+
+LS4 followed the secondary opportunity identified by LS3. The
+[LS4A header-only preflight](https://github.com/andersenmartin-blip/setisearch/blob/ls4a-lhs1140-fil-header/LS4A_HEADER_RESULT.md)
+verified four complete public GBT filterbank ABACAD cadences without reading
+spectral values. All L/S/C/X cadences passed the frozen header and resource
+gates. The frequency-first rule selected X-band cadence `--114966`, whose
+10.014 GHz centre is closest to the prospectively frozen 10 GHz archive-ranking
+anchor. The six medium-resolution files cover 7.9515--12.0765 GHz with
+1.073742 s time sampling and 2.861 kHz channels. The conjunction geometry is
+weak: the approximate LHS 1140 c--b separation is 90.065 stellar radii, so LS4
+is a high-frequency complement rather than a close-conjunction case.
+
+The [LS4B branch](https://github.com/andersenmartin-blip/setisearch/tree/ls4b-lhs1140-x-screen)
+froze an 8--12 GHz search before spectral access and reused all LS1 detector
+parameters except the science interval and SIGPROC input decoder. It processed
+and deleted one 1.569 GB raw filterbank at a time. The three ON scans produced
+2,036 events at the frozen threshold; seven survived the adjacent-OFF veto,
+all in A1 and all overlapping the same roughly 91--159 s interval across
+8.680--10.244 GHz. No scan was retention-truncated.
+
+The separately frozen
+[LS4C HTR branch](https://github.com/andersenmartin-blip/setisearch/tree/ls4c-lhs1140-x-htr)
+therefore opened only A1 and its adjacent B1 control, reducing authorized HTR
+access from 56.61 GB to 18.87 GB. One event was rejected by the B1 HTR
+envelope. Five confirmed the slow envelope but lacked the required subsecond
+structure. Candidate `LS4B-A1-9380` at 9379.881--9382.807 MHz passed the frozen
+HTR morphology rule at the 0.001, 0.003, 0.01 and 0.03 s scales. Its HTR
+window used 13 channels, the ON envelope score was 110.278, and the OFF
+envelope score was -24.689.
+
+This remaining event is an **uncalibrated morphology candidate, not a
+detection**. The seven co-temporal Stage-1 bands are suspicious contextual
+evidence; the maximized HTR pulse scores also have a substantial trials factor.
+Independent observation plus dedicated RFI and instrumental checks are
+required before any artificial-origin claim. All raw filterbanks and collapsed
+time series were deleted and not published. See the
+[LS4B result](https://github.com/andersenmartin-blip/setisearch/blob/ls4b-lhs1140-x-screen/LS4B_STAGE1_RESULT.md)
+and [LS4C result](https://github.com/andersenmartin-blip/setisearch/blob/ls4c-lhs1140-x-htr/LS4C_HTR_RESULT.md).
 
 Milestone 41 has now frozen a separately labelled, explicitly post-M40
 higher-S/N extension. It reuses all 512 coverage-repaired M40 v2 truths
