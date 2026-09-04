@@ -1,5 +1,12 @@
 # SETI Repeater Pipeline
 
+**Latest LS update — LS4D audit (2026-09-04):** the historical LS4C pass at
+9.38 GHz is insufficient evidence for diffraction structure. The audit found
+pulses in controls, a constant-plateau counterexample, and two extra extracted
+HTR channels. The event remains unresolved, with no technosignature claim.
+See [the complete audit](LS4D_RFI_INSTRUMENT_AUDIT.md).
+
+
 This package implements a transparent multi-epoch search for intermittent
 narrowband signals that become coherent under the predicted motion of a
 selected exoplanet. The planet supplies a motion hypothesis, not a proven
