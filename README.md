@@ -163,6 +163,14 @@ but five HTR products. LS2C now freezes a header-only ABACAD, frequency-coverage
 and conjunction comparison of both cadences. No spectral values are authorized.
 See `LS2B_CADENCE_RESULT.md` and `LS2C_HD260655_HEADER_PLAN.md`.
 
+**LS2C result:** both HD 260655 cadences pass the medium-resolution header gate.
+The L-band cadence `--64524` is fully HTR-capable and has the better nominal
+projected b--c separation, 32.58 versus 36.24 stellar radii for the S-band
+cadence. This is about 5.21 times less favourable than LS1's selected geometry,
+so it is not labelled a close conjunction. LS2D prospectively copies the exact
+LS1 detector and screens `--64524` as an independent-system replication. See
+`LS2C_HEADER_RESULT.md` and `LS2D_HD260655_PREREGISTRATION.md`.
+
 ## Milestone 38 M37 completeness feasibility result
 
 Milestone 38 reproduced the closed M37 Run 006 boundary from hash-pinned
