@@ -1,0 +1,62 @@
+{
+  "artifact_type": "m42-m41-support-mask-diagnostic-config-v1",
+  "analysis_base_commit": "65404156df95070f98201b8d485c9d46a6ce5b09",
+  "status": "frozen-before-subgroup-diagnostic",
+  "inputs": [
+    {
+      "path": "MILESTONE_42_M41_SUPPORT_MASK_DIAGNOSTIC_PLAN.md",
+      "sha256": "097c5a12844b56cac431fc3698251b0df2e2f61b9bc3ac265bd12c7bf65b1c62"
+    },
+    {
+      "path": "scripts/m42_m41_support_mask_diagnostic.py",
+      "sha256": "411c6d78c0bd2b422c29ed9658f374c251cc1d6b05de3d8dc450d9615f0e7ffe"
+    },
+    {
+      "path": "MILESTONE_41_M37_HIGH_SNR_TRUTH_LOCAL_CALIBRATION_RESULT.md",
+      "sha256": "2bca9e6b9d7c50e87f6993f59e43819e77a988aba8c9aa270ac6a00a8efc4acd"
+    },
+    {
+      "path": "results_m41_m37_high_snr_truth_local_calibration/calibration-aggregate.json",
+      "sha256": "2564733b8c93b935e090861028fe6a6b622f70e9e7066bde81e4c083c95ca43d"
+    },
+    {
+      "path": "results_m41_m37_high_snr_truth_local_calibration/trial-ledger.parts.json",
+      "sha256": "a6c4989d76a3ee5de16ff82332720e1bc9d8c4f55be3fe3ae9e7badb4e89917b"
+    }
+  ],
+  "expected_m41": {
+    "aggregate_sha256": "b95220e51b02636a45d0a9e322bdc879fa47bad79f03d0577eb2566382b6f8c9",
+    "aggregate_file_sha256": "2564733b8c93b935e090861028fe6a6b622f70e9e7066bde81e4c083c95ca43d",
+    "ledger_sha256": "429789c591f44cb1ea87a5b340bf79a72905b44af3aa71bef964b3d002cc50fb",
+    "ledger_nbytes": 3318065,
+    "trial_count": 6144,
+    "truth_count": 512,
+    "snr_level_count": 12,
+    "known_candidate_supported_truth_count": 98
+  },
+  "diagnostic": {
+    "geometric_support_rule": "candidate_score_cell_count > 0",
+    "finite_score_rule": "finite best_truth_local_score_snr",
+    "recovery_rule": "immutable M41 score_recovered",
+    "highest_snr_cross_section": 256.0,
+    "group_fields": [
+      "spectral_width_channels",
+      "activity_subset_index",
+      "line_index",
+      "radial_stratum_index",
+      "phase_stratum_index"
+    ]
+  },
+  "claim_boundary": {
+    "endpoint": "retrospective-diagnostic-of-frozen-m41-pointwise-endpoint",
+    "new_spectral_access": false,
+    "new_injections": false,
+    "threshold_change": false,
+    "unsupported_truth_removal": false,
+    "interpolation_permitted": false,
+    "end_to_end_completeness_claimed": false,
+    "sensitivity_transport_claimed": false,
+    "occurrence_rate_claimed": false,
+    "technosignature_claimed": false
+  }
+}
