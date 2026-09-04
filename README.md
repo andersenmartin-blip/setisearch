@@ -142,6 +142,20 @@ eligible only for a separately frozen header preflight. LS2 does not yet
 authorize a signal search. See `LS2_CANDIDATE_INVENTORY_PLAN.md` and
 `config/ls2_candidate_inventory.json`.
 
+**LS2 result:** the metadata-only inventory found geometry-ready planet pairs
+for LTT 1445 A, L 98-59, HD 260655 and GJ 9827. Exact archive aliases resolved
+for HD 260655 and GJ 9827. The ordinary target view exposed three L-band and
+three S-band HD 260655 ON scans plus one GJ 9827 S-band ON scan, all with
+medium-resolution and corresponding HTR products, but returned no cadence
+links. LS2 therefore closed with no selection while leaving every linked radio
+file unopened. See `LS2_INVENTORY_RESULT.md`.
+
+LS2B preserves that result and queries the archive's dedicated GBT
+primary-target cadence view for the two resolved systems. It remains
+metadata-only and can authorize at most a separately frozen header preflight.
+See `LS2B_CADENCE_DISCOVERY_PLAN.md` and
+`config/ls2b_cadence_discovery.json`.
+
 ## Milestone 38 M37 completeness feasibility result
 
 Milestone 38 reproduced the closed M37 Run 006 boundary from hash-pinned

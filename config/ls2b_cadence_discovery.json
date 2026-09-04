@@ -1,0 +1,57 @@
+{
+  "artifact_type": "seti_repeater.ls2b_cadence_discovery_plan",
+  "schema_version": 1,
+  "frozen_utc": "2026-09-04T13:52:00Z",
+  "project": {
+    "id": "LS2B",
+    "name": "Dedicated cadence-view discovery after LS2",
+    "branch": "ls2b-cadence-discovery",
+    "base_commit": "bcc804e9223b5fe4250f6b045dd898384fb0e812",
+    "conditioned_only_on_published_ls2_metadata": true
+  },
+  "source": {
+    "path": "results_ls2_inventory/inventory.json",
+    "sha256": "1bac3988f2bd659589f0e17819f8a348667c07d347abbd6e5467d45a0ad6d11e",
+    "result_identity": "5ab49d0e71ef3a9fddddbfecd45532ddbe7f48378f33a953b62820771fa142fe"
+  },
+  "endpoint": "https://seti.berkeley.edu/opendata/api/query-files",
+  "network": {
+    "user_agent": "setisearch-ls2b-metadata/1.0"
+  },
+  "query": {
+    "telescope": "GBT",
+    "cadence": true,
+    "primary_target": true
+  },
+  "limits": {
+    "maximum_records_per_target": 2000,
+    "maximum_cadences_per_target": 100
+  },
+  "targets": [
+    {
+      "target_id": "hd_260655",
+      "archive_alias": "HIP31635",
+      "selection_reason": "LS2 resolved this alias and catalogued six GBT medium-resolution ON products across L and S band plus matching HTR products."
+    },
+    {
+      "target_id": "gj_9827",
+      "archive_alias": "HIP115752",
+      "selection_reason": "LS2 resolved this alias and catalogued one GBT S-band medium-resolution ON product plus matching HTR data."
+    }
+  ],
+  "selection_rule": "Preserve the LS2 target priority. Select the earliest cadence for the first target whose dedicated GBT primary-target cadence listing contains at least six distinct scan MJDs and at least six gpuspec.0002.h5 products. Ties resolve by cadence URL. Selection authorizes only a separately frozen HDF5-header preflight.",
+  "data_boundary": {
+    "archive_query_json_may_be_read": true,
+    "cadence_listing_json_may_be_read": true,
+    "linked_hdf5_or_filterbank_may_be_opened": false,
+    "spectral_dataset_values_may_be_read": false,
+    "raw_spectral_payload_may_be_published": false
+  },
+  "claim_boundary": {
+    "previous_ls2_result_may_be_overwritten": false,
+    "search_authorized": false,
+    "technosignature_claimed": false,
+    "sensitivity_claimed": false,
+    "occurrence_rate_claimed": false
+  }
+}
