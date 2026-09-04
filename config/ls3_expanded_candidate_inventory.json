@@ -1,0 +1,178 @@
+{
+  "artifact_type": "seti_repeater.ls3_expanded_candidate_inventory_plan",
+  "schema_version": 1,
+  "frozen_utc": "2026-09-04T16:14:15Z",
+  "project": {
+    "id": "LS3",
+    "name": "Expanded nearby multi-transiting-system archive inventory",
+    "branch": "ls3-expanded-candidate-inventory",
+    "base_commit": "0441ea3262273055f5404da608d5726374430890",
+    "inherits_ls1_signal_morphology": true,
+    "preserves_ls1_and_ls2_results": true
+  },
+  "scientific_scope": {
+    "searched_class": "short broadband excess power potentially associated with directed light-sail propulsion leakage",
+    "current_phase": "catalogue and dedicated cadence-listing metadata only",
+    "candidate_definition": "nearby confirmed system with at least two transiting planets and ephemerides sufficient for an approximate projected-conjunction calculation",
+    "conjunction_model_deferred": "All data-ready systems advance together. Header-derived cadence midpoints are required before any geometry ranking or single-target choice.",
+    "spectral_search_authorized": false
+  },
+  "endpoints": {
+    "nasa_exoplanet_archive_tap": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync",
+    "breakthrough_listen_target_catalog": "https://seti.berkeley.edu/opendata/api/list-targets",
+    "breakthrough_listen_query_files": "https://seti.berkeley.edu/opendata/api/query-files"
+  },
+  "network": {
+    "user_agent": "setisearch-ls3-metadata/1.0"
+  },
+  "query": {
+    "telescope": "GBT",
+    "cadence": true,
+    "primary_target": true
+  },
+  "limits": {
+    "maximum_records_per_alias": 3000,
+    "maximum_cadences_per_target": 100
+  },
+  "nasa_fields": [
+    "pl_name",
+    "hostname",
+    "pl_orbper",
+    "pl_orbpererr1",
+    "pl_orbpererr2",
+    "pl_tranmid",
+    "pl_tranmiderr1",
+    "pl_tranmiderr2",
+    "pl_orbsmax",
+    "pl_orbsmaxerr1",
+    "pl_orbsmaxerr2",
+    "pl_orbeccen",
+    "pl_orbincl",
+    "tran_flag",
+    "sy_dist",
+    "st_rad",
+    "rowupdate"
+  ],
+  "advancement_rule": "Advance every system with at least two geometry-ready transiting planets and at least one dedicated GBT primary-target cadence listing containing six distinct scan MJDs and at least six gpuspec.0002.h5 products. Do not choose among advancing systems until a separately frozen header-only conjunction comparison. No linked radio file may be opened in LS3.",
+  "targets": [
+    {
+      "priority": 1,
+      "cohort": "LS2 carryover",
+      "target_id": "ltt_1445_a",
+      "hostname": "LTT 1445 A",
+      "science_reference": "https://arxiv.org/abs/2107.14737",
+      "archive_aliases": ["LTT 1445 A", "LTT1445A", "LTT 1445", "LTT1445", "TOI-455", "TOI455", "TIC 98796344", "TIC98796344", "HIP 14101", "HIP14101"]
+    },
+    {
+      "priority": 2,
+      "cohort": "LS2 carryover",
+      "target_id": "l_98_59",
+      "hostname": "L 98-59",
+      "science_reference": "https://ui.adsabs.harvard.edu/abs/2019AJ....158...32K/abstract",
+      "archive_aliases": ["L 98-59", "L98-59", "L9859", "TOI-175", "TOI175", "TIC 307210830", "TIC307210830"]
+    },
+    {
+      "priority": 3,
+      "cohort": "LS2 carryover",
+      "target_id": "trappist_1",
+      "hostname": "TRAPPIST-1",
+      "science_reference": "https://ui.adsabs.harvard.edu/abs/2021PSJ.....2....1A/abstract",
+      "archive_aliases": ["TRAPPIST-1", "TRAPPIST1", "2MASS J23062928-0502285", "2MASSJ23062928-0502285", "EPIC 246199087", "EPIC246199087", "SPECULOOS-1", "SPECULOOS1"]
+    },
+    {
+      "priority": 4,
+      "cohort": "LS2 carryover",
+      "target_id": "gj_9827",
+      "hostname": "GJ 9827",
+      "science_reference": "https://ui.adsabs.harvard.edu/abs/2018AJ....155..111R/abstract",
+      "archive_aliases": ["GJ 9827", "GJ9827", "HIP 115752", "HIP115752", "K2-135", "K2135", "EPIC 246389858", "EPIC246389858"]
+    },
+    {
+      "priority": 5,
+      "cohort": "new nearby candidate",
+      "target_id": "au_mic",
+      "hostname": "AU Mic",
+      "science_reference": "https://arxiv.org/abs/2203.01750",
+      "archive_aliases": ["AU Mic", "AUMic", "AU Microscopii", "AUMicroscopii", "GJ 803", "GJ803", "HD 197481", "HD197481", "HIP 102409", "HIP102409", "TOI-732", "TOI732", "TIC 441420236", "TIC441420236"]
+    },
+    {
+      "priority": 6,
+      "cohort": "new nearby candidate",
+      "target_id": "hd_136352",
+      "hostname": "HD 136352",
+      "science_reference": "https://arxiv.org/abs/2106.14491",
+      "archive_aliases": ["HD 136352", "HD136352", "nu2 Lupi", "nu2Lupi", "Nu2 Lupi", "Nu2Lupi", "GJ 582", "GJ582", "HIP 75181", "HIP75181"]
+    },
+    {
+      "priority": 7,
+      "cohort": "new nearby candidate",
+      "target_id": "lhs_1140",
+      "hostname": "LHS 1140",
+      "science_reference": "https://arxiv.org/abs/2310.15490",
+      "archive_aliases": ["LHS 1140", "LHS1140", "GJ 3053", "GJ3053", "TOI-256", "TOI256", "TIC 92226327", "TIC92226327", "2MASS J00445930-1516166", "2MASSJ00445930-1516166"]
+    },
+    {
+      "priority": 8,
+      "cohort": "new nearby candidate",
+      "target_id": "toi_270",
+      "hostname": "TOI-270",
+      "science_reference": "https://arxiv.org/abs/1903.06107",
+      "archive_aliases": ["TOI-270", "TOI270", "L 231-32", "L231-32", "L23132", "TIC 259377017", "TIC259377017", "2MASS J04333970-5157222", "2MASSJ04333970-5157222"]
+    },
+    {
+      "priority": 9,
+      "cohort": "new nearby candidate",
+      "target_id": "hd_63433",
+      "hostname": "HD 63433",
+      "science_reference": "https://arxiv.org/abs/2401.04785",
+      "archive_aliases": ["HD 63433", "HD63433", "HIP 38228", "HIP38228", "TOI-1726", "TOI1726", "TIC 130181866", "TIC130181866"]
+    },
+    {
+      "priority": 10,
+      "cohort": "new nearby candidate",
+      "target_id": "lp_791_18",
+      "hostname": "LP 791-18",
+      "science_reference": "https://arxiv.org/abs/1906.09267",
+      "archive_aliases": ["LP 791-18", "LP791-18", "LP79118", "TOI-736", "TOI736", "TIC 181804752", "TIC181804752", "2MASS J11024596-1624222", "2MASSJ11024596-1624222"]
+    },
+    {
+      "priority": 11,
+      "cohort": "new nearby candidate",
+      "target_id": "toi_700",
+      "hostname": "TOI-700",
+      "science_reference": "https://arxiv.org/abs/2301.03617",
+      "archive_aliases": ["TOI-700", "TOI700", "TIC 150428135", "TIC150428135", "2MASS J06282325-6534456", "2MASSJ06282325-6534456"]
+    },
+    {
+      "priority": 12,
+      "cohort": "new nearby candidate",
+      "target_id": "kepler_444",
+      "hostname": "Kepler-444",
+      "science_reference": "https://doi.org/10.1088/0004-637X/799/2/170",
+      "archive_aliases": ["Kepler-444", "Kepler444", "KOI-3158", "KOI3158", "KIC 6278762", "KIC6278762", "HIP 94931", "HIP94931"]
+    },
+    {
+      "priority": 13,
+      "cohort": "new nearby candidate",
+      "target_id": "k2_3",
+      "hostname": "K2-3",
+      "science_reference": "https://doi.org/10.1088/0004-637X/804/1/10",
+      "archive_aliases": ["K2-3", "K23", "EPIC 201367065", "EPIC201367065", "LP 358-499", "LP358-499", "LP358499"]
+    }
+  ],
+  "data_boundary": {
+    "catalogue_json_may_be_read": true,
+    "archive_query_json_may_be_read": true,
+    "cadence_listing_json_may_be_read": true,
+    "linked_hdf5_or_filterbank_may_be_opened": false,
+    "spectral_dataset_values_may_be_read": false,
+    "raw_spectral_payload_may_be_published": false
+  },
+  "claim_boundary": {
+    "inventory_is_a_signal_search": false,
+    "search_authorized": false,
+    "technosignature_claimed": false,
+    "sensitivity_claimed": false,
+    "occurrence_rate_claimed": false
+  }
+}

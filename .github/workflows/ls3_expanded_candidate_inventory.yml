@@ -1,0 +1,140 @@
+name: LS3 expanded candidate inventory
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ls3-expanded-candidate-inventory]
+    paths:
+      - ".github/workflows/ls3_expanded_candidate_inventory.yml"
+      - "LS3_EXPANDED_CANDIDATE_PLAN.md"
+      - "LS3_INVENTORY_FREEZE.sha256"
+      - "config/ls3_expanded_candidate_inventory.json"
+      - "scripts/ls3_expanded_candidate_inventory.py"
+      - "tests/test_ls3_expanded_candidate_inventory.py"
+
+permissions:
+  contents: write
+
+jobs:
+  inventory:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Require unpublished LS3 result boundary
+        run: |
+          test ! -e results_ls3_inventory/inventory.json
+          test ! -e LS3_EXPANDED_CANDIDATE_RESULT.md
+          test ! -e RESULTS_MANIFEST_LS3_INVENTORY.sha256
+          test ! -e LS3_INVENTORY_PROVENANCE.json
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install and verify frozen metadata implementation
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . 'pytest>=8,<10'
+          sha256sum -c LS3_INVENTORY_FREEZE.sha256
+          python -m pytest -q tests/test_ls3_expanded_candidate_inventory.py
+
+      - name: Execute expanded metadata inventory
+        run: |
+          python scripts/ls3_expanded_candidate_inventory.py \
+            config/ls3_expanded_candidate_inventory.json
+          test "$(jq -r .status results_ls3_inventory/inventory.json)" \
+            = "complete-metadata-only-expanded-inventory"
+          test "$(jq -r .spectral_payload_inspected results_ls3_inventory/inventory.json)" \
+            = "false"
+          test "$(jq -r .spectral_dataset_values_read results_ls3_inventory/inventory.json)" \
+            = "false"
+          test "$(jq -r .spectral_urls_opened results_ls3_inventory/inventory.json)" \
+            = "false"
+          test "$(jq -r .search_authorized results_ls3_inventory/inventory.json)" \
+            = "false"
+
+      - name: Record reproducibility evidence
+        run: |
+          python -m pip freeze > results_ls3_inventory/environment.txt
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('results_ls3_inventory/run_metadata.json').write_text(
+              json.dumps(
+                  {
+                      'execution_commit': os.environ['GITHUB_SHA'],
+                      'github_repository': os.environ['GITHUB_REPOSITORY'],
+                      'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                      'branch': os.environ['GITHUB_REF_NAME'],
+                      'archive_json_only': True,
+                      'spectral_dataset_values_read': False,
+                      'raw_spectral_payload_published': False,
+                      'technosignature_claimed': False,
+                  },
+                  indent=2,
+                  sort_keys=True,
+              ) + '\n',
+              encoding='utf-8',
+          )
+          PY
+          find results_ls3_inventory -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_LS3_INVENTORY.sha256
+          sha256sum -c RESULTS_MANIFEST_LS3_INVENTORY.sha256
+
+      - name: Upload metadata evidence
+        id: evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: ls3-expanded-candidate-inventory
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            LS3_EXPANDED_CANDIDATE_RESULT.md
+            RESULTS_MANIFEST_LS3_INVENTORY.sha256
+            results_ls3_inventory/
+
+      - name: Publish checked metadata result atomically
+        env:
+          ARTIFACT_ID: ${{ steps.evidence.outputs.artifact-id }}
+          ARTIFACT_DIGEST: ${{ steps.evidence.outputs.artifact-digest }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('LS3_INVENTORY_PROVENANCE.json').write_text(
+              json.dumps(
+                  {
+                      'artifact_digest': os.environ['ARTIFACT_DIGEST'],
+                      'artifact_id': int(os.environ['ARTIFACT_ID']),
+                      'artifact_name': 'ls3-expanded-candidate-inventory',
+                      'execution_commit': os.environ['GITHUB_SHA'],
+                      'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                      'spectral_dataset_values_read': False,
+                      'raw_spectral_payload_published': False,
+                  },
+                  indent=2,
+                  sort_keys=True,
+              ) + '\n',
+              encoding='utf-8',
+          )
+          PY
+          sha256sum -c RESULTS_MANIFEST_LS3_INVENTORY.sha256
+          git fetch origin ls3-expanded-candidate-inventory
+          test "$(git rev-parse origin/ls3-expanded-candidate-inventory)" = "$GITHUB_SHA"
+          git add LS3_EXPANDED_CANDIDATE_RESULT.md LS3_INVENTORY_PROVENANCE.json \
+            RESULTS_MANIFEST_LS3_INVENTORY.sha256 results_ls3_inventory
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "Publish LS3 expanded candidate inventory"
+          git push origin HEAD:ls3-expanded-candidate-inventory
