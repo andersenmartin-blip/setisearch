@@ -27,11 +27,15 @@ and [Stage-1 result](https://github.com/andersenmartin-blip/setisearch/blob/ls3c
 LS4 then adapted the frozen detector to LHS 1140's public SIGPROC
 filterbanks and searched 8--12 GHz, the LS track's closest archive test so far
 to the paper-motivated tens-of-GHz regime. Seven Stage-1 events survived; a
-candidate-conditioned HTR follow-up left one morphology candidate requiring
-independent observation. This is not a detection or technosignature claim.
+candidate-conditioned HTR follow-up left one event passing its frozen rule.
+The subsequent **LS4D audit found that this rule is not specific to pulse
+structure**, and identified extra extracted channels and pulses in controls.
+The event remains unresolved; there is no detection or technosignature claim.
 See the [LS4 summary](#ls4-lhs-1140-x-band-light-sail-search),
 [Stage-1 result](https://github.com/andersenmartin-blip/setisearch/blob/ls4b-lhs1140-x-screen/LS4B_STAGE1_RESULT.md),
 and [HTR result](https://github.com/andersenmartin-blip/setisearch/blob/ls4c-lhs1140-x-htr/LS4C_HTR_RESULT.md).
+The [LS4D audit](https://github.com/andersenmartin-blip/setisearch/blob/ls4d-rfi-instrument-audit/LS4D_RFI_INSTRUMENT_AUDIT.md)
+now qualifies the interpretation of the historical HTR pass.
 
 ## Narrowband repeater pipeline
 
@@ -190,14 +194,14 @@ The separately frozen
 [LS4C HTR branch](https://github.com/andersenmartin-blip/setisearch/tree/ls4c-lhs1140-x-htr)
 therefore opened only A1 and its adjacent B1 control, reducing authorized HTR
 access from 56.61 GB to 18.87 GB. One event was rejected by the B1 HTR
-envelope. Five confirmed the slow envelope but lacked the required subsecond
-structure. Candidate `LS4B-A1-9380` at 9379.881--9382.807 MHz passed the frozen
+envelope. Five confirmed the slow envelope but did not meet the frozen subsecond
+screening rule. Candidate `LS4B-A1-9380` at 9379.881--9382.807 MHz passed the frozen
 HTR morphology rule at the 0.001, 0.003, 0.01 and 0.03 s scales. Its HTR
 window used 13 channels, the ON envelope score was 110.278, and the OFF
 envelope score was -24.689.
 
-This remaining event is an **uncalibrated morphology candidate, not a
-detection**. The seven co-temporal Stage-1 bands are suspicious contextual
+This remaining event is an **unresolved archival feature; its historical
+HTR pass is insufficient evidence for diffraction structure**. The seven co-temporal Stage-1 bands are suspicious contextual
 evidence; the maximized HTR pulse scores also have a substantial trials factor.
 In a post-result spectrum-context check, 9379.9 MHz falls inside the U.S.
 9300--9500 MHz radar/radiolocation allocation, which includes airborne weather
@@ -209,6 +213,24 @@ required before any artificial-origin claim. All raw filterbanks and collapsed
 time series were deleted and not published. See the
 [LS4B result](https://github.com/andersenmartin-blip/setisearch/blob/ls4b-lhs1140-x-screen/LS4B_STAGE1_RESULT.md)
 and [LS4C result](https://github.com/andersenmartin-blip/setisearch/blob/ls4c-lhs1140-x-htr/LS4C_HTR_RESULT.md).
+
+The [LS4D retrospective audit](https://github.com/andersenmartin-blip/setisearch/blob/ls4d-rfi-instrument-audit/LS4D_RFI_INSTRUMENT_AUDIT.md)
+replayed all seven historical decisions and found three limitations. OFF
+pulses exceed threshold at all four supported scales, and the ON-reference
+maximum exceeds the event-window maximum at three of them (a descriptive
+comparison, not a calibrated veto). A synthetic constant plateau with no
+injected subsecond pulses passes the unchanged structure rule. Descending-axis
+rounding also extracted 13 channels instead of the 11 centers inside each
+configured padded interval; the effect on the real event is unmeasured.
+The historical results remain unchanged, but a separately validated residual
+pulse method and an explicitly defined frequency selection are needed before
+further candidate promotion. Twenty LS4 tests pass and the original freeze
+and result manifests still verify.
+
+A fresh scoped GBT primary-target cadence query for `LHS1140` on
+2026-09-04 returned the same four L/S/C/X cadences, with no additional X-band
+epoch. This does not exclude other aliases, ungrouped scans or other archives.
+No new radio spectral values were read in LS4D.
 
 Milestone 41 has now frozen a separately labelled, explicitly post-M40
 higher-S/N extension. It reuses all 512 coverage-repaired M40 v2 truths
