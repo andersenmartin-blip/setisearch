@@ -115,14 +115,17 @@ and temporal boxcars plus adjacent-OFF vetoes. The `.8.0001` high-time-resolutio
 products remain closed unless a Stage 1 event survives and a separate follow-up
 bank is committed first.
 
-**LS1 status:** the hypothesis, input inventory, geometry, template bank,
-thresholds, retention cap and claim boundary are frozen before new spectral
-access. Synthetic validation and the first archive screen are executed by the
-branch workflow. Scores are screening statistics, not calibrated significances.
-No technosignature, occurrence-rate or general light-sail exclusion is claimed.
-Raw telescope spectra are never published; only hashes, validation records and
-derived summaries are eligible for version control. See
-`LS1_PREREGISTRATION.md` and `config/ls1_hd219134_light_sail.json`.
+**LS1 result:** Stage 1 completed all six medium-resolution scans without
+truncation. Of 265 ON events above threshold, 263 received the frozen
+adjacent-OFF veto. Both survivors touched an A1 scan boundary and were tested in
+the separately frozen 0.349525 ms follow-up. The 1557 MHz event was rejected by
+its B1 HTR envelope and the 1150 MHz event did not reproduce as a positive HTR
+envelope; neither met the subsecond-structure criterion. LS1 therefore closes
+with zero HTR-supported candidates. Scores are screening statistics, not
+calibrated significances, and no technosignature, occurrence-rate or general
+light-sail exclusion is claimed. Raw telescope spectra are never published;
+only hashes, validation records and derived summaries are versioned. See
+`LS1_PREREGISTRATION.md`, `LS1_STAGE1_RESULT.md`, and `LS1_RESULT.md`.
 
 ## Milestone 38 M37 completeness feasibility result
 
