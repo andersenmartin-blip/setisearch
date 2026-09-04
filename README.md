@@ -19,6 +19,11 @@ LS2 then screened five additional nearby systems and selected a public HD
 260655 L-band cadence. Its 805 ON-threshold events were all rejected by the
 predeclared adjacent-OFF veto; see the [LS2 summary](#ls2-hd-260655-light-sail-leakage-search)
 and [final result](https://github.com/andersenmartin-blip/setisearch/blob/ls2d-hd260655-screen/LS2_RESULT.md).
+LS3 expanded the inventory to 13 nearby multi-transiting systems and found a
+stronger archival opportunity at HD 63433. Its selected L-band cadence had the
+best frozen LS geometry so far; 686 ON-threshold events were all rejected by
+the unchanged adjacent-OFF veto. See the [LS3 summary](#ls3-expanded-candidate-and-hd-63433-light-sail-search)
+and [Stage-1 result](https://github.com/andersenmartin-blip/setisearch/blob/ls3c-hd63433-screen/LS3C_STAGE1_RESULT.md).
 
 ## Narrowband repeater pipeline
 
@@ -119,6 +124,38 @@ LS1 selected geometry—so this is not a close-conjunction test or a general
 light-sail exclusion. See the branch's
 [selection plan](https://github.com/andersenmartin-blip/setisearch/blob/ls2d-hd260655-screen/LS2D_HD260655_PREREGISTRATION.md)
 and [final result](https://github.com/andersenmartin-blip/setisearch/blob/ls2d-hd260655-screen/LS2_RESULT.md).
+
+## LS3 expanded candidate and HD 63433 light-sail search
+
+The [LS3 inventory branch](https://github.com/andersenmartin-blip/setisearch/tree/ls3-expanded-candidate-inventory)
+extended the LS target pool to 13 nearby systems with at least two transiting
+planets. In addition to the LS2 carryovers, it assessed AU Mic, HD 136352,
+LHS 1140, TOI-270, HD 63433, LP 791-18, TOI-700, Kepler-444 and K2-3. The
+metadata-only pass found HD 63433 under archive alias `HIP38228` with two
+complete public GBT ABACAD cadences and full HTR product sets. LHS 1140 remains
+a secondary opportunity with complete L/S/C/X filterbank cadences, but its
+archival geometry is much poorer and the current HDF5 search path does not
+apply directly.
+
+For HD 63433, the [LS3B header preflight](https://github.com/andersenmartin-blip/setisearch/blob/ls3b-hd63433-header-preflight/LS3B_HEADER_RESULT.md)
+used all three planets from Mallorquín et al. (2024) and evaluated the adjacent
+d–b and b–c pairs. Both L- and S-band cadences passed the header gate. The
+2016-05-21 L-band cadence `--87575` was selected: its nominal d–b separation
+was 2.821 stellar radii, with a 2.605–3.036 period/epoch input-corner range.
+Within the stated circular, edge-on, common-node approximation, this is about
+45% of LS1's selected separation and the best frozen LS archive geometry so
+far.
+
+The [LS3C branch](https://github.com/andersenmartin-blip/setisearch/tree/ls3c-hd63433-screen)
+prospectively reused the LS1 detector and thresholds without adjustment. All
+six medium-resolution scans completed without retention truncation. The three
+ON scans produced 686 events at the frozen threshold; all 686 had
+adjacent-OFF frequency-coincidence evidence, leaving zero survivors. The rule
+therefore did not authorize HTR spectral access. This null result closes only
+this cadence, band and frozen morphology; it is not a general light-sail,
+sensitivity, occurrence-rate or technosignature claim. See the
+[preregistration](https://github.com/andersenmartin-blip/setisearch/blob/ls3c-hd63433-screen/LS3C_HD63433_PREREGISTRATION.md)
+and [Stage-1 result](https://github.com/andersenmartin-blip/setisearch/blob/ls3c-hd63433-screen/LS3C_STAGE1_RESULT.md).
 
 Milestone 41 has now frozen a separately labelled, explicitly post-M40
 higher-S/N extension. It reuses all 512 coverage-repaired M40 v2 truths
