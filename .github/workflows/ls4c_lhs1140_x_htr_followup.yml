@@ -1,0 +1,147 @@
+name: LS4C LHS 1140 X-band HTR follow-up
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ls4c-lhs1140-x-htr]
+    paths:
+      - ".github/workflows/ls4c_lhs1140_x_htr_followup.yml"
+      - "LS4C_LHS1140_X_HTR_PREREGISTRATION.md"
+      - "LS4C_FREEZE.sha256"
+      - "config/ls4c_lhs1140_x_htr_followup.json"
+      - "scripts/ls4c_*.py"
+      - "tests/test_ls4c_lhs1140_x_htr_followup.py"
+
+permissions:
+  contents: write
+
+jobs:
+  followup:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Require unpublished LS4C result boundary
+        run: |
+          test ! -e results_ls4c_htr/followup.json
+          test ! -e LS4C_HTR_RESULT.md
+          test ! -e DATA_MANIFEST_LS4C_HTR.sha256
+          test ! -e RESULTS_MANIFEST_LS4C_HTR.sha256
+          test ! -e LS4C_HTR_PROVENANCE.json
+          test ! -e data_ls4c_htr
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install and verify prospective candidate-conditioned freeze
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . 'pytest>=8,<10'
+          sha256sum -c LS4C_FREEZE.sha256
+          python -m pytest -q tests/test_ls4c_lhs1140_x_htr_followup.py
+          python scripts/ls4c_htr_synthetic_validation.py
+          test "$(jq -r .recovered results_ls4c_htr/synthetic_validation.json)" = "true"
+
+      - name: Execute frozen two-source HTR follow-up
+        run: |
+          df -h .
+          python scripts/ls4c_htr_followup.py config/ls4c_lhs1140_x_htr_followup.json
+          python scripts/ls4c_htr_result_summary.py
+          test "$(wc -l < DATA_MANIFEST_LS4C_HTR.sha256)" -eq 2
+          test "$(jq -r .candidate_count results_ls4c_htr/followup.json)" -eq 7
+          test "$(jq -r .spectral_dataset_values_read results_ls4c_htr/followup.json)" = "true"
+          test "$(jq -r .collapsed_timeseries_published results_ls4c_htr/followup.json)" = "false"
+          test "$(jq -r .raw_spectral_payload_published results_ls4c_htr/followup.json)" = "false"
+          test "$(jq -r .raw_files_deleted_after_each_source results_ls4c_htr/followup.json)" = "true"
+          test "$(jq -r .technosignature_claimed results_ls4c_htr/followup.json)" = "false"
+          test -z "$(find data_ls4c_htr -type f -print -quit)"
+
+      - name: Record reproducibility evidence
+        run: |
+          python -m pip freeze > results_ls4c_htr/environment.txt
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('results_ls4c_htr/run_metadata.json').write_text(
+              json.dumps(
+                  {
+                      'execution_commit': os.environ['GITHUB_SHA'],
+                      'github_repository': os.environ['GITHUB_REPOSITORY'],
+                      'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                      'branch': os.environ['GITHUB_REF_NAME'],
+                      'selected_htr_sources': ['A1', 'B1'],
+                      'raw_files_deleted_after_each_source': True,
+                      'collapsed_timeseries_published': False,
+                      'raw_spectral_payload_published': False,
+                      'technosignature_claimed': False,
+                  },
+                  indent=2,
+                  sort_keys=True,
+              ) + '\n',
+              encoding='utf-8',
+          )
+          PY
+          find results_ls4c_htr -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_LS4C_HTR.sha256
+          sha256sum -c RESULTS_MANIFEST_LS4C_HTR.sha256
+
+      - name: Upload derived evidence only
+        id: evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: ls4c-lhs1140-x-htr-followup
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            DATA_MANIFEST_LS4C_HTR.sha256
+            LS4C_HTR_RESULT.md
+            RESULTS_MANIFEST_LS4C_HTR.sha256
+            results_ls4c_htr/
+
+      - name: Publish checked derived result atomically
+        env:
+          ARTIFACT_ID: ${{ steps.evidence.outputs.artifact-id }}
+          ARTIFACT_DIGEST: ${{ steps.evidence.outputs.artifact-digest }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('LS4C_HTR_PROVENANCE.json').write_text(
+              json.dumps(
+                  {
+                      'artifact_digest': os.environ['ARTIFACT_DIGEST'],
+                      'artifact_id': int(os.environ['ARTIFACT_ID']),
+                      'artifact_name': 'ls4c-lhs1140-x-htr-followup',
+                      'execution_commit': os.environ['GITHUB_SHA'],
+                      'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                      'raw_files_deleted_after_each_source': True,
+                      'collapsed_timeseries_published': False,
+                      'raw_spectral_payload_published': False,
+                  },
+                  indent=2,
+                  sort_keys=True,
+              ) + '\n',
+              encoding='utf-8',
+          )
+          PY
+          sha256sum -c RESULTS_MANIFEST_LS4C_HTR.sha256
+          test -z "$(find data_ls4c_htr -type f -print -quit)"
+          git fetch origin ls4c-lhs1140-x-htr
+          test "$(git rev-parse origin/ls4c-lhs1140-x-htr)" = "$GITHUB_SHA"
+          git add DATA_MANIFEST_LS4C_HTR.sha256 LS4C_HTR_RESULT.md \
+            LS4C_HTR_PROVENANCE.json RESULTS_MANIFEST_LS4C_HTR.sha256 results_ls4c_htr
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "Publish LS4C LHS 1140 X-band HTR follow-up"
+          git push origin HEAD:ls4c-lhs1140-x-htr
