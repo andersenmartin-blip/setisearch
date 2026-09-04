@@ -58,15 +58,15 @@ transition, and no end-to-end completeness or sensitivity claim is made. See
 `MILESTONE_40_M37_TRUTH_LOCAL_CALIBRATION_ABORT.md` and
 `MILESTONE_40_M37_TRUTH_LOCAL_CALIBRATION_V2_RESULT.md`.
 
-Milestone 41 has now frozen a separately labelled, explicitly post-M40
-higher-S/N extension. It reuses all 512 coverage-repaired M40 v2 truths
-without selection or relocation, creates new independent trial and background
-identities, and evaluates the exact levels 48, 56, 64, 72, 80, 88, 96, 112,
-128, 160, 192 and 256. No M41 injection has yet been executed. The permitted
-endpoint remains pointwise conditional truth-local score recovery with no
-interpolation and no end-to-end completeness, sensitivity, occurrence-rate or
-technosignature claim. See
-`MILESTONE_41_M37_HIGH_SNR_TRUTH_LOCAL_CALIBRATION_PLAN.md`.
+Milestone 41 completed its separately frozen, explicitly post-M40 higher-S/N
+extension: all 512 coverage-repaired M40 v2 truths were evaluated at all 12
+exact levels from S/N 48 through 256, for 6,144 new trials. Pointwise recovery
+first appeared at S/N 72, but reached only 46 of 512 truths (8.984375%) at
+both S/N 192 and 256. The grid therefore brackets neither a 50% nor a 90%
+recovery transition, and no interpolation was performed. The result remains
+conditional truth-local score recovery, not end-to-end completeness,
+sensitivity, occurrence rate, or a technosignature claim. See
+`MILESTONE_41_M37_HIGH_SNR_TRUTH_LOCAL_CALIBRATION_RESULT.md`.
 
 Milestone 35 provides the latest survey-level synthesis. At exact ideal S/N 40
 its finite-injection pointwise 95% upper bound on `f(40)` is 33.16%, where
@@ -148,6 +148,28 @@ global-field, end-to-end completeness, occurrence-rate, and technosignature
 claims remain outside scope. See
 `MILESTONE_40_M37_TRUTH_LOCAL_CALIBRATION_V2_RESULT.md`.
 
+## Milestone 41 M37 higher-S/N truth-local calibration
+
+M41 reused all 512 coverage-repaired M40 v2 truths without selection or
+relocation, assigned new trial and randomized-background identities, and
+evaluated the exact higher-S/N levels 48, 56, 64, 72, 80, 88, 96, 112, 128,
+160, 192, and 256. The fail-closed aggregate validated all 6,144 canonical
+trial receipts and adopted no M40 score receipt.
+
+At the unchanged operational threshold 126.20158386230469, the first tested
+level with any recovery was S/N 72 (2/512). Recovery rose only to 46/512 at
+S/N 192 and remained 46/512 at S/N 256. Neither a 50% nor a 90% pointwise
+transition is bracketed, so interpolation is forbidden. Missing finite scores
+are valid no-recovery outcomes, not missing trials.
+
+This sparse high-S/N plateau motivates a separately frozen support/mask
+diagnostic before any further S/N extension. M41 itself remains a complete
+pointwise conditional truth-local score-recovery result only; it does not
+calibrate downstream veto survival or the global false-positive field and
+does not support end-to-end completeness, sensitivity transport,
+occurrence-rate, or technosignature claims. See
+`MILESTONE_41_M37_HIGH_SNR_TRUTH_LOCAL_CALIBRATION_RESULT.md`.
+
 ## Milestone 37 invalid run, amendment and closed Run 006 outcome
 
 Milestone 37 selected HD 156668 / HIP 84607 at extension rank 37. HD 156668 b
@@ -163,8 +185,8 @@ persistence artifacts and a hash-chained run journal. Before production, the
 synthetic checkpoints exercised the full downstream contracts and resource
 envelopes.
 
-The current complete local suite runs 349 tests with one expected benchmark
-skip and no failures. Run 004 independently reopened every sparse-mirror
+The current complete local suite runs 358 tests with two expected skips and no
+failures. Run 004 independently reopened every sparse-mirror
 segment, published 30 normalized window/scan products and verified
 11,545,072,128 cache-payload bytes. Its five calibration windows evaluated
 14,880 hypotheses and 2,848,065,331,200 null score cells. The exact 256-member
@@ -886,9 +908,12 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 ## Key files
 
+- `MILESTONE_41_M37_HIGH_SNR_TRUTH_LOCAL_CALIBRATION_RESULT.md` — completed M41 pointwise higher-S/N result and claim boundary.
 - `MILESTONE_41_M37_HIGH_SNR_TRUTH_LOCAL_CALIBRATION_PLAN.md` — frozen post-M40 higher-S/N calibration plan.
 - `config/m41_m37_high_snr_truth_local_calibration.json` — hash-pinned M41 extension, threshold and claim boundary.
 - `scripts/m41_m37_high_snr_truth_local_calibration.py` — restartable M41 initializer, sharded runner and aggregator.
+- `results_m41_m37_high_snr_truth_local_calibration/calibration-aggregate.json` — machine-readable complete M41 aggregate.
+- `results_m41_m37_high_snr_truth_local_calibration/trial-ledger.parts.json` — checksummed transport manifest for the deterministic 6,144-record M41 ledger.
 - `MILESTONE_40_M37_TRUTH_LOCAL_CALIBRATION_V2_RESULT.md` — completed M40 v2 conditional calibration result.
 - `results_m40_m37_truth_local_calibration_v2/calibration-aggregate.json` — machine-readable M40 v2 aggregate.
 - `MILESTONE_39_M37_TRUTH_LOCAL_QUALIFICATION_RESULT.md` — completed truth-local equivalence qualification.

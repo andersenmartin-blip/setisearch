@@ -4,7 +4,9 @@ from __future__ import annotations
 
 from copy import deepcopy
 import gzip
+import hashlib
 import importlib.util
+import io
 import json
 from pathlib import Path
 import tempfile
@@ -18,6 +20,9 @@ M40_LEDGER = (
     ROOT / "results_m40_m37_truth_local_calibration_v2/trial-ledger.jsonl.gz"
 )
 PUBLISHED = ROOT / "results_m41_m37_high_snr_truth_local_calibration"
+PUBLISHED_AGGREGATE = PUBLISHED / "calibration-aggregate.json"
+PUBLISHED_LEDGER = PUBLISHED / "trial-ledger.jsonl.gz"
+PUBLISHED_LEDGER_PARTS = PUBLISHED / "trial-ledger.parts.json"
 SPEC = importlib.util.spec_from_file_location("m41_calibration_test", SCRIPT)
 assert SPEC is not None and SPEC.loader is not None
 M41 = importlib.util.module_from_spec(SPEC)
@@ -122,6 +127,99 @@ class M41HighSnrTruthLocalCalibrationTests(unittest.TestCase):
         self.assertEqual(
             start["start_sha256"],
             "f2b9198cf25df9503e2f53ed99ab3098ddbb8e7af0689206d143cfd97276facd",
+        )
+
+    def test_published_complete_aggregate_and_ledger(self):
+        aggregate = json.loads(PUBLISHED_AGGREGATE.read_text(encoding="utf-8"))
+        identity = dict(aggregate)
+        observed_identity = identity.pop("aggregate_sha256")
+        self.assertEqual(
+            observed_identity,
+            "b95220e51b02636a45d0a9e322bdc879fa47bad79f03d0577eb2566382b6f8c9",
+        )
+        self.assertEqual(observed_identity, M41.sha256_json(identity))
+        self.assertEqual(
+            M41.sha256_file(PUBLISHED_AGGREGATE),
+            "2564733b8c93b935e090861028fe6a6b622f70e9e7066bde81e4c083c95ca43d",
+        )
+        self.assertEqual(aggregate["status"], "complete")
+        self.assertEqual(aggregate["trial_count"], 6144)
+        self.assertEqual(aggregate["recovered_trial_count"], 259)
+        self.assertEqual(aggregate["m40_score_receipts_adopted"], 0)
+        self.assertEqual(
+            [level["recovered"] for level in aggregate["levels"]],
+            [0, 0, 0, 2, 7, 11, 27, 37, 40, 43, 46, 46],
+        )
+        self.assertEqual(
+            aggregate["transition_summary"],
+            {
+                "first_tested_snr_with_any_recovery": 72.0,
+                "first_tested_snr_at_or_above_50_percent": None,
+                "first_tested_snr_at_or_above_90_percent": None,
+                "interpolation_performed": False,
+            },
+        )
+        self.assertTrue(aggregate["pointwise_only_no_interpolation"])
+        self.assertFalse(
+            aggregate["claim_boundary"][
+                "end_to_end_detector_completeness_claimed"
+            ]
+        )
+        self.assertFalse(aggregate["claim_boundary"]["occurrence_rate_claimed"])
+        self.assertFalse(aggregate["claim_boundary"]["technosignature_claimed"])
+        transport = json.loads(
+            PUBLISHED_LEDGER_PARTS.read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            M41.sha256_file(PUBLISHED_LEDGER_PARTS),
+            "a6c4989d76a3ee5de16ff82332720e1bc9d8c4f55be3fe3ae9e7badb4e89917b",
+        )
+        self.assertEqual(
+            transport["artifact_type"],
+            "m41-m37-high-snr-truth-local-ledger-transport-v1",
+        )
+        self.assertEqual(
+            transport["algorithm"], "concatenate-parts-in-listed-order"
+        )
+        self.assertEqual(transport["output_path"], aggregate["ledger_path"])
+        self.assertEqual(
+            transport["source_aggregate_sha256"], aggregate["aggregate_sha256"]
+        )
+        payload_parts = []
+        for part in transport["parts"]:
+            path = PUBLISHED / part["path"]
+            self.assertEqual(path.parent, PUBLISHED)
+            self.assertEqual(path.stat().st_size, part["nbytes"])
+            self.assertEqual(M41.sha256_file(path), part["sha256"])
+            payload_parts.append(path.read_bytes())
+        ledger_payload = b"".join(payload_parts)
+        self.assertEqual(len(ledger_payload), aggregate["ledger_nbytes"])
+        self.assertEqual(
+            hashlib.sha256(ledger_payload).hexdigest(), aggregate["ledger_sha256"]
+        )
+        if PUBLISHED_LEDGER.exists():
+            self.assertEqual(PUBLISHED_LEDGER.read_bytes(), ledger_payload)
+
+        start = M41._validate_start(PUBLISHED, self.config, self.plan)
+        record_hashes = []
+        with gzip.open(io.BytesIO(ledger_payload), "rt", encoding="utf-8") as handle:
+            for line in handle:
+                if not line.strip():
+                    continue
+                ordinal = len(record_hashes)
+                record = json.loads(line)
+                M41._validate_trial_record(
+                    record,
+                    self.plan.trials[ordinal],
+                    ordinal,
+                    start,
+                    self.config,
+                )
+                record_hashes.append(record["record_sha256"])
+        self.assertEqual(len(record_hashes), 6144)
+        self.assertEqual(
+            M41.sha256_json(record_hashes),
+            "b2ddeb5a4c1e5b06a52be946fafa0bb370946d804fb1301e1fbe491b1f40801d",
         )
 
     def test_inclusive_threshold_and_record_identity(self):
