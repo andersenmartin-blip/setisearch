@@ -15,6 +15,10 @@ LS1, analysed one GBT L-band cadence of HD 219134 and found no event supported
 by the high-time-resolution follow-up. See the detailed
 [LS1 summary](#ls1-light-sail-leakage-search) and the
 [full result](https://github.com/andersenmartin-blip/setisearch/blob/ls1-light-sail-search/LS1_RESULT.md).
+LS2 then screened five additional nearby systems and selected a public HD
+260655 L-band cadence. Its 805 ON-threshold events were all rejected by the
+predeclared adjacent-OFF veto; see the [LS2 summary](#ls2-hd-260655-light-sail-leakage-search)
+and [final result](https://github.com/andersenmartin-blip/setisearch/blob/ls2d-hd260655-screen/LS2_RESULT.md).
 
 ## Narrowband repeater pipeline
 
@@ -95,6 +99,26 @@ light sails: the observation was below the paper's preferred tens-of-GHz
 regime, sampled one cadence, and used an approximate conjunction model. See
 the branch's [preregistration](https://github.com/andersenmartin-blip/setisearch/blob/ls1-light-sail-search/LS1_PREREGISTRATION.md)
 and [final result](https://github.com/andersenmartin-blip/setisearch/blob/ls1-light-sail-search/LS1_RESULT.md).
+
+## LS2 HD 260655 light-sail leakage search
+
+The separate [`ls2d-hd260655-screen`](https://github.com/andersenmartin-blip/setisearch/tree/ls2d-hd260655-screen)
+branch preserves the full LS2 selection and search chain. A metadata-only
+inventory considered LTT 1445 A, L 98-59, HD 260655, GJ 9827 and TRAPPIST-1.
+Dedicated cadence discovery and HDF5-header qualification then selected GBT
+L-band ABACAD cadence `--64524` of HD 260655. Its six medium-resolution scans
+cover the frozen 1100--1900 MHz search band, and all six HTR products were
+available.
+
+LS2 reused the LS1 detector and thresholds without adjustment. The three ON
+scans produced 805 events at the frozen threshold; all 805 had adjacent-OFF
+frequency-coincidence evidence, leaving zero survivors and therefore no
+authorization to read HTR spectral values. The nominal projected b--c
+separation was 32.58 stellar radii—about 5.21 times less favourable than the
+LS1 selected geometry—so this is not a close-conjunction test or a general
+light-sail exclusion. See the branch's
+[selection plan](https://github.com/andersenmartin-blip/setisearch/blob/ls2d-hd260655-screen/LS2D_HD260655_PREREGISTRATION.md)
+and [final result](https://github.com/andersenmartin-blip/setisearch/blob/ls2d-hd260655-screen/LS2_RESULT.md).
 
 Milestone 41 has now frozen a separately labelled, explicitly post-M40
 higher-S/N extension. It reuses all 512 coverage-repaired M40 v2 truths
