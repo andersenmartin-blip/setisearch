@@ -1,0 +1,149 @@
+name: LS3C HD 63433 light-sail leakage screen
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ls3c-hd63433-screen]
+    paths:
+      - ".github/workflows/ls3c_hd63433_screen.yml"
+      - "LS3C_HD63433_PREREGISTRATION.md"
+      - "LS3C_FREEZE.sha256"
+      - "config/ls3c_hd63433_light_sail.json"
+      - "scripts/ls3c_*.py"
+      - "tests/test_ls3c_light_sail.py"
+
+permissions:
+  contents: write
+
+jobs:
+  screen:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Require unpublished LS3C result boundary
+        run: |
+          test ! -e results_ls3c/screen.json
+          test ! -e LS3C_STAGE1_RESULT.md
+          test ! -e DATA_MANIFEST_LS3C.sha256
+          test ! -e RESULTS_MANIFEST_LS3C.sha256
+          test ! -e LS3C_SCREEN_PROVENANCE.json
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install detector and HDF5 dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . \
+            'h5py>=3.11,<4' \
+            'hdf5plugin>=5,<7' \
+            'pytest>=8,<10'
+
+      - name: Verify prospective freeze and inherited detector
+        run: |
+          sha256sum -c LS3C_FREEZE.sha256
+          python -m pytest -q tests/test_ls3c_light_sail.py
+          python scripts/ls3c_synthetic_validation.py
+          test "$(jq -r .recovered results_ls3c/synthetic_validation.json)" = "true"
+          test "$(jq -r .spectral_dataset_values_read results_ls3c/synthetic_validation.json)" = "false"
+
+      - name: Fetch identity-bound medium-resolution products
+        run: |
+          python scripts/ls3c_fetch.py config/ls3c_hd63433_light_sail.json
+          test "$(wc -l < DATA_MANIFEST_LS3C.sha256)" -eq 6
+          sha256sum -c DATA_MANIFEST_LS3C.sha256
+
+      - name: Execute frozen ABACAD broadband screen
+        run: |
+          python scripts/ls3c_screen.py config/ls3c_hd63433_light_sail.json
+          python scripts/ls3c_result_summary.py
+          test "$(jq -r .spectral_dataset_values_read results_ls3c/screen.json)" = "true"
+          test "$(jq -r .raw_spectral_payload_published results_ls3c/screen.json)" = "false"
+          test "$(jq -r .technosignature_claimed results_ls3c/screen.json)" = "false"
+          test "$(jq -r .status results_ls3c/screen.json)" != "invalid-retention-truncated"
+
+      - name: Record reproducibility evidence
+        run: |
+          python -m pip freeze > results_ls3c/environment.txt
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('results_ls3c/run_metadata.json').write_text(
+              json.dumps(
+                  {
+                      'execution_commit': os.environ['GITHUB_SHA'],
+                      'github_repository': os.environ['GITHUB_REPOSITORY'],
+                      'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                      'branch': os.environ['GITHUB_REF_NAME'],
+                      'raw_spectral_payload_published': False,
+                      'technosignature_claimed': False,
+                  },
+                  indent=2,
+                  sort_keys=True,
+              ) + '\n',
+              encoding='utf-8',
+          )
+          PY
+          find results_ls3c -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_LS3C.sha256
+          sha256sum -c RESULTS_MANIFEST_LS3C.sha256
+
+      - name: Upload derived evidence only
+        id: evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: ls3c-medium-resolution-screen
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            DATA_MANIFEST_LS3C.sha256
+            LS3C_STAGE1_RESULT.md
+            RESULTS_MANIFEST_LS3C.sha256
+            results_ls3c/
+
+      - name: Publish checked derived result atomically
+        env:
+          ARTIFACT_ID: ${{ steps.evidence.outputs.artifact-id }}
+          ARTIFACT_DIGEST: ${{ steps.evidence.outputs.artifact-digest }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('LS3C_SCREEN_PROVENANCE.json').write_text(
+              json.dumps(
+                  {
+                      'artifact_digest': os.environ['ARTIFACT_DIGEST'],
+                      'artifact_id': int(os.environ['ARTIFACT_ID']),
+                      'artifact_name': 'ls3c-medium-resolution-screen',
+                      'execution_commit': os.environ['GITHUB_SHA'],
+                      'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                      'raw_spectral_payload_published': False,
+                  },
+                  indent=2,
+                  sort_keys=True,
+              ) + '\n',
+              encoding='utf-8',
+          )
+          PY
+          sha256sum -c DATA_MANIFEST_LS3C.sha256
+          sha256sum -c RESULTS_MANIFEST_LS3C.sha256
+          git fetch origin ls3c-hd63433-screen
+          test "$(git rev-parse origin/ls3c-hd63433-screen)" = "$GITHUB_SHA"
+          git add DATA_MANIFEST_LS3C.sha256 LS3C_STAGE1_RESULT.md \
+            LS3C_SCREEN_PROVENANCE.json RESULTS_MANIFEST_LS3C.sha256 results_ls3c
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "Publish LS3C HD 63433 medium-resolution screen"
+          git push origin HEAD:ls3c-hd63433-screen
