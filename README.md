@@ -1,4 +1,22 @@
-# SETI Repeater Pipeline
+# SETIsearch
+
+SETIsearch contains two complementary technosignature search tracks: the
+multi-epoch narrowband repeater pipeline described below and an experimental
+**light-sail leakage (LS)** search. The LS hypothesis is that directed power
+beams used to accelerate artificial sails could spill past their targets and
+appear in radio data as short broadband transients.
+
+For nearby multiplanet systems, projected planetary conjunctions provide
+physically motivated observing windows in which an interplanetary propulsion
+beam may pass comparatively close to our line of sight. The LS track therefore
+combines conjunction ranking with public ON/OFF or ABACAD radio observations
+and searches seconds-to-tens-of-seconds time scales. Its first completed test,
+LS1, analysed one GBT L-band cadence of HD 219134 and found no event supported
+by the high-time-resolution follow-up. See the detailed
+[LS1 summary](#ls1-light-sail-leakage-search) and the
+[full result](https://github.com/andersenmartin-blip/setisearch/blob/ls1-light-sail-search/LS1_RESULT.md).
+
+## Narrowband repeater pipeline
 
 This package implements a transparent multi-epoch search for intermittent
 narrowband signals that become coherent under the predicted motion of a
