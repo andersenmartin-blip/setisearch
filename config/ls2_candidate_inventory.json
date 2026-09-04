@@ -1,0 +1,141 @@
+{
+  "artifact_type": "seti_repeater.ls2_candidate_inventory_plan",
+  "schema_version": 1,
+  "frozen_utc": "2026-09-04T13:37:01Z",
+  "project": {
+    "id": "LS2",
+    "name": "Nearby multi-transiting-system public archive inventory",
+    "branch": "ls2-candidate-inventory",
+    "base_commit": "acbee6d98ef43ee33228a0129afa5e064cb77322",
+    "inherits_ls1_signal_morphology": true,
+    "independent_from_narrowband_milestones": true
+  },
+  "scientific_scope": {
+    "searched_class": "short broadband excess power potentially associated with directed light-sail propulsion leakage",
+    "current_phase": "catalogue and cadence-listing metadata only",
+    "conjunction_model_deferred": "All adjacent geometry-ready planet pairs are retained. Cadence-specific conjunction ranking requires a separately frozen header preflight.",
+    "spectral_search_authorized": false
+  },
+  "endpoints": {
+    "nasa_exoplanet_archive_tap": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync",
+    "breakthrough_listen_target_catalog": "https://seti.berkeley.edu/opendata/api/list-targets",
+    "breakthrough_listen_query_files": "https://seti.berkeley.edu/opendata/api/query-files"
+  },
+  "network": {
+    "user_agent": "setisearch-ls2-metadata/1.0"
+  },
+  "limits": {
+    "maximum_records_per_alias": 2000,
+    "maximum_cadences_per_target": 100
+  },
+  "nasa_fields": [
+    "pl_name",
+    "hostname",
+    "pl_orbper",
+    "pl_orbpererr1",
+    "pl_orbpererr2",
+    "pl_tranmid",
+    "pl_tranmiderr1",
+    "pl_tranmiderr2",
+    "pl_orbsmax",
+    "pl_orbeccen",
+    "pl_orbincl",
+    "tran_flag",
+    "sy_dist",
+    "st_rad",
+    "rowupdate"
+  ],
+  "selection_rule": "In frozen priority order, select the first system with at least two transiting planets having finite positive periods and semimajor axes plus finite transit midpoints, and at least one public cadence listing with six distinct scan MJDs and a gpuspec.0002.h5 product. Selection authorizes only a separately frozen HDF5-header preflight, never spectral access.",
+  "targets": [
+    {
+      "priority": 1,
+      "target_id": "ltt_1445_a",
+      "hostname": "LTT 1445 A",
+      "archive_aliases": [
+        "LTT 1445 A",
+        "LTT1445A",
+        "LTT 1445",
+        "LTT1445",
+        "TOI-455",
+        "TOI455",
+        "TIC 98796344",
+        "TIC98796344",
+        "HIP 14101",
+        "HIP14101"
+      ]
+    },
+    {
+      "priority": 2,
+      "target_id": "l_98_59",
+      "hostname": "L 98-59",
+      "archive_aliases": [
+        "L 98-59",
+        "L98-59",
+        "L9859",
+        "TOI-175",
+        "TOI175",
+        "TIC 307210830",
+        "TIC307210830"
+      ]
+    },
+    {
+      "priority": 3,
+      "target_id": "hd_260655",
+      "hostname": "HD 260655",
+      "archive_aliases": [
+        "HD 260655",
+        "HD260655",
+        "GJ 239",
+        "GJ239",
+        "HIP 31635",
+        "HIP31635",
+        "TOI-4599",
+        "TOI4599"
+      ]
+    },
+    {
+      "priority": 4,
+      "target_id": "gj_9827",
+      "hostname": "GJ 9827",
+      "archive_aliases": [
+        "GJ 9827",
+        "GJ9827",
+        "HIP 115752",
+        "HIP115752",
+        "K2-135",
+        "K2135",
+        "EPIC 246389858",
+        "EPIC246389858"
+      ]
+    },
+    {
+      "priority": 5,
+      "target_id": "trappist_1",
+      "hostname": "TRAPPIST-1",
+      "archive_aliases": [
+        "TRAPPIST-1",
+        "TRAPPIST1",
+        "2MASS J23062928-0502285",
+        "2MASSJ23062928-0502285",
+        "EPIC 246199087",
+        "EPIC246199087",
+        "SPECULOOS-1",
+        "SPECULOOS1"
+      ]
+    }
+  ],
+  "data_boundary": {
+    "catalogue_json_may_be_read": true,
+    "cadence_listing_json_may_be_read": true,
+    "linked_hdf5_or_filterbank_may_be_opened": false,
+    "spectral_dataset_values_may_be_read": false,
+    "raw_spectral_payload_may_be_published": false
+  },
+  "claim_boundary": {
+    "inventory_is_a_search_result": false,
+    "technosignature_claimed": false,
+    "calibrated_false_alarm_claimed": false,
+    "sensitivity_claimed": false,
+    "occurrence_rate_claimed": false
+  }
+}

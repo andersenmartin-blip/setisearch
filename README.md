@@ -127,6 +127,21 @@ light-sail exclusion is claimed. Raw telescope spectra are never published;
 only hashes, validation records and derived summaries are versioned. See
 `LS1_PREREGISTRATION.md`, `LS1_STAGE1_RESULT.md`, and `LS1_RESULT.md`.
 
+## LS2 candidate-system inventory
+
+LS2 continues the experimental light-sail track with a prospectively frozen,
+metadata-only inventory of LTT 1445 A, L 98-59, HD 260655, GJ 9827 and
+TRAPPIST-1, in that priority order. It combines default transit ephemerides
+from the NASA Exoplanet Archive with public Breakthrough Listen target and
+cadence listings. The phase may catalogue linked data products, but it must not
+open HDF5/filterbank payloads or read spectral values.
+
+The first system with at least two geometry-ready transiting planets and a
+six-scan public cadence listing containing medium-resolution data becomes
+eligible only for a separately frozen header preflight. LS2 does not yet
+authorize a signal search. See `LS2_CANDIDATE_INVENTORY_PLAN.md` and
+`config/ls2_candidate_inventory.json`.
+
 ## Milestone 38 M37 completeness feasibility result
 
 Milestone 38 reproduced the closed M37 Run 006 boundary from hash-pinned

@@ -1,0 +1,143 @@
+name: LS2 candidate-system metadata inventory
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ls2-candidate-inventory]
+    paths:
+      - ".github/workflows/ls2_candidate_inventory.yml"
+      - "LS2_CANDIDATE_INVENTORY_PLAN.md"
+      - "LS2_INVENTORY_FREEZE.sha256"
+      - "config/ls2_candidate_inventory.json"
+      - "scripts/ls2_candidate_inventory.py"
+      - "src/seti_repeater/light_sail_catalog.py"
+      - "tests/test_ls2_candidate_inventory.py"
+
+permissions:
+  contents: write
+
+jobs:
+  inventory:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Require unpublished LS2 result boundary
+        run: |
+          test ! -e results_ls2_inventory/inventory.json
+          test ! -e LS2_INVENTORY_RESULT.md
+          test ! -e RESULTS_MANIFEST_LS2_INVENTORY.sha256
+          test ! -e LS2_INVENTORY_PROVENANCE.json
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install and verify frozen metadata implementation
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . 'pytest>=8,<10'
+          sha256sum -c LS2_INVENTORY_FREEZE.sha256
+          python -m pytest -q tests/test_ls2_candidate_inventory.py
+
+      - name: Execute metadata-only inventory
+        run: |
+          python scripts/ls2_candidate_inventory.py \
+            config/ls2_candidate_inventory.json
+          test "$(jq -r .status results_ls2_inventory/inventory.json)" \
+            = "complete-metadata-only-inventory"
+          test "$(jq -r .spectral_payload_inspected results_ls2_inventory/inventory.json)" \
+            = "false"
+          test "$(jq -r .spectral_dataset_values_read results_ls2_inventory/inventory.json)" \
+            = "false"
+          test "$(jq -r .spectral_urls_opened results_ls2_inventory/inventory.json)" \
+            = "false"
+          test "$(jq -r .search_authorized results_ls2_inventory/inventory.json)" \
+            = "false"
+          test "$(jq -r .technosignature_claimed results_ls2_inventory/inventory.json)" \
+            = "false"
+
+      - name: Record reproducibility evidence
+        run: |
+          python -m pip freeze > results_ls2_inventory/environment.txt
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('results_ls2_inventory/run_metadata.json').write_text(
+              json.dumps(
+                  {
+                      'execution_commit': os.environ['GITHUB_SHA'],
+                      'github_repository': os.environ['GITHUB_REPOSITORY'],
+                      'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                      'branch': os.environ['GITHUB_REF_NAME'],
+                      'catalogue_and_cadence_json_only': True,
+                      'spectral_dataset_values_read': False,
+                      'raw_spectral_payload_published': False,
+                      'technosignature_claimed': False,
+                  },
+                  indent=2,
+                  sort_keys=True,
+              ) + '\n',
+              encoding='utf-8',
+          )
+          PY
+          find results_ls2_inventory -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_LS2_INVENTORY.sha256
+          sha256sum -c RESULTS_MANIFEST_LS2_INVENTORY.sha256
+
+      - name: Upload metadata evidence
+        id: evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: ls2-candidate-system-inventory
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            LS2_INVENTORY_RESULT.md
+            RESULTS_MANIFEST_LS2_INVENTORY.sha256
+            results_ls2_inventory/
+
+      - name: Publish checked metadata result atomically
+        env:
+          ARTIFACT_ID: ${{ steps.evidence.outputs.artifact-id }}
+          ARTIFACT_DIGEST: ${{ steps.evidence.outputs.artifact-digest }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('LS2_INVENTORY_PROVENANCE.json').write_text(
+              json.dumps(
+                  {
+                      'artifact_digest': os.environ['ARTIFACT_DIGEST'],
+                      'artifact_id': int(os.environ['ARTIFACT_ID']),
+                      'artifact_name': 'ls2-candidate-system-inventory',
+                      'execution_commit': os.environ['GITHUB_SHA'],
+                      'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                      'spectral_dataset_values_read': False,
+                      'raw_spectral_payload_published': False,
+                  },
+                  indent=2,
+                  sort_keys=True,
+              ) + '\n',
+              encoding='utf-8',
+          )
+          PY
+          sha256sum -c RESULTS_MANIFEST_LS2_INVENTORY.sha256
+          git fetch origin ls2-candidate-inventory
+          test "$(git rev-parse origin/ls2-candidate-inventory)" = "$GITHUB_SHA"
+          git add LS2_INVENTORY_RESULT.md LS2_INVENTORY_PROVENANCE.json \
+            RESULTS_MANIFEST_LS2_INVENTORY.sha256 results_ls2_inventory
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "Publish LS2 candidate-system inventory"
+          git push origin HEAD:ls2-candidate-inventory
