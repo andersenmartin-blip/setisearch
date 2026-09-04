@@ -58,6 +58,26 @@ transition, and no end-to-end completeness or sensitivity claim is made. See
 `MILESTONE_40_M37_TRUTH_LOCAL_CALIBRATION_ABORT.md` and
 `MILESTONE_40_M37_TRUTH_LOCAL_CALIBRATION_V2_RESULT.md`.
 
+## LS1 light-sail leakage search
+
+The separate [`ls1-light-sail-search`](https://github.com/andersenmartin-blip/setisearch/tree/ls1-light-sail-search)
+branch contains a completed experimental search for artificial power-beam
+leakage motivated by Guillochon & Loeb's
+[*SETI via Leakage from Light Sails in Exoplanetary Systems*](https://doi.org/10.1088/2041-8205/811/2/L20).
+Unlike the main narrowband pipeline, LS1 searched for broadband excess power
+lasting seconds to tens of seconds in one public GBT L-band ABACAD cadence of
+HD 219134, selected from five archived cadences by an approximate projected
+b--c conjunction ranking.
+
+Stage 1 found 265 ON events above its frozen screening threshold. Adjacent-OFF
+tests vetoed 263; the two remaining scan-boundary events were both rejected by
+the separately frozen 0.349525 ms follow-up. LS1 therefore closed with zero
+high-time-resolution-supported candidates. This is not a general exclusion of
+light sails: the observation was below the paper's preferred tens-of-GHz
+regime, sampled one cadence, and used an approximate conjunction model. See
+the branch's [preregistration](https://github.com/andersenmartin-blip/setisearch/blob/ls1-light-sail-search/LS1_PREREGISTRATION.md)
+and [final result](https://github.com/andersenmartin-blip/setisearch/blob/ls1-light-sail-search/LS1_RESULT.md).
+
 Milestone 41 has now frozen a separately labelled, explicitly post-M40
 higher-S/N extension. It reuses all 512 coverage-repaired M40 v2 truths
 without selection or relocation, creates new independent trial and background
