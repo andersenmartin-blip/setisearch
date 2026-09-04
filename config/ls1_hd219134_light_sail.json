@@ -1,0 +1,217 @@
+{
+  "artifact_type": "seti_repeater.ls1_preregistration",
+  "schema_version": 1,
+  "frozen_utc": "2026-09-04T12:08:44Z",
+  "project": {
+    "id": "LS1",
+    "name": "HD 219134 conjunction-conditioned broadband light-sail leakage screen",
+    "branch": "ls1-light-sail-search",
+    "base_commit": "a692653c26aa6f8612acb2a6439f87cf1f14390c",
+    "independent_from_narrowband_milestones": true
+  },
+  "hypothesis": {
+    "primary_reference": "https://doi.org/10.1088/2041-8205/811/2/L20",
+    "arxiv_reference": "https://arxiv.org/abs/1508.03043",
+    "searched_class": "time-local broadband excess power lasting seconds to tens of seconds",
+    "scope_caveat": "The archived 1.1-1.9 GHz band is well below the paper's illustrative optimum near tens of GHz; LS1 tests a broader artificial-beam leakage class, not the full fiducial model."
+  },
+  "freeze_boundary": {
+    "statement": "This configuration, target ranking, thresholds, templates, veto and retention cap must be committed before any gpuspec.0002 or gpuspec.8.0001 spectral dataset value in the selected cadence is read for LS1.",
+    "medium_resolution_values_read_before_freeze": false,
+    "high_time_resolution_values_read_before_freeze": false,
+    "prior_m16_fine_resolution_use_is_disjoint": true
+  },
+  "target": {
+    "hostname": "HD 219134",
+    "archive_target": "HIP114622",
+    "distance_pc": 6.53127,
+    "selection_reason": "Nearby multi-planet system with two transiting inner planets and five public GBT L-band ABACAD cadences."
+  },
+  "ephemeris_source": {
+    "service": "NASA Exoplanet Archive TAP pscomppars",
+    "retrieved_utc": "2026-09-04T11:58:00Z",
+    "query": "select pl_name,hostname,pl_orbper,pl_tranmid,pl_orbsmax,pl_rade,sy_dist,st_rad from pscomppars where hostname='HD 219134'",
+    "endpoint": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync",
+    "note": "Values are frozen inputs, not refreshed during the search."
+  },
+  "geometry": {
+    "model": "circular edge-on orbits, common sky-plane nodal line, BJD treated as JD for archive ranking",
+    "stellar_radius_solar": 0.778,
+    "planets": [
+      {
+        "name": "HD 219134 b",
+        "period_days": 3.092926,
+        "transit_midpoint_bjd": 2457126.69913,
+        "semimajor_axis_au": 0.03876
+      },
+      {
+        "name": "HD 219134 c",
+        "period_days": 6.76458,
+        "transit_midpoint_bjd": 2457474.04591,
+        "semimajor_axis_au": 0.0653
+      }
+    ],
+    "ranking_rule": "Ascending absolute difference of the two signed projected coordinates at the midpoint of the first ON scan; ties resolve by earliest MJD then cadence id.",
+    "interpretation_limit": "Unknown mutual node and ephemeris uncertainty make this an approximate prioritization metric, not proof of physical conjunction."
+  },
+  "archive_inventory": {
+    "source_path": "results_m16_header_screen_corrected/header_screen.json",
+    "source_sha256": "c441713192397b1e7cbf4565a8ef26c57406c436f8cac1833f7cb54ca6342333",
+    "eligible_cadence_ids": [
+      "--63424",
+      "--65393",
+      "--66869",
+      "--67073",
+      "--67169"
+    ],
+    "selected_cadence_id": "--63424",
+    "selection_must_reproduce_before_spectral_access": true
+  },
+  "medium_resolution_screen": {
+    "product_suffix": "gpuspec.0002.h5",
+    "expected_time_resolution_class_s": [
+      0.5,
+      2.0
+    ],
+    "expected_frequency_resolution_class_khz": [
+      1.0,
+      5.0
+    ],
+    "science_band_mhz": [
+      1100.0,
+      1900.0
+    ],
+    "base_bin_native_channels": 1024,
+    "spectral_width_base_bins": [
+      1,
+      4,
+      16,
+      32,
+      64
+    ],
+    "duration_s": [
+      4.0,
+      8.0,
+      16.0,
+      32.0,
+      64.0
+    ],
+    "native_robust_clip": [
+      -6.0,
+      12.0
+    ],
+    "minimum_valid_fraction": 0.8,
+    "on_score_threshold": 8.0,
+    "off_veto_score_threshold": 6.0,
+    "off_veto_frequency_overlap": 0.5,
+    "maximum_events_per_scan": 2048,
+    "score_interpretation": "Robust matched-filter screening score; not a Gaussian sigma or calibrated significance."
+  },
+  "followup": {
+    "product_suffix": "gpuspec.8.0001.h5",
+    "authorization": "Read only if at least one medium-resolution event survives the frozen adjacent-OFF veto and no scan retention is truncated.",
+    "purpose": "Resolve predicted subsecond diffraction structure around a surviving broadband envelope.",
+    "template_bank_requires_separate_freeze": true
+  },
+  "claim_boundary": {
+    "novelty_wording": "To our knowledge, a dedicated archival conjunction-conditioned screen for the Guillochon-Loeb light-sail leakage morphology.",
+    "first_power_beaming_search_claimed": false,
+    "calibrated_false_alarm_claimed": false,
+    "technosignature_claimed": false,
+    "null_occurrence_rate_claimed": false,
+    "independent_observation_required_for_detection_claim": true,
+    "raw_spectral_payload_may_be_published": false
+  },
+  "selected_sequence": [
+    {
+      "label": "A1",
+      "role": "ON",
+      "adjacent_off_labels": ["B1"],
+      "expected_source_name": "Hip114622",
+      "expected_tstart_mjd": 57622.33394675926,
+      "medium_resolution": {
+        "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_13/holding/spliced_blc0001020304050607_guppi_57622_28853_Hip114622_0027.gpuspec.0002.h5",
+        "expected_size_bytes": 237344049
+      },
+      "high_time_resolution": {
+        "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_13/holding/spliced_blc0001020304050607_guppi_57622_28853_Hip114622_0027.gpuspec.8.0001.h5",
+        "expected_size_bytes": 916218720
+      }
+    },
+    {
+      "label": "B1",
+      "role": "OFF",
+      "adjacent_off_labels": [],
+      "expected_source_name": "Hip113498",
+      "expected_tstart_mjd": 57622.33783564815,
+      "medium_resolution": {
+        "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_13/holding/spliced_blc0001020304050607_guppi_57622_29190_Hip113498_0028.gpuspec.0002.h5",
+        "expected_size_bytes": 237056682
+      },
+      "high_time_resolution": {
+        "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_13/holding/spliced_blc0001020304050607_guppi_57622_29190_Hip113498_0028.gpuspec.8.0001.h5",
+        "expected_size_bytes": 1150544310
+      }
+    },
+    {
+      "label": "A2",
+      "role": "ON",
+      "adjacent_off_labels": ["B1", "C1"],
+      "expected_source_name": "Hip114622",
+      "expected_tstart_mjd": 57622.34174768518,
+      "medium_resolution": {
+        "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_13/holding/spliced_blc0001020304050607_guppi_57622_29527_Hip114622_0029.gpuspec.0002.h5",
+        "expected_size_bytes": 237246925
+      },
+      "high_time_resolution": {
+        "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_13/holding/spliced_blc0001020304050607_guppi_57622_29527_Hip114622_0029.gpuspec.8.0001.h5",
+        "expected_size_bytes": 1157469116
+      }
+    },
+    {
+      "label": "C1",
+      "role": "OFF",
+      "adjacent_off_labels": [],
+      "expected_source_name": "Hip113772",
+      "expected_tstart_mjd": 57622.34563657407,
+      "medium_resolution": {
+        "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_13/holding/spliced_blc0001020304050607_guppi_57622_29864_Hip113772_0030.gpuspec.0002.h5",
+        "expected_size_bytes": 236941889
+      },
+      "high_time_resolution": {
+        "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_13/holding/spliced_blc0001020304050607_guppi_57622_29864_Hip113772_0030.gpuspec.8.0001.h5",
+        "expected_size_bytes": 886825739
+      }
+    },
+    {
+      "label": "A3",
+      "role": "ON",
+      "adjacent_off_labels": ["C1", "D1"],
+      "expected_source_name": "Hip114622",
+      "expected_tstart_mjd": 57622.34954861111,
+      "medium_resolution": {
+        "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_13/holding/spliced_blc0001020304050607_guppi_57622_30201_Hip114622_0031.gpuspec.0002.h5",
+        "expected_size_bytes": 237460760
+      },
+      "high_time_resolution": {
+        "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_13/holding/spliced_blc0001020304050607_guppi_57622_30201_Hip114622_0031.gpuspec.8.0001.h5",
+        "expected_size_bytes": 861987169
+      }
+    },
+    {
+      "label": "D1",
+      "role": "OFF",
+      "adjacent_off_labels": [],
+      "expected_source_name": "Hip113789",
+      "expected_tstart_mjd": 57622.35340277778,
+      "medium_resolution": {
+        "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_13/holding/spliced_blc0001020304050607_guppi_57622_30534_Hip113789_0032.gpuspec.0002.h5",
+        "expected_size_bytes": 237547254
+      },
+      "high_time_resolution": {
+        "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_13/holding/spliced_blc0001020304050607_guppi_57622_30534_Hip113789_0032.gpuspec.8.0001.h5",
+        "expected_size_bytes": 934705900
+      }
+    }
+  ]
+}

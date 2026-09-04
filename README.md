@@ -97,6 +97,33 @@ separate Milestone 37 implementation used by the authorized run. Its frozen
 capacity rule, rather than a candidate disposition, determined the invalid
 outcome.
 
+## LS1 light-sail leakage search (experimental branch)
+
+The `ls1-light-sail-search` branch starts a separate search for artificial
+power-beam leakage motivated by Guillochon & Loeb's
+[*SETI via Leakage from Light Sails in Exoplanetary Systems*](https://doi.org/10.1088/2041-8205/811/2/L20).
+It leaves M42 and the narrowband detector untouched. Unlike the main pipeline,
+LS1 looks for broadband excess power lasting seconds to tens of seconds; the
+fine-resolution `.0000` products are therefore not the primary data product.
+
+The prospective LS1 configuration selects HD 219134, a nearby system with two
+transiting inner planets and five public GBT L-band ABACAD cadences. A
+metadata-only circular/coplanar ranking selects cadence `--63424` as the best
+archived b--c projected-conjunction opportunity. Stage 1 searches the six
+`.0002` scans at approximately one-second time resolution with fixed spectral
+and temporal boxcars plus adjacent-OFF vetoes. The `.8.0001` high-time-resolution
+products remain closed unless a Stage 1 event survives and a separate follow-up
+bank is committed first.
+
+**LS1 status:** the hypothesis, input inventory, geometry, template bank,
+thresholds, retention cap and claim boundary are frozen before new spectral
+access. Synthetic validation and the first archive screen are executed by the
+branch workflow. Scores are screening statistics, not calibrated significances.
+No technosignature, occurrence-rate or general light-sail exclusion is claimed.
+Raw telescope spectra are never published; only hashes, validation records and
+derived summaries are eligible for version control. See
+`LS1_PREREGISTRATION.md` and `config/ls1_hd219134_light_sail.json`.
+
 ## Milestone 38 M37 completeness feasibility result
 
 Milestone 38 reproduced the closed M37 Run 006 boundary from hash-pinned

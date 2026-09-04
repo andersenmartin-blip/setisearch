@@ -1,0 +1,149 @@
+name: LS1 HD 219134 light-sail leakage screen
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ls1-light-sail-search]
+    paths:
+      - ".github/workflows/ls1_medium_resolution_screen.yml"
+      - "LS1_FREEZE.sha256"
+      - "LS1_PREREGISTRATION.md"
+      - "config/ls1_hd219134_light_sail.json"
+      - "scripts/ls1_*.py"
+      - "src/seti_repeater/light_sail.py"
+      - "tests/test_ls1_light_sail.py"
+
+permissions:
+  contents: write
+
+jobs:
+  screen:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Require unpublished result boundary
+        run: |
+          test ! -e results_ls1/screen.json
+          test ! -e RESULTS_MANIFEST_LS1.sha256
+          test ! -e LS1_SCREEN_PROVENANCE.json
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install detector and HDF5 dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . \
+            'h5py>=3.11,<4' \
+            'hdf5plugin>=5,<7' \
+            'pytest>=8,<10'
+
+      - name: Verify prospective freeze and tests
+        run: |
+          sha256sum -c LS1_FREEZE.sha256
+          python -m pytest -q tests/test_ls1_light_sail.py
+          python scripts/ls1_conjunction_rank.py \
+            config/ls1_hd219134_light_sail.json
+          python scripts/ls1_synthetic_validation.py
+          test "$(jq -r .selected_cadence_id results_ls1/conjunction_ranking.json)" = "--63424"
+          test "$(jq -r .spectral_dataset_values_read results_ls1/conjunction_ranking.json)" = "false"
+          test "$(jq -r .recovered results_ls1/synthetic_validation.json)" = "true"
+
+      - name: Fetch identity-bound medium-resolution products
+        run: |
+          python scripts/ls1_fetch.py config/ls1_hd219134_light_sail.json
+          test "$(wc -l < DATA_MANIFEST_LS1.sha256)" -eq 6
+          sha256sum -c DATA_MANIFEST_LS1.sha256
+
+      - name: Execute frozen ABACAD broadband screen
+        run: |
+          python scripts/ls1_screen.py config/ls1_hd219134_light_sail.json
+          test "$(jq -r .spectral_dataset_values_read results_ls1/screen.json)" = "true"
+          test "$(jq -r .raw_spectral_payload_published results_ls1/screen.json)" = "false"
+          test "$(jq -r .technosignature_claimed results_ls1/screen.json)" = "false"
+          test "$(jq -r .status results_ls1/screen.json)" != "invalid-retention-truncated"
+
+      - name: Record reproducibility evidence
+        run: |
+          python -m pip freeze > results_ls1/environment.txt
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('results_ls1/run_metadata.json').write_text(
+              json.dumps(
+                  {
+                      'github_repository': os.environ['GITHUB_REPOSITORY'],
+                      'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                      'execution_commit': os.environ['GITHUB_SHA'],
+                      'branch': os.environ['GITHUB_REF_NAME'],
+                      'raw_spectral_payload_published': False,
+                      'technosignature_claimed': False,
+                  },
+                  indent=2,
+                  sort_keys=True,
+              ) + '\n',
+              encoding='utf-8',
+          )
+          PY
+          find results_ls1 -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_LS1.sha256
+          sha256sum -c RESULTS_MANIFEST_LS1.sha256
+
+      - name: Upload derived evidence only
+        id: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: ls1-medium-resolution-screen
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            DATA_MANIFEST_LS1.sha256
+            RESULTS_MANIFEST_LS1.sha256
+            results_ls1/
+
+      - name: Publish checked derived result atomically
+        env:
+          ARTIFACT_ID: ${{ steps.upload.outputs.artifact-id }}
+          ARTIFACT_DIGEST: ${{ steps.upload.outputs.artifact-digest }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('LS1_SCREEN_PROVENANCE.json').write_text(
+              json.dumps(
+                  {
+                      'artifact_id': int(os.environ['ARTIFACT_ID']),
+                      'artifact_digest': os.environ['ARTIFACT_DIGEST'],
+                      'artifact_name': 'ls1-medium-resolution-screen',
+                      'execution_commit': os.environ['GITHUB_SHA'],
+                      'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                      'raw_spectral_payload_published': False,
+                  },
+                  indent=2,
+                  sort_keys=True,
+              ) + '\n',
+              encoding='utf-8',
+          )
+          PY
+          sha256sum -c DATA_MANIFEST_LS1.sha256
+          sha256sum -c RESULTS_MANIFEST_LS1.sha256
+          git fetch origin ls1-light-sail-search
+          test "$(git rev-parse origin/ls1-light-sail-search)" = "$GITHUB_SHA"
+          git add DATA_MANIFEST_LS1.sha256 RESULTS_MANIFEST_LS1.sha256 \
+            results_ls1 LS1_SCREEN_PROVENANCE.json
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "Publish LS1 medium-resolution screen"
+          git push origin HEAD:ls1-light-sail-search
