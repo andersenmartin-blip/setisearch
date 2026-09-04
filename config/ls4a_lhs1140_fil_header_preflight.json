@@ -1,0 +1,106 @@
+{
+  "artifact_type": "seti_repeater.ls4a_fil_header_preflight_plan",
+  "schema_version": 1,
+  "frozen_utc": "2026-09-04T18:15:00Z",
+  "project": {
+    "id": "LS4A",
+    "name": "LHS 1140 four-band filterbank-header and resource preflight",
+    "branch": "ls4a-lhs1140-fil-header",
+    "base_commit": "ce90174d60b758c3d420e189a97b0f0fdaf84a03",
+    "spectral_search_authorized": false
+  },
+  "source": {
+    "inventory_path": "results_ls3_inventory/inventory.json",
+    "inventory_sha256": "b81bfa8eeaf79e50c4d96ee11f0cd21761f2a09aec1aae06496e2934f1db0e53",
+    "inventory_result_identity": "3e2a1475b960e0ae4459c099152c50b2cca70b4013f6249afe58879004cf7f5a"
+  },
+  "target": {
+    "target_id": "lhs_1140",
+    "hostname": "LHS 1140",
+    "archive_source_name": "LHS1140",
+    "distance_pc": 14.9861,
+    "stellar_radius_solar": 0.2159,
+    "cadences": [
+      {"band": "L", "cadence_url": "http://seti.berkeley.edu/opendata/api/get-cadence/--114914"},
+      {"band": "S", "cadence_url": "http://seti.berkeley.edu/opendata/api/get-cadence/--114947"},
+      {"band": "C", "cadence_url": "http://seti.berkeley.edu/opendata/api/get-cadence/--114891"},
+      {"band": "X", "cadence_url": "http://seti.berkeley.edu/opendata/api/get-cadence/--114966"}
+    ]
+  },
+  "ephemeris": {
+    "reference": "https://arxiv.org/html/2310.15490v2",
+    "reference_table": "Table D1",
+    "planets": [
+      {
+        "pl_name": "LHS 1140 c",
+        "pl_orbper": 3.777940,
+        "pl_orbpererr1": 0.000002,
+        "pl_orbpererr2": -0.000002,
+        "pl_tranmid": 2458389.2939,
+        "pl_tranmiderr1": 0.0002,
+        "pl_tranmiderr2": -0.0002,
+        "pl_orbsmax": 0.0270,
+        "pl_orbsmaxerr1": 0.0005,
+        "pl_orbsmaxerr2": -0.0005
+      },
+      {
+        "pl_name": "LHS 1140 b",
+        "pl_orbper": 24.73723,
+        "pl_orbpererr1": 0.00002,
+        "pl_orbpererr2": -0.00002,
+        "pl_tranmid": 2458399.9300,
+        "pl_tranmiderr1": 0.0003,
+        "pl_tranmiderr2": -0.0003,
+        "pl_orbsmax": 0.0946,
+        "pl_orbsmaxerr1": 0.0017,
+        "pl_orbsmaxerr2": -0.0017
+      }
+    ]
+  },
+  "motivation": {
+    "reference": "https://arxiv.org/abs/1508.03043",
+    "illustrative_optimum_frequency_mhz": 10000.0,
+    "note": "Guillochon and Loeb report an optimum on the order of tens of GHz; 10 GHz is frozen only as a deterministic archive-ranking anchor, not as a unique physical optimum."
+  },
+  "network": {
+    "user_agent": "setisearch-ls4a-fil-header/1.0",
+    "timeout_s": 120
+  },
+  "header_criteria": {
+    "medium_product_suffix": ".gpuspec.0002.fil",
+    "htr_product_suffix": ".gpuspec.8.0001.fil",
+    "required_scan_count": 6,
+    "medium_tsamp_s": [0.5, 2.0],
+    "medium_abs_foff_khz": [1.0, 5.0],
+    "minimum_medium_bandwidth_mhz": 700.0,
+    "htr_tsamp_s": [0.0001, 0.001],
+    "maximum_header_bytes": 65536
+  },
+  "resource_gate": {
+    "maximum_selected_medium_download_bytes": 12000000000,
+    "maximum_selected_medium_download_gb_decimal": 12.0,
+    "htr_download_before_candidate_survives": false
+  },
+  "geometry": {
+    "model": "circular edge-on orbits, common sky-plane nodal line, MJD treated as BJD for archive ranking",
+    "reference_time": "midpoint of first ON medium-resolution scan",
+    "uncertainty_diagnostic": "Evaluate all 81 combinations formed by -1, 0 and +1 published-sigma perturbations of both periods and both transit epochs.",
+    "uncertainty_is_confidence_interval": false
+  },
+  "selection_rule": "Among complete medium-resolution ABACAD cadences with six valid HTR headers and a medium download total within 12 GB, minimize absolute log10 frequency distance from the frozen 10 GHz ranking anchor; ties resolve by smaller nominal c-b separation, earlier observation and cadence URL.",
+  "data_boundary": {
+    "archive_listing_json_may_be_read": true,
+    "sigproc_header_fields_may_be_read": true,
+    "parser_must_stop_immediately_after_header_end": true,
+    "filterbank_spectral_sample_may_be_unpacked": false,
+    "spectral_values_may_be_read": false,
+    "raw_spectral_payload_may_be_published": false
+  },
+  "claim_boundary": {
+    "header_preflight_is_a_signal_search": false,
+    "search_authorized": false,
+    "technosignature_claimed": false,
+    "sensitivity_claimed": false,
+    "occurrence_rate_claimed": false
+  }
+}

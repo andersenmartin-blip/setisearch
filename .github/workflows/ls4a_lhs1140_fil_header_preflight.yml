@@ -1,0 +1,122 @@
+name: LS4A LHS 1140 filterbank header preflight
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ls4a-lhs1140-fil-header]
+    paths:
+      - ".github/workflows/ls4a_lhs1140_fil_header_preflight.yml"
+      - "LS4A_LHS1140_FIL_HEADER_PLAN.md"
+      - "LS4A_HEADER_FREEZE.sha256"
+      - "config/ls4a_lhs1140_fil_header_preflight.json"
+      - "scripts/ls4a_lhs1140_fil_header_preflight.py"
+      - "tests/test_ls4a_lhs1140_fil_header_preflight.py"
+
+permissions:
+  contents: write
+
+jobs:
+  preflight:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Require unpublished LS4A result boundary
+        run: |
+          test ! -e results_ls4a_header/preflight.json
+          test ! -e LS4A_HEADER_RESULT.md
+          test ! -e RESULTS_MANIFEST_LS4A_HEADER.sha256
+          test ! -e LS4A_HEADER_PROVENANCE.json
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install and verify frozen implementation
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . 'pytest>=8,<10'
+          sha256sum -c LS4A_HEADER_FREEZE.sha256
+          python -m pytest -q tests/test_ls4a_lhs1140_fil_header_preflight.py
+
+      - name: Execute filterbank-header-only preflight
+        run: |
+          python scripts/ls4a_lhs1140_fil_header_preflight.py \
+            config/ls4a_lhs1140_fil_header_preflight.json
+          test "$(jq -r .status results_ls4a_header/preflight.json)" = "complete-filterbank-header-only-preflight"
+          test "$(jq -r .spectral_sample_unpacked results_ls4a_header/preflight.json)" = "false"
+          test "$(jq -r .spectral_values_read results_ls4a_header/preflight.json)" = "false"
+          test "$(jq -r .search_authorized results_ls4a_header/preflight.json)" = "false"
+
+      - name: Record reproducibility evidence
+        run: |
+          python -m pip freeze > results_ls4a_header/environment.txt
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('results_ls4a_header/run_metadata.json').write_text(
+              json.dumps({
+                  'execution_commit': os.environ['GITHUB_SHA'],
+                  'github_repository': os.environ['GITHUB_REPOSITORY'],
+                  'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                  'branch': os.environ['GITHUB_REF_NAME'],
+                  'filterbank_header_only': True,
+                  'spectral_sample_unpacked': False,
+                  'spectral_values_read': False,
+                  'raw_spectral_payload_published': False,
+                  'technosignature_claimed': False,
+              }, indent=2, sort_keys=True) + '\n', encoding='utf-8')
+          PY
+          find results_ls4a_header -type f -print0 | sort -z | xargs -0 sha256sum > RESULTS_MANIFEST_LS4A_HEADER.sha256
+          sha256sum -c RESULTS_MANIFEST_LS4A_HEADER.sha256
+
+      - name: Upload header evidence
+        id: evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: ls4a-lhs1140-filterbank-header-preflight
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            LS4A_HEADER_RESULT.md
+            RESULTS_MANIFEST_LS4A_HEADER.sha256
+            results_ls4a_header/
+
+      - name: Publish checked header result atomically
+        env:
+          ARTIFACT_ID: ${{ steps.evidence.outputs.artifact-id }}
+          ARTIFACT_DIGEST: ${{ steps.evidence.outputs.artifact-digest }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('LS4A_HEADER_PROVENANCE.json').write_text(
+              json.dumps({
+                  'artifact_digest': os.environ['ARTIFACT_DIGEST'],
+                  'artifact_id': int(os.environ['ARTIFACT_ID']),
+                  'artifact_name': 'ls4a-lhs1140-filterbank-header-preflight',
+                  'execution_commit': os.environ['GITHUB_SHA'],
+                  'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                  'spectral_sample_unpacked': False,
+                  'spectral_values_read': False,
+                  'raw_spectral_payload_published': False,
+              }, indent=2, sort_keys=True) + '\n', encoding='utf-8')
+          PY
+          sha256sum -c RESULTS_MANIFEST_LS4A_HEADER.sha256
+          git fetch origin ls4a-lhs1140-fil-header
+          test "$(git rev-parse origin/ls4a-lhs1140-fil-header)" = "$GITHUB_SHA"
+          git add LS4A_HEADER_RESULT.md LS4A_HEADER_PROVENANCE.json \
+            RESULTS_MANIFEST_LS4A_HEADER.sha256 results_ls4a_header
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "Publish LS4A LHS 1140 filterbank header preflight"
+          git push origin HEAD:ls4a-lhs1140-fil-header
