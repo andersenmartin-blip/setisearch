@@ -1,0 +1,147 @@
+name: LS4B LHS 1140 X-band light-sail leakage screen
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ls4b-lhs1140-x-screen]
+    paths:
+      - ".github/workflows/ls4b_lhs1140_x_screen.yml"
+      - "LS4B_LHS1140_X_PREREGISTRATION.md"
+      - "LS4B_FREEZE.sha256"
+      - "config/ls4b_lhs1140_x_light_sail.json"
+      - "scripts/ls4b_*.py"
+      - "tests/test_ls4b_lhs1140_x_light_sail.py"
+
+permissions:
+  contents: write
+
+jobs:
+  screen:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Require unpublished LS4B result boundary
+        run: |
+          test ! -e results_ls4b/screen.json
+          test ! -e LS4B_STAGE1_RESULT.md
+          test ! -e DATA_MANIFEST_LS4B.sha256
+          test ! -e RESULTS_MANIFEST_LS4B.sha256
+          test ! -e LS4B_SCREEN_PROVENANCE.json
+          test ! -e data_ls4b
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install and verify prospective freeze
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . 'pytest>=8,<10'
+          sha256sum -c LS4B_FREEZE.sha256
+          python -m pytest -q tests/test_ls4b_lhs1140_x_light_sail.py
+          python scripts/ls4b_synthetic_validation.py
+          test "$(jq -r .recovered results_ls4b/synthetic_validation.json)" = "true"
+
+      - name: Execute sequential frozen X-band ABACAD screen
+        run: |
+          df -h .
+          python scripts/ls4b_filterbank_screen.py config/ls4b_lhs1140_x_light_sail.json
+          python scripts/ls4b_result_summary.py
+          test "$(wc -l < DATA_MANIFEST_LS4B.sha256)" -eq 6
+          test "$(jq -r .spectral_dataset_values_read results_ls4b/screen.json)" = "true"
+          test "$(jq -r .high_time_resolution_values_read results_ls4b/screen.json)" = "false"
+          test "$(jq -r .raw_spectral_payload_published results_ls4b/screen.json)" = "false"
+          test "$(jq -r .raw_files_deleted_after_each_scan results_ls4b/screen.json)" = "true"
+          test "$(jq -r .technosignature_claimed results_ls4b/screen.json)" = "false"
+          test "$(jq -r .status results_ls4b/screen.json)" != "invalid-retention-truncated"
+          test -z "$(find data_ls4b -type f -print -quit)"
+
+      - name: Record reproducibility evidence
+        run: |
+          python -m pip freeze > results_ls4b/environment.txt
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('results_ls4b/run_metadata.json').write_text(
+              json.dumps(
+                  {
+                      'execution_commit': os.environ['GITHUB_SHA'],
+                      'github_repository': os.environ['GITHUB_REPOSITORY'],
+                      'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                      'branch': os.environ['GITHUB_REF_NAME'],
+                      'download_strategy': 'one medium-resolution filterbank at a time',
+                      'raw_files_deleted_after_each_scan': True,
+                      'raw_spectral_payload_published': False,
+                      'high_time_resolution_values_read': False,
+                      'technosignature_claimed': False,
+                  },
+                  indent=2,
+                  sort_keys=True,
+              ) + '\n',
+              encoding='utf-8',
+          )
+          PY
+          find results_ls4b -type f -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > RESULTS_MANIFEST_LS4B.sha256
+          sha256sum -c RESULTS_MANIFEST_LS4B.sha256
+
+      - name: Upload derived evidence only
+        id: evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: ls4b-lhs1140-x-band-screen
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            DATA_MANIFEST_LS4B.sha256
+            LS4B_STAGE1_RESULT.md
+            RESULTS_MANIFEST_LS4B.sha256
+            results_ls4b/
+
+      - name: Publish checked derived result atomically
+        env:
+          ARTIFACT_ID: ${{ steps.evidence.outputs.artifact-id }}
+          ARTIFACT_DIGEST: ${{ steps.evidence.outputs.artifact-digest }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          Path('LS4B_SCREEN_PROVENANCE.json').write_text(
+              json.dumps(
+                  {
+                      'artifact_digest': os.environ['ARTIFACT_DIGEST'],
+                      'artifact_id': int(os.environ['ARTIFACT_ID']),
+                      'artifact_name': 'ls4b-lhs1140-x-band-screen',
+                      'execution_commit': os.environ['GITHUB_SHA'],
+                      'github_run_id': int(os.environ['GITHUB_RUN_ID']),
+                      'raw_files_deleted_after_each_scan': True,
+                      'raw_spectral_payload_published': False,
+                      'high_time_resolution_values_read': False,
+                  },
+                  indent=2,
+                  sort_keys=True,
+              ) + '\n',
+              encoding='utf-8',
+          )
+          PY
+          sha256sum -c RESULTS_MANIFEST_LS4B.sha256
+          test -z "$(find data_ls4b -type f -print -quit)"
+          git fetch origin ls4b-lhs1140-x-screen
+          test "$(git rev-parse origin/ls4b-lhs1140-x-screen)" = "$GITHUB_SHA"
+          git add DATA_MANIFEST_LS4B.sha256 LS4B_STAGE1_RESULT.md \
+            LS4B_SCREEN_PROVENANCE.json RESULTS_MANIFEST_LS4B.sha256 results_ls4b
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "Publish LS4B LHS 1140 X-band screen"
+          git push origin HEAD:ls4b-lhs1140-x-screen
