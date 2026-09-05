@@ -1,6 +1,18 @@
 # SETIsearch
 
-**Latest LS update — LS5 Kepler-160 spectral screen completed.**
+**Latest LS update — LS6 TRAPPIST-1 subband pilot completed.**
+A sixth stellar system has received a limited LS screen: four 60-second
+ON/OFF scans near 9.92 GHz, covering 187.5 MHz. The repaired 4–32-second
+bank yields 47 ON windows surviving the frozen adjacent-OFF check. These
+are not 47 independent signals: 46 share A1's final 16.1 seconds and one
+occupies A2's final 7.5 seconds. Scan-end/baseline behavior requires checking
+before any promotion. The initial 64-second-template failure and A1's prior
+exposure are explicitly preserved in a public technical amendment. All 144
+LS tests passed; no HTR samples were read or technosignature claimed.
+Kepler-732 remains held for a 9.68-arcminute header/catalogue position discrepancy.
+See [the LS6 pilot report and scope limitations](https://github.com/andersenmartin-blip/setisearch/blob/ls6-next-target-metadata/LS6_TRAPPIST1_RESULT.md).
+
+**Previous LS update — LS5 Kepler-160 spectral screen completed.**
 The fifth distinct LS target was screened across six GBT S-band scans
 (1.8–2.8 GHz; 3.51 GB; about 15 minutes of designated ON integration).
 Of 607 ON threshold events, three survive the frozen adjacent-OFF veto;
