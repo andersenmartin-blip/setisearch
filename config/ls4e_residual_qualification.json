@@ -1,0 +1,32 @@
+{
+  "artifact_type": "seti_repeater.ls4e_synthetic_qualification_plan",
+  "version": 1,
+  "base_commit": "42d79ba233bfd0d6159d4efa80db891ae54865a5",
+  "boundary": "Synthetic-only qualification after LS4D; no new radio spectral access in LS4E.",
+  "settings": {
+    "detrend_tile_s": 2.0,
+    "reference_guard_s": 2.0,
+    "pulse_width_s": [0.001, 0.003, 0.01, 0.03, 0.1, 0.3],
+    "threshold": 8.0,
+    "cluster_gap_s": 0.6,
+    "minimum_separated_pulses": 3
+  },
+  "validation": {
+    "seeds": [114100, 114101, 114102, 114103, 114104, 114105, 114106, 114107, 114108, 114109, 114110, 114111, 114112, 114113, 114114, 114115, 114116, 114117, 114118, 114119, 114120, 114121, 114122, 114123],
+    "sample_count": 120000,
+    "sample_time_s": 0.001,
+    "envelope_s": [30.0, 70.0],
+    "negative_cases": ["white_noise", "constant_plateau", "smooth_envelope", "linear_trend", "gain_step", "isolated_impulse", "common_on_off_pulses", "on_reference_pulses"],
+    "positive_cases": ["periodic_pulses", "irregular_pulses"],
+    "gate": "Zero passes in every negative case; at least 22 of 24 recoveries separately for each positive case; all geometry and invalid-input unit tests pass.",
+    "native_geometry_plateau_seed": 114004,
+    "retune_after_results": false
+  },
+  "claims": {
+    "false_alarm_probability_calibrated": false,
+    "end_to_end_completeness": false,
+    "pulse_pattern_identifies_diffraction": false,
+    "pulse_pattern_identifies_artificial_origin": false,
+    "independent_observation_completed": false
+  }
+}
