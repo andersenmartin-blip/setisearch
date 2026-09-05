@@ -1,6 +1,17 @@
 # SETIsearch
 
-**Latest LS update — LS4M measured control morphology completed.**
+**Latest LS update — LS4N reference-only OFF diagnostic audit completed.**
+A retrospective comparison raises injected-pulse HTR diagnostic recovery from
+15/144 to 47/144 configurations, including 32/36 selected positive cases at
+8.5 GHz. The original Stage-1 vetoes remain attached. In 1,296 labelled
+synthetic cases (880 distinct waveform pairs), early and late OFF-reference
+train families each recover 111/144, but identical ON-only interference
+clones receive the same admissions. This supports a separate diagnostic
+category, not relaxed scientific acceptance. All 66 relevant tests passed;
+no new spectra were read and no sky candidate is promoted.
+See [the LS4N report and policy comparison](https://github.com/andersenmartin-blip/setisearch/blob/ls4n-reference-policy/LS4N_REFERENCE_POLICY_RESULT.md).
+
+**Previous LS update — LS4M measured control morphology completed.**
 A verified 9.44 GB B1 HTR scan resolves the location of the LS4L control veto:
 all nine selected 8.5 GHz windows are vetoed solely by pulses in the OFF
 reference regions, with zero inside-window control pulses. All eight selected
