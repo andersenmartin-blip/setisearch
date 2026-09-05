@@ -1,0 +1,105 @@
+{
+  "artifact_type": "seti_repeater.ls4i_measured_digital_injection_plan",
+  "version": 1,
+  "base_commit": "157ef8aa4a61f26a0c5ace4482a173d1804b72d8",
+  "sources": [
+    {
+      "label": "B1",
+      "product": "medium_resolution",
+      "source_url": "http://blpd0.ssl.berkeley.edu/LHS1140/X/spliced_blc000102030405060710111213141516172021222324252627_guppi_57774_84025_HIP2579_0004.gpuspec.0002.fil",
+      "source_size_bytes": 1568669991,
+      "source_sha256": "bc848436191bf1dc025f995feecf168186c8e7493624da15d26b94d845a639f1"
+    },
+    {
+      "label": "A1",
+      "product": "medium_resolution",
+      "source_url": "http://blpd0.ssl.berkeley.edu/LHS1140/X/spliced_blc000102030405060710111213141516172021222324252627_guppi_57774_83685_LHS1140_0003.gpuspec.0002.fil",
+      "source_size_bytes": 1568669991,
+      "source_sha256": "b5c7357e82a8b9be6edee28395a412db2833f56ef5b41c7ce075947b30103f17"
+    },
+    {
+      "label": "B1",
+      "product": "high_time_resolution",
+      "source_url": "http://blpd0.ssl.berkeley.edu/LHS1140/X/spliced_blc000102030405060710111213141516172021222324252627_guppi_57774_84025_HIP2579_0004.gpuspec.8.0001.fil",
+      "source_size_bytes": 9435087189,
+      "source_sha256": "34ac593b65baac087142b258ce3bfaec8bf23ec4bb3fe4acf5647ceaa50b6b5a"
+    },
+    {
+      "label": "A1",
+      "product": "high_time_resolution",
+      "source_url": "http://blpd0.ssl.berkeley.edu/LHS1140/X/spliced_blc000102030405060710111213141516172021222324252627_guppi_57774_83685_LHS1140_0003.gpuspec.8.0001.fil",
+      "source_size_bytes": 9435087189,
+      "source_sha256": "cf5514c73c000c869e34852a2bcfcf8d7bc1258bbddbfe4a7e5bdf3b2238993b"
+    }
+  ],
+  "frequency_centers_mhz": [
+    8500.0,
+    10500.0
+  ],
+  "bandwidth_mhz": 12.0,
+  "envelopes_s": [
+    [
+      48.0,
+      80.0
+    ],
+    [
+      176.0,
+      208.0
+    ]
+  ],
+  "pulse_offsets_s": [
+    2.13,
+    6.67,
+    11.12,
+    16.84,
+    23.37,
+    29.42
+  ],
+  "pulse_widths_s": [
+    0.003,
+    0.012,
+    0.1
+  ],
+  "envelope_height": 0.1,
+  "pulse_height": 1.0,
+  "medium_amplitudes": [
+    1.0,
+    4.0,
+    16.0
+  ],
+  "htr_amplitudes": [
+    0.0,
+    4.0,
+    8.0,
+    16.0
+  ],
+  "association_min_fraction_of_both_intervals": 0.5,
+  "htr_frequency_padding_mhz": 0.5,
+  "resource": {
+    "free_headroom_bytes": 4000000000,
+    "attempts_per_source": 2,
+    "max_total_download_bytes": 44015028720,
+    "max_unique_htr_bands": 64,
+    "max_associated_events_per_trial": 64,
+    "chunk_rows": 4096,
+    "raw_directory_parent": "/tmp"
+  },
+  "replay_tolerance": {
+    "rtol": 1e-10,
+    "atol": 1e-08
+  },
+  "expected_medium_injected_trials": 36,
+  "expected_paired_digital_configurations": 144,
+  "expected_fixed_window_htr_diagnostics": 48,
+  "reserved_sources_opened": false,
+  "same_physical_injection_across_products": false,
+  "astronomical_completeness": false,
+  "raw_arrays_published": false,
+  "input_sha256": {
+    "config/ls4h_transfer_preflight.json": "53fa8038355ebd2027dcccd7cb62281ee155a49ea439b9abdf1f895f3fa20bb2",
+    "results_ls4b/screen.json": "85f4a1cb42c6102fd36a301b92194558a6364c9a9712a3508143888203d3a359",
+    "config/ls4b_lhs1140_x_light_sail.json": "7fd8e0f24c1d71c4b42e41603ba64f46fdbf008344a01aeca03d1cce9b988aab",
+    "config/ls4c_lhs1140_x_htr_followup.json": "8d2b55785c1d6d960390b471d1f0b72842709886619e2f89b4b7d0eb857c5147",
+    "config/ls4e_residual_qualification.json": "5516c4a2db3932fba46706431fc149fd65a28d6bd9e67c1cfdceb2d768c307f6"
+  }
+}
