@@ -1,0 +1,70 @@
+{
+  "sample_count": 120000,
+  "sample_time_s": 0.001,
+  "envelope_s": [
+    30.0,
+    70.0
+  ],
+  "pulse_times_s": [
+    32.13,
+    35.67,
+    41.12,
+    48.84,
+    57.37,
+    64.42
+  ],
+  "pulse_jitter_s": 0.15,
+  "ar1_rho": 0.8,
+  "study": "LS4N reference-only OFF diagnostic counterfactual",
+  "seeds": [
+    1141500,
+    1141501,
+    1141502,
+    1141503,
+    1141504,
+    1141505,
+    1141506,
+    1141507
+  ],
+  "backgrounds": [
+    "white",
+    "ar1"
+  ],
+  "widths_s": [
+    0.003,
+    0.012,
+    0.1
+  ],
+  "amplitudes_sigma": [
+    4.0,
+    8.0,
+    16.0
+  ],
+  "families": [
+    "train_clean",
+    "train_off_inside",
+    "train_off_reference_early",
+    "train_off_reference_late",
+    "train_on_reference",
+    "null_off_reference",
+    "single_off_reference",
+    "rfi_clone_reference_early",
+    "rfi_clone_reference_late"
+  ],
+  "expected_scenario_rows": 1296,
+  "on_plateau_height_sigma": 4.0,
+  "control_time_s": 50.25,
+  "reference_time_s": 15.25,
+  "control_width_s": 0.012,
+  "control_amplitude_sigma": 16.0,
+  "raw_spectral_access": false,
+  "retune_after_results": false,
+  "end_to_end_completeness": false,
+  "physical_transfer_simulated": false,
+  "late_reference_time_s": 105.25,
+  "input_sha256": {
+    "results_ls4l_v2_vetoed_fragment_diagnostics/diagnostics.json.gz": "3cc89cbe02406bddc14127d5c50415c6945eb6845adc67b643d2708b1be8cd21",
+    "results_ls4m_control_morphology/morphology.json.gz": "5752a850060716280d743b6f61c13f17d04f170afe93eb65ebe0c84c0b8d48aa",
+    "config/ls4e_residual_qualification.json": "5516c4a2db3932fba46706431fc149fd65a28d6bd9e67c1cfdceb2d768c307f6"
+  }
+}
