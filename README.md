@@ -1,6 +1,15 @@
 # SETIsearch
 
-**Latest LS update — LS4I measured-background digital injections completed.**
+**Latest LS update — LS4J fragment-local recovery completed.**
+The qualified revised association recovers fragments in 18/36 LS4I injection
+cases, including all 12 strongest cases. All 64 associated fragments are then
+rejected by the unchanged Stage-1 OFF veto; 180 displaced control regions have
+zero associations. The paired endpoint remains 0/144 by that gate, with no
+HTR evaluation needed. All 60 relevant tests passed. This development result
+does not establish a sky detection or physical completeness.
+See [the LS4J report and recovery figure](https://github.com/andersenmartin-blip/setisearch/blob/ls4j-fragment-association/LS4J_FRAGMENT_ASSOCIATION_RESULT.md).
+
+**Previous LS update — LS4I measured-background digital injections completed.**
 All 36 Stage-1 interventions miss the frozen single-event association rule;
 strong injections are retained as narrow frequency fragments. Consequently,
 no candidate-conditioned HTR event is evaluated, and the paired endpoint is
