@@ -1,11 +1,20 @@
 # SETI Repeater Pipeline
 
-**Latest LS update — LS4H preflight:** the measured-background study has begun.
+**Latest LS update — LS4I measured-background digital injections completed.**
+All 36 Stage-1 interventions miss the frozen single-event association rule;
+strong injections are retained as narrow frequency fragments. Consequently,
+no candidate-conditioned HTR event is evaluated, and the paired endpoint is
+0/144. Separate fixed-window HTR diagnostics recover 17/18 positive-amplitude
+cases at 10.5 GHz; OFF vetoes reject all 18 at 8.5 GHz. These are conditional
+digital tests, not physical completeness or a technosignature claim.
+See [the LS4I report and figures](LS4I_MEASURED_DIGITAL_INJECTION_RESULT.md).
+
+**Previous LS update — LS4H preflight:** the measured-background study has begun.
 The time/frequency adapter and a disjoint development/validation scan split
 are specified and tested. Joint physical injections remain pending because
 file-specific amplitude transfer through the 8-bit HTR conversion has not
-been established. No measured-background injection or recovery fraction is
-claimed. See [the LS4H preflight report](LS4H_TRANSFER_PREFLIGHT_RESULT.md).
+been established. LS4H itself reports no injection recovery fraction.
+See [the LS4H preflight report](LS4H_TRANSFER_PREFLIGHT_RESULT.md).
 
 **Previous LS update — LS4G:** 1,692 frozen synthetic trials map the unchanged
 LS4E diagnostic across pulse widths, amplitudes and noise conditions.
