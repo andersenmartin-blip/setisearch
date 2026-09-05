@@ -1,6 +1,15 @@
 # SETIsearch
 
-**Latest LS update — LS4K OFF-policy counterexamples completed.**
+**Latest LS update — LS4L measured fragment diagnostics completed.**
+The 64 previously OFF-vetoed injection fragments received 256 HTR evaluations
+on verified A1/B1 data. Diagnostic pulse recovery occurs in 15/144 full-grid
+configurations: 15/18 selected positive-amplitude cases at 10.5 GHz and 0/36
+at 8.5 GHz. All 64 zero-level fragment comparisons fail the pulse-recovery
+rule. Original Stage-1 vetoes remain attached; no sky candidate is promoted.
+All 73 tests passed. The report discloses the v1 replay-format abort and the
+successful v2 correction. See [the LS4L report and figure](https://github.com/andersenmartin-blip/setisearch/blob/ls4l-vetoed-fragment-diagnostics/LS4L_VETOED_FRAGMENT_DIAGNOSTICS_RESULT.md).
+
+**Previous LS update — LS4K OFF-policy counterexamples completed.**
 In 1,152 labelled synthetic scenarios (736 distinct waveform pairs), an extra
 diagnostic path recovers 109/144 injected trains behind smooth OFF structure.
 Pulsed controls still veto every tested case, but identical ON-only interference
