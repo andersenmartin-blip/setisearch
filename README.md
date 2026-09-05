@@ -1,6 +1,15 @@
 # SETI Repeater Pipeline
 
-**Latest LS update — LS4J fragment-local recovery completed.**
+**Latest LS update — LS4K OFF-policy counterexamples completed.**
+In 1,152 labelled synthetic scenarios (736 distinct waveform pairs), an extra
+diagnostic path recovers 109/144 injected trains behind smooth OFF structure.
+Pulsed controls still veto every tested case, but identical ON-only interference
+clones receive the same admissions. This supports diagnostic review with the
+original veto retained, not automatic sky-candidate acceptance. All 66 relevant
+tests passed; no new telescope data were read or operational veto changed.
+See [the LS4K report and policy comparison](LS4K_OFF_POLICY_RESULT.md).
+
+**Previous LS update — LS4J fragment-local recovery completed.**
 The qualified revised association recovers fragments in 18/36 LS4I injection
 cases, including all 12 strongest cases. All 64 associated fragments are then
 rejected by the unchanged Stage-1 OFF veto; 180 displaced control regions have
