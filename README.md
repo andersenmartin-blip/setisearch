@@ -1,5 +1,10 @@
 # SETI Repeater Pipeline
 
+**Latest LS update — LS4E:** the new residual-pulse diagnostic passed its
+synthetic qualification: 192/192 negative examples rejected, 48/48 pulse
+trains recovered, and the native LS4D plateau counterexample rejected.
+No real candidate has been reanalysed. See [the LS4E result](LS4E_RESIDUAL_QUALIFICATION_RESULT.md).
+
 **Latest LS update — LS4D audit (2026-09-04):** the historical LS4C pass at
 9.38 GHz is insufficient evidence for diffraction structure. The audit found
 pulses in controls, a constant-plateau counterexample, and two extra extracted
