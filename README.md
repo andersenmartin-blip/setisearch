@@ -1,5 +1,10 @@
 # SETI Repeater Pipeline
 
+**Latest LS update — LS4F:** native A1/B1 reanalysis completed. Zero of seven
+events pass the LS4E diagnostic in either frequency selection. The 9.38 GHz
+event still passes the historical rule, but both OFF and ON-reference pulses
+veto it under the revised method. See [the result and pulse figure](LS4F_NATIVE_REANALYSIS_RESULT.md).
+
 **Latest LS update — LS4E:** the new residual-pulse diagnostic passed its
 synthetic qualification: 192/192 negative examples rejected, 48/48 pulse
 trains recovered, and the native LS4D plateau counterexample rejected.
