@@ -1,5 +1,14 @@
 # SETIsearch
 
+**Latest LS update — LS4I measured-background digital injections completed.**
+All 36 Stage-1 interventions miss the frozen single-event association rule;
+strong injections are retained as narrow frequency fragments. Consequently,
+no candidate-conditioned HTR event is evaluated, and the paired endpoint is
+0/144. Separate fixed-window HTR diagnostics recover 17/18 positive-amplitude
+cases at 10.5 GHz; OFF vetoes reject all 18 at 8.5 GHz. These are conditional
+digital tests, not physical completeness or a technosignature claim.
+See [the LS4I report and figures](https://github.com/andersenmartin-blip/setisearch/blob/ls4i-measured-digital-injections/LS4I_MEASURED_DIGITAL_INJECTION_RESULT.md).
+
 SETIsearch contains two complementary technosignature search tracks: the
 multi-epoch narrowband repeater pipeline described below and an experimental
 **light-sail leakage (LS)** search. The LS hypothesis is that directed power
@@ -57,9 +66,9 @@ See the [LS4G report and recovery grid](https://github.com/andersenmartin-blip/s
 
 **LS4H has begun with a completed transfer preflight.** The time/frequency
 adapter and a disjoint development/reserved-validation scan split are tested.
-Measured-background injections remain pending: file-specific amplitude
-transfer through the 8-bit HTR conversion has not been established. No new
-recovery fraction is claimed. See the [LS4H preflight report](https://github.com/andersenmartin-blip/setisearch/blob/ls4h-transfer-preflight/LS4H_TRANSFER_PREFLIGHT_RESULT.md).
+Joint physical injections remain pending: file-specific amplitude
+transfer through the 8-bit HTR conversion has not been established. LS4I
+subsequently completed the separately labelled digital study linked above. See the [LS4H preflight report](https://github.com/andersenmartin-blip/setisearch/blob/ls4h-transfer-preflight/LS4H_TRANSFER_PREFLIGHT_RESULT.md).
 
 ## Narrowband repeater pipeline
 
