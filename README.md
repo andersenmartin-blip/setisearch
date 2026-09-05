@@ -49,6 +49,12 @@ rule with either 13 or 11 channels, but pulses in the ON-reference and OFF
 regions veto it under LS4E. Its origin is not established. See the
 [LS4F result and pulse figure](https://github.com/andersenmartin-blip/setisearch/blob/ls4f-native-reanalysis/LS4F_NATIVE_REANALYSIS_RESULT.md).
 
+**LS4G completed 1,692 frozen synthetic trials with the unchanged diagnostic.**
+Recovery depends on pulse width and noise correlation; a single control pulse
+can veto an otherwise recovered injected ON train. This conditional study
+does not change LS4F's 0/7 result or establish astronomical completeness.
+See the [LS4G report and recovery grid](https://github.com/andersenmartin-blip/setisearch/blob/ls4g-synthetic-recovery/LS4G_SYNTHETIC_RECOVERY_RESULT.md).
+
 ## Narrowband repeater pipeline
 
 This package implements a transparent multi-epoch search for intermittent
@@ -282,6 +288,24 @@ of an emitter. The feature is closed under this conservative revised screen;
 its physical origin remains unidentified. LS4F is retrospective reanalysis,
 not an independent observation, calibrated sensitivity result or general
 light-sail exclusion. See the [derived pulse figure](https://github.com/andersenmartin-blip/setisearch/blob/ls4f-native-reanalysis/results_ls4f_v2_reanalysis/pulse_clusters_9380.svg).
+
+The [LS4G synthetic recovery study](https://github.com/andersenmartin-blip/setisearch/blob/ls4g-synthetic-recovery/LS4G_SYNTHETIC_RECOVERY_RESULT.md)
+then tested the unchanged LS4E diagnostic in 1,692 locally frozen cases:
+1,296 pulse-train injections across six widths, six amplitudes and three
+noise backgrounds; 36 no-injection cases; and 360 control-pulse cases.
+Each cell uses 12 seeds, reused across cells for paired comparisons.
+Every passing trial also met the frozen truth-association rule, and all 36
+no-injection cases were rejected. These counts do not calibrate a false-alarm
+rate. All 39 relevant unit tests passed before execution.
+
+For example, 1 ms pulses at added amplitude 16 times baseline noise SD were
+recovered in 12/12 independent-noise trials and 0/12 AR(1) trials at rho 0.8.
+With a fixed 12 ms ON train at amplitude 10, one 100 ms control pulse at
+amplitude 2 reduced recovery from 12/12 to 0/12 at either control location.
+Amplitude here is per-sample level, not integrated S/N or flux. The study
+uses fixed 1 ms synthetic geometry and bypasses Stage-1 selection; it does
+not model the telescope response or establish survey completeness. No radio
+data were read, no thresholds were retuned, and LS4F dispositions are unchanged.
 
 Milestone 41 has now frozen a separately labelled, explicitly post-M40
 higher-S/N extension. It reuses all 512 coverage-repaired M40 v2 truths
