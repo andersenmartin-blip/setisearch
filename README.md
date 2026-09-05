@@ -1,6 +1,18 @@
 # SETIsearch
 
-**Latest LS update — LS6 TRAPPIST-1 subband pilot completed.**
+**Latest LS update — LS6A TRAPPIST-1 scan-end diagnostic completed.**
+All four original files match their checksums and exactly reproduce the LS6
+screen. Both ON scans show a final-window rise in all 64 frequency bins;
+OFF scans also show strong shared variation. A common trace removes
+87.6–97.2% of centered squared energy across the four scans. Fixed end-step
+fits describe the ON traces better than a straight line, so a simple linear
+drift alone is insufficient. The instrumental or celestial cause remains
+unresolved. All 47 primary survivors are preserved; no candidate is promoted.
+All 147 LS tests passed. This is a retrospective diagnostic, with no new
+spectral products or HTR data opened.
+See [the LS6A report and four-scan comparison](https://github.com/andersenmartin-blip/setisearch/blob/ls6-next-target-metadata/LS6A_SCAN_END_RESULT.md).
+
+**Previous LS update — LS6 TRAPPIST-1 subband pilot completed.**
 A sixth stellar system has received a limited LS screen: four 60-second
 ON/OFF scans near 9.92 GHz, covering 187.5 MHz. The repaired 4–32-second
 bank yields 47 ON windows surviving the frozen adjacent-OFF check. These
