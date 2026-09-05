@@ -1,6 +1,17 @@
 # SETIsearch
 
-**Latest LS update — LS4L measured fragment diagnostics completed.**
+**Latest LS update — LS4M measured control morphology completed.**
+A verified 9.44 GB B1 HTR scan resolves the location of the LS4L control veto:
+all nine selected 8.5 GHz windows are vetoed solely by pulses in the OFF
+reference regions, with zero inside-window control pulses. All eight selected
+10.5 GHz windows have zero control pulses at the tested thresholds. All 256
+selected-fragment and 48 fixed-window count/veto comparisons reproduce LS4L.
+The lower-band structure is concentrated around 113.6 s into the control scan
+and spans several channels. Original vetoes and candidate decisions remain
+unchanged; no sky candidate is promoted. All 60 relevant tests passed.
+See [the LS4M report and control-window figure](https://github.com/andersenmartin-blip/setisearch/blob/ls4m-control-morphology/LS4M_CONTROL_MORPHOLOGY_RESULT.md).
+
+**Previous LS update — LS4L measured fragment diagnostics completed.**
 The 64 previously OFF-vetoed injection fragments received 256 HTR evaluations
 on verified A1/B1 data. Diagnostic pulse recovery occurs in 15/144 full-grid
 configurations: 15/18 selected positive-amplitude cases at 10.5 GHz and 0/36
