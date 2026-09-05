@@ -1,0 +1,28 @@
+{
+  "artifact_type": "seti_repeater.ls4g_synthetic_recovery_plan",
+  "version": 1,
+  "base_commit": "1677e0625bf22d0082e1186ac47a1fc724a949b0",
+  "settings_source": "config/ls4e_residual_qualification.json",
+  "seeds": [114700, 114701, 114702, 114703, 114704, 114705, 114706, 114707, 114708, 114709, 114710, 114711],
+  "sample_count": 120000,
+  "sample_time_s": 0.001,
+  "envelope_s": [30.0, 70.0],
+  "pulse_times_s": [32.13, 35.67, 41.12, 48.84, 57.37, 64.42],
+  "pulse_jitter_s": 0.15,
+  "backgrounds": ["white", "ar1", "on_variance_x4"],
+  "ar1_rho": 0.8,
+  "widths_s": [0.001, 0.003, 0.012, 0.03, 0.1, 0.3],
+  "amplitudes_sigma": [0.5, 1.0, 2.0, 4.0, 8.0, 16.0],
+  "control": {
+    "locations": {"off": 50.25, "on_reference": 15.25},
+    "widths_s": [0.001, 0.012, 0.1],
+    "amplitudes_sigma": [0.0, 2.0, 4.0, 8.0, 16.0],
+    "on_width_s": 0.012,
+    "on_amplitude_sigma": 10.0
+  },
+  "expected_trials": 1692,
+  "retune_after_results": false,
+  "raw_spectral_access": false,
+  "false_alarm_calibration": false,
+  "end_to_end_completeness": false
+}
