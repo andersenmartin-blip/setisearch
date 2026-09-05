@@ -1,6 +1,18 @@
 # SETIsearch
 
-**Latest LS update — LS4N reference-only OFF diagnostic audit completed.**
+**Latest LS update — LS4O independent-control feasibility completed.**
+All eleven scoped archive queries succeeded. Target-only searches across ten
+known aliases return 36 product URLs in twelve scan/frequency groups, all
+observed on 21 January 2017. No X-center lead at least 24 hours from the
+original X-band observation was found. The five existing adjacent ON/OFF
+pairs have 40–48 s integration gaps and no simultaneous overlap. A3/C1/D1
+remain reserved for HTR method validation; their medium products were already
+searched. All 72 relevant tests passed. No new spectrum was opened or sky
+candidate promoted. This supports moving discovery work to another target
+or cadence while preserving the existing acceptance rules.
+See [the LS4O report and observing-sequence figure](https://github.com/andersenmartin-blip/setisearch/blob/ls4o-independent-control-feasibility/LS4O_CONTROL_FEASIBILITY_RESULT.md).
+
+**Previous LS update — LS4N reference-only OFF diagnostic audit completed.**
 A retrospective comparison raises injected-pulse HTR diagnostic recovery from
 15/144 to 47/144 configurations, including 32/36 selected positive cases at
 8.5 GHz. The original Stage-1 vetoes remain attached. In 1,296 labelled
