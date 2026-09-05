@@ -1,5 +1,17 @@
 # SETIsearch
 
+**Latest project update — milestone track resumed; first M43 checkpoint completed.**
+SETIsearch is being developed with an explicit multi-year horizon. M43 has
+reproduced all 6,144 M41 ledger records and the M42 diagnostic exactly. Seven
+small fixtures agree across three support calculations: no implementation
+repair preserving the existing matching rule has been demonstrated. Dropping
+an inactive epoch can add matches, but changes the endpoint. Full repair and
+new real-data anchor qualification remain open. The next stage is an explicit,
+separately named association contract before further calibration. LS remains
+an open research branch with its completed results preserved.
+See [the M43 checkpoint](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43_SUPPORT_CONTRACT_RESULT.md)
+and [the long-term project direction](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_DIRECTION.md).
+
 **Latest LS update — LS6A TRAPPIST-1 scan-end diagnostic completed.**
 All four original files match their checksums and exactly reproduce the LS6
 screen. Both ON scans show a final-window rise in all 64 frequency bins;
