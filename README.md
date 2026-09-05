@@ -1,16 +1,23 @@
 # SETI Repeater Pipeline
 
-**Latest LS update — LS4F:** native A1/B1 reanalysis completed. Zero of seven
+**Latest LS update — LS4G:** 1,692 frozen synthetic trials map the unchanged
+LS4E diagnostic across pulse widths, amplitudes and noise conditions.
+Correlated noise reduces recovery; a single control pulse can veto an
+otherwise recovered ON train. These conditional tests do not establish survey
+completeness or change LS4F's 0/7 result. See [the report and recovery figure](LS4G_SYNTHETIC_RECOVERY_RESULT.md).
+
+**Previous LS update — LS4F:** native A1/B1 reanalysis completed. Zero of seven
 events pass the LS4E diagnostic in either frequency selection. The 9.38 GHz
 event still passes the historical rule, but both OFF and ON-reference pulses
 veto it under the revised method. See [the result and pulse figure](LS4F_NATIVE_REANALYSIS_RESULT.md).
 
-**Latest LS update — LS4E:** the new residual-pulse diagnostic passed its
+**Earlier LS update — LS4E:** the new residual-pulse diagnostic passed its
 synthetic qualification: 192/192 negative examples rejected, 48/48 pulse
 trains recovered, and the native LS4D plateau counterexample rejected.
-No real candidate has been reanalysed. See [the LS4E result](LS4E_RESIDUAL_QUALIFICATION_RESULT.md).
+LS4E itself did not reanalyse a real candidate; LS4F later completed that step.
+See [the LS4E result](LS4E_RESIDUAL_QUALIFICATION_RESULT.md).
 
-**Latest LS update — LS4D audit (2026-09-04):** the historical LS4C pass at
+**Earlier LS update — LS4D audit (2026-09-04):** the historical LS4C pass at
 9.38 GHz is insufficient evidence for diffraction structure. The audit found
 pulses in controls, a constant-plateau counterexample, and two extra extracted
 HTR channels. The event remains unresolved, with no technosignature claim.
