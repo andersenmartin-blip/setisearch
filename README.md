@@ -1,6 +1,17 @@
 # SETIsearch
 
-**Latest project update — M43B active-epoch geometry comparison completed.**
+**Latest project update — M43C identifies the remaining coverage limitation.**
+All 512 M43B plan inventories reproduce exactly. Of the 345 unsupported
+truths, 330 fail because none of the 93 templates fits the active frequency
+track within 20 Hz, even with a freely chosen carrier. Nine require a carrier
+outside the current range; six fall between carrier cells. No numerical
+boundary remained unresolved. A finer carrier grid alone can therefore
+address at most six cases within the current range. The next study should
+address track-template coverage while preserving this baseline. Fourteen
+relevant tests pass; no new spectra, injections or scores were evaluated.
+See [the M43C diagnosis and next validation gates](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43C_COVERAGE_CAUSE_RESULT.md).
+
+**Previous project update — M43B active-epoch geometry comparison completed.**
 The separately frozen rule associates injected truths only in their active
 ON epochs, retaining the same 20 Hz tolerance, fixed template and carrier.
 Geometric support rises from 98/512 to 167/512: 69 added, none lost. Every
