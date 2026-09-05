@@ -40,8 +40,14 @@ now qualifies the interpretation of the historical HTR pass.
 **LS4E has now passed a synthetic qualification of a new residual-pulse
 diagnostic:** 192 negative examples rejected, 48 injected pulse trains
 recovered, and the exact native LS4D plateau counterexample rejected.
-The real 9.38 GHz event has not been reanalysed. See the
+LS4F has now reanalysed the real 9.38 GHz event. See the
 [LS4E result](https://github.com/andersenmartin-blip/setisearch/blob/ls4e-residual-qualification/LS4E_RESIDUAL_QUALIFICATION_RESULT.md).
+
+**LS4F native-data reanalysis is complete: zero of seven events pass the
+revised LS4E diagnostic.** The 9.38 GHz event still passes the historical
+rule with either 13 or 11 channels, but pulses in the ON-reference and OFF
+regions veto it under LS4E. Its origin is not established. See the
+[LS4F result and pulse figure](https://github.com/andersenmartin-blip/setisearch/blob/ls4f-native-reanalysis/LS4F_NATIVE_REANALYSIS_RESULT.md).
 
 ## Narrowband repeater pipeline
 
@@ -249,8 +255,33 @@ independent channel-center check selects the intended 11 channels. These are
 engineering qualification results with fixed synthetic windows and limited
 noise/artifact families, not a calibrated false-alarm rate, completeness
 result or identification of sail diffraction. The historical detector remains
-unchanged. A separately frozen runtime is still needed before applying the
-new diagnostic to real spectra; the candidate remains unresolved.
+unchanged. LS4F subsequently applied that diagnostic to the native spectra,
+as described below.
+
+The [LS4F native reanalysis](https://github.com/andersenmartin-blip/setisearch/blob/ls4f-native-reanalysis/LS4F_NATIVE_REANALYSIS_RESULT.md)
+completed the same A1/B1 pair with exact source-SHA256 verification and
+reproduction of every historical metric and disposition within frozen
+floating-point tolerances. The first execution stopped during download when
+extra temporary workspace copies exhausted disk; that abort remains preserved.
+The separately frozen v2 changed only raw-file placement and output identities
+and successfully read both 9.435 GB sources, deleting each after processing.
+
+None of the seven events passes LS4E in either the original 13-channel or
+corrected 11-channel band. The 9.38 GHz event retains repeated pulse structure
+and passes the historical rule in both bands, so the two extra channels do
+not explain the old positive classification. Its revised rejection is due to
+both ON-reference and OFF pulse vetoes. At the requested 1 ms scale, the
+corrected A1 band has eight candidate-window clusters and 23 reference
+clusters; the B1 band has one candidate-window cluster. Intervals differ in
+duration and these are descriptive counts, not significance estimates.
+
+In B1, the corrected 8.68 and 9.38 GHz bands also share a pulse near 113.6 s
+at the 30, 100 and 300 ms scales. These correlated match records are consistent
+with a common disturbance, not independent confirmations or identification
+of an emitter. The feature is closed under this conservative revised screen;
+its physical origin remains unidentified. LS4F is retrospective reanalysis,
+not an independent observation, calibrated sensitivity result or general
+light-sail exclusion. See the [derived pulse figure](https://github.com/andersenmartin-blip/setisearch/blob/ls4f-native-reanalysis/results_ls4f_v2_reanalysis/pulse_clusters_9380.svg).
 
 Milestone 41 has now frozen a separately labelled, explicitly post-M40
 higher-S/N extension. It reuses all 512 coverage-repaired M40 v2 truths
