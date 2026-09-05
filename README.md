@@ -1,6 +1,13 @@
 # SETI Repeater Pipeline
 
-**Latest LS update — LS4G:** 1,692 frozen synthetic trials map the unchanged
+**Latest LS update — LS4H preflight:** the measured-background study has begun.
+The time/frequency adapter and a disjoint development/validation scan split
+are specified and tested. Joint physical injections remain pending because
+file-specific amplitude transfer through the 8-bit HTR conversion has not
+been established. No measured-background injection or recovery fraction is
+claimed. See [the LS4H preflight report](LS4H_TRANSFER_PREFLIGHT_RESULT.md).
+
+**Previous LS update — LS4G:** 1,692 frozen synthetic trials map the unchanged
 LS4E diagnostic across pulse widths, amplitudes and noise conditions.
 Correlated noise reduces recovery; a single control pulse can veto an
 otherwise recovered ON train. These conditional tests do not establish survey
