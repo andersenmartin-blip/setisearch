@@ -55,6 +55,12 @@ can veto an otherwise recovered injected ON train. This conditional study
 does not change LS4F's 0/7 result or establish astronomical completeness.
 See the [LS4G report and recovery grid](https://github.com/andersenmartin-blip/setisearch/blob/ls4g-synthetic-recovery/LS4G_SYNTHETIC_RECOVERY_RESULT.md).
 
+**LS4H has begun with a completed transfer preflight.** The time/frequency
+adapter and a disjoint development/reserved-validation scan split are tested.
+Measured-background injections remain pending: file-specific amplitude
+transfer through the 8-bit HTR conversion has not been established. No new
+recovery fraction is claimed. See the [LS4H preflight report](https://github.com/andersenmartin-blip/setisearch/blob/ls4h-transfer-preflight/LS4H_TRANSFER_PREFLIGHT_RESULT.md).
+
 ## Narrowband repeater pipeline
 
 This package implements a transparent multi-epoch search for intermittent
@@ -306,6 +312,25 @@ Amplitude here is per-sample level, not integrated S/N or flux. The study
 uses fixed 1 ms synthetic geometry and bypasses Stage-1 selection; it does
 not model the telescope response or establish survey completeness. No radio
 data were read, no thresholds were retuned, and LS4F dispositions are unchanged.
+
+The [LS4H transfer preflight](https://github.com/andersenmartin-blip/setisearch/blob/ls4h-transfer-preflight/LS4H_TRANSFER_PREFLIGHT_RESULT.md)
+qualifies analytic time integration between the medium and HTR geometries:
+3,072 HTR samples per medium integration and 128 medium channels per HTR
+channel, with matching grouped channel centers. It retains the 2,048-sample
+HTR tail outside the common 292.057776128 s support as unmatched.
+Development uses A1/B1; reserved validation uses A3 with both C1 and D1 OFF
+controls. These groups have disjoint files but share an observing session,
+and their medium-resolution products were already searched historically.
+
+All 48 relevant tests passed. The live catalog matched the 12 known products
+but listed no unquantized HTR counterpart; HEAD checks of two inferred float
+HTR paths returned 404. File-specific quantization calibration is not present
+in the reviewed receipts. Geometry alone cannot equate injected amplitudes
+across the two products, as the retained quantization examples demonstrate.
+LS4H has not executed measured-background injections or estimated pipeline
+recovery. A separately specified digital-perturbation study could diagnose
+stage-specific losses while retaining separate amplitude axes; a common
+physical injection requires a validated transfer model or unquantized inputs.
 
 Milestone 41 has now frozen a separately labelled, explicitly post-M40
 higher-S/N extension. It reuses all 512 coverage-repaired M40 v2 truths
