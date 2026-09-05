@@ -1,0 +1,174 @@
+{
+  "artifact_type": "seti_repeater.ls6_preregistration",
+  "frozen_utc": "2026-09-05T14:54:33.333566+00:00",
+  "target": {
+    "hostname": "TRAPPIST-1",
+    "archive_target": "DIAG_TRAPPIST1",
+    "scope": "four-scan 187.5 MHz subband pilot; pointing and geometric qualification limited"
+  },
+  "freeze_boundary": {
+    "medium_resolution_values_read_before_freeze": false,
+    "high_time_resolution_values_read_before_freeze": false
+  },
+  "archive_header_result": {
+    "source_path": "results_ls6_trappist/preflight.json",
+    "source_sha256": "801243ed729b88791894c5a47912bbc808abb4917b9480b2633575e62e8c9f89",
+    "source_result_identity": "7b24a441542fad3275afe28979b2ae2c963256382028520db3476190a92e26eb"
+  },
+  "archive_inventory": {
+    "selected_cadence_id": "20170223-X-9920MHz-ABAB",
+    "selected_cadence_url": "http://seti.berkeley.edu/opendata/api/query-files?target=DIAG_TRAPPIST1&limit=3000"
+  },
+  "geometry": {
+    "conjunction_ranked": false,
+    "reason": "NASA default transit epochs missing; orbital ranking deferred"
+  },
+  "medium_resolution_screen": {
+    "product_suffix": "gpuspec.0002.fil",
+    "expected_time_resolution_class_s": [
+      0.5,
+      2.0
+    ],
+    "expected_frequency_resolution_class_khz": [
+      1.0,
+      5.0
+    ],
+    "science_band_mhz": [
+      9826.466274261475,
+      10013.963413238525
+    ],
+    "base_bin_native_channels": 1024,
+    "spectral_width_base_bins": [
+      1,
+      4,
+      16,
+      32,
+      64
+    ],
+    "duration_s": [
+      4.0,
+      8.0,
+      16.0,
+      32.0,
+      64.0
+    ],
+    "native_robust_clip": [
+      -6.0,
+      12.0
+    ],
+    "minimum_valid_fraction": 0.8,
+    "on_score_threshold": 8.0,
+    "off_veto_score_threshold": 6.0,
+    "off_veto_frequency_overlap": 0.5,
+    "maximum_events_per_scan": 2048,
+    "score_interpretation": "Robust matched-filter screening score; not a Gaussian sigma or calibrated significance.",
+    "implementation": "Unchanged LS1 core through LS4B SIGPROC adapter; explicit four-scan pilot"
+  },
+  "selected_sequence": [
+    {
+      "label": "A1",
+      "role": "ON",
+      "adjacent_off_labels": [
+        "B1"
+      ],
+      "expected_source_name": "DIAG_TRAPPIST1",
+      "expected_tstart_mjd": 57807.91175925926,
+      "expected_filterbank_header": {
+        "nchans": 65536,
+        "nifs": 1,
+        "nbits": 32,
+        "ntime": 56,
+        "fch1_mhz": 10013.963413238525,
+        "foff_mhz": -0.00286102294921875,
+        "tsamp_s": 1.0737418239999998,
+        "header_bytes": 394
+      },
+      "medium_resolution": {
+        "url": "http://blpd0.ssl.berkeley.edu/trappist/blc14_guppi_57807_78776_DIAG_TRAPPIST1_0030.gpuspec.0002.fil",
+        "expected_size_bytes": 14680458
+      }
+    },
+    {
+      "label": "B1",
+      "role": "OFF",
+      "adjacent_off_labels": [],
+      "expected_source_name": "DIAG_TRAPPIST1_OFF",
+      "expected_tstart_mjd": 57807.91268518518,
+      "expected_filterbank_header": {
+        "nchans": 65536,
+        "nifs": 1,
+        "nbits": 32,
+        "ntime": 56,
+        "fch1_mhz": 10013.963413238525,
+        "foff_mhz": -0.00286102294921875,
+        "tsamp_s": 1.0737418239999998,
+        "header_bytes": 402
+      },
+      "medium_resolution": {
+        "url": "http://blpd0.ssl.berkeley.edu/trappist/blc14_guppi_57807_78856_DIAG_TRAPPIST1_OFF_0031.gpuspec.0002.fil",
+        "expected_size_bytes": 14680466
+      }
+    },
+    {
+      "label": "A2",
+      "role": "ON",
+      "adjacent_off_labels": [
+        "B1",
+        "B2"
+      ],
+      "expected_source_name": "DIAG_TRAPPIST1",
+      "expected_tstart_mjd": 57807.913611111115,
+      "expected_filterbank_header": {
+        "nchans": 65536,
+        "nifs": 1,
+        "nbits": 32,
+        "ntime": 56,
+        "fch1_mhz": 10013.963413238525,
+        "foff_mhz": -0.00286102294921875,
+        "tsamp_s": 1.0737418239999998,
+        "header_bytes": 394
+      },
+      "medium_resolution": {
+        "url": "http://blpd0.ssl.berkeley.edu/trappist/blc14_guppi_57807_78936_DIAG_TRAPPIST1_0032.gpuspec.0002.fil",
+        "expected_size_bytes": 14680458
+      }
+    },
+    {
+      "label": "B2",
+      "role": "OFF",
+      "adjacent_off_labels": [],
+      "expected_source_name": "DIAG_TRAPPIST1_OFF",
+      "expected_tstart_mjd": 57807.91471064815,
+      "expected_filterbank_header": {
+        "nchans": 65536,
+        "nifs": 1,
+        "nbits": 32,
+        "ntime": 56,
+        "fch1_mhz": 10013.963413238525,
+        "foff_mhz": -0.00286102294921875,
+        "tsamp_s": 1.0737418239999998,
+        "header_bytes": 402
+      },
+      "medium_resolution": {
+        "url": "http://blpd0.ssl.berkeley.edu/trappist/blc14_guppi_57807_79031_DIAG_TRAPPIST1_OFF_0033.gpuspec.0002.fil",
+        "expected_size_bytes": 14680466
+      }
+    }
+  ],
+  "resource_policy": {
+    "maximum_science_window_bytes_per_scan": 20000000
+  },
+  "implementation_sha256": {
+    "scripts/ls6_screen.py": "1bf53dcc2c6214e0b8b4e9d1b4da5e29637080fabe02887c016359f450f15031",
+    "scripts/ls4b_filterbank_screen.py": "f3eaa1c210feedbd9fb9566ed58e35f97037f54549f60dcaea9fa01f722c89b5",
+    "scripts/ls1_fetch.py": "9c31f4b441c6385e93666fec8836d5e4ae3affba3b63acf5f19547fdcb4c2c12",
+    "src/seti_repeater/light_sail.py": "a28e4af3a952245a660870c11bae805f3701d54354df2638becddb2f574bec6f",
+    "src/seti_repeater/sigproc.py": "3e73da68af1950d9f7406ba3d729f7fe9b58167462c2150b09be50d2624cd936",
+    "config/ls1_hd219134_light_sail.json": "a429a9cb1bad4484b7a2fd0cb47834184bb6a939e7f0dc53790d08d5f20e1cdd"
+  },
+  "claim_boundary": {
+    "technosignature_claimed": false,
+    "calibrated_sensitivity_claimed": false,
+    "new_target_six_scan_analysis_completed": false
+  }
+}
