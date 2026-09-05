@@ -1,6 +1,17 @@
 # SETIsearch
 
-**Latest project update — milestone track resumed; first M43 checkpoint completed.**
+**Latest project update — M43B active-epoch geometry comparison completed.**
+The separately frozen rule associates injected truths only in their active
+ON epochs, retaining the same 20 Hz tolerance, fixed template and carrier.
+Geometric support rises from 98/512 to 167/512: 69 added, none lost. Every
+original M41 plan identity and score-cell count reproduces exactly. The other
+345 truths still lack support, so a 50% recovery endpoint remains unreachable
+through increased S/N alone. This is geometry, not measured recovery or
+sensitivity; no new spectra or injections were opened. All eight M43/M43B
+tests pass. The next step is to diagnose the remaining bank/track geometry.
+See [the M43B comparison and validation gates](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43B_ACTIVE_SUPPORT_RESULT.md).
+
+**Previous project update — milestone track resumed; first M43 checkpoint completed.**
 SETIsearch is being developed with an explicit multi-year horizon. M43 has
 reproduced all 6,144 M41 ledger records and the M42 diagnostic exactly. Seven
 small fixtures agree across three support calculations: no implementation
