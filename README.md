@@ -1,6 +1,18 @@
 # SETIsearch
 
-**Latest LS update — LS4O independent-control feasibility completed.**
+**Latest LS update — LS5 Kepler-160 spectral screen completed.**
+The fifth distinct LS target was screened across six GBT S-band scans
+(1.8–2.8 GHz; 3.51 GB; about 15 minutes of designated ON integration).
+Of 607 ON threshold events, three survive the frozen adjacent-OFF veto;
+no retention cap was reached. All three occur late in A1 with 64-second
+windows. A separate post-hoc audit finds overlapping frequencies in later
+C1/D1 OFF scans for all three, flagging interference without changing the
+primary result. All 138 LS tests passed. No HTR samples were opened and no
+technosignature is claimed. Pointing uncertainty and known transit-timing
+variations limit stellar attribution and geometry interpretation.
+See [the LS5 result and candidate/control table](https://github.com/andersenmartin-blip/setisearch/blob/ls5-new-target-selection/LS5_KEPLER160_RESULT.md).
+
+**Previous LS update — LS4O independent-control feasibility completed.**
 All eleven scoped archive queries succeeded. Target-only searches across ten
 known aliases return 36 product URLs in twelve scan/frequency groups, all
 observed on 21 January 2017. No X-center lead at least 24 hours from the
