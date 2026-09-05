@@ -1,0 +1,275 @@
+{
+  "artifact_type": "seti_repeater.ls5_preregistration",
+  "frozen_utc": "2026-09-05T14:17:27.742048+00:00",
+  "project": {
+    "id": "LS5",
+    "branch": "ls5-new-target-selection",
+    "detector_inherited_unchanged_from_ls1": true
+  },
+  "target": {
+    "hostname": "Kepler-160",
+    "archive_target": "KEPLER-160",
+    "distance_pc": 937.013,
+    "scope": "published archival ON/OFF sequence; target centering unresolved for final ON"
+  },
+  "freeze_boundary": {
+    "medium_resolution_values_read_before_freeze": false,
+    "high_time_resolution_values_read_before_freeze": false,
+    "header_only_metadata_read_before_freeze": true
+  },
+  "archive_header_result": {
+    "source_path": "results_ls5_header/qualified.json",
+    "source_sha256": "5ecf6be34d5b51258d9e99e0a11bcd08dc91ec39a5ba37da8e11e628732a6401",
+    "source_result_identity": "ce71b52617c947c889d85845ef98d332eb1324f1441f7b3ef7246f9b910b3b3c"
+  },
+  "archive_inventory": {
+    "selected_cadence_url": "http://seti.berkeley.edu/opendata/api/get-cadence/--813641",
+    "selected_cadence_id": "--813641",
+    "selected_band": "S"
+  },
+  "geometry": {
+    "corner_evaluation_count": 81,
+    "interpretation": "Deterministic period/epoch sensitivity diagnostic, not a confidence interval.",
+    "nominal_projected_separation_stellar_radii": 31.911712739348157,
+    "one_sigma_input_corner_separation_max_stellar_radii": 32.03331921695632,
+    "one_sigma_input_corner_separation_min_stellar_radii": 31.78560487471398,
+    "planet_pair": [
+      "Kepler-160 b",
+      "Kepler-160 c"
+    ],
+    "reference_bjd_utc_approximation": 2459015.0164211458,
+    "caveat": "linear ephemerides omit known Kepler-160 c TTVs; not a close conjunction or calibrated interval"
+  },
+  "medium_resolution_screen": {
+    "product_suffix": "rawspec.0002.fil",
+    "expected_time_resolution_class_s": [
+      0.5,
+      2.0
+    ],
+    "expected_frequency_resolution_class_khz": [
+      1.0,
+      5.0
+    ],
+    "science_band_mhz": [
+      1800.0,
+      2800.0
+    ],
+    "base_bin_native_channels": 1024,
+    "spectral_width_base_bins": [
+      1,
+      4,
+      16,
+      32,
+      64
+    ],
+    "duration_s": [
+      4.0,
+      8.0,
+      16.0,
+      32.0,
+      64.0
+    ],
+    "native_robust_clip": [
+      -6.0,
+      12.0
+    ],
+    "minimum_valid_fraction": 0.8,
+    "on_score_threshold": 8.0,
+    "off_veto_score_threshold": 6.0,
+    "off_veto_frequency_overlap": 0.5,
+    "maximum_events_per_scan": 2048,
+    "score_interpretation": "Robust matched-filter screening score; not a Gaussian sigma or calibrated significance.",
+    "implementation": "Unchanged LS1 detector via LS4B SIGPROC adapter"
+  },
+  "selected_sequence": [
+    {
+      "label": "A1",
+      "role": "ON",
+      "adjacent_off_labels": [
+        "B1"
+      ],
+      "expected_source_name": "KEPLER-160",
+      "expected_tstart_mjd": 59014.5146875,
+      "expected_filterbank_header": {
+        "nchans": 524288,
+        "nifs": 1,
+        "nbits": 32,
+        "ntime": 279,
+        "fch1_mhz": 3151.46484375,
+        "foff_mhz": -0.00286102294921875,
+        "tsamp_s": 1.073741823999999,
+        "header_bytes": 298
+      },
+      "medium_resolution": {
+        "expected_size_bytes": 585105706,
+        "url": "http://blpd1.ssl.berkeley.edu/kepler160/spliced_blc0001020304050607_guppi_59014_44469_KEPLER-160_0025.rawspec.0002.fil"
+      },
+      "high_time_resolution": {
+        "expected_size_bytes": 3514827096,
+        "url": "http://blpd1.ssl.berkeley.edu/kepler160/spliced_blc0001020304050607_guppi_59014_44469_KEPLER-160_0025.rawspec.8.0001.fil"
+      },
+      "header_pointing_offset_deg": 0.003317533691522022
+    },
+    {
+      "label": "B1",
+      "role": "OFF",
+      "adjacent_off_labels": [],
+      "expected_source_name": "KEPLER-160",
+      "expected_tstart_mjd": 59014.51836805556,
+      "expected_filterbank_header": {
+        "nchans": 524288,
+        "nifs": 1,
+        "nbits": 32,
+        "ntime": 279,
+        "fch1_mhz": 3151.46484375,
+        "foff_mhz": -0.00286102294921875,
+        "tsamp_s": 1.073741823999999,
+        "header_bytes": 298
+      },
+      "medium_resolution": {
+        "expected_size_bytes": 585105706,
+        "url": "http://blpd1.ssl.berkeley.edu/kepler160/spliced_blc0001020304050607_guppi_59014_44787_KEPLER-160_0026.rawspec.0002.fil"
+      },
+      "high_time_resolution": {
+        "expected_size_bytes": 3510632792,
+        "url": "http://blpd1.ssl.berkeley.edu/kepler160/spliced_blc0001020304050607_guppi_59014_44787_KEPLER-160_0026.rawspec.8.0001.fil"
+      },
+      "header_pointing_offset_deg": 0.9938074064916281
+    },
+    {
+      "label": "A2",
+      "role": "ON",
+      "adjacent_off_labels": [
+        "B1",
+        "C1"
+      ],
+      "expected_source_name": "KEPLER-160",
+      "expected_tstart_mjd": 59014.522048611114,
+      "expected_filterbank_header": {
+        "nchans": 524288,
+        "nifs": 1,
+        "nbits": 32,
+        "ntime": 279,
+        "fch1_mhz": 3151.46484375,
+        "foff_mhz": -0.00286102294921875,
+        "tsamp_s": 1.073741823999999,
+        "header_bytes": 298
+      },
+      "medium_resolution": {
+        "expected_size_bytes": 585105706,
+        "url": "http://blpd1.ssl.berkeley.edu/kepler160/spliced_blc0001020304050607_guppi_59014_45105_KEPLER-160_0027.rawspec.0002.fil"
+      },
+      "high_time_resolution": {
+        "expected_size_bytes": 3510632792,
+        "url": "http://blpd1.ssl.berkeley.edu/kepler160/spliced_blc0001020304050607_guppi_59014_45105_KEPLER-160_0027.rawspec.8.0001.fil"
+      },
+      "header_pointing_offset_deg": 0.013779831012920973
+    },
+    {
+      "label": "C1",
+      "role": "OFF",
+      "adjacent_off_labels": [],
+      "expected_source_name": "KEPLER-160",
+      "expected_tstart_mjd": 59014.525717592594,
+      "expected_filterbank_header": {
+        "nchans": 524288,
+        "nifs": 1,
+        "nbits": 32,
+        "ntime": 279,
+        "fch1_mhz": 3151.46484375,
+        "foff_mhz": -0.00286102294921875,
+        "tsamp_s": 1.073741823999999,
+        "header_bytes": 298
+      },
+      "medium_resolution": {
+        "expected_size_bytes": 585105706,
+        "url": "http://blpd1.ssl.berkeley.edu/kepler160/spliced_blc0001020304050607_guppi_59014_45422_KEPLER-160_0028.rawspec.0002.fil"
+      },
+      "high_time_resolution": {
+        "expected_size_bytes": 3510632792,
+        "url": "http://blpd1.ssl.berkeley.edu/kepler160/spliced_blc0001020304050607_guppi_59014_45422_KEPLER-160_0028.rawspec.8.0001.fil"
+      },
+      "header_pointing_offset_deg": 0.9947002464092073
+    },
+    {
+      "label": "A3",
+      "role": "ON",
+      "adjacent_off_labels": [
+        "C1",
+        "D1"
+      ],
+      "expected_source_name": "KEPLER-160",
+      "expected_tstart_mjd": 59014.529386574075,
+      "expected_filterbank_header": {
+        "nchans": 524288,
+        "nifs": 1,
+        "nbits": 32,
+        "ntime": 279,
+        "fch1_mhz": 3151.46484375,
+        "foff_mhz": -0.00286102294921875,
+        "tsamp_s": 1.073741823999999,
+        "header_bytes": 298
+      },
+      "medium_resolution": {
+        "expected_size_bytes": 585105706,
+        "url": "http://blpd1.ssl.berkeley.edu/kepler160/spliced_blc0001020304050607_guppi_59014_45739_KEPLER-160_0029.rawspec.0002.fil"
+      },
+      "high_time_resolution": {
+        "expected_size_bytes": 3510632792,
+        "url": "http://blpd1.ssl.berkeley.edu/kepler160/spliced_blc0001020304050607_guppi_59014_45739_KEPLER-160_0029.rawspec.8.0001.fil"
+      },
+      "header_pointing_offset_deg": 0.24832787230092732
+    },
+    {
+      "label": "D1",
+      "role": "OFF",
+      "adjacent_off_labels": [],
+      "expected_source_name": "KEPLER-160",
+      "expected_tstart_mjd": 59014.53306712963,
+      "expected_filterbank_header": {
+        "nchans": 524288,
+        "nifs": 1,
+        "nbits": 32,
+        "ntime": 279,
+        "fch1_mhz": 3151.46484375,
+        "foff_mhz": -0.00286102294921875,
+        "tsamp_s": 1.073741823999999,
+        "header_bytes": 298
+      },
+      "medium_resolution": {
+        "expected_size_bytes": 585105706,
+        "url": "http://blpd1.ssl.berkeley.edu/kepler160/spliced_blc0001020304050607_guppi_59014_46057_KEPLER-160_0030.rawspec.0002.fil"
+      },
+      "high_time_resolution": {
+        "expected_size_bytes": 3510632792,
+        "url": "http://blpd1.ssl.berkeley.edu/kepler160/spliced_blc0001020304050607_guppi_59014_46057_KEPLER-160_0030.rawspec.8.0001.fil"
+      },
+      "header_pointing_offset_deg": 1.0006641833977075
+    }
+  ],
+  "resource_policy": {
+    "maximum_science_window_bytes_per_scan": 600000000,
+    "minimum_free_headroom_bytes_after_download": 2000000000,
+    "download_one_scan_at_a_time": true,
+    "delete_raw_after_checkpoint": true
+  },
+  "followup": {
+    "requires_surviving_event_and_no_retention_truncation": true,
+    "requires_separate_preregistration": true,
+    "pointing_verification_required_before_stellar_attribution": true
+  },
+  "claim_boundary": {
+    "technosignature_claimed": false,
+    "calibrated_sensitivity_claimed": false,
+    "first_SETI_search_of_system_claimed": false,
+    "raw_spectral_payload_may_be_published": false
+  },
+  "implementation_sha256": {
+    "scripts/ls5_screen.py": "f64ad1299d8dede2e1b59666ceb9496fc5e92c196d3910feea0d1da1ef21ae25",
+    "scripts/ls4b_filterbank_screen.py": "f3eaa1c210feedbd9fb9566ed58e35f97037f54549f60dcaea9fa01f722c89b5",
+    "scripts/ls1_fetch.py": "9c31f4b441c6385e93666fec8836d5e4ae3affba3b63acf5f19547fdcb4c2c12",
+    "src/seti_repeater/light_sail.py": "a28e4af3a952245a660870c11bae805f3701d54354df2638becddb2f574bec6f",
+    "src/seti_repeater/sigproc.py": "3e73da68af1950d9f7406ba3d729f7fe9b58167462c2150b09be50d2624cd936",
+    "config/ls1_hd219134_light_sail.json": "a429a9cb1bad4484b7a2fd0cb47834184bb6a939e7f0dc53790d08d5f20e1cdd"
+  }
+}
