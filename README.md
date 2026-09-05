@@ -1,6 +1,20 @@
 # SETIsearch
 
-**Latest project update — M43C identifies the remaining coverage limitation.**
+**Latest project update — M43D improves geometric coverage but fails its preselected confirmation gate.**
+All 512 historical M43B plans and baseline carrier/template pairs reproduce
+exactly. Nested coefficient-disk banks raise historical support from 167/512
+(93 templates) to 506/512 (889) and 512/512 (3,301). The preselected 889-template
+bank reaches 502, 486, 501 and 470 of 512 new tracks across the four activity
+patterns, failing the frozen 95% requirement in two groups. The 3,301-template
+bank reaches 511/512 in each group, but was not the preselected confirmation
+candidate and has 35.49 times the baseline score-cell count. No bank is adopted.
+All 21 relevant tests pass; 7,468 match witnesses were independently rechecked.
+This is geometry, not measured recovery: no new spectra, injections or scores
+were evaluated. Next: diagnose remaining coverage and computational tradeoffs
+before a separately frozen study using new confirmation tracks.
+See [the M43D comparison, costs and failed gate](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43D_BANK_COVERAGE_RESULT.md).
+
+**Previous project update — M43C identifies the remaining coverage limitation.**
 All 512 M43B plan inventories reproduce exactly. Of the 345 unsupported
 truths, 330 fail because none of the 93 templates fits the active frequency
 track within 20 Hz, even with a freely chosen carrier. Nine require a carrier
