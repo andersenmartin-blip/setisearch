@@ -37,6 +37,12 @@ and [HTR result](https://github.com/andersenmartin-blip/setisearch/blob/ls4c-lhs
 The [LS4D audit](https://github.com/andersenmartin-blip/setisearch/blob/ls4d-rfi-instrument-audit/LS4D_RFI_INSTRUMENT_AUDIT.md)
 now qualifies the interpretation of the historical HTR pass.
 
+**LS4E has now passed a synthetic qualification of a new residual-pulse
+diagnostic:** 192 negative examples rejected, 48 injected pulse trains
+recovered, and the exact native LS4D plateau counterexample rejected.
+The real 9.38 GHz event has not been reanalysed. See the
+[LS4E result](https://github.com/andersenmartin-blip/setisearch/blob/ls4e-residual-qualification/LS4E_RESIDUAL_QUALIFICATION_RESULT.md).
+
 ## Narrowband repeater pipeline
 
 This package implements a transparent multi-epoch search for intermittent
@@ -231,6 +237,20 @@ A fresh scoped GBT primary-target cadence query for `LHS1140` on
 2026-09-04 returned the same four L/S/C/X cadences, with no additional X-band
 epoch. This does not exclude other aliases, ungrouped scans or other archives.
 No new radio spectral values were read in LS4D.
+
+The separately versioned
+[LS4E residual-pulse qualification](https://github.com/andersenmartin-blip/setisearch/blob/ls4e-residual-qualification/LS4E_RESIDUAL_QUALIFICATION_RESULT.md)
+removes a local baseline, requires multiple time-matched pulse events across
+scales, and vetoes pulses in the analyzed OFF or ON-reference regions.
+All 192 negative synthetic examples were rejected and all 48 strong periodic
+or irregular pulse-train examples recovered. The native LS4D plateau
+counterexample was rejected as well, and 28 LS4 unit tests passed. An
+independent channel-center check selects the intended 11 channels. These are
+engineering qualification results with fixed synthetic windows and limited
+noise/artifact families, not a calibrated false-alarm rate, completeness
+result or identification of sail diffraction. The historical detector remains
+unchanged. A separately frozen runtime is still needed before applying the
+new diagnostic to real spectra; the candidate remains unresolved.
 
 Milestone 41 has now frozen a separately labelled, explicitly post-M40
 higher-S/N extension. It reuses all 512 coverage-repaired M40 v2 truths
