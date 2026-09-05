@@ -1,0 +1,210 @@
+{
+  "artifact_type": "seti_repeater.ls4h_transfer_preflight_plan",
+  "version": 1,
+  "base_commit": "7f5bda434c2f2743a1b3585a0ddafb294b11b2ca",
+  "input_sha256": {
+    "results_ls4a_header/preflight.json": "34e03f4576b2f54ad3b80bcd781bf44b851f17696436b8ecfebed11deea7008e",
+    "config/ls4b_lhs1140_x_light_sail.json": "7fd8e0f24c1d71c4b42e41603ba64f46fdbf008344a01aeca03d1cce9b988aab",
+    "config/ls4c_lhs1140_x_htr_followup.json": "8d2b55785c1d6d960390b471d1f0b72842709886619e2f89b4b7d0eb857c5147",
+    "DATA_MANIFEST_LS4B.sha256": "223a9e247f08444a88cf9ebc34548d613fa4b31269365535f20525e472919083",
+    "config/ls4f_v2_native_reanalysis.json": "6e517275b819d39b84b7c18f90525a33ecf0a9482ead6086f4f1fe7eccf3673b",
+    "LS4G_SYNTHETIC_RECOVERY_RESULT.md": "3e150352ecd1597d50e21727d1460c84261ff822bb4bc8a6c537c306a48c7775"
+  },
+  "scans": [
+    {
+      "label": "A1",
+      "role": "ON",
+      "adjacent_off_labels": [
+        "B1"
+      ],
+      "expected_source_name": "LHS1140",
+      "expected_tstart_mjd": 57774.96857638889,
+      "medium_resolution": {
+        "url": "http://blpd0.ssl.berkeley.edu/LHS1140/X/spliced_blc000102030405060710111213141516172021222324252627_guppi_57774_83685_LHS1140_0003.gpuspec.0002.fil",
+        "expected_size_bytes": 1568669991
+      },
+      "high_time_resolution": {
+        "url": "http://blpd0.ssl.berkeley.edu/LHS1140/X/spliced_blc000102030405060710111213141516172021222324252627_guppi_57774_83685_LHS1140_0003.gpuspec.8.0001.fil",
+        "expected_size_bytes": 9435087189
+      },
+      "medium_sha256": "b5c7357e82a8b9be6edee28395a412db2833f56ef5b41c7ce075947b30103f17",
+      "htr_sha256": "cf5514c73c000c869e34852a2bcfcf8d7bc1258bbddbfe4a7e5bdf3b2238993b",
+      "ls4h_partition": "development"
+    },
+    {
+      "label": "B1",
+      "role": "OFF",
+      "adjacent_off_labels": [],
+      "expected_source_name": "HIP2579",
+      "expected_tstart_mjd": 57774.97251157407,
+      "medium_resolution": {
+        "url": "http://blpd0.ssl.berkeley.edu/LHS1140/X/spliced_blc000102030405060710111213141516172021222324252627_guppi_57774_84025_HIP2579_0004.gpuspec.0002.fil",
+        "expected_size_bytes": 1568669991
+      },
+      "high_time_resolution": {
+        "url": "http://blpd0.ssl.berkeley.edu/LHS1140/X/spliced_blc000102030405060710111213141516172021222324252627_guppi_57774_84025_HIP2579_0004.gpuspec.8.0001.fil",
+        "expected_size_bytes": 9435087189
+      },
+      "medium_sha256": "bc848436191bf1dc025f995feecf168186c8e7493624da15d26b94d845a639f1",
+      "htr_sha256": "34ac593b65baac087142b258ce3bfaec8bf23ec4bb3fe4acf5647ceaa50b6b5a",
+      "ls4h_partition": "development"
+    },
+    {
+      "label": "A2",
+      "role": "ON",
+      "adjacent_off_labels": [
+        "B1",
+        "C1"
+      ],
+      "expected_source_name": "LHS1140",
+      "expected_tstart_mjd": 57774.97644675926,
+      "medium_resolution": {
+        "url": "http://blpd0.ssl.berkeley.edu/LHS1140/X/spliced_blc000102030405060710111213141516172021222324252627_guppi_57774_84365_LHS1140_0005.gpuspec.0002.fil",
+        "expected_size_bytes": 1568669991
+      },
+      "high_time_resolution": {
+        "url": "http://blpd0.ssl.berkeley.edu/LHS1140/X/spliced_blc000102030405060710111213141516172021222324252627_guppi_57774_84365_LHS1140_0005.gpuspec.8.0001.fil",
+        "expected_size_bytes": 9435087189
+      },
+      "medium_sha256": "7ebc6ddd314efcd9f8ac49e477efad995ba4e94698fb570ecd1dddd4b4181632",
+      "htr_sha256": null,
+      "ls4h_partition": "unused_bridge"
+    },
+    {
+      "label": "C1",
+      "role": "OFF",
+      "adjacent_off_labels": [],
+      "expected_source_name": "HIP2586",
+      "expected_tstart_mjd": 57774.98039351852,
+      "medium_resolution": {
+        "url": "http://blpd0.ssl.berkeley.edu/LHS1140/X/spliced_blc000102030405060710111213141516172021222324252627_guppi_57774_84706_HIP2586_0006.gpuspec.0002.fil",
+        "expected_size_bytes": 1568669991
+      },
+      "high_time_resolution": {
+        "url": "http://blpd0.ssl.berkeley.edu/LHS1140/X/spliced_blc000102030405060710111213141516172021222324252627_guppi_57774_84706_HIP2586_0006.gpuspec.8.0001.fil",
+        "expected_size_bytes": 9435087189
+      },
+      "medium_sha256": "66a8e3b63b872ea59ac4a6df459d5388347445fae1fc58254c9aab1a006981d2",
+      "htr_sha256": null,
+      "ls4h_partition": "reserved_validation"
+    },
+    {
+      "label": "A3",
+      "role": "ON",
+      "adjacent_off_labels": [
+        "C1",
+        "D1"
+      ],
+      "expected_source_name": "LHS1140",
+      "expected_tstart_mjd": 57774.98434027778,
+      "medium_resolution": {
+        "url": "http://blpd0.ssl.berkeley.edu/LHS1140/X/spliced_blc000102030405060710111213141516172021222324252627_guppi_57774_85047_LHS1140_0007.gpuspec.0002.fil",
+        "expected_size_bytes": 1568669991
+      },
+      "high_time_resolution": {
+        "url": "http://blpd0.ssl.berkeley.edu/LHS1140/X/spliced_blc000102030405060710111213141516172021222324252627_guppi_57774_85047_LHS1140_0007.gpuspec.8.0001.fil",
+        "expected_size_bytes": 9435087189
+      },
+      "medium_sha256": "7123dea7a94bbfbe7f2827e1ebda7a1996af98f80843c22fa9554a4ce52cffbf",
+      "htr_sha256": null,
+      "ls4h_partition": "reserved_validation"
+    },
+    {
+      "label": "D1",
+      "role": "OFF",
+      "adjacent_off_labels": [],
+      "expected_source_name": "HIP3249",
+      "expected_tstart_mjd": 57774.98819444444,
+      "medium_resolution": {
+        "url": "http://blpd0.ssl.berkeley.edu/LHS1140/X/spliced_blc000102030405060710111213141516172021222324252627_guppi_57774_85380_HIP3249_0008.gpuspec.0002.fil",
+        "expected_size_bytes": 1568669991
+      },
+      "high_time_resolution": {
+        "url": "http://blpd0.ssl.berkeley.edu/LHS1140/X/spliced_blc000102030405060710111213141516172021222324252627_guppi_57774_85380_HIP3249_0008.gpuspec.8.0001.fil",
+        "expected_size_bytes": 9435087189
+      },
+      "medium_sha256": "e677382224f204daabf1dfb928625f1d798417d91ff6c77af7dccedfb37e8789",
+      "htr_sha256": null,
+      "ls4h_partition": "reserved_validation"
+    }
+  ],
+  "development_labels": [
+    "A1",
+    "B1"
+  ],
+  "reserved_validation_labels": [
+    "C1",
+    "A3",
+    "D1"
+  ],
+  "excluded_bridge_labels": [
+    "A2"
+  ],
+  "planned_frequency_centers_mhz": [
+    8500.0,
+    10500.0
+  ],
+  "planned_injection_bandwidth_mhz": 12.0,
+  "planned_development_windows_s": [
+    [
+      48.0,
+      80.0
+    ],
+    [
+      176.0,
+      208.0
+    ]
+  ],
+  "planned_reserved_windows_s": [
+    [
+      80.0,
+      112.0
+    ],
+    [
+      208.0,
+      240.0
+    ]
+  ],
+  "analytic_adapter_example": {
+    "envelope_s": [
+      48.0,
+      80.0
+    ],
+    "envelope_amplitude": 1.0,
+    "pulse_times_s": [
+      50.13,
+      54.67,
+      59.12,
+      64.84,
+      71.37,
+      77.42
+    ],
+    "pulse_width_s": 0.012,
+    "pulse_amplitude": 10.0
+  },
+  "network": {
+    "cadence_url": "http://seti.berkeley.edu/opendata/api/get-cadence/--114966",
+    "metadata_byte_limit": 2000000,
+    "timeout_s": 20,
+    "attempts_per_request": 1,
+    "inferred_float_htr_head_labels": [
+      "A1",
+      "B1"
+    ],
+    "head_payload_bytes_permitted": 0
+  },
+  "resource": {
+    "temporary_raw_parent": "/tmp",
+    "free_headroom_bytes_after_one_download": 4000000000,
+    "raw_source_policy": "one at a time; delete on success or failure",
+    "current_phase_spectral_download_bytes": 0
+  },
+  "transfer_calibration_artifact": null,
+  "claims": {
+    "joint_injection_recovery_measured": false,
+    "physical_amplitude_transport_validated": false,
+    "independent_epoch": false,
+    "astronomical_completeness": false,
+    "technosignature": false
+  }
+}

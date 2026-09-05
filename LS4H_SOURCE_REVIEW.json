@@ -1,0 +1,20 @@
+{
+  "artifact_type": "seti_repeater.ls4h_external_source_review",
+  "paper": {
+    "url": "https://arxiv.org/html/1906.07391v3",
+    "finding": "Section II.3 describes conversion from float filterbanks to 8-bit products using sum_fil."
+  },
+  "converter": {
+    "repository": "UCBerkeleySETI/bl_sigproc",
+    "commit": "b98d00e9ec1a683695758eb3544896a92f649a69",
+    "path": "src/sum_fil.c",
+    "git_blob_sha": "518889309f06304bfd7683c252cb9ee1b234b05c",
+    "url": "https://github.com/UCBerkeleySETI/bl_sigproc/blob/b98d00e9ec1a683695758eb3544896a92f649a69/src/sum_fil.c",
+    "observations": [
+      "The quantize function clips at min/max and maps the retained range to 0..255 before unsigned-char conversion.",
+      "The 32-to-8 path derives quantmin/quantmax from a histogram of an initial qlen region and prints the limits.",
+      "The output filterbank header is written before those quantization limits are computed."
+    ],
+    "scope": "This pinned source explains a possible documented conversion; its exact revision, command and min/max values have not been established for the 2017 LS4 files."
+  }
+}
