@@ -1,0 +1,87 @@
+{
+  "sample_count": 120000,
+  "sample_time_s": 0.001,
+  "envelope_s": [
+    30.0,
+    70.0
+  ],
+  "pulse_times_s": [
+    32.13,
+    35.67,
+    41.12,
+    48.84,
+    57.37,
+    64.42
+  ],
+  "pulse_jitter_s": 0.15,
+  "ar1_rho": 0.8,
+  "study": "LS4K synthetic OFF-policy counterexamples",
+  "seeds": [
+    1141100,
+    1141101,
+    1141102,
+    1141103,
+    1141104,
+    1141105,
+    1141106,
+    1141107
+  ],
+  "backgrounds": [
+    "white",
+    "ar1"
+  ],
+  "widths_s": [
+    0.003,
+    0.012,
+    0.1
+  ],
+  "amplitudes_sigma": [
+    4.0,
+    8.0,
+    16.0
+  ],
+  "families": [
+    "signal_clean",
+    "signal_smooth_off",
+    "signal_pulsed_off",
+    "signal_reference_pulse",
+    "null_smooth_off",
+    "isolated_on_smooth_off",
+    "rfi_clone_clean",
+    "rfi_clone_smooth_off"
+  ],
+  "expected_scenario_rows": 1152,
+  "on_plateau_height_sigma": 4.0,
+  "smooth_off": {
+    "height_sigma": 8.0,
+    "center_s": 60.0,
+    "sigma_s": 20.0
+  },
+  "control_time_s": 50.25,
+  "reference_time_s": 15.25,
+  "control_width_s": 0.012,
+  "control_amplitude_sigma": 16.0,
+  "stipulated_on_event": {
+    "score": 12.0,
+    "frequency_start_mhz": 8500.0,
+    "frequency_stop_mhz": 8503.0,
+    "time_start_s": 30.0,
+    "time_stop_s": 70.0
+  },
+  "stipulated_off_event": {
+    "score": 10.0,
+    "frequency_start_mhz": 8496.0,
+    "frequency_stop_mhz": 8508.0,
+    "time_start_s": 32.0,
+    "time_stop_s": 96.0
+  },
+  "stage1_settings": {
+    "on_score_threshold": 8.0,
+    "off_veto_score_threshold": 6.0,
+    "off_veto_frequency_overlap": 0.5
+  },
+  "raw_spectral_access": false,
+  "retune_after_results": false,
+  "end_to_end_completeness": false,
+  "physical_transfer_simulated": false
+}
