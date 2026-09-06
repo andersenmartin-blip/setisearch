@@ -1,6 +1,24 @@
 # SETIsearch
 
-**Latest project update — M43H verifies two widened telescope source products.**
+**Latest project update — M43I qualifies the prescribed scores on real telescope data.**
+The two widened first-epoch ON/OFF sources at 1412.5 MHz pass every frozen
+score comparison for all eight filter widths. For the fixed 1,701-template bank,
+1,442,448 prescribed local cells match the direct native-window reference exactly.
+For two templates selected from factor extrema before evaluation, all 747,793
+support carriers also match: 32 vectors and 23,929,376 comparison cells.
+Gather chunk sizes, local/full overlaps and repeated-channel witnesses agree;
+all 32 native-to-normalized rows pass the sorted reference again. A separate
+receipt-bound telescope source/cache adapter preserves source identity throughout.
+All 64 M43-family tests pass. The protocol, code and exact selections were public
+before this evaluation; all 16 source/width checkpoints and the audited result
+are published. Existing source products were reused with no remote requests.
+This is bounded numerical qualification, with no candidate selection, full-bank
+full-grid search, multi-epoch real-stack validation or new detection threshold.
+Next: exhaustive real anchors for the full bank and wider source/epoch coverage,
+then new stack/detection and null/recovery calibration protocols.
+See [the M43I results and exact validation scope](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43I_TELESCOPE_TRANSFER_RESULT.md).
+
+**Previous project update — M43H verifies two widened telescope source products.**
 The fixed first-epoch ON and OFF observations at 1412.5 MHz now pass the new
 source gate. All 32 telescope integration rows, each containing 1,132,270 native
 channels, match the independent sorted normalization reference exactly.
