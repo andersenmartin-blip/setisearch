@@ -1,6 +1,27 @@
 # SETIsearch
 
-**Latest project update — M43Q connects the complete diagnostic detector path.**
+**Latest project update — M43R measures native-injection recovery with a fixed fresh calibration.**
+All 24 idealized injected signals were recovered through the connected detector:
+eight truths at each nominal active-epoch SNR 8, 32 and 64. The eight zero-level
+endpoints reuse one unmodified background execution and none was recovered.
+The publicly frozen pilot uses 37 templates and 4,097 central score carriers
+(about 11.6 kHz), all eight widths and all four activity subsets. Its 128 new
+calibration shifts had a maximum of 8.340, below the predeclared threshold floor
+of 10; none of 128 separate held-out shifts reached 10 (maximum 8.387).
+Those shifts share one observing sequence and measure correlated pre-veto score
+exceedances, not an independent physical false-alarm probability.
+The signal additions occur before native filtering/gathering and also enter
+receiver signatures; every trial uses the same uninjected threshold certificate.
+All 3,751,800 cropped ON scores exactly reproduce the retained native-cache
+anchors. Twelve focused tests pass; unchanged earlier evidence is reused.
+The successful calculation took 206 seconds and required no new telescope data.
+Results include all 32 endpoints, 3,826 compact member decisions, source-overlay
+receipts, null maxima and logs. No astronomical candidate or full-search
+completeness claim follows. Next: weaker and more realistic injected signals,
+additional carriers and off-template truths under a new prospective freeze.
+See [the M43R results and reproducibility](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43R_JOINT_CALIBRATION_RESULT.md).
+
+**Previous project update — M43Q connects the complete diagnostic detector path.**
 The Cartesian bank now has an explicit catalogue bridge into retention and
 physical-disposition logic; all 163,296 factors for its 1,701 templates remain
 bit-identical. One entry point connects masks, threshold handoff, exhaustive
