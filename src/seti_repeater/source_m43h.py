@@ -251,6 +251,10 @@ def extract_remote(root,scan_label,window,directory,mirror_root,*,spectral_acces
     from .transport_m43h import BoundedMirror, live_identity
     import h5py
     import hdf5plugin  # Registers the archive compression filter.
+    import importlib.metadata
+    runtime={'numpy':np.__version__,'h5py':h5py.__version__,'hdf5':h5py.version.hdf5_version,
+             'hdf5plugin':importlib.metadata.version('hdf5plugin')}
+    if runtime!=cfg['hdf5_runtime']:raise ValueError('qualified HDF5 runtime differs')
     identity=live_identity(definition['url'])
     if identity.size!=definition['expected_remote_size_bytes'] or identity.etag!=definition['expected_etag']:
         raise ValueError('live remote size/ETag mismatch')
@@ -260,6 +264,8 @@ def extract_remote(root,scan_label,window,directory,mirror_root,*,spectral_acces
         mirror.seek(0)
         with h5py.File(mirror,'r',rdcc_nbytes=HDF5_CACHE_BYTES) as handle:
             dataset=validate_dataset(handle,scope)
+            creation=dataset.id.get_create_plist()
+            filters=[list(creation.get_filter(i)[:3]) for i in range(creation.get_nfilters())]
             ranges=old_transport.discover_hdf5_chunk_ranges(dataset,(tuple(interval),))
             plan=old_transport.range_plan_record(identity,dataset_shape=dataset.shape,dataset_chunks=dataset.chunks,channel_intervals=(tuple(interval),),ranges=ranges)
         plan_path=mirror_root/(scan_label+'.'+window+'.range-plan.json')
@@ -270,7 +276,8 @@ def extract_remote(root,scan_label,window,directory,mirror_root,*,spectral_acces
         if any(old_transport._subtract_covered(r,mirror.covered_ranges) for r in ranges):raise ValueError('planned chunks not checkpointed')
         checkpoint=json.loads(mirror.checkpoint_path.read_text())
         proof={'kind':'live-identity-bound-http-ranges','identity':identity.record(),
-               'range_plan_file_sha256':plan_sha,'checkpoint':checkpoint}
+               'range_plan_file_sha256':plan_sha,'checkpoint':checkpoint,'hdf5_runtime':runtime,
+               'dataset_filters':filters}
         receipt=_complete(directory,scope,rows,proof)
     rehydrate(directory,receipt['receipt_sha256'])
     return receipt,{'resumed_rows':resumed,'range_plan':plan,'source_directory':str(directory)}

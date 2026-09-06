@@ -6,9 +6,14 @@ from . import http_range_v0p6 as old
 MAX_REQUEST=8*1024**2
 MAX_READ=32*1024**2
 TIMEOUT=30.
+COUNTERS={'head_attempts':0,'head_completed':0,'range_attempts':0,'range_completed':0,'accepted_range_bytes':0}
 
 
-def live_identity(url):return old.remote_identity(url,timeout=TIMEOUT)
+def live_identity(url):
+    COUNTERS['head_attempts']+=1
+    identity=old.remote_identity(url,timeout=TIMEOUT)
+    COUNTERS['head_completed']+=1
+    return identity
 
 
 class BoundedMirror(old.SparseRangeMirror):
@@ -30,6 +35,7 @@ class BoundedMirror(old.SparseRangeMirror):
 
     def _request(self,interval):
         if interval.length>MAX_REQUEST:raise ValueError('request exceeds bound')
+        COUNTERS['range_attempts']+=1
         req=Request(self.identity.url,headers={'User-Agent':'setisearch-m43h/1.0',
             'Range':f'bytes={interval.start}-{interval.stop-1}','If-Range':self.identity.etag,'Accept-Encoding':'identity'})
         with urlopen(req,timeout=TIMEOUT) as response:
@@ -42,6 +48,7 @@ class BoundedMirror(old.SparseRangeMirror):
                 raise ValueError('HTTP identity/range mismatch before body read')
             payload=response.read(interval.length+1)
         if len(payload)!=interval.length:raise ValueError('HTTP payload length mismatch')
+        COUNTERS['range_completed']+=1;COUNTERS['accepted_range_bytes']+=len(payload)
         return payload
 
     def read(self,size=-1):
