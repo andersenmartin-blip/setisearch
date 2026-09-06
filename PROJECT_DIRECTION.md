@@ -29,3 +29,11 @@ Future LS return points include independently useful observations, better
 conjunction qualification, or a separately scoped instrumental diagnostic.
 There is no fixed calendar deadline for a discovery and no promise of
 unattended computation between active sessions.
+
+Working cadence, owner clarification after M43O: reduce the number of small
+control milestones and approval stops. Combine related implementation,
+known-answer tests and predeclared real-data anchors into larger useful steps.
+Reuse completed evidence for unchanged arithmetic; repeat a large census only
+when a concrete remaining risk requires it. Prioritize an integrated detector
+and jointly planned null/native-injection calibration. Preserve prospective
+scientific freezes and clear claim boundaries while simplifying the workflow.
