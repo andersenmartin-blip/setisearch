@@ -1,6 +1,25 @@
 # SETIsearch
 
-**Latest project update — M43N completes scores on the remaining epoch pairs.**
+**Latest project update — M43O verifies real three-epoch sum and active-cut logic.**
+All 162,815,474,304 prescribed stack comparisons match a separate reference:
+81,407,737,152 raw sums and the same number with the inherited >=3 active-epoch
+requirement. ON and OFF are kept separate and in chronological epoch order.
+All four activity subsets, 1,701 templates, 747,793 support carriers and eight
+widths pass in 16 complete products and 864 template batches. Every input batch
+first reproduces its M43J/L/N digest, covering 61,055,802,864 replayed per-epoch
+cells. All 85 M43-family tests and the 28-file artifact manifest pass. The
+protocol was public before evaluation; a documented approval block deferred
+public checkpoint uploads while the numerical run completed locally. The full
+result package, source/score lineage and publication-block record are provided.
+This qualifies sum arithmetic and the existing active cut with exclusion masks
+absent. Finite active-cut counts are correlated numerical diagnostics, not
+candidates or false-alarm estimates. The three epochs are scans in one sequence.
+Next: exclusion masks, event association, OFF-veto and scramble/detection logic,
+then separately frozen null and injection/recovery calibration. No candidate
+selection or scientific nondetection is established by this numerical check.
+See [the M43O results, exact scope and reproducibility](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43O_REAL_STACKS_RESULT.md).
+
+**Previous project update — M43N completes scores on the remaining epoch pairs.**
 All 40,703,868,576 prescribed integrated score cells on the four M43M telescope
 sources at 1412.5 MHz exactly match the separate factorized reference. Each
 source covers all 1,701 templates, 747,793 support carriers and eight filter
