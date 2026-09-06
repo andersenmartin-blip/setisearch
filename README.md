@@ -1,6 +1,21 @@
 # SETIsearch
 
-**Latest project update — M43I qualifies the prescribed scores on real telescope data.**
+**Latest project update — M43J exhausts the real bank/carrier domain at width one.**
+All 1,701 templates now match the direct native-window reference at every one
+of the 747,793 support carriers for both first-epoch ON/OFF sources at 1412.5 MHz.
+The complete width-one check covers 3,402 full-support vectors and 2,543,991,786
+score cells, with exact equality in all 108 batches. Source/cache identities and
+the two overlapping M43I template vectors also reproduce exactly. All 68
+M43-family unit tests pass. The protocol and code were public before evaluation;
+all batch checkpoints, final results and audited checksums are published.
+This closes the bank/carrier combinations that M43I had sampled only locally,
+at native width one. Wider filters retain their earlier M43I validation scope.
+No candidates were selected, and this is not a calibrated search or scientific
+nondetection. Exhaustive wider-filter coverage, additional observation epochs,
+real stack validation and newly frozen null/recovery calibration remain ahead.
+See [the M43J exhaustive results and scope](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43J_EXHAUSTIVE_ANCHORS_RESULT.md).
+
+**Previous project update — M43I qualifies the prescribed scores on real telescope data.**
 The two widened first-epoch ON/OFF sources at 1412.5 MHz pass every frozen
 score comparison for all eight filter widths. For the fixed 1,701-template bank,
 1,442,448 prescribed local cells match the direct native-window reference exactly.
