@@ -1,6 +1,27 @@
 # SETIsearch
 
-**Latest project update — M43R measures native-injection recovery with a fixed fresh calibration.**
+**Latest project update — M43S identifies loss of strong injected signals in the isolation mask.**
+The completed 96-run profile-sensitivity pilot reuses M43R's threshold of 10.
+Ideal signals are recovered in 1/8 cases at strength 6 and 8/8 at strengths
+8, 12 and 32. Fractional, slightly off-template, smeared signals are recovered
+in 0/8 cases through strength 8 and 4/8 at both 12 and 32. Two signals recovered
+at 12 disappear at 32. A labelled retrospective replay explains all four
+strongest-level misses: the original isolation mask removes every associated
+above-threshold cell (31 per case), despite best unmasked scores of 24.8–26.1.
+This is a sensitivity limitation of the rule, not a changed arithmetic result.
+Removing the mask diagnostically is not a calibrated alternative detector.
+The next step is a prospectively frozen mask comparison with fresh null and
+paired injection calibration. No astronomical candidate is claimed.
+
+There are 112 endpoints, including 16 explicit reuses of one zero-level baseline,
+and 1,069 compact member decisions. All ten focused tests and 113 artifact
+checksums pass. The 37-template sample cannot represent the full bank: its
+literal midpoint geometry lacks 20 Hz support, so the supported perturbations
+were chosen from metadata before the public freeze. All original endpoints and
+results remain intact. Computation took 556.5 seconds, with no new nulls or data
+requests. See [the M43S results, loss diagnosis and reproducibility](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43S_PROFILE_SENSITIVITY_RESULT.md).
+
+**Previous project update — M43R measures native-injection recovery with a fixed fresh calibration.**
 All 24 idealized injected signals were recovered through the connected detector:
 eight truths at each nominal active-epoch SNR 8, 32 and 64. The eight zero-level
 endpoints reuse one unmodified background execution and none was recovered.
@@ -1752,3 +1773,4 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 The extracted telescope slices are not included in the distributable archive;
 the extractor and checksum manifest reproduce and verify them from public URLs.
+
