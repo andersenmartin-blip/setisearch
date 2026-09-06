@@ -1,0 +1,17 @@
+fatal: path 'config/m43r_joint_calibration.json' exists on disk, but not in 'a21197fb0b0169b1b7e576b7d9aea2190ef08a5a'
+Traceback (most recent call last):
+  File "/workspace/scratch/19793b4e23ff/setisearch/scripts/m43r_joint_calibration.py", line 156, in <module>
+    p.add_argument('--source-root',type=Path,required=True);a=p.parse_args();run(a.anchor_root,a.source_root,a.freeze_commit)
+                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/19793b4e23ff/setisearch/scripts/m43r_joint_calibration.py", line 83, in run
+    cfg=frozen(freeze);started=time.monotonic();OUT.mkdir(exist_ok=True)
+        ^^^^^^^^^^^^^^
+  File "/workspace/scratch/19793b4e23ff/setisearch/scripts/m43r_joint_calibration.py", line 38, in frozen
+    if subprocess.check_output(['git','show',commit+':config/m43r_joint_calibration.json'],cwd=ROOT)!=CONFIG.read_bytes():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'show', 'a21197fb0b0169b1b7e576b7d9aea2190ef08a5a:config/m43r_joint_calibration.json']' returned non-zero exit status 128.
