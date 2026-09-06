@@ -1,6 +1,21 @@
 # SETIsearch
 
-**Latest project update — M43D improves geometric coverage but fails its preselected confirmation gate.**
+**Latest project update — M43E qualifies a smaller bank in a fresh geometric test.**
+The preselected 1,701-template checkerboard bank supports 1,016, 1,011,
+1,014 and 1,011 of 1,024 fresh tracks across the four activity patterns
+(98.73–99.22%), passing the frozen 95% requirement in every group. Its
+nomination was public before fresh evaluation. It has 48.47% fewer score
+cells than the 3,301-template bank; this is not a measured runtime speedup.
+All 2,560 M43D associations reproduce exactly. The largest bank's four old
+failures concern one track requiring an out-of-range carrier. All failures
+remain in the denominators. All 26 relevant tests pass; the final audit
+verifies 21,580 support witnesses and 99 best diagnostic fits.
+No new spectra, injections or scores were evaluated, and no production
+bank or threshold changed. Next: source/cache coverage, score validation,
+exhaustive real-data anchors and renewed calibration for the fixed bank.
+See [the M43E fresh result, coverage diagnosis and costs](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43E_ECONOMICAL_BANK_RESULT.md).
+
+**Previous project update — M43D improves geometric coverage but fails its preselected confirmation gate.**
 All 512 historical M43B plans and baseline carrier/template pairs reproduce
 exactly. Nested coefficient-disk banks raise historical support from 167/512
 (93 templates) to 506/512 (889) and 512/512 (3,301). The preselected 889-template
