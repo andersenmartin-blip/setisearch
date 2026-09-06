@@ -1,6 +1,21 @@
 # SETIsearch
 
-**Latest project update — M43L completes wider integrated-score anchors.**
+**Latest project update — M43M completes the three-pair source inventory.**
+Four additional widened telescope products at 1412.5 MHz pass the unchanged
+M43H source gate. All 64 new normalized rows match the independently sorted
+reference exactly. Each finished-source restart reuses all 16 rows, preserves
+the receipt identity and makes zero new range requests. Together with the two
+reverified M43H products, six sources now provide 96 integration rows across
+three ON/OFF pairs in the same observing sequence. All four extractions pass
+on their first attempt; 384 range responses deliver 1,828,632,238 accepted bytes.
+All 78 M43-family tests and the 23-file result manifest pass. The protocol was
+public before spectral access; full source receipts, exact range plans,
+checkpoints and the audited report are published. This expands verified source
+coverage. Additional-epoch score checks, real multi-epoch stacking and fresh
+null/recovery calibration remain; no new score cells or candidates were evaluated.
+See [the M43M source results and scope](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43M_EPOCH_SOURCES_RESULT.md).
+
+**Previous project update — M43L completes wider integrated-score anchors.**
 All 17,807,942,502 integrated cells match a separately constructed factorized
 reference exactly: 1,701 templates × 747,793 support carriers × seven wider
 filters × both first-epoch ON/OFF sources at 1412.5 MHz. All 756 batches pass.
