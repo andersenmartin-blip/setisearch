@@ -1,3 +1,20 @@
+# M43S publication resolved
+
+The complete M43S result package is public in commit
+`dbbd430cf350d14a601aeed73949db6c50438469` on `m43-support-qualification`.
+Its tree `32f91d4727f86bbee983b5cb51b3a588d408eb80` exactly matches the saved
+continuation package, whose 113 artifact checksums were verified.
+The main README now links the result report in commit
+`6fa615a7a8738f8e4dd3ca40a8b70f1fd7df8d5b`.
+No trial reruns or scientific result changes were needed for publication.
+
+The block record below is retained as historical provenance. Its pending status
+and restart instructions are superseded by this resolution; do not republish or
+rerun the completed M43S package. The next scientific step remains a prospective
+isolation-mask comparison with fresh null calibration and paired injections.
+
+---
+
 # M43S complete locally; publication blocked by approval-review context failure
 
 The owner has repeatedly authorized autonomous analysis, publication of results
