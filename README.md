@@ -1,6 +1,24 @@
 # SETIsearch
 
-**Latest project update — M43P combines masks, scramble wiring and sparse OFF controls.**
+**Latest project update — M43Q connects the complete diagnostic detector path.**
+The Cartesian bank now has an explicit catalogue bridge into retention and
+physical-disposition logic; all 163,296 factors for its 1,701 templates remain
+bit-identical. One entry point connects masks, threshold handoff, exhaustive
+ON/OFF retention, OFF-track and paired-OFF rejection, native receiver signatures,
+receiver aliases and rank-p evidence. All 165 tests pass, including a nonempty
+whole-pipeline fixture with six prescribed member outcomes. All 144 fixed real
+native receiver measurements match independent window/peak references.
+The real run reuses the 37 M43P template anchors and their four scramble rows;
+its global maxima reproduce the retained M43P values. No ON or OFF members
+met the diagnostic threshold of about 276.776. This is an integration check, not a
+scientific nondetection. Four nulls cannot establish a rank p below 0.2.
+The initial reference-rounding and JSON-seal failures are preserved alongside
+the publicly frozen amendment; production scoring and rejection rules did not
+change. Next: a jointly frozen fresh null and native-injection programme using
+the connected path. No full-bank spectral search or measured recovery is claimed.
+See [the M43Q results, retained failure and reproducibility](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43Q_INTEGRATED_DETECTOR_RESULT.md).
+
+**Previous project update — M43P combines masks, scramble wiring and sparse OFF controls.**
 The new sparse M43I adapter supports repeated native-channel mappings and
 preserves request order and duplicates. All 734,832 sparse score comparisons
 match independent native windows across all 1,701 templates, six scans and
