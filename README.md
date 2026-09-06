@@ -1,6 +1,23 @@
 # SETIsearch
 
-**Latest project update — M43F identifies the source and channel-mapping changes needed for the qualified bank.**
+**Latest project update — M43G qualifies the synthetic numerical adapter after a documented integrity repair.**
+The new adapter handles the wider M43F geometries and repeated native channels
+while preserving all proxy carriers and the fixed 1,701-template M43E bank.
+All 480 full-size synthetic integration rows match sorted median/MAD normalization
+exactly. Across all five windows, six scans and eight widths, 21,636,720 prescribed
+local score cells match a direct native-window reference. At 1412.5 MHz, 24
+selected template/scan/width vectors exhaust all 747,793 support carriers:
+17,947,032 cells match exactly, including chunk and local/full comparisons.
+All 320 diagnostic ON/OFF epoch-stack vectors also match their reference.
+All 44 M43-family tests pass. The first freeze failed a same-byte dtype
+reinterpretation check; that failure remains published. A publicly frozen repair
+checks dtype, shape, layout and source identity before the completed rerun.
+This is synthetic numerical qualification, with no telescope spectral reads,
+recovery measurement or new detection threshold. Next: a separately attested
+widened telescope source factory, then real-data anchors and null calibration.
+See [the M43G result, exact test scope and integrity repair](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43G_SYNTHETIC_TRANSFER_RESULT.md).
+
+**Previous project update — M43F identifies the source and channel-mapping changes needed for the qualified bank.**
 The fixed 1,701-template M43E bank exceeds the old extraction in all 30
 scan/window pairs. Proposed intervals with 23.13–23.85% more native channels
 cover the full bank, including the widest filter. They exceed the old
