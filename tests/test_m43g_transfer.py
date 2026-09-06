@@ -81,6 +81,15 @@ class TransferTests(unittest.TestCase):
         for width in (True,2,131):
             with self.assertRaises(ValueError):new.build_synthetic_cache(s,f,grid,width,bank_sha256='1'*64)
 
+    def test_same_bytes_changed_dtype_shape_or_geometry_rejected(self):
+        g,raw,grid,f,s = self.fixture()
+        c = new.build_synthetic_cache(s,f,grid,1,bank_sha256='1'*64)
+        altered = (replace(c,values=c.values.view('<u4')),
+                   replace(c,values=c.values.reshape(1,-1)),
+                   replace(c,source=replace(s,geometry=core.NativeFrequencyGeometry(101.,1.,8201))))
+        for bad in altered:
+            with self.assertRaises(ValueError):new.gather_bank_slice(bad,0,5)
+
     def test_coverage_and_memory_fail_before_reader(self):
         g,raw,grid,f,s = self.fixture()
         out = core.make_proxy_carrier_grid(.02,1.,30,4)

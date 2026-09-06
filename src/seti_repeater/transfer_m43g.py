@@ -12,7 +12,7 @@ from . import search_v0p6 as core
 from . import source_v0p6 as legacy
 
 CONTRACT = {
-    "version": "m43g-synthetic-transfer-v1",
+    "version": "m43g-synthetic-transfer-v2",
     "source_scope": "synthetic-only; no telescope provenance or threshold",
     "orientation": "ascending physical frequency before normalization",
     "normalization": "legacy float32 median/MAD in 4096-channel blocks",
@@ -23,6 +23,7 @@ CONTRACT = {
     "integration": "ascending row order float32 sum / float32 sqrt(n)",
     "memory_cap_bytes": 512 * 1024**2,
     "filter_chunk_channels": 16384,
+    "cache_validation": "verify source, dtype, shape, C layout, immutable flags, identities and payload hash",
 }
 CONTRACT_SHA256 = hashlib.sha256(core.canonical_json_bytes(CONTRACT)).hexdigest()
 
@@ -178,6 +179,17 @@ def gather_bank_slice(cache, start, stop, *, template_indices=None, chunk_bins=4
     """
     if not isinstance(cache, SyntheticCache):
         raise ValueError("synthetic cache type required")
+    validate_source(cache.source)
+    if (type(cache.width) is not int or cache.width not in core.M37_SPECTRAL_WIDTHS
+            or cache.values.dtype != np.dtype("<f4")
+            or cache.values.shape != (cache.source.integration_count,
+                                      cache.source.geometry.channel_count-2*(cache.width//2))
+            or not cache.values.flags.c_contiguous
+            or cache.factors.dtype != np.dtype("<f8")
+            or cache.factors.ndim != 2 or not cache.factors.shape[0]
+            or cache.factors.shape[1] != cache.source.integration_count
+            or not cache.factors.flags.c_contiguous):
+        raise ValueError("synthetic cache dtype, shape or layout mismatch")
     expected = digest({"contract": CONTRACT_SHA256, "source": cache.source.identity,
                        "bank": cache.bank_sha256, "factors": core.factor_table_sha256(cache.factors),
                        "grid": core.proxy_carrier_grid_sha256(cache.grid), "width": cache.width,

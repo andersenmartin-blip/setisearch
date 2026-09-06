@@ -1,5 +1,23 @@
 # M43G: fixed-bank synthetic numerical transfer qualification
 
+## Public integrity amendment before the completed evaluation
+
+The initial public freeze `0165b67ec77992ac291d7d49914165dc24bec574` failed an
+additional adversarial integrity fixture: viewing an immutable float32 cache as
+uint32 preserved its byte hash but changed its scores, and the cache use path
+accepted it. The incomplete full-size run was interrupted. The exact counterexample
+and progress log are preserved in `results_m43g_synthetic_transfer`.
+
+Version 2 requires cache dtype, shape and C layout as well as immutable flags and
+hashes, and revalidates source metadata/payload before use. A regression test also
+covers same-byte reshaping and altered source geometry. Publish this amendment,
+failure receipt and revised code/configuration before restarting all evaluations.
+Seeds, source intervals, bank, factors, carrier selections, thresholds used in
+arithmetic fixtures, and exact-equality criteria are unchanged. This is a transparent
+implementation repair, not independent fresh confirmation or a passed initial run.
+
+## Original scope and evaluation (unchanged)
+
 Publish this plan, adapter, independent reference, executable, tests and hash-pinned
 configuration before evaluating full-size synthetic sources with the M43E factors.
 M43F exposed inadequate extraction width and forbidden duplicate native mappings.
