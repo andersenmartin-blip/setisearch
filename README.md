@@ -1,6 +1,22 @@
 # SETIsearch
 
-**Latest project update — M43G qualifies the synthetic numerical adapter after a documented integrity repair.**
+**Latest project update — M43H verifies two widened telescope source products.**
+The fixed first-epoch ON and OFF observations at 1412.5 MHz now pass the new
+source gate. All 32 telescope integration rows, each containing 1,132,270 native
+channels, match the independent sorted normalization reference exactly.
+Source receipts bind the live URL/size/ETag, HDF5 header, exact widened interval,
+raw and normalized rows, range plan and verified transport checkpoint.
+All 55 M43-family tests pass. Full-size local fixtures qualify interruption and
+restart; additional gzip and Bitshuffle/LZ4 files qualify the HDF5 integration.
+The required packages became available after an initial installation interruption;
+the qualified runtime and live amendment were public before telescope access.
+Both source receipts were rehydrated and audited, and a first-source checkpoint
+was published while the OFF extraction ran. No signal-track scores, recovery
+measurement or new threshold were produced. Next: separately attested real-data
+cache/score anchors for the fixed bank, then renewed null calibration.
+See [the M43H telescope-source results and verification scope](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43H_WIDENED_SOURCE_RESULT.md).
+
+**Previous project update — M43G qualifies the synthetic numerical adapter after a documented integrity repair.**
 The new adapter handles the wider M43F geometries and repeated native channels
 while preserving all proxy carriers and the fixed 1,701-template M43E bank.
 All 480 full-size synthetic integration rows match sorted median/MAD normalization
