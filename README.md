@@ -1,6 +1,22 @@
 # SETIsearch
 
-**Latest project update — M43O verifies real three-epoch sum and active-cut logic.**
+**Latest project update — M43P combines masks, scramble wiring and sparse OFF controls.**
+The new sparse M43I adapter supports repeated native-channel mappings and
+preserves request order and duplicates. All 734,832 sparse score comparisons
+match independent native windows across all 1,701 templates, six scans and
+eight widths at fixed diagnostic coordinates. The first and last retained
+batches (37 templates) reproduce their full-support ancestor hashes, then pass
+166,010,046 mask-bit and 1,770,470,720 masked-stack comparisons. Four fixed
+scrambles per template/kind reproduce 296 maxima; 381,024 paired-OFF decisions
+match the inherited inclusive 5.5 rule. All 158 combined tests pass.
+This is one-window component qualification. The 37 full-support anchors are
+a template sample; the four scrambles are wiring checks, not a calibrated
+null distribution. Final M43 retention/evidence integration, fresh thresholds
+and native injection/recovery measurements remain. No candidate or scientific
+nondetection is established. Related controls are now grouped into larger steps.
+See [the M43P results, scope and reproducibility](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43P_COMBINED_CONTROLS_RESULT.md).
+
+**Previous project update — M43O verifies real three-epoch sum and active-cut logic.**
 All 162,815,474,304 prescribed stack comparisons match a separate reference:
 81,407,737,152 raw sums and the same number with the inherited >=3 active-epoch
 requirement. ON and OFF are kept separate and in chronological epoch order.
