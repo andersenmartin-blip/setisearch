@@ -1,6 +1,22 @@
 # SETIsearch
 
-**Latest project update — M43E qualifies a smaller bank in a fresh geometric test.**
+**Latest project update — M43F identifies the source and channel-mapping changes needed for the qualified bank.**
+The fixed 1,701-template M43E bank exceeds the old extraction in all 30
+scan/window pairs. Proposed intervals with 23.13–23.85% more native channels
+cover the full bank, including the widest filter. They exceed the old
+source-product limits and shift normalization block alignment, requiring a
+separately validated source/normalization adapter and new cache identities.
+Neighboring search carriers can also map to the same native channel:
+all 30 checked collision pairs remain inside valid coverage after widening,
+so the old strict-injectivity rule needs an explicit replacement.
+All 33 M43-family tests pass. The frozen preflight reproduces byte-for-byte;
+240 scan/window/filter inventories and 30 complete mapping witnesses were
+rechecked. No new spectra, injections or scores were evaluated, and M43E's
+geometric qualification remains unchanged. Next: qualify the new adapter
+with synthetic score comparisons, then real-data anchors and calibration.
+See [the M43F source requirements and mapping result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43F_SOURCE_CACHE_PREFLIGHT_RESULT.md).
+
+**Previous project update — M43E qualifies a smaller bank in a fresh geometric test.**
 The preselected 1,701-template checkerboard bank supports 1,016, 1,011,
 1,014 and 1,011 of 1,024 fresh tracks across the four activity patterns
 (98.73–99.22%), passing the frozen 95% requirement in every group. Its
