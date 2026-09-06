@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """M43L exhaustive wider integrated scores, seven bounded numerical processes."""
 import argparse
-from concurrent.futures import ProcessPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import hashlib
 import json
-import multiprocessing as mp
+import sys
+import tempfile
 from pathlib import Path
 import subprocess
 import time
@@ -113,13 +114,39 @@ def width_job(width,work_root,freeze,abort):
         raise
 
 
+class FileAbort:
+    """Cooperative stop marker; no listening socket or shared-memory service."""
+    def __init__(self,path):self.path=Path(path)
+    def is_set(self):return self.path.exists()
+    def set(self):self.path.write_text('stop after peer failure\n')
+
+
+def run_child(width,work_root,freeze,abort_path):
+    abort=FileAbort(abort_path)
+    command=[sys.executable,str(Path(__file__).resolve()),'--work-root',str(work_root),
+        '--freeze-commit',freeze,'--width',str(width),'--abort-file',str(abort_path)]
+    child=subprocess.run(command,check=False)
+    if child.returncode:
+        abort.set();raise RuntimeError(f'width {width} worker exited {child.returncode}')
+    cfg,config_sha=frozen_inputs(freeze);results=[]
+    for anchor in cfg['anchors']:
+        label=anchor['scan'];target=OUT/f'{label}.width{width:03d}.json';done=read_sealed(target)
+        if (done['complete'] is not True or done['freeze_commit']!=freeze or done['config_sha256']!=config_sha
+                or done['scan']!=label or done['width']!=width):raise RuntimeError('completed child identity differs')
+        results.append({'scan':label,'width':width,'checkpoint':str(target.relative_to(ROOT)),
+            'checkpoint_sha256':done['result_sha256'],'source_identity':done['source_identity'],
+            'cache_identity':done['cache_identity'],'cells_compared':done['cells_compared'],
+            'batch_count':len(done['batches']),'m43k_native_reference_exact':done['m43k_native_reference_exact'],
+            'm43i_full_vectors_exact':done['m43i_full_vectors_exact']})
+    return results
+
+
 def run(work_root,freeze):
     cfg,config_sha=frozen_inputs(freeze);OUT.mkdir(exist_ok=True);started=time.monotonic();results=[]
-    context=mp.get_context('spawn')
-    with context.Manager() as manager:
-        abort=manager.Event()
-        with ProcessPoolExecutor(max_workers=cfg['workers'],mp_context=context) as pool:
-            jobs=[pool.submit(width_job,w,str(work_root),freeze,abort) for w in cfg['widths']]
+    with tempfile.TemporaryDirectory(prefix='m43l-control-') as control:
+        abort_path=Path(control)/'abort';abort=FileAbort(abort_path)
+        with ThreadPoolExecutor(max_workers=cfg['workers']) as pool:
+            jobs=[pool.submit(run_child,w,work_root,freeze,abort_path) for w in cfg['widths']]
             try:
                 for job in as_completed(jobs):results.extend(job.result())
             except BaseException:
@@ -131,7 +158,8 @@ def run(work_root,freeze):
     expected=[(a['scan'],w) for a in cfg['anchors'] for w in cfg['widths']]
     if [(r['scan'],r['width']) for r in results]!=expected:raise RuntimeError('source/width inventory differs')
     result=write_sealed(OUT/'qualification.json',{'milestone':'M43L','status':'all-wider-integrated-real-anchors-qualified',
-        'freeze_commit':freeze,'config_sha256':config_sha,'m43i_result_sha256':cfg['m43i_result_sha256'],
+        'freeze_commit':freeze,'config_sha256':config_sha,'initial_freeze':cfg['initial_freeze'],
+        'runtime_amendment':cfg['runtime_amendment'],'m43i_result_sha256':cfg['m43i_result_sha256'],
         'm43j_result_sha256':cfg['m43j_result_sha256'],'m43k_result_sha256':cfg['m43k_result_sha256'],
         'bank_sha256':cfg['bank_sha256'],'factor_table_sha256':cfg['factor_table_sha256'],'grid_sha256':cfg['grid_sha256'],
         'numpy_version':np.__version__,'checks':results,'summary':{'sources':len(cfg['anchors']),'widths':cfg['widths'],
@@ -145,4 +173,9 @@ def run(work_root,freeze):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--work-root',type=Path,required=True);p.add_argument('--freeze-commit',required=True)
-    args=p.parse_args();run(args.work_root,args.freeze_commit)
+    p.add_argument('--width',type=int);p.add_argument('--abort-file',type=Path)
+    args=p.parse_args()
+    if args.width is None:run(args.work_root,args.freeze_commit)
+    else:
+        if args.abort_file is None:p.error('--width requires --abort-file')
+        width_job(args.width,args.work_root,args.freeze_commit,FileAbort(args.abort_file))
