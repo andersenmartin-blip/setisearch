@@ -1,6 +1,22 @@
 # SETIsearch
 
-**Latest project update — M43K verifies every wider native-filter value.**
+**Latest project update — M43L completes wider integrated-score anchors.**
+All 17,807,942,502 integrated cells match a separately constructed factorized
+reference exactly: 1,701 templates × 747,793 support carriers × seven wider
+filters × both first-epoch ON/OFF sources at 1412.5 MHz. All 756 batches pass.
+Each independent native reference reproduces M43K's complete row/payload digests,
+and the full overlapping M43I template vectors also match. With M43J's width-one
+result, all eight widths cover 20,351,934,288 evaluated integrated cells on these
+two sources. All 76 M43-family tests pass. An initial manager-socket startup
+failure occurred before telescope evaluation; the preserved failure and a tested
+ordinary-process/file-stop amendment were public before the successful run.
+All 14 completed source/width checkpoints and the audited result are published.
+This finishes numerical bank/carrier/width coverage for one window and one epoch
+pair. Additional real epochs, stack/detection validation and fresh null/recovery
+calibration remain before candidate interpretation. No candidates were selected.
+See [the M43L results, runtime amendment and scope](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43L_WIDER_INTEGRATED_RESULT.md).
+
+**Previous project update — M43K verifies every wider native-filter value.**
 All 253,620,352 valid native filter values at widths 3, 5, 9, 17, 33, 65 and 129
 match a separately accessed direct-window reference exactly on the two existing
 first-epoch ON/OFF telescope sources at 1412.5 MHz. All 224 row/width checks pass,
