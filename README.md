@@ -1,6 +1,22 @@
 # SETIsearch
 
-**Latest project update — M43J exhausts the real bank/carrier domain at width one.**
+**Latest project update — M43K verifies every wider native-filter value.**
+All 253,620,352 valid native filter values at widths 3, 5, 9, 17, 33, 65 and 129
+match a separately accessed direct-window reference exactly on the two existing
+first-epoch ON/OFF telescope sources at 1412.5 MHz. All 224 row/width checks pass,
+including extraction edges and processing boundaries. The full bank's mapped
+native centers lie inside that audited domain. Source/cache identities remain
+identical to M43I, and its 1,262,142 prescribed local integrated cells reproduce.
+All 72 M43-family tests pass. The protocol was public before evaluation; the
+14 source/width checkpoints, complete result and audited checksums are published.
+M43K exhausts native filtering; M43J exhausts integrated scores at width one.
+Wider full-bank integrated vectors have not all been enumerated. These are
+complementary numerical checks, with no candidate selection or new calibration.
+Next: remaining wider integrated-score qualification, additional real epochs,
+then full stack/detection validation and newly frozen null/recovery calibration.
+See [the M43K results and comparison of validation scopes](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43K_NATIVE_FILTERS_RESULT.md).
+
+**Previous project update — M43J exhausts the real bank/carrier domain at width one.**
 All 1,701 templates now match the direct native-window reference at every one
 of the 747,793 support carriers for both first-epoch ON/OFF sources at 1412.5 MHz.
 The complete width-one check covers 3,402 full-support vectors and 2,543,991,786
