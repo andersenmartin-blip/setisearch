@@ -1,5 +1,6 @@
 """Prepare metadata-only scope and known-answer identity for M43Q."""
 import json
+import platform
 import numpy as np
 from m43q_integrated_detector import ROOT,CONFIG,sha
 from m43q_fixture import run_fixture
@@ -17,10 +18,11 @@ def main():
     paths=set(p['pinned_sha256'])
     paths.update(x.relative_to(ROOT).as_posix() for x in (ROOT/'src').rglob('*.py'))
     paths.update(x.relative_to(ROOT).as_posix() for x in (ROOT/'results_m43p_combined_controls').glob('*.json'))
+    paths.update(x.relative_to(ROOT).as_posix() for x in (ROOT/'results_m43q_integrated_detector/initial_attempt').iterdir() if x.is_file())
     paths.update(['config/m43p_combined_controls.json','MILESTONE_43Q_INTEGRATED_DETECTOR_PLAN.md',
         'scripts/m43q_integrated_detector.py','scripts/m43q_fixture.py','scripts/m43q_freeze_config.py',
-        'tests/test_m43q_detector.py','results_m43q_integrated_detector/unit_tests.txt'])
-    cfg={'milestone':'M43Q','numpy_version':np.__version__,'window':p['window'],
+        'tests/test_m43q_detector.py','results_m43q_integrated_detector/unit_tests.txt','MILESTONE_43Q_AMENDMENT.md'])
+    cfg={'milestone':'M43Q','numpy_version':np.__version__,'python_version':platform.python_version(),'window':p['window'],
         'parent_template_indices':selected,'support_carriers':p['support_carriers'],'score_carriers':p['score_carriers'],
         'bridge':bridge,'full_bank_bridge':full_bridge,'synthetic_result_sha256':synthetic['result_sha256'],
         'scramble_shifts':p['scramble_shifts'],'minimum_shift_bins':p['minimum_shift_bins'],

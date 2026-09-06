@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import subprocess
 import time
+import platform
 import numpy as np
 from m43e_economical_bank import read_sealed,write_sealed
 from m43f_source_cache_preflight import build_context
@@ -30,8 +31,22 @@ def frozen(commit):
         raise ValueError('configuration differs from public freeze')
     for name,h in cfg['pinned_sha256'].items():
         if sha(ROOT/name)!=h:raise ValueError('frozen dependency changed: '+name)
-    if np.__version__!=cfg['numpy_version']:raise ValueError('NumPy runtime changed')
+    if np.__version__!=cfg['numpy_version'] or platform.python_version()!=cfg['python_version']:raise ValueError('numerical runtime changed')
     return cfg
+
+
+def reference_midpoint(q_hz,factors):
+    # The inherited contract accumulates sequentially in binary64. Python 3.12
+    # built-in sum uses a different reduction and is not a bitwise oracle.
+    products=[float(q_hz)*float(f) for f in factors]
+    total=0.
+    for value in products:total=total+value
+    return (total/len(products))/1e6
+
+
+def synthetic_artifact(result,bridge,known):
+    # JSON object keys must be strings before sealing, not converted afterward.
+    return {'pipeline':result,'bridge':bridge,'known_dispositions':{str(k):v for k,v in known.items()}}
 
 
 class AnchorStore:
@@ -95,7 +110,7 @@ class NativeReceiver:
                     for q in cfg['receiver_score_indices']:
                         observed,receipt=measure_signature(cache,t,q)
                         # Independent direct windows and a separate winner comparison.
-                        pred=sum(float(self.grid.score_hz[q])*float(f) for f in cache.factors[t])/src.integration_count/1e6
+                        pred=reference_midpoint(self.grid.score_hz[q],cache.factors[t])
                         near=int(round((pred*1e6-src.geometry.raw_zero_hz)/src.geometry.channel_width_hz))
                         radius=int(np.ceil(100/src.geometry.channel_width_hz))+3
                         raw=np.arange(near-radius,near+radius+1)
@@ -133,7 +148,7 @@ def run(work,source_root,freeze):
     try:
         synthetic,synthetic_bridge,known=run_fixture()
         if synthetic['result_sha256']!=cfg['synthetic_result_sha256']:raise ValueError('known-answer pipeline changed')
-        write_sealed(OUT/'synthetic.json',{'pipeline':synthetic,'bridge':synthetic_bridge,'known_dispositions':known})
+        write_sealed(OUT/'synthetic.json',synthetic_artifact(synthetic,synthetic_bridge,known))
         _,_,_,metadata,basis,parent,parent_table,_=build_context()
         bank,table,bridge=catalogue_bridge(parent,cfg['parent_template_indices'],basis)
         if bridge!=cfg['bridge']:raise ValueError('catalogue bridge changed')

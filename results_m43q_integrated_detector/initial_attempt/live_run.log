@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/19793b4e23ff/setisearch/scripts/m43q_integrated_detector.py", line 171, in <module>
+    p.add_argument('--source-root',type=Path,required=True);a=p.parse_args();run(a.anchor_root,a.source_root,a.freeze_commit)
+                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/19793b4e23ff/setisearch/scripts/m43q_integrated_detector.py", line 142, in run
+    receiver.anchors(cfg)
+  File "/workspace/scratch/19793b4e23ff/setisearch/scripts/m43q_integrated_detector.py", line 113, in anchors
+    if observed!=expected or receipt['winning_raw_index']!=int(raw[best]):raise RuntimeError('native receiver reference mismatch')
+                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: native receiver reference mismatch

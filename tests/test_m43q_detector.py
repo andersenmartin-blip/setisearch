@@ -1,6 +1,8 @@
 """Known-answer integration, identity, capacity and receiver tests."""
 from dataclasses import replace
 import unittest
+import tempfile
+from pathlib import Path
 import numpy as np
 import test_m43i_transfer as source_fixture
 from m43q_fixture import fixture,run_fixture
@@ -9,6 +11,8 @@ from seti_repeater import search_v0p6 as core
 from seti_repeater import transfer_m43i as transfer
 from seti_repeater.detector_m43q import catalogue_bridge,execute
 from seti_repeater.receiver_m43q import measure_signature
+from m43q_integrated_detector import reference_midpoint,synthetic_artifact
+from m43e_economical_bank import write_sealed,read_sealed
 
 
 class IntegratedDetectorTests(unittest.TestCase):
@@ -70,6 +74,20 @@ class IntegratedDetectorTests(unittest.TestCase):
             self.assertEqual(observed['peak_frequency_mhz'],float(freq[winner]))
             self.assertEqual(receipt['winning_raw_index'],int(native[winner]))
             with self.assertRaises(ValueError):measure_signature(replace(cache,bank_sha256='0'*64),0,0)
+
+    def test_reference_midpoint_preserves_sequential_binary64_contract(self):
+        from seti_repeater.receiver_v0p6 import _predicted_midpoint_hz
+        factors=np.array([1e16,1.,1.],dtype='<f8')
+        self.assertEqual(reference_midpoint(1.,factors),_predicted_midpoint_hz(1.,factors)/1e6)
+        # Regression for the actual Python 3.12 reduction discrepancy.
+        self.assertNotEqual(sum(float(x) for x in factors)/3/1e6,reference_midpoint(1.,factors))
+
+    def test_synthetic_evidence_round_trips_with_a_valid_seal(self):
+        r,b,k=run_fixture()
+        with tempfile.TemporaryDirectory() as d:
+            path=Path(d)/'synthetic.json'
+            original=write_sealed(path,synthetic_artifact(r,b,k))
+            self.assertEqual(read_sealed(path),original)
 
 
 if __name__=='__main__':unittest.main()
