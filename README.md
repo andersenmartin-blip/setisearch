@@ -1,16 +1,47 @@
 # SETIsearch
 
-**Current experiment — M43X protocol published; evaluation in progress.**
-The fixed 256-case panel compares the neighbor9 reference, the M43W per-epoch
-confirmation rule, and confirmation from the aggregate remaining after the
-strongest active epoch is excluded. It includes unequal epoch strengths and
-matched signal-only, interference-only and mixed inputs. All four focused
-tests and 5,920 scalar checks passed. The shared threshold is sealed at 10;
-none of the 128 held-out shift maxima reaches it. Final panel results and
-development verdicts are pending; no detector is adopted or sky candidate claimed.
-[Read the public M43X protocol](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43X_CONFIRMATION_PLAN.md).
+**Latest project update — M43X recovers two paired signal cases, but still fails qualification.**
+The publicly frozen experiment completed **256 declared native input cases,
+256 base detector executions and 768 paired policy endpoints**. These cases
+have 244 distinct native patch inventories and are correlated tests on one
+existing observing sequence.
 
-**Latest completed project update — M43W removes interference at a measurable signal cost.**
+| Method | Signal associations /160 | Leaking control cases /96 |
+|---|---:|---:|
+| Neighbor9 reference | 137 | 28 |
+| Hard per-active-epoch confirmation | 132 | 6 |
+| Strongest-epoch-excluded aggregate | 134 | 6 |
+
+The aggregate rule pools the weaker observations after excluding the strongest.
+It restores two cases representing **the same unequal three-epoch signal with
+and without interference**. Across three-epoch signal cases, associations rise
+from 33/40 under the hard rule to 35/40, matching the reference. Both additions
+still lose three two-epoch signal-associated cases, retaining 99/120 versus
+102/120 for the reference. **Both alternatives fail the unchanged development
+gates; neither is adopted.**
+
+Three of 32 ON-OFF control cases still leak under every method. Three further
+interferer-only cases also leak under the new rules; these share the same
+native patch inventory and do not associate with the absent reference truth.
+The surviving control members use widths 65/129 and two active epochs. This
+points to a response/width diagnostic as the next useful step; it does not yet
+establish the exact OFF-veto cause. All eight supported-spike leaks are removed.
+
+The full audit verifies **273 frozen dependencies, 256 sealed cases and 73,227
+policy decisions**, with 5,920 scalar anchors and all 96 original arrays/48
+gathers exact. Four focused tests plus one audit regression test pass. An
+audit-only amendment corrected a check that confused injected-truth activity
+with retained-member activity; the original failure log is preserved and no
+detector, threshold, input or scientific gate changed.
+
+Fresh training and held-out sets each contain 128 shifts: maxima 8.553452 and
+8.319118, shared threshold 10, held-out exceedances 0/128. This within-sequence
+evidence is not an independent physical false-alarm probability. No new telescope
+requests, astronomical candidate, additional observing coverage or general
+adoption is claimed.
+[Read the complete M43X result, signal losses and surviving control evidence](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43X_CONFIRMATION_RESULT.md).
+
+**Previous project update — M43W removes interference at a measurable signal cost.**
 The prospective frozen panel completed **192 native inputs and 768 paired
 policy endpoints**, using one shared base detector execution per input.
 The new active-epoch confirmation rule reduces leaking control cases from
