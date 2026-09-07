@@ -37,3 +37,9 @@ Reuse completed evidence for unchanged arithmetic; repeat a large census only
 when a concrete remaining risk requires it. Prioritize an integrated detector
 and jointly planned null/native-injection calibration. Preserve prospective
 scientific freezes and clear claim boundaries while simplifying the workflow.
+
+Owner authorization, 7 September 2026: ongoing publication of SETI code,
+experiment plans, results and logs, including M43T and subsequent milestones,
+is approved for `andersenmartin-blip/setisearch` on
+`m43-support-qualification`, with README updates on `main`.
+This authorization does not require a fresh publication approval per milestone.

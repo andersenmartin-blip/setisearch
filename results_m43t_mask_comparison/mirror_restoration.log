@@ -1,0 +1,106 @@
+epoch1_on: 16/96 segment hashes exact
+epoch1_on: 32/96 segment hashes exact
+epoch1_on: 48/96 segment hashes exact
+epoch1_on: 64/96 segment hashes exact
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/urllib/request.py", line 1344, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/http/client.py", line 1358, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/http/client.py", line 1404, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/http/client.py", line 1353, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/http/client.py", line 1113, in _send_output
+    self.send(msg)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/http/client.py", line 1057, in send
+    self.connect()
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/http/client.py", line 1492, in connect
+    super().connect()
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/http/client.py", line 1033, in connect
+    self._tunnel()
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/http/client.py", line 991, in _tunnel
+    (version, code, message) = response._read_status()
+                               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/http/client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/15c947a9ca66/setisearch-next/scripts/m43t_restore_mirrors.py", line 96, in <module>
+    restore(args.runtime_root, f'epoch{epoch}_{kind}')
+  File "/workspace/scratch/15c947a9ca66/setisearch-next/scripts/m43t_restore_mirrors.py", line 32, in restore
+    identity = transport.live_identity(expected['url'])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/15c947a9ca66/setisearch-next/src/seti_repeater/transport_m43h.py", line 14, in live_identity
+    identity=old.remote_identity(url,timeout=TIMEOUT)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/15c947a9ca66/setisearch-next/src/seti_repeater/http_range_v0p6.py", line 120, in remote_identity
+    with urlopen(request, timeout=timeout) as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/urllib/request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/urllib/request.py", line 515, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/urllib/request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/urllib/request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/urllib/request.py", line 1392, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/urllib/request.py", line 1347, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error timed out>
+epoch1_on: 16/96 segment hashes exact
+epoch1_on: 32/96 segment hashes exact
+epoch1_on: 48/96 segment hashes exact
+epoch1_on: 64/96 segment hashes exact
+epoch1_on: 80/96 segment hashes exact
+epoch1_on: 96/96 segment hashes exact
+epoch1_on: mirror restored in 40.0s
+epoch1_off: 16/96 segment hashes exact
+epoch1_off: 32/96 segment hashes exact
+epoch1_off: 48/96 segment hashes exact
+epoch1_off: 64/96 segment hashes exact
+epoch1_off: 80/96 segment hashes exact
+epoch1_off: 96/96 segment hashes exact
+epoch1_off: mirror restored in 75.2s
+epoch2_on: 16/96 segment hashes exact
+epoch2_on: 32/96 segment hashes exact
+epoch2_on: 48/96 segment hashes exact
+epoch2_on: 64/96 segment hashes exact
+epoch2_on: 80/96 segment hashes exact
+epoch2_on: 96/96 segment hashes exact
+epoch2_on: mirror restored in 107.0s
+epoch2_off: 16/96 segment hashes exact
+epoch2_off: 32/96 segment hashes exact
+epoch2_off: 48/96 segment hashes exact
+epoch2_off: 64/96 segment hashes exact
+epoch2_off: 80/96 segment hashes exact
+epoch2_off: 96/96 segment hashes exact
+epoch2_off: mirror restored in 129.5s
+epoch3_on: 16/96 segment hashes exact
+epoch3_on: 32/96 segment hashes exact
+epoch3_on: 48/96 segment hashes exact
+epoch3_on: 64/96 segment hashes exact
+epoch3_on: 80/96 segment hashes exact
+epoch3_on: 96/96 segment hashes exact
+epoch3_on: mirror restored in 109.7s
+epoch3_off: 16/96 segment hashes exact
+epoch3_off: 32/96 segment hashes exact
+epoch3_off: 48/96 segment hashes exact
+epoch3_off: 64/96 segment hashes exact
+epoch3_off: 80/96 segment hashes exact
+epoch3_off: 96/96 segment hashes exact
+epoch3_off: mirror restored in 112.2s
