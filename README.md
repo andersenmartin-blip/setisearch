@@ -1,6 +1,39 @@
 # SETIsearch
 
-**Latest project update — M43X recovers two paired signal cases, but still fails qualification.**
+**Latest project update — M43Y explains two distinct control-failure mechanisms.**
+The frozen retrospective diagnostic completed **13 base executions and 39 paired
+endpoints**: six historical controls, one baseline and six ON-only/OFF-only
+counterparts. All historical results and the M43X calibration replay exactly.
+There are 11 distinct native patch inventories including baseline, on one
+existing observing sequence.
+
+All **seven surviving ON-OFF members** have nearby same-width OFF responses
+above the 5.5 floor, while their exact-coordinate active OFF scores remain below
+it. In one control, displaced filter windows include the injected point in only
+5–8 of 16 OFF integrations, versus all 16 ON integrations. In two others, every
+window includes the point, but broad-filter dilution and different backgrounds
+leave the queried OFF scores below the floor. Retained-OFF track distances
+exceed 20 Hz, and receiver-alias checks find no rejecting match.
+
+The other **27 labeled surviving outcomes** are nine members repeated under
+three labels for the same single-epoch injection. Existing broad ON structure
+in a second epoch already scores above 5.5 and supplies confirmation. Their
+measured OFF neighborhoods remain below 3.874. A wider OFF check therefore
+does not resolve the full interference problem.
+
+Three focused tests pass; the audit verifies 285 frozen files, all 96 original
+arrays/48 native gathers, 12 paired component invariants and **11,232 direct
+native score comparisons**. These include repeated coordinates and are
+arithmetic checks, not independent observations. Runtime: 157.652 seconds;
+no fresh null rows, telescope requests or additional observing coverage.
+
+Next: prospectively test the existing M43W OFF-window rule with M43X aggregation,
+including false-veto costs and the unresolved background-supported interference.
+**The detector remains unchanged; M43X's signal losses and failed qualification
+gates remain. No astronomical candidate or general adoption is claimed.**
+[Read the complete M43Y result and native response evidence](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43Y_RESPONSE_DIAGNOSTIC_RESULT.md).
+
+**Previous project update — M43X recovers two paired signal cases, but still fails qualification.**
 The publicly frozen experiment completed **256 declared native input cases,
 256 base detector executions and 768 paired policy endpoints**. These cases
 have 244 distinct native patch inventories and are correlated tests on one
