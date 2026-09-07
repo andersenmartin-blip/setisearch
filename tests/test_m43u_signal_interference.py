@@ -15,6 +15,16 @@ from seti_repeater.injection_m43u import JointOverlay, joint_filtered_patch
 
 
 class M43UTests(unittest.TestCase):
+    def test_startup_runtime_guard(self):
+        import json
+        import platform
+        import m43u_signal_interference as runner
+        cfg={'pinned_sha256':{},'python_version':platform.python_version(),'numpy_version':np.__version__}
+        raw=json.dumps(cfg).encode()
+        mock=NS(read_text=lambda:raw.decode(),read_bytes=lambda:raw)
+        with patch.object(runner,'CONFIG',mock),patch.object(runner.subprocess,'check_output',return_value=raw):
+            self.assertEqual(runner.frozen('synthetic-startup-fixture'),cfg)
+
     def test_complete_overlapping_native_windows_all_widths(self):
         values=np.random.default_rng(43).normal(size=(3,700)).astype('<f4')
         a,_=fractional_profile(np.array([250.2,251.7,250.9]),smear_channels=0.)

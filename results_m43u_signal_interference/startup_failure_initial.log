@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/15c947a9ca66/setisearch-next/scripts/m43u_signal_interference.py", line 184, in <module>
+    run(a.anchor_root,a.source_root,a.checkpoint_root,a.freeze_commit)
+  File "/workspace/scratch/15c947a9ca66/setisearch-next/scripts/m43u_signal_interference.py", line 45, in run
+    cfg = frozen(freeze); started = time.monotonic()
+          ^^^^^^^^^^^^^^
+  File "/workspace/scratch/15c947a9ca66/setisearch-next/scripts/m43u_signal_interference.py", line 39, in frozen
+    if platform.python_version()!=cfg['python_version'] or np.__version()!=cfg['numpy_version']:
+                                                           ^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy/__init__.py", line 795, in __getattr__
+    raise AttributeError(f"module {__name__!r} has no attribute {attr!r}")
+AttributeError: module 'numpy' has no attribute '__version'. Did you mean: '__version__'?

@@ -36,7 +36,7 @@ def frozen(commit):
     for p, expected in cfg['pinned_sha256'].items():
         if sha(ROOT/p) != expected:
             raise ValueError('changed frozen dependency: '+p)
-    if platform.python_version()!=cfg['python_version'] or np.__version()!=cfg['numpy_version']:
+    if platform.python_version()!=cfg['python_version'] or np.__version__!=cfg['numpy_version']:
         raise ValueError('changed numerical runtime')
     return cfg
 
