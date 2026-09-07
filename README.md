@@ -1,6 +1,33 @@
 # SETIsearch
 
-**Latest project update — M43T neighbor9 completes the saved 64-pair comparison.**
+**Latest project update — M43U improves signal recovery but fails interference qualification.**
+The completed frozen experiment evaluates 72 shared native inputs with three
+mask policies (216 detector executions). Signal-present recovery is **29/48
+legacy, 47/48 neighbor2, and 48/48 neighbor9**, with 18 and 19 paired gains and
+no losses versus legacy. Both alternatives nevertheless **fail the predeclared
+development gate**: ON-OFF case 61 leaves three diagnostic members under every
+policy, and supported-spike case 69 leaves one additional member under neighbor9.
+Across the 24 pure controls, leaking-case counts are 1, 1 and 2 respectively.
+Neighbor9 gains one signal case over neighbor2 and adds one leaking control.
+
+Mixed-input final member counts also rise from 1,759 to 2,202 and 2,710.
+These include correlated and unassociated responses; their origin requires
+matched component ablations. Seven focused tests pass, and the artifact audit
+verifies 254 pinned files, 72 sealed case records and all 216 endpoints.
+All three conditional held-out panels have 0/128 threshold exceedances, which
+does not establish an independent physical false-alarm probability.
+This adds injection locations within the same observations, not observing
+coverage. Diagnostic survivors retain pending receiver-alias evaluation;
+no astronomical candidate or general adoption is claimed.
+
+The next milestone should trace the paired-OFF and receiver decisions in the
+preserved failure cases, then prospectively freeze any proposed correction and
+test it on additional combinations. M43U remains unchanged.
+[Read the full M43U result, limitations, logs and reproducibility links](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43U_SIGNAL_INTERFERENCE_RESULT.md).
+The initial startup guard error and its publicly frozen correction are documented
+with the original failure log. Both earlier M43T histories remain available below.
+
+**Previous project update — M43T neighbor9 completes the saved 64-pair comparison.**
 The frozen nine-bin support rule recovers all four strong combined-profile signals
 lost by the original mask. Recovery rises from 33/64 to 37/64 nonzero inputs,
 with four paired gains and no losses. At strength 32, combined-profile recovery
