@@ -1,6 +1,39 @@
 # SETIsearch
 
-**Latest project update — M43U improves signal recovery but fails interference qualification.**
+**Latest project update — M43V explains control failures and exposes a false truth association.**
+The completed component diagnostic runs 30 native inputs through all three mask
+policies: **90 executions**, including 30 exact historical M43U endpoint replays
+and 60 new component-only endpoints. Three baseline replays and the original
+calibration certificates also match exactly. Detector rules remain unchanged.
+
+The ON-OFF control reduces 155 ON-only diagnostic members to three. Their
+paired-OFF maxima are 5.363–5.488, just below the fixed 5.5 rejection floor;
+retained OFF-track and receiver-alias checks find no rejecting match.
+In the supported-spike control, displaced weak power both removes neighbor9's
+isolation mask and lifts a second epoch above the active cut. Neither component
+alone survives, but their combination does. Actual alias evidence is retained:
+the inherited `pending_receiver_alias_evaluation` label can remain after the
+alias routine has executed without finding a rejecting match.
+
+Across eight mixed-input strata, signal-only recovery is 3/8 legacy and 8/8
+for each alternative; joint-input associations remain 2/8, 7/8 and 8/8.
+Interferer-only inputs yield 496, 599 and 792 diagnostic members respectively.
+**One neighbor9 interferer-only member falsely matches the absent intended
+truth**, showing that an association count alone does not establish recovery
+of the intended component. These are correlated representations, not independent
+physical signals. Complete per-case component unions and differences are public.
+
+Two focused accounting tests pass; the artifact audit verifies 278 pinned
+files, 90 endpoints and 13,123 member decisions. The initial baseline provenance
+failure and its pre-component public amendment are preserved.
+This is retrospective diagnosis in the same observations, not independent
+validation. Both M43U development gates remain failed; no astronomical
+candidate or corrected detector is adopted. The next frozen comparison should
+test width-aware OFF evidence and cross-epoch consistency on additional
+carrier/activity and strength combinations, including false-association controls.
+[Read the M43V result, failure-stage evidence and complete logs](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43V_COMPONENT_DIAGNOSTIC_RESULT.md).
+
+**Previous project update — M43U improves signal recovery but fails interference qualification.**
 The completed frozen experiment evaluates 72 shared native inputs with three
 mask policies (216 detector executions). Signal-present recovery is **29/48
 legacy, 47/48 neighbor2, and 48/48 neighbor9**, with 18 and 19 paired gains and
