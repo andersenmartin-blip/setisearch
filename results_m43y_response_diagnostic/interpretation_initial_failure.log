@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/15c947a9ca66/setisearch-next/scripts/m43y_interpret_results.py", line 72, in <module>
+    if __name__=='__main__':run()
+                            ^^^^^
+  File "/workspace/scratch/15c947a9ca66/setisearch-next/scripts/m43y_interpret_results.py", line 13, in run
+    rows=[json.loads(s) for s in gzip.decompress((OUT/'case_audits.jsonl.gz').read_bytes()).splitlines()]
+          ^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/decoder.py", line 356, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
