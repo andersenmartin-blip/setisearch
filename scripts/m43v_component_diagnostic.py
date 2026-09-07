@@ -116,7 +116,7 @@ def run(anchor_root,source_root,checkpoint_root,freeze):
         return a,probes(r,store,grid,probe_inventory,policy)
     store=overlay.trial([])
     for policy in POLICIES:
-        a,_=execute(policy,store,[])
+        a,_=execute(policy,baseline,[])
         assert a==read_sealed(ROOT/f'results_m43u_signal_interference/{policy}.baseline.json')['audit']
     print('Three baseline replays exact',flush=True)
     factors=np.stack([core.factor_table_for_scan(table,basis,f'epoch{e+1}_on') for e in range(3)],axis=1)
