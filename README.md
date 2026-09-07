@@ -1,6 +1,40 @@
 # SETIsearch
 
-**Latest project update — M43V explains control failures and exposes a false truth association.**
+**Latest project update — M43W removes interference at a measurable signal cost.**
+The prospective frozen panel completed **192 native inputs and 768 paired
+policy endpoints**, using one shared base detector execution per input.
+The new active-epoch confirmation rule reduces leaking control cases from
+**18/96 to 0/96** and interferer-only false truth associations from **3/32
+to 0/32**, but signal associations fall from **80/96 to 78/96**.
+The two losses are the same weak combined-profile truth with and without its
+stronger neighboring component, not two independent signal realizations.
+
+The lost members have adequate total scores (10.694–11.062), while their
+weakest active epoch scores 5.394–5.422, below the new fixed 5.5 floor.
+The width-based OFF neighborhood alone changes no final member set and leaves
+all three false associations. Combining it with epoch confirmation gives the
+same final set as epoch confirmation alone. **All three alternatives fail
+their predeclared development gates; none is adopted.**
+All 32 new ON-OFF cases already have zero final members under the reference,
+so this panel does not establish a repair of the exposed M43V ON-OFF failure.
+
+Two new carrier centers are crossed with all four activity subsets, two anchor
+templates and strengths 12/32. All four focused tests pass. The 4,440 new
+real-data OFF-window anchors, 96 original arrays and 48 native gathers match.
+The audit verifies 263 pinned files, 192 sealed inputs, all 768 endpoints and
+45,068 policy member decisions. Fresh training and held-out sets each contain
+128 shifts; their maxima are 8.407228 and 8.335863, the shared pre-veto threshold
+is 10, and held-out exceedances are 0/128. This correlated within-sequence
+certificate is not an independent physical false-alarm probability.
+
+The next candidate should aggregate confirmation from the remaining active
+epochs after excluding the strongest, and test unequal epoch strengths and
+new combinations under another prospective freeze. It is a proposed endpoint,
+not a tested repair. Existing failures remain public; no astronomical
+candidate, extra observing coverage or general adoption is claimed.
+[Read the M43W result, complete decisions and exact signal-loss evidence](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43W_CONFIRMATION_RESULT.md).
+
+**Previous project update — M43V explains control failures and exposes a false truth association.**
 The completed component diagnostic runs 30 native inputs through all three mask
 policies: **90 executions**, including 30 exact historical M43U endpoint replays
 and 60 new component-only endpoints. Three baseline replays and the original
