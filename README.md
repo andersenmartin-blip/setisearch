@@ -1,6 +1,16 @@
 # SETIsearch
 
-**Latest project update — M43W removes interference at a measurable signal cost.**
+**Current experiment — M43X protocol published; evaluation in progress.**
+The fixed 256-case panel compares the neighbor9 reference, the M43W per-epoch
+confirmation rule, and confirmation from the aggregate remaining after the
+strongest active epoch is excluded. It includes unequal epoch strengths and
+matched signal-only, interference-only and mixed inputs. All four focused
+tests and 5,920 scalar checks passed. The shared threshold is sealed at 10;
+none of the 128 held-out shift maxima reaches it. Final panel results and
+development verdicts are pending; no detector is adopted or sky candidate claimed.
+[Read the public M43X protocol](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43X_CONFIRMATION_PLAN.md).
+
+**Latest completed project update — M43W removes interference at a measurable signal cost.**
 The prospective frozen panel completed **192 native inputs and 768 paired
 policy endpoints**, using one shared base detector execution per input.
 The new active-epoch confirmation rule reduces leaking control cases from
