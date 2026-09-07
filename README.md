@@ -1,6 +1,23 @@
 # SETIsearch
 
-**Latest project update — M43S identifies loss of strong injected signals in the isolation mask.**
+**Latest project update — M43T recovers all four strong profiles lost by the original mask.**
+The frozen neighboring-support rule recovers 8/8 fractional, slightly off-template,
+smeared injections at strength 32, compared with 4/8 under the original rule.
+At strength 12 both recover 4/8; ideal profiles remain 8/8 at both levels.
+All 24 previously successful cases survive, with four additional recoveries across
+32 paired native trials. Every injected score inventory exactly matches M43S.
+
+Both policies use 128 fresh training shifts and 128 separate held-out shifts.
+Their thresholds remain 10, and neither has a held-out exceedance. However,
+neither mask removes any uninjected baseline cells here, so this identical noise
+result does not measure the change in rejection of strong interference.
+This is a repair test on known failures, not independent completeness or a reason
+to adopt the rule generally. The next experiment should combine strong interference
+controls and true signals at additional carrier locations. All results and logs
+are published; the grouped numerical run took 264.2 seconds. No astronomical
+candidate is claimed. See [the M43T results and limitations](https://github.com/andersenmartin-blip/setisearch/blob/m43t-neighbor-mask/MILESTONE_43T_NEIGHBOR_MASK_RESULT.md).
+
+**Previous project update — M43S identifies loss of strong injected signals in the isolation mask.**
 The completed 96-run profile-sensitivity pilot reuses M43R's threshold of 10.
 Ideal signals are recovered in 1/8 cases at strength 6 and 8/8 at strengths
 8, 12 and 32. Fractional, slightly off-template, smeared signals are recovered
