@@ -1,6 +1,29 @@
 # SETIsearch
 
-**Latest project update — M43T recovers all four strong profiles lost by the original mask.**
+**Latest project update — M43T neighbor9 completes the saved 64-pair comparison.**
+The frozen nine-bin support rule recovers all four strong combined-profile signals
+lost by the original mask. Recovery rises from 33/64 to 37/64 nonzero inputs,
+with four paired gains and no losses. At strength 32, combined-profile recovery
+is 8/8 versus 4/8; all other tested profile/strength counts remain unchanged.
+Both rules were freshly executed on identical inputs at strengths 6, 8, 12 and 32.
+All 64 injected score inventories exactly match their historical M43S counterparts.
+
+Both thresholds remain 10, with zero exceedances among 128 held-out shifts per
+rule. Baseline masks are entirely empty, so this conditional noise comparison
+does not establish rejection of strong interference. The development gate passes;
+broader signal/interference controls and additional observing sequences are still
+required before general use. No astronomical candidate is claimed.
+
+The published package contains 160 endpoints, the complete paired audit ledger,
+calibration arrays, code, logs and checksums. Six focused tests and all artifact
+checks pass. Lost runtime inputs were restored against six original source
+receipts and 96 array hashes; no observing coverage was added. The numerical run
+took 810.6 seconds. This is distinct from the two-bin M43T experiment
+below; both histories are preserved.
+See [the M43T neighbor9 results](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43T_MASK_COMPARISON_RESULT.md)
+and [the branch/scope distinction](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43T_BRANCH_SCOPE.md).
+
+**Previous project update — M43T neighbor2 recovers all four strong profiles lost by the original mask.**
 The frozen neighboring-support rule recovers 8/8 fractional, slightly off-template,
 smeared injections at strength 32, compared with 4/8 under the original rule.
 At strength 12 both recover 4/8; ideal profiles remain 8/8 at both levels.
