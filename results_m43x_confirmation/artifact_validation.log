@@ -1,0 +1,139 @@
+{
+  "audit": {
+    "complete": true,
+    "pinned_files": 273,
+    "sealed_inputs": 256,
+    "policy_endpoints": 768,
+    "reference_member_records": 24409,
+    "policy_member_decisions": 73227,
+    "fresh_shift_rows": 256,
+    "excluded_prior_rows": 1280,
+    "new_scalar_remaining_anchors": 5920,
+    "all_policy_subsets_exact": true,
+    "two_epoch_identity_checked_on_member_activity": true,
+    "validator_revision": "v2-member-activity-only",
+    "truth_associations_recomputed": true,
+    "gates_recomputed": true,
+    "result_seal": "b46a117e5ebb9782d0a6afa4c802defb59e4be6b01ef6a3800f0c43aa14400aa",
+    "result_sha256": "d94b0b17bf845681bbce44c817ad8af4625fae7276c17cfd51e237ea20a366cd"
+  },
+  "aggregate": [
+    {
+      "policy": "neighbor9",
+      "signal_associations": 137,
+      "leaking_controls": 28,
+      "ON_OFF_leaks": 3,
+      "spike_leaks": 8,
+      "false_associations": 0,
+      "final_members": 16188
+    },
+    {
+      "policy": "epoch_confirmation",
+      "signal_associations": 132,
+      "leaking_controls": 6,
+      "ON_OFF_leaks": 3,
+      "spike_leaks": 0,
+      "false_associations": 0,
+      "final_members": 6946
+    },
+    {
+      "policy": "remaining_aggregate",
+      "signal_associations": 134,
+      "leaking_controls": 6,
+      "ON_OFF_leaks": 3,
+      "spike_leaks": 0,
+      "false_associations": 0,
+      "final_members": 8033
+    }
+  ],
+  "comparisons": {
+    "epoch_confirmation": {
+      "added_leaking_controls": [],
+      "conditions": {
+        "no_increased_leaking_control_count": true,
+        "no_signal_case_loss": false,
+        "strict_control_leak_reduction": true,
+        "zero_ON_OFF_final_members": false,
+        "zero_interferer_only_false_associations": true,
+        "zero_shared_heldout_pre_veto_exceedances": true,
+        "zero_supported_spike_final_members": true
+      },
+      "development_gate_passed": false,
+      "removed_leaking_controls": [
+        5,
+        37,
+        69,
+        77,
+        101,
+        110,
+        133,
+        141,
+        142,
+        157,
+        158,
+        165,
+        173,
+        174,
+        190,
+        205,
+        206,
+        229,
+        237,
+        238,
+        253,
+        254
+      ],
+      "signal_gains": [],
+      "signal_losses": [
+        2,
+        132,
+        180,
+        226,
+        228
+      ]
+    },
+    "remaining_aggregate": {
+      "added_leaking_controls": [],
+      "conditions": {
+        "no_increased_leaking_control_count": true,
+        "no_signal_case_loss": false,
+        "strict_control_leak_reduction": true,
+        "zero_ON_OFF_final_members": false,
+        "zero_interferer_only_false_associations": true,
+        "zero_shared_heldout_pre_veto_exceedances": true,
+        "zero_supported_spike_final_members": true
+      },
+      "development_gate_passed": false,
+      "removed_leaking_controls": [
+        5,
+        37,
+        69,
+        77,
+        101,
+        110,
+        133,
+        141,
+        142,
+        157,
+        158,
+        165,
+        173,
+        174,
+        190,
+        205,
+        206,
+        229,
+        237,
+        238,
+        253,
+        254
+      ],
+      "signal_gains": [],
+      "signal_losses": [
+        2,
+        132,
+        180
+      ]
+    }
+  }
+}
