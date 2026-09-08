@@ -13,8 +13,8 @@ separates added-cut costs from reference rejection by stronger OFF responses.
 separate baseline/four endpoints. Policies: neighbor9, OFF window, remaining
 aggregate and their intersection. All thresholds/rules/gates fixed publicly.
 
-The public checkpoint contains the first 64 sealed cases and 256 endpoints under
-results_m43z_joint_controls/checkpoints/inputs064.jsonl.gz and its summary/log.
+The latest public checkpoint contains the first 160 sealed cases and 640 endpoints under
+results_m43z_joint_controls/checkpoints/inputs160.jsonl.gz and its summary/log.
 Resume from these exact case records; decompress JSONL, skip blank separators,
 verify seals/config/freeze/case identities and save caseNNN.json to the runtime
 trial directory. Do not repeat completed numerical cases merely to resume.
