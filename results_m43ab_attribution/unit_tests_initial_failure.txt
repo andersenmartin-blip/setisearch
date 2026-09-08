@@ -1,0 +1,37 @@
+..F                                                                      [100%]
+=================================== FAILURES ===================================
+_______________________ test_native_boundary_is_rejected _______________________
+
+    def test_native_boundary_is_rejected():
+        cache = SimpleNamespace(width=3, values=np.zeros((4, 7), dtype='<f4'),
+            source=SimpleNamespace(geometry=SimpleNamespace(raw_zero_hz=1e9,
+                channel_width_hz=1., channel_count=9), integration_count=4))
+        with pytest.raises(ValueError):
+>           centered_signature(cache, np.ones(4), 1e9)
+
+tests/test_m43ab_attribution.py:44: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cache = namespace(width=3, values=array([[0., 0., 0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0., 0., 0.],
+       [0., 0., 0....ce=namespace(geometry=namespace(raw_zero_hz=1000000000.0, channel_width_hz=1.0, channel_count=9), integration_count=4))
+factors = array([1., 1., 1., 1.]), carrier_hz = 1000000000.0, patches = None
+
+    def centered_signature(cache, factors, carrier_hz, patches=None):
+        """Sample the nearest native channel to the predicted midpoint, no peak hunt.
+    
+        This is a stationary receiver measurement, not a de-drifted ON score.
+        Ascending channel order and nearest-even rounding follow existing geometry.
+        """
+        pred = _predicted_midpoint_hz(float(carrier_hz), factors)/1e6
+        g = cache.source.geometry
+        raw = int(core.nearest_native_indices(g, np.asarray([pred*1e6]))[0])
+        half = cache.width//2
+        if raw < half or raw >= g.channel_count-half:
+>           raise core.V0P6CoverageError('centered receiver window incomplete')
+E           seti_repeater.search_v0p6.V0P6CoverageError: centered receiver window incomplete
+
+src/seti_repeater/attribution_m43ab.py:28: V0P6CoverageError
+=========================== short test summary info ============================
+FAILED tests/test_m43ab_attribution.py::test_native_boundary_is_rejected - se...
+1 failed, 2 passed in 0.25s
