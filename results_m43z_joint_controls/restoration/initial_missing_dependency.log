@@ -1,0 +1,19 @@
+epoch1_on: 16/96 segment hashes exact
+epoch1_on: 32/96 segment hashes exact
+epoch1_on: 48/96 segment hashes exact
+epoch1_on: 64/96 segment hashes exact
+epoch1_on: 80/96 segment hashes exact
+epoch1_on: 96/96 segment hashes exact
+epoch1_on: mirror restored in 112.0s
+Traceback (most recent call last):
+  File "/workspace/scratch/0a0bcfbb77b6/setisearch-next/scripts/m43z_restore_runtime.py", line 22, in <module>
+    run(p.parse_args().runtime_root)
+  File "/workspace/scratch/0a0bcfbb77b6/setisearch-next/scripts/m43z_restore_runtime.py", line 19, in run
+    inputs.one(runtime,label)
+  File "/workspace/scratch/0a0bcfbb77b6/setisearch-next/scripts/m43t_restore_inputs.py", line 36, in one
+    receipt, detail = source.extract_remote(ROOT, label, WINDOW, directory,
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/0a0bcfbb77b6/setisearch-next/src/seti_repeater/source_m43h.py", line 248, in extract_remote
+    if missing:raise ModuleNotFoundError('HDF5 dependencies unavailable: '+', '.join(missing))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: HDF5 dependencies unavailable: hdf5plugin
