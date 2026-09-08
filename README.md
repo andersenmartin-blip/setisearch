@@ -1,6 +1,41 @@
 # SETIsearch
 
-**Latest project update — M43Y explains two distinct control-failure mechanisms.**
+**Latest project update — M43Z reduces control leakage but loses known test signals.**
+The frozen joint experiment completed **352 inputs and 1,408 paired endpoints**:
+224 signal-present inputs and 128 pure controls. These are 340 distinct native
+patch inventories on the same observing sequence, not independent observations.
+
+| Policy | Signal-associated cases / 224 | Leaking controls / 128 |
+|---|---:|---:|
+| Unchanged neighbor9 reference | 125 | 40 |
+| OFF-window rejection | 122 | 32 |
+| Remaining-epoch aggregate | 120 | 15 |
+| Both rules together | 117 | 7 |
+
+**All three alternatives fail the predeclared acceptance gates.** OFF-window
+rejection removes all eight leaking ON-OFF cases but loses three known signals:
+3 of 9 reference-recoverable cases in the moderate nearby-OFF family. Aggregation
+removes all seven supported-spike leaks but loses five signal-associated cases.
+The combination's seven remaining interferer-only labels represent three native
+patch inventories. In one configuration, two individually sub-threshold background
+epochs pool above the support floor after the injected epoch is excluded.
+
+The 32 moderate-OFF cases were publicly appended **before any M43Z scoring**;
+all original 320 cases and calibration rows were preserved. The complete audit
+passes: 288 frozen files, 352 seals and 135,300 policy-member decisions, with
+0/128 heldout threshold exceedances. Earlier M43X losses remain unresolved.
+There is **no general adoption, astronomical candidate, new observing coverage
+or independent physical false-alarm claim**.
+
+[Full M43Z report](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43Z_JOINT_CONTROLS_RESULT.md)
+includes exact losses, matched signal costs and the next native-response
+diagnostic. Code, plans, closed logs, complete results and the full ledger are
+published on `m43-support-qualification`; the ledger's original bytes are stored
+in three checksum-verified parts with a reconstruction script.
+
+---
+
+**Previous project update — M43Y explains two distinct control-failure mechanisms.**
 The frozen retrospective diagnostic completed **13 base executions and 39 paired
 endpoints**: six historical controls, one baseline and six ON-only/OFF-only
 counterparts. All historical results and the M43X calibration replay exactly.
