@@ -1,6 +1,39 @@
 # SETIsearch
 
-**Latest project update — M43Z reduces control leakage but loses known test signals.**
+**Latest project update — M43AA identifies an upstream signal cost and a correlation trap.**
+The retrospective native-response comparison completed **32 executions and 128
+four-policy endpoints**, including 28 exact M43Z replays, three isolated OFF
+components and one baseline. All **12,768 direct native checks** pass, with 754
+stage probes and 266 full response neighborhoods. All 96 original arrays and
+48 native gathers match; the existing calibration is restored without new shifts.
+
+In two mixed-input families, the receiver-alias veto removes narrow test-signal
+tracks before the final confirmation rule acts. Paired width-1 ON/OFF scores
+remain identical, but the local receiver peak shifts toward the separately
+injected interferer. The later aggregation rule then removes the remaining
+broad associated members. Fixing its floor alone cannot restore the narrow tracks.
+
+Simple shape similarity is also insufficient: one residual interference
+configuration has inter-epoch correlations **0.901–0.926**, while a known weak
+signal has **0.076–0.193**. Every uninjected supporting epoch's full probed
+response matches the background exactly. Nearby ON/OFF shape comparisons contain
+some separation information, but the selected matched controls already pass the
+existing veto; no repaired detector has been validated.
+
+**No rule is adopted, no astronomical candidate is claimed, and M43X/Z losses
+remain unresolved.** These are correlated tests on one existing sequence, with
+no additional observing coverage or physical false-alarm probability. The plan
+was committed locally before execution; automatic approval review prevented a
+public pre-execution freeze, so this remains a retrospective diagnostic.
+
+[Read the complete M43AA findings, native-response plots and receiver-alias proofs](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AA_NATIVE_RESPONSE_RESULT.md).
+Next: test attribution of receiver peaks to candidate tracks and centered ON/OFF
+response agreement, with a separate public prospective freeze and explicit
+signal/control costs.
+
+---
+
+**Previous project update — M43Z reduces control leakage but loses known test signals.**
 The frozen joint experiment completed **352 inputs and 1,408 paired endpoints**:
 224 signal-present inputs and 128 pure controls. These are 340 distinct native
 patch inventories on the same observing sequence, not independent observations.
