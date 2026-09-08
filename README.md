@@ -1,5 +1,22 @@
 # SETIsearch
 
+**Development update — M43AB attribution experiment prepared; evaluation has not started.**
+The next comparison tests candidate-centered receiver measurements and centered
+ON/OFF response agreement. Its fixed panel contains **36 historical inputs and
+112 new native injection combinations**, plus one separate baseline, with seven
+paired policies. The historical panel includes all eight M43Z leaking ON-OFF
+inputs, the known signal-loss families and the residual interference controls.
+The fresh panel contains 64 signal-present and 48 pure-control inputs on the
+same existing observing sequence; these are not independent observations.
+
+Three focused synthetic tests pass. The six original telescope source receipts
+and all 96 source-array hashes have been restored exactly. The numerical
+experiment requires a verified public freeze before execution. No new rule has
+been evaluated on this panel or adopted, and M43X/Z failures remain unresolved.
+[Read the M43AB experiment plan](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AB_ATTRIBUTION_PLAN.md).
+
+---
+
 **Latest project update — M43AA identifies an upstream signal cost and a correlation trap.**
 The retrospective native-response comparison completed **32 executions and 128
 four-policy endpoints**, including 28 exact M43Z replays, three isolated OFF
@@ -2049,4 +2066,3 @@ is `(1 + exceedances) / (N + 1)` and is not converted to Gaussian sigma.
 
 The extracted telescope slices are not included in the distributable archive;
 the extractor and checksum manifest reproduce and verify them from public URLs.
-
