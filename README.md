@@ -1,5 +1,37 @@
 # SETIsearch
 
+**Latest result — M43AB recovers five historical signal losses, but fails qualification.**
+The publicly frozen comparison completed **149 base executions and 1,043 paired
+policy endpoints**, including 36 historical inputs, 112 fresh native injection
+combinations and one separate baseline. The audit passes: 299 pinned files,
+95,424 policy-member decisions, 1,137 direct native checks, all 96 original
+arrays and 48 native gathers, and exact historical reference replays.
+
+| Comparison | Historical signals /19 | Historical leaking controls /17 | Fresh signals /64 | Fresh leaking controls /48 |
+|---|---:|---:|---:|---:|
+| Original combined rule | 8 | 3 | 52 | 0 |
+| Centered receiver + ON/OFF agreement + aggregation | 13 | 4 | 52 | 1 |
+
+The two mixed-input losses regain narrow signal-associated members, and the
+three moderate-OFF losses regain width-17 associations. The weak unequal
+260/261/265 family remains lost. Centered sampling also releases useful alias
+rejections, while the fixed ON/OFF agreement cut misses a known broad control.
+The historical recovery gain **does not improve sensitivity on the fresh panel**;
+one fresh interferer-only control survives only the new combination.
+
+**All three new endpoints fail their predeclared gates; no rule is adopted and
+no astronomical candidate is claimed.** These are 141 distinct native payloads
+on one existing observing sequence, not independent observations or a physical
+false-alarm calibration. No new null rows were generated. Original M43X/Z
+failed gates and denominators remain unchanged.
+
+[Read the full M43AB report, complete costs and reproducibility instructions](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AB_ATTRIBUTION_RESULT.md).
+Next: evaluate how a receiver peak belongs to a candidate's track and width,
+keeping centered and local-peak evidence together and explicitly retaining the
+new control failures. Full ledgers are preserved in a checksum-verified archive.
+
+---
+
 **Development update — M43AB attribution experiment prepared; evaluation has not started.**
 The next comparison tests candidate-centered receiver measurements and centered
 ON/OFF response agreement. Its fixed panel contains **36 historical inputs and
