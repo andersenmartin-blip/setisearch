@@ -8,12 +8,15 @@ from seti_repeater.confirmation_m43z import POLICIES
 def main():
     r=read_sealed(OUT/'result.json');a=read_sealed(OUT/'artifact_validation.json');cfg=json.loads(CONFIG.read_text())
     assert r['complete'] and a['passed']
+    identities=read_sealed(OUT/'input_identity_groups.json')['groups']
+    input_group={i:h for h,indices in identities.items() for i in indices}
     aggregate=[]
     for policy in POLICIES:
         es=[e for e in r['endpoints'] if e['policy']==policy];signals=[e for e in es if e['signal_present']];controls=[e for e in es if not e['signal_present']]
         assert len(signals)==224 and len(controls)==128
         aggregate.append(dict(policy=policy,signal_associations=sum(e['truth_association']['recovered'] for e in signals),
             leaking_controls=sum(e['final_members']>0 for e in controls),
+            distinct_leaking_control_patch_inventories=len({input_group[e['case_index']] for e in controls if e['final_members']>0}),
             control_types={t:sum(e['final_members']>0 for e in controls if e['case_type']==t) for t in ('interferer-only','supported-spike','ON-OFF','OFF-only')},
             final_members=sum(e['final_members'] for e in es)))
     pairs=[]
@@ -49,12 +52,15 @@ def main():
     table='\n'.join(f"| {s['policy']} | {s['signal_associations']}/224 | {s['leaking_controls']}/128 | {s['control_types']['interferer-only']}/32 | {s['control_types']['supported-spike']}/32 | {s['control_types']['ON-OFF']}/32 | {s['control_types']['OFF-only']}/32 |" for s in aggregate)
     pairtable='\n'.join(f"| {s['case_type']} | {s['policy']} | {s['signal_only_associations']}/32 | {s['with_interference_associations']}/32 | {s['paired_losses']} | {s['paired_gains']} | {s['added_policy_losses']}/{s['reference_recoverable_with_interference']} |" for s in pairs)
     conditions='\n'.join('- '+p+': '+(', '.join(k for k,v in c['conditions'].items() if not v) or 'all new-panel conditions pass')+'.' for p,c in r['comparisons'].items())
+    identityline='; '.join(p['policy']+': '+str(p['leaking_controls'])+' leaking labels from '+str(p['distinct_leaking_control_patch_inventories'])+' distinct native patch inventories' for p in aggregate)
     lossline='; '.join(p+': '+str(len(c['signal_losses']))+' signal-case losses, '+str(len(c['removed_leaking_controls']))+' leaking controls removed' for p,c in r['comparisons'].items())
     train=read_sealed(OUT/'calibration.json');held=read_sealed(OUT/'heldout.json')
+    notes=(ROOT/'M43Z_FAILURE_INTERPRETATION.md').read_text()
     text=f'''# M43Z result: joint OFF-window rejection and signal-retention cost
 
 The frozen experiment completed all352 inputs and1,408 paired policy endpoints.
 {lossline}. All policies are additive cuts of the same reference executions.
+All three alternatives fail the frozen acceptance gates.
 No astronomical candidate or general adoption is claimed. The earlier M43X
 signal losses remain unresolved; new combinations cannot erase exposed failures.
 
@@ -77,6 +83,10 @@ The zero interferer-only-member condition explicitly tests background-supported
 single-epoch interference, even when it does not associate with the absent truth.
 No condition was weakened after evaluation. Complete gains/losses and Boolean
 gates are retained in result.json.
+
+Duplicate-aware control accounting: {identityline}. These groups share the
+same fixed background; even different patch inventories are not independent
+observing sequences.
 
 ## Matched signal costs
 
@@ -105,6 +115,10 @@ provide ON scores, OFF-window maxima and locations, base decisions and added-cut
 reasons. [Interpretation data](results_m43z_joint_controls/interpretation.json)
 include every surviving pure-control case. The full ledger preserves all retained
 members and all four policy decisions, including rejected and unassociated ones.
+
+## Failure interpretation and next work
+
+{notes.split(chr(10),2)[2]}
 
 ## Frozen scope and checks
 
@@ -141,16 +155,20 @@ rule was changed by operational restoration. Recovery logs are under restoration
 
 Public scientific freeze:
 [{r['freeze_commit']}](https://github.com/andersenmartin-blip/setisearch/commit/{r['freeze_commit']}).
+The full gzip is published as three byte segments under ledger_parts/ because
+the publishing connection has a 16 MiB request limit. Reconstruct the exact original
+with `python scripts/m43z_restore_ledger.py` before audit or checksum verification.
+No original record or seal changed.
 Result seal: `{r['result_sha256']}`.
 [Plan](MILESTONE_43Z_JOINT_CONTROLS_PLAN.md),
 [result](results_m43z_joint_controls/result.json),
-[ledger](results_m43z_joint_controls/case_audits.jsonl.gz),
+[complete ledger and reconstruction instructions](results_m43z_joint_controls/ledger_parts/README.md),
 [audit](results_m43z_joint_controls/artifact_validation.json),
 [run log](results_m43z_joint_controls/live_run.log),
 [checksum manifest](RESULTS_MANIFEST_M43Z_JOINT_CONTROLS.sha256).
 '''
     # Space prose numerals without altering identifiers/paths or recorded values.
-    for old,new in [('all352','all 352'),('All128','All 128'),('original320','original 320'),('appended32','appended 32'),('type4','type 4'),('type3','type 3'),('and1,408','and 1,408'),('contains32','contains 32'),('not32','not 32'),('All96','All 96'),('are16','are 16'),('and96','and 96'),('strength4S','strength 4S'),('carriers896','carriers 896'),('anchors0','anchors 0'),('strengths24','strengths 24'),('with224','with 224'),('and128','and 128'),('the1,408','the 1,408'),('all96','all 96'),('and48','and 48'),('W4,440','W 4,440'),('X5,920','X 5,920'),('use128','use 128'),('excluding1,536','excluding 1,536'),('exclude1,792','exclude 1,792')]:text=text.replace(old,new)
+    for old,new in [('all352','all 352'),('strengthS','strength S'),('families:352','families: 352'),('All128','All 128'),('original320','original 320'),('appended32','appended 32'),('type4','type 4'),('type3','type 3'),('and1,408','and 1,408'),('contains32','contains 32'),('not32','not 32'),('All96','All 96'),('are16','are 16'),('and96','and 96'),('strength4S','strength 4S'),('carriers896','carriers 896'),('anchors0','anchors 0'),('strengths24','strengths 24'),('with224','with 224'),('and128','and 128'),('the1,408','the 1,408'),('all96','all 96'),('and48','and 48'),('W4,440','W 4,440'),('X5,920','X 5,920'),('use128','use 128'),('excluding1,536','excluding 1,536'),('exclude1,792','exclude 1,792')]:text=text.replace(old,new)
     (ROOT/'MILESTONE_43Z_JOINT_CONTROLS_RESULT.md').write_text(text)
     print(json.dumps(dict(aggregate=aggregate,matched_costs=pairs,failed_conditions={p:[k for k,v in c['conditions'].items() if not v] for p,c in r['comparisons'].items()}),indent=2))
 if __name__=='__main__':main()
