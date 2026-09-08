@@ -143,9 +143,9 @@ def run(anchor_root,source_root,checkpoint_root,freeze,preflight_only=False):
                 'policy_decisions':{p:[{k:m[k] for k in ('record_id','passes_evaluated_physical_vetoes','physical_disposition','m43z_rejections')} for m in a['members']] for p,a in audits.items()},
                 'endpoints':rows})
         paths.append(path);endpoints.extend(rec['endpoints'])
-        print(f'{len(paths)}/320 {case["case_type"]} S={case["strength"]}: '+str({e['policy']:(e['truth_association']['recovered'],e['final_members']) for e in rec['endpoints']}),flush=True)
+        print(f'{len(paths)}/352 {case["case_type"]} S={case["strength"]}: '+str({e['policy']:(e['truth_association']['recovered'],e['final_members']) for e in rec['endpoints']}),flush=True)
         write_sealed(OUT/'progress.json',{'complete':False,'completed_inputs':len(paths),'policy_endpoints':len(endpoints)})
-    assert len(paths)==320 and len(endpoints)==1280
+    assert len(paths)==352 and len(endpoints)==1408
     raw=b''.join(p.read_bytes()+b'\n' for p in paths);packed=gzip.compress(raw,compresslevel=9,mtime=0)
     (OUT/'case_audits.jsonl.gz').write_bytes(packed)
     summary=[]
@@ -157,14 +157,14 @@ def run(anchor_root,source_root,checkpoint_root,freeze,preflight_only=False):
                 summary.append({'policy':p,'strength':s,'case_type':kind,'inputs':16,
                     'truth_associations':sum(e['truth_association']['recovered'] for e in rows),
                     'cases_with_final_members':sum(e['final_members']>0 for e in rows),'final_members':sum(e['final_members'] for e in rows)})
-    write_sealed(OUT/'result.json',{'milestone':'M43Z','complete':True,'freeze_commit':freeze,'inputs':320,
-        'base_detector_executions':320,'policy_endpoints':1280,'separate_baseline_executions':1,
+    write_sealed(OUT/'result.json',{'milestone':'M43Z','complete':True,'freeze_commit':freeze,'inputs':352,
+        'base_detector_executions':352,'policy_endpoints':1408,'separate_baseline_executions':1,
         'summary':summary,'endpoints':endpoints,'comparisons':decisions(endpoints,heldout),'heldout':heldout,
         'ledger_sha256':hashlib.sha256(packed).hexdigest(),'ledger_uncompressed_sha256':hashlib.sha256(raw).hexdigest(),
         'wall_seconds':round(time.monotonic()-started,3),'new_telescope_requests':0,'independent_observing_sequences':1,
         'general_adoption_qualified':False,'prior_M43X_losses_remain_unresolved':True,
         'matched_component_comparison':matched_comparison(endpoints,cfg['cases']),'physical_false_alarm_probability_measured':False})
-    write_sealed(OUT/'progress.json',{'complete':True,'completed_inputs':320,'policy_endpoints':1280})
+    write_sealed(OUT/'progress.json',{'complete':True,'completed_inputs':352,'policy_endpoints':1408})
     print('M43Z COMPLETE',flush=True)
 
 if __name__=='__main__':

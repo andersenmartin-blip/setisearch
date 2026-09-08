@@ -28,7 +28,7 @@ def main():
     assert anchors['reused_unchanged_arithmetic_anchors']=={p:sha(ROOT/p) for p in cfg['unchanged_arithmetic_anchors']}
     packed=(OUT/'case_audits.jsonl.gz').read_bytes();raw=gzip.decompress(packed)
     assert hashlib.sha256(packed).hexdigest()==r['ledger_sha256'] and hashlib.sha256(raw).hexdigest()==r['ledger_uncompressed_sha256']
-    ledger=[json.loads(line) for line in raw.splitlines() if line.strip()];assert len(ledger)==320
+    ledger=[json.loads(line) for line in raw.splitlines() if line.strip()];assert len(ledger)==352
     _,_,_,metadata,basis,parent,_,_=build_context();bank,table,_=detector.catalogue_bridge(parent,cfg['parent_template_indices'],basis)
     _,grid,_=grid_context();factors=np.stack([core.factor_table_for_scan(table,basis,f'epoch{e+1}_on') for e in range(3)],axis=1)
     endpoints=[];members=0;decisions=0;losses=[];identity_groups={};bycase={}
@@ -81,8 +81,8 @@ def main():
                     relevant=associated&finalsets['neighbor9'];index={d['record_id']:d for d in rec['policy_decisions'][ep['policy']]}
                     losses.append(dict(case=case,policy=ep['policy'],lost_members=[dict(member=m,evidence=p,decision=index[m['record_id']]) for m,p in zip(base['members'],proofs) if m['record_id'] in relevant]))
         endpoints.extend(rec['endpoints'])
-    assert endpoints==r['endpoints'] and len(endpoints)==1280
-    assert sum(c['signal_present'] for c in cfg['cases'])==192
+    assert endpoints==r['endpoints'] and len(endpoints)==1408
+    assert sum(c['signal_present'] for c in cfg['cases'])==224
     summary=[]
     for p in POLICIES:
         for strength in (24.,48.):
@@ -119,10 +119,10 @@ def main():
             a=lookup[origin,p]['truth_association']['recovered'];b=lookup[c['case_index'],p]['truth_association']['recovered'];ref=lookup[c['case_index'],'neighbor9']['truth_association']['recovered']
             pairs.append(dict(case_index=c['case_index'],signal_only_case_index=origin,case_type=c['case_type'],policy=p,
                 signal_only_recovered=a,with_interference_recovered=b,paired_loss=a and not b,paired_gain=b and not a,added_policy_loss_on_interference_input=ref and not b))
-    assert pairs==r['matched_component_comparison'] and native_pairs==96
+    assert pairs==r['matched_component_comparison'] and native_pairs==128
     write_sealed(OUT/'signal_loss_evidence.json',dict(source_result=r['result_sha256'],losses=losses))
     write_sealed(OUT/'input_identity_groups.json',dict(groups=identity_groups,distinct_native_patch_inventories=len(identity_groups)))
-    record=dict(passed=True,pinned_files=len(cfg['pinned_sha256']),inputs=320,endpoints=1280,reference_members=members,
+    record=dict(passed=True,pinned_files=len(cfg['pinned_sha256']),inputs=352,endpoints=1408,reference_members=members,
         policy_member_decisions=decisions,matched_ON_payload_invariants=native_pairs,distinct_native_patch_inventories=len(identity_groups),
         future_excluded_shift_rows=1792,ledger_sha256=r['ledger_sha256'])
     write_sealed(OUT/'artifact_validation.json',record);print(json.dumps(record,indent=2))

@@ -59,6 +59,15 @@ def main():
                     add('ON-OFF',[comp(exact,'ON-control'),comp(exact,'OFF-control',kind='off')],False,exact,'control')
                     add('OFF-only',[near],False,exact,'absent')
                 stratum+=1
+    # Pre-evaluation amendment: preserve original case indices, append matched
+    # moderate OFF strength to separate added-cut cost from reference rejection.
+    originals=copy.deepcopy(cases)
+    for c in originals:
+        if c['case_type']!='distributed17-near-OFF':continue
+        c['case_index']=len(cases);c['case_type']='distributed17-moderate-OFF'
+        c['components'][-1]['strength']=c['strength']
+        c['components'][-1]['component_id']='unrelated-moderate-near-OFF'
+        cases.append(c)
     excluded=set()
     for path in ('config/m43r_joint_calibration.json','config/m43t_mask_comparison.json','config/m43u_prior_neighbor2_shifts.json','config/m43u_signal_interference.json'):
         c=json.loads((ROOT/path).read_text());excluded.update(tuple(r) for r in c['calibration_shifts']+c['heldout_shifts'])
@@ -70,11 +79,11 @@ def main():
         a,b=map(int,rng.integers(128,n-128,size=2));r=(0,a,b)
         if min(abs(a-b),n-abs(a-b))<128 or r in excluded or list(r) in rows:continue
         rows.append(list(r))
-    assert len(cases)==320 and sum(c['signal_present'] for c in cases)==192
+    assert len(cases)==352 and sum(c['signal_present'] for c in cases)==224
     paths=set(x['pinned_sha256'])|{'config/m43x_confirmation.json','config/m43y_response_diagnostic.json',
         'results_m43y_response_diagnostic/result.json','results_m43y_response_diagnostic/artifact_validation.json',
         'results_m43w_confirmation/anchors.json','results_m43x_confirmation/anchors.json',
-        'MILESTONE_43Z_JOINT_CONTROLS_PLAN.md','src/seti_repeater/confirmation_m43z.py',
+        'MILESTONE_43Z_JOINT_CONTROLS_PLAN.md','MILESTONE_43Z_PLAN_AMENDMENT.md','src/seti_repeater/confirmation_m43z.py',
         'scripts/m43z_freeze_config.py','scripts/m43z_joint_controls.py','scripts/m43z_audit_report.py',
         'scripts/m43z_restore_runtime.py','tests/test_m43z_joint_controls.py','results_m43z_joint_controls/unit_tests.txt'}
     cfg=dict(milestone='M43Z',python_version=platform.python_version(),numpy_version=np.__version__,
@@ -84,5 +93,5 @@ def main():
         confirmation_floor=5.5,unchanged_arithmetic_anchors=['results_m43w_confirmation/anchors.json','results_m43x_confirmation/anchors.json'],
         pinned_sha256={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
     (ROOT/'config/m43z_joint_controls.json').write_text(json.dumps(cfg,indent=2)+'\n')
-    print(json.dumps(dict(inputs=len(cases),signal_inputs=192,pure_controls=128,endpoints=1280,pins=len(paths),excluded=len(excluded))))
+    print(json.dumps(dict(inputs=len(cases),signal_inputs=224,pure_controls=128,endpoints=1408,pins=len(paths),excluded=len(excluded))))
 if __name__=='__main__':main()
