@@ -1,5 +1,34 @@
 # SETIsearch
 
+**Latest diagnosis — M43AC explains the remaining broad-control failures.**
+The retrospective analysis verifies all 149 stored M43AB inputs. Centered
+receiver sampling releases all 868 rank-eligible original alias rejections:
+861 old best witnesses lose sufficient shared above-floor epochs, while seven
+lose frequency agreement. These are correlated member counts, not events.
+
+The sole fresh combined-control survivor is supported by an entirely unchanged
+background response in its weak epoch (score 5.501475 against the fixed 5.5
+floor). The broad ON/OFF control has displaced response edges; its centered
+correlations remain below 0.8 even after subtracting the known injection
+baseline. That subtraction is diagnostic and is not available for an unknown
+astronomical event.
+
+Three selected neighborhoods were reconstructed across all eight widths:
+288 complete response vectors, 144 exact direct native comparisons, and exact
+original/centered signatures in seven active member-epochs. All 96 original
+arrays and 48 native gathers match; three focused accounting tests pass.
+
+**No detector decision changes, no new sky coverage, and no astronomical
+candidate is claimed.** M43AB's failed gates and recovery counts remain intact.
+Next: jointly specify peak attribution using width and track geometry while
+preserving both receiver measurements, then publicly freeze a new endpoint
+before evaluating additional inputs. Weak-epoch background support remains a
+separate unresolved limitation.
+
+[Read the M43AC report, response figures and reproducible evidence](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AC_DUAL_EVIDENCE_RESULT.md).
+
+---
+
 **Latest result — M43AB recovers five historical signal losses, but fails qualification.**
 The publicly frozen comparison completed **149 base executions and 1,043 paired
 policy endpoints**, including 36 historical inputs, 112 fresh native injection
