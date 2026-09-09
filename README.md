@@ -1,5 +1,29 @@
 # SETIsearch
 
+**Current work — M43AF integrated design prepared; scientific execution is pending.**
+The new development checkpoint adds acquisition of full ON/OFF profiles before
+the old weak-epoch cut, an independent scalar/coordinate check, a deterministic
+joint training rule and focused tests. The rule has an explicit no-feasible-model
+outcome; it must preserve reference signal recovery while removing control leaks.
+
+The draft enumerates **112 training and 112 initially unopened validation inputs**
+(each 64 signals / 48 controls), plus **256 proposed shift rows** excluding all
+1,792 earlier rows. Metadata-only checks confirm these counts and exact
+shift/component-specification separation. Native-payload novelty remains
+unverified; all panels reuse one observing sequence.
+
+The runtime disconnected during source restoration. **The new Python tests have
+not run, and no M43AF scientific measurements, null scores or model have been
+evaluated.** The consistent selected-null adapter and final release audit remain
+required before the full executable scientific freeze. A pre-veto empty-set
+bound cannot replace conditional response calibration. M43AE's failed gates
+and all historical results remain unchanged.
+
+[Review the concrete M43AF design and remaining gates](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AF_INTEGRATED_DESIGN_DRAFT.md).
+[Resume from the current checkpoint](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/M43AF_PREPARATION_CONTINUATION.md).
+
+---
+
 **Latest development result — M43AE completed; the joint response rules fail qualification.**
 The publicly frozen comparison completed **262 case evaluations and 3,406 paired
 policy endpoints**: 1,500 prior endpoints were reused and 1,906 newly evaluated.
