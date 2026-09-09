@@ -1,6 +1,44 @@
 # SETIsearch
 
-**Development update — M43AD geometry-aware experiment prepared; evaluation has not started.**
+**Latest development result — M43AD completed; all three new policies fail qualification.**
+The publicly frozen experiment completed **150 base executions and 1,500 paired
+policy endpoints**. All 38 historical/baseline inputs replay the seven prior
+policies exactly. The audit passes: 348 pinned files, 128,360 policy-member
+decisions, 1,611 direct native comparisons, 2,758,914 exhaustive alias-pair
+comparisons and 205 reconstructed aligned profiles, with no incomplete requests.
+
+| Comparison | Historical signals /19 | Historical leaking controls /18 | Additional signals /64 | Additional leaking controls /48 |
+|---|---:|---:|---:|---:|
+| Original combined rule | 8 | 3 | 55 | 3 |
+| Centered receiver + ON/OFF agreement + aggregation | 13 | 5 | 57 | 5 |
+| Geometry + original OFF rule + aggregation | 10 | 3 | 55 | 3 |
+| Geometry + receiver-aligned ON/OFF + aggregation | 13 | 8 | 56 | 6 |
+
+Geometry restores two historical mixed signals with no extra leaking controls
+relative to the original combined rule. Receiver alignment removes two known
+controls, but admits other ON/OFF controls and loses an additional width-17
+signal recovered by the centered comparison. The qualifying OFF maximum and
+aligned shape can refer to different coordinates; their conjunction does not
+establish that they come from the same response. Weak unequal-epoch losses
+remain unresolved.
+
+The 112 additional combinations contain 104 distinct native payloads; the
+whole experiment contains 142. All reuse one existing observing sequence.
+The historical /18 control denominator explicitly adds the known M43AB
+fresh032 control; the original M43AB /17 denominator and results below remain
+unchanged. No new null rows, production rule, sky coverage or astronomical
+candidate is claimed. Eight focused tests pass, and all original arrays and
+native gathers match.
+
+[Read the M43AD report, exact costs and reproducibility instructions](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AD_GEOMETRY_RESULT.md).
+[Continue from the completed checkpoint](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/M43AD_COMPLETED_CONTINUATION.md).
+The complete sealed evidence is preserved in a checksum-verified lossless
+archive. Next: jointly attribute OFF amplitude, shape and track to the same
+response, with explicit signal-loss costs and a new public scientific freeze.
+
+---
+
+**Earlier preparation — M43AD before its public freeze (superseded by the result above).**
 The next comparison keeps both the local receiver peak and candidate-centered
 measurement. Peak attribution uses the full integration track and filter width;
 a separate ON/OFF comparison aligns predicted mean receiver frequencies without
