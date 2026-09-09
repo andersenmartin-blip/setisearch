@@ -1,5 +1,25 @@
 # SETIsearch
 
+**Development update — M43AD geometry-aware experiment prepared; evaluation has not started.**
+The next comparison keeps both the local receiver peak and candidate-centered
+measurement. Peak attribution uses the full integration track and filter width;
+a separate ON/OFF comparison aligns predicted mean receiver frequencies without
+fitting a lag to the data. Existing score floors and prior failed gates remain.
+
+The fixed panel has **37 historical inputs, 112 additional native injection
+combinations and one baseline**, with ten paired policies: **150 planned base
+executions and 1,500 endpoints**. The additional panel has 64 signal-present and
+48 control cases. Historical cases are regressions; all inputs reuse one
+existing observing sequence and are not independent observations.
+
+Eight focused tests pass. All six original source receipts, 96 source arrays
+and 48 native gathers have been reproduced exactly. No M43AD input has been
+scored. Execution requires verification of the public scientific freeze.
+No detector rule, new observing coverage or astronomical candidate is claimed.
+[Read the M43AD plan and acceptance gates](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AD_GEOMETRY_PLAN.md).
+
+---
+
 **Latest diagnosis — M43AC explains the remaining broad-control failures.**
 The retrospective analysis verifies all 149 stored M43AB inputs. Centered
 receiver sampling releases all 868 rank-eligible original alias rejections:
