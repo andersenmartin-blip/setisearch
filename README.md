@@ -1,26 +1,29 @@
 # SETIsearch
 
-**Current work — M43AF integrated design prepared; scientific execution is pending.**
-The new development checkpoint adds acquisition of full ON/OFF profiles before
-the old weak-epoch cut, an independent scalar/coordinate check, a deterministic
-joint training rule and focused tests. The rule has an explicit no-feasible-model
-outcome; it must preserve reference signal recovery while removing control leaks.
+**Current work — M43AF is publicly frozen and running.**
+The complete executable study was verified at
+[75b271b](https://github.com/andersenmartin-blip/setisearch/commit/75b271b4b92819783692375687586d6df4f40c57)
+before any new M43AF scientific evaluation. **All 55 focused tests pass**.
+The original six sources, 96 arrays and 48 native gathers match; zero translation
+reproduces all 7,503,600 stored float32 score values and passes 432 direct
+native probes. The runtime has recovered from the earlier outage.
 
-The draft enumerates **112 training and 112 initially unopened validation inputs**
-(each 64 signals / 48 controls), plus **256 proposed shift rows** excluding all
-1,792 earlier rows. Metadata-only checks confirm these counts and exact
-shift/component-specification separation. Native-payload novelty remains
-unverified; all panels reuse one observing sequence.
+The null operator translates normalized native rows consistently for ON/OFF,
+receiver measurements and complete response profiles. It is a newly specified
+native surrogate, not the old circular rotation of integrated scores. The
+training stage contains **128 native nulls and 112 injection/control inputs**
+(64 signals / 48 controls). A joint boundary must preserve both reference
+signal-recovery sets while leaving zero control, baseline and training-null
+members. Its full grid is independently audited.
 
-The runtime disconnected during source restoration. **The new Python tests have
-not run, and no M43AF scientific measurements, null scores or model have been
-evaluated.** The consistent selected-null adapter and final release audit remain
-required before the full executable scientific freeze. A pre-veto empty-set
-bound cannot replace conditional response calibration. M43AE's failed gates
-and all historical results remain unchanged.
+The 112 validation inputs and 128 held-out native nulls remain unopened until
+a feasible model is publicly sealed. If none is feasible, publish that failure
+and leave validation unopened. The 262 M43AE historical/baseline inputs receive
+new diagnostic profile measurements while their old detector endpoints are
+reused. All data share one observing sequence; no independent sky coverage,
+physical false-alarm estimate or candidate is claimed.
 
-[Review the concrete M43AF design and remaining gates](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AF_INTEGRATED_DESIGN_DRAFT.md).
-[Resume from the current checkpoint](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/M43AF_PREPARATION_CONTINUATION.md).
+[Read the executable protocol and conditional gates](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AF_EXECUTABLE_PROTOCOL.md).
 
 ---
 
