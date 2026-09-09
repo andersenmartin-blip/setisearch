@@ -50,7 +50,7 @@ def case_outcome(case, boundary):
                 final_members=len(surviving), surviving_record_ids=surviving)
 
 
-def fit(training_cases, baseline):
+def fit(training_cases, baseline, null_cases=()):
     """Fit only an explicitly validated training panel, with a failure outcome.
 
     Input members must be exactly the pre-remaining geometry/rank inventory.
@@ -60,7 +60,9 @@ def fit(training_cases, baseline):
         raise ValueError('only training cases may select a boundary')
     if baseline['panel'] != 'baseline' or baseline['signal_present']:
         raise ValueError('separate uninjected baseline required')
-    all_cases = training_cases+[baseline]
+    if any(c['panel'] != 'null_training' or c['signal_present'] for c in null_cases):
+        raise ValueError('only uninjected training nulls may constrain the fit')
+    all_cases = training_cases+[baseline]+list(null_cases)
     if len({c['name'] for c in all_cases}) != len(all_cases):
         raise ValueError('duplicate case identity')
     for c in all_cases:

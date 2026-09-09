@@ -79,3 +79,13 @@ def test_independent_scalar_analytic_sign_and_constant_template():
     assert result['projection'] == pytest.approx(-math.sqrt(8/3))
     assert result['correlation'] == pytest.approx(-1.)
     assert not scalar_projection([2., 2., 2.], [0., 3., 0.])['defined']
+
+
+def test_training_null_is_a_joint_constraint_and_heldout_null_is_forbidden():
+    training = [case('s', True, (5., 1.), True), case('c', False, (1., 8.))]
+    null = case('n', False, (5., 1.), panel='null_training')
+    assert fit(training, baseline())['feasible']
+    assert not fit(training, baseline(), [null])['feasible']
+    null['panel'] = 'null_validation'
+    with pytest.raises(ValueError):
+        fit(training, baseline(), [null])
