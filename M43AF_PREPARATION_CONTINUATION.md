@@ -8,20 +8,17 @@ The complete scientific release is local commit
 `ff0b1a0805e1b2f6b5b337eedda510d2de940598`, tree
 `4997e4adb06f152a7145a3105af70416f5adbcef`.
 
-**Publication remains incomplete.** At the last verified check the public
-scientific branch was `d65644ac2f7e7fb84cd9913d80a16df2314c7400`, and main was
-`758377712cf60f51bbeea3a5385eaa9b665006e3`. No ref was changed in this session.
-An accepted Git blob is not a published result. See the outer continuation
-package's operational receipt for the blocked upload and accepted blob inventory;
-do not infer that an archive is complete from one accepted part.
+**Publication is complete.** The full scientific result is public at
+`c875ff8548111b558cef0dec67a941b81454e97c`, M43AF preparation at
+`2b7350adb8e20197fa927f75a8ba046f292319c2`, and the README update on main at
+`3adb241f8f24c1b3e5468893aad00966b09b8264`. Their public refs, file identities
+and complete Git trees were verified. All 14 M43AE archive parts are included.
+Read `M43AE_PUBLICATION_COMPLETED.md`; it supersedes the earlier upload-block
+status. No further publication approval is pending for these snapshots.
 
-The ready README-only commit remains
-`55cc942fd6ccbc28bdff7f6ece5ef8649fd4bac2`, tree
-`6e89ce8e86a60812c105658b9d20d24305783370`. Publish the full M43AE scientific
-release before the README, then record the verified public identities. Publish
-the new preparation as a separate scientific commit. Compare current refs first
-and preserve any intervening work. Do not publish stale private upload-review
-handoffs as scientific results.
+The local scientific release commits above remain provenance references. Public
+GitHub commits have the same exact trees, with their own publication history.
+Future sessions should first read the current public refs and this receipt.
 
 ## Work completed after M43AE
 
