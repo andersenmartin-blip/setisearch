@@ -31,7 +31,7 @@ candidate is claimed. Eight focused tests pass, and all original arrays and
 native gathers match.
 
 [Read the M43AD report, exact costs and reproducibility instructions](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AD_GEOMETRY_RESULT.md).
-[Continue from the completed checkpoint](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/M43AD_COMPLETED_CONTINUATION.md).
+[Continue from the verified public checkpoint](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/M43AD_PUBLICATION_COMPLETED.md).
 The complete sealed evidence is preserved in a checksum-verified lossless
 archive. Next: jointly attribute OFF amplitude, shape and track to the same
 response, with explicit signal-loss costs and a new public scientific freeze.
