@@ -3,7 +3,16 @@
 Updated 10 September 2026. This is the maintained operational entry point.
 Earlier milestone reports and continuation files preserve historical states.
 
-## Current result: M43AG completed
+## Current activity: M43AH preparation
+
+The [M43AH epoch-support development plan](MILESTONE_43AH_EPOCH_SUPPORT_PLAN.md),
+code, 16 passing synthetic tests and source preflight are recorded with this
+status before feature extraction. The two families use second-epoch ON support
+with and without a per-epoch OFF penalty. This is a fixed retrospective
+training study; no fresh validation is opened. Resume from its verified public
+freeze and inspect saved outputs before executing anything.
+
+## Last completed result: M43AG
 
 The [M43AG result](MILESTONE_43AG_BOUNDARY_OBSTRUCTION_RESULT.md) exhausts the
 unchanged M43AF rule `x >= a and y < b` on its already public training records.
@@ -64,7 +73,8 @@ independent observing sequence.
 The next design can start from the public training evidence and M43AG
 certificates. Native telescope recovery or the unpublished full historical
 archive is unnecessary merely to read these results or prepare that design.
-No new follow-on protocol has yet been frozen or evaluated.
+M43AH now records this bounded development protocol. Its results are not yet
+reported in this preparation checkpoint.
 
 ## Separate pending M43AF release
 
