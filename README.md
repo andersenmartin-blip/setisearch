@@ -12,11 +12,11 @@ the project; the current priority is qualification of the narrowband detector.
 
 ## Where the project stands
 
-**M43AG is complete:** exhaustive analysis of the existing training coordinates
-shows that finer boundaries reduce control-free required-signal losses from
-four to one, but recovering all 57 still admits at least eight control cases.
-Changing grid density alone cannot make this rule family qualify.
-[Read the M43AG result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AG_BOUNDARY_OBSTRUCTION_RESULT.md).
+**M43AH is complete:** neither standalone second-epoch support rule meets the
+joint training requirements. With zero control leaks, raw support loses 3 of
+57 required signals and ON-minus-OFF support loses 6, versus M43AG's minimum
+of 1. Their different loss sets motivate a separately specified combined rule.
+[Read the M43AH result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AH_EPOCH_SUPPORT_RESULT.md).
 
 M43AF's frozen joint response rule failed qualification: none of the 1,156
 tested boundaries met all requirements. The 241-record training stage is
