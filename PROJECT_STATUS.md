@@ -26,28 +26,27 @@ The protocol, code, tests and source preflight were
 All 244 original training-archive files and the unchanged M43AG dependencies
 were hash checked. This is retrospective development, not fresh validation.
 
-## Next integrated study
+## M43AI prepared: combined rule and prospective native challenge
 
-The raw-support rule loses required cases training057/071/085. The excess rule
-loses training017/031/059/073/087/101. Their disjoint loss lists motivate an
-explicit OR-combination as a new development hypothesis.
+[The M43AI protocol](MILESTONE_43AI_COMBINED_RULE_PROTOCOL.md) fixes a member-level
+OR of the two M43AH rectangles. Each branch will select the first published
+zero-leak minimum-loss state in its descending-ON ledger. The exact model and
+closed-training accounting must be published before new native evaluation.
 
-Specify that combined rule, deterministic training/threshold selection,
-reference comparisons, signal-loss accounting and fresh native-input evaluation
-together in a new protocol. The known cases remain development evidence.
-Do not silently append a third method to M43AH, select a model after the fact
-under its old freeze, or count known-case coverage as independent validation.
+The prospective configuration fixes 112 new injection/control inputs (64
+signals, 48 controls) at carriers shifted by 211 channels and strengths scaled
+by 15/16, plus 128 new native null rows excluding all 2,048 prior/reserved rows.
+The original held-out panels stay unopened. This tests the same observing
+sequence; general adoption still needs independent observing data.
 
-The two standalone families are now closed evidence. Do not rerun M43AH,
-M43AG or the already completed M43AF acquisitions merely to continue. The next
-combined-rule protocol has not yet been frozen or evaluated. Any fresh native
-evaluation needs explicit input provenance and the applicable source recovery;
-reading these results or preparing the design does not.
+The six saved native-source backups have been restored. All original source
+receipts, 96 anchor arrays, 48 native gathers, the calibration binding,
+zero-translation score bits and 432 direct native calculations match.
+Twenty-two new tests pass. No new validation input has been evaluated.
 
-The original 112 held-out injection inputs and 128 held-out native nulls remain
-unopened. A future protocol must explicitly address their status rather than
-quietly treating them as fresh inputs. General detector adoption additionally
-requires an independent observing sequence.
+Next: verify public protocol bytes, select and publish the fixed combined model,
+then evaluate the predeclared native panel without retuning. Do not repeat the
+closed M43AF/M43AG/M43AH experiments or historical acquisitions.
 
 ## Scientific and publication state
 
