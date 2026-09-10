@@ -12,6 +12,12 @@ the project; the current priority is qualification of the narrowband detector.
 
 ## Where the project stands
 
+**M43AG is complete:** exhaustive analysis of the existing training coordinates
+shows that finer boundaries reduce control-free required-signal losses from
+four to one, but recovering all 57 still admits at least eight control cases.
+Changing grid density alone cannot make this rule family qualify.
+[Read the M43AG result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AG_BOUNDARY_OBSTRUCTION_RESULT.md).
+
 M43AF's frozen joint response rule failed qualification: none of the 1,156
 tested boundaries met all requirements. The 241-record training stage is
 public. The complete 502-record study is finished in the saved release package,

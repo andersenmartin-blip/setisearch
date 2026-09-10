@@ -15,8 +15,8 @@ inputs and 128 held-out native nulls remain unopened; no detector is adopted.
 ## Restore only the evidence needed
 
 The already public training archive restores 244 original files, including
-241 training/baseline/null records. It is sufficient for the prepared M43AG
-retrospective diagnostic. With the archive-recorded Python 3.12.14 / zlib 1.3.2:
+241 training/baseline/null records. It is the input to the completed M43AG
+retrospective diagnostic; see PROJECT_STATUS.md before any new work. With the archive-recorded Python 3.12.14 / zlib 1.3.2:
 
 ```bash
 PYTHONPATH=src:scripts python scripts/m43af_archive.py restore --stage training
@@ -30,7 +30,7 @@ package, or a later verified complete publication, before attempting a
 complete-stage restoration.
 
 Native telescope data are unnecessary for publication, archive verification
-or the prepared training-coordinate diagnostic. Recover them only for a
+or the completed training-coordinate diagnostic. Recover them only for a
 separately specified native computation.
 
 ## Historical records

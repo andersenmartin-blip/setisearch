@@ -1,101 +1,102 @@
 # SETIsearch — current project status
 
-Updated 10 September 2026. This is the operational entry point for continuing
-the project. Earlier milestone reports and continuation files record historical
-states; their old “next step” instructions are not the current work queue.
+Updated 10 September 2026. This is the maintained operational entry point.
+Earlier milestone reports and continuation files preserve historical states.
 
-## Verified state
+## Current result: M43AG completed
 
-| Item | State | Evidence |
-|---|---|---|
-| M43AF training | Published; 241 records; zero feasible boundaries among 1,156 frozen grid points | [Training result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AF_TRAINING_RESULT.md), [publication commit](https://github.com/andersenmartin-blip/setisearch/commit/bdab6b0af39d6bc6c81ce9d5f07ef24c103ca833) |
-| M43AF complete no-model study | Completed in the saved release package: 502 records and a passing independent whole-study audit | `setisearch_M43AF_complete_release.zip`; complete publication still pending |
-| Complete M43AF archive on the science branch | Not published at the verified baseline below | The branch has the training archive, but no complete-stage archive |
-| Validation | 112 injection inputs and 128 held-out native nulls remain unopened | Failed training decision and unchanged executable protocol |
-| New detector / new M43AF astronomical candidate | None | Failed qualification; one observing sequence |
-| M43AG | A local retrospective diagnostic draft is prepared, with 13 preparation tests passed; no execution or publication is established by this cleanup | Uses only the already public 241-record training archive |
-| Earlier M33 follow-up | Still unresolved; no independent HD 3651 cadence available | [M33 investigation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
-| LS research branch | Preserved for later work; the narrowband milestone track remains the current priority | [Project direction](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_DIRECTION.md), [LS6A result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS6A_SCAN_END_RESULT.md) |
+The [M43AG result](MILESTONE_43AG_BOUNDARY_OBSTRUCTION_RESULT.md) exhausts the
+unchanged M43AF rule `x >= a and y < b` on its already public training records.
 
-The 502 complete-stage records include the 241 training/baseline records and
-261 historical diagnostic acquisitions. They are not 502 new independent
-observations. Those historical acquisitions have already been completed in the
-saved package and must not be restarted because an old continuation says they
-are “remaining”.
+| Fixed requirement | Original 1,156-point grid | All 2,514 ON-cut equivalence classes |
+|---|---:|---:|
+| Zero surviving control/baseline/null members: fewest required signal losses | 4 of 57 | **1 of 57** |
+| Recover all 57 required signal cases: fewest leaking control cases | 8 of 48 | **8 of 48** |
 
-The failed result concerns the frozen two-coordinate grid. It does not prove
-that all possible detectors fail. M43AG's prepared diagnostic asks whether
-finer boundaries within the same fixed rule family could change the training
-trade-off. It is retrospective and provides no independent validation.
+Grid refinement alone cannot meet both requirements. All 11 associated members
+of training057 are blocked by dominating control members. No new rule is
+selected. These are retrospective case counts from one observing sequence;
+the eight leaking cases represent four distinct native payloads.
 
-## Publication baseline and saved evidence
+The diagnostic protocol, code, 18 passing synthetic tests and source preflight
+were [published and verified before execution](https://github.com/andersenmartin-blip/setisearch/commit/119cac883efefeb548a8a49386e3e026d33f6872).
+All 244 training-archive files were hash checked. Independent checks cover
+every ON-cut state, headline optimum, optimal-state index, all 72 dominance
+witnesses and all 1,156 original grid points. The complete ledger, certificates,
+input identities and hashes accompany the result. No M43AF acquisition was rerun.
 
-These are the branch heads checked before the documentation cleanup, not
-the final documentation commit identifiers:
+## Scientific and publication state
 
-- Science: `4a0a180ea1037113fce6b24ea5524eeeca905520`.
-- Main: `60bad761f4aa6eebeeef367f7a4123b80fd33e44`.
-- Scientific freeze: `75b271b4b92819783692375687586d6df4f40c57`.
-- Complete release ZIP SHA256:
-  `82e649f8aa0faffe88d4020cda4eb5fce4cbdcda1a84015cd48774a94f673999`.
+| Item | Current state |
+|---|---|
+| M43AG | Completed, audited; result and full derived ledger accompany this status |
+| M43AF training | Published: 241 records, failed joint qualification; [training result](MILESTONE_43AF_TRAINING_RESULT.md) |
+| M43AF complete no-model study | Saved and audited: 502 records total; its complete historical archive still awaits publication |
+| Validation | 112 injection inputs and 128 held-out native nulls remain unopened |
+| Adopted new detector / new astronomical candidate from M43AF or M43AG | None |
+| Earlier M33 HD 3651 case | Still unresolved; no independent cadence available; [investigation](MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
+| LS research | Preserved for later work; narrowband qualification remains current priority; [LS6A](LS6A_SCAN_END_RESULT.md) |
 
-The saved ZIP contains the complete-stage evidence: 69 archive parts restoring
-508 original files, including all 502 records. Its manifests and payload
-hashes were checked during cleanup. No closed scientific evaluation was rerun.
+M43AF's 502 records include its 241 training/baseline records and 261 historical
+diagnostic acquisitions already completed in the saved package. Do not repeat
+them because an old checkpoint says they are remaining.
 
-A separate local transfer ledger lists 20 uploaded blobs. Uploaded blobs alone
-are not a published result: a verified commit must contain the complete payload
-and be reachable from the intended branch. Earlier publication notes saying
-“no blobs uploaded” describe an older attempt.
+The original 940 scientific pins, M43AF failed qualification, earlier results
+and their denominators are unchanged. The main branch remains an overview plus
+earlier pipeline code; current scientific work is on m43-support-qualification.
+[Project direction](PROJECT_DIRECTION.md) retains the owner's decisions.
 
-The complete-package upload encountered automatic approval-review rejections.
-That unresolved publication issue is separate from the already published
-training decision and from the successful scientific computations. Existing
-owner publication authorization remains recorded in PROJECT_DIRECTION.md.
+## Next integrated design
 
-## Continue from here
+Continue from M43AG's obstruction, not another refinement of the same threshold
+grid. To retain the original recovery/rejection requirements, develop a changed
+observable representation or rule family. A bounded initial hypothesis is
+compatible support across epochs in the presence of strong single-epoch
+interference, while preserving unequal and intermittent signals.
 
-1. Read this status and the latest saved publication receipt. Inspect current
-   remote branch heads and compare their trees with the complete release
-   manifest before writing; preserve any newer work.
-2. Resume only missing publication work when the existing upload restriction
-   is resolved. Keep the original release ZIP and scientific manifests intact.
-   Verify complete archive membership and byte identities before declaring
-   the complete-stage release public.
-3. Apply historical payloads at a dedicated release commit, then retain or
-   reapply the current operational documentation separately. The release ZIP's
-   README and continuation are historical publication payloads: blindly applying
-   them over this cleanup would lose the current navigation and status.
-   Compare a release manifest against its exact release commit.
-4. Use the existing M43AG draft for the next bounded diagnostic after checking
-   whether it has since been published or executed. Its inputs are the public
-   training archive; it does not require native source recovery or the unpublished
-   complete historical archive. Preserve its named scope and verification plan.
-5. A changed feature, acceptance rule or detector needs a new prospective
-   protocol and fresh evaluation inputs. General adoption also requires an
-   independent observing sequence.
+The known training cases are development evidence, not fresh validation.
+Specify observables, controls, signal-loss accounting, and acceptance criteria
+together in a new protocol before evaluating fresh inputs. Do not use injected
+truth labels as detector inputs or open the old M43AF held-out panels merely
+because the diagnostic is complete. General adoption also requires an
+independent observing sequence.
 
-Do not rerun M43AF training or historical acquisitions, reopen its validation
-panels, or repeat native-source downloads merely to resume publication. Old
-“M11 install and reproduce” commands reproduce M11; they are not an M43AF
-restart procedure.
+The next design can start from the public training evidence and M43AG
+certificates. Native telescope recovery or the unpublished full historical
+archive is unnecessary merely to read these results or prepare that design.
+No new follow-on protocol has yet been frozen or evaluated.
 
-For an explicit restoration of saved evidence, use the archive-recorded
-Python 3.12.14 / zlib 1.3.2 and the frozen dependencies.
-[The M43AF continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/M43AF_CURRENT_CONTINUATION.md)
-distinguishes training restoration from the pending complete-stage publication.
+## Separate pending M43AF release
 
-## Verification limits
+The intact saved package is `setisearch_M43AF_complete_release.zip`, SHA256
+`82e649f8aa0faffe88d4020cda4eb5fce4cbdcda1a84015cd48774a94f673999`.
+Its 69 parts restore 508 original files, including the complete 502 records.
+The archive SHA256 is
+`b66e2a2dbe41d3dda4a63254c4528185e761aae7fdcf4745ef8e3764ca6c9443`.
 
-The latest five GitHub Test suite runs checked during cleanup succeeded on
-`main`; the latest was
-[run 34465105942](https://github.com/andersenmartin-blip/setisearch/actions/runs/34465105942).
-The CI workflow is triggered for main pushes and pull requests. Its green badge
-does not establish that the later science-branch code or an unpublished release
-has been tested by that run. The saved focused tests and independent science
-audits are separate evidence.
+Earlier automatic review rejected complete-archive writes. That issue remains
+unresolved. M43AG uses only already public training evidence and did not upload
+or depend on that blocked complete archive. A local ledger of 20 prior uploaded
+blobs is only a resume aid, not proof of a published complete release.
 
-No running SETI worker was observed in the inspected runtime. A previous
-“continue” message does not create unattended computation between sessions.
-The original scientific code, protocols, seals and results remain unchanged
-by this documentation cleanup.
+Before resuming that publication, recheck both remote refs and compare the
+original release manifest with their trees. Preserve all newer work and
+scientific pins. If applying the exact historical payload at a dedicated release
+commit, retain or reapply the current short README and operational status in a
+subsequent documentation commit. Do not overwrite today's status with the old
+package's README or stale continuation. Compare each release manifest against
+its exact release commit; verify complete payload membership and identities
+before declaring publication complete.
+
+[Archive restoration notes](M43AF_CURRENT_CONTINUATION.md) distinguish the
+already public training archive from the pending complete-stage archive.
+Exact restoration uses the recorded Python 3.12.14 / zlib 1.3.2 and frozen
+dependencies. No closed computation needs to be restarted.
+
+## Verification scope
+
+M43AG has its own 18-test log and independent result audit. Main-branch CI
+[passed for the cleanup](https://github.com/andersenmartin-blip/setisearch/actions/runs/34483758311);
+that run alone does not test later science-branch code. No active SETI worker
+is left running after this completed diagnostic, and unattended work between
+sessions is not assumed.
