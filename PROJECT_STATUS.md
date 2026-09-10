@@ -3,7 +3,7 @@
 Updated 10 September 2026. This is the maintained operational entry point.
 Earlier reports and continuation files preserve their historical states.
 
-## Current result: M43AH completed
+## Latest closed comparison: M43AH completed
 
 [The M43AH epoch-support study](MILESTONE_43AH_EPOCH_SUPPORT_RESULT.md) compared
 two fixed observable rule families on the 241 public closed M43AF training
@@ -26,32 +26,35 @@ The protocol, code, tests and source preflight were
 All 244 original training-archive files and the unchanged M43AG dependencies
 were hash checked. This is retrospective development, not fresh validation.
 
-## M43AI prepared: combined rule and prospective native challenge
+## M43AI fixed model selected; prospective native test next
 
-[The M43AI protocol](MILESTONE_43AI_COMBINED_RULE_PROTOCOL.md) fixes a member-level
-OR of the two M43AH rectangles. Each branch will select the first published
-zero-leak minimum-loss state in its descending-ON ledger. The exact model and
-closed-training accounting must be published before new native evaluation.
+[The fixed combined model](MILESTONE_43AI_TRAINING_SELECTION.md) recovers all
+57 required training signals with zero control/baseline/null surviving members.
+It recovers 57 of all 64 signals. This was selected under the published
+[M43AI protocol](MILESTONE_43AI_COMBINED_RULE_PROTOCOL.md); it is known-case
+training evidence, not independent validation or an adopted detector.
 
-The prospective configuration fixes 112 new injection/control inputs (64
-signals, 48 controls) at carriers shifted by 211 channels and strengths scaled
-by 15/16, plus 128 new native null rows excluding all 2,048 prior/reserved rows.
-The original held-out panels stay unopened. This tests the same observing
-sequence; general adoption still needs independent observing data.
+The exact conditional rule is second-epoch ON >=6.158954620361328 OR
+second-epoch ON-minus-OFF >=4.034601211547852. Both selected OFF-profile ceilings
+are unbounded. The OFF-center penalty still enters the second feature.
+Model seal: `be8e8523410156a162b2bd0c0629b5d4cb2fe6d872ef41be2953b95f9c24f5de`.
 
-The six saved native-source backups have been restored. All original source
-receipts, 96 anchor arrays, 48 native gathers, the calibration binding,
-zero-translation score bits and 432 direct native calculations match.
-Twenty-two new tests pass. No new validation input has been evaluated.
+Next, verify the public model and evaluate the frozen 112 new injection/control
+inputs (64 signals, 48 controls), then report them separately from the 128 new
+native nulls. Execution order is nulls first, injections second. The 2,048
+prior/reserved shift rows are excluded and the original held-out panels remain
+unopened. No new validation input has been evaluated at this model publication.
 
-Next: verify public protocol bytes, select and publish the fixed combined model,
-then evaluate the predeclared native panel without retuning. Do not repeat the
-closed M43AF/M43AG/M43AH experiments or historical acquisitions.
+All six native sources, 96 original arrays, 48 gathers, calibration binding,
+zero-translation score bits and 432 direct samples have been restored exactly.
+Twenty-two new tests pass. Do not repeat closed M43AF/M43AG/M43AH work or the
+historical acquisitions. General adoption needs independent observing data.
 
 ## Scientific and publication state
 
 | Item | Current state |
 |---|---|
+| M43AI | Fixed combined model meets training requirements; native evaluation pending |
 | M43AH | Completed with full feature/family ledgers, audits, source identities and output hashes |
 | M43AG | Completed exact original-boundary obstruction; [result](MILESTONE_43AG_BOUNDARY_OBSTRUCTION_RESULT.md) |
 | M43AF training | Published: 241 records, failed joint qualification; [result](MILESTONE_43AF_TRAINING_RESULT.md) |
@@ -97,6 +100,6 @@ exact release commit and verify complete membership and byte identities.
 archive from the pending complete archive. Exact restoration uses recorded
 Python 3.12.14 / zlib 1.3.2 and frozen dependencies.
 
-No SETI worker remains active after the completed M43AH run. Unattended work
-between sessions is not assumed. Main CI alone does not establish coverage of
+The prospective M43AI run may start only after the model publication is
+verified. Unattended work between sessions is not assumed. Main CI alone does not establish coverage of
 the later science branch; use the study's own tests and recorded audits.
