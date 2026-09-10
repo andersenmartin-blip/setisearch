@@ -1,29 +1,40 @@
 # SETIsearch
 
-**Current work — M43AF is publicly frozen and running.**
-The complete executable study was verified at
+**Current work — M43AF training completed; no joint boundary qualifies.**
+The unchanged public scientific freeze
 [75b271b](https://github.com/andersenmartin-blip/setisearch/commit/75b271b4b92819783692375687586d6df4f40c57)
-before any new M43AF scientific evaluation. **All 55 focused tests pass**.
-The original six sources, 96 arrays and 48 native gathers match; zero translation
-reproduces all 7,503,600 stored float32 score values and passes 432 direct
-native probes. The runtime has recovered from the earlier outage.
+completed 128 native training nulls, 112 injection/control inputs (64 signals /
+48 controls), and a separate reused baseline: **241 recorded inputs**.
+The independent training auditor checks all **1,156 frozen grid points** and
+confirms **zero feasible boundaries**.
 
-The null operator translates normalized native rows consistently for ON/OFF,
-receiver measurements and complete response profiles. It is a newly specified
-native surrogate, not the old circular rotation of integrated scores. The
-training stage contains **128 native nulls and 112 injection/control inputs**
-(64 signals / 48 controls). A joint boundary must preserve both reference
-signal-recovery sets while leaving zero control, baseline and training-null
-members. Its full grid is independently audited.
+| Requirement enforced within the frozen grid | Unavoidable competing cost |
+|---|---|
+| No control, baseline or null member survives | At least 4 of the 57 required signal cases are lost |
+| All 57 required signal cases are recovered | At least 8 of 48 control cases retain members |
 
-The 112 validation inputs and 128 held-out native nulls remain unopened until
-a feasible model is publicly sealed. If none is feasible, publish that failure
-and leave validation unopened. The 262 M43AE historical/baseline inputs receive
-new diagnostic profile measurements while their old detector endpoints are
-reused. All data share one observing sequence; no independent sky coverage,
-physical false-alarm estimate or candidate is claimed.
+No new rule is selected. The 112 validation inputs and 128 held-out native nulls
+remain unopened. The next step is the predefined historical diagnostic phase,
+after public verification of the immutable failed training decision. Its 261
+remaining acquisitions reuse the old detector endpoints; the whole M43AF study
+and final release audit are not yet complete.
 
-[Read the executable protocol and conditional gates](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AF_EXECUTABLE_PROTOCOL.md).
+All 12,560 measured profiles and 3,497 member measurements are complete and
+defined. The training panel contains 104 distinct native payloads with zero
+prior overlap. All 128 native nulls have zero eligible members, so they provide
+no conditional profile-tail observations. All data share one observing
+sequence; no independent sky coverage, physical false-alarm probability or
+astronomical candidate is claimed.
+
+Runtime recovery reproduced all six sources, 96 arrays and 7,503,600 original
+score values exactly. The original 55 focused tests and six bounded-recovery
+tests pass. The lossless 27-part training archive reconstructs all 244 original
+files byte for byte. The repaired recovery uses small verified segment files
+and a fixed disk reserve, avoiding telescope-sized sparse files.
+
+[Training result, exact costs and evidence](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AF_TRAINING_RESULT.md).
+[Current continuation and publication status](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/M43AF_CURRENT_CONTINUATION.md).
+[Executable scientific protocol](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AF_EXECUTABLE_PROTOCOL.md).
 
 ---
 
