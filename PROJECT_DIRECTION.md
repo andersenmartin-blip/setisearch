@@ -1,5 +1,8 @@
 # Long-term project direction
 
+Current operational status: [PROJECT_STATUS.md](PROJECT_STATUS.md).
+The decisions below remain in force; dated milestones describe their original scope.
+
 Owner decision, 5 September 2026: SETIsearch may be a multi-year project.
 Resume the narrowband milestone track after LS6A; preserve LS as an open
 research branch. A short run without a candidate is not a reason to abandon
