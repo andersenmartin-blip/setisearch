@@ -1,0 +1,32 @@
+{
+  "schema": "ls7b-tess-correction-aware-v1",
+  "target": "L 98-59",
+  "tic": 307210830,
+  "sector": 29,
+  "cadence_seconds": 20.0,
+  "products": [
+    {"kind": "lc", "name": "tess2020238165205-s0029-0000000307210830-0193-a_fast-lc.fits", "bytes": 11350080},
+    {"kind": "tp", "name": "tess2020238165205-s0029-0000000307210830-0193-a_fast-tp.fits", "bytes": 277712640}
+  ],
+  "quality_value": 0,
+  "allowed_quality_bits": 1088,
+  "baseline_samples": 121,
+  "box_samples": [2, 3, 5],
+  "score_threshold": 8.0,
+  "event_cap_per_sign": 2000,
+  "morphology": {"cosine_min": 0.90, "centroid_max_pixels": 0.5, "peak_fraction_margin": 0.20, "background_ratio_max": 0.5},
+  "injections": {"anchors": 10, "context_half_samples": 200, "amplitudes": [0.001, 0.003, 0.01], "phases_seconds": [0.0, 10.0], "shapes": ["box30", "box60", "box100", "doublet30sep87"], "match_tolerance_seconds": 20.1},
+  "extended_trials": {"profile_shifts_yx": [[0.25, 0.0], [-0.25, 0.0], [0.0, 0.25], [0.0, -0.25]], "pointing_shifts_yx": [[0.0, 0.2], [0.0, -0.2]], "shape": "box30", "amplitude_fraction": 0.01},
+  "qualification": {"searchable_days_min": 5.0, "anchor_span_days_min": 5.0, "bright_single_pulse_recovery_min": 0.90, "off_profile_recovery_min": 0.80, "nuisance_acceptance_max_per_kind": 0.05, "null_accepted_max": 0, "confounded_fraction_max": 0.20},
+  "native_review": {"passing_events": 6, "failing_events": 4, "plot_half_samples": 30},
+  "geometry": {
+    "model": "circular_edge_on_common_node_1d_diagnostic_only",
+    "source": "results_ls3_inventory/inventory.json",
+    "stellar_radius_solar": 0.3155,
+    "planets": [
+      {"name": "b", "period_days": 2.253114, "t0_bjd_tdb": 2458366.17056, "a_au": 0.0223},
+      {"name": "c", "period_days": 3.6906764, "t0_bjd_tdb": 2458367.27303, "a_au": 0.0309},
+      {"name": "d", "period_days": 7.450729, "t0_bjd_tdb": 2458362.74002, "a_au": 0.0494}
+    ]
+  }
+}
