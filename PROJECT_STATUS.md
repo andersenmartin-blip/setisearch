@@ -3,18 +3,52 @@
 Updated 12 September 2026. This is the maintained operational entry point.
 Earlier reports and continuation files preserve their historical states.
 
-## LS7C prospective evaluation prepared
+## LS7D noise diagnosis completed locally: strong cross-pixel cancellation
 
-The noise-aware pixel discriminator and 1,460-case joint challenge are fixed
-for L 98-59 sector 32. Thirty LS7/LS7B/LS7C implementation tests pass. Only MAST
-metadata has been read for sector 32; publish this freeze before retrieving its
-measured arrays. The unchanged temporal threshold is 8. New spatial fits account
-for pixel uncertainty and compete with instrumental patterns. Matched trials at
-scores 8.5, 12 and 20 exercise signals and nuisance controls above threshold;
-fixed 1%, 3% and 10% signal curves retain a separate amplitude interpretation.
+All **120** LS7C nominal-trial noise ratios reproduce across **34 unique windows
+in ten shared backgrounds**. Archived error floors alter the ratio by at most
+0.0083%; local/run aperture MAD differs by a median factor 1.050. A separate
+covariance calculation confirms strong cancellation: the corrected aperture
+variance has a trial-weighted median of only **4.72%** of diagonal pixel variance.
+The diagonal spatial approximation misses that structure. Eight analytical tests
+and the scalar audit of 120 links and 68 covariance matrices pass.
 
-[Prospective protocol](LS7C_TESS_PROTOCOL.md). No evaluation result exists yet.
-LS7B's failed weak-glint result and all original hashes remain unchanged.
+This is closed-sector diagnosis, with no new injection, candidate, coverage,
+threshold or adopted detector. A full 121-pixel empirical covariance is singular
+with these sidebands (rank at most 107). The next combined development experiment
+must handle covariance, unrelated residual pixels and compact/extended nuisance
+patterns before another independent-sector evaluation.
+[Result and figure](results_ls7d_noise/REPORT.md), [frozen diagnostic](LS7D_NOISE_PROTOCOL.md),
+[continuation and historical LS7C name distinction](LS7D_CONTINUATION.md).
+
+Publication: the LS7C sector 32 result and LS7D result are complete locally.
+Automatic review rejected the new report upload because it required explicit
+approval of the payload and public destination. No remote mutation succeeded.
+The complete code/results package and main README edit are ready together.
+[Exact release scope and restoration](LS7D_RELEASE_STATUS.md).
+
+## LS7C TESS challenge completed: recovery and compact-control rejection fail
+
+All **1,460 digital trials** completed on **18.7771 searchable cadence-days**
+of L 98-59 sector 32, observed 20 November–16 December 2020. The noise-aware
+pixel method was published before opening this sector. Thirty tests and the
+complete ledger audit pass; the detector's joint qualification fails.
+
+All 1,200 strength-matched trials reach their intended screening scores. Nominal
+stellar recovery is 3/40, 12/40 and 27/40 at scores 8.5, 12 and 20; compact 2×2
+controls leak in 0/40, 5/40 and 11/40 cases. Only 44/60 fixed 10% single pulses
+recover. All 325 native excursions fail the spatial test; no LS candidate or
+physical population limit is established. [Reviewed result](results_ls7c_tess/REVIEW.md).
+
+A retrospective reconstruction of 120 recorded signal windows finds that
+quadrature pixel noise exceeds run-level aperture noise by a median factor 4.66.
+All 30 residual-cut failures have restored correction pixels contributing
+70.9–94.8% of their weighted residual sums. These are diagnostics, not new vetoes.
+
+LS7D has now measured the covariance/noise mismatch on the closed sector 32
+backgrounds. Develop the revised spatial model on closed sectors 28/29/32,
+including unrelated residual pixels and compact/extended nuisances. Do not
+retune this result or open another sector merely because qualification failed.
 
 ## LS7B TESS qualification completed: weak-glint recovery failed
 
@@ -35,9 +69,9 @@ images are consistent with cosmic-ray contamination. There is no promoted LS
 candidate or astrophysical population limit.
 [Reviewed result and concrete continuation](results_ls7b_tess/REVIEW.md).
 
-Next: develop a spatial test that accounts for pixel noise and freeze stronger
-signal/nuisance challenges before using another unopened sector. Preserve these
-completed denominators and failed gates. The earlier radio LS/M43 results are unchanged.
+LS7C subsequently tested a separately frozen noise-aware spatial method and
+stronger controls on sector 32. Preserve these completed LS7B denominators and
+failed gates. The earlier radio LS/M43 results are unchanged.
 
 ## Previous closed LS7 sector 28 pilot: no eligible injection anchors
 
@@ -54,7 +88,7 @@ The method is not qualified; there is no sensitivity estimate or LS candidate.
 A separate time/quality metadata comparison found 17.527 potentially searchable
 cadence-days in sector 28 when correction flags 64 and 1024 are allowed. That
 sector 28 alternative remains a metadata diagnostic. LS7B evaluated the explicit
-flag policy on the previously unopened sector 29. Sectors beyond 28/29 remain unopened.
+flag policy on the previously unopened sector 29. LS7C subsequently opened sector 32 under its separate freeze.
 
 ## M43AI native evaluation completed
 
@@ -101,7 +135,7 @@ were hash checked. This is retrospective development, not fresh validation.
 | M43AF complete no-model study | Saved and audited: 502 records; complete historical archive still awaits publication |
 | Adopted new detector / new M43AF–M43AI astronomical candidate | None |
 | Earlier M33 HD 3651 case | Still unresolved; [investigation](MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
-| LS research | [LS7B](results_ls7b_tess/REVIEW.md): 420 trials complete, weak-glint recovery failed; noise-aware spatial test is next; [LS7](results_ls7_tess/REPORT.md) and [LS6A](LS6A_SCAN_END_RESULT.md) preserved |
+| LS research | [LS7D](results_ls7d_noise/REPORT.md): noise cancellation measured on closed data; [LS7C](results_ls7c_tess/REVIEW.md): 1,460 trials, qualification failed; combined covariance/residual development is next |
 
 M43AF's 502 records include 261 already completed historical acquisitions and
 the 241 training/baseline/null records. Its 940 scientific pins and earlier

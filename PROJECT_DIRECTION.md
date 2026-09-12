@@ -52,6 +52,10 @@ Owner request, 12 September 2026: continue the optical LS investigation with TES
 Implementation checkpoint: LS7's first mask failed contiguous-background
 eligibility. LS7B repaired that coverage problem on a different L 98-59 sector,
 but failed the fixed weak-glint recovery requirement after 420 digital trials.
-Noise-aware spatial testing and stronger predeclared controls are the proposed
-continuation. Preserve both closed experiments and the M43AI result; current
-details remain in PROJECT_STATUS.md.
+LS7C completed 1,460 stronger trials on sector 32, but the new spatial method
+failed recovery and compact-control rejection. LS7D now measures strong
+cross-pixel cancellation missed by the diagonal spatial model. Develop a joint
+covariance/residual method with broader nuisances on the closed sectors before
+another independent evaluation.
+Preserve all three closed experiments and the M43AI result; current details
+remain in PROJECT_STATUS.md.
