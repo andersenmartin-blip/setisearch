@@ -1,0 +1,107 @@
+{
+  "schema": "ls7-tess-pilot-closure-v1",
+  "closed_utc": "2026-09-12T09:31:08.914087+00:00",
+  "frozen_code_commit": "ef940930572e13d871eb8bfa5f756778bca16993",
+  "freeze_sha256": "fa4901826761ac6bcb4704e508ef6859f24d8eefd3732a811b8925e5827b2f75",
+  "closure_script_sha256": "c33a212dcdd064f353c51fca10b6e46d8c37fcfce444b8a909e58e31c82a06d5",
+  "python": "3.12.14",
+  "status": "NOT_QUALIFIED_INSUFFICIENT_CONTIGUOUS_ANCHORS",
+  "qualification_pass": false,
+  "original_error": "ValueError: not enough unbroken data for fixed injection anchors",
+  "original_exit_code": 1,
+  "original_outputs_preserved": [
+    "metadata.json",
+    "source_manifest.json",
+    "segments.json",
+    "native_events.json"
+  ],
+  "metadata": {
+    "tic": 307210830,
+    "sector": 28,
+    "date_obs_utc": "2020-07-31T08:22:44.954",
+    "date_end_utc": "2020-08-25T14:18:21.229",
+    "bjd_reference": 2457000.0,
+    "tstart_btjd": 2061.849932147669,
+    "tstop_btjd": 2087.096879782539,
+    "cadence_seconds": 20.0,
+    "flux_unit": "e-/s",
+    "stamp_shape": [
+      11,
+      11
+    ],
+    "aperture_pixels": 19,
+    "rows": 109095,
+    "quality_zero_rows": 87721,
+    "quality_histogram": {
+      "0": 87721,
+      "8": 5130,
+      "32": 94,
+      "36": 5,
+      "64": 1886,
+      "128": 25,
+      "164": 32,
+      "172": 1,
+      "512": 17,
+      "576": 121,
+      "1024": 1866,
+      "1056": 2,
+      "1088": 34,
+      "1188": 2,
+      "1600": 4,
+      "4096": 10059,
+      "4160": 242,
+      "5120": 256,
+      "5184": 7,
+      "32768": 1520,
+      "32832": 41,
+      "33792": 29,
+      "33856": 1
+    },
+    "accepted_rows": 87721,
+    "accepted_cadence_days": 20.30578703703704,
+    "cosmic_ray_restoration": {
+      "records": 58328,
+      "applied_records": 58328,
+      "absent_cadence_records": 0,
+      "cadences_with_records": 8557
+    },
+    "accepted_rows_with_aperture_correction": 0,
+    "sap_comparison_median_absolute_fraction": 2.3677837947782642e-08
+  },
+  "frozen_coverage": {
+    "policy": "frozen_quality_zero",
+    "allowed_bits": 0,
+    "evaluated_search": true,
+    "accepted_rows": 87721,
+    "accepted_cadence_days": 20.30578703703704,
+    "runs": 3779,
+    "longest_run_rows": 182,
+    "median_run_rows": 16.0,
+    "screenable_runs": 16,
+    "searchable_rows": 431,
+    "searchable_cadence_days": 0.09976851851851852,
+    "eligible_injection_anchor_indices": 0,
+    "accepted_aperture_CR_cadences": 0
+  },
+  "native_trigger_count": 0,
+  "digital_trials_planned": 300,
+  "digital_trials_completed": 0,
+  "recovery_fraction": null,
+  "nuisance_acceptance_fraction": null,
+  "geometry": {
+    "b-c": {
+      "searched_fraction_within_one_stellar_radius": 0.12993039443155452,
+      "searched_cadence_days_within_one_stellar_radius": 0.012962962962962963
+    },
+    "b-d": {
+      "searched_fraction_within_one_stellar_radius": 0.0,
+      "searched_cadence_days_within_one_stellar_radius": 0.0
+    },
+    "c-d": {
+      "searched_fraction_within_one_stellar_radius": 0.0,
+      "searched_cadence_days_within_one_stellar_radius": 0.0
+    }
+  },
+  "claim": "No sensitivity measurement, qualified detector, LS candidate or astrophysical null result",
+  "next_step": "Freeze a correction-aware flag policy and independently evaluate an unopened sector; do not relabel the present failure as a success."
+}

@@ -5,24 +5,31 @@ multiple observing epochs. Exoplanet motion supplies a frequency-drift
 hypothesis; it does not establish where an observed signal originated.
 
 The **light-sail (LS) research branch** explores whether radiation associated
-with beamed propulsion could leave detectable signatures. It remains part of
-the project; the current priority is qualification of the narrowband detector.
+with beamed propulsion could leave detectable radio or optical signatures.
+The current LS work uses TESS photometry to qualify a search for short glints.
+Neither an optical brightening nor a radio trigger alone establishes artificial origin.
 
 **Start here: [current status and continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md).**
 
 ## Where the project stands
 
-**M43AH is complete:** neither standalone second-epoch support rule meets the
-joint training requirements. With zero control leaks, raw support loses 3 of
-57 required signals and ON-minus-OFF support loses 6, versus M43AG's minimum
-of 1. Their different loss sets motivate a separately specified combined rule.
-[Read the M43AH result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AH_EPOCH_SUPPORT_RESULT.md).
+**LS7 TESS pilot completed, 12 September 2026: not qualified.** The L 98-59
+sector 28 run verified the public 20-second products, but the initial quality
+mask left no contiguous backgrounds long enough for the planned digital tests.
+No sensitivity measurement or LS candidate results. A separate quality/time
+diagnostic identifies 17.53 potentially searchable cadence-days with explicit
+handling of two correction flags; that alternative has not been evaluated on flux.
+[Read the result and next step](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7_tess/REPORT.md).
+
+**M43AI native evaluation is complete:** The fixed combined rule failed the predeclared same-sequence native challenge. It recovered 53/64 signal cases and lost 0/53 signals required by the reference union. 1/48 controls and 0/128 native null cases had surviving members.
+The model remains unadopted; all inputs use one observing sequence.
+[Read the complete result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AI_NATIVE_VALIDATION_RESULT.md).
 
 M43AF's frozen joint response rule failed qualification: none of the 1,156
 tested boundaries met all requirements. The 241-record training stage is
 public. The complete 502-record study is finished in the saved release package,
 but its complete archive has not yet been published to the science branch.
-The validation panels remain unopened.
+The original M43AF held-out panels remain unopened.
 
 There is no new M43AF astronomical candidate or adopted detector. The earlier
 **M33 HD 3651 follow-up at 1424.934238382 MHz remains unresolved**, pending an
@@ -31,12 +38,14 @@ independent observing cadence. It is not a detection or technosignature claim.
 | Read or do | Entry point |
 |---|---|
 | Continue the active work | [Current project status](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md) |
+| Inspect the TESS pilot | [LS7 result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7_tess/REPORT.md) and [frozen protocol](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7_TESS_L9859_PROTOCOL.md) |
+| Inspect the latest native evaluation | [M43AI result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AI_NATIVE_VALIDATION_RESULT.md) |
 | Understand the failed training rule | [M43AF training result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AF_TRAINING_RESULT.md) |
 | Inspect the frozen scientific method | [M43AF executable protocol](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AF_EXECUTABLE_PROTOCOL.md) |
 | Restore existing M43AF evidence | [M43AF continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/M43AF_CURRENT_CONTINUATION.md) |
 | Follow the earlier open case | [M33 candidate investigation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
 | Understand the long-term plan | [Project direction](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_DIRECTION.md) |
-| Revisit the latest LS work | [LS6 result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS6_TRAPPIST1_RESULT.md) and [LS6A result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS6A_SCAN_END_RESULT.md) |
+| Revisit earlier radio LS work | [LS6 result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS6_TRAPPIST1_RESULT.md) and [LS6A result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS6A_SCAN_END_RESULT.md) |
 | Read the full milestone history | [Archived README before cleanup](https://github.com/andersenmartin-blip/setisearch/blob/60bad761f4aa6eebeeef367f7a4123b80fd33e44/README.md) |
 
 ## Working with the repository

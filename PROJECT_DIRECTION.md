@@ -46,3 +46,10 @@ experiment plans, results and logs, including M43T and subsequent milestones,
 is approved for `andersenmartin-blip/setisearch` on
 `m43-support-qualification`, with README updates on `main`.
 This authorization does not require a fresh publication approval per milestone.
+
+Owner request, 12 September 2026: continue the optical LS investigation with TESS.
+
+Implementation checkpoint: LS7 evaluates one L 98-59 sector while preserving the
+closed M43AI result. The first mask failed contiguous-background eligibility.
+The result and proposed correction-aware continuation are documented in
+PROJECT_STATUS.md, which remains the operational entry point.

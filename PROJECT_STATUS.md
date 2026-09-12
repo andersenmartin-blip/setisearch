@@ -1,7 +1,25 @@
 # SETIsearch — current project status
 
-Updated 10 September 2026. This is the maintained operational entry point.
+Updated 12 September 2026. This is the maintained operational entry point.
 Earlier reports and continuation files preserve their historical states.
+
+## LS7 TESS pilot completed: not qualified
+
+The owner requested a return to optical light-sail work with TESS. The prospective
+L 98-59 sector 28 pilot retrieved and checked the public 20-second light curve
+and target pixels, dated 31 July–25 August 2020. Eight implementation tests pass.
+
+The frozen quality mask fragments 20.306 accepted cadence-days into 3,779 runs.
+Only 2.39 hours survive the screening guards, and no run supports the required
+401-sample injection context. **Zero of the 300 planned digital trials ran.**
+The method is not qualified; there is no sensitivity estimate or LS candidate.
+[Full result and preserved failure](results_ls7_tess/REPORT.md).
+
+A separate time/quality metadata comparison finds 17.527 potentially searchable
+cadence-days when correction flags 64 and 1024 are allowed. That alternative
+has not been used for a flux search or recovery measurement. Next: freeze explicit
+flag handling and an eligibility preflight, then evaluate on an unopened sector.
+All other TESS sectors remain unopened. The earlier radio LS results remain intact.
 
 ## M43AI native evaluation completed
 
@@ -48,7 +66,7 @@ were hash checked. This is retrospective development, not fresh validation.
 | M43AF complete no-model study | Saved and audited: 502 records; complete historical archive still awaits publication |
 | Adopted new detector / new M43AF–M43AI astronomical candidate | None |
 | Earlier M33 HD 3651 case | Still unresolved; [investigation](MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
-| LS research | Preserved for later work; [LS6A](LS6A_SCAN_END_RESULT.md) |
+| LS research | [LS7 TESS pilot](results_ls7_tess/REPORT.md) closed, not qualified; correction-aware policy is the next step; [earlier LS6A](LS6A_SCAN_END_RESULT.md) preserved |
 
 M43AF's 502 records include 261 already completed historical acquisitions and
 the 241 training/baseline/null records. Its 940 scientific pins and earlier
