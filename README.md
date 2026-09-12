@@ -13,13 +13,22 @@ Neither an optical brightening nor a radio trigger alone establishes artificial 
 
 ## Where the project stands
 
-**LS7B TESS qualification completed, 12 September 2026: weak-glint recovery failed.**
-The revised flag handling supports 420 digital trials over 19.66 cadence-days of
-L 98-59 sector 29 data. Only 5/60 single pulses at 1% extra light are recovered;
-the detector remains unqualified. All 343 native excursions fail pixel screening,
-and no LS candidate is promoted. Next work addresses pixel noise and stronger
-predeclared signal/control challenges. The original LS7 failure is preserved.
-[Read the reviewed result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7b_tess/REVIEW.md).
+**LS7D TESS noise diagnosis completed, 12 September 2026.**
+The diagonal pixel model misses strong cancellation between pixel fluctuations.
+All 120 original trial-noise ratios reproduce across 34 windows in ten shared
+backgrounds; eight analytical tests and the covariance audit pass. This is
+method development with no new candidate or adopted detector. Next work combines
+covariance-aware noise, residual handling and broader nuisance controls on the
+closed data. [Read the result and figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7d_noise/REPORT.md).
+
+**LS7C TESS qualification completed, 12 September 2026: the joint test failed.**
+The noise-aware pixel method completed 1,460 digital trials over 18.78 searchable
+cadence-days of L 98-59 sector 32. All planned matched-strength tests reach the
+screening threshold, but stellar recovery is insufficient and 16/120 compact
+pixel controls are accepted. All 325 native excursions fail spatial screening;
+no LS candidate is promoted. Next work measures covariance and residual
+contamination on the closed sectors before another independent evaluation.
+[Read the reviewed result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7c_tess/REVIEW.md).
 
 **M43AI native evaluation is complete:** The fixed combined rule failed the predeclared same-sequence native challenge. It recovered 53/64 signal cases and lost 0/53 signals required by the reference union. 1/48 controls and 0/128 native null cases had surviving members.
 The model remains unadopted; all inputs use one observing sequence.
@@ -38,7 +47,7 @@ independent observing cadence. It is not a detection or technosignature claim.
 | Read or do | Entry point |
 |---|---|
 | Continue the active work | [Current project status](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md) |
-| Inspect current TESS work | [LS7B reviewed result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7b_tess/REVIEW.md), [frozen protocol](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7B_TESS_PROTOCOL.md), and [original LS7 failure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7_tess/REPORT.md) |
+| Inspect current TESS work | [LS7D noise diagnosis](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7d_noise/REPORT.md), [LS7C reviewed result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7c_tess/REVIEW.md), [frozen protocol](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7C_TESS_PROTOCOL.md), and [previous LS7B result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7b_tess/REVIEW.md) |
 | Inspect the latest native evaluation | [M43AI result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AI_NATIVE_VALIDATION_RESULT.md) |
 | Understand the failed training rule | [M43AF training result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AF_TRAINING_RESULT.md) |
 | Inspect the frozen scientific method | [M43AF executable protocol](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AF_EXECUTABLE_PROTOCOL.md) |
