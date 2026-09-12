@@ -3,7 +3,30 @@
 Updated 12 September 2026. This is the maintained operational entry point.
 Earlier reports and continuation files preserve their historical states.
 
-## LS7 TESS pilot completed: not qualified
+## LS7B TESS qualification completed: weak-glint recovery failed
+
+The correction-aware sector 29 evaluation completes all **420 digital trials**
+on **19.6620 cadence-days** of screened L 98-59 data, observed 26 August–21 September
+2020. Ten nonoverlapping backgrounds pass the frozen eligibility requirements.
+The code and protocol were public before this sector was opened; 15 tests pass.
+
+The detector recovers only **5/60** baseline single pulses at 1% extra aperture
+flux: 35 are below threshold and another 20 fail pixel morphology. All 80 displaced
+30-second profile trials are below threshold. The method remains unqualified.
+No instrumental control reaches threshold either, so their 0/80 acceptance does
+not demonstrate rejection of stronger nuisance events.
+
+All 343 restored-stream native excursions fail the pixel screen and fall below
+threshold in the corresponding corrected windows. The strongest four reviewed
+images are consistent with cosmic-ray contamination. There is no promoted LS
+candidate or astrophysical population limit.
+[Reviewed result and concrete continuation](results_ls7b_tess/REVIEW.md).
+
+Next: develop a spatial test that accounts for pixel noise and freeze stronger
+signal/nuisance challenges before using another unopened sector. Preserve these
+completed denominators and failed gates. The earlier radio LS/M43 results are unchanged.
+
+## Previous closed LS7 sector 28 pilot: no eligible injection anchors
 
 The owner requested a return to optical light-sail work with TESS. The prospective
 L 98-59 sector 28 pilot retrieved and checked the public 20-second light curve
@@ -15,11 +38,10 @@ Only 2.39 hours survive the screening guards, and no run supports the required
 The method is not qualified; there is no sensitivity estimate or LS candidate.
 [Full result and preserved failure](results_ls7_tess/REPORT.md).
 
-A separate time/quality metadata comparison finds 17.527 potentially searchable
-cadence-days when correction flags 64 and 1024 are allowed. That alternative
-has not been used for a flux search or recovery measurement. Next: freeze explicit
-flag handling and an eligibility preflight, then evaluate on an unopened sector.
-All other TESS sectors remain unopened. The earlier radio LS results remain intact.
+A separate time/quality metadata comparison found 17.527 potentially searchable
+cadence-days in sector 28 when correction flags 64 and 1024 are allowed. That
+sector 28 alternative remains a metadata diagnostic. LS7B evaluated the explicit
+flag policy on the previously unopened sector 29. Sectors beyond 28/29 remain unopened.
 
 ## M43AI native evaluation completed
 
@@ -66,7 +88,7 @@ were hash checked. This is retrospective development, not fresh validation.
 | M43AF complete no-model study | Saved and audited: 502 records; complete historical archive still awaits publication |
 | Adopted new detector / new M43AF–M43AI astronomical candidate | None |
 | Earlier M33 HD 3651 case | Still unresolved; [investigation](MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
-| LS research | [LS7 TESS pilot](results_ls7_tess/REPORT.md) closed, not qualified; correction-aware policy is the next step; [earlier LS6A](LS6A_SCAN_END_RESULT.md) preserved |
+| LS research | [LS7B](results_ls7b_tess/REVIEW.md): 420 trials complete, weak-glint recovery failed; noise-aware spatial test is next; [LS7](results_ls7_tess/REPORT.md) and [LS6A](LS6A_SCAN_END_RESULT.md) preserved |
 
 M43AF's 502 records include 261 already completed historical acquisitions and
 the 241 training/baseline/null records. Its 940 scientific pins and earlier

@@ -49,7 +49,9 @@ This authorization does not require a fresh publication approval per milestone.
 
 Owner request, 12 September 2026: continue the optical LS investigation with TESS.
 
-Implementation checkpoint: LS7 evaluates one L 98-59 sector while preserving the
-closed M43AI result. The first mask failed contiguous-background eligibility.
-The result and proposed correction-aware continuation are documented in
-PROJECT_STATUS.md, which remains the operational entry point.
+Implementation checkpoint: LS7's first mask failed contiguous-background
+eligibility. LS7B repaired that coverage problem on a different L 98-59 sector,
+but failed the fixed weak-glint recovery requirement after 420 digital trials.
+Noise-aware spatial testing and stronger predeclared controls are the proposed
+continuation. Preserve both closed experiments and the M43AI result; current
+details remain in PROJECT_STATUS.md.

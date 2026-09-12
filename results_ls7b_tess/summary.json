@@ -1,0 +1,287 @@
+{
+  "schema": "ls7b-tess-correction-aware-v1",
+  "run_utc": "2026-09-12T11:03:58.869814+00:00",
+  "code_commit": "dcec9bc0d450ce5938a3a23e4005991415f640c9",
+  "freeze_sha256": "c7c069c5c1472bbb7faaae824b152eb2379351e3896838b5eee2206f20109610",
+  "digital_trials_completed": 420,
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "astropy": "7.0.2",
+    "matplotlib": "3.10.3"
+  },
+  "claim": "Restricted engineering qualification; no LS candidate promotion or population limit",
+  "preflight": {
+    "pass": true,
+    "gates": {
+      "minimum_searchable_days": true,
+      "enough_anchor_indices": true,
+      "nonoverlapping_contexts": true,
+      "time_separation": true,
+      "minimum_anchor_span": true
+    },
+    "accepted_rows": 95002,
+    "accepted_cadence_days": 21.991203703703704,
+    "runs": 96,
+    "longest_run_rows": 7440,
+    "searchable_rows": 84940,
+    "searchable_cadence_days": 19.662037037037038,
+    "eligible_anchor_indices": 67052,
+    "anchors": [
+      718,
+      9772,
+      19839,
+      30588,
+      38439,
+      47092,
+      73622,
+      83077,
+      94709,
+      107347
+    ],
+    "anchor_btjd": [
+      2088.3985921588746,
+      2090.494392798198,
+      2092.8246806734714,
+      2095.312836648226,
+      2097.1301697808344,
+      2099.1331480781087,
+      2105.2742693213004,
+      2107.4629017640036,
+      2110.1554642407973,
+      2113.080894854654
+    ],
+    "anchor_span_days": 24.682302695779526,
+    "allowed_quality_bits": 1088,
+    "accepted_quality_words": {
+      "0": 91287,
+      "64": 1637,
+      "1024": 2046,
+      "1088": 32
+    }
+  },
+  "metadata": {
+    "tic": 307210830,
+    "sector": 29,
+    "date_obs_utc": "2020-08-26T17:41:59.413",
+    "date_end_utc": "2020-09-21T22:22:48.799",
+    "bjd_reference": 2457000.0,
+    "tstart_btjd": 2088.238293946281,
+    "tstop_btjd": 2114.433309987362,
+    "cadence_seconds": 20.0,
+    "flux_unit": "e-/s",
+    "stamp_shape": [
+      11,
+      11
+    ],
+    "aperture_pixels": 21,
+    "rows": 113190,
+    "quality_zero_rows": 91287,
+    "quality_histogram": {
+      "0": 91287,
+      "8": 4080,
+      "32": 90,
+      "36": 2,
+      "64": 1637,
+      "128": 869,
+      "160": 4,
+      "164": 40,
+      "172": 1,
+      "192": 19,
+      "512": 4,
+      "576": 55,
+      "1024": 2046,
+      "1056": 2,
+      "1088": 32,
+      "1152": 33,
+      "1536": 1,
+      "1600": 1,
+      "4096": 12320,
+      "4160": 244,
+      "5120": 273,
+      "5184": 6,
+      "32768": 141,
+      "33792": 3
+    },
+    "accepted_rows": 95002,
+    "accepted_cadence_days": 21.991203703703704,
+    "cosmic_ray_restoration": {
+      "records": 48517,
+      "applied_records": 48517,
+      "absent_cadence_records": 0,
+      "cadences_with_records": 7603
+    },
+    "accepted_rows_with_aperture_correction": 1669,
+    "sap_comparison_median_absolute_fraction": 2.3082279966443176e-08,
+    "legacy_strict_accepted_rows": 91287,
+    "allowed_quality_bits": 1088,
+    "allowed_cadence_sap_median_absolute_fraction": 2.3091745026087484e-08
+  },
+  "native": {
+    "restored_positive": 343,
+    "restored_negative": 0,
+    "restored_positive_pixel_pass": 0,
+    "corrected_positive": 0,
+    "corrected_negative": 0,
+    "event_cap_overflow": false
+  },
+  "recovery": {
+    "total_trials": 420,
+    "stellar_trials": 240,
+    "groups": [
+      {
+        "shape": "box30",
+        "amplitude_fraction": 0.001,
+        "trials": 20,
+        "screen_detected": 0,
+        "recovered": 0,
+        "confounded": 0
+      },
+      {
+        "shape": "box30",
+        "amplitude_fraction": 0.003,
+        "trials": 20,
+        "screen_detected": 0,
+        "recovered": 0,
+        "confounded": 0
+      },
+      {
+        "shape": "box30",
+        "amplitude_fraction": 0.01,
+        "trials": 20,
+        "screen_detected": 0,
+        "recovered": 0,
+        "confounded": 0
+      },
+      {
+        "shape": "box60",
+        "amplitude_fraction": 0.001,
+        "trials": 20,
+        "screen_detected": 0,
+        "recovered": 0,
+        "confounded": 0
+      },
+      {
+        "shape": "box60",
+        "amplitude_fraction": 0.003,
+        "trials": 20,
+        "screen_detected": 0,
+        "recovered": 0,
+        "confounded": 0
+      },
+      {
+        "shape": "box60",
+        "amplitude_fraction": 0.01,
+        "trials": 20,
+        "screen_detected": 9,
+        "recovered": 2,
+        "confounded": 0
+      },
+      {
+        "shape": "box100",
+        "amplitude_fraction": 0.001,
+        "trials": 20,
+        "screen_detected": 0,
+        "recovered": 0,
+        "confounded": 0
+      },
+      {
+        "shape": "box100",
+        "amplitude_fraction": 0.003,
+        "trials": 20,
+        "screen_detected": 0,
+        "recovered": 0,
+        "confounded": 0
+      },
+      {
+        "shape": "box100",
+        "amplitude_fraction": 0.01,
+        "trials": 20,
+        "screen_detected": 16,
+        "recovered": 3,
+        "confounded": 0
+      },
+      {
+        "shape": "doublet30sep87",
+        "amplitude_fraction": 0.001,
+        "trials": 20,
+        "screen_detected": 0,
+        "recovered": 0,
+        "confounded": 0
+      },
+      {
+        "shape": "doublet30sep87",
+        "amplitude_fraction": 0.003,
+        "trials": 20,
+        "screen_detected": 0,
+        "recovered": 0,
+        "confounded": 0
+      },
+      {
+        "shape": "doublet30sep87",
+        "amplitude_fraction": 0.01,
+        "trials": 20,
+        "screen_detected": 0,
+        "recovered": 0,
+        "confounded": 0
+      }
+    ],
+    "bright_single_trials": 60,
+    "bright_single_recovered": 5,
+    "bright_single_recovery_fraction": 0.08333333333333333,
+    "nuisance_trials": 80,
+    "nuisance_accepted": 0,
+    "nuisance_acceptance_fraction": 0.0,
+    "nuisance_by_kind": {
+      "single_pixel": {
+        "trials": 20,
+        "accepted": 0
+      },
+      "uniform": {
+        "trials": 20,
+        "accepted": 0
+      },
+      "pointing": {
+        "trials": 40,
+        "accepted": 0
+      }
+    },
+    "null_trials": 20,
+    "null_screen_detections": 0,
+    "stellar_confounded": 0,
+    "stellar_confounded_fraction": 0.0,
+    "off_profile_trials": 80,
+    "off_profile_recovered": 0,
+    "off_profile_confounded": 0,
+    "null_accepted": 0
+  },
+  "qualification_gates": {
+    "bright_single_recovery": false,
+    "off_profile_recovery": false,
+    "null_acceptance": true,
+    "baseline_confounding": true,
+    "no_event_overflow": true,
+    "single_pixel_acceptance": true,
+    "uniform_acceptance": true,
+    "pointing_acceptance": true,
+    "eligibility": true
+  },
+  "qualification_pass": false,
+  "status": "COMPLETED",
+  "geometry": {
+    "b-c": {
+      "fraction_within_one_stellar_radius": 0.021132564162938544,
+      "cadence_days_within_one_stellar_radius": 0.41550925925925924
+    },
+    "b-d": {
+      "fraction_within_one_stellar_radius": 0.018895691076053683,
+      "cadence_days_within_one_stellar_radius": 0.3715277777777778
+    },
+    "c-d": {
+      "fraction_within_one_stellar_radius": 0.012314574994113491,
+      "cadence_days_within_one_stellar_radius": 0.24212962962962964
+    }
+  },
+  "runtime_warnings": {}
+}
