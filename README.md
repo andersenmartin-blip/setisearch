@@ -11,6 +11,9 @@ Neither an optical brightening nor a radio trigger alone establishes artificial 
 
 **Start here: [current status and continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md).**
 
+The [12 September publication record](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PUBLICATION_2026-09-12.md)
+links the complete LS7C/LS7D release and the preserved historical archives.
+
 ## Where the project stands
 
 **LS7D TESS noise diagnosis completed, 12 September 2026.**
@@ -35,10 +38,10 @@ The model remains unadopted; all inputs use one observing sequence.
 [Read the complete result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AI_NATIVE_VALIDATION_RESULT.md).
 
 M43AF's frozen joint response rule failed qualification: none of the 1,156
-tested boundaries met all requirements. The 241-record training stage is
-public. The complete 502-record study is finished in the saved release package,
-but its complete archive has not yet been published to the science branch.
-The original M43AF held-out panels remain unopened.
+tested boundaries met all requirements. The complete **502-record study and
+its lossless archive are now public**: 69 parts restore 508 original files,
+verified byte for byte. The original M43AF held-out panels remain unopened.
+[Read the complete study](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AF_RESPONSE_STUDY_RESULT.md).
 
 There is no new M43AF astronomical candidate or adopted detector. The earlier
 **M33 HD 3651 follow-up at 1424.934238382 MHz remains unresolved**, pending an
@@ -49,6 +52,7 @@ independent observing cadence. It is not a detection or technosignature claim.
 | Continue the active work | [Current project status](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md) |
 | Inspect current TESS work | [LS7D noise diagnosis](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7d_noise/REPORT.md), [LS7C reviewed result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7c_tess/REVIEW.md), [frozen protocol](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7C_TESS_PROTOCOL.md), and [previous LS7B result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7b_tess/REVIEW.md) |
 | Inspect the latest native evaluation | [M43AI result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AI_NATIVE_VALIDATION_RESULT.md) |
+| Inspect the separate historical TESS development | [LS7C sector 29 archive: 1,300 retrospective trials](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/archives/ls7c_sector29_development/README.md) |
 | Understand the failed training rule | [M43AF training result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AF_TRAINING_RESULT.md) |
 | Inspect the frozen scientific method | [M43AF executable protocol](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AF_EXECUTABLE_PROTOCOL.md) |
 | Restore existing M43AF evidence | [M43AF continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/M43AF_CURRENT_CONTINUATION.md) |
