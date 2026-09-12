@@ -3,6 +3,19 @@
 Updated 12 September 2026. This is the maintained operational entry point.
 Earlier reports and continuation files preserve their historical states.
 
+## LS7C prospective evaluation prepared
+
+The noise-aware pixel discriminator and 1,460-case joint challenge are fixed
+for L 98-59 sector 32. Thirty LS7/LS7B/LS7C implementation tests pass. Only MAST
+metadata has been read for sector 32; publish this freeze before retrieving its
+measured arrays. The unchanged temporal threshold is 8. New spatial fits account
+for pixel uncertainty and compete with instrumental patterns. Matched trials at
+scores 8.5, 12 and 20 exercise signals and nuisance controls above threshold;
+fixed 1%, 3% and 10% signal curves retain a separate amplitude interpretation.
+
+[Prospective protocol](LS7C_TESS_PROTOCOL.md). No evaluation result exists yet.
+LS7B's failed weak-glint result and all original hashes remain unchanged.
+
 ## LS7B TESS qualification completed: weak-glint recovery failed
 
 The correction-aware sector 29 evaluation completes all **420 digital trials**
