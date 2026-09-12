@@ -46,6 +46,10 @@ experiment plans, results and logs, including M43T and subsequent milestones,
 is approved for `andersenmartin-blip/setisearch` on
 `m43-support-qualification`, with README updates on `main`.
 This authorization does not require a fresh publication approval per milestone.
+On 12 September 2026, the owner reaffirmed the public destination and explicitly
+included all SETI files, LS7C, LS7D and M43AF code, experimental data, reports
+and logs, together with README updates on main. This is the same ongoing
+project publication scope; earlier upload-pending notes are historical.
 
 Owner request, 12 September 2026: continue the optical LS investigation with TESS.
 

@@ -3,7 +3,7 @@
 Updated 12 September 2026. This is the maintained operational entry point.
 Earlier reports and continuation files preserve their historical states.
 
-## LS7D noise diagnosis completed locally: strong cross-pixel cancellation
+## LS7D noise diagnosis completed and published: strong cross-pixel cancellation
 
 All **120** LS7C nominal-trial noise ratios reproduce across **34 unique windows
 in ten shared backgrounds**. Archived error floors alter the ratio by at most
@@ -21,11 +21,14 @@ patterns before another independent-sector evaluation.
 [Result and figure](results_ls7d_noise/REPORT.md), [frozen diagnostic](LS7D_NOISE_PROTOCOL.md),
 [continuation and historical LS7C name distinction](LS7D_CONTINUATION.md).
 
-Publication: the LS7C sector 32 result and LS7D result are complete locally.
-Automatic review rejected the new report upload because it required explicit
-approval of the payload and public destination. No remote mutation succeeded.
-The complete code/results package and main README edit are ready together.
-[Exact release scope and restoration](LS7D_RELEASE_STATUS.md).
+Publication completed on 12 September 2026 after the owner explicitly named
+the public repository and branches. The complete LS7C sector 32 and LS7D
+payload is preserved at `fa9f8028287a54d9369abc897c948e640c482c78`. The separate complete M43AF archive is also
+released. [Release identities and verification](PUBLICATION_2026-09-12.md).
+
+The differently named historical LS7C sector 29 development experiment is now
+preserved as an [unchanged archival package](archives/ls7c_sector29_development/README.md).
+Its 1,300 retrospective trials are separate from the sector 32 challenge below.
 
 ## LS7C TESS challenge completed: recovery and compact-control rejection fail
 
@@ -132,7 +135,7 @@ were hash checked. This is retrospective development, not fresh validation.
 | M43AH | Completed with full feature/family ledgers, audits, source identities and output hashes |
 | M43AG | Completed exact original-boundary obstruction; [result](MILESTONE_43AG_BOUNDARY_OBSTRUCTION_RESULT.md) |
 | M43AF training | Published: 241 records, failed joint qualification; [result](MILESTONE_43AF_TRAINING_RESULT.md) |
-| M43AF complete no-model study | Saved and audited: 502 records; complete historical archive still awaits publication |
+| M43AF complete no-model study | Published and byte-verified: 502 records; 69 archive parts restore 508 original files |
 | Adopted new detector / new M43AF–M43AI astronomical candidate | None |
 | Earlier M33 HD 3651 case | Still unresolved; [investigation](MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
 | LS research | [LS7D](results_ls7d_noise/REPORT.md): noise cancellation measured on closed data; [LS7C](results_ls7c_tess/REVIEW.md): 1,460 trials, qualification failed; combined covariance/residual development is next |
@@ -149,30 +152,28 @@ Current science is on m43-support-qualification; main remains a concise overview
 with earlier pipeline code. [PROJECT_DIRECTION.md](PROJECT_DIRECTION.md) retains
 the owner's long-term direction and ongoing publication authorization.
 
-## Separate pending M43AF complete release
+## Complete M43AF historical release published
 
-The intact saved package is `setisearch_M43AF_complete_release.zip`, SHA256
-`82e649f8aa0faffe88d4020cda4eb5fce4cbdcda1a84015cd48774a94f673999`.
-Its 69 parts restore 508 original files, including all 502 records.
+All 95 science payload files from `setisearch_M43AF_complete_release.zip`
+are preserved at `f41ca8a4e88ecf64c0cc2b86fbf8c501d940e00f`. Its 69 archive parts restore all 508 original files,
+including 502 measurement records. All original bytes were reconstructed and
+hash-verified with Python 3.12.14 / zlib 1.3.2; no scientific study was rerun.
+
 Archive SHA256:
 `b66e2a2dbe41d3dda4a63254c4528185e761aae7fdcf4745ef8e3764ca6c9443`.
+Original ZIP SHA256:
+`82e649f8aa0faffe88d4020cda4eb5fce4cbdcda1a84015cd48774a94f673999`.
 
-Earlier automatic review rejected this complete-archive upload; that issue
-remains unresolved. M43AG and M43AH use only already public training evidence
-and did not upload or depend on that blocked historical archive. The prior
-20-blob transfer ledger is a resume aid, not proof of a published full release.
+The earlier automatic-review block has been resolved for this publication.
+The original scientific manifests are unchanged. Match the historical release
+manifest against the exact release commit; current operational documents have
+subsequently been updated to preserve the newer LS7D/M43AI continuation.
+The old proposed main README is archived as provenance, while the current main
+README retains the concise overview. [Complete publication accounting](PUBLICATION_2026-09-12.md).
 
-When that review restriction is resolved, recheck current refs and missing
-payloads, preserve all newer work, and verify the complete destination tree.
-Keep the original ZIP and scientific manifests unchanged. If publishing their
-exact historical payload at a dedicated release commit, retain/reapply current
-operational documentation separately. Do not overwrite this status or the
-short README with the old package versions. Compare each manifest against its
-exact release commit and verify complete membership and byte identities.
-
-[Restoration notes](M43AF_CURRENT_CONTINUATION.md) distinguish the public training
-archive from the pending complete archive. Exact restoration uses recorded
-Python 3.12.14 / zlib 1.3.2 and frozen dependencies.
+[Restoration notes](M43AF_CURRENT_CONTINUATION.md) distinguish the 241-record
+training archive from the complete 502-record archive. Original held-out
+panels remain reserved and unopened.
 
 M43AI is complete. Do not rerun or retune this closed study. Any successor
 requires a separately fixed protocol and new evaluation evidence. The original

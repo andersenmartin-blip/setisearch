@@ -22,16 +22,18 @@ The new result identifies a covariance limitation but does not qualify a model.
 A separate saved package, `setisearch_LS7C_results.zip`, contains a **sector 29
 retrospective development** experiment with **1,300 trials**, locally frozen
 at `27709b72be76f260be10f3d85239eddef575937a`. Its source base is LS7B, not the
-public sector 32 freeze. Automatic review previously blocked that package's
-publication; this continuation does not publish or overwrite its contents.
+public sector 32 freeze. The complete original package is now published as an
+[isolated historical archive](archives/ls7c_sector29_development/README.md).
+Its internal upload-pending notes describe the original, superseded state.
 
 The sector 29 development package and the **1,460-trial sector 32 challenge**
 are different experiments despite using the same historical LS7C filenames.
 Keep that package intact and refer to it as “LS7C sector 29 development” when
 discussing it. Never extract it over the canonical sector 32 paths, replace
 the sector 32 `light_sail_tess_v3.py` with its version, or combine the denominators.
-If the sector 29 supplement is released later, use an isolated archival path
-with its original byte identities and explicit retrospective provenance.
+The published sector 29 supplement uses an isolated archival path, its original
+ZIP bytes and explicit retrospective provenance. Extract it into a separate
+directory or checkout; do not overlay it onto the canonical sector 32 paths.
 
 ## Scope of the present release
 
@@ -40,12 +42,12 @@ ledgers, audit, figures, report and operational documentation to
 `andersenmartin-blip/setisearch` on `m43-support-qualification`, with a concise
 README update on `main`, under the owner's standing publication authorization.
 Raw FITS stay in the source cache; their exact public identifiers and hashes
-are in the source manifest. The separate historical M43AF complete-archive
-block is unchanged and is not part of this release.
+are in the source manifest. The separate historical M43AF complete archive is now published in its own
+release commit; see the [publication record](PUBLICATION_2026-09-12.md).
 
 Recheck current branch heads before publication, use a normal fast-forward,
 and verify the destination Git blob identities against every intended file.
 Record the actual remote commits in release status. A local commit message
 containing “publish” is not evidence that its branch was updated remotely.
 
-Current release is blocked by automatic review; [exact scope and restart](LS7D_RELEASE_STATUS.md).
+Publication is complete; [exact scope, commits and restoration](LS7D_RELEASE_STATUS.md).
