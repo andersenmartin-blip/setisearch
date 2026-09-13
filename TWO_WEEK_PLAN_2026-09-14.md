@@ -4,6 +4,23 @@ Prepared 13 September 2026, following the completed LS7H result.
 This is an operational work plan. The numerical specification for the next
 experiment must still be frozen before its evaluation.
 
+## Execution checkpoint — 13 September
+
+The owner asked to start immediately. The input-restoration block originally
+allocated to 14–15 September is now **complete**. Both closed sectors are
+available in the common input format. All 6,720 historical trial recipes and
+300 training vectors reproduce exactly; the independent sector-32 FITS
+restoration also matches exactly. The full GitHub job and result publication
+succeeded. No new model has been evaluated yet.
+
+[Verified input package](results_ls7i_inputs/REPORT.md),
+[current model-stage entry point](LS7I_CONTINUATION.md).
+Result commit: `b5d456d9142c49f291c1eaafeb246048d6d1f89b`.
+
+Next active block: implement and freeze the one background/residual model and
+its joint two-sector evaluation. The calendar windows below remain planning
+estimates, not waits or scheduled background work.
+
 ## Main objective
 
 By the end of these two weeks, establish whether an observable, time-dependent

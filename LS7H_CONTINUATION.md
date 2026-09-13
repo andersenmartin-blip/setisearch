@@ -53,15 +53,13 @@ comparisons into one study. Keep event labels and the known native realization
 out of inference. If outside-event data cannot predict the relevant component,
 record that limitation rather than assume a background repair exists.
 
-Sector-29 individual-cadence cutouts are already in
-`results_ls7g_transfer/backgrounds.npz`. Sector-32 LS7E exports contain event
-and training vectors rather than the complete cadence cubes; a time-resolved
-comparison there needs reconstruction from its existing source-manifest FITS
-products and original eligibility. Recover and persist those same closed
-cutouts, checking original hashes, before freezing the combined evaluation.
-This restores known inputs; it does not open another sector. Preserve the
-18-pixel and 21-pixel sector-specific apertures and never import an event's
-covariance training samples from the assessed background.
+LS7I has now restored and independently verified both sectors' individual-
+cadence inputs. All 6,720 historical trial recipes and 300 training vectors
+reproduce exactly. Use `results_ls7i_inputs/datasets.json` and
+[LS7I_CONTINUATION.md](LS7I_CONTINUATION.md) for the ready input interface;
+no further raw-FITS recovery is required for the model stage. Sector 29 still
+uses the unchanged LS7G cutouts, and sector 32 has its original source-hashed
+cutouts restored. The historical trial cohorts and apertures are preserved.
 
 The LS7H extension is not adopted as a detector. Its current margin −1 and
 all prior decisions remain sealed; no new threshold sweep or automatic unseen

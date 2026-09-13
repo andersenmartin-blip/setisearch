@@ -19,3 +19,10 @@ OPENBLAS_NUM_THREADS=1 python scripts/ls7i_review_inputs.py
 The derived-only audit command above does not overwrite the sealed raw-FITS audit. To repeat the complete raw-source audit, use the protocol with its original input files in a cache. Original spatial-fit audits are reused by hash; no detector challenge is rerun here.
 
 Published input freeze: `44040ac87de1fab261191dd19f7f3ebd2d04e073`. [Complete GitHub job](https://github.com/andersenmartin-blip/setisearch/actions/runs/34763103507). The model stage remains pending. PROJECT_STATUS.md is the maintained operational entry point.
+
+The complete input package is published at
+`b5d456d9142c49f291c1eaafeb246048d6d1f89b`. Its output checksums and both
+context/ledger identities match after retrieval. The maintained two-week
+plan records the first block as completed. Continue directly with the model
+implementation and its separately frozen evaluation; do not rerun restoration
+or rename successful input verification as a detector qualification.
