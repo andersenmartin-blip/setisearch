@@ -3,6 +3,18 @@
 Updated 13 September 2026. This is the maintained operational entry point.
 Earlier reports and continuation files preserve their historical states.
 
+## LS7H frozen: morphology diagnosis and one fixed bank extension
+
+LS7H is prepared for the four failed LS7G control cells. It reuses all 3,540
+saved trials and ten closed sector-29 backgrounds. The protocol separates the
+native background from the known injected event at the original selected
+window and evaluates one all-placement cross/ring/rotated-triangle extension
+at the unchanged margin −1. Every lost stellar recovery and all original
+joint requirements remain explicit. No new evaluation result is available yet.
+
+[Protocol](LS7H_MORPHOLOGY_PROTOCOL.md), [configuration](config/ls7h_morphology.json),
+[source freeze](LS7H_FREEZE.sha256), [continuation](LS7H_CONTINUATION.md).
+
 ## LS7G completed: fixed transfer to sector 29
 
 LS7G completed **3,540 fixed transfer trials** on the ten already closed sector-29 backgrounds. The primary joint descriptive gate **fails**. Nominal recovery at the fixed margin −1 is **37/40, 40/40, 40/40**; displaced recovery is **135/160, 153/160, 158/160**. **4/30** instrumental control cells exceed their allowance. The independent audit passes; no detector is adopted and no candidate is promoted.
