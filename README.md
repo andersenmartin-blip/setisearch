@@ -16,6 +16,17 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+**LS7H TESS morphology diagnosis completed, 13 September 2026.**
+All 3,540 saved LS7G trials and the independent numerical audit are complete.
+For all 24 accepted controls in the four failed cells, removing the known
+native background reverses the spatial comparison; this uses injection truth
+and cannot serve as a native-event veto. Adding 245 shape templates reduces
+those acceptances **24 → 9**, but loses **10** recovered stellar trial rows.
+Two control cells still fail, while all six signal-recovery cells pass.
+Next is a joint study of time-varying background and residual pixels on the
+already closed sectors. No detector or candidate is adopted.
+[Read the result and figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7h_morphology/REPORT.md).
+
 **LS7G fixed TESS transfer completed, 13 September 2026.**
 All 3,540 trials on already closed sector 29 completed and pass the independent
 numerical audit. The fixed development rule recovers **37/40, 40/40 and 40/40**
@@ -30,8 +41,8 @@ matched control cases at the old margin but also loses more stellar tests.
 An exhaustive comparison finds jointly passing development settings only at
 **negative margins**, where a nuisance fit may be better than the stellar fit.
 These settings are not adopted or independently validated. All six tests and
-the independent numerical audit pass. Next is a separately planned transfer
-on already closed sector 29. [Read the result and figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7f_separation/REPORT.md).
+the independent numerical audit pass. LS7G subsequently completed the fixed
+transfer on already closed sector 29; its outcome is recorded above. [Read the result and figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7f_separation/REPORT.md).
 
 **LS7E TESS model comparison completed, 12 September 2026.**
 Across 3,180 paired development trials on closed sector 32, the combined model
@@ -74,7 +85,7 @@ independent observing cadence. It is not a detection or technosignature claim.
 | Read or do | Entry point |
 |---|---|
 | Continue the active work | [Current project status](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md) |
-| Inspect current TESS work | [LS7G sector-29 transfer](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7g_transfer/REPORT.md), [LS7F separation study](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7f_separation/REPORT.md), [LS7E combined development](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7e_joint/REPORT.md), [LS7D noise diagnosis](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7d_noise/REPORT.md), [LS7C reviewed result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7c_tess/REVIEW.md), [frozen protocol](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7C_TESS_PROTOCOL.md), and [previous LS7B result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7b_tess/REVIEW.md) |
+| Inspect current TESS work | [LS7H morphology diagnosis](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7h_morphology/REPORT.md), [LS7G sector-29 transfer](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7g_transfer/REPORT.md), [LS7F separation study](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7f_separation/REPORT.md), [LS7E combined development](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7e_joint/REPORT.md), [LS7D noise diagnosis](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7d_noise/REPORT.md), [LS7C reviewed result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7c_tess/REVIEW.md), [frozen protocol](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7C_TESS_PROTOCOL.md), and [previous LS7B result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7b_tess/REVIEW.md) |
 | Inspect the latest native evaluation | [M43AI result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AI_NATIVE_VALIDATION_RESULT.md) |
 | Inspect the separate historical TESS development | [LS7C sector 29 archive: 1,300 retrospective trials](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/archives/ls7c_sector29_development/README.md) |
 | Understand the failed training rule | [M43AF training result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AF_TRAINING_RESULT.md) |
