@@ -3,17 +3,37 @@
 Updated 13 September 2026. This is the maintained operational entry point.
 Earlier reports and continuation files preserve their historical states.
 
-## LS7H frozen: morphology diagnosis and one fixed bank extension
+## LS7H completed: background-driven morphology confusion remains
 
-LS7H is prepared for the four failed LS7G control cells. It reuses all 3,540
-saved trials and ten closed sector-29 backgrounds. The protocol separates the
-native background from the known injected event at the original selected
-window and evaluates one all-placement cross/ring/rotated-triangle extension
-at the unchanged margin −1. Every lost stellar recovery and all original
-joint requirements remain explicit. No new evaluation result is available yet.
+LS7H diagnoses all **3,540 saved LS7G trials**. All **24** accepted controls in
+the four failed cells have clean, background-removed margins below −1: the
+native contribution changes the same-window model comparison. One fixed
+extension adds **245** cross/ring/rotated-triangle placements. It reduces
+those acceptances **24 → 9**, but loses **10** previously recovered stellar
+trial rows. **2/30** control cells still fail; all six signal cells pass.
+The independent audit passes. No detector or candidate is adopted.
 
-[Protocol](LS7H_MORPHOLOGY_PROTOCOL.md), [configuration](config/ls7h_morphology.json),
-[source freeze](LS7H_FREEZE.sha256), [continuation](LS7H_CONTINUATION.md).
+The remaining failures are **4/40 weak 2x2** and **3/40 weak triangle**
+controls, each allowing 2/40. Weak nominal recovery is **36/40** (the minimum),
+and weak displaced recovery is **130/160** (128 required). The larger bank
+alone is insufficient. Removing the sparse option also fails: nominal weak
+recovery becomes 35/40 and the fixed 10%-flux recovery check fails.
+
+Next, develop a joint model of the time-varying background and residual
+pixels using observable samples outside the tested pulse. The remaining
+nine focus-control acceptances all occur on backgrounds 00 and 01; keep all
+ten backgrounds in the next study. Compare with both fixed LS7G and LS7H
+references, preserve individual signal-loss accounting, and plan sector 29
+and already closed sector 32 together. Do not assume the native contribution
+is predictable or use injection-truth subtraction as a detector input.
+
+Five analytical tests, all 14,160 direct new fits, **52,413,240** independently
+enumerated fit alternatives, all 36 core cells and 360 background/cell counts
+pass verification. Earlier manifests remain unchanged. The source freeze
+was public before LS7H evaluation at `503a159f7bc3337f314565fc4858d130a524626d`.
+
+[Result and figure](results_ls7h_morphology/REPORT.md),
+[protocol](LS7H_MORPHOLOGY_PROTOCOL.md), [concrete continuation](LS7H_CONTINUATION.md).
 
 ## LS7G completed: fixed transfer to sector 29
 
@@ -22,9 +42,9 @@ LS7G completed **3,540 fixed transfer trials** on the ten already closed sector-
 All six primary signal-recovery cells and the other joint checks pass. The
 four failures are control acceptance: 4/40 weak 2x2 blocks, 8/40 weak crosses,
 9/40 weak triangles and 3/40 medium-strength triangles, against a 2/40 limit.
-Next, diagnose those weak/medium morphology confusions from the saved sector-29
-extracts, with explicit losses for genuine test pulses. Preserve LS7G's fixed
-rule and outcomes; no additional sector or new threshold follows automatically.
+LS7H has now completed that diagnosis and one separately frozen bank
+extension, with every lost stellar row recorded. Its result and current
+continuation appear above. LS7G remains closed and unchanged.
 
 The complete result is published at `05fdbf457835df23ed67cced26666dad6ded2cf7`.
 All source/result checksums reproduce after retrieval, and the figure is

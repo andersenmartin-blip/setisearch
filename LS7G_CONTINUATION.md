@@ -15,11 +15,12 @@ limitation is these four control cells:
 | 3x3 triangle | 8.5 | 9/40 | 2/40 |
 | 3x3 triangle | 12 | 3/40 | 2/40 |
 
-Next, diagnose these weak/medium morphology confusions using the saved
-backgrounds, patterns, model matrices and trial vectors. Account for the
-stellar pulses lost by any proposed change. Keep the LS7G rule and outcomes
-closed; do not rerun its completed challenge, add a threshold sweep or open
-another sector as an undocumented repair.
+LS7H has now completed that same-window morphology diagnosis and one fixed
+shape-bank extension on all saved trials, including every additional stellar
+loss. Its joint gate still fails. See [LS7H_CONTINUATION.md](LS7H_CONTINUATION.md)
+for the result and next integrated background/residual study. Keep the LS7G
+rule and outcomes closed; do not rerun its completed challenge, add a threshold
+sweep or open another sector as an undocumented repair.
 
 Result publication: `05fdbf457835df23ed67cced26666dad6ded2cf7`.
 The [complete GitHub run](https://github.com/andersenmartin-blip/setisearch/actions/runs/34754959873)

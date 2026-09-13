@@ -85,3 +85,14 @@ details; LS7C/LS7E records and M43 held-out panels remain unchanged.
 13 September 2026: LS7G completed **3,540 fixed transfer trials** on the ten already closed sector-29 backgrounds. The primary joint descriptive gate **fails**. Nominal recovery at the fixed margin −1 is **37/40, 40/40, 40/40**; displaced recovery is **135/160, 153/160, 158/160**. **4/30** instrumental control cells exceed their allowance. The independent audit passes; no detector is adopted and no candidate is promoted.
 
 Next, diagnose the failed transfer cells from the saved sector-29 extracts, keeping the frozen LS7G rule and outcomes unchanged. Separate temporal, source-score, residual and nuisance-separation losses before proposing another model or observing sector. Details: LS7G_CONTINUATION.md.
+
+13 September 2026: LS7H completed the frozen diagnosis of all saved LS7G trials.
+All 24 accepted focus controls switch to clean-margin rejection after the known
+native contribution is removed. A 245-template extension reduces those
+acceptances to nine, loses ten recovered stellar rows and still fails two
+control cells, while all six signal cells pass. Continue with a joint model
+of time-varying background and residual pixels using observable outside-event
+samples, with combined planning for the two already closed sectors and full
+signal protection. Truth-dependent subtraction is diagnostic only. No
+threshold change or unseen sector follows automatically. PROJECT_STATUS.md
+and LS7H_CONTINUATION.md carry the current result and concrete input needs.

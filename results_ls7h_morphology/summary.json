@@ -1,0 +1,9079 @@
+{
+  "status": "COMPLETED",
+  "created_utc": "2026-09-13T12:19:54.892692+00:00",
+  "scope": "retrospective diagnosis and one fixed augmented-bank comparison on closed LS7G inputs",
+  "source_commit": "234492fbb1a67a7c65e479261a2c7a03b0001a1c",
+  "freeze_commit": "503a159f7bc3337f314565fc4858d130a524626d",
+  "freeze_sha256": "8d7361675c4a225fa0b8dc69dd94649b6e0ec2b9782883893d47f2f06ef06dd3",
+  "trials": 3540,
+  "backgrounds": 10,
+  "models": 80,
+  "added_templates": 245,
+  "suites": {
+    "base": 1460,
+    "sparse_stress": 1040,
+    "known_extended": 360,
+    "unmodeled_shapes": 360,
+    "bounded_pointing": 320
+  },
+  "added_observing_days": 0,
+  "margin": -1,
+  "max_event_vector_error": 2.842170943040401e-14,
+  "max_clean_pure_difference": 2.000177801164682e-12,
+  "max_margin_decomposition_error": 1.6007106751203537e-10,
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "matplotlib": "3.10.8"
+  },
+  "groups": [
+    {
+      "key": [
+        "base",
+        "block_2x2",
+        12.0
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "nuisance_margin": 8,
+            "residual": 32
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "nuisance_margin": 8,
+            "residual": 32
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "block_2x2",
+        20.0
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "block_2x2",
+        8.5
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 4,
+          "recovered": 4,
+          "nuisance_preferred_acceptance": 1,
+          "recovery_paths": {
+            "recovered": 4,
+            "residual": 15,
+            "nuisance_margin": 19,
+            "source_score": 2
+          }
+        },
+        "augmented": {
+          "accepted": 4,
+          "recovered": 4,
+          "nuisance_preferred_acceptance": 1,
+          "recovery_paths": {
+            "recovered": 4,
+            "residual": 15,
+            "nuisance_margin": 19,
+            "source_score": 2
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "nuisance_margin": 3,
+            "residual": 37
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "null",
+        null,
+        0.0,
+        "box30"
+      ],
+      "trials": 20,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 20
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 20
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 20
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "off_profile",
+        12.0
+      ],
+      "trials": 160,
+      "rules": {
+        "ls7g": {
+          "accepted": 153,
+          "recovered": 153,
+          "nuisance_preferred_acceptance": 1,
+          "recovery_paths": {
+            "recovered": 153,
+            "nuisance_margin": 4,
+            "residual": 3
+          }
+        },
+        "augmented": {
+          "accepted": 153,
+          "recovered": 153,
+          "nuisance_preferred_acceptance": 1,
+          "recovery_paths": {
+            "recovered": 153,
+            "nuisance_margin": 4,
+            "residual": 3
+          }
+        },
+        "plain_ablation": {
+          "accepted": 139,
+          "recovered": 139,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 139,
+            "residual": 17,
+            "nuisance_margin": 4
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "off_profile",
+        20.0
+      ],
+      "trials": 160,
+      "rules": {
+        "ls7g": {
+          "accepted": 158,
+          "recovered": 158,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 158,
+            "residual": 2
+          }
+        },
+        "augmented": {
+          "accepted": 158,
+          "recovered": 158,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 158,
+            "residual": 2
+          }
+        },
+        "plain_ablation": {
+          "accepted": 141,
+          "recovered": 141,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 141,
+            "residual": 19
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "off_profile",
+        8.5
+      ],
+      "trials": 160,
+      "rules": {
+        "ls7g": {
+          "accepted": 135,
+          "recovered": 135,
+          "nuisance_preferred_acceptance": 3,
+          "recovery_paths": {
+            "recovered": 135,
+            "source_score": 11,
+            "nuisance_margin": 11,
+            "residual": 3
+          }
+        },
+        "augmented": {
+          "accepted": 130,
+          "recovered": 130,
+          "nuisance_preferred_acceptance": 3,
+          "recovery_paths": {
+            "recovered": 130,
+            "nuisance_margin": 16,
+            "source_score": 11,
+            "residual": 3
+          }
+        },
+        "plain_ablation": {
+          "accepted": 135,
+          "recovered": 135,
+          "nuisance_preferred_acceptance": 2,
+          "recovery_paths": {
+            "recovered": 135,
+            "nuisance_margin": 4,
+            "residual": 17,
+            "source_score": 4
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "pointing",
+        12.0
+      ],
+      "trials": 80,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 42,
+            "source_score": 38
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 42,
+            "source_score": 38
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 66,
+            "source_score": 14
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "pointing",
+        20.0
+      ],
+      "trials": 80,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 42,
+            "source_score": 38
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 42,
+            "source_score": 38
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 66,
+            "source_score": 14
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "pointing",
+        8.5
+      ],
+      "trials": 80,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 42,
+            "source_score": 38
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 42,
+            "source_score": 38
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 61,
+            "source_score": 19
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "single_pixel",
+        12.0
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "source_score": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "source_score": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "single_pixel",
+        20.0
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "source_score": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "source_score": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "single_pixel",
+        8.5
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "source_score": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "source_score": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "stellar",
+        12.0
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 40,
+          "recovered": 40,
+          "nuisance_preferred_acceptance": 1,
+          "recovery_paths": {
+            "recovered": 40
+          }
+        },
+        "augmented": {
+          "accepted": 40,
+          "recovered": 40,
+          "nuisance_preferred_acceptance": 1,
+          "recovery_paths": {
+            "recovered": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 37,
+          "recovered": 37,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 37,
+            "residual": 2,
+            "nuisance_margin": 1
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "stellar",
+        20.0
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 40,
+          "recovered": 40,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 40
+          }
+        },
+        "augmented": {
+          "accepted": 40,
+          "recovered": 40,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 37,
+          "recovered": 37,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 37,
+            "residual": 3
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "stellar",
+        8.5
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 37,
+          "recovered": 37,
+          "nuisance_preferred_acceptance": 3,
+          "recovery_paths": {
+            "recovered": 37,
+            "nuisance_margin": 1,
+            "source_score": 2
+          }
+        },
+        "augmented": {
+          "accepted": 36,
+          "recovered": 36,
+          "nuisance_preferred_acceptance": 3,
+          "recovery_paths": {
+            "recovered": 36,
+            "nuisance_margin": 2,
+            "source_score": 2
+          }
+        },
+        "plain_ablation": {
+          "accepted": 35,
+          "recovered": 35,
+          "nuisance_preferred_acceptance": 1,
+          "recovery_paths": {
+            "recovered": 35,
+            "residual": 4,
+            "source_score": 1
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "stellar",
+        null,
+        0.01,
+        "box100"
+      ],
+      "trials": 20,
+      "rules": {
+        "ls7g": {
+          "accepted": 16,
+          "recovered": 16,
+          "nuisance_preferred_acceptance": 1,
+          "recovery_paths": {
+            "recovered": 16,
+            "temporal": 4
+          }
+        },
+        "augmented": {
+          "accepted": 15,
+          "recovered": 15,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 15,
+            "temporal": 4,
+            "nuisance_margin": 1
+          }
+        },
+        "plain_ablation": {
+          "accepted": 16,
+          "recovered": 16,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 16,
+            "temporal": 4
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "stellar",
+        null,
+        0.01,
+        "box30"
+      ],
+      "trials": 20,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 20
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 20
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 20
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "stellar",
+        null,
+        0.01,
+        "box60"
+      ],
+      "trials": 20,
+      "rules": {
+        "ls7g": {
+          "accepted": 7,
+          "recovered": 7,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 7,
+            "temporal": 11,
+            "residual": 2
+          }
+        },
+        "augmented": {
+          "accepted": 7,
+          "recovered": 7,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 7,
+            "temporal": 11,
+            "residual": 2
+          }
+        },
+        "plain_ablation": {
+          "accepted": 7,
+          "recovered": 7,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 7,
+            "temporal": 11,
+            "residual": 1,
+            "source_score": 1
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "stellar",
+        null,
+        0.01,
+        "doublet30sep87"
+      ],
+      "trials": 20,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 20
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 20
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 20
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "stellar",
+        null,
+        0.03,
+        "box100"
+      ],
+      "trials": 20,
+      "rules": {
+        "ls7g": {
+          "accepted": 20,
+          "recovered": 20,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 20
+          }
+        },
+        "augmented": {
+          "accepted": 20,
+          "recovered": 20,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 20
+          }
+        },
+        "plain_ablation": {
+          "accepted": 19,
+          "recovered": 19,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 19,
+            "residual": 1
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "stellar",
+        null,
+        0.03,
+        "box30"
+      ],
+      "trials": 20,
+      "rules": {
+        "ls7g": {
+          "accepted": 20,
+          "recovered": 20,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 20
+          }
+        },
+        "augmented": {
+          "accepted": 20,
+          "recovered": 20,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 20
+          }
+        },
+        "plain_ablation": {
+          "accepted": 18,
+          "recovered": 18,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 18,
+            "residual": 2
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "stellar",
+        null,
+        0.03,
+        "box60"
+      ],
+      "trials": 20,
+      "rules": {
+        "ls7g": {
+          "accepted": 18,
+          "recovered": 18,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 18,
+            "residual": 2
+          }
+        },
+        "augmented": {
+          "accepted": 18,
+          "recovered": 18,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 18,
+            "residual": 2
+          }
+        },
+        "plain_ablation": {
+          "accepted": 16,
+          "recovered": 16,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 4,
+            "recovered": 16
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "stellar",
+        null,
+        0.03,
+        "doublet30sep87"
+      ],
+      "trials": 20,
+      "rules": {
+        "ls7g": {
+          "accepted": 20,
+          "recovered": 20,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 20
+          }
+        },
+        "augmented": {
+          "accepted": 19,
+          "recovered": 19,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 19,
+            "nuisance_margin": 1
+          }
+        },
+        "plain_ablation": {
+          "accepted": 19,
+          "recovered": 19,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 19,
+            "residual": 1
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "stellar",
+        null,
+        0.1,
+        "box100"
+      ],
+      "trials": 20,
+      "rules": {
+        "ls7g": {
+          "accepted": 20,
+          "recovered": 20,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 20
+          }
+        },
+        "augmented": {
+          "accepted": 20,
+          "recovered": 20,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 20
+          }
+        },
+        "plain_ablation": {
+          "accepted": 17,
+          "recovered": 17,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 17,
+            "residual": 3
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "stellar",
+        null,
+        0.1,
+        "box30"
+      ],
+      "trials": 20,
+      "rules": {
+        "ls7g": {
+          "accepted": 20,
+          "recovered": 20,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 20
+          }
+        },
+        "augmented": {
+          "accepted": 20,
+          "recovered": 20,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 20
+          }
+        },
+        "plain_ablation": {
+          "accepted": 17,
+          "recovered": 17,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 17,
+            "residual": 3
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "stellar",
+        null,
+        0.1,
+        "box60"
+      ],
+      "trials": 20,
+      "rules": {
+        "ls7g": {
+          "accepted": 18,
+          "recovered": 18,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 18,
+            "residual": 2
+          }
+        },
+        "augmented": {
+          "accepted": 18,
+          "recovered": 18,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 18,
+            "residual": 2
+          }
+        },
+        "plain_ablation": {
+          "accepted": 12,
+          "recovered": 12,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 8,
+            "recovered": 12
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "stellar",
+        null,
+        0.1,
+        "doublet30sep87"
+      ],
+      "trials": 20,
+      "rules": {
+        "ls7g": {
+          "accepted": 20,
+          "recovered": 20,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 20
+          }
+        },
+        "augmented": {
+          "accepted": 20,
+          "recovered": 20,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 20
+          }
+        },
+        "plain_ablation": {
+          "accepted": 19,
+          "recovered": 19,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 19,
+            "residual": 1
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "uniform",
+        12.0
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "source_score": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "source_score": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "source_score": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "uniform",
+        20.0
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "source_score": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "source_score": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "source_score": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "uniform",
+        8.5
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "source_score": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "source_score": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "source_score": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "bounded_pointing",
+        "pointing",
+        null
+      ],
+      "trials": 320,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 201,
+            "residual": 104,
+            "source_score": 15
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 201,
+            "residual": 104,
+            "source_score": 15
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 201,
+            "residual": 116,
+            "source_score": 3
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "known_extended",
+        "block3x3",
+        12.0
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "nuisance_margin": 11,
+            "residual": 29
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "nuisance_margin": 11,
+            "residual": 29
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 39,
+            "nuisance_margin": 1
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "known_extended",
+        "block3x3",
+        20.0
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "known_extended",
+        "block3x3",
+        8.5
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 2,
+          "recovered": 2,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "nuisance_margin": 27,
+            "residual": 10,
+            "recovered": 2,
+            "source_score": 1
+          }
+        },
+        "augmented": {
+          "accepted": 2,
+          "recovered": 2,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "nuisance_margin": 27,
+            "residual": 10,
+            "recovered": 2,
+            "source_score": 1
+          }
+        },
+        "plain_ablation": {
+          "accepted": 1,
+          "recovered": 1,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "nuisance_margin": 14,
+            "residual": 25,
+            "recovered": 1
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "known_extended",
+        "column5x1",
+        12.0
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "known_extended",
+        "column5x1",
+        20.0
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "known_extended",
+        "column5x1",
+        8.5
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "known_extended",
+        "row1x5",
+        12.0
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "known_extended",
+        "row1x5",
+        20.0
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "known_extended",
+        "row1x5",
+        8.5
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "block_2x2",
+        12.0,
+        "inside",
+        -1
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "block_2x2",
+        12.0,
+        "inside",
+        1
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "block_2x2",
+        12.0,
+        "outside",
+        -1
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "nuisance_margin": 8,
+            "residual": 32
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "nuisance_margin": 8,
+            "residual": 32
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "block_2x2",
+        12.0,
+        "outside",
+        1
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "nuisance_margin": 8,
+            "residual": 32
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "nuisance_margin": 8,
+            "residual": 32
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "block_2x2",
+        20.0,
+        "inside",
+        -1
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "block_2x2",
+        20.0,
+        "inside",
+        1
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "block_2x2",
+        20.0,
+        "outside",
+        -1
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "block_2x2",
+        20.0,
+        "outside",
+        1
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "block_2x2",
+        8.5,
+        "inside",
+        -1
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "block_2x2",
+        8.5,
+        "inside",
+        1
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "nuisance_margin": 3,
+            "residual": 37
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "nuisance_margin": 3,
+            "residual": 37
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 36,
+            "source_score": 4
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "block_2x2",
+        8.5,
+        "outside",
+        -1
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 4,
+          "recovered": 4,
+          "nuisance_preferred_acceptance": 1,
+          "recovery_paths": {
+            "recovered": 4,
+            "residual": 15,
+            "nuisance_margin": 19,
+            "source_score": 2
+          }
+        },
+        "augmented": {
+          "accepted": 4,
+          "recovered": 4,
+          "nuisance_preferred_acceptance": 1,
+          "recovery_paths": {
+            "recovered": 4,
+            "residual": 15,
+            "nuisance_margin": 19,
+            "source_score": 2
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "nuisance_margin": 3,
+            "residual": 37
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "block_2x2",
+        8.5,
+        "outside",
+        1
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 4,
+          "recovered": 4,
+          "nuisance_preferred_acceptance": 1,
+          "recovery_paths": {
+            "recovered": 4,
+            "residual": 15,
+            "nuisance_margin": 19,
+            "source_score": 2
+          }
+        },
+        "augmented": {
+          "accepted": 4,
+          "recovered": 4,
+          "nuisance_preferred_acceptance": 1,
+          "recovery_paths": {
+            "recovered": 4,
+            "residual": 15,
+            "nuisance_margin": 19,
+            "source_score": 2
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "nuisance_margin": 3,
+            "residual": 37
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "null",
+        null,
+        "inside",
+        -1
+      ],
+      "trials": 20,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 20
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 20
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 20
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "null",
+        null,
+        "inside",
+        1
+      ],
+      "trials": 20,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 20
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 20
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 20
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "null",
+        null,
+        "outside",
+        -1
+      ],
+      "trials": 20,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 20
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 20
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 20
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "null",
+        null,
+        "outside",
+        1
+      ],
+      "trials": 20,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 20
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 20
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 20
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "stellar",
+        12.0,
+        "inside",
+        -1
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 37,
+          "recovered": 37,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 37,
+            "residual": 2,
+            "nuisance_margin": 1
+          }
+        },
+        "augmented": {
+          "accepted": 37,
+          "recovered": 37,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 37,
+            "residual": 2,
+            "nuisance_margin": 1
+          }
+        },
+        "plain_ablation": {
+          "accepted": 1,
+          "recovered": 1,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 39,
+            "recovered": 1
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "stellar",
+        12.0,
+        "inside",
+        1
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 37,
+          "recovered": 37,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 37,
+            "residual": 2,
+            "nuisance_margin": 1
+          }
+        },
+        "augmented": {
+          "accepted": 37,
+          "recovered": 37,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 37,
+            "residual": 2,
+            "nuisance_margin": 1
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 39,
+            "source_score": 1
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "stellar",
+        12.0,
+        "outside",
+        -1
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 40,
+          "recovered": 40,
+          "nuisance_preferred_acceptance": 1,
+          "recovery_paths": {
+            "recovered": 40
+          }
+        },
+        "augmented": {
+          "accepted": 40,
+          "recovered": 40,
+          "nuisance_preferred_acceptance": 1,
+          "recovery_paths": {
+            "recovered": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 37,
+          "recovered": 37,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 37,
+            "residual": 2,
+            "nuisance_margin": 1
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "stellar",
+        12.0,
+        "outside",
+        1
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 40,
+          "recovered": 40,
+          "nuisance_preferred_acceptance": 1,
+          "recovery_paths": {
+            "recovered": 40
+          }
+        },
+        "augmented": {
+          "accepted": 40,
+          "recovered": 40,
+          "nuisance_preferred_acceptance": 1,
+          "recovery_paths": {
+            "recovered": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 37,
+          "recovered": 37,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 37,
+            "residual": 2,
+            "nuisance_margin": 1
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "stellar",
+        20.0,
+        "inside",
+        -1
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 38,
+          "recovered": 38,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 38,
+            "residual": 2
+          }
+        },
+        "augmented": {
+          "accepted": 38,
+          "recovered": 38,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 38,
+            "residual": 2
+          }
+        },
+        "plain_ablation": {
+          "accepted": 1,
+          "recovered": 1,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 39,
+            "recovered": 1
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "stellar",
+        20.0,
+        "inside",
+        1
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 38,
+          "recovered": 38,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 38,
+            "residual": 2
+          }
+        },
+        "augmented": {
+          "accepted": 38,
+          "recovered": 38,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 38,
+            "residual": 2
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "stellar",
+        20.0,
+        "outside",
+        -1
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 40,
+          "recovered": 40,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 40
+          }
+        },
+        "augmented": {
+          "accepted": 40,
+          "recovered": 40,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 37,
+          "recovered": 37,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 37,
+            "residual": 3
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "stellar",
+        20.0,
+        "outside",
+        1
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 40,
+          "recovered": 40,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 40
+          }
+        },
+        "augmented": {
+          "accepted": 40,
+          "recovered": 40,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 37,
+          "recovered": 37,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 37,
+            "residual": 3
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "stellar",
+        8.5,
+        "inside",
+        -1
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "temporal": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "stellar",
+        8.5,
+        "inside",
+        1
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 35,
+          "recovered": 35,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 35,
+            "residual": 4,
+            "source_score": 1
+          }
+        },
+        "augmented": {
+          "accepted": 35,
+          "recovered": 35,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 35,
+            "residual": 4,
+            "source_score": 1
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "source_score": 30,
+            "residual": 10
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "stellar",
+        8.5,
+        "outside",
+        -1
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 37,
+          "recovered": 37,
+          "nuisance_preferred_acceptance": 3,
+          "recovery_paths": {
+            "recovered": 37,
+            "nuisance_margin": 1,
+            "source_score": 2
+          }
+        },
+        "augmented": {
+          "accepted": 36,
+          "recovered": 36,
+          "nuisance_preferred_acceptance": 3,
+          "recovery_paths": {
+            "recovered": 36,
+            "nuisance_margin": 2,
+            "source_score": 2
+          }
+        },
+        "plain_ablation": {
+          "accepted": 35,
+          "recovered": 35,
+          "nuisance_preferred_acceptance": 1,
+          "recovery_paths": {
+            "recovered": 35,
+            "residual": 4,
+            "source_score": 1
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "stellar",
+        8.5,
+        "outside",
+        1
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 37,
+          "recovered": 37,
+          "nuisance_preferred_acceptance": 3,
+          "recovery_paths": {
+            "recovered": 37,
+            "nuisance_margin": 1,
+            "source_score": 2
+          }
+        },
+        "augmented": {
+          "accepted": 36,
+          "recovered": 36,
+          "nuisance_preferred_acceptance": 3,
+          "recovery_paths": {
+            "recovered": 36,
+            "nuisance_margin": 2,
+            "source_score": 2
+          }
+        },
+        "plain_ablation": {
+          "accepted": 35,
+          "recovered": 35,
+          "nuisance_preferred_acceptance": 1,
+          "recovery_paths": {
+            "recovered": 35,
+            "residual": 4,
+            "source_score": 1
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        12.0
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 2,
+          "recovered": 2,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 37,
+            "recovered": 2,
+            "nuisance_margin": 1
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 37,
+            "nuisance_margin": 3
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        20.0
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        8.5
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 8,
+          "recovered": 8,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 8,
+            "residual": 18,
+            "nuisance_margin": 7,
+            "source_score": 7
+          }
+        },
+        "augmented": {
+          "accepted": 2,
+          "recovered": 2,
+          "nuisance_preferred_acceptance": 1,
+          "recovery_paths": {
+            "nuisance_margin": 13,
+            "residual": 18,
+            "recovered": 2,
+            "source_score": 7
+          }
+        },
+        "plain_ablation": {
+          "accepted": 4,
+          "recovered": 4,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 35,
+            "recovered": 4,
+            "nuisance_margin": 1
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        12.0
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        20.0
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        8.5
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        12.0
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 3,
+          "recovered": 3,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "recovered": 3,
+            "residual": 37
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "nuisance_margin": 3,
+            "residual": 37
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        20.0
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "augmented": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        8.5
+      ],
+      "trials": 40,
+      "rules": {
+        "ls7g": {
+          "accepted": 9,
+          "recovered": 9,
+          "nuisance_preferred_acceptance": 1,
+          "recovery_paths": {
+            "recovered": 9,
+            "residual": 28,
+            "nuisance_margin": 3
+          }
+        },
+        "augmented": {
+          "accepted": 3,
+          "recovered": 3,
+          "nuisance_preferred_acceptance": 1,
+          "recovery_paths": {
+            "recovered": 3,
+            "residual": 28,
+            "nuisance_margin": 9
+          }
+        },
+        "plain_ablation": {
+          "accepted": 0,
+          "recovered": 0,
+          "nuisance_preferred_acceptance": 0,
+          "recovery_paths": {
+            "residual": 40
+          }
+        }
+      }
+    }
+  ],
+  "core_cells": [
+    {
+      "key": [
+        "base",
+        "block_2x2",
+        12.0
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 0,
+          "pass": true
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "block_2x2",
+        20.0
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 0,
+          "pass": true
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "block_2x2",
+        8.5
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 4,
+          "pass": false
+        },
+        "augmented": {
+          "count": 4,
+          "pass": false
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "off_profile",
+        12.0
+      ],
+      "trials": 160,
+      "signal": true,
+      "limit": 128,
+      "rules": {
+        "ls7g": {
+          "count": 153,
+          "pass": true
+        },
+        "augmented": {
+          "count": 153,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 139,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "off_profile",
+        20.0
+      ],
+      "trials": 160,
+      "signal": true,
+      "limit": 128,
+      "rules": {
+        "ls7g": {
+          "count": 158,
+          "pass": true
+        },
+        "augmented": {
+          "count": 158,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 141,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "off_profile",
+        8.5
+      ],
+      "trials": 160,
+      "signal": true,
+      "limit": 128,
+      "rules": {
+        "ls7g": {
+          "count": 135,
+          "pass": true
+        },
+        "augmented": {
+          "count": 130,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 135,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "pointing",
+        12.0
+      ],
+      "trials": 80,
+      "signal": false,
+      "limit": 4,
+      "rules": {
+        "ls7g": {
+          "count": 0,
+          "pass": true
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "pointing",
+        20.0
+      ],
+      "trials": 80,
+      "signal": false,
+      "limit": 4,
+      "rules": {
+        "ls7g": {
+          "count": 0,
+          "pass": true
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "pointing",
+        8.5
+      ],
+      "trials": 80,
+      "signal": false,
+      "limit": 4,
+      "rules": {
+        "ls7g": {
+          "count": 0,
+          "pass": true
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "single_pixel",
+        12.0
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 0,
+          "pass": true
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "single_pixel",
+        20.0
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 0,
+          "pass": true
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "single_pixel",
+        8.5
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 0,
+          "pass": true
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "stellar",
+        12.0
+      ],
+      "trials": 40,
+      "signal": true,
+      "limit": 36,
+      "rules": {
+        "ls7g": {
+          "count": 40,
+          "pass": true
+        },
+        "augmented": {
+          "count": 40,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 37,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "stellar",
+        20.0
+      ],
+      "trials": 40,
+      "signal": true,
+      "limit": 36,
+      "rules": {
+        "ls7g": {
+          "count": 40,
+          "pass": true
+        },
+        "augmented": {
+          "count": 40,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 37,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "stellar",
+        8.5
+      ],
+      "trials": 40,
+      "signal": true,
+      "limit": 36,
+      "rules": {
+        "ls7g": {
+          "count": 37,
+          "pass": true
+        },
+        "augmented": {
+          "count": 36,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 35,
+          "pass": false
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "uniform",
+        12.0
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 0,
+          "pass": true
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "uniform",
+        20.0
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 0,
+          "pass": true
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "base",
+        "uniform",
+        8.5
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 0,
+          "pass": true
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "known_extended",
+        "block3x3",
+        12.0
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 0,
+          "pass": true
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "known_extended",
+        "block3x3",
+        20.0
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 0,
+          "pass": true
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "known_extended",
+        "block3x3",
+        8.5
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 2,
+          "pass": true
+        },
+        "augmented": {
+          "count": 2,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 1,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "known_extended",
+        "column5x1",
+        12.0
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 0,
+          "pass": true
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "known_extended",
+        "column5x1",
+        20.0
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 0,
+          "pass": true
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "known_extended",
+        "column5x1",
+        8.5
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 0,
+          "pass": true
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "known_extended",
+        "row1x5",
+        12.0
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 0,
+          "pass": true
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "known_extended",
+        "row1x5",
+        20.0
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 0,
+          "pass": true
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "known_extended",
+        "row1x5",
+        8.5
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 0,
+          "pass": true
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        12.0
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 2,
+          "pass": true
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        20.0
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 0,
+          "pass": true
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        8.5
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 8,
+          "pass": false
+        },
+        "augmented": {
+          "count": 2,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 4,
+          "pass": false
+        }
+      }
+    },
+    {
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        12.0
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 0,
+          "pass": true
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        20.0
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 0,
+          "pass": true
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        8.5
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 0,
+          "pass": true
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        12.0
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 3,
+          "pass": false
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        20.0
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 0,
+          "pass": true
+        },
+        "augmented": {
+          "count": 0,
+          "pass": true
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    },
+    {
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        8.5
+      ],
+      "trials": 40,
+      "signal": false,
+      "limit": 2,
+      "rules": {
+        "ls7g": {
+          "count": 9,
+          "pass": false
+        },
+        "augmented": {
+          "count": 3,
+          "pass": false
+        },
+        "plain_ablation": {
+          "count": 0,
+          "pass": true
+        }
+      }
+    }
+  ],
+  "per_background": [
+    {
+      "anchor": 0,
+      "key": [
+        "base",
+        "block_2x2",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "base",
+        "block_2x2",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "base",
+        "block_2x2",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "base",
+        "block_2x2",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "base",
+        "block_2x2",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "base",
+        "block_2x2",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "base",
+        "block_2x2",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "base",
+        "block_2x2",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "base",
+        "block_2x2",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "base",
+        "block_2x2",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "base",
+        "block_2x2",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "base",
+        "block_2x2",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "base",
+        "block_2x2",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "base",
+        "block_2x2",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "base",
+        "block_2x2",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "base",
+        "block_2x2",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "base",
+        "block_2x2",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "base",
+        "block_2x2",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "base",
+        "block_2x2",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "base",
+        "block_2x2",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "base",
+        "block_2x2",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 2,
+        "augmented": 2,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "base",
+        "block_2x2",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 2,
+        "augmented": 2,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "base",
+        "block_2x2",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "base",
+        "block_2x2",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "base",
+        "block_2x2",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "base",
+        "block_2x2",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "base",
+        "block_2x2",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "base",
+        "block_2x2",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "base",
+        "block_2x2",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "base",
+        "block_2x2",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "base",
+        "off_profile",
+        12.0
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 16,
+        "augmented": 16,
+        "plain_ablation": 15
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "base",
+        "off_profile",
+        12.0
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 16,
+        "augmented": 16,
+        "plain_ablation": 16
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "base",
+        "off_profile",
+        12.0
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 16,
+        "augmented": 16,
+        "plain_ablation": 16
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "base",
+        "off_profile",
+        12.0
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 16,
+        "augmented": 16,
+        "plain_ablation": 16
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "base",
+        "off_profile",
+        12.0
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 16,
+        "augmented": 16,
+        "plain_ablation": 13
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "base",
+        "off_profile",
+        12.0
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 16,
+        "augmented": 16,
+        "plain_ablation": 15
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "base",
+        "off_profile",
+        12.0
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 16,
+        "augmented": 16,
+        "plain_ablation": 16
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "base",
+        "off_profile",
+        12.0
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 16,
+        "augmented": 16,
+        "plain_ablation": 16
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "base",
+        "off_profile",
+        12.0
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 9,
+        "augmented": 9,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "base",
+        "off_profile",
+        12.0
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 16,
+        "augmented": 16,
+        "plain_ablation": 16
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "base",
+        "off_profile",
+        20.0
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 16,
+        "augmented": 16,
+        "plain_ablation": 15
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "base",
+        "off_profile",
+        20.0
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 16,
+        "augmented": 16,
+        "plain_ablation": 16
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "base",
+        "off_profile",
+        20.0
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 16,
+        "augmented": 16,
+        "plain_ablation": 16
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "base",
+        "off_profile",
+        20.0
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 16,
+        "augmented": 16,
+        "plain_ablation": 16
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "base",
+        "off_profile",
+        20.0
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 16,
+        "augmented": 16,
+        "plain_ablation": 12
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "base",
+        "off_profile",
+        20.0
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 16,
+        "augmented": 16,
+        "plain_ablation": 14
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "base",
+        "off_profile",
+        20.0
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 16,
+        "augmented": 16,
+        "plain_ablation": 16
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "base",
+        "off_profile",
+        20.0
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 16,
+        "augmented": 16,
+        "plain_ablation": 16
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "base",
+        "off_profile",
+        20.0
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 14,
+        "augmented": 14,
+        "plain_ablation": 4
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "base",
+        "off_profile",
+        20.0
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 16,
+        "augmented": 16,
+        "plain_ablation": 16
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "base",
+        "off_profile",
+        8.5
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 16,
+        "augmented": 16,
+        "plain_ablation": 16
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "base",
+        "off_profile",
+        8.5
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 16,
+        "augmented": 16,
+        "plain_ablation": 16
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "base",
+        "off_profile",
+        8.5
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 16,
+        "augmented": 16,
+        "plain_ablation": 16
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "base",
+        "off_profile",
+        8.5
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 16,
+        "augmented": 14,
+        "plain_ablation": 16
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "base",
+        "off_profile",
+        8.5
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 12,
+        "augmented": 12,
+        "plain_ablation": 10
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "base",
+        "off_profile",
+        8.5
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 15,
+        "augmented": 14,
+        "plain_ablation": 15
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "base",
+        "off_profile",
+        8.5
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 14,
+        "augmented": 14,
+        "plain_ablation": 16
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "base",
+        "off_profile",
+        8.5
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 16,
+        "augmented": 16,
+        "plain_ablation": 16
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "base",
+        "off_profile",
+        8.5
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 1,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "base",
+        "off_profile",
+        8.5
+      ],
+      "trials": 16,
+      "rules": {
+        "ls7g": 13,
+        "augmented": 12,
+        "plain_ablation": 14
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "base",
+        "pointing",
+        12.0
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "base",
+        "pointing",
+        12.0
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "base",
+        "pointing",
+        12.0
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "base",
+        "pointing",
+        12.0
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "base",
+        "pointing",
+        12.0
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "base",
+        "pointing",
+        12.0
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "base",
+        "pointing",
+        12.0
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "base",
+        "pointing",
+        12.0
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "base",
+        "pointing",
+        12.0
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "base",
+        "pointing",
+        12.0
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "base",
+        "pointing",
+        20.0
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "base",
+        "pointing",
+        20.0
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "base",
+        "pointing",
+        20.0
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "base",
+        "pointing",
+        20.0
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "base",
+        "pointing",
+        20.0
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "base",
+        "pointing",
+        20.0
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "base",
+        "pointing",
+        20.0
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "base",
+        "pointing",
+        20.0
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "base",
+        "pointing",
+        20.0
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "base",
+        "pointing",
+        20.0
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "base",
+        "pointing",
+        8.5
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "base",
+        "pointing",
+        8.5
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "base",
+        "pointing",
+        8.5
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "base",
+        "pointing",
+        8.5
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "base",
+        "pointing",
+        8.5
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "base",
+        "pointing",
+        8.5
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "base",
+        "pointing",
+        8.5
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "base",
+        "pointing",
+        8.5
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "base",
+        "pointing",
+        8.5
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "base",
+        "pointing",
+        8.5
+      ],
+      "trials": 8,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "base",
+        "single_pixel",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "base",
+        "single_pixel",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "base",
+        "single_pixel",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "base",
+        "single_pixel",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "base",
+        "single_pixel",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "base",
+        "single_pixel",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "base",
+        "single_pixel",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "base",
+        "single_pixel",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "base",
+        "single_pixel",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "base",
+        "single_pixel",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "base",
+        "single_pixel",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "base",
+        "single_pixel",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "base",
+        "single_pixel",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "base",
+        "single_pixel",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "base",
+        "single_pixel",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "base",
+        "single_pixel",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "base",
+        "single_pixel",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "base",
+        "single_pixel",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "base",
+        "single_pixel",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "base",
+        "single_pixel",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "base",
+        "single_pixel",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "base",
+        "single_pixel",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "base",
+        "single_pixel",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "base",
+        "single_pixel",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "base",
+        "single_pixel",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "base",
+        "single_pixel",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "base",
+        "single_pixel",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "base",
+        "single_pixel",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "base",
+        "single_pixel",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "base",
+        "single_pixel",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "base",
+        "stellar",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 4
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "base",
+        "stellar",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 4
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "base",
+        "stellar",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 4
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "base",
+        "stellar",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 4
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "base",
+        "stellar",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 3
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "base",
+        "stellar",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 4
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "base",
+        "stellar",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 4
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "base",
+        "stellar",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 4
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "base",
+        "stellar",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 2
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "base",
+        "stellar",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 4
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "base",
+        "stellar",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 3
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "base",
+        "stellar",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 4
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "base",
+        "stellar",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 4
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "base",
+        "stellar",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 4
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "base",
+        "stellar",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 3
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "base",
+        "stellar",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 4
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "base",
+        "stellar",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 4
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "base",
+        "stellar",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 4
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "base",
+        "stellar",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 3
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "base",
+        "stellar",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 4
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "base",
+        "stellar",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 4
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "base",
+        "stellar",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 4
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "base",
+        "stellar",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 4
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "base",
+        "stellar",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 4
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "base",
+        "stellar",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 3
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "base",
+        "stellar",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 4
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "base",
+        "stellar",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 4
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "base",
+        "stellar",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 4
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "base",
+        "stellar",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 1,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "base",
+        "stellar",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 4,
+        "plain_ablation": 4
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "base",
+        "uniform",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "base",
+        "uniform",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "base",
+        "uniform",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "base",
+        "uniform",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "base",
+        "uniform",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "base",
+        "uniform",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "base",
+        "uniform",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "base",
+        "uniform",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "base",
+        "uniform",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "base",
+        "uniform",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "base",
+        "uniform",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "base",
+        "uniform",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "base",
+        "uniform",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "base",
+        "uniform",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "base",
+        "uniform",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "base",
+        "uniform",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "base",
+        "uniform",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "base",
+        "uniform",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "base",
+        "uniform",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "base",
+        "uniform",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "base",
+        "uniform",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "base",
+        "uniform",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "base",
+        "uniform",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "base",
+        "uniform",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "base",
+        "uniform",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "base",
+        "uniform",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "base",
+        "uniform",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "base",
+        "uniform",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "base",
+        "uniform",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "base",
+        "uniform",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "known_extended",
+        "block3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "known_extended",
+        "block3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "known_extended",
+        "block3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "known_extended",
+        "block3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "known_extended",
+        "block3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "known_extended",
+        "block3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "known_extended",
+        "block3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "known_extended",
+        "block3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "known_extended",
+        "block3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "known_extended",
+        "block3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "known_extended",
+        "block3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "known_extended",
+        "block3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "known_extended",
+        "block3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "known_extended",
+        "block3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "known_extended",
+        "block3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "known_extended",
+        "block3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "known_extended",
+        "block3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "known_extended",
+        "block3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "known_extended",
+        "block3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "known_extended",
+        "block3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "known_extended",
+        "block3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 1,
+        "augmented": 1,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "known_extended",
+        "block3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "known_extended",
+        "block3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "known_extended",
+        "block3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "known_extended",
+        "block3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "known_extended",
+        "block3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "known_extended",
+        "block3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 1,
+        "augmented": 1,
+        "plain_ablation": 1
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "known_extended",
+        "block3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "known_extended",
+        "block3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "known_extended",
+        "block3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "known_extended",
+        "column5x1",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "known_extended",
+        "column5x1",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "known_extended",
+        "column5x1",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "known_extended",
+        "column5x1",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "known_extended",
+        "column5x1",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "known_extended",
+        "column5x1",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "known_extended",
+        "column5x1",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "known_extended",
+        "column5x1",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "known_extended",
+        "column5x1",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "known_extended",
+        "column5x1",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "known_extended",
+        "column5x1",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "known_extended",
+        "column5x1",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "known_extended",
+        "column5x1",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "known_extended",
+        "column5x1",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "known_extended",
+        "column5x1",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "known_extended",
+        "column5x1",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "known_extended",
+        "column5x1",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "known_extended",
+        "column5x1",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "known_extended",
+        "column5x1",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "known_extended",
+        "column5x1",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "known_extended",
+        "column5x1",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "known_extended",
+        "column5x1",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "known_extended",
+        "column5x1",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "known_extended",
+        "column5x1",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "known_extended",
+        "column5x1",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "known_extended",
+        "column5x1",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "known_extended",
+        "column5x1",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "known_extended",
+        "column5x1",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "known_extended",
+        "column5x1",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "known_extended",
+        "column5x1",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "known_extended",
+        "row1x5",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "known_extended",
+        "row1x5",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "known_extended",
+        "row1x5",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "known_extended",
+        "row1x5",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "known_extended",
+        "row1x5",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "known_extended",
+        "row1x5",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "known_extended",
+        "row1x5",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "known_extended",
+        "row1x5",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "known_extended",
+        "row1x5",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "known_extended",
+        "row1x5",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "known_extended",
+        "row1x5",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "known_extended",
+        "row1x5",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "known_extended",
+        "row1x5",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "known_extended",
+        "row1x5",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "known_extended",
+        "row1x5",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "known_extended",
+        "row1x5",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "known_extended",
+        "row1x5",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "known_extended",
+        "row1x5",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "known_extended",
+        "row1x5",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "known_extended",
+        "row1x5",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "known_extended",
+        "row1x5",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "known_extended",
+        "row1x5",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "known_extended",
+        "row1x5",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "known_extended",
+        "row1x5",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "known_extended",
+        "row1x5",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "known_extended",
+        "row1x5",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "known_extended",
+        "row1x5",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "known_extended",
+        "row1x5",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "known_extended",
+        "row1x5",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "known_extended",
+        "row1x5",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 2,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 1,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 4,
+        "augmented": 2,
+        "plain_ablation": 2
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 1,
+        "augmented": 0,
+        "plain_ablation": 1
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 2,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 1
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "unmodeled_shapes",
+        "ring3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 1,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 2,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        12.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        20.0
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 1,
+        "augmented": 1,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 3,
+        "augmented": 2,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 2,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 3,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        8.5
+      ],
+      "trials": 4,
+      "rules": {
+        "ls7g": 0,
+        "augmented": 0,
+        "plain_ablation": 0
+      }
+    }
+  ],
+  "rules": {
+    "ls7g": {
+      "pass": false,
+      "gates": {
+        "all_core_cells": false,
+        "all_target_strengths_matched": true,
+        "ten_percent_single_recovery": true,
+        "no_base_null_acceptance": true,
+        "confounding_at_most_20_percent": true,
+        "bounded_pointing_screened_acceptance": true
+      }
+    },
+    "augmented": {
+      "pass": false,
+      "gates": {
+        "all_core_cells": false,
+        "all_target_strengths_matched": true,
+        "ten_percent_single_recovery": true,
+        "no_base_null_acceptance": true,
+        "confounding_at_most_20_percent": true,
+        "bounded_pointing_screened_acceptance": true
+      }
+    },
+    "plain_ablation": {
+      "pass": false,
+      "gates": {
+        "all_core_cells": false,
+        "all_target_strengths_matched": true,
+        "ten_percent_single_recovery": false,
+        "no_base_null_acceptance": true,
+        "confounding_at_most_20_percent": true,
+        "bounded_pointing_screened_acceptance": true
+      }
+    }
+  },
+  "focus_cells": [
+    {
+      "key": [
+        "base",
+        "block_2x2",
+        8.5
+      ],
+      "trials": 40,
+      "accepted_ids": [
+        "base_a00_p0_c18",
+        "base_a00_p10_c48",
+        "base_a01_p0_c48",
+        "base_a01_p10_c48"
+      ],
+      "augmented_accepted_ids": [
+        "base_a00_p0_c18",
+        "base_a00_p10_c48",
+        "base_a01_p0_c48",
+        "base_a01_p10_c48"
+      ],
+      "clean_margin_rejects_ids": [
+        "base_a00_p0_c18",
+        "base_a00_p10_c48",
+        "base_a01_p0_c48",
+        "base_a01_p10_c48"
+      ],
+      "star_sparse_ids": [
+        "base_a00_p0_c18",
+        "base_a00_p10_c48",
+        "base_a01_p0_c48",
+        "base_a01_p10_c48"
+      ],
+      "plain_accepted_ids": []
+    },
+    {
+      "key": [
+        "unmodeled_shapes",
+        "cross3x3",
+        8.5
+      ],
+      "trials": 40,
+      "accepted_ids": [
+        "unmodeled_shapes_a0_p0_box30_t8.5_cross3x3",
+        "unmodeled_shapes_a1_p0_box30_t8.5_cross3x3",
+        "unmodeled_shapes_a1_p0_box100_t8.5_cross3x3",
+        "unmodeled_shapes_a1_p10_box30_t8.5_cross3x3",
+        "unmodeled_shapes_a1_p10_box100_t8.5_cross3x3",
+        "unmodeled_shapes_a2_p0_box30_t8.5_cross3x3",
+        "unmodeled_shapes_a6_p0_box30_t8.5_cross3x3",
+        "unmodeled_shapes_a6_p10_box30_t8.5_cross3x3"
+      ],
+      "augmented_accepted_ids": [
+        "unmodeled_shapes_a1_p0_box100_t8.5_cross3x3",
+        "unmodeled_shapes_a1_p10_box100_t8.5_cross3x3"
+      ],
+      "clean_margin_rejects_ids": [
+        "unmodeled_shapes_a0_p0_box30_t8.5_cross3x3",
+        "unmodeled_shapes_a1_p0_box30_t8.5_cross3x3",
+        "unmodeled_shapes_a1_p0_box100_t8.5_cross3x3",
+        "unmodeled_shapes_a1_p10_box30_t8.5_cross3x3",
+        "unmodeled_shapes_a1_p10_box100_t8.5_cross3x3",
+        "unmodeled_shapes_a2_p0_box30_t8.5_cross3x3",
+        "unmodeled_shapes_a6_p0_box30_t8.5_cross3x3",
+        "unmodeled_shapes_a6_p10_box30_t8.5_cross3x3"
+      ],
+      "star_sparse_ids": [
+        "unmodeled_shapes_a0_p0_box30_t8.5_cross3x3",
+        "unmodeled_shapes_a1_p0_box30_t8.5_cross3x3",
+        "unmodeled_shapes_a1_p0_box100_t8.5_cross3x3",
+        "unmodeled_shapes_a1_p10_box30_t8.5_cross3x3",
+        "unmodeled_shapes_a1_p10_box100_t8.5_cross3x3",
+        "unmodeled_shapes_a6_p0_box30_t8.5_cross3x3",
+        "unmodeled_shapes_a6_p10_box30_t8.5_cross3x3"
+      ],
+      "plain_accepted_ids": [
+        "unmodeled_shapes_a1_p0_box30_t8.5_cross3x3",
+        "unmodeled_shapes_a1_p10_box30_t8.5_cross3x3",
+        "unmodeled_shapes_a2_p0_box30_t8.5_cross3x3",
+        "unmodeled_shapes_a7_p10_box100_t8.5_cross3x3"
+      ]
+    },
+    {
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        8.5
+      ],
+      "trials": 40,
+      "accepted_ids": [
+        "unmodeled_shapes_a0_p0_box30_t8.5_triangle3x3",
+        "unmodeled_shapes_a1_p0_box30_t8.5_triangle3x3",
+        "unmodeled_shapes_a1_p0_box100_t8.5_triangle3x3",
+        "unmodeled_shapes_a1_p10_box100_t8.5_triangle3x3",
+        "unmodeled_shapes_a2_p0_box100_t8.5_triangle3x3",
+        "unmodeled_shapes_a2_p10_box100_t8.5_triangle3x3",
+        "unmodeled_shapes_a5_p0_box100_t8.5_triangle3x3",
+        "unmodeled_shapes_a5_p10_box30_t8.5_triangle3x3",
+        "unmodeled_shapes_a5_p10_box100_t8.5_triangle3x3"
+      ],
+      "augmented_accepted_ids": [
+        "unmodeled_shapes_a0_p0_box30_t8.5_triangle3x3",
+        "unmodeled_shapes_a1_p0_box100_t8.5_triangle3x3",
+        "unmodeled_shapes_a1_p10_box100_t8.5_triangle3x3"
+      ],
+      "clean_margin_rejects_ids": [
+        "unmodeled_shapes_a0_p0_box30_t8.5_triangle3x3",
+        "unmodeled_shapes_a1_p0_box30_t8.5_triangle3x3",
+        "unmodeled_shapes_a1_p0_box100_t8.5_triangle3x3",
+        "unmodeled_shapes_a1_p10_box100_t8.5_triangle3x3",
+        "unmodeled_shapes_a2_p0_box100_t8.5_triangle3x3",
+        "unmodeled_shapes_a2_p10_box100_t8.5_triangle3x3",
+        "unmodeled_shapes_a5_p0_box100_t8.5_triangle3x3",
+        "unmodeled_shapes_a5_p10_box30_t8.5_triangle3x3",
+        "unmodeled_shapes_a5_p10_box100_t8.5_triangle3x3"
+      ],
+      "star_sparse_ids": [
+        "unmodeled_shapes_a0_p0_box30_t8.5_triangle3x3",
+        "unmodeled_shapes_a1_p0_box30_t8.5_triangle3x3",
+        "unmodeled_shapes_a1_p0_box100_t8.5_triangle3x3",
+        "unmodeled_shapes_a1_p10_box100_t8.5_triangle3x3",
+        "unmodeled_shapes_a2_p0_box100_t8.5_triangle3x3",
+        "unmodeled_shapes_a2_p10_box100_t8.5_triangle3x3",
+        "unmodeled_shapes_a5_p0_box100_t8.5_triangle3x3",
+        "unmodeled_shapes_a5_p10_box30_t8.5_triangle3x3",
+        "unmodeled_shapes_a5_p10_box100_t8.5_triangle3x3"
+      ],
+      "plain_accepted_ids": []
+    },
+    {
+      "key": [
+        "unmodeled_shapes",
+        "triangle3x3",
+        12
+      ],
+      "trials": 40,
+      "accepted_ids": [
+        "unmodeled_shapes_a0_p0_box30_t12_triangle3x3",
+        "unmodeled_shapes_a1_p0_box100_t12_triangle3x3",
+        "unmodeled_shapes_a1_p10_box100_t12_triangle3x3"
+      ],
+      "augmented_accepted_ids": [],
+      "clean_margin_rejects_ids": [
+        "unmodeled_shapes_a0_p0_box30_t12_triangle3x3",
+        "unmodeled_shapes_a1_p0_box100_t12_triangle3x3",
+        "unmodeled_shapes_a1_p10_box100_t12_triangle3x3"
+      ],
+      "star_sparse_ids": [
+        "unmodeled_shapes_a0_p0_box30_t12_triangle3x3",
+        "unmodeled_shapes_a1_p0_box100_t12_triangle3x3",
+        "unmodeled_shapes_a1_p10_box100_t12_triangle3x3"
+      ],
+      "plain_accepted_ids": []
+    }
+  ],
+  "lost_stellar_ids": [
+    "base_a03_p0_c16",
+    "base_a03_p10_c16",
+    "base_a05_p0_c13",
+    "base_a08_p10_c06",
+    "base_a08_p10_c12",
+    "base_a08_p10_c12_outside_-1",
+    "base_a08_p10_c12_outside_1",
+    "base_a08_p10_c14",
+    "base_a09_p0_c10",
+    "base_a09_p10_c43"
+  ],
+  "newly_rejected_nonstellar_ids": [
+    "unmodeled_shapes_a0_p0_box30_t8.5_cross3x3",
+    "unmodeled_shapes_a0_p0_box30_t12_triangle3x3",
+    "unmodeled_shapes_a1_p0_box30_t8.5_cross3x3",
+    "unmodeled_shapes_a1_p0_box30_t8.5_triangle3x3",
+    "unmodeled_shapes_a1_p0_box100_t12_cross3x3",
+    "unmodeled_shapes_a1_p0_box100_t12_triangle3x3",
+    "unmodeled_shapes_a1_p10_box30_t8.5_cross3x3",
+    "unmodeled_shapes_a1_p10_box100_t12_cross3x3",
+    "unmodeled_shapes_a1_p10_box100_t12_triangle3x3",
+    "unmodeled_shapes_a2_p0_box30_t8.5_cross3x3",
+    "unmodeled_shapes_a2_p0_box100_t8.5_triangle3x3",
+    "unmodeled_shapes_a2_p10_box100_t8.5_triangle3x3",
+    "unmodeled_shapes_a5_p0_box100_t8.5_triangle3x3",
+    "unmodeled_shapes_a5_p10_box30_t8.5_triangle3x3",
+    "unmodeled_shapes_a5_p10_box100_t8.5_triangle3x3",
+    "unmodeled_shapes_a6_p0_box30_t8.5_cross3x3",
+    "unmodeled_shapes_a6_p10_box30_t8.5_cross3x3"
+  ],
+  "signal_recovery_paths": {
+    "ls7g": {
+      "temporal": 95,
+      "recovered": 1161,
+      "residual": 26,
+      "source_score": 18,
+      "nuisance_margin": 20
+    },
+    "augmented": {
+      "temporal": 95,
+      "recovered": 1151,
+      "nuisance_margin": 30,
+      "residual": 26,
+      "source_score": 18
+    },
+    "plain_ablation": {
+      "temporal": 95,
+      "recovered": 904,
+      "residual": 271,
+      "source_score": 39,
+      "nuisance_margin": 11
+    }
+  }
+}
