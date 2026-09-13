@@ -7,7 +7,17 @@ Earlier reports and continuation files preserve their historical states.
 
 LS7G completed **3,540 fixed transfer trials** on the ten already closed sector-29 backgrounds. The primary joint descriptive gate **fails**. Nominal recovery at the fixed margin −1 is **37/40, 40/40, 40/40**; displaced recovery is **135/160, 153/160, 158/160**. **4/30** instrumental control cells exceed their allowance. The independent audit passes; no detector is adopted and no candidate is promoted.
 
-Next, diagnose the failed transfer cells from the saved sector-29 extracts, keeping the frozen LS7G rule and outcomes unchanged. Separate temporal, source-score, residual and nuisance-separation losses before proposing another model or observing sector.
+All six primary signal-recovery cells and the other joint checks pass. The
+four failures are control acceptance: 4/40 weak 2x2 blocks, 8/40 weak crosses,
+9/40 weak triangles and 3/40 medium-strength triangles, against a 2/40 limit.
+Next, diagnose those weak/medium morphology confusions from the saved sector-29
+extracts, with explicit losses for genuine test pulses. Preserve LS7G's fixed
+rule and outcomes; no additional sector or new threshold follows automatically.
+
+The complete result is published at `05fdbf457835df23ed67cced26666dad6ded2cf7`.
+All source/result checksums reproduce after retrieval, and the figure is
+visually checked. The dedicated [GitHub run](https://github.com/andersenmartin-blip/setisearch/actions/runs/34754959873)
+completed acquisition, computation, independent audit and result publication.
 
 [Result and figure](results_ls7g_transfer/REPORT.md), [protocol](LS7G_TRANSFER_PROTOCOL.md), [continuation](LS7G_CONTINUATION.md).
 
@@ -38,10 +48,10 @@ LS7C/LS7E outcomes remain unchanged.
 [Result and figure](results_ls7f_separation/REPORT.md),
 [protocol](LS7F_SEPARATION_PROTOCOL.md), [continuation](LS7F_CONTINUATION.md).
 
-Next, prepare a separately frozen transfer comparison on already closed sector
-29, with explicit training/eligibility, broader and unmodeled controls, residual
-stress and a nonnegative-margin comparison. LS7F does not open that sector or
-an independent evaluation, and does not identify a stellar or artificial source.
+LS7G has now completed the separately frozen transfer to already closed sector
+29, with sector-specific covariance, omitted control shapes, residual stress
+and nonnegative-margin comparisons. Its result and current continuation are
+recorded above. LS7F itself remains an unchanged sector-32 development study.
 
 ## LS7E completed: stronger recovery, remaining weak-signal and extended-control failures
 

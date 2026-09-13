@@ -4,7 +4,28 @@
 
 LS7G completed **3,540 fixed transfer trials** on the ten already closed sector-29 backgrounds. The primary joint descriptive gate **fails**. Nominal recovery at the fixed margin −1 is **37/40, 40/40, 40/40**; displaced recovery is **135/160, 153/160, 158/160**. **4/30** instrumental control cells exceed their allowance. The independent audit passes; no detector is adopted and no candidate is promoted.
 
-Next, diagnose the failed transfer cells from the saved sector-29 extracts, keeping the frozen LS7G rule and outcomes unchanged. Separate temporal, source-score, residual and nuisance-separation losses before proposing another model or observing sector.
+All six primary signal-recovery cells pass, as do strength matching, fixed
+10% recovery, base nulls, confounding and bounded-pointing checks. The immediate
+limitation is these four control cells:
+
+| Control | Target score | Accepted / trials | Allowed |
+|---|---:|---:|---:|
+| 2x2 block | 8.5 | 4/40 | 2/40 |
+| 3x3 cross | 8.5 | 8/40 | 2/40 |
+| 3x3 triangle | 8.5 | 9/40 | 2/40 |
+| 3x3 triangle | 12 | 3/40 | 2/40 |
+
+Next, diagnose these weak/medium morphology confusions using the saved
+backgrounds, patterns, model matrices and trial vectors. Account for the
+stellar pulses lost by any proposed change. Keep the LS7G rule and outcomes
+closed; do not rerun its completed challenge, add a threshold sweep or open
+another sector as an undocumented repair.
+
+Result publication: `05fdbf457835df23ed67cced26666dad6ded2cf7`.
+The [complete GitHub run](https://github.com/andersenmartin-blip/setisearch/actions/runs/34754959873)
+passed acquisition, computation and independent auditing, then published the
+result. Source and result checksums reproduce after retrieval; the figure is
+visually checked. No raw FITS recovery is needed for continuation.
 
 The margin −1 was chosen from LS7F sector-32 development before this run. It permits a nuisance model to fit better; 21 accepted primary rows do so. Sector 29 was already inspected in earlier work. This is not independent validation or source identification.
 
