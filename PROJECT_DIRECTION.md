@@ -81,3 +81,7 @@ is adopted. Next prepare a separately frozen transfer on already closed sector
 and nonnegative-margin accounting. This remains development before any unseen
 qualification. PROJECT_STATUS.md and LS7F_CONTINUATION.md carry the current
 details; LS7C/LS7E records and M43 held-out panels remain unchanged.
+
+13 September 2026: LS7G completed **3,540 fixed transfer trials** on the ten already closed sector-29 backgrounds. The primary joint descriptive gate **fails**. Nominal recovery at the fixed margin −1 is **37/40, 40/40, 40/40**; displaced recovery is **135/160, 153/160, 158/160**. **4/30** instrumental control cells exceed their allowance. The independent audit passes; no detector is adopted and no candidate is promoted.
+
+Next, diagnose the failed transfer cells from the saved sector-29 extracts, keeping the frozen LS7G rule and outcomes unchanged. Separate temporal, source-score, residual and nuisance-separation losses before proposing another model or observing sector. Details: LS7G_CONTINUATION.md.

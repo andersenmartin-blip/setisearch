@@ -3,18 +3,13 @@
 Updated 13 September 2026. This is the maintained operational entry point.
 Earlier reports and continuation files preserve their historical states.
 
-## LS7G queued: fixed transfer to closed sector 29
+## LS7G completed: fixed transfer to sector 29
 
-The [LS7G protocol](LS7G_TRANSFER_PROTOCOL.md), implementation and dedicated
-GitHub workflow are fixed before transfer extraction. The primary margin is
-−1 from LS7F sector-32 development, with fixed 0/9 comparisons, 21-pixel
-sector-29 covariance training, three additional omitted nuisance shapes and
-**3,540 planned trials**. Five analytical tests and a complete artificial
-smoke fixture pass. No sector-29 transfer result is claimed yet.
+LS7G completed **3,540 fixed transfer trials** on the ten already closed sector-29 backgrounds. The primary joint descriptive gate **fails**. Nominal recovery at the fixed margin −1 is **37/40, 40/40, 40/40**; displaced recovery is **135/160, 153/160, 158/160**. **4/30** instrumental control cells exceed their allowance. The independent audit passes; no detector is adopted and no candidate is promoted.
 
-The workflow performs the entire sector-29 computation and independent audit,
-preserves execution logs, and publishes checked results to this science branch.
-The original LS7B, historical sector-29 LS7C and sector-32 results remain closed.
+Next, diagnose the failed transfer cells from the saved sector-29 extracts, keeping the frozen LS7G rule and outcomes unchanged. Separate temporal, source-score, residual and nuisance-separation losses before proposing another model or observing sector.
+
+[Result and figure](results_ls7g_transfer/REPORT.md), [protocol](LS7G_TRANSFER_PROTOCOL.md), [continuation](LS7G_CONTINUATION.md).
 
 ## LS7F completed: broader nuisance tradeoff requires negative margins
 
@@ -207,7 +202,7 @@ were hash checked. This is retrospective development, not fresh validation.
 | M43AF complete no-model study | Published and byte-verified: 502 records; 69 archive parts restore 508 original files |
 | Adopted new detector / new M43AF–M43AI astronomical candidate | None |
 | Earlier M33 HD 3651 case | Still unresolved; [investigation](MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
-| LS research | [LS7F](results_ls7f_separation/REPORT.md): separation study on 3,180 saved cases completed; expanded-bank development cuts require negative margins; no adopted model |
+| LS research | [LS7G](results_ls7g_transfer/REPORT.md): 3,540-case closed-sector transfer completed; no adopted model or candidate |
 
 M43AF's 502 records include 261 already completed historical acquisitions and
 the 241 training/baseline/null records. Its 940 scientific pins and earlier
