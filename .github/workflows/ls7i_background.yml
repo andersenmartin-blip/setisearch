@@ -1,0 +1,89 @@
+name: LS7I protected background model
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [m43-support-qualification]
+    paths:
+      - '.github/workflows/ls7i_background.yml'
+      - 'LS7I_BACKGROUND_FREEZE.sha256'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ls7i-background
+  cancel-in-progress: false
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Require an unpublished model result
+        run: test ! -e results_ls7i_background
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+
+      - name: Install pinned science dependencies
+        run: python -m pip install -r requirements_ls7g.txt
+
+      - name: Check frozen source and synthetic known answers
+        run: |
+          set -o pipefail
+          sha256sum -c LS7I_BACKGROUND_FREEZE.sha256
+          python -m unittest discover -s tests -p 'test_ls7i_background.py' -v 2>&1 | tee ls7i_background_tests.log
+
+      - name: Evaluate both closed sectors and the separate supplement
+        run: |
+          set -o pipefail
+          python -u scripts/ls7i_background.py 2>&1 | tee ls7i_background_run.log
+
+      - name: Independently audit all predictions fits and decisions
+        run: |
+          set -o pipefail
+          python -u scripts/ls7i_review_background.py 2>&1 | tee ls7i_background_audit.log
+
+      - name: Write complete results signal costs and readiness decision
+        run: |
+          cp ls7i_background_run.log results_ls7i_background/RUN.log
+          cp ls7i_background_audit.log results_ls7i_background/AUDIT.log
+          cp ls7i_background_tests.log results_ls7i_background/TESTS.log
+          python -m pip freeze > results_ls7i_background/environment.txt
+          python scripts/ls7i_background_report.py --update-status
+
+      - name: Preserve execution evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ls7i-background
+          retention-days: 90
+          if-no-files-found: warn
+          path: |
+            ls7i_background_*.log
+            results_ls7i_background/
+            LS7I_CONTINUATION.md
+            TWO_WEEK_REPORT_2026-09-14.md
+
+      - name: Publish the audited scientific outcome including failures
+        if: success()
+        run: |
+          sha256sum -c LS7I_BACKGROUND_FREEZE.sha256
+          (cd results_ls7i_background && sha256sum -c SHA256SUMS)
+          git fetch origin m43-support-qualification
+          test "$(git rev-parse origin/m43-support-qualification)" = "$GITHUB_SHA"
+          git add results_ls7i_background LS7I_CONTINUATION.md PROJECT_STATUS.md TWO_WEEK_REPORT_2026-09-14.md
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish audited joint LS7I background model and complete signal costs'
+          git push origin HEAD:m43-support-qualification
