@@ -16,6 +16,10 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+The [14–27 September work plan](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/TWO_WEEK_PLAN_2026-09-14.md)
+combines background-model development, both closed-sector comparisons and auditing,
+then makes an explicit decision on readiness for unused-data qualification.
+
 **LS7H TESS morphology diagnosis completed, 13 September 2026.**
 All 3,540 saved LS7G trials and the independent numerical audit are complete.
 For all 24 accepted controls in the four failed cells, removing the known
