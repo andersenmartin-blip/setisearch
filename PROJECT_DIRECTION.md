@@ -63,3 +63,11 @@ covariance/residual method with broader nuisances on the closed sectors before
 another independent evaluation.
 Preserve all three closed experiments and the M43AI result; current details
 remain in PROJECT_STATUS.md.
+
+LS7E combined development is now complete on the ten closed sector 32
+backgrounds. Covariance and a sparse residual option improve recovery and
+reject the old compact controls, but weak-signal and broader-contamination
+requirements still fail. Continue with a joint stellar/nuisance separation
+study using the saved vectors, then a separately fixed transfer to another
+already closed sector if justified. Preserve LS7E's 3,180 paired cases and all
+prior outcomes; details remain in PROJECT_STATUS.md and LS7E_CONTINUATION.md.

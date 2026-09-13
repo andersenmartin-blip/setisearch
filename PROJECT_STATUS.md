@@ -3,6 +3,30 @@
 Updated 12 September 2026. This is the maintained operational entry point.
 Earlier reports and continuation files preserve their historical states.
 
+## LS7E completed: stronger recovery, remaining weak-signal and extended-control failures
+
+The combined covariance/sparse-pixel prototype completed **3,180 paired trials**
+on the ten already closed sector 32 backgrounds. Nominal recovery improves
+from 3/40, 12/40, 27/40 to **18/40, 37/40, 40/40** at temporal strengths
+8.5, 12 and 20. All 120 original compact 2×2 controls are rejected, compared
+with 16/120 accepted by LS7C. All 60 fixed 10%-flux single pulses recover.
+
+The joint requirements still fail: weak nominal and displaced recovery remains
+insufficient, and new 3×3 contamination is accepted in 4/40 and 8/40 cases at
+strengths 8.5 and 12. The sparse option substantially helps a stellar pulse
+coexisting with another disturbed aperture pixel. No detector is adopted.
+
+Eight analytical tests and the independent numerical audit pass: all 1,460
+original temporal outcomes reproduce exactly; 30 covariance folds, 19,080
+winning fits and 101,400 representative alternative fits are checked.
+[Complete result and figure](results_ls7e_joint/REPORT.md),
+[protocol](LS7E_JOINT_PROTOCOL.md), [continuation](LS7E_CONTINUATION.md).
+
+Next, study weak stellar/extended-nuisance separation with the saved event
+vectors and explicit signal-loss accounting. Keep LS7E parameters fixed; use
+another already closed sector for a separately planned transfer if warranted.
+No new sector or M43 held-out panel is opened by this development result.
+
 ## LS7D noise diagnosis completed and published: strong cross-pixel cancellation
 
 All **120** LS7C nominal-trial noise ratios reproduce across **34 unique windows
@@ -15,9 +39,9 @@ and the scalar audit of 120 links and 68 covariance matrices pass.
 
 This is closed-sector diagnosis, with no new injection, candidate, coverage,
 threshold or adopted detector. A full 121-pixel empirical covariance is singular
-with these sidebands (rank at most 107). The next combined development experiment
-must handle covariance, unrelated residual pixels and compact/extended nuisance
-patterns before another independent-sector evaluation.
+with these sidebands (rank at most 107). LS7E has now completed that combined development comparison; its improvement
+and remaining failures are recorded above. Another independent-sector
+evaluation is not yet warranted.
 [Result and figure](results_ls7d_noise/REPORT.md), [frozen diagnostic](LS7D_NOISE_PROTOCOL.md),
 [continuation and historical LS7C name distinction](LS7D_CONTINUATION.md).
 
@@ -49,8 +73,8 @@ All 30 residual-cut failures have restored correction pixels contributing
 70.9–94.8% of their weighted residual sums. These are diagnostics, not new vetoes.
 
 LS7D has now measured the covariance/noise mismatch on the closed sector 32
-backgrounds. Develop the revised spatial model on closed sectors 28/29/32,
-including unrelated residual pixels and compact/extended nuisances. Do not
+backgrounds. LS7E developed and compared a revised covariance/residual model on closed
+sector 32, including compact and extended nuisances. Do not
 retune this result or open another sector merely because qualification failed.
 
 ## LS7B TESS qualification completed: weak-glint recovery failed
@@ -138,7 +162,7 @@ were hash checked. This is retrospective development, not fresh validation.
 | M43AF complete no-model study | Published and byte-verified: 502 records; 69 archive parts restore 508 original files |
 | Adopted new detector / new M43AF–M43AI astronomical candidate | None |
 | Earlier M33 HD 3651 case | Still unresolved; [investigation](MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
-| LS research | [LS7D](results_ls7d_noise/REPORT.md): noise cancellation measured on closed data; [LS7C](results_ls7c_tess/REVIEW.md): 1,460 trials, qualification failed; combined covariance/residual development is next |
+| LS research | [LS7E](results_ls7e_joint/REPORT.md): 3,180-case combined development completed; recovery improves, but weak/extended requirements fail; no adopted model |
 
 M43AF's 502 records include 261 already completed historical acquisitions and
 the 241 training/baseline/null records. Its 940 scientific pins and earlier

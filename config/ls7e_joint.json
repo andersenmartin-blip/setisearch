@@ -1,0 +1,90 @@
+{
+  "schema": "ls7e-joint-closed-development-v1",
+  "sector": 32,
+  "tic": 307210830,
+  "shrinkage": 0.05,
+  "sparse_penalty": 9.0,
+  "residual_sigma": 8.0,
+  "training_starts": [
+    100,
+    150,
+    200,
+    250,
+    300
+  ],
+  "methods": [
+    "covariance_sparse",
+    "diagonal_sparse",
+    "covariance_plain"
+  ],
+  "spatial_gates": {
+    "source_score_min": 5.0,
+    "reduced_chi2_max": 2.0,
+    "nuisance_delta_chi2_min": 9.0
+  },
+  "extended_controls": [
+    "block3x3",
+    "row1x5",
+    "column5x1"
+  ],
+  "physical_pointing_shifts_yx": [
+    [
+      0,
+      0.05
+    ],
+    [
+      0,
+      -0.05
+    ],
+    [
+      0.05,
+      0
+    ],
+    [
+      -0.05,
+      0
+    ],
+    [
+      0,
+      0.2
+    ],
+    [
+      0,
+      -0.2
+    ],
+    [
+      0.2,
+      0
+    ],
+    [
+      -0.2,
+      0
+    ]
+  ],
+  "expected_suites": {
+    "ls7c_replay": 1460,
+    "sparse_stress": 1040,
+    "extended": 360,
+    "physical_pointing": 320
+  },
+  "input_sha256": {
+    "config/ls7c_tess_l9859.json": "e53ca22e60882fbb0a27a4e0a6a28256c1f4ff732292e2e4b0f8f73c7f33f59d",
+    "results_ls7c_tess/trials.json": "edf4de518235fda51a7100718fbcb7f9ff52b2ec164a55160123c98b70a3ee30",
+    "results_ls7c_tess/source_manifest.json": "684aa84b644fd4f0fb9aff3dd6d9ed8b8d5dc41adb32feeb325abbf23ffd4045",
+    "results_ls7d_noise/summary.json": "121b3a0f5dbe79e5701c972194706c56add55187e1f296667d1097e824ad4dce"
+  },
+  "preserved_manifests": [
+    [
+      "results_ls7c_tess",
+      "SHA256SUMS"
+    ],
+    [
+      "results_ls7c_tess",
+      "REVIEW_SHA256SUMS"
+    ],
+    [
+      "results_ls7d_noise",
+      "SHA256SUMS"
+    ]
+  ]
+}

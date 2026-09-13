@@ -1,0 +1,948 @@
+{
+  "created_utc": "2026-09-12T19:22:28.225114+00:00",
+  "scope": "Closed sector 32 retrospective development; no new sector, coverage, candidate, or detector adoption",
+  "code_commit": "70e9ee5cb81dbfebee4a0b4b5cf0de4ba77f18e3",
+  "freeze_sha256": "daf4cf105976ee61a831baeefe7d5eff8d7361583676b782b8627b9e6253c4b3",
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "astropy": "7.0.2",
+    "matplotlib": "3.10.3"
+  },
+  "source_metadata": {
+    "tic": 307210830,
+    "sector": 32,
+    "date_obs_utc": "2020-11-20T17:10:18.955",
+    "date_end_utc": "2020-12-16T17:33:36.547",
+    "bjd_reference": 2457000.0,
+    "tstart_btjd": 2174.216297906051,
+    "tstop_btjd": 2200.23247374208,
+    "cadence_seconds": 20.0,
+    "flux_unit": "e-/s",
+    "stamp_shape": [
+      11,
+      11
+    ],
+    "aperture_pixels": 18,
+    "rows": 112388,
+    "quality_zero_rows": 101743,
+    "quality_histogram": {
+      "0": 101743,
+      "8": 4305,
+      "32": 72,
+      "36": 4,
+      "64": 1683,
+      "128": 15,
+      "132": 34,
+      "148": 2,
+      "164": 36,
+      "196": 8,
+      "204": 1,
+      "512": 37,
+      "576": 183,
+      "1024": 2156,
+      "1088": 29,
+      "1156": 1,
+      "1188": 1,
+      "1536": 1,
+      "1600": 3,
+      "4096": 1894,
+      "4160": 28,
+      "5120": 40,
+      "32768": 107,
+      "32832": 3,
+      "33792": 2
+    },
+    "accepted_rows": 101743,
+    "accepted_cadence_days": 23.55162037037037,
+    "cosmic_ray_restoration": {
+      "records": 55307,
+      "applied_records": 55307,
+      "absent_cadence_records": 0,
+      "cadences_with_records": 8468
+    },
+    "accepted_rows_with_aperture_correction": 0,
+    "sap_comparison_median_absolute_fraction": 2.3759293189860005e-08
+  },
+  "total_trials": 3180,
+  "suites": {
+    "ls7c_replay": 1460,
+    "sparse_stress": 1040,
+    "extended": 360,
+    "physical_pointing": 320
+  },
+  "original_temporal_scores_reproduced": 1460,
+  "max_temporal_score_error": 0.0,
+  "training_vectors": 150,
+  "folds": 30,
+  "training_backgrounds_per_fold": 9,
+  "covariance_samples_per_fold": 45,
+  "aperture_pixels": 18,
+  "preserved_input_checks": {
+    "LS7_FREEZE.sha256": 6,
+    "LS7B_FREEZE.sha256": 8,
+    "LS7C_FREEZE.sha256": 20,
+    "LS7D_FREEZE.sha256": 5,
+    "results_ls7c_tess/SHA256SUMS": 13,
+    "results_ls7c_tess/REVIEW_SHA256SUMS": 4,
+    "results_ls7d_noise/SHA256SUMS": 10
+  },
+  "own_freeze_checks": 5,
+  "groups": [
+    {
+      "suite": "extended",
+      "kind": "block3x3",
+      "target_score": 12.0,
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 8,
+          "recovered": 8
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 5,
+          "recovered": 5
+        }
+      }
+    },
+    {
+      "suite": "extended",
+      "kind": "block3x3",
+      "target_score": 20.0,
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "diagonal_sparse": {
+          "accepted": 2,
+          "recovered": 2
+        },
+        "covariance_plain": {
+          "accepted": 0,
+          "recovered": 0
+        }
+      }
+    },
+    {
+      "suite": "extended",
+      "kind": "block3x3",
+      "target_score": 8.5,
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 4,
+          "recovered": 4
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 3,
+          "recovered": 3
+        }
+      }
+    },
+    {
+      "suite": "extended",
+      "kind": "column5x1",
+      "target_score": 12.0,
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 0,
+          "recovered": 0
+        }
+      }
+    },
+    {
+      "suite": "extended",
+      "kind": "column5x1",
+      "target_score": 20.0,
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 0,
+          "recovered": 0
+        }
+      }
+    },
+    {
+      "suite": "extended",
+      "kind": "column5x1",
+      "target_score": 8.5,
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 0,
+          "recovered": 0
+        }
+      }
+    },
+    {
+      "suite": "extended",
+      "kind": "row1x5",
+      "target_score": 12.0,
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 0,
+          "recovered": 0
+        }
+      }
+    },
+    {
+      "suite": "extended",
+      "kind": "row1x5",
+      "target_score": 20.0,
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 0,
+          "recovered": 0
+        }
+      }
+    },
+    {
+      "suite": "extended",
+      "kind": "row1x5",
+      "target_score": 8.5,
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 2,
+          "recovered": 2
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 0,
+          "recovered": 0
+        }
+      }
+    },
+    {
+      "suite": "ls7c_replay",
+      "kind": "block_2x2",
+      "target_score": 12.0,
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 0,
+          "recovered": 0
+        }
+      },
+      "ls7c_original_recovered": 5,
+      "ls7c_original_accepted": 5
+    },
+    {
+      "suite": "ls7c_replay",
+      "kind": "block_2x2",
+      "target_score": 20.0,
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 0,
+          "recovered": 0
+        }
+      },
+      "ls7c_original_recovered": 11,
+      "ls7c_original_accepted": 11
+    },
+    {
+      "suite": "ls7c_replay",
+      "kind": "block_2x2",
+      "target_score": 8.5,
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 0,
+          "recovered": 0
+        }
+      },
+      "ls7c_original_recovered": 0,
+      "ls7c_original_accepted": 0
+    },
+    {
+      "suite": "ls7c_replay",
+      "kind": "null",
+      "target_score": null,
+      "trials": 20,
+      "screen_detected": 0,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 0,
+          "recovered": 0
+        }
+      },
+      "ls7c_original_recovered": 0,
+      "ls7c_original_accepted": 0
+    },
+    {
+      "suite": "ls7c_replay",
+      "kind": "off_profile",
+      "target_score": 12.0,
+      "trials": 160,
+      "screen_detected": 160,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 153,
+          "recovered": 153
+        },
+        "diagonal_sparse": {
+          "accepted": 26,
+          "recovered": 26
+        },
+        "covariance_plain": {
+          "accepted": 153,
+          "recovered": 153
+        }
+      },
+      "ls7c_original_recovered": 50,
+      "ls7c_original_accepted": 50
+    },
+    {
+      "suite": "ls7c_replay",
+      "kind": "off_profile",
+      "target_score": 20.0,
+      "trials": 160,
+      "screen_detected": 160,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 159,
+          "recovered": 159
+        },
+        "diagonal_sparse": {
+          "accepted": 142,
+          "recovered": 142
+        },
+        "covariance_plain": {
+          "accepted": 151,
+          "recovered": 151
+        }
+      },
+      "ls7c_original_recovered": 112,
+      "ls7c_original_accepted": 112
+    },
+    {
+      "suite": "ls7c_replay",
+      "kind": "off_profile",
+      "target_score": 8.5,
+      "trials": 160,
+      "screen_detected": 160,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 83,
+          "recovered": 83
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 95,
+          "recovered": 95
+        }
+      },
+      "ls7c_original_recovered": 10,
+      "ls7c_original_accepted": 10
+    },
+    {
+      "suite": "ls7c_replay",
+      "kind": "pointing",
+      "target_score": 12.0,
+      "trials": 80,
+      "screen_detected": 80,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 0,
+          "recovered": 0
+        }
+      },
+      "ls7c_original_recovered": 0,
+      "ls7c_original_accepted": 0
+    },
+    {
+      "suite": "ls7c_replay",
+      "kind": "pointing",
+      "target_score": 20.0,
+      "trials": 80,
+      "screen_detected": 80,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 0,
+          "recovered": 0
+        }
+      },
+      "ls7c_original_recovered": 0,
+      "ls7c_original_accepted": 0
+    },
+    {
+      "suite": "ls7c_replay",
+      "kind": "pointing",
+      "target_score": 8.5,
+      "trials": 80,
+      "screen_detected": 80,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 0,
+          "recovered": 0
+        }
+      },
+      "ls7c_original_recovered": 0,
+      "ls7c_original_accepted": 0
+    },
+    {
+      "suite": "ls7c_replay",
+      "kind": "single_pixel",
+      "target_score": 12.0,
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 0,
+          "recovered": 0
+        }
+      },
+      "ls7c_original_recovered": 0,
+      "ls7c_original_accepted": 0
+    },
+    {
+      "suite": "ls7c_replay",
+      "kind": "single_pixel",
+      "target_score": 20.0,
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 0,
+          "recovered": 0
+        }
+      },
+      "ls7c_original_recovered": 0,
+      "ls7c_original_accepted": 0
+    },
+    {
+      "suite": "ls7c_replay",
+      "kind": "single_pixel",
+      "target_score": 8.5,
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 0,
+          "recovered": 0
+        }
+      },
+      "ls7c_original_recovered": 0,
+      "ls7c_original_accepted": 0
+    },
+    {
+      "suite": "ls7c_replay",
+      "kind": "stellar",
+      "target_score": 12.0,
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 37,
+          "recovered": 37
+        },
+        "diagonal_sparse": {
+          "accepted": 7,
+          "recovered": 7
+        },
+        "covariance_plain": {
+          "accepted": 39,
+          "recovered": 39
+        }
+      },
+      "ls7c_original_recovered": 12,
+      "ls7c_original_accepted": 12
+    },
+    {
+      "suite": "ls7c_replay",
+      "kind": "stellar",
+      "target_score": 20.0,
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 40,
+          "recovered": 40
+        },
+        "diagonal_sparse": {
+          "accepted": 38,
+          "recovered": 38
+        },
+        "covariance_plain": {
+          "accepted": 39,
+          "recovered": 39
+        }
+      },
+      "ls7c_original_recovered": 27,
+      "ls7c_original_accepted": 27
+    },
+    {
+      "suite": "ls7c_replay",
+      "kind": "stellar",
+      "target_score": 8.5,
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 18,
+          "recovered": 18
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 23,
+          "recovered": 23
+        }
+      },
+      "ls7c_original_recovered": 3,
+      "ls7c_original_accepted": 3
+    },
+    {
+      "suite": "ls7c_replay",
+      "kind": "stellar",
+      "target_score": null,
+      "trials": 240,
+      "screen_detected": 194,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 183,
+          "recovered": 183
+        },
+        "diagonal_sparse": {
+          "accepted": 146,
+          "recovered": 146
+        },
+        "covariance_plain": {
+          "accepted": 183,
+          "recovered": 183
+        }
+      },
+      "ls7c_original_recovered": 122,
+      "ls7c_original_accepted": 122
+    },
+    {
+      "suite": "ls7c_replay",
+      "kind": "uniform",
+      "target_score": 12.0,
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 0,
+          "recovered": 0
+        }
+      },
+      "ls7c_original_recovered": 0,
+      "ls7c_original_accepted": 0
+    },
+    {
+      "suite": "ls7c_replay",
+      "kind": "uniform",
+      "target_score": 20.0,
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 0,
+          "recovered": 0
+        }
+      },
+      "ls7c_original_recovered": 0,
+      "ls7c_original_accepted": 0
+    },
+    {
+      "suite": "ls7c_replay",
+      "kind": "uniform",
+      "target_score": 8.5,
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 0,
+          "recovered": 0
+        }
+      },
+      "ls7c_original_recovered": 0,
+      "ls7c_original_accepted": 0
+    },
+    {
+      "suite": "physical_pointing",
+      "kind": "pointing",
+      "target_score": null,
+      "trials": 320,
+      "screen_detected": 154,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 0,
+          "recovered": 0
+        }
+      }
+    },
+    {
+      "suite": "sparse_stress",
+      "kind": "block_2x2",
+      "target_score": 12.0,
+      "trials": 160,
+      "screen_detected": 160,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 0,
+          "recovered": 0
+        }
+      }
+    },
+    {
+      "suite": "sparse_stress",
+      "kind": "block_2x2",
+      "target_score": 20.0,
+      "trials": 160,
+      "screen_detected": 160,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 0,
+          "recovered": 0
+        }
+      }
+    },
+    {
+      "suite": "sparse_stress",
+      "kind": "block_2x2",
+      "target_score": 8.5,
+      "trials": 160,
+      "screen_detected": 120,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 0,
+          "recovered": 0
+        }
+      }
+    },
+    {
+      "suite": "sparse_stress",
+      "kind": "null",
+      "target_score": null,
+      "trials": 80,
+      "screen_detected": 0,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 0,
+          "recovered": 0
+        }
+      }
+    },
+    {
+      "suite": "sparse_stress",
+      "kind": "stellar",
+      "target_score": 12.0,
+      "trials": 160,
+      "screen_detected": 160,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 152,
+          "recovered": 152
+        },
+        "diagonal_sparse": {
+          "accepted": 33,
+          "recovered": 33
+        },
+        "covariance_plain": {
+          "accepted": 80,
+          "recovered": 80
+        }
+      }
+    },
+    {
+      "suite": "sparse_stress",
+      "kind": "stellar",
+      "target_score": 20.0,
+      "trials": 160,
+      "screen_detected": 160,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 159,
+          "recovered": 159
+        },
+        "diagonal_sparse": {
+          "accepted": 151,
+          "recovered": 151
+        },
+        "covariance_plain": {
+          "accepted": 80,
+          "recovered": 80
+        }
+      }
+    },
+    {
+      "suite": "sparse_stress",
+      "kind": "stellar",
+      "target_score": 8.5,
+      "trials": 160,
+      "screen_detected": 120,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "accepted": 59,
+          "recovered": 59
+        },
+        "diagonal_sparse": {
+          "accepted": 0,
+          "recovered": 0
+        },
+        "covariance_plain": {
+          "accepted": 46,
+          "recovered": 46
+        }
+      }
+    }
+  ]
+}
