@@ -32,6 +32,10 @@ The independent audit passes. No detector or candidate is adopted.
 
 ## Next integrated study
 
+The [14–27 September work plan](TWO_WEEK_PLAN_2026-09-14.md) provides the
+schedule, deliverables and decision branches for this study. It is an
+operational plan, not the numerical experiment's source freeze.
+
 Next, develop a joint model of the time-varying background and residual
 pixels using observable samples outside the tested pulse. The remaining
 nine focus-control acceptances all occur on backgrounds 00 and 01; keep all

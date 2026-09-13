@@ -3,6 +3,11 @@
 Updated 13 September 2026. This is the maintained operational entry point.
 Earlier reports and continuation files preserve their historical states.
 
+The [14–27 September work plan](TWO_WEEK_PLAN_2026-09-14.md) groups the next
+background/residual model, both closed-sector comparisons and auditing into
+one integrated study, followed by an explicit unused-data readiness decision.
+Its dates are work windows; its scientific protocol remains to be frozen.
+
 ## LS7H completed: background-driven morphology confusion remains
 
 LS7H diagnoses all **3,540 saved LS7G trials**. All **24** accepted controls in
