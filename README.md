@@ -20,6 +20,15 @@ The [14–27 September work plan](https://github.com/andersenmartin-blip/setisea
 combines background-model development, both closed-sector comparisons and auditing,
 then makes an explicit decision on readiness for unused-data qualification.
 
+**The two-week plan has started: both closed-sector input packages are ready.**
+The original sector-32 TESS contexts have been restored and linked with sector
+29's saved cutouts. All **6,720 historical trial recipes** and **300 training
+vectors** reproduce exactly across twenty backgrounds. The independent raw-FITS
+audit and full GitHub job pass; code, cutouts, recipes and logs are published.
+Next is implementation and a separate freeze of the joint background/residual
+model. This input check does not change the detector failures below.
+[Read the input report](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7i_inputs/REPORT.md).
+
 **LS7H TESS morphology diagnosis completed, 13 September 2026.**
 All 3,540 saved LS7G trials and the independent numerical audit are complete.
 For all 24 accepted controls in the four failed cells, removing the known
