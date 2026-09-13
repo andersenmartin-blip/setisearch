@@ -1,28 +1,29 @@
 # LS7I continuation
 
-Input preparation completed, 13 September 2026.
+Integrated model study completed 2026-09-13.
 
-The two-week plan has started. Both closed TESS sectors now have verified individual-cadence inputs. All **6,720 historical trial recipes** and **300 training vectors** reproduce from **20 background contexts**. The independent sector-32 FITS restoration check passes exactly; sector 29 reuses its sealed LS7G cutouts. This completes input preparation, not evaluation of the new model.
+LS7I completed **7,080 digital cases** on the two closed sectors: **6,720 historical cases plus a separately declared 360-case sector-32 shape supplement**. The primary rule fails **6/12 signal cells** and **2/60 control cells**. The joint development requirement is **FAIL**; the independent audit passes.
 
-Next implement and freeze the integrated time-dependent background/residual study from [the two-week plan](TWO_WEEK_PLAN_2026-09-14.md). Keep both closed sectors in the joint evaluation. Sector 32 lacks the 360 historical cross/ring/triangle cases present in sector 29; declare any supplement separately before its evaluation. The input freeze does not specify or approve a new detector rule. Preserve LS7G/LS7H outcomes and the original denominators.
+The fixed model does not satisfy the joint two-sector requirements. The independent arithmetic audit passes. This is a completed negative method result; no detector is adopted and no unused sector is opened.
 
-Use `results_ls7i_inputs/datasets.json` as the entry point. Each dataset records its context path and source-ledger hash. The common recipes are truth-labelled evaluation data; do not pass their labels, amplitudes or known native realization into inference. Both sectors retain their original 18/21-pixel apertures and ten contexts. No further FITS download is needed for model development.
+[Full result and figure](results_ls7i_background/REPORT.md), [every signal loss](results_ls7i_background/SIGNAL_LOSSES.md), [independent audit](results_ls7i_background/AUDIT.json), [two-week result](TWO_WEEK_REPORT_2026-09-14.md).
 
-[Input report and exact interface](results_ls7i_inputs/REPORT.md), [independent audit](results_ls7i_inputs/AUDIT.json), [restoration protocol](LS7I_INPUT_PROTOCOL.md).
+## Next decision
+
+Close this fixed ridge-prediction route. The next useful information would be an independently measured instrumental state: time-resolved image motion/centroid indicators and pixel variations outside the target aperture, together with a response model that preserves an injected stellar pulse. First establish whether those observables predict the remaining spatial contamination on these same closed contexts. A separately specified auxiliary-observable study is a proposed next project direction, not a hidden ridge, margin or template-bank retry. The present result alone does not establish that those extra observables will succeed.
+
+The fixed protocol and all previous results remain closed. Do not rerun the model with changed parameters or open a new sector as an implicit repair. All files needed to reproduce the completed result are already published; no new FITS download is required.
+
+## Verify or resume review
 
 ```sh
-sha256sum -c LS7I_INPUT_FREEZE.sha256
-(cd results_ls7i_inputs && sha256sum -c SHA256SUMS)
-OPENBLAS_NUM_THREADS=1 python scripts/ls7i_review_inputs.py
+sha256sum -c LS7I_BACKGROUND_FREEZE.sha256
+(cd results_ls7i_background && sha256sum -c SHA256SUMS)
+OPENBLAS_NUM_THREADS=1 PYTHONPATH=src python scripts/ls7i_review_background.py
 ```
 
-The derived-only audit command above does not overwrite the sealed raw-FITS audit. To repeat the complete raw-source audit, use the protocol with its original input files in a cache. Original spatial-fit audits are reused by hash; no detector challenge is rerun here.
+A repeat audit writes AUDIT_RECHECK.json and preserves the sealed audit. Repeating the entire evaluation requires the source freeze or a separate output directory; the runner refuses to overwrite existing results.
 
-Published input freeze: `44040ac87de1fab261191dd19f7f3ebd2d04e073`. [Complete GitHub job](https://github.com/andersenmartin-blip/setisearch/actions/runs/34763103507). The model stage remains pending. PROJECT_STATUS.md is the maintained operational entry point.
+Source freeze: `918797f2b33c1062a39c5360d2074700b075e17d`. [GitHub execution](https://github.com/andersenmartin-blip/setisearch/actions/runs/34766057139).
 
-The complete input package is published at
-`b5d456d9142c49f291c1eaafeb246048d6d1f89b`. Its output checksums and both
-context/ledger identities match after retrieval. The maintained two-week
-plan records the first block as completed. Continue directly with the model
-implementation and its separately frozen evaluation; do not rerun restoration
-or rename successful input verification as a detector qualification.
+All M43 held-out panels remain untouched. No detector, candidate, physical laser limit or new observing coverage is claimed.

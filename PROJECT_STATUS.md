@@ -6,7 +6,17 @@ Earlier reports and continuation files preserve their historical states.
 The [14–27 September work plan](TWO_WEEK_PLAN_2026-09-14.md) groups the next
 background/residual model, both closed-sector comparisons and auditing into
 one integrated study, followed by an explicit unused-data readiness decision.
-Its dates are work windows; its scientific protocol remains to be frozen.
+Its dates are work windows. The joint model, evaluation and audit are now complete.
+
+## LS7I joint background model completed: FAIL
+
+LS7I completed **7,080 digital cases** on the two closed sectors: **6,720 historical cases plus a separately declared 360-case sector-32 shape supplement**. The primary rule fails **6/12 signal cells** and **2/60 control cells**. The joint development requirement is **FAIL**; the independent audit passes.
+
+The fixed model does not satisfy the joint two-sector requirements. The independent arithmetic audit passes. This is a completed negative method result; no detector is adopted and no unused sector is opened.
+
+Close this fixed ridge-prediction route. The next useful information would be an independently measured instrumental state: time-resolved image motion/centroid indicators and pixel variations outside the target aperture, together with a response model that preserves an injected stellar pulse. First establish whether those observables predict the remaining spatial contamination on these same closed contexts. A separately specified auxiliary-observable study is a proposed next project direction, not a hidden ridge, margin or template-bank retry. The present result alone does not establish that those extra observables will succeed.
+
+[Result and figure](results_ls7i_background/REPORT.md), [signal losses](results_ls7i_background/SIGNAL_LOSSES.md), [continuation](LS7I_CONTINUATION.md), [two-week result](TWO_WEEK_REPORT_2026-09-14.md).
 
 ## LS7I input preparation completed: two-sector model work can begin
 
