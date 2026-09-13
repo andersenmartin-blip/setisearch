@@ -8,17 +8,13 @@ background/residual model, both closed-sector comparisons and auditing into
 one integrated study, followed by an explicit unused-data readiness decision.
 Its dates are work windows; its scientific protocol remains to be frozen.
 
-## LS7I input preparation queued: starting the two-week plan
+## LS7I input preparation completed: two-sector model work can begin
 
-The owner asked to start the plan on 13 September. The first block restores
-sector 32's original 401-cadence cutouts and links them with the existing
-sector-29 export. All 6,720 historical injection recipes, temporal outcomes
-and 300 training vectors must reproduce before model development proceeds.
-The source-restoration code, independent auditor and publication workflow are
-frozen before execution. No new model or detector result is available yet.
+The two-week plan has started. Both closed TESS sectors now have verified individual-cadence inputs. All **6,720 historical trial recipes** and **300 training vectors** reproduce from **20 background contexts**. The independent sector-32 FITS restoration check passes exactly; sector 29 reuses its sealed LS7G cutouts. This completes input preparation, not evaluation of the new model.
 
-[Input protocol](LS7I_INPUT_PROTOCOL.md), [input source freeze](LS7I_INPUT_FREEZE.sha256),
-[continuation](LS7I_CONTINUATION.md), [two-week plan](TWO_WEEK_PLAN_2026-09-14.md).
+Next implement the one background/residual model and its protected event/training rules. Freeze the joint two-sector comparison, including any explicitly separate missing-control supplement, before evaluation. LS7G/LS7H remain unqualified; no new model result, observing coverage or candidate is claimed.
+
+[Input report](results_ls7i_inputs/REPORT.md), [continuation](LS7I_CONTINUATION.md), [two-week plan](TWO_WEEK_PLAN_2026-09-14.md).
 
 ## LS7H completed: background-driven morphology confusion remains
 
