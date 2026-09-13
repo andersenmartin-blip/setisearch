@@ -1,0 +1,5989 @@
+{
+  "created_utc": "2026-09-13T10:35:18.545570+00:00",
+  "scope": "Retrospective separation development on 3180 saved LS7E trials, ten closed sector-32 backgrounds; no new injections or observing coverage",
+  "source_commit": "5eaf27ce96725defe211e744d60ad0f9f2ae4f86",
+  "freeze_commit": "6f70ebcdc41d956524f395e1f6a3ffa99a35e308",
+  "freeze_sha256": "967284b286e4e95726e4c64fe81353bed6510ade356db67f0494babc2e8f6c78",
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0"
+  },
+  "trials": 3180,
+  "models": 94,
+  "backgrounds": 10,
+  "new_rectangle_templates": 108,
+  "old_fit_checks": 12720,
+  "original_fit_max_absolute_error": {
+    "chi2": 0,
+    "objective": 0,
+    "amplitude_noise_score": 0
+  },
+  "preserved_manifests_before_after": {
+    "LS7F_FREEZE.sha256": 7,
+    "./LS7_FREEZE.sha256": 6,
+    "./LS7B_FREEZE.sha256": 8,
+    "./LS7C_FREEZE.sha256": 20,
+    "./LS7D_FREEZE.sha256": 5,
+    "./LS7E_FREEZE.sha256": 5,
+    "results_ls7c_tess/SHA256SUMS": 13,
+    "results_ls7d_noise/SHA256SUMS": 10,
+    "results_ls7e_joint/SHA256SUMS": 10,
+    "results_ls7c_tess/REVIEW_SHA256SUMS": 4
+  },
+  "cells": [
+    {
+      "cell_id": "ls7c_replay/stellar/8.5",
+      "suite": "ls7c_replay",
+      "kind": "stellar",
+      "target_score": 8.5,
+      "signal": true,
+      "trials": 40,
+      "limit": 36
+    },
+    {
+      "cell_id": "ls7c_replay/stellar/12",
+      "suite": "ls7c_replay",
+      "kind": "stellar",
+      "target_score": 12.0,
+      "signal": true,
+      "trials": 40,
+      "limit": 36
+    },
+    {
+      "cell_id": "ls7c_replay/stellar/20",
+      "suite": "ls7c_replay",
+      "kind": "stellar",
+      "target_score": 20.0,
+      "signal": true,
+      "trials": 40,
+      "limit": 36
+    },
+    {
+      "cell_id": "ls7c_replay/off_profile/8.5",
+      "suite": "ls7c_replay",
+      "kind": "off_profile",
+      "target_score": 8.5,
+      "signal": true,
+      "trials": 160,
+      "limit": 128
+    },
+    {
+      "cell_id": "ls7c_replay/off_profile/12",
+      "suite": "ls7c_replay",
+      "kind": "off_profile",
+      "target_score": 12.0,
+      "signal": true,
+      "trials": 160,
+      "limit": 128
+    },
+    {
+      "cell_id": "ls7c_replay/off_profile/20",
+      "suite": "ls7c_replay",
+      "kind": "off_profile",
+      "target_score": 20.0,
+      "signal": true,
+      "trials": 160,
+      "limit": 128
+    },
+    {
+      "cell_id": "ls7c_replay/single_pixel/8.5",
+      "suite": "ls7c_replay",
+      "kind": "single_pixel",
+      "target_score": 8.5,
+      "signal": false,
+      "trials": 40,
+      "limit": 2
+    },
+    {
+      "cell_id": "ls7c_replay/single_pixel/12",
+      "suite": "ls7c_replay",
+      "kind": "single_pixel",
+      "target_score": 12.0,
+      "signal": false,
+      "trials": 40,
+      "limit": 2
+    },
+    {
+      "cell_id": "ls7c_replay/single_pixel/20",
+      "suite": "ls7c_replay",
+      "kind": "single_pixel",
+      "target_score": 20.0,
+      "signal": false,
+      "trials": 40,
+      "limit": 2
+    },
+    {
+      "cell_id": "ls7c_replay/block_2x2/8.5",
+      "suite": "ls7c_replay",
+      "kind": "block_2x2",
+      "target_score": 8.5,
+      "signal": false,
+      "trials": 40,
+      "limit": 2
+    },
+    {
+      "cell_id": "ls7c_replay/block_2x2/12",
+      "suite": "ls7c_replay",
+      "kind": "block_2x2",
+      "target_score": 12.0,
+      "signal": false,
+      "trials": 40,
+      "limit": 2
+    },
+    {
+      "cell_id": "ls7c_replay/block_2x2/20",
+      "suite": "ls7c_replay",
+      "kind": "block_2x2",
+      "target_score": 20.0,
+      "signal": false,
+      "trials": 40,
+      "limit": 2
+    },
+    {
+      "cell_id": "ls7c_replay/uniform/8.5",
+      "suite": "ls7c_replay",
+      "kind": "uniform",
+      "target_score": 8.5,
+      "signal": false,
+      "trials": 40,
+      "limit": 2
+    },
+    {
+      "cell_id": "ls7c_replay/uniform/12",
+      "suite": "ls7c_replay",
+      "kind": "uniform",
+      "target_score": 12.0,
+      "signal": false,
+      "trials": 40,
+      "limit": 2
+    },
+    {
+      "cell_id": "ls7c_replay/uniform/20",
+      "suite": "ls7c_replay",
+      "kind": "uniform",
+      "target_score": 20.0,
+      "signal": false,
+      "trials": 40,
+      "limit": 2
+    },
+    {
+      "cell_id": "ls7c_replay/pointing/8.5",
+      "suite": "ls7c_replay",
+      "kind": "pointing",
+      "target_score": 8.5,
+      "signal": false,
+      "trials": 80,
+      "limit": 4
+    },
+    {
+      "cell_id": "ls7c_replay/pointing/12",
+      "suite": "ls7c_replay",
+      "kind": "pointing",
+      "target_score": 12.0,
+      "signal": false,
+      "trials": 80,
+      "limit": 4
+    },
+    {
+      "cell_id": "ls7c_replay/pointing/20",
+      "suite": "ls7c_replay",
+      "kind": "pointing",
+      "target_score": 20.0,
+      "signal": false,
+      "trials": 80,
+      "limit": 4
+    },
+    {
+      "cell_id": "extended/block3x3/8.5",
+      "suite": "extended",
+      "kind": "block3x3",
+      "target_score": 8.5,
+      "signal": false,
+      "trials": 40,
+      "limit": 2
+    },
+    {
+      "cell_id": "extended/block3x3/12",
+      "suite": "extended",
+      "kind": "block3x3",
+      "target_score": 12.0,
+      "signal": false,
+      "trials": 40,
+      "limit": 2
+    },
+    {
+      "cell_id": "extended/block3x3/20",
+      "suite": "extended",
+      "kind": "block3x3",
+      "target_score": 20.0,
+      "signal": false,
+      "trials": 40,
+      "limit": 2
+    },
+    {
+      "cell_id": "extended/row1x5/8.5",
+      "suite": "extended",
+      "kind": "row1x5",
+      "target_score": 8.5,
+      "signal": false,
+      "trials": 40,
+      "limit": 2
+    },
+    {
+      "cell_id": "extended/row1x5/12",
+      "suite": "extended",
+      "kind": "row1x5",
+      "target_score": 12.0,
+      "signal": false,
+      "trials": 40,
+      "limit": 2
+    },
+    {
+      "cell_id": "extended/row1x5/20",
+      "suite": "extended",
+      "kind": "row1x5",
+      "target_score": 20.0,
+      "signal": false,
+      "trials": 40,
+      "limit": 2
+    },
+    {
+      "cell_id": "extended/column5x1/8.5",
+      "suite": "extended",
+      "kind": "column5x1",
+      "target_score": 8.5,
+      "signal": false,
+      "trials": 40,
+      "limit": 2
+    },
+    {
+      "cell_id": "extended/column5x1/12",
+      "suite": "extended",
+      "kind": "column5x1",
+      "target_score": 12.0,
+      "signal": false,
+      "trials": 40,
+      "limit": 2
+    },
+    {
+      "cell_id": "extended/column5x1/20",
+      "suite": "extended",
+      "kind": "column5x1",
+      "target_score": 20.0,
+      "signal": false,
+      "trials": 40,
+      "limit": 2
+    }
+  ],
+  "endpoints": {
+    "covariance_sparse/original": {
+      "thresholds_evaluated": 1075,
+      "joint_feasible_thresholds": 0,
+      "points": {
+        "reference_9": {
+          "index": 225,
+          "threshold": 9.0,
+          "counts": [
+            18,
+            37,
+            40,
+            83,
+            153,
+            159,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            8,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "signal_ok": false,
+          "control_ok": false
+        },
+        "control_safe": {
+          "index": 422,
+          "threshold": 15.73639566837994,
+          "counts": [
+            3,
+            26,
+            40,
+            17,
+            107,
+            159,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "signal_ok": false,
+          "control_ok": true
+        },
+        "signal_safe": {
+          "index": 111,
+          "threshold": 1.8462754036366924,
+          "counts": [
+            36,
+            40,
+            40,
+            133,
+            160,
+            159,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            14,
+            12,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "signal_ok": true,
+          "control_ok": false
+        }
+      }
+    },
+    "covariance_sparse/broad": {
+      "thresholds_evaluated": 1073,
+      "joint_feasible_thresholds": 26,
+      "points": {
+        "reference_9": {
+          "index": 301,
+          "threshold": 9.0,
+          "counts": [
+            15,
+            34,
+            40,
+            61,
+            131,
+            159,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "signal_ok": false,
+          "control_ok": true
+        },
+        "control_safe": {
+          "index": 125,
+          "threshold": -2.981392306337118,
+          "counts": [
+            38,
+            40,
+            40,
+            138,
+            160,
+            159,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "signal_ok": true,
+          "control_ok": true
+        },
+        "signal_safe": {
+          "index": 150,
+          "threshold": -0.5158089707255336,
+          "counts": [
+            36,
+            40,
+            40,
+            128,
+            156,
+            159,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "signal_ok": true,
+          "control_ok": true
+        }
+      }
+    },
+    "covariance_plain/original": {
+      "thresholds_evaluated": 805,
+      "joint_feasible_thresholds": 0,
+      "points": {
+        "reference_9": {
+          "index": 108,
+          "threshold": 9.0,
+          "counts": [
+            23,
+            39,
+            39,
+            95,
+            153,
+            151,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            5,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "signal_ok": false,
+          "control_ok": false
+        },
+        "control_safe": {
+          "index": 240,
+          "threshold": 16.11314120220144,
+          "counts": [
+            6,
+            31,
+            39,
+            36,
+            124,
+            151,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "signal_ok": false,
+          "control_ok": true
+        },
+        "signal_safe": {
+          "index": 49,
+          "threshold": 2.86195040280829,
+          "counts": [
+            36,
+            39,
+            39,
+            128,
+            155,
+            151,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            8,
+            5,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "signal_ok": true,
+          "control_ok": false
+        }
+      }
+    },
+    "covariance_plain/broad": {
+      "thresholds_evaluated": 805,
+      "joint_feasible_thresholds": 6,
+      "points": {
+        "reference_9": {
+          "index": 174,
+          "threshold": 9.0,
+          "counts": [
+            17,
+            37,
+            39,
+            67,
+            135,
+            151,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "signal_ok": false,
+          "control_ok": true
+        },
+        "control_safe": {
+          "index": 52,
+          "threshold": -3.1632349786441374,
+          "counts": [
+            37,
+            39,
+            39,
+            132,
+            155,
+            151,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "signal_ok": true,
+          "control_ok": true
+        },
+        "signal_safe": {
+          "index": 57,
+          "threshold": -2.5005994011619244,
+          "counts": [
+            37,
+            39,
+            39,
+            128,
+            155,
+            151,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "signal_ok": true,
+          "control_ok": true
+        }
+      }
+    }
+  },
+  "groups": [
+    {
+      "key": [
+        "extended",
+        "block3x3",
+        12.0
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 8,
+            "recovered": 8
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 5,
+            "recovered": 5
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "extended",
+        "block3x3",
+        20.0
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "extended",
+        "block3x3",
+        8.5
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 4,
+            "recovered": 4
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 3,
+            "recovered": 3
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "extended",
+        "column5x1",
+        12.0
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "extended",
+        "column5x1",
+        20.0
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "extended",
+        "column5x1",
+        8.5
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "extended",
+        "row1x5",
+        12.0
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "extended",
+        "row1x5",
+        20.0
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "extended",
+        "row1x5",
+        8.5
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 2,
+            "recovered": 2
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "block_2x2",
+        12.0
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "block_2x2",
+        20.0
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "block_2x2",
+        8.5
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "null",
+        null,
+        0.0,
+        "box30"
+      ],
+      "trials": 20,
+      "screen_detected": 0,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "off_profile",
+        12.0
+      ],
+      "trials": 160,
+      "screen_detected": 160,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 153,
+            "recovered": 153
+          },
+          "broad": {
+            "accepted": 131,
+            "recovered": 131
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 153,
+            "recovered": 153
+          },
+          "broad": {
+            "accepted": 135,
+            "recovered": 135
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "off_profile",
+        20.0
+      ],
+      "trials": 160,
+      "screen_detected": 160,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 159,
+            "recovered": 159
+          },
+          "broad": {
+            "accepted": 159,
+            "recovered": 159
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 151,
+            "recovered": 151
+          },
+          "broad": {
+            "accepted": 151,
+            "recovered": 151
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "off_profile",
+        8.5
+      ],
+      "trials": 160,
+      "screen_detected": 160,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 83,
+            "recovered": 83
+          },
+          "broad": {
+            "accepted": 61,
+            "recovered": 61
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 95,
+            "recovered": 95
+          },
+          "broad": {
+            "accepted": 67,
+            "recovered": 67
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "pointing",
+        12.0
+      ],
+      "trials": 80,
+      "screen_detected": 80,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "pointing",
+        20.0
+      ],
+      "trials": 80,
+      "screen_detected": 80,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "pointing",
+        8.5
+      ],
+      "trials": 80,
+      "screen_detected": 80,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "single_pixel",
+        12.0
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "single_pixel",
+        20.0
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "single_pixel",
+        8.5
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "stellar",
+        12.0
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 37,
+            "recovered": 37
+          },
+          "broad": {
+            "accepted": 34,
+            "recovered": 34
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 39,
+            "recovered": 39
+          },
+          "broad": {
+            "accepted": 37,
+            "recovered": 37
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "stellar",
+        20.0
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 40,
+            "recovered": 40
+          },
+          "broad": {
+            "accepted": 40,
+            "recovered": 40
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 39,
+            "recovered": 39
+          },
+          "broad": {
+            "accepted": 39,
+            "recovered": 39
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "stellar",
+        8.5
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 18,
+            "recovered": 18
+          },
+          "broad": {
+            "accepted": 15,
+            "recovered": 15
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 23,
+            "recovered": 23
+          },
+          "broad": {
+            "accepted": 17,
+            "recovered": 17
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "stellar",
+        null,
+        0.01,
+        "box100"
+      ],
+      "trials": 20,
+      "screen_detected": 20,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 18,
+            "recovered": 18
+          },
+          "broad": {
+            "accepted": 16,
+            "recovered": 16
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 18,
+            "recovered": 18
+          },
+          "broad": {
+            "accepted": 16,
+            "recovered": 16
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "stellar",
+        null,
+        0.01,
+        "box30"
+      ],
+      "trials": 20,
+      "screen_detected": 1,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "stellar",
+        null,
+        0.01,
+        "box60"
+      ],
+      "trials": 20,
+      "screen_detected": 13,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 7,
+            "recovered": 7
+          },
+          "broad": {
+            "accepted": 7,
+            "recovered": 7
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 9,
+            "recovered": 9
+          },
+          "broad": {
+            "accepted": 7,
+            "recovered": 7
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "stellar",
+        null,
+        0.01,
+        "doublet30sep87"
+      ],
+      "trials": 20,
+      "screen_detected": 0,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "stellar",
+        null,
+        0.03,
+        "box100"
+      ],
+      "trials": 20,
+      "screen_detected": 20,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 20,
+            "recovered": 20
+          },
+          "broad": {
+            "accepted": 20,
+            "recovered": 20
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 20,
+            "recovered": 20
+          },
+          "broad": {
+            "accepted": 20,
+            "recovered": 20
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "stellar",
+        null,
+        0.03,
+        "box30"
+      ],
+      "trials": 20,
+      "screen_detected": 20,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 19,
+            "recovered": 19
+          },
+          "broad": {
+            "accepted": 18,
+            "recovered": 18
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 19,
+            "recovered": 19
+          },
+          "broad": {
+            "accepted": 19,
+            "recovered": 19
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "stellar",
+        null,
+        0.03,
+        "box60"
+      ],
+      "trials": 20,
+      "screen_detected": 20,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 20,
+            "recovered": 20
+          },
+          "broad": {
+            "accepted": 20,
+            "recovered": 20
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 20,
+            "recovered": 20
+          },
+          "broad": {
+            "accepted": 20,
+            "recovered": 20
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "stellar",
+        null,
+        0.03,
+        "doublet30sep87"
+      ],
+      "trials": 20,
+      "screen_detected": 20,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 20,
+            "recovered": 20
+          },
+          "broad": {
+            "accepted": 20,
+            "recovered": 20
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 19,
+            "recovered": 19
+          },
+          "broad": {
+            "accepted": 19,
+            "recovered": 19
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "stellar",
+        null,
+        0.1,
+        "box100"
+      ],
+      "trials": 20,
+      "screen_detected": 20,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 20,
+            "recovered": 20
+          },
+          "broad": {
+            "accepted": 20,
+            "recovered": 20
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 20,
+            "recovered": 20
+          },
+          "broad": {
+            "accepted": 20,
+            "recovered": 20
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "stellar",
+        null,
+        0.1,
+        "box30"
+      ],
+      "trials": 20,
+      "screen_detected": 20,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 20,
+            "recovered": 20
+          },
+          "broad": {
+            "accepted": 20,
+            "recovered": 20
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 19,
+            "recovered": 19
+          },
+          "broad": {
+            "accepted": 19,
+            "recovered": 19
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "stellar",
+        null,
+        0.1,
+        "box60"
+      ],
+      "trials": 20,
+      "screen_detected": 20,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 20,
+            "recovered": 20
+          },
+          "broad": {
+            "accepted": 20,
+            "recovered": 20
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 20,
+            "recovered": 20
+          },
+          "broad": {
+            "accepted": 20,
+            "recovered": 20
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "stellar",
+        null,
+        0.1,
+        "doublet30sep87"
+      ],
+      "trials": 20,
+      "screen_detected": 20,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 19,
+            "recovered": 19
+          },
+          "broad": {
+            "accepted": 19,
+            "recovered": 19
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 19,
+            "recovered": 19
+          },
+          "broad": {
+            "accepted": 19,
+            "recovered": 19
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "uniform",
+        12.0
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "uniform",
+        20.0
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "ls7c_replay",
+        "uniform",
+        8.5
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "physical_pointing",
+        "pointing",
+        null
+      ],
+      "trials": 320,
+      "screen_detected": 154,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "block_2x2",
+        12.0,
+        "inside",
+        -1
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "block_2x2",
+        12.0,
+        "inside",
+        1
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "block_2x2",
+        12.0,
+        "outside",
+        -1
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "block_2x2",
+        12.0,
+        "outside",
+        1
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "block_2x2",
+        20.0,
+        "inside",
+        -1
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "block_2x2",
+        20.0,
+        "inside",
+        1
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "block_2x2",
+        20.0,
+        "outside",
+        -1
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "block_2x2",
+        20.0,
+        "outside",
+        1
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "block_2x2",
+        8.5,
+        "inside",
+        -1
+      ],
+      "trials": 40,
+      "screen_detected": 0,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "block_2x2",
+        8.5,
+        "inside",
+        1
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "block_2x2",
+        8.5,
+        "outside",
+        -1
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "block_2x2",
+        8.5,
+        "outside",
+        1
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "null",
+        null,
+        "inside",
+        -1
+      ],
+      "trials": 20,
+      "screen_detected": 0,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "null",
+        null,
+        "inside",
+        1
+      ],
+      "trials": 20,
+      "screen_detected": 0,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "null",
+        null,
+        "outside",
+        -1
+      ],
+      "trials": 20,
+      "screen_detected": 0,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "null",
+        null,
+        "outside",
+        1
+      ],
+      "trials": 20,
+      "screen_detected": 0,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "stellar",
+        12.0,
+        "inside",
+        -1
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 39,
+            "recovered": 39
+          },
+          "broad": {
+            "accepted": 37,
+            "recovered": 37
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 2,
+            "recovered": 2
+          },
+          "broad": {
+            "accepted": 2,
+            "recovered": 2
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "stellar",
+        12.0,
+        "inside",
+        1
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 39,
+            "recovered": 39
+          },
+          "broad": {
+            "accepted": 37,
+            "recovered": 37
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "stellar",
+        12.0,
+        "outside",
+        -1
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 37,
+            "recovered": 37
+          },
+          "broad": {
+            "accepted": 34,
+            "recovered": 34
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 39,
+            "recovered": 39
+          },
+          "broad": {
+            "accepted": 37,
+            "recovered": 37
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "stellar",
+        12.0,
+        "outside",
+        1
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 37,
+            "recovered": 37
+          },
+          "broad": {
+            "accepted": 34,
+            "recovered": 34
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 39,
+            "recovered": 39
+          },
+          "broad": {
+            "accepted": 37,
+            "recovered": 37
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "stellar",
+        20.0,
+        "inside",
+        -1
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 40,
+            "recovered": 40
+          },
+          "broad": {
+            "accepted": 40,
+            "recovered": 40
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 2,
+            "recovered": 2
+          },
+          "broad": {
+            "accepted": 2,
+            "recovered": 2
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "stellar",
+        20.0,
+        "inside",
+        1
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 39,
+            "recovered": 39
+          },
+          "broad": {
+            "accepted": 39,
+            "recovered": 39
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "stellar",
+        20.0,
+        "outside",
+        -1
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 40,
+            "recovered": 40
+          },
+          "broad": {
+            "accepted": 40,
+            "recovered": 40
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 39,
+            "recovered": 39
+          },
+          "broad": {
+            "accepted": 39,
+            "recovered": 39
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "stellar",
+        20.0,
+        "outside",
+        1
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 40,
+            "recovered": 40
+          },
+          "broad": {
+            "accepted": 40,
+            "recovered": 40
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 39,
+            "recovered": 39
+          },
+          "broad": {
+            "accepted": 39,
+            "recovered": 39
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "stellar",
+        8.5,
+        "inside",
+        -1
+      ],
+      "trials": 40,
+      "screen_detected": 0,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "stellar",
+        8.5,
+        "inside",
+        1
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 23,
+            "recovered": 23
+          },
+          "broad": {
+            "accepted": 18,
+            "recovered": 18
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 0,
+            "recovered": 0
+          },
+          "broad": {
+            "accepted": 0,
+            "recovered": 0
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "stellar",
+        8.5,
+        "outside",
+        -1
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 18,
+            "recovered": 18
+          },
+          "broad": {
+            "accepted": 15,
+            "recovered": 15
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 23,
+            "recovered": 23
+          },
+          "broad": {
+            "accepted": 17,
+            "recovered": 17
+          }
+        }
+      }
+    },
+    {
+      "key": [
+        "sparse_stress",
+        "stellar",
+        8.5,
+        "outside",
+        1
+      ],
+      "trials": 40,
+      "screen_detected": 40,
+      "confounded": 0,
+      "methods": {
+        "covariance_sparse": {
+          "original": {
+            "accepted": 18,
+            "recovered": 18
+          },
+          "broad": {
+            "accepted": 15,
+            "recovered": 15
+          }
+        },
+        "covariance_plain": {
+          "original": {
+            "accepted": 23,
+            "recovered": 23
+          },
+          "broad": {
+            "accepted": 17,
+            "recovered": 17
+          }
+        }
+      }
+    }
+  ],
+  "per_background": [
+    {
+      "anchor": 0,
+      "cell_id": "ls7c_replay/stellar/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "ls7c_replay/stellar/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 4,
+        "covariance_sparse/broad": 4,
+        "covariance_plain/original": 4,
+        "covariance_plain/broad": 4
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "ls7c_replay/stellar/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 4,
+        "covariance_sparse/broad": 4,
+        "covariance_plain/original": 4,
+        "covariance_plain/broad": 4
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "ls7c_replay/off_profile/8.5",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "ls7c_replay/off_profile/12",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 15,
+        "covariance_sparse/broad": 15,
+        "covariance_plain/original": 15,
+        "covariance_plain/broad": 15
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "ls7c_replay/off_profile/20",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 16,
+        "covariance_sparse/broad": 16,
+        "covariance_plain/original": 16,
+        "covariance_plain/broad": 16
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "ls7c_replay/single_pixel/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "ls7c_replay/single_pixel/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "ls7c_replay/single_pixel/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "ls7c_replay/block_2x2/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "ls7c_replay/block_2x2/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "ls7c_replay/block_2x2/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "ls7c_replay/uniform/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "ls7c_replay/uniform/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "ls7c_replay/uniform/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "ls7c_replay/pointing/8.5",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "ls7c_replay/pointing/12",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "ls7c_replay/pointing/20",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "extended/block3x3/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "extended/block3x3/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 1,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 2,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "extended/block3x3/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "extended/row1x5/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 2,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "extended/row1x5/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "extended/row1x5/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "extended/column5x1/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "extended/column5x1/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 0,
+      "cell_id": "extended/column5x1/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "ls7c_replay/stellar/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 4,
+        "covariance_sparse/broad": 4,
+        "covariance_plain/original": 4,
+        "covariance_plain/broad": 4
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "ls7c_replay/stellar/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 4,
+        "covariance_sparse/broad": 4,
+        "covariance_plain/original": 4,
+        "covariance_plain/broad": 4
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "ls7c_replay/stellar/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 4,
+        "covariance_sparse/broad": 4,
+        "covariance_plain/original": 4,
+        "covariance_plain/broad": 4
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "ls7c_replay/off_profile/8.5",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 16,
+        "covariance_sparse/broad": 13,
+        "covariance_plain/original": 16,
+        "covariance_plain/broad": 13
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "ls7c_replay/off_profile/12",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 16,
+        "covariance_sparse/broad": 16,
+        "covariance_plain/original": 16,
+        "covariance_plain/broad": 16
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "ls7c_replay/off_profile/20",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 16,
+        "covariance_sparse/broad": 16,
+        "covariance_plain/original": 16,
+        "covariance_plain/broad": 16
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "ls7c_replay/single_pixel/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "ls7c_replay/single_pixel/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "ls7c_replay/single_pixel/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "ls7c_replay/block_2x2/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "ls7c_replay/block_2x2/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "ls7c_replay/block_2x2/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "ls7c_replay/uniform/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "ls7c_replay/uniform/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "ls7c_replay/uniform/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "ls7c_replay/pointing/8.5",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "ls7c_replay/pointing/12",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "ls7c_replay/pointing/20",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "extended/block3x3/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "extended/block3x3/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 1,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "extended/block3x3/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "extended/row1x5/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "extended/row1x5/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "extended/row1x5/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "extended/column5x1/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "extended/column5x1/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 1,
+      "cell_id": "extended/column5x1/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "ls7c_replay/stellar/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 2,
+        "covariance_sparse/broad": 2,
+        "covariance_plain/original": 4,
+        "covariance_plain/broad": 2
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "ls7c_replay/stellar/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 4,
+        "covariance_sparse/broad": 4,
+        "covariance_plain/original": 4,
+        "covariance_plain/broad": 4
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "ls7c_replay/stellar/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 4,
+        "covariance_sparse/broad": 4,
+        "covariance_plain/original": 4,
+        "covariance_plain/broad": 4
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "ls7c_replay/off_profile/8.5",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 8,
+        "covariance_sparse/broad": 8,
+        "covariance_plain/original": 10,
+        "covariance_plain/broad": 8
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "ls7c_replay/off_profile/12",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 16,
+        "covariance_sparse/broad": 10,
+        "covariance_plain/original": 16,
+        "covariance_plain/broad": 10
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "ls7c_replay/off_profile/20",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 16,
+        "covariance_sparse/broad": 16,
+        "covariance_plain/original": 16,
+        "covariance_plain/broad": 16
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "ls7c_replay/single_pixel/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "ls7c_replay/single_pixel/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "ls7c_replay/single_pixel/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "ls7c_replay/block_2x2/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "ls7c_replay/block_2x2/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "ls7c_replay/block_2x2/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "ls7c_replay/uniform/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "ls7c_replay/uniform/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "ls7c_replay/uniform/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "ls7c_replay/pointing/8.5",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "ls7c_replay/pointing/12",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "ls7c_replay/pointing/20",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "extended/block3x3/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "extended/block3x3/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 2,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "extended/block3x3/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "extended/row1x5/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "extended/row1x5/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "extended/row1x5/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "extended/column5x1/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "extended/column5x1/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 2,
+      "cell_id": "extended/column5x1/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "ls7c_replay/stellar/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 1,
+        "covariance_sparse/broad": 1,
+        "covariance_plain/original": 1,
+        "covariance_plain/broad": 1
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "ls7c_replay/stellar/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 4,
+        "covariance_sparse/broad": 4,
+        "covariance_plain/original": 4,
+        "covariance_plain/broad": 4
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "ls7c_replay/stellar/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 4,
+        "covariance_sparse/broad": 4,
+        "covariance_plain/original": 4,
+        "covariance_plain/broad": 4
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "ls7c_replay/off_profile/8.5",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 5,
+        "covariance_sparse/broad": 4,
+        "covariance_plain/original": 5,
+        "covariance_plain/broad": 4
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "ls7c_replay/off_profile/12",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 15,
+        "covariance_sparse/broad": 14,
+        "covariance_plain/original": 15,
+        "covariance_plain/broad": 14
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "ls7c_replay/off_profile/20",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 16,
+        "covariance_sparse/broad": 16,
+        "covariance_plain/original": 16,
+        "covariance_plain/broad": 16
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "ls7c_replay/single_pixel/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "ls7c_replay/single_pixel/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "ls7c_replay/single_pixel/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "ls7c_replay/block_2x2/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "ls7c_replay/block_2x2/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "ls7c_replay/block_2x2/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "ls7c_replay/uniform/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "ls7c_replay/uniform/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "ls7c_replay/uniform/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "ls7c_replay/pointing/8.5",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "ls7c_replay/pointing/12",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "ls7c_replay/pointing/20",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "extended/block3x3/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "extended/block3x3/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "extended/block3x3/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "extended/row1x5/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "extended/row1x5/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "extended/row1x5/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "extended/column5x1/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "extended/column5x1/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 3,
+      "cell_id": "extended/column5x1/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "ls7c_replay/stellar/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 1,
+        "covariance_sparse/broad": 1,
+        "covariance_plain/original": 3,
+        "covariance_plain/broad": 3
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "ls7c_replay/stellar/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 4,
+        "covariance_sparse/broad": 3,
+        "covariance_plain/original": 3,
+        "covariance_plain/broad": 3
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "ls7c_replay/stellar/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 4,
+        "covariance_sparse/broad": 4,
+        "covariance_plain/original": 3,
+        "covariance_plain/broad": 3
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "ls7c_replay/off_profile/8.5",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 8,
+        "covariance_sparse/broad": 8,
+        "covariance_plain/original": 12,
+        "covariance_plain/broad": 12
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "ls7c_replay/off_profile/12",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 16,
+        "covariance_sparse/broad": 12,
+        "covariance_plain/original": 15,
+        "covariance_plain/broad": 15
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "ls7c_replay/off_profile/20",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 16,
+        "covariance_sparse/broad": 16,
+        "covariance_plain/original": 15,
+        "covariance_plain/broad": 15
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "ls7c_replay/single_pixel/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "ls7c_replay/single_pixel/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "ls7c_replay/single_pixel/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "ls7c_replay/block_2x2/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "ls7c_replay/block_2x2/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "ls7c_replay/block_2x2/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "ls7c_replay/uniform/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "ls7c_replay/uniform/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "ls7c_replay/uniform/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "ls7c_replay/pointing/8.5",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "ls7c_replay/pointing/12",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "ls7c_replay/pointing/20",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "extended/block3x3/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "extended/block3x3/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "extended/block3x3/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "extended/row1x5/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "extended/row1x5/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "extended/row1x5/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "extended/column5x1/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "extended/column5x1/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 4,
+      "cell_id": "extended/column5x1/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "ls7c_replay/stellar/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 3,
+        "covariance_sparse/broad": 2,
+        "covariance_plain/original": 3,
+        "covariance_plain/broad": 2
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "ls7c_replay/stellar/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 4,
+        "covariance_sparse/broad": 4,
+        "covariance_plain/original": 4,
+        "covariance_plain/broad": 4
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "ls7c_replay/stellar/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 4,
+        "covariance_sparse/broad": 4,
+        "covariance_plain/original": 4,
+        "covariance_plain/broad": 4
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "ls7c_replay/off_profile/8.5",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 15,
+        "covariance_sparse/broad": 11,
+        "covariance_plain/original": 15,
+        "covariance_plain/broad": 11
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "ls7c_replay/off_profile/12",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 16,
+        "covariance_sparse/broad": 16,
+        "covariance_plain/original": 16,
+        "covariance_plain/broad": 16
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "ls7c_replay/off_profile/20",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 16,
+        "covariance_sparse/broad": 16,
+        "covariance_plain/original": 16,
+        "covariance_plain/broad": 16
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "ls7c_replay/single_pixel/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "ls7c_replay/single_pixel/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "ls7c_replay/single_pixel/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "ls7c_replay/block_2x2/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "ls7c_replay/block_2x2/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "ls7c_replay/block_2x2/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "ls7c_replay/uniform/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "ls7c_replay/uniform/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "ls7c_replay/uniform/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "ls7c_replay/pointing/8.5",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "ls7c_replay/pointing/12",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "ls7c_replay/pointing/20",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "extended/block3x3/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 2,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 3,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "extended/block3x3/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 4,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 3,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "extended/block3x3/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "extended/row1x5/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "extended/row1x5/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "extended/row1x5/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "extended/column5x1/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "extended/column5x1/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 5,
+      "cell_id": "extended/column5x1/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "ls7c_replay/stellar/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 1,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "ls7c_replay/stellar/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 2,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 4,
+        "covariance_plain/broad": 2
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "ls7c_replay/stellar/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 4,
+        "covariance_sparse/broad": 4,
+        "covariance_plain/original": 4,
+        "covariance_plain/broad": 4
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "ls7c_replay/off_profile/8.5",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "ls7c_replay/off_profile/12",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 12,
+        "covariance_sparse/broad": 1,
+        "covariance_plain/original": 12,
+        "covariance_plain/broad": 1
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "ls7c_replay/off_profile/20",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 15,
+        "covariance_sparse/broad": 15,
+        "covariance_plain/original": 8,
+        "covariance_plain/broad": 8
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "ls7c_replay/single_pixel/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "ls7c_replay/single_pixel/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "ls7c_replay/single_pixel/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "ls7c_replay/block_2x2/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "ls7c_replay/block_2x2/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "ls7c_replay/block_2x2/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "ls7c_replay/uniform/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "ls7c_replay/uniform/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "ls7c_replay/uniform/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "ls7c_replay/pointing/8.5",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "ls7c_replay/pointing/12",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "ls7c_replay/pointing/20",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "extended/block3x3/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "extended/block3x3/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "extended/block3x3/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "extended/row1x5/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "extended/row1x5/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "extended/row1x5/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "extended/column5x1/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "extended/column5x1/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 6,
+      "cell_id": "extended/column5x1/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "ls7c_replay/stellar/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 3,
+        "covariance_sparse/broad": 2,
+        "covariance_plain/original": 3,
+        "covariance_plain/broad": 2
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "ls7c_replay/stellar/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 3,
+        "covariance_sparse/broad": 3,
+        "covariance_plain/original": 4,
+        "covariance_plain/broad": 4
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "ls7c_replay/stellar/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 4,
+        "covariance_sparse/broad": 4,
+        "covariance_plain/original": 4,
+        "covariance_plain/broad": 4
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "ls7c_replay/off_profile/8.5",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 11,
+        "covariance_sparse/broad": 8,
+        "covariance_plain/original": 14,
+        "covariance_plain/broad": 8
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "ls7c_replay/off_profile/12",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 15,
+        "covariance_sparse/broad": 15,
+        "covariance_plain/original": 16,
+        "covariance_plain/broad": 16
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "ls7c_replay/off_profile/20",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 16,
+        "covariance_sparse/broad": 16,
+        "covariance_plain/original": 16,
+        "covariance_plain/broad": 16
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "ls7c_replay/single_pixel/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "ls7c_replay/single_pixel/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "ls7c_replay/single_pixel/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "ls7c_replay/block_2x2/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "ls7c_replay/block_2x2/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "ls7c_replay/block_2x2/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "ls7c_replay/uniform/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "ls7c_replay/uniform/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "ls7c_replay/uniform/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "ls7c_replay/pointing/8.5",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "ls7c_replay/pointing/12",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "ls7c_replay/pointing/20",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "extended/block3x3/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 2,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "extended/block3x3/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "extended/block3x3/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "extended/row1x5/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "extended/row1x5/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "extended/row1x5/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "extended/column5x1/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "extended/column5x1/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 7,
+      "cell_id": "extended/column5x1/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "ls7c_replay/stellar/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 1,
+        "covariance_sparse/broad": 1,
+        "covariance_plain/original": 1,
+        "covariance_plain/broad": 1
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "ls7c_replay/stellar/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 4,
+        "covariance_sparse/broad": 4,
+        "covariance_plain/original": 4,
+        "covariance_plain/broad": 4
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "ls7c_replay/stellar/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 4,
+        "covariance_sparse/broad": 4,
+        "covariance_plain/original": 4,
+        "covariance_plain/broad": 4
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "ls7c_replay/off_profile/8.5",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 8,
+        "covariance_sparse/broad": 3,
+        "covariance_plain/original": 9,
+        "covariance_plain/broad": 3
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "ls7c_replay/off_profile/12",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 16,
+        "covariance_sparse/broad": 16,
+        "covariance_plain/original": 16,
+        "covariance_plain/broad": 16
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "ls7c_replay/off_profile/20",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 16,
+        "covariance_sparse/broad": 16,
+        "covariance_plain/original": 16,
+        "covariance_plain/broad": 16
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "ls7c_replay/single_pixel/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "ls7c_replay/single_pixel/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "ls7c_replay/single_pixel/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "ls7c_replay/block_2x2/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "ls7c_replay/block_2x2/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "ls7c_replay/block_2x2/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "ls7c_replay/uniform/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "ls7c_replay/uniform/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "ls7c_replay/uniform/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "ls7c_replay/pointing/8.5",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "ls7c_replay/pointing/12",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "ls7c_replay/pointing/20",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "extended/block3x3/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "extended/block3x3/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "extended/block3x3/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "extended/row1x5/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "extended/row1x5/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "extended/row1x5/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "extended/column5x1/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "extended/column5x1/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 8,
+      "cell_id": "extended/column5x1/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "ls7c_replay/stellar/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 3,
+        "covariance_sparse/broad": 2,
+        "covariance_plain/original": 3,
+        "covariance_plain/broad": 2
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "ls7c_replay/stellar/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 4,
+        "covariance_sparse/broad": 4,
+        "covariance_plain/original": 4,
+        "covariance_plain/broad": 4
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "ls7c_replay/stellar/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 4,
+        "covariance_sparse/broad": 4,
+        "covariance_plain/original": 4,
+        "covariance_plain/broad": 4
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "ls7c_replay/off_profile/8.5",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 12,
+        "covariance_sparse/broad": 6,
+        "covariance_plain/original": 14,
+        "covariance_plain/broad": 8
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "ls7c_replay/off_profile/12",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 16,
+        "covariance_sparse/broad": 16,
+        "covariance_plain/original": 16,
+        "covariance_plain/broad": 16
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "ls7c_replay/off_profile/20",
+      "trials": 16,
+      "counts_at_9": {
+        "covariance_sparse/original": 16,
+        "covariance_sparse/broad": 16,
+        "covariance_plain/original": 16,
+        "covariance_plain/broad": 16
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "ls7c_replay/single_pixel/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "ls7c_replay/single_pixel/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "ls7c_replay/single_pixel/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "ls7c_replay/block_2x2/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "ls7c_replay/block_2x2/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "ls7c_replay/block_2x2/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "ls7c_replay/uniform/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "ls7c_replay/uniform/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "ls7c_replay/uniform/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "ls7c_replay/pointing/8.5",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "ls7c_replay/pointing/12",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "ls7c_replay/pointing/20",
+      "trials": 8,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "extended/block3x3/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "extended/block3x3/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "extended/block3x3/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "extended/row1x5/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "extended/row1x5/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "extended/row1x5/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "extended/column5x1/8.5",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "extended/column5x1/12",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    },
+    {
+      "anchor": 9,
+      "cell_id": "extended/column5x1/20",
+      "trials": 4,
+      "counts_at_9": {
+        "covariance_sparse/original": 0,
+        "covariance_sparse/broad": 0,
+        "covariance_plain/original": 0,
+        "covariance_plain/broad": 0
+      }
+    }
+  ]
+}

@@ -1,7 +1,39 @@
 # SETIsearch — current project status
 
-Updated 12 September 2026. This is the maintained operational entry point.
+Updated 13 September 2026. This is the maintained operational entry point.
 Earlier reports and continuation files preserve their historical states.
+
+## LS7F completed: broader nuisance tradeoff requires negative margins
+
+The planned separation study reuses all **3,180 saved LS7E trials**, with no
+new injections or observing coverage. Adding **108** rectangular nuisance
+templates rejects all **960** matched original/extended controls at margin 9,
+but loses 74 previously recovered stellar trial rows in the sparse method.
+Nominal recovery changes from 18/40, 37/40, 40/40 to **15/40, 34/40, 40/40**.
+
+The exact sweep finds **no joint solution for the original nuisance bank**.
+The expanded bank has 26 passing evaluated cuts with the sparse option and
+six without it, but **all are negative**: a nuisance model may fit an accepted
+case better than the stellar model. At margin 0, the expanded sparse method
+recovers 36/40 weak nominal and only 125/160 weak displaced pulses (128 required).
+The passing development cuts do not qualify the detector; no model is adopted.
+
+The first enumerated control-safe expanded sparse margin gives nominal recovery
+38/40, 40/40, 40/40 and displaced recovery 138/160, 160/160, 159/160. It accepts
+2/40 weak 2x2 and 2/40 weak 3x3 controls, with zero in the other 19 core control
+cells. These are outcome-selected bounds on ten shared backgrounds.
+
+Six analytical tests and the independent audit pass: 12,720 direct whitened
+fits, 6,868,800 alternative rectangle fits and all 101,466 threshold/cell counts.
+The source freeze was public before scoring. All historical manifests and
+LS7C/LS7E outcomes remain unchanged.
+[Result and figure](results_ls7f_separation/REPORT.md),
+[protocol](LS7F_SEPARATION_PROTOCOL.md), [continuation](LS7F_CONTINUATION.md).
+
+Next, prepare a separately frozen transfer comparison on already closed sector
+29, with explicit training/eligibility, broader and unmodeled controls, residual
+stress and a nonnegative-margin comparison. LS7F does not open that sector or
+an independent evaluation, and does not identify a stellar or artificial source.
 
 ## LS7E completed: stronger recovery, remaining weak-signal and extended-control failures
 
@@ -22,10 +54,10 @@ winning fits and 101,400 representative alternative fits are checked.
 [Complete result and figure](results_ls7e_joint/REPORT.md),
 [protocol](LS7E_JOINT_PROTOCOL.md), [continuation](LS7E_CONTINUATION.md).
 
-Next, study weak stellar/extended-nuisance separation with the saved event
-vectors and explicit signal-loss accounting. Keep LS7E parameters fixed; use
-another already closed sector for a separately planned transfer if warranted.
-No new sector or M43 held-out panel is opened by this development result.
+LS7F has now completed the planned weak stellar/extended-nuisance separation
+study using these saved vectors and explicit signal-loss accounting. Its
+conditional development tradeoff and transfer continuation are recorded above.
+LS7E parameters remain fixed. No new sector or M43 held-out panel is opened.
 
 ## LS7D noise diagnosis completed and published: strong cross-pixel cancellation
 
@@ -162,7 +194,7 @@ were hash checked. This is retrospective development, not fresh validation.
 | M43AF complete no-model study | Published and byte-verified: 502 records; 69 archive parts restore 508 original files |
 | Adopted new detector / new M43AF–M43AI astronomical candidate | None |
 | Earlier M33 HD 3651 case | Still unresolved; [investigation](MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
-| LS research | [LS7E](results_ls7e_joint/REPORT.md): 3,180-case combined development completed; recovery improves, but weak/extended requirements fail; no adopted model |
+| LS research | [LS7F](results_ls7f_separation/REPORT.md): separation study on 3,180 saved cases completed; expanded-bank development cuts require negative margins; no adopted model |
 
 M43AF's 502 records include 261 already completed historical acquisitions and
 the 241 training/baseline/null records. Its 940 scientific pins and earlier

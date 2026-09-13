@@ -71,3 +71,13 @@ requirements still fail. Continue with a joint stellar/nuisance separation
 study using the saved vectors, then a separately fixed transfer to another
 already closed sector if justified. Preserve LS7E's 3,180 paired cases and all
 prior outcomes; details remain in PROJECT_STATUS.md and LS7E_CONTINUATION.md.
+
+13 September 2026: LS7F completed that separation study on the 3,180 saved
+LS7E vectors. The original nuisance bank cannot meet all requirements at any
+margin. The expanded bank has a development-feasible interval only at negative
+margins, where a nuisance fit may be better than the stellar fit. No detector
+is adopted. Next prepare a separately frozen transfer on already closed sector
+29 with explicit training/eligibility, new nuisance controls, residual stress
+and nonnegative-margin accounting. This remains development before any unseen
+qualification. PROJECT_STATUS.md and LS7F_CONTINUATION.md carry the current
+details; LS7C/LS7E records and M43 held-out panels remain unchanged.
