@@ -96,3 +96,21 @@ samples, with combined planning for the two already closed sectors and full
 signal protection. Truth-dependent subtraction is diagnostic only. No
 threshold change or unseen sector follows automatically. PROJECT_STATUS.md
 and LS7H_CONTINUATION.md carry the current result and concrete input needs.
+
+13 September 2026: the owner asked to proceed with the two-week plan. LS7I
+restored both closed-sector inputs, then froze and completed one protected
+background predictor and static ablation. All 7,080 cases (6,720 historical
+plus 360 separate sector-32 controls), 420 native prediction windows and the
+independent audit are complete. The model fails six of twelve signal cells,
+two of sixty control cells and both native-prediction gates. No detector is
+adopted; unused sectors and M43 held-out panels remain closed.
+
+The plan's negative-result branch is complete. Preserve this fixed model
+outcome without a ridge/cut/bank retry. LS7I_LIMITATIONS.md accounts for
+source-score losses and sector-dependent error calibration. The next proposed
+direction is a separately specified study of additional observable instrumental
+information, beginning with existing outside-aperture pixels and verified
+image-motion/centroid fields on the same closed data. This is a research
+proposal, not evidence those observables will succeed. Publication continues
+under the existing standing authorization. Current restart instructions:
+LS7I_CONTINUATION.md and TWO_WEEK_REPORT_2026-09-14.md.

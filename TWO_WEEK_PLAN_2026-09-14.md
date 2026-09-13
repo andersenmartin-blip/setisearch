@@ -6,20 +6,30 @@ experiment must still be frozen before its evaluation.
 
 ## Execution checkpoint — 13 September
 
-The owner asked to start immediately. The input-restoration block originally
-allocated to 14–15 September is now **complete**. Both closed sectors are
-available in the common input format. All 6,720 historical trial recipes and
-300 training vectors reproduce exactly; the independent sector-32 FITS
-restoration also matches exactly. The full GitHub job and result publication
-succeeded. No new model has been evaluated yet.
+The owner asked to start immediately and continue. The input restoration,
+one-model implementation/freeze, joint evaluation, independent audit and
+negative-result decision branch are now **complete**, ahead of the calendar
+estimates. Both historical input archives reproduce exactly. The subsequent
+model study covers 6,720 historical cases plus the separate 360-case sector-32
+shape supplement, and 420 predeclared native prediction windows.
 
-[Verified input package](results_ls7i_inputs/REPORT.md),
-[current model-stage entry point](LS7I_CONTINUATION.md).
-Result commit: `b5d456d9142c49f291c1eaafeb246048d6d1f89b`.
+The model **fails** six of twelve signal cells and two of sixty control cells.
+Both native prediction gates also fail. The independent numerical audit
+passes. This closes the fixed ridge-prediction route; no unused-sector
+qualification follows. The limitation analysis identifies lost source-score
+acceptances and broader sector-32 error calibration, and proposes additional
+instrumental observables as a separately specified next direction.
 
-Next active block: implement and freeze the one background/residual model and
-its joint two-sector evaluation. The calendar windows below remain planning
-estimates, not waits or scheduled background work.
+[Consolidated plan result](TWO_WEEK_REPORT_2026-09-14.md),
+[full joint result](results_ls7i_background/REPORT.md),
+[limitation analysis](LS7I_LIMITATIONS.md),
+[current continuation](LS7I_CONTINUATION.md).
+Audited model-result commit: `1cd89b896a46b666b9328a5db00c1720af341190`.
+Verified input-result commit: `b5d456d9142c49f291c1eaafeb246048d6d1f89b`.
+
+The calendar windows below preserve the original work plan. They were
+planning estimates, not waits or scheduled background work. Its failure
+branch has now been followed; no threshold/bank/ridge retry is appended.
 
 ## Main objective
 

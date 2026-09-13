@@ -18,11 +18,21 @@ Close this fixed ridge-prediction route. The next useful information would be an
 
 [Result and figure](results_ls7i_background/REPORT.md), [signal losses](results_ls7i_background/SIGNAL_LOSSES.md), [continuation](LS7I_CONTINUATION.md), [two-week result](TWO_WEEK_REPORT_2026-09-14.md).
 
-## LS7I input preparation completed: two-sector model work can begin
+The [limitation analysis](LS7I_LIMITATIONS.md) completes this plan branch:
+pulse protection passes exactly, but additional losses are dominated by the
+source-score requirement and sector-32 error calibration broadens strongly.
+The next proposed information is outside-aperture pixels and verified
+instrument-motion/centroid observables on the same closed data. No new fit,
+cut search or unused-sector evaluation is hidden in that bookkeeping.
+Audited result commit: `1cd89b896a46b666b9328a5db00c1720af341190`.
+
+## Earlier LS7I input preparation: completed before the model study
 
 The two-week plan has started. Both closed TESS sectors now have verified individual-cadence inputs. All **6,720 historical trial recipes** and **300 training vectors** reproduce from **20 background contexts**. The independent sector-32 FITS restoration check passes exactly; sector 29 reuses its sealed LS7G cutouts. This completes input preparation, not evaluation of the new model.
 
-Next implement the one background/residual model and its protected event/training rules. Freeze the joint two-sector comparison, including any explicitly separate missing-control supplement, before evaluation. LS7G/LS7H remain unqualified; no new model result, observing coverage or candidate is claimed.
+This input stage enabled the separately frozen model study reported above.
+Its successful reconstruction alone did not qualify a detector. The earlier
+LS7G/LS7H outcomes and original denominators remain unchanged.
 
 [Input report](results_ls7i_inputs/REPORT.md), [continuation](LS7I_CONTINUATION.md), [two-week plan](TWO_WEEK_PLAN_2026-09-14.md).
 

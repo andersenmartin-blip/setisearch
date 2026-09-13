@@ -26,6 +26,13 @@ LS7H showed that the known native contribution could change morphology decisions
 
 ## Next project direction
 
+The [limitation analysis](LS7I_LIMITATIONS.md) completes the interpretation
+using only the sealed ledgers. Most additional signal losses first fail the
+source-score requirement, with a much larger conditional error covariance
+on sector 32. Exact pulse protection does not translate into adequate
+acceptance under the new statistic. All existing results and cuts remain
+unchanged.
+
 Close this fixed ridge-prediction route. The next useful information would be an independently measured instrumental state: time-resolved image motion/centroid indicators and pixel variations outside the target aperture, together with a response model that preserves an injected stellar pulse. First establish whether those observables predict the remaining spatial contamination on these same closed contexts. A separately specified auxiliary-observable study is a proposed next project direction, not a hidden ridge, margin or template-bank retry. The present result alone does not establish that those extra observables will succeed.
 
 The calendar plan did not authorize an endless sequence of outcome-driven adjustments. This result preserves that stopping decision. Any later auxiliary-observable or unused-sector work needs its own scientific specification; the owner’s standing authorization for ongoing implementation and publication remains in force. No additional publication approval is required.
@@ -41,3 +48,7 @@ The trial rows and native checks reuse twenty background contexts; they do not a
 - [Verified input package](results_ls7i_inputs/REPORT.md)
 - [Original two-week plan](TWO_WEEK_PLAN_2026-09-14.md)
 - [Current continuation](LS7I_CONTINUATION.md)
+
+Source freeze: `918797f2b33c1062a39c5360d2074700b075e17d`.
+Audited result: `1cd89b896a46b666b9328a5db00c1720af341190`.
+[All execution, audit and publication steps succeeded](https://github.com/andersenmartin-blip/setisearch/actions/runs/34766057139).

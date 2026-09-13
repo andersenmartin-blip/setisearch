@@ -8,6 +8,15 @@ The fixed model does not satisfy the joint two-sector requirements. The independ
 
 [Full result and figure](results_ls7i_background/REPORT.md), [every signal loss](results_ls7i_background/SIGNAL_LOSSES.md), [independent audit](results_ls7i_background/AUDIT.json), [two-week result](TWO_WEEK_REPORT_2026-09-14.md).
 
+The [completed limitation analysis](LS7I_LIMITATIONS.md) accounts for the
+extra losses without new fits or cuts. Against LS7H on sector 29, all 165
+additional losses first fail the source-score gate. Against LS7F on sector
+32, 331 of 365 additional losses first fail source score and 34 fail nuisance
+margin. This is first-failure accounting, not an exclusive causal attribution.
+The median conditional/static covariance trace ratio is 1.063 on sector 29
+and 6.233 on sector 32, while native energy ratios remain 1.008294 and 1.001058.
+Pulse protection is exact; the new decision statistic is insufficient.
+
 ## Next decision
 
 Close this fixed ridge-prediction route. The next useful information would be an independently measured instrumental state: time-resolved image motion/centroid indicators and pixel variations outside the target aperture, together with a response model that preserves an injected stellar pulse. First establish whether those observables predict the remaining spatial contamination on these same closed contexts. A separately specified auxiliary-observable study is a proposed next project direction, not a hidden ridge, margin or template-bank retry. The present result alone does not establish that those extra observables will succeed.
@@ -25,5 +34,14 @@ OPENBLAS_NUM_THREADS=1 PYTHONPATH=src python scripts/ls7i_review_background.py
 A repeat audit writes AUDIT_RECHECK.json and preserves the sealed audit. Repeating the entire evaluation requires the source freeze or a separate output directory; the runner refuses to overwrite existing results.
 
 Source freeze: `918797f2b33c1062a39c5360d2074700b075e17d`. [GitHub execution](https://github.com/andersenmartin-blip/setisearch/actions/runs/34766057139).
+
+Audited result commit: `1cd89b896a46b666b9328a5db00c1720af341190`.
+All workflow steps, including automatic publication, succeeded. The nineteen
+published result-file hashes match the retrieved package; the comparison
+figure has been visually checked.
+
+The sealed `summary.json` retains its runner-stage `EVALUATED_AWAITING_AUDIT`
+label. The subsequent `AUDIT.json`, complete workflow and published report
+record the successful audit; that historical stage label is not a pending job.
 
 All M43 held-out panels remain untouched. No detector, candidate, physical laser limit or new observing coverage is claimed.
