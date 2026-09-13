@@ -16,12 +16,19 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+**LS7E TESS model comparison completed, 12 September 2026.**
+Across 3,180 paired development trials on closed sector 32, the combined model
+raises nominal recovery from 3/40, 12/40, 27/40 to **18/40, 37/40, 40/40** and
+rejects all 120 original compact pixel controls. Weak-signal recovery and
+broader-contamination rejection still fail; no detector is adopted or candidate
+promoted. The independent numerical audit passes. [Read the result and figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7e_joint/REPORT.md).
+
 **LS7D TESS noise diagnosis completed, 12 September 2026.**
 The diagonal pixel model misses strong cancellation between pixel fluctuations.
 All 120 original trial-noise ratios reproduce across 34 windows in ten shared
 backgrounds; eight analytical tests and the covariance audit pass. This is
-method development with no new candidate or adopted detector. Next work combines
-covariance-aware noise, residual handling and broader nuisance controls on the
+method development with no new candidate or adopted detector. LS7E subsequently
+combined covariance, residual handling and broader nuisance controls on the
 closed data. [Read the result and figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7d_noise/REPORT.md).
 
 **LS7C TESS qualification completed, 12 September 2026: the joint test failed.**
@@ -29,8 +36,8 @@ The noise-aware pixel method completed 1,460 digital trials over 18.78 searchabl
 cadence-days of L 98-59 sector 32. All planned matched-strength tests reach the
 screening threshold, but stellar recovery is insufficient and 16/120 compact
 pixel controls are accepted. All 325 native excursions fail spatial screening;
-no LS candidate is promoted. Next work measures covariance and residual
-contamination on the closed sectors before another independent evaluation.
+no LS candidate is promoted. LS7D and LS7E subsequently examined covariance
+and residual contamination on these closed data.
 [Read the reviewed result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7c_tess/REVIEW.md).
 
 **M43AI native evaluation is complete:** The fixed combined rule failed the predeclared same-sequence native challenge. It recovered 53/64 signal cases and lost 0/53 signals required by the reference union. 1/48 controls and 0/128 native null cases had surviving members.
@@ -50,7 +57,7 @@ independent observing cadence. It is not a detection or technosignature claim.
 | Read or do | Entry point |
 |---|---|
 | Continue the active work | [Current project status](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md) |
-| Inspect current TESS work | [LS7D noise diagnosis](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7d_noise/REPORT.md), [LS7C reviewed result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7c_tess/REVIEW.md), [frozen protocol](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7C_TESS_PROTOCOL.md), and [previous LS7B result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7b_tess/REVIEW.md) |
+| Inspect current TESS work | [LS7E combined development](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7e_joint/REPORT.md), [LS7D noise diagnosis](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7d_noise/REPORT.md), [LS7C reviewed result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7c_tess/REVIEW.md), [frozen protocol](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7C_TESS_PROTOCOL.md), and [previous LS7B result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7b_tess/REVIEW.md) |
 | Inspect the latest native evaluation | [M43AI result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AI_NATIVE_VALIDATION_RESULT.md) |
 | Inspect the separate historical TESS development | [LS7C sector 29 archive: 1,300 retrospective trials](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/archives/ls7c_sector29_development/README.md) |
 | Understand the failed training rule | [M43AF training result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AF_TRAINING_RESULT.md) |
