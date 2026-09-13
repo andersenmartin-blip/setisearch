@@ -3,6 +3,19 @@
 Updated 13 September 2026. This is the maintained operational entry point.
 Earlier reports and continuation files preserve their historical states.
 
+## LS7G queued: fixed transfer to closed sector 29
+
+The [LS7G protocol](LS7G_TRANSFER_PROTOCOL.md), implementation and dedicated
+GitHub workflow are fixed before transfer extraction. The primary margin is
+−1 from LS7F sector-32 development, with fixed 0/9 comparisons, 21-pixel
+sector-29 covariance training, three additional omitted nuisance shapes and
+**3,540 planned trials**. Five analytical tests and a complete artificial
+smoke fixture pass. No sector-29 transfer result is claimed yet.
+
+The workflow performs the entire sector-29 computation and independent audit,
+preserves execution logs, and publishes checked results to this science branch.
+The original LS7B, historical sector-29 LS7C and sector-32 results remain closed.
+
 ## LS7F completed: broader nuisance tradeoff requires negative margins
 
 The planned separation study reuses all **3,180 saved LS7E trials**, with no

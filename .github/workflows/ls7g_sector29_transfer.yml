@@ -1,0 +1,87 @@
+name: LS7G closed-sector TESS transfer
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [m43-support-qualification]
+    paths:
+      - '.github/workflows/ls7g_sector29_transfer.yml'
+      - 'LS7G_FREEZE.sha256'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ls7g-sector29-transfer
+  cancel-in-progress: false
+
+jobs:
+  transfer:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Require the unpublished LS7G result boundary
+        run: test ! -e results_ls7g_transfer
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+
+      - name: Install pinned science dependencies
+        run: python -m pip install -r requirements_ls7g.txt
+
+      - name: Check the frozen implementation
+        run: |
+          set -o pipefail
+          sha256sum -c LS7G_FREEZE.sha256
+          python -m unittest discover -s tests -p 'test_ls7g_transfer.py' -v 2>&1 | tee ls7g_tests.log
+          python scripts/ls7g_synthetic_check.py 2>&1 | tee ls7g_synthetic.log
+
+      - name: Restore the closed sector and execute all fixed trials
+        run: |
+          set -o pipefail
+          python -u scripts/ls7g_transfer.py --cache data_ls7g_sector29 2>&1 | tee ls7g_run.log
+
+      - name: Independently audit and render the completed result
+        run: |
+          set -o pipefail
+          python -u scripts/ls7g_review.py 2>&1 | tee ls7g_audit.log
+          cp ls7g_run.log results_ls7g_transfer/RUN.log
+          cp ls7g_audit.log results_ls7g_transfer/AUDIT.log
+          cp ls7g_tests.log results_ls7g_transfer/TESTS.log
+          cp ls7g_synthetic.log results_ls7g_transfer/SYNTHETIC_SMOKE.log
+          python -m pip freeze > results_ls7g_transfer/environment.txt
+          python scripts/ls7g_report.py --update-status
+
+      - name: Preserve execution evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ls7g-sector29-transfer
+          retention-days: 90
+          if-no-files-found: warn
+          path: |
+            ls7g_*.log
+            results_ls7g_transfer/
+            LS7G_CONTINUATION.md
+
+      - name: Publish only the audited LS7G result
+        if: success()
+        run: |
+          sha256sum -c LS7G_FREEZE.sha256
+          (cd results_ls7g_transfer && sha256sum -c SHA256SUMS)
+          git fetch origin m43-support-qualification
+          test "$(git rev-parse origin/m43-support-qualification)" = "$GITHUB_SHA"
+          git add results_ls7g_transfer LS7G_CONTINUATION.md PROJECT_STATUS.md PROJECT_DIRECTION.md
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish audited LS7G transfer on closed TESS sector 29'
+          git push origin HEAD:m43-support-qualification
