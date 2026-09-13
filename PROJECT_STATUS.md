@@ -8,6 +8,18 @@ background/residual model, both closed-sector comparisons and auditing into
 one integrated study, followed by an explicit unused-data readiness decision.
 Its dates are work windows; its scientific protocol remains to be frozen.
 
+## LS7I input preparation queued: starting the two-week plan
+
+The owner asked to start the plan on 13 September. The first block restores
+sector 32's original 401-cadence cutouts and links them with the existing
+sector-29 export. All 6,720 historical injection recipes, temporal outcomes
+and 300 training vectors must reproduce before model development proceeds.
+The source-restoration code, independent auditor and publication workflow are
+frozen before execution. No new model or detector result is available yet.
+
+[Input protocol](LS7I_INPUT_PROTOCOL.md), [input source freeze](LS7I_INPUT_FREEZE.sha256),
+[continuation](LS7I_CONTINUATION.md), [two-week plan](TWO_WEEK_PLAN_2026-09-14.md).
+
 ## LS7H completed: background-driven morphology confusion remains
 
 LS7H diagnoses all **3,540 saved LS7G trials**. All **24** accepted controls in
