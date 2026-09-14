@@ -1,0 +1,87 @@
+Scientific acquisition and failed audit excerpt from public GitHub Actions job 103924844013.
+Full execution: https://github.com/andersenmartin-blip/setisearch/actions/runs/34828116310
+
+2026-09-14T09:28:51.7973755Z ##[group]Run set -o pipefail
+2026-09-14T09:28:51.7973936Z [36;1mset -o pipefail[0m
+2026-09-14T09:28:51.7974138Z [36;1mpython -u scripts/ls7k_instrument_inputs.py 2>&1 | tee ls7k_inputs_run.log[0m
+2026-09-14T09:28:51.8003042Z shell: /usr/bin/bash -e {0}
+2026-09-14T09:28:51.8003177Z env:
+2026-09-14T09:28:51.8003287Z   OPENBLAS_NUM_THREADS: 1
+2026-09-14T09:28:51.8003409Z   OMP_NUM_THREADS: 1
+2026-09-14T09:28:51.8003562Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-14T09:28:51.8003785Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-09-14T09:28:51.8004033Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-14T09:28:51.8004246Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-14T09:28:51.8004445Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-14T09:28:51.8004648Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-09-14T09:28:51.8004822Z ##[endgroup]
+2026-09-14T09:28:54.6137875Z WARNING: FITSFixedWarning: 'unitfix' made the change 'Changed units:
+2026-09-14T09:28:54.6138380Z   'PIXEL' -> 'pixel',
+2026-09-14T09:28:54.6138577Z   'PIXEL' -> 'pixel'. [astropy.wcs.wcs]
+2026-09-14T09:28:54.6153626Z Sector 29: exact old cadence/time/motion join; 4010 timing rows restored
+2026-09-14T09:28:56.2289138Z Sector 32: exact old cadence/time/motion join; 4010 timing rows restored
+2026-09-14T09:29:04.4910085Z PRF models: 50/50 restored
+2026-09-14T09:29:06.1009284Z {
+2026-09-14T09:29:06.1009496Z   "timing_rows": 8020,
+2026-09-14T09:29:06.1009670Z   "restored_prf_models": 50,
+2026-09-14T09:29:06.1009824Z   "expected_prf_image_pairs": 50,
+2026-09-14T09:29:06.1010013Z   "preserved_manifest_entries": 56
+2026-09-14T09:29:06.1010147Z }
+2026-09-14T09:29:06.1018571Z {
+2026-09-14T09:29:06.1018719Z   "engineering": {
+2026-09-14T09:29:06.1018989Z     "url": "https://archive.stsci.edu/missions/tess/engineering/",
+2026-09-14T09:29:06.1019278Z     "time_series_downloaded": false,
+2026-09-14T09:29:06.1019510Z     "time_reference_verified": false,
+2026-09-14T09:29:06.1019722Z     "selected_links": [
+2026-09-14T09:29:06.1019897Z       {
+2026-09-14T09:29:06.1020049Z         "sector": 29,
+2026-09-14T09:29:06.1020264Z         "name": "tess2020268170816_sector29-eng.fits",
+2026-09-14T09:29:06.1020652Z         "url": "https://archive.stsci.edu/missions/tess/engineering/tess2020268170816_sector29-eng.fits"
+2026-09-14T09:29:06.1021001Z       },
+2026-09-14T09:29:06.1021140Z       {
+2026-09-14T09:29:06.1021289Z         "sector": 29,
+2026-09-14T09:29:06.1021489Z         "name": "tess2020268170816_sector29-quat.fits",
+2026-09-14T09:29:06.1021879Z         "url": "https://archive.stsci.edu/missions/tess/engineering/tess2020268170816_sector29-quat.fits"
+2026-09-14T09:29:06.1022532Z       },
+2026-09-14T09:29:06.1022671Z       {
+2026-09-14T09:29:06.1022818Z         "sector": 32,
+2026-09-14T09:29:06.1023008Z         "name": "tess2020352110200_sector32-eng.fits",
+2026-09-14T09:29:06.1023381Z         "url": "https://archive.stsci.edu/missions/tess/engineering/tess2020352110200_sector32-eng.fits"
+2026-09-14T09:29:06.1023720Z       },
+2026-09-14T09:29:06.1023864Z       {
+2026-09-14T09:29:06.1024019Z         "sector": 32,
+2026-09-14T09:29:06.1024218Z         "name": "tess2020352110200_sector32-quat.fits",
+2026-09-14T09:29:06.1024611Z         "url": "https://archive.stsci.edu/missions/tess/engineering/tess2020352110200_sector32-quat.fits"
+2026-09-14T09:29:06.1024892Z       }
+2026-09-14T09:29:06.1024987Z     ],
+2026-09-14T09:29:06.1025147Z     "final_url": "https://archive.stsci.edu/missions/tess/engineering/",
+2026-09-14T09:29:06.1025333Z     "bytes": 84929,
+2026-09-14T09:29:06.1025514Z     "sha256": "016777940795607d21d04e0f88fc9d428301b72a0388eeb5229245fa9af9fb6d",
+2026-09-14T09:29:06.1025728Z     "http_status": 200,
+2026-09-14T09:29:06.1025847Z     "status": "listed"
+2026-09-14T09:29:06.1025959Z   }
+2026-09-14T09:29:06.1026056Z }
+2026-09-14T09:29:06.1570456Z ##[group]Run set -o pipefail
+2026-09-14T09:29:06.1570643Z [36;1mset -o pipefail[0m
+2026-09-14T09:29:06.1570850Z [36;1mpython -u scripts/ls7k_review_inputs.py 2>&1 | tee ls7k_inputs_audit.log[0m
+2026-09-14T09:29:06.1601034Z shell: /usr/bin/bash -e {0}
+2026-09-14T09:29:06.1601168Z env:
+2026-09-14T09:29:06.1601279Z   OPENBLAS_NUM_THREADS: 1
+2026-09-14T09:29:06.1601404Z   OMP_NUM_THREADS: 1
+2026-09-14T09:29:06.1601559Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-14T09:29:06.1601788Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-09-14T09:29:06.1602019Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-14T09:29:06.1602224Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-14T09:29:06.1602441Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-14T09:29:06.1602649Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-09-14T09:29:06.1602826Z ##[endgroup]
+2026-09-14T09:29:06.3724824Z Traceback (most recent call last):
+2026-09-14T09:29:06.3730428Z   File "/home/runner/work/setisearch/setisearch/scripts/ls7k_review_inputs.py", line 192, in <module>
+2026-09-14T09:29:06.3730712Z     main()
+2026-09-14T09:29:06.3730950Z   File "/home/runner/work/setisearch/setisearch/scripts/ls7k_review_inputs.py", line 188, in main
+2026-09-14T09:29:06.3731203Z     audit(out, Path(args.cache))
+2026-09-14T09:29:06.3731442Z   File "/home/runner/work/setisearch/setisearch/scripts/ls7k_review_inputs.py", line 65, in audit
+2026-09-14T09:29:06.3731686Z     assert saved_card['value'] == v
+2026-09-14T09:29:06.3731825Z            ^^^^^^^^^^^^^^^^^^^^^^^^
+2026-09-14T09:29:06.3731959Z AssertionError
+2026-09-14T09:29:06.3956387Z ##[error]Process completed with exit code 1.

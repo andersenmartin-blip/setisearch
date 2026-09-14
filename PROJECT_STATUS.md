@@ -8,13 +8,34 @@ background/residual model, both closed-sector comparisons and auditing into
 one integrated study, followed by an explicit unused-data readiness decision.
 Its dates are work windows. The joint model, evaluation and audit are now complete.
 
+## LS7K instrument-response inputs completed and audited
+
+LS7K restored **50 original mission PRFs**, including their uncertainty images,
+and **8,020 timing rows** from the same twenty closed contexts. The independent
+raw-file audit passes; all 16,040 reused motion values agree exactly. Four
+matching engineering products are listed, with their sample contents still
+uninspected. Code, calibration files, timing extracts, metadata and logs are
+published.
+
+A calibrated response family is now available. The next integrated work
+package is a separately specified coordinate/PRF forward-model benchmark on
+these closed inputs, including the absolute-coordinate convention, subpixel
+normalization, exposure averaging, engineering time-reference checks and
+upstream target dependence. Exact fast POS_CORR uncertainty and target
+exclusion remain unestablished. No detector is adopted or unused data opened.
+
+[Completed findings and response contract](LS7K_INPUT_FINDINGS.md),
+[audited input packet](results_ls7k_inputs/REPORT.md),
+[current continuation](LS7K_CONTINUATION.md).
+Audited input commit: `f1ce03ec5f278a8850125a169a98490ba2cfa204`.
+
 ## LS7J auxiliary-observable study completed: FAIL
 
 LS7J completed **420 fixed native windows and 9,480 digital response rows** on the same twenty closed-sector contexts. The combined motion/outside-aperture correction has joint feasibility **FAIL**; the independent audit passes. There are no new detector decisions or added observing days.
 
 Combined native energy increases **45.74% and 34.51%**, with **0/10** backgrounds improved in each sector. All pulse-protection requirements pass, including broadened full-stamp profiles with at most **0.365% distortion**. All required motion inputs are available. The completed [limitation analysis](LS7J_LIMITATIONS.md) attributes the poor comparison to the fixed motion response: its squared size exceeds its limited alignment with the native fluctuation. Plane alone improves only five of ten backgrounds per sector and also fails the native improvement requirement.
 
-Close this correction route. Next establish the documented mapping and uncertainty between mission motion fields and these processed pixels, including time averaging and target-signal dependence. Identify a usable independent engineering source or calibrated pixel-response description before specifying another detector study. Such an input has not yet been established. No sign, gain, delay, profile or threshold retry is appended to LS7J; unused data remain closed.
+Close this correction route. LS7K subsequently completed the requested provenance and calibration input assessment, reported above. It establishes an available mission PRF family while retaining explicit coordinate, timing-estimator and target-dependence questions. No sign, gain, delay, profile or threshold retry is appended to LS7J; unused data remain closed.
 
 [Full result](results_ls7j_auxiliary/REPORT.md), [limitation analysis](LS7J_LIMITATIONS.md), [continuation](LS7J_CONTINUATION.md).
 Audited result commit: `52ef2780a374e1314252f8fe9f37d8fcae4d985f`.

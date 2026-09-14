@@ -4,6 +4,12 @@ Prepared 13 September 2026, following the completed LS7H result.
 This is an operational work plan. The numerical specification for the next
 experiment must still be frozen before its evaluation.
 
+**Latest continuation, 14 September:** [LS7K](LS7K_INPUT_FINDINGS.md) completed
+the response-input assessment after LS7J. Fifty mission PRFs and 8,020 reused
+timing rows are restored and audited. The next integrated work package is a
+coordinate/PRF benchmark with explicit timing and target-dependence limits;
+[current restart instructions](LS7K_CONTINUATION.md).
+
 **14 September follow-on:** after the owner asked to continue, the separately
 specified [LS7J auxiliary study](LS7J_CONTINUATION.md) also completed. It fails
 native correction while passing all pulse-protection checks. The current

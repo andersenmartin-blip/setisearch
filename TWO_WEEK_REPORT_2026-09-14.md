@@ -2,6 +2,13 @@
 
 Consolidated 2026-09-13; the planned work packages were executed early during active sessions.
 
+**Latest follow-on completed 14 September:** [LS7K](LS7K_INPUT_FINDINGS.md)
+restored and audited fifty mission PRFs with uncertainty images and all 8,020
+timing rows on the same twenty closed contexts. Four engineering products
+are listed. A physical response family is now available; exact coordinate
+mapping, motion-estimator timing/uncertainty and target exclusion still need
+resolution in the next integrated benchmark. [Current continuation](LS7K_CONTINUATION.md).
+
 **Follow-on completed 14 September:** the owner asked to continue with the
 proposed auxiliary-information direction. [LS7J](LS7J_CONTINUATION.md) is now
 complete, audited and published. Its outcome and current next information
@@ -87,3 +94,27 @@ Unused TESS sectors and M43 held-out panels remain closed.
 [completed limitation analysis](LS7J_LIMITATIONS.md),
 [current continuation](LS7J_CONTINUATION.md).
 Audited result commit: `52ef2780a374e1314252f8fe9f37d8fcae4d985f`.
+
+
+## Completed response-input assessment — 14 September
+
+LS7K addresses LS7J's requested provenance/calibration assessment. Both exact
+old light curves reproduce the saved cadence/time/motion joins; ten frame
+integrations per cadence and spacecraft-time extracts are now documented.
+All fifty original UPDATED_2.0 PRFs and their uncertainty images are preserved.
+The independent raw-file audit passes, including 16,040 motion values, eight
+science-WCS corners and 56 historical manifest entries. A metadata-serialization
+defect in the first attempt is corrected and accounted for without changing
+any timing array or PRF byte.
+
+The input source requirement is now partly met in a concrete way: mission
+PRF files are available for a physical model. A validated mapping to these
+processed pixels is still open. The next integrated work package combines
+coordinate/phase/normalization verification, bounded engineering-product
+inspection and explicit temporal, uncertainty and upstream signal-dependence
+assumptions. No detector evaluation or unused-data qualification occurred.
+
+[Findings and response contract](LS7K_INPUT_FINDINGS.md),
+[audited packet](results_ls7k_inputs/REPORT.md),
+[current continuation](LS7K_CONTINUATION.md).
+Audited input commit: f1ce03ec5f278a8850125a169a98490ba2cfa204.

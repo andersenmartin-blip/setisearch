@@ -132,3 +132,20 @@ description before a new detector comparison; that input is not yet
 established. Preserve the validated protected-plane building block without
 adopting it as a detector. Current details: LS7J_LIMITATIONS.md and
 LS7J_CONTINUATION.md. Unused sectors and M43 held-out panels remain closed.
+
+
+14 September 2026: LS7K completed the instrument-response provenance and
+input assessment. Fifty original mission PRFs with uncertainty images and
+8,020 reused timing rows are restored and audited. The exact old motion
+values and historical manifests agree. Four matching engineering products
+are listed; their time-series contents remain uninspected.
+
+This establishes a mission-calibrated response family for the next integrated
+coordinate/PRF forward-model benchmark on the same closed data. Combine
+coordinate convention and phase/normalization checks with a bounded inspection
+of the engineering files, exposure timing and explicit uncertainty/upstream
+target dependence. Freeze any new response comparison before evaluation.
+LS7K does not establish that the calibrated response will improve native
+prediction. LS7J remains a closed negative result, with no gain/sign/lag/profile
+retry; unused TESS sectors and M43 held-out panels remain closed.
+Current findings: LS7K_INPUT_FINDINGS.md. Restart: LS7K_CONTINUATION.md.

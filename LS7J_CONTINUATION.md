@@ -2,6 +2,11 @@
 
 Completed 2026-09-14.
 
+**Subsequent work completed:** [LS7K](LS7K_INPUT_FINDINGS.md) has now restored
+and audited the requested calibration/timing inputs. Continue from
+[LS7K_CONTINUATION.md](LS7K_CONTINUATION.md). The LS7J outcome and historical
+input question below remain as originally recorded.
+
 LS7J completed **420 fixed native windows and 9,480 digital response rows** on the same twenty closed-sector contexts. The combined motion/outside-aperture correction has joint feasibility **FAIL**; the independent audit passes. There are no new detector decisions or added observing days.
 
 The [completed limitation analysis](LS7J_LIMITATIONS.md) identifies the fixed motion response as the measured bottleneck. Combined native energy rises 45.74% and 34.51%, with zero improved backgrounds. Motion alone is almost as poor; the plane alone improves only five of ten backgrounds per sector. All required motion values are available and all pulse-protection gates pass, including broadened profiles with at most 0.365% distortion.
