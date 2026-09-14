@@ -9,7 +9,31 @@ one integrated study, followed by an explicit unused-data readiness decision.
 Its dates are work windows. The original LS7I joint model, evaluation and audit
 are complete; the subsequent instrumental-response work is tracked below.
 
-## LS7L engineering and PRF phase inputs completed and audited
+## LS7M calibrated PRF and exposure operator completed and audited
+
+The new numerical operator passes **10 known-answer tests**, all **4,050 phase
+reconstructions** and **144 fixed calibration cases**. The independent
+original-MATLAB/SciPy/Simpson audit finds at most **1.39e-16** absolute flux
+discrepancy. All fifty original image pairs match the mission FITS exports
+exactly; 113 inherited manifest entries remain unchanged.
+
+The explicit 0/-44-column alternatives differ by at most **0.7946%** in
+relative L2 response over the fixed panel. Absolute origin remains unresolved.
+Only 42/144 cases support all 121 stamp pixels; the others support 110, with
+uncovered pixels flagged. A synthetic 30 ms pulse overlaps **10–15 ms** of
+live exposure under the three declared readout placements.
+
+Next establish the observable-to-pixel physical contract, including quaternion
+geometry, calibration blur, sample timing, supported footprint and upstream
+target dependence, then freeze one native comparison on the same closed data.
+Numerical correctness does not establish native prediction improvement. No
+native pixel values were opened, detector adopted or unused panel evaluated.
+
+[Findings](LS7M_FINDINGS.md), [audited benchmark](results_ls7m_response/REPORT.md),
+[frozen contract](LS7M_RESPONSE_SPEC.md), [current continuation](LS7M_CONTINUATION.md).
+Numerical source freeze: `b6fea2889d792d6c1980335f5e83b27c54ca22c7`.
+
+## Earlier LS7L engineering and PRF phase inputs completed and audited
 
 LS7L restores **81,200 camera-4 quaternion rows** and **30,594 thermal rows**
 on the same twenty closed contexts. All **8,020** saved cadence bins have

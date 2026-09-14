@@ -165,3 +165,21 @@ dependence before freezing a native physical-response benchmark. The input
 audit does not establish detector improvement. LS7J and all unused evaluation
 panels remain unchanged. Current findings: LS7L_FINDINGS.md. Restart:
 LS7L_CONTINUATION.md. Publication continues under the existing authorization.
+
+14 September 2026: LS7M completed the calibrated PRF and finite-exposure
+operator, ten known-answer tests, 4,050 phase reconstructions and 144 fixed
+calibration-only cases. The independent original-MATLAB/SciPy/Simpson audit
+passes with maximum absolute flux discrepancy 1.39e-16. Original relative axes
+and FITS identity are established; absolute column origin remains unresolved.
+Both declared origins, finite-stamp coverage and readout placement sensitivity
+are reported without selecting on native outcomes.
+
+Next establish the observable-to-pixel physical contract and freeze one native
+response comparison on the same twenty closed contexts. Address quaternion
+geometry, calibration's inherited pointing blur, exact sample/exposure timing,
+supported footprint, uncertainty and upstream target dependence together.
+Do not repeat completed numerical censuses without a concrete new risk. No
+detector is adopted and unused panels remain closed. LS7J remains a fixed
+negative result without an empirical gain/sign/lag/profile retry. Current
+findings: LS7M_FINDINGS.md. Restart: LS7M_CONTINUATION.md. Standing publication
+authorization continues.
