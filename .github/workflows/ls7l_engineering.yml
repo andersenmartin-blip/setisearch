@@ -1,0 +1,80 @@
+name: LS7L engineering schema and closed-context inputs
+
+on:
+  push:
+    branches: [m43-support-qualification]
+    paths:
+      - '.github/workflows/ls7l_engineering.yml'
+      - 'config/ls7l_engineering.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ls7l-engineering-inputs
+  cancel-in-progress: false
+
+jobs:
+  inspect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+      - name: Install pinned dependencies
+        run: python -m pip install -r requirements_ls7g.txt
+      - uses: actions/cache@v4
+        with:
+          path: ../ls7l-engineering-cache
+          key: ls7l-four-engineering-originals-v1
+      - name: Require unpublished schema output and compile source
+        run: |
+          test ! -e results_ls7l_engineering
+          python -m py_compile scripts/ls7l_restore_engineering.py scripts/ls7l_audit_schema.py
+      - name: Restore the four bounded original products
+        run: |
+          set -o pipefail
+          python -u scripts/ls7l_restore_engineering.py 2>&1 | tee ls7l_restore.log
+      - name: Audit complete source identities and physical FITS headers
+        run: |
+          set -o pipefail
+          python -u scripts/ls7l_audit_schema.py 2>&1 | tee ls7l_schema_audit.log
+      - name: Seal schema evidence
+        run: |
+          cp ls7l_restore.log results_ls7l_engineering/RESTORE.log
+          cp ls7l_schema_audit.log results_ls7l_engineering/SCHEMA_AUDIT.log
+          python -m pip freeze > results_ls7l_engineering/environment.txt
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          root = Path('results_ls7l_engineering')
+          lines = [hashlib.sha256(p.read_bytes()).hexdigest() + '  ' + p.relative_to(root).as_posix()
+                   for p in sorted(root.rglob('*')) if p.is_file() and p.name != 'SHA256SUMS']
+          (root/'SHA256SUMS').write_text('\n'.join(lines)+'\n')
+          PY
+          (cd results_ls7l_engineering && sha256sum -c SHA256SUMS)
+      - name: Preserve run evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ls7l-engineering-schema
+          retention-days: 90
+          if-no-files-found: warn
+          path: |
+            ls7l_*.log
+            results_ls7l_engineering/
+      - name: Publish audited schema
+        if: success()
+        run: |
+          git fetch origin m43-support-qualification
+          test "$(git rev-parse origin/m43-support-qualification)" = "$GITHUB_SHA"
+          git add results_ls7l_engineering
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish LS7L verified engineering source identities and complete schemas'
+          git push origin HEAD:m43-support-qualification

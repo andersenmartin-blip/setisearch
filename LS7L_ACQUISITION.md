@@ -37,3 +37,21 @@ FITS/header validation and original-file SHA-256 identities. Retain the first
 range-read evidence and report the transport change. Only selected closed-
 context rows enter derived inputs; whole source files are a reproducible cache.
 The earlier range-only restriction is superseded by this explicit amendment.
+
+## Recovered execution, 14 September 2026
+
+The local execution environment was unavailable in the continuation session.
+The exact original acquisition code is retained and run through the dedicated
+GitHub Actions workflow. First restore the four complete products and audit
+their full SHA-256 identities and physical FITS header chains. Publish only
+the source inventory, complete header cards, compact schemas, checksums and
+logs. No table sample extraction is part of this first stage.
+
+The earlier byte-range attempt's blocks were not present in the recovered
+Git tree. Their preservation cannot be verified here; no replacement range
+evidence is invented. This does not change the four frozen source URLs.
+
+The second stage must record the exact table and field selection and explicit
+time conversion before extracting rows. It may reuse the same original cache,
+with hashes checked against the published schema-stage manifest. No native
+response comparison begins merely because engineering inputs are available.
