@@ -1,12 +1,20 @@
 # SETIsearch — current project status
 
-Updated 13 September 2026. This is the maintained operational entry point.
+Updated 14 September 2026. This is the maintained operational entry point.
 Earlier reports and continuation files preserve their historical states.
 
 The [14–27 September work plan](TWO_WEEK_PLAN_2026-09-14.md) groups the next
 background/residual model, both closed-sector comparisons and auditing into
 one integrated study, followed by an explicit unused-data readiness decision.
 Its dates are work windows. The joint model, evaluation and audit are now complete.
+
+## LS7J auxiliary-observable study completed: FAIL
+
+LS7J completed **420 fixed native windows and 9,480 digital response rows** on the same twenty closed-sector contexts. The combined motion/outside-aperture correction has joint feasibility **FAIL**; the independent audit passes. There are no new detector decisions or added observing days.
+
+Close this fixed unit-gain motion plus protected-plane correction as a failed feasibility route. Use the saved component ratios and full-stamp mismatch responses to identify whether native prediction, source-wing protection or missing motion information limits it. Any next information study must address that measured limitation explicitly; no gain, profile, plane or threshold retry follows within LS7J. No unused sector or detector qualification follows from this result.
+
+[Full result](results_ls7j_auxiliary/REPORT.md), [continuation](LS7J_CONTINUATION.md).
 
 ## LS7I joint background model completed: FAIL
 

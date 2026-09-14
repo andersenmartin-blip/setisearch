@@ -1,0 +1,815 @@
+{
+  "status": "FEASIBILITY_EVALUATED_AWAITING_AUDIT",
+  "created_utc": "2026-09-14T07:54:11.343866+00:00",
+  "scope": "auxiliary-observable availability, fixed physical correction, native prediction and signal response; no detector qualification",
+  "freeze_commit": "816a28f757e0da5ffe0f55ec56708b9f1ac3854b",
+  "github_run_id": "34819942153",
+  "freeze_sha256": "98efc135312eec4a5acaf935f8a36d3e57a9b023d2226c3b2332cb6c0392b472",
+  "primary_method": "combined",
+  "historical_recipe_rows": 6720,
+  "prior_shape_supplement_rows": 360,
+  "new_full_stamp_response_rows": 2400,
+  "response_rows": 9480,
+  "native_windows": 420,
+  "backgrounds": 20,
+  "added_observing_days": 0,
+  "new_detector_decisions": 0,
+  "spatial_frames": 594,
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "astropy": "7.0.2",
+    "matplotlib": "3.10.8"
+  },
+  "sectors": {
+    "29": {
+      "native_windows": 210,
+      "response_trials": 4740,
+      "cohorts": {
+        "historical": 3540,
+        "full_stamp": 600,
+        "broadened_full_stamp": 600
+      },
+      "methods": {
+        "static": {
+          "available_windows": 210,
+          "energy": 9436.395709923127,
+          "paired_static_energy": 9436.395709923127,
+          "ratio": 1.0,
+          "per_background": [
+            {
+              "anchor": 0,
+              "available_windows": 21,
+              "energy": 582.4930744314977,
+              "paired_static_energy": 582.4930744314977,
+              "ratio": 1.0
+            },
+            {
+              "anchor": 1,
+              "available_windows": 21,
+              "energy": 489.4853404942522,
+              "paired_static_energy": 489.4853404942522,
+              "ratio": 1.0
+            },
+            {
+              "anchor": 2,
+              "available_windows": 21,
+              "energy": 2329.023111673339,
+              "paired_static_energy": 2329.023111673339,
+              "ratio": 1.0
+            },
+            {
+              "anchor": 3,
+              "available_windows": 21,
+              "energy": 2926.7372971742575,
+              "paired_static_energy": 2926.7372971742575,
+              "ratio": 1.0
+            },
+            {
+              "anchor": 4,
+              "available_windows": 21,
+              "energy": 277.21574434636426,
+              "paired_static_energy": 277.21574434636426,
+              "ratio": 1.0
+            },
+            {
+              "anchor": 5,
+              "available_windows": 21,
+              "energy": 420.62134157510405,
+              "paired_static_energy": 420.62134157510405,
+              "ratio": 1.0
+            },
+            {
+              "anchor": 6,
+              "available_windows": 21,
+              "energy": 1358.2453683623114,
+              "paired_static_energy": 1358.2453683623114,
+              "ratio": 1.0
+            },
+            {
+              "anchor": 7,
+              "available_windows": 21,
+              "energy": 355.36549173292485,
+              "paired_static_energy": 355.36549173292485,
+              "ratio": 1.0
+            },
+            {
+              "anchor": 8,
+              "available_windows": 21,
+              "energy": 303.0001709619073,
+              "paired_static_energy": 303.0001709619073,
+              "ratio": 1.0
+            },
+            {
+              "anchor": 9,
+              "available_windows": 21,
+              "energy": 394.2087691711675,
+              "paired_static_energy": 394.2087691711675,
+              "ratio": 1.0
+            }
+          ],
+          "gates": {
+            "all_210_windows_available": true,
+            "aggregate_not_increased": true,
+            "six_backgrounds_improve": false,
+            "no_background_more_than_doubled": true
+          },
+          "pass": false
+        },
+        "motion": {
+          "available_windows": 210,
+          "energy": 13775.319150115063,
+          "paired_static_energy": 9436.395709923127,
+          "ratio": 1.4598072795558172,
+          "per_background": [
+            {
+              "anchor": 0,
+              "available_windows": 21,
+              "energy": 1128.1443013984308,
+              "paired_static_energy": 582.4930744314977,
+              "ratio": 1.9367514412072255
+            },
+            {
+              "anchor": 1,
+              "available_windows": 21,
+              "energy": 691.944342081164,
+              "paired_static_energy": 489.4853404942522,
+              "ratio": 1.4136160674035327
+            },
+            {
+              "anchor": 2,
+              "available_windows": 21,
+              "energy": 3599.5684084735426,
+              "paired_static_energy": 2329.023111673339,
+              "ratio": 1.5455271312818153
+            },
+            {
+              "anchor": 3,
+              "available_windows": 21,
+              "energy": 3013.1391921716145,
+              "paired_static_energy": 2926.7372971742575,
+              "ratio": 1.0295215751276268
+            },
+            {
+              "anchor": 4,
+              "available_windows": 21,
+              "energy": 520.9216759767099,
+              "paired_static_energy": 277.21574434636426,
+              "ratio": 1.87912009545118
+            },
+            {
+              "anchor": 5,
+              "available_windows": 21,
+              "energy": 834.355432014664,
+              "paired_static_energy": 420.62134157510405,
+              "ratio": 1.9836260064461937
+            },
+            {
+              "anchor": 6,
+              "available_windows": 21,
+              "energy": 2054.4585122894296,
+              "paired_static_energy": 1358.2453683623114,
+              "ratio": 1.5125827484076526
+            },
+            {
+              "anchor": 7,
+              "available_windows": 21,
+              "energy": 581.4206823789949,
+              "paired_static_energy": 355.36549173292485,
+              "ratio": 1.6361202646428088
+            },
+            {
+              "anchor": 8,
+              "available_windows": 21,
+              "energy": 502.30862923175266,
+              "paired_static_energy": 303.0001709619073,
+              "ratio": 1.6577833195180014
+            },
+            {
+              "anchor": 9,
+              "available_windows": 21,
+              "energy": 849.0579740987602,
+              "paired_static_energy": 394.2087691711675,
+              "ratio": 2.153828226307403
+            }
+          ],
+          "gates": {
+            "all_210_windows_available": true,
+            "aggregate_not_increased": false,
+            "six_backgrounds_improve": false,
+            "no_background_more_than_doubled": false
+          },
+          "pass": false
+        },
+        "plane": {
+          "available_windows": 210,
+          "energy": 9394.972032371428,
+          "paired_static_energy": 9436.395709923127,
+          "ratio": 0.9956102225017823,
+          "per_background": [
+            {
+              "anchor": 0,
+              "available_windows": 21,
+              "energy": 587.2235830091644,
+              "paired_static_energy": 582.4930744314977,
+              "ratio": 1.0081211413239266
+            },
+            {
+              "anchor": 1,
+              "available_windows": 21,
+              "energy": 493.97722944195345,
+              "paired_static_energy": 489.4853404942522,
+              "ratio": 1.0091767588854972
+            },
+            {
+              "anchor": 2,
+              "available_windows": 21,
+              "energy": 2268.588161474257,
+              "paired_static_energy": 2329.023111673339,
+              "ratio": 0.974051373772903
+            },
+            {
+              "anchor": 3,
+              "available_windows": 21,
+              "energy": 2923.2677583888017,
+              "paired_static_energy": 2926.7372971742575,
+              "ratio": 0.9988145369969469
+            },
+            {
+              "anchor": 4,
+              "available_windows": 21,
+              "energy": 301.37147453030394,
+              "paired_static_energy": 277.21574434636426,
+              "ratio": 1.0871369345954556
+            },
+            {
+              "anchor": 5,
+              "available_windows": 21,
+              "energy": 414.4667866885452,
+              "paired_static_energy": 420.62134157510405,
+              "ratio": 0.9853679443284741
+            },
+            {
+              "anchor": 6,
+              "available_windows": 21,
+              "energy": 1359.5021111868818,
+              "paired_static_energy": 1358.2453683623114,
+              "ratio": 1.0009252693613715
+            },
+            {
+              "anchor": 7,
+              "available_windows": 21,
+              "energy": 352.71914231701226,
+              "paired_static_energy": 355.36549173292485,
+              "ratio": 0.9925531615267206
+            },
+            {
+              "anchor": 8,
+              "available_windows": 21,
+              "energy": 298.4865745427504,
+              "paired_static_energy": 303.0001709619073,
+              "ratio": 0.9851036505859783
+            },
+            {
+              "anchor": 9,
+              "available_windows": 21,
+              "energy": 395.36921079175744,
+              "paired_static_energy": 394.2087691711675,
+              "ratio": 1.0029437235072924
+            }
+          ],
+          "gates": {
+            "all_210_windows_available": true,
+            "aggregate_not_increased": true,
+            "six_backgrounds_improve": false,
+            "no_background_more_than_doubled": true
+          },
+          "pass": false
+        },
+        "combined": {
+          "available_windows": 210,
+          "energy": 13752.310715405654,
+          "paired_static_energy": 9436.395709923127,
+          "ratio": 1.4573690144155356,
+          "per_background": [
+            {
+              "anchor": 0,
+              "available_windows": 21,
+              "energy": 1135.6329571090077,
+              "paired_static_energy": 582.4930744314977,
+              "ratio": 1.949607655365455
+            },
+            {
+              "anchor": 1,
+              "available_windows": 21,
+              "energy": 699.0235650542862,
+              "paired_static_energy": 489.4853404942522,
+              "ratio": 1.4280786516475756
+            },
+            {
+              "anchor": 2,
+              "available_windows": 21,
+              "energy": 3539.9643221569463,
+              "paired_static_energy": 2329.023111673339,
+              "ratio": 1.5199352485659017
+            },
+            {
+              "anchor": 3,
+              "available_windows": 21,
+              "energy": 3011.328359346202,
+              "paired_static_energy": 2926.7372971742575,
+              "ratio": 1.0289028544699301
+            },
+            {
+              "anchor": 4,
+              "available_windows": 21,
+              "energy": 547.7968868139942,
+              "paired_static_energy": 277.21574434636426,
+              "ratio": 1.976067009129017
+            },
+            {
+              "anchor": 5,
+              "available_windows": 21,
+              "energy": 836.0070981512667,
+              "paired_static_energy": 420.62134157510405,
+              "ratio": 1.9875527357234524
+            },
+            {
+              "anchor": 6,
+              "available_windows": 21,
+              "energy": 2063.865922214592,
+              "paired_static_energy": 1358.2453683623114,
+              "ratio": 1.5195088974999227
+            },
+            {
+              "anchor": 7,
+              "available_windows": 21,
+              "energy": 578.7347570029118,
+              "paired_static_energy": 355.36549173292485,
+              "ratio": 1.6285620592498617
+            },
+            {
+              "anchor": 8,
+              "available_windows": 21,
+              "energy": 497.8483200363007,
+              "paired_static_energy": 303.0001709619073,
+              "ratio": 1.64306283542952
+            },
+            {
+              "anchor": 9,
+              "available_windows": 21,
+              "energy": 842.1085275201468,
+              "paired_static_energy": 394.2087691711675,
+              "ratio": 2.1361993780369177
+            }
+          ],
+          "gates": {
+            "all_210_windows_available": true,
+            "aggregate_not_increased": false,
+            "six_backgrounds_improve": false,
+            "no_background_more_than_doubled": false
+          },
+          "pass": false
+        }
+      },
+      "protection": {
+        "aperture_limited_historical": {
+          "trials": 1320,
+          "available": 1320,
+          "distortion_limit": 1e-10,
+          "maximum_distortion": 0.0,
+          "minimum_gain": 1.0,
+          "maximum_gain": 1.0,
+          "failed_case_ids": [],
+          "pass": true
+        },
+        "full_stamp": {
+          "trials": 600,
+          "available": 600,
+          "distortion_limit": 0.01,
+          "maximum_distortion": 0.0007095460807600479,
+          "minimum_gain": 0.9999550449242449,
+          "maximum_gain": 1.0004341614051317,
+          "failed_case_ids": [],
+          "pass": true
+        },
+        "broadened_full_stamp": {
+          "trials": 600,
+          "available": 600,
+          "distortion_limit": 0.05,
+          "maximum_distortion": 0.003117517838291988,
+          "minimum_gain": 0.9975936138028835,
+          "maximum_gain": 0.9993741725496366,
+          "failed_case_ids": [],
+          "pass": true
+        }
+      },
+      "spatial_frames": 290,
+      "valid_operators": 290,
+      "available_motion_frames": 290,
+      "protected_basis_max_distortion": 2.9254269574630665e-17,
+      "operator_gate_pass": true,
+      "position_finite_values": {
+        "POS_CORR1": 4010,
+        "POS_CORR2": 4010
+      },
+      "feasibility_pass": false
+    },
+    "32": {
+      "native_windows": 210,
+      "response_trials": 4740,
+      "cohorts": {
+        "historical": 3180,
+        "sector32_shape_supplement": 360,
+        "full_stamp": 600,
+        "broadened_full_stamp": 600
+      },
+      "methods": {
+        "static": {
+          "available_windows": 210,
+          "energy": 5253.986936257948,
+          "paired_static_energy": 5253.986936257948,
+          "ratio": 1.0,
+          "per_background": [
+            {
+              "anchor": 0,
+              "available_windows": 21,
+              "energy": 343.7028983333456,
+              "paired_static_energy": 343.7028983333456,
+              "ratio": 1.0
+            },
+            {
+              "anchor": 1,
+              "available_windows": 21,
+              "energy": 189.80865142666642,
+              "paired_static_energy": 189.80865142666642,
+              "ratio": 1.0
+            },
+            {
+              "anchor": 2,
+              "available_windows": 21,
+              "energy": 254.62246218673283,
+              "paired_static_energy": 254.62246218673283,
+              "ratio": 1.0
+            },
+            {
+              "anchor": 3,
+              "available_windows": 21,
+              "energy": 175.29121641756666,
+              "paired_static_energy": 175.29121641756666,
+              "ratio": 1.0
+            },
+            {
+              "anchor": 4,
+              "available_windows": 21,
+              "energy": 552.0109667871299,
+              "paired_static_energy": 552.0109667871299,
+              "ratio": 1.0
+            },
+            {
+              "anchor": 5,
+              "available_windows": 21,
+              "energy": 374.03032354581325,
+              "paired_static_energy": 374.03032354581325,
+              "ratio": 1.0
+            },
+            {
+              "anchor": 6,
+              "available_windows": 21,
+              "energy": 265.8415436544824,
+              "paired_static_energy": 265.8415436544824,
+              "ratio": 1.0
+            },
+            {
+              "anchor": 7,
+              "available_windows": 21,
+              "energy": 407.22954875285626,
+              "paired_static_energy": 407.22954875285626,
+              "ratio": 1.0
+            },
+            {
+              "anchor": 8,
+              "available_windows": 21,
+              "energy": 274.58140534956516,
+              "paired_static_energy": 274.58140534956516,
+              "ratio": 1.0
+            },
+            {
+              "anchor": 9,
+              "available_windows": 21,
+              "energy": 2416.8679198037903,
+              "paired_static_energy": 2416.8679198037903,
+              "ratio": 1.0
+            }
+          ],
+          "gates": {
+            "all_210_windows_available": true,
+            "aggregate_not_increased": true,
+            "six_backgrounds_improve": false,
+            "no_background_more_than_doubled": true
+          },
+          "pass": false
+        },
+        "motion": {
+          "available_windows": 210,
+          "energy": 7071.670238595571,
+          "paired_static_energy": 5253.986936257948,
+          "ratio": 1.3459626611923465,
+          "per_background": [
+            {
+              "anchor": 0,
+              "available_windows": 21,
+              "energy": 477.6953099452311,
+              "paired_static_energy": 343.7028983333456,
+              "ratio": 1.3898495248705491
+            },
+            {
+              "anchor": 1,
+              "available_windows": 21,
+              "energy": 247.24019559296372,
+              "paired_static_energy": 189.80865142666642,
+              "ratio": 1.3025760087046732
+            },
+            {
+              "anchor": 2,
+              "available_windows": 21,
+              "energy": 609.444685571169,
+              "paired_static_energy": 254.62246218673283,
+              "ratio": 2.393522866510574
+            },
+            {
+              "anchor": 3,
+              "available_windows": 21,
+              "energy": 215.2566599598777,
+              "paired_static_energy": 175.29121641756666,
+              "ratio": 1.2279945587639036
+            },
+            {
+              "anchor": 4,
+              "available_windows": 21,
+              "energy": 871.6850296217618,
+              "paired_static_energy": 552.0109667871299,
+              "ratio": 1.5791081736930541
+            },
+            {
+              "anchor": 5,
+              "available_windows": 21,
+              "energy": 502.7531754178732,
+              "paired_static_energy": 374.03032354581325,
+              "ratio": 1.344150844914833
+            },
+            {
+              "anchor": 6,
+              "available_windows": 21,
+              "energy": 513.1606399792311,
+              "paired_static_energy": 265.8415436544824,
+              "ratio": 1.93032523406572
+            },
+            {
+              "anchor": 7,
+              "available_windows": 21,
+              "energy": 593.144738282742,
+              "paired_static_energy": 407.22954875285626,
+              "ratio": 1.456536589987766
+            },
+            {
+              "anchor": 8,
+              "available_windows": 21,
+              "energy": 432.27162415270874,
+              "paired_static_energy": 274.58140534956516,
+              "ratio": 1.574293144877712
+            },
+            {
+              "anchor": 9,
+              "available_windows": 21,
+              "energy": 2609.0181800720134,
+              "paired_static_energy": 2416.8679198037903,
+              "ratio": 1.0795038316714562
+            }
+          ],
+          "gates": {
+            "all_210_windows_available": true,
+            "aggregate_not_increased": false,
+            "six_backgrounds_improve": false,
+            "no_background_more_than_doubled": false
+          },
+          "pass": false
+        },
+        "plane": {
+          "available_windows": 210,
+          "energy": 5250.441771028344,
+          "paired_static_energy": 5253.986936257948,
+          "ratio": 0.9993252428541193,
+          "per_background": [
+            {
+              "anchor": 0,
+              "available_windows": 21,
+              "energy": 338.5434151455294,
+              "paired_static_energy": 343.7028983333456,
+              "ratio": 0.9849885374466287
+            },
+            {
+              "anchor": 1,
+              "available_windows": 21,
+              "energy": 190.24052388105525,
+              "paired_static_energy": 189.80865142666642,
+              "ratio": 1.0022753043717594
+            },
+            {
+              "anchor": 2,
+              "available_windows": 21,
+              "energy": 254.13311141773613,
+              "paired_static_energy": 254.62246218673283,
+              "ratio": 0.9980781319731413
+            },
+            {
+              "anchor": 3,
+              "available_windows": 21,
+              "energy": 174.1310451621107,
+              "paired_static_energy": 175.29121641756666,
+              "ratio": 0.9933814638339192
+            },
+            {
+              "anchor": 4,
+              "available_windows": 21,
+              "energy": 556.59008805711,
+              "paired_static_energy": 552.0109667871299,
+              "ratio": 1.008295344740399
+            },
+            {
+              "anchor": 5,
+              "available_windows": 21,
+              "energy": 374.82703428410855,
+              "paired_static_energy": 374.03032354581325,
+              "ratio": 1.0021300699118256
+            },
+            {
+              "anchor": 6,
+              "available_windows": 21,
+              "energy": 263.5511897739362,
+              "paired_static_energy": 265.8415436544824,
+              "ratio": 0.9913845148163787
+            },
+            {
+              "anchor": 7,
+              "available_windows": 21,
+              "energy": 407.5954495821841,
+              "paired_static_energy": 407.22954875285626,
+              "ratio": 1.0008985124739802
+            },
+            {
+              "anchor": 8,
+              "available_windows": 21,
+              "energy": 270.9008834741406,
+              "paired_static_energy": 274.58140534956516,
+              "ratio": 0.9865958808436465
+            },
+            {
+              "anchor": 9,
+              "available_windows": 21,
+              "energy": 2419.9290302504332,
+              "paired_static_energy": 2416.8679198037903,
+              "ratio": 1.001266560916118
+            }
+          ],
+          "gates": {
+            "all_210_windows_available": true,
+            "aggregate_not_increased": true,
+            "six_backgrounds_improve": false,
+            "no_background_more_than_doubled": true
+          },
+          "pass": false
+        },
+        "combined": {
+          "available_windows": 210,
+          "energy": 7067.366085572795,
+          "paired_static_energy": 5253.986936257948,
+          "ratio": 1.3451434446478452,
+          "per_background": [
+            {
+              "anchor": 0,
+              "available_windows": 21,
+              "energy": 472.1010873688721,
+              "paired_static_energy": 343.7028983333456,
+              "ratio": 1.3735731925978625
+            },
+            {
+              "anchor": 1,
+              "available_windows": 21,
+              "energy": 247.7106036877127,
+              "paired_static_energy": 189.80865142666642,
+              "ratio": 1.3050543367008591
+            },
+            {
+              "anchor": 2,
+              "available_windows": 21,
+              "energy": 607.8343102144169,
+              "paired_static_energy": 254.62246218673283,
+              "ratio": 2.387198305264398
+            },
+            {
+              "anchor": 3,
+              "available_windows": 21,
+              "energy": 214.58233375639082,
+              "paired_static_energy": 175.29121641756666,
+              "ratio": 1.224147667760075
+            },
+            {
+              "anchor": 4,
+              "available_windows": 21,
+              "energy": 876.8497559963454,
+              "paired_static_energy": 552.0109667871299,
+              "ratio": 1.5884643761696895
+            },
+            {
+              "anchor": 5,
+              "available_windows": 21,
+              "energy": 504.65305356977746,
+              "paired_static_energy": 374.03032354581325,
+              "ratio": 1.349230321182675
+            },
+            {
+              "anchor": 6,
+              "available_windows": 21,
+              "energy": 511.26661173609966,
+              "paired_static_energy": 265.8415436544824,
+              "ratio": 1.9232005829781043
+            },
+            {
+              "anchor": 7,
+              "available_windows": 21,
+              "energy": 594.9713577298787,
+              "paired_static_energy": 407.22954875285626,
+              "ratio": 1.461022068639133
+            },
+            {
+              "anchor": 8,
+              "available_windows": 21,
+              "energy": 425.70306832616467,
+              "paired_static_energy": 274.58140534956516,
+              "ratio": 1.5503710740507317
+            },
+            {
+              "anchor": 9,
+              "available_windows": 21,
+              "energy": 2611.693903187137,
+              "paired_static_energy": 2416.8679198037903,
+              "ratio": 1.0806109352467896
+            }
+          ],
+          "gates": {
+            "all_210_windows_available": true,
+            "aggregate_not_increased": false,
+            "six_backgrounds_improve": false,
+            "no_background_more_than_doubled": false
+          },
+          "pass": false
+        }
+      },
+      "protection": {
+        "aperture_limited_historical": {
+          "trials": 1320,
+          "available": 1320,
+          "distortion_limit": 1e-10,
+          "maximum_distortion": 0.0,
+          "minimum_gain": 1.0,
+          "maximum_gain": 1.0,
+          "failed_case_ids": [],
+          "pass": true
+        },
+        "full_stamp": {
+          "trials": 600,
+          "available": 600,
+          "distortion_limit": 0.01,
+          "maximum_distortion": 0.0002877544101181581,
+          "minimum_gain": 0.9999385511278676,
+          "maximum_gain": 1.0002321866192316,
+          "failed_case_ids": [],
+          "pass": true
+        },
+        "broadened_full_stamp": {
+          "trials": 600,
+          "available": 600,
+          "distortion_limit": 0.05,
+          "maximum_distortion": 0.003645561977239099,
+          "minimum_gain": 0.9969428691249579,
+          "maximum_gain": 0.9997303774479406,
+          "failed_case_ids": [],
+          "pass": true
+        }
+      },
+      "spatial_frames": 304,
+      "valid_operators": 304,
+      "available_motion_frames": 304,
+      "protected_basis_max_distortion": 7.534915386877029e-17,
+      "operator_gate_pass": true,
+      "position_finite_values": {
+        "POS_CORR1": 4010,
+        "POS_CORR2": 4010
+      },
+      "feasibility_pass": false
+    }
+  },
+  "feasibility_pass": false
+}
