@@ -1,0 +1,3876 @@
+{
+  "selection": {
+    "same_camera_and_ccd": true,
+    "tmag_inclusive": [
+      8,
+      12
+    ],
+    "separation_deg_inclusive": [
+      0.25,
+      3
+    ],
+    "per_sector": 6,
+    "ranking": "angular distance then TIC",
+    "selected_before_time_series": true
+  },
+  "mission_lists": [
+    {
+      "sector": 29,
+      "ccd": 3,
+      "list_url": "https://tess.mit.edu/public/target_lists/20s/all_targets_20s_S029_v1.txt",
+      "list_count": 1000,
+      "same_ccd_count": 92,
+      "eligible_within_3_deg": 9,
+      "observation_count": 1000,
+      "request": {
+        "service": "Mast.Caom.Filtered",
+        "params": {
+          "columns": "obsid,obs_id,target_name,s_ra,s_dec,t_exptime,t_min,t_max,sequence_number,dataURL",
+          "filters": [
+            {
+              "paramName": "obs_collection",
+              "values": [
+                "TESS"
+              ]
+            },
+            {
+              "paramName": "sequence_number",
+              "values": [
+                {
+                  "min": 29,
+                  "max": 29
+                }
+              ]
+            },
+            {
+              "paramName": "t_exptime",
+              "values": [
+                {
+                  "min": 20,
+                  "max": 20
+                }
+              ]
+            }
+          ]
+        },
+        "format": "json",
+        "pagesize": 2000,
+        "page": 1
+      },
+      "eligible_ranked": [
+        {
+          "tic": 307780535,
+          "tmag": 8.05,
+          "separation_deg": 1.2676408570518873
+        },
+        {
+          "tic": 306739391,
+          "tmag": 11.31,
+          "separation_deg": 2.017534881484934
+        },
+        {
+          "tic": 306577335,
+          "tmag": 8.11,
+          "separation_deg": 2.052576885482095
+        },
+        {
+          "tic": 306739511,
+          "tmag": 8.06,
+          "separation_deg": 2.18278717690117
+        },
+        {
+          "tic": 307087642,
+          "tmag": 8.84,
+          "separation_deg": 2.319250954098564
+        },
+        {
+          "tic": 307785290,
+          "tmag": 8.09,
+          "separation_deg": 2.4834091683925408
+        },
+        {
+          "tic": 307434940,
+          "tmag": 9.6,
+          "separation_deg": 2.757578938217308
+        },
+        {
+          "tic": 306779124,
+          "tmag": 10.22,
+          "separation_deg": 2.9240202311278334
+        },
+        {
+          "tic": 300809119,
+          "tmag": 9.1,
+          "separation_deg": 2.9864556276215084
+        }
+      ]
+    },
+    {
+      "sector": 32,
+      "ccd": 4,
+      "list_url": "https://tess.mit.edu/public/target_lists/20s/all_targets_20s_S032_v1.txt",
+      "list_count": 1000,
+      "same_ccd_count": 96,
+      "eligible_within_3_deg": 9,
+      "observation_count": 1000,
+      "request": {
+        "service": "Mast.Caom.Filtered",
+        "params": {
+          "columns": "obsid,obs_id,target_name,s_ra,s_dec,t_exptime,t_min,t_max,sequence_number,dataURL",
+          "filters": [
+            {
+              "paramName": "obs_collection",
+              "values": [
+                "TESS"
+              ]
+            },
+            {
+              "paramName": "sequence_number",
+              "values": [
+                {
+                  "min": 32,
+                  "max": 32
+                }
+              ]
+            },
+            {
+              "paramName": "t_exptime",
+              "values": [
+                {
+                  "min": 20,
+                  "max": 20
+                }
+              ]
+            }
+          ]
+        },
+        "format": "json",
+        "pagesize": 2000,
+        "page": 1
+      },
+      "eligible_ranked": [
+        {
+          "tic": 307780535,
+          "tmag": 8.05,
+          "separation_deg": 1.2676408570518873
+        },
+        {
+          "tic": 307441274,
+          "tmag": 8.3,
+          "separation_deg": 1.6557075651586037
+        },
+        {
+          "tic": 306739391,
+          "tmag": 11.31,
+          "separation_deg": 2.017534881484934
+        },
+        {
+          "tic": 306577335,
+          "tmag": 8.11,
+          "separation_deg": 2.052576885482095
+        },
+        {
+          "tic": 306739511,
+          "tmag": 8.06,
+          "separation_deg": 2.18278717690117
+        },
+        {
+          "tic": 307785290,
+          "tmag": 8.09,
+          "separation_deg": 2.4834091683925408
+        },
+        {
+          "tic": 307434940,
+          "tmag": 9.6,
+          "separation_deg": 2.757578938217308
+        },
+        {
+          "tic": 306779124,
+          "tmag": 10.22,
+          "separation_deg": 2.9240202311278334
+        },
+        {
+          "tic": 300809119,
+          "tmag": 9.1,
+          "separation_deg": 2.9864556276215084
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "sector": 29,
+      "camera": 4,
+      "ccd": 3,
+      "tic": 307780535,
+      "tmag": 8.05,
+      "separation_deg": 1.2676408570518873,
+      "observation": {
+        "obsid": 27972964,
+        "t_exptime": 20,
+        "t_min": 59087.73743822,
+        "t_max": 59113.93241196,
+        "sequence_number": 29,
+        "dataURL": "mast:TESS/product/tess2020238165205-s0029-0000000307780535-0193-a_fast-lc.fits",
+        "target_name": "307780535",
+        "obs_id": "tess2020238165205-s0029-0000000307780535-0193-a_fast",
+        "s_ra": 127.961690545247,
+        "s_dec": -68.3954804089509
+      },
+      "product": {
+        "name": "tess2020238165205-s0029-0000000307780535-0193-a_fast-lc.fits",
+        "uri": "mast:TESS/product/tess2020238165205-s0029-0000000307780535-0193-a_fast-lc.fits",
+        "bytes": 11350080,
+        "etag": "\"c3b5d8cfe5cca100a02a9b27ec92e26f\""
+      },
+      "available_tpf": {
+        "name": "tess2020238165205-s0029-0000000307780535-0193-a_fast-tp.fits",
+        "uri": "mast:TESS/product/tess2020238165205-s0029-0000000307780535-0193-a_fast-tp.fits",
+        "bytes": 327533760
+      },
+      "table_start": 20160,
+      "row_bytes": 100,
+      "rows": 113190,
+      "geometry": {
+        "array_shape_yx": [
+          13,
+          11
+        ],
+        "array_axis_order": [
+          "row",
+          "column"
+        ],
+        "physical_wcs_present": true,
+        "offset_applied": false,
+        "corners_xy_zero_based": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            10.0,
+            0.0
+          ],
+          [
+            0.0,
+            12.0
+          ],
+          [
+            10.0,
+            12.0
+          ]
+        ],
+        "corners_detector_xy": [
+          [
+            574.0,
+            99.0
+          ],
+          [
+            584.0,
+            99.0
+          ],
+          [
+            574.0,
+            111.0
+          ],
+          [
+            584.0,
+            111.0
+          ]
+        ],
+        "physical_ctype": [
+          "RAWX",
+          "RAWY"
+        ],
+        "nominal_target_cutout_xy": [
+          5.556596827830736,
+          7.095567887892338
+        ],
+        "nominal_target_detector_xy": [
+          579.5565968278307,
+          106.09556788789234
+        ]
+      },
+      "timing": {
+        "TIMESYS": "TDB",
+        "TIMEREF": "SOLARSYSTEM",
+        "TASSIGN": "SPACECRAFT",
+        "BJDREFI": 2457000,
+        "BJDREFF": 0.0,
+        "TIMEPIXR": 0.5,
+        "TIMEDEL": 0.0002314814814814815,
+        "INT_TIME": 1.98,
+        "READTIME": 0.02,
+        "FRAMETIM": 2.0,
+        "NUM_FRM": 10,
+        "DEADC": 0.99,
+        "TSTART": 2088.23823895797,
+        "TSTOP": 2114.433212694887,
+        "DATA_REL": 43,
+        "PROCVER": "spoc-5.0.15-20201021"
+      },
+      "columns": [
+        {
+          "name": "TIME",
+          "format": "D",
+          "unit": "BJD - 2457000, days"
+        },
+        {
+          "name": "TIMECORR",
+          "format": "E",
+          "unit": "d"
+        },
+        {
+          "name": "CADENCENO",
+          "format": "J",
+          "unit": null
+        },
+        {
+          "name": "SAP_FLUX",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_FLUX_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_BKG",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_BKG_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "PDCSAP_FLUX",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "PDCSAP_FLUX_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "QUALITY",
+          "format": "J",
+          "unit": null
+        },
+        {
+          "name": "PSF_CENTR1",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR1_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR2",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR2_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR1",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR1_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR2",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR2_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "POS_CORR1",
+          "format": "E",
+          "unit": "pixels"
+        },
+        {
+          "name": "POS_CORR2",
+          "format": "E",
+          "unit": "pixels"
+        }
+      ],
+      "metadata_download_bytes": 26492,
+      "metadata_ranges": [
+        {
+          "start": 0,
+          "length": 2880,
+          "sha256": "9cf894b28e1afde6b688ffdc5061ddd0b461d11b3b0dcc4998ff5005eaffe88e",
+          "etag": "\"c3b5d8cfe5cca100a02a9b27ec92e26f\"",
+          "last_modified": "Tue, 10 Nov 2020 15:22:32 GMT"
+        },
+        {
+          "start": 2880,
+          "length": 2880,
+          "sha256": "96944634817b17ac16898c6f57da507394677e7956227d7c4524ad6ee3ca6078",
+          "etag": "\"c3b5d8cfe5cca100a02a9b27ec92e26f\"",
+          "last_modified": "Tue, 10 Nov 2020 15:22:32 GMT"
+        },
+        {
+          "start": 5760,
+          "length": 2880,
+          "sha256": "f62cc45f0145c4914a84570f4e3c0a8fd8453f24c6b1c9936fb7f69941494d44",
+          "etag": "\"c3b5d8cfe5cca100a02a9b27ec92e26f\"",
+          "last_modified": "Tue, 10 Nov 2020 15:22:32 GMT"
+        },
+        {
+          "start": 8640,
+          "length": 2880,
+          "sha256": "4d569711cf646a029882be9e24a9c5ef80e18b459fd9c14889b21786d5d68dc3",
+          "etag": "\"c3b5d8cfe5cca100a02a9b27ec92e26f\"",
+          "last_modified": "Tue, 10 Nov 2020 15:22:32 GMT"
+        },
+        {
+          "start": 11520,
+          "length": 2880,
+          "sha256": "4ca9ffae7a5fa344778ac175fe04d94e6f82475628c0e9c12c05c4b6f990bc0b",
+          "etag": "\"c3b5d8cfe5cca100a02a9b27ec92e26f\"",
+          "last_modified": "Tue, 10 Nov 2020 15:22:32 GMT"
+        },
+        {
+          "start": 14400,
+          "length": 2880,
+          "sha256": "226235d192bcdbaea73e1e0e2c83c7478ea02f2f54da6f4b514f65c744b72f08",
+          "etag": "\"c3b5d8cfe5cca100a02a9b27ec92e26f\"",
+          "last_modified": "Tue, 10 Nov 2020 15:22:32 GMT"
+        },
+        {
+          "start": 17280,
+          "length": 2880,
+          "sha256": "7fff816b2d6cbfb50de663d9efa113b706a71255cac8b09709e95b1be74872ca",
+          "etag": "\"c3b5d8cfe5cca100a02a9b27ec92e26f\"",
+          "last_modified": "Tue, 10 Nov 2020 15:22:32 GMT"
+        },
+        {
+          "start": 11341440,
+          "length": 2880,
+          "sha256": "5ee7ee4ef05c3efaad155ad2ed27bd2a4854d6e715ffdae32b867bcd22538c36",
+          "etag": "\"c3b5d8cfe5cca100a02a9b27ec92e26f\"",
+          "last_modified": "Tue, 10 Nov 2020 15:22:32 GMT"
+        },
+        {
+          "start": 11344320,
+          "length": 2880,
+          "sha256": "8f09ce546e0f4cc9bc55433422a5ad8ad6816e559bf2ca80a96288b765caf239",
+          "etag": "\"c3b5d8cfe5cca100a02a9b27ec92e26f\"",
+          "last_modified": "Tue, 10 Nov 2020 15:22:32 GMT"
+        },
+        {
+          "start": 11347200,
+          "length": 572,
+          "sha256": "dda27c548c72ccec9c6e0eda60aecc840eb6971fd38e300c649a0eae8b4aab6a",
+          "etag": "\"c3b5d8cfe5cca100a02a9b27ec92e26f\"",
+          "last_modified": "Tue, 10 Nov 2020 15:22:32 GMT"
+        }
+      ],
+      "moment_centroid_pixels": 22,
+      "minimum_target_to_centroid_pixel_distance": 237.25823271121743,
+      "header_prefix": "headers/s029_tic307780535",
+      "products_request": {
+        "service": "Mast.Caom.Products",
+        "params": {
+          "obsid": "27972964"
+        },
+        "format": "json",
+        "pagesize": 1000,
+        "page": 1
+      }
+    },
+    {
+      "sector": 29,
+      "camera": 4,
+      "ccd": 3,
+      "tic": 306739391,
+      "tmag": 11.31,
+      "separation_deg": 2.017534881484934,
+      "observation": {
+        "obsid": 27973036,
+        "t_exptime": 20,
+        "t_min": 59087.73769406,
+        "t_max": 59113.93269678,
+        "sequence_number": 29,
+        "dataURL": "mast:TESS/product/tess2020238165205-s0029-0000000306739391-0193-a_fast-lc.fits",
+        "target_name": "306739391",
+        "obs_id": "tess2020238165205-s0029-0000000306739391-0193-a_fast",
+        "s_ra": 120.970812908359,
+        "s_dec": -69.8815350591881
+      },
+      "product": {
+        "name": "tess2020238165205-s0029-0000000306739391-0193-a_fast-lc.fits",
+        "uri": "mast:TESS/product/tess2020238165205-s0029-0000000306739391-0193-a_fast-lc.fits",
+        "bytes": 11350080,
+        "etag": "\"452f51a07a3f25d791bd89245811af97\""
+      },
+      "available_tpf": {
+        "name": "tess2020238165205-s0029-0000000306739391-0193-a_fast-tp.fits",
+        "uri": "mast:TESS/product/tess2020238165205-s0029-0000000306739391-0193-a_fast-tp.fits",
+        "bytes": 277839360
+      },
+      "table_start": 20160,
+      "row_bytes": 100,
+      "rows": 113190,
+      "geometry": {
+        "array_shape_yx": [
+          11,
+          11
+        ],
+        "array_axis_order": [
+          "row",
+          "column"
+        ],
+        "physical_wcs_present": true,
+        "offset_applied": false,
+        "corners_xy_zero_based": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            10.0,
+            0.0
+          ],
+          [
+            0.0,
+            10.0
+          ],
+          [
+            10.0,
+            10.0
+          ]
+        ],
+        "corners_detector_xy": [
+          [
+            723.0,
+            617.0
+          ],
+          [
+            733.0,
+            617.0
+          ],
+          [
+            723.0,
+            627.0
+          ],
+          [
+            733.0,
+            627.0
+          ]
+        ],
+        "physical_ctype": [
+          "RAWX",
+          "RAWY"
+        ],
+        "nominal_target_cutout_xy": [
+          5.229790873216789,
+          5.834991269967461
+        ],
+        "nominal_target_detector_xy": [
+          728.2297908732168,
+          622.8349912699674
+        ]
+      },
+      "timing": {
+        "TIMESYS": "TDB",
+        "TIMEREF": "SOLARSYSTEM",
+        "TASSIGN": "SPACECRAFT",
+        "BJDREFI": 2457000,
+        "BJDREFF": 0.0,
+        "TIMEPIXR": 0.5,
+        "TIMEDEL": 0.0002314814814814815,
+        "INT_TIME": 1.98,
+        "READTIME": 0.02,
+        "FRAMETIM": 2.0,
+        "NUM_FRM": 10,
+        "DEADC": 0.99,
+        "TSTART": 2088.238494808579,
+        "TSTOP": 2114.433497527556,
+        "DATA_REL": 43,
+        "PROCVER": "spoc-5.0.15-20201021"
+      },
+      "columns": [
+        {
+          "name": "TIME",
+          "format": "D",
+          "unit": "BJD - 2457000, days"
+        },
+        {
+          "name": "TIMECORR",
+          "format": "E",
+          "unit": "d"
+        },
+        {
+          "name": "CADENCENO",
+          "format": "J",
+          "unit": null
+        },
+        {
+          "name": "SAP_FLUX",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_FLUX_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_BKG",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_BKG_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "PDCSAP_FLUX",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "PDCSAP_FLUX_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "QUALITY",
+          "format": "J",
+          "unit": null
+        },
+        {
+          "name": "PSF_CENTR1",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR1_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR2",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR2_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR1",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR1_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR2",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR2_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "POS_CORR1",
+          "format": "E",
+          "unit": "pixels"
+        },
+        {
+          "name": "POS_CORR2",
+          "format": "E",
+          "unit": "pixels"
+        }
+      ],
+      "metadata_download_bytes": 26404,
+      "metadata_ranges": [
+        {
+          "start": 0,
+          "length": 2880,
+          "sha256": "effbc9e5fdbc2f3adcf064d5766601dba7628f5f0088d01d51058c6c85b50460",
+          "etag": "\"452f51a07a3f25d791bd89245811af97\"",
+          "last_modified": "Tue, 10 Nov 2020 15:23:58 GMT"
+        },
+        {
+          "start": 2880,
+          "length": 2880,
+          "sha256": "e5cc5be3111be3537226af4d7d2242658a4be28ab03c97495360970a1e238d8d",
+          "etag": "\"452f51a07a3f25d791bd89245811af97\"",
+          "last_modified": "Tue, 10 Nov 2020 15:23:58 GMT"
+        },
+        {
+          "start": 5760,
+          "length": 2880,
+          "sha256": "f62cc45f0145c4914a84570f4e3c0a8fd8453f24c6b1c9936fb7f69941494d44",
+          "etag": "\"452f51a07a3f25d791bd89245811af97\"",
+          "last_modified": "Tue, 10 Nov 2020 15:23:58 GMT"
+        },
+        {
+          "start": 8640,
+          "length": 2880,
+          "sha256": "4d569711cf646a029882be9e24a9c5ef80e18b459fd9c14889b21786d5d68dc3",
+          "etag": "\"452f51a07a3f25d791bd89245811af97\"",
+          "last_modified": "Tue, 10 Nov 2020 15:23:58 GMT"
+        },
+        {
+          "start": 11520,
+          "length": 2880,
+          "sha256": "2602a9111b7a6c3d6aaca859f16b406989617718b322d1ea6b3c588b1f375901",
+          "etag": "\"452f51a07a3f25d791bd89245811af97\"",
+          "last_modified": "Tue, 10 Nov 2020 15:23:58 GMT"
+        },
+        {
+          "start": 14400,
+          "length": 2880,
+          "sha256": "190647d900ede3f31152c9347e0d92fa61e5a8171e62d71bddc2242ec8af2ce4",
+          "etag": "\"452f51a07a3f25d791bd89245811af97\"",
+          "last_modified": "Tue, 10 Nov 2020 15:23:58 GMT"
+        },
+        {
+          "start": 17280,
+          "length": 2880,
+          "sha256": "2774aa0815191894b503c57bb3382522982ddb1171b8fae3aac8abfbfa6be589",
+          "etag": "\"452f51a07a3f25d791bd89245811af97\"",
+          "last_modified": "Tue, 10 Nov 2020 15:23:58 GMT"
+        },
+        {
+          "start": 11341440,
+          "length": 2880,
+          "sha256": "1127a4f62ddc7c29d1755e49e1bf73b6592e850366c57b66acc53ec7b22fe24b",
+          "etag": "\"452f51a07a3f25d791bd89245811af97\"",
+          "last_modified": "Tue, 10 Nov 2020 15:23:58 GMT"
+        },
+        {
+          "start": 11344320,
+          "length": 2880,
+          "sha256": "9e0a1d63324c586631733fb6462d62116e42cc16fdd61c9b7e7bbf3ac4c9e569",
+          "etag": "\"452f51a07a3f25d791bd89245811af97\"",
+          "last_modified": "Tue, 10 Nov 2020 15:23:58 GMT"
+        },
+        {
+          "start": 11347200,
+          "length": 484,
+          "sha256": "c967e58b702163c054f0d1e9e5f6dbc5054c234adf1e418e89dd24e18c506c84",
+          "etag": "\"452f51a07a3f25d791bd89245811af97\"",
+          "last_modified": "Tue, 10 Nov 2020 15:23:58 GMT"
+        }
+      ],
+      "moment_centroid_pixels": 13,
+      "minimum_target_to_centroid_pixel_distance": 363.7229906807873,
+      "header_prefix": "headers/s029_tic306739391",
+      "products_request": {
+        "service": "Mast.Caom.Products",
+        "params": {
+          "obsid": "27973036"
+        },
+        "format": "json",
+        "pagesize": 1000,
+        "page": 1
+      }
+    },
+    {
+      "sector": 29,
+      "camera": 4,
+      "ccd": 3,
+      "tic": 306577335,
+      "tmag": 8.11,
+      "separation_deg": 2.052576885482095,
+      "observation": {
+        "obsid": 27973111,
+        "t_exptime": 20,
+        "t_min": 59087.73754998,
+        "t_max": 59113.93264418,
+        "sequence_number": 29,
+        "dataURL": "mast:TESS/product/tess2020238165205-s0029-0000000306577335-0193-a_fast-lc.fits",
+        "target_name": "306577335",
+        "obs_id": "tess2020238165205-s0029-0000000306577335-0193-a_fast",
+        "s_ra": 119.305228504556,
+        "s_dec": -67.6932634580998
+      },
+      "product": {
+        "name": "tess2020238165205-s0029-0000000306577335-0193-a_fast-lc.fits",
+        "uri": "mast:TESS/product/tess2020238165205-s0029-0000000306577335-0193-a_fast-lc.fits",
+        "bytes": 11350080,
+        "etag": "\"005c55938050dffd1eccebf0462d6fe7\""
+      },
+      "available_tpf": {
+        "name": "tess2020238165205-s0029-0000000306577335-0193-a_fast-tp.fits",
+        "uri": "mast:TESS/product/tess2020238165205-s0029-0000000306577335-0193-a_fast-tp.fits",
+        "bytes": 327651840
+      },
+      "table_start": 20160,
+      "row_bytes": 100,
+      "rows": 113190,
+      "geometry": {
+        "array_shape_yx": [
+          13,
+          11
+        ],
+        "array_axis_order": [
+          "row",
+          "column"
+        ],
+        "physical_wcs_present": true,
+        "offset_applied": false,
+        "corners_xy_zero_based": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            10.0,
+            0.0
+          ],
+          [
+            0.0,
+            12.0
+          ],
+          [
+            10.0,
+            12.0
+          ]
+        ],
+        "corners_detector_xy": [
+          [
+            1082.0,
+            444.0
+          ],
+          [
+            1092.0,
+            444.0
+          ],
+          [
+            1082.0,
+            456.0
+          ],
+          [
+            1092.0,
+            456.0
+          ]
+        ],
+        "physical_ctype": [
+          "RAWX",
+          "RAWY"
+        ],
+        "nominal_target_cutout_xy": [
+          5.83293186558635,
+          6.694896972430682
+        ],
+        "nominal_target_detector_xy": [
+          1087.8329318655863,
+          450.6948969724307
+        ]
+      },
+      "timing": {
+        "TIMESYS": "TDB",
+        "TIMEREF": "SOLARSYSTEM",
+        "TASSIGN": "SPACECRAFT",
+        "BJDREFI": 2457000,
+        "BJDREFF": 0.0,
+        "TIMEPIXR": 0.5,
+        "TIMEDEL": 0.0002314814814814815,
+        "INT_TIME": 1.98,
+        "READTIME": 0.02,
+        "FRAMETIM": 2.0,
+        "NUM_FRM": 10,
+        "DEADC": 0.99,
+        "TSTART": 2088.238350722616,
+        "TSTOP": 2114.433444923547,
+        "DATA_REL": 43,
+        "PROCVER": "spoc-5.0.15-20201021"
+      },
+      "columns": [
+        {
+          "name": "TIME",
+          "format": "D",
+          "unit": "BJD - 2457000, days"
+        },
+        {
+          "name": "TIMECORR",
+          "format": "E",
+          "unit": "d"
+        },
+        {
+          "name": "CADENCENO",
+          "format": "J",
+          "unit": null
+        },
+        {
+          "name": "SAP_FLUX",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_FLUX_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_BKG",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_BKG_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "PDCSAP_FLUX",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "PDCSAP_FLUX_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "QUALITY",
+          "format": "J",
+          "unit": null
+        },
+        {
+          "name": "PSF_CENTR1",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR1_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR2",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR2_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR1",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR1_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR2",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR2_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "POS_CORR1",
+          "format": "E",
+          "unit": "pixels"
+        },
+        {
+          "name": "POS_CORR2",
+          "format": "E",
+          "unit": "pixels"
+        }
+      ],
+      "metadata_download_bytes": 26492,
+      "metadata_ranges": [
+        {
+          "start": 0,
+          "length": 2880,
+          "sha256": "8f0e205ece98f8c385bd4273705938012f95f961cc20acc22edc72728fefee56",
+          "etag": "\"005c55938050dffd1eccebf0462d6fe7\"",
+          "last_modified": "Tue, 10 Nov 2020 15:25:33 GMT"
+        },
+        {
+          "start": 2880,
+          "length": 2880,
+          "sha256": "424df3a87225066531c32075eb96b0858344810c3d3b6dd88a131f30e5c984f5",
+          "etag": "\"005c55938050dffd1eccebf0462d6fe7\"",
+          "last_modified": "Tue, 10 Nov 2020 15:25:33 GMT"
+        },
+        {
+          "start": 5760,
+          "length": 2880,
+          "sha256": "f62cc45f0145c4914a84570f4e3c0a8fd8453f24c6b1c9936fb7f69941494d44",
+          "etag": "\"005c55938050dffd1eccebf0462d6fe7\"",
+          "last_modified": "Tue, 10 Nov 2020 15:25:33 GMT"
+        },
+        {
+          "start": 8640,
+          "length": 2880,
+          "sha256": "4d569711cf646a029882be9e24a9c5ef80e18b459fd9c14889b21786d5d68dc3",
+          "etag": "\"005c55938050dffd1eccebf0462d6fe7\"",
+          "last_modified": "Tue, 10 Nov 2020 15:25:33 GMT"
+        },
+        {
+          "start": 11520,
+          "length": 2880,
+          "sha256": "87c005f4f86ac68b2feaf3695cd9f8a7e457a96f5496311a12e88c9765989db8",
+          "etag": "\"005c55938050dffd1eccebf0462d6fe7\"",
+          "last_modified": "Tue, 10 Nov 2020 15:25:33 GMT"
+        },
+        {
+          "start": 14400,
+          "length": 2880,
+          "sha256": "43fd1c8929b2cbdfe106d6ad29a6f102d543abbd46295aa4c4d5d955a6f5ed0e",
+          "etag": "\"005c55938050dffd1eccebf0462d6fe7\"",
+          "last_modified": "Tue, 10 Nov 2020 15:25:33 GMT"
+        },
+        {
+          "start": 17280,
+          "length": 2880,
+          "sha256": "5ade457995f58abd1eafae3db462d59d06c7a7e7d5c5ea427a3288766f0374c1",
+          "etag": "\"005c55938050dffd1eccebf0462d6fe7\"",
+          "last_modified": "Tue, 10 Nov 2020 15:25:33 GMT"
+        },
+        {
+          "start": 11341440,
+          "length": 2880,
+          "sha256": "6fd0826d5b7198a17cbae83d17c8987cdd55ff40e64671ee0b16571cfa3ba038",
+          "etag": "\"005c55938050dffd1eccebf0462d6fe7\"",
+          "last_modified": "Tue, 10 Nov 2020 15:25:33 GMT"
+        },
+        {
+          "start": 11344320,
+          "length": 2880,
+          "sha256": "4158d0a221bc0916c4d0077352d1a907ee1fce89768dab5118c19d519a0cb714",
+          "etag": "\"005c55938050dffd1eccebf0462d6fe7\"",
+          "last_modified": "Tue, 10 Nov 2020 15:25:33 GMT"
+        },
+        {
+          "start": 11347200,
+          "length": 572,
+          "sha256": "c660176be5779ddebebfcef52695c1027bd3d617de2df2a9d278a1b4fea85eda",
+          "etag": "\"005c55938050dffd1eccebf0462d6fe7\"",
+          "last_modified": "Tue, 10 Nov 2020 15:25:33 GMT"
+        }
+      ],
+      "moment_centroid_pixels": 22,
+      "minimum_target_to_centroid_pixel_distance": 373.9229400877127,
+      "header_prefix": "headers/s029_tic306577335",
+      "products_request": {
+        "service": "Mast.Caom.Products",
+        "params": {
+          "obsid": "27973111"
+        },
+        "format": "json",
+        "pagesize": 1000,
+        "page": 1
+      }
+    },
+    {
+      "sector": 29,
+      "camera": 4,
+      "ccd": 3,
+      "tic": 306739511,
+      "tmag": 8.06,
+      "separation_deg": 2.18278717690117,
+      "observation": {
+        "obsid": 27973127,
+        "t_exptime": 20,
+        "t_min": 59087.73771095,
+        "t_max": 59113.93271097,
+        "sequence_number": 29,
+        "dataURL": "mast:TESS/product/tess2020238165205-s0029-0000000306739511-0193-a_fast-lc.fits",
+        "target_name": "306739511",
+        "obs_id": "tess2020238165205-s0029-0000000306739511-0193-a_fast",
+        "s_ra": 120.738092210444,
+        "s_dec": -70.0300765732655
+      },
+      "product": {
+        "name": "tess2020238165205-s0029-0000000306739511-0193-a_fast-lc.fits",
+        "uri": "mast:TESS/product/tess2020238165205-s0029-0000000306739511-0193-a_fast-lc.fits",
+        "bytes": 11350080,
+        "etag": "\"b84de29428f68d4a02da65588bacd517\""
+      },
+      "available_tpf": {
+        "name": "tess2020238165205-s0029-0000000306739511-0193-a_fast-tp.fits",
+        "uri": "mast:TESS/product/tess2020238165205-s0029-0000000306739511-0193-a_fast-tp.fits",
+        "bytes": 327709440
+      },
+      "table_start": 20160,
+      "row_bytes": 100,
+      "rows": 113190,
+      "geometry": {
+        "array_shape_yx": [
+          13,
+          11
+        ],
+        "array_axis_order": [
+          "row",
+          "column"
+        ],
+        "physical_wcs_present": true,
+        "offset_applied": false,
+        "corners_xy_zero_based": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            10.0,
+            0.0
+          ],
+          [
+            0.0,
+            12.0
+          ],
+          [
+            10.0,
+            12.0
+          ]
+        ],
+        "corners_detector_xy": [
+          [
+            713.0,
+            645.0
+          ],
+          [
+            723.0,
+            645.0
+          ],
+          [
+            713.0,
+            657.0
+          ],
+          [
+            723.0,
+            657.0
+          ]
+        ],
+        "physical_ctype": [
+          "RAWX",
+          "RAWY"
+        ],
+        "nominal_target_cutout_xy": [
+          5.787371439792506,
+          6.175890367291509
+        ],
+        "nominal_target_detector_xy": [
+          718.7873714397925,
+          651.1758903672915
+        ]
+      },
+      "timing": {
+        "TIMESYS": "TDB",
+        "TIMEREF": "SOLARSYSTEM",
+        "TASSIGN": "SPACECRAFT",
+        "BJDREFI": 2457000,
+        "BJDREFF": 0.0,
+        "TIMEPIXR": 0.5,
+        "TIMEDEL": 0.0002314814814814815,
+        "INT_TIME": 1.98,
+        "READTIME": 0.02,
+        "FRAMETIM": 2.0,
+        "NUM_FRM": 10,
+        "DEADC": 0.99,
+        "TSTART": 2088.238511690489,
+        "TSTOP": 2114.433511708921,
+        "DATA_REL": 43,
+        "PROCVER": "spoc-5.0.15-20201021"
+      },
+      "columns": [
+        {
+          "name": "TIME",
+          "format": "D",
+          "unit": "BJD - 2457000, days"
+        },
+        {
+          "name": "TIMECORR",
+          "format": "E",
+          "unit": "d"
+        },
+        {
+          "name": "CADENCENO",
+          "format": "J",
+          "unit": null
+        },
+        {
+          "name": "SAP_FLUX",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_FLUX_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_BKG",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_BKG_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "PDCSAP_FLUX",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "PDCSAP_FLUX_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "QUALITY",
+          "format": "J",
+          "unit": null
+        },
+        {
+          "name": "PSF_CENTR1",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR1_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR2",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR2_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR1",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR1_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR2",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR2_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "POS_CORR1",
+          "format": "E",
+          "unit": "pixels"
+        },
+        {
+          "name": "POS_CORR2",
+          "format": "E",
+          "unit": "pixels"
+        }
+      ],
+      "metadata_download_bytes": 26492,
+      "metadata_ranges": [
+        {
+          "start": 0,
+          "length": 2880,
+          "sha256": "bde337d661338565f8eb407ded071939b6cd1f898ac09e8facec1c92af33a3cd",
+          "etag": "\"b84de29428f68d4a02da65588bacd517\"",
+          "last_modified": "Tue, 10 Nov 2020 15:25:46 GMT"
+        },
+        {
+          "start": 2880,
+          "length": 2880,
+          "sha256": "ae0f6bafa800f980349d20563546fe4ac08a47af0b7d5d634fcf6541fd52889a",
+          "etag": "\"b84de29428f68d4a02da65588bacd517\"",
+          "last_modified": "Tue, 10 Nov 2020 15:25:46 GMT"
+        },
+        {
+          "start": 5760,
+          "length": 2880,
+          "sha256": "f62cc45f0145c4914a84570f4e3c0a8fd8453f24c6b1c9936fb7f69941494d44",
+          "etag": "\"b84de29428f68d4a02da65588bacd517\"",
+          "last_modified": "Tue, 10 Nov 2020 15:25:46 GMT"
+        },
+        {
+          "start": 8640,
+          "length": 2880,
+          "sha256": "4d569711cf646a029882be9e24a9c5ef80e18b459fd9c14889b21786d5d68dc3",
+          "etag": "\"b84de29428f68d4a02da65588bacd517\"",
+          "last_modified": "Tue, 10 Nov 2020 15:25:46 GMT"
+        },
+        {
+          "start": 11520,
+          "length": 2880,
+          "sha256": "7fbf7bed0241790d85336931e442247da2f2f1b4a3c66a77442f7e5fa40caba6",
+          "etag": "\"b84de29428f68d4a02da65588bacd517\"",
+          "last_modified": "Tue, 10 Nov 2020 15:25:46 GMT"
+        },
+        {
+          "start": 14400,
+          "length": 2880,
+          "sha256": "2c155eb05c16d6fe25ad042309b5f81cd388e25e3980a1d40956d34b9ff02fba",
+          "etag": "\"b84de29428f68d4a02da65588bacd517\"",
+          "last_modified": "Tue, 10 Nov 2020 15:25:46 GMT"
+        },
+        {
+          "start": 17280,
+          "length": 2880,
+          "sha256": "53a8c80f19cfe21c6f5979ce5a73ff6a3e8ee85646442ebca720fb9efe3164e8",
+          "etag": "\"b84de29428f68d4a02da65588bacd517\"",
+          "last_modified": "Tue, 10 Nov 2020 15:25:46 GMT"
+        },
+        {
+          "start": 11341440,
+          "length": 2880,
+          "sha256": "182719a42fe974bf38a76e2efa0fd12a493d264928fd09a321c47821772cafce",
+          "etag": "\"b84de29428f68d4a02da65588bacd517\"",
+          "last_modified": "Tue, 10 Nov 2020 15:25:46 GMT"
+        },
+        {
+          "start": 11344320,
+          "length": 2880,
+          "sha256": "6f613218248c9dd266d15d4d25c10a0a92d80806433edbca43cf921fb010bd11",
+          "etag": "\"b84de29428f68d4a02da65588bacd517\"",
+          "last_modified": "Tue, 10 Nov 2020 15:25:46 GMT"
+        },
+        {
+          "start": 11347200,
+          "length": 572,
+          "sha256": "ee914265a5dc8f597d351b6426c25632f0e90dea69e3ea2a29a0218aceb587df",
+          "etag": "\"b84de29428f68d4a02da65588bacd517\"",
+          "last_modified": "Tue, 10 Nov 2020 15:25:46 GMT"
+        }
+      ],
+      "moment_centroid_pixels": 24,
+      "minimum_target_to_centroid_pixel_distance": 391.7325909364644,
+      "header_prefix": "headers/s029_tic306739511",
+      "products_request": {
+        "service": "Mast.Caom.Products",
+        "params": {
+          "obsid": "27973127"
+        },
+        "format": "json",
+        "pagesize": 1000,
+        "page": 1
+      }
+    },
+    {
+      "sector": 29,
+      "camera": 4,
+      "ccd": 3,
+      "tic": 307087642,
+      "tmag": 8.84,
+      "separation_deg": 2.319250954098564,
+      "observation": {
+        "obsid": 27973563,
+        "t_exptime": 20,
+        "t_min": 59087.7373191,
+        "t_max": 59113.93242076,
+        "sequence_number": 29,
+        "dataURL": "mast:TESS/product/tess2020238165205-s0029-0000000307087642-0193-a_fast-lc.fits",
+        "target_name": "307087642",
+        "obs_id": "tess2020238165205-s0029-0000000307087642-0193-a_fast",
+        "s_ra": 123.53753820327,
+        "s_dec": -66.026076343937
+      },
+      "product": {
+        "name": "tess2020238165205-s0029-0000000307087642-0193-a_fast-lc.fits",
+        "uri": "mast:TESS/product/tess2020238165205-s0029-0000000307087642-0193-a_fast-lc.fits",
+        "bytes": 11350080,
+        "etag": "\"30370d87b1a5d6c0179de3974395e011\""
+      },
+      "available_tpf": {
+        "name": "tess2020238165205-s0029-0000000307087642-0193-a_fast-tp.fits",
+        "uri": "mast:TESS/product/tess2020238165205-s0029-0000000307087642-0193-a_fast-tp.fits",
+        "bytes": 277652160
+      },
+      "table_start": 20160,
+      "row_bytes": 100,
+      "rows": 113190,
+      "geometry": {
+        "array_shape_yx": [
+          11,
+          11
+        ],
+        "array_axis_order": [
+          "row",
+          "column"
+        ],
+        "physical_wcs_present": true,
+        "offset_applied": false,
+        "corners_xy_zero_based": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            10.0,
+            0.0
+          ],
+          [
+            0.0,
+            10.0
+          ],
+          [
+            10.0,
+            10.0
+          ]
+        ],
+        "corners_detector_xy": [
+          [
+            1092.0,
+            15.0
+          ],
+          [
+            1102.0,
+            15.0
+          ],
+          [
+            1092.0,
+            25.0
+          ],
+          [
+            1102.0,
+            25.0
+          ]
+        ],
+        "physical_ctype": [
+          "RAWX",
+          "RAWY"
+        ],
+        "nominal_target_cutout_xy": [
+          5.571155137259962,
+          5.698317626661074
+        ],
+        "nominal_target_detector_xy": [
+          1097.57115513726,
+          20.698317626661073
+        ]
+      },
+      "timing": {
+        "TIMESYS": "TDB",
+        "TIMEREF": "SOLARSYSTEM",
+        "TASSIGN": "SPACECRAFT",
+        "BJDREFI": 2457000,
+        "BJDREFF": 0.0,
+        "TIMEPIXR": 0.5,
+        "TIMEDEL": 0.0002314814814814815,
+        "INT_TIME": 1.98,
+        "READTIME": 0.02,
+        "FRAMETIM": 2.0,
+        "NUM_FRM": 10,
+        "DEADC": 0.99,
+        "TSTART": 2088.238119837971,
+        "TSTOP": 2114.433221500425,
+        "DATA_REL": 43,
+        "PROCVER": "spoc-5.0.15-20201021"
+      },
+      "columns": [
+        {
+          "name": "TIME",
+          "format": "D",
+          "unit": "BJD - 2457000, days"
+        },
+        {
+          "name": "TIMECORR",
+          "format": "E",
+          "unit": "d"
+        },
+        {
+          "name": "CADENCENO",
+          "format": "J",
+          "unit": null
+        },
+        {
+          "name": "SAP_FLUX",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_FLUX_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_BKG",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_BKG_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "PDCSAP_FLUX",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "PDCSAP_FLUX_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "QUALITY",
+          "format": "J",
+          "unit": null
+        },
+        {
+          "name": "PSF_CENTR1",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR1_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR2",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR2_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR1",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR1_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR2",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR2_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "POS_CORR1",
+          "format": "E",
+          "unit": "pixels"
+        },
+        {
+          "name": "POS_CORR2",
+          "format": "E",
+          "unit": "pixels"
+        }
+      ],
+      "metadata_download_bytes": 26404,
+      "metadata_ranges": [
+        {
+          "start": 0,
+          "length": 2880,
+          "sha256": "332454e1e191d2bbee218c23d67be18574a3b0de3a22f598ec10d051816e3f4b",
+          "etag": "\"30370d87b1a5d6c0179de3974395e011\"",
+          "last_modified": "Tue, 10 Nov 2020 15:34:17 GMT"
+        },
+        {
+          "start": 2880,
+          "length": 2880,
+          "sha256": "24c80b6d23527e152d2a57794246b5423942efbf186284c5e308f6ac954c837b",
+          "etag": "\"30370d87b1a5d6c0179de3974395e011\"",
+          "last_modified": "Tue, 10 Nov 2020 15:34:17 GMT"
+        },
+        {
+          "start": 5760,
+          "length": 2880,
+          "sha256": "f62cc45f0145c4914a84570f4e3c0a8fd8453f24c6b1c9936fb7f69941494d44",
+          "etag": "\"30370d87b1a5d6c0179de3974395e011\"",
+          "last_modified": "Tue, 10 Nov 2020 15:34:17 GMT"
+        },
+        {
+          "start": 8640,
+          "length": 2880,
+          "sha256": "4d569711cf646a029882be9e24a9c5ef80e18b459fd9c14889b21786d5d68dc3",
+          "etag": "\"30370d87b1a5d6c0179de3974395e011\"",
+          "last_modified": "Tue, 10 Nov 2020 15:34:17 GMT"
+        },
+        {
+          "start": 11520,
+          "length": 2880,
+          "sha256": "614072d6bf5221f2a3e9d3bad04d040f6de8e6a47b971d5958470c7a52164d6f",
+          "etag": "\"30370d87b1a5d6c0179de3974395e011\"",
+          "last_modified": "Tue, 10 Nov 2020 15:34:17 GMT"
+        },
+        {
+          "start": 14400,
+          "length": 2880,
+          "sha256": "cec7028b7b3dae088e4c3548172a7ec6db56db460359499594be70ee363bc880",
+          "etag": "\"30370d87b1a5d6c0179de3974395e011\"",
+          "last_modified": "Tue, 10 Nov 2020 15:34:17 GMT"
+        },
+        {
+          "start": 17280,
+          "length": 2880,
+          "sha256": "b497e7aeed5f33d2bd0795f1c2fddb053b624f77168de389c5f5ad29479f9707",
+          "etag": "\"30370d87b1a5d6c0179de3974395e011\"",
+          "last_modified": "Tue, 10 Nov 2020 15:34:17 GMT"
+        },
+        {
+          "start": 11341440,
+          "length": 2880,
+          "sha256": "2b816246f8cbaa486a181d9c14b8f0f4c5c256b8092762293dc12670a41b4232",
+          "etag": "\"30370d87b1a5d6c0179de3974395e011\"",
+          "last_modified": "Tue, 10 Nov 2020 15:34:17 GMT"
+        },
+        {
+          "start": 11344320,
+          "length": 2880,
+          "sha256": "eccabc4f1dc1ef80fb722ffe91908ab67af66b0b87bdf0413378276b33512417",
+          "etag": "\"30370d87b1a5d6c0179de3974395e011\"",
+          "last_modified": "Tue, 10 Nov 2020 15:34:17 GMT"
+        },
+        {
+          "start": 11347200,
+          "length": 484,
+          "sha256": "fc104b38d1668cd564191c85113ac39901eea35b3807792b528b87974f066496",
+          "etag": "\"30370d87b1a5d6c0179de3974395e011\"",
+          "last_modified": "Tue, 10 Nov 2020 15:34:17 GMT"
+        }
+      ],
+      "moment_centroid_pixels": 21,
+      "minimum_target_to_centroid_pixel_distance": 408.33836322959587,
+      "header_prefix": "headers/s029_tic307087642",
+      "products_request": {
+        "service": "Mast.Caom.Products",
+        "params": {
+          "obsid": "27973563"
+        },
+        "format": "json",
+        "pagesize": 1000,
+        "page": 1
+      }
+    },
+    {
+      "sector": 29,
+      "camera": 4,
+      "ccd": 3,
+      "tic": 307785290,
+      "tmag": 8.09,
+      "separation_deg": 2.4834091683925408,
+      "observation": {
+        "obsid": 27973066,
+        "t_exptime": 20,
+        "t_min": 59087.73761475,
+        "t_max": 59113.93252458,
+        "sequence_number": 29,
+        "dataURL": "mast:TESS/product/tess2020238165205-s0029-0000000307785290-0193-a_fast-lc.fits",
+        "target_name": "307785290",
+        "obs_id": "tess2020238165205-s0029-0000000307785290-0193-a_fast",
+        "s_ra": 128.216796195571,
+        "s_dec": -70.4312584756428
+      },
+      "product": {
+        "name": "tess2020238165205-s0029-0000000307785290-0193-a_fast-lc.fits",
+        "uri": "mast:TESS/product/tess2020238165205-s0029-0000000307785290-0193-a_fast-lc.fits",
+        "bytes": 11350080,
+        "etag": "\"9e7a0d2cd3f3221643943b1ff96aa9a7\""
+      },
+      "available_tpf": {
+        "name": "tess2020238165205-s0029-0000000307785290-0193-a_fast-tp.fits",
+        "uri": "mast:TESS/product/tess2020238165205-s0029-0000000307785290-0193-a_fast-tp.fits",
+        "bytes": 327634560
+      },
+      "table_start": 20160,
+      "row_bytes": 100,
+      "rows": 113190,
+      "geometry": {
+        "array_shape_yx": [
+          13,
+          11
+        ],
+        "array_axis_order": [
+          "row",
+          "column"
+        ],
+        "physical_wcs_present": true,
+        "offset_applied": false,
+        "corners_xy_zero_based": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            10.0,
+            0.0
+          ],
+          [
+            0.0,
+            12.0
+          ],
+          [
+            10.0,
+            12.0
+          ]
+        ],
+        "corners_detector_xy": [
+          [
+            325.0,
+            365.0
+          ],
+          [
+            335.0,
+            365.0
+          ],
+          [
+            325.0,
+            377.0
+          ],
+          [
+            335.0,
+            377.0
+          ]
+        ],
+        "physical_ctype": [
+          "RAWX",
+          "RAWY"
+        ],
+        "nominal_target_cutout_xy": [
+          5.543286111172792,
+          6.442996922880142
+        ],
+        "nominal_target_detector_xy": [
+          330.5432861111728,
+          371.4429969228801
+        ]
+      },
+      "timing": {
+        "TIMESYS": "TDB",
+        "TIMEREF": "SOLARSYSTEM",
+        "TASSIGN": "SPACECRAFT",
+        "BJDREFI": 2457000,
+        "BJDREFF": 0.0,
+        "TIMEPIXR": 0.5,
+        "TIMEDEL": 0.0002314814814814815,
+        "INT_TIME": 1.98,
+        "READTIME": 0.02,
+        "FRAMETIM": 2.0,
+        "NUM_FRM": 10,
+        "DEADC": 0.99,
+        "TSTART": 2088.238415480385,
+        "TSTOP": 2114.433325325546,
+        "DATA_REL": 43,
+        "PROCVER": "spoc-5.0.15-20201021"
+      },
+      "columns": [
+        {
+          "name": "TIME",
+          "format": "D",
+          "unit": "BJD - 2457000, days"
+        },
+        {
+          "name": "TIMECORR",
+          "format": "E",
+          "unit": "d"
+        },
+        {
+          "name": "CADENCENO",
+          "format": "J",
+          "unit": null
+        },
+        {
+          "name": "SAP_FLUX",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_FLUX_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_BKG",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_BKG_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "PDCSAP_FLUX",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "PDCSAP_FLUX_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "QUALITY",
+          "format": "J",
+          "unit": null
+        },
+        {
+          "name": "PSF_CENTR1",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR1_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR2",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR2_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR1",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR1_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR2",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR2_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "POS_CORR1",
+          "format": "E",
+          "unit": "pixels"
+        },
+        {
+          "name": "POS_CORR2",
+          "format": "E",
+          "unit": "pixels"
+        }
+      ],
+      "metadata_download_bytes": 26492,
+      "metadata_ranges": [
+        {
+          "start": 0,
+          "length": 2880,
+          "sha256": "4d88e8fb08304641fcec64d8a498cd11a290b032e5163ea756f32c028f5a3f4e",
+          "etag": "\"9e7a0d2cd3f3221643943b1ff96aa9a7\"",
+          "last_modified": "Tue, 10 Nov 2020 15:24:39 GMT"
+        },
+        {
+          "start": 2880,
+          "length": 2880,
+          "sha256": "7211e8923399d111850b34bb1d9d33c49c8bab81a8bcd4901e2f8bce4b423048",
+          "etag": "\"9e7a0d2cd3f3221643943b1ff96aa9a7\"",
+          "last_modified": "Tue, 10 Nov 2020 15:24:39 GMT"
+        },
+        {
+          "start": 5760,
+          "length": 2880,
+          "sha256": "f62cc45f0145c4914a84570f4e3c0a8fd8453f24c6b1c9936fb7f69941494d44",
+          "etag": "\"9e7a0d2cd3f3221643943b1ff96aa9a7\"",
+          "last_modified": "Tue, 10 Nov 2020 15:24:39 GMT"
+        },
+        {
+          "start": 8640,
+          "length": 2880,
+          "sha256": "4d569711cf646a029882be9e24a9c5ef80e18b459fd9c14889b21786d5d68dc3",
+          "etag": "\"9e7a0d2cd3f3221643943b1ff96aa9a7\"",
+          "last_modified": "Tue, 10 Nov 2020 15:24:39 GMT"
+        },
+        {
+          "start": 11520,
+          "length": 2880,
+          "sha256": "5f855ad349e326e64c617047e4667d4bb4905191c90b7d02b015d18ede28d86e",
+          "etag": "\"9e7a0d2cd3f3221643943b1ff96aa9a7\"",
+          "last_modified": "Tue, 10 Nov 2020 15:24:39 GMT"
+        },
+        {
+          "start": 14400,
+          "length": 2880,
+          "sha256": "d688a8ba579b56c68fab1e67996975c173317b9ff0237a1f807acf6866d1f46b",
+          "etag": "\"9e7a0d2cd3f3221643943b1ff96aa9a7\"",
+          "last_modified": "Tue, 10 Nov 2020 15:24:39 GMT"
+        },
+        {
+          "start": 17280,
+          "length": 2880,
+          "sha256": "21fc9f8856796e4b6067c1ef596bf2662f88b460efe476af6bc7be92a5b8cef9",
+          "etag": "\"9e7a0d2cd3f3221643943b1ff96aa9a7\"",
+          "last_modified": "Tue, 10 Nov 2020 15:24:39 GMT"
+        },
+        {
+          "start": 11341440,
+          "length": 2880,
+          "sha256": "83d341f8cb9563526d9ad6bd631e850a7694db8dd0cbcd580a1fc5f2e20d3ff4",
+          "etag": "\"9e7a0d2cd3f3221643943b1ff96aa9a7\"",
+          "last_modified": "Tue, 10 Nov 2020 15:24:39 GMT"
+        },
+        {
+          "start": 11344320,
+          "length": 2880,
+          "sha256": "8b703a7d4c539fec622a6ef05c5e82aecb7f80aa76975447f9228cf070848303",
+          "etag": "\"9e7a0d2cd3f3221643943b1ff96aa9a7\"",
+          "last_modified": "Tue, 10 Nov 2020 15:24:39 GMT"
+        },
+        {
+          "start": 11347200,
+          "length": 572,
+          "sha256": "a717fc09a6cfb47b68d376048d5d733d878c2598b9d538b0507aeeb25ceec077",
+          "etag": "\"9e7a0d2cd3f3221643943b1ff96aa9a7\"",
+          "last_modified": "Tue, 10 Nov 2020 15:24:39 GMT"
+        }
+      ],
+      "moment_centroid_pixels": 23,
+      "minimum_target_to_centroid_pixel_distance": 444.51781963939425,
+      "header_prefix": "headers/s029_tic307785290",
+      "products_request": {
+        "service": "Mast.Caom.Products",
+        "params": {
+          "obsid": "27973066"
+        },
+        "format": "json",
+        "pagesize": 1000,
+        "page": 1
+      }
+    },
+    {
+      "sector": 32,
+      "camera": 4,
+      "ccd": 4,
+      "tic": 307780535,
+      "tmag": 8.05,
+      "separation_deg": 1.2676408570518873,
+      "observation": {
+        "obsid": 28137322,
+        "t_exptime": 20,
+        "t_min": 59173.71538249,
+        "t_max": 59199.73159035,
+        "sequence_number": 32,
+        "dataURL": "mast:TESS/product/tess2020324010417-s0032-0000000307780535-0200-a_fast-lc.fits",
+        "target_name": "307780535",
+        "obs_id": "tess2020324010417-s0032-0000000307780535-0200-a_fast",
+        "s_ra": 127.961690545247,
+        "s_dec": -68.3954804089509
+      },
+      "product": {
+        "name": "tess2020324010417-s0032-0000000307780535-0200-a_fast-lc.fits",
+        "uri": "mast:TESS/product/tess2020324010417-s0032-0000000307780535-0200-a_fast-lc.fits",
+        "bytes": 11269440,
+        "etag": "\"b61d448012c9bf4d8a0a89e79a14eda7\""
+      },
+      "available_tpf": {
+        "name": "tess2020324010417-s0032-0000000307780535-0200-a_fast-tp.fits",
+        "uri": "mast:TESS/product/tess2020324010417-s0032-0000000307780535-0200-a_fast-tp.fits",
+        "bytes": 325301760
+      },
+      "table_start": 20160,
+      "row_bytes": 100,
+      "rows": 112388,
+      "geometry": {
+        "array_shape_yx": [
+          13,
+          11
+        ],
+        "array_axis_order": [
+          "row",
+          "column"
+        ],
+        "physical_wcs_present": true,
+        "offset_applied": false,
+        "corners_xy_zero_based": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            10.0,
+            0.0
+          ],
+          [
+            0.0,
+            12.0
+          ],
+          [
+            10.0,
+            12.0
+          ]
+        ],
+        "corners_detector_xy": [
+          [
+            1834.0,
+            356.0
+          ],
+          [
+            1844.0,
+            356.0
+          ],
+          [
+            1834.0,
+            368.0
+          ],
+          [
+            1844.0,
+            368.0
+          ]
+        ],
+        "physical_ctype": [
+          "RAWX",
+          "RAWY"
+        ],
+        "nominal_target_cutout_xy": [
+          5.541573455320623,
+          7.083074974730014
+        ],
+        "nominal_target_detector_xy": [
+          1839.5415734553205,
+          363.08307497473004
+        ]
+      },
+      "timing": {
+        "TIMESYS": "TDB",
+        "TIMEREF": "SOLARSYSTEM",
+        "TASSIGN": "SPACECRAFT",
+        "BJDREFI": 2457000,
+        "BJDREFF": 0.0,
+        "TIMEPIXR": 0.5,
+        "TIMEDEL": 0.0002314814814814815,
+        "INT_TIME": 1.98,
+        "READTIME": 0.02,
+        "FRAMETIM": 2.0,
+        "NUM_FRM": 10,
+        "DEADC": 0.99,
+        "TSTART": 2174.216183229974,
+        "TSTOP": 2200.232391083244,
+        "DATA_REL": 48,
+        "PROCVER": "spoc-5.0.21-20210107"
+      },
+      "columns": [
+        {
+          "name": "TIME",
+          "format": "D",
+          "unit": "BJD - 2457000, days"
+        },
+        {
+          "name": "TIMECORR",
+          "format": "E",
+          "unit": "d"
+        },
+        {
+          "name": "CADENCENO",
+          "format": "J",
+          "unit": null
+        },
+        {
+          "name": "SAP_FLUX",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_FLUX_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_BKG",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_BKG_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "PDCSAP_FLUX",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "PDCSAP_FLUX_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "QUALITY",
+          "format": "J",
+          "unit": null
+        },
+        {
+          "name": "PSF_CENTR1",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR1_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR2",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR2_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR1",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR1_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR2",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR2_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "POS_CORR1",
+          "format": "E",
+          "unit": "pixels"
+        },
+        {
+          "name": "POS_CORR2",
+          "format": "E",
+          "unit": "pixels"
+        }
+      ],
+      "metadata_download_bytes": 26492,
+      "metadata_ranges": [
+        {
+          "start": 0,
+          "length": 2880,
+          "sha256": "acd17497213a6ab814745068c67c534f1de6bc5b2ecc4b565f973490846eea3a",
+          "etag": "\"b61d448012c9bf4d8a0a89e79a14eda7\"",
+          "last_modified": "Tue, 26 Jan 2021 22:19:09 GMT"
+        },
+        {
+          "start": 2880,
+          "length": 2880,
+          "sha256": "33a2680fb3ff1296c98855927914cbd89692d77b4eadc4acf6959cbadc89bc83",
+          "etag": "\"b61d448012c9bf4d8a0a89e79a14eda7\"",
+          "last_modified": "Tue, 26 Jan 2021 22:19:09 GMT"
+        },
+        {
+          "start": 5760,
+          "length": 2880,
+          "sha256": "ff76c63922bb44289f4380fa750790003dcbe53add5a21a4ece31af5355cb7ae",
+          "etag": "\"b61d448012c9bf4d8a0a89e79a14eda7\"",
+          "last_modified": "Tue, 26 Jan 2021 22:19:09 GMT"
+        },
+        {
+          "start": 8640,
+          "length": 2880,
+          "sha256": "4d569711cf646a029882be9e24a9c5ef80e18b459fd9c14889b21786d5d68dc3",
+          "etag": "\"b61d448012c9bf4d8a0a89e79a14eda7\"",
+          "last_modified": "Tue, 26 Jan 2021 22:19:09 GMT"
+        },
+        {
+          "start": 11520,
+          "length": 2880,
+          "sha256": "ffc8dc2a136f6f110492492982a19a50c082e13806a869e79a4d01f2b6968d3a",
+          "etag": "\"b61d448012c9bf4d8a0a89e79a14eda7\"",
+          "last_modified": "Tue, 26 Jan 2021 22:19:09 GMT"
+        },
+        {
+          "start": 14400,
+          "length": 2880,
+          "sha256": "378199baa9b1d4b2ed5178e9d441aae4c8dceb8f48d42599e22ff2da8a1fa0a5",
+          "etag": "\"b61d448012c9bf4d8a0a89e79a14eda7\"",
+          "last_modified": "Tue, 26 Jan 2021 22:19:09 GMT"
+        },
+        {
+          "start": 17280,
+          "length": 2880,
+          "sha256": "8a17c23d8ed556cc4f84395af9bee88b9e56504499b7d0f80483bb55db2a5d22",
+          "etag": "\"b61d448012c9bf4d8a0a89e79a14eda7\"",
+          "last_modified": "Tue, 26 Jan 2021 22:19:09 GMT"
+        },
+        {
+          "start": 11260800,
+          "length": 2880,
+          "sha256": "061e42010c30b9545a80b03c6b46c0b5d238a02638a91e39d753d4bff07a5c31",
+          "etag": "\"b61d448012c9bf4d8a0a89e79a14eda7\"",
+          "last_modified": "Tue, 26 Jan 2021 22:19:09 GMT"
+        },
+        {
+          "start": 11263680,
+          "length": 2880,
+          "sha256": "3ad2f6101e730854a9e2cdd53e2f49d5928189c19259ed15f85a8265cc1bc1c2",
+          "etag": "\"b61d448012c9bf4d8a0a89e79a14eda7\"",
+          "last_modified": "Tue, 26 Jan 2021 22:19:09 GMT"
+        },
+        {
+          "start": 11266560,
+          "length": 572,
+          "sha256": "e8f980fb2dca72d5b2633f2538aebec47374b27cddb2165d3ffc224cbb793d74",
+          "etag": "\"b61d448012c9bf4d8a0a89e79a14eda7\"",
+          "last_modified": "Tue, 26 Jan 2021 22:19:09 GMT"
+        }
+      ],
+      "moment_centroid_pixels": 22,
+      "minimum_target_to_centroid_pixel_distance": 236.915771775563,
+      "header_prefix": "headers/s032_tic307780535",
+      "products_request": {
+        "service": "Mast.Caom.Products",
+        "params": {
+          "obsid": "28137322"
+        },
+        "format": "json",
+        "pagesize": 1000,
+        "page": 1
+      }
+    },
+    {
+      "sector": 32,
+      "camera": 4,
+      "ccd": 4,
+      "tic": 307441274,
+      "tmag": 8.3,
+      "separation_deg": 1.6557075651586037,
+      "observation": {
+        "obsid": 28149667,
+        "t_exptime": 20,
+        "t_min": 59173.71550913,
+        "t_max": 59199.73175627,
+        "sequence_number": 32,
+        "dataURL": "mast:TESS/product/tess2020324010417-s0032-0000000307441274-0200-a_fast-lc.fits",
+        "target_name": "307441274",
+        "obs_id": "tess2020324010417-s0032-0000000307441274-0200-a_fast",
+        "s_ra": 126.22022120896,
+        "s_dec": -66.787956151527
+      },
+      "product": {
+        "name": "tess2020324010417-s0032-0000000307441274-0200-a_fast-lc.fits",
+        "uri": "mast:TESS/product/tess2020324010417-s0032-0000000307441274-0200-a_fast-lc.fits",
+        "bytes": 11269440,
+        "etag": "\"f0e30f30239b6827e8d8999d3936d964\""
+      },
+      "available_tpf": {
+        "name": "tess2020324010417-s0032-0000000307441274-0200-a_fast-tp.fits",
+        "uri": "mast:TESS/product/tess2020324010417-s0032-0000000307441274-0200-a_fast-tp.fits",
+        "bytes": 275785920
+      },
+      "table_start": 20160,
+      "row_bytes": 100,
+      "rows": 112388,
+      "geometry": {
+        "array_shape_yx": [
+          11,
+          11
+        ],
+        "array_axis_order": [
+          "row",
+          "column"
+        ],
+        "physical_wcs_present": true,
+        "offset_applied": false,
+        "corners_xy_zero_based": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            10.0,
+            0.0
+          ],
+          [
+            0.0,
+            10.0
+          ],
+          [
+            10.0,
+            10.0
+          ]
+        ],
+        "corners_detector_xy": [
+          [
+            1990.0,
+            627.0
+          ],
+          [
+            2000.0,
+            627.0
+          ],
+          [
+            1990.0,
+            637.0
+          ],
+          [
+            2000.0,
+            637.0
+          ]
+        ],
+        "physical_ctype": [
+          "RAWX",
+          "RAWY"
+        ],
+        "nominal_target_cutout_xy": [
+          5.14940737604629,
+          5.182187522737833
+        ],
+        "nominal_target_detector_xy": [
+          1995.1494073760464,
+          632.1821875227379
+        ]
+      },
+      "timing": {
+        "TIMESYS": "TDB",
+        "TIMEREF": "SOLARSYSTEM",
+        "TASSIGN": "SPACECRAFT",
+        "BJDREFI": 2457000,
+        "BJDREFF": 0.0,
+        "TIMEPIXR": 0.5,
+        "TIMEDEL": 0.0002314814814814815,
+        "INT_TIME": 1.98,
+        "READTIME": 0.02,
+        "FRAMETIM": 2.0,
+        "NUM_FRM": 10,
+        "DEADC": 0.99,
+        "TSTART": 2174.216309875292,
+        "TSTOP": 2200.232557015008,
+        "DATA_REL": 48,
+        "PROCVER": "spoc-5.0.21-20210107"
+      },
+      "columns": [
+        {
+          "name": "TIME",
+          "format": "D",
+          "unit": "BJD - 2457000, days"
+        },
+        {
+          "name": "TIMECORR",
+          "format": "E",
+          "unit": "d"
+        },
+        {
+          "name": "CADENCENO",
+          "format": "J",
+          "unit": null
+        },
+        {
+          "name": "SAP_FLUX",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_FLUX_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_BKG",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_BKG_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "PDCSAP_FLUX",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "PDCSAP_FLUX_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "QUALITY",
+          "format": "J",
+          "unit": null
+        },
+        {
+          "name": "PSF_CENTR1",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR1_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR2",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR2_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR1",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR1_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR2",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR2_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "POS_CORR1",
+          "format": "E",
+          "unit": "pixels"
+        },
+        {
+          "name": "POS_CORR2",
+          "format": "E",
+          "unit": "pixels"
+        }
+      ],
+      "metadata_download_bytes": 26404,
+      "metadata_ranges": [
+        {
+          "start": 0,
+          "length": 2880,
+          "sha256": "933ef6a08fba2996e7b381db8b9d1a8ebce5887e04ba25298ef70c64675161ec",
+          "etag": "\"f0e30f30239b6827e8d8999d3936d964\"",
+          "last_modified": "Tue, 26 Jan 2021 08:13:59 GMT"
+        },
+        {
+          "start": 2880,
+          "length": 2880,
+          "sha256": "83d8d19896ce84828261bb23a9b353805ae450c822471a9ede4ae826a3f0d5a9",
+          "etag": "\"f0e30f30239b6827e8d8999d3936d964\"",
+          "last_modified": "Tue, 26 Jan 2021 08:13:59 GMT"
+        },
+        {
+          "start": 5760,
+          "length": 2880,
+          "sha256": "ff76c63922bb44289f4380fa750790003dcbe53add5a21a4ece31af5355cb7ae",
+          "etag": "\"f0e30f30239b6827e8d8999d3936d964\"",
+          "last_modified": "Tue, 26 Jan 2021 08:13:59 GMT"
+        },
+        {
+          "start": 8640,
+          "length": 2880,
+          "sha256": "4d569711cf646a029882be9e24a9c5ef80e18b459fd9c14889b21786d5d68dc3",
+          "etag": "\"f0e30f30239b6827e8d8999d3936d964\"",
+          "last_modified": "Tue, 26 Jan 2021 08:13:59 GMT"
+        },
+        {
+          "start": 11520,
+          "length": 2880,
+          "sha256": "c81d0d18703f9271431e952908e2c19f030b08fa0865eac588f5964003918b77",
+          "etag": "\"f0e30f30239b6827e8d8999d3936d964\"",
+          "last_modified": "Tue, 26 Jan 2021 08:13:59 GMT"
+        },
+        {
+          "start": 14400,
+          "length": 2880,
+          "sha256": "d5718ba7032a4cb6cc584b2059ab2201a897342c24c208fd434b51b9d6084783",
+          "etag": "\"f0e30f30239b6827e8d8999d3936d964\"",
+          "last_modified": "Tue, 26 Jan 2021 08:13:59 GMT"
+        },
+        {
+          "start": 17280,
+          "length": 2880,
+          "sha256": "91ccb078e523c938aedc488f81447e62f5204fdd29bb2381a15fd2d208db5990",
+          "etag": "\"f0e30f30239b6827e8d8999d3936d964\"",
+          "last_modified": "Tue, 26 Jan 2021 08:13:59 GMT"
+        },
+        {
+          "start": 11260800,
+          "length": 2880,
+          "sha256": "7fa70b21f8c8f7be7b70bd9093afd8e15f391cb3dcc3c9d375959b796ff6c155",
+          "etag": "\"f0e30f30239b6827e8d8999d3936d964\"",
+          "last_modified": "Tue, 26 Jan 2021 08:13:59 GMT"
+        },
+        {
+          "start": 11263680,
+          "length": 2880,
+          "sha256": "48e613d5bffb8a3856ddbdf23698940ef95b899c21d296253def1905f171567a",
+          "etag": "\"f0e30f30239b6827e8d8999d3936d964\"",
+          "last_modified": "Tue, 26 Jan 2021 08:13:59 GMT"
+        },
+        {
+          "start": 11266560,
+          "length": 484,
+          "sha256": "139188c753f7b85d4a671bb095527f5d350a4cffe955829f3bda4a61327cbfa9",
+          "etag": "\"f0e30f30239b6827e8d8999d3936d964\"",
+          "last_modified": "Tue, 26 Jan 2021 08:13:59 GMT"
+        }
+      ],
+      "moment_centroid_pixels": 20,
+      "minimum_target_to_centroid_pixel_distance": 298.04533608217076,
+      "header_prefix": "headers/s032_tic307441274",
+      "products_request": {
+        "service": "Mast.Caom.Products",
+        "params": {
+          "obsid": "28149667"
+        },
+        "format": "json",
+        "pagesize": 1000,
+        "page": 1
+      }
+    },
+    {
+      "sector": 32,
+      "camera": 4,
+      "ccd": 4,
+      "tic": 306739391,
+      "tmag": 11.31,
+      "separation_deg": 2.017534881484934,
+      "observation": {
+        "obsid": 28138704,
+        "t_exptime": 20,
+        "t_min": 59173.71553115,
+        "t_max": 59199.7316163,
+        "sequence_number": 32,
+        "dataURL": "mast:TESS/product/tess2020324010417-s0032-0000000306739391-0200-a_fast-lc.fits",
+        "target_name": "306739391",
+        "obs_id": "tess2020324010417-s0032-0000000306739391-0200-a_fast",
+        "s_ra": 120.970812908359,
+        "s_dec": -69.8815350591881
+      },
+      "product": {
+        "name": "tess2020324010417-s0032-0000000306739391-0200-a_fast-lc.fits",
+        "uri": "mast:TESS/product/tess2020324010417-s0032-0000000306739391-0200-a_fast-lc.fits",
+        "bytes": 11269440,
+        "etag": "\"85f98841ddd3378aaf1bed1fccea7100\""
+      },
+      "available_tpf": {
+        "name": "tess2020324010417-s0032-0000000306739391-0200-a_fast-tp.fits",
+        "uri": "mast:TESS/product/tess2020324010417-s0032-0000000306739391-0200-a_fast-tp.fits",
+        "bytes": 275878080
+      },
+      "table_start": 20160,
+      "row_bytes": 100,
+      "rows": 112388,
+      "geometry": {
+        "array_shape_yx": [
+          11,
+          11
+        ],
+        "array_axis_order": [
+          "row",
+          "column"
+        ],
+        "physical_wcs_present": true,
+        "offset_applied": false,
+        "corners_xy_zero_based": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            10.0,
+            0.0
+          ],
+          [
+            0.0,
+            10.0
+          ],
+          [
+            10.0,
+            10.0
+          ]
+        ],
+        "corners_detector_xy": [
+          [
+            1333.0,
+            553.0
+          ],
+          [
+            1343.0,
+            553.0
+          ],
+          [
+            1333.0,
+            563.0
+          ],
+          [
+            1343.0,
+            563.0
+          ]
+        ],
+        "physical_ctype": [
+          "RAWX",
+          "RAWY"
+        ],
+        "nominal_target_cutout_xy": [
+          5.854635929011556,
+          5.715684675172819
+        ],
+        "nominal_target_detector_xy": [
+          1338.8546359290115,
+          558.7156846751728
+        ]
+      },
+      "timing": {
+        "TIMESYS": "TDB",
+        "TIMEREF": "SOLARSYSTEM",
+        "TASSIGN": "SPACECRAFT",
+        "BJDREFI": 2457000,
+        "BJDREFF": 0.0,
+        "TIMEPIXR": 0.5,
+        "TIMEDEL": 0.0002314814814814815,
+        "INT_TIME": 1.98,
+        "READTIME": 0.02,
+        "FRAMETIM": 2.0,
+        "NUM_FRM": 10,
+        "DEADC": 0.99,
+        "TSTART": 2174.216331881164,
+        "TSTOP": 2200.23241704258,
+        "DATA_REL": 48,
+        "PROCVER": "spoc-5.0.21-20210107"
+      },
+      "columns": [
+        {
+          "name": "TIME",
+          "format": "D",
+          "unit": "BJD - 2457000, days"
+        },
+        {
+          "name": "TIMECORR",
+          "format": "E",
+          "unit": "d"
+        },
+        {
+          "name": "CADENCENO",
+          "format": "J",
+          "unit": null
+        },
+        {
+          "name": "SAP_FLUX",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_FLUX_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_BKG",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_BKG_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "PDCSAP_FLUX",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "PDCSAP_FLUX_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "QUALITY",
+          "format": "J",
+          "unit": null
+        },
+        {
+          "name": "PSF_CENTR1",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR1_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR2",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR2_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR1",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR1_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR2",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR2_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "POS_CORR1",
+          "format": "E",
+          "unit": "pixels"
+        },
+        {
+          "name": "POS_CORR2",
+          "format": "E",
+          "unit": "pixels"
+        }
+      ],
+      "metadata_download_bytes": 26404,
+      "metadata_ranges": [
+        {
+          "start": 0,
+          "length": 2880,
+          "sha256": "af55fa8087b92451c43051a2d7324c4ad4496c8fbe834b4c3a5a5268b765bcd3",
+          "etag": "\"85f98841ddd3378aaf1bed1fccea7100\"",
+          "last_modified": "Tue, 26 Jan 2021 23:58:32 GMT"
+        },
+        {
+          "start": 2880,
+          "length": 2880,
+          "sha256": "165f3bf2bc99f07ad103cffc2863236b8b40889c9cf2487e365c095ff6a80090",
+          "etag": "\"85f98841ddd3378aaf1bed1fccea7100\"",
+          "last_modified": "Tue, 26 Jan 2021 23:58:32 GMT"
+        },
+        {
+          "start": 5760,
+          "length": 2880,
+          "sha256": "ff76c63922bb44289f4380fa750790003dcbe53add5a21a4ece31af5355cb7ae",
+          "etag": "\"85f98841ddd3378aaf1bed1fccea7100\"",
+          "last_modified": "Tue, 26 Jan 2021 23:58:32 GMT"
+        },
+        {
+          "start": 8640,
+          "length": 2880,
+          "sha256": "4d569711cf646a029882be9e24a9c5ef80e18b459fd9c14889b21786d5d68dc3",
+          "etag": "\"85f98841ddd3378aaf1bed1fccea7100\"",
+          "last_modified": "Tue, 26 Jan 2021 23:58:32 GMT"
+        },
+        {
+          "start": 11520,
+          "length": 2880,
+          "sha256": "93ff979ec2ce1d5b3a383c93f41108b8089719dc5b6c47cb3bd2a5dedc9896b4",
+          "etag": "\"85f98841ddd3378aaf1bed1fccea7100\"",
+          "last_modified": "Tue, 26 Jan 2021 23:58:32 GMT"
+        },
+        {
+          "start": 14400,
+          "length": 2880,
+          "sha256": "a82fffdf04f81bc4c93709f4c3fddfa92fdae8eb05417db8d1f10cec41d3237b",
+          "etag": "\"85f98841ddd3378aaf1bed1fccea7100\"",
+          "last_modified": "Tue, 26 Jan 2021 23:58:32 GMT"
+        },
+        {
+          "start": 17280,
+          "length": 2880,
+          "sha256": "adca9dc3bfbb7c147c7dad8766645db21c606c57366d87bde3a3f345cb4f3839",
+          "etag": "\"85f98841ddd3378aaf1bed1fccea7100\"",
+          "last_modified": "Tue, 26 Jan 2021 23:58:32 GMT"
+        },
+        {
+          "start": 11260800,
+          "length": 2880,
+          "sha256": "740cf681d6489b46f94acd87a6c3ad6813c2a9ac1e8c470e79b2ed02fc561427",
+          "etag": "\"85f98841ddd3378aaf1bed1fccea7100\"",
+          "last_modified": "Tue, 26 Jan 2021 23:58:32 GMT"
+        },
+        {
+          "start": 11263680,
+          "length": 2880,
+          "sha256": "e19421001d2934f379477c1e817e803e6c8645fe5049f8d5640e58a69878b0ec",
+          "etag": "\"85f98841ddd3378aaf1bed1fccea7100\"",
+          "last_modified": "Tue, 26 Jan 2021 23:58:32 GMT"
+        },
+        {
+          "start": 11266560,
+          "length": 484,
+          "sha256": "6ef4b10d8d2fc88dbee10fed948588c0bcdd27312e34af3369394d8ae5ba21e7",
+          "etag": "\"85f98841ddd3378aaf1bed1fccea7100\"",
+          "last_modified": "Tue, 26 Jan 2021 23:58:32 GMT"
+        }
+      ],
+      "moment_centroid_pixels": 14,
+      "minimum_target_to_centroid_pixel_distance": 363.45847878811065,
+      "header_prefix": "headers/s032_tic306739391",
+      "products_request": {
+        "service": "Mast.Caom.Products",
+        "params": {
+          "obsid": "28138704"
+        },
+        "format": "json",
+        "pagesize": 1000,
+        "page": 1
+      }
+    },
+    {
+      "sector": 32,
+      "camera": 4,
+      "ccd": 4,
+      "tic": 306577335,
+      "tmag": 8.11,
+      "separation_deg": 2.052576885482095,
+      "observation": {
+        "obsid": 28140222,
+        "t_exptime": 20,
+        "t_min": 59173.71569464,
+        "t_max": 59199.73183203,
+        "sequence_number": 32,
+        "dataURL": "mast:TESS/product/tess2020324010417-s0032-0000000306577335-0200-a_fast-lc.fits",
+        "target_name": "306577335",
+        "obs_id": "tess2020324010417-s0032-0000000306577335-0200-a_fast",
+        "s_ra": 119.305228504556,
+        "s_dec": -67.6932634580998
+      },
+      "product": {
+        "name": "tess2020324010417-s0032-0000000306577335-0200-a_fast-lc.fits",
+        "uri": "mast:TESS/product/tess2020324010417-s0032-0000000306577335-0200-a_fast-lc.fits",
+        "bytes": 11269440,
+        "etag": "\"ae1d478b09832b903e27aa4441621de5\""
+      },
+      "available_tpf": {
+        "name": "tess2020324010417-s0032-0000000306577335-0200-a_fast-tp.fits",
+        "uri": "mast:TESS/product/tess2020324010417-s0032-0000000306577335-0200-a_fast-tp.fits",
+        "bytes": 325442880
+      },
+      "table_start": 20160,
+      "row_bytes": 100,
+      "rows": 112388,
+      "geometry": {
+        "array_shape_yx": [
+          13,
+          11
+        ],
+        "array_axis_order": [
+          "row",
+          "column"
+        ],
+        "physical_wcs_present": true,
+        "offset_applied": false,
+        "corners_xy_zero_based": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            10.0,
+            0.0
+          ],
+          [
+            0.0,
+            12.0
+          ],
+          [
+            10.0,
+            12.0
+          ]
+        ],
+        "corners_detector_xy": [
+          [
+            1538.0,
+            894.0
+          ],
+          [
+            1548.0,
+            894.0
+          ],
+          [
+            1538.0,
+            906.0
+          ],
+          [
+            1548.0,
+            906.0
+          ]
+        ],
+        "physical_ctype": [
+          "RAWX",
+          "RAWY"
+        ],
+        "nominal_target_cutout_xy": [
+          5.343441570726107,
+          6.892371544622685
+        ],
+        "nominal_target_detector_xy": [
+          1543.343441570726,
+          900.8923715446227
+        ]
+      },
+      "timing": {
+        "TIMESYS": "TDB",
+        "TIMEREF": "SOLARSYSTEM",
+        "TASSIGN": "SPACECRAFT",
+        "BJDREFI": 2457000,
+        "BJDREFF": 0.0,
+        "TIMEPIXR": 0.5,
+        "TIMEDEL": 0.0002314814814814815,
+        "INT_TIME": 1.98,
+        "READTIME": 0.02,
+        "FRAMETIM": 2.0,
+        "NUM_FRM": 10,
+        "DEADC": 0.99,
+        "TSTART": 2174.216495381128,
+        "TSTOP": 2200.232632766982,
+        "DATA_REL": 48,
+        "PROCVER": "spoc-5.0.21-20210107"
+      },
+      "columns": [
+        {
+          "name": "TIME",
+          "format": "D",
+          "unit": "BJD - 2457000, days"
+        },
+        {
+          "name": "TIMECORR",
+          "format": "E",
+          "unit": "d"
+        },
+        {
+          "name": "CADENCENO",
+          "format": "J",
+          "unit": null
+        },
+        {
+          "name": "SAP_FLUX",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_FLUX_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_BKG",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_BKG_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "PDCSAP_FLUX",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "PDCSAP_FLUX_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "QUALITY",
+          "format": "J",
+          "unit": null
+        },
+        {
+          "name": "PSF_CENTR1",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR1_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR2",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR2_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR1",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR1_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR2",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR2_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "POS_CORR1",
+          "format": "E",
+          "unit": "pixels"
+        },
+        {
+          "name": "POS_CORR2",
+          "format": "E",
+          "unit": "pixels"
+        }
+      ],
+      "metadata_download_bytes": 26492,
+      "metadata_ranges": [
+        {
+          "start": 0,
+          "length": 2880,
+          "sha256": "eacb3649b4ee3da8379f07b3e2e9731317352457ef4d8ad7411299e47677f9b9",
+          "etag": "\"ae1d478b09832b903e27aa4441621de5\"",
+          "last_modified": "Wed, 27 Jan 2021 02:07:23 GMT"
+        },
+        {
+          "start": 2880,
+          "length": 2880,
+          "sha256": "462d65c526c55b967646102a9cf25c8fe75fc342e1a789d594e63e0420ca8bc0",
+          "etag": "\"ae1d478b09832b903e27aa4441621de5\"",
+          "last_modified": "Wed, 27 Jan 2021 02:07:23 GMT"
+        },
+        {
+          "start": 5760,
+          "length": 2880,
+          "sha256": "ff76c63922bb44289f4380fa750790003dcbe53add5a21a4ece31af5355cb7ae",
+          "etag": "\"ae1d478b09832b903e27aa4441621de5\"",
+          "last_modified": "Wed, 27 Jan 2021 02:07:23 GMT"
+        },
+        {
+          "start": 8640,
+          "length": 2880,
+          "sha256": "4d569711cf646a029882be9e24a9c5ef80e18b459fd9c14889b21786d5d68dc3",
+          "etag": "\"ae1d478b09832b903e27aa4441621de5\"",
+          "last_modified": "Wed, 27 Jan 2021 02:07:23 GMT"
+        },
+        {
+          "start": 11520,
+          "length": 2880,
+          "sha256": "964c31b5932d6b10d3934c3289aeb700609331b1b7b02ec0d11092cadb17cbdb",
+          "etag": "\"ae1d478b09832b903e27aa4441621de5\"",
+          "last_modified": "Wed, 27 Jan 2021 02:07:23 GMT"
+        },
+        {
+          "start": 14400,
+          "length": 2880,
+          "sha256": "3cb03964fe88d817d29200f956b0d31d76fd70a105b5b7ae26685365dd54bb74",
+          "etag": "\"ae1d478b09832b903e27aa4441621de5\"",
+          "last_modified": "Wed, 27 Jan 2021 02:07:23 GMT"
+        },
+        {
+          "start": 17280,
+          "length": 2880,
+          "sha256": "3ba82e7bf437f1b600d3ff8439c63a59f0850cdd582ee2c77b6c5605e05059cb",
+          "etag": "\"ae1d478b09832b903e27aa4441621de5\"",
+          "last_modified": "Wed, 27 Jan 2021 02:07:23 GMT"
+        },
+        {
+          "start": 11260800,
+          "length": 2880,
+          "sha256": "43ea6d63892a1b74111251beea0bf92b3c0bcc52843c7770ea8417599917253f",
+          "etag": "\"ae1d478b09832b903e27aa4441621de5\"",
+          "last_modified": "Wed, 27 Jan 2021 02:07:23 GMT"
+        },
+        {
+          "start": 11263680,
+          "length": 2880,
+          "sha256": "07da7684318dfef909c9ef96f47b6cc9da50e2d971c4180746acf84b3aac2fb8",
+          "etag": "\"ae1d478b09832b903e27aa4441621de5\"",
+          "last_modified": "Wed, 27 Jan 2021 02:07:23 GMT"
+        },
+        {
+          "start": 11266560,
+          "length": 572,
+          "sha256": "bbca7dc8fe399d043cfac9560d7184f895c07bdf9a260690e0746733f68c42fe",
+          "etag": "\"ae1d478b09832b903e27aa4441621de5\"",
+          "last_modified": "Wed, 27 Jan 2021 02:07:23 GMT"
+        }
+      ],
+      "moment_centroid_pixels": 23,
+      "minimum_target_to_centroid_pixel_distance": 374.3472274219804,
+      "header_prefix": "headers/s032_tic306577335",
+      "products_request": {
+        "service": "Mast.Caom.Products",
+        "params": {
+          "obsid": "28140222"
+        },
+        "format": "json",
+        "pagesize": 1000,
+        "page": 1
+      }
+    },
+    {
+      "sector": 32,
+      "camera": 4,
+      "ccd": 4,
+      "tic": 306739511,
+      "tmag": 8.06,
+      "separation_deg": 2.18278717690117,
+      "observation": {
+        "obsid": 28140451,
+        "t_exptime": 20,
+        "t_min": 59173.71553037,
+        "t_max": 59199.73160816,
+        "sequence_number": 32,
+        "dataURL": "mast:TESS/product/tess2020324010417-s0032-0000000306739511-0200-a_fast-lc.fits",
+        "target_name": "306739511",
+        "obs_id": "tess2020324010417-s0032-0000000306739511-0200-a_fast",
+        "s_ra": 120.738092210444,
+        "s_dec": -70.0300765732655
+      },
+      "product": {
+        "name": "tess2020324010417-s0032-0000000306739511-0200-a_fast-lc.fits",
+        "uri": "mast:TESS/product/tess2020324010417-s0032-0000000306739511-0200-a_fast-lc.fits",
+        "bytes": 11269440,
+        "etag": "\"d4f9353b51aacb68315d5f976b7c84df\""
+      },
+      "available_tpf": {
+        "name": "tess2020324010417-s0032-0000000306739511-0200-a_fast-tp.fits",
+        "uri": "mast:TESS/product/tess2020324010417-s0032-0000000306739511-0200-a_fast-tp.fits",
+        "bytes": 325373760
+      },
+      "table_start": 20160,
+      "row_bytes": 100,
+      "rows": 112388,
+      "geometry": {
+        "array_shape_yx": [
+          13,
+          11
+        ],
+        "array_axis_order": [
+          "row",
+          "column"
+        ],
+        "physical_wcs_present": true,
+        "offset_applied": false,
+        "corners_xy_zero_based": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            10.0,
+            0.0
+          ],
+          [
+            0.0,
+            12.0
+          ],
+          [
+            10.0,
+            12.0
+          ]
+        ],
+        "corners_detector_xy": [
+          [
+            1304.0,
+            545.0
+          ],
+          [
+            1314.0,
+            545.0
+          ],
+          [
+            1304.0,
+            557.0
+          ],
+          [
+            1314.0,
+            557.0
+          ]
+        ],
+        "physical_ctype": [
+          "RAWX",
+          "RAWY"
+        ],
+        "nominal_target_cutout_xy": [
+          5.76192790063889,
+          6.9232717239002435
+        ],
+        "nominal_target_detector_xy": [
+          1309.761927900639,
+          551.9232717239003
+        ]
+      },
+      "timing": {
+        "TIMESYS": "TDB",
+        "TIMEREF": "SOLARSYSTEM",
+        "TASSIGN": "SPACECRAFT",
+        "BJDREFI": 2457000,
+        "BJDREFF": 0.0,
+        "TIMEPIXR": 0.5,
+        "TIMEDEL": 0.0002314814814814815,
+        "INT_TIME": 1.98,
+        "READTIME": 0.02,
+        "FRAMETIM": 2.0,
+        "NUM_FRM": 10,
+        "DEADC": 0.99,
+        "TSTART": 2174.216331110844,
+        "TSTOP": 2200.232408898746,
+        "DATA_REL": 48,
+        "PROCVER": "spoc-5.0.21-20210107"
+      },
+      "columns": [
+        {
+          "name": "TIME",
+          "format": "D",
+          "unit": "BJD - 2457000, days"
+        },
+        {
+          "name": "TIMECORR",
+          "format": "E",
+          "unit": "d"
+        },
+        {
+          "name": "CADENCENO",
+          "format": "J",
+          "unit": null
+        },
+        {
+          "name": "SAP_FLUX",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_FLUX_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_BKG",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_BKG_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "PDCSAP_FLUX",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "PDCSAP_FLUX_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "QUALITY",
+          "format": "J",
+          "unit": null
+        },
+        {
+          "name": "PSF_CENTR1",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR1_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR2",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR2_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR1",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR1_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR2",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR2_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "POS_CORR1",
+          "format": "E",
+          "unit": "pixels"
+        },
+        {
+          "name": "POS_CORR2",
+          "format": "E",
+          "unit": "pixels"
+        }
+      ],
+      "metadata_download_bytes": 26492,
+      "metadata_ranges": [
+        {
+          "start": 0,
+          "length": 2880,
+          "sha256": "d3a89d2009570866985e124779b03af0d4062b14e19e52f09caa67cb9ac63309",
+          "etag": "\"d4f9353b51aacb68315d5f976b7c84df\"",
+          "last_modified": "Wed, 27 Jan 2021 02:28:09 GMT"
+        },
+        {
+          "start": 2880,
+          "length": 2880,
+          "sha256": "7dc02949d448db5273fee344fdad5e03b0554228da4be175cb4fb882fba1b22e",
+          "etag": "\"d4f9353b51aacb68315d5f976b7c84df\"",
+          "last_modified": "Wed, 27 Jan 2021 02:28:09 GMT"
+        },
+        {
+          "start": 5760,
+          "length": 2880,
+          "sha256": "ff76c63922bb44289f4380fa750790003dcbe53add5a21a4ece31af5355cb7ae",
+          "etag": "\"d4f9353b51aacb68315d5f976b7c84df\"",
+          "last_modified": "Wed, 27 Jan 2021 02:28:09 GMT"
+        },
+        {
+          "start": 8640,
+          "length": 2880,
+          "sha256": "4d569711cf646a029882be9e24a9c5ef80e18b459fd9c14889b21786d5d68dc3",
+          "etag": "\"d4f9353b51aacb68315d5f976b7c84df\"",
+          "last_modified": "Wed, 27 Jan 2021 02:28:09 GMT"
+        },
+        {
+          "start": 11520,
+          "length": 2880,
+          "sha256": "b39de258daf0524817333b19aa6954375466fe78e7801807e9e63fa0179f3dd7",
+          "etag": "\"d4f9353b51aacb68315d5f976b7c84df\"",
+          "last_modified": "Wed, 27 Jan 2021 02:28:09 GMT"
+        },
+        {
+          "start": 14400,
+          "length": 2880,
+          "sha256": "02084c8a7fe39d412b5c499cd517c4bc7f2633daf790df4adbc158f626971333",
+          "etag": "\"d4f9353b51aacb68315d5f976b7c84df\"",
+          "last_modified": "Wed, 27 Jan 2021 02:28:09 GMT"
+        },
+        {
+          "start": 17280,
+          "length": 2880,
+          "sha256": "f13df36ac0824574aa362bd2437567c6bddc041d52073fb4a6a78bdaa8d3344b",
+          "etag": "\"d4f9353b51aacb68315d5f976b7c84df\"",
+          "last_modified": "Wed, 27 Jan 2021 02:28:09 GMT"
+        },
+        {
+          "start": 11260800,
+          "length": 2880,
+          "sha256": "ae982e869c430f9ac969135216716a9c8acb0d050ec249e372b997126d96ed12",
+          "etag": "\"d4f9353b51aacb68315d5f976b7c84df\"",
+          "last_modified": "Wed, 27 Jan 2021 02:28:09 GMT"
+        },
+        {
+          "start": 11263680,
+          "length": 2880,
+          "sha256": "8d3ecbe53d00dd094c45856ba661ac3d26b1e9063b687b7a4a7bd04b6e9807e5",
+          "etag": "\"d4f9353b51aacb68315d5f976b7c84df\"",
+          "last_modified": "Wed, 27 Jan 2021 02:28:09 GMT"
+        },
+        {
+          "start": 11266560,
+          "length": 572,
+          "sha256": "2256173267f4b449e599f472d389e1acbbbb078d4448523812a48397fc1fedc8",
+          "etag": "\"d4f9353b51aacb68315d5f976b7c84df\"",
+          "last_modified": "Wed, 27 Jan 2021 02:28:09 GMT"
+        }
+      ],
+      "moment_centroid_pixels": 23,
+      "minimum_target_to_centroid_pixel_distance": 392.5091155238821,
+      "header_prefix": "headers/s032_tic306739511",
+      "products_request": {
+        "service": "Mast.Caom.Products",
+        "params": {
+          "obsid": "28140451"
+        },
+        "format": "json",
+        "pagesize": 1000,
+        "page": 1
+      }
+    },
+    {
+      "sector": 32,
+      "camera": 4,
+      "ccd": 4,
+      "tic": 307785290,
+      "tmag": 8.09,
+      "separation_deg": 2.4834091683925408,
+      "observation": {
+        "obsid": 28138885,
+        "t_exptime": 20,
+        "t_min": 59173.71529267,
+        "t_max": 59199.731429,
+        "sequence_number": 32,
+        "dataURL": "mast:TESS/product/tess2020324010417-s0032-0000000307785290-0200-a_fast-lc.fits",
+        "target_name": "307785290",
+        "obs_id": "tess2020324010417-s0032-0000000307785290-0200-a_fast",
+        "s_ra": 128.216796195571,
+        "s_dec": -70.4312584756428
+      },
+      "product": {
+        "name": "tess2020324010417-s0032-0000000307785290-0200-a_fast-lc.fits",
+        "uri": "mast:TESS/product/tess2020324010417-s0032-0000000307785290-0200-a_fast-lc.fits",
+        "bytes": 11269440,
+        "etag": "\"fbb658d547148be4e8dc3c3915b3020d\""
+      },
+      "available_tpf": {
+        "name": "tess2020324010417-s0032-0000000307785290-0200-a_fast-tp.fits",
+        "uri": "mast:TESS/product/tess2020324010417-s0032-0000000307785290-0200-a_fast-tp.fits",
+        "bytes": 325252800
+      },
+      "table_start": 20160,
+      "row_bytes": 100,
+      "rows": 112388,
+      "geometry": {
+        "array_shape_yx": [
+          13,
+          11
+        ],
+        "array_axis_order": [
+          "row",
+          "column"
+        ],
+        "physical_wcs_present": true,
+        "offset_applied": false,
+        "corners_xy_zero_based": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            10.0,
+            0.0
+          ],
+          [
+            0.0,
+            12.0
+          ],
+          [
+            10.0,
+            12.0
+          ]
+        ],
+        "corners_detector_xy": [
+          [
+            1547.0,
+            133.0
+          ],
+          [
+            1557.0,
+            133.0
+          ],
+          [
+            1547.0,
+            145.0
+          ],
+          [
+            1557.0,
+            145.0
+          ]
+        ],
+        "physical_ctype": [
+          "RAWX",
+          "RAWY"
+        ],
+        "nominal_target_cutout_xy": [
+          5.51808246633517,
+          6.540142215304554
+        ],
+        "nominal_target_detector_xy": [
+          1552.5180824663353,
+          139.54014221530454
+        ]
+      },
+      "timing": {
+        "TIMESYS": "TDB",
+        "TIMEREF": "SOLARSYSTEM",
+        "TASSIGN": "SPACECRAFT",
+        "BJDREFI": 2457000,
+        "BJDREFF": 0.0,
+        "TIMEPIXR": 0.5,
+        "TIMEDEL": 0.0002314814814814815,
+        "INT_TIME": 1.98,
+        "READTIME": 0.02,
+        "FRAMETIM": 2.0,
+        "NUM_FRM": 10,
+        "DEADC": 0.99,
+        "TSTART": 2174.21609341695,
+        "TSTOP": 2200.232229750583,
+        "DATA_REL": 48,
+        "PROCVER": "spoc-5.0.21-20210107"
+      },
+      "columns": [
+        {
+          "name": "TIME",
+          "format": "D",
+          "unit": "BJD - 2457000, days"
+        },
+        {
+          "name": "TIMECORR",
+          "format": "E",
+          "unit": "d"
+        },
+        {
+          "name": "CADENCENO",
+          "format": "J",
+          "unit": null
+        },
+        {
+          "name": "SAP_FLUX",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_FLUX_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_BKG",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "SAP_BKG_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "PDCSAP_FLUX",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "PDCSAP_FLUX_ERR",
+          "format": "E",
+          "unit": "e-/s"
+        },
+        {
+          "name": "QUALITY",
+          "format": "J",
+          "unit": null
+        },
+        {
+          "name": "PSF_CENTR1",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR1_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR2",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "PSF_CENTR2_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR1",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR1_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR2",
+          "format": "D",
+          "unit": "pixel"
+        },
+        {
+          "name": "MOM_CENTR2_ERR",
+          "format": "E",
+          "unit": "pixel"
+        },
+        {
+          "name": "POS_CORR1",
+          "format": "E",
+          "unit": "pixels"
+        },
+        {
+          "name": "POS_CORR2",
+          "format": "E",
+          "unit": "pixels"
+        }
+      ],
+      "metadata_download_bytes": 26492,
+      "metadata_ranges": [
+        {
+          "start": 0,
+          "length": 2880,
+          "sha256": "32bc422924dfa29a0c0bf7c3411df5d52b37f1afbdc6cbd47bbfae499cbc567c",
+          "etag": "\"fbb658d547148be4e8dc3c3915b3020d\"",
+          "last_modified": "Wed, 27 Jan 2021 00:09:35 GMT"
+        },
+        {
+          "start": 2880,
+          "length": 2880,
+          "sha256": "c82ddd6e17e807372703aec25bdc05aca0a04adaec6696111a4336df91071057",
+          "etag": "\"fbb658d547148be4e8dc3c3915b3020d\"",
+          "last_modified": "Wed, 27 Jan 2021 00:09:35 GMT"
+        },
+        {
+          "start": 5760,
+          "length": 2880,
+          "sha256": "ff76c63922bb44289f4380fa750790003dcbe53add5a21a4ece31af5355cb7ae",
+          "etag": "\"fbb658d547148be4e8dc3c3915b3020d\"",
+          "last_modified": "Wed, 27 Jan 2021 00:09:35 GMT"
+        },
+        {
+          "start": 8640,
+          "length": 2880,
+          "sha256": "4d569711cf646a029882be9e24a9c5ef80e18b459fd9c14889b21786d5d68dc3",
+          "etag": "\"fbb658d547148be4e8dc3c3915b3020d\"",
+          "last_modified": "Wed, 27 Jan 2021 00:09:35 GMT"
+        },
+        {
+          "start": 11520,
+          "length": 2880,
+          "sha256": "c3bb281f84b59f9fa22807cc3011beee61b0938232d97030c82ee41ad99e713a",
+          "etag": "\"fbb658d547148be4e8dc3c3915b3020d\"",
+          "last_modified": "Wed, 27 Jan 2021 00:09:35 GMT"
+        },
+        {
+          "start": 14400,
+          "length": 2880,
+          "sha256": "14683f446fe4527c24140b570d207ed5b54c45489d284b13b11aebde9ee6fa8d",
+          "etag": "\"fbb658d547148be4e8dc3c3915b3020d\"",
+          "last_modified": "Wed, 27 Jan 2021 00:09:35 GMT"
+        },
+        {
+          "start": 17280,
+          "length": 2880,
+          "sha256": "a4cb9daae9675ecd2a36d44abd5f60d268d6b2e7308b78729103485b6bae49d4",
+          "etag": "\"fbb658d547148be4e8dc3c3915b3020d\"",
+          "last_modified": "Wed, 27 Jan 2021 00:09:35 GMT"
+        },
+        {
+          "start": 11260800,
+          "length": 2880,
+          "sha256": "2b3af1ec9e8e44152846fcda52802c8a9a2e331ffc0945b6871d4fe838c8c33d",
+          "etag": "\"fbb658d547148be4e8dc3c3915b3020d\"",
+          "last_modified": "Wed, 27 Jan 2021 00:09:35 GMT"
+        },
+        {
+          "start": 11263680,
+          "length": 2880,
+          "sha256": "46cb4880585ded7082265b2557f0a0b1e0bfa1a57718746ec9293c0b17033dd2",
+          "etag": "\"fbb658d547148be4e8dc3c3915b3020d\"",
+          "last_modified": "Wed, 27 Jan 2021 00:09:35 GMT"
+        },
+        {
+          "start": 11266560,
+          "length": 572,
+          "sha256": "3414f96f78a990e4f6c590534dc92d7c923189aec6462b33dba96fe059bdb129",
+          "etag": "\"fbb658d547148be4e8dc3c3915b3020d\"",
+          "last_modified": "Wed, 27 Jan 2021 00:09:35 GMT"
+        }
+      ],
+      "moment_centroid_pixels": 24,
+      "minimum_target_to_centroid_pixel_distance": 443.60777066720715,
+      "header_prefix": "headers/s032_tic307785290",
+      "products_request": {
+        "service": "Mast.Caom.Products",
+        "params": {
+          "obsid": "28138885"
+        },
+        "format": "json",
+        "pagesize": 1000,
+        "page": 1
+      }
+    }
+  ],
+  "spatial": [
+    {
+      "sector": 29,
+      "target_detector_xy": [
+        763.412344034447,
+        259.9085688284919
+      ],
+      "reference_design": [
+        [
+          1.0,
+          -0.17954662813146116,
+          -0.15020800873105428
+        ],
+        [
+          1.0,
+          -0.03435796207151387,
+          0.3544203344155034
+        ],
+        [
+          1.0,
+          0.316816980303847,
+          0.1863147735780652
+        ],
+        [
+          1.0,
+          -0.04357907479946721,
+          0.3820969936902339
+        ],
+        [
+          1.0,
+          0.32632696396759076,
+          -0.23360376093928795
+        ],
+        [
+          1.0,
+          -0.42272368937819743,
+          0.10892033993592598
+        ]
+      ],
+      "unweighted_condition": 4.555035564309801,
+      "target_inside_reference_hull": true
+    },
+    {
+      "sector": 32,
+      "target_detector_xy": [
+        1703.4583440138078,
+        560.3130011309881
+      ],
+      "reference_design": [
+        [
+          1.0,
+          0.13289377875147723,
+          -0.1926073497619708
+        ],
+        [
+          1.0,
+          0.28485455406468607,
+          0.0701847523356931
+        ],
+        [
+          1.0,
+          -0.35605830867655897,
+          -0.0015598793513821319
+        ],
+        [
+          1.0,
+          -0.15636220941707202,
+          0.33259704141956503
+        ],
+        [
+          1.0,
+          -0.3844691563605165,
+          -0.008193095124109262
+        ],
+        [
+          1.0,
+          -0.14740259916745369,
+          -0.4109109950348473
+        ]
+      ],
+      "unweighted_condition": 4.445803586807418,
+      "target_inside_reference_hull": true
+    }
+  ],
+  "time_series_rows_inspected": 0,
+  "metadata_download_bytes": 317552
+}
