@@ -6,7 +6,8 @@ hypothesis; it does not establish where an observed signal originated.
 
 The **light-sail (LS) research branch** explores whether radiation associated
 with beamed propulsion could leave detectable radio or optical signatures.
-The current LS work uses TESS photometry to qualify a search for short glints.
+After the TESS method studies, current LS work assesses optical data products
+for short-glint searches.
 Neither an optical brightening nor a radio trigger alone establishes artificial origin.
 
 **Start here: [current status and continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md).**
@@ -19,6 +20,27 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 The integrated work in the [14–27 September plan](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/TWO_WEEK_PLAN_2026-09-14.md)
 is now complete, including the negative-result decision branch. The calendar
 dates were work estimates; execution proceeded during active sessions.
+
+**LS7Q HiPERCAM metadata assessment completed, 14 September 2026.**
+A bounded inspection saves 100 catalogue rows, six run/calibration headers and
+the observatory QC log. A public XO-2b run contains 11,152 stored frames with
+header-derived repeat intervals of **0.652–13.040 seconds**, depending on the
+channel. Its timing arithmetic agrees with the official instrument reader.
+
+The native pilot is **not ready**: raw-file access is unresolved and the
+identified bias/flat set requires a documented match to the science readout
+and filters. No science pixels were opened, no new candidate was assessed and
+no observing coverage was added. Next establish the actual input package, with
+CHEOPS retained as a secondary metadata option.
+[Read the findings](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7Q_OPTICAL_METADATA.md),
+[saved evidence](https://github.com/andersenmartin-blip/setisearch/tree/m43-support-qualification/results_ls7q_metadata),
+[current continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7Q_CONTINUATION.md).
+
+**LS7P publication reconciliation:** its source freeze is public, but the
+completed result reported in the earlier conversation could not be verified
+in the inspected public branch. Its recovery remains a separate open task;
+LS7Q uses no LS7P numerical results.
+[Verification record](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7P_PUBLICATION_RECONCILIATION.md).
 
 **LS7O reference availability completed, 14 September 2026: the input contract fails.**
 Twelve simultaneous 20-second products from seven reference stars provide
