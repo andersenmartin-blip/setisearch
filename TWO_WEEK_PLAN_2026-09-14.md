@@ -4,17 +4,19 @@ Prepared 13 September 2026, following the completed LS7H result.
 This is an operational work plan. The numerical specification for the next
 experiment must still be frozen before its evaluation.
 
-**Latest continuation, 14 September:** [LS7O](LS7O_FINDINGS.md) establishes
-twelve reference products from seven stars and audits 48,120 selected rows
-with exact time joins. Its all-six, all-sideband QUALITY=0 contract blocks
-all 420 windows. No new native correction or pulse transfer is measured;
-LS7J and LS7N remain separate measured failures. The raw-input and quality/scope
-audits pass. Next establish the same references' pixel-level quality,
-cosmic-ray and centroid-response contract, then freeze any bounded pixel
-acquisition and integrated comparison together if justified. Matching pixel
-products are known, but their pixel time series remain unread. If that contract
-cannot be established, reassess the optical product/instrument choice.
-[Current restart instructions](LS7O_CONTINUATION.md).
+**Latest continuation, 14 September:** [LS7Q](LS7Q_OPTICAL_METADATA.md)
+completes a bounded HiPERCAM metadata assessment. The public XO-2b run has
+promising per-channel timing, but raw transfer and compatible calibration
+remain unestablished. No science pixels are opened and no native pilot is
+qualified. Next establish a bounded, identified raw/calibration package or
+assess the secondary CHEOPS option using actual product metadata.
+[Current restart instructions](LS7Q_CONTINUATION.md).
+
+**Evidence reconciliation:** LS7P's source freeze is public, but the result
+and publication claimed in the earlier conversation could not be verified
+in the current public branch. Preserve that gap explicitly and recover the
+original evidence; LS7Q does not depend on those reported numerical results.
+[Exact inspected state](LS7P_PUBLICATION_RECONCILIATION.md).
 
 **14 September follow-on:** after the owner asked to continue, the separately
 specified [LS7J auxiliary study](LS7J_CONTINUATION.md) also completed. It fails

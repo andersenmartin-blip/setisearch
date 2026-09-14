@@ -9,7 +9,33 @@ one integrated study, followed by an explicit unused-data readiness decision.
 Its dates are work windows. The original LS7I joint model, evaluation and audit
 are complete; the subsequent instrumental-response work is tracked below.
 
-## LS7O reference availability completed: input contract fails
+## LS7Q HiPERCAM metadata assessment completed; native pilot not ready
+
+The GTC archive query reports **1,035 matching products**; its first **100
+metadata rows** are saved. Six headers and the QC log identify a public XO-2b
+run with 11,152 stored frames. Header-derived repeat intervals are approximately
+**0.652 seconds** in gs/is/zs, **1.304 seconds** in NaI and **13.040 seconds** in
+us. All 66 checked timing tuples agree with the pinned official reader.
+
+A native pilot is **NOT_READY**. The linked flat uses rs where the science
+uses NaI; the listed slow full-frame bias differs from the fast windowed
+science readout. Raw access returned an invalid negative Content-Length and
+a failed bounded byte-range request. The run's QC log records an incomplete
+observing block. No science pixels, new candidates or observing coverage are
+added. These are metadata/input obstacles, not a failed detection experiment.
+
+Next establish bounded raw delivery and the matching calibration/scene/timing
+contract, or inspect the secondary CHEOPS product option at metadata level.
+[Findings](LS7Q_OPTICAL_METADATA.md), [saved evidence and reproduction](results_ls7q_metadata/README.md),
+[current continuation](LS7Q_CONTINUATION.md).
+
+**LS7P evidence correction:** the earlier conversation reported completion and
+publication, but the public branch inspected here contains only its source
+freeze `f42aa216b25779d55cd1fabd25545d3277abcfa5` and metadata. Its reported
+numerical result is not currently verified. [Reconciliation and recovery task](LS7P_PUBLICATION_RECONCILIATION.md).
+LS7Q uses no LS7P numerical output. Unused TESS/M43 panels remain closed.
+
+## Earlier LS7O reference availability completed: input contract fails
 
 Metadata selection establishes **twelve simultaneous 20-second reference
 products from seven stars**, on the same CCDs as the science target. All
@@ -415,7 +441,7 @@ were hash checked. This is retrospective development, not fresh validation.
 | M43AF complete no-model study | Published and byte-verified: 502 records; 69 archive parts restore 508 original files |
 | Adopted new detector / new M43AF–M43AI astronomical candidate | None |
 | Earlier M33 HD 3651 case | Still unresolved; [investigation](MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
-| LS research | [LS7G](results_ls7g_transfer/REPORT.md): 3,540-case closed-sector transfer completed; no adopted model or candidate |
+| LS research | [LS7Q](LS7Q_OPTICAL_METADATA.md): HiPERCAM metadata assessed; native pilot not ready; LS7P result publication unverified |
 
 M43AF's 502 records include 261 already completed historical acquisitions and
 the 241 training/baseline/null records. Its 940 scientific pins and earlier

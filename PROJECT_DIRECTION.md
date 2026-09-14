@@ -219,3 +219,15 @@ cannot be established, reassess optical products/instruments instead of another
 local correction adjustment. No unused TESS or M43 panel is opened. Current
 findings: LS7O_FINDINGS.md. Restart: LS7O_CONTINUATION.md. Standing publication
 authorization continues.
+
+14 September 2026, LS7Q: the bounded HiPERCAM metadata assessment identifies
+XO-2b science run 5070352 and its calibration/QC provenance. Header-derived
+channel timing is promising, but the raw-file transfer and calibration mapping
+are not ready for a native pilot. The rs/NaI flat mismatch, slow-bias/fast-science
+readout difference and invalid transport length are documented; no science
+pixel was read. Next resolve the input package or assess actual CHEOPS product
+metadata before freezing any new native comparison. Current restart:
+LS7Q_CONTINUATION.md. The separate LS7P publication claim cannot currently be
+verified beyond its public source freeze; recover the result evidence as
+specified in LS7P_PUBLICATION_RECONCILIATION.md. Existing publication authority,
+closed studies and reserved TESS/M43 panels are unchanged.
