@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: write
+  actions: read
 
 concurrency:
   group: ls7k-instrument-inputs
@@ -33,6 +34,13 @@ jobs:
           python-version: '3.12.14'
       - name: Install pinned dependencies
         run: python -m pip install -r requirements_ls7g.txt
+      - name: Restore the first input packet for the header-encoding correction check
+        uses: actions/download-artifact@v4
+        with:
+          name: ls7k-instrument-inputs
+          run-id: 34828116310
+          github-token: ${{ github.token }}
+          path: data_ls7k_previous
       - name: Check source syntax
         run: python -m py_compile scripts/ls7k_instrument_inputs.py scripts/ls7k_review_inputs.py
       - name: Restore original timing and mission calibration inputs
@@ -42,7 +50,7 @@ jobs:
       - name: Independently check raw timing geometry and calibration files
         run: |
           set -o pipefail
-          python -u scripts/ls7k_review_inputs.py 2>&1 | tee ls7k_inputs_audit.log
+          python -u scripts/ls7k_review_inputs.py --previous data_ls7k_previous/results_ls7k_inputs 2>&1 | tee ls7k_inputs_audit.log
       - name: Seal evidence
         run: |
           cp ls7k_inputs_run.log results_ls7k_inputs/RUN.log

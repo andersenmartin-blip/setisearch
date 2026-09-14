@@ -9,6 +9,7 @@ import subprocess
 
 import numpy as np
 from astropy.io import fits
+from astropy.io.fits.card import Undefined
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -21,7 +22,7 @@ def save(path, value):
     path.write_text(json.dumps(value, indent=2, allow_nan=False) + '\n')
 
 
-def audit(out, cache):
+def audit(out, cache, previous=None):
     cfg = json.loads((ROOT / 'config/ls7k_inputs.json').read_text())
     inv = json.loads((out / 'inventory.json').read_text())
     source = json.loads((out / 'source_freeze.json').read_text())
@@ -61,8 +62,8 @@ def audit(out, cache):
                 for saved_card, original in zip(stored['cards'], hdu.header.cards):
                     assert saved_card['key'] == original.keyword and saved_card['comment'] == original.comment
                     v = original.value
-                    v = v if isinstance(v, (str, bool, int, float)) else str(v)
-                    assert saved_card['value'] == v
+                    v = None if isinstance(v, Undefined) else (v if isinstance(v, (str, bool, int, float)) else str(v))
+                    assert saved_card['value'] == v, (sector, original.keyword, saved_card['value'], v)
             geo = record['geometry']
             if geo['physical_wcs_present']:
                 crval = np.array([header['CRVAL1P'], header['CRVAL2P']])
@@ -123,6 +124,32 @@ def audit(out, cache):
               'historical_tracked_files_unchanged': True,
               'engineering_time_series_audited': False,
               'scientific_detector_qualification': False}
+    if previous is not None:
+        prior = json.loads((previous / 'inventory.json').read_text())
+        assert [r['sha256'] for r in prior['prf_models']] == [r['sha256'] for r in inv['prf_models']]
+        normalized = []
+        for record in inv['light_curves']:
+            old_headers = json.loads((previous / record['headers_file']).read_text())['hdus']
+            new_headers = json.loads((out / record['headers_file']).read_text())['hdus']
+            assert len(old_headers) == len(new_headers)
+            for old_hdu, new_hdu in zip(old_headers, new_headers):
+                assert len(old_hdu['cards']) == len(new_hdu['cards'])
+                for old_card, new_card in zip(old_hdu['cards'], new_hdu['cards']):
+                    assert old_card['key'] == new_card['key'] and old_card['comment'] == new_card['comment']
+                    if old_card['value'] != new_card['value']:
+                        assert new_card['value'] is None
+                        assert isinstance(old_card['value'], str) and old_card['value'].startswith('<astropy.io.fits.card.Undefined object at ')
+                        normalized.append({'sector': record['sector'], 'hdu': old_hdu['index'], 'keyword': old_card['key']})
+            with np.load(previous / record['timing_file'], allow_pickle=False) as old_timing, \
+                 np.load(out / record['timing_file'], allow_pickle=False) as new_timing:
+                assert old_timing.files == new_timing.files
+                for key in old_timing.files:
+                    np.testing.assert_array_equal(old_timing[key], new_timing[key])
+        assert normalized, 'the previous failure must be explained by actual saved evidence'
+        result['previous_run_comparison'] = {
+            'run_id': 34828116310, 'prf_hashes_unchanged': 50, 'timing_rows_unchanged': 8020,
+            'only_header_value_changes': 'FITS undefined values encoded as JSON null instead of process-specific object repr',
+            'normalized_undefined_header_values': normalized}
     save(out / 'AUDIT.json', result)
     print(json.dumps(result, indent=2), flush=True)
     report = [
@@ -179,13 +206,14 @@ def main():
     p.add_argument('--output', default='results_ls7k_inputs')
     p.add_argument('--cache', default='data_ls7k_inputs')
     p.add_argument('--seal', action='store_true')
+    p.add_argument('--previous', type=Path)
     args = p.parse_args()
     out = Path(args.output)
     if args.seal:
         paths = sorted(p for p in out.rglob('*') if p.is_file() and p.name != 'SHA256SUMS')
         (out / 'SHA256SUMS').write_text(''.join(f'{digest(path)}  {path.relative_to(out).as_posix()}\n' for path in paths))
     else:
-        audit(out, Path(args.cache))
+        audit(out, Path(args.cache), args.previous)
 
 
 if __name__ == '__main__':

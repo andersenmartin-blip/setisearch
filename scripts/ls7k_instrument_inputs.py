@@ -15,6 +15,7 @@ from urllib.request import Request, urlopen
 
 import numpy as np
 from astropy.io import fits
+from astropy.io.fits.card import Undefined
 from astropy.wcs import WCS
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -72,7 +73,7 @@ def fetch(url, path, cap, timeout):
 
 def cards(header):
     return [{'key': c.keyword,
-             'value': c.value if isinstance(c.value, (str, bool, int, float)) else str(c.value),
+             'value': None if isinstance(c.value, Undefined) else (c.value if isinstance(c.value, (str, bool, int, float)) else str(c.value)),
              'comment': c.comment} for c in header.cards]
 
 
