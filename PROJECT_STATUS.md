@@ -9,7 +9,33 @@ one integrated study, followed by an explicit unused-data readiness decision.
 Its dates are work windows. The original LS7I joint model, evaluation and audit
 are complete; the subsequent instrumental-response work is tracked below.
 
-## LS7M calibrated PRF and exposure operator completed and audited
+## LS7N calibrated native response completed: FAIL
+
+The fixed cadence-level PRF plus protected-plane response fails on the same
+**420 native windows**, evaluated at both column conventions (**840 paired
+model/window rows**). Combined residual energy rises **12.14–12.36% in sector
+29** and **12.37–12.49% in sector 32**. Only 0/10 and 2/10 background aggregates
+improve, against six required. All predictions are available.
+
+All **12,600 downstream pulse responses pass**: maximum nominal distortion
+is 0.015354%, and maximum calibration-entry stress distortion is 0.226796%.
+The independent audit passes **108,604 numerical comparisons**, including all
+native/pulse rows and unchanged static baselines. All 146 inherited manifest
+entries agree. The energy accounting finds correction size exceeding its
+alignment benefit in every sector/coordinate cell.
+
+Close this exact cadence response without gain/sign/lag/profile adjustment.
+Next assess whether independent reference-star astrometry or documented
+target-excluded motion with timing/uncertainty is available on these same
+pointings. That input is not yet established; if unavailable, reconsider the
+optical data/product choice. No detector or candidate is adopted, observing
+coverage added or unused TESS/M43 panel opened.
+
+[Findings](LS7N_FINDINGS.md), [audited native result](results_ls7n_response/REPORT.md),
+[frozen physical contract](LS7N_SPEC.md), [current continuation](LS7N_CONTINUATION.md).
+Source freeze: `07c6040715b8425a2051bfdbeb2806974f85d6c7`.
+
+## Earlier LS7M calibrated PRF and exposure operator completed and audited
 
 The new numerical operator passes **10 known-answer tests**, all **4,050 phase
 reconstructions** and **144 fixed calibration cases**. The independent

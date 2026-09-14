@@ -183,3 +183,20 @@ detector is adopted and unused panels remain closed. LS7J remains a fixed
 negative result without an empirical gain/sign/lag/profile retry. Current
 findings: LS7M_FINDINGS.md. Restart: LS7M_CONTINUATION.md. Standing publication
 authorization continues.
+
+14 September 2026: LS7N completed the separately fixed cadence-level calibrated
+PRF/plane comparison. Its 420 native windows at both column conventions
+(840 paired model rows) fail the joint native requirement: combined energy
+rises 12.14–12.49% and too few backgrounds improve. All 12,600 downstream pulse
+responses pass. The independent audit confirms all results and unchanged
+historical inputs. This closes the exact cadence-level response family without
+an empirical gain/sign/lag/profile repair; LS7J remains separately closed.
+
+Next assess independently measured reference-star astrometry or documented
+target-excluded motion with timing and uncertainty on these same pointings.
+Availability is not established. Use metadata/geometry first, then freeze
+bounded source identities and an integrated comparison only if a viable input
+exists. If not, reconsider the optical data/product choice instead of another
+local correction adjustment. No unused sector or M43 held-out panel is opened
+and no detector is adopted. Current findings: LS7N_FINDINGS.md. Restart:
+LS7N_CONTINUATION.md. Standing publication authorization continues.

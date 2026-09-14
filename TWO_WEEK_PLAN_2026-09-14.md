@@ -4,15 +4,16 @@ Prepared 13 September 2026, following the completed LS7H result.
 This is an operational work plan. The numerical specification for the next
 experiment must still be frozen before its evaluation.
 
-**Latest continuation, 14 September:** [LS7M](LS7M_FINDINGS.md) completed the
-calibrated PRF and finite-exposure operator after LS7L. Ten known-answer tests,
-4,050 phase reconstructions and 144 fixed calibration cases pass an independent
-original-MATLAB/SciPy/Simpson audit. Both declared column origins are reported;
-finite stamp support and readout sensitivity are explicit. Next establish the
-physical mapping from observables to detector motion and freeze one native
-comparison on the same closed contexts, with calibration-blur, timing and
-upstream-dependence limits. Native predictive improvement remains untested.
-[Current restart instructions](LS7M_CONTINUATION.md).
+**Latest continuation, 14 September:** [LS7N](LS7N_FINDINGS.md) completed the
+fixed cadence-level calibrated native comparison after LS7M. All 420 windows,
+840 paired coordinate/model rows and 12,600 pulse responses are independently
+audited. Pulse protection passes; native residual energy rises about 12% in
+both sectors, so the joint requirement fails. Close this response family.
+Next assess availability of independent reference-star astrometry or documented
+target-excluded motion with its temporal/error description on the same
+pointings, before any bounded acquisition or new correction. Such an input is
+not yet established. If unavailable, reassess the optical data/product choice.
+[Current restart instructions](LS7N_CONTINUATION.md).
 
 **14 September follow-on:** after the owner asked to continue, the separately
 specified [LS7J auxiliary study](LS7J_CONTINUATION.md) also completed. It fails
