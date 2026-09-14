@@ -1,0 +1,88 @@
+name: LS7J motion and outside-aperture feasibility
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [m43-support-qualification]
+    paths:
+      - '.github/workflows/ls7j_auxiliary.yml'
+      - 'LS7J_FREEZE.sha256'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ls7j-auxiliary
+  cancel-in-progress: false
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Require an unpublished auxiliary result
+        run: test ! -e results_ls7j_auxiliary
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+
+      - name: Install pinned science dependencies
+        run: python -m pip install -r requirements_ls7g.txt
+
+      - name: Check frozen source and synthetic known answers
+        run: |
+          set -o pipefail
+          sha256sum -c LS7J_FREEZE.sha256
+          python -m unittest discover -s tests -p 'test_ls7j_auxiliary.py' -v 2>&1 | tee ls7j_auxiliary_tests.log
+
+      - name: Restore original motion fields and evaluate both closed sectors
+        run: |
+          set -o pipefail
+          python -u scripts/ls7j_auxiliary.py --cache data_ls7j_auxiliary 2>&1 | tee ls7j_auxiliary_run.log
+
+      - name: Independently audit raw fields geometry operators and all responses
+        run: |
+          set -o pipefail
+          python -u scripts/ls7j_review_auxiliary.py --cache data_ls7j_auxiliary 2>&1 | tee ls7j_auxiliary_audit.log
+
+      - name: Write complete feasibility result and response costs
+        run: |
+          cp ls7j_auxiliary_run.log results_ls7j_auxiliary/RUN.log
+          cp ls7j_auxiliary_audit.log results_ls7j_auxiliary/AUDIT.log
+          cp ls7j_auxiliary_tests.log results_ls7j_auxiliary/TESTS.log
+          python -m pip freeze > results_ls7j_auxiliary/environment.txt
+          python scripts/ls7j_report_auxiliary.py --update-status
+
+      - name: Preserve execution evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ls7j-auxiliary
+          retention-days: 90
+          if-no-files-found: warn
+          path: |
+            ls7j_auxiliary_*.log
+            results_ls7j_auxiliary/
+            LS7J_CONTINUATION.md
+
+      - name: Publish the audited scientific outcome including failures
+        if: success()
+        run: |
+          sha256sum -c LS7J_FREEZE.sha256
+          (cd results_ls7j_auxiliary && sha256sum -c SHA256SUMS)
+          git fetch origin m43-support-qualification
+          test "$(git rev-parse origin/m43-support-qualification)" = "$GITHUB_SHA"
+          git add results_ls7j_auxiliary LS7J_CONTINUATION.md PROJECT_STATUS.md
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish audited LS7J auxiliary feasibility and complete pulse response costs'
+          git push origin HEAD:m43-support-qualification

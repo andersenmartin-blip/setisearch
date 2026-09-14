@@ -1,0 +1,230 @@
+{
+  "study": "LS7J",
+  "specification_date": "2026-09-14",
+  "parent_commit": "9647667a92f0bd6aed37cd71f0510c14f7b77fe6",
+  "scope": "Two closed-sector auxiliary-observable feasibility study; no detector decisions or new coverage",
+  "sectors": [
+    29,
+    32
+  ],
+  "products": {
+    "29": {
+      "kind": "lc",
+      "name": "tess2020238165205-s0029-0000000307210830-0193-a_fast-lc.fits",
+      "bytes": 11350080,
+      "sha256": "2364e10748f53b031c211cc66e407ff2310fe2e345cda974f6cfd84db2f7a949"
+    },
+    "32": {
+      "kind": "lc",
+      "name": "tess2020324010417-s0032-0000000307210830-0200-a_fast-lc.fits",
+      "bytes": 11269440,
+      "sha256": "3619ac38228970897735ed446f95df33d951055d445e37df8529f82d14636b37"
+    }
+  },
+  "primary_method": "combined",
+  "ablations": [
+    "static",
+    "motion",
+    "plane"
+  ],
+  "protected_shifts_yx": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      -0.25
+    ],
+    [
+      0.0,
+      0.25
+    ],
+    [
+      -0.25,
+      0.0
+    ],
+    [
+      -0.25,
+      -0.25
+    ],
+    [
+      -0.25,
+      0.25
+    ],
+    [
+      0.25,
+      0.0
+    ],
+    [
+      0.25,
+      -0.25
+    ],
+    [
+      0.25,
+      0.25
+    ]
+  ],
+  "injected_shifts_yx": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.2,
+      0.2
+    ],
+    [
+      0.2,
+      -0.2
+    ],
+    [
+      -0.2,
+      0.2
+    ],
+    [
+      -0.2,
+      -0.2
+    ]
+  ],
+  "broadening_sigma_pixels": 0.5,
+  "historical_distortion_max": 1e-10,
+  "full_stamp_distortion_max": 0.01,
+  "broadened_distortion_max": 0.05,
+  "operator_constants": {
+    "rank_relative_tolerance": 1e-10,
+    "projected_plane_condition_max": 100000000.0,
+    "pixel_variance_floor_fraction": 1e-06,
+    "protected_basis_distortion_max": 1e-08
+  },
+  "native_gate": {
+    "available_windows_per_sector": 210,
+    "aggregate_energy_ratio_max": 1.0,
+    "backgrounds_improved_min": 6,
+    "per_background_energy_ratio_max": 2.0
+  },
+  "expected_counts": {
+    "historical_rows": 6720,
+    "prior_shape_supplement": 360,
+    "new_full_stamp_rows": 2400,
+    "all_response_rows": 9480,
+    "native_windows": 420,
+    "contexts": 20
+  },
+  "preserve_manifests": [
+    [
+      ".",
+      "LS7_FREEZE.sha256"
+    ],
+    [
+      ".",
+      "LS7B_FREEZE.sha256"
+    ],
+    [
+      ".",
+      "LS7C_FREEZE.sha256"
+    ],
+    [
+      ".",
+      "LS7D_FREEZE.sha256"
+    ],
+    [
+      ".",
+      "LS7E_FREEZE.sha256"
+    ],
+    [
+      "results_ls7c_tess",
+      "SHA256SUMS"
+    ],
+    [
+      "results_ls7d_noise",
+      "SHA256SUMS"
+    ],
+    [
+      "results_ls7e_joint",
+      "SHA256SUMS"
+    ],
+    [
+      "results_ls7c_tess",
+      "REVIEW_SHA256SUMS"
+    ],
+    [
+      ".",
+      "LS7F_FREEZE.sha256"
+    ],
+    [
+      "results_ls7f_separation",
+      "SHA256SUMS"
+    ],
+    [
+      "results_ls7b_tess",
+      "SHA256SUMS"
+    ],
+    [
+      ".",
+      "LS7G_FREEZE.sha256"
+    ],
+    [
+      "results_ls7g_transfer",
+      "SHA256SUMS"
+    ],
+    [
+      ".",
+      "LS7H_FREEZE.sha256"
+    ],
+    [
+      "results_ls7h_morphology",
+      "SHA256SUMS"
+    ],
+    [
+      ".",
+      "LS7I_INPUT_FREEZE.sha256"
+    ],
+    [
+      "results_ls7i_inputs",
+      "SHA256SUMS"
+    ],
+    [
+      ".",
+      "LS7I_BACKGROUND_FREEZE.sha256"
+    ],
+    [
+      "results_ls7i_background",
+      "SHA256SUMS"
+    ]
+  ],
+  "input_sha256": {
+    "results_ls7i_inputs/datasets.json": "8654b0206db58d4b2c579b5ea4fd72259be1df5bbc7bc70ea8112a4a00f7c4e7",
+    "results_ls7i_inputs/trial_recipes.jsonl.gz": "94f631adb587a7d8670c254e8915b22aaf9b1fe6181eaaa6980bf7e1ee756e24",
+    "results_ls7i_inputs/patterns.json": "2c177fd5368042e031b13eaf78d4f2a712a072cbd6251d7d4a3ee6300c347e5f",
+    "results_ls7i_inputs/AUDIT.json": "343099dd88acf88cd4a4af3a7a62d06b59ed82b10c53a02a4ad3379800eaea1b",
+    "LS7_FREEZE.sha256": "fa4901826761ac6bcb4704e508ef6859f24d8eefd3732a811b8925e5827b2f75",
+    "LS7B_FREEZE.sha256": "c7c069c5c1472bbb7faaae824b152eb2379351e3896838b5eee2206f20109610",
+    "LS7C_FREEZE.sha256": "7de50b9272a8cadebb6938a01dd8739c2d5854ff6f7f3c3c20df9c4be73d87b2",
+    "LS7D_FREEZE.sha256": "0022f2748d6500e39e830c545ff51749789cef3c426f735b1c160632e0839287",
+    "LS7E_FREEZE.sha256": "daf4cf105976ee61a831baeefe7d5eff8d7361583676b782b8627b9e6253c4b3",
+    "results_ls7c_tess/SHA256SUMS": "024717c881baf9eed9bc630f24dcaf047e499469ff89d64d830811b32276b00b",
+    "results_ls7d_noise/SHA256SUMS": "b611c190254c02bad2d3bd025e5e646c69969a542bdad26fb9d0ce3b7645c64b",
+    "results_ls7e_joint/SHA256SUMS": "70342a0648625c9d6667476886a0f3c8c39343e205156179b140d9e9f1799bcd",
+    "results_ls7c_tess/REVIEW_SHA256SUMS": "35eee3ef9e6e487ed27b2c0e622f155a6646dbb96ad38f00f2ab306c3c9d97f2",
+    "LS7F_FREEZE.sha256": "967284b286e4e95726e4c64fe81353bed6510ade356db67f0494babc2e8f6c78",
+    "results_ls7f_separation/SHA256SUMS": "d3a1c23efe733d7c7837728b8a031f2e30d64775e0c069801874c406d0a7ddf9",
+    "results_ls7b_tess/SHA256SUMS": "9137a43dc082a7bdfa9dacd24ac7b5ab8ed447f05096a2c9248fcf72095b4112",
+    "LS7G_FREEZE.sha256": "d818a30ef51780802d32ace7f43f810aea87582dbfdc9d10cb2c6db944a43f43",
+    "results_ls7g_transfer/SHA256SUMS": "540f85ffaf6e90d36377fc52a0ade683b42e3fe9d0e61df6c5b6797d6f011cb4",
+    "LS7H_FREEZE.sha256": "8d7361675c4a225fa0b8dc69dd94649b6e0ec2b9782883893d47f2f06ef06dd3",
+    "results_ls7h_morphology/SHA256SUMS": "83ba84bc8ddce2ee4334e43bdc48dda6400e4ee5a762abdc2a210d8d6b3b2be1",
+    "LS7I_INPUT_FREEZE.sha256": "5057ae4d5af58851b1cabef12c59cad9d52e1aea5a551052e4afa863e4b6c76b",
+    "results_ls7i_inputs/SHA256SUMS": "59c3aef45cd176ace052701c4662780ba6495a1ae46b504ddf730fde28234865",
+    "LS7I_BACKGROUND_FREEZE.sha256": "c8a456ac928d5873abfb898580bcbf4e58a7db2ab6de5e5bcb3b19a3da504402",
+    "results_ls7i_background/SHA256SUMS": "96c9b9b0af6a7c505b4f572729a2e9a0d0fc096a42a6dff89754c5ab7b6a3730",
+    "results_ls7g_transfer/source_manifest.json": "ad655e954ac0d8906072ef768abccbc968c63bde9a9c2238c3db71acdf00f90a",
+    "results_ls7i_inputs/sector32_source.json": "82df080ba4d2723bd12e8085359ce3deccb0e9232ac3c5f30eb39831b435e260",
+    "results_ls7i_background/native_windows.jsonl.gz": "28413603681a10977a9f82fbc73f82e05c610e1800854b805de4a4d586bd1656",
+    "results_ls7i_background/folds.jsonl.gz": "6db2dc6e7935931de5cbbd92b33259e5aa29e0e0cc4fa734f855166ccca467b8",
+    "results_ls7i_background/regressions.jsonl.gz": "8dc1d9662eab6b71f17363ad170779ac12723b7c1622ccafb7ddbe55e8c138da",
+    "results_ls7i_background/supplement_recipes.jsonl.gz": "17c49966ad3fdca70aab376719d3d977272fd18e1eb1ccb736dd3d5522192f65",
+    "results_ls7i_background/supplement_patterns.json": "8f1bba822c517392a66d7a3574ac15429e4e75a0298e7109a5700553a55df295",
+    "scripts/ls7_tess_pilot.py": "597d05844584c0833da1daa7cea9f925ed6678973f4c7e749cca561dea8307dd"
+  }
+}
