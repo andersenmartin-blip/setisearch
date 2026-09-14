@@ -4,11 +4,13 @@ Prepared 13 September 2026, following the completed LS7H result.
 This is an operational work plan. The numerical specification for the next
 experiment must still be frozen before its evaluation.
 
-**Latest continuation, 14 September:** [LS7K](LS7K_INPUT_FINDINGS.md) completed
-the response-input assessment after LS7J. Fifty mission PRFs and 8,020 reused
-timing rows are restored and audited. The next integrated work package is a
-coordinate/PRF benchmark with explicit timing and target-dependence limits;
-[current restart instructions](LS7K_CONTINUATION.md).
+**Latest continuation, 14 September:** [LS7L](LS7L_FINDINGS.md) completed
+the engineering extraction and PRF phase checks after LS7K. All 8,020 saved
+cadence bins have ten quaternion samples; 81,200 quaternion rows, 30,594
+thermal rows and 4,050 phase images are audited and public. The remaining
+work is the absolute-coordinate/phase definition and physical-response
+specification with exposure and upstream-dependence limits.
+[Current restart instructions](LS7L_CONTINUATION.md).
 
 **14 September follow-on:** after the owner asked to continue, the separately
 specified [LS7J auxiliary study](LS7J_CONTINUATION.md) also completed. It fails

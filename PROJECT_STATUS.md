@@ -6,27 +6,53 @@ Earlier reports and continuation files preserve their historical states.
 The [14–27 September work plan](TWO_WEEK_PLAN_2026-09-14.md) groups the next
 background/residual model, both closed-sector comparisons and auditing into
 one integrated study, followed by an explicit unused-data readiness decision.
-Its dates are work windows. The joint model, evaluation and audit are now complete.
+Its dates are work windows. The original LS7I joint model, evaluation and audit
+are complete; the subsequent instrumental-response work is tracked below.
 
-## LS7K instrument-response inputs completed and audited
+## LS7L engineering and PRF phase inputs completed and audited
+
+LS7L restores **81,200 camera-4 quaternion rows** and **30,594 thermal rows**
+on the same twenty closed contexts. All **8,020** saved cadence bins have
+exactly ten quaternion samples; no coverage bin is empty. All selected values
+are finite. Thermal sampling is approximately sixty seconds, with gaps up to
+seven minutes.
+
+The fifty PRFs yield **4,050 phase images**, whose unrenormalized flux sums
+span 0.995947949571–1.000000000000. The raw-byte audit passes for 1,066,182
+selected table values, all cadence counts and the calibration phase accounting.
+Engineering calendar checks support TDB numerically to 20–32 microseconds;
+the exact sample/exposure kernel and upstream target exclusion remain open.
+
+The mission exporter was recovered and inspected. It copies the inherited
+MATLAB detector references without an explicit 44-column shift; this alone
+does not resolve the calibration-to-science origin. Continue with that
+coordinate/phase definition and the physical response specification before
+any native response comparison. No detector is adopted or unused data opened.
+
+[Findings and limitations](LS7L_FINDINGS.md),
+[audited selected inputs](results_ls7l_inputs/REPORT.md),
+[complete engineering schemas](results_ls7l_engineering/REPORT.md),
+[current continuation](LS7L_CONTINUATION.md).
+Audited input result: `665d952f92e6b3687a4eb76976b87e8629db0014`.
+
+## Earlier LS7K instrument-response inputs completed and audited
 
 LS7K restored **50 original mission PRFs**, including their uncertainty images,
 and **8,020 timing rows** from the same twenty closed contexts. The independent
-raw-file audit passes; all 16,040 reused motion values agree exactly. Four
-matching engineering products are listed, with their sample contents still
-uninspected. Code, calibration files, timing extracts, metadata and logs are
-published.
+raw-file audit passes; all 16,040 reused motion values agree exactly. At that
+checkpoint, four engineering products were listed with their samples uninspected.
+LS7L subsequently completed the extraction above. Code, calibration files,
+timing extracts, metadata and logs are published.
 
-A calibrated response family is now available. The next integrated work
-package is a separately specified coordinate/PRF forward-model benchmark on
-these closed inputs, including the absolute-coordinate convention, subpixel
-normalization, exposure averaging, engineering time-reference checks and
-upstream target dependence. Exact fast POS_CORR uncertainty and target
+LS7K established the calibrated response family. LS7L has now completed the
+engineering-coverage and phase-normalization input checks. The remaining
+coordinate/PRF forward-model work includes the absolute-coordinate convention,
+exposure averaging and upstream target dependence. Exact fast POS_CORR uncertainty and target
 exclusion remain unestablished. No detector is adopted or unused data opened.
 
 [Completed findings and response contract](LS7K_INPUT_FINDINGS.md),
 [audited input packet](results_ls7k_inputs/REPORT.md),
-[current continuation](LS7K_CONTINUATION.md).
+[LS7K historical continuation](LS7K_CONTINUATION.md).
 Audited input commit: `f1ce03ec5f278a8850125a169a98490ba2cfa204`.
 
 ## LS7J auxiliary-observable study completed: FAIL

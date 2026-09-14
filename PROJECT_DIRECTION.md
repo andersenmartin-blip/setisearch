@@ -149,3 +149,19 @@ LS7K does not establish that the calibrated response will improve native
 prediction. LS7J remains a closed negative result, with no gain/sign/lag/profile
 retry; unused TESS sectors and M43 held-out panels remain closed.
 Current findings: LS7K_INPUT_FINDINGS.md. Restart: LS7K_CONTINUATION.md.
+
+14 September 2026: LS7L completed the bounded engineering acquisition,
+closed-context extraction and PRF phase accounting. All 81,200 quaternion
+rows, 30,594 thermal rows, 8,020 cadence coverage bins and 4,050 phase images
+are published with a passing independent raw-byte audit. No cadence bin is
+empty; all contain ten quaternion samples. The phase footprint deficit is at
+most 0.405205%. Thermal gaps reach seven minutes.
+
+The recovered exporter copies inherited MATLAB coordinate references without
+an explicit shift and omits the original prfRow/prfColumn arrays; the
+calibration-to-science origin remains unresolved. Continue with that coordinate
+and phase definition, exposure integration, uncertainty and upstream target
+dependence before freezing a native physical-response benchmark. The input
+audit does not establish detector improvement. LS7J and all unused evaluation
+panels remain unchanged. Current findings: LS7L_FINDINGS.md. Restart:
+LS7L_CONTINUATION.md. Publication continues under the existing authorization.
