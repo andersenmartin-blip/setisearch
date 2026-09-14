@@ -9,7 +9,37 @@ one integrated study, followed by an explicit unused-data readiness decision.
 Its dates are work windows. The original LS7I joint model, evaluation and audit
 are complete; the subsequent instrumental-response work is tracked below.
 
-## LS7N calibrated native response completed: FAIL
+## LS7O reference availability completed: input contract fails
+
+Metadata selection establishes **twelve simultaneous 20-second reference
+products from seven stars**, on the same CCDs as the science target. All
+**48,120 selected reference rows** are restored in **4,812,000 bytes** with
+exact cadence and spacecraft-time joins. Centroids and positive quoted errors
+are finite, and the centroid masks are disjoint from the target and each other.
+
+The fixed requirement for all six references to have QUALITY=0 at every
+sideband row blocks **all 420 windows**. Event-only availability is 72/210 and
+101/210; complete-sideband availability is zero in both sectors. Therefore
+**zero new corrections and zero pulse transfers were measured**. The 840
+model slots and 12,600 pulse slots are unavailable ledger entries. LS7O is an
+eligibility obstruction, distinct from the measured LS7J/LS7N response failures.
+
+The independent input audit passes **384,960 exact raw-field comparisons**;
+916 numerical comparisons preserve the static baseline. A separate scalar
+audit confirms quality counts and all 420 availability attributions. No
+reference is removed or quality flag waived to obtain a result.
+
+Next establish the fixed references' pixel-level quality, cosmic-ray treatment
+and centroid-response contract before any bounded reference-pixel acquisition
+and new integrated comparison. Matching pixel-product identities are known;
+their time-series contents remain unread. If the contract cannot be established,
+reassess optical product choice. Unused TESS/M43 panels remain closed.
+
+[Findings](LS7O_FINDINGS.md), [report and scope accounting](results_ls7o_response/REPORT.md),
+[frozen protocol](LS7O_SPEC.md), [current continuation](LS7O_CONTINUATION.md).
+Source freeze: `f2d7aef6e82f90a357ec7f54e349cfc2b43953dc`.
+
+## Earlier LS7N calibrated native response completed: FAIL
 
 The fixed cadence-level PRF plus protected-plane response fails on the same
 **420 native windows**, evaluated at both column conventions (**840 paired

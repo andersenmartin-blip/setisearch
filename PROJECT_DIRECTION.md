@@ -200,3 +200,22 @@ exists. If not, reconsider the optical data/product choice instead of another
 local correction adjustment. No unused sector or M43 held-out panel is opened
 and no detector is adopted. Current findings: LS7N_FINDINGS.md. Restart:
 LS7N_CONTINUATION.md. Standing publication authorization continues.
+
+14 September 2026: LS7O completes the reference-product assessment and its
+separately frozen availability experiment. Twelve fast products from seven
+stars supply 48,120 finite centroid/error rows with exact time joins and
+disjoint masks. The requirement that all six references be QUALITY=0 through
+every sideband blocks all 420 windows. Zero new corrections or pulse transfers
+were measured; this is an eligibility obstruction, not a measured failure of
+reference-driven PRF correction. The independent raw-row and quality/scope
+audits pass, and earlier LS7J/LS7N outcomes remain unchanged.
+
+Next establish a pixel-level quality, cosmic-ray and centroid-response contract
+for the same fixed references, with a bounded pixel acquisition and integrated
+endpoints specified together only if justified. The matching FAST-TP products
+are identified but their pixel rows remain unread. Do not waive flags, drop
+stars or retune the completed model to obtain a pass. If a usable contract
+cannot be established, reassess optical products/instruments instead of another
+local correction adjustment. No unused TESS or M43 panel is opened. Current
+findings: LS7O_FINDINGS.md. Restart: LS7O_CONTINUATION.md. Standing publication
+authorization continues.

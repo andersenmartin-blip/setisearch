@@ -4,16 +4,17 @@ Prepared 13 September 2026, following the completed LS7H result.
 This is an operational work plan. The numerical specification for the next
 experiment must still be frozen before its evaluation.
 
-**Latest continuation, 14 September:** [LS7N](LS7N_FINDINGS.md) completed the
-fixed cadence-level calibrated native comparison after LS7M. All 420 windows,
-840 paired coordinate/model rows and 12,600 pulse responses are independently
-audited. Pulse protection passes; native residual energy rises about 12% in
-both sectors, so the joint requirement fails. Close this response family.
-Next assess availability of independent reference-star astrometry or documented
-target-excluded motion with its temporal/error description on the same
-pointings, before any bounded acquisition or new correction. Such an input is
-not yet established. If unavailable, reassess the optical data/product choice.
-[Current restart instructions](LS7N_CONTINUATION.md).
+**Latest continuation, 14 September:** [LS7O](LS7O_FINDINGS.md) establishes
+twelve reference products from seven stars and audits 48,120 selected rows
+with exact time joins. Its all-six, all-sideband QUALITY=0 contract blocks
+all 420 windows. No new native correction or pulse transfer is measured;
+LS7J and LS7N remain separate measured failures. The raw-input and quality/scope
+audits pass. Next establish the same references' pixel-level quality,
+cosmic-ray and centroid-response contract, then freeze any bounded pixel
+acquisition and integrated comparison together if justified. Matching pixel
+products are known, but their pixel time series remain unread. If that contract
+cannot be established, reassess the optical product/instrument choice.
+[Current restart instructions](LS7O_CONTINUATION.md).
 
 **14 September follow-on:** after the owner asked to continue, the separately
 specified [LS7J auxiliary study](LS7J_CONTINUATION.md) also completed. It fails
