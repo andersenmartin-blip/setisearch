@@ -20,6 +20,28 @@ The integrated work in the [14–27 September plan](https://github.com/andersenm
 is now complete, including the negative-result decision branch. The calendar
 dates were work estimates; execution proceeded during active sessions.
 
+**LS7N calibrated native response completed, 14 September 2026: the joint test failed.**
+The fixed cadence-level PRF plus protected-plane model evaluated the same
+**420 native windows** under both declared column origins (**840 paired model
+rows**). Combined residual energy rises **12.14–12.36% in sector 29** and
+**12.37–12.49% in sector 32**. Only **0/10 and 2/10** background aggregates
+improve, against six required. All predictions are available.
+
+All **12,600 downstream pulse-response cases pass**: maximum nominal
+distortion is **0.015354%**, and maximum calibration-entry stress distortion is
+**0.226796%**. The independent audit passes **108,604 numerical comparisons**.
+Correction size exceeds its alignment benefit in both sectors; the same failure
+holds at both column origins. No detector or candidate is adopted.
+
+This closes the exact cadence response without gain/sign/lag/profile retuning.
+Next assess whether independent reference-star astrometry or documented
+target-excluded motion with timing and uncertainty is available on these same
+pointings. Such an input is not yet established. Unused TESS and M43 panels
+remain closed.
+[Findings](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7N_FINDINGS.md),
+[audited result](https://github.com/andersenmartin-blip/setisearch/blob/3354f09bf34af32a3fbf6ed68af77076f9f3d604/results_ls7n_response/REPORT.md),
+[current continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7N_CONTINUATION.md).
+
 **LS7M calibrated PRF and exposure operator completed, 14 September 2026.**
 Ten known-answer tests, all **4,050 phase reconstructions** and **144 fixed
 calibration cases** pass. An independent original-MATLAB/SciPy/Simpson audit
@@ -29,13 +51,11 @@ and uncertainty array matches its mission FITS export exactly.
 Both declared column origins are retained; they change modeled pixel responses
 by up to **0.7946%** over this panel. Finite stamp coverage is explicit, and a
 synthetic 30 ms pulse has **10–15 ms** of live exposure across the declared
-readout placements. This verifies numerical response arithmetic. Native
-prediction improvement remains untested.
-
-Next establish the physical mapping from motion observables to detector
-response, including calibration blur, timing, supported footprint and upstream
-target dependence, then freeze a native comparison on the same closed data.
-No detector is adopted or unused panel opened.
+readout placements. This stage verified numerical response arithmetic.
+LS7N subsequently fixed and evaluated the cadence-level native comparison
+reported above. Instantaneous quaternion mapping, exact timing and upstream
+target dependence remain limitations. No detector is adopted or unused panel
+opened.
 [Findings](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7M_FINDINGS.md),
 [audited result](https://github.com/andersenmartin-blip/setisearch/blob/81406913ff12cc7ce91c9c9caf3d25aa758f568f/results_ls7m_response/REPORT.md),
 [current continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7M_CONTINUATION.md).
@@ -185,7 +205,7 @@ independent observing cadence. It is not a detection or technosignature claim.
 | Read or do | Entry point |
 |---|---|
 | Continue the active work | [Current project status](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md) |
-| Inspect current TESS work | [LS7M PRF/exposure findings](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7M_FINDINGS.md), [LS7M audited benchmark](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7m_response/REPORT.md), [LS7L engineering/phase findings](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7L_FINDINGS.md), [LS7L audited inputs](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7l_inputs/REPORT.md), [LS7K input findings](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7K_INPUT_FINDINGS.md), [LS7K audited inputs](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7k_inputs/REPORT.md), [LS7J auxiliary result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7j_auxiliary/REPORT.md), [LS7J limitations](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7J_LIMITATIONS.md), [LS7I joint background result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7i_background/REPORT.md), [LS7I limitations](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7I_LIMITATIONS.md), [LS7H morphology diagnosis](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7h_morphology/REPORT.md), [LS7G sector-29 transfer](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7g_transfer/REPORT.md), [LS7F separation study](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7f_separation/REPORT.md), [LS7E combined development](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7e_joint/REPORT.md), [LS7D noise diagnosis](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7d_noise/REPORT.md), [LS7C reviewed result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7c_tess/REVIEW.md), [frozen protocol](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7C_TESS_PROTOCOL.md), and [previous LS7B result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7b_tess/REVIEW.md) |
+| Inspect current TESS work | [LS7N native findings](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7N_FINDINGS.md), [LS7N audited result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7n_response/REPORT.md), [LS7M PRF/exposure findings](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7M_FINDINGS.md), [LS7M audited benchmark](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7m_response/REPORT.md), [LS7L engineering/phase findings](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7L_FINDINGS.md), [LS7L audited inputs](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7l_inputs/REPORT.md), [LS7K input findings](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7K_INPUT_FINDINGS.md), [LS7K audited inputs](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7k_inputs/REPORT.md), [LS7J auxiliary result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7j_auxiliary/REPORT.md), [LS7J limitations](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7J_LIMITATIONS.md), [LS7I joint background result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7i_background/REPORT.md), [LS7I limitations](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7I_LIMITATIONS.md), [LS7H morphology diagnosis](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7h_morphology/REPORT.md), [LS7G sector-29 transfer](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7g_transfer/REPORT.md), [LS7F separation study](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7f_separation/REPORT.md), [LS7E combined development](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7e_joint/REPORT.md), [LS7D noise diagnosis](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7d_noise/REPORT.md), [LS7C reviewed result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7c_tess/REVIEW.md), [frozen protocol](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7C_TESS_PROTOCOL.md), and [previous LS7B result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7b_tess/REVIEW.md) |
 | Inspect the latest native evaluation | [M43AI result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AI_NATIVE_VALIDATION_RESULT.md) |
 | Inspect the separate historical TESS development | [LS7C sector 29 archive: 1,300 retrospective trials](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/archives/ls7c_sector29_development/README.md) |
 | Understand the failed training rule | [M43AF training result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AF_TRAINING_RESULT.md) |
