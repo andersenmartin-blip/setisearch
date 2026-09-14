@@ -4,6 +4,12 @@ Prepared 13 September 2026, following the completed LS7H result.
 This is an operational work plan. The numerical specification for the next
 experiment must still be frozen before its evaluation.
 
+**14 September follow-on:** after the owner asked to continue, the separately
+specified [LS7J auxiliary study](LS7J_CONTINUATION.md) also completed. It fails
+native correction while passing all pulse-protection checks. The current
+information requirement is described in [LS7J_LIMITATIONS.md](LS7J_LIMITATIONS.md).
+The original calendar and LS7I decision below remain unchanged.
+
 ## Execution checkpoint — 13 September
 
 The owner asked to start immediately and continue. The input restoration,

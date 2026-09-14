@@ -12,9 +12,12 @@ Its dates are work windows. The joint model, evaluation and audit are now comple
 
 LS7J completed **420 fixed native windows and 9,480 digital response rows** on the same twenty closed-sector contexts. The combined motion/outside-aperture correction has joint feasibility **FAIL**; the independent audit passes. There are no new detector decisions or added observing days.
 
-Close this fixed unit-gain motion plus protected-plane correction as a failed feasibility route. Use the saved component ratios and full-stamp mismatch responses to identify whether native prediction, source-wing protection or missing motion information limits it. Any next information study must address that measured limitation explicitly; no gain, profile, plane or threshold retry follows within LS7J. No unused sector or detector qualification follows from this result.
+Combined native energy increases **45.74% and 34.51%**, with **0/10** backgrounds improved in each sector. All pulse-protection requirements pass, including broadened full-stamp profiles with at most **0.365% distortion**. All required motion inputs are available. The completed [limitation analysis](LS7J_LIMITATIONS.md) attributes the poor comparison to the fixed motion response: its squared size exceeds its limited alignment with the native fluctuation. Plane alone improves only five of ten backgrounds per sector and also fails the native improvement requirement.
 
-[Full result](results_ls7j_auxiliary/REPORT.md), [continuation](LS7J_CONTINUATION.md).
+Close this correction route. Next establish the documented mapping and uncertainty between mission motion fields and these processed pixels, including time averaging and target-signal dependence. Identify a usable independent engineering source or calibrated pixel-response description before specifying another detector study. Such an input has not yet been established. No sign, gain, delay, profile or threshold retry is appended to LS7J; unused data remain closed.
+
+[Full result](results_ls7j_auxiliary/REPORT.md), [limitation analysis](LS7J_LIMITATIONS.md), [continuation](LS7J_CONTINUATION.md).
+Audited result commit: `52ef2780a374e1314252f8fe9f37d8fcae4d985f`.
 
 ## LS7I joint background model completed: FAIL
 

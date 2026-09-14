@@ -114,3 +114,21 @@ image-motion/centroid fields on the same closed data. This is a research
 proposal, not evidence those observables will succeed. Publication continues
 under the existing standing authorization. Current restart instructions:
 LS7I_CONTINUATION.md and TWO_WEEK_REPORT_2026-09-14.md.
+
+14 September 2026: the owner asked to continue. LS7J completed the separately
+frozen auxiliary-information study: 420 native windows, all 7,080 existing
+recipes and 2,400 separate full-stamp response cases. Both sectors fail the
+native correction requirements; combined residual energy increases 45.74%
+and 34.51%, with no improved background aggregates. All motion inputs are
+available and all pulse-protection requirements pass. The independent audit
+and publication are complete. The fixed motion response, rather than missing
+fields or downstream pulse removal, is the measured limitation.
+
+Close LS7J without a gain, sign, delay or profile retry. Next assess the
+documented response relationship between mission motion fields and the
+processed short-cadence pixels, including uncertainty and target dependence.
+Identify an independently useful engineering source or calibrated response
+description before a new detector comparison; that input is not yet
+established. Preserve the validated protected-plane building block without
+adopting it as a detector. Current details: LS7J_LIMITATIONS.md and
+LS7J_CONTINUATION.md. Unused sectors and M43 held-out panels remain closed.

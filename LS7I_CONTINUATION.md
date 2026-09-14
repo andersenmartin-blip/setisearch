@@ -2,6 +2,12 @@
 
 Integrated model study completed 2026-09-13.
 
+**Follow-on completed 14 September:** the proposed auxiliary-information study
+is now [LS7J](LS7J_CONTINUATION.md). Its native correction requirements fail
+while all pulse-protection checks pass. The current next information
+requirement is documented in [LS7J_LIMITATIONS.md](LS7J_LIMITATIONS.md).
+The LS7I outcome and reproduction instructions below remain historical.
+
 LS7I completed **7,080 digital cases** on the two closed sectors: **6,720 historical cases plus a separately declared 360-case sector-32 shape supplement**. The primary rule fails **6/12 signal cells** and **2/60 control cells**. The joint development requirement is **FAIL**; the independent audit passes.
 
 The fixed model does not satisfy the joint two-sector requirements. The independent arithmetic audit passes. This is a completed negative method result; no detector is adopted and no unused sector is opened.
