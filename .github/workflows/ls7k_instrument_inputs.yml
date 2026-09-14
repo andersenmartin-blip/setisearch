@@ -1,0 +1,72 @@
+name: LS7K instrument provenance and calibration inputs
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [m43-support-qualification]
+    paths:
+      - '.github/workflows/ls7k_instrument_inputs.yml'
+      - 'config/ls7k_inputs.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ls7k-instrument-inputs
+  cancel-in-progress: false
+
+jobs:
+  acquire:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Require an unpublished input result
+        run: test ! -e results_ls7k_inputs
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+      - name: Install pinned dependencies
+        run: python -m pip install -r requirements_ls7g.txt
+      - name: Check source syntax
+        run: python -m py_compile scripts/ls7k_instrument_inputs.py scripts/ls7k_review_inputs.py
+      - name: Restore original timing and mission calibration inputs
+        run: |
+          set -o pipefail
+          python -u scripts/ls7k_instrument_inputs.py 2>&1 | tee ls7k_inputs_run.log
+      - name: Independently check raw timing geometry and calibration files
+        run: |
+          set -o pipefail
+          python -u scripts/ls7k_review_inputs.py 2>&1 | tee ls7k_inputs_audit.log
+      - name: Seal evidence
+        run: |
+          cp ls7k_inputs_run.log results_ls7k_inputs/RUN.log
+          cp ls7k_inputs_audit.log results_ls7k_inputs/AUDIT.log
+          python -m pip freeze > results_ls7k_inputs/environment.txt
+          python scripts/ls7k_review_inputs.py --seal
+          (cd results_ls7k_inputs && sha256sum -c SHA256SUMS)
+      - name: Preserve execution evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ls7k-instrument-inputs
+          retention-days: 90
+          if-no-files-found: warn
+          path: |
+            ls7k_inputs_*.log
+            results_ls7k_inputs/
+      - name: Publish the verified input inventory including availability failures
+        if: success()
+        run: |
+          git fetch origin m43-support-qualification
+          test "$(git rev-parse origin/m43-support-qualification)" = "$GITHUB_SHA"
+          git add results_ls7k_inputs
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish LS7K verified timing and mission PRF input inventory'
+          git push origin HEAD:m43-support-qualification
