@@ -9,7 +9,37 @@ one integrated study, followed by an explicit unused-data readiness decision.
 Its dates are work windows. The original LS7I joint model, evaluation and audit
 are complete; the subsequent instrumental-response work is tracked below.
 
-## LS7Q HiPERCAM metadata assessment completed; native pilot not ready
+## LS7R CHEOPS input and temporal assessment completed
+
+A concrete public visit is retained: **CH_PR300024_TG000301_V0300**, OBSID
+**1015522**, 55 Cnc on 9 March 2020, pipeline **14.1.2**. Selection uses the
+earliest of 31 public visits, before flux inspection. Exact HTTP byte ranges
+establish access to 3,024 raw imagettes and 432 matching subarrays; only
+**1,203,264 unique header/metadata bytes** were acquired, with **zero image
+body bytes**. The five metadata tables contain 6,048 individual exposures,
+3,024 imagette rows and three matching sets of 432 subarray rows.
+
+Imagettes combine two 2.2-second exposures, with median cadence **4.449005 s**;
+subarrays combine fourteen, with median cadence **31.145472 s**. Every CE join
+agrees; four long gaps remain explicit. In the timestamp-only linear pulse
+calculation, 30-second pulses wholly within a segment retain full peak in
+imagettes versus **0.481837–0.963670** in subarrays on the sampled onset grid.
+This is neither noisy injection recovery nor qualified observing coverage.
+
+Calibration reference identities and processing steps are recorded. Raw
+imagettes still require calibration; cosmic-ray processing is N/A in the COR
+headers and the two-dimensional pixel map is visit-level. Next combine reference
+validation, target-protected calibration/PSF/background development and one
+joint pulse/nuisance/native-response protocol before image evaluation.
+No detector or candidate is adopted. The range, FITS checksum, UTC/TT and
+independent scalar-field/response checks pass.
+
+[Findings](LS7R_CHEOPS_INPUT.md), [reproduction](results_ls7r_metadata/README.md),
+[current continuation](LS7R_CONTINUATION.md). LS7Q's HiPERCAM obstacle and the
+separate LS7P publication reconciliation remain open; unused TESS/M43 panels
+stay closed.
+
+## Earlier LS7Q HiPERCAM metadata assessment; native pilot not ready
 
 The GTC archive query reports **1,035 matching products**; its first **100
 metadata rows** are saved. Six headers and the QC log identify a public XO-2b

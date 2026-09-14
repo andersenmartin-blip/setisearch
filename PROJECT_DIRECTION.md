@@ -231,3 +231,16 @@ LS7Q_CONTINUATION.md. The separate LS7P publication claim cannot currently be
 verified beyond its public source freeze; recover the result evidence as
 specified in LS7P_PUBLICATION_RECONCILIATION.md. Existing publication authority,
 closed studies and reserved TESS/M43 panels are unchanged.
+
+14 September 2026, LS7R: the planned secondary CHEOPS metadata assessment
+establishes usable bounded delivery for CH_PR300024_TG000301_V0300 (55 Cnc),
+with 3,024 raw imagettes, 432 subarrays and exact individual exposure metadata.
+A timestamp-only pulse comparison quantifies stacking losses; no native pixel
+response is measured. Calibration references are named, but their contents,
+validity and imagette propagation still require checking. Next combine that
+work with a single protected calibration/PSF/background and pulse/nuisance
+response protocol before opening image arrays. Cosmic-ray and instantaneous
+saturation handling must be explicit. Current restart: LS7R_CONTINUATION.md.
+No detector, candidate or qualified observing coverage is added. LS7Q and
+LS7P's separate evidence gap remain unchanged; existing publication authority
+and reserved TESS/M43 panels continue.

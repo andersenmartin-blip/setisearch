@@ -1,0 +1,108 @@
+XTENSION= 'IMAGE   '           / IMAGE extension                                
+BITPIX  =                   16 / number of bits per data pixel                  
+NAXIS   =                    2 / number of data axes                            
+NAXIS1  =                  200 / length of data axis 1                          
+NAXIS2  =                  200 / length of data axis 2                          
+PCOUNT  =                    0 / required keyword; must = 0                     
+GCOUNT  =                    1 / required keyword; must = 1                     
+BZERO   =                32768 / offset data range to that of unsigned short    
+BSCALE  =                    1 / default scaling factor                         
+DATE    = '2023-03-15T19:19:39' / creation time of this HDU                     
+STAMP   = 'main_correction.py 14.0.1' / program creating this HDU               
+SVN_REV = 'Unversioned directory' / svn revision of the software creating this H
+EXTNAME = 'PIP_COR_PixelFlagMapSubArray' / extension name                       
+SCHEMA  = 'PIP_COR_PixelFlagMapSubArray.fsd' / filename of schema defining this 
+EXT_VER = '13.2.2  '           / version of the data structure                  
+DATA_LVL= 'L1      '           / Level of this data product                     
+PROC_CHN= 'data reduction'     / Processing chain creating this data structure  
+          / A Pixel Map of flags derived by Data Reduction.                     
+          / For each pixel in the subarray image cube, the pixel map holds a    
+          / binary coded flag with details on the pixel behaviour during the    
+          / visit. In the LSB-0 numbering scheme: bit 0 : not used, bit 1 :     
+          / pixel classified as dead, bit 2 : pixel classified as hot, bit 3 :  
+          / pixel classified as telegraphic, bit 4 : pixel classified as        
+          / saturated, i.e. for more than 10% of the visit the pixel value      
+          / exceeded the upper limit of the linear behaviour.                   
+                                                                                
+          / CHEOPS Data Structure                                               
+                                                                                
+TELESCOP= 'CHEOPS  '           / Telescope's name                               
+INSTRUME= 'CHEOPS  '           / Instrument's name                              
+ORIGIN  = 'SOC     '           / Processing site, creating this FITS file       
+ARCH_REV=                    3 / Archive revision number                        
+PROC_NUM=                    0 / Processing Number                              
+PIPE_VER= '14.1.2  '           / Pipeline version                               
+TIMESYS = 'TT      '           / Time frame system                              
+                                                                                
+          / Start and Stop of Validity                                          
+                                                                                
+V_STRT_U= '2020-03-09T04:58:50.301024' / [TIMESYS=UTC] Start of validity time in
+V_STOP_U= '2020-03-09T11:14:07.971644' / [TIMESYS=UTC] End of validity time in U
+V_STRT_M=      58917.208327373 / [day] Start of validity time in MJD            
+V_STOP_M=     58917.4689485607 / [day] End of validity time in MJD              
+                                                                                
+          / Target                                                              
+                                                                                
+TARGNAME= '55Cnce  '           / Name of the target as provided by the proposal 
+SPECTYPE= 'Other   '           / Spectral type of the target as provided by the 
+T_EFF   =                 5196 / [Kelvin] Effective temperature of the target as
+MAG_G   =               5.7144 / [mag] Brightness of the target in Gaia band    
+MAG_GERR=                 0.03 / [mag] Error of brightness of the target in Gaia
+MAG_CHPS=     5.70843989581203 / [mag] Brightness of the target in CHEOPS band  
+MAG_CERR=                 0.03 / [mag] Error of brightness of the target in CHEO
+                                                                                
+          / Visit                                                               
+                                                                                
+PI_NAME = 'Andrea FORTIER'     / Name of the PI of the observing program        
+PI_UID  =                 5572 / ID of the PI                                   
+OBS_CAT = 'reference transit'  / Observation Category                           
+PROGTYPE=                   30 / Type of the program                            
+PROG_ID =                   24 / Program Id of this type of program             
+REQ_ID  =                    3 / Observation request Id of this program         
+VISITCTR=                    1 / Visit counter for this target                  
+OBSID   =              1015522 / Unique identifier of a visit, defined by MPS   
+PRP_VST1=                 1825 / [days] Proprietary period, depending on first v
+PRP_VSTN=                 1825 / [days] Proprietary period, depending on last vi
+                                                                                
+          / Target Coordinates                                                  
+                                                                                
+RA_TARG =         133.14921375 / RA of the target at epoch J2000                
+DEC_TARG=     28.3308211111111 / DEC of the target at epoch J2000               
+EQUINOX =                2000. / Equinox of celestial coord. system             
+RADESYS = 'ICRS    '           / Coordinate reference frame for the RA and DEC  
+                                                                                
+          / Sub - Array Location on CCD                                         
+                                                                                
+X_WINOFF=                  715 / [pixel] X offset of the Sub Array image relativ
+Y_WINOFF=                  181 / [pixel] Y offset of the Sub Array image relativ
+                                                                                
+          / Used reference files                                                
+                                                                                
+RF_FIL1 = 'CH_TU1949-12-14T00-00-00_EXT_APP_DE1_V0102.fits' / name of the refere
+RF_FIL2 = 'CH_TU2019-12-18T00-00-00_REF_APP_Aperture_V0300.fits' / name of the r
+RF_FIL3 = 'CH_TU2020-03-17T12-29-01_REF_APP_BadPixelMap_V0201.fits' / name of th
+RF_FIL4 = 'CH_TU2019-12-18T00-00-00_REF_APP_BiasFrame_V0109.fits' / name of the 
+RF_FIL5 = 'CH_TU2018-01-01T00-00-00_REF_APP_CCDLinearisationLUT100_V0104.fits'  
+RF_FIL6 = 'CH_TU2016-01-01T00-00-00_REF_APP_DarkColumns_V0101.fits' / name of th
+RF_FIL7 = 'CH_TU2020-03-17T12-29-01_REF_APP_DarkFrame_V0201.fits' / name of the 
+RF_FIL8 = 'CH_TU2020-01-29T00-00-00_REF_APP_FlatFieldTeff-PointSource_V0104.fit'
+RF_FIL9 = 'CH_TU2020-01-29T00-00-00_REF_APP_FluxConversion_V0105.fits' / name of
+RF_FIL10= 'CH_TU2020-02-18T06-15-13_REF_APP_GainCorrection_V0109.fits' / name of
+RF_FIL11= 'CH_TU2018-00-00T00-00-00_REF_APP_Limits-ScienceHk_V0101.fits' / name 
+RF_FIL12= 'CH_TU2010-01-01T00-00-00_REF_APP_ObtReset_V0101.fits' / name of the r
+RF_FIL13= 'CH_TU2016-01-01T00-00-00_REF_APP_PixelScale_V0200.fits' / name of the
+RF_FIL14= 'CH_TU2018-01-01T00-00-00_REF_APP_ReadOut_V0101.fits' / name of the re
+RF_FIL15= 'CH_TU2016-01-01T00-00-00_REF_APP_VisitConstraints_V0101.fits' / name 
+RF_FIL16= 'CH_TU2020-01-29T00-00-00_REF_APP_WhitePSF_V0106.fits' / name of the r
+RF_FIL17= 'N/A     '           / name of the reference file                     
+RF_FIL18= 'N/A     '           / name of the reference file                     
+RF_FIL19= 'N/A     '           / name of the reference file                     
+RF_FIL20= 'N/A     '           / name of the reference file                     
+                                                                                
+CHECKSUM= 'CoGCElDCClDCClDC'   / HDU checksum updated 2023-03-15T19:19:39       
+DATASUM = '656811822'          / data unit checksum updated 2023-03-15T19:19:39 
+END                                                                             
+                                                                                
+                                                                                
+                                                                                
+                                                                                

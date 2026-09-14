@@ -4,13 +4,18 @@ Prepared 13 September 2026, following the completed LS7H result.
 This is an operational work plan. The numerical specification for the next
 experiment must still be frozen before its evaluation.
 
-**Latest continuation, 14 September:** [LS7Q](LS7Q_OPTICAL_METADATA.md)
-completes a bounded HiPERCAM metadata assessment. The public XO-2b run has
-promising per-channel timing, but raw transfer and compatible calibration
-remain unestablished. No science pixels are opened and no native pilot is
-qualified. Next establish a bounded, identified raw/calibration package or
-assess the secondary CHEOPS option using actual product metadata.
-[Current restart instructions](LS7Q_CONTINUATION.md).
+**Latest continuation, 14 September:** [LS7R](LS7R_CHEOPS_INPUT.md) completes
+the secondary CHEOPS assessment. One public 55 Cnc visit now has verified
+bounded delivery, calibration identities, 6,048 individual timestamps and
+3,024 raw imagettes sampled about every 4.449 seconds. The timestamp-only
+pulse comparison supports retaining the imagette route; it is not native
+recovery or detector qualification. Next combine reference validation,
+short-cadence calibration and a prospective joint pixel-response study.
+[Current restart instructions](LS7R_CONTINUATION.md).
+
+[LS7Q's HiPERCAM assessment](LS7Q_OPTICAL_METADATA.md) remains a completed
+metadata result with unresolved raw transfer and calibration mapping. LS7R
+follows the planned alternative without reopening TESS/M43 reserved data.
 
 **Evidence reconciliation:** LS7P's source freeze is public, but the result
 and publication claimed in the earlier conversation could not be verified
