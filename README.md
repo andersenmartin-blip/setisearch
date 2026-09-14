@@ -21,6 +21,24 @@ The integrated work in the [14–27 September plan](https://github.com/andersenm
 is now complete, including the negative-result decision branch. The calendar
 dates were work estimates; execution proceeded during active sessions.
 
+**LS7R CHEOPS input and temporal assessment completed, 14 September 2026.**
+The selected public 55 Cnc visit provides **3,024 raw imagettes**, **432
+matching subarrays** and metadata for **6,048 individual exposures**. Bounded
+byte-range access works; only headers and metadata were acquired.
+
+The small images combine two 2.2-second exposures and arrive about every
+**4.449 seconds**. A timestamp-only 30-second pulse retains full peak in these
+images versus **48–96%** in the larger stacked images on the sampled onset
+grid. Four long observation gaps remain explicit. This is a temporal response
+calculation, not noisy recovery or a detection.
+
+Next validate the named calibration inputs and freeze one combined pixel
+calibration, signal-protection and nuisance-control study. No image pixels
+were inspected, no detector was qualified and no search coverage was added.
+[Findings](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7R_CHEOPS_INPUT.md),
+[evidence](https://github.com/andersenmartin-blip/setisearch/tree/m43-support-qualification/results_ls7r_metadata),
+[current continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7R_CONTINUATION.md).
+
 **LS7Q HiPERCAM metadata assessment completed, 14 September 2026.**
 A bounded inspection saves 100 catalogue rows, six run/calibration headers and
 the observatory QC log. A public XO-2b run contains 11,152 stored frames with
