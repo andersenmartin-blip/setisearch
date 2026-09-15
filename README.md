@@ -21,7 +21,22 @@ The integrated work in the [14–27 September plan](https://github.com/andersenm
 is now complete, including the negative-result decision branch. The calendar
 dates were work estimates; execution proceeded during active sessions.
 
-**LS7U CHEOPS electronic-reference measurements completed, 15 September 2026.**
+**LS7V CHEOPS calibration-log reconciliation completed, 15 September 2026.**
+The actual reduction log explains the difference investigated in LS7U:
+**563.43 ADU/frame bias and 7.13 ADU/frame noise are chosen defaults**, whose
+binary32 representations exactly match the saved CAL/COR values. The log also
+shows that the spatial bias-frame correction was skipped. Its reference is
+not needed to reproduce an unapplied correction.
+
+Source identities, native-header comparisons and fresh offline reproduction
+pass. The applied dark map, exact gain/coaddition/offline operator and remaining
+spatial inputs still need resolution before the combined native image study.
+**Input remains NOT_READY; no source trial or new observing coverage is added.**
+[Findings](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7V_CALIBRATION_RECONCILIATION.md),
+[evidence](https://github.com/andersenmartin-blip/setisearch/tree/m43-support-qualification/results_ls7v_reduction_log),
+[current continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7V_CONTINUATION.md).
+
+**Earlier LS7U CHEOPS electronic-reference measurements completed, 15 September 2026.**
 The fixed virtual prescan now directly measures **562.089864 ADU/readout bias**
 and **7.118046 ADU/readout effective noise**. Its bias differs from CAL beyond
 the descriptive sampling interval. A separately specified exploratory check
