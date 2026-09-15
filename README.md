@@ -21,7 +21,23 @@ The integrated work in the [14–27 September plan](https://github.com/andersenm
 is now complete, including the negative-result decision branch. The calendar
 dates were work estimates; execution proceeded during active sessions.
 
-**LS7S CHEOPS calibration-input audit completed, 15 September 2026.**
+**LS7T CHEOPS native-HK contract audit completed, 15 September 2026.**
+The actual 1,140-row instrument table reveals that the pinned PIPE gain reader
+uses a separate voltage field in its temperature term. Running the unchanged
+function gives about **−0.57027%** in scale relative to the centered-temperature
+diagnostic. The earlier 8.129% comparison used a different conditional input.
+Onboard nonlinearity is disabled, so its missing conversion coefficients are
+not by themselves a calibration obstacle.
+
+The primary sources disagree on the gain-temperature sign; gcoadd, offline
+calibration and exact references still need resolving. Byte/scalar checks and
+clean offline reproduction pass. **Native input remains NOT_READY:** no image
+search, candidate or additional qualified coverage is added.
+[Findings](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7T_CALIBRATION_CONTRACT.md),
+[evidence](https://github.com/andersenmartin-blip/setisearch/tree/m43-support-qualification/results_ls7t_contract),
+[current continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7T_CONTINUATION.md).
+
+**Earlier LS7S CHEOPS calibration-input audit completed, 15 September 2026.**
 The original gain reference is verified and **14/15 exact calibration versions**
 are located. The saved 6,048 exposure rows have missing onboard gain/bias
 values; physical calibration and coaddition assumptions still need resolving.
