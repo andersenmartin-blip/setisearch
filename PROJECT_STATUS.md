@@ -1,6 +1,6 @@
 # SETIsearch — current project status
 
-Updated 14 September 2026. This is the maintained operational entry point.
+Updated 15 September 2026. This is the maintained operational entry point.
 Earlier reports and continuation files preserve their historical states.
 
 The [14–27 September work plan](TWO_WEEK_PLAN_2026-09-14.md) groups the next
@@ -9,7 +9,33 @@ one integrated study, followed by an explicit unused-data readiness decision.
 Its dates are work windows. The original LS7I joint model, evaluation and audit
 are complete; the subsequent instrumental-response work is tracked below.
 
-## LS7R CHEOPS input and temporal assessment completed
+## LS7S electronic calibration audit completed; native input NOT_READY
+
+The exact reference query finds **14/15 logged versions**. The small gain
+V0109 reference is independently delivered by the official PIPE 1.1 package;
+its 14,400 bytes, Git identity, FITS checksums, UTC validity and hardware match
+pass. The mission-reference download was blocked by this session's browser
+URL policy; no bytes from that attempted bundle were retained. The remaining
+large/specialized calibration references still require supported delivery.
+
+All **6,048 exposure rows** have NaN in GAIN_0, BIAS_0 and BIAS, while the
+five voltage/temperature inputs are finite. Imagettes/subarrays carry distinct
+**gcoadd/coadd** labels. The archived dark/bad-map starts are **8.3126 days
+after** the observation; early-visit applicability is unresolved.
+
+Two explicitly conditional gain-offset interpretations differ by about
+**8.129% in absolute scale**, but only **1.025 ppm after median normalization**.
+This is not an actual PIPE run, an adopted calibration, an upstream bug claim
+or a measured astronomical fluctuation. The byte/scalar audit passes 87,696
+field, 147 coefficient and 12,096 gain comparisons.
+
+Next resolve the physical gain/coaddition/reference contract, then freeze
+one combined protected calibration, pulse/nuisance and native-response study.
+No science image, new candidate or additional qualified coverage is added.
+[Findings](LS7S_CALIBRATION_FINDINGS.md), [reproduction](results_ls7s_calibration/README.md),
+[current continuation](LS7S_CONTINUATION.md). LS7P reconciliation stays separate.
+
+## Earlier LS7R CHEOPS input and temporal assessment completed
 
 A concrete public visit is retained: **CH_PR300024_TG000301_V0300**, OBSID
 **1015522**, 55 Cnc on 9 March 2020, pipeline **14.1.2**. Selection uses the

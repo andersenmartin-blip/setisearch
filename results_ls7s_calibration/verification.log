@@ -1,0 +1,48 @@
+{
+  "stage": "LS7S",
+  "input_decision": "NOT_READY",
+  "archive_exact_matches": 14,
+  "reference_contents_verified": 1,
+  "conditional_gain_algebra": {
+    "physical_calibration_adopted": false,
+    "interpretation": "Centered reference-offset and literal PIPE expression on the same degree-C metadata; latter HK-field adapter is unverified.",
+    "gain_ranges": {
+      "centered": {
+        "rows": 6048,
+        "finite": 6048,
+        "missing": 0,
+        "minimum": 1.9566035355707414,
+        "maximum": 1.9566492484952673,
+        "distinct_finite": 6048,
+        "peak_to_peak_ppm": 23.363406890908323
+      },
+      "literal_pipe_expression": {
+        "rows": 6048,
+        "finite": 6048,
+        "missing": 0,
+        "minimum": 1.7975528663459175,
+        "maximum": 1.7975914493338996,
+        "distinct_finite": 6048,
+        "peak_to_peak_ppm": 21.464174269514302
+      }
+    },
+    "relative_literal_over_centered_minus_one": {
+      "rows": 6048,
+      "finite": 6048,
+      "missing": 0,
+      "minimum": -0.08129091061348315,
+      "maximum": -0.08128916580866186,
+      "distinct_finite": 6048
+    },
+    "median_normalized_ratio_max_abs_ppm": 1.0242227073131716
+  },
+  "audit": {
+    "status": "PASS",
+    "raw_field_comparisons": 87696,
+    "coefficient_comparisons": 147,
+    "gain_scalar_comparisons": 12096,
+    "gain_max_abs_discrepancy": 6.661338147750939e-16,
+    "reference_offset_known_answer_pass": true,
+    "independence": "Separate byte/row/term paths in the same assessment; not an external review."
+  }
+}

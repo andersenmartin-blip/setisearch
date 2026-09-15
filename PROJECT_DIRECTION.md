@@ -244,3 +244,14 @@ saturation handling must be explicit. Current restart: LS7R_CONTINUATION.md.
 No detector, candidate or qualified observing coverage is added. LS7Q and
 LS7P's separate evidence gap remain unchanged; existing publication authority
 and reserved TESS/M43 panels continue.
+
+15 September 2026: LS7S completes the retained CHEOPS visit's electronic-input
+and reference audit. Exact archive rows are saved, the original gain reference
+is verified from the official PIPE package, and selected metadata plus two
+conditional gain expressions pass byte/scalar checks. All individual onboard
+gain/bias entries are missing. Coaddition mapping, temperature convention and
+the remaining references are not qualified. Keep the native input NOT_READY;
+resolve the combined physical contract before freezing one protected native
+pixel comparison. No candidate, source pulse recovery or coverage is added.
+Current restart: LS7S_CONTINUATION.md. Standing publication authorization and
+unused TESS/M43 boundaries remain unchanged.

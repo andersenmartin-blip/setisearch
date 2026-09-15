@@ -4,14 +4,18 @@ Prepared 13 September 2026, following the completed LS7H result.
 This is an operational work plan. The numerical specification for the next
 experiment must still be frozen before its evaluation.
 
-**Latest continuation, 14 September:** [LS7R](LS7R_CHEOPS_INPUT.md) completes
-the secondary CHEOPS assessment. One public 55 Cnc visit now has verified
-bounded delivery, calibration identities, 6,048 individual timestamps and
-3,024 raw imagettes sampled about every 4.449 seconds. The timestamp-only
-pulse comparison supports retaining the imagette route; it is not native
-recovery or detector qualification. Next combine reference validation,
-short-cadence calibration and a prospective joint pixel-response study.
-[Current restart instructions](LS7R_CONTINUATION.md).
+**Latest continuation, 15 September:** [LS7S](LS7S_CALIBRATION_FINDINGS.md)
+completes the electronic metadata and gain-reference audit on the retained
+CHEOPS visit. Fourteen of fifteen exact reference versions are listed; the
+small gain file is verified. Missing onboard coefficients, distinct coaddition
+labels, reference delivery/applicability and the temperature convention keep
+the physical input **NOT_READY**. Arithmetic passes; no image pixels or native
+trials were evaluated. [Current restart instructions](LS7S_CONTINUATION.md).
+
+**Earlier continuation, 14 September:** [LS7R](LS7R_CHEOPS_INPUT.md) established
+bounded public science-product delivery, 6,048 individual timestamps and
+3,024 raw imagettes sampled about every 4.449 seconds. Its timestamp-only
+pulse result remains unchanged and is not native recovery or qualification.
 
 [LS7Q's HiPERCAM assessment](LS7Q_OPTICAL_METADATA.md) remains a completed
 metadata result with unresolved raw transfer and calibration mapping. LS7R
