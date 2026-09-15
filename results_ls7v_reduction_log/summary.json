@@ -1,0 +1,203 @@
+{
+  "checkpoint": "LS7V",
+  "file_key": "CH_PR300024_TG000301_V0300",
+  "study_type": "Forensic reconciliation of existing calibration provenance",
+  "input_decision": "NOT_READY_FOR_TARGET_IMAGE_STUDY",
+  "source_log_sha256": "28170dd5716e5cfaf0f6cfa67c2de9d6324be880a82379e08e4043f7b84bbd9a",
+  "source_log_bytes": 60868,
+  "analyzed_log_lines": [
+    75,
+    96
+  ],
+  "scope_sha256": "7efb973d0d825170ba4934f1f10960e418bfa5df880378fd34494f1a08c86595",
+  "source_facts": {
+    "observation_id": 1015522,
+    "calibration_module_version": "14.0.1",
+    "read_mode": "bright",
+    "read_frequency_hz": 230000,
+    "read_channel": "main",
+    "read_script": 6,
+    "stacking": "coadd",
+    "bias_policy": "using defaults",
+    "reported_ccd_temperature_degC": -40.0,
+    "rounded_ccd_temperature_degC": -40,
+    "default_bias_decimal": "563.43",
+    "default_ron_decimal": "7.13",
+    "default_unit_literal": "adu/frame",
+    "spatial_bias_frame": "skipped",
+    "reported_gain_approx_e_per_adu": 2.0,
+    "dark_mode": "MAP",
+    "dark_file": "CH_TU2020-03-17T12-29-01_REF_APP_DarkFrame_V0201.fits",
+    "dark_map_applied": true,
+    "linearization_logged": true,
+    "flat_field_step_logged": true,
+    "bias_reference_named_in_header": "CH_TU2019-12-18T00-00-00_REF_APP_BiasFrame_V0109.fits",
+    "cal_bias_ron_step_header": "completed",
+    "cal_image_bunit_literal": "ADU",
+    "cor_image_bunit_literal": "ADU"
+  },
+  "header_identity_comparisons": [
+    {
+      "stage": "RAW",
+      "card": "OBSID",
+      "value": 1015522,
+      "matches_log": true
+    },
+    {
+      "stage": "CAL",
+      "card": "OBSID",
+      "value": 1015522,
+      "matches_log": true
+    },
+    {
+      "stage": "COR",
+      "card": "OBSID",
+      "value": 1015522,
+      "matches_log": true
+    },
+    {
+      "stage": "RAW",
+      "card": "RO_FREQU",
+      "value": 230000,
+      "matches_log": true
+    },
+    {
+      "stage": "CAL",
+      "card": "RO_FREQU",
+      "value": 230000,
+      "matches_log": true
+    },
+    {
+      "stage": "COR",
+      "card": "RO_FREQU",
+      "value": 230000,
+      "matches_log": true
+    },
+    {
+      "stage": "RAW",
+      "card": "RO_HW",
+      "value": "main",
+      "matches_log": true
+    },
+    {
+      "stage": "CAL",
+      "card": "RO_HW",
+      "value": "main",
+      "matches_log": true
+    },
+    {
+      "stage": "COR",
+      "card": "RO_HW",
+      "value": "main",
+      "matches_log": true
+    },
+    {
+      "stage": "RAW",
+      "card": "RO_SCRPT",
+      "value": 6,
+      "matches_log": true
+    },
+    {
+      "stage": "CAL",
+      "card": "RO_SCRPT",
+      "value": 6,
+      "matches_log": true
+    },
+    {
+      "stage": "COR",
+      "card": "RO_SCRPT",
+      "value": 6,
+      "matches_log": true
+    },
+    {
+      "stage": "RAW",
+      "card": "STACKING",
+      "value": "coadd",
+      "matches_log": true
+    },
+    {
+      "stage": "CAL",
+      "card": "STACKING",
+      "value": "coadd",
+      "matches_log": true
+    },
+    {
+      "stage": "COR",
+      "card": "STACKING",
+      "value": "coadd",
+      "matches_log": true
+    }
+  ],
+  "electronics_default_reconciliation": [
+    {
+      "column": "BIAS",
+      "logged_decimal": "563.43",
+      "logged_unit": "adu/frame",
+      "saved_cal_cor_value": 563.4299926757812,
+      "binary32_hex": "440cdb85",
+      "binary32_promotion_exact_match": true,
+      "primary_prescan_measurement": 562.0898644179894,
+      "cal_minus_primary_adu_per_readout": 1.3401282577918892,
+      "primary_descriptive_interval": [
+        562.0777086779698,
+        562.1012620672636
+      ],
+      "cal_inside_primary_descriptive_interval": false
+    },
+    {
+      "column": "RON",
+      "logged_decimal": "7.13",
+      "logged_unit": "adu/frame",
+      "saved_cal_cor_value": 7.130000114440918,
+      "binary32_hex": "40e428f6",
+      "binary32_promotion_exact_match": true,
+      "primary_prescan_measurement": 7.118045642209028,
+      "cal_minus_primary_adu_per_readout": 0.011954472231890279,
+      "primary_descriptive_interval": [
+        7.089262047309062,
+        7.149363588979897
+      ],
+      "cal_inside_primary_descriptive_interval": true
+    }
+  ],
+  "ls7u_primary_reused_unchanged": {
+    "bias_per_readout_adu": 562.0898644179894,
+    "effective_read_noise_per_readout_adu": 7.118045642209028
+  },
+  "ls7u_blank_reused_unchanged": {
+    "bias_per_readout": 562.0714285714286,
+    "effective_read_noise_per_readout": 7.024590259368411
+  },
+  "resolutions": [
+    "The CAL/COR electronics numbers reproduce the logged defaults exactly after binary32 promotion.",
+    "The log explicitly labels those defaults adu/frame. They are not a result to match by retuning the LS7U margin estimators.",
+    "The named bias-frame input was skipped in this recorded calibration path; its contents are not required to replay an unapplied correction.",
+    "The dark map was explicitly applied, so its content and early-visit applicability remain relevant."
+  ],
+  "limits": [
+    "Binary32 equality does not prove an internal DRP numeric type or reproduce the entire program.",
+    "The frame in the reported unit is consistent with LS7U per-readout scaling; the full stack/nonlinear operator still needs version-relevant documentation.",
+    "The approximate gain ~2.0 does not identify an exact formula, inputs or rounding implementation.",
+    "The native CAL/COR image headers say ADU. A logged gain conversion alone does not establish final image-unit semantics.",
+    "A skipped spatial bias correction does not prove physical pixel-dependent bias is negligible for a different estimator.",
+    "No native gcoadd definition, missing reference contents or source response is recovered from this log."
+  ],
+  "audit": {
+    "source_identity_verified": true,
+    "historical_input_identities_verified": 7,
+    "header_identity_matches": 15,
+    "exact_default_value_matches": 2,
+    "selected_log_lines": 22,
+    "historical_row_census_repeated": false
+  },
+  "new_transfer_bytes": 0,
+  "new_electronic_reference_array_bytes": 0,
+  "target_image_bytes": 0,
+  "native_source_residual_trials": 0,
+  "pulse_recovery_trials": 0,
+  "new_candidates": 0,
+  "new_qualified_observing_seconds": 0,
+  "software": {
+    "python": "3.12.14"
+  }
+}

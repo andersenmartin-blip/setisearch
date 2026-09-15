@@ -9,7 +9,31 @@ one integrated study, followed by an explicit unused-data readiness decision.
 Its dates are work windows. The original LS7I joint model, evaluation and audit
 are complete; the subsequent instrumental-response work is tracked below.
 
-## LS7U direct electronic-reference measurements completed
+## LS7V explains the CAL electronics as defaults and refines the input contract
+
+The actual **main_calibration.py 14.0.1** log for the retained CHEOPS visit
+records default bias **563.43** and default RON **7.13 ADU/frame**. Both CAL/
+COR constants match their binary32 representations exactly. The difference
+investigated in LS7U is therefore explained as measured reference electronics
+compared with chosen defaults; no margin estimator should be tuned to match it.
+
+The log explicitly **skips the spatial bias-frame correction**, despite naming
+BiasFrame V0109 in the input/header. That file is not required to reproduce an
+unapplied correction. The scalar readout defaults are also now known. The dark
+MAP correction, in contrast, was applied; its content and early-visit validity
+still need resolving, along with the gain convention, gcoadd/offline operator,
+flat and required PSF inputs.
+
+The original log identity, seven reused source identities, 15 native-header
+comparisons and both numeric matches pass. Fresh offline outputs reproduce
+byte-for-byte. **No new data transfer or source trial is added**, and the
+combined input remains **NOT_READY**. This resolves concrete requirements
+without repeating the earlier numerical studies.
+[Findings](LS7V_CALIBRATION_RECONCILIATION.md),
+[evidence](results_ls7v_reduction_log/README.md),
+[current continuation](LS7V_CONTINUATION.md).
+
+## Earlier LS7U direct electronic-reference measurements completed
 
 The retained CHEOPS visit's four-column virtual prescan gives **562.089864
 ADU/readout bias** and **7.118046 ADU/readout effective noise**. This measures

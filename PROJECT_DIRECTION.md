@@ -281,3 +281,17 @@ prospective native study. Do not repeat margin estimators to match CAL or
 create a checkpoint solely to restate unavailable inputs. Current restart:
 LS7U_CONTINUATION.md. Existing publication authority and reserved-data
 boundaries remain unchanged.
+
+15 September 2026, LS7V: the original reduction log establishes that CAL/COR
+bias and RON are the recorded defaults 563.43 and 7.13 ADU/frame. Their binary32
+representations match the saved constants exactly. LS7U's discrepancies are
+now understood as measurements compared with defaults; its measurements and
+all earlier results remain unchanged. The executed module (14.0.1 within DRP
+14.1.2) explicitly skips the spatial bias-frame correction, so the named
+reference is not required to replay an unapplied correction. The dark MAP
+was applied and still requires its exact content/applicability. Keep the
+gain/gcoadd/offline and remaining spatial inputs explicit before the single
+prospective native study. No new transfer, source pixel/trial, candidate or
+coverage is added. Current restart: LS7V_CONTINUATION.md. Reuse the resolved
+defaults and do not repeat margin or generic-source censuses. Standing
+publication authorization and reserved TESS/M43 boundaries continue.

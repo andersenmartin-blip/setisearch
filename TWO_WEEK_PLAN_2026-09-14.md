@@ -4,7 +4,17 @@ Prepared 13 September 2026, following the completed LS7H result.
 This is an operational work plan. The numerical specification for the next
 experiment must still be frozen before its evaluation.
 
-**Latest continuation, 15 September:** [LS7U](LS7U_ELECTRONICS_FINDINGS.md)
+**Latest continuation, 15 September:** [LS7V](LS7V_CALIBRATION_RECONCILIATION.md)
+recovers the executed calibration policy from the original log: **563.43 /
+7.13 ADU/frame are defaults**, exactly matching the saved CAL/COR numbers.
+The spatial bias-frame correction was skipped. These facts explain LS7U's
+comparison and remove the need to retrieve a reference merely to reproduce
+an unapplied correction or rediscover the scalar defaults. The applied dark,
+gain/gcoadd/offline and remaining spatial-input requirements stay explicit.
+Fresh offline reconciliation passes; no source image/trial is evaluated.
+[Current restart](LS7V_CONTINUATION.md).
+
+**Earlier continuation, 15 September:** [LS7U](LS7U_ELECTRONICS_FINDINGS.md)
 measures native electronic-reference bias/noise directly: **562.089864 /
 7.118046 ADU/readout** in the fixed virtual prescan. The separately scoped
 original PIPE blank-reference calculation gives **562.071429 / 7.024590**;

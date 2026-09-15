@@ -1,0 +1,165 @@
+{
+  "checkpoint": "LS7V",
+  "file_key": "CH_PR300024_TG000301_V0300",
+  "science_ready": false,
+  "adopted_gain_convention": null,
+  "science_pixels_acquired": false,
+  "conditions": [
+    {
+      "component": "original gain reference",
+      "status": "VERIFIED_INPUT",
+      "evidence": "results_ls7s_calibration/calibration/CH_TU2020-02-18T06-15-13_REF_APP_GainCorrection_V0109.fits"
+    },
+    {
+      "component": "native HK field mapping",
+      "status": "RESOLVED_DISTINCT_QUANTITIES",
+      "evidence": [
+        "results_ls7t_contract/summary.json",
+        "results_ls7t_contract/source_identities.json"
+      ],
+      "decision": "Use a physical temperature field for a temperature argument; no voltage-temperature equivalence established."
+    },
+    {
+      "component": "temperature sign in calibration",
+      "status": "UNRESOLVED_SOURCE_CONFLICT",
+      "decision": "CHEOPSim centers the signed nominal temperature; common_sw schema adds it. No science convention adopted."
+    },
+    {
+      "component": "inverse of onboard nonlinearity conversion",
+      "status": "NOT_REQUIRED_BY_NATIVE_FLAGS",
+      "evidence": {
+        "SCI_RAW_Imagette": {
+          "STACKING": "gcoadd",
+          "NLIN_COR": false,
+          "NEXP": 2,
+          "ROUNDING": 0,
+          "RO_SCRPT": null,
+          "RO_HW": null,
+          "RO_FREQU": null
+        },
+        "SCI_RAW_SubArray": {
+          "STACKING": "coadd",
+          "NLIN_COR": false,
+          "NEXP": 14,
+          "ROUNDING": 0,
+          "RO_SCRPT": 6,
+          "RO_HW": "main",
+          "RO_FREQU": 230000
+        }
+      },
+      "decision": "NLIN_COR=false. Missing GAIN_0/BIAS_0/BIAS alone is not a blocking input."
+    },
+    {
+      "component": "raw gcoadd operator",
+      "status": "UNRESOLVED",
+      "decision": "Do not infer from generic coadd/mean implementation or keyword spelling."
+    },
+    {
+      "component": "offline nonlinearity LUT100 V0104",
+      "status": "CONTENTS_UNAVAILABLE",
+      "decision": "Schema maps uncorrected electrons to corrected electrons. Exact version and per-exposure/stack treatment required."
+    },
+    {
+      "component": "virtual prescan electronic input",
+      "status": "VERIFIED_MEASURED_ADU_INPUT",
+      "evidence": [
+        "LS7U_PRESCAN_PROTOCOL.md",
+        "results_ls7u_prescan/acquisition.json",
+        "results_ls7u_prescan/summary.json",
+        "results_ls7u_prescan/verification.json"
+      ],
+      "primary": {
+        "bias_per_readout_adu": 562.0898644179894,
+        "effective_read_noise_per_readout_adu": 7.118045642209028
+      },
+      "decision": "Reuse the fixed measurement. Effective per-readout noise assumes independent coadded-readout scaling; no target-image or spatial-calibration qualification."
+    },
+    {
+      "component": "pinned PIPE blank-reference mapping",
+      "status": "VERIFIED_EXPLORATORY_FUNCTION_RESULT",
+      "evidence": [
+        "LS7U_BLANK_SUPPLEMENT.md",
+        "results_ls7u_prescan/blank_reference/summary.json"
+      ],
+      "measurement_adu_per_readout": {
+        "bias_per_readout": 562.0714285714286,
+        "effective_read_noise_per_readout": 7.024590259368411
+      },
+      "decision": "The verified original function selects BlankLeft. Its RON differs by 1.500584% from the DRP default. This compares distinct input/estimator policies, not failed reproduction of an identical operation; no calibration is adopted."
+    },
+    {
+      "component": "CAL BIAS/RON units and estimation",
+      "status": "LOGGED_DEFAULTS_ADU_PER_FRAME_RESOLVED",
+      "evidence": [
+        "results_ls7v_reduction_log/selected_calibration_lines.json",
+        "results_ls7v_reduction_log/summary.json"
+      ],
+      "decision": "CAL/COR constants exactly match the binary32 representations of the logged 563.43 and 7.13 ADU/frame defaults. LS7U compared measured margins with defaults. No estimator retuning is indicated. Full stacking/nonlinearity and final image units remain separate requirements.",
+      "logged_defaults": {
+        "BIAS": {
+          "decimal": "563.43",
+          "unit": "adu/frame",
+          "saved_value": 563.4299926757812
+        },
+        "RON": {
+          "decimal": "7.13",
+          "unit": "adu/frame",
+          "saved_value": 7.130000114440918
+        }
+      }
+    },
+    {
+      "component": "readout V0101 and bias V0109",
+      "status": "RECORDED_PATH_REQUIREMENTS_REFINED",
+      "decision": "Scalar bias/RON defaults are known from the executed log; no ReadOut file is needed merely to rediscover them. The spatial BiasFrame correction was skipped, so its content is not required to replay an unapplied correction. Additional physical readout or spatial-bias requirements must be justified for the chosen estimator before evaluation.",
+      "evidence": [
+        "results_ls7v_reduction_log/selected_calibration_lines.json",
+        "results_ls7v_reduction_log/summary.json"
+      ]
+    },
+    {
+      "component": "flat V0104 and white PSF V0106",
+      "status": "CONTENTS_UNAVAILABLE",
+      "decision": "Exact inputs or a separately justified protected estimator contract required before pixel evaluation."
+    },
+    {
+      "component": "dark/bad maps V0201",
+      "status": "CONTENTS_AND_APPLICABILITY_UNRESOLVED",
+      "decision": "The executed log confirms dark mode MAP and application of the named V0201 dark file. Its archived start is later than the visit. Exact content/validity headers and the actual version-relevant selection rule are still needed; the generic selector does not prove DRP invalidity.",
+      "evidence": [
+        "results_ls7v_reduction_log/selected_calibration_lines.json",
+        "results_ls7s_calibration/reference_rows.json",
+        "results_ls7u_prescan/source_identities.json"
+      ]
+    },
+    {
+      "component": "aperture V0300",
+      "status": "ESTIMATOR_DEPENDENT",
+      "decision": "Absent from queried versions; not automatically necessary for a PSF estimator."
+    },
+    {
+      "component": "exposure times and joins",
+      "status": "REUSE_LS7R",
+      "decision": "No additional timestamp pulse census; no native noisy recovery claim."
+    },
+    {
+      "component": "joint native evaluation specification",
+      "status": "PENDING_PHYSICAL_INPUTS",
+      "decision": "Freeze protected training, calibration/noise, pulse/nuisance and native-prediction requirements together before science image evaluation."
+    }
+  ],
+  "access_constraint": "Do not repeat or bypass the previously browser-URL-policy-blocked mission reference-bundle download. Exact locally supplied inputs through approved supported delivery may be inspected.",
+  "predecessor": "results_ls7u_prescan/calibration_contract.json",
+  "evidence_paths_relative_to": "repository root",
+  "electronic_reference_array_bytes": 4147200,
+  "target_image_bytes": 0,
+  "overall_drp_version": "14.1.2",
+  "calibration_module_version": "14.0.1",
+  "new_transfer_bytes": 0,
+  "not_required_merely_to_replay_recorded_path": [
+    "Inverse coefficients for onboard NLC, which was disabled",
+    "Contents of the spatial BiasFrame correction that the log explicitly skipped",
+    "ReadOut reference contents solely to discover the scalar bias/RON defaults already recorded"
+  ],
+  "remaining_operator_note": "The log reports approximate gain ~2.0 e-/ADU but supplies no exact formula. CAL/COR BUNIT cards remain ADU. No final pixel-unit convention or native gcoadd operator is selected from these messages."
+}
