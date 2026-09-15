@@ -21,6 +21,21 @@ The integrated work in the [14–27 September plan](https://github.com/andersenm
 is now complete, including the negative-result decision branch. The calendar
 dates were work estimates; execution proceeded during active sessions.
 
+**LS7S CHEOPS calibration-input audit completed, 15 September 2026.**
+The original gain reference is verified and **14/15 exact calibration versions**
+are located. The saved 6,048 exposure rows have missing onboard gain/bias
+values; physical calibration and coaddition assumptions still need resolving.
+A conditional temperature-offset comparison exposes an absolute-scale
+ambiguity, with no calibration adopted. The numerical audit passes.
+
+The remaining reference download was blocked in this session. **Native input
+is NOT_READY:** no image search, new candidate or qualified coverage is added.
+Next finish the physical calibration contract and one combined protected
+pulse/control/native study on the same visit.
+[Findings](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7S_CALIBRATION_FINDINGS.md),
+[evidence](https://github.com/andersenmartin-blip/setisearch/tree/m43-support-qualification/results_ls7s_calibration),
+[current continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7S_CONTINUATION.md).
+
 **LS7R CHEOPS input and temporal assessment completed, 14 September 2026.**
 The selected public 55 Cnc visit provides **3,024 raw imagettes**, **432
 matching subarrays** and metadata for **6,048 individual exposures**. Bounded
@@ -32,8 +47,8 @@ images versus **48–96%** in the larger stacked images on the sampled onset
 grid. Four long observation gaps remain explicit. This is a temporal response
 calculation, not noisy recovery or a detection.
 
-Next validate the named calibration inputs and freeze one combined pixel
-calibration, signal-protection and nuisance-control study. No image pixels
+LS7S subsequently audited the named inputs; the combined native pixel
+calibration, signal-protection and nuisance-control study remains pending. No image pixels
 were inspected, no detector was qualified and no search coverage was added.
 [Findings](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7R_CHEOPS_INPUT.md),
 [evidence](https://github.com/andersenmartin-blip/setisearch/tree/m43-support-qualification/results_ls7r_metadata),
@@ -296,3 +311,4 @@ they are not commands to restart the current work.
 The archive link preserves the previous full README and all its milestone
 summaries. Its “current” labels and “next step” instructions describe their
 historical dates. The current work queue is maintained in PROJECT_STATUS.md.
+
