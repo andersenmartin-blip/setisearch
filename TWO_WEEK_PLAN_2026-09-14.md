@@ -4,7 +4,15 @@ Prepared 13 September 2026, following the completed LS7H result.
 This is an operational work plan. The numerical specification for the next
 experiment must still be frozen before its evaluation.
 
-**Latest continuation, 15 September:** [LS7S](LS7S_CALIBRATION_FINDINGS.md)
+**Latest continuation, 15 September:** [LS7T](LS7T_CALIBRATION_CONTRACT.md)
+resolves the actual native HK input and identifies a distinct voltage/temperature
+mapping in the pinned PIPE reader. Its native gain comparison is about −0.57027%
+in scale. Onboard NLC is disabled, so the missing coefficients for that operation
+are not alone a blocking requirement. The gain-sign source conflict, gcoadd,
+offline calibration and reference delivery/applicability remain open. No image
+pixels or native trials are evaluated. [Current restart](LS7T_CONTINUATION.md).
+
+**Earlier continuation, 15 September:** [LS7S](LS7S_CALIBRATION_FINDINGS.md)
 completes the electronic metadata and gain-reference audit on the retained
 CHEOPS visit. Fourteen of fifteen exact reference versions are listed; the
 small gain file is verified. Missing onboard coefficients, distinct coaddition

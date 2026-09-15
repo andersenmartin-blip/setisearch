@@ -9,7 +9,31 @@ one integrated study, followed by an explicit unused-data readiness decision.
 Its dates are work windows. The original LS7I joint model, evaluation and audit
 are complete; the subsequent instrumental-response work is tracked below.
 
-## LS7S electronic calibration audit completed; native input NOT_READY
+## LS7T native HK and calibration-contract audit completed
+
+The actual **1,140-row HkExtended table** is acquired and verified using only
+165,480 instrument/header bytes. PIPE's pinned gain reader uses the distinct
+CCD-voltage field (about +34.81) in its temperature term; the actual temperature
+is about −40 °C. On these native inputs, the unchanged reader's gain differs
+from the centered-temperature diagnostic by a median **−0.57027%**, with at
+most **9.134 ppm** after normalizing the ratio. LS7S's 8.129% was a different
+conditional adapter comparison, not this native PIPE result.
+
+The inspected mission sources disagree about the temperature-offset sign.
+A separate issue is resolved: GAIN_0/BIAS_0/BIAS describe **onboard NLC**, and
+both raw headers disable it. Those NaNs alone do not require reconstruction
+of a disabled operation. Offline nonlinearity, gcoadd, CAL noise units and
+exact reference contents/applicability still need a complete physical contract.
+
+The 9,120 raw-field and 4,560 scalar-gain checks pass. Offline reconstruction
+and diagnostic outputs reproduce byte-for-byte. **Native input remains
+NOT_READY**; no image pixels, residual trials, source recoveries, candidates
+or additional qualified coverage are added. Continue with the missing physical
+inputs and one combined prospective study; do not repeat completed censuses.
+[Findings](LS7T_CALIBRATION_CONTRACT.md), [evidence](results_ls7t_contract/README.md),
+[current continuation](LS7T_CONTINUATION.md).
+
+## Earlier LS7S electronic calibration audit completed; native input NOT_READY
 
 The exact reference query finds **14/15 logged versions**. The small gain
 V0109 reference is independently delivered by the official PIPE 1.1 package;

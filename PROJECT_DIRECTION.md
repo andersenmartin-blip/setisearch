@@ -255,3 +255,14 @@ resolve the combined physical contract before freezing one protected native
 pixel comparison. No candidate, source pulse recovery or coverage is added.
 Current restart: LS7S_CONTINUATION.md. Standing publication authorization and
 unused TESS/M43 boundaries remain unchanged.
+
+15 September 2026, LS7T: the actual native HkExtended input is now retained.
+The pinned PIPE gain function reads a separate CCD-voltage field; its native
+result differs from the centered-temperature diagnostic by a median −0.57027%.
+This refines, rather than reinterprets as a PIPE measurement, the older 8.129%
+conditional comparison. CHEOPSim/common_sw disagree on the temperature sign.
+The individual missing gain/bias coefficients belong to onboard nonlinearity;
+NLIN_COR=false makes their inverse unnecessary on the declared native path.
+Keep the remaining physical contract explicit, reuse the completed arithmetic,
+and finish it before one integrated prospective native study. No science pixel,
+candidate or qualified coverage is added. Current restart: LS7T_CONTINUATION.md.
