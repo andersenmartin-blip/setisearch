@@ -21,7 +21,24 @@ The integrated work in the [14–27 September plan](https://github.com/andersenm
 is now complete, including the negative-result decision branch. The calendar
 dates were work estimates; execution proceeded during active sessions.
 
-**LS7T CHEOPS native-HK contract audit completed, 15 September 2026.**
+**LS7U CHEOPS electronic-reference measurements completed, 15 September 2026.**
+The fixed virtual prescan now directly measures **562.089864 ADU/readout bias**
+and **7.118046 ADU/readout effective noise**. Its bias differs from CAL beyond
+the descriptive sampling interval. A separately specified exploratory check
+executes PIPE's original estimator on its actual blank-reference input and
+gives **562.071429 / 7.024590 ADU/readout**. CAL's noise is **1.500584% higher**,
+so this alternative input does not reproduce the calibration numbers.
+
+All **1,036,800 electronic values**, independent scalar checks and clean offline
+reproduction pass. The retained arrays contain electronic reference values;
+target-image bytes remain zero. The gain/coaddition and exact spatial-reference
+contract still needs completion before a prospective native image study.
+**Input remains NOT_READY; no candidate or qualified coverage is added.**
+[Findings](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7U_ELECTRONICS_FINDINGS.md),
+[evidence](https://github.com/andersenmartin-blip/setisearch/tree/m43-support-qualification/results_ls7u_prescan),
+[current continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7U_CONTINUATION.md).
+
+**Earlier LS7T CHEOPS native-HK contract audit completed, 15 September 2026.**
 The actual 1,140-row instrument table reveals that the pinned PIPE gain reader
 uses a separate voltage field in its temperature term. Running the unchanged
 function gives about **−0.57027%** in scale relative to the centered-temperature
@@ -327,4 +344,3 @@ they are not commands to restart the current work.
 The archive link preserves the previous full README and all its milestone
 summaries. Its “current” labels and “next step” instructions describe their
 historical dates. The current work queue is maintained in PROJECT_STATUS.md.
-
