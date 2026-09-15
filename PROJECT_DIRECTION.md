@@ -295,3 +295,14 @@ prospective native study. No new transfer, source pixel/trial, candidate or
 coverage is added. Current restart: LS7V_CONTINUATION.md. Reuse the resolved
 defaults and do not repeat margin or generic-source censuses. Standing
 publication authorization and reserved TESS/M43 boundaries continue.
+
+15 September 2026, operational follow-up after LS7V: two additional DRT/IASW
+repository leads did not resolve the missing instrument documentation. A
+complete technical request and exact input manifest are prepared in
+CHEOPS_CALIBRATION_REQUEST.md and CHEOPS_REQUIRED_INPUTS.json. The verified
+official contact has not been contacted; the draft is unsent and there is no
+pending reply. The owner can send it or supply relevant documentation and the
+exact files. The native study now explicitly depends on that external input.
+Keep LS7V as the latest scientific checkpoint, with no new numbered milestone
+for preparing a request. This does not expand the standing authorization to
+person-directed contact. Current restart: LS7V_CONTINUATION.md.

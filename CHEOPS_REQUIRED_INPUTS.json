@@ -1,0 +1,210 @@
+{
+  "document_type": "operational_input_request",
+  "prepared_utc_date": "2026-09-15",
+  "latest_completed_scientific_checkpoint": "LS7V",
+  "scientific_evidence_commit": "cacdbe22bd238b7b98afb4dc13709874d9a2fd77",
+  "science_ready": false,
+  "message_delivery_state": "PREPARED_UNSENT",
+  "mailbox_draft_created": false,
+  "response_pending": false,
+  "new_external_input_received": false,
+  "message_path": "CHEOPS_CALIBRATION_REQUEST.md",
+  "contact": {
+    "name": "Dr Andrea Fortier",
+    "role": "Mission Project Manager",
+    "address": "andrea.fortier@unibe.ch",
+    "source_url": "https://cheops.space.unibe.ch/about-us/contact",
+    "checked_utc_date": "2026-09-15",
+    "routing_reason": "Official page directs technical questions to the project manager.",
+    "additional_recipients": [],
+    "external_send_authorized": false
+  },
+  "visit": {
+    "file_key": "CH_PR300024_TG000301_V0300",
+    "obsid": 1015522,
+    "target": "55 Cnc",
+    "observation_utc_date": "2020-03-09",
+    "reprocessing_utc_date": "2023-03-15",
+    "overall_drp_version": "14.1.2",
+    "calibration_module_version": "14.0.1",
+    "raw_imagette_header_cards": {
+      "NEXP": 2,
+      "STACKING": "gcoadd",
+      "ROUNDING": 0,
+      "NLIN_COR": false,
+      "T_EFF": 5196,
+      "NAXIS1": 50,
+      "NAXIS2": 50
+    },
+    "raw_subarray_header_cards": {
+      "NEXP": 14,
+      "STACKING": "coadd",
+      "ROUNDING": 0,
+      "NLIN_COR": false,
+      "T_EFF": 5196,
+      "X_WINOFF": 715,
+      "Y_WINOFF": 181,
+      "NAXIS1": 200,
+      "NAXIS2": 200,
+      "RO_FREQU": 230000,
+      "RO_HW": "main",
+      "RO_SCRPT": 6
+    },
+    "window_offset_index_base": null,
+    "header_sources": [
+      "results_ls7r_metadata/SCI_RAW_Imagette_hdu01_header.txt",
+      "results_ls7r_metadata/SCI_RAW_SubArray_hdu01_header.txt"
+    ],
+    "log_source": "results_ls7v_reduction_log/selected_calibration_lines.json"
+  },
+  "operator_questions": [
+    {
+      "id": "gain_and_units",
+      "needed": "Version-relevant HK field mapping, temperature-offset sign and gain convention, including numerical units of delivered CAL/COR image pixels.",
+      "source_conflict": "CHEOPSim subtracts signed TEMP_OFF; common_sw schema adds it. The pinned PIPE reader uses VOLT_FEE_CCD in its temperature term. CAL/COR BUNIT remains ADU despite the logged gain step.",
+      "evidence": [
+        "LS7T_CALIBRATION_CONTRACT.md",
+        "LS7V_CALIBRATION_RECONCILIATION.md"
+      ]
+    },
+    {
+      "id": "stacking_and_offline_nonlinearity",
+      "needed": "Native gcoadd versus coadd definition; sum/mean/weights, clipping/rounding, and bias/gain/LUT order and normalization for the actual exposure stacks.",
+      "constraint": "The 6048 individual exposure records are metadata, not individual science image arrays. NLIN_COR=false does not remove offline linearization.",
+      "evidence": [
+        "LS7T_CALIBRATION_CONTRACT.md",
+        "results_ls7v_reduction_log/calibration_contract.json"
+      ]
+    },
+    {
+      "id": "reference_applicability",
+      "needed": "Actual V_STRT_U/V_STOP_U headers and the DRP 14.0.1 selection/interpolation rule for the dark and bad-pixel maps on this early visit.",
+      "constraint": "Archive Obs Start/Stop columns and filenames are not verified native validity headers; no invalid-calibration conclusion is drawn.",
+      "evidence": [
+        "results_ls7s_calibration/reference_rows.json",
+        "LS7V_CALIBRATION_RECONCILIATION.md"
+      ]
+    }
+  ],
+  "reference_inputs": [
+    {
+      "filename": "CH_TU2018-01-01T00-00-00_REF_APP_CCDLinearisationLUT100_V0104.fits",
+      "requirement": "required",
+      "purpose": "Offline electron-domain nonlinearity, including interpolation, domain and normalization for the recorded stacking operator.",
+      "archive_match": true,
+      "contents_received": false,
+      "sha256": null,
+      "archive_size_display": "2.0187",
+      "archive_size_label": "MB",
+      "archive_size_byte_convention_verified": false,
+      "archive_obs_start_utc": "2018-01-01 00:00:00.000000",
+      "archive_obs_stop_utc": "2050-01-01 00:00:00.000000",
+      "native_validity_start_utc": null,
+      "native_validity_stop_utc": null,
+      "version_relevant_selection_rule": null,
+      "source": "results_ls7s_calibration/reference_inventory.json",
+      "original_archive_row_source": "results_ls7s_calibration/reference_rows.json"
+    },
+    {
+      "filename": "CH_TU2020-01-29T00-00-00_REF_APP_FlatFieldTeff-PointSource_V0104.fits",
+      "requirement": "required",
+      "purpose": "Exact spatial response, applicable temperature planes and interpolation for T_EFF=5196 K.",
+      "archive_match": true,
+      "contents_received": false,
+      "sha256": null,
+      "archive_size_display": "1168.0200",
+      "archive_size_label": "MB",
+      "archive_size_byte_convention_verified": false,
+      "archive_obs_start_utc": "2020-01-29 00:00:00.000000",
+      "archive_obs_stop_utc": "2050-01-01 00:00:00.000000",
+      "native_validity_start_utc": null,
+      "native_validity_stop_utc": null,
+      "version_relevant_selection_rule": null,
+      "source": "results_ls7s_calibration/reference_inventory.json",
+      "original_archive_row_source": "results_ls7s_calibration/reference_rows.json"
+    },
+    {
+      "filename": "CH_TU2020-03-17T12-29-01_REF_APP_DarkFrame_V0201.fits",
+      "requirement": "required",
+      "purpose": "MAP correction explicitly applied in the executed log; actual validity headers and early-visit selection rule needed.",
+      "archive_match": true,
+      "contents_received": false,
+      "sha256": null,
+      "archive_size_display": "8.3029",
+      "archive_size_label": "MB",
+      "archive_size_byte_convention_verified": false,
+      "archive_obs_start_utc": "2020-03-17 12:29:01.000000",
+      "archive_obs_stop_utc": "2050-01-01 00:00:00.000000",
+      "native_validity_start_utc": null,
+      "native_validity_stop_utc": null,
+      "version_relevant_selection_rule": null,
+      "source": "results_ls7s_calibration/reference_inventory.json",
+      "original_archive_row_source": "results_ls7s_calibration/reference_rows.json"
+    },
+    {
+      "filename": "CH_TU2020-03-17T12-29-01_REF_APP_BadPixelMap_V0201.fits",
+      "requirement": "required",
+      "purpose": "Pixel classification and mask semantics with the actual validity headers and early-visit selection rule.",
+      "archive_match": true,
+      "contents_received": false,
+      "sha256": null,
+      "archive_size_display": "3.1613",
+      "archive_size_label": "MB",
+      "archive_size_byte_convention_verified": false,
+      "archive_obs_start_utc": "2020-03-17 12:29:01.000000",
+      "archive_obs_stop_utc": "2050-01-01 00:00:00.000000",
+      "native_validity_start_utc": null,
+      "native_validity_stop_utc": null,
+      "version_relevant_selection_rule": null,
+      "source": "results_ls7s_calibration/reference_inventory.json",
+      "original_archive_row_source": "results_ls7s_calibration/reference_rows.json"
+    },
+    {
+      "filename": "CH_TU2020-01-29T00-00-00_REF_APP_WhitePSF_V0106.fits",
+      "requirement": "conditional",
+      "purpose": "Required only if the prospective estimator depends on this mission PSF reference.",
+      "archive_match": true,
+      "contents_received": false,
+      "sha256": null,
+      "archive_size_display": "1.2387",
+      "archive_size_label": "MB",
+      "archive_size_byte_convention_verified": false,
+      "archive_obs_start_utc": "2020-01-29 00:00:00.000000",
+      "archive_obs_stop_utc": "2050-01-01 00:00:00.000000",
+      "native_validity_start_utc": null,
+      "native_validity_stop_utc": null,
+      "version_relevant_selection_rule": null,
+      "source": "results_ls7s_calibration/reference_inventory.json",
+      "original_archive_row_source": "results_ls7s_calibration/reference_rows.json"
+    }
+  ],
+  "already_available_gain": {
+    "filename": "CH_TU2020-02-18T06-15-13_REF_APP_GainCorrection_V0109.fits",
+    "bytes": 14400,
+    "sha256": "8e5f363943dfd1165406ec553cbcbfeb7ee7cbacccb03c72ae1efc8e451a9918",
+    "source": "results_ls7s_calibration/calibration/CH_TU2020-02-18T06-15-13_REF_APP_GainCorrection_V0109.fits",
+    "contents_verified": true,
+    "physical_convention_adopted": false
+  },
+  "resolved_recorded_path": {
+    "bias_default_adu_per_frame": "563.43",
+    "ron_default_adu_per_frame": "7.13",
+    "spatial_bias_frame_applied": false,
+    "dark_map_applied": true,
+    "onboard_nonlinearity_enabled": false,
+    "evidence": "results_ls7v_reduction_log/calibration_contract.json"
+  },
+  "delivery_requirements": [
+    "Use a supported approved delivery. Do not retry or bypass the previously policy-blocked mission reference-bundle action.",
+    "Original exact-version files should retain original headers and provenance. An official flat subset requires source-file identity, original geometry/index convention, selected temperature planes, interpolation rule and derivation provenance.",
+    "Set a total byte bound and inspect delivered headers before choosing any regions or temperature planes. Archive MB values here are display strings, not verified byte counts.",
+    "After delivery, verify file identity, native checksums, units, applicable hardware and validity/selection semantics before adopting a physical operator.",
+    "Then freeze one integrated protected calibration, uncertainty, PSF/background, mask, exposure-integration, 30/60/100-second positive-pulse, nuisance and native-prediction study before evaluating source images."
+  ],
+  "excluded_as_automatic_dependencies": [
+    "Inverse of disabled onboard nonlinearity.",
+    "BiasFrame V0109 solely to replay the spatial correction that the log skipped.",
+    "ReadOut V0101 solely to rediscover the already recorded scalar bias/RON defaults.",
+    "Aperture V0300 for a method that does not use that reference."
+  ]
+}

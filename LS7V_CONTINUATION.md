@@ -5,6 +5,24 @@ is complete for CHEOPS `CH_PR300024_TG000301_V0300`, OBSID 1015522. Reuse
 the retained LS7R metadata, LS7S gain/reference evidence, LS7T native HK,
 LS7U electronics measurements and LS7V original log and reconciliation.
 
+## Immediate continuation: obtain the missing physical input
+
+The additional DRT and IASW repository leads did not provide the missing
+documentation. The concrete next action is the prepared
+[technical clarification request](CHEOPS_CALIBRATION_REQUEST.md), with an
+[exact input manifest](CHEOPS_REQUIRED_INPUTS.json): four required reference
+versions, a conditional PSF input and three operator/applicability questions.
+The official technical contact has been checked. The message is **unsent**;
+there is no pending reply or scheduled contact.
+
+The owner can send the ready text through their chosen channel or supply
+relevant mission documentation and exact reference files directly. Assistant
+contact requires explicit authorization and a supported communication tool.
+After input arrives, resolve the actual operators and file applicability,
+then freeze the integrated study below. Until then this image study is
+blocked on external input. Preserve LS7V as the latest scientific result;
+the request preparation is operational work, not a new numbered milestone.
+
 ## Resolved requirements
 
 The executed calibration module is **14.0.1**, within overall reduction

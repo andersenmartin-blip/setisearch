@@ -9,6 +9,22 @@ one integrated study, followed by an explicit unused-data readiness decision.
 Its dates are work windows. The original LS7I joint model, evaluation and audit
 are complete; the subsequent instrumental-response work is tracked below.
 
+## Immediate next action: external CHEOPS calibration clarification
+
+The native image study needs version-relevant gain/units and stacking/offline
+documentation, plus verified flat, LUT, dark and bad-map inputs. The two new
+DRT/IASW repository leads did not supply them. A complete
+[technical request](CHEOPS_CALIBRATION_REQUEST.md) and
+[exact-version manifest](CHEOPS_REQUIRED_INPUTS.json) are now prepared.
+The official technical contact is verified, but the message is **unsent**
+and no reply is pending. The owner can send the text or supply the needed
+documentation/files directly.
+
+This is an input dependency, not a new scientific result. **LS7V remains the
+latest completed checkpoint, and the native image study remains blocked.**
+On receipt, verify the physical contract and freeze one combined study before
+source-image evaluation. [Operational restart](LS7V_CONTINUATION.md).
+
 ## LS7V explains the CAL electronics as defaults and refines the input contract
 
 The actual **main_calibration.py 14.0.1** log for the retained CHEOPS visit

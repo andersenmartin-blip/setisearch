@@ -4,6 +4,14 @@ Prepared 13 September 2026, following the completed LS7H result.
 This is an operational work plan. The numerical specification for the next
 experiment must still be frozen before its evaluation.
 
+**Immediate next action, 15 September:** the next CHEOPS image study is
+blocked on concrete calibration documentation and exact reference inputs.
+The [technical request](CHEOPS_CALIBRATION_REQUEST.md) and
+[input manifest](CHEOPS_REQUIRED_INPUTS.json) are prepared for the verified
+official technical contact, **unsent**, with no reply pending. The owner can
+send the text or supply the inputs directly. LS7V remains the latest scientific
+result; do not add another status-only milestone while these inputs are absent.
+
 **Latest continuation, 15 September:** [LS7V](LS7V_CALIBRATION_RECONCILIATION.md)
 recovers the executed calibration policy from the original log: **563.43 /
 7.13 ADU/frame are defaults**, exactly matching the saved CAL/COR numbers.
