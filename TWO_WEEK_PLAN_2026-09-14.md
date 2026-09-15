@@ -4,7 +4,17 @@ Prepared 13 September 2026, following the completed LS7H result.
 This is an operational work plan. The numerical specification for the next
 experiment must still be frozen before its evaluation.
 
-**Latest continuation, 15 September:** [LS7T](LS7T_CALIBRATION_CONTRACT.md)
+**Latest continuation, 15 September:** [LS7U](LS7U_ELECTRONICS_FINDINGS.md)
+measures native electronic-reference bias/noise directly: **562.089864 /
+7.118046 ADU/readout** in the fixed virtual prescan. The separately scoped
+original PIPE blank-reference calculation gives **562.071429 / 7.024590**;
+it does not reproduce CAL, whose noise is 1.500584% higher. Independent byte/
+scalar checks and clean offline reproduction pass. Target-image bytes and
+source trials remain zero. Finish the gain/gcoadd/offline/spatial-reference
+contract before the combined native study; do not repeat the completed
+electronics measurements. [Current restart](LS7U_CONTINUATION.md).
+
+**Earlier continuation, 15 September:** [LS7T](LS7T_CALIBRATION_CONTRACT.md)
 resolves the actual native HK input and identifies a distinct voltage/temperature
 mapping in the pinned PIPE reader. Its native gain comparison is about −0.57027%
 in scale. Onboard NLC is disabled, so the missing coefficients for that operation

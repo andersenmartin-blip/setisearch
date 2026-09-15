@@ -266,3 +266,18 @@ NLIN_COR=false makes their inverse unnecessary on the declared native path.
 Keep the remaining physical contract explicit, reuse the completed arithmetic,
 and finish it before one integrated prospective native study. No science pixel,
 candidate or qualified coverage is added. Current restart: LS7T_CONTINUATION.md.
+
+15 September 2026, LS7U: the fixed virtual prescan now supplies direct
+562.089864 ADU/readout bias and 7.118046 ADU/readout effective noise. The CAL
+bias difference exceeds descriptive sampling spread. A separately specified
+exploratory check of PIPE's actual eight-column BlankLeft input does not
+explain it and gives noise 7.024590 ADU/readout; CAL is 1.500584% higher.
+Both array identities, all values, scalar calculations and clean offline
+reproduction pass. Electronic-reference array bytes are now retained, while
+target-image bytes, source trials, candidates and new qualified coverage
+remain zero. Reuse these results. The next substantive step requires new
+gain/gcoadd/offline/spatial-reference evidence, followed by one combined
+prospective native study. Do not repeat margin estimators to match CAL or
+create a checkpoint solely to restate unavailable inputs. Current restart:
+LS7U_CONTINUATION.md. Existing publication authority and reserved-data
+boundaries remain unchanged.

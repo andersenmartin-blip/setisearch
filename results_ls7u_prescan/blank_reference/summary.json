@@ -1,0 +1,205 @@
+{
+  "checkpoint": "LS7U_BLANK_SUPPLEMENT",
+  "role": "Exploratory input-mapping follow-up after the fixed primary result",
+  "file_key": "CH_PR300024_TG000301_V0300",
+  "input_decision": "NOT_READY_FOR_TARGET_IMAGE_STUDY",
+  "protocol_sha256": "1bf1a871ce16286e4fa28d2ee6d7bef5975c05c38d4d5c58d32cb960777be70f",
+  "target_image_bytes": 0,
+  "virtual_reference_array_bytes": 2764800,
+  "retained_header_bytes": 8640,
+  "extension": "SCI_RAW_BlankLeft",
+  "hdu_index": 2,
+  "shape": [
+    432,
+    200,
+    8
+  ],
+  "values": 691200,
+  "nexp": 14,
+  "native_unit": "ADU",
+  "surrogate": "PrimaryHDU; empty HDU 1 with actual native NEXP; original blank extension at HDU 2. No target pixels. Not a full native product or PIPE extraction.",
+  "source_functions": [
+    {
+      "path": "results_ls7u_prescan/pipe_statistics.py",
+      "function": "sigma_clip",
+      "bytes": 832,
+      "git_blob_sha": "b68bc0ad9499aeff8780cd24f98975f606a6cd07",
+      "sha256": "2f4ce0368ae4b3bf0d8ac6d87139ef9b4b8c8270f6ca885f228850b7fa7bfb9b",
+      "commit": "da15a87348e2657eac8dd08623ac258e6ac59df8"
+    },
+    {
+      "path": "results_ls7s_calibration/sources/pipe_read.py",
+      "function": "bias_ron_adu",
+      "bytes": 17222,
+      "git_blob_sha": "78e1f085b63c0e1768d660cb288cdd51357fe7ce",
+      "sha256": "c1632cba177b81afe4f2fd5908766343729bcaa8012f8d8f2c7f58ad7899da6c",
+      "commit": "da15a87348e2657eac8dd08623ac258e6ac59df8"
+    }
+  ],
+  "pipe_gain_one_adu": {
+    "bias_per_readout": 562.0714285714286,
+    "effective_read_noise_per_readout": 7.024590259368411
+  },
+  "global_clipping": {
+    "clip_sigma": 3,
+    "iterations": 10,
+    "selected": 685916,
+    "removed": 5284,
+    "selected_fraction": 0.9923553240740741,
+    "mask_sha256": "011a37eaabb6f307188ba783df3813ac231e823dca105c7f2ec8364e07980902",
+    "trace": [
+      {
+        "iteration": 1,
+        "input_selected": 691200,
+        "median_summed_adu": 7869.0,
+        "sigma_summed_adu": 31.865125735207457,
+        "output_selected": 687954
+      },
+      {
+        "iteration": 2,
+        "input_selected": 687954,
+        "median_summed_adu": 7869.0,
+        "sigma_summed_adu": 26.64269935924501,
+        "output_selected": 686194
+      },
+      {
+        "iteration": 3,
+        "input_selected": 686194,
+        "median_summed_adu": 7869.0,
+        "sigma_summed_adu": 26.326331262913698,
+        "output_selected": 685916
+      },
+      {
+        "iteration": 4,
+        "input_selected": 685916,
+        "median_summed_adu": 7869.0,
+        "sigma_summed_adu": 26.283610033026093,
+        "output_selected": 685916
+      },
+      {
+        "iteration": 5,
+        "input_selected": 685916,
+        "median_summed_adu": 7869.0,
+        "sigma_summed_adu": 26.283610033026093,
+        "output_selected": 685916
+      },
+      {
+        "iteration": 6,
+        "input_selected": 685916,
+        "median_summed_adu": 7869.0,
+        "sigma_summed_adu": 26.283610033026093,
+        "output_selected": 685916
+      },
+      {
+        "iteration": 7,
+        "input_selected": 685916,
+        "median_summed_adu": 7869.0,
+        "sigma_summed_adu": 26.283610033026093,
+        "output_selected": 685916
+      },
+      {
+        "iteration": 8,
+        "input_selected": 685916,
+        "median_summed_adu": 7869.0,
+        "sigma_summed_adu": 26.283610033026093,
+        "output_selected": 685916
+      },
+      {
+        "iteration": 9,
+        "input_selected": 685916,
+        "median_summed_adu": 7869.0,
+        "sigma_summed_adu": 26.283610033026093,
+        "output_selected": 685916
+      },
+      {
+        "iteration": 10,
+        "input_selected": 685916,
+        "median_summed_adu": 7869.0,
+        "sigma_summed_adu": 26.283610033026093,
+        "output_selected": 685916
+      }
+    ]
+  },
+  "unclipped_global": {
+    "bias_per_readout_adu": 562.0714285714286,
+    "effective_read_noise_per_readout_adu": 8.516313077687101
+  },
+  "frame_global_clipped_bias_per_readout_adu": {
+    "rows": 432,
+    "finite": 432,
+    "missing": 0,
+    "minimum": 561.8571428571429,
+    "maximum": 562.2142857142857,
+    "distinct_finite": 11
+  },
+  "frame_global_clipped_effective_read_noise_per_readout_adu": {
+    "rows": 432,
+    "finite": 432,
+    "missing": 0,
+    "minimum": 6.63019474953011,
+    "maximum": 7.328878042388986,
+    "distinct_finite": 432
+  },
+  "cal_cor_values_without_native_unit_cards": {
+    "BIAS": 563.4299926757812,
+    "RON": 7.130000114440918
+  },
+  "cal_comparison": {
+    "cal_bias_minus_blank_adu": 1.3585641043526948,
+    "cal_ron_minus_blank_adu": 0.10540985507250689,
+    "cal_bias_to_blank": 1.0024170666489944,
+    "cal_ron_to_blank": 1.015005836807624,
+    "bias_within_1_percent": true,
+    "ron_within_1_percent": false
+  },
+  "primary_comparison": {
+    "blank_minus_primary_bias_adu": -0.018435846560805658,
+    "blank_minus_primary_ron_adu": -0.09345538284061661
+  },
+  "gain_scaled_original_function": [
+    {
+      "gain_interpretation": "temperature_centered",
+      "gain_e_per_adu": 1.9566266953762865,
+      "bias_electrons_per_readout": 1099.7639618511428,
+      "effective_ron_electrons_per_readout": 13.744500825560463,
+      "mask_identical_to_adu": true
+    },
+    {
+      "gain_interpretation": "temperature_schema_plus",
+      "gain_e_per_adu": 1.7975724138884464,
+      "bias_electrons_per_readout": 1010.3640946348703,
+      "effective_ron_electrons_per_readout": 12.62720966911014,
+      "mask_identical_to_adu": true
+    },
+    {
+      "gain_interpretation": "pinned_pipe_native",
+      "gain_e_per_adu": 1.945468928342741,
+      "bias_electrons_per_readout": 1093.4924997949306,
+      "effective_ron_electrons_per_readout": 13.666122083940321,
+      "mask_identical_to_adu": true
+    }
+  ],
+  "audit": {
+    "astropy_vs_struct_values": 691200,
+    "scalar_vs_original_mask_comparisons": 6912000,
+    "scalar_vs_original_bias_absolute_error": 0.0,
+    "scalar_vs_original_ron_absolute_error": 0.0,
+    "original_fits_checksum_valid": true,
+    "pinned_source_git_identities_valid": true
+  },
+  "native_source_residual_trials": 0,
+  "pulse_recovery_trials": 0,
+  "new_candidates": 0,
+  "new_qualified_observing_seconds": 0,
+  "limitations": [
+    "Input choice specified after primary measurement, before blank acquisition.",
+    "PIPE input/estimator diagnostic, not DRP 14.1.2 reproduction or physical calibration adoption.",
+    "Effective RON assumes independent coadded-readout scaling; clipping changes the estimated distribution.",
+    "No spatial bias/flat/dark/PSF/gcoadd contract follows from these electronic values."
+  ],
+  "software": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "astropy": "8.0.1"
+  }
+}

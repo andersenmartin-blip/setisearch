@@ -9,7 +9,34 @@ one integrated study, followed by an explicit unused-data readiness decision.
 Its dates are work windows. The original LS7I joint model, evaluation and audit
 are complete; the subsequent instrumental-response work is tracked below.
 
-## LS7T native HK and calibration-contract audit completed
+## LS7U direct electronic-reference measurements completed
+
+The retained CHEOPS visit's four-column virtual prescan gives **562.089864
+ADU/readout bias** and **7.118046 ADU/readout effective noise**. This measures
+native electronics directly. CAL agrees numerically within the fixed 1%
+comparison under a per-readout ADU interpretation, but its bias lies well
+outside the prescan's descriptive sampling interval; it is not reproduced.
+
+The separately specified exploratory supplement checks the eight-column
+BlankLeft extension actually read by PIPE. Its unchanged estimator gives
+**562.071429 / 7.024590 ADU/readout** after clipping 5,284/691,200 reference
+values. CAL noise is **1.500584% higher**, failing the same 1% comparison.
+That alternative input does not explain the calibration-number difference.
+
+All **1,036,800 electronic values**, the independent scalar calculations and
+both original FITS checksums pass. Clean offline outputs reproduce byte-for-byte.
+The new 4,164,480-byte transfer includes 4,147,200 electronic reference-array
+bytes and 17,280 header bytes; **target-image bytes remain zero**.
+
+The physical input stays **NOT_READY** pending the gain convention, gcoadd/
+offline operator and exact spatial-reference content/applicability. No source
+trial, recovery, candidate or qualified coverage is added. Reuse the completed
+measurements and finish the missing input package before one prospective
+native study. [Findings](LS7U_ELECTRONICS_FINDINGS.md),
+[evidence](results_ls7u_prescan/README.md),
+[current continuation](LS7U_CONTINUATION.md).
+
+## Earlier LS7T native HK and calibration-contract audit completed
 
 The actual **1,140-row HkExtended table** is acquired and verified using only
 165,480 instrument/header bytes. PIPE's pinned gain reader uses the distinct

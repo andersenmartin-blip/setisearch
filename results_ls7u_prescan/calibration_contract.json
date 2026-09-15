@@ -1,0 +1,135 @@
+{
+  "checkpoint": "LS7U",
+  "file_key": "CH_PR300024_TG000301_V0300",
+  "science_ready": false,
+  "adopted_gain_convention": null,
+  "science_pixels_acquired": false,
+  "conditions": [
+    {
+      "component": "original gain reference",
+      "status": "VERIFIED_INPUT",
+      "evidence": "results_ls7s_calibration/calibration/CH_TU2020-02-18T06-15-13_REF_APP_GainCorrection_V0109.fits"
+    },
+    {
+      "component": "native HK field mapping",
+      "status": "RESOLVED_DISTINCT_QUANTITIES",
+      "evidence": [
+        "results_ls7t_contract/summary.json",
+        "results_ls7t_contract/source_identities.json"
+      ],
+      "decision": "Use a physical temperature field for a temperature argument; no voltage-temperature equivalence established."
+    },
+    {
+      "component": "temperature sign in calibration",
+      "status": "UNRESOLVED_SOURCE_CONFLICT",
+      "decision": "CHEOPSim centers the signed nominal temperature; common_sw schema adds it. No science convention adopted."
+    },
+    {
+      "component": "inverse of onboard nonlinearity conversion",
+      "status": "NOT_REQUIRED_BY_NATIVE_FLAGS",
+      "evidence": {
+        "SCI_RAW_Imagette": {
+          "STACKING": "gcoadd",
+          "NLIN_COR": false,
+          "NEXP": 2,
+          "ROUNDING": 0,
+          "RO_SCRPT": null,
+          "RO_HW": null,
+          "RO_FREQU": null
+        },
+        "SCI_RAW_SubArray": {
+          "STACKING": "coadd",
+          "NLIN_COR": false,
+          "NEXP": 14,
+          "ROUNDING": 0,
+          "RO_SCRPT": 6,
+          "RO_HW": "main",
+          "RO_FREQU": 230000
+        }
+      },
+      "decision": "NLIN_COR=false. Missing GAIN_0/BIAS_0/BIAS alone is not a blocking input."
+    },
+    {
+      "component": "raw gcoadd operator",
+      "status": "UNRESOLVED",
+      "decision": "Do not infer from generic coadd/mean implementation or keyword spelling."
+    },
+    {
+      "component": "offline nonlinearity LUT100 V0104",
+      "status": "CONTENTS_UNAVAILABLE",
+      "decision": "Schema maps uncorrected electrons to corrected electrons. Exact version and per-exposure/stack treatment required."
+    },
+    {
+      "component": "virtual prescan electronic input",
+      "status": "VERIFIED_MEASURED_ADU_INPUT",
+      "evidence": [
+        "LS7U_PRESCAN_PROTOCOL.md",
+        "results_ls7u_prescan/acquisition.json",
+        "results_ls7u_prescan/summary.json",
+        "results_ls7u_prescan/verification.json"
+      ],
+      "primary": {
+        "bias_per_readout_adu": 562.0898644179894,
+        "effective_read_noise_per_readout_adu": 7.118045642209028
+      },
+      "decision": "Reuse the fixed measurement. Effective per-readout noise assumes independent coadded-readout scaling; no target-image or spatial-calibration qualification."
+    },
+    {
+      "component": "pinned PIPE blank-reference mapping",
+      "status": "VERIFIED_EXPLORATORY_FUNCTION_RESULT",
+      "evidence": [
+        "LS7U_BLANK_SUPPLEMENT.md",
+        "results_ls7u_prescan/blank_reference/summary.json"
+      ],
+      "measurement_adu_per_readout": {
+        "bias_per_readout": 562.0714285714286,
+        "effective_read_noise_per_readout": 7.024590259368411
+      },
+      "decision": "HDU 2 is eight-column BlankLeft, not four-column virtual prescan. The original function is verified on a disclosed margin-only surrogate; CAL/PIPE RON=1.015005837 fails the unchanged 1% label. No estimator or gain adopted."
+    },
+    {
+      "component": "CAL BIAS/RON units and estimation",
+      "status": "PER_READOUT_ADU_SCALE_SUPPORTED_EXACT_SEMANTICS_UNRESOLVED",
+      "evidence": [
+        "results_ls7u_prescan/summary.json",
+        "results_ls7u_prescan/blank_reference/summary.json"
+      ],
+      "decision": "Primary numerical scale agrees within 1% only under per-readout ADU among the tested hypotheses. CAL bias lies outside primary descriptive resampling spread; PIPE supplement does not explain it. Do not claim CAL reproduction or infer undocumented DRP behavior."
+    },
+    {
+      "component": "readout V0101 and bias V0109",
+      "status": "CONTENTS_UNAVAILABLE",
+      "decision": "Exact native readout and spatial bias contents remain unavailable. LS7U supplies measured reference-margin ADU offsets/noise with explicit stacking assumptions; neither margin reproduces CAL exactly or supplies the spatial bias map."
+    },
+    {
+      "component": "flat V0104 and white PSF V0106",
+      "status": "CONTENTS_UNAVAILABLE",
+      "decision": "Exact inputs or a separately justified protected estimator contract required before pixel evaluation."
+    },
+    {
+      "component": "dark/bad maps V0201",
+      "status": "CONTENTS_AND_APPLICABILITY_UNRESOLVED",
+      "decision": "Archived start is after this early visit. Generic common_sw ValidRefFile requires UTC within actual validity headers; no demonstrated future-reference fallback, and no proof that the actual DRP used that path. Exact headers and version-relevant applicability remain required."
+    },
+    {
+      "component": "aperture V0300",
+      "status": "ESTIMATOR_DEPENDENT",
+      "decision": "Absent from queried versions; not automatically necessary for a PSF estimator."
+    },
+    {
+      "component": "exposure times and joins",
+      "status": "REUSE_LS7R",
+      "decision": "No additional timestamp pulse census; no native noisy recovery claim."
+    },
+    {
+      "component": "joint native evaluation specification",
+      "status": "PENDING_PHYSICAL_INPUTS",
+      "decision": "Freeze protected training, calibration/noise, pulse/nuisance and native-prediction requirements together before science image evaluation."
+    }
+  ],
+  "access_constraint": "Do not repeat or bypass the previously browser-URL-policy-blocked mission reference-bundle download. Exact locally supplied inputs through approved supported delivery may be inspected.",
+  "predecessor": "results_ls7t_contract/calibration_contract.json",
+  "evidence_paths_relative_to": "repository root",
+  "electronic_reference_array_bytes": 4147200,
+  "target_image_bytes": 0
+}

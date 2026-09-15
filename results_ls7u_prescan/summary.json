@@ -1,0 +1,190 @@
+{
+  "checkpoint": "LS7U",
+  "file_key": "CH_PR300024_TG000301_V0300",
+  "input_decision": "NOT_READY_FOR_TARGET_IMAGE_STUDY",
+  "protocol_sha256": "1f58291283c4f5aa9532fe27ccc4614bb1aca9913515836f5301728f53f2fd10",
+  "virtual_reference_array_bytes": 1382400,
+  "retained_header_bytes": 8640,
+  "target_image_bytes": 0,
+  "native_source_residual_trials": 0,
+  "pulse_recovery_trials": 0,
+  "new_candidates": 0,
+  "new_qualified_observing_seconds": 0,
+  "extension": "SCI_RAW_OverscanLeft",
+  "hdu_index": 7,
+  "shape": [
+    432,
+    200,
+    4
+  ],
+  "values": 345600,
+  "nexp": 14,
+  "native_unit": "ADU",
+  "onboard_processing": "image",
+  "stacking": "coadd",
+  "raw_summed_values": {
+    "min": 7755.0,
+    "max": 8457.0
+  },
+  "primary": {
+    "bias_per_readout_adu": 562.0898644179894,
+    "effective_read_noise_per_readout_adu": 7.118045642209028
+  },
+  "alternative_summaries": {
+    "mean_of_frame_means_per_readout_adu": 562.0890943287037,
+    "mean_of_frame_mad_noise_per_readout_adu": 7.108968692012712,
+    "row_difference_effective_noise_per_readout_adu": 7.097057174182478,
+    "column_mean_bias_per_readout_adu": [
+      562.1839079034396,
+      562.009103835979,
+      561.9524553571434,
+      562.2109102182541
+    ],
+    "frame_bias_per_readout_adu": {
+      "rows": 432,
+      "finite": 432,
+      "missing": 0,
+      "minimum": 561.8571428571429,
+      "maximum": 562.3571428571429,
+      "distinct_finite": 13
+    },
+    "frame_effective_noise_per_readout_adu": {
+      "rows": 432,
+      "finite": 432,
+      "missing": 0,
+      "minimum": 6.5976719040561145,
+      "maximum": 9.095932856571116,
+      "distinct_finite": 432
+    },
+    "lag_one_row_covariance_summed_adu2": {
+      "rows": 432,
+      "finite": 432,
+      "missing": 0,
+      "minimum": -90.0568394472362,
+      "maximum": 74.1529229271357,
+      "distinct_finite": 432
+    },
+    "lag_one_row_correlation": {
+      "rows": 432,
+      "finite": 432,
+      "missing": 0,
+      "minimum": -0.14028923737575266,
+      "maximum": 0.09993037404404943,
+      "distinct_finite": 432
+    }
+  },
+  "bootstrap": {
+    "seed": 712021,
+    "draws": 4096,
+    "maximum_block_frames": 16,
+    "blocks": 29,
+    "segment_frame_counts": [
+      31,
+      116,
+      119,
+      119,
+      47
+    ],
+    "percentiles": [
+      0.5,
+      99.5
+    ],
+    "bias_per_readout_adu_interval": [
+      562.0777086779698,
+      562.1012620672636
+    ],
+    "noise_per_readout_adu_interval": [
+      7.089262047309062,
+      7.149363588979897
+    ],
+    "interpretation": "Descriptive block-resampling stability, not total calibration uncertainty"
+  },
+  "cal_cor_values_without_native_unit_cards": {
+    "BIAS": 563.4299926757812,
+    "RON": 7.130000114440918
+  },
+  "ls7t_median_gain_diagnostics_e_per_adu": {
+    "temperature_centered": 1.9566266953762865,
+    "temperature_schema_plus": 1.7975724138884464,
+    "pinned_pipe_native": 1.945468928342741
+  },
+  "unit_scaling_comparisons": [
+    {
+      "hypothesis": "per_readout_ADU",
+      "bias_scale": 1.0,
+      "noise_scale": 1.0,
+      "predicted_bias": 562.0898644179894,
+      "predicted_noise": 7.118045642209028,
+      "cal_bias_to_prediction": 1.0023841886193403,
+      "cal_ron_to_prediction": 1.0016794599013248,
+      "bias_within_1_percent": true,
+      "ron_within_1_percent": true
+    },
+    {
+      "hypothesis": "summed_ADU",
+      "bias_scale": 14,
+      "noise_scale": 3.7416573867739413,
+      "predicted_bias": 7869.258101851851,
+      "predicted_noise": 26.633288056565473,
+      "cal_bias_to_prediction": 0.07159887061566717,
+      "cal_ron_to_prediction": 0.2677100964513946,
+      "bias_within_1_percent": false,
+      "ron_within_1_percent": false
+    },
+    {
+      "hypothesis": "per_readout_electrons_temperature_centered",
+      "bias_scale": 1.9566266953762865,
+      "noise_scale": 1.9566266953762865,
+      "predicted_bias": 1099.8000339206756,
+      "predicted_noise": 13.927358122453027,
+      "cal_bias_to_prediction": 0.5123022143100056,
+      "cal_ron_to_prediction": 0.511942038953265,
+      "bias_within_1_percent": false,
+      "ron_within_1_percent": false
+    },
+    {
+      "hypothesis": "per_readout_electrons_temperature_schema_plus",
+      "bias_scale": 1.7975724138884464,
+      "noise_scale": 1.7975724138884464,
+      "predicted_bias": 1010.3972344040747,
+      "predicted_noise": 12.795202487233817,
+      "cal_bias_to_prediction": 0.5576321603929254,
+      "cal_ron_to_prediction": 0.5572401157038934,
+      "bias_within_1_percent": false,
+      "ron_within_1_percent": false
+    },
+    {
+      "hypothesis": "per_readout_electrons_pinned_pipe_native",
+      "bias_scale": 1.945468928342741,
+      "noise_scale": 1.945468928342741,
+      "predicted_bias": 1093.5283661615824,
+      "predicted_noise": 13.847936627443115,
+      "cal_bias_to_prediction": 0.5152403998933188,
+      "cal_ron_to_prediction": 0.5148781588378342,
+      "bias_within_1_percent": false,
+      "ron_within_1_percent": false
+    }
+  ],
+  "audit": {
+    "astropy_vs_struct_values": 345600,
+    "frame_scalar_statistics": 1296,
+    "frame_scalar_max_absolute_errors": {
+      "mean": 0.0,
+      "median": 0.0,
+      "variance": 3.410605131648481e-13
+    },
+    "timestamp_metadata_values": 1296,
+    "original_fits_checksum_valid": true
+  },
+  "limitations": [
+    "Effective RON uses independent coadded-readout scaling; no individual readouts are available.",
+    "Numerical agreement does not establish undocumented CAL unit semantics.",
+    "Virtual prescan does not supply flat, spatial science-pixel bias, dark, PSF, or gcoadd calibration.",
+    "No complete PIPE or DRP extraction, no source detector or pulse recovery."
+  ],
+  "software": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "astropy": "8.0.1"
+  }
+}
