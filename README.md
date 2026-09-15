@@ -21,6 +21,15 @@ The integrated work in the [14–27 September plan](https://github.com/andersenm
 is now complete, including the negative-result decision branch. The calendar
 dates were work estimates; execution proceeded during active sessions.
 
+**Next action: resolve the external CHEOPS calibration inputs.** A complete
+[technical request](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/CHEOPS_CALIBRATION_REQUEST.md)
+and [exact-version manifest](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/CHEOPS_REQUIRED_INPUTS.json)
+are prepared for the official technical contact. The message is **unsent**;
+no reply is pending. The native image study remains blocked on the documented
+gain/units, stacking/offline operator and reference contents/applicability.
+The owner can send the request or supply the inputs directly. LS7V remains
+the latest scientific result.
+
 **LS7V CHEOPS calibration-log reconciliation completed, 15 September 2026.**
 The actual reduction log explains the difference investigated in LS7U:
 **563.43 ADU/frame bias and 7.13 ADU/frame noise are chosen defaults**, whose
