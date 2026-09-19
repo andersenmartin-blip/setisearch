@@ -9,6 +9,23 @@ one integrated study, followed by an explicit unused-data readiness decision.
 Its dates are work windows. The original LS7I joint model, evaluation and audit
 are complete; the subsequent instrumental-response work is tracked below.
 
+## 19 September LS7W bounded public-source follow-up completed
+
+A second bounded public-source pass checked the official University of Vienna
+CHEOPS-IASW lead, ESA's Data Products Definition, the CHEOPS mission paper,
+the OBDP 2019 presentation, the exact RD-11 identifier/title, `gcoadd`, and
+the exact dark/flat filenames. The public evidence confirms the operator family,
+ordinary pixel-by-pixel window coaddition and the existence of an authoritative
+RD-11 definition, but it still does **not** expose the exact `gcoadd` arithmetic
+or the required native reference validity/selection rules.
+
+The public-source route is therefore documented as
+**PUBLIC_SOURCE_RESOLUTION_INCOMPLETE**. The next justified action is the
+already prepared narrow technical clarification request; it remains **unsent**
+because person-directed contact has not been authorized. Do not open CHEOPS
+target-image ranges before the physical contract is frozen.
+[LS7W follow-up](LS7W_PUBLIC_SOURCE_FOLLOWUP.md).
+
 ## 19 September public IASW follow-up narrows the stacking dependency
 
 The University of Vienna's official CHEOPS page now provides a concrete public
