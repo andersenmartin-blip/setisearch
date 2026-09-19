@@ -18,8 +18,8 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 25
     env:
-      EVAL_FROZEN: f7413a3949834cc5d238f4c9de443a4a7a348288
-      AUDIT_FROZEN: f0148bc8a2dbffa4e4d0720355e5a7a5f6cc682c
+      EVAL_FROZEN: 276376567a3384b8beaa67fc388f1e73e5b59f4c
+      AUDIT_FROZEN: 613646bfce9615e51f3c18726ad8be4ead734d2c
       PYTHONPATH: src
       OPENBLAS_NUM_THREADS: '1'
       OMP_NUM_THREADS: '1'
@@ -77,10 +77,11 @@ jobs:
           assert s['parent_cluster']==1
           provenance={
             'stage':'LS7Z_CLUSTER1_MORPHOLOGY',
-            'evaluation_commit':'f7413a3949834cc5d238f4c9de443a4a7a348288',
-            'audit_commit':'f0148bc8a2dbffa4e4d0720355e5a7a5f6cc682c',
+            'evaluation_commit':'276376567a3384b8beaa67fc388f1e73e5b59f4c',
+            'audit_commit':'613646bfce9615e51f3c18726ad8be4ead734d2c',
             'protocol_commit':'5151bdc8aa4ce26706cfe3a9d50bd7234bf2a4d7',
             'implementation_clarification_commit':'d23d9cfc768dc2ca72f34be24c3a982205fd3dd1',
+            'numerical_zero_correction_commit':'c3db7f858ea97f3a49e06c6b07da973377f9bb3f',
             'parent_ls7y_result_commit':'e5e2f544836a1aa04b3c1adc559f6964df730f49',
             'finished_utc':datetime.now(timezone.utc).isoformat(),
             'new_archive_science_bytes':0,
