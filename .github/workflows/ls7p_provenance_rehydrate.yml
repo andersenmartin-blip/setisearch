@@ -44,13 +44,16 @@ jobs:
           prefixes=[
             'scripts/','src/','results_ls7p_metadata/','results_ls7o_metadata/',
             'results_ls7k_inputs/','results_ls7o_inputs/','results_ls7o_response/',
-            'results_ls7n_response/','results_ls7m_prf_inputs/','results_ls7p_preflight/',
-            'results_ls7j_auxiliary/','results_ls7i_inputs/','results_ls7l_inputs/'
+            'results_ls7n_response/','results_ls7m_prf_inputs/','results_ls7p_preflight/'
           ]
           exact={
             'LS7P_SPEC.md','config/ls7p_pixels.json','requirements_ls7g.txt',
             'results_ls7g_transfer/backgrounds.npz',
             'results_ls7i_background/native_windows.jsonl.gz',
+            'results_ls7i_inputs/datasets.json','results_ls7i_inputs/sector32.npz',
+            'results_ls7j_auxiliary/auxiliary_s029.npz','results_ls7j_auxiliary/auxiliary_s032.npz',
+            'results_ls7j_auxiliary/baselines.json',
+            'results_ls7l_inputs/documentation/00README.txt','results_ls7l_inputs/documentation/export_mat2fits.m',
             'tests/test_ls7p_pixel_centroid.py'
           }
           tracked=subprocess.check_output(['git','ls-tree','-r','--name-only','HEAD'],cwd=root,text=True).splitlines()
