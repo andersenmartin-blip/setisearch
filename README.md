@@ -17,7 +17,30 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
-**LS8B: four held-out CHEOPS visits evaluated, 19 September 2026.**
+**LS8C: all seven positive CHEOPS excursions share a smearing/roll pattern, 19 September 2026.**
+The frozen diagnosis of all eight LS8B representatives uses only saved L2
+tables. Every positive representative coincides with a large smearing-column
+residual (**205,662–293,495 electrons**) at mean roll angles of **16.39–20.42
+degrees**. The negative control does not share this pattern. All 112 field
+diagnoses and 56 separate sideband-only couplings are retained.
+
+The shared pattern motivates image/correction follow-up. Sideband smearing
+fits predict between **−0.42 and 31.78 times** the observed positive brightness
+residuals, so they cannot supply a reliable event correction or establish a
+unique cause. All eight remain **L2_ONLY_UNRESOLVED**. No SETI candidate,
+detector qualification or qualified observing coverage is added.
+
+Six synthetic tests pass, followed by an independent audit with **11,635
+numerical comparisons and 1,009 exact checks**. The original LS8B audit FAIL
+remains preserved. No new archive science bytes or image pixels were opened.
+[Complete report and context plots](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8c_auxiliary/REPORT.md).
+
+**Next:** prepare one bounded CAL/COR image-and-correction study of all eight
+fixed representatives. Establish exact product metadata and exposure joins,
+then freeze byte/row/pixel scope and stopping rules before image access.
+[Exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8C_CONTINUATION.md).
+
+**LS8B: four held-out CHEOPS visits evaluated.**
 The unchanged DEFAULT-aperture screen covers **4,754 rows and 7,917 eligible
 windows**. It finds **seven positive clusters and one negative control cluster**;
 per-visit positive/negative counts are 3/1, 2/0, 2/0 and 0/0. These are L2
@@ -31,10 +54,6 @@ and original values remain preserved; this is an arithmetic repair on closed
 data, not detector qualification.
 [Result and four-visit figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8b_l2_suite/REPORT.md),
 [numerical review](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8B_NUMERICAL_REVIEW.md).
-
-**Next:** diagnose all eight positive/negative representatives using only the
-auxiliary columns already saved in the L2 tables, before any new image follow-up.
-[Exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8B_CONTINUATION.md).
 
 The preceding LS8A held-out visit had zero positive clusters and four negative
 threshold windows. Both fixed transfer results remain separate and unchanged.
