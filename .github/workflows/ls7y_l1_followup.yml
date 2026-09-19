@@ -18,8 +18,8 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     env:
-      EVAL_FROZEN: d0c6013bed11661336b11b5e777bad8e92a8a61e
-      AUDIT_FROZEN: f5499c032a94eba31b1afa3d37ade017d7bf7c55
+      EVAL_FROZEN: 199ff8326f2320c494e6d2eb8b8f2af09738d1eb
+      AUDIT_FROZEN: dfcbb8e013c0d1c75cb4337e60ce90eba71fbb52
       PYTHONPATH: src
       OPENBLAS_NUM_THREADS: '1'
       OMP_NUM_THREADS: '1'
@@ -81,10 +81,11 @@ jobs:
           assert [(x['cluster'],x['start'],x['stop']) for x in q['contexts']] == [(0,52,83),(1,171,202)]
           provenance={
             'stage':'LS7Y_CHEOPS_L1_IMAGE_FOLLOWUP',
-            'evaluation_commit':'d0c6013bed11661336b11b5e777bad8e92a8a61e',
-            'audit_commit':'f5499c032a94eba31b1afa3d37ade017d7bf7c55',
+            'evaluation_commit':'199ff8326f2320c494e6d2eb8b8f2af09738d1eb',
+            'audit_commit':'dfcbb8e013c0d1c75cb4337e60ce90eba71fbb52',
             'protocol_commit':'b3917fb87cf7de566a26c6134b7799f1018de165',
             'finite_pixel_amendment_commit':'6409b138faf005a9cbf1cacce1ff1f8e14379466',
+            'smearing_header_correction_commit':'ad256345df3c57758650747dac9356b696748bbf',
             'parent_ls7x_result_commit':'18993a5f3cafd1ee5085ab1a996f2b991d788820',
             'finished_utc':datetime.now(timezone.utc).isoformat(),
             'other_l2_apertures_opened':False,
