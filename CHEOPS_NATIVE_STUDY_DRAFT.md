@@ -20,6 +20,16 @@ conditions and intentionally reads no science image. The companion machine-
 readable draft is `config/cheops_native_study_draft.json`. With the present
 contract it must exit `NOT_READY`.
 
+## Public PIPE fallback now specified
+
+A pinned public PIPE implementation has been audited separately in
+`CHEOPS_PIPE_OPERATOR_ASSESSMENT.md`. It supplies a reproducible ground
+calibration/reference-selection path for flat, dark and bad-map handling.
+The final freeze may choose this path instead of reproducing DRP 14.0.1 only
+if that choice is made prospectively and the remaining gain/gcoadd assumptions
+are explicitly justified. PIPE itself does not inspect the `STACKING` keyword,
+so it is not evidence for the onboard `gcoadd` contract.
+
 ## Fixed scientific skeleton
 
 The retained visit remains `CH_PR300024_TG000301_V0300`, OBSID 1015522,
