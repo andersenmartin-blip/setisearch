@@ -31,8 +31,8 @@ def parse_l2(raw):
     rows = list(ROW.iter_unpack(raw))
     return {
         "bjd": np.array([r[2] for r in rows], float),
-        "cx": np.array([r[16] for r in rows], float),
-        "cy": np.array([r[17] for r in rows], float),
+        "cx": np.array([r[16] for r in rows], dtype=np.float32),
+        "cy": np.array([r[17] for r in rows], dtype=np.float32),
     }
 
 
