@@ -17,6 +17,29 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+**LS8B: four held-out CHEOPS visits evaluated, 19 September 2026.**
+The unchanged DEFAULT-aperture screen covers **4,754 rows and 7,917 eligible
+windows**. It finds **seven positive clusters and one negative control cluster**;
+per-visit positive/negative counts are 3/1, 2/0, 2/0 and 0/0. These are L2
+excursions, not SETI candidates or calibrated Gaussian significances.
+
+The frozen audit fails two tiny near-zero excess comparisons. A 60-decimal
+reference verifies every screening decision, and a separately frozen
+flux-centered implementation passes **31,668** numerical comparisons at the
+original tolerances, with zero changed decisions. The original audit failure
+and original values remain preserved; this is an arithmetic repair on closed
+data, not detector qualification.
+[Result and four-visit figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8b_l2_suite/REPORT.md),
+[numerical review](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8B_NUMERICAL_REVIEW.md).
+
+**Next:** diagnose all eight positive/negative representatives using only the
+auxiliary columns already saved in the L2 tables, before any new image follow-up.
+[Exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8B_CONTINUATION.md).
+
+The preceding LS8A held-out visit had zero positive clusters and four negative
+threshold windows. Both fixed transfer results remain separate and unchanged.
+[LS8A result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8a_l2_transfer/REPORT.md).
+
 **LS7Z closes both prospectively screened CHEOPS L2 excursions.**
 The LS7X DEFAULT-aperture pilot produced two threshold crossings. LS7Y linked
 the first to the CAL→COR correction. For the second, LS7Z used only already
@@ -31,14 +54,14 @@ The integrated work in the [14–27 September plan](https://github.com/andersenm
 is now complete, including the negative-result decision branch. The calendar
 dates were work estimates; execution proceeded during active sessions.
 
-**Next action: resolve the remaining CHEOPS physical input contract.**
+**Separate raw-imagette track: resolve the remaining physical input contract.**
 The official University of Vienna CHEOPS-IASW repository and ESA documentation
 now narrow the onboard stacking question: ordinary window `coadd` is described
 as pixel-by-pixel coaddition, while the exact `gcoadd` definition is delegated
 to CHEOPS-UVIE-INST-TN-001 issue 2.0. A second bounded public-source pass did
 not recover that technical note, a flight-relevant `gcoadd` implementation,
 or the required native reference-validity rules. The public-source route is
-therefore **incomplete**, and target-image evaluation remains blocked.
+therefore **incomplete**, and the raw-imagette calibration study remains blocked.
 [LS7W follow-up](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7W_PUBLIC_SOURCE_FOLLOWUP.md).
 
 Matching-version public CHEOPS schemas now also fix the required flat/dark/
@@ -58,8 +81,8 @@ A complete
 [technical request](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/CHEOPS_CALIBRATION_REQUEST.md)
 and [exact-version manifest](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/CHEOPS_REQUIRED_INPUTS.json)
 are prepared and narrowed to the remaining operator/reference questions. The
-message is **unsent**; no reply is pending. LS7V remains the latest completed
-CHEOPS scientific checkpoint.
+message is **unsent**; no reply is pending. LS7V is the earlier calibration-log
+checkpoint; the newer L2 transfer results above do not resolve the raw-image gate.
 
 **LS7V CHEOPS calibration-log reconciliation completed, 15 September 2026.**
 The actual reduction log explains the difference investigated in LS7U:
