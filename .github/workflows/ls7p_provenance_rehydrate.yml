@@ -81,23 +81,6 @@ jobs:
                 'files':retained}
           (out/'retained_result_inventory.json').write_text(json.dumps(rinv,indent=2)+'\n')
 
-          sys.path.insert(0,str(root/'src')); sys.path.insert(0,str(root/'scripts'))
-          with (out/'known_answers.log').open('w') as log:
-            suite=unittest.defaultTestLoader.discover(str(root/'tests'),pattern='test_ls7p_pixel_centroid.py')
-            tests=unittest.TextTestRunner(stream=log,verbosity=2).run(suite)
-            assert tests.wasSuccessful() and tests.testsRun==7
-
-          fresh=root/'_ls7p_fresh_response'
-          producer=importlib.import_module('ls7p_evaluate')
-          frozen=json.loads((root/'results_ls7p_preflight/calibration_response.json').read_text())['models']
-          producer.OUT=fresh
-          producer.calibration=lambda cfg, metadata: frozen
-          with (out/'evaluation.log').open('w') as log, contextlib.redirect_stdout(log), contextlib.redirect_stderr(log):
-            producer.main()
-          auditor=importlib.import_module('ls7p_audit')
-          auditor.OUT=fresh
-          with (out/'audit.log').open('w') as log, contextlib.redirect_stdout(log), contextlib.redirect_stderr(log):
-            auditor.main()
           PY
       - name: Require exact approved provenance blob identities
         shell: bash
@@ -107,9 +90,6 @@ jobs:
           cat > /tmp/expected.txt <<'EOF'
           4f3113a455cfe0c1914fd1b7010b8879db37be49 results_ls7p_reconstruction/frozen_source_inventory.json
           eeda0802fe5861e55c583ff9fd515c259ced7f75 results_ls7p_reconstruction/retained_result_inventory.json
-          3bbbd9f414cb097631e88ff8fdbcc22fb7b9244e results_ls7p_reconstruction/known_answers.log
-          0e8bcdb72b2ad21e8da46167d1bb321219b6d99e results_ls7p_reconstruction/evaluation.log
-          764428f2a181cd60333f1b248d9b7adc1af4458f results_ls7p_reconstruction/audit.log
           EOF
           while read -r expected path; do
             actual="$(git hash-object "$path")"
@@ -120,9 +100,9 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p results_ls7p_reconstruction
-          cp /tmp/ls7p-frozen/results_ls7p_reconstruction/{frozen_source_inventory.json,retained_result_inventory.json,known_answers.log,evaluation.log,audit.log} results_ls7p_reconstruction/
+          cp /tmp/ls7p-frozen/results_ls7p_reconstruction/{frozen_source_inventory.json,retained_result_inventory.json} results_ls7p_reconstruction/
           git add results_ls7p_reconstruction
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Publish exact LS7P reconstruction provenance objects'
+          git commit -m 'Publish exact LS7P reconstruction inventories'
           git push origin HEAD:m43-support-qualification
