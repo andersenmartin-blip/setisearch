@@ -255,5 +255,26 @@
     "linearisation_domain": "electrons",
     "stacked_linearisation_note": "Official DRP paper says individual-readout nonlinearity should be corrected before stacking; when individual readouts are unavailable, imagettes are combined with stacked images with pixel weighting.",
     "final_version_specific_implementation_verified": false
-  }
+  },
+  "auxiliary_public_implementation_followup": {
+    "checked_utc_date": "2026-09-19",
+    "common_sw_commit": "1e45b3be84edd18a60e9a0ea8ef65444dfa2a254",
+    "pipe_commit": "da15a87348e2657eac8dd08623ac258e6ac59df8",
+    "resolved_structure_semantics": [
+      "REF_APP_FlatFieldTeff v12.1.5: normalized 1024x1024xTeff flat cube with DATA_TYPE/T_EFF/STATUS metadata",
+      "REF_APP_DarkFrame v12.1.5: dark and error planes in e-/s; bias-subtracted and non-linearity-corrected",
+      "REF_APP_BadPixelMap v12.1.5: -2 dead, -1 partially dead, 0 good, 1 hot, 2 saturated, 3 telegraphic",
+      "REF_APP_CCDLinearisationLUT100 v12.1.5: uncorrected electrons -> corrected electrons",
+      "V_STRT_U/V_STOP_U are UTC validity-start/stop keywords"
+    ],
+    "pipe_auxiliary_semantics": [
+      "dark selector brackets/interpolates on V_STRT_U",
+      "bad-map selector chooses nearest V_STRT_U",
+      "flat selector linearly interpolates adjacent FLAT FIELD Teff planes and slices by full-detector offset"
+    ],
+    "non_adoption": "PIPE calibration ordering differs from official DRP high-level order and is not adopted as a DRP 14.0.1 proxy.",
+    "assessment_path": "LS7W_AUXILIARY_CALIBRATION_ASSESSMENT.md",
+    "preparation_path": "LS7W_NATIVE_STUDY_PREPARATION.md"
+  },
+  "study_preparation_state": "PREPARED_NOT_FROZEN_TARGET_PIXELS_CLOSED"
 }
