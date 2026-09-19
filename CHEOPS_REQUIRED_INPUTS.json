@@ -276,5 +276,24 @@
     "assessment_path": "LS7W_AUXILIARY_CALIBRATION_ASSESSMENT.md",
     "preparation_path": "LS7W_NATIVE_STUDY_PREPARATION.md"
   },
-  "study_preparation_state": "PREPARED_NOT_FROZEN_TARGET_PIXELS_CLOSED"
+  "study_preparation_state": "PREPARED_NOT_FROZEN_TARGET_PIXELS_CLOSED",
+  "pipe_public_operator_followup": {
+    "checked_utc_date": "2026-09-19",
+    "repository": "https://github.com/alphapsa/PIPE",
+    "commit": "da15a87348e2657eac8dd08623ac258e6ac59df8",
+    "assessment_path": "CHEOPS_PIPE_OPERATOR_ASSESSMENT.md",
+    "raw_calibration_sequence": [
+      "multiply raw ADU by gain in e/ADU",
+      "subtract bias times NEXP",
+      "divide by temperature-interpolated flat if enabled",
+      "apply optional CTI multiplicative correction",
+      "apply optional nonlinearity correction using a per-exposure ADU-like argument divided by gain and NEXP"
+    ],
+    "flat_rule": "bracket T_EFF among DATA_TYPE='FLAT FIELD' planes and linearly interpolate; crop by offset/shape",
+    "dark_rule": "select V_STRT_U-bracketing dark references and linearly interpolate in time; outside range use nearest endpoint without extrapolation",
+    "bad_map_rule": "select bad-pixel map with nearest V_STRT_U",
+    "stacking_keyword_search": "No use of the FITS STACKING keyword found in the pinned PIPE source search.",
+    "result": "PIPE supplies a concrete public ground-calibration/reference-selection operator but does not establish the onboard gcoadd arithmetic or DRP 14.0.1 semantics.",
+    "decision": "USEFUL_CONDITIONAL_FALLBACK_NOT_GCOADD_EVIDENCE"
+  }
 }
