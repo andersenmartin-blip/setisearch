@@ -20,6 +20,16 @@ conditions and intentionally reads no science image. The companion machine-
 readable draft is `config/cheops_native_study_draft.json`. With the present
 contract it must exit `NOT_READY`.
 
+## Exact-visit imagette grouping is now fixed
+
+The same 9 March 2020 55 Cnc observation is described by Morris et al. (2021,
+A&A 653 A173, DOI 10.1051/0004-6361/202140892). The paper states that imagettes
+were stacked onboard **in pairs**, yielding seven imagettes per 14-readout
+subarray. This matches the retained `NEXP=2` metadata and timing joins.
+Accordingly, the final study must treat each delivered raw imagette as a
+two-readout group. It must not assume the unresolved pixel arithmetic
+(sum/normalization/weights/clipping/rounding) until that contract is verified.
+
 ## Public PIPE fallback now specified
 
 A pinned public PIPE implementation has been audited separately in
