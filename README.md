@@ -21,14 +21,21 @@ The integrated work in the [14–27 September plan](https://github.com/andersenm
 is now complete, including the negative-result decision branch. The calendar
 dates were work estimates; execution proceeded during active sessions.
 
-**Next action: resolve the external CHEOPS calibration inputs.** A complete
+**Next action: resolve the remaining CHEOPS physical input contract.**
+The official University of Vienna CHEOPS-IASW repository and ESA documentation
+now narrow the onboard stacking question: ordinary window `coadd` is described
+as pixel-by-pixel coaddition, while the exact `gcoadd` definition is delegated
+to CHEOPS-UVIE-INST-TN-001 issue 2.0. A second bounded public-source pass did
+not recover that technical note, a flight-relevant `gcoadd` implementation,
+or the required native reference-validity rules. The public-source route is
+therefore **incomplete**, and target-image evaluation remains blocked.
+[LS7W follow-up](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7W_PUBLIC_SOURCE_FOLLOWUP.md).
+
+A complete
 [technical request](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/CHEOPS_CALIBRATION_REQUEST.md)
 and [exact-version manifest](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/CHEOPS_REQUIRED_INPUTS.json)
-are prepared for the official technical contact. The message is **unsent**;
-no reply is pending. The native image study remains blocked on the documented
-gain/units, stacking/offline operator and reference contents/applicability.
-The owner can send the request or supply the inputs directly. LS7V remains
-the latest scientific result.
+are prepared. The message is **unsent**; no reply is pending. LS7V remains the
+latest completed CHEOPS scientific checkpoint.
 
 **LS7V CHEOPS calibration-log reconciliation completed, 15 September 2026.**
 The actual reduction log explains the difference investigated in LS7U:
@@ -126,11 +133,18 @@ CHEOPS retained as a secondary metadata option.
 [saved evidence](https://github.com/andersenmartin-blip/setisearch/tree/m43-support-qualification/results_ls7q_metadata),
 [current continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7Q_CONTINUATION.md).
 
-**LS7P publication reconciliation:** its source freeze is public, but the
-completed result reported in the earlier conversation could not be verified
-in the inspected public branch. Its recovery remains a separate open task;
-LS7Q uses no LS7P numerical results.
-[Verification record](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7P_PUBLICATION_RECONCILIATION.md).
+**LS7P reconstruction and publication completed.** The explicit
+reconstruction is now public as **83/83 release files** on
+`m43-support-qualification`, including retained raw extracts, NPZ outputs,
+audit records, provenance inventories, report and reproduction code. The
+independent audit passes **1,496,872 numerical comparisons**, and
+**48,114/48,120** centroid rows meet the fixed binary32 reconstruction bound.
+This is reproducible replacement evidence, not recovery of the earlier missing
+original run. It does not qualify the reference-star motion input or add new
+observing coverage.
+[Result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7p_response/REPORT.md),
+[verification](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7p_reconstruction/README.md),
+[release inventory](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/release_inventory.json).
 
 **LS7O reference availability completed, 14 September 2026: the input contract fails.**
 Twelve simultaneous 20-second products from seven reference stars provide
