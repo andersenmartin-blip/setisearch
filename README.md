@@ -17,6 +17,16 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+**LS7Z closes both prospectively screened CHEOPS L2 excursions.**
+The LS7X DEFAULT-aperture pilot produced two threshold crossings. LS7Y linked
+the first to the CAL→COR correction. For the second, LS7Z used only already
+published bytes and found that a fixed displacement-template model explains
+about **92.5%** of the event-map squared energy, versus about **0.11%** for a
+brightness-profile model. The independent LS7Z audit passes 103,218
+comparisons. Following the predeclared stopping rule, both branches are now
+closed without widening to other apertures, rows, visits or raw imagettes.
+[LS7Z result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7z_morphology/REPORT.md).
+
 The integrated work in the [14–27 September plan](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/TWO_WEEK_PLAN_2026-09-14.md)
 is now complete, including the negative-result decision branch. The calendar
 dates were work estimates; execution proceeded during active sessions.
