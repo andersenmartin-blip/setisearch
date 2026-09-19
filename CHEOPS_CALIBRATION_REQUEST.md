@@ -48,8 +48,13 @@ Could you point me to the relevant documentation or SOC/DRP specialist?
    and selection/interpolation rules? The dark correction was applied in
    MAP mode. The archive lists 17 March 2020 as the dark/bad-map “Obs Start”,
    after this 9 March observation; we do not know whether that archive column
-   represents the applicable validity interval. We need the actual
-   `V_STRT_U`/`V_STOP_U` values and the rule used by this reduction.
+   represents the applicable validity interval. The matching public CHEOPS
+   schema defines `V_STRT_U`/`V_STOP_U` as UTC validity start/stop. For
+   comparison only, public PIPE selects/interpolates dark frames by
+   `V_STRT_U` and chooses the nearest bad map by `V_STRT_U`; PIPE is not
+   the official DRP and this does not explain why the retained DRP 14.0.1 log
+   applied the named V0201 dark to the earlier visit. We therefore need the
+   actual native validity cards and the DRP 14.0.1 selection rule.
 
 | Required input | Exact file named by the retained evidence |
 |---|---|
@@ -76,6 +81,12 @@ links the exact public source revisions. The
 and [input manifest](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/CHEOPS_REQUIRED_INPUTS.json)
 provide the remaining provenance. This request concerns calibration before
 target-image analysis; we have no candidate or instrument-fault claim.
+
+A machine-readable pre-freeze manifest now records the already fixed visit,
+pulse widths, protected-training rule and unresolved fields in
+[LS7W_NATIVE_STUDY_PREPARATION.json](LS7W_NATIVE_STUDY_PREPARATION.json).
+No target-image pixels have been opened; this request is intended to close the
+remaining physical contract before that final freeze.
 
 Thank you for any documentation or routing you can provide.
 
