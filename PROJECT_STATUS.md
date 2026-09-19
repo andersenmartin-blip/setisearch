@@ -1,5 +1,28 @@
 # SETIsearch — current project status
 
+## 19 September LS7Z closes both LS7X transient-screen branches
+
+The only remaining LS7X/LS7Y branch, cluster 1, has now completed the
+predeclared morphology/component study using **zero new archive science
+bytes**. The independent LS7Z audit passes **103,218 comparisons**.
+
+Under both retained coordinate conventions, the fixed brightness template
+explains only about **0.11%** of the COR event-map squared energy, whereas the
+fixed first-derivative displacement template explains about **92.51%** and the
+combined model about **92.62%**. The event map has cosine similarity about
+**0.9503** with the x-derivative template but only about **0.0296** with the
+brightness profile; its positive-excess centroid is displaced by about
+**5.17–5.53 pixels** from the target center.
+
+This follows the already declared LS7Y stopping rule: a pointing/spatially
+structured morphology closes the branch without widening. Cluster 0 was
+already closed as **CORRECTION_LINKED**. Therefore **both LS7X positive
+clusters are now closed as candidate branches**. These labels do not identify
+a unique physical cause and do not classify either excursion as artificial or
+astrophysical. No new aperture, rows, raw imagettes or visit are opened.
+[LS7Z result](results_ls7z_morphology/REPORT.md),
+[continuation](LS7Z_CONTINUATION.md).
+
 ## 19 September exact 55 Cnc visit establishes imagette pair grouping
 
 A peer-reviewed analysis of the same 9 March 2020 CHEOPS IOC observation
