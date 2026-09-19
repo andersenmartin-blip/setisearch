@@ -77,7 +77,7 @@
     {
       "id": "stacking_and_offline_nonlinearity",
       "needed": "Exact native gcoadd pixel arithmetic for the now-established two-readout imagette groups: normalization/weights, clipping/saturation/overflow, integer/floating arithmetic and rounding, plus the bias/gain/LUT relation for the actual stacks. Group size is resolved as two readouts for this exact visit.",
-      "constraint": "Public mission documentation now establishes ordinary window stacking as pixel-by-pixel coaddition and the DPD distinguishes coadd/mean/gmean/gcoadd/none, with gmean/gcoadd used for imagettes. The DPD delegates the exact modes to CHEOPS-UVIE-INST-TN-001 issue 2.0. The official public IASW repository is identified, but the exact gcoadd implementation has not yet been retrieved. The 6048 individual exposure records remain metadata, not individual science image arrays.",
+      "constraint": "Public mission documentation now establishes ordinary window stacking as pixel-by-pixel coaddition and the DPD distinguishes coadd/mean/gmean/gcoadd/none, with gmean/gcoadd used for imagettes. The DPD delegates the exact modes to CHEOPS-UVIE-INST-TN-001 issue 2.0. The official public IASW repository is identified, but the exact gcoadd implementation has not yet been retrieved. The 6048 individual exposure records remain metadata, not individual science image arrays. Matching-version raw schemas define NEXP as the number of co-added measurements, store stacked imagettes as uint32 ADU (explicitly widened from uint16 to support stacking), and this visit has ROUNDING=0 and NLIN_COR=false. These facts strongly favor an additive/sum-like raw representation but do not by themselves prove gcoadd's internal accumulator/clipping/overflow semantics.",
       "evidence": [
         "LS7T_CALIBRATION_CONTRACT.md",
         "results_ls7v_reduction_log/calibration_contract.json",
@@ -305,5 +305,22 @@
     "stacking_keyword_search": "No use of the FITS STACKING keyword found in the pinned PIPE source search.",
     "result": "PIPE supplies a concrete public ground-calibration/reference-selection operator but does not establish the onboard gcoadd arithmetic or DRP 14.0.1 semantics.",
     "decision": "USEFUL_CONDITIONAL_FALLBACK_NOT_GCOADD_EVIDENCE"
+  },
+  "gcoadd_structural_constraints": {
+    "checked_utc_date": "2026-09-19",
+    "assessment_path": "CHEOPS_GCOADD_STRUCTURAL_CONSTRAINTS.md",
+    "raw_imagette_storage": "uint32 ADU; schema history states widening from uint16 was to support stacked imagettes",
+    "nexp_semantics": "Number of co-added measurements",
+    "exact_visit_group_size": 2,
+    "exact_visit_rounding_bits": 0,
+    "exact_visit_onboard_nonlinearity": false,
+    "exact_visit_storage_interpretation": "Strongly constrains the delivered product to an additive/sum-like stacked representation, but does not prove internal gcoadd accumulator arithmetic.",
+    "unresolved": [
+      "saturation/clipping",
+      "accumulator width/overflow",
+      "invalid-pixel handling",
+      "any internal normalization distinct from the separately disabled rounding stage"
+    ],
+    "decision": "STRUCTURALLY_NARROWED_NOT_FULLY_VERIFIED"
   }
 }
