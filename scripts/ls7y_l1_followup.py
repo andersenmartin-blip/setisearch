@@ -55,9 +55,11 @@ def save(path, value):
 
 def get_url(kind):
     payload = {"fileType": kind, "filters": {"file_key": {"equal": [KEY]}}, "aperture": None}
-    with urlopen(Request(BASE + "download", data=json.dumps(payload).encode(),
-                         headers={"Accept": "application/json", "User-Agent": "dace-query/3.0.1"}),
-                 timeout=45) as r:
+    with urlopen(Request(
+        BASE + "download",
+        data=json.dumps(payload).encode(),
+        headers={"Accept": "application/json", "User-Agent": "dace-query/3.0.1"},
+    ), timeout=45) as r:
         info = json.load(r)
     return BASE + "download/photometry/" + info["key"] + "?compressed=false"
 
@@ -78,8 +80,12 @@ def read_range(kind, url, start, count, label):
         raw = r.read(count + 1)
         assert len(raw) == count
         receipt = {
-            "product": kind, "label": label, "start": start, "count": count,
-            "sha256": sha(raw), "status": r.status,
+            "product": kind,
+            "label": label,
+            "start": start,
+            "count": count,
+            "sha256": sha(raw),
+            "status": r.status,
             "etag": r.headers.get("ETag"),
             "content_range": r.headers.get("Content-Range"),
             "content_disposition": r.headers.get("Content-Disposition"),
@@ -99,15 +105,24 @@ def table_dtype(header):
         else:
             typ = {"D": ">f8", "E": ">f4", "J": ">i4", "I": ">i2"}[code]
             fields.append((name, typ, (n,)) if n != 1 else (name, typ))
-    out = np.dtype(fields)
-    assert out.itemsize == header["NAXIS1"]
-    return out
+    result = np.dtype(fields)
+    assert result.itemsize == header["NAXIS1"]
+    return result
 
 
-def robust_mad(a):
+def robust_mad_finite(a):
     a = np.asarray(a, float)
+    a = a[np.isfinite(a)]
+    if not len(a):
+        return None
     med = np.median(a)
     return float(1.4826 * np.median(np.abs(a - med)))
+
+
+def finite_median(a):
+    a = np.asarray(a, float)
+    a = a[np.isfinite(a)]
+    return float(np.median(a)) if len(a) else None
 
 
 def mask_for(center_x, center_y, radius):
@@ -115,56 +130,92 @@ def mask_for(center_x, center_y, radius):
     return (xx - center_x) ** 2 + (yy - center_y) ** 2 <= radius ** 2
 
 
-def temporal_excess(times, values, side_global, event_global):
-    t0 = float(np.mean(times[event_global]))
-    xs = (times[side_global] - t0) * 86400.0
-    xe = (times[event_global] - t0) * 86400.0
-    X = np.column_stack([np.ones(len(xs)), xs])
-    XE = np.column_stack([np.ones(len(xe)), xe])
-    beta = np.linalg.lstsq(X, values[side_global], rcond=None)[0]
-    pred = XE @ beta
+def temporal_excess(times, values, side_local, event_local):
+    values = np.asarray(values, dtype=object)
+    if len(values) != 31 or any(v is None for v in values):
+        return {"available": False}
+    yall = np.asarray(values, float)
+    if not np.isfinite(yall).all():
+        return {"available": False}
+    t0 = float(np.mean(times[event_local]))
+    xs = (times[side_local] - t0) * 86400.0
+    xe = (times[event_local] - t0) * 86400.0
+    X = np.column_stack([np.ones(len(side_local)), xs])
+    XE = np.column_stack([np.ones(len(event_local)), xe])
+    beta = np.linalg.lstsq(X, yall[side_local], rcond=None)[0]
+    residual = yall[side_local] - X @ beta
+    predicted = XE @ beta
     return {
-        "event_sum": float(np.sum(values[event_global])),
-        "baseline_event_sum": float(np.sum(pred)),
-        "event_excess": float(np.sum(values[event_global] - pred)),
-        "side_median": float(np.median(values[side_global])),
-        "side_sigma_mad": robust_mad(values[side_global] - X @ beta),
+        "available": True,
+        "event_sum": float(np.sum(yall[event_local])),
+        "baseline_event_sum": float(np.sum(predicted)),
+        "event_excess": float(np.sum(yall[event_local] - predicted)),
+        "side_median": float(np.median(yall[side_local])),
+        "side_sigma_mad": float(1.4826 * np.median(np.abs(residual - np.median(residual)))),
     }
 
 
 def pixel_excess_map(times, cube, side_local, event_local):
+    used = np.r_[side_local, event_local]
+    eligible = np.isfinite(cube[used]).all(axis=0)
+    result = np.full((200, 200), np.nan, dtype=float)
+    if not eligible.any():
+        return result, eligible
     t0 = float(np.mean(times[event_local]))
     xs = (times[side_local] - t0) * 86400.0
     xe = (times[event_local] - t0) * 86400.0
-    X = np.column_stack([np.ones(len(xs)), xs])
-    XE = np.column_stack([np.ones(len(xe)), xe])
-    y = cube[side_local].reshape(len(side_local), -1)
+    X = np.column_stack([np.ones(len(side_local)), xs])
+    XE = np.column_stack([np.ones(len(event_local)), xe])
+    y = cube[side_local][:, eligible]
     beta = np.linalg.solve(X.T @ X, X.T @ y)
-    pred = XE @ beta
-    event = cube[event_local].reshape(len(event_local), -1)
-    return np.sum(event - pred, axis=0).reshape(200, 200)
+    predicted_sum = np.sum(XE @ beta, axis=0)
+    event_sum = np.sum(cube[event_local][:, eligible], axis=0)
+    result[eligible] = event_sum - predicted_sum
+    return result, eligible
 
 
-def column_component(a):
-    col = np.mean(a, axis=0)
-    return np.repeat(col[None, :], a.shape[0], axis=0)
+def column_component(delta_map, common):
+    component = np.full_like(delta_map, np.nan, dtype=float)
+    for x in range(delta_map.shape[1]):
+        m = common[:, x]
+        if m.any():
+            value = float(np.mean(delta_map[m, x]))
+            component[m, x] = value
+    return component
 
 
 def fit_delta_smear(delta, smear, center_x, center_y):
     outside = ~mask_for(center_x, center_y, EXCLUDE_RADIUS)
-    y = delta[outside]
     smear_image = np.repeat(smear[None, :], 200, axis=0)
-    x = smear_image[outside]
-    good = np.isfinite(x) & np.isfinite(y)
-    X = np.column_stack([np.ones(int(good.sum())), x[good]])
-    beta = np.linalg.lstsq(X, y[good], rcond=None)[0]
-    resid = y[good] - X @ beta
+    good = outside & np.isfinite(delta) & np.isfinite(smear_image)
+    if int(good.sum()) < 3:
+        return {"available": False, "pixels": int(good.sum())}
+    y = delta[good]
+    x = smear_image[good]
+    X = np.column_stack([np.ones(len(x)), x])
+    beta = np.linalg.lstsq(X, y, rcond=None)[0]
+    resid = y - X @ beta
     return {
+        "available": True,
         "alpha": float(beta[0]),
         "beta": float(beta[1]),
         "residual_rms": float(np.sqrt(np.mean(resid * resid))),
         "pixels": int(good.sum()),
     }
+
+
+def masked_sum(a, mask):
+    if not mask.any():
+        return None
+    values = np.asarray(a, float)[mask]
+    if not np.isfinite(values).all():
+        return None
+    return float(np.sum(values))
+
+
+def common_sum(a, mask):
+    use = mask & np.isfinite(a)
+    return float(np.sum(a[use])) if use.any() else None
 
 
 def main():
@@ -174,7 +225,9 @@ def main():
     fixed = [(x["cluster_id"], x["start"], x["duration"]) for x in candidates["clusters"]]
     assert fixed == [(0, 66, 3), (1, 185, 3)], fixed
 
-    l2_header = fits.Header.fromstring((META / "lightcurve_header.bin").read_bytes().decode("ascii"), sep="")
+    l2_header = fits.Header.fromstring(
+        (META / "lightcurve_header.bin").read_bytes().decode("ascii"), sep=""
+    )
     l2_raw = (PILOT / "lightcurve_table.bin").read_bytes()
     l2 = np.frombuffer(l2_raw, dtype=table_dtype(l2_header), count=432)
     bjd = l2["BJD_TIME"].astype(float)
@@ -196,12 +249,13 @@ def main():
             p.write_bytes(raw)
             rec["file"] = p.name
             receipts.append(rec)
-            contexts[ctx["cluster"]][kind] = np.frombuffer(raw, dtype=">f8").reshape(n, 200, 200).astype(float)
-            assert np.isfinite(contexts[ctx["cluster"]][kind]).all()
+            cube = np.frombuffer(raw, dtype=">f8").reshape(n, 200, 200).astype(float)
+            contexts[ctx["cluster"]][kind] = cube
 
-    # Verify the smearing extension header before reading its selected rows.
-    sh, rec = read_range("SCI_COR_SubArray", urls["SCI_COR_SubArray"],
-                         SMEAR_HEADER_START, SMEAR_HEADER_BYTES, "smearing_header")
+    sh, rec = read_range(
+        "SCI_COR_SubArray", urls["SCI_COR_SubArray"],
+        SMEAR_HEADER_START, SMEAR_HEADER_BYTES, "smearing_header"
+    )
     h = fits.Header.fromstring(sh.decode("ascii"), sep="")
     assert h["EXTNAME"] == "SCI_COR_SmearingRow"
     assert h["BITPIX"] == -64
@@ -216,14 +270,17 @@ def main():
         n = ctx["stop"] - ctx["start"]
         start = SMEAR_DATA_START + ctx["start"] * 200 * 8
         count = n * 200 * 8
-        raw, rec = read_range("SCI_COR_SubArray", urls["SCI_COR_SubArray"],
-                              start, count, f"cluster{ctx['cluster']}_smearing_rows")
+        raw, rec = read_range(
+            "SCI_COR_SubArray", urls["SCI_COR_SubArray"],
+            start, count, f"cluster{ctx['cluster']}_smearing_rows"
+        )
         p = OUT / f"SCI_COR_SmearingRow_cluster{ctx['cluster']}_rows_{ctx['start']}_{ctx['stop']-1}.bin"
         p.write_bytes(raw)
         rec["file"] = p.name
         receipts.append(rec)
-        contexts[ctx["cluster"]]["SMEAR"] = np.frombuffer(raw, dtype=">f8").reshape(n, 200).astype(float)
-        assert np.isfinite(contexts[ctx["cluster"]]["SMEAR"]).all()
+        contexts[ctx["cluster"]]["SMEAR"] = (
+            np.frombuffer(raw, dtype=">f8").reshape(n, 200).astype(float)
+        )
 
     save(OUT / "acquisition.json", {
         "file_key": KEY,
@@ -247,123 +304,204 @@ def main():
         assert side_global[0] == ctx["start"] and side_global[-1] == ctx["stop"] - 1
         side_local = side_global - first
         event_local = event_global - first
+
         cal = contexts[cid]["SCI_CAL_SubArray"]
         cor = contexts[cid]["SCI_COR_SubArray"]
         smear = contexts[cid]["SMEAR"]
         delta = cor - cal
         times_local = bjd[first:ctx["stop"]]
 
-        sums = {"C0": {"CAL": [], "COR": [], "DELTA": [], "SMEAR": []},
-                "C1": {"CAL": [], "COR": [], "DELTA": [], "SMEAR": []}}
+        sums = {
+            "C0": {"CAL": [], "COR": [], "DELTA": [], "SMEAR": []},
+            "C1": {"CAL": [], "COR": [], "DELTA": [], "SMEAR": []},
+        }
         fits_diag = []
+        finite_counts = {
+            "CAL": int(np.isfinite(cal).sum()),
+            "COR": int(np.isfinite(cor).sum()),
+            "DELTA": int(np.isfinite(delta).sum()),
+            "SMEAR": int(np.isfinite(smear).sum()),
+        }
+
         for li, gi in enumerate(range(first, ctx["stop"])):
             cx0 = float(l2["CENTROID_X"][gi]) - XOFF
             cy0 = float(l2["CENTROID_Y"][gi]) - YOFF
             fit = fit_delta_smear(delta[li], smear[li], cx0, cy0)
-            fit.update({"row": gi})
+            fit["row"] = gi
             fits_diag.append(fit)
-            med = float(np.median(delta[li]))
-            mad = robust_mad(delta[li])
-            row = {"cluster": cid, "row": gi, "delta_median": med,
-                   "delta_sigma_mad": mad, "smear_fit": fit}
+
+            row = {
+                "cluster": cid,
+                "row": gi,
+                "finite_pixels": {
+                    "CAL": int(np.isfinite(cal[li]).sum()),
+                    "COR": int(np.isfinite(cor[li]).sum()),
+                    "DELTA": int(np.isfinite(delta[li]).sum()),
+                    "SMEAR": int(np.isfinite(smear[li]).sum()),
+                },
+                "delta_median": finite_median(delta[li]),
+                "delta_sigma_mad": robust_mad_finite(delta[li]),
+                "smear_fit": fit,
+            }
             for name, shift in (("C0", 0.0), ("C1", -1.0)):
                 cx, cy = cx0 + shift, cy0 + shift
                 m = mask_for(cx, cy, AP_RADIUS)
                 weights = np.sum(m, axis=0)
+                smear_selected = smear[li][weights > 0]
                 vals = {
-                    "CAL": float(np.sum(cal[li][m])),
-                    "COR": float(np.sum(cor[li][m])),
-                    "DELTA": float(np.sum(delta[li][m])),
-                    "SMEAR": float(np.dot(smear[li], weights)),
+                    "CAL": masked_sum(cal[li], m),
+                    "COR": masked_sum(cor[li], m),
+                    "DELTA": masked_sum(delta[li], m),
+                    "SMEAR": (
+                        float(np.dot(smear[li], weights))
+                        if np.isfinite(smear_selected).all() else None
+                    ),
                 }
-                for k, v in vals.items():
-                    sums[name][k].append(v)
-                row[name] = vals
+                for key, value in vals.items():
+                    sums[name][key].append(value)
+                row[name] = {
+                    **vals,
+                    "aperture_pixels": int(m.sum()),
+                    "complete_finite": {
+                        "CAL": vals["CAL"] is not None,
+                        "COR": vals["COR"] is not None,
+                        "DELTA": vals["DELTA"] is not None,
+                        "SMEAR": vals["SMEAR"] is not None,
+                    },
+                }
             frame_rows.append(row)
 
-        # Event excess maps use exact local 24 sidebands and 3 event frames.
-        cal_map = pixel_excess_map(times_local, cal, side_local, event_local)
-        cor_map = pixel_excess_map(times_local, cor, side_local, event_local)
-        delta_map = cor_map - cal_map
-        col_delta = column_component(delta_map)
+        cal_map, cal_eligible = pixel_excess_map(times_local, cal, side_local, event_local)
+        cor_map, cor_eligible = pixel_excess_map(times_local, cor, side_local, event_local)
+        common = cal_eligible & cor_eligible
+        delta_map = np.full((200, 200), np.nan, dtype=float)
+        delta_map[common] = cor_map[common] - cal_map[common]
+        col_delta = column_component(delta_map, common)
 
         mean_cx0 = float(np.mean(l2["CENTROID_X"][event_global])) - XOFF
         mean_cy0 = float(np.mean(l2["CENTROID_Y"][event_global])) - YOFF
         conv = {}
         correction_gate = []
         localized_gate = []
+        central_complete = []
+
         for name, shift in (("C0", 0.0), ("C1", -1.0)):
             m25 = mask_for(mean_cx0 + shift, mean_cy0 + shift, AP_RADIUS)
             m35 = mask_for(mean_cx0 + shift, mean_cy0 + shift, EXCLUDE_RADIUS)
-            temporal = {}
-            for k in ("CAL", "COR", "DELTA", "SMEAR"):
-                arr = np.asarray(sums[name][k], float)
-                # temporal_excess indexes local arrays, so convert global side/event to local
-                temporal[k] = temporal_excess(times_local, arr, side_local, event_local)
-            cor_abs = float(np.sum(np.abs(cor_map)))
-            concentration = float(np.sum(np.abs(cor_map[m25])) / cor_abs) if cor_abs else None
-            delta_ap = float(np.sum(delta_map[m25]))
-            cor_ap = float(np.sum(cor_map[m25]))
-            col_ap = float(np.sum(col_delta[m25]))
+            temporal = {k: temporal_excess(times_local, v, side_local, event_local)
+                        for k, v in sums[name].items()}
+            complete = bool(common[m25].all()) and all(
+                temporal[k].get("available", False) for k in ("CAL", "COR", "DELTA", "SMEAR")
+            )
+            central_complete.append(complete)
+
+            common_abs_cor = np.abs(cor_map[common])
+            denom_l1 = float(np.sum(common_abs_cor)) if len(common_abs_cor) else 0.0
+            m25_common = m25 & common
+            concentration = (
+                float(np.sum(np.abs(cor_map[m25_common])) / denom_l1)
+                if denom_l1 > 0 else None
+            )
+            delta_ap = common_sum(delta_map, m25_common)
+            cor_ap = common_sum(cor_map, m25_common)
+            col_ap = common_sum(col_delta, m25_common)
+
             conv[name] = {
                 "center_event_mean": [mean_cx0 + shift, mean_cy0 + shift],
                 "aperture_pixels": int(m25.sum()),
+                "central_common_eligible_pixels": int(common[m25].sum()),
+                "central_complete": complete,
                 "temporal": temporal,
                 "maps": {
-                    "cal_r25_sum": float(np.sum(cal_map[m25])),
+                    "cal_r25_sum": common_sum(cal_map, m25_common),
                     "cor_r25_sum": cor_ap,
                     "delta_r25_sum": delta_ap,
-                    "cal_r35_sum": float(np.sum(cal_map[m35])),
-                    "cor_r35_sum": float(np.sum(cor_map[m35])),
-                    "delta_r35_sum": float(np.sum(delta_map[m35])),
-                    "cal_full_sum": float(np.sum(cal_map)),
-                    "cor_full_sum": float(np.sum(cor_map)),
-                    "delta_full_sum": float(np.sum(delta_map)),
+                    "cal_r35_sum": common_sum(cal_map, m35 & common),
+                    "cor_r35_sum": common_sum(cor_map, m35 & common),
+                    "delta_r35_sum": common_sum(delta_map, m35 & common),
+                    "cal_full_sum": common_sum(cal_map, common),
+                    "cor_full_sum": common_sum(cor_map, common),
+                    "delta_full_sum": common_sum(delta_map, common),
                     "cor_l1_concentration_r25": concentration,
                     "delta_column_component_r25_sum": col_ap,
                 },
             }
-            cor_ex = temporal["COR"]["event_excess"]
-            delta_ex = temporal["DELTA"]["event_excess"]
-            correction_gate.append(
-                abs(delta_ex) >= 0.5 * abs(cor_ex) or
-                abs(col_ap) >= 0.5 * abs(cor_ex)
-            )
-            localized_gate.append(
-                cor_ex > 0 and concentration is not None and concentration >= 0.5
-            )
 
-        if all(correction_gate):
+            if complete:
+                cor_ex = temporal["COR"]["event_excess"]
+                delta_ex = temporal["DELTA"]["event_excess"]
+                correction_gate.append(
+                    abs(delta_ex) >= 0.5 * abs(cor_ex)
+                    or abs(col_ap) >= 0.5 * abs(cor_ex)
+                )
+                localized_gate.append(
+                    cor_ex > 0 and concentration is not None and concentration >= 0.5
+                )
+            else:
+                correction_gate.append(False)
+                localized_gate.append(False)
+
+        if not all(central_complete):
+            label = "AMBIGUOUS_IMAGE_FOLLOWUP"
+        elif all(correction_gate):
             label = "CORRECTION_LINKED"
         elif not any(correction_gate) and all(localized_gate):
             label = "IMAGE_LOCALIZED_NOT_CORRECTION_DOMINATED"
         else:
             label = "AMBIGUOUS_IMAGE_FOLLOWUP"
 
-        denom = float(np.sum(delta_map * delta_map))
-        col_fraction = float(np.sum(col_delta * col_delta) / denom) if denom else None
+        denom = float(np.sum(delta_map[common] ** 2)) if common.any() else 0.0
+        coherence = (
+            float(np.sum(col_delta[common] ** 2) / denom) if denom > 0 else None
+        )
+        event_fit_beta = [
+            fits_diag[x].get("beta") if fits_diag[x].get("available") else None
+            for x in event_local
+        ]
+        side_beta = [
+            fits_diag[x]["beta"] for x in side_local if fits_diag[x].get("available")
+        ]
         result = {
             "cluster": cid,
             "event_rows": [int(x) for x in event_global],
             "context_rows": [first, ctx["stop"] - 1],
             "ls7x_score": float(candidates["clusters"][cid]["score"]),
+            "context_finite_counts": finite_counts,
+            "event_map_availability": {
+                "cal_eligible_pixels": int(cal_eligible.sum()),
+                "cor_eligible_pixels": int(cor_eligible.sum()),
+                "common_eligible_pixels": int(common.sum()),
+                "common_eligible_fraction": float(common.mean()),
+            },
             "conventions": conv,
-            "delta_event_map_column_coherence_fraction": col_fraction,
-            "smear_fit_event": [fits_diag[x]["beta"] for x in event_local],
-            "smear_fit_side_median_beta": float(np.median([fits_diag[x]["beta"] for x in side_local])),
+            "delta_event_map_column_coherence_fraction": coherence,
+            "smear_fit_event": event_fit_beta,
+            "smear_fit_side_median_beta": (
+                float(np.median(side_beta)) if side_beta else None
+            ),
             "classification": label,
         }
         cluster_results.append(result)
-        np.savez_compressed(OUT / f"cluster_{cid}_event_excess_maps.npz",
-                            cal=cal_map, cor=cor_map, delta=delta_map,
-                            delta_column_component=col_delta)
+        np.savez_compressed(
+            OUT / f"cluster_{cid}_event_excess_maps.npz",
+            cal=cal_map,
+            cor=cor_map,
+            delta=delta_map,
+            delta_column_component=col_delta,
+            cal_eligible=cal_eligible,
+            cor_eligible=cor_eligible,
+            common_eligible=common,
+        )
 
-    raw_lines = "".join(json.dumps(x, sort_keys=True, allow_nan=False) + "\n" for x in frame_rows).encode()
+    raw_lines = "".join(
+        json.dumps(x, sort_keys=True, allow_nan=False) + "\n" for x in frame_rows
+    ).encode()
     (OUT / "frame_metrics.jsonl.gz").write_bytes(gzip.compress(raw_lines, mtime=0))
     save(OUT / "summary.json", {
         "stage": "LS7Y_CHEOPS_L1_IMAGE_FOLLOWUP",
         "status": "COMPLETE_UNAUDITED",
         "parent": "LS7X",
+        "finite_pixel_amendment": "LS7Y_FINITE_PIXEL_AMENDMENT.md",
         "clusters": cluster_results,
         "other_l2_apertures_opened": False,
         "raw_imagettes_opened": False,
@@ -372,14 +510,20 @@ def main():
     })
 
     lines = [
-        "# LS7Y CHEOPS L1 image-domain follow-up", "",
-        "Frozen before the two LS7X candidate image contexts were opened.", "",
-        "| Cluster | LS7X score | Image follow-up label | DELTA column coherence |",
-        "|---:|---:|---|---:|",
+        "# LS7Y CHEOPS L1 image-domain follow-up",
+        "",
+        "Frozen before the two LS7X candidate image contexts were opened; finite-pixel semantics were fixed after the first execution stopped on non-finite pixels and before any LS7Y result was computed.",
+        "",
+        "| Cluster | LS7X score | Image follow-up label | Common eligible pixels | DELTA column coherence |",
+        "|---:|---:|---|---:|---:|",
     ]
     for x in cluster_results:
         cf = x["delta_event_map_column_coherence_fraction"]
-        lines.append(f"| {x['cluster']} | {x['ls7x_score']:.6f} | {x['classification']} | {cf:.6g} |")
+        cf_text = f"{cf:.6g}" if cf is not None else "N/A"
+        lines.append(
+            f"| {x['cluster']} | {x['ls7x_score']:.6f} | {x['classification']} | "
+            f"{x['event_map_availability']['common_eligible_pixels']} | {cf_text} |"
+        )
     lines += [
         "",
         "These labels describe coupling to the mission CAL->COR image correction only.",
@@ -391,7 +535,9 @@ def main():
     ]
     (OUT / "REPORT.md").write_text("\n".join(lines))
     files = sorted(p for p in OUT.iterdir() if p.is_file() and p.name != "SHA256SUMS")
-    (OUT / "SHA256SUMS").write_text("".join(f"{sha(p.read_bytes())}  {p.name}\n" for p in files))
+    (OUT / "SHA256SUMS").write_text(
+        "".join(f"{sha(p.read_bytes())}  {p.name}\n" for p in files)
+    )
     print(json.dumps(json.loads((OUT / "summary.json").read_text()), indent=2))
 
 
