@@ -1,5 +1,20 @@
 # Continue after LS7V
 
+## Prospective study preparation completed while blocked
+
+The future native-image study now has a non-frozen, machine-readable skeleton
+and a tested hard input gate. See
+[study draft](CHEOPS_NATIVE_STUDY_DRAFT.md),
+[configuration](config/cheops_native_study_draft.json), and
+[input gate](scripts/cheops_native_input_gate.py).
+
+The gate performs no target-image reads. It rejects the current contract by
+design and only permits a later native stage after the physical operator
+questions, exact reference identities/validity rules, gain convention and
+study freeze are all explicit. The CI test includes both the current blocked
+case and a synthetic complete case. Do not weaken this gate to work around
+missing mission inputs.
+
 The [actual reduction-log reconciliation](LS7V_CALIBRATION_RECONCILIATION.md)
 is complete for CHEOPS `CH_PR300024_TG000301_V0300`, OBSID 1015522. Reuse
 the retained LS7R metadata, LS7S gain/reference evidence, LS7T native HK,
