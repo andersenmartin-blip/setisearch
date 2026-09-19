@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Independent raw-struct/scalar audit; never imports the suite producer."""
+import argparse
 import gzip
 import hashlib
 import json
@@ -50,7 +51,7 @@ def groups(rows, sign):
     return result
 
 
-def audit():
+def audit(complete_review=False):
     assert sha((ROOT / 'scripts/ls8a_l2_audit.py').read_bytes()) == \
         'd98ab8c538b1287d8bae45ba8d4f011bc37b82901197a5346c8c871babb6c736'
     manifest(META)
@@ -61,6 +62,7 @@ def audit():
     assert suite['other_apertures_opened'] is False and suite['detector_qualified'] is False
     assert suite['candidate_claims'] == 0
     all_audits = []
+    disagreements = []
     original_columns = load(ROOT / 'results_ls8a_l2_metadata/summary.json')['columns']
     expected_schema = [(c['name'], c['format']) for c in original_columns]
     for key, suite_summary in zip(KEYS, suite['visits']):
@@ -95,7 +97,12 @@ def audit():
                                        ('sigma', 'sigma_electrons'), ('denom', 'denominator_electrons')]:
                 a, b = rebuilt_row[field], saved_row[saved_field]
                 differences[field] = max(differences[field], abs(a-b))
-                assert math.isclose(a, b, rel_tol=2e-8, abs_tol=2e-10), (key, field, a, b)
+                agrees = math.isclose(a, b, rel_tol=2e-8, abs_tol=2e-10)
+                if not agrees:
+                    disagreements.append({'file_key': key, 'start': rebuilt_row['start'],
+                                          'duration': rebuilt_row['duration'], 'field': field,
+                                          'scalar': a, 'producer': b, 'difference': a-b})
+                assert agrees or complete_review, (key, field, a, b)
                 comparisons += 1
             start, duration = rebuilt_row['start'], rebuilt_row['duration']
             indices = list(range(start, start + duration))
@@ -142,20 +149,29 @@ def audit():
             assert d['duration_seconds'] == d['duration_rows'] * cadence
             assert d['positive_windows'] == sum(r['score'] >= 8.5 for r in subset)
             assert d['negative_windows'] == sum(r['score'] <= -8.5 for r in subset)
-        all_audits.append({'file_key': key, 'status': 'PASS', 'raw_rows': len(data['flux']),
+        visit_failures = [r for r in disagreements if r['file_key'] == key]
+        all_audits.append({'file_key': key, 'status': 'FAIL' if visit_failures else 'PASS',
+                           'numeric_disagreements': len(visit_failures), 'raw_rows': len(data['flux']),
                            'enumerated_windows': attempted, 'eligible_windows': len(rebuilt),
                            'numeric_and_discrete_window_comparisons': comparisons,
                            'maximum_absolute_differences': differences,
                            'all_signed_clusters_counts_unions_and_summaries_verified': True})
-    result = {'status': 'PASS', 'method': 'Unchanged LS8A struct parser and scalar normal equations; independent signed clustering.',
+    result = {'status': 'FAIL' if disagreements else 'PASS',
+              'complete_review_after_initial_failure': complete_review,
+              'frozen_tolerances': {'relative': 2e-8, 'absolute': 2e-10},
+              'numeric_disagreements': disagreements,
+              'method': 'Unchanged LS8A struct parser and scalar normal equations; independent signed clustering.',
               'visits': all_audits, 'numeric_and_discrete_window_comparisons': sum(
                   a['numeric_and_discrete_window_comparisons'] for a in all_audits)}
     (OUT / 'audit.json').write_text(json.dumps(result, indent=2) + '\n')
-    suite['status'] = 'COMPLETE_AUDITED'
+    suite['status'] = 'COMPLETE_AUDIT_FAILED' if disagreements else 'COMPLETE_AUDITED'
     (OUT / 'summary.json').write_text(json.dumps(suite, indent=2) + '\n')
     manifest(OUT, write=True)
     print(json.dumps(result, indent=2))
 
 
 if __name__ == '__main__':
-    audit()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--complete-review', action='store_true',
+                        help='Collect all mismatches after initial failure; never converts a failed gate to PASS.')
+    audit(parser.parse_args().complete_review)
