@@ -1,0 +1,97 @@
+name: LS7X CHEOPS DEFAULT L2 native pilot
+
+on:
+  push:
+    branches: [m43-support-qualification]
+    paths:
+      - '.github/workflows/ls7x_l2_pilot.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ls7x-l2-pilot
+  cancel-in-progress: false
+
+jobs:
+  pilot:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      FROZEN: af8b37c94086634c793837f4dbd1596ab7c76822
+      PYTHONPATH: src
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+
+      - name: Run frozen tests before opening table rows
+        shell: bash
+        run: |
+          set -euo pipefail
+          git worktree add /tmp/ls7x-frozen "$FROZEN"
+          cd /tmp/ls7x-frozen
+          python -m pip install -r requirements_ls7g.txt
+          python -m unittest tests.test_ls7x_l2 -v 2>&1 | tee /tmp/ls7x_tests.log
+
+      - name: Acquire fixed table and run native pilot
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd /tmp/ls7x-frozen
+          python -u scripts/ls7x_l2_evaluate.py 2>&1 | tee /tmp/ls7x_run.log
+          python -u scripts/ls7x_l2_audit.py 2>&1 | tee /tmp/ls7x_audit.log
+          cp /tmp/ls7x_tests.log results_ls7x_l2_pilot/TESTS.log
+          cp /tmp/ls7x_run.log results_ls7x_l2_pilot/RUN.log
+          cp /tmp/ls7x_audit.log results_ls7x_l2_pilot/AUDIT.log
+          python -m pip freeze > results_ls7x_l2_pilot/environment.txt
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          out=Path('results_ls7x_l2_pilot')
+          rows=[]
+          for p in sorted(x for x in out.iterdir() if x.is_file() and x.name!='SHA256SUMS'):
+              rows.append(f'{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.name}\n')
+          (out/'SHA256SUMS').write_text(''.join(rows))
+          PY
+
+      - name: Verify frozen boundary and audited result
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd /tmp/ls7x-frozen
+          test "$(git rev-parse HEAD)" = "$FROZEN"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          out=Path('results_ls7x_l2_pilot')
+          s=json.loads((out/'summary.json').read_text())
+          a=json.loads((out/'audit.json').read_text())
+          src=json.loads((out/'source.json').read_text())
+          assert s['status']=='COMPLETE_AUDITED'
+          assert a['status']=='PASS'
+          assert s['aperture']=='DEFAULT'
+          assert s['other_apertures_evaluated'] is False
+          assert s['physical_laser_sensitivity_claimed'] is False
+          assert src['evaluation_commit']=='af8b37c94086634c793837f4dbd1596ab7c76822'
+          assert src['metadata_freeze']=='44e40cfeaebf0289a46ee62bcfd385070411b377'
+          PY
+          (cd results_ls7x_l2_pilot && sha256sum -c SHA256SUMS)
+
+      - name: Publish audited pilot
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf results_ls7x_l2_pilot
+          cp -a /tmp/ls7x-frozen/results_ls7x_l2_pilot .
+          git add results_ls7x_l2_pilot
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish audited LS7X CHEOPS DEFAULT L2 native pilot'
+          git push origin HEAD:m43-support-qualification
