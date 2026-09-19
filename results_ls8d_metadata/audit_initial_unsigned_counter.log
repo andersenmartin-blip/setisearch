@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/505276b3b524/setisearch/scripts/ls8d_images_audit.py", line 229, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/scratch/505276b3b524/setisearch/scripts/ls8d_images_audit.py", line 164, in main
+    cfg=json.loads((ROOT/'config/ls8d_images.json').read_text());l2,meta=metadata_audit(cfg)
+                                                                         ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/505276b3b524/setisearch/scripts/ls8d_images_audit.py", line 56, in metadata_audit
+    assert (saved['image_row'],saved['utc'],saved['ce_counter'],saved['ce_integrity'])==(idx,meta[idx][0],meta[idx][3],meta[idx][4])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
