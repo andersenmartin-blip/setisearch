@@ -1,0 +1,23 @@
+name: CHEOPS reference header validator tests
+
+on:
+  push:
+    branches: [m43-support-qualification]
+    paths:
+      - 'scripts/cheops_reference_header_validate.py'
+      - 'tests/test_cheops_reference_header_validate.py'
+      - '.github/workflows/cheops_reference_header_validate.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pytest astropy
+      - run: pytest -q tests/test_cheops_reference_header_validate.py
