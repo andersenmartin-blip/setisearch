@@ -60,9 +60,11 @@
   "operator_questions": [
     {
       "id": "gain_and_units",
-      "needed": "Version-relevant HK field mapping, temperature-offset sign and gain convention, including numerical units of delivered CAL/COR image pixels.",
-      "source_conflict": "CHEOPSim subtracts signed TEMP_OFF; common_sw schema adds it. The pinned PIPE reader uses VOLT_FEE_CCD in its temperature term. CAL/COR BUNIT remains ADU despite the logged gain step.",
+      "needed": "Version-relevant DRP 14.0.1 gain implementation or authoritative confirmation of the temperature sign/centering and ADU/e- to e-/ADU conversion order, plus final CAL/COR image-unit semantics.",
+      "source_conflict": "The matching EXT_VER=12.1.5 common_sw schema defines system gain in ADU/e- from HK_TEMP_FEE_CCD and writes the temperature term as HK_TEMP_FEE_CCD + TEMP_OFF. CHEOPSim centers physical CCD temperature by subtracting the signed nominal TEMP_OFF. PIPE v1.1 uses VOLT_FEE_CCD as its temperature variable, adds TEMP_OFF, and returns the reciprocal e-/ADU. The executed DRP log reports only ~2.0 e-/ADU; no exact DRP formula is yet public.",
       "evidence": [
+        "CHEOPS_GAIN_CONVENTION_ASSESSMENT.md",
+        "results_ls7s_calibration/gain_reference_header.txt",
         "LS7T_CALIBRATION_CONTRACT.md",
         "LS7V_CALIBRATION_RECONCILIATION.md"
       ]
@@ -217,5 +219,25 @@
     "obdp2019_record": "https://indico.esa.int/event/225/contributions/4306/",
     "result": "Official public IASW repository identified. DPD confirms coadd/mean/gmean/gcoadd/none and points exact definitions to CHEOPS-UVIE-INST-TN-001 issue 2.0. Mission paper documents ordinary window stacking as pixel-by-pixel coaddition. Exact gcoadd arithmetic remains unresolved.",
     "assessment_path": "CHEOPS_PUBLIC_IASW_ASSESSMENT.md"
+  },
+  "gain_public_source_followup": {
+    "checked_utc_date": "2026-09-19",
+    "gain_reference_ext_ver": "12.1.5",
+    "common_sw_repository": "https://github.com/davefutyan/common_sw",
+    "common_sw_commit": "1e45b3be84edd18a60e9a0ea8ef65444dfa2a254",
+    "common_sw_schema_path": "fits_data_model/resources/REF_APP_GainCorrection.fsd",
+    "schema_result_unit": "ADU/e-",
+    "schema_temperature_field": "HK_TEMP_FEE_CCD",
+    "schema_temperature_expression": "HK_TEMP_FEE_CCD + TEMP_OFF",
+    "cheopsim_repository": "https://github.com/davefutyan/CHEOPSim",
+    "cheopsim_commit": "d5bfcfdae596ae1b85576dced7d55baecbc7da4d",
+    "cheopsim_temperature_expression": "CCD_degC - TEMP_OFF",
+    "pipe_repository": "https://github.com/alphapsa/PIPE",
+    "pipe_commit": "da15a87348e2657eac8dd08623ac258e6ac59df8",
+    "pipe_temperature_field": "VOLT_FEE_CCD",
+    "pipe_temperature_expression": "VOLT_FEE_CCD + TEMP_OFF",
+    "pipe_return_unit": "e-/ADU",
+    "decision": "Reference semantics are now resolved by a matching-version public schema; the exact DRP 14.0.1 operator remains unverified.",
+    "assessment_path": "CHEOPS_GAIN_CONVENTION_ASSESSMENT.md"
   }
 }
