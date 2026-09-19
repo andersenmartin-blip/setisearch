@@ -1,0 +1,84 @@
+{
+  "stage": "LS8C",
+  "protocol": "LS8C_AUXILIARY_PROTOCOL.md",
+  "scope": "fixed retrospective auxiliary diagnosis; zero new archive science bytes",
+  "input_table_sha256": {
+    "CH_PR100006_TG000302_V0300": "5c8324b09baf09e310561d0ba6603df5d9d83362651984b52c8fea3e8e8c71f2",
+    "CH_PR100006_TG000303_V0300": "086fd3612845fa312f7d0659ab58dc8bd90280af92c277cc5a6bef0228f9be13",
+    "CH_PR100006_TG000304_V0300": "46beae8ea29f5394555dd2664838dc893ff2966641c53a5810e42a8246b6a4a7",
+    "CH_PR100006_TG000305_V0300": "290bc361f8d42db47cf213163ab12314fcb5e2db2d3cf8c0f034efc1795152d0"
+  },
+  "representatives": [
+    [
+      "CH_PR100006_TG000302_V0300",
+      "positive",
+      0,
+      217,
+      2
+    ],
+    [
+      "CH_PR100006_TG000302_V0300",
+      "positive",
+      1,
+      517,
+      3
+    ],
+    [
+      "CH_PR100006_TG000302_V0300",
+      "positive",
+      2,
+      1064,
+      2
+    ],
+    [
+      "CH_PR100006_TG000302_V0300",
+      "negative",
+      0,
+      738,
+      1
+    ],
+    [
+      "CH_PR100006_TG000303_V0300",
+      "positive",
+      0,
+      444,
+      3
+    ],
+    [
+      "CH_PR100006_TG000303_V0300",
+      "positive",
+      1,
+      681,
+      3
+    ],
+    [
+      "CH_PR100006_TG000304_V0300",
+      "positive",
+      0,
+      274,
+      2
+    ],
+    [
+      "CH_PR100006_TG000304_V0300",
+      "positive",
+      1,
+      434,
+      1
+    ]
+  ],
+  "side_rows_each": 12,
+  "guard_rows_each": 2,
+  "audit_tolerances": {
+    "native_relative": 1e-09,
+    "native_absolute": "512*2**-52*max(1,native_context_scale,abs(reference))",
+    "dimensionless_relative": 1e-08,
+    "dimensionless_absolute": 1e-07
+  },
+  "schema": {
+    "version": "13.1",
+    "repository": "davefutyan/common_sw",
+    "commit": "1e45b3be84edd18a60e9a0ea8ef65444dfa2a254",
+    "blob": "e0f42d2ee4898cd2e19ffc8ae40b00734445eff0",
+    "path": "fits_data_model/resources/SCI_COR_Lightcurve.fsd"
+  }
+}
