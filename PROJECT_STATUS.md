@@ -1,5 +1,28 @@
 # SETIsearch — current project status
 
+## 19 September prospective CHEOPS native-study gate prepared and tested
+
+While the physical calibration/operator inputs remain unresolved, the complete
+prospective study skeleton is now prepared without opening any target-image
+pixels. `CHEOPS_NATIVE_STUDY_DRAFT.md` and
+`config/cheops_native_study_draft.json` predeclare the retained visit,
+positive 30/60/100-second pulse family, protected-training rules and required
+nuisance families. Numerical acceptance thresholds remain intentionally
+`TBD_BEFORE_FREEZE` until the physical operator is established.
+
+`scripts/cheops_native_input_gate.py` is a hard execution gate: it refuses
+native-image work unless all three operator questions are VERIFIED, the four
+required references have frozen SHA-256 identities plus native validity and
+selection rules, the gain convention is adopted, the contract is science-ready,
+and the study is explicitly FROZEN. The current contract is expected to fail.
+A synthetic complete fixture must pass. Both behaviors are covered by
+`tests/test_cheops_native_input_gate.py`; GitHub Actions run
+`35458588162` passed both tests.
+
+This preparation reduces future degrees of freedom but adds no scientific
+result or observing coverage. **NOT_READY_FOR_TARGET_IMAGE_STUDY** remains in
+force.
+
 Updated 19 September 2026. This is the maintained operational entry point.
 Earlier reports and continuation files preserve their historical states.
 
