@@ -1,0 +1,111 @@
+name: LS7Y CHEOPS L1 bounded image follow-up
+
+on:
+  push:
+    branches: [m43-support-qualification]
+    paths:
+      - '.github/workflows/ls7y_l1_followup.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ls7y-l1-followup
+  cancel-in-progress: false
+
+jobs:
+  followup:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      EVAL_FROZEN: e48f0ea03700d2ece0b36c6ac56bd45daae2b704
+      AUDIT_FROZEN: f334c93e3994a44431f182dba87db7c543520dc3
+      PYTHONPATH: src
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+
+      - name: Run frozen LS7Y evaluator on the predeclared candidate contexts
+        shell: bash
+        run: |
+          set -euo pipefail
+          git worktree add /tmp/ls7y-eval "$EVAL_FROZEN"
+          git worktree add /tmp/ls7y-audit "$AUDIT_FROZEN"
+          python -m pip install -r /tmp/ls7y-eval/requirements_ls7g.txt
+          cd /tmp/ls7y-eval
+          python -u scripts/ls7y_l1_followup.py 2>&1 | tee /tmp/ls7y_run.log
+
+      - name: Run independent audit from its frozen commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/ls7y-audit/results_ls7y_l1_followup
+          cp -a /tmp/ls7y-eval/results_ls7y_l1_followup /tmp/ls7y-audit/
+          cd /tmp/ls7y-audit
+          python -u scripts/ls7y_l1_audit.py 2>&1 | tee /tmp/ls7y_audit.log
+
+      - name: Freeze execution provenance and verify boundaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git -C /tmp/ls7y-eval rev-parse HEAD)" = "$EVAL_FROZEN"
+          test "$(git -C /tmp/ls7y-audit rev-parse HEAD)" = "$AUDIT_FROZEN"
+          cd /tmp/ls7y-audit
+          cp /tmp/ls7y_run.log results_ls7y_l1_followup/RUN.log
+          cp /tmp/ls7y_audit.log results_ls7y_l1_followup/AUDIT.log
+          python -m pip freeze > results_ls7y_l1_followup/environment.txt
+          python - <<'PY'
+          import hashlib, json
+          from datetime import datetime, timezone
+          from pathlib import Path
+          out=Path('results_ls7y_l1_followup')
+          s=json.loads((out/'summary.json').read_text())
+          a=json.loads((out/'audit.json').read_text())
+          q=json.loads((out/'acquisition.json').read_text())
+          assert s['status']=='COMPLETE_AUDITED'
+          assert a['status']=='PASS'
+          assert s['other_l2_apertures_opened'] is False
+          assert s['raw_imagettes_opened'] is False
+          assert s['other_subarray_rows_opened'] is False
+          assert s['artificial_or_astrophysical_classification'] is False
+          assert q['subarray_science_bytes']==39680000
+          assert q['smearing_data_bytes']==99200
+          assert len(q['contexts'])==2
+          assert [(x['cluster'],x['start'],x['stop']) for x in q['contexts']] == [(0,52,83),(1,171,202)]
+          provenance={
+            'stage':'LS7Y_CHEOPS_L1_IMAGE_FOLLOWUP',
+            'evaluation_commit':'e48f0ea03700d2ece0b36c6ac56bd45daae2b704',
+            'audit_commit':'f334c93e3994a44431f182dba87db7c543520dc3',
+            'protocol_commit':'b3917fb87cf7de566a26c6134b7799f1018de165',
+            'parent_ls7x_result_commit':'18993a5f3cafd1ee5085ab1a996f2b991d788820',
+            'finished_utc':datetime.now(timezone.utc).isoformat(),
+            'other_l2_apertures_opened':False,
+            'raw_imagettes_opened':False,
+            'new_visits_opened':False,
+          }
+          (out/'execution.json').write_text(json.dumps(provenance,indent=2)+'\n')
+          rows=[]
+          for p in sorted(x for x in out.iterdir() if x.is_file() and x.name!='SHA256SUMS'):
+              rows.append(f"{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.name}\n")
+          (out/'SHA256SUMS').write_text(''.join(rows))
+          PY
+          (cd results_ls7y_l1_followup && sha256sum -c SHA256SUMS)
+
+      - name: Publish audited LS7Y bounded image follow-up
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf results_ls7y_l1_followup
+          cp -a /tmp/ls7y-audit/results_ls7y_l1_followup .
+          git add results_ls7y_l1_followup
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish audited LS7Y CHEOPS L1 image follow-up'
+          git push origin HEAD:m43-support-qualification
