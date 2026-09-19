@@ -28,15 +28,20 @@ Could you point me to the relevant documentation or SOC/DRP specialist?
    the delivered CAL/COR image pixels? Their `BUNIT` cards say `ADU`, while
    the log reports a gain correction in electrons/ADU.
 
-2. **Stacking and offline nonlinearity.** What exact operator does `gcoadd`
-   represent for these raw imagettes (`NEXP=2`), and how does it differ from
-   the raw subarray's `coadd` (`NEXP=14`)? Both have `ROUNDING=0` and
-   `NLIN_COR=false`. We need the sum/mean/weighting and any clipping or
-   rounding convention, plus the order and normalization of bias, gain and
-   offline LUT100 correction for stacked exposures. The individual-exposure
-   records are metadata, so we cannot assume individual image samples are
-   recoverable. The recorded subarray readout is bright mode, 230 kHz, main
-   channel, script 6.
+2. **Stacking and offline nonlinearity.** Public CHEOPS documentation now
+   establishes ordinary window stacking at high level as pixel-by-pixel
+   coaddition, and the Data Products Definition distinguishes `coadd`,
+   `mean`, `gmean`, `gcoadd` and `none`, referring the exact definitions
+   to `CHEOPS-UVIE-INST-TN-001` issue 2.0. The official public CHEOPS-IASW
+   repository has also been located. What exact `gcoadd` operator applies to
+   these raw imagettes (`NEXP=2`), and which source path/revision or technical
+   note section defines it? We still need its normalization/grouping/weighting,
+   clipping/saturation and arithmetic/rounding conventions, plus the order and
+   normalization of bias, gain and offline LUT100 correction. The raw
+   subarrays use `coadd` with `NEXP=14`; both products have `ROUNDING=0`
+   and `NLIN_COR=false`. The individual-exposure records are metadata, so we
+   cannot assume individual image samples are recoverable. The recorded
+   subarray readout is bright mode, 230 kHz, main channel, script 6.
 
 3. **Exact reference contents and applicability.** Is there supported public
    delivery for the four files below, with their original validity headers
@@ -94,8 +99,11 @@ updates. It does not authorize person-directed contact. This draft is
 this text through their chosen channel. Before an assistant sends it, obtain
 explicit authorization and use an available supported communication tool.
 
-The two additional repository leads checked in this follow-up, `CHEOPS DRT`
-and `CHEOPS IASW`, returned no repositories. This bounded search does not
-establish that no documentation exists. It did not resolve an operator or
-deliver a reference. Reuse LS7V as the scientific state; proceed when relevant
-mission documentation or the exact input package becomes available.
+A 19 September public-source follow-up located the University of Vienna's
+official public CHEOPS-IASW repository:
+https://gitlab.phaidra.org/ottensr5/cheops . The ESA Data Products Definition,
+the CHEOPS mission paper and the OBDP 2019 presentation narrow the stacking
+question but do not yet supply the exact `gcoadd` arithmetic or the missing
+reference applicability rules. The detailed record is
+[CHEOPS_PUBLIC_IASW_ASSESSMENT.md](CHEOPS_PUBLIC_IASW_ASSESSMENT.md).
+Reuse LS7V as the latest scientific state; this draft remains **unsent**.
