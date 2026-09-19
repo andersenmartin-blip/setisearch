@@ -20,6 +20,16 @@ conditions and intentionally reads no science image. The companion machine-
 readable draft is `config/cheops_native_study_draft.json`. With the present
 contract it must exit `NOT_READY`.
 
+## Raw imagette structural constraints fixed
+
+The retained raw imagette representation is now additionally constrained by
+matching-version schemas: `NEXP` means number of co-added measurements, the
+image is uint32 ADU (the schema history explicitly says it was widened from
+uint16 to hold stacked imagettes), and this visit has `ROUNDING=0` and
+`NLIN_COR=false`. The final freeze may rely on these facts, but must not
+replace the still-missing gcoadd clipping/overflow/invalid-pixel semantics with
+an assumed simple sum.
+
 ## Exact-visit imagette grouping is now fixed
 
 The same 9 March 2020 55 Cnc observation is described by Morris et al. (2021,
