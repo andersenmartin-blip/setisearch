@@ -1,0 +1,55 @@
+name: LS8A held-out CHEOPS L2 metadata preflight
+
+on:
+  push:
+    branches: [m43-support-qualification]
+    paths:
+      - '.github/workflows/ls8a_l2_metadata.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ls8a-l2-metadata
+  cancel-in-progress: false
+
+jobs:
+  metadata:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+      - run: python -m pip install astropy==7.0.2
+      - name: Run fixed metadata-only preflight
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -u scripts/ls8a_l2_metadata.py | tee /tmp/ls8a.log
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          s=json.loads(Path('results_ls8a_l2_metadata/summary.json').read_text())
+          assert s['file_key']=='CH_PR100006_TG000301_V0300'
+          assert s['selection']['aperture']=='default'
+          assert s['selection']['selected_before_table_data'] is True
+          assert s['table_data_bytes_acquired']==0
+          assert s['science_values_inspected']==0
+          assert s['native_transient_trials']==0
+          assert s['candidate_decisions']==0
+          assert s['header_bytes_acquired']<=64*1024
+          PY
+          cp /tmp/ls8a.log results_ls8a_l2_metadata/RUN.log
+      - name: Publish metadata preflight
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add results_ls8a_l2_metadata
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish LS8A held-out DEFAULT L2 metadata preflight'
+          git push origin HEAD:m43-support-qualification
