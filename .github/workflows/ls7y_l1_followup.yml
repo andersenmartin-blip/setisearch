@@ -19,7 +19,7 @@ jobs:
     timeout-minutes: 30
     env:
       EVAL_FROZEN: 199ff8326f2320c494e6d2eb8b8f2af09738d1eb
-      AUDIT_FROZEN: 3562075abe854fd80ccb79812cfa25ba9accba02
+      AUDIT_FROZEN: 683bc6cf6a4a074c33da738c116066ec4e45e92f
       PYTHONPATH: src
       OPENBLAS_NUM_THREADS: '1'
       OMP_NUM_THREADS: '1'
@@ -82,11 +82,12 @@ jobs:
           provenance={
             'stage':'LS7Y_CHEOPS_L1_IMAGE_FOLLOWUP',
             'evaluation_commit':'199ff8326f2320c494e6d2eb8b8f2af09738d1eb',
-            'audit_commit':'3562075abe854fd80ccb79812cfa25ba9accba02',
+            'audit_commit':'683bc6cf6a4a074c33da738c116066ec4e45e92f',
             'protocol_commit':'b3917fb87cf7de566a26c6134b7799f1018de165',
             'finite_pixel_amendment_commit':'6409b138faf005a9cbf1cacce1ff1f8e14379466',
             'smearing_header_correction_commit':'ad256345df3c57758650747dac9356b696748bbf',
             'audit_degenerate_smear_correction_commit':'7d741f173c32f0f2b92b9e95dff8b72f1471ca88',
+            'audit_centroid_precision_correction_commit':'0843b7fc0c73dfcd6b357233466f96884a7e0faf',
             'parent_ls7x_result_commit':'18993a5f3cafd1ee5085ab1a996f2b991d788820',
             'finished_utc':datetime.now(timezone.utc).isoformat(),
             'other_l2_apertures_opened':False,
