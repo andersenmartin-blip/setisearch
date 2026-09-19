@@ -1,0 +1,136 @@
+name: LS7P approved exact-object rehydration
+
+on:
+  push:
+    branches: [m43-support-qualification]
+    paths:
+      - '.github/workflows/ls7p_approved_rehydrate.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ls7p-approved-rehydrate
+  cancel-in-progress: false
+
+jobs:
+  rehydrate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      PYTHONPATH: src
+      FROZEN: f42aa216b25779d55cd1fabd25545d3277abcfa5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+
+      - name: Recreate from the frozen LS7P source
+        shell: bash
+        run: |
+          set -euo pipefail
+          git worktree add /tmp/ls7p-frozen "$FROZEN"
+          cd /tmp/ls7p-frozen
+          python -m pip install -r requirements_ls7g.txt
+          rm -rf results_ls7p_inputs results_ls7p_response
+          python -u scripts/ls7p_acquire.py
+          python -u scripts/ls7p_evaluate.py
+          python -u scripts/ls7p_audit.py
+
+      - name: Require exact approved Git blob identities
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd /tmp/ls7p-frozen
+          cat > /tmp/ls7p_expected_blobs.txt <<'EOF'
+fa5bbd745036790a3b0fa2ce7a48e15664c68887 results_ls7p_inputs/SHA256SUMS
+df1f7c8a3a6103c8ea60bef53a44a118cee174d8 results_ls7p_inputs/raw/s029_tic306577335_cr_index_payload.bin.gz
+4fb40534269d15f819861509189f87bbcccd2881 results_ls7p_inputs/raw/s029_tic306577335_pixels.bin.gz
+e0d91e150dd8947cf24663e082b08143e74983be results_ls7p_inputs/raw/s029_tic306577335_selected_cr.bin.gz
+d1a21b596bbe0f62121a24afd4ce04358520123c results_ls7p_inputs/raw/s029_tic306739391_cr_index_payload.bin.gz
+2d905b267762d83c369fc1f6fa7fe5f70c0462e8 results_ls7p_inputs/raw/s029_tic306739391_pixels.bin.gz
+67a6de2a40dad095adc4aeefae15fe04dc8c4ec9 results_ls7p_inputs/raw/s029_tic306739391_selected_cr.bin.gz
+93e2ce4e82e93b27d46759b4902864a7b75d40f0 results_ls7p_inputs/raw/s029_tic306739511_cr_index_payload.bin.gz
+5c9e013aca6c77c349108e85e8ac51d50f48a64d results_ls7p_inputs/raw/s029_tic306739511_pixels.bin.gz
+d778e3c8a6388de1bf747e90372e20b6b20e7f55 results_ls7p_inputs/raw/s029_tic306739511_selected_cr.bin.gz
+7a3222ebd11a64bb4e55c71a9ea131cdaa95ca20 results_ls7p_inputs/raw/s029_tic307087642_cr_index_payload.bin.gz
+709d5d660c1b8d9ff8d3dac1514fd03f7cb7d257 results_ls7p_inputs/raw/s029_tic307087642_pixels.bin.gz
+40db8f1b0ec07cacd0c29c6dedaa8ffae6980ae3 results_ls7p_inputs/raw/s029_tic307087642_selected_cr.bin.gz
+1c0512d69ccc64bd120b814adc96d53bdf2920a7 results_ls7p_inputs/raw/s029_tic307780535_cr_index_payload.bin.gz
+d73fe5fb105ba3eeceaab7e32c1795dd79f55144 results_ls7p_inputs/raw/s029_tic307780535_pixels.bin.gz
+d6f1673467e002df99445bd68909f6e7f3030163 results_ls7p_inputs/raw/s029_tic307780535_selected_cr.bin.gz
+4fd8c732a936605675e7be6ced095e42e5057d36 results_ls7p_inputs/raw/s029_tic307785290_cr_index_payload.bin.gz
+4cf09b7bee577f381e3efa8f07bad8177ab4d8a2 results_ls7p_inputs/raw/s029_tic307785290_pixels.bin.gz
+44ff430b2fb1d5d2473dac04334336fc10e33b90 results_ls7p_inputs/raw/s029_tic307785290_selected_cr.bin.gz
+5bc197e12e538253e687c5c6eceb724a19ba4b0b results_ls7p_inputs/raw/s032_tic306577335_cr_index_payload.bin.gz
+bf2a513f10c52f035bbfdde0c73418202f0b424d results_ls7p_inputs/raw/s032_tic306577335_pixels.bin.gz
+b3a9fc31b45f277b8980be61c4fe10c88ecdb64b results_ls7p_inputs/raw/s032_tic306577335_selected_cr.bin.gz
+b74358ce4f8f3bc7fe9c7723db3e68dc84012c96 results_ls7p_inputs/raw/s032_tic306739391_cr_index_payload.bin.gz
+6fcb9e7aaf6f4b032a3f3eab15d509ae0170ac7e results_ls7p_inputs/raw/s032_tic306739391_pixels.bin.gz
+6c626429befc23c52e087ea3a9bbf3a3d5b455ed results_ls7p_inputs/raw/s032_tic306739391_selected_cr.bin.gz
+e92c8a64dd56bd818ad07fd2f0d58871e648acc0 results_ls7p_inputs/raw/s032_tic306739511_cr_index_payload.bin.gz
+3a4bd1881face54850a330302503ec9489251c13 results_ls7p_inputs/raw/s032_tic306739511_pixels.bin.gz
+0391d261a25a910a713fbc63af01cb86576ab8a3 results_ls7p_inputs/raw/s032_tic306739511_selected_cr.bin.gz
+ae37d7d514b2c7bd8c5f4f2b45f76bf21d977b96 results_ls7p_inputs/raw/s032_tic307441274_cr_index_payload.bin.gz
+eb9042e130a8140c991e4bad1e62d9a5267f80a1 results_ls7p_inputs/raw/s032_tic307441274_pixels.bin.gz
+df9f97ab1f1f415f3d34e32e35ce791c1056bc4f results_ls7p_inputs/raw/s032_tic307441274_selected_cr.bin.gz
+eee6d5c516b05d700f64b76e96c0fe2b40452a6b results_ls7p_inputs/raw/s032_tic307780535_cr_index_payload.bin.gz
+42e48baaeeba01eaa50adadc3d2983155765d08c results_ls7p_inputs/raw/s032_tic307780535_pixels.bin.gz
+543295b006778a05f6ead03e9ee274192b9e58fa results_ls7p_inputs/raw/s032_tic307780535_selected_cr.bin.gz
+db56f1a12922709dac2e8b1cb875ccd3e8387da1 results_ls7p_inputs/raw/s032_tic307785290_cr_index_payload.bin.gz
+5267081b4db5000e85b4798b740e1dad92cab34f results_ls7p_inputs/raw/s032_tic307785290_pixels.bin.gz
+66935b7818b2f78ced86718feaac0ccbab8619c3 results_ls7p_inputs/raw/s032_tic307785290_selected_cr.bin.gz
+44b11dbbf957f6be6fa949ec99f0250b6b8e3825 results_ls7p_inputs/s029_tic306577335.json
+d7c08b0d99735af0ab4fd1616fbb20f365b38a56 results_ls7p_inputs/s029_tic306739391.json
+77568dea5d8616096568b87c01c3540adf89c367 results_ls7p_inputs/s029_tic306739511.json
+e70405d7f0662189e72be248bb28ab4cbd2e6ab1 results_ls7p_inputs/s029_tic307087642.json
+1093e8a742467f7917bce8fe65d84a8e9fd001fb results_ls7p_inputs/s029_tic307780535.json
+f058a06bbbc965dd41d0f80f26cc6a0f6c47ae7e results_ls7p_inputs/s029_tic307785290.json
+733902335911ce1866157bc0d948d1201c5e3652 results_ls7p_inputs/s032_tic306577335.json
+94804bc5219b33482c726630d1cb8bca825484c3 results_ls7p_inputs/s032_tic306739511.json
+07efc39ef007806357c5fb49e021c7b471716c85 results_ls7p_inputs/s032_tic306739511.json
+3cf0b020ed0cf782132771802aefcd72f8059d7f results_ls7p_inputs/s032_tic307441274.json
+e4442b89cd76deec07ee6cf4643bb197c2866b0b results_ls7p_inputs/s032_tic307780535.json
+d05bcd2959077b5bc0ef5ad7c86e476b7227864f results_ls7p_inputs/s032_tic307785290.json
+db6aa7f7206df8656f0489de1c8bcd10f2c31cd0 results_ls7p_inputs/sources.json
+dd4b48f22a13e9c75cc24fd2afe0d191128eaf7d results_ls7p_response/SHA256SUMS
+d0a301480f47d61a7859aef50e5296886a9e56b6 results_ls7p_response/audit.json
+4d93d7907153d0dd8f6d0085f4483c104cd93de5 results_ls7p_response/calibration_response.json
+da71ff54ccb5895cb6bff23f4555de3728a55825 results_ls7p_response/s029_tic306577335.npz
+ee67f11975039bf2bd6dae0714b1460e9a3592b7 results_ls7p_response/s029_tic306739391.npz
+a56389f823b83f970e5fa962d97c3ea617fcc699 results_ls7p_response/s029_tic306739511.npz
+962a523491af8bb8c9b5c4fedd96efe9ea6e1201 results_ls7p_response/s029_tic307087642.npz
+80f3ef5e5f78ddd80bb2e24effe8dfdc573431f4 results_ls7p_response/s029_tic307780535.npz
+bab6f5c1f10cc2012620c4ae1c4ee9a0fd673594 results_ls7p_response/s029_tic307785290.npz
+90299b446063e9a95f259358c5d0bb9c16848966 results_ls7p_response/s032_tic306577335.npz
+d363648fe5e84bd1c56af9b1d4ee2abf1f8fd49d results_ls7p_response/s032_tic306739391.npz
+ddd0ecea624420bb19695fe16c6cd690bbc2cc56 results_ls7p_response/s032_tic306739511.npz
+544c6eeea6953bb5e34831b55a77483a08d1fc40 results_ls7p_response/s032_tic307441274.npz
+cd0d9e983040af3b1a7616df65899772d8ae376e results_ls7p_response/s032_tic307780535.npz
+d7208f39f48cdc4e9577aee98a4f9f15343c4c31 results_ls7p_response/s032_tic307785290.npz
+362b7fbb62c1b382c2b78bc3588d02713dc6f897 results_ls7p_response/summary.json
+EOF
+          while read -r expected path; do
+            test -f "$path"
+            actual="$(git hash-object "$path")"
+            test "$actual" = "$expected" || { echo "blob mismatch: $path $actual != $expected"; exit 1; }
+          done < /tmp/ls7p_expected_blobs.txt
+
+      - name: Publish exact generated objects to the approved branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf results_ls7p_inputs results_ls7p_response
+          cp -a /tmp/ls7p-frozen/results_ls7p_inputs .
+          cp -a /tmp/ls7p-frozen/results_ls7p_response .
+          git add results_ls7p_inputs results_ls7p_response
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Rehydrate exact LS7P generated objects for approved publication'
+          git push origin HEAD:m43-support-qualification
