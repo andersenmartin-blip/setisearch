@@ -1,0 +1,80 @@
+name: LS8A held-out CHEOPS L2 transfer
+
+on:
+  push:
+    branches: [m43-support-qualification]
+    paths:
+      - '.github/workflows/ls8a_l2_transfer.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ls8a-l2-transfer
+  cancel-in-progress: false
+
+jobs:
+  transfer:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      FROZEN: 66273de7515b83ba7e0f573317d66f65a26c3429
+      PYTHONPATH: src
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+      - name: Run unchanged-screen tests before held-out rows
+        shell: bash
+        run: |
+          set -euo pipefail
+          git worktree add /tmp/ls8a "$FROZEN"
+          python -m pip install -r /tmp/ls8a/requirements_ls7g.txt
+          cd /tmp/ls8a
+          python -m unittest tests.test_ls7x_l2 -v 2>&1 | tee /tmp/ls8a_tests.log
+      - name: Evaluate and independently audit held-out visit
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd /tmp/ls8a
+          python -u scripts/ls8a_l2_evaluate.py 2>&1 | tee /tmp/ls8a_run.log
+          python -u scripts/ls8a_l2_audit.py 2>&1 | tee /tmp/ls8a_audit.log
+          cp /tmp/ls8a_tests.log results_ls8a_l2_transfer/TESTS.log
+          cp /tmp/ls8a_run.log results_ls8a_l2_transfer/RUN.log
+          cp /tmp/ls8a_audit.log results_ls8a_l2_transfer/AUDIT.log
+          python -m pip freeze > results_ls8a_l2_transfer/environment.txt
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          out=Path('results_ls8a_l2_transfer')
+          s=json.loads((out/'summary.json').read_text())
+          a=json.loads((out/'audit.json').read_text())
+          assert s['status']=='COMPLETE_AUDITED'
+          assert a['status']=='PASS'
+          assert s['file_key']=='CH_PR100006_TG000301_V0300'
+          assert s['aperture']=='DEFAULT'
+          assert s['screen_threshold']==8.5
+          assert s['other_apertures_evaluated'] is False
+          rows=[]
+          for p in sorted(x for x in out.iterdir() if x.is_file() and x.name!='SHA256SUMS'):
+              rows.append(f'{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.name}\n')
+          (out/'SHA256SUMS').write_text(''.join(rows))
+          PY
+          (cd results_ls8a_l2_transfer && sha256sum -c SHA256SUMS)
+      - name: Publish audited held-out transfer
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git -C /tmp/ls8a rev-parse HEAD)" = "$FROZEN"
+          rm -rf results_ls8a_l2_transfer
+          cp -a /tmp/ls8a/results_ls8a_l2_transfer .
+          git add results_ls8a_l2_transfer
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish audited LS8A held-out CHEOPS L2 transfer'
+          git push origin HEAD:m43-support-qualification
