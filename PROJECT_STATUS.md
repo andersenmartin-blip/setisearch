@@ -1,6 +1,6 @@
 # SETIsearch — current project status
 
-Updated 15 September 2026. This is the maintained operational entry point.
+Updated 19 September 2026. This is the maintained operational entry point.
 Earlier reports and continuation files preserve their historical states.
 
 The [14–27 September work plan](TWO_WEEK_PLAN_2026-09-14.md) groups the next
@@ -8,6 +8,41 @@ background/residual model, both closed-sector comparisons and auditing into
 one integrated study, followed by an explicit unused-data readiness decision.
 Its dates are work windows. The original LS7I joint model, evaluation and audit
 are complete; the subsequent instrumental-response work is tracked below.
+
+## LS7Y audited image follow-up completed, 19 September
+
+The separately frozen mission-delivered L2 route has now advanced beyond the
+raw/imagette calibration dependency without pretending to solve it. LS7X
+screened only the CHEOPS mission DEFAULT-aperture L2 light curve under the
+predeclared 1/2/3-cadence rule and found **two positive clusters** (scores
+**10.2766** and **9.1185**) with zero negative-control screens.
+
+LS7Y then opened only the two predeclared 31-frame contexts in the corresponding
+CAL and COR 200x200 subarray products: **39,680,000 image bytes**, plus 99,200
+selected smearing-row bytes and a 5,760-byte extension header. No other
+aperture, visit, raw imagette or neighboring frame was opened. The independent
+image audit passes **492,926 numerical comparisons**.
+
+The first cluster is **CORRECTION_LINKED** under the frozen descriptive gate:
+the CAL→COR change removes more than half of its COR event excess in both
+coordinate conventions, and the DELTA event map is strongly column-coherent
+(0.8141). The second cluster is
+**IMAGE_LOCALIZED_NOT_CORRECTION_DOMINATED**: its COR event excess remains
+positive in both conventions, about 78% of the absolute event-map L1 norm lies
+inside r<=25, and the fixed >=50% correction-dominance gate is not met.
+
+These are diagnostic labels only. They do **not** classify either excursion as
+astrophysical or artificial, do not qualify a detector, and add no observing
+coverage. Cluster 0 needs no widening. Cluster 1 is the only justified narrow
+continuation and should be characterized using the already published LS7Y
+bytes before any additional science pixels are opened.
+[LS7Y protocol](LS7Y_CHEOPS_L1_IMAGE_FOLLOWUP_PROTOCOL.md),
+[result](results_ls7y_l1_followup/REPORT.md),
+[audit](results_ls7y_l1_followup/audit.json).
+
+The raw-imagette/native-calibration route remains a separate unresolved
+dependency because exact `gcoadd`, LUT/flat and reference applicability are
+still not established. LS7Y does not resolve that contract.
 
 ## 19 September LS7W bounded public-source follow-up completed
 
@@ -20,10 +55,12 @@ RD-11 definition, but it still does **not** expose the exact `gcoadd` arithmetic
 or the required native reference validity/selection rules.
 
 The public-source route is therefore documented as
-**PUBLIC_SOURCE_RESOLUTION_INCOMPLETE**. The next justified action is the
-already prepared narrow technical clarification request; it remains **unsent**
-because person-directed contact has not been authorized. Do not open CHEOPS
-target-image ranges before the physical contract is frozen.
+**PUBLIC_SOURCE_RESOLUTION_INCOMPLETE**. The prepared technical clarification
+request remains **unsent** because person-directed contact has not been
+authorized. This continues to block the raw-imagette/native-calibration route.
+The separately frozen mission-delivered L2/CAL/COR route has since produced
+the audited LS7X/LS7Y result above; do not use that result as a substitute for
+the unresolved raw `gcoadd` contract.
 [LS7W follow-up](LS7W_PUBLIC_SOURCE_FOLLOWUP.md).
 
 ## 19 September public IASW follow-up narrows the stacking dependency
@@ -57,10 +94,12 @@ The official technical contact is verified, but the message is **unsent**
 and no reply is pending. The owner can send the text or supply the needed
 documentation/files directly.
 
-This is an input dependency, not a new scientific result. **LS7V remains the
-latest completed checkpoint, and the native image study remains blocked.**
-On receipt, verify the physical contract and freeze one combined study before
-source-image evaluation. [Operational restart](LS7V_CONTINUATION.md).
+This remains an input dependency for the **raw-imagette/native-calibration**
+route. **LS7V remains the latest completed checkpoint for that calibration
+contract**, while LS7Y is the latest bounded CHEOPS image-domain diagnostic.
+On receipt of the missing physical inputs, verify the raw contract and freeze
+one combined native study before raw-imagette evaluation.
+[Operational restart](LS7V_CONTINUATION.md).
 
 ## LS7P reconstruction completed and verified, 15 September
 
