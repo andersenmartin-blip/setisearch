@@ -1,0 +1,142 @@
+{
+  "document_type": "prospective_native_image_study_preparation",
+  "prepared_utc_date": "2026-09-19",
+  "state": "PREPARED_NOT_FROZEN_TARGET_PIXELS_CLOSED",
+  "target_image_pixels_opened": false,
+  "external_contact_authorized": false,
+  "no_retuning_after_evaluation": true,
+  "observation": {
+    "mission": "CHEOPS",
+    "file_key": "CH_PR300024_TG000301_V0300",
+    "obsid": 1015522,
+    "target": "55 Cnc",
+    "observation_utc_date": "2020-03-09",
+    "archive_revision": 3,
+    "overall_drp_version": "14.1.2",
+    "calibration_module_version": "14.0.1",
+    "individual_exposure_seconds": 2.20000004768372,
+    "imagette": {
+      "count": 3024,
+      "nexp": 2,
+      "stacking": "gcoadd",
+      "rounding": 0,
+      "nlin_cor": false,
+      "shape": [
+        50,
+        50
+      ],
+      "full_array_offset": [
+        790,
+        256
+      ]
+    },
+    "subarray": {
+      "count": 432,
+      "nexp": 14,
+      "stacking": "coadd",
+      "rounding": 0,
+      "nlin_cor": false,
+      "shape": [
+        200,
+        200
+      ],
+      "full_array_offset": [
+        715,
+        181
+      ]
+    },
+    "individual_exposure_metadata_rows": 6048
+  },
+  "fixed_signal_family": {
+    "polarity": "positive",
+    "pulse_width_seconds": [
+      30,
+      60,
+      100
+    ],
+    "injection_level": "individual exposure before any data-dependent correction in the final frozen operator",
+    "pulse_phase_grid": null,
+    "amplitude_grid": null,
+    "note": "Phase and amplitude grids must be frozen prospectively before native target residuals are inspected."
+  },
+  "protected_inference": {
+    "event_interval_excluded_from_training": true,
+    "guard_region_seconds": null,
+    "global_parameter_rule": "Must exclude the assessed event's protected samples under the final frozen protocol.",
+    "forbidden_inputs": [
+      "event labels",
+      "injected flux",
+      "native realization under an injected pulse",
+      "post-injection residuals for tuning"
+    ]
+  },
+  "required_nuisance_families": [
+    "native no-injection windows",
+    "hot/dead/telegraphic/saturated pixels",
+    "cosmic-ray-like compact events",
+    "PSF displacement",
+    "PSF shape distortion",
+    "background/straylight changes",
+    "smear structure",
+    "readout/stack boundaries",
+    "data gaps",
+    "unavailable windows",
+    "partly lost pulses at gaps or product boundaries",
+    "calibration/reference uncertainty"
+  ],
+  "blocking_fields": {
+    "gcoadd_operator_source": null,
+    "gain_operator_source": null,
+    "lut100_sha256": null,
+    "flat_sha256": null,
+    "dark_sha256": null,
+    "dark_native_validity": null,
+    "dark_drp_selection_rule": null,
+    "badmap_sha256": null,
+    "badmap_native_validity": null,
+    "badmap_drp_selection_rule": null,
+    "psf_input": null,
+    "uncertainty_propagation": null,
+    "saturation_policy": null,
+    "pulse_phase_grid": null,
+    "amplitude_grid": null,
+    "protected_guard_region_seconds": null,
+    "final_signal_recovery_requirements": null,
+    "final_false_acceptance_requirements": null,
+    "final_availability_requirements": null
+  },
+  "resolved_constraints": {
+    "onboard_nonlinearity_enabled": false,
+    "raw_rounding_bits": 0,
+    "logged_default_bias_adu_per_frame": 563.43,
+    "logged_default_ron_adu_per_frame": 7.13,
+    "spatial_bias_frame_applied": false,
+    "dark_map_applied": true,
+    "gain_reference_sha256": "8e5f363943dfd1165406ec553cbcbfeb7ee7cbacccb03c72ae1efc8e451a9918",
+    "formal_gain_reference_unit": "ADU/e-",
+    "lut_domain": "uncorrected electrons to corrected electrons",
+    "flat_schema": "1024x1024xTeff normalized flat cube with DATA_TYPE/T_EFF/STATUS metadata",
+    "dark_schema": "dark current and dark error planes, e-/s, bias-subtracted and non-linearity-corrected",
+    "bad_pixel_classes": {
+      "0": "good",
+      "1": "hot",
+      "2": "saturated",
+      "3": "telegraphic",
+      "-2": "dead",
+      "-1": "partially dead"
+    },
+    "validity_keywords": "V_STRT_U/V_STOP_U are UTC start/stop of validity"
+  },
+  "completed_evidence": [
+    "LS7R_CHEOPS_INPUT.md",
+    "LS7S_CALIBRATION_FINDINGS.md",
+    "LS7T_CALIBRATION_CONTRACT.md",
+    "LS7U_ELECTRONICS_FINDINGS.md",
+    "LS7V_CALIBRATION_RECONCILIATION.md",
+    "LS7W_PUBLIC_SOURCE_FOLLOWUP.md",
+    "LS7W_AUXILIARY_CALIBRATION_ASSESSMENT.md",
+    "LS7W_NATIVE_STUDY_PREPARATION.md",
+    "CHEOPS_REQUIRED_INPUTS.json"
+  ],
+  "next_state_transition": "Fill every mandatory blocking field from exact source-backed documentation/files, then freeze the complete study before target-image acquisition."
+}
