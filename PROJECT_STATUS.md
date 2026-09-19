@@ -1,5 +1,32 @@
 # SETIsearch — current project status
 
+## 19 September LS8B four-visit transfer complete; arithmetic repair verified
+
+The four prospectively fixed unused 55 Cnc visits TG000302–TG000305 have now
+been evaluated with the unchanged LS7X/LS8A DEFAULT-L2 screen: **4,754 rows**
+and **7,917 eligible windows**, all at 44.220001-second cadence. There are
+**15 positive windows in seven clusters** and **one negative window/cluster**.
+Per-visit positive/negative cluster counts are **3/1, 2/0, 2/0 and 0/0**.
+These are L2 excursions, not SETI candidates or calibrated Gaussian significances.
+
+The frozen audit fails two near-zero excess comparisons because of numerical
+cancellation. Full accounting verifies every score, eligibility decision,
+cluster and count. A 60-decimal reference changes no signed threshold decision;
+its largest score difference is 4.5711e-11. A separately frozen flux-centered
+implementation passes **31,668** comparisons at the original tolerances on
+these closed data, again with zero changed decisions. The original audit
+remains **FAIL**, and every original value and failure log is preserved.
+This retrospective arithmetic repair does not qualify a detector.
+
+**Next action:** freeze a bounded diagnosis of all eight positive/negative
+cluster representatives using only auxiliary columns in the already saved L2
+tables. Compare background, smearing, roll and centroid behavior before any
+new image-data follow-up. No new visit or aperture is justified automatically.
+The separate raw-imagette calibration gate remains unresolved.
+[LS8B report and figure](results_ls8b_l2_suite/REPORT.md),
+[numerical review](LS8B_NUMERICAL_REVIEW.md),
+[exact continuation](LS8B_CONTINUATION.md).
+
 ## 19 September LS8A first held-out L2 transfer completed
 
 The unchanged LS7X DEFAULT-aperture cadence-unit screen has now been transferred
@@ -818,7 +845,7 @@ were hash checked. This is retrospective development, not fresh validation.
 | M43AF complete no-model study | Published and byte-verified: 502 records; 69 archive parts restore 508 original files |
 | Adopted new detector / new M43AF–M43AI astronomical candidate | None |
 | Earlier M33 HD 3651 case | Still unresolved; [investigation](MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
-| LS research | CHEOPS LS7V complete; native image study awaits exact calibration inputs. [LS7P reconstruction](results_ls7p_response/REPORT.md) audited; earlier original-run publication unverified |
+| LS research | LS8B four-visit L2 transfer complete; seven positive and one negative cluster. Original numerical gate FAIL; separate centered repair verified. Next: saved-column diagnosis. Raw-imagette calibration unresolved. [LS7P reconstruction](results_ls7p_response/REPORT.md) preserved |
 
 M43AF's 502 records include 261 already completed historical acquisitions and
 the 241 training/baseline/null records. Its 940 scientific pins and earlier

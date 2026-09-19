@@ -306,3 +306,21 @@ exact files. The native study now explicitly depends on that external input.
 Keep LS7V as the latest scientific checkpoint, with no new numbered milestone
 for preparing a request. This does not expand the standing authorization to
 person-directed contact. Current restart: LS7V_CONTINUATION.md.
+
+
+19 September 2026, LS8B: the four visits selected at 45bf61f are fully evaluated
+under the unchanged DEFAULT-L2 screen. There are seven positive clusters and
+one negative control cluster over 7,917 eligible windows. The original audit
+failed two near-zero excess comparisons; that failure is preserved. A separate
+60-decimal reference verifies every threshold decision, and a subsequently
+frozen flux-centered arithmetic implementation passes all 31,668 comparisons
+at the unchanged tolerances on the already closed data. This is numerical
+repair, not independent revalidation or detector qualification.
+
+Next freeze a bounded auxiliary-column diagnosis for all eight representatives
+using only the retained L2 tables. Keep both signs, original representative
+windows and all earlier outcomes. Any subsequent image follow-up needs its own
+exact scope. No additional visit, alternative aperture, original producer rerun
+or unused TESS/M43 panel follows automatically. The raw-imagette calibration
+gate and unsent technical request remain separate. Current continuation:
+LS8B_CONTINUATION.md. Standing publication authorization continues.

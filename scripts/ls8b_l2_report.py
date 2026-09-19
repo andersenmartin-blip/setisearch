@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render audited LS8B ledgers without new fitting, selection, or data access."""
+"""Render LS8B evidence, preserving the frozen failure and separate repair result."""
 import csv
 import gzip
 import hashlib
@@ -18,7 +18,9 @@ OUT = ROOT / 'results_ls8b_l2_suite'
 def main():
     suite = json.loads((OUT / 'summary.json').read_text())
     audit = json.loads((OUT / 'audit.json').read_text())
-    assert suite['status'] == 'COMPLETE_AUDITED' and audit['status'] == 'PASS'
+    assert suite['status'] == 'COMPLETE_AUDIT_FAILED' and audit['status'] == 'FAIL'
+    precision = json.loads((OUT / 'precision_review.json').read_text())
+    stable = json.loads((OUT / 'stable_review.json').read_text())
     summaries = suite['visits']
     totals = {k: sum(s[k] for s in summaries) for k in [
         'rows', 'eligible_windows', 'positive_windows', 'negative_windows',
@@ -27,6 +29,11 @@ def main():
              'Completed 19 September 2026. All four visits were fixed before metadata,',
              'and metadata/code identities were published before the first L2 table read.',
              'The LS7X/LS8A score and +/-8.5 thresholds are unchanged.', '',
+             '**The frozen audit failed two near-zero event-sum comparisons.**',
+             'Complete independent accounting verifies all scores, eligibility, signed clusters',
+             'and counts. A separate 60-decimal reference and a subsequently frozen numerical',
+             'repair are reported below. The original failed gate and every original result',
+             'are preserved; they are not relabeled PASS.', '',
              '| Visit | Cadence (s) | Rows | Eligible windows | Positive windows / clusters | Negative windows / clusters | Max score | Min score |',
              '|---|---:|---:|---:|---:|---:|---:|---:|']
     for s in summaries:
@@ -37,7 +44,7 @@ def main():
                      if s['eligible_windows'] else f'| {s["file_key"]} | {s["cadence_seconds"]:.6f} | {s["rows"]} | 0 | 0 / 0 | 0 / 0 | unavailable | unavailable |')
     lines += ['', f'Descriptive totals: **{totals["eligible_windows"]:,} windows** in **{totals["rows"]:,} rows**; '
               f'**{totals["positive_windows"]} positive windows in {totals["positive_clusters"]} clusters**, '
-              f'and **{totals["negative_windows"]} negative windows in {totals["negative_clusters"]} clusters**.', '',
+              f'and **negative windows / clusters: {totals["negative_windows"]} / {totals["negative_clusters"]}**.', '',
               'Overlapping and adjacent windows are grouped within each visit; different visits',
               'are never joined. Negative clusters use the same predeclared rule after sign reversal.', '',
               '![Every eligible window in all four visits](score_timeseries.png)', '',
@@ -50,6 +57,29 @@ def main():
               'The local score is not a calibrated Gaussian significance or false-alarm probability.',
               'No raw imagette, CAL/COR image, other aperture or additional visit was inspected.',
               'No threshold or model was changed and no detector, candidate or qualified coverage is claimed.', '',
+              '## Numerical review and transparent repair', '',
+              'The two original differences concern event sums near zero after subtracting',
+              'backgrounds near 390 million electrons per row:', '',
+              '| Visit | Start row | Duration | Scalar minus producer (electrons) |',
+              '|---|---:|---:|---:|']
+    for r in audit['numeric_disagreements']:
+        lines.append(f'| {r["file_key"]} | {r["start"]} | {r["duration"]} | {r["difference"]:.12g} |')
+    lines += ['', f'The 60-decimal reference checks all **{precision["window_count"]:,} windows**.',
+              f'Its largest score difference from the frozen producer is **{precision["maximum_absolute_differences_from_frozen_producer"]["score"]:.5g}**;',
+              f'**{precision["changed_signed_threshold_decisions"]}** positive/negative threshold decisions change.',
+              'It confirms that finite-arithmetic cancellation, rather than a different selection',
+              'or statistic, explains the tiny discrepancies. The fixed gate remains FAIL.', '',
+              'The separately frozen centered implementation subtracts a constant flux offset',
+              'before solving the same OLS model and summing excesses. It preserves the raw-flux',
+              'noise floor and every scientific rule. On these already closed data, its result is',
+              f'**{stable["status"]}** across **{stable["numeric_comparisons"]:,}** comparisons with the 60-decimal',
+              f'reference at the original tolerances; **{stable["changed_signed_threshold_decisions"]}** signed decisions change.',
+              'This is retrospective numerical verification, not another held-out test, and does',
+              'not replace the original failure or qualify a detector.', '',
+              '- [Failure and repair specification](../LS8B_NUMERICAL_REVIEW.md).',
+              '- [First frozen failure](AUDIT_INITIAL_FAILURE.log), [complete accounting](audit.json).',
+              '- [60-decimal comparison](precision_review.json), [centered implementation result](stable_review.json).',
+              '- Original, Decimal and centered ledgers are retained separately.', '',
               '## Evidence and verification', '',
               f'- Evaluation freeze: `{suite["evaluation_freeze_commit"]}`.',
               '- [Fixed protocol](../LS8B_FOUR_VISIT_PROTOCOL.md) and [prior selection](../LS8B_FOUR_VISIT_SCOPE.md).',
@@ -57,10 +87,12 @@ def main():
               '- Each visit directory retains the original table bytes, acquisition receipt, every',
               '  eligible window, both signed cluster memberships, and per-duration summaries.',
               '- [All cluster representatives](cluster_representatives.csv); row starts are zero-based.',
-              f'- Independent audit: **PASS**, {audit["numeric_and_discrete_window_comparisons"]:,} numerical/discrete',
-              '  window comparisons, plus complete eligibility, signed clustering, count, union,',
-              '  source-identity and summary checks. [Full audit](audit.json).',
+              f'- Complete original audit accounting: {audit["numeric_and_discrete_window_comparisons"]:,} numerical/discrete',
+              '  window comparisons, with the two explicit failures above. All other window',
+              '  comparisons and the eligibility, signed clustering, count, union, source-identity',
+              '  and summary checks pass. [Full audit](audit.json).',
               '- All 10 pre-acquisition known-answer and transport-boundary tests passed.',
+              '- Four later known-answer tests for precision and centered arithmetic also pass.',
               '- SHA256SUMS preserves every file in this result directory.', '']
     (OUT / 'REPORT.md').write_text('\n'.join(lines))
     (OUT / 'totals.json').write_text(json.dumps(totals, indent=2) + '\n')
