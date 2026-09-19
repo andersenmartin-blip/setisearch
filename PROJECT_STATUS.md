@@ -1,5 +1,19 @@
 # SETIsearch — current project status
 
+## 19 September exact 55 Cnc visit establishes imagette pair grouping
+
+A peer-reviewed analysis of the same 9 March 2020 CHEOPS IOC observation
+(Morris et al. 2021, A&A 653 A173) states that the 14×2.2-second window stack
+was accompanied by **seven imagettes stacked onboard in pairs**. This
+independently matches the retained `NEXP=14` subarray, `NEXP=2` imagette,
+seven-imagette-per-CE joins and 4.449-second cadence.
+
+Therefore the retained `gcoadd` **group size is resolved as two constituent
+readouts**. The remaining operator uncertainty is narrower: pixel-level
+normalization/weighting, clipping/saturation, numeric representation and
+rounding remain unverified. No target-image pixel is opened.
+[Exact-visit evidence](CHEOPS_GCOADD_GROUPING_EVIDENCE.md).
+
 ## 19 September public PIPE operator narrows the ground-calibration uncertainty
 
 The pinned public PIPE implementation
