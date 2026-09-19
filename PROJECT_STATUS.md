@@ -1,5 +1,22 @@
 # SETIsearch — current project status
 
+## 19 September raw schema narrows gcoadd to special accumulator semantics
+
+Matching-version CHEOPS schemas now add three independent constraints to the
+exact-visit pair-grouping result: `NEXP` is explicitly the **number of
+co-added measurements**; raw imagettes are stored as **uint32 ADU**, with the
+schema history stating that the earlier uint16 storage was widened specifically
+to support stacked imagettes; and this visit has **ROUNDING=0** and
+**NLIN_COR=false**.
+
+Together with the public PIPE treatment of bias as proportional to `NEXP`,
+this strongly constrains the delivered raw imagette to an additive/sum-like
+representation. It still does not prove the flight `gcoadd` implementation's
+clipping/saturation, accumulator width/overflow, invalid-pixel handling or any
+special internal normalization. Those remaining details stay behind the hard
+raw-image gate.
+[Structural constraints](CHEOPS_GCOADD_STRUCTURAL_CONSTRAINTS.md).
+
 ## 19 September LS7Z closes both LS7X transient-screen branches
 
 The only remaining LS7X/LS7Y branch, cluster 1, has now completed the
