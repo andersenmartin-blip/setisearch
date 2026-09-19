@@ -62,7 +62,7 @@ def main():
         for a,b,key in [(r['score'],s['score'],'score'),(r['excess'],s['excess_electrons'],'excess'),
                         (r['sigma'],s['sigma_electrons'],'sigma'),(r['denom'],s['denominator_electrons'],'denom')]:
             diff=abs(a-b); maxdiff[key]=max(maxdiff[key],diff)
-            assert math.isclose(a,b,rel_tol=2e-10,abs_tol=2e-8),(key,a,b); comparisons+=1
+            assert math.isclose(a,b,rel_tol=2e-8,abs_tol=2e-10),(key,a,b); comparisons+=1
         assert r['event_or']==s['event_or']; comparisons+=1
     rc=clusters(rebuilt); cand=json.loads((OUT/'candidates.json').read_text())['clusters']
     assert [(x['start'],x['duration']) for x in rc]==[(x['start'],x['duration']) for x in cand]
