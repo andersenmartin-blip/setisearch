@@ -60,14 +60,19 @@
   "operator_questions": [
     {
       "id": "gain_and_units",
-      "needed": "Version-relevant DRP 14.0.1 gain implementation or authoritative confirmation of the temperature sign/centering and ADU/e- to e-/ADU conversion order, plus final CAL/COR image-unit semantics.",
+      "needed": "Exact DRP 14.0.1 g(T,V) implementation or authoritative confirmation of the temperature sign/centering and housekeeping-field mapping. High-level units/order are now resolved: g is ADU/e-, the bias-corrected image is divided by g to electrons, then linearised without unit change.",
       "source_conflict": "The matching EXT_VER=12.1.5 common_sw schema defines system gain in ADU/e- from HK_TEMP_FEE_CCD and writes the temperature term as HK_TEMP_FEE_CCD + TEMP_OFF. CHEOPSim centers physical CCD temperature by subtracting the signed nominal TEMP_OFF. PIPE v1.1 uses VOLT_FEE_CCD as its temperature variable, adds TEMP_OFF, and returns the reciprocal e-/ADU. The executed DRP log reports only ~2.0 e-/ADU; no exact DRP formula is yet public.",
       "evidence": [
         "CHEOPS_GAIN_CONVENTION_ASSESSMENT.md",
         "results_ls7s_calibration/gain_reference_header.txt",
         "LS7T_CALIBRATION_CONTRACT.md",
         "LS7V_CALIBRATION_RECONCILIATION.md"
-      ]
+      ],
+      "drp_architecture_evidence": {
+        "source": "Hoyer et al. 2020, Expected performances of CHEOPS III: Data reduction pipeline",
+        "url": "https://doi.org/10.1051/0004-6361/201936325",
+        "result": "Section 4.3 defines gain in ADU/e- and Ig=Ib/g(T,V), yielding electrons; section 4.4 applies linearisation afterwards without changing units and explains combined imagette/stack linearisation."
+      }
     },
     {
       "id": "stacking_and_offline_nonlinearity",
@@ -239,5 +244,14 @@
     "pipe_return_unit": "e-/ADU",
     "decision": "Reference semantics are now resolved by a matching-version public schema; the exact DRP 14.0.1 operator remains unverified.",
     "assessment_path": "CHEOPS_GAIN_CONVENTION_ASSESSMENT.md"
+  },
+  "calibration_order_public_evidence": {
+    "checked_utc_date": "2026-09-19",
+    "bias_output_domain": "ADU",
+    "gain_reference_domain": "ADU/e-",
+    "post_gain_domain": "electrons",
+    "linearisation_domain": "electrons",
+    "stacked_linearisation_note": "Official DRP paper says individual-readout nonlinearity should be corrected before stacking; when individual readouts are unavailable, imagettes are combined with stacked images with pixel weighting.",
+    "final_version_specific_implementation_verified": false
   }
 }
