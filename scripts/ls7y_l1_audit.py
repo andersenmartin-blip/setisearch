@@ -142,9 +142,16 @@ def scalar_smear_fit(delta, smear, cx, cy):
     sy = float(np.sum(y))
     sxy = float(np.dot(x, y))
     det = n * sxx - sx * sx
-    assert det != 0.0
-    alpha = (sy * sxx - sx * sxy) / det
-    beta = (n * sxy - sx * sy) / det
+    if det == 0.0:
+        assert np.all(x == x[0]), "degenerate nonconstant smearing predictor"
+        constant = float(x[0])
+        mean_y = sy / n
+        scale = 1.0 + constant * constant
+        alpha = mean_y / scale
+        beta = constant * mean_y / scale
+    else:
+        alpha = (sy * sxx - sx * sxy) / det
+        beta = (n * sxy - sx * sy) / det
     residual = y - (alpha + beta * x)
     return {
         "available": True,
