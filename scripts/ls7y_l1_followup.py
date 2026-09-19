@@ -261,7 +261,8 @@ def main():
     assert h["BITPIX"] == -64
     dims = [h[f"NAXIS{i}"] for i in range(1, h["NAXIS"] + 1)]
     assert np.prod(dims) * 8 == 691200
-    assert sorted(dims) == [200, 432]
+    assert dims[0] == 200
+    assert int(np.prod(dims[1:])) == 432
     (OUT / "SCI_COR_SmearingRow_header.bin").write_bytes(sh)
     rec["file"] = "SCI_COR_SmearingRow_header.bin"
     receipts.append(rec)
