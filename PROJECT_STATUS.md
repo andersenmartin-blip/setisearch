@@ -1,5 +1,26 @@
 # SETIsearch — current project status
 
+## 19 September LS8A first held-out L2 transfer completed
+
+The unchanged LS7X DEFAULT-aperture cadence-unit screen has now been transferred
+prospectively to the chronologically earliest public 55 Cnc visit after the
+March 2020 pilot, `CH_PR100006_TG000301_V0300`, OBSID 1300462. Metadata were
+frozen before table bytes were opened. The held-out visit has a 44.220001 s
+stacked cadence, 1,178 rows and 1,911 eligible 1/2/3-row windows.
+
+The audited result has **zero positive clusters** at +8.5 but **four negative
+control crossings** at -8.5; the maximum positive score is 6.7757 and the
+minimum is -10.6024. The independent audit passes **9,555 comparisons**.
+
+This is not detector qualification. In particular, the negative extremes show
+that the screen has nontrivial held-out tails and must not be interpreted as a
+calibrated Gaussian significance. No threshold, aperture, sideband, duration
+or noise rule is changed. The next justified step is a small deterministic
+suite of additional unused 55 Cnc visits using the same frozen screen and both
+positive/negative control outputs.
+[LS8A result](results_ls8a_l2_transfer/REPORT.md),
+[continuation](LS8A_CONTINUATION.md).
+
 ## 19 September raw schema narrows gcoadd to special accumulator semantics
 
 Matching-version CHEOPS schemas now add three independent constraints to the
