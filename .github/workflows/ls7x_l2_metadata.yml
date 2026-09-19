@@ -1,0 +1,65 @@
+name: LS7X CHEOPS DEFAULT L2 metadata preflight
+
+on:
+  push:
+    branches: [m43-support-qualification]
+    paths:
+      - '.github/workflows/ls7x_l2_metadata.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ls7x-l2-metadata
+  cancel-in-progress: false
+
+jobs:
+  metadata:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      FROZEN: 44e40cfeaebf0289a46ee62bcfd385070411b377
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+
+      - name: Run frozen metadata-only preflight
+        shell: bash
+        run: |
+          set -euo pipefail
+          git worktree add /tmp/ls7x-frozen "$FROZEN"
+          cd /tmp/ls7x-frozen
+          python -m pip install astropy==7.0.2
+          python -u scripts/ls7x_l2_metadata.py | tee /tmp/ls7x_metadata.log
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('/tmp/ls7x-frozen/results_ls7x_l2_metadata/summary.json')
+          s=json.loads(p.read_text())
+          assert s['selection']['aperture']=='default'
+          assert s['selection']['selected_before_table_data'] is True
+          assert s['table_data_bytes_acquired']==0
+          assert s['science_values_inspected']==0
+          assert s['native_transient_trials']==0
+          assert s['candidate_decisions']==0
+          assert s['header_bytes_acquired'] <= 64*1024
+          PY
+
+      - name: Publish metadata evidence only
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse "$FROZEN")" = "$FROZEN"
+          rm -rf results_ls7x_l2_metadata
+          cp -a /tmp/ls7x-frozen/results_ls7x_l2_metadata .
+          cp /tmp/ls7x_metadata.log results_ls7x_l2_metadata/RUN.log
+          git add results_ls7x_l2_metadata
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish LS7X DEFAULT L2 metadata preflight'
+          git push origin HEAD:m43-support-qualification
