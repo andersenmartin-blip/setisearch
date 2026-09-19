@@ -1,0 +1,125 @@
+name: LS7P exact provenance rehydration
+
+on:
+  push:
+    branches: [m43-support-qualification]
+    paths:
+      - '.github/workflows/ls7p_provenance_rehydrate.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  rehydrate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      PYTHONPATH: src
+      FROZEN: f42aa216b25779d55cd1fabd25545d3277abcfa5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+      - name: Recreate exact provenance inventories and logs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git worktree add /tmp/ls7p-frozen "$FROZEN"
+          cp -a results_ls7p_inputs /tmp/ls7p-frozen/
+          cp -a results_ls7p_response /tmp/ls7p-frozen/
+          cd /tmp/ls7p-frozen
+          python -m pip install -r requirements_ls7g.txt
+          python - <<'PY'
+          import contextlib, hashlib, importlib, json, os, subprocess, sys, unittest
+          from pathlib import Path
+          root=Path('/tmp/ls7p-frozen')
+          out=root/'results_ls7p_reconstruction'
+          out.mkdir(exist_ok=True)
+          def sha256(p): return hashlib.sha256(p.read_bytes()).hexdigest()
+          prefixes=[
+            'scripts/','src/','results_ls7p_metadata/','results_ls7o_metadata/',
+            'results_ls7k_inputs/','results_ls7o_inputs/','results_ls7o_response/',
+            'results_ls7n_response/','results_ls7m_prf_inputs/','results_ls7p_preflight/',
+            'results_ls7j_auxiliary/','results_ls7i_inputs/','results_ls7l_inputs/'
+          ]
+          exact={
+            'LS7P_SPEC.md','config/ls7p_pixels.json','requirements_ls7g.txt',
+            'results_ls7g_transfer/backgrounds.npz',
+            'results_ls7i_background/native_windows.jsonl.gz',
+            'tests/test_ls7p_pixel_centroid.py'
+          }
+          tracked=subprocess.check_output(['git','ls-tree','-r','--name-only','HEAD'],cwd=root,text=True).splitlines()
+          chosen=sorted(p for p in tracked if p in exact or any(p.startswith(q) for q in prefixes))
+          rows=[]
+          for rel in chosen:
+            p=root/rel
+            rows.append({'path':rel,'bytes':p.stat().st_size,
+                         'git_blob_sha':subprocess.check_output(['git','hash-object',rel],cwd=root,text=True).strip(),
+                         'sha256':sha256(p)})
+          inv={'source_commit':os.environ['FROZEN'],'tree_complete':True,
+               'available_tracked_files_verified':len(rows),'files':rows}
+          (out/'frozen_source_inventory.json').write_text(json.dumps(inv,indent=2)+'\n')
+
+          retained=[]
+          paths=sorted(
+            [p for p in (root/'results_ls7p_inputs').rglob('*') if p.is_file() and p.name!='README.md']+
+            [p for p in (root/'results_ls7p_response').rglob('*') if p.is_file() and p.name!='REPORT.md']
+          )
+          for p in paths:
+            rel=str(p.relative_to(root))
+            retained.append({'path':rel,'bytes':p.stat().st_size,'sha256':sha256(p),
+                             'git_blob_sha':subprocess.check_output(['git','hash-object',rel],cwd=root,text=True).strip()})
+          rinv={'description':'66 retained reconstruction files, unchanged; excludes new explanatory documents',
+                'files':retained}
+          (out/'retained_result_inventory.json').write_text(json.dumps(rinv,indent=2)+'\n')
+
+          sys.path.insert(0,str(root/'src')); sys.path.insert(0,str(root/'scripts'))
+          with (out/'known_answers.log').open('w') as log:
+            suite=unittest.defaultTestLoader.discover(str(root/'tests'),pattern='test_ls7p_pixel_centroid.py')
+            tests=unittest.TextTestRunner(stream=log,verbosity=2).run(suite)
+            assert tests.wasSuccessful() and tests.testsRun==7
+
+          fresh=root/'_ls7p_fresh_response'
+          producer=importlib.import_module('ls7p_evaluate')
+          frozen=json.loads((root/'results_ls7p_preflight/calibration_response.json').read_text())['models']
+          producer.OUT=fresh
+          producer.calibration=lambda cfg, metadata: frozen
+          with (out/'evaluation.log').open('w') as log, contextlib.redirect_stdout(log), contextlib.redirect_stderr(log):
+            producer.main()
+          auditor=importlib.import_module('ls7p_audit')
+          auditor.OUT=fresh
+          with (out/'audit.log').open('w') as log, contextlib.redirect_stdout(log), contextlib.redirect_stderr(log):
+            auditor.main()
+          PY
+      - name: Require exact approved provenance blob identities
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd /tmp/ls7p-frozen
+          cat > /tmp/expected.txt <<'EOF'
+          4f3113a455cfe0c1914fd1b7010b8879db37be49 results_ls7p_reconstruction/frozen_source_inventory.json
+          eeda0802fe5861e55c583ff9fd515c259ced7f75 results_ls7p_reconstruction/retained_result_inventory.json
+          3bbbd9f414cb097631e88ff8fdbcc22fb7b9244e results_ls7p_reconstruction/known_answers.log
+          0e8bcdb72b2ad21e8da46167d1bb321219b6d99e results_ls7p_reconstruction/evaluation.log
+          764428f2a181cd60333f1b248d9b7adc1af4458f results_ls7p_reconstruction/audit.log
+          EOF
+          while read -r expected path; do
+            actual="$(git hash-object "$path")"
+            test "$actual" = "$expected" || { echo "blob mismatch: $path $actual != $expected"; exit 1; }
+          done < /tmp/expected.txt
+      - name: Publish exact provenance-generated files
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p results_ls7p_reconstruction
+          cp /tmp/ls7p-frozen/results_ls7p_reconstruction/{frozen_source_inventory.json,retained_result_inventory.json,known_answers.log,evaluation.log,audit.log} results_ls7p_reconstruction/
+          git add results_ls7p_reconstruction
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish exact LS7P reconstruction provenance objects'
+          git push origin HEAD:m43-support-qualification
