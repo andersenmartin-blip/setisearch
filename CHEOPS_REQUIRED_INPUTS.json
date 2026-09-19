@@ -76,13 +76,23 @@
     },
     {
       "id": "stacking_and_offline_nonlinearity",
-      "needed": "Exact native gcoadd definition for the NEXP=2 imagettes and its numerical relation to ordinary coadd; normalization/grouping/weights, clipping/saturation/rounding, plus bias/gain/LUT order and normalization for the actual exposure stacks.",
+      "needed": "Exact native gcoadd pixel arithmetic for the now-established two-readout imagette groups: normalization/weights, clipping/saturation/overflow, integer/floating arithmetic and rounding, plus the bias/gain/LUT relation for the actual stacks. Group size is resolved as two readouts for this exact visit.",
       "constraint": "Public mission documentation now establishes ordinary window stacking as pixel-by-pixel coaddition and the DPD distinguishes coadd/mean/gmean/gcoadd/none, with gmean/gcoadd used for imagettes. The DPD delegates the exact modes to CHEOPS-UVIE-INST-TN-001 issue 2.0. The official public IASW repository is identified, but the exact gcoadd implementation has not yet been retrieved. The 6048 individual exposure records remain metadata, not individual science image arrays.",
       "evidence": [
         "LS7T_CALIBRATION_CONTRACT.md",
         "results_ls7v_reduction_log/calibration_contract.json",
         "CHEOPS_PUBLIC_IASW_ASSESSMENT.md"
-      ]
+      ],
+      "resolved_exact_visit_grouping": {
+        "source": "Morris et al. 2021, A&A 653 A173",
+        "doi": "10.1051/0004-6361/202140892",
+        "observation": "55 Cnc, 2020-03-09 IOC visit",
+        "individual_readout_seconds": 2.2,
+        "subarray_readouts_per_stack": 14,
+        "imagette_readouts_per_stack": 2,
+        "grouped_imagettes_per_subarray": 7,
+        "result": "For the retained visit, each delivered raw imagette combines two constituent readouts. Pixel-level gcoadd arithmetic remains unresolved."
+      }
     },
     {
       "id": "reference_applicability",
