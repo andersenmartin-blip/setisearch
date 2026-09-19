@@ -1,5 +1,22 @@
 # SETIsearch — current project status
 
+## 19 September public PIPE operator narrows the ground-calibration uncertainty
+
+The pinned public PIPE implementation
+(`alphapsa/PIPE@da15a87348e2657eac8dd08623ac258e6ac59df8`)
+now supplies explicit executable semantics for several ground steps: gain then
+bias, flat correction, optional CTI and non-linearity; flat interpolation in
+stellar effective temperature; time-bracketed/interpolated dark selection; and
+nearest-time bad-pixel-map selection. These rules are documented in
+[CHEOPS_PIPE_OPERATOR_ASSESSMENT.md](CHEOPS_PIPE_OPERATOR_ASSESSMENT.md).
+
+This is useful as an explicitly declared independent PIPE-based fallback, but
+it does **not** resolve the onboard imagette operator. The pinned PIPE source
+does not branch on the FITS `STACKING` keyword; it uses `NEXP` downstream.
+Therefore PIPE cannot establish that `gcoadd` is a simple sum or define its
+clipping/weighting/arithmetic semantics. The gain field/sign discrepancy also
+remains. **NOT_READY_FOR_TARGET_IMAGE_STUDY** is unchanged.
+
 ## 19 September prospective CHEOPS native-study gate prepared and tested
 
 While the physical calibration/operator inputs remain unresolved, the complete
