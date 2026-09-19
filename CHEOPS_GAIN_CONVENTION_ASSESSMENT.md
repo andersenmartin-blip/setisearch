@@ -103,9 +103,42 @@ the reciprocal-style unit e-/ADU. This is mutually coherent at the level of
 unit inversion, but it still does not establish the exact DRP arithmetic or
 the final CAL/COR pixel-unit transition.
 
+## Official DRP architecture resolves the high-level conversion order
+
+The CHEOPS DRP architecture paper (Hoyer et al., 2020,
+https://doi.org/10.1051/0004-6361/201936325), section 4.3, independently
+defines the digital-conversion gain `g` in **ADU/e-** and gives the gain
+correction as
+
+`I_g = I_b / g(T,V)`.
+
+It states that the gain-corrected image is therefore in photoelectrons and
+that typical nominal gain is around 0.5 ADU/e-. Section 4.4 then applies the
+linearisation to `I_g` and explicitly says that this step does not change
+units.
+
+The same section explains why the stacked-image path is special: the
+non-linearity law should be applied to individual readouts before stacking,
+but those readouts are not always downloaded. The DRP therefore combines
+imagettes with stacked images when necessary and weights stacked-image pixels
+where the moving imagette does not provide every constituent sample.
+
+This resolves the **high-level calibration order and intended units**:
+bias-corrected ADU -> gain conversion to electrons -> linearisation in
+electrons -> later dark/flat processing. It does not expose the exact
+DRP 14.0.1 implementation of `g(T,V)`, its temperature sign/field adapter,
+or the current combined imagette/stack linearisation arithmetic.
+
+It also explains the apparent difference between the reference product and
+the executed log: the formal gain is approximately 0.5 ADU/e-, while a
+reciprocal conversion factor is approximately 2 e-/ADU. The log's
+`gain ~2.0 e-/adu` is therefore dimensionally consistent with reporting the
+inverse factor even though the architecture paper calls `g` the ADU/e-
+quantity.
+
 ## Revised decision
 
-**REFERENCE_SEMANTICS_RESOLVED; DRP_GAIN_OPERATOR_NOT_YET_VERIFIED.**
+**REFERENCE_SEMANTICS_AND_HIGH_LEVEL_ORDER_RESOLVED; EXACT_DR14_GAIN_OPERATOR_NOT_YET_VERIFIED.**
 
 We now know from a matching-version public schema that the GainCorrection
 reference is defined in ADU/e- and formally depends on `HK_TEMP_FEE_CCD`.
@@ -115,7 +148,9 @@ the rounded DRP log.
 
 The remaining gain task is narrower: obtain or identify the version-relevant
 DRP 14.0.1 gain implementation, or authoritative documentation confirming
-the temperature sign/centering and conversion order. The prepared technical
+the temperature sign/centering and exact housekeeping-field mapping. The
+ADU/e- -> electron conversion direction and its placement before linearisation
+are now independently documented. The prepared technical
 request should ask this exact implementation question if public source
 recovery fails. Target-image evaluation remains blocked jointly by this
 operator issue, exact `gcoadd`, and the missing flat/LUT/dark/bad-map
