@@ -58,6 +58,26 @@ complete CHEOPS IFSW sources are available under GPL2.
 Conference record:
 https://indico.esa.int/event/225/contributions/4306/
 
+## Onboard ordering narrowed by the OBDP 2019 processing-chain diagram
+
+The public OBDP 2019 CHEOPS presentation exposes a more specific ordering than
+the high-level mission paper. For a science window, its configurable chain is:
+
+`Fetch Product -> Preprocessing -> Lossy 1: Stacking -> Lossy 2: Specific ->
+Lossy 3: Rounding -> Decorrelation -> LLC`.
+
+The preprocessing menu includes `NONE, NLC, PHOT, NLCPHOT, NLC2`; the
+stacking menu immediately after it includes
+`NONE, COADD, MEAN, GCOADD, GMEAN`. Rounding, decorrelation and lossless
+compression are later stages.
+
+This establishes an important ordering constraint for any recovered
+`gcoadd` implementation: it belongs to the first lossy step after the chosen
+preprocessing and before the separately configured specific-reduction,
+rounding, decorrelation and lossless-compression stages. It does not establish
+the internal arithmetic, saturation/clipping behavior, numeric type or
+normalization of `gcoadd`.
+
 ## What remains unresolved
 
 For the retained visit `CH_PR300024_TG000301_V0300`:
