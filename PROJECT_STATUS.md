@@ -9,11 +9,31 @@ one integrated study, followed by an explicit unused-data readiness decision.
 Its dates are work windows. The original LS7I joint model, evaluation and audit
 are complete; the subsequent instrumental-response work is tracked below.
 
+## 19 September public IASW follow-up narrows the stacking dependency
+
+The University of Vienna's official CHEOPS page now provides a concrete public
+CHEOPS-IASW repository lead. ESA's Data Products Definition confirms the
+distinct `coadd`, `mean`, `gmean`, `gcoadd` and `none` modes and assigns
+their exact definitions to `CHEOPS-UVIE-INST-TN-001` issue 2.0. The CHEOPS
+mission paper independently describes ordinary window stacking as pixel-by-pixel
+coaddition. This resolves the existence/provenance of the onboard operator
+family and the high-level ordinary `coadd` behavior, but **not** the exact
+`gcoadd` arithmetic for the retained `NEXP=2` imagettes.
+
+The public IASW source repository is now the primary operator lead. The exact
+flight-relevant implementation/revision, gcoadd normalization/grouping and the
+remaining offline calibration/reference applicability are still unresolved.
+No target-image values have been opened. The combined decision remains
+**NOT_READY_FOR_TARGET_IMAGE_STUDY**.
+[Public-source assessment](CHEOPS_PUBLIC_IASW_ASSESSMENT.md),
+[updated input contract](CHEOPS_REQUIRED_INPUTS.json).
+
 ## Immediate next action: external CHEOPS calibration clarification
 
-The native image study needs version-relevant gain/units and stacking/offline
-documentation, plus verified flat, LUT, dark and bad-map inputs. The two new
-DRT/IASW repository leads did not supply them. A complete
+The native image study needs version-relevant gain/units and the exact remaining
+`gcoadd`/offline operator, plus verified flat, LUT, dark and bad-map inputs. A
+public IASW repository is now identified, but the exact flight-relevant gcoadd
+implementation has not yet been recovered. A complete
 [technical request](CHEOPS_CALIBRATION_REQUEST.md) and
 [exact-version manifest](CHEOPS_REQUIRED_INPUTS.json) are now prepared.
 The official technical contact is verified, but the message is **unsent**
