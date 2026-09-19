@@ -69,11 +69,12 @@
     },
     {
       "id": "stacking_and_offline_nonlinearity",
-      "needed": "Native gcoadd versus coadd definition; sum/mean/weights, clipping/rounding, and bias/gain/LUT order and normalization for the actual exposure stacks.",
-      "constraint": "The 6048 individual exposure records are metadata, not individual science image arrays. NLIN_COR=false does not remove offline linearization.",
+      "needed": "Exact native gcoadd definition for the NEXP=2 imagettes and its numerical relation to ordinary coadd; normalization/grouping/weights, clipping/saturation/rounding, plus bias/gain/LUT order and normalization for the actual exposure stacks.",
+      "constraint": "Public mission documentation now establishes ordinary window stacking as pixel-by-pixel coaddition and the DPD distinguishes coadd/mean/gmean/gcoadd/none, with gmean/gcoadd used for imagettes. The DPD delegates the exact modes to CHEOPS-UVIE-INST-TN-001 issue 2.0. The official public IASW repository is identified, but the exact gcoadd implementation has not yet been retrieved. The 6048 individual exposure records remain metadata, not individual science image arrays.",
       "evidence": [
         "LS7T_CALIBRATION_CONTRACT.md",
-        "results_ls7v_reduction_log/calibration_contract.json"
+        "results_ls7v_reduction_log/calibration_contract.json",
+        "CHEOPS_PUBLIC_IASW_ASSESSMENT.md"
       ]
     },
     {
@@ -206,5 +207,15 @@
     "BiasFrame V0109 solely to replay the spatial correction that the log skipped.",
     "ReadOut V0101 solely to rediscover the already recorded scalar bias/RON defaults.",
     "Aperture V0300 for a method that does not use that reference."
-  ]
+  ],
+  "public_source_followup": {
+    "checked_utc_date": "2026-09-19",
+    "university_project_page": "https://space.univie.ac.at/en/projects/cheops/",
+    "public_iasw_repository": "https://gitlab.phaidra.org/ottensr5/cheops",
+    "esa_data_products_definition": "https://www.cosmos.esa.int/documents/1416855/12897414/CHEOPS-UGE-SOC-DD-002-i1.16_data_products_definition_document.pdf/c0980d2d-595b-b0bd-6413-c569501eb242?t=1687517012308",
+    "mission_technical_paper": "https://doi.org/10.1007/s10686-020-09679-4",
+    "obdp2019_record": "https://indico.esa.int/event/225/contributions/4306/",
+    "result": "Official public IASW repository identified. DPD confirms coadd/mean/gmean/gcoadd/none and points exact definitions to CHEOPS-UVIE-INST-TN-001 issue 2.0. Mission paper documents ordinary window stacking as pixel-by-pixel coaddition. Exact gcoadd arithmetic remains unresolved.",
+    "assessment_path": "CHEOPS_PUBLIC_IASW_ASSESSMENT.md"
+  }
 }
