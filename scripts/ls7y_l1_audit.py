@@ -228,9 +228,15 @@ def main():
     assert len(sh) == 5760
     cards = [sh[i:i+80].decode("ascii") for i in range(0, len(sh), 80)]
     assert any(c.startswith("EXTNAME ") and "SCI_COR_SmearingRow" in c for c in cards)
-    assert any(c.startswith("BITPIX  ") and "-64" in c for c in cards)
-    assert any(c.startswith("NAXIS1  ") and "200" in c for c in cards)
-    assert any(c.startswith("NAXIS2  ") and "432" in c for c in cards)
+    def card_int(key):
+        card = next(x for x in cards if x.startswith(key.ljust(8)))
+        return int(card.split("=", 1)[1].split("/", 1)[0].strip())
+    assert card_int("BITPIX") == -64
+    naxis = card_int("NAXIS")
+    dims = [card_int(f"NAXIS{i}") for i in range(1, naxis + 1)]
+    assert dims[0] == 200
+    assert math.prod(dims[1:]) == 432
+    assert math.prod(dims) * 8 == 691200
 
     l2 = parse_l2((PILOT / "lightcurve_table.bin").read_bytes())
     candidates = json.loads((PILOT / "candidates.json").read_text())["clusters"]
