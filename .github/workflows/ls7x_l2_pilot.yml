@@ -18,7 +18,8 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     env:
-      FROZEN: af8b37c94086634c793837f4dbd1596ab7c76822
+      EVAL_FROZEN: af8b37c94086634c793837f4dbd1596ab7c76822
+      AUDIT_CORRECTION: 425986dcfd8f6c4dc815fa52008d6be6e805796d
       PYTHONPATH: src
       OPENBLAS_NUM_THREADS: '1'
       OMP_NUM_THREADS: '1'
@@ -35,17 +36,21 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          git worktree add /tmp/ls7x-frozen "$FROZEN"
-          cd /tmp/ls7x-frozen
-          python -m pip install -r requirements_ls7g.txt
+          git worktree add /tmp/ls7x-eval "$EVAL_FROZEN"
+          git worktree add /tmp/ls7x-audit "$AUDIT_CORRECTION"
+          python -m pip install -r /tmp/ls7x-eval/requirements_ls7g.txt
+          cd /tmp/ls7x-eval
           python -m unittest tests.test_ls7x_l2 -v 2>&1 | tee /tmp/ls7x_tests.log
 
-      - name: Acquire fixed table and run native pilot
+      - name: Re-run unchanged evaluator and corrected independent audit
         shell: bash
         run: |
           set -euo pipefail
-          cd /tmp/ls7x-frozen
+          cd /tmp/ls7x-eval
           python -u scripts/ls7x_l2_evaluate.py 2>&1 | tee /tmp/ls7x_run.log
+          rm -rf /tmp/ls7x-audit/results_ls7x_l2_pilot
+          cp -a /tmp/ls7x-eval/results_ls7x_l2_pilot /tmp/ls7x-audit/
+          cd /tmp/ls7x-audit
           python -u scripts/ls7x_l2_audit.py 2>&1 | tee /tmp/ls7x_audit.log
           cp /tmp/ls7x_tests.log results_ls7x_l2_pilot/TESTS.log
           cp /tmp/ls7x_run.log results_ls7x_l2_pilot/RUN.log
@@ -61,12 +66,13 @@ jobs:
           (out/'SHA256SUMS').write_text(''.join(rows))
           PY
 
-      - name: Verify frozen boundary and audited result
+      - name: Verify frozen evaluator boundary and corrected audited result
         shell: bash
         run: |
           set -euo pipefail
-          cd /tmp/ls7x-frozen
-          test "$(git rev-parse HEAD)" = "$FROZEN"
+          test "$(git -C /tmp/ls7x-eval rev-parse HEAD)" = "$EVAL_FROZEN"
+          test "$(git -C /tmp/ls7x-audit rev-parse HEAD)" = "$AUDIT_CORRECTION"
+          cd /tmp/ls7x-audit
           python - <<'PY'
           import json
           from pathlib import Path
@@ -89,7 +95,7 @@ jobs:
         run: |
           set -euo pipefail
           rm -rf results_ls7x_l2_pilot
-          cp -a /tmp/ls7x-frozen/results_ls7x_l2_pilot .
+          cp -a /tmp/ls7x-audit/results_ls7x_l2_pilot .
           git add results_ls7x_l2_pilot
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
