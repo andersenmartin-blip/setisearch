@@ -1,0 +1,62 @@
+{
+  "document_type": "prospective_native_image_study_draft",
+  "created_utc_date": "2026-09-19",
+  "state": "DRAFT_BLOCKED_ON_PHYSICAL_INPUTS",
+  "target_image_access_authorized": false,
+  "visit": {
+    "file_key": "CH_PR300024_TG000301_V0300",
+    "obsid": 1015522,
+    "target": "55 Cnc",
+    "raw_imagette_nexp": 2,
+    "raw_imagette_stacking": "gcoadd",
+    "raw_subarray_nexp": 14,
+    "raw_subarray_stacking": "coadd"
+  },
+  "input_contract_path": "CHEOPS_REQUIRED_INPUTS.json",
+  "pulse_widths_seconds": [
+    30,
+    60,
+    100
+  ],
+  "signal_injection_stage": "before any data-dependent correction or fit",
+  "positive_pulse_only": true,
+  "frozen_before_native_evaluation": true,
+  "required_input_gates": [
+    "gain_and_units VERIFIED",
+    "stacking_and_offline_nonlinearity VERIFIED",
+    "reference_applicability VERIFIED",
+    "exact required reference contents received and SHA-256 frozen",
+    "native validity intervals and selection/interpolation rules recorded",
+    "gain physical convention adopted from version-relevant evidence"
+  ],
+  "protected_training": {
+    "target_event_interval_excluded": true,
+    "pulse_injection_region_excluded_from_training": true,
+    "no_label_or_injection_truth_as_model_input": true,
+    "no_native_outcome_based_retuning": true
+  },
+  "nuisance_families_required": [
+    "cosmic-ray-like compact events",
+    "hot/unstable pixels",
+    "PSF displacement",
+    "PSF distortion",
+    "straylight/background variation",
+    "smear/readout structure",
+    "instantaneous saturation or nonlinearity-limit crossing",
+    "data gaps and compression-entity boundaries",
+    "window/edge effects",
+    "lost or partially sampled pulses"
+  ],
+  "native_prediction": {
+    "evaluate_only_after_all_injection_and_control_rules_frozen": true,
+    "no_candidate_threshold_selection_from_native_outcome": true
+  },
+  "decision_endpoints": {
+    "calibration_reconstruction": "TBD_BEFORE_FREEZE",
+    "positive_pulse_recovery": "TBD_BEFORE_FREEZE",
+    "nuisance_false_positive_control": "TBD_BEFORE_FREEZE",
+    "native_prediction_stability": "TBD_BEFORE_FREEZE",
+    "unavailable_window_policy": "TBD_BEFORE_FREEZE"
+  },
+  "current_decision": "NOT_READY_FOR_TARGET_IMAGE_STUDY"
+}
