@@ -5,6 +5,24 @@ is complete for CHEOPS `CH_PR300024_TG000301_V0300`, OBSID 1015522. Reuse
 the retained LS7R metadata, LS7S gain/reference evidence, LS7T native HK,
 LS7U electronics measurements and LS7V original log and reconciliation.
 
+## 19 September: auxiliary reference semantics advanced
+
+A pinned public PIPE implementation and matching-version common_sw schemas now
+supply additional **auxiliary** constraints without opening target pixels.
+The schemas fix the flat/dark/bad-map/LUT structures and units; PIPE provides
+one public implementation of `V_STRT_U`-based dark/bad selection, Teff flat
+interpolation and detector slicing. PIPE's own calibration order differs from
+the official DRP architecture, so it is explicitly **not** adopted as a DRP
+14.0.1 proxy.
+
+The fixed parts of the next native study are now written in
+[LS7W_NATIVE_STUDY_PREPARATION.md](LS7W_NATIVE_STUDY_PREPARATION.md):
+the visit, 30/60/100-second positive pulse family, protected fitting rule,
+nuisance families, decision semantics and no-retuning rule are predeclared.
+The document is **PREPARED_NOT_FROZEN — TARGET PIXELS CLOSED** until the exact
+gcoadd/gain/reference inputs are filled. See
+[auxiliary assessment](LS7W_AUXILIARY_CALIBRATION_ASSESSMENT.md).
+
 ## Immediate continuation: obtain the missing physical input
 
 A new public-source follow-up has identified the University of Vienna's
