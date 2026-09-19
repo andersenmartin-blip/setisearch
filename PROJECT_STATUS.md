@@ -44,6 +44,25 @@ The raw-imagette/native-calibration route remains a separate unresolved
 dependency because exact `gcoadd`, LUT/flat and reference applicability are
 still not established. LS7Y does not resolve that contract.
 
+## 19 September auxiliary calibration assessment and study preparation
+
+Matching-version common_sw schemas now constrain the exact **structure and
+units** of the required flat, dark, bad-map and LUT product families. The
+pinned public PIPE implementation also gives an independent reference for
+Teff interpolation, detector slicing and `V_STRT_U`-based reference selection.
+Because PIPE's calibration ordering differs from the official DRP architecture,
+it is retained only as auxiliary evidence and is not used as a DRP 14.0.1
+substitute.
+
+The invariant parts of the prospective native-image experiment are now
+predeclared: the retained visit, 30/60/100-second positive pulses, protected
+training interval, nuisance families, no-retuning rule and decision semantics.
+The state is **PREPARED_NOT_FROZEN — TARGET PIXELS CLOSED** until the exact
+gcoadd/gain operators and required reference-file identities/applicability are
+resolved.
+[Auxiliary calibration assessment](LS7W_AUXILIARY_CALIBRATION_ASSESSMENT.md),
+[study preparation](LS7W_NATIVE_STUDY_PREPARATION.md).
+
 ## 19 September LS7W bounded public-source follow-up completed
 
 A second bounded public-source pass checked the official University of Vienna
