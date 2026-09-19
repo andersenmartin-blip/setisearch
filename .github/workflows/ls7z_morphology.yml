@@ -1,0 +1,110 @@
+name: LS7Z offline morphology study
+
+on:
+  push:
+    branches: [m43-support-qualification]
+    paths:
+      - '.github/workflows/ls7z_morphology.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ls7z-morphology
+  cancel-in-progress: false
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      EVAL_FROZEN: f7413a3949834cc5d238f4c9de443a4a7a348288
+      AUDIT_FROZEN: f0148bc8a2dbffa4e4d0720355e5a7a5f6cc682c
+      PYTHONPATH: src
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+
+      - name: Run frozen LS7Z evaluator using published LS7X and LS7Y bytes only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git worktree add /tmp/ls7z-eval "$EVAL_FROZEN"
+          git worktree add /tmp/ls7z-audit "$AUDIT_FROZEN"
+          python -m pip install -r /tmp/ls7z-eval/requirements_ls7g.txt
+          cd /tmp/ls7z-eval
+          python -u scripts/ls7z_morphology.py 2>&1 | tee /tmp/ls7z_run.log
+
+      - name: Run independent frozen LS7Z audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/ls7z-audit/results_ls7z_morphology
+          cp -a /tmp/ls7z-eval/results_ls7z_morphology /tmp/ls7z-audit/
+          cd /tmp/ls7z-audit
+          python -u scripts/ls7z_morphology_audit.py 2>&1 | tee /tmp/ls7z_audit.log
+
+      - name: Verify boundaries and freeze provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git -C /tmp/ls7z-eval rev-parse HEAD)" = "$EVAL_FROZEN"
+          test "$(git -C /tmp/ls7z-audit rev-parse HEAD)" = "$AUDIT_FROZEN"
+          cd /tmp/ls7z-audit
+          cp /tmp/ls7z_run.log results_ls7z_morphology/RUN.log
+          cp /tmp/ls7z_audit.log results_ls7z_morphology/AUDIT.log
+          python -m pip freeze > results_ls7z_morphology/environment.txt
+          python - <<'PY'
+          import hashlib, json
+          from datetime import datetime, timezone
+          from pathlib import Path
+          out=Path('results_ls7z_morphology')
+          s=json.loads((out/'summary.json').read_text())
+          a=json.loads((out/'audit.json').read_text())
+          assert s['status']=='COMPLETE_AUDITED'
+          assert a['status']=='PASS'
+          assert s['new_archive_science_bytes']==0
+          assert s['other_apertures_opened'] is False
+          assert s['raw_imagettes_opened'] is False
+          assert s['other_visits_opened'] is False
+          assert s['parent_cluster']==1
+          provenance={
+            'stage':'LS7Z_CLUSTER1_MORPHOLOGY',
+            'evaluation_commit':'f7413a3949834cc5d238f4c9de443a4a7a348288',
+            'audit_commit':'f0148bc8a2dbffa4e4d0720355e5a7a5f6cc682c',
+            'protocol_commit':'5151bdc8aa4ce26706cfe3a9d50bd7234bf2a4d7',
+            'implementation_clarification_commit':'d23d9cfc768dc2ca72f34be24c3a982205fd3dd1',
+            'parent_ls7y_result_commit':'e5e2f544836a1aa04b3c1adc559f6964df730f49',
+            'finished_utc':datetime.now(timezone.utc).isoformat(),
+            'new_archive_science_bytes':0,
+            'new_image_pixels_opened':0,
+            'other_apertures_opened':False,
+            'raw_imagettes_opened':False,
+            'other_visits_opened':False,
+          }
+          (out/'execution.json').write_text(json.dumps(provenance,indent=2)+'\n')
+          lines=[]
+          for p in sorted(x for x in out.iterdir() if x.is_file() and x.name!='SHA256SUMS'):
+              lines.append(f"{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.name}\n")
+          (out/'SHA256SUMS').write_text(''.join(lines))
+          PY
+          (cd results_ls7z_morphology && sha256sum -c SHA256SUMS)
+
+      - name: Publish audited LS7Z result
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf results_ls7z_morphology
+          cp -a /tmp/ls7z-audit/results_ls7z_morphology .
+          git add results_ls7z_morphology
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish audited LS7Z cluster-1 morphology study'
+          git push origin HEAD:m43-support-qualification
