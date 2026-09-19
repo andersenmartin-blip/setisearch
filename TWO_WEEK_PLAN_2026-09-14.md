@@ -57,11 +57,15 @@ pulse result remains unchanged and is not native recovery or qualification.
 metadata result with unresolved raw transfer and calibration mapping. LS7R
 follows the planned alternative without reopening TESS/M43 reserved data.
 
-**Evidence reconciliation:** LS7P's source freeze is public, but the result
-and publication claimed in the earlier conversation could not be verified
-in the current public branch. Preserve that gap explicitly and recover the
-original evidence; LS7Q does not depend on those reported numerical results.
-[Exact inspected state](LS7P_PUBLICATION_RECONCILIATION.md).
+**Evidence reconciliation completed by reconstruction, 15 September:** the
+retained explicit LS7P reconstruction now has complete input/result delivery
+and fresh offline verification. All 16 outputs reproduce byte-for-byte;
+48,114/48,120 centroids meet the fixed rounding bound and the independent
+1,496,872-comparison audit passes. The earlier original run and its claimed
+publication remain unverified. This supplies reproducible evidence without
+reopening the closed model decision or resolving the CHEOPS input dependency.
+[Reconstruction](results_ls7p_response/REPORT.md),
+[historical record and addendum](LS7P_PUBLICATION_RECONCILIATION.md).
 
 **14 September follow-on:** after the owner asked to continue, the separately
 specified [LS7J auxiliary study](LS7J_CONTINUATION.md) also completed. It fails

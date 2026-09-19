@@ -25,6 +25,24 @@ latest completed checkpoint, and the native image study remains blocked.**
 On receipt, verify the physical contract and freeze one combined study before
 source-image evaluation. [Operational restart](LS7V_CONTINUATION.md).
 
+## LS7P reconstruction completed and verified, 15 September
+
+The previously missing numerical package now has an explicit reconstruction:
+**48,114/48,120** reference rows meet the fixed centroid rounding bound; all
+**45,422 QUALITY=0** rows do. A fresh offline execution reproduces all 16
+retained outputs byte-for-byte, and the independent scalar audit passes
+**1,496,872 comparisons**. The seven known-answer tests and 695 source-file
+identities also pass. All raw extracts, range receipts and unavailable PRF
+cases are retained.
+
+This establishes reproducible LS7P evidence, not recovery of the earlier
+original run or verification of its claimed publication. The motion input
+remains unqualified. No new target correction, pulse trial or observing
+coverage is added. CHEOPS still needs the external inputs above; LS7V remains
+its latest completed checkpoint. [Reconstruction result](results_ls7p_response/REPORT.md),
+[verification](results_ls7p_reconstruction/README.md),
+[historical reconciliation and addendum](LS7P_PUBLICATION_RECONCILIATION.md).
+
 ## LS7V explains the CAL electronics as defaults and refines the input contract
 
 The actual **main_calibration.py 14.0.1** log for the retained CHEOPS visit
@@ -152,9 +170,9 @@ No detector or candidate is adopted. The range, FITS checksum, UTC/TT and
 independent scalar-field/response checks pass.
 
 [Findings](LS7R_CHEOPS_INPUT.md), [reproduction](results_ls7r_metadata/README.md),
-[current continuation](LS7R_CONTINUATION.md). LS7Q's HiPERCAM obstacle and the
-separate LS7P publication reconciliation remain open; unused TESS/M43 panels
-stay closed.
+[current continuation](LS7R_CONTINUATION.md). LS7Q's HiPERCAM obstacle remains
+open. The separate LS7P reconstruction is now documented above; the earlier
+original-run publication remains unverified. Unused TESS/M43 panels stay closed.
 
 ## Earlier LS7Q HiPERCAM metadata assessment; native pilot not ready
 
@@ -176,10 +194,12 @@ contract, or inspect the secondary CHEOPS product option at metadata level.
 [Findings](LS7Q_OPTICAL_METADATA.md), [saved evidence and reproduction](results_ls7q_metadata/README.md),
 [current continuation](LS7Q_CONTINUATION.md).
 
-**LS7P evidence correction:** the earlier conversation reported completion and
-publication, but the public branch inspected here contains only its source
-freeze `f42aa216b25779d55cd1fabd25545d3277abcfa5` and metadata. Its reported
-numerical result is not currently verified. [Reconciliation and recovery task](LS7P_PUBLICATION_RECONCILIATION.md).
+**Historical LS7P evidence correction:** at the LS7Q start, the public branch
+contained the source freeze `f42aa216b25779d55cd1fabd25545d3277abcfa5` and
+metadata, but not the result previously claimed in conversation. An explicit
+15 September reconstruction now supplies verified numerical evidence; the
+earlier original run and claimed publication remain unverified.
+[Historical record and reconstruction addendum](LS7P_PUBLICATION_RECONCILIATION.md).
 LS7Q uses no LS7P numerical output. Unused TESS/M43 panels remain closed.
 
 ## Earlier LS7O reference availability completed: input contract fails
@@ -588,7 +608,7 @@ were hash checked. This is retrospective development, not fresh validation.
 | M43AF complete no-model study | Published and byte-verified: 502 records; 69 archive parts restore 508 original files |
 | Adopted new detector / new M43AF–M43AI astronomical candidate | None |
 | Earlier M33 HD 3651 case | Still unresolved; [investigation](MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
-| LS research | [LS7Q](LS7Q_OPTICAL_METADATA.md): HiPERCAM metadata assessed; native pilot not ready; LS7P result publication unverified |
+| LS research | CHEOPS LS7V complete; native image study awaits exact calibration inputs. [LS7P reconstruction](results_ls7p_response/REPORT.md) audited; earlier original-run publication unverified |
 
 M43AF's 502 records include 261 already completed historical acquisitions and
 the 241 training/baseline/null records. Its 940 scientific pins and earlier

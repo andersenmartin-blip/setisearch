@@ -88,6 +88,8 @@ milestone or a proxy qualification.
 Standing authorization continues for all SETI code, data, reports and logs
 on `m43-support-qualification`, plus README updates on `main`. No routine
 publication approval is needed. Unused TESS sectors and M43 held-out panels
-remain closed, and LS7P reconciliation remains separate. No unattended work,
+remain closed, and LS7P reconciliation remains separate. Its explicit reconstruction is now
+[verified and documented](results_ls7p_response/REPORT.md); it supplies none
+of the missing CHEOPS physical inputs. No unattended work,
 external message, detector adoption, candidate or new qualified observing
 coverage is created by LS7V.

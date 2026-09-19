@@ -39,3 +39,27 @@ it must not be presented as retrieval of the earlier original result.
 The standing authorization already covers publication to this repository and
 science branch, with README updates on main. No new publication approval is
 required. The gap concerns evidence and delivery, not permission.
+
+## Addendum — explicit reconstruction completed, 15 September 2026
+
+The bounded search recorded in
+[search_record.json](results_ls7p_reconstruction/search_record.json) did not
+recover the earlier original run. An explicitly labelled reconstruction was
+retained locally at the public LS7P source freeze. The present continuation
+has verified its complete 50-file input and 16-file result membership, checked
+695 source/prerequisite files against the public freeze tree, and repeated
+the unchanged producer and separate scalar audit offline.
+
+All 16 outputs reproduce byte-for-byte; all seven known-answer tests pass.
+The independent audit confirms 1,496,872 comparisons and 48,114/48,120
+centroid rows within the scientific rounding bound. These are now verified
+**reconstruction results**. Their agreement with the conversation claims does
+not establish original-run identity, timing or earlier publication.
+
+The full reconstruction inputs, results, fresh verification logs and report
+accompany this addendum. [Result](results_ls7p_response/REPORT.md),
+[provenance and reproduction](results_ls7p_reconstruction/README.md).
+The original text above remains a historical record of the 14 September
+inspection. The unverified-original gap is preserved, while a complete,
+reproducible replacement evidence package is now supplied. No new target
+correction, pulse trial or qualified coverage follows.
