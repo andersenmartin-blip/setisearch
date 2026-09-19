@@ -40,8 +40,6 @@ jobs:
           python -m pip install -r requirements_ls7g.txt
           rm -rf results_ls7p_inputs results_ls7p_response
           python -u scripts/ls7p_acquire.py
-          python -u scripts/ls7p_evaluate.py
-          python -u scripts/ls7p_audit.py
 
       - name: Require exact approved Git blob identities
         shell: bash
@@ -99,22 +97,6 @@ jobs:
           e4442b89cd76deec07ee6cf4643bb197c2866b0b results_ls7p_inputs/s032_tic307780535.json
           d05bcd2959077b5bc0ef5ad7c86e476b7227864f results_ls7p_inputs/s032_tic307785290.json
           db6aa7f7206df8656f0489de1c8bcd10f2c31cd0 results_ls7p_inputs/sources.json
-          dd4b48f22a13e9c75cc24fd2afe0d191128eaf7d results_ls7p_response/SHA256SUMS
-          d0a301480f47d61a7859aef50e5296886a9e56b6 results_ls7p_response/audit.json
-          4d93d7907153d0dd8f6d0085f4483c104cd93de5 results_ls7p_response/calibration_response.json
-          da71ff54ccb5895cb6bff23f4555de3728a55825 results_ls7p_response/s029_tic306577335.npz
-          ee67f11975039bf2bd6dae0714b1460e9a3592b7 results_ls7p_response/s029_tic306739391.npz
-          a56389f823b83f970e5fa962d97c3ea617fcc699 results_ls7p_response/s029_tic306739511.npz
-          962a523491af8bb8c9b5c4fedd96efe9ea6e1201 results_ls7p_response/s029_tic307087642.npz
-          80f3ef5e5f78ddd80bb2e24effe8dfdc573431f4 results_ls7p_response/s029_tic307780535.npz
-          bab6f5c1f10cc2012620c4ae1c4ee9a0fd673594 results_ls7p_response/s029_tic307785290.npz
-          90299b446063e9a95f259358c5d0bb9c16848966 results_ls7p_response/s032_tic306577335.npz
-          d363648fe5e84bd1c56af9b1d4ee2abf1f8fd49d results_ls7p_response/s032_tic306739391.npz
-          ddd0ecea624420bb19695fe16c6cd690bbc2cc56 results_ls7p_response/s032_tic306739511.npz
-          544c6eeea6953bb5e34831b55a77483a08d1fc40 results_ls7p_response/s032_tic307441274.npz
-          cd0d9e983040af3b1a7616df65899772d8ae376e results_ls7p_response/s032_tic307780535.npz
-          d7208f39f48cdc4e9577aee98a4f9f15343c4c31 results_ls7p_response/s032_tic307785290.npz
-          362b7fbb62c1b382c2b78bc3588d02713dc6f897 results_ls7p_response/summary.json
           EOF
           while read -r expected path; do
             test -f "$path"
@@ -122,15 +104,14 @@ jobs:
             test "$actual" = "$expected" || { echo "blob mismatch: $path $actual != $expected"; exit 1; }
           done < /tmp/ls7p_expected_blobs.txt
 
-      - name: Publish exact generated objects to the approved branch
+      - name: Publish exact regenerated LS7P inputs to the approved branch
         shell: bash
         run: |
           set -euo pipefail
-          rm -rf results_ls7p_inputs results_ls7p_response
+          rm -rf results_ls7p_inputs
           cp -a /tmp/ls7p-frozen/results_ls7p_inputs .
-          cp -a /tmp/ls7p-frozen/results_ls7p_response .
-          git add results_ls7p_inputs results_ls7p_response
+          git add results_ls7p_inputs
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Rehydrate exact LS7P generated objects for approved publication'
+          git commit -m 'Publish exact regenerated LS7P input objects'
           git push origin HEAD:m43-support-qualification
