@@ -7,13 +7,23 @@ LS7U electronics measurements and LS7V original log and reconciliation.
 
 ## Immediate continuation: obtain the missing physical input
 
-The additional DRT and IASW repository leads did not provide the missing
-documentation. The concrete next action is the prepared
+A new public-source follow-up has identified the University of Vienna's
+official public CHEOPS-IASW repository and additional mission documentation.
+The Data Products Definition distinguishes `coadd`, `mean`, `gmean`,
+`gcoadd` and `none`, and delegates their exact definitions to
+CHEOPS-UVIE-INST-TN-001 issue 2.0. The CHEOPS mission paper independently
+documents ordinary window stacking as pixel-by-pixel coaddition. The exact
+`gcoadd` arithmetic remains unresolved. See
+[public source assessment](CHEOPS_PUBLIC_IASW_ASSESSMENT.md).
+
+The concrete next action is to inspect a version-relevant IASW implementation
+or RD-11 issue 2.0 for `gcoadd` and then continue the remaining calibration
+input resolution. The prepared
 [technical clarification request](CHEOPS_CALIBRATION_REQUEST.md), with an
-[exact input manifest](CHEOPS_REQUIRED_INPUTS.json): four required reference
-versions, a conditional PSF input and three operator/applicability questions.
-The official technical contact has been checked. The message is **unsent**;
-there is no pending reply or scheduled contact.
+[exact input manifest](CHEOPS_REQUIRED_INPUTS.json), remains available if the
+public source does not resolve the operator/reference questions. The official
+technical contact has been checked. The message is **unsent**; there is no
+pending reply or scheduled contact.
 
 The owner can send the ready text through their chosen channel or supply
 relevant mission documentation and exact reference files directly. Assistant
@@ -46,9 +56,11 @@ nor a reference filename alone proves an applied-calibration dependency.
 
 ## Remaining concrete inputs
 
-Resolve the exact gain-temperature convention and the imagette gcoadd/
-offline nonlinear operator with version-relevant mission documentation or
-implementation. The log's approximate gain of 2.0 electrons/ADU does not
+Resolve the exact gain-temperature convention and the remaining imagette
+`gcoadd`/offline nonlinear operator with version-relevant mission
+documentation or implementation. Ordinary window `coadd` now has a public
+high-level pixel-by-pixel coaddition description, but that does not define
+`gcoadd` normalization/grouping or the offline processing order. The log's approximate gain of 2.0 electrons/ADU does not
 define an exact formula or rounding rule. Preserve LS7T's actual voltage/
 temperature distinction and the separate meanings of its native −0.57027%
 comparison and the earlier conditional 8.129% calculation. Do not infer final
