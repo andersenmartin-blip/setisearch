@@ -31,11 +31,25 @@ or the required native reference-validity rules. The public-source route is
 therefore **incomplete**, and target-image evaluation remains blocked.
 [LS7W follow-up](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7W_PUBLIC_SOURCE_FOLLOWUP.md).
 
+Matching-version public CHEOPS schemas now also fix the required flat/dark/
+bad-map/LUT product structures and units, while the pinned public PIPE code
+provides an independent comparison for Teff interpolation, detector slicing
+and validity-start selection. PIPE's calibration order differs from the
+official DRP architecture, so it is **not** adopted as a DRP 14.0.1 proxy.
+
+The invariant parts of the next 30/60/100-second positive-pulse experiment
+are predeclared before target access in both a
+[human-readable preparation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7W_NATIVE_STUDY_PREPARATION.md)
+and a
+[machine-readable manifest](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7W_NATIVE_STUDY_PREPARATION.json).
+Its state is **PREPARED_NOT_FROZEN — TARGET PIXELS CLOSED**.
+
 A complete
 [technical request](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/CHEOPS_CALIBRATION_REQUEST.md)
 and [exact-version manifest](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/CHEOPS_REQUIRED_INPUTS.json)
-are prepared. The message is **unsent**; no reply is pending. LS7V remains the
-latest completed CHEOPS scientific checkpoint.
+are prepared and narrowed to the remaining operator/reference questions. The
+message is **unsent**; no reply is pending. LS7V remains the latest completed
+CHEOPS scientific checkpoint.
 
 **LS7V CHEOPS calibration-log reconciliation completed, 15 September 2026.**
 The actual reduction log explains the difference investigated in LS7U:
