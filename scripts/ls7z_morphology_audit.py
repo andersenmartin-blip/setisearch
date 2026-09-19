@@ -69,6 +69,13 @@ def line_fit(times, values, side, event):
     med = float(np.median(residual))
     mad = float(1.4826 * np.median(np.abs(residual - med)))
     excess = float(np.sum(values[event] - pred))
+    scale = max(
+        float(np.max(np.abs(values[side]))),
+        float(np.max(np.abs(pred))),
+        float(np.finfo(float).tiny),
+    )
+    zero_floor = float(64.0 * np.finfo(float).eps * scale)
+    mad_is_zero = bool(mad <= zero_floor)
     return {
         "available": True,
         "event_sum": float(np.sum(values[event])),
@@ -76,8 +83,11 @@ def line_fit(times, values, side, event):
         "event_excess": excess,
         "side_median": float(np.median(y)),
         "side_residual_sigma_mad": mad,
+        "normalization_zero_floor": zero_floor,
+        "normalization_mad_treated_as_zero": mad_is_zero,
         "normalized_event_excess": (
-            float(excess / (mad * math.sqrt(3.0))) if mad > 0 and np.isfinite(mad) else None
+            float(excess / (mad * math.sqrt(3.0)))
+            if (not mad_is_zero and mad > 0 and np.isfinite(mad)) else None
         ),
         "baseline_coefficients": [float(b0), float(b1)],
     }
