@@ -1,5 +1,33 @@
 # SETIsearch — current project status
 
+## 19 September LS8C finds a shared smearing/roll pattern in all seven positive excursions
+
+The predeclared auxiliary diagnosis of all eight original LS8B representatives
+is complete using only the saved L2 tables. **All seven positive excursions**
+coincide with large smearing residuals (**205,662–293,495 e**) at mean event
+roll angles of **16.39–20.42 degrees**. The negative control does not share
+that smearing pattern. The seven positive background residuals are also negative.
+
+This is a repeated instrumental-column association, with no unique physical
+cause established. Sideband-only smearing fits extrapolate between **−0.42
+and 31.78 times** the positive brightness residual, so they do not supply a
+reliable event correction. All 112 field diagnoses and 56 separate couplings
+are retained, including the constant/error fields. All eight representatives
+remain **L2_ONLY_UNRESOLVED**, with no new detector qualification or candidate.
+
+The independent audit passes **11,635 numerical comparisons and 1,009 exact
+checks**, following six passing synthetic tests. The original LS8B audit
+**FAIL** and all original screen values remain preserved. No new archive
+science bytes, image pixels, apertures, windows or visits were opened.
+
+**Next action:** prepare one bounded CAL/COR image-and-correction study of
+all eight fixed representatives, first establishing native product metadata
+and unique exposure joins, then freezing exact byte/row/pixel scope before
+image access. Preserve both signs and the earlier closed branches. The
+separate raw-imagette gate remains NOT_READY; its technical request is unsent.
+[LS8C report and plots](results_ls8c_auxiliary/REPORT.md),
+[exact continuation](LS8C_CONTINUATION.md).
+
 ## 19 September LS8B four-visit transfer complete; arithmetic repair verified
 
 The four prospectively fixed unused 55 Cnc visits TG000302–TG000305 have now

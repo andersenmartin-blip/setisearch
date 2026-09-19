@@ -324,3 +324,21 @@ exact scope. No additional visit, alternative aperture, original producer rerun
 or unused TESS/M43 panel follows automatically. The raw-imagette calibration
 gate and unsent technical request remain separate. Current continuation:
 LS8B_CONTINUATION.md. Standing publication authorization continues.
+
+19 September 2026, LS8C: the separately frozen auxiliary study is complete for
+all eight LS8B representatives. All seven positive events coincide with large
+smearing-column departures at a similar roll orientation; the negative control
+does not share that event pattern. Sideband-only extrapolations do not provide
+a reliable event correction. The independent audit passes 11,635 numerical
+comparisons and 1,009 exact checks, while the original LS8B audit FAIL stays
+unchanged. All eight remain L2_ONLY_UNRESOLVED; no new science bytes or images
+were opened and no detector/candidate/qualified coverage is claimed.
+
+Next prepare a single bounded CAL/COR image-and-correction study retaining
+all eight fixed contexts and both signs. Establish metadata and exposure joins,
+then freeze exact byte/row/pixel scope and stopping rules before image access.
+Do not turn the observed smearing/roll pattern into a retrospective selection
+cut. The separate raw-imagette gate and unsent request remain unresolved;
+unused TESS/M43 panels and the earlier LS7X/Y/Z branches stay closed.
+Current continuation: LS8C_CONTINUATION.md. Standing publication authorization
+continues without a new per-milestone permission request.
