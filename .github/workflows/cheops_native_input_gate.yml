@@ -1,0 +1,25 @@
+name: CHEOPS native input gate tests
+
+on:
+  push:
+    branches: [m43-support-qualification]
+    paths:
+      - 'scripts/cheops_native_input_gate.py'
+      - 'tests/test_cheops_native_input_gate.py'
+      - 'config/cheops_native_study_draft.json'
+      - 'CHEOPS_REQUIRED_INPUTS.json'
+      - '.github/workflows/cheops_native_input_gate.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pytest
+      - run: pytest -q tests/test_cheops_native_input_gate.py
