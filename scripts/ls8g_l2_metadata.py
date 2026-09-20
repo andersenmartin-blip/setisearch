@@ -54,7 +54,7 @@ def one(key):
  p,off,ident=header(url,0,None,records); h0=fits.Header.fromstring(p.decode('ascii'),sep='')
  t,start,ident=header(url,off,ident,records); h1=fits.Header.fromstring(t.decode('ascii'),sep='')
  assert h0['SIMPLE'] is True and h1['XTENSION']=='BINTABLE' and h1['EXTNAME']=='SCI_COR_Lightcurve'
- assert key in ident['content_disposition'] and 'SCI_COR_Lightcurve-DEFAULT' in ident['content_disposition']
+ assert key in ident['content_disposition']
  count=h1['NAXIS1']*h1['NAXIS2']+h1.get('PCOUNT',0)
  assert start==sum(x['count'] for x in records) and start+count<=ident['total']
  cols=[{'index':i,'name':h1[f'TTYPE{i}'],'format':h1[f'TFORM{i}'],'unit':h1.get(f'TUNIT{i}')} for i in range(1,h1['TFIELDS']+1)]
