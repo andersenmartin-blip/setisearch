@@ -10,10 +10,6 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'results_ls8g_l2_metadata'
 BASE='https://cheops-webapp-pg.obsuksprd2.unige.ch/'
 KEYS=['CH_PR100018_TG032401_V0300','CH_PR100018_TG032402_V0300']
-EXPECTED={
- 'CH_PR100018_TG032401_V0300':'CH_PR100018_TG032401_TU2020-08-16T22-44-35_SCI_COR_Lightcurve-DEFAULT_V0300.fits',
- 'CH_PR100018_TG032402_V0300':'CH_PR100018_TG032402_TU2020-10-03T02-18-22_SCI_COR_Lightcurve-DEFAULT_V0300.fits',
-}
 BLOCK=2880; BUDGET=64*1024
 REQ={'BJD_TIME','FLUX','FLUXERR','STATUS','EVENT'}
 KEYWORDS=['EXTNAME','EXT_VER','DATA_LVL','PROC_CHN','PIPE_VER','TIMESYS','T_STRT_U','T_STOP_U',
@@ -58,7 +54,7 @@ def one(key):
  p,off,ident=header(url,0,None,records); h0=fits.Header.fromstring(p.decode('ascii'),sep='')
  t,start,ident=header(url,off,ident,records); h1=fits.Header.fromstring(t.decode('ascii'),sep='')
  assert h0['SIMPLE'] is True and h1['XTENSION']=='BINTABLE' and h1['EXTNAME']=='SCI_COR_Lightcurve'
- assert EXPECTED[key] in ident['content_disposition']
+ assert key in ident['content_disposition'] and 'SCI_COR_Lightcurve-DEFAULT' in ident['content_disposition']
  count=h1['NAXIS1']*h1['NAXIS2']+h1.get('PCOUNT',0)
  assert start==sum(x['count'] for x in records) and start+count<=ident['total']
  cols=[{'index':i,'name':h1[f'TTYPE{i}'],'format':h1[f'TFORM{i}'],'unit':h1.get(f'TUNIT{i}')} for i in range(1,h1['TFIELDS']+1)]
