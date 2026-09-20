@@ -363,3 +363,24 @@ remains NOT_READY and its technical request is unsent. Current report:
 results_ls8d_images/REPORT.md. Restart: LS8D_CONTINUATION.md. Standing
 publication authorization continues.
 
+
+20 September 2026, LS8J–LS8L: the bounded chronological CHEOPS census selected
+WASP-189, and a separately dated complete-inventory reconciliation preserved
+all 452 fresh product responses with unchanged 107-cohort order. The original
+missing full-inventory evidence is disclosed, not reconstructed as original.
+LS8K then screened both preselected visits (1,604 rows; 2,603 eligible windows),
+with two positive clusters and one negative control; its independent audit passes.
+
+The separately frozen LS8L image follow-up retained all three representatives.
+The stronger positive is SPATIALLY_STRUCTURED, the negative control is
+CORRECTION_LINKED, and the smaller positive stays UNRESOLVED_WITHIN_FIXED_SCOPE.
+All 283,611 numerical and 481,739 exact image checks pass. No new detector,
+SETI-candidate claim or qualified coverage is added. These labels are descriptive,
+not unique physical-cause determinations.
+
+Next freeze a bounded residual/noise study on the three already retained
+contexts, with both signed comparison cases and signal-loss/control accounting.
+The unresolved event's weak pure-brightness fit is not evidence for a stellar
+pulse. Preserve original gates and outcomes without widening pixels, apertures
+or visits. Current restart: LS8L_CONTINUATION.md. Existing publication authority,
+raw-imagette gate and reserved TESS/M43 boundaries continue.

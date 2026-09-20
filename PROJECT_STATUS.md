@@ -1,5 +1,49 @@
 # SETIsearch — current project status
 
+## 20 September LS8J–LS8L: WASP-189 pair and all image follow-ups complete
+
+The reconciled metadata-only first-1,000-public-row CHEOPS census selects
+WASP-189 as rank 1 among 107 eligible cohorts (452 eligible visits). The
+original run discarded full product-browser responses; a separately frozen
+reconciliation now retains all 452 fresh inventories with unchanged summaries
+and complete ranking. Original bytes and the historical limitation are preserved.
+
+LS8K evaluated the two preselected visits: **1,604 L2 rows, 2,603 eligible
+windows, two positive clusters and one negative control cluster**. All
+31,236 independent numerical/discrete comparisons pass.
+
+LS8L then completed the separately frozen CAL/COR image follow-up of all three
+representatives, after 174 unique native exposure joins. It acquired exactly
+**55,680,000 paired-image bytes + 139,200 smearing bytes**. Seven synthetic
+tests and the independent audit pass: **283,611 numerical comparisons and
+481,739 exact checks**, with zero disagreements.
+
+| Representative | Fixed result | Interpretation within the diagnostic |
+|---|---|---|
+| TG000201_P0, score +8.982074701 | UNRESOLVED_WITHIN_FIXED_SCOPE | Absolute DELTA/COR 0.10789–0.11186; displacement explains 48.614%, brightness about 5.66% |
+| TG000202_P0, score +60.894785514 | SPATIALLY_STRUCTURED | Displacement explains 88.331%; correction contribution about 5% |
+| TG000202_N0, score -23.271648387 | CORRECTION_LINKED | Absolute DELTA/COR 0.92196–0.94371 |
+
+**One smaller positive excursion remains unresolved.** This does not establish
+an astrophysical brightening or artificial signal. None of the three is a
+qualified SETI candidate; no detector or additional qualified observing
+coverage is claimed. The original L2 scores are not Gaussian significances.
+
+**Immediate next action:** freeze one bounded residual/noise diagnostic using
+only the three retained image contexts to establish why the smaller positive
+is not described by the current image model. Keep all signed comparison cases
+and explicit signal-protection/control tests; do not alter LS8L's original
+classifications or acquire more native data for this continuation.
+[Exact continuation](LS8L_CONTINUATION.md),
+[image result and maps](results_ls8l_images/REPORT.md),
+[L2 result and figure](results_ls8k_l2_screen/REPORT.md),
+[metadata reconciliation](results_ls8j_reconciliation/REPORT.md),
+[publication identities](PUBLICATION_2026-09-20_LS8J_LS8L.md).
+
+The entries below preserve earlier checkpoints and their historical next steps.
+The current work queue is the LS8L continuation above. The raw-imagette
+calibration gate remains separately NOT_READY, with its technical request unsent.
+
 ## 20 September LS8E–LS8I independent CHEOPS host sequence completed
 
 The prospectively frozen post-55-Cnc host sequence is complete. The unchanged
@@ -948,7 +992,7 @@ were hash checked. This is retrospective development, not fresh validation.
 | M43AF complete no-model study | Published and byte-verified: 502 records; 69 archive parts restore 508 original files |
 | Adopted new detector / new M43AF–M43AI astronomical candidate | None |
 | Earlier M33 HD 3651 case | Still unresolved; [investigation](MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
-| LS research | LS8B four-visit L2 transfer complete; seven positive and one negative cluster. Original numerical gate FAIL; separate centered repair verified. Next: saved-column diagnosis. Raw-imagette calibration unresolved. [LS7P reconstruction](results_ls7p_response/REPORT.md) preserved |
+| LS research | LS8J reconciliation and LS8K/LS8L WASP-189 follow-up complete; one smaller positive remains unresolved. Next: separately frozen diagnostic on retained image contexts. [Current continuation](LS8L_CONTINUATION.md) |
 
 M43AF's 502 records include 261 already completed historical acquisitions and
 the 241 training/baseline/null records. Its 940 scientific pins and earlier
