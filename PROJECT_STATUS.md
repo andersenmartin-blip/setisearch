@@ -1,5 +1,44 @@
 # SETIsearch — current project status
 
+## 20 September LS8N–LS8O: GJ 1132 screen and all negative-control images complete
+
+The unchanged rank-2 GJ 1132 pair supplied **615 L2 rows and 699 eligible
+overlapping windows**. There were **zero positive threshold crossings**;
+12 negative crossings formed **five clusters**. The independent L2 audit
+passes all **8,388 numerical/discrete comparisons** at unchanged tolerances.
+
+The separately frozen image study followed every negative representative,
+each spanning three 60-second exposures. **All five remain
+UNRESOLVED_WITHIN_FIXED_SCOPE.** Source bytes, masks and exposure joins are
+complete; the limitation is the fixed image model. Neither correction gate
+passes. TG000403_N1's displacement fit explains **79.74861% / 83.79823%** in
+C0/C1, so it misses the required 80% in both conventions. TG000403_N2's signed
+DELTA/COR ratio changes from **+0.37227 to -0.03201** between conventions.
+Pure-brightness fits explain only 0.214–4.016% across the five controls.
+
+Image metadata and audit verified **310 unique CAL/COR joins** before pixels.
+The frozen payload was **99,200,000 paired-image bytes + 248,000 smearing
+bytes**. Nine synthetic tests and the independent image audit pass:
+**472,685 numerical comparisons and 802,983 exact checks**, zero disagreements.
+There is no positive-glint detection, qualified SETI candidate, new detector
+qualification or additional qualified observing coverage.
+
+**Immediate next action:** freeze one integrated retained-data study of all
+five controls, addressing local variability of three-exposure sums, residual
+structure and the exact boundary contributions of the existing C0/C1 masks.
+Keep both synthetic signal signs and explicit signal-loss accounting; do not
+choose a favorable coordinate convention or retune the historical gates.
+Rank-3 HD 136352 remains a later independent transfer under its own freeze.
+[Scientific interpretation and exact continuation](LS8O_CONTINUATION.md),
+[image report and maps](results_ls8o_images/REPORT.md),
+[L2 screen and figure](results_ls8n_l2_screen/REPORT.md),
+[publication identities](PUBLICATION_2026-09-20_LS8N_LS8O.md).
+
+The sections below preserve historical checkpoints and their then-current
+next steps. The active work queue is the LS8O continuation above. The separate
+raw-imagette request remains unsent; closed WASP-189 and reserved TESS/M43 data
+remain unchanged.
+
 ## 20 September LS8M: bounded WASP-189 residual/noise study complete
 
 The smaller positive's unmatched COR image residual is **compact and comparable
@@ -1029,7 +1068,7 @@ were hash checked. This is retrospective development, not fresh validation.
 | M43AF complete no-model study | Published and byte-verified: 502 records; 69 archive parts restore 508 original files |
 | Adopted new detector / new M43AF–M43AI astronomical candidate | None |
 | Earlier M33 HD 3651 case | Still unresolved; [investigation](MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
-| LS research | LS8M bounded WASP-189 residual/noise study complete and audited; smaller positive remains unresolved, with compact residual energy close to local sideband variability. Next: separately frozen rank-2 GJ 1132 transfer with the unchanged L2 screen. [Current continuation](LS8M_CONTINUATION.md) |
+| LS research | LS8N/LS8O GJ 1132 screen and all image controls complete and audited: no positive crossing; five negative controls remain unresolved. Next: bounded retained-data study of three-row variability, residual structure and C0/C1 boundary sensitivity. [Current continuation](LS8O_CONTINUATION.md) |
 
 M43AF's 502 records include 261 already completed historical acquisitions and
 the 241 training/baseline/null records. Its 940 scientific pins and earlier

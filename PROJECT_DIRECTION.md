@@ -410,3 +410,34 @@ freeze and retains all signed representatives. Current restart:
 LS8M_CONTINUATION.md. Standing research/publication authorization continues;
 the separate raw-imagette request remains unsent and reserved TESS/M43 panels
 remain closed.
+
+20 September 2026, LS8N–LS8O: rank-2 GJ 1132 has completed its metadata-first
+independent transfer. The unchanged stable DEFAULT-L2 screen evaluated 615
+rows and 699 eligible windows, with zero positive crossings and five negative
+control clusters. All 8,388 independent L2 comparisons pass. Every negative
+representative received its separately frozen CAL/COR image follow-up after
+310 unique exposure joins. Nine synthetic tests and all 472,685 numerical /
+802,983 exact image checks pass.
+
+All five negative controls remain UNRESOLVED_WITHIN_FIXED_SCOPE. Complete
+apertures and matching signs rule out missing coverage as the reason for this
+label. No correction ratio reaches the fixed gate in both conventions. One
+displacement fit is 79.74861% in C0 and 83.79823% in C1; preserve the failure
+to pass both without rounding or choosing C1. Another event's signed
+DELTA/COR changes from +0.37227 to -0.03201 across the same two conventions.
+These are concrete coordinate/model limitations, not qualified candidates.
+
+Next freeze one integrated diagnostic on the five retained 31-row contexts:
+three-exposure-sum variability, residual structure, and explicit contributions
+of the two existing apertures' boundary difference. Retain every control,
+both coordinate conventions and both signs in synthetic signal-protection
+tests. Do not reuse LS8M's single-row noise/control procedure without a newly
+specified three-row treatment; do not derive a new veto from these closed
+events. Keep original labels and thresholds and stop after the bounded study.
+No new native pixels, rows, apertures or visits follow automatically.
+
+Rank-3 HD 136352 stays next for a later independent metadata-first transfer;
+the current continuation is LS8O_CONTINUATION.md. No qualified candidate,
+detector or coverage is added. Existing publication authority continues.
+Closed WASP-189, raw-imagette calibration boundaries, the unsent technical
+request and reserved TESS/M43 panels remain unchanged.
