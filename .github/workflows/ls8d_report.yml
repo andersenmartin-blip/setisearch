@@ -1,0 +1,70 @@
+name: LS8D audited result presentation
+
+on:
+  push:
+    branches: [m43-support-qualification]
+    paths:
+      - '.github/workflows/ls8d_report.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  report:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      PYTHONPATH: src:scripts
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+      - name: Verify audited inputs are unchanged
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object results_ls8d_images/summary.json)" = "853843f3f3e0a9a1c8672687a10b6818ecf4c952"
+          test "$(git hash-object results_ls8d_images/audit.json)" = "a2fe65bcde962fb7da1c18fc9c16c3fa68923c14"
+          test "$(git hash-object results_ls8d_images/diagnostics.json)" = "2fa6bf666c360f6db9a938fa7b5f5fc591e1d325"
+          python -m pip install -r requirements_ls7g.txt
+      - name: Generate readable report and fixed maps
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -u scripts/ls8d_report.py
+          test -s results_ls8d_images/REPORT.md
+          test -s results_ls8d_images/correction_gate_overview.png
+          test -s results_ls8d_images/correction_gate_overview.pdf
+          test "$(find results_ls8d_images -maxdepth 1 -name '*_CAL_COR_DELTA.png' | wc -l)" -eq 8
+          test "$(find results_ls8d_images -maxdepth 1 -name '*_CAL_COR_DELTA.pdf' | wc -l)" -eq 8
+          test "$(git hash-object results_ls8d_images/summary.json)" = "853843f3f3e0a9a1c8672687a10b6818ecf4c952"
+          test "$(git hash-object results_ls8d_images/audit.json)" = "a2fe65bcde962fb7da1c18fc9c16c3fa68923c14"
+          test "$(git hash-object results_ls8d_images/diagnostics.json)" = "2fa6bf666c360f6db9a938fa7b5f5fc591e1d325"
+      - name: Refresh complete result checksums
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          out=Path('results_ls8d_images')
+          rows=[]
+          for p in sorted(x for x in out.rglob('*') if x.is_file() and x.name!='SHA256SUMS'):
+              rows.append(f'{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.relative_to(out)}\n')
+          (out/'SHA256SUMS').write_text(''.join(rows))
+          PY
+          (cd results_ls8d_images && sha256sum -c SHA256SUMS)
+      - name: Publish readable audited result
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add results_ls8d_images scripts/ls8d_report.py
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish readable LS8D report and paired image maps'
+          git push origin HEAD:m43-support-qualification
