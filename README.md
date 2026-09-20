@@ -17,6 +17,36 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+**LS8Q–LS8R HD 136352 screen and image follow-up completed and closed,
+20 September 2026.** The unchanged rank-3 pair supplied **1,125 rows and
+1,923 eligible overlapping windows**, with **no positive threshold crossing**.
+Thirteen negative crossings formed three clusters; all received the
+prospectively frozen CAL/COR image diagnostic.
+
+**All three are CORRECTION_LINKED in both coordinate conventions.** Direct
+signed DELTA/COR aperture-sum ratios are **0.55856–0.81381**, above the
+unchanged 0.5 gate. This identifies coupling to delivered processing; it
+does not identify a unique physical cause or exclude source variability.
+There is no qualified SETI candidate, new detector or coverage qualification.
+
+Both L2 tests, all **23,076 L2 comparisons**, nine image tests and **283,611
+numerical plus 481,748 exact image checks** pass without disagreements.
+All three image figures and the L2 figure were checksum verified and
+visually inspected. Each L2 row stacks 26 exposures into approximately
+44.2 seconds; the individual 1.7-second exposures are not resolved.
+
+**Current next action:** separately freeze the metadata/header preflight
+for **rank-4 TESS_260647166's CHEOPS pair**, then its exact DEFAULT-L2 ranges
+and unchanged screen. Its ledger integrations are 42 and 49 seconds; each
+visit needs its own exposure verification. The HD 136352 pair is closed.
+[Scientific interpretation and continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8R_CONTINUATION.md),
+[image report and three figures](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8r_images/REPORT.md),
+[L2 report and figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8q_l2_screen/REPORT.md),
+[publication identities](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PUBLICATION_2026-09-20_LS8Q_LS8R.md).
+
+Earlier checkpoints below retain historical next steps; the active work
+queue is the LS8R continuation above.
+
 **LS8P GJ 1132 retained-data study completed and closed, 20 September 2026.**
 All five original negative controls remain unresolved, and LS8N still has
 **no positive threshold crossing in 699 eligible windows**.
