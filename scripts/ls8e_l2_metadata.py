@@ -17,6 +17,12 @@ KEYS = [
     "CH_PR100018_TG032801_V0300",
     "CH_PR100018_TG032802_V0300",
 ]
+EXPECTED_DEFAULTS = {
+    "CH_PR100018_TG032801_V0300":
+        "CH_PR100018_TG032801_TU2020-08-16T11-22-01_SCI_COR_Lightcurve-DEFAULT_V0300.fits",
+    "CH_PR100018_TG032802_V0300":
+        "CH_PR100018_TG032802_TU2020-09-22T19-18-30_SCI_COR_Lightcurve-DEFAULT_V0300.fits",
+}
 BUDGET = 64 * 1024
 BLOCK = 2880
 SAFE = {
@@ -114,7 +120,7 @@ def summarize(key: str) -> dict:
     h1 = fits.Header.fromstring(table_header.decode("ascii"), sep="")
     assert h1["XTENSION"] == "BINTABLE"
     assert h1.get("EXTNAME") == "SCI_COR_Lightcurve"
-    assert key in identity["content_disposition"]
+    assert EXPECTED_DEFAULTS[key] in identity["content_disposition"], identity["content_disposition"]
     assert key.endswith("_V0300")
 
     declared = h1["NAXIS1"] * h1["NAXIS2"] + h1.get("PCOUNT", 0)
