@@ -17,6 +17,32 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+**LS8E–LS8I independent CHEOPS host sequence completed, 20 September 2026.**
+The prospectively frozen post-55-Cnc sequence evaluated GJ 876, GJ 514,
+GJ 849 and GJ 649 with the unchanged DEFAULT-L2 cadence screen. GJ 876,
+GJ 514 and GJ 649 are clean two-visit null results. The frozen host ledger is
+now exhausted under its unchanged requirement of at least two eligible visits.
+
+GJ 849 produced one audited positive L2 cluster, representative score
+**23.470080** at one 42-second row. Its separately frozen paired CAL/COR image
+diagnostic acquired **18,560,000 image bytes + 46,400 smearing bytes** and
+classified the event as **SPATIALLY_STRUCTURED**, not correction-linked:
+|DELTA/COR| is only **0.03536 / 0.03276**, while the fixed displacement model
+explains **87.801% / 87.800%** of COR event-map energy in C0/C1. The image audit
+passes 94,537 numerical and 160,581 exact checks with zero disagreements.
+This is a morphological label, not a unique physical-cause determination or a
+SETI candidate.
+
+The final GJ 649 screen contains **381 eligible windows with zero signed
+threshold crossings** and passes 4,572 independent comparisons.
+[LS8H image result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8h_images/REPORT.md),
+[LS8I survey closure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8i_l2_screen/REPORT.md).
+
+**Next:** begin a new metadata-only independent population/dataset selection.
+Freeze its population, target-name authority, product requirements, visit
+multiplicity and deterministic ranking before opening new science values.
+[Exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8I_CONTINUATION.md).
+
 **LS8D: all eight retained CHEOPS excursions are correction-linked, 20 September 2026.**
 The paired CAL/COR study was frozen before image access, after 482 unique
 exposure joins were verified. It then acquired exactly **154,240,000 image
