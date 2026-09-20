@@ -1,0 +1,270 @@
+{
+  "stage": "LS8U",
+  "status": "FROZEN_BEFORE_NEW_NATIVE_DERIVED_CALCULATION",
+  "source_commit": "3e0bd85cee4b191f4bbe82b499977976c1b1484a",
+  "parent_status_commit": "7e76ab3a8d3b3e0870a7963bf921b22655e45d6f",
+  "input_pins": {
+    "config/ls8t_images.json": "2b42fdec0e195c49569463c9e969a3b3de6bfed2958158786ecaf7737f20da69",
+    "results_ls8t_images/SHA256SUMS": "744e5f59e1e13544a014d9e896bb88012bc756fae241a2bdda421d5103725764",
+    "src/seti_repeater/cheops_image_pair.py": "54255f3b8a21ebb4c279243ce152b1501549f588630833d862657bc96131463f",
+    "src/seti_repeater/cheops_residual_noise.py": "bb3a9e79a45afdce9a333a14c3f7391c8f7e98c078415498a98a72a808811d54",
+    "src/seti_repeater/cheops_three_sum_noise.py": "395a85ea52c97280ff7cdc0aff8de19d15208d4514f1bc1af7c201c3d3031444",
+    "scripts/ls8m_audit.py": "5442b5c36a5a7a1983b1df3c1eaeda7ddbc6513b4e77b6f1eba2b1a1d43c8b41",
+    "scripts/ls8p_audit.py": "b724119740465aba6ce2704599938b74518c3c41f225600e30ae907323e2fd3e",
+    "scripts/ls8k_l2_screen.py": "45a0d1adfc7fafb11a76d4252c0f5f12be85b842283e2fc5e987224ddd63d8f5",
+    "requirements_ls7g.txt": "91ee23ffbffa3558752914eb4589ca9e021e3b7d7b449fe606549eba880e1d9e",
+    "LS8T_CONTINUATION.md": "40fb407fc1f15e5a467039a04e6c064c755634fc7826bcd77a7e63898c72e9a1",
+    "tests/test_ls8m_residuals.py": "7b5614f522c25e1fbd61909fb1c2aa3dcc4e3955e0983ca8876d8e29ed982a5c",
+    "results_ls8s_l2_metadata/CH_PR100031_TG015701_V0300/lightcurve_header.bin": "81febb62abb5535ed0af6fa9509f4e2a09433391b54b0ba670c5aaf93639b27e",
+    "results_ls8s_l2_metadata/CH_PR300046_TG000101_V0300/lightcurve_header.bin": "9b1699716b05b53d14fbcfa9a99e8eaf2338e9c0cd590301b8dee626e5cfdb5d",
+    "results_ls8s_l2_screen/CH_PR100031_TG015701_V0300/lightcurve_table.bin": "8890b84a5a1b2b5bcc03060e1e152ed69fcdc0963792564e450a723011729e78",
+    "results_ls8s_l2_screen/CH_PR300046_TG000101_V0300/lightcurve_table.bin": "5d0ac3d7dc9bdfd3f07c3475142f9d3e4e022fe9bc7b34792d310addad72ed35"
+  },
+  "context_ids": [
+    "TG000101_N0",
+    "TG015701_P0"
+  ],
+  "held_guard_rows_each_side": 2,
+  "center_conventions": [
+    0,
+    1
+  ],
+  "radius_pixels": 25,
+  "annulus_pixels": [
+    30,
+    40
+  ],
+  "variance_shrinkage": 0.5,
+  "temporal_model": "pooled training-only zero-padded biased autocorrelation; Bartlett lag 2; cadence-blocked",
+  "lag_tapers": [
+    0.6666666666666666,
+    0.3333333333333333
+  ],
+  "radial_edges_pixels": [
+    0,
+    8,
+    16,
+    25
+  ],
+  "compact_offsets_xy": [
+    [
+      0,
+      0
+    ],
+    [
+      10,
+      0
+    ],
+    [
+      0,
+      10
+    ],
+    [
+      -10,
+      0
+    ],
+    [
+      0,
+      -10
+    ]
+  ],
+  "brightness_per_exposure": 0.001,
+  "displacement_per_exposure": 0.05,
+  "compact_sum_sideband_sd": 5.0,
+  "new_source_bytes_authorized": 0,
+  "new_classifier": false,
+  "audit_rtol": 2e-08,
+  "audit_atol_native": 1e-06,
+  "audit_atol_dimensionless": 1e-08,
+  "signed_control_max_error": 1e-09,
+  "contexts": {
+    "TG000101_N0": {
+      "duration_rows": 3,
+      "cadence_seconds": 42,
+      "side_rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "event_rows": [
+        14,
+        15,
+        16
+      ],
+      "held_blocks": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          3,
+          4,
+          5
+        ],
+        [
+          6,
+          7,
+          8
+        ],
+        [
+          9,
+          10,
+          11
+        ],
+        [
+          19,
+          20,
+          21
+        ],
+        [
+          22,
+          23,
+          24
+        ],
+        [
+          25,
+          26,
+          27
+        ],
+        [
+          28,
+          29,
+          30
+        ]
+      ]
+    },
+    "TG015701_P0": {
+      "duration_rows": 1,
+      "cadence_seconds": 49,
+      "side_rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "event_rows": [
+        14
+      ],
+      "held_blocks": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ],
+        [
+          9
+        ],
+        [
+          10
+        ],
+        [
+          11
+        ],
+        [
+          17
+        ],
+        [
+          18
+        ],
+        [
+          19
+        ],
+        [
+          20
+        ],
+        [
+          21
+        ],
+        [
+          22
+        ],
+        [
+          23
+        ],
+        [
+          24
+        ],
+        [
+          25
+        ],
+        [
+          26
+        ],
+        [
+          27
+        ],
+        [
+          28
+        ]
+      ]
+    }
+  },
+  "contiguous_cadence_factors": [
+    0.5,
+    1.5
+  ]
+}
