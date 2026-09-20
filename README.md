@@ -17,6 +17,30 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+**LS8D: all eight retained CHEOPS excursions are correction-linked, 20 September 2026.**
+The paired CAL/COR study was frozen before image access, after 482 unique
+exposure joins were verified. It then acquired exactly **154,240,000 image
+bytes** plus **385,600 smearing-row bytes** for the eight fixed LS8B/LS8C
+representatives.
+
+All seven positive excursions and the single negative control satisfy the same
+predeclared **CORRECTION_LINKED** rule in both coordinate conventions. For the
+positive events, absolute CAL→COR DELTA/COR is **1.331–2.431**; for the negative
+control it is **0.857–0.884**. This establishes material coupling to the
+delivered correction chain, not a unique physical cause and not artificial or
+astrophysical origin.
+
+Seven synthetic tests passed before image access. The independent audit passes
+**756,296 numerical comparisons and 1,284,709 exact checks** with zero
+disagreements. The original LS8B audit FAIL remains preserved, no raw imagette
+was opened and no detector is qualified.
+[Full report and CAL/COR/DELTA maps](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8d_images/REPORT.md).
+
+**Next:** close these eight 55 Cnc branches without widening. Select the next
+independent optical dataset/product under a new metadata-only freeze before
+reading new light-curve values or image pixels.
+[Exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8D_CONTINUATION.md).
+
 **LS8C: all seven positive CHEOPS excursions share a smearing/roll pattern, 19 September 2026.**
 The frozen diagnosis of all eight LS8B representatives uses only saved L2
 tables. Every positive representative coincides with a large smearing-column
