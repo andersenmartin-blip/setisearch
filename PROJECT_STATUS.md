@@ -1,5 +1,42 @@
 # SETIsearch — current project status
 
+## 20 September LS8M: bounded WASP-189 residual/noise study complete
+
+The smaller positive's unmatched COR image residual is **compact and comparable
+in weighted energy to the local sideband reference**. Ten pixels account for
+48.393–48.514% of weighted residual energy, and native pixel (105,106) alone
+for 18.805–18.891%. The combined-model residual/reference ratio is
+**1.10127–1.10616** in C0/C1; **8/24 and 7/24** held-sideband controls are at
+least as large. Those overlapping control ranks are not false-alarm probabilities.
+
+The study does not prove that the full selected excursion is ordinary noise or
+identify the compact feature's physical cause. **TG000201_P0 remains
+UNRESOLVED_WITHIN_FIXED_SCOPE.** The stronger positive and negative comparison
+keep their original SPATIALLY_STRUCTURED and CORRECTION_LINKED labels. Their
+COR weighted residual/reference ratios are 1.80071–1.89187 and
+10.86307–10.88848 respectively. No new classification rule is adopted.
+
+All three retained contexts, both products and both center conventions are
+complete, including **288 held-sideband cases and 192 signed injection cases**.
+Eight pre-analysis tests and the independent audit pass: **790,128 numerical
+comparisons and 911,228 exact checks**, with zero disagreements. No new native
+source bytes were acquired. Hypothetical displacement removal loses about
+8% of the smaller event's injected brightness flux; it is not adopted.
+
+**Immediate next action:** close this bounded WASP-189 follow-up and prepare
+a separately frozen metadata-first transfer to **rank-2 GJ 1132**, using its
+two already ledger-selected visits and the unchanged stable DEFAULT-L2 screen.
+Do not apply LS8M's weights or residual measures as new screening cuts. No
+qualified candidate, detector or additional observing coverage is claimed.
+[Scientific interpretation and exact continuation](LS8M_CONTINUATION.md),
+[full result and figures](results_ls8m_residuals/REPORT.md),
+[frozen protocol](LS8M_RESIDUAL_NOISE_PROTOCOL.md),
+[publication identities](PUBLICATION_2026-09-20_LS8M.md).
+
+The sections below preserve historical checkpoints and their then-current next
+steps. The active work queue is the LS8M continuation above. The separate
+raw-imagette calibration request remains unsent; reserved TESS/M43 data stay closed.
+
 ## 20 September LS8J–LS8L: WASP-189 pair and all image follow-ups complete
 
 The reconciled metadata-only first-1,000-public-row CHEOPS census selects
@@ -992,7 +1029,7 @@ were hash checked. This is retrospective development, not fresh validation.
 | M43AF complete no-model study | Published and byte-verified: 502 records; 69 archive parts restore 508 original files |
 | Adopted new detector / new M43AF–M43AI astronomical candidate | None |
 | Earlier M33 HD 3651 case | Still unresolved; [investigation](MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
-| LS research | LS8J reconciliation and LS8K/LS8L WASP-189 follow-up complete; one smaller positive remains unresolved. Next: separately frozen diagnostic on retained image contexts. [Current continuation](LS8L_CONTINUATION.md) |
+| LS research | LS8M bounded WASP-189 residual/noise study complete and audited; smaller positive remains unresolved, with compact residual energy close to local sideband variability. Next: separately frozen rank-2 GJ 1132 transfer with the unchanged L2 screen. [Current continuation](LS8M_CONTINUATION.md) |
 
 M43AF's 502 records include 261 already completed historical acquisitions and
 the 241 training/baseline/null records. Its 940 scientific pins and earlier

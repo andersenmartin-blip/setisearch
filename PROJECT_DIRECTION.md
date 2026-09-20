@@ -384,3 +384,29 @@ The unresolved event's weak pure-brightness fit is not evidence for a stellar
 pulse. Preserve original gates and outcomes without widening pixels, apertures
 or visits. Current restart: LS8L_CONTINUATION.md. Existing publication authority,
 raw-imagette gate and reserved TESS/M43 boundaries continue.
+
+20 September 2026, LS8M: the prospectively frozen integrated residual/noise
+study is complete on all three retained WASP-189 contexts. The smaller positive
+has a compact COR residual: ten pixels carry 48.393–48.514% of weighted
+residual energy, while total weighted residual/reference energy is only
+1.10127–1.10616. Eight and seven of the 24 overlapping sideband controls are at
+least as large in C0/C1. This does not establish that the entire selected event
+is ordinary noise, nor does it identify a unique physical cause. Keep its
+historical UNRESOLVED_WITHIN_FIXED_SCOPE label and both signed comparison labels.
+
+All 288 held-sideband cases and 192 signed injections are retained. Eight
+pre-analysis tests pass, as do 790,128 independent numerical comparisons and
+911,228 exact checks. The hypothetical displacement removal has measured
+brightness-signal loss and is not adopted. No new source bytes, pixels,
+apertures, visits, classifier, qualified candidate or qualified coverage were
+added. Stop the bounded WASP-189 saved-data branch here, without further tuning.
+
+Next separately freeze metadata-first transfer to rank-2 GJ 1132 from the
+unchanged reconciled LS8J ledger: CH_PR100041_TG000401_V0300 and
+CH_PR100041_TG000403_V0300. Preserve the stable LS8K DEFAULT-L2 screen, both
+signs and its audit. LS8M's weights and residual measures are not new selection
+or veto criteria. Any image follow-up requires its own exact exposure/byte
+freeze and retains all signed representatives. Current restart:
+LS8M_CONTINUATION.md. Standing research/publication authorization continues;
+the separate raw-imagette request remains unsent and reserved TESS/M43 panels
+remain closed.
