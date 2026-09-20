@@ -1,0 +1,48 @@
+name: LS8I GJ649 DEFAULT L2 header preflight
+
+on:
+  push:
+    branches: [m43-support-qualification]
+    paths:
+      - '.github/workflows/ls8i_l2_metadata.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  metadata:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+      - run: python -m pip install astropy==7.0.2
+      - name: Run bounded LS8I metadata preflight
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -u scripts/ls8i_l2_metadata.py | tee /tmp/ls8i.log
+          cp /tmp/ls8i.log results_ls8i_l2_metadata/RUN.log
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          s=json.loads(Path('results_ls8i_l2_metadata/summary.json').read_text())
+          assert s['status']=='PASS_COMPATIBLE'
+          assert s['selected_keys']==['CH_PR100018_TG018601_V0300','CH_PR100018_TG031201_V0300']
+          assert s['table_data_bytes_acquired']==0
+          assert s['lightcurve_values_read']==0
+          assert s['image_pixels_read']==0
+          PY
+      - name: Publish LS8I header preflight
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add results_ls8i_l2_metadata
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish LS8I GJ 649 DEFAULT L2 header preflight'
+          git push origin HEAD:m43-support-qualification
