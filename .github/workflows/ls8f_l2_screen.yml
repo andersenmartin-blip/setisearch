@@ -51,34 +51,6 @@ jobs:
           assert s['totals']['science_table_bytes']==20976
           assert s['image_bytes_acquired']==0
           assert s['raw_imagettes_opened'] is False
-          report=f"""# LS8F: audited two-visit GJ 514 DEFAULT-L2 screen
-
-Completed 20 September 2026. The two exact GJ 514 visits were selected
-mechanically from the already frozen LS8E metadata ledger before science-table
-access. Header-only preflight established a compatible DEFAULT-L2 schema with
-zero table bytes before this screen was frozen.
-
-## Result
-
-- visits: `CH_PR100018_TG007501_V0300`, `CH_PR100018_TG007502_V0300`
-- rows: **{s['totals']['rows']}**
-- eligible 1/2/3-row windows: **{s['totals']['eligible_windows']}**
-- positive windows / clusters: **{s['totals']['positive_windows']} / {s['totals']['positive_clusters']}**
-- negative windows / clusters: **{s['totals']['negative_windows']} / {s['totals']['negative_clusters']}**
-- exact science-table bytes: **{s['totals']['science_table_bytes']}**
-- independent audit: **PASS**, {a['numeric_and_discrete_comparisons']:,} comparisons
-- image bytes: **0**
-
-The unchanged flux-centered cadence-unit rule, durations, sidebands, guards,
-eligibility and symmetric +/-8.5 endpoints were fixed before the table values
-were opened. Signed screen values are descriptive controls, not Gaussian
-significances. Overlapping windows are not independent trials.
-
-Any threshold crossing remains only an L2 excursion. CAL/COR image access
-requires a separately frozen diagnostic after this complete two-visit result.
-No raw imagette, alternate aperture or additional GJ 514 visit is opened here.
-"""
-          (p/'REPORT.md').write_text(report)
           PY
       - name: Publish audited LS8F result
         shell: bash
