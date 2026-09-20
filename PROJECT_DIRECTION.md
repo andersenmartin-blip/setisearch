@@ -441,3 +441,27 @@ the current continuation is LS8O_CONTINUATION.md. No qualified candidate,
 detector or coverage is added. Existing publication authority continues.
 Closed WASP-189, raw-imagette calibration boundaries, the unsent technical
 request and reserved TESS/M43 panels remain unchanged.
+
+
+20 September 2026: LS8P completes and closes the single bounded GJ 1132
+retained-data follow-up. The three-row temporal covariance model and all
+160 held-block cases quantify local variability without a calibrated
+significance claim. Exact C0/C1 boundary accounting explains the previously
+noted signed correction-budget change. All five original LS8O controls
+remain unresolved, and LS8N still has zero positive crossings.
+
+A hypothetical displacement-plus-constant subtraction loses 24–38% of
+injected brightness flux and is not adopted. The initial audit serialization
+failure is retained; a separately frozen NumPy-coordinate representation
+repair passes the same independent audit, with no scientific arithmetic or
+tolerance change and no producer rerun. All 320 signed controls are retained;
+1,400,704 numerical comparisons and 1,529,059 exact checks pass. The verified
+result is in results_ls8p_verified.
+
+Continue with rank-3 HD 136352's unchanged chronological pair under separate
+metadata/header and exact science-byte freezes. Use the original stable
+DEFAULT-L2 screen, without transferring LS8P residual measures as cuts.
+Do not reopen this bounded GJ 1132 study merely to improve closure or change
+its coordinate convention. LS8P_CONTINUATION.md is the current restart point.
+No qualified candidate, detector or observing coverage is added. The separate
+raw-imagette calibration request remains unsent; reserved data stay closed.

@@ -1,5 +1,54 @@
 # SETIsearch — current project status
 
+## 20 September LS8P: GJ 1132 retained-data study complete and closed
+
+All five negative controls retain **UNRESOLVED_WITHIN_FIXED_SCOPE**. The
+three-exposure noise and boundary study is complete; LS8N's **zero positive
+crossings among 699 eligible overlapping windows** is unchanged. No event
+is promoted and no detector or observing coverage is qualified.
+
+The frozen short-lag covariance model raises COR event-variance estimates
+by about **37–67%** compared with IID propagation. The combined COR
+residual/reference energy ratio is **1.43–2.02**; **6/8** held blocks are at
+least as large for TG000401_N0 and **8/8** for each of the four TG000403
+controls, in both conventions. These dependent control comparisons and
+estimated covariance ratios are descriptive, not calibrated probabilities.
+
+TG000403_N2's coordinate-sensitive DELTA sum is accounted for exactly by
+its two 71-pixel exclusive boundary sets: **-17,526.621987 ADU** in C0-only
+pixels and **+294.173710 ADU** in C1-only pixels. Their difference explains
+the **+17,820.795698 ADU** change between full apertures. This localizes the
+numerical sensitivity without identifying a unique physical cause or
+removing pixels. All original gates and labels remain unchanged.
+
+A hypothetical displacement-plus-constant subtraction loses **24–38% of
+injected brightness flux** across CAL/COR and C0/C1; it is not adopted.
+All five contexts, **160 held three-row cases and 320 signed controls** are
+retained. Seventeen pre-analysis tests and one serialization regression
+pass. The independent audit passes **1,400,704 numerical comparisons and
+1,529,059 exact checks**, with no disagreements. No new archive bytes were
+acquired; all five residual figures were inspected.
+
+The initial complete producer run stopped at JSON serialization of NumPy
+integer audit coordinates. Its result and error log remain unchanged in
+`results_ls8p_residuals`. A separately frozen representation-only repair
+completed the same audit in **`results_ls8p_verified`**, without rerunning
+the producer or changing arithmetic, tolerances or scientific scope.
+
+**Immediate next action:** separately freeze a metadata-first independent
+transfer to **rank-3 HD 136352**, using its already selected chronological
+pair and the unchanged stable DEFAULT-L2 screen. The GJ 1132 bounded study
+is closed; its new residual measures are not screening cuts.
+[Scientific interpretation and exact continuation](LS8P_CONTINUATION.md),
+[verified report and all figures](results_ls8p_verified/REPORT.md),
+[scientific freeze](LS8P_THREE_SUM_PROTOCOL.md),
+[preserved failure and repair](LS8P_AUDIT_RECOVERY.md),
+[publication identities](PUBLICATION_2026-09-20_LS8P.md).
+
+Older sections below retain their historical next steps. The active work
+queue is the LS8P continuation above. The raw-imagette calibration request
+remains unsent; closed WASP-189 and reserved TESS/M43 material are unchanged.
+
 ## 20 September LS8N–LS8O: GJ 1132 screen and all negative-control images complete
 
 The unchanged rank-2 GJ 1132 pair supplied **615 L2 rows and 699 eligible
@@ -1068,7 +1117,7 @@ were hash checked. This is retrospective development, not fresh validation.
 | M43AF complete no-model study | Published and byte-verified: 502 records; 69 archive parts restore 508 original files |
 | Adopted new detector / new M43AF–M43AI astronomical candidate | None |
 | Earlier M33 HD 3651 case | Still unresolved; [investigation](MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
-| LS research | LS8N/LS8O GJ 1132 screen and all image controls complete and audited: no positive crossing; five negative controls remain unresolved. Next: bounded retained-data study of three-row variability, residual structure and C0/C1 boundary sensitivity. [Current continuation](LS8O_CONTINUATION.md) |
+| LS research | LS8P GJ 1132 three-row variability, residual and exact coordinate-boundary study complete and independently audited; original five unresolved labels and zero positive crossings preserved. Bounded study closed. Next: separately frozen rank-3 HD 136352 metadata-first transfer. [Current continuation](LS8P_CONTINUATION.md) |
 
 M43AF's 502 records include 261 already completed historical acquisitions and
 the 241 training/baseline/null records. Its 940 scientific pins and earlier
