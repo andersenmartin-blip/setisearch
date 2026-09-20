@@ -17,6 +17,36 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+**LS8N–LS8O GJ 1132 screen and all image controls completed, 20 September 2026.**
+The unchanged rank-2 pair supplied **615 L2 rows and 699 eligible overlapping
+windows**. There were **no positive threshold crossings**; 12 negative
+crossings formed **five control clusters**.
+
+All five received a separately frozen CAL/COR image follow-up. They remain
+**UNRESOLVED_WITHIN_FIXED_SCOPE** with complete image coverage and matching
+signs. One displacement fit explains **79.74861% / 83.79823%** in the two
+coordinate conventions, missing the requirement of at least 80% in both.
+Another control's correction ratio changes sign between conventions.
+These are model limitations, with no qualified SETI candidate or new detector
+or coverage qualification.
+
+The L2 audit passes **8,388 comparisons**. Nine image tests and **472,685
+numerical comparisons plus 802,983 exact checks** pass with zero disagreements.
+Every signed outcome, source range, image context and audit is retained.
+
+**Current next action:** freeze one bounded study using the five saved
+contexts to examine variability of three-exposure sums, residual structure
+and the boundary difference between the existing coordinate conventions.
+The original gates and labels remain fixed. Rank-3 HD 136352 stays next for
+a later, separately frozen independent transfer.
+[Scientific interpretation and exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8O_CONTINUATION.md),
+[image report and maps](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8o_images/REPORT.md),
+[L2 screen and figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8n_l2_screen/REPORT.md),
+[publication identities](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PUBLICATION_2026-09-20_LS8N_LS8O.md).
+
+Earlier checkpoints below retain their historical next steps; the active
+work queue is the LS8O continuation above.
+
 **LS8M bounded WASP-189 residual/noise study completed, 20 September 2026.**
 The smaller positive's residual is concentrated in a few pixels and is
 comparable in weighted energy to local sideband variability: its
