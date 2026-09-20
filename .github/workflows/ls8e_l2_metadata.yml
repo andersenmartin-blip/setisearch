@@ -1,0 +1,93 @@
+name: LS8E GJ876 DEFAULT L2 header preflight
+
+on:
+  push:
+    branches: [m43-support-qualification]
+    paths:
+      - '.github/workflows/ls8e_l2_metadata.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ls8e-gj876-l2-metadata
+  cancel-in-progress: false
+
+jobs:
+  metadata:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      FROZEN: 7f879f1ae9b793d6376e4a8e698fdf3d8be95963
+      PYTHONPATH: src:scripts
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+      - name: Create frozen metadata worktree
+        shell: bash
+        run: |
+          set -euo pipefail
+          git worktree add /tmp/ls8e-meta "$FROZEN"
+          test "$(git -C /tmp/ls8e-meta rev-parse HEAD)" = "$FROZEN"
+          python -m pip install -r /tmp/ls8e-meta/requirements_ls7g.txt
+      - name: Run exact bounded header-only preflight
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd /tmp/ls8e-meta
+          python -u scripts/ls8e_l2_metadata.py 2>&1 | tee /tmp/ls8e_l2_metadata.log
+          cp /tmp/ls8e_l2_metadata.log results_ls8e_l2_metadata/RUN.log
+          python -m pip freeze > results_ls8e_l2_metadata/environment.txt
+      - name: Enforce zero table-data access and compatibility
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd /tmp/ls8e-meta
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          out=Path('results_ls8e_l2_metadata')
+          s=json.loads((out/'summary.json').read_text())
+          assert s['status']=='PASS_COMPATIBLE', s
+          assert s['compatible_schema'] is True
+          assert s['table_data_bytes_acquired']==0
+          assert s['lightcurve_values_read']==0
+          assert s['image_pixels_read']==0
+          assert s['selected_keys']==[
+              'CH_PR100018_TG032801_V0300',
+              'CH_PR100018_TG032802_V0300',
+          ]
+          for r in s['products']:
+              assert r['status']=='METADATA_ONLY'
+              assert r['table_data_bytes_acquired']==0
+              assert r['lightcurve_values_read']==0
+              assert r['image_pixels_read']==0
+              assert r['keywords']['PIPE_VER']=='14.1.2'
+              assert int(r['keywords']['NEXP'])==14
+              assert abs(float(r['keywords']['EXPTIME'])-3.0)<1e-9
+              assert abs(float(r['keywords']['TEXPTIME'])-42.0)<1e-6
+              ranges=json.loads((out/r['file_key']/'ranges.json').read_text())
+              assert ranges['total_bytes_read']==r['table_data_start']
+              assert ranges['total_bytes_read']<=65536
+          rows=[]
+          for p in sorted(x for x in out.rglob('*') if x.is_file() and x.name!='SHA256SUMS'):
+              rows.append(f'{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.relative_to(out)}\n')
+          (out/'SHA256SUMS').write_text(''.join(rows))
+          PY
+          (cd results_ls8e_l2_metadata && sha256sum -c SHA256SUMS)
+      - name: Publish LS8E header metadata freeze
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git -C /tmp/ls8e-meta rev-parse HEAD)" = "$FROZEN"
+          rm -rf results_ls8e_l2_metadata
+          cp -a /tmp/ls8e-meta/results_ls8e_l2_metadata .
+          git add results_ls8e_l2_metadata
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish LS8E GJ 876 DEFAULT L2 header freeze'
+          git push origin HEAD:m43-support-qualification
