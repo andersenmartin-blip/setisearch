@@ -1,0 +1,61 @@
+name: LS8M frozen retained-image residual and noise study
+on:
+  push:
+    branches: [m43-support-qualification]
+    paths: ['.github/workflows/ls8m_residuals.yml']
+permissions:
+  contents: write
+concurrency:
+  group: ls8m-residuals
+  cancel-in-progress: false
+jobs:
+  residuals:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      PYTHONPATH: src:scripts
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+      - run: python -m pip install -r requirements_ls7g.txt
+      - name: Test, analyze retained data, audit and report
+        id: study
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m unittest tests.test_ls8m_residuals -v 2>&1 | tee /tmp/ls8m_tests.log
+          python -u scripts/ls8m_residuals.py 2>&1 | tee /tmp/ls8m_residuals.log
+          python -u scripts/ls8m_audit.py 2>&1 | tee /tmp/ls8m_audit.log
+          python -u scripts/ls8m_report.py 2>&1 | tee /tmp/ls8m_report.log
+      - name: Preserve complete or failed bounded outcome
+        if: always()
+        env:
+          RUN_OUTCOME: ${{ steps.study.outcome }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p results_ls8m_residuals
+          for f in /tmp/ls8m_tests.log /tmp/ls8m_residuals.log /tmp/ls8m_audit.log /tmp/ls8m_report.log; do
+            if test -f "$f"; then cp "$f" results_ls8m_residuals/; fi
+          done
+          python -m pip freeze | sort > results_ls8m_residuals/environment.txt
+          python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          out=Path('results_ls8m_residuals'); result=out/'summary.json'
+          status=json.loads(result.read_text())['status'] if result.exists() else 'INCOMPLETE'
+          (out/'RUN_STATUS.json').write_text(json.dumps({'execution_outcome':os.environ['RUN_OUTCOME'],'scientific_status':status,'freeze_commit':os.environ['GITHUB_SHA']},indent=2)+'\n')
+          (out/'SHA256SUMS').write_text(''.join(f'{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.relative_to(out)}\n' for p in sorted(out.rglob('*')) if p.is_file() and p.name!='SHA256SUMS'))
+          PY
+          git add results_ls8m_residuals
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish bounded LS8M retained-image residual study, controls and independent audit'
+          git push origin HEAD:m43-support-qualification
