@@ -17,6 +17,37 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+**LS8K–LS8L WASP-189 screening and image follow-up completed, 20 September 2026.**
+The new chronology-selected pair supplied **1,604 L2 rows and 2,603 eligible
+windows**, retaining two positive clusters and one negative control. The
+separately frozen CAL/COR image study followed all three representatives:
+
+- The stronger positive is **SPATIALLY_STRUCTURED**: displacement explains
+  **88.331%** of the event-map energy.
+- The negative control is **CORRECTION_LINKED**, with absolute DELTA/COR
+  **0.92196–0.94371**.
+- The smaller positive remains **UNRESOLVED_WITHIN_FIXED_SCOPE**: neither
+  closure gate passes, while the pure-brightness template explains only about
+  **5.66%** of its event-map energy.
+
+There is **no qualified SETI candidate**. The labels do not uniquely establish
+physical cause, and the L2 scores are not Gaussian significances. Seven image
+tests, **283,611 numerical comparisons and 481,739 exact checks** pass with
+zero disagreements. The L2 audit separately passes all 31,236 comparisons.
+
+The LS8J metadata reconciliation also retained all 452 complete fresh product
+inventories and verified unchanged 107-cohort order. It preserves the original
+run's missing full-response limitation explicitly.
+
+**Current next action:** a separately frozen residual/noise diagnostic on the
+three already retained image contexts, with both signs and signal-protection
+controls. No new native data is opened by that continuation.
+[Result and three image maps](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8l_images/REPORT.md),
+[L2 screen and figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8k_l2_screen/REPORT.md),
+[exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8L_CONTINUATION.md).
+
+Earlier checkpoints and their historical next steps follow below.
+
 **LS8E–LS8I independent CHEOPS host sequence completed, 20 September 2026.**
 The prospectively frozen post-55-Cnc sequence evaluated GJ 876, GJ 514,
 GJ 849 and GJ 649 with the unchanged DEFAULT-L2 cadence screen. GJ 876,
