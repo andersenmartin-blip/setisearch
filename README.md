@@ -17,6 +17,35 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+**LS8M bounded WASP-189 residual/noise study completed, 20 September 2026.**
+The smaller positive's residual is concentrated in a few pixels and is
+comparable in weighted energy to local sideband variability: its
+residual/reference ratio is **1.101–1.106**, and **7–8 of 24** held-sideband
+controls are at least as large. Ten pixels account for **48.4–48.5%** of
+weighted residual energy.
+
+This does not prove that the entire selected excursion is ordinary noise or
+identify its physical cause. Its original **UNRESOLVED_WITHIN_FIXED_SCOPE**
+label remains; the other two events retain their previous labels. There is
+**no qualified SETI candidate** and no new detector or coverage qualification.
+
+Eight pre-analysis tests and the independent audit pass: **790,128 numerical
+comparisons and 911,228 exact checks**, with zero disagreements. All 288
+held-sideband cases and 192 signed injection cases are retained. No new native
+source bytes were acquired. A tested displacement subtraction would lose
+about 8% of an injected brightness pulse's flux, so no new correction or veto
+is adopted.
+
+**Current next action:** close this bounded WASP-189 follow-up and separately
+freeze a metadata-first transfer to **rank-2 GJ 1132**, preserving the unchanged
+DEFAULT-L2 screen and both signs.
+[Scientific conclusion and exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8M_CONTINUATION.md),
+[full report and residual maps](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8m_residuals/REPORT.md),
+[publication identities](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PUBLICATION_2026-09-20_LS8M.md).
+
+Earlier checkpoints below retain their historical next steps; the current
+work queue is the LS8M continuation above.
+
 **LS8K–LS8L WASP-189 screening and image follow-up completed, 20 September 2026.**
 The new chronology-selected pair supplied **1,604 L2 rows and 2,603 eligible
 windows**, retaining two positive clusters and one negative control. The
