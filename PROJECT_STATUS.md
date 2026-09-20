@@ -1,5 +1,43 @@
 # SETIsearch — current project status
 
+## 20 September LS8D closes all eight retained CHEOPS L2 excursions as correction-linked
+
+The predeclared paired CAL/COR image study is complete for all eight fixed
+LS8B/LS8C representatives. Exact metadata preflight produced **482 unique
+CAL/COR joins** for 241 retained context rows before image access. The frozen
+run then acquired exactly **154,240,000 paired image bytes** plus **385,600
+smearing-row bytes** from TG000302–TG000304; every range was constrained by
+the frozen offset/count and source ETag.
+
+All **seven positive excursions and the single negative control** satisfy the
+same predeclared **CORRECTION_LINKED** rule in both fixed coordinate
+conventions. For positives, absolute DELTA/COR is **1.331–2.431**: COR remains
+positive, but CAL→COR contributes a large negative aperture event sum. The
+negative control is also coupled at **0.857–0.884**, with the correction making
+its negative excursion substantially deeper.
+
+This does not identify one physical cause. The DELTA column-constant energy
+fraction is **35.66–94.56%** for the positive representatives but only **0.49%**
+for the negative control. The COR displacement model explains **35.79–74.42%**
+of positive event-map energy, below the separately frozen 80% spatial gate.
+The direct DELTA/smearing-row regression is rank-deficient in all eight
+contexts and remains unavailable rather than being repaired after inspection.
+
+Seven synthetic tests passed before image access. The independent audit passes
+**756,296 numerical comparisons and 1,284,709 exact checks** with zero
+disagreements. The original LS8B audit **FAIL** remains preserved. No raw
+imagette was opened, no detector is qualified and none of these labels
+establishes artificial or astrophysical origin.
+
+**Next action:** close these eight 55 Cnc branches without widening. Start a
+separately frozen metadata-only selection of the next independent optical
+dataset/product before inspecting new light-curve values or image pixels.
+Retain positive/negative controls and prefer a delivered calibrated product
+that permits a predeclared image follow-up. The separate raw-imagette gate
+remains NOT_READY and its technical request remains unsent.
+[LS8D report and maps](results_ls8d_images/REPORT.md),
+[exact continuation](LS8D_CONTINUATION.md).
+
 ## 19 September LS8C finds a shared smearing/roll pattern in all seven positive excursions
 
 The predeclared auxiliary diagnosis of all eight original LS8B representatives
