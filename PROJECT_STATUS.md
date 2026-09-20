@@ -1,5 +1,54 @@
 # SETIsearch — current project status
 
+## 20 September LS8U: TESS_260647166 retained-data study complete and closed
+
+The positive **TG015701_P0 remains UNRESOLVED_WITHIN_FIXED_SCOPE**; the
+negative **TG000101_N0 remains SPATIALLY_STRUCTURED**. The bounded study
+quantifies the remaining structure and local variability without changing
+original L2 scores, image labels, masks or thresholds. It adds no qualified
+SETI candidate, detector or observing coverage.
+
+The positive's combined COR residual/reference energy is **3.77–3.80** after
+exact one-row temporal-noise propagation. **1/24** held single-row controls
+has at least as much residual/reference energy in both conventions. Its
+weighted residual is spatially extended: the top ten pixels account for
+**6.47–7.03%**, and the fixed 16–25-pixel ring accounts for **72.95–73.45%**.
+This is a model mismatch and a dependent local comparison, not a calibrated
+significance or an identified physical cause.
+
+The negative's three-row COR residual/reference energy is **0.705–0.723**;
+**6/8** held three-row controls are at least as large. The fixed covariance
+model raises its estimated variance by **26.1–26.5%** relative to IID,
+compared with about **4.4%** for the positive. A small aggregate residual
+ratio does not exclude localized structure or prove an ordinary-noise origin.
+
+Hypothetical displacement subtraction loses **12.79–13.09%** of injected
+brightness flux for the positive and **7.31–7.84%** for the negative. No
+correction or veto is adopted. All eight native product/convention cases,
+**128 duration-matched held cases and 128 signed controls** are retained.
+All **18 pre-analysis tests**, **583,488 numerical comparisons and 625,868
+exact checks** pass with no disagreements. No new archive bytes were
+acquired. All 22 result files match their immutable checksums; both residual
+figures were visually inspected.
+
+**This bounded TESS_260647166 study is closed. Immediate next action:**
+prepare a separate metadata/header freeze for **rank-5 EC 12578-2107**,
+exact pair CH_PR100002_TG008901_V0300 and CH_PR100002_TG008902_V0300, then
+freeze exact table ranges and transfer the unchanged DEFAULT-L2 screen.
+The existing ledger reports NEXP=1 and 60 seconds for both visits; verify
+these against their headers before opening science values. Those values
+remain unopened at this checkpoint. Do not transfer residual measures as
+new screening cuts or extend the closed target to seek a preferred outcome.
+[Scientific interpretation and exact continuation](LS8U_CONTINUATION.md),
+[complete report and both figures](results_ls8u_residuals/REPORT.md),
+[frozen method](LS8U_RESIDUAL_NOISE_PROTOCOL.md),
+[publication identities](PUBLICATION_2026-09-20_LS8U.md).
+
+All earlier dated sections below retain historical next steps. The active
+work queue is the LS8U continuation above. Closed HD 136352/GJ 1132/WASP-189
+studies, reserved TESS/M43 data and the unsent calibration request remain
+unchanged; the calibration gate remains NOT_READY.
+
 ## 20 September LS8S–LS8T: rank-4 screen and both image follow-ups complete
 
 TESS_260647166's selected **CHEOPS** pair supplied **1,747 rows and 2,004

@@ -525,3 +525,39 @@ reconciled ledger, requiring its own header/science freezes. Closed
 HD 136352/GJ 1132/WASP-189 studies and reserved TESS/M43 data remain closed.
 The raw-imagette calibration request remains unsent. Standing publication
 authorization continues; collaboration remains deferred.
+
+20 September 2026, LS8U: the single retained-data TESS_260647166 study is
+complete and closed. The positive retains UNRESOLVED_WITHIN_FIXED_SCOPE:
+its COR combined residual/reference energy is 3.77–3.80, with 1/24 held
+single-row controls at least as large. The weighted residual is extended,
+with only 6.47–7.03% in its top ten pixels. These dependent comparisons
+are descriptive, not a calibrated significance or unique physical cause.
+The negative remains SPATIALLY_STRUCTURED; its three-row residual/reference
+energy is 0.705–0.723, with 6/8 held targets at least as large. Exact duration
+and short-lag covariance propagation preserve both IID and correlated
+references without changing the original screen or image gates.
+
+All 18 pre-analysis tests, 583,488 numerical comparisons and 625,868 exact
+checks pass. Both contexts, eight native product/convention cases, 128 held
+cases and 128 signed controls are retained; no new archive bytes were
+acquired. Hypothetical displacement subtraction loses 12.79–13.09% of
+injected brightness flux in the positive and 7.31–7.84% in the negative,
+so no correction or veto is adopted. Both figures were checksum verified
+and visually inspected. No qualified candidate, detector or coverage is added.
+
+The active next step is LS8V: separately freeze a metadata-first independent
+transfer of the unchanged DEFAULT-L2 screen to rank-5 EC 12578-2107, exact
+pair CH_PR100002_TG008901_V0300 and CH_PR100002_TG008902_V0300 from the unchanged
+reconciled LS8J ledger. Verify both visits' headers and NEXP=1/60-second
+ledger semantics before freezing exact table intervals and accessing science
+values. Preserve both signs and independent audits. Do not adopt LS8U
+residual ranks, rings or covariance ratios as new screening cuts. The rank-5
+science values remain unopened. LS8U_CONTINUATION.md is the active restart
+point; prior dated next actions are historical.
+
+Do not extend or retune the closed TESS_260647166 pair merely to improve its
+explanation. Closed HD 136352/GJ 1132/WASP-189 work and reserved TESS/M43 data
+stay closed. The calibration gate remains NOT_READY and its technical
+request remains unsent. Standing publication authorization continues;
+collaboration and delegation remain deferred.
+
