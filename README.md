@@ -17,6 +17,40 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+**LS8S–LS8T TESS_260647166 screen and both image follow-ups completed,
+20 September 2026.** This CHEOPS target's selected pair supplied **1,747
+rows and 2,004 eligible overlapping windows**, retaining **one positive
+and one negative cluster**. Six overlapping positive crossings describe
+one event, not six detections.
+
+The negative is **SPATIALLY_STRUCTURED**: the displacement model explains
+**92.96%** of its COR event-map energy in both coordinate conventions.
+The positive remains **UNRESOLVED_WITHIN_FIXED_SCOPE**: displacement explains
+**75.76–75.78%**, below the original 80% requirement, and pure brightness
+explains about **2.7%**. Neither correction gate passes. Its L2 score
+**+45.46035 is not a Gaussian significance**; no qualified SETI candidate,
+new detector or observing coverage is claimed.
+
+All data joins and apertures are complete. Both L2 tests, **24,048 L2 checks**,
+nine image tests and **189,074 numerical plus 321,180 exact image checks**
+pass without disagreements. Both image figures and the L2 figure were
+checksum verified and visually inspected. The original signs and labels
+remain unchanged.
+
+**Current next action:** separately freeze one bounded residual/noise study
+using the two saved contexts, with duration-matched controls and signed
+signal-protection tests. The positive spans one 49-second exposure; the
+negative spans three 42-second exposures and needs an explicit temporal
+noise treatment. No new pixels or visits are required. Rank-5 EC 12578-2107
+remains a later independent transfer.
+[Scientific interpretation and continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8T_CONTINUATION.md),
+[image report and both figures](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8t_images/REPORT.md),
+[L2 report and figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8s_l2_screen/REPORT.md),
+[publication identities](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PUBLICATION_2026-09-20_LS8S_LS8T.md).
+
+Earlier checkpoints below retain historical next steps; the active work
+queue is the LS8T continuation above.
+
 **LS8Q–LS8R HD 136352 screen and image follow-up completed and closed,
 20 September 2026.** The unchanged rank-3 pair supplied **1,125 rows and
 1,923 eligible overlapping windows**, with **no positive threshold crossing**.
