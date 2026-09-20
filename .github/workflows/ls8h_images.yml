@@ -1,0 +1,65 @@
+name: LS8H frozen GJ 849 paired-image diagnostic
+
+on:
+  push:
+    branches: [m43-support-qualification]
+    paths:
+      - '.github/workflows/ls8h_images.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ls8h-images
+  cancel-in-progress: false
+
+jobs:
+  images:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      PYTHONPATH: src:scripts
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+      - run: python -m pip install numpy==2.3.5 scipy==1.17.0 astropy==7.0.2
+      - name: Require frozen synthetic image checks
+        run: python -m unittest -v tests.test_ls8h_images
+      - name: Acquire exact image ranges and run frozen diagnostic
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -u scripts/ls8h_images.py | tee /tmp/ls8h_images.log
+          python -u scripts/ls8h_images_audit.py | tee /tmp/ls8h_audit.log
+          cp /tmp/ls8h_images.log results_ls8h_images/RUN.log
+          cp /tmp/ls8h_audit.log results_ls8h_images/AUDIT.log
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('results_ls8h_images')
+          s=json.loads((p/'summary.json').read_text())
+          a=json.loads((p/'audit.json').read_text())
+          d=json.loads((p/'diagnostics.json').read_text())
+          assert s['status']=='COMPLETE_AUDITED'
+          assert a['status']=='PASS'
+          assert s['contexts']==1
+          assert s['image_bytes']==18560000
+          assert s['smearing_bytes']==46400
+          assert s['raw_imagettes_opened'] is False
+          assert len(d)==1 and d[0]['id']=='TG032401_P0'
+          PY
+      - name: Publish audited LS8H diagnostic
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add results_ls8h_images
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish audited LS8H GJ 849 paired-image diagnostic'
+          git push origin HEAD:m43-support-qualification
