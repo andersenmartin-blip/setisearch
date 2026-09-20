@@ -17,6 +17,38 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+**LS8P GJ 1132 retained-data study completed and closed, 20 September 2026.**
+All five original negative controls remain unresolved, and LS8N still has
+**no positive threshold crossing in 699 eligible windows**.
+
+The fixed three-exposure covariance model raises estimated COR variance by
+about **37–67%** relative to IID propagation. Residual/reference energy ratios
+are **1.43–2.02**, with **6/8 or 8/8** held blocks at least as large. These
+dependent comparisons are descriptive, not detection probabilities.
+Exact accounting of the two existing apertures' boundary pixels explains
+the coordinate-sensitive correction-budget sign change. No unique physical
+cause is assigned and no mask or historical threshold is changed.
+
+Hypothetical displacement subtraction loses **24–38% of injected brightness
+flux** and is not adopted. All **160 held cases and 320 signed controls** are
+retained. Seventeen pre-analysis tests, one serialization regression and
+**1,400,704 numerical comparisons plus 1,529,059 exact checks** pass.
+The initial audit-output serialization failure is preserved; a separately
+frozen representation-only repair completed the same audit without rerunning
+the producer or changing scientific arithmetic.
+
+**Current next action:** separately freeze the **rank-3 HD 136352**
+metadata/header check and independent transfer of the unchanged DEFAULT-L2
+screen to its already selected chronological pair. No qualified candidate,
+detector or new observing coverage is claimed.
+[Scientific interpretation and continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8P_CONTINUATION.md),
+[verified report and five figures](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8p_verified/REPORT.md),
+[preserved failure and repair](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8P_AUDIT_RECOVERY.md),
+[publication identities](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PUBLICATION_2026-09-20_LS8P.md).
+
+Earlier checkpoints below retain historical next steps; the active work
+queue is the LS8P continuation above.
+
 **LS8N–LS8O GJ 1132 screen and all image controls completed, 20 September 2026.**
 The unchanged rank-2 pair supplied **615 L2 rows and 699 eligible overlapping
 windows**. There were **no positive threshold crossings**; 12 negative
