@@ -342,3 +342,24 @@ cut. The separate raw-imagette gate and unsent request remain unresolved;
 unused TESS/M43 panels and the earlier LS7X/Y/Z branches stay closed.
 Current continuation: LS8C_CONTINUATION.md. Standing publication authorization
 continues without a new per-milestone permission request.
+
+20 September 2026, LS8D: the bounded paired CAL/COR image study is complete
+for all eight fixed LS8B/LS8C representatives. Metadata and exposure joins were
+frozen before image access; the run then acquired exactly 154,240,000 CAL/COR
+image bytes plus 385,600 smearing-row bytes. All seven positive excursions and
+the one negative control satisfy the same predeclared CORRECTION_LINKED rule in
+both coordinate conventions. The independent audit passes 756,296 numerical
+comparisons and 1,284,709 exact checks with zero disagreements.
+
+This closes those eight 55 Cnc branches under the frozen stopping rule. The
+label establishes material coupling to delivered CAL→COR processing, not a
+unique instrumental cause and not artificial/astrophysical origin. Do not
+widen the closed events, change apertures or add further 55 Cnc visits to seek
+a different result. Next choose a new independent optical dataset/product by
+a separately frozen metadata-only selection before opening new signal values.
+Retain symmetric positive/negative controls and favor a delivered calibrated
+product that supports bounded image follow-up. The separate raw-imagette gate
+remains NOT_READY and its technical request is unsent. Current report:
+results_ls8d_images/REPORT.md. Restart: LS8D_CONTINUATION.md. Standing
+publication authorization continues.
+
