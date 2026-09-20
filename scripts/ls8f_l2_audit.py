@@ -264,16 +264,20 @@ def main() -> None:
         union = {i for r in rebuilt for i in r["event_indices"]}
         assert published_summary["unique_event_rows"] == len(union)
         assert published_summary["eligible_event_row_union_seconds"] == len(union) * cadence
-        assert math.isclose(
-            published_summary["maximum_score"],
-            max(r["score"] for r in rebuilt),
-            rel_tol=2e-8, abs_tol=2e-10,
-        )
-        assert math.isclose(
-            published_summary["minimum_score"],
-            min(r["score"] for r in rebuilt),
-            rel_tol=2e-8, abs_tol=2e-10,
-        )
+        if rebuilt:
+            assert math.isclose(
+                published_summary["maximum_score"],
+                max(r["score"] for r in rebuilt),
+                rel_tol=2e-8, abs_tol=2e-10,
+            )
+            assert math.isclose(
+                published_summary["minimum_score"],
+                min(r["score"] for r in rebuilt),
+                rel_tol=2e-8, abs_tol=2e-10,
+            )
+        else:
+            assert published_summary["maximum_score"] is None
+            assert published_summary["minimum_score"] is None
         for d in published_summary["duration_results"]:
             selected = [r for r in rebuilt if r["duration"] == d["duration_rows"]]
             assert d["eligible_windows"] == len(selected)
