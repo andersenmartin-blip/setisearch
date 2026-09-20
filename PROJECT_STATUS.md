@@ -1,5 +1,53 @@
 # SETIsearch — current project status
 
+## 20 September LS8Q–LS8R: HD 136352 screen and image follow-up complete and closed
+
+The unchanged rank-3 pair supplied **1,125 L2 rows and 1,923 eligible
+overlapping windows**. There were **zero positive threshold crossings**;
+13 negative crossings formed **three clusters**. The independent L2 audit
+passes all **23,076 numerical/discrete comparisons**.
+
+All three negative representatives received their separately frozen image
+follow-up. **Every one is CORRECTION_LINKED** under the original diagnostic,
+with complete apertures and matching negative signs in both conventions:
+
+| Representative | DELTA/COR C0 / C1 |
+|---|---:|
+| TG000901_N0 | 0.575222 / 0.558559 |
+| TG000901_N1 | 0.741593 / 0.736533 |
+| TG000101_N0 | 0.791461 / 0.813813 |
+
+Each direct aperture-sum ratio exceeds the frozen 0.5 gate in both
+conventions. This describes a material contribution from the difference
+between delivered CAL/COR processing products; it does not identify one
+physical correction component or exclude source variability. Smearing
+regressions remain explicitly unavailable because they are rank deficient.
+No qualified SETI candidate, detector or observing coverage is added.
+
+Each delivered row stacks **26 exposures into 44.2 seconds**; the image
+representatives span one, one and two stacks. Individual 1.7-second
+exposures are not resolved. The image metadata audit verifies **176 unique
+joins and 812 exact checks** before pixels. The exact payload is
+**56,320,000 image bytes plus 140,800 smearing bytes**. Nine image tests and
+the independent audit pass: **283,611 numerical comparisons and 481,748
+exact checks**, zero disagreements. All three image figures and the L2
+figure were checksum verified and visually inspected.
+
+**The HD 136352 pair is closed under the fixed diagnostic.** No residual
+study or wider acquisition follows from these descriptive labels.
+**Immediate next action:** separately freeze the metadata/header preflight
+for **rank-4 TESS_260647166's CHEOPS pair**, then exact DEFAULT-L2 intervals
+and the unchanged stable screen. Its ledger exposures differ by visit,
+42 and 49 seconds; verify each header separately before science access.
+[Scientific interpretation and exact continuation](LS8R_CONTINUATION.md),
+[image report and all maps](results_ls8r_images/REPORT.md),
+[L2 result and figure](results_ls8q_l2_screen/REPORT.md),
+[publication identities](PUBLICATION_2026-09-20_LS8Q_LS8R.md).
+
+Older sections below retain their historical next steps. The active work
+queue is the LS8R continuation above. Closed GJ 1132/WASP-189 work, reserved
+TESS/M43 data and the unsent raw-imagette calibration request are unchanged.
+
 ## 20 September LS8P: GJ 1132 retained-data study complete and closed
 
 All five negative controls retain **UNRESOLVED_WITHIN_FIXED_SCOPE**. The
@@ -1117,7 +1165,7 @@ were hash checked. This is retrospective development, not fresh validation.
 | M43AF complete no-model study | Published and byte-verified: 502 records; 69 archive parts restore 508 original files |
 | Adopted new detector / new M43AF–M43AI astronomical candidate | None |
 | Earlier M33 HD 3651 case | Still unresolved; [investigation](MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
-| LS research | LS8P GJ 1132 three-row variability, residual and exact coordinate-boundary study complete and independently audited; original five unresolved labels and zero positive crossings preserved. Bounded study closed. Next: separately frozen rank-3 HD 136352 metadata-first transfer. [Current continuation](LS8P_CONTINUATION.md) |
+| LS research | LS8Q–LS8R rank-3 HD 136352 complete and independently audited: zero positive crossings in 1,923 eligible windows; all three negative representatives CORRECTION_LINKED in both conventions. Pair closed. Next: separately frozen rank-4 TESS_260647166 CHEOPS metadata-first transfer. [Current continuation](LS8R_CONTINUATION.md) |
 
 M43AF's 502 records include 261 already completed historical acquisitions and
 the 241 training/baseline/null records. Its 940 scientific pins and earlier

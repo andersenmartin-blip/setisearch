@@ -465,3 +465,31 @@ Do not reopen this bounded GJ 1132 study merely to improve closure or change
 its coordinate convention. LS8P_CONTINUATION.md is the current restart point.
 No qualified candidate, detector or observing coverage is added. The separate
 raw-imagette calibration request remains unsent; reserved data stay closed.
+
+
+20 September 2026, LS8Q–LS8R: the independent rank-3 HD 136352 pair is
+complete and closed under the unchanged screen and image diagnostic.
+The L2 result has zero positive threshold crossings in 1,923 eligible
+overlapping windows. All three negative representatives pass the original
+CORRECTION_LINKED gate in both coordinate conventions, with direct signed
+DELTA/COR ratios 0.558559–0.813813. This describes coupling to delivered
+processing, not one unique physical cause or the exclusion of source
+variability. No new candidate, detector or coverage qualification follows.
+
+Separate public freezes preceded headers, L2 values, image metadata and
+exact image payload. Both stable L2 tests, nine image tests, all 23,076 L2
+comparisons, 812 metadata checks and 283,611 numerical / 481,748 exact image
+checks pass. All signed outcomes and figures are retained. No residual
+study is required under the frozen all-events-closed branch; do not widen
+the pair or tune its diagnostic simply to seek a physical explanation.
+
+Next separately freeze rank-4 TESS_260647166 from the unchanged reconciled
+LS8J chronology: CH_PR300046_TG000101_V0300 and CH_PR100031_TG015701_V0300.
+These are CHEOPS products. Their existing ledger has NEXP=1 in both and
+42-/49-second integrations respectively; verify each exact header before
+freezing table ranges and transferring the original stable DEFAULT-L2
+screen. Do not adopt image labels or previous weighted residual measures
+as a new selection rule. LS8R_CONTINUATION.md is the current restart point.
+Standing publication authorization continues; collaboration remains deferred.
+Closed GJ 1132/WASP-189 work, reserved TESS/M43 panels and the unsent
+raw-imagette calibration request remain unchanged.
