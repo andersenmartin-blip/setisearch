@@ -493,3 +493,35 @@ as a new selection rule. LS8R_CONTINUATION.md is the current restart point.
 Standing publication authorization continues; collaboration remains deferred.
 Closed GJ 1132/WASP-189 work, reserved TESS/M43 panels and the unsent
 raw-imagette calibration request remain unchanged.
+
+
+20 September 2026, LS8S–LS8T: rank-4 TESS_260647166's independent CHEOPS
+pair has completed its unchanged L2 screen and both signed image follow-ups.
+The 1,747 rows provide 2,004 eligible overlapping windows: six positive
+crossings in one cluster and two negative crossings in one cluster. Exact
+42-/49-second exposure metadata and separate science-byte scopes were
+verified before acquisition. The L2 audit passes all 24,048 comparisons.
+
+The negative is SPATIALLY_STRUCTURED, with 92.95567% / 92.96205% COR
+displacement explained energy. The positive remains UNRESOLVED_WITHIN_FIXED_SCOPE:
+75.76422% / 75.77892% falls below the fixed 80% requirement in both conventions;
+pure brightness explains about 2.7%. Neither correction gate passes. Complete
+apertures and unique joins leave a model/residual limitation, not missing data.
+The image audit passes 189,074 numerical comparisons and 321,180 exact checks;
+nine synthetic tests pass. No qualified candidate, detector or coverage is added.
+
+Next freeze one integrated retained-data study of the positive's residual
+structure and local variability, preserving the original three-exposure
+negative comparison. Specify duration-matched held controls, training rules,
+appropriate temporal covariance for the three-row sum, both signed signal
+controls and hypothetical signal-loss accounting before native evaluation.
+Use only the two saved contexts and original apertures/conventions. Do not
+change historical gates, remove pixels or adopt a new veto from the study.
+Publish all outcomes and stop after that bounded follow-up; it has not yet
+been executed. LS8T_CONTINUATION.md is the active restart point.
+
+Rank-5 EC 12578-2107 remains the later independent target from the unchanged
+reconciled ledger, requiring its own header/science freezes. Closed
+HD 136352/GJ 1132/WASP-189 studies and reserved TESS/M43 data remain closed.
+The raw-imagette calibration request remains unsent. Standing publication
+authorization continues; collaboration remains deferred.

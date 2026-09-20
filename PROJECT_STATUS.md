@@ -1,5 +1,52 @@
 # SETIsearch — current project status
 
+## 20 September LS8S–LS8T: rank-4 screen and both image follow-ups complete
+
+TESS_260647166's selected **CHEOPS** pair supplied **1,747 rows and 2,004
+eligible overlapping windows**. Six positive crossings form **one positive
+cluster**; two negative crossings form **one negative cluster**. Each visit
+uses its separately verified 42-/49-second exposure time. The unchanged L2
+screen and independent audit pass **24,048 numerical/discrete checks**.
+
+Both representatives received the separately frozen image diagnostic:
+
+| Event | Duration | COR displacement explained C0 / C1 | Fixed outcome |
+|---|---:|---:|---|
+| TG000101_N0, negative | 126 s | 92.95567% / 92.96205% | SPATIALLY_STRUCTURED |
+| TG015701_P0, positive | 49 s | 75.76422% / 75.77892% | UNRESOLVED_WITHIN_FIXED_SCOPE |
+
+The positive's original L2 score is **+45.460348286**, not a Gaussian
+significance. Neither correction gate passes. Its displacement fit remains
+below the fixed 80% requirement in both conventions, and pure brightness
+explains only **2.69041% / 2.67304%**. All apertures and exposure joins are
+complete: the remaining limitation is the fixed model's unmeasured
+residual/noise comparison. No qualified SETI candidate, detector or observing
+coverage is added. The negative's spatial label does not prove one cause.
+
+The metadata-only audit passes **120 unique joins and 556 exact checks**
+before pixels. The exact payload is **38,400,000 image bytes plus 96,000
+smearing bytes**. All nine pre-payload image tests and the independent audit
+pass: **189,074 numerical comparisons and 321,180 exact checks**, with no
+disagreements. Both image figures and the L2 figure were checksum verified
+and visually inspected; both original signs and all results are retained.
+
+**Immediate next action:** separately freeze one integrated residual/noise
+study of the two retained contexts. Quantify the positive's remaining
+structure against local 49-second variability, retain the three-exposure
+negative comparison with an explicit temporal-noise treatment, and use
+duration-matched held controls and both signs in signal-protection tests.
+Keep original labels, masks and thresholds; do not acquire additional
+pixels or visits. This follow-up has not yet been executed.
+Rank-5 EC 12578-2107 remains a later independent transfer.
+[Scientific interpretation and exact continuation](LS8T_CONTINUATION.md),
+[image report and both figures](results_ls8t_images/REPORT.md),
+[L2 result and figure](results_ls8s_l2_screen/REPORT.md),
+[publication identities](PUBLICATION_2026-09-20_LS8S_LS8T.md).
+
+Older sections below retain historical next steps. The active work queue is
+the LS8T continuation above. Closed HD 136352/GJ 1132/WASP-189 work, reserved
+TESS/M43 data and the unsent raw-imagette calibration request are unchanged.
+
 ## 20 September LS8Q–LS8R: HD 136352 screen and image follow-up complete and closed
 
 The unchanged rank-3 pair supplied **1,125 L2 rows and 1,923 eligible
@@ -1165,7 +1212,7 @@ were hash checked. This is retrospective development, not fresh validation.
 | M43AF complete no-model study | Published and byte-verified: 502 records; 69 archive parts restore 508 original files |
 | Adopted new detector / new M43AF–M43AI astronomical candidate | None |
 | Earlier M33 HD 3651 case | Still unresolved; [investigation](MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
-| LS research | LS8Q–LS8R rank-3 HD 136352 complete and independently audited: zero positive crossings in 1,923 eligible windows; all three negative representatives CORRECTION_LINKED in both conventions. Pair closed. Next: separately frozen rank-4 TESS_260647166 CHEOPS metadata-first transfer. [Current continuation](LS8R_CONTINUATION.md) |
+| LS research | LS8S–LS8T rank-4 TESS_260647166 complete and audited: one positive and one negative cluster in 2,004 eligible windows. Negative SPATIALLY_STRUCTURED; positive UNRESOLVED_WITHIN_FIXED_SCOPE. Next: one separately frozen retained-data residual/noise study with both original events. [Current continuation](LS8T_CONTINUATION.md) |
 
 M43AF's 502 records include 261 already completed historical acquisitions and
 the 241 training/baseline/null records. Its 940 scientific pins and earlier
