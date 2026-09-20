@@ -17,6 +17,39 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+**LS8U TESS_260647166 residual/noise study completed and closed,
+20 September 2026.** The positive remains **UNRESOLVED_WITHIN_FIXED_SCOPE**;
+the negative remains **SPATIALLY_STRUCTURED**. There is no qualified SETI
+candidate or new detector or observing-coverage qualification.
+
+The positive's COR residual/reference energy is **3.77–3.80**, with **1/24**
+duration-matched local controls at least as large in both conventions. Its
+weighted residual is spread across many pixels: the top ten account for
+**6.47–7.03%**. The negative's ratio is **0.705–0.723**, with **6/8** controls
+at least as large. These are dependent, model-based descriptions, not
+calibrated significances or identified physical causes. The original scores,
+labels, masks and thresholds remain unchanged.
+
+A hypothetical displacement correction would lose **12.79–13.09%** of an
+injected brightness pulse's flux in the positive context, so no correction
+or veto is adopted. All **18 tests**, **583,488 numerical comparisons and
+625,868 exact checks** pass. Both contexts, **128 held cases and 128 signed
+controls** are retained. No new archive bytes were acquired; all 22 result
+files were checksum verified and both residual figures visually inspected.
+
+**Current next action:** separately freeze the metadata/header check for
+**rank-5 EC 12578-2107**, then its exact DEFAULT-L2 intervals and unchanged
+screen. Its selected pair remains CH_PR100002_TG008901_V0300 and
+CH_PR100002_TG008902_V0300; both ledger exposures are 60 seconds. Science
+values remain unopened. The bounded TESS_260647166 study is closed.
+[Scientific interpretation and exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8U_CONTINUATION.md),
+[report and both figures](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8u_residuals/REPORT.md),
+[frozen method](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8U_RESIDUAL_NOISE_PROTOCOL.md),
+[publication identities](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PUBLICATION_2026-09-20_LS8U.md).
+
+Earlier checkpoints below retain historical next steps; the active work
+queue is the LS8U continuation above.
+
 **LS8S–LS8T TESS_260647166 screen and both image follow-ups completed,
 20 September 2026.** This CHEOPS target's selected pair supplied **1,747
 rows and 2,004 eligible overlapping windows**, retaining **one positive
