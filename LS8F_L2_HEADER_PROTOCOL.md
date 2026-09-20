@@ -21,4 +21,4 @@ contract. Required columns are BJD_TIME, FLUX, FLUXERR, STATUS and EVENT.
 If both schemas are compatible, publish the header freeze before committing
 the L2 screen. Otherwise stop without substituting another visit.
 
-[Selection freeze](LS8F_TARGET_SELECTION.md)
+[Selection freeze](LS8F_SELECTION_FREEZE.md)
