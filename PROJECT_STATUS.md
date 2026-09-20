@@ -1,5 +1,42 @@
 # SETIsearch — current project status
 
+## 20 September LS8E–LS8I independent CHEOPS host sequence completed
+
+The prospectively frozen post-55-Cnc host sequence is complete. The unchanged
+DEFAULT-L2 cadence screen was transferred in fixed host order to GJ 876, GJ 514,
+GJ 849 and GJ 649. Across the closed sequence, GJ 876, GJ 514 and GJ 649 are
+clean two-visit null results at the unchanged +/-8.5 endpoints.
+
+GJ 849 produced one audited positive L2 cluster in
+`CH_PR100018_TG032401_V0300`: six overlapping positive windows in one cluster,
+with representative score **23.470080** at one 42-second row. A separately
+frozen metadata-first CAL/COR image diagnostic then acquired exactly
+**18,560,000 paired image bytes + 46,400 smearing bytes**. The independent
+image audit passes **94,537 numerical and 160,581 exact checks** with zero
+disagreements.
+
+The GJ 849 event is **SPATIALLY_STRUCTURED**, not CORRECTION_LINKED, under the
+predeclared diagnostic: |DELTA/COR| is only **0.03536 / 0.03276** in C0/C1,
+while the COR displacement template explains **87.801% / 87.800%** of event-map
+energy and the brightness template explains below 1%. This is a morphological
+diagnostic label, not a unique physical-cause determination and not a SETI
+candidate.
+
+GJ 649 closes the sequence with **381 eligible windows and zero signed
+threshold crossings**; its independent audit passes **4,572 comparisons**.
+The metadata ledger frozen before LS8E has no later host with at least two
+eligible visits, so that target sequence is exhausted without relaxing its
+rules.
+
+**Immediate next action:** start a new metadata-only independent population /
+dataset selection and freeze its population, target-name authority, product
+requirements, minimum visit multiplicity and deterministic ranking before
+opening new science values. Do not reopen or retune the closed GJ 849 event.
+The raw-imagette calibration branch remains separately NOT_READY.
+[LS8H image result](results_ls8h_images/REPORT.md),
+[LS8I survey closure](results_ls8i_l2_screen/REPORT.md),
+[continuation](LS8I_CONTINUATION.md).
+
 ## 20 September LS8D closes all eight retained CHEOPS L2 excursions as correction-linked
 
 The predeclared paired CAL/COR image study is complete for all eight fixed
