@@ -17,6 +17,40 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+**LS8Y–LS8Z PG 1245-042 screen and image follow-up complete and closed, 21 September 2026.**
+The predetermined rank-7 pair supplied **164 rows and 228 eligible overlapping
+windows**, with one negative cluster and no positive crossing. Its representative
+is one 60-second exposure, original score -18.490171716816285, not Gaussian sigma.
+
+The fixed image diagnostic classifies the negative event as
+**CORRECTION_LINKED**. DELTA/COR is **+1.688786 / +1.717959** in the two
+coordinate conventions, with complete apertures and negative COR signs
+matching L2. The delivered correction reverses a positive CAL aperture
+residual into a negative COR residual. The label describes material coupling
+to processing; the responsible component and physical cause remain unassigned.
+
+Both scientific audits pass: **2,736 L2 comparisons**, then **94,537
+image numerical comparisons and 160,581 exact checks**, with no
+disagreements. All nine inherited image tests pass before pixels. Both report
+figures were visually inspected. Data, receipts, logs and checksums are public;
+the publication record gives the exact workflow and local verification scope.
+No qualified SETI candidate, detector or observing coverage is added.
+
+**Immediate next action: prepare LS8AA for rank-8 WASP-43**, beginning
+with a separate exact-pair/header freeze for CH_PR100016_TG007801_V0300 and
+CH_PR100016_TG007802_V0300. Verify their NEXP=1/60-second ledger exposures,
+then freeze exact DEFAULT-L2 ranges and transfer the unchanged signed screen.
+Those science values remain unopened. The PG 1245-042 pair is closed.
+
+The earlier TESS_260647166 positive remains unresolved within its fixed scope.
+[Scientific interpretation and continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8Z_CONTINUATION.md),
+[L2 report and figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8y_l2_screen/REPORT.md),
+[image report and figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8z_images/REPORT.md),
+[publication identities and verification](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PUBLICATION_2026-09-21_LS8Y_LS8Z.md).
+
+Earlier dated sections below retain their historical next steps. The active
+continuation is LS8Z above.
+
 **LS8W–LS8X GJ 436 screen and image follow-up completed and closed, 21 September 2026.**
 The unchanged rank-6 pair supplied **640 rows and 936 eligible overlapping
 windows**, with one positive 60-second event and no negative threshold
