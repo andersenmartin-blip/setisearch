@@ -17,6 +17,49 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+**LS8AA–LS8AB WASP-43 screen and image follow-up complete and closed, 21 September 2026.**
+
+The predetermined rank-8 CHEOPS pair supplied **271 rows and 294 eligible
+overlapping windows**, with one positive crossing/cluster and no negative
+crossing. TG007801_P0 is a 60-second exposure at zero-based row 62, score
+**+9.486349813911296**, approximately 0.78% above its local L2 baseline.
+Both visits have verified NEXP=1 and 60-second exposures. Scores are not
+Gaussian significances.
+
+The fixed image diagnostic classifies the positive event as
+**CORRECTION_LINKED**. DELTA/COR is **-0.713546 / -2.797082** in the two
+coordinate conventions, with complete apertures and positive COR signs
+matching L2. The delivered correction reduces the positive aperture residual;
+the amount is sensitive to the coordinate convention, while both satisfy the
+original closure gate. The label describes material coupling to processing;
+the responsible component and physical cause remain unassigned.
+
+The L2 audit passes **3,528 comparisons**. Before pixels, image metadata
+passes **58 unique joins and 269 exact checks**. All nine inherited image
+tests pass; the independent image audit passes **94,537 numerical
+comparisons and 160,581 exact checks**, zero disagreements. Both figures
+were visually inspected. Exactly 37,398 L2 bytes, 18,560,000 image bytes and
+46,400 smearing bytes were acquired. The publication record gives the exact
+workflow and local verification scope. No qualified SETI candidate, detector
+or observing coverage is added.
+
+**Immediate next action: prepare LS8AC for rank-9 PG1303-114**, starting
+with a separate exact-pair/header freeze for CH_PR100002_TG006401_V0300 and
+CH_PR100002_TG006402_V0300. Verify the NEXP=1/60-second ledger exposures,
+then freeze exact DEFAULT-L2 ranges and transfer the unchanged signed screen.
+Those science values remain unopened; the cohort's three later eligible
+visits stay outside scope. The WASP-43 pair is closed.
+
+
+The earlier TESS_260647166 positive remains unresolved within its fixed scope.
+[Scientific interpretation and continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8AB_CONTINUATION.md),
+[L2 report and figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8aa_l2_screen/REPORT.md),
+[image report and figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8ab_images/REPORT.md),
+[publication identities and verification](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PUBLICATION_2026-09-21_LS8AA_LS8AB.md).
+
+Earlier dated sections below retain their historical next steps. The active
+continuation is LS8AB above.
+
 **LS8Y–LS8Z PG 1245-042 screen and image follow-up complete and closed, 21 September 2026.**
 The predetermined rank-7 pair supplied **164 rows and 228 eligible overlapping
 windows**, with one negative cluster and no positive crossing. Its representative
