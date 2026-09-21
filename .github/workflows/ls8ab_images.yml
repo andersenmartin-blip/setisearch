@@ -1,0 +1,66 @@
+name: LS8AB frozen WASP-43 paired-image diagnostic
+on:
+  push:
+    branches: [m43-support-qualification]
+    paths: ['.github/workflows/ls8ab_images.yml']
+permissions:
+  contents: write
+concurrency:
+  group: ls8ab-images
+  cancel-in-progress: false
+jobs:
+  images:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      PYTHONPATH: src:scripts
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+      - run: python -m pip install -r requirements_ls7g.txt
+      - name: Test, acquire frozen ranges and independently audit
+        id: images
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m unittest tests.test_ls8d_images tests.test_ls8t_mixed_durations -v 2>&1 | tee /tmp/ls8ab_tests.log
+          python -u scripts/ls8ab_images.py --freeze "$GITHUB_SHA" 2>&1 | tee /tmp/ls8ab_images.log
+          python -u scripts/ls8ab_images_audit.py 2>&1 | tee /tmp/ls8ab_audit.log
+          python -u scripts/ls8ab_report.py 2>&1 | tee /tmp/ls8ab_report.log
+      - name: Preserve complete or failed image result
+        if: always()
+        env:
+          RUN_OUTCOME: ${{ steps.images.outcome }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p results_ls8ab_images
+          for f in /tmp/ls8ab_tests.log /tmp/ls8ab_images.log /tmp/ls8ab_audit.log /tmp/ls8ab_report.log; do
+            if test -f "$f"; then cp "$f" results_ls8ab_images/; fi
+          done
+          python -m pip freeze | sort > results_ls8ab_images/environment.txt
+          python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          out=Path('results_ls8ab_images'); result=out/'summary.json'
+          status=json.loads(result.read_text())['status'] if result.exists() else 'INCOMPLETE'
+          (out/'RUN_STATUS.json').write_text(json.dumps({'execution_outcome':os.environ['RUN_OUTCOME'],'scientific_status':status,'freeze_commit':os.environ['GITHUB_SHA']},indent=2)+'\n')
+          (out/'SHA256SUMS').write_text(''.join(f'{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.relative_to(out)}\n' for p in sorted(out.rglob('*')) if p.is_file() and p.name!='SHA256SUMS'))
+          PY
+          git add results_ls8ab_images
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish LS8AB all-event WASP-43 paired-image result and audit'
+          git push origin HEAD:m43-support-qualification
+      - name: Require successful image result
+        if: always()
+        env:
+          RUN_OUTCOME: ${{ steps.images.outcome }}
+        run: test "$RUN_OUTCOME" = success
