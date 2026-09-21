@@ -586,3 +586,39 @@ The earlier TESS_260647166 positive remains unresolved and its study closed.
 Other closed optical studies, M33 HD 3651, reserved TESS/M43 panels and the
 unsent calibration request are unchanged. Standing research/publication
 authorization continues; collaboration and delegation remain deferred.
+
+
+## 21 September 2026 — LS8W–LS8X closed; proceed to rank-7 PG 1245-042
+
+The rank-6 GJ 436 pair completed its unchanged prospective DEFAULT-L2
+screen: 640 rows, 936 eligible overlapping windows, one positive crossing
+and no negative crossing. The complete representative set received a
+separately frozen image diagnostic after 58 unique metadata joins. Its
+single 60-second positive TG000302_P0 is CORRECTION_LINKED: DELTA/COR is
+-2.089268 / -2.001642, with matching positive COR signs and complete
+apertures in both conventions. The correction reduces a larger positive
+CAL residual; this is not a causal determination or a SETI detection.
+
+The L2 audit passes 11,232 comparisons. All nine pre-pixel image tests and
+the independent image audit pass: 94,537 numerical comparisons and 160,581
+exact checks, no disagreements. The fixed scope acquires 88,320 table bytes,
+18,560,000 image bytes and 46,400 smearing bytes. Both figures pass visual
+inspection. Full workflow verification and the local-copy limitation for
+two compressed inputs are explicitly recorded in the publication record.
+No qualified detector, candidate or observing coverage is added.
+
+Keep GJ 436 closed under the original stopping rule. The active next step
+is LS8Y: separately freeze rank-7 PG 1245-042's chronological pair,
+CH_PR100002_TG008601_V0300 and CH_PR100002_TG008602_V0300, for header-only
+checks. Verify the ledger NEXP=1 and 60-second exposure tuples before
+freezing exact DEFAULT-L2 table ranges and opening science values. Preserve
+the unchanged signed screen and audit; do not transfer image correction
+ratios as new L2 selection cuts. This pair's values remain unopened.
+LS8X_CONTINUATION.md is the current restart point; earlier dated next actions
+are historical.
+
+The earlier TESS_260647166 positive remains unresolved and its bounded
+study closed. Other closed optical studies, the M33 HD 3651 radio case,
+reserved TESS/M43 panels and the unsent calibration request are unchanged.
+The calibration gate remains NOT_READY. Standing research/publication
+authorization continues; collaboration and delegation remain deferred.

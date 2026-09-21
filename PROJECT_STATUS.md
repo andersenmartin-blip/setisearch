@@ -1,5 +1,50 @@
 # SETIsearch — current project status
 
+## 21 September LS8W–LS8X: GJ 436 screen and image follow-up complete and closed
+
+The predetermined rank-6 CHEOPS pair supplied **640 rows and 936 eligible
+overlapping windows**. Exactly one positive crossing forms one cluster;
+neither visit has a negative crossing. The representative TG000302_P0 is
+one 60-second exposure at row 33, original L2 score **+9.634235209975396**,
+approximately 0.253% above its fitted local baseline. Both visits have
+verified NEXP=1 and 60-second exposures. Scores are not Gaussian significances.
+
+Its separately frozen paired-image follow-up is **CORRECTION_LINKED**.
+DELTA/COR is **-2.089268 / -2.001642** in the two coordinate conventions;
+the column-projected ratios are **-0.657541 / -0.639677**. Both complete
+apertures retain the positive COR sign and pass the unchanged correction
+gate. The negative DELTA reduces a larger positive CAL residual; it does
+not show that processing created the event or identify a unique cause.
+The smearing regression remains rank deficient. No qualified SETI candidate,
+detector or observing coverage is added.
+
+The L2 audit passes **11,232 numerical/discrete comparisons**. Before pixels,
+image metadata passes **58 unique joins and 269 exact checks**. All nine
+inherited image tests pass; the independent image audit passes **94,537
+numerical comparisons and 160,581 exact checks**, with zero disagreements.
+Exactly 88,320 L2 bytes and 18,560,000 image plus 46,400 smearing bytes were
+acquired. Both figures were visually inspected. The publication record
+distinguishes complete workflow verification from the additional local
+copies: two large compressed image inputs were verified by the workflow
+audit but could not be copied through the connector. All other new files
+match their locally calculated Git identities. No scientific retuning occurred.
+
+**Immediate next action: prepare LS8Y for rank-7 PG 1245-042**, beginning
+with a separate exact-pair/header freeze for CH_PR100002_TG008601_V0300 and
+CH_PR100002_TG008602_V0300. Verify their NEXP=1/60-second ledger exposures,
+then freeze exact DEFAULT-L2 ranges and transfer the unchanged signed screen.
+Their science values remain unopened. The GJ 436 pair is closed.
+
+[Scientific interpretation and exact continuation](LS8X_CONTINUATION.md),
+[L2 report and figure](results_ls8w_l2_screen/REPORT.md),
+[image report and figure](results_ls8x_images/REPORT.md),
+[publication identities and verification scope](PUBLICATION_2026-09-21_LS8W_LS8X.md).
+
+All earlier dated next actions are historical. The active queue is the LS8X
+continuation above. The earlier TESS_260647166 positive remains unresolved
+and its bounded study closed. Reserved TESS/M43 data stay closed; calibration
+remains NOT_READY and its request unsent. Other closed studies are unchanged.
+
 ## 21 September LS8V: EC 12578-2107 screen complete and closed
 
 The predetermined rank-5 CHEOPS pair supplied **174 rows and 201 eligible,
@@ -1299,7 +1344,7 @@ were hash checked. This is retrospective development, not fresh validation.
 | M43AF complete no-model study | Published and byte-verified: 502 records; 69 archive parts restore 508 original files |
 | Adopted new detector / new M43AF–M43AI astronomical candidate | None |
 | Earlier M33 HD 3651 case | Still unresolved; [investigation](MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
-| LS research | LS8V rank-5 EC 12578-2107 complete and closed: 174 rows, 201 eligible windows, zero signed threshold crossings; independent audit passes. Earlier TESS_260647166 positive remains unresolved. Next: separately freeze rank-6 GJ 436 metadata/header preflight. [Current continuation](LS8V_CONTINUATION.md) |
+| LS research | LS8W–LS8X rank-6 GJ 436 complete and closed: 640 rows, 936 eligible windows, one positive 60-second event classified CORRECTION_LINKED; independent audits pass. Earlier TESS_260647166 positive remains unresolved. Next: LS8Y rank-7 PG 1245-042 metadata/header freeze. [Current continuation](LS8X_CONTINUATION.md) |
 
 M43AF's 502 records include 261 already completed historical acquisitions and
 the 241 training/baseline/null records. Its 940 scientific pins and earlier
