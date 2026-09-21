@@ -1,0 +1,180 @@
+XTENSION= 'IMAGE   '           / IMAGE extension                                
+BITPIX  =                  -64 / number of bits per data pixel                  
+NAXIS   =                    3 / number of data axes                            
+NAXIS1  =                  200 / length of data axis 1                          
+NAXIS2  =                  200 / length of data axis 2                          
+NAXIS3  =                  340 / length of data axis 3                          
+PCOUNT  =                    0 / required keyword; must = 0                     
+GCOUNT  =                    1 / required keyword; must = 1                     
+DATE    = '2023-03-16T09:40:51' / creation time of this HDU                     
+STAMP   = 'main_correction.py 14.0.1' / program creating this HDU               
+SVN_REV = 'Unversioned directory' / svn revision of the software creating this H
+EXTNAME = 'SCI_COR_SubArray'   / extension name                                 
+SCHEMA  = 'SCI_COR_SubArray.fsd' / filename of schema defining this data structu
+EXT_VER = '13.2    '           / version of the data structure                  
+DATA_LVL= 'L1      '           / Level of this data product                     
+PROC_CHN= 'data reduction'     / Processing chain creating this data structure  
+BUNIT   = 'ADU     '           / Unit of image data                             
+          / L1 product : subarray image data cube, calibrated and corrected.    
+          / The image size may change if overscan pixels and dark regions are   
+          / part of the image that was sent to ground.                          
+                                                                                
+          / CHEOPS Data Structure                                               
+                                                                                
+TELESCOP= 'CHEOPS  '           / Telescope's name                               
+INSTRUME= 'CHEOPS  '           / Instrument's name                              
+ORIGIN  = 'SOC     '           / Processing site, creating this FITS file       
+ARCH_REV=                    3 / Archive revision number                        
+PROC_NUM=                    0 / Processing Number                              
+PIPE_VER= '14.1.2  '           / Pipeline version                               
+TIMESYS = 'TT      '           / Time frame system                              
+                                                                                
+          / Start and Stop of Validity                                          
+                                                                                
+V_STRT_U= '2020-03-27T23:54:37.016926' / [TIMESYS=UTC] Start of validity time in
+V_STOP_U= '2020-03-28T07:32:49.715814' / [TIMESYS=UTC] End of validity time in U
+V_STRT_M=     58935.9970625107 / [day] Start of validity time in MJD            
+V_STOP_M=     58936.3152650441 / [day] End of validity time in MJD              
+                                                                                
+          / Visit                                                               
+                                                                                
+PI_NAME = 'David EHRENREICH'   / Name of the PI of the observing program        
+PI_UID  =                 5492 / ID of the PI                                   
+OBS_CAT = 'time critical'      / Observation Category                           
+PROGTYPE=                   10 / Type of the program                            
+PROG_ID =                   41 / Program Id of this type of program             
+REQ_ID  =                    3 / Observation request Id of this program         
+VISITCTR=                    2 / Visit counter for this target                  
+OBSID   =              1037012 / Unique identifier of a visit, defined by MPS   
+PRP_VST1=                  547 / [days] Proprietary period, depending on first v
+PRP_VSTN=                  365 / [days] Proprietary period, depending on last vi
+                                                                                
+          / Target                                                              
+                                                                                
+TARGNAME= 'GJ 436  '           / Name of the target as provided by the proposal 
+SPECTYPE= 'M2V     '           / Spectral type of the target as provided by the 
+T_EFF   =                 3550 / [Kelvin] Effective temperature of the target as
+MAG_G   =                9.572 / [mag] Brightness of the target in Gaia band    
+MAG_GERR=                0.001 / [mag] Error of brightness of the target in Gaia
+MAG_CHPS=     9.58613373842759 / [mag] Brightness of the target in CHEOPS band  
+MAG_CERR=                0.001 / [mag] Error of brightness of the target in CHEO
+                                                                                
+          / Exposure                                                            
+                                                                                
+T_STRT_U= '2020-03-27T23:55:07.016926' / [TIMESYS=UTC] UTC of the first measurem
+T_STOP_U= '2020-03-28T07:32:19.715814' / [TIMESYS=UTC] UTC of the last measureme
+T_STRT_M=     58935.9974097329 / [day] MJD of the first measurement             
+T_STOP_M=     58936.3149178219 / [day] MJD of the last measurement              
+T_STRT_B=      2458936.5023512 / [day] BJD of the first measurement             
+T_STOP_B=      2458936.8198484 / [day] BJD of the last measurement              
+NEXP    =                    1 / Number of co-added measurements                
+EXPTIME =                  60. / [sec] Exposure time of the individual exposures
+TEXPTIME=                  60. / [ses] Total exposure time of stacked images    
+EXPT_TYP= 'executed'           / Defines the type of EXPTIME and TEXPTIME, eithe
+                                                                                
+          / Target Coordinates                                                  
+                                                                                
+RA_TARG =           175.546222 / RA of the target at epoch J2000                
+DEC_TARG=             26.70657 / DEC of the target at epoch J2000               
+EQUINOX =                2000. / Equinox of celestial coord. system             
+RADESYS = 'ICRS    '           / Coordinate reference frame for the RA and DEC  
+                                                                                
+          / Sub - Array Location on CCD                                         
+                                                                                
+X_WINOFF=                  564 / [pixel] X offset of the Sub Array image relativ
+Y_WINOFF=                  196 / [pixel] Y offset of the Sub Array image relativ
+                                                                                
+          / Data Reduction Steps: N/A, completed, skipped, warning              
+                                                                                
+BIAS_RON= 'completed'          / BIAS and RON estimation                        
+ADU_CONV= 'N/A     '           / ADU to photpn conversion                       
+DARK    = 'completed'          / Dark current correction                        
+FFIELD  = 'completed'          / Flat field correction                          
+FLAGGING= 'N/A     '           / Flagging                                       
+JITTER  = 'completed'          / Jitter estimate                                
+WCS     = 'completed'          / Pixel to physical coordinates conversion       
+SMEARING= 'completed'          / Smearing correction                            
+BDPIX_D1= 'N/A     '           / Detection of hot pixels                        
+BDPIX_D2= 'N/A     '           / Detection of dead pixels                       
+BDPIX_D3= 'N/A     '           / Detection of cosmic ray hits                   
+BDPIX_D4= 'N/A     '           / Detection of crazy pixels                      
+BDPIX_C1= 'completed'          / Correction of hot pixels                       
+BDPIX_C2= 'N/A     '           / Correction of dead pixels                      
+BDPIX_C3= 'N/A     '           / Correction of cosmic ray hits                  
+BDPIX_C4= 'N/A     '           / Correction of crazy pixels                     
+BKGSL_W = 'N/A     '           / Identification of Background and stray light wi
+BKGSL_C = 'completed'          / Background and stray light correction          
+METH_CFG= 'N/A     '           / Method configuration module                    
+APERTURE= 'N/A     '           / Aperture photometry                            
+CONTAMIN= 'N/A     '           / Contaminations factor estimation               
+PSF_FIT = 'N/A     '           / PSF fitting                                    
+LC_QUAL = 'N/A     '           / Light curve quality analysis                   
+LC_CFG  = 'N/A     '           / Light curve configuration modules              
+                                                                                
+          / Used reference files                                                
+                                                                                
+RF_FIL1 = 'CH_TU1949-12-14T00-00-00_EXT_APP_DE1_V0102.fits' / name of the refere
+RF_FIL2 = 'CH_TU2019-12-18T00-00-00_REF_APP_Aperture_V0300.fits' / name of the r
+RF_FIL3 = 'CH_TU2020-03-27T23-03-01_REF_APP_BadPixelMap_V0201.fits' / name of th
+RF_FIL4 = 'CH_TU2019-12-18T00-00-00_REF_APP_BiasFrame_V0109.fits' / name of the 
+RF_FIL5 = 'CH_TU2018-01-01T00-00-00_REF_APP_CCDLinearisationLUT100_V0104.fits'  
+RF_FIL6 = 'CH_TU2016-01-01T00-00-00_REF_APP_DarkColumns_V0101.fits' / name of th
+RF_FIL7 = 'CH_TU2020-03-27T23-03-01_REF_APP_DarkFrame_V0201.fits' / name of the 
+RF_FIL8 = 'CH_TU2020-01-29T00-00-00_REF_APP_FlatFieldTeff-PointSource_V0104.fit'
+RF_FIL9 = 'CH_TU2020-01-29T00-00-00_REF_APP_FluxConversion_V0105.fits' / name of
+RF_FIL10= 'CH_TU2020-02-18T06-15-13_REF_APP_GainCorrection_V0109.fits' / name of
+RF_FIL11= 'CH_TU2020-03-25T22-00-00_REF_APP_Limits-ScienceHk_V0105.fits' / name 
+RF_FIL12= 'CH_TU2010-01-01T00-00-00_REF_APP_ObtReset_V0101.fits' / name of the r
+RF_FIL13= 'CH_TU2016-01-01T00-00-00_REF_APP_PixelScale_V0200.fits' / name of the
+RF_FIL14= 'CH_TU2018-01-01T00-00-00_REF_APP_ReadOut_V0101.fits' / name of the re
+RF_FIL15= 'CH_TU2016-01-01T00-00-00_REF_APP_VisitConstraints_V0101.fits' / name 
+RF_FIL16= 'CH_TU2020-01-29T00-00-00_REF_APP_WhitePSF_V0106.fits' / name of the r
+RF_FIL17= 'N/A     '           / name of the reference file                     
+RF_FIL18= 'N/A     '           / name of the reference file                     
+RF_FIL19= 'N/A     '           / name of the reference file                     
+RF_FIL20= 'N/A     '           / name of the reference file                     
+                                                                                
+          / Image Attributes                                                    
+                                                                                
+SHAPE   = 'circular'           / rectangular or circular                        
+STACKING= 'none    '           / on-board stacking of image data                
+ROUNDING=                    0 / number of bits that are rounded off            
+NLIN_COR=                    F / on-board nonlinearity correction               
+RO_SCRPT=                   31 / id of the CCD readout timing script            
+RO_HW   = 'main    '           / used on-board hw: main or redundant            
+RO_FREQU=               100000 / [Hz] CCD readout frequency                     
+                                                                                
+CHECKSUM= '5lGHAlGF8lGFAlGF'   / HDU checksum updated 2023-03-16T09:47:27       
+DATASUM = '1897550478'         / data unit checksum updated 2023-03-16T09:47:27 
+END                                                                             
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
