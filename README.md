@@ -17,6 +17,34 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+**LS8V EC 12578-2107 screen completed and closed, 21 September 2026.**
+The unchanged rank-5 pair supplied **174 rows and 201 eligible overlapping
+windows**, with **no positive or negative threshold crossing**. Both visits
+have verified 60-second integrations; tested event durations are 60/120/180
+seconds. No image follow-up is triggered and no qualified SETI candidate,
+detector or observing coverage is claimed.
+
+Both known-answer tests and **2,412 independent numerical/discrete comparisons**
+pass without disagreement. All 20 result files and 26 metadata files were
+checksum verified, and the figure was visually inspected. A pre-table TLS
+failure is preserved; its separately frozen transport-only recovery succeeded
+with unchanged data scope, arithmetic and thresholds. Exactly 24,012 science
+bytes were acquired. Scores are not Gaussian significances; the empty screen
+does not establish completeness or short-glint sensitivity.
+
+**Current next action: LS8W, rank-6 GJ 436.** Separately freeze metadata/header
+checks for CH_PR100041_TG000302_V0300 and CH_PR100041_TG001301_V0300, verify
+their ledger NEXP=1/60-second exposures, then freeze exact DEFAULT-L2 ranges
+and transfer the unchanged screen. Its science values remain unopened.
+The earlier TESS_260647166 positive remains unresolved within its fixed scope.
+[Scientific interpretation and continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8V_CONTINUATION.md),
+[audited report and figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8v_l2_recovered/REPORT.md),
+[preserved failure and recovery](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8V_TRANSPORT_RECOVERY.md),
+[publication identities](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PUBLICATION_2026-09-21_LS8V.md).
+
+Earlier dated next steps below are historical; the active queue is the LS8V
+continuation above.
+
 **LS8U TESS_260647166 residual/noise study completed and closed,
 20 September 2026.** The positive remains **UNRESOLVED_WITHIN_FIXED_SCOPE**;
 the negative remains **SPATIALLY_STRUCTURED**. There is no qualified SETI
