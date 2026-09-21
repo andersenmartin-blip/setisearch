@@ -1,5 +1,43 @@
 # SETIsearch — current project status
 
+## 21 September LS8V: EC 12578-2107 screen complete and closed
+
+The predetermined rank-5 CHEOPS pair supplied **174 rows and 201 eligible,
+overlapping windows**, with **zero positive and zero negative threshold
+crossings**. The unchanged one/two/three-row screen uses 60/120/180-second
+durations and the original +/-8.5 endpoints. There is no qualified SETI
+candidate, detector or observing-coverage claim; no image follow-up is triggered.
+
+The first visit contributes 36 eligible windows, with scores -1.64920 to
++1.40544; the second contributes 165, with scores -5.42090 to +4.89193.
+These are screening scores, not Gaussian significances. The empty screen
+does not establish short-glint sensitivity or an intrinsically constant source.
+
+Both known-answer tests and **2,412 independent numerical/discrete comparisons**
+pass without disagreement. All 20 result files and 26 metadata files were
+checksum verified; the figure was visually inspected. Exactly 24,012 table
+bytes were acquired, with no images, alternate apertures or later visits.
+The original TLS failure before table access remains preserved. A separately
+frozen transport-only recovery succeeded with unchanged inputs and arithmetic;
+both URL resolutions succeeded on their first recovery attempt.
+
+**Immediate next action: prepare LS8W for rank-6 GJ 436**, beginning with a
+separate metadata/header freeze for CH_PR100041_TG000302_V0300 and
+CH_PR100041_TG001301_V0300, then exact DEFAULT-L2 ranges and the unchanged
+screen. Both 60-second/NEXP=1 values remain ledger entries requiring header
+verification. GJ 436 science values remain unopened. EC 12578-2107 is closed.
+
+[Scientific interpretation and exact continuation](LS8V_CONTINUATION.md),
+[audited report and figure](results_ls8v_l2_recovered/REPORT.md),
+[frozen scientific scope](LS8V_EC125782107_L2_PROTOCOL.md),
+[preserved failure and bounded recovery](LS8V_TRANSPORT_RECOVERY.md),
+[publication identities](PUBLICATION_2026-09-21_LS8V.md).
+
+All earlier dated next actions are historical. The active queue is the LS8V
+continuation above. The prior TESS_260647166 positive remains unresolved;
+closed studies, reserved TESS/M43 data and the unsent calibration request
+remain unchanged. The calibration gate remains NOT_READY.
+
 ## 20 September LS8U: TESS_260647166 retained-data study complete and closed
 
 The positive **TG015701_P0 remains UNRESOLVED_WITHIN_FIXED_SCOPE**; the
@@ -1261,7 +1299,7 @@ were hash checked. This is retrospective development, not fresh validation.
 | M43AF complete no-model study | Published and byte-verified: 502 records; 69 archive parts restore 508 original files |
 | Adopted new detector / new M43AF–M43AI astronomical candidate | None |
 | Earlier M33 HD 3651 case | Still unresolved; [investigation](MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
-| LS research | LS8S–LS8T rank-4 TESS_260647166 complete and audited: one positive and one negative cluster in 2,004 eligible windows. Negative SPATIALLY_STRUCTURED; positive UNRESOLVED_WITHIN_FIXED_SCOPE. Next: one separately frozen retained-data residual/noise study with both original events. [Current continuation](LS8T_CONTINUATION.md) |
+| LS research | LS8V rank-5 EC 12578-2107 complete and closed: 174 rows, 201 eligible windows, zero signed threshold crossings; independent audit passes. Earlier TESS_260647166 positive remains unresolved. Next: separately freeze rank-6 GJ 436 metadata/header preflight. [Current continuation](LS8V_CONTINUATION.md) |
 
 M43AF's 502 records include 261 already completed historical acquisitions and
 the 241 training/baseline/null records. Its 940 scientific pins and earlier

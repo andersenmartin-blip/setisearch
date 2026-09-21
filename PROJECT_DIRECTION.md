@@ -561,3 +561,28 @@ stay closed. The calibration gate remains NOT_READY and its technical
 request remains unsent. Standing publication authorization continues;
 collaboration and delegation remain deferred.
 
+
+## 21 September 2026 — LS8V closed; proceed to rank-6 GJ 436
+
+The rank-5 EC 12578-2107 pair completed its unchanged prospective DEFAULT-L2
+screen: 174 rows, 201 eligible overlapping windows and zero positive or
+negative threshold crossings. Both known-answer tests and 2,412 independent
+numerical/discrete comparisons pass. The first pre-table TLS failure is
+preserved; a separately frozen transport-only recovery obtained the same
+exact inputs and passed without changes to scientific arithmetic or gates.
+All 20 result files and 26 metadata files were checksum verified, and the
+figure was visually inspected. No CAL/COR image follow-up is triggered.
+
+Keep this pair closed, including its five later eligible visits. The active
+next step is LS8W: separately freeze rank-6 GJ 436's exact chronological pair,
+CH_PR100041_TG000302_V0300 and CH_PR100041_TG001301_V0300, for metadata/header
+checks. Both ledger exposure tuples are NEXP=1 and 60 seconds; verify each
+header before freezing exact DEFAULT-L2 ranges and opening values. Preserve
+the unchanged screen, both signs and independent audit. Current restart:
+LS8V_CONTINUATION.md. GJ 436 science values remain unopened.
+
+This null is not a sensitivity, completeness or observing-coverage result.
+The earlier TESS_260647166 positive remains unresolved and its study closed.
+Other closed optical studies, M33 HD 3651, reserved TESS/M43 panels and the
+unsent calibration request are unchanged. Standing research/publication
+authorization continues; collaboration and delegation remain deferred.
