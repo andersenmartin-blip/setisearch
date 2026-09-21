@@ -622,3 +622,37 @@ study closed. Other closed optical studies, the M33 HD 3651 radio case,
 reserved TESS/M43 panels and the unsent calibration request are unchanged.
 The calibration gate remains NOT_READY. Standing research/publication
 authorization continues; collaboration and delegation remain deferred.
+
+
+## 21 September 2026 — LS8Y–LS8Z PG 1245-042 complete and closed
+
+The rank-7 pair completes its unchanged prospective DEFAULT-L2 screen:
+164 rows, 228 eligible windows, four negative crossings in one cluster and
+no positive crossing. Its complete signed representative set receives the
+separately frozen image diagnostic after 58 unique metadata joins.
+The fixed image diagnostic classifies the negative event as
+**CORRECTION_LINKED**. DELTA/COR is **+1.688786 / +1.717959** in the two
+coordinate conventions, with complete apertures and negative COR signs
+matching L2. The delivered correction reverses a positive CAL aperture
+residual into a negative COR residual. The label describes material coupling
+to processing; the responsible component and physical cause remain unassigned.
+
+The L2 audit passes 2,736 comparisons; all nine pre-pixel image tests pass.
+The independent image audit passes 94,537 numerical comparisons and
+160,581 exact checks with no disagreements. Both figures are visually
+inspected. Full workflow verification and the exact local-copy scope are
+recorded in the publication record. No qualified candidate, detector or
+observing coverage is added; no new correction or screening cut is adopted.
+
+**Immediate next action: prepare LS8AA for rank-8 WASP-43**, beginning
+with a separate exact-pair/header freeze for CH_PR100016_TG007801_V0300 and
+CH_PR100016_TG007802_V0300. Verify their NEXP=1/60-second ledger exposures,
+then freeze exact DEFAULT-L2 ranges and transfer the unchanged signed screen.
+Those science values remain unopened. The PG 1245-042 pair is closed.
+
+Current restart: LS8Z_CONTINUATION.md. Earlier dated next actions are
+historical. TESS_260647166's positive remains unresolved and its bounded
+study closed; GJ 436 remains closed under CORRECTION_LINKED. Other optical
+studies, M33 HD 3651, reserved TESS/M43 panels and the unsent calibration
+request are unchanged. Standing research/publication authorization continues;
+collaboration and delegation remain deferred.

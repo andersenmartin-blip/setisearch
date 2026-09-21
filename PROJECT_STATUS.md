@@ -1,5 +1,46 @@
 # SETIsearch — current project status
 
+## 21 September LS8Y–LS8Z: PG 1245-042 screen and image follow-up complete and closed
+
+The rank-7 CHEOPS pair supplied **164 rows and 228 eligible overlapping
+windows**. Four negative crossings form one cluster; no positive crossing
+occurs in either visit. TG008601_N0 is one 60-second exposure at row 31,
+original score **-18.490171716816285**, approximately 7.00% below the local
+L2 baseline. Both visits have verified NEXP=1 and 60-second exposures.
+Scores are not Gaussian significances.
+
+The fixed image diagnostic classifies the negative event as
+**CORRECTION_LINKED**. DELTA/COR is **+1.688786 / +1.717959** in the two
+coordinate conventions, with complete apertures and negative COR signs
+matching L2. The delivered correction reverses a positive CAL aperture
+residual into a negative COR residual. The label describes material coupling
+to processing; the responsible component and physical cause remain unassigned.
+
+The L2 audit passes **2,736 numerical/discrete comparisons**. Before pixels,
+image metadata passes **58 unique joins and 269 exact checks**. All nine
+inherited image tests pass; the independent image audit passes **94,537
+numerical comparisons and 160,581 exact checks**, zero disagreements.
+Both figures were visually inspected. Exactly 22,632 L2 bytes, 18,560,000
+image bytes and 46,400 smearing bytes were acquired. The publication record
+states the complete workflow and additional local verification scope.
+No qualified SETI candidate, detector or observing coverage is added.
+
+**Immediate next action: prepare LS8AA for rank-8 WASP-43**, beginning
+with a separate exact-pair/header freeze for CH_PR100016_TG007801_V0300 and
+CH_PR100016_TG007802_V0300. Verify their NEXP=1/60-second ledger exposures,
+then freeze exact DEFAULT-L2 ranges and transfer the unchanged signed screen.
+Those science values remain unopened. The PG 1245-042 pair is closed.
+
+[Scientific interpretation and exact continuation](LS8Z_CONTINUATION.md),
+[L2 report and figure](results_ls8y_l2_screen/REPORT.md),
+[image report and figure](results_ls8z_images/REPORT.md),
+[publication identities and verification](PUBLICATION_2026-09-21_LS8Y_LS8Z.md).
+
+All earlier dated next actions are historical. The active queue is the LS8Z
+continuation above. The earlier TESS_260647166 positive remains unresolved;
+GJ 436 and other bounded studies remain closed. Reserved TESS/M43 panels
+stay closed. Calibration is NOT_READY and its request unsent.
+
 ## 21 September LS8W–LS8X: GJ 436 screen and image follow-up complete and closed
 
 The predetermined rank-6 CHEOPS pair supplied **640 rows and 936 eligible
@@ -1344,7 +1385,7 @@ were hash checked. This is retrospective development, not fresh validation.
 | M43AF complete no-model study | Published and byte-verified: 502 records; 69 archive parts restore 508 original files |
 | Adopted new detector / new M43AF–M43AI astronomical candidate | None |
 | Earlier M33 HD 3651 case | Still unresolved; [investigation](MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
-| LS research | LS8W–LS8X rank-6 GJ 436 complete and closed: 640 rows, 936 eligible windows, one positive 60-second event classified CORRECTION_LINKED; independent audits pass. Earlier TESS_260647166 positive remains unresolved. Next: LS8Y rank-7 PG 1245-042 metadata/header freeze. [Current continuation](LS8X_CONTINUATION.md) |
+| LS research | LS8Y–LS8Z PG 1245-042: 164 rows, 228 windows, one negative event classified CORRECTION_LINKED; independent audits pass. Next: LS8AA rank-8 WASP-43 header preflight. The earlier TESS_260647166 positive remains unresolved. [Current continuation](LS8Z_CONTINUATION.md) |
 
 M43AF's 502 records include 261 already completed historical acquisitions and
 the 241 training/baseline/null records. Its 940 scientific pins and earlier
