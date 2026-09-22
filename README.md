@@ -17,6 +17,52 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+**LS8AO–LS8AP WASP-103: complete search and correction-linked follow-up, 22 September 2026.**
+
+The predetermined rank-14 CHEOPS pair supplied **565 rows and 804 eligible
+overlapping windows**. The first visit has no signed threshold crossing; the
+second has three positive crossings in one cluster and no negative crossing.
+The sole representative, **TG000102_P0**, is row 274 of
+CH_PR100013_TG000102_V0300: one 60-second exposure, L2 score **+13.672258**,
+and **+1.301371%** above its local L2 baseline. Scores are not Gaussian sigma.
+
+The complete paired-image follow-up classifies the event **CORRECTION_LINKED**.
+Both coordinate conventions have complete apertures and positive COR sums
+matching L2. The CAL event-residual aperture sum is approximately -91,100 ADU,
+while COR is +18,550 ADU; DELTA=COR-CAL is about +109,650 ADU.
+DELTA/COR is **5.906078 / 5.915583**, and the column-projected ratios are
+**6.087909 / 6.093572**, above the pre-existing 0.5 correction gate in both
+conventions. These are event-residual sums, not negative total stellar flux.
+The label establishes substantial coupling to delivered processing; it does
+not identify one physical correction component or exclude source variability.
+
+All four workflows and the **5 transport / 2 L2 / 9 image tests** pass.
+Independent audits pass **9,648 L2 comparisons**, **269 image-metadata checks**
+and **94,537 numerical / 160,581 exact image checks**, with zero disagreements
+at unchanged tolerances. Both figures were visually inspected. Acquisition is
+exactly **77,970 L2 bytes, 18,560,000 image bytes and 46,400 smearing bytes**.
+The WASP-103 pair is complete and closed under its fixed descriptive label;
+no residual study is triggered. No qualified SETI candidate, detector,
+sensitivity or observing-coverage claim is added.
+
+**Immediate next action: prepare LS8AQ for rank-15 GJ 581**, beginning
+with a separate exact-pair/header freeze for CH_PR100011_TG023701_V0300 and
+CH_PR100018_TG008301_V0300. They are the first two of seven eligible visits.
+Their ledger tuples are NEXP=1, EXPTIME=TEXPTIME=60 seconds and pipeline
+14.1.2; verify each product's own identity, schema, rows and exposures before
+separately freezing exact DEFAULT-L2 byte ranges. Transfer the unchanged
+one/two/three-row signed screen and independent audit using the verified cadence.
+GJ 581 science values remain unopened. The nine later eligible WASP-103 visits
+stay outside the closed pair; no event in it becomes a new screening cut.
+
+[Scientific interpretation and exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8AP_CONTINUATION.md),
+[L2 report and figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8ao_l2_screen/REPORT.md),
+[paired-image report and figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8ap_images/REPORT.md),
+[publication identities and verification](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PUBLICATION_2026-09-22_LS8AO_LS8AP.md).
+
+Earlier dated sections below preserve their historical next actions. The
+active continuation is LS8AP above; the next stage is LS8AQ.
+
 **LS8AL–LS8AN HD 106315: complete search and bounded follow-up, 22 September 2026.**
 
 The rank-13 CHEOPS pair supplied **2,382 rows and 4,698 eligible overlapping
