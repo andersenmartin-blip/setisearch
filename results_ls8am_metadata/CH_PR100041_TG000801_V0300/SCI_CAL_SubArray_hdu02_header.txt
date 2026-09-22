@@ -1,0 +1,180 @@
+XTENSION= 'BINTABLE'           / binary table extension                         
+BITPIX  =                    8 / 8-bit bytes                                    
+NAXIS   =                    2 / 2-dimensional binary table                     
+NAXIS1  =                  161 / width of table in bytes                        
+NAXIS2  =                  872 / number of rows in table                        
+PCOUNT  =                    0 / size of special data area                      
+GCOUNT  =                    1 / one data group (required keyword)              
+TFIELDS =                   29 / number of fields in each row                   
+TTYPE1  = 'UTC_TIME'           / UTC time, middle of the measurements           
+TFORM1  = '26A     '           / format of field                                
+TUNIT1  = 'TIMESYS=UTC'        / Unit of column UTC_TIME                        
+TTYPE2  = 'MJD_TIME'           / Modified Julian Day, middle of the measurements
+TFORM2  = '1D      '           / format of field                                
+TUNIT2  = 'day     '           / Unit of column MJD_TIME                        
+TTYPE3  = 'BJD_TIME'           / barycentric date, middle of measurements       
+TFORM3  = '1D      '           / format of field                                
+TUNIT3  = 'day     '           / Unit of column BJD_TIME                        
+TTYPE4  = 'LOS_TO_SUN_ANGLE'   / Angle between line-of-sight and Sun            
+TFORM4  = '1D      '           / format of field                                
+TUNIT4  = 'deg     '           / Unit of column LOS_TO_SUN_ANGLE                
+TTYPE5  = 'LOS_TO_MOON_ANGLE'  / Angle between line-of-sight and Moon           
+TFORM5  = '1D      '           / format of field                                
+TUNIT5  = 'deg     '           / Unit of column LOS_TO_MOON_ANGLE               
+TTYPE6  = 'LOS_TO_EARTH_ANGLE' / Angle between line-of-sight and Earth limb     
+TFORM6  = '1D      '           / format of field                                
+TUNIT6  = 'deg     '           / Unit of column LOS_TO_EARTH_ANGLE              
+TTYPE7  = 'LATITUDE'           / Geodetic latitude of the spacecraft            
+TFORM7  = '1E      '           / format of field                                
+TUNIT7  = 'deg     '           / Unit of column LATITUDE                        
+TTYPE8  = 'LONGITUDE'          / Geodetic longitude of the spacecraft           
+TFORM8  = '1E      '           / format of field                                
+TUNIT8  = 'deg     '           / Unit of column LONGITUDE                       
+TTYPE9  = 'CE_COUNTER'         / image counter per visit                        
+TFORM9  = '1I      '           / format of field                                
+TZERO9  =                32768 / offset for unsigned integers                   
+TSCAL9  =                    1 / data are not scaled                            
+TTYPE10 = 'CE_INTEGRITY'       / 1: a problem occurred during data processing   
+TFORM10 = '1B      '           / format of field                                
+TTYPE11 = 'HK_VOLT_FEE_VOD'    / FEE voltage to CCD (DAC output)                
+TFORM11 = '1E      '           / format of field                                
+TUNIT11 = 'V       '           / Unit of column HK_VOLT_FEE_VOD                 
+TTYPE12 = 'HK_VOLT_FEE_VRD'    / FEE voltage to CCD (DAC output)                
+TFORM12 = '1E      '           / format of field                                
+TUNIT12 = 'V       '           / Unit of column HK_VOLT_FEE_VRD                 
+TTYPE13 = 'HK_VOLT_FEE_VOG'    / FEE voltage to CCD                             
+TFORM13 = '1E      '           / format of field                                
+TUNIT13 = 'V       '           / Unit of column HK_VOLT_FEE_VOG                 
+TTYPE14 = 'HK_VOLT_FEE_VSS'    / FEE voltage to CCD (DAC output)                
+TFORM14 = '1E      '           / format of field                                
+TUNIT14 = 'V       '           / Unit of column HK_VOLT_FEE_VSS                 
+TTYPE15 = 'HK_TEMP_FEE_CCD'    / FPA/CCD (two sensors for main and redundant cha
+TFORM15 = '1E      '           / format of field                                
+TUNIT15 = 'degC    '           / Unit of column HK_TEMP_FEE_CCD                 
+TTYPE16 = 'HK_TEMP_FEE_ADC'    / ADC/analog chain area (two sensors on one PCB f
+TFORM16 = '1E      '           / format of field                                
+TUNIT16 = 'degC    '           / Unit of column HK_TEMP_FEE_ADC                 
+TTYPE17 = 'HK_TEMP_FEE_BIAS'   / BIAS voltage area (two sensors on one PCB for m
+TFORM17 = '1E      '           / format of field                                
+TUNIT17 = 'degC    '           / Unit of column HK_TEMP_FEE_BIAS                
+TTYPE18 = 'ADC_N5V '           / Value from resistor measurement                
+TFORM18 = '1E      '           / format of field                                
+TUNIT18 = 'V       '           / Unit of column ADC_N5V                         
+TTYPE19 = 'ADC_TEMP1'          / Value from thermistor                          
+TFORM19 = '1E      '           / format of field                                
+TUNIT19 = 'degC    '           / Unit of column ADC_TEMP1                       
+TTYPE20 = 'thermAft_1'         / Temperature acquired from aft thermistor 1     
+TFORM20 = '1E      '           / format of field                                
+TUNIT20 = 'degC    '           / Unit of column thermAft_1                      
+TTYPE21 = 'thermAft_2'         / Temperature acquired from aft thermistor 2     
+TFORM21 = '1E      '           / format of field                                
+TUNIT21 = 'degC    '           / Unit of column thermAft_2                      
+TTYPE22 = 'thermAft_3'         / Temperature acquired from aft thermistor 3     
+TFORM22 = '1E      '           / format of field                                
+TUNIT22 = 'degC    '           / Unit of column thermAft_3                      
+TTYPE23 = 'thermAft_4'         / Temperature acquired from aft thermistor 4     
+TFORM23 = '1E      '           / format of field                                
+TUNIT23 = 'degC    '           / Unit of column thermAft_4                      
+TTYPE24 = 'thermFront_1'       / Temperature acquired from front thermistor 1   
+TFORM24 = '1E      '           / format of field                                
+TUNIT24 = 'degC    '           / Unit of column thermFront_1                    
+TTYPE25 = 'thermFront_2'       / Temperature acquired from front thermistor 2   
+TFORM25 = '1E      '           / format of field                                
+TUNIT25 = 'degC    '           / Unit of column thermFront_2                    
+TTYPE26 = 'thermFront_3'       / Temperature acquired from front thermistor 3   
+TFORM26 = '1E      '           / format of field                                
+TUNIT26 = 'degC    '           / Unit of column thermFront_3                    
+TTYPE27 = 'thermFront_4'       / Temperature acquired from front thermistor 4   
+TFORM27 = '1E      '           / format of field                                
+TUNIT27 = 'degC    '           / Unit of column thermFront_4                    
+TTYPE28 = 'BIAS    '           / measured bias                                  
+TFORM28 = '1D      '           / format of field                                
+TTYPE29 = 'RON     '           / measured RON                                   
+TFORM29 = '1D      '           / format of field                                
+DATE    = '2023-03-16T08:00:51' / creation time of this HDU                     
+STAMP   = 'main_calibration.py 14.0.1' / program creating this HDU              
+SVN_REV = 'Unversioned directory' / svn revision of the software creating this H
+EXTNAME = 'SCI_CAL_ImageMetadata' / extension name                              
+SCHEMA  = 'SCI_CAL_ImageMetadata.fsd' / filename of schema defining this data st
+EXT_VER = '13.2    '           / version of the data structure                  
+DATA_LVL= 'L1      '           / Level of this data product                     
+PROC_CHN= 'data reduction'     / Processing chain creating this data structure  
+          / L1 product : Metadata of the calibrated images, stored in the same  
+          / FITS file.                                                          
+          / There is one row per two dimensional image in the associated image  
+          / cube. It stores metadata of that image. This data structure is used 
+          / for subArrays as well as for images of the FullArray. In the latter 
+          / case there will be just one row in the table.                       
+                                                                                
+          / CHEOPS Data Structure                                               
+                                                                                
+TELESCOP= 'CHEOPS  '           / Telescope's name                               
+INSTRUME= 'CHEOPS  '           / Instrument's name                              
+ORIGIN  = 'SOC     '           / Processing site, creating this FITS file       
+ARCH_REV=                    3 / Archive revision number                        
+PROC_NUM=                    0 / Processing Number                              
+PIPE_VER= '14.1.2  '           / Pipeline version                               
+TIMESYS = 'TT      '           / Time frame system                              
+                                                                                
+          / Start and Stop of Validity                                          
+                                                                                
+V_STRT_U= '2020-03-25T10:58:32.138820' / [TIMESYS=UTC] Start of validity time in
+V_STOP_U= '2020-03-25T21:34:26.857102' / [TIMESYS=UTC] End of validity time in U
+V_STRT_M=     58933.4581171623 / [day] Start of validity time in MJD            
+V_STOP_M=     58933.8997226979 / [day] End of validity time in MJD              
+                                                                                
+          / Visit                                                               
+                                                                                
+PI_NAME = 'David EHRENREICH'   / Name of the PI of the observing program        
+PI_UID  =                 5492 / ID of the PI                                   
+OBS_CAT = 'time critical'      / Observation Category                           
+PROGTYPE=                   10 / Type of the program                            
+PROG_ID =                   41 / Program Id of this type of program             
+REQ_ID  =                    8 / Observation request Id of this program         
+VISITCTR=                    1 / Visit counter for this target                  
+OBSID   =              1036347 / Unique identifier of a visit, defined by MPS   
+PRP_VST1=                  547 / [days] Proprietary period, depending on first v
+PRP_VSTN=                  365 / [days] Proprietary period, depending on last vi
+                                                                                
+          / Target                                                              
+                                                                                
+TARGNAME= 'HD 106315'          / Name of the target as provided by the proposal 
+SPECTYPE= 'F5V     '           / Spectral type of the target as provided by the 
+T_EFF   =                 6510 / [Kelvin] Effective temperature of the target as
+MAG_G   =                8.888 / [mag] Brightness of the target in Gaia band    
+MAG_GERR=                   0. / [mag] Error of brightness of the target in Gaia
+MAG_CHPS=     8.88313592584892 / [mag] Brightness of the target in CHEOPS band  
+MAG_CERR=                   0. / [mag] Error of brightness of the target in CHEO
+                                                                                
+          / Calculated Errors                                                   
+                                                                                
+STD_SP_B=    0.632708686275609 / Spatial standard deviation of the bias         
+STD_SP_D=                   0. / Spatial standard deviation of the dark         
+                                                                                
+CHECKSUM= 'ZhaXaeYUTeaUZeYU'   / HDU checksum updated 2023-03-16T08:01:18       
+DATASUM = '2399937368'         / data unit checksum updated 2023-03-16T08:01:18 
+END                                                                             
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
