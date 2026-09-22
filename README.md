@@ -17,6 +17,46 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+**LS8AK PG 1343-102: audited null and closed pair, 22 September 2026.**
+
+The predetermined rank-12 CHEOPS pair supplied **176 rows and 231 eligible
+overlapping windows**, with **zero positive or negative threshold crossings
+and zero clusters of either sign**. Both visits have verified NEXP=1 and
+EXPTIME=TEXPTIME=60 seconds, pipeline 14.1.2. The unchanged screen uses
+60/120/180-second events, 12-row sidebands, two-row guards and endpoints
++/-8.5. The pair is **COMPLETE_AUDITED and closed as a descriptive null**.
+
+The null applies to the eligible windows. The second visit contains an early
+STATUS=0 point at zero-based row 10, about 34.46% above the visit median.
+It lacks the required left context for every tested event duration; it remains
+in the retained table and figure. Its cause is unassigned. No edge rule is
+changed and no image follow-up is triggered by this null result.
+
+The five inherited transport tests and two stable L2 tests pass. The independent
+audit passes **2,772 numerical/discrete comparisons**, with zero disagreements
+at the unchanged tolerances. The figure was visually inspected. Exactly
+**24,288 L2 science bytes** and no image bytes were acquired. All **62 new
+scientific files** were locally verified against their published Git identities;
+the four scientific commits change or remove no earlier file. Scores are not
+Gaussian significances; no sensitivity, candidate, detector or qualified
+observing-coverage claim is added.
+
+**Immediate next action: prepare LS8AL for rank-13 HD 106315**, beginning
+with a separate exact-pair/header freeze for CH_PR100041_TG000801_V0300 and
+CH_PR100041_TG001401_V0300. Their ledger exposures are NEXP=1 and
+EXPTIME=TEXPTIME=41 seconds, pipeline 14.1.2, and still require their own
+header verification. Then freeze exact DEFAULT-L2 ranges and transfer the
+unchanged one/two/three-row screen using each visit's verified cadence
+(41/82/123 seconds if confirmed). Those science values remain unopened.
+The two later eligible PG 1343-102 visits stay outside the closed pair.
+
+[Scientific interpretation and exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8AK_CONTINUATION.md),
+[L2 report and figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8ak_l2_screen/REPORT.md),
+[publication identities and verification](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PUBLICATION_2026-09-22_LS8AK.md).
+
+Earlier dated sections below preserve their historical next actions. The
+active continuation is LS8AK above; the next stage is LS8AL.
+
 **LS8AI–LS8AJ EC13080-1508 screen and image follow-up complete and closed, 22 September 2026.**
 
 The predetermined rank-11 CHEOPS pair supplied **179 rows and 288 eligible
