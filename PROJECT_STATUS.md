@@ -1,5 +1,55 @@
 # SETIsearch — current project status
 
+## 22 September LS8AK: PG 1343-102 audited null and closed pair
+
+The predetermined rank-12 CHEOPS pair supplied **176 rows and 231 eligible
+overlapping windows**, with **zero positive or negative threshold crossings
+and zero clusters of either sign**. Both visits have verified NEXP=1 and
+EXPTIME=TEXPTIME=60 seconds, pipeline 14.1.2. The unchanged screen uses
+60/120/180-second events, 12-row sidebands, two-row guards and endpoints
++/-8.5. The pair is **COMPLETE_AUDITED and closed as a descriptive null**.
+
+The null applies to the eligible windows. The second visit contains an early
+STATUS=0 point at zero-based row 10, about 34.46% above the visit median.
+It lacks the required left context for every tested event duration; it remains
+in the retained table and figure. Its cause is unassigned. No edge rule is
+changed and no image follow-up is triggered by this null result.
+
+The five inherited transport tests and two stable L2 tests pass. The independent
+audit passes **2,772 numerical/discrete comparisons**, with zero disagreements
+at the unchanged tolerances. The figure was visually inspected. Exactly
+**24,288 L2 science bytes** and no image bytes were acquired. All **62 new
+scientific files** were locally verified against their published Git identities;
+the four scientific commits change or remove no earlier file. Scores are not
+Gaussian significances; no sensitivity, candidate, detector or qualified
+observing-coverage claim is added.
+
+**Immediate next action: prepare LS8AL for rank-13 HD 106315**, beginning
+with a separate exact-pair/header freeze for CH_PR100041_TG000801_V0300 and
+CH_PR100041_TG001401_V0300. Their ledger exposures are NEXP=1 and
+EXPTIME=TEXPTIME=41 seconds, pipeline 14.1.2, and still require their own
+header verification. Then freeze exact DEFAULT-L2 ranges and transfer the
+unchanged one/two/three-row screen using each visit's verified cadence
+(41/82/123 seconds if confirmed). Those science values remain unopened.
+The two later eligible PG 1343-102 visits stay outside the closed pair.
+
+[Scientific interpretation and exact continuation](LS8AK_CONTINUATION.md),
+[L2 report and figure](results_ls8ak_l2_screen/REPORT.md),
+[publication identities and verification](PUBLICATION_2026-09-22_LS8AK.md).
+
+Earlier dated next actions below are historical. The active continuation is
+LS8AK_CONTINUATION.md; the next stage is LS8AL.
+
+The original 1,000-row census, 452 eligible visits and 107-cohort ordering
+remain fixed. TESS_260647166's positive, PG1303-114's negative and
+PG 1207-033's positive retain their unresolved labels and closed bounded
+studies. EC13080-1508, WASP-43, GJ 436 and PG 1245-042 remain closed under
+CORRECTION_LINKED. Other closed optical studies and M33 HD 3651 are
+unchanged. Reserved TESS/M43 panels remain closed. Calibration is NOT_READY
+and its technical request remains unsent. Standing research/publication
+authorization continues; delegation remains deferred.
+
+
 ## 22 September LS8AI–LS8AJ: EC13080-1508 screen and image follow-up complete and closed
 
 The predetermined rank-11 CHEOPS pair supplied **179 rows and 288 eligible
@@ -1585,7 +1635,7 @@ were hash checked. This is retrospective development, not fresh validation.
 | M43AF complete no-model study | Published and byte-verified: 502 records; 69 archive parts restore 508 original files |
 | Adopted new detector / new M43AF–M43AI astronomical candidate | None |
 | Earlier M33 HD 3651 case | Still unresolved; [investigation](MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
-| LS research | LS8AI–LS8AJ EC13080-1508: 179 rows, 288 windows, one negative event classified CORRECTION_LINKED; independent audits pass. Next: LS8AK rank-12 PG 1343-102 header preflight. Prior unresolved labels and closed bounded studies are retained. [Current continuation](LS8AJ_CONTINUATION.md) |
+| LS research | LS8AK PG 1343-102: 176 rows, 231 eligible windows, zero signed crossings/clusters; independent audit passes. Pair closed as a descriptive null. Next: LS8AL rank-13 HD 106315 header preflight, ledger exposure 41 s. Prior unresolved labels and closed studies retained. [Current continuation](LS8AK_CONTINUATION.md) |
 
 M43AF's 502 records include 261 already completed historical acquisitions and
 the 241 training/baseline/null records. Its 940 scientific pins and earlier
