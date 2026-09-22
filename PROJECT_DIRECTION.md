@@ -804,3 +804,48 @@ their unresolved labels and closed bounded studies. Other closed studies
 and reserved TESS/M43 panels remain closed. Calibration is NOT_READY and
 its request unsent. Standing publication authorization continues;
 delegation remains deferred.
+
+
+## 22 September 2026 — LS8AI–LS8AJ EC13080-1508 complete and closed
+
+The predetermined rank-11 CHEOPS pair supplied **179 rows and 288 eligible
+overlapping windows**, with four negative crossings in one cluster and no positive
+crossing. TG005201_N0 is a 60-second exposure at zero-based row 65, score
+**-13.17039181262956**, approximately 3.97253% below its local L2 baseline.
+Both visits have verified NEXP=1 and 60-second exposures. Scores are not
+Gaussian significances.
+
+The fixed image diagnostic classifies the negative event as
+**CORRECTION_LINKED**. DELTA/COR is **-3.380189 / -3.413528** in the two
+coordinate conventions, with complete apertures and negative COR signs
+matching L2. The delivered correction substantially reduces a larger CAL
+deficit while leaving a negative COR residual. The label describes material
+coupling to processing; the responsible component and physical cause remain
+unassigned. No new correction or screening cut is adopted.
+
+The L2 audit passes **3,456 comparisons**. Before pixels, image metadata
+passes **58 unique joins and 269 exact checks**. All nine inherited image
+tests pass; the independent image audit passes **94,537 numerical
+comparisons and 160,581 exact checks**, zero disagreements. Both figures
+were visually inspected. Exactly 24,702 L2 bytes, 18,560,000 image bytes and
+46,400 smearing bytes were acquired. The publication record gives the exact
+workflow and local verification scope. No qualified SETI candidate, detector
+or observing coverage is added.
+
+**Immediate next action: prepare LS8AK for rank-12 PG 1343-102**, starting
+with a separate exact-pair/header freeze for CH_PR100002_TG008701_V0300 and
+CH_PR100002_TG008702_V0300. Verify the NEXP=1/60-second ledger exposures,
+then freeze exact DEFAULT-L2 ranges and transfer the unchanged signed screen.
+Those science values remain unopened; the cohort's two later eligible visits
+stay outside scope. The EC13080-1508 pair is closed, with its third visit
+TG005203 outside the completed transfer.
+
+
+Current restart: LS8AJ_CONTINUATION.md. Earlier dated next actions are
+historical. No new correction or screening cut is adopted. The earlier TESS_260647166 positive remains UNRESOLVED_WITHIN_FIXED_SCOPE
+and its bounded study closed. PG1303-114’s negative and PG 1207-033’s positive also retain their unresolved
+labels and closed bounded studies. WASP-43, GJ 436 and PG 1245-042 remain
+closed under CORRECTION_LINKED. Other closed optical studies and M33 HD 3651 are unchanged.
+Reserved TESS/M43 panels remain closed. Calibration is NOT_READY and its
+technical request unsent. Standing research/publication authorization
+continues; delegation remains deferred.
