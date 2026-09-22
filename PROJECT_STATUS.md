@@ -1,5 +1,54 @@
 # SETIsearch — current project status
 
+## 22 September LS8AC–LS8AE: PG1303-114 screen and bounded follow-up complete and closed
+
+The rank-9 CHEOPS pair supplied **165 rows and 222 eligible overlapping
+windows**, with **zero positive crossings** and two negative crossings in
+one cluster. TG006402_N0 is one 60-second exposure at zero-based row 21,
+score **-10.531570808271077**, approximately 3.00335% below its local L2
+baseline. Both visits have verified NEXP=1 and 60-second exposures.
+Scores are not Gaussian significances.
+
+The complete signed image follow-up leaves the negative
+**UNRESOLVED_WITHIN_FIXED_SCOPE**. DELTA/COR is 0.304773/0.312012 and COR
+displacement explained energy is 58.94%/58.68%, below the original gates in
+both conventions. The subsequent separately frozen retained-data study finds
+COR residual/reference energy **0.878666/0.876726**, with **20/24 and 19/24**
+held single-row controls at least as large. The residual is not exceptional
+in this fixed local comparison; these dependent counts are not p-values and
+do not identify its cause. The original label remains unchanged.
+
+Hypothetical displacement subtraction loses **38.17–38.23%** of injected
+COR brightness flux and is not adopted. All four native cases, 96 held cases
+and 64 signed controls are retained. The bounded study is closed without
+a new correction, cut, qualified SETI candidate, detector or coverage claim.
+
+All five workflows and the 5 transport / 2 L2 / 9 image / 18 residual tests
+pass. The independent audits pass 2,664 L2 comparisons, 269 image-metadata
+checks, 94,537 numerical / 160,581 exact image checks, then 305,356 numerical /
+320,126 exact residual checks. All three figures were visually inspected.
+Exactly 22,770 L2 bytes and 18,560,000 image plus 46,400 smearing bytes were
+acquired; the residual study used no new archive bytes.
+
+**Immediate next action: prepare LS8AF for rank-10 PG 1207-033**, starting
+with a separate exact-pair/header freeze for CH_PR100002_TG000901_V0300 and
+CH_PR100002_TG000902_V0300. Verify the NEXP=1/60-second ledger exposures,
+then freeze exact DEFAULT-L2 ranges and transfer the unchanged signed screen.
+Those science values remain unopened. PG1303-114's three later eligible
+visits remain outside scope.
+
+[Scientific interpretation and exact continuation](LS8AE_CONTINUATION.md),
+[L2 report](results_ls8ac_l2_screen/REPORT.md),
+[image report](results_ls8ad_images/REPORT.md),
+[residual report and figure](results_ls8ae_residuals/REPORT.md),
+[publication identities and verification](PUBLICATION_2026-09-22_LS8AC_LS8AE.md).
+
+All earlier dated next actions below are historical. The active continuation
+is LS8AE above. The prior TESS_260647166 positive remains unresolved and its
+bounded study closed. Other closed studies and reserved TESS/M43 data remain
+closed. Calibration is NOT_READY and its request unsent. Standing publication
+authorization continues; delegation remains deferred.
+
 ## 21 September LS8AA–LS8AB: WASP-43 screen and image follow-up complete and closed
 
 The predetermined rank-8 CHEOPS pair supplied **271 rows and 294 eligible
@@ -1432,7 +1481,7 @@ were hash checked. This is retrospective development, not fresh validation.
 | M43AF complete no-model study | Published and byte-verified: 502 records; 69 archive parts restore 508 original files |
 | Adopted new detector / new M43AF–M43AI astronomical candidate | None |
 | Earlier M33 HD 3651 case | Still unresolved; [investigation](MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
-| LS research | LS8AA–LS8AB WASP-43: 271 rows, 294 windows, one positive event classified CORRECTION_LINKED; independent audits pass. Next: LS8AC rank-9 PG1303-114 header preflight. The earlier TESS_260647166 positive remains unresolved. [Current continuation](LS8AB_CONTINUATION.md) |
+| LS research | LS8AC–LS8AE PG1303-114 complete and closed: 165 rows, 222 windows, zero positive crossings; one negative remains unresolved. Bounded residual comparison and all audits pass. Next: LS8AF rank-10 PG 1207-033 header preflight. [Current continuation](LS8AE_CONTINUATION.md) |
 
 M43AF's 502 records include 261 already completed historical acquisitions and
 the 241 training/baseline/null records. Its 940 scientific pins and earlier
