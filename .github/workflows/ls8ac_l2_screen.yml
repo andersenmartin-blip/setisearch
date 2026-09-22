@@ -1,0 +1,72 @@
+name: LS8AC frozen PG1303-114 two-visit L2 screen
+
+on:
+  push:
+    branches: [m43-support-qualification]
+    paths:
+      - '.github/workflows/ls8ac_l2_screen.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ls8ac-screen
+  cancel-in-progress: false
+
+jobs:
+  screen:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      PYTHONPATH: src
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+      - run: python -m pip install -r requirements_ls7g.txt
+      - name: Test unchanged arithmetic then execute and audit frozen pair
+        id: science
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m unittest tests.test_ls8b_stable -v 2>&1 | tee /tmp/ls8ac_tests.log
+          python -u scripts/ls8ac_l2_screen.py --freeze "$GITHUB_SHA" 2>&1 | tee /tmp/ls8ac_screen.log
+          python -u scripts/ls8ac_l2_audit.py 2>&1 | tee /tmp/ls8ac_audit.log
+          python -u scripts/ls8ac_report.py 2>&1 | tee /tmp/ls8ac_report.log
+      - name: Preserve audited result or explicit obstruction
+        if: always()
+        env:
+          RUN_OUTCOME: ${{ steps.science.outcome }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p results_ls8ac_l2_screen
+          for f in /tmp/ls8ac_tests.log /tmp/ls8ac_screen.log /tmp/ls8ac_audit.log /tmp/ls8ac_report.log; do
+            if test -f "$f"; then cp "$f" results_ls8ac_l2_screen/; fi
+          done
+          python -m pip freeze | sort > results_ls8ac_l2_screen/environment.txt
+          python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          out=Path('results_ls8ac_l2_screen')
+          result=out/'summary.json'
+          status=json.loads(result.read_text())['status'] if result.exists() else 'INCOMPLETE'
+          (out/'RUN_STATUS.json').write_text(json.dumps({'execution_outcome':os.environ['RUN_OUTCOME'],'scientific_status':status,'freeze_commit':os.environ['GITHUB_SHA']},indent=2)+'\n')
+          (out/'SHA256SUMS').write_text(''.join(f'{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.relative_to(out)}\n' for p in sorted(out.rglob('*')) if p.is_file() and p.name!='SHA256SUMS'))
+          PY
+          git add results_ls8ac_l2_screen
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish frozen LS8AC PG1303-114 screen and independent audit'
+          git push origin HEAD:m43-support-qualification
+      - name: Require successful scientific result
+        if: always()
+        env:
+          RUN_OUTCOME: ${{ steps.science.outcome }}
+        run: test "$RUN_OUTCOME" = success
