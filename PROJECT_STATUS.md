@@ -1,5 +1,75 @@
 # SETIsearch — current project status
 
+## 22 September LS8AL–LS8AN: HD 106315 complete and bounded study closed
+
+The rank-13 CHEOPS pair supplied **2,382 rows and 4,698 eligible overlapping
+windows**, with 13 positive crossings in three clusters and no negative
+crossing. All three representatives are one 41-second exposure, with L2
+scores **+44.503884, +9.691536 and +28.143189**, approximately 1.02026%,
+0.24451% and 0.64634% above their respective local L2 baselines.
+Scores are not Gaussian significances.
+
+The complete image follow-up leaves all three
+**UNRESOLVED_WITHIN_FIXED_SCOPE**. DELTA/COR magnitudes remain below the
+original correction gate, and COR displacement explained energy is about
+77.58%, 60.39% and 37.60–37.65%, below the original 80% gate in both
+coordinate conventions. Physical causes remain unassigned.
+
+The separately frozen retained-data study includes **12 native cases,
+288 held cases and 192 signed controls**, using zero new archive bytes.
+Its COR residual/reference ratios and local counts are:
+
+- TG000801_P0: 20.138851/19.920447, with 0/24 and 0/24 held controls at least as large.
+- TG000801_P1: 0.732455/0.741480, with 16/24 and 15/24 held controls at least as large.
+- TG001401_P0: 0.832824/0.840364, with 15/24 and 15/24 held controls at least as large.
+
+TG000801_P0 retains a large mismatch with its local residual/noise model;
+none of its 24 held COR controls is as large in either convention. The other
+two events do not stand out in this comparison, with 15–16 of 24 held COR
+controls at least as large. These dependent counts are not probabilities and
+do not establish a noise, astrophysical or artificial origin. All physical
+causes remain unassigned. Hypothetical displacement-plus-constant subtraction
+loses 7.01–13.12% of injected COR brightness flux across the three contexts
+and is not adopted.
+
+All five workflows and the 5 transport / 2 L2 / 9 image / 18 residual tests
+pass. Independent audits pass **56,376** L2 comparisons, **803** image-metadata
+checks, **283,611 numerical / 481,739 exact** image checks, and
+**916,452 numerical / 960,362 exact**
+residual checks, with zero disagreements. All seven figures were visually
+inspected. Acquisition is exactly **328,716 L2 bytes, 55,680,000 image bytes
+and 139,200 smearing bytes**. The bounded HD 106315 study is complete and
+closed; all original labels remain unchanged, with no new correction,
+screening cut, qualified candidate, detector or observing-coverage claim.
+
+**Immediate next action: prepare LS8AO for rank-14 WASP-103**, beginning
+with a separate exact-pair/header freeze for CH_PR100013_TG000101_V0300 and
+CH_PR100013_TG000102_V0300. Verify their own NEXP=1, EXPTIME=TEXPTIME=60-second
+ledger tuples and pipeline 14.1.2 before freezing exact DEFAULT-L2 ranges.
+Transfer the unchanged signed one/two/three-row screen using each visit's
+verified cadence. These science values remain unopened. The remaining nine
+eligible WASP-103 visits stay outside the prospective pair.
+
+[Scientific interpretation and exact continuation](LS8AN_CONTINUATION.md),
+[L2 report and figure](results_ls8al_l2_screen/REPORT.md),
+[image report and all three figures](results_ls8am_images/REPORT.md),
+[residual report and all three figures](results_ls8an_residuals/REPORT.md),
+[publication identities and verification](PUBLICATION_2026-09-22_LS8AL_LS8AN.md).
+
+Earlier dated next actions below are historical. The active continuation is
+LS8AN_CONTINUATION.md; the next stage is LS8AO.
+
+The original 1,000-row census, 452 eligible visits and 107-cohort ordering
+remain fixed. The HD 106315 pair's three positive labels stay unresolved and
+its bounded study is closed. TESS_260647166's positive, PG1303-114's negative
+and PG 1207-033's positive retain their unresolved labels and closed bounded
+studies. EC13080-1508, WASP-43, GJ 436 and PG 1245-042 remain closed under
+CORRECTION_LINKED; PG 1343-102 remains a closed descriptive null. Other closed
+optical studies and M33 HD 3651 are unchanged. Reserved TESS/M43 panels stay
+closed. Calibration is NOT_READY and its technical request remains unsent.
+Standing research/publication authorization continues; delegation is deferred.
+
+
 ## 22 September LS8AK: PG 1343-102 audited null and closed pair
 
 The predetermined rank-12 CHEOPS pair supplied **176 rows and 231 eligible
@@ -1635,7 +1705,7 @@ were hash checked. This is retrospective development, not fresh validation.
 | M43AF complete no-model study | Published and byte-verified: 502 records; 69 archive parts restore 508 original files |
 | Adopted new detector / new M43AF–M43AI astronomical candidate | None |
 | Earlier M33 HD 3651 case | Still unresolved; [investigation](MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
-| LS research | LS8AK PG 1343-102: 176 rows, 231 eligible windows, zero signed crossings/clusters; independent audit passes. Pair closed as a descriptive null. Next: LS8AL rank-13 HD 106315 header preflight, ledger exposure 41 s. Prior unresolved labels and closed studies retained. [Current continuation](LS8AK_CONTINUATION.md) |
+| LS research | LS8AL–LS8AN HD 106315: 2,382 rows, 4,698 windows, three positive clusters; all remain UNRESOLVED_WITHIN_FIXED_SCOPE after the complete image and bounded retained-data studies. Audits pass; bounded study closed. Next: LS8AO rank-14 WASP-103 header preflight. [Current continuation](LS8AN_CONTINUATION.md) |
 
 M43AF's 502 records include 261 already completed historical acquisitions and
 the 241 training/baseline/null records. Its 940 scientific pins and earlier
