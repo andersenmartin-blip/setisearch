@@ -17,6 +17,63 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+**LS8AQ–LS8AS GJ 581: complete signed follow-up and bounded study closed, 22 September 2026.**
+
+The predetermined rank-15 GJ 581 pair supplied **3,623 rows and 7,869
+eligible overlapping windows**. The first visit has 30 positive crossings
+in nine clusters and 16 negative crossings in five clusters; the second has
+zero signed crossings in its 84 eligible windows. The original +/-8.5 scores
+are not Gaussian significances, and the windows are not independent trials.
+
+All 14 representatives completed paired-image follow-up: **nine
+CORRECTION_LINKED** (four positive, all five negative), **three
+SPATIALLY_STRUCTURED** (P2/P6/P8) and **two UNRESOLVED_WITHIN_FIXED_SCOPE**
+(P3/P5). The complete positive IDs are prefixed TG023701_. The two-exposure
+negative N1 is included and CORRECTION_LINKED; all other representatives
+are one 60-second exposure. These labels describe processing or image fits,
+without assigning unique physical causes or artificial origin.
+
+The separately frozen retained-data study includes both unresolved events,
+eight native product/convention cases, 192 held cases and 128 signed controls,
+with **zero new archive bytes**. Its COR residual/reference ratios are
+**1.179547 / 1.161620 for P3** and **3.192676 / 3.078003 for P5** (C0/C1).
+For P3, **9/24 controls** are at least as large in both conventions. For P5,
+the counts are **1/24 and 2/24**. P3 has several comparable or larger local
+controls; P5 is larger than most, with some comparable or larger controls.
+These dependent counts are not p-values or calibrated false-alarm rates.
+Both causes remain unknown and both original unresolved labels are retained.
+Hypothetical displacement-plus-constant subtraction loses **10.41–11.21%**
+of injected COR brightness flux and is not adopted.
+
+All five workflows and the **5 transport / 2 L2 / 11 image / 18 residual
+tests** pass. Independent audits pass 94,428 L2 comparisons, 3,723 metadata
+checks, 1,323,518 numerical / 2,248,091 exact image checks and 610,448
+numerical / 640,222 exact residual checks, with zero disagreements at
+unchanged tolerances. All 17 figures were visually inspected. The pair and
+its single bounded study are complete and closed, preserving all 14 labels.
+No new cut, subtraction, qualified candidate, detector, sensitivity or
+observing-coverage claim is added.
+
+**Immediate next action: prepare LS8AT for rank-16 EC14599-2047**,
+the first two of three eligible visits: CH_PR100002_TG010301_V0300 and
+CH_PR100002_TG010302_V0300. Their ledger tuple is NEXP=1,
+EXPTIME=TEXPTIME=60 seconds and pipeline 14.1.2. Freeze the exact pair and
+bounded header reader, independently verify each identity/schema/row count/
+exposure, then separately freeze DEFAULT-L2 byte ranges before values.
+Transfer the unchanged signed one/two/three-row scorer and independent audit
+using the verified cadence. EC14599-2047 science values remain unopened;
+TG010303 and the five later eligible GJ 581 visits remain outside their pairs.
+No GJ 581 outcome becomes a new screening cut.
+
+[Scientific interpretation and exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8AS_CONTINUATION.md),
+[L2 report](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8aq_l2_screen/REPORT.md),
+[complete signed-image report](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8ar_images/REPORT.md),
+[bounded residual study](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8as_residuals/REPORT.md),
+[publication identities and verification](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PUBLICATION_2026-09-22_LS8AQ_LS8AS.md).
+
+Earlier dated sections retain their historical next actions. Active continuation:
+LS8AS above; next stage: LS8AT.
+
 **LS8AO–LS8AP WASP-103: complete search and correction-linked follow-up, 22 September 2026.**
 
 The predetermined rank-14 CHEOPS pair supplied **565 rows and 804 eligible
