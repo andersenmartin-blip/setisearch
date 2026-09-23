@@ -1233,3 +1233,54 @@ order stay fixed. Earlier null scopes, unassessed points, unresolved labels,
 closed studies and reserved TESS/M43 panels are unchanged. Calibration
 NOT_READY; technical request UNSENT. Standing research/publication authorization
 continues; delegation is deferred.
+
+## 23 September LS8AW: EC14338-1445 audited null within 63 eligible windows
+
+The predetermined rank-19 pair supplied **159 retained rows and 63 eligible
+overlapping windows**, with **zero positive or negative threshold crossings
+or clusters**. The first visit contributes 60 windows and the second only
+three (two one-row, one two-row, no three-row windows). Both verify NEXP=1,
+EXPTIME=TEXPTIME=60 seconds and pipeline 14.1.2. The unchanged one/two/three-row
+rule, 12-row sidebands, two-row guards and +/-8.5 endpoints remain fixed;
+scores are not Gaussian significances.
+
+First-visit eligible event rows are 14–33/63–64; flag 48 and a gap after 47
+restrict eligibility. Second-visit flags 30/54 and a gap after 29 restrict
+eligible event rows to **14–15**. Indices are zero-based. The second visit's
+large retained maximum at row 23 (265.563670273 times the visit median) and
+minimum at row 55 (-184.068365878 times median) have STATUS=0 but fail the
+original context rule. Their causes remain unassigned; they are not tested
+detections or image-classified events. The full plot retains them. The null
+applies to the 63 eligible windows, not every retained variation. No mask,
+threshold or follow-up selection changes.
+
+Both workflows, all five transport tests and both stable L2 tests pass.
+The independent audit passes **756 numerical/discrete comparisons**, with
+zero disagreements at unchanged tolerances. Separate scalar header checks
+verify full schemas, identities, receipts, exposures and byte boundaries.
+All 64 scientific files match public Git identities locally; all 50 header/
+science manifest entries pass SHA256. The full figure was visually inspected.
+Acquisition is exactly 40,320 header bytes and 21,942 science-table bytes,
+with zero image bytes. The pair is complete and closed within its eligible
+scope; no image/residual follow-up, qualified candidate or detector is added.
+
+**Immediate next action: prepare LS8AX for rank-20 GJ 536**,
+CH_PR100011_TG023501_V0300 and CH_PR100018_TG007801_V0300, the first two of
+five eligible visits. Freeze the pair and bounded header reader; independently
+verify each identity, full schema, rows and exposure tuple; then separately
+freeze DEFAULT-L2 source identities and byte ranges before values. Ledger
+NEXP=1, pipeline 14.1.2, with exposures approximately **40.17 and 40.20 seconds**.
+Use each independently verified cadence; do not inherit 60 seconds. Transfer
+the unchanged signed screen and scalar audit. GJ 536 science values remain
+unopened; its three later eligible visits remain outside the selected pair.
+
+[Scientific interpretation and exact continuation](LS8AW_CONTINUATION.md),
+[L2 report and figure](results_ls8aw_l2_screen/REPORT.md),
+[publication identities and verification](PUBLICATION_2026-09-23_LS8AW.md).
+
+Earlier dated next actions below are historical. Active continuation:
+LS8AW_CONTINUATION.md; next stage: LS8AX. The original census and 107-cohort
+order stay fixed. Earlier null scopes, unassessed points, unresolved labels,
+closed studies and reserved TESS/M43 panels are unchanged. Calibration
+NOT_READY; technical request UNSENT. Standing research/publication authorization
+continues; delegation is deferred.
