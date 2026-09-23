@@ -1,5 +1,73 @@
 # SETIsearch — current project status
 
+## 23 September LS8BA–LS8BB: 2MASS J11285624+1010395 pair closed
+
+The predetermined rank-21 pair supplied **97 retained rows and 90 eligible
+overlapping windows**. Six positive crossings form one cluster and three
+negative crossings form one cluster. Both signed representatives completed
+image follow-up and are **CORRECTION_LINKED** under the unchanged two-convention
+gate. No event is unresolved, so no residual study is triggered. The pair is
+closed without a qualified candidate, detector, sensitivity or coverage claim.
+
+Both visits independently verify NEXP=1, EXPTIME=TEXPTIME=60 seconds and pipeline
+14.1.2. The first visit has 59 rows and 90 eligible windows; the second has
+38 rows and **zero eligible windows, providing no tested null**. The original
+one/two/three-row rule and +/-8.5 endpoints remain fixed. Scores are not Gaussian
+significances and overlapping windows are not independent trials.
+
+The representatives are adjacent first-visit rows 25 (score **+65.277456**,
+local excess **+8.778835%**) and 24 (**-35.043142**, **-4.788958%**). They occur
+in each other's original guards and share 28 context rows. Their 58 row
+occurrences cover 30 distinct exposures; 116 CAL/COR join occurrences cover
+60 distinct product exposures. They are not independent replication. Every
+shared CAL/COR/smearing row is verified byte-identical.
+
+DELTA/COR ratios are **-1.485049 / -1.534163** for P0 and
+**+9.886640 / +9.536732** for N0 (C0/C1). Both pass the correction gate first.
+Displacement fits also exceed the later spatial gate, without changing the
+fixed classification. Smearing fits are rank deficient. The maps show broad
+processing differences and signed source structure; no unique physical cause
+or artificial origin is established, and source variability is not excluded.
+
+The first visit's last point, row 58, is **8.758721% above its STATUS=0 visit
+median**, but lacks an eligible complete context and remains unassessed. All
+97 points and every eligible window remain preserved. The second visit's gaps
+and flagged rows prevent any complete test context. Display variation is not
+qualified observing coverage.
+
+All four data-reading/analysis workflows and the retained verification workflow
+succeed. The 5 transport / 2 L2 / 11 image tests pass. Independent audits pass
+**1,080 L2 comparisons**, **534 metadata checks**, and **189,074 numerical /
+321,158 exact image checks**, with zero disagreements. All 175 added
+scientific/verification files are public; 171 match public Git identities
+locally. Four large compressed CAL/COR files are verified by the independent
+image and retained CI audits but were not downloaded locally. Of 143 manifest
+entries, 139 are recomputed locally and four pass those published CI checks.
+All six payload receipts and all three exact overlap checks pass; all four
+figures have been visually reviewed. The optional artifact uploaded, but its
+local download returned HTTP 403 and no local ZIP verification is claimed.
+
+**Immediate next action: prepare LS8BC for rank-22 GJ 422**, exact pair
+CH_PR100018_TG012201_V0300 / CH_PR100018_TG012202_V0300. These are both eligible
+visits in the fixed ledger. NEXP=1, EXPTIME=TEXPTIME=60 seconds and pipeline
+14.1.2 remain subject to their own header checks. Freeze bounded headers,
+independently verify identity/schema/exposure, then separately freeze exact
+L2 ranges before values. Transfer the unchanged screen and audit. GJ 422
+science values remain unopened.
+
+[Scientific interpretation and exact continuation](LS8BB_CONTINUATION.md),
+[L2 report](results_ls8ba_l2_screen/REPORT.md),
+[complete signed-image report](results_ls8bb_images/REPORT.md),
+[readable unchanged-map overview](verification_ls8bb_retained/paired_image_review.png),
+[publication and verification](PUBLICATION_2026-09-23_LS8BA_LS8BB.md).
+
+Earlier dated next actions are historical. Active continuation:
+LS8BB_CONTINUATION.md; next stage: LS8BC. The original census and 107-cohort
+order, prior labels, unassessed points, closed studies and reserved TESS/M43
+panels stay unchanged. GJ 536's P1/P6 keep their unresolved labels and its one
+bounded study stays closed. Calibration NOT_READY; technical request UNSENT.
+Standing research/publication authorization continues; delegation is deferred.
+
 ## 23 September LS8AX–LS8AZ: GJ 536 pair and bounded study closed
 
 The predetermined rank-20 pair supplied **4,254 retained rows and 10,215
