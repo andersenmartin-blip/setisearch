@@ -17,6 +17,46 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+**LS8AT EC 14599-2047: audited null within eligible windows, 23 September 2026.**
+
+The predetermined rank-16 pair supplied **170 retained rows and 225 eligible
+overlapping windows**, with **zero positive or negative threshold crossings
+or clusters**. The first visit contributes 180 windows and the second 45.
+Both verify NEXP=1, EXPTIME=TEXPTIME=60 seconds and pipeline 14.1.2.
+The unchanged +/-8.5 scores are not Gaussian significances.
+
+The full figure retains a large STATUS=0 point at **zero-based row 86 of
+TG010301, 115.605933% above the visit median**. With only three following
+rows, it lacks the required right context and belongs to no eligible event
+window. Its cause is unassigned; it has no image classification. The null
+applies to the eligible windows, not every visible variation. No edge rule
+or follow-up selection is changed.
+
+Both workflows, all **five transport and two stable L2 tests** pass.
+The independent audit passes **2,700 numerical/discrete comparisons** with
+zero disagreements. Separate scalar header verification, all 50 manifest
+entries and all 64 scientific file identities pass; the figure was visually
+inspected. Acquisition is exactly **23,460 L2 science bytes**, with zero
+image bytes. The pair is complete and closed as a descriptive null.
+No image/residual study is triggered and no qualified candidate or detector
+is added.
+
+**Immediate next action: prepare LS8AU for rank-17 LS IV +09 2**,
+CH_PR100002_TG009301_V0300 and CH_PR100002_TG009302_V0300. Freeze the exact
+pair and bounded headers; independently verify identities, schemas, rows
+and exposures, then separately freeze DEFAULT-L2 byte ranges before values.
+Transfer the unchanged signed screen and independent scalar audit. Their
+ledger tuple is NEXP=1, EXPTIME=TEXPTIME=60 s, pipeline 14.1.2.
+These science values remain unopened. EC 14599-2047 TG010303 stays outside
+its pair; all earlier closed studies and unresolved labels are unchanged.
+
+[Scientific interpretation and exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8AT_CONTINUATION.md),
+[L2 report and figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8at_l2_screen/REPORT.md),
+[publication identities and verification](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PUBLICATION_2026-09-23_LS8AT.md).
+
+Earlier dated next actions below are historical. Active continuation:
+LS8AT above; next stage: LS8AU.
+
 **LS8AQ–LS8AS GJ 581: complete signed follow-up and bounded study closed, 22 September 2026.**
 
 The predetermined rank-15 GJ 581 pair supplied **3,623 rows and 7,869
