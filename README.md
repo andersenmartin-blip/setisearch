@@ -17,6 +17,70 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+**LS8AX–LS8AZ GJ 536: complete pair and bounded study, 23 September 2026.**
+
+The predetermined rank-20 pair supplied **4,254 retained rows and 10,215
+eligible overlapping windows**. Its 38 positive and five negative crossings
+form eight positive clusters and one negative cluster. All nine signed
+representatives completed image follow-up: **three CORRECTION_LINKED, four
+SPATIALLY_STRUCTURED and two UNRESOLVED_WITHIN_FIXED_SCOPE (P1/P6)**.
+Labels describe processing and fits without assigning unique physical causes.
+Both visits verify NEXP=1 and pipeline 14.1.2; their own exposure/cadence values
+are **40.1699981689453 and 40.2000007629395 seconds**. The unchanged signed
+one/two/three-row rule and +/-8.5 endpoints remain fixed. Scores are not
+Gaussian significances and windows are not independent trials.
+
+The complete unresolved set received one separately frozen retained-data
+study: eight native product/convention cases, 192 held cases and 128 signed
+controls, **zero new archive bytes**. P1's COR residual/reference ratios are
+**0.257893 / 0.263414**, with **23/24** local controls at least as large in
+both center conventions. P6's ratios are **3841.994548 / 3951.598570**, with
+**0/24** at least as large. These dependent counts are not p-values.
+
+**P6's very large peak coincides with a broad oblique bright band crossing
+the saved subarray and aperture in CAL and COR; broad signed structure remains
+after fitting.** This is a severe mismatch with the local model/reference,
+not evidence establishing a clean point-source brightening or a SETI signal.
+P1's low residual does not prove ordinary noise. Both original unresolved
+labels remain. Hypothetical subtraction loses 10.97–11.48% of injected COR
+brightness flux and is not adopted. The pair and this single bounded study
+are closed without additional GJ 536 tuning or a qualified candidate/detector.
+
+The largest retained point, row 3408, is P6 and received every prescribed
+follow-up. A separate first-visit point at row 1977 is approximately 51.10%
+above its STATUS=0 visit median but has STATUS=1 and no eligible event window;
+it remains retained and unassessed. All rows and eligible intervals are
+documented. Display variation is not qualified observing coverage.
+
+All five data-reading/analysis workflows succeed; the initial AX checkout
+attempt timed out before archive access and is preserved with its prospective
+recovery. The 5 transport / 2 L2 / 11 image / 18 residual tests pass.
+Independent audits pass **122,580 L2 comparisons**, **2,393 metadata checks**,
+**850,833 numerical / 1,445,201 exact image checks** and **610,586 numerical /
+640,224 exact residual checks**, with zero disagreements. All **309 new
+scientific files** match public Git identities locally, all 272 manifest
+entries pass SHA256, and all 12 figures have been visually inspected.
+
+**Immediate next action: prepare LS8BA for rank-21 2MASS J11285624+1010395**,
+CH_PR100018_TG010801_V0300 / CH_PR100018_TG010802_V0300. These are both eligible
+visits in the fixed ledger; NEXP=1, EXPTIME=TEXPTIME=60 seconds and pipeline
+14.1.2 remain subject to their own header verification. Freeze bounded headers,
+audit identity/schema/exposure, then separately freeze exact L2 ranges before
+values. Transfer the unchanged screen and audit. Its science values remain
+unopened. GJ 536's three later eligible visits remain outside the closed pair.
+
+[Scientific interpretation and exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8AZ_CONTINUATION.md),
+[L2 report](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8ax_l2_screen/REPORT.md),
+[complete signed-image report](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8ay_images/REPORT.md),
+[bounded residual study](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8az_residuals/REPORT.md),
+[publication and verification](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PUBLICATION_2026-09-23_LS8AX_LS8AZ.md).
+
+Earlier dated next actions are historical. Active continuation:
+LS8AZ_CONTINUATION.md; next stage: LS8BA. The original census and 107-cohort
+order, prior labels, unassessed points, closed studies and reserved TESS/M43
+panels remain unchanged. Calibration NOT_READY; technical request UNSENT.
+Standing research/publication authorization continues; delegation is deferred.
+
 **LS8AW EC14338-1445: audited null within 63 eligible windows, 23 September 2026.**
 
 The predetermined rank-19 pair supplied **159 retained rows and 63 eligible
