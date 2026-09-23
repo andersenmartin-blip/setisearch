@@ -1,0 +1,81 @@
+{
+  "stage": "LS8AX_INITIAL_CHECKOUT_FAILURE",
+  "freeze_commit": "b28022d5ac230ce70906e651ea9d2df71f96df63",
+  "run_id": 35879603888,
+  "run_status": "completed",
+  "conclusion": "cancelled",
+  "created_at": "2026-09-23T15:10:28Z",
+  "updated_at": "2026-09-23T15:25:40Z",
+  "jobs": [
+    {
+      "id": 107244338553,
+      "name": "metadata",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "run_id": 35879603888,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 3
+        },
+        {
+          "name": "Run python -m pip install numpy==2.3.5 astropy==7.0.2",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 4
+        },
+        {
+          "name": "Exact header-only preflight",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 5
+        },
+        {
+          "name": "Preserve header result",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 6
+        },
+        {
+          "name": "Require successful metadata gate",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 7
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        }
+      ]
+    }
+  ],
+  "archive_header_step": "skipped",
+  "archive_product_bytes_read": 0,
+  "science_values_read": 0,
+  "reason": "15-minute job limit reached during unfiltered git fetch; no archive program executed",
+  "preservation_obstruction": "Fallback preservation created an unrelated root commit in the incomplete checkout; GitHub rejected its non-fast-forward push. The existing public branch was unchanged.",
+  "recovery_scope": "Sparse checkout of required repository inputs and outputs; archive scope, header readers, selected cohort, exposure rule and scientific arithmetic unchanged."
+}

@@ -21,8 +21,21 @@ jobs:
       PYTHONPATH: src
     steps:
       - uses: actions/checkout@v4
+        id: checkout
         with:
           fetch-depth: 1
+          sparse-checkout: |
+            .github
+            config
+            scripts
+            src
+            tests
+            results_ls8j_selection
+            results_ls8j_reconciliation
+            results_ls8k_l2_metadata
+            results_ls8ax_l2_metadata
+            verification_ls8ax
+            verification_ls8ax_checkout_failure
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12.14'
@@ -36,7 +49,7 @@ jobs:
           python -m unittest tests.test_ls8w_url_timeout -v 2>&1 | tee /tmp/ls8ax_transport_tests.log
           python -u scripts/ls8ax_l2_metadata.py 2>&1 | tee /tmp/ls8ax_metadata.log
       - name: Preserve header result
-        if: always()
+        if: always() && steps.checkout.outcome == 'success'
         env:
           RUN_OUTCOME: ${{ steps.metadata.outcome }}
         shell: bash
