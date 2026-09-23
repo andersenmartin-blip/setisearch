@@ -1093,3 +1093,50 @@ including TESS_260647166, PG1303-114 and PG 1207-033, remain unchanged.
 Other closed targets and reserved TESS/M43 panels stay closed. Calibration
 is NOT_READY and its technical request remains UNSENT. Standing research and
 publication authorization continues; delegation is deferred.
+
+## 23 September LS8AT: EC 14599-2047 audited null within eligible windows
+
+The predetermined rank-16 pair supplied **170 retained rows and 225 eligible
+overlapping windows**, with **zero positive or negative threshold crossings
+or clusters**. The first visit contributes 180 windows and the second 45.
+Both verify NEXP=1, EXPTIME=TEXPTIME=60 seconds and pipeline 14.1.2. The
+unchanged one/two/three-row screen, 12-row sidebands, two-row guards and
++/-8.5 endpoints remain fixed; scores are not Gaussian significances.
+
+The complete figure retains a large STATUS=0 point at **zero-based row 86 of
+TG010301**, **115.605933% above the visit median**. Only three rows follow
+it, so it is in no eligible event window under the required right context.
+Its cause is unassigned and it has no image classification. The null applies
+to eligible windows, not every visible variation; no edge rule or follow-up
+selection is changed.
+
+Both workflows, all five transport tests and both stable L2 tests pass.
+The independent audit passes **2,700 numerical/discrete comparisons**, with
+zero disagreements at unchanged tolerances. The independent scalar header
+reader verifies both schemas, identities, receipts, rows and exposure tuples.
+All 64 scientific files match their published Git identities locally; all
+50 header/science manifest entries pass SHA256 checks. The figure was visually
+inspected. Acquisition is exactly 40,320 header bytes and 23,460 science-table
+bytes, with zero image bytes. The pair is complete and closed as a descriptive
+null; no image/residual follow-up, qualified candidate or detector is added.
+
+**Immediate next action: prepare LS8AU for rank-17 LS IV +09 2**,
+CH_PR100002_TG009301_V0300 and CH_PR100002_TG009302_V0300. Freeze the exact
+pair and bounded header reader; independently verify each identity, schema,
+rows and exposure tuple; then separately freeze DEFAULT-L2 byte ranges before
+values. Their ledger tuple is NEXP=1, EXPTIME=TEXPTIME=60 s, pipeline 14.1.2.
+Transfer the unchanged signed one/two/three-row scorer and scalar audit.
+Those science values remain unopened; EC 14599-2047 TG010303 stays outside
+its pair. No outcome here becomes a new screening cut.
+
+[Scientific interpretation and exact continuation](LS8AT_CONTINUATION.md),
+[L2 report and figure](results_ls8at_l2_screen/REPORT.md),
+[publication identities and verification](PUBLICATION_2026-09-23_LS8AT.md).
+
+Earlier dated next actions below are historical. Active continuation:
+LS8AT_CONTINUATION.md; next stage: LS8AU. The original census and 107-cohort
+order stay fixed. GJ 581 keeps all 14 labels, including its two unresolved
+events, and its closed bounded study. All other earlier labels and studies
+are unchanged. Reserved TESS/M43 panels remain closed. Calibration NOT_READY;
+technical request UNSENT. Standing research/publication authorization continues;
+delegation is deferred.
