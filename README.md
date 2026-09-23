@@ -17,6 +17,46 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+**LS8AV GJ 9404: audited null within eligible windows, 23 September 2026.**
+
+The predetermined rank-18 pair supplied **145 retained rows and 150 eligible
+overlapping windows**, with **zero positive or negative threshold crossings
+or clusters**. The first visit contributes 90 windows and the second 60.
+Both verify NEXP=1, EXPTIME=TEXPTIME=60 seconds and pipeline 14.1.2.
+The unchanged +/-8.5 scores are not Gaussian significances.
+
+The null applies to eligible windows. The complete figure retains the
+second visit's large dip at zero-based row 44, **33.149963% below its visit
+median**, with **STATUS=1**. It fails the original eligibility rule.
+Edge points and contexts crossing flagged rows/gaps are also outside the
+event search. These display values are not fitted event excesses or
+significance estimates. No cause or image classification is assigned,
+and no eligibility or follow-up rule is changed.
+
+Both workflows, all **five transport and two stable L2 tests** pass.
+The independent audit passes **1,800 numerical/discrete comparisons** with
+zero disagreements. Scalar header verification, all 50 manifest entries and
+all 64 scientific file identities pass; the complete figure was visually
+inspected. Exactly **20,010 L2 science bytes** and zero image bytes were
+acquired. The pair is complete and closed as a descriptive null.
+No image/residual study is triggered; no qualified candidate or detector is added.
+
+**Immediate next action: prepare LS8AW for rank-19 EC14338-1445**,
+CH_PR100002_TG006601_V0300 and CH_PR100002_TG006602_V0300. Freeze the exact
+pair and bounded header reader, independently verify each identity, full
+schema, rows and exposure tuple, then separately freeze DEFAULT-L2 ranges
+before values. Their ledger tuple is NEXP=1, EXPTIME=TEXPTIME=60 s, pipeline
+14.1.2. Transfer the unchanged signed screen and scalar audit. These science
+values remain unopened; GJ 9404 TG007303 stays outside its closed pair.
+Earlier labels, unassessed points, closed studies and reserved panels are unchanged.
+
+[Scientific interpretation and exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8AV_CONTINUATION.md),
+[L2 report and figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8av_l2_screen/REPORT.md),
+[publication identities and verification](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PUBLICATION_2026-09-23_LS8AV.md).
+
+Earlier dated next actions below are historical. Active continuation:
+LS8AV above; next stage: LS8AW.
+
 **LS8AU LS IV +09 2: audited null within eligible windows, 23 September 2026.**
 
 The predetermined rank-17 pair supplied **212 retained rows and 123 eligible
