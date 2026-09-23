@@ -1,5 +1,53 @@
 # SETIsearch — current project status
 
+## 23 September LS8AV: GJ 9404 audited null within eligible windows
+
+The predetermined rank-18 pair supplied **145 retained rows and 150 eligible
+overlapping windows**, with **zero positive or negative threshold crossings
+or clusters**. The first visit contributes 90 windows and the second 60.
+Both verify NEXP=1, EXPTIME=TEXPTIME=60 seconds and pipeline 14.1.2.
+The unchanged one/two/three-row rule, 12-row sidebands, two-row guards and
++/-8.5 endpoints remain fixed; scores are not Gaussian significances.
+
+First-visit eligible event rows are 14–44. Second-visit flags at rows 37/44
+and gaps after 36/43 restrict eligible event rows to 14–22 and 59–71.
+Indices are zero-based. The visible large dip at second-visit row 44 is
+33.149963% below its visit median and has STATUS=1; it remains retained but
+fails the original eligibility rule. Display extrema near edges or flagged
+gaps are not reselected. The null applies to the 150 eligible windows, not
+every retained variation. No eligibility or follow-up rule is changed.
+
+Both workflows, all five transport tests and both stable L2 tests pass.
+The independent audit passes **1,800 numerical/discrete comparisons**, with
+zero disagreements at unchanged tolerances. Separate scalar header checks
+verify full schemas, identities, receipts, exposures and byte boundaries.
+All 64 scientific files match public Git identities locally; all 50 header/
+science manifest entries pass SHA256. The complete figure was visually
+inspected. Acquisition is exactly 40,320 header bytes and 20,010 science-table
+bytes, with zero image bytes. The pair is complete and closed as a descriptive
+null; no image/residual follow-up, qualified candidate or detector is added.
+
+**Immediate next action: prepare LS8AW for rank-19 EC14338-1445**,
+CH_PR100002_TG006601_V0300 and CH_PR100002_TG006602_V0300. Freeze the exact
+pair and bounded header reader; independently verify each identity, full
+schema, rows and exposure tuple; then separately freeze DEFAULT-L2 source
+identities and byte ranges before values. The ledger tuple is NEXP=1,
+EXPTIME=TEXPTIME=60 s, pipeline 14.1.2. Transfer the unchanged signed screen
+and scalar audit. These science values remain unopened. GJ 9404 TG007303
+stays outside its closed pair; no outcome here becomes a new screening cut.
+
+[Scientific interpretation and exact continuation](LS8AV_CONTINUATION.md),
+[L2 report and figure](results_ls8av_l2_screen/REPORT.md),
+[publication identities and verification](PUBLICATION_2026-09-23_LS8AV.md).
+
+Earlier dated next actions below are historical. Active continuation:
+LS8AV_CONTINUATION.md; next stage: LS8AW. The original census and 107-cohort
+order stay fixed. Earlier null scopes, unassessed points, unresolved labels,
+closed studies and reserved TESS/M43 panels are unchanged. Calibration
+NOT_READY; technical request UNSENT. Standing research/publication authorization
+continues; delegation is deferred.
+
+
 ## 23 September LS8AU: LS IV +09 2 audited null within eligible windows
 
 The predetermined rank-17 pair supplied **212 retained rows and 123 eligible
