@@ -17,6 +17,50 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+**LS8AW EC14338-1445: audited null within 63 eligible windows, 23 September 2026.**
+
+The predetermined rank-19 pair supplied **159 retained rows and 63 eligible
+overlapping windows**, with **zero positive or negative threshold crossings
+or clusters**. The first visit contributes 60 windows; the second only three
+(two one-row, one two-row and no three-row windows). Both verify NEXP=1,
+EXPTIME=TEXPTIME=60 seconds and pipeline 14.1.2. The unchanged +/-8.5
+scores are not Gaussian significances.
+
+The null applies only to eligible windows. The full figure retains the second
+visit's large signed values: maximum row 23 is **265.563670273 times its visit
+median**, and minimum row 55 is **-184.068365878 times that median**. Both have
+STATUS=0 but are outside eligible event contexts because the required
+neighboring rows encounter flags/gaps. Only event rows 14–15 are eligible in
+that visit. Indices are zero-based. These display ratios are not fitted event
+excesses, significance estimates or physical classifications. Causes remain
+unassigned; no eligibility or follow-up rule changes.
+
+Both workflows and all **five transport and two stable L2 tests** pass.
+The independent audit passes **756 numerical/discrete comparisons** with
+zero disagreements. Scalar header verification, all 50 manifest entries and
+all 64 scientific file identities pass; the complete figure was visually
+inspected. Exactly **21,942 L2 science bytes** and zero image bytes were
+acquired. The pair is complete and closed within its eligible scope.
+No image/residual study is triggered; no qualified candidate or detector is added.
+
+**Immediate next action: prepare LS8AX for rank-20 GJ 536**,
+CH_PR100011_TG023501_V0300 and CH_PR100018_TG007801_V0300, the first two of
+five eligible visits. Freeze the pair and bounded header reader, independently
+verify both own identities, schemas, rows and exposures, then separately
+freeze exact DEFAULT-L2 ranges before values. Ledger exposures are approximately
+**40.17 and 40.20 seconds**, with NEXP=1 and pipeline 14.1.2. Use each verified
+cadence; do not inherit 60 seconds. Transfer the unchanged signed screen and
+scalar audit. These science values remain unopened; the three later eligible
+GJ 536 visits stay outside the selected pair. Earlier labels, unassessed points,
+closed studies and reserved TESS/M43 panels are unchanged.
+
+[Scientific interpretation and exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8AW_CONTINUATION.md),
+[L2 report and figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8aw_l2_screen/REPORT.md),
+[publication identities and verification](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PUBLICATION_2026-09-23_LS8AW.md).
+
+Earlier dated next actions below are historical. Active continuation:
+LS8AW above; next stage: LS8AX.
+
 **LS8AV GJ 9404: audited null within eligible windows, 23 September 2026.**
 
 The predetermined rank-18 pair supplied **145 retained rows and 150 eligible
