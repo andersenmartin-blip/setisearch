@@ -1,0 +1,65 @@
+name: LS8BB retained overlap verification and presentation review
+on:
+  push:
+    branches: [m43-support-qualification]
+    paths: ['.github/workflows/ls8bb_retained_verification.yml']
+permissions:
+  contents: write
+concurrency:
+  group: ls8bb-retained-verification
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        id: checkout
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            .github
+            scripts
+            config
+            results_ls8bb_images
+            verification_ls8bb_retained
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+      - run: python -m pip install -r requirements_ls7g.txt
+      - name: Verify retained bytes and render unchanged maps
+        id: verification
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          python -u scripts/ls8bb_retained_verification.py 2>&1 | tee /tmp/ls8bb_retained_verification.log
+      - name: Preserve verification outcome
+        if: always() && steps.checkout.outcome == 'success'
+        env:
+          RUN_OUTCOME: ${{ steps.verification.outcome }}
+        run: |
+          set -euo pipefail
+          mkdir -p verification_ls8bb_retained
+          if test -f /tmp/ls8bb_retained_verification.log; then cp /tmp/ls8bb_retained_verification.log verification_ls8bb_retained/RUN.log; fi
+          python -m pip freeze | sort > verification_ls8bb_retained/environment.txt
+          python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          out=Path('verification_ls8bb_retained'); summary=out/'summary.json'
+          status=json.loads(summary.read_text())['status'] if summary.exists() else 'INCOMPLETE'
+          (out/'RUN_STATUS.json').write_text(json.dumps({'execution_outcome':os.environ['RUN_OUTCOME'],'verification_status':status,'freeze_commit':os.environ['GITHUB_SHA']},indent=2)+'\n')
+          (out/'SHA256SUMS').write_text(''.join(f'{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.relative_to(out)}\n' for p in sorted(out.rglob('*')) if p.is_file() and p.name!='SHA256SUMS'))
+          PY
+          git add verification_ls8bb_retained
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Verify LS8BB retained overlap bytes and publish unchanged-map review figure'
+          git push origin HEAD:m43-support-qualification
+      - name: Require successful retained verification
+        if: always()
+        env:
+          RUN_OUTCOME: ${{ steps.verification.outcome }}
+        run: test "$RUN_OUTCOME" = success
