@@ -1430,3 +1430,17 @@ precede values. All prior labels, closed studies, census/cohort order and
 reserved TESS/M43 panels remain unchanged. See LS8BC_CONTINUATION.md.
 Calibration NOT_READY; request UNSENT. Publication authorized; delegation
 deferred.
+
+24 September 2026: LS8BD–LS8BE closes the predetermined rank-23 GJ 494 first
+pair and the complete signed follow-up. The 148 rows supply 165 eligible
+windows and one positive representative, CORRECTION_LINKED under the fixed
+gate. Independent L2, metadata and image audits pass. No unresolved event
+remains and no residual study is triggered. The second visit's unassessed
+row-13 maximum and both later visits remain outside follow-up. Next prepare
+LS8BF for rank-24 2MASS J11474440+0048164, exact pair
+CH_PR100018_TG007101_V0300 / CH_PR100018_TG007102_V0300. Verify own headers
+before its separate L2 freeze and use each verified cadence (ledger 60
+seconds). Prior labels, unassessed points, closed studies, cohort order and
+reserved TESS/M43 panels remain unchanged. See LS8BE_CONTINUATION.md.
+Calibration NOT_READY; request UNSENT. Publication authorized; delegation
+deferred.
