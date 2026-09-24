@@ -17,6 +17,59 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+## 24 September LS8BD–LS8BE: GJ 494 pair and image follow-up closed
+
+The predetermined rank-23 first pair supplies **148 retained rows and 165
+eligible overlapping windows**. Two positive crossings form **one positive
+cluster**; no negative window crosses. Its sole representative completes
+image follow-up as **CORRECTION_LINKED** under the unchanged two-convention
+gate. The unresolved set is empty, so no residual study is triggered.
+No qualified SETI candidate, detector, sensitivity or observing coverage is added.
+
+Both visits verify NEXP=1, EXPTIME=TEXPTIME=42 seconds and pipeline 14.1.2.
+The fixed one/two/three-row screen retains +/-8.5 endpoints. First-visit row
+53 has original score **+17.588819** and local excess **+0.433469%** in one
+42-second integration. Scores are not Gaussian significances, and its two
+overlapping crossing windows are not independent detections.
+
+Image DELTA/COR ratios are **-3.496853 / -3.694644** (C0/C1), with complete
+apertures and positive COR/L2 sign agreement. The correction gate passes
+first. Displacement fits also exceed the later spatial thresholds, without
+relabeling; smearing fits are rank deficient. The signed aperture sums show
+material coupling to delivered processing. This does not identify a unique
+physical cause or artificial origin, or exclude underlying source variability.
+
+The original 29-row context contains 58 unique CAL/COR exposure joins.
+Second-visit row 13 is **0.366957% above its STATUS=0 visit median** but lacks
+an eligible context and remains unassessed. It is not substituted into
+follow-up. GJ 494's two later visits stay outside the selected pair.
+
+All four workflows succeed. The 5 transport / 2 L2 / 11 image tests pass;
+independent audits pass **1,980 L2 comparisons**, **269 metadata checks** and
+**94,537 numerical / 160,581 exact image checks**, with zero disagreements.
+All **157 scientific files** are public; 155 match public Git identities
+locally. Two large CAL/COR payloads could not be retrieved locally and are
+verified by the published independent image audit. Of 129 manifest entries,
+127 pass locally and two pass that CI audit. All 68 input-pin checks pass,
+and both figures were visually inspected.
+
+**Immediate next action: prepare LS8BF for rank-24 2MASS J11474440+0048164**,
+CH_PR100018_TG007101_V0300 / CH_PR100018_TG007102_V0300, both eligible visits.
+Freeze bounded headers, verify own identities/schema/exposures, then freeze
+exact L2 ranges before values. Use each own verified cadence (ledger 60
+seconds); do not inherit 42 seconds. These science values remain unopened.
+
+[Scientific interpretation and exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8BE_CONTINUATION.md),
+[L2 report and figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8bd_l2_screen/REPORT.md),
+[complete image report and figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls8be_images/REPORT.md),
+[publication and verification](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PUBLICATION_2026-09-24_LS8BD_LS8BE.md).
+
+Earlier dated next actions below are historical. Active continuation:
+LS8BE_CONTINUATION.md; next stage: LS8BF. Prior labels, unassessed points,
+closed studies, original census/cohort order and reserved TESS/M43 panels
+remain unchanged. Calibration NOT_READY; request UNSENT. Publication
+continues under standing authorization; delegation is deferred.
+
 ## 24 September LS8BC: GJ 422 audited pair closed
 
 The predetermined rank-22 pair supplied **97 retained rows and 75 eligible
