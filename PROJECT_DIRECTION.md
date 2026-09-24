@@ -1416,3 +1416,17 @@ order, prior labels, unassessed points, closed studies and reserved TESS/M43
 panels stay unchanged. GJ 536's P1/P6 keep their unresolved labels and its one
 bounded study stays closed. Calibration NOT_READY; technical request UNSENT.
 Standing research/publication authorization continues; delegation is deferred.
+
+24 September 2026: LS8BC closes the predetermined rank-22 GJ 422 pair with
+97 retained rows, 75 eligible overlapping windows and no signed threshold
+crossings. Both workflows and the 900-comparison independent audit pass.
+The null is limited to eligible contexts; the flagged 22.091280% display dip
+and other unassessed points remain preserved. No image/residual branch is
+triggered. Next prepare LS8BD for rank-23 GJ 494, only chronological first
+pair CH_PR100018_TG007401_V0300 / CH_PR100018_TG007402_V0300, using its own
+header-verified cadence (ledger 42 seconds). Its other two visits remain
+outside the pair. Own-header verification and a separate exact L2 freeze
+precede values. All prior labels, closed studies, census/cohort order and
+reserved TESS/M43 panels remain unchanged. See LS8BC_CONTINUATION.md.
+Calibration NOT_READY; request UNSENT. Publication authorized; delegation
+deferred.

@@ -1,5 +1,47 @@
 # SETIsearch — current project status
 
+## 24 September LS8BC: GJ 422 audited pair closed
+
+The predetermined rank-22 pair supplied **97 retained rows and 75 eligible
+overlapping windows**, with **zero positive or negative threshold crossings
+or clusters**. The first visit contributes 30 windows and the second 45.
+Both own headers verify NEXP=1, EXPTIME=TEXPTIME=60 seconds and pipeline
+14.1.2. The unchanged one/two/three-row screen retains +/-8.5 endpoints;
+its scores are not Gaussian significances. Maximum scores are +3.206120
+and +5.502935. No image/residual study is triggered and no qualified SETI
+candidate, detector, sensitivity or observing-coverage claim is added.
+
+The null applies only to eligible contexts. The full figure retains the
+first visit's large dip at zero-based row 39: **22.091280% below its STATUS=0
+visit median**, but **STATUS=1** and no eligible event window. It remains
+unassessed, without an assigned cause. Broader displayed variation does not
+change the fixed selection. Edge points, flagged contexts and gaps are not
+silently counted as tested nulls.
+
+Both workflows succeed at their original freezes. All **five transport and
+two stable-arithmetic tests** pass, and the independent audit passes **900
+numerical/discrete comparisons with zero disagreements**. All **64 new
+scientific file identities**, **50 manifest entries** and **24 input pins**
+are verified locally. The complete figure is visually inspected. Exactly
+**13,386 L2 science-table bytes** and zero image bytes were acquired.
+
+**Immediate next action: prepare LS8BD for rank-23 GJ 494**, exact first pair
+CH_PR100018_TG007401_V0300 / CH_PR100018_TG007402_V0300. Freeze bounded headers,
+audit own identities/schema/exposures and then freeze exact L2 ranges before
+values. The ledger gives **42 seconds**, NEXP=1 and pipeline 14.1.2; use each
+verified cadence and do not inherit 60 seconds. These science values remain
+unopened; its two later visits stay outside the pair.
+
+[Scientific interpretation and exact continuation](LS8BC_CONTINUATION.md),
+[L2 report and full figure](results_ls8bc_l2_screen/REPORT.md),
+[publication and verification](PUBLICATION_2026-09-24_LS8BC.md).
+
+Earlier dated next actions below are historical. Active continuation:
+LS8BC_CONTINUATION.md; next stage: LS8BD. Prior labels, unassessed points,
+closed studies, original census/cohort order and reserved TESS/M43 panels
+remain unchanged. Calibration NOT_READY; request UNSENT. Standing
+research/publication authorization continues; delegation is deferred.
+
 ## 23 September LS8BA–LS8BB: 2MASS J11285624+1010395 pair closed
 
 The predetermined rank-21 pair supplied **97 retained rows and 90 eligible
