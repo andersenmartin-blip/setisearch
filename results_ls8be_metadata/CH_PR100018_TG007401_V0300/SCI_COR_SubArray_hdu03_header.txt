@@ -1,0 +1,108 @@
+XTENSION= 'BINTABLE'           / binary table extension                         
+BITPIX  =                    8 / 8-bit bytes                                    
+NAXIS   =                    2 / 2-dimensional binary table                     
+NAXIS1  =                   61 / width of table in bytes                        
+NAXIS2  =                   83 / number of rows in table                        
+PCOUNT  =                    0 / size of special data area                      
+GCOUNT  =                    1 / one data group (required keyword)              
+TFIELDS =                    9 / number of fields in each row                   
+TTYPE1  = 'UTC_TIME'           / UTC time, middle of the measurements           
+TFORM1  = '26A     '           / format of field                                
+TUNIT1  = 'TIMESYS=UTC'        / Unit of column UTC_TIME                        
+TTYPE2  = 'MJD_TIME'           / Modified Julian Day, middle of the measurements
+TFORM2  = '1D      '           / format of field                                
+TUNIT2  = 'day     '           / Unit of column MJD_TIME                        
+TTYPE3  = 'BJD_TIME'           / barycentric date, middle of measurements       
+TFORM3  = '1D      '           / format of field                                
+TUNIT3  = 'day     '           / Unit of column BJD_TIME                        
+TTYPE4  = 'IMAGE_INDEX'        / Index of the full or subframe this centroid bel
+TFORM4  = '1I      '           / format of field                                
+TZERO4  =                32768 / offset for unsigned integers                   
+TSCAL4  =                    1 / data are not scaled                            
+TTYPE5  = 'LOCATION_X'         / intended X position of target on CCD [SOC coord
+TFORM5  = '1E      '           / format of field                                
+TUNIT5  = 'pixel   '           / Unit of column LOCATION_X                      
+TTYPE6  = 'LOCATION_Y'         / intended Y position of target on CCD [SOC coord
+TFORM6  = '1E      '           / format of field                                
+TUNIT6  = 'pixel   '           / Unit of column LOCATION_Y                      
+TTYPE7  = 'CENTROID_X'         / calculated X position of target on CCD [SOC coo
+TFORM7  = '1E      '           / format of field                                
+TUNIT7  = 'pixel   '           / Unit of column CENTROID_X                      
+TTYPE8  = 'CENTROID_Y'         / calculated Y position of target on CCD [SOC coo
+TFORM8  = '1E      '           / format of field                                
+TUNIT8  = 'pixel   '           / Unit of column CENTROID_Y                      
+TTYPE9  = 'VALIDITY'           / 0: OK, other: not OK                           
+TFORM9  = '1B      '           / format of field                                
+DATE    = '2023-03-17T13:53:55' / creation time of this HDU                     
+STAMP   = 'main_correction.py 14.0.1' / program creating this HDU               
+SVN_REV = 'Unversioned directory' / svn revision of the software creating this H
+EXTNAME = 'PIP_COR_Centroid'   / extension name                                 
+SCHEMA  = 'PIP_COR_Centroid.fsd' / filename of schema defining this data structu
+EXT_VER = '13.2    '           / version of the data structure                  
+DATA_LVL= 'L1      '           / Level of this data product                     
+PROC_CHN= 'data reduction'     / Processing chain creating this data structure  
+          / Stores the centroid data as they were calculated by Data Reduction. 
+          / There is one row per sub-frame image.                               
+                                                                                
+          / CHEOPS Data Structure                                               
+                                                                                
+TELESCOP= 'CHEOPS  '           / Telescope's name                               
+INSTRUME= 'CHEOPS  '           / Instrument's name                              
+ORIGIN  = 'SOC     '           / Processing site, creating this FITS file       
+ARCH_REV=                    3 / Archive revision number                        
+PROC_NUM=                    0 / Processing Number                              
+PIPE_VER= '14.1.2  '           / Pipeline version                               
+TIMESYS = 'TT      '           / Time frame system                              
+                                                                                
+          / Start and Stop of Validity                                          
+                                                                                
+V_STRT_U= '2020-05-03T22:47:18.101676' / [TIMESYS=UTC] Start of validity time in
+V_STOP_U= '2020-05-03T23:52:26.554014' / [TIMESYS=UTC] End of validity time in U
+V_STRT_M=     58972.9503158064 / [day] Start of validity time in MJD            
+V_STOP_M=     58972.9955525233 / [day] End of validity time in MJD              
+                                                                                
+          / Target                                                              
+                                                                                
+TARGNAME= 'GJ 494  '           / Name of the target as provided by the proposal 
+SPECTYPE= 'K8V     '           / Spectral type of the target as provided by the 
+T_EFF   =                 3970 / [Kelvin] Effective temperature of the target as
+MAG_G   =                 8.91 / [mag] Brightness of the target in Gaia band    
+MAG_GERR=                  0.1 / [mag] Error of brightness of the target in Gaia
+MAG_CHPS=     8.91521917950919 / [mag] Brightness of the target in CHEOPS band  
+MAG_CERR=                  0.1 / [mag] Error of brightness of the target in CHEO
+                                                                                
+          / Visit                                                               
+                                                                                
+PI_NAME = 'Isabella PAGANO'    / Name of the PI of the observing program        
+PI_UID  =                 4898 / ID of the PI                                   
+OBS_CAT = 'non time critical'  / Observation Category                           
+PROGTYPE=                   10 / Type of the program                            
+PROG_ID =                   18 / Program Id of this type of program             
+REQ_ID  =                   74 / Observation request Id of this program         
+VISITCTR=                    1 / Visit counter for this target                  
+OBSID   =              1095882 / Unique identifier of a visit, defined by MPS   
+PRP_VST1=                  547 / [days] Proprietary period, depending on first v
+PRP_VSTN=                  365 / [days] Proprietary period, depending on last vi
+                                                                                
+          / Target Coordinates                                                  
+                                                                                
+RA_TARG =           195.194001 / RA of the target at epoch J2000                
+DEC_TARG=             12.37575 / DEC of the target at epoch J2000               
+EQUINOX =                2000. / Equinox of celestial coord. system             
+RADESYS = 'ICRS    '           / Coordinate reference frame for the RA and DEC  
+                                                                                
+CHECKSUM= '9hjWBgjV9gjVAgjV'   / HDU checksum updated 2023-03-17T13:58:04       
+DATASUM = '2618758572'         / data unit checksum updated 2023-03-17T13:58:04 
+END                                                                             
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
