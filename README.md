@@ -21,7 +21,7 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
-## 26 September: HD1461 motion and exposure audit complete; pointing hold remains
+## 26 September: direct eccentric factors verified; pointing hold remains
 
 The [first integrated metadata package is complete](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_RESTART_2026-09-26_RESULT.md).
 Original catalogue rank 38, **HD 1461 / HIP1499**, supplies a six-scan ON/OFF
@@ -72,8 +72,20 @@ finite-exposure digital-injection component retains 24 ideal response profiles;
 a concrete three-window proposal separates decoded calibration, validation and
 pilot payloads. The scientific protocol and motion bank remain unfrozen.
 
-Continue with an explicitly identified direct eccentric factor-table interface,
-disjoint cross-window calibration and finite-exposure end-to-end controls.
+The [direct-factor/native continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_DIRECT_FACTORS_2026-09-26_RESULT.md)
+passes **eight new tests**. Four coordinate scenarios each have 33 explicitly
+identified templates. All **38,016 frequency factors** match an independent
+orbital implementation; **1,015,344 native score cells** and 1,572,864
+normalization cells are bit-identical to independent references on one synthetic
+cadence. This qualifies the direct-table native handoff, not a physical model,
+scientific recovery or the complete detector.
+
+Next connect the distinct direct-table type through a versioned downstream
+calibration/retention/veto/receiver/clustering contract while preserving detector
+arithmetic. The full pipeline still requires the legacy two-column basis.
+Then qualify disjoint cross-window calibration and finite-exposure end-to-end
+controls. The source preparation contract and closed acquisition ledger remain
+unchanged.
 Keep both coordinate identities distinct. The newly examined operator-log route
 redirected to NRAO sign-on; an [unsent retrieval specification](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_HD1461_PROVENANCE_REQUEST_2026-09-26.md)
 identifies the same-scan records still required. No selected telescope spectrum
@@ -81,7 +93,8 @@ has been opened.
 
 A [daily scheduled continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_AUTONOMOUS_CONTINUATION_2026-09-26.md)
 is enabled for 27 September–9 October, around 08:00 Europe/Copenhagen. It runs
-the next bounded authorized work package; no scheduled run has completed yet.
+the next bounded authorized work package; the direct-factor continuation above
+is now complete.
 Three extra hourly evening continuations are enabled for 26 September after
 the owner's request for several hours of autonomous work. The older weekly
 LS-data watch is paused. All scientific gates remain in force.
