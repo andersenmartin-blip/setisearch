@@ -1,5 +1,31 @@
 # SETIsearch — current project status
 
+## 26 September: cross-window identities and fresh controls frozen
+
+The [cross-window calibration-contract package is complete](RADIO_CROSS_WINDOW_CONTRACT_2026-09-26_RESULT.md).
+**Thirteen new tests pass.** The three proposed calibration, validation and
+pilot windows now have hash-bound identities covering 18 decoded payloads and
+12 separate normalization blocks. Exact-context certificate reuse, identical
+source/destination contexts, payload-coordinate crossing and a direct
+calibration-to-pilot transition are refused. A distinct calibration-to-validation
+request can be prepared, but threshold transfer and spectral access remain
+unauthorized.
+
+A fresh prospective control panel is also frozen but unexecuted: three
+calibration identities and 24 disjoint evaluation identities cover two noise
+nulls, a 5-width × 2-power ON-signal bank, the same matched ON/OFF bank and two
+broad single-adjacent-OFF cases. Every member and cluster must be accounted for.
+Matched/adjacent controls and detector widths 65/129 have explicit zero gates
+for unassociated final members and clusters. The prior failed panel remains
+closed development evidence and was not rerun or tuned.
+
+**Exact next autonomous preparation:** construct the prospective execution
+envelope that binds this freeze to positive codec/receipt evidence, an immutable
+runtime manifest, a qualified motion-bank identity and the cumulative resource
+ledger. Do not execute the fresh panel until those inputs and same-scan pointing
+provenance are available. Cross-window numeric transfer remains a separate
+qualification and pilot stays last. No telescope values were opened.
+
 ## 26 September: direct factors reach downstream stages; control gate fails
 
 The owner asked to start the new two-week radio plan and work autonomously.

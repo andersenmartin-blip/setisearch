@@ -181,10 +181,12 @@ eight new tests and eight targeted regressions pass, but the engineering control
 gate fails because a matched ON/OFF signal leaves 13 unassociated width-129
 members in two clusters. The intended track is vetoed; retained evidence shows
 one-epoch signal intersection plus marginal support in another epoch. No setting
-is retuned. Continue with an identity-bound disjoint-window calibration contract,
-then freeze fresh finite-exposure controls that count broad-width leakage and all
-unassociated clusters. Do not rerun the closed arithmetic checks or relabel the
-old two-column basis. A new same-scan provenance
+is retuned. The [identity-bound cross-window contract and fresh control freeze](RADIO_CROSS_WINDOW_CONTRACT_2026-09-26_RESULT.md)
+are now complete: 13 tests pass, exact-context reuse is refused and a new
+24-case panel zero-gates broad-width unassociated leakage without rerunning the
+closed failed panel. Continue with the positive codec/runtime/motion/resource
+execution envelope; numeric transfer and panel execution remain blocked. Do not
+rerun the closed arithmetic checks or relabel the old two-column basis. A new same-scan provenance
 observable is still required before unblocking spectra; the
 [minimal retrieval specification](RADIO_HD1461_PROVENANCE_REQUEST_2026-09-26.md)
 is unsent. Three extra hourly evening continuations support the owner's

@@ -11,6 +11,16 @@ hours. Existing scientific and publication boundaries remain in force.
 
 The [26 September–9 October plan](RADIO_TWO_WEEK_PLAN_2026-09-26.md) has now
 started with a completed [integrated restart/metadata package](RADIO_RESTART_2026-09-26_RESULT.md).
+A new [cross-window identity contract and fresh control freeze](RADIO_CROSS_WINDOW_CONTRACT_2026-09-26_RESULT.md)
+now bind all three proposed roles, 18 decoded payload identities and 12
+normalization blocks. Thirteen tests pass. Exact-context certificate reuse and
+calibration-to-pilot shortcuts are refused. The unexecuted 24-case evaluation
+freeze explicitly zero-gates unassociated broad-width 65/129 leakage while
+preserving the earlier failed panel as closed development evidence. Continue by
+binding positive codec/runtime, qualified motion-bank and cumulative-ledger
+evidence into a prospective execution envelope. Do not run the panel or open
+telescope values while pointing and cross-window numeric transfer remain
+unqualified.
 The deterministic first pilot source is HD 1461 / HIP1499, cadence 71139, on an
 observing date/session distinct from M43. All six current object/header
 identities are verified, but comparison with the official catalogue exposes a
@@ -56,10 +66,11 @@ signal leaves 13 unassociated width-129 final members in two clusters after the
 intended track is vetoed. The bounded diagnosis attributes this to one-epoch
 strong-signal intersection plus just-over-floor noise support in another epoch;
 no implementation repair or retuning is claimed.
-Next implement an identity-bound disjoint-window calibration contract, then
-freeze fresh finite-exposure signal/RFI/null controls that count this leakage
-and every unassociated cluster. Preserve the failed case as exposed development
-evidence. Seek genuinely new pointing evidence; the new official
+The identity-bound disjoint-window calibration contract and fresh control
+freeze are now complete. Continue with the positive codec/runtime/motion/
+resource execution envelope; numeric transfer and panel execution remain
+blocked. Preserve the failed case as exposed development evidence. Seek
+genuinely new pointing evidence; the new official
 operator-log route required NRAO sign-on and supplied no scan record. The
 [retrieval specification](RADIO_HD1461_PROVENANCE_REQUEST_2026-09-26.md) remains unsent.
 Preserve both coordinate identities explicitly; unresolved pointing is not

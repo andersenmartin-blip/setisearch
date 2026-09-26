@@ -1,0 +1,62 @@
+{
+  "artifact_type": "radio-fresh-control-panel-freeze-v1",
+  "status": "FROZEN_NOT_EXECUTABLE",
+  "purpose": "Prospectively gate recovery, matched/adjacent RFI, nulls and broad-width alternate-track leakage on fresh disjoint synthetic identities",
+  "primary": "neighbor9",
+  "source_domain": "synthetic-prospective",
+  "cross_window_contract_sha256": "9297c5f244bd6448fba9bf23f35a9c268ca8ed4725c7ecfae6d2ddb7a871cf97",
+  "previous_failed_panel_role": "closed-development-evidence-only",
+  "previous_failed_panel_rerun": false,
+  "settings_selected_from_failed_outcomes": false,
+  "detector_width_bank_channels": [1, 5, 33, 65, 129],
+  "injection_total_digital_power_bank": [100.0, 500.0],
+  "activity_patterns": {
+    "on_signal": {"on_epochs_zero_based": [0, 1, 2], "off_epochs_zero_based": []},
+    "matched_on_off": {"on_epochs_zero_based": [0, 1, 2], "off_epochs_zero_based": [0, 1, 2]},
+    "single_adjacent_off": {"on_epochs_zero_based": [0, 2], "off_epochs_zero_based": [0]}
+  },
+  "association_rule": "Every final member is associated only when its active epochs are a subset of injected ON epochs and its literal ON track is within two native channel spacings of the injected track at every active epoch; all others are unassociated.",
+  "calibration_identities": [
+    {"source_identity_namespace": "radio-fresh-calibration-01", "seed": 26092631},
+    {"source_identity_namespace": "radio-fresh-calibration-02", "seed": 26092632},
+    {"source_identity_namespace": "radio-fresh-calibration-03", "seed": 26092633}
+  ],
+  "cases": [
+    {"case_id": "noise-01", "kind": "noise_null", "seed": 26092634, "injection_width_channels": 0, "total_digital_power": 0.0, "source_identity_namespace": "radio-fresh-eval-noise-01", "outcomes_may_select_settings": false},
+    {"case_id": "noise-02", "kind": "noise_null", "seed": 26092635, "injection_width_channels": 0, "total_digital_power": 0.0, "source_identity_namespace": "radio-fresh-eval-noise-02", "outcomes_may_select_settings": false},
+    {"case_id": "signal-w1-p100", "kind": "on_signal", "seed": 26092636, "injection_width_channels": 1, "total_digital_power": 100.0, "source_identity_namespace": "radio-fresh-eval-signal-w1-p100", "outcomes_may_select_settings": false},
+    {"case_id": "signal-w1-p500", "kind": "on_signal", "seed": 26092637, "injection_width_channels": 1, "total_digital_power": 500.0, "source_identity_namespace": "radio-fresh-eval-signal-w1-p500", "outcomes_may_select_settings": false},
+    {"case_id": "signal-w5-p100", "kind": "on_signal", "seed": 26092638, "injection_width_channels": 5, "total_digital_power": 100.0, "source_identity_namespace": "radio-fresh-eval-signal-w5-p100", "outcomes_may_select_settings": false},
+    {"case_id": "signal-w5-p500", "kind": "on_signal", "seed": 26092639, "injection_width_channels": 5, "total_digital_power": 500.0, "source_identity_namespace": "radio-fresh-eval-signal-w5-p500", "outcomes_may_select_settings": false},
+    {"case_id": "signal-w33-p100", "kind": "on_signal", "seed": 26092640, "injection_width_channels": 33, "total_digital_power": 100.0, "source_identity_namespace": "radio-fresh-eval-signal-w33-p100", "outcomes_may_select_settings": false},
+    {"case_id": "signal-w33-p500", "kind": "on_signal", "seed": 26092641, "injection_width_channels": 33, "total_digital_power": 500.0, "source_identity_namespace": "radio-fresh-eval-signal-w33-p500", "outcomes_may_select_settings": false},
+    {"case_id": "signal-w65-p100", "kind": "on_signal", "seed": 26092642, "injection_width_channels": 65, "total_digital_power": 100.0, "source_identity_namespace": "radio-fresh-eval-signal-w65-p100", "outcomes_may_select_settings": false},
+    {"case_id": "signal-w65-p500", "kind": "on_signal", "seed": 26092643, "injection_width_channels": 65, "total_digital_power": 500.0, "source_identity_namespace": "radio-fresh-eval-signal-w65-p500", "outcomes_may_select_settings": false},
+    {"case_id": "signal-w129-p100", "kind": "on_signal", "seed": 26092644, "injection_width_channels": 129, "total_digital_power": 100.0, "source_identity_namespace": "radio-fresh-eval-signal-w129-p100", "outcomes_may_select_settings": false},
+    {"case_id": "signal-w129-p500", "kind": "on_signal", "seed": 26092645, "injection_width_channels": 129, "total_digital_power": 500.0, "source_identity_namespace": "radio-fresh-eval-signal-w129-p500", "outcomes_may_select_settings": false},
+    {"case_id": "matched-w1-p100", "kind": "matched_on_off", "seed": 26092646, "injection_width_channels": 1, "total_digital_power": 100.0, "source_identity_namespace": "radio-fresh-eval-matched-w1-p100", "outcomes_may_select_settings": false},
+    {"case_id": "matched-w1-p500", "kind": "matched_on_off", "seed": 26092647, "injection_width_channels": 1, "total_digital_power": 500.0, "source_identity_namespace": "radio-fresh-eval-matched-w1-p500", "outcomes_may_select_settings": false},
+    {"case_id": "matched-w5-p100", "kind": "matched_on_off", "seed": 26092648, "injection_width_channels": 5, "total_digital_power": 100.0, "source_identity_namespace": "radio-fresh-eval-matched-w5-p100", "outcomes_may_select_settings": false},
+    {"case_id": "matched-w5-p500", "kind": "matched_on_off", "seed": 26092649, "injection_width_channels": 5, "total_digital_power": 500.0, "source_identity_namespace": "radio-fresh-eval-matched-w5-p500", "outcomes_may_select_settings": false},
+    {"case_id": "matched-w33-p100", "kind": "matched_on_off", "seed": 26092650, "injection_width_channels": 33, "total_digital_power": 100.0, "source_identity_namespace": "radio-fresh-eval-matched-w33-p100", "outcomes_may_select_settings": false},
+    {"case_id": "matched-w33-p500", "kind": "matched_on_off", "seed": 26092651, "injection_width_channels": 33, "total_digital_power": 500.0, "source_identity_namespace": "radio-fresh-eval-matched-w33-p500", "outcomes_may_select_settings": false},
+    {"case_id": "matched-w65-p100", "kind": "matched_on_off", "seed": 26092652, "injection_width_channels": 65, "total_digital_power": 100.0, "source_identity_namespace": "radio-fresh-eval-matched-w65-p100", "outcomes_may_select_settings": false},
+    {"case_id": "matched-w65-p500", "kind": "matched_on_off", "seed": 26092653, "injection_width_channels": 65, "total_digital_power": 500.0, "source_identity_namespace": "radio-fresh-eval-matched-w65-p500", "outcomes_may_select_settings": false},
+    {"case_id": "matched-w129-p100", "kind": "matched_on_off", "seed": 26092654, "injection_width_channels": 129, "total_digital_power": 100.0, "source_identity_namespace": "radio-fresh-eval-matched-w129-p100", "outcomes_may_select_settings": false},
+    {"case_id": "matched-w129-p500", "kind": "matched_on_off", "seed": 26092655, "injection_width_channels": 129, "total_digital_power": 500.0, "source_identity_namespace": "radio-fresh-eval-matched-w129-p500", "outcomes_may_select_settings": false},
+    {"case_id": "adjacent-w65-p500", "kind": "single_adjacent_off", "seed": 26092656, "injection_width_channels": 65, "total_digital_power": 500.0, "source_identity_namespace": "radio-fresh-eval-adjacent-w65-p500", "outcomes_may_select_settings": false},
+    {"case_id": "adjacent-w129-p500", "kind": "single_adjacent_off", "seed": 26092657, "injection_width_channels": 129, "total_digital_power": 500.0, "source_identity_namespace": "radio-fresh-eval-adjacent-w129-p500", "outcomes_may_select_settings": false}
+  ],
+  "gates": {
+    "complete_member_cluster_partition": {"every_final_member_classified_associated_or_unassociated": true, "every_final_member_in_exactly_one_complete_cluster": true, "truncation_allowed": false},
+    "on_signal_recovery": {"associated_final_member_minimum_each_case": 1, "associated_final_cluster_minimum_each_case": 1, "unassociated_members_and_clusters": "report_all; not a recovery pass criterion"},
+    "noise_null": {"final_members_each_case": 0, "final_clusters_each_case": 0},
+    "matched_rfi": {"associated_final_members_each_case": 0, "unassociated_final_members_each_case": 0, "unassociated_final_clusters_each_case": 0},
+    "single_adjacent_rfi": {"associated_final_members_each_case": 0, "unassociated_final_members_each_case": 0, "unassociated_final_clusters_each_case": 0},
+    "broad_width_leakage": {"detector_width_channels": [65, 129], "unassociated_final_members_each_width": 0, "unassociated_final_clusters_each_width": 0}
+  },
+  "attempt_budgets": {"calibration_realizations": 3, "evaluation_cases": 24, "evaluation_runs": 1, "remedy_attempts_after_freeze": 0, "pilot_runs": 0},
+  "execution_blockers": ["pointing_provenance_unresolved", "qualified_motion_bank_missing", "cross_window_transfer_unqualified", "codec_receipt_missing", "runtime_manifest_missing", "cumulative_resource_ledger_missing"],
+  "spectral_access_authorized": false,
+  "scientific_candidate_selection_authorized": false
+}
