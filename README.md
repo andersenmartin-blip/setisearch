@@ -21,7 +21,26 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
-## 26 September: direct downstream connector complete; control gate fails
+## 26 September: cross-window identities and fresh controls frozen
+
+The [cross-window calibration-contract package](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_CROSS_WINDOW_CONTRACT_2026-09-26_RESULT.md)
+now hash-binds the proposed calibration, validation and pilot roles: **18 decoded
+payload identities and 12 separate normalization blocks**. **Thirteen new tests
+pass.** Exact-context certificate reuse, payload crossing, identical source and
+destination contexts and a calibration-to-pilot shortcut are refused. Numeric
+threshold transfer and all telescope spectral access remain unqualified.
+
+A new, unexecuted control freeze has three fresh calibration identities and
+**24 disjoint evaluation identities**. It covers noise, finite-exposure signals,
+matched ON/OFF interference and broad adjacent-OFF cases. Every final member
+and cluster must be retained; detector widths 65 and 129 have explicit zero
+gates for unassociated leakage. The prior 13-member control failure remains
+closed development evidence and was neither rerun nor tuned. Next work binds
+positive codec/runtime, a qualified motion bank and the cumulative resource
+ledger into a prospective execution envelope. Pointing provenance is still
+unresolved, so no telescope values were opened.
+
+## Earlier 26 September: direct downstream connector complete; control gate fails
 
 The [first integrated metadata package is complete](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_RESTART_2026-09-26_RESULT.md).
 Original catalogue rank 38, **HD 1461 / HIP1499**, supplies a six-scan ON/OFF
@@ -91,10 +110,9 @@ finite-exposure signal is recovered, but the matched ON/OFF control leaves
 **13 unassociated width-129 final members in two clusters** after the intended
 track is vetoed. The retained diagnosis shows one-epoch signal intersection plus
 just-over-floor noise support in a second epoch. No threshold or bank was
-retuned. Next qualify an identity-bound disjoint-window calibration contract,
-then freeze fresh finite-exposure controls that count this leakage and every
-unassociated cluster. The source preparation contract and closed acquisition
-ledger remain unchanged.
+retuned. The subsequent identity contract and fresh control freeze are now
+published above. The source preparation contract and closed acquisition ledger
+remain unchanged.
 Keep both coordinate identities distinct. The newly examined operator-log route
 redirected to NRAO sign-on; an [unsent retrieval specification](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_HD1461_PROVENANCE_REQUEST_2026-09-26.md)
 identifies the same-scan records still required. No selected telescope spectrum
