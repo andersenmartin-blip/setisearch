@@ -21,6 +21,28 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+## 26 September: radio restart executed; HD 1461 pointing provenance unresolved
+
+The [first integrated metadata package is complete](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_RESTART_2026-09-26_RESULT.md).
+Original catalogue rank 38, **HD 1461 / HIP1499**, supplies a six-scan ON/OFF
+sequence on a different date/session from M43. All six current source sizes,
+ETags and headers match their published pins. The earlier-source register
+contains 236 distinct radio-product URLs and no overlap with these six.
+
+**The pilot is on hold before spectral access.** All three ON headers differ
+from the official HD 1461 position by approximately **34.23 arcminutes**.
+The metadata replay and separate angular checks pass, but do not resolve that
+discrepancy. A bounded target-only archive query found no same-scan original
+filterbank/raw product. The next requirement is an original header/observing
+log or documented file-specific coordinate-conversion provenance; no coordinate
+has been silently corrected and no substitute target has been opened.
+
+The current HD 3651 availability check lists only its original cadence.
+The complete index of 24 dedicated historical investigation cases preserves
+17 RFI/instrumental classifications, five non-redetections and **two unresolved
+cases: M15 GJ 581 and M33 HD 3651**. M16 retains its conservative M35 count.
+M43AI and the reserved M43AF inputs are unchanged. LS stays paused.
+
 ## 26 September: new two-week radio plan; LS paused
 
 The owner has moved the active work from LS back to ordinary radio SETI.
@@ -40,9 +62,10 @@ and **0/128** native nulls with retained members. No model is adopted.
 The original M43AF held-out panels remain reserved. The old HD 3651
 case and every earlier candidate disposition are preserved.
 
-**Immediate next action is the radio metadata/restart package**, before new
-spectral values are opened. No new radio experiment has been evaluated by
-issuing this plan. LS8BF is now a saved LS restart, not the active task.
+At plan publication, the first action was the radio metadata/restart package.
+That package is now complete; the current pointing-provenance hold is described
+above. No new spectral search has been evaluated. LS8BF remains a saved LS
+restart, not the active task.
 The [LS period review](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/TWO_WEEK_REVIEW_2026-09-26.md)
 and full unresolved register remain available. CHEOPS calibration stays
 NOT_READY and its technical request UNSENT. Earlier dated next-action
