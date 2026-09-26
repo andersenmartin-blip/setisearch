@@ -21,7 +21,7 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
-## 26 September: radio restart executed; HD 1461 pointing provenance unresolved
+## 26 September: radio preparation continues during the HD 1461 pointing hold
 
 The [first integrated metadata package is complete](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_RESTART_2026-09-26_RESULT.md).
 Original catalogue rank 38, **HD 1461 / HIP1499**, supplies a six-scan ON/OFF
@@ -36,6 +36,15 @@ discrepancy. A bounded target-only archive query found no same-scan original
 filterbank/raw product. The next requirement is an original header/observing
 log or documented file-specific coordinate-conversion provenance; no coordinate
 has been silently corrected and no substitute target has been opened.
+
+The [autonomous continuation package](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_SOURCE_2026-09-26_RESULT.md)
+adds public-code provenance research and a new explicit-source acquisition
+interface. **Seven local engineering tests pass**, including gzip/bitshuffle
+HDF5 decoding, direct-native arithmetic, interruption/restart and changed-source
+rejection. The six-source preparation contract blocks before networking; zero
+telescope requests were made by this package. Pointing remains unresolved.
+Useful primary/control orchestration and prospective design continue during
+this source-specific hold. No new spectrum or detector result was evaluated.
 
 The current HD 3651 availability check lists only its original cadence.
 The complete index of 24 dedicated historical investigation cases preserves
