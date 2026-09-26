@@ -1,20 +1,36 @@
 # Long-term project direction
 
-**Owner direction, 26 September 2026: return to ordinary radio SETI and pause
-LS.** The active [two-week radio plan](RADIO_TWO_WEEK_PLAN_2026-09-26.md)
-covers 26 September–9 October. Start with a bounded metadata-only selection
-of an independent ON/OFF observing sequence, then a prospective integrated
-transfer/control gate, a limited radio pilot and complete candidate follow-up.
-M43AI remains a closed failed method; the old M43AF held-out panels stay
-reserved. No model is adopted or new radio data evaluated by issuing this plan.
+**Owner direction, 26 September 2026: ordinary radio SETI is active; LS is paused.
+Start the new two-week plan and work as autonomously as possible.**
 
-LS remains preserved at LS8BD–LS8BE and its consolidated period review. LS8BF
-is its exact saved restart if the owner later returns to LS; it is not the
-current work queue. Preserve all 16 unresolved LS events and all earlier radio
-candidate dispositions. The CHEOPS technical request remains UNSENT. Standing
-research/publication authorization is unchanged; delegation is deferred.
-Earlier dated directions below describe their historical active tracks and
-are superseded operationally by this change.
+The [26 September–9 October plan](RADIO_TWO_WEEK_PLAN_2026-09-26.md) has now
+started with a completed [integrated restart/metadata package](RADIO_RESTART_2026-09-26_RESULT.md).
+The deterministic first pilot source is HD 1461 / HIP1499, cadence 71139, on an
+observing date/session distinct from M43. All six current object/header
+identities are verified, but comparison with the official catalogue exposes a
+34.23-arcminute pointing discrepancy. **Spectral readiness is on hold pending
+pointing provenance.** The bounded original-product catalogue diagnosis is
+complete; it found no matching `.fil` or `.raw` original in that query scope.
+
+Continue from the exact missing-information requirement in PROJECT_STATUS.md:
+a same-scan original header/observing log or documented coordinate-conversion
+provenance. Do not relabel metadata consistency as target confirmation, correct
+coordinates to fit the catalogue, substitute another target automatically, or
+open spectra before the integrated primary/control protocol. The live old M43
+source entry point also needs a new target-bound interface; old source configs,
+receipts, calibrations and closed scientific outcomes stay preserved.
+
+The current HD 3651 catalogue check found only the original M33 cadence.
+Preserve all 24 dedicated historical investigation cases, including unresolved
+M15 GJ 581 and M33 HD 3651, all five non-redetections and M16's conservative
+M35 count. The original M43AF 112+128 held-out inputs remain reserved.
+
+LS remains at LS8BD–LS8BE and its period review; LS8BF is its exact saved restart,
+not the current queue. All 16 unresolved LS events remain preserved, CHEOPS
+calibration stays NOT_READY and its technical request stays UNSENT. Standing
+research/publication authorization continues without repeated approval stops;
+delegation remains deferred. Earlier dated directions below describe their
+historical tracks and are superseded operationally by this radio status.
 
 26 September 2026 review: the owner asked to continue the current plan after
 its progress review. The original two-week plan had already completed its

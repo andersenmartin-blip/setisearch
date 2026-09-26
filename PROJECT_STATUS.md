@@ -1,31 +1,50 @@
 # SETIsearch — current project status
 
-## 26 September: active work returns to radio SETI; LS paused
+## 26 September: radio restart executed; HD 1461 pointing provenance on hold
 
-The owner requested a new two-week plan and a switch from LS to the ordinary
-radio search. The active plan is now
-[26 September–9 October radio SETI](RADIO_TWO_WEEK_PLAN_2026-09-26.md).
-Its objective is one bounded radio-search pilot on an independent observing
-sequence, with prospective controls and complete candidate follow-up.
+The owner asked to start the new two-week radio plan and work autonomously.
+The [first integrated restart/metadata package is complete](RADIO_RESTART_2026-09-26_RESULT.md).
+The active plan remains [26 September–9 October radio SETI](RADIO_TWO_WEEK_PLAN_2026-09-26.md).
 
-**Immediate next action:** prepare the radio restart and metadata-only source
-selection: reconcile existing observations and candidate dispositions, inspect
-at most three independent ON/OFF sequences, and fix one eligible pilot before
-any new spectral values. Then publish the executable primary-method and
-transfer/control protocol. The new plan is operational planning; no new radio
-input or experiment has yet been evaluated under it.
+Original catalogue rank 38, **HD 1461 / HIP1499, cadence 71139**, was selected
+without inspecting spectra. Its six fine HDF5 products have current catalogue,
+size, ETag and header identities matching the published pins, and belong to a
+different session/date from M43. A register of 69 earlier configurations contains
+236 distinct radio-product URLs and no overlap with these six sources.
 
-M43AI remains a closed failed qualification: 53/64 signals recovered, no loss
-among the 53 reference-union cases, 1/48 controls leaking and 0/128 native nulls
-with retained members. The old M43AF held-out panels remain reserved. M33
-HD 3651 and all other earlier candidate dispositions remain unchanged.
+**Spectral readiness: HOLD_POINTING_PROVENANCE_UNRESOLVED.** The three ON headers
+place the source approximately **34.23 arcminutes** from the newly retrieved
+official HD 1461 position. The byte receipts and two independent angular
+calculations verify this mismatch. The inspected format code does not justify
+a correction. A separately frozen target-only catalogue check returned 18 HDF5
+rows and no original `.fil`/`.raw` product matching these three ON scans.
+This metadata discrepancy does not prove an actual telescope mispointing.
 
-**LS is paused at LS8BD–LS8BE**, with the complete period review and all 16
-unresolved events preserved. LS8BF is the saved LS restart, not the active
-next task. CHEOPS calibration remains NOT_READY; its technical request remains
-UNSENT. Earlier dated next-action statements below are historical and are
-superseded operationally by this radio plan. Standing publication authorization
-continues; delegation remains deferred.
+**Exact next information requirement:** an original same-scan header or observing
+log for `AGBT16A_999_189`, scans 0015/0017/0019 (catalogue IDs 71139/71145/71151),
+establishing pointing, or a documented file-specific coordinate conversion.
+The bounded diagnosis is complete. Preserve the selected source and hold its
+spectra; do not silently substitute another target or overwrite the header.
+After resolution, prepare the new target-bound acquisition entry point and
+freeze the integrated primary/control protocol before spectral access.
+
+The new HD 3651 availability check lists only original cadence 73274 in its
+bounded GBT fine-cadence scope. The complete index of 24 dedicated historical
+candidate investigations retains 17 RFI/instrumental classifications, five
+independent-cadence non-redetections and **two unresolved cases: M15 GJ 581 and
+M33 HD 3651**. M16 case 1 remains in M35's conservative possible-detection count.
+Non-redetections have not been relabelled physical vetoes.
+
+All six metadata headers replay from retained HTTP bytes; receipt/official-record
+and candidate-ledger audits pass, as do three changed-transport tests. No new
+spectrum, calibration or pilot search was evaluated. M43AI's failed outcome and
+the original M43AF 112+128 held-out inputs remain unchanged.
+
+**LS stays paused at LS8BD–LS8BE.** LS8BF is its saved restart; all 16 unresolved
+LS events remain preserved. CHEOPS calibration remains NOT_READY and its
+technical request remains UNSENT. Work/publication proceeds under the standing
+authorization; delegation remains deferred. Earlier dated next-action statements
+below are historical and superseded by this radio status.
 
 ## 26 September: period review complete; scientific next step remains LS8BF
 
