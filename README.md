@@ -21,7 +21,7 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
-## 26 September: radio preparation continues during the HD 1461 pointing hold
+## 26 September: native radio integration tested; HD 1461 pointing hold remains
 
 The [first integrated metadata package is complete](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_RESTART_2026-09-26_RESULT.md).
 Original catalogue rank 38, **HD 1461 / HIP1499**, supplies a six-scan ON/OFF
@@ -43,8 +43,21 @@ interface. **Seven local engineering tests pass**, including gzip/bitshuffle
 HDF5 decoding, direct-native arithmetic, interruption/restart and changed-source
 rejection. The six-source preparation contract blocks before networking; zero
 telescope requests were made by this package. Pointing remains unresolved.
-Useful primary/control orchestration and prospective design continue during
-this source-specific hold. No new spectrum or detector result was evaluated.
+This source package evaluated no telescope spectra.
+
+The [integrated native search/control package](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_PIPELINE_2026-09-26_RESULT.md)
+now passes **eight integration tests** and completes all six raw-native synthetic
+cases using the unchanged `neighbor9` primary reference. Both injected signals
+are recovered; noise and three interference controls have zero final members.
+All **248 ON and 51 OFF members** are retained with complete ON-track clusters.
+The six evaluation cases share one synthetic background; a second, structured
+background supplies calibration. These software results do not qualify the
+detector, HD 1461 sensitivity or a physical false-alarm tail.
+
+The [preparation design](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_PIPELINE_2026-09-26_DESIGN.md)
+keeps telescope access blocked. Continue durable acquisition-attempt accounting,
+the source-specific prospective context/protocol and genuinely new same-scan
+pointing evidence. No selected telescope spectrum has been opened.
 
 A [daily scheduled continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_AUTONOMOUS_CONTINUATION_2026-09-26.md)
 is enabled for 27 September–9 October, around 08:00 Europe/Copenhagen. It runs
