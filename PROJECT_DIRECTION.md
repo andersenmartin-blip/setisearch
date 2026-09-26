@@ -1,5 +1,21 @@
 # Long-term project direction
 
+**Owner direction, 26 September 2026: return to ordinary radio SETI and pause
+LS.** The active [two-week radio plan](RADIO_TWO_WEEK_PLAN_2026-09-26.md)
+covers 26 September–9 October. Start with a bounded metadata-only selection
+of an independent ON/OFF observing sequence, then a prospective integrated
+transfer/control gate, a limited radio pilot and complete candidate follow-up.
+M43AI remains a closed failed method; the old M43AF held-out panels stay
+reserved. No model is adopted or new radio data evaluated by issuing this plan.
+
+LS remains preserved at LS8BD–LS8BE and its consolidated period review. LS8BF
+is its exact saved restart if the owner later returns to LS; it is not the
+current work queue. Preserve all 16 unresolved LS events and all earlier radio
+candidate dispositions. The CHEOPS technical request remains UNSENT. Standing
+research/publication authorization is unchanged; delegation is deferred.
+Earlier dated directions below describe their historical active tracks and
+are superseded operationally by this change.
+
 26 September 2026 review: the owner asked to continue the current plan after
 its progress review. The original two-week plan had already completed its
 negative-result branch on 13 September. A consolidated period review now

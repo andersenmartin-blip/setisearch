@@ -1,5 +1,32 @@
 # SETIsearch — current project status
 
+## 26 September: active work returns to radio SETI; LS paused
+
+The owner requested a new two-week plan and a switch from LS to the ordinary
+radio search. The active plan is now
+[26 September–9 October radio SETI](RADIO_TWO_WEEK_PLAN_2026-09-26.md).
+Its objective is one bounded radio-search pilot on an independent observing
+sequence, with prospective controls and complete candidate follow-up.
+
+**Immediate next action:** prepare the radio restart and metadata-only source
+selection: reconcile existing observations and candidate dispositions, inspect
+at most three independent ON/OFF sequences, and fix one eligible pilot before
+any new spectral values. Then publish the executable primary-method and
+transfer/control protocol. The new plan is operational planning; no new radio
+input or experiment has yet been evaluated under it.
+
+M43AI remains a closed failed qualification: 53/64 signals recovered, no loss
+among the 53 reference-union cases, 1/48 controls leaking and 0/128 native nulls
+with retained members. The old M43AF held-out panels remain reserved. M33
+HD 3651 and all other earlier candidate dispositions remain unchanged.
+
+**LS is paused at LS8BD–LS8BE**, with the complete period review and all 16
+unresolved events preserved. LS8BF is the saved LS restart, not the active
+next task. CHEOPS calibration remains NOT_READY; its technical request remains
+UNSENT. Earlier dated next-action statements below are historical and are
+superseded operationally by this radio plan. Standing publication authorization
+continues; delegation remains deferred.
+
 ## 26 September: period review complete; scientific next step remains LS8BF
 
 The original 14–27 September plan completed its negative-result branch and
@@ -2283,7 +2310,7 @@ were hash checked. This is retrospective development, not fresh validation.
 | M43AF complete no-model study | Published and byte-verified: 502 records; 69 archive parts restore 508 original files |
 | Adopted new detector / new M43AF–M43AI astronomical candidate | None |
 | Earlier M33 HD 3651 case | Still unresolved; [investigation](MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
-| LS research | LS8AQ–LS8AS GJ 581 complete: 3,623 rows, 7,869 windows; all 14 image representatives (9 correction-linked, 3 spatial, 2 unresolved). Single retained-data study closed; all labels retained and audits PASS. Next LS8AT rank-16 EC14599-2047 exact header preflight. [Current continuation](LS8AS_CONTINUATION.md) |
+| LS research | Paused at LS8BD–LS8BE by owner direction on 26 September. The first 23 fixed cohorts and all 16 unresolved events are preserved in the [period review](TWO_WEEK_REVIEW_2026-09-26.md). Saved LS restart: LS8BF via [LS8BE continuation](LS8BE_CONTINUATION.md); active work is now radio SETI. |
 
 M43AF's 502 records include 261 already completed historical acquisitions and
 the 241 training/baseline/null records. Its 940 scientific pins and earlier
