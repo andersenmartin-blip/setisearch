@@ -55,9 +55,18 @@ background supplies calibration. These software results do not qualify the
 detector, HD 1461 sensitivity or a physical false-alarm tail.
 
 The [preparation design](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_PIPELINE_2026-09-26_DESIGN.md)
-keeps telescope access blocked. Continue durable acquisition-attempt accounting,
-the source-specific prospective context/protocol and genuinely new same-scan
-pointing evidence. No selected telescope spectrum has been opened.
+keeps telescope access blocked. The
+[durable acquisition package](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_ACQUISITION_2026-09-26_RESULT.md)
+now passes **ten local tests**. A real GitHub-backed reservation demonstration
+uses separate worker processes and simulated source HTTP: an interrupted
+process's allowance remains charged, a second process needs a new reservation,
+and a third stops at the cumulative limit. Full journals and publication
+receipts are retained; zero telescope requests are made.
+
+Continue the source-specific metadata/motion-context audit, prospective
+protocol and genuinely new same-scan pointing evidence. Keep the unresolved
+header/catalogue coordinate identities distinct. No selected telescope spectrum
+has been opened.
 
 A [daily scheduled continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_AUTONOMOUS_CONTINUATION_2026-09-26.md)
 is enabled for 27 September–9 October, around 08:00 Europe/Copenhagen. It runs
