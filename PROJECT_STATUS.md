@@ -1,14 +1,14 @@
 # SETIsearch — current project status
 
-## 26 September: source-specific motion audit and exposure preparation completed
+## 26 September: direct eccentric factors and native arithmetic qualified
 
 The owner asked to start the new two-week radio plan and work autonomously.
 The [first integrated restart/metadata package is complete](RADIO_RESTART_2026-09-26_RESULT.md).
 The active plan remains [26 September–9 October radio SETI](RADIO_TWO_WEEK_PLAN_2026-09-26.md).
 A [daily scheduled continuation](RADIO_AUTONOMOUS_CONTINUATION_2026-09-26.md) is
 confirmed enabled for 27 September–9 October, around 08:00 Europe/Copenhagen.
-It performs the next authorized work package; no scheduled run has completed
-yet. Following the request to continue for several hours, three additional
+It performs the next authorized work package. The direct-factor engineering
+continuation below is now complete. Following the request to continue for several hours, three additional
 hourly evening continuations are enabled from nominal 21:00 on 26 September.
 The prior weekly LS-data watch remains paused.
 
@@ -65,12 +65,23 @@ response profiles. An exact three-window proposal separates calibration,
 validation and pilot at the decoded HDF5 chunk level. It is explicitly unfrozen.
 No source coordinate, motion bank or physical ephemeris has been adopted.
 
-**Next autonomous preparation:** qualify a direct eccentric factor-table interface
-with explicit identities while preserving downstream detector arithmetic; then
-qualify disjoint cross-window calibration and finite-exposure end-to-end controls.
-The current calibration adapter binds one exact context and has not qualified
-transfer between the three real frequency windows. These are preparation gaps,
-not permission to relabel an old context or adopt toy settings.
+The [direct eccentric factor/native package is complete](RADIO_DIRECT_FACTORS_2026-09-26_RESULT.md).
+**Eight new tests pass.** Four separately identified coordinate scenarios each
+have 33 direct templates. All 38,016 factors match an independent orbital
+implementation. On one synthetic cadence, 1,572,864 normalization cells and
+1,015,344 native score cells match independent references bit-for-bit. This
+qualifies the direct-table handoff to native arithmetic, not the full detector,
+physical model, recovery performance or cross-window calibration.
+
+**Exact next autonomous preparation:** connect the new direct table through
+explicitly versioned downstream calibration, retention, physical-veto,
+receiver-frame and clustering interfaces, preserving detector arithmetic.
+Do not represent it as the old two-column basis. Then qualify disjoint
+cross-window calibration and full finite-exposure signal/RFI/null controls.
+The current calibration adapter binds one exact context; transfer between the
+three real frequency windows remains unqualified. The source preparation
+contract and closed acquisition ledger are unchanged. No telescope values
+were opened; no historical test panel was rerun as new progress.
 
 The newly examined official operator-log route redirects to NRAO sign-on and
 supplied no same-scan observable. The [unsent retrieval specification](RADIO_HD1461_PROVENANCE_REQUEST_2026-09-26.md)

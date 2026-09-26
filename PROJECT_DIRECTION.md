@@ -43,9 +43,15 @@ eccentric HD1461 parameters, and substantial intra-integration signal motion.
 A finite-exposure digital-injection component and an exact, unfrozen three-window
 payload/resource proposal are retained. No physical ephemeris or motion bank is
 adopted and spectra remain closed.
-Continue with an explicitly identified direct eccentric factor-table interface,
-disjoint cross-window calibration and finite-exposure end-to-end controls, preserving
-the detector arithmetic. Seek genuinely new pointing evidence; the new official
+The [direct-factor/native continuation](RADIO_DIRECT_FACTORS_2026-09-26_RESULT.md)
+now passes eight new tests: 38,016 factors agree with an independent orbital
+implementation, and all 1,015,344 native score cells agree bit-for-bit with the
+independent reference on one synthetic cadence. No physical model is adopted.
+Next connect this distinct direct-table type through an explicitly versioned
+calibration/retention/physical-veto/receiver/clustering contract while preserving
+detector arithmetic; the full pipeline still requires the old two-column basis.
+Then qualify disjoint cross-window calibration and finite-exposure end-to-end
+controls. Seek genuinely new pointing evidence; the new official
 operator-log route required NRAO sign-on and supplied no scan record. The
 [retrieval specification](RADIO_HD1461_PROVENANCE_REQUEST_2026-09-26.md) remains unsent.
 Preserve both coordinate identities explicitly; unresolved pointing is not

@@ -1,0 +1,83 @@
+$ /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -m unittest discover -s tests -p test_radio_direct_factors.py -v
+
+test_circular_limit_remains_directly_reproducible (test_radio_direct_factors.DirectFactorTests.test_circular_limit_remains_directly_reproducible) ... ok
+test_clock_order_and_duplicate_hypotheses_rejected (test_radio_direct_factors.DirectFactorTests.test_clock_order_and_duplicate_hypotheses_rejected) ... ok
+test_coordinate_provenance_changes_identity (test_radio_direct_factors.DirectFactorTests.test_coordinate_provenance_changes_identity) ... ok
+test_direct_eccentric_oracle_and_reference_anchor (test_radio_direct_factors.DirectFactorTests.test_direct_eccentric_oracle_and_reference_anchor) ... ok
+test_insufficient_late_scan_support_fails_before_gather (test_radio_direct_factors.DirectFactorTests.test_insufficient_late_scan_support_fails_before_gather) ... ok
+test_payload_is_immutable_and_forged_digest_cannot_change_model (test_radio_direct_factors.DirectFactorTests.test_payload_is_immutable_and_forged_digest_cannot_change_model) ... ok
+test_scan_and_edge_selection_preserves_literal_bits (test_radio_direct_factors.DirectFactorTests.test_scan_and_edge_selection_preserves_literal_bits) ... ok
+test_wrong_source_handoff_and_telescope_type_are_refused (test_radio_direct_factors.DirectFactorTests.test_wrong_source_handoff_and_telescope_type_are_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.240s
+
+OK
+
+$ /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python scripts/radio_direct_factors_fixture.py
+{
+  "schema": "radio-direct-factor-qualification-v1",
+  "status": "DIRECT_FACTORS_AND_SYNTHETIC_NATIVE_ARITHMETIC_PASS",
+  "coordinate_scenarios": [
+    {
+      "scenario": "catalogue_fixed",
+      "factor_bank_sha256": "55e74102c8b2420886f982eaa2a2bcbb4ef7ddd2232d5a58d5dfc7ce24793181",
+      "factor_values": 9504,
+      "maximum_independent_factor_error": 0.0,
+      "maximum_error_hz_at_1500_mhz": 0.0
+    },
+    {
+      "scenario": "epoch1_on_header_fixed",
+      "factor_bank_sha256": "6cd36f305bae0702cf9cbf985d9371700d07c3c8e6f31bfc0e0725e0465f59a6",
+      "factor_values": 9504,
+      "maximum_independent_factor_error": 0.0,
+      "maximum_error_hz_at_1500_mhz": 0.0
+    },
+    {
+      "scenario": "epoch2_on_header_fixed",
+      "factor_bank_sha256": "63aea29ecf1533c703e75a2e2a8ddfc46ebcadc1be36d53310526adb08487667",
+      "factor_values": 9504,
+      "maximum_independent_factor_error": 0.0,
+      "maximum_error_hz_at_1500_mhz": 0.0
+    },
+    {
+      "scenario": "epoch3_on_header_fixed",
+      "factor_bank_sha256": "7ca433481d9831d234f0ef8f0271d2e62663b16b82665d5395cb2866db1fe37a",
+      "factor_values": 9504,
+      "maximum_independent_factor_error": 0.0,
+      "maximum_error_hz_at_1500_mhz": 0.0
+    }
+  ],
+  "templates_per_scenario": 33,
+  "factor_samples_per_integration": 3,
+  "source_telescope_requests": 0,
+  "real_spectral_values_read": false,
+  "normalization_cells_bit_exact": 1572864,
+  "score_cells_bit_exact": 1015344,
+  "native_scenarios_evaluated": [
+    "catalogue_fixed"
+  ],
+  "runtime": {
+    "astropy": "8.0.1",
+    "pyerfa": "2.0.1.5",
+    "astropy-iers-data": "0.2026.9.21.0.56.25",
+    "numpy": "2.3.5",
+    "python": "3.12.14"
+  },
+  "native_width_scan_arrays": 48,
+  "native_source_realizations": 1,
+  "source_pointing_resolved": false,
+  "full_detector_connected": false,
+  "scientific_recovery_measured": false,
+  "calibration_transfer_qualified": false,
+  "physical_model_qualified": false,
+  "working_model": "first-order eccentric relative-phase model; no absolute ephemeris or relativistic accuracy qualification",
+  "preserved_legacy_files_sha256": {
+    "src/seti_repeater/search_v0p6.py": "70f7078ac64544b9eb395d9c6b731e8f6f6fc825cc5cd3210843ce58b67a143f",
+    "src/seti_repeater/detector_m43u.py": "d6ae2fa2a43a6c2a0b22659933743f9cd1047714776609b304a80a1090d74626",
+    "src/seti_repeater/pipeline_radio.py": "bbf155dd24734eb1d3cf073bfbad13605b3a269ceb0e37e28f86fec3f198b105",
+    "src/seti_repeater/transfer_m43g.py": "2d1071bcd619280ec5869fb24047f7bc3c5dfd5c44de4b9f89bfe6964ccb1ffc",
+    "src/seti_repeater/source_radio.py": "095f3e5f5d5d75ffcfbc6775a5f003241588d7b04c604ad2add429723680aaf8",
+    "config/radio_hd1461_source_preparation_20260926.json": "c434c6f0615dfec165512195dcae888d8aa4b33a29efdb5037895ba5530d8bcb"
+  }
+}
