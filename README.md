@@ -21,7 +21,7 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
-## 26 September: native radio integration tested; HD 1461 pointing hold remains
+## 26 September: HD1461 motion and exposure audit complete; pointing hold remains
 
 The [first integrated metadata package is complete](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_RESTART_2026-09-26_RESULT.md).
 Original catalogue rank 38, **HD 1461 / HIP1499**, supplies a six-scan ON/OFF
@@ -63,15 +63,28 @@ process's allowance remains charged, a second process needs a new reservation,
 and a third stops at the cumulative limit. Full journals and publication
 receipts are retained; zero telescope requests are made.
 
-Continue the source-specific metadata/motion-context audit, prospective
-protocol and genuinely new same-scan pointing evidence. Keep the unresolved
-header/catalogue coordinate identities distinct. No selected telescope spectrum
+The [source-specific motion and exposure audit](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_MOTION_2026-09-26_RESULT.md)
+now passes **twelve new engineering tests**. Applying the old circular two-phase
+construction to the retained eccentric HD1461 working model produces sampled
+errors up to **8.18 kHz** at 1500 MHz, even after matching the first carrier.
+Sampled orbital motion reaches **159.97 Hz within one integration**. A new
+finite-exposure digital-injection component retains 24 ideal response profiles;
+a concrete three-window proposal separates decoded calibration, validation and
+pilot payloads. The scientific protocol and motion bank remain unfrozen.
+
+Continue with an explicitly identified direct eccentric factor-table interface,
+disjoint cross-window calibration and finite-exposure end-to-end controls.
+Keep both coordinate identities distinct. The newly examined operator-log route
+redirected to NRAO sign-on; an [unsent retrieval specification](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_HD1461_PROVENANCE_REQUEST_2026-09-26.md)
+identifies the same-scan records still required. No selected telescope spectrum
 has been opened.
 
 A [daily scheduled continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_AUTONOMOUS_CONTINUATION_2026-09-26.md)
 is enabled for 27 September–9 October, around 08:00 Europe/Copenhagen. It runs
 the next bounded authorized work package; no scheduled run has completed yet.
-The older weekly LS-data watch is paused. All scientific gates remain in force.
+Three extra hourly evening continuations are enabled for 26 September after
+the owner's request for several hours of autonomous work. The older weekly
+LS-data watch is paused. All scientific gates remain in force.
 
 The current HD 3651 availability check lists only its original cadence.
 The complete index of 24 dedicated historical investigation cases preserves
