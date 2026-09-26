@@ -1,0 +1,79 @@
+$ /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -m unittest discover -s tests -p test_radio_direct_downstream.py -v
+
+test_all_cases_complete_and_partition_every_retained_on_member (test_radio_direct_downstream.DirectDownstreamTests.test_all_cases_complete_and_partition_every_retained_on_member) ... ok
+test_calibration_is_bound_to_exact_direct_context (test_radio_direct_downstream.DirectDownstreamTests.test_calibration_is_bound_to_exact_direct_context) ... ok
+test_certificates_explicitly_bind_direct_provider_identities (test_radio_direct_downstream.DirectDownstreamTests.test_certificates_explicitly_bind_direct_provider_identities) ... ok
+test_contract_is_literal_direct_table_not_factor_basis (test_radio_direct_downstream.DirectDownstreamTests.test_contract_is_literal_direct_table_not_factor_basis) ... ok
+test_contract_rejects_tampering_and_scan_reordering (test_radio_direct_downstream.DirectDownstreamTests.test_contract_rejects_tampering_and_scan_reordering) ... ok
+test_no_telescope_entry_point_or_hidden_candidate_authority (test_radio_direct_downstream.DirectDownstreamTests.test_no_telescope_entry_point_or_hidden_candidate_authority) ... ok
+test_signal_and_interference_paths_reach_final_stages (test_radio_direct_downstream.DirectDownstreamTests.test_signal_and_interference_paths_reach_final_stages) ... ok
+test_sources_must_bind_scan_and_direct_bank_before_scoring (test_radio_direct_downstream.DirectDownstreamTests.test_sources_must_bind_scan_and_direct_bank_before_scoring) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 82.055s
+
+OK
+
+$ /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -m unittest discover -s tests -p test_radio_pipeline.py -v
+
+test_all_six_cases_complete_and_partition_every_member (test_radio_pipeline.RadioPipelineTests.test_all_six_cases_complete_and_partition_every_member) ... ok
+test_capacity_failure_never_returns_truncated_success (test_radio_pipeline.RadioPipelineTests.test_capacity_failure_never_returns_truncated_success) ... ok
+test_empty_conditional_calibration_is_an_explicit_failure (test_radio_pipeline.RadioPipelineTests.test_empty_conditional_calibration_is_an_explicit_failure) ... ok
+test_full_native_store_against_independent_oracle (test_radio_pipeline.RadioPipelineTests.test_full_native_store_against_independent_oracle) ... ok
+test_hd1461_hold_blocks_before_local_telescope_loading (test_radio_pipeline.RadioPipelineTests.test_hd1461_hold_blocks_before_local_telescope_loading) ... ok
+test_receiver_against_direct_native_windows (test_radio_pipeline.RadioPipelineTests.test_receiver_against_direct_native_windows) ... ok
+test_source_score_and_calibration_mismatches_rejected (test_radio_pipeline.RadioPipelineTests.test_source_score_and_calibration_mismatches_rejected) ... ok
+test_truth_is_only_post_detection_accounting (test_radio_pipeline.RadioPipelineTests.test_truth_is_only_post_detection_accounting) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 6.794s
+
+OK
+
+$ /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python scripts/radio_direct_downstream_fixture.py
+{
+  "status": "DIRECT_DOWNSTREAM_ENGINEERING_COMPLETE",
+  "cases": {
+    "noise": {
+      "recovered": false,
+      "all_on_member_count": 0,
+      "all_off_member_count": 0,
+      "all_final_member_count": 0,
+      "cluster_count": 0
+    },
+    "finite_exposure_signal": {
+      "recovered": true,
+      "all_on_member_count": 2246,
+      "all_off_member_count": 0,
+      "all_final_member_count": 2246,
+      "cluster_count": 2
+    },
+    "matched_on_off": {
+      "recovered": false,
+      "all_on_member_count": 2261,
+      "all_off_member_count": 2250,
+      "all_final_member_count": 13,
+      "cluster_count": 4
+    },
+    "single_paired_off": {
+      "recovered": false,
+      "all_on_member_count": 559,
+      "all_off_member_count": 0,
+      "all_final_member_count": 0,
+      "cluster_count": 1
+    }
+  },
+  "engineering_control_gate_passed": false
+}
+
+
+$ /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python scripts/radio_direct_downstream_diagnosis.py
+{
+  "final_member_count": 13,
+  "final_cluster_count": 2,
+  "final_template_counts": {
+    "30": 6,
+    "31": 7
+  },
+  "control_design_limitation_demonstrated": true
+}

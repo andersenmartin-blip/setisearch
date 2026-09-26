@@ -175,10 +175,16 @@ now complete: eight tests, 38,016 independent factor comparisons and 1,015,344
 bit-exact native score comparisons on one synthetic cadence. The distinct
 direct-table type is not yet connected to the full legacy detector. Continue
 with its explicitly versioned downstream calibration/retention/physical-veto/
-receiver/clustering contract, preserving arithmetic; then qualify disjoint
-calibration-context transfer and finite-exposure integrated controls. Do not
-rerun these closed arithmetic checks as a new work package or relabel the old
-two-column basis. A new same-scan provenance
+receiver/clustering contract, preserving arithmetic. That
+[continuation is now complete](RADIO_DIRECT_DOWNSTREAM_2026-09-26_RESULT.md):
+eight new tests and eight targeted regressions pass, but the engineering control
+gate fails because a matched ON/OFF signal leaves 13 unassociated width-129
+members in two clusters. The intended track is vetoed; retained evidence shows
+one-epoch signal intersection plus marginal support in another epoch. No setting
+is retuned. Continue with an identity-bound disjoint-window calibration contract,
+then freeze fresh finite-exposure controls that count broad-width leakage and all
+unassociated clusters. Do not rerun the closed arithmetic checks or relabel the
+old two-column basis. A new same-scan provenance
 observable is still required before unblocking spectra; the
 [minimal retrieval specification](RADIO_HD1461_PROVENANCE_REQUEST_2026-09-26.md)
 is unsent. Three extra hourly evening continuations support the owner's

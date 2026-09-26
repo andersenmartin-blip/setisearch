@@ -416,11 +416,12 @@ def _finalize_single_adjacent_off_result(
     floor: float,
     cache_inventory: list[dict[str, Any]],
     query_inventory: list[dict[str, Any]],
-    factor_basis: core.FactorBasis,
+    factor_basis: core.FactorBasis | None,
     scan_definitions: Sequence[Mapping[str, Any]],
     maximum_records: int,
     maximum_queries: int,
     maximum_evidence_canonical_bytes: int,
+    off_factor_row_selection_sha256_value: str | None = None,
 ) -> dict[str, Any]:
     if len(measured) != len(query_inventory):
         raise core.V0P6IncompleteError(
@@ -502,6 +503,19 @@ def _finalize_single_adjacent_off_result(
     query_inventory_sha256 = hashlib.sha256(
         core.canonical_json_bytes(query_inventory)
     ).hexdigest()
+    if off_factor_row_selection_sha256_value is None:
+        if factor_basis is None:
+            raise core.V0P6ContractError(
+                "adjacent OFF finalization requires a factor basis or explicit OFF selection identity"
+            )
+        off_factor_row_selection_sha256_value = core.factor_row_selection_sha256(
+            factor_basis, scan_definitions, "off"
+        )
+    else:
+        off_factor_row_selection_sha256_value = core._frozen_sha256(
+            off_factor_row_selection_sha256_value,
+            "explicit adjacent OFF factor-row selection identity",
+        )
     certificate = {
         "window_id": str(cert["window_id"]),
         "contract": "exact paired adjacent OFF q/template/width native gather",
@@ -524,11 +538,7 @@ def _finalize_single_adjacent_off_result(
         "on_factor_row_selection_sha256": cert[
             "factor_row_selection_sha256"
         ],
-        "off_factor_row_selection_sha256": (
-            core.factor_row_selection_sha256(
-                factor_basis, scan_definitions, "off"
-            )
-        ),
+        "off_factor_row_selection_sha256": off_factor_row_selection_sha256_value,
         "factor_table_sha256": cert["factor_table_sha256"],
         "cache_inventory": cache_inventory,
         "cache_inventory_sha256": cache_inventory_sha256,

@@ -47,11 +47,19 @@ The [direct-factor/native continuation](RADIO_DIRECT_FACTORS_2026-09-26_RESULT.m
 now passes eight new tests: 38,016 factors agree with an independent orbital
 implementation, and all 1,015,344 native score cells agree bit-for-bit with the
 independent reference on one synthetic cadence. No physical model is adopted.
-Next connect this distinct direct-table type through an explicitly versioned
-calibration/retention/physical-veto/receiver/clustering contract while preserving
-detector arithmetic; the full pipeline still requires the old two-column basis.
-Then qualify disjoint cross-window calibration and finite-exposure end-to-end
-controls. Seek genuinely new pointing evidence; the new official
+The [versioned downstream continuation](RADIO_DIRECT_DOWNSTREAM_2026-09-26_RESULT.md)
+now carries all 33 direct templates through calibration, retention, matched and
+adjacent OFF vetoes, receiver-frame evidence, rank and clustering. Eight new
+tests and eight targeted legacy regressions pass. The distinct path constructs
+no old two-column basis. Its engineering control gate fails: a matched ON/OFF
+signal leaves 13 unassociated width-129 final members in two clusters after the
+intended track is vetoed. The bounded diagnosis attributes this to one-epoch
+strong-signal intersection plus just-over-floor noise support in another epoch;
+no implementation repair or retuning is claimed.
+Next implement an identity-bound disjoint-window calibration contract, then
+freeze fresh finite-exposure signal/RFI/null controls that count this leakage
+and every unassociated cluster. Preserve the failed case as exposed development
+evidence. Seek genuinely new pointing evidence; the new official
 operator-log route required NRAO sign-on and supplied no scan record. The
 [retrieval specification](RADIO_HD1461_PROVENANCE_REQUEST_2026-09-26.md) remains unsent.
 Preserve both coordinate identities explicitly; unresolved pointing is not

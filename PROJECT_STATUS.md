@@ -1,6 +1,6 @@
 # SETIsearch — current project status
 
-## 26 September: direct eccentric factors and native arithmetic qualified
+## 26 September: direct factors reach downstream stages; control gate fails
 
 The owner asked to start the new two-week radio plan and work autonomously.
 The [first integrated restart/metadata package is complete](RADIO_RESTART_2026-09-26_RESULT.md).
@@ -73,15 +73,28 @@ implementation. On one synthetic cadence, 1,572,864 normalization cells and
 qualifies the direct-table handoff to native arithmetic, not the full detector,
 physical model, recovery performance or cross-window calibration.
 
-**Exact next autonomous preparation:** connect the new direct table through
-explicitly versioned downstream calibration, retention, physical-veto,
-receiver-frame and clustering interfaces, preserving detector arithmetic.
-Do not represent it as the old two-column basis. Then qualify disjoint
-cross-window calibration and full finite-exposure signal/RFI/null controls.
-The current calibration adapter binds one exact context; transfer between the
-three real frequency windows remains unqualified. The source preparation
-contract and closed acquisition ledger are unchanged. No telescope values
-were opened; no historical test panel was rerun as new progress.
+The [versioned direct-factor downstream package is complete](RADIO_DIRECT_DOWNSTREAM_2026-09-26_RESULT.md).
+**Eight new tests and eight targeted legacy regressions pass.** The 33-template
+direct table now reaches calibration, exhaustive retention, matched/adjacent
+OFF vetoes, receiver-frame evidence, rank and clustering without constructing
+a two-column basis. Four fresh synthetic cases retain complete evidence.
+
+**The engineering control gate fails.** Noise has zero final members and the
+finite-exposure signal is recovered, but the matched ON/OFF case leaves 13
+unassociated final members in two clusters. The intended matched track is
+vetoed. A bounded diagnosis shows that all 13 are width-129 alternate tracks:
+they intersect the strong signal in epoch 1 and combine with just-over-floor
+noise in epoch 2. No implementation error or repair is claimed; no threshold
+or bank was retuned.
+
+**Exact next autonomous preparation:** implement a disjoint-window calibration
+contract that binds the proposed calibration/validation/pilot payload identities
+and refuses exact-context certificate reuse. Then freeze a fresh control panel
+that explicitly counts broad-width matched-interferer leakage and every
+unassociated final member/cluster. The failed case remains exposed development
+evidence and may not be tuned into a pass. Cross-window transfer and the full
+finite-exposure recovery/RFI/null gate remain unqualified. The source contract
+and closed acquisition ledger are unchanged; no telescope values were opened.
 
 The newly examined official operator-log route redirects to NRAO sign-on and
 supplied no same-scan observable. The [unsent retrieval specification](RADIO_HD1461_PROVENANCE_REQUEST_2026-09-26.md)
