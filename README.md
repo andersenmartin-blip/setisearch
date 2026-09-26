@@ -46,6 +46,11 @@ telescope requests were made by this package. Pointing remains unresolved.
 Useful primary/control orchestration and prospective design continue during
 this source-specific hold. No new spectrum or detector result was evaluated.
 
+A [daily scheduled continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_AUTONOMOUS_CONTINUATION_2026-09-26.md)
+is enabled for 27 September–9 October, around 08:00 Europe/Copenhagen. It runs
+the next bounded authorized work package; no scheduled run has completed yet.
+The older weekly LS-data watch is paused. All scientific gates remain in force.
+
 The current HD 3651 availability check lists only its original cadence.
 The complete index of 24 dedicated historical investigation cases preserves
 17 RFI/instrumental classifications, five non-redetections and **two unresolved
