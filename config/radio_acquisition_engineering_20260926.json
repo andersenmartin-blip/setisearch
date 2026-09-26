@@ -1,0 +1,18 @@
+{
+  "artifact_type": "radio-acquisition-engineering-design-v1",
+  "data_domain": "synthetic-HTTP-only",
+  "source_url": "https://fixture.invalid/synthetic-object.h5",
+  "source_inventory": ["one synthetic HEAD response and one four-byte range body; not an HDF5 payload"],
+  "total_limits": {"max_requests": 6, "max_bytes": 200, "max_seconds": 60},
+  "session_limits": {"max_requests": 3, "max_bytes": 100, "max_seconds": 30},
+  "reservation_policy": "radio-irrevocable-session-reservations-v1",
+  "published_ledger": "results_radio_acquisition_2026-09-26/published_fixture_ledger.json",
+  "cases": [
+    {"process": 1, "mode": "crash", "expected_exit": 73, "mocked_requests": 2, "accepted_bytes": 4, "session_end_event": false},
+    {"process": 2, "mode": "complete", "expected_exit": 0, "mocked_requests": 2, "accepted_bytes": 4, "session_end_event": true},
+    {"process": 3, "mode": "exhausted", "expected_exit": 0, "mocked_requests": 0, "expected_budget_refusal": true}
+  ],
+  "real_network": "GitHub connector publication and verification only",
+  "telescope_requests": 0,
+  "scientific_source_authorization": false
+}
