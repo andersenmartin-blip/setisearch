@@ -161,6 +161,10 @@ and at closure on **9 October** during active sessions.
 **Current continuation, 26 September:** the restart/metadata package is complete.
 HD 1461 is selected but its spectra remain on a pointing-provenance hold. The
 [new explicit-source interface](RADIO_SOURCE_2026-09-26_RESULT.md) passes local
-engineering checks. Continue primary/control orchestration and prospective
-design during the source-specific hold; obtain a new same-scan provenance
-observable before unblocking telescope spectra. The LS8BF source stays unopened.
+engineering checks. The [integrated primary/control preparation](RADIO_PIPELINE_2026-09-26_RESULT.md)
+also completes all six synthetic cases and passes eight local integration tests.
+`neighbor9` is the fixed primary reference; the source-specific scientific
+protocol is still unfrozen. Continue durable acquisition-attempt accounting and
+source-specific context/protocol preparation during the hold. Obtain a new
+same-scan provenance observable before unblocking telescope spectra. The LS8BF
+source stays unopened.

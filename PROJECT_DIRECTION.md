@@ -23,9 +23,18 @@ provenance. Do not relabel metadata consistency as target confirmation, correct
 coordinates to fit the catalogue, substitute another target automatically, or
 open spectra before the integrated primary/control protocol. The [new explicit-source acquisition interface](RADIO_SOURCE_2026-09-26_RESULT.md)
 is now implemented and passes seven local engineering checks. Its HD 1461
-preparation contract remains blocked before network access. Continue useful
-primary/control orchestration and design while seeking genuinely new pointing
-evidence; the source-specific hold must not stop the entire authorized plan.
+preparation contract remains blocked before network access. The
+[integrated native search/control runner](RADIO_PIPELINE_2026-09-26_RESULT.md)
+now passes eight engineering tests and completes all six synthetic cases with
+full member/cluster accounting. The primary is the unchanged `neighbor9`
+reference; this choice is fixed before selected telescope spectra. Both toy
+signals are recovered and the four noise/interference controls have zero final
+members. This is not detector adoption or scientific source qualification.
+Continue durable acquisition-attempt accounting and source-specific prospective
+context/protocol preparation while seeking genuinely new pointing evidence.
+The [preparation design](RADIO_PIPELINE_2026-09-26_DESIGN.md) lists the remaining
+gates; its synthetic panel settings must not become a telescope freeze by default.
+The source-specific hold must not stop the entire authorized plan.
 Old source configs, receipts, calibrations and closed outcomes stay preserved.
 
 The current HD 3651 catalogue check found only the original M33 cadence.

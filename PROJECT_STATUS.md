@@ -1,6 +1,6 @@
 # SETIsearch — current project status
 
-## 26 September: radio work continues; new source interface tested
+## 26 September: integrated radio search/control preparation completed
 
 The owner asked to start the new two-week radio plan and work autonomously.
 The [first integrated restart/metadata package is complete](RADIO_RESTART_2026-09-26_RESULT.md).
@@ -36,13 +36,24 @@ gzip/bitshuffle decoding, direct-native arithmetic, interruption/restart,
 identity faults and pre-network gate checks. The six-source HD 1461 preparation
 contract remains blocked and made zero telescope requests.
 
+The [integrated native search/control package is now complete](RADIO_PIPELINE_2026-09-26_RESULT.md).
+**Eight integration tests pass; all six raw-native engineering cases complete.**
+The unchanged `neighbor9` reference is selected before new telescope values.
+Both synthetic signals are recovered; the noise and three interference controls
+have zero final members. All 248 ON and 51 OFF members are retained in full
+ledgers with complete ON-track clusters. These are two synthetic background
+seeds, with all six evaluation cases sharing one background; they do not qualify
+the detector or a physical false-alarm tail. The source-specific scientific
+protocol remains unfrozen. See the [preparation design](RADIO_PIPELINE_2026-09-26_DESIGN.md).
+
 **Continue useful radio work during this source-specific hold.** The next
-engineering task is the target-independent integrated primary/control runner
-and prospective design. Seek genuinely new same-scan pointing/processing
-evidence without repeating the completed catalogue probe. Before live access,
-resolve provenance and freeze the integrated protocol, codec/runtime evidence,
-new source contract and cumulative attempt accounting. A metadata obstruction
-is not a reason to stop all already authorized preparation.
+engineering work is durable cumulative acquisition-attempt accounting and the
+source-specific prospective context/protocol. Seek genuinely new same-scan
+pointing/processing evidence without repeating the closed catalogue/code probes.
+Before live access, resolve provenance and freeze the integrated protocol,
+codec/runtime evidence and new source contract. Do not silently adopt the toy
+frequency/motion/calibration settings. A metadata obstruction is not a reason
+to stop all already authorized preparation.
 
 The new HD 3651 availability check lists only original cadence 73274 in its
 bounded GBT fine-cadence scope. The complete index of 24 dedicated historical
@@ -53,7 +64,8 @@ Non-redetections have not been relabelled physical vetoes.
 
 All six metadata headers replay from retained HTTP bytes; receipt/official-record
 and candidate-ledger audits pass, as do three changed-transport tests. No new
-spectrum, calibration or pilot search was evaluated. M43AI's failed outcome and
+real telescope spectrum, telescope calibration or pilot search was evaluated.
+The new synthetic integration results are reported separately. M43AI's failed outcome and
 the original M43AF 112+128 held-out inputs remain unchanged.
 
 **LS stays paused at LS8BD–LS8BE.** LS8BF is its saved restart; all 16 unresolved
