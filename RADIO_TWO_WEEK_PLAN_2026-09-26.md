@@ -154,7 +154,9 @@ is needed. Combine related work into substantial packages rather than counting
 routine checks as progress milestones. Review progress around **2 October**
 and at closure on **9 October** during active sessions.
 
-**Immediate next action:** prepare the integrated radio restart and
-metadata-only source-selection package above, before opening any new spectral
-values. The first decision is whether an independent, complete ON/OFF source
-is actually available. The LS8BF source remains unopened while LS is paused.
+**Current continuation, 26 September:** the restart/metadata package is complete.
+HD 1461 is selected but its spectra remain on a pointing-provenance hold. The
+[new explicit-source interface](RADIO_SOURCE_2026-09-26_RESULT.md) passes local
+engineering checks. Continue primary/control orchestration and prospective
+design during the source-specific hold; obtain a new same-scan provenance
+observable before unblocking telescope spectra. The LS8BF source stays unopened.

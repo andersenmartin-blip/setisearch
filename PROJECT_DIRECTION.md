@@ -16,9 +16,12 @@ Continue from the exact missing-information requirement in PROJECT_STATUS.md:
 a same-scan original header/observing log or documented coordinate-conversion
 provenance. Do not relabel metadata consistency as target confirmation, correct
 coordinates to fit the catalogue, substitute another target automatically, or
-open spectra before the integrated primary/control protocol. The live old M43
-source entry point also needs a new target-bound interface; old source configs,
-receipts, calibrations and closed scientific outcomes stay preserved.
+open spectra before the integrated primary/control protocol. The [new explicit-source acquisition interface](RADIO_SOURCE_2026-09-26_RESULT.md)
+is now implemented and passes seven local engineering checks. Its HD 1461
+preparation contract remains blocked before network access. Continue useful
+primary/control orchestration and design while seeking genuinely new pointing
+evidence; the source-specific hold must not stop the entire authorized plan.
+Old source configs, receipts, calibrations and closed outcomes stay preserved.
 
 The current HD 3651 catalogue check found only the original M33 cadence.
 Preserve all 24 dedicated historical investigation cases, including unresolved

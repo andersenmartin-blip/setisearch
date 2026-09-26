@@ -1,6 +1,6 @@
 # SETIsearch — current project status
 
-## 26 September: radio restart executed; HD 1461 pointing provenance on hold
+## 26 September: radio work continues; new source interface tested
 
 The owner asked to start the new two-week radio plan and work autonomously.
 The [first integrated restart/metadata package is complete](RADIO_RESTART_2026-09-26_RESULT.md).
@@ -25,8 +25,20 @@ log for `AGBT16A_999_189`, scans 0015/0017/0019 (catalogue IDs 71139/71145/71151
 establishing pointing, or a documented file-specific coordinate conversion.
 The bounded diagnosis is complete. Preserve the selected source and hold its
 spectra; do not silently substitute another target or overwrite the header.
-After resolution, prepare the new target-bound acquisition entry point and
-freeze the integrated primary/control protocol before spectral access.
+The [autonomous continuation package](RADIO_SOURCE_2026-09-26_RESULT.md) now
+extends public-code provenance research and implements a new explicit-source
+acquisition interface. Seven local engineering tests pass, including actual
+gzip/bitshuffle decoding, direct-native arithmetic, interruption/restart,
+identity faults and pre-network gate checks. The six-source HD 1461 preparation
+contract remains blocked and made zero telescope requests.
+
+**Continue useful radio work during this source-specific hold.** The next
+engineering task is the target-independent integrated primary/control runner
+and prospective design. Seek genuinely new same-scan pointing/processing
+evidence without repeating the completed catalogue probe. Before live access,
+resolve provenance and freeze the integrated protocol, codec/runtime evidence,
+new source contract and cumulative attempt accounting. A metadata obstruction
+is not a reason to stop all already authorized preparation.
 
 The new HD 3651 availability check lists only original cadence 73274 in its
 bounded GBT fine-cadence scope. The complete index of 24 dedicated historical
