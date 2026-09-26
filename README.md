@@ -17,6 +17,38 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+## 26 September: two-week review and complete unresolved register
+
+The original 14–27 September plan completed its negative-result branch and
+first report early, on **13 September**. LS7I's joint TESS model fails the
+requirements; unused-sector qualification remains closed. The new
+[period review](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/TWO_WEEK_REVIEW_2026-09-26.md)
+consolidates that decision and the separately specified CHEOPS follow-on
+through **LS8BD–LS8BE, 24 September**.
+
+The first **23 of 107 fixed cohorts** account for **46 selected visits,
+18,865 retained rows and 34,271 eligible overlapping windows**. All **49
+signed representatives** completed image follow-up: **24 correction-linked,
+nine spatially structured and 16 unresolved**. The unresolved set comprises
+**ten positive and six negative events across eight targets**. Each bounded
+study is closed; the physical causes remain unassigned. None is a qualified
+SETI candidate. These are descriptive counts, not independent-trial counts,
+calibrated sensitivity or qualified observing coverage. One selected visit
+has no eligible windows and provides no tested null.
+
+[Full cohort table and unresolved register](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_two_week_review_2026-09-26/TABLES.md)
+and [reproduction script](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/scripts/review_20260926.py)
+verify 80 existing source records, selected-pair identities, count partitions
+and complete signed follow-up. This review reads no new archive science
+values and reruns no closed fit.
+
+**Next scientific package: LS8BF, rank-24 2MASS J11474440+0048164**,
+CH_PR100018_TG007101_V0300 / CH_PR100018_TG007102_V0300, using the existing
+[LS8BE continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS8BE_CONTINUATION.md).
+Own-header verification and separate exact source-range freezes precede new
+values. Calibration remains **NOT_READY**; the technical request is **UNSENT**.
+Earlier dated next actions below are historical.
+
 ## 24 September LS8BD–LS8BE: GJ 494 pair and image follow-up closed
 
 The predetermined rank-23 first pair supplies **148 retained rows and 165
