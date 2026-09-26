@@ -4,8 +4,12 @@
 Owner direction, 26 September: prepare a new two-week plan and move from the
 light-sail branch back to the ordinary search. This plan starts immediately
 and supersedes LS8BF as the active next action. It covers fourteen calendar
-days of work during active sessions; it schedules no unattended computation
-or notifications. The dates are planning windows, not required waiting times.
+days of work. A [scheduled continuation](RADIO_AUTONOMOUS_CONTINUATION_2026-09-26.md)
+was enabled after the owner challenged the stop: daily from 27 September through
+9 October, around 08:00 Europe/Copenhagen. It performs the next bounded authorized
+work package and reports actual progress. This supersedes the original
+no-schedule wording; scientific gates and limits are unchanged. The dates are
+planning windows, not required waiting times.
 
 ## Objective and concrete end product
 

@@ -5,6 +5,10 @@
 The owner asked to start the new two-week radio plan and work autonomously.
 The [first integrated restart/metadata package is complete](RADIO_RESTART_2026-09-26_RESULT.md).
 The active plan remains [26 September–9 October radio SETI](RADIO_TWO_WEEK_PLAN_2026-09-26.md).
+A [daily scheduled continuation](RADIO_AUTONOMOUS_CONTINUATION_2026-09-26.md) is
+confirmed enabled for 27 September–9 October, around 08:00 Europe/Copenhagen.
+It performs the next bounded authorized step; no scheduled run has completed
+yet. The prior weekly LS-data watch is now paused.
 
 Original catalogue rank 38, **HD 1461 / HIP1499, cadence 71139**, was selected
 without inspecting spectra. Its six fine HDF5 products have current catalogue,

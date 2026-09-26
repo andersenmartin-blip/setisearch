@@ -3,6 +3,11 @@
 **Owner direction, 26 September 2026: ordinary radio SETI is active; LS is paused.
 Start the new two-week plan and work as autonomously as possible.**
 
+A [scheduled continuation](RADIO_AUTONOMOUS_CONTINUATION_2026-09-26.md) is now
+enabled daily through 9 October; the weekly LS-data watch is paused. Its first
+run is scheduled for 27 September. Existing scientific and publication
+boundaries remain in force.
+
 The [26 September–9 October plan](RADIO_TWO_WEEK_PLAN_2026-09-26.md) has now
 started with a completed [integrated restart/metadata package](RADIO_RESTART_2026-09-26_RESULT.md).
 The deterministic first pilot source is HD 1461 / HIP1499, cadence 71139, on an
