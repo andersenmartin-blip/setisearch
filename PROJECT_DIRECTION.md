@@ -5,8 +5,9 @@ Start the new two-week plan and work as autonomously as possible.**
 
 A [scheduled continuation](RADIO_AUTONOMOUS_CONTINUATION_2026-09-26.md) is now
 enabled daily through 9 October; the weekly LS-data watch is paused. Its first
-run is scheduled for 27 September. Existing scientific and publication
-boundaries remain in force.
+run is scheduled for 27 September. Three extra hourly evening continuations
+are enabled for 26 September after the owner's request to continue for several
+hours. Existing scientific and publication boundaries remain in force.
 
 The [26 September–9 October plan](RADIO_TWO_WEEK_PLAN_2026-09-26.md) has now
 started with a completed [integrated restart/metadata package](RADIO_RESTART_2026-09-26_RESULT.md).
@@ -35,9 +36,20 @@ also passes ten local tests and an actual GitHub-backed reservation/restart
 demonstration with simulated source HTTP. Each process reserves its whole
 allowance before access; crashes do not restore quota and a third test process
 is refused at the cumulative limit. No telescope request is made.
-Continue the source-specific metadata/motion-context audit and prospective
-protocol while seeking genuinely new pointing evidence. Preserve both coordinate
-identities explicitly; unresolved pointing is not permission to choose a correction.
+The [source-specific motion and exposure audit](RADIO_MOTION_2026-09-26_RESULT.md)
+now passes twelve new engineering tests. It demonstrates an approximately 8.18 kHz
+sampled error if the circular two-phase construction is applied to the retained
+eccentric HD1461 parameters, and substantial intra-integration signal motion.
+A finite-exposure digital-injection component and an exact, unfrozen three-window
+payload/resource proposal are retained. No physical ephemeris or motion bank is
+adopted and spectra remain closed.
+Continue with an explicitly identified direct eccentric factor-table interface,
+disjoint cross-window calibration and finite-exposure end-to-end controls, preserving
+the detector arithmetic. Seek genuinely new pointing evidence; the new official
+operator-log route required NRAO sign-on and supplied no scan record. The
+[retrieval specification](RADIO_HD1461_PROVENANCE_REQUEST_2026-09-26.md) remains unsent.
+Preserve both coordinate identities explicitly; unresolved pointing is not
+permission to choose a correction.
 The [preparation design](RADIO_PIPELINE_2026-09-26_DESIGN.md) lists the remaining
 gates; its synthetic panel settings must not become a telescope freeze by default.
 The source-specific hold must not stop the entire authorized plan.

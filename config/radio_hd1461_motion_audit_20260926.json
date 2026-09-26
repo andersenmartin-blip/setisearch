@@ -1,0 +1,24 @@
+{
+  "schema": "radio-metadata-motion-audit-v1",
+  "purpose": "Metadata-only comparison and prospective design; no spectral access or adopted motion bank",
+  "preparation_contract": "config/radio_hd1461_source_preparation_20260926.json",
+  "preparation_contract_sha256": "c434c6f0615dfec165512195dcae888d8aa4b33a29efdb5037895ba5530d8bcb",
+  "astrometry_snapshot": "results_radio_restart_2026-09-26/astrometry/official_response.json",
+  "astrometry_snapshot_sha256": "5aa6e128aedae514d0bbfd1353eea76c336920c38979797881fa9ac0232b666a",
+  "observatory": {
+    "longitude_deg": -79.839835,
+    "latitude_deg": 38.433121111111106,
+    "height_m": 807.43,
+    "provenance": "GBT geodetic site values retained from config/hd156668b_m37_preflight.json; no target parameters are inherited"
+  },
+  "coordinate_scenarios": "One fixed catalogue ICRS direction and each of the three fixed ON-header directions, evaluated over the same full cadence; neither is asserted to be the true pointing",
+  "distance_motion_policy": "Infinite-distance fixed-direction observer correction. No unstated astrometric epoch, space-motion or parallax propagation. A 25-year proper-motion displacement is only a labelled scale comparison.",
+  "ephemeris": "Astropy builtin (ERFA epv00), explicit packaged IERS-B, auto-download disabled",
+  "runtime": {"astropy": "8.0.1", "pyerfa": "2.0.1.5", "astropy-iers-data": "0.2026.9.21.0.56.25", "numpy": "2.3.5", "python": "3.12.14"},
+  "comparison_frequency_hz": 1500000000.0,
+  "phase_samples": 2048,
+  "phase_policy": "Equally spaced mean-anomaly offsets at first ON midpoint; all are diagnostic sampled cases, not a continuous completeness certificate",
+  "orbital_model": "Edge-on, first-order Doppler, central P/a/e/omega from the retained composite snapshot; no absolute Tper time scale is presumed, no physical sensitivity claimed",
+  "source_status": "HOLD_POINTING_PROVENANCE_UNRESOLVED",
+  "spectral_access_authorized": false
+}

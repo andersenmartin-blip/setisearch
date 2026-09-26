@@ -1,0 +1,80 @@
+$ /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -m unittest discover -s tests -p test_radio_motion.py -v
+
+test_acceleration_bound_contains_sampled_derivatives (test_radio_motion.MotionTests.test_acceleration_bound_contains_sampled_derivatives) ... ok
+test_circular_analytic_solution_and_quadrature (test_radio_motion.MotionTests.test_circular_analytic_solution_and_quadrature) ... ok
+test_clock_matches_integer_exposures_and_rejects_overlap (test_radio_motion.MotionTests.test_clock_matches_integer_exposures_and_rejects_overlap) ... ok
+test_eccentric_quadrature_refuses_and_demonstrates_counterexample (test_radio_motion.MotionTests.test_eccentric_quadrature_refuses_and_demonstrates_counterexample) ... ok
+test_kepler_against_independent_bisection (test_radio_motion.MotionTests.test_kepler_against_independent_bisection) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.441s
+
+OK
+
+$ /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -m unittest discover -s tests -p test_radio_exposure.py -v
+
+test_finite_width_against_independent_time_quadrature (test_radio_exposure.ExposureTests.test_finite_width_against_independent_time_quadrature) ... ok
+test_raw_injection_before_normalization_preserves_input (test_radio_exposure.ExposureTests.test_raw_injection_before_normalization_preserves_input) ... ok
+test_stationary_and_exact_boundary (test_radio_exposure.ExposureTests.test_stationary_and_exact_boundary) ... ok
+test_support_and_numeric_failures_are_not_truncated (test_radio_exposure.ExposureTests.test_support_and_numeric_failures_are_not_truncated) ... ok
+test_sweep_and_reversal (test_radio_exposure.ExposureTests.test_sweep_and_reversal) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.156s
+
+OK
+
+$ /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -m unittest discover -s tests -p test_radio_design.py -v
+
+test_disjoint_rows_can_still_share_decoded_payload (test_radio_design.PayloadSeparationTests.test_disjoint_rows_can_still_share_decoded_payload) ... ok
+test_half_open_boundary (test_radio_design.PayloadSeparationTests.test_half_open_boundary) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK
+
+$ /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python scripts/radio_motion_audit.py
+{
+  "status": "AUDIT_COMPLETE_SPECTRA_HELD",
+  "elapsed_first_start_to_last_end_s": 1969.779585705278,
+  "max_legacy_single_mjd_clock_difference_s": 3.0763551706058934e-07,
+  "keplerian_comparison": {
+    "parameters": {
+      "period_days": 5.77152,
+      "semi_major_axis_au": 0.0634,
+      "eccentricity": 0.172,
+      "omega_deg": -10.0
+    },
+    "phase_samples": 2048,
+    "phase_reference": "first ON midpoint; no absolute periastron interpretation",
+    "max_circular_quadrature_residual_m_s": 1.7462298274040222e-10,
+    "max_eccentric_quadrature_error_anchored_hz": 8178.353203991406,
+    "max_eccentric_quadrature_error_anchored_native_channels": 2884.268504410516,
+    "max_on_eccentric_quadrature_error_anchored_hz": 6810.913706356559,
+    "worst_sample_phase_cycles": 0.88623046875,
+    "worst_row": 95,
+    "sampled_phases_exceeding_one_native_channel": 2046,
+    "max_sampled_orbital_exposure_endpoint_sweep_hz": 159.97158200426762,
+    "max_sampled_orbital_midpoint_difference_from_endpoint_linear_interpolation_hz": 0.008017446877376174,
+    "all_phase_los_acceleration_upper_bound_m_s2": 2.1963716947854897,
+    "all_phase_orbital_exposure_frequency_sweep_upper_bound_hz": 197.65890960542623,
+    "all_phase_orbital_exposure_frequency_sweep_upper_bound_native_channels": 69.70857743253505,
+    "max_anchored_radial_only_relativistic_vs_first_order_hz": 5.097072763859956,
+    "continuous_phase_completeness_certified": false,
+    "orbital_parameter_uncertainties_covered": false
+  }
+}
+
+
+$ /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python scripts/radio_prospective_design.py
+{
+  "window_centers_mhz": [
+    1478.7967873753828,
+    1475.8235465428759,
+    1472.850305710368
+  ],
+  "array_model_bytes": 67715072,
+  "exposure_cases": 24,
+  "status": "NOT_FROZEN_NOT_EXECUTABLE"
+}

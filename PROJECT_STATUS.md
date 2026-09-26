@@ -1,14 +1,16 @@
 # SETIsearch — current project status
 
-## 26 September: radio integration and durable acquisition preparation completed
+## 26 September: source-specific motion audit and exposure preparation completed
 
 The owner asked to start the new two-week radio plan and work autonomously.
 The [first integrated restart/metadata package is complete](RADIO_RESTART_2026-09-26_RESULT.md).
 The active plan remains [26 September–9 October radio SETI](RADIO_TWO_WEEK_PLAN_2026-09-26.md).
 A [daily scheduled continuation](RADIO_AUTONOMOUS_CONTINUATION_2026-09-26.md) is
 confirmed enabled for 27 September–9 October, around 08:00 Europe/Copenhagen.
-It performs the next bounded authorized step; no scheduled run has completed
-yet. The prior weekly LS-data watch is now paused.
+It performs the next authorized work package; no scheduled run has completed
+yet. Following the request to continue for several hours, three additional
+hourly evening continuations are enabled from nominal 21:00 on 26 September.
+The prior weekly LS-data watch remains paused.
 
 Original catalogue rank 38, **HD 1461 / HIP1499, cadence 71139**, was selected
 without inspecting spectra. Its six fine HDF5 products have current catalogue,
@@ -53,16 +55,31 @@ simulated source HTTP; a third is refused at the cumulative limit. An interrupte
 worker's allowance is not reset or refunded. Full journals, publication revisions
 and the bounded test ledger are retained. All telescope requests remain zero.
 
-**Continue useful radio work during this source-specific hold.** The next
-preparation is a source-specific metadata/motion-context audit and prospective
-protocol. Keep the raw-header and catalogue pointings distinct while unresolved;
-do not silently select a corrected coordinate. Seek genuinely new same-scan
-pointing/processing evidence without repeating closed catalogue/code probes.
-Before live access, resolve provenance and freeze the integrated protocol,
-codec/runtime evidence, source-specific reservation location and new source
-contract. Do not silently adopt the toy
-frequency/motion/calibration settings. A metadata obstruction is not a reason
-to stop all already authorized preparation.
+The [HD1461 motion/exposure package is complete](RADIO_MOTION_2026-09-26_RESULT.md).
+**Twelve new tests pass.** The 96-integration metadata audit demonstrates why
+the old circular two-phase construction cannot transfer to the retained e=0.172
+working orbit: sampled errors reach 8178.35 Hz at 1500 MHz after carrier anchoring.
+Sampled orbital motion spans up to 159.97 Hz within one 17.99-second integration.
+A new power-conserving finite-exposure injection component has 24 retained ideal
+response profiles. An exact three-window proposal separates calibration,
+validation and pilot at the decoded HDF5 chunk level. It is explicitly unfrozen.
+No source coordinate, motion bank or physical ephemeris has been adopted.
+
+**Next autonomous preparation:** qualify a direct eccentric factor-table interface
+with explicit identities while preserving downstream detector arithmetic; then
+qualify disjoint cross-window calibration and finite-exposure end-to-end controls.
+The current calibration adapter binds one exact context and has not qualified
+transfer between the three real frequency windows. These are preparation gaps,
+not permission to relabel an old context or adopt toy settings.
+
+The newly examined official operator-log route redirects to NRAO sign-on and
+supplied no same-scan observable. The [unsent retrieval specification](RADIO_HD1461_PROVENANCE_REQUEST_2026-09-26.md)
+identifies the exact scan headers/logs needed. Keep both coordinate identities,
+do not repeat closed catalogue/code probes, and do not infer data absence from
+an access wall. Before live access, resolve provenance, freeze an accurate
+source-specific bank, scientific panel and gates, qualify codec/receipt transfer,
+and publish a new cumulative-budget source contract. The original preparation
+contract remains unchanged and blocked. Useful authorized preparation continues.
 
 The new HD 3651 availability check lists only original cadence 73274 in its
 bounded GBT fine-cadence scope. The complete index of 24 dedicated historical

@@ -1,0 +1,89 @@
+{
+  "commands": [
+    {
+      "arguments": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_radio_motion.py",
+        "-v"
+      ],
+      "returncode": 0
+    },
+    {
+      "arguments": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_radio_exposure.py",
+        "-v"
+      ],
+      "returncode": 0
+    },
+    {
+      "arguments": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_radio_design.py",
+        "-v"
+      ],
+      "returncode": 0
+    },
+    {
+      "arguments": [
+        "scripts/radio_motion_audit.py"
+      ],
+      "returncode": 0
+    },
+    {
+      "arguments": [
+        "scripts/radio_prospective_design.py"
+      ],
+      "returncode": 0
+    }
+  ],
+  "development_correction": "An initial test incorrectly expected LOS acceleration for omega=-10 deg to approach the full vector bound within 10%. The physical bound calculation was unchanged; the saturation assertion now uses omega=90 deg at periastron, where LOS and acceleration align. All-phase sampled derivatives remain checked against the bound.",
+  "legacy_tests_rerun": false,
+  "motion_bank_qualified": false,
+  "new_tests_passed": 12,
+  "output_sha256": {
+    "clock.json": "b9efad68cd18beddec35cadae1a40c59e2af2c6328df7f3662e78a07d184783f",
+    "exposure_profiles.json.gz": "5214bc341614eeb1b24d46dd188ca832ff928edbed1dfc7a1ec61ef4eb8df43c",
+    "phase_comparison.json.gz": "4fc677e86496b86a8145c9dd5d5c607a868345c43bef7510df7e6b8afdd622d7",
+    "prospective_design.json": "84221b3e33c71bfa6c1a68117bffa0802cfa0a91d63480bed1f5f538c6c01b55",
+    "result.json": "b1979b1932ce8deeae13c87e00c2f813a41aeddab276b9e3646efedb85f8000a"
+  },
+  "pinned_sha256": {
+    "config/radio_hd1461_motion_audit_20260926.json": "0c8dda5e85a0c3dae9a8227f04a73c5cd6cb55cc601fb82528b50fe5519fd172",
+    "config/radio_hd1461_source_preparation_20260926.json": "c434c6f0615dfec165512195dcae888d8aa4b33a29efdb5037895ba5530d8bcb",
+    "results_radio_restart_2026-09-26/astrometry/official_response.json": "5aa6e128aedae514d0bbfd1353eea76c336920c38979797881fa9ac0232b666a",
+    "scripts/radio_motion_audit.py": "133bf3cd9df686fdf098306ba9bf6a7e938c842144d3d1e5a9c6fc4b12c31605",
+    "scripts/radio_motion_qualification.py": "2e59f2540c5d4805aa8fea338dc173001b4afd21fd161b67a303ed70e2a70b30",
+    "scripts/radio_prospective_design.py": "f35b51ba38660c573064d61c7d3572b1b4afc41823e416faf7577c1ea316413c",
+    "src/seti_repeater/exposure_radio.py": "495eb2cfe6bfe0ac4581c8701cf19684bcfef8eed57dbe09f683ea38e3d7edbb",
+    "src/seti_repeater/motion_radio.py": "b59083def4ee7404515c85bc3bb2f61b42aa91ca981b75f7b6d7e0a665439698",
+    "src/seti_repeater/orbit.py": "0aca81c6afe669cb4eccd87a85b6be5b6b4bee6c795eafe66073fffea7294fdc",
+    "src/seti_repeater/pipeline_radio.py": "bbf155dd24734eb1d3cf073bfbad13605b3a269ceb0e37e28f86fec3f198b105",
+    "src/seti_repeater/search_v0p6.py": "70f7078ac64544b9eb395d9c6b731e8f6f6fc825cc5cd3210843ce58b67a143f",
+    "src/seti_repeater/source_m43h.py": "85ce563e78b2d16f65b6a15313c4ae0c22a58f1455ce8db77acbc9a62d33429d",
+    "src/seti_repeater/transfer_m43g.py": "2d1071bcd619280ec5869fb24047f7bc3c5dfd5c44de4b9f89bfe6964ccb1ffc",
+    "tests/test_radio_design.py": "27551f610e2140d45669dc002241e9e41bdf86440ebf3af8dc5cf9c3321b1e2d",
+    "tests/test_radio_exposure.py": "40d792552def580d94c6326ce9dfef8f292e856e8905934513d6849f0fba625a",
+    "tests/test_radio_motion.py": "9c4e6995f69634b92e1bcaf982cd2d0e2a1ac1af56add8cc1e0da7040d82e1d6"
+  },
+  "real_spectral_data_read": false,
+  "schema": "radio-motion-qualification-v1",
+  "source_network_requests": 0,
+  "status": "PASS_ENGINEERING_ONLY",
+  "telescope_protocol_frozen": false
+}

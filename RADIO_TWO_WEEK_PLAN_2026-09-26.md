@@ -166,7 +166,13 @@ also completes all six synthetic cases and passes eight local integration tests.
 `neighbor9` is the fixed primary reference; the source-specific scientific
 protocol is still unfrozen. The [durable acquisition continuation](RADIO_ACQUISITION_2026-09-26_RESULT.md)
 now passes ten local tests and a GitHub-backed crash/restart demonstration using
-simulated source HTTP. Continue a source-specific metadata/motion-context audit
-and prospective protocol during the hold. Obtain a new
-same-scan provenance observable before unblocking telescope spectra. The LS8BF
-source stays unopened.
+simulated source HTTP. The [source-specific motion/exposure audit](RADIO_MOTION_2026-09-26_RESULT.md)
+is also complete with twelve new tests, a demonstrated circular-to-eccentric
+model incompatibility, finite-exposure injection arithmetic and an exact but
+unfrozen three-window proposal with disjoint decoded payloads. Continue with
+the direct eccentric factor-table interface, disjoint calibration-context
+transfer and finite-exposure integrated controls. A new same-scan provenance
+observable is still required before unblocking spectra; the
+[minimal retrieval specification](RADIO_HD1461_PROVENANCE_REQUEST_2026-09-26.md)
+is unsent. Three extra hourly evening continuations support the owner's
+request for several hours of work. The LS8BF source stays unopened.

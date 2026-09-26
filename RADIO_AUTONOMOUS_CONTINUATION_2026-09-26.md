@@ -11,8 +11,9 @@ run has completed yet; successful creation is not evidence of future execution.
   continuous computation.
 - Read the current GitHub status, direction and radio plan at every run, then
   carry out the next useful authorized work package and publish its evidence.
-- Current first engineering task: the integrated primary/control runner and
-  prospective design above the locally tested explicit-source acquisition API.
+- Follow the latest published continuation point. The native primary/control
+  runner, durable acquisition and motion/exposure audit are now complete as
+  engineering preparation; repeating their unchanged checks is not new work.
 - Return a concise Danish account of actual work, verification and any genuine
   obstruction. Never describe an unexecuted plan as completed science.
 - On the plan's final date, consolidate the period result; do not automatically
@@ -46,3 +47,25 @@ or access instead of manufacturing progress or bypassing the gate.
 The confirmed creation/pause state is retained in
 `results_radio_source_2026-09-26/scheduled_continuation.json`. Manage or inspect
 future runs in the application's Scheduled view.
+
+## Bounded evening extension, 26 September
+
+Following the owner's request to keep working autonomously for several hours,
+**Fortsæt SETI i aften** is enabled for three hourly occurrences, nominally
+**21:00, 22:00 and 23:00 Europe/Copenhagen** on 26 September, with flexible timing
+within an hour of each nominal start. Creation was confirmed; no completion of
+those future runs is claimed. This is scheduled continuation, not a promise of
+one continuously running process.
+
+The daily task's prompt was refreshed to follow the latest repository state and
+continue through useful connected steps. Its morning schedule and 9 October end
+remain unchanged. The temporary task must not extend itself or create more tasks.
+Both prompts require preservation of unfinished work, isolated checkouts if
+needed and fresh branch verification before publishing, with no force-push.
+
+The evening task inherits the same scientific, access and publication boundaries.
+Current continuation is the direct eccentric factor-table interface, explicit
+cross-window calibration and finite-exposure end-to-end controls. Original
+same-scan pointing provenance remains required before telescope spectra can open.
+The confirmation is retained in
+`results_radio_motion_2026-09-26/scheduled_continuation.json`.
