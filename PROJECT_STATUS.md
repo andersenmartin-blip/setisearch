@@ -1,5 +1,38 @@
 # SETIsearch — current project status
 
+## 26 September: period review complete; scientific next step remains LS8BF
+
+The original 14–27 September plan completed its negative-result branch and
+first report on 13 September. LS7I's 7,080 cases and 420 native windows fail
+the joint requirements; its independent arithmetic audit passes. No unused
+TESS qualification followed. The
+[consolidated period review](TWO_WEEK_REVIEW_2026-09-26.md) now joins that
+decision to the separately specified CHEOPS continuation through 24 September.
+
+Checked accounting of the first **23/107 fixed cohorts** gives **46 selected
+visits, 18,865 retained rows and 34,271 eligible overlapping windows**.
+All **49 signed representatives** have image follow-up: **24 correction-linked,
+nine spatially structured and 16 unresolved**. The unresolved set contains
+ten positive and six negative events across eight targets; each prescribed
+bounded study is closed, with the original labels and unknown causes retained.
+One selected visit has zero eligible windows and provides no tested null.
+No qualified candidate, detector, sensitivity or observing coverage is added.
+
+The new register verifies 80 existing text records at source commit
+`0432c9d42fa7c6849369fb652f1a36f121e85304`, selected-pair identities, count
+partitions, representative uniqueness and complete signed follow-up. It
+acquires no new archive science data and reruns no closed science fit.
+[Per-cohort table and unresolved register](results_two_week_review_2026-09-26/TABLES.md),
+[reproduction script](scripts/review_20260926.py).
+
+**Immediate next scientific action: LS8BF, rank-24
+2MASS J11474440+0048164**, exact pair CH_PR100018_TG007101_V0300 /
+CH_PR100018_TG007102_V0300. The existing
+[LS8BE continuation](LS8BE_CONTINUATION.md) governs the prospective header,
+source-range and unchanged-screen freezes. Its values remain unopened by
+this review. Calibration NOT_READY; request UNSENT. The original census,
+cohort order, closed studies and reserved TESS/M43 panels remain unchanged.
+
 ## 24 September LS8BD–LS8BE: GJ 494 pair and image follow-up closed
 
 The predetermined rank-23 first pair supplies **148 retained rows and 165

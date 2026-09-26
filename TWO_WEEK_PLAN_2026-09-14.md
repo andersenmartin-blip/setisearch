@@ -1,5 +1,12 @@
 # SETI work plan: 14–27 September 2026
 
+**26 September review:** this original plan's negative-result branch and first
+report were completed early on 13 September. See the
+[period review through LS8BD–LS8BE](TWO_WEEK_REVIEW_2026-09-26.md) for the
+verified CHEOPS aggregate, open questions and next package, LS8BF.
+Dated continuation statements below are historical; the scientific restart
+is [LS8BE_CONTINUATION.md](LS8BE_CONTINUATION.md).
+
 Prepared 13 September 2026, following the completed LS7H result.
 This is an operational work plan. The numerical specification for the next
 experiment must still be frozen before its evaluation.

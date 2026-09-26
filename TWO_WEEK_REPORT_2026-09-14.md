@@ -1,5 +1,11 @@
 # Result for the 14–27 September SETI work plan
 
+**Updated period review, 26 September:** the original result below remains
+complete and unchanged. The [new consolidated review](TWO_WEEK_REVIEW_2026-09-26.md)
+accounts for the follow-on work through LS8BD–LS8BE and retains LS8BF as the
+next scientific package. Later dated continuation notes in this file describe
+their historical scope.
+
 Consolidated 2026-09-13; the planned work packages were executed early during active sessions.
 
 **Latest follow-on completed 14 September:** [LS7K](LS7K_INPUT_FINDINGS.md)

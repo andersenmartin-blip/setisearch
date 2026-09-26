@@ -1,5 +1,18 @@
 # Long-term project direction
 
+26 September 2026 review: the owner asked to continue the current plan after
+its progress review. The original two-week plan had already completed its
+negative-result branch on 13 September. A consolidated period review now
+accounts for the follow-on work through LS8BD–LS8BE, including a pinned
+23-cohort/49-representative ledger and the full 16-event unresolved register.
+This is a synthesis of closed results, not a new numbered science experiment.
+See [TWO_WEEK_REVIEW_2026-09-26.md](TWO_WEEK_REVIEW_2026-09-26.md).
+The scientific queue remains LS8BF, rank-24 2MASS J11474440+0048164, under
+LS8BE_CONTINUATION.md. No closed result is retuned; the 107-cohort order and
+reserved panels stay fixed. Calibration remains NOT_READY and the external
+technical request remains UNSENT. Standing publication authorization continues;
+delegation remains deferred.
+
 Current operational status: [PROJECT_STATUS.md](PROJECT_STATUS.md).
 The decisions below remain in force; dated milestones describe their original scope.
 
