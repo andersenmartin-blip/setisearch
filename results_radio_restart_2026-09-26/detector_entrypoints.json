@@ -1,0 +1,61 @@
+{
+  "interfaces": [
+    {
+      "entry_points": "extract_remote; make_scope; normalize_native_row",
+      "git_blob_sha": "642e7849fc40e79dcf9938757dbf751887d17984",
+      "path": "src/seti_repeater/source_m43h.py",
+      "sha256": "85ce563e78b2d16f65b6a15313c4ae0c22a58f1455ce8db77acbc9a62d33429d",
+      "transfer_boundary": "Row extraction/normalization reusable arithmetic, but extract_remote/frozen_inputs are bound to the HD156668 M43H config and M43F/G ancestry. A new entry point with independent source pins is required; never rewrite those old configs."
+    },
+    {
+      "entry_points": "load_telescope_source; build_telescope_cache",
+      "git_blob_sha": "7306913f4cc75ac6d91b429bd6e7c040b21668cf",
+      "path": "src/seti_repeater/transfer_m43i.py",
+      "sha256": "d49d43d7588bdc50867c7a1d8de889e6a54f48d7a168f113dfef042d558300c3",
+      "transfer_boundary": "Receipt-bound native filtering and gathering; bind fresh target geometry and source receipts. No old cache identity transfers."
+    },
+    {
+      "entry_points": "make_factor_basis_from_arrays; make_template_factor_table; ExhaustiveRetentionLedger",
+      "git_blob_sha": "514dbbcf19b8f53c8e15d2db467c609d9d57a66b",
+      "path": "src/seti_repeater/search_v0p6.py",
+      "sha256": "70f7078ac64544b9eb395d9c6b731e8f6f6fc825cc5cd3210843ce58b67a143f",
+      "transfer_boundary": "Generic geometry/retention primitives available. Defaults and M37-prefixed wrappers contain old target identities, fixed widths and activity subsets; each must be explicitly accounted for in the new protocol."
+    },
+    {
+      "entry_points": "calibrate; execute",
+      "git_blob_sha": "3da2ebb59f7061eba95658e2f6f2af3c70d26e18",
+      "path": "src/seti_repeater/detector_m43u.py",
+      "sha256": "d6ae2fa2a43a6c2a0b22659933743f9cd1047714776609b304a80a1090d74626",
+      "transfer_boundary": "Integrated diagnostic mask, calibration, exhaustive ON/OFF retention, receiver alias and rank-p pipeline; supply a new store, geometry and sealed calibration. execute explicitly labels outputs diagnostic."
+    },
+    {
+      "entry_points": "POLICIES; apply_controls",
+      "git_blob_sha": "5839e8fe580ee7b39f3578d6d6b1b6543a6ff39d",
+      "path": "src/seti_repeater/attribution_m43ab.py",
+      "sha256": "695799a1a33edb7be622adf7dde6b60e3707c56e3d319c70ea8ad727a47e6570",
+      "transfer_boundary": "Named centered_receiver_off_match_aggregate reference available. Not automatically qualified and not selected by a new outcome."
+    },
+    {
+      "entry_points": "POLICIES; apply_controls",
+      "git_blob_sha": "0adbe66cabec0a1f1448f8de21c1c70ad2f21de9",
+      "path": "src/seti_repeater/confirmation_m43z.py",
+      "sha256": "56697991b061b62562e8df34415165169e49b49787822eaf14809a05896e1f84",
+      "transfer_boundary": "neighbor9 reference and historical confirmation compositions; preserve endpoint semantics."
+    },
+    {
+      "entry_points": "context; upstream",
+      "git_blob_sha": "d1ab333db153fbcb6937a4d18b6a2831dff2d440",
+      "path": "scripts/m43ae_joint_response.py",
+      "sha256": "1057e756835556b757507cef10403188de28a18f0a259f7f1e0e4ed8dab32403",
+      "transfer_boundary": "Historical integrated orchestration is bound to M43 source arrays and calibration; use as interface documentation, not a new-source runner."
+    },
+    {
+      "entry_points": "run",
+      "git_blob_sha": "823b0ca4892d947562c0caefc63396bb28d9dd5e",
+      "path": "scripts/m43ai_native_validation.py",
+      "sha256": "c1fbcabf01ba92f430088e69f06a767360925bc366f53419ca95f2e90985c6f4",
+      "transfer_boundary": "Closed failed validation; do not rerun, retune or adopt it as the new primary rule."
+    }
+  ],
+  "source_commit": "14276c388af320e05d3b853891857f3e090874dc"
+}
