@@ -4,11 +4,15 @@ A transparent, reproducible search for intermittent narrowband signals across
 multiple observing epochs. Exoplanet motion supplies a frequency-drift
 hypothesis; it does not establish where an observed signal originated.
 
-The **light-sail (LS) research branch** explores whether radiation associated
-with beamed propulsion could leave detectable radio or optical signatures.
-After the TESS method studies, current LS work assesses optical data products
-for short-glint searches.
-Neither an optical brightening nor a radio trigger alone establishes artificial origin.
+**The active programme has returned to ordinary narrowband radio SETI.**
+The [26 September–9 October work plan](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_TWO_WEEK_PLAN_2026-09-26.md)
+targets a bounded search on independent ON/OFF observations, with fixed
+controls and complete candidate follow-up.
+
+The **light-sail (LS) research branch is paused** at LS8BD–LS8BE. Its optical
+results and 16 unresolved events are preserved; LS8BF remains its saved
+restart. Neither a radio trigger nor an optical brightening establishes
+artificial origin.
 
 **Start here: [current status and continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md).**
 
@@ -16,6 +20,33 @@ The [12 September publication record](https://github.com/andersenmartin-blip/set
 links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
+
+## 26 September: new two-week radio plan; LS paused
+
+The owner has moved the active work from LS back to ordinary radio SETI.
+The [new plan runs 26 September–9 October](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_TWO_WEEK_PLAN_2026-09-26.md):
+
+- 26–27 September: restore the radio restart point and select one independent
+  ON/OFF sequence from a bounded metadata-only shortlist.
+- 28–29 September: freeze the primary method and integrated transfer/control
+  protocol, then evaluate its fixed gate.
+- 30 September–3 October: run a bounded radio pilot if the gate passes.
+- 4–7 October: complete the fixed candidate and independent-cadence follow-up.
+- 8–9 October: publish the period report and next scientific decision.
+
+M43AI remains a failed qualification: **53/64** injected signals recovered,
+**zero losses among 53 reference-union cases**, **1/48** controls leaking,
+and **0/128** native nulls with retained members. No model is adopted.
+The original M43AF held-out panels remain reserved. The old HD 3651
+case and every earlier candidate disposition are preserved.
+
+**Immediate next action is the radio metadata/restart package**, before new
+spectral values are opened. No new radio experiment has been evaluated by
+issuing this plan. LS8BF is now a saved LS restart, not the active task.
+The [LS period review](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/TWO_WEEK_REVIEW_2026-09-26.md)
+and full unresolved register remain available. CHEOPS calibration stays
+NOT_READY and its technical request UNSENT. Earlier dated next-action
+statements below are historical.
 
 ## 26 September: two-week review and complete unresolved register
 
