@@ -164,7 +164,9 @@ HD 1461 is selected but its spectra remain on a pointing-provenance hold. The
 engineering checks. The [integrated primary/control preparation](RADIO_PIPELINE_2026-09-26_RESULT.md)
 also completes all six synthetic cases and passes eight local integration tests.
 `neighbor9` is the fixed primary reference; the source-specific scientific
-protocol is still unfrozen. Continue durable acquisition-attempt accounting and
-source-specific context/protocol preparation during the hold. Obtain a new
+protocol is still unfrozen. The [durable acquisition continuation](RADIO_ACQUISITION_2026-09-26_RESULT.md)
+now passes ten local tests and a GitHub-backed crash/restart demonstration using
+simulated source HTTP. Continue a source-specific metadata/motion-context audit
+and prospective protocol during the hold. Obtain a new
 same-scan provenance observable before unblocking telescope spectra. The LS8BF
 source stays unopened.

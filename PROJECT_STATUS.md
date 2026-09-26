@@ -1,6 +1,6 @@
 # SETIsearch — current project status
 
-## 26 September: integrated radio search/control preparation completed
+## 26 September: radio integration and durable acquisition preparation completed
 
 The owner asked to start the new two-week radio plan and work autonomously.
 The [first integrated restart/metadata package is complete](RADIO_RESTART_2026-09-26_RESULT.md).
@@ -46,12 +46,21 @@ seeds, with all six evaluation cases sharing one background; they do not qualify
 the detector or a physical false-alarm tail. The source-specific scientific
 protocol remains unfrozen. See the [preparation design](RADIO_PIPELINE_2026-09-26_DESIGN.md).
 
+The [durable acquisition package is now complete](RADIO_ACQUISITION_2026-09-26_RESULT.md).
+**Ten local tests and the actual GitHub-backed crash/restart demonstration pass.**
+Two separate workers reserve their entire illustrative session quotas before
+simulated source HTTP; a third is refused at the cumulative limit. An interrupted
+worker's allowance is not reset or refunded. Full journals, publication revisions
+and the bounded test ledger are retained. All telescope requests remain zero.
+
 **Continue useful radio work during this source-specific hold.** The next
-engineering work is durable cumulative acquisition-attempt accounting and the
-source-specific prospective context/protocol. Seek genuinely new same-scan
-pointing/processing evidence without repeating the closed catalogue/code probes.
+preparation is a source-specific metadata/motion-context audit and prospective
+protocol. Keep the raw-header and catalogue pointings distinct while unresolved;
+do not silently select a corrected coordinate. Seek genuinely new same-scan
+pointing/processing evidence without repeating closed catalogue/code probes.
 Before live access, resolve provenance and freeze the integrated protocol,
-codec/runtime evidence and new source contract. Do not silently adopt the toy
+codec/runtime evidence, source-specific reservation location and new source
+contract. Do not silently adopt the toy
 frequency/motion/calibration settings. A metadata obstruction is not a reason
 to stop all already authorized preparation.
 

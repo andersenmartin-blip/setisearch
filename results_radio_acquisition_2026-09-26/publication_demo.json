@@ -1,0 +1,119 @@
+{
+  "schema": "radio-acquisition-publication-demonstration-v1",
+  "engineering_freeze_commit": "3fde45184835c53aa26b1184f3e2ab92c308c20c",
+  "location": {
+    "kind": "github",
+    "repository": "andersenmartin-blip/setisearch",
+    "branch": "m43-support-qualification",
+    "path": "results_radio_acquisition_2026-09-26/published_fixture_ledger.json"
+  },
+  "cases": [
+    {
+      "mode": "crash",
+      "result": {
+        "event": "fixture_complete",
+        "mode": "crash",
+        "budget": {
+          "attempts": 2,
+          "reserved_bytes": 5,
+          "accepted_bytes": 4,
+          "elapsed_seconds": 0.0030434280001827574,
+          "limits": {
+            "max_requests": 3,
+            "max_bytes": 100,
+            "max_seconds": 30
+          },
+          "journal_head_sha256": "ac228ba0aec9422a343b5c50ec2cd16e5e11be571c0b350d9e90abb30dad13a4",
+          "session_id": "c9526246-97d4-4512-8e32-16f623f21679",
+          "ledger_sha256": "762c386ae2d1041082e284a6fda1de196ec00b1f691ed78cbf89d9ee8c7960d2",
+          "publication_revision": "56979fb0f90d57f6c15f6dd429ad86369a87be70",
+          "closed": false,
+          "cumulative": {
+            "charged_limits": {
+              "max_requests": 3,
+              "max_bytes": 100,
+              "max_seconds": 30
+            },
+            "remaining_limits": {
+              "max_requests": 3,
+              "max_bytes": 100,
+              "max_seconds": 30
+            },
+            "sessions": 1
+          }
+        },
+        "journal_path": "/workspace/scratch/ad45775dff93/radio_acquisition_demo/crash/session/attempts.jsonl",
+        "mocked_http_calls": [
+          "HEAD",
+          "GET"
+        ],
+        "telescope_requests": 0
+      },
+      "exit_code": 73
+    },
+    {
+      "mode": "complete",
+      "result": {
+        "event": "fixture_complete",
+        "mode": "complete",
+        "budget": {
+          "attempts": 2,
+          "reserved_bytes": 5,
+          "accepted_bytes": 4,
+          "elapsed_seconds": 0.0038536130000466073,
+          "limits": {
+            "max_requests": 3,
+            "max_bytes": 100,
+            "max_seconds": 30
+          },
+          "journal_head_sha256": "d1523b176fabdeec1216e2331d9fc0a831acd9f38fb37f3f366e5e1c1de71b63",
+          "session_id": "578cde4b-6dc7-4e64-bde3-7b39ac748447",
+          "ledger_sha256": "fb00f63fd5c23dec0b0da3caf5ca817f9d36559e35c70edb1bc704623c5a5370",
+          "publication_revision": "6a5a687eeae9ea02bc7c4b9bccedac0c759590cf",
+          "closed": true,
+          "cumulative": {
+            "charged_limits": {
+              "max_requests": 6,
+              "max_bytes": 200,
+              "max_seconds": 60
+            },
+            "remaining_limits": {
+              "max_requests": 0,
+              "max_bytes": 0,
+              "max_seconds": 0
+            },
+            "sessions": 2
+          }
+        },
+        "journal_path": "/workspace/scratch/ad45775dff93/radio_acquisition_demo/complete/session/attempts.jsonl",
+        "mocked_http_calls": [
+          "HEAD",
+          "GET"
+        ],
+        "telescope_requests": 0
+      },
+      "exit_code": 0
+    },
+    {
+      "mode": "exhausted",
+      "result": {
+        "event": "expected_budget_stop",
+        "reason": "cumulative reservation budget exhausted",
+        "source_http_calls": 0,
+        "telescope_requests": 0
+      },
+      "exit_code": 0
+    }
+  ],
+  "stale_publication_refusal": {
+    "expected_revision": "3fde45184835c53aa26b1184f3e2ab92c308c20c",
+    "current_revision": "6a5a687eeae9ea02bc7c4b9bccedac0c759590cf",
+    "reason": "Error: Compare-and-swap revision conflict",
+    "published": false
+  },
+  "final_revision": "6a5a687eeae9ea02bc7c4b9bccedac0c759590cf",
+  "mocked_source_requests": 4,
+  "telescope_requests": 0,
+  "real_source_spectral_values_read": false,
+  "claim": "Actual GitHub reservation publication and independent worker processes; all source HTTP simulated."
+}

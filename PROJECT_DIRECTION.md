@@ -30,8 +30,14 @@ full member/cluster accounting. The primary is the unchanged `neighbor9`
 reference; this choice is fixed before selected telescope spectra. Both toy
 signals are recovered and the four noise/interference controls have zero final
 members. This is not detector adoption or scientific source qualification.
-Continue durable acquisition-attempt accounting and source-specific prospective
-context/protocol preparation while seeking genuinely new pointing evidence.
+The [durable acquisition continuation](RADIO_ACQUISITION_2026-09-26_RESULT.md)
+also passes ten local tests and an actual GitHub-backed reservation/restart
+demonstration with simulated source HTTP. Each process reserves its whole
+allowance before access; crashes do not restore quota and a third test process
+is refused at the cumulative limit. No telescope request is made.
+Continue the source-specific metadata/motion-context audit and prospective
+protocol while seeking genuinely new pointing evidence. Preserve both coordinate
+identities explicitly; unresolved pointing is not permission to choose a correction.
 The [preparation design](RADIO_PIPELINE_2026-09-26_DESIGN.md) lists the remaining
 gates; its synthetic panel settings must not become a telescope freeze by default.
 The source-specific hold must not stop the entire authorized plan.

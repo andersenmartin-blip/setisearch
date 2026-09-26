@@ -240,6 +240,23 @@ class RadioAcquisitionTests(unittest.TestCase):
             read.assert_not_called()
         self.assertFalse((self.root/"blocked").exists())
 
+    def test_extraction_rechecks_cumulative_limits_for_generic_session(self):
+        # A ready-gate stub is only for this negative software-boundary test.
+        # No telescope receipt or source transport is allowed to run.
+        self.store.location = {"kind": "github", "path": "synthetic-negative-test"}
+        budget = self.start()
+        cfg = {"reservation_store": self.store.location, "source_inventory_sha256": "2"*64,
+               "cumulative_limits": {**TOTAL, "max_requests": 5}, "session_limits": SESSION,
+               "acquisition_policy": acquisition.POLICY,
+               "pinned_files": {"src/seti_repeater/acquisition_radio.py": rows.file_hash(acquisition.__file__)}}
+        with patch.object(acquisition.source, "load_contract", return_value=(cfg, {"blockers": []})):
+            with patch.object(acquisition.source, "extract_remote", side_effect=AssertionError("source extraction reached")) as extract:
+                with self.assertRaisesRegex(ValueError, "limits/policy/code binding differs"):
+                    acquisition.extract_source(ROOT, "synthetic-negative-test", "1"*64, "unused", "unused",
+                        self.root/"not-opened", self.root/"no-mirror", budget, spectral_access_authorized=True)
+                extract.assert_not_called()
+        budget.close("completed")
+
 
 if __name__ == "__main__":
     unittest.main()

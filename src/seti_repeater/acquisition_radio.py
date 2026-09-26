@@ -370,6 +370,11 @@ def extract_source(root, contract_path, contract_sha256, scan_label, window_name
             or budget.checkpoint.document["contract_sha256"] != contract_sha256
             or budget.checkpoint.document["source_inventory_sha256"] != cfg["source_inventory_sha256"]):
         raise ValueError("session is not bound to this telescope contract")
+    budget.remaining_seconds()
+    if (budget.checkpoint.document["total_limits"] != cfg["cumulative_limits"]
+            or budget.limits != cfg["session_limits"] or cfg.get("acquisition_policy") != POLICY
+            or cfg["pinned_files"].get("src/seti_repeater/acquisition_radio.py") != rows.file_hash(__file__)):
+        raise ValueError("durable acquisition limits/policy/code binding differs")
     definition = next((s for s in cfg["scans"] if s["label"] == scan_label), None)
     window = next((w for w in cfg["windows"] if w["name"] == window_name), None)
     if definition is None or window is None:

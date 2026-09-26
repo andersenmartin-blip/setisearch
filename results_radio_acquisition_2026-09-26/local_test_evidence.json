@@ -1,0 +1,906 @@
+{
+  "journal_integrity": {
+    "budget": {
+      "accepted_bytes": 5,
+      "attempts": 1,
+      "closed": true,
+      "cumulative": {
+        "charged_limits": {
+          "max_bytes": 100,
+          "max_requests": 3,
+          "max_seconds": 30
+        },
+        "remaining_limits": {
+          "max_bytes": 100,
+          "max_requests": 3,
+          "max_seconds": 30
+        },
+        "sessions": 1
+      },
+      "elapsed_seconds": 0.0,
+      "journal_head_sha256": "adad06317dc8f7015f00548778c3cf1c3054cc61ff8d9d9470ebde6cfb8e9929",
+      "ledger_sha256": "7398ba37e3d18523a512f931fd545e946cd267d32bf98ac56a1dcba1d2230933",
+      "limits": {
+        "max_bytes": 100,
+        "max_requests": 3,
+        "max_seconds": 30
+      },
+      "publication_revision": "f2db233978be9e8577745accc0aee80978a28858",
+      "reserved_bytes": 6,
+      "session_id": "4de1837a-fb42-4900-ad2f-722f89ad80ff"
+    },
+    "journal_text": "{\"event\":{\"ledger_sha256\":\"7398ba37e3d18523a512f931fd545e946cd267d32bf98ac56a1dcba1d2230933\",\"publication_location\":{\"kind\":\"local-fixture\",\"store\":\"durable-store\"},\"publication_revision\":\"f2db233978be9e8577745accc0aee80978a28858\",\"reservation\":{\"created_utc\":\"2026-09-26T17:38:50.247922+00:00\",\"ordinal\":0,\"prior_ledger_sha256\":\"80de256d317f6f970c694184a3a7923c704bb02516ed500709ce928d3cbd87ee\",\"reserved_limits\":{\"max_bytes\":100,\"max_requests\":3,\"max_seconds\":30},\"session_id\":\"4de1837a-fb42-4900-ad2f-722f89ad80ff\"},\"type\":\"session_start\"},\"index\":0,\"previous_sha256\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"sha256\":\"50e74e64a7165edde9249cebccfb93857fdcabf585c7aaf5bd99cce313109e9e\"}\n{\"event\":{\"scope\":{\"scan\":\"epoch1_on\",\"url\":\"https://fixture.invalid/synthetic-object.h5\",\"window\":\"engineering\"},\"type\":\"scope\"},\"index\":1,\"previous_sha256\":\"50e74e64a7165edde9249cebccfb93857fdcabf585c7aaf5bd99cce313109e9e\",\"sha256\":\"134da4e1e11a2c96d4043a79286081e6917e1f1f6358e0c09672dbe8fc08ff8b\"}\n{\"event\":{\"attempt\":1,\"elapsed_seconds\":0.0,\"reserved_bytes\":6,\"type\":\"reserve\"},\"index\":2,\"previous_sha256\":\"134da4e1e11a2c96d4043a79286081e6917e1f1f6358e0c09672dbe8fc08ff8b\",\"sha256\":\"d4252ba3772e1607a75913bd99da830c3a89b5fb6fe883ce8baf7375d5024be2\"}\n{\"event\":{\"attempt\":1,\"bytes\":5,\"type\":\"accepted_body\"},\"index\":3,\"previous_sha256\":\"d4252ba3772e1607a75913bd99da830c3a89b5fb6fe883ce8baf7375d5024be2\",\"sha256\":\"97d85c4bb0fb6c5fd4a03e11bfbb806a1a784cc9e2f6549889f3c6d77938fe3f\"}\n{\"event\":{\"elapsed_seconds\":0.0,\"outcome\":\"completed\",\"type\":\"session_end\"},\"index\":4,\"previous_sha256\":\"97d85c4bb0fb6c5fd4a03e11bfbb806a1a784cc9e2f6549889f3c6d77938fe3f\",\"sha256\":\"adad06317dc8f7015f00548778c3cf1c3054cc61ff8d9d9470ebde6cfb8e9929\"}\n",
+    "ledger": {
+      "contract_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "policy": "radio-irrevocable-session-reservations-v1",
+      "reservations": [
+        {
+          "created_utc": "2026-09-26T17:38:50.247922+00:00",
+          "ordinal": 0,
+          "prior_ledger_sha256": "80de256d317f6f970c694184a3a7923c704bb02516ed500709ce928d3cbd87ee",
+          "reserved_limits": {
+            "max_bytes": 100,
+            "max_requests": 3,
+            "max_seconds": 30
+          },
+          "session_id": "4de1837a-fb42-4900-ad2f-722f89ad80ff"
+        }
+      ],
+      "source_inventory_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "total_limits": {
+        "max_bytes": 200,
+        "max_requests": 6,
+        "max_seconds": 60
+      }
+    },
+    "ledger_sha256": "7398ba37e3d18523a512f931fd545e946cd267d32bf98ac56a1dcba1d2230933",
+    "replay": {
+      "accepted_bytes": 5,
+      "closed": true,
+      "events": [
+        {
+          "ledger_sha256": "7398ba37e3d18523a512f931fd545e946cd267d32bf98ac56a1dcba1d2230933",
+          "publication_location": {
+            "kind": "local-fixture",
+            "store": "durable-store"
+          },
+          "publication_revision": "f2db233978be9e8577745accc0aee80978a28858",
+          "reservation": {
+            "created_utc": "2026-09-26T17:38:50.247922+00:00",
+            "ordinal": 0,
+            "prior_ledger_sha256": "80de256d317f6f970c694184a3a7923c704bb02516ed500709ce928d3cbd87ee",
+            "reserved_limits": {
+              "max_bytes": 100,
+              "max_requests": 3,
+              "max_seconds": 30
+            },
+            "session_id": "4de1837a-fb42-4900-ad2f-722f89ad80ff"
+          },
+          "type": "session_start"
+        },
+        {
+          "scope": {
+            "scan": "epoch1_on",
+            "url": "https://fixture.invalid/synthetic-object.h5",
+            "window": "engineering"
+          },
+          "type": "scope"
+        },
+        {
+          "attempt": 1,
+          "elapsed_seconds": 0.0,
+          "reserved_bytes": 6,
+          "type": "reserve"
+        },
+        {
+          "attempt": 1,
+          "bytes": 5,
+          "type": "accepted_body"
+        },
+        {
+          "elapsed_seconds": 0.0,
+          "outcome": "completed",
+          "type": "session_end"
+        }
+      ],
+      "head_sha256": "adad06317dc8f7015f00548778c3cf1c3054cc61ff8d9d9470ebde6cfb8e9929",
+      "reservation_remains_fully_charged": true,
+      "reserved_attempts": 1,
+      "reserved_bytes": 6
+    },
+    "revision": "f2db233978be9e8577745accc0aee80978a28858",
+    "telescope_requests": 0
+  },
+  "ledger_integrity": {
+    "budget": {
+      "accepted_bytes": 0,
+      "attempts": 0,
+      "closed": true,
+      "cumulative": {
+        "charged_limits": {
+          "max_bytes": 100,
+          "max_requests": 3,
+          "max_seconds": 30
+        },
+        "remaining_limits": {
+          "max_bytes": 100,
+          "max_requests": 3,
+          "max_seconds": 30
+        },
+        "sessions": 1
+      },
+      "elapsed_seconds": 0.0,
+      "journal_head_sha256": "b5c413b8f386c519bedef072d6b40aaf9aa47e8e64e0ff8aaa3ac37f6eacf13e",
+      "ledger_sha256": "28b67d9c666200a98543d73c8aa3059e6321476ad83e4208d5808dad3de7b9f5",
+      "limits": {
+        "max_bytes": 100,
+        "max_requests": 3,
+        "max_seconds": 30
+      },
+      "publication_revision": "c30db34c879429819149448a3a51c588bb5c1427",
+      "reserved_bytes": 0,
+      "session_id": "a05a03a1-280b-431c-bc7b-276ccf5ae6e7"
+    },
+    "journal_text": "{\"event\":{\"ledger_sha256\":\"28b67d9c666200a98543d73c8aa3059e6321476ad83e4208d5808dad3de7b9f5\",\"publication_location\":{\"kind\":\"local-fixture\",\"store\":\"durable-store\"},\"publication_revision\":\"c30db34c879429819149448a3a51c588bb5c1427\",\"reservation\":{\"created_utc\":\"2026-09-26T17:38:50.252282+00:00\",\"ordinal\":0,\"prior_ledger_sha256\":\"80de256d317f6f970c694184a3a7923c704bb02516ed500709ce928d3cbd87ee\",\"reserved_limits\":{\"max_bytes\":100,\"max_requests\":3,\"max_seconds\":30},\"session_id\":\"a05a03a1-280b-431c-bc7b-276ccf5ae6e7\"},\"type\":\"session_start\"},\"index\":0,\"previous_sha256\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"sha256\":\"32415a6c089e2d1100f5f93db11b8dd7737cf5efedb53c18bd9843abcf144b24\"}\n{\"event\":{\"scope\":{\"scan\":\"epoch1_on\",\"url\":\"https://fixture.invalid/synthetic-object.h5\",\"window\":\"engineering\"},\"type\":\"scope\"},\"index\":1,\"previous_sha256\":\"32415a6c089e2d1100f5f93db11b8dd7737cf5efedb53c18bd9843abcf144b24\",\"sha256\":\"c2878c1374665e8d99db1ffdd78499df12755e8316e52578e50fcf9800117257\"}\n{\"event\":{\"elapsed_seconds\":0.0,\"outcome\":\"completed\",\"type\":\"session_end\"},\"index\":2,\"previous_sha256\":\"c2878c1374665e8d99db1ffdd78499df12755e8316e52578e50fcf9800117257\",\"sha256\":\"b5c413b8f386c519bedef072d6b40aaf9aa47e8e64e0ff8aaa3ac37f6eacf13e\"}\n",
+    "ledger": {
+      "contract_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "policy": "radio-irrevocable-session-reservations-v1",
+      "reservations": [
+        {
+          "created_utc": "2026-09-26T17:38:50.252282+00:00",
+          "ordinal": 0,
+          "prior_ledger_sha256": "80de256d317f6f970c694184a3a7923c704bb02516ed500709ce928d3cbd87ee",
+          "reserved_limits": {
+            "max_bytes": 100,
+            "max_requests": 3,
+            "max_seconds": 30
+          },
+          "session_id": "a05a03a1-280b-431c-bc7b-276ccf5ae6e7"
+        }
+      ],
+      "source_inventory_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "total_limits": {
+        "max_bytes": 200,
+        "max_requests": 6,
+        "max_seconds": 60
+      }
+    },
+    "ledger_sha256": "28b67d9c666200a98543d73c8aa3059e6321476ad83e4208d5808dad3de7b9f5",
+    "replay": {
+      "accepted_bytes": 0,
+      "closed": true,
+      "events": [
+        {
+          "ledger_sha256": "28b67d9c666200a98543d73c8aa3059e6321476ad83e4208d5808dad3de7b9f5",
+          "publication_location": {
+            "kind": "local-fixture",
+            "store": "durable-store"
+          },
+          "publication_revision": "c30db34c879429819149448a3a51c588bb5c1427",
+          "reservation": {
+            "created_utc": "2026-09-26T17:38:50.252282+00:00",
+            "ordinal": 0,
+            "prior_ledger_sha256": "80de256d317f6f970c694184a3a7923c704bb02516ed500709ce928d3cbd87ee",
+            "reserved_limits": {
+              "max_bytes": 100,
+              "max_requests": 3,
+              "max_seconds": 30
+            },
+            "session_id": "a05a03a1-280b-431c-bc7b-276ccf5ae6e7"
+          },
+          "type": "session_start"
+        },
+        {
+          "scope": {
+            "scan": "epoch1_on",
+            "url": "https://fixture.invalid/synthetic-object.h5",
+            "window": "engineering"
+          },
+          "type": "scope"
+        },
+        {
+          "elapsed_seconds": 0.0,
+          "outcome": "completed",
+          "type": "session_end"
+        }
+      ],
+      "head_sha256": "b5c413b8f386c519bedef072d6b40aaf9aa47e8e64e0ff8aaa3ac37f6eacf13e",
+      "reservation_remains_fully_charged": true,
+      "reserved_attempts": 0,
+      "reserved_bytes": 0
+    },
+    "revision": "c30db34c879429819149448a3a51c588bb5c1427",
+    "telescope_requests": 0
+  },
+  "limits": {
+    "budget": {
+      "accepted_bytes": 0,
+      "attempts": 1,
+      "closed": true,
+      "cumulative": {
+        "charged_limits": {
+          "max_bytes": 100,
+          "max_requests": 3,
+          "max_seconds": 30
+        },
+        "remaining_limits": {
+          "max_bytes": 100,
+          "max_requests": 3,
+          "max_seconds": 30
+        },
+        "sessions": 1
+      },
+      "elapsed_seconds": 31.0,
+      "journal_head_sha256": "01e4c5ab698497f795e9c997bd0c8a8a2678dc8bc8b16db2a5b5bc9aedcdde92",
+      "ledger_sha256": "285562266655c12342256a64571e71ee8431335d34da112348c7d8e8131b47a9",
+      "limits": {
+        "max_bytes": 100,
+        "max_requests": 3,
+        "max_seconds": 30
+      },
+      "publication_revision": "9624c9b8172cca8c090baf68cc88cc243e1ec3e3",
+      "reserved_bytes": 100,
+      "session_id": "2861c3b3-a3ed-4c0b-980e-d30a4dccd727"
+    },
+    "journal_text": "{\"event\":{\"ledger_sha256\":\"285562266655c12342256a64571e71ee8431335d34da112348c7d8e8131b47a9\",\"publication_location\":{\"kind\":\"local-fixture\",\"store\":\"durable-store\"},\"publication_revision\":\"9624c9b8172cca8c090baf68cc88cc243e1ec3e3\",\"reservation\":{\"created_utc\":\"2026-09-26T17:38:50.259566+00:00\",\"ordinal\":0,\"prior_ledger_sha256\":\"80de256d317f6f970c694184a3a7923c704bb02516ed500709ce928d3cbd87ee\",\"reserved_limits\":{\"max_bytes\":100,\"max_requests\":3,\"max_seconds\":30},\"session_id\":\"2861c3b3-a3ed-4c0b-980e-d30a4dccd727\"},\"type\":\"session_start\"},\"index\":0,\"previous_sha256\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"sha256\":\"11471d47ead9479215d20dced4c298d99ebefd798ffa4721fda044d8a3507195\"}\n{\"event\":{\"scope\":{\"scan\":\"epoch1_on\",\"url\":\"https://fixture.invalid/synthetic-object.h5\",\"window\":\"engineering\"},\"type\":\"scope\"},\"index\":1,\"previous_sha256\":\"11471d47ead9479215d20dced4c298d99ebefd798ffa4721fda044d8a3507195\",\"sha256\":\"39b0a83706b49ef7393c19e20fd5dc7187aa2ed99c3107ea8de3edbee344aa68\"}\n{\"event\":{\"attempt\":1,\"elapsed_seconds\":0.0,\"reserved_bytes\":100,\"type\":\"reserve\"},\"index\":2,\"previous_sha256\":\"39b0a83706b49ef7393c19e20fd5dc7187aa2ed99c3107ea8de3edbee344aa68\",\"sha256\":\"e3b724b16b552a62869b5ff0d6ecec4d4d91382df52f10fc88635c50f760e5a2\"}\n{\"event\":{\"elapsed_seconds\":31.0,\"outcome\":\"error\",\"type\":\"session_end\"},\"index\":3,\"previous_sha256\":\"e3b724b16b552a62869b5ff0d6ecec4d4d91382df52f10fc88635c50f760e5a2\",\"sha256\":\"01e4c5ab698497f795e9c997bd0c8a8a2678dc8bc8b16db2a5b5bc9aedcdde92\"}\n",
+    "ledger": {
+      "contract_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "policy": "radio-irrevocable-session-reservations-v1",
+      "reservations": [
+        {
+          "created_utc": "2026-09-26T17:38:50.259566+00:00",
+          "ordinal": 0,
+          "prior_ledger_sha256": "80de256d317f6f970c694184a3a7923c704bb02516ed500709ce928d3cbd87ee",
+          "reserved_limits": {
+            "max_bytes": 100,
+            "max_requests": 3,
+            "max_seconds": 30
+          },
+          "session_id": "2861c3b3-a3ed-4c0b-980e-d30a4dccd727"
+        }
+      ],
+      "source_inventory_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "total_limits": {
+        "max_bytes": 200,
+        "max_requests": 6,
+        "max_seconds": 60
+      }
+    },
+    "ledger_sha256": "285562266655c12342256a64571e71ee8431335d34da112348c7d8e8131b47a9",
+    "replay": {
+      "accepted_bytes": 0,
+      "closed": true,
+      "events": [
+        {
+          "ledger_sha256": "285562266655c12342256a64571e71ee8431335d34da112348c7d8e8131b47a9",
+          "publication_location": {
+            "kind": "local-fixture",
+            "store": "durable-store"
+          },
+          "publication_revision": "9624c9b8172cca8c090baf68cc88cc243e1ec3e3",
+          "reservation": {
+            "created_utc": "2026-09-26T17:38:50.259566+00:00",
+            "ordinal": 0,
+            "prior_ledger_sha256": "80de256d317f6f970c694184a3a7923c704bb02516ed500709ce928d3cbd87ee",
+            "reserved_limits": {
+              "max_bytes": 100,
+              "max_requests": 3,
+              "max_seconds": 30
+            },
+            "session_id": "2861c3b3-a3ed-4c0b-980e-d30a4dccd727"
+          },
+          "type": "session_start"
+        },
+        {
+          "scope": {
+            "scan": "epoch1_on",
+            "url": "https://fixture.invalid/synthetic-object.h5",
+            "window": "engineering"
+          },
+          "type": "scope"
+        },
+        {
+          "attempt": 1,
+          "elapsed_seconds": 0.0,
+          "reserved_bytes": 100,
+          "type": "reserve"
+        },
+        {
+          "elapsed_seconds": 31.0,
+          "outcome": "error",
+          "type": "session_end"
+        }
+      ],
+      "head_sha256": "01e4c5ab698497f795e9c997bd0c8a8a2678dc8bc8b16db2a5b5bc9aedcdde92",
+      "reservation_remains_fully_charged": true,
+      "reserved_attempts": 1,
+      "reserved_bytes": 100
+    },
+    "revision": "9624c9b8172cca8c090baf68cc88cc243e1ec3e3",
+    "telescope_requests": 0
+  },
+  "publication_conflict": {
+    "budget": {
+      "accepted_bytes": 0,
+      "attempts": 0,
+      "closed": true,
+      "cumulative": {
+        "charged_limits": {
+          "max_bytes": 100,
+          "max_requests": 3,
+          "max_seconds": 30
+        },
+        "remaining_limits": {
+          "max_bytes": 100,
+          "max_requests": 3,
+          "max_seconds": 30
+        },
+        "sessions": 1
+      },
+      "elapsed_seconds": 0.0,
+      "journal_head_sha256": "2a73cc5fe0dea3d9f3d1afeae5f83d32517fd776f4539d3863a71d2e37bbb46c",
+      "ledger_sha256": "10e4bba227cfff57d45ac0ad81fff72b7868541ec564c868994eb73b9f1832dd",
+      "limits": {
+        "max_bytes": 100,
+        "max_requests": 3,
+        "max_seconds": 30
+      },
+      "publication_revision": "e0f9e585872de8afb3e93e7e56f07e6767115c25",
+      "reserved_bytes": 0,
+      "session_id": "c6440a8d-79d1-4b1a-9c62-ea5990d500a9"
+    },
+    "journal_text": "{\"event\":{\"ledger_sha256\":\"10e4bba227cfff57d45ac0ad81fff72b7868541ec564c868994eb73b9f1832dd\",\"publication_location\":{\"kind\":\"local-fixture\",\"store\":\"durable-store\"},\"publication_revision\":\"e0f9e585872de8afb3e93e7e56f07e6767115c25\",\"reservation\":{\"created_utc\":\"2026-09-26T17:38:50.231501+00:00\",\"ordinal\":0,\"prior_ledger_sha256\":\"80de256d317f6f970c694184a3a7923c704bb02516ed500709ce928d3cbd87ee\",\"reserved_limits\":{\"max_bytes\":100,\"max_requests\":3,\"max_seconds\":30},\"session_id\":\"c6440a8d-79d1-4b1a-9c62-ea5990d500a9\"},\"type\":\"session_start\"},\"index\":0,\"previous_sha256\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"sha256\":\"948a1717de47f2c2c019c51e3003cfe0c74d67afc4628ddc63a77f015ae70c05\"}\n{\"event\":{\"scope\":{\"scan\":\"epoch1_on\",\"url\":\"https://fixture.invalid/synthetic-object.h5\",\"window\":\"engineering\"},\"type\":\"scope\"},\"index\":1,\"previous_sha256\":\"948a1717de47f2c2c019c51e3003cfe0c74d67afc4628ddc63a77f015ae70c05\",\"sha256\":\"0f924f6b4b4128dad9c142188f31843d4f48453617ca88c83beda31de144e217\"}\n{\"event\":{\"elapsed_seconds\":0.0,\"outcome\":\"completed\",\"type\":\"session_end\"},\"index\":2,\"previous_sha256\":\"0f924f6b4b4128dad9c142188f31843d4f48453617ca88c83beda31de144e217\",\"sha256\":\"2a73cc5fe0dea3d9f3d1afeae5f83d32517fd776f4539d3863a71d2e37bbb46c\"}\n",
+    "ledger": {
+      "contract_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "policy": "radio-irrevocable-session-reservations-v1",
+      "reservations": [
+        {
+          "created_utc": "2026-09-26T17:38:50.231501+00:00",
+          "ordinal": 0,
+          "prior_ledger_sha256": "80de256d317f6f970c694184a3a7923c704bb02516ed500709ce928d3cbd87ee",
+          "reserved_limits": {
+            "max_bytes": 100,
+            "max_requests": 3,
+            "max_seconds": 30
+          },
+          "session_id": "c6440a8d-79d1-4b1a-9c62-ea5990d500a9"
+        }
+      ],
+      "source_inventory_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "total_limits": {
+        "max_bytes": 200,
+        "max_requests": 6,
+        "max_seconds": 60
+      }
+    },
+    "ledger_sha256": "10e4bba227cfff57d45ac0ad81fff72b7868541ec564c868994eb73b9f1832dd",
+    "replay": {
+      "accepted_bytes": 0,
+      "closed": true,
+      "events": [
+        {
+          "ledger_sha256": "10e4bba227cfff57d45ac0ad81fff72b7868541ec564c868994eb73b9f1832dd",
+          "publication_location": {
+            "kind": "local-fixture",
+            "store": "durable-store"
+          },
+          "publication_revision": "e0f9e585872de8afb3e93e7e56f07e6767115c25",
+          "reservation": {
+            "created_utc": "2026-09-26T17:38:50.231501+00:00",
+            "ordinal": 0,
+            "prior_ledger_sha256": "80de256d317f6f970c694184a3a7923c704bb02516ed500709ce928d3cbd87ee",
+            "reserved_limits": {
+              "max_bytes": 100,
+              "max_requests": 3,
+              "max_seconds": 30
+            },
+            "session_id": "c6440a8d-79d1-4b1a-9c62-ea5990d500a9"
+          },
+          "type": "session_start"
+        },
+        {
+          "scope": {
+            "scan": "epoch1_on",
+            "url": "https://fixture.invalid/synthetic-object.h5",
+            "window": "engineering"
+          },
+          "type": "scope"
+        },
+        {
+          "elapsed_seconds": 0.0,
+          "outcome": "completed",
+          "type": "session_end"
+        }
+      ],
+      "head_sha256": "2a73cc5fe0dea3d9f3d1afeae5f83d32517fd776f4539d3863a71d2e37bbb46c",
+      "reservation_remains_fully_charged": true,
+      "reserved_attempts": 0,
+      "reserved_bytes": 0
+    },
+    "revision": "e0f9e585872de8afb3e93e7e56f07e6767115c25",
+    "telescope_requests": 0
+  },
+  "request_cap": {
+    "budget": {
+      "accepted_bytes": 1,
+      "attempts": 3,
+      "closed": true,
+      "cumulative": {
+        "charged_limits": {
+          "max_bytes": 100,
+          "max_requests": 3,
+          "max_seconds": 30
+        },
+        "remaining_limits": {
+          "max_bytes": 100,
+          "max_requests": 3,
+          "max_seconds": 30
+        },
+        "sessions": 1
+      },
+      "elapsed_seconds": 0.0,
+      "journal_head_sha256": "ddadb19998b3e0e600e43ce96e7c86ffd89454cd980ca130e6dcb040fb5b19a3",
+      "ledger_sha256": "a706d1e7e730b61b3d314215bf66435634ca1791f1e8a4918a6dcaaa7fdf17e6",
+      "limits": {
+        "max_bytes": 100,
+        "max_requests": 3,
+        "max_seconds": 30
+      },
+      "publication_revision": "7e97cb172436b8c74c6ea0621eab2cad322aaadb",
+      "reserved_bytes": 2,
+      "session_id": "b2ef49eb-c549-4b29-8002-88d1cd6d1134"
+    },
+    "journal_text": "{\"event\":{\"ledger_sha256\":\"a706d1e7e730b61b3d314215bf66435634ca1791f1e8a4918a6dcaaa7fdf17e6\",\"publication_location\":{\"kind\":\"local-fixture\",\"store\":\"durable-store\"},\"publication_revision\":\"7e97cb172436b8c74c6ea0621eab2cad322aaadb\",\"reservation\":{\"created_utc\":\"2026-09-26T17:38:50.256034+00:00\",\"ordinal\":0,\"prior_ledger_sha256\":\"80de256d317f6f970c694184a3a7923c704bb02516ed500709ce928d3cbd87ee\",\"reserved_limits\":{\"max_bytes\":100,\"max_requests\":3,\"max_seconds\":30},\"session_id\":\"b2ef49eb-c549-4b29-8002-88d1cd6d1134\"},\"type\":\"session_start\"},\"index\":0,\"previous_sha256\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"sha256\":\"d4065d155be9cf2ac230c5bb8310d78bfdaa58b495d0b76d57fcd10d052eb6c4\"}\n{\"event\":{\"scope\":{\"scan\":\"epoch1_on\",\"url\":\"https://fixture.invalid/synthetic-object.h5\",\"window\":\"engineering\"},\"type\":\"scope\"},\"index\":1,\"previous_sha256\":\"d4065d155be9cf2ac230c5bb8310d78bfdaa58b495d0b76d57fcd10d052eb6c4\",\"sha256\":\"9e081b8d16a5f16f3ce28d63c5781a567d3b73e6fbf929c0e6f03f1639b2cb5c\"}\n{\"event\":{\"attempt\":1,\"elapsed_seconds\":0.0,\"reserved_bytes\":2,\"type\":\"reserve\"},\"index\":2,\"previous_sha256\":\"9e081b8d16a5f16f3ce28d63c5781a567d3b73e6fbf929c0e6f03f1639b2cb5c\",\"sha256\":\"55fd45336ab9e3a29635fab3fba00bcf8e66512c4c48c724cdf00be10bb7adc5\"}\n{\"event\":{\"attempt\":1,\"bytes\":1,\"type\":\"accepted_body\"},\"index\":3,\"previous_sha256\":\"55fd45336ab9e3a29635fab3fba00bcf8e66512c4c48c724cdf00be10bb7adc5\",\"sha256\":\"5e0ab62e20b9deb6b0734fa0f734647695b7aaaaeb789c5beb0cdcb3e0040bc8\"}\n{\"event\":{\"attempt\":2,\"elapsed_seconds\":0.0,\"reserved_bytes\":0,\"type\":\"reserve\"},\"index\":4,\"previous_sha256\":\"5e0ab62e20b9deb6b0734fa0f734647695b7aaaaeb789c5beb0cdcb3e0040bc8\",\"sha256\":\"64d6302b0b0979c25afe1763332c173e90597600acce002e7e1968e4b66e4fe6\"}\n{\"event\":{\"attempt\":3,\"elapsed_seconds\":0.0,\"reserved_bytes\":0,\"type\":\"reserve\"},\"index\":5,\"previous_sha256\":\"64d6302b0b0979c25afe1763332c173e90597600acce002e7e1968e4b66e4fe6\",\"sha256\":\"e87cf80e9aea6f83bfa4ced2bbaa786b06c082c81d923044a165670f06f0af8a\"}\n{\"event\":{\"elapsed_seconds\":0.0,\"outcome\":\"completed\",\"type\":\"session_end\"},\"index\":6,\"previous_sha256\":\"e87cf80e9aea6f83bfa4ced2bbaa786b06c082c81d923044a165670f06f0af8a\",\"sha256\":\"ddadb19998b3e0e600e43ce96e7c86ffd89454cd980ca130e6dcb040fb5b19a3\"}\n",
+    "ledger": {
+      "contract_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "policy": "radio-irrevocable-session-reservations-v1",
+      "reservations": [
+        {
+          "created_utc": "2026-09-26T17:38:50.256034+00:00",
+          "ordinal": 0,
+          "prior_ledger_sha256": "80de256d317f6f970c694184a3a7923c704bb02516ed500709ce928d3cbd87ee",
+          "reserved_limits": {
+            "max_bytes": 100,
+            "max_requests": 3,
+            "max_seconds": 30
+          },
+          "session_id": "b2ef49eb-c549-4b29-8002-88d1cd6d1134"
+        }
+      ],
+      "source_inventory_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "total_limits": {
+        "max_bytes": 200,
+        "max_requests": 6,
+        "max_seconds": 60
+      }
+    },
+    "ledger_sha256": "a706d1e7e730b61b3d314215bf66435634ca1791f1e8a4918a6dcaaa7fdf17e6",
+    "replay": {
+      "accepted_bytes": 1,
+      "closed": true,
+      "events": [
+        {
+          "ledger_sha256": "a706d1e7e730b61b3d314215bf66435634ca1791f1e8a4918a6dcaaa7fdf17e6",
+          "publication_location": {
+            "kind": "local-fixture",
+            "store": "durable-store"
+          },
+          "publication_revision": "7e97cb172436b8c74c6ea0621eab2cad322aaadb",
+          "reservation": {
+            "created_utc": "2026-09-26T17:38:50.256034+00:00",
+            "ordinal": 0,
+            "prior_ledger_sha256": "80de256d317f6f970c694184a3a7923c704bb02516ed500709ce928d3cbd87ee",
+            "reserved_limits": {
+              "max_bytes": 100,
+              "max_requests": 3,
+              "max_seconds": 30
+            },
+            "session_id": "b2ef49eb-c549-4b29-8002-88d1cd6d1134"
+          },
+          "type": "session_start"
+        },
+        {
+          "scope": {
+            "scan": "epoch1_on",
+            "url": "https://fixture.invalid/synthetic-object.h5",
+            "window": "engineering"
+          },
+          "type": "scope"
+        },
+        {
+          "attempt": 1,
+          "elapsed_seconds": 0.0,
+          "reserved_bytes": 2,
+          "type": "reserve"
+        },
+        {
+          "attempt": 1,
+          "bytes": 1,
+          "type": "accepted_body"
+        },
+        {
+          "attempt": 2,
+          "elapsed_seconds": 0.0,
+          "reserved_bytes": 0,
+          "type": "reserve"
+        },
+        {
+          "attempt": 3,
+          "elapsed_seconds": 0.0,
+          "reserved_bytes": 0,
+          "type": "reserve"
+        },
+        {
+          "elapsed_seconds": 0.0,
+          "outcome": "completed",
+          "type": "session_end"
+        }
+      ],
+      "head_sha256": "ddadb19998b3e0e600e43ce96e7c86ffd89454cd980ca130e6dcb040fb5b19a3",
+      "reservation_remains_fully_charged": true,
+      "reserved_attempts": 3,
+      "reserved_bytes": 2
+    },
+    "revision": "7e97cb172436b8c74c6ea0621eab2cad322aaadb",
+    "telescope_requests": 0
+  },
+  "restart": {
+    "budget": {
+      "accepted_bytes": 10,
+      "attempts": 1,
+      "closed": true,
+      "cumulative": {
+        "charged_limits": {
+          "max_bytes": 200,
+          "max_requests": 6,
+          "max_seconds": 60
+        },
+        "remaining_limits": {
+          "max_bytes": 0,
+          "max_requests": 0,
+          "max_seconds": 0
+        },
+        "sessions": 2
+      },
+      "elapsed_seconds": 0.0,
+      "journal_head_sha256": "7b18c0c22a97247d376541ce033d9f2e83e04931905a82d099c810f1b3a66cd5",
+      "ledger_sha256": "625e888447e89cd84dc838ccca538c8378a44a9a12f24bc1f4039573bd9cafbe",
+      "limits": {
+        "max_bytes": 100,
+        "max_requests": 3,
+        "max_seconds": 30
+      },
+      "publication_revision": "adafbb86ab98696eebeb6fb0a6680ccebbd4c8fe",
+      "reserved_bytes": 11,
+      "session_id": "14b5717e-5d7c-4e6a-9f4a-4e7706685ce1"
+    },
+    "journal_text": "{\"event\":{\"ledger_sha256\":\"625e888447e89cd84dc838ccca538c8378a44a9a12f24bc1f4039573bd9cafbe\",\"publication_location\":{\"kind\":\"local-fixture\",\"store\":\"durable-store\"},\"publication_revision\":\"adafbb86ab98696eebeb6fb0a6680ccebbd4c8fe\",\"reservation\":{\"created_utc\":\"2026-09-26T17:38:50.271151+00:00\",\"ordinal\":1,\"prior_ledger_sha256\":\"4c8b8adf6aedace1a2ef814828481b7e9ac70d093ca612868c35ff7710fe15a6\",\"reserved_limits\":{\"max_bytes\":100,\"max_requests\":3,\"max_seconds\":30},\"session_id\":\"14b5717e-5d7c-4e6a-9f4a-4e7706685ce1\"},\"type\":\"session_start\"},\"index\":0,\"previous_sha256\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"sha256\":\"e5788f948b02e0247f917345afb0971f0c95519849687e4e18d47ac04740536c\"}\n{\"event\":{\"scope\":{\"scan\":\"epoch1_on\",\"url\":\"https://fixture.invalid/synthetic-object.h5\",\"window\":\"engineering\"},\"type\":\"scope\"},\"index\":1,\"previous_sha256\":\"e5788f948b02e0247f917345afb0971f0c95519849687e4e18d47ac04740536c\",\"sha256\":\"2fd0c53046dbf0d9ad22c5a5483252e8d5a84913b9de00cd71f74c4927435955\"}\n{\"event\":{\"attempt\":1,\"elapsed_seconds\":0.0,\"reserved_bytes\":11,\"type\":\"reserve\"},\"index\":2,\"previous_sha256\":\"2fd0c53046dbf0d9ad22c5a5483252e8d5a84913b9de00cd71f74c4927435955\",\"sha256\":\"84a2d18e7b488e83ec51ea4557265368d8fb5d4a2034b2d8a0029ed97aba21e5\"}\n{\"event\":{\"attempt\":1,\"bytes\":10,\"type\":\"accepted_body\"},\"index\":3,\"previous_sha256\":\"84a2d18e7b488e83ec51ea4557265368d8fb5d4a2034b2d8a0029ed97aba21e5\",\"sha256\":\"f19449e5814b2636d7c32d753bab673781f0d4b912b62b031075db68d38bb401\"}\n{\"event\":{\"elapsed_seconds\":0.0,\"outcome\":\"completed\",\"type\":\"session_end\"},\"index\":4,\"previous_sha256\":\"f19449e5814b2636d7c32d753bab673781f0d4b912b62b031075db68d38bb401\",\"sha256\":\"7b18c0c22a97247d376541ce033d9f2e83e04931905a82d099c810f1b3a66cd5\"}\n",
+    "ledger": {
+      "contract_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "policy": "radio-irrevocable-session-reservations-v1",
+      "reservations": [
+        {
+          "created_utc": "2026-09-26T17:38:50.269855+00:00",
+          "ordinal": 0,
+          "prior_ledger_sha256": "80de256d317f6f970c694184a3a7923c704bb02516ed500709ce928d3cbd87ee",
+          "reserved_limits": {
+            "max_bytes": 100,
+            "max_requests": 3,
+            "max_seconds": 30
+          },
+          "session_id": "aac301c1-1e25-4a41-bb18-cacb3dc84f9a"
+        },
+        {
+          "created_utc": "2026-09-26T17:38:50.271151+00:00",
+          "ordinal": 1,
+          "prior_ledger_sha256": "4c8b8adf6aedace1a2ef814828481b7e9ac70d093ca612868c35ff7710fe15a6",
+          "reserved_limits": {
+            "max_bytes": 100,
+            "max_requests": 3,
+            "max_seconds": 30
+          },
+          "session_id": "14b5717e-5d7c-4e6a-9f4a-4e7706685ce1"
+        }
+      ],
+      "source_inventory_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "total_limits": {
+        "max_bytes": 200,
+        "max_requests": 6,
+        "max_seconds": 60
+      }
+    },
+    "ledger_sha256": "625e888447e89cd84dc838ccca538c8378a44a9a12f24bc1f4039573bd9cafbe",
+    "replay": {
+      "accepted_bytes": 10,
+      "closed": true,
+      "events": [
+        {
+          "ledger_sha256": "625e888447e89cd84dc838ccca538c8378a44a9a12f24bc1f4039573bd9cafbe",
+          "publication_location": {
+            "kind": "local-fixture",
+            "store": "durable-store"
+          },
+          "publication_revision": "adafbb86ab98696eebeb6fb0a6680ccebbd4c8fe",
+          "reservation": {
+            "created_utc": "2026-09-26T17:38:50.271151+00:00",
+            "ordinal": 1,
+            "prior_ledger_sha256": "4c8b8adf6aedace1a2ef814828481b7e9ac70d093ca612868c35ff7710fe15a6",
+            "reserved_limits": {
+              "max_bytes": 100,
+              "max_requests": 3,
+              "max_seconds": 30
+            },
+            "session_id": "14b5717e-5d7c-4e6a-9f4a-4e7706685ce1"
+          },
+          "type": "session_start"
+        },
+        {
+          "scope": {
+            "scan": "epoch1_on",
+            "url": "https://fixture.invalid/synthetic-object.h5",
+            "window": "engineering"
+          },
+          "type": "scope"
+        },
+        {
+          "attempt": 1,
+          "elapsed_seconds": 0.0,
+          "reserved_bytes": 11,
+          "type": "reserve"
+        },
+        {
+          "attempt": 1,
+          "bytes": 10,
+          "type": "accepted_body"
+        },
+        {
+          "elapsed_seconds": 0.0,
+          "outcome": "completed",
+          "type": "session_end"
+        }
+      ],
+      "head_sha256": "7b18c0c22a97247d376541ce033d9f2e83e04931905a82d099c810f1b3a66cd5",
+      "reservation_remains_fully_charged": true,
+      "reserved_attempts": 1,
+      "reserved_bytes": 11
+    },
+    "revision": "adafbb86ab98696eebeb6fb0a6680ccebbd4c8fe",
+    "telescope_requests": 0
+  },
+  "transport": {
+    "budget": {
+      "accepted_bytes": 4,
+      "attempts": 3,
+      "closed": true,
+      "cumulative": {
+        "charged_limits": {
+          "max_bytes": 100,
+          "max_requests": 3,
+          "max_seconds": 30
+        },
+        "remaining_limits": {
+          "max_bytes": 100,
+          "max_requests": 3,
+          "max_seconds": 30
+        },
+        "sessions": 1
+      },
+      "elapsed_seconds": 0.0,
+      "journal_head_sha256": "3e813e01d932d46d41f1b9064df0463bf561919a59f1f1728ff16180cf5e3c20",
+      "ledger_sha256": "566b7c8fc6cc4f58e6d8db64b8008fe9097f0a5a86e8b932dad2c125fd066cc6",
+      "limits": {
+        "max_bytes": 100,
+        "max_requests": 3,
+        "max_seconds": 30
+      },
+      "publication_revision": "037804fb99bd84548396098bcf633a960526c6da",
+      "reserved_bytes": 10,
+      "session_id": "fadcb249-c611-4143-b487-a48ee543393b"
+    },
+    "journal_text": "{\"event\":{\"ledger_sha256\":\"566b7c8fc6cc4f58e6d8db64b8008fe9097f0a5a86e8b932dad2c125fd066cc6\",\"publication_location\":{\"kind\":\"local-fixture\",\"store\":\"durable-store\"},\"publication_revision\":\"037804fb99bd84548396098bcf633a960526c6da\",\"reservation\":{\"created_utc\":\"2026-09-26T17:38:50.274153+00:00\",\"ordinal\":0,\"prior_ledger_sha256\":\"80de256d317f6f970c694184a3a7923c704bb02516ed500709ce928d3cbd87ee\",\"reserved_limits\":{\"max_bytes\":100,\"max_requests\":3,\"max_seconds\":30},\"session_id\":\"fadcb249-c611-4143-b487-a48ee543393b\"},\"type\":\"session_start\"},\"index\":0,\"previous_sha256\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"sha256\":\"152a8c02f13d638b5a1a90a7ee87f800193beb2ae244aa67b2af687387b6eaad\"}\n{\"event\":{\"scope\":{\"scan\":\"epoch1_on\",\"url\":\"https://fixture.invalid/synthetic-object.h5\",\"window\":\"engineering\"},\"type\":\"scope\"},\"index\":1,\"previous_sha256\":\"152a8c02f13d638b5a1a90a7ee87f800193beb2ae244aa67b2af687387b6eaad\",\"sha256\":\"9c81c05bbe8b23f07bd4518f42801ebfa239285afe01f509b2ec30b6451cf74c\"}\n{\"event\":{\"attempt\":1,\"elapsed_seconds\":0.0,\"reserved_bytes\":0,\"type\":\"reserve\"},\"index\":2,\"previous_sha256\":\"9c81c05bbe8b23f07bd4518f42801ebfa239285afe01f509b2ec30b6451cf74c\",\"sha256\":\"5cdf0b0f66547b325647eade36ba68d6a30cbdb2331cfd8bb7417a69f8c07df3\"}\n{\"event\":{\"attempt\":2,\"elapsed_seconds\":0.0,\"reserved_bytes\":5,\"type\":\"reserve\"},\"index\":3,\"previous_sha256\":\"5cdf0b0f66547b325647eade36ba68d6a30cbdb2331cfd8bb7417a69f8c07df3\",\"sha256\":\"2fb3fd8fe5b3d29fdb9ae852cf14e9afe7d446c4dc7d79b777ed7318aea955f2\"}\n{\"event\":{\"attempt\":2,\"bytes\":4,\"type\":\"accepted_body\"},\"index\":4,\"previous_sha256\":\"2fb3fd8fe5b3d29fdb9ae852cf14e9afe7d446c4dc7d79b777ed7318aea955f2\",\"sha256\":\"9c416757de1cadccfed123f75a6abfc4c80bcd04e64bc66fda0aa96413beadb5\"}\n{\"event\":{\"attempt\":3,\"elapsed_seconds\":0.0,\"reserved_bytes\":5,\"type\":\"reserve\"},\"index\":5,\"previous_sha256\":\"9c416757de1cadccfed123f75a6abfc4c80bcd04e64bc66fda0aa96413beadb5\",\"sha256\":\"3509ac8a77e0d64f6844691fd1ad4237e38daf937a34c89536cea4110cc3f587\"}\n{\"event\":{\"elapsed_seconds\":0.0,\"outcome\":\"error\",\"type\":\"session_end\"},\"index\":6,\"previous_sha256\":\"3509ac8a77e0d64f6844691fd1ad4237e38daf937a34c89536cea4110cc3f587\",\"sha256\":\"3e813e01d932d46d41f1b9064df0463bf561919a59f1f1728ff16180cf5e3c20\"}\n",
+    "ledger": {
+      "contract_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "policy": "radio-irrevocable-session-reservations-v1",
+      "reservations": [
+        {
+          "created_utc": "2026-09-26T17:38:50.274153+00:00",
+          "ordinal": 0,
+          "prior_ledger_sha256": "80de256d317f6f970c694184a3a7923c704bb02516ed500709ce928d3cbd87ee",
+          "reserved_limits": {
+            "max_bytes": 100,
+            "max_requests": 3,
+            "max_seconds": 30
+          },
+          "session_id": "fadcb249-c611-4143-b487-a48ee543393b"
+        }
+      ],
+      "source_inventory_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "total_limits": {
+        "max_bytes": 200,
+        "max_requests": 6,
+        "max_seconds": 60
+      }
+    },
+    "ledger_sha256": "566b7c8fc6cc4f58e6d8db64b8008fe9097f0a5a86e8b932dad2c125fd066cc6",
+    "replay": {
+      "accepted_bytes": 4,
+      "closed": true,
+      "events": [
+        {
+          "ledger_sha256": "566b7c8fc6cc4f58e6d8db64b8008fe9097f0a5a86e8b932dad2c125fd066cc6",
+          "publication_location": {
+            "kind": "local-fixture",
+            "store": "durable-store"
+          },
+          "publication_revision": "037804fb99bd84548396098bcf633a960526c6da",
+          "reservation": {
+            "created_utc": "2026-09-26T17:38:50.274153+00:00",
+            "ordinal": 0,
+            "prior_ledger_sha256": "80de256d317f6f970c694184a3a7923c704bb02516ed500709ce928d3cbd87ee",
+            "reserved_limits": {
+              "max_bytes": 100,
+              "max_requests": 3,
+              "max_seconds": 30
+            },
+            "session_id": "fadcb249-c611-4143-b487-a48ee543393b"
+          },
+          "type": "session_start"
+        },
+        {
+          "scope": {
+            "scan": "epoch1_on",
+            "url": "https://fixture.invalid/synthetic-object.h5",
+            "window": "engineering"
+          },
+          "type": "scope"
+        },
+        {
+          "attempt": 1,
+          "elapsed_seconds": 0.0,
+          "reserved_bytes": 0,
+          "type": "reserve"
+        },
+        {
+          "attempt": 2,
+          "elapsed_seconds": 0.0,
+          "reserved_bytes": 5,
+          "type": "reserve"
+        },
+        {
+          "attempt": 2,
+          "bytes": 4,
+          "type": "accepted_body"
+        },
+        {
+          "attempt": 3,
+          "elapsed_seconds": 0.0,
+          "reserved_bytes": 5,
+          "type": "reserve"
+        },
+        {
+          "elapsed_seconds": 0.0,
+          "outcome": "error",
+          "type": "session_end"
+        }
+      ],
+      "head_sha256": "3e813e01d932d46d41f1b9064df0463bf561919a59f1f1728ff16180cf5e3c20",
+      "reservation_remains_fully_charged": true,
+      "reserved_attempts": 3,
+      "reserved_bytes": 10
+    },
+    "revision": "037804fb99bd84548396098bcf633a960526c6da",
+    "telescope_requests": 0
+  },
+  "uncertain_publication": {
+    "budget": {
+      "accepted_bytes": 0,
+      "attempts": 0,
+      "closed": true,
+      "cumulative": {
+        "charged_limits": {
+          "max_bytes": 200,
+          "max_requests": 6,
+          "max_seconds": 60
+        },
+        "remaining_limits": {
+          "max_bytes": 0,
+          "max_requests": 0,
+          "max_seconds": 0
+        },
+        "sessions": 2
+      },
+      "elapsed_seconds": 0.0,
+      "journal_head_sha256": "137c0607258ba3cf72235ff524a5f7691a83d56ef2100bfae01df75f9ef132fc",
+      "ledger_sha256": "96e1e1907c7631961f6e5af7e6ffe0979112c693fbdce498bb6dc6c2b77535bb",
+      "limits": {
+        "max_bytes": 100,
+        "max_requests": 3,
+        "max_seconds": 30
+      },
+      "publication_revision": "9a14daa8a172133e48d4c093a7c73c6247e57c18",
+      "reserved_bytes": 0,
+      "session_id": "ed9b350d-1c60-43a1-8a29-24b3e7684655"
+    },
+    "journal_text": "{\"event\":{\"ledger_sha256\":\"96e1e1907c7631961f6e5af7e6ffe0979112c693fbdce498bb6dc6c2b77535bb\",\"publication_location\":{\"kind\":\"local-fixture\",\"store\":\"durable-store\"},\"publication_revision\":\"9a14daa8a172133e48d4c093a7c73c6247e57c18\",\"reservation\":{\"created_utc\":\"2026-09-26T17:38:50.266958+00:00\",\"ordinal\":1,\"prior_ledger_sha256\":\"ddb1d632056ed145a0911ef5672ccb019c0ca24a0039aa7318d5f88c35a49a3b\",\"reserved_limits\":{\"max_bytes\":100,\"max_requests\":3,\"max_seconds\":30},\"session_id\":\"ed9b350d-1c60-43a1-8a29-24b3e7684655\"},\"type\":\"session_start\"},\"index\":0,\"previous_sha256\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"sha256\":\"f0c06959a76856d54f0d5be71fc640219b4ffa9c479a4d4e7867bf1055fcb8c9\"}\n{\"event\":{\"scope\":{\"scan\":\"epoch1_on\",\"url\":\"https://fixture.invalid/synthetic-object.h5\",\"window\":\"engineering\"},\"type\":\"scope\"},\"index\":1,\"previous_sha256\":\"f0c06959a76856d54f0d5be71fc640219b4ffa9c479a4d4e7867bf1055fcb8c9\",\"sha256\":\"c84ec99b90e470dd88a2f39e64db85648dcf633f120d4fa22fb0734c5527de28\"}\n{\"event\":{\"elapsed_seconds\":0.0,\"outcome\":\"interrupted\",\"type\":\"session_end\"},\"index\":2,\"previous_sha256\":\"c84ec99b90e470dd88a2f39e64db85648dcf633f120d4fa22fb0734c5527de28\",\"sha256\":\"137c0607258ba3cf72235ff524a5f7691a83d56ef2100bfae01df75f9ef132fc\"}\n",
+    "ledger": {
+      "contract_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "policy": "radio-irrevocable-session-reservations-v1",
+      "reservations": [
+        {
+          "created_utc": "2026-09-26T17:38:50.265842+00:00",
+          "ordinal": 0,
+          "prior_ledger_sha256": "80de256d317f6f970c694184a3a7923c704bb02516ed500709ce928d3cbd87ee",
+          "reserved_limits": {
+            "max_bytes": 100,
+            "max_requests": 3,
+            "max_seconds": 30
+          },
+          "session_id": "4c607e23-1ff7-4c2d-a993-eb97963655a5"
+        },
+        {
+          "created_utc": "2026-09-26T17:38:50.266958+00:00",
+          "ordinal": 1,
+          "prior_ledger_sha256": "ddb1d632056ed145a0911ef5672ccb019c0ca24a0039aa7318d5f88c35a49a3b",
+          "reserved_limits": {
+            "max_bytes": 100,
+            "max_requests": 3,
+            "max_seconds": 30
+          },
+          "session_id": "ed9b350d-1c60-43a1-8a29-24b3e7684655"
+        }
+      ],
+      "source_inventory_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "total_limits": {
+        "max_bytes": 200,
+        "max_requests": 6,
+        "max_seconds": 60
+      }
+    },
+    "ledger_sha256": "96e1e1907c7631961f6e5af7e6ffe0979112c693fbdce498bb6dc6c2b77535bb",
+    "replay": {
+      "accepted_bytes": 0,
+      "closed": true,
+      "events": [
+        {
+          "ledger_sha256": "96e1e1907c7631961f6e5af7e6ffe0979112c693fbdce498bb6dc6c2b77535bb",
+          "publication_location": {
+            "kind": "local-fixture",
+            "store": "durable-store"
+          },
+          "publication_revision": "9a14daa8a172133e48d4c093a7c73c6247e57c18",
+          "reservation": {
+            "created_utc": "2026-09-26T17:38:50.266958+00:00",
+            "ordinal": 1,
+            "prior_ledger_sha256": "ddb1d632056ed145a0911ef5672ccb019c0ca24a0039aa7318d5f88c35a49a3b",
+            "reserved_limits": {
+              "max_bytes": 100,
+              "max_requests": 3,
+              "max_seconds": 30
+            },
+            "session_id": "ed9b350d-1c60-43a1-8a29-24b3e7684655"
+          },
+          "type": "session_start"
+        },
+        {
+          "scope": {
+            "scan": "epoch1_on",
+            "url": "https://fixture.invalid/synthetic-object.h5",
+            "window": "engineering"
+          },
+          "type": "scope"
+        },
+        {
+          "elapsed_seconds": 0.0,
+          "outcome": "interrupted",
+          "type": "session_end"
+        }
+      ],
+      "head_sha256": "137c0607258ba3cf72235ff524a5f7691a83d56ef2100bfae01df75f9ef132fc",
+      "reservation_remains_fully_charged": true,
+      "reserved_attempts": 0,
+      "reserved_bytes": 0
+    },
+    "revision": "9a14daa8a172133e48d4c093a7c73c6247e57c18",
+    "telescope_requests": 0
+  }
+}
