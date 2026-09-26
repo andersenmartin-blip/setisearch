@@ -19,8 +19,8 @@ from urllib.request import HTTPRedirectHandler, Request, build_opener
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "config/radio_restart_metadata_20260926.json"
-OUT = ROOT / "results_radio_restart_2026-09-26"
-API = "https://seti.berkeley.edu/opendata/api/"
+OUT = ROOT / "results_radio_restart_2026-09-26/attempt02"
+API = "http://seti.berkeley.edu/opendata/api/"
 
 
 def digest(data):
@@ -54,9 +54,10 @@ class Transport:
 
     def request(self, url, method="GET", headers=None, limit=None):
         parsed = urlparse(url)
-        if parsed.scheme != "https" or parsed.hostname not in {
-            "seti.berkeley.edu", "bldata.berkeley.edu"
-        }:
+        metadata_api = (parsed.scheme == "http" and parsed.hostname == "seti.berkeley.edu"
+                        and parsed.path.startswith("/opendata/api/"))
+        source_object = parsed.scheme == "https" and parsed.hostname == "bldata.berkeley.edu"
+        if not (metadata_api or source_object) or parsed.username or parsed.password:
             raise Stop(f"Unapproved metadata endpoint: {url}")
         limit = self.b["per_json_bytes"] if limit is None else limit
         for attempt in range(1, self.b["attempts_per_request"] + 1):
@@ -295,13 +296,19 @@ def main():
     parser.add_argument("--freeze-commit", required=True)
     args = parser.parse_args()
     cfg = json.loads(CONFIG.read_text())
-    for p in ["scripts/radio_restart_metadata.py", "config/radio_restart_metadata_20260926.json", "RADIO_RESTART_2026-09-26_PROTOCOL.md"]:
+    for p in ["scripts/radio_restart_metadata.py", "config/radio_restart_metadata_20260926.json", "RADIO_RESTART_2026-09-26_PROTOCOL.md", "RADIO_RESTART_2026-09-26_ACCESS_AMENDMENT.md", "results_radio_restart_2026-09-26/metadata_result.json"]:
         if subprocess.check_output(["git","show",args.freeze_commit+":"+p],cwd=ROOT) != (ROOT/p).read_bytes():
             raise Stop("File differs from published freeze: " + p)
     for p,h in cfg["pinned_sha256"].items():
         if digest((ROOT/p).read_bytes()) != h: raise Stop("Pinned input changed: "+p)
     if (OUT/"metadata_result.json").exists(): raise Stop("Result already exists; refuse overwrite")
     transport = Transport(cfg["budgets"], OUT)
+    prior = json.loads((OUT.parent/"metadata_result.json").read_text())
+    if prior["spectral_dataset_values_read"] is not False or prior["transport"]["bytes"] != 0:
+        raise Stop("Unexpected first-attempt boundary")
+    transport.bytes = prior["transport"]["bytes"]
+    transport.requests = prior["transport"]["requests"]
+    transport.start -= prior["transport"]["seconds"]
     result = dict(freeze_commit=args.freeze_commit, source_commit=cfg["source_commit"],
                   utc=datetime.now(timezone.utc).isoformat(), spectral_dataset_values_read=False,
                   runtime={p:importlib.metadata.version(p) for p in ("numpy","h5py")})
