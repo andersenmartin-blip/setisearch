@@ -1,0 +1,109 @@
+{
+  "absolute_epoch_used_by_historical_bank": false,
+  "central_orbit_audit_all_phases": {
+    "blockers": [
+      "eccentricity:not_declared_point_estimate",
+      "mixed_orbital_solutions",
+      "time_scale_unresolved",
+      "omega_body_unresolved",
+      "relative_to_transmitter_axis_unresolved"
+    ],
+    "metadata_consistent": false,
+    "physical_model_qualified": false,
+    "references": [
+      "D_IACUTE_AZ_ET_AL__2016",
+      "ROSENTHAL_ET_AL__2021"
+    ],
+    "required_parameters": [
+      "period",
+      "axis",
+      "eccentricity",
+      "omega"
+    ],
+    "spectral_access_authorized": false
+  },
+  "central_orbit_audit_epoch_anchored": {
+    "blockers": [
+      "eccentricity:not_declared_point_estimate",
+      "mixed_orbital_solutions",
+      "time_scale_unresolved",
+      "omega_body_unresolved",
+      "relative_to_transmitter_axis_unresolved"
+    ],
+    "metadata_consistent": false,
+    "physical_model_qualified": false,
+    "references": [
+      "D_IACUTE_AZ_ET_AL__2016",
+      "RIVERA_ET_AL__2010",
+      "ROSENTHAL_ET_AL__2021"
+    ],
+    "required_parameters": [
+      "period",
+      "axis",
+      "eccentricity",
+      "omega",
+      "periastron_epoch"
+    ],
+    "spectral_access_authorized": false
+  },
+  "eccentricity_semantics": "99% upper credible limit; not a measured central eccentricity",
+  "historical_arithmetic_disposition": "preserved conditional engineering scenario",
+  "historical_scalar_values_unchanged": true,
+  "parameters": {
+    "axis": {
+      "consumed_by_historical_bank": true,
+      "err1": 0.0022,
+      "err2": -0.0022,
+      "limit_flag": 0,
+      "matching_reference_ids": [],
+      "reference": "D_IACUTE_AZ_ET_AL__2016",
+      "reference_basis": "explicit composite reference link",
+      "value": 0.0634
+    },
+    "eccentricity": {
+      "consumed_by_historical_bank": true,
+      "err1": null,
+      "err2": null,
+      "limit_flag": 1,
+      "matching_reference_ids": [],
+      "reference": "D_IACUTE_AZ_ET_AL__2016",
+      "reference_basis": "explicit composite reference link",
+      "value": 0.172
+    },
+    "omega": {
+      "consumed_by_historical_bank": true,
+      "err1": 74.0,
+      "err2": -56.0,
+      "limit_flag": 0,
+      "matching_reference_ids": [
+        "ROSENTHAL_ET_AL__2021"
+      ],
+      "reference": "ROSENTHAL_ET_AL__2021",
+      "reference_basis": "inferred unique value/error/limit tuple among the four retained PS rows",
+      "value": -10.0
+    },
+    "periastron_epoch": {
+      "consumed_by_historical_bank": false,
+      "err1": null,
+      "err2": null,
+      "limit_flag": 0,
+      "matching_reference_ids": [],
+      "reference": "RIVERA_ET_AL__2010",
+      "reference_basis": "explicit composite reference link",
+      "value": 2450366.936
+    },
+    "period": {
+      "consumed_by_historical_bank": true,
+      "err1": 0.00045,
+      "err2": -0.00045,
+      "limit_flag": 0,
+      "matching_reference_ids": [],
+      "reference": "D_IACUTE_AZ_ET_AL__2016",
+      "reference_basis": "explicit composite reference link",
+      "value": 5.77152
+    }
+  },
+  "physical_model_qualified": false,
+  "retained_solution_count": 4,
+  "schema": "radio-orbital-provenance-audit-v1"
+}

@@ -213,10 +213,24 @@ retains ordered role limits under contention and lost replies. No published
 ledger or original contract was changed. The remote v2 protocol is frozen but
 unactivated; five execution blockers and zero telescope reservations remain.
 
-**Latest continuation:** prepare the bounded physical-motion accuracy/coverage
-contract from retained metadata and the existing audit. Identify which orbital
-reference/omega/time conventions, uncertainties, relativistic terms and
-continuous coverage requirements can be resolved, and record exact missing
-information for the rest. Do not rerun the closed phase audit, enlarge/tune a
-bank against failed controls, execute the fresh panel or open spectra. Pointing
-still needs new same-scan provenance. This does not extend the 9 October plan.
+The [bounded motion-contract continuation](RADIO_MOTION_CONTRACT_2026-09-27_RESULT.md)
+is now complete with 20 tests. New primary/reference metadata identify e=0.172
+as a 99% upper credible limit and expose mixed sources in the old snapshot.
+The unchanged bank remains a conditional engineering scenario. One fixed
+scale/phase witness has 112.396874 Hz minimum maximum center mismatch across
+all three ON epochs, even with a free carrier; no detector recovery claim is
+made. The new analytic emitter interpolation bound covers only that conditional
+subcomponent. Full physical accuracy remains blocked with named missing terms.
+Three direct artifact requests used 2,552,106 response bytes; telescope requests,
+reservations and new scientific evaluations remain zero.
+
+**Latest continuation:** implement the frozen remote v2 publication backend
+against an injected GitHub service and isolated service fixtures. Verify pinned
+location, single append, exact parent, concurrent/stale writers, response loss
+and ancestry/read-back. Do not create/activate the telescope namespace, reset
+the exhausted demo, issue a source budget or describe fixture tests as live
+qualification. The orbital-reference lookup and fixed coverage witness are
+closed; further physical work needs the report's specific new inputs or an
+explicit prospective domain/convention contract. No bank expansion, failed
+control tuning, fresh 24-case evaluation or spectrum opening. Pointing still
+needs genuinely new same-scan provenance. Closure remains 9 October.

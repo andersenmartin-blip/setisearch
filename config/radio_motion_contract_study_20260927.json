@@ -1,0 +1,70 @@
+{
+  "acquisition_limits": {
+    "automatic_retries": 0,
+    "max_initial_requests": 3,
+    "max_total_response_bytes": 8912896,
+    "per_request_timeout_seconds": 40
+  },
+  "bank_policy": "Keep all existing templates unchanged; a negative coverage witness may use a predeclared non-bank hypothesis, never become a new search template",
+  "coverage_witness": {
+    "free_carrier_policy": "Unconstrained positive physical carrier q in q*F_template; exact finite-time minimax relaxation of the actual carrier grid",
+    "frequency_hz": 1500000000.0,
+    "phase_cycles": 0.28125,
+    "projected_scale": 0.25,
+    "purpose": "One fixed midpoint of missing scale and phase cells under the historical e=0.172 working scenario; counterexample only",
+    "reporting_tolerance_channels": 0.5,
+    "reporting_tolerance_is_detector_gate": false,
+    "scope_note": "Diagnostic restrictions of the same predeclared witness, not independent test cases or detector recovery",
+    "scopes": [
+      "all_three_on_epochs",
+      "on_epochs_1_2",
+      "on_epochs_1_3",
+      "on_epochs_2_3"
+    ]
+  },
+  "input_sha256": {
+    "config/radio_direct_factors_engineering_20260926.json": "7a386e7e0aa5120befefab90126807c5e33cb6ce1e2d63ebb138b447f5087c67",
+    "config/radio_hd1461_source_preparation_20260926.json": "c434c6f0615dfec165512195dcae888d8aa4b33a29efdb5037895ba5530d8bcb",
+    "results_radio_acquisition_2026-09-26/published_fixture_ledger.json": "b77c59e4e1772b27ef7c170bb1c08d1f6c7483d1f12a6c5a0a0deedfca82fd83",
+    "results_radio_direct_factors_2026-09-26/factor_banks.json.gz": "947cb6ecba42f6bcbe749e954107f670c0e13ab17347c11d9e37f60eee9da4d6",
+    "results_radio_execution_envelope_2026-09-27/execution_envelope.json": "80623e8d5025ba5cf55599f1697ad9e477ce8ceb8d4ee9e8ef7a446a63478847",
+    "results_radio_execution_envelope_2026-09-27/resource_ledger_genesis.json": "ba0813ad1936708f2db11d47dc4c587499e6d93b03e8d13c7a347207f19f9b6a",
+    "results_radio_motion_2026-09-26/clock.json": "b9efad68cd18beddec35cadae1a40c59e2af2c6328df7f3662e78a07d184783f",
+    "results_radio_motion_2026-09-26/result.json": "b1979b1932ce8deeae13c87e00c2f813a41aeddab276b9e3646efedb85f8000a",
+    "results_radio_motion_contract_2026-09-27/acquisition.json": "fc8cc8f7ac64a1a28ccf9fdeaf2e1c95f73749c72de73a7493854312e24b4915",
+    "results_radio_motion_contract_2026-09-27/composite_limits.json": "60ddab094487ced127fe48958281f6450edc5807f2cbd43f43d08e6547d40d56",
+    "results_radio_motion_contract_2026-09-27/orbital_solutions.json": "f2d32093c3a82380749221644f2570fb77666b40c2f0c2f6e1836440487d4b04",
+    "results_radio_motion_contract_2026-09-27/primary_orbital_facts.json": "8d3ebba1b56fc1e91e67d5f07c0a2ed9200ce52348356d8ce393ebc095bcd0f4",
+    "results_radio_restart_2026-09-26/astrometry/official_response.json": "5aa6e128aedae514d0bbfd1353eea76c336920c38979797881fa9ac0232b666a",
+    "src/seti_repeater/motion_radio.py": "b59083def4ee7404515c85bc3bb2f61b42aa91ca981b75f7b6d7e0a665439698"
+  },
+  "physical_bank_adoption_authorized": false,
+  "physical_parameter_policy": "No composite central solution, no limit as point estimate, no marginal error as guaranteed joint bound",
+  "purpose": "resolve orbital limit/reference semantics and bound continuous coverage; no spectrum or new bank",
+  "requests": [
+    {
+      "max_bytes": 262144,
+      "name": "orbital_solutions",
+      "output": "orbital_solutions.json",
+      "query": "select pl_name,pl_orbper,pl_orbpererr1,pl_orbpererr2,pl_orbperlim,pl_orbsmax,pl_orbsmaxerr1,pl_orbsmaxerr2,pl_orbsmaxlim,pl_orbeccen,pl_orbeccenerr1,pl_orbeccenerr2,pl_orbeccenlim,pl_orbtper,pl_orbtpererr1,pl_orbtpererr2,pl_orbtperlim,pl_orblper,pl_orblpererr1,pl_orblpererr2,pl_orblperlim,pl_refname,pl_tsystemref,default_flag,soltype,pl_pubdate from ps where pl_name='HD 1461 b' order by pl_pubdate",
+      "url": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+pl_name%2Cpl_orbper%2Cpl_orbpererr1%2Cpl_orbpererr2%2Cpl_orbperlim%2Cpl_orbsmax%2Cpl_orbsmaxerr1%2Cpl_orbsmaxerr2%2Cpl_orbsmaxlim%2Cpl_orbeccen%2Cpl_orbeccenerr1%2Cpl_orbeccenerr2%2Cpl_orbeccenlim%2Cpl_orbtper%2Cpl_orbtpererr1%2Cpl_orbtpererr2%2Cpl_orbtperlim%2Cpl_orblper%2Cpl_orblpererr1%2Cpl_orblpererr2%2Cpl_orblperlim%2Cpl_refname%2Cpl_tsystemref%2Cdefault_flag%2Csoltype%2Cpl_pubdate+from+ps+where+pl_name%3D%27HD+1461+b%27+order+by+pl_pubdate&format=json"
+    },
+    {
+      "max_bytes": 262144,
+      "name": "composite_limits",
+      "output": "composite_limits.json",
+      "query": "select pl_name,pl_orbper,pl_orbpererr1,pl_orbpererr2,pl_orbperlim,pl_orbsmax,pl_orbsmaxerr1,pl_orbsmaxerr2,pl_orbsmaxlim,pl_orbeccen,pl_orbeccenerr1,pl_orbeccenerr2,pl_orbeccenlim,pl_orbtper,pl_orbtpererr1,pl_orbtpererr2,pl_orbtperlim,pl_orblper,pl_orblpererr1,pl_orblpererr2,pl_orblperlim,pl_orbper_reflink,pl_orbsmax_reflink,pl_orbeccen_reflink,pl_orbtper_reflink from pscomppars where pl_name='HD 1461 b'",
+      "url": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+pl_name%2Cpl_orbper%2Cpl_orbpererr1%2Cpl_orbpererr2%2Cpl_orbperlim%2Cpl_orbsmax%2Cpl_orbsmaxerr1%2Cpl_orbsmaxerr2%2Cpl_orbsmaxlim%2Cpl_orbeccen%2Cpl_orbeccenerr1%2Cpl_orbeccenerr2%2Cpl_orbeccenlim%2Cpl_orbtper%2Cpl_orbtpererr1%2Cpl_orbtpererr2%2Cpl_orbtperlim%2Cpl_orblper%2Cpl_orblpererr1%2Cpl_orblpererr2%2Cpl_orblperlim%2Cpl_orbper_reflink%2Cpl_orbsmax_reflink%2Cpl_orbeccen_reflink%2Cpl_orbtper_reflink+from+pscomppars+where+pl_name%3D%27HD+1461+b%27&format=json"
+    },
+    {
+      "max_bytes": 8388608,
+      "name": "diaz2016_paper",
+      "output": "diaz2016.pdf",
+      "publication_policy": "scratch only, retained metadata/hash plus factual table transcription; do not republish full paper",
+      "url": "https://arxiv.org/pdf/1510.06446"
+    }
+  ],
+  "schema": "radio-motion-contract-study-v1",
+  "source_commit": "0af377cbb7b385b86c5951e6feeb6bcdbdf12be9",
+  "spectral_access_authorized": false
+}

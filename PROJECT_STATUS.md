@@ -1,5 +1,40 @@
 # SETIsearch — current project status
 
+## 27 September: orbital-limit correction and bounded coverage contract complete
+
+The [motion-contract continuation is complete](RADIO_MOTION_CONTRACT_2026-09-27_RESULT.md).
+**Twenty new tests pass.** New official orbital-reference/limit metadata and
+Díaz et al. Table 5 establish that the historical e=0.172 is a **99% upper
+credible limit**, not a central eccentricity. The small snapshot combines three
+publications; P/a/e/omega actually consumed by the direct bank combine two.
+Its old free-phase arithmetic remains conditional engineering, with no adopted
+physical orbit. The archived periastron epoch is not used by that bank.
+
+One locally fixed scale/phase witness, tested against all unchanged 33 templates
+with a freely optimized carrier, has minimum maximum center error 112.396874 Hz
+(39.639125 channels) over the three ON epochs. Pairwise ON restrictions retain
+22.45–39.64-channel errors. This refutes half-channel center coverage under the
+historical conditional model; it is not a detector recovery result or a new
+detector gate. No bank was enlarged, no old phase audit or failed controls rerun.
+A conditional analytical emitter-only interpolation bound is 0.016098917 Hz;
+missing full physical/error terms stay null rather than becoming a false total.
+
+The three direct metadata artifact requests used 2,552,106 response bytes.
+Zero telescope requests/reservations or evaluation exposures were added. All
+five execution blockers, the original preparation contract, exhausted demo
+ledger and empty telescope genesis remain unchanged. Source pointing still
+requires genuinely new same-scan provenance; no pointing investigation was
+repeated or coordinate changed.
+
+**Exact next autonomous engineering:** implement the already frozen remote v2
+ledger backend using an injected GitHub service and isolated service fixtures:
+pinned location, single append, exact parent, stale head, competing writers,
+lost response and ancestry/read-back checks. Do not activate/create a telescope
+namespace, reuse/reset the closed demo, issue a source budget or call mocked
+tests live qualification. The new report lists the precise missing physical
+inputs; do not repeat the now-closed orbital lookup or coverage witness as
+progress. The fresh 24-case panel and all spectra remain unopened.
+
 ## 27 September: local codec/direct boundary and publication policy complete
 
 The [codec/publication continuation is complete](RADIO_CODEC_PUBLICATION_2026-09-27_RESULT.md).
@@ -21,13 +56,10 @@ No telescope request, opened spectrum, calibration transfer or fresh 24-case
 evaluation was performed. The preparation contract, exhausted demo ledger and
 zero-reservation telescope genesis retain their exact published hashes.
 
-**Exact next autonomous preparation:** the bounded physical-motion accuracy
-and coverage contract described in the new report: resolve or explicitly bound
-missing orbital-reference/omega/time conventions, uncertainty, relativistic
-terms and continuous-bank coverage using retained metadata first. Do not rerun
-the closed 2048-phase audit or tune the failed controls. A qualified physical
-bank must not be inferred from successful arithmetic. Same-scan pointing
-provenance is still required; the source remains selected and spectra held.
+The bounded physical-motion accuracy/coverage contract is now complete in the
+newer section above; follow its continuation. Successful arithmetic still does
+not establish a qualified physical bank. Same-scan pointing provenance remains
+required; the source stays selected and spectra held.
 
 ## 27 September: prospective execution envelope frozen, still blocked
 

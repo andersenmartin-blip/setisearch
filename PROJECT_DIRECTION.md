@@ -11,14 +11,26 @@ hours. Existing scientific and publication boundaries remain in force.
 
 The [26 September–9 October plan](RADIO_TWO_WEEK_PLAN_2026-09-26.md) has now
 started with a completed [integrated restart/metadata package](RADIO_RESTART_2026-09-26_RESULT.md).
-The latest [local codec/publication continuation](RADIO_CODEC_PUBLICATION_2026-09-27_RESULT.md)
+The latest [motion provenance/coverage contract](RADIO_MOTION_CONTRACT_2026-09-27_RESULT.md)
+is complete with 20 new tests. The historical e=0.172 is a 99% upper credible
+limit, not central eccentricity, and the bank's consumed orbital scalars mix
+two solutions. Preserve the old arithmetic as conditional engineering. One
+fixed witness exceeds half-channel center coverage even with a free carrier;
+this does not measure detector recovery. Complete physical error terms remain
+unqualified; no old bank, failed panel, ledger or preparation gate was changed.
+Continue with the already specified remote v2 backend against isolated service
+fixtures, keeping the live telescope namespace unactivated. Do not repeat the
+closed orbital-reference lookup/witness or create new templates. See the newest
+PROJECT_STATUS.md section for exact boundaries and missing physical evidence.
+
+The [local codec/publication continuation](RADIO_CODEC_PUBLICATION_2026-09-27_RESULT.md)
 is complete: 24 new tests, receipt-bound gzip/bitshuffle sources, bit-exact direct
 scores and an append-only v2 store guard. It demonstrates and closes a local
 policy gap: the low-level CAS primitive alone could accept a coherent ledger
 reset. Published ledgers remain unchanged; the future remote-store specification
-is pinned but unactivated. Continue with the report's bounded physical-motion
-accuracy/coverage contract using retained metadata first. Do not rerun closed
-motion audits, tune failed controls or infer a physical bank from arithmetic.
+is pinned but unactivated. Its physical-motion accuracy/coverage continuation
+is now complete above. Do not rerun closed motion audits, tune failed controls
+or infer a physical bank from arithmetic.
 All five execution blockers remain, and no new telescope spectrum was opened.
 The [prospective execution envelope](RADIO_EXECUTION_ENVELOPE_2026-09-27_RESULT.md)
 now binds runtime, local codec evidence, direct-factor arithmetic, the three
