@@ -21,6 +21,29 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+## 27 September: conditional temporal remainder certified; execution still blocked
+
+The [new remainder and integration result](https://github.com/andersenmartin-blip/setisearch/blob/c2cc41e3b27b2de9bc6b1111a4b7a10a33943ab9/RADIO_TEMPORAL_MAJORANT_2026-09-27_RESULT.md)
+passes **14 new tests**, completing four connected studies with **58 distinct
+new tests**. Exact rational bounds give degree-5/6 temporal remainders below
+**0.458764711 / 0.057497818 Hz** at 1500 MHz across the declared cadence extent.
+These are uniform bounds for the explicitly conditional retarded emitter model;
+no polynomial, template, bank, telescope spectrum or control was generated.
+
+A short conditional representation does not establish a feasible coefficient
+bank, actual-source physics, observer/clock/instrument corrections or recovery.
+The integration review preserves all five blockers, the empty telescope ledger,
+closed synthetic ledger and unopened 24-case panel. The unchanged old factor
+pipeline cannot be certified using the new model's small truncation bound.
+
+This conditional investigation is now complete. The actual HD1461 pilot still
+needs genuinely new same-scan pointing provenance, evidence-backed physical
+support and complete time/frame/error allowances, plus independently durable
+live admission and transport evidence. Reopen engineering for a specific new
+input or concrete implementation risk; do not repeat checks or enlarge the
+conditional model as routine progress. The target, primary neighbor9 and all
+previous dispositions remain fixed. Period consolidation is **9 October**.
+
 ## 27 September: continuous motion derivatives and a covering-cost limit
 
 The [new covering study](https://github.com/andersenmartin-blip/setisearch/blob/5ef2667a1aa24bf79a8b2dc6373efea7204121ac/RADIO_MOTION_COVERING_2026-09-27_RESULT.md)
@@ -30,8 +53,8 @@ would require about 4.333e36 nodes; **this is not a minimum bank size or an
 impossibility proof**. No grid, template or spectrum was generated.
 
 The connected domain/time/coverage work now contains 44 distinct new tests.
-Next is a bounded analytic study of temporal polynomial remainder bounds, to
-assess a compact track representation without adopting a bank. The original
+That bounded temporal polynomial remainder study is now completed above,
+assessing compact representation without adopting a bank. The original
 pointing hold, five blockers, ledgers and unopened controls remain unchanged;
 the plan still ends on **9 October**.
 
