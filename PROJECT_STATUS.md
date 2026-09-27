@@ -1,5 +1,32 @@
 # SETIsearch — current project status
 
+## 27 September: selected public directory route closed without original provenance
+
+A [new directory-level check](RADIO_DIRECTORY_PROVENANCE_2026-09-27_RESULT.md)
+examined the two publicly linked subdirectories of AGBT16A_999_189, without
+opening any product. All **78 listed files** have .h5 names; nine match the
+three selected ON scans, including all three pinned fine-resolution URLs.
+No RAW/FIL or log/header/conversion sidecar is listed. This limited absence in
+two indexes does not establish that originals are absent elsewhere.
+
+Three direct HTML GETs consumed 14,089 bytes. Three prior web-reader opens
+have unknown wire totals and are separately recorded. Raw child-index bodies,
+complete hrefs, transport receipts and an independent offline inventory check
+are retained. Fifteen prior input pins are unchanged. No telescope product,
+header in a data file, spectrum, reservation or scientific trial was opened.
+
+**Exact continuation:** close this particular directory route; do not repeat its
+unchanged indexes or count the derived HDF5 products as original provenance.
+The next pointing input remains a same-scan RAW/FIL header, observing/GO record
+or file-specific conversion proof for AGBT16A_999_189 ON 0015/0017/0019.
+The unsent retrieval specification already lists the exact requirements;
+external contact is outside the current instructions. A genuinely new public
+original-record link or supplied record may reopen a bounded investigation.
+No unblocked telescope step is established. The source/observer physics and
+independent live admission requirements, all five blockers, HD1461, neighbor9
+and all earlier dispositions persist. Do not invent generic engineering work or
+repeat empty checks. Period consolidation remains 9 October.
+
 ## 27 September: score reconstruction gap guarded; local restart verified
 
 A [new score-handoff package](RADIO_SCORE_HANDOFF_2026-09-27_RESULT.md) addresses
