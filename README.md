@@ -21,6 +21,21 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+## 27 September: selected public directory route checked; pointing still unresolved
+
+The [session-directory investigation](https://github.com/andersenmartin-blip/setisearch/blob/b2ad32adf074b3ac85be92838f8b1a4348f6ab51/RADIO_DIRECTORY_PROVENANCE_2026-09-27_RESULT.md)
+retains both public indexes for AGBT16A_999_189. Their **78 file links all end
+in .h5**; nine match the three selected ON scans. No original RAW/FIL or
+log/header/conversion sidecar is listed. No product, data-file header or spectrum
+was opened. This is a limited archive-route result, not pointing qualification
+or proof that originals are absent elsewhere.
+
+This particular route is now closed. Further pointing work needs an original
+same-scan record or documented file-specific conversion for ON 0015/0017/0019.
+The exact retrieval specification remains unsent under the no-external-contact
+instruction. All five execution blockers, the target, neighbor9, prior
+dispositions and the 9 October consolidation remain unchanged.
+
 ## 27 September: reconstructed scores guarded and local restart verified
 
 A [new score-handoff result](https://github.com/andersenmartin-blip/setisearch/blob/dd71ae925bcb254c35c94a96f4435886e5a017bb/RADIO_SCORE_HANDOFF_2026-09-27_RESULT.md)
