@@ -1,5 +1,28 @@
 # SETIsearch — current project status
 
+## 27 September: conditional emission-time and Doppler terms bounded
+
+The [time-transfer continuation](RADIO_TIME_TRANSFER_2026-09-27_RESULT.md) passes
+**15 new tests**. For the published conditional domain, all-phase bounds give
+0.962743 s of varying orbital delay and, at 1500 MHz, 10.954242 Hz for wrong
+clock use, 21.919242 Hz for reciprocal versus first-order Doppler, and 10.959621 Hz
+for the normalized transverse term. Their 43.833105-Hz sum bounds only a fixed-
+LOS stationary-receiver emitter comparison; full physical error remains null.
+
+Four fixed scalar endpoint examples retain every signed contribution, spanning
+-12.286907 to +3.439298 Hz combined difference. They are equation examples,
+not bank coverage, telescope evidence or detector-recovery cases. Independent
+bisection/fixed-point and Decimal checks pass. No new template, old phase sweep,
+control or spectrum was evaluated. All twelve pinned old inputs remain intact.
+
+**Exact continuation:** derive continuous-parameter sensitivities for the
+conditional retarded proper-frequency model, including implicit emission time,
+and calculate a sufficient covering cost without constructing templates. Use
+periodic-angle distances; do not mistake a loose sufficient grid for a necessary
+minimum or measured runtime. No physical adoption, confidence claim, width
+change or control tuning. Full error, all five blockers and the same-scan
+pointing hold persist. The original plan still closes on 9 October.
+
 ## 27 September: conditional motion-domain and convention declaration complete
 
 The [prospective phase-agnostic declaration](RADIO_PHASE_DOMAIN_2026-09-27_RESULT.md)
@@ -16,7 +39,7 @@ witness was evaluated. All nine pinned old inputs and all five execution
 blockers are unchanged. The single test run and three scalar axis examples are
 retained. This completes the declaration, not physical motion qualification.
 
-**Exact continuation:** proceed to conditional source-time/Doppler error and
+**Time-transfer continuation completed above; continue with covering bounds:** proceed to conditional source-time/Doppler error and
 continuous parameter sensitivity bounds using this declared support. Derive
 varying light-travel delay and proper/coordinate frequency distinctions; test
 new equations against independent scalar oracles. Do not adopt real-source

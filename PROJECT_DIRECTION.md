@@ -11,6 +11,15 @@ hours. Existing scientific and publication boundaries remain in force.
 
 The [26 September–9 October plan](RADIO_TWO_WEEK_PLAN_2026-09-26.md) has now
 started with a completed [integrated restart/metadata package](RADIO_RESTART_2026-09-26_RESULT.md).
+The latest [conditional emission-time/Doppler continuation](RADIO_TIME_TRANSFER_2026-09-27_RESULT.md)
+passes 15 new tests. Varying orbital delay and normalized reciprocal/transverse
+terms are now bounded separately in a declared stationary-receiver setting.
+The 43.833105-Hz conditional emitter comparison bound is not total physical
+error; the real-source/observer/systemic/clock/instrument terms stay unresolved.
+Continue directly with analytic continuous-parameter sensitivity and sufficient
+covering-cost bounds for this retarded model, without templates or detector
+execution. The 16-test phase-domain declaration is complete and immutable.
+
 The latest [conditional phase-domain declaration](RADIO_PHASE_DOMAIN_2026-09-27_RESULT.md)
 passes 16 new tests. It declares finite conditional P/a/e support and all phases/
 orientations, separates relative/emitter/projected axes and received/emitted
