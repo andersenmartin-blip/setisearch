@@ -21,7 +21,26 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
-## 26 September: cross-window identities and fresh controls frozen
+## 27 September: execution envelope frozen; five gates remain blocked
+
+The [HD 1461 execution-envelope package](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_EXECUTION_ENVELOPE_2026-09-27_RESULT.md)
+now binds the exact three-window identities, fresh 24-case panel, blocked source
+contract, runtime, local codec evidence, direct-factor arithmetic and cumulative
+resource limits. **Thirteen new tests pass.** Seven preparation gates are bound;
+five remain false: pointing provenance, telescope codec-to-direct handoff,
+physical motion-bank qualification, numeric cross-window transfer and the
+unexecuted recovery/RFI/null panel. Status remains **BLOCKED** and no telescope
+values were opened.
+
+A new empty resource namespace permits one ordered 512 MiB session for each of
+calibration, validation and pilot, with a 1.5 GiB cumulative cap. It is not a
+reset or child of the exhausted synthetic demonstration ledger. The work found
+that the v1 ledger could not represent the three-session total because it reused
+a single-session ceiling. A v2 role ledger and local fsync/atomic CAS controller
+now pass full-cap, wrong-order, stale-parent and ambiguous-publication tests;
+they issue no network budget and the namespace is not activated.
+
+## Earlier 26 September: cross-window identities and fresh controls frozen
 
 The [cross-window calibration-contract package](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_CROSS_WINDOW_CONTRACT_2026-09-26_RESULT.md)
 now hash-binds the proposed calibration, validation and pilot roles: **18 decoded
@@ -35,10 +54,9 @@ A new, unexecuted control freeze has three fresh calibration identities and
 matched ON/OFF interference and broad adjacent-OFF cases. Every final member
 and cluster must be retained; detector widths 65 and 129 have explicit zero
 gates for unassociated leakage. The prior 13-member control failure remains
-closed development evidence and was neither rerun nor tuned. Next work binds
-positive codec/runtime, a qualified motion bank and the cumulative resource
-ledger into a prospective execution envelope. Pointing provenance is still
-unresolved, so no telescope values were opened.
+closed development evidence and was neither rerun nor tuned. The subsequent execution envelope is published above. Pointing provenance,
+telescope codec handoff, physical motion, numeric transfer and the frozen panel
+remain unresolved, so no telescope values were opened.
 
 ## Earlier 26 September: direct downstream connector complete; control gate fails
 
