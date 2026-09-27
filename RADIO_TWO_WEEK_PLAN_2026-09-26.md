@@ -200,6 +200,23 @@ new v2 ordered-role ledger separates valid 512 MiB session caps from the 1.5 GiB
 three-session cumulative cap; the old exhausted synthetic ledger is not reset.
 Local durable v2 reservation/controller integration now passes fsync/CAS,
 wrong-order, stale-parent and ambiguous-publication tests without a network
-budget. Continue with a fixture-only codec-to-direct receipt boundary and pin
-the publication-store protocol without activating it. Do not execute the frozen panel,
+budget. The fixture-only codec-to-direct receipt boundary and pinned
+publication-store protocol are now complete as described below. Do not execute the frozen panel,
 adopt a physical motion bank or qualify numeric transfer from missing evidence.
+
+The [local codec/publication package](RADIO_CODEC_PUBLICATION_2026-09-27_RESULT.md)
+now passes 24 tests. Twelve local codec receipts feed the direct score store;
+1,634,496 normalized and 14,112 score cells agree bit-for-bit with independent
+references. This is one synthetic cadence encoded with two codecs. The new
+publication guard closes a demonstrated low-level reset/rebinding gap and
+retains ordered role limits under contention and lost replies. No published
+ledger or original contract was changed. The remote v2 protocol is frozen but
+unactivated; five execution blockers and zero telescope reservations remain.
+
+**Latest continuation:** prepare the bounded physical-motion accuracy/coverage
+contract from retained metadata and the existing audit. Identify which orbital
+reference/omega/time conventions, uncertainties, relativistic terms and
+continuous coverage requirements can be resolved, and record exact missing
+information for the rest. Do not rerun the closed phase audit, enlarge/tune a
+bank against failed controls, execute the fresh panel or open spectra. Pointing
+still needs new same-scan provenance. This does not extend the 9 October plan.

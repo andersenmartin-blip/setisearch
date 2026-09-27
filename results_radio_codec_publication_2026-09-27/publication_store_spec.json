@@ -1,0 +1,32 @@
+{
+  "backend_boundary": "specification only; remote v2 backend not implemented or qualified here",
+  "closed_demo_reused_or_reset": false,
+  "genesis_sha256": "cd1eac7585fc201dd241ec858b128b75d23ca76736b53108c092a7413dea2ff5",
+  "initialization": "requires a separately published gate-qualified activation; never implicit",
+  "ledger_encoding": "SHA256 of sorted compact UTF-8 JSON, allow_nan=false, no newline",
+  "local_backend": "BoundRoleStore over fsynced LocalRoleStore; independently pinned location",
+  "location": {
+    "branch": "m43-support-qualification",
+    "kind": "github",
+    "path": "results_radio_hd1461_live_v2/resource_ledger.json",
+    "repository": "andersenmartin-blip/setisearch"
+  },
+  "network_budget_issued": false,
+  "publish": [
+    "require caller-held expected branch head and ledger SHA256",
+    "verify pinned repository/branch/path, resource contract, inventory and genesis",
+    "validate full v2 ledger and exact single-append transition",
+    "create tree changing only the pinned ledger path from expected head tree",
+    "create commit with exactly expected branch head as sole parent",
+    "update that branch with force=false; any divergent head refuses publication",
+    "read back committed ledger and current branch ancestry, checking exact content"
+  ],
+  "read": "read branch head and tree; read ledger at that exact commit; missing ledger is fatal",
+  "resource_contract_sha256": "9d238c25f0769f2ea8f6cef55f30a5560dd9eacff7c4cd7acdf64cefb1ef7737",
+  "schema": "radio-v2-github-publication-store-spec-v1",
+  "source_inventory_sha256": "92f877c4041e3a6150273cf108fd3b13ab8394c80c1b817e37d1f6b02a5a66b8",
+  "status": "FROZEN_NOT_ACTIVATED",
+  "telescope_namespace_activated": false,
+  "transition": "exactly one ordered full-role append; same root and exact old prefix",
+  "uncertainty": "stop on any ambiguous outcome; no automatic retry, refund or activation"
+}

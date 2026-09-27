@@ -1,5 +1,34 @@
 # SETIsearch — current project status
 
+## 27 September: local codec/direct boundary and publication policy complete
+
+The [codec/publication continuation is complete](RADIO_CODEC_PUBLICATION_2026-09-27_RESULT.md).
+**Twenty-four new tests pass.** Twelve receipt-bound local sources, using actual
+gzip and bitshuffle/LZ4 decoding, reach the direct-native score store. The new
+boundary matches 1,634,496 normalization cells and 14,112 score cells bit-for-bit
+against independent references. This is one synthetic cadence encoded twice,
+not a scientific control panel or additional observing evidence.
+
+A new test demonstrates that the old local CAS primitive's direct `publish`
+method permits an internally coherent ledger reset. The new guarded store binds
+the location/resource/genesis and permits only one ordered append. Reset,
+identity replacement, competing same-parent writers and lost-reply/stale-retry
+cases are covered. No published ledger was reset. A future GitHub v2 store
+specification is frozen; its namespace is not activated or created.
+
+The original execution envelope remains immutable with **five blockers**.
+No telescope request, opened spectrum, calibration transfer or fresh 24-case
+evaluation was performed. The preparation contract, exhausted demo ledger and
+zero-reservation telescope genesis retain their exact published hashes.
+
+**Exact next autonomous preparation:** the bounded physical-motion accuracy
+and coverage contract described in the new report: resolve or explicitly bound
+missing orbital-reference/omega/time conventions, uncertainty, relativistic
+terms and continuous-bank coverage using retained metadata first. Do not rerun
+the closed 2048-phase audit or tune the failed controls. A qualified physical
+bank must not be inferred from successful arithmetic. Same-scan pointing
+provenance is still required; the source remains selected and spectra held.
+
 ## 27 September: prospective execution envelope frozen, still blocked
 
 The [HD 1461 execution-envelope package is complete](RADIO_EXECUTION_ENVELOPE_2026-09-27_RESULT.md).
@@ -23,10 +52,9 @@ fsync/atomic compare-and-swap controller now also refuses wrong order and stale
 parents and preserves a reservation when the publication response is lost. It
 issues no network budget; the telescope namespace remains frozen and unactivated.
 
-**Exact next autonomous engineering:** specify and test the permitted local
-codec-receipt-to-direct-input boundary without calling it telescope evidence,
-and pin the v2 publication-store protocol without activating the namespace.
-The five scientific/transport blockers remain unchanged.
+That local codec-receipt/direct-input boundary and the v2 publication-store
+protocol are now complete in the newer section above. The five scientific/
+transport blockers remain unchanged; follow the newer continuation.
 
 ## 26 September: cross-window identities and fresh controls frozen
 

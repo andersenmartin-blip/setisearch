@@ -11,6 +11,15 @@ hours. Existing scientific and publication boundaries remain in force.
 
 The [26 September–9 October plan](RADIO_TWO_WEEK_PLAN_2026-09-26.md) has now
 started with a completed [integrated restart/metadata package](RADIO_RESTART_2026-09-26_RESULT.md).
+The latest [local codec/publication continuation](RADIO_CODEC_PUBLICATION_2026-09-27_RESULT.md)
+is complete: 24 new tests, receipt-bound gzip/bitshuffle sources, bit-exact direct
+scores and an append-only v2 store guard. It demonstrates and closes a local
+policy gap: the low-level CAS primitive alone could accept a coherent ledger
+reset. Published ledgers remain unchanged; the future remote-store specification
+is pinned but unactivated. Continue with the report's bounded physical-motion
+accuracy/coverage contract using retained metadata first. Do not rerun closed
+motion audits, tune failed controls or infer a physical bank from arithmetic.
+All five execution blockers remain, and no new telescope spectrum was opened.
 The [prospective execution envelope](RADIO_EXECUTION_ENVELOPE_2026-09-27_RESULT.md)
 now binds runtime, local codec evidence, direct-factor arithmetic, the three
 window identities, fresh controls and a new empty cumulative resource namespace.
@@ -21,8 +30,9 @@ the cumulative value. The envelope remains BLOCKED by pointing provenance,
 telescope codec handoff, physical motion qualification, numeric cross-window
 transfer and the unexecuted recovery/RFI/null panel. Local durable v2
 reservation integration now passes wrong-order, stale-parent and ambiguous-
-publication tests without issuing a network budget. Continue with a fail-closed
-local codec-receipt adapter and publication-store protocol; do not open spectra.
+publication tests without issuing a network budget. Its local codec adapter
+and publication-store protocol are now completed by the continuation above;
+do not open spectra.
 A new [cross-window identity contract and fresh control freeze](RADIO_CROSS_WINDOW_CONTRACT_2026-09-26_RESULT.md)
 now bind all three proposed roles, 18 decoded payload identities and 12
 normalization blocks. Thirteen tests pass. Exact-context certificate reuse and
@@ -78,8 +88,8 @@ intended track is vetoed. The bounded diagnosis attributes this to one-epoch
 strong-signal intersection plus just-over-floor noise support in another epoch;
 no implementation repair or retuning is claimed.
 The identity-bound disjoint-window calibration contract, fresh control freeze
-and blocked execution envelope are now complete. Continue with a fail-closed
-local codec receipt adapter; numeric transfer and panel execution remain
+and blocked execution envelope are now complete. The local codec receipt
+adapter is now complete as reported above; numeric transfer and panel execution remain
 blocked. Preserve the failed case as exposed development evidence. Seek
 genuinely new pointing evidence; the new official
 operator-log route required NRAO sign-on and supplied no scan record. The
