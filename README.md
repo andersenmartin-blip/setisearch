@@ -21,6 +21,20 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+## 27 September: continuous motion derivatives and a covering-cost limit
+
+The [new covering study](https://github.com/andersenmartin-blip/setisearch/blob/5ef2667a1aa24bf79a8b2dc6373efea7204121ac/RADIO_MOTION_COVERING_2026-09-27_RESULT.md)
+passes **13 new tests**. Six global parameter derivatives now include the
+implicit emission-time change. One simple sufficient Cartesian construction
+would require about 4.333e36 nodes; **this is not a minimum bank size or an
+impossibility proof**. No grid, template or spectrum was generated.
+
+The connected domain/time/coverage work now contains 44 distinct new tests.
+Next is a bounded analytic study of temporal polynomial remainder bounds, to
+assess a compact track representation without adopting a bank. The original
+pointing hold, five blockers, ledgers and unopened controls remain unchanged;
+the plan still ends on **9 October**.
+
 ## 27 September: conditional timing and Doppler errors quantified
 
 The [new source-time/Doppler study](https://github.com/andersenmartin-blip/setisearch/blob/bd7b801c0329e2f49c843124014b3c39d88b8d32/RADIO_TIME_TRANSFER_2026-09-27_RESULT.md)
@@ -31,8 +45,8 @@ stationary-receiver emitter comparison. This is **not a total physical error
 bound**. Four fixed scalar examples retain combined differences from -12.286907
 to +3.439298 Hz; they are not telescope measurements or detector tests.
 
-Work continues directly on continuous-parameter sensitivity and sufficient
-covering cost, without making templates. The pointing hold, all five execution
+The continuous-parameter sensitivity/count study is now completed above,
+without making templates. The pointing hold, all five execution
 blockers, closed ledgers and unopened evaluations remain unchanged. The plan
 still closes on **9 October**.
 
