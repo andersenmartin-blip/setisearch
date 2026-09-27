@@ -21,6 +21,28 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+## 27 September: bounded rehearsal contract and crash journal completed
+
+The [new preparation package](https://github.com/andersenmartin-blip/setisearch/blob/ef0827036b16952808a09a65bad910b3e29577e9/RADIO_REHEARSAL_CONTRACT_2026-09-27_RESULT.md)
+passes **25 new tests**, including actual process exits before and after a
+simulated write. Each call is journaled before dispatch; lost replies, budget
+vetoes and restart preserve spent allowances. Read-only recovery grants no new
+dispatch rights. Both development runs and their full evidence/source snapshots
+are retained, without counting repeated cases as independent results.
+
+A separate inactive model/grant namespace and a proposed **160-tool-call /
+32-MiB returned-text / 1,200-second** envelope are now pinned. These are not active
+grants or HTTP wire limits. The connector does not expose HTTP status/version,
+internal retries, numeric pre-decode caps or transport cancellation; local fsync
+does not establish recovery after loss of scratch or cross-machine ownership.
+
+No live ledger namespace, remote grant, telescope reservation or spectrum was
+opened. All five science blockers and the same-scan pointing hold remain. The
+next engineering unit is offline typed connector/phase-ownership/recovery
+integration, including bootstrap and closure within the same finite budget.
+Its evidence and explicit transport disposition must be published before live
+activation. The two-week plan still ends on **9 October**.
+
 ## 27 September: remote ledger algorithm passes isolated Git qualification
 
 The [GitHub v2 publication package](https://github.com/andersenmartin-blip/setisearch/blob/8e6400ee1bcfee530780a5fc96491847c05e57b1/RADIO_GITHUB_V2_2026-09-27_RESULT.md)
@@ -39,10 +61,9 @@ preserved; **579 archived objects verify**.
 
 This is **isolated engineering qualification**, with no HTTP adapter or live
 ledger activation. Telescope reservations and newly opened spectra remain zero;
-all five execution blockers remain. The next preparation is a bounded prospective
-live-rehearsal contract covering a separate test namespace, operation budget,
-durable attempt journal and transport/restart limits. Preparing it opens no
-namespace and spends no telescope quota.
+all five execution blockers remain. The bounded live-rehearsal contract and
+local attempt-journal preparation are now completed above. Their namespaces
+and proposed limits remain inactive; no telescope quota was spent.
 
 ## 27 September: orbital limit corrected; motion coverage remains unqualified
 
