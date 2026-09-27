@@ -1,5 +1,41 @@
 # SETIsearch — current project status
 
+## 27 September: typed connector integration passes; live bootstrap is blocked
+
+The [typed connector/ownership package](RADIO_CONNECTOR_2026-09-27_RESULT.md)
+passes **19 new offline tests**. The separate model now uses typed tool replies,
+the durable journal and the frozen Git-object/one-append/ancestry checks. No HTTP
+status/version/retry guarantee is invented. A minimal update acknowledgement
+requires independent Git confirmation, and the exact unique-attempt commit
+message must survive connector conversion. Failed/ambiguous results stay spent.
+
+With an explicitly supplied independent admission fixture, one of two competing
+owners wins. A fresh client reads back an uncertain append without its old local
+journal or mutation resend. The suite retains 370 simulated connector calls,
+13 journals and 186 verified Git objects. This is conditional offline engineering;
+no independent live admission service, live namespace or remote grant exists.
+
+The new bootstrap baseline exposes the remaining requirement: permitting a first
+GET before its durable grant, then losing client state, allows 13 calls against
+the 12-call initialization cap (or 161 against the total 160), while the branch
+and grant state stay unchanged. The protected composition needs independently
+durable exclusive admission **before the first call**. Fixture setup/administration
+cannot be smuggled into a live run as free calls. HTTP/pre-decode/deadline terms
+also remain unqualified. The original preparation and all five science blockers
+are unchanged; no source request, spectrum, control or holdout was opened.
+
+**Exact continuation:** this offline connector/admission investigation is closed.
+Do not initialize a live namespace, add another self-funding grant loop, enlarge
+budgets or repeat these fixtures. Reopen that boundary only for a concrete
+independent admission capability with accounted provisioning and transport
+evidence, or an explicit prospective alternative preserving frozen contracts.
+The next available independent item is a prospective phase-agnostic
+motion-domain/convention contract: declare conditional support and axis/time/
+frequency meanings without adopting a physical bank, treating e=0.172 as a central
+value, or inferring joint confidence from marginal errors. Use retained metadata;
+do not repeat closed catalog/paper searches, make new templates or run controls.
+Pointing still needs genuinely new same-scan evidence. Closure remains 9 October.
+
 ## 27 September: prospective rehearsal contract and durable attempt journal complete
 
 The [rehearsal preparation package](RADIO_REHEARSAL_CONTRACT_2026-09-27_RESULT.md)
@@ -17,8 +53,8 @@ transport cancellation; local fsync does not establish cross-machine/scratch-los
 durability. These limitations remain explicit. The preparation cannot be relabelled
 ready, and all five science/transport execution blockers remain unchanged.
 
-**Exact next engineering unit:** integrate a typed connector boundary and
-irreversible phase ownership/recovery offline, under this same finite contract.
+**This offline investigation is now complete above:** the typed connector and
+conditional ownership/recovery integration identifies the live bootstrap limit.
 Account for bootstrap, remote grant confirmation, checkpoint retention, read-only
 recovery and closure within the fixed total. Keep real connector outcomes distinct
 from invented HTTP statuses and the old fixture provider. Publish and verify new

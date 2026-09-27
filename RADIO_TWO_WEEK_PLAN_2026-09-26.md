@@ -252,8 +252,8 @@ A separate inactive namespace/genesis and 160-tool-call / 32-MiB returned-text /
 Connector HTTP/version/retry/pre-decode/cancellation terms remain unavailable;
 local fsync does not establish remote ownership or loss-of-scratch recovery.
 
-**Latest continuation:** complete one offline typed connector and irreversible
-phase-ownership/recovery integration under this fixed contract. Include remote
+**Prior continuation, now investigated below:** complete the offline typed
+connector/phase-ownership/recovery boundary under this fixed contract. Include remote
 grant bootstrap, immutable confirmation, checkpoint retention, read-only recovery
 and closure in its total; never create an unmetered administrative path or restore
 spent allowance through a fresh namespace. Preserve the backend's one-append,
@@ -263,3 +263,29 @@ explicit transport disposition before any live activation. The contract/journal
 preparation is complete; do not repeat it as progress. Five science blockers and
 the same-scan pointing requirement remain unchanged. No control tuning, new
 physical bank, 24-case evaluation or spectrum opening. Closure remains 9 October.
+
+The [typed connector/ownership continuation](RADIO_CONNECTOR_2026-09-27_RESULT.md)
+now passes 19 new offline tests. Typed envelopes, commit-message identity,
+immutable confirmation and the phase-wide journal compose with an explicitly
+supplied independent admission fixture. Fresh-client recovery does not resend
+the uncertain mutation. All 370 simulated calls, 13 journals and 186 verified
+Git objects are retained. No live namespace, remote grant or telescope access
+was created. The original proposal and five science blockers are unchanged.
+
+The bootstrap investigation exposes a concrete remaining requirement: calls
+cannot safely create their own prior admission record after local state loss.
+The unsafe baseline reaches 13 calls against initialization's 12-call cap and
+161 against the total 160, with unchanged branch/grant state. Live startup needs
+an independently durable admission authority with accounted provisioning before
+the first call, plus the missing transport controls; the SQL fixture is not one.
+
+**Latest continuation:** close this offline engineering investigation. Do not
+repeat the fixtures or construct another self-funding GitHub grant loop. Reopen
+live engineering only for concrete new admission/transport capability or a
+published prospective alternative that preserves frozen contracts. Continue the
+independent prospective phase-agnostic motion-domain/convention item using
+retained metadata: declare conditional support and emitter/relative-axis/time/
+frequency meanings, keeping unqualified error terms explicit. Do not adopt a
+physical bank, infer a joint confidence region from marginal errors, refresh the
+closed catalog/paper lookup, create templates, retune controls or open spectra.
+Pointing still requires genuinely new same-scan evidence. Closure is 9 October.

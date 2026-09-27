@@ -11,23 +11,30 @@ hours. Existing scientific and publication boundaries remain in force.
 
 The [26 September–9 October plan](RADIO_TWO_WEEK_PLAN_2026-09-26.md) has now
 started with a completed [integrated restart/metadata package](RADIO_RESTART_2026-09-26_RESULT.md).
-The latest [prospective rehearsal contract and journal package](RADIO_REHEARSAL_CONTRACT_2026-09-27_RESULT.md)
-passes 25 new tests, including two actual child-process exits in the final run.
-Write-ahead intents, no-refund accounting, stop reasons and read-only replay now
-cover the new local attempt boundary. Its separate model/grant genesis templates
-and finite 160-tool-call / 32-MiB returned-text / 1,200-second proposal are inactive.
-No live namespace, remote grant or telescope reservation was created.
+The latest [typed connector/ownership package](RADIO_CONNECTOR_2026-09-27_RESULT.md)
+passes 19 new offline tests. Typed tool replies and the durable attempt journal
+now reach the frozen one-append/Git-object/ancestry checks; exact unique-attempt
+commit messages are verified. Independent admission fixtures provide one owner
+and read-only recovery after loss of client state. No live authority, namespace,
+remote grant or telescope access is established by that conditional integration.
 
-The connector lacks exposed HTTP status/version, retry controls, pre-decode limits
-and transport cancellation; local journals do not establish remote durability.
-Continue with one offline typed connector/phase-ownership/recovery integration,
-including bootstrap, durable confirmation and closure within the same total.
-Publish and verify that evidence and an explicit transport disposition before
-any live activation. No automatic retry/refund, unmetered administrative calls,
-namespace reset or expansion of the plan. Do not repeat the completed journal
-or prior 31-test Git backend fixtures unchanged as progress. The original
-preparation, exhausted synthetic ledger, empty telescope genesis and all five
-science/transport execution blockers remain unchanged.
+A retained counterexample shows why GitHub cannot silently fund its own first
+call under the existing contract: fresh clients can repeat an unrecorded bootstrap
+GET beyond the phase or total cap without changing the branch/grants. Live
+engineering now specifically needs independently durable exclusive admission
+before the first call, with provisioning/accounting and transport guarantees.
+Do not add another self-funding grant loop or treat fixture setup as free live
+administration. The inactive 160-call / 32-MiB / 1,200-second contract is unchanged.
+
+This offline investigation is closed; do not rerun its tests or earlier backend/
+journal fixtures as new progress. The next independent item is the motion report's
+explicitly allowed prospective phase-agnostic domain/convention contract. Declare
+conditional parameter support, relative-axis/emitter conventions and source/
+observer time-frequency meanings, with missing error terms explicit. Do not
+adopt a bank, turn an upper limit into a central value, invent a joint-confidence
+box from marginal errors, create templates or run controls. Same-scan pointing
+provenance remains missing, all five science blockers stand, and the original
+preparation, exhausted synthetic ledger and empty telescope genesis are unchanged.
 
 The [motion provenance/coverage contract](RADIO_MOTION_CONTRACT_2026-09-27_RESULT.md)
 is complete with 20 new tests. The historical e=0.172 is a 99% upper credible
