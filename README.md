@@ -21,6 +21,33 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+## 27 September: reconstructed scores guarded and local restart verified
+
+A [new score-handoff result](https://github.com/andersenmartin-blip/setisearch/blob/dd71ae925bcb254c35c94a96f4435886e5a017bb/RADIO_SCORE_HANDOFF_2026-09-27_RESULT.md)
+passes **26 new tests**. A concrete reconstruction gap was reproduced: changing
+one score could pass the old store's self-computed checks while its retained
+native-cache hashes described different values. The separate guard rejects the
+mismatch and preserves all **4,752 score cells / 48 vector identities** exactly.
+
+An independently pinned local checkpoint survives the tested process-restart
+cases; two competing writers produce exactly one confirmed installation.
+Malformed, changed, oversized and wrongly bound files are refused. Two errors
+in the test helpers remain in the evidence. No detector, calibration, new
+telescope request, reservation or scientific evaluation ran.
+
+This is an opt-in engineering boundary; old numerical modules are unchanged.
+Its local checkpoint does not supply live admission or establish remote or
+power-loss durability. The fresh scientific panel remains unexecuted, and the
+same five source/physics/transport/evaluation blockers persist. HD1461/HIP1499
+still needs genuinely new same-scan pointing provenance. The four conditional
+motion studies remain closed; their small temporal remainder is not full
+physical qualification.
+
+**Next:** retain the guarded API and external receipt pin for future integration.
+Do not replay closed fixtures as progress. Further work needs a named new input
+or demonstrable implementation risk; no telescope step is currently unblocked.
+The target, neighbor9, all prior dispositions and the 9 October closure remain.
+
 ## 27 September: conditional temporal remainder certified; execution still blocked
 
 The [new remainder and integration result](https://github.com/andersenmartin-blip/setisearch/blob/c2cc41e3b27b2de9bc6b1111a4b7a10a33943ab9/RADIO_TEMPORAL_MAJORANT_2026-09-27_RESULT.md)
