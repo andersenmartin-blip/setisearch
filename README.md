@@ -21,6 +21,29 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+## 27 September: orbital limit corrected; motion coverage remains unqualified
+
+The [new motion-contract package](https://github.com/andersenmartin-blip/setisearch/blob/23d8ce008810123befe38afdee614744c7f82e98/RADIO_MOTION_CONTRACT_2026-09-27_RESULT.md)
+passes **20 targeted tests** and corrects a missing metadata distinction:
+**e=0.172 is a 99% upper credible limit, not a central eccentricity.** The old
+snapshot combines three publications; the parameters consumed by the motion
+bank combine two. Its unchanged calculations remain conditional engineering
+evidence, without an adopted physical orbit.
+
+One fixed scale/phase example stays at least **112.40 Hz (39.64 native channels)**
+from the best of the unchanged 33 tracks across all three ON epochs, even when
+each template may choose its carrier freely. This rules out half-channel center
+coverage for that conditional example; it does not measure broad-filter signal
+recovery. No template, width or threshold was tuned. An analytical emitter-only
+interpolation bound is also documented, while unresolved full-model errors
+remain explicitly unknown.
+
+All five execution blockers remain. No telescope request, spectrum, new control
+evaluation or holdout was consumed. The next independent engineering step is
+the frozen remote v2 ledger backend against isolated service fixtures; its live
+telescope namespace stays unactivated. The orbital-limit lookup and fixed
+coverage check are now closed. Same-scan pointing provenance remains missing.
+
 ## 27 September: codec receipts reach direct scores; ledger policy tightened
 
 The [local codec/publication package](https://github.com/andersenmartin-blip/setisearch/blob/0af377cbb7b385b86c5951e6feeb6bcdbdf12be9/RADIO_CODEC_PUBLICATION_2026-09-27_RESULT.md)
@@ -39,10 +62,9 @@ No published ledger was reset. The future GitHub v2 store protocol is frozen;
 its telescope namespace remains unactivated with zero reservations.
 
 **All five execution blockers remain.** No telescope spectrum was opened,
-and the failed controls and untouched holdouts are preserved. The next bounded
-preparation task is to resolve or explicitly bound the physical motion model's
-accuracy and continuous coverage using retained metadata first. HD1461 pointing
-still requires new same-scan original provenance.
+and the failed controls and untouched holdouts are preserved. The bounded
+physical-motion accuracy/coverage continuation is now complete in the newer
+section above. HD1461 pointing still requires new same-scan original provenance.
 
 ## 27 September: execution envelope frozen; five gates remain blocked
 
