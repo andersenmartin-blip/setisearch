@@ -21,6 +21,21 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+## 27 September: conditional timing and Doppler errors quantified
+
+The [new source-time/Doppler study](https://github.com/andersenmartin-blip/setisearch/blob/bd7b801c0329e2f49c843124014b3c39d88b8d32/RADIO_TIME_TRANSFER_2026-09-27_RESULT.md)
+passes **15 new tests**. Over the declared conditional domain, varying orbital
+light-travel delay is bounded by 0.962743 seconds. At 1500 MHz, wrong-clock,
+reciprocal and transverse terms sum to at most 43.833105 Hz in the specified
+stationary-receiver emitter comparison. This is **not a total physical error
+bound**. Four fixed scalar examples retain combined differences from -12.286907
+to +3.439298 Hz; they are not telescope measurements or detector tests.
+
+Work continues directly on continuous-parameter sensitivity and sufficient
+covering cost, without making templates. The pointing hold, all five execution
+blockers, closed ledgers and unopened evaluations remain unchanged. The plan
+still closes on **9 October**.
+
 ## 27 September: conditional motion domain and conventions declared
 
 The [new phase-agnostic contract](https://github.com/andersenmartin-blip/setisearch/blob/82df2e2a928a1d26849c15420c486289bf9ab8ce/RADIO_PHASE_DOMAIN_2026-09-27_RESULT.md)
@@ -30,9 +45,8 @@ and fixes explicit phase, clock and received-carrier meanings. The eccentricity
 endpoint is still an upper credible limit. This box has **no joint probability
 or claim that it contains the real source**; no physical bank is adopted.
 
-The next connected work derives conditional light-travel/Doppler error and
-continuous parameter sensitivity bounds, without generating templates or tuning
-controls. All five science blockers remain, including the 34.23-arcminute
+The conditional light-travel/Doppler study is now completed above; continuous
+parameter sensitivity is next, without generating templates or tuning controls. All five science blockers remain, including the 34.23-arcminute
 HD1461 pointing discrepancy. No new telescope data or evaluation was opened;
 closed ledgers and holdouts remain unchanged. The plan closes on **9 October**.
 
