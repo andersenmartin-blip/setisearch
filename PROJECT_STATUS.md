@@ -1,5 +1,35 @@
 # SETIsearch — current project status
 
+## 27 September: public HIP1499 log row retained; archive request ready and unsent
+
+A [new targeted lookup](RADIO_PUBLIC_LOG_CONTACT_2026-09-27_RESULT.md) found
+HIP1499 in the official-linked public GBT progress sheet: Dec −8.053611 degrees,
+L-band date `2016-05-14 16:58:31`. The row does not identify the session/scans,
+original coordinate source/frame or clock convention. Its date is six seconds
+earlier than the rounded scan-0019 UTC header only if clocks are comparable.
+It cannot resolve the approximately 34.23-arcminute header discrepancy.
+
+One public query returned one row in 652 bytes; the exact response, receipt,
+scoped retrieval code and offline reconciliation are retained. Fifteen earlier
+input pins remain unchanged. No telescope product, spectrum, scientific trial,
+reservation or external message was opened/sent. All five blockers persist.
+
+A complete [metadata request](RADIO_HD1461_ARCHIVE_EMAIL_DRAFT_2026-09-27.md)
+now lists all three scans and asks the official general Berkeley SETI contact
+to route it to the archive custodian. **It is unsent**, as required by the
+owner's prohibition on external messages. No custodian or sending capability
+is assumed merely from finding a public routing address.
+
+**Exact continuation:** close this particular sheet lookup. The owner can
+review/send the prepared request, authorize sending through an available
+channel, or supply the original same-scan metadata. Reopen only for a new
+original RAW/FIL/GO/log record or documented deployed conversion with original
+input bytes for AGBT16A_999_189 ON 0015/0017/0019. Do not repeat closed directory,
+catalogue, converter or generic engineering checks. Source/observer physics
+and independent live admission also remain required; a reply alone does not
+authorize spectra. HD1461, neighbor9 and every prior disposition are unchanged.
+No unblocked telescope step is established. Consolidate on 9 October.
+
 ## 27 September: selected public directory route closed without original provenance
 
 A [new directory-level check](RADIO_DIRECTORY_PROVENANCE_2026-09-27_RESULT.md)
