@@ -21,6 +21,29 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+## 27 September: codec receipts reach direct scores; ledger policy tightened
+
+The [local codec/publication package](https://github.com/andersenmartin-blip/setisearch/blob/0af377cbb7b385b86c5951e6feeb6bcdbdf12be9/RADIO_CODEC_PUBLICATION_2026-09-27_RESULT.md)
+completes the previous engineering continuation. **Twenty-four new tests pass.**
+Twelve gzip/bitshuffle-LZ4 fixture receipts now feed the direct-native score
+store through a pinned six-scan boundary. Independent references match
+**1,634,496 normalized cells and 14,112 score cells bit-for-bit**. The two codecs
+encode one synthetic cadence; this is software evidence, with no new observing
+coverage or scientific control-panel result.
+
+A new test exposed that the low-level local CAS store alone could accept a
+coherent ledger reset. The new publication guard binds the store/resource/genesis
+and permits exactly one ordered append. Tests cover resets, changed identities,
+concurrent writers and a lost reply after a reservation becomes durable.
+No published ledger was reset. The future GitHub v2 store protocol is frozen;
+its telescope namespace remains unactivated with zero reservations.
+
+**All five execution blockers remain.** No telescope spectrum was opened,
+and the failed controls and untouched holdouts are preserved. The next bounded
+preparation task is to resolve or explicitly bound the physical motion model's
+accuracy and continuous coverage using retained metadata first. HD1461 pointing
+still requires new same-scan original provenance.
+
 ## 27 September: execution envelope frozen; five gates remain blocked
 
 The [HD 1461 execution-envelope package](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_EXECUTION_ENVELOPE_2026-09-27_RESULT.md)
