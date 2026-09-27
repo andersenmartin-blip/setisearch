@@ -11,6 +11,16 @@ hours. Existing scientific and publication boundaries remain in force.
 
 The [26 September–9 October plan](RADIO_TWO_WEEK_PLAN_2026-09-26.md) has now
 started with a completed [integrated restart/metadata package](RADIO_RESTART_2026-09-26_RESULT.md).
+The latest [conditional phase-domain declaration](RADIO_PHASE_DOMAIN_2026-09-27_RESULT.md)
+passes 16 new tests. It declares finite conditional P/a/e support and all phases/
+orientations, separates relative/emitter/projected axes and received/emitted
+clock and carrier meanings, and makes no probability or real-source membership
+claim. No physical bank or source access is adopted. Continue directly with
+conditional source-time/Doppler error and continuous parameter sensitivity
+bounds, using only retained metadata and new analytic tests. No templates,
+width changes, control evaluation or catalogue refresh. All five original
+blockers and the pointing hold remain; unknown full errors stay null.
+
 The latest [typed connector/ownership package](RADIO_CONNECTOR_2026-09-27_RESULT.md)
 passes 20 new offline tests. Typed tool replies and the durable attempt journal
 now reach the frozen one-append/Git-object/ancestry checks; exact unique-attempt
@@ -30,7 +40,7 @@ Do not add another self-funding grant loop or treat fixture setup as free live
 administration. The inactive 160-call / 32-MiB / 1,200-second contract is unchanged.
 
 This offline investigation is closed; do not rerun its tests or earlier backend/
-journal fixtures as new progress. The next independent item is the motion report's
+journal fixtures as new progress. That independent item is now completed above: the motion report's
 explicitly allowed prospective phase-agnostic domain/convention contract. Declare
 conditional parameter support, relative-axis/emitter conventions and source/
 observer time-frequency meanings, with missing error terms explicit. Do not

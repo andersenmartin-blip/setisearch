@@ -1,5 +1,30 @@
 # SETIsearch — current project status
 
+## 27 September: conditional motion-domain and convention declaration complete
+
+The [prospective phase-agnostic declaration](RADIO_PHASE_DOMAIN_2026-09-27_RESULT.md)
+passes **16 new tests**. It explicitly declares a conditional P/a/e rectangle,
+all phases/orientations and the planet-COM projection identity, with no joint
+probability or real-source membership claim. The e=0.172 endpoint remains an
+upper credible limit. Relative, emitter and projected axes; legacy phase sign;
+circular degeneracy; reception/emission time; and received-carrier meaning are
+now distinguished. Zero radial speed is not assumed to mean zero total speed.
+Nine full physical terms remain null, and every authorization flag stays false.
+
+No catalogue refresh, template, bank, spectrum, scientific control or old phase
+witness was evaluated. All nine pinned old inputs and all five execution
+blockers are unchanged. The single test run and three scalar axis examples are
+retained. This completes the declaration, not physical motion qualification.
+
+**Exact continuation:** proceed to conditional source-time/Doppler error and
+continuous parameter sensitivity bounds using this declared support. Derive
+varying light-travel delay and proper/coordinate frequency distinctions; test
+new equations against independent scalar oracles. Do not adopt real-source
+support, build templates, tune widths/controls or fill unknown total errors
+with partial bounds. Connector/admission work remains closed at its named live
+capability requirement. Pointing still needs genuinely new same-scan evidence.
+Keep the original preparation and ledgers immutable; closure remains 9 October.
+
 ## 27 September: typed connector integration passes; live bootstrap is blocked
 
 The [typed connector/ownership package](RADIO_CONNECTOR_2026-09-27_RESULT.md)
@@ -30,7 +55,7 @@ cannot be smuggled into a live run as free calls. HTTP/pre-decode/deadline terms
 also remain unqualified. The original preparation and all five science blockers
 are unchanged; no source request, spectrum, control or holdout was opened.
 
-**Exact continuation:** this offline connector/admission investigation is closed.
+**Completed connector continuation; follow the newer motion section above:** this offline connector/admission investigation is closed.
 Do not initialize a live namespace, add another self-funding grant loop, enlarge
 budgets or repeat these fixtures. Reopen that boundary only for a concrete
 independent admission capability with accounted provisioning and transport
