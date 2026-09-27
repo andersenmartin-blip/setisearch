@@ -21,6 +21,29 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+## 27 September: typed connector works offline; startup dependency identified
+
+The [new connector/ownership investigation](https://github.com/andersenmartin-blip/setisearch/blob/c8b8317cb8750d80f2fc531bbea2c606d58e652b/RADIO_CONNECTOR_2026-09-27_RESULT.md)
+passes **19 new offline tests**. The attempt journal now connects typed tool
+replies to exact Git-object and ancestry checks. A simple success reply is
+insufficient proof that a write landed; the unique attempt ID must also survive
+in the committed message. With a supplied independent admission fixture, one
+owner wins and a fresh client inspects an uncertain write without resending it.
+
+The remaining startup requirement is now concrete. If a client may make its
+first GitHub call before recording its allowance, loss of local state allows
+that call to repeat without a durable debit. Two local traces exceed the fixed
+phase/total limits. Live startup requires independently durable admission
+before the first call; the SQL test fixture does not provide a live service.
+Transport deadline/pre-decode guarantees remain unqualified.
+
+All 370 simulated calls, 13 journals and 186 verified Git objects are retained.
+No live ledger namespace, remote grant, new telescope spectrum or scientific
+evaluation was opened. The five science blockers and HD1461 pointing hold remain.
+The next independent item is the prospective motion-domain/convention document,
+without new templates, bank adoption or control tuning. The plan still closes
+on **9 October**.
+
 ## 27 September: bounded rehearsal contract and crash journal completed
 
 The [new preparation package](https://github.com/andersenmartin-blip/setisearch/blob/ef0827036b16952808a09a65bad910b3e29577e9/RADIO_REHEARSAL_CONTRACT_2026-09-27_RESULT.md)
@@ -38,10 +61,9 @@ does not establish recovery after loss of scratch or cross-machine ownership.
 
 No live ledger namespace, remote grant, telescope reservation or spectrum was
 opened. All five science blockers and the same-scan pointing hold remain. The
-next engineering unit is offline typed connector/phase-ownership/recovery
-integration, including bootstrap and closure within the same finite budget.
-Its evidence and explicit transport disposition must be published before live
-activation. The two-week plan still ends on **9 October**.
+offline typed connector/phase-ownership investigation is now completed above,
+with the independent admission dependency and transport limits explicit.
+The planned namespace stays inactive. The two-week plan still ends on **9 October**.
 
 ## 27 September: remote ledger algorithm passes isolated Git qualification
 
