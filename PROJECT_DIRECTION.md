@@ -1,5 +1,38 @@
 # Long-term project direction
 
+## 27 September: owner authorizes other data; alternate metadata screen frozen
+
+The owner explicitly instructed at 22:26 Europe/Copenhagen: **do not send
+messages; continue with other data**. This supersedes the earlier stay-on-HD1461
+instruction. HD1461/71139 and its pointing hold remain unresolved and preserved;
+its archive request remains unsent. Further progress no longer depends on
+contacting that archive or resolving that particular target first.
+
+The [new prospective protocol](RADIO_ALTERNATE_DATA_2026-09-27_PROTOCOL.md)
+uses the next eligible records in the original metadata ordering: rank 41,
+**HD189733/HIP98505, cadence 85030**, then reserve rank 43, **GJ724/HIP91608,
+cadence 73005**. The fixed L-band catalogue screen and all three excluded
+S-band rows are retained. These fill the plan's remaining two shortlist slots;
+there is no extension beyond three sequences or 9 October.
+
+A refreshed conservative inventory contains 243 URLs from 72 configurations.
+Six new admission/coordinate/filter-metadata boundary tests pass. No new remote
+source read or spectrum has occurred at this freeze. The allocation is at most
+200 metadata requests, 8 MiB and 1200 active seconds; prior consumption and
+combined ceilings are recorded. The exhausted synthetic ledger and empty
+spectral ledger are unchanged.
+
+**Exact continuation:** verify the published freeze and execute
+`scripts/radio_alternate_metadata_20260927.py --freeze-commit <this-freeze>`
+with the retained h5py runtime. Inspect only the fixed catalogue, source
+attributes/filter declarations and exact official planet metadata. Select the
+first metadata/proximity-consistent alternative, preserving every failure;
+leave the reserve untouched if the first qualifies. Then publish its new
+preparation-only contract and freeze the integrated prospective protocol before
+any spectra. Do not rewrite HD1461's preparation to ready or transfer its
+physical support/receipts. Primary neighbor9, closed M43AI, original 112+128
+M43AF holdouts, unresolved M15/M33, LS pause and unsent CHEOPS stay unchanged.
+
 ## 27 September: public HIP1499 log row retained; archive request ready and unsent
 
 A [new targeted lookup](RADIO_PUBLIC_LOG_CONTACT_2026-09-27_RESULT.md) found
