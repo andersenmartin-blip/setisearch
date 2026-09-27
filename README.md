@@ -21,6 +21,21 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+## 27 September: conditional motion domain and conventions declared
+
+The [new phase-agnostic contract](https://github.com/andersenmartin-blip/setisearch/blob/82df2e2a928a1d26849c15420c486289bf9ab8ce/RADIO_PHASE_DOMAIN_2026-09-27_RESULT.md)
+passes **16 new tests**. It defines a conditional P/a/e support set and all
+phases/orientations, distinguishes relative, planet-COM and projected axes,
+and fixes explicit phase, clock and received-carrier meanings. The eccentricity
+endpoint is still an upper credible limit. This box has **no joint probability
+or claim that it contains the real source**; no physical bank is adopted.
+
+The next connected work derives conditional light-travel/Doppler error and
+continuous parameter sensitivity bounds, without generating templates or tuning
+controls. All five science blockers remain, including the 34.23-arcminute
+HD1461 pointing discrepancy. No new telescope data or evaluation was opened;
+closed ledgers and holdouts remain unchanged. The plan closes on **9 October**.
+
 ## 27 September: typed connector works offline; startup dependency identified
 
 The [new connector/ownership investigation](https://github.com/andersenmartin-blip/setisearch/blob/3c242a7288970aa2440c3c499fd3fadc08d96bf6/RADIO_CONNECTOR_2026-09-27_RESULT.md)
@@ -45,7 +60,7 @@ Transport deadline/pre-decode guarantees remain unqualified.
 All 371 simulated calls, 14 journals and 196 verified Git objects from the final run are retained.
 No live ledger namespace, remote grant, new telescope spectrum or scientific
 evaluation was opened. The five science blockers and HD1461 pointing hold remain.
-The next independent item is the prospective motion-domain/convention document,
+The prospective motion-domain/convention document is now completed above,
 without new templates, bank adoption or control tuning. The plan still closes
 on **9 October**.
 
