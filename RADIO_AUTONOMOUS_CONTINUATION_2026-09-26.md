@@ -1,5 +1,24 @@
 # Scheduled continuation of the radio plan
 
+## 27 September: explicit owner direction to continue with other data
+
+The owner has explicitly required no external messages and continuation with
+other data. The daily task's prompt has been updated to follow the
+[published alternate-source protocol](RADIO_ALTERNATE_DATA_2026-09-27_PROTOCOL.md)
+and the latest result. HD1461's hold and unsent request remain preserved, while
+HD189733/85030 has now passed the frozen metadata screen and is the active
+preparation target; reserve GJ724/73005 remains untouched. Follow the
+[completed result and exact continuation](RADIO_ALTERNATE_DATA_2026-09-27_RESULT.md),
+including the new widened window identities and remaining integrated gates.
+The earlier target-lock instruction below is historical and superseded.
+
+Only the task prompt changed. Its schedule, enabled state and 9 October end
+remain unchanged; no task was created or extended. The expired evening task
+was left unchanged. The confirmed prompt update is retained in
+`results_radio_alternate_2026-09-27/continuation_prompt_update.json`.
+
+## Original creation and boundaries
+
 The owner's instruction to work as autonomously as possible is now backed by
 an enabled scheduled task, **Fortsæt SETI-radioplanen**, rather than only a
 calendar document. Creation was confirmed on 26 September 2026. No scheduled

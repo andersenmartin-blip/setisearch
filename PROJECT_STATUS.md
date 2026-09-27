@@ -1,5 +1,47 @@
 # SETIsearch — current project status
 
+## 27 September: HD189733 selected; new preparation and widened identities verified
+
+Following the owner's instruction to use other data without sending messages,
+**HD189733/HIP98505, cadence 85030**, is now the active preparation target.
+The [prospectively frozen metadata screen](RADIO_ALTERNATE_DATA_2026-09-27_RESULT.md)
+completed with six consistent headers: ON/catalogue separations are
+**0.19–0.28 arcsec**, within the fixed 60-arcsecond criterion. This verifies
+source identity and gross direction consistency, not independently measured
+pointing or a full physical model. HD1461/71139 and its unresolved hold remain
+preserved; reserve GJ724/73005 is untouched. No external message was sent.
+
+The run consumed **80 requests, 55,841 response-body bytes and 557.320353 active
+seconds**. All 72 retained header ranges replay correctly without network access.
+The separate [new preparation contract](config/radio_hd189733_source_preparation_20260927.json)
+remains BLOCKED for spectra. Five published freeze inputs and 15 old invariant
+pins were verified; no spectrum, scientific trial or reservation was opened.
+
+The [nominal geometry study and separate v2 binding](RADIO_HD189733_GEOMETRY_2026-09-27_RESULT.md)
+select **65,536-channel windows and width 257 among the declared choices**:
+the conditional model's approximately 430 Hz integration sweep exceeds the old
+width. Exact calibration/validation/pilot frequency intervals and **288 distinct
+native chunk identities** are retained. The old v1 correctly rejects this changed
+geometry and is unchanged. **14 new tests pass** across metadata and v2 binding.
+This is preparation, not actual-source physical coverage, calibrated detection
+or a signal result. No unchanged pipeline tests were rerun.
+
+**Exact continuation:** the alternate metadata screen, retained-header replay,
+preparation contract, geometry study and v2 identity binding are complete. Use
+`results_radio_hd189733_geometry_2026-09-27/window_identity_contract_v2.json`
+for the next source-specific motion/width and observer-domain design. Freeze
+fresh disjoint development/calibration/evaluation identities, numeric transfer
+and recovery/RFI/null gates, source codec/runtime handoff and cumulative
+resource/trial accounting in one integrated prospective protocol before spectra.
+Do not transfer HD1461's physical support, thresholds or live receipts. The new
+preparation stays immutable and not-ready; no failed evaluation may be tuned to
+pass. Follow this continuation, not a historical target-lock or email checkpoint.
+
+Neighbor9, closed M43AI, original 112+128 M43AF holdouts, unresolved M15/M33,
+paused LS8BD–LS8BE, untouched LS8BF, unsent CHEOPS and all earlier dispositions
+persist. The shortlist stays within three sequences, the continuation end date
+is unchanged, and period consolidation remains **9 October**.
+
 ## 27 September: owner authorizes other data; alternate metadata screen frozen
 
 The owner explicitly instructed at 22:26 Europe/Copenhagen: **do not send
