@@ -21,6 +21,30 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+### 27 September: other data selected — HD 189733
+
+The owner asked to continue with other data without contacting anyone.
+**HD189733/HIP98505, cadence 85030**, now passes the frozen metadata screen:
+all six headers agree on source/geometry, and ON directions are within
+**0.19–0.28 arcsec** of the retained official position. This establishes gross
+metadata consistency, not an independent pointing audit or a signal detection.
+HD1461's unresolved hold and unsent request remain preserved; reserve GJ724
+is untouched. No external message was sent.
+
+The bounded acquisition used **80 requests / 55,841 response-body bytes**.
+All 72 header ranges were replayed offline, and a separate preparation contract
+was retained. A conditional motion study found that the old setup is too narrow;
+new **65,536-channel windows**, 288 disjoint native chunk identities and a
+separate v2 binding are now documented. **14 new tests pass.** No telescope
+spectral values or scientific trials have been opened. Full motion/observer
+coverage, fresh control identities, recovery/RFI/null gates and the integrated
+execution protocol remain the next work; neighbor9 stays primary.
+
+- [Acquisition, evidence and exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_ALTERNATE_DATA_2026-09-27_RESULT.md)
+- [Conditional geometry and widened-window verification](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_HD189733_GEOMETRY_2026-09-27_RESULT.md)
+
+The plan remains bounded to three sequences and consolidation on **9 October**.
+
 ## 27 September: new public HIP1499 row checked; archive request ready and unsent
 
 One bounded [public GBT log lookup](https://github.com/andersenmartin-blip/setisearch/blob/54608c8a8ffbd7d55c77d63a569dcdc83b95f747/RADIO_PUBLIC_LOG_CONTACT_2026-09-27_RESULT.md)
