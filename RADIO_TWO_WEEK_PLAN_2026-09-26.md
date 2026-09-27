@@ -341,3 +341,28 @@ periodic-angle distances; do not mistake a loose sufficient grid for a necessary
 minimum or measured runtime. No physical adoption, confidence claim, width
 change or control tuning. Full error, all five blockers and the same-scan
 pointing hold persist. The original plan still closes on 9 October.
+
+## 27 September: continuous conditional sensitivity and covering cost quantified
+
+The [continuous covering study](RADIO_MOTION_COVERING_2026-09-27_RESULT.md)
+passes **13 new tests**, bringing this connected domain/time/coverage work to
+44 distinct new tests. Six global parameter derivatives include implicit
+emission time, full-speed proper-time effects and circular-angle geometry.
+Two independent scalar gradient points agree with the envelopes and bracketed
+clock inversion. No search bank or scientific control was computed.
+
+One equal-error Cartesian construction would use about 4.333e36 nodes and
+9.983e39 bytes of dense factors at the illustrative half-channel tolerance.
+That is a loose sufficient construction, not a necessary bank-size bound,
+source expenditure, runtime measurement or proof that searching is impossible.
+It discards normalization cancellations and parameter/trajectory structure.
+All seventeen pinned old inputs and all five execution blockers are unchanged.
+
+**Exact continuation:** do not construct or optimize this grid. Continue with
+bounded analytic temporal compression: uniform low-order polynomial remainder
+bounds for the same conditional retarded emitter setting, using derivative
+majorants and a prospectively fixed small set of orders. No templates, detector
+runs, width changes or physical adoption. Then document the combined work's
+compatibility limits with the immutable execution envelope and unexecuted panel.
+Pointing and live admission still need their concrete missing evidence; the
+plan remains limited to 9 October.

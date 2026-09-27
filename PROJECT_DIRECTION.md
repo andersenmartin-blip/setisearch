@@ -11,6 +11,15 @@ hours. Existing scientific and publication boundaries remain in force.
 
 The [26 September–9 October plan](RADIO_TWO_WEEK_PLAN_2026-09-26.md) has now
 started with a completed [integrated restart/metadata package](RADIO_RESTART_2026-09-26_RESULT.md).
+The latest [continuous conditional covering study](RADIO_MOTION_COVERING_2026-09-27_RESULT.md)
+passes 13 new tests. Its global derivative construction is mathematically
+sufficient but impractically large; the node count is not a minimum or an
+impossibility result. Continue with a bounded analytic low-order temporal
+representation/remainder study before integrating the conditional findings
+with the existing blocked envelope. No templates, widths or controls are
+adopted or changed. Domain, time and sensitivity studies total 44 new tests;
+all science blockers remain unchanged and full physical error stays unknown.
+
 The latest [conditional emission-time/Doppler continuation](RADIO_TIME_TRANSFER_2026-09-27_RESULT.md)
 passes 15 new tests. Varying orbital delay and normalized reciprocal/transverse
 terms are now bounded separately in a declared stationary-receiver setting.
