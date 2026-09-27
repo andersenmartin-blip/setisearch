@@ -66,6 +66,15 @@ per-operation counters never reset the enclosing phase allowance. Journal
 `accepted` records byte/time acceptance; typed semantic acceptance is separate
 and its vetoes are retained in the store evidence.
 
+A semantic/Git-validation veto also terminates the enclosing phase journal and
+revokes its independent fixture owner channel. Closing only the store instance
+would leave a rebinding loophole: a new store could reuse the still-active
+journal/owner after the first store stopped. The new qualification must demonstrate
+that failure before the fix and verify zero further dispatches afterward. The
+uncertain whole-phase charge is retained. Ordinary exception cleanup is distinct
+from simulated loss that bypasses cleanup; the latter still requires the explicit
+independent server-side abandon/recovery assumption.
+
 ## Independent admission fixture and its explicit assumption
 
 The fixture authority is a separate SQLite database with full synchronous

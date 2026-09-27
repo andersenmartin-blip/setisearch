@@ -3,7 +3,7 @@
 ## 27 September: typed connector integration passes; live bootstrap is blocked
 
 The [typed connector/ownership package](RADIO_CONNECTOR_2026-09-27_RESULT.md)
-passes **19 new offline tests**. The separate model now uses typed tool replies,
+passes **20 new offline tests**. The separate model now uses typed tool replies,
 the durable journal and the frozen Git-object/one-append/ancestry checks. No HTTP
 status/version/retry guarantee is invented. A minimal update acknowledgement
 requires independent Git confirmation, and the exact unique-attempt commit
@@ -11,9 +11,15 @@ message must survive connector conversion. Failed/ambiguous results stay spent.
 
 With an explicitly supplied independent admission fixture, one of two competing
 owners wins. A fresh client reads back an uncertain append without its old local
-journal or mutation resend. The suite retains 370 simulated connector calls,
-13 journals and 186 verified Git objects. This is conditional offline engineering;
+journal or mutation resend. The final suite retains 371 simulated connector calls,
+14 journals and 196 verified Git objects. This is conditional offline engineering;
 no independent live admission service, live namespace or remote grant exists.
+
+Final review exposed and fixed a phase-veto gap: the first store could stop while
+its journal/owner stayed usable by a fresh store. The retained failing regression
+made five extra calls; the corrected path revokes the phase and makes none.
+Initial pass, diagnostic failure and final 20-test pass all retain full evidence
+and source snapshots. They are not counted as independent repetitions.
 
 The new bootstrap baseline exposes the remaining requirement: permitting a first
 GET before its durable grant, then losing client state, allows 13 calls against

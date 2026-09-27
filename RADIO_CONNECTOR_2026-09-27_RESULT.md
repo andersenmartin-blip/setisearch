@@ -1,6 +1,6 @@
 # Typed connector integration and bootstrap limit — 27 September 2026
 
-**Nineteen new offline integration tests pass. The live rehearsal remains
+**Twenty new offline integration tests pass. The live rehearsal remains
 blocked by a concrete missing admission primitive, in addition to the known
 transport limitations.** This completes the bounded offline connector/ownership
 investigation requested at `ef0827036b16952808a09a65bad910b3e29577e9`; it does not
@@ -33,6 +33,23 @@ A lost reply after a model append remains spent and unconfirmed. A fresh client,
 using a separate read-only recovery phase and no old client journal, observes
 the two existing model reservations without resending the mutation. All of this
 is conditional on the independent fixture authority already existing.
+
+## Phase-veto gap found and corrected before closing this work
+
+The first published version (`c8b8317cb8750d80f2fc531bbea2c606d58e652b`)
+passed 19 tests. Final review then identified an untested composition gap: after
+a byte-valid but semantically rejected tool envelope, the store stopped but the
+journal and independent owner could remain active. A new regression reproduced
+this: a fresh store reused that phase and made **five additional calls**, taking
+the case from one call to six.
+
+The corrected `_stop` propagates every semantic/Git-validation veto to the phase
+journal and revokes the owner channel while retaining its full uncertain charge.
+The same regression now stays at **one call**, and both rebinding a fresh store
+and using the old owner are refused. The failure and its code snapshot remain in
+`qualification_02`; `qualification_03` contains the final 20-test pass. The initial
+19-test pass is retained in `qualification_01`. These are 20 distinct final cases,
+not 59 independent results. No scientific evaluation was changed or rerun.
 
 ## Why live startup is still blocked
 
@@ -71,13 +88,13 @@ not rewritten or silently relaxed.
 
 | Retained item | Count / result |
 | --- | --- |
-| New tests, one qualification run | 19 passed |
-| Isolated bare Git repositories, no remotes | 15 |
-| Simulated connector calls | 370 |
+| Distinct tests in final qualification | 20 passed |
+| Isolated bare Git repositories in final run, no remotes | 16 |
+| Simulated connector calls in final run | 371 |
 | Of these, deliberately unsafe bootstrap baseline calls | 174 |
 | Confirmed protected model appends | 3 |
-| Archived Git objects verified | 186 |
-| Full local attempt journals retained | 13 |
+| Archived Git objects verified in final run | 196 |
+| Full local attempt journals in final run | 14 |
 | Frozen input file pins checked | 14 |
 | Actual ordinary project-commit metadata reads | 1 |
 | Live ledger requests / live grants / telescope requests | 0 / 0 / 0 |
@@ -90,8 +107,8 @@ rehearsal and is not called a live ledger test.
 The full connector/service exchanges, authority snapshots, journals, receipts,
 vetoes, negative traces, orphan Git objects, exact source snapshot and runtime
 are retained under `results_radio_connector_2026-09-27/`. Python 3.12.14 was
-used with socket creation disabled during the fixture suite. All 186 archived
-objects verify against their Git object hashes. These are engineering counts,
+used with socket creation disabled during the fixture suite. All 196 archived
+objects from the final run verify against their Git object hashes. These are engineering counts,
 not independent sky trials or detector-recovery measurements.
 
 ```sh

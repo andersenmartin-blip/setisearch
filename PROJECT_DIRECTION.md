@@ -12,11 +12,14 @@ hours. Existing scientific and publication boundaries remain in force.
 The [26 September–9 October plan](RADIO_TWO_WEEK_PLAN_2026-09-26.md) has now
 started with a completed [integrated restart/metadata package](RADIO_RESTART_2026-09-26_RESULT.md).
 The latest [typed connector/ownership package](RADIO_CONNECTOR_2026-09-27_RESULT.md)
-passes 19 new offline tests. Typed tool replies and the durable attempt journal
+passes 20 new offline tests. Typed tool replies and the durable attempt journal
 now reach the frozen one-append/Git-object/ancestry checks; exact unique-attempt
 commit messages are verified. Independent admission fixtures provide one owner
 and read-only recovery after loss of client state. No live authority, namespace,
 remote grant or telescope access is established by that conditional integration.
+A newly reproduced phase-veto gap is also fixed: semantic rejection now stops
+the journal and revokes the owner, preventing a fresh store from reusing it.
+The diagnostic failure and both passing versions remain archived.
 
 A retained counterexample shows why GitHub cannot silently fund its own first
 call under the existing contract: fresh clients can repeat an unrecorded bootstrap

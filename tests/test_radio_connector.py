@@ -19,6 +19,10 @@ ROOT = Path(__file__).resolve().parents[1]
 PREPARED = "results_radio_rehearsal_contract_2026-09-27/prepared_contract.json"
 
 
+class SimulatedClientLoss(BaseException):
+    """Bypass normal client cleanup; independent fixture authority remains."""
+
+
 def append_model(before):
     after = deepcopy(before)
     n = len(after["reservations"])
@@ -88,7 +92,8 @@ class ConnectorTests(unittest.TestCase):
 
     def finish(self, authority, store, owner, state="closed"):
         store.journal.close()
-        authority.finish(owner, state)
+        if authority.active.get(owner.token) is owner:
+            authority.finish(owner, state)
 
     def assert_no_retry(self, store, service):
         count = len(service.tool_calls)
@@ -179,16 +184,32 @@ class ConnectorTests(unittest.TestCase):
         self.finish(authority, store, owner, "uncertain")
         with self.assertRaises(ValueError): authority.claim("normal_append", service.head, r.digest(service.ledger()))
 
+    def test_semantic_veto_revokes_phase_before_rebinding_a_fresh_client(self):
+        service, authority, store, owner = self.setup_normal()
+        service.tool_after = lambda tool, args, reply: {"isError": True, "structuredContent": {"error": "semantic veto"}}
+        with self.assertRaises(PublicationStopped): store.read()
+        before = len(service.tool_calls)
+        service.tool_after = None
+        rebound = c.ConnectorModelStore(store.journal, self.prepared_bytes, self.prepared_sha)
+        self.stores.append(rebound)
+        with self.assertRaises(PublicationStopped): rebound.read()
+        self.assertEqual(len(service.tool_calls), before)
+        with self.assertRaises(ValueError): authority.admit(owner, "read", {})
+        with self.assertRaises(ValueError): authority.claim("normal_append", service.head, r.digest(service.ledger()))
+        self.assertTrue(store.journal.stopped)
+        self.observations["phase_veto"] = {"calls_before_rebind": before,
+            "calls_after_rebind": len(service.tool_calls), "owner_revoked": True}
+
     def test_uncertain_write_recovered_readonly_after_client_state_loss(self):
         service, authority, first, normal_owner = self.setup_normal()
         self.publish(first, service)
         self.finish(authority, first, normal_owner)
         lost, lost_owner = self.client(service, authority, "lost_reply_append")
         def lose(tool, args, reply):
-            if tool == "github_update_ref": raise TimeoutError("simulated connector reply lost after Git update")
+            if tool == "github_update_ref": raise SimulatedClientLoss("reply and client lost after simulated Git update")
             return reply
         service.tool_after = lose
-        with self.assertRaises(PublicationStopped): self.publish(lost, service)
+        with self.assertRaises(SimulatedClientLoss): self.publish(lost, service)
         self.assertEqual(len(service.ledger()["reservations"]), 2)
         # Retain the old evidence; a fresh client cannot access/reuse its handles.
         lost.journal.close()

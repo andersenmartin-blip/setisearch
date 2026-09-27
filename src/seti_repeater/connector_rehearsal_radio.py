@@ -117,6 +117,29 @@ class ConnectorModelStore(gitcore.GitHubRoleStore):
         self.events, self.receipts, self.typed_replies = [], [], []
         self._candidate = None
 
+    def _stop(self, error):
+        stopped = super()._stop(error)
+        journal = self.journal
+        # A semantic veto can occur AFTER a byte-valid tool envelope was
+        # journaled. Stop the enclosing phase, not just this store instance.
+        if not journal.stopped and not journal.journal.broken:
+            try:
+                journal._append({"type": "session_stop", "error_class": type(error).__name__,
+                    "reason": str(error)[:256], "elapsed_seconds": journal.last_elapsed})
+            except Exception as journal_error:
+                self.events.append({"event": "phase_stop_journal_error", "reason": str(journal_error)})
+        journal.stopped = True
+        provider = journal.provider
+        if provider.authority.active.get(provider.owner.token) is provider.owner:
+            try:
+                provider.authority.finish(provider.owner, "uncertain")
+            except Exception as admission_error:
+                # A failed SQL finish cannot restore this owner channel. The
+                # persisted whole-phase charge remains; no fresh claim exists.
+                provider.authority.active.pop(provider.owner.token, None)
+                self.events.append({"event": "phase_revocation_error", "reason": str(admission_error)})
+        return stopped
+
     def _request(self, method, suffix, body=None):
         repo = self.location["repository"]
         if method == "GET" and (suffix == "ref/"+self._ref or any(

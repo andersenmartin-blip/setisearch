@@ -265,12 +265,16 @@ the same-scan pointing requirement remain unchanged. No control tuning, new
 physical bank, 24-case evaluation or spectrum opening. Closure remains 9 October.
 
 The [typed connector/ownership continuation](RADIO_CONNECTOR_2026-09-27_RESULT.md)
-now passes 19 new offline tests. Typed envelopes, commit-message identity,
+now passes 20 new offline tests. Typed envelopes, commit-message identity,
 immutable confirmation and the phase-wide journal compose with an explicitly
 supplied independent admission fixture. Fresh-client recovery does not resend
-the uncertain mutation. All 370 simulated calls, 13 journals and 186 verified
-Git objects are retained. No live namespace, remote grant or telescope access
+the uncertain mutation. All 371 simulated calls, 14 journals and 196 verified
+Git objects from the final run are retained. No live namespace, remote grant or telescope access
 was created. The original proposal and five science blockers are unchanged.
+A new regression exposed an initially missed phase-veto gap: a fresh store could
+reuse the old journal/owner after a semantic rejection. The correction terminates
+the phase and revokes ownership; the reproduced failure and all three local
+qualification runs remain archived. Twenty final cases are counted once.
 
 The bootstrap investigation exposes a concrete remaining requirement: calls
 cannot safely create their own prior admission record after local state loss.
