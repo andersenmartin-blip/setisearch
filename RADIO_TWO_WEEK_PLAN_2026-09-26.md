@@ -158,7 +158,7 @@ is needed. Combine related work into substantial packages rather than counting
 routine checks as progress milestones. Review progress around **2 October**
 and at closure on **9 October** during active sessions.
 
-**Current continuation, 26 September:** the restart/metadata package is complete.
+**Current continuation, 27 September:** the restart/metadata package is complete.
 HD 1461 is selected but its spectra remain on a pointing-provenance hold. The
 [new explicit-source interface](RADIO_SOURCE_2026-09-26_RESULT.md) passes local
 engineering checks. The [integrated primary/control preparation](RADIO_PIPELINE_2026-09-26_RESULT.md)
@@ -184,10 +184,22 @@ one-epoch signal intersection plus marginal support in another epoch. No setting
 is retuned. The [identity-bound cross-window contract and fresh control freeze](RADIO_CROSS_WINDOW_CONTRACT_2026-09-26_RESULT.md)
 are now complete: 13 tests pass, exact-context reuse is refused and a new
 24-case panel zero-gates broad-width unassociated leakage without rerunning the
-closed failed panel. Continue with the positive codec/runtime/motion/resource
-execution envelope; numeric transfer and panel execution remain blocked. Do not
+closed failed panel. Its blocked execution envelope is now published below;
+numeric transfer and panel execution remain blocked. Do not
 rerun the closed arithmetic checks or relabel the old two-column basis. A new same-scan provenance
 observable is still required before unblocking spectra; the
 [minimal retrieval specification](RADIO_HD1461_PROVENANCE_REQUEST_2026-09-26.md)
 is unsent. Three extra hourly evening continuations support the owner's
 request for several hours of work. The LS8BF source stays unopened.
+
+The [execution-envelope continuation](RADIO_EXECUTION_ENVELOPE_2026-09-27_RESULT.md)
+is now complete with thirteen tests. Runtime, local codec evidence, factor
+arithmetic, windows, fresh controls and a zero-reservation cumulative namespace
+are bound together, but five gates remain false and spectra stay closed. The
+new v2 ordered-role ledger separates valid 512 MiB session caps from the 1.5 GiB
+three-session cumulative cap; the old exhausted synthetic ledger is not reset.
+Local durable v2 reservation/controller integration now passes fsync/CAS,
+wrong-order, stale-parent and ambiguous-publication tests without a network
+budget. Continue with a fixture-only codec-to-direct receipt boundary and pin
+the publication-store protocol without activating it. Do not execute the frozen panel,
+adopt a physical motion bank or qualify numeric transfer from missing evidence.

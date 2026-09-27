@@ -1,0 +1,38 @@
+{
+  "artifact_type": "radio-hd1461-execution-envelope-config-v1",
+  "primary": "neighbor9",
+  "cross_window_contract_sha256": "9297c5f244bd6448fba9bf23f35a9c268ca8ed4725c7ecfae6d2ddb7a871cf97",
+  "control_freeze_sha256": "80d3df727d40fc9fd6a440fc59dac5f7f3a49ef446f28ee455e9347840f7275e",
+  "blocked_source_contract_sha256": "c434c6f0615dfec165512195dcae888d8aa4b33a29efdb5037895ba5530d8bcb",
+  "source_inventory_sha256": "92f877c4041e3a6150273cf108fd3b13ab8394c80c1b817e37d1f6b02a5a66b8",
+  "prior_closed_ledger_file_sha256": "b77c59e4e1772b27ef7c170bb1c08d1f6c7483d1f12a6c5a0a0deedfca82fd83",
+  "input_evidence": {
+    "source_qualification": "results_radio_source_2026-09-26/qualification.json",
+    "acquisition_qualification": "results_radio_acquisition_2026-09-26/qualification.json",
+    "direct_factor_result": "results_radio_direct_factors_2026-09-26/result.json",
+    "cross_window_result": "results_radio_cross_window_2026-09-26/result.json",
+    "control_freeze": "results_radio_cross_window_2026-09-26/control_freeze.json"
+  },
+  "expected_input_sha256": {
+    "source_qualification": "c55096cafcbac65dec25d24d8802c7ed0e5037c2b0eb30294e9f03f9966a568b",
+    "acquisition_qualification": "7fa93088e5aa47d69311ee8f54ffd0ab8e18ffc3897bcabe6f760e33b1b3e022",
+    "direct_factor_result": "e7e55eddf1f7bea99074b7baf198e5d52702f80f8fac895951d10139246457ec",
+    "cross_window_result": "d8cf6cf2997080e9db64ae74c3a656b8fcfc55582675780236b92efd0ba5c754",
+    "control_freeze": "e7eff59f598f969e29715cf3bcc380779ba6e7af570de4034ec8ab20a4ce3be8"
+  },
+  "gates": {
+    "pointing_provenance": {"passed": false, "evidence": "No same-scan original header/log or documented file-specific conversion.", "claim": "HOLD_POINTING_PROVENANCE_UNRESOLVED"},
+    "exact_window_identities": {"passed": true, "evidence": "Cross-window contract binds 18 decoded payload identities and 12 normalization blocks.", "claim": "identity contract only"},
+    "fresh_control_panel": {"passed": true, "evidence": "Three calibration and 24 evaluation identities frozen; panel unexecuted.", "claim": "preregistration only"},
+    "runtime_manifest": {"passed": true, "evidence": "Exact qualification runtime and implementation file hashes emitted with this envelope.", "claim": "future execution must match; no telescope qualification"},
+    "prospective_resource_namespace": {"passed": true, "evidence": "New empty, unactivated namespace with three role sessions and cumulative caps.", "claim": "not a reset or child of the exhausted synthetic ledger"},
+    "local_durable_role_controller": {"passed": true, "evidence": "Fsync and atomic local compare-and-swap qualification preserves role order and spent ambiguous publications.", "claim": "local qualification only; no GitHub namespace activation or network budget"},
+    "local_codec_receipt_path": {"passed": true, "evidence": "Published gzip and bitshuffle/LZ4 local-fixture decode/restart receipts are pinned.", "claim": "local engineering evidence only"},
+    "telescope_codec_receipt_handoff": {"passed": false, "evidence": "No identity-bound telescope-remote receipt has crossed into the direct pipeline.", "claim": "missing positive telescope handoff"},
+    "direct_factor_arithmetic": {"passed": true, "evidence": "38,016 independent factor comparisons and 1,015,344 bit-exact native score cells are pinned.", "claim": "arithmetic only"},
+    "physical_motion_bank": {"passed": false, "evidence": "Catalogue-fixed direct bank is a working engineering scenario; pointing and physical ephemeris remain unresolved.", "claim": "no qualified physical motion bank"},
+    "cross_window_numeric_transfer": {"passed": false, "evidence": "Only identity transitions are qualified; no numeric threshold transfer executed.", "claim": "transfer not qualified"},
+    "recovery_rfi_null_evaluation": {"passed": false, "evidence": "Fresh 24-case panel is frozen but deliberately unexecuted.", "claim": "full gate not evaluated"}
+  },
+  "spectral_access_authorized": false
+}

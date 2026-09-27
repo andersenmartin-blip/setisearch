@@ -1,0 +1,49 @@
+$ /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python scripts/radio_execution_envelope.py
+{
+  "blockers": [
+    "pointing_provenance",
+    "telescope_codec_receipt_handoff",
+    "physical_motion_bank",
+    "cross_window_numeric_transfer",
+    "recovery_rfi_null_evaluation"
+  ],
+  "codec_evidence_sha256": "5e6254d59c4e8ba976d049b66585b3d7c40ab9dd35c34eef9f9f1fc914196208",
+  "execution_envelope_sha256": "4f4fc7f477e1f0617632a314a99d95f719d17943ea294700559be675590593f6",
+  "local_v2_durable_controller_qualified": true,
+  "motion_evidence_sha256": "be29b68fc5e772b8fae234e3a87f11338bc85f1c67627657837b7be03cd492d2",
+  "network_budget_issued": false,
+  "passed_gate_count": 7,
+  "prior_closed_ledger_reset": false,
+  "prospective_reservations": 0,
+  "resource_contract_sha256": "9d238c25f0769f2ea8f6cef55f30a5560dd9eacff7c4cd7acdf64cefb1ef7737",
+  "resource_ledger_genesis_sha256": "cd1eac7585fc201dd241ec858b128b75d23ca76736b53108c092a7413dea2ff5",
+  "runtime_manifest_sha256": "5ebc9e11faacfd4f829fa8f6bfb32bf5d496909f6b466302dec8433c2d8c8cc7",
+  "schema": "radio-execution-envelope-result-v1",
+  "scientific_evaluation_executed": false,
+  "spectral_access_authorized": false,
+  "status": "BLOCKED",
+  "telescope_requests": 0,
+  "telescope_values_opened": false
+}
+
+
+$ /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -m unittest discover -s tests -p test_radio_execution_envelope.py -v
+
+test_all_published_input_evidence_has_independent_pins (test_radio_execution_envelope.ExecutionEnvelopeTests.test_all_published_input_evidence_has_independent_pins) ... ok
+test_arithmetic_is_not_relabelled_physical_motion (test_radio_execution_envelope.ExecutionEnvelopeTests.test_arithmetic_is_not_relabelled_physical_motion) ... ok
+test_attempt_budget_forbids_post_freeze_remedy_and_early_pilot (test_radio_execution_envelope.ExecutionEnvelopeTests.test_attempt_budget_forbids_post_freeze_remedy_and_early_pilot) ... ok
+test_envelope_retains_exact_five_blockers (test_radio_execution_envelope.ExecutionEnvelopeTests.test_envelope_retains_exact_five_blockers) ... ok
+test_gate_or_identity_tampering_is_refused (test_radio_execution_envelope.ExecutionEnvelopeTests.test_gate_or_identity_tampering_is_refused) ... ok
+test_local_controller_rejects_stale_checkpoint_without_mutation (test_radio_execution_envelope.ExecutionEnvelopeTests.test_local_controller_rejects_stale_checkpoint_without_mutation) ... ok
+test_local_durable_controller_reserves_only_next_role (test_radio_execution_envelope.ExecutionEnvelopeTests.test_local_durable_controller_reserves_only_next_role) ... ok
+test_new_resource_namespace_is_empty_and_not_a_ledger_reset (test_radio_execution_envelope.ExecutionEnvelopeTests.test_new_resource_namespace_is_empty_and_not_a_ledger_reset) ... ok
+test_no_spectral_or_candidate_authority (test_radio_execution_envelope.ExecutionEnvelopeTests.test_no_spectral_or_candidate_authority) ... ok
+test_publication_ambiguity_remains_spent_and_cannot_retry_old_parent (test_radio_execution_envelope.ExecutionEnvelopeTests.test_publication_ambiguity_remains_spent_and_cannot_retry_old_parent) ... ok
+test_runtime_and_existing_evidence_are_hash_bound (test_radio_execution_envelope.ExecutionEnvelopeTests.test_runtime_and_existing_evidence_are_hash_bound) ... ok
+test_three_role_reservations_exhaust_caps_and_fourth_is_refused (test_radio_execution_envelope.ExecutionEnvelopeTests.test_three_role_reservations_exhaust_caps_and_fourth_is_refused) ... ok
+test_v1_session_validator_cannot_represent_three_session_total (test_radio_execution_envelope.ExecutionEnvelopeTests.test_v1_session_validator_cannot_represent_three_session_total) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.006s
+
+OK

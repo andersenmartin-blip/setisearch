@@ -1,5 +1,33 @@
 # SETIsearch — current project status
 
+## 27 September: prospective execution envelope frozen, still blocked
+
+The [HD 1461 execution-envelope package is complete](RADIO_EXECUTION_ENVELOPE_2026-09-27_RESULT.md).
+**Thirteen new tests pass.** The cross-window contract, fresh 24-case control freeze,
+blocked source identity, published codec/direct-factor evidence, immutable
+runtime manifest and a new cumulative resource namespace are now integrated in
+one fail-closed envelope. Seven preparation gates pass; five remain false:
+pointing provenance, telescope codec-to-direct handoff, a qualified physical
+motion bank, numeric cross-window transfer and the unexecuted recovery/RFI/null
+evaluation. Status is therefore `BLOCKED`; no telescope values were opened.
+
+The new resource namespace has zero reservations and permits exactly one
+512 MiB / 500-request / 1,200-second session for each ordered role: calibration,
+validation, pilot. Cumulative limits are 1.5 GiB, 1,500 requests and 3,600
+seconds. The old synthetic ledger remains closed, exhausted and explicitly not
+a parent or reset target. A new risk was found: the old v1 ledger applies the
+single-session validator to the cumulative limit and cannot represent the
+three-session total. The new v2 prospective validator separates those limits,
+exhausts after three ordered role reservations and refuses a fourth. A local
+fsync/atomic compare-and-swap controller now also refuses wrong order and stale
+parents and preserves a reservation when the publication response is lost. It
+issues no network budget; the telescope namespace remains frozen and unactivated.
+
+**Exact next autonomous engineering:** specify and test the permitted local
+codec-receipt-to-direct-input boundary without calling it telescope evidence,
+and pin the v2 publication-store protocol without activating the namespace.
+The five scientific/transport blockers remain unchanged.
+
 ## 26 September: cross-window identities and fresh controls frozen
 
 The [cross-window calibration-contract package is complete](RADIO_CROSS_WINDOW_CONTRACT_2026-09-26_RESULT.md).
@@ -19,12 +47,9 @@ Matched/adjacent controls and detector widths 65/129 have explicit zero gates
 for unassociated final members and clusters. The prior failed panel remains
 closed development evidence and was not rerun or tuned.
 
-**Exact next autonomous preparation:** construct the prospective execution
-envelope that binds this freeze to positive codec/receipt evidence, an immutable
-runtime manifest, a qualified motion-bank identity and the cumulative resource
-ledger. Do not execute the fresh panel until those inputs and same-scan pointing
-provenance are available. Cross-window numeric transfer remains a separate
-qualification and pilot stays last. No telescope values were opened.
+The subsequent execution envelope is now published in the 27 September section
+above. It binds the available evidence without turning the still-missing
+physical-motion, telescope-codec, pointing, transfer or panel gates into passes.
 
 ## 26 September: direct factors reach downstream stages; control gate fails
 
@@ -113,11 +138,8 @@ they intersect the strong signal in epoch 1 and combine with just-over-floor
 noise in epoch 2. No implementation error or repair is claimed; no threshold
 or bank was retuned.
 
-**Exact next autonomous preparation:** implement a disjoint-window calibration
-contract that binds the proposed calibration/validation/pilot payload identities
-and refuses exact-context certificate reuse. Then freeze a fresh control panel
-that explicitly counts broad-width matched-interferer leakage and every
-unassociated final member/cluster. The failed case remains exposed development
+The subsequent cross-window contract, fresh control freeze and blocked execution
+envelope are now published above. The failed case remains exposed development
 evidence and may not be tuned into a pass. Cross-window transfer and the full
 finite-exposure recovery/RFI/null gate remain unqualified. The source contract
 and closed acquisition ledger are unchanged; no telescope values were opened.

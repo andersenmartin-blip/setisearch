@@ -1,0 +1,90 @@
+{
+  "blocked_source_contract_sha256": "c434c6f0615dfec165512195dcae888d8aa4b33a29efdb5037895ba5530d8bcb",
+  "blockers": [
+    "pointing_provenance",
+    "telescope_codec_receipt_handoff",
+    "physical_motion_bank",
+    "cross_window_numeric_transfer",
+    "recovery_rfi_null_evaluation"
+  ],
+  "codec_evidence_sha256": "5e6254d59c4e8ba976d049b66585b3d7c40ab9dd35c34eef9f9f1fc914196208",
+  "config_sha256": "edf99f406cde70cfa68f5ef42bd5df71c24887cd2ac5f0e26ea380edb97aad29",
+  "control_freeze_sha256": "80d3df727d40fc9fd6a440fc59dac5f7f3a49ef446f28ee455e9347840f7275e",
+  "cross_window_contract_sha256": "9297c5f244bd6448fba9bf23f35a9c268ca8ed4725c7ecfae6d2ddb7a871cf97",
+  "execution_envelope_sha256": "4f4fc7f477e1f0617632a314a99d95f719d17943ea294700559be675590593f6",
+  "gates": {
+    "cross_window_numeric_transfer": {
+      "claim": "transfer not qualified",
+      "evidence": "Only identity transitions are qualified; no numeric threshold transfer executed.",
+      "passed": false
+    },
+    "direct_factor_arithmetic": {
+      "claim": "arithmetic only",
+      "evidence": "38,016 independent factor comparisons and 1,015,344 bit-exact native score cells are pinned.",
+      "passed": true
+    },
+    "exact_window_identities": {
+      "claim": "identity contract only",
+      "evidence": "Cross-window contract binds 18 decoded payload identities and 12 normalization blocks.",
+      "passed": true
+    },
+    "fresh_control_panel": {
+      "claim": "preregistration only",
+      "evidence": "Three calibration and 24 evaluation identities frozen; panel unexecuted.",
+      "passed": true
+    },
+    "local_codec_receipt_path": {
+      "claim": "local engineering evidence only",
+      "evidence": "Published gzip and bitshuffle/LZ4 local-fixture decode/restart receipts are pinned.",
+      "passed": true
+    },
+    "local_durable_role_controller": {
+      "claim": "local qualification only; no GitHub namespace activation or network budget",
+      "evidence": "Fsync and atomic local compare-and-swap qualification preserves role order and spent ambiguous publications.",
+      "passed": true
+    },
+    "physical_motion_bank": {
+      "claim": "no qualified physical motion bank",
+      "evidence": "Catalogue-fixed direct bank is a working engineering scenario; pointing and physical ephemeris remain unresolved.",
+      "passed": false
+    },
+    "pointing_provenance": {
+      "claim": "HOLD_POINTING_PROVENANCE_UNRESOLVED",
+      "evidence": "No same-scan original header/log or documented file-specific conversion.",
+      "passed": false
+    },
+    "prospective_resource_namespace": {
+      "claim": "not a reset or child of the exhausted synthetic ledger",
+      "evidence": "New empty, unactivated namespace with three role sessions and cumulative caps.",
+      "passed": true
+    },
+    "recovery_rfi_null_evaluation": {
+      "claim": "full gate not evaluated",
+      "evidence": "Fresh 24-case panel is frozen but deliberately unexecuted.",
+      "passed": false
+    },
+    "runtime_manifest": {
+      "claim": "future execution must match; no telescope qualification",
+      "evidence": "Exact qualification runtime and implementation file hashes emitted with this envelope.",
+      "passed": true
+    },
+    "telescope_codec_receipt_handoff": {
+      "claim": "missing positive telescope handoff",
+      "evidence": "No identity-bound telescope-remote receipt has crossed into the direct pipeline.",
+      "passed": false
+    }
+  },
+  "motion_evidence_sha256": "be29b68fc5e772b8fae234e3a87f11338bc85f1c67627657837b7be03cd492d2",
+  "original_preparation_contract_rewritten": false,
+  "primary": "neighbor9",
+  "resource_contract_sha256": "9d238c25f0769f2ea8f6cef55f30a5560dd9eacff7c4cd7acdf64cefb1ef7737",
+  "resource_ledger_genesis_sha256": "cd1eac7585fc201dd241ec858b128b75d23ca76736b53108c092a7413dea2ff5",
+  "runtime_manifest_sha256": "5ebc9e11faacfd4f829fa8f6bfb32bf5d496909f6b466302dec8433c2d8c8cc7",
+  "schema": "radio-hd1461-execution-envelope-v1",
+  "scientific_candidate_selection_authorized": false,
+  "source_inventory_sha256": "92f877c4041e3a6150273cf108fd3b13ab8394c80c1b817e37d1f6b02a5a66b8",
+  "spectral_access_authorized": false,
+  "status": "BLOCKED",
+  "telescope_requests": 0,
+  "telescope_values_opened": false
+}
