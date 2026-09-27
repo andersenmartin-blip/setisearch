@@ -21,6 +21,30 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+## 27 September: new public HIP1499 row checked; archive request ready and unsent
+
+One bounded [public GBT log lookup](https://github.com/andersenmartin-blip/setisearch/blob/54608c8a8ffbd7d55c77d63a569dcdc83b95f747/RADIO_PUBLIC_LOG_CONTACT_2026-09-27_RESULT.md)
+returned HIP1499 at Dec −8.053611 degrees with an L-band date of
+`2016-05-14 16:58:31`. The row lacks scan IDs, coordinate lineage and a clock
+convention. It therefore cannot resolve the approximately 34.23-arcminute
+HDF5 discrepancy or justify correcting the retained coordinates.
+
+The exact 652-byte response, scoped read and offline reconciliation are
+published. The three ON file identities and fifteen prior input pins were
+checked; no telescope product, spectrum, reservation or scientific trial ran.
+
+A complete [original-metadata request](https://github.com/andersenmartin-blip/setisearch/blob/54608c8a8ffbd7d55c77d63a569dcdc83b95f747/RADIO_HD1461_ARCHIVE_EMAIL_DRAFT_2026-09-27.md)
+is prepared for Berkeley SETI's verified general routing address. **It is
+unsent** under the owner's no-external-message instruction. The request names
+all three scans and asks for original RAW/FIL/GO/log metadata or file-specific
+conversion evidence, including the public row's source and time convention.
+
+**Next:** obtain that original record through an owner-supplied response, a
+genuinely new public link or explicitly authorized contact through an available
+channel. This sheet lookup and the earlier directory route are closed. All five
+science blockers, HD1461, neighbor9 and prior dispositions persist. No telescope
+step is unblocked; period consolidation remains 9 October.
+
 ## 27 September: selected public directory route checked; pointing still unresolved
 
 The [session-directory investigation](https://github.com/andersenmartin-blip/setisearch/blob/b2ad32adf074b3ac85be92838f8b1a4348f6ab51/RADIO_DIRECTORY_PROVENANCE_2026-09-27_RESULT.md)
