@@ -11,17 +11,23 @@ hours. Existing scientific and publication boundaries remain in force.
 
 The [26 September–9 October plan](RADIO_TWO_WEEK_PLAN_2026-09-26.md) has now
 started with a completed [integrated restart/metadata package](RADIO_RESTART_2026-09-26_RESULT.md).
-The latest [injected GitHub v2 backend package](RADIO_GITHUB_V2_2026-09-27_RESULT.md)
-passes 31 new tests using isolated local Git repositories. It binds one append,
-unchanged tree siblings, exact parent and confirmed ancestry. Unique publication
-attempt IDs ensure one winner even for identical concurrent payloads; lost
-responses retain the reservation and stop the client. All failure/object evidence
-is retained. There is no live HTTP adapter, namespace activation or source budget.
-Continue with a single prospective live-rehearsal contract specifying a separate
-qualification namespace, finite GitHub-only budget, durable intent journal and
-transport/restart constraints. Publish that preparation before any live test;
-do not initialize or reserve while preparing it. All five science/transport
-execution blockers remain and the telescope ledger is untouched.
+The latest [prospective rehearsal contract and journal package](RADIO_REHEARSAL_CONTRACT_2026-09-27_RESULT.md)
+passes 25 new tests, including two actual child-process exits in the final run.
+Write-ahead intents, no-refund accounting, stop reasons and read-only replay now
+cover the new local attempt boundary. Its separate model/grant genesis templates
+and finite 160-tool-call / 32-MiB returned-text / 1,200-second proposal are inactive.
+No live namespace, remote grant or telescope reservation was created.
+
+The connector lacks exposed HTTP status/version, retry controls, pre-decode limits
+and transport cancellation; local journals do not establish remote durability.
+Continue with one offline typed connector/phase-ownership/recovery integration,
+including bootstrap, durable confirmation and closure within the same total.
+Publish and verify that evidence and an explicit transport disposition before
+any live activation. No automatic retry/refund, unmetered administrative calls,
+namespace reset or expansion of the plan. Do not repeat the completed journal
+or prior 31-test Git backend fixtures unchanged as progress. The original
+preparation, exhausted synthetic ledger, empty telescope genesis and all five
+science/transport execution blockers remain unchanged.
 
 The [motion provenance/coverage contract](RADIO_MOTION_CONTRACT_2026-09-27_RESULT.md)
 is complete with 20 new tests. The historical e=0.172 is a 99% upper credible

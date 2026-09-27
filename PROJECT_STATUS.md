@@ -1,5 +1,33 @@
 # SETIsearch — current project status
 
+## 27 September: prospective rehearsal contract and durable attempt journal complete
+
+The [rehearsal preparation package](RADIO_REHEARSAL_CONTRACT_2026-09-27_RESULT.md)
+passes **25 new tests**, including actual process exits before and after a
+simulated side effect. Intents are fsynced before dispatch; lost replies,
+budget vetoes and restart preserve spent allowances. Read-only replay never
+returns dispatch rights. Both development runs and all journal evidence are
+retained; they are 25 distinct final tests, not 49 independent cases.
+
+One separate, inactive model/grant namespace and a finite proposed envelope of
+160 caller-visible tool calls, 32 MiB returned UTF-8 and 1,200 seconds are pinned.
+No namespace, remote grant, source reservation or spectrum was opened. Connector
+declarations do not expose HTTP status/version, retries, pre-decode caps or
+transport cancellation; local fsync does not establish cross-machine/scratch-loss
+durability. These limitations remain explicit. The preparation cannot be relabelled
+ready, and all five science/transport execution blockers remain unchanged.
+
+**Exact next engineering unit:** integrate a typed connector boundary and
+irreversible phase ownership/recovery offline, under this same finite contract.
+Account for bootstrap, remote grant confirmation, checkpoint retention, read-only
+recovery and closure within the fixed total. Keep real connector outcomes distinct
+from invented HTTP statuses and the old fixture provider. Publish and verify new
+adapter/ownership/journal evidence and an explicit transport disposition before
+any live activation. No unmetered administration, automatic retry/refund or fresh
+namespace. The contract/journal preparation is complete; do not repeat these tests
+unchanged as progress. Physical motion and same-scan pointing provenance still
+need their named evidence. The plan still closes on 9 October.
+
 ## 27 September: injected GitHub v2 backend passes isolated qualification
 
 The [remote publication-boundary package is complete](RADIO_GITHUB_V2_2026-09-27_RESULT.md).
@@ -22,8 +50,8 @@ production ledger specification, original preparation contract, exhausted demo,
 empty telescope genesis and all five execution blockers remain unchanged.
 **This is not live GitHub qualification or permission to open spectra.**
 
-**Exact next preparation:** publish one bounded prospective live-rehearsal
-contract before any remote test: explicitly separate qualification namespace,
+**This preparation is now complete above:** the prospective live-rehearsal
+contract specifies: explicitly separate qualification namespace,
 immutable genesis, finite GitHub-only operation budget, transport/response bounds,
 durable attempt journal and crash/restart rules. Do not initialize a namespace,
 reserve quota, reuse the closed demo or activate the telescope path while

@@ -232,8 +232,8 @@ ancestry. A duplicate-ack baseline motivates unique publication-attempt IDs.
 All 579 archived Git objects verify. The backend is fixture-qualified only:
 there is no HTTP adapter, live namespace activation or telescope reservation.
 
-**Latest continuation:** prepare and publish one bounded prospective live
-rehearsal contract, with a separate qualification namespace/genesis, finite
+**Prior continuation, now completed below:** prepare and publish one bounded
+prospective live rehearsal contract, with a separate qualification namespace/genesis, finite
 GitHub-only operation budget, bounded transport, durable attempt journal and
 explicit crash/restart rules. Preparing it must not initialize a namespace,
 reserve quota, activate the telescope path or reuse/reset the closed demo.
@@ -242,3 +242,24 @@ as progress. Further physical work needs the motion report's specific inputs
 or an explicit prospective domain/convention contract. No bank expansion,
 failed-control tuning, fresh 24-case evaluation or spectrum opening. Pointing
 still needs genuinely new same-scan provenance. Closure remains 9 October.
+
+The [prospective rehearsal contract/journal package](RADIO_REHEARSAL_CONTRACT_2026-09-27_RESULT.md)
+is complete with 25 new final tests. Two actual child-process exits establish
+local crash behavior before/after a simulated side effect; replay grants zero
+dispatch rights. All stop/failure evidence and both development runs are retained.
+A separate inactive namespace/genesis and 160-tool-call / 32-MiB returned-text /
+1,200-second proposal are pinned. There is no live activation or source access.
+Connector HTTP/version/retry/pre-decode/cancellation terms remain unavailable;
+local fsync does not establish remote ownership or loss-of-scratch recovery.
+
+**Latest continuation:** complete one offline typed connector and irreversible
+phase-ownership/recovery integration under this fixed contract. Include remote
+grant bootstrap, immutable confirmation, checkpoint retention, read-only recovery
+and closure in its total; never create an unmetered administrative path or restore
+spent allowance through a fresh namespace. Preserve the backend's one-append,
+unique-attempt and ancestry guards without disguising live calls as fixtures or
+inventing HTTP response guarantees. Publish/verify this new evidence and an
+explicit transport disposition before any live activation. The contract/journal
+preparation is complete; do not repeat it as progress. Five science blockers and
+the same-scan pointing requirement remain unchanged. No control tuning, new
+physical bank, 24-case evaluation or spectrum opening. Closure remains 9 October.
