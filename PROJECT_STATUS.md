@@ -1,5 +1,42 @@
 # SETIsearch — current project status
 
+## 27 September: conditional temporal certificate and integration disposition complete
+
+The [temporal-majorant result](RADIO_TEMPORAL_MAJORANT_2026-09-27_RESULT.md)
+passes **14 new tests**. Exact rational derivative majorants with outward pi/
+square-root enclosures bound degree-5 and degree-6 temporal remainders by
+**0.458764711 Hz** and **0.057497818 Hz** at 1500 MHz over the declared numeric
+cadence extent. Both are below the illustrative half-channel tolerance for the
+conditional retarded emitter model. No polynomial, template or bank was made;
+this does not qualify coefficient coverage, runtime, recovery or actual-source
+physics. The full physical error remains null.
+
+The connected four-part investigation is complete with **58 distinct new tests**:
+16 domain, 15 time/Doppler, 13 parameter-covering and 14 temporal-majorant checks.
+Each package was advanced from the latest verified publication. New metadata/
+source requests, telescope reservations, spectra, scientific trials and evaluation
+exposures are all zero. The old preparation, exhausted ledger, empty telescope
+genesis, exact windows and all five blockers are unchanged.
+
+A separate integration disposition preserves the 3-calibration / 24-case / one-
+evaluation / zero-remedy limits. The unexecuted synthetic panel is not evidence
+for the new conditional family or a polynomial bank. A small new-model
+truncation bound cannot certify the unchanged old first-order factor pipeline,
+or turn its omitted terms into a complete physical error budget.
+
+**Exact continuation:** this conditional investigation is closed. Do not repeat
+its tests, increase polynomial degree, build the huge grid, create another
+arbitrary box or run the fresh panel. The next evidenced route to the HD1461
+pilot needs (a) genuinely new same-scan RAW/FIL/log/file-specific conversion
+provenance for AGBT16A_999_189 ON 0015/0017/0019; (b) evidence-backed physical
+support, source/observer clock/frame and omitted-motion/instrument allowances;
+and (c) concrete independent live admission/provisioning and transport evidence,
+or an explicit prospective alternative preserving frozen contracts. Reopen
+engineering only for a specific new input or concrete implementation risk with
+a prospective bounded scope. Do not manufacture progress through repeated empty
+checks. No unblocked telescope-execution step is established. Preserve the
+same target and all earlier dispositions; period consolidation remains 9 October.
+
 ## 27 September: continuous conditional sensitivity and covering cost quantified
 
 The [continuous covering study](RADIO_MOTION_COVERING_2026-09-27_RESULT.md)
@@ -16,7 +53,7 @@ source expenditure, runtime measurement or proof that searching is impossible.
 It discards normalization cancellations and parameter/trajectory structure.
 All seventeen pinned old inputs and all five execution blockers are unchanged.
 
-**Exact continuation:** do not construct or optimize this grid. Continue with
+**This temporal/integration continuation is completed above:** do not construct or optimize this grid. Continue with
 bounded analytic temporal compression: uniform low-order polynomial remainder
 bounds for the same conditional retarded emitter setting, using derivative
 majorants and a prospectively fixed small set of orders. No templates, detector

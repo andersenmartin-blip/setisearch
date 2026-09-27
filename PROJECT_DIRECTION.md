@@ -11,6 +11,22 @@ hours. Existing scientific and publication boundaries remain in force.
 
 The [26 September–9 October plan](RADIO_TWO_WEEK_PLAN_2026-09-26.md) has now
 started with a completed [integrated restart/metadata package](RADIO_RESTART_2026-09-26_RESULT.md).
+The latest [rational temporal certificate and integration disposition](RADIO_TEMPORAL_MAJORANT_2026-09-27_RESULT.md)
+completes four connected conditional studies with 58 distinct new tests. Degree-5
+and degree-6 truncation bounds are 0.458764711 and 0.057497818 Hz in the explicitly
+conditional retarded emitter setting. No polynomial, bank or detector was run.
+Mathematical representability does not establish source membership, full
+physical accuracy, coefficient coverage, runtime or recovery. All five blockers,
+the immutable preparation/ledgers and unexecuted 24-case panel remain unchanged.
+
+Follow the newest PROJECT_STATUS.md information frontier: genuinely new same-
+scan provenance; evidence-backed physical support and complete clock/frame/
+omitted-term allowances; and concrete independently durable live admission and
+transport. Reopen bounded engineering for a specific new input or demonstrated
+risk, not repeated tests, more polynomial orders or arbitrary parameter boxes.
+No unblocked telescope-execution step is presently evidenced. The plan remains
+limited to 9 October with its original period consolidation and dispositions.
+
 The latest [continuous conditional covering study](RADIO_MOTION_COVERING_2026-09-27_RESULT.md)
 passes 13 new tests. Its global derivative construction is mathematically
 sufficient but impractically large; the node count is not a minimum or an
