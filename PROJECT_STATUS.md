@@ -1,5 +1,36 @@
 # SETIsearch — current project status
 
+## 27 September: injected GitHub v2 backend passes isolated qualification
+
+The [remote publication-boundary package is complete](RADIO_GITHUB_V2_2026-09-27_RESULT.md).
+**Thirty-one new tests pass** using actual local Git objects/ancestry behind an
+injected REST-shaped service. The backend binds the frozen location and resource
+identity, exact parent and one append, unchanged sibling files, committed blob
+and current-head ancestry. Both identical- and distinct-payload writer races
+produce exactly one winner. Lost replies preserve durable reservations, and a
+fresh client refuses the old checkpoint. No retry, reset or refund is performed.
+
+A baseline shows why fast-forward protection alone is insufficient: the same
+commit can receive two successful update responses for one reservation. Fresh
+UUID4 publication-attempt IDs prevent identical competing commits in the guarded
+path. The full record retains 638 simulated calls across 53 isolated repositories,
+including failures and orphan objects; all 579 archived Git objects verify.
+These are engineering fixtures, with zero scientific trials or source requests.
+
+The implementation has no HTTP adapter or live activation path. The frozen
+production ledger specification, original preparation contract, exhausted demo,
+empty telescope genesis and all five execution blockers remain unchanged.
+**This is not live GitHub qualification or permission to open spectra.**
+
+**Exact next preparation:** publish one bounded prospective live-rehearsal
+contract before any remote test: explicitly separate qualification namespace,
+immutable genesis, finite GitHub-only operation budget, transport/response bounds,
+durable attempt journal and crash/restart rules. Do not initialize a namespace,
+reserve quota, reuse the closed demo or activate the telescope path while
+preparing it. The new isolated-service tests are closed engineering evidence;
+do not repeat them unchanged as progress. Pointing still needs genuinely new
+same-scan provenance, and physical motion retains its named missing inputs.
+
 ## 27 September: orbital-limit correction and bounded coverage contract complete
 
 The [motion-contract continuation is complete](RADIO_MOTION_CONTRACT_2026-09-27_RESULT.md).
@@ -26,14 +57,12 @@ ledger and empty telescope genesis remain unchanged. Source pointing still
 requires genuinely new same-scan provenance; no pointing investigation was
 repeated or coordinate changed.
 
-**Exact next autonomous engineering:** implement the already frozen remote v2
-ledger backend using an injected GitHub service and isolated service fixtures:
-pinned location, single append, exact parent, stale head, competing writers,
-lost response and ancestry/read-back checks. Do not activate/create a telescope
-namespace, reuse/reset the closed demo, issue a source budget or call mocked
-tests live qualification. The new report lists the precise missing physical
-inputs; do not repeat the now-closed orbital lookup or coverage witness as
-progress. The fresh 24-case panel and all spectra remain unopened.
+The injected remote v2 ledger backend is now complete in the newer section
+above; follow that continuation. Do not activate/create a telescope namespace,
+reuse/reset the closed demo, issue a source budget or call mocked tests live
+qualification. The motion report's precise missing physical inputs remain;
+do not repeat the closed orbital lookup or coverage witness as progress. The
+fresh 24-case panel and all spectra remain unopened.
 
 ## 27 September: local codec/direct boundary and publication policy complete
 

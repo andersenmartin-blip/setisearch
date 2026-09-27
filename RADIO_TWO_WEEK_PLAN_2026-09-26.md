@@ -224,13 +224,21 @@ subcomponent. Full physical accuracy remains blocked with named missing terms.
 Three direct artifact requests used 2,552,106 response bytes; telescope requests,
 reservations and new scientific evaluations remain zero.
 
-**Latest continuation:** implement the frozen remote v2 publication backend
-against an injected GitHub service and isolated service fixtures. Verify pinned
-location, single append, exact parent, concurrent/stale writers, response loss
-and ancestry/read-back. Do not create/activate the telescope namespace, reset
-the exhausted demo, issue a source budget or describe fixture tests as live
-qualification. The orbital-reference lookup and fixed coverage witness are
-closed; further physical work needs the report's specific new inputs or an
-explicit prospective domain/convention contract. No bank expansion, failed
-control tuning, fresh 24-case evaluation or spectrum opening. Pointing still
-needs genuinely new same-scan provenance. Closure remains 9 October.
+The [injected GitHub v2 backend](RADIO_GITHUB_V2_2026-09-27_RESULT.md) is now
+implemented and passes 31 new tests with actual local Git objects/ancestry.
+Its 638 simulated calls in 53 isolated repositories cover identical/distinct
+writer races, response loss, immutable reads, single-file changes and read-back
+ancestry. A duplicate-ack baseline motivates unique publication-attempt IDs.
+All 579 archived Git objects verify. The backend is fixture-qualified only:
+there is no HTTP adapter, live namespace activation or telescope reservation.
+
+**Latest continuation:** prepare and publish one bounded prospective live
+rehearsal contract, with a separate qualification namespace/genesis, finite
+GitHub-only operation budget, bounded transport, durable attempt journal and
+explicit crash/restart rules. Preparing it must not initialize a namespace,
+reserve quota, activate the telescope path or reuse/reset the closed demo.
+Do not relabel fixture tests as live qualification or repeat them unchanged
+as progress. Further physical work needs the motion report's specific inputs
+or an explicit prospective domain/convention contract. No bank expansion,
+failed-control tuning, fresh 24-case evaluation or spectrum opening. Pointing
+still needs genuinely new same-scan provenance. Closure remains 9 October.

@@ -11,15 +11,27 @@ hours. Existing scientific and publication boundaries remain in force.
 
 The [26 September–9 October plan](RADIO_TWO_WEEK_PLAN_2026-09-26.md) has now
 started with a completed [integrated restart/metadata package](RADIO_RESTART_2026-09-26_RESULT.md).
-The latest [motion provenance/coverage contract](RADIO_MOTION_CONTRACT_2026-09-27_RESULT.md)
+The latest [injected GitHub v2 backend package](RADIO_GITHUB_V2_2026-09-27_RESULT.md)
+passes 31 new tests using isolated local Git repositories. It binds one append,
+unchanged tree siblings, exact parent and confirmed ancestry. Unique publication
+attempt IDs ensure one winner even for identical concurrent payloads; lost
+responses retain the reservation and stop the client. All failure/object evidence
+is retained. There is no live HTTP adapter, namespace activation or source budget.
+Continue with a single prospective live-rehearsal contract specifying a separate
+qualification namespace, finite GitHub-only budget, durable intent journal and
+transport/restart constraints. Publish that preparation before any live test;
+do not initialize or reserve while preparing it. All five science/transport
+execution blockers remain and the telescope ledger is untouched.
+
+The [motion provenance/coverage contract](RADIO_MOTION_CONTRACT_2026-09-27_RESULT.md)
 is complete with 20 new tests. The historical e=0.172 is a 99% upper credible
 limit, not central eccentricity, and the bank's consumed orbital scalars mix
 two solutions. Preserve the old arithmetic as conditional engineering. One
 fixed witness exceeds half-channel center coverage even with a free carrier;
 this does not measure detector recovery. Complete physical error terms remain
 unqualified; no old bank, failed panel, ledger or preparation gate was changed.
-Continue with the already specified remote v2 backend against isolated service
-fixtures, keeping the live telescope namespace unactivated. Do not repeat the
+Its remote v2 backend continuation is complete above, while the live telescope
+namespace remains unactivated. Do not repeat the
 closed orbital-reference lookup/witness or create new templates. See the newest
 PROJECT_STATUS.md section for exact boundaries and missing physical evidence.
 
