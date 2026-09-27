@@ -23,12 +23,17 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## 27 September: typed connector works offline; startup dependency identified
 
-The [new connector/ownership investigation](https://github.com/andersenmartin-blip/setisearch/blob/c8b8317cb8750d80f2fc531bbea2c606d58e652b/RADIO_CONNECTOR_2026-09-27_RESULT.md)
-passes **19 new offline tests**. The attempt journal now connects typed tool
+The [new connector/ownership investigation](https://github.com/andersenmartin-blip/setisearch/blob/3c242a7288970aa2440c3c499fd3fadc08d96bf6/RADIO_CONNECTOR_2026-09-27_RESULT.md)
+passes **20 new offline tests**. The attempt journal now connects typed tool
 replies to exact Git-object and ancestry checks. A simple success reply is
 insufficient proof that a write landed; the unique attempt ID must also survive
 in the committed message. With a supplied independent admission fixture, one
 owner wins and a fresh client inspects an uncertain write without resending it.
+
+Final review also reproduced and fixed a phase-veto gap: a fresh store could
+reuse an owner after the original store stopped. Semantic rejection now stops
+the whole phase and revokes ownership. The failing trace and both passing
+versions are retained; repeated cases are not counted as independent results.
 
 The remaining startup requirement is now concrete. If a client may make its
 first GitHub call before recording its allowance, loss of local state allows
@@ -37,7 +42,7 @@ phase/total limits. Live startup requires independently durable admission
 before the first call; the SQL test fixture does not provide a live service.
 Transport deadline/pre-decode guarantees remain unqualified.
 
-All 370 simulated calls, 13 journals and 186 verified Git objects are retained.
+All 371 simulated calls, 14 journals and 196 verified Git objects from the final run are retained.
 No live ledger namespace, remote grant, new telescope spectrum or scientific
 evaluation was opened. The five science blockers and HD1461 pointing hold remain.
 The next independent item is the prospective motion-domain/convention document,
