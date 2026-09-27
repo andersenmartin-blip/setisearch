@@ -1,0 +1,4 @@
+Qualification harness failed before test methods: TypeError: 'NativeRun' object is not callable.
+The test class assigned cls.run during setUpClass, shadowing unittest.TestCase.run.
+The fresh fixture and sealed snapshot were constructed; no test methods or detector/calibration calls ran.
+Rename the fixture attribute to native_run. Preserve this attempt and its source snapshot.

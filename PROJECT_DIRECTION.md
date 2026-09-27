@@ -1,5 +1,31 @@
 # Long-term project direction
 
+## 27 September: score reconstruction gap guarded; local restart verified
+
+A [new score-handoff package](RADIO_SCORE_HANDOFF_2026-09-27_RESULT.md) addresses
+one concrete implementation risk found after the closed motion investigation.
+A reconstructed legacy store can pass its self-computed vector checks while
+retaining stale native-cache hashes. The separate guarded path rejects that
+mismatch and preserves all 4,752 score cells / 48 vector identities exactly.
+**26 new tests pass**, including bounded pinned checkpoint loading, concurrent
+writers and process-crash recovery. The two harness errors are retained.
+
+This is opt-in local engineering: old numerical modules remain unchanged and
+do not automatically gain the guard. A separately retained receipt pin is
+mandatory for restoration. No detector, calibration, telescope request,
+reservation or scientific evaluation ran. Power-loss/remote durability and live
+admission are not qualified. All fifteen old input pins, the exhausted ledger,
+empty telescope genesis, original preparation and five blockers are unchanged.
+
+**Exact continuation:** the score-handoff/checkpoint task is closed. Future
+integration must use its guarded API and external receipt pin. Do not replay
+closed tests or invent a generic hardening task. The scientific path still needs
+new same-scan RAW/FIL/log/file-specific conversion evidence for AGBT16A_999_189
+ON 0015/0017/0019, evidence-backed source/observer physics, and concrete independent
+live admission/transport capability. No unblocked telescope step is established.
+Reopen only for a named new input or demonstrable new risk with a bounded scope.
+Preserve HD1461, neighbor9 and every prior disposition; consolidate on 9 October.
+
 **Owner direction, 26 September 2026: ordinary radio SETI is active; LS is paused.
 Start the new two-week plan and work as autonomously as possible.**
 
@@ -11,7 +37,7 @@ hours. Existing scientific and publication boundaries remain in force.
 
 The [26 September–9 October plan](RADIO_TWO_WEEK_PLAN_2026-09-26.md) has now
 started with a completed [integrated restart/metadata package](RADIO_RESTART_2026-09-26_RESULT.md).
-The latest [rational temporal certificate and integration disposition](RADIO_TEMPORAL_MAJORANT_2026-09-27_RESULT.md)
+The earlier [rational temporal certificate and integration disposition](RADIO_TEMPORAL_MAJORANT_2026-09-27_RESULT.md)
 completes four connected conditional studies with 58 distinct new tests. Degree-5
 and degree-6 truncation bounds are 0.458764711 and 0.057497818 Hz in the explicitly
 conditional retarded emitter setting. No polynomial, bank or detector was run.

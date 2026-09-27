@@ -403,3 +403,30 @@ engineering only for a specific new input or concrete implementation risk with
 a prospective bounded scope. Do not manufacture progress through repeated empty
 checks. No unblocked telescope-execution step is established. Preserve the
 same target and all earlier dispositions; period consolidation remains 9 October.
+
+
+## 27 September: score reconstruction gap guarded; local restart verified
+
+A [new score-handoff package](RADIO_SCORE_HANDOFF_2026-09-27_RESULT.md) addresses
+one concrete implementation risk found after the closed motion investigation.
+A reconstructed legacy store can pass its self-computed vector checks while
+retaining stale native-cache hashes. The separate guarded path rejects that
+mismatch and preserves all 4,752 score cells / 48 vector identities exactly.
+**26 new tests pass**, including bounded pinned checkpoint loading, concurrent
+writers and process-crash recovery. The two harness errors are retained.
+
+This is opt-in local engineering: old numerical modules remain unchanged and
+do not automatically gain the guard. A separately retained receipt pin is
+mandatory for restoration. No detector, calibration, telescope request,
+reservation or scientific evaluation ran. Power-loss/remote durability and live
+admission are not qualified. All fifteen old input pins, the exhausted ledger,
+empty telescope genesis, original preparation and five blockers are unchanged.
+
+**Exact continuation:** the score-handoff/checkpoint task is closed. Future
+integration must use its guarded API and external receipt pin. Do not replay
+closed tests or invent a generic hardening task. The scientific path still needs
+new same-scan RAW/FIL/log/file-specific conversion evidence for AGBT16A_999_189
+ON 0015/0017/0019, evidence-backed source/observer physics, and concrete independent
+live admission/transport capability. No unblocked telescope step is established.
+Reopen only for a named new input or demonstrable new risk with a bounded scope.
+Preserve HD1461, neighbor9 and every prior disposition; consolidate on 9 October.
