@@ -21,6 +21,29 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+## 27 September: remote ledger algorithm passes isolated Git qualification
+
+The [GitHub v2 publication package](https://github.com/andersenmartin-blip/setisearch/blob/8e6400ee1bcfee530780a5fc96491847c05e57b1/RADIO_GITHUB_V2_2026-09-27_RESULT.md)
+passes **31 new tests** using actual local Git objects behind a simulated service.
+It checks the fixed ledger location, one ordered append, unchanged sibling
+files, exact commit parent and read-back ancestry. The existing role controller
+reserves three ordered fixture sessions and refuses a fourth, without issuing
+a network budget.
+
+A new baseline exposes a concurrency risk: two updates to the identical commit
+can both receive success for one reservation. Fresh publication-attempt IDs make
+competing commits distinct; both identical- and distinct-payload races now have
+**one confirmed winner**. Lost replies retain the reservation, and a fresh client
+refuses the old checkpoint. All failed attempts and orphan Git objects are
+preserved; **579 archived objects verify**.
+
+This is **isolated engineering qualification**, with no HTTP adapter or live
+ledger activation. Telescope reservations and newly opened spectra remain zero;
+all five execution blockers remain. The next preparation is a bounded prospective
+live-rehearsal contract covering a separate test namespace, operation budget,
+durable attempt journal and transport/restart limits. Preparing it opens no
+namespace and spends no telescope quota.
+
 ## 27 September: orbital limit corrected; motion coverage remains unqualified
 
 The [new motion-contract package](https://github.com/andersenmartin-blip/setisearch/blob/23d8ce008810123befe38afdee614744c7f82e98/RADIO_MOTION_CONTRACT_2026-09-27_RESULT.md)
@@ -39,10 +62,10 @@ interpolation bound is also documented, while unresolved full-model errors
 remain explicitly unknown.
 
 All five execution blockers remain. No telescope request, spectrum, new control
-evaluation or holdout was consumed. The next independent engineering step is
-the frozen remote v2 ledger backend against isolated service fixtures; its live
-telescope namespace stays unactivated. The orbital-limit lookup and fixed
-coverage check are now closed. Same-scan pointing provenance remains missing.
+evaluation or holdout was consumed. The isolated-service remote v2 backend
+continuation is now complete above; its live telescope namespace stays
+unactivated. The orbital-limit lookup and fixed coverage check are closed.
+Same-scan pointing provenance remains missing.
 
 ## 27 September: codec receipts reach direct scores; ledger policy tightened
 
