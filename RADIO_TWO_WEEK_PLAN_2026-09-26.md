@@ -767,3 +767,46 @@ remedies/pilots/new source requests 0. Fifteen old invariant pins and the active
 source preparation remain unchanged. HD1461's hold, untouched GJ724, failed
 M43AI, original M43AF holdouts, M15/M33, paused LS and unsent CHEOPS persist.
 No external messages or plan extension. Consolidation remains 9 October.
+
+## 28 September: source filter guard and full-chunk fixture complete
+
+The [source-specific codec result](RADIO_HD189733_CODEC_2026-09-28_RESULT.md)
+adds exact filter-pipeline admission at both HDF5 opens. Missing declarations
+fail before source identity lookup; changed profiles fail before chunk discovery
+or native-row reads. **14 new filter/layout tests pass**, bringing this
+continuation to **49 distinct new tests** with the preceding method work.
+
+One retained local source-shaped fixture verifies **50,331,648 decoded cells**
+and **3,145,728 extracted/normalized cells bit-for-bit**, using the exact
+HD189733 filter declaration and 4 MiB decoded chunks. The original execution's
+oracle C-order failure is preserved; a separate correction reconciles the same
+files without regeneration. Both complete HDF5 files are published losslessly
+in a 2,501,892-byte archive. No archive-produced payload or old-encoder behavior
+is claimed. Runtime versions and 30 binary files are fingerprinted.
+
+**Exact continuation:** the empty-aware method audit, reference fixtures,
+filter guard and retained codec reconciliation are complete. Do not rerun them
+unchanged or restart either closed experimental runner. Finish the distinct
+whole-cadence downstream threshold/retention/rank interface and qualify the
+codec-to-receiver/native receipt handoff, including case/noise-law/source
+identities. The current whole-cadence reference bundle is engineering-only;
+it cannot substitute a legacy scramble certificate. The old renderer lacks
+the new law binding. The original codec generator remains failed/closed; use
+its retained archive and corrected reconciliation as evidence.
+
+The [127/24 protocol proposal](RADIO_WHOLE_CADENCE_NULL_2026-09-28_PROTOCOL_PROPOSAL.md)
+remains PROPOSED_NOT_ACTIVATED. Scientific execution requires an explicitly
+authorized fresh allocation and verified executable freeze. That freeze must
+pin the newly guarded source reader and dependency; the earlier proposal's
+old reader pin is historical, not silently updated. Original preparation
+contracts stay unchanged/not-ready. A synthetic pass still does not authorize
+telescope spectra without integrated acquisition/trial admission.
+
+No new calibration/evaluation allocation, telescope value or source request
+was consumed. Six development cases, three failed calibrations, one closed
+evaluation allocation and one closed retained-score diagnosis remain spent;
+24 old evaluation values stay unopened. The old 15 invariant pins, exhausted
+synthetic acquisition ledger and inactive telescope genesis persist. HD1461's
+hold, untouched GJ724, M43AI failure, original M43AF holdouts, M15/M33, LS pause
+and unsent CHEOPS remain unchanged. No external messages or plan extension;
+consolidation remains 9 October.

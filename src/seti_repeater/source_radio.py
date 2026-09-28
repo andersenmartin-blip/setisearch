@@ -15,6 +15,7 @@ import numpy as np
 from . import source_m43h as rows
 from . import http_range_v0p6 as old
 from . import transport_radio as net
+from . import hdf5_filter_contract_radio as filter_contract
 
 ARTIFACT = "radio-source-contract-v1"
 GATES = ("pointing", "prospective_protocol", "codec_integration")
@@ -23,6 +24,7 @@ IMPLEMENTATION_PATHS = (
     "src/seti_repeater/source_m43h.py", "src/seti_repeater/transport_m43h.py",
     "src/seti_repeater/http_range_v0p6.py", "src/seti_repeater/source_v0p6.py",
     "src/seti_repeater/search_v0p6.py",
+    "src/seti_repeater/hdf5_filter_contract_radio.py",
 )
 
 
@@ -126,6 +128,8 @@ def load_contract(root, path, expected_sha256):
 def _extract_bound_source(definition, window, contract_sha256, directory, mirror_root,
                           budget, *, kind):
     """Common codec path; fixtures call this with kind='local-fixture'."""
+    expected_filters = filter_contract.declared(
+        definition, required=kind == "telescope-remote")
     import h5py
     import hdf5plugin  # Registers the archive codec; no scientific inputs.
     scope = rows.make_scope(definition, window["name"], window["archive_interval"],
@@ -142,6 +146,7 @@ def _extract_bound_source(definition, window, contract_sha256, directory, mirror
         dataset = rows.validate_dataset(handle, scope)
         if list(dataset.chunks) != definition["expected_chunks"]:
             raise ValueError("HDF5 chunks differ from source contract")
+        filter_contract.check_dataset(dataset, expected_filters)
         return dataset
 
     with net.RadioMirror(mirror_root/(label+".h5.sparse"), identity, budget) as mirror:

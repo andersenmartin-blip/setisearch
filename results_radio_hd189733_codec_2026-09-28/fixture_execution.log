@@ -1,0 +1,12 @@
+encoded 48 full local chunks
+legacy source declaration preserved; decoder restored
+Traceback (most recent call last):
+  File "/workspace/scratch/ad45775dff93/setisearch/scripts/radio_hd189733_codec_profile.py", line 215, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/scratch/ad45775dff93/setisearch/scripts/radio_hd189733_codec_profile.py", line 182, in main
+    expected_norm[start:start+4096]=normalization.normalize_float32_blocks_v0p6(
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ad45775dff93/setisearch/src/seti_repeater/source_v0p6.py", line 581, in normalize_float32_blocks_v0p6
+    raise core.V0P6ContractError(
+seti_repeater.search_v0p6.V0P6ContractError: normalization input must be a nonempty C-order <f4 matrix
