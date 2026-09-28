@@ -1,5 +1,32 @@
 # Long-term project direction
 
+## 28 September: lossless live archive qualified; scientific timing still blocked
+
+The [lossless integration result](RADIO_WHOLE_CADENCE_LOSSLESS_2026-09-28_RESULT.md)
+closes a distinct scope with **29 new passing tests** and actual external evidence:
+524,305 binary bytes restored exactly, both witnesses sealed atomically, and a
+prescribed over-capacity case refused with its failure receipt archived. All four
+own fast-forward deltas and every raw byte were independently checked through Git.
+Actual encoded artifacts plus all ledger versions occupy **713,337 bytes**.
+
+The full 827-code/1,132-runtime-file freeze preceded work. The run took 258.140481 s
+and 111 new transport calls. Case times **103.808198 / 88.081456 s** fit their
+engineering reservations but do **not** qualify scientific **40/80-s** budgets.
+Actual Gaussian compact evidence and the complete native physical/gate chain
+remain unqualified. The 127/24 proposal remains **NOT ACTIVATED**.
+
+**Exact continuation:** this lossless scope and both preceding failed remote
+scopes are CLOSED. Resolve measured request/handoff/readback latency and physical
+ASCII-byte accounting under a fresh bounded engineering scope; preserve durable
+consumption and all byte checks. Then qualify actual Gaussian/full-native/gate
+execution using fresh, explicitly separated engineering identities and a new
+prospective freeze. Never use reserved 127/24 RNGs for benchmarking or enlarge
+the scientific budget. Follow the result's ordered continuation.
+
+All 17 historical pins, old reservations/counters, preparations, target selection,
+holds/holdouts, LS pause and CHEOPS UNSENT remain unchanged. No new source data,
+scientific allocation, external messages or plan extension. Consolidate 9 October.
+
 ## 28 September: distinct lossless integration scope frozen for one live run
 
 The [new engineering scope](RADIO_WHOLE_CADENCE_LOSSLESS_2026-09-28_SCOPE.md)
