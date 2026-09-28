@@ -1,0 +1,96 @@
+{
+  "scenarios": [
+    {
+      "name": "empty",
+      "status": "COMPLETE",
+      "retained_on": 0,
+      "retained_off": 0,
+      "clusters": 0,
+      "diagnostic_final_members": 0
+    },
+    {
+      "name": "same_off",
+      "status": "COMPLETE",
+      "retained_on": 1,
+      "retained_off": 1,
+      "clusters": 1,
+      "diagnostic_final_members": 0
+    },
+    {
+      "name": "local_off",
+      "status": "COMPLETE",
+      "retained_on": 1,
+      "retained_off": 1,
+      "clusters": 1,
+      "diagnostic_final_members": 0
+    },
+    {
+      "name": "adjacent_masked",
+      "status": "COMPLETE",
+      "retained_on": 1,
+      "retained_off": 0,
+      "clusters": 1,
+      "diagnostic_final_members": 0
+    },
+    {
+      "name": "receiver_alias",
+      "status": "COMPLETE",
+      "retained_on": 2,
+      "retained_off": 0,
+      "clusters": 2,
+      "diagnostic_final_members": 0
+    },
+    {
+      "name": "physical_survivor",
+      "status": "COMPLETE",
+      "retained_on": 1,
+      "retained_off": 0,
+      "clusters": 1,
+      "diagnostic_final_members": 1
+    },
+    {
+      "name": "transitive_component",
+      "status": "COMPLETE",
+      "retained_on": 3,
+      "retained_off": 0,
+      "clusters": 1,
+      "diagnostic_final_members": 3
+    },
+    {
+      "name": "off_before_alias",
+      "status": "COMPLETE",
+      "retained_on": 2,
+      "retained_off": 1,
+      "clusters": 2,
+      "diagnostic_final_members": 0
+    },
+    {
+      "name": "off_capacity",
+      "status": "EXPECTED_INCOMPLETE_FAILURE",
+      "reason": "OFF candidate-visit capacity exceeded",
+      "complete_upstream_triggers_preserved": 3,
+      "failure_stage": "matched_off"
+    },
+    {
+      "name": "alias_capacity",
+      "status": "EXPECTED_INCOMPLETE_FAILURE",
+      "reason": "Alias candidate-visit capacity exceeded",
+      "complete_upstream_triggers_preserved": 2,
+      "failure_stage": "receiver_alias"
+    },
+    {
+      "name": "bytes_capacity",
+      "status": "EXPECTED_INCOMPLETE_FAILURE",
+      "reason": "Canonical physical-stage byte capacity exceeded: matched_off",
+      "complete_upstream_triggers_preserved": 1,
+      "failure_stage": "matched_off"
+    }
+  ],
+  "dispositions": {
+    "rfi_veto_matched_off_same_hypothesis": 2,
+    "rfi_veto_local_off_track": 1,
+    "rfi_veto_single_adjacent_off": 1,
+    "rfi_veto_receiver_frame_alias": 3,
+    "pending_receiver_alias_evaluation": 4
+  }
+}

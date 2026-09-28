@@ -1,0 +1,144 @@
+{
+  "case": {
+    "budget_charged": false,
+    "context_sha256": "8899f84c7e9721e79627a4ec7166b7c941127a50f6ed5cb2d771f2c8518feb13",
+    "executed": false,
+    "identity": "ca8f417235f81f46508995db71c1b1e269a9ef0ec301b4e5e44cf3a190891c7a",
+    "index": 0,
+    "namespace": "radio-hd189733-whole-cadence-null-20260928-v1/null/000",
+    "noise_law_sha256": "e67450278cce0bf787ea128cd7eaabff4c9aac40dbe1463bb81dc055224c52eb",
+    "outcomes_may_select_settings": false,
+    "proposed_only": true,
+    "recipe": {
+      "kind": "noise_only"
+    },
+    "role": "calibration",
+    "seed": 1323903238776600818,
+    "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+  },
+  "context_sha256": "8899f84c7e9721e79627a4ec7166b7c941127a50f6ed5cb2d771f2c8518feb13",
+  "noise_law": {
+    "calibration_comb": false,
+    "calibration_injection": null,
+    "channels_per_row": 65536,
+    "domain": "synthetic digital power; not telescope noise",
+    "generator_calls": "one normal(100., 1., 65536).astype(<f4) per row",
+    "ideal_model": "independent Gaussian entries, mean 100, standard deviation 1, then float32",
+    "implementation_model": "NumPy Generator(PCG64(SeedSequence([case seed, scan index])))",
+    "independence_from_unique_seed_hashes_proved": false,
+    "normalization": "existing pinned normalize_synthetic_rows; 4096-channel blocks",
+    "order": "scan index, integration row, ascending native channel",
+    "pseudo_random_implementation_is_exact_random_sampling": false,
+    "rank_theorem_assumption": "ideal independent whole-cadence draws with identical score law",
+    "rows_per_scan": 16,
+    "scan_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "schema": "radio-whole-cadence-proposed-noise-law-v1",
+    "seed_derivation": "first 8 big-endian bytes SHA256(namespace + /seed-v1)"
+  },
+  "plan_sha256": "913ef11cb8bd46c061d78c8603feabcef56ed7b65f130840b5b8bc01b45a74db",
+  "proposal_sha256": "45d8309c8b23eea56ddee15e829b96a3936dba98141f124bf97c4057f35993e2",
+  "random_values_generated": false,
+  "receiver_bank_sha256": "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+  "schema": "radio-whole-cadence-draw-plan-v1",
+  "scientific_execution_authorized": false,
+  "status": "PROPOSED_NOT_ACTIVATED",
+  "streams": [
+    {
+      "normal_arguments": [
+        100.0,
+        1.0,
+        65536
+      ],
+      "normal_calls": 16,
+      "output_dtype": "<f4",
+      "scan": "epoch1_on",
+      "scan_index": 0,
+      "seed_sequence_entropy": [
+        1323903238776600818,
+        0
+      ]
+    },
+    {
+      "normal_arguments": [
+        100.0,
+        1.0,
+        65536
+      ],
+      "normal_calls": 16,
+      "output_dtype": "<f4",
+      "scan": "epoch1_off",
+      "scan_index": 1,
+      "seed_sequence_entropy": [
+        1323903238776600818,
+        1
+      ]
+    },
+    {
+      "normal_arguments": [
+        100.0,
+        1.0,
+        65536
+      ],
+      "normal_calls": 16,
+      "output_dtype": "<f4",
+      "scan": "epoch2_on",
+      "scan_index": 2,
+      "seed_sequence_entropy": [
+        1323903238776600818,
+        2
+      ]
+    },
+    {
+      "normal_arguments": [
+        100.0,
+        1.0,
+        65536
+      ],
+      "normal_calls": 16,
+      "output_dtype": "<f4",
+      "scan": "epoch2_off",
+      "scan_index": 3,
+      "seed_sequence_entropy": [
+        1323903238776600818,
+        3
+      ]
+    },
+    {
+      "normal_arguments": [
+        100.0,
+        1.0,
+        65536
+      ],
+      "normal_calls": 16,
+      "output_dtype": "<f4",
+      "scan": "epoch3_on",
+      "scan_index": 4,
+      "seed_sequence_entropy": [
+        1323903238776600818,
+        4
+      ]
+    },
+    {
+      "normal_arguments": [
+        100.0,
+        1.0,
+        65536
+      ],
+      "normal_calls": 16,
+      "output_dtype": "<f4",
+      "scan": "epoch3_off",
+      "scan_index": 5,
+      "seed_sequence_entropy": [
+        1323903238776600818,
+        5
+      ]
+    }
+  ]
+}

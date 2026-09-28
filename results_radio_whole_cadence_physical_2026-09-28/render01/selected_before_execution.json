@@ -1,0 +1,54 @@
+[
+  {
+    "case_identity": "ca8f417235f81f46508995db71c1b1e269a9ef0ec301b4e5e44cf3a190891c7a",
+    "purpose": "deterministic mock contract test; no scientific draw",
+    "recipe": {
+      "kind": "noise_only"
+    },
+    "role": "calibration"
+  },
+  {
+    "case_identity": "c4646a6b63c6a12dac8668d03777d0bdad4933bf939924d9ce17824030f7b2ff",
+    "purpose": "deterministic mock contract test; no scientific draw",
+    "recipe": {
+      "activity_patterns": {
+        "matched_on_off": {
+          "off_epochs_zero_based": [
+            0,
+            1,
+            2
+          ],
+          "on_epochs_zero_based": [
+            0,
+            1,
+            2
+          ]
+        },
+        "on_signal": {
+          "off_epochs_zero_based": [],
+          "on_epochs_zero_based": [
+            0,
+            1,
+            2
+          ]
+        },
+        "single_adjacent_off": {
+          "off_epochs_zero_based": [
+            0
+          ],
+          "on_epochs_zero_based": [
+            0,
+            2
+          ]
+        }
+      },
+      "carrier_offset_channels": 0,
+      "case_id": "signal-w129-p100",
+      "injection_width_channels": 129,
+      "kind": "on_signal",
+      "rate_label_hz_s": -4,
+      "total_digital_power": 100.0
+    },
+    "role": "evaluation"
+  }
+]

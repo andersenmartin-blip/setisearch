@@ -1,5 +1,36 @@
 # SETIsearch — current project status
 
+## 28 September: physical vetoes, renderer binding and gate interface qualified
+
+The [new connected result](RADIO_WHOLE_CADENCE_PHYSICAL_2026-09-28_RESULT.md)
+adds **66 distinct passing tests**. New whole-cadence receipts now feed matched
+OFF, unmasked adjacent OFF, receiver aliases and complete clustering while
+preserving every trigger/veto and the fixed numerical rules. Eleven durable
+fixtures retain 14 triggers in complete runs and six upstream triggers in
+expected capacity failures; these are not measured RFI/recovery outcomes.
+
+All 151 proposed case plans bind without RNG calls. Two separately labelled
+non-Gaussian mock cadences verify row/injection/source binding; all 12 sources
+and 12,582,912 normalized values are preserved and rehydrated with identical
+source identities. A distinct post-decision gate interface binds truth to
+case/context and preserves all associated/unassociated and broad-width counts.
+
+**Exact continuation:** these deterministic interfaces are complete. Do not
+repeat their fixtures, prior closed codec/calibration/development runs or old
+diagnosis as progress. Implement a distinct durable scientific consumption
+journal, connect the actual Gaussian renderer, and qualify the full native
+physical/gate chain plus source/runtime/law binding and cumulative crash/restart.
+Follow the [integrated draft](RADIO_WHOLE_CADENCE_INTEGRATION_2026-09-28_DRAFT.md),
+which is not an executable freeze or allocation. The actual Gaussian entry
+remains disabled, and the complete native physical chain is unqualified.
+
+The 127/24 proposal remains NOT ACTIVATED: no Gaussian values, fresh scientific
+allocation, source request or telescope value consumed. Old 15 pins, original
+preparations, closed attempts and all prior dispositions are unchanged. A fresh
+allocation plus published/readback executable freeze precedes new scientific
+values; separate integrated acquisition/trial admission still precedes telescope
+spectra. No external messages or plan extension; consolidate 9 October.
+
 ## 28 September: codec/native and empty-aware downstream handoffs complete
 
 The [new handoff result](RADIO_WHOLE_CADENCE_HANDOFF_2026-09-28_RESULT.md)

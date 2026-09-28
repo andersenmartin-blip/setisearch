@@ -1,0 +1,107 @@
+{
+  "active_seconds": 0.8551782479999019,
+  "complete_run_triggers_preserved": 14,
+  "incomplete_run_upstream_triggers_preserved": 6,
+  "native_full_physical_chain_exercised": false,
+  "new_gaussian_values": 0,
+  "new_scientific_allocations": 0,
+  "peak_process_rss_bytes": 29073408,
+  "physical_disposition_counts": {
+    "pending_receiver_alias_evaluation": 4,
+    "rfi_veto_local_off_track": 1,
+    "rfi_veto_matched_off_same_hypothesis": 2,
+    "rfi_veto_receiver_frame_alias": 3,
+    "rfi_veto_single_adjacent_off": 1
+  },
+  "scenarios": [
+    {
+      "clusters": 0,
+      "diagnostic_final_members": 0,
+      "name": "empty",
+      "retained_off": 0,
+      "retained_on": 0,
+      "status": "COMPLETE"
+    },
+    {
+      "clusters": 1,
+      "diagnostic_final_members": 0,
+      "name": "same_off",
+      "retained_off": 1,
+      "retained_on": 1,
+      "status": "COMPLETE"
+    },
+    {
+      "clusters": 1,
+      "diagnostic_final_members": 0,
+      "name": "local_off",
+      "retained_off": 1,
+      "retained_on": 1,
+      "status": "COMPLETE"
+    },
+    {
+      "clusters": 1,
+      "diagnostic_final_members": 0,
+      "name": "adjacent_masked",
+      "retained_off": 0,
+      "retained_on": 1,
+      "status": "COMPLETE"
+    },
+    {
+      "clusters": 2,
+      "diagnostic_final_members": 0,
+      "name": "receiver_alias",
+      "retained_off": 0,
+      "retained_on": 2,
+      "status": "COMPLETE"
+    },
+    {
+      "clusters": 1,
+      "diagnostic_final_members": 1,
+      "name": "physical_survivor",
+      "retained_off": 0,
+      "retained_on": 1,
+      "status": "COMPLETE"
+    },
+    {
+      "clusters": 1,
+      "diagnostic_final_members": 3,
+      "name": "transitive_component",
+      "retained_off": 0,
+      "retained_on": 3,
+      "status": "COMPLETE"
+    },
+    {
+      "clusters": 2,
+      "diagnostic_final_members": 0,
+      "name": "off_before_alias",
+      "retained_off": 1,
+      "retained_on": 2,
+      "status": "COMPLETE"
+    },
+    {
+      "complete_upstream_triggers_preserved": 3,
+      "failure_stage": "matched_off",
+      "name": "off_capacity",
+      "reason": "OFF candidate-visit capacity exceeded",
+      "status": "EXPECTED_INCOMPLETE_FAILURE"
+    },
+    {
+      "complete_upstream_triggers_preserved": 2,
+      "failure_stage": "receiver_alias",
+      "name": "alias_capacity",
+      "reason": "Alias candidate-visit capacity exceeded",
+      "status": "EXPECTED_INCOMPLETE_FAILURE"
+    },
+    {
+      "complete_upstream_triggers_preserved": 1,
+      "failure_stage": "matched_off",
+      "name": "bytes_capacity",
+      "reason": "Canonical physical-stage byte capacity exceeded: matched_off",
+      "status": "EXPECTED_INCOMPLETE_FAILURE"
+    }
+  ],
+  "schema": "radio-whole-cadence-physical-fixture-result-v1",
+  "scientific_recovery_or_rfi_rate_measured": false,
+  "status": "FIXED_PHYSICAL_SCENARIOS_PASS",
+  "telescope_values_opened": false
+}

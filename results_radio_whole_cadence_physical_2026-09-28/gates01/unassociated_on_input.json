@@ -1,0 +1,93 @@
+{
+  "case": {
+    "context_sha256": "304e30cc6eab0f1f88a633021a115e3dd281e223d2549988b64e60918f8b4eb6",
+    "identity": "df27306301744a7d14b940d27b28fa586cc3c2b85baa71e3684d6b531c0c8d92",
+    "namespace": "radio-whole-cadence-gates-engineering-20260928",
+    "recipe": {
+      "activity_patterns": {
+        "matched_on_off": {
+          "off_epochs_zero_based": [],
+          "on_epochs_zero_based": [
+            0,
+            1,
+            2
+          ]
+        },
+        "on_signal": {
+          "off_epochs_zero_based": [],
+          "on_epochs_zero_based": [
+            0,
+            1,
+            2
+          ]
+        },
+        "single_adjacent_off": {
+          "off_epochs_zero_based": [],
+          "on_epochs_zero_based": [
+            0,
+            2
+          ]
+        }
+      },
+      "case_id": "handcrafted-decisions",
+      "kind": "on_signal",
+      "rate_label_hz_s": 0
+    },
+    "role": "evaluation",
+    "source_domain": "handcrafted-completed-engineering-decisions"
+  },
+  "engineering_fixture_not_a_detector_execution": true,
+  "report": {
+    "clusters": [
+      {
+        "cluster_sha256": "487693f6bca3a6a7b98b688e09b920e5e156e759e4096d0aa497ef6a8bb1187d",
+        "diagnostic_final_ids": [
+          "7c7951a8b9f14089813ddc0464a2808e2690670586da29996a106375671a05f1"
+        ],
+        "member_count": 1,
+        "member_ids": [
+          "7c7951a8b9f14089813ddc0464a2808e2690670586da29996a106375671a05f1"
+        ]
+      }
+    ],
+    "complete": true,
+    "decisions": [
+      {
+        "diagnostic_final": true,
+        "meets_diagnostic_rank_cut": true,
+        "passes_evaluated_physical_vetoes": true,
+        "record_id": "7c7951a8b9f14089813ddc0464a2808e2690670586da29996a106375671a05f1",
+        "scientific_candidate": false
+      }
+    ],
+    "engineering_fixture_not_a_detector_execution": true,
+    "family_sha256": "1ea05debae3afda6c6f0570fac31f149722229c9aebefd9e73c36871709d0df1",
+    "result_sha256": "f3847d7e8e0202154079830507eaa55d36342a81bbce6a9945e867f432791a0a",
+    "retention": {
+      "case_identity": "df27306301744a7d14b940d27b28fa586cc3c2b85baa71e3684d6b531c0c8d92",
+      "complete": true,
+      "result_sha256": "fd4c781faf64344656e1f1f208b6833a1b560caf2f84c7026f101962f75566c2",
+      "retained": {
+        "off": [],
+        "on": [
+          {
+            "active_epochs_zero_based": [
+              0,
+              1,
+              2
+            ],
+            "carrier_hz": 1411152661.969097,
+            "proxy_carrier_index": 43,
+            "record_id": "7c7951a8b9f14089813ddc0464a2808e2690670586da29996a106375671a05f1",
+            "schema": "handcrafted-retained-gate-fixture-v1",
+            "spectral_width_channels": 1,
+            "spectral_width_index": 0,
+            "template_index": 40
+          }
+        ]
+      }
+    },
+    "schema": "radio-whole-cadence-physical-v1",
+    "scientific_candidate_selection_authorized": false
+  }
+}
