@@ -21,6 +21,33 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+### 28 September: six receiver-development cases completed exactly
+
+The new receiver-specific score adapter has now processed all **six reserved
+HD189733 development cases**, after a published code/protocol freeze.
+**2,309,472 native score cells agree bit-for-bit** with an independent window
+calculation, and **21 distinct new tests pass**. The six development attempt
+slots are closed. Calibration remains 0/3 and evaluation 0/24 (0/1 runs).
+
+A connected metadata-only check finds **1,539,648 identical cross-window channel
+addresses**, establishing the same score operator on translated arrays. This
+does not establish equal real-frequency noise/RFI or qualify a threshold transfer.
+The six numerical passes are not six recovered signals: statistical detection,
+retention and physical-veto stages have not been run on these cases.
+
+Code, analytic finite-exposure rendering, per-row/per-vector hashes, the completed
+consumption ledger and technical errors are retained. No telescope spectrum,
+new telescope request or external message occurred. HD1461's hold, the untouched
+reserve, neighbor9 and all earlier dispositions persist.
+
+Next comes the complete freeze for the remaining calibration/evaluation panel:
+rendering, null/scramble construction, threshold/rank settings and context-bound
+numeric transfer, followed by the fixed recovery/RFI/null gates. Codec/runtime
+handoff and the integrated acquisition protocol remain required before spectra.
+The plan still ends on **9 October**.
+
+[Detailed result, evidence and exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_HD189733_ADAPTER_2026-09-28_RESULT.md)
+
 ### 28 September: HD189733 received-drift bank verified
 
 Preparation now has an explicit ordinary-radio scope: **81 received linear-drift
