@@ -1,5 +1,33 @@
 # Long-term project direction
 
+## 28 September: live transport failures preserved; lossless archive prepared
+
+[The actual GitHub result](RADIO_WHOLE_CADENCE_REMOTE_2026-09-28_RESULT.md)
+records **55 new passing tests, but two CLOSED FAILED live scopes**. Live01
+stopped before consumption on a response-format mismatch. Live02 consumed one
+engineering case and made four fast-forward publications; a 17-byte binary tail
+returned as 31 bytes with replacement characters. The guard stopped the case.
+Independent Git reads prove the original stored bytes are intact; the case is
+still incomplete, with its 1,500-s/1-MiB reservation charged and no restart.
+
+A separately prepared ASCII envelope restores the retained 262,161 bytes exactly
+and counts 350,353 actual stored bytes. It is offline-only and not integrated or
+live qualified. Runtime capture now rejects missing tracked code in sparse
+checkouts; old 360-file engineering snapshots are historical, not a current full
+scientific freeze. Timing also exposes substantial broker overhead.
+
+**Exact continuation:** close both live scopes permanently. Integrate lossless
+storage with physical-byte accounting, bounded failure/finalization publication
+and a measured lower-latency broker under a new prospective engineering scope.
+Publish/read back a fresh full code/runtime freeze before any new live attempt.
+Then qualify actual Gaussian/full-native-physical execution; only afterward may
+a fresh scientific allocation activate 127/24. Do not rerun closed cases or
+silently spend phase overhead. Follow the result's ordered continuation.
+
+All 17 historical pins and prior scientific counters/dispositions remain unchanged.
+No Gaussian/scientific/source/telescope values were opened; no external messages
+were sent. The 127/24 proposal remains NOT ACTIVATED. Consolidate on 9 October.
+
 ## 28 September: failed live transport preserved; corrected scope prepared
 
 [Live01](results_radio_whole_cadence_remote_2026-09-28/run01/result.json) stopped

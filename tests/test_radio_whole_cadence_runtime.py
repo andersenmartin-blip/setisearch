@@ -44,6 +44,10 @@ class RuntimeTests(unittest.TestCase):
         (self.root/'scripts/new.py').write_text('pass\n')
         with self.assertRaisesRegex(ValueError,'inventory'):self.verifier.verify(self.m)
 
+    def test_missing_tracked_code_cannot_be_silently_omitted_from_freeze(self):
+        (self.root/'src/seti_repeater/a.py').unlink()
+        with self.assertRaisesRegex(ValueError,'sparse inventory'):r.repository_inventory(self.root)
+
     def test_changed_measured_runtime_file_rejected(self):
         self.runtime.write_bytes(b'changed')
         with self.assertRaisesRegex(ValueError,'Runtime dependency'):self.verifier.verify(self.m)

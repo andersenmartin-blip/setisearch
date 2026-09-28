@@ -26,7 +26,11 @@ def loaded_files():
 
 def repository_inventory(root):
     root=Path(root)
-    return sorted(str(p.relative_to(root)) for folder in ('src/seti_repeater','scripts') for p in (root/folder).rglob('*.py'))
+    present={str(p.relative_to(root)) for folder in ('src/seti_repeater','scripts') for p in (root/folder).rglob('*.py')}
+    tracked=subprocess.check_output(['git','ls-files','-z','--','src/seti_repeater','scripts'],cwd=root).decode().split('\0')
+    missing={p for p in tracked if p.endswith('.py')}-present
+    if missing:raise ValueError('Tracked Python files absent from checkout; cannot freeze a sparse inventory: '+','.join(sorted(missing)))
+    return sorted(present)
 
 
 def runtime_inventory():
