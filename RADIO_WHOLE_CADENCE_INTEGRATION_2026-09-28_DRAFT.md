@@ -1,5 +1,29 @@
 # Whole-cadence integrated execution outline — NOT ACTIVATED
 
+## Latest continuation — after the journal/archive qualification
+
+The [journal/archive result](RADIO_WHOLE_CADENCE_JOURNAL_2026-09-28_RESULT.md)
+supersedes the older “not implemented” portions below. Local engineering case
+consumption, crash states and full native source/score restoration are qualified.
+The Gaussian implementation is lease-guarded, but its actual successful path and
+full native physical/gate chain remain unqualified. The real external publication
+adapter and complete current-code/runtime freeze are also absent; test doubles
+are not admission. The closed fixtures must not be rerun as new progress.
+
+The scientific archive must now be made explicit and budgeted. Full normalized
+source values alone total 3,800,039,424 uncompressed bytes for 151 cadences, exceeding
+the 1 GiB cap. Do not project deterministic mock compression onto Gaussian arrays.
+A compact complete-score/row-receipt archive is permitted by the original proposal,
+but must be specified, implemented and qualified; it cannot claim reconstruction
+of omitted source arrays. Reserve cumulative time/evidence by phase before work,
+retain failure evidence and do not enlarge budgets. A future external store must
+publish and read back artifact bytes, verify previous completed evidence and
+revalidate transitive code/runtime/proposal/allocation before granting RNG access.
+
+The order below remains the required scientific order, **not authorization**.
+No 127/24 allocation, executable freeze or telescope permission has been issued.
+
+
 28 September 2026. This connects the newly qualified interfaces and makes the
 remaining work explicit. It is **not an executable freeze**, an allocation,
 a detector-performance result, a telescope permit or a ready preparation.

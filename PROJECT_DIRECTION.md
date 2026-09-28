@@ -1,5 +1,34 @@
 # Long-term project direction
 
+## 28 September: durable case consumption and native archives qualified
+
+The [new journal/archive result](RADIO_WHOLE_CADENCE_JOURNAL_2026-09-28_RESULT.md)
+adds **51 distinct passing tests** and six crash boundaries, including five actual
+process exits. Consumption and conservative resource reservations precede work;
+uncertain publication and incomplete evidence cannot yield a replay or EMPTY.
+Scientific completion now requires external artifact byte readback in the adapter
+contract. The supplied store remains local engineering-only.
+
+Two previously retained mock cadences received their first complete score archives:
+**12 sources, 96 cache receipts, 2,592 vectors and 769,824 score values**. A separate
+process restored all identities and values without RNG or score/cache recomputation.
+These are deterministic archive checks, not calibration or recovery outcomes.
+The guarded Gaussian implementation exists, but its real successful path is unqualified.
+
+**Exact continuation:** the new journal/crash/archive fixtures are CLOSED. Do not
+repeat them or earlier closed experiments as progress. Qualify the real external
+scientific publication adapter, compact score/receipt archive and cumulative phase
+budgets, then the actual Gaussian and complete native physical/gate chain under a
+fresh prospective engineering scope. Full source arrays across 151 cadences total
+3,800,039,424 uncompressed bytes before scores; do not assume mock compression makes
+that fit the fixed 1 GiB evidence cap. Follow the detailed next steps in the result
+and integrated draft. No executable freeze or fresh scientific allocation is issued.
+
+The 127/24 proposal remains NOT ACTIVATED; all scientific counters, 17 historical
+pins, original preparations and prior dispositions are unchanged. New source requests,
+telescope values and external messages remain zero. The old ledger stays exhausted;
+no plan extension, and consolidation remains 9 October.
+
 ## 28 September: physical vetoes, renderer binding and gate interface qualified
 
 The [new connected result](RADIO_WHOLE_CADENCE_PHYSICAL_2026-09-28_RESULT.md)

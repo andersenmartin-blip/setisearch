@@ -1,6 +1,7 @@
 """Prospective Gaussian draw-plan binding and explicitly non-Gaussian mocks.
 
-There is deliberately no scientific activation or real RNG entry point here.
+The real entry requires a fresh remotely published scientific consumption lease.
+No activation or scientific store adapter is supplied by this module.
 The mock shares row/injection/normalization arithmetic with the bound plan;
 its source law is distinct and cannot be used as proposed Gaussian references.
 """
@@ -67,7 +68,7 @@ def prepare(context, case, proposal_bytes):
     r['plan_sha256']=digest(r);plan=DrawPlan(canonical(r));plan.record();return plan
 
 
-def render_mock(context, plan, stream_factory, *, budget=lambda:None):
+def _render(context, plan, stream_factory, *, budget, scientific_receipt=None):
     """Exercise exact planned row ordering with a declared deterministic provider.
 
     Each provider exposes normal(mean, sigma, channels), returning one float64
@@ -78,7 +79,7 @@ def render_mock(context, plan, stream_factory, *, budget=lambda:None):
     context.validate();r=plan.record();case=r['case']
     if (r['context_sha256']!=context.identity or r['receiver_bank_sha256']!=context.factor_contract.factors.identity
             or case['context_sha256']!=context.identity):raise ValueError('Mock draw-plan context differs')
-    if getattr(stream_factory,'domain',None)!='deterministic-renderer-contract-fixture':
+    if scientific_receipt is None and getattr(stream_factory,'domain',None)!='deterministic-renderer-contract-fixture':
         raise ValueError('Explicit deterministic provider required; real Gaussian activation absent')
     recipe=case['recipe'];kind=recipe['kind']
     active={'on_epochs_zero_based':[],'off_epochs_zero_based':[]} if kind in ('noise_only','noise_null') else recipe['activity_patterns'][kind]
@@ -86,18 +87,19 @@ def render_mock(context, plan, stream_factory, *, budget=lambda:None):
     q=context.grid.center_mhz*1e6
     center=json.loads(context.factor_contract.factors.provenance_json)['center_hz']
     clock=received.clock(json.loads(context.factor_contract.source_contract_bytes))
-    case_id=digest({'namespace':MOCK_NAMESPACE,'draw_plan_sha256':r['plan_sha256']})
+    case_id=(case['identity'] if scientific_receipt is not None else
+             digest({'namespace':MOCK_NAMESPACE,'draw_plan_sha256':r['plan_sha256']}))
     expected_streams=[{'scan_index':i,'scan':scan['label'],'seed_sequence_entropy':[case['seed'],i],
         'normal_calls':16,'normal_arguments':[100.,1.,65536],'output_dtype':'<f4'} for i,scan in enumerate(context.scans)]
     if r['streams']!=expected_streams:raise ValueError('Planned generator call schedule changed')
     sources={};receipts=[];max_mass_error=0.
     for i,scan in enumerate(context.scans):
         stream=r['streams'][i]
-        rng=stream_factory(tuple(stream['seed_sequence_entropy']));row_receipts=[]
+        budget();rng=stream_factory(tuple(stream['seed_sequence_entropy']));row_receipts=[]
         def reader(row):
             nonlocal max_mass_error
             if row!=len(row_receipts):raise ValueError('Native renderer row order changed')
-            supplied=np.asarray(rng.normal(100.,1.,65536))
+            budget();supplied=np.asarray(rng.normal(100.,1.,65536))
             if supplied.dtype!=np.dtype('<f8') or supplied.shape!=(65536,) or not np.isfinite(supplied).all():
                 raise ValueError('Complete finite float64 mock row required')
             base=supplied.astype('<f4');value=base.astype('<f8')
@@ -123,6 +125,14 @@ def render_mock(context, plan, stream_factory, *, budget=lambda:None):
             'noise_law':MOCK_LAW,'noise_law_sha256':digest(MOCK_LAW),
             'intended_gaussian_law_sha256':NOISE_LAW_SHA256,'draw_plan_sha256':r['plan_sha256'],
             'actual_gaussian_draws':False,'telescope_provenance':False,'scientific_allocation_charged':False}
+        if scientific_receipt is not None:
+            scope={'kind':'synthetic','input_domain':'published-whole-cadence-gaussian',
+                'case_identity':case_id,'context_sha256':context.identity,'scan':scan['label'],
+                'receiver_factor_bank_sha256':context.factor_contract.factors.identity,
+                'noise_law':r['noise_law'],'noise_law_sha256':NOISE_LAW_SHA256,
+                'draw_plan_sha256':r['plan_sha256'],'consumption_receipt':scientific_receipt,
+                'actual_gaussian_draws':True,'telescope_provenance':False,
+                'scientific_allocation_charged':True}
         source=native.normalize_synthetic_rows(reader,context.geometry,16,input_orientation='ascending',scope=scope)
         for rec,row in zip(row_receipts,source.values,strict=True):rec['normalized_sha256']=native.array_hash(row)
         sources[scan['label']]=source;receipts.append({'scan':scan['label'],'source_identity':source.identity,'rows':row_receipts})
@@ -134,8 +144,32 @@ def render_mock(context, plan, stream_factory, *, budget=lambda:None):
         'row_receipts':receipts,'maximum_mass_error':max_mass_error,
         'normal_calls':96,'native_values_are_gaussian':False,'scientific_allocation_charged':False,
         'new_random_values_generated':False,'telescope_values_opened':False}
+    if scientific_receipt is not None:
+        receipt.update(schema='radio-whole-cadence-gaussian-receipt-v1',
+            noise_law=r['noise_law'],noise_law_sha256=NOISE_LAW_SHA256,
+            consumption_receipt=scientific_receipt,native_values_are_gaussian=True,
+            scientific_allocation_charged=True,new_random_values_generated=True)
     receipt['receipt_sha256']=digest(receipt);return run,receipt
 
 
-def render_gaussian(*args,**kwargs):
-    raise ValueError('PROPOSED_NOT_ACTIVATED: fresh durable allocation and published executable freeze required before real RNG')
+def render_mock(context, plan, stream_factory, *, budget=lambda:None):
+    return _render(context,plan,stream_factory,budget=budget)
+
+
+def render_gaussian(context,plan,*,lease=None):
+    from .whole_cadence_journal_radio import Lease
+    if type(lease) is not Lease:
+        raise ValueError('PROPOSED_NOT_ACTIVATED: fresh durable allocation and published executable freeze required before real RNG')
+    # Validate every stream before granting one-use generator permission.
+    context.validate();r=plan.record();case=r['case']
+    expected=[{'scan_index':i,'scan':s['label'],'seed_sequence_entropy':[case['seed'],i],
+        'normal_calls':16,'normal_arguments':[100.,1.,65536],'output_dtype':'<f4'} for i,s in enumerate(context.scans)]
+    if (r['context_sha256']!=context.identity or case['context_sha256']!=context.identity
+            or r['receiver_bank_sha256']!=context.factor_contract.factors.identity or r['streams']!=expected):
+        raise ValueError('Gaussian context/schedule differs before RNG')
+    consumption=lease.begin_gaussian(plan)
+    def factory(entropy):
+        return np.random.Generator(np.random.PCG64(np.random.SeedSequence(list(entropy))))
+    run,receipt=_render(context,plan,factory,budget=lease.budget,scientific_receipt=consumption)
+    lease.budget(run.modelled_bytes)
+    return run,receipt

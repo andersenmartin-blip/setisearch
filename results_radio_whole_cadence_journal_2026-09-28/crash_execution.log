@@ -1,0 +1,119 @@
+{
+  "schema": "radio-whole-cadence-consumption-crash-result-v1",
+  "status": "SIX_CRASH_BOUNDARIES_PASS",
+  "scenarios": [
+    {
+      "scenario": "before_consume",
+      "process_returncode": 17,
+      "events": 0,
+      "case_consumptions": 0,
+      "reserved_milliseconds": 0,
+      "reserved_artifact_bytes": 0,
+      "head": "acf5094baff817b45e39515cadc60d900cb9e83eb8c286dabb95d8b011f80a39",
+      "next_unconsumed_case_available": true
+    },
+    {
+      "scenario": "after_consume",
+      "process_returncode": 17,
+      "events": 1,
+      "case_consumptions": 1,
+      "reserved_milliseconds": 20000,
+      "reserved_artifact_bytes": 1024,
+      "head": "fde969750130523e9024961c98d303dda1f916c33c00da7d271d92e15cabb4d1",
+      "status": "consumed",
+      "archive": {
+        "case_identity": "26655364690f3505467d7c2c4049736cbf7d92c6536257c51e040730a6eebd4d",
+        "status": "consumed",
+        "artifact_count": 0,
+        "artifact_bytes": 0,
+        "execution_restart_authorized": false,
+        "can_read_complete_evidence": false,
+        "incomplete_is_statistical_empty": false
+      },
+      "same_case_replay_rejected": "Prior case incomplete; no continuation",
+      "incomplete_attempt_next_case_rejected": "Prior case incomplete; no continuation"
+    },
+    {
+      "scenario": "partial_artifact",
+      "process_returncode": 17,
+      "events": 1,
+      "case_consumptions": 1,
+      "reserved_milliseconds": 20000,
+      "reserved_artifact_bytes": 1024,
+      "head": "371cb1168135c7f452ec90cd807b8fd16d892cf6b04faa9b33d7021e558b1d89",
+      "status": "consumed",
+      "archive_rejection": "Unregistered, missing or partial archive",
+      "same_case_replay_rejected": "Prior case incomplete; no continuation",
+      "incomplete_attempt_next_case_rejected": "Prior case incomplete; no continuation"
+    },
+    {
+      "scenario": "after_artifact",
+      "process_returncode": 17,
+      "events": 2,
+      "case_consumptions": 1,
+      "reserved_milliseconds": 20000,
+      "reserved_artifact_bytes": 1024,
+      "head": "3764a1a4cfb6e23b4a84e2379062c49bc01189e32ac6389f57d349e49650d2b5",
+      "status": "consumed",
+      "archive": {
+        "case_identity": "3ff334538cb56f75b66d3d364376c7d1480bbf4e382764048ca316301b989d14",
+        "status": "consumed",
+        "artifact_count": 1,
+        "artifact_bytes": 34,
+        "execution_restart_authorized": false,
+        "can_read_complete_evidence": false,
+        "incomplete_is_statistical_empty": false
+      },
+      "same_case_replay_rejected": "Prior case incomplete; no continuation",
+      "incomplete_attempt_next_case_rejected": "Prior case incomplete; no continuation"
+    },
+    {
+      "scenario": "after_finish_commit",
+      "process_returncode": 17,
+      "events": 3,
+      "case_consumptions": 1,
+      "reserved_milliseconds": 20000,
+      "reserved_artifact_bytes": 1024,
+      "head": "64249da5b91f25e0909f30d7a4a0619e96aac980bf9e90006564f1371676f4cb",
+      "status": "completed",
+      "archive": {
+        "case_identity": "5790415484dde5a5ee51e0b0651615051682ba70112761e60f894e386fb77583",
+        "status": "completed",
+        "artifact_count": 1,
+        "artifact_bytes": 34,
+        "execution_restart_authorized": false,
+        "can_read_complete_evidence": true,
+        "incomplete_is_statistical_empty": false
+      },
+      "same_case_replay_rejected": "Case order, identity or plan binding changed"
+    },
+    {
+      "scenario": "complete",
+      "process_returncode": 0,
+      "events": 3,
+      "case_consumptions": 1,
+      "reserved_milliseconds": 20000,
+      "reserved_artifact_bytes": 1024,
+      "head": "e330c516d9796e2321ad3667d514a6867218185ee2097d476c84a87059fc6968",
+      "status": "completed",
+      "archive": {
+        "case_identity": "ef590bc9269b3e6e603929cebb920c64b273565e1d1546791f27012bf8c9d3d7",
+        "status": "completed",
+        "artifact_count": 1,
+        "artifact_bytes": 34,
+        "execution_restart_authorized": false,
+        "can_read_complete_evidence": true,
+        "incomplete_is_statistical_empty": false
+      },
+      "same_case_replay_rejected": "Case order, identity or plan binding changed"
+    }
+  ],
+  "real_process_terminations": 5,
+  "retries_of_consumed_cases": 0,
+  "scientific_allocations": 0,
+  "gaussian_values": 0,
+  "source_requests": 0,
+  "active_seconds": 0.8495975660007389,
+  "local_engineering_store_only": true,
+  "remote_scientific_adapter_qualified": false
+}
