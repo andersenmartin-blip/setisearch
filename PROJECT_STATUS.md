@@ -1,5 +1,22 @@
 # SETIsearch — current project status
 
+## 28 September: distinct lossless integration scope frozen for one live run
+
+The [new engineering scope](RADIO_WHOLE_CADENCE_LOSSLESS_2026-09-28_SCOPE.md)
+qualifies atomic ASCII artifact/journal publication, physical byte accounting and
+a request/done-file broker. **29 new tests pass.** Its two fresh fixed cases are
+one 524,305-byte archive and one expected capacity refusal with bounded failure
+evidence. A full Git-aware executable/runtime inventory is pinned. No source,
+scientific allocation or reserved Gaussian PRNG is admitted.
+
+**Continuation at this freeze:** verify the published runtime/recipe/genesis,
+execute `lossless-live01` once, read every artifact through a fresh store, and
+preserve the measured outcome. A consumed/incomplete/ambiguous case cannot resume;
+old remote live01/live02 remain CLOSED FAILED with their reservations charged.
+Do not interpret an engineering archive or expected capacity failure as science.
+The 127/24 proposal stays NOT ACTIVATED; all prior holds/counters and 9 October
+consolidation remain unchanged.
+
 ## 28 September: live transport failures preserved; lossless archive prepared
 
 [The actual GitHub result](RADIO_WHOLE_CADENCE_REMOTE_2026-09-28_RESULT.md)
