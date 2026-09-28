@@ -1,6 +1,32 @@
 # SETIsearch
 
-## 28 September: durable consumption and compact evidence verified
+## 28 September: real publication failures identified and preserved
+
+**55 new tests pass, but both live transport scopes are CLOSED FAILED.** The
+first stopped before consumption on a connector response-format mismatch. The
+second consumed one engineering case and made four fast-forward publications,
+then rejected a 17-byte binary tail returned as 31 bytes with replacement
+characters. Independent Git reads prove the stored originals are intact. The
+case stays incomplete and spent; neither failure is retried or relabelled a pass.
+
+A proposed lossless ASCII envelope restores the same 262,161 deterministic bytes
+exactly and accounts for **350,353 stored bytes**, including encoding and metadata.
+It is qualified offline only. A new runtime guard rejects missing tracked code
+in partial checkouts; the earlier engineering snapshots remain historical.
+Measured broker latency is another unresolved limit for the fixed case budgets.
+
+Next: integrate lossless storage, actual stored-byte accounting, lower-latency
+publication and bounded failure/finalization under a new prospective engineering
+scope and fresh published runtime freeze. Actual Gaussian/full-native-chain
+qualification and a fresh scientific allocation still precede activation of
+127/24. **No new scientific values, telescope data or external messages.** All
+previous holds, closed failures and unopened holdouts persist. The plan still
+consolidates on **9 October**.
+
+[Result, complete evidence and exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/bc31bb0bc36bc842939882d8c69b86aa50875e8e/RADIO_WHOLE_CADENCE_REMOTE_2026-09-28_RESULT.md) ·
+[Current project status](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md)
+
+## Earlier 28 September: durable consumption and compact evidence verified
 
 **72 distinct new tests pass across two connected work packages.** A separate
 case journal charges time/evidence before work and rejects duplicate execution,
