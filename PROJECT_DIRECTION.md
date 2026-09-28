@@ -1,5 +1,33 @@
 # Long-term project direction
 
+## 28 September: compact evidence and exact phase budgets qualified
+
+The [compact archive result](RADIO_WHOLE_CADENCE_COMPACT_2026-09-28_RESULT.md)
+adds **21 distinct passing tests** after the preceding 51: **72 new tests** across
+this connected continuation. Two pinned compact representations retain every one
+of 769,824 score values, source/row hashes and complete maxima in 1,903,981 and
+1,948,902 logical bytes. They deliberately cannot reconstruct omitted native
+arrays; the original full engineering archives remain published.
+
+A separate, **nonactivated** budget binds the original 151 proposed case identities:
+127 × 40 s / 4 MiB and 24 × 80 s / 18 MiB, plus 200 s overhead, 8 MiB ledger and
+76 MiB failure/summary evidence. Total ceilings remain 7,200 s and 1 GiB, with
+no refunds or expansion. This is not a benchmark or a guarantee every case fits.
+
+**Exact continuation:** compact-format, phase-budget, journal/crash and retained
+native archive fixtures are CLOSED. Qualify the real external scientific store,
+transitive executable code/runtime freeze, exact case-specific/overhead budget
+enforcement and bounded publication of all physical/gate/failure artifacts. Then
+qualify the actual Gaussian and full native physical/gate chain under a fresh
+prospective engineering scope. Follow the detailed next tasks in the compact
+result; test doubles/local stores and compact score audits are not scientific
+admission. Do not replay completed fixtures or closed failed attempts as progress.
+
+The 127/24 proposal remains NOT ACTIVATED. No new Gaussian values, scientific
+allocation, source request or telescope value was consumed. All 17 historical
+invariant pins, scientific counters, preparations and earlier dispositions persist.
+No external messages or plan extension; consolidate on 9 October.
+
 ## 28 September: durable case consumption and native archives qualified
 
 The [new journal/archive result](RADIO_WHOLE_CADENCE_JOURNAL_2026-09-28_RESULT.md)

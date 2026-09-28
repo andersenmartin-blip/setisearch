@@ -1,5 +1,23 @@
 # Whole-cadence integrated execution outline — NOT ACTIVATED
 
+## Latest continuation — compact evidence and phase reservations
+
+The [compact result](RADIO_WHOLE_CADENCE_COMPACT_2026-09-28_RESULT.md) now
+supersedes the pending compact-format work below. A complete score/receipt
+representation is qualified on the two fixed retained mock archives; every score
+is preserved, while omitted source arrays cannot be reconstructed. The separate
+phase-budget document reserves 127 × 40 s / 4 MiB, 24 × 80 s / 18 MiB, 200 s
+setup/finalization, 8 MiB ledger and 76 MiB failure/summary. It totals the unchanged
+7,200 s / 1 GiB ceiling and remains NOT ACTIVATED.
+
+Next: real external store/dependency freeze, case-specific and overhead budget
+enforcement, complete physical/gate/failure publication, then actual Gaussian and
+full native-chain engineering qualification. Earlier compact/journal/crash/archive
+fixtures are CLOSED. Their deterministic sizes are not Gaussian compression or
+runtime evidence, and neither a test double nor a compact score-only audit can
+be used as a native execution or independent calibration certificate.
+
+
 ## Latest continuation — after the journal/archive qualification
 
 The [journal/archive result](RADIO_WHOLE_CADENCE_JOURNAL_2026-09-28_RESULT.md)
