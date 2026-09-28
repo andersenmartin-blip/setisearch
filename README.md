@@ -1,6 +1,30 @@
 # SETIsearch
 
-## 28 September: empty-aware reference method and source filter checks
+## 28 September: native source and whole-cadence downstream handoffs
+
+**41 new tests and three native integrity checks pass.** The retained codec
+fixture now reaches the receiver pipeline through explicit case, data-law and
+source receipts: **1,296 score vectors / 384,912 preserved score values**, with
+all 2,592 ON hypotheses evaluated. One deterministic texture is shared across
+six labelled scan slots; this is engineering evidence, not six independent
+observations or a telescope signal.
+
+A separate whole-cadence threshold, complete ON/OFF trigger retention and
+inclusive rank path now preserves EMPTY outcomes and ties. Fixed interface
+fixtures retain all 385 complete triggers, partial results and capacity/overflow
+failure evidence. No legacy scramble certificate is fabricated, and no failed
+calibration is reopened. The published source preparation and old budgets are
+unchanged; the fresh **127/24 proposal remains NOT ACTIVATED**.
+
+Next: connect these new receipts to the physical OFF/RFI/alias vetoes and
+clustering, bind the Gaussian renderer to its exact data law, and verify one
+integrated prospective executable protocol before any fresh authorized attempt.
+Telescope spectra still require their separate acquisition/trial admission.
+No external messages were sent. The plan still consolidates on **9 October**.
+
+[Handoff result, complete evidence and exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/9261abcd80086ec9f863ae6ae3b80eaa29e20383/RADIO_WHOLE_CADENCE_HANDOFF_2026-09-28_RESULT.md)
+
+## Earlier 28 September checkpoint: reference method and source filter checks
 
 Two connected work packages are complete, with **49 distinct new tests passing**.
 The mathematical method retains a no-eligible-hypothesis outcome as an explicit
