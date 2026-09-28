@@ -136,7 +136,7 @@ def replay(document):
                 last['rng_started']=True;last['status']='started'
             elif kind == 'artifact':
                 fields={'kind','nonce','name','size','sha256'}
-                if m['mode']=='scientific':fields.add('publication')
+                if m['mode']=='scientific' or 'publication' in e:fields.add('publication')
                 if set(e)!=fields:raise ValueError('Artifact fields changed')
                 name=artifact_name(e['name']);_sha(e['sha256'],'artifact')
                 if name in last['artifacts'] or type(e['size']) is not int or e['size']<0:
@@ -144,7 +144,7 @@ def replay(document):
                 if m['mode']=='scientific' and not last['rng_started']:
                     raise ValueError('Scientific artifact before renderer start')
                 last['artifacts'][name]={'size':e['size'],'sha256':e['sha256']}
-                if m['mode']=='scientific':
+                if 'publication' in e:
                     pub=e['publication']
                     if (set(pub)!={'location','revision','sha256'} or not pub['location']
                             or not pub['revision'] or pub['sha256']!=e['sha256']):
@@ -257,8 +257,8 @@ def consume(store,*,expected_revision,expected_manifest_sha256,binding,
     before=store.read();replay(before.document)
     if before.revision!=expected_revision or before.document['manifest_sha256']!=expected_manifest_sha256:
         raise ValueError('Independent publication checkpoint differs')
-    if before.document['manifest']['mode']=='scientific':
-        if before.location.get('kind')!='github-published-scientific':
+    if before.document['manifest']['mode']=='scientific' or before.location.get('kind')=='github-published-engineering':
+        if before.document['manifest']['mode']=='scientific' and before.location.get('kind')!='github-published-scientific':
             raise ValueError('External scientific store required')
         store.verify_execution(before.document['manifest'])
         if any(c['status']=='completed' for c in replay(before.document)['cases']):
@@ -344,7 +344,7 @@ class Lease:
         try:
             durable_write(self.directory/name,payload)
             event={'kind':'artifact','name':name,'size':len(payload),'sha256':hashlib.sha256(payload).hexdigest()}
-            if self.manifest['mode']=='scientific':
+            if self.manifest['mode']=='scientific' or self.checkpoint.location.get('kind')=='github-published-engineering':
                 publication=self.store.publish_artifact(self._current(),name,payload)
                 if (publication.get('sha256')!=event['sha256']
                         or self.store.read_artifact(publication)!=payload):
@@ -355,15 +355,19 @@ class Lease:
             self.broken=True;raise
 
     def finish(self,outcome='completed',reason=''):
-        elapsed=(self.clock()-self.started)*1000
-        if not math.isfinite(elapsed) or elapsed<0:raise ValueError('Invalid finish clock')
         if outcome=='completed':
             self.budget();verify_archive(self.checkpoint,self.directory,case_index=len(replay(self.checkpoint.document)['cases'])-1)
-            if self.manifest['mode']=='scientific':
+            if self.manifest['mode']=='scientific' or self.checkpoint.location.get('kind')=='github-published-engineering':
                 current=replay(self.checkpoint.document)['cases'][-1]
                 for name,meta in current['artifacts'].items():
                     if self.store.read_artifact(meta['publication'])!=(self.directory/name).read_bytes():
                         raise ValueError('External artifact missing/changed before completion')
+            # Include external evidence verification, not only the earlier work.
+            # Final commit/readback latency remains separately measured by the
+            # caller; this event cannot attest its own future publication time.
+            self.budget()
+        elapsed=(self.clock()-self.started)*1000
+        if not math.isfinite(elapsed) or elapsed<0:raise ValueError('Invalid finish clock')
         self._event({'kind':'finish','outcome':outcome,'elapsed_milliseconds':math.ceil(elapsed),'reason':str(reason)})
         self.closed=True
         return self.checkpoint

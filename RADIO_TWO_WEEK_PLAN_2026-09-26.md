@@ -929,3 +929,17 @@ The 127/24 proposal remains NOT ACTIVATED. No new Gaussian values, scientific
 allocation, source request or telescope value was consumed. All 17 historical
 invariant pins, scientific counters, preparations and earlier dispositions persist.
 No external messages or plan extension; consolidate on 9 October.
+
+## 28 September: actual GitHub engineering publication prepared
+
+The [new prospective scope](RADIO_WHOLE_CADENCE_REMOTE_2026-09-28_SCOPE.md)
+and pinned runtime/code inputs prepare exactly one live engineering case under
+`results_radio_whole_cadence_remote_2026-09-28/live01`. **37 new tests pass**;
+32 existing journal tests are regression checks, not new scientific progress.
+The initial optional-Tk dependency inventory failure is retained explicitly.
+
+**Continuation at this freeze:** execute the single preregistered live publication
+only after this freeze commit is read back and verified. If its ledger has any
+consumption, do not replay or reset it; inspect the latest remote state and report
+it. Scientific mode remains unavailable. The 127/24 proposal, source and trial
+counters, all earlier holds and 9 October consolidation are unchanged.
