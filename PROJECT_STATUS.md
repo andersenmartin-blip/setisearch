@@ -1,5 +1,40 @@
 # SETIsearch — current project status
 
+## 28 September: calibration failed; all evaluation values remain unopened
+
+The [fixed synthetic calibration/evaluation attempt](RADIO_HD189733_PANEL_2026-09-28_RESULT.md)
+has completed its three calibration realizations. Finite null support is
+**104/127, 84/127 and 13/127**; all fail the published prerequisite. The 24
+reserved evaluations were not generated, and no threshold certificate or pilot
+was issued. This is a synthetic calibration-contract failure, not a sky result
+or a measured signal-recovery failure. **22 distinct new interface tests pass**;
+explicit receiver metadata now reaches the full decision chain without orbital
+placeholders, while old records retain their fields.
+
+The plan's single bounded diagnosis is also complete: **3,888 retained score
+vectors** and all **381 conditional support flags** were independently checked.
+All empty/nonempty results agree. No mask cells were excluded; empty samples
+come from absence of simultaneous S/N >= 3 support in at least two active epochs.
+Full scores, original receipts, exact shifts, errors and detailed diagnosis are
+published. No empty row was discarded or turned into a finite null observation.
+
+**Exact continuation:** this attempt and diagnosis are CLOSED. Do not regenerate
+calibrations, run the unopened 24 evaluations, reuse the charged evaluation
+allocation, repeat the diagnosis, tune settings or automatically switch target.
+A next method requires an explicit prospective treatment of the
+no-eligible-hypothesis probability mass and an authorized fresh attempt
+allocation. None is supplied by restarting the old runner. Source codec/runtime
+handoff and a verified integrated acquisition/trial protocol also remain needed
+before telescope spectra. Preserve this bounded failure for 9 October period
+consolidation; do not expand the plan or manufacture progress through empty checks.
+
+Counters: development 6/6 previously closed; calibration 3/3 now closed;
+evaluation values 0/24, runs executed 0, one attempt allocation charged/closed;
+diagnosis 1/1 closed; remedies 0; pilots 0; new source requests 0. Fifteen old
+invariant pins remain unchanged. No external messages. HD1461's hold, untouched
+GJ724 reserve, M43AI failure, original M43AF holdouts, M15/M33, LS pause and unsent
+CHEOPS persist.
+
 ## 28 September: synthetic calibration/evaluation protocol frozen before exposure
 
 The [new panel protocol](RADIO_HD189733_PANEL_2026-09-28_PROTOCOL.md) completes
