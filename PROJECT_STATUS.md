@@ -1,5 +1,36 @@
 # SETIsearch — current project status
 
+## 28 September: codec/native and empty-aware downstream handoffs complete
+
+The [new handoff result](RADIO_WHOLE_CADENCE_HANDOFF_2026-09-28_RESULT.md)
+qualifies two connected engineering boundaries. **41 new tests and three native
+negative checks pass.** The retained codec fixture reaches 6 explicit source
+slots, 48 cache receipts and **1,296 vectors / 384,912 preserved score cells**;
+all 2,592 ON hypotheses are enumerated. Its one shared deterministic texture
+is explicitly not independent Gaussian controls or telescope provenance.
+
+A distinct whole-cadence threshold/retention/rank path preserves EMPTY outcomes,
+inclusive ties and every ON/OFF threshold crossing without legacy scramble
+certificates. Six fixed interface scenarios retain 385 complete triggers plus
+partial/capacity-failure evidence. The existing score-map proof is bound to the
+actual receiver contexts and grids. No old map experiment was rerun.
+
+**Exact continuation:** these two handoffs are complete; do not replay their
+fixtures or prior closed attempts as progress. Integrate the new retention
+receipts with matched-OFF, single-adjacent-OFF, receiver-alias and clustering,
+preserving all fixed vetoes and every trigger. The legacy physical validators
+must not be given relabelled new receipts. Bind the proposed Gaussian renderer
+to its exact case/law/source identities; the deterministic codec path does not
+qualify it. Then publish/read back the integrated executable synthetic protocol
+with current code/runtime pins, recovery/RFI/null gates and cumulative budgets.
+
+The 127/24 proposal remains NOT ACTIVATED and requires a separately authorized
+fresh allocation. No new scientific values, allocations or source requests;
+old15 pins, preparation contracts, failed/closed attempts and all previous
+dispositions remain unchanged. Original preparations stay not-ready. Telescope
+spectra require separate integrated acquisition/trial admission even after a
+synthetic pass. No external messages or plan extension; consolidate 9 October.
+
 ## 28 September: source filter guard and full-chunk fixture complete
 
 The [source-specific codec result](RADIO_HD189733_CODEC_2026-09-28_RESULT.md)
