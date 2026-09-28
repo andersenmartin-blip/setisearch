@@ -1,6 +1,36 @@
 # SETIsearch
 
-## 28 September: physical vetoes and evaluation interfaces connected
+## 28 September: durable consumption and compact evidence verified
+
+**72 distinct new tests pass across two connected work packages.** A separate
+case journal charges time/evidence before work and rejects duplicate execution,
+uncertain publication and incomplete archives. Six crash boundaries include five
+actual process exits. The scientific publication adapter still requires separate
+qualification; local stores and test doubles do not authorize an experiment.
+
+Two retained mock cadences now preserve **12 native sources, 96 cache receipts,
+2,592 score vectors and 769,824 score values**. An independent process restored
+all values and identities without RNG or score/cache recomputation. A compact
+score/receipt format retains the same scores in approximately **1.9 MB per case**.
+It cannot reconstruct omitted source arrays; the original full archives remain.
+These are engineering checks, not new calibration or signal-recovery results.
+
+A separate, **nonactivated** phase budget fits the existing **7,200 s / 1 GiB**
+ceiling, including ledger, failure and finalization reserves. No Gaussian values,
+scientific allocation, source request or telescope value was consumed. The 127/24
+proposal and all earlier failures, holdouts and dispositions remain unchanged.
+
+Next: qualify external scientific publication, transitive code/runtime binding,
+case-specific resource enforcement and all physical/gate/failure archives, then
+qualify the actual Gaussian and full native physical/gate chain. A published
+executable freeze and fresh authorized allocation still precede scientific values;
+telescope spectra require separate admission. No external messages or plan
+extension. Consolidation remains **9 October**.
+
+[Journal, crash evidence and native archives](https://github.com/andersenmartin-blip/setisearch/blob/521e1c128fb21fc8fe8ae5d99b6fa1e17a805bda/RADIO_WHOLE_CADENCE_JOURNAL_2026-09-28_RESULT.md) ·
+[Compact format, exact budgets and current continuation](https://github.com/andersenmartin-blip/setisearch/blob/42552a973f941915783592a9b783e5b48fc656dd/RADIO_WHOLE_CADENCE_COMPACT_2026-09-28_RESULT.md)
+
+## Earlier 28 September checkpoint: physical vetoes and evaluation interfaces
 
 **66 new tests pass.** The distinct whole-cadence path now connects complete
 retention to matched OFF, unmasked adjacent OFF, receiver aliases and full
