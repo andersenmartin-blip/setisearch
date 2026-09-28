@@ -1,5 +1,27 @@
 # SETIsearch
 
+## 28 September — lossless archive verified; scientific timing hold remains
+
+The [new engineering result](https://github.com/andersenmartin-blip/setisearch/blob/d30319338c1ae0be78b22ca4b80cd95aa8fe25b4/RADIO_WHOLE_CADENCE_LOSSLESS_2026-09-28_RESULT.md)
+records **29 new passing tests** and a completed live scope: **524,305 binary bytes
+restored exactly**, atomic artifact/journal publication, and a prescribed
+capacity refusal whose failure evidence is retained. Four own fast-forward
+commits and all decoded bytes were independently checked through Git.
+
+The full executable freeze covers 827 project Python files and 1,132 runtime
+files. Actual encoded artifacts and all ledger versions occupy 713,337 bytes.
+The complete live run used 111 new transport calls and 258.140481 seconds.
+Case times of **103.808198 / 88.081456 seconds** do **not** qualify the proposed
+scientific 40/80-second budgets. The 127/24 proposal remains **NOT ACTIVATED**;
+there are no new telescope results or scientific detections.
+
+Next: resolve measured publication latency and physical ASCII-byte budgeting,
+then qualify fresh engineering-only Gaussian/full-native/gate execution under
+its own prospective freeze. All three remote scopes are now closed; old failed
+cases and reservations remain preserved. HD189733/85030 and neighbor9 remain
+selected; HD1461's hold, GJ724 reserve, historical holdouts and other dispositions
+are unchanged. No external messages; the plan still consolidates on 9 October.
+
 ## 28 September: real publication failures identified and preserved
 
 **55 new tests pass, but both live transport scopes are CLOSED FAILED.** The
