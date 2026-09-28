@@ -1,6 +1,32 @@
 # SETIsearch
 
-## 28 September: native source and whole-cadence downstream handoffs
+## 28 September: physical vetoes and evaluation interfaces connected
+
+**66 new tests pass.** The distinct whole-cadence path now connects complete
+retention to matched OFF, unmasked adjacent OFF, receiver aliases and full
+clustering. Fixed score/signature fixtures preserve every trigger, veto and
+expected capacity failure; these are engineering checks, not measured signal
+recovery or interference rates.
+
+All **151 proposed case plans** bind to the exact recipe, source, context and
+noise law without RNG calls. Two explicitly non-Gaussian mock cadences verify
+the row schedule and source binding. Their **12 saved sources / 12,582,912
+normalized values** rehydrate with identical source identities. A separate
+post-decision interface now checks the fixed recovery/RFI/null gates and
+complete member/component accounting.
+
+The **127/24 proposal remains NOT ACTIVATED**. No Gaussian experiment, fresh
+scientific allocation or telescope request was consumed; all prior failures,
+holdouts and dispositions remain unchanged. Next are a distinct durable
+scientific consumption journal, the actual Gaussian renderer and qualification
+of the full native physical/gate chain with cumulative crash/restart budgets.
+The integrated outline is a draft, not an executable freeze or telescope
+permit. No external messages were sent. Consolidation remains **9 October**.
+
+[Results, complete evidence and exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/4360136e3e083f1567a9dc449c09b1a85b788acd/RADIO_WHOLE_CADENCE_PHYSICAL_2026-09-28_RESULT.md) ·
+[Integrated execution outline — not activated](https://github.com/andersenmartin-blip/setisearch/blob/4360136e3e083f1567a9dc449c09b1a85b788acd/RADIO_WHOLE_CADENCE_INTEGRATION_2026-09-28_DRAFT.md)
+
+## Earlier 28 September checkpoint: native source and downstream handoffs
 
 **41 new tests and three native integrity checks pass.** The retained codec
 fixture now reaches the receiver pipeline through explicit case, data-law and
