@@ -21,6 +21,30 @@ links the complete LS7C/LS7D release and the preserved historical archives.
 
 ## Where the project stands
 
+### 28 September: HD189733 received-drift bank verified
+
+Preparation now has an explicit ordinary-radio scope: **81 received linear-drift
+labels from −4 to +4 Hz/s**, using the unchanged neighbor9 detector widths.
+**69,984 exact-rational factor comparisons and 14 new tests pass.** The widest
+filter contains the declared linear family geometrically (required half-support
+≤138.033 Hz; available 181.472 Hz). This is not measured signal recovery or
+planetary completeness. Curved tracks and other drift ranges remain unqualified.
+
+The unchanged 65,536-channel extractions have separate calibration, validation
+and pilot chunks. Only **81 carrier centres spanning 226.840 Hz per role** are
+proposed for scoring at the first ON midpoint; the whole extraction is not
+searched. Six development, three calibration and 24 evaluation identities are
+fresh and reserved. The old unexecuted panel's evaluation ceiling is transferred,
+not doubled. All control counters remain zero; no telescope spectrum was opened.
+
+The next task is a distinct receiver-specific downstream adapter, then frozen
+control rendering/numeric transfer and recovery/RFI/null qualification. Source
+codec/runtime evidence and the integrated prospective execution protocol remain
+required before telescope spectra. HD1461's hold and all old dispositions persist;
+no external messages were sent and the plan still ends on **9 October**.
+
+[Result, exact scope, retained evidence and continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_HD189733_RECEIVER_2026-09-28_RESULT.md)
+
 ### 27 September: other data selected — HD 189733
 
 The owner asked to continue with other data without contacting anyone.
