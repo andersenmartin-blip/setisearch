@@ -4674,8 +4674,6 @@ class ExhaustiveRetentionLedger:
             "template_index",
             "line_index",
             "line_coefficient",
-            "projected_scale",
-            "phase_cycles",
         }
         for expected_index, template in enumerate(bank):
             if not isinstance(template, dict) or not required_template_fields <= set(
@@ -4691,15 +4689,7 @@ class ExhaustiveRetentionLedger:
                 raise V0P6ContractError(
                     "template bank indices must be sequential in canonical order"
                 )
-            for name in (
-                "line_coefficient",
-                "projected_scale",
-                "phase_cycles",
-            ):
-                if not math.isfinite(float(template[name])):
-                    raise V0P6ContractError(
-                        f"template bank contains non-finite {name}"
-                    )
+            _template_retention_metadata(template)
         digest = template_bank_sha256(bank)
         if (
             self.expected_template_bank_sha256 is not None
@@ -5205,10 +5195,7 @@ class ExhaustiveRetentionLedger:
                 "spectral_width_channels": width_channels,
                 "spectral_width_index": width_index,
                 "template_index": template_index,
-                "line_index": int(canonical_template["line_index"]),
-                "line_coefficient": float(canonical_template["line_coefficient"]),
-                "projected_scale": float(canonical_template["projected_scale"]),
-                "phase_offset_cycles": float(canonical_template["phase_cycles"]),
+                **_template_retention_metadata(canonical_template),
                 "active_epochs_zero_based": list(subset_tuple),
                 "epoch_values_at_proxy_carrier": [
                     float(value) if math.isfinite(float(value)) else None
@@ -5738,6 +5725,33 @@ def validate_retention_certificate(
     return record
 
 
+
+def _template_retention_metadata(template: Mapping[str, Any]) -> dict[str, Any]:
+    """Preserve explicit receiver rates without inventing orbital parameters."""
+    common = {"line_index": _strict_int(template["line_index"], "line index"),
+              "line_coefficient": _finite_json_number(template["line_coefficient"], "line coefficient")}
+    if template.get("schema") == "radio-received-linear-template-v1":
+        if "projected_scale" in template or "phase_cycles" in template:
+            raise V0P6ContractError("receiver template contains orbital metadata")
+        rate = _finite_json_number(template["rate_label_hz_s"], "receiver rate")
+        reference = _finite_json_number(template["rate_reference_hz"], "receiver reference")
+        if reference <= 0 or rate != common["line_coefficient"]:
+            raise V0P6ContractError("receiver template rate/reference mismatch")
+        return {**common, "template_schema": "radio-received-linear-template-v1",
+                "rate_label_hz_s": rate, "rate_reference_hz": reference,
+                "receiver_bank_sha256": _frozen_sha256(template["receiver_bank_sha256"], "receiver bank")}
+    return {**common,
+            "projected_scale": _finite_json_number(template["projected_scale"], "projected scale"),
+            "phase_offset_cycles": _finite_json_number(template["phase_cycles"], "phase cycles")}
+
+
+def retention_metadata_fields(record: Mapping[str, Any]) -> frozenset[str]:
+    """The two supported metadata schemas have disjoint physical semantics."""
+    if record.get("template_schema") == "radio-received-linear-template-v1":
+        return frozenset(("template_schema", "rate_label_hz_s", "rate_reference_hz", "receiver_bank_sha256"))
+    return frozenset(("projected_scale", "phase_offset_cycles"))
+
+
 def _retention_record_sort_key(record: Mapping[str, Any]) -> tuple[Any, ...]:
     return (
         _strict_int(record["template_index"], "template index"),
@@ -5770,11 +5784,20 @@ def _validate_retained_record_json_numeric_types(
         "proxy_carrier_hz",
         "proxy_carrier_mhz",
         "line_coefficient",
-        "projected_scale",
-        "phase_offset_cycles",
         "operational_threshold_snr",
     ):
         _finite_json_number(record[name], name.replace("_", " "))
+    metadata_fields = retention_metadata_fields(record)
+    if "template_schema" in metadata_fields:
+        if "projected_scale" in record or "phase_offset_cycles" in record:
+            raise V0P6ContractError("receiver record contains orbital metadata")
+        _finite_json_number(record["rate_label_hz_s"], "receiver rate")
+        if _finite_json_number(record["rate_reference_hz"], "receiver reference") <= 0:
+            raise V0P6ContractError("receiver reference must be positive")
+        _frozen_sha256(record["receiver_bank_sha256"], "receiver bank")
+    else:
+        for name in metadata_fields:
+            _finite_json_number(record[name], name.replace("_", " "))
     minimum_active_epoch_snr = record["minimum_active_epoch_snr"]
     if minimum_active_epoch_snr is not None:
         _finite_json_number(
@@ -5996,16 +6019,9 @@ def _validated_retained_records(
             )
         if canonical_bank is not None:
             canonical_template = canonical_bank[template_index]
-            if (
-                _strict_int(record["line_index"], "line index")
-                != _strict_int(canonical_template["line_index"], "line index")
-                or float(record["line_coefficient"])
-                != float(canonical_template["line_coefficient"])
-                or float(record["projected_scale"])
-                != float(canonical_template["projected_scale"])
-                or float(record["phase_offset_cycles"])
-                != float(canonical_template["phase_cycles"])
-            ):
+            metadata = _template_retention_metadata(canonical_template)
+            if ({name: record.get(name) for name in metadata} != metadata
+                    or retention_metadata_fields(record) != retention_metadata_fields(metadata)):
                 raise V0P6ContractError(
                     "retained template metadata differs from the frozen bank"
                 )

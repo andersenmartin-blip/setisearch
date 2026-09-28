@@ -1,0 +1,35 @@
+test_empty_null_is_retained_failure_not_fabricated_finite_tail (test_radio_receiver_panel.ReceiverPanelTests.test_empty_null_is_retained_failure_not_fabricated_finite_tail) ... ok
+test_explicit_receiver_metadata_has_no_orbital_placeholders (test_radio_receiver_panel.ReceiverPanelTests.test_explicit_receiver_metadata_has_no_orbital_placeholders) ... ok
+test_finite_calibration_uses_fixed_floor_and_inclusive_rank (test_radio_receiver_panel.ReceiverPanelTests.test_finite_calibration_uses_fixed_floor_and_inclusive_rank) ... ok
+test_legacy_metadata_bytes_unchanged (test_radio_receiver_panel.ReceiverPanelTests.test_legacy_metadata_bytes_unchanged) ... ok
+test_matched_and_adjacent_veto_still_execute (test_radio_receiver_panel.ReceiverPanelTests.test_matched_and_adjacent_veto_still_execute) ... ERROR
+test_receiver_bad_rate_and_reference_rejected (test_radio_receiver_panel.ReceiverPanelTests.test_receiver_bad_rate_and_reference_rejected) ... ok
+test_receiver_metadata_reaches_full_decision_chain (test_radio_receiver_panel.ReceiverPanelTests.test_receiver_metadata_reaches_full_decision_chain) ... ERROR
+test_receiver_orbit_mix_rejected (test_radio_receiver_panel.ReceiverPanelTests.test_receiver_orbit_mix_rejected) ... ok
+test_score_and_decision_numeric_kernels_unchanged (test_radio_receiver_panel.ReceiverPanelTests.test_score_and_decision_numeric_kernels_unchanged) ... ok
+test_shift_guard_remains_unchanged (test_radio_receiver_panel.ReceiverPanelTests.test_shift_guard_remains_unchanged) ... ok
+test_translation_rejects_pilot_shortcut (test_radio_receiver_panel.ReceiverPanelTests.test_translation_rejects_pilot_shortcut) ... ok
+test_translation_rejects_unpinned_proof (test_radio_receiver_panel.ReceiverPanelTests.test_translation_rejects_unpinned_proof) ... ok
+
+======================================================================
+ERROR: test_matched_and_adjacent_veto_still_execute (test_radio_receiver_panel.ReceiverPanelTests.test_matched_and_adjacent_veto_still_execute)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ad45775dff93/setisearch/tests/test_radio_receiver_panel.py", line 107, in test_matched_and_adjacent_veto_still_execute
+    store.arrays['on',0,1][:,49]=20.
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+ValueError: assignment destination is read-only
+
+======================================================================
+ERROR: test_receiver_metadata_reaches_full_decision_chain (test_radio_receiver_panel.ReceiverPanelTests.test_receiver_metadata_reaches_full_decision_chain)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ad45775dff93/setisearch/tests/test_radio_receiver_panel.py", line 95, in test_receiver_metadata_reaches_full_decision_chain
+    store.arrays['on',0,1][:,49]=20.
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+ValueError: assignment destination is read-only
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.357s
+
+FAILED (errors=2)

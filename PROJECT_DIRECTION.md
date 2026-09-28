@@ -1,5 +1,37 @@
 # Long-term project direction
 
+## 28 September: synthetic calibration/evaluation protocol frozen before exposure
+
+The [new panel protocol](RADIO_HD189733_PANEL_2026-09-28_PROTOCOL.md) completes
+finite-exposure rendering, explicit conditional scramble tables, threshold/rank
+rules, context-bound synthetic score translation and the remaining fixed
+3-calibration/24-evaluation design. Neighbor9 and all reserved recovery/RFI/null
+gates are unchanged. **22 distinct new interface tests pass.** A pre-exposure
+metadata defect is corrected: receiver detections carry explicit drift fields
+through retention/alias stages without invented orbital phase/scale. Two test
+fixture errors are preserved; no reserved values were opened to fix them.
+
+Publication charges the three calibration slots and one evaluation-attempt
+allocation. Generate no evaluation values unless all three calibrations have
+finite conditional null support. Empty support is a failed prerequisite, not a
+measured zero false-alarm rate. Index 0 supplies the preselected threshold;
+indices 1/2 are diagnostics and never select settings. Every score vector will
+be archived before decisions. No telescope request or pilot is authorized.
+
+**Exact continuation:** verify this published freeze, then execute
+`scripts/radio_hd189733_panel.py --freeze-commit <freeze>` once. Complete the
+three preassigned calibrations despite a scientific support failure; stop on
+integrity/resource errors. If support passes, execute the fixed 24 cases once
+and retain every trigger/veto/outcome. If it fails, close this attempt and keep
+all evaluation values unopened. No reset, replacement, post-freeze remedy or
+replay after lost scratch. Follow any newer result first. The six development
+cases and score-map study remain closed. Source codec/runtime handoff and a
+verified integrated acquisition/trial protocol still precede telescope spectra.
+
+HD1461's hold, untouched GJ724 reserve, M43AI failure, original M43AF holdouts,
+M15/M33, LS pause and unsent CHEOPS persist. No external messages. The plan's
+three-sequence cap and 9 October consolidation remain unchanged.
+
 ## 28 September: six receiver development cases complete; score maps match
 
 The [receiver adapter result](RADIO_HD189733_ADAPTER_2026-09-28_RESULT.md)

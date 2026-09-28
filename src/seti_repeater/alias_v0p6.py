@@ -72,6 +72,7 @@ from .search_v0p6 import (
     make_line_template_bank,
     make_m37_proxy_carrier_grid,
     proxy_carrier_grid_sha256,
+    retention_metadata_fields,
     validate_factor_basis,
     validate_m37_factor_basis_scan_inventory,
     validate_retention_certificate,
@@ -123,8 +124,6 @@ _RETENTION_RECORD_FIELDS = frozenset(
         "template_index",
         "line_index",
         "line_coefficient",
-        "projected_scale",
-        "phase_offset_cycles",
         "active_epochs_zero_based",
         "epoch_values_at_proxy_carrier",
         "epoch_value_is_finite",
@@ -221,7 +220,7 @@ def _validated_annotated_records(
             raise V0P6ContractError("receiver-alias stage cannot be replayed in place")
         base = {
             name: item[name]
-            for name in _RETENTION_RECORD_FIELDS
+            for name in (_RETENTION_RECORD_FIELDS | retention_metadata_fields(item))
             if name in item
         }
         base["member_disposition"] = "pending_physical_veto_evaluation"
