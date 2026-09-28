@@ -1,6 +1,63 @@
 # SETIsearch
 
-## 28 September: calibration failure documented; evaluations remain unopened
+## 28 September: empty-aware reference method and source filter checks
+
+Two connected work packages are complete, with **49 distinct new tests passing**.
+The mathematical method retains a no-eligible-hypothesis outcome as an explicit
+EMPTY value. **9,856 exact rank-bound checks show zero violations** under the
+stated exchangeability assumption. The new complete-family reducer rejects
+missing/corrupt inputs and eligible-score overflow instead of confusing them
+with a valid empty result. This does not qualify the old guarded score shifts
+or turn the closed calibration failure into a pass.
+
+The source reader now checks the exact HDF5 filter pipeline before chunk
+acquisition and again before native-row reads. A local fixture with HD189733's
+precise filter declaration and full-sized chunks verifies **50,331,648 decoded
+values** and **3,145,728 extracted/normalized values bit-for-bit**. An initial
+oracle-layout failure is preserved alongside its correction on the same files.
+Both complete fixtures are retained in a verified lossless archive. These are
+synthetic engineering results, not new telescope observations or signal recovery.
+
+A concrete proposal specifies fresh identities for **127 independent
+whole-cadence null references and 24 fresh evaluations**, with unchanged
+neighbor9, injection recipes and recovery/RFI/null gates. It is
+**PROPOSED_NOT_ACTIVATED**: no new attempt allocation or values were consumed.
+The old three calibrations, closed evaluation allocation and completed diagnosis
+remain spent; their 24 evaluation values remain unopened.
+
+Next are the distinct downstream certificate path and codec-to-receiver receipt
+handoff. A new scientific execution needs a fresh authorized budget and a
+published/read-back executable freeze using the updated reader. Source
+preparation remains not-ready; telescope spectra still require the integrated
+acquisition/trial gate. No external messages were sent. The plan still ends
+with consolidation on **9 October**.
+
+[Method and exact evidence](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_EMPTY_NULL_METHOD_2026-09-28_RESULT.md) ·
+[Source codec result and remaining limits](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_HD189733_CODEC_2026-09-28_RESULT.md) ·
+[Unactivated 127/24 proposal](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_WHOLE_CADENCE_NULL_2026-09-28_PROTOCOL_PROPOSAL.md)
+
+A transparent, reproducible search for intermittent narrowband signals across
+multiple observing epochs. Exoplanet motion supplies a frequency-drift
+hypothesis; it does not establish where an observed signal originated.
+
+**The active programme has returned to ordinary narrowband radio SETI.**
+The [26 September–9 October work plan](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_TWO_WEEK_PLAN_2026-09-26.md)
+targets a bounded search on independent ON/OFF observations, with fixed
+controls and complete candidate follow-up.
+
+The **light-sail (LS) research branch is paused** at LS8BD–LS8BE. Its optical
+results and 16 unresolved events are preserved; LS8BF remains its saved
+restart. Neither a radio trigger nor an optical brightening establishes
+artificial origin.
+
+**Start here: [current status and continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md).**
+
+The [12 September publication record](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PUBLICATION_2026-09-12.md)
+links the complete LS7C/LS7D release and the preserved historical archives.
+
+## Where the project stands
+
+### Earlier 28 September checkpoint: closed calibration failure
 
 The HD189733 synthetic calibration attempt is complete. The three reserved
 noise realizations produced **104/127, 84/127 and 13/127 finite conditional null
@@ -26,27 +83,6 @@ attempt allocation; the old runner must not be restarted. The result is retained
 for the unchanged 9 October period consolidation.
 
 [Full result, evidence and exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_HD189733_PANEL_2026-09-28_RESULT.md).
-
-A transparent, reproducible search for intermittent narrowband signals across
-multiple observing epochs. Exoplanet motion supplies a frequency-drift
-hypothesis; it does not establish where an observed signal originated.
-
-**The active programme has returned to ordinary narrowband radio SETI.**
-The [26 September–9 October work plan](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_TWO_WEEK_PLAN_2026-09-26.md)
-targets a bounded search on independent ON/OFF observations, with fixed
-controls and complete candidate follow-up.
-
-The **light-sail (LS) research branch is paused** at LS8BD–LS8BE. Its optical
-results and 16 unresolved events are preserved; LS8BF remains its saved
-restart. Neither a radio trigger nor an optical brightening establishes
-artificial origin.
-
-**Start here: [current status and continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md).**
-
-The [12 September publication record](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PUBLICATION_2026-09-12.md)
-links the complete LS7C/LS7D release and the preserved historical archives.
-
-## Where the project stands
 
 ### 28 September: six receiver-development cases completed exactly
 
