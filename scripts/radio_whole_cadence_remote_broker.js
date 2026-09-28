@@ -3,8 +3,8 @@
 // This is a tool broker, not an HTTP client and not a scientific executor.
 const repo = 'andersenmartin-blip/setisearch';
 const branch = 'm43-support-qualification';
-const prefix = 'results_radio_whole_cadence_remote_2026-09-28/live01/';
-const allowed = ['fetch','create_blob','create_tree','create_commit','update_ref'];
+const prefix = 'results_radio_whole_cadence_remote_2026-09-28/live02/';
+const allowed = ['fetch','fetch_file','create_blob','create_tree','create_commit','update_ref'];
 let sequence = 1;
 let finished = false;
 const shellQuote = value => "'" + value.replace(/'/g, "'\"'\"'") + "'";
@@ -28,6 +28,7 @@ while (!finished && sequence <= 300) {
   if (method==='fetch') {
     if (!params.url.startsWith('https://api.github.com/repos/'+repo+'/git/')) throw new Error('Unapproved read destination');
   } else if (params.repository_full_name!==repo) throw new Error('Repository changed');
+  if (method==='fetch_file' && (!params.path.startsWith(prefix)||params.encoding!=='base64'||!/^[0-9a-f]{40}$/.test(params.ref))) throw new Error('Unsafe immutable file read');
   if (method==='update_ref' && (params.branch_name!==branch || params.force!==false)) throw new Error('Unsafe branch update');
   if (method==='create_tree' && params.tree_elements.some(e=>!e.path.startsWith(prefix)||e.path.split('/').some(p=>p==='..'||p==='.'||p==='')||e.mode!=='100644'||e.type!=='blob'||'content' in e)) throw new Error('Unsafe evidence tree');
   let reply;

@@ -1,5 +1,23 @@
 # SETIsearch — current project status
 
+## 28 September: failed live transport preserved; corrected scope prepared
+
+[Live01](results_radio_whole_cadence_remote_2026-09-28/run01/result.json) stopped
+before consumption: the connector returned decoded file content instead of the
+expected Git blob object. Six reads, 54.148586 s, no branch writes, no science.
+Its original genesis/runtime freeze and full error transcript are preserved.
+
+A [prospective transport amendment](RADIO_WHOLE_CADENCE_REMOTE_2026-09-28_TRANSPORT_AMENDMENT.md)
+qualifies immutable-path base64 reads and prepares one new engineering identity,
+`live02`. **40 distinct tests pass** (three new transport risks added to 37).
+First-attempt resources remain charged conservatively against the original
+300-call/32-MiB/1,800-second total. No further corrective live scope is admitted.
+
+**Exact continuation at this freeze:** verify the new freeze's published bytes,
+then execute live02 once. Never reopen/reset live01. Any consumption or ambiguous
+write in live02 prohibits a retry. Scientific mode and the 127/24 proposal remain
+unactivated; no source/PRNG/scientific counters or plan end date change.
+
 ## 28 September: actual GitHub engineering publication prepared
 
 The [new prospective scope](RADIO_WHOLE_CADENCE_REMOTE_2026-09-28_SCOPE.md)

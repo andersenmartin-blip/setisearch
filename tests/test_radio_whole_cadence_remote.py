@@ -67,6 +67,9 @@ class GitDouble:
             else:
                 h=path.split('/')[-1];data=self.blobs[h]
                 result={'sha':h,'encoding':'base64','size':len(data),'content':base64.b64encode(data).decode()}
+        elif method=='fetch_file':
+            h=self.flat[self.commits[p['ref']]['tree']['sha']][p['path']];data=self.blobs[h]
+            result={'sha':h,'encoding':'base64','content':base64.b64encode(data).decode()}
         elif method=='create_blob':result={'sha':self.blob(base64.b64decode(p['content']))}
         elif method=='create_tree':
             flat=dict(self.flat[p['base_tree_sha']]);flat.update({v['path']:v['sha'] for v in p['tree_elements']})
@@ -176,7 +179,7 @@ class RemoteTests(unittest.TestCase):
         lease=self.complete();meta=j.replay(lease.checkpoint.document)['cases'][0]['artifacts']['payload.bin']
         self.store.read_artifact(meta['publication'])
         def hook(m,p,result):
-            if m=='fetch' and '/blobs/' in p['url'] and result['size']==r.CHUNK:
+            if m=='fetch_file' and p['path'].endswith('payload.bin/chunk0000.bin'):
                 result['content']=base64.b64encode(b'z'*r.CHUNK).decode()
             return result
         self.git.hook=hook
@@ -222,5 +225,23 @@ class RemoteTests(unittest.TestCase):
         self.store.read_artifact=slow
         with self.assertRaisesRegex(ValueError,'active-time'):lease.finish()
         self.assertNotEqual(j.replay(self.store.read().document)['cases'][0]['status'],'completed')
+
+
+    def test_decoded_text_response_is_rejected(self):
+        self.git.hook=lambda m,p,res:({'content':'{}'} if m=='fetch_file' else res)
+        with self.assertRaisesRegex(ValueError,'encoding/identity'):self.store.read()
+
+    def test_immutable_file_read_cannot_use_mutable_ref(self):
+        with self.assertRaisesRegex(ValueError,'Git SHA'):
+            self.client.call('fetch_file',repository_full_name=r.REPO,path=r.PREFIX+'/ledger.json',ref=r.BRANCH,encoding='base64')
+        self.assertEqual(self.git.calls,[])
+
+    def test_prior_usage_remains_charged_across_corrective_transport(self):
+        prior={'calls':299,'response_bytes':500000,'seconds':60}
+        client=r.Client(self.git.invoke,prior_usage=prior,clock=lambda:100.)
+        client.call('fetch',url='https://api.github.com/repos/'+r.REPO+'/git/ref/heads/'+r.BRANCH)
+        self.assertEqual(client.calls,300);self.assertGreater(client.response_bytes,500000)
+        with self.assertRaisesRegex(r.Stopped,'capacity'):client.call('fetch',url='https://api.github.com/repos/'+r.REPO+'/git/ref/heads/'+r.BRANCH)
+        self.assertEqual(client.started,40.)
 
 if __name__=='__main__':unittest.main()

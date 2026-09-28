@@ -18,7 +18,7 @@ from .empty_null_radio import canonical
 
 REPO='andersenmartin-blip/setisearch'
 BRANCH='m43-support-qualification'
-PREFIX='results_radio_whole_cadence_remote_2026-09-28/live01'
+PREFIX='results_radio_whole_cadence_remote_2026-09-28/live02'
 CHUNK=256*1024
 LIMITS={'calls':300,'response_bytes':32*1024**2,'seconds':1800}
 
@@ -43,18 +43,26 @@ class Stopped(RuntimeError):pass
 
 class Client:
     """One bounded authenticated tool session. No automatic retries."""
-    def __init__(self,invoke,*,clock=time.monotonic):
-        self.invoke=invoke;self.clock=clock;self.started=clock();self.calls=0;self.response_bytes=0
+    def __init__(self,invoke,*,clock=time.monotonic,prior_usage=None):
+        prior=prior_usage or {'calls':0,'response_bytes':0,'seconds':0}
+        if set(prior)!=set(LIMITS) or any(type(v) is not int or not 0<=v<=LIMITS[k] for k,v in prior.items()):
+            raise ValueError('Bounded conservative prior resource charges required')
+        self.invoke=invoke;self.clock=clock;self.started=clock()-prior['seconds']
+        self.calls=prior['calls'];self.response_bytes=prior['response_bytes']
         self.events=[];self.stopped=False
 
     def call(self,method,**params):
         if self.stopped:raise Stopped('Transport already stopped; inspect retained evidence')
-        if method not in ('fetch','create_blob','create_tree','create_commit','update_ref'):
+        if method not in ('fetch','fetch_file','create_blob','create_tree','create_commit','update_ref'):
             raise ValueError('Unsupported Git tool operation')
         if method=='fetch':
             if not params['url'].startswith('https://api.github.com/repos/'+REPO+'/git/'):
                 raise ValueError('Only pinned Git database GET requests allowed')
         elif params.get('repository_full_name')!=REPO:raise ValueError('Repository changed')
+        if method=='fetch_file':
+            safe_path(params['path']);git_sha(params['ref'])
+            if not params['path'].startswith(PREFIX+'/') or params.get('encoding')!='base64':
+                raise ValueError('Pinned immutable engineering file/base64 required')
         if method=='update_ref' and (params.get('branch_name')!=BRANCH or params.get('force') is not False):
             raise ValueError('Only pinned fast-forward branch updates allowed')
         if method=='create_tree' and any(not e['path'].startswith(PREFIX+'/') or e['mode']!='100644'
@@ -91,7 +99,7 @@ class GitStore:
         for key in ('manifest_sha256','genesis_sha256'):_sha(spec[key],key)
         self.client=client;self.spec=canonical(spec);self.spec_sha=expected_spec_sha256
         self.execution_verifier=execution_verifier;self.trees={};self.commits={};self.blobs={}
-        self.stopped=False;self.receipts=[];self.last_head=None
+        self.stopped=False;self.receipts=[];self.last_head=None;self.blob_paths={}
 
     @property
     def location(self):return {'kind':'github-published-engineering','repository':REPO,'branch':BRANCH,'path':PREFIX+'/ledger.json'}
@@ -136,18 +144,20 @@ class GitStore:
             expected=('100644','blob') if i==len(parts)-1 else ('040000','tree')
             if e is None or (e['mode'],e['type'])!=expected:raise ValueError('Missing or nonordinary pinned Git path: '+path)
             tree=e['sha']
+        self.blob_paths[tree]=(commit,path)
         return tree
 
     def _blob(self,sha,cap,*,fresh=False):
         git_sha(sha)
         if fresh or sha not in self.blobs:
-            r=self._get('blobs/'+sha)
-            if r.get('sha')!=sha or r.get('encoding')!='base64' or type(r.get('size')) is not int or not 0<=r['size']<=cap:
+            commit,path=self.blob_paths[sha]
+            r=self.client.call('fetch_file',repository_full_name=REPO,path=path,ref=commit,encoding='base64')
+            if r.get('sha')!=sha or r.get('encoding')!='base64':
                 raise ValueError('Git blob size/encoding/identity differs')
             encoded=r['content'].replace('\n','').replace('\r','')
             if len(encoded)>4*((cap+2)//3):raise ValueError('Encoded Git blob exceeds cap')
             data=base64.b64decode(encoded,validate=True)
-            if len(data)!=r['size'] or git_object('blob',data)!=sha:raise ValueError('Git blob content hash differs')
+            if len(data)>cap or git_object('blob',data)!=sha:raise ValueError('Git blob content hash differs')
             self.blobs[sha]=data
         data=self.blobs[sha]
         if len(data)>cap:raise ValueError('Cached blob exceeds requested cap')

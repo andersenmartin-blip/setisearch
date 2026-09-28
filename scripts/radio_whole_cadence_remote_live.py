@@ -19,9 +19,9 @@ from seti_repeater.whole_cadence_runtime_radio import PublishedFreeze
 from seti_repeater.empty_null_radio import canonical
 
 ROOT=Path(__file__).resolve().parents[1]
-RECIPE='config/radio_whole_cadence_remote_recipe_20260928.json'
-FREEZE='config/radio_whole_cadence_remote_runtime_20260928.json'
-SPEC='config/radio_whole_cadence_remote_store_20260928.json'
+RECIPE='config/radio_whole_cadence_remote_recipe02_20260928.json'
+FREEZE='config/radio_whole_cadence_remote_runtime02_20260928.json'
+SPEC='config/radio_whole_cadence_remote_store02_20260928.json'
 
 
 def definitions(freeze_sha,recipe):
@@ -60,7 +60,7 @@ def main():
     output=Path(args.output);output.mkdir(parents=True,exist_ok=False)
     started=time.monotonic();client=None;store=None;lease=None
     result={'mode':'ENGINEERING_ONLY','scientific_execution_authorized':False,
-        'source_requests':0,'proposed_prng_constructions':0,'scientific_allocations':0,'scope_retries':0}
+        'source_requests':0,'proposed_prng_constructions':0,'scientific_allocations':0,'scope_retries':0,'attempt':'live02','prior_failed_attempt':'live01'}
     try:
         freeze=PublishedFreeze(ROOT,args.commit,FREEZE,args.freeze_sha256)
         recipe=json.loads((ROOT/RECIPE).read_bytes());m,spec=definitions(args.freeze_sha256,recipe)
@@ -69,7 +69,7 @@ def main():
         result['execution_preflight']=freeze.verify(m)
         if any((ROOT/x).read_bytes()!=__import__('subprocess').check_output(['git','show',args.commit+':'+x],cwd=ROOT)
                 for x in (SPEC,r.PREFIX+'/ledger.json')):raise ValueError('Published specification/genesis differs')
-        client=r.Client(FileRPC(args.rpc));store=r.GitStore(client,raw,hashlib.sha256(raw).hexdigest(),execution_verifier=freeze.verify)
+        client=r.Client(FileRPC(args.rpc),prior_usage=recipe['prior_usage']);store=r.GitStore(client,raw,hashlib.sha256(raw).hexdigest(),execution_verifier=freeze.verify)
         cp=store.read()
         if cp.document!=j.genesis(m):raise ValueError('Fresh genesis required; no resume or reset')
         quota=spec['case_reservations'][0]
@@ -102,12 +102,12 @@ def main():
     except BaseException as error:
         result.update(status='STOPPED_ENGINEERING',error=repr(error),traceback=traceback.format_exc(),
             automatic_retry=False,consumed_case_must_not_restart=True)
-    result.update(elapsed_seconds=time.monotonic()-started,peak_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024,
+    result.update(elapsed_seconds=time.monotonic()-started,cumulative_elapsed_seconds=time.monotonic()-started+60,peak_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024,
         publication_receipts=[] if store is None else store.receipts,
         tool_calls=0 if client is None else client.calls,returned_json_bytes=0 if client is None else client.response_bytes,
         completion_event_excludes_its_own_future_publication_latency=True,
         complete_transport_and_finalization_time_in_elapsed_seconds=True)
-    if result['elapsed_seconds']>1800 or result['peak_rss_bytes']>512*1024**2:
+    if result['cumulative_elapsed_seconds']>1800 or result['peak_rss_bytes']>512*1024**2:
         result['status']='STOPPED_ENGINEERING';result['resource_limit_exceeded']=True
     if client:j.durable_write(output/'transport_receipts.json',canonical(client.events))
     j.durable_write(output/'result.json',canonical(result))
