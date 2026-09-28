@@ -1,5 +1,46 @@
 # SETIsearch — current project status
 
+## 28 September: empty-aware rank method and reference boundary verified
+
+The [new method study](RADIO_EMPTY_NULL_METHOD_2026-09-28_RESULT.md) is complete:
+**9,856 exact rank-bound checks have zero violations**, and **35 distinct new
+tests pass**. EMPTY is retained as a legitimate outcome below all finite
+scores, with inclusive ties. This establishes arithmetic under a stated
+exchangeability assumption; it does not qualify the old guarded shifts or
+reopen their failed attempt. Two fixed counterexamples document why arbitrary
+transformations and raw iid noise alone do not supply the missing proof.
+
+A separate complete-family reducer/reference bundle now distinguishes a
+fully computed empty outcome from missing vectors, damaged identities and
+eligible-score overflow. Its deterministic fixtures use no reserved controls.
+It emits no detector certificate. Successful native-runtime and downstream
+certificate integration remain unqualified.
+
+The [concrete next proposal](RADIO_WHOLE_CADENCE_NULL_2026-09-28_PROTOCOL_PROPOSAL.md)
+specifies 127 independent whole-cadence synthetic references and 24 fresh
+fixed evaluations, preserving neighbor9, all recipes and numerical gates.
+The 151 proposed namespaces/seeds/case identities have no collision across
+273 published configs plus two identity metadata files. Exact windows, noise
+law, pins and cumulative ceilings are recorded. **PROPOSED_NOT_ACTIVATED**:
+zero new scientific allocations or values; no reuse of the closed 3/24 attempt.
+
+**Exact continuation:** do not rerun this method audit, reference fixtures,
+closed calibration or its completed diagnosis as progress. Finish the distinct
+whole-cadence downstream certificate interface and qualify the native source/
+noise-law receipt boundary; the legacy renderer lacks that new law field.
+Source-specific codec/runtime handoff is also a useful pending engineering
+step. No legacy scramble certificate may be forged or relabelled. A scientific
+execution needs an explicitly authorized fresh allocation and independently
+verified executable freeze; the 127/24 proposal does not spend one. Telescope
+spectra still require the separate integrated acquisition/trial admission.
+
+Counters unchanged: development 6 closed; calibration 3 closed; evaluation
+values/runs 0, one allocation closed; retained-score diagnosis 1 closed;
+remedies/pilots/new source requests 0. Fifteen old invariant pins and the active
+source preparation remain unchanged. HD1461's hold, untouched GJ724, failed
+M43AI, original M43AF holdouts, M15/M33, paused LS and unsent CHEOPS persist.
+No external messages or plan extension. Consolidation remains 9 October.
+
 ## 28 September: calibration failed; all evaluation values remain unopened
 
 The [fixed synthetic calibration/evaluation attempt](RADIO_HD189733_PANEL_2026-09-28_RESULT.md)
