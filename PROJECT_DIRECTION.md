@@ -1,5 +1,42 @@
 # Long-term project direction
 
+## 28 September: six receiver development cases complete; score maps match
+
+The [receiver adapter result](RADIO_HD189733_ADAPTER_2026-09-28_RESULT.md)
+completes the next connected work package. A distinct receiver contract/context
+now binds the published drift bank to native normalization, filtering and score
+gathering, retaining explicit drift rates and the unchanged neighbor9 kernels.
+**21 distinct new tests pass**; a sparse-checkout setup failure and a pre-exposure
+oracle-division correction are retained.
+
+All six prospectively reserved development cases ran once after published freeze
+`4c391970e2cbbf374e78e56d6a785233e2126817`. **2,309,472 score cells agree bit-for-bit**
+with independent window selection and accumulation. Execution took 20.366 s
+with 80.35 MiB peak RSS. Their six attempt slots are now CLOSED and may not be
+replayed. This is numerical qualification, not signal recovery or a candidate
+search: mask/retention/veto/rank stages have not run on these cases.
+
+A connected metadata-only comparison establishes identical relative score maps
+in **1,539,648 cross-window address comparisons**. It qualifies score arithmetic
+on identical translated arrays, not real-frequency noise exchangeability or
+absolute-frequency vetoes. No threshold was rebound. The old preparation,
+exhausted ledger, empty telescope genesis and fifteen invariant pins are unchanged.
+
+**Exact continuation:** freeze the remaining three calibration and 24 evaluation
+cases with complete finite-exposure rendering, exact null/scramble construction,
+threshold/rank settings and a context-bound numeric transfer mechanism. Use the
+score-map proof within its stated limit. Execute the fixed panel once only after
+that freeze, retaining all triggers, vetoes, losses and failures. Source codec/
+runtime handoff and the integrated prospective acquisition/trial protocol remain
+necessary before telescope spectra. Do not rerun the closed development or
+score-map work. See `results_radio_hd189733_adapter_2026-09-28/` and
+`results_radio_hd189733_score_map_2026-09-28/` for exact retained evidence.
+
+Counters: development 6/6 closed; calibration 0/3; evaluation 0/24 and 0/1 runs;
+remedies 0; pilot 0; new telescope requests 0. No external messages. HD1461's
+hold, GJ724 reserve, M43AI failure, 112+128 M43AF holdouts, M15/M33 dispositions,
+LS pause and unsent CHEOPS persist. Consolidation remains 9 October.
+
 ## 28 September: receiver adapter protocol frozen; six development slots charged
 
 The distinct receiver contract/context and analytic finite-exposure renderer
