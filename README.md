@@ -1,5 +1,32 @@
 # SETIsearch
 
+## 28 September: calibration failure documented; evaluations remain unopened
+
+The HD189733 synthetic calibration attempt is complete. The three reserved
+noise realizations produced **104/127, 84/127 and 13/127 finite conditional null
+maxima**. All fail the prospectively fixed finite-support requirement, so the
+**24 evaluation cases remain unopened** and no telescope search or signal
+recovery result is claimed.
+
+A bounded diagnosis independently verified all **3,888 archived score vectors**
+and reproduced the empty/nonempty outcome of all **381 conditional samples**.
+No cells were masked; empty samples lack simultaneous S/N >= 3 support in at
+least two epochs. The current calibration contract cannot certify that
+no-eligible-hypothesis outcome. It is not a measured zero false-alarm rate.
+
+**22 new interface tests pass**, including explicit receiver metadata through
+retention/OFF/alias/rank decisions and preservation of legacy orbital records.
+The complete protocol, lossless score archives, source receipts, initial test
+errors and diagnosis are published. No threshold or setting was tuned after
+exposure, no external messages were sent, and all prior dispositions persist.
+
+The three calibration slots and this attempt are closed. A new method needs an
+explicit prospective treatment of empty null support and a fresh authorized
+attempt allocation; the old runner must not be restarted. The result is retained
+for the unchanged 9 October period consolidation.
+
+[Full result, evidence and exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_HD189733_PANEL_2026-09-28_RESULT.md).
+
 A transparent, reproducible search for intermittent narrowband signals across
 multiple observing epochs. Exoplanet motion supplies a frequency-drift
 hypothesis; it does not establish where an observed signal originated.
