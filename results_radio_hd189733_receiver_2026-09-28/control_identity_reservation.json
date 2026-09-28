@@ -1,0 +1,1567 @@
+{
+  "association_rule": "Every final member is associated only when its active epochs are a subset of injected ON epochs and its literal ON track is within two native channel spacings of the injected track at every active epoch; all others are unassociated.",
+  "attempt_ceilings": {
+    "calibration_realizations": 3,
+    "development_cases": 6,
+    "evaluation_cases": 24,
+    "evaluation_runs": 1,
+    "pilot_runs": 0,
+    "remedy_attempts": 0
+  },
+  "executed_counts": {
+    "calibration_realizations": 0,
+    "development_cases": 0,
+    "evaluation_cases": 0,
+    "evaluation_runs": 0,
+    "pilot_runs": 0
+  },
+  "gates": {
+    "broad_width_leakage": {
+      "detector_width_channels": [
+        65,
+        129
+      ],
+      "unassociated_final_clusters_each_width": 0,
+      "unassociated_final_members_each_width": 0
+    },
+    "complete_member_cluster_partition": {
+      "every_final_member_classified_associated_or_unassociated": true,
+      "every_final_member_in_exactly_one_complete_cluster": true,
+      "truncation_allowed": false
+    },
+    "matched_rfi": {
+      "associated_final_members_each_case": 0,
+      "unassociated_final_clusters_each_case": 0,
+      "unassociated_final_members_each_case": 0
+    },
+    "noise_null": {
+      "final_clusters_each_case": 0,
+      "final_members_each_case": 0
+    },
+    "on_signal_recovery": {
+      "associated_final_cluster_minimum_each_case": 1,
+      "associated_final_member_minimum_each_case": 1,
+      "unassociated_members_and_clusters": "report_all; not a recovery pass criterion"
+    },
+    "single_adjacent_rfi": {
+      "associated_final_members_each_case": 0,
+      "unassociated_final_clusters_each_case": 0,
+      "unassociated_final_members_each_case": 0
+    }
+  },
+  "identities": [
+    {
+      "executed": false,
+      "identity": "837d24b23b2a170f93a23b42d0bc799cef4846a543506faa0574956830eabc24",
+      "index": 0,
+      "namespace": "radio-hd189733-receiver-20260928-development-00",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "purpose": "reserved off-grid boundary development",
+        "rate_label_hz_s": -3.95,
+        "renderer_frozen": false,
+        "source_domain": "synthetic-only"
+      },
+      "role": "development",
+      "seed": 17189159992789300458,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "b28cd9fdef38ce23721f8883d3da9633c1a88449f95880dc49a5cc2f40a84203",
+      "index": 1,
+      "namespace": "radio-hd189733-receiver-20260928-development-01",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "purpose": "reserved off-grid boundary development",
+        "rate_label_hz_s": -1.95,
+        "renderer_frozen": false,
+        "source_domain": "synthetic-only"
+      },
+      "role": "development",
+      "seed": 16924096831554064825,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "74eec3533a438f52c4786cb2430c0e9ad8dd76a4df75bd5f42d1ff3221764b46",
+      "index": 2,
+      "namespace": "radio-hd189733-receiver-20260928-development-02",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "purpose": "reserved off-grid boundary development",
+        "rate_label_hz_s": -0.05,
+        "renderer_frozen": false,
+        "source_domain": "synthetic-only"
+      },
+      "role": "development",
+      "seed": 5302072012087661512,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "a760b36157ddfc509fc1cc7e9b68b15d899c1aeb7bd50fd2d0449c9dbd034363",
+      "index": 3,
+      "namespace": "radio-hd189733-receiver-20260928-development-03",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "purpose": "reserved off-grid boundary development",
+        "rate_label_hz_s": 0.05,
+        "renderer_frozen": false,
+        "source_domain": "synthetic-only"
+      },
+      "role": "development",
+      "seed": 11857343360373529649,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "ea4b382330a513e67c2b7a245aa6f137cb31c7e34ad4d23d13d63265baae90a5",
+      "index": 4,
+      "namespace": "radio-hd189733-receiver-20260928-development-04",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "purpose": "reserved off-grid boundary development",
+        "rate_label_hz_s": 1.95,
+        "renderer_frozen": false,
+        "source_domain": "synthetic-only"
+      },
+      "role": "development",
+      "seed": 18306962484617001701,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "ab80633a40e433f493da9f58231fa181dea851858eb39077afc197208d2b05dd",
+      "index": 5,
+      "namespace": "radio-hd189733-receiver-20260928-development-05",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "purpose": "reserved off-grid boundary development",
+        "rate_label_hz_s": 3.95,
+        "renderer_frozen": false,
+        "source_domain": "synthetic-only"
+      },
+      "role": "development",
+      "seed": 10108308638627322156,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "edbc0d82dcc96ce0ca1d2e1364c003efb0a2793986f326d0acae71157e63e89d",
+      "index": 0,
+      "namespace": "radio-hd189733-receiver-20260928-calibration-00",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "kind": "noise_only",
+        "renderer_frozen": false
+      },
+      "role": "calibration",
+      "seed": 13361811734676271109,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "9e45be85f608ff53dd95b2a0caab2481f921cd7d716deabe1df2b16e771d00a1",
+      "index": 1,
+      "namespace": "radio-hd189733-receiver-20260928-calibration-01",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "kind": "noise_only",
+        "renderer_frozen": false
+      },
+      "role": "calibration",
+      "seed": 7465286244813539312,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "500860a7b11a337d2594344ab32e12d26f987aa4aafb090948fea1ecb6973743",
+      "index": 2,
+      "namespace": "radio-hd189733-receiver-20260928-calibration-02",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "kind": "noise_only",
+        "renderer_frozen": false
+      },
+      "role": "calibration",
+      "seed": 7894889842966674525,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "b91ff73b915fabd38ea0f67ad5bf58f45f6cd903642adb62e678b1cfb743ae05",
+      "index": 0,
+      "namespace": "radio-hd189733-receiver-20260928-evaluation-00",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "activity_patterns": {
+          "matched_on_off": {
+            "off_epochs_zero_based": [
+              0,
+              1,
+              2
+            ],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "on_signal": {
+            "off_epochs_zero_based": [],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "single_adjacent_off": {
+            "off_epochs_zero_based": [
+              0
+            ],
+            "on_epochs_zero_based": [
+              0,
+              2
+            ]
+          }
+        },
+        "carrier_offset_channels": 0,
+        "case_id": "noise-01",
+        "injection_width_channels": 0,
+        "kind": "noise_null",
+        "rate_label_hz_s": -4,
+        "renderer_frozen": false,
+        "total_digital_power": 0.0
+      },
+      "role": "evaluation",
+      "seed": 10695763088227183359,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "05e8b44c1903249955080de482f5e660619d4ee5d632e894da06337c72b6510b",
+      "index": 1,
+      "namespace": "radio-hd189733-receiver-20260928-evaluation-01",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "activity_patterns": {
+          "matched_on_off": {
+            "off_epochs_zero_based": [
+              0,
+              1,
+              2
+            ],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "on_signal": {
+            "off_epochs_zero_based": [],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "single_adjacent_off": {
+            "off_epochs_zero_based": [
+              0
+            ],
+            "on_epochs_zero_based": [
+              0,
+              2
+            ]
+          }
+        },
+        "carrier_offset_channels": 0,
+        "case_id": "noise-02",
+        "injection_width_channels": 0,
+        "kind": "noise_null",
+        "rate_label_hz_s": -2,
+        "renderer_frozen": false,
+        "total_digital_power": 0.0
+      },
+      "role": "evaluation",
+      "seed": 14412684190178927158,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "d496bdbf8b4903dd85494bf088ef69b958caf26a7f6ee41075529cd41898fc51",
+      "index": 2,
+      "namespace": "radio-hd189733-receiver-20260928-evaluation-02",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "activity_patterns": {
+          "matched_on_off": {
+            "off_epochs_zero_based": [
+              0,
+              1,
+              2
+            ],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "on_signal": {
+            "off_epochs_zero_based": [],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "single_adjacent_off": {
+            "off_epochs_zero_based": [
+              0
+            ],
+            "on_epochs_zero_based": [
+              0,
+              2
+            ]
+          }
+        },
+        "carrier_offset_channels": 0,
+        "case_id": "signal-w1-p100",
+        "injection_width_channels": 1,
+        "kind": "on_signal",
+        "rate_label_hz_s": 0,
+        "renderer_frozen": false,
+        "total_digital_power": 100.0
+      },
+      "role": "evaluation",
+      "seed": 5852717525668236727,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "8b01068dccc85d7cbfe75946652827450e3867e99b751142975490b35d1f191f",
+      "index": 3,
+      "namespace": "radio-hd189733-receiver-20260928-evaluation-03",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "activity_patterns": {
+          "matched_on_off": {
+            "off_epochs_zero_based": [
+              0,
+              1,
+              2
+            ],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "on_signal": {
+            "off_epochs_zero_based": [],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "single_adjacent_off": {
+            "off_epochs_zero_based": [
+              0
+            ],
+            "on_epochs_zero_based": [
+              0,
+              2
+            ]
+          }
+        },
+        "carrier_offset_channels": 0,
+        "case_id": "signal-w1-p500",
+        "injection_width_channels": 1,
+        "kind": "on_signal",
+        "rate_label_hz_s": 2,
+        "renderer_frozen": false,
+        "total_digital_power": 500.0
+      },
+      "role": "evaluation",
+      "seed": 17706320788623106981,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "2e8729d514231c6fe0d6fc53228b1e0097bb722f90fb9ac2744400acba3ddc8f",
+      "index": 4,
+      "namespace": "radio-hd189733-receiver-20260928-evaluation-04",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "activity_patterns": {
+          "matched_on_off": {
+            "off_epochs_zero_based": [
+              0,
+              1,
+              2
+            ],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "on_signal": {
+            "off_epochs_zero_based": [],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "single_adjacent_off": {
+            "off_epochs_zero_based": [
+              0
+            ],
+            "on_epochs_zero_based": [
+              0,
+              2
+            ]
+          }
+        },
+        "carrier_offset_channels": 0,
+        "case_id": "signal-w5-p100",
+        "injection_width_channels": 5,
+        "kind": "on_signal",
+        "rate_label_hz_s": 4,
+        "renderer_frozen": false,
+        "total_digital_power": 100.0
+      },
+      "role": "evaluation",
+      "seed": 786512308885957377,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "df218fb8fa5382e16029504e3dde33f1d96d3682e91bbac2e428883dca9271c7",
+      "index": 5,
+      "namespace": "radio-hd189733-receiver-20260928-evaluation-05",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "activity_patterns": {
+          "matched_on_off": {
+            "off_epochs_zero_based": [
+              0,
+              1,
+              2
+            ],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "on_signal": {
+            "off_epochs_zero_based": [],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "single_adjacent_off": {
+            "off_epochs_zero_based": [
+              0
+            ],
+            "on_epochs_zero_based": [
+              0,
+              2
+            ]
+          }
+        },
+        "carrier_offset_channels": 0,
+        "case_id": "signal-w5-p500",
+        "injection_width_channels": 5,
+        "kind": "on_signal",
+        "rate_label_hz_s": -4,
+        "renderer_frozen": false,
+        "total_digital_power": 500.0
+      },
+      "role": "evaluation",
+      "seed": 3743152518394944630,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "16d56da95a8542e7b141169a0aa375e97624ff8cbaecd9b38b474a941afe2895",
+      "index": 6,
+      "namespace": "radio-hd189733-receiver-20260928-evaluation-06",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "activity_patterns": {
+          "matched_on_off": {
+            "off_epochs_zero_based": [
+              0,
+              1,
+              2
+            ],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "on_signal": {
+            "off_epochs_zero_based": [],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "single_adjacent_off": {
+            "off_epochs_zero_based": [
+              0
+            ],
+            "on_epochs_zero_based": [
+              0,
+              2
+            ]
+          }
+        },
+        "carrier_offset_channels": 0,
+        "case_id": "signal-w33-p100",
+        "injection_width_channels": 33,
+        "kind": "on_signal",
+        "rate_label_hz_s": -2,
+        "renderer_frozen": false,
+        "total_digital_power": 100.0
+      },
+      "role": "evaluation",
+      "seed": 2929417574155677700,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "f3b1e891fbea2e4a0dcf4a62e87f0339b587b0961a20206f9187c8c1c1695402",
+      "index": 7,
+      "namespace": "radio-hd189733-receiver-20260928-evaluation-07",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "activity_patterns": {
+          "matched_on_off": {
+            "off_epochs_zero_based": [
+              0,
+              1,
+              2
+            ],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "on_signal": {
+            "off_epochs_zero_based": [],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "single_adjacent_off": {
+            "off_epochs_zero_based": [
+              0
+            ],
+            "on_epochs_zero_based": [
+              0,
+              2
+            ]
+          }
+        },
+        "carrier_offset_channels": 0,
+        "case_id": "signal-w33-p500",
+        "injection_width_channels": 33,
+        "kind": "on_signal",
+        "rate_label_hz_s": 0,
+        "renderer_frozen": false,
+        "total_digital_power": 500.0
+      },
+      "role": "evaluation",
+      "seed": 10419440891974362364,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "3b06fbbf7beb31dbfa3842354883f6692d00f12d0ce14b4fcb0d92b8b3f8564a",
+      "index": 8,
+      "namespace": "radio-hd189733-receiver-20260928-evaluation-08",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "activity_patterns": {
+          "matched_on_off": {
+            "off_epochs_zero_based": [
+              0,
+              1,
+              2
+            ],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "on_signal": {
+            "off_epochs_zero_based": [],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "single_adjacent_off": {
+            "off_epochs_zero_based": [
+              0
+            ],
+            "on_epochs_zero_based": [
+              0,
+              2
+            ]
+          }
+        },
+        "carrier_offset_channels": 0,
+        "case_id": "signal-w65-p100",
+        "injection_width_channels": 65,
+        "kind": "on_signal",
+        "rate_label_hz_s": 2,
+        "renderer_frozen": false,
+        "total_digital_power": 100.0
+      },
+      "role": "evaluation",
+      "seed": 15025016187270916601,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "6bcf083b04549b5ee2c0ad842ef39f8141dabae88a2ba14f9d92b1130c235ab8",
+      "index": 9,
+      "namespace": "radio-hd189733-receiver-20260928-evaluation-09",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "activity_patterns": {
+          "matched_on_off": {
+            "off_epochs_zero_based": [
+              0,
+              1,
+              2
+            ],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "on_signal": {
+            "off_epochs_zero_based": [],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "single_adjacent_off": {
+            "off_epochs_zero_based": [
+              0
+            ],
+            "on_epochs_zero_based": [
+              0,
+              2
+            ]
+          }
+        },
+        "carrier_offset_channels": 0,
+        "case_id": "signal-w65-p500",
+        "injection_width_channels": 65,
+        "kind": "on_signal",
+        "rate_label_hz_s": 4,
+        "renderer_frozen": false,
+        "total_digital_power": 500.0
+      },
+      "role": "evaluation",
+      "seed": 14524161348205092133,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "3677a42ea819f7b15a09be44f2353afa3e4a1372eb1161a018b09ade7ecdba69",
+      "index": 10,
+      "namespace": "radio-hd189733-receiver-20260928-evaluation-10",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "activity_patterns": {
+          "matched_on_off": {
+            "off_epochs_zero_based": [
+              0,
+              1,
+              2
+            ],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "on_signal": {
+            "off_epochs_zero_based": [],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "single_adjacent_off": {
+            "off_epochs_zero_based": [
+              0
+            ],
+            "on_epochs_zero_based": [
+              0,
+              2
+            ]
+          }
+        },
+        "carrier_offset_channels": 0,
+        "case_id": "signal-w129-p100",
+        "injection_width_channels": 129,
+        "kind": "on_signal",
+        "rate_label_hz_s": -4,
+        "renderer_frozen": false,
+        "total_digital_power": 100.0
+      },
+      "role": "evaluation",
+      "seed": 5047273191585619567,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "f891e087bd2ff8134382b31f7555ee4939e38276780c702a603fe7b343914168",
+      "index": 11,
+      "namespace": "radio-hd189733-receiver-20260928-evaluation-11",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "activity_patterns": {
+          "matched_on_off": {
+            "off_epochs_zero_based": [
+              0,
+              1,
+              2
+            ],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "on_signal": {
+            "off_epochs_zero_based": [],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "single_adjacent_off": {
+            "off_epochs_zero_based": [
+              0
+            ],
+            "on_epochs_zero_based": [
+              0,
+              2
+            ]
+          }
+        },
+        "carrier_offset_channels": 0,
+        "case_id": "signal-w129-p500",
+        "injection_width_channels": 129,
+        "kind": "on_signal",
+        "rate_label_hz_s": -2,
+        "renderer_frozen": false,
+        "total_digital_power": 500.0
+      },
+      "role": "evaluation",
+      "seed": 9208496534999017408,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "c1c6a2d3251813e8f361e0914d703d3970ffb43e06ec28e409e7d3e9d1fbb550",
+      "index": 12,
+      "namespace": "radio-hd189733-receiver-20260928-evaluation-12",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "activity_patterns": {
+          "matched_on_off": {
+            "off_epochs_zero_based": [
+              0,
+              1,
+              2
+            ],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "on_signal": {
+            "off_epochs_zero_based": [],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "single_adjacent_off": {
+            "off_epochs_zero_based": [
+              0
+            ],
+            "on_epochs_zero_based": [
+              0,
+              2
+            ]
+          }
+        },
+        "carrier_offset_channels": 0,
+        "case_id": "matched-w1-p100",
+        "injection_width_channels": 1,
+        "kind": "matched_on_off",
+        "rate_label_hz_s": 0,
+        "renderer_frozen": false,
+        "total_digital_power": 100.0
+      },
+      "role": "evaluation",
+      "seed": 15875536676426150470,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "def483682c9a4561250dbf7cdc0a160b557f8e5b19dec0365094c507ae9b7549",
+      "index": 13,
+      "namespace": "radio-hd189733-receiver-20260928-evaluation-13",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "activity_patterns": {
+          "matched_on_off": {
+            "off_epochs_zero_based": [
+              0,
+              1,
+              2
+            ],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "on_signal": {
+            "off_epochs_zero_based": [],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "single_adjacent_off": {
+            "off_epochs_zero_based": [
+              0
+            ],
+            "on_epochs_zero_based": [
+              0,
+              2
+            ]
+          }
+        },
+        "carrier_offset_channels": 0,
+        "case_id": "matched-w1-p500",
+        "injection_width_channels": 1,
+        "kind": "matched_on_off",
+        "rate_label_hz_s": 2,
+        "renderer_frozen": false,
+        "total_digital_power": 500.0
+      },
+      "role": "evaluation",
+      "seed": 5987910257376163240,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "6af49f755d820b8dcf105cf86d5007868ee994e48b22859292b21caff1a0dcf0",
+      "index": 14,
+      "namespace": "radio-hd189733-receiver-20260928-evaluation-14",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "activity_patterns": {
+          "matched_on_off": {
+            "off_epochs_zero_based": [
+              0,
+              1,
+              2
+            ],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "on_signal": {
+            "off_epochs_zero_based": [],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "single_adjacent_off": {
+            "off_epochs_zero_based": [
+              0
+            ],
+            "on_epochs_zero_based": [
+              0,
+              2
+            ]
+          }
+        },
+        "carrier_offset_channels": 0,
+        "case_id": "matched-w5-p100",
+        "injection_width_channels": 5,
+        "kind": "matched_on_off",
+        "rate_label_hz_s": 4,
+        "renderer_frozen": false,
+        "total_digital_power": 100.0
+      },
+      "role": "evaluation",
+      "seed": 4445433823853924682,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "b49bea4873d03bfc93e29a5c25fe1072f0c0ea0a5c9b3f390d4ac7b376d6305f",
+      "index": 15,
+      "namespace": "radio-hd189733-receiver-20260928-evaluation-15",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "activity_patterns": {
+          "matched_on_off": {
+            "off_epochs_zero_based": [
+              0,
+              1,
+              2
+            ],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "on_signal": {
+            "off_epochs_zero_based": [],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "single_adjacent_off": {
+            "off_epochs_zero_based": [
+              0
+            ],
+            "on_epochs_zero_based": [
+              0,
+              2
+            ]
+          }
+        },
+        "carrier_offset_channels": 0,
+        "case_id": "matched-w5-p500",
+        "injection_width_channels": 5,
+        "kind": "matched_on_off",
+        "rate_label_hz_s": -4,
+        "renderer_frozen": false,
+        "total_digital_power": 500.0
+      },
+      "role": "evaluation",
+      "seed": 11504374589445520892,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "4a174dd9f98df644d212b18dab162a5f53984418d767d9a878b0663cd2899445",
+      "index": 16,
+      "namespace": "radio-hd189733-receiver-20260928-evaluation-16",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "activity_patterns": {
+          "matched_on_off": {
+            "off_epochs_zero_based": [
+              0,
+              1,
+              2
+            ],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "on_signal": {
+            "off_epochs_zero_based": [],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "single_adjacent_off": {
+            "off_epochs_zero_based": [
+              0
+            ],
+            "on_epochs_zero_based": [
+              0,
+              2
+            ]
+          }
+        },
+        "carrier_offset_channels": 0,
+        "case_id": "matched-w33-p100",
+        "injection_width_channels": 33,
+        "kind": "matched_on_off",
+        "rate_label_hz_s": -2,
+        "renderer_frozen": false,
+        "total_digital_power": 100.0
+      },
+      "role": "evaluation",
+      "seed": 16483404476446334850,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "1f58be7b408da359914e6ecbbaae367d66fc427939e74e6fe184ab125204e7f3",
+      "index": 17,
+      "namespace": "radio-hd189733-receiver-20260928-evaluation-17",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "activity_patterns": {
+          "matched_on_off": {
+            "off_epochs_zero_based": [
+              0,
+              1,
+              2
+            ],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "on_signal": {
+            "off_epochs_zero_based": [],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "single_adjacent_off": {
+            "off_epochs_zero_based": [
+              0
+            ],
+            "on_epochs_zero_based": [
+              0,
+              2
+            ]
+          }
+        },
+        "carrier_offset_channels": 0,
+        "case_id": "matched-w33-p500",
+        "injection_width_channels": 33,
+        "kind": "matched_on_off",
+        "rate_label_hz_s": 0,
+        "renderer_frozen": false,
+        "total_digital_power": 500.0
+      },
+      "role": "evaluation",
+      "seed": 8303415209766485893,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "43d81c87c3acebf09d867ebe5bbd12ece51ded4a95bff7ad865d44fee6e403c1",
+      "index": 18,
+      "namespace": "radio-hd189733-receiver-20260928-evaluation-18",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "activity_patterns": {
+          "matched_on_off": {
+            "off_epochs_zero_based": [
+              0,
+              1,
+              2
+            ],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "on_signal": {
+            "off_epochs_zero_based": [],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "single_adjacent_off": {
+            "off_epochs_zero_based": [
+              0
+            ],
+            "on_epochs_zero_based": [
+              0,
+              2
+            ]
+          }
+        },
+        "carrier_offset_channels": 0,
+        "case_id": "matched-w65-p100",
+        "injection_width_channels": 65,
+        "kind": "matched_on_off",
+        "rate_label_hz_s": 2,
+        "renderer_frozen": false,
+        "total_digital_power": 100.0
+      },
+      "role": "evaluation",
+      "seed": 1077301091897532523,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "058e3d92b9d553e9eabfeece3b6cabe9941a9a71b6ff9101faf392d285787ac5",
+      "index": 19,
+      "namespace": "radio-hd189733-receiver-20260928-evaluation-19",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "activity_patterns": {
+          "matched_on_off": {
+            "off_epochs_zero_based": [
+              0,
+              1,
+              2
+            ],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "on_signal": {
+            "off_epochs_zero_based": [],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "single_adjacent_off": {
+            "off_epochs_zero_based": [
+              0
+            ],
+            "on_epochs_zero_based": [
+              0,
+              2
+            ]
+          }
+        },
+        "carrier_offset_channels": 0,
+        "case_id": "matched-w65-p500",
+        "injection_width_channels": 65,
+        "kind": "matched_on_off",
+        "rate_label_hz_s": 4,
+        "renderer_frozen": false,
+        "total_digital_power": 500.0
+      },
+      "role": "evaluation",
+      "seed": 12842624182183051213,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "f12ffb32a79aee2809c995181dfb9311a96901ebc4efec8e11d57e4b5da2e20f",
+      "index": 20,
+      "namespace": "radio-hd189733-receiver-20260928-evaluation-20",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "activity_patterns": {
+          "matched_on_off": {
+            "off_epochs_zero_based": [
+              0,
+              1,
+              2
+            ],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "on_signal": {
+            "off_epochs_zero_based": [],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "single_adjacent_off": {
+            "off_epochs_zero_based": [
+              0
+            ],
+            "on_epochs_zero_based": [
+              0,
+              2
+            ]
+          }
+        },
+        "carrier_offset_channels": 0,
+        "case_id": "matched-w129-p100",
+        "injection_width_channels": 129,
+        "kind": "matched_on_off",
+        "rate_label_hz_s": -4,
+        "renderer_frozen": false,
+        "total_digital_power": 100.0
+      },
+      "role": "evaluation",
+      "seed": 16640649488120212896,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "e9187fea7547c7812e81f2c8b14da3e56b0f586c28e13851d931fc9470e7e51f",
+      "index": 21,
+      "namespace": "radio-hd189733-receiver-20260928-evaluation-21",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "activity_patterns": {
+          "matched_on_off": {
+            "off_epochs_zero_based": [
+              0,
+              1,
+              2
+            ],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "on_signal": {
+            "off_epochs_zero_based": [],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "single_adjacent_off": {
+            "off_epochs_zero_based": [
+              0
+            ],
+            "on_epochs_zero_based": [
+              0,
+              2
+            ]
+          }
+        },
+        "carrier_offset_channels": 0,
+        "case_id": "matched-w129-p500",
+        "injection_width_channels": 129,
+        "kind": "matched_on_off",
+        "rate_label_hz_s": -2,
+        "renderer_frozen": false,
+        "total_digital_power": 500.0
+      },
+      "role": "evaluation",
+      "seed": 17600309535481334371,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "eabfb68517e82d956a0d1c2644f1098fca0951d873f2168d38fbd35205ee906b",
+      "index": 22,
+      "namespace": "radio-hd189733-receiver-20260928-evaluation-22",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "activity_patterns": {
+          "matched_on_off": {
+            "off_epochs_zero_based": [
+              0,
+              1,
+              2
+            ],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "on_signal": {
+            "off_epochs_zero_based": [],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "single_adjacent_off": {
+            "off_epochs_zero_based": [
+              0
+            ],
+            "on_epochs_zero_based": [
+              0,
+              2
+            ]
+          }
+        },
+        "carrier_offset_channels": 0,
+        "case_id": "adjacent-w65-p500",
+        "injection_width_channels": 65,
+        "kind": "single_adjacent_off",
+        "rate_label_hz_s": 0,
+        "renderer_frozen": false,
+        "total_digital_power": 500.0
+      },
+      "role": "evaluation",
+      "seed": 1656886098938879993,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    },
+    {
+      "executed": false,
+      "identity": "69a0ac4ecb332dd6ba880b242f7305c9509bbc7502e97a8c3be823aa656faaf6",
+      "index": 23,
+      "namespace": "radio-hd189733-receiver-20260928-evaluation-23",
+      "outcomes_may_select_settings": false,
+      "receiver_bank_identities": [
+        "bbbc484c2de5c6d27f311a72d86271087fa82baf164c4776421217ac462f0d6c",
+        "17f0d3bcd954a9cce54122b40e22b1bbd6f1148076f258fcb0aa1042871d5fed",
+        "fe8793a7a74bce951f047834551430109f534674fda13c7be8671ae01a4dc194"
+      ],
+      "recipe": {
+        "activity_patterns": {
+          "matched_on_off": {
+            "off_epochs_zero_based": [
+              0,
+              1,
+              2
+            ],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "on_signal": {
+            "off_epochs_zero_based": [],
+            "on_epochs_zero_based": [
+              0,
+              1,
+              2
+            ]
+          },
+          "single_adjacent_off": {
+            "off_epochs_zero_based": [
+              0
+            ],
+            "on_epochs_zero_based": [
+              0,
+              2
+            ]
+          }
+        },
+        "carrier_offset_channels": 0,
+        "case_id": "adjacent-w129-p500",
+        "injection_width_channels": 129,
+        "kind": "single_adjacent_off",
+        "rate_label_hz_s": 2,
+        "renderer_frozen": false,
+        "total_digital_power": 500.0
+      },
+      "role": "evaluation",
+      "seed": 2069885867371108678,
+      "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1"
+    }
+  ],
+  "old_panel_sha256": "8bb5dc0ec840dcd0fc5248b0b374c058f1cc70a9d1280ee5c2507a7c0946d911",
+  "old_unexecuted_panel": "archived inactive; prospective allocation transferred, not doubled",
+  "primary": "neighbor9",
+  "schema": "radio-hd189733-receiver-control-reservation-v1",
+  "scientific_evaluation_authorized": false,
+  "source_contract_sha256": "98f6ced7e10cabaac139e027e8449e34ddf49024254761217a288ca6dc439cf1",
+  "spectral_access_authorized": false,
+  "statistical_independence_from_identity_uniqueness_claimed": false,
+  "status": "IDENTITIES_RESERVED_NOT_EXECUTABLE",
+  "window_binding_sha256": "64dfa0f50252a86953b45c112687da9386147c0e70ad0d2a686efc5592f05ffa"
+}

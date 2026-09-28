@@ -1,5 +1,44 @@
 # Long-term project direction
 
+## 28 September: received linear-drift bank and fresh identities verified
+
+HD189733/HIP98505 cadence 85030 remains active. A new
+[receiver-coordinate preparation](RADIO_HD189733_RECEIVER_2026-09-28_RESULT.md)
+fixes 81 rate labels from −4 to +4 Hz/s, an explicit whole-cadence linear
+received-track domain, and the unchanged neighbor9 width bank. It does not
+claim planetary/orbital completeness or perform a barycentric conversion.
+The earlier width-257 nominal planet study remains unchanged and is not the
+model adopted for this limited receiver search.
+
+**69,984 exact-rational factor comparisons and 14 new tests pass.** The conditional
+largest-width support requirement is ≤138.032898 Hz versus 181.472219 Hz
+available. Arithmetic error is bounded below 6.35e−7 Hz. This is geometric and
+arithmetic qualification, not signal recovery. Each role has 81 scored carriers
+spanning only 226.840273 Hz within its unchanged 65,536-channel extraction;
+the whole extraction is not searched. All 288 native-chunk identities stay disjoint.
+
+Six development, three calibration and 24 evaluation identities are reserved,
+with no seed/namespace collisions across 271 inspected configurations. The old
+unexecuted panel is archived inactive; its 3/24/1-evaluation/0-remedy ceiling is
+transferred, not doubled. Numerical recovery/RFI/null gates are unchanged.
+No reserved control, detector, calibration, telescope spectrum or new telescope
+request was executed. The exhausted ledger and empty telescope genesis persist.
+
+**Exact continuation:** use the new receiver bank records and control reservation
+in `results_radio_hd189733_receiver_2026-09-28/`. Implement and verify a distinct
+receiver-specific downstream adapter with explicit rate metadata and pinned
+window/bank identities; do not relabel orbital DirectFactors or old certificates.
+Freeze finite-exposure control rendering, calibration/null construction and
+cross-window numeric transfer before executing reserved controls. Then satisfy
+recovery/RFI/null, source codec/runtime handoff and integrated prospective
+resource/trial protocol requirements before any telescope spectra. Do not rerun
+completed metadata or bank checks. Preparation contracts remain not-ready.
+
+HD1461's hold, untouched GJ724 reserve, neighbor9, failed/closed M43AI, original
+112+128 M43AF holdouts, unresolved M15/M33, LS pause and unsent CHEOPS are
+preserved. No external message was sent. Three-sequence limit and 9 October
+consolidation are unchanged.
+
 ## 27 September: HD189733 selected; new preparation and widened identities verified
 
 Following the owner's instruction to use other data without sending messages,
