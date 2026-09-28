@@ -601,3 +601,24 @@ HD1461's hold, untouched GJ724 reserve, neighbor9, failed/closed M43AI, original
 112+128 M43AF holdouts, unresolved M15/M33, LS pause and unsent CHEOPS are
 preserved. No external message was sent. Three-sequence limit and 9 October
 consolidation are unchanged.
+
+## 28 September: receiver adapter protocol frozen; six development slots charged
+
+The distinct receiver contract/context and analytic finite-exposure renderer
+are implemented. **21 new targeted tests pass**; a missing sparse-checkout
+metadata file and a pre-exposure float-division correction are documented.
+Old numerical kernels and all prior dispositions remain unchanged.
+
+The [new prospective protocol](RADIO_HD189733_ADAPTER_2026-09-28_PROTOCOL.md)
+authorizes exactly the six previously reserved development cases, on validation
+geometry, with independent comparison of every native score. All six attempt
+slots are durably charged in `results_radio_hd189733_adapter_2026-09-28/published_development_reservation.json`.
+At this freeze, no case values, calibration or evaluation have been opened.
+No telescope access or statistical detection is authorized.
+
+**Exact continuation:** this initial execution may verify the published freeze
+and run `scripts/radio_hd189733_adapter_development.py --freeze-commit <freeze>`
+once. Follow a newer result if present. Missing results after an interrupted
+run or lost scratch do not authorize reusing its charged identities. Preserve
+partial outcomes and stop on mismatch. Calibration/evaluation remain 0/0 with
+the existing 3/24/one-evaluation/zero-remedy ceiling. No external messages.
