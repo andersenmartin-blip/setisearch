@@ -1,5 +1,34 @@
 # SETIsearch
 
+## 29 September — live journal probes pass; overhead budget failure retained
+
+The two fixed incremental journal probes verify **all six original revisions**,
+four exact publications and a 217-byte witness. The normal case completes in
+**86.932355 seconds**. In the other case, an intentionally suppressed successful
+acknowledgement stops the writer; fresh read-only recovery confirms that the case
+remains consumed and incomplete. Both namespaces are permanently closed.
+
+The live worker uses 85 GitHub calls and **169.958322 seconds**, within its live
+limits. All 29 Python risk tests, four broker checks and independent byte/state
+checks pass. However, the independent audit uses **41 local Git calls**, exceeding
+the separately frozen **32-operation publication/verification cap** before other
+overhead is counted. The complete scope therefore has an overhead-budget failure;
+its original live-only PASS is preserved and is not relabelled a whole-scope pass.
+
+All logs, original transport frames, hashes, reservations and errors are public.
+The 8,247 journal bytes plus 217 artifact bytes do not qualify 151-case capacity,
+and the small normal case already exceeds 80 seconds. **Scientific 40/80-second
+timing and the 127/24 proposal remain unqualified / NOT ACTIVATED.**
+
+Next: assemble a separately frozen integrated Gaussian reference/native physical/
+recovery/RFI/null engineering stage with fresh identities, batched local and
+remote reads, and complete cumulative accounting. No closed probe is reopened,
+no reserved scientific identity is reused, and no historical cap is raised.
+Telescope spectra, earlier holdouts and dispositions remain untouched. No external
+messages or plan extension; consolidate 9 October.
+
+[Result, exact evidence and continuation](https://github.com/andersenmartin-blip/setisearch/blob/fd74b2d633a9df09602f17fa5f129df5accff183/RADIO_INCREMENTAL_JOURNAL_2026-09-29_RESULT.md)
+
 ## 29 September — real Gaussian/native scores verified; journal budget corrected
 
 Two freshly frozen engineering cases processed **12,582,912 Gaussian values**
