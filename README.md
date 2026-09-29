@@ -1,5 +1,11 @@
 # SETIsearch
 
+## 29 September: complete receiver evidence exceeds the present reader
+
+[The reproducible capacity review](https://github.com/andersenmartin-blip/setisearch/blob/d6a62f93816ea20ce285c2d542d34eeb0cd2bb30/RADIO_RECEIVER_CAPACITY_2026-09-29_DECISION.md) establishes a conservative **29,821,434-byte logical-report lower bound** for the already observed 9,792-member workload with all 21,708 receiver queries. This already exceeds the physical reader's **24-MiB logical expansion cap**, before final alias witnesses, decisions and clusters. The previous storage PASS covered the partial report before receiver evidence. Receiver batching improves computation while preserving output bytes; it does not solve this independent capacity obstruction.
+
+No new native attempt was allocated or executed. First qualify a complete lossless representation for the known workload under unchanged stored-case and journal budgets, then freeze fresh integrated native qualification. The bound does not rule out a different compressed representation and is not an estimate for every future draw. **127/24 remains NOT ACTIVATED; telescope spectra remain unopened.** All historical outcomes, limits, holds and counters are preserved. Review around 2 October and consolidate 9 October without extension.
+
 ## 29 September: receiver batching preserves bytes and reduces query cost
 
 [The code, measured result and complete software evidence](https://github.com/andersenmartin-blip/setisearch/blob/d78cbcfd8e9b55b33b39f103310d6f6c5f1ca854/RADIO_RECEIVER_BATCH_2026-09-29_RESULT.md) remove repeated full-payload hashing from receiver queries. Two fixed deterministic workloads of 1,024 queries each fall from approximately 12 seconds to 0.04 seconds, preserving every signature and receipt byte. Fifteen targeted tests pass, including an independent native-window oracle. Full source/cache validation occurs before and after each batch, with immutable byte-backed payloads required; the scalar arithmetic and scientific rules are unchanged.
