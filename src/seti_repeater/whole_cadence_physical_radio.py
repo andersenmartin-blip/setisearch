@@ -82,7 +82,8 @@ def _execute(family, store, retention, on_factors, off_factors, receiver_factory
              provider_receipt, *, caps=None, evidence_writer=None):
     if evidence_writer is not None:
         from .physical_evidence_radio import Writer
-        if type(evidence_writer) is not Writer or evidence_writer.config['case_identity']!=retention['case_identity']:
+        from .physical_evidence_v2_radio import Writer as CompressedWriter
+        if type(evidence_writer) not in (Writer, CompressedWriter) or evidence_writer.config['case_identity']!=retention['case_identity']:
             raise ValueError('Fresh matching engineering evidence writer required')
     caps={**CAPS, **(caps or {})}
     if set(caps)!=set(CAPS) or any(type(v) is not int or not 1<=v<=CAPS[k] for k,v in caps.items()):
