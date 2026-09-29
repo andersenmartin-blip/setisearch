@@ -118,8 +118,10 @@ def render(context, plan, *, lease, forbidden_cases, verify_freeze):
     return _rows(context, plan, factory, lease.budget, marker)
 
 
-def _rows(context, plan, factory, budget, marker):
+def _rows(context, plan, factory, budget, marker, *, receipt_schema=None):
     """Shared arithmetic exercised with a deterministic provider in unit tests."""
+    law = plan['law']; law_sha = digest(law)
+    if law_sha != plan['case']['noise_law_sha256']: raise ValueError('Plan law changed')
     spec = plan['case']['spec']; sources = {}; receipts = []; max_error = 0.0
     q = context.grid.center_mhz * 1e6
     center = json.loads(context.factor_contract.factors.provenance_json)['center_hz']
@@ -155,7 +157,7 @@ def _rows(context, plan, factory, budget, marker):
         scope = {'kind': 'synthetic', 'input_domain': 'engineering-gaussian-native',
                  'case_identity': plan['case']['identity'], 'context_sha256': context.identity,
                  'scan': scan['label'], 'receiver_factor_bank_sha256': context.factor_contract.factors.identity,
-                 'noise_law': LAW, 'noise_law_sha256': LAW_SHA,
+                 'noise_law': law, 'noise_law_sha256': law_sha,
                  'draw_plan_sha256': plan['plan_sha256'], 'engineering_start': marker,
                  'scientific_allocation_charged': False, 'telescope_provenance': False}
         source = native.normalize_synthetic_rows(read_row, context.geometry, 16,
@@ -166,9 +168,9 @@ def _rows(context, plan, factory, budget, marker):
         receipts.append({'scan': scan['label'], 'source_identity': source.identity, 'rows': rows})
         budget()
     run = NativeRun(context, sources); budget(run.modelled_bytes)
-    receipt = {'schema': 'radio-engineering-gaussian-native-receipt-v1',
+    receipt = {'schema': receipt_schema or 'radio-engineering-gaussian-native-receipt-v1',
                'case_identity': plan['case']['identity'], 'draw_plan_sha256': plan['plan_sha256'],
-               'noise_law': LAW, 'noise_law_sha256': LAW_SHA,
+               'noise_law': law, 'noise_law_sha256': law_sha,
                'source_ids': run.source_ids, 'row_receipts': receipts,
                'normal_calls': 96, 'maximum_mass_error': max_error,
                'scientific_allocation_charged': False, 'telescope_values_opened': False,
@@ -178,10 +180,10 @@ def _rows(context, plan, factory, budget, marker):
 
 
 def compact_parts(run, store, plan, receipt):
-    unit = reduce_native_run(run, store, case_identity=plan['case']['identity'], noise_law_sha256=LAW_SHA)
+    unit = reduce_native_run(run, store, case_identity=plan['case']['identity'], noise_law_sha256=plan['case']['noise_law_sha256'])
     sources = {'schema': 'radio-whole-cadence-native-source-archive-v1',
                'context_sha256': run.context.identity, 'case_identity': plan['case']['identity'],
-               'noise_law_sha256': LAW_SHA, 'sources': {}}
+               'noise_law_sha256': plan['case']['noise_law_sha256'], 'sources': {}}
     for name, s in run.sources.items():
         sources['sources'][name] = {'geometry': asdict(s.geometry), 'integration_count': s.integration_count,
                                    'scope': json.loads(s.scope_json), 'raw_sha256': s.raw_sha256,

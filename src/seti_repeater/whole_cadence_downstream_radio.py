@@ -164,9 +164,8 @@ class IncompleteRetention(ValueError):
         self.evidence = json.loads(canonical(evidence))
 
 
-def _execute(family, store, threshold, unit, *, maximum_records=10000,
+def _execute_core(family, store, threshold, unit, *, maximum_records=10000,
              maximum_evidence_bytes=128_000_000):
-    if not isinstance(threshold, WholeCadenceThreshold): raise ValueError('Distinct whole-cadence threshold required')
     for v, limit in ((maximum_records, 10000), (maximum_evidence_bytes, 128_000_000)):
         if type(v) is not int or not 0 <= v <= limit: raise ValueError('Invalid retention cap')
     u = unit.record()
@@ -229,7 +228,7 @@ def _execute(family, store, threshold, unit, *, maximum_records=10000,
                         # records are physical-control evidence, never ranked here.
                         if kind == 'on':
                             record['rank'] = {'greater_or_equal_reference_count': ge,
-                                'unreduced_numerator': 1+ge, 'reference_denominator': 128,
+                                'unreduced_numerator': 1+ge, 'reference_denominator': len(refs)+1,
                                 'exact_fraction': [rank.numerator, rank.denominator],
                                 'inclusive_p': float(rank), 'meets_rank_cut': rank <= Fraction(1,100)}
                         record['record_id'] = digest(record)
@@ -253,6 +252,13 @@ def _execute(family, store, threshold, unit, *, maximum_records=10000,
         'inclusive_p': float(rank), 'empty_is_probability_one': u['maximum']['kind'] == 'empty'}
     result['complete'] = True; result['result_sha256'] = digest(result)
     return result
+
+
+def _execute(family, store, threshold, unit, **caps):
+    # Public production-shaped entry points retain their exact 127-unit type gate.
+    if not isinstance(threshold, WholeCadenceThreshold):
+        raise ValueError('Distinct whole-cadence threshold required')
+    return _execute_core(family, store, threshold, unit, **caps)
 
 
 def execute_fixture(family, store, threshold, *, case_identity, noise_law_sha256, **caps):

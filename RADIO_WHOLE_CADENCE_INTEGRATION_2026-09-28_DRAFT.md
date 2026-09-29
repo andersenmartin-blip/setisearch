@@ -1,5 +1,22 @@
 # Whole-cadence integrated execution outline — NOT ACTIVATED
 
+## 29 September: four-reference native physical engineering prepared
+
+The [fixed eight-case scope](RADIO_NATIVE_CHAIN_ENGINEERING_2026-09-29_SCOPE.md)
+uses four fresh same-window Gaussian references and four predeclared native
+physical cases (wide/narrow ON, matched ON/OFF, fresh null). **114 targeted tests
+pass; no new random values have been drawn at this preparation checkpoint.**
+The separate four-reference threshold cannot pass the unchanged 1/100 rank cut;
+engineering gates count physical survivors and do not certify production recovery.
+
+Publish/read back the executable freeze, then separately reserve all eight fresh
+identities before a single non-resumable invocation. Preserve every actual outcome,
+including a missed injection or resource failure. Local original journal history
+and physical evidence are measured before remote incremental integration; this
+stage does not qualify per-artifact external publication or scientific 40/80-second
+limits. All prior closed outcomes/counters/holds stay unchanged; 127/24 remains
+NOT ACTIVATED, telescope spectra remain unopened, and consolidation stays 9 October.
+
 ## 29 September: batched live publication passes; 48.619-s case remains above calibration quota
 
 The [batch result](RADIO_WHOLE_CADENCE_BATCH_2026-09-29_RESULT.md) closes one new
