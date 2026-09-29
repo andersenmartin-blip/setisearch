@@ -1,5 +1,23 @@
 # SETIsearch — current project status
 
+## 29 September: real Gaussian/native numerical stage passes and closes
+
+[Two fresh engineering cases](RADIO_GAUSSIAN_ENGINEERING_2026-09-29_RESULT.md)
+processed 12,582,912 Gaussian values in **14.849217 s**. Both compact audits
+passed, preserving all **769,824 scores** and exact native maxima. Archives were
+1,985,010 and 1,990,067 bytes; peak RSS was 93,896,704 bytes. All 35 preflight
+tests passed. The scope was frozen and both cases irrevocably reserved on GitHub
+before RNG. Both cases are now closed; their reservations cannot reset.
+
+**Exact continuation:** freeze a fresh engineering-only same-law reference and
+native physical/recovery/RFI/null integration using these measured costs and
+new identities. The production threshold requires 127 actual reference maxima;
+do not relabel deterministic fixtures. The two-case stage does not qualify
+that threshold, physical gates or scientific remote-publication timing. Keep
+the scientific 127/24 proposal NOT ACTIVATED and telescope spectra unopened.
+All prior holds, holdouts, primary neighbor9, selected HD189733/85030, LS pause
+and CHEOPS UNSENT remain unchanged. Consolidate 9 October without extension.
+
 ## 29 September: canonical immutable-readback live02 passes and closes
 
 [Live02](RADIO_WHOLE_CADENCE_READBATCH_2026-09-29_RESULT02.md) is **CLOSED
