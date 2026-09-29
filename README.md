@@ -1,5 +1,13 @@
 # SETIsearch
 
+## 29 September: parent integration exposes journal capacity limit
+
+[The new result, complete evidence and logs](https://github.com/andersenmartin-blip/setisearch/blob/78997032223cee06b3671684a0fd6dde422102b7/RADIO_PHYSICAL_CASE_2026-09-29_RESULT.md) add **117 passing tests** and strictly charged dynamic physical artifacts. The one large byte-only integration is **CLOSED FAILED**: full journal snapshots consume the ordinary journal allowance after **19/22** intended checkpoints. The reserved **880-byte failure footer** succeeds, all files remain preserved and the parent closes FAILED without retry or a larger cap.
+
+The separate read-only audit restores all **19 committed views and 193 original journal versions** exactly. Those 7,952,097 canonical journal bytes have a **101,896-byte lossless history representation**; every original revision and all four uncommitted physical parts remain retained. This representation does not qualify a live incremental writer or reverse the original failure. There are no new random values, native scores, physical decisions or telescope reads.
+
+Next: implement and prospectively qualify durable incremental parent journaling for the dynamic artifacts, then a separate fixed storage integration. **127/24 remains NOT ACTIVATED**; remote scientific adapters, full native physical gates and 40/80-second timing remain unqualified. All earlier failures, spent identities, holds, counters and holdouts persist. No messages or delegation; consolidate 9 October without extension.
+
 ## 29 September: bounded physical evidence storage verified
 
 [The new result, code and full logs](https://github.com/andersenmartin-blip/setisearch/blob/dfded6130acedfae15dc28f0f793b3ed48b6d46a/RADIO_PHYSICAL_EVIDENCE_2026-09-29_RESULT.md) restore all **22/22** constructed serialization views of the earlier failed native report. Total charged case storage is **17,391,433 bytes**, including existing artifacts, within 24 MiB; the failure footer is **644 bytes**. A smaller capacity fixture refuses the full report before writing and preserves its prior checkpoint.
