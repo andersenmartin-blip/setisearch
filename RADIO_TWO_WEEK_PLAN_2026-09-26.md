@@ -1048,3 +1048,31 @@ all failures and timings. Prior scopes stay CLOSED and charged. Do not raise the
 case cap, restart an incomplete case, activate 127/24, or infer full scientific
 40/80-s feasibility from this binary transport test. Publish the measured result.
 All previous holds/counters and 9 October consolidation remain unchanged.
+
+## 29 September: batched live publication passes; 48.619-s case remains above calibration quota
+
+The [batch result](RADIO_WHOLE_CADENCE_BATCH_2026-09-29_RESULT.md) closes one new
+engineering case with **22 new passing tests**. ASCII content batching, locally
+predicted exact Git trees and combined handoff preserved every byte and reduced
+the observed same-size archive case from 103.808198 to **48.618922 s**. This is a
+descriptive comparison, not a controlled benchmark. All 524,305 binary bytes and
+the JSON witness were verified through a fresh store and independently through Git.
+The archive plus all ledger versions occupy **704,852 physical bytes**.
+
+There were 48 new GitHub calls and no separate blob uploads. The complete worker
+took 114.526863 s; its initial supervisor-start delay remains charged. **The 40-s
+calibration budget is still unqualified**, and no full Gaussian/native physical
+chain or scientific 80-s evaluation has been qualified. The 127/24 proposal remains
+NOT ACTIVATED. All 17 historical invariants and closed journals are preserved.
+
+**Exact continuation:** batch-live01 and all predecessor scopes are CLOSED. Under
+a new bounded prospective engineering scope, group independent immutable file
+readbacks, charge each request and aggregate responses, and retain every error
+and byte check. The measured file-read round trips total 32.443817 s. Qualify
+partial/missing/reordered replies and caps before a new live run. Then proceed
+to fresh engineering-only Gaussian/full-native/gate qualification with separate
+identities and freeze; never use reserved 127/24 seeds or raise scientific caps.
+
+No new source/telescope values, scientific allocation, external messages or plan
+extension. All preparations, holds, holdouts, counters, LS pause and CHEOPS UNSENT
+remain unchanged. Consolidate on 9 October. Follow the result's ordered next steps.
