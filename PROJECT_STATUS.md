@@ -1,5 +1,20 @@
 # SETIsearch — current project status
 
+## 29 September: batched publication scope frozen, awaiting one live run
+
+The [new bounded scope](RADIO_WHOLE_CADENCE_BATCH_2026-09-29_SCOPE.md) tests
+ASCII `content` tree entries and combined response/next-request handoff.
+**22 new tests pass**, including an independent Git `mktree` hash oracle.
+All parent-tree entries and external decoded bytes remain checked. One fresh
+524,305-byte deterministic case has an 80-s / 1-MiB reservation; no RNG or science.
+
+**Continuation at this freeze:** independently verify its full executable/runtime
+freeze, recipe and fresh genesis, then execute batch-live01 exactly once. Keep
+all failures and timings. Prior scopes stay CLOSED and charged. Do not raise the
+case cap, restart an incomplete case, activate 127/24, or infer full scientific
+40/80-s feasibility from this binary transport test. Publish the measured result.
+All previous holds/counters and 9 October consolidation remain unchanged.
+
 ## 28 September: lossless live archive qualified; scientific timing still blocked
 
 The [lossless integration result](RADIO_WHOLE_CADENCE_LOSSLESS_2026-09-28_RESULT.md)
