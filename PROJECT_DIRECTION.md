@@ -1,5 +1,23 @@
 # Long-term project direction
 
+## 29 September: complete receiver evidence fails the current logical capacity
+
+[The read-only capacity decision](RADIO_RECEIVER_CAPACITY_2026-09-29_DECISION.md)
+establishes a **29,821,434-byte lower bound** for the known 9,792-member report
+with its 21,708 receiver queries, before final alias/decision/cluster evidence.
+The current physical reader refuses logical expansion above **24 MiB**. Its
+previous storage PASS covered only the partial report before receiver evidence.
+Batching speeds computation while preserving output bytes; it cannot fix this
+separate capacity problem. No old physical computation or new trial was run.
+
+**Current continuation:** qualify a complete lossless representation for this
+known workload under unchanged stored-case/journal budgets before freezing
+another native attempt. This supersedes the immediate-new-run instruction below.
+The bound concerns logical JSON, not the minimum size of a different compressed
+format or every future draw. No limits, scientific settings or old outcomes are
+changed. 127/24 stays NOT ACTIVATED; telescope spectra and old holdouts stay
+unopened. All holds/counters, no messages/delegation and 9 October remain.
+
 ## 29 September: receiver batching removes repeated payload hashing
 
 [The receiver optimization](RADIO_RECEIVER_BATCH_2026-09-29_RESULT.md) preserves
