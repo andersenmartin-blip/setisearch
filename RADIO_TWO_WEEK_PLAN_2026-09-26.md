@@ -1,5 +1,17 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 29 September: canonical immutable-readback live02 passes and closes
+
+[Live02](RADIO_WHOLE_CADENCE_READBATCH_2026-09-29_RESULT02.md) verified seven
+new immutable files and 460,826 raw bytes in 0.576 s. Its canonical response was
+615,299 bytes, 4,517 below the frozen cap. It is CLOSED PASS; live01 remains
+CLOSED FAILED, and neither can restart. These are transport findings only.
+
+**Continuation:** freeze a fresh engineering-only integrated Gaussian,
+compact-score, native physical/recovery/RFI/null run with new identities and
+complete runtime/resource pins. No reserved 127/24 RNG, scientific activation,
+source opening, old-counter change or plan extension. Consolidate 9 October.
+
 ## 29 September: readback live01 failed its response cap; live02 amendment frozen
 
 [Live01](RADIO_WHOLE_CADENCE_READBATCH_2026-09-29_RESULT.md) verified seven Git

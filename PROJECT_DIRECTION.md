@@ -1,5 +1,29 @@
 # Long-term project direction
 
+## 29 September: canonical immutable-readback live02 passes and closes
+
+[Live02](RADIO_WHOLE_CADENCE_READBATCH_2026-09-29_RESULT02.md) is **CLOSED
+ENGINEERING PASS**. Seven distinct immutable files, all Git identities and
+**460,826 raw bytes** verified in **0.576 s**. The canonical response used
+615,299 of 619,816 reserved bytes, leaving 4,517 bytes. All seven requests are
+charged; there was no mutation or retry. Live01's response-cap failure remains
+closed and charged, so the two scopes consumed fourteen immutable reads total.
+
+This qualifies only the bounded canonical readback mechanism. It is not a
+controlled speed comparison and does not qualify the scientific 40/80-second
+budgets, Gaussian generation or the full native physical/gate chain.
+
+**Exact continuation:** readback scopes are closed. Freeze a fresh,
+engineering-only integrated Gaussian/compact-score/native physical/recovery/
+RFI/null run with new identities, exact fixtures/runtime, motion-width and
+numerical-transfer pins, durable no-resume journal, artifact-byte limits and
+cumulative time/call budgets. Do not use reserved 127/24 RNGs. Only after that
+passes may a separate fresh scientific allocation be considered.
+
+No source/telescope values, external messages or plan extension. Neighbor9,
+HD189733/85030 and all prior preparations, holds, holdouts, counters, LS pause
+and CHEOPS UNSENT persist; consolidate 9 October.
+
 ## 29 September: readback live01 closes failed; distinct canonical live02 frozen
 
 [Live01](RADIO_WHOLE_CADENCE_READBATCH_2026-09-29_RESULT.md) read all seven
