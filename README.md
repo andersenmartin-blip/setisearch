@@ -1,5 +1,32 @@
 # SETIsearch
 
+## 29 September — bounded immutable readback qualified after retained cap failure
+
+Two separately frozen engineering scopes tested grouped immutable Git readback.
+The first verified all seven blob identities and **703,392 raw bytes** in 0.605 s,
+but is **CLOSED FAILED** because its exact response occupied 971,981 bytes—28,741
+above the prospective reservation. That failure and all seven calls remain
+charged; it was not retried or relabelled.
+
+The distinct corrected scope used seven different files, removed connector line
+wrapping and display-only fields before bounded handoff, and retained every raw
+Git/byte check. It verified **460,826 raw bytes** in 0.576 s; the canonical
+response used 615,299 of 619,816 reserved bytes. It is **CLOSED ENGINEERING PASS**.
+Neither scope may restart.
+
+This qualifies readback transport only. It is not a controlled timing benchmark
+and does **not** qualify Gaussian generation, the full native physical/recovery/
+RFI/null chain or the proposed scientific 40/80-second budgets. The 127/24
+proposal remains **NOT ACTIVATED** and there are no new telescope results.
+
+Next: prospectively freeze a fresh engineering-only integrated Gaussian,
+compact-score and full native physical/gate run with new identities and exact
+runtime/resource pins. All source selections, holds, counters and the 9 October
+consolidation remain unchanged.
+
+[Live01 retained failure](https://github.com/andersenmartin-blip/setisearch/blob/f63861ad3054d655aa8d4ac7f9018a6499f5817b/RADIO_WHOLE_CADENCE_READBATCH_2026-09-29_RESULT.md) ·
+[Live02 closed pass and exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/f63861ad3054d655aa8d4ac7f9018a6499f5817b/RADIO_WHOLE_CADENCE_READBATCH_2026-09-29_RESULT02.md)
+
 ## 29 September — batched archive measured at 48.6 seconds
 
 [The new published result](https://github.com/andersenmartin-blip/setisearch/blob/31cda8ab4942caf990793eccb35ff71c36ecdecf/RADIO_WHOLE_CADENCE_BATCH_2026-09-29_RESULT.md)
