@@ -1,5 +1,32 @@
 # Long-term project direction
 
+## 29 September: live journal probes pass; complete overhead budget fails
+
+[The closed result](RADIO_INCREMENTAL_JOURNAL_2026-09-29_RESULT.md) verifies
+**6/6 original journal versions**, four exact fast-forward publications and the
+217-byte witness. The normal case completes in **86.932355 s**. A separately
+injected acknowledgement loss stops the other writer; fresh read-only recovery
+confirms its permanently consumed, incomplete state. Both namespaces are CLOSED.
+
+Total journal/artifact bytes are **8,464**; the live worker used 85 GitHub calls
+and **169.958322 s**, within its fixed live caps. The 29 Python risk tests, four
+broker checks and independent byte/state audit pass. However, the downstream
+audit used **41 local Git calls**, already exceeding the separately fixed
+32-operation publication/verification cap. The full scope therefore has an
+overhead-budget failure; the original live PASS is not a whole-scope pass.
+All frames, failures, charges and prior approval rejections are retained.
+The owner approved public preservation of the package and logs in this conversation.
+
+**Exact continuation:** prepare the separate integrated Gaussian same-law
+reference/native physical/recovery/RFI/null engineering stage with fresh identities.
+Batch local and remote immutable reads, bind incremental event/artifact publication,
+and count complete cumulative obligations before new work. The normal small
+archive already exceeds 80 s: scientific 40/80-second timing and the proposed
+151-case ledger capacity remain unqualified. Do not reopen complete01/lost01,
+reuse reserved 127/24 identities or raise historical/scientific caps. The 127/24
+proposal remains NOT ACTIVATED; telescope spectra stay unopened. All earlier
+holds/counters and 9 October consolidation remain unchanged.
+
 ## 29 September: publication approved; fixed incremental live qualification next
 
 The owner explicitly approved the prepared journal package and its logs/results
