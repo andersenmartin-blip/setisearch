@@ -1,5 +1,38 @@
 # SETIsearch
 
+## 29 September — real Gaussian/native scores verified; journal budget corrected
+
+Two freshly frozen engineering cases processed **12,582,912 Gaussian values**
+through the native numerical chain in **14.849217 seconds**. Both compact
+archive audits passed and retained all **769,824 scores**, source/cache
+identities, row receipts and complete maxima. The null maximum is EMPTY; the
+injected width-129 case has maximum 283.1278381347656. Neither is a scientific
+detection or a full physical recovery result. Both case reservations are spent
+and closed; the original 127/24 proposal remains **NOT ACTIVATED**.
+
+The next capacity audit exposed a concrete obstacle: retaining every complete
+snapshot of the proposed 151-case journal needs **at least 423,359,705 canonical
+bytes**, against an **8-MiB** ledger allocation. This is a metadata lower bound,
+not a new 151-case experiment or a measurement of packed Git storage. The
+latest snapshot alone would hide the cumulative cost.
+
+A new read-only history format restores **all 19 original engineering journal
+versions byte for byte**, representing 101,825 bytes in **10,854 bytes**. Every
+old revision stays published. **35 Gaussian/compact preflight checks and 22 new
+capacity/history checks pass.** Restoring an archive creates no restart right.
+
+Next: integrate and prospectively qualify bounded durable event/checkpoint
+publication and immutable readback, including interrupted/conflicting writes
+and cumulative archive-byte accounting. Then freeze the remaining complete
+Gaussian reference/native physical/recovery/RFI/null integration with separate
+engineering identities. Scientific timing, physical gates and telescope
+admission remain unqualified. Neighbor9, HD189733/85030, all old holds and
+holdouts, LS pause and CHEOPS UNSENT are preserved. No external messages or
+plan extension; consolidate 9 October.
+
+[Gaussian/native result and complete score evidence](https://github.com/andersenmartin-blip/setisearch/blob/d201b56c12918073eb4d473a9f0215beff0493d6/RADIO_GAUSSIAN_ENGINEERING_2026-09-29_RESULT.md) ·
+[Journal capacity result and exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/432ba23e322ef58f6ec492e97431fb5f3de7d8a3/RADIO_JOURNAL_CAPACITY_2026-09-29_RESULT.md)
+
 ## 29 September — bounded immutable readback qualified after retained cap failure
 
 Two separately frozen engineering scopes tested grouped immutable Git readback.
