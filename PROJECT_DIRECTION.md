@@ -1,5 +1,30 @@
 # Long-term project direction
 
+## 29 September: readback live01 closes failed; distinct canonical live02 frozen
+
+[Live01](RADIO_WHOLE_CADENCE_READBATCH_2026-09-29_RESULT.md) read all seven
+immutable files correctly in **0.605 s**: 703,392 raw bytes and every Git blob
+identity match. It is nevertheless **CLOSED ENGINEERING FAILED** because the
+exact connector frame was 971,981 bytes, **28,741 above** its 943,240-byte
+prospective reservation. Line-wrapped base64 caused 31,268 JSON bytes of avoidable
+expansion. All seven calls are charged; no retry or retrospective cap change.
+
+The [distinct live02 amendment](RADIO_WHOLE_CADENCE_READBATCH_2026-09-29_AMENDMENT.md)
+uses seven different immutable files, projects replies to exact SHA/encoding/
+newline-free content, discards display metadata, and reserves 619,816 bytes.
+The amended 19 checks and 22 retained regressions pass.
+
+**Exact continuation:** publish and independently read back the amendment,
+recipe02, runtime freeze, failure evidence and corrected code. Then execute
+`readbatch-live02` exactly once with seven charged reads, no mutation and an
+80-second engineering cap; close it permanently. If it passes, freeze fresh
+engineering-only Gaussian/compact-score/full-native physical/recovery/RFI/null
+qualification. Do not activate 127/24 or infer scientific timing readiness.
+
+No source/telescope values, external messages or plan extension. All prior
+preparations, holds, holdouts, counters, LS pause and CHEOPS UNSENT persist;
+consolidate 9 October.
+
 ## 29 September: immutable-readback batch frozen before one live action
 
 The [new prospective scope](RADIO_WHOLE_CADENCE_READBATCH_2026-09-29_SCOPE.md)

@@ -14,6 +14,15 @@ REPO = "andersenmartin-blip/setisearch"
 # Read only the already-closed archive at its immutable completion commit.
 # The new scope has its own evidence directory but does not alter this prefix.
 PREFIX = "results_radio_whole_cadence_batch_2026-09-29/live01/"
+LIVE02_PATHS = {
+    "PROJECT_DIRECTION.md",
+    "PROJECT_STATUS.md",
+    "RADIO_TWO_WEEK_PLAN_2026-09-26.md",
+    "RADIO_WHOLE_CADENCE_READBATCH_2026-09-29_SCOPE.md",
+    "config/radio_whole_cadence_readbatch_recipe_20260929.json",
+    "src/seti_repeater/whole_cadence_readbatch_radio.py",
+    "tests/test_radio_whole_cadence_readbatch.py",
+}
 MAX_FILES = 8
 MAX_RESPONSE_BYTES = 8 * 1024 * 1024
 RESPONSE_OVERHEAD_PER_FILE = 768
@@ -43,7 +52,7 @@ def _validate_requests(requests):
         if type(ordinal) is not int:
             raise ValueError("Integer readback ordinal required")
         path = safe_path(row["path"])
-        if not path.startswith(PREFIX):
+        if not (path.startswith(PREFIX) or path in LIVE02_PATHS):
             raise ValueError("Readback escaped frozen engineering namespace")
         ref = git_sha(row["ref"])
         blob_sha = git_sha(row["blob_sha"])

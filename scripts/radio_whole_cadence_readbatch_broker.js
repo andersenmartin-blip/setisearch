@@ -1,6 +1,11 @@
 // Prospective engineering broker. Mutations remain sequential in the worker.
 const repo='andersenmartin-blip/setisearch';
 const prefix='results_radio_whole_cadence_batch_2026-09-29/live01/';
+const live02Paths=new Set(['PROJECT_DIRECTION.md','PROJECT_STATUS.md',
+  'RADIO_TWO_WEEK_PLAN_2026-09-26.md','RADIO_WHOLE_CADENCE_READBATCH_2026-09-29_SCOPE.md',
+  'config/radio_whole_cadence_readbatch_recipe_20260929.json',
+  'src/seti_repeater/whole_cadence_readbatch_radio.py',
+  'tests/test_radio_whole_cadence_readbatch.py']);
 const maxFiles=8,maxAggregateBytes=8*1024*1024;
 
 function validateBatch(params){
@@ -13,7 +18,7 @@ function validateBatch(params){
   for(const row of params.requests){
     if(Object.keys(row).sort().join(',')!=='encoding,ordinal,path,ref'||
        !Number.isInteger(row.ordinal)||row.encoding!=='base64'||
-       typeof row.path!=='string'||!row.path.startsWith(prefix)||
+       typeof row.path!=='string'||!(row.path.startsWith(prefix)||live02Paths.has(row.path))||
        row.path.split('/').some(x=>['','.','..'].includes(x))||
        !/^[0-9a-f]{40}$/.test(row.ref)||ordinals.has(row.ordinal)||paths.has(row.path))
       throw new Error('Unsafe or duplicate immutable readback');
@@ -30,8 +35,13 @@ async function fetchFiles(params){
       const response=await tools.mcp__codex_apps__github_fetch_file({
         repository_full_name:repo,path:row.path,ref:row.ref,encoding:'base64'});
       if(response.isError)throw new Error('GitHub tool returned isError');
-      const result=response.structuredContent;
-      if(!result||typeof result!=='object')throw new Error('Structured response absent');
+      const raw=response.structuredContent;
+      if(!raw||typeof raw!=='object'||typeof raw.content!=='string'||
+         raw.encoding!=='base64'||typeof raw.sha!=='string')
+        throw new Error('Structured response absent or malformed');
+      // The connector adds line wrapping and display metadata.  Neither is part
+      // of the immutable Git proof, so project to the exact bounded wire frame.
+      const result={content:raw.content.replace(/[\r\n]/g,''),encoding:'base64',sha:raw.sha};
       return {ordinal:row.ordinal,ok:true,result,tool_milliseconds:Date.now()-t};
     }catch(error){
       return {ordinal:row.ordinal,ok:false,error:String(error),automatic_retry:false,

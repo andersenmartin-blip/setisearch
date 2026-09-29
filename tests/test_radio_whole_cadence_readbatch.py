@@ -147,6 +147,15 @@ class ReadbackBatchTests(unittest.TestCase):
             with self.assertRaises(r.ReadbackStopped):
                 self.client().read(bad)
 
+    def test_distinct_live02_exact_path_is_admitted(self):
+        data = b"fresh-live02-witness"
+        path = "PROJECT_DIRECTION.md"
+        remote = ReadDouble({path: data})
+        request = [{"ordinal": 0, "path": path, "ref": "b" * 40,
+                    "blob_sha": blob(data), "cap": len(data)}]
+        client = r.ImmutableReadbackBatch(remote.invoke)
+        self.assertEqual(client.read(request), [data])
+
     def test_declared_cap_is_enforced(self):
         bad = copy.deepcopy(self.requests)
         bad[0]["cap"] -= 1

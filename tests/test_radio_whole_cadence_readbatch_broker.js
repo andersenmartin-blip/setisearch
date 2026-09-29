@@ -14,7 +14,8 @@ function request(n=3){
   global.tools={mcp__codex_apps__github_fetch_file:async args=>{
     calls++;
     if(args.path.endsWith('part1.txt'))throw new Error('retained partial failure');
-    return {isError:false,structuredContent:{sha:'b'.repeat(40),encoding:'base64',content:'eA=='}};
+    return {isError:false,structuredContent:{sha:'b'.repeat(40),encoding:'base64',
+      content:'eA==\n',display_url:'discard-me',display_title:'discard-me'}};
   }};
   const partial=await fetchFiles(request());
   assert.strictEqual(calls,3);
@@ -22,6 +23,8 @@ function request(n=3){
   assert.deepStrictEqual(partial.items.map(x=>x.ordinal),[0,1,2]);
   assert.strictEqual(partial.items[1].ok,false);
   assert.strictEqual(partial.items[1].automatic_retry,false);
+  assert.deepStrictEqual(Object.keys(partial.items[0].result).sort(),['content','encoding','sha']);
+  assert.strictEqual(partial.items[0].result.content,'eA==');
 
   const duplicate=request();duplicate.requests[1].path=duplicate.requests[0].path;
   await assert.rejects(()=>fetchFiles(duplicate),/duplicate/i);

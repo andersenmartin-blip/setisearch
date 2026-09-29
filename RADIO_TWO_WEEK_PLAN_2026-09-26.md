@@ -1,5 +1,19 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 29 September: readback live01 failed its response cap; live02 amendment frozen
+
+[Live01](RADIO_WHOLE_CADENCE_READBATCH_2026-09-29_RESULT.md) verified seven Git
+identities and 703,392 raw bytes in 0.605 s, but its exact response was 971,981
+bytes versus 943,240 reserved. It is CLOSED FAILED without retry. The failure is
+wire accounting, not corrupt data, and does not qualify scientific timing.
+
+A distinct [prospective amendment](RADIO_WHOLE_CADENCE_READBATCH_2026-09-29_AMENDMENT.md)
+binds seven different files and canonicalizes only the response representation;
+raw Git/byte checks remain. **Continuation:** publish/read back that complete
+freeze, execute live02 once, preserve its result and close it. Then proceed only
+to a fresh engineering Gaussian/full-native/physical/gate freeze. No 127/24
+activation, counter change, source opening or plan extension.
+
 **Active track: ordinary narrowband radio SETI. LS is paused.**
 Owner direction, 26 September: prepare a new two-week plan and move from the
 light-sail branch back to the ordinary search. This plan starts immediately
