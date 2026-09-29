@@ -37,6 +37,12 @@ class CompactTests(unittest.TestCase):
         self.assertEqual(len(b['cases']),151);self.assertFalse(b['new_scientific_allocation_charged'])
         self.assertEqual(sum(x['reserved_artifact_bytes'] for x in b['cases']),940*c.MIB)
 
+    def test_engineering_receipt_cannot_relabel_retained_law(self):
+        self.edit('renderer.json',lambda r:r.update(schema='radio-engineering-gaussian-native-receipt-v1',
+            scientific_allocation_charged=False),receipt='receipt_sha256')
+        with self.assertRaisesRegex(ValueError,'cannot claim scientific law'):
+            self.audit()
+
     def test_changed_phase_cap_rejected(self):
         b=c.phase_budget(self.proposal);b['cases'][0]['reserved_artifact_bytes']+=1
         with self.assertRaisesRegex(ValueError,'budget differs'):c.reservation(self.proposal,b,b['cases'][0]['case_identity'])

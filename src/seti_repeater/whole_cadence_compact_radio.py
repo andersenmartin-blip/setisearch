@@ -80,11 +80,17 @@ def audit(context,binding,parts,*,expected_sha256s,byte_cap):
             or sources['noise_law_sha256']!=binding['noise_law_sha256']):
         raise ValueError('Compact source metadata differs')
     if (renderer.get('receipt_sha256')!=digest({k:v for k,v in renderer.items() if k!='receipt_sha256'})
-            or renderer.get('schema') not in ('radio-whole-cadence-renderer-mock-receipt-v1','radio-whole-cadence-gaussian-receipt-v1')
+            or renderer.get('schema') not in ('radio-whole-cadence-renderer-mock-receipt-v1','radio-whole-cadence-gaussian-receipt-v1',
+                                             'radio-engineering-gaussian-native-receipt-v1')
             or renderer['case_identity']!=binding['case_identity'] or renderer['draw_plan_sha256']!=binding['plan_sha256']
             or renderer['noise_law_sha256']!=binding['noise_law_sha256'] or digest(renderer['noise_law'])!=binding['noise_law_sha256']
             or renderer['normal_calls']!=96):
         raise ValueError('Renderer case/plan/law/receipt differs')
+    if renderer['schema']=='radio-engineering-gaussian-native-receipt-v1':
+        from .gaussian_engineering_radio import LAW, LAW_SHA
+        if (renderer['noise_law']!=LAW or binding['noise_law_sha256']!=LAW_SHA
+                or renderer.get('scientific_allocation_charged') is not False):
+            raise ValueError('Engineering renderer cannot claim scientific law or allocation')
     expected_labels=[s['label'] for s in context.scans]
     if set(sources['sources'])!=set(expected_labels) or [s['scan'] for s in renderer['row_receipts']]!=expected_labels:
         raise ValueError('Complete ordered source/row receipt inventory required')
