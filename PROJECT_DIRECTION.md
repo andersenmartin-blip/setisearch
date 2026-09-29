@@ -1,5 +1,57 @@
 # Long-term project direction
 
+## 29 September: publication approved; fixed incremental live qualification next
+
+The owner explicitly approved the prepared journal package and its logs/results
+in the current conversation on 29 September. The earlier publication-review
+block is resolved for this package and its two fixed engineering probes.
+
+**Exact continuation:** publish and independently read back the unchanged
+`d9b20bb7` executable freeze, then run complete01 and lost01 exactly once under
+[RADIO_INCREMENTAL_JOURNAL_2026-09-29_SCOPE.md](RADIO_INCREMENTAL_JOURNAL_2026-09-29_SCOPE.md).
+Retain all actual outcomes, resource charges and acknowledgement-loss evidence;
+never resume an incomplete namespace. The 29 Python tests and four broker checks
+are already complete. This note is not a live result. Scientific 127/24 stays
+NOT ACTIVATED; all prior holds/counters and 9 October consolidation persist.
+
+## 29 September: incremental journal ready; public freeze blocked, live not started
+
+The local incremental implementation passes **29 Python risk tests and four
+broker checks**. Its exact prospective freeze is local commit `d9b20bb7`, with
+841 project Python files, 1,132 runtime files and eight pinned inputs. Both
+engineering namespaces remain untouched genesis states; zero live calls,
+consumptions, Gaussian values, telescope values or messages occurred.
+
+Automatic approval review rejected the public Git push, then rejected the same
+push after an exact prior prospective owner authorization was retrieved. Its
+stated reason was that retrieved authorization was not a trusted user message
+in the current transcript. No alternative publication route was attempted.
+The public science ref was read back unchanged at `379a1a3d`.
+
+**Exact continuation:** the prepared package awaits current public-disclosure
+approval. Publish and independently verify the unchanged freeze before the
+bounded complete01/lost01 live qualification. Preserve both rejections and do
+not report a remote pass. The next section describes the prepared scope, not a
+published or executed run. Scientific 127/24 remains NOT ACTIVATED; all prior
+holds, counters and 9 October consolidation are unchanged.
+
+## 29 September: incremental durable journal frozen for two engineering namespaces
+
+[The prospective scope](RADIO_INCREMENTAL_JOURNAL_2026-09-29_SCOPE.md) replaces
+repeated full snapshots with one immutable event record per transition and
+small historical pointers. **29 new Python tests and four broker checks pass**.
+All original revision digests, complete namespace inventories, cumulative bytes
+and uncertain publication states remain checked. Read-only recovery grants no
+restart. The scientific 127/24 proposal remains NOT ACTIVATED.
+
+**Exact continuation at this freeze:** verify the published runtime, recipe and
+two fresh genesis records. Run complete01 once, then lost01 once with the fixed
+application-boundary acknowledgement loss; independently recover its consumed
+state without mutation. Close both regardless of outcome, preserving every
+failure and budget charge. No corrective live run, Gaussian RNG or telescope
+values. Then prepare the separately bounded integrated Gaussian/native physical/
+recovery/RFI/null stage. All prior holds/counters and 9 October consolidation persist.
+
 ## 29 September: cumulative journal budget gap identified; lossless history verified
 
 [The new capacity/history result](RADIO_JOURNAL_CAPACITY_2026-09-29_RESULT.md)
