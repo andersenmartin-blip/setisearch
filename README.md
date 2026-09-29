@@ -1,5 +1,13 @@
 # SETIsearch
 
+## 29 September: native physical engineering failure preserved; receipt bridge corrected
+
+[The closed result and complete evidence](https://github.com/andersenmartin-blip/setisearch/blob/43fa09b11c0586c47538d2a8ebfc6060e3d5248e/RADIO_NATIVE_CHAIN_ENGINEERING_2026-09-29_RESULT.md) retain four complete EMPTY Gaussian references and a broad ON case with 9,792 retained members. The native physical chain stopped on an incompatible receiver-receipt JSON newline convention; the three later cases were never entered, and all eight reservations remain spent. No run was repeated.
+
+The post-closure byte-domain bridge passes six new regression tests plus 34 existing physical tests, but has no fresh native qualification. The run also exceeded its separate 8-MiB failure reserve. All 54 original journal versions and 107 evidence files are preserved losslessly. Four engineering references do not qualify a 1% rank test; production 127/24, physical recovery/RFI/null and scientific timing remain unqualified. Telescope data stay unopened; prior holds/counters and 9 October consolidation remain unchanged.
+
+Next: bounded durable physical-stage evidence and explicit failure accounting, then incremental/batched publication of the measured archive. Any fresh live qualification needs a separate fixed scope and new identities.
+
 ## 29 September — live journal probes pass; overhead budget failure retained
 
 The two fixed incremental journal probes verify **all six original revisions**,
