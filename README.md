@@ -1,5 +1,27 @@
 # SETIsearch
 
+## 29 September — batched archive measured at 48.6 seconds
+
+[The new published result](https://github.com/andersenmartin-blip/setisearch/blob/31cda8ab4942caf990793eccb35ff71c36ecdecf/RADIO_WHOLE_CADENCE_BATCH_2026-09-29_RESULT.md)
+adds **22 passing risk tests** and one closed live engineering case. Content
+batching and combined handoff preserved all **524,305 binary bytes**, the JSON
+witness and every ledger version. Both exact fast-forward publications and raw
+bytes were independently verified through Git. The archive occupies 704,852
+physical bytes including ledger history.
+
+The case took **48.618922 s**, compared with the earlier same-size fixed archive's
+103.808198 s; this is an observed comparison, not a controlled benchmark.
+The complete run took 114.526863 s and 48 new GitHub calls. **Calibration's 40-s
+budget remains unqualified**; full Gaussian/native physical evaluation is also
+unqualified. The 127/24 proposal remains **NOT ACTIVATED** and there are no new
+telescope results or scientific detections.
+
+Next: prospectively qualify grouped independent immutable readbacks while retaining
+every request, error, hash and raw-byte check, then fresh engineering-only Gaussian
+and native/gate execution. All closed scopes, scientific counters, preparations,
+holds and holdouts remain unchanged. HD189733/85030 and neighbor9 stay selected.
+No external messages or plan extension; consolidate on 9 October.
+
 ## 28 September — lossless archive verified; scientific timing hold remains
 
 The [new engineering result](https://github.com/andersenmartin-blip/setisearch/blob/d30319338c1ae0be78b22ca4b80cd95aa8fe25b4/RADIO_WHOLE_CADENCE_LOSSLESS_2026-09-28_RESULT.md)
