@@ -1,5 +1,13 @@
 # SETIsearch
 
+## 29 September: complete local event-journal integration passes
+
+[The new result, code and full evidence](https://github.com/andersenmartin-blip/setisearch/blob/78771a0d06b2aa3f7f5d18a80e251bb909aba7de/RADIO_EVENT_CASE_2026-09-29_RESULT.md) restore **all 22 physical snapshots and all 208 original journal revisions** exactly. The live journal stores each event once and retains every pointer version in **263,734 bytes**. Complete case plus journal storage is **17,688,769 bytes**, within the unchanged 24-MiB case and 8-MiB journal caps. **127 tests pass**; the whole byte-only fixture takes 55.785488 seconds.
+
+This is a separate fresh storage allocation. The preceding full-snapshot integration remains CLOSED FAILED, with every original file and charge preserved. The saved historical physical status and new parent disposition also remain FAILED as required: this PASS qualifies complete storage/restoration, not a new physical result. There are **zero new random values, native scores, physical decisions or telescope reads**.
+
+Next: bounded batched remote publication and immutable readback of the complete measured event/pointer/physical archive, preserving atomic advancement and lost-response stops. The current publisher is local engineering only. Full native physical gates and scientific 40/80-second timing remain unqualified; storage alone takes about 50 seconds. **127/24 stays NOT ACTIVATED**. All old failures, spent identities, holds/counters/holdouts, no messages or delegation, and 9 October consolidation remain unchanged.
+
 ## 29 September: parent integration exposes journal capacity limit
 
 [The new result, complete evidence and logs](https://github.com/andersenmartin-blip/setisearch/blob/78997032223cee06b3671684a0fd6dde422102b7/RADIO_PHYSICAL_CASE_2026-09-29_RESULT.md) add **117 passing tests** and strictly charged dynamic physical artifacts. The one large byte-only integration is **CLOSED FAILED**: full journal snapshots consume the ordinary journal allowance after **19/22** intended checkpoints. The reserved **880-byte failure footer** succeeds, all files remain preserved and the parent closes FAILED without retry or a larger cap.
