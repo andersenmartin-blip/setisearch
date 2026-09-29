@@ -1,5 +1,27 @@
 # Long-term project direction
 
+## 29 September: immutable-readback batch frozen before one live action
+
+The [new prospective scope](RADIO_WHOLE_CADENCE_READBATCH_2026-09-29_SCOPE.md)
+groups seven fixed files from the already-closed batch archive at immutable
+commit `c054671f...`; it does not reopen or alter that ledger. **18 new risk
+checks pass**, plus 22 retained regression tests. Every underlying request is
+charged before dispatch, 943,240 response bytes are reserved up front, and
+missing, duplicate, reordered, partial, corrupt and over-cap replies are bound
+to explicit no-retry outcomes. Python/Node syntax and the broker harness pass.
+
+**Exact continuation:** first verify the public scope, code, runtime freeze and
+recipe byte-for-byte. Then execute `readbatch-live01` exactly once: seven
+immutable reads, no mutations, 80-second engineering cap. Preserve all timings,
+errors and byte checks and close the scope whether it passes or fails. Only then
+freeze a distinct engineering-only Gaussian/full-native/physical/gate run. The
+scientific 127/24 proposal remains NOT ACTIVATED and the 40/80-second scientific
+budgets are not qualified by this transport scope.
+
+No telescope/source values, scientific allocation, external messages or plan
+extension. All prior preparations, holds, holdouts, counters, LS pause and
+CHEOPS UNSENT remain unchanged; consolidate 9 October.
+
 ## 29 September: batched live publication passes; 48.619-s case remains above calibration quota
 
 The [batch result](RADIO_WHOLE_CADENCE_BATCH_2026-09-29_RESULT.md) closes one new

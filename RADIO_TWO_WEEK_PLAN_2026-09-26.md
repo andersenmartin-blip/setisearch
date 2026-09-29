@@ -1076,3 +1076,18 @@ identities and freeze; never use reserved 127/24 seeds or raise scientific caps.
 No new source/telescope values, scientific allocation, external messages or plan
 extension. All preparations, holds, holdouts, counters, LS pause and CHEOPS UNSENT
 remain unchanged. Consolidate on 9 October. Follow the result's ordered next steps.
+
+## 29 September: immutable-readback batch frozen before one live action
+
+The [prospective readback scope](RADIO_WHOLE_CADENCE_READBATCH_2026-09-29_SCOPE.md)
+binds exactly seven existing immutable files, seven underlying requests, a
+943,240-byte pre-dispatch response reservation and an 80-second engineering cap.
+Eighteen new checks pass; 22 old batch/handoff checks pass only as regressions.
+No old case is replayed and no mutation, Gaussian value or scientific identity
+is admitted.
+
+**Continuation at this freeze:** verify the public freeze, then execute
+`readbatch-live01` once and close it permanently with all errors/timings/bytes.
+Next, and only next, freeze fresh engineering-only Gaussian, compact-score and
+complete native physical/recovery/RFI/null qualification. The 127/24 proposal
+stays NOT ACTIVATED. All old holds, counters and 9 October consolidation remain.

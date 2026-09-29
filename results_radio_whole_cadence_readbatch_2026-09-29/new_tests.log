@@ -1,0 +1,10 @@
+18 new readback-batch risk checks passed:
+- 14 Python unit tests in test_radio_whole_cadence_readbatch.py
+- 4 Node broker checks in test_radio_whole_cadence_readbatch_broker.js
+
+Combined regression command:
+PYTHONPATH=src:scripts:tests python -m unittest test_radio_whole_cadence_readbatch test_radio_whole_cadence_batch test_radio_batch_handoff -v
+
+Result: 36 Python tests passed (14 new, 22 retained regression tests).
+Node result: 4 broker risk checks passed.
+Syntax checks: Python py_compile and node --check passed.
