@@ -1,0 +1,25 @@
+{"ordinal": 0, "name": "noise-reference-0", "case_identity": "fb379ba81f4c30e22365fb1cce5ed92ac1ae5f1a5d3b6a7ce46b635cec8001f8", "status": "completed", "elapsed_milliseconds": 7514, "stage_seconds": {"render_seconds": 0.8549660290009342, "score_seconds": 4.083741447000648, "archive_audit_seconds": 2.558201489999192, "physical_and_gate_seconds": 0.00909546299953945}, "maximum": {"kind": "empty", "schema": "radio-empty-aware-maximum-v1", "value": null}, "artifact_bytes": 1997383, "engineering_gate_pass": null, "counts": null, "retained_on": 0, "retained_off": 0, "archive_check": {"case_identity": "fb379ba81f4c30e22365fb1cce5ed92ac1ae5f1a5d3b6a7ce46b635cec8001f8", "status": "completed", "artifact_count": 9, "artifact_bytes": 1997383, "execution_restart_authorized": false, "can_read_complete_evidence": true, "incomplete_is_statistical_empty": false}}
+{"ordinal": 1, "name": "noise-reference-1", "case_identity": "207f7506faa9c2f2be36652d701147d05946c2473f45f9c0d2eed1163f222521", "status": "completed", "elapsed_milliseconds": 8325, "stage_seconds": {"render_seconds": 0.8303894130003755, "score_seconds": 4.577737711999362, "archive_audit_seconds": 2.8904425250002532, "physical_and_gate_seconds": 0.01692543100216426}, "maximum": {"kind": "empty", "schema": "radio-empty-aware-maximum-v1", "value": null}, "artifact_bytes": 1998263, "engineering_gate_pass": null, "counts": null, "retained_on": 0, "retained_off": 0, "archive_check": {"case_identity": "207f7506faa9c2f2be36652d701147d05946c2473f45f9c0d2eed1163f222521", "status": "completed", "artifact_count": 9, "artifact_bytes": 1998263, "execution_restart_authorized": false, "can_read_complete_evidence": true, "incomplete_is_statistical_empty": false}}
+{"ordinal": 2, "name": "noise-reference-2", "case_identity": "ef58ec37c6fb4c4cdbcc1a1c7b3734a7e06551f643556e6a39ec631a62226522", "status": "completed", "elapsed_milliseconds": 7980, "stage_seconds": {"render_seconds": 0.8791779960010899, "score_seconds": 3.9333585269996547, "archive_audit_seconds": 3.1419477130002633, "physical_and_gate_seconds": 0.015622312999767018}, "maximum": {"kind": "empty", "schema": "radio-empty-aware-maximum-v1", "value": null}, "artifact_bytes": 1998358, "engineering_gate_pass": null, "counts": null, "retained_on": 0, "retained_off": 0, "archive_check": {"case_identity": "ef58ec37c6fb4c4cdbcc1a1c7b3734a7e06551f643556e6a39ec631a62226522", "status": "completed", "artifact_count": 9, "artifact_bytes": 1998358, "execution_restart_authorized": false, "can_read_complete_evidence": true, "incomplete_is_statistical_empty": false}}
+{"ordinal": 3, "name": "noise-reference-3", "case_identity": "c4bf040bbc656aef8593ac8ccd27f0829beb4716480901903f4fa1a39c2597a6", "status": "completed", "elapsed_milliseconds": 7890, "stage_seconds": {"render_seconds": 0.86119208600212, "score_seconds": 4.413724987000023, "archive_audit_seconds": 2.5772614289999183, "physical_and_gate_seconds": 0.021794799002236687}, "maximum": {"kind": "empty", "schema": "radio-empty-aware-maximum-v1", "value": null}, "artifact_bytes": 1998248, "engineering_gate_pass": null, "counts": null, "retained_on": 0, "retained_off": 0, "archive_check": {"case_identity": "c4bf040bbc656aef8593ac8ccd27f0829beb4716480901903f4fa1a39c2597a6", "status": "completed", "artifact_count": 9, "artifact_bytes": 1998248, "execution_restart_authorized": false, "can_read_complete_evidence": true, "incomplete_is_statistical_empty": false}}
+Traceback (most recent call last):
+  File "/workspace/scratch/ad45775dff93/setisearch/src/seti_repeater/whole_cadence_physical_radio.py", line 151, in _execute
+    if receipt.get('signatures_sha256')!=digest(signatures):raise ValueError('Receiver signature receipt changed')
+                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Receiver signature receipt changed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/ad45775dff93/setisearch/scripts/radio_native_chain_engineering.py", line 203, in <module>
+    else: run(a.consumption_commit,a.freeze_sha256)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ad45775dff93/setisearch/scripts/radio_native_chain_engineering.py", line 145, in run
+    report = e.run_physical(native_run, scores, threshold, plan)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ad45775dff93/setisearch/src/seti_repeater/native_chain_engineering_radio.py", line 171, in run_physical
+    return physical._execute(f, store, retention, factors.matrix_for_kind('on'),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ad45775dff93/setisearch/src/seti_repeater/whole_cadence_physical_radio.py", line 221, in _execute
+    raise IncompletePhysical(str(error),result) from error
+seti_repeater.whole_cadence_physical_radio.IncompletePhysical: Receiver signature receipt changed

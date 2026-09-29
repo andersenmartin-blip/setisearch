@@ -7,6 +7,7 @@ Fixtures and native sources remain separate; neither grants sky admission.
 from collections import defaultdict
 import math
 import json
+import hashlib
 import resource
 import time
 import numpy as np
@@ -50,6 +51,30 @@ def numeric_view(record):
 def exact_key(record):
     return (record['template_index'],record['proxy_carrier_index'],
         record['spectral_width_index'],tuple(record['active_epochs_zero_based']))
+
+
+def native_receiver_receipt(signatures, receipt, context, source_ids):
+    """Verify the original LF-terminated native hash before creating a bridge.
+
+    Native receiver hashes use core.canonical_json_bytes (trailing LF); the
+    whole-cadence receipt format uses empty_null_radio.canonical (no LF).
+    Preserve the original receipt and its original byte-domain hash, never
+    overwrite its signature hash or accept either hash opportunistically.
+    """
+    if (receipt.get('schema') != 'radio-receiver-native-receiver-v1'
+            or receipt.get('context_sha256') != context.identity
+            or receipt.get('receiver_factor_contract_sha256') != context.factor_contract.identity
+            or receipt.get('source_ids') != source_ids
+            or receipt.get('signatures_sha256') != hashlib.sha256(core.canonical_json_bytes(signatures)).hexdigest()):
+        raise ValueError('Native receiver receipt/source/signature binding differs')
+    original = json.loads(core.canonical_json_bytes(receipt))
+    return {'schema': 'radio-whole-cadence-native-receiver-bridge-v1',
+            'source_receipt': original,
+            'source_receipt_sha256_native_bytes': hashlib.sha256(core.canonical_json_bytes(original)).hexdigest(),
+            'source_signature_canonicalization': 'sorted-compact-json-with-LF',
+            'signature_canonicalization': 'sorted-compact-json-without-LF',
+            'signatures_sha256': digest(signatures),
+            'scientific_admission_authorized': False}
 
 
 def _execute(family, store, retention, on_factors, off_factors, receiver_factory,
@@ -148,6 +173,8 @@ def _execute(family, store, retention, on_factors, off_factors, receiver_factory
         bounded(stage,result['adjacent_off'])
         stage='receiver_signatures'
         signatures,receipt=receiver_factory(json.loads(canonical(retention['retained']['on'])))
+        # Retain returned evidence even when its receipt verification fails.
+        result['receiver_signatures']=signatures;result['receiver_receipt']=receipt
         if receipt.get('signatures_sha256')!=digest(signatures):raise ValueError('Receiver signature receipt changed')
         normalized,signature_sha=alias._validate_signatures(rows['on'],signatures,local_half_width_hz=100.)
         # This check is separate from the signature's own self-consistency:
@@ -234,9 +261,7 @@ def run_native(run,store,threshold,*,case_identity,noise_law_sha256,caps=None):
     family=Family(c.identity,f.factors.identity,len(c.bank),c.grid)
     def receiver(records):
         signatures,receipt=run.receiver(records,c.bank)
-        if receipt['context_sha256']!=c.identity or receipt['source_ids']!=run.source_ids:
-            raise ValueError('Native receiver source binding differs')
-        return signatures,receipt
+        return signatures,native_receiver_receipt(signatures,receipt,c,run.source_ids)
     return _execute(family,store,retention,f.matrix_for_kind('on'),f.matrix_for_kind('off'),receiver,
         {'domain':'synthetic-native','context_sha256':c.identity,'factor_contract_sha256':f.identity,
          'source_ids':run.source_ids,'native_receiver_measured':True},caps=caps)

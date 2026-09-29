@@ -1,5 +1,27 @@
 # Whole-cadence integrated execution outline — NOT ACTIVATED
 
+## 29 September: native chain exposes receipt mismatch; failed run preserved
+
+[The closed eight-case engineering result](RADIO_NATIVE_CHAIN_ENGINEERING_2026-09-29_RESULT.md)
+retains four complete EMPTY Gaussian references and a broad ON case with 9,792
+retained members. That case failed because the native and whole-cadence receiver
+receipts use different JSON newline conventions. Three later cases were not
+entered; all eight reservations stay spent. There were 31,457,280 new Gaussian
+values, no telescope reads and no retry.
+
+The post-closure receipt bridge passes six new regression tests plus 34 physical
+fixtures; it has not been replayed on the closed native case. The full scope also
+fails its distinct 8-MiB failure reserve: retained setup/failure material is
+15,031,024 bytes. Both failures, all 54 original journal versions and 107 evidence
+files are preserved losslessly. Physical recovery/RFI/null and scientific 40/80-s
+budgets remain unqualified; four engineering references cannot pass a 1% rank cut.
+
+Next: integrate the corrected receipt bridge with bounded durable physical-stage
+evidence and explicit failure/resource accounting, then batch the measured full
+archive. Any later live qualification needs fresh identities and its own fixed
+freeze/reservation. Do not reopen this namespace, recycle its unentered cases,
+raise old caps or activate 127/24. All prior holds/counters and 9 October remain.
+
 ## 29 September: four-reference native physical engineering prepared
 
 The [fixed eight-case scope](RADIO_NATIVE_CHAIN_ENGINEERING_2026-09-29_SCOPE.md)

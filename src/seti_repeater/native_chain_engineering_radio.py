@@ -165,9 +165,7 @@ def run_physical(run, store, threshold, plan):
     retention = _execute_core(f, store, threshold, unit)
     def receiver(records):
         signatures, receipt = run.receiver(records, c.bank)
-        if receipt['context_sha256'] != c.identity or receipt['source_ids'] != run.source_ids:
-            raise ValueError('Native receiver source binding differs')
-        return signatures, receipt
+        return signatures, physical.native_receiver_receipt(signatures, receipt, c, run.source_ids)
     return physical._execute(f, store, retention, factors.matrix_for_kind('on'),
         factors.matrix_for_kind('off'), receiver,
         {'domain': 'uncalibrated-four-reference-native-engineering',
