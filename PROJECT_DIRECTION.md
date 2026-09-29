@@ -1,5 +1,22 @@
 # Long-term project direction
 
+## 29 September: receiver batching removes repeated payload hashing
+
+[The receiver optimization](RADIO_RECEIVER_BATCH_2026-09-29_RESULT.md) preserves
+all scalar signature/receipt bytes and passes 15 targeted tests. On two fixed
+new deterministic software workloads, 1,024 queries fall from about 12 seconds
+to 0.04 seconds. Full source/cache validation runs at both ends of each batch;
+immutable byte-backed arrays are required and every original query is retained.
+The scalar arithmetic is unchanged against the immutable parent.
+
+This is a component measurement, not a full native-chain or 80-second pass.
+**Next:** freeze one fresh complete native physical/resource qualification,
+including the changed code, stage timing and complete failure/evidence duties.
+Remote scientific integration, 127/24 qualification and the separate telescope
+protocol remain outstanding. No old case was replayed, no RNG or telescope
+values were opened, and no scientific limits changed. Keep all earlier holds,
+counters, spent identities and the 9 October endpoint. No messages/delegation.
+
 ## 29 September: pilot remains blocked; resource review defines the critical path
 
 [The readiness decision](RADIO_READINESS_2026-09-29_DECISION.md) compares the

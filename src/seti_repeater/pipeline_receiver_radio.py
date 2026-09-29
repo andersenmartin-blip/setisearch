@@ -198,9 +198,10 @@ class NativeRun:
         receipts = []
         for (label, width), entries in sorted(queries.items()):
             cache = self.cache(label, width)
-            for record, epoch in entries:
-                signature, receipt = legacy.synthetic_signature(
-                    cache, record["template_index"], record["proxy_carrier_index"])
+            measured = legacy.synthetic_signatures_batch(cache, tuple(
+                (record["template_index"], record["proxy_carrier_index"])
+                for record, _ in entries))
+            for (record, epoch), (signature, receipt) in zip(entries, measured, strict=True):
                 signatures[record["record_id"]].append({"epoch_zero_based": epoch, **signature})
                 receipts.append({"record_id": record["record_id"], "scan": label, **receipt})
         for values in signatures.values():

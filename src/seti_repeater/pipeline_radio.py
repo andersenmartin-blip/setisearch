@@ -95,6 +95,55 @@ def synthetic_signature(cache, template, score_index):
         raise ValueError("receiver carrier outside score grid")
     g = cache.grid.support_guard_bins
     synthetic.gather_bank_slice(cache, g, g+1, template_indices=[template], chunk_bins=1)
+    return _synthetic_signature_arithmetic(cache, template, score_index)
+
+
+def synthetic_signatures_batch(cache, queries):
+    """Same receiver bytes, with two full validations per immutable cache batch.
+
+    Only byte-backed arrays are admitted: a read-only view of a mutable owner
+    cannot justify amortizing payload checks. No validation state survives this
+    call. All requested templates retain the scalar helper's guard-cell check,
+    and full source/cache validation repeats before any result is returned.
+    Repeated queries retain separate output dictionaries and their original order.
+    """
+    if type(cache) is not synthetic.SyntheticCache:
+        raise ValueError("synthetic cache required")
+    if type(queries) is not tuple or not 1 <= len(queries) <= 30000:
+        raise ValueError("one to 30000 receiver queries in an immutable tuple required")
+    for array in (cache.source.values, cache.values, cache.factors):
+        owner = array
+        while isinstance(owner, np.ndarray):
+            if owner.flags.writeable:
+                raise ValueError("receiver batch requires immutable byte-backed arrays")
+            owner = owner.base
+        if type(owner) is not bytes:
+            raise ValueError("receiver batch requires immutable byte-backed arrays")
+    checked = []
+    for query in queries:
+        if type(query) is not tuple or len(query) != 2:
+            raise ValueError("receiver query must be a template/carrier pair")
+        t = core._strict_int(query[0], "receiver template")
+        q = core._strict_int(query[1], "receiver score index")
+        if not 0 <= q < cache.grid.score_bin_count:
+            raise ValueError("receiver carrier outside score grid")
+        checked.append((t, q))
+    selected = sorted({t for t, _ in checked})
+    g = cache.grid.support_guard_bins
+    synthetic.gather_bank_slice(cache, g, g+1, template_indices=selected, chunk_bins=1)
+    memo = {}
+    result = []
+    for key in checked:
+        if key not in memo:
+            memo[key] = _synthetic_signature_arithmetic(cache, *key)
+        signature, receipt = memo[key]
+        result.append((dict(signature), dict(receipt)))
+    synthetic.gather_bank_slice(cache, g, g+1, template_indices=selected, chunk_bins=1)
+    return result
+
+
+def _synthetic_signature_arithmetic(cache, template, score_index):
+    """Unchanged scalar arithmetic, called only within validated entry points."""
     geometry = cache.source.geometry
     half = cache.width//2
     predicted = _predicted_midpoint_hz(float(cache.grid.score_hz[score_index]), cache.factors[template])/1e6
