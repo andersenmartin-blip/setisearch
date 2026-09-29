@@ -1,5 +1,14 @@
 # Batched publication qualified — 48.619-second archive, calibration timing hold
 
+**Final accounting correction:** report/README publication and external readback
+actually took **266 s**, exceeding its projected 240-s closure reserve by 26 s.
+[The retained correction](results_radio_whole_cadence_batch_2026-09-29/closure_accounting_correction.json)
+charges that overrun without changing any case quota or the 600-s scope ceiling.
+A final 60-s / 12-call audit-publication reserve brings the conservative total to
+**580.292233 s / 142 calls**, with **six** branch advances rather than five.
+The lower budget projection below is preserved as the pre-publication estimate;
+the correction supersedes it. No scientific overhead or new case is consumed.
+
 29 September 2026. The [prospective scope](RADIO_WHOLE_CADENCE_BATCH_2026-09-29_SCOPE.md)
 is **CLOSED ENGINEERING PASS**. **22 distinct new risk tests pass**. One fresh
 fixed binary archive was consumed, published and independently reconstructed.
