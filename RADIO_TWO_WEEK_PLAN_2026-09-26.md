@@ -1,5 +1,28 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 30 September: v2 restores a 42.37-MB report load within 18 MiB
+
+[The versioned format, result and complete evidence](RADIO_PHYSICAL_EVIDENCE_V2_2026-09-30_RESULT.md)
+restore all three frozen byte-only snapshots exactly, including two of
+**42,366,912 logical bytes**. Total charged case storage is **4,824,307 bytes**,
+including the seven original base artifacts, within the unchanged **18-MiB**
+stored-case allocation. **46 tests pass (12 new, 34 existing).** The measured
+byte-worker active region takes 8.390755 s; peak process RSS is 194,318,336 bytes.
+The new reader streams whole reports while keeping individual decoded values
+bounded at 24 MiB. Old v1 code, limits and outcomes are unchanged.
+
+This qualifies retention/restoration of the fixed archived-byte stress load.
+Repeated original software receiver pairs are not independent measurements;
+the source physical outcome and wrapper remain FAILED/incomplete. It neither
+completes the missing native report nor predicts fresh-case compression or
+full native/publication runtime. No RNG, native reexecution or telescope read.
+**Current continuation:** integrate v2 with the existing event/parent and bounded
+remote protocol, then freeze one fresh complete native physical/resource
+qualification. The v2 parent path is explicitly refused until qualified.
+127/24 remains NOT ACTIVATED; spectra/old holdouts remain unopened. All old
+failures, spent identities, holds/counters and budgets persist. No messages or
+delegation; review around 2 October and consolidate 9 October without extension.
+
 ## 29 September: complete receiver evidence fails the current logical capacity
 
 [The read-only capacity decision](RADIO_RECEIVER_CAPACITY_2026-09-29_DECISION.md)
