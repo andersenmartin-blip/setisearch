@@ -16,6 +16,7 @@ import math
 import os
 from pathlib import Path
 import resource
+import re
 import time
 import uuid
 
@@ -25,6 +26,8 @@ from .whole_cadence_reference_radio import digest, _sha
 SCHEMA = 'radio-whole-cadence-consumption-v1'
 _TOKEN = object()
 ZERO = '0' * 64
+GROUP_LEDGER_FINALIZATION_RESERVE = 512*1024
+GROUP_MAX_LEDGER_SNAPSHOT = 128*1024
 BINDING_KEYS = {'case_identity', 'plan_sha256', 'context_sha256',
                 'source_contract_sha256', 'noise_law_sha256', 'role'}
 CAPS = {'active_milliseconds': 7200000, 'evidence_bytes': 1024**3,
@@ -37,8 +40,10 @@ def clone(value):
 
 
 def validate_manifest(m):
-    if set(m) != {'schema', 'mode', 'namespace', 'execution_binding_sha256',
-                  'allocation_sha256', 'cases', 'caps', 'required_artifacts'}:
+    fields = {'schema', 'mode', 'namespace', 'execution_binding_sha256',
+              'allocation_sha256', 'cases', 'caps', 'required_artifacts'}
+    if 'artifact_groups' in m: fields.add('artifact_groups')
+    if set(m) != fields:
         raise ValueError('Exact consumption manifest required')
     if m['schema'] != SCHEMA or m['mode'] not in ('engineering', 'scientific') or not m['namespace']:
         raise ValueError('Consumption manifest domain changed')
@@ -68,7 +73,65 @@ def validate_manifest(m):
     if not names or len(names) != len(set(names)):
         raise ValueError('Distinct required artifacts needed')
     for name in names: artifact_name(name)
+    if 'artifact_groups' in m:
+        groups=m['artifact_groups']
+        if m['mode']!='engineering' or not isinstance(groups,dict) or len(groups)!=1:
+            raise ValueError('One engineering-only dynamic artifact group required')
+        if m['caps']['ledger_reserve_bytes']<=GROUP_LEDGER_FINALIZATION_RESERVE:
+            raise ValueError('Dynamic journal needs its internal closure reserve')
+        for label,g in groups.items():
+            if (not isinstance(label,str) or not re.fullmatch('[a-z][a-z0-9_]{0,31}',label)
+                    or set(g)!={'prefix','seal','max_files','reserved_artifacts','binding_sha256','failure_finalization_milliseconds'}
+                    or not re.fullmatch('[a-z][a-z0-9]{0,24}-',g['prefix'])
+                    or type(g['max_files']) is not int or not 1<=g['max_files']<=1024
+                    or not isinstance(g['reserved_artifacts'],dict) or g['seal'] not in g['reserved_artifacts']):
+                raise ValueError('Bounded engineering group policy required')
+            if type(g['failure_finalization_milliseconds']) is not int or not 0<g['failure_finalization_milliseconds']<=5000:
+                raise ValueError('Bounded failure-only finalization window required')
+            _sha(g['binding_sha256'],'group binding')
+            if any(n.startswith(g['prefix']) for n in names):
+                raise ValueError('Group prefix overlaps fixed artifacts')
+            for name,amount in g['reserved_artifacts'].items():
+                if name not in names or type(amount) is not int or not 0<amount<=262144:
+                    raise ValueError('Reserved closure artifact must be fixed and bounded')
     return m
+
+
+def group_budget(manifest, artifacts, cap):
+    """Charge every file plus all still-unused closure reservations."""
+    groups=manifest.get('artifact_groups',{})
+    if not groups:return
+    allowed=set(manifest['required_artifacts']);held=0
+    for g in groups.values():
+        members={n for n in artifacts if n.startswith(g['prefix'])}
+        if len(members)>g['max_files']:raise ValueError('Dynamic artifact count exhausted')
+        allowed.update(members)
+        for name,amount in g['reserved_artifacts'].items():
+            if name in artifacts:
+                if artifacts[name]['size']>amount:raise ValueError('Closure artifact exceeds reservation')
+            else:held+=amount
+    if set(artifacts)-allowed:raise ValueError('Artifact outside fixed inventory and bounded groups')
+    if sum(v['size'] for v in artifacts.values())+held>cap:
+        raise ValueError('Case budget would consume reserved closure bytes')
+
+
+def required_inventory(manifest, artifacts):
+    required=set(manifest['required_artifacts'])
+    if not manifest.get('artifact_groups'):return set(artifacts)==required
+    allowed=set(required)
+    for g in manifest['artifact_groups'].values():
+        allowed.update(n for n in artifacts if n.startswith(g['prefix']))
+    return required<=set(artifacts)<=allowed
+
+
+def group_seal(checkpoint, label, *, complete):
+    if type(complete) is not bool:raise ValueError('Explicit group completion required')
+    manifest=checkpoint.document['manifest'];g=manifest['artifact_groups'][label]
+    case=replay(checkpoint.document)['cases'][-1]
+    members={n:{'size':r['size'],'sha256':r['sha256']} for n,r in case['artifacts'].items() if n.startswith(g['prefix'])}
+    return {'schema':'radio-engineering-artifact-group-v1','case_identity':case['binding']['case_identity'],
+        'policy_sha256':digest(g),'complete':complete,'artifacts':members,
+        'stored_bytes':sum(r['size'] for r in members.values()),'scientific_admission_authorized':False}
 
 
 def artifact_name(name):
@@ -119,6 +182,7 @@ def replay(document):
                 raise ValueError('Process-local nonce changed')
             state['reserved_milliseconds']+=e['milliseconds']
             state['reserved_artifact_bytes']+=e['artifact_bytes']
+            group_budget(m,{},e['artifact_bytes'])
             if (state['reserved_milliseconds']>m['caps']['active_milliseconds']
                     or state['reserved_artifact_bytes']+m['caps']['ledger_reserve_bytes']>m['caps']['evidence_bytes']):
                 raise ValueError('Cumulative resource reservation exhausted')
@@ -139,6 +203,9 @@ def replay(document):
                 if m['mode']=='scientific' or 'publication' in e:fields.add('publication')
                 if set(e)!=fields:raise ValueError('Artifact fields changed')
                 name=artifact_name(e['name']);_sha(e['sha256'],'artifact')
+                if any(g['seal'] in last['artifacts'] and name.startswith(g['prefix'])
+                       for g in m.get('artifact_groups',{}).values()):
+                    raise ValueError('Sealed dynamic group cannot append files')
                 if name in last['artifacts'] or type(e['size']) is not int or e['size']<0:
                     raise ValueError('Duplicate artifact or invalid length')
                 if m['mode']=='scientific' and not last['rng_started']:
@@ -151,6 +218,7 @@ def replay(document):
                         raise ValueError('External artifact publication differs')
                     last['artifacts'][name]['publication']=pub
                 used=sum(v['size'] for v in last['artifacts'].values())
+                group_budget(m,last['artifacts'],last['artifact_bytes'])
                 if used>last['artifact_bytes']:raise ValueError('Case evidence reservation exhausted')
                 state['archived_artifact_bytes']+=e['size']
             elif kind == 'finish':
@@ -160,7 +228,7 @@ def replay(document):
                 if type(elapsed) is not int or elapsed<0 or not isinstance(e['reason'],str):
                     raise ValueError('Invalid completion accounting')
                 if e['outcome']=='completed':
-                    if (set(last['artifacts'])!=set(m['required_artifacts']) or elapsed>last['milliseconds']
+                    if (not required_inventory(m,last['artifacts']) or elapsed>last['milliseconds']
                             or (m['mode']=='scientific' and not last['rng_started'])):
                         raise ValueError('Incomplete evidence/time/renderer cannot complete')
                 last['status']=e['outcome'];last['elapsed_milliseconds']=elapsed
@@ -218,9 +286,12 @@ class DirectoryStore:
     @classmethod
     def create(cls,path,manifest):
         if manifest['mode']!='engineering':raise ValueError('Local store is engineering-only')
+        document=genesis(manifest)
+        if manifest.get('artifact_groups') and len(canonical(document))+65+GROUP_LEDGER_FINALIZATION_RESERVE>manifest['caps']['ledger_reserve_bytes']:
+            raise ValueError('Genesis would consume journal closure reserve')
         store=cls(path);store.path.mkdir(parents=True,exist_ok=False)
         (store.path/'revisions').mkdir();sync_dir(store.path.parent)
-        document=genesis(manifest);revision=digest(document)
+        revision=digest(document)
         durable_write(store.path/'revisions'/revision,canonical(document))
         durable_write(store.path/'HEAD',revision.encode()+b'\n')
         durable_write(store.path/'LOCK',b'')
@@ -245,16 +316,35 @@ class DirectoryStore:
                     or document['events'][:-1]!=before.document['events']
                     or len(document['events'])!=len(before.document['events'])+1):
                 raise ValueError('Store only appends one event; no reset/refund')
-            replay(document);revision=digest(document)
+            replay(document);self.check_publication_capacity(document);revision=digest(document)
             durable_write(self.path/'revisions'/revision,canonical(document))
             temporary=self.path/('HEAD.'+str(uuid.uuid4()))
             durable_write(temporary,revision.encode()+b'\n')
             os.replace(temporary,self.path/'HEAD');sync_dir(self.path)
 
+    def check_publication_capacity(self,document):
+        m=document['manifest']
+        if not m.get('artifact_groups'):return
+        raw=canonical(document)
+        if len(raw)>GROUP_MAX_LEDGER_SNAPSHOT:raise ValueError('Dynamic journal snapshot bound exhausted')
+        event=document['events'][-1]['event'];reserved={n for g in m['artifact_groups'].values() for n in g['reserved_artifacts']}
+        closing=event['kind']=='finish' or event['kind']=='artifact' and event['name'] in reserved
+        used=0
+        for p in self.path.rglob('*'):
+            if p.is_symlink():raise ValueError('Symlink in journal inventory')
+            if p.is_file():used+=p.stat().st_size
+            elif not p.is_dir():raise ValueError('Nonregular journal inventory')
+        held=0 if closing else GROUP_LEDGER_FINALIZATION_RESERVE
+        # All original revisions plus the transient new HEAD file are charged.
+        if used+len(raw)+65+held>m['caps']['ledger_reserve_bytes']:
+            raise ValueError('Cumulative journal history would consume closure reserve')
+
 
 def consume(store,*,expected_revision,expected_manifest_sha256,binding,
             milliseconds,artifact_bytes,directory,clock=time.monotonic):
     before=store.read();replay(before.document)
+    if before.document['manifest'].get('artifact_groups') and type(store) is not DirectoryStore:
+        raise ValueError('Dynamic groups currently qualify only the local engineering store')
     if before.revision!=expected_revision or before.document['manifest_sha256']!=expected_manifest_sha256:
         raise ValueError('Independent publication checkpoint differs')
     if before.document['manifest']['mode']=='scientific' or before.location.get('kind')=='github-published-engineering':
@@ -280,6 +370,7 @@ class Lease:
         self._case_sha=digest(self.case)
         self.manifest=clone(checkpoint.document['manifest']);self.manifest_sha=digest(self.manifest)
         self._elapsed=0
+        self.failure_finalization_started=None
 
     def _current(self):
         if self.closed or self.broken:raise ValueError('Lease is closed or uncertain')
@@ -298,6 +389,7 @@ class Lease:
 
     def budget(self,modelled_array_bytes=0):
         if self.closed or self.broken:raise ValueError('Lease is closed or uncertain')
+        if self.failure_finalization_started is not None:raise ValueError('Failure finalization cannot resume work')
         if digest(self.case)!=self._case_sha or digest(self.manifest)!=self.manifest_sha:
             self.broken=True;raise ValueError('Lease case or caps changed')
         elapsed=(self.clock()-self.started)*1000
@@ -333,17 +425,41 @@ class Lease:
                 'allocation_sha256':m['allocation_sha256']}
 
     def write_artifact(self,name,payload):
-        self.budget();self._current();name=artifact_name(name)
+        self.budget();return self._write_artifact(name,payload)
+
+    def write_failure_artifact(self,name,payload):
+        groups=self.manifest.get('artifact_groups',{})
+        matching=[g for g in groups.values() if name in g['reserved_artifacts']]
+        if self.manifest['mode']!='engineering' or len(matching)!=1:
+            raise ValueError('Only prospectively reserved engineering closure files allowed')
+        now=self.clock()
+        if self.failure_finalization_started is None:self.failure_finalization_started=now
+        elapsed=(now-self.failure_finalization_started)*1000
+        if not math.isfinite(elapsed) or elapsed<0 or elapsed>matching[0]['failure_finalization_milliseconds']:
+            raise ValueError('Failure finalization window exhausted')
+        self._write_artifact(name,payload)
+        elapsed=(self.clock()-self.failure_finalization_started)*1000
+        if not math.isfinite(elapsed) or elapsed<0 or elapsed>matching[0]['failure_finalization_milliseconds']:
+            self.broken=True;raise ValueError('Failure finalization exceeded its fixed window')
+
+    def _write_artifact(self,name,payload):
+        self._current();name=artifact_name(name)
         if not isinstance(payload,bytes):raise ValueError('Immutable artifact bytes required')
         state=replay(self.checkpoint.document)['cases'][-1]
+        if any(g['seal'] in state['artifacts'] and name.startswith(g['prefix'])
+               for g in self.manifest.get('artifact_groups',{}).values()):
+            raise ValueError('Sealed dynamic group cannot append files')
         actual={p.name for p in self.directory.iterdir()}
         if actual!=set(state['artifacts']):raise ValueError('Unregistered/missing partial artifact; case incomplete')
         if name in actual:raise ValueError('Artifact already exists; no overwrite')
         if sum(v['size'] for v in state['artifacts'].values())+len(payload)>self.case['artifact_bytes']:
             raise ValueError('Case evidence reservation exhausted')
+        group_budget(self.manifest,{**state['artifacts'],name:{'size':len(payload)}},self.case['artifact_bytes'])
+        event={'kind':'artifact','name':name,'size':len(payload),'sha256':hashlib.sha256(payload).hexdigest()}
+        if self.manifest.get('artifact_groups'):
+            self.store.check_publication_capacity(append(self.checkpoint.document,{'nonce':self.case['nonce'],**event}))
         try:
             durable_write(self.directory/name,payload)
-            event={'kind':'artifact','name':name,'size':len(payload),'sha256':hashlib.sha256(payload).hexdigest()}
             if self.manifest['mode']=='scientific' or self.checkpoint.location.get('kind')=='github-published-engineering':
                 publication=self.store.publish_artifact(self._current(),name,payload)
                 if (publication.get('sha256')!=event['sha256']
@@ -356,7 +472,7 @@ class Lease:
 
     def finish(self,outcome='completed',reason=''):
         if outcome=='completed':
-            self.budget();verify_archive(self.checkpoint,self.directory,case_index=len(replay(self.checkpoint.document)['cases'])-1)
+            self.budget();verify_archive(self.checkpoint,self.directory,case_index=len(replay(self.checkpoint.document)['cases'])-1,require_complete_groups=True)
             if self.manifest['mode']=='scientific' or self.checkpoint.location.get('kind')=='github-published-engineering':
                 current=replay(self.checkpoint.document)['cases'][-1]
                 for name,meta in current['artifacts'].items():
@@ -373,7 +489,7 @@ class Lease:
         return self.checkpoint
 
 
-def verify_archive(checkpoint,directory,*,case_index):
+def verify_archive(checkpoint,directory,*,case_index,require_complete_groups=False):
     state=replay(checkpoint.document);case=state['cases'][case_index];directory=Path(directory)
     if not directory.is_dir() or directory.is_symlink():raise ValueError('Archive directory missing or symlinked')
     if {p.name for p in directory.iterdir()}!=set(case['artifacts']):
@@ -384,6 +500,18 @@ def verify_archive(checkpoint,directory,*,case_index):
         data=p.read_bytes()
         if len(data)!=rec['size'] or hashlib.sha256(data).hexdigest()!=rec['sha256']:
             raise ValueError('Archive bytes differ')
+    for label,g in checkpoint.document['manifest'].get('artifact_groups',{}).items():
+        if g['seal'] not in case['artifacts']:
+            if require_complete_groups:raise ValueError('Dynamic group seal missing')
+            continue
+        raw=(directory/g['seal']).read_bytes();seal=json.loads(raw)
+        members={n:{'size':r['size'],'sha256':r['sha256']} for n,r in case['artifacts'].items() if n.startswith(g['prefix'])}
+        expected={'schema':'radio-engineering-artifact-group-v1','case_identity':case['binding']['case_identity'],
+            'policy_sha256':digest(g),'complete':seal.get('complete'),'artifacts':members,
+            'stored_bytes':sum(r['size'] for r in members.values()),'scientific_admission_authorized':False}
+        if (type(seal.get('complete')) is not bool or seal!=expected or canonical(seal)!=raw
+                or require_complete_groups and seal['complete'] is not True):
+            raise ValueError('Dynamic group seal inventory or completion differs')
     return {'case_identity':case['binding']['case_identity'],'status':case['status'],
         'artifact_count':len(case['artifacts']),'artifact_bytes':sum(v['size'] for v in case['artifacts'].values()),
         'execution_restart_authorized':False,'can_read_complete_evidence':case['status']=='completed',

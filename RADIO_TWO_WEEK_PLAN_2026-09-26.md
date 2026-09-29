@@ -1,5 +1,30 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 29 September: parent evidence integration stops safely at journal capacity
+
+[The closed integration result](RADIO_PHYSICAL_CASE_2026-09-29_RESULT.md)
+registers all physical files under one bounded parent allocation, with **117
+passing tests**. The fixed large byte-only fixture is **CLOSED FAILED**: full
+journal snapshots exhaust ordinary journal capacity after **19/22** checkpoints.
+Its 880-byte outer failure footer succeeds; the parent stays FAILED and spent.
+All 190 case files, 193 original journal revisions and four uncommitted physical
+parts are retained. No trial is rerun and no limit is raised.
+
+The read-only audit restores every committed view and original journal revision
+exactly. The 7,952,097 canonical journal bytes fit a **101,896-byte read-only
+history representation**, with every original preserved. This does not qualify a
+live incremental writer or change the original integration failure. No new random
+values, native scores, physical decisions or telescope reads occur.
+
+**Exact continuation:** implement and prospectively qualify durable incremental
+parent journaling for dynamic artifacts, retaining all original revision hashes,
+all pointer versions, cumulative byte/time charges and crash/lost-response guards.
+Then use a separate fixed storage namespace for the full 22-view handoff. Do not
+resume integration01 or confuse its compact read-only archive with a live store.
+Remote scientific adapters, full native physical gates and 40/80-s timing remain
+unqualified; **127/24 stays NOT ACTIVATED**. All prior failures, spent identities,
+holds/counters/holdouts, no messages or delegation and 9 October remain unchanged.
+
 ## 29 September: bounded physical evidence storage passes; no native replay
 
 [The closed byte-only result](RADIO_PHYSICAL_EVIDENCE_2026-09-29_RESULT.md)

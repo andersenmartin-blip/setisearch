@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/ad45775dff93/setisearch/scripts/radio_physical_case_qualification.py", line 162, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/scratch/ad45775dff93/setisearch/scripts/radio_physical_case_qualification.py", line 104, in main
+    else:case.writer.checkpoint(stage,json.loads(raw))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ad45775dff93/setisearch/src/seti_repeater/physical_evidence_radio.py", line 366, in checkpoint
+    self._write(path,data);self.expected[path]=data
+    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ad45775dff93/setisearch/src/seti_repeater/physical_evidence_radio.py", line 315, in _write
+    else:self.lease.write_artifact(flat_name(path),data)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ad45775dff93/setisearch/src/seti_repeater/whole_cadence_journal_radio.py", line 428, in write_artifact
+    self.budget();return self._write_artifact(name,payload)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ad45775dff93/setisearch/src/seti_repeater/whole_cadence_journal_radio.py", line 460, in _write_artifact
+    self.store.check_publication_capacity(append(self.checkpoint.document,{'nonce':self.case['nonce'],**event}))
+  File "/workspace/scratch/ad45775dff93/setisearch/src/seti_repeater/whole_cadence_journal_radio.py", line 340, in check_publication_capacity
+    raise ValueError('Cumulative journal history would consume closure reserve')
+ValueError: Cumulative journal history would consume closure reserve

@@ -207,7 +207,16 @@ class ReadOnlyEvidence:
 
 def inspect(path, *, expected_config_sha256, expected_last_checkpoint_sha256=None, allow_orphans=False):
     """Validate every checkpoint; crash recovery exposes orphans, never resumes."""
-    files=_inventory(Path(path));config_raw=files['reservation.json']
+    return inspect_files(_inventory(Path(path)),expected_config_sha256=expected_config_sha256,
+        expected_last_checkpoint_sha256=expected_last_checkpoint_sha256,allow_orphans=allow_orphans)
+
+
+def inspect_files(files, *, expected_config_sha256, expected_last_checkpoint_sha256=None, allow_orphans=False):
+    """Same read-only verification over a bounded already-read immutable map."""
+    files=dict(files)
+    if len(files)>MAX_FILES or any(not isinstance(v,bytes) for v in files.values()) or sum(map(len,files.values()))>MAX_BYTES:
+        raise ValueError('Physical evidence inventory exceeds hard bounds')
+    config_raw=files['reservation.json']
     if sha(config_raw)!=_hash(expected_config_sha256):raise ValueError('Independent reservation pin differs')
     c=_config(json.loads(config_raw))
     if canonical(c)!=config_raw:raise ValueError('Noncanonical reservation')
@@ -259,6 +268,7 @@ class Writer:
         self.expected={'reservation.json':self.config_raw};self.previous=ZERO;self.count=0
         self.existing_bytes=sum(r['bytes'] for r in config['existing_artifacts'].values())
         self.last_failure=None
+        self.lease=None
 
     @classmethod
     def create(cls,path,config,*,existing_artifacts):
@@ -274,10 +284,48 @@ class Writer:
         durable_write(writer.path/'reservation.json',writer.config_raw)
         return writer
 
+    @classmethod
+    def create_for_lease(cls,lease,config,*,existing_artifacts):
+        from . import whole_cadence_journal_radio as j
+        if type(lease) is not j.Lease or lease.manifest['mode']!='engineering':
+            raise ValueError('Fresh engineering parent lease required')
+        lease.budget();lease._current();_config(config)
+        groups=lease.manifest.get('artifact_groups',{})
+        if set(groups)!={'physical'}:raise ValueError('Fixed physical group required')
+        group=groups['physical']
+        if group['prefix']!='physical-' or group['binding_sha256']!=sha(canonical(config)):
+            raise ValueError('Physical reservation differs from prospective parent binding')
+        state=j.replay(lease.checkpoint.document)['cases'][-1]
+        if set(state['artifacts'])!=set(existing_artifacts):raise ValueError('Exact already-registered inventory required')
+        for name,data in existing_artifacts.items():
+            if (lease.directory/name).read_bytes()!=data:raise ValueError('Existing parent bytes differ')
+        j.verify_archive(lease.checkpoint,lease.directory,case_index=len(j.replay(lease.checkpoint.document)['cases'])-1)
+        held=sum(group['reserved_artifacts'].values())
+        if config['budget_bytes']!=lease.case['artifact_bytes']-held:
+            raise ValueError('Physical budget must retain all outer closure reserves')
+        if configuration(config['namespace'],config['case_identity'],config['plan_sha256'],existing_artifacts,
+                budget_bytes=config['budget_bytes'],checkpoint_limit=config['checkpoint_limit'])!=config:
+            raise ValueError('Physical existing artifact binding differs')
+        writer=cls(lease.directory,config,_TOKEN);writer.lease=lease
+        writer._write('reservation.json',writer.config_raw)
+        return writer
+
+    def _write(self,path,data):
+        if self.lease is None:durable_write(self.path/path,data)
+        else:self.lease.write_artifact(flat_name(path),data)
+
+    def _files(self):
+        if self.lease is None:return _inventory(self.path)
+        from . import whole_cadence_journal_radio as j
+        self.lease.budget();self.lease._current()
+        j.verify_archive(self.lease.checkpoint,self.path,
+            case_index=len(j.replay(self.lease.checkpoint.document)['cases'])-1)
+        return {nested_name(n):data for n,data in _inventory(self.path).items() if n.startswith('physical-')}
+
     def _current(self,*,allow_capacity=False):
         if self.closed or self.poisoned:raise EvidenceStopped('Writer closed or uncertain; no retry')
         if self.capacity_failed and not allow_capacity:raise EvidenceCapacity('Capacity failure is final; only failed closure allowed')
-        if canonical(self.config)!=self.config_raw or _inventory(self.path)!=self.expected:
+        if canonical(self.config)!=self.config_raw or self._files()!=self.expected:
             self.poisoned=True;raise EvidenceStopped('Existing evidence or reservation changed')
 
     def receipt(self):
@@ -305,7 +353,8 @@ class Writer:
         new={'parts/'+h:data for h,data in parts.items() if 'parts/'+h not in self.expected}
         new[name]=encoded
         proposed=self.existing_bytes+sum(map(len,self.expected.values()))+sum(map(len,new.values()))+FOOTER_RESERVE
-        if proposed>self.config['budget_bytes'] or len(self.expected)+len(new)+1>MAX_FILES:
+        max_files=MAX_FILES if self.lease is None else self.lease.manifest['artifact_groups']['physical']['max_files']
+        if proposed>self.config['budget_bytes'] or len(self.expected)+len(new)+1>max_files:
             self.capacity_failed=True
             self.last_failure={'kind':'capacity','uncommitted_snapshot_sha256':sha(raw),'uncommitted_snapshot_bytes':len(raw),
                                'would_charge_bytes_including_footer_reserve':proposed}
@@ -314,7 +363,7 @@ class Writer:
             # Parts precede their commit record. A failure poisons the only writer;
             # recovery can expose a committed prefix and explicitly counted orphans.
             for path,data in new.items():
-                durable_write(self.path/path,data);self.expected[path]=data
+                self._write(path,data);self.expected[path]=data
             self.previous=sha(encoded);self.count+=1
             return self.receipt()
         except BaseException:
@@ -346,7 +395,21 @@ class Writer:
                 'execution_restart_authorized':False,'scientific_admission_authorized':False}
         data=canonical(footer)
         if len(data)>FOOTER_RESERVE:raise EvidenceCapacity('Reserved small failure footer exceeded')
-        try:durable_write(self.path/'outcome.json',data);self.expected['outcome.json']=data
+        try:self._write('outcome.json',data);self.expected['outcome.json']=data
         except BaseException:self.poisoned=True;self.closed=True;raise
         self.closed=True
         return {**self.receipt(),'status':status,'final_snapshot_saved':saved}
+
+
+def flat_name(path):
+    if path in ('reservation.json','outcome.json'):return 'physical-'+path
+    if re.fullmatch('parts/[0-9a-f]{64}',path):return 'physical-part-'+path[6:]
+    if re.fullmatch('checkpoints/[0-9]{4}\\.json',path):return 'physical-checkpoint-'+path[12:]
+    raise ValueError('Unknown physical evidence member')
+
+
+def nested_name(name):
+    if name in ('physical-reservation.json','physical-outcome.json'):return name[9:]
+    if re.fullmatch('physical-part-[0-9a-f]{64}',name):return 'parts/'+name[14:]
+    if re.fullmatch('physical-checkpoint-[0-9]{4}\\.json',name):return 'checkpoints/'+name[20:]
+    raise ValueError('Unknown registered physical evidence member')
