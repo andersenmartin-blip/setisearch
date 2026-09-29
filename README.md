@@ -1,5 +1,11 @@
 # SETIsearch
 
+## 29 September: receiver batching preserves bytes and reduces query cost
+
+[The code, measured result and complete software evidence](https://github.com/andersenmartin-blip/setisearch/blob/d78cbcfd8e9b55b33b39f103310d6f6c5f1ca854/RADIO_RECEIVER_BATCH_2026-09-29_RESULT.md) remove repeated full-payload hashing from receiver queries. Two fixed deterministic workloads of 1,024 queries each fall from approximately 12 seconds to 0.04 seconds, preserving every signature and receipt byte. Fifteen targeted tests pass, including an independent native-window oracle. Full source/cache validation occurs before and after each batch, with immutable byte-backed payloads required; the scalar arithmetic and scientific rules are unchanged.
+
+This is a component measurement, **not a complete native-chain or 80-second scientific pass**. No historical experiment was replayed and no RNG or telescope data were opened. Next: a prospectively fixed complete native physical/resource qualification using fresh identities and the changed code, with full receiver/alias/cluster evidence and stage timing. Remote scientific integration, actual 127/24 qualification and the separate telescope protocol still remain. **127/24 stays NOT ACTIVATED.** All earlier failures, holds and counters are preserved; consolidation remains 9 October.
+
 ## 29 September: pilot blocked; scientific critical path clarified
 
 [The readiness review and reproducible calculations](https://github.com/andersenmartin-blip/setisearch/blob/dfc282b1d3a635379634bf5a90af501aa2e1a8fd/RADIO_READINESS_2026-09-29_DECISION.md) confirm that the local storage PASS does not admit the radio pilot. The partial broad-signal native case took 224.702 seconds under its own 240-second engineering cap; the proposed scientific evaluation cap is 80 seconds. The storage fixture uses a 24-MiB engineering case allocation, while scientific evaluations have 18 MiB. These different historical workloads do not establish current complete runtime or capacity.
