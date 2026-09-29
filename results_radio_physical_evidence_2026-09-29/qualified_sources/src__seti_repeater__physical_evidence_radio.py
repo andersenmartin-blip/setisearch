@@ -1,0 +1,339 @@
+"""Bounded local engineering checkpoints for large physical evidence.
+
+Immutable content-addressed parts are shared by snapshots. All original snapshot
+hashes and lengths remain recoverable. A footer uses space reserved at creation;
+an oversized state is never silently labelled complete. Readers cannot resume a
+writer, consume a case, draw random values, or grant scientific admission.
+"""
+from dataclasses import dataclass
+import hashlib
+import json
+from pathlib import Path
+import re
+import resource
+import time
+
+from .empty_null_radio import canonical
+from .whole_cadence_journal_radio import durable_write, sync_dir
+
+SCHEMA = 'radio-physical-evidence-checkpoints-v1'
+MAX_BYTES = 24*1024**2
+FOOTER_RESERVE = 65536
+PART_BYTES = 1024**2
+ROWS_PER_GROUP = 128
+CHECKPOINT_ROWS = 1024
+MAX_CHECKPOINTS = 128
+MAX_FILES = 8192
+ZERO = '0'*64
+_TOKEN = object()
+
+
+def sha(raw): return hashlib.sha256(raw).hexdigest()
+
+
+class EvidenceStopped(ValueError):
+    pass
+
+
+class EvidenceCapacity(EvidenceStopped):
+    pass
+
+
+def _hash(value):
+    if not isinstance(value,str) or not re.fullmatch('[0-9a-f]{64}',value):
+        raise ValueError('SHA256 binding required')
+    return value
+
+
+def _config(c):
+    if set(c) != {'schema','namespace','case_identity','plan_sha256','engineering_only',
+                  'budget_bytes','footer_reserve_bytes','existing_artifacts',
+                  'part_bytes','rows_per_group','checkpoint_limit'}:
+        raise ValueError('Exact physical evidence reservation required')
+    if c['schema']!=SCHEMA or c['engineering_only'] is not True:
+        raise ValueError('Local evidence is engineering-only')
+    if not isinstance(c['namespace'],str) or not re.fullmatch('[a-z0-9][a-z0-9_./-]{1,150}',c['namespace']):
+        raise ValueError('Explicit bounded engineering namespace required')
+    for name in ('case_identity','plan_sha256'):_hash(c[name])
+    if (type(c['budget_bytes']) is not int or not FOOTER_RESERVE<c['budget_bytes']<=MAX_BYTES
+            or c['footer_reserve_bytes']!=FOOTER_RESERVE or c['part_bytes']!=PART_BYTES
+            or c['rows_per_group']!=ROWS_PER_GROUP or type(c['checkpoint_limit']) is not int
+            or not 1<=c['checkpoint_limit']<=MAX_CHECKPOINTS):
+        raise ValueError('Prospective evidence limits changed')
+    if not isinstance(c['existing_artifacts'],dict):raise ValueError('Existing artifact inventory required')
+    for name,r in c['existing_artifacts'].items():
+        if (not isinstance(name,str) or not name or '/' in name or '\\' in name
+                or set(r)!={'bytes','sha256'} or type(r['bytes']) is not int or r['bytes']<0):
+            raise ValueError('Bounded named prior case artifact required')
+        _hash(r['sha256'])
+    if sum(r['bytes'] for r in c['existing_artifacts'].values())+FOOTER_RESERVE>=c['budget_bytes']:
+        raise ValueError('No physical evidence capacity remains')
+    return c
+
+
+def configuration(namespace, case_identity, plan_sha256, existing_artifacts, *,
+                  budget_bytes=MAX_BYTES, checkpoint_limit=MAX_CHECKPOINTS):
+    if any(not isinstance(data,bytes) for data in existing_artifacts.values()):
+        raise ValueError('Actual existing artifact bytes required for accounting')
+    return _config({'schema':SCHEMA,'namespace':namespace,'case_identity':case_identity,
+        'plan_sha256':plan_sha256,'engineering_only':True,'budget_bytes':budget_bytes,
+        'footer_reserve_bytes':FOOTER_RESERVE,'part_bytes':PART_BYTES,
+        'rows_per_group':ROWS_PER_GROUP,'checkpoint_limit':checkpoint_limit,
+        'existing_artifacts':{k:{'bytes':len(v),'sha256':sha(v)} for k,v in existing_artifacts.items()}})
+
+
+def _inventory(path):
+    if path.is_symlink() or not path.is_dir():raise ValueError('Regular evidence root required')
+    result={};total=0
+    for p in path.rglob('*'):
+        if p.is_symlink():raise ValueError('Symlink in immutable evidence')
+        if p.is_file():
+            total+=p.stat().st_size
+            if total>MAX_BYTES or len(result)>=MAX_FILES:raise ValueError('Physical evidence inventory exceeds hard bounds')
+            result[p.relative_to(path).as_posix()]=p.read_bytes()
+        elif not p.is_dir():raise ValueError('Nonregular evidence member')
+    return result
+
+
+def _raw_descriptor(data, parts):
+    hashes=[]
+    for offset in range(0,len(data),PART_BYTES):
+        piece=data[offset:offset+PART_BYTES];h=sha(piece)
+        if h in parts and parts[h]!=piece:raise ValueError('Content hash collision')
+        parts[h]=piece;hashes.append(h)
+    return {'kind':'raw','parts':hashes,'bytes':len(data),'sha256':sha(data)}
+
+
+def _encode(document):
+    if not isinstance(document,dict) or any(not isinstance(k,str) for k in document):
+        raise ValueError('String-keyed physical snapshot required')
+    fields={};parts={}
+    for key,value in sorted(document.items()):
+        if isinstance(value,list):
+            fields[key]={'kind':'list','items':len(value),'groups':[
+                _raw_descriptor(canonical(value[i:i+ROWS_PER_GROUP]),parts)
+                for i in range(0,len(value),ROWS_PER_GROUP)]}
+        else:fields[key]=_raw_descriptor(canonical(value),parts)
+    return fields,parts
+
+
+def _decode(fields, files):
+    if not isinstance(fields,dict):raise ValueError('Bounded field map required')
+    expanded=2+max(0,len(fields)-1)
+    for key,d in fields.items():
+        if not isinstance(key,str) or not isinstance(d,dict):raise ValueError('Field descriptor required')
+        expanded+=len(canonical(key))+1
+        if d.get('kind')=='raw':sizes=[d.get('bytes')];extra=0
+        elif d.get('kind')=='list' and isinstance(d.get('groups'),list):
+            sizes=[g.get('bytes') for g in d['groups']];extra=2-2*len(sizes)+max(0,len(sizes)-1)
+        else:raise ValueError('Unknown field expansion')
+        if any(type(n) is not int or not 0<n<=MAX_BYTES for n in sizes):raise ValueError('Bounded field lengths required')
+        expanded+=sum(sizes)+extra
+        if expanded>MAX_BYTES:raise ValueError('Logical expansion exceeds hard bound')
+    used=set()
+    def raw(d):
+        if set(d)!={'kind','parts','bytes','sha256'} or d['kind']!='raw':raise ValueError('Part descriptor changed')
+        _hash(d['sha256'])
+        if type(d['bytes']) is not int or not 0<d['bytes']<=MAX_BYTES or not isinstance(d['parts'],list):
+            raise ValueError('Bounded logical field required')
+        if len(d['parts'])!=(d['bytes']+PART_BYTES-1)//PART_BYTES:raise ValueError('Field part inventory differs')
+        pieces=[]
+        for i,h in enumerate(d['parts']):
+            _hash(h);name='parts/'+h;piece=files[name]
+            if sha(piece)!=h or len(piece)!=(PART_BYTES if i<len(d['parts'])-1 else d['bytes']-i*PART_BYTES):
+                raise ValueError('Immutable part length/hash differs')
+            used.add(name);pieces.append(piece)
+        data=b''.join(pieces)
+        if sha(data)!=d['sha256']:raise ValueError('Logical field bytes differ')
+        value=json.loads(data)
+        if canonical(value)!=data:raise ValueError('Noncanonical logical field')
+        return value
+    document={}
+    for key,d in fields.items():
+        if not isinstance(key,str) or not isinstance(d,dict):raise ValueError('Field map changed')
+        if d.get('kind')=='raw':document[key]=raw(d)
+        elif d.get('kind')=='list':
+            if set(d)!={'kind','items','groups'} or type(d['items']) is not int or not 0<=d['items']<=1000000:
+                raise ValueError('Bounded list descriptor required')
+            if len(d['groups'])!=(d['items']+ROWS_PER_GROUP-1)//ROWS_PER_GROUP:raise ValueError('List group inventory differs')
+            values=[]
+            for i,g in enumerate(d['groups']):
+                group=raw(g)
+                if not isinstance(group,list) or len(group)!=(ROWS_PER_GROUP if i<len(d['groups'])-1 else d['items']-i*ROWS_PER_GROUP):
+                    raise ValueError('List group length differs')
+                values.extend(group)
+            document[key]=values
+        else:raise ValueError('Unknown evidence descriptor')
+    return canonical(document),used
+
+
+@dataclass(frozen=True)
+class ReadOnlyEvidence:
+    config_bytes: bytes
+    checkpoint_bytes: tuple
+    files: dict
+    orphan_paths: tuple
+    footer_bytes: bytes | None
+    stored_bytes: int
+    charged_bytes: int
+
+    def snapshot(self,index):
+        if type(index) is not int or not 0<=index<len(self.checkpoint_bytes):raise ValueError('Checkpoint index outside history')
+        c=json.loads(self.checkpoint_bytes[index]);data,_=_decode(c['fields'],self.files)
+        if sha(data)!=c['snapshot_sha256'] or len(data)!=c['snapshot_bytes']:raise ValueError('Restored snapshot differs')
+        return data
+
+    def summary(self):
+        footer=None if self.footer_bytes is None else json.loads(self.footer_bytes)
+        return {'checkpoints':len(self.checkpoint_bytes),'stored_bytes':self.stored_bytes,
+                'charged_case_bytes':self.charged_bytes,'orphan_paths':list(self.orphan_paths),
+                'status':None if footer is None else footer['status'],
+                'latest_checkpoint_sha256':ZERO if not self.checkpoint_bytes else sha(self.checkpoint_bytes[-1]),
+                'execution_restart_authorized':False,'scientific_admission_authorized':False}
+
+
+def inspect(path, *, expected_config_sha256, expected_last_checkpoint_sha256=None, allow_orphans=False):
+    """Validate every checkpoint; crash recovery exposes orphans, never resumes."""
+    files=_inventory(Path(path));config_raw=files['reservation.json']
+    if sha(config_raw)!=_hash(expected_config_sha256):raise ValueError('Independent reservation pin differs')
+    c=_config(json.loads(config_raw))
+    if canonical(c)!=config_raw:raise ValueError('Noncanonical reservation')
+    names=sorted(n for n in files if n.startswith('checkpoints/'))
+    if len(names)>c['checkpoint_limit'] or names!=[f'checkpoints/{i:04d}.json' for i in range(len(names))]:
+        raise ValueError('Checkpoint gap, overflow, or unexpected filename')
+    used={'reservation.json'};previous=ZERO;checkpoints=[]
+    for i,name in enumerate(names):
+        try:
+            raw=files[name];r=json.loads(raw)
+            if (canonical(r)!=raw or set(r)!={'schema','index','previous','reservation_sha256','stage','snapshot_sha256','snapshot_bytes','fields'}
+                    or r['schema']!=SCHEMA or r['index']!=i or r['previous']!=previous
+                    or r['reservation_sha256']!=expected_config_sha256 or not isinstance(r['stage'],str)
+                    or len(r['stage'])>80 or type(r['snapshot_bytes']) is not int or not 0<r['snapshot_bytes']<=MAX_BYTES):
+                raise ValueError('Checkpoint chain/binding changed')
+            data,part_names=_decode(r['fields'],files)
+            if sha(data)!=r['snapshot_sha256'] or len(data)!=r['snapshot_bytes']:raise ValueError('Checkpoint logical bytes differ')
+            used.update(part_names);used.add(name);previous=sha(raw);checkpoints.append(raw)
+        except (ValueError,KeyError,TypeError):
+            if not allow_orphans:raise
+            break
+    if expected_last_checkpoint_sha256 is not None and previous!=_hash(expected_last_checkpoint_sha256):
+        raise ValueError('Latest checkpoint differs from independent pin')
+    footer=files.get('outcome.json')
+    if footer is not None:
+        f=json.loads(footer)
+        if (canonical(f)!=footer or len(footer)>FOOTER_RESERVE or f.get('schema')!=SCHEMA
+                or f.get('reservation_sha256')!=expected_config_sha256 or f.get('last_checkpoint_sha256')!=previous
+                or f.get('checkpoint_count')!=len(checkpoints) or f.get('status') not in ('completed','failed')
+                or f.get('execution_restart_authorized') is not False or f.get('scientific_admission_authorized') is not False):
+            raise ValueError('Outcome binding/status changed')
+        if f['status']=='completed' and (not checkpoints or json.loads(data).get('complete') is not True):
+            raise ValueError('Incomplete physical evidence cannot complete')
+        used.add('outcome.json')
+    orphans=tuple(sorted(set(files)-used))
+    if orphans and not allow_orphans:raise ValueError('Uncommitted or unexpected evidence files: '+','.join(orphans))
+    stored=sum(map(len,files.values()));charged=stored+sum(r['bytes'] for r in c['existing_artifacts'].values())
+    if charged>c['budget_bytes']:raise ValueError('Complete cumulative case evidence budget exceeded')
+    return ReadOnlyEvidence(config_raw,tuple(checkpoints),files,orphans,footer,stored,charged)
+
+
+class Writer:
+    """Fresh process-local writer. Existing directories cannot be resumed."""
+    def __init__(self,path,config,token=None):
+        if token is not _TOKEN:raise ValueError('Only exclusive create may start a writer')
+        self.path=Path(path);self.config=json.loads(canonical(config));self.config_raw=canonical(config)
+        self.config_sha=sha(self.config_raw);self.started=time.monotonic();self.closed=False;self.poisoned=False
+        self.capacity_failed=False
+        self.expected={'reservation.json':self.config_raw};self.previous=ZERO;self.count=0
+        self.existing_bytes=sum(r['bytes'] for r in config['existing_artifacts'].values())
+        self.last_failure=None
+
+    @classmethod
+    def create(cls,path,config,*,existing_artifacts):
+        _config(config)
+        if configuration(config['namespace'],config['case_identity'],config['plan_sha256'],existing_artifacts,
+                         budget_bytes=config['budget_bytes'],checkpoint_limit=config['checkpoint_limit'])!=config:
+            raise ValueError('Already charged artifact bytes differ from reservation')
+        writer=cls(path,config,_TOKEN)
+        if len(writer.config_raw)+writer.existing_bytes+FOOTER_RESERVE>config['budget_bytes']:
+            raise ValueError('Reservation and failure footer exceed case budget')
+        writer.path.mkdir(parents=True,exist_ok=False)
+        (writer.path/'parts').mkdir();(writer.path/'checkpoints').mkdir();sync_dir(writer.path)
+        durable_write(writer.path/'reservation.json',writer.config_raw)
+        return writer
+
+    def _current(self,*,allow_capacity=False):
+        if self.closed or self.poisoned:raise EvidenceStopped('Writer closed or uncertain; no retry')
+        if self.capacity_failed and not allow_capacity:raise EvidenceCapacity('Capacity failure is final; only failed closure allowed')
+        if canonical(self.config)!=self.config_raw or _inventory(self.path)!=self.expected:
+            self.poisoned=True;raise EvidenceStopped('Existing evidence or reservation changed')
+
+    def receipt(self):
+        return {'reservation_sha256':self.config_sha,'last_checkpoint_sha256':self.previous,
+                'checkpoint_count':self.count,'stored_bytes':sum(map(len,self.expected.values())),
+                'charged_case_bytes':self.existing_bytes+sum(map(len,self.expected.values())),
+                'uncertain_write':self.poisoned,'closed':self.closed,
+                'capacity_failed':self.capacity_failed,
+                'execution_restart_authorized':False,'scientific_admission_authorized':False}
+
+    def checkpoint(self,stage,document):
+        self._current()
+        if not isinstance(stage,str) or len(stage)>80:raise ValueError('Bounded stage label required')
+        raw=canonical(document)
+        if len(raw)>MAX_BYTES:
+            self.capacity_failed=True;raise EvidenceCapacity('Logical snapshot exceeds fixed maximum')
+        if self.count>=self.config['checkpoint_limit']:
+            self.capacity_failed=True;raise EvidenceCapacity('Checkpoint reservation exhausted')
+        if document.get('retention',{}).get('case_identity')!=self.config['case_identity']:
+            raise ValueError('Physical snapshot case differs from reservation')
+        fields,parts=_encode(document)
+        row={'schema':SCHEMA,'index':self.count,'previous':self.previous,'reservation_sha256':self.config_sha,
+             'stage':stage,'snapshot_sha256':sha(raw),'snapshot_bytes':len(raw),'fields':fields}
+        encoded=canonical(row);name=f'checkpoints/{self.count:04d}.json'
+        new={'parts/'+h:data for h,data in parts.items() if 'parts/'+h not in self.expected}
+        new[name]=encoded
+        proposed=self.existing_bytes+sum(map(len,self.expected.values()))+sum(map(len,new.values()))+FOOTER_RESERVE
+        if proposed>self.config['budget_bytes'] or len(self.expected)+len(new)+1>MAX_FILES:
+            self.capacity_failed=True
+            self.last_failure={'kind':'capacity','uncommitted_snapshot_sha256':sha(raw),'uncommitted_snapshot_bytes':len(raw),
+                               'would_charge_bytes_including_footer_reserve':proposed}
+            raise EvidenceCapacity('Checkpoint cannot fit without consuming reserved failure footer')
+        try:
+            # Parts precede their commit record. A failure poisons the only writer;
+            # recovery can expose a committed prefix and explicitly counted orphans.
+            for path,data in new.items():
+                durable_write(self.path/path,data);self.expected[path]=data
+            self.previous=sha(encoded);self.count+=1
+            return self.receipt()
+        except BaseException:
+            self.poisoned=True;raise
+
+    def close(self,status,stage,reason='',*,snapshot=None):
+        if self.closed:raise EvidenceStopped('Already closed')
+        if status not in ('completed','failed'):raise ValueError('Explicit completion/failure status required')
+        saved=False
+        if snapshot is not None and not self.poisoned and not self.capacity_failed:
+            try:self.checkpoint(stage,snapshot);saved=True
+            except EvidenceCapacity:
+                if status=='completed':raise
+            except BaseException:
+                self.poisoned=True
+                if status=='completed':raise
+        if status=='completed' and (snapshot is None or snapshot.get('complete') is not True or not saved):
+            raise ValueError('Complete final physical snapshot required')
+        if self.poisoned:
+            self.closed=True
+            return {**self.receipt(),'status':'uncertain','final_snapshot_saved':False}
+        self._current(allow_capacity=True)
+        footer={'schema':SCHEMA,'reservation_sha256':self.config_sha,'last_checkpoint_sha256':self.previous,
+                'checkpoint_count':self.count,'status':status,'stage':str(stage)[:80],
+                'reason':str(reason)[:4096],'reason_sha256':sha(str(reason).encode()),
+                'final_snapshot_saved':saved,'capacity_failure':self.last_failure,
+                'elapsed_seconds':time.monotonic()-self.started,
+                'peak_process_rss_bytes':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024,
+                'execution_restart_authorized':False,'scientific_admission_authorized':False}
+        data=canonical(footer)
+        if len(data)>FOOTER_RESERVE:raise EvidenceCapacity('Reserved small failure footer exceeded')
+        try:durable_write(self.path/'outcome.json',data);self.expected['outcome.json']=data
+        except BaseException:self.poisoned=True;self.closed=True;raise
+        self.closed=True
+        return {**self.receipt(),'status':status,'final_snapshot_saved':saved}

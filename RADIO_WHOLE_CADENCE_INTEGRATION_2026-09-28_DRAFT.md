@@ -1,5 +1,29 @@
 # Whole-cadence integrated execution outline — NOT ACTIVATED
 
+## 29 September: bounded physical evidence storage passes; no native replay
+
+[The closed byte-only result](RADIO_PHYSICAL_EVIDENCE_2026-09-29_RESULT.md)
+restores all **22/22** constructed views of the earlier failed physical report.
+The cumulative case charge is **17,391,433 bytes**, including the seven existing
+artifacts, under 24 MiB. The terminal footer is **644 bytes**. A separate 16-MiB
+fixture correctly refuses the full report before writing and preserves its prior
+checkpoint. Historical physical outcomes remain FAILED; neither store can resume.
+
+**63 tests pass.** The optimized read-only decoder also restores all 22 + 1
+committed views with every closed fixture file unchanged. Full original code
+versions, initial failures, logs and lossless checkpoint archives are retained.
+No new random values, native scores, physical decisions or telescope reads occur.
+This qualifies local storage on the observed partial-report workload only.
+
+**Exact continuation:** integrate the entire dynamic evidence inventory into the
+outer worker's prospective case allocation and bounded failure handling, then
+measure complete archive publication/readback. Full native receiver/alias evidence,
+remote scientific integration and 40/80-s timing remain unqualified. Any later
+live qualification needs its own fixed freeze and fresh identities. Keep all old
+failures/counters/holds, all eight spent identities and **127/24 NOT ACTIVATED**.
+Telescope spectra and old holdouts stay unopened; no messages or delegation.
+Consolidate 9 October without extension.
+
 ## 29 September: native chain exposes receipt mismatch; failed run preserved
 
 [The closed eight-case engineering result](RADIO_NATIVE_CHAIN_ENGINEERING_2026-09-29_RESULT.md)
