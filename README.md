@@ -1,5 +1,11 @@
 # SETIsearch
 
+## 29 September: pilot blocked; scientific critical path clarified
+
+[The readiness review and reproducible calculations](https://github.com/andersenmartin-blip/setisearch/blob/dfc282b1d3a635379634bf5a90af501aa2e1a8fd/RADIO_READINESS_2026-09-29_DECISION.md) confirm that the local storage PASS does not admit the radio pilot. The partial broad-signal native case took 224.702 seconds under its own 240-second engineering cap; the proposed scientific evaluation cap is 80 seconds. The storage fixture uses a 24-MiB engineering case allocation, while scientific evaluations have 18 MiB. These different historical workloads do not establish current complete runtime or capacity.
+
+The next substantive requirement is complete native physical/resource qualification together with integrated remote evidence, followed by actual 127/24 scientific validation and a separately frozen telescope acquisition/trial protocol. Remote publication alone is insufficient. Given scarce compute, prioritize this critical path over further isolated storage demonstrations. All historical failures and limits remain unchanged. This read-only review generates no trials, random values, scores or telescope reads. **127/24 stays NOT ACTIVATED; telescope spectra remain unopened.** Review around 2 October and consolidate 9 October without extension. No scheduled task was changed.
+
 ## 29 September: complete local event-journal integration passes
 
 [The new result, code and full evidence](https://github.com/andersenmartin-blip/setisearch/blob/78771a0d06b2aa3f7f5d18a80e251bb909aba7de/RADIO_EVENT_CASE_2026-09-29_RESULT.md) restore **all 22 physical snapshots and all 208 original journal revisions** exactly. The live journal stores each event once and retains every pointer version in **263,734 bytes**. Complete case plus journal storage is **17,688,769 bytes**, within the unchanged 24-MiB case and 8-MiB journal caps. **127 tests pass**; the whole byte-only fixture takes 55.785488 seconds.
