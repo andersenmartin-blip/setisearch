@@ -1,5 +1,13 @@
 # SETIsearch
 
+## 29 September: bounded physical evidence storage verified
+
+[The new result, code and full logs](https://github.com/andersenmartin-blip/setisearch/blob/dfded6130acedfae15dc28f0f793b3ed48b6d46a/RADIO_PHYSICAL_EVIDENCE_2026-09-29_RESULT.md) restore all **22/22** constructed serialization views of the earlier failed native report. Total charged case storage is **17,391,433 bytes**, including existing artifacts, within 24 MiB; the failure footer is **644 bytes**. A smaller capacity fixture refuses the full report before writing and preserves its prior checkpoint.
+
+**63 tests pass**, and the optimized read-only decoder verifies all 22 + 1 committed views without changing a closed fixture. All 220 original evidence files, initial failures, qualified code versions and logs are preserved losslessly. This is local storage qualification: **zero new random values, native scores, physical decisions or telescope reads**. The earlier native failure and all eight spent identities remain unchanged.
+
+Next: bind the complete dynamic archive into the outer worker's prospective case allocation, then measure full publication/readback. Complete native receiver/alias evidence and scientific 40/80-second timing remain unqualified. **127/24 stays NOT ACTIVATED**; all prior holds/holdouts/counters, no messages or delegation, and 9 October consolidation remain unchanged.
+
 ## 29 September: native physical engineering failure preserved; receipt bridge corrected
 
 [The closed result and complete evidence](https://github.com/andersenmartin-blip/setisearch/blob/43fa09b11c0586c47538d2a8ebfc6060e3d5248e/RADIO_NATIVE_CHAIN_ENGINEERING_2026-09-29_RESULT.md) retain four complete EMPTY Gaussian references and a broad ON case with 9,792 retained members. The native physical chain stopped on an incompatible receiver-receipt JSON newline convention; the three later cases were never entered, and all eight reservations remain spent. No run was repeated.
