@@ -1,0 +1,105 @@
+{
+  "closed_attempts_reopened": false,
+  "frozen_budget": {
+    "overhead": {
+      "failure_and_summary_bytes": 79691776,
+      "ledger_bytes": 8388608,
+      "milliseconds": 200000
+    },
+    "phases": {
+      "calibration": {
+        "bytes_per_case": 4194304,
+        "count": 127,
+        "milliseconds_per_case": 40000
+      },
+      "evaluation": {
+        "bytes_per_case": 18874368,
+        "count": 24,
+        "milliseconds_per_case": 80000
+      }
+    },
+    "total_evidence_bytes": 1073741824,
+    "total_milliseconds": 7200000
+  },
+  "historical_local_storage": {
+    "arithmetic_headroom_against_scientific_case_bytes": 1449333,
+    "case_artifact_bytes": 17425035,
+    "complete_native_physical_workload": false,
+    "journal_bytes": 263734,
+    "own_case_cap_bytes": 25165824,
+    "remote_adapter_qualified": false,
+    "storage_and_closure_seconds": 50.18785359300091
+  },
+  "historical_native": {
+    "broad_case_partial_milliseconds": 224702,
+    "engineering_reference_count": 4,
+    "own_engineering_limit_milliseconds": 240000,
+    "physical_recovery_or_rfi_null_qualified": false,
+    "ratio_to_scientific_evaluation_time_cap": 2.808775,
+    "required_scientific_rank_ceiling": "1/100",
+    "retained_on_members_not_final_survivors": 9792,
+    "smallest_possible_four_reference_rank": "1/5"
+  },
+  "input_pins": [
+    {
+      "bytes": 26401,
+      "git_blob": "246aa39b63d5c3c5dc9494a547da3b7e5639a7a6",
+      "path": "results_radio_whole_cadence_compact_2026-09-28/phase_budget_proposed.json",
+      "sha256": "f2e5b14ad0ea4c209169c95160206499c2dffc54372639a32635a9f8fed780ce"
+    },
+    {
+      "bytes": 952,
+      "git_blob": "46c691b000991774e2ec36b600356966faa07bc4",
+      "path": "results_radio_native_chain_engineering_2026-09-29/disposition.json",
+      "sha256": "385a79350d7c54c9e1ba2aa89fb4318d475adf0d77bff53d57dd498346a64afe"
+    },
+    {
+      "bytes": 5014,
+      "git_blob": "9b0202bcc89844a10d1fc2f0a646e235e0d76be8",
+      "path": "results_radio_native_chain_engineering_2026-09-29/closed_error.json",
+      "sha256": "71315968d74abfbc44ed082f110ad6ba84a85007937b753b7405d576a1afcfe5"
+    },
+    {
+      "bytes": 24394,
+      "git_blob": "9f6573a766710eb59893b36c793b478c3719da9f",
+      "path": "results_radio_event_case_2026-09-29/integration01/result.json",
+      "sha256": "48264385776d3894ebf8cf2ab2fa5d37cc334d6530b56d78ae6af086a82bf3c8"
+    },
+    {
+      "bytes": 21204,
+      "git_blob": "c5230fcf2f6cd097c01fa3421eb2d3bc1442032c",
+      "path": "RADIO_WHOLE_CADENCE_INTEGRATION_2026-09-28_DRAFT.md",
+      "sha256": "49a0e396e9c31c2777d157aa01d769d589578b09397fca08650d75e845fd7442"
+    },
+    {
+      "bytes": 81973,
+      "git_blob": "61cb15fa368a099e5f34ba986c40f33444c69d38",
+      "path": "RADIO_TWO_WEEK_PLAN_2026-09-26.md",
+      "sha256": "331e06e93abeceef462f2f1ccd4312249fa8c38f2178843d4ccb465dfaa79500"
+    }
+  ],
+  "interpretation": [
+    "Different historical workloads: do not add their timings or extrapolate 151-case performance.",
+    "The native run met its own 240-second case cap; comparison with 80 seconds is not a retroactive failure.",
+    "The 24-MiB local storage pass does not qualify the scientific 18-MiB evaluation limit.",
+    "Positive arithmetic byte headroom is not a bound on missing receiver/alias/cluster and remote evidence.",
+    "The fixed reservations exhaust the total ceiling; no automatic borrowing, refunds or cap changes.",
+    "Even a future synthetic pass requires a separate source/acquisition/trial protocol before telescope access."
+  ],
+  "new_allocations": 0,
+  "new_native_scores": 0,
+  "new_physical_decisions": 0,
+  "new_random_values": 0,
+  "new_telescope_reads": 0,
+  "outstanding_evidence": [
+    "Complete native recovery, receiver/alias/cluster, RFI/null and failure evidence on fresh prospectively fixed engineering identities.",
+    "Integrated current-code/runtime, durable remote publication/readback and all scientific case/phase resource limits.",
+    "Separately frozen and allocated actual 127-reference/24-evaluation scientific run with a passing fixed gate.",
+    "Separately frozen integrated telescope source/acquisition/trial protocol."
+  ],
+  "schema": "radio-readiness-review-v1",
+  "scientific_127_24_activated": false,
+  "scientific_limits_changed": false,
+  "source_commit": "107bbff9462c199795f14b83839ae88ba54f770d",
+  "status": "BLOCKED_NO_SCIENTIFIC_OR_TELESCOPE_ADMISSION"
+}

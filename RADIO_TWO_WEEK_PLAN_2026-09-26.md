@@ -1,5 +1,27 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 29 September: pilot remains blocked; resource review defines the critical path
+
+[The readiness decision](RADIO_READINESS_2026-09-29_DECISION.md) compares the
+published engineering measurements with the unchanged scientific allocations.
+The partial native broad-signal case took 224.702 s under its own 240-s cap;
+it does not qualify an 80-s scientific evaluation. The local storage pass uses
+a 24-MiB case allocation, whereas scientific evaluations have 18 MiB. Its
+17,425,035 case bytes leave only arithmetic headroom for still-unmeasured full
+physical evidence. These different workloads cannot be added or extrapolated.
+
+**Current continuation:** prioritize complete native physical/resource feasibility
+and the integrated scientific admission evidence. Remote publication remains
+necessary but cannot alone open the pilot. Given limited available compute,
+do not launch another series of isolated storage fixtures. Any fresh live
+engineering work needs a fixed scope, new identities and public freeze/readback.
+Then actual 127/24 qualification and a separate telescope acquisition/trial
+protocol are still required. This supersedes earlier next-step wording, not old
+results or allocations. The read-only review creates zero trials, random values,
+scores or telescope reads. **127/24 remains NOT ACTIVATED.** All holds, counters,
+failures, unopened data, no messages/delegation and 9 October remain unchanged.
+No scheduled task was changed.
+
 ## 29 September: complete local event-journal/physical handoff passes
 
 [The new event-store result](RADIO_EVENT_CASE_2026-09-29_RESULT.md) restores all
