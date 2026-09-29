@@ -1,5 +1,28 @@
 # Long-term project direction
 
+## 29 September: cumulative journal budget gap identified; lossless history verified
+
+[The new capacity/history result](RADIO_JOURNAL_CAPACITY_2026-09-29_RESULT.md)
+shows that retaining every full snapshot of the proposed 151-case journal
+requires **at least 423,359,705 canonical bytes**, versus its fixed 8-MiB
+ledger allocation. This is a metadata lower bound, not a run or a Git-pack
+measurement. The last snapshot alone would hide the excess.
+
+A new **read-only** event/history format restores all **19/19** original
+Gaussian engineering journal versions byte for byte: 101,825 bytes represented
+in 10,854 bytes, with every old file preserved. **22 new checks pass.** It grants
+no lease, restart, larger budget or scientific readiness. The prior two actual
+Gaussian/native cases remain closed and fully archived.
+
+**Exact continuation:** qualify incremental durable event/checkpoint publication
+and immutable readback, with cumulative archive-byte and transport limits,
+crash/conflict/lost-response tests and no new execution authority from restored
+history. Then prospectively freeze the still-missing integrated Gaussian
+reference/native physical/recovery/RFI/null run with fresh engineering identities.
+Do not use reserved 127/24 RNGs, reopen closed scopes or assume the present
+full-snapshot budget fits. All source/holdout/disposition boundaries remain;
+telescope spectra stay unopened. Consolidate 9 October without extension.
+
 ## 29 September: real Gaussian/native numerical stage passes and closes
 
 [Two fresh engineering cases](RADIO_GAUSSIAN_ENGINEERING_2026-09-29_RESULT.md)
