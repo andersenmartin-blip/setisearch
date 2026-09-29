@@ -1,5 +1,29 @@
 # Whole-cadence integrated execution outline — NOT ACTIVATED
 
+## 29 September: complete local event-journal/physical handoff passes
+
+[The new event-store result](RADIO_EVENT_CASE_2026-09-29_RESULT.md) restores all
+**22/22 physical snapshots and 208 original journal versions** exactly. The live
+journal, including every pointer version, occupies **263,734 bytes**. The complete
+case plus journal occupies **17,688,769 bytes**, inside the unchanged 24-MiB case
+and 8-MiB journal reservations. **127 tests pass.** Whole-fixture time is 55.785488 s.
+
+This is a separate fresh byte-only storage allocation. The earlier full-snapshot
+integration remains CLOSED FAILED, with all files and charges retained. The
+preserved source physical status and new parent disposition remain FAILED as
+required; the PASS qualifies complete storage/restoration, not a new physical
+result. There are no new random values, native scores or physical decisions.
+
+**Exact continuation:** bind the complete measured event/pointer/physical archive
+into bounded batched remote publication and immutable readback, preserving atomic
+advancement, lost-response stops and cumulative byte/time accounting. The current
+publisher is local engineering only. Full native receiver/alias evidence, physical
+gates and scientific 40/80-s timing remain unqualified; storage alone takes about
+50 seconds. Any later native run requires a new fixed freeze and fresh identities.
+Keep **127/24 NOT ACTIVATED**, all prior failures/spent identities/holds/counters,
+telescope spectra and old holdouts unopened, no messages or delegation, and
+9 October consolidation without extension.
+
 ## 29 September: parent evidence integration stops safely at journal capacity
 
 [The closed integration result](RADIO_PHYSICAL_CASE_2026-09-29_RESULT.md)

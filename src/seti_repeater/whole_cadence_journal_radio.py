@@ -343,8 +343,10 @@ class DirectoryStore:
 def consume(store,*,expected_revision,expected_manifest_sha256,binding,
             milliseconds,artifact_bytes,directory,clock=time.monotonic):
     before=store.read();replay(before.document)
-    if before.document['manifest'].get('artifact_groups') and type(store) is not DirectoryStore:
-        raise ValueError('Dynamic groups currently qualify only the local engineering store')
+    if before.document['manifest'].get('artifact_groups'):
+        from .whole_cadence_event_store_radio import EventDirectoryStore
+        if type(store) not in (DirectoryStore,EventDirectoryStore):
+            raise ValueError('Dynamic groups currently qualify only explicit local engineering stores')
     if before.revision!=expected_revision or before.document['manifest_sha256']!=expected_manifest_sha256:
         raise ValueError('Independent publication checkpoint differs')
     if before.document['manifest']['mode']=='scientific' or before.location.get('kind')=='github-published-engineering':
