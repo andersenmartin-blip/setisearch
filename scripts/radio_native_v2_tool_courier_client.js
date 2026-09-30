@@ -71,11 +71,14 @@ async function runToolCourier(tools,options) {
     if(raw.session_id!==undefined){assert(Number.isSafeInteger(raw.session_id)&&raw.session_id>0,'Exact running session required');
       if(session!==null)assert(session===raw.session_id,'Persistent controller session changed');session=raw.session_id;}
     stdout+=raw.output;assert(h.utf8Bytes(stdout)<=CLIENT_LIMITS.support_response,'Bounded complete controller stdout required');
-    const chunks=stdout.split('\n');stdout=chunks.pop();const parsed=[];
-    for(const line of chunks)if(line.trim())parsed.push(JSON.parse(line));
+    const chunks=stdout.split('\n');stdout=chunks.pop();const parsed=[],parseErrors=[];
+    for(const line of chunks)if(line.trim()){
+      try{parsed.push(JSON.parse(line));}catch(error){parseErrors.push(error);}
+    }
     // A failure in the same returned envelope wins over an earlier request.
     for(const item of parsed){assert(item&&item.schema===CONTROLLER_SCHEMA,'Only pinned controller JSON frames required');
       if(item.kind==='failed')throw stop(Error('Controller closed before dispatch: '+String(item.error)));}
+    assert(parseErrors.length===0,'Non-JSON controller output; full raw envelope retained and scope closed');
     assert(parsed.filter(x=>x.kind==='request').length<=1&&parsed.filter(x=>x.kind==='terminal').length<=1,
       'One sequential controller frame required');
     const result=parsed.find(x=>x.kind==='terminal')||parsed.find(x=>x.kind==='request');

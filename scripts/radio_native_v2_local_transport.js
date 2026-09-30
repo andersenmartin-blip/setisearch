@@ -7,7 +7,7 @@ const h = require('./radio_native_v2_broker_host');
 const MIB = 1024 * 1024;
 const SCHEMA = 'radio-native-v2-local-courier-host-v1';
 const FIXTURE_PREFIX='results_radio_native_v2_local_transport_20260930a/live01';
-const CONTROL_PREFIX='results_radio_native_v2_local_transport_20260930a/live02';
+const CONTROL_PREFIX='results_radio_native_v2_local_transport_20260930a/live03';
 const HARD = Object.freeze({cases:8,calls:512,request_bytes:384*MIB,response_bytes:512*MIB,
   case_calls:64,case_request_bytes:48*MIB,case_response_bytes:64*MIB,
   seconds:4800,case_seconds:600});

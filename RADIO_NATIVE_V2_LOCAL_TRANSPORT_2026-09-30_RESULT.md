@@ -61,7 +61,7 @@ the complete courier. A separate local 64 MiB stdio fixture passed in 0.597
 seconds; it is not an actual tool throughput measurement.
 
 The established metadata-only Python suites passed 299 tests; the new fixture
-tests are retained separately. Final JavaScript suites passed 86 tests.
+tests are retained separately. Final JavaScript suites passed 89 tests.
 An additional broad historical discovery ran 1,036 tests and failed with 108
 errors and two old acquisition-pin assertion failures. Missing historical
 artifacts and h5py are recorded in that log; this release does not claim that
@@ -69,9 +69,9 @@ all repository tests pass. No raw telescope data was fetched to fill those gaps.
 
 ## Prospective freeze and next control
 
-The fresh live02 prospective runtime freeze pins 903 code, 14 input and 1,366 runtime
+The fresh live03 prospective runtime freeze pins 903 code, 14 input and 1,366 runtime
 files. Its SHA256 is
-`b5c814ed13fe1a9b157e61b0e55d5f7029316fb028428e3d651d2227f4de9164`.
+`2ad05ee165566e20107c7d32f8857c9974d2c92806911ff569c6daca7ed7153c`.
 Fresh local source preflight passed for all five Node modules and 184 Python
 source imports; the largest launcher argument was 65,803 bytes. The fresh
 startup cache remained empty and all 903 code pins were reverified. The earlier
@@ -83,14 +83,24 @@ emitted its first head request, but the manual handoff exhausted the unchanged
 30-second Worker deadline. Its full startup/poll responses, Store markers and
 unknown reservations are retained. Its namespace and private Store cannot be reused.
 
-The separate live02 prospective plan permits one 64 KiB deterministic archive
+The live02 actual control also closed before any connector dispatch. The
+controller polled a Store that did not exist: Publisher consumes an existing
+Store and never creates it. No Store or durable STOPPED marker existed in this
+scope, so no durable shutdown is claimed. Both complete SDK responses and the
+private start plan are retained. The controller now awaits exclusive,
+source-qualified durable Store creation before starting Publisher or polling;
+existing paths are rejected before helper dispatch. Regression tests cover
+the wait barrier and a real Node/Python empty-Store poll and reuse refusal.
+The client also preserves a valid failure reason when stderr accompanies it.
+
+The separate live03 prospective plan permits one 64 KiB deterministic archive
 under a fresh namespace, after immutable public code/freeze readback. A single
 awaited portable client automates startup, source extraction, connector calls
 and deliveries, with extra polls counted before dispatch. Its cap covers the
 nested SDK calls and three conservative local Git processes; the surrounding
 functions.exec/wait orchestration and courier V8 RSS remain unqualified.
 It grants no native-case authority. Its result will be retained separately;
-live02 has not run in this prospective publication. The controller reports its last supporting
+live03 has not run in this prospective publication. The controller reports its last supporting
 acknowledgement as unconfirmed and does not claim durable late-envelope custody
 after Store shutdown.
 

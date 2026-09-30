@@ -134,7 +134,8 @@ def deterministic_bundle(ordinal, source_bytes, parent, tree, *, payload_mode='p
             or not 1 <= source_bytes <= broker.MAX_SOURCE_BYTES or payload_mode not in ('periodic', 'sha256_counter')):
         raise ValueError('Bounded deterministic fixture framing required')
     case_identity = hashlib.sha256(('closed-local-transport-fixture-'+str(ordinal)).encode()).hexdigest()
-    if namespace not in (PREFIX, 'results_radio_native_v2_local_transport_20260930a/live02'):
+    if namespace not in (PREFIX, 'results_radio_native_v2_local_transport_20260930a/live02',
+                         'results_radio_native_v2_local_transport_20260930a/live03'):
         raise ValueError('Only fixed prospective fixture namespaces are permitted')
     target = namespace+f'/case{ordinal:02d}-{case_identity[:16]}'
     if payload_mode == 'periodic':

@@ -1,6 +1,7 @@
-const test=require('node:test'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const test=require('node:test'),assert=require('node:assert/strict'),crypto=require('node:crypto'),
+  fs=require('node:fs'),os=require('node:os'),path=require('node:path');
 const {SharedLedger}=require('../scripts/radio_native_v2_local_transport'),
-  {SCHEMA,ToolCourier,deliveryRequest,BoundedLines}=require('../scripts/radio_native_v2_local_courier');
+  {SCHEMA,ToolCourier,deliveryRequest,BoundedLines,initializeControlStore}=require('../scripts/radio_native_v2_local_courier');
 const hash=value=>crypto.createHash('sha256').update(value).digest('hex');
 const args={session_id:123,max_output_tokens:400000,yield_time_ms:10000};
 function fixture(){
@@ -64,4 +65,30 @@ test('lost supporting acknowledgement keeps its entire unknown reservation',asyn
   f.courier.fail(Error('lost reply'));await assert.rejects(call,/lost reply/);
   assert.equal(f.ledger.totals.unknown_response_count,2);
   assert.equal(f.ledger.records[1].request_unknown,true);assert.equal(f.ledger.stopped,true);
+});
+
+test('control startup awaits exclusive durable Store creation before any polling',async t=>{
+  const directory=fs.mkdtempSync(path.join(os.tmpdir(),'seti-courier-startup-')),root=path.join(directory,'store');
+  t.after(()=>fs.rmSync(directory,{recursive:true,force:true}));
+  const calls=[];let release;
+  const worker={action:async command=>{calls.push(command);await new Promise(resolve=>{release=resolve;});
+    return{schema:'radio-native-v2-filesystem-bridge-v1',created:true,execution_authorized:false};}};
+  let ready=false;const startup=initializeControlStore(worker,root).then(()=>{ready=true;});
+  await new Promise(resolve=>setImmediate(resolve));assert.equal(ready,false);
+  assert.deepEqual(calls,[{action:'create'}]);release();await startup;assert.equal(ready,true);
+});
+
+test('real local control Store is ready for pending polling and rejects scope reuse',async t=>{
+  const directory=fs.mkdtempSync(path.join(os.tmpdir(),'seti-courier-store-')),root=path.join(directory,'store');
+  t.after(()=>fs.rmSync(directory,{recursive:true,force:true}));
+  const {createLocalWorker}=require('../scripts/radio_native_v2_local_worker'),repo=path.resolve(__dirname,'..'),
+    python=process.env.CODEX_PRIMARY_RUNTIME_PYTHON||'/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python';
+  const worker=createLocalWorker({root,python,sourceRoot:path.join(repo,'src')});
+  const initialized=await initializeControlStore(worker,root);
+  assert.equal(initialized.execution_authorized,false);assert.equal(initialized.reservation_authorized,false);
+  const pending=await worker.action({action:'pending'});assert.equal(pending.pending_count,0);assert.equal(pending.stopped,false);
+  const calls=worker.usage().helper_calls;
+  await assert.rejects(initializeControlStore(worker,root),/no retry or reuse/);
+  assert.equal(worker.usage().helper_calls,calls,'Existing Store rejected before another helper dispatch');
+  assert.equal(fs.existsSync(path.join(root,'STOPPED.json')),false,'The existing evidence Store remains unchanged');
 });

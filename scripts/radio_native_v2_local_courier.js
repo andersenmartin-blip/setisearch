@@ -163,6 +163,19 @@ function runGit(kind,plan,milliseconds,localGit=null) {
   });
 }
 
+async function initializeControlStore(worker,storeRoot) {
+  assert(worker&&typeof worker.action==='function'&&typeof storeRoot==='string',
+    'Concrete fresh control Store initialization required');
+  let existing=false;
+  try{fs.lstatSync(storeRoot);existing=true;}catch(error){if(error.code!=='ENOENT')throw error;}
+  assert(!existing,'Fresh exclusive control Store required; no retry or reuse');
+  const created=await worker.action({action:'create'});
+  assert(created&&created.schema==='radio-native-v2-filesystem-bridge-v1'&&created.created===true&&
+    created.execution_authorized===false,'Durable non-executable control Store creation unconfirmed');
+  return{schema:SCHEMA,store_schema:created.schema,created:true,automatic_retry:false,
+    execution_authorized:false,reservation_authorized:false,scientific_execution_authorized:false};
+}
+
 async function main(options) {
   assert(globalThis.__radioNativeV2SourcePolicy&&options&&options.fixture_namespace===transport.CONTROL_PREFIX,
     'Pinned source-only prospective fixture entry required');
@@ -182,6 +195,11 @@ async function main(options) {
   courier.bindHost(host);
   assert(options.publisherConfig&&options.publisherConfig.result_path===options.publisherResult,
     'Fixed actual-tool Publisher component configuration required');
+  // The Python Publisher consumes an existing Store. Its process may validate
+  // source/runtime/Git metadata for some time before making the first request.
+  // Complete one exclusive durable creation before either launching it or
+  // polling the mailbox; absence is never treated as a retryable pending state.
+  const storeInitialization=await initializeControlStore(worker,options.storeRoot);
   let failed=null,inputBusy=false;
   const receive=line=>{
     if(inputBusy){failed=Error('Overlapping actual courier delivery refused');courier.fail(failed);return;}
@@ -224,7 +242,7 @@ async function main(options) {
       ['execution_authorized','reservation_authorized','scientific_execution_authorized'].every(k=>publisher[k]===false),
       'Actual pinned Publisher subprocess proof differs');
     const
-      record={...courier.terminalRecord(),publisher,host_state:host.state(),host_usage:host.usage(),
+      record={...courier.terminalRecord(),store_initialization:storeInitialization,publisher,host_state:host.state(),host_usage:host.usage(),
         worker_usage:worker.usage(),worker_state:worker.state(),source_policy:globalThis.__radioNativeV2SourcePolicy,
         node_max_rss_bytes:process.resourceUsage().maxRSS*1024};
     // Terminal supporting acknowledgement stays explicitly unconfirmed. The
@@ -242,4 +260,4 @@ async function main(options) {
   finally{process.stdin.off('data',data);process.stdin.pause();if(publisherChild.exitCode===null)publisherChild.kill('SIGKILL');}
 }
 
-module.exports={SCHEMA,CONTROL_REPLY_BYTES,BoundedLines,deliveryRequest,ToolCourier,runGit,main};
+module.exports={SCHEMA,CONTROL_REPLY_BYTES,BoundedLines,deliveryRequest,ToolCourier,runGit,initializeControlStore,main};

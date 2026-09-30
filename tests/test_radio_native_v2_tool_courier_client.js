@@ -86,6 +86,15 @@ test('expired absolute worker deadline prevents any source or connector dispatch
   const result=await run(f);assert.equal(result.status,'CLOSED_FAILED');assert.equal(result.usage.calls,1);
   assert.match(result.reason,/deadline expired/);
 });
+test('valid failure frame wins over accompanying stderr and preserves the complete raw reply',async()=>{
+  const f=fixture(),output=JSON.stringify(frame(0))+'\n'+
+    JSON.stringify({schema:c.CONTROLLER_SCHEMA,kind:'failed',error:'Store startup failed'})+'\nError: Store startup failed\n';
+  f.tools.exec_command=async()=>rawOutput(output);
+  const result=await run(f);assert.equal(result.status,'CLOSED_FAILED');
+  assert.match(result.reason,/Controller closed before dispatch: Store startup failed/);
+  assert.equal(result.records[0].raw_result.output,output);
+  assert.equal(result.records.filter(r=>r.kind==='actual_connector').length,0);
+});
 test('lost connector acknowledgement retains response and future-ingress reservations without retry',async()=>{
   const f=fixture();let dispatched=0;f.tools.mcp__codex_apps__github_fetch=async()=>{dispatched++;throw Error('acknowledgement lost');};
   const result=await run(f);assert.equal(result.status,'CLOSED_FAILED');assert.equal(dispatched,1);
