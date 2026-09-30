@@ -1,5 +1,23 @@
 # SETIsearch
 
+## 30 September: v2 checkpoint journal batching passes
+
+[The contract, implementation and evidence](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_V2_EVENT_BATCH_2026-09-30_RESULT.md)
+now register up to 128 new content-addressed physical files per append-only
+journal event while retaining every individual filename, length and SHA256.
+Larger checkpoints split into bounded events; case/file caps, the cumulative
+8-MiB journal allocation and closure reserves are unchanged. Torn writes and
+lost acknowledgements remain stopped and read-only recoverable. **125 tests
+pass**, including five new boundary/crash tests. No fresh case, RNG, score,
+receiver measurement or telescope spectrum was opened.
+
+This removes one parent-journal scaling obstruction, but it does not activate a
+native run. Next is a deterministic fresh native-v2 runner and batched
+publication broker with exact per-case checkpoint/file/event limits and
+cumulative 18-MiB/8-MiB/time/RSS budgets. Its complete executable freeze must be
+publicly read back before any reservation or RNG entry. 127/24 remains off;
+HD189733 selected, HD1461 HOLD, GJ724 reserve, spectra and holdouts unopened.
+
 ## 30 September: exact v2 terminal archive batch passes
 
 [The content-addressed batch result and complete evidence](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_V2_BATCH_2026-09-30_RESULT.md)
