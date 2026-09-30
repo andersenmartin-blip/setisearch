@@ -1,5 +1,24 @@
 # SETIsearch
 
+## 30 September: deterministic inline publication broker passes
+
+[The broker protocol, exact envelope and failure tests](https://github.com/andersenmartin-blip/setisearch/blob/825721017694736ece59bab819546766efaebab2/RADIO_NATIVE_V2_BROKER_2026-09-30_RESULT.md)
+pack a terminal 18-MiB case plus cumulative 8-MiB journal into at most 26
+base64 chunks plus manifest/HEAD. One inline tree request replaces serial blob
+creation; one grouped readback reconstructs every original source byte. The
+worst per-case request/response envelopes are 37,923,633 and 50,215,320 bytes,
+with fixed eight-case cumulative call/byte/time/RSS caps. Conflict, lost update
+response, corrupt readback, bad pins/order and excessive RSS stop without retry.
+**262 tests pass.** No reservation, RNG, score or telescope data were opened.
+
+The actual connector's inline-content and grouped-readback adapter still needs a
+small separately frozen no-RNG live probe; the complete fresh render/threshold/
+physical/evaluate runner also remains to be integrated. A new complete
+runner+broker runtime freeze must then be published and read back before any
+reservation. The earlier prepare-only freeze predates this broker and grants no
+execution authority. 127/24 remains off; HD189733 selected, HD1461 HOLD, GJ724
+reserve, spectra/holdouts unopened, LS paused and CHEOPS UNSENT.
+
 ## 30 September: fresh native v2 preparation is publicly frozen
 
 [The prepare-only contract, identities and runtime evidence](https://github.com/andersenmartin-blip/setisearch/blob/ea43b24ef7a6b7bf3d3e360fa56041460e6569fe/RADIO_NATIVE_V2_PREPARATION_2026-09-30_RESULT.md)
