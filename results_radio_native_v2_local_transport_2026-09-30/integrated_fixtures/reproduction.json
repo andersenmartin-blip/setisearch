@@ -1,0 +1,30 @@
+{
+  "schema": "radio-native-v2-integrated-fixture-reproduction-v1",
+  "code_files": [
+    "scripts/radio_native_v2_local_transport_fixture.py",
+    "scripts/radio_native_v2_local_transport_fixture.js"
+  ],
+  "command": "PYTHONPATH=src:scripts <PINNED_PYTHON> -B scripts/radio_native_v2_local_transport_fixture.py --prepare <FRESH_PRIVATE_TEMP>/fixture --source-bytes 27262976 --cases 2 --payload-mode sha256_counter",
+  "measurement_command": "PYTHONPATH=src:scripts <PINNED_PYTHON> -B scripts/radio_native_v2_local_transport_fixture.py --measure <FRESH_PRIVATE_TEMP>/fixture/prepared.json --output <FRESH_RESULT_PATH>",
+  "isolated_namespace": "results_radio_native_v2_local_transport_20260930a/live01",
+  "fixed_payload_domains": {
+    "periodic": "bytes((index+ordinal)%256 for index in range(256)), repeated/truncated to source_bytes",
+    "sha256_counter": "SHA256(b\"seti-local-transport-sha256-counter-v1\\0\" + ordinal.to_bytes(8,\"big\") + counter.to_bytes(8,\"big\")), concatenate/truncate to source_bytes"
+  },
+  "worker_seconds_unchanged": 30,
+  "python_broker_per_case_caps_unchanged": true,
+  "complete_normalized_readback_kept_local": true,
+  "full_size_raw_payload_and_receipt_bodies_publicly_uploaded": false,
+  "public_receipt_scope": "Exact ledger intents/sealed markers include byte counts and SHA256. Large arithmetic payload and raw supporting receipt bodies are retained in the original local fixture and reproducible from fixed code, pinned metadata and source paths; their full bodies are not this compact public package.",
+  "small02_unexpected_filename_observed": false,
+  "small02_cause": "UNKNOWN; generic Store refusal retained. Later inspection found only allowed item names; no claim that another tool caused the failure.",
+  "old_limit_scope": "512 MiB is the existing Python broker process self RSS limit. Aggregate family RSS is measured diagnostic evidence, not an existing fixed 512 MiB aggregate allocation.",
+  "eight_case_integrated_runtime_qualified": false,
+  "actual_tool_courier_qualified_by_these_offline_fixtures": false,
+  "public_mutations": 0,
+  "rng_draws": 0,
+  "telescope_reads": 0,
+  "native_case_reservations": 0,
+  "execution_authorized": false,
+  "scientific_execution_authorized": false
+}

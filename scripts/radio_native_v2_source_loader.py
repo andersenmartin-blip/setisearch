@@ -96,7 +96,7 @@ def _child_json(raw, scanstring):
     return result
 
 
-def _child(root, freeze_path, expected_sha256, modules):
+def _child(root, freeze_path, expected_sha256, modules, *, emit=True):
     # Only built-in or frozen imports are permitted until pins are parsed.
     if (not sys.flags.isolated or not sys.flags.no_site
             or not sys.flags.dont_write_bytecode or not sys.flags.ignore_environment):
@@ -314,7 +314,9 @@ def _child(root, freeze_path, expected_sha256, modules):
              'derived_module_alias_inventory': derived_records,
              'restricted_search_roots': list(roots), 'verified_files': len(pins),
              **{key: False for key in DISABLED}}
-    print(json.dumps(proof, sort_keys=True, separators=(',', ':'), ensure_ascii=True))
+    if emit:
+        print(json.dumps(proof, sort_keys=True, separators=(',', ':'), ensure_ascii=True))
+    return proof
 
 
 def _environment(freeze, path_module):
@@ -395,6 +397,102 @@ def launch_preflight(root, freeze_path, expected_sha256, *, modules=DEFAULT_MODU
             or any(proof.get(key) is not False for key in DISABLED)):
         raise ValueError('Source-loader proof binding differs')
     return proof
+
+
+HELPER_BOOTSTRAP = ('import sys\n'
+    'if "_hashlib" not in sys.builtin_module_names: '
+    'raise ValueError("Pinned builtin hash bootstrap required")\n'
+    'import _hashlib\n'
+    '_entry_source=bytes.fromhex(sys.argv[2])\n'
+    '_ENTRY_EXECUTED_SHA256=_hashlib.openssl_sha256(_entry_source).hexdigest()\n'
+    '__file__=sys.argv[1]\n'
+    '__name__="radio_native_v2_source_bootstrap"\n'
+    'exec(compile(_entry_source,__file__,"exec"),globals())\n'
+    '_helper_proof=_child(sys.argv[3],sys.argv[4],sys.argv[5],(sys.argv[6],),emit=False)\n'
+    '_helper_code=sys.orig_argv[sys.orig_argv.index("-c")+1]\n'
+    '_helper_proof["helper_bootstrap_sha256"]=_hashlib.openssl_sha256(_helper_code.encode()).hexdigest()\n'
+    '_helper_proof["mode"]="LOCAL_HELPER_SOURCE_COMPONENT_ONLY"\n'
+    'sys._radio_native_v2_source_policy_preflight=_helper_proof\n'
+    '_helper_module=sys.modules[sys.argv[6]]\n'
+    'if not callable(getattr(_helper_module,"main",None)): '
+    'raise ValueError("Pinned source helper main required")\n'
+    '_helper_module.main()\n')
+
+
+def prepare_helper_launch(root, freeze_path, expected_sha256, *,
+                          module='radio_native_v2_local_worker_helper', cache_prefix=None):
+    """Return pinned Python argv/env with stdin reserved for a local helper.
+
+    The child installs the same source-only finder as the import preflight
+    before importing and calling helper.main().  Its independently returned
+    source-loader record remains a component record with every authority false.
+    The caller owns cleanup of startup_cache_prefix and must check each child's
+    actual returned proof; a launch plan is never execution qualification.
+    """
+    import ast
+    import hashlib
+    import json
+    import os
+    from pathlib import Path
+    import tempfile
+    root, freeze_path = Path(root).resolve(), Path(freeze_path).resolve()
+    raw = freeze_path.read_bytes()
+    if hashlib.sha256(raw).hexdigest() != expected_sha256:
+        raise ValueError('Source-loader freeze bytes differ')
+    freeze = json.loads(raw)
+    if (freeze.get('mode') != 'PROSPECTIVE_ENGINEERING_ONLY'
+            or any(freeze.get(key) is not False for key in DISABLED)):
+        raise ValueError('Source loader grants no authority')
+    if (not isinstance(module, str) or not module
+            or any(not part.isidentifier() for part in module.split('.'))):
+        raise ValueError('Exact helper import module name required')
+    python = freeze['executables']['python']
+    entry = root / SELF
+    if entry.resolve() != entry:
+        raise ValueError('Pinned helper source-loader symlink refused')
+    entry_source = entry.read_bytes()
+    entry_sha = hashlib.sha256(entry_source).hexdigest()
+    if (entry_sha != freeze['code_sha256s'].get(SELF)
+            or hashlib.sha256(Path(python['resolved']).read_bytes()).hexdigest() != python['sha256']
+            or Path(python['invocation']).resolve() != Path(python['resolved'])
+            or freeze['runtime_sha256s'].get(python['resolved']) != python['sha256']):
+        raise ValueError('Pinned helper executable/source-loader differs')
+    # Extract the operational bootstrap from these exact verified bytes.
+    literals = [node.value for node in ast.parse(entry_source).body
+                if isinstance(node, ast.Assign) and len(node.targets) == 1
+                and isinstance(node.targets[0], ast.Name) and node.targets[0].id == 'HELPER_BOOTSTRAP']
+    if len(literals) != 1:
+        raise ValueError('Exact pinned helper bootstrap literal required')
+    def concatenate(node):
+        if isinstance(node, ast.BinOp) and isinstance(node.op, ast.Add):
+            return concatenate(node.left) + concatenate(node.right)
+        return ast.literal_eval(node)
+    bootstrap = concatenate(literals[0])
+    if not isinstance(bootstrap, str):
+        raise ValueError('Exact pinned helper bootstrap source required')
+    stdlib = Path(python['resolved']).parents[1] / 'lib' / ('python' + str(sys.version_info.major)
+                                                         + '.' + str(sys.version_info.minor))
+    for name in STARTUP_SOURCES:
+        path = stdlib / (name.replace('.', '/') + ('.py' if '.' in name else '/__init__.py'))
+        if (path.resolve() != path
+                or hashlib.sha256(path.read_bytes()).hexdigest() != freeze['runtime_sha256s'].get(str(path))):
+            raise ValueError('Pinned CPython startup source differs: ' + name)
+    if cache_prefix is None:
+        cache_prefix = tempfile.mkdtemp(prefix='radio-helper-source-cache-')
+    cache = Path(cache_prefix)
+    if (not cache.is_absolute() or cache.resolve() != cache or not cache.is_dir()
+            or list(cache.iterdir())):
+        raise ValueError('Fresh empty helper startup cache prefix required')
+    arguments = ['-I', '-S', '-B', '-X', 'pycache_prefix=' + str(cache), '-c', bootstrap,
+                 str(entry), entry_source.hex(), str(root), str(freeze_path), expected_sha256, module]
+    if any(len(argument.encode()) > 96*1024 for argument in arguments):
+        raise ValueError('Pinned helper launch argument cap exceeded')
+    return {'executable': python['invocation'], 'args': arguments,
+            'env': _environment(freeze, os.path), 'startup_cache_prefix': str(cache),
+            'source_loader_sha256': entry_sha,
+            'source_policy_sha256': hashlib.sha256(bootstrap.encode()).hexdigest(),
+            'freeze_sha256': expected_sha256, 'source_qualified': False,
+            **{key: False for key in DISABLED}}
 
 
 if __name__ == '__main__':

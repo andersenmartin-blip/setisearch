@@ -217,5 +217,78 @@ class SourceLoaderTests(unittest.TestCase):
             self.run_preflight()
 
 
+class SourceHelperTests(unittest.TestCase):
+    """Operational source-only helper launch controls with a metadata fixture."""
+    setUpClass = SourceLoaderTests.__dict__['setUpClass']
+    setUp = SourceLoaderTests.setUp
+    refresh = SourceLoaderTests.refresh
+
+    def prepare_fixture(self):
+        self.helper = self.root / 'scripts/radio_native_v2_fixture_helper.py'
+        self.helper.write_bytes(b'import json\nimport sys\n'
+                               b'def main():\n'
+                               b'    raw=sys.stdin.buffer.read()\n'
+                               b'    print(json.dumps({"payload":raw.decode(),"policy":'
+                               b'sys._radio_native_v2_source_policy_preflight}))\n')
+        self.freeze['code_sha256s']['scripts/radio_native_v2_fixture_helper.py'] = hashlib.sha256(
+            self.helper.read_bytes()).hexdigest()
+        self.refresh()
+        plan = loader.prepare_helper_launch(self.root, self.freeze_path, self.sha,
+                                             module='radio_native_v2_fixture_helper')
+        self.addCleanup(lambda: __import__('shutil').rmtree(plan['startup_cache_prefix']))
+        return plan
+
+    def run_helper(self, plan, payload=b'bounded-command\npayload'):
+        return subprocess.run([plan['executable'], *plan['args']], env=plan['env'], cwd=self.root,
+                              input=payload, capture_output=True, timeout=30)
+
+    def test_source_helper_preserves_stdin_and_returns_bound_component_proof(self):
+        plan = self.prepare_fixture()
+        result = self.run_helper(plan)
+        self.assertEqual(result.returncode, 0, result.stderr.decode())
+        record = json.loads(result.stdout)
+        self.assertEqual(record['payload'], 'bounded-command\npayload')
+        proof = record['policy']
+        self.assertEqual(proof['mode'], 'LOCAL_HELPER_SOURCE_COMPONENT_ONLY')
+        self.assertEqual(proof['helper_bootstrap_sha256'], plan['source_policy_sha256'])
+        self.assertEqual(proof['entrypoint_sha256'], plan['source_loader_sha256'])
+        self.assertEqual(proof['freeze_sha256'], plan['freeze_sha256'])
+        self.assertTrue(proof['source_only_imports_verified'])
+        self.assertFalse(plan['source_qualified'])
+        self.assertTrue(all(proof[key] is False for key in loader.DISABLED))
+        self.assertEqual(list(Path(plan['startup_cache_prefix']).rglob('*')), [])
+
+    def test_source_helper_refuses_hostile_timestamp_pyc(self):
+        plan = self.prepare_fixture()
+        cache = Path(importlib.util.cache_from_source(str(self.helper)))
+        cache.parent.mkdir()
+        hostile = compile('raise AssertionError("untrusted pyc executed")\n', str(self.helper), 'exec')
+        cache.write_bytes(import_external._code_to_timestamp_pyc(
+            hostile, int(self.helper.stat().st_mtime), self.helper.stat().st_size))
+        result = self.run_helper(plan)
+        self.assertEqual(result.returncode, 0, result.stderr.decode())
+        proof = json.loads(result.stdout)['policy']
+        self.assertEqual(proof['source_inventory']['radio_native_v2_fixture_helper']['kind'],
+                         'DIRECT_SOURCE_BYTES')
+
+    def test_source_helper_uses_original_loader_buffer_after_path_replacement(self):
+        plan = self.prepare_fixture()
+        self.entry.write_bytes(b'raise AssertionError("untrusted replacement loader executed")\n')
+        # File equality still fails before helper execution; the replacement
+        # entrypoint source is never compiled or executed.
+        result = self.run_helper(plan)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn(b'Pinned source-loader entrypoint differs', result.stderr)
+        self.assertNotIn(b'untrusted replacement loader executed', result.stderr)
+
+    def test_source_helper_missing_source_or_wrong_bootstrap_buffer_refused(self):
+        plan = self.prepare_fixture()
+        self.helper.write_bytes(b'raise AssertionError("changed helper executed")\n')
+        result = self.run_helper(plan)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn(b'Frozen local dependency differs', result.stderr)
+        self.assertNotIn(b'changed helper executed', result.stderr)
+
+
 if __name__ == '__main__':
     unittest.main()
