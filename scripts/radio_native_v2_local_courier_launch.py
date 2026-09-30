@@ -5,6 +5,71 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import re
+import stat
+
+
+NETWORK_SCHEMA = 'radio-native-v2-pinned-git-fetch-network-policy-v1'
+CA_PATH = 'config/radio_native_v2_local_git_ca_20260930.pem'
+PROXY_POLICY = {'source_environment_key': 'HTTPS_PROXY', 'scheme': 'http', 'hostname': '127.0.0.1',
+                'minimum_port': 1, 'maximum_port': 65535, 'credentials_allowed': False,
+                'path_allowed': False, 'query_allowed': False, 'fragment_allowed': False}
+
+
+def _pinned_input(path, expected_sha256, maximum_bytes, expected_bytes=None):
+    path = Path(path)
+    if (not path.is_absolute() or str(path) != os.path.normpath(str(path))
+            or not isinstance(expected_sha256, str) or not re.fullmatch('[0-9a-f]{64}', expected_sha256)):
+        raise ValueError('Canonical pinned network input required')
+    for parent in path.parents:
+        if parent.is_symlink() or not parent.is_dir():
+            raise ValueError('Symlinked network input ancestor refused')
+    fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW)
+    try:
+        before = os.fstat(fd)
+        if (not stat.S_ISREG(before.st_mode) or before.st_nlink != 1
+                or before.st_size > maximum_bytes
+                or (expected_bytes is not None and before.st_size != expected_bytes)):
+            raise ValueError('Bounded sole network input required')
+        with os.fdopen(fd, 'rb', closefd=False) as source:
+            raw = source.read(maximum_bytes + 1)
+        if (len(raw) != before.st_size or os.fstat(fd).st_size != before.st_size
+                or hashlib.sha256(raw).hexdigest() != expected_sha256):
+            raise ValueError('Pinned network input drifted')
+        return raw
+    finally:
+        os.close(fd)
+
+
+def validate_runtime_proxy(value):
+    if (not isinstance(value, str) or not re.fullmatch(r'http://127\.0\.0\.1:[1-9][0-9]{0,4}', value)
+            or int(value.rsplit(':', 1)[1]) > 65535):
+        raise ValueError('Credential-free exact loopback HTTPS_PROXY required')
+    return value
+
+
+def capture_git_network_proxy(root, config_path, config_sha256):
+    """Select one current endpoint; no other inherited environment survives."""
+    if str(config_path) != str(root / 'config/radio_native_v2_local_git_network_20260930.json'):
+        raise ValueError('Exact repository network policy path required')
+    raw = _pinned_input(config_path, config_sha256, 16384)
+    policy = json.loads(raw)
+    if raw != json.dumps(policy, sort_keys=True, separators=(',', ':'), ensure_ascii=True).encode():
+        raise ValueError('Canonical network policy required')
+    fields = {'schema', 'repository', 'operation', 'proxy_policy', 'tls_ca', 'automatic_retry',
+              'execution_authorized', 'reservation_authorized', 'scientific_execution_authorized'}
+    if (not isinstance(policy, dict) or set(policy) != fields or policy['schema'] != NETWORK_SCHEMA
+            or policy['repository'] != 'andersenmartin-blip/setisearch' or policy['operation'] != 'git_fetch'
+            or json.dumps(policy['proxy_policy'], sort_keys=True, separators=(',', ':'))
+               != json.dumps(PROXY_POLICY, sort_keys=True, separators=(',', ':'))
+            or any(policy[key] is not False for key in fields if key.endswith('_authorized') or key == 'automatic_retry')):
+        raise ValueError('Exact non-authorizing Git fetch network policy required')
+    ca = policy['tls_ca']
+    if (not isinstance(ca, dict) or set(ca) != {'path', 'bytes', 'sha256'} or ca['path'] != CA_PATH
+            or type(ca['bytes']) is not int or not 0 < ca['bytes'] <= 4 * 1024 * 1024):
+        raise ValueError('Exact pinned repository TLS CA required')
+    _pinned_input(root / ca['path'], ca['sha256'], 4 * 1024 * 1024, ca['bytes'])
+    return validate_runtime_proxy(os.environ.get('HTTPS_PROXY'))
 
 
 def prepare(root, freeze_path, freeze_sha256, config_path, config_sha256):
@@ -18,9 +83,19 @@ def prepare(root, freeze_path, freeze_sha256, config_path, config_sha256):
     options = json.loads(raw)
     if (options.get('fixture_namespace') not in ('results_radio_native_v2_local_transport_20260930a/live01',
                                                'results_radio_native_v2_local_transport_20260930a/live02',
-                                               'results_radio_native_v2_local_transport_20260930a/live03')
+                                               'results_radio_native_v2_local_transport_20260930a/live03',
+                                               'results_radio_native_v2_local_transport_20260930a/live04')
             or options.get('cases') != 1 or options.get('root') != str(root)):
         raise ValueError('Only the fixed single-case prospective fixture is supported')
+    if 'gitNetworkRuntimeProxy' in options:
+        raise ValueError('Runtime proxy must be selected from this launcher environment')
+    network_keys = {'gitNetworkConfigPath', 'gitNetworkConfigSha256'}
+    supplied_network_keys = network_keys.intersection(options)
+    if supplied_network_keys:
+        if supplied_network_keys != network_keys:
+            raise ValueError('Complete pinned network policy options required')
+        options['gitNetworkRuntimeProxy'] = capture_git_network_proxy(
+            root, options['gitNetworkConfigPath'], options['gitNetworkConfigSha256'])
     template = options.pop('start_arguments_template', None)
     if (not isinstance(template, dict) or not isinstance(template.get('cmd'), str)
             or template['cmd'].count('__CONFIG_SHA256__') != 1

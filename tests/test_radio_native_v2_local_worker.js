@@ -108,6 +108,21 @@ test('real Worker request and exact params range are claimed once under its dead
   await assert.rejects(f.adapter.action({action:'claim',id:'request-000001'}),/no retry/);
 });
 
+test('prepare_transport awaits network capability preparation before sealing the Worker reply',async t=>{
+  const f=fixture(t);await f.adapter.action({action:'create'});
+  const worker=runPython(t,f,`import json,sys\nfrom seti_repeater.native_v2_bridge_radio import Store,Worker\nw=Worker(Store(sys.argv[1]),seconds=10)\nr=w.prepare_transport('{"ordinal":0}','0'*64)\nprint(json.dumps({'prepared':r}))\n`);
+  const events=[];let release,entered;
+  const gate=new Promise(resolve=>{release=resolve;}),started=new Promise(resolve=>{entered=resolve;});
+  t.after(()=>release());
+  const host={beginCase:()=>events.push('begin'),withWorkerDeadline:async(deadline,fn)=>{
+    assert.ok(deadline>Date.now());events.push('deadline');return fn();},prepareNetwork:async()=>{
+      events.push('network-start');entered();await gate;events.push('network-ready');}};
+  const completion=serviceUntilDone(f,worker,host);await started;
+  assert.equal(worker.done,false);assert.equal(fs.existsSync(path.join(f.root,'items','response-000000','sealed')),false);
+  assert.deepEqual(events,['deadline','begin','network-start']);release();assert.equal(await completion,1);
+  assert.deepEqual(events,['deadline','begin','network-start','network-ready']);worker.result();
+});
+
 test('multimegabyte Git projection stays file-backed until the unchanged Worker reads it',async t=>{
   const f=fixture(t);await f.adapter.action({action:'create'});
   const filename='fixture/archive.json',data=Buffer.from('x'.repeat(2*1024*1024+1)),blob=crypto.createHash('sha1').update('blob '+data.length+'\0').update(data).digest('hex');

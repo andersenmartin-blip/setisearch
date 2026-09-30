@@ -19,7 +19,7 @@ from seti_repeater.empty_null_radio import canonical
 from radio_native_v2_local_transport_fixture import deterministic_bundle, PREFIX
 
 SOURCE_BYTES = 65536
-CONTROL_PREFIX = 'results_radio_native_v2_local_transport_20260930a/live03'
+CONTROL_PREFIX = 'results_radio_native_v2_local_transport_20260930a/live04'
 SCHEMA = 'radio-native-v2-actual-tool-courier-publisher-control-v1'
 
 

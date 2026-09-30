@@ -21,8 +21,9 @@ request receipt and supporting receipt batch now stream through source-only
 Python helpers. No second large request file or all-fragment string array is
 needed.
 
-The component's structural bound is 56 operations per case and 448 over
-eight cases, using 960 KiB extraction fragments. Extra actual courier polls
+The offline component's structural bound is 56 operations per case and 448 over
+eight cases, using 960 KiB extraction fragments. The configured live04 network
+path adds one mandatory capability process: 57 and 456 respectively. Extra actual courier polls
 are counted separately; this bound does not qualify an actual eight-case run.
 The old 64/512-operation,
 48/64-MiB per-case request/response, 30-second Worker and 600-second case
@@ -61,7 +62,8 @@ the complete courier. A separate local 64 MiB stdio fixture passed in 0.597
 seconds; it is not an actual tool throughput measurement.
 
 The established metadata-only Python suites passed 299 tests; the new fixture
-tests are retained separately. Final JavaScript suites passed 89 tests.
+tests are retained separately. Three additional launcher regression tests bring
+the scoped Python total to 305. Final JavaScript suites passed 97 tests.
 An additional broad historical discovery ran 1,036 tests and failed with 108
 errors and two old acquisition-pin assertion failures. Missing historical
 artifacts and h5py are recorded in that log; this release does not claim that
@@ -69,12 +71,14 @@ all repository tests pass. No raw telescope data was fetched to fill those gaps.
 
 ## Prospective freeze and next control
 
-The fresh live03 prospective runtime freeze pins 903 code, 14 input and 1,366 runtime
+The fresh live04 prospective runtime freeze pins 903 code, 16 input and 1,366 runtime
 files. Its SHA256 is
-`2ad05ee165566e20107c7d32f8857c9974d2c92806911ff569c6daca7ed7153c`.
+`cede229b78f79aee8b460694e262701808e671a4632347566294c6786ae4c6c0`.
+Its inputs include the network selection policy and public TLS certificate.
+The preceding live01/live02/live03 freezes are retained separately.
 Fresh local source preflight passed for all five Node modules and 184 Python
-source imports; the largest launcher argument was 65,803 bytes. The fresh
-startup cache remained empty and all 903 code pins were reverified. The earlier
+source imports; the largest launcher argument was 70,308 bytes. The fresh
+startup cache remained empty and all 903 code and 16 input pins were reverified. The earlier
 source-drift refusal is also preserved. Every execution, reservation, RNG,
 restart and transport-integration authority flag remains false.
 
@@ -93,14 +97,48 @@ existing paths are rejected before helper dispatch. Regression tests cover
 the wait barrier and a real Node/Python empty-Store poll and reuse refusal.
 The client also preserves a valid failure reason when stderr accompanies it.
 
-The separate live03 prospective plan permits one 64 KiB deterministic archive
+Live03 reached three actual connector calls and created tree
+`10932aec46cd9462d8f67798a92b1d3acb5c67a8` and candidate commit
+`9041ff761b18000832eb976a3c6834bcc56c216e`. The candidate fetch then failed
+with `Could not resolve host: github.com`: the isolated child environment
+omitted the execution environment's proxy. No ref update was dispatched.
+Its 17 SDK calls, all 172 local scope files, complete failure receipt and
+durable STOPPED marker are retained. Seven durable SDK receipts match the
+caller byte for byte. Idle polls and the last delivery remain only in the
+caller trace; the host retains a distinct unknown acknowledgement reservation.
+
+Separate diagnostics proved credential-free loopback HTTPS proxy routing with
+TLS verification and a pinned public CA. The proxy port changes per tool
+invocation, so the launcher validates only the current HTTPS_PROXY against a
+public policy and binds its exact value into the process receipt. Arbitrary
+environment variables are not inherited. Local metadata Git retains its
+isolated environment. The frozen Git 2.51.1 probe retrieved exactly three
+requested archive blobs (88,514 bytes), one commit and 843 trees. No historical
+blob payload was read. The first system-Git probe is retained separately.
+
+Live04 requires an incoming protocol-v2 filtering capability transcript during
+prepare_transport, before its first connector. Both candidate and post-update
+fetches use blob:none/depth=1 plus only the exact frozen archive blob IDs;
+unsupported filtering closes the scope. Capability preflight has its own
+unchanged 30-second Worker operation. Its additional local process is counted:
+60 actual SDK calls plus four conservative Git processes fit the existing 64
+allocation. This is a trusted-endpoint capability check, not a hostile-server
+or complete eight-case qualification.
+
+Git's filtered URL fetch would otherwise register a promisor remote by changing
+local configuration. A separate frozen-Git probe proved that pre-registering
+the exact public URL and blob:none filter keeps both config and config.worktree
+byte-identical through capability, fetch and inventory. That data preparation
+was completed before the controller snapshot; strict metadata checks remain.
+
+The separate live04 prospective plan permits one 64 KiB deterministic archive
 under a fresh namespace, after immutable public code/freeze readback. A single
 awaited portable client automates startup, source extraction, connector calls
 and deliveries, with extra polls counted before dispatch. Its cap covers the
-nested SDK calls and three conservative local Git processes; the surrounding
+nested SDK calls and four conservative local Git processes; the surrounding
 functions.exec/wait orchestration and courier V8 RSS remain unqualified.
 It grants no native-case authority. Its result will be retained separately;
-live03 has not run in this prospective publication. The controller reports its last supporting
+live04 has not run in this prospective publication. The controller reports its last supporting
 acknowledgement as unconfirmed and does not claim durable late-envelope custody
 after Store shutdown.
 

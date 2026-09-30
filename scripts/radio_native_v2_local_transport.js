@@ -7,12 +7,12 @@ const h = require('./radio_native_v2_broker_host');
 const MIB = 1024 * 1024;
 const SCHEMA = 'radio-native-v2-local-courier-host-v1';
 const FIXTURE_PREFIX='results_radio_native_v2_local_transport_20260930a/live01';
-const CONTROL_PREFIX='results_radio_native_v2_local_transport_20260930a/live03';
+const CONTROL_PREFIX='results_radio_native_v2_local_transport_20260930a/live04';
 const HARD = Object.freeze({cases:8,calls:512,request_bytes:384*MIB,response_bytes:512*MIB,
   case_calls:64,case_request_bytes:48*MIB,case_response_bytes:64*MIB,
   seconds:4800,case_seconds:600});
 const RESERVATIONS = Object.freeze({fetch:64*1024,create_tree:4*MIB,
-  create_commit:256*1024,update_ref:64*1024,git_fetch:MIB,git_cat_file_batch:MIB,
+  create_commit:256*1024,update_ref:64*1024,git_fetch:MIB,git_protocol_capability:MIB,git_cat_file_batch:MIB,
   courier_read:2*(MIB-64*1024)+16*1024,courier_delivery:64*1024});
 const READ_BYTES = MIB-64*1024;
 const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
@@ -264,11 +264,11 @@ function makeCourierReadPlan(view,{python,ledger}) {
 function capacityRecord() {
   const createTreeBytes=37923633,reads=Math.ceil(createTreeBytes/READ_BYTES),connectors=6,
     // launch, final custody/status, each connector acknowledgement delivery,
-    // and three explicit Git operations (candidate fetch, readback fetch,batch).
-    calls=reads+connectors+connectors+3+2;
+    // and four explicit Git operations (filter capability, two fetches,batch).
+    calls=reads+connectors+connectors+4+2;
   return {schema:'radio-native-v2-local-courier-capacity-v1',maximum_request_fixture_bytes:createTreeBytes,
     read_bytes:READ_BYTES,outgoing_read_calls:reads,connector_calls:connectors,
-    explicit_git_operations:3,courier_delivery_calls:connectors,control_calls:2,
+    explicit_git_operations:4,courier_delivery_calls:connectors,control_calls:2,
     calls_per_case:calls,calls_eight_cases:calls*8,old_per_case_calls:64,old_total_calls:512,
     request_payload_crosses_tool_boundary_once:true,outgoing_request_source_copied:false,
     normalized_readback_crosses_tool_boundary:false,supporting_read_receipts_reconstructed_from_pinned_source:true,
@@ -276,6 +276,20 @@ function capacityRecord() {
       RESERVATIONS.create_commit+RESERVATIONS.update_ref,
     status:'PROSPECTIVE_LOWER_LEVEL_COMPONENT_ONLY',execution_authorized:false,
     rng_draws:0,telescope_reads:0,case_reservations:0};
+}
+
+function filterCapabilityProof(raw) {
+  assert(raw&&raw.exit_code===0&&typeof raw.stderr==='string'&&Buffer.byteLength(raw.stderr)<=MIB,
+    'Complete bounded incoming Git capability transcript required');
+  const lines=raw.stderr.split('\n'),incoming=lines.filter(line=>/\b(?:git|ls-remote)<\s+/.test(line)),
+    version=incoming.some(line=>/\b(?:git|ls-remote)<\s+version 2\s*$/.test(line)),
+    fetch=incoming.filter(line=>/\b(?:git|ls-remote)<\s+fetch=/.test(line));
+  assert(version&&fetch.some(line=>{const capabilities=line.replace(/^.*\b(?:git|ls-remote)<\s+fetch=/,'').trim().split(/\s+/);
+    return capabilities.includes('filter')&&capabilities.includes('shallow');}),
+    'Incoming protocol v2 filter and shallow capabilities required; unfiltered fallback forbidden');
+  return {schema:'radio-native-v2-incoming-git-filter-capability-v1',protocol_version:2,filter:true,shallow:true,
+    transcript_bytes:Buffer.byteLength(raw.stderr),transcript_sha256:sha(raw.stderr),
+    incoming_fetch_lines_sha256:sha(h.canonical(fetch)),execution_authorized:false,reservation_authorized:false};
 }
 
 function createLocalBrokerHost(options) {
@@ -287,6 +301,23 @@ function createLocalBrokerHost(options) {
   assert(options.fixture_namespace===undefined||[FIXTURE_PREFIX,CONTROL_PREFIX].includes(options.fixture_namespace),'Only fixed prospective fixture namespaces are permitted');
   const allowedPrefix=options.fixture_namespace||h.PREFIX;
   const repoPath=safeFile(options.repoPath),spoolRoot=safeFile(options.spoolRoot),gitPath=safeFile(options.gitPath||'/usr/bin/git');
+  let gitFetchEnvironment=null;
+  if(options.gitFetchEnvironment!==undefined){
+    assert(options.gitFetchEnvironment&&typeof options.gitFetchEnvironment==='object'&&!Array.isArray(options.gitFetchEnvironment)&&
+      Object.keys(options.gitFetchEnvironment).sort().join()==='GIT_CONFIG_GLOBAL,GIT_CONFIG_NOSYSTEM,GIT_CONFIG_SYSTEM,GIT_NO_LAZY_FETCH,GIT_NO_REPLACE_OBJECTS,GIT_OPTIONAL_LOCKS,GIT_SSL_CAINFO,GIT_TERMINAL_PROMPT,HTTPS_PROXY,LANG,LC_ALL,PATH'&&
+      Object.entries(options.gitFetchEnvironment).every(([k,v])=>/^[A-Z_]+$/.test(k)&&typeof v==='string'&&
+        v.length<=4096&&!/[\0\r\n]/.test(v))&&Buffer.byteLength(h.canonical(options.gitFetchEnvironment))<=16384,
+      'Bounded exact Git fetch environment required');gitFetchEnvironment=Object.freeze({...options.gitFetchEnvironment});
+  }
+  assert(options.fixture_namespace!==CONTROL_PREFIX||gitFetchEnvironment,'Actual control requires pinned network configuration');
+  const gitBase=['--no-replace-objects','-c','core.hooksPath=/dev/null','-c','gc.auto=0',
+    '-c','credential.helper=','-c','http.sslVerify=true','-c','protocol.version=2'],
+    gitUrl='https://github.com/'+h.REPOSITORY+'.git',gitOperations=gitFetchEnvironment?4:3;
+  const fetchPlan=()=>gitFetchEnvironment?{executable:gitPath,args:[...gitBase,'fetch','--filter=blob:none','--depth=1',
+    '--no-tags','--no-write-fetch-head','--',gitUrl,phase.candidate,
+    ...Array.from(new Set(Object.values(freeze.files).map(pin=>pin.blob))).sort()],cwd:repoPath,maximum_output_bytes:MIB,
+    environment:{...gitFetchEnvironment}}:{executable:gitPath,args:['--no-replace-objects','-c','core.hooksPath=/dev/null',
+      '-c','gc.auto=0','fetch','--no-tags','--no-write-fetch-head','--',gitUrl,phase.candidate],cwd:repoPath,maximum_output_bytes:MIB};
   const completed=[],records=[];let freeze=null,phase={},source=null,busy=false,stopped=false,
     workerDeadline=null,receiptBytes=0,caseReceiptBase=0,gitSpoolBytes=0,caseSpoolBase=0,receiptReserved=0,
     gitSpoolUnknown=0,toolArgumentBytes=0,caseArgumentBase=0;
@@ -433,6 +464,18 @@ function createLocalBrokerHost(options) {
     assert(!stopped&&value&&value.packet&&typeof value.path==='string'&&integer(value.bytes,64*MIB)&&
       /^[0-9a-f]{64}$/.test(value.sha256),'Pinned sealed worker request source required');source=value;
   }
+  async function prepareNetwork() {
+    if(!gitFetchEnvironment)return {prepared:false,network_required:false};
+    assert(!busy&&!stopped&&freeze&&workerDeadline!==null&&phase.head===null&&!phase.gitFilterCapability,
+      'Single claimed network preparation before first connector required');busy=true;
+    try{
+      const capability=await localProcess('git_protocol_capability',{executable:gitPath,
+        args:[...gitBase,'ls-remote','--refs','--',gitUrl],cwd:repoPath,maximum_output_bytes:MIB,
+        environment:{...gitFetchEnvironment,GIT_TRACE_PACKET:'1'}});
+      phase.gitFilterCapability=filterCapabilityProof(capability);check();
+      return {prepared:true,network_required:true,capability:{...phase.gitFilterCapability}};
+    }catch(error){throw close(error);}finally{busy=false;}
+  }
   async function withWorkerDeadline(deadlineMs,fn) {
     assert(!stopped&&Number.isFinite(deadlineMs)&&deadlineMs>clock()&&typeof fn==='function',
       'Finite absolute claimed worker deadline required');
@@ -499,7 +542,8 @@ function createLocalBrokerHost(options) {
   async function invoke(operation,params) {
     assert(!busy&&!stopped,'Sequential local host only; no retry');busy=true;
     try{
-      check();assert(workerDeadline!==null,'Claimed finite worker deadline required before broker invocation');let value;
+      check();assert(workerDeadline!==null,'Claimed finite worker deadline required before broker invocation');
+      assert(!gitFetchEnvironment||phase.gitFilterCapability,'Mandatory filtered-fetch capability preparation incomplete');let value;
       if(operation==='fetch') {
         exact(params,['url']);const base='https://api.github.com/repos/'+h.REPOSITORY+'/git/';
         assert(typeof params.url==='string'&&params.url.startsWith(base),'Approved immutable repository endpoint required');
@@ -516,9 +560,9 @@ function createLocalBrokerHost(options) {
           if(suffix.startsWith('commits/'))assert(object===freeze.parent||object===phase.candidate,'Unobserved commit refused');
           else assert(phase.permittedTrees.has(object),'Unobserved tree refused');
           if(object===phase.candidate&&!phase.candidateFetched){
-            await localProcess('git_fetch',{executable:gitPath,args:['--no-replace-objects','-c','core.hooksPath=/dev/null',
-              '-c','gc.auto=0','fetch','--no-tags','--no-write-fetch-head','--','https://github.com/'+h.REPOSITORY+'.git',phase.candidate],
-              cwd:repoPath,maximum_output_bytes:MIB});phase.candidateFetched=true;
+            const fetched=await localProcess('git_fetch',fetchPlan());
+            assert(!gitFetchEnvironment||!/(filtering not recognized|filter.*ignored|does not support.*filter)/i.test(fetched.stderr||''),
+              'Unfiltered Git fallback forbidden');phase.candidateFetched=true;
           }
           value=options.localGit.withDeadline(left(),()=>options.localGit.immutableRead(params.url));
           assert(value.sha===object,'Authenticated local object identity differs');
@@ -567,9 +611,7 @@ function createLocalBrokerHost(options) {
           'Independent exact raw Git spool reservation exhausted');
         // A lost acknowledgement never credits or removes this reservation.
         gitSpoolUnknown+=spoolReserve;
-        const plans={git_fetch:{executable:gitPath,args:['--no-replace-objects','-c','core.hooksPath=/dev/null','-c','gc.auto=0',
-          'fetch','--no-tags','--no-write-fetch-head','--','https://github.com/'+h.REPOSITORY+'.git',phase.candidate],
-          cwd:repoPath,maximum_output_bytes:MIB},
+        const plans={git_fetch:fetchPlan(),
           git_cat_file_batch:{executable:gitPath,args:['--no-replace-objects','-c','core.hooksPath=/dev/null','cat-file','--batch'],
             cwd:repoPath,stdout_path:spoolPath,stdin_text:params.paths.map(path=>phase.candidate+':'+path).join('\n')+'\n',
             maximum_output_bytes:MIB}};
@@ -577,7 +619,9 @@ function createLocalBrokerHost(options) {
         const callGit=async(kind,plan)=>{assert(kind===['git_fetch','git_cat_file_batch'][sequence++]&&sequence<=2,
           'Exactly post-update fetch and grouped batch required');
           if(plan!==undefined)assert(h.canonical(plan)===h.canonical(plans[kind]),'Only pinned generated Git plan required');
-          return localProcess(kind,plans[kind]);};
+          const raw=await localProcess(kind,plans[kind]);
+          assert(kind!=='git_fetch'||!gitFetchEnvironment||!/(filtering not recognized|filter.*ignored|does not support.*filter)/i.test(raw.stderr||''),
+            'Unfiltered Git fallback forbidden');return raw;};
         const grouped=await boundedTask(()=>options.groupedGitReadback({commit:phase.candidate,paths:params.paths.slice(),files:freeze.files,
           callGit,git_plan:plans,spool_path:spoolPath,raw_git_reserved_bytes:spoolReserve,deadline_ms:left()}));
         assert(grouped&&grouped.commit===phase.candidate&&grouped.single_cat_file_batch===true&&sequence===2,
@@ -608,15 +652,16 @@ function createLocalBrokerHost(options) {
         receipt_charged_bytes:receiptBytes-caseReceiptBase+receiptReserved,unknown_receipt_bytes:receiptReserved,
         git_spool_bytes:gitSpoolBytes-caseSpoolBase,git_spool_charged_bytes:gitSpoolBytes-caseSpoolBase+gitSpoolUnknown,
         unknown_git_spool_bytes:gitSpoolUnknown},raw_git_receipt:phase.rawGitReceipt,
-      local_projection:phase.localProjection,explicit_git_operations:3,automatic_retry:false};
+      local_projection:phase.localProjection,explicit_git_operations:gitOperations,
+      git_filter_capability:phase.gitFilterCapability||null,automatic_retry:false};
     completed.push(receipt);freeze=null;return receipt;}catch(error){throw close(error);}}
-  return {beginCase,invoke,finishCase,setRequestSource,withWorkerDeadline,prepareCourierReads,completeCourierReads,usage,ledger,
+  return {beginCase,prepareNetwork,invoke,finishCase,setRequestSource,withWorkerDeadline,prepareCourierReads,completeCourierReads,usage,ledger,
     state:()=>({stopped,busy,candidate:phase.candidate||null,update_may_have_landed:phase.updated===true||phase.updateDispatched===true,
-      records:records.map(row=>({...row})),completed:completed.slice()}),
+      git_filter_capability:phase.gitFilterCapability||null,records:records.map(row=>({...row})),completed:completed.slice()}),
     capabilityManifest:()=>({schema:SCHEMA,status:'COMPONENT_ONLY_NOT_EXECUTABLE',limits:HARD,namespace:allowedPrefix,
       native_case_execution:false,
       complete_response_reservations:RESERVATIONS,immutable_git_metadata_local:true,
-      independent_candidate_tree_hash:true,candidate_commit_fetched_before_update:true,explicit_git_operations:3,
+      independent_candidate_tree_hash:true,candidate_commit_fetched_before_update:true,explicit_git_operations:gitOperations,
       file_backed_readback_to_python:true,normalized_readback_tool_bytes:0,courier_runtime_trusted:false,
       supporting_read_receipt_custody:'EXACT_RECONSTRUCTION_FROM_PINNED_SOURCE_AND_OBSERVED_ENVELOPE_METADATA',
       all_execution_qualification_flags:false,execution_authorized:false,reservation_authorized:false,
@@ -627,4 +672,4 @@ function createLocalBrokerHost(options) {
 
 module.exports={SCHEMA,FIXTURE_PREFIX,CONTROL_PREFIX,HARD,RESERVATIONS,READ_BYTES,sha,hashFile,readRange,
   SharedLedger,makeRequestView,makeReadDescriptor,reconstructReadEnvelope,makeCourierReadPlan,requestViewStoragePin,
-  capacityRecord,createLocalBrokerHost};
+  capacityRecord,filterCapabilityProof,createLocalBrokerHost};

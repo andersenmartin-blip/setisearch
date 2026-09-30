@@ -180,6 +180,55 @@ test('strict host uses six connectors and three charged Git operations; full rep
     assert.equal(f.durable.length,9);assert.equal(f.host.capabilityManifest().execution_authorized,false);
   }finally{fs.rmSync(f.root,{recursive:true});}
 });
+const networkEnvironment={PATH:'/usr/bin:/bin',LANG:'C',LC_ALL:'C',GIT_CONFIG_NOSYSTEM:'1',
+  GIT_CONFIG_SYSTEM:'/dev/null',GIT_CONFIG_GLOBAL:'/dev/null',GIT_NO_REPLACE_OBJECTS:'1',GIT_NO_LAZY_FETCH:'1',
+  GIT_TERMINAL_PROMPT:'0',GIT_OPTIONAL_LOCKS:'0',HTTPS_PROXY:'http://127.0.0.1:12345',GIT_SSL_CAINFO:'/fixed/input.pem'};
+const incomingCapabilities='packet: git< version 2\npacket: git< fetch=shallow wait-for-done filter\n';
+test('configured network prepares capabilities separately and receipts exact environments before dispatch',async()=>{
+  const calls=[],f=hostFixture({gitFetchEnvironment:networkEnvironment,runGit:async(kind,plan)=>{
+    assert.ok(f.host.usage().unknown_response_count>0,'Local process reserved before spawn');
+    const ledgerRequest=f.host.ledger.records.at(-1);assert.equal(ledgerRequest.request_sha256,
+      sha(JSON.stringify({tool:'local_git_process',arguments:plan})));
+    calls.push({kind,plan});return{exit_code:0,output:'',stderr:kind==='git_protocol_capability'?incomingCapabilities:''};}});
+  try{
+    const prepared=await f.host.withWorkerDeadline(Date.now()+10000,()=>f.host.prepareNetwork());
+    assert.equal(prepared.capability.filter,true);assert.equal(f.courierCalls.length,0);
+    assert.deepEqual(calls.map(r=>r.kind),['git_protocol_capability']);
+    assert.deepEqual(calls[0].plan.environment,{...networkEnvironment,GIT_TRACE_PACKET:'1'});
+    await publishFixture(f);const receipt=f.host.finishCase();
+    assert.deepEqual(calls.map(r=>r.kind),['git_protocol_capability','git_fetch','git_fetch','git_cat_file_batch']);
+    assert.equal(receipt.explicit_git_operations,4);assert.equal(receipt.actual_tool_usage.calls,10);
+    assert.equal(f.courierCalls.length,6);assert.equal(receipt.git_filter_capability.filter,true);
+    const blobs=Array.from(new Set(Object.values(f.files).map(pin=>pin.blob))).sort();
+    for(const row of calls.filter(r=>r.kind==='git_fetch')){
+      assert.deepEqual(row.plan.environment,networkEnvironment);assert.ok(row.plan.args.includes('--filter=blob:none'));
+      assert.ok(row.plan.args.includes('--depth=1'));assert.deepEqual(row.plan.args.slice(-1-blobs.length),[f.candidate,...blobs]);
+      assert.equal(row.plan.environment.GIT_TRACE_PACKET,undefined);
+    }
+    assert.equal(calls.at(-1).plan.environment,undefined);
+    const stored=JSON.parse(f.durable[0].request_json);assert.equal(stored.arguments.environment.GIT_TRACE_PACKET,'1');
+  }finally{fs.rmSync(f.root,{recursive:true});}
+});
+test('missing incoming filter capability stops before any fetch or connector',async()=>{
+  const calls=[],f=hostFixture({gitFetchEnvironment:networkEnvironment,runGit:async(kind)=>{
+    calls.push(kind);return{exit_code:0,output:'',stderr:'packet: git< version 2\npacket: git> fetch=shallow filter\n'};}});
+  try{
+    await assert.rejects(f.host.withWorkerDeadline(Date.now()+10000,()=>f.host.prepareNetwork()),/Incoming protocol/);
+    assert.deepEqual(calls,['git_protocol_capability']);assert.equal(f.courierCalls.length,0);
+    assert.equal(f.host.state().stopped,true);assert.equal(f.durable.length,1);
+    assert.equal(f.host.usage().unknown_response_count,0);assert.equal(f.host.usage().unknown_receipt_bytes,0);
+  }finally{fs.rmSync(f.root,{recursive:true});}
+});
+test('network invocation cannot skip preparation and outgoing capability text never qualifies',async()=>{
+  for(const stderr of['packet: git> version 2\npacket: git> fetch=shallow filter\n',
+    'packet: git< version 2\npacket: git< fetch=shallow filtering\n',
+    'packet: git< version 2\npacket: git< fetch=filter\n'])
+    assert.throws(()=>t.filterCapabilityProof({exit_code:0,stderr}),/Incoming protocol/);
+  const f=hostFixture({gitFetchEnvironment:networkEnvironment});try{
+    await assert.rejects(f.invoke('fetch',{url:'https://api.github.com/repos/'+h.REPOSITORY+'/git/ref/heads/'+h.BRANCH}),/preparation incomplete/);
+    assert.equal(f.courierCalls.length,0);assert.equal(f.gitCalls.length,0);
+  }finally{fs.rmSync(f.root,{recursive:true});}
+});
 test('invocation refuses missing claimed worker deadline before connector dispatch',async()=>{
   const f=hostFixture();try{await assert.rejects(f.host.invoke('fetch',{url:'https://api.github.com/repos/'+h.REPOSITORY+'/git/ref/heads/'+h.BRANCH}));
     assert.equal(f.courierCalls.length,0);assert.equal(f.host.state().stopped,true);

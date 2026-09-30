@@ -1,0 +1,153 @@
+{
+  "automatic_retry": false,
+  "branch_updates": 0,
+  "ca": {
+    "path": "config/radio_native_v2_local_git_ca_20260930.pem",
+    "sha256": "ab6933a81e6f0d142e6d5f58ed465589d899a523c2752055761af11d4ee38f2b"
+  },
+  "caller_evidence_sha256": "d37b2fee56df79dfb60ffe870eb9baa9acfe5d84d562b33ef53949c9ef2703a1",
+  "candidate": "9041ff761b18000832eb976a3c6834bcc56c216e",
+  "capability_preflight": {
+    "arguments": [
+      "/usr/bin/git",
+      "--no-replace-objects",
+      "-c",
+      "core.hooksPath=/dev/null",
+      "-c",
+      "gc.auto=0",
+      "-c",
+      "credential.helper=",
+      "-c",
+      "http.sslVerify=true",
+      "-c",
+      "protocol.version=2",
+      "ls-remote",
+      "--refs",
+      "--",
+      "https://github.com/andersenmartin-blip/setisearch.git"
+    ],
+    "elapsed_seconds": 11.049772370999563,
+    "exit_code": 0,
+    "filter_advertised": true,
+    "incoming_fetch_capabilities": [
+      "22:19:28.072827 pkt-line.c:85           packet:          git< fetch=shallow wait-for-done filter",
+      "22:19:28.072992 pkt-line.c:85           packet:    ls-remote< fetch=shallow wait-for-done filter"
+    ],
+    "protocol_packet_bytes": 12370,
+    "protocol_packet_sha256": "42240ab08a597a7cdf5fa223cd00cbc873ef47c2e15ecb9c8c0873e2ff320266",
+    "protocol_version_2": true,
+    "request_json_sha256": "04b15aa6ea2f914910ce36f712c89841217a3ddfc30375b85dd65618e4979938",
+    "stderr_utf8": "",
+    "stdout_bytes": 5182,
+    "stdout_sha256": "974f22c558e653783316f3dd5bc259bb16d2899d44ad925b0e53716f970d3d93"
+  },
+  "execution_authorized": false,
+  "filtered_fetch": {
+    "arguments": [
+      "/usr/bin/git",
+      "--no-replace-objects",
+      "-c",
+      "core.hooksPath=/dev/null",
+      "-c",
+      "gc.auto=0",
+      "-c",
+      "credential.helper=",
+      "-c",
+      "http.sslVerify=true",
+      "-c",
+      "protocol.version=2",
+      "fetch",
+      "--filter=blob:none",
+      "--depth=1",
+      "--no-tags",
+      "--no-write-fetch-head",
+      "--",
+      "https://github.com/andersenmartin-blip/setisearch.git",
+      "9041ff761b18000832eb976a3c6834bcc56c216e",
+      "d94ffd567198ebe14617d3c454250ed1fb43f1ed",
+      "1fab35cd19c6a3d70ffbcd6cb9a313d3ea21531f",
+      "4626ea11d83ded3b59a6bd2125aa57b918a90bef"
+    ],
+    "elapsed_seconds": 8.457904500995937,
+    "exit_code": 0,
+    "protocol_packet_bytes": 4361,
+    "protocol_packet_sha256": "281e9752e3b6a58cc161e96f32fe762d9e3ddf0e5296cbcb4bfd3a0eaf6cd58a",
+    "request_json_sha256": "99e567505af7cb86e45c6fbf1d952678c250e8213353ada07be65a80e31a1fad",
+    "stderr_utf8": "",
+    "stdout_bytes": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "unfiltered_fallback_warning": false
+  },
+  "git": {
+    "path": "/usr/bin/git",
+    "resolved": "/usr/bin/git",
+    "sha256": "2a8c18fbf43da9f692d75474c72bea9dfd796c260b0f3dfe456376abc3bbd668"
+  },
+  "historical_blob_payloads_opened": 0,
+  "mode": "READ_ONLY_TRANSPORT_QUALIFICATION",
+  "object_inventory": {
+    "actual_blob_shas": [
+      "1fab35cd19c6a3d70ffbcd6cb9a313d3ea21531f",
+      "4626ea11d83ded3b59a6bd2125aa57b918a90bef",
+      "d94ffd567198ebe14617d3c454250ed1fb43f1ed"
+    ],
+    "candidate_commit_present": true,
+    "git_files": 23,
+    "logical_git_file_bytes": 439581,
+    "missing_blob_shas": [],
+    "network_disabled_during_inventory": true,
+    "objects": 847,
+    "payload_content_read": false,
+    "raw_metadata_sha256": "31ef9304067bc989e1ed511221e21a8686dabce22be5a03a41801b2c29d8cf4b",
+    "type_counts": {
+      "blob": 3,
+      "commit": 1,
+      "tree": 843
+    },
+    "uncompressed_bytes_by_type": {
+      "blob": 88514,
+      "commit": 332,
+      "tree": 651480
+    },
+    "unexpected_blob_shas": [],
+    "wanted_blob_shas": [
+      "1fab35cd19c6a3d70ffbcd6cb9a313d3ea21531f",
+      "4626ea11d83ded3b59a6bd2125aa57b918a90bef",
+      "d94ffd567198ebe14617d3c454250ed1fb43f1ed"
+    ]
+  },
+  "private_bare_repo": "/tmp/radio-filtered-archive-fetch-9vav4mtn/probe.git",
+  "proxy": {
+    "credentialless": true,
+    "loopback": true,
+    "scheme": "http",
+    "value_sha256": "b89b530a0a13e60f272aabc5d87ce99223380c4ffa961f282c1c41bbe2dbdc92"
+  },
+  "reservation_authorized": false,
+  "rng_draws": 0,
+  "schema": "radio-native-v2-filtered-exact-archive-fetch-probe-v1",
+  "status": "PASS_EXACT_THREE_ARCHIVE_BLOBS_AND_METADATA_ONLY",
+  "store_reopened": false,
+  "telescope_reads": 0,
+  "tls_verify": true,
+  "wanted_files": [
+    {
+      "blob": "d94ffd567198ebe14617d3c454250ed1fb43f1ed",
+      "bytes": 65,
+      "path": "results_radio_native_v2_local_transport_20260930a/live03/case00-eb98ea78784f784b/HEAD",
+      "sha256": "2d7170787e5798877d4409fa488020a4ebd8f9355997b32cb145a2d842c0f144"
+    },
+    {
+      "blob": "1fab35cd19c6a3d70ffbcd6cb9a313d3ea21531f",
+      "bytes": 87384,
+      "path": "results_radio_native_v2_local_transport_20260930a/live03/case00-eb98ea78784f784b/chunk0000.b64",
+      "sha256": "fa2a8ebb8b426644911e6914c4f02ff3760425f5a3ba5ecb7dc507fb944fbb4e"
+    },
+    {
+      "blob": "4626ea11d83ded3b59a6bd2125aa57b918a90bef",
+      "bytes": 1065,
+      "path": "results_radio_native_v2_local_transport_20260930a/live03/case00-eb98ea78784f784b/manifest.json",
+      "sha256": "74f11f55770aedecf6c6d4c120984f1c704bcfae3ff94e67e6dd4488e73ceb2c"
+    }
+  ]
+}

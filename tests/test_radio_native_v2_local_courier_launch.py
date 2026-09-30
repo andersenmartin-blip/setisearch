@@ -9,6 +9,7 @@ import sys
 import sysconfig
 import tempfile
 import unittest
+from unittest import mock
 
 import radio_native_v2_local_courier_launch as courier_launcher
 import radio_native_v2_node_loader as node_loader
@@ -142,6 +143,59 @@ module.exports.main=options=>{
                     self.prepare()
                 self.config[key] = original
                 self.refresh_config()
+
+    def network_options(self):
+        (self.root / 'config').mkdir()
+        certificate = b'harmless fixed test certificate\n'
+        (self.root / courier_launcher.CA_PATH).write_bytes(certificate)
+        policy = {'schema': courier_launcher.NETWORK_SCHEMA, 'repository': 'andersenmartin-blip/setisearch',
+                  'operation': 'git_fetch', 'proxy_policy': dict(courier_launcher.PROXY_POLICY),
+                  'tls_ca': {'path': courier_launcher.CA_PATH, 'bytes': len(certificate),
+                             'sha256': hashlib.sha256(certificate).hexdigest()},
+                  'automatic_retry': False, 'execution_authorized': False,
+                  'reservation_authorized': False, 'scientific_execution_authorized': False}
+        policy_path = self.root / 'config/radio_native_v2_local_git_network_20260930.json'
+        raw = json.dumps(policy, sort_keys=True, separators=(',', ':'), ensure_ascii=True).encode()
+        policy_path.write_bytes(raw)
+        self.config.update(gitNetworkConfigPath=str(policy_path),
+                           gitNetworkConfigSha256=hashlib.sha256(raw).hexdigest())
+        self.refresh_config()
+        return policy_path
+
+    def test_current_proxy_is_selected_once_and_no_other_environment_is_injected(self):
+        self.network_options()
+        for endpoint in ('http://127.0.0.1:12345', 'http://127.0.0.1:54321'):
+            with self.subTest(endpoint=endpoint), mock.patch.dict(os.environ, {
+                    'HTTPS_PROXY': endpoint, 'HTTP_PROXY': 'http://elsewhere.invalid:8888',
+                    'ALL_PROXY': 'socks5h://elsewhere.invalid:9999', 'GIT_SSL_NO_VERIFY': '1'}):
+                plan, configuration, _ = self.prepare()
+                options = configuration['entrypoint']['options']
+                self.assertEqual(options['gitNetworkRuntimeProxy'], endpoint)
+                self.assertFalse(any('PROXY' in key or key == 'GIT_SSL_NO_VERIFY'
+                                     for key in plan['environment']))
+                self.assertFalse(any(key in options for key in ('HTTP_PROXY', 'ALL_PROXY', 'GIT_SSL_NO_VERIFY')))
+
+    def test_network_proxy_and_certificate_must_match_policy_before_launch(self):
+        policy = self.network_options()
+        for endpoint in ('http://user:pass@127.0.0.1:12345', 'http://localhost:12345',
+                         'http://127.0.0.1:65536', 'http://127.0.0.1:12345/',
+                         'http://127.0.0.1:12345?x=1', 'socks5h://127.0.0.1:12345'):
+            with self.subTest(endpoint=endpoint), mock.patch.dict(os.environ, {'HTTPS_PROXY': endpoint}):
+                with self.assertRaisesRegex(ValueError, 'exact loopback'):
+                    self.prepare()
+        with mock.patch.dict(os.environ, {'HTTPS_PROXY': 'http://127.0.0.1:12345'}):
+            ca = self.root / courier_launcher.CA_PATH
+            ca.write_bytes(b'drifted')
+            with self.assertRaisesRegex(ValueError, 'sole network input|drifted'):
+                self.prepare()
+        self.assertTrue(policy.exists())
+
+    def test_fixed_config_cannot_supply_stale_runtime_proxy(self):
+        self.network_options()
+        self.config['gitNetworkRuntimeProxy'] = 'http://127.0.0.1:12345'
+        self.refresh_config()
+        with self.assertRaisesRegex(ValueError, 'this launcher environment'):
+            self.prepare()
 
 
 if __name__ == '__main__':

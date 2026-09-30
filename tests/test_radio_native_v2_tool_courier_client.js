@@ -55,7 +55,7 @@ const run=(f,extra={})=>c.runToolCourier(f.tools,{startup_arguments:startup,host
 test('one awaited run performs all six connectors and deliveries without inter-model gaps',async()=>{
   const f=fixture(),result=await run(f);assert.equal(result.status,'SINGLE_CASE_COMPONENT_COMPLETE');
   assert.equal(result.connector_requests,6);assert.equal(result.usage.calls,13);
-  assert.equal(result.usage.calls_including_declared_git_processes,16);
+  assert.equal(result.usage.calls_including_declared_git_processes,17);
   assert.equal(result.records.length,f.seen.length);assert.equal(result.usage.unknown_response_count,0);
   assert.equal(result.execution_authorized,false);assert.equal(result.last_supporting_acknowledgement_durable,false);
   assert.equal(f.bodies[0].start_raw.output,JSON.stringify(f.packets[0])+'\n');
@@ -102,7 +102,7 @@ test('lost connector acknowledgement retains response and future-ingress reserva
   assert.equal(result.pending_delivery_reservation.dispatch_attempted,false);
   assert.equal(result.records.filter(r=>r.kind==='actual_delivery').length,0);
 });
-test('readonly polling cannot bypass the original61actual plus3Git call bound',async()=>{
+test('readonly polling cannot bypass the original60actual plus4Git call bound',async()=>{
   const f=fixture();f.tools.exec_command=async()=>rawOutput('');f.tools.write_stdin=async()=>rawOutput('');
   const result=await run(f,{max_actual_calls:2});assert.equal(result.status,'CLOSED_FAILED');assert.equal(result.usage.calls,2);
   assert.equal(result.records.filter(r=>r.kind==='actual_connector').length,0);

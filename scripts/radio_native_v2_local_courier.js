@@ -1,6 +1,6 @@
 'use strict';
 // Single-case prospective courier controller. It cannot activate native cases.
-const fs=require('node:fs'),cp=require('node:child_process'),crypto=require('node:crypto');
+const fs=require('node:fs'),cp=require('node:child_process'),crypto=require('node:crypto'),path=require('node:path');
 const transport=require('./radio_native_v2_local_transport'),
   workerModule=require('./radio_native_v2_local_worker'),
   {LocalGit}=require('./radio_native_v2_local_git');
@@ -8,6 +8,86 @@ const SCHEMA='radio-native-v2-local-tool-courier-v1',MIB=1024*1024;
 const hash=value=>crypto.createHash('sha256').update(value).digest('hex');
 const assert=(ok,message)=>{if(!ok)throw Error(message);};
 const CONTROL_REPLY_BYTES=128*1024;
+const NETWORK_SCHEMA='radio-native-v2-pinned-git-fetch-network-policy-v1';
+const CA_PATH='config/radio_native_v2_local_git_ca_20260930.pem';
+const PROXY_POLICY=Object.freeze({source_environment_key:'HTTPS_PROXY',scheme:'http',hostname:'127.0.0.1',
+  minimum_port:1,maximum_port:65535,credentials_allowed:false,path_allowed:false,query_allowed:false,fragment_allowed:false});
+const GIT_NETWORK_BASE=Object.freeze(['--no-replace-objects','-c','core.hooksPath=/dev/null','-c','gc.auto=0',
+  '-c','credential.helper=','-c','http.sslVerify=true','-c','protocol.version=2']);
+const h=require('./radio_native_v2_broker_host');
+
+function pinnedFile(filename,maximumBytes,expectedBytes,expectedSha256) {
+  assert(typeof filename==='string'&&path.isAbsolute(filename)&&path.normalize(filename)===filename&&
+    !/[\0\r\n]/.test(filename)&&/^[0-9a-f]{64}$/.test(expectedSha256),'Canonical pinned input required');
+  let parent='';
+  for(const component of filename.slice(1).split('/').slice(0,-1)){
+    parent+='/'+component;const stat=fs.lstatSync(parent);
+    assert(stat.isDirectory()&&!stat.isSymbolicLink(),'Symlinked pinned input ancestor refused');
+  }
+  const fd=fs.openSync(filename,fs.constants.O_RDONLY|fs.constants.O_NOFOLLOW);
+  try{
+    const stat=fs.fstatSync(fd);assert(stat.isFile()&&stat.nlink===1&&stat.size<=maximumBytes&&
+      (expectedBytes===null||stat.size===expectedBytes),'Bounded sole pinned input required');
+    const raw=fs.readFileSync(fd),after=fs.fstatSync(fd);
+    assert(raw.length===stat.size&&after.size===stat.size&&hash(raw)===expectedSha256,
+      'Pinned network input drifted');return raw;
+  }finally{fs.closeSync(fd);}
+}
+
+function validateRuntimeProxy(value) {
+  assert(typeof value==='string'&&/^http:\/\/127\.0\.0\.1:[1-9][0-9]{0,4}$/.test(value)&&
+    Number(value.slice(value.lastIndexOf(':')+1))<=65535,'Credential-free exact loopback HTTPS_PROXY required');
+  return value;
+}
+
+function loadGitNetworkConfig(root,configPath,configSha256,runtimeProxy,baseEnvironment) {
+  assert(typeof root==='string'&&path.isAbsolute(root)&&path.normalize(root)===root,
+    'Canonical network input root required');
+  assert(configPath===root+'/config/radio_native_v2_local_git_network_20260930.json',
+    'Exact repository network policy path required');
+  const raw=pinnedFile(configPath,16384,null,configSha256),config=JSON.parse(raw.toString('utf8'));
+  assert(raw.toString('utf8')===h.canonical(config),'Canonical pinned network policy required');
+  assert(config&&Object.keys(config).sort().join()==='automatic_retry,execution_authorized,operation,proxy_policy,repository,reservation_authorized,schema,scientific_execution_authorized,tls_ca'&&
+    config.schema===NETWORK_SCHEMA&&config.repository===h.REPOSITORY&&config.operation==='git_fetch'&&
+    h.canonical(config.proxy_policy)===h.canonical(PROXY_POLICY)&&
+    ['automatic_retry','execution_authorized','reservation_authorized','scientific_execution_authorized'].every(k=>config[k]===false),
+    'Exact non-authorizing Git fetch network policy required');
+  const ca=config.tls_ca;
+  assert(ca&&Object.keys(ca).sort().join()==='bytes,path,sha256'&&ca.path===CA_PATH&&
+    Number.isSafeInteger(ca.bytes)&&ca.bytes>0&&ca.bytes<=4*MIB&&/^[0-9a-f]{64}$/.test(ca.sha256),
+    'Exact pinned repository TLS CA required');
+  const caPath=root+'/'+ca.path;pinnedFile(caPath,4*MIB,ca.bytes,ca.sha256);
+  assert(baseEnvironment&&typeof baseEnvironment==='object'&&!Array.isArray(baseEnvironment)&&
+    Object.values(baseEnvironment).every(v=>typeof v==='string')&&
+    Object.keys(baseEnvironment).every(k=>!/(?:proxy|ssl|cert)/i.test(k)),
+    'Isolated metadata environment required before network extension');
+  const proxy=validateRuntimeProxy(runtimeProxy),environment=Object.freeze({...baseEnvironment,
+    HTTPS_PROXY:proxy,GIT_SSL_CAINFO:caPath});
+  return Object.freeze({schema:NETWORK_SCHEMA,config_path:configPath,config_bytes:raw.length,config_sha256:configSha256,
+    tls_ca:Object.freeze({path:caPath,bytes:ca.bytes,sha256:ca.sha256}),runtime_proxy:proxy,
+    environment,environment_sha256:hash(h.canonical(environment)),automatic_retry:false,
+    execution_authorized:false,reservation_authorized:false,scientific_execution_authorized:false});
+}
+
+function verifyGitNetwork(network,plan,baseEnvironment,kind='git_fetch') {
+  pinnedFile(network.config_path,16384,network.config_bytes,network.config_sha256);
+  pinnedFile(network.tls_ca.path,4*MIB,network.tls_ca.bytes,network.tls_ca.sha256);
+  const environment={...baseEnvironment,HTTPS_PROXY:validateRuntimeProxy(network.runtime_proxy),
+    GIT_SSL_CAINFO:network.tls_ca.path};
+  assert(h.canonical(environment)===h.canonical(network.environment)&&
+    hash(h.canonical(environment))===network.environment_sha256,'Pinned network environment drifted');
+  if(kind==='git_protocol_capability')environment.GIT_TRACE_PACKET='1';
+  assert(h.canonical(plan.environment)===h.canonical(environment),'Exact receipted Git fetch environment required');
+  const url='https://github.com/'+h.REPOSITORY+'.git',prefix=[...GIT_NETWORK_BASE,...(kind==='git_protocol_capability'?
+    ['ls-remote','--refs','--',url]:['fetch','--filter=blob:none','--depth=1','--no-tags','--no-write-fetch-head','--',url])];
+  assert(Array.isArray(plan.args)&&h.canonical(plan.args.slice(0,prefix.length))===h.canonical(prefix),
+    'Only pinned TLS verified metadata and filtered archive Git commands required');
+  if(kind==='git_protocol_capability')assert(plan.args.length===prefix.length,'Exact metadata capability command required');
+  else {const objects=plan.args.slice(prefix.length),blobs=objects.slice(1);
+    assert(objects.length>=2&&objects.length<=29&&objects.every(sha=>/^[0-9a-f]{40}$/.test(sha))&&
+      new Set(blobs).size===blobs.length&&h.canonical(blobs)===h.canonical(blobs.slice().sort()),
+      'One candidate and exact sorted archive blobs required');}
+}
 
 class BoundedLines {
   constructor(deliver,maxBytes=9*MIB){this.deliver=deliver;this.maxBytes=maxBytes;this.parts=[];this.bytes=0;}
@@ -125,16 +205,20 @@ function verifyGitMetadata(localGit) {
   }
 }
 
-function runGit(kind,plan,milliseconds,localGit=null) {
-  assert(['git_fetch','git_cat_file_batch'].includes(kind)&&Number.isFinite(milliseconds)&&milliseconds>0,
+function runGit(kind,plan,milliseconds,localGit=null,network=null,spawn=cp.spawn) {
+  assert(['git_fetch','git_protocol_capability','git_cat_file_batch'].includes(kind)&&Number.isFinite(milliseconds)&&milliseconds>0,
     'Bounded generated Git operation required');
   if(localGit)verifyGitMetadata(localGit);
+  const networkOperation=['git_fetch','git_protocol_capability'].includes(kind);
+  if(networkOperation&&network){assert(localGit,'Pinned metadata baseline required');verifyGitNetwork(network,plan,localGit.env,kind);}
+  else assert(plan.environment===undefined,'Network environment is restricted to configured Git fetch');
+  assert(kind!=='git_protocol_capability'||network,'Capability probe requires pinned network configuration');
   return new Promise((resolve,reject)=>{
     const started=Date.now(),stdout=[],stderr=[];let outputBytes=0,errorBytes=0,fd=null,done=false,ioError=null;
     if(plan.stdout_path)fd=fs.openSync(plan.stdout_path,fs.constants.O_WRONLY|fs.constants.O_CREAT|
       fs.constants.O_EXCL|fs.constants.O_NOFOLLOW,0o400);
-    const child=cp.spawn(plan.executable,plan.args,{cwd:plan.cwd,stdio:['pipe','pipe','pipe'],
-      env:localGit?localGit.env:{PATH:'/usr/bin:/bin',LANG:'C',LC_ALL:'C',GIT_NO_REPLACE_OBJECTS:'1',
+    const child=spawn(plan.executable,plan.args,{cwd:plan.cwd,stdio:['pipe','pipe','pipe'],
+      env:networkOperation&&network?plan.environment:localGit?localGit.env:{PATH:'/usr/bin:/bin',LANG:'C',LC_ALL:'C',GIT_NO_REPLACE_OBJECTS:'1',
         GIT_NO_LAZY_FETCH:'1',GIT_TERMINAL_PROMPT:'0',GIT_CONFIG_NOSYSTEM:'1',
         GIT_CONFIG_SYSTEM:'/dev/null',GIT_CONFIG_GLOBAL:'/dev/null',GIT_OPTIONAL_LOCKS:'0'}});
     const timer=setTimeout(()=>{if(!done)child.kill('SIGKILL');},Math.min(milliseconds,120000));
@@ -155,6 +239,7 @@ function runGit(kind,plan,milliseconds,localGit=null) {
         fs.constants.O_RDONLY|fs.constants.O_DIRECTORY);try{fs.fsyncSync(directory);}finally{fs.closeSync(directory);}}
         catch(error){ioError=String(error);}}
       if(localGit){try{verifyGitMetadata(localGit);}catch(error){ioError=String(error);}}
+      if(networkOperation&&network){try{verifyGitNetwork(network,plan,localGit.env,kind);}catch(error){ioError=String(error);}}
       resolve({schema:'radio-native-v2-local-git-process-result-v1',classification:'LOCAL_PROCESS_NOT_TOOL_ENVELOPE',
         exit_code:ioError?1:code,signal,io_error:ioError,output:Buffer.concat(stdout).toString('utf8'),stderr:Buffer.concat(stderr).toString('utf8'),
         stdout_file_bytes:fd===null?0:outputBytes,wall_time_seconds:(Date.now()-started)/1000});
@@ -186,11 +271,14 @@ async function main(options) {
     courier=new ToolCourier({ledger,persistRaw:worker.persistRaw,persistRawBatch:worker.persistRawBatch,
       python:options.python,startRequest:options.startRequest,emit}),
     localGit=new LocalGit({repoPath:options.repoPath,gitPath:options.gitPath}),
+    gitNetwork=loadGitNetworkConfig(options.root,options.gitNetworkConfigPath,options.gitNetworkConfigSha256,
+      options.gitNetworkRuntimeProxy,localGit.env),
     host=transport.createLocalBrokerHost({ledger,localGit,courier:(...args)=>courier.request(...args),
+      gitFetchEnvironment:gitNetwork.environment,
       persistRaw:worker.persistRaw,persistRawBatch:worker.persistRawBatch,
       persistRawBatchLazy:worker.persistRawBatchLazy,persistRequestViewRaw:worker.persistRequestViewRaw,
       groupedGitReadback:worker.groupedGitReadback,
-      runGit:(kind,plan,ms)=>runGit(kind,plan,ms,localGit),repoPath:options.repoPath,spoolRoot:options.spoolRoot,gitPath:options.gitPath,
+      runGit:(kind,plan,ms)=>runGit(kind,plan,ms,localGit,gitNetwork),repoPath:options.repoPath,spoolRoot:options.spoolRoot,gitPath:options.gitPath,
       fixture_namespace:options.fixture_namespace});
   courier.bindHost(host);
   assert(options.publisherConfig&&options.publisherConfig.result_path===options.publisherResult,
@@ -220,7 +308,6 @@ async function main(options) {
   publisherChild.on('close',code=>{if(code!==0&&!fs.existsSync(options.publisherResult)){
     failed=Error('Pinned Publisher component failed: '+publisherStderr.slice(0,2048));courier.fail(failed);}});
   publisherChild.stdin.on('error',error=>{failed=error;courier.fail(error);});
-  const h=require('./radio_native_v2_broker_host');
   publisherChild.stdin.end(h.canonical(options.publisherConfig)+'\n');
   try {
     while(!fs.existsSync(options.publisherResult)){
@@ -242,7 +329,7 @@ async function main(options) {
       ['execution_authorized','reservation_authorized','scientific_execution_authorized'].every(k=>publisher[k]===false),
       'Actual pinned Publisher subprocess proof differs');
     const
-      record={...courier.terminalRecord(),store_initialization:storeInitialization,publisher,host_state:host.state(),host_usage:host.usage(),
+      record={...courier.terminalRecord(),store_initialization:storeInitialization,git_network:gitNetwork,publisher,host_state:host.state(),host_usage:host.usage(),
         worker_usage:worker.usage(),worker_state:worker.state(),source_policy:globalThis.__radioNativeV2SourcePolicy,
         node_max_rss_bytes:process.resourceUsage().maxRSS*1024};
     // Terminal supporting acknowledgement stays explicitly unconfirmed. The
@@ -260,4 +347,5 @@ async function main(options) {
   finally{process.stdin.off('data',data);process.stdin.pause();if(publisherChild.exitCode===null)publisherChild.kill('SIGKILL');}
 }
 
-module.exports={SCHEMA,CONTROL_REPLY_BYTES,BoundedLines,deliveryRequest,ToolCourier,runGit,initializeControlStore,main};
+module.exports={SCHEMA,CONTROL_REPLY_BYTES,NETWORK_SCHEMA,PROXY_POLICY,CA_PATH,GIT_NETWORK_BASE,validateRuntimeProxy,loadGitNetworkConfig,
+  verifyGitNetwork,BoundedLines,deliveryRequest,ToolCourier,runGit,initializeControlStore,main};

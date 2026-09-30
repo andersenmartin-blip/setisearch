@@ -9,7 +9,7 @@ const CLIENT_CORE=Object.freeze({mcp__codex_apps__github_fetch:65536,
   mcp__codex_apps__github_create_commit:256*1024,
   mcp__codex_apps__github_update_ref:65536});
 const CLIENT_SEQUENCE=Object.freeze(['fetch','create_tree','create_commit','fetch','update_ref','fetch']);
-const CLIENT_LIMITS=Object.freeze({actual_calls:61,conservative_git_processes:3,
+const CLIENT_LIMITS=Object.freeze({actual_calls:60,conservative_git_processes:4,
   request_bytes:48*CLIENT_MIB,response_bytes:64*CLIENT_MIB,seconds:600,
   support_response:256*1024,read_bytes:CLIENT_MIB-65536,output_tokens:400000});
 
@@ -19,8 +19,8 @@ async function runToolCourier(tools,options) {
     'Pinned portable hash and UTF-8 byte functions required');
   assert(tools&&typeof tools.exec_command==='function'&&typeof tools.write_stdin==='function',
     'Actual execution tools required');
-  const maxCalls=options.max_actual_calls===undefined?61:options.max_actual_calls;
-  assert(Number.isSafeInteger(maxCalls)&&maxCalls>0&&maxCalls<=61,'Actual call ceiling cannot exceed61 plus3Git');
+  const maxCalls=options.max_actual_calls===undefined?60:options.max_actual_calls;
+  assert(Number.isSafeInteger(maxCalls)&&maxCalls>0&&maxCalls<=60,'Actual call ceiling cannot exceed60 plus4Git');
   const clock=options.clock||Date.now,started=clock(),setTimer=options.setTimer||setTimeout,
     clearTimer=options.clearTimer||clearTimeout,records=[],events=[];
   const usage={calls:0,request_bytes:0,response_bytes:0,response_charged_bytes:0,
@@ -199,8 +199,8 @@ async function runToolCourier(tools,options) {
     }
   }catch(error){stop(error);}
   return {schema:CLIENT_SCHEMA,status:stopped?'CLOSED_FAILED':'SINGLE_CASE_COMPONENT_COMPLETE',reason,
-    usage:{...usage,conservatively_charged_local_git_processes:3,
-      calls_including_declared_git_processes:usage.calls+3,elapsed_seconds:(clock()-started)/1000,
+    usage:{...usage,conservatively_charged_local_git_processes:4,
+      calls_including_declared_git_processes:usage.calls+4,elapsed_seconds:(clock()-started)/1000,
       hidden_http_bytes_known:false,all_actual_start_poll_read_connector_delivery_calls_counted:true},
     controller_terminal:terminal,session_id:session,connector_requests:ordinal,records,events,
     pending_delivery_reservation:pendingDelivery,

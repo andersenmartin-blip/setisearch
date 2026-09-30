@@ -300,7 +300,9 @@ function createLocalWorker(options) {
         if(packet.operation==='prepare_transport') {
           currentCase=packet.case_ordinal;assert(Number.isSafeInteger(currentCase)&&currentCase>=0&&currentCase<8&&
             JSON.parse(packet.params.freeze_json).ordinal===currentCase,'Exact worker/host case binding required');
-          brokerHost.beginCase(packet.params.freeze_json,packet.params.bundle_sha256);result={prepared:true};
+          brokerHost.beginCase(packet.params.freeze_json,packet.params.bundle_sha256);
+          if(typeof brokerHost.prepareNetwork==='function')await brokerHost.prepareNetwork();
+          result={prepared:true};
         }else if(packet.operation==='finish_transport')result=brokerHost.finishCase();
         else if(packet.operation==='transport_usage')result=brokerHost.usage();
         else {
