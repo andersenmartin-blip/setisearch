@@ -1,5 +1,33 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 30 September: concrete bridge storage passes; full-size IPC budget fails
+
+[The concrete bridge, source-loader and complete evidence](RADIO_NATIVE_V2_BRIDGE_2026-09-30_RESULT.md)
+pass **257 Python and 34 JavaScript tests**. Actual-tool probe01 is retained
+CLOSED FAILED after an uncharged duplicate file was found. The corrected
+single-file store passes fresh probe02 receipt readback and independent storage
+audit. Source-only runner/bridge import preflight also passes.
+
+The real broker capacity shape (36,875,057 bytes / 28 files) passes local host
+and separate Python storage measurements, but current tool IPC needs at least
+**3,015 calls and 3,002 custody items** for one maximum-size case. That exceeds
+64 calls per case, 512 total calls and 2,048 items before dispatch. These are
+component measurements, not an integrated live or eight-case qualification.
+
+A new prospective freeze pins **890 code, 14 input and 1,366 runtime files**;
+SHA256 `999b743a915cf3ca0d1645d5b270c48c2e7d1a66ea64bf62939228466dea064c`.
+Every execution/reservation/RNG/transport qualification flag remains false.
+
+**Exact continuation:** replace per-chunk tool IPC with a bounded transport
+that fits the existing allocations, measure the actual integrated path,
+propagate worker deadlines before broker dispatch and close the declared
+runtime/custody/verifier boundaries. Then publish/read back an execution-qualified
+freeze and verify a separate irrevocable eight-case reservation before RNG.
+127/24 NOT ACTIVATED; HD189733 selected, HD1461 HOLD, GJ724 reserve. Spectra and
+holdouts unopened, LS paused, CHEOPS UNSENT. Consolidate 9 October without
+extension. No external messages or new scientific results.
+
+
 ## 30 September: complete orchestration component passes; execution stays closed
 
 [The integrated implementation and exact component evidence](RADIO_NATIVE_V2_RUNNER_2026-09-30_RESULT.md)

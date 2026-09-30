@@ -1,0 +1,425 @@
+{
+  "schema": "radio-native-v2-full-size-offline-capacity-v1",
+  "scope": "DIRECT_LOCAL_HOST_FS_GIT_BASELINE",
+  "profile": "broker_capacity",
+  "status": "PASS",
+  "synthetic_ascii_payload_bytes": 36875057,
+  "frozen_archive_files": 28,
+  "fixture_represents_actual_case": false,
+  "broker_capacity_record_shape": true,
+  "maximal_fixture": {
+    "stored_bytes": 36875057,
+    "request_cap_bytes": 50331648,
+    "response_cap_bytes": 67108864,
+    "case_receipt_cap_bytes": 201326592,
+    "case_git_spool_cap_bytes": 41943040,
+    "case_calls_cap": 64,
+    "process_rss_cap_bytes": 536870912
+  },
+  "actual_tool_usage": {
+    "schema": "radio-native-v2-tool-host-accounting-v1",
+    "calls": 12,
+    "request_bytes": 36885529,
+    "response_bytes": 3248,
+    "response_charged_bytes": 3248,
+    "unknown_response_bytes": 0,
+    "unknown_response_count": 0,
+    "tool_argument_bytes": 36884908,
+    "receipt_bytes": 36890426,
+    "receipt_charged_bytes": 36890426,
+    "unknown_receipt_bytes": 0,
+    "git_spool_bytes": 36876591,
+    "git_spool_charged_bytes": 36876591,
+    "unknown_git_spool_bytes": 0,
+    "cases": 1,
+    "elapsed_seconds": 5.283,
+    "automatic_retry": false,
+    "visible_tool_objects_only": true,
+    "hidden_http_bytes_known": false
+  },
+  "finish_receipt": {
+    "ordinal": 0,
+    "parent": "e5dff3a9c02a92a91b2caa2034a7803f0e53ed29",
+    "commit": "955e333b2fbdff227927577e5870fb4e36fca0bd",
+    "tree": "d1eea40e070d9bcb813edbadc34654fc8ad9fc20",
+    "bundle_sha256": "d5c9728a23684bc140749956e7191ccc479dd880a4af93725fc3d47fbbf5af31",
+    "actual_tool_usage": {
+      "calls": 12,
+      "request_bytes": 36885529,
+      "response_bytes": 3248,
+      "response_charged_bytes": 3248,
+      "unknown_response_bytes": 0,
+      "unknown_response_count": 0,
+      "tool_argument_bytes": 36884908,
+      "receipt_bytes": 36890426,
+      "receipt_charged_bytes": 36890426,
+      "unknown_receipt_bytes": 0,
+      "git_spool_bytes": 36876591,
+      "git_spool_charged_bytes": 36876591,
+      "unknown_git_spool_bytes": 0
+    },
+    "raw_git_receipt": {
+      "path": "git-spool/case00-d5c9728a23684bc140749956e7191ccc479dd880a4af93725fc3d47fbbf5af31.git-batch",
+      "bytes": 36876591,
+      "sha256": "dd0dac5d32b60b1766b928b07ca8f36123deeadb9a1479cd3a7b6c859e5a627c",
+      "durable": true
+    },
+    "automatic_retry": false
+  },
+  "full_size_readback_encoded_content_bytes": 49166780,
+  "normalized_readback_json_bytes": 49171168,
+  "normalized_fetch_files_reservation_bytes": 50331648,
+  "normalized_readback_fits_fetch_files_reservation": true,
+  "bridge_lower_bound": {
+    "raw_receipt_append_chunk_bytes": 24576,
+    "projection_read_chunk_bytes": 32768,
+    "raw_receipt_append_calls_at_least": 1502,
+    "projection_read_calls_at_least": 1501,
+    "combined_broker_and_support_calls_at_least": 3015,
+    "original_case_tool_call_cap": 64,
+    "original_cumulative_tool_call_cap": 512,
+    "original_caps_fit_one_maximal_case": false,
+    "supporting_raw_reply_custody_items_at_least": 3002,
+    "original_bridge_store_item_cap": 2048,
+    "original_store_items_fit_one_maximal_case": false,
+    "original_budget_status": "FAIL_PRE_DISPATCH_STATIC_LOWER_BOUND",
+    "rationale": "Strict lower bound excludes reserve/seal/create/projection/status and custody acknowledgements; no supporting call was dispatched"
+  },
+  "projection_maximum_read_chunk_bytes": 32768,
+  "disk": {
+    "raw_tool_receipts": {
+      "files": 12,
+      "bytes": 36890426,
+      "rows": [
+        {
+          "path": "0000.json",
+          "bytes": 561
+        },
+        {
+          "path": "0001.json",
+          "bytes": 567
+        },
+        {
+          "path": "0002.json",
+          "bytes": 659
+        },
+        {
+          "path": "0003.json",
+          "bytes": 36880094
+        },
+        {
+          "path": "0004.json",
+          "bytes": 843
+        },
+        {
+          "path": "0005.json",
+          "bytes": 572
+        },
+        {
+          "path": "0006.json",
+          "bytes": 629
+        },
+        {
+          "path": "0007.json",
+          "bytes": 561
+        },
+        {
+          "path": "0008.json",
+          "bytes": 465
+        },
+        {
+          "path": "0009.json",
+          "bytes": 542
+        },
+        {
+          "path": "0010.json",
+          "bytes": 4372
+        },
+        {
+          "path": "0011.json",
+          "bytes": 561
+        }
+      ]
+    },
+    "git_spool": {
+      "files": 1,
+      "bytes": 36876591,
+      "rows": [
+        {
+          "path": "case00-d5c9728a23684bc140749956e7191ccc479dd880a4af93725fc3d47fbbf5af31.git-batch",
+          "bytes": 36876591
+        }
+      ]
+    },
+    "offline_git_objects": {
+      "files": 55,
+      "bytes": 211129,
+      "rows": [
+        {
+          "path": "config",
+          "bytes": 92
+        },
+        {
+          "path": "description",
+          "bytes": 73
+        },
+        {
+          "path": "HEAD",
+          "bytes": 23
+        },
+        {
+          "path": "hooks/applypatch-msg.sample",
+          "bytes": 478
+        },
+        {
+          "path": "hooks/commit-msg.sample",
+          "bytes": 896
+        },
+        {
+          "path": "hooks/fsmonitor-watchman.sample",
+          "bytes": 4726
+        },
+        {
+          "path": "hooks/post-update.sample",
+          "bytes": 189
+        },
+        {
+          "path": "hooks/pre-applypatch.sample",
+          "bytes": 424
+        },
+        {
+          "path": "hooks/pre-commit.sample",
+          "bytes": 1649
+        },
+        {
+          "path": "hooks/pre-merge-commit.sample",
+          "bytes": 416
+        },
+        {
+          "path": "hooks/pre-push.sample",
+          "bytes": 1374
+        },
+        {
+          "path": "hooks/pre-rebase.sample",
+          "bytes": 4898
+        },
+        {
+          "path": "hooks/pre-receive.sample",
+          "bytes": 544
+        },
+        {
+          "path": "hooks/prepare-commit-msg.sample",
+          "bytes": 1492
+        },
+        {
+          "path": "hooks/push-to-checkout.sample",
+          "bytes": 2783
+        },
+        {
+          "path": "hooks/sendemail-validate.sample",
+          "bytes": 2308
+        },
+        {
+          "path": "hooks/update.sample",
+          "bytes": 3650
+        },
+        {
+          "path": "index",
+          "bytes": 4762
+        },
+        {
+          "path": "info/exclude",
+          "bytes": 240
+        },
+        {
+          "path": "objects/18/b8b1bc24cf848700a8491658ecff1d7d74b768",
+          "bytes": 48
+        },
+        {
+          "path": "objects/22/5aa241955b25b662f5a11208fe5bd57a99da82",
+          "bytes": 6826
+        },
+        {
+          "path": "objects/29/931c778dadcb561336ef6ef17f463ecdaa1f24",
+          "bytes": 6827
+        },
+        {
+          "path": "objects/2d/fa1be4ca53bccddb788edc3116c54cc0b37819",
+          "bytes": 6826
+        },
+        {
+          "path": "objects/32/3d41db6007142d2859e15f76e10b3181c94b87",
+          "bytes": 6826
+        },
+        {
+          "path": "objects/33/897f79865bb4ea7eca87c4e047225d6a2bf5f6",
+          "bytes": 6825
+        },
+        {
+          "path": "objects/3f/c2f936e8c2011f084325b0bd213d362781d4d6",
+          "bytes": 6825
+        },
+        {
+          "path": "objects/43/9e8bd819051d4a25a4a5640e9c4cdd299a5f92",
+          "bytes": 70
+        },
+        {
+          "path": "objects/4d/d4b2c40b43db642d788dece972ee844925fe27",
+          "bytes": 6826
+        },
+        {
+          "path": "objects/56/b665bb6889d46284c947bd286d7ad5ea4ae9cd",
+          "bytes": 6826
+        },
+        {
+          "path": "objects/57/0b8703f3e647d949f11110ee1b93e0da9e8379",
+          "bytes": 6825
+        },
+        {
+          "path": "objects/5f/0004543a7b706100a3c4f8d4022e4c77c41fab",
+          "bytes": 6826
+        },
+        {
+          "path": "objects/60/1faa7d7dac5f3c1ac87cfa71bd01c0d933a2dd",
+          "bytes": 6826
+        },
+        {
+          "path": "objects/71/eea3c0cacf00ecc5037a17146b685655f2733a",
+          "bytes": 6826
+        },
+        {
+          "path": "objects/78/5f64f263c92998bb12837101ccefdf4a12f6f0",
+          "bytes": 52
+        },
+        {
+          "path": "objects/80/e1cfd23014fac225c207d4cf6c1c25fdf945c6",
+          "bytes": 6825
+        },
+        {
+          "path": "objects/81/6835c162c58e503fca16824687126130799392",
+          "bytes": 6826
+        },
+        {
+          "path": "objects/87/7677e7acd648ac99b6db25f9adfdb8fce6c958",
+          "bytes": 6826
+        },
+        {
+          "path": "objects/8b/95c94b47a773231c80d120295e4bf2a2b7a1bf",
+          "bytes": 6826
+        },
+        {
+          "path": "objects/95/5e333b2fbdff227927577e5870fb4e36fca0bd",
+          "bytes": 186
+        },
+        {
+          "path": "objects/9c/862cfbdf9de46522b23122f2f87fb5bdf155b6",
+          "bytes": 6825
+        },
+        {
+          "path": "objects/a3/9bef8139b8ed8631292f98419de5af0732e77d",
+          "bytes": 6143
+        },
+        {
+          "path": "objects/a7/04508a7f987b8e67a6d8bc66296d3410afe04b",
+          "bytes": 772
+        },
+        {
+          "path": "objects/a9/29b2cca6bcac1feae35104ba0452fcfaa481e9",
+          "bytes": 2497
+        },
+        {
+          "path": "objects/b5/e3f4dff7f428929704ed9f7d74c304a14d8ced",
+          "bytes": 6826
+        },
+        {
+          "path": "objects/c6/9db384d9b4ad8ee8e3ff9731e7011c46893f9d",
+          "bytes": 6826
+        },
+        {
+          "path": "objects/c8/4f7e9cab868c9a17e68ad6e62342c60c50906e",
+          "bytes": 50
+        },
+        {
+          "path": "objects/cf/e4d2a6c7e1cc48ed0efc30925bc4b4b314179c",
+          "bytes": 6825
+        },
+        {
+          "path": "objects/d1/eea40e070d9bcb813edbadc34654fc8ad9fc20",
+          "bytes": 128
+        },
+        {
+          "path": "objects/e0/ab2dc10e63080dae382d7267efb5c35e84e36d",
+          "bytes": 6825
+        },
+        {
+          "path": "objects/e3/60d66908a0621247a6583666dbc2d451a44b0e",
+          "bytes": 6827
+        },
+        {
+          "path": "objects/e4/d85d699cffae06924229202dbdca497e76dfaf",
+          "bytes": 6825
+        },
+        {
+          "path": "objects/e5/dff3a9c02a92a91b2caa2034a7803f0e53ed29",
+          "bytes": 151
+        },
+        {
+          "path": "objects/ec/be4cb86acaf147cba8d31e51df51ac469033c7",
+          "bytes": 6140
+        },
+        {
+          "path": "objects/f0/5c9b3a6aa0b0302932b77a734590ffc5379ff9",
+          "bytes": 56
+        },
+        {
+          "path": "objects/f2/0f1a6120a9f04ec85a1a6d4186d2808eb05564",
+          "bytes": 6827
+        }
+      ]
+    }
+  },
+  "elapsed_seconds": 5.387115797,
+  "node_host_kernel_peak_rss_bytes": 408920064,
+  "offline_git_fetch_mocked": true,
+  "offline_git_cat_file_real": true,
+  "fsync_raw_receipts_and_spool": true,
+  "original_integrated_tool_call_cap_qualified": false,
+  "functions_to_python_bridge_qualified": false,
+  "host_runtime_qualified": false,
+  "execution_authorized": false,
+  "scientific_admission_authorized": false,
+  "automatic_retry": false,
+  "rng_draws": 0,
+  "telescope_reads": 0,
+  "case_reservations": 0,
+  "limitations": [
+    "Direct local filesystem sink and local Git baseline; no functions/tool IPC measured",
+    "One maximum-size case; eight-case cumulative live bridge remains unqualified",
+    "Actual Git fetch and connector tools mocked; hidden network and hosted V8 not measured"
+  ],
+  "supervision": {
+    "exit_code": 0,
+    "signal": null,
+    "sampling_interval_ms": 5,
+    "samples": 1068,
+    "sampled_combined_process_tree_peak_rss_bytes": 409985024,
+    "process_peak_samples": [
+      {
+        "pid": 817748,
+        "name": "MainThread",
+        "rss_bytes": 409985024
+      }
+    ],
+    "combined_sampling_is_lower_bound": true,
+    "git_subprocess_rss_kernel_proven": false,
+    "proc_pid_namespace_resolved": true,
+    "fixture_root": "/tmp/seti-native-v2-capacity-Vpt3MW"
+  },
+  "measurement_source_sha256": {
+    "scripts/radio_native_v2_bridge_capacity.js": "66280c1a8745733327edacd19dcf09f351aaf386100a93952eff7dde43cf1dfd",
+    "scripts/radio_native_v2_broker_host.js": "1d65289efa312b0db5d6ebe0070d8479de91057e2208f68059901fdd859879cb",
+    "scripts/radio_native_v2_host_bridge.js": "d8250bf5ce1cdc5deb694bcb05922ad3da1c5bfdcf34ec1e3f8548141659be9e",
+    "scripts/radio_native_v2_bridge.py": "046349c347ce7be7b600d2b3c8cbbe8b08c04744af60b227b7b14c1dd1f53be2",
+    "src/seti_repeater/native_v2_bridge_radio.py": "90325934e690affe057c96ecc3f19ecdedc4fe0c0d47cee9f6a4a211f5005776"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "actual_broker_capacity_shape": {
+    "bridge_lower_bound": {
+      "combined_broker_and_support_calls_at_least": 3015,
+      "original_bridge_store_item_cap": 2048,
+      "original_budget_status": "FAIL_PRE_DISPATCH_STATIC_LOWER_BOUND",
+      "original_caps_fit_one_maximal_case": false,
+      "original_case_tool_call_cap": 64,
+      "original_cumulative_tool_call_cap": 512,
+      "original_store_items_fit_one_maximal_case": false,
+      "projection_read_calls_at_least": 1501,
+      "projection_read_chunk_bytes": 32768,
+      "rationale": "Strict lower bound excludes reserve/seal/create/projection/status and custody acknowledgements; no supporting call was dispatched",
+      "raw_receipt_append_calls_at_least": 1502,
+      "raw_receipt_append_chunk_bytes": 24576,
+      "supporting_raw_reply_custody_items_at_least": 3002
+    },
+    "fits_normalized48MiB": true,
+    "node_kernel_peak_rss_bytes": 408920064,
+    "normalized_readback_json_bytes": 49171168,
+    "report": "capacity_broker_maximum.json",
+    "stored_bytes": 36875057
+  },
+  "artifacts": {
+    "capacity_broker_maximum.json": {
+      "bytes": 12504,
+      "sha256": "58b6b692b7cabae23a3f4003429d926b8594d474f427aa8a69cfefc41ed04776"
+    },
+    "capacity_broker_maximum.log": {
+      "bytes": 12504,
+      "sha256": "58b6b692b7cabae23a3f4003429d926b8594d474f427aa8a69cfefc41ed04776"
+    },
+    "capacity_host_ceiling.json": {
+      "bytes": 12687,
+      "sha256": "46fdea4941c16bd481209d9e7c9383e6a8f70f63d1b6e0be8f018a2c7e06c68f"
+    },
+    "capacity_host_ceiling.log": {
+      "bytes": 12687,
+      "sha256": "46fdea4941c16bd481209d9e7c9383e6a8f70f63d1b6e0be8f018a2c7e06c68f"
+    },
+    "capacity_python_before_sealing_fix.json": {
+      "bytes": 8797,
+      "sha256": "0992e2214730f5596003916ce665828223622c5325cd9eead1f24336a67a14dc"
+    },
+    "capacity_python_before_sealing_fix.log": {
+      "bytes": 8797,
+      "sha256": "0992e2214730f5596003916ce665828223622c5325cd9eead1f24336a67a14dc"
+    },
+    "capacity_python_storage.json": {
+      "bytes": 10262,
+      "sha256": "5815b279be546d334bb44643c7b7845f3b8e782632d5331a9b351006228706f8"
+    },
+    "capacity_python_storage.log": {
+      "bytes": 10262,
+      "sha256": "5815b279be546d334bb44643c7b7845f3b8e782632d5331a9b351006228706f8"
+    },
+    "capacity_sampling_invalid_attempt01.json": {
+      "bytes": 10639,
+      "sha256": "e5c3cc30051555a7e983217ca555845bb37c3a639eb4c16999bd92b47cda898b"
+    },
+    "capacity_sampling_invalid_attempt02.json": {
+      "bytes": 10679,
+      "sha256": "28e7516384f92d9a8abaa15163663418048e137ca25cc478d7909432e27cb46b"
+    }
+  },
+  "automatic_retry": false,
+  "case_reservations": 0,
+  "corrections": [
+    "Initial sampling attempts 01 and 02 used incompatible PID namespaces and produced no process samples. Their combined RSS fields are invalid and are retained as failed instrumentation evidence. Final runs announce /proc/self host PIDs over IPC and produce real samples.",
+    "The first Python storage measurement preceded the sealing fix and applies only to its local POSIX component. The final measurement uses sole immutable part files with bridge module SHA256 1fb0d179904501031fc5c923eb352f8c7533e9edc3fdb5bc28152b0d8704d315.",
+    "The host_ceiling fixture uses the generic 36 MiB host inventory ceiling. Its normalized 48 MiB gap does not imply a failure of the smaller real broker capacity bound. The actual broker capacity shape fits the normalized reply reservation.",
+    "Node baseline measurements were completed before a later change confined to the embedded Python storage measurement filename. Their recorded source snapshots are retained and no execution authority is inferred."
+  ],
+  "execution_authorized": false,
+  "functions_to_python_bridge_qualified": false,
+  "host_ceiling": {
+    "fits_normalized48MiB": false,
+    "node_kernel_peak_rss_bytes": 490954752,
+    "normalized_readback_json_bytes": 50336060,
+    "report": "capacity_host_ceiling.json",
+    "stored_bytes": 37748736
+  },
+  "limitations": [
+    "Direct local Node host, raw filesystem sink and offline Git were measured. Git fetch and connector tools were mocked.",
+    "Python durable store, streamed Git projection and real persist/persist_state callbacks were measured independently with exact explicitly pre-reserved offline receipts. Worker._call and tool IPC were not exercised at maximum size.",
+    "No full-size bridge support calls were dispatched: a static strict lower bound already exceeds the original 64 per-case / 512 global actual-call caps and 2,048 immutable bridge custody item slots.",
+    "RSS sampling is a lower bound for simultaneous process totals. Node/Python kernel peak RSS values are measured independently. Short Git child processes were not sampled or kernel-qualified.",
+    "Synthetic alphabet/base64 fixtures compress easily. Offline Git object disk size is measured for these fixtures; it is not a worst-case incompressible Git database bound.",
+    "The final supporting tool acknowledgement remains non-durable. Live host runtime and execution freeze/reservation checks remain unqualified."
+  ],
+  "python_storage_callback_component": {
+    "actual_disk_bytes": 186494235,
+    "python_kernel_peak_rss_bytes": 268365824,
+    "report": "capacity_python_storage.json",
+    "sampled_combined_peak_rss_bytes": 308604928,
+    "source_sha256": {
+      "scripts/radio_native_v2_bridge.py": "046349c347ce7be7b600d2b3c8cbbe8b08c04744af60b227b7b14c1dd1f53be2",
+      "scripts/radio_native_v2_bridge_capacity.js": "b63fa4a6dbbc4a76cb0a841d89fc43d56fff12ef0db128e6d189363a7433e4c5",
+      "scripts/radio_native_v2_broker_host.js": "1d65289efa312b0db5d6ebe0070d8479de91057e2208f68059901fdd859879cb",
+      "scripts/radio_native_v2_host_bridge.js": "d8250bf5ce1cdc5deb694bcb05922ad3da1c5bfdcf34ec1e3f8548141659be9e",
+      "src/seti_repeater/native_v2_bridge_radio.py": "1fb0d179904501031fc5c923eb352f8c7533e9edc3fdb5bc28152b0d8704d315"
+    },
+    "state_bytes": 2097152
+  },
+  "rng_draws": 0,
+  "schema": "radio-native-v2-capacity-measurement-record-v1",
+  "scientific_admission_authorized": false,
+  "status": "COMPONENT_MEASUREMENTS_PASS_ORIGINAL_FULL_SIZE_IPC_BUDGET_FAILS",
+  "telescope_reads": 0
+}
