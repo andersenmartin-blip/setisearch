@@ -1,5 +1,24 @@
 # SETIsearch
 
+## 30 September: fresh native v2 preparation is publicly frozen
+
+[The prepare-only contract, identities and runtime evidence](https://github.com/andersenmartin-blip/setisearch/blob/ea43b24ef7a6b7bf3d3e360fa56041460e6569fe/RADIO_NATIVE_V2_PREPARATION_2026-09-30_RESULT.md)
+freeze eight new ordered case/plan identities, disjoint from the 151 proposed
+science cases and the closed earlier native scope while retaining the unchanged
+engineering specifications. The preparation runtime closure pins 869 repository
+Python files, 16 inputs and 1,132 runtime files at SHA256 `7aaf6c5…`; public
+readback verified all 20 new blobs and batch-verified the 885 public code/input
+objects. **255 tests pass.** The script deliberately refuses `run`; no case was
+reserved and no RNG, score, receiver measurement or telescope value was opened.
+
+Next is the bounded publication-during-execution broker integrated with the
+fresh runner, followed by a new complete runner+broker runtime freeze and its
+public readback. Each terminal case and cumulative journal must publish before
+the next case under exact crash/conflict/lost-response and cumulative resource
+bounds. Only then can a separate immutable reservation be considered. 127/24
+remains off; HD189733 selected, HD1461 HOLD, GJ724 reserve, spectra/holdouts
+unopened, LS paused and CHEOPS UNSENT.
+
 ## 30 September: fresh native v2 parent capacity passes
 
 [The implementation and exact capacity evidence](https://github.com/andersenmartin-blip/setisearch/blob/f0b473003941893c4dff1c45c331643066e68a6f/RADIO_NATIVE_V2_PARENT_2026-09-30_RESULT.md)
