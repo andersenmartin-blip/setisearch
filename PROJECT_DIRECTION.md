@@ -1,5 +1,25 @@
 # Long-term project direction
 
+## 30 September: fresh native v2 parent capacity passes
+
+[The prospective parent and exact capacity evidence](RADIO_NATIVE_V2_PARENT_2026-09-30_RESULT.md)
+bind eight distinct fresh case configurations in one cumulative parent while
+retaining old scalar-manifest compatibility. Eight stage-boundary checkpoints,
+48 physical files/case, 168 events and 340 journal files fit all unchanged hard
+caps. The exact worst-count model peaks at **125,548 / 131,072 revision bytes**
+and **789,981 / 8,388,608 cumulative journal bytes including reserves**.
+**252 tests pass.** No reservation, RNG, score, receiver measurement or telescope
+read occurred.
+
+**Exact continuation:** implement and deterministically test the new-identity
+native v2 runner and bounded publication-during-execution broker. It must publish
+each terminal case plus cumulative journal in immutable batches and retain
+crash/conflict/lost-response, request/response/time/RSS and grouped readback
+evidence. Publish and independently read back the complete executable/runtime
+freeze before any reservation or RNG. 127/24 remains NOT ACTIVATED; HD189733
+selected, HD1461 HOLD, GJ724 reserve; spectra/holdouts unopened, LS paused,
+CHEOPS UNSENT.
+
 ## 30 September: v2 checkpoint event batching passes
 
 [The prospective contract, implementation and evidence](RADIO_V2_EVENT_BATCH_2026-09-30_RESULT.md)

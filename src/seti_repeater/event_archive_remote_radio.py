@@ -18,7 +18,7 @@ from urllib.parse import quote
 from .empty_null_radio import canonical
 from . import physical_evidence_radio as naming
 from . import physical_evidence_v2_radio as physical
-from .physical_case_v2_radio import policy as parent_policy
+from .physical_case_v2_radio import matches_policy as matches_parent_policy
 from . import whole_cadence_event_store_radio as events
 from . import whole_cadence_journal_radio as journal
 from .whole_cadence_reference_radio import digest
@@ -111,7 +111,7 @@ def _validated_maps(physical_files, journal_files, base_files, pins):
     if case['artifact_bytes'] > physical.MAX_BYTES:
         raise ValueError('Parent case exceeds fixed v2 18-MiB allocation')
     groups = doc['manifest']['artifact_groups']
-    if set(groups) != {'physical'} or groups != parent_policy(config, max_files=groups['physical']['max_files']):
+    if set(groups) != {'physical'} or not matches_parent_policy(groups['physical'],config):
         raise ValueError('Exact v2 parent closure policy required')
     if config['budget_bytes'] != case['artifact_bytes'] - sum(groups['physical']['reserved_artifacts'].values()):
         raise ValueError('Parent/physical cumulative budget differs')
@@ -129,7 +129,8 @@ def _validated_maps(physical_files, journal_files, base_files, pins):
         if len(flat[name]) != record['size'] or physical.sha(flat[name]) != record['sha256']:
             raise ValueError('Registered parent artifact bytes differ')
     for policy in groups.values():
-        if policy['prefix'] != 'physical-' or policy['binding_sha256'] != pins['config_sha256']:
+        if (policy['prefix'] != 'physical-'
+                or journal.group_binding(policy,config['case_identity']) != pins['config_sha256']):
             raise ValueError('Physical group reservation binding differs')
         raw = flat[policy['seal']]
         seal = json.loads(raw)

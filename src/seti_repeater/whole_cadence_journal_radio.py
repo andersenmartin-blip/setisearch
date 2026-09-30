@@ -40,6 +40,12 @@ def clone(value):
     return json.loads(canonical(value))
 
 
+def group_binding(group, case_identity):
+    """Resolve an old single-case or new exact per-case group binding."""
+    value=group['binding_sha256']
+    return value if isinstance(value,str) else value[case_identity]
+
+
 def validate_manifest(m):
     fields = {'schema', 'mode', 'namespace', 'execution_binding_sha256',
               'allocation_sha256', 'cases', 'caps', 'required_artifacts'}
@@ -89,7 +95,14 @@ def validate_manifest(m):
                 raise ValueError('Bounded engineering group policy required')
             if type(g['failure_finalization_milliseconds']) is not int or not 0<g['failure_finalization_milliseconds']<=5000:
                 raise ValueError('Bounded failure-only finalization window required')
-            _sha(g['binding_sha256'],'group binding')
+            binding=g['binding_sha256']
+            if isinstance(binding,str):
+                _sha(binding,'group binding')
+            elif (not isinstance(binding,dict) or set(binding)!=ids
+                    or any(not isinstance(case_identity,str) for case_identity in binding)):
+                raise ValueError('Per-case group bindings must exactly cover the ordered case inventory')
+            else:
+                for value in binding.values():_sha(value,'per-case group binding')
             if any(n.startswith(g['prefix']) for n in names):
                 raise ValueError('Group prefix overlaps fixed artifacts')
             for name,amount in g['reserved_artifacts'].items():

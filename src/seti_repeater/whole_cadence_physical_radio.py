@@ -27,6 +27,7 @@ RULES = {'off_tolerance_hz':20., 'adjacent_floor':5.5, 'receiver_half_width_hz':
 CAPS = {'records':10000, 'alias_bucket_entries':10000, 'off_candidate_visits':5000000,
         'identity_track_comparisons':5000000, 'alias_candidate_visits':5000000,
         'canonical_bytes_per_stage':128000000}
+EVIDENCE_STAGE_CEILING = 8
 
 
 class IncompletePhysical(ValueError):
@@ -128,7 +129,9 @@ def _execute(family, store, retention, on_factors, off_factors, receiver_factory
             result['first_capacity_crossing_evidence']={'stage':name,'item':item}
             raise ValueError('Canonical physical-stage byte capacity exceeded: '+name)
         result[name].append(item);stage_bytes[name]+=size;budget()
-        if evidence_writer is not None and len(result[name])%1024==0:checkpoint(name)
+        # The v2 parent is forensic and non-resumable. Durable stage boundaries
+        # plus the terminal/failure snapshot retain every decision reached; a
+        # per-1024 duplicate snapshot only multiplied parent journal metadata.
     def bounded(name, value):
         size=len(canonical(value))
         if size>caps['canonical_bytes_per_stage']:

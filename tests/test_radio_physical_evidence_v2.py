@@ -120,6 +120,7 @@ class IntegrationTests(unittest.TestCase):
         expected=self.f.run_case([('on',0,1,4,(20,20,0))]);w=self.writer();actual=self.run_case(w)
         self.assertEqual(canonical(actual),canonical(expected));r=e.inspect(self.root,expected_config_sha256=w.config_sha)
         self.assertEqual(r.snapshot(len(r.checkpoint_bytes)-1),canonical(expected));self.assertEqual(r.summary()['status'],'completed')
+        self.assertEqual(r.summary()['checkpoints'],8)
 
     def test_interrupt_preserves_failure(self):
         w=self.writer()
@@ -127,6 +128,7 @@ class IntegrationTests(unittest.TestCase):
         with self.assertRaises(IncompletePhysical):self.run_case(w,interrupt)
         r=e.inspect(self.root,expected_config_sha256=w.config_sha);doc=json.loads(r.snapshot(len(r.checkpoint_bytes)-1))
         self.assertEqual(doc['failure']['stage'],'receiver_signatures');self.assertEqual(r.summary()['status'],'failed')
+        self.assertEqual(r.summary()['checkpoints'],4)
 
 
 if __name__=='__main__':unittest.main()

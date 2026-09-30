@@ -22,14 +22,41 @@ def policy(config, *, max_files=1024):
         'failure_finalization_milliseconds':5000}}
 
 
+def multi_policy(configs, *, max_files=1024):
+    """One cumulative parent ledger with a distinct immutable v2 pin per case."""
+    configs=list(configs)
+    if not configs:raise ValueError('At least one prospective physical configuration required')
+    bindings={}
+    for config in configs:
+        e._config(config)
+        identity=config['case_identity']
+        if identity in bindings:raise ValueError('Duplicate prospective physical case identity')
+        bindings[identity]=e.sha(canonical(config))
+    result=policy(configs[0],max_files=max_files)
+    result['physical']['binding_sha256']=bindings
+    return result
+
+
+def matches_policy(group, config):
+    """Check fixed closure policy while retaining every manifest case pin."""
+    expected=policy(config,max_files=group['max_files'])['physical']
+    expected['binding_sha256']=group['binding_sha256']
+    try:binding=j.group_binding(group,config['case_identity'])
+    except (KeyError,TypeError):return False
+    return group==expected and binding==e.sha(canonical(config))
+
+
 def inspect_case(checkpoint,directory,*,case_index=-1):
     states=j.replay(checkpoint.document)['cases'];index=case_index%len(states)
     check=j.verify_archive(checkpoint,directory,case_index=index)
     case=states[index];g=checkpoint.document['manifest']['artifact_groups']['physical']
     files=e._inventory(directory)
     physical={e.nested_name(n):data for n,data in files.items() if n.startswith('physical-')}
-    view=e.inspect_files(physical,expected_config_sha256=g['binding_sha256'])
+    binding=j.group_binding(g,case['binding']['case_identity'])
+    view=e.inspect_files(physical,expected_config_sha256=binding)
     conf=json.loads(view.config_bytes)
+    if not matches_policy(g,conf):
+        raise ValueError('Exact prospective physical closure policy required')
     if any(conf[key]!=case['binding'][key] for key in ('case_identity','plan_sha256')):
         raise ValueError('Physical case/plan differs from registered parent binding')
     if case['artifact_bytes']>e.MAX_BYTES:

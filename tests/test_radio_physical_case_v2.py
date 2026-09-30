@@ -441,6 +441,82 @@ class PhysicalCaseV2Tests(unittest.TestCase):
                 milliseconds=1000, artifact_bytes=self.cap, directory=self.root/'retry')
         self.assertFalse((self.root/'retry').exists())
 
+    def test_two_fresh_cases_use_distinct_pins_under_one_cumulative_parent(self):
+        m=manifest(2,(*self.base,p.SEAL,p.OUTCOME))
+        m['caps']['evidence_bytes']=4*1024**2;m['caps']['ledger_reserve_bytes']=1024**2
+        configs=[e.configuration('physical-case-v2-multi-tests',row['case_identity'],row['plan_sha256'],
+            self.base,budget_bytes=self.cap-sum(p.CLOSURE_RESERVES.values()),checkpoint_limit=51)
+            for row in m['cases']]
+        m['artifact_groups']=p.multi_policy(configs)
+        bindings=m['artifact_groups']['physical']['binding_sha256']
+        self.assertEqual(set(bindings),{row['case_identity'] for row in m['cases']})
+        self.assertEqual(len(set(bindings.values())),2)
+        store=s.EventDirectoryStore.create(self.root/'multi-journal',m)
+        for index,config in enumerate(configs):
+            before=store.read()
+            lease=j.consume(store,expected_revision=before.revision,expected_manifest_sha256=digest(m),
+                binding=m['cases'][index],milliseconds=4000,artifact_bytes=self.cap,
+                directory=self.root/f'multi-case-{index}',clock=lambda:0.)
+            lease.write_artifact('base.bin',self.base['base.bin'])
+            case=p.PhysicalCase(lease,config,existing_artifacts=self.base)
+            document={'retention':{'case_identity':config['case_identity']},'complete':True,'rows':[index]}
+            case.writer.close('completed','complete',snapshot=document)
+            checkpoint=case.finish()
+            view,check=p.inspect_case(checkpoint,lease.directory,case_index=index)
+            self.assertEqual(view.snapshot(0),canonical(document))
+            self.assertEqual(e.sha(view.config_bytes),bindings[config['case_identity']])
+            self.assertEqual(check['status'],'completed')
+        state=j.replay(store.read().document)
+        self.assertEqual([row['status'] for row in state['cases']],['completed','completed'])
+        self.assertLess(sum(path.stat().st_size for path in store.path.rglob('*') if path.is_file()),1024**2)
+
+    def test_per_case_pin_map_must_exactly_cover_manifest(self):
+        m=manifest(2,(*self.base,p.SEAL,p.OUTCOME))
+        configs=[e.configuration('physical-case-v2-map-tests',row['case_identity'],row['plan_sha256'],
+            self.base,budget_bytes=self.cap-sum(p.CLOSURE_RESERVES.values()),checkpoint_limit=51)
+            for row in m['cases']]
+        m['artifact_groups']=p.multi_policy(configs)
+        for edit in ('missing','extra','changed'):
+            candidate=copy.deepcopy(m);bindings=candidate['artifact_groups']['physical']['binding_sha256']
+            if edit=='missing':bindings.pop(configs[-1]['case_identity'])
+            elif edit=='extra':bindings[digest('unallocated-case')]=digest('unallocated-config')
+            else:bindings[configs[-1]['case_identity']]='not-a-sha'
+            with self.subTest(edit=edit),self.assertRaises(ValueError):j.validate_manifest(candidate)
+
+    def test_current_case_cannot_use_another_cases_frozen_config(self):
+        m=manifest(2,(*self.base,p.SEAL,p.OUTCOME))
+        m['caps']['evidence_bytes']=4*1024**2;m['caps']['ledger_reserve_bytes']=1024**2
+        configs=[e.configuration('physical-case-v2-cross-pin-tests',row['case_identity'],row['plan_sha256'],
+            self.base,budget_bytes=self.cap-sum(p.CLOSURE_RESERVES.values()),checkpoint_limit=51)
+            for row in m['cases']]
+        m['artifact_groups']=p.multi_policy(configs)
+        store=s.EventDirectoryStore.create(self.root/'cross-pin-journal',m);before=store.read()
+        lease=j.consume(store,expected_revision=before.revision,expected_manifest_sha256=digest(m),
+            binding=m['cases'][0],milliseconds=4000,artifact_bytes=self.cap,
+            directory=self.root/'cross-pin-case',clock=lambda:0.)
+        lease.write_artifact('base.bin',self.base['base.bin']);prior=e._inventory(lease.directory)
+        with self.assertRaises(ValueError):p.PhysicalCase(lease,configs[1],existing_artifacts=self.base)
+        self.assertEqual(e._inventory(lease.directory),prior)
+
+    def test_pre_rng_empty_config_still_charges_later_base_artifacts_to_parent(self):
+        m=manifest(1,(*self.base,p.SEAL,p.OUTCOME));m['caps']['evidence_bytes']=4*1024**2
+        m['caps']['ledger_reserve_bytes']=1024**2
+        config=e.configuration('physical-case-v2-pre-rng',m['cases'][0]['case_identity'],
+            m['cases'][0]['plan_sha256'],{},budget_bytes=self.cap-sum(p.CLOSURE_RESERVES.values()),
+            checkpoint_limit=8)
+        m['artifact_groups']=p.policy(config,max_files=48)
+        store=s.EventDirectoryStore.create(self.root/'pre-rng-journal',m);before=store.read()
+        lease=j.consume(store,expected_revision=before.revision,expected_manifest_sha256=digest(m),
+            binding=m['cases'][0],milliseconds=4000,artifact_bytes=self.cap,
+            directory=self.root/'pre-rng-case',clock=lambda:0.)
+        case=p.PhysicalCase(lease,config,existing_artifacts={})
+        lease.write_artifact('base.bin',self.base['base.bin'])
+        document={'retention':{'case_identity':config['case_identity']},'complete':True,'rows':[1]}
+        case.writer.close('completed','complete',snapshot=document);checkpoint=case.finish()
+        view,check=p.inspect_case(checkpoint,lease.directory)
+        self.assertEqual(view.snapshot(0),canonical(document));self.assertEqual(check['status'],'completed')
+        self.assertIn('base.bin',j.replay(checkpoint.document)['cases'][0]['artifacts'])
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -334,10 +334,11 @@ class Writer:
         groups=lease.manifest.get('artifact_groups',{})
         if set(groups)!={'physical'}:raise ValueError('Fixed physical group required')
         group=groups['physical']
-        if group['prefix']!='physical-' or group['binding_sha256']!=sha(canonical(config)):
+        if (group['prefix']!='physical-'
+                or j.group_binding(group,binding['case_identity'])!=sha(canonical(config))):
             raise ValueError('Physical reservation differs from prospective parent binding')
-        from .physical_case_v2_radio import policy, CLOSURE_RESERVES
-        if group!=policy(config,max_files=group['max_files'])['physical']:
+        from .physical_case_v2_radio import matches_policy, CLOSURE_RESERVES
+        if not matches_policy(group,config):
             raise ValueError('Exact prospective physical closure policy required')
         if any(name.startswith('physical-') or name in CLOSURE_RESERVES for name in existing_artifacts):
             raise ValueError('Original base artifact overlaps physical or closure inventory')
