@@ -1,6 +1,7 @@
 """Inline terminal broker packing, exact tree/readback and stop conditions."""
 import base64
 import copy
+import hashlib
 import unittest
 from unittest.mock import patch
 
@@ -62,6 +63,49 @@ class NativeV2BrokerTests(unittest.TestCase):
         self.assertLessEqual(record['stored_bytes_including_head_and_manifest_reserve'],36*1024**2)
         self.assertLessEqual(record['create_tree_request_bytes_including_framing_reserve'],48*1024**2)
         self.assertLessEqual(record['grouped_response_bytes_including_framing_reserve'],64*1024**2)
+
+    def test_durable_invoker_persists_raw_result_before_caller_parses_it(self):
+        order=[];saved=[]
+        def transport(operation,params):
+            order.append(('transport',operation));return {'value':params['value']}
+        def persist(ordinal,operation,request,result):
+            order.append(('persist',operation));saved.append((ordinal,request,result))
+            raw=b.canonical(result)
+            return {'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest()}
+        adapter=b.DurableInvoker(transport,persist)
+        result=adapter.invoke('probe',{'value':7});order.append(('caller','probe'))
+        self.assertEqual(result,{'value':7})
+        self.assertEqual(order,[('transport','probe'),('persist','probe'),('caller','probe')])
+        self.assertEqual(saved[0][1],b'{"value":7}')
+        self.assertEqual(adapter.records[0]['response_sha256'],hashlib.sha256(b'{"value":7}').hexdigest())
+
+    def test_durable_invoker_preflight_and_bad_receipt_stop_without_retry(self):
+        calls=[]
+        adapter=b.DurableInvoker(lambda operation,params:calls.append(operation),lambda *args:None)
+        with self.assertRaises(b.Stopped):adapter.invoke('bad',{'value':object()})
+        self.assertEqual(calls,[])
+        with self.assertRaises(b.Stopped):adapter.invoke('again',{})
+        transport_calls=[]
+        adapter=b.DurableInvoker(lambda operation,params:(transport_calls.append(operation) or {'ok':True}),
+            lambda *args:{'bytes':0,'sha256':'0'*64})
+        with self.assertRaises(b.Stopped):adapter.invoke('one',{})
+        with self.assertRaises(b.Stopped):adapter.invoke('two',{})
+        self.assertEqual(transport_calls,['one'])
+
+    def test_publisher_uses_one_durable_receipt_for_every_transport_call(self):
+        stored=[]
+        def persist(ordinal,operation,request,result):
+            stored.append((ordinal,operation,result))
+            raw=b.canonical(result)
+            return {'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest()}
+        adapter=b.DurableInvoker(self.git.invoke,persist)
+        bundle=self.bundle();publisher=b.Publisher(bundle,adapter.invoke,
+            expected_bundle_sha256=bundle.sha256,clock=lambda:0.)
+        receipt=publisher.publish()
+        self.assertEqual(len(stored),receipt['usage']['calls'])
+        self.assertEqual([row[0] for row in stored],list(range(len(stored))))
+        self.assertEqual([row['operation'] for row in adapter.records],
+            [operation for _,operation,_ in stored])
 
     def test_rss_is_checked_before_first_transport_call(self):
         bundle=self.bundle();publisher=b.Publisher(bundle,self.git.invoke,

@@ -202,6 +202,47 @@ def prepare_bundle(physical_files,journal_files,base_files,*,ordinal,
 class Stopped(RuntimeError):pass
 
 
+class DurableInvoker:
+    """Persist each returned raw transport object before parsing it.
+
+    ``persist`` receives the call ordinal, operation, exact canonical request
+    bytes and the untouched result object.  It must durably save that object and
+    return its canonical byte length and SHA256.  Any transport or persistence
+    ambiguity permanently stops this adapter; callers cannot retry it.
+    """
+    def __init__(self,invoke,persist):
+        if not callable(invoke) or not callable(persist):
+            raise ValueError('Callable transport and durable receipt sink required')
+        self.transport=invoke;self.persist=persist;self.stopped=False;self.records=[]
+
+    def invoke(self,operation,params):
+        if self.stopped:raise Stopped('Durable transport stopped; no retry')
+        try:
+            request=canonical(params) # preflight before the external call
+        except BaseException as error:
+            self.stopped=True;raise Stopped('Transport request is not canonical JSON') from error
+        ordinal=len(self.records)
+        try:
+            result=self.transport(operation,params)
+        except BaseException as error:
+            self.stopped=True;raise Stopped('Transport response is uncertain; no retry') from error
+        try:
+            saved=self.persist(ordinal,operation,request,result)
+        except BaseException as error:
+            self.stopped=True;raise Stopped('Raw transport receipt persistence is uncertain; no retry') from error
+        try:
+            response=canonical(result)
+            expected={'bytes':len(response),'sha256':hashlib.sha256(response).hexdigest()}
+            if saved!=expected or not isinstance(result,dict):
+                raise ValueError('Durable raw transport receipt differs')
+        except BaseException as error:
+            self.stopped=True;raise Stopped('Persisted transport response is invalid; no retry') from error
+        self.records.append({'ordinal':ordinal,'operation':operation,
+            'request_bytes':len(request),'request_sha256':hashlib.sha256(request).hexdigest(),
+            'response_bytes':expected['bytes'],'response_sha256':expected['sha256']})
+        return result
+
+
 class Publisher:
     """One terminal-case publication; any uncertain call permanently stops it."""
     def __init__(self,bundle,invoke,*,expected_bundle_sha256,clock=time.monotonic):

@@ -1,5 +1,22 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 30 September: fresh v2 stages and durable transport receipts pass
+
+[The implementation and complete component evidence](RADIO_NATIVE_V2_CHAIN_2026-09-30_RESULT.md)
+add v2-specific render, four-reference threshold, compressed physical and
+post-decision evaluation stages without relabelling the closed old namespace.
+The broker now durably persists each untouched transport result before parsing;
+any request, call or receipt ambiguity stops without retry. **246 adjacent tests
+pass** (eight new). No reservation, RNG, score or telescope read occurred.
+
+**Exact continuation:** implement the single eight-case orchestrator that binds
+these stages to compact base artifacts, v2 physical closure and per-terminal-case
+`CumulativeBroker(DurableInvoker(...))` publication. Test interruption and
+cumulative limits, then publish/read back a new complete runner+broker runtime
+freeze before reservation or RNG. The prepare-only freeze stays historical and
+non-executable. 127/24 remains NOT ACTIVATED; HD189733 selected, HD1461 HOLD,
+GJ724 reserve; spectra/holdouts unopened, LS paused and CHEOPS UNSENT.
+
 ## 30 September: corrected inline-broker live probe passes
 
 [The public freeze and end-to-end live evidence](RADIO_NATIVE_V2_BROKER_LIVE02_2026-09-30_RESULT.md)
