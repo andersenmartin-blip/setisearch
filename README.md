@@ -1,5 +1,30 @@
 # SETIsearch
 
+## 30 September: integrated runner component passes; execution stays closed
+
+[The implementation and complete component evidence](https://github.com/andersenmartin-blip/setisearch/blob/e8681b22d971b0a99a782d288dc790055dd9b8ae/RADIO_NATIVE_V2_RUNNER_2026-09-30_RESULT.md)
+join the eight fixed fresh cases to compact evidence, explicit reference closure,
+physical/evaluation stages and a cumulative publish/readback barrier before the
+next case. Deadline nesting, exact writer/metadata bindings, recursive immutable
+tree traversal, complete visible tool receipts and separate bounded receipt/Git
+spool accounting are checked. **216 Python and 24 offline JavaScript tests pass.**
+The full-eight-case path uses explicit numerical and authority fixtures; no
+actual native case, reservation, draw or telescope read occurred.
+
+The prospective runtime freeze pins **885 code, 14 input and 1,366 local runtime
+files**, including JavaScript and Git/Node/ELF dependencies, at SHA256
+`095ea9d7…`. Immutable publication readback verifies all 29 package files
+(1,266,157 bytes) and all 899 frozen public code/input objects. Every execution,
+reservation, RNG and transport-qualification flag remains false.
+
+Next is the concrete worker/host and bounded durable persistence/spool bridge,
+full-size RSS/storage measurement and runtime/source-loader qualification.
+A new execution-qualified public freeze and a separate irrevocable eight-case
+reservation must then pass before RNG. The present prospective freeze cannot
+grant those permissions. 127/24 NOT ACTIVATED; HD189733 selected, HD1461 HOLD,
+GJ724 reserve, spectra/holdouts unopened, LS paused and CHEOPS UNSENT.
+Consolidate 9 October without extension. No external message.
+
 ## 30 September: fresh v2 stage chain passes
 
 [The implementation and component evidence](https://github.com/andersenmartin-blip/setisearch/blob/43267dab2859a4b6a56d7bd0c6eb883c7745f54f/RADIO_NATIVE_V2_CHAIN_2026-09-30_RESULT.md)
