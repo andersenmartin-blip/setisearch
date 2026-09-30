@@ -26,9 +26,13 @@ REPO=archive.REPO
 BRANCH=archive.BRANCH
 ROOT_PREFIX='results_radio_native_v2_engineering_20260930a/live01'
 SCHEMA='radio-native-v2-inline-terminal-archive-v1'
+BROKER_PROTOCOL='radio-native-v2-inline-broker-accounting-v2'
 CHUNK_BYTES=1024*1024
 MAX_SOURCE_BYTES=26*1024**2
 MANIFEST_RESERVE_BYTES=512*1024
+RESPONSE_RESERVATIONS=MappingProxyType({'fetch':4*1024**2,
+    'create_tree':1024**2,'create_commit':65536,'update_ref':16384,
+    'fetch_files':48*1024**2})
 
 
 @dataclass(frozen=True)
@@ -189,6 +193,7 @@ def prepare_bundle(physical_files,journal_files,base_files,*,ordinal,
     restored=restore(files,expected_manifest_sha256=physical.sha(manifest),expected_prefix=target)
     if restored!=sources:raise ValueError('Prepared exact inline source reconstruction differs')
     freeze=canonical({'schema':SCHEMA,'mode':'ENGINEERING_ONLY','repository':REPO,'branch':BRANCH,
+        'broker_protocol':BROKER_PROTOCOL,'per_operation_response_reservations':dict(RESPONSE_RESERVATIONS),
         'ordinal':ordinal,'prefix':target,'parent':archive.git_sha(expected_parent_sha),
         'parent_tree':archive.git_sha(expected_parent_tree_sha),'limits':asdict(limits),
         'files':{path:{'bytes':len(data),'sha256':physical.sha(data),
@@ -250,6 +255,8 @@ class Publisher:
             raise ValueError('Independent immutable broker bundle pin differs')
         freeze=json.loads(bundle.freeze_bytes)
         if (canonical(freeze)!=bundle.freeze_bytes or freeze['limits']!=asdict(bundle.limits)
+                or freeze.get('broker_protocol')!=BROKER_PROTOCOL
+                or freeze.get('per_operation_response_reservations')!=dict(RESPONSE_RESERVATIONS)
                 or set(freeze['files'])!=set(bundle.files)
                 or any(freeze['files'][path]!={'bytes':len(data),'sha256':physical.sha(data),
                     'blob':archive.git_object('blob',data)} for path,data in bundle.files.items())):
@@ -257,19 +264,38 @@ class Publisher:
         restore(bundle.files,expected_manifest_sha256=freeze['manifest_sha256'],expected_prefix=bundle.prefix)
         self.bundle=bundle;self.freeze=freeze;self.invoke=invoke;self.clock=clock;self.started=clock()
         self.calls=self.request_bytes=self.response_bytes=0;self.attempted=self.stopped=self.update_attempted=False
+        self.response_charged_bytes=self.unknown_response_bytes=self.unknown_response_count=0
+        self.events=[]
         self.trees={};self.receipt=None
 
     def _call(self,operation,**params):
         if self.stopped:raise Stopped('Broker stopped; no retry')
         request=canonical(params);limits=self.bundle.limits
+        reservation=RESPONSE_RESERVATIONS[operation]
         if (self.calls>=limits.calls or self.request_bytes+len(request)>limits.request_bytes
                 or self.clock()-self.started>limits.seconds
                 or resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024>limits.peak_rss_bytes):
             raise ValueError('Frozen broker call/request/time bound exhausted')
+        if self.response_charged_bytes+reservation>limits.response_bytes:
+            raise ValueError('Frozen broker response capacity cannot reserve operation reply')
         self.calls+=1;self.request_bytes+=len(request)
-        result=self.invoke(operation,params);response=canonical(result);self.response_bytes+=len(response)
-        if self.response_bytes>limits.response_bytes or self.clock()-self.started>limits.seconds:
-            raise ValueError('Frozen broker response/time bound exhausted')
+        self.response_charged_bytes+=reservation
+        event={'call':self.calls,'operation':operation,'request_bytes':len(request),
+            'request_sha256':physical.sha(request),'response_reserved_bytes':reservation,
+            'response_charged_bytes':reservation,'response_unknown':True}
+        self.events.append(event)
+        try:
+            result=self.invoke(operation,params);response=canonical(result)
+        except BaseException:
+            self.unknown_response_bytes+=reservation;self.unknown_response_count+=1
+            raise
+        self.response_bytes+=len(response);self.response_charged_bytes+=len(response)-reservation
+        event.update(response_bytes=len(response),response_sha256=physical.sha(response),
+            response_charged_bytes=len(response),response_unknown=False)
+        if (len(response)>reservation or self.response_charged_bytes>limits.response_bytes
+                or self.clock()-self.started>limits.seconds
+                or resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024>limits.peak_rss_bytes):
+            raise ValueError('Frozen broker response/time/RSS bound exhausted')
         if not isinstance(result,dict):raise ValueError('Object broker response required')
         return result
 
@@ -367,6 +393,7 @@ class Publisher:
                 expected_prefix=self.bundle.prefix)
             if self._head()!=candidate:raise ValueError('Broker post-publication head differs')
             self.receipt={'schema':SCHEMA,'ordinal':self.bundle.ordinal,'bundle_sha256':self.bundle.sha256,
+                'broker_protocol':BROKER_PROTOCOL,
                 'parent':parent,'commit':candidate,'tree':tree,'stored_files':len(readback),
                 'stored_bytes':sum(map(len,readback.values())),'restored_source_files':len(original),
                 'exact_tree_delta_verified':True,'single_inline_tree_request':True,
@@ -377,12 +404,17 @@ class Publisher:
         except BaseException as error:
             self.stopped=True;self.receipt={'ordinal':self.bundle.ordinal,'candidate':candidate,
                 'error':repr(error),'update_may_have_landed':self.update_attempted,
+                'broker_protocol':BROKER_PROTOCOL,'bundle_sha256':self.bundle.sha256,
+                'stored_bytes':sum(map(len,self.bundle.files.values())),
+                'stored_bytes_conservative':True,
                 'automatic_retry':False,'execution_restart_authorized':False,
                 'scientific_admission_authorized':False,'usage':self.usage()}
             raise Stopped('Broker publication stopped without retry: '+str(error)) from error
 
     def usage(self):return {'calls':self.calls,'request_bytes':self.request_bytes,
-        'response_bytes':self.response_bytes,'elapsed_seconds':self.clock()-self.started,
+        'response_bytes':self.response_bytes,'response_charged_bytes':self.response_charged_bytes,
+        'unknown_response_bytes':self.unknown_response_bytes,'unknown_response_count':self.unknown_response_count,
+        'elapsed_seconds':self.clock()-self.started,
         'peak_rss_bytes':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024}
 
 
@@ -391,7 +423,7 @@ class CumulativeBroker:
     def __init__(self,invoke,*,clock=time.monotonic,limits=CumulativeLimits()):
         if limits!=CumulativeLimits():raise ValueError('Cumulative broker limits changed')
         self.invoke=invoke;self.clock=clock;self.started=clock();self.limits=limits
-        self.receipts=[];self.stopped=False
+        self.receipts=[];self.failed_attempt=None;self.stopped=False
 
     def publish(self,bundle):
         if self.stopped:raise Stopped('Cumulative broker stopped; no retry')
@@ -399,29 +431,35 @@ class CumulativeBroker:
         prior=self.usage();case=bundle.limits
         if (prior['cases']+1>self.limits.cases or prior['calls']+case.calls>self.limits.calls
                 or prior['request_bytes']+case.request_bytes>self.limits.request_bytes
-                or prior['response_bytes']+case.response_bytes>self.limits.response_bytes
+                or prior['response_charged_bytes']+case.response_bytes>self.limits.response_bytes
                 or prior['stored_bytes']+case.stored_bytes>self.limits.stored_bytes
                 or prior['elapsed_seconds']+case.seconds>self.limits.seconds
                 or prior['peak_rss_bytes']>self.limits.peak_rss_bytes):
             self.stopped=True;raise Stopped('Cannot reserve next broker case inside cumulative bounds')
         publisher=Publisher(bundle,self.invoke,expected_bundle_sha256=bundle.sha256,clock=self.clock)
         try:receipt=publisher.publish()
-        except BaseException:self.stopped=True;raise
+        except BaseException:
+            self.failed_attempt=publisher.receipt;self.stopped=True;raise
         totals=self.usage(extra=receipt)
         if (totals['cases']>self.limits.cases or totals['calls']>self.limits.calls
                 or totals['request_bytes']>self.limits.request_bytes
-                or totals['response_bytes']>self.limits.response_bytes
+                or totals['response_charged_bytes']>self.limits.response_bytes
                 or totals['stored_bytes']>self.limits.stored_bytes
                 or totals['elapsed_seconds']>self.limits.seconds
                 or totals['peak_rss_bytes']>self.limits.peak_rss_bytes):
-            self.stopped=True;raise Stopped('Cumulative broker budget exhausted; no next case')
+            self.failed_attempt=receipt;self.stopped=True
+            raise Stopped('Cumulative broker budget exhausted; no next case')
         self.receipts.append(receipt);return receipt
 
     def usage(self,extra=None):
-        rows=[*self.receipts,*([] if extra is None else [extra])]
+        rows=[*self.receipts,*([] if self.failed_attempt is None else [self.failed_attempt]),
+            *([] if extra is None else [extra])]
         return {'cases':len(rows),'calls':sum(r['usage']['calls'] for r in rows),
             'request_bytes':sum(r['usage']['request_bytes'] for r in rows),
             'response_bytes':sum(r['usage']['response_bytes'] for r in rows),
+            'response_charged_bytes':sum(r['usage']['response_charged_bytes'] for r in rows),
+            'unknown_response_bytes':sum(r['usage']['unknown_response_bytes'] for r in rows),
+            'unknown_response_count':sum(r['usage']['unknown_response_count'] for r in rows),
             'stored_bytes':sum(r['stored_bytes'] for r in rows),
             'elapsed_seconds':self.clock()-self.started,
             'peak_rss_bytes':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024}

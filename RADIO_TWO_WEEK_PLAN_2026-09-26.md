@@ -1,5 +1,23 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 30 September: failed broker usage and bounded failure closure retained
+
+[The accounting/closure corrections and complete evidence](RADIO_NATIVE_V2_BROKER_ACCOUNTING_2026-09-30_RESULT.md)
+reserve replies before dispatch, retain unknown acknowledgements and failed
+cumulative usage, check post-call RSS, seal exact interrupted prefixes incomplete
+and preserve registered outer footers. Canonical reason bounds keep the last-
+failure model at **129,639/131,072 revision bytes** inside the unchanged 8-MiB
+journal allocation. **167 Python and six offline host tests pass.** Both concurrent histories are retained. No native
+case, RNG or telescope read.
+
+**Exact continuation:** bind the published fresh stage chain, revised components and the
+qualified live02 adapter into the single eight-case orchestrator, including bounded operation
+deadlines and actual Git/tool-envelope accounting. Publish/read back a new
+complete runner+broker runtime freeze before any separate reservation or RNG.
+Earlier freezes remain preparation/component evidence. 127/24 NOT ACTIVATED;
+HD189733 selected, HD1461 HOLD, GJ724 reserve, spectra/holdouts unopened, LS
+paused and CHEOPS UNSENT. Consolidate 9 October without extension.
+
 ## 30 September: fresh v2 stages and durable transport receipts pass
 
 [The implementation and complete component evidence](RADIO_NATIVE_V2_CHAIN_2026-09-30_RESULT.md)

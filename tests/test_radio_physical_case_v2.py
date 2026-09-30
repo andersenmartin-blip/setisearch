@@ -13,6 +13,7 @@ from seti_repeater import physical_evidence_v2_radio as e
 from seti_repeater import physical_evidence_radio as e1
 from seti_repeater import whole_cadence_event_store_radio as s
 from seti_repeater import whole_cadence_journal_radio as j
+from seti_repeater import native_v2_broker_radio as broker
 from seti_repeater.empty_null_radio import canonical
 from seti_repeater.whole_cadence_reference_radio import digest
 from test_radio_whole_cadence_journal import manifest
@@ -421,11 +422,93 @@ class PhysicalCaseV2Tests(unittest.TestCase):
         footer = (case.lease.directory/p.OUTCOME).read_bytes()
         self.assertLessEqual(len(footer), p.CLOSURE_RESERVES[p.OUTCOME])
         self.assertIsNotNone(json.loads(footer)['physical_closure_error'])
+        self.assertEqual(json.loads(footer)['physical_evidence_reference'],case.writer.receipt())
         self.assertFalse((case.lease.directory/'partial_physical_or_retention.json').exists())
         self.assertFalse((case.lease.directory/e.flat_name('outcome.json')).exists())
+        seal=json.loads((case.lease.directory/p.SEAL).read_bytes())
+        self.assertFalse(seal['complete'])
+        self.assertEqual(seal,j.group_seal(case.lease.checkpoint,'physical',complete=False))
         with self.assertRaises(ValueError):
             case.lease.write_artifact('physical-retry', b'x')
         self.assert_history_exact(self.store.read())
+
+    def test_timed_out_exact_prefix_can_be_archived_without_claiming_completion(self):
+        case=self.start();case.writer.checkpoint('retained',self.doc(2));self.tick=5.
+        case.fail(TimeoutError('fixed deadline'))
+        files=e._inventory(case.lease.directory)
+        physical={e.nested_name(n):raw for n,raw in files.items() if n.startswith('physical-')}
+        base={n:raw for n,raw in files.items() if not n.startswith('physical-')}
+        journal_files={path.relative_to(self.store.path).as_posix():path.read_bytes()
+            for path in self.store.path.rglob('*') if path.is_file()}
+        bundle=broker.prepare_bundle(physical,journal_files,base,ordinal=0,
+            expected_config_sha256=case.writer.config_sha,
+            expected_last_checkpoint_sha256=case.writer.previous,
+            expected_genesis_sha256=self.store.genesis_sha256,
+            expected_pointer_sha256=(self.store.path/'HEAD').read_text().strip(),
+            expected_parent_sha='a'*40,expected_parent_tree_sha='b'*40)
+        summary=json.loads(bundle.manifest_bytes)['source_summary']
+        self.assertEqual(summary['case_status'],'failed')
+        self.assertNotEqual(summary['physical']['status'],'completed')
+        self.assertFalse(json.loads(bundle.freeze_bytes)['scientific_admission_authorized'])
+
+    def test_journal_reason_bound_counts_escaped_bytes_and_retains_full_error_hash(self):
+        for text in ['x'*6000,'\x00'*4096,'🎯'*4096,'\\'*4096]:
+            limited=p.bounded_reason(text)
+            self.assertTrue(text.startswith(limited))
+            self.assertLessEqual(len(canonical(limited)),p.REASON_JSON_BYTES)
+            self.assertGreater(len(canonical(text)),p.REASON_JSON_BYTES)
+        case=self.start();case.writer.checkpoint('retained',self.doc(2))
+        error=RuntimeError('\x00'*6000);result=case.fail(error)
+        footer=json.loads((case.lease.directory/p.OUTCOME).read_bytes())
+        self.assertEqual(footer['error_sha256'],e.sha(repr(error).encode()))
+        reason=self.store.read().document['events'][-1]['event']['reason']
+        self.assertLessEqual(len(canonical(reason)),p.REASON_JSON_BYTES)
+        self.assertEqual(result['parent_status'],'failed')
+
+    def test_failure_after_registered_success_footer_preserves_it_and_closes_parent_failed(self):
+        case=self.start();case.writer.close('completed','complete',snapshot=self.doc(complete=True))
+        with patch.object(case.lease,'finish',side_effect=RuntimeError('interrupted before finish')):
+            with self.assertRaises(RuntimeError):case.finish()
+        before=e._inventory(case.lease.directory)
+        error=RuntimeError('outer finish interrupted');result=case.fail(error)
+        self.assertEqual(result['parent_status'],'failed')
+        self.assertFalse(result['outer_footer_written'])
+        self.assertTrue(result['outer_footer_retained'])
+        self.assertEqual(e._inventory(case.lease.directory),before)
+        reason=self.store.read().document['events'][-1]['event']['reason']
+        self.assertIn(e.sha(repr(error).encode()),reason)
+
+    def test_success_description_stays_in_footer_without_spending_failure_journal_margin(self):
+        case=self.start();case.writer.close('completed','complete',snapshot=self.doc(complete=True))
+        reason='🎯'*4096;cp=case.finish(reason=reason)
+        footer=json.loads((case.lease.directory/p.OUTCOME).read_bytes())
+        self.assertEqual(footer['reason_sha256'],e.sha(reason.encode()))
+        self.assertTrue(footer['reason'])
+        self.assertEqual(cp.document['events'][-1]['event']['reason'],'')
+
+    def test_failure_inspection_time_is_included_before_any_closure_mutation(self):
+        case=self.start();case.writer.checkpoint('retained',self.doc())
+        case.writer.close('failed','failed',snapshot=self.doc())
+        before=e._inventory(case.lease.directory)
+        original=p.inspect_case
+        def slow(*args,**kwargs):
+            result=original(*args,**kwargs);self.tick=6.;return result
+        with patch.object(p,'inspect_case',side_effect=slow):
+            with self.assertRaisesRegex(ValueError,'Whole failure finalization'):case.fail(RuntimeError('failed'))
+        self.assertEqual(e._inventory(case.lease.directory),before)
+        self.assertTrue(case.closed)
+        with self.assertRaises(ValueError):case.fail(RuntimeError('retry'))
+
+    def test_final_journal_latency_is_measured_and_cannot_report_closure_pass(self):
+        case=self.start();case.writer.checkpoint('retained',self.doc())
+        original=case.lease.finish
+        def slow(*args,**kwargs):
+            cp=original(*args,**kwargs);self.tick=6.;return cp
+        with patch.object(case.lease,'finish',side_effect=slow):
+            with self.assertRaisesRegex(ValueError,'Whole failure finalization'):case.fail(RuntimeError('failed'))
+        self.assertEqual(j.replay(self.store.read().document)['cases'][0]['status'],'failed')
+        self.assertTrue(case.closed)
+        with self.assertRaises(ValueError):case.fail(RuntimeError('retry'))
 
     def test_finished_case_cannot_create_another_writer_or_reconsume(self):
         case = self.start()

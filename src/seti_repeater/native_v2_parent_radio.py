@@ -146,7 +146,7 @@ def record():
         'scientific_admission_authorized':False}
 
 
-def worst_case_journal_model():
+def worst_case_journal_model(*,terminal_failure=False):
     """Exact canonical/event-pointer accounting at all frozen count ceilings.
 
     Each ordinary artifact is assigned 300,000 bytes so byte-count fields use
@@ -216,8 +216,10 @@ def worst_case_journal_model():
         append({'kind':'artifact','nonce':nonce,'name':physical_case.OUTCOME,
             'size':physical_case.CLOSURE_RESERVES[physical_case.OUTCOME],
             'sha256':h(f'{case_index}/outcome')})
-        append({'kind':'finish','nonce':nonce,'outcome':'completed',
-            'elapsed_milliseconds':CASE_MILLISECONDS,'reason':''})
+        failed=terminal_failure and case_index==CASE_COUNT-1
+        append({'kind':'finish','nonce':nonce,'outcome':'failed' if failed else 'completed',
+            'elapsed_milliseconds':CASE_MILLISECONDS+(5000 if failed else 0),
+            'reason':'x'*(physical_case.REASON_JSON_BYTES-2) if failed else ''})
     result={'events':events,'files':2*events+4,'peak_revision_bytes':peak_revision,
         'terminal_stored_bytes':stored,'peak_stored_bytes_with_head_and_closure_reserve':peak_stored_with_reserves,
         'journal_budget_bytes':JOURNAL_BYTES,'journal_snapshot_limit_bytes':journal.GROUP_MAX_LEDGER_SNAPSHOT}

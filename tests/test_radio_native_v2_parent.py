@@ -52,6 +52,14 @@ class NativeV2ParentTests(unittest.TestCase):
         self.assertLessEqual(model['peak_revision_bytes'],128*1024)
         self.assertLessEqual(model['peak_stored_bytes_with_head_and_closure_reserve'],8*1024**2)
 
+    def test_last_case_failure_includes_maximum_escaped_reason_and_closure_time(self):
+        success=n.worst_case_journal_model()
+        failed=n.worst_case_journal_model(terminal_failure=True)
+        self.assertEqual((failed['events'],failed['files']),(168,340))
+        self.assertGreater(failed['peak_revision_bytes'],success['peak_revision_bytes'])
+        self.assertLessEqual(failed['peak_revision_bytes'],128*1024)
+        self.assertLessEqual(failed['peak_stored_bytes_with_head_and_closure_reserve'],8*1024**2)
+
     def test_wrong_case_count_or_role_is_refused(self):
         cases=[binding(i) for i in range(8)]
         with self.assertRaisesRegex(ValueError,'eight-case'):
