@@ -1,5 +1,25 @@
 # SETIsearch
 
+## 30 September: concrete bridge storage passes; full-size IPC budget fails
+
+[The implementation, storage correction and complete evidence](https://github.com/andersenmartin-blip/setisearch/blob/fddfea6b9dd6cd00b43d50b85e5b47f571ad74a9/RADIO_NATIVE_V2_BRIDGE_2026-09-30_RESULT.md)
+pass **257 Python and 34 JavaScript tests**. Probe01 remains CLOSED FAILED after
+an uncharged duplicate was found. The corrected single-file store passes fresh
+actual-tool probe02 and independent storage audit. Source-only import preflight
+passes against a new prospective freeze of 890 code, 14 input and 1,366 runtime
+files; all execution/reservation/RNG/transport qualification flags remain false.
+
+Full-size local host and separate Python storage measurements pass, but current
+tool IPC requires at least **3,015 calls and 3,002 custody items** for one maximum
+case. Existing limits are 64 calls per case, 512 total and 2,048 items. This
+blocks execution before dispatch. Next: replace per-chunk tool IPC with a bounded
+transport that fits the allocations, measure the integrated path and close
+worker deadline/runtime/custody/verifier boundaries before any qualified freeze
+or separate irrevocable reservation. 127/24 NOT ACTIVATED; spectra/holdouts
+unopened, HD189733 selected, HD1461 HOLD, GJ724 reserve, LS paused, CHEOPS UNSENT.
+Consolidation remains 9 October; no new scientific results or external messages.
+
+
 ## 30 September: integrated runner component passes; execution stays closed
 
 [The implementation and complete component evidence](https://github.com/andersenmartin-blip/setisearch/blob/e8681b22d971b0a99a782d288dc790055dd9b8ae/RADIO_NATIVE_V2_RUNNER_2026-09-30_RESULT.md)
