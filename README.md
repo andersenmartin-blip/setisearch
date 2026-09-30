@@ -1,5 +1,25 @@
 # SETIsearch
 
+## 30 September: exact v2 terminal archive batch passes
+
+[The content-addressed batch result and complete evidence](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_V2_BATCH_2026-09-30_RESULT.md)
+publish the already frozen 130-file, 4,961,274-byte terminal archive through
+five bounded Git tree batches, one commit and one non-forced ref update. The
+live publication took 8.510 seconds under a prospective 300-second cap. A fresh
+immutable audit then verified every Git blob, SHA256 and length with one grouped
+object read in 0.049221 seconds. **38/38 targeted and adjacent regression tests
+pass.** No telescope spectrum, RNG value, receiver measurement or scientific
+score was opened.
+
+This removes the measured serial terminal-archive transport obstruction; the
+earlier 900-second serial scope remains CLOSED FAILED. It does not qualify
+publication during native execution, complete native physical/resource
+feasibility, 127/24 or telescope acquisition. Next is one fresh, publicly frozen
+native physical/resource qualification integrating receiver batching, all stage
+timings, complete failure evidence and publication during execution. HD189733
+remains selected; HD1461 remains on pointing-provenance HOLD and GJ724 remains
+reserve. Spectra and old holdouts stay unopened; LS paused, CHEOPS UNSENT.
+
 ## 29 September: complete receiver evidence exceeds the present reader
 
 [The reproducible capacity review](https://github.com/andersenmartin-blip/setisearch/blob/d6a62f93816ea20ce285c2d542d34eeb0cd2bb30/RADIO_RECEIVER_CAPACITY_2026-09-29_DECISION.md) establishes a conservative **29,821,434-byte logical-report lower bound** for the already observed 9,792-member workload with all 21,708 receiver queries. This already exceeds the physical reader's **24-MiB logical expansion cap**, before final alias witnesses, decisions and clusters. The previous storage PASS covered the partial report before receiver evidence. Receiver batching improves computation while preserving output bytes; it does not solve this independent capacity obstruction.
