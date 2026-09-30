@@ -1,5 +1,24 @@
 # SETIsearch
 
+## 30 September: inline publication adapter passes live qualification
+
+[The public freeze, retained failure and corrected end-to-end evidence](https://github.com/andersenmartin-blip/setisearch/blob/08f4eb5b3b3d9617aa6f3e972b0b08f8ad9261fd/RADIO_NATIVE_V2_BROKER_LIVE02_2026-09-30_RESULT.md)
+qualify a small live connector path with one inline-content tree mutation, one
+child commit, one non-forced branch update and one grouped immutable readback.
+All three landed blobs and 791 stored bytes reconstruct the exact 38-byte frozen
+source. The corrected run used 11/16 bounded operations and passed conservative
+request, response, time and storage charges. The first live probe remains
+**CLOSED FAILED** after a lost local receipt and is not erased or retried.
+
+This completes only the live adapter qualification for the deterministic
+native-v2 broker; the previously published component has **262 passing tests**.
+Next is integration with the still-missing complete fresh
+render/threshold/physical/evaluate runner, followed by a new public
+runner+broker runtime freeze and independent readback. The earlier prepare-only
+freeze predates the broker and grants no execution authority. No reservation,
+RNG, score or telescope spectrum was opened. 127/24 remains NOT ACTIVATED;
+HD189733 selected, HD1461 HOLD, GJ724 reserve, LS paused and CHEOPS UNSENT.
+
 ## 30 September: deterministic inline publication broker passes
 
 [The broker protocol, exact envelope and failure tests](https://github.com/andersenmartin-blip/setisearch/blob/825721017694736ece59bab819546766efaebab2/RADIO_NATIVE_V2_BROKER_2026-09-30_RESULT.md)
