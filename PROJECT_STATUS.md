@@ -1,5 +1,25 @@
 # SETIsearch — current project status
 
+## 30 September: deterministic publication-during-execution broker passes
+
+[The broker, resource envelope and failure evidence](RADIO_NATIVE_V2_BROKER_2026-09-30_RESULT.md)
+pack a terminal 18-MiB case plus cumulative 8-MiB journal into at most 26
+base64 chunks plus manifest/HEAD. One inline tree mutation replaces serial blob
+calls; one grouped readback reconstructs every source byte. Per-case request and
+response envelopes are **37,923,633 / 50,331,648** and **50,215,320 /
+67,108,864 bytes**. Eight-case cumulative call/byte/time/RSS caps are reserved
+before each case. Conflict, lost response, corruption and RSS all stop without
+retry. **262 tests pass.** No reservation, RNG, score or telescope read.
+
+**Exact continuation:** publicly freeze and run one small no-RNG live probe of
+the connector's inline-tree and grouped-readback adapter, then integrate that
+qualified adapter with the still-missing complete fresh render/threshold/
+physical/evaluate runner. Publish and independently read back a new complete
+runner+broker runtime freeze before any reservation or RNG. The earlier
+prepare-only freeze predates the broker and grants no execution authority.
+127/24 remains NOT ACTIVATED; HD189733 selected, HD1461 HOLD, GJ724 reserve;
+spectra/holdouts unopened, LS paused, CHEOPS UNSENT.
+
 ## 30 September: fresh native v2 preparation executable frozen
 
 [The prepare-only contract and complete evidence](RADIO_NATIVE_V2_PREPARATION_2026-09-30_RESULT.md)
