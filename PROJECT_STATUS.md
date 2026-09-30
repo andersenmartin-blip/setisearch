@@ -1,5 +1,23 @@
 # SETIsearch — current project status
 
+## 30 September: corrected inline-broker live probe passes
+
+[The public freeze and end-to-end live evidence](RADIO_NATIVE_V2_BROKER_LIVE02_2026-09-30_RESULT.md)
+qualify one inline-content tree, raw receipt preservation, exact candidate
+identity, one child/non-forced update and one grouped immutable readback. All
+three blobs and 791 stored bytes reconstruct the exact 38-byte source. The live
+sequence used 11/16 bounded operations; conservative 16-KiB request, 64-KiB
+response and 30-s charges pass the frozen caps. Live01 remains CLOSED FAILED.
+No reservation, RNG, score or telescope read occurred.
+
+**Exact continuation:** implement the qualified adapter with durable raw-receipt
+handling in the missing complete fresh render/threshold/physical/evaluate
+runner. Generate, publish and independently read back a new complete
+runner+broker runtime freeze before any reservation or RNG; the earlier
+prepare-only freeze is not executable authority. 127/24 remains NOT ACTIVATED;
+HD189733 selected, HD1461 HOLD, GJ724 reserve; spectra/holdouts unopened, LS
+paused and CHEOPS UNSENT.
+
 ## 30 September: first inline-broker live probe closes failed
 
 [The prospectively frozen live probe and failure evidence](RADIO_NATIVE_V2_BROKER_LIVE_2026-09-30_RESULT.md)
