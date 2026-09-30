@@ -5,6 +5,7 @@ Every flat checkpoint member is an ordinary charged journal artifact; its seal
 binds the complete dynamic inventory. Interrupted cases cannot resume.
 """
 import json
+import math
 import resource
 
 from . import whole_cadence_journal_radio as j
@@ -14,6 +15,23 @@ from .empty_null_radio import canonical
 SEAL='physical_inventory.json'
 OUTCOME='case_outcome.json'
 CLOSURE_RESERVES={SEAL:262144,OUTCOME:65536}
+REASON_JSON_BYTES=4096
+
+
+def bounded_reason(value):
+    """Bound canonical journal bytes, including escaped Unicode/control text.
+
+    The footer independently preserves the hash of the complete original text.
+    This bound does not alter historical footers or journal revisions.
+    """
+    text=str(value)
+    if len(canonical(text))<=REASON_JSON_BYTES:return text
+    low,high=0,min(len(text),REASON_JSON_BYTES)
+    while low<high:
+        middle=(low+high+1)//2
+        if len(canonical(text[:middle]))<=REASON_JSON_BYTES:low=middle
+        else:high=middle-1
+    return text[:low]
 
 
 def policy(config, *, max_files=1024):
@@ -82,23 +100,28 @@ class PhysicalCase:
         success=view.summary()['status']=='completed'
         self.lease.write_artifact(SEAL,canonical(j.group_seal(self.lease.checkpoint,'physical',complete=success)))
         result={'schema':'radio-engineering-case-outcome-v1','outcome':'completed' if success else 'failed',
-            'physical_evidence_reference':self.writer.receipt(),'reason':str(reason)[:4096],
+            'physical_evidence_reference':self.writer.receipt(),'reason':bounded_reason(reason),
             'reason_sha256':e.sha(str(reason).encode()),'peak_rss_bytes':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024,
             'elapsed_milliseconds':(self.lease.clock()-self.lease.started)*1000,
             'scientific_admission_authorized':False,'execution_restart_authorized':False}
         self.lease.write_artifact(OUTCOME,canonical(result))
         inspect_case(self.lease.checkpoint,self.lease.directory)
-        cp=self.lease.finish('completed' if success else 'failed',str(reason)[:4096])
+        # Successful descriptions are retained in the hashed footer. Keeping
+        # their journal reasons empty leaves the reserved last-failure margin.
+        cp=self.lease.finish('completed' if success else 'failed',
+            '' if success else bounded_reason(reason))
         self.closed=True
         return cp
 
     def fail(self,error):
         """Bounded closure after timeout or interrupted writes; never large dumps."""
         if self.closed:raise ValueError('Case already closed')
+        closure_started=self.lease.clock()
         reference=self.writer.receipt();closure_error=None
         if not self.writer.closed:
             try:reference=self.writer.close('failed','outer_failure',repr(error))
-            except BaseException as nested:closure_error=repr(nested)[:2048]
+            except BaseException as nested:
+                closure_error=repr(nested)[:2048];reference=self.writer.receipt()
         result={'schema':'radio-engineering-case-outcome-v1','outcome':'failed',
             'physical_evidence_reference':reference,'error':repr(error)[:4096],
             'error_sha256':e.sha(repr(error).encode()),'physical_closure_error':closure_error,
@@ -108,9 +131,33 @@ class PhysicalCase:
         if self.lease.broken:
             self.closed=True
             return {**result,'parent_status':'uncertain','outer_footer_written':False}
+        if self.lease.failure_finalization_started is None:
+            self.lease.failure_finalization_started=closure_started
+        def closure_budget():
+            elapsed=(self.lease.clock()-self.lease.failure_finalization_started)*1000
+            group=self.lease.manifest['artifact_groups']['physical']
+            if not math.isfinite(elapsed) or elapsed<0 or elapsed>group['failure_finalization_milliseconds']:
+                self.closed=True
+                raise ValueError('Whole failure finalization window exhausted; no retry')
+        closure_budget()
+        # Verify the exact charged prefix before sealing it incomplete. A lost
+        # acknowledgement or orphaned filesystem write cannot enter this path.
+        inspect_case(self.lease.checkpoint,self.lease.directory)
+        closure_budget()
+        state=j.replay(self.lease.checkpoint.document)['cases'][-1]
+        if SEAL not in state['artifacts']:
+            self.lease.write_failure_artifact(SEAL,
+                canonical(j.group_seal(self.lease.checkpoint,'physical',complete=False)))
         # A timeout closes normal work permanently. Only the already-reserved
-        # small footer may be written in the separate fixed five-second window.
-        self.lease.write_failure_artifact(OUTCOME,canonical(result))
-        cp=self.lease.finish('failed',repr(error)[:4096]);self.closed=True
+        # seal/footer can enter the same fixed five-second closure window.
+        retained_footer=OUTCOME in state['artifacts']
+        if not retained_footer:
+            self.lease.write_failure_artifact(OUTCOME,canonical(result))
+        closure_budget()
+        reason=repr(error)
+        if retained_footer:reason='failure-error-sha256:'+e.sha(reason.encode())+' '+reason
+        cp=self.lease.finish('failed',bounded_reason(reason));self.closed=True
+        closure_budget()
         return {'parent_status':j.replay(cp.document)['cases'][-1]['status'],
-                'outer_footer_written':True,**result}
+                'outer_footer_written':not retained_footer,'outer_footer_retained':retained_footer,
+                'failure_closure_within_limit':True,**result}

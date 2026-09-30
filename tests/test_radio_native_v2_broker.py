@@ -2,6 +2,7 @@
 import base64
 import copy
 import unittest
+from dataclasses import replace
 from unittest.mock import patch
 
 from seti_repeater import native_v2_broker_radio as b
@@ -113,6 +114,67 @@ class NativeV2BrokerTests(unittest.TestCase):
         with self.assertRaises(b.Stopped):cumulative.publish(second)
         self.assertTrue(cumulative.stopped)
         with self.assertRaises(b.Stopped):cumulative.publish(second)
+
+    def test_reply_capacity_is_reserved_before_any_transport_call(self):
+        bundle=self.bundle(limits=replace(b.Limits(),response_bytes=1024))
+        publisher=b.Publisher(bundle,self.git.invoke,expected_bundle_sha256=bundle.sha256,clock=lambda:0.)
+        with self.assertRaisesRegex(b.Stopped,'reserve operation reply'):publisher.publish()
+        self.assertEqual(self.git.calls,[])
+        self.assertEqual(publisher.usage()['calls'],0)
+
+    def test_lost_update_retains_unknown_reply_charge_and_never_retries(self):
+        bundle=self.bundle();self.git.lost_update=True
+        publisher=b.Publisher(bundle,self.git.invoke,expected_bundle_sha256=bundle.sha256,clock=lambda:0.)
+        with self.assertRaises(b.Stopped):publisher.publish()
+        usage=publisher.usage()
+        self.assertEqual(usage['unknown_response_count'],1)
+        self.assertEqual(usage['unknown_response_bytes'],b.RESPONSE_RESERVATIONS['update_ref'])
+        self.assertEqual(usage['response_charged_bytes'],usage['response_bytes']+usage['unknown_response_bytes'])
+        self.assertTrue(publisher.receipt['update_may_have_landed'])
+        self.assertTrue(publisher.events[-1]['response_unknown'])
+        before=len(self.git.calls)
+        with self.assertRaises(b.Stopped):publisher.publish()
+        self.assertEqual(len(self.git.calls),before)
+
+    def test_cumulative_failure_keeps_all_spent_calls_bytes_and_ambiguity(self):
+        cumulative=b.CumulativeBroker(self.git.invoke,clock=lambda:0.)
+        first=cumulative.publish(self.bundle(0));self.git.lost_update=True
+        with self.assertRaises(b.Stopped):cumulative.publish(self.bundle(1))
+        failed=cumulative.failed_attempt;usage=cumulative.usage()
+        self.assertEqual(usage['cases'],2)
+        self.assertEqual(usage['calls'],first['usage']['calls']+failed['usage']['calls'])
+        self.assertEqual(usage['stored_bytes'],first['stored_bytes']+failed['stored_bytes'])
+        self.assertEqual(usage['response_charged_bytes'],
+            first['usage']['response_charged_bytes']+failed['usage']['response_charged_bytes'])
+        self.assertEqual(usage['unknown_response_count'],1)
+        self.assertTrue(failed['stored_bytes_conservative'])
+        self.assertTrue(failed['update_may_have_landed'])
+
+    def test_oversized_known_reply_is_charged_exactly_before_stopping(self):
+        bundle=self.bundle();reply={'padding':'x'*b.RESPONSE_RESERVATIONS['fetch']}
+        publisher=b.Publisher(bundle,lambda *args:reply,
+            expected_bundle_sha256=bundle.sha256,clock=lambda:0.)
+        with self.assertRaises(b.Stopped):publisher.publish()
+        usage=publisher.usage();actual=len(b.canonical(reply))
+        self.assertEqual(usage['calls'],1)
+        self.assertEqual(usage['response_charged_bytes'],actual)
+        self.assertEqual(usage['unknown_response_count'],0)
+        self.assertFalse(publisher.update_attempted)
+
+    def test_rss_growth_during_a_call_is_detected_before_next_operation(self):
+        bundle=self.bundle();entered=False
+        class Usage:
+            @property
+            def ru_maxrss(self):return 1024**3 if entered else 0
+        def invoke(method,params):
+            nonlocal entered
+            result=self.git.invoke(method,params);entered=True;return result
+        publisher=b.Publisher(bundle,invoke,expected_bundle_sha256=bundle.sha256,clock=lambda:0.)
+        with patch.object(b.resource,'getrusage',return_value=Usage()):
+            with self.assertRaises(b.Stopped):publisher.publish()
+        self.assertEqual(len(self.git.calls),1)
+        self.assertEqual(publisher.usage()['calls'],1)
+        self.assertGreater(publisher.usage()['response_bytes'],0)
 
 
 if __name__=='__main__':unittest.main()
