@@ -1,5 +1,25 @@
 # Long-term project direction
 
+## 30 September: content-addressed terminal archive transport passes
+
+[The prospectively frozen batch transport and complete evidence](RADIO_V2_BATCH_2026-09-30_RESULT.md)
+publish the exact 130-file, 4,961,274-byte v2 archive in five logical tree
+batches, one commit and one non-forced ref update. Publication took 8.510 s
+under its 300-s cap. A fresh grouped immutable audit verified every Git blob,
+SHA256 and length with one `git cat-file --batch` operation in 0.049221 s;
+peak RSS was 36,466,688 bytes. **38/38 targeted and adjacent regression tests
+pass.** The earlier 900-s serial scope remains CLOSED FAILED and was not retried.
+
+This qualifies only terminal engineering archive transport. **Exact
+continuation:** freeze one fresh complete native physical/resource qualification
+with receiver batching, complete receiver/alias/cluster evidence, all stage
+timings, recovery/RFI/null and failure evidence, bounded interruption accounting
+and explicit publication during execution. Use fresh identities and public
+freeze/readback. 127/24 remains NOT ACTIVATED; spectra and old holdouts remain
+unopened. HD189733 selected, HD1461 HOLD, GJ724 reserve; LS paused, CHEOPS UNSENT.
+All failures, counters and limits persist. No messages/delegation; review around
+2 October and consolidate 9 October without extension.
+
 ## 30 September: v2 restores a 42.37-MB report load within 18 MiB
 
 [The versioned format, result and complete evidence](RADIO_PHYSICAL_EVIDENCE_V2_2026-09-30_RESULT.md)
