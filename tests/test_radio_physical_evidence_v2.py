@@ -97,7 +97,7 @@ class StorageTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'Symlink'):self.inspect(w)
 
     def test_parent_integration_and_incomplete_completion_are_rejected(self):
-        with self.assertRaisesRegex(ValueError,'not qualified'):e.Writer.create_for_lease(None,self.config,existing_artifacts=self.existing)
+        with self.assertRaisesRegex(ValueError,'parent lease'):e.Writer.create_for_lease(None,self.config,existing_artifacts=self.existing)
         w=self.writer()
         with self.assertRaisesRegex(ValueError,'Complete final'):w.close('completed','done',snapshot=self.doc())
 

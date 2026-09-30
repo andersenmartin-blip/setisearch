@@ -18,6 +18,7 @@ from types import MappingProxyType
 
 from .empty_null_radio import canonical
 from .whole_cadence_journal_radio import durable_write, sync_dir
+from .physical_evidence_radio import flat_name, nested_name
 
 SCHEMA = 'radio-physical-evidence-checkpoints-v2-zlib'
 MAX_VALUE_BYTES = 24*1024**2
@@ -321,19 +322,66 @@ class Writer:
 
     @classmethod
     def create_for_lease(cls,lease,config,*,existing_artifacts):
-        raise ValueError('v2 parent/remote publisher integration is not qualified')
+        from . import whole_cadence_journal_radio as j
+        from .whole_cadence_event_store_radio import EventDirectoryStore
+        if (type(lease) is not j.Lease or lease.manifest['mode']!='engineering'
+                or type(lease.store) is not EventDirectoryStore):
+            raise ValueError('Fresh local event engineering parent lease required')
+        lease.budget();lease._current();_config(config)
+        binding=lease.case['binding']
+        if any(config[key]!=binding[key] for key in ('case_identity','plan_sha256')):
+            raise ValueError('Physical case/plan identity differs from fresh parent binding')
+        groups=lease.manifest.get('artifact_groups',{})
+        if set(groups)!={'physical'}:raise ValueError('Fixed physical group required')
+        group=groups['physical']
+        if group['prefix']!='physical-' or group['binding_sha256']!=sha(canonical(config)):
+            raise ValueError('Physical reservation differs from prospective parent binding')
+        from .physical_case_v2_radio import policy, CLOSURE_RESERVES
+        if group!=policy(config,max_files=group['max_files'])['physical']:
+            raise ValueError('Exact prospective physical closure policy required')
+        if any(name.startswith('physical-') or name in CLOSURE_RESERVES for name in existing_artifacts):
+            raise ValueError('Original base artifact overlaps physical or closure inventory')
+        state=j.replay(lease.checkpoint.document)['cases'][-1]
+        if set(state['artifacts'])!=set(existing_artifacts):
+            raise ValueError('Exact already-registered inventory required')
+        for name,data in existing_artifacts.items():
+            if (lease.directory/name).read_bytes()!=data:
+                raise ValueError('Existing parent bytes differ')
+        j.verify_archive(lease.checkpoint,lease.directory,
+            case_index=len(j.replay(lease.checkpoint.document)['cases'])-1)
+        held=sum(group['reserved_artifacts'].values())
+        if (lease.case['artifact_bytes']>MAX_BYTES
+                or config['budget_bytes']!=lease.case['artifact_bytes']-held):
+            raise ValueError('Physical budget must retain all outer closure reserves within 18 MiB')
+        if configuration(config['namespace'],config['case_identity'],config['plan_sha256'],existing_artifacts,
+                budget_bytes=config['budget_bytes'],checkpoint_limit=config['checkpoint_limit'])!=config:
+            raise ValueError('Physical existing artifact binding differs')
+        writer=cls(lease.directory,config,_TOKEN);writer.lease=lease
+        writer._write('reservation.json',writer.config_raw)
+        return writer
 
     def _write(self,path,data):
-        durable_write(self.path/path,data)
+        if self.lease is None:durable_write(self.path/path,data)
+        else:self.lease.write_artifact(flat_name(path),data)
 
     def _files(self):
-        return _inventory(self.path)
+        if self.lease is None:return _inventory(self.path)
+        from . import whole_cadence_journal_radio as j
+        self.lease.budget();self.lease._current()
+        j.verify_archive(self.lease.checkpoint,self.path,
+            case_index=len(j.replay(self.lease.checkpoint.document)['cases'])-1)
+        return {nested_name(n):data for n,data in _inventory(self.path).items()
+                if n.startswith('physical-')}
 
     def _current(self,*,allow_capacity=False):
         if self.closed or self.poisoned:raise EvidenceStopped('Writer closed or uncertain; no retry')
         if self.capacity_failed and not allow_capacity:raise EvidenceCapacity('Capacity failure is final; only failed closure allowed')
-        if canonical(self.config)!=self.config_raw or self._files()!=self.expected:
-            self.poisoned=True;raise EvidenceStopped('Existing evidence or reservation changed')
+        try:
+            if canonical(self.config)!=self.config_raw or self._files()!=self.expected:
+                raise EvidenceStopped('Existing evidence or reservation changed')
+        except BaseException:
+            self.poisoned=True
+            raise
 
     def receipt(self):
         return {'reservation_sha256':self.config_sha,'last_checkpoint_sha256':self.previous,
@@ -364,7 +412,8 @@ class Writer:
         new={'parts/'+h:data for h,data in parts.items() if 'parts/'+h not in self.expected}
         new[name]=encoded
         proposed=self.existing_bytes+sum(map(len,self.expected.values()))+sum(map(len,new.values()))+FOOTER_RESERVE
-        if proposed>self.config['budget_bytes'] or len(self.expected)+len(new)+1>MAX_FILES:
+        max_files=MAX_FILES if self.lease is None else self.lease.manifest['artifact_groups']['physical']['max_files']
+        if proposed>self.config['budget_bytes'] or len(self.expected)+len(new)+1>max_files:
             self.capacity_failed=True
             self.last_failure={'kind':'capacity','uncommitted_snapshot_sha256':sha(raw),'uncommitted_snapshot_bytes':len(raw),
                                'would_charge_bytes_including_footer_reserve':proposed}
