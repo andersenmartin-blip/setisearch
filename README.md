@@ -1,5 +1,23 @@
 # SETIsearch
 
+## 30 September: fresh v2 stage chain passes
+
+[The implementation and component evidence](https://github.com/andersenmartin-blip/setisearch/blob/43267dab2859a4b6a56d7bd0c6eb883c7745f54f/RADIO_NATIVE_V2_CHAIN_2026-09-30_RESULT.md)
+add fresh-namespace render, ordered four-reference threshold, compressed
+physical-writer and post-decision evaluation functions without relabelling the
+closed older run. The broker also persists every untouched transport result
+before parsing and permanently stops on request, response or receipt ambiguity.
+**246 adjacent tests pass, including eight new tests.** No reservation, RNG,
+score or telescope data were opened.
+
+The remaining blocker is now the single eight-case orchestrator: compact base
+evidence, reference/evaluation physical closure, terminal case plus cumulative
+journal publication, and interruption/cumulative accounting must be bound and
+tested together. A new complete runner+broker runtime freeze must then be
+published and read back before any reservation or RNG. The historical
+prepare-only freeze stays non-executable. 127/24 remains NOT ACTIVATED;
+HD189733 selected, HD1461 HOLD, GJ724 reserve, LS paused and CHEOPS UNSENT.
+
 ## 30 September: inline publication adapter passes live qualification
 
 [The public freeze, retained failure and corrected end-to-end evidence](https://github.com/andersenmartin-blip/setisearch/blob/08f4eb5b3b3d9617aa6f3e972b0b08f8ad9261fd/RADIO_NATIVE_V2_BROKER_LIVE02_2026-09-30_RESULT.md)
