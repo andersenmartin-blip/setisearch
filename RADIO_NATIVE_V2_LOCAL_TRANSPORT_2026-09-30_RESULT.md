@@ -1,6 +1,12 @@
 # Local transport qualification, 30 September 2026
 
-The unchanged Python Publisher and Worker completed two fresh transport
+The actual 64 KiB GitHub transport control passed, with independently verified
+original bytes, exact tree delta, commit parent and final branch head. It used
+31 actual SDK calls plus four conservatively counted Git processes: 35 of 64,
+in 236.538 seconds. This is one non-scientific component control, not an
+eight-case or scientific execution qualification.
+
+The unchanged Python Publisher and Worker also completed two fresh transport
 fixtures at the full 26 MiB source ceiling. The first publication and its
 sibling both restored every original byte, checked the complete Git tree
 delta, and confirmed the final parent and branch head. Each used 52 shared
@@ -121,7 +127,7 @@ prepare_transport, before its first connector. Both candidate and post-update
 fetches use blob:none/depth=1 plus only the exact frozen archive blob IDs;
 unsupported filtering closes the scope. Capability preflight has its own
 unchanged 30-second Worker operation. Its additional local process is counted:
-60 actual SDK calls plus four conservative Git processes fit the existing 64
+The plan allocates at most 60 SDK calls plus four conservative Git processes within the existing 64
 allocation. This is a trusted-endpoint capability check, not a hostile-server
 or complete eight-case qualification.
 
@@ -137,8 +143,30 @@ awaited portable client automates startup, source extraction, connector calls
 and deliveries, with extra polls counted before dispatch. Its cap covers the
 nested SDK calls and four conservative local Git processes; the surrounding
 functions.exec/wait orchestration and courier V8 RSS remain unqualified.
-It grants no native-case authority. Its result will be retained separately;
-live04 has not run in this prospective publication. The controller reports its last supporting
+It grants no native-case authority. Live04 completed with nested Publisher
+PASSED at archive commit `ca5763b449e25f5b402acfb809dd176285d840ff`, tree
+`3f8245a4d542a04048d4041e7cdc97af02d3d79f`, parent
+`dcf42107509209b2d5dbe11053e3231b8bdd1182`. An independent single Git batch
+matched all three factory files and restored exactly 65,536 source bytes,
+SHA256 `7daca2095d0438260fa849183dfc67faa459fdf4936e1bc91eec6b281b27e4c2`.
+Both source proofs and the exact terminal-pointer hash were verified. The
+public final head was separately confirmed. Independent immutable GitHub file
+readback also matched all three file bodies, blob IDs and SHA256 pins. All 283
+original scope files (1,751,201 bytes) are retained, and all 65 Store items were
+sealed and verified. Node self RSS peaked at
+161,046,528 bytes and Publisher Python at 47,955,968 bytes; aggregate and
+functions-client RSS remain unmeasured.
+
+The complete caller trace counts 17 idle polls, one startup, one source read,
+six connector calls and six deliveries. All caller SDK replies are known;
+the distinct host ledger covers 18 operations and retains one unknown
+131,072-byte supporting acknowledgement. Idle polls have not been joined
+into host custody. The successful original Store has no STOPPED marker;
+completion closes this scope by policy, with no reuse or restart.
+Its small-control polling overhead would not fit a naive full-size extrapolation
+inside 64 calls. The 57/456 structural count excludes that overhead and remains
+unqualified. A complete versioned Runner contract is still required.
+The controller reports its last supporting
 acknowledgement as unconfirmed and does not claim durable late-envelope custody
 after Store shutdown.
 
