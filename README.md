@@ -1,3 +1,13 @@
+# SETI status — 30 September 2026: actual GitHub transport control verified
+
+The live04 non-scientific 64 KiB transport control passed: 31 actual SDK calls plus four conservatively counted Git processes, 35/64 operations in 236.538 seconds. Immutable file and Git readback verified the original bytes, complete tree delta, commit parent and final head. All 283 original scope files and 65 sealed Store items are retained. The scoped validation passed 97 JavaScript and 305 Python tests; broad historical repository discovery still has retained failures.
+
+This qualifies one transport component control. Eight-case and Runner execution qualification remain pending; scientific 127/24 execution is not activated. No telescope spectra, case RNG or native reservations were used. The radio plan still ends on 9 October without extension.
+
+[Verified result and retained evidence](https://github.com/andersenmartin-blip/setisearch/blob/ede9d649381c9b0272e4fa10fd53c57f859d388e/RADIO_NATIVE_V2_LOCAL_TRANSPORT_2026-09-30_RESULT.md).
+
+---
+
 # SETIsearch
 
 ## 30 September: concrete bridge storage passes; full-size IPC budget fails
