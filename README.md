@@ -1,5 +1,25 @@
 # SETIsearch
 
+## 30 September: fresh native v2 parent capacity passes
+
+[The implementation and exact capacity evidence](https://github.com/andersenmartin-blip/setisearch/blob/f0b473003941893c4dff1c45c331643066e68a6f/RADIO_NATIVE_V2_PARENT_2026-09-30_RESULT.md)
+now bind eight distinct prospective v2 case configurations under one cumulative
+engineering parent. The frozen design uses eight meaningful stage-boundary
+checkpoints and at most 48 physical files per case. Its worst-count model has
+168 journal events and 340 journal files; the reconstructed revision peaks at
+**125,548 / 131,072 bytes**, while the durable journal plus transient HEAD and
+closure reserve peaks at **789,981 / 8,388,608 bytes**. **252 tests pass.** No
+case was reserved and no RNG, score, receiver measurement or telescope value was
+opened.
+
+This qualifies the multi-case parent and resource gate only. Next is the fresh
+new-identity runner and a bounded publication-during-execution broker for each
+terminal case plus cumulative journal, including crash/conflict/lost-response
+and grouped immutable-readback evidence. Its complete executable/runtime freeze
+must be published and read back before any reservation or RNG. 127/24 remains
+off; HD189733 selected, HD1461 HOLD, GJ724 reserve, spectra/holdouts unopened,
+LS paused and CHEOPS UNSENT.
+
 ## 30 September: v2 checkpoint journal batching passes
 
 [The contract, implementation and evidence](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_V2_EVENT_BATCH_2026-09-30_RESULT.md)
