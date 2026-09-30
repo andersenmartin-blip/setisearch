@@ -28,11 +28,11 @@ class BoundedLines {
 
 function deliveryRequest(line,argumentsWithoutChars) {
   assert(argumentsWithoutChars&&Number.isSafeInteger(argumentsWithoutChars.session_id)&&
-    argumentsWithoutChars.max_output_tokens===400000&&argumentsWithoutChars.yield_time_ms===1000&&
+    argumentsWithoutChars.max_output_tokens===400000&&argumentsWithoutChars.yield_time_ms===10000&&
     Object.keys(argumentsWithoutChars).sort().join()==='max_output_tokens,session_id,yield_time_ms',
     'Exact visible delivery arguments required');
   return JSON.stringify({tool:'write_stdin',arguments:{session_id:argumentsWithoutChars.session_id,
-    chars:line+'\n',max_output_tokens:400000,yield_time_ms:1000}});
+    chars:line+'\n',max_output_tokens:400000,yield_time_ms:10000}});
 }
 
 // The unknown delivery body is reserved before either source extraction or
@@ -77,6 +77,7 @@ class ToolCourier {
     const outgoing={schema:SCHEMA,kind:'request',ordinal:this.sequence++,tool,
       arguments:context.request_view?null:args,request_view:context.request_view,reads,
       delivery_token:token,delivery_request_reserved_bytes:reservation,
+      emitted_at_epoch_ms:Date.now(),worker_deadline_epoch_ms:Date.now()+context.deadline_ms,
       deadline_ms:context.deadline_ms,automatic_retry:false};
     assert(Buffer.byteLength(JSON.stringify(outgoing))<=112*1024,'Bounded outgoing control transcript required');
     return await new Promise((resolve,reject)=>{
@@ -163,7 +164,7 @@ function runGit(kind,plan,milliseconds,localGit=null) {
 }
 
 async function main(options) {
-  assert(globalThis.__radioNativeV2SourcePolicy&&options&&options.fixture_namespace===transport.FIXTURE_PREFIX,
+  assert(globalThis.__radioNativeV2SourcePolicy&&options&&options.fixture_namespace===transport.CONTROL_PREFIX,
     'Pinned source-only prospective fixture entry required');
   assert(options.cases===1,'This controller is restricted to one prospective fixture case');
   const emit=value=>process.stdout.write(JSON.stringify(value)+'\n'),ledger=new transport.SharedLedger(),

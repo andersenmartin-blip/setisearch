@@ -19,6 +19,7 @@ from seti_repeater.empty_null_radio import canonical
 from radio_native_v2_local_transport_fixture import deterministic_bundle, PREFIX
 
 SOURCE_BYTES = 65536
+CONTROL_PREFIX = 'results_radio_native_v2_local_transport_20260930a/live02'
 SCHEMA = 'radio-native-v2-actual-tool-courier-publisher-control-v1'
 
 
@@ -54,14 +55,14 @@ def main():
     if (commit.returncode or hashlib.sha1(('commit '+str(len(data))+'\0').encode()+data).hexdigest() != config['parent']
             or not data.startswith(('tree '+config['parent_tree']+'\n').encode())):
         raise ValueError('Actual immutable local Git parent/tree differs')
-    broker.ROOT_PREFIX = PREFIX  # This process cannot use the native namespace.
+    broker.ROOT_PREFIX = CONTROL_PREFIX  # This process cannot use the native namespace.
     started = time.monotonic()
     worker = Worker(Store(config['store_root']))
     invoker = broker.DurableInvoker(worker.invoke, worker.persist)
     cumulative = broker.CumulativeBroker(invoker.invoke)
     error = None; receipt = None; host_receipt = None
     try:
-        bundle = deterministic_bundle(0, SOURCE_BYTES, config['parent'], config['parent_tree'])
+        bundle = deterministic_bundle(0, SOURCE_BYTES, config['parent'], config['parent_tree'], namespace=CONTROL_PREFIX)
         worker.prepare_transport(bundle.freeze_bytes.decode(), bundle.sha256)
         receipt = cumulative.publish(bundle)
         host_receipt = worker.finish_transport()
@@ -74,7 +75,7 @@ def main():
         error = repr(failure)
     result = {'schema': SCHEMA, 'mode': 'ACTUAL_TOOL_TRANSPORT_CONTROL_ONLY',
               'status': 'PASSED' if error is None else 'STOPPED', 'error': error,
-              'source_bytes': SOURCE_BYTES, 'prefix': PREFIX, 'parent_code_commit': config['code_commit'],
+              'source_bytes': SOURCE_BYTES, 'prefix': CONTROL_PREFIX, 'parent_code_commit': config['code_commit'],
               'publisher': receipt, 'host': host_receipt, 'worker_requests': worker.ordinal,
               'python_broker_usage': cumulative.usage(), 'durable_python_receipts': invoker.records,
               'source_loader_preflight': policy, 'elapsed_seconds': time.monotonic()-started,

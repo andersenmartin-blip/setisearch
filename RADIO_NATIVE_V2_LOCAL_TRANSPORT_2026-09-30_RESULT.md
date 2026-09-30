@@ -21,8 +21,10 @@ request receipt and supporting receipt batch now stream through source-only
 Python helpers. No second large request file or all-fragment string array is
 needed.
 
-The prospective conservative bound is 56 operations per case and 448 over
-eight cases, using 960 KiB extraction fragments. The old 64/512-operation,
+The component's structural bound is 56 operations per case and 448 over
+eight cases, using 960 KiB extraction fragments. Extra actual courier polls
+are counted separately; this bound does not qualify an actual eight-case run.
+The old 64/512-operation,
 48/64-MiB per-case request/response, 30-second Worker and 600-second case
 limits remain unchanged. Local Git process wrappers are labelled explicitly
 and are conservatively counted; they are not represented as tool envelopes.
@@ -59,7 +61,7 @@ the complete courier. A separate local 64 MiB stdio fixture passed in 0.597
 seconds; it is not an actual tool throughput measurement.
 
 The established metadata-only Python suites passed 299 tests; the new fixture
-tests are retained separately. Final JavaScript suites passed 78 tests.
+tests are retained separately. Final JavaScript suites passed 86 tests.
 An additional broad historical discovery ran 1,036 tests and failed with 108
 errors and two old acquisition-pin assertion failures. Missing historical
 artifacts and h5py are recorded in that log; this release does not claim that
@@ -67,19 +69,28 @@ all repository tests pass. No raw telescope data was fetched to fill those gaps.
 
 ## Prospective freeze and next control
 
-The prospective public runtime freeze pins 902 code, 14 input and 1,366 runtime
+The fresh live02 prospective runtime freeze pins 903 code, 14 input and 1,366 runtime
 files. Its SHA256 is
-`d8fe93cb4b0f8bc7c2f106c21cdc79b0e8157d6a29c98e8d1f2b2c63825a9828`.
-Actual local source preflight passed for all five Node modules and 183 Python
-source imports; the largest launcher argument was 65,798 bytes. The earlier
+`b5c814ed13fe1a9b157e61b0e55d5f7029316fb028428e3d651d2227f4de9164`.
+Fresh local source preflight passed for all five Node modules and 184 Python
+source imports; the largest launcher argument was 65,803 bytes. The fresh
+startup cache remained empty and all 903 code pins were reverified. The earlier
 source-drift refusal is also preserved. Every execution, reservation, RNG,
 restart and transport-integration authority flag remains false.
 
-The published prospective control plan permits one 64 KiB deterministic
-archive under the isolated transport-fixture namespace, after immutable public
-code/freeze readback. It exercises the actual connector/courier/Git chain and
-grants no native-case authority. Its result will be retained separately; it has
-not run in this initial publication. The controller reports its last supporting
+The live01 actual control closed before any connector dispatch: the controller
+emitted its first head request, but the manual handoff exhausted the unchanged
+30-second Worker deadline. Its full startup/poll responses, Store markers and
+unknown reservations are retained. Its namespace and private Store cannot be reused.
+
+The separate live02 prospective plan permits one 64 KiB deterministic archive
+under a fresh namespace, after immutable public code/freeze readback. A single
+awaited portable client automates startup, source extraction, connector calls
+and deliveries, with extra polls counted before dispatch. Its cap covers the
+nested SDK calls and three conservative local Git processes; the surrounding
+functions.exec/wait orchestration and courier V8 RSS remain unqualified.
+It grants no native-case authority. Its result will be retained separately;
+live02 has not run in this prospective publication. The controller reports its last supporting
 acknowledgement as unconfirmed and does not claim durable late-envelope custody
 after Store shutdown.
 

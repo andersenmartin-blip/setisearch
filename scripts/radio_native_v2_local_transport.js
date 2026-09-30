@@ -7,6 +7,7 @@ const h = require('./radio_native_v2_broker_host');
 const MIB = 1024 * 1024;
 const SCHEMA = 'radio-native-v2-local-courier-host-v1';
 const FIXTURE_PREFIX='results_radio_native_v2_local_transport_20260930a/live01';
+const CONTROL_PREFIX='results_radio_native_v2_local_transport_20260930a/live02';
 const HARD = Object.freeze({cases:8,calls:512,request_bytes:384*MIB,response_bytes:512*MIB,
   case_calls:64,case_request_bytes:48*MIB,case_response_bytes:64*MIB,
   seconds:4800,case_seconds:600});
@@ -283,7 +284,7 @@ function createLocalBrokerHost(options) {
     typeof options.persistRaw==='function'&&typeof options.groupedGitReadback==='function'&&
     typeof options.runGit==='function','Concrete pinned local host dependencies required');
   const ledger=options.ledger||new SharedLedger(),clock=options.clock||Date.now;
-  assert(options.fixture_namespace===undefined||options.fixture_namespace===FIXTURE_PREFIX,'Only the fixed prospective fixture namespace is permitted');
+  assert(options.fixture_namespace===undefined||[FIXTURE_PREFIX,CONTROL_PREFIX].includes(options.fixture_namespace),'Only fixed prospective fixture namespaces are permitted');
   const allowedPrefix=options.fixture_namespace||h.PREFIX;
   const repoPath=safeFile(options.repoPath),spoolRoot=safeFile(options.spoolRoot),gitPath=safeFile(options.gitPath||'/usr/bin/git');
   const completed=[],records=[];let freeze=null,phase={},source=null,busy=false,stopped=false,
@@ -624,6 +625,6 @@ function createLocalBrokerHost(options) {
         'public runtime freeze and exact readback','trusted freeze/reservation verifier']})};
 }
 
-module.exports={SCHEMA,FIXTURE_PREFIX,HARD,RESERVATIONS,READ_BYTES,sha,hashFile,readRange,
+module.exports={SCHEMA,FIXTURE_PREFIX,CONTROL_PREFIX,HARD,RESERVATIONS,READ_BYTES,sha,hashFile,readRange,
   SharedLedger,makeRequestView,makeReadDescriptor,reconstructReadEnvelope,makeCourierReadPlan,requestViewStoragePin,
   capacityRecord,createLocalBrokerHost};

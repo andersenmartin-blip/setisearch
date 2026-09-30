@@ -2,7 +2,7 @@ const test=require('node:test'),assert=require('node:assert/strict'),crypto=requ
 const {SharedLedger}=require('../scripts/radio_native_v2_local_transport'),
   {SCHEMA,ToolCourier,deliveryRequest,BoundedLines}=require('../scripts/radio_native_v2_local_courier');
 const hash=value=>crypto.createHash('sha256').update(value).digest('hex');
-const args={session_id:123,max_output_tokens:400000,yield_time_ms:1000};
+const args={session_id:123,max_output_tokens:400000,yield_time_ms:10000};
 function fixture(){
   const ledger=new SharedLedger();ledger.beginCase(0);const saved=[],outgoing=[];
   const persistRaw=async r=>{saved.push(r);return{request_bytes:Buffer.byteLength(r.request_json),response_bytes:Buffer.byteLength(r.response_json),
@@ -20,7 +20,7 @@ function packet(ordinal,extra={}){return JSON.stringify({schema:SCHEMA,ordinal,a
 
 test('full delivery request reconstructs exact observed chars and argument order',()=>{
   const line=packet(0),actual=JSON.stringify({tool:'write_stdin',arguments:{session_id:123,chars:line+'\n',
-    max_output_tokens:400000,yield_time_ms:1000}});
+    max_output_tokens:400000,yield_time_ms:10000}});
   assert.equal(deliveryRequest(line,args),actual);
   assert.throws(()=>deliveryRequest(line,{...args,extra:true}),/Exact visible/);
 });

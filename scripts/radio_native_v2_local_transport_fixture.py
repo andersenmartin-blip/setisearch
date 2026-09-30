@@ -128,13 +128,15 @@ def prepare_fixture(directory, *, source_bytes=broker.MAX_SOURCE_BYTES, cases=2,
     return prepared
 
 
-def deterministic_bundle(ordinal, source_bytes, parent, tree, *, payload_mode='periodic'):
+def deterministic_bundle(ordinal, source_bytes, parent, tree, *, payload_mode='periodic', namespace=PREFIX):
     """A genuine framed Bundle for Publisher, deliberately no scientific map."""
     if (type(ordinal) is not int or not 0 <= ordinal < 8 or type(source_bytes) is not int
             or not 1 <= source_bytes <= broker.MAX_SOURCE_BYTES or payload_mode not in ('periodic', 'sha256_counter')):
         raise ValueError('Bounded deterministic fixture framing required')
     case_identity = hashlib.sha256(('closed-local-transport-fixture-'+str(ordinal)).encode()).hexdigest()
-    target = PREFIX+f'/case{ordinal:02d}-{case_identity[:16]}'
+    if namespace not in (PREFIX, 'results_radio_native_v2_local_transport_20260930a/live02'):
+        raise ValueError('Only fixed prospective fixture namespaces are permitted')
+    target = namespace+f'/case{ordinal:02d}-{case_identity[:16]}'
     if payload_mode == 'periodic':
         pattern = bytes((index+ordinal) % 256 for index in range(256))
         source = (pattern*(source_bytes//len(pattern)+1))[:source_bytes]

@@ -16,7 +16,8 @@ def prepare(root, freeze_path, freeze_sha256, config_path, config_sha256):
     if len(raw) > 64 * 1024 or hashlib.sha256(raw).hexdigest() != config_sha256:
         raise ValueError('Bounded exact prospective controller configuration required')
     options = json.loads(raw)
-    if (options.get('fixture_namespace') != 'results_radio_native_v2_local_transport_20260930a/live01'
+    if (options.get('fixture_namespace') not in ('results_radio_native_v2_local_transport_20260930a/live01',
+                                               'results_radio_native_v2_local_transport_20260930a/live02')
             or options.get('cases') != 1 or options.get('root') != str(root)):
         raise ValueError('Only the fixed single-case prospective fixture is supported')
     template = options.pop('start_arguments_template', None)
