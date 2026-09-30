@@ -1,5 +1,30 @@
 # SETIsearch
 
+## 30 September: complete orchestration component passes; execution stays closed
+
+[The integrated implementation and exact component evidence](RADIO_NATIVE_V2_RUNNER_2026-09-30_RESULT.md)
+bind the eight fixed fresh cases to compact base evidence, explicit reference
+closure, physical/evaluation stages and a single cumulative publication barrier.
+Nested deadlines, exact fresh writer/metadata bindings, immutable tree traversal,
+full visible envelope receipts and separate bounded receipt/Git-spool accounting
+are checked. **216 Python and 24 offline JavaScript tests pass.** The numerical,
+authority and transport fixtures are explicitly test-only; no actual native case,
+reservation, draw or telescope read occurred.
+
+The expanded prospective runtime freeze pins **885 code, 14 input and 1,366
+runtime files**, including JavaScript and local Git/Node/ELF dependencies.
+Its SHA256 is `095ea9d77cfed26deebbbc2b421db567479d1c2c46956d31c3236fe2949ed4d7`.
+Every execution/reservation/RNG/transport qualification flag remains false.
+
+**Exact continuation:** qualify the concrete worker-to-host bridge and bounded
+Python/tool receipt, state and Git-spool persistence; measure full-size RSS/storage
+and close the runtime/source-loader proof. Then publish/read back a new
+execution-qualified runner+broker freeze and verify a separate irrevocable
+eight-case reservation before any RNG. This prospective file freeze cannot grant
+those permissions. 127/24 NOT ACTIVATED; HD189733 selected, HD1461 HOLD, GJ724
+reserve; spectra/holdouts unopened, LS paused, CHEOPS UNSENT. Consolidate
+9 October without extension. No external message.
+
 ## 30 September: v2 restores a 42.37-MB report load within 18 MiB
 
 [The versioned format, result and complete evidence](RADIO_PHYSICAL_EVIDENCE_V2_2026-09-30_RESULT.md)

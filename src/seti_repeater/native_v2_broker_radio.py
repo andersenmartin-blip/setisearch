@@ -254,13 +254,28 @@ class Publisher:
         if not isinstance(bundle,Bundle) or bundle.sha256!=expected_bundle_sha256:
             raise ValueError('Independent immutable broker bundle pin differs')
         freeze=json.loads(bundle.freeze_bytes)
-        if (canonical(freeze)!=bundle.freeze_bytes or freeze['limits']!=asdict(bundle.limits)
-                or freeze.get('broker_protocol')!=BROKER_PROTOCOL
-                or freeze.get('per_operation_response_reservations')!=dict(RESPONSE_RESERVATIONS)
+        expected={'schema':SCHEMA,'mode':'ENGINEERING_ONLY','repository':REPO,'branch':BRANCH,
+            'broker_protocol':BROKER_PROTOCOL,'per_operation_response_reservations':dict(RESPONSE_RESERVATIONS),
+            'ordinal':bundle.ordinal,'prefix':bundle.prefix,'limits':asdict(bundle.limits),
+            'single_inline_tree_request':True,'single_grouped_readback':True,'force':False,
+            'automatic_retry':False,'execution_restart_authorized':False,'scientific_admission_authorized':False}
+        if (canonical(freeze)!=bundle.freeze_bytes
+                or set(freeze)!=set(expected)|{'parent','parent_tree','files','manifest_sha256'}
+                or any(type(freeze.get(name)) is not type(value) or freeze.get(name)!=value
+                    for name,value in expected.items())
+                or type(bundle.ordinal) is not int or not 0<=bundle.ordinal<8
                 or set(freeze['files'])!=set(bundle.files)
                 or any(freeze['files'][path]!={'bytes':len(data),'sha256':physical.sha(data),
                     'blob':archive.git_object('blob',data)} for path,data in bundle.files.items())):
             raise ValueError('Prepared inline broker bundle changed')
+        bundle.limits.validate();archive.git_sha(freeze['parent']);archive.git_sha(freeze['parent_tree'])
+        manifest=json.loads(bundle.manifest_bytes)
+        if (bundle.files.get(bundle.prefix+'/manifest.json')!=bundle.manifest_bytes
+                or canonical(manifest)!=bundle.manifest_bytes
+                or type(manifest.get('ordinal')) is not int or manifest.get('ordinal')!=bundle.ordinal
+                or manifest.get('prefix')!=bundle.prefix
+                or prefix(bundle.ordinal,manifest['case_identity'])!=bundle.prefix):
+            raise ValueError('Prepared inline broker manifest binding differs')
         restore(bundle.files,expected_manifest_sha256=freeze['manifest_sha256'],expected_prefix=bundle.prefix)
         self.bundle=bundle;self.freeze=freeze;self.invoke=invoke;self.clock=clock;self.started=clock()
         self.calls=self.request_bytes=self.response_bytes=0;self.attempted=self.stopped=self.update_attempted=False

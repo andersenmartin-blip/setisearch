@@ -10,6 +10,7 @@ from unittest.mock import patch
 from radio_receiver_adapter_common import ROOT,context
 from seti_repeater import native_v2_chain_radio as chain
 from seti_repeater import native_v2_parent_radio as parent
+from seti_repeater import physical_evidence_v2_radio as v2_evidence
 from seti_repeater import whole_cadence_event_store_radio as events
 from seti_repeater import whole_cadence_journal_radio as journal
 from seti_repeater.empty_null_radio import canonical,EMPTY
@@ -98,17 +99,26 @@ class NativeV2ChainTests(unittest.TestCase):
                 self.assertEqual(journal.replay(store.read().document)['cases'][0]['artifacts'],{})
 
     def test_physical_stage_requires_evaluation_case_threshold_and_v2_writer(self):
-        threshold=self.threshold();run=SimpleNamespace(context=self.context);evidence=object();store=object()
-        with patch.object(chain.physical,'run_native',return_value={'complete':True}) as execute:
-            result=chain.run_physical(run,store,threshold,self.plans[4],evidence=evidence)
-        self.assertEqual(result,{'complete':True})
-        execute.assert_called_once_with(run,store,threshold,
-            case_identity=self.plans[4]['case']['identity'],noise_law_sha256=parent.LAW_SHA,
-            evidence=evidence)
-        with self.assertRaisesRegex(ValueError,'evaluation threshold'):
-            chain.run_physical(run,store,threshold,self.plans[0],evidence=evidence)
-        with self.assertRaisesRegex(ValueError,'evidence writer'):
-            chain.run_physical(run,store,threshold,self.plans[4],evidence=None)
+        threshold=self.threshold();run=SimpleNamespace(context=self.context);store=object()
+        config=parent.physical_config(parent.case_binding(self.plans[4]))
+        with tempfile.TemporaryDirectory() as tmp:
+            evidence=v2_evidence.Writer.create(Path(tmp)/'physical',config,existing_artifacts={})
+            with patch.object(chain.physical,'run_native',return_value={'complete':True}) as execute:
+                result=chain.run_physical(run,store,threshold,self.plans[4],evidence=evidence)
+            self.assertEqual(result,{'complete':True})
+            execute.assert_called_once_with(run,store,threshold,
+                case_identity=self.plans[4]['case']['identity'],noise_law_sha256=parent.LAW_SHA,
+                evidence=evidence)
+            with self.assertRaisesRegex(ValueError,'evaluation threshold'):
+                chain.run_physical(run,store,threshold,self.plans[0],evidence=evidence)
+            for wrong in (None,object()):
+                with self.subTest(wrong=type(wrong).__name__),self.assertRaisesRegex(ValueError,'evidence writer'):
+                    chain.run_physical(run,store,threshold,self.plans[4],evidence=wrong)
+            with self.assertRaisesRegex(ValueError,'evidence writer'):
+                chain.run_physical(run,store,threshold,self.plans[5],evidence=evidence)
+            evidence.closed=True
+            with self.assertRaisesRegex(ValueError,'evidence writer'):
+                chain.run_physical(run,store,threshold,self.plans[4],evidence=evidence)
 
     def test_empty_complete_reports_keep_reference_floor_and_truth_postdecision(self):
         threshold=self.threshold()
@@ -129,4 +139,3 @@ class NativeV2ChainTests(unittest.TestCase):
 
 
 if __name__=='__main__':unittest.main()
-

@@ -53,6 +53,19 @@ def reservation(proposal_bytes,budget,case_identity):
     return dict(rows[0])
 
 
+def _fresh_v2_renderer_binding(context,binding,renderer):
+    """Metadata-only fresh v2 law/plan check; no source values or RNG."""
+    from .native_v2_parent_radio import LAW, LAW_SHA, make_plan, CASE_COUNT
+    matches=[p for i in range(CASE_COUNT) if
+        (p:=make_plan(context,i))['case']['identity']==binding['case_identity']]
+    if (renderer['noise_law']!=LAW or binding['noise_law_sha256']!=LAW_SHA
+            or renderer.get('scientific_allocation_charged') is not False
+            or len(matches)!=1 or matches[0]['plan_sha256']!=binding['plan_sha256']
+            or matches[0]['case']['context_sha256']!=binding['context_sha256']
+            or matches[0]['case']['source_contract_sha256']!=binding['source_contract_sha256']):
+        raise ValueError('Fresh native-v2 renderer plan, law or allocation differs')
+
+
 def audit(context,binding,parts,*,expected_sha256s,byte_cap):
     context.validate()
     if set(parts)!=set(ARTIFACTS) or set(expected_sha256s)!=set(ARTIFACTS):
@@ -82,7 +95,8 @@ def audit(context,binding,parts,*,expected_sha256s,byte_cap):
     if (renderer.get('receipt_sha256')!=digest({k:v for k,v in renderer.items() if k!='receipt_sha256'})
             or renderer.get('schema') not in ('radio-whole-cadence-renderer-mock-receipt-v1','radio-whole-cadence-gaussian-receipt-v1',
                                              'radio-engineering-gaussian-native-receipt-v1',
-                                             'radio-native-chain-gaussian-receipt-v1')
+                                             'radio-native-chain-gaussian-receipt-v1',
+                                             'radio-native-v2-gaussian-receipt-v1')
             or renderer['case_identity']!=binding['case_identity'] or renderer['draw_plan_sha256']!=binding['plan_sha256']
             or renderer['noise_law_sha256']!=binding['noise_law_sha256'] or digest(renderer['noise_law'])!=binding['noise_law_sha256']
             or renderer['normal_calls']!=96):
@@ -97,6 +111,8 @@ def audit(context,binding,parts,*,expected_sha256s,byte_cap):
         if (renderer['noise_law']!=LAW or binding['noise_law_sha256']!=LAW_SHA
                 or renderer.get('scientific_allocation_charged') is not False):
             raise ValueError('Native-chain engineering law or allocation differs')
+    if renderer['schema']=='radio-native-v2-gaussian-receipt-v1':
+        _fresh_v2_renderer_binding(context,binding,renderer)
     expected_labels=[s['label'] for s in context.scans]
     if set(sources['sources'])!=set(expected_labels) or [s['scan'] for s in renderer['row_receipts']]!=expected_labels:
         raise ValueError('Complete ordered source/row receipt inventory required')

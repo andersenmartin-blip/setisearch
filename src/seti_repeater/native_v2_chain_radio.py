@@ -12,6 +12,7 @@ from . import gaussian_engineering_radio as gaussian
 from . import native_v2_parent_radio as parent
 from . import whole_cadence_journal_radio as journal
 from . import whole_cadence_physical_radio as physical
+from . import physical_evidence_v2_radio as v2_evidence
 from . import receiver_bank_radio as received
 from .empty_null_radio import canonical,Maximum,maximum
 from .whole_cadence_reference_radio import Family,CadenceMaximum,digest
@@ -112,8 +113,10 @@ def run_physical(run,store,threshold,plan,*,evidence):
     parent.validate_plan(run.context,plan,[])
     if type(threshold) is not EngineeringThreshold or plan['case']['spec']['reference']:
         raise ValueError('Distinct fresh v2 evaluation threshold required')
-    if evidence is None:
-        raise ValueError('Fresh compressed physical evidence writer required')
+    if (type(evidence) is not v2_evidence.Writer
+            or evidence.config!=parent.physical_config(parent.case_binding(plan))
+            or evidence.closed or evidence.poisoned):
+        raise ValueError('Exact fresh compressed physical evidence writer required')
     return physical.run_native(run,store,threshold,
         case_identity=plan['case']['identity'],noise_law_sha256=parent.LAW_SHA,
         evidence=evidence)
@@ -175,4 +178,3 @@ def evaluate(report,context,plan):
         'production_recovery_rfi_null_qualification':False,'scientific_candidate':False}
     result['result_sha256']=digest(result)
     return result
-

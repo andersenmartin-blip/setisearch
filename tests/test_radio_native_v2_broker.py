@@ -150,6 +150,32 @@ class NativeV2BrokerTests(unittest.TestCase):
         with self.assertRaises(ValueError):b.Publisher(bundle,self.git.invoke,expected_bundle_sha256='0'*64)
         with self.assertRaises(ValueError):b.prefix(8,freeze['files'][next(iter(freeze['files']))]['sha256'])
 
+    def test_relabelled_bundle_cannot_bypass_cumulative_case_order(self):
+        bundle=self.bundle(1);changed=replace(bundle,ordinal=0)
+        self.assertEqual(changed.sha256,bundle.sha256)
+        cumulative=b.CumulativeBroker(self.git.invoke,clock=lambda:0.)
+        with self.assertRaisesRegex(ValueError,'bundle changed'):
+            cumulative.publish(changed)
+        self.assertEqual(self.git.calls,[])
+        self.assertEqual(cumulative.receipts,[])
+
+    def test_bundle_destination_permissions_and_manifest_are_checked_before_transport(self):
+        bundle=self.bundle()
+        import json
+        for name,value in [('repository','other/repository'),('branch','other-branch'),
+                ('scientific_admission_authorized',True),('force',True),('parent','invalid')]:
+            with self.subTest(name=name):
+                freeze=json.loads(bundle.freeze_bytes);freeze[name]=value
+                changed=replace(bundle,freeze_bytes=b.canonical(freeze))
+                with self.assertRaises(ValueError):
+                    b.Publisher(changed,self.git.invoke,expected_bundle_sha256=changed.sha256)
+        for changes in ({'prefix':bundle.prefix+'-changed'},{'manifest_bytes':b'{}'}):
+            with self.subTest(changes=list(changes)):
+                changed=replace(bundle,**changes)
+                with self.assertRaises(ValueError):
+                    b.Publisher(changed,self.git.invoke,expected_bundle_sha256=changed.sha256)
+        self.assertEqual(self.git.calls,[])
+
     def test_cumulative_broker_enforces_order_and_stops_after_failure(self):
         cumulative=b.CumulativeBroker(self.git.invoke,clock=lambda:0.)
         with self.assertRaisesRegex(ValueError,'fixed order'):cumulative.publish(self.bundle(1))
