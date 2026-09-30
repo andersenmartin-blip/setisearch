@@ -364,6 +364,17 @@ class Writer:
         if self.lease is None:durable_write(self.path/path,data)
         else:self.lease.write_artifact(flat_name(path),data)
 
+    def _write_many(self,values):
+        if not values:return
+        if self.lease is None:
+            for path,data in values.items():durable_write(self.path/path,data)
+        else:
+            from .whole_cadence_journal_radio import GROUP_ARTIFACT_BATCH_MAX
+            rows=sorted(values.items())
+            for offset in range(0,len(rows),GROUP_ARTIFACT_BATCH_MAX):
+                self.lease.write_artifacts({flat_name(path):data
+                    for path,data in rows[offset:offset+GROUP_ARTIFACT_BATCH_MAX]})
+
     def _files(self):
         if self.lease is None:return _inventory(self.path)
         from . import whole_cadence_journal_radio as j
@@ -421,8 +432,8 @@ class Writer:
         try:
             # Parts precede their commit record. A failure poisons the only writer;
             # recovery can expose a committed prefix and explicitly counted orphans.
-            for path,data in new.items():
-                self._write(path,data);self.expected[path]=data
+            self._write_many(new)
+            self.expected.update(new)
             self.previous=sha(encoded);self.count+=1
             return self.receipt()
         except BaseException:

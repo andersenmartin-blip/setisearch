@@ -28,6 +28,7 @@ _TOKEN = object()
 ZERO = '0' * 64
 GROUP_LEDGER_FINALIZATION_RESERVE = 512*1024
 GROUP_MAX_LEDGER_SNAPSHOT = 128*1024
+GROUP_ARTIFACT_BATCH_MAX = 128
 BINDING_KEYS = {'case_identity', 'plan_sha256', 'context_sha256',
                 'source_contract_sha256', 'noise_law_sha256', 'role'}
 CAPS = {'active_milliseconds': 7200000, 'evidence_bytes': 1024**3,
@@ -221,6 +222,36 @@ def replay(document):
                 group_budget(m,last['artifacts'],last['artifact_bytes'])
                 if used>last['artifact_bytes']:raise ValueError('Case evidence reservation exhausted')
                 state['archived_artifact_bytes']+=e['size']
+            elif kind == 'artifact_batch':
+                if (m['mode']!='engineering' or not m.get('artifact_groups')
+                        or set(e)!={'kind','nonce','artifacts'} or not isinstance(e['artifacts'],list)
+                        or not 1<=len(e['artifacts'])<=GROUP_ARTIFACT_BATCH_MAX):
+                    raise ValueError('Bounded engineering artifact batch required')
+                rows=[]
+                for item in e['artifacts']:
+                    if set(item)!={'name','size','sha256'}:
+                        raise ValueError('Artifact batch fields changed')
+                    name=artifact_name(item['name']);_sha(item['sha256'],'artifact')
+                    if type(item['size']) is not int or item['size']<0:
+                        raise ValueError('Invalid batched artifact length')
+                    rows.append((name,item))
+                if [name for name,_ in rows]!=sorted(name for name,_ in rows) or len({name for name,_ in rows})!=len(rows):
+                    raise ValueError('Artifact batch must be unique and canonically ordered')
+                groups=list(m['artifact_groups'].values())
+                if any(not any(name.startswith(g['prefix']) for g in groups)
+                       or any(name in g['reserved_artifacts'] for g in groups) for name,_ in rows):
+                    raise ValueError('Only dynamic non-closure artifacts may be batched')
+                candidate=dict(last['artifacts'])
+                for name,item in rows:
+                    if (any(g['seal'] in candidate and name.startswith(g['prefix']) for g in groups)
+                            or name in candidate):
+                        raise ValueError('Sealed or duplicate batched artifact')
+                    candidate[name]={'size':item['size'],'sha256':item['sha256']}
+                if sum(v['size'] for v in candidate.values())>last['artifact_bytes']:
+                    raise ValueError('Case evidence reservation exhausted')
+                group_budget(m,candidate,last['artifact_bytes'])
+                last['artifacts']=candidate
+                state['archived_artifact_bytes']+=sum(item['size'] for _,item in rows)
             elif kind == 'finish':
                 if set(e)!={'kind','nonce','outcome','elapsed_milliseconds','reason'} or e['outcome'] not in ('completed','failed'):
                     raise ValueError('Completion fields changed')
@@ -428,6 +459,39 @@ class Lease:
 
     def write_artifact(self,name,payload):
         self.budget();return self._write_artifact(name,payload)
+
+    def write_artifacts(self,payloads):
+        """Register one bounded dynamic batch in one append-only event."""
+        from .whole_cadence_event_store_radio import EventDirectoryStore
+        self.budget();self._current()
+        if (type(self.store) is not EventDirectoryStore or self.manifest['mode']!='engineering'
+                or not self.manifest.get('artifact_groups') or not isinstance(payloads,dict)
+                or not 1<=len(payloads)<=GROUP_ARTIFACT_BATCH_MAX):
+            raise ValueError('Bounded local engineering artifact batch required')
+        rows=[]
+        for name,payload in sorted(payloads.items()):
+            name=artifact_name(name)
+            if not isinstance(payload,bytes):raise ValueError('Immutable artifact bytes required')
+            rows.append({'name':name,'size':len(payload),'sha256':hashlib.sha256(payload).hexdigest()})
+        state=replay(self.checkpoint.document)['cases'][-1];actual={p.name for p in self.directory.iterdir()}
+        if actual!=set(state['artifacts']):raise ValueError('Unregistered/missing partial artifact; case incomplete')
+        if any(row['name'] in actual for row in rows):raise ValueError('Artifact already exists; no overwrite')
+        groups=list(self.manifest['artifact_groups'].values())
+        if any(not any(row['name'].startswith(g['prefix']) for g in groups)
+               or any(row['name'] in g['reserved_artifacts'] for g in groups) for row in rows):
+            raise ValueError('Only dynamic non-closure artifacts may be batched')
+        candidate={**state['artifacts'],**{row['name']:{'size':row['size'],'sha256':row['sha256']} for row in rows}}
+        if sum(v['size'] for v in candidate.values())>self.case['artifact_bytes']:
+            raise ValueError('Case evidence reservation exhausted')
+        group_budget(self.manifest,candidate,self.case['artifact_bytes'])
+        event={'kind':'artifact_batch','artifacts':rows}
+        self.store.check_publication_capacity(append(self.checkpoint.document,{'nonce':self.case['nonce'],**event}))
+        try:
+            for row in rows:durable_write(self.directory/row['name'],payloads[row['name']])
+            self._event(event)
+        except BaseException:
+            self.broken=True;raise
+        return self.checkpoint
 
     def write_failure_artifact(self,name,payload):
         groups=self.manifest.get('artifact_groups',{})

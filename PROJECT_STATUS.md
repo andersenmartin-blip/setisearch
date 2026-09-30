@@ -1,5 +1,23 @@
 # SETIsearch — current project status
 
+## 30 September: v2 checkpoint event batching passes
+
+[The prospective contract, implementation and evidence](RADIO_V2_EVENT_BATCH_2026-09-30_RESULT.md)
+register up to 128 new v2 physical files per append-only event while retaining
+every individual filename, length and SHA256. Larger checkpoints split into
+bounded events; artifact bytes, file/case caps, the 8-MiB journal allocation and
+closure reserves are unchanged. Torn and lost-ack paths stop without retry and
+remain read-only recoverable. **125 tests pass**, including five new batch,
+boundary and crash-risk tests. No native case, RNG, score or telescope read.
+
+**Exact continuation:** build and deterministically test the fresh native v2
+parent/runner and batched publication broker with new identities, 18-MiB cases,
+an explicit ≤51-stage checkpoint design, exact per-case file/event ceilings,
+cumulative 8-MiB journal budget, receiver batching, all stage timings and bounded
+failure/RSS evidence. Publish and read back its executable/runtime freeze before
+any reservation or RNG. 127/24 remains NOT ACTIVATED; HD189733 selected,
+HD1461 HOLD, GJ724 reserve; spectra/holdouts unopened, LS paused, CHEOPS UNSENT.
+
 ## 30 September: content-addressed terminal archive transport passes
 
 [The prospectively frozen batch transport and complete evidence](RADIO_V2_BATCH_2026-09-30_RESULT.md)

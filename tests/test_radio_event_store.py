@@ -46,6 +46,46 @@ class EventStoreTests(unittest.TestCase):
         self.assertLess(history.summary()['stored_bytes'],history.summary()['original_revision_bytes'])
         self.assertFalse(hasattr(history,'publish'));self.assertFalse(hasattr(history,'consume'))
 
+    def test_dynamic_batch_is_one_exact_event_with_individual_file_receipts(self):
+        lease=self.claim();before=len(lease.checkpoint.document['events'])
+        payloads={'physical-batch%03d'%i:canonical({'i':i,'value':'x'*(i+1)}) for i in range(64)}
+        lease.write_artifacts(payloads)
+        state=j.replay(lease.checkpoint.document)['cases'][-1]
+        self.assertEqual(len(lease.checkpoint.document['events']),before+1)
+        event=lease.checkpoint.document['events'][-1]['event'];self.assertEqual(event['kind'],'artifact_batch')
+        self.assertEqual([row['name'] for row in event['artifacts']],sorted(payloads))
+        for name,data in payloads.items():
+            self.assertEqual((lease.directory/name).read_bytes(),data)
+            self.assertEqual(state['artifacts'][name]['size'],len(data))
+            self.assertEqual(state['artifacts'][name]['sha256'],j.hashlib.sha256(data).hexdigest())
+        self.assertEqual(self.history().revision_bytes[-1],canonical(lease.checkpoint.document))
+
+    def test_torn_dynamic_batch_never_commits_partial_event_or_resumes(self):
+        lease=self.claim();before=self.history();original=j.durable_write;writes=[]
+        def torn(path,data):
+            if Path(path).parent==lease.directory:
+                writes.append(Path(path).name)
+                if len(writes)==3:raise OSError('torn artifact batch')
+            original(path,data)
+        with patch.object(j,'durable_write',side_effect=torn):
+            with self.assertRaises(OSError):
+                lease.write_artifacts({'physical-part%02d'%i:b'x' for i in range(8)})
+        self.assertTrue(lease.broken);self.assertEqual(self.history().revision_bytes,before.revision_bytes)
+        self.assertEqual({p.name for p in lease.directory.iterdir()}-{'base.bin'},set(writes[:2]))
+        with self.assertRaisesRegex(ValueError,'closed or uncertain'):
+            lease.write_artifacts({'physical-later':b'x'})
+
+    def test_batch_rejects_fixed_closure_outside_and_oversize_before_write(self):
+        lease=self.claim();before=set(lease.directory.iterdir())
+        for payloads in ({p.OUTCOME:b'{}'},{'outside':b'x'},{'physical-a':b'x'*1024**2}):
+            with self.assertRaises(ValueError):lease.write_artifacts(payloads)
+            self.assertEqual(set(lease.directory.iterdir()),before)
+        event={'kind':'artifact_batch','nonce':lease.case['nonce'],'artifacts':[
+            {'name':'physical-z','size':1,'sha256':j.hashlib.sha256(b'z').hexdigest()},
+            {'name':'physical-a','size':1,'sha256':j.hashlib.sha256(b'a').hexdigest()}]}
+        with self.assertRaisesRegex(ValueError,'canonically ordered'):
+            j.append(lease.checkpoint.document,event)
+
     def test_complete_physical_case_uses_event_store_without_duplicate_archive(self):
         lease=self.claim();case=p.PhysicalCase(lease,self.config,existing_artifacts=self.base)
         case.writer.checkpoint('start',self.doc());case.writer.close('completed','end',snapshot=self.doc(True))

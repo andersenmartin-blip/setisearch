@@ -119,6 +119,36 @@ class PhysicalCaseV2Tests(unittest.TestCase):
         self.assertTrue(all(path.is_file() for path in case.lease.directory.iterdir()))
         self.assert_history_exact(cp)
 
+    def test_each_v2_checkpoint_registers_parts_as_one_journal_event(self):
+        case=self.start();before=len(case.lease.checkpoint.document['events'])
+        document=self.doc(e.ROWS_PER_GROUP*3+1)
+        case.writer.checkpoint('batched_parts',document)
+        events=case.lease.checkpoint.document['events'][before:]
+        self.assertEqual(len(events),1);self.assertEqual(events[0]['event']['kind'],'artifact_batch')
+        names=[row['name'] for row in events[0]['event']['artifacts']]
+        self.assertIn('physical-checkpoint-0000.json',names)
+        self.assertGreaterEqual(sum(name.startswith('physical-part-') for name in names),4)
+        physical={e.nested_name(name):raw for name,raw in e._inventory(case.lease.directory).items()
+            if name.startswith('physical-')}
+        view=e.inspect_files(physical,expected_config_sha256=case.writer.config_sha)
+        self.assertEqual(view.snapshot(0),canonical(document))
+
+    def test_large_checkpoint_splits_only_journal_events_not_file_receipts(self):
+        case=self.start();before=len(case.lease.checkpoint.document['events'])
+        document=self.doc(e.ROWS_PER_GROUP*(j.GROUP_ARTIFACT_BATCH_MAX+1))
+        case.writer.checkpoint('multi_batch_parts',document)
+        events=case.lease.checkpoint.document['events'][before:]
+        self.assertEqual(len(events),2)
+        self.assertTrue(all(row['event']['kind']=='artifact_batch' for row in events))
+        names=[item['name'] for row in events for item in row['event']['artifacts']]
+        self.assertEqual(len(names),len(set(names)))
+        state=j.replay(case.lease.checkpoint.document)['cases'][-1]
+        self.assertEqual(set(names),set(state['artifacts'])-set(self.base)-{'physical-reservation.json'})
+        physical={e.nested_name(name):raw for name,raw in e._inventory(case.lease.directory).items()
+            if name.startswith('physical-')}
+        view=e.inspect_files(physical,expected_config_sha256=case.writer.config_sha)
+        self.assertEqual(view.snapshot(0),canonical(document))
+
     def test_failed_event_case_preserves_all_failed_snapshots_and_revisions(self):
         case = self.start()
         first, final = self.doc(129), self.doc(130)
@@ -347,16 +377,15 @@ class PhysicalCaseV2Tests(unittest.TestCase):
         self.assertEqual(len(self.history().revision_bytes), before_count+1)
         cp = self.store.read()
         self.assert_history_exact(cp)
-        with self.assertRaisesRegex(ValueError, 'Uncommitted'):
-            p.inspect_case(cp, case.lease.directory)
-        check = j.verify_archive(cp, case.lease.directory, case_index=0)
+        recovered, check = p.inspect_case(cp, case.lease.directory)
         physical = {e.nested_name(name): raw
             for name, raw in e._inventory(case.lease.directory).items()
             if name.startswith('physical-')}
-        view = e.inspect_files(physical, expected_config_sha256=case.writer.config_sha,
-            allow_orphans=True)
-        self.assertEqual(len(view.orphan_paths), 1)
-        self.assertEqual(view.snapshot(0), canonical(self.doc(2)))
+        view = e.inspect_files(physical, expected_config_sha256=case.writer.config_sha)
+        self.assertEqual(len(view.orphan_paths), 0)
+        self.assertEqual([view.snapshot(i) for i in range(2)],
+            [canonical(self.doc(2)),canonical(self.doc(3))])
+        self.assertEqual(recovered.summary(),view.summary())
         self.assertEqual(check['status'], 'consumed')
         self.assertFalse(check['execution_restart_authorized'])
         self.assertFalse(check['can_read_complete_evidence'])
