@@ -1,5 +1,25 @@
 # Long-term project direction
 
+## 30 September: fresh native v2 preparation executable frozen
+
+[The prepare-only contract and complete evidence](RADIO_NATIVE_V2_PREPARATION_2026-09-30_RESULT.md)
+freeze eight new ordered case/plan identities, exact 18-MiB/8-checkpoint/48-file
+configurations, allocation and manifest recipe. They are disjoint from the 151
+proposed science cases and the closed earlier eight-case native scope; the old
+engineering specifications are unchanged. The runtime closure pins **869 code,
+16 input and 1,132 runtime files** at SHA256 `7aaf6c5…`. **255 tests pass** and
+independent local readback verifies every frozen hash. The script refuses `run`;
+no reservation, lease, RNG, score, receiver measurement or telescope read.
+
+**Exact continuation:** implement and test the bounded publication-during-
+execution broker inside the fresh native runner, then generate a new complete
+runner+broker runtime freeze and publish/read it back. The broker must publish
+each terminal case plus cumulative journal before the next case and preserve
+crash/conflict/lost-response, grouped exact readback and cumulative call/byte/
+time/RSS evidence. Only a later separate public reservation may precede RNG.
+127/24 remains NOT ACTIVATED; HD189733 selected, HD1461 HOLD, GJ724 reserve;
+spectra/holdouts unopened, LS paused, CHEOPS UNSENT.
+
 ## 30 September: fresh native v2 parent capacity passes
 
 [The prospective parent and exact capacity evidence](RADIO_NATIVE_V2_PARENT_2026-09-30_RESULT.md)

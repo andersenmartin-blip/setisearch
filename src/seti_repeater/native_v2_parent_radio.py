@@ -6,6 +6,7 @@ later artifacts while the v2 writer is restricted to the ``physical-`` group.
 """
 from dataclasses import asdict, dataclass
 import hashlib
+import json
 import uuid
 
 from . import gaussian_engineering_radio as gaussian
@@ -15,6 +16,8 @@ from . import whole_cadence_event_store_radio as event_store
 from . import whole_cadence_journal_radio as journal
 from . import whole_cadence_physical_radio as stages
 from .empty_null_radio import canonical
+from .native_chain_engineering_radio import SPECS
+from .pipeline_receiver_radio import Context
 from .whole_cadence_reference_radio import digest
 
 NAMESPACE='radio-native-v2-engineering-20260930a'
@@ -26,6 +29,45 @@ CHECKPOINT_LIMIT=stages.EVIDENCE_STAGE_CEILING
 PHYSICAL_MAX_FILES=48
 BASE_ARTIFACTS=tuple(gaussian.ARTIFACTS)
 REQUIRED_ARTIFACTS=(*BASE_ARTIFACTS,physical_case.SEAL,physical_case.OUTCOME)
+LAW={**gaussian.LAW,'namespace':NAMESPACE,
+    'purpose':'fresh-native-v2-parent-qualification','same_window_only':True}
+LAW_SHA=digest(LAW)
+
+
+def make_plan(context,ordinal):
+    """Build one of eight fresh plans without constructing a generator."""
+    if not isinstance(context,Context):raise ValueError('Actual metadata receiver context required')
+    context.validate()
+    if context.native_window['role']!='validation':raise ValueError('Same validation window required')
+    if type(ordinal) is not int or not 0<=ordinal<CASE_COUNT:raise ValueError('Eight fixed cases only')
+    name=NAMESPACE+'/'+SPECS[ordinal]['name']
+    seed=int.from_bytes(hashlib.sha256((name+'/seed-v1').encode()).digest()[:8],'big')
+    case={'namespace':NAMESPACE,'ordinal':ordinal,'spec':SPECS[ordinal],
+        'context_sha256':context.identity,'seed':seed,
+        'source_contract_sha256':hashlib.sha256(context.factor_contract.source_contract_bytes).hexdigest(),
+        'receiver_bank_sha256':context.factor_contract.factors.identity,
+        'noise_law_sha256':LAW_SHA,'scientific_allocation_charged':False}
+    case['identity']=digest(case)
+    plan={'schema':'radio-native-v2-engineering-plan-v1','case':case,'law':LAW,
+        'window':context.native_window,
+        'streams':[{'scan_index':i,'scan':scan['label'],'entropy':[seed,i],
+            'normal_calls':16,'arguments':[100.,1.,65536]}
+            for i,scan in enumerate(context.scans)]}
+    plan['plan_sha256']=digest(plan)
+    return json.loads(canonical(plan))
+
+
+def case_binding(plan):
+    return gaussian.binding(plan)
+
+
+def validate_plan(context,plan,forbidden_cases):
+    if plan!=make_plan(context,plan['case']['ordinal']):
+        raise ValueError('Exact fresh native v2 plan required')
+    if any(plan['case']['identity']==case['identity'] or plan['case']['seed']==case['seed']
+           for case in forbidden_cases):
+        raise ValueError('Historical/reserved identity or seed collision')
+    return plan
 
 
 @dataclass(frozen=True)

@@ -4,8 +4,12 @@ import hashlib
 import unittest
 
 from seti_repeater import native_v2_parent_radio as n
+from seti_repeater import native_chain_engineering_radio as old
 from seti_repeater import whole_cadence_journal_radio as j
 from seti_repeater.whole_cadence_reference_radio import digest
+from radio_receiver_adapter_common import context,ROOT
+import radio_native_v2_prepare as prepare
+import json
 
 
 def binding(i):
@@ -16,6 +20,12 @@ def binding(i):
 
 
 class NativeV2ParentTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.context=context('validation')
+        cls.plans=[n.make_plan(cls.context,i) for i in range(8)]
+        cls.reserved=json.loads((ROOT/'config/radio_whole_cadence_null_proposal_20260928.json').read_bytes())['cases']
+
     def test_exact_eight_case_caps_and_per_case_config_pins(self):
         cases=[binding(i) for i in range(8)]
         manifest,configs=n.manifest(digest('freeze'),digest('allocation'),cases)
@@ -48,6 +58,27 @@ class NativeV2ParentTests(unittest.TestCase):
             n.manifest(digest('freeze'),digest('allocation'),cases[:-1])
         wrong=copy.deepcopy(cases);wrong[0]['role']='calibration'
         with self.assertRaises(ValueError):n.manifest(digest('freeze'),digest('allocation'),wrong)
+
+    def test_fresh_plans_are_exact_unique_and_disjoint_from_closed_native_scope(self):
+        old_plans=[old.make_plan(self.context,i) for i in range(8)]
+        forbidden=self.reserved+[p['case'] for p in old_plans]
+        self.assertEqual(len({p['case']['identity'] for p in self.plans}),8)
+        self.assertEqual(len({p['case']['seed'] for p in self.plans}),8)
+        for plan in self.plans:n.validate_plan(self.context,plan,forbidden)
+        self.assertFalse({p['case']['identity'] for p in self.plans}&{p['case']['identity'] for p in old_plans})
+        self.assertFalse({p['case']['seed'] for p in self.plans}&{p['case']['seed'] for p in old_plans})
+        self.assertEqual([p['case']['spec'] for p in self.plans],list(old.SPECS))
+
+    def test_plan_mutation_collision_and_other_window_are_refused_without_rng(self):
+        changed=copy.deepcopy(self.plans[4]);changed['case']['spec']['total_digital_power']=501
+        changed['plan_sha256']=digest({k:v for k,v in changed.items() if k!='plan_sha256'})
+        with self.assertRaises(ValueError):n.validate_plan(self.context,changed,[])
+        with self.assertRaisesRegex(ValueError,'collision'):
+            n.validate_plan(self.context,self.plans[0],[self.plans[0]['case']])
+        with self.assertRaisesRegex(ValueError,'validation'):n.make_plan(context('calibration'),0)
+
+    def test_prepare_only_entrypoint_refuses_execution(self):
+        with self.assertRaisesRegex(ValueError,'PREPARED_NOT_EXECUTABLE'):prepare.run()
 
 
 if __name__=='__main__':unittest.main()
