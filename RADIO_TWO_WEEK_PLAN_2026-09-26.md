@@ -1,5 +1,24 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 30 September: first inline-broker live probe closes failed
+
+[The prospectively frozen live probe and failure evidence](RADIO_NATIVE_V2_BROKER_LIVE_2026-09-30_RESULT.md)
+issued its single permitted inline-tree call. The exact expected tree object
+`8e85413…` exists and the branch remained at the public freeze, but the caller
+lost the returned receipt while attempting unsupported post-call byte accounting.
+No commit or ref update was made and grouped readback was not entered. The probe
+is **CLOSED FAILED** and will not be retried. A later recursive read-only audit
+also exceeded its 1-MiB response cap; both failures are preserved.
+
+**Exact continuation:** prospectively freeze a fresh live02 namespace, with all
+request accounting completed before the mutation and the raw response preserved
+before derived accounting. Use only a non-recursive exact-tree audit. If that
+fresh probe passes, integrate the qualified adapter with the missing complete
+render/threshold/physical/evaluate runner and publish/read back a new complete
+runtime freeze before reservation or RNG. 127/24 remains NOT ACTIVATED;
+HD189733 selected, HD1461 HOLD, GJ724 reserve; spectra/holdouts unopened, LS
+paused and CHEOPS UNSENT.
+
 ## 30 September: deterministic publication-during-execution broker passes
 
 [The broker, resource envelope and failure evidence](RADIO_NATIVE_V2_BROKER_2026-09-30_RESULT.md)
