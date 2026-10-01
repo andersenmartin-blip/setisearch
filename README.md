@@ -1,5 +1,24 @@
 # SETIsearch
 
+## 1 October: measured publication component passes
+
+[The implementation and independently audited result](RADIO_NATIVE_V2_ACTIONS_PUBLICATION_2026-10-01_RESULT.md)
+demonstrate a real 26-MiB source publication and readback through the fixed GitHub
+Actions publisher, with an atomic expected-parent branch update. Complete
+publisher RSS was **130.88/512 MiB**, with **16 HTTP operations** and **13.608 s**.
+The exact public receipts reconstruct all request and response body bytes.
+**239 targeted Python tests pass**. This qualifies one publication component;
+the original Functions observability blocker remains, and full transport,
+eight-input resources and scientific admission remain open.
+
+A compact verifier avoids retaining eight large clients. One read-only maximum
+input passes at **332.68/512 MiB**. The [eight-input preparation](RADIO_NATIVE_V2_COMPACT_EIGHT_PREPARATION_2026-10-01_RESULT.md)
+is publicly specified with **8 focused and 15 adjacent tests passing**, but
+remains **BLOCKED_PREPARATION_REVIEW** with every large execution route closed. No native case is reserved. Telescope
+spectra/holdouts remain unopened, and the separate **127/24 validation is inactive**.
+There is no supported telescope-analysis start date; consolidate 9 October
+without extension.
+
 ## 1 October: actual transport has a concrete platform blocker
 
 [The runtime decision and measured evidence](RADIO_NATIVE_V2_RUNTIME_DECISION_2026-10-01_RESULT.md)
