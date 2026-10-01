@@ -8,7 +8,9 @@ import subprocess
 import sys
 import tempfile
 import time
+import types
 import unittest
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / 'scripts/radio_native_v2_process_tree_supervisor.py'
@@ -29,7 +31,11 @@ class DedicatedSubreaperTests(unittest.TestCase):
             receipt = json.loads((scope / 'subreaper-receipt.json').read_bytes())
             self.assertEqual(process.stderr, b'', process.stderr.decode())
             self.assertEqual(set(path.name for path in scope.iterdir()),
-                {'controls.json', 'supervisor-identity.json', 'subreaper-receipt.json'})
+                {'controls.json', 'supervisor-identity.json', 'subreaper-receipt.json', 'subreaper-measurements.json'})
+            measurements = json.loads((scope / 'subreaper-measurements.json').read_bytes())
+            self.assertEqual(measurements['status'], 'PENDING_FILESYSTEM_DISPOSITION')
+            self.assertTrue(receipt['measurements_fsynced_before_disposition'])
+            self.assertTrue(receipt['filesystem_checks_completed_before_disposition'])
             self.assertLess(supervisor.storage_bytes(scope), supervisor.MAX_STORAGE_BYTES)
             self.assertFalse(receipt['raw_stdout_duplicate_written'])
             self.assertFalse(receipt['raw_stderr_duplicate_written'])
@@ -137,6 +143,176 @@ class DedicatedSubreaperTests(unittest.TestCase):
                 ('output_bytes', 65537), ('reaped_children', 0), ('reaped_children', 65)]:
             with self.subTest(field=field, value=value), self.assertRaises(ValueError):
                 supervisor.validate_controls({**controls, field: value})
+
+    def test_pipeline_controls_are_separate_and_keep_original_case_caps(self):
+        controls = {'schema': supervisor.SCHEMA + '-admitted-prepare-controls',
+            'seconds': 600, 'output_bytes': 65536, 'reaped_children': 64,
+            'case_storage_bytes': 192 * 1024 * 1024, 'rss_bytes': 512 * 1024 * 1024,
+            'worker_role': 'prepare'}
+        supervisor.validate_admitted_prepare_controls(controls)
+        with self.assertRaises(ValueError): supervisor.validate_controls(controls)
+        for field, value in [('seconds', 601), ('seconds', True), ('seconds', float('nan')),
+                ('output_bytes', 65537), ('reaped_children', 65), ('case_storage_bytes', 193 * 1024 * 1024),
+                ('rss_bytes', 513 * 1024 * 1024), ('worker_role', 'arbitrary')]:
+            with self.subTest(field=field), self.assertRaises(ValueError):
+                supervisor.validate_admitted_prepare_controls({**controls, field: value})
+
+    def test_admitted_dispatch_checks_before_creating_scope_or_spawning(self):
+        with tempfile.TemporaryDirectory() as directory:
+            scope = Path(directory) / 'not-created'
+            with mock.patch.object(supervisor, 'check_admitted_prepare_worker',
+                    side_effect=ValueError('Rejected admission')) as check, \
+                    mock.patch.object(supervisor.subprocess, 'Popen') as launch:
+                with self.assertRaisesRegex(ValueError, 'Rejected admission'):
+                    supervisor.dispatch_admitted_prepare_worker(scope / 'missing.json', scope,
+                        ordinal=0, expected_bundle_sha256='0' * 64)
+                check.assert_called_once(); launch.assert_not_called()
+                self.assertFalse(scope.exists())
+
+    def test_materialized_fixture_gate_refuses_before_scope_and_launch(self):
+        with tempfile.TemporaryDirectory() as directory:
+            scope = Path(directory) / 'preparation-supervisor'
+            checked = {'receipt_scope': str(scope), 'argv': [PYTHON, '-c', 'pass']}
+            fixture = mock.Mock()
+            fixture.require_execution_ready.side_effect = RuntimeError('BLOCKED_PREPARATION_REVIEW')
+            with mock.patch.object(supervisor, 'check_admitted_prepare_worker', return_value=(checked, fixture)), \
+                    mock.patch.object(supervisor.subprocess, 'Popen') as launch, \
+                    mock.patch.object(supervisor.sys, 'flags',
+                        types.SimpleNamespace(isolated=1, no_site=1, dont_write_bytecode=1)):
+                with self.assertRaisesRegex(RuntimeError, 'BLOCKED_PREPARATION_REVIEW'):
+                    supervisor.dispatch_admitted_prepare_worker(scope / 'bundle.json', scope,
+                        ordinal=0, expected_bundle_sha256='0' * 64)
+                fixture.require_execution_ready.assert_called_once()
+                launch.assert_not_called(); self.assertFalse(scope.exists())
+
+    def test_admitted_cli_requires_independently_retained_bundle_hash(self):
+        with tempfile.TemporaryDirectory() as directory:
+            scope = Path(directory) / 'not-created'
+            process = subprocess.run([PYTHON, '-I', '-S', '-B', str(SCRIPT),
+                '--admitted-prepare-worker', '--admission-bundle', str(scope / 'bundle.json'),
+                '--ordinal', '0', '--scope', str(scope)], capture_output=True, timeout=3,
+                env=supervisor.ENVIRONMENT)
+            self.assertNotEqual(process.returncode, 0)
+            self.assertIn(b'retained SHA256', process.stderr)
+            self.assertFalse(scope.exists())
+
+    def test_admission_check_only_rejects_scope_and_checks_without_subprocess(self):
+        with tempfile.TemporaryDirectory() as directory:
+            scope = Path(directory) / 'not-created'
+            process = subprocess.run([PYTHON, '-I', '-S', '-B', str(SCRIPT), '--admission-check-only',
+                '--admission-bundle', str(scope / 'bundle.json'), '--bundle-sha256', '0' * 64,
+                '--ordinal', '0', '--scope', str(scope)], capture_output=True, timeout=3,
+                env=supervisor.ENVIRONMENT)
+            self.assertNotEqual(process.returncode, 0)
+            self.assertIn(b'no receipt scope', process.stderr)
+            self.assertFalse(scope.exists())
+
+    def test_bundle_hash_and_special_files_refuse_before_loading_worker(self):
+        with tempfile.TemporaryDirectory() as directory:
+            bundle = Path(directory) / 'bundle.json'; bundle.write_bytes(b'{}')
+            with mock.patch.object(supervisor, 'source_module') as loader, \
+                    mock.patch.object(supervisor.subprocess, 'Popen') as launch:
+                with self.assertRaisesRegex(ValueError, 'retained byte hash'):
+                    supervisor.check_admitted_prepare_worker(bundle, ordinal=0,
+                        expected_bundle_sha256='0' * 64)
+                loader.assert_not_called(); launch.assert_not_called()
+                fifo = Path(directory) / 'fifo'; os.mkfifo(fifo)
+                with self.assertRaisesRegex(ValueError, 'sole-link'):
+                    supervisor.check_admitted_prepare_worker(fifo, ordinal=0,
+                        expected_bundle_sha256='0' * 64)
+
+    def test_source_module_ignores_bytecode_and_rejects_changed_source_pins(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / 'module.py'; source.write_bytes(b'value=7\n')
+            expected = supervisor.pin_file(source)
+            loaded = supervisor.source_module(source, 'tiny_source_module', expected)
+            self.assertEqual(loaded.value, 7)
+            source.write_bytes(b'value=8\n')
+            with self.assertRaisesRegex(ValueError, 'source pin drift'):
+                supervisor.source_module(source, 'tiny_source_module', expected)
+            self.assertEqual(set(Path(directory).iterdir()), {source})
+
+    def test_unverified_bundle_cannot_select_executable_admission_implementation(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); bundle = root / 'bundle.json'
+            own_key = 'scripts/radio_native_v2_process_tree_supervisor.py'
+            module_key = 'scripts/radio_native_v2_worker_admission.py'
+            supplied = {'plan': {'code_files': {own_key: supervisor.pin_file(SCRIPT),
+                module_key: {'bytes': 10, 'sha256': '0' * 64}}}, 'code_root': str(root)}
+            raw = supervisor.canonical(supplied) + b'\n'; bundle.write_bytes(raw)
+            with mock.patch.object(supervisor, 'source_module') as loader:
+                with self.assertRaisesRegex(ValueError, 'bootstrap pins'):
+                    supervisor.check_admitted_prepare_worker(bundle, ordinal=0,
+                        expected_bundle_sha256=hashlib.sha256(raw).hexdigest())
+                loader.assert_not_called()
+            self.assertEqual(set(root.iterdir()), {bundle})
+
+    def test_actual_supervisor_interpreter_flags_are_checked_before_mutation(self):
+        flags = types.SimpleNamespace(isolated=0, no_site=1, dont_write_bytecode=1)
+        with tempfile.TemporaryDirectory() as directory:
+            scope = Path(directory) / 'not-created'
+            controls = {'schema': supervisor.SCHEMA + '-controls', 'seconds': 1,
+                'output_bytes': 100, 'reaped_children': 2}
+            with mock.patch.object(supervisor.sys, 'flags', flags), \
+                    mock.patch.object(supervisor.subprocess, 'Popen') as launch, \
+                    mock.patch.object(supervisor, 'set_subreaper') as setter:
+                with self.assertRaisesRegex(RuntimeError, 'Actual isolated'):
+                    supervisor.supervise_engineering_subprocess([PYTHON, '-c', 'pass'], scope,
+                        controls, dedicated_process=True)
+                setter.assert_not_called(); launch.assert_not_called()
+                self.assertFalse(scope.exists())
+
+    def test_bootstrap_pins_bind_current_reviewed_dependency_sources(self):
+        for relative, expected in supervisor.BOOTSTRAP_SOURCE_PINS.items():
+            self.assertEqual(supervisor.pin_file(ROOT / relative), expected, relative)
+
+    def synthetic_admission_materials(self, root):
+        # Reuse tiny supplied-claim materials; no prospective generator runs.
+        modules = {}
+        for name in ('radio_native_v2_compact_eight_case_resource_fixture',
+                'radio_native_v2_worker_admission'):
+            relative = 'scripts/' + name + '.py'
+            modules[name] = supervisor.source_module(ROOT / relative, name,
+                supervisor.BOOTSTRAP_SOURCE_PINS[relative])
+        with mock.patch.dict(sys.modules, modules):
+            helpers = supervisor.source_module(ROOT / 'tests/test_radio_native_v2_worker_admission.py',
+                'tiny_supplied_claim_helpers')
+        return helpers.synthetic_worker_materials(root)
+
+    def test_real_structural_check_is_read_only_and_large_dispatch_stays_closed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            materials = self.synthetic_admission_materials(Path(directory))
+            before = sorted(str(path) for path in Path(directory).rglob('*'))
+            with mock.patch.object(supervisor.subprocess, 'Popen') as launch, \
+                    mock.patch.object(supervisor.sys, 'flags',
+                        types.SimpleNamespace(isolated=1, no_site=1, dont_write_bytecode=1)):
+                checked, fixture = supervisor.check_admitted_prepare_worker(materials['bundle_path'],
+                    ordinal=0, expected_bundle_sha256=materials['bundle_sha256'])
+                self.assertEqual(checked['argv'], materials['argv'])
+                self.assertFalse(checked['independent_immutable_publication_join_complete'])
+                self.assertEqual(checked['materialized_fixture_execution_status'], 'BLOCKED_PREPARATION_REVIEW')
+                self.assertEqual(checked['structural_admission']['status'],
+                    'LOCAL_SUPPLIED_PREREAD_VALIDATED_EXECUTION_BLOCKED')
+                with self.assertRaisesRegex(RuntimeError, 'BLOCKED_PREPARATION_REVIEW'):
+                    supervisor.dispatch_admitted_prepare_worker(materials['bundle_path'],
+                        Path(checked['receipt_scope']), ordinal=0,
+                        expected_bundle_sha256=materials['bundle_sha256'])
+                launch.assert_not_called()
+            self.assertEqual(before, sorted(str(path) for path in Path(directory).rglob('*')))
+            self.assertFalse((materials['case_root'] / 'deterministic-source.bin').exists())
+
+    def test_real_admission_check_cli_has_no_scope_or_generator_side_effects(self):
+        with tempfile.TemporaryDirectory() as directory:
+            materials = self.synthetic_admission_materials(Path(directory))
+            before = sorted(str(path) for path in Path(directory).rglob('*'))
+            process = subprocess.run([PYTHON, '-I', '-S', '-B', str(SCRIPT), '--admission-check-only',
+                '--admission-bundle', str(materials['bundle_path']), '--bundle-sha256', materials['bundle_sha256'],
+                '--ordinal', '0'], capture_output=True, timeout=8, env=supervisor.ENVIRONMENT)
+            self.assertEqual(process.returncode, 0, process.stderr.decode())
+            result = json.loads(process.stdout)
+            self.assertFalse(result['execution_authorized'])
+            self.assertEqual(result['argv'], materials['argv'])
+            self.assertEqual(before, sorted(str(path) for path in Path(directory).rglob('*')))
 
 
 if __name__ == '__main__':

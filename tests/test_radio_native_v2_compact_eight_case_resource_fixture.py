@@ -87,6 +87,78 @@ class CompactEightPreparationTests(unittest.TestCase):
                     self.assertEqual(result.returncode,0,result.stderr.decode())
             self.assertEqual(set(Path(directory).iterdir()), {Path(directory)/name for name in derived if name.endswith('.js')})
 
+    def test_derived_source_worker_refuses_missing_admission_and_false_isolation_before_writes(self):
+        derived = fixture.templates((ROOT/fixture.CODE_FILES[0]).read_text())
+        with tempfile.TemporaryDirectory() as directory:
+            parent = Path(directory); root = parent/'case00'; root.mkdir()
+            recipe = parent/'prepare.py'; recipe.write_bytes(derived['prepare.py'])
+            arguments = [str(recipe),str(root),PYTHON,fixture.NAMESPACE,'0',fixture.PREFIX+'/case00-fixed']
+            result = subprocess.run([PYTHON,'-I','-S','-B',*arguments],
+                capture_output=True,env=fixture.CHILD_ENVIRONMENT,timeout=10)
+            self.assertNotEqual(result.returncode,0)
+            self.assertIn(b'retained admission digest required',result.stderr)
+            self.assertEqual(list(root.iterdir()),[])
+            # A caller cannot manufacture the claimed isolation merely by
+            # supplying a vector which contains the expected flag strings.
+            result = subprocess.run([PYTHON,'-S','-B',*arguments,str(root/'worker-admission.json'),'a'*64],
+                capture_output=True,env=fixture.CHILD_ENVIRONMENT,timeout=10)
+            self.assertNotEqual(result.returncode,0)
+            self.assertIn(b'Actual isolated no-site no-bytecode interpreter required',result.stderr)
+            self.assertEqual(list(root.iterdir()),[])
+
+    def test_locally_valid_supplied_claim_cannot_generate_or_execute_cached_admission_code(self):
+        import marshal
+        import struct
+        from tests.test_radio_native_v2_worker_admission import synthetic_worker_materials
+        derived = fixture.templates((ROOT/fixture.CODE_FILES[0]).read_text())
+        with tempfile.TemporaryDirectory() as directory:
+            material = synthetic_worker_materials(directory,ordinal=0,
+                plan=fixture.build_plan(),derived_sources=derived)
+            root = material['case_root']
+            before = sorted(str(path.relative_to(root)) for path in root.rglob('*'))
+            result = subprocess.run(material['argv'],capture_output=True,
+                env=fixture.CHILD_ENVIRONMENT,timeout=10)
+            self.assertNotEqual(result.returncode,0)
+            self.assertIn(b'BLOCKED_PREPARATION_REVIEW',result.stderr)
+            self.assertEqual(before,sorted(str(path.relative_to(root)) for path in root.rglob('*')))
+            self.assertFalse((root/'deterministic-source.bin').exists())
+            self.assertFalse((root/'preparation-identity.json').exists())
+            result = subprocess.run([material['argv'][0],'-X','utf8',*material['argv'][1:]],
+                capture_output=True,env=fixture.CHILD_ENVIRONMENT,timeout=10)
+            self.assertNotEqual(result.returncode,0)
+            self.assertIn(b'exact preparation worker argv',result.stderr)
+            self.assertEqual(before,sorted(str(path.relative_to(root)) for path in root.rglob('*')))
+            module = material['code_root']/'scripts/radio_native_v2_worker_admission.py'
+            cached = Path(importlib.util.cache_from_source(str(module)))
+            cached.parent.mkdir()
+            marker = Path(directory)/'unchecked-bytecode-executed'
+            payload = compile('from pathlib import Path; Path('+repr(str(marker))+').write_text("bad")',str(module),'exec')
+            info = module.stat()
+            cached.write_bytes(importlib.util.MAGIC_NUMBER+struct.pack('<III',0,int(info.st_mtime),info.st_size)+marshal.dumps(payload))
+            result = subprocess.run(material['argv'],capture_output=True,
+                env=fixture.CHILD_ENVIRONMENT,timeout=10)
+            self.assertNotEqual(result.returncode,0)
+            self.assertFalse(marker.exists())
+            self.assertFalse((root/'deterministic-source.bin').exists())
+            self.assertFalse((root/'preparation-identity.json').exists())
+
+    def test_component_bootstrap_refuses_fifo_alias_and_oversize_before_compilation(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory); source=root/'component.py'; raw=b'value=7\n'
+            wanted={'component.py':{'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest()}}
+            source.write_bytes(raw)
+            self.assertEqual(fixture.pinned_component(root,'component.py',wanted)['value'],7)
+            source.unlink(); os.mkfifo(source)
+            start=time.monotonic()
+            with self.assertRaisesRegex(ValueError,'regular material source'):
+                fixture.pinned_component(root,'component.py',wanted)
+            self.assertLess(time.monotonic()-start,1)
+            source.unlink(); target=root/'target.py'; target.write_bytes(raw); source.symlink_to(target)
+            with self.assertRaises(OSError): fixture.pinned_component(root,'component.py',wanted)
+            source.unlink(); source.write_bytes(raw*100)
+            with self.assertRaisesRegex(ValueError,'regular material source'):
+                fixture.pinned_component(root,'component.py',wanted)
+
     def test_tiny_source_domain_reader_rejects_other_ordinals_corruption_and_aliases(self):
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory)

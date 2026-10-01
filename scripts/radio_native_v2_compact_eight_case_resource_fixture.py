@@ -62,7 +62,11 @@ CODE_FILES = (
     'scripts/radio_native_v2_local_git.js', 'src/seti_repeater/__init__.py',
     'src/seti_repeater/empty_null_radio.py', 'src/seti_repeater/native_v2_transport_contract_radio.py',
     'scripts/radio_native_v2_compact_run_verifier.py', SELF,
-    'tests/test_radio_native_v2_compact_eight_case_resource_fixture.py')
+    'scripts/radio_native_v2_worker_admission.py',
+    'scripts/radio_native_v2_process_tree_supervisor.py',
+    'tests/test_radio_native_v2_compact_eight_case_resource_fixture.py',
+    'tests/test_radio_native_v2_worker_admission.py',
+    'tests/test_radio_native_v2_process_tree_supervisor.py')
 LOG_LIMIT = 65536
 OBSERVATION_SAMPLE_LIMIT = 2048
 CHILD_ENVIRONMENT = {'PATH':'/usr/bin:/bin','LANG':'C','LC_ALL':'C'}
@@ -139,13 +143,58 @@ def replace_once(source, before, after):
     return source.replace(before, after, 1)
 
 
-def templates(source):
+def source_worker_guard(repo=REPO):
+    """Pin and execute source bytes directly; never load an unchecked pyc."""
+    pins = {name: pin(Path(repo)/name) for name in
+        ('scripts/radio_native_v2_worker_admission.py', SELF)}
+    return '''
+import stat
+if len(sys.argv)!=8:
+ raise ValueError('Exact source worker arguments and retained admission digest required')
+if not (sys.flags.isolated and sys.flags.no_site and sys.flags.dont_write_bytecode):
+ raise ValueError('Actual isolated no-site no-bytecode interpreter required')
+root=Path(sys.argv[1]); python=sys.argv[2]; namespace=sys.argv[3]; ordinal=int(sys.argv[4]); prefix=sys.argv[5]
+def frozen_module(relative):
+ path=root/'frozen-code'/relative
+ fd=os.open(path,os.O_RDONLY|os.O_NOFOLLOW|os.O_NONBLOCK)
+ try:
+  before=os.fstat(fd)
+  if (not stat.S_ISREG(before.st_mode) or before.st_nlink!=1
+      or before.st_size!=IMPLEMENTATION_PINS[relative]['bytes']):
+   raise ValueError('Sole-link regular admission implementation required')
+  raw=bytearray()
+  while True:
+   block=os.read(fd,65536)
+   if not block:break
+   raw.extend(block)
+   if len(raw)>IMPLEMENTATION_PINS[relative]['bytes']:
+    raise ValueError('Admission implementation exceeded frozen byte count')
+  after=os.fstat(fd); named=path.stat(follow_symlinks=False)
+  identity=lambda info:(info.st_dev,info.st_ino,info.st_size,info.st_mtime_ns,info.st_ctime_ns)
+  if identity(before)!=identity(after) or identity(after)!=identity(named):
+   raise ValueError('Admission implementation changed during read')
+ finally:os.close(fd)
+ if {'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest()}!=IMPLEMENTATION_PINS[relative]:
+  raise ValueError('Pinned admission implementation differs')
+ module={'__name__':'frozen_source_guard','__file__':str(path)}
+ exec(compile(bytes(raw),str(path),'exec'),module)
+ return module
+IMPLEMENTATION_PINS='''+repr(pins)+'''
+admission=frozen_module('scripts/radio_native_v2_worker_admission.py')
+admission['validate_worker_admission'](Path(sys.argv[6]),role='prepare',ordinal=ordinal,
+ argv=list(sys.orig_argv),
+ environment=dict(os.environ),expected_bundle_sha256=sys.argv[7])
+frozen_module('''+repr(SELF)+''')['require_execution_ready']()
+'''
+
+
+def templates(source, repo=REPO):
     """Derive fresh code from a pinned code template, never retained old data."""
     match = re.search(r'const PREPARE=String\.raw`(.*?)`;', source, re.S)
     if not match: raise ValueError('Pinned deterministic preparation template absent')
     prepare = match.group(1)
     prepare = replace_once(prepare, 'root=Path(sys.argv[1]); python=sys.argv[2]',
-        'root=Path(sys.argv[1]); python=sys.argv[2]; namespace=sys.argv[3]; ordinal=int(sys.argv[4]); prefix=sys.argv[5]\n'
+        source_worker_guard(repo)+
         'assert namespace=='+repr(NAMESPACE)+' and 0<=ordinal<8 and prefix=='+repr(PREFIX)+'+f"/case{ordinal:02d}-fixed"\n'
         'case_id=namespace+f"/case{ordinal:02d}"\n'
         'with (root/"preparation-identity.json").open("x") as identity:\n'
@@ -184,7 +233,7 @@ def templates(source):
 def build_plan(repo=REPO):
     repo = Path(repo)
     code = {path: pin(repo/path) for path in CODE_FILES}
-    derived = templates((repo/CODE_FILES[0]).read_text())
+    derived = templates((repo/CODE_FILES[0]).read_text(), repo)
     runtime = {}
     for name, executable in (('python', sys.executable), ('node', shutil.which('node'))):
         if not executable: raise ValueError('Required runtime executable absent: '+name)
@@ -566,6 +615,35 @@ def copy_code(source_root, destination, expected=None):
             raise ValueError('Materialized frozen source identity differs: '+relative)
 
 
+def pinned_component(code_root, relative, expected):
+    """Load a verified material source buffer, without an import-cache read."""
+    path = Path(code_root)/relative
+    wanted = expected[relative]
+    if type(wanted.get('bytes')) is not int or not 0 < wanted['bytes'] <= 2*MIB:
+        raise ValueError('Bounded positive material source pin required')
+    fd = os.open(path,os.O_RDONLY|os.O_NOFOLLOW|os.O_NONBLOCK)
+    try:
+        before = os.fstat(fd)
+        if not stat.S_ISREG(before.st_mode) or before.st_nlink!=1 or before.st_size!=wanted['bytes']:
+            raise ValueError('Exact sole-link regular material source required')
+        raw = bytearray()
+        while True:
+            block = os.read(fd,65536)
+            if not block: break
+            raw.extend(block)
+            if len(raw)>wanted['bytes']: raise ValueError('Material source exceeded frozen byte count')
+        after = os.fstat(fd); named = path.stat(follow_symlinks=False)
+        stable = lambda info:(info.st_dev,info.st_ino,info.st_size,info.st_mtime_ns,info.st_ctime_ns)
+        if stable(before)!=stable(after) or stable(after)!=stable(named):
+            raise ValueError('Material source changed during descriptor read')
+    finally: os.close(fd)
+    if {'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest()}!=wanted:
+        raise ValueError('Materialized component differs from the prospective pin: '+relative)
+    module = {'__name__':'frozen_engineering_component','__file__':str(path)}
+    exec(compile(bytes(raw),str(path),'exec'),module)
+    return module
+
+
 def check_storage(scope):
     scope = Path(scope); result = inventory(scope)
     if max(result['logical_bytes'],result['allocated_bytes'])>LIMITS['run_storage_bytes']:
@@ -599,8 +677,9 @@ def control_worker(scope):
     require_execution_ready()
     scope = Path(scope); identity(scope/'control-worker-identity.json')
     plan = small_json(scope/'plan.json'); started = time.monotonic(); rows = []; compact_inputs = []
+    preread = small_json(scope/'public-preread.json'); freeze = small_json(scope/'complete-freeze.json')
     frozen = scope/'frozen-code'; runtime = plan['runtime_executables']; python = runtime['python']['path']; node = runtime['node']['path']
-    sources = templates((frozen/CODE_FILES[0]).read_text())
+    sources = templates((frozen/CODE_FILES[0]).read_text(), frozen)
     for name,raw in sources.items():
         if {'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest()}!=plan['derived_code'][name]:
             raise ValueError('Prospective derived source changed before generation: '+name)
@@ -610,12 +689,28 @@ def control_worker(scope):
             ordinal = fixed['ordinal']; root = cases_root/f'case{ordinal:02d}'; root.mkdir(mode=0o700)
             phase_start = time.monotonic(); deadline = phase_start+LIMITS['case_seconds']
             copy_code(frozen,root/'frozen-code',plan['code_files'])
-            write(root/'fresh-prepare.py',sources['prepare.py'])
-            write(root/'fresh-caller.js',sources['fresh-caller.js'])
+            (root/'derived').mkdir()
+            for name,raw in sources.items(): write(root/'derived'/name,raw)
             write(root/'prospective-case-pins.json', {'fixed_input':fixed,'plan_sha256':hashlib.sha256(canonical(plan)).hexdigest(),
                 'code_files':plan['code_files'],'derived_code':plan['derived_code'],**AUTHORITY})
-            observe_process([python,'-I','-S','-B',str(root/'fresh-prepare.py'),str(root),python,NAMESPACE,str(ordinal),fixed['archive_prefix']],
-                root,'preparation',root/'preparation-identity.json',deadline=deadline)
+            admission = pinned_component(root/'frozen-code','scripts/radio_native_v2_worker_admission.py',plan['code_files'])
+            bundle = admission['build_admission_bundle'](plan,freeze,preread,execution_scope=scope,ordinal=ordinal)
+            bundle_path = root/'worker-admission.json'; write(bundle_path,bundle)
+            bundle_sha256 = pin(bundle_path)['sha256']
+            supervisor_scope = root/'preparation-supervisor'
+            # This dispatch is still behind the global preparation gate. The
+            # dedicated process repeats admission before mkdir/Popen; the
+            # derived source worker repeats it before its first data write.
+            observe_process([python,'-I','-S','-B',str(root/'frozen-code'/'scripts/radio_native_v2_process_tree_supervisor.py'),
+                '--admitted-prepare-worker','--admission-bundle',str(bundle_path),'--bundle-sha256',bundle_sha256,
+                '--ordinal',str(ordinal),'--scope',str(supervisor_scope),
+                '--seconds',str(max(0,deadline-time.monotonic()))],
+                root,'preparation',supervisor_scope/'supervisor-identity.json',deadline=deadline)
+            preparation_receipt = small_json(supervisor_scope/'subreaper-receipt.json')
+            if (preparation_receipt.get('status')!='ENGINEERING_SUBREAPER_SCOPE_COMPLETE'
+                    or preparation_receipt.get('subreaper_scope_reaped_to_echild') is not True
+                    or preparation_receipt.get('maximum_individual_process_rss_bytes',LIMITS['rss_bytes']+1)>LIMITS['rss_bytes']):
+                raise ValueError('Dedicated admitted preparation did not close within the fixed process scope')
             prepared = small_json(root/'prepared.json')
             source_proof = verify_fresh_source_domain(root/'deterministic-source.bin',ordinal,fixed['source_bytes'])
             expected_identity = audit_fresh_identity(prepared,fixed,source_proof)
@@ -639,7 +734,7 @@ def control_worker(scope):
                         'interval_start_epoch_ms':context['start_epoch_ms'],'interval_end_epoch_ms':time.time_ns()//1000000,
                         'procfs_sample_count':context['sample_count'],'client_sha256':request['client_sha256']})
                     observation_written = True
-            observed,_,_ = observe_process([node,str(root/'fresh-caller.js'),'--caller',str(root)],root,'caller',root/'caller-start.json',
+            observed,_,_ = observe_process([node,str(root/'derived'/'fresh-caller.js'),'--caller',str(root)],root,'caller',root/'caller-start.json',
                 deadline=deadline,on_tick=observe_caller)
             caller = small_json(root/'caller-summary.json')
             if canonical(caller.get('control_case_identity'))!=canonical(expected_identity):
@@ -658,9 +753,9 @@ def control_worker(scope):
             helper = scope/'lossless-helper.js'
             if not helper.is_file(): raise ValueError('Frozen lossless helper integration absent')
             evidence = root/'public-evidence'; evidence.mkdir()
-            recipe_args = [str(root),python,NAMESPACE,str(ordinal),fixed['archive_prefix']]
+            recipe_args = [str(root),python,NAMESPACE,str(ordinal),fixed['archive_prefix'],str(bundle_path),bundle_sha256]
             project_args = {'fullPath':str(root/'caller-result.json'),'preparedPath':str(root/'prepared.json'),
-                'recipePath':str(root/'fresh-prepare.py'),'projectionPath':str(evidence/'caller-transcript-compact-lossless.json'),
+                'recipePath':str(root/'derived'/'prepare.py'),'projectionPath':str(evidence/'caller-transcript-compact-lossless.json'),
                 'recipeArguments':recipe_args,'identityPath':str(root/'lossless-project-identity.json')}
             write(root/'project-arguments.json',project_args)
             observe_process([node,str(helper),'--resource-project',str(root/'project-arguments.json')],root,'lossless-project',root/'lossless-project-identity.json',deadline=deadline)
@@ -669,7 +764,9 @@ def control_worker(scope):
                 'auditPath':str(evidence/'reconstruction-audit.json'),'python':python,'identityPath':str(root/'lossless-verify-identity.json')}
             write(root/'projection-verify-arguments.json',verify_args)
             observe_process([node,str(helper),'--resource-verify-retained',str(root/'projection-verify-arguments.json')],root,'lossless-verify',root/'lossless-verify-identity.json',deadline=deadline)
-            for path in ('fresh-prepare.py','prepared.json','prospective-case-pins.json','caller-summary.json','caller-observation.json','preparation-observation.json'):
+            write(evidence/'fresh-prepare.py',(root/'derived'/'prepare.py').read_bytes())
+            write(evidence/'preparation-subreaper-receipt.json',canonical(preparation_receipt))
+            for path in ('prepared.json','prospective-case-pins.json','caller-summary.json','caller-observation.json','preparation-observation.json'):
                 write(evidence/path,(root/path).read_bytes())
             write(evidence/'independent-command-observations.json',[small_json(path) for path in commands])
             storage = check_storage(scope); case_storage = next(row for row in storage['cases'] if row['ordinal']==ordinal)
@@ -713,7 +810,9 @@ def control_worker(scope):
             'continuous_verifier_observed_seconds':verifier_seconds,'complete_engineering_run_seconds':wall_seconds,
             'storage_before_final_summary':storage,'exact_native_or_http_host_join_qualified':False,
             'projection_proof_uses_freshly_generated_retained_source':True,
-            'public_recipe_can_independently_regenerate_fresh_sources':True,**AUTHORITY})
+            'public_recipe_identity_verified':True,
+            'public_recipe_regeneration_requires_independent_worker_admission':True,
+            'public_recipe_can_independently_regenerate_fresh_sources':False,**AUTHORITY})
     except BaseException as failure:
         write(scope/'closed-failure.json', {'schema':SCHEMA,'status':'CLOSED_FAILED','completed_cases':rows,
             'error':repr(failure),'elapsed_seconds':time.monotonic()-started,**AUTHORITY})

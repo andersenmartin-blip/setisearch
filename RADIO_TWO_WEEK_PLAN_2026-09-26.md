@@ -1,5 +1,28 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 1 October: source worker and supervisor linked; full execution stays blocked
+
+[The source worker integration, independent audit and logs](RADIO_NATIVE_V2_SOURCE_WORKER_INTEGRATION_2026-10-01_RESULT.md)
+pass **126 relevant Python tests**. The current audit verifies 920 code files,
+six frozen inputs and 1,606 joined runtime files. The source worker repeats
+exact actual argv/environment, case/domain and materialized-code checks before
+writing data. The dedicated supervisor checks independently pinned implementations
+before dispatch and records pending measurements before filesystem disposition.
+
+Actual direct-worker and supervisor refusal controls leave no source or preparation
+identity. Supplied public claims remain unverified and non-authorizing. A tiny orphan
+control reaches terminal ECHILD, independently observed through supervisor fsync and
+termination: **0.159 s**, **40.31 MiB** maximum individual-process RSS. This is a tiny
+component control; no full-size source or telescope analysis has run.
+
+**Next:** complete admission for the other worker roles and the outer runtime,
+finalization, storage/time joins; then publish and verify the exact execution
+preread before one fresh eight-input engineering control. All five original blocker
+categories remain open. Current plan revision `20261001d` stays
+**BLOCKED_PREPARATION_REVIEW**. 127/24 NOT ACTIVATED; HD189733 selected; HD1461 HOLD;
+GJ724 reserve; spectra/holdouts unopened; LS paused; CHEOPS UNSENT. Review
+2 October; consolidate 9 October without extension. No external messages.
+
 ## 1 October: preparation audit and process supervision improve; large run remains blocked
 
 [The corrections, independent audit and evidence](RADIO_NATIVE_V2_COMPACT_PREPARATION_AUDIT_2026-10-01_RESULT.md)
