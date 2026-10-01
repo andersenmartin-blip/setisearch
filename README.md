@@ -1,3 +1,26 @@
+# SETI status — 1 October 2026: measurable publication component passes
+
+[The real execution, independent audits and exact evidence](https://github.com/andersenmartin-blip/setisearch/blob/5a72a9580841350988ec57bbd5db92dc9bac49e6/RADIO_NATIVE_V2_ACTIONS_PUBLICATION_2026-10-01_RESULT.md)
+are published. A repository-owned local Python publisher ran once on GitHub Actions,
+posted and independently read back **26 MiB** of deterministic engineering bytes,
+and used atomic expected-parent publication. Its complete lifetime independently
+peaked at **130.88/512 MiB** and lasted **13.608 seconds**: 16 HTTP operations,
+36,353,236 request-body bytes and 38,619,088 response-body bytes. All 14 retained
+files and 21 HTTP bodies reconstruct exactly. This supplies a measurable alternative
+to the still-blocked Functions caller route; full native transport remains unqualified.
+
+The new file-backed cumulative verifier passes one unchanged retained-input control
+at **332.68 MiB** and **2.226 seconds**. Its earlier revision remains preserved;
+**239 native-v2 Python tests pass**. Eight genuinely fresh maximum inputs and the
+continuous verifier still require resource qualification and a complete host join.
+
+**No telescope-analysis start date is established.** The native eight cases are
+unreserved, 127/24 is NOT ACTIVATED, spectra/holdouts remain unopened, HD189733 is
+selected, HD1461 HOLD, GJ724 reserve, LS paused and CHEOPS UNSENT. Review 2 October;
+consolidate 9 October without extension. No external messages or paid services.
+
+---
+
 # SETI status — 1 October 2026: current transport has a platform blocker
 
 [Decision, measured results and exact evidence](https://github.com/andersenmartin-blip/setisearch/blob/254ff202fe8f6daca65876332ff91805cc20ad7f/RADIO_NATIVE_V2_RUNTIME_DECISION_2026-10-01_RESULT.md)
