@@ -1,3 +1,29 @@
+# SETI status — 1 October 2026: maximum-source offline caller passes
+
+[Implementation, measurements and exact evidence](https://github.com/andersenmartin-blip/setisearch/blob/6383d2cf4fdce96ed48c6cb941d894fff600f5d2/RADIO_NATIVE_V2_TAIL_INTEGRATION_2026-10-01_RESULT.md)
+are published on `m43-support-qualification`. **185 Python and 118 JavaScript tests pass.**
+A fresh 26-MiB deterministic source completes 38 real local reads and a durable
+caller-tail save within the original caps: **56/64 charged calls** and an
+independently measured **491.15/512 MiB** caller peak. The prior 533.53-MiB failure
+and preparation failure remain closed and preserved. Both complete caller
+transcripts can be reconstructed byte for byte from the retained compact evidence.
+
+This is one offline component case with mock controller/connector exchanges;
+the eight-case receipt remains INCOMPLETE. The new prospective freeze pins
+907 code, 16 input and 1,366 runtime files and grants no execution authority.
+All 70 changed science-branch files were independently read back with exact
+content and Git blob IDs; the published tree matches the tested local tree.
+
+**Next:** qualify actual SDK memory and joined controller/host/Git custody,
+plus legal large-tail, poll and escaped-envelope shapes, before a fresh live
+maximum-source control. The one-call tail currently accepts at most 47,616 bytes.
+Live/eight-case execution remains closed; 127/24 remains NOT ACTIVATED.
+HD189733/85030 remains selected, HD1461/71139 HOLD, GJ724/73005 reserve.
+Spectra and holdouts remain unopened; no RNG or external messages were used.
+LS stays paused, CHEOPS UNSENT, and consolidation stays 9 October without extension.
+
+---
+
 # SETI status — 1 October 2026: shared transport accounting is explicit
 
 The native-v2 caller/host contract now counts every startup, poll, source read,
