@@ -1,3 +1,34 @@
+# SETI status — 1 October 2026: current transport has a platform blocker
+
+[Decision, measured results and exact evidence](https://github.com/andersenmartin-blip/setisearch/blob/254ff202fe8f6daca65876332ff91805cc20ad7f/RADIO_NATIVE_V2_RUNTIME_DECISION_2026-10-01_RESULT.md)
+are published. **The current Functions transport remains BLOCKED_PLATFORM_OBSERVABILITY.**
+Its independent caller memory observation is required but unavailable through
+the documented interfaces. Local Git supplies credential-free fetch only.
+No further live maximum-source courier starts until a supported observation or
+a separately frozen measurable local publisher becomes available.
+
+The bounded local work closed two gaps. A Python replay of retained evidence
+now peaks at **439.57/512 MiB**, after the original **545.17-MiB** failure was
+preserved. A fresh actual tail-only boundary passed in exactly two SDK calls:
+**4,894,485 request bytes, 2,084 reply bytes and 8.841 seconds**. Its large raw
+request and complete reply envelopes reconstruct byte for byte. Controller,
+source-reader and connector records in that probe are synthetic; it performs
+no full caller, GitHub mutation, native or scientific experiment.
+
+**200 Python and 127 JavaScript tests pass**, plus three verifier checks.
+The prospective freeze pins 911 code, 17 input and 1,366 runtime files.
+Full Functions RSS, joined host/storage custody, eight-case resources, complete
+native controls, separate 127/24 scientific validation and telescope admission
+remain open. No reliable telescope-analysis start date is supported.
+
+HD189733/85030 remains selected; HD1461/71139 HOLD; GJ724/73005 reserve.
+127/24 stays NOT ACTIVATED, spectra/holdouts unopened, LS paused and CHEOPS UNSENT.
+No external messages were sent. Review admission at the 2 October checkpoint;
+consolidate the bounded pilot or the exact blocked-route report by 9 October
+without extending the plan.
+
+---
+
 # SETI status — 1 October 2026: maximum-source offline caller passes
 
 [Implementation, measurements and exact evidence](https://github.com/andersenmartin-blip/setisearch/blob/6383d2cf4fdce96ed48c6cb941d894fff600f5d2/RADIO_NATIVE_V2_TAIL_INTEGRATION_2026-10-01_RESULT.md)
