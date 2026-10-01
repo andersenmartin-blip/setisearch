@@ -1,3 +1,24 @@
+# SETI status — 1 October 2026: preparation improved; large execution remains blocked
+
+[The corrected controls, independent audit and complete evidence](https://github.com/andersenmartin-blip/setisearch/blob/b2eb6eed26add82bd47b5f3b268f3d2bb09036ec/RADIO_NATIVE_V2_COMPACT_PREPARATION_AUDIT_2026-10-01_RESULT.md)
+are public. **89 relevant Python tests pass**. The independent preparation audit
+verifies **919 code files and 1,606 joined runtime files**, including materialized
+source/template checks. Child PID identity, inherited-pipe deadlines, sample/output
+bounds and fresh source/terminal identities are now explicitly checked.
+
+A dedicated supervisor passes tiny orphan and double-fork controls at about
+**15 MiB**, independently observed through receipt fsync and process termination.
+This remains component evidence. **The eight-input maximum-size control is still
+BLOCKED_PREPARATION_REVIEW**, with worker admission, full runtime/argv/environment
+and final storage/time joins open. No new telescope data were analyzed.
+
+Native cases remain unreserved; 127/24 NOT ACTIVATED, spectra/holdouts unopened,
+HD189733 selected, HD1461 HOLD, GJ724 reserve, LS paused and CHEOPS UNSENT.
+No supported telescope-analysis start date. Review 2 October; consolidate
+9 October without extension. No external messages.
+
+---
+
 # SETI status — 1 October 2026: measurable publication component passes
 
 [The real execution, independent audits and exact evidence](https://github.com/andersenmartin-blip/setisearch/blob/5a72a9580841350988ec57bbd5db92dc9bac49e6/RADIO_NATIVE_V2_ACTIONS_PUBLICATION_2026-10-01_RESULT.md)
