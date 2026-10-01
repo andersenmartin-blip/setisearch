@@ -1,0 +1,87 @@
+Initial focused observer invocation: 13 tests, 4 failures and 2 errors.
+Reason: this kernel does not expose task/children; independent namespace mapping required a procfs PPid/NSpid scan.
+The six failure details and final disposition below are the exact final output chunk; the first progress chunk was not retained here.
+
+ok
+
+======================================================================
+ERROR: test_sample_retention_stays_bounded_without_discarding_kernel_peak (tests.test_radio_native_v2_compact_eight_case_resource_fixture.CompactEightPreparationTests.test_sample_retention_stays_bounded_without_discarding_kernel_peak)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo/tests/test_radio_native_v2_compact_eight_case_resource_fixture.py", line 251, in test_sample_retention_stays_bounded_without_discarding_kernel_peak
+    receipt,_,_=fixture.observe_process([PYTHON,'-I','-S','-B','-c',source,str(child_identity)],root,'samples',child_identity,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo/scripts/radio_native_v2_compact_eight_case_resource_fixture.py", line 454, in observe_process
+    if status!=0 or reason: raise RuntimeError('Fixed child/control scope closed: '+label+': '+str(reason or status))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Fixed child/control scope closed: samples: Observer/child phase failed: FileNotFoundError(2, 'No such file or directory')
+
+======================================================================
+ERROR: test_wait4_nested_small_child_peak_is_maximum_process_not_concurrent_sum (tests.test_radio_native_v2_compact_eight_case_resource_fixture.CompactEightPreparationTests.test_wait4_nested_small_child_peak_is_maximum_process_not_concurrent_sum)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo/tests/test_radio_native_v2_compact_eight_case_resource_fixture.py", line 156, in test_wait4_nested_small_child_peak_is_maximum_process_not_concurrent_sum
+    observation,stdout,stderr=fixture.observe_process([PYTHON,'-I','-S','-B','-c',source,str(identity),grandchild],
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo/scripts/radio_native_v2_compact_eight_case_resource_fixture.py", line 454, in observe_process
+    if status!=0 or reason: raise RuntimeError('Fixed child/control scope closed: '+label+': '+str(reason or status))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Fixed child/control scope closed: small-nested: Observer/child phase failed: FileNotFoundError(2, 'No such file or directory')
+
+======================================================================
+FAIL: test_inherited_pipe_after_root_exit_is_bounded_by_original_deadline (tests.test_radio_native_v2_compact_eight_case_resource_fixture.CompactEightPreparationTests.test_inherited_pipe_after_root_exit_is_bounded_by_original_deadline)
+----------------------------------------------------------------------
+RuntimeError: Fixed child/control scope closed: pipe-holder: Observer/child phase failed: FileNotFoundError(2, 'No such file or directory')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo/tests/test_radio_native_v2_compact_eight_case_resource_fixture.py", line 220, in test_inherited_pipe_after_root_exit_is_bounded_by_original_deadline
+    with self.assertRaisesRegex(RuntimeError,'deadline exceeded'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "deadline exceeded" does not match "Fixed child/control scope closed: pipe-holder: Observer/child phase failed: FileNotFoundError(2, 'No such file or directory')"
+
+======================================================================
+FAIL: test_missing_child_identity_closes_with_direct_reap_without_tree_claim (tests.test_radio_native_v2_compact_eight_case_resource_fixture.CompactEightPreparationTests.test_missing_child_identity_closes_with_direct_reap_without_tree_claim)
+----------------------------------------------------------------------
+RuntimeError: Fixed child/control scope closed: missing: Observer/child phase failed: FileNotFoundError(2, 'No such file or directory')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo/tests/test_radio_native_v2_compact_eight_case_resource_fixture.py", line 177, in test_missing_child_identity_closes_with_direct_reap_without_tree_claim
+    with self.assertRaisesRegex(RuntimeError,'identity was never verified'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "identity was never verified" does not match "Fixed child/control scope closed: missing: Observer/child phase failed: FileNotFoundError(2, 'No such file or directory')"
+
+======================================================================
+FAIL: test_oversized_output_is_not_retained_beyond_fixed_buffer_cap (tests.test_radio_native_v2_compact_eight_case_resource_fixture.CompactEightPreparationTests.test_oversized_output_is_not_retained_beyond_fixed_buffer_cap)
+----------------------------------------------------------------------
+RuntimeError: Fixed child/control scope closed: large-output: Observer/child phase failed: FileNotFoundError(2, 'No such file or directory')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo/tests/test_radio_native_v2_compact_eight_case_resource_fixture.py", line 236, in test_oversized_output_is_not_retained_beyond_fixed_buffer_cap
+    with self.assertRaisesRegex(RuntimeError,'output cap exceeded'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "output cap exceeded" does not match "Fixed child/control scope closed: large-output: Observer/child phase failed: FileNotFoundError(2, 'No such file or directory')"
+
+======================================================================
+FAIL: test_sibling_procfs_pid_cannot_substitute_for_launched_child (tests.test_radio_native_v2_compact_eight_case_resource_fixture.CompactEightPreparationTests.test_sibling_procfs_pid_cannot_substitute_for_launched_child)
+----------------------------------------------------------------------
+RuntimeError: Fixed child/control scope closed: forged: Observer/child phase failed: FileNotFoundError(2, 'No such file or directory')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo/tests/test_radio_native_v2_compact_eight_case_resource_fixture.py", line 202, in test_sibling_procfs_pid_cannot_substitute_for_launched_child
+    with self.assertRaisesRegex(RuntimeError,'differs from independently launched direct child'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "differs from independently launched direct child" does not match "Fixed child/control scope closed: forged: Observer/child phase failed: FileNotFoundError(2, 'No such file or directory')"
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.230s
+
+FAILED (failures=4, errors=2)
+

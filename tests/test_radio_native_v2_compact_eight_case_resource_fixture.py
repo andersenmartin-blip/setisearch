@@ -87,6 +87,60 @@ class CompactEightPreparationTests(unittest.TestCase):
                     self.assertEqual(result.returncode,0,result.stderr.decode())
             self.assertEqual(set(Path(directory).iterdir()), {Path(directory)/name for name in derived if name.endswith('.js')})
 
+    def test_tiny_source_domain_reader_rejects_other_ordinals_corruption_and_aliases(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            for ordinal in range(8):
+                domain=fixture.source_domain(ordinal)
+                raw=b''.join(hashlib.sha256(domain+counter.to_bytes(8,'big')).digest() for counter in range(3))[:65]
+                path=root/f'source{ordinal}'; path.write_bytes(raw)
+                proof=fixture.verify_fresh_source_domain(path,ordinal,len(raw))
+                self.assertEqual(proof['sha256'],hashlib.sha256(raw).hexdigest())
+                self.assertEqual(proof['source_domain_hex'],domain.hex())
+                self.assertFalse(proof['native_case_binding_verified'])
+                with self.assertRaisesRegex(ValueError,'counter domain'):
+                    fixture.verify_fresh_source_domain(path,(ordinal+1)%8,len(raw))
+                with self.assertRaisesRegex(ValueError,'source length'):
+                    fixture.verify_fresh_source_domain(path,ordinal,len(raw)-1)
+                path.write_bytes(raw[:-1]+bytes([raw[-1]^1]))
+                with self.assertRaisesRegex(ValueError,'counter domain'):
+                    fixture.verify_fresh_source_domain(path,ordinal,len(raw))
+            linked=root/'linked'; linked.symlink_to(root/'source0')
+            fifo=root/'fifo';os.mkfifo(fifo)
+            for path in (linked,fifo):
+                with self.assertRaises((OSError,ValueError)):
+                    fixture.verify_fresh_source_domain(path,0,65)
+
+    def test_prepared_and_terminal_identity_cannot_relabel_a_frozen_outer_case(self):
+        # Shape-only metadata exercises identity semantics; no source file or
+        # maximum payload is created by this test.
+        ordinal=0; domain=fixture.source_domain(ordinal).hex(); source_hash='1'*64
+        fixed={'ordinal':ordinal,'source_case_id':fixture.NAMESPACE+'/case00',
+            'source_domain_hex':domain,'archive_prefix':fixture.PREFIX+'/case00-fixed','source_bytes':26*fixture.MIB}
+        proof={'bytes':26*fixture.MIB,'sha256':source_hash,'source_domain_hex':domain,
+            'case_ordinal':0,'native_case_binding_verified':False}
+        identity={'namespace':fixture.NAMESPACE,'case_ordinal':0,'source_case_id':fixed['source_case_id'],
+            'source_sha256':source_hash,'native_case_binding_verified':False}
+        identity['engineering_case_binding_sha256']=hashlib.sha256(fixture.canonical(identity)).hexdigest()
+        prepared={'control_case_identity':identity,'source_domain_hex':domain,'source_bytes':26*fixture.MIB,'source_sha256':source_hash}
+        terminal={'kind':'terminal','status':'SINGLE_CASE_COMPONENT_ONLY','fixture_only':True,'control_case_identity':identity}
+        self.assertEqual(fixture.audit_fresh_identity(prepared,fixed,proof,terminal),identity)
+        changes=[('prepared',('source_sha256',),'2'*64),('prepared',('source_domain_hex',),fixture.source_domain(1).hex()),
+            ('prepared',('control_case_identity','case_ordinal'),False),
+            ('fixed',('archive_prefix',),fixture.PREFIX+'/case01-fixed'),
+            ('fixed',('ordinal',),False),('proof',('case_ordinal',),False),
+            ('proof',('source_domain_hex',),fixture.source_domain(1).hex()),
+            ('terminal',('control_case_identity','source_case_id'),fixture.NAMESPACE+'/case01'),
+            ('terminal',('control_case_identity','engineering_case_binding_sha256'),'3'*64),
+            ('terminal',('fixture_only',),1)]
+        for name,keys,value in changes:
+            copies=json.loads(json.dumps({'prepared':prepared,'fixed':fixed,'proof':proof,'terminal':terminal}))
+            target=copies[name]
+            for key in keys[:-1]: target=target[key]
+            target[keys[-1]]=value
+            with self.subTest(change=(name,keys)),self.assertRaises(ValueError):
+                fixture.audit_fresh_identity(copies['prepared'],copies['fixed'],copies['proof'],copies['terminal'])
+
     def test_big_entrypoints_refuse_before_touching_any_scope(self):
         with tempfile.TemporaryDirectory() as directory:
             scope = Path(directory)/'not-created'
@@ -160,13 +214,100 @@ class CompactEightPreparationTests(unittest.TestCase):
             self.assertEqual(observation['exit_code'],0)
             self.assertIsNone(observation['reason'])
             self.assertTrue(observation['includes_entire_child_lifetime'])
-            self.assertTrue(observation['wait4_maximum_includes_completely_reaped_descendants'])
+            self.assertFalse(observation['wait4_maximum_includes_completely_reaped_descendants'])
+            self.assertEqual(observation['tree_termination_coverage'],'NOT_INDEPENDENTLY_VERIFIED')
+            self.assertTrue(observation['reported_identity_verified'])
+            self.assertTrue(observation['direct_child_reaped'])
             self.assertFalse(observation['aggregate_concurrent_rss_measured'])
             self.assertGreaterEqual(data['grandchild_peak_bytes'],24*1024**2)
             self.assertGreaterEqual(observation['wait4_ru_maxrss_bytes'],data['grandchild_peak_bytes'])
             self.assertLess(observation['peak_rss_bytes'],data['own_peak_bytes']+data['grandchild_peak_bytes'])
             self.assertFalse(observation['raw_stdout_duplicate_written'])
             self.assertEqual((root/'small-nested-stdout.log').read_bytes(),b'')
+
+    def test_missing_child_identity_closes_with_direct_reap_without_tree_claim(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            with self.assertRaisesRegex(RuntimeError,'identity was never verified'):
+                fixture.observe_process([PYTHON,'-I','-S','-B','-c','pass'],root,'missing',root/'absent.json',
+                    deadline=time.monotonic()+3,pipe_output=True)
+            receipt=fixture.small_json(root/'missing-observation.json')
+            self.assertEqual(receipt['exit_code'],0)
+            self.assertTrue(receipt['direct_child_reaped'])
+            self.assertFalse(receipt['reported_identity_verified'])
+            self.assertFalse(receipt['complete_descendant_wait_chain_verified'])
+            self.assertEqual(receipt['tree_termination_coverage'],'NOT_INDEPENDENTLY_VERIFIED')
+
+    def test_sibling_procfs_pid_cannot_substitute_for_launched_child(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory); sibling_identity=root/'sibling.json'
+            sibling_source=('import os,json,sys,time; '
+                'open(sys.argv[1],"x").write(json.dumps({"procfs_pid":int(os.readlink("/proc/self")),"namespace_pid":os.getpid()})); '
+                'time.sleep(5)')
+            sibling=subprocess.Popen([PYTHON,'-I','-S','-B','-c',sibling_source,str(sibling_identity)],
+                stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,env=fixture.CHILD_ENVIRONMENT)
+            try:
+                end=time.monotonic()+2
+                while not sibling_identity.exists() and time.monotonic()<end: time.sleep(0.005)
+                sibling_pin=fixture.small_json(sibling_identity)
+                child_source=('import os,json,sys,time; '
+                    'open(sys.argv[1],"x").write(json.dumps({"procfs_pid":int(sys.argv[2]),"namespace_pid":os.getpid()})); '
+                    'time.sleep(0.1)')
+                with self.assertRaisesRegex(RuntimeError,'differs from independently launched direct child'):
+                    fixture.observe_process([PYTHON,'-I','-S','-B','-c',child_source,str(root/'forged.json'),str(sibling_pin['procfs_pid'])],
+                        root,'forged',root/'forged.json',deadline=time.monotonic()+3,pipe_output=True)
+                receipt=fixture.small_json(root/'forged-observation.json')
+                self.assertNotEqual(receipt['bound_child_identity']['procfs_pid'],sibling_pin['procfs_pid'])
+                self.assertFalse(receipt['reported_identity_verified'])
+                self.assertIsNone(sibling.poll(),'A forged report must not target a sibling for termination')
+            finally:
+                sibling.terminate(); sibling.wait(timeout=3)
+
+    def test_inherited_pipe_after_root_exit_is_bounded_by_original_deadline(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory); child_identity=root/'pipe-identity.json'
+            source=('import os,json,sys,time,subprocess; '
+                'open(sys.argv[1],"x").write(json.dumps({"procfs_pid":int(os.readlink("/proc/self")),"namespace_pid":os.getpid()})); '
+                'time.sleep(0.03); '
+                'subprocess.Popen([sys.executable,"-I","-S","-B","-c","import time; time.sleep(5)"])')
+            started=time.monotonic()
+            with self.assertRaisesRegex(RuntimeError,'deadline exceeded'):
+                fixture.observe_process([PYTHON,'-I','-S','-B','-c',source,str(child_identity)],root,'pipe-holder',child_identity,
+                    deadline=started+0.35,pipe_output=True,new_session=True)
+            self.assertLess(time.monotonic()-started,1.5)
+            receipt=fixture.small_json(root/'pipe-holder-observation.json')
+            self.assertEqual(receipt['exit_code'],0)
+            self.assertTrue(receipt['reported_identity_verified'])
+            self.assertFalse(receipt['complete_pipe_output'])
+            self.assertFalse(receipt['complete_descendant_wait_chain_verified'])
+
+    def test_oversized_output_is_not_retained_beyond_fixed_buffer_cap(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory); child_identity=root/'output-identity.json'
+            source=('import os,json,sys,time; '
+                'open(sys.argv[1],"x").write(json.dumps({"procfs_pid":int(os.readlink("/proc/self")),"namespace_pid":os.getpid()})); '
+                'time.sleep(0.03); sys.stdout.write("x"*200000); sys.stdout.flush(); time.sleep(1)')
+            with self.assertRaisesRegex(RuntimeError,'output cap exceeded'):
+                fixture.observe_process([PYTHON,'-I','-S','-B','-c',source,str(child_identity)],root,'large-output',child_identity,
+                    deadline=time.monotonic()+3,pipe_output=True,output_cap=16384)
+            receipt=fixture.small_json(root/'large-output-observation.json')
+            self.assertGreater(receipt['observed_output_bytes']['stdout'],16384)
+            self.assertFalse(receipt['complete_pipe_output'])
+            self.assertEqual((root/'large-output-stdout.log').stat().st_size,0)
+
+    def test_sample_retention_stays_bounded_without_discarding_kernel_peak(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory); child_identity=root/'sample-identity.json'
+            source=('import os,json,sys,time; '
+                'open(sys.argv[1],"x").write(json.dumps({"procfs_pid":int(os.readlink("/proc/self")),"namespace_pid":os.getpid()})); '
+                'time.sleep(0.1)')
+            with mock.patch.object(fixture,'OBSERVATION_SAMPLE_LIMIT',3):
+                receipt,_,_=fixture.observe_process([PYTHON,'-I','-S','-B','-c',source,str(child_identity)],root,'samples',child_identity,
+                    deadline=time.monotonic()+3,pipe_output=True)
+            self.assertGreater(receipt['sample_count'],3)
+            self.assertEqual(receipt['retained_sample_count'],3)
+            self.assertEqual(len(receipt['samples']),3)
+            self.assertGreaterEqual(receipt['peak_rss_bytes'],receipt['wait4_ru_maxrss_bytes'])
 
 
 def tiny_json(value):

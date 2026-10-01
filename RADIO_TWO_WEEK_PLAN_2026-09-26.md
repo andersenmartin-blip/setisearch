@@ -1,5 +1,28 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 1 October: preparation audit and process supervision improve; large run remains blocked
+
+[The corrections, independent audit and evidence](RADIO_NATIVE_V2_COMPACT_PREPARATION_AUDIT_2026-10-01_RESULT.md)
+pass **89 relevant Python tests**. The independent actual preparation audit verifies
+919 code, five input and 1,606 joined runtime files; materialized code/templates
+match. The observer now binds the launched PID independently, bounds inherited-pipe
+drain and samples, and retains truthful direct-child/descendant distinctions.
+Fresh domain and prepared/terminal identity checks refuse case relabeling.
+
+A dedicated subreaper component permits fixed tiny probes only. Orphan and
+double-fork controls each reach terminal ECHILD and are independently observed
+through receipt fsync and termination at about **15 MiB**. This does not qualify
+the future integrated worker, full-size harness, host ledger or scientific runtime.
+The original eight-input plan remains **BLOCKED_PREPARATION_REVIEW**; all large
+entrypoints stay closed. No maximum input, reservation, RNG or telescope read.
+
+**Next:** join worker-level immutable public-preread/runtime/argv/environment
+admission with the dedicated supervisor and complete outer storage/time/final
+disposition, before one fresh eight-input resource control. All five blocker
+categories remain open. 127/24 NOT ACTIVATED, HD189733 selected, HD1461 HOLD,
+GJ724 reserve, spectra/holdouts unopened, LS paused, CHEOPS UNSENT. Review
+2 October; consolidate 9 October without extension. No external messages.
+
 ## 1 October: actual transport has a concrete platform blocker
 
 [The runtime decision and measured evidence](RADIO_NATIVE_V2_RUNTIME_DECISION_2026-10-01_RESULT.md)
