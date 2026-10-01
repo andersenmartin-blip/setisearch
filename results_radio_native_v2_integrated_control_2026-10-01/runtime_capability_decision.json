@@ -1,0 +1,63 @@
+{
+  "schema": "radio-native-v2-supported-runtime-capability-decision-v1",
+  "status": "BLOCKED_PLATFORM_OBSERVABILITY",
+  "date": "2026-10-01",
+  "scope": "Supported capabilities in this execution environment",
+  "required_evidence": "An independent actual caller peak-RSS observation bound to its exact transcript and covering startup, source extraction, all connector/delivery replies, tail custody and process closure.",
+  "functions_runtime": {
+    "ecmascript_isolate": true,
+    "node_api_available": false,
+    "filesystem_api_available": false,
+    "documented_caller_pid_available": false,
+    "documented_caller_rss_available": false
+  },
+  "executor_tools": {
+    "names": [
+      "exec_command",
+      "write_stdin"
+    ],
+    "return_local_process_output_and_session_metadata": true,
+    "expose_functions_caller_memory": false,
+    "local_procfs_cannot_measure_the_functions_isolate": true
+  },
+  "local_git": {
+    "pinned_policy": "config/radio_native_v2_local_git_network_20260930.json",
+    "operation": "git_fetch",
+    "credentials_allowed": false,
+    "credential_helpers_disabled": true,
+    "documented_local_authenticated_write_capability_available": false
+  },
+  "github_connectors": {
+    "inline_content_upload_available": true,
+    "documented_local_path_upload_available": false,
+    "documented_local_delegated_write_available": false,
+    "blob_sha_reference_requires_blob_already_exists_remotely": true
+  },
+  "decision": {
+    "new_live_maximum_source_courier_allowed": false,
+    "old_scope_resume_allowed": false,
+    "scientific_activation_allowed": false,
+    "remaining_local_component_work_allowed": true,
+    "one_frozen_actual_two_tool_tail_boundary_probe_allowed": true
+  },
+  "unblock_conditions": [
+    "Supported independent Functions caller memory telemetry becomes available.",
+    "A supported authenticated local publication capability becomes available, followed by a separately versioned and frozen measurable local publisher protocol within the original limits."
+  ],
+  "remaining_scientific_gates": [
+    "Complete native physical/recovery/RFI/null engineering and integrated publication/readback.",
+    "Separate executable 127-reference/24-evaluation scientific freeze and fresh allocation, then a passing fixed gate.",
+    "Separately frozen integrated telescope acquisition/trial protocol."
+  ],
+  "new_telescope_data_analyzed": 0,
+  "native_case_reservations": 0,
+  "rng_draws": 0,
+  "external_messages_sent": 0,
+  "execution_authorized": false,
+  "reservation_authorized": false,
+  "scientific_execution_authorized": false,
+  "automatic_retry": false,
+  "plan_end": "2026-10-09",
+  "plan_extended": false,
+  "note": "This is a bounded review of documented interfaces and the existing pinned policy. It does not claim that such telemetry or publication capabilities are impossible in other environments. Undocumented proxy authentication was not probed."
+}

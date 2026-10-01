@@ -7,8 +7,6 @@ and Git custody).  A later execution freeze must pin this code and must supply
 independently durable receipts for every accepted case.
 """
 import hashlib
-import base64
-import binascii
 import json
 import math
 
@@ -19,7 +17,6 @@ CASE_SCHEMA='radio-native-v2-runner-shared-case-v2'
 CLIENT_SCHEMA='radio-native-v2-single-exec-tool-courier-v1'
 CONTROLLER_SCHEMA='radio-native-v2-local-tool-courier-v1'
 PERSISTENCE_SCHEMA='radio-native-v2-caller-transcript-persistence-v2'
-STREAMING_PERSISTENCE_SCHEMA='radio-native-v2-caller-transcript-persistence-v3'
 CASE_CALLS=64
 TOTAL_CALLS=512
 CASE_REQUEST_BYTES=48*1024**2
@@ -34,8 +31,6 @@ QUALIFIED_CLIENT_CAPS={'actual_calls':59,'request_bytes':40*1024**2,
     'response_bytes':64*1024**2-256*1024,'support_yield_time_ms':30000,
     'caller_tail_calls':1,'caller_tail_request_bytes':8*1024**2,
     'caller_tail_response_bytes':256*1024}
-QUALIFIED_STREAMING_CLIENT_CAPS={**QUALIFIED_CLIENT_CAPS,
-    'actual_calls':58,'caller_tail_calls':2}
 CONNECTOR_SEQUENCE=('mcp__codex_apps__github_fetch','mcp__codex_apps__github_create_tree',
     'mcp__codex_apps__github_create_commit','mcp__codex_apps__github_fetch',
     'mcp__codex_apps__github_update_ref','mcp__codex_apps__github_fetch')
@@ -153,13 +148,12 @@ def validate_client(value,*,qualified=False):
     # delivery.  Durable custody is therefore supplied separately below.
     if value.get('last_supporting_acknowledgement_durable') is not False:
         raise ValueError('Caller/controller boundary must not self-certify late custody')
-    caps=value.get('prospective_caps')
-    if qualified and caps not in (QUALIFIED_CLIENT_CAPS,QUALIFIED_STREAMING_CLIENT_CAPS):
+    if qualified and value.get('prospective_caps')!=QUALIFIED_CLIENT_CAPS:
         raise ValueError('Tail capacity and 30-second wait must be reserved before caller start')
-    if qualified and (calls>caps['actual_calls']
-            or request_bytes>caps['request_bytes']
-            or response_bytes>caps['response_bytes']
-            or kinds.count('actual_idle_poll')>8-caps['caller_tail_calls']):
+    if qualified and (calls>QUALIFIED_CLIENT_CAPS['actual_calls']
+            or request_bytes>QUALIFIED_CLIENT_CAPS['request_bytes']
+            or response_bytes>QUALIFIED_CLIENT_CAPS['response_bytes']
+            or kinds.count('actual_idle_poll')>7):
         raise ValueError('Prospectively reduced caller allocation exceeded')
     return json.loads(canonical(value))
 
@@ -203,8 +197,6 @@ def caller_tail_payload(client):
 
 def validate_persistence(value,client):
     """Validate one independently durable caller-only tail and its tool cost."""
-    if client.get('prospective_caps')==QUALIFIED_STREAMING_CLIENT_CAPS:
-        return _validate_streaming_persistence(value,client)
     payload=caller_tail_payload(client)
     selected=json.loads(payload)['records'];ordinals=[r['ordinal'] for r in selected]
     if not isinstance(value,dict):raise ValueError('Independent caller tail persistence required')
@@ -256,142 +248,6 @@ def validate_persistence(value,client):
             or abs(shared_elapsed-(shared_end-shared_start)/1000)>0.001
             or shared_elapsed+0.001<client['usage']['elapsed_seconds']+elapsed):
         raise ValueError('Complete shared caller preparation/custody/observer time required')
-    return json.loads(canonical(value))
-
-
-def _validate_streaming_persistence(value,client):
-    """Validate both actual stdin-custody calls, including the delivered bytes.
-
-    The compact wire remains UTF-8 JSON; the authoritative file uses the
-    historical ASCII canonical tail. Every shell/TTY/transfer response is
-    retained. A missing terminal reply consumes the allocation and cannot
-    be repaired by a third call.
-    """
-    payload=caller_tail_payload(client);selected=json.loads(payload)
-    ordinals=[r['ordinal'] for r in selected['records']]
-    maximum_payload=6*7*256*1024+2048
-    if (len(selected['records'])>7 or len(payload)>maximum_payload
-            or any(len(r['response_json'].encode())>256*1024 for r in selected['records'])):
-        raise ValueError('Caller tail exceeds prospectively reserved envelope and storage bounds')
-    expected={'schema':STREAMING_PERSISTENCE_SCHEMA,'client_sha256':client_binding_sha256(client),
-        'stored_record_ordinals':ordinals,'payload_bytes':len(payload),'payload_sha256':_sha(payload),
-        'durable':True,'single_authoritative_file':True,'exact_readback_verified':True,
-        'includes_terminal_delivery_acknowledgement':True,'automatic_retry':False,
-        'calls':2,'unknown_response_bytes':0,'unknown_response_count':0,
-        'stored_bytes':len(payload),'stored_items':1,
-        'stored_bytes_reserved':maximum_payload,'storage_kind':'host_receipt'}
-    if not isinstance(value,dict) or any(value.get(k)!=v for k,v in expected.items()):
-        raise ValueError('Independent exact two-call tail persistence required')
-    rows=value.get('records')
-    if not isinstance(rows,list) or len(rows)!=2:
-        raise ValueError('Two complete actual tail envelopes required')
-    requests=[];responses=[]
-    tools=('exec_command','write_stdin')
-    kinds=('actual_caller_tail_start','actual_caller_tail_transfer')
-    reservations=(4096,252*1024)
-    for ordinal,row in enumerate(rows):
-        if (not isinstance(row,dict) or row.get('ordinal')!=ordinal
-                or row.get('tool')!=tools[ordinal] or row.get('kind')!=kinds[ordinal]
-                or row.get('automatic_retry') is not False or row.get('response_unknown') is not False):
-            raise ValueError('Exact sequential tail call required')
-        request=row.get('request_json');response=row.get('response_json')
-        if (not isinstance(request,str) or not isinstance(response,str)
-                or len(request.encode())!=row.get('request_bytes')
-                or len(response.encode())!=row.get('response_bytes')
-                or _sha(request.encode())!=row.get('request_sha256')
-                or _sha(response.encode())!=row.get('response_sha256')
-                or row.get('response_reserved_bytes')!=reservations[ordinal]
-                or len(response.encode())>reservations[ordinal]
-                or row.get('response_charged_bytes')!=len(response.encode())):
-            raise ValueError('Exact reserved tail envelope bytes and hashes required')
-        try:
-            dispatched=json.loads(request);raw=json.loads(response)
-        except (TypeError,json.JSONDecodeError) as error:
-            raise ValueError('Actual tail JSON envelopes required') from error
-        if (not isinstance(dispatched,dict) or set(dispatched)!={'tool','arguments'}
-                or dispatched['tool']!=tools[ordinal] or not isinstance(dispatched['arguments'],dict)
-                or not isinstance(raw,dict) or raw!=row.get('raw_result') or raw.get('isError') is True
-                or not isinstance(raw.get('output'),str)):
-            raise ValueError('Untouched actual tail envelopes required')
-        start=_integer(row.get('dispatch_at_epoch_ms'),'tail_dispatch_at_epoch_ms')
-        end=_integer(row.get('returned_at_epoch_ms'),'tail_returned_at_epoch_ms')
-        elapsed=row.get('elapsed_seconds')
-        if (end<start or type(elapsed) not in (int,float) or not math.isfinite(elapsed)
-                or elapsed<0 or abs(elapsed-(end-start)/1000)>0.001):
-            raise ValueError('Actual tail call interval differs')
-        requests.append(dispatched['arguments']);responses.append(raw)
-    request_bytes=sum(r['request_bytes'] for r in rows)
-    response_bytes=sum(r['response_bytes'] for r in rows)
-    if (value.get('request_bytes')!=request_bytes or value.get('response_bytes')!=response_bytes
-            or request_bytes>QUALIFIED_STREAMING_CLIENT_CAPS['caller_tail_request_bytes']
-            or response_bytes>QUALIFIED_STREAMING_CLIENT_CAPS['caller_tail_response_bytes']):
-        raise ValueError('Exact combined tail allocation exceeded')
-    first,last=rows
-    if first['returned_at_epoch_ms']>last['dispatch_at_epoch_ms']:
-        raise ValueError('Sequential actual tail calls required')
-    start=first['dispatch_at_epoch_ms'];end=last['returned_at_epoch_ms']
-    elapsed=value.get('elapsed_seconds')
-    if (value.get('dispatch_at_epoch_ms')!=start or value.get('returned_at_epoch_ms')!=end
-            or type(elapsed) not in (int,float) or not math.isfinite(elapsed)
-            or abs(elapsed-(end-start)/1000)>0.001):
-        raise ValueError('Full tail startup and transfer interval required')
-    shared_start=_integer(value.get('shared_case_started_at_epoch_ms'),'shared_case_started_at_epoch_ms')
-    shared_end=_integer(value.get('shared_case_finished_at_epoch_ms'),'shared_case_finished_at_epoch_ms')
-    shared_elapsed=value.get('shared_case_elapsed_seconds')
-    if (shared_start>start or shared_end<end or type(shared_elapsed) not in (int,float)
-            or not math.isfinite(shared_elapsed) or shared_elapsed<0
-            or abs(shared_elapsed-(shared_end-shared_start)/1000)>0.001
-            or shared_elapsed+0.001<client['usage']['elapsed_seconds']+elapsed):
-        raise ValueError('Complete shared caller preparation/custody/observer time required')
-    startup,transfer=requests
-    if (set(startup)!={'cmd','tty','max_output_tokens','yield_time_ms'}
-            or not isinstance(startup['cmd'],str) or len(startup['cmd'].encode())>96*1024
-            or startup['tty'] is not True or startup['max_output_tokens']!=4096
-            or startup['yield_time_ms']!=1000
-            or set(transfer)!={'session_id','chars','max_output_tokens','yield_time_ms'}
-            or type(transfer['session_id']) is not int or transfer['session_id']<=0
-            or transfer['session_id']!=responses[0].get('session_id')
-            or 'exit_code' in responses[0] or responses[1].get('exit_code')!=0
-            or 'session_id' in responses[1] or transfer['max_output_tokens']!=4096
-            or transfer['yield_time_ms']!=30000):
-        raise ValueError('Exact raw-TTY startup and terminal transfer required')
-    encoded=transfer['chars']
-    max_wire=2*7*256*1024+2048
-    max_base64=((max_wire+2)//3)*4
-    if (not isinstance(encoded,str) or not encoded.endswith('\n')
-            or len(encoded)>max_base64+1 or '\n' in encoded[:-1] or '\r' in encoded):
-        raise ValueError('Bounded single-frame tail transfer required')
-    try:
-        wire=base64.b64decode(encoded[:-1],validate=True)
-        restored=json.loads(wire)
-        ready=json.loads(responses[0]['output'].strip())
-        helper=json.loads(responses[1]['output'].strip())
-    except (ValueError,TypeError,binascii.Error,json.JSONDecodeError) as error:
-        raise ValueError('Exact streaming tail wire and readback JSON required') from error
-    if len(wire)>max_wire or canonical(restored)!=payload:
-        raise ValueError('Transferred tail differs from complete caller envelopes')
-    wire_pins={'wire_bytes':len(wire),'wire_sha256':_sha(wire)}
-    ready_expected={'schema':'radio-native-v2-streaming-caller-tail-ready-v1','kind':'ready',
-        'client_sha256':expected['client_sha256'],'payload_bytes':len(payload),
-        'payload_sha256':expected['payload_sha256'],
-        'terminal_ordinal':[r['ordinal'] for r in client['records'] if r['kind']=='actual_delivery'][-1],
-        'input_encoding':'base64_utf8_json','maximum_base64_bytes':max_base64,
-        'max_stdin_bytes':max_base64+1,'stdin_raw_noecho_ready':True,
-        'stdin_is_tty':True,'stdin_mode':'tty_raw_noecho',**wire_pins}
-    helper_expected={'schema':'radio-native-v2-streaming-caller-tail-readback-v1',
-        **{k:expected[k] for k in ('client_sha256','stored_record_ordinals','payload_bytes',
-            'payload_sha256','durable','single_authoritative_file','exact_readback_verified',
-            'includes_terminal_delivery_acknowledgement','automatic_retry')},
-        'directory_entry_fsynced':True,'independent_reopen':True,
-        'reopened_bytes':len(payload),'reopened_sha256':expected['payload_sha256'],**wire_pins}
-    authority={'execution_authorized':False,'reservation_authorized':False,
-        'scientific_execution_authorized':False,'automatic_retry':False,'rng_draws':0,'telescope_reads':0}
-    if (not isinstance(ready,dict) or not isinstance(helper,dict)
-            or any(ready.get(k)!=v for k,v in {**ready_expected,**authority}.items())
-            or any(helper.get(k)!=v for k,v in {**helper_expected,**authority}.items())
-            or not isinstance(ready.get('destination'),str) or not ready['destination'].startswith('/')
-            or helper.get('destination')!=ready['destination']):
-        raise ValueError('Pinned raw/noecho readiness and independent reopened tail differ')
     return json.loads(canonical(value))
 
 

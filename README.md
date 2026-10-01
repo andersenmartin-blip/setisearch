@@ -1,5 +1,27 @@
 # SETIsearch
 
+## 1 October: actual transport has a concrete platform blocker
+
+[The runtime decision and measured evidence](RADIO_NATIVE_V2_RUNTIME_DECISION_2026-10-01_RESULT.md)
+identify **BLOCKED_PLATFORM_OBSERVABILITY**: the documented Functions interface
+exposes no independent actual-caller RSS measurement, and the pinned local Git
+policy supplies fetch only. No new live maximum-source courier may start until
+that capability exists or a separately frozen measurable local publisher is available.
+
+A retained-data Python verifier replay now passes at **439.57/512 MiB** after
+the **545.17-MiB** failure was retained. A separately reserved two-call tail
+component passes actual PTY maximum-envelope tests; canonical tail storage has
+its own 11,012,096-byte host-receipt reserve and remains unjoined to the full host
+ledger. **200 Python and 127 JavaScript tests pass**, plus three verifier checks.
+A fresh actual two-tool tail-only boundary probe is prepared for immutable public
+readback before startup; it grants no full transport or scientific authority.
+
+There is no supported telescope-analysis start date. Full transport, eight-case
+resources, native physical/recovery/RFI/null controls, separate 127/24 validation
+and telescope acquisition/trial admission remain required. HD189733 selected,
+HD1461 HOLD, GJ724 reserve; spectra/holdouts unopened, LS paused, CHEOPS UNSENT.
+No external messages. Consolidate 9 October without extension.
+
 ## 1 October: caller-tail integration passes maximum-source offline control
 
 [The implementation and exact evidence](RADIO_NATIVE_V2_TAIL_INTEGRATION_2026-10-01_RESULT.md)

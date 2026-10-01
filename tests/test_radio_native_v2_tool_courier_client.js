@@ -63,6 +63,25 @@ test('prospective runner may use one pinned 30-second supporting wait without ch
   assert.ok(result.usage.calls_including_declared_git_processes<=64);
   assert.deepEqual(result.prospective_caps,{...q,support_yield_time_ms:30000});
 });
+test('two-call stdin tail is reserved before startup and reported without borrowing shared caps',async()=>{
+  const f=fixture({supportYield:30000}),q=c.QUALIFIED_RUNNER_LIMITS;
+  const result=await run(f,{support_yield_time_ms:30000,max_actual_calls:58,
+    max_request_bytes:q.request_bytes,max_response_bytes:q.response_bytes,caller_tail_calls:2});
+  assert.equal(result.status,'SINGLE_CASE_COMPONENT_COMPLETE',result.reason);
+  assert.equal(result.prospective_caps.caller_tail_calls,2);
+  assert.equal(result.prospective_caps.actual_calls,58);
+  assert.ok(result.usage.calls+4+2<=64);
+});
+test('a second tail call cannot be added after startup or outside reduced reservations',async()=>{
+  const q=c.QUALIFIED_RUNNER_LIMITS;
+  for(const extra of [{max_actual_calls:59},{max_request_bytes:q.request_bytes+1},
+    {max_response_bytes:q.response_bytes+1},{support_yield_time_ms:10000},{caller_tail_calls:3}]){
+    const f=fixture({supportYield:30000});
+    await assert.rejects(run(f,{support_yield_time_ms:30000,max_actual_calls:58,
+      max_request_bytes:q.request_bytes,max_response_bytes:q.response_bytes,caller_tail_calls:2,...extra}));
+    assert.equal(f.seen.length,0,'invalid prospective tail allocation must fail before any tool');
+  }
+});
 test('one awaited run performs all six connectors and deliveries without inter-model gaps',async()=>{
   const f=fixture(),result=await run(f);assert.equal(result.status,'SINGLE_CASE_COMPONENT_COMPLETE');
   assert.equal(result.connector_requests,6);assert.equal(result.usage.calls,13);

@@ -36,6 +36,11 @@ async function runToolCourier(tools,options) {
   const supportYield=options.support_yield_time_ms===undefined?10000:options.support_yield_time_ms;
   assert([1000,10000,QUALIFIED_SUPPORT_YIELD_MS].includes(supportYield),
     'Only a prospectively bounded supporting wait is permitted');
+  const tailCalls=options.caller_tail_calls===undefined?1:options.caller_tail_calls;
+  assert(tailCalls===1||tailCalls===2,'One or two prospectively reserved tail calls required');
+  if(tailCalls===2)assert(maxCalls<=58&&requestCap<=40*CLIENT_MIB&&
+    responseCap<=64*CLIENT_MIB-256*1024&&supportYield===QUALIFIED_SUPPORT_YIELD_MS,
+    'Two-call tail must be reserved inside unchanged shared allocations before startup');
   const clock=options.clock||Date.now,started=clock(),setTimer=options.setTimer||setTimeout,
     clearTimer=options.clearTimer||clearTimeout,records=[],events=[];
   const usage={calls:0,request_bytes:0,response_bytes:0,response_charged_bytes:0,
@@ -224,7 +229,7 @@ async function runToolCourier(tools,options) {
       calls_including_declared_git_processes:usage.calls+4,elapsed_seconds:(clock()-started)/1000,
       hidden_http_bytes_known:false,all_actual_start_poll_read_connector_delivery_calls_counted:true},
     prospective_caps:{actual_calls:maxCalls,request_bytes:requestCap,response_bytes:responseCap,
-      support_yield_time_ms:supportYield,caller_tail_calls:QUALIFIED_RUNNER_LIMITS.caller_tail_calls,
+      support_yield_time_ms:supportYield,caller_tail_calls:tailCalls,
       caller_tail_request_bytes:QUALIFIED_RUNNER_LIMITS.caller_tail_request_bytes,
       caller_tail_response_bytes:QUALIFIED_RUNNER_LIMITS.caller_tail_response_bytes},
     controller_terminal:terminal,session_id:session,connector_requests:ordinal,records,events,
