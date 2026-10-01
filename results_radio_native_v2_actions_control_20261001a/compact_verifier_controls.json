@@ -1,0 +1,48 @@
+{
+  "schema": "radio-native-v2-compact-verifier-resource-control-adjudication-v1",
+  "status": "FINAL_CODE_ONE_CASE_REPLAY_PASSED",
+  "scopes": [
+    {
+      "path": "compact_verifier_control",
+      "status": "PASSED_CLOSED_PRE_FIFO_FIX",
+      "code_sha256": "92119b55feff3054c16c669bb87e14ae124e0ce62583860dda11b4c7b41b53e2",
+      "independent_peak_rss_bytes": 348839936,
+      "child_interval_seconds": 2.279,
+      "source_pin": "ed9b8c7c1fb2de720b153d96a957cf1a7cf608f8250c71404283cc4cb11fc9a9",
+      "original_scope_retried_or_overwritten": false
+    },
+    {
+      "path": "compact_verifier_control02",
+      "status": "PASSED_CLOSED_FINAL_FIFO_SAFE_CODE",
+      "code_sha256": "689262de053151f46423feee965e8a2aa0f4205ee488f318ffbfbc683026720d",
+      "independent_peak_rss_bytes": 348839936,
+      "child_interval_seconds": 2.226,
+      "source_pin": "ed9b8c7c1fb2de720b153d96a957cf1a7cf608f8250c71404283cc4cb11fc9a9",
+      "original_scope_retried_or_overwritten": false
+    }
+  ],
+  "second_scope_reason": "Independent review identified blocking FIFO replacement at readonly open. O_NONBLOCK and a no-writer FIFO regression were added after the first control had already completed. A distinct fresh scope measured the exact final code; neither scope was overwritten or resumed.",
+  "observability": "Independent parent procfs VmRSS/VmHWM samples and kernel wait4 ru_maxrss cover the complete child verifier lifetime.",
+  "mode": "READ_ONLY_RETAINED_FULL03_RECEIPT_VERIFICATION",
+  "source_bytes": 110920185,
+  "source_case_id_preserved": "qualified-courier-offline-full03/original-case00",
+  "complete_raw_source_duplicated": false,
+  "source_case_identity_independently_bound_to_native_runner": false,
+  "external_host_storage_declarations_independently_verified": false,
+  "new_verification_elapsed_is_part_of_old_shared_case_elapsed": false,
+  "four_code_files_are_complete_scientific_runtime_freeze": false,
+  "eight_case_native_or_resource_qualification_complete": false,
+  "host_ledger_join_complete": false,
+  "execution_authorized": false,
+  "reservation_authorized": false,
+  "scientific_execution_authorized": false,
+  "native_case_executions": 0,
+  "scientific_cases_run": 0,
+  "rng_draws": 0,
+  "telescope_reads": 0,
+  "actual_functions_sdk_calls": 0,
+  "actual_connector_calls": 0,
+  "network_fetches": 0,
+  "real_public_github_mutations": 0,
+  "automatic_retry": false
+}

@@ -1,0 +1,200 @@
+﻿2026-10-01T12:45:40.8764173Z Current runner version: '2.337.0'
+2026-10-01T12:45:40.8789112Z ##[group]Runner Image Provisioner
+2026-10-01T12:45:40.8790231Z Hosted Compute Agent
+2026-10-01T12:45:40.8790855Z Version: 20260901.588
+2026-10-01T12:45:40.8791585Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+2026-10-01T12:45:40.8792360Z Build Date: 2026-09-01T19:56:44Z
+2026-10-01T12:45:40.8793110Z Worker ID: {b158b89b-e2f8-453a-a219-fd1ea35408fd}
+2026-10-01T12:45:40.8793833Z Azure Region: southcentralus
+2026-10-01T12:45:40.8794438Z ##[endgroup]
+2026-10-01T12:45:40.8795920Z ##[group]Operating System
+2026-10-01T12:45:40.8796530Z Ubuntu
+2026-10-01T12:45:40.8797473Z 24.04.5
+2026-10-01T12:45:40.8798003Z LTS
+2026-10-01T12:45:40.8798508Z ##[endgroup]
+2026-10-01T12:45:40.8799106Z ##[group]Runner Image
+2026-10-01T12:45:40.8799952Z Image: ubuntu-24.04
+2026-10-01T12:45:40.8800543Z Version: 20260927.320.1
+2026-10-01T12:45:40.8801755Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260927.320/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-01T12:45:40.8803278Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260927.320
+2026-10-01T12:45:40.8804261Z ##[endgroup]
+2026-10-01T12:45:40.8805443Z ##[group]GITHUB_TOKEN Permissions
+2026-10-01T12:45:40.8807849Z Actions: read
+2026-10-01T12:45:40.8808495Z Contents: write
+2026-10-01T12:45:40.8809058Z Metadata: read
+2026-10-01T12:45:40.8809822Z ##[endgroup]
+2026-10-01T12:45:40.8812014Z Secret source: Actions
+2026-10-01T12:45:40.8812921Z Cache mode: write
+2026-10-01T12:45:40.8813679Z Prepare workflow directory
+2026-10-01T12:45:40.9247590Z Prepare all required actions
+2026-10-01T12:45:40.9304420Z Getting action download info
+2026-10-01T12:45:41.2363355Z Download action repository 'actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683' (SHA:11bd71901bbe5b1630ceea73d27597364c9af683)
+2026-10-01T12:45:41.5314340Z Complete job name: control
+2026-10-01T12:45:41.6007911Z ##[group]Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+2026-10-01T12:45:41.6008931Z with:
+2026-10-01T12:45:41.6009704Z   ref: 500d2e3089ed8744821ace0720ddc7f004343f8b
+2026-10-01T12:45:41.6010444Z   fetch-depth: 2
+2026-10-01T12:45:41.6011021Z   persist-credentials: false
+2026-10-01T12:45:41.6011647Z   sparse-checkout-cone-mode: false
+2026-10-01T12:45:41.6013725Z   sparse-checkout: /.github/workflows/radio_native_v2_actions_control_20261001a.yml
+/scripts/radio_native_v2_actions_activation_gate.py
+/scripts/radio_native_v2_actions_supervisor.py
+/scripts/radio_native_v2_actions_publisher_control.py
+/config/radio_native_v2_actions_control_20261001a.*.json
+
+2026-10-01T12:45:41.6015796Z   repository: andersenmartin-blip/setisearch
+2026-10-01T12:45:41.6020128Z   token: ***
+2026-10-01T12:45:41.6020681Z   ssh-strict: true
+2026-10-01T12:45:41.6021252Z   ssh-user: git
+2026-10-01T12:45:41.6021759Z   clean: true
+2026-10-01T12:45:41.6022249Z   fetch-tags: false
+2026-10-01T12:45:41.6022937Z   show-progress: true
+2026-10-01T12:45:41.6023455Z   lfs: false
+2026-10-01T12:45:41.6023974Z   submodules: false
+2026-10-01T12:45:41.6024566Z   set-safe-directory: true
+2026-10-01T12:45:41.6025341Z env:
+2026-10-01T12:45:41.6025860Z   PYTHONNOUSERSITE: 1
+2026-10-01T12:45:41.6026425Z   PYTHONDONTWRITEBYTECODE: 1
+2026-10-01T12:45:41.6027013Z   PYTHONHASHSEED: 0
+2026-10-01T12:45:41.6027533Z ##[endgroup]
+2026-10-01T12:45:41.7028512Z Syncing repository: andersenmartin-blip/setisearch
+2026-10-01T12:45:41.7030952Z ##[group]Getting Git version info
+2026-10-01T12:45:41.7031875Z Working directory is '/home/runner/work/setisearch/setisearch'
+2026-10-01T12:45:41.7033194Z [command]/usr/bin/git version
+2026-10-01T12:45:41.7089030Z git version 2.55.0
+2026-10-01T12:45:41.7109830Z ##[endgroup]
+2026-10-01T12:45:41.7123880Z Temporarily overriding HOME='/home/runner/work/_temp/f047c2f5-ad24-46cd-ae23-8047affb07fb' before making global git config changes
+2026-10-01T12:45:41.7126304Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-01T12:45:41.7128678Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/setisearch/setisearch
+2026-10-01T12:45:41.7191122Z Deleting the contents of '/home/runner/work/setisearch/setisearch'
+2026-10-01T12:45:41.7195611Z ##[group]Initializing the repository
+2026-10-01T12:45:41.7198974Z [command]/usr/bin/git init /home/runner/work/setisearch/setisearch
+2026-10-01T12:45:41.7294874Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-01T12:45:41.7296796Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-01T12:45:41.7298371Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-01T12:45:41.7301446Z hint: call:
+2026-10-01T12:45:41.7302278Z hint:
+2026-10-01T12:45:41.7303155Z hint: 	git config --global init.defaultBranch <name>
+2026-10-01T12:45:41.7304211Z hint:
+2026-10-01T12:45:41.7305343Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-01T12:45:41.7306806Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-01T12:45:41.7308076Z hint:
+2026-10-01T12:45:41.7308793Z hint: 	git branch -m <name>
+2026-10-01T12:45:41.7310037Z hint:
+2026-10-01T12:45:41.7312340Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-01T12:45:41.7314652Z Initialized empty Git repository in /home/runner/work/setisearch/setisearch/.git/
+2026-10-01T12:45:41.7317896Z [command]/usr/bin/git remote add origin https://github.com/andersenmartin-blip/setisearch
+2026-10-01T12:45:41.7360255Z ##[endgroup]
+2026-10-01T12:45:41.7361889Z ##[group]Disabling automatic garbage collection
+2026-10-01T12:45:41.7363108Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-01T12:45:41.7416949Z ##[endgroup]
+2026-10-01T12:45:41.7419695Z ##[group]Setting up auth
+2026-10-01T12:45:41.7425950Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-01T12:45:41.7452817Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-01T12:45:41.7814031Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-01T12:45:41.7847899Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-01T12:45:41.8071888Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-01T12:45:41.8114567Z ##[endgroup]
+2026-10-01T12:45:41.8115760Z ##[group]Fetching the repository
+2026-10-01T12:45:41.8124671Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --filter=blob:none --depth=2 origin 500d2e3089ed8744821ace0720ddc7f004343f8b
+2026-10-01T12:45:42.4971177Z From https://github.com/andersenmartin-blip/setisearch
+2026-10-01T12:45:42.4972897Z  * branch            500d2e3089ed8744821ace0720ddc7f004343f8b -> FETCH_HEAD
+2026-10-01T12:45:42.4984141Z ##[endgroup]
+2026-10-01T12:45:42.4985581Z ##[group]Determining the checkout info
+2026-10-01T12:45:42.4987542Z ##[endgroup]
+2026-10-01T12:45:42.4988928Z ##[group]Setting up sparse checkout
+2026-10-01T12:45:42.4992791Z [command]/usr/bin/git config core.sparseCheckout true
+2026-10-01T12:45:42.5035365Z [command]/usr/bin/git rev-parse --git-path info/sparse-checkout
+2026-10-01T12:45:42.5059936Z .git/info/sparse-checkout
+2026-10-01T12:45:42.5068234Z ##[endgroup]
+2026-10-01T12:45:42.5070430Z ##[group]Checking out the ref
+2026-10-01T12:45:42.5073634Z [command]/usr/bin/git checkout --progress --force 500d2e3089ed8744821ace0720ddc7f004343f8b
+2026-10-01T12:45:43.0000585Z Note: switching to '500d2e3089ed8744821ace0720ddc7f004343f8b'.
+2026-10-01T12:45:43.0001177Z 
+2026-10-01T12:45:43.0001828Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-01T12:45:43.0002571Z changes and commit them, and you can discard any commits you make in this
+2026-10-01T12:45:43.0003528Z state without impacting any branches by switching back to a branch.
+2026-10-01T12:45:43.0003976Z 
+2026-10-01T12:45:43.0004270Z If you want to create a new branch to retain commits you create, you may
+2026-10-01T12:45:43.0005225Z do so (now or later) by using -c with the switch command. Example:
+2026-10-01T12:45:43.0005720Z 
+2026-10-01T12:45:43.0006024Z   git switch -c <new-branch-name>
+2026-10-01T12:45:43.0006549Z 
+2026-10-01T12:45:43.0006871Z Or undo this operation with:
+2026-10-01T12:45:43.0007297Z 
+2026-10-01T12:45:43.0007591Z   git switch -
+2026-10-01T12:45:43.0007922Z 
+2026-10-01T12:45:43.0008454Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-01T12:45:43.0009150Z 
+2026-10-01T12:45:43.0010059Z HEAD is now at 500d2e3 Activate exactly one supervised source-publication engineering control after independent readback
+2026-10-01T12:45:43.0012814Z ##[endgroup]
+2026-10-01T12:45:43.0057950Z [command]/usr/bin/git log -1 --format=%H
+2026-10-01T12:45:43.0091140Z 500d2e3089ed8744821ace0720ddc7f004343f8b
+2026-10-01T12:45:43.0098393Z ##[group]Removing auth
+2026-10-01T12:45:43.0102152Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-01T12:45:43.0130470Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-01T12:45:43.0347378Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-01T12:45:43.0372973Z http.https://github.com/.extraheader
+2026-10-01T12:45:43.0379949Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-01T12:45:43.0412795Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-01T12:45:43.0619746Z ##[endgroup]
+2026-10-01T12:45:43.0818144Z ##[group]Run python3 -B scripts/radio_native_v2_actions_activation_gate.py --root . --output "$RUNNER_TEMP/radio-native-v2-actions-control-20261001a-activation.json"
+2026-10-01T12:45:43.0820110Z [36;1mpython3 -B scripts/radio_native_v2_actions_activation_gate.py --root . --output "$RUNNER_TEMP/radio-native-v2-actions-control-20261001a-activation.json"[0m
+2026-10-01T12:45:43.1012802Z shell: /usr/bin/bash -e {0}
+2026-10-01T12:45:43.1013451Z env:
+2026-10-01T12:45:43.1013875Z   PYTHONNOUSERSITE: 1
+2026-10-01T12:45:43.1014382Z   PYTHONDONTWRITEBYTECODE: 1
+2026-10-01T12:45:43.1014839Z   PYTHONHASHSEED: 0
+2026-10-01T12:45:43.1015263Z ##[endgroup]
+2026-10-01T12:45:43.1639097Z {"activation_commit": "500d2e3089ed8744821ace0720ddc7f004343f8b", "execution_authorized": false, "manifest_sha256": "0bad5fdba6915706d8c9f5501c53fd761c28956b97b9330a24185bd58f43cb1f", "namespace": "radio-native-v2-actions-control-20261001a", "preparation_commit": "05b8a76630644ac53027bf1da008eec28849a788", "reservation_authorized": false, "restart_authorized": false, "rng_authorized": false, "schema": "radio-native-v2-actions-activation-readback-v1", "scientific_execution_authorized": false, "transport_integration_qualified": false, "verified": true}
+2026-10-01T12:45:43.1748817Z ##[group]Run python3 -B scripts/radio_native_v2_actions_supervisor.py \
+2026-10-01T12:45:43.1749903Z [36;1mpython3 -B scripts/radio_native_v2_actions_supervisor.py \[0m
+2026-10-01T12:45:43.1750497Z [36;1m  --root . \[0m
+2026-10-01T12:45:43.1751085Z [36;1m  --output "$RUNNER_TEMP/radio-native-v2-actions-control-20261001a" \[0m
+2026-10-01T12:45:43.1751751Z [36;1m  --activation-sha "$GITHUB_SHA" \[0m
+2026-10-01T12:45:43.1752306Z [36;1m  --expected-parent "$GITHUB_SHA" \[0m
+2026-10-01T12:45:43.1752979Z [36;1m  --protocol config/radio_native_v2_actions_control_20261001a.protocol.json \[0m
+2026-10-01T12:45:43.1753871Z [36;1m  --activation-proof "$RUNNER_TEMP/radio-native-v2-actions-control-20261001a-activation.json"[0m
+2026-10-01T12:45:43.1797380Z shell: /usr/bin/bash -e {0}
+2026-10-01T12:45:43.1797883Z env:
+2026-10-01T12:45:43.1798433Z   PYTHONNOUSERSITE: 1
+2026-10-01T12:45:43.1798916Z   PYTHONDONTWRITEBYTECODE: 1
+2026-10-01T12:45:43.1799608Z   PYTHONHASHSEED: 0
+2026-10-01T12:45:43.1803247Z   GITHUB_TOKEN: ***
+2026-10-01T12:45:43.1803728Z ##[endgroup]
+2026-10-01T12:46:00.4914681Z {"complete_supervisor_termination_coverage": false, "execution_authorized": false, "full_actions_job_resource_qualified": false, "native_eight_cases_qualified": false, "reservation_authorized": false, "restart_authorized": false, "rng_authorized": false, "schema": "radio-native-v2-actions-supervisor-terminal-v1", "scientific_execution_authorized": false, "status": "PASS_COMPONENT_CONTROL", "storage_allocated_bytes_before_terminal": 130813952, "storage_cap_bytes": 201326592, "storage_logical_bytes_before_terminal": 130724491, "supervisor_peak_coverage": "process startup through storage inventory persistence; terminal persistence and parent termination are outside component proof", "supervisor_peak_rss_bytes": 27119616, "terminal_storage_reservation_bytes": 8192, "transport_integration_qualified": false}
+2026-10-01T12:46:00.5107310Z ##[group]Run python3 -B scripts/radio_native_v2_actions_publisher_control.py \
+2026-10-01T12:46:00.5108009Z [36;1mpython3 -B scripts/radio_native_v2_actions_publisher_control.py \[0m
+2026-10-01T12:46:00.5108520Z [36;1m  publish-evidence --root . \[0m
+2026-10-01T12:46:00.5109012Z [36;1m  --output "$RUNNER_TEMP/radio-native-v2-actions-control-20261001a" \[0m
+2026-10-01T12:46:00.5109719Z [36;1m  --activation-sha "$GITHUB_SHA"[0m
+2026-10-01T12:46:00.5156084Z shell: /usr/bin/bash -e {0}
+2026-10-01T12:46:00.5156601Z env:
+2026-10-01T12:46:00.5156925Z   PYTHONNOUSERSITE: 1
+2026-10-01T12:46:00.5157258Z   PYTHONDONTWRITEBYTECODE: 1
+2026-10-01T12:46:00.5157659Z   PYTHONHASHSEED: 0
+2026-10-01T12:46:00.5160911Z   GITHUB_TOKEN: ***
+2026-10-01T12:46:00.5161286Z ##[endgroup]
+2026-10-01T12:46:06.7024373Z {"evidence_sha256": "a4add1fd2442e0122dad9a30adb612201a91b8e3f8fc1ebfe5df7c7f4d9faeba", "execution_authorized": false, "publication_commit": "3ca94c94ded6bba1810eee32e5a39e444705987f", "reservation_authorized": false, "restart_authorized": false, "rng_authorized": false, "scientific_execution_authorized": false, "status": "ADMINISTRATIVE_EVIDENCE_PUBLISHED", "transport_integration_qualified": false}
+2026-10-01T12:46:06.7170559Z ##[group]Run test "$CONTROL_OUTCOME" = success
+2026-10-01T12:46:06.7171051Z [36;1mtest "$CONTROL_OUTCOME" = success[0m
+2026-10-01T12:46:06.7214488Z shell: /usr/bin/bash -e {0}
+2026-10-01T12:46:06.7214924Z env:
+2026-10-01T12:46:06.7215237Z   PYTHONNOUSERSITE: 1
+2026-10-01T12:46:06.7215610Z   PYTHONDONTWRITEBYTECODE: 1
+2026-10-01T12:46:06.7215964Z   PYTHONHASHSEED: 0
+2026-10-01T12:46:06.7216316Z   CONTROL_OUTCOME: success
+2026-10-01T12:46:06.7216686Z ##[endgroup]
+2026-10-01T12:46:06.7403861Z Post job cleanup.
+2026-10-01T12:46:06.8254549Z [command]/usr/bin/git version
+2026-10-01T12:46:06.8293823Z git version 2.55.0
+2026-10-01T12:46:06.8327902Z Temporarily overriding HOME='/home/runner/work/_temp/79b880f4-c70f-49ad-8f33-6acdcb883ce1' before making global git config changes
+2026-10-01T12:46:06.8329682Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-01T12:46:06.8336725Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/setisearch/setisearch
+2026-10-01T12:46:06.8378978Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-01T12:46:06.8414065Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-01T12:46:06.8665160Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-01T12:46:06.8700837Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-01T12:46:06.9107468Z Cleaning up orphan processes
+2026-10-01T12:46:06.9381338Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+
