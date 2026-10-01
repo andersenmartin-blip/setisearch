@@ -13,8 +13,9 @@ the **545.17-MiB** failure was retained. A separately reserved two-call tail
 component passes actual PTY maximum-envelope tests; canonical tail storage has
 its own 11,012,096-byte host-receipt reserve and remains unjoined to the full host
 ledger. **200 Python and 127 JavaScript tests pass**, plus three verifier checks.
-A fresh actual two-tool tail-only boundary probe is prepared for immutable public
-readback before startup; it grants no full transport or scientific authority.
+A fresh actual two-tool tail-only boundary probe passed after immutable public
+readback: 4,894,485 request bytes, 2,084 reply bytes and 8.841 s. Its full raw
+transcript reconstructs byte for byte; it grants no full transport or scientific authority.
 
 There is no supported telescope-analysis start date. Full transport, eight-case
 resources, native physical/recovery/RFI/null controls, separate 127/24 validation

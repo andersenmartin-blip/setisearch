@@ -33,9 +33,10 @@ receipt and termination. The passing observation lasts 2.384 s; the complete
 measurement wrapper lasts 2.487 s.
 
 The final passing storage audit includes the original read-only trace, caller
-RSS proof, code snapshots and every new evidence file: 111,265,673 logical
+RSS proof, code snapshots and every preceding evidence file: 111,265,673 logical
 bytes and 111,304,704 allocated bytes, within the existing 192-MiB receipt
-allocation. The receipt remains INCOMPLETE after one replay. Eight-case
+allocation. That final audit excludes its own file. The receipt remains
+INCOMPLETE after one replay. Eight-case
 verification memory/storage is still unqualified; the ledger retains full
 case transcripts and this single-case correction does not establish that bound.
 
@@ -72,12 +73,31 @@ The stored tail is charged as host_receipt; its reserved bytes must ultimately
 be subtracted from the existing 192-MiB per-case/1,536-MiB total host receipt
 allocation. That join is explicitly unqualified in this component.
 
-One fresh two-tool **tail-boundary-only** probe is prepared under
-`streaming-tail-actual01`. It uses seven synthetic support envelopes at the exact
-262,144-byte ceiling, including worst wire escaping. It may start only after
-immutable public code and prospective-plan readback. At this preparation
-checkpoint it has not run. Its two actual storage calls will not execute a
-controller, source reader, GitHub mutation, native case or scientific trial.
+One fresh two-tool **tail-boundary-only** probe completed under
+`streaming-tail-actual01`, after immutable code and plan readback at preparation
+commit `757ad12578905c1ad6e1b4a477209f729aaa1f6e`. All 49 preparation files
+were read back with exact content and Git blob IDs; all five control sources
+also matched the separately frozen SHA256 pins. The synthetic caller contributes
+seven support envelopes at exactly 262,144 bytes each, including worst wire
+escaping. Only the tail startup and transfer are actual SDK calls.
+
+The actual two calls used **4,894,485 request bytes**, **2,084 reply bytes** and
+**8.841 s** from startup dispatch through terminal readback. The base64 frame
+is 4,893,280 bytes, only 2,808 bytes below its maximum. The sole saved canonical
+file is 3,669,960 logical / 3,670,016 allocated bytes; an independent Python
+readback matched every byte to the delivered wire. Its SHA256 is
+`ff9d745f525a5d9fb216176cc67d6b7aa8820fb882b944e4428554d1b6309e7a`.
+The scope is complete and cannot be resumed. No controller, source reader,
+GitHub mutation, native case or scientific trial executed inside this probe.
+
+All complete actual reply envelopes and ordered metadata are retained in a
+lossless compact transcript. The frozen recipe reconstructs both repeated
+large request strings and the full **9,801,686-byte** original JSON with exact
+SHA256 `64d6aa196133d0b24d3f59c92d2f7f0624562ad4aba87281e64e4aca83de9dda`.
+Native Node hashing and separate Python envelope/file checks both pass.
+Later reconstruction, audit and publication operations are outside the two
+tail calls. The 8.841-second figure covers those calls, not the complete outer
+Functions lifecycle; its RSS and full shared case qualification remain unknown.
 
 ## Concrete stop decision and exact continuation
 
