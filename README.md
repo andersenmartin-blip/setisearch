@@ -1,5 +1,28 @@
 # SETI status — 1 October 2026: preparation improved; large execution remains blocked
 
+## 1 October: source worker and supervisor linked; full execution stays blocked
+
+[The source worker integration, independent audit and logs](https://github.com/andersenmartin-blip/setisearch/blob/b37b6e864d697b5e19d549e002c86d7108a06f21/RADIO_NATIVE_V2_SOURCE_WORKER_INTEGRATION_2026-10-01_RESULT.md)
+pass **126 relevant Python tests**. The current audit verifies 920 code files,
+six frozen inputs and 1,606 joined runtime files. The source worker repeats
+exact actual argv/environment, case/domain and materialized-code checks before
+writing data. The dedicated supervisor checks independently pinned implementations
+before dispatch and records pending measurements before filesystem disposition.
+
+Actual direct-worker and supervisor refusal controls leave no source or preparation
+identity. Supplied public claims remain unverified and non-authorizing. A tiny orphan
+control reaches terminal ECHILD, independently observed through supervisor fsync and
+termination: **0.159 s**, **40.31 MiB** maximum individual-process RSS. This is a tiny
+component control; no full-size source or telescope analysis has run.
+
+**Next:** complete admission for the other worker roles and the outer runtime,
+finalization, storage/time joins; then publish and verify the exact execution
+preread before one fresh eight-input engineering control. All five original blocker
+categories remain open. Current plan revision `20261001d` stays
+**BLOCKED_PREPARATION_REVIEW**. 127/24 NOT ACTIVATED; HD189733 selected; HD1461 HOLD;
+GJ724 reserve; spectra/holdouts unopened; LS paused; CHEOPS UNSENT. Review
+2 October; consolidate 9 October without extension. No external messages.
+
 [The corrected controls, independent audit and complete evidence](https://github.com/andersenmartin-blip/setisearch/blob/b2eb6eed26add82bd47b5f3b268f3d2bb09036ec/RADIO_NATIVE_V2_COMPACT_PREPARATION_AUDIT_2026-10-01_RESULT.md)
 are public. **89 relevant Python tests pass**. The independent preparation audit
 verifies **919 code files and 1,606 joined runtime files**, including materialized
