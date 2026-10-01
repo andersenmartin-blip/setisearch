@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/tmp/seti-source-admission-readonly-trx8uhau/whole/cases/case03/frozen-code/scripts/radio_native_v2_process_tree_supervisor.py", line 881, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/tmp/seti-source-admission-readonly-trx8uhau/whole/cases/case03/frozen-code/scripts/radio_native_v2_process_tree_supervisor.py", line 853, in main
+    receipt = dispatch_admitted_worker(args.admission_bundle, args.scope, role=args.worker_role,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/seti-source-admission-readonly-trx8uhau/whole/cases/case03/frozen-code/scripts/radio_native_v2_process_tree_supervisor.py", line 264, in dispatch_admitted_worker
+    return dispatch_admitted_prepare_worker(bundle_path, scope, ordinal=ordinal,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/seti-source-admission-readonly-trx8uhau/whole/cases/case03/frozen-code/scripts/radio_native_v2_process_tree_supervisor.py", line 252, in dispatch_admitted_prepare_worker
+    fixture.require_execution_ready()
+  File "/tmp/seti-source-admission-readonly-trx8uhau/whole/cases/case03/frozen-code/scripts/radio_native_v2_compact_eight_case_resource_fixture.py", line 326, in require_execution_ready
+    raise RuntimeError('BLOCKED_PREPARATION_REVIEW: large worker/run execution is closed; '+EXECUTION_BLOCKERS[0])
+RuntimeError: BLOCKED_PREPARATION_REVIEW: large worker/run execution is closed; Complete structural and actual expected runtime-freeze closure must be joined to the engineering runtime supplement and exact parent/child environments.

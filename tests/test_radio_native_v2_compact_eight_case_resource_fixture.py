@@ -1,11 +1,14 @@
 """Small preparation tests only: never generate a maximum source or run eight cases."""
 from collections import Counter
+import contextlib
+import copy
 import hashlib
 import importlib.util
 import json
 import os
 from pathlib import Path
 import shutil
+import selectors
 import subprocess
 import sys
 import tempfile
@@ -158,6 +161,148 @@ class CompactEightPreparationTests(unittest.TestCase):
             source.unlink(); source.write_bytes(raw*100)
             with self.assertRaisesRegex(ValueError,'regular material source'):
                 fixture.pinned_component(root,'component.py',wanted)
+
+    def test_plan_selected_admission_source_cannot_replace_independent_entry_implementation(self):
+        from tests.test_radio_native_v2_worker_admission import synthetic_worker_materials
+        import radio_native_v2_worker_admission as admission
+        with tempfile.TemporaryDirectory() as directory:
+            material=synthetic_worker_materials(directory)
+            marker=Path(directory)/'plan-selected-implementation-executed'
+            source=material['code_root']/admission.SELF
+            malicious=('from pathlib import Path\nPath('+repr(str(marker))+').write_text("executed")\n').encode()
+            source.write_bytes(malicious)
+            # Refresh every self-asserted plan/freeze/proof source pin. The
+            # entrypoint's reviewed implementation pin stays independent.
+            plan=copy.deepcopy(material['plan']); freeze=copy.deepcopy(material['freeze']); proof=copy.deepcopy(material['proof'])
+            plan['code_files'][admission.SELF]=tiny_pin(malicious)
+            freeze['code_sha256s'][admission.SELF]=tiny_pin(malicious)['sha256']
+            proof['code_files_verified']=plan['code_files']
+            proof['plan_sha256']=tiny_pin(admission.canonical(plan))['sha256']
+            proof['complete_freeze_sha256']=tiny_pin(admission.canonical(freeze))['sha256']
+            bundle=admission.build_admission_bundle(plan,freeze,proof,execution_scope=str(material['scope']),ordinal=0)
+            material['bundle_path'].write_bytes(admission.bundle_bytes(bundle)); digest=fixture.pin(material['bundle_path'])['sha256']
+            original=fixture.pin(ROOT/admission.SELF)
+            program='\n'.join(['import json,sys','from pathlib import Path',
+                'p=Path(sys.argv[1]); m={"__name__":"independent_entry_test","__file__":str(p)}',
+                'exec(compile(p.read_bytes(),str(p),"exec"),m)',
+                'm["REPO"]=Path(sys.argv[2])',
+                'm["WORKER_ADMISSION_IMPLEMENTATION_PIN"]=json.loads(sys.argv[5])',
+                'm["checked_worker_bundle"](sys.argv[3],sys.argv[4],"prepare")'])
+            before=sorted(str(path) for path in material['case_root'].rglob('*'))
+            result=subprocess.run([PYTHON,'-I','-S','-B','-c',program,str(SCRIPT),str(material['code_root']),
+                str(material['bundle_path']),digest,json.dumps(original)],capture_output=True,
+                env=fixture.CHILD_ENVIRONMENT,timeout=10)
+            self.assertNotEqual(result.returncode,0)
+            self.assertIn(b'regular material source',result.stderr)
+            self.assertFalse(marker.exists())
+            self.assertEqual(before,sorted(str(path) for path in material['case_root'].rglob('*')))
+
+    def test_derived_node_workers_refuse_at_closed_gate_before_identity_or_outputs(self):
+        from tests.test_radio_native_v2_worker_admission import synthetic_worker_materials, tiny_prepared, phase_descriptor, retain_role
+        import radio_native_v2_worker_admission as admission
+        derived=fixture.templates((ROOT/fixture.CODE_FILES[0]).read_text())
+        for role in ('caller','lossless-project','lossless-verify-retained'):
+            with self.subTest(role=role), tempfile.TemporaryDirectory() as directory:
+                material=synthetic_worker_materials(directory,plan=fixture.build_plan(),derived_sources=derived)
+                root=material['case_root']; prepared=tiny_prepared(material)
+                inputs={'prepared_json':phase_descriptor(root/'prepared.json')}
+                if role!='caller':
+                    (root/'public-evidence').mkdir()
+                    recipe=[str(root),PYTHON,fixture.NAMESPACE,'0',fixture.PREFIX+'/case00-fixed',
+                        str(material['bundle_path']),material['bundle_sha256']]
+                    options={'fullPath':str(root/'caller-result.json'),'preparedPath':str(root/'prepared.json'),
+                        'recipePath':str(root/'derived/prepare.py'),
+                        'projectionPath':str(root/'public-evidence/caller-transcript-compact-lossless.json'),
+                        'recipeArguments':recipe,'identityPath':str(root/'lossless-project-identity.json')}
+                    if role=='lossless-project':
+                        transcript={'schema':fixture.SCHEMA,'control_case_identity':prepared['control_case_identity'],
+                            'qualified':{},'seen':[],'deliveries':[],'read_receipts':[]}
+                        write_tiny_json(root/'caller-result.json',transcript)
+                        write_tiny_json(root/'project-arguments.json',options)
+                        inputs.update(arguments_json=phase_descriptor(root/'project-arguments.json'),
+                            caller_transcript=phase_descriptor(root/'caller-result.json'),
+                            preparation_bundle=phase_descriptor(material['bundle_path']))
+                    else:
+                        # The retained payload is deliberately tiny and cannot
+                        # qualify fixed26MiB reconstruction. The closed gate
+                        # must run before even inspecting helper arguments.
+                        projection=root/'public-evidence/caller-transcript-compact-lossless.json'; write_tiny_json(projection,{'schema':'synthetic-unqualified'})
+                        (root/'deterministic-source.bin').write_bytes(b'tiny unqualified retained payload')
+                        options={'projectionPath':str(projection),'recipePath':str(root/'derived/prepare.py'),
+                            'retainedSourcePath':prepared['request_view']['path'],'retainedPayloadPath':str(root/'deterministic-source.bin'),
+                            'auditPath':str(root/'public-evidence/reconstruction-audit.json'),'python':PYTHON,
+                            'identityPath':str(root/'lossless-verify-identity.json')}
+                        write_tiny_json(root/'projection-verify-arguments.json',options)
+                        inputs.update(arguments_json=phase_descriptor(root/'projection-verify-arguments.json'),
+                            projection=phase_descriptor(projection),source_wire=phase_descriptor(prepared['request_view']['path']),
+                            deterministic_source=phase_descriptor(root/'deterministic-source.bin'),
+                            preparation_bundle=phase_descriptor(material['bundle_path']))
+                admitted=retain_role(material,role,inputs)
+                if role!='lossless-verify-retained':
+                    checked=admission.validate_worker_admission(str(admitted['bundle_path']),role=role,ordinal=0,
+                        argv=admitted['argv'],environment=dict(fixture.CHILD_ENVIRONMENT),expected_bundle_sha256=admitted['bundle_sha256'])
+                    self.assertFalse(checked['publication_claim_independently_verified'])
+                    self.assertFalse(checked['full_source_domain_content_verified'])
+                before=sorted(str(path) for path in root.rglob('*'))
+                result=subprocess.run(admitted['argv'],capture_output=True,env=fixture.CHILD_ENVIRONMENT,timeout=10)
+                self.assertNotEqual(result.returncode,0)
+                self.assertIn(b'BLOCKED_PREPARATION_REVIEW',result.stderr)
+                self.assertEqual(result.stdout,b'')
+                self.assertEqual(before,sorted(str(path) for path in root.rglob('*')))
+                for name in ('caller-start.json','caller-summary.json','lossless-project-identity.json',
+                             'lossless-verify-identity.json','public-evidence/reconstruction-audit.json'):
+                    self.assertFalse((root/name).exists(),name)
+
+    def test_admitted_derived_helper_legacy_modes_cannot_write_without_guard(self):
+        derived=fixture.templates((ROOT/fixture.CODE_FILES[0]).read_text())
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory); inputs=tiny_lossless_inputs(root)
+            helper=root/'admitted-helper.js'; helper.write_bytes(derived['lossless-helper.js'])
+            recipe_args=root/'five-arguments.json'; write_tiny_json(recipe_args,[str(root),PYTHON,'tiny','0','tiny-prefix'])
+            output=root/'must-not-be-written.json'; audit=root/'must-not-be-audited.json'
+            vectors=[['--project',str(inputs['full_path']),str(inputs['prepared_path']),str(inputs['recipe_path']),str(output),str(recipe_args)],
+                ['--verify-projection',str(output),str(inputs['recipe_path']),str(root/'fresh-root'),str(audit),PYTHON],
+                ['--verify-retained-source',str(output),str(inputs['recipe_path']),str(inputs['source_path']),str(audit),PYTHON,str(inputs['payload_path'])]]
+            before=sorted(str(path) for path in root.rglob('*'))
+            for args in vectors:
+                with self.subTest(mode=args[0]):
+                    result=subprocess.run([NODE,str(helper),*args],capture_output=True,env=fixture.CHILD_ENVIRONMENT,timeout=10)
+                    self.assertNotEqual(result.returncode,0); self.assertIn(b'Exact admitted resource helper mode',result.stderr)
+                    self.assertEqual(before,sorted(str(path) for path in root.rglob('*')))
+                    self.assertFalse(output.exists()); self.assertFalse(audit.exists()); self.assertFalse((root/'fresh-root').exists())
+
+    def test_admitted_recipe_contract_requires_seven_args_for_tiny_library_reconstruction(self):
+        # Tiny library-only lossless data transformation; no admitted worker,
+        # preparation recipe, source generation, or transport case is run.
+        derived=fixture.templates((ROOT/fixture.CODE_FILES[0]).read_text())
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory); inputs=tiny_lossless_inputs(root)
+            helper=root/'admitted-helper.js'; helper.write_bytes(derived['lossless-helper.js'])
+            projection=root/'tiny-seven-arg-projection.json'; audit=root/'tiny-seven-arg-audit.json'
+            base=[str(root),PYTHON,'tiny-no-network-fixture','0','tiny-archive-prefix']
+            options={'fullPath':str(inputs['full_path']),'preparedPath':str(inputs['prepared_path']),
+                'recipePath':str(inputs['recipe_path']),'projectionPath':str(projection),'recipeArguments':base}
+            invoke='const helper=require(process.argv[1]); const options=JSON.parse(process.argv[2]); process.stdout.write(JSON.stringify(helper.project(options)));'
+            result=subprocess.run([NODE,'-e',invoke,str(helper),tiny_json(options)],capture_output=True,env=fixture.CHILD_ENVIRONMENT,timeout=10)
+            self.assertNotEqual(result.returncode,0); self.assertIn(b'recipe arguments required',result.stderr)
+            self.assertFalse(projection.exists())
+            options['recipeArguments']=[*base,str(root/'worker-admission.json'),'1'*64]
+            result=subprocess.run([NODE,'-e',invoke,str(helper),tiny_json(options)],capture_output=True,env=fixture.CHILD_ENVIRONMENT,timeout=10)
+            self.assertEqual(result.returncode,0,result.stderr.decode()); self.assertEqual(json.loads(result.stdout)['status'],'PASSED')
+            self.assertEqual(json.loads(projection.read_bytes())['regeneration']['recipe_arguments'],options['recipeArguments'])
+            verify={'projectionPath':str(projection),'recipePath':str(inputs['recipe_path']),
+                'retainedSourcePath':str(inputs['source_path']),'retainedPayloadPath':str(inputs['payload_path']),
+                'auditPath':str(audit),'python':PYTHON}
+            verify_invoke='const helper=require(process.argv[1]); process.stdout.write(JSON.stringify(helper.verifyProjection(JSON.parse(process.argv[2]))));'
+            result=subprocess.run([NODE,'-e',verify_invoke,str(helper),tiny_json(verify)],capture_output=True,env=fixture.CHILD_ENVIRONMENT,timeout=10)
+            self.assertEqual(result.returncode,0,result.stderr.decode())
+            self.assertEqual(json.loads(result.stdout)['reconstructed_full_transcript']['sha256'],inputs['original_pin']['sha256'])
+            bad=json.loads(projection.read_bytes()); bad['regeneration']['recipe_arguments']=base; write_tiny_json(projection,bad); audit.unlink()
+            result=subprocess.run([NODE,'-e',verify_invoke,str(helper),tiny_json(verify)],capture_output=True,env=fixture.CHILD_ENVIRONMENT,timeout=10)
+            self.assertNotEqual(result.returncode,0); self.assertIn(b'recipe identity arguments required',result.stderr)
+            self.assertFalse(audit.exists())
+            self.assertIn('recipeArguments.length === 5',fixture.LOSSLESS_HELPER)
+            self.assertIn('regeneration.recipe_arguments.length === 5',fixture.LOSSLESS_HELPER)
 
     def test_tiny_source_domain_reader_rejects_other_ordinals_corruption_and_aliases(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -380,6 +525,58 @@ class CompactEightPreparationTests(unittest.TestCase):
             self.assertEqual(receipt['retained_sample_count'],3)
             self.assertEqual(len(receipt['samples']),3)
             self.assertGreaterEqual(receipt['peak_rss_bytes'],receipt['wait4_ru_maxrss_bytes'])
+
+    def test_observer_registration_and_setup_failures_reap_child_and_close_every_pipe(self):
+        real_popen=subprocess.Popen
+        for failure in ('first-blocking-setup','second-selector-register','direct-child-map'):
+            with self.subTest(failure=failure), tempfile.TemporaryDirectory() as directory:
+                root=Path(directory); captured=[]; selector=selectors.DefaultSelector()
+                register=selector.register; calls=[]
+                def capture(*args,**kwargs):
+                    child=real_popen(*args,**kwargs); captured.append(child); return child
+                def register_or_fail(*args,**kwargs):
+                    calls.append(args[0])
+                    if failure=='second-selector-register' and len(calls)==2:
+                        raise RuntimeError('injected second registration failure')
+                    return register(*args,**kwargs)
+                with mock.patch.object(fixture.subprocess,'Popen',side_effect=capture), \
+                        mock.patch.object(fixture.selectors,'DefaultSelector',return_value=selector), \
+                        mock.patch.object(selector,'register',side_effect=register_or_fail):
+                    stack=contextlib.ExitStack()
+                    with stack:
+                        if failure=='first-blocking-setup':
+                            stack.enter_context(mock.patch.object(fixture.os,'set_blocking',side_effect=RuntimeError('injected blocking setup failure')))
+                        elif failure=='direct-child-map':
+                            stack.enter_context(mock.patch.object(fixture,'launched_child_identity',side_effect=RuntimeError('injected mapping setup failure')))
+                        started=time.monotonic()
+                        with self.assertRaisesRegex(RuntimeError,'Observer/child phase failed'):
+                            fixture.observe_process([PYTHON,'-I','-S','-B','-c','import time; time.sleep(20)'],
+                                root,failure,root/'unwritten-identity.json',deadline=started+5,pipe_output=True)
+                        self.assertLess(time.monotonic()-started,2)
+                self.assertEqual(len(captured),1)
+                child=captured[0]
+                self.assertIsNotNone(child.returncode)
+                self.assertTrue(child.stdout.closed); self.assertTrue(child.stderr.closed)
+                with self.assertRaises(ChildProcessError): os.waitpid(child.pid,os.WNOHANG)
+                receipt=fixture.small_json(root/(failure+'-observation.json'))
+                self.assertTrue(receipt['direct_child_reaped'])
+                self.assertFalse(receipt['reported_identity_verified'])
+                self.assertFalse(receipt['complete_pipe_output'])
+                self.assertFalse(receipt['complete_descendant_wait_chain_verified'])
+                self.assertIn('injected',receipt['reason'])
+                if failure=='first-blocking-setup': self.assertEqual(calls,[])
+                if failure=='second-selector-register': self.assertEqual(len(calls),2)
+
+    def test_exact39_command_observation_count_cannot_hide_wrong_name(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory); observations=root/'command-observations'; observations.mkdir()
+            for number in range(38): write_tiny_json(observations/f'command-{number}-observation.json',{})
+            write_tiny_json(observations/'command-38-observation.json',{})
+            self.assertEqual(len(list(observations.glob('command-*-observation.json'))),39)
+            with mock.patch.object(fixture,'pinned_component') as bootstrap:
+                with self.assertRaisesRegex(ValueError,'Exact38 reader and one tail observation names'):
+                    fixture.verified_command_observations(root,{},0)
+                bootstrap.assert_not_called()
 
 
 def tiny_json(value):

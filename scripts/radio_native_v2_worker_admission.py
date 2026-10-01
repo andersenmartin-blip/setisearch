@@ -9,15 +9,19 @@ a claimed immutable public readback actually happened. The materialized
 fixture's execution guard and all remaining pipeline gates remain required.
 """
 import argparse
+import base64
+import codecs
 import hashlib
 import json
 import os
 from pathlib import Path, PurePosixPath
 import re
+import shlex
 import stat
 import sys
 
 SCHEMA = 'radio-native-v2-worker-admission-bundle-v1'
+ROLE_SCHEMA = 'radio-native-v2-worker-role-admission-bundle-v2'
 RECEIPT_SCHEMA = 'radio-native-v2-worker-admission-local-check-v1'
 SELF = 'scripts/radio_native_v2_worker_admission.py'
 FIXTURE = 'scripts/radio_native_v2_compact_eight_case_resource_fixture.py'
@@ -48,6 +52,14 @@ BUNDLE_KEYS = frozenset(('schema', 'namespace', 'case_ordinal', 'execution_scope
 DERIVED_FILES = frozenset(('prepare.py', 'fresh-caller.js', 'lossless-helper.js'))
 MAX_JSON_BYTES = 16 * 1024**2
 MAX_SOURCE_BYTES = 2 * 1024**2
+CASE_ROLES = frozenset(('caller', 'command', 'lossless-project', 'lossless-verify-retained'))
+WHOLE_ROLES = frozenset(('control', 'verifier'))
+ROLES = CASE_ROLES | WHOLE_ROLES | {'prepare'}
+SOURCE_READER = 'import os,sys; f=os.open(sys.argv[1],os.O_RDONLY|os.O_NOFOLLOW); n=int(sys.argv[3]); b=os.pread(f,n,int(sys.argv[2])); assert len(b)==n; sys.stdout.buffer.write(b); os.close(f)'
+TAIL_BOOTSTRAP = ('import os,sys,hashlib; p=sys.argv[1]; f=os.open(p,os.O_RDONLY|os.O_NOFOLLOW); '
+    's=os.read(f,65537); os.close(f); assert len(s)<=65536 and hashlib.sha256(s).hexdigest()==sys.argv[2], '
+    '"Pinned caller-tail helper source differs"; sys.argv=[p]+sys.argv[3:]; '
+    'exec(compile(s,p,"exec"),{"__name__":"__main__","__file__":p})')
 MIB = 1024**2
 ORIGINAL_LIMITS = {'case_calls': 64, 'run_calls': 512,
     'case_request_bytes': 48*MIB, 'run_request_bytes': 384*MIB,
@@ -111,7 +123,7 @@ def _identity(info):
             info.st_mtime_ns, info.st_ctime_ns)
 
 
-def read_pinned_file(path, *, maximum=None, sole_link=True, retain=False):
+def read_pinned_file(path, *, maximum=None, sole_link=True, retain=False, retain_prefix=0):
     """Read one stable inode after walking every ancestor without symlinks."""
     value = _absolute(path); parent, name = value.rsplit('/', 1)
     directory = _directory(parent) if parent else os.open('/', os.O_RDONLY | os.O_DIRECTORY)
@@ -131,6 +143,8 @@ def read_pinned_file(path, *, maximum=None, sole_link=True, retain=False):
                 raise ValueError('Worker evidence bound exceeded: ' + value)
             digest.update(raw)
             if retain: parts.append(raw)
+            elif retain_prefix and count-len(raw) < retain_prefix:
+                parts.append(raw[:retain_prefix-(count-len(raw))])
         after = os.fstat(fd)
         named = os.stat(name, dir_fd=directory, follow_symlinks=False)
         again = _directory(parent) if parent else os.open('/', os.O_RDONLY | os.O_DIRECTORY)
@@ -142,7 +156,7 @@ def read_pinned_file(path, *, maximum=None, sole_link=True, retain=False):
             os.close(again)
         if _identity(before) != _identity(after) or _identity(after) != _identity(named) or count != after.st_size:
             raise ValueError('Worker evidence changed during independent read')
-        return {'bytes': count, 'sha256': digest.hexdigest()}, b''.join(parts) if retain else None
+        return {'bytes': count, 'sha256': digest.hexdigest()}, b''.join(parts) if retain or retain_prefix else None
     finally:
         if fd is not None: os.close(fd)
         os.close(directory)
@@ -300,7 +314,7 @@ def _validate_freeze(freeze):
             raise ValueError('Unsupported complete runtime coverage claim refused: ' + key)
 
 
-def _validate_bundle(bundle, *, ordinal):
+def _validate_prepare_bundle(bundle, *, ordinal):
     _ordinal(ordinal)
     if type(bundle) is not dict or set(bundle) != BUNDLE_KEYS or bundle['schema'] != SCHEMA:
         raise ValueError('Exact worker admission bundle required')
@@ -334,6 +348,129 @@ def _validate_bundle(bundle, *, ordinal):
     return case_root
 
 
+def _role_roots(bundle, role, ordinal):
+    scope = _absolute(bundle['execution_scope'])
+    if role in WHOLE_ROLES:
+        if ordinal is not None or bundle['case_ordinal'] is not None:
+            raise ValueError('Whole-worker ordinal must be exactly None')
+        return scope, scope + '/frozen-code', scope + '/derived'
+    ordinal = _ordinal(ordinal)
+    if type(bundle['case_ordinal']) is not int or bundle['case_ordinal'] != ordinal:
+        raise ValueError('Exact per-case worker ordinal required')
+    case = scope + f'/cases/case{ordinal:02d}'
+    return case, case + '/frozen-code', case + '/derived'
+
+
+def _file_descriptor(value, expected_path, label):
+    if type(value) is not dict or set(value) != {'path', 'bytes', 'sha256'}:
+        raise ValueError('Exact role phase file descriptor required: ' + label)
+    _exact(_absolute(value['path']), expected_path, 'fixed role input ' + label)
+    if type(value['bytes']) is not int or not 0 < value['bytes'] <= ORIGINAL_LIMITS['case_storage_bytes']:
+        raise ValueError('Bounded exact positive role input byte count required: ' + label)
+    _sha(value['sha256'], label)
+
+
+def _phase_paths(bundle):
+    role = bundle['role']; ordinal = bundle['case_ordinal']
+    root, _, _ = _role_roots(bundle, role, ordinal)
+    common = {'prepared_json': root + '/prepared.json'}
+    if role == 'caller': return common
+    if role == 'command': return common
+    if role == 'lossless-project':
+        return {**common, 'arguments_json': root + '/project-arguments.json',
+            'caller_transcript': root + '/caller-result.json',
+            'preparation_bundle': root + '/worker-admission.json'}
+    if role == 'lossless-verify-retained':
+        return {**common, 'arguments_json': root + '/projection-verify-arguments.json',
+            'projection': root + '/public-evidence/caller-transcript-compact-lossless.json',
+            'source_wire': root + '/store/items/request-000001/part',
+            'deterministic_source': root + '/deterministic-source.bin',
+            'preparation_bundle': root + '/worker-admission.json'}
+    common = {'plan_json': root + '/plan.json', 'freeze_json': root + '/complete-freeze.json',
+              'preread_json': root + '/public-preread.json'}
+    if role == 'verifier': common['compact_input_plan'] = root + '/compact-input-plan.json'
+    return common
+
+
+def _validate_bundle(bundle, *, ordinal, role=None):
+    if type(bundle) is not dict: raise ValueError('Exact worker admission bundle required')
+    if bundle.get('schema') == SCHEMA:
+        if role not in (None, 'prepare'): raise ValueError('Preparation bundle cannot be relabeled as another role')
+        return _validate_prepare_bundle(bundle, ordinal=ordinal)
+    if bundle.get('schema') != ROLE_SCHEMA or set(bundle) != BUNDLE_KEYS | {'role', 'phase_inputs'}:
+        raise ValueError('Exact versioned worker role bundle required')
+    selected = bundle['role']
+    if type(selected) is not str or selected not in CASE_ROLES | WHOLE_ROLES or role not in (None, selected):
+        raise ValueError('Exact declared worker role required')
+    if bundle['namespace'] != NAMESPACE: raise ValueError('Role bundle namespace differs')
+    root, code, derived = _role_roots(bundle, selected, ordinal)
+    _exact(bundle['code_root'], code, 'fixed role materialized code root')
+    _exact(bundle['derived_root'], derived, 'fixed role materialized derived root')
+    # Reuse unchanged V1 plan/freeze/preread checks with internal layout only;
+    # the actual V2 paths above remain separately bound to the outer bundle.
+    surrogate = {key: bundle[key] for key in BUNDLE_KEYS}
+    surrogate.update(schema=SCHEMA, case_ordinal=0 if selected in WHOLE_ROLES else ordinal,
+        code_root=bundle['execution_scope'] + f'/cases/case{0 if selected in WHOLE_ROLES else ordinal:02d}/frozen-code',
+        derived_root=bundle['execution_scope'] + f'/cases/case{0 if selected in WHOLE_ROLES else ordinal:02d}/derived')
+    _validate_prepare_bundle(surrogate, ordinal=surrogate['case_ordinal'])
+    inputs = bundle['phase_inputs']; paths = _phase_paths(bundle)
+    required = set(paths) | ({'label', 'command', 'source_wire'} if selected == 'command'
+        else {'prepared_cases'} if selected == 'verifier' else set())
+    if type(inputs) is not dict or set(inputs) != required:
+        raise ValueError('Exact role-specific phase input inventory required')
+    if selected == 'command':
+        label = inputs['label']; command = inputs['command']
+        if type(label) is not str or not re.fullmatch('command-(?:[0-9]|[12][0-9]|3[0-7]|tail)', label):
+            raise ValueError('Exact frozen source-reader or tail command label required')
+        if type(command) is not str or not command or len(command.encode()) > 96*1024:
+            raise ValueError('Bounded exact command literal required')
+        if label == 'command-tail':
+            if inputs['source_wire'] is not None:
+                raise ValueError('Tail command cannot supply a source-reader wire input')
+        else:
+            _file_descriptor(inputs['source_wire'], root + '/store/items/request-000001/part', 'source_wire')
+    for name, path in paths.items(): _file_descriptor(inputs[name], path, name)
+    if selected == 'verifier':
+        if type(inputs['prepared_cases']) is not list or len(inputs['prepared_cases']) != 8:
+            raise ValueError('Exact eight prepared verifier input descriptors required')
+        for index, value in enumerate(inputs['prepared_cases']):
+            _file_descriptor(value, root + f'/cases/case{index:02d}/prepared.json', 'verifier prepared case')
+    return root
+
+
+def build_role_admission_bundle(plan, complete_freeze, public_preread, *, role,
+        execution_scope, ordinal=None, phase_inputs):
+    """Return a separate pinned phase snapshot, never mutate prior bundles."""
+    if role not in CASE_ROLES | WHOLE_ROLES: raise ValueError('Known non-preparation worker role required')
+    scope = _absolute(execution_scope)
+    base = build_admission_bundle(plan, complete_freeze, public_preread,
+        execution_scope=scope, ordinal=0 if role in WHOLE_ROLES else _ordinal(ordinal))
+    root = scope if role in WHOLE_ROLES else scope + f'/cases/case{ordinal:02d}'
+    base.update(schema=ROLE_SCHEMA, role=role, case_ordinal=ordinal,
+        code_root=root + '/frozen-code', derived_root=root + '/derived', phase_inputs=phase_inputs)
+    _validate_bundle(base, ordinal=ordinal, role=role)
+    return json.loads(canonical(base))
+
+
+def worker_role_layout(bundle, *, role=None, ordinal=None):
+    role = bundle.get('role', 'prepare') if role is None else role
+    if role not in WHOLE_ROLES and ordinal is None: ordinal = bundle.get('case_ordinal')
+    root = _validate_bundle(bundle, ordinal=ordinal, role=role)
+    inputs = bundle.get('phase_inputs', {})
+    label = inputs.get('label') if role == 'command' else None
+    receipt = root + ('/whole-control-supervisor' if role == 'control'
+        else '/verifier-supervisor' if role == 'verifier'
+        else '/' + label + '-supervisor' if role == 'command'
+        else '/' + ('preparation' if role == 'prepare' else role) + '-supervisor')
+    bundle_name = 'worker-admission.json' if role == 'prepare' else (label if role == 'command' else role) + '-admission.json'
+    return {'worker_scope': root, 'receipt_scope': receipt, 'shared_storage_root': root,
+        'bundle_path': root + '/' + bundle_name,
+        'runtime_name': 'node' if role in ('caller', 'lossless-project', 'lossless-verify-retained') else 'python',
+        'command_label': label, 'role': role, 'ordinal': ordinal,
+        'seconds_limit': 4800 if role in WHOLE_ROLES else 120 if role == 'command' else 600,
+        'shared_storage_limit_bytes': ORIGINAL_LIMITS['run_storage_bytes'] if role in WHOLE_ROLES else ORIGINAL_LIMITS['case_storage_bytes']}
+
+
 def build_admission_bundle(plan, complete_freeze, public_preread, *, execution_scope, ordinal):
     """Return metadata only; caller retains canonical(bundle)+newline bytes."""
     scope = _absolute(execution_scope); ordinal = _ordinal(ordinal)
@@ -356,16 +493,29 @@ def bundle_bytes(bundle):
 
 
 def expected_worker_argv(bundle, bundle_path, *, ordinal, expected_bundle_sha256, role='prepare'):
-    if role != 'prepare':
-        raise ValueError('Only the fixed preparation worker role is described')
-    case_root = _validate_bundle(bundle, ordinal=ordinal)
+    if role not in ROLES: raise ValueError('Known exact worker role required')
+    case_root = _validate_bundle(bundle, ordinal=ordinal, role=role)
     digest = _sha(expected_bundle_sha256, 'independently retained exact bundle bytes')
     path = _absolute(bundle_path)
-    _exact(path, case_root + '/worker-admission.json', 'fixed case admission bundle path')
+    name = 'worker-admission.json' if role == 'prepare' else (
+        bundle['phase_inputs']['label'] + '-admission.json' if role == 'command' else role + '-admission.json')
+    _exact(path, case_root + '/' + name, 'fixed role admission bundle path')
     python = bundle['plan']['runtime_executables']['python']['path']
-    case = bundle['plan']['cases'][ordinal]
-    return [python, '-I', '-S', '-B', case_root + '/derived/prepare.py',
-            case_root, python, NAMESPACE, str(ordinal), case['archive_prefix'], path, digest]
+    if role == 'prepare':
+        case = bundle['plan']['cases'][ordinal]
+        return [python, '-I', '-S', '-B', case_root + '/derived/prepare.py',
+                case_root, python, NAMESPACE, str(ordinal), case['archive_prefix'], path, digest]
+    node = bundle['plan']['runtime_executables']['node']['path']; inputs = bundle['phase_inputs']
+    if role == 'caller': return [node, bundle['derived_root'] + '/fresh-caller.js', '--caller', case_root, path, digest]
+    if role == 'command':
+        return [python, '-I', '-S', '-B', bundle['code_root'] + '/' + FIXTURE,
+                '--exec-command-child', case_root, inputs['label'], inputs['command'], path, digest]
+    if role in ('lossless-project', 'lossless-verify-retained'):
+        return [node, bundle['derived_root'] + '/lossless-helper.js',
+            '--resource-project' if role == 'lossless-project' else '--resource-verify-retained',
+            inputs['arguments_json']['path'], path, digest]
+    return [python, '-I', '-S', '-B', bundle['code_root'] + '/' + FIXTURE,
+            '--control-worker' if role == 'control' else '--verifier-worker', case_root, path, digest]
 
 
 def _tree_inventory(root):
@@ -403,6 +553,341 @@ def _expected_directories(files):
     return {str(parent) for path in files for parent in PurePosixPath(path).parents if str(parent) != '.'}
 
 
+def _unique_pairs(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result: raise ValueError('Duplicate phase JSON property refused')
+        result[key] = value
+    return result
+
+
+def _json_value(raw):
+    def nonfinite(value): raise ValueError('Nonfinite role phase JSON refused')
+    return json.loads(raw, object_pairs_hook=_unique_pairs, parse_constant=nonfinite)
+
+
+def _phase_file(descriptor, *, json_input=False):
+    actual, raw = read_pinned_file(descriptor['path'],
+        maximum=MAX_JSON_BYTES if json_input else ORIGINAL_LIMITS['case_storage_bytes'], retain=json_input)
+    _exact(actual, {key: descriptor[key] for key in ('bytes', 'sha256')}, 'current role input ' + descriptor['path'])
+    return _json_value(raw) if json_input else actual
+
+
+def _prepared_identity(prepared, plan, case_root, ordinal):
+    fields = {'schema', 'python', 'scope', 'control_case_identity', 'source_domain_hex',
+        'source_bytes', 'source_sha256', 'archive_bytes', 'archive_files',
+        'actual_source_read_fragments', 'conservative_source_read_fragment_ceiling',
+        'manifest_bytes', 'request_view', 'reads', 'files'}
+    if type(prepared) is not dict or set(prepared) != fields or prepared.get('schema') != 'radio-native-v2-offline-maximum-prepared-v1':
+        raise ValueError('Pinned actual prepared metadata required')
+    _exact(prepared.get('scope'), case_root, 'prepared scope')
+    _exact(prepared.get('python'), plan['runtime_executables']['python']['path'], 'prepared Python')
+    _exact(prepared.get('source_domain_hex'), source_domain(ordinal).hex(), 'prepared source domain')
+    source = _sha(prepared.get('source_sha256'), 'prepared deterministic source')
+    expected = {'namespace': NAMESPACE, 'case_ordinal': ordinal,
+        'source_case_id': plan['cases'][ordinal]['source_case_id'],
+        'source_sha256': source, 'native_case_binding_verified': False}
+    expected['engineering_case_binding_sha256'] = hashlib.sha256(canonical(expected)).hexdigest()
+    _exact(prepared.get('control_case_identity'), expected, 'prepared outer case identity')
+    counts = {key: plan['cases'][ordinal][key] for key in ('source_bytes', 'archive_files', 'archive_bytes')}
+    counts.update(actual_source_read_fragments=38, conservative_source_read_fragment_ceiling=39, manifest_bytes=524288)
+    for key, count in counts.items():
+        if type(prepared.get(key)) is not int or prepared[key] != count:
+            raise ValueError('Prepared fixed case metadata allocation differs: ' + key)
+    prefix = plan['cases'][ordinal]['archive_prefix']
+    expected_files = {prefix + f'/chunk{index:04d}.b64': 1398104 for index in range(26)}
+    expected_files.update({prefix + '/manifest.json': 524288, prefix + '/HEAD': 65})
+    files = prepared['files']
+    if type(files) is not dict or set(files) != set(expected_files):
+        raise ValueError('Prepared exact fixed archive paths required')
+    for path, amount in expected_files.items():
+        pin = files[path]
+        if type(pin) is not dict or set(pin) != {'bytes', 'sha256'} or type(pin['bytes']) is not int or pin['bytes'] != amount:
+            raise ValueError('Prepared exact fixed archive file byte count required')
+        _sha(pin['sha256'], 'prepared archive file ' + path)
+    reads = prepared.get('reads'); view = prepared.get('request_view')
+    if type(reads) is not list or len(reads) != 38 or type(view) is not dict:
+        raise ValueError('Exact prepared source-read inventory and request view required')
+    if set(view) != {'schema', 'path', 'source_bytes', 'source_sha256', 'offset', 'bytes',
+            'sha256', 'request_prefix', 'request_suffix', 'request_bytes', 'request_sha256'}:
+        raise ValueError('Exact prepared request-view fields required')
+    _exact(view['schema'], 'radio-native-v2-existing-request-view-v1', 'prepared request-view schema')
+    _exact(view.get('path'), case_root + '/store/items/request-000001/part', 'prepared wire path')
+    _sha(view.get('source_sha256'), 'prepared source wire')
+    _sha(view['sha256'], 'prepared parameter bytes'); _sha(view['request_sha256'], 'prepared complete request')
+    _exact(view['request_prefix'], '{"tool":"mcp__codex_apps__github_create_tree","arguments":', 'prepared request prefix')
+    _exact(view['request_suffix'], '}', 'prepared request suffix')
+    if type(view['request_bytes']) is not int or view['request_bytes'] != view['bytes'] + len(view['request_prefix'].encode()) + 1:
+        raise ValueError('Exact prepared complete request byte count required')
+    for key in ('source_bytes', 'offset', 'bytes'):
+        if type(view.get(key)) is not int or view[key] < 0:
+            raise ValueError('Exact prepared request-view integer fields required')
+    if not 0 < view['bytes'] <= view['source_bytes'] <= ORIGINAL_LIMITS['case_request_bytes'] or view['offset'] + view['bytes'] > view['source_bytes']:
+        raise ValueError('Prepared request-view range bounds differ')
+    cursor = view['offset']
+    for index, row in enumerate(reads):
+        if type(row) is not dict or set(row) != {'ordinal', 'tool', 'arguments', 'path', 'offset', 'bytes',
+                'source_sha256', 'output_sha256', 'response_reserved_bytes'} or type(row.get('ordinal')) is not int or row['ordinal'] != index or row.get('tool') != 'exec_command':
+            raise ValueError('Exact ordered prepared source-read ordinal required')
+        _exact(row.get('path'), view['path'], 'prepared read source path')
+        _exact(row.get('source_sha256'), view['source_sha256'], 'prepared read source hash')
+        if type(row.get('offset')) is not int or row['offset'] != cursor or type(row.get('bytes')) is not int or not 0 < row['bytes'] <= MIB - 65536:
+            raise ValueError('Prepared read contiguous range binding differs')
+        _sha(row.get('output_sha256'), 'prepared read output')
+        if type(row['response_reserved_bytes']) is not int or not row['bytes']+8192 <= row['response_reserved_bytes'] <= ORIGINAL_LIMITS['case_response_bytes']:
+            raise ValueError('Prepared exact bounded reader response reservation required')
+        if type(row.get('arguments')) is not dict or set(row['arguments']) != {'cmd', 'max_output_tokens', 'yield_time_ms'}:
+            raise ValueError('Exact prepared reader tool arguments required')
+        _exact(row['arguments'].get('max_output_tokens'), 400000, 'reader output-token bound')
+        _exact(row['arguments'].get('yield_time_ms'), 1000, 'reader yield interval')
+        try: actual = shlex.split(row['arguments']['cmd'])
+        except (TypeError, ValueError) as failure: raise ValueError('Prepared reader argv cannot be parsed') from failure
+        _exact(actual, [prepared['python'], '-I', '-S', '-B', '-c', SOURCE_READER,
+            view['path'], str(row['offset']), str(row['bytes'])], 'frozen prepared reader argv')
+        cursor += row['bytes']
+    if cursor != view['offset'] + view['bytes']:
+        raise ValueError('Prepared readers must cover the exact request-view range')
+    return expected
+
+
+def _embedded_case_identity(value, identity):
+    """Check every explicit identity carried by a compact terminal envelope."""
+    if type(value) is dict:
+        for key, item in value.items():
+            if key == 'control_case_identity': _exact(item, identity, 'retained terminal case identity')
+            elif type(item) in (dict, list): _embedded_case_identity(item, identity)
+            elif key in ('output', 'response_json') and type(item) is str:
+                for line in item.splitlines():
+                    try: parsed = _json_value(line)
+                    except (ValueError, TypeError): continue
+                    _embedded_case_identity(parsed, identity)
+    elif type(value) is list:
+        for item in value: _embedded_case_identity(item, identity)
+
+
+def validate_command_phase(plan, prepared, *, case_root, label, command):
+    """Reader/tail semantics only; caller separately pins current phase files."""
+    root = _absolute(case_root)
+    if type(label) is not str or not re.fullmatch('command-(?:[0-9]|[12][0-9]|3[0-7]|tail)', label):
+        raise ValueError('Exact source-reader/tail label required')
+    if type(command) is not str or len(command.encode()) > 96*1024:
+        raise ValueError('Bounded exact command literal required')
+    try: argv = shlex.split(command)
+    except ValueError as failure: raise ValueError('Exact isolated command argv required') from failure
+    python = plan['runtime_executables']['python']['path']
+    if label != 'command-tail':
+        index = int(label.removeprefix('command-')); row = prepared['reads'][index]
+        _exact(command, row['arguments']['cmd'], 'selected exact prepared reader command')
+        _exact(argv, [python, '-I', '-S', '-B', '-c', SOURCE_READER, row['path'],
+                     str(row['offset']), str(row['bytes'])], 'selected isolated reader argv')
+        return {'kind': 'prepared_source_reader', 'reader_ordinal': index, 'selected_output_sha256': row['output_sha256']}
+    if len(argv) != 20:
+        raise ValueError('Exact pinned caller-tail bootstrap argv required')
+    helper = root + '/frozen-code/scripts/radio_native_v2_caller_tail.py'
+    _exact(argv[:8], [python, '-I', '-S', '-B', '-c', TAIL_BOOTSTRAP, helper,
+        plan['code_files']['scripts/radio_native_v2_caller_tail.py']['sha256']], 'pinned tail bootstrap/helper source')
+    _exact(argv[8::2], ['--destination', '--payload-base64', '--expected-bytes',
+        '--expected-sha256', '--client-sha256', '--terminal-ordinal'], 'exact tail option sequence')
+    _exact(argv[9], root + '/caller-tail.json', 'exact tail destination')
+    encoded = argv[11]
+    if len(encoded) > 62*1024: raise ValueError('Bounded tail base64 required')
+    try: payload = base64.b64decode(encoded, validate=True)
+    except ValueError as failure: raise ValueError('Canonical tail base64 required') from failure
+    if base64.b64encode(payload).decode() != encoded or not 0 < len(payload) <= 62*1024//4*3:
+        raise ValueError('Canonical bounded tail payload required')
+    if not re.fullmatch('[1-9][0-9]*', argv[13]) or int(argv[13]) != len(payload):
+        raise ValueError('Exact tail payload byte count required')
+    _exact(_sha(argv[15], 'tail payload'), hashlib.sha256(payload).hexdigest(), 'tail payload hash')
+    _sha(argv[17], 'tail client binding')
+    if not re.fullmatch('0|[1-9][0-9]*', argv[19]): raise ValueError('Exact tail terminal ordinal required')
+    terminal = int(argv[19]); value = _json_value(payload)
+    if type(value) is not dict or set(value) != {'schema', 'client_sha256', 'records'} or value['schema'] != 'radio-native-v2-caller-only-tail-v2':
+        raise ValueError('Exact compact caller-tail payload schema required')
+    if canonical(value) != payload or value['client_sha256'] != argv[17]:
+        raise ValueError('Canonical exact tail/client payload binding required')
+    rows = value['records']; previous = -1; selected = None
+    if type(rows) is not list or not rows: raise ValueError('Retained terminal tail records required')
+    for row in rows:
+        if type(row) is not dict or set(row) != {'ordinal', 'response_json'} or type(row['ordinal']) is not int or row['ordinal'] <= previous or type(row['response_json']) is not str:
+            raise ValueError('Exact ordered retained tail envelopes required')
+        envelope = _json_value(row['response_json'])
+        if type(envelope) is not dict: raise ValueError('Complete retained tail execution envelope required')
+        _embedded_case_identity(envelope, prepared['control_case_identity'])
+        if row['ordinal'] == terminal: selected = envelope
+        previous = row['ordinal']
+    if selected is None or selected.get('isError') is True or type(selected.get('output')) is not str:
+        raise ValueError('Exact retained terminal acknowledgement required')
+    return {'kind': 'pinned_caller_tail', 'terminal_ordinal': terminal,
+            'payload_bytes': len(payload), 'complete_client_binding_independently_recovered': False}
+
+
+def _read_range_pin(path, offset, amount):
+    parent, name = _absolute(path).rsplit('/', 1); directory = _directory(parent); fd = None
+    try:
+        fd = os.open(name, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK, dir_fd=directory)
+        before = os.fstat(fd)
+        if not stat.S_ISREG(before.st_mode) or before.st_nlink != 1 or offset + amount > before.st_size:
+            raise ValueError('Exact retained reader range required')
+        digest = hashlib.sha256(); used = 0
+        while used < amount:
+            raw = os.pread(fd, min(65536, amount-used), offset+used)
+            if not raw: raise ValueError('Retained reader range truncated')
+            digest.update(raw); used += len(raw)
+        if _identity(before) != _identity(os.fstat(fd)) or _identity(before) != _identity(os.stat(name, dir_fd=directory, follow_symlinks=False)):
+            raise ValueError('Retained reader source changed during range read')
+        return {'bytes': used, 'sha256': digest.hexdigest()}
+    finally:
+        if fd is not None: os.close(fd)
+        os.close(directory)
+
+
+def _absent(path):
+    parent, name = _absolute(path).rsplit('/', 1)
+    try: directory = _directory(parent)
+    except FileNotFoundError: return
+    try:
+        try: os.stat(name, dir_fd=directory, follow_symlinks=False)
+        except FileNotFoundError: return
+        raise ValueError('Existing role output/scope reuse refused: ' + path)
+    finally: os.close(directory)
+
+
+def _large_identity(descriptor, identity):
+    """Inspect only the fixed leading schema/identity, never parse a full trace."""
+    actual, raw = read_pinned_file(descriptor['path'], maximum=ORIGINAL_LIMITS['case_storage_bytes'], retain_prefix=65536)
+    _exact(actual, {key: descriptor[key] for key in ('bytes', 'sha256')}, 'retained caller same-read file/identity pin')
+    # A bounded prefix may end inside a later UTF-8 scalar. The identity itself
+    # must parse fully in this prefix, hashed in the same stable file read.
+    text = codecs.getincrementaldecoder('utf-8')().decode(raw, final=False)
+    decoder = json.JSONDecoder(object_pairs_hook=_unique_pairs)
+    match = re.match(r'\s*\{\s*"schema"\s*:\s*', text)
+    if not match: raise ValueError('Exact original caller schema prefix required')
+    schema, end = decoder.raw_decode(text, match.end())
+    match = re.match(r'\s*,\s*"control_case_identity"\s*:\s*', text[end:])
+    if not match or schema != 'radio-native-v2-compact-eight-input-resource-control-v1':
+        raise ValueError('Leading original caller schema/identity required')
+    value, _ = decoder.raw_decode(text, end+match.end())
+    _exact(value, identity, 'actual leading retained caller identity')
+
+
+def _validate_role_phase(bundle, *, running_caller=False):
+    role = bundle['role']; ordinal = bundle['case_ordinal']; inputs = bundle['phase_inputs']
+    root, _, _ = _role_roots(bundle, role, ordinal); plan = bundle['plan']
+    values = {}; file_pins = {}
+    for name in _phase_paths(bundle):
+        json_input = name not in ('caller_transcript', 'source_wire', 'deterministic_source')
+        values[name] = _phase_file(inputs[name], json_input=json_input)
+        file_pins[name] = {key: inputs[name][key] for key in ('bytes', 'sha256')}
+    if role in WHOLE_ROLES:
+        for name, key in (('plan_json', 'plan'), ('freeze_json', 'complete_freeze'), ('preread_json', 'public_preread')):
+            _exact(values[name], bundle[key], 'current whole-scope ' + name)
+        if role == 'control':
+            for name in ('control-worker-identity.json', 'cases', 'worker-result.json', 'compact-input-plan.json', 'closed-failure.json'):
+                _absent(root + '/' + name)
+        else:
+            compact = values['compact_input_plan']
+            if type(compact) is not dict or set(compact) != {'schema', 'run_id', 'cases'} or compact['schema'] != 'radio-native-v2-compact-retained-run-plan-v1' or compact['run_id'] != NAMESPACE:
+                raise ValueError('Exact retained eight-case verifier phase plan required')
+            if type(compact['cases']) is not list or len(compact['cases']) != 8:
+                raise ValueError('Exactly eight retained verifier phase identities required')
+            required = {'ordinal', 'source_case_id', 'source_path', 'bytes', 'sha256',
+                'client_peak_rss_bytes', 'other_host_receipt_bytes', 'other_host_receipt_allocated_bytes'}
+            logical = allocated = 0; hashes = set()
+            for index, case in enumerate(compact['cases']):
+                if type(case) is not dict or set(case) != required or type(case.get('ordinal')) is not int or case['ordinal'] != index:
+                    raise ValueError('Exact ordered retained verifier source ordinal required')
+                _exact(case.get('source_case_id'), plan['cases'][index]['source_case_id'], 'verifier original source-case identity')
+                expected_path = root + f'/cases/case{index:02d}/caller-result.json'
+                _file_descriptor({key: case[key] for key in ('bytes', 'sha256')} | {'path': case.get('source_path')}, expected_path, 'verifier source')
+                descriptor = {'path': expected_path, 'bytes': case['bytes'], 'sha256': case['sha256']}
+                _phase_file(descriptor)
+                # The trace identity independently joins the current prepared
+                # file, not an unexamined source-case string in this plan.
+                descriptor_prepared = inputs['prepared_cases'][index]
+                identity = _prepared_identity(_phase_file(descriptor_prepared, json_input=True), plan, root + f'/cases/case{index:02d}', index)
+                _large_identity(descriptor, identity)
+                if case['sha256'] in hashes: raise ValueError('Retained verifier hash replay refused')
+                hashes.add(case['sha256'])
+                for key in ('client_peak_rss_bytes', 'other_host_receipt_bytes', 'other_host_receipt_allocated_bytes'):
+                    if type(case[key]) is not int or case[key] < 0:
+                        raise ValueError('Exact nonnegative verifier resource integers required')
+                if not 0 < case['client_peak_rss_bytes'] <= ORIGINAL_LIMITS['rss_bytes']:
+                    raise ValueError('Original verifier caller RSS bound exceeded')
+                reserved = case['bytes'] + 65536
+                logical_case = reserved + case['other_host_receipt_bytes']
+                allocated_case = reserved + case['other_host_receipt_allocated_bytes']
+                if max(logical_case, allocated_case) > ORIGINAL_LIMITS['case_storage_bytes']:
+                    raise ValueError('Original verifier case storage reservation exceeded')
+                logical += logical_case; allocated += allocated_case
+            if max(logical, allocated) > ORIGINAL_LIMITS['run_storage_bytes'] or len(canonical(compact))+1 > 16384:
+                raise ValueError('Original verifier whole storage/metadata reservation exceeded')
+            for name in ('verifier-identity.json', 'compact-receipt', 'verifier-timing.json'):
+                _absent(root + '/' + name)
+        return {'phase_input_pins': file_pins, 'role_identity_metadata_checked': True,
+                'full_source_domain_content_verified': False,
+                'complete_retained_transport_semantics_verified': False}
+    prepared = values['prepared_json']; identity = _prepared_identity(prepared, plan, root, ordinal)
+    extra = {'phase_input_pins': file_pins, 'role_identity_metadata_checked': True,
+             'full_source_domain_content_verified': False,
+             'complete_retained_transport_semantics_verified': False}
+    if role == 'caller':
+        if not running_caller:
+            for name in ('caller-start.json', 'caller-result.json', 'caller-summary.json', 'caller-tail.json',
+                         'rss-observation-request.json', 'rss-observation.json'):
+                _absent(root + '/' + name)
+    elif role == 'command':
+        _absent(root + '/command-observations/' + inputs['label'] + '-identity.json')
+        extra['command_binding'] = validate_command_phase(plan, prepared,
+            case_root=root, label=inputs['label'], command=inputs['command'])
+        if inputs['label'] == 'command-tail': _absent(root + '/caller-tail.json')
+        else:
+            wire = inputs['source_wire']; view = prepared['request_view']
+            _exact({key: wire[key] for key in ('path', 'bytes', 'sha256')},
+                {'path': view['path'], 'bytes': view['source_bytes'], 'sha256': view['source_sha256']}, 'command wire/prepared join')
+            _phase_file(wire)
+            row = prepared['reads'][int(inputs['label'].removeprefix('command-'))]
+            _exact(_read_range_pin(wire['path'], row['offset'], row['bytes']),
+                {'bytes': row['bytes'], 'sha256': row['output_sha256']}, 'current selected source-reader output')
+    else:
+        recipe = [root, plan['runtime_executables']['python']['path'], NAMESPACE, str(ordinal),
+            plan['cases'][ordinal]['archive_prefix'], root + '/worker-admission.json', inputs['preparation_bundle']['sha256']]
+        prior_bundle = load_bundle(inputs['preparation_bundle']['path'],
+            expected_bundle_sha256=inputs['preparation_bundle']['sha256'])
+        _validate_prepare_bundle(prior_bundle, ordinal=ordinal)
+        for key in ('plan', 'complete_freeze', 'public_preread'):
+            _exact(prior_bundle[key], bundle[key], 'preparation recipe evidence binding ' + key)
+        options = values['arguments_json']
+        if role == 'lossless-project':
+            expected = {'fullPath': root + '/caller-result.json', 'preparedPath': root + '/prepared.json',
+                'recipePath': root + '/derived/prepare.py',
+                'projectionPath': root + '/public-evidence/caller-transcript-compact-lossless.json',
+                'recipeArguments': recipe, 'identityPath': root + '/lossless-project-identity.json'}
+            _large_identity(inputs['caller_transcript'], identity)
+            _absent(expected['projectionPath']); _absent(expected['identityPath'])
+        else:
+            view = prepared['request_view']
+            _exact(file_pins['source_wire'], {'bytes': view['source_bytes'], 'sha256': view['source_sha256']}, 'retained wire/prepared source pin')
+            _exact(file_pins['deterministic_source'], {'bytes': prepared['source_bytes'], 'sha256': prepared['source_sha256']}, 'retained deterministic payload/prepared pin')
+            expected = {'projectionPath': root + '/public-evidence/caller-transcript-compact-lossless.json',
+                'recipePath': root + '/derived/prepare.py', 'retainedSourcePath': view['path'],
+                'retainedPayloadPath': root + '/deterministic-source.bin',
+                'auditPath': root + '/public-evidence/reconstruction-audit.json',
+                'python': plan['runtime_executables']['python']['path'], 'identityPath': root + '/lossless-verify-identity.json'}
+            projection = values['projection']; regeneration = projection.get('regeneration', {}) if type(projection) is dict else {}
+            if type(projection) is not dict or projection.get('schema') != 'radio-native-v2-compact-eight-case-lossless-projection-v1' or projection.get('fixture_only') is not True or projection.get('execution_authorized') is not False or projection.get('scientific_execution_authorized') is not False:
+                raise ValueError('Exact non-authorizing retained projection phase required')
+            for key in ('native_case_reservations', 'native_case_executions', 'scientific_cases_run',
+                    'rng_draws', 'telescope_reads', 'actual_connector_calls', 'actual_functions_sdk_calls', 'network_fetches', 'automatic_retry'):
+                _exact(projection.get(key), AUTHORITY[key], 'retained projection authority ' + key)
+            _exact(regeneration.get('prepared'), prepared, 'projection retained prepared metadata')
+            _exact(regeneration.get('recipe_arguments'), recipe, 'projection frozen recipe arguments')
+            _exact({'bytes': regeneration.get('recipe_bytes'), 'sha256': regeneration.get('recipe_sha256')}, plan['derived_code']['prepare.py'], 'projection exact recipe source pin')
+            _exact(projection.get('transcript', {}).get('control_case_identity'), identity, 'projection transcript identity')
+            _absent(expected['auditPath']); _absent(expected['identityPath'])
+        _exact(options, expected, 'exact frozen lossless options JSON')
+    return extra
+
+
 def load_bundle(bundle_path, *, expected_bundle_sha256):
     expected = _sha(expected_bundle_sha256, 'independently retained exact bundle bytes')
     actual, raw = read_pinned_file(bundle_path, maximum=MAX_JSON_BYTES, retain=True)
@@ -425,6 +910,23 @@ def load_bundle(bundle_path, *, expected_bundle_sha256):
 def validate_worker_admission(bundle_path, *, role='prepare', ordinal, argv, environment,
         expected_bundle_sha256):
     """Validate retained local claims only; never launch, mutate, or authorize."""
+    return _validate_worker_admission(bundle_path, role=role, ordinal=ordinal, argv=argv,
+        environment=environment, expected_bundle_sha256=expected_bundle_sha256)
+
+
+def validate_running_caller_admission(bundle_path, *, ordinal, argv, environment,
+        expected_bundle_sha256):
+    """Recheck a caller snapshot for its command wrapper, after caller start.
+
+    This is not a prelaunch admission: caller output absence is not checked.
+    The wrapper must independently map and check its live Node parent identity.
+    """
+    return _validate_worker_admission(bundle_path, role='caller', ordinal=ordinal, argv=argv,
+        environment=environment, expected_bundle_sha256=expected_bundle_sha256, running_caller=True)
+
+
+def _validate_worker_admission(bundle_path, *, role, ordinal, argv, environment,
+        expected_bundle_sha256, running_caller=False):
     if type(argv) is not list or any(type(item) is not str for item in argv):
         raise ValueError('Exact complete worker argv string list required')
     if type(environment) is not dict:
@@ -433,16 +935,17 @@ def validate_worker_admission(bundle_path, *, role='prepare', ordinal, argv, env
     bundle = load_bundle(_absolute(bundle_path), expected_bundle_sha256=expected_bundle_sha256)
     expected = expected_worker_argv(bundle, bundle_path, ordinal=ordinal,
         expected_bundle_sha256=expected_bundle_sha256, role=role)
-    _exact(argv, expected, 'exact preparation worker argv')
+    _exact(argv, expected, 'exact preparation worker argv' if role == 'prepare' else 'exact ' + role + ' worker argv')
     plan = bundle['plan']; code_root = bundle['code_root']; derived_root = bundle['derived_root']
-    case_root = bundle['execution_scope'] + f'/cases/case{ordinal:02d}'
-    case_directory = _directory(case_root)
-    try:
-        previous_outputs = {'preparation-identity.json', 'deterministic-source.bin', 'prepared.json',
-                            'caller-result.json', 'caller-summary.json', 'store'} & set(os.listdir(case_directory))
-        if previous_outputs:
-            raise ValueError('Existing preparation output/scope reuse refused: ' + ','.join(sorted(previous_outputs)))
-    finally: os.close(case_directory)
+    layout = worker_role_layout(bundle, role=role, ordinal=ordinal)
+    if role == 'prepare':
+        case_directory = _directory(layout['worker_scope'])
+        try:
+            previous_outputs = {'preparation-identity.json', 'deterministic-source.bin', 'prepared.json',
+                                'caller-result.json', 'caller-summary.json', 'store'} & set(os.listdir(case_directory))
+            if previous_outputs:
+                raise ValueError('Existing preparation output/scope reuse refused: ' + ','.join(sorted(previous_outputs)))
+        finally: os.close(case_directory)
     for root, pins, label in ((code_root, plan['code_files'], 'code'),
                              (derived_root, plan['derived_code'], 'derived')):
         files, directories = _tree_inventory(root)
@@ -454,20 +957,22 @@ def validate_worker_admission(bundle_path, *, role='prepare', ordinal, argv, env
             _exact(actual, wanted, 'materialized source ' + path)
     loaded_self, _ = read_pinned_file(str(Path(__file__).absolute()), maximum=MAX_SOURCE_BYTES)
     _exact(loaded_self, plan['code_files'][SELF], 'loaded worker validator source')
-    executable = plan['runtime_executables']['python']
-    if str(Path(executable['path']).resolve()) != executable['path']:
-        raise ValueError('Prospective Python executable path alias refused')
-    _exact(str(Path(sys.executable).resolve()), executable['path'], 'actual child Python executable')
-    actual, _ = read_pinned_file(executable['path'], sole_link=False)
-    _exact(actual, {'bytes': executable['bytes'], 'sha256': executable['sha256']}, 'actual isolated Python executable bytes')
+    _exact(str(Path(sys.executable).resolve()), plan['runtime_executables']['python']['path'], 'actual checker Python executable')
+    for name in {'python', layout['runtime_name']}:
+        executable = plan['runtime_executables'][name]
+        if str(Path(executable['path']).resolve()) != executable['path']:
+            raise ValueError('Prospective executable path alias refused: ' + name)
+        actual, _ = read_pinned_file(executable['path'], sole_link=False)
+        _exact(actual, {'bytes': executable['bytes'], 'sha256': executable['sha256']}, 'actual pinned executable bytes ' + name)
+    phase = _validate_role_phase(bundle, running_caller=running_caller) if role != 'prepare' else {}
     # Reopen exact bundle after all material reads; a valid initial snapshot
     # must not silently become a different admission file during the checks.
     load_bundle(bundle_path, expected_bundle_sha256=expected_bundle_sha256)
     return {'schema': RECEIPT_SCHEMA, 'status': 'LOCAL_SUPPLIED_PREREAD_VALIDATED_EXECUTION_BLOCKED',
         'namespace': NAMESPACE, 'case_ordinal': ordinal,
-        'source_case_id': plan['cases'][ordinal]['source_case_id'],
-        'source_domain_hex': source_domain(ordinal).hex(),
-        'archive_prefix': plan['cases'][ordinal]['archive_prefix'], 'role': role,
+        'source_case_id': plan['cases'][ordinal]['source_case_id'] if ordinal is not None else None,
+        'source_domain_hex': source_domain(ordinal).hex() if ordinal is not None else None,
+        'archive_prefix': plan['cases'][ordinal]['archive_prefix'] if ordinal is not None else None, 'role': role,
         'bundle_path': str(bundle_path), 'bundle_exact_file_sha256': expected_bundle_sha256,
         'plan_canonical_sha256': bundle['plan_sha256'],
         'complete_freeze_canonical_sha256': bundle['complete_freeze_sha256'],
@@ -479,7 +984,11 @@ def validate_worker_admission(bundle_path, *, role='prepare', ordinal, argv, env
         'independently_retained_bundle_digest_matched': True,
         'exact_worker_argv_checked': True, 'complete_child_environment_checked': True,
         'current_materialized_code_and_derived_pins_checked': True,
-        'fresh_preparation_output_names_absent': True,
+        'fresh_preparation_output_names_absent': role == 'prepare',
+        'fresh_role_output_names_absent': not running_caller,
+        'running_caller_snapshot_recheck': running_caller,
+        'live_caller_parent_identity_independently_verified': False,
+        'worker_role_layout': layout,
         'loaded_validator_code': loaded_self,
         'complete_expected_runtime_closure_verified': False,
         'current_parent_environment_verified': False,
@@ -487,7 +996,7 @@ def validate_worker_admission(bundle_path, *, role='prepare', ordinal, argv, env
         'fixture_execution_guard_still_required': True,
         'pipeline_integration_qualified': False, 'large_source_generation_admitted': False,
         'all_original_execution_blockers_closed': False,
-        'checks_remain_subject_to_postcheck_mutation': True, **AUTHORITY}
+        'checks_remain_subject_to_postcheck_mutation': True, **phase, **AUTHORITY}
 
 
 def main():
@@ -495,13 +1004,16 @@ def main():
     parser.add_argument('--check-only', action='store_true', required=True)
     parser.add_argument('--bundle', required=True)
     parser.add_argument('--bundle-sha256', required=True)
-    parser.add_argument('--ordinal', type=int, required=True)
+    parser.add_argument('--role', choices=sorted(ROLES), default='prepare')
+    parser.add_argument('--ordinal', type=int)
+    parser.add_argument('--worker-argv-json', help='Optional actual complete argv JSON; absent means metadata-only expected argv')
     args = parser.parse_args()
     path = _absolute(args.bundle)
     bundle = load_bundle(path, expected_bundle_sha256=args.bundle_sha256)
     argv = expected_worker_argv(bundle, path, ordinal=args.ordinal,
-        expected_bundle_sha256=args.bundle_sha256)
-    result = validate_worker_admission(path, ordinal=args.ordinal, argv=argv,
+        expected_bundle_sha256=args.bundle_sha256, role=args.role)
+    if args.worker_argv_json is not None: argv = _json_value(args.worker_argv_json)
+    result = validate_worker_admission(path, role=args.role, ordinal=args.ordinal, argv=argv,
         environment=dict(os.environ), expected_bundle_sha256=args.bundle_sha256)
     print(canonical(result).decode())
 

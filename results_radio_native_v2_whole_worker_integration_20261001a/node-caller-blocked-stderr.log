@@ -1,0 +1,31 @@
+Error: Command failed: /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12 -I -S -B -c import hashlib,json,os,stat,sys
+from pathlib import Path
+p=sys.argv[1]; wanted={'bytes': 106767, 'sha256': 'e8d19e6f42d4b0b19b15b8ace8c639c369b9c42bef7c4aea4b2e1a0f14059743'}
+fd=os.open(p,os.O_RDONLY|os.O_NOFOLLOW|os.O_NONBLOCK)
+try:
+ before=os.fstat(fd)
+ if not stat.S_ISREG(before.st_mode) or before.st_nlink!=1 or before.st_size!=wanted['bytes']:
+  raise ValueError('Exact pinned Node admission fixture required')
+ raw=bytearray()
+ while True:
+  block=os.read(fd,65536)
+  if not block:break
+  raw.extend(block)
+  if len(raw)>wanted['bytes']:raise ValueError('Node admission fixture exceeded pin')
+ after=os.fstat(fd); named=os.stat(p,follow_symlinks=False)
+ stable=lambda i:(i.st_dev,i.st_ino,i.st_size,i.st_mtime_ns,i.st_ctime_ns)
+ if stable(before)!=stable(after) or stable(after)!=stable(named):raise ValueError('Node admission fixture changed')
+finally:os.close(fd)
+if hashlib.sha256(raw).hexdigest()!=wanted['sha256']:raise ValueError('Node admission fixture source differs')
+m={'__name__':'frozen_node_admission','__file__':p}
+exec(compile(bytes(raw),p,'exec'),m)
+m['node_worker_entry'](sys.argv[2],sys.argv[3],sys.argv[4],json.loads(sys.argv[5]),json.loads(sys.argv[6]))
+ /tmp/seti-source-admission-readonly-trx8uhau/whole/cases/case03/frozen-code/scripts/radio_native_v2_compact_eight_case_resource_fixture.py caller /tmp/seti-source-admission-readonly-trx8uhau/whole/cases/case03/worker-admission.json dbb3f92a4439b06c8fda71a287483bc5b89db0b329c875c4581928f19d36483a ["/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node","/tmp/seti-source-admission-readonly-trx8uhau/whole/cases/case03/derived/fresh-caller.js","--caller","/tmp/seti-source-admission-readonly-trx8uhau/whole/cases/case03","/tmp/seti-source-admission-readonly-trx8uhau/whole/cases/case03/worker-admission.json","dbb3f92a4439b06c8fda71a287483bc5b89db0b329c875c4581928f19d36483a"] {"PATH":"/usr/bin:/bin","LANG":"C","LC_ALL":"C"}
+Traceback (most recent call last):
+  File "<string>", line 22, in <module>
+  File "/tmp/seti-source-admission-readonly-trx8uhau/whole/cases/case03/frozen-code/scripts/radio_native_v2_compact_eight_case_resource_fixture.py", line 782, in node_worker_entry
+    require_execution_ready()
+  File "/tmp/seti-source-admission-readonly-trx8uhau/whole/cases/case03/frozen-code/scripts/radio_native_v2_compact_eight_case_resource_fixture.py", line 326, in require_execution_ready
+    raise RuntimeError('BLOCKED_PREPARATION_REVIEW: large worker/run execution is closed; '+EXECUTION_BLOCKERS[0])
+RuntimeError: BLOCKED_PREPARATION_REVIEW: large worker/run execution is closed; Complete structural and actual expected runtime-freeze closure must be joined to the engineering runtime supplement and exact parent/child environments.
+
