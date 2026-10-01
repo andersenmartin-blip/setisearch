@@ -12,6 +12,10 @@ const CLIENT_SEQUENCE=Object.freeze(['fetch','create_tree','create_commit','fetc
 const CLIENT_LIMITS=Object.freeze({actual_calls:60,conservative_git_processes:4,
   request_bytes:48*CLIENT_MIB,response_bytes:64*CLIENT_MIB,seconds:600,
   support_response:256*1024,read_bytes:CLIENT_MIB-65536,output_tokens:400000});
+const QUALIFIED_SUPPORT_YIELD_MS=30000;
+const QUALIFIED_RUNNER_LIMITS=Object.freeze({actual_calls:59,request_bytes:40*CLIENT_MIB,
+  response_bytes:64*CLIENT_MIB-256*1024,caller_tail_calls:1,
+  caller_tail_request_bytes:8*CLIENT_MIB,caller_tail_response_bytes:256*1024});
 
 async function runToolCourier(tools,options) {
   const h=options.hostLibrary||options.h,assert=(ok,message)=>{if(!ok)throw Error(message);};
@@ -21,6 +25,17 @@ async function runToolCourier(tools,options) {
     'Actual execution tools required');
   const maxCalls=options.max_actual_calls===undefined?60:options.max_actual_calls;
   assert(Number.isSafeInteger(maxCalls)&&maxCalls>0&&maxCalls<=60,'Actual call ceiling cannot exceed60 plus4Git');
+  const requestCap=options.max_request_bytes===undefined?CLIENT_LIMITS.request_bytes:options.max_request_bytes,
+    responseCap=options.max_response_bytes===undefined?CLIENT_LIMITS.response_bytes:options.max_response_bytes;
+  assert(Number.isSafeInteger(requestCap)&&requestCap>0&&requestCap<=CLIENT_LIMITS.request_bytes&&
+    Number.isSafeInteger(responseCap)&&responseCap>0&&responseCap<=CLIENT_LIMITS.response_bytes,
+    'Actual client byte ceilings cannot enlarge the shared allocation');
+  // Historical component fixtures default to their frozen 10-second wait.
+  // A future runner qualification must opt into the 30-second value and pin
+  // it in its own prospective contract.
+  const supportYield=options.support_yield_time_ms===undefined?10000:options.support_yield_time_ms;
+  assert([1000,10000,QUALIFIED_SUPPORT_YIELD_MS].includes(supportYield),
+    'Only a prospectively bounded supporting wait is permitted');
   const clock=options.clock||Date.now,started=clock(),setTimer=options.setTimer||setTimeout,
     clearTimer=options.clearTimer||clearTimeout,records=[],events=[];
   const usage={calls:0,request_bytes:0,response_bytes:0,response_charged_bytes:0,
@@ -36,8 +51,8 @@ async function runToolCourier(tools,options) {
   async function call(tool,args,reservation,kind,deadline) {
     check(deadline);assert(typeof tools[tool]==='function','Actual approved tool unavailable: '+tool);
     const requestJson=JSON.stringify({tool,arguments:args}),requestBytes=h.utf8Bytes(requestJson);
-    assert(usage.calls<maxCalls&&usage.request_bytes+requestBytes<=CLIENT_LIMITS.request_bytes&&
-      usage.response_charged_bytes+reservation<=CLIENT_LIMITS.response_bytes,
+    assert(usage.calls<maxCalls&&usage.request_bytes+requestBytes<=requestCap&&
+      usage.response_charged_bytes+reservation<=responseCap,
       'Cannot reserve complete actual courier envelopes inside old64/48/64 allocations');
     const row={ordinal:records.length,tool,kind,request_json:requestJson,request_bytes:requestBytes,
       request_sha256:h.sha256(requestJson),response_reserved_bytes:reservation,response_unknown:true,
@@ -59,7 +74,7 @@ async function runToolCourier(tools,options) {
         Object.assign(row,{raw_result:raw,response_json:json,response_bytes:bytes,
           response_sha256:h.sha256(json),response_unknown:false,response_charged_bytes:bytes,
           returned_at_epoch_ms:clock()});
-        assert(bytes<=reservation&&usage.response_charged_bytes<=CLIENT_LIMITS.response_bytes,
+        assert(bytes<=reservation&&usage.response_charged_bytes<=responseCap,
           'Actual whole tool reply exceeded reservation');check(deadline);return raw;
       });
       return await Promise.race([work,timeout]);
@@ -88,7 +103,7 @@ async function runToolCourier(tools,options) {
   }
   async function poll() {
     check();assert(session!==null,'Running controller session required for read-only poll');
-    const args={session_id:session,chars:'',max_output_tokens:400000,yield_time_ms:10000},at=clock(),
+    const args={session_id:session,chars:'',max_output_tokens:400000,yield_time_ms:supportYield},at=clock(),
       raw=await call('write_stdin',args,CLIENT_LIMITS.support_response,'actual_idle_poll');
     progress({kind:'poll',calls:usage.calls});return messages(raw,at);
   }
@@ -134,8 +149,8 @@ async function runToolCourier(tools,options) {
       cursor+=p.bytes;
     }
     assert(cursor===view.offset+view.bytes&&usage.calls+reads.length<=maxCalls&&
-      usage.request_bytes+sumRequests<=CLIENT_LIMITS.request_bytes&&
-      usage.response_charged_bytes+sumReservations<=CLIENT_LIMITS.response_bytes,
+      usage.request_bytes+sumRequests<=requestCap&&
+      usage.response_charged_bytes+sumReservations<=responseCap,
       'Whole readonly extraction batch cannot fit original actual allocations');
     const settled=await Promise.allSettled(reads.map(p=>call('exec_command',p.arguments,p.response_reserved_bytes,'actual_source_read',deadline)));
     const parts=[],descriptors=[];
@@ -157,7 +172,7 @@ async function runToolCourier(tools,options) {
   }
   try {
     assert(options.startup_arguments&&typeof options.startup_arguments.cmd==='string'&&
-      options.startup_arguments.max_output_tokens===400000&&[1000,10000].includes(options.startup_arguments.yield_time_ms),
+      options.startup_arguments.max_output_tokens===400000&&[1000,10000,QUALIFIED_SUPPORT_YIELD_MS].includes(options.startup_arguments.yield_time_ms),
       'Concrete bounded single-controller startup arguments required');
     const startAt=clock();startRaw=await call('exec_command',options.startup_arguments,
       CLIENT_LIMITS.support_response,'actual_controller_start');let current=messages(startRaw,startAt);
@@ -175,21 +190,21 @@ async function runToolCourier(tools,options) {
       else assert(Array.isArray(packet.reads)&&packet.reads.length===0,'Unplanned source reads refused');
       approvedCore(packet,args);check(deadline);
       assert(Number.isSafeInteger(packet.delivery_request_reserved_bytes)&&packet.delivery_request_reserved_bytes>0&&
-        packet.delivery_request_reserved_bytes<=CLIENT_LIMITS.request_bytes,'Exact pre-dispatch controller ingress reservation required');
+        packet.delivery_request_reserved_bytes<=requestCap,'Exact pre-dispatch controller ingress reservation required');
       const coreRequestBytes=h.utf8Bytes(JSON.stringify({tool:packet.tool,arguments:args}));
-      assert(usage.calls+2<=maxCalls&&usage.request_bytes+coreRequestBytes+packet.delivery_request_reserved_bytes<=CLIENT_LIMITS.request_bytes&&
-        usage.response_charged_bytes+CLIENT_CORE[packet.tool]+CLIENT_LIMITS.support_response<=CLIENT_LIMITS.response_bytes,
+      assert(usage.calls+2<=maxCalls&&usage.request_bytes+coreRequestBytes+packet.delivery_request_reserved_bytes<=requestCap&&
+        usage.response_charged_bytes+CLIENT_CORE[packet.tool]+CLIENT_LIMITS.support_response<=responseCap,
         'Cannot reserve connector and following complete ingress before external dispatch');
       pendingDelivery={ordinal,request_reserved_bytes:packet.delivery_request_reserved_bytes,
         response_reserved_bytes:CLIENT_LIMITS.support_response,dispatch_attempted:false};
       const raw=await call(packet.tool,args,CLIENT_CORE[packet.tool],'actual_connector',deadline);
       assert(raw&&raw.isError!==true,'Actual connector returned an error; no retry');
       progress({kind:'connector',ordinal,tool:packet.tool,calls:usage.calls});
-      const deliveryArgs={session_id:session,max_output_tokens:400000,yield_time_ms:10000},
+      const deliveryArgs={session_id:session,max_output_tokens:400000,yield_time_ms:supportYield},
         body={schema:CONTROLLER_SCHEMA,ordinal,automatic_retry:false,delivery_arguments:deliveryArgs,
           raw_connector_result:raw,read_descriptors:descriptors,start_raw:ordinal===0?startRaw:null,
           previous_delivery_raw:previousDeliveryRaw},line=JSON.stringify(body),
-        actualArgs={session_id:session,chars:line+'\n',max_output_tokens:400000,yield_time_ms:10000},
+        actualArgs={session_id:session,chars:line+'\n',max_output_tokens:400000,yield_time_ms:supportYield},
         actualRequest=JSON.stringify({tool:'write_stdin',arguments:actualArgs});
       assert(h.utf8Bytes(actualRequest)<=packet.delivery_request_reserved_bytes,
         'Actual delivery exceeds the controller pre-dispatch ingress reservation');
@@ -202,10 +217,15 @@ async function runToolCourier(tools,options) {
     usage:{...usage,conservatively_charged_local_git_processes:4,
       calls_including_declared_git_processes:usage.calls+4,elapsed_seconds:(clock()-started)/1000,
       hidden_http_bytes_known:false,all_actual_start_poll_read_connector_delivery_calls_counted:true},
+    prospective_caps:{actual_calls:maxCalls,request_bytes:requestCap,response_bytes:responseCap,
+      support_yield_time_ms:supportYield,caller_tail_calls:QUALIFIED_RUNNER_LIMITS.caller_tail_calls,
+      caller_tail_request_bytes:QUALIFIED_RUNNER_LIMITS.caller_tail_request_bytes,
+      caller_tail_response_bytes:QUALIFIED_RUNNER_LIMITS.caller_tail_response_bytes},
     controller_terminal:terminal,session_id:session,connector_requests:ordinal,records,events,
     pending_delivery_reservation:pendingDelivery,
     last_supporting_acknowledgement_durable:false,controller_poll_receipts_joined_into_host_ledger:false,
     actual_client_runtime_rss_known:false,execution_authorized:false,reservation_authorized:false,
     scientific_execution_authorized:false,rng_draws:0,telescope_reads:0,automatic_retry:false};
 }
-if(typeof module!=='undefined')module.exports={CLIENT_SCHEMA,CONTROLLER_SCHEMA,CLIENT_CORE,CLIENT_SEQUENCE,CLIENT_LIMITS,runToolCourier};
+if(typeof module!=='undefined')module.exports={CLIENT_SCHEMA,CONTROLLER_SCHEMA,CLIENT_CORE,CLIENT_SEQUENCE,
+  CLIENT_LIMITS,QUALIFIED_SUPPORT_YIELD_MS,QUALIFIED_RUNNER_LIMITS,runToolCourier};

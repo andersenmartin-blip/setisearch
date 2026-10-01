@@ -1,5 +1,20 @@
 # Long-term project direction
 
+## 1 October: complete caller accounting is now explicit
+
+[The shared transport contract](RADIO_NATIVE_V2_TRANSPORT_CONTRACT_2026-10-01_RESULT.md)
+retains caller-only polls and the final delivery acknowledgement instead of
+treating the lower-level 57-call shape as a complete actual result. The real
+live04 poll pattern would make a full-size case 74/64 calls; execution therefore
+stays closed. A prospective 30-second wait and reduced 59-call/40-MiB caller
+allocation reserve one bounded tail operation inside the unchanged outer caps.
+
+**Direction:** integrate and measure that exact shared path, including outer
+caller RSS and durable tail readback, before freezing executable authority.
+There is no scientific inference, telescope read or relaxation of the separate
+reservation gate. All target dispositions, old failures and the 9 October end
+date remain unchanged.
+
 ## 30 September: failed broker usage and bounded failure closure retained
 
 [The accounting/closure corrections and complete evidence](RADIO_NATIVE_V2_BROKER_ACCOUNTING_2026-09-30_RESULT.md)

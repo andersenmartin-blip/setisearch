@@ -15,7 +15,7 @@ function frame(ordinal,extra={}){return{schema:c.CONTROLLER_SCHEMA,kind:'request
   tool:'mcp__codex_apps__github_'+c.CLIENT_SEQUENCE[ordinal],arguments:argsFor(c.CLIENT_SEQUENCE[ordinal]),
   request_view:null,reads:[],delivery_request_reserved_bytes:1024*1024,deadline_ms:30000,automatic_retry:false,...extra};}
 const rawOutput=output=>({chunk_id:'fixture',wall_time_seconds:0.1,session_id:7,output,original_token_count:10});
-function fixture({source=false,idle=false}={}){
+function fixture({source=false,idle=false,supportYield=10000}={}){
   const seen=[],bodies=[];let pending=null;
   const packets=c.CLIENT_SEQUENCE.map((_,i)=>frame(i));
   if(source){
@@ -37,10 +37,10 @@ function fixture({source=false,idle=false}={}){
     return{chunk_id:'source',wall_time_seconds:0.1,exit_code:0,original_token_count:1,
       output:packets[1].reads[0].fixture_output};
   },write_stdin:async a=>{
-    seen.push(['write_stdin',a]);assert.equal(a.yield_time_ms,10000);
+    seen.push(['write_stdin',a]);assert.equal(a.yield_time_ms,supportYield);
     if(a.chars===''){const p=pending;pending=null;return rawOutput(JSON.stringify(p)+'\n');}
     const b=JSON.parse(a.chars);bodies.push(b);
-    assert.equal(b.delivery_arguments.yield_time_ms,10000);
+    assert.equal(b.delivery_arguments.yield_time_ms,supportYield);
     const next=b.ordinal+1;if(next===6)return{chunk_id:'terminal',wall_time_seconds:0.1,exit_code:0,
       original_token_count:1,output:JSON.stringify({schema:c.CONTROLLER_SCHEMA,kind:'terminal',status:'SINGLE_CASE_COMPONENT_ONLY'})+'\n'};
     if(idle){pending=packets[next];return rawOutput('');}
@@ -52,6 +52,17 @@ function fixture({source=false,idle=false}={}){
   return{tools,seen,bodies,packets};
 }
 const run=(f,extra={})=>c.runToolCourier(f.tools,{startup_arguments:startup,hostLibrary:h,python:PYTHON,...extra});
+
+test('prospective runner may use one pinned 30-second supporting wait without changing allocations',async()=>{
+  const f=fixture({supportYield:30000}),q=c.QUALIFIED_RUNNER_LIMITS,
+    result=await run(f,{support_yield_time_ms:c.QUALIFIED_SUPPORT_YIELD_MS,max_actual_calls:q.actual_calls,
+      max_request_bytes:q.request_bytes,max_response_bytes:q.response_bytes});
+  assert.equal(result.status,'SINGLE_CASE_COMPONENT_COMPLETE',result.reason);
+  for(const row of result.records.filter(r=>['actual_idle_poll','actual_delivery'].includes(r.kind)))
+    assert.equal(JSON.parse(row.request_json).arguments.yield_time_ms,30000);
+  assert.ok(result.usage.calls_including_declared_git_processes<=64);
+  assert.deepEqual(result.prospective_caps,{...q,support_yield_time_ms:30000});
+});
 test('one awaited run performs all six connectors and deliveries without inter-model gaps',async()=>{
   const f=fixture(),result=await run(f);assert.equal(result.status,'SINGLE_CASE_COMPONENT_COMPLETE');
   assert.equal(result.connector_requests,6);assert.equal(result.usage.calls,13);

@@ -1,5 +1,26 @@
 # SETIsearch — current project status
 
+## 1 October: shared transport accounting passes; execution remains closed
+
+[The versioned contract and exact evidence](RADIO_NATIVE_V2_TRANSPORT_CONTRACT_2026-10-01_RESULT.md)
+join every caller start, poll, source read, connector and delivery to host custody
+and one separately durable caller-only tail. **171 Python and 98 JavaScript
+native-v2 tests pass.** The actual live04 transcript contains 17 polls; a
+full-size same-poll extrapolation would require 74/64 calls and is refused.
+
+The corrected prospective zero-poll shape is 57 calls/case and 456/eight cases,
+including four Git process charges and one tail-custody call. A pinned 30-second
+wait is implemented but not yet measured. Live04 cannot grant execution because
+its final caller tail was not independently persisted and caller RSS is unknown.
+
+**Exact continuation:** integrate the tail saver with runner/launcher, then run
+one fresh maximum-size no-RNG transport control with actual caller RSS, storage,
+complete custody and public readback. Only a passing control may precede a new
+execution freeze and separate eight-case reservation. 127/24 NOT ACTIVATED;
+HD189733 selected, HD1461 HOLD, GJ724 reserve; spectra/holdouts unopened, LS
+paused, CHEOPS UNSENT. Consolidate 9 October without extension or external
+messages.
+
 ## 30 September: concrete bridge storage passes; full-size IPC budget fails
 
 [The concrete bridge, source-loader and complete evidence](RADIO_NATIVE_V2_BRIDGE_2026-09-30_RESULT.md)

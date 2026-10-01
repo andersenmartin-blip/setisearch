@@ -108,7 +108,8 @@ class BoundedLines {
 
 function deliveryRequest(line,argumentsWithoutChars) {
   assert(argumentsWithoutChars&&Number.isSafeInteger(argumentsWithoutChars.session_id)&&
-    argumentsWithoutChars.max_output_tokens===400000&&argumentsWithoutChars.yield_time_ms===10000&&
+    argumentsWithoutChars.max_output_tokens===400000&&
+    [1000,10000,30000].includes(argumentsWithoutChars.yield_time_ms)&&
     Object.keys(argumentsWithoutChars).sort().join()==='max_output_tokens,session_id,yield_time_ms',
     'Exact visible delivery arguments required');
   return JSON.stringify({tool:'write_stdin',arguments:{session_id:argumentsWithoutChars.session_id,

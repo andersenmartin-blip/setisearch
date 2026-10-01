@@ -1,5 +1,22 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 1 October: versioned shared caller/host contract passes
+
+[The contract, limits and retained negative evidence](RADIO_NATIVE_V2_TRANSPORT_CONTRACT_2026-10-01_RESULT.md)
+account for every visible poll and a distinct durable caller-only tail. **171
+Python and 98 JavaScript tests pass.** Live04's measured poll pattern extrapolates
+to 74/64 calls at full size, so it remains a component control, not execution
+qualification. The prospective zero-poll design is 57/64 per case and 456/512
+over eight, with only seven polls of headroom per case. Its 30-second wait has
+not been measured on a full-size actual path.
+
+**Exact continuation:** bind tail persistence and reduced caller reservations
+into the launcher/runner; measure a fresh full-size no-RNG path including caller
+RSS, storage, host custody and public readback. Then, only after a new complete
+execution freeze/readback, verify a separate irrevocable eight-case reservation.
+127/24 remains NOT ACTIVATED. No spectra, holdouts or messages; HD189733 remains
+selected, HD1461 HOLD and GJ724 reserve. Finish 9 October without extension.
+
 ## 30 September: concrete bridge storage passes; full-size IPC budget fails
 
 [The concrete bridge, source-loader and complete evidence](RADIO_NATIVE_V2_BRIDGE_2026-09-30_RESULT.md)
