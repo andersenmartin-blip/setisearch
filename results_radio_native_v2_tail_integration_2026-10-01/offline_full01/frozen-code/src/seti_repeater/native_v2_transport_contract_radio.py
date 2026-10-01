@@ -240,14 +240,6 @@ def validate_persistence(value,client):
     if (end<start or type(elapsed) not in (int,float) or not math.isfinite(elapsed)
             or elapsed<0 or abs(elapsed-(end-start)/1000)>0.001):
         raise ValueError('Actual caller tail elapsed time differs')
-    shared_start=_integer(value.get('shared_case_started_at_epoch_ms'),'shared_case_started_at_epoch_ms')
-    shared_end=_integer(value.get('shared_case_finished_at_epoch_ms'),'shared_case_finished_at_epoch_ms')
-    shared_elapsed=value.get('shared_case_elapsed_seconds')
-    if (shared_start>start or shared_end<end or type(shared_elapsed) not in (int,float)
-            or not math.isfinite(shared_elapsed) or shared_elapsed<0
-            or abs(shared_elapsed-(shared_end-shared_start)/1000)>0.001
-            or shared_elapsed+0.001<client['usage']['elapsed_seconds']+elapsed):
-        raise ValueError('Complete shared caller preparation/custody/observer time required')
     return json.loads(canonical(value))
 
 
@@ -275,7 +267,7 @@ class RunTranscript:
             tail_seconds=persistence.get('elapsed_seconds')
             if type(tail_seconds) not in (int,float) or not math.isfinite(tail_seconds) or tail_seconds<0:
                 raise ValueError('Measured caller tail elapsed time required')
-            case['elapsed_seconds']=persistence['shared_case_elapsed_seconds']
+            case['elapsed_seconds']+=tail_seconds
             if (case['calls']>CASE_CALLS or case['request_bytes']>CASE_REQUEST_BYTES
                     or case['response_bytes']>CASE_RESPONSE_BYTES or case['elapsed_seconds']>CASE_SECONDS):
                 raise ValueError('Combined caller case allocation exceeded')

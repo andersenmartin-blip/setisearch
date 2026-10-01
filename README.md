@@ -1,5 +1,28 @@
 # SETIsearch
 
+## 1 October: caller-tail integration passes maximum-source offline control
+
+[The implementation and exact evidence](RADIO_NATIVE_V2_TAIL_INTEGRATION_2026-10-01_RESULT.md)
+pass **185 Python and 118 JavaScript tests**. A fresh 26-MiB deterministic source
+is reconstructed through 38 real local reads and one real durable tail save.
+The complete offline shape uses **56/64 charged calls**, and independently
+observed caller RSS is **491.15/512 MiB**. The earlier **533.53-MiB** failure
+and preparation failure are retained closed. No shared cap was enlarged.
+
+The compact tail binds all raw envelope hashes, and time accounting covers
+preparation/custody/observer gaps. A fresh prospective freeze pins 907 code,
+16 input and 1,366 runtime files; all authority remains false. The result uses
+mock controller/connector exchanges and accepts one offline case, leaving the
+eight-case receipt INCOMPLETE.
+
+**Exact continuation:** qualify the actual SDK caller's independently observed
+memory and joined controller/host/Git custody, plus legal large-tail/poll/escaped
+envelope shapes, before a fresh live maximum-source control. The current one-call
+tail payload limit is 47,616 bytes. Live/eight-case execution remains closed;
+127/24 NOT ACTIVATED. HD189733 selected, HD1461 HOLD, GJ724 reserve; spectra and
+holdouts unopened, LS paused, CHEOPS UNSENT. Consolidate 9 October without
+extension or external messages.
+
 ## 30 September: concrete bridge storage passes; full-size IPC budget fails
 
 [The concrete bridge, source-loader and complete evidence](RADIO_NATIVE_V2_BRIDGE_2026-09-30_RESULT.md)

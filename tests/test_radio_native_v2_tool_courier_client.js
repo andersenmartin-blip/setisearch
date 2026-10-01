@@ -123,3 +123,14 @@ test('following delivery space must fit before any mutation dispatch',async()=>{
   const result=await run(f);assert.equal(result.status,'CLOSED_FAILED');assert.equal(result.usage.calls,1);
   assert.equal(result.records.filter(r=>r.kind==='actual_connector').length,0);
 });
+test('normalized tree connector reply exceeding its fresh64KiB reservation closes before commit',async()=>{
+  const f=fixture();f.tools.mcp__codex_apps__github_create_tree=async()=>({
+    structuredContent:{sha:SHA},padding:'x'.repeat(64*1024)});
+  const result=await run(f);assert.equal(result.status,'CLOSED_FAILED');
+  assert.match(result.reason,/reply exceeded reservation/);
+  const record=result.records.find(r=>r.tool==='mcp__codex_apps__github_create_tree');
+  assert.equal(record.response_reserved_bytes,64*1024);
+  assert.equal(record.response_unknown,false);assert.ok(record.response_bytes>record.response_reserved_bytes);
+  assert.equal(result.records.filter(r=>r.tool==='mcp__codex_apps__github_create_commit').length,0);
+  assert.equal(result.pending_delivery_reservation.dispatch_attempted,false);
+});

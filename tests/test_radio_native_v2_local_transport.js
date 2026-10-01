@@ -110,7 +110,7 @@ test('whole extraction plan reserves source-dependent escaped replies before dis
   }finally{fs.rmSync(root,{recursive:true});}
 });
 
-function hostFixture(overrides={}) {
+function hostFixture({mutateFreeze,...overrides}={}) {
   const root=temporary(),parent='a'.repeat(40),parentTree='b'.repeat(40),tree='c'.repeat(40),candidate='d'.repeat(40),
     prefix=h.PREFIX+'/case00-'+'e'.repeat(16),manifest='{}',head=sha(manifest)+'\n',files={};
   const blob=data=>require('node:crypto').createHash('sha1').update('blob '+Buffer.byteLength(data)+'\0').update(data).digest('hex');
@@ -121,6 +121,7 @@ function hostFixture(overrides={}) {
     files,manifest_sha256:sha(manifest),per_operation_response_reservations:{fetch:4*MIB,create_tree:MIB,create_commit:65536,update_ref:16384,fetch_files:48*MIB},
     single_inline_tree_request:true,single_grouped_readback:true,force:false,automatic_retry:false,
     execution_restart_authorized:false,scientific_admission_authorized:false};
+  if(mutateFreeze)mutateFreeze(freeze);
   let updated=false;const courierCalls=[],gitCalls=[],durable=[];
   const localGit={withDeadline:(ms,fn)=>fn(),expectedTree:()=>tree,immutableRead:url=>url.includes('/commits/')?
     {sha:url.split('/').at(-1),tree:{sha:url.endsWith(parent)?parentTree:tree},parents:url.endsWith(candidate)?[{sha:parent}]:[]}:
@@ -232,6 +233,18 @@ test('network invocation cannot skip preparation and outgoing capability text ne
 test('invocation refuses missing claimed worker deadline before connector dispatch',async()=>{
   const f=hostFixture();try{await assert.rejects(f.host.invoke('fetch',{url:'https://api.github.com/repos/'+h.REPOSITORY+'/git/ref/heads/'+h.BRANCH}));
     assert.equal(f.courierCalls.length,0);assert.equal(f.host.state().stopped,true);
+  }finally{fs.rmSync(f.root,{recursive:true});}
+});
+test('inconsistent frozen blob target stops before tree publication or archive fetch',async()=>{
+  const calls=[],f=hostFixture({gitFetchEnvironment:networkEnvironment,
+    mutateFreeze:freeze=>{freeze.files[freeze.prefix+'/manifest.json'].blob='1'.repeat(40);},
+    runGit:async kind=>{calls.push(kind);return{exit_code:0,output:'',stderr:incomingCapabilities};}});
+  try{
+    await f.host.withWorkerDeadline(Date.now()+10000,()=>f.host.prepareNetwork());
+    await assert.rejects(publishFixture(f),/Frozen archive Git blob identity differs/);
+    assert.deepEqual(f.courierCalls,['mcp__codex_apps__github_fetch']);
+    assert.deepEqual(calls,['git_protocol_capability'],'An inconsistent target never reaches a filtered archive fetch');
+    assert.equal(f.host.state().stopped,true);
   }finally{fs.rmSync(f.root,{recursive:true});}
 });
 test('mismatched independently computed candidate tree stops before commit/update',async()=>{

@@ -98,6 +98,34 @@ test('UTF-8 count and fixed-block SHA256 match native UTF-8 including surrogates
 test('host hash works in ECMAScript without Node, Buffer or TextEncoder', () => {
   const context = vm.createContext({});vm.runInContext(fs.readFileSync('scripts/radio_native_v2_broker_host.js','utf8'),context);
   assert.equal(vm.runInContext("sha256('æ🎯\\ud800')",context),digest('æ🎯\ud800'));
+  assert.equal(vm.runInContext("sha256Chunks(['','a','bc',''])",context),digest('abc'));
+});
+
+test('incremental ASCII SHA256 crosses awkward chunk and padding boundaries without joining', () => {
+  const source=Array.from({length:513},(_,i)=>String.fromCharCode(i%128)).join('');
+  for(const size of [1,2,7,31,55,56,63,64,65,127,128,129]){
+    const chunks=[''];for(let offset=0;offset<source.length;offset+=size)chunks.push(source.slice(offset,offset+size),'');
+    chunks.join=()=>{throw Error('Incremental hash must not join chunks');};
+    assert.equal(h.sha256Chunks(chunks),digest(source),'Chunk boundary '+size);
+  }
+  assert.equal(h.sha256Chunks([]),digest(''));
+  assert.equal(h.sha256Chunks(['','','']),digest(''));
+});
+
+test('incremental header and one MiB deterministic ASCII source match native streaming SHA256', () => {
+  const source=Buffer.alloc(MIB);for(let i=0;i<source.length;i++)source[i]=(i*17+33)&127;
+  const text=source.toString('ascii'),header='{"tool":"fixture","arguments":',suffix='}',pieces=[header];
+  for(let offset=0;offset<text.length;offset+=65521)pieces.push(text.slice(offset,offset+65521));
+  pieces.push(suffix);
+  const expected=crypto.createHash('sha256');for(const piece of pieces)expected.update(piece,'ascii');
+  assert.equal(h.sha256Chunks(pieces),expected.digest('hex'));
+  assert.equal(h.sha256(text),digest(text),'Original one-string path remains unchanged');
+});
+
+test('incremental SHA256 refuses Unicode and non-string or non-array chunks', () => {
+  for(const bad of [null,'abc',{},new Uint8Array([65]),[1],[null],[undefined],['ascii','æ'],
+    ['🎯'],['\ud800'],['\udc00'],['\u0080']])assert.throws(()=>h.sha256Chunks(bad),/ASCII string chunks/);
+  assert.equal(h.sha256Chunks(['\x00\x01\x7f']),digest('\x00\x01\x7f'));
 });
 
 test('exact component publication charges all visible Git and connector envelopes', async () => {

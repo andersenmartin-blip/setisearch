@@ -6,9 +6,15 @@ from seti_repeater.empty_null_radio import canonical
 from seti_repeater import native_v2_transport_contract_radio as c
 
 
-def raw_record(ordinal,kind,tool):
+def raw_record(ordinal,kind,tool,terminal=False):
     request=json.dumps({'tool':tool,'arguments':{'ordinal':ordinal}},separators=(',',':'))
-    result={'ordinal':ordinal,'ok':True};response=json.dumps(result,separators=(',',':'))
+    result={'ordinal':ordinal,'ok':True}
+    if kind in ('actual_controller_start','actual_idle_poll','actual_delivery'):
+        result['output']=''
+    if terminal:
+        result['output']=json.dumps({'schema':c.CONTROLLER_SCHEMA,'kind':'terminal',
+            'status':'SINGLE_CASE_COMPONENT_ONLY'},separators=(',',':'))+'\n'
+    response=json.dumps(result,separators=(',',':'))
     return {'ordinal':ordinal,'tool':tool,'kind':kind,'request_json':request,
         'request_bytes':len(request.encode()),'request_sha256':c._sha(request.encode()),
         'response_reserved_bytes':len(response.encode())+10,'response_unknown':False,
@@ -21,12 +27,14 @@ def client(polls=1,source_reads=1):
     records=[raw_record(0,'actual_controller_start','exec_command')]
     ordinal=1
     for n,tool in enumerate(c.CONNECTOR_SEQUENCE):
+        if n==0:
+            for _ in range(polls):
+                records.append(raw_record(ordinal,'actual_idle_poll','write_stdin'));ordinal+=1
         if n==1:
             for _ in range(source_reads):
                 records.append(raw_record(ordinal,'actual_source_read','exec_command'));ordinal+=1
         records.append(raw_record(ordinal,'actual_connector',tool));ordinal+=1
-        records.append(raw_record(ordinal,'actual_delivery','write_stdin'));ordinal+=1
-    for _ in range(polls):records.append(raw_record(ordinal,'actual_idle_poll','write_stdin'));ordinal+=1
+        records.append(raw_record(ordinal,'actual_delivery','write_stdin',terminal=n==5));ordinal+=1
     request=sum(r['request_bytes'] for r in records);response=sum(r['response_bytes'] for r in records)
     return {'schema':c.CLIENT_SCHEMA,'status':'SINGLE_CASE_COMPONENT_COMPLETE','reason':None,
         'usage':{'calls':len(records),'request_bytes':request,'response_bytes':response,
@@ -45,12 +53,29 @@ def client(polls=1,source_reads=1):
 
 def persistence(value):
     raw=c.caller_tail_payload(value);rows=json.loads(raw)['records']
-    return {'schema':c.PERSISTENCE_SCHEMA,'client_sha256':c._sha(canonical(value)),
+    helper={'schema':'radio-native-v2-caller-tail-readback-v1',
+        'client_sha256':c.client_binding_sha256(value),
         'stored_record_ordinals':[r['ordinal'] for r in rows],
         'payload_bytes':len(raw),'payload_sha256':c._sha(raw),'durable':True,
         'single_authoritative_file':True,'exact_readback_verified':True,
         'includes_terminal_delivery_acknowledgement':True,'automatic_retry':False,
-        'calls':1,'request_bytes':len(raw)+512,'response_bytes':128,
+        'directory_entry_fsynced':True,'independent_reopen':True,
+        'reopened_bytes':len(raw),'reopened_sha256':c._sha(raw)}
+    request=json.dumps({'tool':'exec_command','arguments':{'cmd':'qualified-saver '+raw.decode()}},separators=(',',':'))
+    result={'exit_code':0,'output':json.dumps(helper,separators=(',',':'))}
+    response=json.dumps(result,separators=(',',':'))
+    return {'schema':c.PERSISTENCE_SCHEMA,'client_sha256':c.client_binding_sha256(value),
+        'stored_record_ordinals':[r['ordinal'] for r in rows],
+        'payload_bytes':len(raw),'payload_sha256':c._sha(raw),'durable':True,
+        'single_authoritative_file':True,'exact_readback_verified':True,
+        'includes_terminal_delivery_acknowledgement':True,'automatic_retry':False,
+        'calls':1,'request_bytes':len(request.encode()),'response_bytes':len(response.encode()),
+        'request_json':request,'request_sha256':c._sha(request.encode()),
+        'response_json':response,'response_sha256':c._sha(response.encode()),'raw_result':result,
+        'dispatch_at_epoch_ms':1000,'returned_at_epoch_ms':1100,'elapsed_seconds':0.1,
+        'shared_case_started_at_epoch_ms':0,
+        'shared_case_finished_at_epoch_ms':round((value['usage']['elapsed_seconds']+0.1)*1000),
+        'shared_case_elapsed_seconds':value['usage']['elapsed_seconds']+0.1,
         'unknown_response_bytes':0,'unknown_response_count':0}
 
 
@@ -91,6 +116,47 @@ class ContractTests(unittest.TestCase):
         value=client();ledger=c.RunTranscript()
         with self.assertRaisesRegex(ValueError,'ordinal'):
             ledger.append(1,value,persistence(value),client_peak_rss_bytes=1)
+
+    def test_tail_elapsed_is_charged_before_accepting_case(self):
+        value=client();value['usage']['elapsed_seconds']=599.95
+        with self.assertRaisesRegex(ValueError,'allocation exceeded'):
+            c.RunTranscript().append(0,value,persistence(value),client_peak_rss_bytes=1)
+
+    def test_tail_boolean_claim_without_actual_envelopes_is_refused(self):
+        value=client();proof=persistence(value);proof.pop('response_json')
+        with self.assertRaisesRegex(ValueError,'envelopes'):
+            c.RunTranscript().append(0,value,proof,client_peak_rss_bytes=1)
+
+    def test_reduced_preallocated_caller_caps_cannot_be_bypassed(self):
+        value=client(polls=8,source_reads=39)
+        with self.assertRaisesRegex(ValueError,'allocation exceeded'):
+            c.RunTranscript().append(0,value,persistence(value),client_peak_rss_bytes=1)
+
+    def test_deliveries_cannot_be_reordered_even_with_valid_hashes(self):
+        value=client(polls=0,source_reads=0)
+        value['records'][2],value['records'][3]=value['records'][3],value['records'][2]
+        for i,row in enumerate(value['records']):row['ordinal']=i
+        with self.assertRaisesRegex(ValueError,'Sequential'):
+            c.validate_client(value)
+
+    def test_projection_hash_binds_every_large_envelope_without_copying_it(self):
+        value=client(source_reads=39);before=c.client_binding_sha256(value)
+        projection=c.client_binding_payload(value)
+        self.assertLess(len(projection),30000)
+        value['records'][2]['response_sha256']='f'*64
+        self.assertNotEqual(c.client_binding_sha256(value),before)
+
+    def test_terminal_report_must_match_raw_supporting_acknowledgement(self):
+        value=client();value['controller_terminal']['invented_pointer']='wrong'
+        with self.assertRaisesRegex(ValueError,'actual raw acknowledgement'):
+            c.validate_client(value)
+
+    def test_preparation_and_observer_gap_cannot_escape_shared_case_time_cap(self):
+        value=client();proof=persistence(value)
+        proof['shared_case_finished_at_epoch_ms']=601000
+        proof['shared_case_elapsed_seconds']=601
+        with self.assertRaisesRegex(ValueError,'allocation exceeded'):
+            c.RunTranscript().append(0,value,proof,client_peak_rss_bytes=1)
 
 
 if __name__=='__main__':unittest.main()

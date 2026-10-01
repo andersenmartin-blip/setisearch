@@ -5,7 +5,7 @@ const CLIENT_SCHEMA='radio-native-v2-single-exec-tool-courier-v1';
 const CONTROLLER_SCHEMA='radio-native-v2-local-tool-courier-v1';
 const CLIENT_MIB=1024*1024;
 const CLIENT_CORE=Object.freeze({mcp__codex_apps__github_fetch:65536,
-  mcp__codex_apps__github_create_tree:64*1024,
+  mcp__codex_apps__github_create_tree:4*CLIENT_MIB,
   mcp__codex_apps__github_create_commit:256*1024,
   mcp__codex_apps__github_update_ref:65536});
 const CLIENT_SEQUENCE=Object.freeze(['fetch','create_tree','create_commit','fetch','update_ref','fetch']);
@@ -164,17 +164,11 @@ async function runToolCourier(tools,options) {
         source_sha256:p.source_sha256,envelope_entries:entries,envelope_bytes:h.utf8Bytes(rawJson),envelope_sha256:h.sha256(rawJson)});
     }
     const params=parts.join('');assert(h.utf8Bytes(params)===view.bytes&&h.sha256(params)===view.sha256,'Independent complete params pin differs');
-    assert(view.request_prefix==='{"tool":'+JSON.stringify(packet.tool)+',"arguments":'&&
-      view.request_suffix==='}'&&typeof h.sha256Chunks==='function',
-      'Exact connector wrapper and pinned streaming ASCII hash required');
-    // Hash the already retained immutable fragments without allocating a
-    // second full-size wrapper string. Parse the argument object directly.
-    assert(h.utf8Bytes(view.request_prefix)+view.bytes+h.utf8Bytes(view.request_suffix)===view.request_bytes&&
-      h.sha256Chunks([view.request_prefix,...parts,view.request_suffix])===view.request_sha256,
-      'Actual complete connector request pin differs');
-    const args=JSON.parse(params);assert(args&&typeof args==='object'&&!Array.isArray(args),
-      'Exact connector argument object reconstruction required');
-    return {args,descriptors};
+    const request=view.request_prefix+params+view.request_suffix;
+    assert(h.utf8Bytes(request)===view.request_bytes&&h.sha256(request)===view.request_sha256,'Actual complete connector request pin differs');
+    const framed=JSON.parse(request);assert(framed.tool===packet.tool&&framed.arguments&&
+      Object.keys(framed).sort().join()==='arguments,tool','Exact connector wrapper reconstruction required');
+    return {args:framed.arguments,descriptors};
   }
   try {
     assert(options.startup_arguments&&typeof options.startup_arguments.cmd==='string'&&

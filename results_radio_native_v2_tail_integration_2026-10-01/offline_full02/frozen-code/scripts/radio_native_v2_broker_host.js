@@ -28,22 +28,7 @@ function utf8Bytes(value) {
   }
   return length;
 }
-function sha256(value) { return sha256Pieces([value]); }
-function sha256Chunks(pieces) {
-  assert(Array.isArray(pieces), 'ASCII string chunks array required');
-  let bytes=0;
-  for(const piece of pieces){
-    assert(typeof piece==='string'&&/^[\x00-\x7f]*$/.test(piece), 'ASCII string chunks only');
-    bytes+=piece.length;
-    assert(Number.isSafeInteger(bytes)&&bytes<=Math.floor(Number.MAX_SAFE_INTEGER/8),
-      'Bounded exact ASCII chunk byte count required');
-  }
-  return sha256Pieces(pieces);
-}
-// Shared fixed-block core. Chunk boundaries do not allocate a joined string.
-// Only the single-string entry point accepts Unicode; its code-point iterator
-// preserves the existing UTF-8 and lone-surrogate replacement behavior.
-function sha256Pieces(pieces) {
+function sha256(value) {
   const constants = [0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,
     0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,
     0x9bdc06a7,0xc19bf174,0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,
@@ -78,7 +63,7 @@ function sha256Pieces(pieces) {
     block[position++] = byte;
     if (position === 64) { compress(); position = 0; }
   }
-  for (const value of pieces) for (const ch of value) {
+  for (const ch of value) {
     let cp = ch.codePointAt(0);
     if (cp >= 0xd800 && cp <= 0xdfff) cp = 0xfffd;
     if (cp <= 0x7f) { push(cp); length++; }
@@ -450,4 +435,4 @@ function createBrokerHost(options) {
 }
 
 if (typeof module !== 'undefined') module.exports = { HOST_SCHEMA, HOST_LIMITS, LOCAL_LIMITS,TOOL_RESERVATIONS,
-  REPOSITORY,BRANCH,BROKER_PROTOCOL,PREFIX,utf8Bytes,sha256,sha256Chunks,canonical,gitBatchBytes,createBrokerHost };
+  REPOSITORY,BRANCH,BROKER_PROTOCOL,PREFIX,utf8Bytes,sha256,canonical,gitBatchBytes,createBrokerHost };

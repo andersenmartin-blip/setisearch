@@ -113,11 +113,11 @@ function networkFixture(t) {
   return {root,certificate,caPath,configPath,config,baseline,load,
     refresh:()=>{configSha=write();},localGit:{env:baseline,snapshot:()=>({git_metadata_inputs:[]})}};
 }
-function mockGitSpawn(inspect) {
+function mockGitSpawn(inspect,emit=()=>{}) {
   return(executable,args,options)=>{
     const {EventEmitter}=require('node:events'),{PassThrough}=require('node:stream'),child=new EventEmitter();
     child.stdout=new PassThrough();child.stderr=new PassThrough();child.stdin=new PassThrough();child.kill=()=>{};
-    inspect(executable,args,options);setImmediate(()=>child.emit('close',0,null));return child;
+    inspect(executable,args,options);setImmediate(()=>{emit(child);child.emit('close',0,null);});return child;
   };
 }
 function networkFetchPlan(f,network) {
@@ -170,4 +170,55 @@ test('certificate drift during Git fetch produces a failed local process result'
     spawn=mockGitSpawn(()=>fs.writeFileSync(f.caPath,'changed certificate\n'));
   const result=await runGit('git_fetch',plan,1000,f.localGit,network,spawn);
   assert.equal(result.exit_code,1);assert.match(result.io_error,/pinned input|drifted/);
+});
+
+test('Git stdout overflow fails despite a successful child exit and counts all observed chunks',async t=>{
+  const f=networkFixture(t),network=f.load(),plan={...networkFetchPlan(f,network),maximum_output_bytes:4};
+  let kills=0;
+  const spawn=mockGitSpawn(()=>{},child=>{
+    child.kill=()=>{kills++;return false;};
+    child.stdout.write('abcd');child.stdout.write('e');child.stdout.write('fg');child.stderr.write('ok');
+  });
+  const result=await runGit('git_fetch',plan,1000,f.localGit,network,spawn);
+  assert.equal(result.process_exit_code,0);assert.equal(result.exit_code,1);assert.equal(kills,2);
+  assert.equal(result.stdout_observed_bytes,7);assert.equal(result.stdout_retained_bytes,4);
+  assert.equal(result.stderr_observed_bytes,2);assert.equal(result.stderr_retained_bytes,2);
+  assert.equal(result.stdout_limit_bytes,4);assert.equal(result.stderr_limit_bytes,4);
+  assert.equal(result.output,'abcd');assert.equal(result.stderr,'ok');
+  assert.equal(result.stdout_truncated,true);assert.equal(result.stderr_truncated,false);
+  assert.equal(result.output_limit_exceeded,true);assert.match(result.io_error,/stdout.*bounded output/);
+});
+
+test('Git capability stderr overflow cannot qualify a retained valid capability prefix',async t=>{
+  const f=networkFixture(t),network=f.load(),prefix='packet: git< version 2\npacket: git< fetch=shallow filter\n',
+    plan={...networkFetchPlan(f,network),maximum_output_bytes:Buffer.byteLength(prefix),
+      args:[...GIT_NETWORK_BASE,'ls-remote','--refs','--','https://github.com/andersenmartin-blip/setisearch.git'],
+      environment:{...network.environment,GIT_TRACE_PACKET:'1'}};
+  const spawn=mockGitSpawn(()=>{},child=>{
+    child.kill=()=>false;child.stderr.write(prefix);child.stderr.write('x');child.stderr.write('yz');
+  });
+  const result=await runGit('git_protocol_capability',plan,1000,f.localGit,network,spawn);
+  assert.equal(result.process_exit_code,0);assert.equal(result.exit_code,1);assert.equal(result.stderr,prefix);
+  assert.equal(result.stderr_observed_bytes,Buffer.byteLength(prefix)+3);
+  assert.equal(result.stderr_retained_bytes,Buffer.byteLength(prefix));
+  assert.equal(result.stdout_observed_bytes,0);assert.equal(result.stdout_truncated,false);
+  assert.equal(result.stderr_truncated,true);assert.equal(result.output_limit_exceeded,true);
+  assert.match(result.io_error,/stderr.*bounded output/);
+  assert.throws(()=>require('../scripts/radio_native_v2_local_transport').filterCapabilityProof(result),/Complete bounded/);
+});
+
+test('Git spool overflow reports written bytes separately from all observed bytes',async t=>{
+  const f=networkFixture(t),network=f.load(),maximum=40*1024*1024,
+    plan={executable:'/usr/bin/git',args:['cat-file','--batch'],cwd:f.root,maximum_output_bytes:65536,
+      stdout_path:f.root+'/bounded.git-batch'},
+    spawn=mockGitSpawn(()=>{},child=>{
+      child.kill=()=>false;child.stdout.write('abc');child.stdout.write(Buffer.alloc(maximum-1,120));
+    });
+  const result=await runGit('git_cat_file_batch',plan,1000,f.localGit,network,spawn);
+  assert.equal(result.process_exit_code,0);assert.equal(result.exit_code,1);
+  assert.equal(result.stdout_observed_bytes,maximum+2);assert.equal(result.stdout_retained_bytes,3);
+  assert.equal(result.stdout_file_bytes,3);assert.equal(fs.statSync(plan.stdout_path).size,3);
+  assert.equal(fs.readFileSync(plan.stdout_path,'utf8'),'abc');
+  assert.equal(result.stdout_limit_bytes,maximum);assert.equal(result.stdout_truncated,true);
+  assert.equal(result.output_limit_exceeded,true);
 });
