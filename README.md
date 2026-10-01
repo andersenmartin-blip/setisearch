@@ -1,3 +1,21 @@
+# SETI status — 1 October 2026: shared transport accounting is explicit
+
+The native-v2 caller/host contract now counts every startup, poll, source read,
+connector, delivery, Git process and final caller-only custody operation. The
+actual live04 control had 17 polls; its full-size same-poll extrapolation would
+need 74/64 calls, so it remains non-executable component evidence. A corrected
+zero-poll maximum-size shape reserves 57/64 calls per case and 456/512 across
+eight cases. **171 Python and 98 JavaScript native-v2 tests pass.**
+
+A pinned 30-second wait and reduced caller allocations are implemented, but
+the full-size path, outer caller RSS and final-tail persistence are not yet
+measured together. Scientific 127/24 execution remains NOT ACTIVATED; no case
+reservation, RNG, score, telescope value or external message occurred.
+
+[Versioned contract, negative evidence and exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/11b82f0c57ab98289d0b353447c1cba0ed42183c/RADIO_NATIVE_V2_TRANSPORT_CONTRACT_2026-10-01_RESULT.md).
+
+---
+
 # SETI status — 30 September 2026: actual GitHub transport control verified
 
 The live04 non-scientific 64 KiB transport control passed: 31 actual SDK calls plus four conservatively counted Git processes, 35/64 operations in 236.538 seconds. Immutable file and Git readback verified the original bytes, complete tree delta, commit parent and final head. All 283 original scope files and 65 sealed Store items are retained. The scoped validation passed 97 JavaScript and 305 Python tests; broad historical repository discovery still has retained failures.
