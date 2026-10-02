@@ -1,5 +1,17 @@
 # SETIsearch
 
+## 2 October: marker-proof component verified; execution still blocked
+
+[The component, synthetic Git tests and adjacent suite](RADIO_NATIVE_V2_CONTROL_ACTIVATION_INTERFACE_2026-10-02_RESULT.md)
+verify future direct-child marker-only activation and a bounded worker receipt. Four
+isolated tests and the nine-module **211-test** suite pass. The component is not yet
+integrated into the runner or worker bundles, and no activation marker exists.
+
+No large input, control, reservation, RNG or telescope spectrum was opened. Next is
+pre-write receipt enforcement in every entry point, then a new still-blocked
+plan/freeze. HD189733 selected; HD1461 HOLD; GJ724 reserve; 127/24 NOT ACTIVATED; LS
+paused; CHEOPS UNSENT. Consolidate 9 October.
+
 ## 2 October: finite activation transition verified; execution remains blocked
 
 [The frozen protocol, blocker audit and retained failures](RADIO_NATIVE_V2_CONTROL_ACTIVATION_TRANSITION_2026-10-02_RESULT.md)
