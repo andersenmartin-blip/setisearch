@@ -1,5 +1,15 @@
 # SETIsearch
 
+## 2 October: c engineering control CLOSED_FAILED; no retry
+
+[The actual c result and retained evidence](https://github.com/andersenmartin-blip/setisearch/blob/5eae7e5428f08a1ec0aa481216a15b60c1b49fdf/RADIO_NATIVE_V2_CONTROL_C_2026-10-02_RESULT.md) record **one invocation, exit 1, 0/8 completed and permanently spent** after immutable preread P → marker-only A → public fixed sidecars B. The fixture created eight empty case directories; driver admission then refused the existing `cases` directory before identity/workload. The resulting missing-identity observer error is secondary. No retry, resume, cleanup or rearm occurred.
+
+All 49 frozen material files and all 1,002 prior production source/test/wrapper pins remain unchanged. The prior 541-test preparation pass and new 46 preread tests do not override the actual failed integration. b remains CLOSED_FAILED, 0/8 and permanently spent, with unchanged historical storage and private spend record. Next preparation must correct cold-driver phase admission and test the exact empty eight-case hierarchy under a distinct immutable preparation; c cannot be reused.
+
+Scientific/native/telescope gates stay blocked, with zero native reservations/executions, scientific cases, telescope reads or RNG draws. HD189733 remains selected; HD1461 HOLD; GJ724 reserve; spectra/holdouts unopened; 127/24 inactive; LS paused; CHEOPS UNSENT. No person messages. Stop **9 October 2026**, without extension, restart or target change. Earlier sections below are dated preparation checkpoints.
+
+Public readback verifies all **87 terminal-evidence/status files / 4,551,544 raw bytes** at immutable [`5eae7e5`](https://github.com/andersenmartin-blip/setisearch/commit/5eae7e5428f08a1ec0aa481216a15b60c1b49fdf).
+
 ## 2 October: prospective c control integrated; execution blocked
 
 [The integrated preparation and retained evidence](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_NATIVE_V2_CONTROL_INTEGRATION_2026-10-02_RESULT.md) pass **541 tests**, zero failures/errors/skips and **process exit 0**; all 1,002 source/test/wrapper pins remain unchanged. The c spender, worker admission and historical storage checks now share the independently pinned original repository root and nine-file historical bundle. Two reproduced storage races are repaired; quota checks cover all eight case allocations under the original limits.
