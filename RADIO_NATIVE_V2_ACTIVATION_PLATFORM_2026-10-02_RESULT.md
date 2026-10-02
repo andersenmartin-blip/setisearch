@@ -37,6 +37,14 @@ control, native case, reservation, RNG or telescope spectrum was opened.
 - [Test summary](results_radio_native_v2_activation_platform_20261002a/final-test-summary.json)
 - [Passing test log](results_radio_native_v2_activation_platform_20261002a/final-tests-stderr.log)
 - [Reproduction script](results_radio_native_v2_activation_platform_20261002a/verify_activation_platform.py)
+- [Public preparation readback](results_radio_native_v2_activation_platform_20261002a/publication-readback.json)
+
+Science commit `e3f1cb8ac10805a2268f861b3c133844afe7b3d4` is a
+fast-forward child of `fd230e7cdf0cf512c3c6342c22309c9d5886a536`; its public
+tree is byte-identical to the local candidate. Main commit
+`eef3e74fea466e69f42227fa839948091beb9185` is a fast-forward child of
+`df4c71563b8cfda68d75a00850563c4e75863fd3`, and its README blob matches.
+This is public **preparation** readback, not the distinct execution preread.
 
 ## Disposition and continuation
 
@@ -47,9 +55,9 @@ prepared and actually checked, but this new plan/freeze has not yet received a
 distinct immutable public execution preread. All execution, reservation and science
 authority remains false.
 
-**Exact continuation:** publish and read back this preparation, then construct the
-separate execution-qualified preread without changing the historical preparation
-contract. Do not open large inputs until that distinct gate is verified. HD189733
+**Exact continuation:** construct and independently verify the separate
+execution-qualified preread without changing the historical preparation contract.
+Do not open large inputs until that distinct gate is verified. HD189733
 remains selected, HD1461 HOLD and GJ724 reserve. 127/24 is NOT ACTIVATED; spectra and
 original holdouts remain unopened; LS paused; CHEOPS UNSENT. Consolidate 9 October
 without extension. No external messages.

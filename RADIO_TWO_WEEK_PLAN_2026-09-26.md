@@ -7,9 +7,9 @@ bind the bounded public activation platform without claiming to freeze kernel by
 **207 tests pass**; plan `20261002i` is bound to a fresh
 922-code/8-input/1,366-runtime freeze.
 
-The plan remains **BLOCKED_PREPARATION_REVIEW**. **Next:** publish/read back this
-preparation, then construct and verify a separate immutable execution preread without
-rewriting the historical preparation contract. Only after that gate may one fresh
+The plan remains **BLOCKED_PREPARATION_REVIEW**. Public preparation readback now
+matches. **Next:** construct and independently verify a separate immutable execution
+preread without rewriting the historical preparation contract. Only after that gate may one fresh
 eight-input engineering control be considered. No large source, reservation, RNG,
 telescope spectrum or holdout was opened. HD189733 selected; HD1461 HOLD; GJ724
 reserve; 127/24 NOT ACTIVATED; LS paused; CHEOPS UNSENT. Consolidate 9 October.
