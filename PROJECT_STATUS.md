@@ -1,6 +1,6 @@
 # SETIsearch — current project status
 
-## 2 October: distinct execution preread built; publication pending
+## 2 October: execution preread public readback verified; activation still blocked
 
 [The artifact, eight identity checks and retained failed control](RADIO_NATIVE_V2_EXECUTION_PREREAD_2026-10-02_RESULT.md)
 bind the exact public preparation commit, plan, freeze and material code pins. The
@@ -10,12 +10,15 @@ All eight worker identities validate; changed hashes/admission bits close. A fir
 incorrect structural commit-authentication expectation is retained failed and the
 corrected independent tree check passes.
 
-The preread is not execution-qualified until its own public blob is read back.
-Plan `20261002i` remains **BLOCKED_PREPARATION_REVIEW**; the historical contract was
-not rewritten. No large input, control, reservation, RNG or telescope read occurred.
-HD189733 selected; HD1461 HOLD; GJ724 reserve; 127/24 NOT ACTIVATED; spectra/holdouts
-unopened; LS paused; CHEOPS UNSENT. **Next:** publish/read back the preread, then
-assess the separate one-control activation transition. Consolidate 9 October.
+Public science commit `fda127b40e0781c4a4b750615563693bb557c95f` and main commit
+`19ee0d83fd1ba029a0cd4bbf8f332ea6164efb5d` now match the expected parents,
+trees and pinned blobs. Plan `20261002i` remains **BLOCKED_PREPARATION_REVIEW**;
+the preread publication does not bypass the separate pre-admission activation gate,
+and the historical contract was not rewritten. No large input, control, reservation,
+RNG or telescope read occurred. HD189733 selected; HD1461 HOLD; GJ724 reserve;
+127/24 NOT ACTIVATED; spectra/holdouts unopened; LS paused; CHEOPS UNSENT.
+**Next:** specify and verify the separate one-control activation transition while
+preserving all published pins. Consolidate 9 October.
 No messages.
 
 ## 2 October: bounded activation platform verified; execution blocked

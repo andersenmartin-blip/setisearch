@@ -1,6 +1,6 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
-## 2 October: distinct execution preread built; own readback pending
+## 2 October: distinct execution preread public readback verified
 
 [The artifact and verifier](RADIO_NATIVE_V2_EXECUTION_PREREAD_2026-10-02_RESULT.md)
 bind the exact public preparation commit, plan, freeze, code pins and eight fixed
@@ -8,8 +8,11 @@ worker identities. The blocked historical plan is unchanged; the first mistaken
 commit-authentication negative is retained failed and the corrected public-tree
 check passes.
 
-**Next:** publish and independently read back the preread itself, then assess a
-separate one-control activation transition. No large source, resource control,
+The exact science/main parents, trees and pinned blobs now match independent public
+readback. This closes preread publication, not the separate pre-admission gate.
+
+**Next:** specify and verify a separate one-control activation transition while
+preserving every published pin and the blocked historical contract. No large source, resource control,
 reservation, RNG, telescope spectrum or holdout was opened. HD189733 selected;
 HD1461 HOLD; GJ724 reserve; 127/24 NOT ACTIVATED; LS paused; CHEOPS UNSENT.
 Consolidate 9 October. No external messages.

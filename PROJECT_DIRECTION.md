@@ -1,6 +1,6 @@
 # Long-term project direction
 
-## 2 October: distinct execution preread constructed
+## 2 October: distinct execution preread publication verified
 
 [The exact artifact and verifier](RADIO_NATIVE_V2_EXECUTION_PREREAD_2026-10-02_RESULT.md)
 bind the current public preparation tree, plan, freeze and all eight fixed worker
@@ -8,10 +8,14 @@ identities without rewriting the blocked plan. The retained first failure clarif
 that remote commit authenticity comes from independent tree readback, not a JSON
 label or a syntactically valid SHA.
 
-**Direction:** publish/read back the preread itself. Only then assess a separate,
-one-control activation transition. Keep all large inputs, reservations, RNG and
-science closed until that decision. Target/holdout dispositions, 127/24 status and
-the 9 October end date remain unchanged. No external messages.
+Its science and main publications now have matching independent public readback.
+The preread does not change the still-false global activation guard.
+
+**Direction:** specify and verify a separate one-control activation transition that
+preserves every published pin and does not rewrite the blocked historical contract.
+Keep all large inputs, reservations, RNG and science closed until that gate is
+independently closed. Target/holdout dispositions, 127/24 status and the 9 October
+end date remain unchanged. No external messages.
 
 ## 2 October: bounded activation platform contract verified
 
