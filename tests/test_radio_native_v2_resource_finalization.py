@@ -100,6 +100,33 @@ class ResourceFinalizationTests(unittest.TestCase):
             'final_disposition_persisted': False,
             **({'tiny_engineering_probe_only': True} if tiny else {}), **finalization.AUTHORITY}
 
+    def ledger_inventory(self, *, logical=8, allocated=16):
+        """Explicit in-memory unit observation; never an actual spend witness."""
+        root = str(self.scope.parent/(self.scope.name+'-synthetic-ledger'))
+        return {'schema': finalization.LEDGER_STORAGE_SCHEMA,
+            'ledger_root': root, 'control_scope': str(self.scope),
+            'activation_receipt_sha256': 'a'*64, 'invocation_spending_sha256': 'b'*64,
+            'witness_bindings_verified': True, 'ledger_inventory_exact': True,
+            'current_observation_stable': True, 'entry_count': 2,
+            'logical_bytes': logical, 'allocated_bytes': allocated,
+            'rows': [{'path': root, 'kind': 'directory', 'bytes': 0,
+                'allocated_bytes': 0, 'device': 987654321, 'inode': 1},
+                {'path': root+'/explicit-synthetic-storage.txt', 'kind': 'file',
+                    'bytes': logical, 'allocated_bytes': allocated,
+                    'device': 987654321, 'inode': 2}]}
+
+    def production_labeled_snapshot(self, ledger):
+        """Exercise production accounting with mocked live observation only."""
+        self.runner.pop('synthetic_test_fixture', None)
+        self.driver.pop('synthetic_test_fixture', None)
+        write_json(self.scope/finalization.RUNNER_OBSERVATION_NAME, self.runner)
+        self.driver_pin = write_json(self.scope/finalization.DRIVER_OBSERVATION_NAME, self.driver)
+        with mock.patch.object(finalization, 'observe_authenticated_ledger_storage', return_value=ledger), \
+                mock.patch.object(finalization.time, 'monotonic_ns', return_value=1_600_000_000):
+            self.pending = finalization.capture_pending_measurements(self.scope,
+                admission_start_monotonic_ns=self.start, expected_runner_argv=self.runner_argv)
+        self.pending_pin = write_json(self.scope/finalization.PENDING_NAME, self.pending)
+
     def test_tiny_synthetic_join_counts_shared_directories_and_reserved_final_metadata(self):
         result = self.join()
         self.assertEqual(result['status'], 'SYNTHETIC_RESOURCE_BOUNDS_CHECKED')
@@ -462,20 +489,208 @@ class ResourceFinalizationTests(unittest.TestCase):
                 expected_writer_argv=argv)
 
     def test_subreaper_direct_receipt_does_not_imply_full_descendant_wait_chain(self):
-        self.driver.pop('synthetic_test_fixture')
-        self.runner.pop('synthetic_test_fixture')
-        self.driver_pin = write_json(self.scope/finalization.DRIVER_OBSERVATION_NAME, self.driver)
-        # The runner's changed byte pin and base inventory must be captured by a
-        # new explicitly synthetic snapshot; no actual worker is relaunched.
-        write_json(self.scope/finalization.RUNNER_OBSERVATION_NAME, self.runner)
-        with mock.patch.object(finalization.time, 'monotonic_ns', return_value=1_600_000_000):
-            self.pending = finalization.capture_pending_measurements(self.scope,
-                admission_start_monotonic_ns=self.start, expected_runner_argv=self.runner_argv)
-        self.pending_pin = write_json(self.scope/finalization.PENDING_NAME, self.pending)
-        result = self.join()
+        ledger = self.ledger_inventory()
+        self.production_labeled_snapshot(ledger)
+        with mock.patch.object(finalization, 'observe_authenticated_ledger_storage', return_value=ledger):
+            result = self.join()
         self.assertEqual(result['status'], 'PENDING_FINAL_MEASUREMENT_JOIN')
         self.assertTrue(result['all_original_resource_bounds_checked'])
         self.assertFalse(result['complete_descendant_wait_chain_verified'])
+
+    def test_external_ledger_bytes_are_shared_once_inside_original_caps(self):
+        inventory = finalization.storage_inventory(self.scope)
+        ledger = self.ledger_inventory(logical=8, allocated=16)
+        before = finalization.allocate_storage(inventory)
+        after = finalization.allocate_storage(inventory, external_inventory=ledger)
+        self.assertEqual(after['whole_logical_bytes_with_remaining_reservation'],
+            before['whole_logical_bytes_with_remaining_reservation']+8)
+        self.assertEqual(after['whole_allocated_bytes_with_remaining_reservation'],
+            before['whole_allocated_bytes_with_remaining_reservation']+16)
+        self.assertTrue(after['external_ledger_storage_included'])
+        self.assertEqual(after['external_ledger_inventory_sha256'], finalization._ledger_inventory_pin(ledger))
+        for old, new in zip(before['cases'], after['cases']):
+            self.assertEqual(new['complete_logical_bytes'], old['complete_logical_bytes']+1)
+            self.assertEqual(new['complete_allocated_bytes'], old['complete_allocated_bytes']+2)
+        self.assertEqual(finalization.LIMITS['case_storage_bytes'], 192*finalization.MIB)
+        self.assertEqual(finalization.LIMITS['run_storage_bytes'], 1536*finalization.MIB)
+
+    def test_external_ledger_original_logical_and_allocated_budget_boundaries(self):
+        cap = finalization.LIMITS['case_storage_bytes']
+        rows = [{'path': '.', 'kind': 'directory', 'bytes': 0,
+            'allocated_bytes': 0, 'device': 12, 'inode': 1}]
+        for ordinal in range(8):
+            rows.extend([{'path': f'cases/case{ordinal:02d}', 'kind': 'directory',
+                'bytes': 0, 'allocated_bytes': 0, 'device': 12, 'inode': 2+2*ordinal},
+                {'path': f'cases/case{ordinal:02d}/synthetic.bin', 'kind': 'file',
+                    'bytes': cap-1, 'allocated_bytes': cap-2,
+                    'device': 12, 'inode': 3+2*ordinal}])
+        inventory = {'scope': str(self.scope), 'rows': rows,
+            'logical_bytes': 8*(cap-1), 'allocated_bytes': 8*(cap-2)}
+        ledger = self.ledger_inventory(logical=8, allocated=16)
+        result = finalization.allocate_storage(inventory, external_inventory=ledger,
+            reserved_bytes=0, directory_reserved_bytes=0)
+        self.assertEqual(result['whole_logical_bytes_with_remaining_reservation'], 1536*finalization.MIB)
+        self.assertEqual(result['whole_allocated_bytes_with_remaining_reservation'], 1536*finalization.MIB)
+        for metric in ('logical', 'allocated'):
+            with self.subTest(metric=metric):
+                excessive = self.ledger_inventory(logical=9 if metric == 'logical' else 8,
+                    allocated=17 if metric == 'allocated' else 16)
+                with self.assertRaisesRegex(ValueError, '192MiB'):
+                    finalization.allocate_storage(inventory, external_inventory=excessive,
+                        reserved_bytes=0, directory_reserved_bytes=0)
+
+    def test_external_storage_false_totals_overlap_and_aliases_are_rejected(self):
+        inventory = finalization.storage_inventory(self.scope)
+        for mutation, phrase in (
+                (lambda ledger: ledger.update({'allocated_bytes': 0}), 'total differs'),
+                (lambda ledger: ledger.update({'control_scope': '/other/control'}), 'bind'),
+                (lambda ledger: ledger.update({'ledger_root': str(self.scope/'nested-ledger')}), 'disjoint'),
+                (lambda ledger: ledger['rows'][1].update({
+                    'device': inventory['rows'][0]['device'], 'inode': inventory['rows'][0]['inode']}), 'overlaps'),
+                (lambda ledger: ledger['rows'][1].update({'path': ledger['ledger_root']+'//alias'}), 'Canonical'),
+                (lambda ledger: ledger.update({'witness_bindings_verified': False}), 'contract')):
+            ledger = self.ledger_inventory(); mutation(ledger)
+            with self.subTest(phrase=phrase), self.assertRaisesRegex(ValueError, phrase):
+                finalization.allocate_storage(inventory, external_inventory=ledger)
+
+    def test_reserved_metadata_directory_cannot_consume_a_file_reservation(self):
+        (self.scope/finalization.FINAL_NAME).mkdir()
+        with self.assertRaisesRegex(ValueError, 'metadata.*never directories'):
+            finalization.allocate_storage(finalization.storage_inventory(self.scope))
+
+    def test_production_snapshot_reobserves_and_retains_external_ledger(self):
+        ledger = self.ledger_inventory()
+        self.production_labeled_snapshot(ledger)
+        storage = self.pending['storage_before_snapshot_fsync_with_final_reservation']
+        self.assertEqual(storage['external_ledger_storage'], ledger)
+        with mock.patch.object(finalization, 'observe_authenticated_ledger_storage', return_value=ledger) as observe:
+            joined = self.join()
+        observe.assert_called_once_with(self.scope)
+        self.assertTrue(joined['persistent_ledger_storage_reobserved_and_charged'])
+        self.assertFalse(joined['complete_resource_measurement_join_qualified'])
+
+    def test_production_join_external_allocated_drift_closes_without_writes(self):
+        ledger = self.ledger_inventory()
+        self.production_labeled_snapshot(ledger)
+        changed = self.ledger_inventory(allocated=17)
+        before = (self.scope/finalization.PENDING_NAME).read_bytes()
+        with mock.patch.object(finalization, 'observe_authenticated_ledger_storage', return_value=changed):
+            self.assert_closed(self.join(), 'Persistent ledger storage changed')
+        self.assertEqual((self.scope/finalization.PENDING_NAME).read_bytes(), before)
+        self.assertFalse((self.scope/finalization.FINAL_NAME).exists())
+
+    def test_production_ledger_cannot_be_missing_or_replaced_by_a_boolean(self):
+        ledger = self.ledger_inventory()
+        self.production_labeled_snapshot(ledger)
+        self.pending['storage_before_snapshot_fsync_with_final_reservation'].pop('external_ledger_inventory_sha256')
+        self.pending_pin = write_json(self.scope/finalization.PENDING_NAME, self.pending)
+        with mock.patch.object(finalization, 'observe_authenticated_ledger_storage', return_value=ledger):
+            self.assert_closed(self.join(), 'Persistent ledger storage changed')
+        with mock.patch.object(finalization, 'observe_authenticated_ledger_storage', return_value=None):
+            self.assert_closed(self.join(), 'Authenticated persistent ledger storage is required')
+
+    def test_pinned_ledger_adapter_rejects_self_selected_fixture_before_compile(self):
+        (self.scope/'frozen-code').mkdir()
+        write_json(self.scope/'plan.json', {'code_files': {finalization.FIXTURE: {'bytes': 0, 'sha256': '0'*64}}})
+        with mock.patch.object(finalization, '_source_module') as compile_fixture:
+            with self.assertRaisesRegex(ValueError, 'independent bootstrap pin'):
+                finalization.observe_authenticated_ledger_storage(self.scope)
+        compile_fixture.assert_not_called()
+
+    def test_pinned_ledger_adapter_uses_exact_material_repo_and_scope(self):
+        (self.scope/'frozen-code').mkdir()
+        write_json(self.scope/'plan.json', {'code_files': copy.deepcopy(finalization.BOOTSTRAP_SOURCE_PINS)})
+        ledger = self.ledger_inventory()
+        fixture = types.SimpleNamespace(persistent_ledger_storage=mock.Mock(return_value=ledger))
+        before = sorted(str(path) for path in self.scope.rglob('*'))
+        with mock.patch.object(finalization, '_source_module', return_value=fixture) as compiler:
+            self.assertEqual(finalization.observe_authenticated_ledger_storage(self.scope), ledger)
+        compiler.assert_called_once_with(self.scope/'frozen-code'/finalization.FIXTURE,
+            finalization.BOOTSTRAP_SOURCE_PINS[finalization.FIXTURE], 'pinned_ledger_storage_fixture')
+        fixture.persistent_ledger_storage.assert_called_once_with(self.scope, repo=self.scope/'frozen-code')
+        self.assertEqual(before, sorted(str(path) for path in self.scope.rglob('*')))
+
+    def test_production_report_ledger_drift_and_budget_failure_precede_first_write(self):
+        for failure in ('drift', 'allocated-budget'):
+            with self.subTest(failure=failure):
+                ledger = self.ledger_inventory(allocated=1536*finalization.MIB if failure == 'allocated-budget' else 16)
+                value = self.final_report_input(tiny=False)
+                value['independent_driver_measurement_disposition'] = {'storage': {
+                    'external_ledger_inventory_sha256': finalization._ledger_inventory_pin(ledger)}}
+                input_pin = write_json(self.scope/finalization.FINAL_INPUT_NAME, value)
+                observed = copy.deepcopy(ledger)
+                if failure == 'drift':
+                    observed['allocated_bytes'] += 1
+                    observed['rows'][1]['allocated_bytes'] += 1
+                with mock.patch.object(finalization, 'check_final_report_material_scope', return_value={}), \
+                        mock.patch.object(finalization, 'observe_authenticated_ledger_storage', return_value=observed), \
+                        mock.patch.object(finalization, '_write_durable_exclusive') as write, \
+                        self.assertRaisesRegex(ValueError, 'Persistent ledger storage changed|192MiB'):
+                    finalization.persist_final_report(self.scope, expected_input_pin=input_pin)
+                write.assert_not_called()
+                self.assertFalse((self.scope/finalization.FINAL_WRITER_IDENTITY_NAME).exists())
+                self.assertFalse((self.scope/finalization.FINAL_NAME).exists())
+
+    def material_writer_join_fixture(self, ledger):
+        """Fabricated receipts solely for the read-only production branch."""
+        value = self.final_report_input(tiny=False)
+        value['independent_driver_measurement_disposition'] = {'storage': {
+            'external_ledger_inventory_sha256': finalization._ledger_inventory_pin(ledger)}}
+        input_pin = write_json(self.scope/finalization.FINAL_INPUT_NAME, value)
+        report = {**value, 'schema': finalization.SCHEMA+'-persisted-final-report',
+            'final_report_input_pin': input_pin, 'report_writer_fsync_completed_before_return': True,
+            'report_writer_termination_observation_required': True, 'final_disposition_persisted': True,
+            'report_writer_mode': 'ACTIVATION_BOUND_MATERIAL_SCOPE'}
+        report_pin = write_json(self.scope/finalization.FINAL_NAME, report)
+        write_json(self.scope/finalization.FINAL_WRITER_IDENTITY_NAME, {'procfs_pid': 555, 'namespace_pid': 5})
+        argv = [self.python, '-I', '-S', '-B', str(Path(finalization.__file__).resolve()),
+            '--persist-final-report', '--scope', str(self.scope), '--input-bytes', str(input_pin['bytes']),
+            '--input-sha256', input_pin['sha256']]
+        observation = self.observation(argv, 2_100_000_000, 2_200_000_000, procfs_pid=555, namespace_pid=5)
+        observation.pop('synthetic_test_fixture')
+        observation_pin = write_json(self.scope/finalization.FINAL_WRITER_OBSERVATION_NAME, observation)
+        return {'expected_input_pin': input_pin, 'expected_report_pin': report_pin,
+            'expected_writer_observation_pin': observation_pin, 'expected_writer_argv': argv}
+
+    def test_production_writer_lifetime_reobserves_and_charges_ledger(self):
+        ledger = self.ledger_inventory()
+        options = self.material_writer_join_fixture(ledger)
+        with mock.patch.object(finalization, 'observe_authenticated_ledger_storage', return_value=ledger) as observe:
+            joined = finalization.join_final_report_lifetime(self.scope, **options)
+        observe.assert_called_once_with(self.scope)
+        self.assertTrue(joined['persistent_ledger_storage_reobserved_and_charged_after_writer_termination'])
+        self.assertEqual(joined['storage_after_report_writer_lifetime_with_final_reservation']['external_ledger_storage'], ledger)
+        self.assertFalse(joined['complete_resource_measurement_join_qualified'])
+
+    def test_production_writer_lifetime_ledger_drift_closes_read_only(self):
+        ledger = self.ledger_inventory()
+        options = self.material_writer_join_fixture(ledger)
+        changed = self.ledger_inventory(allocated=17)
+        before = (self.scope/finalization.FINAL_NAME).read_bytes()
+        with mock.patch.object(finalization, 'observe_authenticated_ledger_storage', return_value=changed), \
+                self.assertRaisesRegex(ValueError, 'Persistent ledger storage changed'):
+            finalization.join_final_report_lifetime(self.scope, **options)
+        self.assertEqual((self.scope/finalization.FINAL_NAME).read_bytes(), before)
+
+    def test_outer_launcher_metadata_stays_inside_fixed_total_reservation(self):
+        for filename in finalization.OUTER_LAUNCH_METADATA_NAMES:
+            self.assertIn(filename, finalization.FINAL_METADATA_NAMES)
+        self.assertEqual(finalization.METADATA_RESERVATION_BYTES, 256*1024)
+        inventory = finalization.storage_inventory(self.scope)
+        before = finalization.allocate_storage(inventory)
+        for filename in finalization.OUTER_LAUNCH_METADATA_NAMES:
+            (self.scope/filename).write_bytes(b'explicit synthetic outer metadata\n')
+        after = finalization.allocate_storage(finalization.storage_inventory(self.scope))
+        self.assertEqual(before['whole_logical_bytes_with_remaining_reservation'],
+            after['whole_logical_bytes_with_remaining_reservation'])
+        self.assertEqual(before['whole_allocated_bytes_with_remaining_reservation'],
+            after['whole_allocated_bytes_with_remaining_reservation'])
+        inventory = finalization.storage_inventory(self.scope)
+        row = next(row for row in inventory['rows'] if row['path'] == finalization.OUTER_LAUNCH_METADATA_NAMES[0])
+        added = finalization.METADATA_RESERVATION_BYTES
+        row['allocated_bytes'] += added; inventory['allocated_bytes'] += added
+        with self.assertRaisesRegex(ValueError, 'metadata.*reservation'):
+            finalization.allocate_storage(inventory)
 
     def test_bool_ordinal_and_scientific_authority_are_rejected(self):
         worker = copy.deepcopy(self.worker); worker['cases'][0]['ordinal'] = False

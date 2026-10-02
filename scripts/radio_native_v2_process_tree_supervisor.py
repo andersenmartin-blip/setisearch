@@ -52,7 +52,7 @@ DIRECTORY_RESERVATION_BYTES = 65536
 # Independently reviewed implementation pins bootstrap admission. Supplied
 # bundle hashes cannot select executable validator/fixture implementations.
 # Updating either implementation requires reviewing and refreshing this table.
-BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v2_worker_admission.py': {'bytes': 75309, 'sha256': 'f12f684a41bfd6deb9a390351dba78319b6aad7e5716f22c95393e7cb99c961b'}, 'scripts/radio_native_v2_compact_eight_case_resource_fixture.py': {'bytes': 118166, 'sha256': 'e4f84a8bf231269cdab419531326f716c27d70923ea8368cda11523e8b4934b3'}}
+BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v2_worker_admission.py': {'bytes': 75309, 'sha256': '475c2884f87f10986e15df57bbb9b5ee7c0652cf37604b2f7f03d9fd277142ae'}, 'scripts/radio_native_v2_compact_eight_case_resource_fixture.py': {'bytes': 120874, 'sha256': 'd86ba4fd37b92a71c54bc884755358a13d2797dddffbbb3f5d8ccc26e3c91df7'}}
 AUTHORITY = {'execution_authorized': False, 'reservation_authorized': False,
     'scientific_execution_authorized': False, 'native_case_reservations': 0,
     'native_case_executions': 0, 'scientific_cases_run': 0, 'rng_draws': 0,

@@ -6,6 +6,7 @@ import json
 import multiprocessing
 import os
 from pathlib import Path
+import stat
 import tempfile
 import unittest
 from unittest import mock
@@ -328,6 +329,140 @@ class InvocationSpendingTests(unittest.TestCase):
         self.assertFalse(Path(root).exists())
         for name in ('rearm', 'delete', 'reset', 'remove_record', 'retry'):
             self.assertFalse(hasattr(spending, name))
+
+    def observe(self, witness, receipt=None, **changes):
+        kwargs = {'execution_scope': str(self.scope), 'ledger_root': str(self.ledger)}
+        kwargs.update(changes)
+        return spending.observe_spend_storage(witness,
+            self.receipt if receipt is None else receipt, **kwargs)
+
+    def test_storage_observation_counts_current_file_and_directory_bytes_blocks(self):
+        witness = self.consume(); witness_before = copy.deepcopy(witness)
+        raw_before = self.record_path().read_bytes()
+        observed = self.observe(witness)
+        self.assertEqual(observed['schema'], spending.STORAGE_SCHEMA)
+        self.assertEqual(observed['ledger_root'], str(self.ledger))
+        self.assertEqual(observed['control_scope'], str(self.scope))
+        self.assertEqual(observed['invocation_spending_sha256'], spending._digest(witness))
+        self.assertEqual(observed['activation_receipt_sha256'], spending._digest(self.receipt))
+        self.assertEqual(observed['entry_count'], 2)
+        self.assertTrue(observed['witness_bindings_verified'])
+        self.assertTrue(observed['ledger_inventory_exact'])
+        self.assertTrue(observed['current_observation_stable'])
+        for row, path, kind in zip(observed['rows'], (self.ledger, self.record_path()),
+                ('directory', 'file')):
+            info = path.stat()
+            self.assertEqual(row['path'], str(path)); self.assertEqual(row['kind'], kind)
+            self.assertEqual(row['bytes'], info.st_size)
+            self.assertEqual(row['allocated_bytes'], info.st_blocks*512)
+            self.assertEqual(row['device'], info.st_dev); self.assertEqual(row['inode'], info.st_ino)
+            self.assertEqual(row['mode'], stat.S_IMODE(info.st_mode))
+            self.assertEqual(row['mtime_ns'], info.st_mtime_ns)
+            self.assertEqual(row['ctime_ns'], info.st_ctime_ns)
+        self.assertEqual(observed['logical_bytes'],
+            self.ledger.stat().st_size + self.record_path().stat().st_size)
+        self.assertEqual(observed['allocated_bytes'],
+            (self.ledger.stat().st_blocks+self.record_path().stat().st_blocks)*512)
+        self.assertEqual(observed, self.observe(witness))
+        self.assertEqual(witness, witness_before)
+        self.assertEqual(self.record_path().read_bytes(), raw_before)
+        self.assertFalse(self.scope.exists())
+
+    def test_storage_observation_reauthenticates_receipt_witness_scope_and_ledger(self):
+        witness = self.consume()
+        changed = copy.deepcopy(witness); changed['record_sha256'] = 'a'*64
+        with self.assertRaises(ValueError): self.observe(changed)
+        changed_receipt = copy.deepcopy(self.receipt); changed_receipt['plan_sha256'] = 'a'*64
+        with self.assertRaises(ValueError): self.observe(witness, changed_receipt)
+        with self.assertRaises(ValueError): self.observe(witness, execution_scope='/another-scope')
+        other = self.root/'other-ledger'; other.mkdir(mode=0o700)
+        with self.assertRaises(ValueError): self.observe(witness, ledger_root=str(other))
+        self.assertEqual(list(other.iterdir()), [])
+
+    def test_storage_observation_rejects_all_extra_including_hidden_and_special_entries(self):
+        witness = self.consume()
+        for kind in ('file', 'hidden', 'directory', 'symlink', 'fifo'):
+            with self.subTest(kind=kind):
+                name = '.hidden' if kind == 'hidden' else 'extra'
+                path = self.ledger/name
+                if kind in ('file', 'hidden'): path.write_bytes(b'never ignored')
+                elif kind == 'directory': path.mkdir()
+                elif kind == 'symlink': path.symlink_to('/absent-synthetic-target')
+                else: os.mkfifo(path)
+                try:
+                    with self.assertRaises(ValueError): self.observe(witness)
+                finally:
+                    if kind == 'directory': path.rmdir()
+                    else: path.unlink()
+
+    def test_storage_observation_rejects_record_alias_corruption_and_missing_entry(self):
+        witness = self.consume()
+        alias = self.root/'spend-alias'; os.link(self.record_path(), alias)
+        with self.assertRaises(ValueError): self.observe(witness)
+        alias.unlink()
+        self.record_path().write_bytes(b'changed storage bytes')
+        with self.assertRaises(ValueError): self.observe(witness)
+        self.record_path().unlink()
+        with self.assertRaises(OSError): self.observe(witness)
+
+    def test_storage_observation_detects_directory_inventory_mutation_during_scan(self):
+        witness = self.consume(); actual = spending._ledger_names; calls = 0
+        def names(directory, name):
+            nonlocal calls
+            calls += 1
+            result = actual(directory, name)
+            if calls == 1: (self.ledger/'.late-extra').write_bytes(b'late')
+            return result
+        with mock.patch.object(spending, '_ledger_names', side_effect=names):
+            with self.assertRaisesRegex(ValueError, 'one-record'): self.observe(witness)
+
+    def test_storage_observation_detects_directory_size_or_block_drift(self):
+        witness = self.consume(); actual = spending._storage_identity; calls = 0
+        def identity(info):
+            nonlocal calls
+            value = actual(info)
+            if stat.S_ISDIR(info.st_mode):
+                calls += 1
+                if calls == 2: value['allocated_bytes'] += 512
+            return value
+        with mock.patch.object(spending, '_storage_identity', side_effect=identity):
+            with self.assertRaisesRegex(ValueError, 'directory storage changed'): self.observe(witness)
+
+    def test_storage_observation_detects_file_block_drift_under_unchanged_witness(self):
+        witness = self.consume(); actual = spending._storage_identity; calls = 0
+        def identity(info):
+            nonlocal calls
+            value = actual(info)
+            if stat.S_ISREG(info.st_mode):
+                calls += 1
+                if calls == 3: value['allocated_bytes'] += 512
+            return value
+        with mock.patch.object(spending, '_storage_identity', side_effect=identity):
+            with self.assertRaisesRegex(ValueError, 'record storage changed'): self.observe(witness)
+
+    def test_storage_observation_bounds_directory_size_before_enumeration(self):
+        witness = self.consume(); actual = spending._storage_identity
+        def identity(info):
+            value = actual(info)
+            if stat.S_ISDIR(info.st_mode):
+                value['bytes'] = spending.MAX_LEDGER_DIRECTORY_BYTES+1
+            return value
+        with (mock.patch.object(spending, '_storage_identity', side_effect=identity),
+                mock.patch.object(spending, '_ledger_names') as scan):
+            with self.assertRaisesRegex(ValueError, 'Bounded leaf'): self.observe(witness)
+            scan.assert_not_called()
+
+    def test_storage_observation_denies_ledger_root_replacement_after_authenticated_read(self):
+        witness = self.consume(); actual = spending.verify_spend_witness
+        def verify(*args, **kwargs):
+            result = actual(*args, **kwargs)
+            self.ledger.rename(self.root/'old-observed-ledger')
+            self.ledger.mkdir(mode=0o700)
+            (self.ledger/self.record_path().name).write_bytes(
+                (self.root/'old-observed-ledger'/self.record_path().name).read_bytes())
+            return result
+        with mock.patch.object(spending, 'verify_spend_witness', side_effect=verify):
+            with self.assertRaisesRegex(ValueError, 'directory identity'): self.observe(witness)
 
 
 if __name__ == '__main__':

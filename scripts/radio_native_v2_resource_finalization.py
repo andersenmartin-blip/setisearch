@@ -21,6 +21,7 @@ import time
 import types
 
 SCHEMA = 'radio-native-v2-whole-resource-finalization-v1'
+LEDGER_STORAGE_SCHEMA = 'radio-native-v2-control-invocation-spend-storage-v1'
 OBSERVATION_SCHEMA = 'radio-native-v2-compact-eight-input-resource-control-v1-process-observation'
 NAMESPACE = 'radio-native-v2-compact-eight-input-control-20261001a'
 MIB = 1024 * 1024
@@ -45,10 +46,14 @@ FINAL_WRITER_IDENTITY_NAME = 'final-report-writer-identity.json'
 FINAL_WRITER_OBSERVATION_NAME = 'final-report-writer-observation.json'
 FINAL_WRITER_STDOUT_NAME = 'final-report-writer-stdout.log'
 FINAL_WRITER_STDERR_NAME = 'final-report-writer-stderr.log'
+OUTER_LAUNCH_METADATA_NAMES = ('compact-control-launch-stdout.log',
+    'compact-control-launch-stderr.log', 'compact-control-launch-observation.json',
+    'compact-control-launch-disposition.json', 'compact-control-launch-preflight.json',
+    'compact-control-launch-closed-failure.json')
 FINAL_METADATA_NAMES = (PENDING_NAME, DRIVER_IDENTITY_NAME,
     DRIVER_OBSERVATION_NAME, FINAL_INPUT_NAME, FINAL_WRITER_IDENTITY_NAME,
     FINAL_WRITER_OBSERVATION_NAME, FINAL_WRITER_STDOUT_NAME,
-    FINAL_WRITER_STDERR_NAME, FINAL_NAME)
+    FINAL_WRITER_STDERR_NAME, FINAL_NAME, *OUTER_LAUNCH_METADATA_NAMES)
 METADATA_RESERVATION_BYTES = 256 * 1024
 DIRECTORY_RESERVATION_BYTES = 65536
 MAX_EVIDENCE_BYTES = 2*MIB
@@ -60,7 +65,7 @@ TINY_REPORT_SECONDS = 3.0
 # Independent reviewed dispatch pins. Root refreshes these only after reviewing
 # the final code of the fixed source implementations; a supplied bundle cannot
 # select an arbitrary implementation for any admission check.
-BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v2_compact_eight_case_resource_fixture.py': {'bytes': 118166, 'sha256': 'e4f84a8bf231269cdab419531326f716c27d70923ea8368cda11523e8b4934b3'}, 'scripts/radio_native_v2_worker_admission.py': {'bytes': 75309, 'sha256': 'f12f684a41bfd6deb9a390351dba78319b6aad7e5716f22c95393e7cb99c961b'}, 'scripts/radio_native_v2_process_tree_supervisor.py': {'bytes': 58177, 'sha256': '13334e0a6ad42d9dad8a71b539ab3ea5ae730e045a624f8008273f099cf4f92d'}}
+BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v2_compact_eight_case_resource_fixture.py': {'bytes': 120874, 'sha256': 'd86ba4fd37b92a71c54bc884755358a13d2797dddffbbb3f5d8ccc26e3c91df7'}, 'scripts/radio_native_v2_worker_admission.py': {'bytes': 75309, 'sha256': '475c2884f87f10986e15df57bbb9b5ee7c0652cf37604b2f7f03d9fd277142ae'}, 'scripts/radio_native_v2_process_tree_supervisor.py': {'bytes': 58177, 'sha256': 'f510cce4b8fb7511a95f97c452e51918476c9ec9dd05e3f629af10e48e7ea601'}}
 AUTHORITY = {'execution_authorized': False, 'reservation_authorized': False,
     'scientific_execution_authorized': False, 'native_case_reservations': 0,
     'native_case_executions': 0, 'scientific_cases_run': 0, 'rng_draws': 0,
@@ -213,7 +218,7 @@ def storage_inventory(scope):
                 'mtime_ns': before.st_mtime_ns, 'ctime_ns': before.st_ctime_ns})
         else: raise ValueError('Only directories and sole-link ordinary files may be retained')
     visit(scope)
-    return {'rows': rows, 'logical_bytes': sum(row['bytes'] for row in rows),
+    return {'scope': str(scope), 'rows': rows, 'logical_bytes': sum(row['bytes'] for row in rows),
         'allocated_bytes': sum(row['allocated_bytes'] for row in rows), 'entry_count': len(rows)}
 
 
@@ -229,19 +234,126 @@ def _base_inventory_pin(inventory):
     return hashlib.sha256(canonical(base)).hexdigest()
 
 
+def _validate_inventory_totals(inventory):
+    if type(inventory) is not dict or type(inventory.get('rows')) is not list:
+        raise ValueError('Exact storage inventory rows required')
+    rows = inventory['rows']
+    if len(rows) > MAX_INVENTORY_ENTRIES:
+        raise ValueError('Bounded storage inventory capacity exceeded')
+    names = set()
+    for row in rows:
+        if (type(row) is not dict or row.get('kind') not in ('file', 'directory')
+                or type(row.get('path')) is not str or row['path'] in names):
+            raise ValueError('Distinct exact file/directory storage rows required')
+        names.add(row['path'])
+        for field in ('bytes', 'allocated_bytes'):
+            _integer(row.get(field), 'storage '+field)
+    for field in ('logical_bytes', 'allocated_bytes'):
+        value = _integer(inventory.get(field), 'inventory '+field)
+        source = 'bytes' if field == 'logical_bytes' else field
+        if value != sum(row[source] for row in rows):
+            raise ValueError('Storage inventory total differs from its exact rows')
+    if 'entry_count' in inventory and _integer(inventory['entry_count'], 'inventory entries') != len(rows):
+        raise ValueError('Storage inventory entry count differs from its exact rows')
+
+
+def _external_ledger_inventory(inventory, external_inventory):
+    """Validate the independently observed, disjoint ledger charge contract.
+
+    A dictionary is no authentication mechanism: production stage APIs obtain
+    this value anew through their independently pinned material fixture adapter.
+    The low-level allocator accepts explicit observations for tiny unit probes.
+    """
+    _validate_inventory_totals(external_inventory)
+    if (external_inventory.get('schema') != LEDGER_STORAGE_SCHEMA
+            or external_inventory.get('witness_bindings_verified') is not True
+            or external_inventory.get('ledger_inventory_exact') is not True
+            or external_inventory.get('current_observation_stable') is not True
+            or external_inventory.get('entry_count') != 2):
+        raise ValueError('Exact independently observed persistent ledger storage contract required')
+    for field in ('activation_receipt_sha256', 'invocation_spending_sha256'):
+        if type(external_inventory.get(field)) is not str or not re.fullmatch('[a-f0-9]{64}', external_inventory[field]):
+            raise ValueError('Exact authenticated ledger binding digest required')
+    scope = inventory.get('scope')
+    if type(scope) is not str or external_inventory.get('control_scope') != scope:
+        raise ValueError('Persistent ledger storage must bind the measured control scope')
+    scope = Path(scope); ledger = Path(external_inventory.get('ledger_root', ''))
+    for path in (scope, ledger):
+        if not path.is_absolute() or '..' in path.parts or str(path) != str(path.absolute()):
+            raise ValueError('Canonical absolute disjoint ledger/control storage paths required')
+    if scope == ledger or scope in ledger.parents or ledger in scope.parents:
+        raise ValueError('Persistent ledger and measured scope storage must be disjoint')
+    rows = external_inventory['rows']
+    directories = [row for row in rows if row['kind'] == 'directory']
+    files = [row for row in rows if row['kind'] == 'file']
+    if (len(directories) != 1 or len(files) != 1 or directories[0]['path'] != str(ledger)
+            or Path(files[0]['path']).parent != ledger):
+        raise ValueError('Exactly one external ledger directory and spend file required')
+    existing = set()
+    for row in inventory['rows']:
+        # Real scope inventories always retain device/inode. In-memory boundary
+        # probes may omit them only when no external ledger is supplied.
+        existing.add((_integer(row.get('device'), 'scope storage device'),
+            _integer(row.get('inode'), 'scope storage inode', minimum=1)))
+    seen = set()
+    for row in rows:
+        path = Path(row['path'])
+        if not path.is_absolute() or '..' in path.parts or str(path) != row['path']:
+            raise ValueError('Canonical absolute external ledger inventory row path required')
+        identity = (_integer(row.get('device'), 'ledger storage device'),
+            _integer(row.get('inode'), 'ledger storage inode', minimum=1))
+        if identity in existing or identity in seen:
+            raise ValueError('Persistent ledger storage overlaps measured or duplicate inode allocation')
+        seen.add(identity)
+    return external_inventory
+
+
+def _ledger_inventory_pin(inventory):
+    return hashlib.sha256(canonical(inventory)).hexdigest()
+
+
+def observe_authenticated_ledger_storage(scope):
+    """Read-only live ledger observation through the independently pinned gate."""
+    scope = _absolute(scope); code_root = _absolute(scope/'frozen-code')
+    plan, _ = read_pinned_json(scope/'plan.json', maximum=16*MIB)
+    expected = BOOTSTRAP_SOURCE_PINS[FIXTURE]
+    if canonical(plan.get('code_files', {}).get(FIXTURE)) != canonical(expected):
+        raise ValueError('Ledger storage fixture differs from independent bootstrap pin')
+    fixture = _source_module(code_root/FIXTURE, expected, 'pinned_ledger_storage_fixture')
+    observed = fixture.persistent_ledger_storage(scope, repo=code_root)
+    # The adapter authenticates activation and spending evidence; this boundary
+    # also checks the exact returned scope/schema contract.
+    if (type(observed) is not dict or observed.get('schema') != LEDGER_STORAGE_SCHEMA
+            or observed.get('control_scope') != str(scope)):
+        raise ValueError('Pinned fixture returned an invalid persistent ledger observation')
+    return observed
+
+
+def _match_retained_ledger(inventory, expected_sha256):
+    if (type(expected_sha256) is not str or not re.fullmatch('[a-f0-9]{64}', expected_sha256)
+            or _ledger_inventory_pin(inventory) != expected_sha256):
+        raise ValueError('Persistent ledger storage changed after the independently retained snapshot')
+
+
 def allocate_storage(inventory, *, reserved_bytes=METADATA_RESERVATION_BYTES,
-        directory_reserved_bytes=DIRECTORY_RESERVATION_BYTES):
+        directory_reserved_bytes=DIRECTORY_RESERVATION_BYTES, external_inventory=None):
+    _validate_inventory_totals(inventory)
     _integer(reserved_bytes, 'final metadata reservation')
     _integer(directory_reserved_bytes, 'terminal directory growth reservation')
     # The reservation is a total allowance, not a duplicate of metadata already
     # materialized. Replace logical and allocated reservations independently.
     metadata = [row for row in inventory['rows'] if row['path'] in FINAL_METADATA_NAMES]
+    if any(row['kind'] != 'file' for row in metadata):
+        raise ValueError('Reserved terminal metadata must be ordinary files, never directories')
+    external = _external_ledger_inventory(inventory, external_inventory) if external_inventory is not None else None
+    external_logical = external['logical_bytes'] if external is not None else 0
+    external_allocated = external['allocated_bytes'] if external is not None else 0
     metadata_logical = sum(row['bytes'] for row in metadata)
     metadata_allocated = sum(row['allocated_bytes'] for row in metadata)
     if max(metadata_logical, metadata_allocated) > reserved_bytes:
         raise ValueError('Terminal metadata exceeded its retained storage reservation')
-    logical = inventory['logical_bytes'] + reserved_bytes - metadata_logical + directory_reserved_bytes
-    allocated = inventory['allocated_bytes'] + reserved_bytes - metadata_allocated + directory_reserved_bytes
+    logical = inventory['logical_bytes'] + external_logical + reserved_bytes - metadata_logical + directory_reserved_bytes
+    allocated = inventory['allocated_bytes'] + external_allocated + reserved_bytes - metadata_allocated + directory_reserved_bytes
     cases = []
     for ordinal in range(8):
         prefix = f'cases/case{ordinal:02d}'
@@ -272,7 +384,14 @@ def allocate_storage(inventory, *, reserved_bytes=METADATA_RESERVATION_BYTES,
         'metadata_logical_bytes_present': metadata_logical,
         'metadata_allocated_bytes_present': metadata_allocated,
         'final_metadata_reservation_bytes': reserved_bytes,
-        'terminal_directory_growth_reservation_bytes': directory_reserved_bytes, 'cases': cases}
+        'terminal_directory_growth_reservation_bytes': directory_reserved_bytes,
+        'external_ledger_storage_included': external is not None,
+        'external_ledger_logical_bytes': external_logical,
+        'external_ledger_allocated_bytes': external_allocated,
+        'external_ledger_inventory_sha256': _ledger_inventory_pin(external) if external is not None else None,
+        'external_ledger_storage': external,
+        'external_ledger_allocation': 'one eighth of every external ledger byte' if external is not None else None,
+        'cases': cases}
 
 
 def _worker_cases(worker):
@@ -424,7 +543,11 @@ def capture_pending_measurements(scope, *, admission_start_monotonic_ns,
         resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024)
     if peak > LIMITS['rss_bytes']: raise ValueError('Original 512MiB maximum individual process RSS bound exceeded')
     start = _integer(admission_start_monotonic_ns, 'independently retained admission start', minimum=1)
-    inventory = storage_inventory(scope); storage = allocate_storage(inventory)
+    inventory = storage_inventory(scope)
+    external = None if runner.get('synthetic_test_fixture') is True else observe_authenticated_ledger_storage(scope)
+    if external is None and runner.get('synthetic_test_fixture') is not True:
+        raise ValueError('Authenticated persistent ledger storage is required for a production snapshot')
+    storage = allocate_storage(inventory, external_inventory=external)
     completed = time.monotonic_ns()
     if not start <= runner_end <= completed:
         raise ValueError('Whole measured interval does not contain the independently reaped runner')
@@ -504,7 +627,13 @@ def join_final_measurements(scope, *, expected_pending_pin, expected_driver_obse
         inventory = storage_inventory(scope)
         if _base_inventory_pin(inventory) != pending.get('base_inventory_sha256'):
             raise ValueError('Retained scope changed after the driver snapshot outside reserved final metadata')
-        storage = allocate_storage(inventory)
+        synthetic = driver.get('synthetic_test_fixture') is True or runner.get('synthetic_test_fixture') is True
+        external = None if synthetic else observe_authenticated_ledger_storage(scope)
+        if not synthetic and external is None:
+            raise ValueError('Authenticated persistent ledger storage is required for a production join')
+        if external is not None:
+            _match_retained_ledger(external, pending.get('storage_before_snapshot_fsync_with_final_reservation', {}).get('external_ledger_inventory_sha256'))
+        storage = allocate_storage(inventory, external_inventory=external)
         # Time spent by this read-only external join is charged conservatively
         # too. Its future persistence/termination remains an explicit boundary.
         join_completed = time.monotonic_ns()
@@ -514,8 +643,7 @@ def join_final_measurements(scope, *, expected_pending_pin, expected_driver_obse
             and subreaper_chain_complete)
         complete_join = (complete_descendant_chain
             and pending.get('complete_material_worker_and_case_rss_fields_present') is True
-            and complete_material_peaks)
-        synthetic = driver.get('synthetic_test_fixture') is True or runner.get('synthetic_test_fixture') is True
+            and complete_material_peaks and external is not None)
         if synthetic: complete_join = complete_descendant_chain = False
         pending_reasons = []
         if synthetic: pending_reasons.append('Synthetic receipt fixtures are not execution evidence.')
@@ -532,6 +660,7 @@ def join_final_measurements(scope, *, expected_pending_pin, expected_driver_obse
             'all_original_resource_bounds_checked': True, 'reported_resource_bounds_within_original_caps': True,
             'maximum_individual_process_rss_bytes': peak, 'rss_accounting_scope': 'maximum individual process',
             'storage': storage, 'timing': timing, 'case_operations': totals,
+            'persistent_ledger_storage_reobserved_and_charged': external is not None,
             'read_only_join_completed_monotonic_ns': join_completed,
             'final_metadata_storage_reserved_only': True,
             'status': 'SYNTHETIC_RESOURCE_BOUNDS_CHECKED' if synthetic else
@@ -665,6 +794,12 @@ def persist_final_report(scope, *, expected_input_pin):
     scope = _absolute(scope)
     report_input, observed_input_pin = _pending_final_report_input(scope, expected_input_pin)
     gate = check_final_report_material_scope(scope)
+    external = observe_authenticated_ledger_storage(scope)
+    disposition = report_input.get('independent_driver_measurement_disposition', {})
+    _match_retained_ledger(external, disposition.get('storage', {}).get('external_ledger_inventory_sha256'))
+    storage = allocate_storage(storage_inventory(scope), external_inventory=external)
+    gate.update({'persistent_ledger_storage_reobserved_and_charged': True,
+        'storage_before_report_writer_identity_with_final_reservation': storage})
     if not (sys.flags.isolated and sys.flags.no_site and sys.flags.dont_write_bytecode):
         raise RuntimeError('Actual isolated no-site no-bytecode final-report writer required')
     if dict(os.environ) != ENVIRONMENT:
@@ -741,6 +876,12 @@ def join_final_report_lifetime(scope, *, expected_input_pin, expected_report_pin
             raise ValueError('Persisted final report differs from pinned input: '+key)
     if writer_peak > LIMITS['rss_bytes']:
         raise ValueError('Original 512MiB report-writer process RSS bound exceeded')
+    storage = None
+    if not tiny:
+        external = observe_authenticated_ledger_storage(scope)
+        disposition = report_input.get('independent_driver_measurement_disposition', {})
+        _match_retained_ledger(external, disposition.get('storage', {}).get('external_ledger_inventory_sha256'))
+        storage = allocate_storage(storage_inventory(scope), external_inventory=external)
     return {**report,
         'status': ('SYNTHETIC_TINY_ENGINEERING_REPORT_WRITER_FIXTURE' if synthetic else
             'TINY_ENGINEERING_REPORT_PROBE_WRITER_OBSERVED' if tiny else 'OFFLINE_RESOURCE_MEASUREMENT_JOIN_PASSED'
@@ -756,7 +897,9 @@ def join_final_report_lifetime(scope, *, expected_input_pin, expected_report_pin
         'final_reporting_process_termination_covered': not synthetic,
         'synthetic_report_writer_observation_fixture': synthetic,
         'final_disposition_persisted': True,
-        'terminal_observer_own_future_termination_covered': False}
+        'terminal_observer_own_future_termination_covered': False,
+        **({'persistent_ledger_storage_reobserved_and_charged_after_writer_termination': True,
+            'storage_after_report_writer_lifetime_with_final_reservation': storage} if not tiny else {})}
 
 
 def _material_directory_fd(path):

@@ -27,6 +27,7 @@ import stat
 
 SCHEMA = 'radio-native-v2-control-invocation-spend-v1'
 WITNESS_SCHEMA = 'radio-native-v2-control-invocation-spend-witness-v1'
+STORAGE_SCHEMA = 'radio-native-v2-control-invocation-spend-storage-v1'
 RECEIPT_SCHEMA = 'radio-native-v2-control-single-activation-receipt-v2'
 NAMESPACE = 'radio-native-v2-control-activation-transition-20261002b'
 REPOSITORY = 'andersenmartin-blip/setisearch'
@@ -36,6 +37,9 @@ SPENT_MARKER = 'config/radio_native_v2_control_activation_20261002a.activate.jso
 SPENT_ACTIVATION_COMMIT = 'ba1b6c918931a02a84cd23e0e14057bd9f700e40'
 LEDGER_DIRECTORY = '.radio-native-v2-invocation-ledger'
 MAX_RECORD_BYTES = 16384
+# A one-file private ledger needs no directory growth beyond this bounded
+# metadata window. This is a scan bound, not an additional workload budget.
+MAX_LEDGER_DIRECTORY_BYTES = 16384
 MAX_PATH_BYTES = 4096
 DISABLED = ('reservation_authorized', 'rng_authorized',
     'scientific_execution_authorized', 'native_execution_authorized',
@@ -299,4 +303,88 @@ def verify_spend_witness(witness, receipt, *, execution_scope, ledger_root):
         _same_directory(directory, ledger, witness['ledger_identity'])
         return True
     finally:
+        os.close(directory)
+
+
+def _storage_identity(info):
+    value = {**_identity(info), 'allocated_bytes': info.st_blocks*512}
+    if any(type(item) is not int or item < 0 for item in value.values()):
+        raise ValueError('Nonnegative observed ledger storage metadata required')
+    return value
+
+
+def _ledger_names(directory, expected_name):
+    # Iterate the held descriptor and stop at the first unwanted entry. No
+    # recursive walk, ignored dotfile, unbounded name list or extra-file read.
+    names = []
+    with os.scandir(directory) as entries:
+        for entry in entries:
+            if names or entry.name != expected_name:
+                raise ValueError('Exact one-record invocation ledger inventory required')
+            names.append(entry.name)
+    if names != [expected_name]:
+        raise ValueError('Exact one-record invocation ledger inventory required')
+    return names
+
+
+def observe_spend_storage(witness, receipt, *, execution_scope, ledger_root):
+    """Read-only current ledger storage AFTER independent bundle authentication.
+
+    Recheck the witness, receipt and scope; then observe exactly the ledger
+    directory plus its sole spend record through held stable descriptors. Count
+    both directory and file logical bytes and allocated blocks. Any extra entry
+    (including dotfiles), subdirectory, special file, alias, mutation or missing
+    record fails closed. Rows use absolute paths so the original resource
+    allocator can reject cross-scope inode aliases and charge this storage once
+    as shared external overhead, within its unchanged whole/per-case budgets.
+
+    This observation is distinct from the immutable spend witness: directory
+    size, allocated blocks and timestamps describe NOW, not the earlier claim.
+    It grants no invocation authority, writes nothing and promises no future
+    immutability or protection from local filesystem rollback.
+    """
+    scope, ledger = _paths(execution_scope, ledger_root)
+    if verify_spend_witness(witness, receipt, execution_scope=scope,
+            ledger_root=ledger) is not True:
+        raise ValueError('Authenticated invocation spend witness required for storage observation')
+    identity, receipt_digest, name = _receipt(receipt, scope)
+    directory = _directory(ledger); fd = None
+    try:
+        _same_directory(directory, ledger, witness['ledger_identity'])
+        directory_before = _storage_identity(os.fstat(directory))
+        if (directory_before['nlink'] != 2
+                or directory_before['bytes'] > MAX_LEDGER_DIRECTORY_BYTES):
+            raise ValueError('Bounded leaf invocation ledger directory required')
+        _ledger_names(directory, name)
+        named_before = os.stat(name, dir_fd=directory, follow_symlinks=False)
+        if _regular(named_before) != witness['record_identity']:
+            raise ValueError('Spend record identity differs before storage observation')
+        fd = os.open(name, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK, dir_fd=directory)
+        file_before = _storage_identity(os.fstat(fd))
+        if file_before != _storage_identity(named_before):
+            raise ValueError('Spend record storage changed during descriptor open')
+        _, raw, observed_identity = _read_record(directory, name)
+        if (raw != canonical(_record(receipt, scope, identity, receipt_digest))+b'\n'
+                or hashlib.sha256(raw).hexdigest() != witness['record_sha256']
+                or observed_identity != witness['record_identity']):
+            raise ValueError('Spend record binding differs during storage observation')
+        _ledger_names(directory, name)
+        _same_directory(directory, ledger, witness['ledger_identity'])
+        if directory_before != _storage_identity(os.fstat(directory)):
+            raise ValueError('Invocation ledger directory storage changed during observation')
+        if (file_before != _storage_identity(os.fstat(fd))
+                or file_before != _storage_identity(os.stat(name, dir_fd=directory,
+                    follow_symlinks=False))):
+            raise ValueError('Invocation spend record storage changed during observation')
+        rows = [{'path': ledger, 'kind': 'directory', **directory_before},
+            {'path': ledger+'/'+name, 'kind': 'file', **file_before}]
+        return {'schema': STORAGE_SCHEMA, 'ledger_root': ledger, 'control_scope': scope,
+            'activation_receipt_sha256': receipt_digest,
+            'invocation_spending_sha256': _digest(witness), 'rows': rows,
+            'logical_bytes': sum(row['bytes'] for row in rows),
+            'allocated_bytes': sum(row['allocated_bytes'] for row in rows),
+            'entry_count': len(rows), 'witness_bindings_verified': True,
+            'ledger_inventory_exact': True, 'current_observation_stable': True}
+    finally:
+        if fd is not None: os.close(fd)
         os.close(directory)

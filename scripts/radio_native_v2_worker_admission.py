@@ -41,7 +41,7 @@ CUSTODY_SOURCE = 'scripts/radio_native_v2_runtime_custody.py'
 CUSTODY_IMPLEMENTATION_PIN = {'bytes':22519,
     'sha256':'d0cd311c1615a2c299b101ca75b98ba2412b41bb1cfd668725461e4d307fb0b5'}
 SPENDING_SOURCE = 'scripts/radio_native_v2_invocation_spending.py'
-SPENDING_IMPLEMENTATION_PIN = {'bytes': 15048, 'sha256': 'd659918161562e4b237385872efdc59d0d070feeec47e01b9e0d8ccdbcf05ae0'}
+SPENDING_IMPLEMENTATION_PIN = {'bytes': 20163, 'sha256': 'd6bba881e0001e61e332eb28b9b6377bcbd9e283641661a89e5360217319ce33'}
 ACTIVATION_DISABLED = ('reservation_authorized', 'rng_authorized',
     'scientific_execution_authorized', 'native_execution_authorized',
     'restart_authorized', 'automatic_retry')
