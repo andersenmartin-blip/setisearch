@@ -15,12 +15,15 @@ are used only during observation and are not published as portable identity.
 - [Adjacent suite](results_radio_native_v2_runtime_custody_component_20261002a/adjacent-suite-summary.json)
 - [Retained adjacent discovery failures](results_radio_native_v2_runtime_custody_component_20261002a/failed-adjacent-suite-first.json)
   and [second failure](results_radio_native_v2_runtime_custody_component_20261002a/failed-adjacent-suite-second.json)
+- [Public science/main readback](results_radio_native_v2_runtime_custody_component_20261002a/publication-readback.json)
 
 All eight tests pass in 5.067 seconds, including hidden/added aliases, unexpected
 material hardlinks, same-byte relinking, hash drift and symlinks. The real 1,366-path
 freeze reproduces the six groups and 157-alias closure. The ten-module adjacent suite
 passes **223 tests in 94.093 seconds**. Two incomplete import-path suite invocations
 and the initial isolated discovery failure are retained rather than hidden.
+Science commit `49a23b83...` and main commit `ce1b9bab...` have matching independent
+parent, tree and material-blob readback.
 
 The component is deliberately not integrated into the freezer, marker receipt,
 workers or runner yet. It grants no new activation/control, and the failed marker and

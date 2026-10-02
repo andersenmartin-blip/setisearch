@@ -12,6 +12,7 @@ The component is not yet integrated into the freezer, receipt, workers or runner
 authorizes no control. The prior marker/invocation remain spent. **Next:** integrate
 the custody manifest at every pre-write gate, run the adjacent suite, then create
 fresh plan/freeze; do not retry the failed evaluation or open telescope data.
+Its science and README publications now have matching public readback.
 
 ## 2 October: runtime-custody topology audited; remediation protocol frozen
 
