@@ -1,5 +1,18 @@
 # SETIsearch — current project status
 
+## 2 October: runtime-custody topology audited; remediation protocol frozen
+
+[The bounded audit and prospective protocol](RADIO_NATIVE_V2_RUNTIME_CUSTODY_REMEDIATION_2026-10-02_RESULT.md)
+cover all 1,366 frozen runtime paths. There are 151 hardlinked Git paths in six inode
+groups and 157 closed aliases under two roots; material Python/Node/library paths have
+no hardlinks. The protocol separates activation-only Git custody from sole-link
+material runtime and specifies receipt and negative-test requirements.
+
+No code was changed and no new activation/control is authorized. The failed marker
+and invocation remain spent; no retry, large input, RNG, reservation, science/native
+case or telescope read occurred. Next is implementation plus tests under fresh
+preparation, not reuse of the failed evaluation. Other dispositions remain unchanged.
+
 ## 2 October: one-control invocation closed before scope creation
 
 [The retained final disposition](RADIO_NATIVE_V2_ONE_CONTROL_2026-10-02_RESULT.md)

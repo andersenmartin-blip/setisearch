@@ -1,5 +1,16 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 2 October: runtime-custody remediation protocol frozen
+
+[The full frozen-runtime audit](RADIO_NATIVE_V2_RUNTIME_CUSTODY_REMEDIATION_2026-10-02_RESULT.md)
+finds 151 Git hardlink paths in six groups and no post-activation material-runtime
+hardlinks. A prospective policy now requires closed alias topology for activation-only
+Git and sole-link custody for later material execution.
+
+**Next:** implement and negatively test the policy; any future control requires fresh
+plan/freeze/preread/marker. Do not reuse or retry the spent control. No telescope data,
+reservation, RNG or native/science case is authorized. Consolidate 9 October.
+
 ## 2 October: unique engineering control failed closed; no retry
 
 [The activation, invocation and diagnosis](RADIO_NATIVE_V2_ONE_CONTROL_2026-10-02_RESULT.md)

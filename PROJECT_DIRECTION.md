@@ -1,5 +1,16 @@
 # Long-term project direction
 
+## 2 October: prospective runtime-custody parity specified
+
+[The topology audit](RADIO_NATIVE_V2_RUNTIME_CUSTODY_REMEDIATION_2026-10-02_RESULT.md)
+shows hardlinks are confined to Git's activation-only runtime. The frozen remediation
+requires complete alias-group closure and stable descriptor hashing before the
+receipt, then prohibits Git use; all post-activation material runtime stays sole-link.
+
+**Direction:** implement this policy with negative tests and a new receipt schema.
+Only later, under wholly fresh preparation, may another marker be considered. The
+failed marker/control remain spent and the 9 October boundary is unchanged.
+
 ## 2 October: spent control exposes runtime-custody contract mismatch
 
 [The one permitted invocation](RADIO_NATIVE_V2_ONE_CONTROL_2026-10-02_RESULT.md)
