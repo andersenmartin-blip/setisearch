@@ -1,5 +1,18 @@
 # SETIsearch
 
+## 2 October: runtime-custody proof component passes eight tests
+
+[The component, negative tests and retained discovery failure](RADIO_NATIVE_V2_RUNTIME_CUSTODY_COMPONENT_2026-10-02_RESULT.md)
+turn ephemeral inode observations into a portable Git alias-group manifest while
+requiring sole-link custody for every post-activation runtime. Eight isolated tests
+and the 223-test adjacent suite pass, including the real 1,366-path freeze and
+hidden/added alias, relink, drift, symlink and unexpected material-hardlink cases.
+
+It is not integrated into the freezer, activation receipt, workers or runner and
+authorizes no new marker/control. The failed marker and invocation remain spent. Next
+is pre-write integration plus adjacent tests and a wholly fresh plan/freeze; no
+telescope data or failed-evaluation retry. Consolidate 9 October.
+
 ## 2 October: runtime-custody topology audited; remediation frozen
 
 [The bounded audit and prospective protocol](RADIO_NATIVE_V2_RUNTIME_CUSTODY_REMEDIATION_2026-10-02_RESULT.md)
