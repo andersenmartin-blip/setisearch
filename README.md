@@ -8,6 +8,8 @@ All 49 frozen material files and all 1,002 prior production source/test/wrapper 
 
 Scientific/native/telescope gates stay blocked, with zero native reservations/executions, scientific cases, telescope reads or RNG draws. HD189733 remains selected; HD1461 HOLD; GJ724 reserve; spectra/holdouts unopened; 127/24 inactive; LS paused; CHEOPS UNSENT. No person messages. Stop **9 October 2026**, without extension, restart or target change. Earlier sections below are dated preparation checkpoints.
 
+The [immutable terminal checkpoint](https://github.com/andersenmartin-blip/setisearch/commit/5eae7e5428f08a1ec0aa481216a15b60c1b49fdf) has matching complete raw/Git-blob readback of **87 files / 4,551,544 raw bytes**. The [main README update](https://github.com/andersenmartin-blip/setisearch/commit/dc8d9d0f59691d8eac63ca9aa9cb8eae224b8cb1) also has matching full-content/blob readback. These publications preserve c's failure and permanent spend.
+
 ## 2 October: distinct c execution preread built and verified
 
 [The distinct c preread and evidence](RADIO_NATIVE_V2_EXECUTION_PREREAD_C_2026-10-02_RESULT.md) bind unchanged plan r/runtime and all 49 material files to the immutable integrated preparation. Fresh public GETs verify **171 unique files / 6,815,970 raw bytes**, including all nine historical inputs. The exact 25-field c proof is built exclusively and independently verified; **46 new metadata-tool tests pass**, with zero failures/errors/skips and process exit 0. The existing 541-test production pass and all 1,002 source pins remain unchanged.

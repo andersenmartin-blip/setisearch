@@ -49,6 +49,14 @@ Native reservations/executions, scientific cases, telescope reads and RNG draws 
 
 The next engineering preparation must reconcile control-role admission with the fixture-created exact empty eight-case hierarchy, while preserving refusal of populated, unexpected or unsafe state. It needs a meaningful cold-driver regression and a distinct immutable source/runtime preparation before any new prospective activation. Neither b nor c may be repaired in place or rerun.
 
+## Publication readback
+
+All **87 terminal-evidence/status files / 4,551,544 raw bytes** match complete public raw content and Git blobs at [immutable `5eae7e5`](https://github.com/andersenmartin-blip/setisearch/commit/5eae7e5428f08a1ec0aa481216a15b60c1b49fdf), tree `77ef3a936ae999d49c33fcbe08d50ddadb2caa48`, sole parent B. The over-1-MiB admission bundle required a complete decoded raw Git-blob GET because the contents endpoint returned its blob identity with empty content; that adapter disposition is retained and is not a public-byte mismatch.
+
+The main README is updated at [`dc8d9d0`](https://github.com/andersenmartin-blip/setisearch/commit/dc8d9d0f59691d8eac63ca9aa9cb8eae224b8cb1), with complete 50,384-byte content and Git-blob readback matching. The [root terminal readback](results_radio_native_v2_control_activation_20261002c/public-terminal-readback.json), [adapter disposition](results_radio_native_v2_control_activation_20261002c/public-terminal-readback-adapter-disposition.json) and [main README readback](results_radio_native_v2_control_activation_20261002c/main-readme-public-readback.json) are retained. Publication does not grant authority or rearm c.
+
+An [independent machine-agent terminal public review](results_radio_native_v2_control_activation_20261002c/independent-terminal-public-review.json) verifies 20 critical immutable public files / 1,071,014 raw bytes, including the main README, retained driver trace, frozen phase sources, spend copy and current outcome documents. It finds no claim corrections, distinguishes its selected-file review from root's full 87-file readback and discloses prior supervisor authorship. No new invocation or protected-state repair occurred.
+
 ## Retained evidence
 
 - [Terminal record](results_radio_native_v2_control_activation_20261002c/single-launch-terminal.json), [scope inventory](results_radio_native_v2_control_activation_20261002c/terminal-scope-inventory.json), [source preservation](results_radio_native_v2_control_activation_20261002c/post-terminal-source-preservation.json).
