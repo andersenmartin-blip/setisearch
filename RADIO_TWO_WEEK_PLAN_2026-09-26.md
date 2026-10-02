@@ -1,5 +1,21 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 2 October: descendant escape guard passes; large run remains blocked
+
+[The guard implementation, actual negative control and exact evidence](RADIO_NATIVE_V2_ESCAPE_GUARD_2026-10-02_RESULT.md)
+pass **200 relevant tests**. Supervised roots now enter inherited no-new-privileges
+and seccomp before exec; actual namespace/tracing/clone3 attempts are refused, and
+the tiny guarded chain reaches terminal `ECHILD` under independent outer observation.
+
+This is only the declared descendant wait/escape component. Plan revision
+`20261002f` remains **BLOCKED_PREPARATION_REVIEW** with all execution authorities
+false. **Next:** complete activation-time runtime/parent-environment closure,
+immutable public execution preread and outer final-report fsync/termination coverage;
+then consider one fresh eight-input engineering resource control. No large source,
+reservation, RNG, telescope spectrum or holdout was opened. HD189733 selected;
+HD1461 HOLD; GJ724 reserve; 127/24 NOT ACTIVATED; LS paused; CHEOPS UNSENT.
+Consolidate 9 October without extension. No external messages.
+
 ## 1 October: seven worker roles wired; execution remains blocked
 
 [The full worker integration, resource-finalization review and logs](RADIO_NATIVE_V2_WHOLE_WORKER_INTEGRATION_2026-10-01_RESULT.md)

@@ -50,9 +50,9 @@ MAX_INVENTORY_ENTRIES = 32768
 # the final code of the fixed source implementations; a supplied bundle cannot
 # select an arbitrary implementation for any admission check.
 BOOTSTRAP_SOURCE_PINS = {
-    FIXTURE: {'bytes': 106767, 'sha256': 'e8d19e6f42d4b0b19b15b8ace8c639c369b9c42bef7c4aea4b2e1a0f14059743'},
+    FIXTURE: {'bytes': 107207, 'sha256': 'd16e7534b21c776f1ec1c09f0e8b16acb2975306e1c61303322a3c6361c52da7'},
     ADMISSION: {'bytes': 67121, 'sha256': 'f0e78a51244bca357cf1ea11a89d9ca2bbe91cfb9584e9a9345141c3248629ff'},
-    SUPERVISOR: {'bytes': 53638, 'sha256': '9352a33e751773700c93f9bfa5cad7f6add97aa3609e620fda8786c6a0f8affa'},
+    SUPERVISOR: {'bytes': 57814, 'sha256': 'b9a72439ab094b74436857f42224c6c26cf35e498d225b9ae1b33ddda616d1e6'},
 }
 AUTHORITY = {'execution_authorized': False, 'reservation_authorized': False,
     'scientific_execution_authorized': False, 'native_case_reservations': 0,
@@ -373,6 +373,29 @@ def _observation(receipt, expected_argv, *, expected_identity=None):
     return start, end, peak
 
 
+_ESCAPE_OPERATIONS = ['clone-namespace-flags', 'clone3', 'io-uring-setup',
+    'process-vm-read', 'process-vm-write', 'ptrace', 'setns', 'unshare']
+
+
+def _subreaper_terminal(receipt):
+    """Verify the exact bounded descendant-wait contract, not a lone label."""
+    if (receipt.get('status') != 'ENGINEERING_SUBREAPER_SCOPE_COMPLETE'
+            or type(receipt.get('root_exit_code')) is not int or receipt['root_exit_code'] != 0
+            or receipt.get('sole_wait4_owner') is not True
+            or receipt.get('subreaper_set_and_get_verified') is not True
+            or receipt.get('subreaper_scope_reaped_to_echild') is not True):
+        raise ValueError('Dedicated control supervisor did not reach its checked terminal ECHILD scope')
+    complete = receipt.get('complete_descendant_wait_chain_verified') is True
+    if complete and (receipt.get('descendant_wait_chain_scope') !=
+            'INHERITED_SECCOMP_GUARD_AND_LINUX_SUBREAPER_TO_ECHILD'
+            or receipt.get('child_escape_guard_installed_before_exec') is not True
+            or receipt.get('child_escape_guard_no_new_privileges') is not True
+            or receipt.get('child_escape_guard_seccomp_filter') is not True
+            or receipt.get('child_escape_guard_denied_operations') != _ESCAPE_OPERATIONS):
+        raise ValueError('Complete descendant label lacks the exact inherited escape guard contract')
+    return complete
+
+
 def capture_pending_measurements(scope, *, admission_start_monotonic_ns,
         expected_runner_argv, worker_result_path=None, runner_observation_path=None,
         subreaper_receipt_path=None):
@@ -389,12 +412,7 @@ def capture_pending_measurements(scope, *, admission_start_monotonic_ns,
     material_peak, complete_material_peaks = _worker_material_peak(worker)
     _, runner_end, peak = _observation(runner, expected_runner_argv,
         expected_identity=subreaper.get('supervisor_identity'))
-    if (subreaper.get('status') != 'ENGINEERING_SUBREAPER_SCOPE_COMPLETE'
-            or type(subreaper.get('root_exit_code')) is not int or subreaper['root_exit_code'] != 0
-            or subreaper.get('sole_wait4_owner') is not True
-            or subreaper.get('subreaper_set_and_get_verified') is not True
-            or subreaper.get('subreaper_scope_reaped_to_echild') is not True):
-        raise ValueError('Dedicated control supervisor did not reach its checked terminal ECHILD scope')
+    complete_descendant_chain = _subreaper_terminal(subreaper)
     peak = max(peak, material_peak, _integer(subreaper.get('maximum_individual_process_rss_bytes'), 'supervisor RSS', minimum=1),
         resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024)
     if peak > LIMITS['rss_bytes']: raise ValueError('Original 512MiB maximum individual process RSS bound exceeded')
@@ -417,7 +435,7 @@ def capture_pending_measurements(scope, *, admission_start_monotonic_ns,
         'maximum_individual_process_rss_bytes_before_driver_termination': peak,
         'complete_material_worker_and_case_rss_fields_present': complete_material_peaks,
         'snapshot_and_driver_termination_independently_observed': False,
-        'complete_descendant_wait_chain_verified': subreaper.get('complete_descendant_wait_chain_verified') is True,
+        'complete_descendant_wait_chain_verified': complete_descendant_chain,
         'complete_resource_measurement_join_qualified': False,
         'complete_runtime_closure_qualified': False, 'exact_native_or_http_host_join_qualified': False,
         'limitations': list(LIMITATIONS), **AUTHORITY}
@@ -467,12 +485,7 @@ def join_final_measurements(scope, *, expected_pending_pin, expected_driver_obse
         subreaper, _ = read_pinned_json(subreaper_path, pending['subreaper_receipt_pin'])
         runner_start, runner_end, runner_peak = _observation(runner, expected_runner_argv,
             expected_identity=subreaper.get('supervisor_identity'))
-        if (subreaper.get('status') != 'ENGINEERING_SUBREAPER_SCOPE_COMPLETE'
-                or type(subreaper.get('root_exit_code')) is not int or subreaper['root_exit_code'] != 0
-                or subreaper.get('sole_wait4_owner') is not True
-                or subreaper.get('subreaper_set_and_get_verified') is not True
-                or subreaper.get('subreaper_scope_reaped_to_echild') is not True):
-            raise ValueError('Dedicated control supervisor terminal receipt is not complete')
+        subreaper_chain_complete = _subreaper_terminal(subreaper)
         if not driver_start <= runner_start <= runner_end <= snapshot_end:
             raise ValueError('Runner termination is outside the measured driver interval')
         cases, totals = _worker_cases(worker)
@@ -491,7 +504,7 @@ def join_final_measurements(scope, *, expected_pending_pin, expected_driver_obse
         elapsed = max(driver_end, join_completed)-start
         timing = allocate_elapsed(cases, elapsed/1e9)
         complete_descendant_chain = (pending.get('complete_descendant_wait_chain_verified') is True
-            and subreaper.get('complete_descendant_wait_chain_verified') is True)
+            and subreaper_chain_complete)
         complete_join = (complete_descendant_chain
             and pending.get('complete_material_worker_and_case_rss_fields_present') is True
             and complete_material_peaks)

@@ -298,6 +298,8 @@ def build_plan(repo=REPO):
     return {'schema': PLAN_SCHEMA, 'namespace': NAMESPACE, 'mode': 'PROSPECTIVE_NOT_EXECUTED',
         'execution_status':EXECUTION_STATUS,'execution_blockers':list(EXECUTION_BLOCKERS),
         'large_source_generation_admitted':False,'large_inputs_generated':False,'activation_guard_complete':False,
+        'descendant_escape_guard_contract_prepared':True,
+        'descendant_wait_chain_requires_actual_observed_execution':True,
         'complete_resource_measurement_join_qualified':False,
         'code_files': code, 'derived_code': {name: {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()} for name, raw in derived.items()},
         'runtime_executables': runtime, 'engineering_runtime_supplement':runtime_supplement(),
@@ -1162,6 +1164,7 @@ def main():
         raise ValueError('Exact closed worker arguments required')
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--prepare-plan',action='store_true')
+    parser.add_argument('--plan-output',type=Path)
     parser.add_argument('--run',action='store_true')
     parser.add_argument('--scope',type=Path); parser.add_argument('--plan',type=Path)
     parser.add_argument('--preread',type=Path); parser.add_argument('--complete-freeze',type=Path)
@@ -1169,7 +1172,14 @@ def main():
     if args.run:
         require_execution_ready()
     if args.prepare_plan and not args.run:
-        print(canonical(build_plan()).decode()); return
+        plan=build_plan()
+        if args.plan_output is not None:
+            write(args.plan_output.absolute(),plan)
+        else:
+            print(canonical(plan).decode())
+        return
+    if args.plan_output is not None:
+        raise ValueError('Plan output is valid only for read-only plan preparation')
     if not args.run or args.prepare_plan or any(value is None for value in (args.scope,args.plan,args.preread,args.complete_freeze)):
         raise ValueError('Plan-only preparation or exact preread-bound fresh control invocation required')
     require_execution_ready()

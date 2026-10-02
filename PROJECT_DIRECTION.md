@@ -1,5 +1,19 @@
 # Long-term project direction
 
+## 2 October: guarded descendant wait component verified
+
+[The implementation and evidence](RADIO_NATIVE_V2_ESCAPE_GUARD_2026-10-02_RESULT.md)
+add an inherited no-new-privileges/seccomp boundary before worker exec and require its
+exact contract before finalization can accept terminal subreaper `ECHILD` as the
+bounded descendant wait result. **200 tests pass**; the fresh syscall-negative control
+is independently observed through supervisor termination.
+
+**Direction:** retain this as component evidence, not execution authority. Close the
+activation-time runtime/parent environment, immutable public preread and outer final
+report lifetime next. Plan `20261002f` remains blocked; no large source or scientific
+data may start. All target and holdout dispositions plus the 9 October end date remain
+unchanged. No external messages.
+
 ## 1 October: seven worker roles wired; execution remains blocked
 
 [The full worker integration, resource-finalization review and logs](RADIO_NATIVE_V2_WHOLE_WORKER_INTEGRATION_2026-10-01_RESULT.md)

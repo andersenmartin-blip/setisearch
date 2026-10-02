@@ -347,5 +347,21 @@ class ResourceFinalizationTests(unittest.TestCase):
         self.assertFalse(result['complete_resource_measurement_join_qualified'])
         self.assertTrue(any('RSS fields' in reason for reason in result['pending_reasons']))
 
+    def test_descendant_completion_label_requires_exact_escape_guard_contract(self):
+        receipt = copy.deepcopy(self.subreaper)
+        receipt['complete_descendant_wait_chain_verified'] = True
+        with self.assertRaisesRegex(ValueError, 'escape guard'):
+            finalization._subreaper_terminal(receipt)
+        receipt.update({'descendant_wait_chain_scope':
+                'INHERITED_SECCOMP_GUARD_AND_LINUX_SUBREAPER_TO_ECHILD',
+            'child_escape_guard_installed_before_exec': True,
+            'child_escape_guard_no_new_privileges': True,
+            'child_escape_guard_seccomp_filter': True,
+            'child_escape_guard_denied_operations': list(finalization._ESCAPE_OPERATIONS)})
+        self.assertTrue(finalization._subreaper_terminal(receipt))
+        receipt['child_escape_guard_denied_operations'] = receipt['child_escape_guard_denied_operations'][:-1]
+        with self.assertRaisesRegex(ValueError, 'escape guard'):
+            finalization._subreaper_terminal(receipt)
+
 
 if __name__ == '__main__': unittest.main()

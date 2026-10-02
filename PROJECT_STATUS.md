@@ -1,5 +1,25 @@
 # SETIsearch — current project status
 
+## 2 October: descendant escape guard passes; execution remains blocked
+
+[The guard implementation, negative control and exact evidence](RADIO_NATIVE_V2_ESCAPE_GUARD_2026-10-02_RESULT.md)
+pass **200 relevant tests** in **76.564 s**. Every supervised worker now inherits
+no-new-privileges plus a pre-exec seccomp filter that refuses namespace transitions,
+tracing/process-memory injection, `clone3` and `io_uring_setup`. A fresh actual
+control receives `EPERM` from `unshare`, `setns`, `ptrace` and `clone3`, reaches
+terminal `ECHILD`, and is independently observed through supervisor termination in
+**0.119 s** at **13.77 MiB** maximum individual RSS.
+
+This closes the declared descendant wait/escape component only. Complete runtime and
+parent-environment closure, immutable public execution preread, broader kernel/procfs
+escape coverage and outer final-report lifetime remain open. Plan revision
+`20261002f` stays **BLOCKED_PREPARATION_REVIEW**. No large input, eight-case control,
+reservation, RNG or telescope read occurred. HD189733 selected; HD1461 HOLD; GJ724
+reserve; 127/24 NOT ACTIVATED; spectra/holdouts unopened; LS paused; CHEOPS UNSENT.
+**Next:** activation-time runtime/parent join, public preread and outer final-report
+coverage before considering one eight-input engineering control. Consolidate
+9 October without extension. No external messages.
+
 ## 1 October: seven worker roles wired; execution remains blocked
 
 [The full worker integration, resource-finalization review and logs](RADIO_NATIVE_V2_WHOLE_WORKER_INTEGRATION_2026-10-01_RESULT.md)

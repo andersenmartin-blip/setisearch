@@ -49,6 +49,9 @@ class DedicatedSubreaperTests(unittest.TestCase):
             self.assertEqual(receipt['engineering_input_pin']['source_sha256'],
                 hashlib.sha256(supervisor.PROBES[name].encode()).hexdigest())
             self.assertTrue(receipt['sole_wait4_owner'])
+            self.assertTrue(receipt['child_escape_guard_installed_before_exec'])
+            self.assertTrue(receipt['child_escape_guard_no_new_privileges'])
+            self.assertTrue(receipt['child_escape_guard_seccomp_filter'])
             return process, receipt
 
     def assert_complete(self, process, receipt):
@@ -57,7 +60,17 @@ class DedicatedSubreaperTests(unittest.TestCase):
         self.assertIsNone(receipt['reason'])
         self.assertEqual(receipt['root_exit_code'], 0)
         self.assertTrue(receipt['subreaper_scope_reaped_to_echild'])
+        self.assertTrue(receipt['complete_descendant_wait_chain_verified'])
         self.assertEqual(receipt['tree_termination_coverage'], 'SUBREAPER_ECHILD_OBSERVED')
+
+    def test_escape_guard_is_inherited_and_refuses_namespace_tracing_and_clone3(self):
+        process, receipt = self.run_probe('escape-guard')
+        self.assert_complete(process, receipt)
+        self.assertGreater(receipt['observed_output_bytes']['stdout'], 0)
+        self.assertEqual(receipt['retained_output_bytes']['stdout'], len(b'escape guard active\n'))
+        self.assertEqual(receipt['reaped_process_count'], 1)
+        self.assertIn('clone3', receipt['child_escape_guard_denied_operations'])
+        self.assertIn('ptrace', receipt['child_escape_guard_denied_operations'])
 
     def test_proper_nested_wait_is_covered_by_root_kernel_receipt(self):
         process, receipt = self.run_probe('nested-wait')
@@ -156,7 +169,7 @@ class DedicatedSubreaperTests(unittest.TestCase):
         self.assertGreater(callback['accessor_peak_rss_bytes'], 0)
         self.assertGreater(receipt['launched_root_procfs_sample_count'], 0)
         self.assertGreaterEqual(receipt['maximum_individual_process_rss_bytes'], callback['accessor_peak_rss_bytes'])
-        self.assertFalse(receipt['complete_descendant_wait_chain_verified'])
+        self.assertTrue(receipt['complete_descendant_wait_chain_verified'])
         self.assertFalse(receipt['supervisor_final_receipt_and_termination_independently_observed'])
 
     def test_reaped_receipt_count_is_bounded_and_overflow_closes(self):

@@ -3,8 +3,10 @@
 
 The reusable function must run in a fresh, dedicated process. Its evidence is
 not an admission path for the SETI pipeline or a complete runtime/host join.
-ECHILD establishes termination of this kernel subreaper's adoption scope;
-arbitrary process escape, tracing and namespace transitions are not qualified.
+ECHILD establishes termination of this kernel subreaper's adoption scope. Every
+launched root installs an inherited no-new-privileges/seccomp guard before exec;
+the guard refuses namespace creation/transitions, tracing and clone3. Broader
+kernel escape and the supervisor's own final lifetime remain unqualified.
 The caller must independently observe this supervisor through its termination.
 """
 import argparse
@@ -55,8 +57,8 @@ BOOTSTRAP_SOURCE_PINS = {
         'bytes': 67121,
         'sha256': 'f0e78a51244bca357cf1ea11a89d9ca2bbe91cfb9584e9a9345141c3248629ff'},
     'scripts/radio_native_v2_compact_eight_case_resource_fixture.py': {
-        'bytes': 106767,
-        'sha256': 'e8d19e6f42d4b0b19b15b8ace8c639c369b9c42bef7c4aea4b2e1a0f14059743'},
+        'bytes': 107207,
+        'sha256': 'd16e7534b21c776f1ec1c09f0e8b16acb2975306e1c61303322a3c6361c52da7'},
 }
 AUTHORITY = {'execution_authorized': False, 'reservation_authorized': False,
     'scientific_execution_authorized': False, 'native_case_reservations': 0,
@@ -77,7 +79,67 @@ PROBES = {
     'output-overflow': "import sys; sys.stdout.write('x'*200000); sys.stdout.flush()",
     'stdout-passthrough': "import sys; sys.stdout.buffer.write(b'tiny exact forwarded output\\n'); sys.stdout.buffer.flush()",
     'rss-handshake': "import json,os,sys,time\nfrom pathlib import Path\nroot=Path(sys.argv[1]); start=time.time_ns()//1000000\nidentity={'identity':'engineering-probe-proc:'+os.readlink('/proc/self'),'pid':os.getpid(),'proc_pid':int(os.readlink('/proc/self')),'started_at_epoch_ms':start}\n(root/'caller-start.json').write_text(json.dumps(identity))\npayload=bytearray(2*1024*1024)\nrequest={'dispatch_at_epoch_ms':start,'returned_at_epoch_ms':time.time_ns()//1000000,'client_sha256':'1'*64}\n(root/'rss-observation-request.json').write_text(json.dumps(request))\nend=time.monotonic()+2\nwhile not (root/'rss-observation.json').exists() and time.monotonic()<end: time.sleep(0.005)\nresponse=json.loads((root/'rss-observation.json').read_bytes())\nassert response['client_sha256']==request['client_sha256'] and response['client_peak_rss_bytes']>0\nassert response['interval_start_epoch_ms']<=start and response['interval_end_epoch_ms']>=request['returned_at_epoch_ms']\nassert response['includes_entire_caller_lifetime'] is False\nprint('tiny handshake complete')",
+    'escape-guard': "import ctypes,errno,os\narch=os.uname().machine\nnumbers={'x86_64':(272,308,101,435),'aarch64':(97,268,117,435)}[arch]\nlibc=ctypes.CDLL(None,use_errno=True)\nfor nr,args in ((numbers[0],(0x20000000,)),(numbers[1],(-1,0)),(numbers[2],(0,0,0,0)),(numbers[3],(0,0))):\n ctypes.set_errno(0); result=libc.syscall(nr,*args); assert result == -1 and ctypes.get_errno() == errno.EPERM\nstatus=dict(line.split(':',1) for line in open('/proc/self/status') if ':' in line)\nassert status['NoNewPrivs'].strip()=='1' and status['Seccomp'].strip()=='2'\nprint('escape guard active')",
 }
+
+
+# Linux seccomp_data layout and classic BPF constants. The prospective runtime
+# already freezes the executable/ELF platform. Unknown architectures close
+# before child exec instead of silently launching without the guard.
+_SECCOMP_ARCH = {
+    'x86_64': {'audit': 0xC000003E, 'clone': 56,
+        'blocked': (101, 272, 308, 310, 311, 425, 435)},
+    'aarch64': {'audit': 0xC00000B7, 'clone': 220,
+        'blocked': (97, 117, 268, 270, 271, 425, 435)},
+}
+_CLONE_NAMESPACE_FLAGS = (0x00020000 | 0x02000000 | 0x04000000 |
+    0x08000000 | 0x10000000 | 0x20000000 | 0x40000000)
+
+
+class _SockFilter(ctypes.Structure):
+    _fields_ = [('code', ctypes.c_ushort), ('jt', ctypes.c_ubyte),
+        ('jf', ctypes.c_ubyte), ('k', ctypes.c_uint32)]
+
+
+class _SockFprog(ctypes.Structure):
+    _fields_ = [('len', ctypes.c_ushort), ('filter', ctypes.POINTER(_SockFilter))]
+
+
+def _bpf(code, k, jt=0, jf=0):
+    return _SockFilter(code=code, jt=jt, jf=jf, k=k)
+
+
+def install_child_escape_guard():
+    """Install an irreversible inherited escape guard in Popen's child.
+
+    This runs after fork and before exec in the fresh single-threaded dedicated
+    supervisor. It does not claim a general syscall sandbox. It closes the
+    process-tree escapes material to the subreaper proof: namespace creation or
+    transition, ptrace/process_vm injection, clone3 and io_uring setup. Ordinary
+    fork/vfork and clone without namespace flags remain available to workers.
+    """
+    architecture = os.uname().machine
+    contract = _SECCOMP_ARCH.get(architecture)
+    if contract is None:
+        raise OSError(95, 'Unsupported architecture for child escape guard')
+    # BPF_LD|BPF_W|BPF_ABS, BPF_JMP|BPF_JEQ|BPF_K,
+    # BPF_JMP|BPF_JSET|BPF_K and BPF_RET|BPF_K.
+    instructions = [_bpf(0x20, 4), _bpf(0x15, contract['audit'], jt=1),
+        _bpf(0x06, 0x80000000), _bpf(0x20, 0)]
+    deny = 0x00050000 | 1  # SECCOMP_RET_ERRNO | EPERM
+    for number in contract['blocked']:
+        instructions.extend((_bpf(0x15, number, jf=1), _bpf(0x06, deny)))
+    # If this is not clone, skip the argument load, JSET and deny instruction.
+    instructions.extend((_bpf(0x15, contract['clone'], jf=3),
+        _bpf(0x20, 16), _bpf(0x45, _CLONE_NAMESPACE_FLAGS, jf=1),
+        _bpf(0x06, deny), _bpf(0x06, 0x7FFF0000)))
+    array = (_SockFilter * len(instructions))(*instructions)
+    program = _SockFprog(len=len(instructions), filter=array)
+    library = ctypes.CDLL(None, use_errno=True)
+    if library.prctl(38, 1, 0, 0, 0) != 0:  # PR_SET_NO_NEW_PRIVS
+        raise OSError(ctypes.get_errno(), 'PR_SET_NO_NEW_PRIVS failed')
+    if library.prctl(22, 2, ctypes.byref(program), 0, 0) != 0:  # PR_SET_SECCOMP/FILTER
+        raise OSError(ctypes.get_errno(), 'PR_SET_SECCOMP filter failed')
 
 
 def canonical(value):
@@ -610,7 +672,8 @@ def supervise_engineering_subprocess(argv, scope, controls, *, dedicated_process
             raise RuntimeError('Supervisor setup consumed the fixed preparation deadline')
         launch_epoch_ms = time.time_ns() // 1000000
         child = subprocess.Popen(argv, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE, env=ENVIRONMENT, close_fds=True)
+            stderr=subprocess.PIPE, env=ENVIRONMENT, close_fds=True,
+            preexec_fn=install_child_escape_guard)
         candidates = [row for row in direct_children(observer) if row['namespace_pid'] == child.pid]
         if len(candidates) != 1:
             raise RuntimeError('Unique launched root PID mapping required')
@@ -729,7 +792,8 @@ def supervise_engineering_subprocess(argv, scope, controls, *, dedicated_process
     if elapsed > controls['seconds']:
         reason = reason or 'Fixed engineering scope deadline exceeded'
     # Raw stdout is counted and discarded. It is never duplicated into files.
-    receipt = {'schema': SCHEMA, 'status': 'ENGINEERING_SUBREAPER_SCOPE_COMPLETE' if reason is None and echild and root_status == 0 else 'CLOSED_FAILED',
+    descendant_wait_complete = reason is None and echild and root_status == 0
+    receipt = {'schema': SCHEMA, 'status': 'ENGINEERING_SUBREAPER_SCOPE_COMPLETE' if descendant_wait_complete else 'CLOSED_FAILED',
         'reason': reason, 'supervisor_identity': identity, 'subreaper_set_and_get_verified': True,
         'root_identity': root_identity, 'root_exit_code': root_status,
         'sole_wait4_owner': True, 'subreaper_scope_reaped_to_echild': echild,
@@ -739,7 +803,14 @@ def supervise_engineering_subprocess(argv, scope, controls, *, dedicated_process
         'launched_root_procfs_sample_count': root_samples,
         'caller_accessor_observation': callback_state or None,
         'concurrent_process_rss_sum_measured': False,
-        'complete_process_tree_qualified': False, 'complete_descendant_wait_chain_verified': False,
+        'complete_process_tree_qualified': False,
+        'complete_descendant_wait_chain_verified': descendant_wait_complete,
+        'descendant_wait_chain_scope': 'INHERITED_SECCOMP_GUARD_AND_LINUX_SUBREAPER_TO_ECHILD',
+        'child_escape_guard_installed_before_exec': child is not None,
+        'child_escape_guard_no_new_privileges': child is not None,
+        'child_escape_guard_seccomp_filter': child is not None,
+        'child_escape_guard_denied_operations': ['clone-namespace-flags', 'clone3', 'io-uring-setup',
+            'process-vm-read', 'process-vm-write', 'ptrace', 'setns', 'unshare'],
         'procfs_descendant_escape_detection_complete': False,
         'tree_termination_coverage': 'SUBREAPER_ECHILD_OBSERVED' if echild else 'UNKNOWN_ON_FAILURE',
         'observed_output_bytes': observed_bytes, 'retained_output_bytes': {name: len(raw) for name, raw in output.items()},
@@ -763,7 +834,7 @@ def supervise_engineering_subprocess(argv, scope, controls, *, dedicated_process
         'shared_storage_cap_bytes': shared_storage_cap if shared_storage_root is not None else None,
         'raw_output_passthrough_requested': _passthrough_output,
         'raw_output_passthrough_complete': False,
-        'limitations': ['Kernel subreaper adoption scope only; process escape/tracing/namespace transitions are unqualified.',
+        'limitations': ['The inherited seccomp guard covers declared namespace/tracing/process-vm/clone3 escapes; broader kernel escape and procfs tracing are unqualified.',
             'Outer supervisor lifetime, complete runtime closure, pipeline admission and storage/time joins are required separately.'],
         **AUTHORITY}
     # Persist measurements with a pending status before deriving disposition.

@@ -1,5 +1,19 @@
 # SETIsearch
 
+## 2 October: guarded descendant wait component verified
+
+[The implementation, control and evidence](RADIO_NATIVE_V2_ESCAPE_GUARD_2026-10-02_RESULT.md)
+pass **200 tests**. Every supervised worker now inherits a pre-exec
+no-new-privileges/seccomp guard; fresh actual `unshare`, `setns`, `ptrace` and
+`clone3` attempts are refused, and the tiny subreaper chain reaches terminal
+`ECHILD` under independent outer observation.
+
+Plan `20261002f` remains **BLOCKED_PREPARATION_REVIEW**. Complete activation-time
+runtime/parent closure, immutable public preread and outer final-report lifetime are
+still required before one fresh eight-input engineering control. No large input,
+reservation, RNG or telescope spectrum was opened. HD189733 selected; HD1461 HOLD;
+GJ724 reserve; 127/24 NOT ACTIVATED; LS paused; CHEOPS UNSENT. Consolidate 9 October.
+
 ## 1 October: seven worker roles wired; execution remains blocked
 
 [The full worker integration, resource-finalization review and logs](RADIO_NATIVE_V2_WHOLE_WORKER_INTEGRATION_2026-10-01_RESULT.md)
