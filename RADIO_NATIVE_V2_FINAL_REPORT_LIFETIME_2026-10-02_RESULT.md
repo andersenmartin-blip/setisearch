@@ -49,6 +49,15 @@ The isolated ten-variable parent-environment check again passes with empty stder
 - [Runtime refresh summary](results_radio_native_v2_runtime_refresh_20261002b/verification-summary.json)
 - [Exact parent receipt](results_radio_native_v2_runtime_refresh_20261002b/parent-check-stdout.json)
 - [Runtime refresh script](results_radio_native_v2_runtime_refresh_20261002b/capture_runtime_refresh.py)
+- [Public preparation readback](results_radio_native_v2_final_report_lifetime_20261002a/publication-readback.json)
+
+Science commit `37b938c31e12647d8193ec3fcdb95d1e1378f385` is a
+fast-forward child of `04d13f1a6caae2c1669dbdcd0a3bb79d1f693c2c`; its public
+tree exactly matches the local candidate tree. Main commit
+`df4c71563b8cfda68d75a00850563c4e75863fd3` is a fast-forward child of
+`81c11052504a92128f602a291214e7b924be44d2`; the public README blob matches
+the local bytes. This is verified public **preparation** readback, not the still
+future execution-qualified preread.
 
 Revision `20261002h` remains **BLOCKED_PREPARATION_REVIEW**. The report-writer
 lifetime component is closed, but the published freeze still states that the
