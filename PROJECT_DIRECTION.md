@@ -4,8 +4,9 @@
 
 [The exact protocol and blocker audit](RADIO_NATIVE_V2_CONTROL_ACTIVATION_TRANSITION_2026-10-02_RESULT.md)
 show that the published preread cannot reach the current runner because every material
-entry point first executes the constant global refusal. A finite seven-phase sequence
-now separates gate-interface preparation from a later marker-only activation.
+entry point first executes the constant global refusal. The protocol itself now has
+matching public readback. A finite seven-phase sequence separates gate-interface
+preparation from a later marker-only activation.
 
 **Direction:** implement only the fail-closed interface next, thread its proof through
 every independent worker, and prove malformed or absent proofs fail before writes.

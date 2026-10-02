@@ -26,12 +26,19 @@ pass/fail disposition without tuning.
 - [Frozen transition protocol](config/radio_native_v2_control_activation_transition_20261002a.protocol.json)
 - [Verification receipt](results_radio_native_v2_control_activation_transition_20261002a/verification-summary.json)
 - [Verifier](results_radio_native_v2_control_activation_transition_20261002a/verify_transition_protocol.py)
+- [Publication readback](results_radio_native_v2_control_activation_transition_20261002a/publication-readback.json)
 - [Retained raw/canonical digest failure](results_radio_native_v2_control_activation_transition_20261002a/failed-first-attempt.json)
 - [Retained AST-docstring failure](results_radio_native_v2_control_activation_transition_20261002a/failed-second-attempt.json)
 
 The two verifier failures occurred before any execution. The first confused raw-file
 SHA256 with canonical-JSON SHA256; the second counted function docstrings as
 executable statements. Both corrections are explicit and both failures are retained.
+
+Science commit `dc80aa9faf2eb5c26162d3fb3a3c636c82cd385b` has the expected
+parent and tree, and its protocol, report, verification-summary and verifier blobs
+match. Main commit `d95d8fc403c3b7f7681a564c40957f934aea9118` has the expected
+parent, tree and README blob. The transition protocol therefore has independent
+public readback; this is not an activation marker or execution grant.
 
 ## Authority and continuation
 

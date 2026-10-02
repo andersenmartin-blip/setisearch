@@ -4,7 +4,8 @@
 
 [The protocol, verifier and retained failures](RADIO_NATIVE_V2_CONTROL_ACTIVATION_TRANSITION_2026-10-02_RESULT.md)
 prove that the current frozen runner rejects before reading its valid public preread.
-The exact public commit chain and all material pins match. A seven-phase marker-only
+The exact public commit chain, all material pins and the protocol's own public
+publication now match independent readback. A seven-phase marker-only
 transition now breaks the pin cycle without rewriting the historical plan.
 
 The protocol itself grants no authority. No large input, control, reservation, RNG

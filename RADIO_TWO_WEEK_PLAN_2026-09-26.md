@@ -4,7 +4,8 @@
 
 [The protocol and structural audit](RADIO_NATIVE_V2_CONTROL_ACTIVATION_TRANSITION_2026-10-02_RESULT.md)
 verify the exact public evidence chain and show that the frozen runner's global refusal
-precedes its valid preread. Seven ordered phases now resolve the code-pin cycle with a
+precedes its valid preread. The protocol's own science/main publication also matches
+public readback. Seven ordered phases now resolve the code-pin cycle with a
 new still-blocked preparation, a fresh public preread and a later marker-only commit.
 
 **Next:** implement the fail-closed proof interface across the outer invocation and
