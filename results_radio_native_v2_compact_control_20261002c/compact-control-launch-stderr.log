@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/scripts/radio_native_v2_compact_eight_case_resource_fixture.py", line 1483, in <module>
+    main()
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/scripts/radio_native_v2_compact_eight_case_resource_fixture.py", line 1477, in main
+    summary=run_control(args.scope,plan,preread,freeze,receipt,helper,
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/scripts/radio_native_v2_compact_eight_case_resource_fixture.py", line 1354, in run_control
+    observed,completion_stdout,_ = observe_process(driver_argv,scope,'measurement-driver',
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/scripts/radio_native_v2_compact_eight_case_resource_fixture.py", line 864, in observe_process
+    if status!=0 or reason: raise RuntimeError('Fixed child/control scope closed: '+label+': '+str(reason or status))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Fixed child/control scope closed: measurement-driver: Required direct-child identity was never verified

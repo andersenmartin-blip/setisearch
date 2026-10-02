@@ -1,5 +1,7 @@
 # Radio native v2: distinct c execution preread, 2 October 2026
 
+> Subsequent outcome: the preread was publicly verified at P `f033690f163e10287bfe00a4733edef8ed6c9543`, followed by marker-only A and fixed sidecar B. The one actual c engineering invocation is now CLOSED_FAILED, 0/8 and permanently spent. See [the c result](RADIO_NATIVE_V2_CONTROL_C_2026-10-02_RESULT.md). The dated preread checkpoints below describe preparation before activation.
+
 Status: **distinct preread built and locally verified; public readback pending**.
 The new canonical preread binds the already published integrated preparation,
 plan r, its complete runtime snapshot and all 49 material files. Production

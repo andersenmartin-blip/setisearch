@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_compact_control_20261002c/frozen-code/scripts/radio_native_v2_resource_finalization.py", line 1272, in <module>
+    if __name__ == '__main__': main()
+                               ^^^^^^
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_compact_control_20261002c/frozen-code/scripts/radio_native_v2_resource_finalization.py", line 1245, in main
+    run_admitted_measurement_driver(args.admission_bundle, args.scope,
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_compact_control_20261002c/frozen-code/scripts/radio_native_v2_resource_finalization.py", line 1180, in run_admitted_measurement_driver
+    checked, fixture = check_admitted_measurement_driver(bundle_path,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_compact_control_20261002c/frozen-code/scripts/radio_native_v2_resource_finalization.py", line 1137, in check_admitted_measurement_driver
+    checked, fixture = supervisor.check_admitted_worker(bundle_path, role='control', ordinal=None,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_compact_control_20261002c/frozen-code/scripts/radio_native_v2_process_tree_supervisor.py", line 440, in check_admitted_worker
+    structural = admission.validate_worker_admission(bundle_path, role=role,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_compact_control_20261002c/frozen-code/scripts/radio_native_v2_worker_admission.py", line 1064, in validate_worker_admission
+    return _validate_worker_admission(bundle_path, role=role, ordinal=ordinal, argv=argv,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_compact_control_20261002c/frozen-code/scripts/radio_native_v2_worker_admission.py", line 1121, in _validate_worker_admission
+    phase = _validate_role_phase(bundle, running_caller=running_caller) if role != 'prepare' else {}
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_compact_control_20261002c/frozen-code/scripts/radio_native_v2_worker_admission.py", line 937, in _validate_role_phase
+    _absent(root + '/' + name)
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_compact_control_20261002c/frozen-code/scripts/radio_native_v2_worker_admission.py", line 902, in _absent
+    raise ValueError('Existing role output/scope reuse refused: ' + path)
+ValueError: Existing role output/scope reuse refused: /workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_compact_control_20261002c/cases

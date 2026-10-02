@@ -1,5 +1,13 @@
 # SETIsearch — current project status
 
+## 2 October: c engineering control CLOSED_FAILED; no retry
+
+[The actual c result and retained evidence](RADIO_NATIVE_V2_CONTROL_C_2026-10-02_RESULT.md) record **one invocation, exit 1, 0/8 completed and permanently spent** after immutable preread P → marker-only A → public fixed sidecars B. The fixture created eight empty case directories; driver admission then refused the existing `cases` directory before identity/workload. The resulting missing-identity observer error is secondary. No retry, resume, cleanup or rearm occurred.
+
+All 49 frozen material files and all 1,002 prior production source/test/wrapper pins remain unchanged. The prior 541-test preparation pass and new 46 preread tests do not override the actual failed integration. b remains CLOSED_FAILED, 0/8 and permanently spent, with unchanged historical storage and private spend record. Next preparation must correct cold-driver phase admission and test the exact empty eight-case hierarchy under a distinct immutable preparation; c cannot be reused.
+
+Scientific/native/telescope gates stay blocked, with zero native reservations/executions, scientific cases, telescope reads or RNG draws. HD189733 remains selected; HD1461 HOLD; GJ724 reserve; spectra/holdouts unopened; 127/24 inactive; LS paused; CHEOPS UNSENT. No person messages. Stop **9 October 2026**, without extension, restart or target change. Earlier sections below are dated preparation checkpoints.
+
 ## 2 October: distinct c execution preread built and verified
 
 [The distinct c preread and evidence](RADIO_NATIVE_V2_EXECUTION_PREREAD_C_2026-10-02_RESULT.md) bind unchanged plan r/runtime and all 49 material files to the immutable integrated preparation. Fresh public GETs verify **171 unique files / 6,815,970 raw bytes**, including all nine historical inputs. The exact 25-field c proof is built exclusively and independently verified; **46 new metadata-tool tests pass**, with zero failures/errors/skips and process exit 0. The existing 541-test production pass and all 1,002 source pins remain unchanged.
