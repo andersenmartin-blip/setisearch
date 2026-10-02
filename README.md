@@ -1,5 +1,11 @@
 # SETIsearch
 
+## 2 October: historical storage and separate c journal prepared
+
+Two complete **494-test** engineering preparation suites pass. Read-only verification now accounts for the retained failed control and spent journal, and a separately bound prospective c journal is tested. [Code, tests and result report](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_NATIVE_V2_HISTORICAL_STORAGE_2026-10-02_RESULT.md) preserve the reproduced and repaired manifest defect.
+
+The new components remain outside the registered control. Production storage/lifetime integration, fresh preread and activation remain blocked; **no new telescope data were analyzed**. Historical b remains CLOSED_FAILED, 0/8 cases, permanently spent. HD189733 selected; HD1461 HOLD; GJ724 reserve. Close 9 October without automatic extension or restart.
+
 ## 2 October: repairs and metadata prepared; execution remains blocked
 
 [The bounded receipt and live-identity repairs](https://github.com/andersenmartin-blip/setisearch/blob/8c0b3f2ed0bd870f975d08071d5582ad4bdc67ad/RADIO_NATIVE_V2_SUPERVISOR_RECEIPT_2026-10-02_RESULT.md) pass **401 tests**, with zero failures, errors or skips and all 944 source/test/wrapper pins unchanged. The test harness's later final-alias FileExistsError is retained separately; independent review verifies the byte-exact selection of the passing attempt. Original receipt, RSS, storage and deadline limits remain unchanged.
