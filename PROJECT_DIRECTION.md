@@ -1,5 +1,16 @@
 # Long-term project direction
 
+## 2 October: fresh preread prepared for marker-only transition
+
+[The distinct preread result](RADIO_NATIVE_V2_EXECUTION_PREREAD_B_2026-10-02_RESULT.md)
+binds the complete public integrated preparation without reusing the old plan/freeze
+proof. Worker-bundle construction waits for the marker-derived receipt by design.
+
+**Direction:** publish and read back this preread. Preserve branch adjacency: the next
+science commit after the preread must add only the unique marker and bind the external
+readback. No intervening status commit, large input or execution is allowed. All
+dispositions and the 9 October end date remain unchanged. No external messages.
+
 ## 2 October: activation receipt integrated into all material paths
 
 [The new still-blocked plan, freeze and tests](RADIO_NATIVE_V2_ACTIVATION_BUNDLE_INTEGRATION_2026-10-02_RESULT.md)

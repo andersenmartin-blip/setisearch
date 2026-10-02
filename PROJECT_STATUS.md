@@ -1,5 +1,17 @@
 # SETIsearch — current project status
 
+## 2 October: fresh integrated preread verified; publication pending
+
+[The new preread and structural verifier](RADIO_NATIVE_V2_EXECUTION_PREREAD_B_2026-10-02_RESULT.md)
+bind public preparation `25e9df22...`, plan `20261002j`, freeze `20261002d`, all
+material pins and eight fixed identities. Its plan/freeze hashes differ from the old
+preread; the final worker-bundle join correctly waits for a future marker receipt.
+
+No marker, large input, control, reservation, RNG or telescope read occurred. HD189733
+selected; HD1461 HOLD; GJ724 reserve; 127/24 NOT ACTIVATED; spectra/holdouts unopened;
+LS paused; CHEOPS UNSENT. **Next:** publish/read back this preread; then the immediate
+next science commit must be marker-only. No messages.
+
 ## 2 October: activation receipt integrated; new preparation remains blocked
 
 [The implementation, 215-test result and fresh freeze](RADIO_NATIVE_V2_ACTIVATION_BUNDLE_INTEGRATION_2026-10-02_RESULT.md)

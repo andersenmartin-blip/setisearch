@@ -1,5 +1,16 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 2 October: fresh preread verified; marker adjacency reserved
+
+[The new 4,364-byte preread](RADIO_NATIVE_V2_EXECUTION_PREREAD_B_2026-10-02_RESULT.md)
+binds public integrated preparation `25e9df22...`, the new still-blocked plan/freeze
+and all material pins. It is distinct from the old preread and no marker exists.
+
+**Next:** publish/read back this preread. Its immediate science-branch child must add
+only the unique one-control marker carrying that readback; no intervening commit or
+large source. HD189733 selected; HD1461 HOLD; GJ724 reserve; 127/24 NOT ACTIVATED; LS
+paused; CHEOPS UNSENT. Consolidate 9 October. No external messages.
+
 ## 2 October: activation receipt fully integrated; preparation still blocked
 
 [The implementation, fresh plan/freeze and 215 tests](RADIO_NATIVE_V2_ACTIVATION_BUNDLE_INTEGRATION_2026-10-02_RESULT.md)
