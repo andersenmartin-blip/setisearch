@@ -52,14 +52,7 @@ DIRECTORY_RESERVATION_BYTES = 65536
 # Independently reviewed implementation pins bootstrap admission. Supplied
 # bundle hashes cannot select executable validator/fixture implementations.
 # Updating either implementation requires reviewing and refreshing this table.
-BOOTSTRAP_SOURCE_PINS = {
-    'scripts/radio_native_v2_worker_admission.py': {
-        'bytes': 73668,
-        'sha256': 'bd040b61f35db4cd9ae8d3140df44213d3a8659bf6b6ebb96cca4b5b793fe9ef'},
-    'scripts/radio_native_v2_compact_eight_case_resource_fixture.py': {
-        'bytes': 113630,
-        'sha256': 'bfb3baa5be2ad11bde9b1a6fdecb6d73be536672cd2a28d9163c1ef445bf43e9'},
-}
+BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v2_worker_admission.py': {'bytes': 75309, 'sha256': 'f12f684a41bfd6deb9a390351dba78319b6aad7e5716f22c95393e7cb99c961b'}, 'scripts/radio_native_v2_compact_eight_case_resource_fixture.py': {'bytes': 118166, 'sha256': 'e4f84a8bf231269cdab419531326f716c27d70923ea8368cda11523e8b4934b3'}}
 AUTHORITY = {'execution_authorized': False, 'reservation_authorized': False,
     'scientific_execution_authorized': False, 'native_case_reservations': 0,
     'native_case_executions': 0, 'scientific_cases_run': 0, 'rng_draws': 0,
@@ -227,7 +220,8 @@ def check_admitted_worker(bundle_path, *, role='prepare', ordinal=None, expected
         'supervisor_python_path': bundle['plan']['runtime_executables']['python']['path'],
         'activation_evidence': {'activation_receipt':bundle['activation_receipt'],
             'plan':bundle['plan'],'freeze':bundle['complete_freeze'],
-            'preread':bundle['public_preread']},
+            'preread':bundle['public_preread'], 'execution_scope':bundle['execution_scope'],
+            'invocation_spending':bundle['invocation_spending']},
         'structural_admission': structural,
         'materialized_fixture_execution_status': fixture.EXECUTION_STATUS,
         'independent_immutable_publication_join_complete': False,

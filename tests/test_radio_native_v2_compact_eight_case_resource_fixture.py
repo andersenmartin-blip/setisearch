@@ -147,18 +147,27 @@ class CompactEightPreparationTests(unittest.TestCase):
             material = synthetic_worker_materials(directory,ordinal=0,
                 plan=fixture.build_plan(),derived_sources=derived)
             root = material['case_root']
+            # This full recipe is deliberately tested with no spend witness.
+            # A valid synthetic spend plus a self-pinned receipt is tested only
+            # with a guard prefix elsewhere, never with the 26MiB generator.
+            import radio_native_v2_worker_admission as admission
+            material['bundle']['invocation_spending']=None
+            material['bundle']['invocation_spending_sha256']=tiny_pin(admission.canonical(None))['sha256']
+            material['bundle_path'].write_bytes(admission.canonical(material['bundle'])+b'\n')
+            material['bundle_sha256']=tiny_pin(material['bundle_path'].read_bytes())['sha256']
+            material['argv'][-1]=material['bundle_sha256']
             before = sorted(str(path.relative_to(root)) for path in root.rglob('*'))
             result = subprocess.run(material['argv'],capture_output=True,
                 env=fixture.CHILD_ENVIRONMENT,timeout=10)
             self.assertNotEqual(result.returncode,0)
-            self.assertIn(b'BLOCKED_PREPARATION_REVIEW',result.stderr)
+            self.assertIn(b'spend',result.stderr.lower())
             self.assertEqual(before,sorted(str(path.relative_to(root)) for path in root.rglob('*')))
             self.assertFalse((root/'deterministic-source.bin').exists())
             self.assertFalse((root/'preparation-identity.json').exists())
             result = subprocess.run([material['argv'][0],'-X','utf8',*material['argv'][1:]],
                 capture_output=True,env=fixture.CHILD_ENVIRONMENT,timeout=10)
             self.assertNotEqual(result.returncode,0)
-            self.assertIn(b'exact preparation worker argv',result.stderr)
+            self.assertIn(b'spend',result.stderr.lower())
             self.assertEqual(before,sorted(str(path.relative_to(root)) for path in root.rglob('*')))
             module = material['code_root']/'scripts/radio_native_v2_worker_admission.py'
             cached = Path(importlib.util.cache_from_source(str(module)))
@@ -211,9 +220,20 @@ class CompactEightPreparationTests(unittest.TestCase):
             from tests.test_radio_native_v2_worker_admission import synthetic_activation_receipt
             activation_receipt=synthetic_activation_receipt(plan,freeze,proof,
                 execution_scope=str(material['scope']))
-            bundle=admission.build_admission_bundle(plan,freeze,proof,activation_receipt,
-                execution_scope=str(material['scope']),ordinal=0)
-            material['bundle_path'].write_bytes(admission.bundle_bytes(bundle)); digest=fixture.pin(material['bundle_path'])['sha256']
+            # Construct attacker-supplied bytes directly. The old spend
+            # witness cannot authenticate this altered receipt, so the normal
+            # validating builder must not be used to create the negative input.
+            # Independent admission-source bootstrap must fail before parsing
+            # even these fully refreshed self-asserted evidence pins.
+            bundle=copy.deepcopy(material['bundle'])
+            for field,value in (('plan',plan),('complete_freeze',freeze),
+                    ('public_preread',proof),('activation_receipt',activation_receipt)):
+                bundle[field]=value
+            for field,value in (('plan_sha256',plan),('complete_freeze_sha256',freeze),
+                    ('public_preread_sha256',proof),('activation_receipt_sha256',activation_receipt)):
+                bundle[field]=tiny_pin(admission.canonical(value))['sha256']
+            material['bundle_path'].write_bytes(admission.canonical(bundle)+b'\n')
+            digest=fixture.pin(material['bundle_path'])['sha256']
             original=fixture.pin(ROOT/admission.SELF)
             program='\n'.join(['import json,sys','from pathlib import Path',
                 'p=Path(sys.argv[1]); m={"__name__":"independent_entry_test","__file__":str(p)}',

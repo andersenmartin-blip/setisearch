@@ -21,8 +21,8 @@ import stat
 import sys
 import types
 
-SCHEMA = 'radio-native-v2-worker-admission-bundle-v2'
-ROLE_SCHEMA = 'radio-native-v2-worker-role-admission-bundle-v3'
+SCHEMA = 'radio-native-v2-worker-admission-bundle-v3'
+ROLE_SCHEMA = 'radio-native-v2-worker-role-admission-bundle-v4'
 RECEIPT_SCHEMA = 'radio-native-v2-worker-admission-local-check-v1'
 SELF = 'scripts/radio_native_v2_worker_admission.py'
 FIXTURE = 'scripts/radio_native_v2_compact_eight_case_resource_fixture.py'
@@ -40,6 +40,8 @@ SPENT_ACTIVATION_COMMIT = 'ba1b6c918931a02a84cd23e0e14057bd9f700e40'
 CUSTODY_SOURCE = 'scripts/radio_native_v2_runtime_custody.py'
 CUSTODY_IMPLEMENTATION_PIN = {'bytes':22519,
     'sha256':'d0cd311c1615a2c299b101ca75b98ba2412b41bb1cfd668725461e4d307fb0b5'}
+SPENDING_SOURCE = 'scripts/radio_native_v2_invocation_spending.py'
+SPENDING_IMPLEMENTATION_PIN = {'bytes': 15048, 'sha256': 'd659918161562e4b237385872efdc59d0d070feeec47e01b9e0d8ccdbcf05ae0'}
 ACTIVATION_DISABLED = ('reservation_authorized', 'rng_authorized',
     'scientific_execution_authorized', 'native_execution_authorized',
     'restart_authorized', 'automatic_retry')
@@ -61,7 +63,8 @@ ENVIRONMENT_KEYS = ('PATH', 'PYTHONPATH', 'PYTHONHOME', 'PYTHONSAFEPATH', 'PYTHO
 BUNDLE_KEYS = frozenset(('schema', 'namespace', 'case_ordinal', 'execution_scope',
     'code_root', 'derived_root', 'plan', 'complete_freeze', 'public_preread',
     'activation_receipt', 'plan_sha256', 'complete_freeze_sha256',
-    'public_preread_sha256', 'activation_receipt_sha256'))
+    'public_preread_sha256', 'activation_receipt_sha256',
+    'invocation_spending', 'invocation_spending_sha256'))
 DERIVED_FILES = frozenset(('prepare.py', 'fresh-caller.js', 'lossless-helper.js'))
 MAX_JSON_BYTES = 16 * 1024**2
 MAX_SOURCE_BYTES = 2 * 1024**2
@@ -196,6 +199,16 @@ def _custody_module():
     return module
 
 
+def _spending_module():
+    path = Path(__file__).absolute().parents[1]/SPENDING_SOURCE
+    actual,raw = read_pinned_file(str(path),maximum=MAX_SOURCE_BYTES,retain=True)
+    if actual != SPENDING_IMPLEMENTATION_PIN:
+        raise ValueError('Spending source differs from independent worker implementation pin')
+    module = types.ModuleType('pinned_worker_invocation_spending'); module.__file__ = str(path)
+    exec(compile(raw,str(path),'exec'),module.__dict__)
+    return module
+
+
 def _custody_contract(freeze, custody):
     manifest = freeze.get('runtime_custody_manifest')
     digest = _sha(freeze.get('runtime_custody_manifest_sha256'),'runtime custody manifest')
@@ -237,6 +250,11 @@ def _validate_plan(plan):
     _exact(plan.get('child_environment'), CHILD_ENVIRONMENT, 'plan child environment')
     _exact(plan.get('original_limits'), ORIGINAL_LIMITS, 'original fixed resource limits')
     _pin_map(plan.get('code_files'))
+    ledger = _absolute(plan.get('invocation_ledger_root'))
+    if Path(ledger).name != '.radio-native-v2-invocation-ledger':
+        raise ValueError('Fixed original-repository invocation ledger name required')
+    if plan['code_files'].get(SPENDING_SOURCE) != SPENDING_IMPLEMENTATION_PIN:
+        raise ValueError('Prospective spending source differs from independent implementation pin')
     if not {SELF, FIXTURE}.issubset(plan['code_files']):
         raise ValueError('Worker validator and materialized blocking fixture must both be pinned')
     _pin_map(plan.get('derived_code'))
@@ -408,7 +426,8 @@ def _validate_prepare_bundle(bundle, *, ordinal):
     activation = bundle['activation_receipt']
     _validate_plan(plan); _validate_freeze(freeze)
     for key, value in (('plan_sha256', plan), ('complete_freeze_sha256', freeze),
-            ('public_preread_sha256', proof), ('activation_receipt_sha256', activation)):
+            ('public_preread_sha256', proof), ('activation_receipt_sha256', activation),
+            ('invocation_spending_sha256', bundle['invocation_spending'])):
         _sha(bundle[key], key)
         _exact(bundle[key], hashlib.sha256(canonical(value)).hexdigest(), 'canonical embedded ' + key)
     expected = {'schema': PREREAD_SCHEMA, 'namespace': NAMESPACE,
@@ -422,6 +441,8 @@ def _validate_prepare_bundle(bundle, *, ordinal):
     if type(proof['preparation_commit']) is not str or not re.fullmatch('[0-9a-f]{40}', proof['preparation_commit']):
         raise ValueError('Full immutable public preparation commit ID required')
     _validate_activation_receipt(activation, plan, freeze, proof,execution_scope=scope)
+    _spending_module().verify_spend_witness(bundle['invocation_spending'], activation,
+        execution_scope=scope, ledger_root=plan['invocation_ledger_root'])
     if plan['code_files'].get(CUSTODY_SOURCE) != CUSTODY_IMPLEMENTATION_PIN:
         raise ValueError('Prospective custody source differs from independently reviewed implementation pin')
     for path, wanted in plan['code_files'].items():
@@ -525,12 +546,13 @@ def _validate_bundle(bundle, *, ordinal, role=None):
 
 
 def build_role_admission_bundle(plan, complete_freeze, public_preread, activation_receipt, *, role,
-        execution_scope, ordinal=None, phase_inputs):
+        execution_scope, ordinal=None, phase_inputs, invocation_spending=None):
     """Return a separate pinned phase snapshot, never mutate prior bundles."""
     if role not in CASE_ROLES | WHOLE_ROLES: raise ValueError('Known non-preparation worker role required')
     scope = _absolute(execution_scope)
     base = build_admission_bundle(plan, complete_freeze, public_preread, activation_receipt,
-        execution_scope=scope, ordinal=0 if role in WHOLE_ROLES else _ordinal(ordinal))
+        execution_scope=scope, ordinal=0 if role in WHOLE_ROLES else _ordinal(ordinal),
+        invocation_spending=invocation_spending)
     root = scope if role in WHOLE_ROLES else scope + f'/cases/case{ordinal:02d}'
     base.update(schema=ROLE_SCHEMA, role=role, case_ordinal=ordinal,
         code_root=root + '/frozen-code', derived_root=root + '/derived', phase_inputs=phase_inputs)
@@ -557,7 +579,8 @@ def worker_role_layout(bundle, *, role=None, ordinal=None):
         'shared_storage_limit_bytes': ORIGINAL_LIMITS['run_storage_bytes'] if role in WHOLE_ROLES else ORIGINAL_LIMITS['case_storage_bytes']}
 
 
-def build_admission_bundle(plan, complete_freeze, public_preread, activation_receipt, *, execution_scope, ordinal):
+def build_admission_bundle(plan, complete_freeze, public_preread, activation_receipt, *, execution_scope, ordinal,
+        invocation_spending=None):
     """Return metadata only; caller retains canonical(bundle)+newline bytes."""
     scope = _absolute(execution_scope); ordinal = _ordinal(ordinal)
     case_root = scope + f'/cases/case{ordinal:02d}'
@@ -565,10 +588,12 @@ def build_admission_bundle(plan, complete_freeze, public_preread, activation_rec
         'execution_scope': scope, 'code_root': case_root + '/frozen-code', 'derived_root': case_root + '/derived',
         'plan': plan, 'complete_freeze': complete_freeze, 'public_preread': public_preread,
         'activation_receipt': activation_receipt,
+        'invocation_spending': invocation_spending,
         'plan_sha256': hashlib.sha256(canonical(plan)).hexdigest(),
         'complete_freeze_sha256': hashlib.sha256(canonical(complete_freeze)).hexdigest(),
         'public_preread_sha256': hashlib.sha256(canonical(public_preread)).hexdigest(),
-        'activation_receipt_sha256': hashlib.sha256(canonical(activation_receipt)).hexdigest()}
+        'activation_receipt_sha256': hashlib.sha256(canonical(activation_receipt)).hexdigest(),
+        'invocation_spending_sha256': hashlib.sha256(canonical(invocation_spending)).hexdigest()}
     _validate_bundle(bundle, ordinal=ordinal)
     return json.loads(canonical(bundle))
 
@@ -942,7 +967,7 @@ def _validate_role_phase(bundle, *, running_caller=False):
         prior_bundle = load_bundle(inputs['preparation_bundle']['path'],
             expected_bundle_sha256=inputs['preparation_bundle']['sha256'])
         _validate_prepare_bundle(prior_bundle, ordinal=ordinal)
-        for key in ('plan', 'complete_freeze', 'public_preread', 'activation_receipt'):
+        for key in ('plan', 'complete_freeze', 'public_preread', 'activation_receipt', 'invocation_spending'):
             _exact(prior_bundle[key], bundle[key], 'preparation recipe evidence binding ' + key)
         options = values['arguments_json']
         if role == 'lossless-project':

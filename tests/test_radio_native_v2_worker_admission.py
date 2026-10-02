@@ -17,6 +17,7 @@ from unittest import mock
 import radio_native_v2_compact_eight_case_resource_fixture as fixture
 import radio_native_v2_worker_admission as admission
 import radio_native_v2_runtime_custody as custody
+import radio_native_v2_invocation_spending as spending
 
 ROOT = Path(__file__).resolve().parents[1]
 PYTHON = str(Path(sys.executable).resolve())
@@ -58,6 +59,7 @@ def synthetic_worker_materials(root, *, ordinal=0, plan=None, derived_sources=No
     code = case / 'frozen-code'; derived = case / 'derived'
     code.mkdir(parents=True); derived.mkdir()
     plan = copy.deepcopy(fixture.build_plan(ROOT) if plan is None else plan)
+    plan['invocation_ledger_root'] = str(root/'.radio-native-v2-invocation-ledger')
     # A test can construct materials before root adds the validator to its
     # shared CODE_FILES. The validator is always an explicit prospective pin.
     plan['code_files'][admission.SELF] = tiny_pin(SCRIPT.read_bytes())
@@ -120,8 +122,13 @@ def synthetic_worker_materials(root, *, ordinal=0, plan=None, derived_sources=No
         'code_files_verified': plan['code_files'], 'preparation_commit': '1' * 40,
         **admission.AUTHORITY}
     activation_receipt = synthetic_activation_receipt(plan,freeze,proof,execution_scope=scope)
+    Path(plan['invocation_ledger_root']).mkdir(mode=0o700)
+    witness = spending.consume_once(activation_receipt, execution_scope=str(scope),
+        ledger_root=plan['invocation_ledger_root'],
+        receipt_validator=lambda receipt: (admission._validate_activation_receipt(
+            receipt, plan, freeze, proof, execution_scope=str(scope)), True)[1])
     bundle = admission.build_admission_bundle(plan, freeze, proof, activation_receipt,
-        execution_scope=str(scope), ordinal=ordinal)
+        execution_scope=str(scope), ordinal=ordinal, invocation_spending=witness)
     path = case / 'worker-admission.json'
     raw = admission.bundle_bytes(bundle); path.write_bytes(raw)
     digest = hashlib.sha256(raw).hexdigest()
@@ -129,7 +136,7 @@ def synthetic_worker_materials(root, *, ordinal=0, plan=None, derived_sources=No
     return {'bundle': bundle, 'bundle_path': path, 'bundle_sha256': digest, 'argv': argv,
         'scope': scope, 'case_root': case, 'code_root': code, 'derived_root': derived,
         'plan': plan, 'freeze': freeze, 'proof': proof,
-        'activation_receipt':activation_receipt}
+        'activation_receipt':activation_receipt, 'invocation_spending':witness}
 
 
 def phase_descriptor(path):
@@ -181,7 +188,8 @@ def tiny_prepared(materials, *, ordinal=None, case_root=None):
 def retain_role(materials, role, inputs, *, ordinal=0):
     bundle = admission.build_role_admission_bundle(materials['plan'],materials['freeze'],materials['proof'],
         materials['activation_receipt'],
-        role=role,execution_scope=str(materials['scope']),ordinal=ordinal,phase_inputs=inputs)
+        role=role,execution_scope=str(materials['scope']),ordinal=ordinal,phase_inputs=inputs,
+        invocation_spending=materials['invocation_spending'])
     layout = admission.worker_role_layout(bundle,role=role,ordinal=ordinal)
     path = Path(layout['bundle_path']); raw = admission.bundle_bytes(bundle); path.write_bytes(raw)
     digest = tiny_pin(raw)['sha256']
@@ -378,11 +386,19 @@ class WorkerAdmissionTests(unittest.TestCase):
 
     def test_builder_creates_no_execution_scope_and_copies_input_metadata(self):
         fresh = self.root / 'must-remain-uncreated'
-        synthetic_receipt=synthetic_activation_receipt(self.materials['plan'],self.materials['freeze'],
-            self.materials['proof'],execution_scope=fresh)
-        bundle = admission.build_admission_bundle(self.materials['plan'], self.materials['freeze'],
-            self.materials['proof'], synthetic_receipt,
-            execution_scope=str(fresh), ordinal=2)
+        plan = copy.deepcopy(self.materials['plan'])
+        ledger_parent = self.root/'separate-synthetic-ledger'; ledger_parent.mkdir()
+        plan['invocation_ledger_root'] = str(ledger_parent/'.radio-native-v2-invocation-ledger')
+        Path(plan['invocation_ledger_root']).mkdir(mode=0o700)
+        proof = copy.deepcopy(self.materials['proof'])
+        proof['plan_sha256'] = hashlib.sha256(admission.canonical(plan)).hexdigest()
+        synthetic_receipt=synthetic_activation_receipt(plan,self.materials['freeze'],proof,execution_scope=fresh)
+        witness = spending.consume_once(synthetic_receipt, execution_scope=str(fresh),
+            ledger_root=plan['invocation_ledger_root'],
+            receipt_validator=lambda receipt: (admission._validate_activation_receipt(
+                receipt, plan, self.materials['freeze'], proof, execution_scope=str(fresh)), True)[1])
+        bundle = admission.build_admission_bundle(plan, self.materials['freeze'], proof, synthetic_receipt,
+            execution_scope=str(fresh), ordinal=2, invocation_spending=witness)
         self.assertFalse(fresh.exists())
         bundle['plan']['cases'][2]['source_bytes'] = 0
         self.assertEqual(self.materials['plan']['cases'][2]['source_bytes'], 26*1024**2)

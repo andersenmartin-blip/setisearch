@@ -70,6 +70,9 @@ CODE_FILES = (
     'scripts/radio_native_v2_activation_environment.py',
     'scripts/radio_native_v2_control_activation.py',
     'scripts/radio_native_v2_runtime_custody.py',
+    'scripts/radio_native_v2_invocation_spending.py',
+    'tests/test_radio_native_v2_invocation_spending.py',
+    'tests/test_radio_native_v2_source_receipt.py',
     'tests/test_radio_native_v2_compact_eight_case_resource_fixture.py',
     'tests/test_radio_native_v2_worker_admission.py',
     'tests/test_radio_native_v2_process_tree_supervisor.py',
@@ -80,8 +83,9 @@ CODE_FILES = (
 LOG_LIMIT = 65536
 OBSERVATION_SAMPLE_LIMIT = 2048
 CHILD_ENVIRONMENT = {'PATH':'/usr/bin:/bin','LANG':'C','LC_ALL':'C'}
-WORKER_ADMISSION_IMPLEMENTATION_PIN = {'bytes':73668,'sha256':'bd040b61f35db4cd9ae8d3140df44213d3a8659bf6b6ebb96cca4b5b793fe9ef'}
+WORKER_ADMISSION_IMPLEMENTATION_PIN = {'bytes': 75309, 'sha256': 'f12f684a41bfd6deb9a390351dba78319b6aad7e5716f22c95393e7cb99c961b'}
 CONTROL_ACTIVATION_IMPLEMENTATION_PIN = {'bytes':17701,'sha256':'69d7959c946b5e82cf0302e2c0d65b77c5ed890742038de35c210273ab140479'}
+INVOCATION_SPENDING_IMPLEMENTATION_PIN = {'bytes': 15048, 'sha256': 'd659918161562e4b237385872efdc59d0d070feeec47e01b9e0d8ccdbcf05ae0'}
 ACTIVATION_ENVIRONMENT_IMPLEMENTATION_PIN = {'bytes':11741,'sha256':'059003934a8b51c544f72b488c41c19a6067c0ffb0e65c31afc6eacd35d76bfd'}
 LOSSLESS_HELPER = "'use strict';\n// OFFLINE engineering evidence only. No connector, SDK, Git, RNG, scientific\n// case, telescope access, retry, or native reservation is used by this helper.\nconst fs = require('node:fs'), path = require('node:path'), cp = require('node:child_process'), crypto = require('node:crypto');\nconst SCHEMA = 'radio-native-v2-compact-eight-case-lossless-projection-v1';\nconst HASH = /^[a-f0-9]{64}$/;\nconst ensure = (ok, message) => { if (!ok) throw Error(message); };\nconst same = (a, b) => JSON.stringify(a) === JSON.stringify(b);\nfunction* textChunks(value) {\n  ensure(typeof value === 'string', 'Exact string scalar required');\n  for (let offset = 0; offset < value.length;) {\n    let end = Math.min(value.length, offset + 32768);\n    const last = value.charCodeAt(end - 1), next = value.charCodeAt(end);\n    if (end < value.length && last >= 0xd800 && last <= 0xdbff && next >= 0xdc00 && next <= 0xdfff) end--;\n    yield value.slice(offset, end); offset = end;\n  }\n}\nfunction* quoted(chunks) {\n  yield '\"';\n  for (const chunk of chunks) yield JSON.stringify(chunk).slice(1, -1);\n  yield '\"';\n}\nfunction* jsonChunks(value, virtualStrings = new WeakMap()) {\n  if (value && typeof value === 'object' && virtualStrings.has(value)) {\n    yield* quoted(virtualStrings.get(value)());\n  } else if (typeof value === 'string') yield* quoted(textChunks(value));\n  else if (Array.isArray(value)) {\n    yield '['; for (let i = 0; i < value.length; i++) { if (i) yield ','; yield* jsonChunks(value[i], virtualStrings); } yield ']';\n  } else if (value && typeof value === 'object') {\n    yield '{'; const keys = Object.keys(value);\n    for (let i = 0; i < keys.length; i++) { if (i) yield ','; yield* quoted(textChunks(keys[i])); yield ':'; yield* jsonChunks(value[keys[i]], virtualStrings); }\n    yield '}';\n  } else {\n    const literal = JSON.stringify(value); ensure(typeof literal === 'string', 'JSON scalar required'); yield literal;\n  }\n}\nfunction digest(chunks, newline = false) {\n  const hash = crypto.createHash('sha256'); let bytes = 0;\n  for (const chunk of chunks) { const b = Buffer.from(chunk, 'utf8'); bytes += b.length; hash.update(b); }\n  if (newline) { bytes++; hash.update('\\n'); }\n  return { bytes, sha256: hash.digest('hex') };\n}\nfunction shaFile(filename) {\n  const fd = fs.openSync(filename, fs.constants.O_RDONLY | fs.constants.O_NOFOLLOW | fs.constants.O_NONBLOCK), hash = crypto.createHash('sha256'), buffer = Buffer.alloc(65536); let bytes = 0;\n  try { const before=fs.fstatSync(fd); ensure(before.isFile()&&before.nlink===1,'Sole-link regular hash input required'); while (true) { const n = fs.readSync(fd, buffer, 0, buffer.length, null); if (!n) break; hash.update(buffer.subarray(0, n)); bytes += n; } }\n  finally { fs.closeSync(fd); }\n  return { bytes, sha256: hash.digest('hex') };\n}\nfunction writeJsonExclusive(filename, value) {\n  const fd = fs.openSync(filename, 'wx', 0o600);\n  try { for (const chunk of jsonChunks(value)) fs.writeSync(fd, chunk); fs.writeSync(fd, '\\n'); fs.fsyncSync(fd); }\n  finally { fs.closeSync(fd); }\n  const directory=fs.openSync(path.dirname(filename),fs.constants.O_RDONLY|fs.constants.O_DIRECTORY|fs.constants.O_NOFOLLOW);\n  try{fs.fsyncSync(directory);}finally{fs.closeSync(directory);}\n}\nfunction readJson(filename) {\n  const fd=fs.openSync(filename,fs.constants.O_RDONLY|fs.constants.O_NOFOLLOW|fs.constants.O_NONBLOCK);\n  try { const before=fs.fstatSync(fd); ensure(before.isFile()&&before.nlink===1&&before.size<=192*1024*1024,'Bounded sole-link JSON file required');\n    const result=JSON.parse(fs.readFileSync(fd,'utf8')),after=fs.fstatSync(fd);\n    ensure(before.dev===after.dev&&before.ino===after.ino&&before.size===after.size&&before.mtimeMs===after.mtimeMs,'JSON file changed during parse'); return result;\n  } finally { fs.closeSync(fd); }\n}\nfunction identityCheck(transcript, prepared) {\n  ensure(same(Object.keys(transcript), ['schema', 'control_case_identity', 'qualified', 'seen', 'deliveries', 'read_receipts']), 'Exact fresh eight-case top-level property order required');\n  const id = transcript.control_case_identity;\n  ensure(id && typeof id.namespace === 'string' && id.namespace.length && Number.isInteger(id.case_ordinal) && id.case_ordinal >= 0 && id.case_ordinal < 8 &&\n    typeof id.source_case_id === 'string' && id.source_case_id.length && HASH.test(id.engineering_case_binding_sha256) && HASH.test(id.source_sha256) &&\n    id.native_case_binding_verified === false, 'Distinct engineering identity with native binding false required');\n  ensure(same(id,prepared.control_case_identity),'Exact prepared engineering identity required');\n  ensure(id.source_sha256 === prepared.source_sha256, 'Actual deterministic source must bind the fresh engineering identity');\n  ensure(Array.isArray(transcript.qualified?.client?.records) && Array.isArray(transcript.read_receipts), 'Complete caller records and source read receipts required');\n}\nfunction uniqueMap(rows, key, message) { const result = new Map(); for (const row of rows) { ensure(!result.has(row[key]), message); result.set(row[key], row); } return result; }\nfunction envelopeCheck(record, receipt) {\n  ensure(same(Object.keys(record.raw_result), receipt.envelope_entries.map(row => row[0])), 'Exact original source envelope property order required');\n  for (const [key, value] of receipt.envelope_entries) {\n    if (key === 'output') ensure(value === null, 'Removed source output must use the exact null receipt descriptor');\n    else ensure(same(record.raw_result[key], value), 'Exact retained source envelope metadata required: ' + key);\n  }\n  ensure(record.response_bytes === receipt.envelope_bytes && record.response_sha256 === receipt.envelope_sha256, 'Receipt must bind the complete source envelope');\n}\nfunction project({ fullPath, preparedPath, recipePath, projectionPath, recipeArguments }) {\n  const started = Date.now(), originalPin = shaFile(fullPath), prepared = readJson(preparedPath), recipePin = shaFile(recipePath);\n  let transcript = readJson(fullPath); // This is the only complete full-transcript parse. Parent must independently observe this process.\n  if (global.gc) global.gc();\n  identityCheck(transcript, prepared);\n  ensure(Array.isArray(recipeArguments) && recipeArguments.length === 5 && recipeArguments.every(v => typeof v === 'string') &&\n    recipeArguments[0] === prepared.scope && recipeArguments[1] === prepared.python && recipeArguments[3] === String(transcript.control_case_identity.case_ordinal) &&\n    recipeArguments[2].length && recipeArguments[4].length, 'Exact original root/python/run-id/case-ordinal/archive-prefix recipe arguments required');\n  const plans = uniqueMap(prepared.reads, 'ordinal', 'Repeated preparation read ordinal refused'),\n    commands = uniqueMap(prepared.reads.map(row => ({ ...row, cmd: row.arguments.cmd })), 'cmd', 'Repeated original source reader command refused'),\n    receipts = uniqueMap(transcript.read_receipts, 'ordinal', 'Repeated source receipt ordinal refused'), replacements = [];\n  ensure(plans.size === 38 && receipts.size === 38, 'Exactly 38 frozen maximum source reads required');\n  let sourceCount = 0, requestCount = 0;\n  for (let index = 0; index < transcript.qualified.client.records.length; index++) {\n    const record = transcript.qualified.client.records[index]; ensure(record.ordinal === index, 'Original complete caller ordinal sequence required');\n    if (record.kind === 'actual_source_read') {\n      const request = JSON.parse(record.request_json), plan = commands.get(request.arguments.cmd), receipt = plan && receipts.get(plan.ordinal);\n      ensure(plan && receipt && request.tool === 'exec_command' && same(request.arguments, plan.arguments), 'Exact original source reader request required');\n      ensure(receipt.path === plan.path && receipt.offset === plan.offset && receipt.bytes === plan.bytes && receipt.source_sha256 === plan.source_sha256 && receipt.output_sha256 === plan.output_sha256,\n        'Source read descriptor must bind the frozen source range');\n      envelopeCheck(record, receipt);\n      const outputPin = digest(textChunks(record.raw_result.output)), responsePin = digest(textChunks(record.response_json)), rawPin = digest(jsonChunks(record.raw_result));\n      ensure(outputPin.bytes === plan.bytes && outputPin.sha256 === plan.output_sha256 && responsePin.bytes === record.response_bytes && responsePin.sha256 === record.response_sha256 && same(responsePin, rawPin),\n        'Complete original source output and ordered response bytes must match every retained pin before omission');\n      record.raw_result.output = { $compact_eight_lossless: 'immutable_source_range', source_plan_ordinal: plan.ordinal };\n      record.response_json = { $compact_eight_lossless: 'ordered_source_read_envelope', source_plan_ordinal: plan.ordinal };\n      replacements.push({ record_ordinal: index, field: 'raw_result.output', source_plan_ordinal: plan.ordinal }, { record_ordinal: index, field: 'response_json', source_plan_ordinal: plan.ordinal }); sourceCount++;\n    } else if (record.kind === 'actual_connector' && record.tool.endsWith('_create_tree')) {\n      const requestPin = digest(textChunks(record.request_json)), view = prepared.request_view;\n      ensure(requestPin.bytes === view.request_bytes && requestPin.sha256 === view.request_sha256 && record.request_bytes === requestPin.bytes && record.request_sha256 === requestPin.sha256,\n        'Exact original large create_tree request pin required');\n      record.request_json = { $compact_eight_lossless: 'immutable_create_tree_request_view' };\n      replacements.push({ record_ordinal: index, field: 'request_json', source_request_view: true }); requestCount++;\n    }\n  }\n  ensure(sourceCount === 38 && requestCount === 1 && replacements.length === 77, 'Precisely 77 large fields must be omitted; no other field removal permitted');\n  if (global.gc) global.gc();\n  const relative = path.relative(prepared.scope, prepared.request_view.path);\n  ensure(relative && !path.isAbsolute(relative) && relative.split(path.sep).every(part => part !== '..'), 'Request source must remain inside the original preparation root');\n  const projection = { schema: SCHEMA, fixture_only: true, original_full_transcript: { ...originalPin, original_scratch_path: path.resolve(fullPath) },\n    regeneration: { recipe_file: path.basename(recipePath), recipe_sha256: recipePin.sha256, recipe_bytes: recipePin.bytes,\n      recipe_arguments: recipeArguments, regenerated_relative_source_path: relative, prepared },\n    large_field_replacements: replacements, transcript, execution_authorized: false, scientific_execution_authorized: false,\n    native_case_reservations: 0, native_case_executions: 0, scientific_cases_run: 0, rng_draws: 0, telescope_reads: 0,\n    actual_connector_calls: 0, actual_functions_sdk_calls: 0, network_fetches: 0, automatic_retry: false,\n    limitations: ['Offline lossless evidence projection only; source readers and tail evidence belong to the separately measured caller.',\n      'Projection does not establish native binding, live transport, publication custody, scientific execution, or eight-case resource qualification.'] };\n  writeJsonExclusive(projectionPath, projection);\n  const pin = shaFile(projectionPath); transcript = null; if (global.gc) global.gc();\n  return { schema: SCHEMA + '-project-audit', status: 'PASSED', original_full_transcript: originalPin, projection: pin, omitted_fields: 77,\n    complete_original_envelope_pins_checked_before_omission: true, elapsed_seconds: (Date.now() - started) / 1000 };\n}\nfunction* rangeChunks(fd, offset, bytes) {\n  const buffer = Buffer.alloc(65536); let used = 0;\n  while (used < bytes) {\n    const n = fs.readSync(fd, buffer, 0, Math.min(buffer.length, bytes - used), offset + used); ensure(n > 0, 'Regenerated source range truncated');\n    const part = buffer.subarray(0, n); ensure(part.every(v => v < 128), 'Exact immutable ASCII source range required');\n    yield part.toString('ascii'); used += n;\n  }\n}\nfunction verifyProjection({ projectionPath, recipePath, freshRoot, auditPath, python, retainedSourcePath, retainedPayloadPath }) {\n  const started = Date.now(), projection = readJson(projectionPath), regeneration = projection.regeneration, prepared = regeneration.prepared,\n    transcript = projection.transcript, expected = projection.original_full_transcript, recipePin = shaFile(recipePath), projectionPin = shaFile(projectionPath);\n  ensure(projection.schema === SCHEMA && projection.fixture_only === true && projection.execution_authorized === false && projection.scientific_execution_authorized === false,\n    'Pinned offline engineering projection required');\n  identityCheck(transcript, prepared);\n  ensure(recipePin.sha256 === regeneration.recipe_sha256 && recipePin.bytes === regeneration.recipe_bytes, 'Exact frozen published preparation recipe required');\n  ensure(Array.isArray(regeneration.recipe_arguments) && regeneration.recipe_arguments.length === 5 && regeneration.recipe_arguments[0] === prepared.scope &&\n    regeneration.recipe_arguments[1] === prepared.python && regeneration.recipe_arguments[3] === String(transcript.control_case_identity.case_ordinal), 'Exact retained original recipe identity arguments required');\n  const relative = path.relative(prepared.scope, prepared.request_view.path);\n  ensure(path.isAbsolute(prepared.scope) && path.isAbsolute(prepared.request_view.path) && relative && !path.isAbsolute(relative) &&\n    relative.split(path.sep).every(part => part !== '..') && regeneration.regenerated_relative_source_path === relative,\n    'Exact bounded original-to-regenerated source path mapping required');\n  ensure(typeof python === 'string' && path.isAbsolute(python), 'Absolute independently pinned Python executable required');\n  let data, actualPrepared, sourceFile, payloadFile, independentlyRegenerated;\n  if (retainedSourcePath !== undefined) {\n    ensure(path.isAbsolute(retainedSourcePath) && path.resolve(retainedSourcePath) === path.resolve(prepared.request_view.path), 'Exact original retained source path required');\n    data = prepared.scope; actualPrepared = prepared; sourceFile = retainedSourcePath;\n    payloadFile = retainedPayloadPath || path.join(data, 'deterministic-source.bin');\n    ensure(path.isAbsolute(payloadFile) && path.resolve(payloadFile) === path.resolve(path.join(prepared.scope, 'deterministic-source.bin')), 'Exact original retained deterministic payload path required');\n    independentlyRegenerated = false;\n  } else {\n    ensure(path.isAbsolute(freshRoot) && !fs.existsSync(freshRoot), 'Exclusive fresh absolute regeneration root required; no overwrite or retry');\n    fs.mkdirSync(freshRoot, { mode: 0o700 }); data = path.join(freshRoot, 'regenerated-archive'); fs.mkdirSync(data, { mode: 0o700 });\n    const args = [...regeneration.recipe_arguments]; args[0] = data;\n    const regenerated = cp.spawnSync(python, ['-I', '-S', '-B', recipePath, ...args], { encoding: 'utf8', maxBuffer: 1048576, timeout: 120000,\n      env: { PATH: '/usr/bin:/bin', LANG: 'C', LC_ALL: 'C' } });\n    ensure(!regenerated.error && regenerated.status === 0 && regenerated.stdout === '' && regenerated.stderr === '', 'Exact offline deterministic preparation failed without retry: ' + String(regenerated.error || regenerated.stderr));\n    actualPrepared = readJson(path.join(data, 'prepared.json')); sourceFile = path.join(data, regeneration.regenerated_relative_source_path);\n    payloadFile = path.join(data, 'deterministic-source.bin'); independentlyRegenerated = true;\n  }\n  const sourcePin = shaFile(sourceFile), payloadPin = shaFile(payloadFile);\n  ensure(sourcePin.bytes === prepared.request_view.source_bytes && sourcePin.sha256 === prepared.request_view.source_sha256 &&\n    payloadPin.bytes === prepared.source_bytes && payloadPin.sha256 === prepared.source_sha256 &&\n    actualPrepared.archive_bytes === prepared.archive_bytes && actualPrepared.archive_files === prepared.archive_files && same(actualPrepared.files, prepared.files), 'Exact regenerated source, archive layout, and file pins required');\n  for (const field of ['source_bytes', 'source_sha256', 'offset', 'bytes', 'sha256', 'request_prefix', 'request_suffix', 'request_bytes', 'request_sha256'])\n    ensure(same(actualPrepared.request_view[field], prepared.request_view[field]), 'Regenerated request view differs: ' + field);\n  ensure(actualPrepared.reads.length === prepared.reads.length, 'Exact original read count required');\n  for (let i = 0; i < prepared.reads.length; i++) for (const field of ['ordinal', 'tool', 'offset', 'bytes', 'source_sha256', 'output_sha256', 'response_reserved_bytes'])\n    ensure(same(actualPrepared.reads[i][field], prepared.reads[i][field]), 'Regenerated source read content descriptor differs: ' + field);\n  // Original paths, commands, wall times, envelopes, binding values, and property\n  // order stay in the retained transcript. Only regenerated byte ranges replace\n  // the 77 explicitly omitted strings. No restored large field is accumulated.\n  const plans = uniqueMap(prepared.reads, 'ordinal', 'Repeated source plan refused'), receipts = uniqueMap(transcript.read_receipts, 'ordinal', 'Repeated source receipt refused'),\n    virtual = new WeakMap(), seen = new Set(), fd = fs.openSync(sourceFile, fs.constants.O_RDONLY | fs.constants.O_NOFOLLOW | fs.constants.O_NONBLOCK);\n  let sourceFields = 0, envelopeFields = 0, requestFields = 0;\n  try {\n    ensure(plans.size === 38 && receipts.size === 38 && projection.large_field_replacements.length === 77, 'Exact complete 38-source/77-field projection required');\n    for (const item of projection.large_field_replacements) {\n      const key = item.record_ordinal + ':' + item.field; ensure(!seen.has(key), 'Duplicate large field replacement refused'); seen.add(key);\n      const record = transcript.qualified.client.records[item.record_ordinal]; ensure(record && record.ordinal === item.record_ordinal, 'Original complete record ordinal required');\n      if (item.field === 'raw_result.output') {\n        const marker = record.raw_result?.output, plan = plans.get(item.source_plan_ordinal), receipt = plan && receipts.get(plan.ordinal);\n        ensure(record.kind === 'actual_source_read' && marker && same(Object.keys(marker), ['$compact_eight_lossless', 'source_plan_ordinal']) && marker.$compact_eight_lossless === 'immutable_source_range' && marker.source_plan_ordinal === plan?.ordinal && receipt,\n          'Exact removed source output descriptor required');\n        const request = JSON.parse(record.request_json);\n        ensure(request.tool === 'exec_command' && same(request.arguments, plan.arguments) && receipt.path === plan.path && receipt.offset === plan.offset && receipt.bytes === plan.bytes &&\n          receipt.source_sha256 === plan.source_sha256 && receipt.output_sha256 === plan.output_sha256, 'Original source command and receipt metadata must remain unchanged');\n        const pin = digest(rangeChunks(fd, plan.offset, plan.bytes)); ensure(pin.bytes === plan.bytes && pin.sha256 === plan.output_sha256, 'Exact regenerated source output pin differs');\n        virtual.set(marker, () => rangeChunks(fd, plan.offset, plan.bytes)); sourceFields++;\n      } else if (item.field === 'response_json') {\n        const marker = record.response_json, plan = plans.get(item.source_plan_ordinal), receipt = plan && receipts.get(plan.ordinal);\n        ensure(record.kind === 'actual_source_read' && marker && same(Object.keys(marker), ['$compact_eight_lossless', 'source_plan_ordinal']) && marker.$compact_eight_lossless === 'ordered_source_read_envelope' &&\n          marker.source_plan_ordinal === plan?.ordinal && virtual.has(record.raw_result.output) && receipt, 'Exact ordered removed response descriptor required');\n        envelopeCheck(record, receipt);\n        const pin = digest(jsonChunks(record.raw_result, virtual));\n        ensure(pin.bytes === record.response_bytes && pin.sha256 === record.response_sha256 && receipt.envelope_bytes === pin.bytes && receipt.envelope_sha256 === pin.sha256,\n          'Exact reconstructed complete source envelope pin differs');\n        virtual.set(marker, () => jsonChunks(record.raw_result, virtual)); envelopeFields++;\n      } else if (item.field === 'request_json') {\n        const marker = record.request_json, view = prepared.request_view;\n        ensure(record.kind === 'actual_connector' && record.tool.endsWith('_create_tree') && marker && same(Object.keys(marker), ['$compact_eight_lossless']) && marker.$compact_eight_lossless === 'immutable_create_tree_request_view',\n          'Exact removed create_tree request descriptor required');\n        const chunks = function* () { yield* textChunks(view.request_prefix); yield* rangeChunks(fd, view.offset, view.bytes); yield* textChunks(view.request_suffix); }, pin = digest(chunks());\n        ensure(pin.bytes === record.request_bytes && pin.sha256 === record.request_sha256 && pin.bytes === view.request_bytes && pin.sha256 === view.request_sha256,\n          'Exact complete regenerated create_tree request pin differs');\n        virtual.set(marker, chunks); requestFields++;\n      } else throw Error('Unknown or extra large field replacement refused');\n    }\n    ensure(sourceFields === 38 && envelopeFields === 38 && requestFields === 1, 'Precisely all 77 original large string fields must be restored');\n    const reconstructed = digest(jsonChunks(transcript, virtual), true);\n    ensure(reconstructed.bytes === expected.bytes && reconstructed.sha256 === expected.sha256, 'Entire original caller transcript UTF-8 byte count and SHA differ after hash-only reconstruction');\n    const audit = { schema: SCHEMA + '-reconstruction-audit', status: 'PASSED', control_case_identity: transcript.control_case_identity,\n      projection: projectionPin, recipe: recipePin, reconstruction_helper: shaFile(__filename), original_full_transcript: expected,\n      reconstructed_full_transcript: { ...reconstructed, hash_only_sink: true, full_duplicate_file_written: false }, request_source: { ...sourcePin, path: sourceFile },\n      deterministic_source: { ...payloadPin, path: payloadFile }, independently_regenerated_for_this_proof: independentlyRegenerated,\n      deterministic_recipe_reexecuted_for_this_proof: independentlyRegenerated,\n      source_mode: independentlyRegenerated ? 'independently_regenerated_from_frozen_recipe' : 'existing_exact_pinned_fresh_generator_output',\n      additional_full_source_copy_written: independentlyRegenerated, additional_full_transcript_copy_written: false,\n      restored_source_output_fields: sourceFields, restored_complete_raw_response_json_fields: envelopeFields,\n      restored_complete_create_tree_request_fields: requestFields, exact_original_metadata_and_property_order_preserved: true,\n      complete_full_file_bytecount_and_sha256_match: true, no_accumulated_reconstructed_large_strings: true, no_reconstructed_full_buffer: true,\n      data_reconstruction_only: true, new_case_executions: 0, actual_functions_sdk_calls: 0, actual_connector_calls: 0, network_fetches: 0,\n      real_public_github_mutations: 0, native_case_reservations: 0, native_case_executions: 0, scientific_cases_run: 0, rng_draws: 0, telescope_reads: 0,\n      automatic_retry: false, execution_authorized: false, scientific_execution_authorized: false, live_transport_qualified: false, elapsed_seconds: (Date.now() - started) / 1000 };\n    writeJsonExclusive(auditPath, audit); return audit;\n  } finally { fs.closeSync(fd); }\n}\nmodule.exports = { SCHEMA, project, verifyProjection, textChunks, quoted, jsonChunks, digest, shaFile, rangeChunks };\nif (require.main === module) {\n  try {\n    const args = process.argv.slice(2); let result;\n    if (args[0] === '--resource-project' || args[0] === '--resource-verify-retained') {\n      ensure(args.length===2,'Exact resource helper argument file required');\n      const options=readJson(args[1]),identityPath=options.identityPath;\n      ensure(typeof identityPath==='string'&&path.isAbsolute(identityPath),'Independent observer identity destination required');\n      writeJsonExclusive(identityPath,{procfs_pid:Number(fs.readlinkSync('/proc/self')),namespace_pid:process.pid});\n      result=args[0]==='--resource-project'?project(options):verifyProjection(options);\n    } else if (args[0] === '--project') {\n      ensure(args.length === 6, 'Usage: helper.js --project full.json prepared.json recipe.py projection.json recipe-arguments.json');\n      result = project({ fullPath: args[1], preparedPath: args[2], recipePath: args[3], projectionPath: args[4], recipeArguments: readJson(args[5]) });\n    } else if (args[0] === '--verify-projection') {\n      ensure(args.length === 6, 'Usage: helper.js --verify-projection projection.json recipe.py fresh-absolute-root audit.json absolute-python');\n      result = verifyProjection({ projectionPath: args[1], recipePath: args[2], freshRoot: args[3], auditPath: args[4], python: args[5] });\n    } else if (args[0] === '--verify-retained-source') {\n      ensure(args.length === 6 || args.length === 7, 'Usage: helper.js --verify-retained-source projection.json recipe.py original-absolute-source-wire audit.json absolute-python [original-absolute-deterministic-payload]');\n      result = verifyProjection({ projectionPath: args[1], recipePath: args[2], retainedSourcePath: args[3], auditPath: args[4], python: args[5], retainedPayloadPath: args[6] });\n    } else throw Error('Only --project, --verify-projection, and --verify-retained-source modes are permitted');\n    process.stdout.write(JSON.stringify({ status: result.status, schema: result.schema, bytes: result.reconstructed_full_transcript?.bytes ?? result.original_full_transcript.bytes,\n      sha256: result.reconstructed_full_transcript?.sha256 ?? result.original_full_transcript.sha256, elapsed_seconds: result.elapsed_seconds }) + '\\n');\n  } catch (error) { process.stderr.write(String(error) + '\\n'); process.exitCode = 1; }\n}\n"
 
@@ -193,11 +197,9 @@ def frozen_module(relative):
  exec(compile(bytes(raw),str(path),'exec'),module)
  return module
 IMPLEMENTATION_PINS='''+repr(pins)+'''
-admission=frozen_module('scripts/radio_native_v2_worker_admission.py')
-admission['validate_worker_admission'](Path(sys.argv[6]),role='prepare',ordinal=ordinal,
- argv=list(sys.orig_argv),
- environment=dict(os.environ),expected_bundle_sha256=sys.argv[7])
-frozen_module('''+repr(SELF)+''')['require_execution_ready']()
+frozen_module('''+repr(SELF)+''')['source_worker_admission'](
+ Path(sys.argv[6]),sys.argv[7],ordinal=ordinal,
+ argv=list(sys.orig_argv),environment=dict(os.environ))
 '''
 
 
@@ -315,7 +317,10 @@ def build_plan(repo=REPO):
         'runtime_custody_after_activation_uses_git':False,
         'spent_control_rearmed':False,
         'source_worker_activation_receipt_delivery_complete':False,
+        'source_worker_activation_receipt_delivery_prepared':True,
+        'invocation_ledger_root':str(Path(repo).absolute()/'.radio-native-v2-invocation-ledger'),
         'one_invocation_spending_enforced':False,
+        'durable_one_invocation_spending_prepared':True,
         'complete_resource_measurement_join_qualified':False,
         'code_files': code, 'derived_code': {name: {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()} for name, raw in derived.items()},
         'runtime_executables': runtime, 'engineering_runtime_supplement':runtime_supplement(),
@@ -339,8 +344,8 @@ def build_plan(repo=REPO):
         **AUTHORITY}
 
 
-def require_execution_ready(activation_receipt=None, plan=None, freeze=None, preread=None, repo=REPO,*,execution_scope=None):
-    """Require the separate public marker receipt; the plan itself stays blocked."""
+def _checked_activation_receipt(activation_receipt=None, plan=None, freeze=None, preread=None, repo=REPO,*,execution_scope=None):
+    """Read-only receipt/material check; this never consumes an invocation."""
     if any(value is None for value in (activation_receipt,plan,freeze,preread)):
         raise RuntimeError('BLOCKED_PREPARATION_REVIEW: activation receipt absent; '+EXECUTION_BLOCKERS[0])
     key='scripts/radio_native_v2_control_activation.py'
@@ -351,6 +356,49 @@ def require_execution_ready(activation_receipt=None, plan=None, freeze=None, pre
     module['validate_worker_receipt'](activation_receipt,plan=plan,
         complete_freeze=freeze,execution_preread=preread,execution_scope=execution_scope)
     return True
+
+
+def invocation_spending_module(repo=REPO):
+    """Compile only the independently reviewed spend implementation."""
+    key='scripts/radio_native_v2_invocation_spending.py'
+    if not isinstance(INVOCATION_SPENDING_IMPLEMENTATION_PIN,dict):
+        raise RuntimeError('BLOCKED_PREPARATION_REVIEW: reviewed invocation spending implementation pin required')
+    return pinned_component(repo,key,{key:INVOCATION_SPENDING_IMPLEMENTATION_PIN})
+
+
+def require_execution_ready(activation_receipt=None, plan=None, freeze=None, preread=None, repo=REPO,*,
+        execution_scope=None,invocation_spending=None):
+    """Require checked receipt and durable spend witness before worker writes."""
+    _checked_activation_receipt(activation_receipt,plan,freeze,preread,repo,
+        execution_scope=execution_scope)
+    if invocation_spending is None:
+        raise RuntimeError('BLOCKED_PREPARATION_REVIEW: durable invocation spending witness absent')
+    key='scripts/radio_native_v2_invocation_spending.py'
+    if plan.get('code_files',{}).get(key)!=INVOCATION_SPENDING_IMPLEMENTATION_PIN:
+        raise RuntimeError('BLOCKED_PREPARATION_REVIEW: reviewed invocation spending source pin required')
+    invocation_spending_module(repo)['verify_spend_witness'](invocation_spending,activation_receipt,
+        execution_scope=execution_scope,ledger_root=plan.get('invocation_ledger_root'))
+    return True
+
+
+def source_worker_admission(bundle_path,bundle_digest,*,ordinal,argv,environment):
+    """Deliver receipt solely from an independently hash-pinned bundle.
+
+    An embedded receipt dictionary has no admission interface here. The exact
+    bundle path/digest and argv are inherited from the checked dispatcher; local
+    structural claims alone do not authenticate immutable public readback.
+    """
+    if argv != list(sys.orig_argv) or environment != dict(os.environ):
+        raise ValueError('Actual source worker argv/environment required')
+    bundle,_=checked_worker_bundle(bundle_path,bundle_digest,'prepare',
+        argv=argv,environment=environment)
+    if bundle['case_ordinal']!=ordinal or type(ordinal) is not int:
+        raise ValueError('Exact source worker outer ordinal required')
+    require_execution_ready(bundle['activation_receipt'],bundle['plan'],
+        bundle['complete_freeze'],bundle['public_preread'],
+        execution_scope=bundle['execution_scope'],
+        invocation_spending=bundle['invocation_spending'])
+    return bundle
 
 
 def verify_fresh_source_domain(path, ordinal, expected_bytes):
@@ -449,7 +497,7 @@ def validate_activation(plan, preread, freeze, activation_receipt, repo=REPO):
     freezer validator plus an independently recomputed expected closure. That
     join is an explicit prospective blocker and cannot admit this component.
     """
-    require_execution_ready(activation_receipt,plan,freeze,preread,repo)
+    _checked_activation_receipt(activation_receipt,plan,freeze,preread,repo)
     if plan != build_plan(repo): raise ValueError('Exact current prospective plan/code/runtime executable pins required')
     activation_environment_module(repo).validate_platform(plan.get('activation_platform_contract'))
     expected = {'schema': PREREAD_SCHEMA, 'namespace': NAMESPACE,
@@ -717,7 +765,9 @@ def command_worker(case_root, label, command, caller_bundle_path=None, caller_bu
     admission = pinned_component(REPO,key,{key:WORKER_ADMISSION_IMPLEMENTATION_PIN})
     caller_bundle = admission['load_bundle'](caller_bundle_path,expected_bundle_sha256=caller_bundle_digest)
     require_execution_ready(caller_bundle['activation_receipt'],caller_bundle['plan'],
-        caller_bundle['complete_freeze'],caller_bundle['public_preread'])
+        caller_bundle['complete_freeze'],caller_bundle['public_preread'],
+        execution_scope=caller_bundle['execution_scope'],
+        invocation_spending=caller_bundle['invocation_spending'])
     ordinal = caller_bundle['case_ordinal']
     expected_wrapper = [caller_bundle['plan']['runtime_executables']['python']['path'],'-I','-S','-B',
         str(REPO/SELF),'--command-worker',str(case_root),label,command,str(caller_bundle_path),caller_bundle_digest]
@@ -739,7 +789,8 @@ def command_worker(case_root, label, command, caller_bundle_path=None, caller_bu
         'source_wire':None if label=='command-tail' else phase_file(Path(prepared['request_view']['path']))}
     bundle_path,digest,_ = role_bundle(Path(caller_bundle['execution_scope']),caller_bundle['plan'],
         caller_bundle['public_preread'],caller_bundle['complete_freeze'],
-        caller_bundle['activation_receipt'],'command',phase_inputs,ordinal=ordinal)
+        caller_bundle['activation_receipt'],'command',phase_inputs,ordinal=ordinal,
+        invocation_spending=caller_bundle['invocation_spending'])
     root = case_root/'command-observations'; root.mkdir(exist_ok=True)
     identity(root/(label+'-supervisor-identity.json'))
     _,stdout,stderr = observe_admitted_role(root,'command',bundle_path,digest,ordinal,
@@ -752,7 +803,9 @@ def command_worker(case_root, label, command, caller_bundle_path=None, caller_bu
 def exec_command_child(case_root,label,command,bundle_path=None,bundle_digest=None):
     bundle,_=checked_worker_bundle(bundle_path,bundle_digest,'command')
     require_execution_ready(bundle['activation_receipt'],bundle['plan'],
-        bundle['complete_freeze'],bundle['public_preread'])
+        bundle['complete_freeze'],bundle['public_preread'],
+        execution_scope=bundle['execution_scope'],
+        invocation_spending=bundle['invocation_spending'])
     arguments=shlex.split(command)
     if len(arguments)<6 or Path(arguments[0]).resolve()!=Path(sys.executable).resolve() or arguments[1:4]!=['-I','-S','-B']:
         raise ValueError('One exact pinned isolated Python argv required; shell syntax is not executed')
@@ -828,17 +881,20 @@ def node_worker_entry(role,bundle_path,bundle_digest,argv,environment):
         raise ValueError('Exact derived Node worker role required')
     bundle,_=checked_worker_bundle(bundle_path,bundle_digest,role,argv=argv,environment=environment)
     require_execution_ready(bundle['activation_receipt'],bundle['plan'],
-        bundle['complete_freeze'],bundle['public_preread'])
+        bundle['complete_freeze'],bundle['public_preread'],
+        execution_scope=bundle['execution_scope'],
+        invocation_spending=bundle['invocation_spending'])
 
 
-def role_bundle(scope,plan,preread,freeze,activation_receipt,role,phase_inputs,*,ordinal=None):
+def role_bundle(scope,plan,preread,freeze,activation_receipt,role,phase_inputs,*,ordinal=None,invocation_spending):
     """Retain exact future role metadata; this grants no execution authority."""
     key = 'scripts/radio_native_v2_worker_admission.py'
     if not isinstance(WORKER_ADMISSION_IMPLEMENTATION_PIN,dict):
         raise RuntimeError('Reviewed worker admission implementation pin is not finalized')
     admission = pinned_component(REPO,key,{key:WORKER_ADMISSION_IMPLEMENTATION_PIN})
     bundle = admission['build_role_admission_bundle'](plan,freeze,preread,activation_receipt,
-        role=role,execution_scope=scope,ordinal=ordinal,phase_inputs=phase_inputs)
+        role=role,execution_scope=scope,ordinal=ordinal,phase_inputs=phase_inputs,
+        invocation_spending=invocation_spending)
     path = Path(admission['worker_role_layout'](bundle,role=role,ordinal=ordinal)['bundle_path'])
     write(path,admission['bundle_bytes'](bundle))
     return path,pin(path)['sha256'],admission
@@ -950,7 +1006,9 @@ def verified_command_observations(case_root,plan,ordinal):
 def verifier_worker(scope,bundle_path=None,bundle_digest=None):
     bundle,_=checked_worker_bundle(bundle_path,bundle_digest,'verifier')
     require_execution_ready(bundle['activation_receipt'],bundle['plan'],
-        bundle['complete_freeze'],bundle['public_preread'])
+        bundle['complete_freeze'],bundle['public_preread'],
+        execution_scope=bundle['execution_scope'],
+        invocation_spending=bundle['invocation_spending'])
     scope = Path(scope); identity(scope/'verifier-identity.json')
     plan = small_json(scope/'plan.json')
     module = pinned_component(REPO,'scripts/radio_native_v2_compact_run_verifier.py',plan['code_files'])
@@ -968,8 +1026,10 @@ def control_worker(scope,bundle_path=None,bundle_digest=None):
     """Fresh full scope; raw source generation occurs only inside this worker."""
     bundle,_=checked_worker_bundle(bundle_path,bundle_digest,'control')
     require_execution_ready(bundle['activation_receipt'],bundle['plan'],
-        bundle['complete_freeze'],bundle['public_preread'])
-    activation_receipt=bundle['activation_receipt']
+        bundle['complete_freeze'],bundle['public_preread'],
+        execution_scope=bundle['execution_scope'],
+        invocation_spending=bundle['invocation_spending'])
+    activation_receipt=bundle['activation_receipt']; invocation_spending=bundle['invocation_spending']
     scope = Path(scope); identity(scope/'control-worker-identity.json')
     plan = small_json(scope/'plan.json'); started = time.monotonic(); rows = []; compact_inputs = []
     preread = small_json(scope/'public-preread.json'); freeze = small_json(scope/'complete-freeze.json')
@@ -991,7 +1051,7 @@ def control_worker(scope,bundle_path=None,bundle_digest=None):
             admission = pinned_component(root/'frozen-code','scripts/radio_native_v2_worker_admission.py',
                 {'scripts/radio_native_v2_worker_admission.py':WORKER_ADMISSION_IMPLEMENTATION_PIN})
             bundle = admission['build_admission_bundle'](plan,freeze,preread,activation_receipt,
-                execution_scope=scope,ordinal=ordinal)
+                execution_scope=scope,ordinal=ordinal,invocation_spending=invocation_spending)
             bundle_path = root/'worker-admission.json'; write(bundle_path,bundle)
             bundle_sha256 = pin(bundle_path)['sha256']
             supervisor_scope = root/'preparation-supervisor'
@@ -1017,7 +1077,7 @@ def control_worker(scope,bundle_path=None,bundle_digest=None):
             if not all(path.startswith(fixed['archive_prefix']+'/') for path in prepared['files']):
                 raise ValueError('Fresh archive paths do not bind the fixed outer ordinal')
             caller_bundle_path,caller_digest,_ = role_bundle(scope,plan,preread,freeze,activation_receipt,'caller',
-                {'prepared_json':phase_file(root/'prepared.json')},ordinal=ordinal)
+                {'prepared_json':phase_file(root/'prepared.json')},ordinal=ordinal,invocation_spending=invocation_spending)
             observed,_,_ = observe_admitted_role(root,'caller',caller_bundle_path,caller_digest,ordinal,deadline=deadline)
             caller = small_json(root/'caller-summary.json')
             if canonical(caller.get('control_case_identity'))!=canonical(expected_identity):
@@ -1043,7 +1103,7 @@ def control_worker(scope,bundle_path=None,bundle_digest=None):
                 {'prepared_json':phase_file(root/'prepared.json'),
                  'arguments_json':phase_file(root/'project-arguments.json'),
                  'caller_transcript':phase_file(root/'caller-result.json'),
-                 'preparation_bundle':phase_file(bundle_path)},ordinal=ordinal)
+                 'preparation_bundle':phase_file(bundle_path)},ordinal=ordinal,invocation_spending=invocation_spending)
             project_observed,_,_=observe_admitted_role(root,'lossless-project',project_bundle,project_digest,ordinal,deadline=deadline)
             verify_args = {'projectionPath':project_args['projectionPath'],'recipePath':project_args['recipePath'],
                 'retainedSourcePath':prepared['request_view']['path'],'retainedPayloadPath':str(root/'deterministic-source.bin'),
@@ -1055,7 +1115,7 @@ def control_worker(scope,bundle_path=None,bundle_digest=None):
                  'projection':phase_file(Path(project_args['projectionPath'])),
                  'source_wire':phase_file(Path(prepared['request_view']['path'])),
                  'deterministic_source':phase_file(root/'deterministic-source.bin'),
-                 'preparation_bundle':phase_file(bundle_path)},ordinal=ordinal)
+                 'preparation_bundle':phase_file(bundle_path)},ordinal=ordinal,invocation_spending=invocation_spending)
             retained_observed,_,_=observe_admitted_role(root,'lossless-verify-retained',verify_bundle,verify_digest,ordinal,deadline=deadline)
             write(evidence/'fresh-prepare.py',(root/'derived'/'prepare.py').read_bytes())
             write(evidence/'preparation-subreaper-receipt.json',canonical(preparation_receipt))
@@ -1090,7 +1150,7 @@ def control_worker(scope,bundle_path=None,bundle_digest=None):
             {'plan_json':phase_file(scope/'plan.json'),'freeze_json':phase_file(scope/'complete-freeze.json'),
              'preread_json':phase_file(scope/'public-preread.json'),
              'compact_input_plan':phase_file(scope/'compact-input-plan.json'),
-             'prepared_cases':[phase_file(scope/'cases'/f'case{ordinal:02d}'/'prepared.json') for ordinal in range(8)]})
+             'prepared_cases':[phase_file(scope/'cases'/f'case{ordinal:02d}'/'prepared.json') for ordinal in range(8)]},invocation_spending=invocation_spending)
         observed,_,_ = observe_admitted_role(scope,'verifier',verifier_bundle,verifier_digest,None,deadline=started+4800)
         verifier_seconds = time.monotonic()-verifier_start
         timing = small_json(scope/'verifier-timing.json'); wall_seconds = time.monotonic()-started
@@ -1132,23 +1192,32 @@ def run_control(scope,plan,preread,freeze,activation_receipt,lossless_helper,*,a
         raise ValueError('Exact actual admission-start monotonic anchor required')
     preparation_started=admission_start_monotonic_ns/1e9
     scope = Path(scope).absolute()
-    require_execution_ready(activation_receipt,plan,freeze,preread,execution_scope=str(scope))
+    _checked_activation_receipt(activation_receipt,plan,freeze,preread,execution_scope=str(scope))
     validate_activation(plan,preread,freeze,activation_receipt)
     if scope.exists(): raise RuntimeError('Fresh exclusive whole control scope required; no retry or resume')
     if not scope.parent.is_dir() or scope.parent.resolve()!=scope.parent:
         raise ValueError('Existing canonical non-symlink parent required for measured scope')
     if lossless_helper is None or lossless_helper!=templates((REPO/CODE_FILES[0]).read_text())['lossless-helper.js']:
         raise ValueError('Exact prospectively pinned lossless helper required before source generation')
+    # Spending is durable before the first scope write or child launch. A
+    # later refusal leaves the activation spent; no automatic retry exists.
+    invocation_spending=invocation_spending_module()['consume_once'](activation_receipt,
+        execution_scope=str(scope),ledger_root=plan['invocation_ledger_root'],
+        receipt_validator=lambda value:_checked_activation_receipt(value,plan,freeze,preread,
+            execution_scope=str(scope)))
+    require_execution_ready(activation_receipt,plan,freeze,preread,execution_scope=str(scope),
+        invocation_spending=invocation_spending)
     scope.mkdir(mode=0o700,exist_ok=False)
     write(scope/'plan.json',plan); write(scope/'public-preread.json',preread); write(scope/'complete-freeze.json',freeze)
     write(scope/'activation-receipt.json',activation_receipt)
+    write(scope/'invocation-spending.json',invocation_spending)
     copy_code(REPO,scope/'frozen-code',plan['code_files'])
     write(scope/'lossless-helper.js',lossless_helper)
     (scope/'derived').mkdir()
     for name,raw in templates((REPO/CODE_FILES[0]).read_text()).items(): write(scope/'derived'/name,raw)
     control_bundle,control_digest,_ = role_bundle(scope,plan,preread,freeze,activation_receipt,'control',
         {'plan_json':phase_file(scope/'plan.json'),'freeze_json':phase_file(scope/'complete-freeze.json'),
-         'preread_json':phase_file(scope/'public-preread.json')})
+         'preread_json':phase_file(scope/'public-preread.json')},invocation_spending=invocation_spending)
     started = time.monotonic()
     try:
         finalizer = pinned_component(REPO,'scripts/radio_native_v2_resource_finalization.py',plan['code_files'])
@@ -1196,7 +1265,8 @@ def run_control(scope,plan,preread,freeze,activation_receipt,lossless_helper,*,a
             str(scope/'frozen-code'/'scripts/radio_native_v2_resource_finalization.py'),
             '--persist-final-report','--scope',str(scope),
             '--input-bytes',str(input_pin['bytes']),'--input-sha256',input_pin['sha256']]
-        require_execution_ready(activation_receipt,plan,freeze,preread,execution_scope=str(scope))
+        require_execution_ready(activation_receipt,plan,freeze,preread,execution_scope=str(scope),
+            invocation_spending=invocation_spending)
         writer_observed,_,_ = observe_process(writer_argv,scope,'final-report-writer',
             scope/finalizer['FINAL_WRITER_IDENTITY_NAME'],deadline=preparation_started+4800)
         summary = finalizer['join_final_report_lifetime'](scope,

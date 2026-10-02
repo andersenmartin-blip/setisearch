@@ -257,9 +257,11 @@ class ResourceFinalizationTests(unittest.TestCase):
             'sha256': hashlib.sha256(own.read_bytes()).hexdigest()}
         records = {'plan': plan, 'freeze': {'synthetic_unit_receipt': 'freeze'},
             'preread': {'synthetic_unit_receipt': 'preread'},
-            'activation_receipt': {'synthetic_unit_receipt': 'activation'}}
+            'activation_receipt': {'synthetic_unit_receipt': 'activation'},
+            'invocation_spending': {'synthetic_unit_receipt': 'spending'}}
         for key, name in (('plan', 'plan.json'), ('freeze', 'complete-freeze.json'),
-                ('preread', 'public-preread.json'), ('activation_receipt', 'activation-receipt.json')):
+                ('preread', 'public-preread.json'), ('activation_receipt', 'activation-receipt.json'),
+                ('invocation_spending', 'invocation-spending.json')):
             write_json(scope/name, records[key])
         return code_root, own, records
 

@@ -60,11 +60,7 @@ TINY_REPORT_SECONDS = 3.0
 # Independent reviewed dispatch pins. Root refreshes these only after reviewing
 # the final code of the fixed source implementations; a supplied bundle cannot
 # select an arbitrary implementation for any admission check.
-BOOTSTRAP_SOURCE_PINS = {
-    FIXTURE: {'bytes': 113630, 'sha256': 'bfb3baa5be2ad11bde9b1a6fdecb6d73be536672cd2a28d9163c1ef445bf43e9'},
-    ADMISSION: {'bytes': 73668, 'sha256': 'bd040b61f35db4cd9ae8d3140df44213d3a8659bf6b6ebb96cca4b5b793fe9ef'},
-    SUPERVISOR: {'bytes': 58112, 'sha256': '341c21aa390194b7ad3c7061e7482b2ea03b640bd75b2b039bd0970835d6920d'},
-}
+BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v2_compact_eight_case_resource_fixture.py': {'bytes': 118166, 'sha256': 'e4f84a8bf231269cdab419531326f716c27d70923ea8368cda11523e8b4934b3'}, 'scripts/radio_native_v2_worker_admission.py': {'bytes': 75309, 'sha256': 'f12f684a41bfd6deb9a390351dba78319b6aad7e5716f22c95393e7cb99c961b'}, 'scripts/radio_native_v2_process_tree_supervisor.py': {'bytes': 58177, 'sha256': '13334e0a6ad42d9dad8a71b539ab3ea5ae730e045a624f8008273f099cf4f92d'}}
 AUTHORITY = {'execution_authorized': False, 'reservation_authorized': False,
     'scientific_execution_authorized': False, 'native_case_reservations': 0,
     'native_case_executions': 0, 'scientific_cases_run': 0, 'rng_draws': 0,
@@ -592,7 +588,8 @@ def check_final_report_material_scope(scope):
     scope = _absolute(scope); code_root = _absolute(scope/'frozen-code')
     records = {}
     for name, filename in (('plan', 'plan.json'), ('freeze', 'complete-freeze.json'),
-            ('preread', 'public-preread.json'), ('activation_receipt', 'activation-receipt.json')):
+            ('preread', 'public-preread.json'), ('activation_receipt', 'activation-receipt.json'),
+            ('invocation_spending', 'invocation-spending.json')):
         records[name], _ = read_pinned_json(scope/filename, maximum=16*MIB)
     plan = records['plan']; code = plan.get('code_files', {})
     for relative, expected in BOOTSTRAP_SOURCE_PINS.items():
