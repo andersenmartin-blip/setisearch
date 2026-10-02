@@ -2,7 +2,7 @@
 
 ## 2 October: runtime custody integrated; astronomical pilot remains blocked
 
-[The integrated package and evidence](https://github.com/andersenmartin-blip/setisearch/blob/b72eef721d9e58b1a67bca8fcebf7db04a29ff75/RADIO_NATIVE_V2_RUNTIME_CUSTODY_INTEGRATION_2026-10-02_RESULT.md)
+[The integrated package and evidence](https://github.com/andersenmartin-blip/setisearch/blob/8d12c5f4677a9c9359f853aa3c7e4405c052daeb/RADIO_NATIVE_V2_RUNTIME_CUSTODY_INTEGRATION_2026-10-02_RESULT.md)
 pass **272 tests** with zero failures or skips. The fresh revision l/runtime b
 snapshot and independent audit cover 924 code files, 14 inputs and 1,366 runtime
 paths, six closed Git hardlink groups, 26 copied files and three derived files.
@@ -11,7 +11,7 @@ Activation retains fixed Git no-fetch/no-prompt flags.
 The plan remains **BLOCKED_PREPARATION_REVIEW**. Authenticated receipt delivery to
 the hardclosed source guard and persistent one-invocation spending remain open.
 No new real marker or protected control was created/invoked; the failed earlier
-marker and invocation remain spent. [The midpoint review](https://github.com/andersenmartin-blip/setisearch/blob/b72eef721d9e58b1a67bca8fcebf7db04a29ff75/RADIO_TWO_WEEK_REVIEW_2026-10-02.md)
+marker and invocation remain spent. [The midpoint review](https://github.com/andersenmartin-blip/setisearch/blob/8d12c5f4677a9c9359f853aa3c7e4405c052daeb/RADIO_TWO_WEEK_REVIEW_2026-10-02.md)
 records that the new independent astronomical pilot has not started. HD189733
 selected; HD1461 HOLD; GJ724 reserve; spectra/holdouts unopened; 127/24 NOT ACTIVATED;
 native8 unreserved; LS paused; CHEOPS UNSENT. Consolidate 9 October without an
