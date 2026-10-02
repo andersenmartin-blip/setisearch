@@ -1,5 +1,17 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 2 October: activation receipt fully integrated; preparation still blocked
+
+[The implementation, fresh plan/freeze and 215 tests](RADIO_NATIVE_V2_ACTIVATION_BUNDLE_INTEGRATION_2026-10-02_RESULT.md)
+thread the marker receipt through every outer and material role. Missing marker/readback
+evidence refuses before scope creation. Plan `20261002j` remains blocked; its freeze
+covers 923 code, 9 input and 1,366 runtime files.
+
+**Next:** publish and read back the new preparation, then create a fresh distinct
+preread. Do not reuse the old preread, add a marker, or open large sources yet.
+HD189733 selected; HD1461 HOLD; GJ724 reserve; 127/24 NOT ACTIVATED; LS paused;
+CHEOPS UNSENT. Consolidate 9 October. No external messages.
+
 ## 2 October: marker-proof component verified; no integration or activation
 
 [The component and tests](RADIO_NATIVE_V2_CONTROL_ACTIVATION_INTERFACE_2026-10-02_RESULT.md)

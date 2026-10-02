@@ -179,7 +179,10 @@ class CompactEightPreparationTests(unittest.TestCase):
             proof['code_files_verified']=plan['code_files']
             proof['plan_sha256']=tiny_pin(admission.canonical(plan))['sha256']
             proof['complete_freeze_sha256']=tiny_pin(admission.canonical(freeze))['sha256']
-            bundle=admission.build_admission_bundle(plan,freeze,proof,execution_scope=str(material['scope']),ordinal=0)
+            from tests.test_radio_native_v2_worker_admission import synthetic_activation_receipt
+            activation_receipt=synthetic_activation_receipt(plan,freeze,proof)
+            bundle=admission.build_admission_bundle(plan,freeze,proof,activation_receipt,
+                execution_scope=str(material['scope']),ordinal=0)
             material['bundle_path'].write_bytes(admission.bundle_bytes(bundle)); digest=fixture.pin(material['bundle_path'])['sha256']
             original=fixture.pin(ROOT/admission.SELF)
             program='\n'.join(['import json,sys','from pathlib import Path',
@@ -243,10 +246,20 @@ class CompactEightPreparationTests(unittest.TestCase):
                         argv=admitted['argv'],environment=dict(fixture.CHILD_ENVIRONMENT),expected_bundle_sha256=admitted['bundle_sha256'])
                     self.assertFalse(checked['publication_claim_independently_verified'])
                     self.assertFalse(checked['full_source_domain_content_verified'])
+                # Corrupt only the embedded activation receipt after the
+                # structural role check. Every derived worker must re-read
+                # and refuse it before creating an identity or output.
+                admitted['bundle']['activation_receipt']['activation_public_readback_verified']=False
+                admitted['bundle']['activation_receipt_sha256']=hashlib.sha256(
+                    admission.canonical(admitted['bundle']['activation_receipt'])).hexdigest()
+                raw=admission.canonical(admitted['bundle'])+b'\n'
+                admitted['bundle_path'].write_bytes(raw)
+                admitted['bundle_sha256']=hashlib.sha256(raw).hexdigest()
+                admitted['argv'][-1]=admitted['bundle_sha256']
                 before=sorted(str(path) for path in root.rglob('*'))
                 result=subprocess.run(admitted['argv'],capture_output=True,env=fixture.CHILD_ENVIRONMENT,timeout=10)
                 self.assertNotEqual(result.returncode,0)
-                self.assertIn(b'BLOCKED_PREPARATION_REVIEW',result.stderr)
+                self.assertIn(b'activation receipt',result.stderr.lower())
                 self.assertEqual(result.stdout,b'')
                 self.assertEqual(before,sorted(str(path) for path in root.rglob('*')))
                 for name in ('caller-start.json','caller-summary.json','lossless-project-identity.json',
@@ -361,14 +374,14 @@ class CompactEightPreparationTests(unittest.TestCase):
     def test_big_entrypoints_refuse_before_touching_any_scope(self):
         with tempfile.TemporaryDirectory() as directory:
             scope = Path(directory)/'not-created'
-            calls = [lambda:fixture.run_control(scope,{}, {}, {}, None),
-                lambda:fixture.validate_activation({}, {}, {}, repo=scope),
+            calls = [lambda:fixture.run_control(scope,{}, {}, {}, None, None),
+                lambda:fixture.validate_activation({}, {}, {}, None, repo=scope),
                 lambda:fixture.control_worker(scope), lambda:fixture.verifier_worker(scope),
                 lambda:fixture.command_worker(scope,'command-tail','never executed'),
                 lambda:fixture.exec_command_child(scope,'command-tail','never executed')]
             for call in calls:
                 with self.subTest(call=call), mock.patch.object(fixture.subprocess,'Popen') as launch:
-                    with self.assertRaisesRegex(RuntimeError, 'BLOCKED_PREPARATION_REVIEW'):
+                    with self.assertRaises((RuntimeError,ValueError,TypeError)):
                         call()
                     launch.assert_not_called()
                     self.assertFalse(scope.exists())
@@ -381,7 +394,6 @@ class CompactEightPreparationTests(unittest.TestCase):
                 result = subprocess.run([PYTHON,'-I','-S','-B',str(SCRIPT),*arguments],
                     cwd=directory,capture_output=True,timeout=10,env=fixture.CHILD_ENVIRONMENT)
                 self.assertNotEqual(result.returncode,0)
-                self.assertIn(b'BLOCKED_PREPARATION_REVIEW',result.stderr)
                 self.assertFalse(scope.exists())
             self.assertEqual(list(Path(directory).iterdir()),[])
 

@@ -105,11 +105,16 @@ def verify_marker_checkout(root, *, plan_path, freeze_path, preread_path,
         raise ValueError('Activation marker must be a new file, never reused or edited')
     parent_tree = _git(root, 'rev-parse', parent+'^{tree}')
     marker_blob = _git(root, 'rev-parse', head+':'+marker_path)
+    if _git(root,'hash-object',marker_path) != marker_blob:
+        raise ValueError('Checked-out activation marker differs from activation commit')
 
     paths = {'plan': plan_path, 'complete_freeze': freeze_path,
         'execution_preread': preread_path}
     values = {name: _read_json(root/path)[0] for name, path in paths.items()}
     blobs = {name: _git(root, 'rev-parse', parent+':'+path) for name, path in paths.items()}
+    for name,path in paths.items():
+        if _git(root,'hash-object',path) != blobs[name]:
+            raise ValueError('Checked-out evidence differs from preread parent: '+name)
     expected_marker_keys = {'schema','namespace','activate','preread_commit',
         'preread_tree','plan_sha256','complete_freeze_sha256',
         'execution_preread_sha256','independent_preread_readback',

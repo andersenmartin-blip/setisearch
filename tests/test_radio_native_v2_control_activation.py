@@ -24,6 +24,16 @@ def git(root, *args):
 
 
 class ControlActivationTests(unittest.TestCase):
+    def refresh_readback(self,root,readback_path):
+        head=git(root,'rev-parse','HEAD'); parent=git(root,'rev-parse','HEAD^')
+        raw=(root/activation.MARKER).read_bytes()
+        value={'schema':activation.READBACK_SCHEMA,'repository':activation.REPOSITORY,
+            'branch':activation.BRANCH,'verified':True,'activation_commit':head,
+            'activation_tree':git(root,'rev-parse','HEAD^{tree}'),'activation_parent':parent,
+            'marker_path':activation.MARKER,'marker_blob':git(root,'rev-parse','HEAD:'+activation.MARKER),
+            'marker_sha256':hashlib.sha256(raw).hexdigest()}
+        write(readback_path,value)
+
     def fixture(self, directory):
         root=Path(directory)/'repo'; root.mkdir(); git(root,'init','-q')
         git(root,'config','user.email','test@example.invalid'); git(root,'config','user.name','Test')
@@ -92,6 +102,53 @@ class ControlActivationTests(unittest.TestCase):
             root,paths,_,readback=self.fixture(directory)
             value=json.loads(readback.read_bytes()); value['verified']=False; write(readback,value)
             with self.assertRaisesRegex(ValueError,'public activation readback'):
+                activation.verify_marker_checkout(root,plan_path=paths['plan'],
+                    freeze_path=paths['complete_freeze'],preread_path=paths['execution_preread'],
+                    activation_readback_path=readback)
+
+    def test_missing_or_dirty_marker_closes(self):
+        for mode in ('missing','dirty'):
+            with self.subTest(mode=mode),tempfile.TemporaryDirectory() as directory:
+                root,paths,_,readback=self.fixture(directory); marker=root/activation.MARKER
+                if mode=='missing': marker.unlink()
+                else:
+                    value=json.loads(marker.read_bytes()); value['unexpected']=True; write(marker,value)
+                with self.assertRaises(ValueError):
+                    activation.verify_marker_checkout(root,plan_path=paths['plan'],
+                        freeze_path=paths['complete_freeze'],preread_path=paths['execution_preread'],
+                        activation_readback_path=readback)
+
+    def test_wrong_parent_or_tree_claim_closes_even_with_refreshed_commit_readback(self):
+        for key,value in (('preread_commit','9'*40),('preread_tree','8'*40)):
+            with self.subTest(key=key),tempfile.TemporaryDirectory() as directory:
+                root,paths,_,readback=self.fixture(directory); marker=root/activation.MARKER
+                document=json.loads(marker.read_bytes()); document[key]=value; write(marker,document)
+                git(root,'add',activation.MARKER); git(root,'commit','-q','--amend','--no-edit')
+                self.refresh_readback(root,readback)
+                with self.assertRaisesRegex(ValueError,'exact preread parent and tree'):
+                    activation.verify_marker_checkout(root,plan_path=paths['plan'],
+                        freeze_path=paths['complete_freeze'],preread_path=paths['execution_preread'],
+                        activation_readback_path=readback)
+
+    def test_reused_marker_path_closes_even_when_all_current_bytes_are_read_back(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root,paths,_,readback=self.fixture(directory)
+            git(root,'reset','-q','--hard','HEAD^')
+            placeholder={'inactive':True}; write(root/activation.MARKER,placeholder)
+            git(root,'add',activation.MARKER); git(root,'commit','-q','-m','reserve marker incorrectly')
+            parent=git(root,'rev-parse','HEAD'); parent_tree=git(root,'rev-parse','HEAD^{tree}')
+            values={name:json.loads((root/path).read_bytes()) for name,path in paths.items()}
+            blobs={name:git(root,'rev-parse',parent+':'+path) for name,path in paths.items()}
+            marker={'schema':activation.SCHEMA,'namespace':activation.NAMESPACE,'activate':True,
+                'preread_commit':parent,'preread_tree':parent_tree,
+                'plan_sha256':hashlib.sha256(activation.canonical(values['plan'])).hexdigest(),
+                'complete_freeze_sha256':hashlib.sha256(activation.canonical(values['complete_freeze'])).hexdigest(),
+                'execution_preread_sha256':hashlib.sha256(activation.canonical(values['execution_preread'])).hexdigest(),
+                'independent_preread_readback':{'verified':True,'commit':parent,'tree':parent_tree,'blobs':blobs},
+                'one_control_invocation':True,**{key:False for key in activation.DISABLED}}
+            write(root/activation.MARKER,marker); git(root,'add',activation.MARKER); git(root,'commit','-q','-m','reuse marker')
+            self.refresh_readback(root,readback)
+            with self.assertRaisesRegex(ValueError,'new file'):
                 activation.verify_marker_checkout(root,plan_path=paths['plan'],
                     freeze_path=paths['complete_freeze'],preread_path=paths['execution_preread'],
                     activation_readback_path=readback)

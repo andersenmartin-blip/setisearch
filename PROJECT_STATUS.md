@@ -1,5 +1,19 @@
 # SETIsearch — current project status
 
+## 2 October: activation receipt integrated; new preparation remains blocked
+
+[The implementation, 215-test result and fresh freeze](RADIO_NATIVE_V2_ACTIVATION_BUNDLE_INTEGRATION_2026-10-02_RESULT.md)
+thread the marker receipt through every outer/worker/supervisor/finalizer path. Missing
+marker/readback evidence closes before scope creation. Plan `20261002j` remains
+**BLOCKED_PREPARATION_REVIEW**; the fresh freeze binds 923 code files, 9 inputs and
+1,366 runtime files. The first 10-failure/7-error suite and isolated NumPy import error
+are retained; the corrected suite passes **215 tests in 84.413 s**.
+
+No marker, large input, control, reservation, RNG or telescope read occurred. HD189733
+selected; HD1461 HOLD; GJ724 reserve; 127/24 NOT ACTIVATED; spectra/holdouts unopened;
+LS paused; CHEOPS UNSENT. **Next:** publish/read back this new preparation, then build a
+fresh distinct preread. Never reuse the old preread. No messages.
+
 ## 2 October: marker-proof component passes; integration remains closed
 
 [The component, synthetic Git tests and adjacent suite](RADIO_NATIVE_V2_CONTROL_ACTIVATION_INTERFACE_2026-10-02_RESULT.md)

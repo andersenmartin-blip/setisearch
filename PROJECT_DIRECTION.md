@@ -1,5 +1,18 @@
 # Long-term project direction
 
+## 2 October: activation receipt integrated into all material paths
+
+[The new still-blocked plan, freeze and tests](RADIO_NATIVE_V2_ACTIVATION_BUNDLE_INTEGRATION_2026-10-02_RESULT.md)
+complete the planned outer/worker receipt interface. A missing future marker/readback
+cannot create a scope. The historical plan is unchanged; the new plan also remains
+blocked and therefore requires its own preparation publication and fresh preread.
+
+**Direction:** publish and independently read back the complete new preparation, then
+create a fresh preread bound to that exact public commit. Do not reuse the old preread
+or create a marker early. The eventual marker must be the immediate marker-only child
+of the new preread commit. All target/holdout dispositions and the 9 October end date
+remain unchanged. No external messages.
+
 ## 2 October: marker-proof component verified, not integrated
 
 [The implementation and 211-test adjacent result](RADIO_NATIVE_V2_CONTROL_ACTIVATION_INTERFACE_2026-10-02_RESULT.md)

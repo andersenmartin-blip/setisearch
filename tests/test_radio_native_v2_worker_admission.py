@@ -26,6 +26,20 @@ def tiny_pin(raw):
     return {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()}
 
 
+def synthetic_activation_receipt(plan, freeze, proof):
+    return {'schema':admission.ACTIVATION_RECEIPT_SCHEMA,
+        'namespace':admission.ACTIVATION_NAMESPACE,
+        'activation_commit':'2'*40,'activation_tree':'3'*40,
+        'activation_parent':'1'*40,'activation_public_readback_verified':True,
+        'marker_path':admission.ACTIVATION_MARKER,'marker_blob':'4'*40,
+        'marker_sha256':'5'*64,
+        'plan_sha256':hashlib.sha256(admission.canonical(plan)).hexdigest(),
+        'complete_freeze_sha256':hashlib.sha256(admission.canonical(freeze)).hexdigest(),
+        'execution_preread_sha256':hashlib.sha256(admission.canonical(proof)).hexdigest(),
+        'one_control_invocation':True,
+        **{key:False for key in admission.ACTIVATION_DISABLED}}
+
+
 def synthetic_worker_materials(root, *, ordinal=0, plan=None, derived_sources=None):
     """Reusable synthetic local proof fixture; no real public readback exists.
 
@@ -91,14 +105,17 @@ def synthetic_worker_materials(root, *, ordinal=0, plan=None, derived_sources=No
         'public_immutable_readback_verified': True, 'engineering_control_admitted': True,
         'code_files_verified': plan['code_files'], 'preparation_commit': '1' * 40,
         **admission.AUTHORITY}
-    bundle = admission.build_admission_bundle(plan, freeze, proof, execution_scope=str(scope), ordinal=ordinal)
+    activation_receipt = synthetic_activation_receipt(plan,freeze,proof)
+    bundle = admission.build_admission_bundle(plan, freeze, proof, activation_receipt,
+        execution_scope=str(scope), ordinal=ordinal)
     path = case / 'worker-admission.json'
     raw = admission.bundle_bytes(bundle); path.write_bytes(raw)
     digest = hashlib.sha256(raw).hexdigest()
     argv = admission.expected_worker_argv(bundle, str(path), ordinal=ordinal, expected_bundle_sha256=digest)
     return {'bundle': bundle, 'bundle_path': path, 'bundle_sha256': digest, 'argv': argv,
         'scope': scope, 'case_root': case, 'code_root': code, 'derived_root': derived,
-        'plan': plan, 'freeze': freeze, 'proof': proof}
+        'plan': plan, 'freeze': freeze, 'proof': proof,
+        'activation_receipt':activation_receipt}
 
 
 def phase_descriptor(path):
@@ -149,6 +166,7 @@ def tiny_prepared(materials, *, ordinal=None, case_root=None):
 
 def retain_role(materials, role, inputs, *, ordinal=0):
     bundle = admission.build_role_admission_bundle(materials['plan'],materials['freeze'],materials['proof'],
+        materials['activation_receipt'],
         role=role,execution_scope=str(materials['scope']),ordinal=ordinal,phase_inputs=inputs)
     layout = admission.worker_role_layout(bundle,role=role,ordinal=ordinal)
     path = Path(layout['bundle_path']); raw = admission.bundle_bytes(bundle); path.write_bytes(raw)
@@ -241,6 +259,11 @@ class WorkerAdmissionTests(unittest.TestCase):
         bundle['plan_sha256'] = proof['plan_sha256'] = hashlib.sha256(admission.canonical(plan)).hexdigest()
         bundle['complete_freeze_sha256'] = proof['complete_freeze_sha256'] = hashlib.sha256(admission.canonical(freeze)).hexdigest()
         bundle['public_preread_sha256'] = hashlib.sha256(admission.canonical(proof)).hexdigest()
+        activation = bundle['activation_receipt']
+        activation['plan_sha256'] = bundle['plan_sha256']
+        activation['complete_freeze_sha256'] = bundle['complete_freeze_sha256']
+        activation['execution_preread_sha256'] = bundle['public_preread_sha256']
+        bundle['activation_receipt_sha256'] = hashlib.sha256(admission.canonical(activation)).hexdigest()
         self.retain_changed_bundle()
 
     def test_valid_local_supplied_claim_has_no_publication_or_execution_authority(self):
@@ -273,7 +296,8 @@ class WorkerAdmissionTests(unittest.TestCase):
     def test_builder_creates_no_execution_scope_and_copies_input_metadata(self):
         fresh = self.root / 'must-remain-uncreated'
         bundle = admission.build_admission_bundle(self.materials['plan'], self.materials['freeze'],
-            self.materials['proof'], execution_scope=str(fresh), ordinal=2)
+            self.materials['proof'], self.materials['activation_receipt'],
+            execution_scope=str(fresh), ordinal=2)
         self.assertFalse(fresh.exists())
         bundle['plan']['cases'][2]['source_bytes'] = 0
         self.assertEqual(self.materials['plan']['cases'][2]['source_bytes'], 26*1024**2)
@@ -349,6 +373,18 @@ class WorkerAdmissionTests(unittest.TestCase):
         self.refresh_embedded_digests()
         with self.assertRaisesRegex(ValueError, 'immutable public preparation commit'):
             self.validate()
+
+    def test_activation_receipt_false_readback_authority_and_stale_pins_are_refused(self):
+        for key,value in (('activation_public_readback_verified',False),
+                ('automatic_retry',True),('plan_sha256','0'*64),
+                ('activation_parent','not-a-commit')):
+            old=copy.deepcopy(self.materials['bundle'])
+            receipt=self.materials['bundle']['activation_receipt']; receipt[key]=value
+            self.materials['bundle']['activation_receipt_sha256']=hashlib.sha256(
+                admission.canonical(receipt)).hexdigest()
+            self.retain_changed_bundle()
+            with self.subTest(key=key),self.assertRaises(ValueError): self.validate()
+            self.materials['bundle']=old; self.retain_changed_bundle()
 
     def test_crosscase_source_domain_is_refused_despite_consistent_digest_refresh(self):
         self.materials['bundle']['plan']['cases'][0]['source_domain_hex'] = fixture.source_domain(1).hex()

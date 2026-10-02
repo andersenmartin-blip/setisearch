@@ -283,7 +283,7 @@ class ResourceFinalizationTests(unittest.TestCase):
     def test_closed_driver_guard_precedes_identity_write_and_child_launch(self):
         fixture = types.SimpleNamespace(require_execution_ready=mock.Mock(side_effect=RuntimeError('BLOCKED_PREPARATION_REVIEW')),
             identity=mock.Mock(), observe_process=mock.Mock(), write=mock.Mock())
-        checked = {'worker_scope': str(self.scope)}
+        checked = {'worker_scope': str(self.scope), 'activation_evidence': {}}
         with mock.patch.object(finalization, 'check_admitted_measurement_driver', return_value=(checked, fixture)):
             with self.assertRaisesRegex(RuntimeError, 'BLOCKED'):
                 finalization.run_admitted_measurement_driver(self.scope/'closed-bundle.json', self.scope,
@@ -352,7 +352,7 @@ class ResourceFinalizationTests(unittest.TestCase):
         fixture = types.SimpleNamespace(require_execution_ready=mock.Mock(),
             identity=mock.Mock(), observe_process=mock.Mock(), write=mock.Mock())
         checked = {'worker_scope': str(self.scope), 'argv': [self.python],
-            'bundle_path': str(self.scope/'admission.json')}
+            'bundle_path': str(self.scope/'admission.json'), 'activation_evidence': {}}
         with mock.patch.object(finalization, 'check_admitted_measurement_driver', return_value=(checked, fixture)), \
                 mock.patch.object(sys, 'orig_argv', [self.python, '-I', '-B', 'alias-driver']):
             with self.assertRaisesRegex(RuntimeError, 'original.*argv'):

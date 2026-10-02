@@ -325,7 +325,8 @@ class DedicatedSubreaperTests(unittest.TestCase):
     def test_materialized_fixture_gate_refuses_before_scope_and_launch(self):
         with tempfile.TemporaryDirectory() as directory:
             scope = Path(directory) / 'preparation-supervisor'
-            checked = {'receipt_scope': str(scope), 'argv': [PYTHON, '-c', 'pass']}
+            checked = {'receipt_scope': str(scope), 'argv': [PYTHON, '-c', 'pass'],
+                'activation_evidence': {}}
             fixture = mock.Mock()
             fixture.require_execution_ready.side_effect = RuntimeError('BLOCKED_PREPARATION_REVIEW')
             with mock.patch.object(supervisor, 'check_admitted_prepare_worker', return_value=(checked, fixture)), \
@@ -449,7 +450,7 @@ class DedicatedSubreaperTests(unittest.TestCase):
                 self.assertEqual(checked['materialized_fixture_execution_status'], 'BLOCKED_PREPARATION_REVIEW')
                 self.assertEqual(checked['structural_admission']['status'],
                     'LOCAL_SUPPLIED_PREREAD_VALIDATED_EXECUTION_BLOCKED')
-                with self.assertRaisesRegex(RuntimeError, 'BLOCKED_PREPARATION_REVIEW'):
+                with self.assertRaisesRegex(RuntimeError, 'complete minimal supervisor environment'):
                     supervisor.dispatch_admitted_prepare_worker(materials['bundle_path'],
                         Path(checked['receipt_scope']), ordinal=0,
                         expected_bundle_sha256=materials['bundle_sha256'])
@@ -490,7 +491,7 @@ class DedicatedSubreaperTests(unittest.TestCase):
                     self.assertEqual(checked['worker_scope'], str(expected_scope))
                     self.assertEqual(checked['shared_storage_root'], str(expected_scope))
                     self.assertFalse(Path(checked['receipt_scope']).exists())
-                    with self.assertRaisesRegex(RuntimeError, 'BLOCKED_PREPARATION_REVIEW'):
+                    with self.assertRaisesRegex(RuntimeError, 'complete minimal supervisor environment'):
                         supervisor.dispatch_admitted_worker(worker['bundle_path'], checked['receipt_scope'],
                             role=role, ordinal=worker['ordinal'], expected_bundle_sha256=worker['bundle_sha256'])
                     launch.assert_not_called()

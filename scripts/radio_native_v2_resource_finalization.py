@@ -57,9 +57,9 @@ MAX_INVENTORY_ENTRIES = 32768
 # the final code of the fixed source implementations; a supplied bundle cannot
 # select an arbitrary implementation for any admission check.
 BOOTSTRAP_SOURCE_PINS = {
-    FIXTURE: {'bytes': 109233, 'sha256': 'f4449ac6d47f03be3bc8a7898ef7ba59285de0fa586f7bb6dab20e73e27257ff'},
-    ADMISSION: {'bytes': 67121, 'sha256': 'f0e78a51244bca357cf1ea11a89d9ca2bbe91cfb9584e9a9345141c3248629ff'},
-    SUPERVISOR: {'bytes': 57814, 'sha256': '45f413a9ee48b9168f633cacf6c3225d7ce4eb97dbcc4ad4e73020b991a0f0fd'},
+    FIXTURE: {'bytes': 111719, 'sha256': 'b483f0f4ef4b8833b3e59c6837c319f0dbc26cf7a917cb050c653ccb01bc3b84'},
+    ADMISSION: {'bytes': 69996, 'sha256': 'd62063661e9d3cd7618b85d7b574d09911c5d729feeee263f2f2b75119a939dd'},
+    SUPERVISOR: {'bytes': 58112, 'sha256': 'f230142de74d8d88bf7341c896c5391325b81081e038494ba878d1d794060b6b'},
 }
 AUTHORITY = {'execution_authorized': False, 'reservation_authorized': False,
     'scientific_execution_authorized': False, 'native_case_reservations': 0,
@@ -739,7 +739,7 @@ def run_admitted_measurement_driver(bundle_path, scope, *, expected_bundle_sha25
         expected_bundle_sha256=expected_bundle_sha256)
     if str(Path(scope).absolute()) != checked['worker_scope']:
         raise ValueError('Exact admission-bound whole-control scope required')
-    fixture.require_execution_ready()
+    fixture.require_execution_ready(**checked['activation_evidence'])
     expected_driver_argv = [checked['argv'][0], '-I', '-S', '-B',
         str(Path(checked['worker_scope'])/'frozen-code'/SELF),
         '--admitted-whole-control-driver', '--admission-bundle', checked['bundle_path'],

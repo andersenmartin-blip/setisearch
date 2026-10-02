@@ -54,11 +54,11 @@ DIRECTORY_RESERVATION_BYTES = 65536
 # Updating either implementation requires reviewing and refreshing this table.
 BOOTSTRAP_SOURCE_PINS = {
     'scripts/radio_native_v2_worker_admission.py': {
-        'bytes': 67121,
-        'sha256': 'f0e78a51244bca357cf1ea11a89d9ca2bbe91cfb9584e9a9345141c3248629ff'},
+        'bytes': 69996,
+        'sha256': 'd62063661e9d3cd7618b85d7b574d09911c5d729feeee263f2f2b75119a939dd'},
     'scripts/radio_native_v2_compact_eight_case_resource_fixture.py': {
-        'bytes': 109233,
-        'sha256': 'f4449ac6d47f03be3bc8a7898ef7ba59285de0fa586f7bb6dab20e73e27257ff'},
+        'bytes': 111719,
+        'sha256': 'b483f0f4ef4b8833b3e59c6837c319f0dbc26cf7a917cb050c653ccb01bc3b84'},
 }
 AUTHORITY = {'execution_authorized': False, 'reservation_authorized': False,
     'scientific_execution_authorized': False, 'native_case_reservations': 0,
@@ -225,6 +225,9 @@ def check_admitted_worker(bundle_path, *, role='prepare', ordinal=None, expected
         'ordinal': ordinal, 'argv': argv, 'bundle_path': str(Path(bundle_path).absolute()),
         'bundle_sha256': expected_bundle_sha256, **layout,
         'supervisor_python_path': bundle['plan']['runtime_executables']['python']['path'],
+        'activation_evidence': {'activation_receipt':bundle['activation_receipt'],
+            'plan':bundle['plan'],'freeze':bundle['complete_freeze'],
+            'preread':bundle['public_preread']},
         'structural_admission': structural,
         'materialized_fixture_execution_status': fixture.EXECUTION_STATUS,
         'independent_immutable_publication_join_complete': False,
@@ -311,7 +314,7 @@ def dispatch_admitted_prepare_worker(bundle_path, scope, *, ordinal,
     require_isolated_supervisor_runtime()
     # The independently materialized fixture is the actual authority gate.
     # A successful local structural check cannot open this closed branch.
-    fixture.require_execution_ready()
+    fixture.require_execution_ready(**checked['activation_evidence'])
     require_isolated_supervisor_runtime(check_environment=True)
     require_exact_supervisor_invocation(checked)
     return supervise_engineering_subprocess(checked['argv'], scope, controls,
@@ -333,7 +336,7 @@ def dispatch_admitted_worker(bundle_path, scope, *, role, ordinal=None,
         raise ValueError('Exact admission-bound worker supervisor scope required')
     controls = admitted_role_controls(role, ROLE_LIMITS[role]['seconds'] if seconds is None else seconds)
     require_isolated_supervisor_runtime()
-    fixture.require_execution_ready()
+    fixture.require_execution_ready(**checked['activation_evidence'])
     require_isolated_supervisor_runtime(check_environment=True)
     require_exact_supervisor_invocation(checked)
     return supervise_engineering_subprocess(checked['argv'], scope, controls,
@@ -618,7 +621,7 @@ def supervise_engineering_subprocess(argv, scope, controls, *, dedicated_process
         if (checked != _admitted_dispatch or argv != checked['argv']
                 or str(Path(scope).absolute()) != checked['receipt_scope']):
             raise ValueError('Exact read-only checked role dispatch required')
-        fixture.require_execution_ready()
+        fixture.require_execution_ready(**checked['activation_evidence'])
         require_isolated_supervisor_runtime(check_environment=True)
         require_exact_supervisor_invocation(checked)
         shared_storage_root = Path(checked['shared_storage_root'])
