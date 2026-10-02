@@ -9,14 +9,16 @@ Python, Node and Git paths. The actual checker ran under that exact environment 
 **922 code files**, **8 inputs** and **1,366 runtime files**. **204 tests pass** in
 **80.657 s**.
 
-This closes the prospective parent-environment component, not complete runtime or
-execution admission. Kernel/platform closure, activation-time integrated recheck,
-immutable public preread and outer final-report lifetime remain open. Plan revision
+Public preparation readback matches the plan, freeze, parent receipt, report and
+README blobs. This closes the prospective parent-environment component, not complete
+runtime or execution admission. Kernel/platform closure, activation-time integrated
+recheck, a distinct execution-qualified public preread and outer final-report lifetime remain open. Plan revision
 `20261002g` stays **BLOCKED_PREPARATION_REVIEW**. No large input, eight-case control,
 reservation, RNG or telescope read occurred. HD189733 selected; HD1461 HOLD; GJ724
 reserve; 127/24 NOT ACTIVATED; spectra/holdouts unopened; LS paused; CHEOPS UNSENT.
-**Next:** public readback, remaining runtime/platform join and outer final-report
-coverage before considering one engineering control. Consolidate 9 October. No messages.
+**Next:** remaining runtime/platform and outer final-report joins, then a distinct
+execution-qualified public preread before considering one engineering control.
+Consolidate 9 October. No messages.
 
 ## 2 October: descendant escape guard passes; execution remains blocked
 

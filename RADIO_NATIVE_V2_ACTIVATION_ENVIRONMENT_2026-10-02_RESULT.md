@@ -29,9 +29,15 @@ control, native case or telescope spectrum was opened.
 - [Verification summary](results_radio_native_v2_activation_environment_20261002a/verification-summary.json)
 - [Test summary](results_radio_native_v2_activation_environment_20261002a/final-test-summary.json)
 - [Passing test log](results_radio_native_v2_activation_environment_20261002a/final-tests-stderr.log)
+- [Public preparation readback](results_radio_native_v2_activation_environment_20261002a/publication-readback.json)
 - [Reproduction scripts](results_radio_native_v2_activation_environment_20261002a/)
 
 ## Boundaries and continuation
+
+Science commit `918e7e3eaf1890338fbb74c8e263f8d9e71a8184` and main commit
+`5cc62c40755e790bb810e07b431eb29c785008c4` were read back; the plan, freeze,
+parent receipt, report and README blob identities match. This is immutable public
+**preparation** readback, not the still-future execution-qualified preread.
 
 This verifies the prospective parent-environment contract and an actual isolated
 check. It does not turn the local file freeze into complete runtime qualification:
@@ -40,9 +46,9 @@ execution preread and the outer final-report fsync/termination boundary remain o
 Plan revision `20261002g` therefore remains `BLOCKED_PREPARATION_REVIEW`; every
 execution, reservation and scientific authority remains false.
 
-**Exact continuation:** publish and independently read back revision g, the fresh
-freeze and parent receipt; close the remaining activation-time runtime/platform and
-outer final-report lifetime joins. Only then may one fresh eight-input engineering
+**Exact continuation:** close the remaining activation-time runtime/platform and
+outer final-report lifetime joins, then publish and read back a distinct
+execution-qualified preread. Only after that may one fresh eight-input engineering
 resource control be considered. HD189733 remains selected, HD1461 HOLD and GJ724
 reserve. 127/24 is NOT ACTIVATED; spectra and holdouts remain unopened, LS paused,
 CHEOPS UNSENT. Consolidate 9 October without extension. No external messages.

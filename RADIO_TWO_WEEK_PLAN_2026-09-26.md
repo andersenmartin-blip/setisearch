@@ -7,9 +7,10 @@ replace ambient proxy/session/credential inheritance with ten exact public value
 derived from pinned runtime paths. **204 tests pass**; the fresh freeze covers
 922 code files, 8 inputs and 1,366 runtime files.
 
-Plan revision `20261002g` remains **BLOCKED_PREPARATION_REVIEW**. **Next:** immutable
-public readback, remaining activation-time runtime/platform closure and outer final
-report fsync/termination coverage; only then consider one fresh eight-input
+Plan revision `20261002g` and its preparation evidence have matching public readback,
+but remain **BLOCKED_PREPARATION_REVIEW**. **Next:** remaining activation-time
+runtime/platform closure and outer final-report fsync/termination coverage, followed
+by a distinct execution-qualified public preread; only then consider one fresh eight-input
 engineering control. No large source, reservation, RNG, telescope spectrum or
 holdout was opened. HD189733 selected; HD1461 HOLD; GJ724 reserve; 127/24 NOT
 ACTIVATED; LS paused; CHEOPS UNSENT. Consolidate 9 October. No external messages.
