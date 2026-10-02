@@ -1,5 +1,17 @@
 # Long-term project direction
 
+## 2 October: secret-free activation parent contract verified
+
+[The exact environment result](RADIO_NATIVE_V2_ACTIVATION_ENVIRONMENT_2026-10-02_RESULT.md)
+replaces ambient automation inheritance with ten fixed public values derived from
+pinned executables. A real isolated check passes, a fresh 922-code/8-input/1,366-runtime
+freeze is retained, and **204 tests pass**.
+
+**Direction:** publish/read back this blocked revision, then close the remaining
+runtime/platform and outer final-report lifetime joins. The environment component
+does not authorize the eight-input control or science. Plan `20261002g`, all target
+dispositions and the 9 October end date remain unchanged. No external messages.
+
 ## 2 October: guarded descendant wait component verified
 
 [The implementation and evidence](RADIO_NATIVE_V2_ESCAPE_GUARD_2026-10-02_RESULT.md)

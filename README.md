@@ -1,5 +1,19 @@
 # SETIsearch
 
+## 2 October: exact activation parent environment verified
+
+[The contract and evidence](RADIO_NATIVE_V2_ACTIVATION_ENVIRONMENT_2026-10-02_RESULT.md)
+replace ambient credential/proxy/session inheritance with ten fixed public values
+derived from pinned Python, Node and Git paths. The actual isolated check passes,
+the fresh freeze covers 922 code files, 8 inputs and 1,366 runtime files, and
+**204 tests pass**.
+
+Plan `20261002g` remains **BLOCKED_PREPARATION_REVIEW**. Immutable public readback,
+remaining runtime/platform closure and outer final-report lifetime are still required
+before one fresh eight-input engineering control. No large input, reservation, RNG
+or telescope spectrum was opened. HD189733 selected; HD1461 HOLD; GJ724 reserve;
+127/24 NOT ACTIVATED; LS paused; CHEOPS UNSENT. Consolidate 9 October.
+
 ## 2 October: guarded descendant wait component verified
 
 [The implementation, control and evidence](RADIO_NATIVE_V2_ESCAPE_GUARD_2026-10-02_RESULT.md)

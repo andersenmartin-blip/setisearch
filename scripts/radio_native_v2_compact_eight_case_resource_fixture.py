@@ -66,10 +66,12 @@ CODE_FILES = (
     'scripts/radio_native_v2_worker_admission.py',
     'scripts/radio_native_v2_process_tree_supervisor.py',
     'scripts/radio_native_v2_resource_finalization.py',
+    'scripts/radio_native_v2_activation_environment.py',
     'tests/test_radio_native_v2_compact_eight_case_resource_fixture.py',
     'tests/test_radio_native_v2_worker_admission.py',
     'tests/test_radio_native_v2_process_tree_supervisor.py',
-    'tests/test_radio_native_v2_resource_finalization.py')
+    'tests/test_radio_native_v2_resource_finalization.py',
+    'tests/test_radio_native_v2_activation_environment.py')
 LOG_LIMIT = 65536
 OBSERVATION_SAMPLE_LIMIT = 2048
 CHILD_ENVIRONMENT = {'PATH':'/usr/bin:/bin','LANG':'C','LC_ALL':'C'}

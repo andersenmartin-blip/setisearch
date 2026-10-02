@@ -57,8 +57,8 @@ BOOTSTRAP_SOURCE_PINS = {
         'bytes': 67121,
         'sha256': 'f0e78a51244bca357cf1ea11a89d9ca2bbe91cfb9584e9a9345141c3248629ff'},
     'scripts/radio_native_v2_compact_eight_case_resource_fixture.py': {
-        'bytes': 107207,
-        'sha256': 'd16e7534b21c776f1ec1c09f0e8b16acb2975306e1c61303322a3c6361c52da7'},
+        'bytes': 107324,
+        'sha256': 'b59ce9cc43c098946ff488ec7fe99b506340c85b3f12194d6ec9bedecbd203d8'},
 }
 AUTHORITY = {'execution_authorized': False, 'reservation_authorized': False,
     'scientific_execution_authorized': False, 'native_case_reservations': 0,

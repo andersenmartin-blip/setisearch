@@ -1,5 +1,19 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 2 October: exact parent environment passes; execution remains blocked
+
+[The contract, actual isolated check and fresh freeze](RADIO_NATIVE_V2_ACTIVATION_ENVIRONMENT_2026-10-02_RESULT.md)
+replace ambient proxy/session/credential inheritance with ten exact public values
+derived from pinned runtime paths. **204 tests pass**; the fresh freeze covers
+922 code files, 8 inputs and 1,366 runtime files.
+
+Plan revision `20261002g` remains **BLOCKED_PREPARATION_REVIEW**. **Next:** immutable
+public readback, remaining activation-time runtime/platform closure and outer final
+report fsync/termination coverage; only then consider one fresh eight-input
+engineering control. No large source, reservation, RNG, telescope spectrum or
+holdout was opened. HD189733 selected; HD1461 HOLD; GJ724 reserve; 127/24 NOT
+ACTIVATED; LS paused; CHEOPS UNSENT. Consolidate 9 October. No external messages.
+
 ## 2 October: descendant escape guard passes; large run remains blocked
 
 [The guard implementation, actual negative control and exact evidence](RADIO_NATIVE_V2_ESCAPE_GUARD_2026-10-02_RESULT.md)
