@@ -1,0 +1,95 @@
+{
+  "all_expectations_met": true,
+  "cases": [
+    {
+      "accepted": true,
+      "charged_entries": 5,
+      "expectation_met": true,
+      "expected_accept": true,
+      "name": "baseline",
+      "whole_logical_bytes": 0
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: Distinct exact file/directory storage rows required",
+      "expectation_met": true,
+      "expected_accept": false,
+      "name": "duplicate_historical_root_path_distinct_inode"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: Distinct exact file/directory storage rows required",
+      "expectation_met": true,
+      "expected_accept": false,
+      "name": "duplicate_historical_file_path_distinct_inode"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: External storage overlaps measured or duplicate inode allocation",
+      "expectation_met": true,
+      "expected_accept": false,
+      "name": "external_aliases_own_root"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: External storage overlaps measured or duplicate inode allocation",
+      "expectation_met": true,
+      "expected_accept": false,
+      "name": "duplicate_external_inode"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: Current/historical/prospective storage roots must be disjoint",
+      "expectation_met": true,
+      "expected_accept": false,
+      "name": "ancestor_root_overlap"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: Complete external storage directory ancestry required",
+      "expectation_met": true,
+      "expected_accept": false,
+      "name": "missing_directory_ancestry"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: External storage row escapes its component root",
+      "expectation_met": true,
+      "expected_accept": false,
+      "name": "external_path_escape"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: External component storage total differs from its exact rows",
+      "expectation_met": true,
+      "expected_accept": false,
+      "name": "component_total_drift"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: Exact independently observed three-component external storage contract required",
+      "expectation_met": true,
+      "expected_accept": false,
+      "name": "canonicalization_header_mutation"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: Exactly one directory and direct spend file required for each ledger",
+      "expectation_met": true,
+      "expected_accept": false,
+      "name": "ledger_extra_entry"
+    }
+  ],
+  "human_review": false,
+  "real_c_journal_created": false,
+  "real_control_dispatched": false,
+  "reviewer_kind": "independent_machine_agent",
+  "schema": "radio-native-v2-independent-storage-review-v1",
+  "source_path": "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_control_integration_20261002a/storage-review-final-resource_finalization-source.py",
+  "source_pin": {
+    "bytes": 79175,
+    "sha256": "2b01fe89d65f0243d274ca290c45432c09841e1997559f601f544ef1cc174679"
+  },
+  "synthetic_only": true,
+  "telescope_reads": 0
+}

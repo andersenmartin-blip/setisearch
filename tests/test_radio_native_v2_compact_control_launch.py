@@ -53,15 +53,31 @@ def tiny_worker():
 
 
 def tiny_external(root, scope):
-    ledger = root/'tiny-ledger'; ledger.mkdir(mode=0o700)
-    (ledger/'tiny-spent.json').write_bytes(b'bounded synthetic spend metadata only\n')
-    inventory = finalizer.storage_inventory(ledger)
-    for row in inventory['rows']: row['path'] = str(ledger/row['path'])
-    return {**inventory, 'schema':finalizer.LEDGER_STORAGE_SCHEMA,
-        'ledger_root':str(ledger), 'control_scope':str(scope),
-        'witness_bindings_verified':True, 'ledger_inventory_exact':True,
-        'current_observation_stable':True, 'activation_receipt_sha256':'1'*64,
-        'invocation_spending_sha256':'2'*64}
+    """Explicit three-component tiny fixture; no actual journal is consumed."""
+    rows=[]; components=[]
+    for ordinal,role in enumerate(finalizer.EXTERNAL_STORAGE_ROLES):
+        retained=root/('tiny-'+role); retained.mkdir(mode=0o700)
+        path=retained/'tiny-retained.txt'; path.write_bytes(b'bounded synthetic retained metadata only\n')
+        selected=[]
+        for path,kind in ((retained,'directory'),(path,'file')):
+            info=path.lstat()
+            row={'component':role, 'path':str(path), 'kind':kind,
+                'device':info.st_dev, 'inode':info.st_ino, 'mode':info.st_mode & 0o7777,
+                'nlink':info.st_nlink, 'uid':info.st_uid, 'gid':info.st_gid,
+                'bytes':info.st_size, 'allocated_bytes':info.st_blocks*512,
+                'mtime_ns':info.st_mtime_ns, 'ctime_ns':info.st_ctime_ns}
+            if kind=='file' and role!='prospective_ledger':
+                raw=path.read_bytes(); row['raw_pin']={'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest()}
+            selected.append(row)
+        components.append({'role':role,'root':str(retained),'observation_sha256':str(ordinal+1)*64,
+            'entry_count':len(selected),'logical_bytes':sum(row['bytes'] for row in selected),
+            'allocated_bytes':sum(row['allocated_bytes'] for row in selected)})
+        rows.extend(selected)
+    return {'schema':finalizer.EXTERNAL_STORAGE_SCHEMA,'current_control_scope':str(scope),
+        'components':components,'rows':rows,'entry_count':len(rows),
+        'logical_bytes':sum(row['bytes'] for row in rows),'allocated_bytes':sum(row['allocated_bytes'] for row in rows),
+        'charged_once':True,'read_only':True,'execution_authorized':False,
+        'whole_control_qualified':False,'lifetime_accounting_proved':False}
 
 
 class FiniteChildObservationTests(unittest.TestCase):
@@ -183,6 +199,17 @@ class FixedConfigAndSourcePreflightTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'Actual -I -S -B'):
                 launch.preflight({}, {})
             source.assert_not_called()
+
+    def test_original_repository_and_c_journal_binding_precedes_imports(self):
+        flags=types.SimpleNamespace(isolated=1,no_site=1,dont_write_bytecode=1)
+        for root, ledger in ((str(ROOT.parent/'other'), str(ROOT/'.radio-native-v2-invocation-ledger-20261002c')),
+                (str(ROOT), str(ROOT/'.radio-native-v2-invocation-ledger')),
+                (str(ROOT), str(ROOT/'nested'/'.radio-native-v2-invocation-ledger-20261002c'))):
+            with self.subTest(root=root, ledger=ledger), mock.patch.object(launch.sys,'flags',flags), \
+                    mock.patch.object(launch,'_source_module') as source:
+                with self.assertRaisesRegex(ValueError,'independently selected original repository'):
+                    launch.preflight({'invocation_repository_root':root, 'invocation_ledger_root':ledger}, {})
+                source.assert_not_called()
 
     def test_pinned_source_import_ignores_forged_cached_bytecode(self):
         import marshal

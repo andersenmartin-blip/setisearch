@@ -76,7 +76,8 @@ class CompactPreparationAuditTests(unittest.TestCase):
         self.runtime_mock = self.start_patch(mock.patch.object(audit, 'expected_runtime',
             side_effect=lambda: copy.deepcopy(self.runtime)))
         code = audit.repository_inventory(self.root)
-        inputs = sorted(path for path in audit.fixture.CODE_FILES if path.startswith('tests/'))
+        inputs = sorted(path for path in audit.fixture.CODE_FILES
+            if path.startswith('tests/') or path in self.plan['historical_storage_inputs'])
         self.freeze = {
             'schema': audit.freezer.SCHEMA, 'freeze_kind': audit.freezer.FREEZE_KIND,
             'mode': 'PROSPECTIVE_ENGINEERING_ONLY', 'namespace': audit.freezer.NAMESPACE,
@@ -306,6 +307,13 @@ class CompactPreparationAuditTests(unittest.TestCase):
     def test_missing_test_input_pin_is_refused(self):
         self.freeze['input_file_inventory'] = []
         self.freeze['input_sha256s'] = {}
+        with self.assertRaisesRegex(ValueError, 'omitted prospective material/test pin'):
+            self.audit()
+
+    def test_missing_archived_historical_input_pin_is_refused(self):
+        relative = sorted(self.plan['historical_storage_inputs'])[0]
+        del self.freeze['input_sha256s'][relative]
+        self.freeze['input_file_inventory'] = sorted(self.freeze['input_sha256s'])
         with self.assertRaisesRegex(ValueError, 'omitted prospective material/test pin'):
             self.audit()
 

@@ -410,7 +410,10 @@ def audit(plan, complete_freeze=None, *, repo=REPO, materialized_code_root=None,
     if complete_freeze is not None:
         current = validate_complete_freeze(complete_freeze, repo)
         for path, wanted in code_pins.items():
-            identities = complete_freeze['input_sha256s'] if path.startswith('tests/') else complete_freeze['code_sha256s']
+            # Historical metadata and the archived b observer are copied
+            # material, but belong to the mandatory frozen input inventory.
+            is_input = path.startswith('tests/') or path in plan['historical_storage_inputs']
+            identities = complete_freeze['input_sha256s'] if is_input else complete_freeze['code_sha256s']
             if identities.get(path) != wanted['sha256']:
                 raise ValueError('Original complete freeze omitted prospective material/test pin: ' + path)
         for name, record in plan['runtime_executables'].items():

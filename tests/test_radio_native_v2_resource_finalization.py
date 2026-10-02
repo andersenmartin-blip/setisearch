@@ -101,19 +101,33 @@ class ResourceFinalizationTests(unittest.TestCase):
             **({'tiny_engineering_probe_only': True} if tiny else {}), **finalization.AUTHORITY}
 
     def ledger_inventory(self, *, logical=8, allocated=16):
-        """Explicit in-memory unit observation; never an actual spend witness."""
-        root = str(self.scope.parent/(self.scope.name+'-synthetic-ledger'))
-        return {'schema': finalization.LEDGER_STORAGE_SCHEMA,
-            'ledger_root': root, 'control_scope': str(self.scope),
-            'activation_receipt_sha256': 'a'*64, 'invocation_spending_sha256': 'b'*64,
-            'witness_bindings_verified': True, 'ledger_inventory_exact': True,
-            'current_observation_stable': True, 'entry_count': 2,
-            'logical_bytes': logical, 'allocated_bytes': allocated,
-            'rows': [{'path': root, 'kind': 'directory', 'bytes': 0,
-                'allocated_bytes': 0, 'device': 987654321, 'inode': 1},
-                {'path': root+'/explicit-synthetic-storage.txt', 'kind': 'file',
-                    'bytes': logical, 'allocated_bytes': allocated,
-                    'device': 987654321, 'inode': 2}]}
+        """Explicit tiny synthetic three-component join; no real spend witness."""
+        components = []; rows = []; inode = 0
+        template = {'mode': 0o700, 'nlink': 2, 'uid': os.geteuid(), 'gid': os.getegid(),
+            'bytes': 0, 'allocated_bytes': 0, 'device': 987654321, 'mtime_ns': 0, 'ctime_ns': 0}
+        for ordinal, role in enumerate(finalization.EXTERNAL_STORAGE_ROLES):
+            root = str(self.scope.parent/(self.scope.name+'-synthetic-'+role))
+            inode += 1
+            component_rows = [{'component': role, 'path': root, 'kind': 'directory', **template, 'inode': inode}]
+            if role.endswith('ledger'):
+                inode += 1
+                row = {'component': role, 'path': root+'/explicit-synthetic-storage.txt',
+                    'kind': 'file', **template, 'mode': 0o600, 'nlink': 1, 'inode': inode,
+                    'bytes': logical if role == 'prospective_ledger' else 0,
+                    'allocated_bytes': allocated if role == 'prospective_ledger' else 0}
+                if role != 'prospective_ledger':
+                    row['raw_pin'] = {'bytes': 0, 'sha256': hashlib.sha256(b'').hexdigest()}
+                component_rows.append(row)
+            components.append({'role': role, 'root': root, 'observation_sha256': str(ordinal+1)*64,
+                'entry_count': len(component_rows),
+                'logical_bytes': sum(row['bytes'] for row in component_rows),
+                'allocated_bytes': sum(row['allocated_bytes'] for row in component_rows)})
+            rows.extend(component_rows)
+        return {'schema': finalization.EXTERNAL_STORAGE_SCHEMA, 'components': components,
+            'current_control_scope': str(self.scope), 'rows': rows, 'entry_count': len(rows),
+            'logical_bytes': logical, 'allocated_bytes': allocated, 'charged_once': True,
+            'read_only': True, 'execution_authorized': False,
+            'whole_control_qualified': False, 'lifetime_accounting_proved': False}
 
     def production_labeled_snapshot(self, ledger):
         """Exercise production accounting with mocked live observation only."""
@@ -543,15 +557,179 @@ class ResourceFinalizationTests(unittest.TestCase):
         inventory = finalization.storage_inventory(self.scope)
         for mutation, phrase in (
                 (lambda ledger: ledger.update({'allocated_bytes': 0}), 'total differs'),
-                (lambda ledger: ledger.update({'control_scope': '/other/control'}), 'bind'),
-                (lambda ledger: ledger.update({'ledger_root': str(self.scope/'nested-ledger')}), 'disjoint'),
-                (lambda ledger: ledger['rows'][1].update({
+                (lambda ledger: ledger.update({'current_control_scope': '/other/control'}), 'bind'),
+                (lambda ledger: ledger['components'][-1].update({'root': str(self.scope/'nested-ledger')}), 'disjoint'),
+                (lambda ledger: ledger['rows'][-1].update({
                     'device': inventory['rows'][0]['device'], 'inode': inventory['rows'][0]['inode']}), 'overlaps'),
-                (lambda ledger: ledger['rows'][1].update({'path': ledger['ledger_root']+'//alias'}), 'Canonical'),
-                (lambda ledger: ledger.update({'witness_bindings_verified': False}), 'contract')):
+                (lambda ledger: ledger['rows'][-1].update({'path': ledger['components'][-1]['root']+'//alias'}), 'Canonical'),
+                (lambda ledger: ledger.update({'charged_once': False}), 'contract')):
             ledger = self.ledger_inventory(); mutation(ledger)
             with self.subTest(phrase=phrase), self.assertRaisesRegex(ValueError, phrase):
                 finalization.allocate_storage(inventory, external_inventory=ledger)
+
+    def charged_history_inventory(self):
+        """Each historical component contributes visible distinct synthetic bytes."""
+        external = self.ledger_inventory()
+        root = external['components'][0]['root']
+        template = copy.deepcopy(external['rows'][-1])
+        raw = b'explicit historical synthetic source'
+        historical = {**template, 'component': 'historical_scope', 'path': root+'/source.txt',
+            'inode': 6, 'bytes': len(raw), 'allocated_bytes': 24,
+            'raw_pin': {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()}}
+        external['rows'].insert(1, historical)
+        old = next(row for row in external['rows'] if row['component'] == 'historical_ledger' and row['kind'] == 'file')
+        old.update(bytes=16, allocated_bytes=32, raw_pin={'bytes': 16, 'sha256': hashlib.sha256(b'historical-spend').hexdigest()})
+        for component in external['components']:
+            selected = [row for row in external['rows'] if row['component'] == component['role']]
+            component.update(entry_count=len(selected), logical_bytes=sum(row['bytes'] for row in selected),
+                allocated_bytes=sum(row['allocated_bytes'] for row in selected))
+        external.update(entry_count=len(external['rows']), logical_bytes=sum(row['bytes'] for row in external['rows']),
+            allocated_bytes=sum(row['allocated_bytes'] for row in external['rows']))
+        return external
+
+    def test_three_component_external_rows_are_charged_once_with_both_reservations(self):
+        inventory = finalization.storage_inventory(self.scope)
+        external = self.charged_history_inventory()
+        before = finalization.allocate_storage(inventory)
+        with mock.patch.object(finalization.os, 'open', side_effect=AssertionError('pure allocator')):
+            after = finalization.allocate_storage(inventory, external_inventory=external)
+        for dimension in ('logical', 'allocated'):
+            self.assertEqual(after['whole_'+dimension+'_bytes_with_remaining_reservation'],
+                before['whole_'+dimension+'_bytes_with_remaining_reservation'] + external[dimension+'_bytes'])
+            self.assertEqual(sum(component[dimension+'_bytes'] for component in external['components']), external[dimension+'_bytes'])
+            for old, new in zip(before['cases'], after['cases']):
+                self.assertEqual(new['complete_'+dimension+'_bytes'], old['complete_'+dimension+'_bytes'] + external[dimension+'_bytes']/8)
+        self.assertEqual(after['external_ledger_storage']['entry_count'], 6)
+        self.assertEqual(after['final_metadata_reservation_bytes'], 256*1024)
+        self.assertEqual(after['terminal_directory_growth_reservation_bytes'], 65536)
+        self.assertEqual(finalization.LIMITS['case_storage_bytes'], 192*finalization.MIB)
+        self.assertEqual(finalization.LIMITS['run_storage_bytes'], 1536*finalization.MIB)
+
+    def test_each_historical_or_prospective_component_inode_alias_is_rejected(self):
+        inventory = finalization.storage_inventory(self.scope)
+        for role in finalization.EXTERNAL_STORAGE_ROLES:
+            external = self.charged_history_inventory()
+            row = next(row for row in external['rows'] if row['component'] == role)
+            row.update(device=inventory['rows'][0]['device'], inode=inventory['rows'][0]['inode'])
+            with self.subTest(role=role), self.assertRaisesRegex(ValueError, 'overlaps measured'):
+                finalization.allocate_storage(inventory, external_inventory=external)
+
+    def test_external_missing_component_duplicate_role_and_legacy_schema_fail_closed(self):
+        inventory = finalization.storage_inventory(self.scope)
+        for failure in ('missing', 'duplicate', 'legacy', 'authority', 'lifetime'):
+            external = self.charged_history_inventory()
+            if failure == 'missing': external['components'].pop()
+            elif failure == 'duplicate': external['components'][1]['role'] = 'historical_scope'
+            elif failure == 'legacy': external['schema'] = finalization.LEDGER_STORAGE_SCHEMA
+            elif failure == 'authority': external['execution_authorized'] = True
+            else: external['lifetime_accounting_proved'] = True
+            with self.subTest(failure=failure), self.assertRaises(ValueError):
+                finalization.allocate_storage(inventory, external_inventory=external)
+
+    def test_authenticated_component_totals_metadata_and_historical_raw_pins_are_exact(self):
+        inventory = finalization.storage_inventory(self.scope)
+        for failure in ('component-total', 'component-count', 'digest', 'raw-pin', 'nlink', 'overflow', 'missing-parent'):
+            external = self.charged_history_inventory()
+            if failure == 'component-total': external['components'][0]['allocated_bytes'] += 1
+            elif failure == 'component-count': external['components'][0]['entry_count'] += 1
+            elif failure == 'digest': external['components'][0]['observation_sha256'] = 'arbitrary-label'
+            elif failure == 'raw-pin': external['rows'][1]['raw_pin']['bytes'] += 1
+            elif failure == 'nlink': external['rows'][1]['nlink'] = 2
+            elif failure == 'overflow': external['rows'][1]['ctime_ns'] = 1 << 63
+            else: external['rows'][1]['path'] = external['components'][0]['root'] + '/absent/source.txt'
+            with self.subTest(failure=failure), self.assertRaises(ValueError):
+                finalization.allocate_storage(inventory, external_inventory=external)
+
+    def test_every_component_change_invalidates_retained_storage_digest(self):
+        external = self.charged_history_inventory()
+        retained = finalization._ledger_inventory_pin(external)
+        for role in finalization.EXTERNAL_STORAGE_ROLES:
+            changed = copy.deepcopy(external)
+            row = next(row for row in changed['rows'] if row['component'] == role)
+            row['allocated_bytes'] += 512
+            next(component for component in changed['components'] if component['role'] == role)['allocated_bytes'] += 512
+            changed['allocated_bytes'] += 512
+            # Internally valid fresh totals must still fail the old retained pin.
+            finalization.allocate_storage(finalization.storage_inventory(self.scope), external_inventory=changed)
+            with self.subTest(role=role), self.assertRaisesRegex(ValueError, 'changed after'):
+                finalization._match_retained_ledger(changed, retained)
+
+    def test_external_components_must_be_disjoint_from_each_other_and_current_scope(self):
+        inventory = finalization.storage_inventory(self.scope)
+        for failure in ('component-nested', 'component-equal', 'current-ancestor'):
+            external = self.charged_history_inventory()
+            if failure == 'component-nested':
+                external['components'][1]['root'] = external['components'][0]['root'] + '/nested'
+            elif failure == 'component-equal':
+                external['components'][1]['root'] = external['components'][0]['root']
+            else: external['components'][0]['root'] = str(self.scope.parent)
+            with self.subTest(failure=failure), self.assertRaisesRegex(ValueError, 'disjoint'):
+                finalization.allocate_storage(inventory, external_inventory=external)
+
+    def test_combined_current_and_external_entry_bound_32768_is_not_relaxed(self):
+        inventory = finalization.storage_inventory(self.scope)
+        external = self.ledger_inventory(); root = external['components'][0]['root']
+        count = finalization.MAX_INVENTORY_ENTRIES - len(inventory['rows']) - len(external['rows']) + 1
+        template = external['rows'][0]
+        external['rows'].extend({**template, 'path': root+'/d'+str(index), 'inode': 100000+index} for index in range(count))
+        external['entry_count'] += count; external['components'][0]['entry_count'] += count
+        self.assertEqual(finalization.MAX_INVENTORY_ENTRIES, 32768)
+        with self.assertRaisesRegex(ValueError, 'Combined current/external'):
+            finalization.allocate_storage(inventory, external_inventory=external)
+
+    def test_external_allocator_detaches_validated_observation_from_mutable_caller(self):
+        inventory = finalization.storage_inventory(self.scope)
+        external = self.charged_history_inventory(); expected = copy.deepcopy(external)
+        loads = json.loads
+        def mutate_after_snapshot(raw, *args, **kwargs):
+            snapshot = loads(raw, *args, **kwargs)
+            if snapshot.get('schema') == finalization.EXTERNAL_STORAGE_SCHEMA:
+                external['current_control_scope'] = '/unbound/scope'
+                external['logical_bytes'] = 0
+            return snapshot
+        with mock.patch.object(finalization.json, 'loads', side_effect=mutate_after_snapshot):
+            result = finalization.allocate_storage(inventory, external_inventory=external)
+        self.assertEqual(result['external_ledger_storage'], expected)
+        self.assertEqual(result['external_ledger_inventory_sha256'], finalization._ledger_inventory_pin(expected))
+
+    def test_current_storage_inventory_is_detached_before_allocation_checks(self):
+        inventory = finalization.storage_inventory(self.scope)
+        external = self.charged_history_inventory()
+        expected = finalization.allocate_storage(inventory, external_inventory=external)
+        loads = json.loads
+        def mutate_current_after_snapshot(raw, *args, **kwargs):
+            snapshot = loads(raw, *args, **kwargs)
+            if 'scope' in snapshot:
+                inventory['scope'] = '/unbound/current-scope'
+                inventory['allocated_bytes'] = 0
+                inventory['rows'].clear()
+            return snapshot
+        with mock.patch.object(finalization.json, 'loads', side_effect=mutate_current_after_snapshot):
+            observed = finalization.allocate_storage(inventory, external_inventory=external)
+        self.assertEqual(observed, expected)
+
+    def test_duplicate_historical_paths_with_distinct_inodes_are_rejected(self):
+        inventory = finalization.storage_inventory(self.scope)
+        for kind in ('directory', 'file'):
+            external = self.charged_history_inventory()
+            original = next(row for row in external['rows'] if row['component'] == 'historical_scope' and row['kind'] == kind)
+            duplicate = {**copy.deepcopy(original), 'inode': 999999}
+            external['rows'].append(duplicate)
+            external['entry_count'] += 1; external['logical_bytes'] += duplicate['bytes']; external['allocated_bytes'] += duplicate['allocated_bytes']
+            external['components'][0]['entry_count'] += 1
+            external['components'][0]['logical_bytes'] += duplicate['bytes']
+            external['components'][0]['allocated_bytes'] += duplicate['allocated_bytes']
+            with self.subTest(kind=kind), self.assertRaisesRegex(ValueError, 'Distinct exact file/directory'):
+                finalization.allocate_storage(inventory, external_inventory=external)
+
+    def test_pinned_fixture_cannot_return_legacy_single_ledger_observation(self):
+        (self.scope/'frozen-code').mkdir()
+        write_json(self.scope/'plan.json', {'code_files': copy.deepcopy(finalization.BOOTSTRAP_SOURCE_PINS)})
+        legacy = {'schema': finalization.LEDGER_STORAGE_SCHEMA, 'control_scope': str(self.scope)}
+        fixture = types.SimpleNamespace(persistent_ledger_storage=mock.Mock(return_value=legacy))
+        with mock.patch.object(finalization, '_source_module', return_value=fixture):
+            with self.assertRaisesRegex(ValueError, 'invalid persistent ledger observation'):
+                finalization.observe_authenticated_ledger_storage(self.scope)
 
     def test_reserved_metadata_directory_cannot_consume_a_file_reservation(self):
         (self.scope/finalization.FINAL_NAME).mkdir()
@@ -621,7 +799,8 @@ class ResourceFinalizationTests(unittest.TestCase):
                 observed = copy.deepcopy(ledger)
                 if failure == 'drift':
                     observed['allocated_bytes'] += 1
-                    observed['rows'][1]['allocated_bytes'] += 1
+                    observed['rows'][-1]['allocated_bytes'] += 1
+                    observed['components'][-1]['allocated_bytes'] += 1
                 with mock.patch.object(finalization, 'check_final_report_material_scope', return_value={}), \
                         mock.patch.object(finalization, 'observe_authenticated_ledger_storage', return_value=observed), \
                         mock.patch.object(finalization, '_write_durable_exclusive') as write, \

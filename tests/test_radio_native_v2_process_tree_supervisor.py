@@ -33,12 +33,13 @@ class BoundedAdmissionReceiptTests(unittest.TestCase):
             bundle = json.loads(archived.read_bytes())
             return {'plan': bundle['plan'], 'freeze': bundle['complete_freeze'],
                 'preread': bundle['public_preread'], 'activation_receipt': bundle['activation_receipt'],
-                'invocation_spending': bundle['invocation_spending'], 'execution_scope': str(scope)}
+                'invocation_spending': bundle['invocation_spending'], 'execution_scope': str(scope),
+                'repository_root': str(source)}
         return {'plan': json.loads((source / 'config/radio_native_v2_compact_eight_input_control_20261002n.plan.json').read_bytes()),
             'freeze': json.loads((source / 'config/radio_native_v2_ledger_launch_20261002a.runtime.json').read_bytes()),
             'preread': json.loads((source / 'config/radio_native_v2_compact_control_20261002b.execution-preread.json').read_bytes()),
             'activation_receipt': {'test_double': True}, 'invocation_spending': {'test_double': True},
-            'execution_scope': str(scope)}
+            'execution_scope': str(scope), 'repository_root': str(source)}
 
     def checked(self, root, *, role='prepare', evidence=None):
         layout = {'worker_scope': str(root), 'receipt_scope': str(root / 'supervised'),
@@ -96,10 +97,11 @@ class BoundedAdmissionReceiptTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             checked = self.checked(Path(directory))
             original = supervisor.compact_admitted_attestation(checked)
-            for key in ('reference', 'scope', 'bundle', 'argv', 'structural'):
+            for key in ('reference', 'scope', 'repository_root', 'bundle', 'argv', 'structural'):
                 altered = copy.deepcopy(original)
                 if key == 'reference': altered['activation_evidence_reference']['canonical_input_pins']['freeze']['sha256'] = '0' * 64
                 elif key == 'scope': altered['activation_evidence_reference']['execution_scope'] += '/other'
+                elif key == 'repository_root': altered['activation_evidence_reference']['repository_root'] += '/other'
                 elif key == 'bundle': altered['bundle_sha256'] = '0' * 64
                 elif key == 'argv': altered['argv'][-1] = "print('different tiny probe')"
                 else: altered['structural_admission']['exact_worker_argv_checked'] = True
@@ -129,6 +131,19 @@ class BoundedAdmissionReceiptTests(unittest.TestCase):
             self.assertEqual(supervisor.MAX_REAPED_CHILDREN, 64)
             receipt['reaped_processes'][0] = {**row, 'unbounded': 'x' * 1000}
             with self.assertRaises(RuntimeError): supervisor._validate_receipt_runtime_fields(receipt, fixed)
+
+    def test_repository_root_reference_refuses_missing_relative_and_alias_spelling(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for value in (None, 'relative/repository', str(root) + '/..', str(root) + '//repository'):
+                checked = self.checked(root)
+                checked['activation_evidence']['repository_root'] = value
+                with self.subTest(value=value), self.assertRaisesRegex(ValueError, 'independent invocation repository root'):
+                    supervisor.compact_admitted_attestation(checked)
+            checked = self.checked(root)
+            checked['activation_evidence'].pop('repository_root')
+            with self.assertRaisesRegex(ValueError, 'activation evidence inventory'):
+                supervisor.compact_admitted_attestation(checked)
 
     def test_bad_fixed_metadata_refuses_before_subreaper_scope_identity_or_child(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -169,9 +184,13 @@ spec=importlib.util.spec_from_file_location('repair_supervisor',sys.argv[1]); m=
 checked=json.loads(Path(sys.argv[2]).read_bytes()); calls=[]
 def raw_guard(**evidence):
  assert evidence == checked['activation_evidence'] and 'freeze' in evidence
+ assert evidence['repository_root'] == checked['activation_evidence']['repository_root']
  calls.append(len(m.canonical(evidence)))
 fixture=types.SimpleNamespace(require_execution_ready=raw_guard)
 m.check_admitted_prepare_worker=lambda *args,**kwargs:(checked,fixture)
+quota_state={'samples':0,'external_sha256':'8'*64}
+def tiny_quota_double(): quota_state['samples']+=1
+m.prepare_admitted_storage_monitor=lambda checked,fixture:(tiny_quota_double,quota_state)
 # Structural admission and exact dispatcher prefix are deliberate test doubles;
 # actual -I -S -B flags and complete three-variable environment are still checked.
 m.require_exact_supervisor_invocation=lambda checked:None
@@ -219,6 +238,101 @@ print(json.dumps({'status':receipt['status']}))
             self.assertEqual(json.loads(result.stdout)['status'], 'CLOSED_FAILED')
             for name in ('subreaper-measurements.json', 'subreaper-receipt.json'):
                 self.assertLess((scope / name).stat().st_size, 131072)
+
+
+class AdmittedJoinedStorageMonitorTests(unittest.TestCase):
+    """Tiny files and supplied structural doubles, never a real c claim."""
+    def material(self, root):
+        relative = 'scripts/radio_native_v2_resource_finalization.py'
+        spec = importlib.util.spec_from_file_location('monitor_allocator', ROOT/relative)
+        finalizer = importlib.util.module_from_spec(spec); spec.loader.exec_module(finalizer)
+        scope = root/'current'; scope.mkdir(); (scope/'cases').mkdir()
+        for ordinal in range(8): (scope/'cases'/f'case{ordinal:02d}').mkdir()
+        components = []; rows = []
+        for index, role in enumerate(('historical_scope', 'historical_ledger', 'prospective_ledger')):
+            path = root/role; path.mkdir(); (path/'record').write_bytes(b'tiny')
+            sample = supervisor.sampled_storage_inventory(path)
+            for source in sample['rows']:
+                row = {**source, 'path': str(path) if source['path']=='.' else str(path/source['path']), 'component': role}
+                if row['kind']=='file' and role!='prospective_ledger':
+                    row['raw_pin']={'bytes':4,'sha256':hashlib.sha256(b'tiny').hexdigest()}
+                rows.append(row)
+            components.append({'role':role,'root':str(path),'observation_sha256':str(index+1)*64,
+                'entry_count':sample['entry_count'],'logical_bytes':sample['logical_bytes'],
+                'allocated_bytes':sample['allocated_bytes']})
+        joined={'schema':finalizer.EXTERNAL_STORAGE_SCHEMA,'components':components,'rows':rows,
+            'entry_count':len(rows),'logical_bytes':sum(row['bytes'] for row in rows),
+            'allocated_bytes':sum(row['allocated_bytes'] for row in rows),'charged_once':True,
+            'read_only':True,'execution_authorized':False,'whole_control_qualified':False,
+            'lifetime_accounting_proved':False,'current_control_scope':str(scope)}
+        evidence={'execution_scope':str(scope),'repository_root':str(root/'independent-original-root'),
+            'plan':{'code_files':{relative:{'bytes':1,'sha256':'1'*64}}},
+            'freeze':{},'activation_receipt':{},'invocation_spending':{}}
+        checked={'role':'caller','ordinal':0,'activation_evidence':evidence}
+        fixture=types.SimpleNamespace(__file__=str(root/'verified-material-code'/'scripts'/'fixture.py'),
+            observe_authenticated_invocation_storage=mock.Mock(return_value=joined),
+            pinned_component=mock.Mock(return_value=finalizer.__dict__))
+        return scope, joined, checked, fixture, finalizer
+
+    def test_monitor_uses_checked_material_source_and_samples_all_three_components(self):
+        with tempfile.TemporaryDirectory() as directory:
+            scope,joined,checked,fixture,_=self.material(Path(directory))
+            monitor,state=supervisor.prepare_admitted_storage_monitor(checked,fixture)
+            self.assertEqual(state['samples'],1)
+            self.assertEqual(state['external_sha256'],hashlib.sha256(supervisor.canonical(joined)).hexdigest())
+            self.assertEqual(fixture.observe_authenticated_invocation_storage.call_args.args[0],
+                Path(fixture.__file__).parents[1])
+            self.assertEqual(fixture.observe_authenticated_invocation_storage.call_args.kwargs['repository_root'],
+                checked['activation_evidence']['repository_root'])
+            (scope/'cases/case00/growing').write_bytes(b'bounded admitted fixture')
+            monitor(); self.assertEqual(state['samples'],2)
+            fixture.observe_authenticated_invocation_storage.assert_called_once()
+
+    def test_each_external_content_metadata_membership_and_alias_mutation_refuses(self):
+        for mutation in ('content','membership','symlink','hardlink'):
+            with self.subTest(mutation=mutation),tempfile.TemporaryDirectory() as directory:
+                root=Path(directory);scope,joined,checked,fixture,_=self.material(root)
+                monitor,_=supervisor.prepare_admitted_storage_monitor(checked,fixture)
+                historical=root/'historical_scope'; target=historical/'record'
+                if mutation=='content': target.write_bytes(b'tine')
+                elif mutation=='membership': (historical/'extra').write_bytes(b'x')
+                elif mutation=='symlink': (scope/'cases/case00/alias').symlink_to(target)
+                else: os.link(target,scope/'cases/case00/alias')
+                with self.assertRaises((ValueError,OSError)): monitor()
+
+    def test_shared_history_and_future_supervisor_receipts_are_charged_during_poll(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);scope,joined,checked,fixture,finalizer=self.material(root)
+            inventory=supervisor.sampled_storage_inventory(scope)
+            row=next(row for row in inventory['rows'] if row['path']=='cases/case00')
+            increase=supervisor.CASE_STORAGE_BYTES-150000-row['allocated_bytes']
+            row['allocated_bytes']+=increase;inventory['allocated_bytes']+=increase
+            allocation=finalizer.allocate_storage(inventory,external_inventory=joined)
+            self.assertLess(allocation['cases'][0]['complete_allocated_bytes'],supervisor.CASE_STORAGE_BYTES)
+            original=supervisor.sampled_storage_inventory
+            def sample(path): return copy.deepcopy(inventory) if Path(path)==scope else original(path)
+            with mock.patch.object(supervisor,'sampled_storage_inventory',side_effect=sample):
+                with self.assertRaisesRegex(ValueError,'shared history and future supervisor receipts'):
+                    supervisor.prepare_admitted_storage_monitor(checked,fixture)
+            self.assertFalse((scope/'supervisor').exists())
+
+    def test_latest_named_file_metadata_and_growth_are_charged(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);target=root/'watched';target.write_bytes(b'tiny')
+            original=supervisor.os.stat;calls=0
+            def changed(path,*args,**kwargs):
+                nonlocal calls
+                if path=='watched' and 'dir_fd' in kwargs:
+                    calls+=1
+                    if calls==2: target.write_bytes(b'latest named growth')
+                return original(path,*args,**kwargs)
+            with mock.patch.object(supervisor.os,'stat',side_effect=changed):
+                sample=supervisor.sampled_storage_inventory(root)
+            row=next(row for row in sample['rows'] if row['path']=='watched')
+            self.assertEqual(calls,2)
+            self.assertEqual(row['bytes'],target.lstat().st_size)
+            self.assertEqual(row['mtime_ns'],target.lstat().st_mtime_ns)
+            self.assertEqual(row['ctime_ns'],target.lstat().st_ctime_ns)
 
 
 class DedicatedSubreaperTests(unittest.TestCase):
@@ -602,6 +716,41 @@ class DedicatedSubreaperTests(unittest.TestCase):
                 loader.assert_not_called()
             self.assertEqual(set(root.iterdir()), {bundle})
 
+    def test_admission_propagates_authenticated_root_without_selecting_plan_or_material_root(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); bundle_path = root / 'bundle.json'
+            original_root = str(root / 'original-repository')
+            material_root = str(root / 'control' / 'frozen-code')
+            own_key = 'scripts/radio_native_v2_process_tree_supervisor.py'
+            layout = {'worker_scope': str(root / 'case'), 'receipt_scope': str(root / 'case' / 'supervisor'),
+                'shared_storage_root': str(root / 'case'), 'command_label': None, 'runtime_name': 'python'}
+            # The worker is a deliberate structural double: this isolates the
+            # dispatcher edge so a later refactor cannot replace the separately
+            # authenticated bundle root with the plan or copied source root.
+            supplied = {'plan': {'invocation_repository_root': str(root / 'untrusted-plan-root'),
+                    'runtime_executables': {'python': {'path': PYTHON}},
+                    'code_files': {own_key: supervisor.pin_file(SCRIPT), **supervisor.BOOTSTRAP_SOURCE_PINS}},
+                'code_root': material_root, 'invocation_repository_root': original_root,
+                'execution_scope': str(root / 'control'), 'complete_freeze': {}, 'public_preread': {},
+                'activation_receipt': {}, 'invocation_spending': {}}
+            raw = supervisor.canonical(supplied) + b'\n'; bundle_path.write_bytes(raw)
+            admission = types.SimpleNamespace(expected_worker_argv=mock.Mock(return_value=[PYTHON, '-c', 'pass']),
+                validate_worker_admission=mock.Mock(return_value={}),
+                worker_role_layout=mock.Mock(return_value=layout))
+            fixture = types.SimpleNamespace(EXECUTION_STATUS='BLOCKED_PREPARATION_REVIEW')
+            with mock.patch.object(supervisor, 'source_module', side_effect=[admission, fixture]) as loader, \
+                    mock.patch.object(supervisor.subprocess, 'Popen') as launch:
+                checked, observed_fixture = supervisor.check_admitted_prepare_worker(bundle_path, ordinal=0,
+                    expected_bundle_sha256=hashlib.sha256(raw).hexdigest())
+                self.assertIs(observed_fixture, fixture)
+                self.assertEqual(checked['activation_evidence']['repository_root'], original_root)
+                self.assertNotEqual(checked['activation_evidence']['repository_root'],
+                    checked['activation_evidence']['plan']['invocation_repository_root'])
+                self.assertNotEqual(checked['activation_evidence']['repository_root'], material_root)
+                self.assertEqual(Path(loader.call_args_list[0].args[0]).parent.parent, Path(material_root))
+                launch.assert_not_called()
+            self.assertEqual(set(root.iterdir()), {bundle_path})
+
     def test_actual_supervisor_interpreter_flags_are_checked_before_mutation(self):
         flags = types.SimpleNamespace(isolated=0, no_site=1, dont_write_bytecode=1)
         with tempfile.TemporaryDirectory() as directory:
@@ -629,6 +778,13 @@ class DedicatedSubreaperTests(unittest.TestCase):
             relative = 'scripts/' + name + '.py'
             modules[name] = supervisor.source_module(ROOT / relative, name,
                 supervisor.BOOTSTRAP_SOURCE_PINS[relative])
+        worker = modules['radio_native_v2_worker_admission']
+        fixture = modules['radio_native_v2_compact_eight_case_resource_fixture']
+        for name, expected in (
+                ('radio_native_v2_runtime_custody', worker.CUSTODY_IMPLEMENTATION_PIN),
+                ('radio_native_v2_prospective_spending', worker.SPENDING_IMPLEMENTATION_PIN),
+                ('radio_native_v2_historical_observation', fixture.HISTORICAL_OBSERVATION_IMPLEMENTATION_PIN)):
+            modules[name] = supervisor.source_module(ROOT / ('scripts/' + name + '.py'), name, expected)
         with mock.patch.dict(sys.modules, modules):
             helpers = supervisor.source_module(ROOT / 'tests/test_radio_native_v2_worker_admission.py',
                 'tiny_supplied_claim_helpers')
@@ -651,7 +807,10 @@ class DedicatedSubreaperTests(unittest.TestCase):
                 self.assertEqual(checked['materialized_fixture_execution_status'], 'BLOCKED_PREPARATION_REVIEW')
                 self.assertEqual(checked['structural_admission']['status'],
                     'LOCAL_SUPPLIED_PREREAD_VALIDATED_EXECUTION_BLOCKED')
-                with self.assertRaisesRegex(RuntimeError, 'complete minimal supervisor environment'):
+                # This supplied test root is structurally valid metadata but
+                # fails the new independently pinned historical root policy
+                # before it can reach the actual dispatcher environment gate.
+                with self.assertRaisesRegex(ValueError, 'independently authenticated original historical repository root'):
                     supervisor.dispatch_admitted_prepare_worker(materials['bundle_path'],
                         Path(checked['receipt_scope']), ordinal=0,
                         expected_bundle_sha256=materials['bundle_sha256'])
@@ -692,7 +851,7 @@ class DedicatedSubreaperTests(unittest.TestCase):
                     self.assertEqual(checked['worker_scope'], str(expected_scope))
                     self.assertEqual(checked['shared_storage_root'], str(expected_scope))
                     self.assertFalse(Path(checked['receipt_scope']).exists())
-                    with self.assertRaisesRegex(RuntimeError, 'complete minimal supervisor environment'):
+                    with self.assertRaisesRegex(ValueError, 'independently authenticated original historical repository root'):
                         supervisor.dispatch_admitted_worker(worker['bundle_path'], checked['receipt_scope'],
                             role=role, ordinal=worker['ordinal'], expected_bundle_sha256=worker['bundle_sha256'])
                     launch.assert_not_called()

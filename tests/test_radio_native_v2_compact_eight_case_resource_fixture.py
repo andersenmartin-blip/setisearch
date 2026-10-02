@@ -558,6 +558,63 @@ class CompactEightPreparationTests(unittest.TestCase):
             (root/'unaccounted-symlink').symlink_to(root/'subdirectory/data')
             with self.assertRaises(ValueError): fixture.inventory(root)
 
+    def test_workload_storage_charges_all_history_and_reservations_to_future_cases(self):
+        from tests.test_radio_native_v2_resource_finalization import ResourceFinalizationTests, finalization
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            for ordinal in range(8): (root/'cases'/f'case{ordinal:02d}').mkdir(parents=True)
+            (root/'cases/case00/tiny-current-data').write_bytes(b'tiny')
+            external=ResourceFinalizationTests.ledger_inventory(SimpleNamespace(scope=root),logical=8,allocated=16)
+            current=finalization.storage_inventory(root)
+            baseline=finalization.allocate_storage(current)
+            plan={'code_files':{'scripts/radio_native_v2_resource_finalization.py':{'sentinel':'authenticated-parent-pin'}}}
+            with mock.patch.object(fixture,'_authenticated_retained_storage',return_value=(plan,external)) as observed, \
+                    mock.patch.object(fixture,'small_json',side_effect=AssertionError('checked plan must not be reread')) as reread, \
+                    mock.patch.object(fixture,'pinned_component',return_value=finalization.__dict__) as component:
+                result=fixture.check_storage(root,repo=root/'frozen-code')
+            reread.assert_not_called()
+            observed.assert_called_once_with(root,repo=root/'frozen-code')
+            component.assert_called_once_with(root/'frozen-code',
+                'scripts/radio_native_v2_resource_finalization.py',plan['code_files'])
+            allocated=result['complete_shared_storage_allocation']
+            self.assertEqual(allocated['whole_logical_bytes_with_remaining_reservation'],
+                baseline['whole_logical_bytes_with_remaining_reservation']+8)
+            self.assertEqual(allocated['whole_allocated_bytes_with_remaining_reservation'],
+                baseline['whole_allocated_bytes_with_remaining_reservation']+16)
+            self.assertEqual(allocated['final_metadata_reservation_bytes'],finalization.METADATA_RESERVATION_BYTES)
+            self.assertEqual(allocated['terminal_directory_growth_reservation_bytes'],finalization.DIRECTORY_RESERVATION_BYTES)
+            self.assertEqual(len(result['cases']),8)
+            for raw,charged in zip(baseline['cases'],result['cases']):
+                self.assertEqual(charged['complete_logical_bytes'],raw['complete_logical_bytes']+1)
+                self.assertEqual(charged['complete_allocated_bytes'],raw['complete_allocated_bytes']+2)
+
+    def test_workload_storage_cannot_skip_history_or_use_missing_future_case_roots(self):
+        from tests.test_radio_native_v2_resource_finalization import ResourceFinalizationTests, finalization
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory); (root/'cases/case00').mkdir(parents=True)
+            external=ResourceFinalizationTests.ledger_inventory(SimpleNamespace(scope=root))
+            plan={'code_files':{}}
+            with mock.patch.object(fixture,'_authenticated_retained_storage',side_effect=ValueError('mandatory history absent')), \
+                    mock.patch.object(fixture,'pinned_component') as loaded:
+                with self.assertRaisesRegex(ValueError,'mandatory history'):
+                    fixture.check_storage(root,repo=root/'frozen-code')
+                loaded.assert_not_called()
+            with mock.patch.object(fixture,'pinned_component',return_value=finalization.__dict__):
+                with self.assertRaisesRegex(ValueError,'eight retained case'):
+                    fixture.allocate_workload_storage(root,plan,external,repo=root/'frozen-code')
+
+    def test_workload_storage_external_share_can_close_an_otherwise_small_scope(self):
+        from tests.test_radio_native_v2_resource_finalization import ResourceFinalizationTests, finalization
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            for ordinal in range(8): (root/'cases'/f'case{ordinal:02d}').mkdir(parents=True)
+            external=ResourceFinalizationTests.ledger_inventory(SimpleNamespace(scope=root),
+                logical=finalization.LIMITS['run_storage_bytes'],allocated=finalization.LIMITS['run_storage_bytes'])
+            finalization.allocate_storage(finalization.storage_inventory(root))
+            with mock.patch.object(fixture,'pinned_component',return_value=finalization.__dict__):
+                with self.assertRaisesRegex(ValueError,'storage bound'):
+                    fixture.allocate_workload_storage(root,{'code_files':{}},external,repo=root/'frozen-code')
+
     def test_no_follow_json_and_pin_refuse_fifo_and_symlink_without_blocking(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory); fifo = root/'fifo'; os.mkfifo(fifo)

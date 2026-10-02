@@ -1,0 +1,66 @@
+{
+  "argv": [
+    "python",
+    "-I",
+    "-S",
+    "-B",
+    "results_radio_native_v2_control_integration_20261002a/storage-review-precreated-quota.py",
+    "--source-bytes",
+    "79175",
+    "--source-sha256",
+    "2b01fe89d65f0243d274ca290c45432c09841e1997559f601f544ef1cc174679"
+  ],
+  "execution_authorized": false,
+  "historical_artifacts_read_or_mutated": false,
+  "large_source_generated": false,
+  "lifetime_accounting_proved": false,
+  "limitations": [
+    "Declared metadata and synthetic external digests are arithmetic/layout probes, not authenticated retained storage.",
+    "Tiny actual directories support precreation semantics; this does not prove sampled peak storage or future lifetime accounting."
+  ],
+  "probe_count": 5,
+  "probes": [
+    {
+      "name": "eight_empty_precreated_roots_charge_all_overhead",
+      "passed": true,
+      "whole_allocated_bytes": 369152,
+      "whole_logical_bytes": 368768
+    },
+    {
+      "name": "missing_precreated_case_refused_before_workload",
+      "passed": true,
+      "reason": "Exactly eight retained case directory roots required"
+    },
+    {
+      "name": "case08_refused_before_workload",
+      "passed": true,
+      "reason": "Unexpected retained case directory identity"
+    },
+    {
+      "name": "history_share_and_terminal_reservations_jointly_exceed_case_cap",
+      "passed": true,
+      "raw_case_file_allocated_bytes": 200272896,
+      "raw_case_file_logical_bytes": 200272896,
+      "reason": "Original 192MiB case storage bound exceeded after shared allocation",
+      "without_history_passed": true,
+      "without_terminal_reservations_passed": true
+    },
+    {
+      "exact_whole_boundary_bytes": 1610612736,
+      "excess_declared_bytes": 8,
+      "name": "whole_boundary_inclusive_and_eight_more_declared_bytes_refused",
+      "note": "Eight attributed case caps detect this whole-cap excess first.",
+      "passed": true,
+      "reason": "Original 192MiB case storage bound exceeded after shared allocation"
+    }
+  ],
+  "real_c_spend_consumed": false,
+  "real_control_launched": false,
+  "schema": "radio-native-v2-precreated-quota-independent-probes-v1",
+  "source_pin": {
+    "bytes": 79175,
+    "sha256": "2b01fe89d65f0243d274ca290c45432c09841e1997559f601f544ef1cc174679"
+  },
+  "telescope_reads": 0,
+  "whole_control_qualified": false
+}

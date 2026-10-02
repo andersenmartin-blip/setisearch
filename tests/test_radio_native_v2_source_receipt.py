@@ -1,15 +1,19 @@
 """Tiny source guard and spending integration checks; no maximum recipe runs.
 
-The positive path executes only the production guard prefix followed by stdout.
-Its public marker claims are synthetic. Exact local bundle authentication and
-spending are exercised; immutable public readback and science remain unqualified.
+The positive metadata-delivery path authenticates a real local bundle and
+private synthetic spending witness in a held material fixture. Its process
+context and downstream readiness are explicitly mocked. The unmodified cold
+prefix separately refuses synthetic roots in an actual isolated interpreter.
+Public readback, original-root admission and science remain unqualified.
 """
 import copy
 import hashlib
 import os
 from pathlib import Path
 import subprocess
+import sys
 import tempfile
+from types import SimpleNamespace
 import unittest
 from unittest import mock
 
@@ -75,22 +79,47 @@ class AuthenticatedSourceReceiptTests(unittest.TestCase):
             with self.subTest(ordinal=ordinal), tempfile.TemporaryDirectory() as directory:
                 material = tiny_guard_materials(directory, ordinal=ordinal)
                 before = scope_inventory(material)
-                process = run_guard(material)
-                self.assertEqual(process.returncode, 0, process.stderr.decode())
-                self.assertEqual(process.stdout, PREFIX_SUCCESS)
-                self.assertEqual(process.stderr, b'')
+                held=fixture.pinned_component(material['code_root'],fixture.SELF,
+                    {fixture.SELF:material['plan']['code_files'][fixture.SELF]})
+                ready=mock.Mock(return_value=True)
+                # Only metadata delivery is tested positively. These asserted
+                # context flags do not claim a real isolated worker or satisfy
+                # the independently fixed original-root historical gate.
+                flags=SimpleNamespace(**{name:getattr(sys.flags,name) for name in dir(sys.flags)
+                    if name.isidentifier() and not name.startswith('_')})
+                flags.isolated=flags.no_site=flags.dont_write_bytecode=1
+                with mock.patch.dict(held,{'require_execution_ready':ready}), \
+                        mock.patch.object(sys,'flags',flags), \
+                        mock.patch.object(sys,'orig_argv',material['argv']), \
+                        mock.patch.dict(os.environ,fixture.CHILD_ENVIRONMENT,clear=True):
+                    received=held['source_worker_admission'](material['bundle_path'],
+                        material['bundle_sha256'],ordinal=ordinal,argv=list(sys.orig_argv),
+                        environment=dict(os.environ))
+                self.assertEqual(received,material['bundle'])
+                ready.assert_called_once_with(material['activation_receipt'],material['plan'],
+                    material['freeze'],material['proof'],execution_scope=str(material['scope']),
+                    invocation_spending=material['invocation_spending'],
+                    repository_root=material['bundle']['invocation_repository_root'])
                 self.assertEqual(scope_inventory(material), before)
                 self.assert_no_source_outputs(material)
                 self.assertFalse(material['plan']['execution_authorized'])
                 self.assertFalse(material['plan']['complete_resource_measurement_join_qualified'])
 
+    def test_unmodified_cold_prefix_refuses_synthetic_root_before_source_outputs(self):
+        for ordinal in (0,7):
+            with self.subTest(ordinal=ordinal), tempfile.TemporaryDirectory() as directory:
+                material=tiny_guard_materials(directory,ordinal=ordinal)
+                self.assert_guard_closed(material,expected=b'original historical repository root')
+
     def test_structurally_valid_receipt_dict_without_witness_cannot_admit(self):
         with tempfile.TemporaryDirectory() as directory:
             material = tiny_guard_materials(directory)
-            with self.assertRaisesRegex(RuntimeError, 'spending witness absent'):
-                fixture.require_execution_ready(material['activation_receipt'],
-                    material['plan'], material['freeze'], material['proof'],
-                    execution_scope=str(material['scope']))
+            # Isolate the missing-witness edge from the stricter independent
+            # original-root check; the cold-prefix check below remains real.
+            with mock.patch.object(fixture,'_checked_activation_receipt',return_value=True), \
+                    self.assertRaisesRegex(RuntimeError, 'spending witness absent'):
+                fixture.require_execution_ready(material['activation_receipt'],material['plan'],
+                    material['freeze'],material['proof'],execution_scope=str(material['scope']))
             material['bundle']['invocation_spending'] = None
             material['bundle']['invocation_spending_sha256'] = hashlib.sha256(admission.canonical(None)).hexdigest()
             repin_bundle(material)
@@ -188,25 +217,47 @@ class InvocationSpendingRunnerIntegrationTests(unittest.TestCase):
             material = tiny_guard_materials(directory)
             # Use a fresh private ledger for this runner-order test; the helper
             # already spent its separate synthetic guard activation.
-            ledger = Path(directory)/'runner-ledger'; ledger.mkdir(mode=0o700)
-            scope = Path(directory)/'runner-never-created'
+            private=Path(directory)/'runner-private-repository'; private.mkdir()
+            spender = fixture.invocation_spending_module()
+            ledger = Path(spender['ledger_root_for_repository'](str(private))); ledger.mkdir(mode=0o700)
+            scope = private/'runner-never-created'
+            source=private/fixture.CODE_FILES[0]; source.parent.mkdir(parents=True)
+            source.write_bytes((ROOT/fixture.CODE_FILES[0]).read_bytes())
             receipt = copy.deepcopy(material['activation_receipt'])
             receipt['control_scope'] = str(scope)
-            plan = copy.deepcopy(material['plan']); plan['invocation_ledger_root'] = str(ledger)
+            plan = copy.deepcopy(material['plan'])
+            plan.update(invocation_repository_root=str(private),invocation_ledger_root=str(ledger))
             events = []
-            spender = fixture.invocation_spending_module()
             real_consume = spender['consume_once']
+            def root_contract(value,*args,repository_root,execution_scope,**kwargs):
+                self.assertEqual(repository_root,str(private))
+                self.assertEqual(value['invocation_repository_root'],str(private))
+                self.assertEqual(value['invocation_ledger_root'],str(ledger))
+                self.assertEqual(execution_scope,str(scope))
+                return str(private)
+            def historical(code_root,**kwargs):
+                self.assertEqual(code_root,str(private))
+                self.assertEqual(kwargs['repository_root'],str(private))
+                self.assertFalse(scope.exists()); events.append('synthetic-historical-hook')
             def consume(value, **kwargs):
                 self.assertFalse(scope.exists())
+                self.assertEqual(kwargs['repository_root'],str(private))
+                self.assertEqual(kwargs['ledger_root'],str(ledger))
                 events.append('spend')
                 return real_consume(value, **kwargs)
             def require(*args, **kwargs):
                 self.assertFalse(scope.exists())
-                self.assertEqual(events, ['spend'])
+                self.assertEqual(events, ['synthetic-historical-hook','spend'])
                 self.assertTrue(kwargs['invocation_spending']['durable_before_workload'])
+                self.assertEqual(kwargs['repository_root'],str(private))
                 events.append('later-refusal')
                 raise RuntimeError('synthetic refusal after durable spending')
-            with mock.patch.object(fixture, '_checked_activation_receipt', return_value=True), \
+            # These explicit synthetic trust-edge hooks isolate runner ordering;
+            # they never establish original-root historical/control admission.
+            with mock.patch.object(fixture,'REPO',private), \
+                    mock.patch.object(fixture,'authenticated_repository_root',side_effect=root_contract), \
+                    mock.patch.object(fixture,'historical_observation_module',return_value={'observe_historical_storage':historical}), \
+                    mock.patch.object(fixture, '_checked_activation_receipt', return_value=True), \
                     mock.patch.object(fixture, 'validate_activation', return_value={}), \
                     mock.patch.object(fixture, 'templates', return_value={'lossless-helper.js':b'tiny-helper'}), \
                     mock.patch.object(fixture, 'invocation_spending_module', return_value={**spender,'consume_once':consume}), \
@@ -216,24 +267,26 @@ class InvocationSpendingRunnerIntegrationTests(unittest.TestCase):
                     fixture.run_control(scope, plan, material['proof'], material['freeze'],
                         receipt, b'tiny-helper')
                 launch.assert_not_called()
-            self.assertEqual(events, ['spend', 'later-refusal'])
+            self.assertEqual(events, ['synthetic-historical-hook','spend', 'later-refusal'])
             self.assertFalse(scope.exists())
             self.assertEqual(len(list(ledger.iterdir())), 1)
             with self.assertRaisesRegex(ValueError, 'already spent'):
                 real_consume(receipt, execution_scope=str(scope), ledger_root=str(ledger),
-                    receipt_validator=lambda value: True)
+                    repository_root=str(private),receipt_validator=lambda value: True)
 
     def test_bad_helper_or_reused_scope_refuses_before_consumption(self):
         for failure in ('helper', 'scope'):
             with self.subTest(failure=failure), tempfile.TemporaryDirectory() as directory:
                 scope = Path(directory)/'scope'
                 if failure == 'scope': scope.mkdir(mode=0o700)
-                with mock.patch.object(fixture, '_checked_activation_receipt', return_value=True), \
+                with mock.patch.object(fixture,'authenticated_repository_root',return_value=directory), \
+                        mock.patch.object(fixture, '_checked_activation_receipt', return_value=True), \
                         mock.patch.object(fixture, 'validate_activation', return_value={}), \
                         mock.patch.object(fixture, 'templates', return_value={'lossless-helper.js':b'tiny-helper'}), \
                         mock.patch.object(fixture, 'invocation_spending_module') as spend, \
                         mock.patch.object(fixture.subprocess, 'Popen') as launch:
-                    with self.assertRaises((ValueError, RuntimeError)):
+                    expected='Fresh exclusive' if failure=='scope' else 'Exact prospectively pinned lossless helper'
+                    with self.assertRaisesRegex((ValueError, RuntimeError),expected):
                         fixture.run_control(scope, {}, {}, {}, {}, b'wrong-helper')
                     spend.assert_not_called(); launch.assert_not_called()
                 self.assertEqual(scope.exists(), failure == 'scope')

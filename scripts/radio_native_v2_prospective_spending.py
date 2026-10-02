@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Prospective c candidate: fail-closed spending before one engineering invocation.
 
-This standalone preparation candidate is not imported by current launchers,
-creates no marker or ledger, and grants no activation or execution authority.
+This component is wired into the still-blocked prospective control. Importing
+it creates no marker or ledger and grants no activation or execution authority.
 
 Caller contract: authenticate the activation receipt independently, derive the
 ledger from the pinned ORIGINAL repository root, and always call consume_once

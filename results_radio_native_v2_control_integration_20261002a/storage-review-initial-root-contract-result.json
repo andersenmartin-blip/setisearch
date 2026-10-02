@@ -1,0 +1,94 @@
+{
+  "all_expectations_met": true,
+  "cases": [
+    {
+      "accepted": true,
+      "expectation_met": true,
+      "name": "baseline",
+      "returned_root": "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: Exact independently authenticated original historical repository root required",
+      "expectation_met": true,
+      "name": "substitute_repository_root"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: Exact separate prospective c invocation ledger required",
+      "expectation_met": true,
+      "name": "historical_b_ledger"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: Current control scope must be within the independently authenticated original root",
+      "expectation_met": true,
+      "name": "scope_outside_root"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: Exact mandatory independently pinned historical storage inputs required",
+      "expectation_met": true,
+      "name": "missing_historical_input"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: Exact mandatory independently pinned historical storage inputs required",
+      "expectation_met": true,
+      "name": "extra_historical_input"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: Complete freeze and material tree must bind every historical input: results_radio_native_v2_compact_control_20261002b/activation-receipt.json",
+      "expectation_met": true,
+      "name": "material_history_pin_drift"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: Complete freeze and material tree must bind every historical input: results_radio_native_v2_compact_control_20261002b/activation-receipt.json",
+      "expectation_met": true,
+      "name": "freeze_history_pin_drift"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: Shared historical storage source differs from independent implementation pin",
+      "expectation_met": true,
+      "name": "shared_storage_source_substitution"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: Bounded canonical absolute historical accounting path required",
+      "expectation_met": true,
+      "name": "root_dotdot_path"
+    },
+    {
+      "accepted": true,
+      "expectation_met": true,
+      "name": "held_source_exact_pin",
+      "probe_value": 123
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: Historical input differs from independent raw pin or changed during read",
+      "expectation_met": true,
+      "name": "held_source_same_size_substitution"
+    }
+  ],
+  "historical_b_files_read_or_mutated": false,
+  "human_review": false,
+  "real_c_journal_created": false,
+  "real_control_dispatched": false,
+  "reviewer_kind": "independent_machine_agent",
+  "runner_pin": {
+    "bytes": 4798,
+    "sha256": "4c032233b8416a7d3c7d5bceaf5811e1e256873ff9f215f50a217fbb7726bbb7"
+  },
+  "schema": "radio-native-v2-independent-root-contract-review-v1",
+  "source_path": "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_control_integration_20261002a/storage-review-initial-historical_observation-source.py",
+  "source_pin": {
+    "bytes": 13863,
+    "sha256": "f725ff94a2ff8f375fec1e477e0cb20902d179e6d43e7a6b8fa649f282b1a008"
+  },
+  "synthetic_only": true,
+  "telescope_reads": 0
+}

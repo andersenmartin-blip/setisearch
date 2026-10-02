@@ -1,0 +1,110 @@
+{
+  "all_expectations_met": true,
+  "cases": [
+    {
+      "accepted": true,
+      "expectation_met": true,
+      "expected_accept": true,
+      "mutation_fired": false,
+      "name": "baseline",
+      "read_pin": {
+        "bytes": 17,
+        "sha256": "78dd629c2b2aacd635b62f3ea576721bb783a2e8ecf36360f5ec9166cfa1d456"
+      }
+    },
+    {
+      "accepted": false,
+      "error": "OSError: [Errno 40] Too many levels of symbolic links: 'input.json'",
+      "expectation_met": true,
+      "expected_accept": false,
+      "mutation_fired": false,
+      "name": "file_symlink_before_read"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: Ordinary nofollow history ancestor required",
+      "expectation_met": true,
+      "expected_accept": false,
+      "mutation_fired": false,
+      "name": "ancestor_symlink_before_read"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: Historical input differs from independent raw pin or changed during read",
+      "expectation_met": true,
+      "expected_accept": false,
+      "mutation_fired": true,
+      "name": "file_replace_during_read"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: Historical input differs from independent raw pin or changed during read",
+      "expectation_met": true,
+      "expected_accept": false,
+      "mutation_fired": true,
+      "name": "file_content_mutation_during_read"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: Historical ancestor binding changed during read",
+      "expectation_met": true,
+      "expected_accept": false,
+      "mutation_fired": true,
+      "name": "ancestor_replace_during_read"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: Historical ancestor binding changed during read",
+      "expectation_met": true,
+      "expected_accept": false,
+      "mutation_fired": true,
+      "name": "ancestor_chmod_during_read"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: Ordinary nofollow history ancestor required",
+      "expectation_met": true,
+      "expected_accept": false,
+      "mutation_fired": true,
+      "name": "ancestor_symlink_during_read"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: Exact stable sole-link historical input required",
+      "expectation_met": true,
+      "expected_accept": false,
+      "mutation_fired": false,
+      "name": "hardlink_before_read"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: Exact stable sole-link historical input required",
+      "expectation_met": true,
+      "expected_accept": false,
+      "mutation_fired": false,
+      "name": "pin_content_mismatch"
+    },
+    {
+      "accepted": false,
+      "error": "ValueError: Bounded canonical absolute historical accounting path required",
+      "expectation_met": true,
+      "expected_accept": false,
+      "mutation_fired": false,
+      "name": "dotdot_path_before_read"
+    }
+  ],
+  "generated_fixture_bytes": 17,
+  "historical_b_files_read_or_mutated": false,
+  "human_review": false,
+  "real_c_journal_created": false,
+  "real_control_dispatched": false,
+  "reviewer_kind": "independent_machine_agent",
+  "schema": "radio-native-v2-independent-storage-read-review-v1",
+  "source_path": "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_control_integration_20261002a/storage-review-final-historical_observation-source.py",
+  "source_pin": {
+    "bytes": 13863,
+    "sha256": "f725ff94a2ff8f375fec1e477e0cb20902d179e6d43e7a6b8fa649f282b1a008"
+  },
+  "synthetic_only": true,
+  "telescope_reads": 0
+}

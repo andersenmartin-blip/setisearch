@@ -30,9 +30,80 @@ def git(root, *args):
 
 class ControlActivationTests(unittest.TestCase):
     def verify(self,root,paths,readback,**kwargs):
+        kwargs.setdefault('activation_commit', git(root,'rev-parse','HEAD'))
         return activation.verify_marker_checkout(root,plan_path=paths['plan'],
             freeze_path=paths['complete_freeze'],preread_path=paths['execution_preread'],
             activation_readback_path=readback,execution_scope=str(root.parent/'control'),**kwargs)
+
+    def test_explicit_independent_commit_is_required_and_historical_paths_commits_refuse_before_io(self):
+        args = {'plan_path':'config/plan.json','freeze_path':'config/freeze.json',
+            'preread_path':'config/preread.json','activation_readback_path':'/inert/readback.json',
+            'execution_scope':'/inert/control'}
+        with self.assertRaisesRegex(TypeError, 'activation_commit'):
+            activation.verify_marker_checkout('/inert/repository', **args)
+        for _, marker, commit in activation.SPENT_ACTIVATIONS:
+            for changes in ({'marker_path':marker,'activation_commit':'1'*40},
+                    {'activation_commit':commit}):
+                with self.subTest(changes=changes):
+                    with (mock.patch.object(activation,'_read_regular') as read,
+                            mock.patch.object(activation,'_git') as launch):
+                        with self.assertRaisesRegex(ValueError,'permanently spent'):
+                            activation.verify_marker_checkout('/inert/repository',**args,**changes)
+                        read.assert_not_called(); launch.assert_not_called()
+
+    def test_independent_activation_commit_refuses_readback_and_head_relocation(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root,paths,_,readback=self.fixture(directory)
+            with mock.patch.object(activation,'_custody_module') as custody_module:
+                with self.assertRaisesRegex(ValueError,'independently pinned activation commit'):
+                    self.verify(root,paths,readback,activation_commit='9'*40)
+                custody_module.assert_not_called()
+            actual_git = activation._git
+            def changed_head(root,*args,**kwargs):
+                return '9'*40 if args == ('rev-parse','HEAD') else actual_git(root,*args,**kwargs)
+            with mock.patch.object(activation,'_git',side_effect=changed_head):
+                with self.assertRaisesRegex(ValueError,'HEAD differs'):
+                    self.verify(root,paths,readback)
+
+    def test_checkout_plan_cannot_choose_another_original_root_even_with_matching_ledger(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root,paths,values,readback=self.fixture(directory)
+            alternate = str(root.parent/'tempting-fake-repository')
+            values['plan'].update(invocation_repository_root=alternate,
+                invocation_ledger_root=alternate+'/'+activation.INVOCATION_LEDGER_DIRECTORY)
+            write(root/paths['plan'],values['plan'])
+            with (mock.patch.object(activation,'_custody_module') as custody_module,
+                    mock.patch.object(activation,'_git') as launch):
+                with self.assertRaisesRegex(ValueError,'independent original root'):
+                    self.verify(root,paths,readback)
+                custody_module.assert_not_called(); launch.assert_not_called()
+            self.assertFalse(Path(alternate).exists())
+
+    def test_receipt_check_requires_root_and_rejects_rehashed_root_relocation_before_custody_io(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root,paths,values,readback=self.fixture(directory); receipt=self.verify(root,paths,readback)
+            kwargs={'plan':values['plan'],'complete_freeze':values['complete_freeze'],
+                'execution_preread':values['execution_preread']}
+            with self.assertRaisesRegex(TypeError,'repository_root'):
+                activation.validate_worker_receipt(receipt,**kwargs)
+            alternate=str(root.parent/'tempting-fake-repository')
+            values['plan'].update(invocation_repository_root=alternate,
+                invocation_ledger_root=alternate+'/'+activation.INVOCATION_LEDGER_DIRECTORY)
+            receipt['plan_sha256']=hashlib.sha256(activation.canonical(values['plan'])).hexdigest()
+            with mock.patch.object(activation,'_custody_module') as custody_module:
+                with self.assertRaisesRegex(ValueError,'independent original root'):
+                    activation.validate_worker_receipt(receipt,repository_root=str(root),**kwargs)
+                custody_module.assert_not_called()
+
+    def test_both_historical_receipt_identities_refuse_before_custody_io(self):
+        for namespace,marker,commit in activation.SPENT_ACTIVATIONS:
+            for key,value in (('namespace',namespace),('marker_path',marker),('activation_commit',commit)):
+                with self.subTest(key=key,value=value):
+                    with mock.patch.object(activation,'_custody_module') as custody_module:
+                        with self.assertRaisesRegex(ValueError,'permanently spent'):
+                            activation.validate_worker_receipt({key:value},plan={},complete_freeze={},
+                                execution_preread={},repository_root='/inert/original')
+                        custody_module.assert_not_called()
 
     def test_git_fixed_no_fetch_and_no_prompt_policy_overrides_conflicting_parent(self):
         # Synthetic subprocess capture only: no Git command or remote is run.
@@ -74,7 +145,9 @@ class ControlActivationTests(unittest.TestCase):
             activation_only_paths=[git_path],alias_roots=['/usr/local/bin','/usr/local/libexec/git-core'])
         custody_path=root/activation.CUSTODY_SOURCE; custody_path.parent.mkdir(parents=True)
         custody_path.write_bytes((ROOT/activation.CUSTODY_SOURCE).read_bytes())
-        values={'plan':{'execution_status':'BLOCKED_PREPARATION_REVIEW','value':1},
+        values={'plan':{'execution_status':'BLOCKED_PREPARATION_REVIEW','value':1,
+                'invocation_repository_root':str(root),
+                'invocation_ledger_root':str(root/activation.INVOCATION_LEDGER_DIRECTORY)},
             'complete_freeze':{'mode':'PROSPECTIVE_ENGINEERING_ONLY','value':2,
                 'runtime_file_inventory':paths_runtime,'runtime_sha256s':runtime_hashes,
                 'git_runtime_file_inventory':[],'git_exec_path':'/usr/local/libexec/git-core',
@@ -110,8 +183,9 @@ class ControlActivationTests(unittest.TestCase):
             root,paths,values,readback=self.fixture(directory)
             receipt=activation.verify_marker_checkout(root,plan_path=paths['plan'],
                 freeze_path=paths['complete_freeze'],preread_path=paths['execution_preread'],
-                activation_readback_path=readback,execution_scope=str(root.parent/"control"))
-            self.assertTrue(activation.validate_worker_receipt(receipt,plan=values['plan'],
+                activation_readback_path=readback,activation_commit=git(root,'rev-parse','HEAD'),
+                    execution_scope=str(root.parent/"control"))
+            self.assertTrue(activation.validate_worker_receipt(receipt,repository_root=str(root),plan=values['plan'],
                 complete_freeze=values['complete_freeze'],execution_preread=values['execution_preread']))
             self.assertTrue(receipt['activation_public_readback_verified'])
             self.assertFalse(receipt['automatic_retry'])
@@ -121,23 +195,26 @@ class ControlActivationTests(unittest.TestCase):
             root,paths,values,readback=self.fixture(directory)
             receipt=activation.verify_marker_checkout(root,plan_path=paths['plan'],
                 freeze_path=paths['complete_freeze'],preread_path=paths['execution_preread'],
-                activation_readback_path=readback,execution_scope=str(root.parent/"control"))
+                activation_readback_path=readback,activation_commit=git(root,'rev-parse','HEAD'),
+                    execution_scope=str(root.parent/"control"))
             changes=(('plan_sha256','0'*64),('automatic_retry',True),
                 ('activation_public_readback_verified',False),('marker_path','config/reused.json'))
             for key,value in changes:
                 changed=copy.deepcopy(receipt); changed[key]=value
                 with self.subTest(key=key),self.assertRaises(ValueError):
-                    activation.validate_worker_receipt(changed,plan=values['plan'],
+                    activation.validate_worker_receipt(changed,repository_root=str(root),plan=values['plan'],
                         complete_freeze=values['complete_freeze'],execution_preread=values['execution_preread'])
 
     def test_non_marker_only_commit_closes(self):
         with tempfile.TemporaryDirectory() as directory:
             root,paths,_,readback=self.fixture(directory)
             (root/'extra.txt').write_text('not allowed\n'); git(root,'add','extra.txt'); git(root,'commit','-q','-m','extra')
+            self.refresh_readback(root,readback)
             with self.assertRaisesRegex(ValueError,'exactly one parent|only the unique marker'):
                 activation.verify_marker_checkout(root,plan_path=paths['plan'],
                     freeze_path=paths['complete_freeze'],preread_path=paths['execution_preread'],
-                    activation_readback_path=readback,execution_scope=str(root.parent/"control"))
+                    activation_readback_path=readback,activation_commit=git(root,'rev-parse','HEAD'),
+                    execution_scope=str(root.parent/"control"))
 
     def test_changed_public_readback_closes(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -146,7 +223,8 @@ class ControlActivationTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'public activation readback'):
                 activation.verify_marker_checkout(root,plan_path=paths['plan'],
                     freeze_path=paths['complete_freeze'],preread_path=paths['execution_preread'],
-                    activation_readback_path=readback,execution_scope=str(root.parent/"control"))
+                    activation_readback_path=readback,activation_commit=git(root,'rev-parse','HEAD'),
+                    execution_scope=str(root.parent/"control"))
 
     def test_missing_or_dirty_marker_closes(self):
         for mode in ('missing','dirty'):
@@ -158,7 +236,8 @@ class ControlActivationTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     activation.verify_marker_checkout(root,plan_path=paths['plan'],
                         freeze_path=paths['complete_freeze'],preread_path=paths['execution_preread'],
-                        activation_readback_path=readback,execution_scope=str(root.parent/"control"))
+                        activation_readback_path=readback,activation_commit=git(root,'rev-parse','HEAD'),
+                    execution_scope=str(root.parent/"control"))
 
     def test_wrong_parent_or_tree_claim_closes_even_with_refreshed_commit_readback(self):
         for key,value in (('preread_commit','9'*40),('preread_tree','8'*40)):
@@ -170,7 +249,8 @@ class ControlActivationTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError,'exact preread parent and tree'):
                     activation.verify_marker_checkout(root,plan_path=paths['plan'],
                         freeze_path=paths['complete_freeze'],preread_path=paths['execution_preread'],
-                        activation_readback_path=readback,execution_scope=str(root.parent/"control"))
+                        activation_readback_path=readback,activation_commit=git(root,'rev-parse','HEAD'),
+                    execution_scope=str(root.parent/"control"))
 
     def test_reused_marker_path_closes_even_when_all_current_bytes_are_read_back(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -193,7 +273,8 @@ class ControlActivationTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'new file'):
                 activation.verify_marker_checkout(root,plan_path=paths['plan'],
                     freeze_path=paths['complete_freeze'],preread_path=paths['execution_preread'],
-                    activation_readback_path=readback,execution_scope=str(root.parent/"control"))
+                    activation_readback_path=readback,activation_commit=git(root,'rev-parse','HEAD'),
+                    execution_scope=str(root.parent/"control"))
 
     def test_full_custody_rejects_same_byte_material_replacement_before_git(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -221,7 +302,7 @@ class ControlActivationTests(unittest.TestCase):
             # Direct downstream receipt checking must use no Git or alias scan.
             with (mock.patch.object(subprocess,'check_output',side_effect=AssertionError('No downstream Git')),
                     mock.patch.object(os,'scandir',side_effect=AssertionError('No downstream alias enumeration'))):
-                self.assertTrue(activation.validate_worker_receipt(receipt,plan=values['plan'],
+                self.assertTrue(activation.validate_worker_receipt(receipt,repository_root=str(root),plan=values['plan'],
                     complete_freeze=values['complete_freeze'],execution_preread=values['execution_preread'],
                     execution_scope=str(root.parent/'control')))
 
@@ -246,15 +327,16 @@ class ControlActivationTests(unittest.TestCase):
             changes=(('runtime_custody_manifest_sha256','0'*64),
                 ('activation_only_runtime_complete',False),('activation_only_runtime_complete',1),
                 ('control_scope',str(root.parent/'other-control')),('schema',activation.RECEIPT_SCHEMA.replace('v2','v1')),
-                ('marker_path',activation.SPENT_MARKER),('activation_commit',activation.SPENT_ACTIVATION_COMMIT))
+                *((key,value) for namespace,marker,commit in activation.SPENT_ACTIVATIONS
+                    for key,value in (('namespace',namespace),('marker_path',marker),('activation_commit',commit))))
             for key,value in changes:
                 changed=copy.deepcopy(receipt); changed[key]=value
                 with self.subTest(key=key,value=value),self.assertRaises(ValueError):
-                    activation.validate_worker_receipt(changed,plan=values['plan'],
+                    activation.validate_worker_receipt(changed,repository_root=str(root),plan=values['plan'],
                         complete_freeze=values['complete_freeze'],execution_preread=values['execution_preread'],
                         execution_scope=str(root.parent/'control'))
             with mock.patch.object(activation,'_git') as launch,self.assertRaisesRegex(ValueError,'spent'):
-                self.verify(root,paths,readback,marker_path=activation.SPENT_MARKER)
+                self.verify(root,paths,readback,marker_path=activation.SPENT_ACTIVATIONS[0][1])
             launch.assert_not_called()
 
     def test_candidate_selected_git_custody_source_or_policy_cannot_run_before_check(self):

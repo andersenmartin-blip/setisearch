@@ -17,7 +17,8 @@ from unittest import mock
 import radio_native_v2_compact_eight_case_resource_fixture as fixture
 import radio_native_v2_worker_admission as admission
 import radio_native_v2_runtime_custody as custody
-import radio_native_v2_invocation_spending as spending
+import radio_native_v2_prospective_spending as spending
+import radio_native_v2_historical_observation as history
 
 ROOT = Path(__file__).resolve().parents[1]
 PYTHON = str(Path(sys.executable).resolve())
@@ -59,11 +60,17 @@ def synthetic_worker_materials(root, *, ordinal=0, plan=None, derived_sources=No
     code = case / 'frozen-code'; derived = case / 'derived'
     code.mkdir(parents=True); derived.mkdir()
     plan = copy.deepcopy(fixture.build_plan(ROOT) if plan is None else plan)
-    plan['invocation_ledger_root'] = str(root/'.radio-native-v2-invocation-ledger')
+    plan['invocation_repository_root'] = str(root)
+    plan['invocation_ledger_root'] = spending.ledger_root_for_repository(root)
     # A test can construct materials before root adds the validator to its
     # shared CODE_FILES. The validator is always an explicit prospective pin.
     plan['code_files'][admission.SELF] = tiny_pin(SCRIPT.read_bytes())
     plan['code_files'][admission.CUSTODY_SOURCE] = tiny_pin((ROOT/admission.CUSTODY_SOURCE).read_bytes())
+    plan['code_files'][admission.SPENDING_SOURCE] = tiny_pin((ROOT/admission.SPENDING_SOURCE).read_bytes())
+    # Synthetic material roots can relocate; historical input bytes retain the
+    # exact immutable published pins, without observing any original storage.
+    plan['historical_storage_inputs'] = copy.deepcopy(history.HISTORICAL_INPUT_PINS)
+    plan['code_files'].update(plan['historical_storage_inputs'])
     if derived_sources is None:
         derived_sources = {'prepare.py': b'# tiny synthetic inert preparation source\n',
             'fresh-caller.js': b'// tiny synthetic inert caller\n',
@@ -78,10 +85,11 @@ def synthetic_worker_materials(root, *, ordinal=0, plan=None, derived_sources=No
     for name, raw in derived_sources.items():
         (derived / name).write_bytes(raw)
     hashes = {path: pin['sha256'] for path, pin in plan['code_files'].items()
-              if not path.startswith('tests/')}
+              if not path.startswith('tests/') and path not in plan['historical_storage_inputs']}
     for relative in ('scripts/radio_native_v2_runner_freeze.py', 'scripts/radio_native_v2_broker_host.js'):
         hashes[relative] = tiny_pin((ROOT / relative).read_bytes())['sha256']
-    inputs = {path: pin['sha256'] for path, pin in plan['code_files'].items() if path.startswith('tests/')}
+    inputs = {path: pin['sha256'] for path, pin in plan['code_files'].items()
+              if path.startswith('tests/') or path in plan['historical_storage_inputs']}
     paths = {name: record['path'] for name, record in plan['runtime_executables'].items()}
     tiny_bin = root/'tiny-activation-bin'; tiny_bin.mkdir()
     tiny_git = tiny_bin/'tiny-activation-git'; tiny_git.write_bytes(b'tiny inert activation-only Git; never executed')
@@ -124,11 +132,11 @@ def synthetic_worker_materials(root, *, ordinal=0, plan=None, derived_sources=No
     activation_receipt = synthetic_activation_receipt(plan,freeze,proof,execution_scope=scope)
     Path(plan['invocation_ledger_root']).mkdir(mode=0o700)
     witness = spending.consume_once(activation_receipt, execution_scope=str(scope),
-        ledger_root=plan['invocation_ledger_root'],
+        ledger_root=plan['invocation_ledger_root'], repository_root=str(root),
         receipt_validator=lambda receipt: (admission._validate_activation_receipt(
             receipt, plan, freeze, proof, execution_scope=str(scope)), True)[1])
     bundle = admission.build_admission_bundle(plan, freeze, proof, activation_receipt,
-        execution_scope=str(scope), ordinal=ordinal, invocation_spending=witness)
+        repository_root=str(root), execution_scope=str(scope), ordinal=ordinal, invocation_spending=witness)
     path = case / 'worker-admission.json'
     raw = admission.bundle_bytes(bundle); path.write_bytes(raw)
     digest = hashlib.sha256(raw).hexdigest()
@@ -188,7 +196,7 @@ def tiny_prepared(materials, *, ordinal=None, case_root=None):
 def retain_role(materials, role, inputs, *, ordinal=0):
     bundle = admission.build_role_admission_bundle(materials['plan'],materials['freeze'],materials['proof'],
         materials['activation_receipt'],
-        role=role,execution_scope=str(materials['scope']),ordinal=ordinal,phase_inputs=inputs,
+        repository_root=materials['bundle']['invocation_repository_root'], role=role,execution_scope=str(materials['scope']),ordinal=ordinal,phase_inputs=inputs,
         invocation_spending=materials['invocation_spending'])
     layout = admission.worker_role_layout(bundle,role=role,ordinal=ordinal)
     path = Path(layout['bundle_path']); raw = admission.bundle_bytes(bundle); path.write_bytes(raw)
@@ -340,8 +348,8 @@ class WorkerAdmissionTests(unittest.TestCase):
         changes=(('runtime_custody_manifest_sha256','0'*64),('activation_only_runtime_complete',False),
             ('activation_only_runtime_complete',1),('control_scope',str(self.root/'other-control')),
             ('schema',admission.ACTIVATION_RECEIPT_SCHEMA.replace('v2','v1')),
-            ('marker_path',admission.SPENT_ACTIVATION_MARKER),
-            ('activation_commit',admission.SPENT_ACTIVATION_COMMIT))
+            *((key,value) for namespace,marker,commit in admission.SPENT_ACTIVATIONS
+                for key,value in (('namespace',namespace),('marker_path',marker),('activation_commit',commit))))
         for key,value in changes:
             self.materials['bundle']=copy.deepcopy(original)
             self.materials['bundle']['activation_receipt'][key]=value
@@ -388,17 +396,18 @@ class WorkerAdmissionTests(unittest.TestCase):
         fresh = self.root / 'must-remain-uncreated'
         plan = copy.deepcopy(self.materials['plan'])
         ledger_parent = self.root/'separate-synthetic-ledger'; ledger_parent.mkdir()
-        plan['invocation_ledger_root'] = str(ledger_parent/'.radio-native-v2-invocation-ledger')
+        plan['invocation_repository_root'] = str(ledger_parent)
+        plan['invocation_ledger_root'] = spending.ledger_root_for_repository(ledger_parent)
         Path(plan['invocation_ledger_root']).mkdir(mode=0o700)
         proof = copy.deepcopy(self.materials['proof'])
         proof['plan_sha256'] = hashlib.sha256(admission.canonical(plan)).hexdigest()
         synthetic_receipt=synthetic_activation_receipt(plan,self.materials['freeze'],proof,execution_scope=fresh)
         witness = spending.consume_once(synthetic_receipt, execution_scope=str(fresh),
-            ledger_root=plan['invocation_ledger_root'],
+            ledger_root=plan['invocation_ledger_root'], repository_root=str(ledger_parent),
             receipt_validator=lambda receipt: (admission._validate_activation_receipt(
                 receipt, plan, self.materials['freeze'], proof, execution_scope=str(fresh)), True)[1])
         bundle = admission.build_admission_bundle(plan, self.materials['freeze'], proof, synthetic_receipt,
-            execution_scope=str(fresh), ordinal=2, invocation_spending=witness)
+            repository_root=str(ledger_parent), execution_scope=str(fresh), ordinal=2, invocation_spending=witness)
         self.assertFalse(fresh.exists())
         bundle['plan']['cases'][2]['source_bytes'] = 0
         self.assertEqual(self.materials['plan']['cases'][2]['source_bytes'], 26*1024**2)
@@ -409,6 +418,89 @@ class WorkerAdmissionTests(unittest.TestCase):
         self.refresh_embedded_digests()
         with self.assertRaisesRegex(ValueError, 'bundle bytes changed'):
             self.validate(expected_bundle_sha256=old)
+
+    def test_both_bundle_builders_require_independent_original_root(self):
+        materials=self.materials
+        args=(materials['plan'],materials['freeze'],materials['proof'],materials['activation_receipt'])
+        common={'execution_scope':str(materials['scope']),'ordinal':0,
+            'invocation_spending':materials['invocation_spending']}
+        with self.assertRaisesRegex(TypeError,'repository_root'):
+            admission.build_admission_bundle(*args,**common)
+        with self.assertRaisesRegex(TypeError,'repository_root'):
+            admission.build_role_admission_bundle(*args,role='caller',phase_inputs={},**common)
+
+    def test_rehashed_plan_root_and_ledger_cannot_replace_authenticated_bundle_root(self):
+        bundle=copy.deepcopy(self.materials['bundle'])
+        alternate=str(self.root/'tempting-fake-original-repository')
+        bundle['plan'].update(invocation_repository_root=alternate,
+            invocation_ledger_root=spending.ledger_root_for_repository(alternate))
+        bundle['plan_sha256']=hashlib.sha256(admission.canonical(bundle['plan'])).hexdigest()
+        bundle['activation_receipt']['plan_sha256']=bundle['plan_sha256']
+        bundle['activation_receipt_sha256']=hashlib.sha256(admission.canonical(bundle['activation_receipt'])).hexdigest()
+        with (mock.patch.object(admission,'_custody_module') as custody_module,
+                mock.patch.object(admission,'_spending_module') as spender):
+            with self.assertRaisesRegex(ValueError,'independent original root'):
+                admission._validate_bundle(bundle,ordinal=0)
+            custody_module.assert_not_called(); spender.assert_not_called()
+        self.assertFalse(Path(alternate).exists())
+
+    def test_replacing_bundle_original_root_is_denied_by_independently_retained_argv_digest(self):
+        old=self.materials['bundle_sha256']; bundle=self.materials['bundle']
+        alternate=str(self.root/'tempting-fake-original-repository')
+        bundle['invocation_repository_root']=alternate
+        bundle['plan'].update(invocation_repository_root=alternate,
+            invocation_ledger_root=spending.ledger_root_for_repository(alternate))
+        self.refresh_embedded_digests()
+        with self.assertRaisesRegex(ValueError,'bundle bytes changed'):
+            self.validate(expected_bundle_sha256=old)
+        self.assertFalse(Path(alternate).exists())
+
+    def test_explicit_builder_root_cannot_default_to_candidate_plan_root(self):
+        materials=self.materials
+        with (mock.patch.object(admission,'_custody_module') as custody_module,
+                mock.patch.object(admission,'_spending_module') as spender):
+            with self.assertRaisesRegex(ValueError,'independent original root'):
+                admission.build_admission_bundle(materials['plan'],materials['freeze'],
+                    materials['proof'],materials['activation_receipt'],
+                    repository_root=str(self.root/'wrong-original'),execution_scope=str(materials['scope']),
+                    ordinal=0,invocation_spending=materials['invocation_spending'])
+            custody_module.assert_not_called(); spender.assert_not_called()
+
+    def test_historical_receipts_refuse_before_custody_or_spender_io_even_with_malformed_other_evidence(self):
+        for namespace,marker,commit in admission.SPENT_ACTIVATIONS:
+            for key,value in (('namespace',namespace),('marker_path',marker),('activation_commit',commit)):
+                bundle=copy.deepcopy(self.materials['bundle']); bundle['activation_receipt']={key:value}
+                bundle['complete_freeze']={}; bundle['plan']={}
+                with self.subTest(key=key,value=value):
+                    with (mock.patch.object(admission,'_custody_module') as custody_module,
+                            mock.patch.object(admission,'_spending_module') as spender,
+                            mock.patch.object(admission,'read_pinned_file') as read):
+                        with self.assertRaisesRegex(ValueError,'permanently spent'):
+                            admission._validate_bundle(bundle,ordinal=0)
+                        custody_module.assert_not_called(); spender.assert_not_called(); read.assert_not_called()
+
+    def test_selfconsistent_historical_snapshot_change_cannot_replace_independent_map_pin(self):
+        bundle=copy.deepcopy(self.materials['bundle']); plan=bundle['plan']
+        relative=next(iter(plan['historical_storage_inputs']))
+        plan['historical_storage_inputs'][relative]['sha256']='9'*64
+        plan['code_files'][relative]=copy.deepcopy(plan['historical_storage_inputs'][relative])
+        bundle['complete_freeze']['input_sha256s'][relative]='9'*64
+        with (mock.patch.object(admission,'_custody_module') as custody_module,
+                mock.patch.object(admission,'_spending_module') as spender):
+            with self.assertRaisesRegex(ValueError,'independently pinned historical storage'):
+                admission._validate_bundle(bundle,ordinal=0)
+            custody_module.assert_not_called(); spender.assert_not_called()
+
+    def test_historical_input_must_be_frozen_as_input_even_if_present_in_code_hashes(self):
+        bundle=self.materials['bundle']; freeze=bundle['complete_freeze']
+        relative=next(iter(bundle['plan']['historical_storage_inputs']))
+        pin=freeze['input_sha256s'].pop(relative)
+        freeze['input_file_inventory']=sorted(freeze['input_sha256s'])
+        freeze['code_sha256s'][relative]=pin
+        freeze['repository_code_inventory']=sorted(freeze['code_sha256s'])
+        self.refresh_embedded_digests()
+        with self.assertRaisesRegex(ValueError,'independently pinned historical input'):
+            self.validate()
 
     def test_retained_digest_is_mandatory_and_covers_the_terminal_newline(self):
         raw = self.materials['bundle_path'].read_bytes()
