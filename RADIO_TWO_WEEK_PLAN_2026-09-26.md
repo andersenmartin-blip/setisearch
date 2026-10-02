@@ -1,5 +1,16 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 2 October: unique engineering control failed closed; no retry
+
+[The activation, invocation and diagnosis](RADIO_NATIVE_V2_ONE_CONTROL_2026-10-02_RESULT.md)
+show a freeze/activation custody-policy mismatch at hardlinked `/usr/local/bin/git`.
+The sole authorized invocation stopped before scope creation; its marker is spent.
+
+**Next:** preserve this failed evaluation and specify/test a consistent runtime-file
+policy. Do not retry, reuse the marker, generate large input or open telescope data.
+HD189733 selected; HD1461 HOLD; GJ724 reserve; 127/24 NOT ACTIVATED; LS paused;
+CHEOPS UNSENT. Consolidate 9 October. No external messages.
+
 ## 2 October: fresh preread verified; marker adjacency reserved
 
 [The new 4,364-byte preread](RADIO_NATIVE_V2_EXECUTION_PREREAD_B_2026-10-02_RESULT.md)

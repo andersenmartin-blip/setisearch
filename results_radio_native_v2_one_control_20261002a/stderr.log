@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/ef1503c23d23/setisearch-activation-20261002a/scripts/radio_native_v2_compact_eight_case_resource_fixture.py", line 1251, in <module>
+    main()
+  File "/workspace/scratch/ef1503c23d23/setisearch-activation-20261002a/scripts/radio_native_v2_compact_eight_case_resource_fixture.py", line 1247, in main
+    run_control(args.scope,plan,preread,freeze,receipt,helper)
+  File "/workspace/scratch/ef1503c23d23/setisearch-activation-20261002a/scripts/radio_native_v2_compact_eight_case_resource_fixture.py", line 1116, in run_control
+    validate_activation(plan,preread,freeze,activation_receipt)
+  File "/workspace/scratch/ef1503c23d23/setisearch-activation-20261002a/scripts/radio_native_v2_compact_eight_case_resource_fixture.py", line 473, in validate_activation
+    if not re.fullmatch('[0-9a-f]{64}', digest) or pin(Path(path) if prefix is None else prefix/path)['sha256'] != digest:
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ef1503c23d23/setisearch-activation-20261002a/scripts/radio_native_v2_compact_eight_case_resource_fixture.py", line 94, in pin
+    raise ValueError('Sole-link regular pinned file required')
+ValueError: Sole-link regular pinned file required

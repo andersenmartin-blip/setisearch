@@ -1,5 +1,17 @@
 # Long-term project direction
 
+## 2 October: spent control exposes runtime-custody contract mismatch
+
+[The one permitted invocation](RADIO_NATIVE_V2_ONE_CONTROL_2026-10-02_RESULT.md)
+failed closed before scope creation. Its frozen Git bytes match, but the freezer and
+activation validator disagree on whether an external runtime file may have multiple
+hardlinks.
+
+**Direction:** preserve the failure and spent marker. Define a single prospective
+runtime custody rule, cover its freeze/activation parity and TOCTOU boundary, then
+create fresh preparation only if the existing plan permits it. Never tune or rerun
+this evaluation. All science dispositions and the 9 October end date are unchanged.
+
 ## 2 October: fresh preread prepared for marker-only transition
 
 [The distinct preread result](RADIO_NATIVE_V2_EXECUTION_PREREAD_B_2026-10-02_RESULT.md)

@@ -1,5 +1,19 @@
 # SETIsearch — current project status
 
+## 2 October: one-control invocation closed before scope creation
+
+[The retained final disposition](RADIO_NATIVE_V2_ONE_CONTROL_2026-10-02_RESULT.md)
+records one valid marker-bound invocation and no retry. Activation rejected the
+hardlinked `/usr/local/bin/git` (`nlink=145`) even though its bytes match the freeze:
+the freezer permits runtime hardlinks while the final validator requires sole-link
+files. Status is `CLOSED_FAILED_RUNTIME_CUSTODY_POLICY_MISMATCH`.
+
+No scope, large input, reservation, RNG, native/science case or telescope read
+occurred. The marker and invocation are spent. **Next:** specify and test one
+consistent runtime-file custody policy; do not reuse the marker or retry the control.
+HD189733 selected; HD1461 HOLD; GJ724 reserve; spectra/holdouts unopened; LS paused;
+CHEOPS UNSENT. Consolidate 9 October. No messages.
+
 ## 2 October: fresh integrated preread verified; publication pending
 
 [The new preread and structural verifier](RADIO_NATIVE_V2_EXECUTION_PREREAD_B_2026-10-02_RESULT.md)
