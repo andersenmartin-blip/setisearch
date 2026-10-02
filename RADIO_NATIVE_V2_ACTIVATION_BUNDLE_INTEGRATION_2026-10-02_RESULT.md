@@ -33,6 +33,7 @@ pre-marker CLI control exits 1; neither its scope nor readback path exists after
 - [Retained first targeted-suite failure](results_radio_native_v2_activation_bundle_integration_20261002a/failed-first-targeted-suite.json)
 - [Retained isolated verifier-import failure](results_radio_native_v2_activation_bundle_integration_20261002a/failed-second-verifier-invocation.json)
 - [Verifier](results_radio_native_v2_activation_bundle_integration_20261002a/verify_bundle_integration.py)
+- [Publication readback](results_radio_native_v2_activation_bundle_integration_20261002a/publication-readback.json)
 
 The first targeted suite retained 10 failures and 7 errors because obsolete tests
 expected the unconditional gate even when a valid synthetic receipt should now pass to
@@ -41,16 +42,22 @@ first orchestration invocation used `-I -S`, which intentionally hid installed N
 from the runtime-freeze collector. Both failures occurred before large input or control
 execution and remain preserved.
 
+Science commit `25e9df222af79c677adc1ad247104fd6b0c4d68e` has the expected
+parent/tree and all changed material blobs match, including the plan, freeze, runner,
+worker admission, report and summary. Main commit
+`bb20e468aa6fd8b816c4a5a51bf0d755d01a787f` has the expected parent/tree
+and README blob. The new preparation therefore has independent public readback.
+
 ## Disposition and continuation
 
-No activation marker exists. This new plan/freeze has no public preparation readback
-and no fresh execution preread, so it cannot run. The old preread is not reused. No
+No activation marker exists. This new plan/freeze now has public preparation readback
+but no fresh execution preread, so it cannot run. The old preread is not reused. No
 large input, eight-input control, reservation, RNG, telescope read, native case or
 science case occurred.
 
-**Exact continuation:** publish this code, tests, plan and freeze by fast-forward and
-independently read back every material blob. Then create a new distinct preread bound
-to that public preparation commit. Do not add the marker until that new preread is
+**Exact continuation:** create a new distinct preread bound to public preparation
+commit `25e9df222af79c677adc1ad247104fd6b0c4d68e`, publish it and
+independently read it back. Do not add the marker until that new preread is
 public and read back, and do not place an intervening science-branch commit between
 the preread and its future marker-only child. HD189733 remains selected, HD1461 HOLD
 and GJ724 reserve. 127/24 is NOT ACTIVATED; spectra and original holdouts remain

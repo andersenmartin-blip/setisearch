@@ -7,12 +7,13 @@ thread the marker receipt through every outer/worker/supervisor/finalizer path. 
 marker/readback evidence closes before scope creation. Plan `20261002j` remains
 **BLOCKED_PREPARATION_REVIEW**; the fresh freeze binds 923 code files, 9 inputs and
 1,366 runtime files. The first 10-failure/7-error suite and isolated NumPy import error
-are retained; the corrected suite passes **215 tests in 84.413 s**.
+are retained; the corrected suite passes **215 tests in 84.413 s**. The complete new
+preparation now has matching science/main public readback.
 
 No marker, large input, control, reservation, RNG or telescope read occurred. HD189733
 selected; HD1461 HOLD; GJ724 reserve; 127/24 NOT ACTIVATED; spectra/holdouts unopened;
-LS paused; CHEOPS UNSENT. **Next:** publish/read back this new preparation, then build a
-fresh distinct preread. Never reuse the old preread. No messages.
+LS paused; CHEOPS UNSENT. **Next:** build and publish a fresh distinct preread bound to
+preparation commit `25e9df22...`. Never reuse the old preread. No messages.
 
 ## 2 October: marker-proof component passes; integration remains closed
 
