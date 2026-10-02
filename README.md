@@ -11,7 +11,8 @@ hidden/added alias, relink, drift, symlink and unexpected material-hardlink case
 It is not integrated into the freezer, activation receipt, workers or runner and
 authorizes no new marker/control. The failed marker and invocation remain spent. Next
 is pre-write integration plus adjacent tests and a wholly fresh plan/freeze; no
-telescope data or failed-evaluation retry. Consolidate 9 October.
+telescope data or failed-evaluation retry. Science/main publication now has matching
+public readback. Consolidate 9 October.
 
 ## 2 October: runtime-custody topology audited; remediation frozen
 
