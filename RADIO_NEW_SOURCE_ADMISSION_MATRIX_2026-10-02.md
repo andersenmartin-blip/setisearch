@@ -19,8 +19,17 @@ The prior 398-test observer-publication failure and post-test exclusive-alias
 error remain retained with explicit byte-exact final selection. Fresh o capture
 and independent audit pass under actual ten-value `-I -S -B`, covering 36 inputs,
 927 repository code files and 1,366 runtime paths, with execution blocked.
-Public input custody is verified; new component/output publication/readback,
-intended source-runtime admission and scientific gates remain pending.
+[Public component readback](results_radio_hd189733_metadata_preparation_20261002a/public-component-readback.json)
+verifies the module, tests and all thirteen metadata output/evidence files,
+including all three outputs, at G
+`c9988a65839bffb768bd93a516f4fe80b52f3bba`, tree
+`30f66f8db851e3c09abd1948a71bdf468e4bffed`. All 15 paths match content and
+Git-blob identities; the encompassing
+[checkpoint readback](results_radio_native_v2_supervisor_receipt_20261002a/public-checkpoint-readback.json)
+verifies all 59 preparation files / 4,340,566 bytes. Public input and component
+custody are verified. Intended source-runtime admission, active execution
+preread, transport and scientific gates remain blocked; publication grants no
+new authority. This latest status section is subsequent to the verified G set.
 No spectrum, holdout, reserved native input or RNG value was opened/generated.
 LS remains paused; stop 9 October without extension. The original audited design
 below is preserved as the implementation's historical requirements, not a claim

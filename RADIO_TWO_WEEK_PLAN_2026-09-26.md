@@ -18,8 +18,13 @@ actually use the exact ten-value environment and Python `-I -S -B`; 927 reposito
 code files, 36 inputs, 1,366 runtime files, 33 copied code files and three derived
 files verify. Fresh launcher preflight passes; all five execution blockers and
 completion/authority limits remain. Independent final selection review verifies
-all current pins, aliases and the post-test error. Immutable public checkpoint G
-readback remains pending.
+all current pins, aliases and the post-test error. Final preparation review matches
+all 927/36/33/944 code/input/material/suite pins and 19 bootstrap edges; the
+1,366-runtime/240-additional-supplement union and unchanged failed scope/ledger verify.
+[Immutable checkpoint G](results_radio_native_v2_supervisor_receipt_20261002a/public-checkpoint-readback.json)
+at [`c9988a6`](https://github.com/andersenmartin-blip/setisearch/commit/c9988a65839bffb768bd93a516f4fe80b52f3bba)
+is verified: all 59 publication files / 4,340,566 raw bytes match content and Git
+blob SHA. These status/readback additions are evidence only; blocked gates remain.
 
 Failed control b remains immutable at
 [`1468a19`](https://github.com/andersenmartin-blip/setisearch/commit/1468a19d2603bde2b491b5400a2d3cdf8954c69f),
@@ -30,7 +35,8 @@ control, real marker, full-size source generation, telescope read or RNG draw.
 [HD189733 metadata preparation](RADIO_HD189733_METADATA_PREPARATION_2026-10-02_RESULT.md)
 passes 42 tests. Fresh public readback at F verifies all 25 raw metadata inputs /
 749,088 bytes by exact content and Git-blob identity, outside the constructor and
-protected control. Telescope/source admission, cumulative quotas,
+protected control. All 15 component/output/evidence paths also have verified
+public readback at G. Telescope/source admission, cumulative quotas,
 scientific/native certificates and transport remain blocked. HD189733 selected;
 HD1461 HOLD; GJ724 reserve; spectra/holdouts unopened; native8 unreserved;
 127/24 NOT ACTIVATED; LS paused; CHEOPS UNSENT. Stop **9 October** without automatic

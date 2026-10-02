@@ -7,8 +7,9 @@ integrated. The candidate's **42 tests pass**, and an independent isolated
 All 42 metadata tests also pass inside the final fourteen-module **401-test
 suite**, with zero failures, errors or skips. All 25 original inputs have fresh
 immutable public byte/Git-blob readback, and fresh o capture and independent
-audit pass with execution blocked. New component/output publication remains
-pending. No executable source contract, detector certificate, trial, acquisition
+audit pass with execution blocked. The component, tests and all three outputs
+have verified immutable public readback at G. No executable source contract,
+detector certificate, trial, acquisition
 allocation or spectral authority is issued.
 
 This advances the concrete interface work identified in the
@@ -47,8 +48,25 @@ lookup outside the pure constructor and failed control. Its 6,647-byte proof
 has file SHA256
 `cc2edaba14e41be9062ce3feccdbb9b8de47edac913ebdf6378dfd1d02a19b6c`.
 No selected source text was executed by readback. Public input custody does not
-qualify the intended HDF5/source runtime, active admission or scientific gates;
-new component and output publication/readback remain separate and pending.
+qualify the intended HDF5/source runtime, active admission or scientific gates.
+
+[Public component readback](results_radio_hd189733_metadata_preparation_20261002a/public-component-readback.json)
+now verifies the module, tests and all thirteen metadata output/evidence files,
+including the three canonical outputs, at immutable G commit
+`c9988a65839bffb768bd93a516f4fe80b52f3bba`, tree
+`30f66f8db851e3c09abd1948a71bdf468e4bffed`. All **15 paths** match retained
+content and exact Git-blob identities. Its 6,424-byte proof has SHA256
+`1d33b82acd183c7930ed76d77926f8b85a9aada2c84df23e5dec239570a04de2`.
+The encompassing
+[G checkpoint readback](results_radio_native_v2_supervisor_receipt_20261002a/public-checkpoint-readback.json)
+verifies all **59 preparation files / 4,340,566 bytes**. Its 24,026-byte proof
+has SHA256
+`d257a03eeab4616f7f34e28f3280e542cecadfe9813cbecb4d5dd632423154d4`.
+This verifies publication custody; it does not qualify runtime custody, active
+execution preread, transport, source admission or scientific gates. The component
+and all three outputs remain permanently blocked, with no new control invocation
+or telescope authority. These subsequent status-document updates are separate
+from the verified G artifact set.
 
 Ten historical JSON files absent from the local checkout were materialized at
 their original tracked paths, byte-identical to those retained Git blobs.
@@ -201,8 +219,9 @@ test, six output/pin inputs and twelve original JSON inputs. The 27,511-byte
 verification has SHA256
 `227472dbecff37b0c45cf6283edbfccc12ac76a163c128d873b53a72f8e8c2fa`.
 No new activation, spend, protected control, source generation or scientific
-authority arises. New component/output immutable publication/readback remains
-pending. Passing preparation cannot qualify control b or admit the pilot.
+authority arises. Component/output immutable publication and readback are
+verified at G as detailed above. Passing preparation and public custody cannot
+qualify control b or admit the pilot.
 The next fork remains the
 separately frozen hosted transport join, distinct fresh native8 engineering
 freeze/reservation and physical feasibility, separate 127/24 scientific execution

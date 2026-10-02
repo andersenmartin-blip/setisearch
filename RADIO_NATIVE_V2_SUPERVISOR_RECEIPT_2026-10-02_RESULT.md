@@ -14,8 +14,8 @@ or skips. All **944 source/test/wrapper pins** stayed unchanged during the
 The actual bootstrap uses the exact ten-value environment and Python `-I -S -B`.
 Fresh plan o/runtime capture and independent preparation audit now pass, while
 the plan remains **BLOCKED_PREPARATION_REVIEW** with all five execution blockers.
-Independent final selection review passes; immutable public checkpoint G
-readback remains pending.
+Independent final selection and preparation reviews pass. Immutable public
+checkpoint G and all 59 published files are verified by content and Git blob SHA.
 This is preparation evidence; protected-control, native, source and scientific
 qualification remain blocked.
 
@@ -219,7 +219,7 @@ error, with no concrete blocker. The review is 9,927 bytes, SHA256
 | Fresh isolated launcher preflight | `LOCAL_PREFLIGHT_RECOMPUTED` in a separate fresh exact-environment `-I -S -B` process |
 | Independent preparation audit | `PREPARATION_COHERENCE_VERIFIED_EXECUTION_BLOCKED`; exit 0 with no stderr |
 | Final selection review | Passing result, all 944 current pins, aliases and explicit postlude error independently verified |
-| Immutable public checkpoint G readback | PENDING |
+| Immutable public checkpoint G readback | All 59 publication files / 4,340,566 raw bytes fetched at G; exact content and Git blob SHA match |
 | Complete resource/runtime/kernel/hosted-transport and scientific gates | Unqualified; all original completion/authority fields remain false |
 
 [Capture](results_radio_native_v2_supervisor_receipt_20261002a/preparation-capture.json)
@@ -232,9 +232,32 @@ independent supplemental inventory and the separately executed actual-parent
 checker all pass their preparation checks. The verification is 27,511 bytes,
 file SHA256 `227472dbecff37b0c45cf6283edbfccc12ac76a163c128d873b53a72f8e8c2fa`.
 All five execution blockers remain; complete execution/runtime/kernel and
-activation admission are unqualified. Public final checkpoint G readback remains
-separate. Repair tests do not reopen the spent b scope or create an
-execution-qualified preread/marker.
+activation admission are unqualified. Repair tests do not reopen the spent b
+scope or create an execution-qualified preread/marker.
+
+[Final independent preparation review](results_radio_native_v2_supervisor_receipt_20261002a/final-preparation-independent-review.json)
+verifies all **927 repository code, 36 input, 33 material-code and 944 selected
+source/test/wrapper pins**, all **19 literal bootstrap dependency edges** and
+the exact runtime/supplement byte inventory: **1,366 runtime files plus 240
+additional supplement files, a 1,606-file union**. It independently confirms the
+failed scope's 107 retained files and the sole spent ledger record are unchanged.
+The 28,853-byte review has SHA256
+`ff91ae212ecef2d63add9624ff84d3798fa943f45913b615a552ed2dda0cac35`.
+Its disposition remains `PREPARATION_BYTES_COHERENT_EXECUTION_BLOCKED`.
+
+The public preparation checkpoint is
+[`c9988a65839bffb768bd93a516f4fe80b52f3bba`](https://github.com/andersenmartin-blip/setisearch/commit/c9988a65839bffb768bd93a516f4fe80b52f3bba),
+the immediate child of F `1468a19d2603bde2b491b5400a2d3cdf8954c69f`, with tree
+`30f66f8db851e3c09abd1948a71bdf468e4bffed`.
+[Its immutable readback](results_radio_native_v2_supervisor_receipt_20261002a/public-checkpoint-readback.json)
+fetches all **59 publication files / 4,340,566 raw bytes** and verifies exact
+content and Git blob SHA for every file. The readback receipt is 24,026 bytes,
+SHA256 `d257a03eeab4616f7f34e28f3280e542cecadfe9813cbecb4d5dd632423154d4`.
+These observations bind the published preparation at G. These status updates
+and readback receipts are prepared for an evidence/status-only child of G; source,
+wrappers, config, failed scope, marker and ledger are unchanged. Execution,
+native, scientific, hosted transport, cumulative quota and source/acquisition
+gates remain blocked.
 
 [The HD189733 metadata component](RADIO_HD189733_METADATA_PREPARATION_2026-10-02_RESULT.md)
 now has **42 passing tests**, including the final suite. It authenticates **25
@@ -249,7 +272,12 @@ remain unqualified. Source
 readiness, runtime, cumulative quotas, scientific certificates, hosted transport,
 native allocation and telescope/acquisition/trial gates remain false or missing.
 The [new-source admission matrix](RADIO_NEW_SOURCE_ADMISSION_MATRIX_2026-10-02.md)
-still requires those original joins. Spectra and holdouts remain unopened.
+still requires those original joins. [Public component readback](results_radio_hd189733_metadata_preparation_20261002a/public-component-readback.json)
+also verifies all 15 component/output/evidence paths at G by exact content and
+Git blob SHA. Its 6,424 bytes have SHA256
+`1d33b82acd183c7930ed76d77926f8b85a9aada2c84df23e5dec239570a04de2`.
+The component and three outputs remain telescope-access blocked. Spectra and
+holdouts remain unopened.
 
 HD189733 selected; HD1461 HOLD; GJ724 reserve; spectra and holdouts unopened;
 native8 unreserved; 127/24 NOT ACTIVATED; LS paused; CHEOPS UNSENT. No new
