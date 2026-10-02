@@ -1,5 +1,19 @@
 # SETIsearch
 
+## 2 October: repairs and metadata prepared; execution remains blocked
+
+[The bounded receipt and live-identity repairs](https://github.com/andersenmartin-blip/setisearch/blob/8c0b3f2ed0bd870f975d08071d5582ad4bdc67ad/RADIO_NATIVE_V2_SUPERVISOR_RECEIPT_2026-10-02_RESULT.md) pass **401 tests**, with zero failures, errors or skips and all 944 source/test/wrapper pins unchanged. The test harness's later final-alias FileExistsError is retained separately; independent review verifies the byte-exact selection of the passing attempt. Original receipt, RSS, storage and deadline limits remain unchanged.
+
+Fresh plan o/runtime capture and independent audit actually run in the exact ten-value environment under Python `-I -S -B`: 927 repository code files, 36 inputs and 1,366 runtime paths verify. Independent review also matches all material, bootstrap and runtime/supplement joins. The plan remains **BLOCKED_PREPARATION_REVIEW**, with all five execution blockers.
+
+[The public preparation checkpoint](https://github.com/andersenmartin-blip/setisearch/blob/8c0b3f2ed0bd870f975d08071d5582ad4bdc67ad/results_radio_native_v2_supervisor_receipt_20261002a/public-checkpoint-readback.json) verifies all **59 files / 4,340,566 raw bytes** at immutable G `c9988a65839bffb768bd93a516f4fe80b52f3bba`, with exact content and Git blob SHA. Its evidence-only status child H `8c0b3f2ed0bd870f975d08071d5582ad4bdc67ad` has matching readback of all eight updated status/proof paths.
+
+[HD189733 metadata preparation](https://github.com/andersenmartin-blip/setisearch/blob/8c0b3f2ed0bd870f975d08071d5582ad4bdc67ad/RADIO_HD189733_METADATA_PREPARATION_2026-10-02_RESULT.md) passes all 42 metadata tests. The 25 original inputs and 15 component/output/evidence paths have immutable public readback. The three outputs remain permanently blocked; source/runtime/acquisition, cumulative quotas, scientific certificates and hosted transport are unqualified.
+
+Failed control b remains **CLOSED_FAILED**, **0/8 cases completed**, with its unique invocation permanently spent. All 107 original files / 70,168,047 bytes and the sole ledger record remain unchanged. No retry, resume, rearm, additional protected control, full-size source generation or telescope read.
+
+HD189733 selected; HD1461 HOLD; GJ724 reserve; spectra/holdouts unopened; native8 unreserved; 127/24 NOT ACTIVATED; LS paused; CHEOPS UNSENT. [The updated two-week plan](https://github.com/andersenmartin-blip/setisearch/blob/8c0b3f2ed0bd870f975d08071d5582ad4bdc67ad/RADIO_TWO_WEEK_PLAN_2026-09-26.md) stops **9 October 2026**, without automatic extension or restart.
+
 ## 2 October: authenticated source receipt and durable spending prepared
 
 [The integration and retained evidence](https://github.com/andersenmartin-blip/setisearch/blob/b02b453e64cf667f5e077cb6f671c1170d56c0ff/RADIO_NATIVE_V2_ADMISSION_SPENDING_2026-10-02_RESULT.md)
