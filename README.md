@@ -1,5 +1,16 @@
 # SETIsearch
 
+## 2 October: fresh integrated preread verified; publication pending
+
+[The distinct preread and verifier](RADIO_NATIVE_V2_EXECUTION_PREREAD_B_2026-10-02_RESULT.md)
+bind public preparation `25e9df22...`, plan `20261002j`, freeze `20261002d` and all
+material pins without reusing the old preread. No marker or execution exists.
+
+Next is preread publication/readback; its immediate science-branch child must be the
+unique marker-only commit. No large input, control, reservation, RNG or telescope
+spectrum was opened. HD189733 selected; HD1461 HOLD; GJ724 reserve; 127/24 NOT
+ACTIVATED; LS paused; CHEOPS UNSENT. Consolidate 9 October.
+
 ## 2 October: activation receipt integrated; new preparation still blocked
 
 [The implementation, fresh plan/freeze and 215-test result](RADIO_NATIVE_V2_ACTIVATION_BUNDLE_INTEGRATION_2026-10-02_RESULT.md)
