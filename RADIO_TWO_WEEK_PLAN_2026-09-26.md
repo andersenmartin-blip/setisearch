@@ -1,5 +1,18 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 2 October: marker-proof component verified; no integration or activation
+
+[The component and tests](RADIO_NATIVE_V2_CONTROL_ACTIVATION_INTERFACE_2026-10-02_RESULT.md)
+verify exact marker-only Git ancestry, preread/readback pins and worker receipt checks.
+Four isolated tests and the **211-test** adjacent suite pass. The component remains
+outside the material runner/bundle and no marker or execution authority exists.
+
+**Next:** carry the receipt through all worker roles and the outer entry, test
+pre-write refusal for every invalid proof, then generate a new still-blocked
+plan/freeze. Do not reuse the current preread or open large sources. HD189733 selected;
+HD1461 HOLD; GJ724 reserve; 127/24 NOT ACTIVATED; LS paused; CHEOPS UNSENT.
+Consolidate 9 October. No external messages.
+
 ## 2 October: one-control activation transition frozen and verified
 
 [The protocol and structural audit](RADIO_NATIVE_V2_CONTROL_ACTIVATION_TRANSITION_2026-10-02_RESULT.md)

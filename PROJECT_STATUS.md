@@ -1,5 +1,18 @@
 # SETIsearch — current project status
 
+## 2 October: marker-proof component passes; integration remains closed
+
+[The component, synthetic Git tests and adjacent suite](RADIO_NATIVE_V2_CONTROL_ACTIVATION_INTERFACE_2026-10-02_RESULT.md)
+verify direct-child, single-parent, marker-only and public-readback semantics. Four
+isolated tests pass in **0.355 s** and the nine-module blocked suite passes **211 tests
+in 81.898 s**. The first invalid isolated discovery invocation is retained failed.
+
+The component is not yet in the runner or worker bundle and no marker exists. No
+large input, control, reservation, RNG or telescope read occurred. HD189733 selected;
+HD1461 HOLD; GJ724 reserve; 127/24 NOT ACTIVATED; spectra/holdouts unopened; LS paused;
+CHEOPS UNSENT. **Next:** thread the exact receipt through every worker and outer entry,
+test all pre-write refusals, then make a new still-blocked plan/freeze. No messages.
+
 ## 2 October: finite one-control activation transition verified; execution blocked
 
 [The protocol, verifier and retained failures](RADIO_NATIVE_V2_CONTROL_ACTIVATION_TRANSITION_2026-10-02_RESULT.md)
