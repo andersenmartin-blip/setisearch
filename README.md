@@ -5,7 +5,8 @@
 [The component, synthetic Git tests and adjacent suite](RADIO_NATIVE_V2_CONTROL_ACTIVATION_INTERFACE_2026-10-02_RESULT.md)
 verify future direct-child marker-only activation and a bounded worker receipt. Four
 isolated tests and the nine-module **211-test** suite pass. The component is not yet
-integrated into the runner or worker bundles, and no activation marker exists.
+integrated into the runner or worker bundles, and no activation marker exists. Its
+science and README publication now have matching independent readback.
 
 No large input, control, reservation, RNG or telescope spectrum was opened. Next is
 pre-write receipt enforcement in every entry point, then a new still-blocked
