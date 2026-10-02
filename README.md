@@ -1,5 +1,19 @@
 # SETIsearch
 
+## 2 October: bounded activation platform verified
+
+[The exact contract, isolated receipt and fresh freeze](RADIO_NATIVE_V2_ACTIVATION_PLATFORM_2026-10-02_RESULT.md)
+bind public kernel/boot, capability, no-new-privileges/seccomp, Python/libc and LSM
+identity without publishing secrets or claiming that kernel bytes are frozen.
+**207 tests pass**; the fresh freeze covers 922 code files, 8 inputs and 1,366
+runtime files.
+
+Plan `20261002i` remains **BLOCKED_PREPARATION_REVIEW**. A distinct immutable public
+execution preread is still required before one fresh eight-input engineering control.
+No large input, reservation, RNG or telescope spectrum was opened. HD189733 selected;
+HD1461 HOLD; GJ724 reserve; 127/24 NOT ACTIVATED; LS paused; CHEOPS UNSENT.
+Consolidate 9 October.
+
 ## 2 October: final-report writer lifetime verified
 
 [The implementation, actual control and refreshed freeze](RADIO_NATIVE_V2_FINAL_REPORT_LIFETIME_2026-10-02_RESULT.md)
