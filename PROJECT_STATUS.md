@@ -1,6 +1,14 @@
 # SETIsearch — current project status
 
+## 2 October: historical storage and prospective c journal prepared
+
+[The new candidate components and retained evidence](RADIO_NATIVE_V2_HISTORICAL_STORAGE_2026-10-02_RESULT.md) pass two actual **494-test** suites with process exit 0. Hardened read-only checks verify the original 107-file/20-directory failed scope and spent journal: **70,254,559 logical / 70,496,256 allocated bytes** of current historical overhead. Exact path/inode joins and a distinct root-bound c spender are tested; a reproduced manifest-header race is repaired and retained.
+
+Fresh blocked plan q/runtime capture and machine audit bind 930 code files, 61 inputs and 1,366 runtime paths; all 33 registered b material pins remain unchanged. The new components are standalone preparation only. Production allocation/lifetime joins, fresh preread and c activation remain open; no real c ledger, marker, claim or control exists. b stays CLOSED_FAILED, 0/8, permanently spent. No telescope data analyzed. HD189733 selected; HD1461 HOLD; GJ724 reserve; LS paused; CHEOPS UNSENT. Stop **9 October** without extension, restart or target change.
+
 ## 2 October: suite persistence verified; prospective c remains blocked
+
+The immutable [suite-persistence checkpoint J](results_radio_native_v2_suite_persistence_20261002a/public-checkpoint-readback.json) at [`f1f665c`](https://github.com/andersenmartin-blip/setisearch/commit/f1f665c364f9bf4a40d5e44c12240a5ca0ed8164) has complete content and Git-blob readback for all **41 files / 2,803,214 raw bytes**. The readback is evidence only and grants no new control or scientific authority.
 
 [Immutable per-attempt suite persistence](RADIO_NATIVE_V2_SUITE_PERSISTENCE_2026-10-02_RESULT.md) now passes two actual **419-test** runs with zero failures/errors/skips and **process exit 0**, including result persistence. All 946 source/test/wrapper pins match. A duplicate attempt is refused before tests; an explicitly synthetic stale alias and the first summary remain unchanged. Fresh blocked plan p/runtime capture and machine preparation audit pass with 928 code files, 38 inputs and 1,366 runtime files in the actual exact environment. Five execution blockers remain; these are self-review/machine checks, not an independent human review.
 

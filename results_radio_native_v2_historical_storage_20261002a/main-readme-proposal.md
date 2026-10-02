@@ -1,94 +1,28 @@
 # SETIsearch
 
-## 2 October: historical storage and prospective c journal prepared
+## 2 October: historical storage and separate c journal prepared
 
-[The new candidate components and retained evidence](RADIO_NATIVE_V2_HISTORICAL_STORAGE_2026-10-02_RESULT.md) pass two actual **494-test** suites with process exit 0. Hardened read-only checks verify the original 107-file/20-directory failed scope and spent journal: **70,254,559 logical / 70,496,256 allocated bytes** of current historical overhead. Exact path/inode joins and a distinct root-bound c spender are tested; a reproduced manifest-header race is repaired and retained.
+Two complete **494-test** engineering preparation suites pass. Read-only verification now accounts for the retained failed control and spent journal, and a separately bound prospective c journal is tested. [Code, tests and result report](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_NATIVE_V2_HISTORICAL_STORAGE_2026-10-02_RESULT.md) preserve the reproduced and repaired manifest defect.
 
-Fresh blocked plan q/runtime capture and machine audit bind 930 code files, 61 inputs and 1,366 runtime paths; all 33 registered b material pins remain unchanged. The new components are standalone preparation only. Production allocation/lifetime joins, fresh preread and c activation remain open; no real c ledger, marker, claim or control exists. b stays CLOSED_FAILED, 0/8, permanently spent. No telescope data analyzed. HD189733 selected; HD1461 HOLD; GJ724 reserve; LS paused; CHEOPS UNSENT. Stop **9 October** without extension, restart or target change.
+The new components remain outside the registered control. Production storage/lifetime integration, fresh preread and activation remain blocked; **no new telescope data were analyzed**. Historical b remains CLOSED_FAILED, 0/8 cases, permanently spent. HD189733 selected; HD1461 HOLD; GJ724 reserve. Close 9 October without automatic extension or restart.
 
-## 2 October: supervisor receipt repair verified; preparation remains blocked
+## 2 October: repairs and metadata prepared; execution remains blocked
 
-[The bounded receipt and live-identity repair](RADIO_NATIVE_V2_SUPERVISOR_RECEIPT_2026-10-02_RESULT.md)
-passes **401 tests** without failures, errors or skips; all **944 retained
-source/test/wrapper pins** stayed unchanged. Full raw activation guards remain
-required; six observational references and both preparation aliases fit a
-predispatch 73-field/64-row bound under unchanged receipt/resource/deadline caps.
-The earlier 356-test pass and 398-test observer-publication error remain retained.
-A specific live-identity read-instability exception now retries only before
-identity verification, within the original deadline; stable/static errors still
-close the scope. Attempt 3's later final-alias FileExistsError is retained
-separately, with byte-exact final-summary selection and no code change or rerun.
+[The bounded receipt and live-identity repairs](https://github.com/andersenmartin-blip/setisearch/blob/8c0b3f2ed0bd870f975d08071d5582ad4bdc67ad/RADIO_NATIVE_V2_SUPERVISOR_RECEIPT_2026-10-02_RESULT.md) pass **401 tests**, with zero failures, errors or skips and all 944 source/test/wrapper pins unchanged. The test harness's later final-alias FileExistsError is retained separately; independent review verifies the byte-exact selection of the passing attempt. Original receipt, RSS, storage and deadline limits remain unchanged.
 
-Fresh plan o remains **BLOCKED_PREPARATION_REVIEW**. Capture and independent audit
-actually use the exact ten-value environment and Python `-I -S -B`; 927 repository
-code files, 36 inputs, 1,366 runtime files, 33 copied code files and three derived
-files verify. Fresh launcher preflight passes; all five execution blockers and
-completion/authority limits remain. Independent final selection review verifies
-all current pins, aliases and the post-test error. Final preparation review matches
-all 927/36/33/944 code/input/material/suite pins and 19 bootstrap edges; the
-1,366-runtime/240-additional-supplement union and unchanged failed scope/ledger verify.
-[Immutable checkpoint G](results_radio_native_v2_supervisor_receipt_20261002a/public-checkpoint-readback.json)
-at [`c9988a6`](https://github.com/andersenmartin-blip/setisearch/commit/c9988a65839bffb768bd93a516f4fe80b52f3bba)
-is verified: all 59 publication files / 4,340,566 raw bytes match content and Git
-blob SHA. These status/readback additions are evidence only; blocked gates remain.
+Fresh plan o/runtime capture and independent audit actually run in the exact ten-value environment under Python `-I -S -B`: 927 repository code files, 36 inputs and 1,366 runtime paths verify. Independent review also matches all material, bootstrap and runtime/supplement joins. The plan remains **BLOCKED_PREPARATION_REVIEW**, with all five execution blockers.
 
-Failed control b remains immutable at
-[`1468a19`](https://github.com/andersenmartin-blip/setisearch/commit/1468a19d2603bde2b491b5400a2d3cdf8954c69f),
-with 155 publication paths verified. Its **0/8 completed cases**, partial
-engineering materialization and permanently spent claim remain. No additional
-control, real marker, full-size source generation, telescope read or RNG draw.
+[The public preparation checkpoint](https://github.com/andersenmartin-blip/setisearch/blob/8c0b3f2ed0bd870f975d08071d5582ad4bdc67ad/results_radio_native_v2_supervisor_receipt_20261002a/public-checkpoint-readback.json) verifies all **59 files / 4,340,566 raw bytes** at immutable G `c9988a65839bffb768bd93a516f4fe80b52f3bba`, with exact content and Git blob SHA. Its evidence-only status child H `8c0b3f2ed0bd870f975d08071d5582ad4bdc67ad` has matching readback of all eight updated status/proof paths.
 
-[HD189733 metadata preparation](RADIO_HD189733_METADATA_PREPARATION_2026-10-02_RESULT.md)
-passes 42 tests. Fresh public readback at F verifies all 25 raw metadata inputs /
-749,088 bytes by exact content and Git-blob identity, outside the constructor and
-protected control. All 15 component/output/evidence paths also have verified
-public readback at G. Telescope/source admission, cumulative quotas,
-scientific/native certificates and transport remain blocked. HD189733 selected;
-HD1461 HOLD; GJ724 reserve; spectra/holdouts unopened; native8 unreserved;
-127/24 NOT ACTIVATED; LS paused; CHEOPS UNSENT. Stop **9 October** without automatic
-extension or restart.
+[HD189733 metadata preparation](https://github.com/andersenmartin-blip/setisearch/blob/8c0b3f2ed0bd870f975d08071d5582ad4bdc67ad/RADIO_HD189733_METADATA_PREPARATION_2026-10-02_RESULT.md) passes all 42 metadata tests. The 25 original inputs and 15 component/output/evidence paths have immutable public readback. The three outputs remain permanently blocked; source/runtime/acquisition, cumulative quotas, scientific certificates and hosted transport are unqualified.
 
-## 2 October: compact engineering control b closed failed
+Failed control b remains **CLOSED_FAILED**, **0/8 cases completed**, with its unique invocation permanently spent. All 107 original files / 70,168,047 bytes and the sole ledger record remain unchanged. No retry, resume, rearm, additional protected control, full-size source generation or telescope read.
 
-[The single engineering control and retained failure](RADIO_NATIVE_V2_COMPACT_CONTROL_2026-10-02B_RESULT.md)
-exited **1** after a 45.156-second admission interval. Its durable claim remains
-spent; **0/8 cases completed**. Case00 materialized a 26 MiB deterministic source
-and a 36,880,100-byte request part. Checked activation evidence exceeds the fixed
-131,072-byte terminal receipt allowance and is repeated twice in preparation;
-the supervisor refused serialization. Complete resource/runtime joins remain
-unqualified. The prior **350 passing tests are preparation only**.
-
-All 107 original files / 70,168,047 bytes remain retained. The two large originals
-have a lossless 31-chunk representation; matching chunk uploads are retained,
-with final immutable result readback still separate. No retry/resume/rearm.
-The compact-attestation repair candidate is `/tmp` only, not integrated or admitted.
-[The new-source admission matrix](RADIO_NEW_SOURCE_ADMISSION_MATRIX_2026-10-02.md)
-now maps exact HD189733 metadata to prospective source/acquisition contracts and
-remaining scientific/transport joins. HD189733 selected; HD1461 HOLD; GJ724 reserve;
-spectra/holdouts unopened; native8 unreserved; 127/24 NOT ACTIVATED; LS paused;
-CHEOPS UNSENT. No native/scientific cases or telescope reads. Stop **9 October**
-without automatic extension or restart.
-
-## 2 October: ledger accounting and finite launcher prepared
-
-[The joined preparation and retained evidence](RADIO_NATIVE_V2_LEDGER_LAUNCH_2026-10-02_RESULT.md)
-pass **350 tests** without failures, errors or skips. Permanent-ledger logical and
-allocated storage is charged within original caps. Capture, independent audit and
-a fresh launcher preflight now actually run in the exact ten-value environment.
-The new n/runtime snapshot verifies 926 code files, 17 inputs, 1,366 runtime paths,
-33 copied files and three derived files. All 19 bootstrap comparisons match.
-
-The plan remains **BLOCKED_PREPARATION_REVIEW**. No new real marker, production
-ledger or protected control exists at this checkpoint; the prior failure stays
-spent. Next: distinct immutable preread, marker-only activation and exact config
-readback before one separately observed engineering control. The finite terminal
-observer and native/scientific/hosted-transport joins remain unqualified.
-HD189733 selected; HD1461 HOLD; GJ724 reserve; spectra/holdouts unopened;
-127/24 inactive, native8 unreserved, LS paused, CHEOPS UNSENT. Close 9 October.
+HD189733 selected; HD1461 HOLD; GJ724 reserve; spectra/holdouts unopened; native8 unreserved; 127/24 NOT ACTIVATED; LS paused; CHEOPS UNSENT. [The updated two-week plan](https://github.com/andersenmartin-blip/setisearch/blob/8c0b3f2ed0bd870f975d08071d5582ad4bdc67ad/RADIO_TWO_WEEK_PLAN_2026-09-26.md) stops **9 October 2026**, without automatic extension or restart.
 
 ## 2 October: authenticated source receipt and durable spending prepared
 
-[The integration and retained evidence](RADIO_NATIVE_V2_ADMISSION_SPENDING_2026-10-02_RESULT.md)
+[The integration and retained evidence](https://github.com/andersenmartin-blip/setisearch/blob/b02b453e64cf667f5e077cb6f671c1170d56c0ff/RADIO_NATIVE_V2_ADMISSION_SPENDING_2026-10-02_RESULT.md)
 pass **310 tests** without failures, errors or skips. Source workers now receive
 the exact authenticated bundle's receipt, scope and persistent spend witness;
 the outer runner claims the marker once before scope creation. Independent review
@@ -103,22 +37,156 @@ unqualified. No new telescope data were analyzed. HD189733 selected; HD1461 HOLD
 GJ724 reserve; spectra/holdouts unopened; 127/24 NOT ACTIVATED; native8 unreserved;
 LS paused; CHEOPS UNSENT. Consolidate 9 October without automatic extension.
 
-## 2 October: runtime custody integrated; pilot remains blocked
+## 2 October: runtime custody integrated; astronomical pilot remains blocked
 
-[The integrated package and evidence](RADIO_NATIVE_V2_RUNTIME_CUSTODY_INTEGRATION_2026-10-02_RESULT.md)
-pass **272 tests** without failures or skips. The fresh revision l/runtime b snapshot
-covers 924 code files, 14 inputs and 1,366 runtime paths; independent audit verifies
-six closed Git hardlink groups, material-only runtime checks and all 26 copied code
-files plus three derived files. Activation preserves fixed Git no-fetch/no-prompt flags.
+[The integrated package and evidence](https://github.com/andersenmartin-blip/setisearch/blob/8d12c5f4677a9c9359f853aa3c7e4405c052daeb/RADIO_NATIVE_V2_RUNTIME_CUSTODY_INTEGRATION_2026-10-02_RESULT.md)
+pass **272 tests** with zero failures or skips. The fresh revision l/runtime b
+snapshot and independent audit cover 924 code files, 14 inputs and 1,366 runtime
+paths, six closed Git hardlink groups, 26 copied files and three derived files.
+Activation retains fixed Git no-fetch/no-prompt flags.
 
 The plan remains **BLOCKED_PREPARATION_REVIEW**. Authenticated receipt delivery to
 the hardclosed source guard and persistent one-invocation spending remain open.
-No new real marker or protected control was created/invoked; the prior failed marker
-and invocation remain spent. [The scheduled midpoint review](RADIO_TWO_WEEK_REVIEW_2026-10-02.md)
-records that the independent astronomical pilot has not started. HD189733 selected;
-HD1461 HOLD; GJ724 reserve; spectra/holdouts unopened; 127/24 NOT ACTIVATED;
+No new real marker or protected control was created/invoked; the failed earlier
+marker and invocation remain spent. [The midpoint review](https://github.com/andersenmartin-blip/setisearch/blob/8d12c5f4677a9c9359f853aa3c7e4405c052daeb/RADIO_TWO_WEEK_REVIEW_2026-10-02.md)
+records that the new independent astronomical pilot has not started. HD189733
+selected; HD1461 HOLD; GJ724 reserve; spectra/holdouts unopened; 127/24 NOT ACTIVATED;
 native8 unreserved; LS paused; CHEOPS UNSENT. Consolidate 9 October without an
-automatic extension. **Next:** the two named admission/spending code gaps.
+automatic extension. Next: the two named admission/spending code gaps.
+
+## 2 October: runtime-custody proof component passes eight tests
+
+[The component, negative tests and retained discovery failure](RADIO_NATIVE_V2_RUNTIME_CUSTODY_COMPONENT_2026-10-02_RESULT.md)
+turn ephemeral inode observations into a portable Git alias-group manifest while
+requiring sole-link custody for every post-activation runtime. Eight isolated tests
+and the 223-test adjacent suite pass, including the real 1,366-path freeze and
+hidden/added alias, relink, drift, symlink and unexpected material-hardlink cases.
+
+It is not integrated into the freezer, activation receipt, workers or runner and
+authorizes no new marker/control. The failed marker and invocation remain spent. Next
+is pre-write integration plus adjacent tests and a wholly fresh plan/freeze; no
+telescope data or failed-evaluation retry. Science/main publication now has matching
+public readback. Consolidate 9 October.
+
+## 2 October: runtime-custody topology audited; remediation frozen
+
+[The bounded audit and prospective protocol](RADIO_NATIVE_V2_RUNTIME_CUSTODY_REMEDIATION_2026-10-02_RESULT.md)
+cover all 1,366 frozen runtime paths: 151 hardlinked Git paths in six groups and 157
+closed aliases under two roots. No material Python, Node, library or repository/input
+hardlink was found. Future preparation must bind closed activation-only Git topology,
+then retain sole-link custody for every post-activation runtime.
+
+This authorizes no new marker or control. The failed marker and invocation remain
+spent; no retry, large input, RNG, reservation, native/science case or telescope
+spectrum occurred. Implementation and negative tests are next, followed only by
+wholly fresh preparation. Consolidate 9 October.
+
+## 2 October: unique engineering control failed closed before scope creation
+
+[The retained activation, invocation and diagnosis](RADIO_NATIVE_V2_ONE_CONTROL_2026-10-02_RESULT.md)
+show a freeze/activation custody-policy mismatch at hardlinked `/usr/local/bin/git`.
+Its bytes match the freeze, but the freezer permits runtime hardlinks while the final
+validator requires a sole-link file. The one authorized invocation exited before
+scope creation; no retry occurred and the marker is spent.
+
+No large input, reservation, RNG, native/science case or telescope spectrum was
+opened. Next is a prospective, tested runtime-custody rule—not reuse or tuning of the
+failed evaluation. HD189733 selected; HD1461 HOLD; GJ724 reserve; 127/24 NOT
+ACTIVATED; LS paused; CHEOPS UNSENT. Consolidate 9 October.
+
+## 2 October: fresh integrated preread verified; publication pending
+
+[The distinct preread and verifier](RADIO_NATIVE_V2_EXECUTION_PREREAD_B_2026-10-02_RESULT.md)
+bind public preparation `25e9df22...`, plan `20261002j`, freeze `20261002d` and all
+material pins without reusing the old preread. No marker or execution exists.
+
+Next is preread publication/readback; its immediate science-branch child must be the
+unique marker-only commit. No large input, control, reservation, RNG or telescope
+spectrum was opened. HD189733 selected; HD1461 HOLD; GJ724 reserve; 127/24 NOT
+ACTIVATED; LS paused; CHEOPS UNSENT. Consolidate 9 October.
+
+## 2 October: activation receipt integrated; new preparation still blocked
+
+[The implementation, fresh plan/freeze and 215-test result](RADIO_NATIVE_V2_ACTIVATION_BUNDLE_INTEGRATION_2026-10-02_RESULT.md)
+thread the future marker receipt through every outer, worker, supervisor and finalizer
+path. Missing marker/readback evidence fails before scope creation. Plan `20261002j`
+remains blocked; its fresh freeze covers 923 code files, 9 inputs and 1,366 runtime
+files. The complete preparation now has matching science/main public readback.
+
+No marker, large input, control, reservation, RNG or telescope spectrum was opened.
+Next is a fresh distinct preread bound to public preparation commit `25e9df22...`;
+the old preread is not reusable. HD189733 selected; HD1461 HOLD; GJ724 reserve; 127/24
+NOT ACTIVATED; LS paused; CHEOPS UNSENT. Consolidate 9 October.
+
+## 2 October: marker-proof component verified; execution still blocked
+
+[The component, synthetic Git tests and adjacent suite](RADIO_NATIVE_V2_CONTROL_ACTIVATION_INTERFACE_2026-10-02_RESULT.md)
+verify future direct-child marker-only activation and a bounded worker receipt. Four
+isolated tests and the nine-module **211-test** suite pass. The component is not yet
+integrated into the runner or worker bundles, and no activation marker exists. Its
+science and README publication now have matching independent readback.
+
+No large input, control, reservation, RNG or telescope spectrum was opened. Next is
+pre-write receipt enforcement in every entry point, then a new still-blocked
+plan/freeze. HD189733 selected; HD1461 HOLD; GJ724 reserve; 127/24 NOT ACTIVATED; LS
+paused; CHEOPS UNSENT. Consolidate 9 October.
+
+## 2 October: finite activation transition verified; execution remains blocked
+
+[The frozen protocol, blocker audit and retained failures](RADIO_NATIVE_V2_CONTROL_ACTIVATION_TRANSITION_2026-10-02_RESULT.md)
+show that every material runner entry point rejects before it reads the valid public
+preread. The protocol's science and README publications have matching public readback.
+A seven-phase marker-only transition resolves the pin cycle without changing
+the historical blocked plan or reusing its preread for changed code.
+
+No large input, control, reservation, RNG or telescope spectrum was opened. Next is
+the fail-closed proof interface and pre-write refusal tests, followed by a new
+still-blocked plan/freeze. HD189733 selected; HD1461 HOLD; GJ724 reserve; 127/24 NOT
+ACTIVATED; LS paused; CHEOPS UNSENT. Consolidate 9 October.
+
+## 2 October: distinct execution preread public readback verified
+
+[The artifact, eight identity checks and retained failed control](RADIO_NATIVE_V2_EXECUTION_PREREAD_2026-10-02_RESULT.md)
+bind the exact public preparation commit, plan, freeze and material code pins. The
+historical plan remains blocked and unchanged; no execution route was opened.
+
+Its immutable science and main publications now match the expected parents, trees and
+pinned blobs. Execution remains blocked by a separate pre-admission activation gate;
+the preread does not rewrite the historical blocked contract. The next step is to
+specify and verify that one-control transition while preserving all published pins.
+No large input, reservation, RNG
+or telescope spectrum was opened. HD189733 selected; HD1461 HOLD; GJ724 reserve;
+127/24 NOT ACTIVATED; LS paused; CHEOPS UNSENT. Consolidate 9 October.
+
+## 2 October: bounded activation platform verified
+
+[The exact contract, isolated receipt and fresh freeze](RADIO_NATIVE_V2_ACTIVATION_PLATFORM_2026-10-02_RESULT.md)
+bind public kernel/boot, capability, no-new-privileges/seccomp, Python/libc and LSM
+identity without publishing secrets or claiming that kernel bytes are frozen.
+**207 tests pass**; the fresh freeze covers 922 code files, 8 inputs and 1,366
+runtime files.
+
+Plan `20261002i` remains **BLOCKED_PREPARATION_REVIEW**. Its distinct immutable
+execution preread now has matching public readback, but the separate pre-admission
+activation transition remains open before one fresh eight-input engineering control.
+No large input, reservation, RNG or telescope spectrum was opened. HD189733 selected;
+HD1461 HOLD; GJ724 reserve; 127/24 NOT ACTIVATED; LS paused; CHEOPS UNSENT.
+Consolidate 9 October.
+
+## 2 October: final-report writer lifetime verified
+
+[The implementation, actual control and refreshed freeze](RADIO_NATIVE_V2_FINAL_REPORT_LIFETIME_2026-10-02_RESULT.md)
+cover final-report file/directory fsync plus the writer's complete `wait4` lifetime
+with an independent observer. **206 tests pass**; the tiny control completes in
+**0.047 s** at **14.92 MiB** maximum individual RSS. A fresh freeze binds 922 code
+files, 9 inputs and 1,366 runtime files to plan `20261002h`.
+
+The plan remains **BLOCKED_PREPARATION_REVIEW**. Bounded activation platform closure
+and the distinct execution preread were subsequently completed with public readback;
+the separate pre-admission transition remains open before one fresh eight-input
+engineering control. No large input, reservation, RNG or telescope
+spectrum was opened. HD189733 selected; HD1461 HOLD; GJ724 reserve; 127/24 NOT
+ACTIVATED; LS paused; CHEOPS UNSENT. Consolidate 9 October.
 
 ## 2 October: exact activation parent environment verified
 
