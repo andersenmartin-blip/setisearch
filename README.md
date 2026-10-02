@@ -1,5 +1,18 @@
 # SETIsearch
 
+## 2 October: unique engineering control failed closed before scope creation
+
+[The retained activation, invocation and diagnosis](RADIO_NATIVE_V2_ONE_CONTROL_2026-10-02_RESULT.md)
+show a freeze/activation custody-policy mismatch at hardlinked `/usr/local/bin/git`.
+Its bytes match the freeze, but the freezer permits runtime hardlinks while the final
+validator requires a sole-link file. The one authorized invocation exited before
+scope creation; no retry occurred and the marker is spent.
+
+No large input, reservation, RNG, native/science case or telescope spectrum was
+opened. Next is a prospective, tested runtime-custody rule—not reuse or tuning of the
+failed evaluation. HD189733 selected; HD1461 HOLD; GJ724 reserve; 127/24 NOT
+ACTIVATED; LS paused; CHEOPS UNSENT. Consolidate 9 October.
+
 ## 2 October: fresh integrated preread verified; publication pending
 
 [The distinct preread and verifier](RADIO_NATIVE_V2_EXECUTION_PREREAD_B_2026-10-02_RESULT.md)
