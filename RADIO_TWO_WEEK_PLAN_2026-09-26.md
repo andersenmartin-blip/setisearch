@@ -2,6 +2,9 @@
 
 ## 2 October: prospective c control integrated; execution blocked
 
+The immutable [public checkpoint readback](results_radio_native_v2_control_integration_20261002a/public-checkpoint-readback.json) verifies all **139 files / 6,143,701 raw bytes** at [`e422fa4`](https://github.com/andersenmartin-blip/setisearch/commit/e422fa4bb61778a5861c4376fd694c37c9208cf6). The main README at [`ffd76db`](https://github.com/andersenmartin-blip/setisearch/commit/ffd76dbd572f7618f3b75b679a4a89a3ef5f5f9c) also has matching complete content and Git-blob readback. This confirms the published preparation and grants no execution or scientific authority.
+
+
 [The integrated preparation and retained evidence](RADIO_NATIVE_V2_CONTROL_INTEGRATION_2026-10-02_RESULT.md) pass **541 tests**, zero failures/errors/skips and **process exit 0**; all 1,002 source/test/wrapper pins remain unchanged. The c spender, worker admission and historical storage checks now share the independently pinned original repository root and nine-file historical bundle. Two reproduced storage races are repaired; quota checks cover all eight case allocations under the original limits.
 
 Fresh plan r/runtime capture and machine audit pass with 931 code files, 142 inputs, 1,366 runtime paths, 49 material files and three derived files. A read-only live check confirms historical overhead of **70,254,559 logical / 70,496,256 allocated bytes**. Five execution blockers remain, including the distinct public preread and complete lifetime qualification. No real c marker, journal, claim or control exists; b stays CLOSED_FAILED, 0/8, permanently spent. No telescope data analyzed. HD189733 selected; HD1461 HOLD; GJ724 reserve; native8 unreserved; 127/24 inactive; LS paused; CHEOPS UNSENT. Stop **9 October** without extension, restart or target change.

@@ -1,5 +1,8 @@
 # Radio native v2: integrated prospective c control, 2 October 2026
 
+The immutable [public checkpoint readback](results_radio_native_v2_control_integration_20261002a/public-checkpoint-readback.json) verifies all **139 files / 6,143,701 raw bytes** at [`e422fa4`](https://github.com/andersenmartin-blip/setisearch/commit/e422fa4bb61778a5861c4376fd694c37c9208cf6). The main README at [`ffd76db`](https://github.com/andersenmartin-blip/setisearch/commit/ffd76dbd572f7618f3b75b679a4a89a3ef5f5f9c) also has matching complete content and Git-blob readback. This confirms the published preparation and grants no execution or scientific authority.
+
+
 Status: **integrated preparation; execution remains blocked**. The registered
 material control now uses the separate root-bound c spender, authenticated
 historical accounting, and shared quota checks throughout its existing phases.
