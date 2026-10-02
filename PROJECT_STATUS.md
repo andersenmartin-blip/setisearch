@@ -1,5 +1,26 @@
 # SETIsearch — current project status
 
+## 2 October: compact engineering control b closed failed
+
+[The single engineering control and retained failure](RADIO_NATIVE_V2_COMPACT_CONTROL_2026-10-02B_RESULT.md)
+exited **1** after a 45.156-second admission interval. Its durable claim remains
+spent; **0/8 cases completed**. Case00 materialized a 26 MiB deterministic source
+and a 36,880,100-byte request part. Checked activation evidence exceeds the fixed
+131,072-byte terminal receipt allowance and is repeated twice in preparation;
+the supervisor refused serialization. Complete resource/runtime joins remain
+unqualified. The prior **350 passing tests are preparation only**.
+
+All 107 original files / 70,168,047 bytes remain retained. The two large originals
+have a lossless 31-chunk representation; matching chunk uploads are retained,
+with final immutable result readback still separate. No retry/resume/rearm.
+The compact-attestation repair candidate is `/tmp` only, not integrated or admitted.
+[The new-source admission matrix](RADIO_NEW_SOURCE_ADMISSION_MATRIX_2026-10-02.md)
+now maps exact HD189733 metadata to prospective source/acquisition contracts and
+remaining scientific/transport joins. HD189733 selected; HD1461 HOLD; GJ724 reserve;
+spectra/holdouts unopened; native8 unreserved; 127/24 NOT ACTIVATED; LS paused;
+CHEOPS UNSENT. No native/scientific cases or telescope reads. Stop **9 October**
+without automatic extension or restart.
+
 ## 2 October: ledger accounting and finite launcher prepared
 
 [The joined preparation and retained evidence](RADIO_NATIVE_V2_LEDGER_LAUNCH_2026-10-02_RESULT.md)

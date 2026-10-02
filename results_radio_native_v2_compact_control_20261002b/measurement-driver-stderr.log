@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_compact_control_20261002b/frozen-code/scripts/radio_native_v2_resource_finalization.py", line 1176, in <module>
+    if __name__ == '__main__': main()
+                               ^^^^^^
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_compact_control_20261002b/frozen-code/scripts/radio_native_v2_resource_finalization.py", line 1149, in main
+    run_admitted_measurement_driver(args.admission_bundle, args.scope,
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_compact_control_20261002b/frozen-code/scripts/radio_native_v2_resource_finalization.py", line 1110, in run_admitted_measurement_driver
+    fixture.observe_process(argv, scope, 'whole-control-supervisor',
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_compact_control_20261002b/frozen-code/scripts/radio_native_v2_compact_eight_case_resource_fixture.py", line 780, in observe_process
+    if status!=0 or reason: raise RuntimeError('Fixed child/control scope closed: '+label+': '+str(reason or status))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Fixed child/control scope closed: whole-control-supervisor: 1
