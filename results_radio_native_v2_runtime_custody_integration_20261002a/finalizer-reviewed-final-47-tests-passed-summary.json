@@ -1,0 +1,62 @@
+{
+  "schema": "radio-native-v2-runtime-custody-finalizer-test-summary-v1",
+  "status": "PASS",
+  "test_count": 47,
+  "unittest_duration_seconds": 5.983,
+  "exec_exit_code": 0,
+  "cwd": "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002",
+  "command_argv": [
+    "python",
+    "-I",
+    "-S",
+    "-B",
+    "-c",
+    "import sys,unittest; sys.path.insert(0,\"scripts\"); sys.path.insert(0,\"tests\"); import test_radio_native_v2_resource_finalization as t; result=unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromModule(t)); sys.exit(not result.wasSuccessful())"
+  ],
+  "source_pins": {
+    "scripts/radio_native_v2_resource_finalization.py": {
+      "bytes": 63530,
+      "sha256": "0c523987342da03216cc364c0653b1ac0d8191ff6a55ceb86b6dcae4c834cfb9"
+    },
+    "tests/test_radio_native_v2_resource_finalization.py": {
+      "bytes": 43322,
+      "sha256": "5b990206114f1c3c256de773e210b181c8599317af48867ecdf939c61d97c3b3"
+    }
+  },
+  "bootstrap_source_pins_refreshed": true,
+  "independent_material_reader_review_complete": true,
+  "source_snapshot_status": "FINAL_REVIEWED_AFTER_PATH_MEMORY_BOUND",
+  "supersedes_source_snapshot": "finalizer-final-47-tests-passed-summary.json",
+  "superseded_snapshot_reason": "Final independent review found expected-directory prefix allocation needed UTF-8 path/component byte caps; added before prefix construction and covered by existing bound-negative test.",
+  "scope": "Tiny engineering processes and synthetic receipt/material negatives only",
+  "new_copied_material_test_count": 7,
+  "material_tree_bound": {
+    "file_count": 128,
+    "file_bytes": 2097152,
+    "depth": 32,
+    "path_utf8_bytes": 4096,
+    "component_utf8_bytes": 255
+  },
+  "tiny_report_bound": {
+    "input_and_report_bytes": 65536,
+    "scope_bytes": 2097152,
+    "seconds": 3
+  },
+  "scientific_execution_authorized": false,
+  "protected_control_executed": false,
+  "source_26mib_generated": false,
+  "telescope_reads": 0,
+  "rng_draws": 0,
+  "real_git_mutations": 0,
+  "prior_development_summaries": [
+    "finalizer-development-test-summary.json",
+    "finalizer-first-40-tests-failed-summary.json",
+    "finalizer-40-tests-passed-summary.json",
+    "finalizer-final-47-tests-passed-summary.json"
+  ],
+  "limitations": [
+    "Copied source checks establish exact bounded sole-link stable byte pins, without original inode/metadata continuity across material copies.",
+    "Material checks remain subject to mutation after their checks.",
+    "No activated production writer/control run; authenticated receipt delivery and durable one-shot spending remain unqualified."
+  ]
+}

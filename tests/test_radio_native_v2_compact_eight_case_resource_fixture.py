@@ -27,6 +27,35 @@ NODE = shutil.which('node')
 
 
 class CompactEightPreparationTests(unittest.TestCase):
+    def test_plan_selected_activation_source_cannot_execute_before_receipt_check(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory); key='scripts/radio_native_v2_control_activation.py'
+            source=root/key; source.parent.mkdir()
+            marker=root/'unchecked-activation-executed'
+            raw=('from pathlib import Path\nPath('+repr(str(marker))+').write_text("bad")\n').encode()
+            source.write_bytes(raw)
+            supplied={'code_files':{key:tiny_pin(raw)}}
+            with mock.patch.object(fixture.subprocess,'Popen') as launch:
+                with self.assertRaisesRegex(RuntimeError,'reviewed activation implementation pin'):
+                    fixture.require_execution_ready({},supplied,{}, {},repo=root)
+                launch.assert_not_called()
+            self.assertFalse(marker.exists())
+
+    def test_activation_environment_loader_ignores_unchecked_cached_bytecode(self):
+        import marshal
+        import struct
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory); key='scripts/radio_native_v2_activation_environment.py'
+            source=root/key; source.parent.mkdir();source.write_bytes((ROOT/key).read_bytes())
+            cached=Path(importlib.util.cache_from_source(str(source)));cached.parent.mkdir()
+            marker=root/'unchecked-environment-bytecode-executed'
+            payload=compile('from pathlib import Path; Path('+repr(str(marker))+').write_text("bad")',str(source),'exec')
+            info=source.stat()
+            cached.write_bytes(importlib.util.MAGIC_NUMBER+struct.pack('<III',0,int(info.st_mtime),info.st_size)+marshal.dumps(payload))
+            module=fixture.activation_environment_module(root)
+            self.assertEqual(module.SCHEMA,'radio-native-v2-activation-parent-environment-v1')
+            self.assertFalse(marker.exists())
+
     def test_eight_domains_are_distinct_fixed_and_reject_nonordinals(self):
         domains = [fixture.source_domain(ordinal) for ordinal in range(8)]
         self.assertEqual(len(set(domains)), 8)
@@ -180,7 +209,8 @@ class CompactEightPreparationTests(unittest.TestCase):
             proof['plan_sha256']=tiny_pin(admission.canonical(plan))['sha256']
             proof['complete_freeze_sha256']=tiny_pin(admission.canonical(freeze))['sha256']
             from tests.test_radio_native_v2_worker_admission import synthetic_activation_receipt
-            activation_receipt=synthetic_activation_receipt(plan,freeze,proof)
+            activation_receipt=synthetic_activation_receipt(plan,freeze,proof,
+                execution_scope=str(material['scope']))
             bundle=admission.build_admission_bundle(plan,freeze,proof,activation_receipt,
                 execution_scope=str(material['scope']),ordinal=0)
             material['bundle_path'].write_bytes(admission.bundle_bytes(bundle)); digest=fixture.pin(material['bundle_path'])['sha256']

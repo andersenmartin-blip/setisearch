@@ -346,7 +346,9 @@ def _exact(value, expected, label):
 def validate_complete_freeze(freeze, repo):
     """Original structural validator plus independent full named-scope replay."""
     freezer.validate_freeze(freeze)
-    if set(freeze) != FREEZE_KEYS:
+    has_custody=freezer.CUSTODY_FIELDS.issubset(freeze)
+    expected_keys=FREEZE_KEYS | (freezer.CUSTODY_FIELDS if has_custody else set())
+    if set(freeze) != expected_keys:
         raise ValueError('Exact complete original freezer structure required')
     _exact(freeze['coverage'], COVERAGE, 'original freezer coverage')
     code = repository_inventory(repo)
@@ -366,6 +368,11 @@ def validate_complete_freeze(freeze, repo):
     for field in freezer.RUNTIME_FIELDS:
         _exact(freeze[field], current[field], 'original runtime closure field ' + field)
     _exact(freeze['environment_fingerprints'], environment_fingerprints(), 'parent environment fingerprints')
+    if has_custody:
+        # Preparation replay uses the full lifecycle policy derived from the
+        # independently measured Git inventory, including current alias roots.
+        # Workers later use the distinct material-only check.
+        freezer.validate_activation_runtime_custody(freeze)
     if _loaded_files() & set(freeze['unavailable_unused_python_extensions']):
         raise ValueError('Unavailable optional Python extension entered audit runtime')
     return current
@@ -425,6 +432,10 @@ def audit(plan, complete_freeze=None, *, repo=REPO, materialized_code_root=None,
         'original_complete_freeze_supplied': complete_freeze is not None,
         'original_freezer_structural_validation_verified': current is not None,
         'independent_original_local_runtime_scope_verified': current is not None,
+        'runtime_custody_manifest_present': complete_freeze is not None and freezer.CUSTODY_FIELDS.issubset(complete_freeze),
+        'runtime_custody_activation_topology_verified': current is not None and freezer.CUSTODY_FIELDS.issubset(complete_freeze),
+        'runtime_custody_manifest_sha256': complete_freeze.get('runtime_custody_manifest_sha256') if current is not None else None,
+        'copied_material_custody_scope':'sole-link stable descriptors and exact bytes/inventory; original runtime observation metadata is not applied to relocated copies',
         'original_complete_freeze_sha256': hashlib.sha256(canonical(complete_freeze)).hexdigest() if current is not None else None,
         'exact_prospective_code_and_derived_pins_verified': True,
         'materialized_code_and_derived_pins_verified': materialized,

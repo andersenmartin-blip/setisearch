@@ -53,13 +53,17 @@ METADATA_RESERVATION_BYTES = 256 * 1024
 DIRECTORY_RESERVATION_BYTES = 65536
 MAX_EVIDENCE_BYTES = 2*MIB
 MAX_INVENTORY_ENTRIES = 32768
+MAX_MATERIAL_SOURCE_FILES = 128
+TINY_REPORT_INPUT_BYTES = 65536
+TINY_REPORT_SCOPE_BYTES = 2*MIB
+TINY_REPORT_SECONDS = 3.0
 # Independent reviewed dispatch pins. Root refreshes these only after reviewing
 # the final code of the fixed source implementations; a supplied bundle cannot
 # select an arbitrary implementation for any admission check.
 BOOTSTRAP_SOURCE_PINS = {
-    FIXTURE: {'bytes': 111719, 'sha256': 'b483f0f4ef4b8833b3e59c6837c319f0dbc26cf7a917cb050c653ccb01bc3b84'},
-    ADMISSION: {'bytes': 69996, 'sha256': 'd62063661e9d3cd7618b85d7b574d09911c5d729feeee263f2f2b75119a939dd'},
-    SUPERVISOR: {'bytes': 58112, 'sha256': 'f230142de74d8d88bf7341c896c5391325b81081e038494ba878d1d794060b6b'},
+    FIXTURE: {'bytes': 113630, 'sha256': 'bfb3baa5be2ad11bde9b1a6fdecb6d73be536672cd2a28d9163c1ef445bf43e9'},
+    ADMISSION: {'bytes': 73668, 'sha256': 'bd040b61f35db4cd9ae8d3140df44213d3a8659bf6b6ebb96cca4b5b793fe9ef'},
+    SUPERVISOR: {'bytes': 58112, 'sha256': '341c21aa390194b7ad3c7061e7482b2ea03b640bd75b2b039bd0970835d6920d'},
 }
 AUTHORITY = {'execution_authorized': False, 'reservation_authorized': False,
     'scientific_execution_authorized': False, 'native_case_reservations': 0,
@@ -577,12 +581,47 @@ def _write_durable_exclusive(path, value):
     return value_read, observed
 
 
-def persist_final_report(scope, *, expected_input_pin):
-    """Fixed report-writer child. Its parent must still observe its termination."""
+def check_final_report_material_scope(scope):
+    """Read-only post-execution gate; no Git, control freshness or scope writes.
+
+    Source selection is independently bound before compiling the fixture. Its
+    gate rechecks the frozen original material runtime through the reviewed
+    activation/custody chain. Copied material source remains sole-link and
+    stable-byte checked, without claiming frozen inode continuity across copies.
+    """
+    scope = _absolute(scope); code_root = _absolute(scope/'frozen-code')
+    records = {}
+    for name, filename in (('plan', 'plan.json'), ('freeze', 'complete-freeze.json'),
+            ('preread', 'public-preread.json'), ('activation_receipt', 'activation-receipt.json')):
+        records[name], _ = read_pinned_json(scope/filename, maximum=16*MIB)
+    plan = records['plan']; code = plan.get('code_files', {})
+    for relative, expected in BOOTSTRAP_SOURCE_PINS.items():
+        if canonical(code.get(relative)) != canonical(expected):
+            raise ValueError('Final writer dependency differs from independent bootstrap pin: '+relative)
+        _read_pinned_source(code_root/relative, expected)
+    own_path = _absolute(code_root/SELF)
+    if Path(__file__).absolute() != own_path:
+        raise ValueError('Final writer must execute the exact materialized source path')
+    _read_pinned_source(own_path, code.get(SELF))
+    material_counts = {
+        'code': _verify_material_source_tree(code_root, code),
+        'derived': _verify_material_source_tree(scope/'derived', plan.get('derived_code'))}
+    fixture = _source_module(code_root/FIXTURE, BOOTSTRAP_SOURCE_PINS[FIXTURE],
+        'pinned_final_report_fixture')
+    fixture.require_execution_ready(**records, repo=code_root, execution_scope=str(scope))
+    return {'material_scope_gate_rechecked_before_writer_identity': True,
+        'activation_only_runtime_used_by_final_writer': False,
+        'copied_material_source_files_rechecked': material_counts,
+        'checks_remain_subject_to_postcheck_mutation': True,
+        'scope': str(scope), 'python_path': plan['runtime_executables']['python']['path']}
+
+
+def _pending_final_report_input(scope, expected_input_pin, *, tiny=False):
     scope = _absolute(scope)
     input_path = scope/FINAL_INPUT_NAME
-    report_input, observed_input_pin = read_pinned_json(input_path, expected_input_pin)
-    if (report_input.get('schema') != SCHEMA+'-final-report-input'
+    report_input, observed_input_pin = read_pinned_json(input_path, expected_input_pin,
+        maximum=TINY_REPORT_INPUT_BYTES if tiny else MAX_EVIDENCE_BYTES)
+    if (report_input.get('schema') != SCHEMA+('-tiny-final-report-input' if tiny else '-final-report-input')
             or report_input.get('scope') != str(scope)
             or report_input.get('final_reporting_process_termination_covered') is not False
             or report_input.get('final_disposition_persisted') is not False
@@ -591,33 +630,99 @@ def persist_final_report(scope, *, expected_input_pin):
     for key, expected in AUTHORITY.items():
         if canonical(report_input.get(key)) != canonical(expected):
             raise ValueError('Disabled authority changed in terminal input: '+key)
+    if tiny:
+        fields = {'schema', 'scope', 'status', 'complete_resource_measurement_join_qualified',
+            'final_reporting_process_termination_covered', 'final_disposition_persisted',
+            'tiny_engineering_probe_only', *AUTHORITY}
+        if (set(report_input) != fields or report_input.get('tiny_engineering_probe_only') is not True
+                or report_input['complete_resource_measurement_join_qualified'] is not False
+                or report_input.get('status') != 'TINY_ENGINEERING_REPORT_PROBE'):
+            raise ValueError('Exact unqualified tiny engineering report input required')
+    return report_input, observed_input_pin
+
+
+def _persist_checked_final_report(scope, report_input, observed_input_pin, *, mode, gate):
     _write_durable_exclusive(scope/FINAL_WRITER_IDENTITY_NAME, {
         'procfs_pid': int(os.readlink('/proc/self')), 'namespace_pid': os.getpid(),
         'schema': SCHEMA+'-final-report-writer-identity'})
     report = {**report_input, 'schema': SCHEMA+'-persisted-final-report',
-        'status': ('OFFLINE_RESOURCE_MEASUREMENT_JOIN_PASSED_REPORT_WRITER_PENDING_OBSERVATION'
+        'status': ('TINY_ENGINEERING_REPORT_PROBE_PENDING_OBSERVATION' if mode == 'TINY_ENGINEERING_PROBE' else
+            'OFFLINE_RESOURCE_MEASUREMENT_JOIN_PASSED_REPORT_WRITER_PENDING_OBSERVATION'
             if report_input['complete_resource_measurement_join_qualified'] else
             'PENDING_FINAL_MEASUREMENT_JOIN_REPORT_WRITER_PENDING_OBSERVATION'),
         'final_report_input_pin': observed_input_pin,
         'report_writer_fsync_completed_before_return': True,
         'report_writer_termination_observation_required': True,
         'final_reporting_process_termination_covered': False,
-        'final_disposition_persisted': True}
+        'final_disposition_persisted': True, 'report_writer_mode': mode,
+        'material_scope_gate': gate,
+        'real_control_execution_verified_by_report_writer': False}
+    if mode == 'TINY_ENGINEERING_PROBE' and len(canonical(report))+1 > TINY_REPORT_INPUT_BYTES:
+        raise ValueError('Tiny engineering report exceeds fixed byte bound')
     _, report_pin = _write_durable_exclusive(scope/FINAL_NAME, report)
     return report, report_pin
+
+
+def persist_final_report(scope, *, expected_input_pin):
+    """Activation-bound writer; material custody precedes its first write."""
+    scope = _absolute(scope)
+    report_input, observed_input_pin = _pending_final_report_input(scope, expected_input_pin)
+    gate = check_final_report_material_scope(scope)
+    if not (sys.flags.isolated and sys.flags.no_site and sys.flags.dont_write_bytecode):
+        raise RuntimeError('Actual isolated no-site no-bytecode final-report writer required')
+    if dict(os.environ) != ENVIRONMENT:
+        raise RuntimeError('Exact complete minimal final-report writer environment required')
+    expected_argv = [gate['python_path'], '-I', '-S', '-B', str(scope/'frozen-code'/SELF),
+        '--persist-final-report', '--scope', str(scope), '--input-bytes', str(expected_input_pin['bytes']),
+        '--input-sha256', expected_input_pin['sha256']]
+    if list(sys.orig_argv) != expected_argv:
+        raise RuntimeError('Exact original material final-report writer interpreter argv required')
+    return _persist_checked_final_report(scope, report_input, observed_input_pin,
+        mode='ACTIVATION_BOUND_MATERIAL_SCOPE', gate=gate)
+
+
+def persist_tiny_final_report_probe(scope, *, expected_input_pin):
+    """Distinct bounded engineering path; never admits or qualifies a control."""
+    started = time.monotonic(); scope = _absolute(scope)
+    report_input, observed_input_pin = _pending_final_report_input(scope, expected_input_pin, tiny=True)
+    inventory = storage_inventory(scope)
+    if max(inventory['logical_bytes'], inventory['allocated_bytes']) + 2*TINY_REPORT_INPUT_BYTES + DIRECTORY_RESERVATION_BYTES > TINY_REPORT_SCOPE_BYTES:
+        raise ValueError('Tiny engineering report scope exceeds fixed storage bound')
+    if time.monotonic()-started > TINY_REPORT_SECONDS:
+        raise RuntimeError('Tiny engineering report preparation deadline exceeded')
+    report, pin = _persist_checked_final_report(scope, report_input, observed_input_pin,
+        mode='TINY_ENGINEERING_PROBE', gate={'material_scope_gate_rechecked_before_writer_identity': False,
+            'tiny_engineering_probe_only': True, 'real_control_or_runtime_custody_qualified': False})
+    inventory = storage_inventory(scope)
+    if max(inventory['logical_bytes'], inventory['allocated_bytes']) > TINY_REPORT_SCOPE_BYTES:
+        raise ValueError('Tiny engineering report scope exceeded fixed storage bound after fsync')
+    if time.monotonic()-started > TINY_REPORT_SECONDS:
+        raise RuntimeError('Tiny engineering report fsync deadline exceeded')
+    return report, pin
 
 
 def join_final_report_lifetime(scope, *, expected_input_pin, expected_report_pin,
         expected_writer_observation_pin, expected_writer_argv):
     """Read-only join of a durable report with its writer's full wait4 lifetime."""
     scope = _absolute(scope)
-    report_input, input_pin = read_pinned_json(scope/FINAL_INPUT_NAME, expected_input_pin)
-    report, report_pin = read_pinned_json(scope/FINAL_NAME, expected_report_pin)
+    tiny = '--tiny-final-report-writer' in expected_writer_argv
+    report_input, input_pin = _pending_final_report_input(scope, expected_input_pin, tiny=tiny)
+    report, report_pin = read_pinned_json(scope/FINAL_NAME, expected_report_pin,
+        maximum=TINY_REPORT_INPUT_BYTES if tiny else MAX_EVIDENCE_BYTES)
     observation, observation_pin = read_pinned_json(
         scope/FINAL_WRITER_OBSERVATION_NAME, expected_writer_observation_pin)
     identity, identity_pin = read_pinned_json(scope/FINAL_WRITER_IDENTITY_NAME)
     writer_start, writer_end, writer_peak = _observation(
         observation, expected_writer_argv, expected_identity=identity)
+    synthetic = observation.get('synthetic_test_fixture') is True
+    if synthetic and not tiny:
+        raise ValueError('Synthetic writer observations cannot qualify a material final report')
+    if tiny:
+        inventory = storage_inventory(scope)
+        if max(inventory['logical_bytes'], inventory['allocated_bytes']) > TINY_REPORT_SCOPE_BYTES:
+            raise ValueError('Tiny engineering report retained scope exceeds fixed storage bound')
+        if (writer_end-writer_start)/1e9 > TINY_REPORT_SECONDS:
+            raise ValueError('Tiny engineering report observed lifetime exceeds fixed deadline')
     if (report.get('schema') != SCHEMA+'-persisted-final-report'
             or report.get('scope') != str(scope)
             or report.get('final_report_input_pin') != input_pin
@@ -626,6 +731,13 @@ def join_final_report_lifetime(scope, *, expected_input_pin, expected_report_pin
             or report.get('final_disposition_persisted') is not True
             or report.get('final_reporting_process_termination_covered') is not False):
         raise ValueError('Exact persisted final report contract required')
+    expected_mode = 'TINY_ENGINEERING_PROBE' if tiny else 'ACTIVATION_BOUND_MATERIAL_SCOPE'
+    if report.get('report_writer_mode') != expected_mode:
+        raise ValueError('Observed writer entrypoint and persisted mode differ')
+    if tiny and (report.get('tiny_engineering_probe_only') is not True
+            or report.get('complete_resource_measurement_join_qualified') is not False
+            or report.get('real_control_execution_verified_by_report_writer') is not False):
+        raise ValueError('Tiny engineering writer cannot qualify an actual control')
     for key in report_input:
         if (key not in ('schema', 'status', 'final_disposition_persisted')
                 and canonical(report.get(key)) != canonical(report_input[key])):
@@ -633,7 +745,8 @@ def join_final_report_lifetime(scope, *, expected_input_pin, expected_report_pin
     if writer_peak > LIMITS['rss_bytes']:
         raise ValueError('Original 512MiB report-writer process RSS bound exceeded')
     return {**report,
-        'status': ('OFFLINE_RESOURCE_MEASUREMENT_JOIN_PASSED'
+        'status': ('SYNTHETIC_TINY_ENGINEERING_REPORT_WRITER_FIXTURE' if synthetic else
+            'TINY_ENGINEERING_REPORT_PROBE_WRITER_OBSERVED' if tiny else 'OFFLINE_RESOURCE_MEASUREMENT_JOIN_PASSED'
             if report['complete_resource_measurement_join_qualified'] else
             'PENDING_FINAL_MEASUREMENT_JOIN'),
         'persisted_final_report_pin': report_pin,
@@ -641,15 +754,107 @@ def join_final_report_lifetime(scope, *, expected_input_pin, expected_report_pin
         'final_report_writer_observation_pin': observation_pin,
         'final_report_writer_interval': {'monotonic_start_ns': writer_start,
             'monotonic_end_ns': writer_end, 'peak_rss_bytes': writer_peak},
-        'outer_report_fsync_and_termination_independently_observed': True,
-        'final_reporting_process_termination_covered': True,
+        'outer_report_fsync_and_termination_independently_observed': not synthetic,
+        'final_report_observation_scope': 'tiny_engineering_probe_writer_only' if tiny else 'activation_bound_material_report_writer',
+        'final_reporting_process_termination_covered': not synthetic,
+        'synthetic_report_writer_observation_fixture': synthetic,
         'final_disposition_persisted': True,
         'terminal_observer_own_future_termination_covered': False}
 
 
-def _read_pinned_source(path, expected_pin):
+def _material_directory_fd(path):
+    """Open each existing directory component without following an alias."""
     path = _absolute(path)
-    fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
+    directory = os.open(path.anchor, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
+    try:
+        for name in path.parts[1:]:
+            parent_before = os.fstat(directory)
+            named = os.stat(name, dir_fd=directory, follow_symlinks=False)
+            child = os.open(name, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW, dir_fd=directory)
+            try:
+                if (_identity(named) != _identity(os.fstat(child))
+                        or _identity(parent_before) != _identity(os.fstat(directory))):
+                    raise ValueError('Materialized source directory changed during open')
+            except BaseException:
+                os.close(child); raise
+            os.close(directory); directory = child
+        return directory
+    except BaseException:
+        os.close(directory); raise
+
+
+def _verify_material_source_tree(root, pins):
+    """Recheck an exact bounded copied source tree, including empty directories."""
+    if type(pins) is not dict or not pins or len(pins) > MAX_MATERIAL_SOURCE_FILES:
+        raise ValueError('Bounded nonempty exact material source pin map required')
+    expected_directories = set()
+    for relative, expected in pins.items():
+        if (type(relative) is not str or not relative or len(relative) > 4096
+                or len(relative.encode('utf-8')) > 4096 or relative.startswith('/')
+                or '\\' in relative or re.search(r'[\x00-\x1f\x7f]', relative)
+                or any(name in ('', '.', '..') for name in relative.split('/'))):
+            raise ValueError('Canonical relative material source path required')
+        _validate_pin(expected)
+        if expected['bytes'] > 2*MIB:
+            raise ValueError('Bounded material source byte pin required')
+        parts = relative.split('/')
+        if any(len(name.encode('utf-8')) > 255 for name in parts):
+            raise ValueError('Bounded material source path component required')
+        if len(parts) > 33:
+            raise ValueError('Bounded material source tree depth exceeded')
+        expected_directories.update('/'.join(parts[:count]) for count in range(1, len(parts)))
+    root = _absolute(root); directory = _material_directory_fd(root)
+    found = set(); directories = set(); visited = 0
+    def walk(fd, prefix, depth):
+        nonlocal visited
+        if depth > 32: raise ValueError('Bounded material source tree depth exceeded')
+        before = os.fstat(fd); names = []
+        with os.scandir(fd) as entries:
+            for entry in entries:
+                visited += 1
+                if visited > len(pins)+len(expected_directories):
+                    raise ValueError('Bounded material source inventory exceeded')
+                names.append(entry.name)
+        for name in sorted(names):
+            relative = prefix+name
+            named = os.stat(name, dir_fd=fd, follow_symlinks=False)
+            if stat.S_ISDIR(named.st_mode):
+                if relative not in expected_directories:
+                    raise ValueError('Material source directory inventory differs')
+                child = os.open(name, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW, dir_fd=fd)
+                try:
+                    if _identity(named) != _identity(os.fstat(child)):
+                        raise ValueError('Materialized source directory changed during inventory')
+                    walk(child, relative+'/', depth+1)
+                    if _identity(named) != _identity(os.stat(name, dir_fd=fd, follow_symlinks=False)):
+                        raise ValueError('Named material source directory changed during inventory')
+                finally: os.close(child)
+                directories.add(relative)
+            elif stat.S_ISREG(named.st_mode) and named.st_nlink == 1:
+                if relative not in pins:
+                    raise ValueError('Material source file inventory differs')
+                _read_pinned_source(name, pins[relative], directory_fd=fd)
+                found.add(relative)
+            else:
+                raise ValueError('Material source alias or special file refused')
+        if _identity(before) != _identity(os.fstat(fd)):
+            raise ValueError('Materialized source directory changed during inventory')
+    try:
+        walk(directory, '', 0)
+        reopened = _material_directory_fd(root)
+        try:
+            if _identity(os.fstat(directory)) != _identity(os.fstat(reopened)):
+                raise ValueError('Material source root replaced during inventory')
+        finally: os.close(reopened)
+    finally: os.close(directory)
+    if found != set(pins) or directories != expected_directories:
+        raise ValueError('Exact material source file/directory inventory differs')
+    return len(found)
+
+
+def _read_pinned_source(path, expected_pin, *, directory_fd=None):
+    path = _absolute(path) if directory_fd is None else path
+    fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK, dir_fd=directory_fd)
     try:
         before = os.fstat(fd)
         if not stat.S_ISREG(before.st_mode) or before.st_nlink != 1 or before.st_size > 2*MIB:
@@ -663,7 +868,8 @@ def _read_pinned_source(path, expected_pin):
             if not chunk: break
             chunks.append(chunk); remaining -= len(chunk)
         raw = b''.join(chunks)
-        if _identity(before) != _identity(os.fstat(fd)) or _identity(path.lstat()) != _identity(before):
+        named = os.stat(path, dir_fd=directory_fd, follow_symlinks=False)
+        if _identity(before) != _identity(os.fstat(fd)) or _identity(named) != _identity(before):
             raise ValueError('Pinned implementation changed during read')
     finally: os.close(fd)
     if {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()} != expected_pin:
@@ -787,6 +993,7 @@ def main():
     modes = parser.add_mutually_exclusive_group(required=True)
     modes.add_argument('--admitted-whole-control-driver', action='store_true')
     modes.add_argument('--persist-final-report', action='store_true')
+    modes.add_argument('--tiny-final-report-writer', action='store_true')
     parser.add_argument('--admission-bundle')
     parser.add_argument('--bundle-sha256')
     parser.add_argument('--scope', required=True)
@@ -809,8 +1016,9 @@ def main():
             parser.error('Exact final-report writer arguments required')
         expected = {'bytes': args.input_bytes, 'sha256': args.input_sha256}
         _validate_pin(expected)
+        writer_mode = '--tiny-final-report-writer' if args.tiny_final_report_writer else '--persist-final-report'
         expected_argv = [str(Path(sys.executable).resolve()), '-I', '-S', '-B',
-            str(Path(__file__).resolve()), '--persist-final-report', '--scope',
+            str(Path(__file__).resolve()), writer_mode, '--scope',
             str(Path(args.scope).absolute()), '--input-bytes', str(args.input_bytes),
             '--input-sha256', args.input_sha256]
         if list(sys.orig_argv) != expected_argv:
@@ -819,7 +1027,10 @@ def main():
             raise RuntimeError('Actual isolated no-site no-bytecode final-report writer required')
         if dict(os.environ) != ENVIRONMENT:
             raise RuntimeError('Exact complete minimal final-report writer environment required')
-        persist_final_report(args.scope, expected_input_pin=expected)
+        if args.tiny_final_report_writer:
+            persist_tiny_final_report_probe(args.scope, expected_input_pin=expected)
+        else:
+            persist_final_report(args.scope, expected_input_pin=expected)
 
 
 if __name__ == '__main__': main()

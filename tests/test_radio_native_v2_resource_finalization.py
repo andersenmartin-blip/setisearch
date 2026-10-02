@@ -91,13 +91,14 @@ class ResourceFinalizationTests(unittest.TestCase):
         self.assertFalse(result['complete_resource_measurement_join_qualified'])
         if phrase: self.assertIn(phrase, result['error'])
 
-    def final_report_input(self, scope=None, *, complete=False):
+    def final_report_input(self, scope=None, *, complete=False, tiny=True):
         scope = Path(scope or self.scope)
-        return {'schema': finalization.SCHEMA+'-final-report-input',
-            'scope': str(scope), 'status': 'PENDING_FINAL_MEASUREMENT_JOIN',
+        return {'schema': finalization.SCHEMA+('-tiny-final-report-input' if tiny else '-final-report-input'),
+            'scope': str(scope), 'status': 'TINY_ENGINEERING_REPORT_PROBE' if tiny else 'PENDING_FINAL_MEASUREMENT_JOIN',
             'complete_resource_measurement_join_qualified': complete,
             'final_reporting_process_termination_covered': False,
-            'final_disposition_persisted': False, **finalization.AUTHORITY}
+            'final_disposition_persisted': False,
+            **({'tiny_engineering_probe_only': True} if tiny else {}), **finalization.AUTHORITY}
 
     def test_tiny_synthetic_join_counts_shared_directories_and_reserved_final_metadata(self):
         result = self.join()
@@ -180,11 +181,11 @@ class ResourceFinalizationTests(unittest.TestCase):
     def test_persisted_final_report_requires_and_joins_distinct_writer_observation(self):
         input_pin = write_json(self.scope/finalization.FINAL_INPUT_NAME,
             self.final_report_input())
-        _, report_pin = finalization.persist_final_report(
+        _, report_pin = finalization.persist_tiny_final_report_probe(
             self.scope, expected_input_pin=input_pin)
         identity = json.loads((self.scope/finalization.FINAL_WRITER_IDENTITY_NAME).read_text())
         writer_argv = [self.python, '-I', '-S', '-B',
-            str(Path(finalization.__file__).resolve()), '--persist-final-report',
+            str(Path(finalization.__file__).resolve()), '--tiny-final-report-writer',
             '--scope', str(self.scope), '--input-bytes', str(input_pin['bytes']),
             '--input-sha256', input_pin['sha256']]
         observation = self.observation(writer_argv, 2_100_000_000, 2_200_000_000,
@@ -195,29 +196,268 @@ class ResourceFinalizationTests(unittest.TestCase):
             expected_input_pin=input_pin, expected_report_pin=report_pin,
             expected_writer_observation_pin=observation_pin,
             expected_writer_argv=writer_argv)
-        self.assertTrue(result['outer_report_fsync_and_termination_independently_observed'])
-        self.assertTrue(result['final_reporting_process_termination_covered'])
+        self.assertFalse(result['outer_report_fsync_and_termination_independently_observed'])
+        self.assertFalse(result['final_reporting_process_termination_covered'])
         self.assertTrue(result['final_disposition_persisted'])
         self.assertFalse(result['complete_resource_measurement_join_qualified'])
         self.assertFalse(result['terminal_observer_own_future_termination_covered'])
+        self.assertEqual(result['status'], 'SYNTHETIC_TINY_ENGINEERING_REPORT_WRITER_FIXTURE')
+        self.assertEqual(result['final_report_observation_scope'], 'tiny_engineering_probe_writer_only')
 
     def test_actual_isolated_final_report_writer_fsyncs_and_exits(self):
+        import radio_native_v2_compact_eight_case_resource_fixture as fixture
         scope = self.scope/'actual-writer'
         scope.mkdir()
         input_pin = write_json(scope/finalization.FINAL_INPUT_NAME,
             self.final_report_input(scope))
         argv = [self.python, '-I', '-S', '-B', str(Path(finalization.__file__).resolve()),
-            '--persist-final-report', '--scope', str(scope),
+            '--tiny-final-report-writer', '--scope', str(scope),
             '--input-bytes', str(input_pin['bytes']), '--input-sha256', input_pin['sha256']]
-        completed = subprocess.run(argv, env=finalization.ENVIRONMENT,
-            capture_output=True, timeout=10, check=False)
-        self.assertEqual(completed.returncode, 0, completed.stderr.decode())
-        self.assertEqual(completed.stdout, b'')
-        self.assertEqual(completed.stderr, b'')
-        report, _ = finalization.read_pinned_json(scope/finalization.FINAL_NAME)
+        observed, stdout, stderr = fixture.observe_process(argv, scope, 'final-report-writer',
+            scope/finalization.FINAL_WRITER_IDENTITY_NAME, deadline=time.monotonic()+5,
+            pipe_output=True)
+        self.assertEqual(stdout, b''); self.assertEqual(stderr, b'')
+        report, report_pin = finalization.read_pinned_json(scope/finalization.FINAL_NAME)
         self.assertTrue(report['report_writer_fsync_completed_before_return'])
         self.assertTrue(report['final_disposition_persisted'])
         self.assertFalse(report['final_reporting_process_termination_covered'])
+        self.assertTrue(report['tiny_engineering_probe_only'])
+        self.assertEqual(report['report_writer_mode'], 'TINY_ENGINEERING_PROBE')
+        self.assertFalse(report['complete_resource_measurement_join_qualified'])
+        self.assertFalse(report['material_scope_gate']['real_control_or_runtime_custody_qualified'])
+        _, observation_pin = finalization.read_pinned_json(scope/finalization.FINAL_WRITER_OBSERVATION_NAME)
+        joined = finalization.join_final_report_lifetime(scope, expected_input_pin=input_pin,
+            expected_report_pin=report_pin, expected_writer_observation_pin=observation_pin,
+            expected_writer_argv=argv)
+        self.assertTrue(joined['outer_report_fsync_and_termination_independently_observed'])
+        self.assertTrue(joined['final_reporting_process_termination_covered'])
+        self.assertFalse(joined['synthetic_report_writer_observation_fixture'])
+        self.assertFalse(joined['complete_resource_measurement_join_qualified'])
+        self.assertEqual(joined['status'], 'TINY_ENGINEERING_REPORT_PROBE_WRITER_OBSERVED')
+
+    def test_production_writer_material_custody_gate_precedes_identity_or_output(self):
+        input_pin = write_json(self.scope/finalization.FINAL_INPUT_NAME,
+            self.final_report_input(tiny=False))
+        before = sorted(str(path) for path in self.scope.rglob('*'))
+        with mock.patch.object(finalization, 'check_final_report_material_scope',
+                side_effect=ValueError('material runtime custody changed')) as gate, \
+                mock.patch.object(finalization, '_write_durable_exclusive') as write:
+            with self.assertRaisesRegex(ValueError, 'runtime custody changed'):
+                finalization.persist_final_report(self.scope, expected_input_pin=input_pin)
+            gate.assert_called_once_with(self.scope)
+            write.assert_not_called()
+        self.assertEqual(before, sorted(str(path) for path in self.scope.rglob('*')))
+
+    def material_scope_records(self, scope):
+        code_root = scope/'frozen-code'; (code_root/'scripts').mkdir(parents=True)
+        own = code_root/finalization.SELF; own.write_bytes(b'# tiny material-path placeholder\n')
+        plan = {'code_files': copy.deepcopy(finalization.BOOTSTRAP_SOURCE_PINS),
+            'runtime_executables': {'python': {'path': self.python}}}
+        plan['code_files'][finalization.SELF] = {'bytes': own.stat().st_size,
+            'sha256': hashlib.sha256(own.read_bytes()).hexdigest()}
+        records = {'plan': plan, 'freeze': {'synthetic_unit_receipt': 'freeze'},
+            'preread': {'synthetic_unit_receipt': 'preread'},
+            'activation_receipt': {'synthetic_unit_receipt': 'activation'}}
+        for key, name in (('plan', 'plan.json'), ('freeze', 'complete-freeze.json'),
+                ('preread', 'public-preread.json'), ('activation_receipt', 'activation-receipt.json')):
+            write_json(scope/name, records[key])
+        return code_root, own, records
+
+    def test_report_scope_gate_passes_exact_material_evidence_and_scope_without_launch(self):
+        scope = self.scope/'mocked-reviewed-material-gate'; scope.mkdir()
+        code_root, own, records = self.material_scope_records(scope)
+        fixture = types.SimpleNamespace(require_execution_ready=mock.Mock(return_value=True))
+        before = sorted(str(path) for path in scope.rglob('*'))
+        with mock.patch.object(finalization, '__file__', str(own)), \
+                mock.patch.object(finalization, '_read_pinned_source', return_value=b'# checked source'), \
+                mock.patch.object(finalization, '_verify_material_source_tree', return_value=3) as inventory, \
+                mock.patch.object(finalization, '_source_module', return_value=fixture) as compiler:
+            checked = finalization.check_final_report_material_scope(scope)
+            fixture.require_execution_ready.assert_called_once_with(**records,
+                repo=code_root, execution_scope=str(scope))
+            compiler.assert_called_once_with(code_root/finalization.FIXTURE,
+                finalization.BOOTSTRAP_SOURCE_PINS[finalization.FIXTURE], 'pinned_final_report_fixture')
+            self.assertEqual(inventory.call_args_list, [mock.call(code_root, records['plan']['code_files']),
+                mock.call(scope/'derived', records['plan'].get('derived_code'))])
+        self.assertTrue(checked['material_scope_gate_rechecked_before_writer_identity'])
+        self.assertFalse(checked['activation_only_runtime_used_by_final_writer'])
+        self.assertEqual(before, sorted(str(path) for path in scope.rglob('*')))
+
+    def tiny_material_tree(self):
+        root = self.scope/'tiny-copied-material'; root.mkdir()
+        pins = {}
+        for name in ('scripts/helper.py', 'tests/test_helper.py', 'plain.js'):
+            path = root/name; path.parent.mkdir(exist_ok=True)
+            raw = ('# tiny copied source '+name+'\n').encode(); path.write_bytes(raw)
+            pins[name] = {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()}
+        return root, pins
+
+    def test_exact_copied_source_inventory_checks_every_pin(self):
+        root, pins = self.tiny_material_tree()
+        self.assertEqual(finalization._verify_material_source_tree(root, pins), 3)
+        (root/'scripts/helper.py').write_bytes(b'# same-length substituted source\n')
+        with self.assertRaisesRegex(ValueError, 'size differs|differs from independent'):
+            finalization._verify_material_source_tree(root, pins)
+
+    def test_copied_source_inventory_rejects_extra_file_and_empty_directory(self):
+        root, pins = self.tiny_material_tree()
+        (root/'extra').mkdir()
+        with self.assertRaisesRegex(ValueError, 'inventory'):
+            finalization._verify_material_source_tree(root, pins)
+        (root/'extra').rmdir(); (root/'extra.py').write_bytes(b'# extra source\n')
+        with self.assertRaisesRegex(ValueError, 'inventory'):
+            finalization._verify_material_source_tree(root, pins)
+
+    def test_copied_source_inventory_rejects_missing_source(self):
+        root, pins = self.tiny_material_tree(); (root/'plain.js').unlink()
+        with self.assertRaisesRegex(ValueError, 'inventory differs'):
+            finalization._verify_material_source_tree(root, pins)
+
+    def test_copied_source_inventory_rejects_same_byte_hardlink(self):
+        root, pins = self.tiny_material_tree()
+        source = root/'plain.js'; duplicate = self.scope/'same-bytes-copy'
+        duplicate.write_bytes(source.read_bytes()); source.unlink(); os.link(duplicate, source)
+        with self.assertRaisesRegex(ValueError, 'alias or special file'):
+            finalization._verify_material_source_tree(root, pins)
+
+    def test_copied_source_inventory_rejects_source_and_ancestor_symlinks(self):
+        root, pins = self.tiny_material_tree()
+        source = root/'plain.js'; target = self.scope/'same-bytes-target'
+        target.write_bytes(source.read_bytes()); source.unlink(); source.symlink_to(target)
+        with self.assertRaisesRegex(ValueError, 'alias or special file'):
+            finalization._verify_material_source_tree(root, pins)
+        alias = self.scope/'material-root-alias'; alias.symlink_to(root, target_is_directory=True)
+        with self.assertRaisesRegex(ValueError, 'Symlink evidence ancestor'):
+            finalization._verify_material_source_tree(alias, pins)
+
+    def test_copied_source_pin_map_has_explicit_count_path_and_byte_bounds(self):
+        root, pins = self.tiny_material_tree()
+        invalid_maps = [
+            {str(index)+'.py': pins['plain.js'] for index in range(finalization.MAX_MATERIAL_SOURCE_FILES+1)},
+            {'../escape.py': pins['plain.js']},
+            {'source.py': {'bytes': 2*finalization.MIB+1, 'sha256': 'a'*64}},
+            {'x'*4097: pins['plain.js']},
+            {'x'*256+'.py': pins['plain.js']},
+            {'\u20ac'*86+'.py': pins['plain.js']},
+            {'/'.join(['nested']*34)+'.py': pins['plain.js']}]
+        for invalid in invalid_maps:
+            with self.subTest(invalid_count=len(invalid)), self.assertRaises(ValueError):
+                finalization._verify_material_source_tree(root, invalid)
+
+    def test_copied_material_failure_precedes_fixture_compile_and_writer_identity(self):
+        scope = self.scope/'copied-material-drift'; scope.mkdir()
+        _, own, _ = self.material_scope_records(scope)
+        with mock.patch.object(finalization, '__file__', str(own)), \
+                mock.patch.object(finalization, '_read_pinned_source', return_value=b'# checked source'), \
+                mock.patch.object(finalization, '_verify_material_source_tree', side_effect=ValueError('inventory differs')), \
+                mock.patch.object(finalization, '_source_module') as compiler, \
+                self.assertRaisesRegex(ValueError, 'inventory differs'):
+            finalization.check_final_report_material_scope(scope)
+        compiler.assert_not_called()
+        self.assertFalse((scope/finalization.FINAL_WRITER_IDENTITY_NAME).exists())
+
+    def test_report_scope_cannot_select_unverified_executable_fixture(self):
+        scope = self.scope/'untrusted-material-validator'; scope.mkdir()
+        _, _, records = self.material_scope_records(scope)
+        records['plan']['code_files'][finalization.FIXTURE] = {
+            'bytes': 13, 'sha256': hashlib.sha256(b'unchecked code').hexdigest()}
+        write_json(scope/'plan.json', records['plan'])
+        with mock.patch.object(finalization, '_source_module') as compiler, \
+                self.assertRaisesRegex(ValueError, 'independent bootstrap pin'):
+            finalization.check_final_report_material_scope(scope)
+        compiler.assert_not_called()
+        self.assertFalse((scope/finalization.FINAL_WRITER_IDENTITY_NAME).exists())
+
+    def test_production_writer_cli_refuses_missing_activation_before_identity(self):
+        scope = self.scope/'unadmitted-production-writer'; scope.mkdir()
+        input_pin = write_json(scope/finalization.FINAL_INPUT_NAME,
+            self.final_report_input(scope, tiny=False))
+        argv = [self.python, '-I', '-S', '-B', str(Path(finalization.__file__).resolve()),
+            '--persist-final-report', '--scope', str(scope), '--input-bytes', str(input_pin['bytes']),
+            '--input-sha256', input_pin['sha256']]
+        completed = subprocess.run(argv, env=finalization.ENVIRONMENT,
+            capture_output=True, timeout=10, check=False)
+        self.assertNotEqual(completed.returncode, 0)
+        self.assertEqual(completed.stdout, b'')
+        self.assertEqual(set(path.name for path in scope.iterdir()), {finalization.FINAL_INPUT_NAME})
+
+    def test_tiny_writer_refuses_real_qualification_extra_fields_or_full_input(self):
+        for change in ({'complete_resource_measurement_join_qualified': True},
+                {'arbitrary_workload': 'unadmitted'}, {'payload': 'x'*65536},
+                {'schema': finalization.SCHEMA+'-final-report-input'}):
+            with self.subTest(change=next(iter(change))), tempfile.TemporaryDirectory() as directory:
+                scope = Path(directory); value = self.final_report_input(scope); value.update(change)
+                input_pin = write_json(scope/finalization.FINAL_INPUT_NAME, value)
+                with self.assertRaises(ValueError):
+                    finalization.persist_tiny_final_report_probe(scope, expected_input_pin=input_pin)
+                self.assertEqual(set(path.name for path in scope.iterdir()), {finalization.FINAL_INPUT_NAME})
+
+    def test_tiny_writer_storage_bound_precedes_identity(self):
+        scope = self.scope/'oversized-tiny-writer'; scope.mkdir()
+        with (scope/'engineering-padding').open('wb') as stream:
+            stream.truncate(finalization.TINY_REPORT_SCOPE_BYTES)
+        input_pin = write_json(scope/finalization.FINAL_INPUT_NAME, self.final_report_input(scope))
+        with self.assertRaisesRegex(ValueError, 'storage bound'):
+            finalization.persist_tiny_final_report_probe(scope, expected_input_pin=input_pin)
+        self.assertFalse((scope/finalization.FINAL_WRITER_IDENTITY_NAME).exists())
+        self.assertFalse((scope/finalization.FINAL_NAME).exists())
+
+    def synthetic_tiny_writer_join(self, scope):
+        input_pin = write_json(scope/finalization.FINAL_INPUT_NAME, self.final_report_input(scope))
+        _, report_pin = finalization.persist_tiny_final_report_probe(scope, expected_input_pin=input_pin)
+        identity, _ = finalization.read_pinned_json(scope/finalization.FINAL_WRITER_IDENTITY_NAME)
+        argv = [self.python, '-I', '-S', '-B', str(Path(finalization.__file__).resolve()),
+            '--tiny-final-report-writer', '--scope', str(scope), '--input-bytes', str(input_pin['bytes']),
+            '--input-sha256', input_pin['sha256']]
+        observation = self.observation(argv, 2_100_000_000, 2_200_000_000,
+            procfs_pid=identity['procfs_pid'], namespace_pid=identity['namespace_pid'])
+        observation_pin = write_json(scope/finalization.FINAL_WRITER_OBSERVATION_NAME, observation)
+        return {'expected_input_pin': input_pin, 'expected_report_pin': report_pin,
+            'expected_writer_observation_pin': observation_pin, 'expected_writer_argv': argv}, observation
+
+    def test_tiny_writer_lifetime_join_rechecks_storage_after_parent_metadata(self):
+        scope = self.scope/'post-writer-storage'; scope.mkdir()
+        options, _ = self.synthetic_tiny_writer_join(scope)
+        with (scope/'unexpected-retained-growth').open('wb') as stream:
+            stream.truncate(finalization.TINY_REPORT_SCOPE_BYTES)
+        with self.assertRaisesRegex(ValueError, 'retained scope.*storage bound'):
+            finalization.join_final_report_lifetime(scope, **options)
+
+    def test_tiny_writer_lifetime_join_rechecks_report_bytes_and_observed_deadline(self):
+        for failure in ('report-bytes', 'observed-deadline'):
+            with self.subTest(failure=failure), tempfile.TemporaryDirectory() as directory:
+                scope = Path(directory); options, observation = self.synthetic_tiny_writer_join(scope)
+                if failure == 'report-bytes':
+                    report, _ = finalization.read_pinned_json(scope/finalization.FINAL_NAME)
+                    report['unexpected-retained-growth'] = 'x'*65536
+                    (scope/finalization.FINAL_NAME).chmod(0o600)
+                    options['expected_report_pin'] = write_json(scope/finalization.FINAL_NAME, report)
+                else:
+                    observation['monotonic_end_ns'] = observation['monotonic_start_ns'] + 4_000_000_000
+                    options['expected_writer_observation_pin'] = write_json(
+                        scope/finalization.FINAL_WRITER_OBSERVATION_NAME, observation)
+                with self.assertRaises(ValueError):
+                    finalization.join_final_report_lifetime(scope, **options)
+
+    def test_synthetic_writer_observation_cannot_certify_material_report(self):
+        scope = self.scope/'synthetic-material-report'; scope.mkdir()
+        value = self.final_report_input(scope, tiny=False, complete=True)
+        input_pin = write_json(scope/finalization.FINAL_INPUT_NAME, value)
+        report = {**value, 'schema': finalization.SCHEMA+'-persisted-final-report',
+            'final_report_input_pin': input_pin, 'report_writer_fsync_completed_before_return': True,
+            'report_writer_termination_observation_required': True, 'final_disposition_persisted': True,
+            'report_writer_mode': 'ACTIVATION_BOUND_MATERIAL_SCOPE'}
+        report_pin = write_json(scope/finalization.FINAL_NAME, report)
+        write_json(scope/finalization.FINAL_WRITER_IDENTITY_NAME, {'procfs_pid': 555, 'namespace_pid': 5})
+        argv = [self.python, '-I', '-S', '-B', str(Path(finalization.__file__).resolve()),
+            '--persist-final-report', '--scope', str(scope), '--input-bytes', str(input_pin['bytes']),
+            '--input-sha256', input_pin['sha256']]
+        observation = self.observation(argv, 2_100_000_000, 2_200_000_000, procfs_pid=555, namespace_pid=5)
+        observation_pin = write_json(scope/finalization.FINAL_WRITER_OBSERVATION_NAME, observation)
+        with self.assertRaisesRegex(ValueError, 'Synthetic writer observations'):
+            finalization.join_final_report_lifetime(scope, expected_input_pin=input_pin,
+                expected_report_pin=report_pin, expected_writer_observation_pin=observation_pin,
+                expected_writer_argv=argv)
 
     def test_subreaper_direct_receipt_does_not_imply_full_descendant_wait_chain(self):
         self.driver.pop('synthetic_test_fixture')

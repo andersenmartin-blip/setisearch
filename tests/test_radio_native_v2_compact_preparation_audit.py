@@ -24,7 +24,8 @@ class CompactPreparationAuditTests(unittest.TestCase):
             path.write_bytes((audit.REPO / relative).read_bytes())
         self.runtime_root = self.root / 'runtime'
         self.runtime_root.mkdir()
-        self.git = self.runtime_root / 'git'
+        self.git = self.runtime_root / 'bin' / 'git'
+        self.git.parent.mkdir()
         self.git.write_bytes(b'tiny installed Git identity')
         self.helper = self.runtime_root / 'git-helpers' / 'git-audit'
         self.helper.parent.mkdir()
@@ -148,6 +149,50 @@ class CompactPreparationAuditTests(unittest.TestCase):
         with mock.patch.object(audit, 'AUDIT_IMPLEMENTATION_PINS', pins):
             with self.assertRaisesRegex(ValueError, 'audit implementation bytes after import'):
                 self.audit()
+
+    def add_runtime_custody(self):
+        manifest = audit.freezer.custody.build_manifest(
+            **audit.freezer.runtime_custody_arguments(self.freeze))
+        self.freeze['runtime_custody_manifest'] = manifest
+        self.freeze['runtime_custody_manifest_sha256'] = (
+            audit.freezer.custody.manifest_sha256(manifest))
+
+    def test_fresh_runtime_custody_is_independently_rechecked(self):
+        self.add_runtime_custody()
+        result = self.audit()
+        self.assertTrue(result['runtime_custody_manifest_present'])
+        self.assertTrue(result['runtime_custody_activation_topology_verified'])
+        self.assertEqual(result['runtime_custody_manifest_sha256'],
+                         self.freeze['runtime_custody_manifest_sha256'])
+        self.assertFalse(result['complete_execution_runtime_closure_qualified'])
+
+    def test_same_bytes_runtime_replacement_fails_custody_audit(self):
+        self.add_runtime_custody()
+        original = self.library.read_bytes()
+        replacement = self.library.with_name('replacement.so')
+        replacement.write_bytes(original)
+        replacement.replace(self.library)
+        self.assertEqual(audit.pin(self.library)['sha256'],
+                         self.freeze['runtime_sha256s'][str(self.library)])
+        with self.assertRaises(ValueError):
+            self.audit()
+
+    def test_new_hidden_git_alias_fails_custody_audit(self):
+        self.helper.unlink()
+        self.helper.hardlink_to(self.git)
+        digest = audit.pin(self.helper)['sha256']
+        self.runtime['runtime_sha256s'][str(self.helper)] = digest
+        self.freeze['runtime_sha256s'][str(self.helper)] = digest
+        self.add_runtime_custody()
+        (self.root / 'outside-git-policy-alias').hardlink_to(self.git)
+        with self.assertRaises(ValueError):
+            self.audit()
+
+    def test_partial_runtime_custody_fields_are_refused(self):
+        self.add_runtime_custody()
+        del self.freeze['runtime_custody_manifest_sha256']
+        with self.assertRaises(ValueError):
+            self.audit()
 
     def test_consistent_runtime_subset_is_refused_by_independent_expected_closure(self):
         # Delete an external library from both map and list. Original structural

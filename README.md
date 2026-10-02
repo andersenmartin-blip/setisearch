@@ -1,5 +1,22 @@
 # SETIsearch
 
+## 2 October: runtime custody integrated; pilot remains blocked
+
+[The integrated package and evidence](RADIO_NATIVE_V2_RUNTIME_CUSTODY_INTEGRATION_2026-10-02_RESULT.md)
+pass **272 tests** without failures or skips. The fresh revision l/runtime b snapshot
+covers 924 code files, 14 inputs and 1,366 runtime paths; independent audit verifies
+six closed Git hardlink groups, material-only runtime checks and all 26 copied code
+files plus three derived files. Activation preserves fixed Git no-fetch/no-prompt flags.
+
+The plan remains **BLOCKED_PREPARATION_REVIEW**. Authenticated receipt delivery to
+the hardclosed source guard and persistent one-invocation spending remain open.
+No new real marker or protected control was created/invoked; the prior failed marker
+and invocation remain spent. [The scheduled midpoint review](RADIO_TWO_WEEK_REVIEW_2026-10-02.md)
+records that the independent astronomical pilot has not started. HD189733 selected;
+HD1461 HOLD; GJ724 reserve; spectra/holdouts unopened; 127/24 NOT ACTIVATED;
+native8 unreserved; LS paused; CHEOPS UNSENT. Consolidate 9 October without an
+automatic extension. **Next:** the two named admission/spending code gaps.
+
 ## 2 October: exact activation parent environment verified
 
 [The contract and evidence](RADIO_NATIVE_V2_ACTIVATION_ENVIRONMENT_2026-10-02_RESULT.md)

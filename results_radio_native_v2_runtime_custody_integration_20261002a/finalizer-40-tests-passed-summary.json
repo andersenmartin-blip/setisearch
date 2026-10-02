@@ -1,0 +1,33 @@
+{
+  "schema": "radio-native-v2-finalizer-development-test-summary-v1",
+  "status": "PASSED_DEVELOPMENT_SOURCE_SNAPSHOT_BEFORE_FINAL_BOOTSTRAP_REFRESH",
+  "argv": [
+    "python",
+    "-I",
+    "-S",
+    "-B",
+    "-c",
+    "import sys,unittest; sys.path.insert(0,\"scripts\"); sys.path.insert(0,\"tests\"); import test_radio_native_v2_resource_finalization as t; result=unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromModule(t)); sys.exit(not result.wasSuccessful())"
+  ],
+  "cwd": "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002",
+  "test_count": 40,
+  "unittest_seconds": 5.015,
+  "exit_code": 0,
+  "source_pins": {
+    "scripts/radio_native_v2_resource_finalization.py": {
+      "bytes": 58178,
+      "sha256": "193f4b38e1ea16ecb180d35b9d29ae7d279a16858c0a9a343f5e21f55b2cb2f6"
+    },
+    "tests/test_radio_native_v2_resource_finalization.py": {
+      "bytes": 38580,
+      "sha256": "76b19bfbb4eadc554c4c3fb2f548f78d8e8f34e8763d084f69c7a7373d9de4ef"
+    }
+  },
+  "log": "finalizer-40-tests-passed.log",
+  "earlier_failure_retained": "finalizer-first-40-tests-failed-summary.json",
+  "bootstrap_source_pins_refreshed": false,
+  "protected_control_executed": false,
+  "full_size_source_generated": false,
+  "scientific_cases_run": 0,
+  "telescope_reads": 0
+}

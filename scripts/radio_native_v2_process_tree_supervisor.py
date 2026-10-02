@@ -54,11 +54,11 @@ DIRECTORY_RESERVATION_BYTES = 65536
 # Updating either implementation requires reviewing and refreshing this table.
 BOOTSTRAP_SOURCE_PINS = {
     'scripts/radio_native_v2_worker_admission.py': {
-        'bytes': 69996,
-        'sha256': 'd62063661e9d3cd7618b85d7b574d09911c5d729feeee263f2f2b75119a939dd'},
+        'bytes': 73668,
+        'sha256': 'bd040b61f35db4cd9ae8d3140df44213d3a8659bf6b6ebb96cca4b5b793fe9ef'},
     'scripts/radio_native_v2_compact_eight_case_resource_fixture.py': {
-        'bytes': 111719,
-        'sha256': 'b483f0f4ef4b8833b3e59c6837c319f0dbc26cf7a917cb050c653ccb01bc3b84'},
+        'bytes': 113630,
+        'sha256': 'bfb3baa5be2ad11bde9b1a6fdecb6d73be536672cd2a28d9163c1ef445bf43e9'},
 }
 AUTHORITY = {'execution_authorized': False, 'reservation_authorized': False,
     'scientific_execution_authorized': False, 'native_case_reservations': 0,

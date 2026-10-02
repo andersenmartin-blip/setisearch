@@ -1,0 +1,55 @@
+{
+  "schema": "radio-native-v2-runtime-custody-finalizer-test-summary-v1",
+  "status": "PASS",
+  "test_count": 47,
+  "unittest_duration_seconds": 6.488,
+  "exec_exit_code": 0,
+  "cwd": "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002",
+  "command_argv": [
+    "python",
+    "-I",
+    "-S",
+    "-B",
+    "-c",
+    "import sys,unittest; sys.path.insert(0,\"scripts\"); sys.path.insert(0,\"tests\"); import test_radio_native_v2_resource_finalization as t; result=unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromModule(t)); sys.exit(not result.wasSuccessful())"
+  ],
+  "source_pins": {
+    "scripts/radio_native_v2_resource_finalization.py": {
+      "bytes": 63303,
+      "sha256": "b9f61a16799d859b0cf13492054d59695f15adaa38aa5a019f8e7d5098d0e5d3"
+    },
+    "tests/test_radio_native_v2_resource_finalization.py": {
+      "bytes": 43182,
+      "sha256": "a0a13c5e44688f3942e09689c59219ae23246764d9724f6595c9df16aca990bc"
+    }
+  },
+  "bootstrap_source_pins_refreshed": true,
+  "scope": "Tiny engineering processes and synthetic receipt/material negatives only",
+  "new_copied_material_test_count": 7,
+  "material_tree_bound": {
+    "file_count": 128,
+    "file_bytes": 2097152,
+    "depth": 32
+  },
+  "tiny_report_bound": {
+    "input_and_report_bytes": 65536,
+    "scope_bytes": 2097152,
+    "seconds": 3
+  },
+  "scientific_execution_authorized": false,
+  "protected_control_executed": false,
+  "source_26mib_generated": false,
+  "telescope_reads": 0,
+  "rng_draws": 0,
+  "real_git_mutations": 0,
+  "prior_development_summaries": [
+    "finalizer-development-test-summary.json",
+    "finalizer-first-40-tests-failed-summary.json",
+    "finalizer-40-tests-passed-summary.json"
+  ],
+  "limitations": [
+    "Copied source checks establish exact bounded sole-link stable byte pins, without original inode/metadata continuity across material copies.",
+    "Material checks remain subject to mutation after their checks.",
+    "No activated production writer/control run; authenticated receipt delivery and durable one-shot spending remain unqualified."
+  ]
+}

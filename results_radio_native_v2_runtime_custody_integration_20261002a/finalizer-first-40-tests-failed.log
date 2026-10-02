@@ -1,0 +1,23 @@
+....................................E...
+======================================================================
+ERROR: test_tiny_writer_lifetime_join_rechecks_report_bytes_and_observed_deadline (test_radio_native_v2_resource_finalization.ResourceFinalizationTests.test_tiny_writer_lifetime_join_rechecks_report_bytes_and_observed_deadline) (failure='report-bytes')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/tests/test_radio_native_v2_resource_finalization.py", line 357, in test_tiny_writer_lifetime_join_rechecks_report_bytes_and_observed_deadline
+    options['expected_report_pin'] = write_json(scope/finalization.FINAL_NAME, report)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/tests/test_radio_native_v2_resource_finalization.py", line 24, in write_json
+    path.write_bytes(raw)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1036, in write_bytes
+    with self.open(mode='wb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: '/tmp/tmpsiebye7b/resource-final-disposition.json'
+
+----------------------------------------------------------------------
+Ran 40 tests in 5.085s
+
+FAILED (errors=1)
+

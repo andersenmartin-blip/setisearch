@@ -19,6 +19,7 @@ import re
 import shlex
 import stat
 import sys
+import types
 
 SCHEMA = 'radio-native-v2-worker-admission-bundle-v2'
 ROLE_SCHEMA = 'radio-native-v2-worker-role-admission-bundle-v3'
@@ -31,9 +32,14 @@ PLAN_SCHEMA = 'radio-native-v2-compact-eight-input-resource-control-v1-prospecti
 PREREAD_SCHEMA = 'radio-native-v2-compact-eight-input-resource-control-v1-public-preread'
 FREEZE_SCHEMA = 'radio-native-v2-runner-broker-runtime-freeze-v1'
 FREEZE_NAMESPACE = 'radio-native-v2-engineering-20260930a'
-ACTIVATION_RECEIPT_SCHEMA = 'radio-native-v2-control-single-activation-receipt-v1'
-ACTIVATION_NAMESPACE = 'radio-native-v2-control-activation-transition-20261002a'
-ACTIVATION_MARKER = 'config/radio_native_v2_control_activation_20261002a.activate.json'
+ACTIVATION_RECEIPT_SCHEMA = 'radio-native-v2-control-single-activation-receipt-v2'
+ACTIVATION_NAMESPACE = 'radio-native-v2-control-activation-transition-20261002b'
+ACTIVATION_MARKER = 'config/radio_native_v2_control_activation_20261002b.activate.json'
+SPENT_ACTIVATION_MARKER = 'config/radio_native_v2_control_activation_20261002a.activate.json'
+SPENT_ACTIVATION_COMMIT = 'ba1b6c918931a02a84cd23e0e14057bd9f700e40'
+CUSTODY_SOURCE = 'scripts/radio_native_v2_runtime_custody.py'
+CUSTODY_IMPLEMENTATION_PIN = {'bytes':22519,
+    'sha256':'d0cd311c1615a2c299b101ca75b98ba2412b41bb1cfd668725461e4d307fb0b5'}
 ACTIVATION_DISABLED = ('reservation_authorized', 'rng_authorized',
     'scientific_execution_authorized', 'native_execution_authorized',
     'restart_authorized', 'automatic_retry')
@@ -180,6 +186,30 @@ def _pin_map(pins, *, absolute=False):
         _sha(pin['sha256'], path)
 
 
+def _custody_module():
+    path = Path(__file__).absolute().parents[1]/CUSTODY_SOURCE
+    actual,raw = read_pinned_file(str(path),maximum=MAX_SOURCE_BYTES,retain=True)
+    if actual != CUSTODY_IMPLEMENTATION_PIN:
+        raise ValueError('Custody source differs from independent worker implementation pin')
+    module = types.ModuleType('pinned_worker_runtime_custody'); module.__file__ = str(path)
+    exec(compile(raw,str(path),'exec'),module.__dict__)
+    return module
+
+
+def _custody_contract(freeze, custody):
+    manifest = freeze.get('runtime_custody_manifest')
+    digest = _sha(freeze.get('runtime_custody_manifest_sha256'),'runtime custody manifest')
+    if hashlib.sha256(canonical(manifest)).hexdigest() != digest:
+        raise ValueError('Frozen runtime custody manifest canonical hash differs')
+    material = {freeze['executables'][name]['resolved'] for name in ('python','node')}
+    material.update(path for path in freeze['runtime_file_inventory'] if re.search(r'\.so(?:\.|$)',Path(path).name))
+    activation = sorted({freeze['executables']['git']['resolved'],*freeze['git_runtime_file_inventory']} - material)
+    custody.validate_manifest_structure(manifest,runtime_paths=freeze['runtime_file_inventory'],
+        runtime_sha256s=freeze['runtime_sha256s'],activation_only_paths=activation,
+        alias_roots=sorted({str(Path(freeze['executables']['git']['resolved']).parent),freeze['git_exec_path']}))
+    return manifest,digest
+
+
 def source_domain(ordinal):
     return b'seti-compact-eight-input-sha256-counter-v1\0' + NAMESPACE.encode() + b'\0' + _ordinal(ordinal).to_bytes(8, 'big')
 
@@ -262,7 +292,8 @@ def _validate_freeze(freeze):
         'transport_qualification', 'repository_code_inventory', 'code_sha256s',
         'input_file_inventory', 'input_sha256s', 'runtime_file_inventory', 'runtime_sha256s',
         'executables', 'git_exec_path', 'git_runtime_file_inventory', 'git_node_elf_inventory',
-        'unavailable_unused_python_extensions', 'python', 'numpy', 'environment_fingerprints', 'coverage'}
+        'unavailable_unused_python_extensions', 'python', 'numpy', 'environment_fingerprints', 'coverage',
+        'runtime_custody_manifest','runtime_custody_manifest_sha256'}
     if (type(freeze) is not dict or set(freeze) != fields or freeze['schema'] != FREEZE_SCHEMA
             or freeze['freeze_kind'] != 'COMPLETE_RUNNER_BROKER_RUNTIME'
             or freeze['mode'] != 'PROSPECTIVE_ENGINEERING_ONLY' or freeze['namespace'] != FREEZE_NAMESPACE):
@@ -319,14 +350,21 @@ def _validate_freeze(freeze):
                 'python_import_source_policy_qualified'):
         if coverage.get(key) is not False:
             raise ValueError('Unsupported complete runtime coverage claim refused: ' + key)
+    if freeze['code_sha256s'].get(CUSTODY_SOURCE) != CUSTODY_IMPLEMENTATION_PIN['sha256']:
+        raise ValueError('Frozen custody source must bind the independently reviewed implementation')
+    _custody_contract(freeze,_custody_module())
 
 
-def _validate_activation_receipt(receipt, plan, freeze, proof):
+def _validate_activation_receipt(receipt, plan, freeze, proof, *, execution_scope):
     """Recheck the exact outer public-marker receipt before worker writes."""
     expected = {'schema','namespace','activation_commit','activation_tree',
         'activation_parent','activation_public_readback_verified','marker_path',
         'marker_blob','marker_sha256','plan_sha256','complete_freeze_sha256',
-        'execution_preread_sha256','one_control_invocation',*ACTIVATION_DISABLED}
+        'execution_preread_sha256','one_control_invocation','control_scope',
+        'runtime_custody_manifest_sha256','activation_only_runtime_complete',*ACTIVATION_DISABLED}
+    if type(receipt) is dict and (receipt.get('marker_path') == SPENT_ACTIVATION_MARKER
+            or receipt.get('activation_commit') == SPENT_ACTIVATION_COMMIT):
+        raise ValueError('Historical failed activation marker/commit is permanently spent')
     if type(receipt) is not dict or set(receipt) != expected:
         raise ValueError('Exact activation receipt structure required')
     if (receipt['schema'] != ACTIVATION_RECEIPT_SCHEMA
@@ -335,6 +373,12 @@ def _validate_activation_receipt(receipt, plan, freeze, proof):
             or receipt['activation_public_readback_verified'] is not True
             or receipt['one_control_invocation'] is not True):
         raise ValueError('Exact one-control public activation receipt required')
+    if _absolute(receipt['control_scope']) != _absolute(execution_scope):
+        raise ValueError('Activation receipt control scope differs from exact worker execution scope')
+    if receipt['activation_only_runtime_complete'] is not True:
+        raise ValueError('Activation-only Git use must cease before worker admission')
+    if _sha(receipt['runtime_custody_manifest_sha256'],'runtime custody receipt') != freeze['runtime_custody_manifest_sha256']:
+        raise ValueError('Activation receipt runtime custody hash differs')
     for key in ('activation_commit','activation_tree','activation_parent','marker_blob'):
         if type(receipt[key]) is not str or not re.fullmatch('[0-9a-f]{40}',receipt[key]):
             raise ValueError('Exact lowercase Git identity required: '+key)
@@ -377,7 +421,9 @@ def _validate_prepare_bundle(bundle, *, ordinal):
         _exact(proof[key], value, 'supplied preread ' + key)
     if type(proof['preparation_commit']) is not str or not re.fullmatch('[0-9a-f]{40}', proof['preparation_commit']):
         raise ValueError('Full immutable public preparation commit ID required')
-    _validate_activation_receipt(activation, plan, freeze, proof)
+    _validate_activation_receipt(activation, plan, freeze, proof,execution_scope=scope)
+    if plan['code_files'].get(CUSTODY_SOURCE) != CUSTODY_IMPLEMENTATION_PIN:
+        raise ValueError('Prospective custody source differs from independently reviewed implementation pin')
     for path, wanted in plan['code_files'].items():
         hashes = freeze['input_sha256s'] if path.startswith('tests/') else freeze['code_sha256s']
         if hashes.get(path) != wanted['sha256']:
@@ -1006,6 +1052,9 @@ def _validate_worker_admission(bundle_path, *, role, ordinal, argv, environment,
             raise ValueError('Prospective executable path alias refused: ' + name)
         actual, _ = read_pinned_file(executable['path'], sole_link=False)
         _exact(actual, {'bytes': executable['bytes'], 'sha256': executable['sha256']}, 'actual pinned executable bytes ' + name)
+    custody = _custody_module()
+    manifest,custody_sha256 = _custody_contract(bundle['complete_freeze'],custody)
+    custody.validate_material_runtime(manifest,expected_manifest_sha256=custody_sha256)
     phase = _validate_role_phase(bundle, running_caller=running_caller) if role != 'prepare' else {}
     # Reopen exact bundle after all material reads; a valid initial snapshot
     # must not silently become a different admission file during the checks.
@@ -1026,6 +1075,10 @@ def _validate_worker_admission(bundle_path, *, role, ordinal, argv, environment,
         'independently_retained_bundle_digest_matched': True,
         'exact_worker_argv_checked': True, 'complete_child_environment_checked': True,
         'current_materialized_code_and_derived_pins_checked': True,
+        'runtime_custody_manifest_sha256':custody_sha256,
+        'material_runtime_custody_rechecked':True,
+        'activation_only_git_used_by_worker':False,
+        'activation_only_git_aliases_enumerated_by_worker':False,
         'fresh_preparation_output_names_absent': role == 'prepare',
         'fresh_role_output_names_absent': not running_caller,
         'running_caller_snapshot_recheck': running_caller,

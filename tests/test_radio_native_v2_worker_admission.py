@@ -16,6 +16,7 @@ from unittest import mock
 
 import radio_native_v2_compact_eight_case_resource_fixture as fixture
 import radio_native_v2_worker_admission as admission
+import radio_native_v2_runtime_custody as custody
 
 ROOT = Path(__file__).resolve().parents[1]
 PYTHON = str(Path(sys.executable).resolve())
@@ -26,7 +27,7 @@ def tiny_pin(raw):
     return {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()}
 
 
-def synthetic_activation_receipt(plan, freeze, proof):
+def synthetic_activation_receipt(plan, freeze, proof, *, execution_scope):
     return {'schema':admission.ACTIVATION_RECEIPT_SCHEMA,
         'namespace':admission.ACTIVATION_NAMESPACE,
         'activation_commit':'2'*40,'activation_tree':'3'*40,
@@ -37,6 +38,9 @@ def synthetic_activation_receipt(plan, freeze, proof):
         'complete_freeze_sha256':hashlib.sha256(admission.canonical(freeze)).hexdigest(),
         'execution_preread_sha256':hashlib.sha256(admission.canonical(proof)).hexdigest(),
         'one_control_invocation':True,
+        'control_scope':str(execution_scope),
+        'runtime_custody_manifest_sha256':freeze['runtime_custody_manifest_sha256'],
+        'activation_only_runtime_complete':True,
         **{key:False for key in admission.ACTIVATION_DISABLED}}
 
 
@@ -57,6 +61,7 @@ def synthetic_worker_materials(root, *, ordinal=0, plan=None, derived_sources=No
     # A test can construct materials before root adds the validator to its
     # shared CODE_FILES. The validator is always an explicit prospective pin.
     plan['code_files'][admission.SELF] = tiny_pin(SCRIPT.read_bytes())
+    plan['code_files'][admission.CUSTODY_SOURCE] = tiny_pin((ROOT/admission.CUSTODY_SOURCE).read_bytes())
     if derived_sources is None:
         derived_sources = {'prepare.py': b'# tiny synthetic inert preparation source\n',
             'fresh-caller.js': b'// tiny synthetic inert caller\n',
@@ -76,8 +81,13 @@ def synthetic_worker_materials(root, *, ordinal=0, plan=None, derived_sources=No
         hashes[relative] = tiny_pin((ROOT / relative).read_bytes())['sha256']
     inputs = {path: pin['sha256'] for path, pin in plan['code_files'].items() if path.startswith('tests/')}
     paths = {name: record['path'] for name, record in plan['runtime_executables'].items()}
-    paths['git'] = str(Path(shutil.which('git')).resolve())
+    tiny_bin = root/'tiny-activation-bin'; tiny_bin.mkdir()
+    tiny_git = tiny_bin/'tiny-activation-git'; tiny_git.write_bytes(b'tiny inert activation-only Git; never executed')
+    tiny_core = root/'tiny-activation-core'; tiny_core.mkdir()
+    tiny_material = root/'tiny-material-runtime'; tiny_material.write_bytes(b'tiny inert material runtime; never executed')
+    paths['git'] = str(tiny_git)
     runtime = {path: tiny_pin(Path(path).read_bytes())['sha256'] for path in paths.values()}
+    runtime[str(tiny_material)] = tiny_pin(tiny_material.read_bytes())['sha256']
     coverage = {key: False for key in ('external_tool_transport_runtime_frozen',
         'operating_system_kernel_frozen', 'git_credential_and_network_configuration_frozen',
         'git_script_interpreters_qualified', 'arbitrary_node_modules_qualified',
@@ -95,17 +105,21 @@ def synthetic_worker_materials(root, *, ordinal=0, plan=None, derived_sources=No
         'executables': {name: {'invocation': path, 'resolved': path, 'sha256': runtime[path],
             'version': {'node': 'synthetic-unverified'} if name == 'node' else
                 sys.version if name == 'python' else 'synthetic-unverified-git'} for name, path in paths.items()},
-        'git_exec_path': '/usr/lib/git-core', 'git_runtime_file_inventory': [],
+        'git_exec_path': str(tiny_core), 'git_runtime_file_inventory': [],
         'git_node_elf_inventory': [], 'unavailable_unused_python_extensions': {},
         'python': sys.version, 'numpy': 'synthetic-unverified',
         'environment_fingerprints': {key: None for key in admission.ENVIRONMENT_KEYS}, 'coverage': coverage}
+    manifest = custody.build_manifest(runtime_paths=sorted(runtime),runtime_sha256s=runtime,
+        activation_only_paths=[paths['git']],alias_roots=sorted([str(tiny_bin),str(tiny_core)]))
+    freeze['runtime_custody_manifest'] = manifest
+    freeze['runtime_custody_manifest_sha256'] = hashlib.sha256(custody.canonical(manifest)).hexdigest()
     proof = {'schema': admission.PREREAD_SCHEMA, 'namespace': admission.NAMESPACE,
         'plan_sha256': hashlib.sha256(admission.canonical(plan)).hexdigest(),
         'complete_freeze_sha256': hashlib.sha256(admission.canonical(freeze)).hexdigest(),
         'public_immutable_readback_verified': True, 'engineering_control_admitted': True,
         'code_files_verified': plan['code_files'], 'preparation_commit': '1' * 40,
         **admission.AUTHORITY}
-    activation_receipt = synthetic_activation_receipt(plan,freeze,proof)
+    activation_receipt = synthetic_activation_receipt(plan,freeze,proof,execution_scope=scope)
     bundle = admission.build_admission_bundle(plan, freeze, proof, activation_receipt,
         execution_scope=str(scope), ordinal=ordinal)
     path = case / 'worker-admission.json'
@@ -274,6 +288,10 @@ class WorkerAdmissionTests(unittest.TestCase):
         self.assertTrue(receipt['exact_worker_argv_checked'])
         self.assertTrue(receipt['complete_child_environment_checked'])
         self.assertTrue(receipt['current_materialized_code_and_derived_pins_checked'])
+        self.assertTrue(receipt['material_runtime_custody_rechecked'])
+        self.assertEqual(receipt['runtime_custody_manifest_sha256'],self.materials['freeze']['runtime_custody_manifest_sha256'])
+        self.assertFalse(receipt['activation_only_git_used_by_worker'])
+        self.assertFalse(receipt['activation_only_git_aliases_enumerated_by_worker'])
         self.assertFalse(receipt['publication_claim_independently_verified'])
         self.assertFalse(receipt['complete_expected_runtime_closure_verified'])
         self.assertFalse(receipt['runtime_and_supplement_join_verified'])
@@ -282,6 +300,71 @@ class WorkerAdmissionTests(unittest.TestCase):
             self.assertEqual(receipt[key], value, key)
         self.assertFalse(receipt['large_source_generation_admitted'])
         self.assertEqual(before, sorted(str(path) for path in self.root.rglob('*')))
+
+    def test_postactivation_worker_does_not_reopen_git_or_scan_git_aliases(self):
+        freeze=self.materials['freeze']; Path(freeze['executables']['git']['resolved']).unlink()
+        shutil.rmtree(freeze['git_exec_path'])
+        trusted=admission._custody_module()
+        # Material-code enumeration remains required; only the custody checker
+        # is forbidden from walking the activation-only alias roots.
+        with (mock.patch.object(admission,'_custody_module',return_value=trusted),
+                mock.patch.object(trusted,'build_manifest',side_effect=AssertionError('No Git alias scan')),
+                mock.patch.object(trusted,'validate_activation_runtime',side_effect=AssertionError('No full activation scan')),
+                mock.patch.object(subprocess,'Popen',side_effect=AssertionError('No Git or worker launch'))):
+            self.assertTrue(self.validate()['material_runtime_custody_rechecked'])
+
+    def test_material_runtime_same_bytes_replacement_or_hardlink_is_refused(self):
+        material=self.root/'tiny-material-runtime'; raw=material.read_bytes()
+        replacement=self.root/'replacement'; replacement.write_bytes(raw); os.replace(replacement,material)
+        with mock.patch.object(subprocess,'Popen') as launch,self.assertRaises(ValueError): self.validate()
+        launch.assert_not_called()
+        # A separate tiny fixture retains a pristine observation until a new
+        # hardlink is introduced. Installed Python/Node files are never changed.
+        another=synthetic_worker_materials(self.root/'hardlink-case')
+        os.link(self.root/'hardlink-case/tiny-material-runtime',self.root/'extra-material-alias')
+        with self.assertRaises(ValueError):
+            admission.validate_worker_admission(str(another['bundle_path']),ordinal=0,
+                argv=another['argv'],environment=dict(admission.CHILD_ENVIRONMENT),
+                expected_bundle_sha256=another['bundle_sha256'])
+
+    def test_rehashed_receipt_custody_scope_ceased_bit_and_spent_identity_refuse(self):
+        original=copy.deepcopy(self.materials['bundle'])
+        changes=(('runtime_custody_manifest_sha256','0'*64),('activation_only_runtime_complete',False),
+            ('activation_only_runtime_complete',1),('control_scope',str(self.root/'other-control')),
+            ('schema',admission.ACTIVATION_RECEIPT_SCHEMA.replace('v2','v1')),
+            ('marker_path',admission.SPENT_ACTIVATION_MARKER),
+            ('activation_commit',admission.SPENT_ACTIVATION_COMMIT))
+        for key,value in changes:
+            self.materials['bundle']=copy.deepcopy(original)
+            self.materials['bundle']['activation_receipt'][key]=value
+            self.refresh_embedded_digests()
+            with self.subTest(key=key,value=value),self.assertRaises(ValueError): self.validate()
+
+    def test_selfconsistent_manifest_cannot_replace_root_or_lifecycle_policy(self):
+        original=copy.deepcopy(self.materials['bundle']); freeze=original['complete_freeze']
+        alternate=self.root/'candidate-alias-root'; alternate.mkdir()
+        material=str(self.root/'tiny-material-runtime')
+        for mode in ('roots','classification'):
+            self.materials['bundle']=copy.deepcopy(original); changed=self.materials['bundle']['complete_freeze']
+            roots=[str(alternate)] if mode=='roots' else freeze['runtime_custody_manifest']['alias_roots']
+            activation=[freeze['executables']['git']['resolved']]+([material] if mode=='classification' else [])
+            changed['runtime_custody_manifest']=custody.build_manifest(runtime_paths=freeze['runtime_file_inventory'],
+                runtime_sha256s=freeze['runtime_sha256s'],activation_only_paths=sorted(activation),alias_roots=roots)
+            changed['runtime_custody_manifest_sha256']=hashlib.sha256(custody.canonical(changed['runtime_custody_manifest'])).hexdigest()
+            self.materials['bundle']['activation_receipt']['runtime_custody_manifest_sha256']=changed['runtime_custody_manifest_sha256']
+            self.refresh_embedded_digests()
+            with self.subTest(mode=mode),self.assertRaisesRegex(ValueError,'policy differs'): self.validate()
+
+    def test_candidate_custody_source_pin_cannot_replace_independent_bootstrap(self):
+        bundle=self.materials['bundle']; raw=b'raise AssertionError("candidate custody code executed")\n'
+        relative=admission.CUSTODY_SOURCE
+        bundle['plan']['code_files'][relative]=tiny_pin(raw)
+        bundle['complete_freeze']['code_sha256s'][relative]=tiny_pin(raw)['sha256']
+        (self.materials['code_root']/relative).write_bytes(raw)
+        self.refresh_embedded_digests()
+        with mock.patch.object(subprocess,'Popen') as launch,self.assertRaisesRegex(ValueError,'independently reviewed|independent'):
+            self.validate()
+        launch.assert_not_called()
 
     def test_eight_case_ordinals_bind_exact_domains_and_case_layouts(self):
         receipt = self.validate()
@@ -295,8 +378,10 @@ class WorkerAdmissionTests(unittest.TestCase):
 
     def test_builder_creates_no_execution_scope_and_copies_input_metadata(self):
         fresh = self.root / 'must-remain-uncreated'
+        synthetic_receipt=synthetic_activation_receipt(self.materials['plan'],self.materials['freeze'],
+            self.materials['proof'],execution_scope=fresh)
         bundle = admission.build_admission_bundle(self.materials['plan'], self.materials['freeze'],
-            self.materials['proof'], self.materials['activation_receipt'],
+            self.materials['proof'], synthetic_receipt,
             execution_scope=str(fresh), ordinal=2)
         self.assertFalse(fresh.exists())
         bundle['plan']['cases'][2]['source_bytes'] = 0

@@ -19,6 +19,7 @@ import subprocess
 import sys
 
 import numpy as np
+import radio_native_v2_runtime_custody as custody
 
 from seti_repeater.empty_null_radio import canonical
 from seti_repeater.whole_cadence_reference_radio import digest
@@ -26,10 +27,13 @@ from seti_repeater import whole_cadence_runtime_radio as python_runtime
 
 
 SCHEMA = 'radio-native-v2-runner-broker-runtime-freeze-v1'
+SUPPORTED_SCHEMAS = frozenset((SCHEMA,))
+CUSTODY_FIELDS = frozenset(('runtime_custody_manifest', 'runtime_custody_manifest_sha256'))
 FREEZE_KIND = 'COMPLETE_RUNNER_BROKER_RUNTIME'
 NAMESPACE = 'radio-native-v2-engineering-20260930a'
 HOST_ADAPTER = 'scripts/radio_native_v2_broker_host.js'
 SELF = 'scripts/radio_native_v2_runner_freeze.py'
+CUSTODY_SELF = 'scripts/radio_native_v2_runtime_custody.py'
 CODE_SUFFIXES = frozenset(('.py', '.js', '.mjs', '.cjs', '.c', '.h', '.sh'))
 ENVIRONMENT_KEYS = (
     'PATH', 'PYTHONPATH', 'PYTHONHOME', 'PYTHONSAFEPATH', 'PYTHONNOUSERSITE',
@@ -47,11 +51,7 @@ DISABLED = (
 
 
 def sha_file(path):
-    h = hashlib.sha256()
-    with Path(path).open('rb') as source:
-        for chunk in iter(lambda: source.read(1024 * 1024), b''):
-            h.update(chunk)
-    return h.hexdigest()
+    return custody._pin(str(Path(path).absolute()))['sha256']
 
 
 def _sha(value, label):
@@ -71,9 +71,24 @@ def _path(value):
 
 def _local_file(root, value):
     path = Path(root) / _path(value)
-    if not path.is_file() or not path.resolve().is_relative_to(Path(root).resolve()):
+    try:
+        custody.read_material_pin(str(path.absolute()))
+    except FileNotFoundError as error:
         raise ValueError('Missing/escaping local freeze dependency: ' + value)
     return path
+
+
+def _root(value):
+    path = os.fspath(value)
+    if not path.startswith('/'): path = os.getcwd()+'/'+path
+    custody._absolute(path,'repository root')
+    fd=custody._directory(path)
+    os.close(fd)
+    return Path(path)
+
+
+def material_sha_file(path):
+    return custody.read_material_pin(str(Path(path).absolute()))['sha256']
 
 
 def environment_fingerprints():
@@ -83,19 +98,17 @@ def environment_fingerprints():
 
 
 def repository_inventory(root):
-    root = Path(root).resolve()
-    present = {str(p.relative_to(root))
-               for folder in ('src/seti_repeater', 'scripts')
-               for p in (root / folder).rglob('*')
-               if p.is_file() and p.suffix in CODE_SUFFIXES
-               and '__pycache__' not in p.parts}
+    root = _root(root)
+    present = {str(Path(path).relative_to(root)) for folder in ('src/seti_repeater', 'scripts')
+        for path in custody.bounded_inventory(str(root/folder), suffixes=CODE_SUFFIXES,
+            skip_directories=('__pycache__',))}
     tracked = subprocess.check_output(
         ['git', 'ls-files', '-z', '--', 'src/seti_repeater', 'scripts'], cwd=root
     ).decode().split('\0')
     missing = {p for p in tracked if Path(p).suffix in CODE_SUFFIXES} - present
     if missing:
         raise ValueError('Tracked runner/broker code missing: ' + ','.join(sorted(missing)))
-    if HOST_ADAPTER not in present or SELF not in present:
+    if not {HOST_ADAPTER,SELF,CUSTODY_SELF}.issubset(present):
         raise ValueError('Complete freeze requires helper and JavaScript host adapter')
     for path in present:
         _local_file(root, path)
@@ -158,7 +171,7 @@ def runtime_inventory():
         [executables['git']['resolved'], '--exec-path'], text=True).strip()).resolve()
     if not git_exec_path.is_dir():
         raise ValueError('Installed Git runtime directory absent')
-    git_files = sorted({str(p.resolve()) for p in git_exec_path.rglob('*') if p.is_file()})
+    git_files = custody.bounded_inventory(str(git_exec_path),sole_link=False)
     external = {record['resolved'] for record in executables.values()} | set(git_files)
     closure = elf_dependencies(external)
     files = sorted(set(python_files) | external | set(closure))
@@ -176,6 +189,41 @@ RUNTIME_FIELDS = (
     'git_runtime_file_inventory', 'git_node_elf_inventory',
     'unavailable_unused_python_extensions', 'python', 'numpy',
 )
+FREEZE_BASE_FIELDS = frozenset(('schema','freeze_kind','mode','namespace','transport_qualification',
+    'repository_code_inventory','code_sha256s','input_file_inventory','input_sha256s',
+    'environment_fingerprints','coverage')) | frozenset(DISABLED) | frozenset(RUNTIME_FIELDS)
+
+
+def runtime_custody_arguments(freeze):
+    """Derive activation-only Git policy from the original measured inventory.
+
+    Shared libraries and Python/Node executable identities stay material even
+    if discovered beneath a Git helper directory. Relocated repository/input
+    files have their separate stable sole-link checks.
+    """
+    git = freeze['executables']['git']['resolved']
+    helpers = set(freeze['git_runtime_file_inventory'])
+    material_executables = {freeze['executables'][name]['resolved'] for name in ('python','node')}
+    libraries = {path for path in freeze['runtime_file_inventory'] if re.search(r'\.so(?:\.|$)', Path(path).name)}
+    activation = sorted(({git}|helpers)-material_executables-libraries)
+    if git not in activation: raise ValueError('Git executable overlaps material runtime identity')
+    roots = sorted({str(Path(git).parent), freeze['git_exec_path']})
+    return {'runtime_paths':freeze['runtime_file_inventory'],'runtime_sha256s':freeze['runtime_sha256s'],
+        'activation_only_paths':activation,'alias_roots':roots}
+
+
+def validate_activation_runtime_custody(freeze):
+    """Full runtime topology recheck; call only before activation completes."""
+    validate_freeze(freeze,require_runtime_custody=True)
+    return custody.validate_activation_runtime(freeze['runtime_custody_manifest'],
+        expected_manifest_sha256=freeze['runtime_custody_manifest_sha256'],**runtime_custody_arguments(freeze))
+
+
+def validate_material_runtime_custody(freeze):
+    """Pure file checks after activation: never invokes Git/runtime discovery."""
+    validate_freeze(freeze,require_runtime_custody=True)
+    return custody.validate_material_runtime(freeze['runtime_custody_manifest'],
+        expected_manifest_sha256=freeze['runtime_custody_manifest_sha256'])
 
 
 def _immutable_git(root, *arguments, input=None):
@@ -187,8 +235,9 @@ def _immutable_git(root, *arguments, input=None):
         env=environment, input=input)
 
 
-def validate_freeze(freeze):
-    if (not isinstance(freeze, dict) or freeze.get('schema') != SCHEMA
+def validate_freeze(freeze, *, require_runtime_custody=False):
+    if type(require_runtime_custody) is not bool: raise ValueError('Strict custody requirement boolean required')
+    if (not isinstance(freeze, dict) or freeze.get('schema') not in SUPPORTED_SCHEMAS
             or freeze.get('freeze_kind') != FREEZE_KIND
             or freeze.get('mode') != 'PROSPECTIVE_ENGINEERING_ONLY'
             or freeze.get('namespace') != NAMESPACE):
@@ -197,6 +246,8 @@ def validate_freeze(freeze):
         raise ValueError('File freeze cannot grant execution or transport authority')
     if freeze.get('transport_qualification') is not None:
         raise ValueError('A dictionary or file pin cannot qualify actual transport integration')
+    if set(freeze) not in (FREEZE_BASE_FIELDS,FREEZE_BASE_FIELDS|CUSTODY_FIELDS):
+        raise ValueError('Exact supported complete freeze fields required')
     inventories = (
         ('repository_code_inventory', 'code_sha256s'),
         ('input_file_inventory', 'input_sha256s'),
@@ -210,8 +261,7 @@ def validate_freeze(freeze):
         for path, value in freeze[hashes].items():
             if hashes != 'runtime_sha256s':
                 _path(path)
-            elif not isinstance(path, str) or not Path(path).is_absolute():
-                raise ValueError('Absolute local runtime file required')
+            else: custody._absolute(path,'local runtime file')
             _sha(value, path)
     if not {HOST_ADAPTER, SELF}.issubset(freeze['code_sha256s']):
         raise ValueError('JavaScript host adapter and freeze helper must be pinned')
@@ -252,22 +302,33 @@ def validate_freeze(freeze):
     for key, value in freeze['environment_fingerprints'].items():
         if value is not None:
             _sha(value, key)
+    supplied = CUSTODY_FIELDS & freeze.keys()
+    if supplied and supplied != CUSTODY_FIELDS:
+        raise ValueError('Both runtime custody manifest and canonical SHA required')
+    if require_runtime_custody and not supplied:
+        raise ValueError('Current runtime custody manifest required; historical freeze is not admissible')
+    if supplied:
+        if CUSTODY_SELF not in freeze['code_sha256s']:
+            raise ValueError('Current runtime custody implementation source must be pinned')
+        expected=freeze['runtime_custody_manifest']; sha=_sha(freeze['runtime_custody_manifest_sha256'],'runtime custody manifest')
+        if custody.manifest_sha256(expected)!=sha: raise ValueError('Canonical runtime custody manifest SHA differs')
+        custody.validate_manifest_structure(expected,**runtime_custody_arguments(freeze))
     return freeze
 
 
 def capture(root, input_paths, *, transport_qualification=None):
     if transport_qualification is not None:
         raise ValueError('Actual transport integration is unqualified; a supplied dictionary is insufficient')
-    root = Path(root).resolve()
+    root = _root(root)
     code = repository_inventory(root)
     inputs = sorted(set(_path(path) for path in input_paths))
     freeze = {'schema': SCHEMA, 'freeze_kind': FREEZE_KIND,
               'mode': 'PROSPECTIVE_ENGINEERING_ONLY', 'namespace': NAMESPACE,
               **{name: False for name in DISABLED}, 'transport_qualification': None,
               'repository_code_inventory': code,
-              'code_sha256s': {path: sha_file(_local_file(root, path)) for path in code},
+              'code_sha256s': {path: material_sha_file(_local_file(root, path)) for path in code},
               'input_file_inventory': inputs,
-              'input_sha256s': {path: sha_file(_local_file(root, path)) for path in inputs},
+              'input_sha256s': {path: material_sha_file(_local_file(root, path)) for path in inputs},
               **runtime_inventory(),
               'environment_fingerprints': environment_fingerprints(),
               'coverage': {
@@ -283,7 +344,9 @@ def capture(root, input_paths, *, transport_qualification=None):
                   'python_import_source_policy_qualified': False,
                   'qualification_scope': 'local file identity only; no integrated external-call proof',
               }}
-    return validate_freeze(freeze)
+    freeze['runtime_custody_manifest']=custody.build_manifest(**runtime_custody_arguments(freeze))
+    freeze['runtime_custody_manifest_sha256']=custody.manifest_sha256(freeze['runtime_custody_manifest'])
+    return validate_freeze(freeze,require_runtime_custody=True)
 
 
 build = capture
@@ -305,7 +368,7 @@ class PublishedFreeze:
     _raw: bytes
 
     def __init__(self, root, commit, path, expected_sha256):
-        root = Path(root).resolve()
+        root = _root(root)
         if not isinstance(commit, str) or not re.fullmatch('(?:[0-9a-f]{40}|[0-9a-f]{64})', commit):
             raise ValueError('Immutable full Git commit object ID required')
         path = _path(path)
@@ -358,7 +421,7 @@ class PublishedFreeze:
         if repository_inventory(self.root) != freeze['repository_code_inventory']:
             raise ValueError('Repository runner/broker code inventory changed')
         for path, sha in {**freeze['code_sha256s'], **freeze['input_sha256s']}.items():
-            if sha_file(_local_file(self.root, path)) != sha:
+            if material_sha_file(_local_file(self.root, path)) != sha:
                 raise ValueError('Local runner/broker code/input changed: ' + path)
         for path, sha in freeze['runtime_sha256s'].items():
             if not Path(path).is_file() or sha_file(path) != sha:
@@ -369,6 +432,7 @@ class PublishedFreeze:
         for field in RUNTIME_FIELDS:
             if current_runtime[field] != freeze[field]:
                 raise ValueError('Local runtime inventory/identity changed: ' + field)
+        if CUSTODY_FIELDS.issubset(freeze): validate_activation_runtime_custody(freeze)
         if environment_fingerprints() != freeze['environment_fingerprints']:
             raise ValueError('Runtime environment changed')
         if sys.version != freeze['python'] or np.__version__ != freeze['numpy']:

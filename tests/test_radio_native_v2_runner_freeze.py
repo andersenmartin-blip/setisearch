@@ -1,5 +1,6 @@
 """Deterministic local-Git identity tests; no reservations or sample draws."""
 from dataclasses import FrozenInstanceError
+import copy
 import hashlib
 import json
 import os
@@ -23,17 +24,19 @@ class PublishedRunnerFreezeTests(unittest.TestCase):
         (self.root / 'src/seti_repeater').mkdir(parents=True)
         (self.root / 'scripts').mkdir()
         (self.root / 'runtime/git-helpers').mkdir(parents=True)
+        (self.root / 'runtime/git-bin').mkdir()
         self.files = {
             'src/seti_repeater/a.py': b'VALUE = 1\n',
             f.HOST_ADAPTER: b'module.exports = {};\n',
             f.SELF: b'# deterministic helper fixture\n',
+            f.CUSTODY_SELF: b'# deterministic custody helper fixture\n',
             'input.json': b'{"prospective":true}',
         }
         for path, content in self.files.items():
             (self.root / path).write_bytes(content)
         self.runtime_paths = {}
         for name in ('python', 'git', 'node', 'extension.so', 'dependency.so'):
-            path = self.root / 'runtime' / name
+            path = self.root / 'runtime' / ('git-bin/git' if name == 'git' else name)
             path.write_bytes(('measured deterministic ' + name).encode())
             self.runtime_paths[name] = str(path)
         self.helper = self.root / 'runtime/git-helpers/git-read'
@@ -101,7 +104,7 @@ class PublishedRunnerFreezeTests(unittest.TestCase):
         self.assertTrue(out['exact_immutable_git_readback_verified'])
         self.assertTrue(out['local_runtime_files_verified'])
         self.assertFalse(out['remote_publication_verified'])
-        self.assertEqual(out['published_files'], 4)
+        self.assertEqual(out['published_files'], 5)
         self.assertEqual(out['runtime_files'], 6)
         self.assertTrue(all(out[key] is False for key in f.DISABLED))
 
@@ -277,6 +280,72 @@ class PublishedRunnerFreezeTests(unittest.TestCase):
             with self.subTest(path=path):
                 with self.assertRaisesRegex(ValueError, 'repository-relative file path'):
                     f.capture(self.root, [path])
+
+    def test_fresh_capture_pins_canonical_custody_and_historical_metadata_requires_explicit_current_gate(self):
+        manifest=self.freeze['runtime_custody_manifest']
+        self.assertEqual(self.freeze['runtime_custody_manifest_sha256'],hashlib.sha256(canonical(manifest)).hexdigest())
+        self.assertEqual(manifest['schema'],f.custody.SCHEMA)
+        self.assertEqual(set(manifest['activation_only_paths']),{self.runtime_paths['git'],str(self.helper)})
+        self.assertEqual(manifest['runtime_files'][self.runtime_paths['dependency.so']]['lifecycle'],'material')
+        historical=copy.deepcopy(self.freeze)
+        for field in f.CUSTODY_FIELDS: del historical[field]
+        self.assertIs(f.validate_freeze(historical),historical)
+        with self.assertRaisesRegex(ValueError,'historical freeze is not admissible'):
+            f.validate_freeze(historical,require_runtime_custody=True)
+
+    def test_custody_field_omission_tampering_reclassification_and_unknown_fields_refused(self):
+        for field in f.CUSTODY_FIELDS:
+            changed=copy.deepcopy(self.freeze); del changed[field]
+            with self.subTest(field=field),self.assertRaises(ValueError): f.validate_freeze(changed)
+        changed=copy.deepcopy(self.freeze); changed['runtime_custody_manifest_sha256']='0'*64
+        with self.assertRaisesRegex(ValueError,'custody manifest SHA'): f.validate_freeze(changed)
+        changed=copy.deepcopy(self.freeze); manifest=changed['runtime_custody_manifest']
+        manifest['activation_only_paths']=sorted([*manifest['activation_only_paths'],self.runtime_paths['python']])
+        manifest['runtime_files'][self.runtime_paths['python']]['lifecycle']='activation_only'
+        manifest['material_runtime_paths']-=1
+        changed['runtime_custody_manifest_sha256']=f.custody.manifest_sha256(manifest)
+        with self.assertRaisesRegex(ValueError,'lifecycle/root policy'): f.validate_freeze(changed)
+        changed=copy.deepcopy(self.freeze); changed['activation_only_runtime_complete']=True
+        with self.assertRaisesRegex(ValueError,'supported complete freeze fields'): f.validate_freeze(changed)
+
+    def test_shared_git_discovered_library_and_node_executable_cannot_be_activation_only(self):
+        changed=copy.deepcopy(self.freeze)
+        changed['git_runtime_file_inventory']=sorted([str(self.helper),self.runtime_paths['dependency.so'],self.runtime_paths['node']])
+        policy=f.runtime_custody_arguments(changed)
+        self.assertNotIn(self.runtime_paths['dependency.so'],policy['activation_only_paths'])
+        self.assertNotIn(self.runtime_paths['node'],policy['activation_only_paths'])
+        alias=self.root/'library-extra-alias'; alias.hardlink_to(Path(self.runtime_paths['dependency.so']))
+        with self.assertRaisesRegex(ValueError,'must be sole-link'):
+            f.custody.build_manifest(**policy)
+
+    def test_material_wrapper_never_runs_git_or_discovers_runtime_after_receipt(self):
+        Path(self.runtime_paths['git']).unlink(); self.helper.unlink()
+        with patch.object(f,'runtime_inventory',side_effect=AssertionError('No Git runtime discovery')), \
+                patch.object(f,'repository_inventory',side_effect=AssertionError('No Git ls-files')), \
+                patch.object(f.subprocess,'check_output',side_effect=AssertionError('No Git subprocess')), \
+                patch.object(f.custody.os,'scandir',side_effect=AssertionError('No alias root enumeration')):
+            receipt=f.validate_material_runtime_custody(self.freeze)
+        self.assertEqual(receipt['activation_only_runtime_paths_opened'],0)
+        self.assertEqual(receipt['material_runtime_paths_checked'],4)
+        self.assertFalse(receipt['execution_authorized'])
+
+    def test_activation_wrapper_rechecks_runtime_metadata_not_just_bytes(self):
+        f.validate_activation_runtime_custody(self.freeze)
+        path=Path(self.runtime_paths['node']); info=path.stat(); raw=path.read_bytes(); held=os.open(path,os.O_RDONLY)
+        try:
+            path.unlink(); path.write_bytes(raw); os.utime(path,ns=(info.st_atime_ns,info.st_mtime_ns))
+            with self.assertRaisesRegex(ValueError,'manifest differs'): f.validate_activation_runtime_custody(self.freeze)
+            with self.assertRaisesRegex(ValueError,'Material runtime custody'): f.validate_material_runtime_custody(self.freeze)
+        finally: os.close(held)
+
+    def test_source_input_and_repository_ancestor_aliases_are_refused(self):
+        original=self.root/'input.json'; alias=self.root/'input-alias'; alias.hardlink_to(original)
+        with self.assertRaisesRegex(ValueError,'must be sole-link'): f.capture(self.root,['input.json'])
+        alias.unlink(); source=self.root/'scripts/alias.py'; source.symlink_to(self.root/'src/seti_repeater/a.py')
+        with self.assertRaisesRegex(ValueError,'alias or special'): f.capture(self.root,['input.json'])
+        source.unlink(); alternate=self.root.parent/(self.root.name+'-alias'); alternate.symlink_to(self.root,target_is_directory=True)
+        self.addCleanup(alternate.unlink)
+        with self.assertRaises(OSError): f.capture(alternate,['input.json'])
 
 
 class RuntimeClosureTests(unittest.TestCase):
