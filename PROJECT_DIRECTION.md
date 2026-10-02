@@ -1,5 +1,19 @@
 # Long-term project direction
 
+## 2 October: final-report writer lifetime component verified
+
+[The code, actual control and refreshed freeze](RADIO_NATIVE_V2_FINAL_REPORT_LIFETIME_2026-10-02_RESULT.md)
+separate final-report persistence from independent writer-lifetime observation.
+The exact joined component passes at **0.047 s / 14.92 MiB** and the adjacent
+suite passes **206 tests**. A new 922-code/9-input/1,366-runtime freeze binds the
+changed implementation and the exact parent environment passes again.
+
+**Direction:** retain the truthful observer boundary and keep revision `20261002h`
+blocked. Define and verify the bounded activation platform contract, then publish a
+distinct execution-qualified preread before considering one fresh eight-input
+engineering control. No large source or science is authorized. Target dispositions,
+127/24 status and the 9 October end date remain unchanged. No external messages.
+
 ## 2 October: secret-free activation parent contract verified
 
 [The exact environment result](RADIO_NATIVE_V2_ACTIVATION_ENVIRONMENT_2026-10-02_RESULT.md)

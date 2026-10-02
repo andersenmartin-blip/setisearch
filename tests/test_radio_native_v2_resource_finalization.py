@@ -6,6 +6,7 @@ import io
 import json
 import os
 from pathlib import Path
+import subprocess
 import sys
 import tempfile
 import time
@@ -90,6 +91,14 @@ class ResourceFinalizationTests(unittest.TestCase):
         self.assertFalse(result['complete_resource_measurement_join_qualified'])
         if phrase: self.assertIn(phrase, result['error'])
 
+    def final_report_input(self, scope=None, *, complete=False):
+        scope = Path(scope or self.scope)
+        return {'schema': finalization.SCHEMA+'-final-report-input',
+            'scope': str(scope), 'status': 'PENDING_FINAL_MEASUREMENT_JOIN',
+            'complete_resource_measurement_join_qualified': complete,
+            'final_reporting_process_termination_covered': False,
+            'final_disposition_persisted': False, **finalization.AUTHORITY}
+
     def test_tiny_synthetic_join_counts_shared_directories_and_reserved_final_metadata(self):
         result = self.join()
         self.assertEqual(result['status'], 'SYNTHETIC_RESOURCE_BOUNDS_CHECKED')
@@ -167,6 +176,48 @@ class ResourceFinalizationTests(unittest.TestCase):
         self.assert_closed(result, 'synthetic disk failure')
         self.assertEqual((self.scope/finalization.PENDING_NAME).read_bytes(), before)
         self.assertFalse((self.scope/finalization.FINAL_NAME).exists())
+
+    def test_persisted_final_report_requires_and_joins_distinct_writer_observation(self):
+        input_pin = write_json(self.scope/finalization.FINAL_INPUT_NAME,
+            self.final_report_input())
+        _, report_pin = finalization.persist_final_report(
+            self.scope, expected_input_pin=input_pin)
+        identity = json.loads((self.scope/finalization.FINAL_WRITER_IDENTITY_NAME).read_text())
+        writer_argv = [self.python, '-I', '-S', '-B',
+            str(Path(finalization.__file__).resolve()), '--persist-final-report',
+            '--scope', str(self.scope), '--input-bytes', str(input_pin['bytes']),
+            '--input-sha256', input_pin['sha256']]
+        observation = self.observation(writer_argv, 2_100_000_000, 2_200_000_000,
+            procfs_pid=identity['procfs_pid'], namespace_pid=identity['namespace_pid'])
+        observation_pin = write_json(
+            self.scope/finalization.FINAL_WRITER_OBSERVATION_NAME, observation)
+        result = finalization.join_final_report_lifetime(self.scope,
+            expected_input_pin=input_pin, expected_report_pin=report_pin,
+            expected_writer_observation_pin=observation_pin,
+            expected_writer_argv=writer_argv)
+        self.assertTrue(result['outer_report_fsync_and_termination_independently_observed'])
+        self.assertTrue(result['final_reporting_process_termination_covered'])
+        self.assertTrue(result['final_disposition_persisted'])
+        self.assertFalse(result['complete_resource_measurement_join_qualified'])
+        self.assertFalse(result['terminal_observer_own_future_termination_covered'])
+
+    def test_actual_isolated_final_report_writer_fsyncs_and_exits(self):
+        scope = self.scope/'actual-writer'
+        scope.mkdir()
+        input_pin = write_json(scope/finalization.FINAL_INPUT_NAME,
+            self.final_report_input(scope))
+        argv = [self.python, '-I', '-S', '-B', str(Path(finalization.__file__).resolve()),
+            '--persist-final-report', '--scope', str(scope),
+            '--input-bytes', str(input_pin['bytes']), '--input-sha256', input_pin['sha256']]
+        completed = subprocess.run(argv, env=finalization.ENVIRONMENT,
+            capture_output=True, timeout=10, check=False)
+        self.assertEqual(completed.returncode, 0, completed.stderr.decode())
+        self.assertEqual(completed.stdout, b'')
+        self.assertEqual(completed.stderr, b'')
+        report, _ = finalization.read_pinned_json(scope/finalization.FINAL_NAME)
+        self.assertTrue(report['report_writer_fsync_completed_before_return'])
+        self.assertTrue(report['final_disposition_persisted'])
+        self.assertFalse(report['final_reporting_process_termination_covered'])
 
     def test_subreaper_direct_receipt_does_not_imply_full_descendant_wait_chain(self):
         self.driver.pop('synthetic_test_fixture')

@@ -1,5 +1,24 @@
 # SETIsearch — current project status
 
+## 2 October: final-report writer lifetime covered; execution blocked
+
+[The implementation, actual tiny control and refreshed runtime evidence](RADIO_NATIVE_V2_FINAL_REPORT_LIFETIME_2026-10-02_RESULT.md)
+pass **206 tests in 79.216 s**. A fixed isolated child now writes and fsyncs the
+final report; an independent parent binds its identity, observes complete `wait4`
+termination and performs a read-only pin join. The fresh control completed in
+**0.047 s** at **14.92 MiB** maximum individual RSS.
+
+Current-code plan `20261002h` has a refreshed freeze covering **922 code files**,
+**9 inputs** and **1,366 runtime files**, SHA256
+`7508ad76e7fad69ce31b718ab3b10be88a2194072d2239d2319dd5ad83248843`;
+the exact parent-environment check passes again. The plan remains
+**BLOCKED_PREPARATION_REVIEW** because bounded activation platform closure and a
+distinct execution-qualified public preread remain open. No large input,
+eight-case control, reservation, RNG or telescope read occurred. HD189733 selected;
+HD1461 HOLD; GJ724 reserve; 127/24 NOT ACTIVATED; spectra/holdouts unopened; LS
+paused; CHEOPS UNSENT. **Next:** platform contract, then execution preread before
+considering one engineering control. Consolidate 9 October. No messages.
+
 ## 2 October: exact activation parent environment verified; execution blocked
 
 [The contract, fresh freeze and exact receipt](RADIO_NATIVE_V2_ACTIVATION_ENVIRONMENT_2026-10-02_RESULT.md)

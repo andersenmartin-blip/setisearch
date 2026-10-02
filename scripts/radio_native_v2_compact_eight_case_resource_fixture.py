@@ -302,6 +302,7 @@ def build_plan(repo=REPO):
         'large_source_generation_admitted':False,'large_inputs_generated':False,'activation_guard_complete':False,
         'descendant_escape_guard_contract_prepared':True,
         'descendant_wait_chain_requires_actual_observed_execution':True,
+        'outer_final_report_lifetime_join_prepared':True,
         'complete_resource_measurement_join_qualified':False,
         'code_files': code, 'derived_code': {name: {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()} for name, raw in derived.items()},
         'runtime_executables': runtime, 'engineering_runtime_supplement':runtime_supplement(),
@@ -1123,30 +1124,44 @@ def run_control(scope,plan,preread,freeze,lossless_helper):
             expected_admission_start_monotonic_ns=admission_start_monotonic_ns)
         if disposition['status']=='CLOSED_FAILED':
             raise ValueError('Original whole-scope final measurement failed: '+disposition.get('error','unknown'))
-        # The component does not claim to observe this reporting process's
-        # future fsync/termination. Its reserved terminal metadata stays within
-        # the original limits, and its durable verdict retains that boundary.
         result = small_json(scope/'worker-result.json')
-        summary = {'schema':SCHEMA,'status':'PENDING_FINAL_MEASUREMENT_JOIN',
+        report_input = {'schema':finalizer['SCHEMA']+'-final-report-input',
+            'scope':str(scope),'status':'PENDING_FINAL_MEASUREMENT_JOIN',
             'worker_result_pin':pin(scope/'worker-result.json'),
             'independent_driver_measurement_disposition':disposition,
             'measurement_driver_complete_lifetime_peak_rss_bytes':observed['peak_rss_bytes'],
             'measurement_driver_observed_seconds':observed['elapsed_seconds'],
             'outer_observer_self_ru_maxrss_bytes':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024,
             'outer_report_fsync_and_termination_independently_observed':False,
-            'complete_resource_measurement_join_qualified':False,
+            'final_reporting_process_termination_covered':False,
+            'final_disposition_persisted':False,
+            'complete_resource_measurement_join_qualified':disposition['complete_resource_measurement_join_qualified'],
             'terminal_metadata_reservation_bytes':finalizer['METADATA_RESERVATION_BYTES'],
             **AUTHORITY}
-        raw = canonical(summary)+b'\n'
+        raw = canonical(report_input)+b'\n'
         if len(raw)>finalizer['METADATA_RESERVATION_BYTES']:
             raise ValueError('Final reporting metadata exceeds its fixed reservation')
-        write(scope/'resource-final-disposition.json',raw)
-        # Recheck the actual retained report and its directory allocation. A
-        # later failure can leave only pending evidence, never a stale PASS.
+        write(scope/finalizer['FINAL_INPUT_NAME'],raw)
+        input_pin = pin(scope/finalizer['FINAL_INPUT_NAME'])
+        writer_argv = [plan['runtime_executables']['python']['path'],'-I','-S','-B',
+            str(scope/'frozen-code'/'scripts/radio_native_v2_resource_finalization.py'),
+            '--persist-final-report','--scope',str(scope),
+            '--input-bytes',str(input_pin['bytes']),'--input-sha256',input_pin['sha256']]
+        writer_observed,_,_ = observe_process(writer_argv,scope,'final-report-writer',
+            scope/finalizer['FINAL_WRITER_IDENTITY_NAME'],deadline=preparation_started+4800)
+        summary = finalizer['join_final_report_lifetime'](scope,
+            expected_input_pin=input_pin,
+            expected_report_pin=pin(scope/finalizer['FINAL_NAME']),
+            expected_writer_observation_pin=pin(scope/finalizer['FINAL_WRITER_OBSERVATION_NAME']),
+            expected_writer_argv=writer_argv)
+        if not summary['outer_report_fsync_and_termination_independently_observed']:
+            raise ValueError('Final-report writer lifetime join did not close')
+        # Recheck the actual retained report, observation and directory
+        # allocation. The observer receipt follows the writer's fsync/wait4.
         finalizer['allocate_storage'](finalizer['storage_inventory'](scope))
         cases,_ = finalizer['_worker_cases'](result)
         finalizer['allocate_elapsed'](cases,(time.monotonic_ns()-admission_start_monotonic_ns)/1e9)
-        if summary['outer_observer_self_ru_maxrss_bytes']>LIMITS['rss_bytes']:
+        if max(summary['outer_observer_self_ru_maxrss_bytes'],writer_observed['peak_rss_bytes'])>LIMITS['rss_bytes']:
             raise ValueError('Original512MiB outer observer cap exceeded')
         return summary
     except BaseException as failure:

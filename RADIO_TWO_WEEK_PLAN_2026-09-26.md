@@ -1,5 +1,20 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 2 October: final-report lifetime passes; platform gate remains
+
+[The implementation, tiny control, tests and refreshed runtime freeze](RADIO_NATIVE_V2_FINAL_REPORT_LIFETIME_2026-10-02_RESULT.md)
+cover the final report's file/directory fsync and the writer's complete `wait4`
+lifetime with a distinct observer. **206 tests pass**; the control uses
+**0.047 s / 14.92 MiB**. Current plan `20261002h` is bound to a fresh
+922-code/9-input/1,366-runtime freeze, and the exact parent check passes.
+
+The plan remains **BLOCKED_PREPARATION_REVIEW**. **Next:** define and verify the
+bounded activation platform contract, then publish/read back a distinct
+execution-qualified preread; only after those gates consider one fresh eight-input
+engineering control. No large source, reservation, RNG, telescope spectrum or
+holdout was opened. HD189733 selected; HD1461 HOLD; GJ724 reserve; 127/24 NOT
+ACTIVATED; LS paused; CHEOPS UNSENT. Consolidate 9 October. No external messages.
+
 ## 2 October: exact parent environment passes; execution remains blocked
 
 [The contract, actual isolated check and fresh freeze](RADIO_NATIVE_V2_ACTIVATION_ENVIRONMENT_2026-10-02_RESULT.md)

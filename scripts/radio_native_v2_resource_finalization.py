@@ -40,8 +40,15 @@ DRIVER_IDENTITY_NAME = 'measurement-driver-identity.json'
 DRIVER_OBSERVATION_NAME = 'measurement-driver-observation.json'
 RUNNER_OBSERVATION_NAME = 'whole-control-supervisor-observation.json'
 FINAL_NAME = 'resource-final-disposition.json'
+FINAL_INPUT_NAME = 'final-report-input.json'
+FINAL_WRITER_IDENTITY_NAME = 'final-report-writer-identity.json'
+FINAL_WRITER_OBSERVATION_NAME = 'final-report-writer-observation.json'
+FINAL_WRITER_STDOUT_NAME = 'final-report-writer-stdout.log'
+FINAL_WRITER_STDERR_NAME = 'final-report-writer-stderr.log'
 FINAL_METADATA_NAMES = (PENDING_NAME, DRIVER_IDENTITY_NAME,
-    DRIVER_OBSERVATION_NAME, FINAL_NAME)
+    DRIVER_OBSERVATION_NAME, FINAL_INPUT_NAME, FINAL_WRITER_IDENTITY_NAME,
+    FINAL_WRITER_OBSERVATION_NAME, FINAL_WRITER_STDOUT_NAME,
+    FINAL_WRITER_STDERR_NAME, FINAL_NAME)
 METADATA_RESERVATION_BYTES = 256 * 1024
 DIRECTORY_RESERVATION_BYTES = 65536
 MAX_EVIDENCE_BYTES = 2*MIB
@@ -50,9 +57,9 @@ MAX_INVENTORY_ENTRIES = 32768
 # the final code of the fixed source implementations; a supplied bundle cannot
 # select an arbitrary implementation for any admission check.
 BOOTSTRAP_SOURCE_PINS = {
-    FIXTURE: {'bytes': 107324, 'sha256': 'b59ce9cc43c098946ff488ec7fe99b506340c85b3f12194d6ec9bedecbd203d8'},
+    FIXTURE: {'bytes': 108473, 'sha256': '0469db1c88daabcf67630bba3670b6fdb8b4284e20bd5dc9eae7c583f93eb32f'},
     ADMISSION: {'bytes': 67121, 'sha256': 'f0e78a51244bca357cf1ea11a89d9ca2bbe91cfb9584e9a9345141c3248629ff'},
-    SUPERVISOR: {'bytes': 57814, 'sha256': 'cf60f401e983ff400d44a98fccd3d313fc49a2ca6f92f717499d97792195e824'},
+    SUPERVISOR: {'bytes': 57814, 'sha256': 'd3ef4a0c3eb3866a4b13bb3c1bb2b92a3567963c17d33f03db50577c0020068f'},
 }
 AUTHORITY = {'execution_authorized': False, 'reservation_authorized': False,
     'scientific_execution_authorized': False, 'native_case_reservations': 0,
@@ -65,7 +72,7 @@ AUTHORITY = {'execution_authorized': False, 'reservation_authorized': False,
 LIMITATIONS = [
     'Externally retained expected receipt pins and argv are caller trust inputs; JSON labels alone are not authenticated kernel evidence.',
     'The dedicated measurement driver must be independently observed through snapshot fsync and termination.',
-    'The final reporting process cannot prove its own future return, receipt fsync or termination.',
+    'The final report writer requires a distinct parent wait4 observation; that observer receipt does not prove the observer process future termination.',
     'Kernel escape, tracing, namespace transitions, complete operating runtime closure and native/HTTP host joins remain unqualified.',
     'RSS accounting is the maximum individual process, not simultaneous process RSS summed across a tree.']
 
@@ -539,6 +546,107 @@ def join_final_measurements(scope, *, expected_pending_pin, expected_driver_obse
     return result
 
 
+def _write_durable_exclusive(path, value):
+    """Write one fixed terminal artifact, fsync file and parent, then read back."""
+    path = Path(path)
+    if not path.is_absolute() or path.name in ('', '.', '..') or '..' in path.parts:
+        raise ValueError('Canonical absolute terminal artifact path required')
+    path = _absolute(path.parent)/path.name
+    raw = value if isinstance(value, bytes) else canonical(value)+b'\n'
+    if len(raw) > METADATA_RESERVATION_BYTES:
+        raise ValueError('Terminal artifact exceeds the fixed metadata reservation')
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o400)
+    try:
+        view = memoryview(raw)
+        while view:
+            amount = os.write(fd, view)
+            if amount <= 0: raise OSError('Incomplete exclusive terminal evidence write')
+            view = view[amount:]
+        os.fsync(fd); written = os.fstat(fd)
+    finally: os.close(fd)
+    directory = os.open(path.parent, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
+    try: os.fsync(directory)
+    finally: os.close(directory)
+    value_read, observed = read_pinned_json(path) if not isinstance(value, bytes) else (None, {
+        'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()})
+    if observed != {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()}:
+        raise ValueError('Durable terminal artifact readback differs')
+    reopened = path.stat(follow_symlinks=False)
+    if (written.st_dev, written.st_ino) != (reopened.st_dev, reopened.st_ino):
+        raise ValueError('Durable terminal artifact identity replaced')
+    return value_read, observed
+
+
+def persist_final_report(scope, *, expected_input_pin):
+    """Fixed report-writer child. Its parent must still observe its termination."""
+    scope = _absolute(scope)
+    input_path = scope/FINAL_INPUT_NAME
+    report_input, observed_input_pin = read_pinned_json(input_path, expected_input_pin)
+    if (report_input.get('schema') != SCHEMA+'-final-report-input'
+            or report_input.get('scope') != str(scope)
+            or report_input.get('final_reporting_process_termination_covered') is not False
+            or report_input.get('final_disposition_persisted') is not False
+            or type(report_input.get('complete_resource_measurement_join_qualified')) is not bool):
+        raise ValueError('Exact pending final-report input contract required')
+    for key, expected in AUTHORITY.items():
+        if canonical(report_input.get(key)) != canonical(expected):
+            raise ValueError('Disabled authority changed in terminal input: '+key)
+    _write_durable_exclusive(scope/FINAL_WRITER_IDENTITY_NAME, {
+        'procfs_pid': int(os.readlink('/proc/self')), 'namespace_pid': os.getpid(),
+        'schema': SCHEMA+'-final-report-writer-identity'})
+    report = {**report_input, 'schema': SCHEMA+'-persisted-final-report',
+        'status': ('OFFLINE_RESOURCE_MEASUREMENT_JOIN_PASSED_REPORT_WRITER_PENDING_OBSERVATION'
+            if report_input['complete_resource_measurement_join_qualified'] else
+            'PENDING_FINAL_MEASUREMENT_JOIN_REPORT_WRITER_PENDING_OBSERVATION'),
+        'final_report_input_pin': observed_input_pin,
+        'report_writer_fsync_completed_before_return': True,
+        'report_writer_termination_observation_required': True,
+        'final_reporting_process_termination_covered': False,
+        'final_disposition_persisted': True}
+    _, report_pin = _write_durable_exclusive(scope/FINAL_NAME, report)
+    return report, report_pin
+
+
+def join_final_report_lifetime(scope, *, expected_input_pin, expected_report_pin,
+        expected_writer_observation_pin, expected_writer_argv):
+    """Read-only join of a durable report with its writer's full wait4 lifetime."""
+    scope = _absolute(scope)
+    report_input, input_pin = read_pinned_json(scope/FINAL_INPUT_NAME, expected_input_pin)
+    report, report_pin = read_pinned_json(scope/FINAL_NAME, expected_report_pin)
+    observation, observation_pin = read_pinned_json(
+        scope/FINAL_WRITER_OBSERVATION_NAME, expected_writer_observation_pin)
+    identity, identity_pin = read_pinned_json(scope/FINAL_WRITER_IDENTITY_NAME)
+    writer_start, writer_end, writer_peak = _observation(
+        observation, expected_writer_argv, expected_identity=identity)
+    if (report.get('schema') != SCHEMA+'-persisted-final-report'
+            or report.get('scope') != str(scope)
+            or report.get('final_report_input_pin') != input_pin
+            or report.get('report_writer_fsync_completed_before_return') is not True
+            or report.get('report_writer_termination_observation_required') is not True
+            or report.get('final_disposition_persisted') is not True
+            or report.get('final_reporting_process_termination_covered') is not False):
+        raise ValueError('Exact persisted final report contract required')
+    for key in report_input:
+        if (key not in ('schema', 'status', 'final_disposition_persisted')
+                and canonical(report.get(key)) != canonical(report_input[key])):
+            raise ValueError('Persisted final report differs from pinned input: '+key)
+    if writer_peak > LIMITS['rss_bytes']:
+        raise ValueError('Original 512MiB report-writer process RSS bound exceeded')
+    return {**report,
+        'status': ('OFFLINE_RESOURCE_MEASUREMENT_JOIN_PASSED'
+            if report['complete_resource_measurement_join_qualified'] else
+            'PENDING_FINAL_MEASUREMENT_JOIN'),
+        'persisted_final_report_pin': report_pin,
+        'final_report_writer_identity_pin': identity_pin,
+        'final_report_writer_observation_pin': observation_pin,
+        'final_report_writer_interval': {'monotonic_start_ns': writer_start,
+            'monotonic_end_ns': writer_end, 'peak_rss_bytes': writer_peak},
+        'outer_report_fsync_and_termination_independently_observed': True,
+        'final_reporting_process_termination_covered': True,
+        'final_disposition_persisted': True,
+        'terminal_observer_own_future_termination_covered': False}
+
+
 def _read_pinned_source(path, expected_pin):
     path = _absolute(path)
     fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
@@ -676,15 +784,42 @@ def run_admitted_measurement_driver(bundle_path, scope, *, expected_bundle_sha25
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--admitted-whole-control-driver', action='store_true', required=True)
-    parser.add_argument('--admission-bundle', required=True)
-    parser.add_argument('--bundle-sha256', required=True)
+    modes = parser.add_mutually_exclusive_group(required=True)
+    modes.add_argument('--admitted-whole-control-driver', action='store_true')
+    modes.add_argument('--persist-final-report', action='store_true')
+    parser.add_argument('--admission-bundle')
+    parser.add_argument('--bundle-sha256')
     parser.add_argument('--scope', required=True)
-    parser.add_argument('--admission-start-monotonic-ns', required=True, type=int)
+    parser.add_argument('--admission-start-monotonic-ns', type=int)
+    parser.add_argument('--input-bytes', type=int)
+    parser.add_argument('--input-sha256')
     args = parser.parse_args()
-    run_admitted_measurement_driver(args.admission_bundle, args.scope,
-        expected_bundle_sha256=args.bundle_sha256,
-        admission_start_monotonic_ns=args.admission_start_monotonic_ns)
+    if args.admitted_whole_control_driver:
+        if (args.admission_bundle is None or args.bundle_sha256 is None
+                or args.admission_start_monotonic_ns is None
+                or args.input_bytes is not None or args.input_sha256 is not None):
+            parser.error('Exact admitted measurement-driver arguments required')
+        run_admitted_measurement_driver(args.admission_bundle, args.scope,
+            expected_bundle_sha256=args.bundle_sha256,
+            admission_start_monotonic_ns=args.admission_start_monotonic_ns)
+    else:
+        if (args.input_bytes is None or args.input_sha256 is None
+                or args.admission_bundle is not None or args.bundle_sha256 is not None
+                or args.admission_start_monotonic_ns is not None):
+            parser.error('Exact final-report writer arguments required')
+        expected = {'bytes': args.input_bytes, 'sha256': args.input_sha256}
+        _validate_pin(expected)
+        expected_argv = [str(Path(sys.executable).resolve()), '-I', '-S', '-B',
+            str(Path(__file__).resolve()), '--persist-final-report', '--scope',
+            str(Path(args.scope).absolute()), '--input-bytes', str(args.input_bytes),
+            '--input-sha256', args.input_sha256]
+        if list(sys.orig_argv) != expected_argv:
+            raise RuntimeError('Exact original final-report writer interpreter argv required')
+        if not (sys.flags.isolated and sys.flags.no_site and sys.flags.dont_write_bytecode):
+            raise RuntimeError('Actual isolated no-site no-bytecode final-report writer required')
+        if dict(os.environ) != ENVIRONMENT:
+            raise RuntimeError('Exact complete minimal final-report writer environment required')
+        persist_final_report(args.scope, expected_input_pin=expected)
 
 
 if __name__ == '__main__': main()
