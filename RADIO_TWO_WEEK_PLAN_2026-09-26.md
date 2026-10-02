@@ -1,5 +1,17 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 2 October: runtime-custody component verified, integration pending
+
+[Eight isolated tests](RADIO_NATIVE_V2_RUNTIME_CUSTODY_COMPONENT_2026-10-02_RESULT.md)
+verify exact Git alias closure, sole-link material runtime and six failure modes; the
+223-test adjacent suite also passes. The real freeze reproduces 151 inventory
+hardlinks and 157 aliases. The component remains non-authorizing and is not yet part
+of the freezer/receipt/worker chain.
+
+**Next:** integrate before all writes, run adjacent tests and create fresh plan/freeze.
+Do not reuse/retry the spent marker/control or open telescope data. Consolidate
+9 October; all target, LS and CHEOPS dispositions remain unchanged.
+
 ## 2 October: runtime-custody remediation protocol frozen
 
 [The full frozen-runtime audit](RADIO_NATIVE_V2_RUNTIME_CUSTODY_REMEDIATION_2026-10-02_RESULT.md)

@@ -1,5 +1,18 @@
 # SETIsearch — current project status
 
+## 2 October: runtime-custody proof component passes eight tests
+
+[The new component and evidence](RADIO_NATIVE_V2_RUNTIME_CUSTODY_COMPONENT_2026-10-02_RESULT.md)
+close allowed activation-only hardlink groups and enforce sole-link custody for every
+post-activation runtime. Eight isolated tests and the 223-test adjacent suite pass,
+including the real 1,366-path freeze plus six negative topology/identity cases. Three
+incomplete import-path discovery invocations are retained.
+
+The component is not yet integrated into the freezer, receipt, workers or runner and
+authorizes no control. The prior marker/invocation remain spent. **Next:** integrate
+the custody manifest at every pre-write gate, run the adjacent suite, then create
+fresh plan/freeze; do not retry the failed evaluation or open telescope data.
+
 ## 2 October: runtime-custody topology audited; remediation protocol frozen
 
 [The bounded audit and prospective protocol](RADIO_NATIVE_V2_RUNTIME_CUSTODY_REMEDIATION_2026-10-02_RESULT.md)

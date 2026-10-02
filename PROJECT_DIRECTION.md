@@ -1,5 +1,16 @@
 # Long-term project direction
 
+## 2 October: portable custody proof implemented, not integrated
+
+[The component](RADIO_NATIVE_V2_RUNTIME_CUSTODY_COMPONENT_2026-10-02_RESULT.md)
+now converts ephemeral inode observations into a portable alias/group manifest while
+keeping material runtime sole-link. Its real-freeze and negative tests pass together
+with the 223-test adjacent suite.
+
+**Direction:** thread the manifest hash through the fresh freeze, activation receipt
+and every worker gate before any new preparation. No new marker or control is allowed
+from this component alone; the failed evaluation remains closed.
+
 ## 2 October: prospective runtime-custody parity specified
 
 [The topology audit](RADIO_NATIVE_V2_RUNTIME_CUSTODY_REMEDIATION_2026-10-02_RESULT.md)
