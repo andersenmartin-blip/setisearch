@@ -1,5 +1,19 @@
 # SETIsearch
 
+## 2 October: final-report writer lifetime verified
+
+[The implementation, actual control and refreshed freeze](RADIO_NATIVE_V2_FINAL_REPORT_LIFETIME_2026-10-02_RESULT.md)
+cover final-report file/directory fsync plus the writer's complete `wait4` lifetime
+with an independent observer. **206 tests pass**; the tiny control completes in
+**0.047 s** at **14.92 MiB** maximum individual RSS. A fresh freeze binds 922 code
+files, 9 inputs and 1,366 runtime files to plan `20261002h`.
+
+The plan remains **BLOCKED_PREPARATION_REVIEW**. Bounded activation platform closure
+and a distinct execution-qualified public preread are still required before one
+fresh eight-input engineering control. No large input, reservation, RNG or telescope
+spectrum was opened. HD189733 selected; HD1461 HOLD; GJ724 reserve; 127/24 NOT
+ACTIVATED; LS paused; CHEOPS UNSENT. Consolidate 9 October.
+
 ## 2 October: exact activation parent environment verified
 
 [The contract and evidence](RADIO_NATIVE_V2_ACTIVATION_ENVIRONMENT_2026-10-02_RESULT.md)
