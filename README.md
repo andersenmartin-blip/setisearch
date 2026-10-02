@@ -1,5 +1,18 @@
 # SETIsearch
 
+## 2 October: runtime-custody topology audited; remediation frozen
+
+[The bounded audit and prospective protocol](RADIO_NATIVE_V2_RUNTIME_CUSTODY_REMEDIATION_2026-10-02_RESULT.md)
+cover all 1,366 frozen runtime paths: 151 hardlinked Git paths in six groups and 157
+closed aliases under two roots. No material Python, Node, library or repository/input
+hardlink was found. Future preparation must bind closed activation-only Git topology,
+then retain sole-link custody for every post-activation runtime.
+
+This authorizes no new marker or control. The failed marker and invocation remain
+spent; no retry, large input, RNG, reservation, native/science case or telescope
+spectrum occurred. Implementation and negative tests are next, followed only by
+wholly fresh preparation. Consolidate 9 October.
+
 ## 2 October: unique engineering control failed closed before scope creation
 
 [The retained activation, invocation and diagnosis](RADIO_NATIVE_V2_ONE_CONTROL_2026-10-02_RESULT.md)
