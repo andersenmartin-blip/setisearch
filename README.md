@@ -6,10 +6,10 @@
 thread the future marker receipt through every outer, worker, supervisor and finalizer
 path. Missing marker/readback evidence fails before scope creation. Plan `20261002j`
 remains blocked; its fresh freeze covers 923 code files, 9 inputs and 1,366 runtime
-files.
+files. The complete preparation now has matching science/main public readback.
 
 No marker, large input, control, reservation, RNG or telescope spectrum was opened.
-Next is immutable preparation publication/readback and then a fresh distinct preread;
+Next is a fresh distinct preread bound to public preparation commit `25e9df22...`;
 the old preread is not reusable. HD189733 selected; HD1461 HOLD; GJ724 reserve; 127/24
 NOT ACTIVATED; LS paused; CHEOPS UNSENT. Consolidate 9 October.
 
