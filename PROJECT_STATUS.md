@@ -1,5 +1,23 @@
 # SETIsearch — current project status
 
+## 2 October: distinct execution preread built; publication pending
+
+[The artifact, eight identity checks and retained failed control](RADIO_NATIVE_V2_EXECUTION_PREREAD_2026-10-02_RESULT.md)
+bind the exact public preparation commit, plan, freeze and material code pins. The
+4,082-byte preread SHA256 is
+`582a98eb42a704c6b1ef8a629734a7aae1e515ad287ddf11652e821c807b73cc`.
+All eight worker identities validate; changed hashes/admission bits close. A first
+incorrect structural commit-authentication expectation is retained failed and the
+corrected independent tree check passes.
+
+The preread is not execution-qualified until its own public blob is read back.
+Plan `20261002i` remains **BLOCKED_PREPARATION_REVIEW**; the historical contract was
+not rewritten. No large input, control, reservation, RNG or telescope read occurred.
+HD189733 selected; HD1461 HOLD; GJ724 reserve; 127/24 NOT ACTIVATED; spectra/holdouts
+unopened; LS paused; CHEOPS UNSENT. **Next:** publish/read back the preread, then
+assess the separate one-control activation transition. Consolidate 9 October.
+No messages.
+
 ## 2 October: bounded activation platform verified; execution blocked
 
 [The contract, isolated check, fresh freeze and tests](RADIO_NATIVE_V2_ACTIVATION_PLATFORM_2026-10-02_RESULT.md)
