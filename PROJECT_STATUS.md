@@ -2,6 +2,8 @@
 
 ## 2 October: historical storage and prospective c journal prepared
 
+The immutable [public checkpoint readback](results_radio_native_v2_historical_storage_20261002a/public-checkpoint-readback.json) verifies all **56 files / 3,331,242 raw bytes** at [`0c58f8d`](https://github.com/andersenmartin-blip/setisearch/commit/0c58f8d96a47ae333a9c0f06322edd4dd88ffc42); the main README also has matching raw content/Git-blob readback. This receipt grants no new execution or scientific authority.
+
 [The new candidate components and retained evidence](RADIO_NATIVE_V2_HISTORICAL_STORAGE_2026-10-02_RESULT.md) pass two actual **494-test** suites with process exit 0. Hardened read-only checks verify the original 107-file/20-directory failed scope and spent journal: **70,254,559 logical / 70,496,256 allocated bytes** of current historical overhead. Exact path/inode joins and a distinct root-bound c spender are tested; a reproduced manifest-header race is repaired and retained.
 
 Fresh blocked plan q/runtime capture and machine audit bind 930 code files, 61 inputs and 1,366 runtime paths; all 33 registered b material pins remain unchanged. The new components are standalone preparation only. Production allocation/lifetime joins, fresh preread and c activation remain open; no real c ledger, marker, claim or control exists. b stays CLOSED_FAILED, 0/8, permanently spent. No telescope data analyzed. HD189733 selected; HD1461 HOLD; GJ724 reserve; LS paused; CHEOPS UNSENT. Stop **9 October** without extension, restart or target change.
