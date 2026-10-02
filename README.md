@@ -1,5 +1,12 @@
 # SETIsearch
 
+## 2 October: distinct c execution preread built and verified
+
+[The distinct c preread and evidence](RADIO_NATIVE_V2_EXECUTION_PREREAD_C_2026-10-02_RESULT.md) bind unchanged plan r/runtime and all 49 material files to the immutable integrated preparation. Fresh public GETs verify **171 unique files / 6,815,970 raw bytes**, including all nine historical inputs. The exact 25-field c proof is built exclusively and independently verified; **46 new metadata-tool tests pass**, with zero failures/errors/skips and process exit 0. The existing 541-test production pass and all 1,002 source pins remain unchanged.
+
+Fresh isolated runtime/preflight and read-only historical checks pass; all five execution blockers and false completion/lifetime fields remain. One future engineering control is conditional on a separate marker-only c transition, exact public readbacks and fixed launch inputs. At this checkpoint no c marker, journal, launch config, scope or control exists. b remains CLOSED_FAILED, 0/8, permanently spent. Scientific/native/telescope gates stay blocked; no person messages. Stop **9 October** without extension, restart or target change.
+
+
 ## 2 October: prospective c control integrated; execution blocked
 
 The immutable [public checkpoint readback](results_radio_native_v2_control_integration_20261002a/public-checkpoint-readback.json) verifies all **139 files / 6,143,701 raw bytes** at [`e422fa4`](https://github.com/andersenmartin-blip/setisearch/commit/e422fa4bb61778a5861c4376fd694c37c9208cf6). The main README at [`ffd76db`](https://github.com/andersenmartin-blip/setisearch/commit/ffd76dbd572f7618f3b75b679a4a89a3ef5f5f9c) also has matching complete content and Git-blob readback. This confirms the published preparation and grants no execution or scientific authority.
