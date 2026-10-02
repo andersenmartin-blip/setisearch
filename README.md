@@ -1,13 +1,16 @@
 # SETIsearch
 
-## 2 October: distinct execution preread constructed
+## 2 October: distinct execution preread public readback verified
 
 [The artifact, eight identity checks and retained failed control](RADIO_NATIVE_V2_EXECUTION_PREREAD_2026-10-02_RESULT.md)
 bind the exact public preparation commit, plan, freeze and material code pins. The
 historical plan remains blocked and unchanged; no execution route was opened.
 
-The preread still requires its own immutable public readback before a separate
-one-control activation transition may be assessed. No large input, reservation, RNG
+Its immutable science and main publications now match the expected parents, trees and
+pinned blobs. Execution remains blocked by a separate pre-admission activation gate;
+the preread does not rewrite the historical blocked contract. The next step is to
+specify and verify that one-control transition while preserving all published pins.
+No large input, reservation, RNG
 or telescope spectrum was opened. HD189733 selected; HD1461 HOLD; GJ724 reserve;
 127/24 NOT ACTIVATED; LS paused; CHEOPS UNSENT. Consolidate 9 October.
 
@@ -19,8 +22,9 @@ identity without publishing secrets or claiming that kernel bytes are frozen.
 **207 tests pass**; the fresh freeze covers 922 code files, 8 inputs and 1,366
 runtime files.
 
-Plan `20261002i` remains **BLOCKED_PREPARATION_REVIEW**. A distinct immutable public
-execution preread is still required before one fresh eight-input engineering control.
+Plan `20261002i` remains **BLOCKED_PREPARATION_REVIEW**. Its distinct immutable
+execution preread now has matching public readback, but the separate pre-admission
+activation transition remains open before one fresh eight-input engineering control.
 No large input, reservation, RNG or telescope spectrum was opened. HD189733 selected;
 HD1461 HOLD; GJ724 reserve; 127/24 NOT ACTIVATED; LS paused; CHEOPS UNSENT.
 Consolidate 9 October.
@@ -34,8 +38,9 @@ with an independent observer. **206 tests pass**; the tiny control completes in
 files, 9 inputs and 1,366 runtime files to plan `20261002h`.
 
 The plan remains **BLOCKED_PREPARATION_REVIEW**. Bounded activation platform closure
-and a distinct execution-qualified public preread are still required before one
-fresh eight-input engineering control. No large input, reservation, RNG or telescope
+and the distinct execution preread were subsequently completed with public readback;
+the separate pre-admission transition remains open before one fresh eight-input
+engineering control. No large input, reservation, RNG or telescope
 spectrum was opened. HD189733 selected; HD1461 HOLD; GJ724 reserve; 127/24 NOT
 ACTIVATED; LS paused; CHEOPS UNSENT. Consolidate 9 October.
 
