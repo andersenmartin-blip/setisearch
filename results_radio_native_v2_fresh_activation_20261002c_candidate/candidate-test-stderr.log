@@ -1,0 +1,59 @@
+test_candidate_selected_git_custody_source_or_policy_cannot_run_before_check (held_baseline_activation_tests.ControlActivationTests.test_candidate_selected_git_custody_source_or_policy_cannot_run_before_check) ... ok
+test_changed_public_readback_closes (held_baseline_activation_tests.ControlActivationTests.test_changed_public_readback_closes) ... ok
+test_changed_receipt_pins_and_authority_close (held_baseline_activation_tests.ControlActivationTests.test_changed_receipt_pins_and_authority_close) ... ok
+test_exact_marker_only_checkout_and_worker_receipt_pass (held_baseline_activation_tests.ControlActivationTests.test_exact_marker_only_checkout_and_worker_receipt_pass) ... ok
+test_full_custody_rejects_same_byte_material_replacement_before_git (held_baseline_activation_tests.ControlActivationTests.test_full_custody_rejects_same_byte_material_replacement_before_git) ... ok
+test_git_fixed_no_fetch_and_no_prompt_policy_overrides_conflicting_parent (held_baseline_activation_tests.ControlActivationTests.test_git_fixed_no_fetch_and_no_prompt_policy_overrides_conflicting_parent) ... ok
+test_git_phase_closes_and_material_custody_is_rechecked_before_return (held_baseline_activation_tests.ControlActivationTests.test_git_phase_closes_and_material_custody_is_rechecked_before_return) ... ok
+test_material_mutation_during_git_cannot_return_complete_receipt (held_baseline_activation_tests.ControlActivationTests.test_material_mutation_during_git_cannot_return_complete_receipt) ... ok
+test_missing_or_dirty_marker_closes (held_baseline_activation_tests.ControlActivationTests.test_missing_or_dirty_marker_closes) ... ok
+test_non_marker_only_commit_closes (held_baseline_activation_tests.ControlActivationTests.test_non_marker_only_commit_closes) ... ok
+test_receipt_custody_scope_completion_and_spent_identity_are_strict (held_baseline_activation_tests.ControlActivationTests.test_receipt_custody_scope_completion_and_spent_identity_are_strict) ... ok
+test_reused_marker_path_closes_even_when_all_current_bytes_are_read_back (held_baseline_activation_tests.ControlActivationTests.test_reused_marker_path_closes_even_when_all_current_bytes_are_read_back) ... ok
+test_wrong_parent_or_tree_claim_closes_even_with_refreshed_commit_readback (held_baseline_activation_tests.ControlActivationTests.test_wrong_parent_or_tree_claim_closes_even_with_refreshed_commit_readback) ... ok
+test_both_old_commits_refused_even_with_current_marker_namespace_and_pins (held_spent_history_tests.install_cases.<locals>.HistoricalSpentIdentityTests.test_both_old_commits_refused_even_with_current_marker_namespace_and_pins) ... 
+  test_both_old_commits_refused_even_with_current_marker_namespace_and_pins (held_spent_history_tests.install_cases.<locals>.HistoricalSpentIdentityTests.test_both_old_commits_refused_even_with_current_marker_namespace_and_pins) (commit='ba1b6c918931a02a84cd23e0e14057bd9f700e40') ... FAIL
+  test_both_old_commits_refused_even_with_current_marker_namespace_and_pins (held_spent_history_tests.install_cases.<locals>.HistoricalSpentIdentityTests.test_both_old_commits_refused_even_with_current_marker_namespace_and_pins) (commit='1bc31d49b2552de10c3fbabb7bc106618a44a241') ... FAIL
+test_both_old_marker_paths_refused_before_git (held_spent_history_tests.install_cases.<locals>.HistoricalSpentIdentityTests.test_both_old_marker_paths_refused_before_git) ... 
+  test_both_old_marker_paths_refused_before_git (held_spent_history_tests.install_cases.<locals>.HistoricalSpentIdentityTests.test_both_old_marker_paths_refused_before_git) (path='config/radio_native_v2_control_activation_20261002b.activate.json') ... FAIL
+test_old_transition_namespace_is_not_current_authority (held_spent_history_tests.install_cases.<locals>.HistoricalSpentIdentityTests.test_old_transition_namespace_is_not_current_authority) ... ok
+
+======================================================================
+FAIL: test_both_old_commits_refused_even_with_current_marker_namespace_and_pins (held_spent_history_tests.install_cases.<locals>.HistoricalSpentIdentityTests.test_both_old_commits_refused_even_with_current_marker_namespace_and_pins) (commit='ba1b6c918931a02a84cd23e0e14057bd9f700e40')
+----------------------------------------------------------------------
+ValueError: Exact activation receipt identity required
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_fresh_activation_20261002c_candidate/historical_spent_identity_tests.py", line 25, in test_both_old_commits_refused_even_with_current_marker_namespace_and_pins
+    with self.subTest(commit=commit), self.assertRaisesRegex(ValueError, 'spent'):
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "spent" does not match "Exact activation receipt identity required"
+
+======================================================================
+FAIL: test_both_old_commits_refused_even_with_current_marker_namespace_and_pins (held_spent_history_tests.install_cases.<locals>.HistoricalSpentIdentityTests.test_both_old_commits_refused_even_with_current_marker_namespace_and_pins) (commit='1bc31d49b2552de10c3fbabb7bc106618a44a241')
+----------------------------------------------------------------------
+ValueError: Exact activation receipt identity required
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_fresh_activation_20261002c_candidate/historical_spent_identity_tests.py", line 25, in test_both_old_commits_refused_even_with_current_marker_namespace_and_pins
+    with self.subTest(commit=commit), self.assertRaisesRegex(ValueError, 'spent'):
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "spent" does not match "Exact activation receipt identity required"
+
+======================================================================
+FAIL: test_both_old_marker_paths_refused_before_git (held_spent_history_tests.install_cases.<locals>.HistoricalSpentIdentityTests.test_both_old_marker_paths_refused_before_git) (path='config/radio_native_v2_control_activation_20261002b.activate.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_fresh_activation_20261002c_candidate/historical_spent_identity_tests.py", line 14, in test_both_old_marker_paths_refused_before_git
+    with self.assertRaisesRegex(ValueError, 'spent'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 16 tests in 4.735s
+
+FAILED (failures=3)

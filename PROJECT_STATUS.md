@@ -1,5 +1,11 @@
 # SETIsearch — current project status
 
+## 2 October: suite persistence verified; prospective c remains blocked
+
+[Immutable per-attempt suite persistence](RADIO_NATIVE_V2_SUITE_PERSISTENCE_2026-10-02_RESULT.md) now passes two actual **419-test** runs with zero failures/errors/skips and **process exit 0**, including result persistence. All 946 source/test/wrapper pins match. A duplicate attempt is refused before tests; an explicitly synthetic stale alias and the first summary remain unchanged. Fresh blocked plan p/runtime capture and machine preparation audit pass with 928 code files, 38 inputs and 1,366 runtime files in the actual exact environment. Five execution blockers remain; these are self-review/machine checks, not an independent human review.
+
+A held prospective c activation candidate passes 16 tests after a corrected loader-binding adapter. Its first failed adapter/result is retained and disclosed. Production activation, worker and spender remain b. The original spent ledger is read-only verified unchanged: 4,592 logical / 8,192 allocated bytes. A separate prospective ledger plus joined historical storage/lifetime accounting must be integrated and reviewed before any new control. No project c marker, ledger, spend or control is created. Original b remains CLOSED_FAILED, 0/8 cases, permanently spent. All scientific/source/native gates remain blocked; HD189733 selected, HD1461 HOLD, GJ724 reserve. Stop **9 October** without extension, restart or target change.
+
 ## 2 October: supervisor receipt repair verified; preparation remains blocked
 
 [The bounded receipt and live-identity repair](RADIO_NATIVE_V2_SUPERVISOR_RECEIPT_2026-10-02_RESULT.md)
