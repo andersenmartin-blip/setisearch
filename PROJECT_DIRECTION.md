@@ -1,5 +1,19 @@
 # Long-term project direction
 
+## 2 October: one-control activation transition protocol verified
+
+[The exact protocol and blocker audit](RADIO_NATIVE_V2_CONTROL_ACTIVATION_TRANSITION_2026-10-02_RESULT.md)
+show that the published preread cannot reach the current runner because every material
+entry point first executes the constant global refusal. A finite seven-phase sequence
+now separates gate-interface preparation from a later marker-only activation.
+
+**Direction:** implement only the fail-closed interface next, thread its proof through
+every independent worker, and prove malformed or absent proofs fail before writes.
+Then create and publish a new still-blocked plan/freeze and fresh preread; never reuse
+the current preread for changed code. Keep all large inputs, reservations, RNG and
+science closed until the unique marker is independently verified. All dispositions
+and the 9 October end date remain unchanged. No external messages.
+
 ## 2 October: distinct execution preread publication verified
 
 [The exact artifact and verifier](RADIO_NATIVE_V2_EXECUTION_PREREAD_2026-10-02_RESULT.md)

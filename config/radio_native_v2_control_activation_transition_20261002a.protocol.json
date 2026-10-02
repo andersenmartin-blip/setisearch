@@ -1,0 +1,111 @@
+{
+  "schema": "radio-native-v2-control-activation-transition-v1",
+  "namespace": "radio-native-v2-control-activation-transition-20261002a",
+  "repository": "andersenmartin-blip/setisearch",
+  "branch": "m43-support-qualification",
+  "mode": "PROSPECTIVE_PROTOCOL_ONLY",
+  "current_public_evidence": {
+    "preparation_commit": "39c8a4dee4f8c59357617e602855bea705217051",
+    "preparation_tree": "08741f69c7574b00b8d2f9a9c619416790549699",
+    "execution_preread_commit": "fda127b40e0781c4a4b750615563693bb557c95f",
+    "execution_preread_tree": "17cc7c05689c807830e0533ab652c1844ebba70b",
+    "readback_closure_commit": "95178ef0cba1d4dad0a645bd009531d579119453",
+    "readback_closure_tree": "13a9858148e003b0176cc50f4673d357aaab6b3d",
+    "main_readme_commit": "11c00970d3fcb7ad61ae1a9ff6b6cddd23760a15",
+    "main_readme_tree": "4b49f161400cb835c06761bc7a1644902cf9ba34"
+  },
+  "current_pins": {
+    "plan": {
+      "path": "config/radio_native_v2_compact_eight_input_control_20261002i.plan.json",
+      "sha256": "638565ed522d6bbf027f8f0f60f4ecb942c414141e2f18c2e78db878cc1d0062",
+      "canonical_sha256": "095fd82c014b5cd9e0dac053a76e22ddf65a6a906586233d53b185ca1bcefae7"
+    },
+    "complete_freeze": {
+      "path": "config/radio_native_v2_activation_environment_20261002c.runtime.json",
+      "sha256": "ee5f8f4c3fc8bc55749b4fdbe09a1eabc64d7bb948ac4d20d6f8bf8ea952cc0e",
+      "canonical_sha256": "4b514ab4e6741ebe1bc49a8409111797ce9d0012c93b22726f26743e53a9b32d"
+    },
+    "execution_preread": {
+      "path": "config/radio_native_v2_execution_preread_20261002a.json",
+      "sha256": "582a98eb42a704c6b1ef8a629734a7aae1e515ad287ddf11652e821c807b73cc"
+    },
+    "material_runner": {
+      "path": "scripts/radio_native_v2_compact_eight_case_resource_fixture.py",
+      "sha256": "f4449ac6d47f03be3bc8a7898ef7ba59285de0fa586f7bb6dab20e73e27257ff"
+    },
+    "worker_admission": {
+      "path": "scripts/radio_native_v2_worker_admission.py",
+      "sha256": "f0e78a51244bca357cf1ea11a89d9ca2bbe91cfb9584e9a9345141c3248629ff"
+    }
+  },
+  "observed_blocker": {
+    "plan_execution_status": "BLOCKED_PREPARATION_REVIEW",
+    "preread_engineering_control_admitted": true,
+    "global_gate_precedes_preread_validation": true,
+    "existing_preread_can_activate_existing_runner": false,
+    "reason": "The material runner calls its constant global refusal before reading and validating the published preread or worker bundle."
+  },
+  "transition_invariants": {
+    "historical_preparation_contract_rewritten": false,
+    "current_plan_or_preread_mutated": false,
+    "marker_may_change_prepared_code": false,
+    "marker_may_change_plan_freeze_or_preread": false,
+    "automatic_retry": false,
+    "scope_reuse": false,
+    "large_input_before_final_activation": false,
+    "telescope_data_access": false,
+    "reservation_authorized": false,
+    "rng_authorized": false,
+    "scientific_execution_authorized": false,
+    "native_execution_authorized": false,
+    "external_messages_authorized": false
+  },
+  "required_phases": [
+    {
+      "ordinal": 1,
+      "name": "PREPARE_GATE_INTERFACE",
+      "requirement": "Add a fail-closed activation-proof input to the outer run and every independently admitted worker before any scope or source write; keep plan generation BLOCKED_PREPARATION_REVIEW."
+    },
+    {
+      "ordinal": 2,
+      "name": "FREEZE_NEW_INTERFACE",
+      "requirement": "Run refusal and tiny controls, then create a fresh plan and complete runtime freeze binding every changed material byte and exact bounded platform."
+    },
+    {
+      "ordinal": 3,
+      "name": "PUBLISH_PREPARATION",
+      "requirement": "Publish the new code, protocol, tests, plan and freeze by non-force fast-forward and independently read back their exact parent, tree and blobs."
+    },
+    {
+      "ordinal": 4,
+      "name": "PUBLISH_DISTINCT_PREREAD",
+      "requirement": "Create and publish a fresh preread bound to the new public preparation commit, plan, freeze and code pins; independently read it back."
+    },
+    {
+      "ordinal": 5,
+      "name": "MARKER_ONLY_ACTIVATION",
+      "requirement": "Make the next science-branch commit a single-parent direct child of the preread commit adding exactly one unique activation marker; the marker binds the independent preread readback and grants only one engineering control."
+    },
+    {
+      "ordinal": 6,
+      "name": "ONE_FRESH_CONTROL",
+      "requirement": "After marker readback, run exactly one fresh eight-input engineering control under original cumulative limits; no retry, rerun, resume, RNG, telescope data, native or scientific case."
+    },
+    {
+      "ordinal": 7,
+      "name": "FINAL_DISPOSITION",
+      "requirement": "Preserve all output, failures, vetoes and complete resource receipts; pass or fail without tuning."
+    }
+  ],
+  "activation_marker_contract": {
+    "schema": "radio-native-v2-control-single-activation-v1",
+    "unique_path": "config/radio_native_v2_control_activation_20261002a.activate.json",
+    "direct_child_of_preread_commit": true,
+    "single_parent": true,
+    "only_tree_change_is_marker_addition": true,
+    "first_attempt_only": true,
+    "one_control_invocation": true,
+    "no_retry_rerun_resume_or_scope_reuse": true
+  },
+  "current_disposition": "TRANSITION_PROTOCOL_FROZEN_EXECUTION_STILL_BLOCKED"
+}

@@ -1,5 +1,18 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 2 October: one-control activation transition frozen and verified
+
+[The protocol and structural audit](RADIO_NATIVE_V2_CONTROL_ACTIVATION_TRANSITION_2026-10-02_RESULT.md)
+verify the exact public evidence chain and show that the frozen runner's global refusal
+precedes its valid preread. Seven ordered phases now resolve the code-pin cycle with a
+new still-blocked preparation, a fresh public preread and a later marker-only commit.
+
+**Next:** implement the fail-closed proof interface across the outer invocation and
+every worker, with pre-write negative tests; then generate a new still-blocked
+plan/freeze. Do not reuse the current preread and do not open large sources. HD189733
+selected; HD1461 HOLD; GJ724 reserve; 127/24 NOT ACTIVATED; LS paused; CHEOPS UNSENT.
+Consolidate 9 October. No external messages.
+
 ## 2 October: distinct execution preread public readback verified
 
 [The artifact and verifier](RADIO_NATIVE_V2_EXECUTION_PREREAD_2026-10-02_RESULT.md)

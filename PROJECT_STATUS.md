@@ -1,5 +1,19 @@
 # SETIsearch — current project status
 
+## 2 October: finite one-control activation transition verified; execution blocked
+
+[The protocol, verifier and retained failures](RADIO_NATIVE_V2_CONTROL_ACTIVATION_TRANSITION_2026-10-02_RESULT.md)
+prove that the current frozen runner rejects before reading its valid public preread.
+The exact public commit chain and all material pins match. A seven-phase marker-only
+transition now breaks the pin cycle without rewriting the historical plan.
+
+The protocol itself grants no authority. No large input, control, reservation, RNG
+or telescope read occurred. HD189733 selected; HD1461 HOLD; GJ724 reserve; 127/24
+NOT ACTIVATED; spectra/holdouts unopened; LS paused; CHEOPS UNSENT. **Next:** implement
+the fail-closed proof interface in the outer invocation and every worker, test all
+pre-write refusals, then create a new still-blocked plan/freeze. Consolidate 9 October.
+No messages.
+
 ## 2 October: execution preread public readback verified; activation still blocked
 
 [The artifact, eight identity checks and retained failed control](RADIO_NATIVE_V2_EXECUTION_PREREAD_2026-10-02_RESULT.md)
