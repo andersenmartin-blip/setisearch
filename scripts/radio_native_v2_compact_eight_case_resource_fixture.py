@@ -137,6 +137,14 @@ def write(path, value):
         raise ValueError('Durable evidence file identity replaced')
 
 
+class JSONEvidenceChangedDuringRead(ValueError):
+    """A bounded opened JSON evidence descriptor changed during its read.
+
+    Static evidence readers still reject this error. Only the live, not-yet-
+    verified direct-child identity observer may retry under its fixed deadline.
+    """
+
+
 def small_json(path, limit=2*MIB):
     fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
     try:
@@ -144,10 +152,10 @@ def small_json(path, limit=2*MIB):
         if not stat.S_ISREG(info.st_mode) or info.st_nlink != 1 or info.st_size > limit:
             raise ValueError('Bounded sole-link regular JSON evidence required')
         with os.fdopen(os.dup(fd), 'rb') as stream: raw = stream.read(limit + 1)
-        if len(raw) != info.st_size: raise ValueError('JSON evidence changed during read')
+        if len(raw) != info.st_size: raise JSONEvidenceChangedDuringRead('JSON evidence changed during read')
         after = os.fstat(fd)
         if (info.st_dev,info.st_ino,info.st_size,info.st_mtime_ns,info.st_ctime_ns)!=(after.st_dev,after.st_ino,after.st_size,after.st_mtime_ns,after.st_ctime_ns):
-            raise ValueError('JSON evidence inode changed during read')
+            raise JSONEvidenceChangedDuringRead('JSON evidence inode changed during read')
         return json.loads(raw)
     finally: os.close(fd)
 
@@ -668,7 +676,7 @@ def observe_process(argv, root, label, identity_path, *, deadline, on_tick=None,
                             or reported_pid!=proc_pid or namespace_pid!=child.pid):
                         raise ValueError('Reported identity differs from independently launched direct child')
                     reported_identity_verified = True
-                except json.JSONDecodeError: pass
+                except (json.JSONDecodeError, JSONEvidenceChangedDuringRead): pass
             if proc_pid is not None:
                 try:
                     ticks=(Path('/proc')/str(proc_pid)/'stat').read_text().rsplit(')',1)[1].split()[19]

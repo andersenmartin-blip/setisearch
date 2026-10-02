@@ -52,7 +52,7 @@ DIRECTORY_RESERVATION_BYTES = 65536
 # Independently reviewed implementation pins bootstrap admission. Supplied
 # bundle hashes cannot select executable validator/fixture implementations.
 # Updating either implementation requires reviewing and refreshing this table.
-BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v2_worker_admission.py': {'bytes': 75309, 'sha256': '475c2884f87f10986e15df57bbb9b5ee7c0652cf37604b2f7f03d9fd277142ae'}, 'scripts/radio_native_v2_compact_eight_case_resource_fixture.py': {'bytes': 120874, 'sha256': 'd86ba4fd37b92a71c54bc884755358a13d2797dddffbbb3f5d8ccc26e3c91df7'}}
+BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v2_worker_admission.py': {'bytes': 75309, 'sha256': '475c2884f87f10986e15df57bbb9b5ee7c0652cf37604b2f7f03d9fd277142ae'}, 'scripts/radio_native_v2_compact_eight_case_resource_fixture.py': {'bytes': 121236, 'sha256': 'e108af6dd7cd649d82eb27148401db8075d9db49e2a973509eae43d44978fba1'}}
 AUTHORITY = {'execution_authorized': False, 'reservation_authorized': False,
     'scientific_execution_authorized': False, 'native_case_reservations': 0,
     'native_case_executions': 0, 'scientific_cases_run': 0, 'rng_draws': 0,
@@ -137,6 +137,235 @@ def install_child_escape_guard():
 
 def canonical(value):
     return json.dumps(value, sort_keys=True, separators=(',', ':'), allow_nan=False).encode()
+
+
+# These are serialization bounds, not enlarged execution/resource allowances.
+# Every dynamic final/pending field is listed, and checked again before fsync.
+# In particular all 64 originally retained wait4 rows are reserved, regardless
+# of the smaller child count requested by a generic engineering probe.
+MAX_REAP_ROW_JSON_BYTES = 512
+MAX_REASON_JSON_BYTES = 8192
+RUNTIME_FIELD_JSON_LIMITS = {
+    'status': 64, 'reason': MAX_REASON_JSON_BYTES,
+    'supervisor_identity': 512, 'root_identity': 4096, 'root_exit_code': 128,
+    'subreaper_scope_reaped_to_echild': 5,
+    'reaped_processes': 2 + MAX_REAPED_CHILDREN * (MAX_REAP_ROW_JSON_BYTES + 1),
+    'reaped_process_count': 128, 'maximum_individual_process_rss_bytes': 128,
+    'launched_root_procfs_peak_rss_bytes': 128, 'launched_root_procfs_sample_count': 128,
+    'caller_accessor_observation': 4096, 'complete_descendant_wait_chain_verified': 5,
+    'child_escape_guard_installed_before_exec': 5,
+    'child_escape_guard_no_new_privileges': 5, 'child_escape_guard_seccomp_filter': 5,
+    'tree_termination_coverage': 64, 'observed_output_bytes': 256,
+    'retained_output_bytes': 256, 'stdout_sha256_of_retained_prefix': 66,
+    'stderr_sha256_of_retained_prefix': 66, 'pidfd_cancellation_count': 128,
+    'elapsed_seconds_before_final_receipt_fsync': 128,
+    'storage_bytes_before_receipt': 128, 'raw_output_passthrough_complete': 5,
+    'measurements_fsynced_before_disposition': 5,
+    'filesystem_checks_completed_before_disposition': 5,
+    'storage_bytes_after_measurements': 128,
+    'whole_case_storage_bytes_before_final_receipt': 128,
+}
+ADMITTED_LAYOUT_KEYS = {'worker_scope', 'receipt_scope', 'shared_storage_root',
+    'command_label', 'runtime_name'}
+STRUCTURAL_BASE_KEYS = frozenset(('schema', 'status', 'namespace', 'case_ordinal',
+    'source_case_id', 'source_domain_hex', 'archive_prefix', 'role', 'bundle_path',
+    'bundle_exact_file_sha256', 'plan_canonical_sha256', 'complete_freeze_canonical_sha256',
+    'public_preread_canonical_sha256', 'preparation_commit_claim',
+    'supplied_public_preread_structure_checked', 'publication_claim_independently_verified',
+    'remote_immutable_publication_fetched', 'independently_retained_bundle_digest_matched',
+    'exact_worker_argv_checked', 'complete_child_environment_checked',
+    'current_materialized_code_and_derived_pins_checked', 'runtime_custody_manifest_sha256',
+    'material_runtime_custody_rechecked', 'activation_only_git_used_by_worker',
+    'activation_only_git_aliases_enumerated_by_worker', 'fresh_preparation_output_names_absent',
+    'fresh_role_output_names_absent', 'running_caller_snapshot_recheck',
+    'live_caller_parent_identity_independently_verified', 'worker_role_layout',
+    'loaded_validator_code', 'complete_expected_runtime_closure_verified',
+    'current_parent_environment_verified', 'runtime_and_supplement_join_verified',
+    'fixture_execution_guard_still_required', 'pipeline_integration_qualified',
+    'large_source_generation_admitted', 'all_original_execution_blockers_closed',
+    'checks_remain_subject_to_postcheck_mutation', 'execution_authorized',
+    'reservation_authorized', 'scientific_execution_authorized', 'native_case_reservations',
+    'native_case_executions', 'scientific_cases_run', 'rng_draws', 'telescope_reads',
+    'actual_functions_sdk_calls', 'actual_connector_calls', 'network_fetches',
+    'actual_git_processes', 'real_public_github_mutations', 'automatic_retry',
+    'native_case_binding_verified', 'host_ledger_join_complete', 'hidden_http_bytes_known'))
+STRUCTURAL_PHASE_KEYS = {'phase_input_pins', 'role_identity_metadata_checked',
+    'full_source_domain_content_verified', 'complete_retained_transport_semantics_verified'}
+PHASE_PIN_KEYS = {'plan_json', 'freeze_json', 'preread_json', 'prepared_json',
+    'arguments_json', 'preparation_bundle', 'caller_transcript', 'source_wire',
+    'deterministic_source', 'projection', 'compact_input_plan'}
+
+
+def _exact_pin(value):
+    if (type(value) is not dict or set(value) != {'bytes', 'sha256'}
+            or type(value['bytes']) is not int or not 0 <= value['bytes'] < 2**63
+            or type(value['sha256']) is not str or not re.fullmatch('[a-f0-9]{64}', value['sha256'])):
+        raise ValueError('Exact bounded byte/SHA256 pin required')
+
+
+def compact_admitted_attestation(checked):
+    """Persist observational references after all full-evidence guards pass.
+
+    This never replaces the raw checked object used by admission/finalization.
+    References acquire no authority: the independently retained exact bundle
+    remains necessary to recover and revalidate any referenced evidence.
+    """
+    required = {'schema', 'role', 'ordinal', 'argv', 'bundle_path', 'bundle_sha256',
+        'supervisor_python_path', 'activation_evidence', 'structural_admission',
+        'materialized_fixture_execution_status',
+        'independent_immutable_publication_join_complete'} | ADMITTED_LAYOUT_KEYS | set(AUTHORITY)
+    if type(checked) is not dict or set(checked) != required or checked['role'] not in ROLE_LIMITS:
+        raise ValueError('Exact checked admission fields required for bounded attestation')
+    role = checked['role']; structural = checked['structural_admission']
+    keys = set(STRUCTURAL_BASE_KEYS)
+    if role != 'prepare': keys |= STRUCTURAL_PHASE_KEYS
+    if role == 'command': keys.add('command_binding')
+    if type(structural) is not dict or set(structural) != keys:
+        raise ValueError('Exact structural admission fields required')
+    nested = {'worker_role_layout', 'loaded_validator_code', 'phase_input_pins', 'command_binding'}
+    if any(type(value) not in (str, int, bool, type(None))
+            for key, value in structural.items() if key not in nested):
+        raise ValueError('Structural admission scalar fields cannot contain arbitrary bulk')
+    if structural['worker_role_layout'] != {key: checked[key] for key in ADMITTED_LAYOUT_KEYS}:
+        raise ValueError('Structural admission layout differs from exact checked layout')
+    _exact_pin(structural['loaded_validator_code'])
+    if role != 'prepare':
+        pins = structural['phase_input_pins']
+        if type(pins) is not dict or not set(pins) <= PHASE_PIN_KEYS:
+            raise ValueError('Exact bounded phase pin inventory required')
+        for pin in pins.values(): _exact_pin(pin)
+    if role == 'command':
+        binding = structural['command_binding']
+        reader = {'kind', 'reader_ordinal', 'selected_output_sha256'}
+        tail = {'kind', 'terminal_ordinal', 'payload_bytes', 'complete_client_binding_independently_recovered'}
+        if type(binding) is not dict or set(binding) not in (reader, tail):
+            raise ValueError('Exact compact command binding fields required')
+    if len(canonical(structural)) > 16384:
+        raise ValueError('Bounded unchanged structural admission metadata required')
+    evidence = checked['activation_evidence']
+    names = {'activation_receipt', 'plan', 'freeze', 'preread', 'execution_scope', 'invocation_spending'}
+    if type(evidence) is not dict or set(evidence) != names:
+        raise ValueError('Exact raw checked activation evidence inventory required')
+    scalar = required - {'activation_evidence', 'structural_admission', 'argv'}
+    if any(type(checked[key]) not in (str, int, bool, type(None)) for key in scalar):
+        raise ValueError('Checked admission scalar fields cannot contain arbitrary bulk')
+    if type(checked['argv']) is not list or not checked['argv'] or any(type(item) is not str for item in checked['argv']):
+        raise ValueError('Exact checked argv strings required')
+    scope = evidence['execution_scope']
+    if type(scope) is not str or str(Path(scope).absolute()) != scope:
+        raise ValueError('Canonical exact activation execution scope required')
+    references = {}
+    for name in sorted(names):
+        raw = canonical(evidence[name])
+        references[name] = {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()}
+    return {**{key: value for key, value in checked.items() if key != 'activation_evidence'},
+        'activation_evidence_reference': {'schema': SCHEMA + '-activation-evidence-reference-v1',
+            'execution_scope': scope, 'canonical_input_pins': references,
+            'full_activation_evidence_persisted': False,
+            'reference_is_execution_authority': False}}
+
+
+def verify_admitted_attestation(attestation, checked):
+    """Read-only exact reference comparison; raw guards must run separately."""
+    if attestation != compact_admitted_attestation(checked):
+        raise ValueError('Persisted admitted attestation differs from checked evidence')
+    return True
+
+
+def _validate_input_pin(pin):
+    if pin is None: return
+    if type(pin) is not dict: raise ValueError('Exact bounded engineering input pin required')
+    kind = pin.get('kind')
+    if kind == 'fixed_tiny_engineering_probe':
+        if set(pin) != {'kind', 'probe', 'source_bytes', 'source_sha256'} or pin['probe'] not in PROBES:
+            raise ValueError('Exact fixed tiny probe pin required')
+        _exact_pin({'bytes': pin['source_bytes'], 'sha256': pin['source_sha256']})
+        raw = PROBES[pin['probe']].encode()
+        if pin['source_bytes'] != len(raw) or pin['source_sha256'] != hashlib.sha256(raw).hexdigest():
+            raise ValueError('Fixed tiny probe input pin differs from actual probe source')
+    elif kind in ('admission-bound-prepare-worker', 'admission-bound-role-worker'):
+        if set(pin) != {'kind', 'bundle_sha256', 'role', 'ordinal'} or pin['role'] not in ROLE_LIMITS:
+            raise ValueError('Exact admission-bound worker input pin required')
+        if type(pin['bundle_sha256']) is not str or not re.fullmatch('[a-f0-9]{64}', pin['bundle_sha256']):
+            raise ValueError('Exact input bundle hash required')
+        if pin['ordinal'] is not None and (type(pin['ordinal']) is not int or not 0 <= pin['ordinal'] < 8):
+            raise ValueError('Bounded original case ordinal required')
+    else: raise ValueError('Unknown engineering input pin fields refused')
+    if len(canonical(pin)) > 1024: raise ValueError('Bounded engineering input pin required')
+
+
+def _receipt_fixed_fields(controls, code_pin, runtime_pin, input_pin, attestation,
+        shared_storage_root, shared_storage_cap, passthrough):
+    return {'schema': SCHEMA, 'subreaper_set_and_get_verified': True,
+        'sole_wait4_owner': True, 'concurrent_process_rss_sum_measured': False,
+        'complete_process_tree_qualified': False,
+        'descendant_wait_chain_scope': 'INHERITED_SECCOMP_GUARD_AND_LINUX_SUBREAPER_TO_ECHILD',
+        'child_escape_guard_denied_operations': ['clone-namespace-flags', 'clone3', 'io-uring-setup',
+            'process-vm-read', 'process-vm-write', 'ptrace', 'setns', 'unshare'],
+        'procfs_descendant_escape_detection_complete': False,
+        'raw_stdout_duplicate_written': False, 'raw_stderr_duplicate_written': False,
+        'failed_cleanup_grace_seconds': 1.0,
+        'supervisor_final_receipt_and_termination_independently_observed': False,
+        'shared_storage_and_original_case_run_limits_joined': False,
+        'controls': controls, 'controls_sha256': hashlib.sha256(canonical(controls)).hexdigest(),
+        'supervisor_code': code_pin,
+        'python_executable': {'path': str(Path(sys.executable).resolve()), **runtime_pin},
+        'engineering_input_pin': input_pin, 'child_environment': ENVIRONMENT,
+        'receipt_storage_reserved_bytes': RECEIPT_RESERVATION_BYTES,
+        'directory_storage_reserved_bytes': DIRECTORY_RESERVATION_BYTES,
+        'whole_case_storage_accounted': shared_storage_root is not None,
+        'admitted_preparation_check': attestation if attestation is not None and attestation['role'] == 'prepare' else None,
+        'admitted_worker_check': attestation,
+        'shared_storage_root': str(shared_storage_root) if shared_storage_root is not None else None,
+        'shared_storage_cap_bytes': shared_storage_cap if shared_storage_root is not None else None,
+        'raw_output_passthrough_requested': passthrough,
+        'limitations': ['The inherited seccomp guard covers declared namespace/tracing/process-vm/clone3 escapes; broader kernel escape and procfs tracing are unqualified.',
+            'Outer supervisor lifetime, complete runtime closure, pipeline admission and storage/time joins are required separately.'],
+        **AUTHORITY}
+
+
+def receipt_capacity_bound(controls, *, code_pin, runtime_pin, input_pin=None,
+        checked=None, shared_storage_root=None, shared_storage_cap=CASE_STORAGE_BYTES,
+        passthrough=False):
+    """Bound BOTH full envelopes before mutation using closed dynamic widths."""
+    _validate_input_pin(input_pin)
+    if checked is not None and input_pin != {'kind': 'admission-bound-prepare-worker' if checked['role'] == 'prepare' else 'admission-bound-role-worker',
+            'bundle_sha256': checked['bundle_sha256'], 'role': checked['role'], 'ordinal': checked['ordinal']}:
+        raise ValueError('Input pin differs from exact checked dispatch')
+    if checked is None: validate_controls(controls)
+    elif controls['schema'] == SCHEMA + '-admitted-prepare-controls': validate_admitted_prepare_controls(controls)
+    else: validate_admitted_role_controls(controls)
+    _exact_pin(code_pin); _exact_pin(runtime_pin)
+    attestation = compact_admitted_attestation(checked) if checked is not None else None
+    fixed = _receipt_fixed_fields(controls, code_pin, runtime_pin, input_pin, attestation,
+        shared_storage_root, shared_storage_cap, passthrough)
+    # Adding a field adds its JSON key, colon, value and at most one comma.
+    # Final-only fields are included here, so the pending envelope also fits.
+    bound = len(canonical(fixed)) + 1 + sum(
+        len(canonical(key)) + 2 + maximum
+        for key, maximum in RUNTIME_FIELD_JSON_LIMITS.items())
+    if bound > RECEIPT_RESERVATION_BYTES:
+        raise ValueError('Complete supervisor receipt capacity exceeded before dispatch')
+    return fixed, bound
+
+
+def _bounded_reason(reason):
+    if reason is None or len(canonical(reason)) <= MAX_REASON_JSON_BYTES: return reason
+    raw = reason.encode('utf-8', errors='backslashreplace')
+    return 'Failure diagnostic exceeded bounded text; bytes=' + str(len(raw)) + '; sha256=' + hashlib.sha256(raw).hexdigest()
+
+
+def _validate_receipt_runtime_fields(receipt, fixed):
+    if not set(fixed) <= set(receipt) or not set(receipt) <= set(fixed) | set(RUNTIME_FIELD_JSON_LIMITS):
+        raise RuntimeError('Unbounded supervisor receipt field inventory refused')
+    if any(receipt[key] != value for key, value in fixed.items()):
+        raise RuntimeError('Fixed supervisor receipt evidence changed before persistence')
+    for key in set(receipt) - set(fixed):
+        if len(canonical(receipt[key])) > RUNTIME_FIELD_JSON_LIMITS[key]:
+            raise RuntimeError('Bounded supervisor runtime field exceeded: ' + key)
+    rows = receipt['reaped_processes']
+    if len(rows) > MAX_REAPED_CHILDREN or any(len(canonical(row)) > MAX_REAP_ROW_JSON_BYTES for row in rows):
+        raise RuntimeError('Original retained wait4 row serialization bound exceeded')
 
 
 class EvidenceChangedDuringRead(ValueError):
@@ -636,6 +865,12 @@ def supervise_engineering_subprocess(argv, scope, controls, *, dedicated_process
     if type(started) not in (int, float) or not 0 < started <= time.monotonic():
         raise ValueError('Valid admission-inclusive monotonic dispatch start required')
     deadline = started + controls['seconds']
+    code_pin = pin_file(Path(__file__).resolve())
+    runtime_pin = pin_file(Path(sys.executable).resolve())
+    fixed_receipt, capacity_bound = receipt_capacity_bound(controls, code_pin=code_pin,
+        runtime_pin=runtime_pin, input_pin=input_pin, checked=_admitted_dispatch,
+        shared_storage_root=shared_storage_root, shared_storage_cap=shared_storage_cap,
+        passthrough=_passthrough_output)
     if time.monotonic() >= deadline:
         raise RuntimeError('Admission checks consumed the fixed preparation deadline')
     observer = proc_identity(int(os.readlink('/proc/self')))
@@ -653,8 +888,6 @@ def supervise_engineering_subprocess(argv, scope, controls, *, dedicated_process
     scope.mkdir(mode=0o700, exist_ok=False)
     identity = {'procfs_pid': observer['procfs_pid'], 'namespace_pid': os.getpid()}
     durable_json(scope / 'supervisor-identity.json', identity)
-    code_pin = pin_file(Path(__file__).resolve())
-    runtime_pin = pin_file(Path(sys.executable).resolve())
     durable_json(scope / 'controls.json', controls)
     output = {'stdout': bytearray(), 'stderr': bytearray()}
     observed_bytes = {'stdout': 0, 'stderr': 0}
@@ -790,50 +1023,34 @@ def supervise_engineering_subprocess(argv, scope, controls, *, dedicated_process
         reason = reason or 'Fixed engineering scope deadline exceeded'
     # Raw stdout is counted and discarded. It is never duplicated into files.
     descendant_wait_complete = reason is None and echild and root_status == 0
-    receipt = {'schema': SCHEMA, 'status': 'ENGINEERING_SUBREAPER_SCOPE_COMPLETE' if descendant_wait_complete else 'CLOSED_FAILED',
-        'reason': reason, 'supervisor_identity': identity, 'subreaper_set_and_get_verified': True,
-        'root_identity': root_identity, 'root_exit_code': root_status,
-        'sole_wait4_owner': True, 'subreaper_scope_reaped_to_echild': echild,
-        'reaped_processes': rows, 'reaped_process_count': reap_count,
+    reason = _bounded_reason(reason)
+    receipt = {**fixed_receipt,
+        'status': 'ENGINEERING_SUBREAPER_SCOPE_COMPLETE' if descendant_wait_complete else 'CLOSED_FAILED',
+        'reason': reason,
+        'supervisor_identity': identity,
+        'root_identity': root_identity,
+        'root_exit_code': root_status,
+        'subreaper_scope_reaped_to_echild': echild,
+        'reaped_processes': rows,
+        'reaped_process_count': reap_count,
         'maximum_individual_process_rss_bytes': maximum,
         'launched_root_procfs_peak_rss_bytes': root_peak,
         'launched_root_procfs_sample_count': root_samples,
         'caller_accessor_observation': callback_state or None,
-        'concurrent_process_rss_sum_measured': False,
-        'complete_process_tree_qualified': False,
         'complete_descendant_wait_chain_verified': descendant_wait_complete,
-        'descendant_wait_chain_scope': 'INHERITED_SECCOMP_GUARD_AND_LINUX_SUBREAPER_TO_ECHILD',
         'child_escape_guard_installed_before_exec': child is not None,
         'child_escape_guard_no_new_privileges': child is not None,
         'child_escape_guard_seccomp_filter': child is not None,
-        'child_escape_guard_denied_operations': ['clone-namespace-flags', 'clone3', 'io-uring-setup',
-            'process-vm-read', 'process-vm-write', 'ptrace', 'setns', 'unshare'],
-        'procfs_descendant_escape_detection_complete': False,
         'tree_termination_coverage': 'SUBREAPER_ECHILD_OBSERVED' if echild else 'UNKNOWN_ON_FAILURE',
-        'observed_output_bytes': observed_bytes, 'retained_output_bytes': {name: len(raw) for name, raw in output.items()},
-        'raw_stdout_duplicate_written': False, 'raw_stderr_duplicate_written': False,
+        'observed_output_bytes': observed_bytes,
+        'retained_output_bytes': {name: len(raw) for name, raw in output.items()},
         'stdout_sha256_of_retained_prefix': hashlib.sha256(output['stdout']).hexdigest(),
         'stderr_sha256_of_retained_prefix': hashlib.sha256(output['stderr']).hexdigest(),
         'pidfd_cancellation_count': cancellation_count,
-        'failed_cleanup_grace_seconds': 1.0,
         'elapsed_seconds_before_final_receipt_fsync': elapsed,
-        'supervisor_final_receipt_and_termination_independently_observed': False,
-        'shared_storage_and_original_case_run_limits_joined': False,
-        'controls': controls, 'controls_sha256': hashlib.sha256(canonical(controls)).hexdigest(),
-        'supervisor_code': code_pin, 'python_executable': {'path': str(Path(sys.executable).resolve()), **runtime_pin},
-        'engineering_input_pin': input_pin, 'child_environment': ENVIRONMENT,
-        'storage_bytes_before_receipt': storage_bytes(scope), 'receipt_storage_reserved_bytes': RECEIPT_RESERVATION_BYTES,
-        'directory_storage_reserved_bytes': DIRECTORY_RESERVATION_BYTES,
-        'whole_case_storage_accounted': shared_storage_root is not None,
-        'admitted_preparation_check': _admitted_dispatch if _admitted_dispatch is not None and _admitted_dispatch['role'] == 'prepare' else None,
-        'admitted_worker_check': _admitted_dispatch,
-        'shared_storage_root': str(shared_storage_root) if shared_storage_root is not None else None,
-        'shared_storage_cap_bytes': shared_storage_cap if shared_storage_root is not None else None,
-        'raw_output_passthrough_requested': _passthrough_output,
-        'raw_output_passthrough_complete': False,
-        'limitations': ['The inherited seccomp guard covers declared namespace/tracing/process-vm/clone3 escapes; broader kernel escape and procfs tracing are unqualified.',
-            'Outer supervisor lifetime, complete runtime closure, pipeline admission and storage/time joins are required separately.'],
-        **AUTHORITY}
+        'storage_bytes_before_receipt': storage_bytes(scope),
+        'raw_output_passthrough_complete': False}
+    _validate_receipt_runtime_fields(receipt, fixed_receipt)
     # Persist measurements with a pending status before deriving disposition.
     # No durable success is left behind by a subsequent filesystem check.
     pending = {**receipt, 'status': 'PENDING_FILESYSTEM_DISPOSITION'}
@@ -870,12 +1087,14 @@ def supervise_engineering_subprocess(argv, scope, controls, *, dedicated_process
             reason = reason or 'Bounded command output passthrough failed: ' + repr(failure)
     if time.monotonic() > deadline:
         reason = reason or 'Fixed engineering scope deadline exceeded during final disposition'
+    reason = _bounded_reason(reason)
     receipt.update({'status': 'ENGINEERING_SUBREAPER_SCOPE_COMPLETE' if reason is None and echild and root_status == 0 else 'CLOSED_FAILED',
         'reason': reason, 'measurements_fsynced_before_disposition': True,
         'filesystem_checks_completed_before_disposition': True,
         'storage_bytes_after_measurements': checked_storage,
         'whole_case_storage_bytes_before_final_receipt': shared_storage,
         'elapsed_seconds_before_final_receipt_fsync': time.monotonic() - started})
+    _validate_receipt_runtime_fields(receipt, fixed_receipt)
     if len(canonical(receipt)) + 1 > RECEIPT_RESERVATION_BYTES:
         raise RuntimeError('Bounded final supervisor receipt reservation exceeded')
     durable_json(scope / 'subreaper-receipt.json', receipt)

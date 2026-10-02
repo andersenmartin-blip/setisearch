@@ -1,0 +1,115 @@
+{
+  "actual_large_source_generation": 0,
+  "actual_marker_mutations": 0,
+  "actual_production_ledger_mutations": 0,
+  "actual_protected_control_invocations": 0,
+  "actual_repo_source_edits": 0,
+  "automatic_retry": false,
+  "candidate_directory": "/tmp/seti-identity-publication-repair",
+  "candidate_pins": {
+    "scripts/radio_native_v2_compact_eight_case_resource_fixture.py": {
+      "bytes": 121236,
+      "sha256": "e108af6dd7cd649d82eb27148401db8075d9db49e2a973509eae43d44978fba1"
+    },
+    "tests/test_radio_native_v2_compact_eight_case_resource_fixture.py": {
+      "bytes": 65797,
+      "sha256": "ac5b3a3a7ef30e74cfca850fdea4d4b70a5c0c97d30d0ab1a64cef8312701777"
+    }
+  },
+  "error_count": 0,
+  "existing_targeted_test_count": 8,
+  "failed_test_count": 0,
+  "invocations": [
+    {
+      "status": "OK",
+      "test_count": 7,
+      "tests": [
+        "IdentityPublicationRaceTests.test_live_identity_retries_exactly_one_typed_read_transition_then_verifies",
+        "IdentityPublicationRaceTests.test_stable_wrong_identity_and_untyped_validation_errors_close_immediately",
+        "IdentityPublicationRaceTests.test_static_json_read_propagates_both_typed_instabilities_and_other_guards",
+        "CompactEightPreparationTests.test_no_follow_json_and_pin_refuse_fifo_and_symlink_without_blocking",
+        "CompactEightPreparationTests.test_wait4_nested_small_child_peak_is_maximum_process_not_concurrent_sum",
+        "CompactEightPreparationTests.test_missing_child_identity_closes_with_direct_reap_without_tree_claim",
+        "CompactEightPreparationTests.test_sibling_procfs_pid_cannot_substitute_for_launched_child"
+      ],
+      "tool_session_id": 55674,
+      "unittest_seconds": 1.088
+    },
+    {
+      "status": "OK",
+      "test_count": 4,
+      "tests": [
+        "CompactEightPreparationTests.test_inherited_pipe_after_root_exit_is_bounded_by_original_deadline",
+        "CompactEightPreparationTests.test_oversized_output_is_not_retained_beyond_fixed_buffer_cap",
+        "CompactEightPreparationTests.test_sample_retention_stays_bounded_without_discarding_kernel_peak",
+        "CompactEightPreparationTests.test_observer_registration_and_setup_failures_reap_child_and_close_every_pipe"
+      ],
+      "tool_chunk_id": "95142b",
+      "unittest_seconds": 0.753
+    }
+  ],
+  "new_regression_count": 3,
+  "passed_test_count": 11,
+  "rng_draws": 0,
+  "runtime": {
+    "actual_test_interpreter_flags": [
+      "-I",
+      "-S",
+      "-B"
+    ],
+    "actual_tiny_child_complete_environment": {
+      "LANG": "C",
+      "LC_ALL": "C",
+      "PATH": "/usr/bin:/bin"
+    },
+    "actual_tiny_child_flags": [
+      "-I",
+      "-S",
+      "-B"
+    ]
+  },
+  "schema": "seti-identity-publication-repair-candidate-test-result-v1",
+  "scientific_cases_run": 0,
+  "scientific_execution_authorized": false,
+  "scope": {
+    "actual_child_after_transient_verified_and_directly_reaped": true,
+    "all_static_reads_propagate_typed_exception": true,
+    "caught_types": [
+      "json.JSONDecodeError",
+      "JSONEvidenceChangedDuringRead"
+    ],
+    "deterministic_first_poll_transitions_per_live_subtest": 1,
+    "ordinary_ValueError_not_retried": true,
+    "production_writer_not_changed": true,
+    "retry_location": "Only live identity poll while reported_identity_verified is false",
+    "stable_wrong_pid_and_parsed_invalid_identity_close_after_one_read": true,
+    "typed_conditions": [
+      "Read length differs from before-fstat size",
+      "Before/after held-descriptor dev/ino/size/mtime/ctime differ"
+    ],
+    "typed_exception": "JSONEvidenceChangedDuringRead(ValueError)",
+    "unchanged_original_deadline_cleanup_caps_and_authority": true
+  },
+  "source_review": {
+    "all_other_original_functions_ast_unchanged": true,
+    "all_preexisting_top_level_assignments_ast_unchanged": true,
+    "changed_original_functions": [
+      "observe_process",
+      "small_json"
+    ],
+    "new_exception_only": true
+  },
+  "status": "CANDIDATE_TARGETED_TESTS_PASSED_ACTUAL_INTEGRATION_PENDING",
+  "telescope_reads": 0,
+  "test_evidence_label": "Agent-reported actual isolated unittest tool invocations; no claim of full integrated suite qualification.",
+  "unchanged_original_repo_baseline_pins": {
+    "scripts/radio_native_v2_compact_eight_case_resource_fixture.py": {
+      "bytes": 120874,
+      "sha256": "d86ba4fd37b92a71c54bc884755358a13d2797dddffbbb3f5d8ccc26e3c91df7"
+    },
+    "tests/test_radio_native_v2_compact_eight_case_resource_fixture.py": {
+      "bytes": 58796,
+      "sha256": "07156c15aaa6df02bd06cc9de8703630ead4cff9526d79fa87e956adc7da2fb8"
+    }
+  }
+}

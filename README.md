@@ -1,5 +1,41 @@
 # SETIsearch
 
+## 2 October: supervisor receipt repair verified; preparation remains blocked
+
+[The bounded receipt and live-identity repair](RADIO_NATIVE_V2_SUPERVISOR_RECEIPT_2026-10-02_RESULT.md)
+passes **401 tests** without failures, errors or skips; all **944 retained
+source/test/wrapper pins** stayed unchanged. Full raw activation guards remain
+required; six observational references and both preparation aliases fit a
+predispatch 73-field/64-row bound under unchanged receipt/resource/deadline caps.
+The earlier 356-test pass and 398-test observer-publication error remain retained.
+A specific live-identity read-instability exception now retries only before
+identity verification, within the original deadline; stable/static errors still
+close the scope. Attempt 3's later final-alias FileExistsError is retained
+separately, with byte-exact final-summary selection and no code change or rerun.
+
+Fresh plan o remains **BLOCKED_PREPARATION_REVIEW**. Capture and independent audit
+actually use the exact ten-value environment and Python `-I -S -B`; 927 repository
+code files, 36 inputs, 1,366 runtime files, 33 copied code files and three derived
+files verify. Fresh launcher preflight passes; all five execution blockers and
+completion/authority limits remain. Independent final selection review verifies
+all current pins, aliases and the post-test error. Immutable public checkpoint G
+readback remains pending.
+
+Failed control b remains immutable at
+[`1468a19`](https://github.com/andersenmartin-blip/setisearch/commit/1468a19d2603bde2b491b5400a2d3cdf8954c69f),
+with 155 publication paths verified. Its **0/8 completed cases**, partial
+engineering materialization and permanently spent claim remain. No additional
+control, real marker, full-size source generation, telescope read or RNG draw.
+
+[HD189733 metadata preparation](RADIO_HD189733_METADATA_PREPARATION_2026-10-02_RESULT.md)
+passes 42 tests. Fresh public readback at F verifies all 25 raw metadata inputs /
+749,088 bytes by exact content and Git-blob identity, outside the constructor and
+protected control. Telescope/source admission, cumulative quotas,
+scientific/native certificates and transport remain blocked. HD189733 selected;
+HD1461 HOLD; GJ724 reserve; spectra/holdouts unopened; native8 unreserved;
+127/24 NOT ACTIVATED; LS paused; CHEOPS UNSENT. Stop **9 October** without automatic
+extension or restart.
+
 ## 2 October: compact engineering control b closed failed
 
 [The single engineering control and retained failure](RADIO_NATIVE_V2_COMPACT_CONTROL_2026-10-02B_RESULT.md)

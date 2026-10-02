@@ -1,0 +1,188 @@
+{
+  "actual_ledger_mutations": 0,
+  "actual_marker_mutations": 0,
+  "actual_protected_control_invocations": 0,
+  "actual_repo_source_edits": 0,
+  "actual_source_payload_generation": 0,
+  "automatic_retry": false,
+  "candidate_directory": "/tmp/seti-supervisor-receipt-repair",
+  "candidate_source_pins": {
+    "scripts/radio_native_v2_process_tree_supervisor.py": {
+      "bytes": 71827,
+      "sha256": "e8bf8ee62641b408215c748296a605e91731e5ece7421ad648d317d72bdfd6cb"
+    },
+    "tests/test_radio_native_v2_process_tree_supervisor.py": {
+      "bytes": 46346,
+      "sha256": "d8b143c6a07fe6019c737d785d18c18d5ad4fff9f03591bcbe2fc5e8a2cd293d"
+    }
+  },
+  "capacity": {
+    "all_role_example_bounds": {
+      "caller": {
+        "conservative_complete_envelope_bytes": 60275,
+        "fixed_envelope_canonical_bytes": 7513
+      },
+      "command": {
+        "conservative_complete_envelope_bytes": 60443,
+        "fixed_envelope_canonical_bytes": 7681
+      },
+      "control": {
+        "conservative_complete_envelope_bytes": 60290,
+        "fixed_envelope_canonical_bytes": 7528
+      },
+      "lossless-project": {
+        "conservative_complete_envelope_bytes": 60315,
+        "fixed_envelope_canonical_bytes": 7553
+      },
+      "lossless-verify-retained": {
+        "conservative_complete_envelope_bytes": 60347,
+        "fixed_envelope_canonical_bytes": 7585
+      },
+      "prepare": {
+        "conservative_complete_envelope_bytes": 64600,
+        "fixed_envelope_canonical_bytes": 11838
+      },
+      "verifier": {
+        "conservative_complete_envelope_bytes": 60294,
+        "fixed_envelope_canonical_bytes": 7532
+      }
+    },
+    "bound_precedes_subreaper_scope_identity_and_child_mutations": true,
+    "bounds_include_both_prepare_attestation_aliases": true,
+    "bounds_include_pending_and_final_envelopes": true,
+    "caps_unchanged": true,
+    "dynamic_field_canonical_byte_limits": {
+      "caller_accessor_observation": 4096,
+      "child_escape_guard_installed_before_exec": 5,
+      "child_escape_guard_no_new_privileges": 5,
+      "child_escape_guard_seccomp_filter": 5,
+      "complete_descendant_wait_chain_verified": 5,
+      "elapsed_seconds_before_final_receipt_fsync": 128,
+      "filesystem_checks_completed_before_disposition": 5,
+      "launched_root_procfs_peak_rss_bytes": 128,
+      "launched_root_procfs_sample_count": 128,
+      "maximum_individual_process_rss_bytes": 128,
+      "measurements_fsynced_before_disposition": 5,
+      "observed_output_bytes": 256,
+      "pidfd_cancellation_count": 128,
+      "raw_output_passthrough_complete": 5,
+      "reaped_process_count": 128,
+      "reaped_processes": 32834,
+      "reason": 8192,
+      "retained_output_bytes": 256,
+      "root_exit_code": 128,
+      "root_identity": 4096,
+      "status": 64,
+      "stderr_sha256_of_retained_prefix": 66,
+      "stdout_sha256_of_retained_prefix": 66,
+      "storage_bytes_after_measurements": 128,
+      "storage_bytes_before_receipt": 128,
+      "subreaper_scope_reaped_to_echild": 5,
+      "supervisor_identity": 512,
+      "tree_termination_coverage": 64,
+      "whole_case_storage_bytes_before_final_receipt": 128
+    },
+    "original_receipt_cap_bytes": 131072,
+    "original_retained_reaped_row_cap": 64,
+    "row_canonical_bytes_reserved_each": 512
+  },
+  "metadata_stress": {
+    "archived_read_only_metadata_path": "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_compact_control_20261002b/control-admission.json",
+    "raw_activation_evidence_canonical_bytes_after_scope_rebind": 1080926,
+    "raw_activation_evidence_canonical_bytes_before_scope_rebind": 1080997,
+    "real_activation_admission_claimed": false,
+    "scope_rebound_example": "/tmp/seti-supervisor-receipt-repair"
+  },
+  "no_actual_control_or_source_claim": true,
+  "review": {
+    "independent_spend_review": "No actionable blocker found; full raw guards and complete conservative bound preserved.",
+    "root_review": "ongoing; actual integration awaits root approval after failed checkpoint publication"
+  },
+  "rng_draws": 0,
+  "schema": "seti-supervisor-receipt-repair-candidate-test-result-v1",
+  "scientific_cases_run": 0,
+  "scientific_execution_authorized": false,
+  "status": "CANDIDATE_TESTS_PASSED_ACTUAL_INTEGRATION_PENDING",
+  "telescope_reads": 0,
+  "test_execution": {
+    "actual_isolated_runtime_and_complete_child_environment_checked": true,
+    "actual_tiny_child_argv_suffix": [
+      "-I",
+      "-S",
+      "-B",
+      "-c",
+      "print('tiny repair probe')"
+    ],
+    "actual_tiny_child_complete_environment": {
+      "LANG": "C",
+      "LC_ALL": "C",
+      "PATH": "/usr/bin:/bin"
+    },
+    "admission_and_exact_dispatch_prefix": "explicit test doubles; full raw-evidence guard arguments verified twice",
+    "deferred_test_count": 3,
+    "deferred_tests": [
+      {
+        "reason": "Candidate supervisor source deliberately differs from the still-frozen original admission own-source pin. No source-pin bypass was used. Root will run this real structural fixture test after integration and refreshed independent bootstrap pins.",
+        "test": "DedicatedSubreaperTests.test_real_structural_check_is_read_only_and_large_dispatch_stays_closed"
+      },
+      {
+        "reason": "Candidate supervisor source deliberately differs from the still-frozen original admission own-source pin. No source-pin bypass was used. Root will run this real structural fixture test after integration and refreshed independent bootstrap pins.",
+        "test": "DedicatedSubreaperTests.test_real_admission_check_cli_has_no_scope_or_generator_side_effects"
+      },
+      {
+        "reason": "Candidate supervisor source deliberately differs from the still-frozen original admission own-source pin. No source-pin bypass was used. Root will run this real structural fixture test after integration and refreshed independent bootstrap pins.",
+        "test": "DedicatedSubreaperTests.test_real_role_checks_bind_case_and_whole_layouts_without_dispatch"
+      }
+    ],
+    "failed_test_count": 0,
+    "interpreter_flags": [
+      "-I",
+      "-S",
+      "-B"
+    ],
+    "new_regression_count": 6,
+    "original_test_count": 32,
+    "passed_test_count": 38,
+    "passed_tests": [
+      "BoundedAdmissionReceiptTests.test_actual_tiny_child_keeps_raw_guard_calls_and_persists_small_receipts",
+      "BoundedAdmissionReceiptTests.test_altered_reference_scope_bundle_argv_and_structural_fields_refuse",
+      "BoundedAdmissionReceiptTests.test_bad_fixed_metadata_refuses_before_subreaper_scope_identity_or_child",
+      "BoundedAdmissionReceiptTests.test_complete_envelope_reserves_64_rows_and_final_only_fields",
+      "BoundedAdmissionReceiptTests.test_full_sized_metadata_compacts_and_all_seven_roles_fit_original_cap",
+      "BoundedAdmissionReceiptTests.test_oversized_failure_text_has_exact_diagnostic_pin_and_stays_failure",
+      "DedicatedSubreaperTests.test_actual_supervisor_interpreter_flags_are_checked_before_mutation",
+      "DedicatedSubreaperTests.test_admission_check_only_rejects_scope_and_checks_without_subprocess",
+      "DedicatedSubreaperTests.test_admitted_cli_requires_independently_retained_bundle_hash",
+      "DedicatedSubreaperTests.test_admitted_dispatch_checks_before_creating_scope_or_spawning",
+      "DedicatedSubreaperTests.test_all_role_controls_preserve_case_run_command_and_tiny_limits",
+      "DedicatedSubreaperTests.test_bootstrap_pins_bind_current_reviewed_dependency_sources",
+      "DedicatedSubreaperTests.test_bundle_hash_and_special_files_refuse_before_loading_worker",
+      "DedicatedSubreaperTests.test_caller_observation_json_refuses_duplicate_and_nonfinite_metadata",
+      "DedicatedSubreaperTests.test_caller_rss_accessor_is_bound_to_live_root_and_keeps_final_join_false",
+      "DedicatedSubreaperTests.test_caller_rss_handshake_rejects_forged_pid_without_writing_response",
+      "DedicatedSubreaperTests.test_cli_does_not_accept_generic_argv_or_existing_worker_routes",
+      "DedicatedSubreaperTests.test_control_limits_reject_boolean_nonfinite_and_oversized_values",
+      "DedicatedSubreaperTests.test_deadline_kills_root_then_adopted_children_by_pidfd_and_reaps",
+      "DedicatedSubreaperTests.test_double_fork_has_no_unreaped_daemon_in_subreaper_scope",
+      "DedicatedSubreaperTests.test_engineering_pin_reader_refuses_oversized_input_before_read",
+      "DedicatedSubreaperTests.test_escape_guard_is_inherited_and_refuses_namespace_tracing_and_clone3",
+      "DedicatedSubreaperTests.test_exact_raw_output_passthrough_has_no_json_summary_or_raw_file",
+      "DedicatedSubreaperTests.test_exact_supervisor_orig_argv_refuses_extra_flags_and_interpreter_alias",
+      "DedicatedSubreaperTests.test_generic_function_refuses_shared_process_before_mutation",
+      "DedicatedSubreaperTests.test_generic_role_dispatch_checks_before_scope_creation_or_launch",
+      "DedicatedSubreaperTests.test_incomplete_live_rss_publication_retries_without_sampling_or_response",
+      "DedicatedSubreaperTests.test_materialized_fixture_gate_refuses_before_scope_and_launch",
+      "DedicatedSubreaperTests.test_nonzero_adopted_exit_closes_even_when_root_exit_is_zero",
+      "DedicatedSubreaperTests.test_orphan_is_adopted_reaped_and_required_before_echild",
+      "DedicatedSubreaperTests.test_output_overflow_remains_bounded_and_is_never_written_as_raw_file",
+      "DedicatedSubreaperTests.test_pipeline_controls_are_separate_and_keep_original_case_caps",
+      "DedicatedSubreaperTests.test_proper_nested_wait_is_covered_by_root_kernel_receipt",
+      "DedicatedSubreaperTests.test_raw_output_backpressure_is_bounded_by_deadline",
+      "DedicatedSubreaperTests.test_reaped_receipt_count_is_bounded_and_overflow_closes",
+      "DedicatedSubreaperTests.test_source_module_ignores_bytecode_and_rejects_changed_source_pins",
+      "DedicatedSubreaperTests.test_storage_scan_is_bounded_and_rejects_nonregular_aliases",
+      "DedicatedSubreaperTests.test_unverified_bundle_cannot_select_executable_admission_implementation"
+    ],
+    "python_executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12"
+  }
+}

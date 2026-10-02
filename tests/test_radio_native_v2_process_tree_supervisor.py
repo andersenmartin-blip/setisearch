@@ -1,5 +1,6 @@
 """Tiny isolated dedicated-supervisor tests; no pipeline/scientific execution."""
 import hashlib
+import copy
 import importlib.util
 import json
 import os
@@ -18,6 +19,206 @@ SPEC = importlib.util.spec_from_file_location('tree_supervisor', SCRIPT)
 supervisor = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(supervisor)
 PYTHON = str(Path(sys.executable).resolve())
+
+
+class BoundedAdmissionReceiptTests(unittest.TestCase):
+    """Metadata-only admission doubles; the sole executed workload is print()."""
+    def metadata(self, scope):
+        source = ROOT
+        # Read only archived admission JSON when present. It contains metadata,
+        # not telescope/source bytes. The scope is deliberately rebound to a
+        # fresh test directory, so this is never a real activation admission.
+        archived = source / 'results_radio_native_v2_compact_control_20261002b/control-admission.json'
+        if archived.is_file():
+            bundle = json.loads(archived.read_bytes())
+            return {'plan': bundle['plan'], 'freeze': bundle['complete_freeze'],
+                'preread': bundle['public_preread'], 'activation_receipt': bundle['activation_receipt'],
+                'invocation_spending': bundle['invocation_spending'], 'execution_scope': str(scope)}
+        return {'plan': json.loads((source / 'config/radio_native_v2_compact_eight_input_control_20261002n.plan.json').read_bytes()),
+            'freeze': json.loads((source / 'config/radio_native_v2_ledger_launch_20261002a.runtime.json').read_bytes()),
+            'preread': json.loads((source / 'config/radio_native_v2_compact_control_20261002b.execution-preread.json').read_bytes()),
+            'activation_receipt': {'test_double': True}, 'invocation_spending': {'test_double': True},
+            'execution_scope': str(scope)}
+
+    def checked(self, root, *, role='prepare', evidence=None):
+        layout = {'worker_scope': str(root), 'receipt_scope': str(root / 'supervised'),
+            'shared_storage_root': str(root), 'command_label': None, 'runtime_name': 'python'}
+        ordinal = None if role in ('control', 'verifier') else 0
+        structural = {key: False for key in supervisor.STRUCTURAL_BASE_KEYS}
+        structural.update(schema='test-structural-double', status='TEST_DOUBLE',
+            role=role, case_ordinal=ordinal, worker_role_layout=layout,
+            loaded_validator_code={'bytes': 1, 'sha256': '1' * 64})
+        if role != 'prepare':
+            structural.update({key: False for key in supervisor.STRUCTURAL_PHASE_KEYS})
+            structural['phase_input_pins'] = {'prepared_json': {'bytes': 1, 'sha256': '2' * 64}}
+        if role == 'command':
+            structural['command_binding'] = {'kind': 'prepared_source_reader',
+                'reader_ordinal': 0, 'selected_output_sha256': '3' * 64}
+        return {'schema': supervisor.SCHEMA + ('-admitted-prepare-check' if role == 'prepare' else '-admitted-worker-check'),
+            'role': role, 'ordinal': ordinal,
+            'argv': [PYTHON, '-I', '-S', '-B', '-c', "print('tiny repair probe')"],
+            'bundle_path': str(root / 'metadata-only-admission.json'), 'bundle_sha256': '4' * 64,
+            **layout, 'supervisor_python_path': PYTHON,
+            'activation_evidence': evidence or self.metadata(root), 'structural_admission': structural,
+            'materialized_fixture_execution_status': 'TEST_DOUBLE',
+            'independent_immutable_publication_join_complete': False, **supervisor.AUTHORITY}
+
+    def capacity(self, checked):
+        role = checked['role']
+        controls = supervisor.admitted_role_controls(role, 1)
+        pin = {'kind': 'admission-bound-prepare-worker' if role == 'prepare' else 'admission-bound-role-worker',
+            'role': role, 'ordinal': checked['ordinal'], 'bundle_sha256': checked['bundle_sha256']}
+        return supervisor.receipt_capacity_bound(controls,
+            code_pin=supervisor.pin_file(SCRIPT), runtime_pin=supervisor.pin_file(PYTHON),
+            input_pin=pin, checked=checked, shared_storage_root=Path(checked['shared_storage_root']),
+            shared_storage_cap=supervisor.ROLE_LIMITS[role]['shared_storage_bytes'], passthrough=role == 'command')
+
+    def test_full_sized_metadata_compacts_and_all_seven_roles_fit_original_cap(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            evidence = self.metadata(root)
+            self.assertGreater(len(supervisor.canonical(evidence)), 1_000_000)
+            for role in supervisor.ROLE_LIMITS:
+                checked = self.checked(root, role=role, evidence=evidence)
+                original = copy.deepcopy(checked)
+                fixed, bound = self.capacity(checked)
+                compact = fixed['admitted_worker_check']
+                self.assertEqual(checked, original)
+                self.assertNotIn('activation_evidence', compact)
+                self.assertEqual(compact['structural_admission'], checked['structural_admission'])
+                self.assertTrue(supervisor.verify_admitted_attestation(compact, checked))
+                self.assertLess(bound, 131072)
+                self.assertEqual(supervisor.RECEIPT_RESERVATION_BYTES, 131072)
+                if role == 'prepare': self.assertEqual(fixed['admitted_preparation_check'], compact)
+                else: self.assertIsNone(fixed['admitted_preparation_check'])
+
+    def test_altered_reference_scope_bundle_argv_and_structural_fields_refuse(self):
+        with tempfile.TemporaryDirectory() as directory:
+            checked = self.checked(Path(directory))
+            original = supervisor.compact_admitted_attestation(checked)
+            for key in ('reference', 'scope', 'bundle', 'argv', 'structural'):
+                altered = copy.deepcopy(original)
+                if key == 'reference': altered['activation_evidence_reference']['canonical_input_pins']['freeze']['sha256'] = '0' * 64
+                elif key == 'scope': altered['activation_evidence_reference']['execution_scope'] += '/other'
+                elif key == 'bundle': altered['bundle_sha256'] = '0' * 64
+                elif key == 'argv': altered['argv'][-1] = "print('different tiny probe')"
+                else: altered['structural_admission']['exact_worker_argv_checked'] = True
+                with self.subTest(key=key), self.assertRaises(ValueError):
+                    supervisor.verify_admitted_attestation(altered, checked)
+
+    def test_complete_envelope_reserves_64_rows_and_final_only_fields(self):
+        with tempfile.TemporaryDirectory() as directory:
+            checked = self.checked(Path(directory))
+            fixed, bound = self.capacity(checked)
+            row = {'namespace_pid': 2**63-1, 'kind': 'adopted_orphan', 'exit_code': -128,
+                'wait4_ru_maxrss_bytes': 2**63-1, 'wait4_user_seconds': 1.7976931348623157e308,
+                'wait4_system_seconds': 1.7976931348623157e308}
+            receipt = {**fixed, **{key: None for key in supervisor.RUNTIME_FIELD_JSON_LIMITS},
+                'reaped_processes': [row] * 64, 'reaped_process_count': 64,
+                'reason': 'x' * 8190,
+                'caller_accessor_observation': {'completed': True, 'request_sha256': '5' * 64,
+                    'client_sha256': '6' * 64, 'response_pin': {'bytes': 65536, 'sha256': '7' * 64},
+                    'accessor_peak_rss_bytes': 2**63-1, 'accessor_interval_end_epoch_ms': 2**63-1,
+                    'additional_root_samples': 2**63-1},
+                'root_identity': {'procfs_pid': 2**63-1, 'parent_procfs_pid': 2**63-1,
+                    'namespace_pid': 2**63-1, 'namespace_pid_chain': [2**63-1] * 64,
+                    'procfs_start_ticks': '9' * 32}}
+            supervisor._validate_receipt_runtime_fields(receipt, fixed)
+            self.assertLessEqual(len(supervisor.canonical(receipt)) + 1, bound)
+            self.assertIn('filesystem_checks_completed_before_disposition', supervisor.RUNTIME_FIELD_JSON_LIMITS)
+            self.assertEqual(supervisor.MAX_REAPED_CHILDREN, 64)
+            receipt['reaped_processes'][0] = {**row, 'unbounded': 'x' * 1000}
+            with self.assertRaises(RuntimeError): supervisor._validate_receipt_runtime_fields(receipt, fixed)
+
+    def test_bad_fixed_metadata_refuses_before_subreaper_scope_identity_or_child(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for mutation in ('escaped_argv', 'control', 'input', 'check', 'structural', 'nested'):
+                checked = self.checked(root)
+                controls = supervisor.admitted_role_controls('prepare', 1)
+                pin = {'kind': 'admission-bound-prepare-worker', 'bundle_sha256': '4' * 64, 'role': 'prepare', 'ordinal': 0}
+                if mutation == 'escaped_argv': checked['argv'][-1] = '\x00' * 30000
+                elif mutation == 'control': controls['unknown_bulk'] = 'x' * 131072
+                elif mutation == 'input': pin['unknown_bulk'] = 'x' * 131072
+                elif mutation == 'check': checked['unknown_bulk'] = 'x' * 131072
+                elif mutation == 'structural': checked['structural_admission']['unknown_bulk'] = 'x' * 131072
+                else: checked['structural_admission']['source_case_id'] = {'bulk': 'x' * 100}
+                fixture = types.SimpleNamespace(require_execution_ready=mock.Mock())
+                with self.subTest(mutation=mutation), \
+                        mock.patch.object(supervisor, 'require_isolated_supervisor_runtime'), \
+                        mock.patch.object(supervisor, 'require_exact_supervisor_invocation'), \
+                        mock.patch.object(supervisor, 'check_admitted_prepare_worker', return_value=(checked, fixture)), \
+                        mock.patch.object(supervisor, 'set_subreaper') as subreaper, \
+                        mock.patch.object(supervisor, 'durable_json') as write, \
+                        mock.patch.object(supervisor.subprocess, 'Popen') as launch:
+                    with self.assertRaises(ValueError):
+                        supervisor.supervise_engineering_subprocess(checked['argv'], root / 'supervised', controls,
+                            dedicated_process=True, input_pin=pin, _admitted_dispatch=checked)
+                    subreaper.assert_not_called(); write.assert_not_called(); launch.assert_not_called()
+                    self.assertFalse((root / 'supervised').exists())
+
+    def test_actual_tiny_child_keeps_raw_guard_calls_and_persists_small_receipts(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            checked = self.checked(root)
+            metadata_path = root / 'test-metadata.json'
+            metadata_path.write_bytes(supervisor.canonical(checked))
+            driver = """import importlib.util,json,sys,types
+from pathlib import Path
+spec=importlib.util.spec_from_file_location('repair_supervisor',sys.argv[1]); m=importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+checked=json.loads(Path(sys.argv[2]).read_bytes()); calls=[]
+def raw_guard(**evidence):
+ assert evidence == checked['activation_evidence'] and 'freeze' in evidence
+ calls.append(len(m.canonical(evidence)))
+fixture=types.SimpleNamespace(require_execution_ready=raw_guard)
+m.check_admitted_prepare_worker=lambda *args,**kwargs:(checked,fixture)
+# Structural admission and exact dispatcher prefix are deliberate test doubles;
+# actual -I -S -B flags and complete three-variable environment are still checked.
+m.require_exact_supervisor_invocation=lambda checked:None
+receipt=m.dispatch_admitted_prepare_worker(checked['bundle_path'],checked['receipt_scope'],ordinal=0,expected_bundle_sha256=checked['bundle_sha256'],seconds=3)
+assert calls == [calls[0],calls[0]] and calls[0]>1000000
+assert receipt['status']=='ENGINEERING_SUBREAPER_SCOPE_COMPLETE',receipt['reason']
+assert 'activation_evidence' not in receipt['admitted_worker_check']
+assert m.verify_admitted_attestation(receipt['admitted_worker_check'],checked)
+print(json.dumps({'calls':calls,'status':receipt['status']}))
+"""
+            result = subprocess.run([PYTHON, '-I', '-S', '-B', '-c', driver, str(SCRIPT), str(metadata_path)],
+                env=supervisor.ENVIRONMENT, capture_output=True, timeout=8)
+            self.assertEqual(result.returncode, 0, result.stderr.decode())
+            summary = json.loads(result.stdout)
+            self.assertEqual(len(summary['calls']), 2)
+            for name in ('subreaper-measurements.json', 'subreaper-receipt.json'):
+                raw = (root / 'supervised' / name).read_bytes()
+                self.assertLess(len(raw), 131072)
+                self.assertNotIn(b'"activation_evidence":', raw)
+            self.assertEqual(checked['argv'][-1], "print('tiny repair probe')")
+
+    def test_oversized_failure_text_has_exact_diagnostic_pin_and_stays_failure(self):
+        reason = 'failed: ' + '\x00' * 10000
+        bounded = supervisor._bounded_reason(reason)
+        self.assertIn(hashlib.sha256(reason.encode()).hexdigest(), bounded)
+        self.assertIn('bytes=' + str(len(reason.encode())), bounded)
+        self.assertLess(len(supervisor.canonical(bounded)), supervisor.MAX_REASON_JSON_BYTES)
+        with tempfile.TemporaryDirectory() as directory:
+            scope = Path(directory) / 'failed-tiny-probe'
+            driver = """import importlib.util,json,sys
+from pathlib import Path
+spec=importlib.util.spec_from_file_location('repair_supervisor',sys.argv[1]); m=importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+def failing_launch(*args,**kwargs): raise RuntimeError('escaped failure: '+chr(0)*30000)
+m.subprocess.Popen=failing_launch
+controls={'schema':m.SCHEMA+'-controls','seconds':3,'output_bytes':65536,'reaped_children':64}
+receipt=m.supervise_engineering_subprocess([str(Path(sys.executable).resolve()),'-I','-S','-B','-c',"print('never launched')"],Path(sys.argv[2]),controls,dedicated_process=True)
+assert receipt['status']=='CLOSED_FAILED'
+assert 'sha256=' in receipt['reason']
+assert receipt['reaped_processes']==[]
+print(json.dumps({'status':receipt['status']}))
+"""
+            result = subprocess.run([PYTHON, '-I', '-S', '-B', '-c', driver, str(SCRIPT), str(scope)],
+                env=supervisor.ENVIRONMENT, capture_output=True, timeout=8)
+            self.assertEqual(result.returncode, 0, result.stderr.decode())
+            self.assertEqual(json.loads(result.stdout)['status'], 'CLOSED_FAILED')
+            for name in ('subreaper-measurements.json', 'subreaper-receipt.json'):
+                self.assertLess((scope / name).stat().st_size, 131072)
 
 
 class DedicatedSubreaperTests(unittest.TestCase):

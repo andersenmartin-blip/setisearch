@@ -1,5 +1,33 @@
 # HD189733: prospective source, acquisition and trial admission matrix
 
+## 2 October: metadata component implemented; admission stays blocked
+
+[The integrated metadata preparation](RADIO_HD189733_METADATA_PREPARATION_2026-10-02_RESULT.md)
+adds a pure constructor and separately callable validator, with 42 candidate
+tests and an independent 42-test review passing. All 25 raw inputs / 749,088
+bytes match retained local Git pins and now have
+[fresh immutable public byte/Git-blob readback](results_radio_hd189733_metadata_preparation_20261002a/public-input-readback.json)
+at `1468a19d2603bde2b491b5400a2d3cdf8954c69f`. The nine current source/acquisition
+pins expose four old-contract gaps, including the changed search implementation.
+Six scans, 288 distinct chunk identities and the exact 96-integration rational
+clock are reconstructed under the unchanged 226.840273 Hz / linear ±4 Hz/s scope.
+The three canonical outputs are a permanently blocked wrapper, admission sidecar
+and pending provenance receipt; no active contract, certificate, allocation or
+spectral authority is issued. All 42 metadata tests pass in the final **401-test
+suite**, with zero failures/errors/skips and 944 unchanged source/test pins.
+The prior 398-test observer-publication failure and post-test exclusive-alias
+error remain retained with explicit byte-exact final selection. Fresh o capture
+and independent audit pass under actual ten-value `-I -S -B`, covering 36 inputs,
+927 repository code files and 1,366 runtime paths, with execution blocked.
+Public input custody is verified; new component/output publication/readback,
+intended source-runtime admission and scientific gates remain pending.
+No spectrum, holdout, reserved native input or RNG value was opened/generated.
+LS remains paused; stop 9 October without extension. The original audited design
+below is preserved as the implementation's historical requirements, not a claim
+that its future admission gates have passed.
+
+## Original metadata-only design and immutable evidence audit
+
 **Disposition: METADATA_ONLY_ADMISSION_DESIGN; TELESCOPE_ACCESS_BLOCKED.**
 This report identifies the next source-contract work independently of the
 compact-eight engineering result. It creates no contract, allocation, ledger,

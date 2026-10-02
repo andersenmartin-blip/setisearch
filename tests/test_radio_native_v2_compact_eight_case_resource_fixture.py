@@ -15,6 +15,7 @@ import tempfile
 import time
 import unittest
 from unittest import mock
+from types import SimpleNamespace
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -24,6 +25,102 @@ fixture = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(fixture)
 PYTHON = str(Path(sys.executable).resolve())
 NODE = shutil.which('node')
+
+
+class IdentityPublicationRaceTests(unittest.TestCase):
+    """Tiny live children and deterministic opened-descriptor transitions."""
+    def changed_stats(self, info, kind):
+        fields = ('st_mode', 'st_nlink', 'st_dev', 'st_ino', 'st_size', 'st_mtime_ns', 'st_ctime_ns')
+        before = SimpleNamespace(**{name: getattr(info, name) for name in fields})
+        after = SimpleNamespace(**{name: getattr(info, name) for name in fields})
+        if kind == 'length': before.st_size += 1
+        else: after.st_ctime_ns += 1
+        return before, after
+
+    def test_live_identity_retries_exactly_one_typed_read_transition_then_verifies(self):
+        for kind, expected in (('length', 'JSON evidence changed during read'),
+                ('metadata', 'JSON evidence inode changed during read')):
+            with self.subTest(kind=kind), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory); identity_path = root/'identity.json'; ready = root/'written'
+                # The child keeps the production-visible exclusive write style.
+                # A separate tiny readiness signal stabilizes the test input so
+                # each injected descriptor transition targets its exact branch;
+                # it does not change production publication or make it atomic.
+                source = ('import os,json,sys,time; '
+                    'f=open(sys.argv[1],"x"); '
+                    'json.dump({"procfs_pid":int(os.readlink("/proc/self")),"namespace_pid":os.getpid()},f); '
+                    'f.close(); open(sys.argv[2],"x").close(); '
+                    'time.sleep(0.1); print("tiny identity child")')
+                original_read = fixture.small_json; original_exists = Path.exists
+                reads = []; transient = []
+                def exists(path):
+                    return original_exists(path) and (path != identity_path or original_exists(ready))
+                def read(path, *args, **kwargs):
+                    if Path(path) == identity_path:
+                        reads.append(str(path))
+                        if len(reads) == 1:
+                            with mock.patch.object(fixture.os, 'fstat',
+                                    side_effect=self.changed_stats(identity_path.stat(), kind)):
+                                try: return original_read(path, *args, **kwargs)
+                                except fixture.JSONEvidenceChangedDuringRead as error:
+                                    transient.append(str(error)); raise
+                    return original_read(path, *args, **kwargs)
+                with mock.patch.object(Path, 'exists', exists), mock.patch.object(fixture, 'small_json', read):
+                    observed, stdout, stderr = fixture.observe_process(
+                        [PYTHON, '-I', '-S', '-B', '-c', source, str(identity_path), str(ready)],
+                        root, 'one-transition', identity_path, deadline=time.monotonic()+3, pipe_output=True)
+                self.assertEqual(transient, [expected])
+                self.assertEqual(len(reads), 2)
+                self.assertTrue(observed['reported_identity_verified'])
+                self.assertTrue(observed['direct_child_reaped'])
+                self.assertEqual(observed['exit_code'], 0); self.assertIsNone(observed['reason'])
+                self.assertEqual(stdout, b'tiny identity child\n'); self.assertEqual(stderr, b'')
+                self.assertFalse(observed['complete_descendant_wait_chain_verified'])
+
+    def test_stable_wrong_identity_and_untyped_validation_errors_close_immediately(self):
+        for kind in ('wrong-pid', 'parsed-invalid', 'ordinary-value-error'):
+            with self.subTest(kind=kind), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory); identity_path = root/'identity.json'; ready = root/'written'
+                reported = '{"procfs_pid":int(os.readlink("/proc/self"))+1,"namespace_pid":os.getpid()}' if kind == 'wrong-pid' else '{}'
+                source = ('import os,json,sys,time; f=open(sys.argv[1],"x"); '
+                    'json.dump('+reported+',f); f.close(); open(sys.argv[2],"x").close(); time.sleep(0.2)')
+                original_read = fixture.small_json; original_exists = Path.exists; reads = []
+                def exists(path):
+                    return original_exists(path) and (path != identity_path or original_exists(ready))
+                def read(path, *args, **kwargs):
+                    if Path(path) == identity_path:
+                        reads.append(str(path))
+                        if kind == 'ordinary-value-error': raise ValueError('Stable identity validation failed')
+                    return original_read(path, *args, **kwargs)
+                expected = 'Stable identity validation failed' if kind == 'ordinary-value-error' else 'differs from independently launched direct child'
+                started = time.monotonic()
+                with mock.patch.object(Path, 'exists', exists), mock.patch.object(fixture, 'small_json', read):
+                    with self.assertRaisesRegex(RuntimeError, expected):
+                        fixture.observe_process([PYTHON, '-I', '-S', '-B', '-c', source, str(identity_path), str(ready)],
+                            root, 'stable-invalid', identity_path, deadline=started+3, pipe_output=True)
+                observed = original_read(root/'stable-invalid-observation.json')
+                self.assertEqual(len(reads), 1)
+                self.assertLess(time.monotonic()-started, 2)
+                self.assertFalse(observed['reported_identity_verified'])
+                self.assertTrue(observed['direct_child_reaped'])
+                self.assertIn(expected, observed['reason'])
+
+    def test_static_json_read_propagates_both_typed_instabilities_and_other_guards(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory)/'static.json'; path.write_bytes(b'{}')
+            for kind, expected in (('length', 'JSON evidence changed during read'),
+                    ('metadata', 'JSON evidence inode changed during read')):
+                with self.subTest(kind=kind), mock.patch.object(fixture.os, 'fstat',
+                        side_effect=self.changed_stats(path.stat(), kind)):
+                    with self.assertRaisesRegex(fixture.JSONEvidenceChangedDuringRead, expected) as caught:
+                        fixture.small_json(path)
+                    self.assertIsInstance(caught.exception, ValueError)
+            alias = Path(directory)/'alias.json'; os.link(path, alias)
+            with self.assertRaises(ValueError) as caught: fixture.small_json(path)
+            self.assertNotIsInstance(caught.exception, fixture.JSONEvidenceChangedDuringRead)
+            alias.unlink()
+            with self.assertRaises(ValueError) as caught: fixture.small_json(path, limit=1)
+            self.assertNotIsInstance(caught.exception, fixture.JSONEvidenceChangedDuringRead)
 
 
 class CompactEightPreparationTests(unittest.TestCase):
