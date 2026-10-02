@@ -8,9 +8,10 @@ derived from pinned Python, Node and Git paths. The actual isolated check passes
 the fresh freeze covers 922 code files, 8 inputs and 1,366 runtime files, and
 **204 tests pass**.
 
-Plan `20261002g` remains **BLOCKED_PREPARATION_REVIEW**. Immutable public readback,
-remaining runtime/platform closure and outer final-report lifetime are still required
-before one fresh eight-input engineering control. No large input, reservation, RNG
+Plan `20261002g` and its preparation evidence have matching public readback but remain
+**BLOCKED_PREPARATION_REVIEW**. Remaining runtime/platform closure, outer final-report
+lifetime and a later execution-qualified public preread are still required before one
+fresh eight-input engineering control. No large input, reservation, RNG
 or telescope spectrum was opened. HD189733 selected; HD1461 HOLD; GJ724 reserve;
 127/24 NOT ACTIVATED; LS paused; CHEOPS UNSENT. Consolidate 9 October.
 
