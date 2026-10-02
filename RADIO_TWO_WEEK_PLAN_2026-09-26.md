@@ -5,7 +5,8 @@
 [The component and tests](RADIO_NATIVE_V2_CONTROL_ACTIVATION_INTERFACE_2026-10-02_RESULT.md)
 verify exact marker-only Git ancestry, preread/readback pins and worker receipt checks.
 Four isolated tests and the **211-test** adjacent suite pass. The component remains
-outside the material runner/bundle and no marker or execution authority exists.
+outside the material runner/bundle and no marker or execution authority exists. Its
+science/main publication now has matching independent readback.
 
 **Next:** carry the receipt through all worker roles and the outer entry, test
 pre-write refusal for every invalid proof, then generate a new still-blocked

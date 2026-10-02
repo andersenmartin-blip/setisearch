@@ -24,11 +24,18 @@ readback. The adjacent nine-module blocked suite passes **211 tests in 81.898 s*
 - [Adjacent test log](results_radio_native_v2_control_activation_interface_20261002a/adjacent-tests-stderr.log)
 - [Retained first test-invocation failure](results_radio_native_v2_control_activation_interface_20261002a/failed-first-test-invocation.json)
 - [Verifier](results_radio_native_v2_control_activation_interface_20261002a/verify_activation_interface.py)
+- [Publication readback](results_radio_native_v2_control_activation_interface_20261002a/publication-readback.json)
 
 The retained failure used `python -I -m unittest` with repository module discovery;
 isolated mode correctly removed that import path. Direct isolated component execution
 and the established explicit-PYTHONPATH adjacent harness then passed. No test failure
 was tuned into a pass.
+
+Science commit `96e4ad65fb9353b43027a101009b5d0a4479d822` has the expected
+parent and tree, and its component, test, report and verification-summary blobs match.
+Main commit `9887b0b07fb0f594325b2c8e822b4725b4251f7f` has the expected
+parent, tree and README blob. This public readback freezes the proof component; it is
+not the future activation marker.
 
 ## Boundary and continuation
 

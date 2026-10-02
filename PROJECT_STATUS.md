@@ -5,7 +5,8 @@
 [The component, synthetic Git tests and adjacent suite](RADIO_NATIVE_V2_CONTROL_ACTIVATION_INTERFACE_2026-10-02_RESULT.md)
 verify direct-child, single-parent, marker-only and public-readback semantics. Four
 isolated tests pass in **0.355 s** and the nine-module blocked suite passes **211 tests
-in 81.898 s**. The first invalid isolated discovery invocation is retained failed.
+in 81.898 s**. Its science/main publication now has matching independent readback.
+The first invalid isolated discovery invocation is retained failed.
 
 The component is not yet in the runner or worker bundle and no marker exists. No
 large input, control, reservation, RNG or telescope read occurred. HD189733 selected;

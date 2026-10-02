@@ -5,7 +5,8 @@
 [The implementation and 211-test adjacent result](RADIO_NATIVE_V2_CONTROL_ACTIVATION_INTERFACE_2026-10-02_RESULT.md)
 establish strict future marker/readback semantics without importing the runner or
 granting authority. The receipt validator can be applied independently by each worker,
-but no material entry point or bundle carries it yet.
+and its own public publication now matches readback, but no material entry point or
+bundle carries it yet.
 
 **Direction:** version and thread the receipt through every worker and outer entry,
 keeping all absent/stale/reused proof paths closed before writes. Only after that
