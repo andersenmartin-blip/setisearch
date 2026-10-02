@@ -19,6 +19,7 @@ class ActivationEnvironmentTests(unittest.TestCase):
         self.plan = {'schema': contract.PLAN_SCHEMA, 'execution_status': 'BLOCKED_PREPARATION_REVIEW',
             'execution_authorized': False, 'reservation_authorized': False,
             'scientific_execution_authorized': False,
+            'activation_platform_contract': contract.platform_contract(),
             'runtime_executables': {'python': self.python, 'node': self.node}}
         self.freeze = {'schema': contract.FREEZE_SCHEMA, 'mode': 'PROSPECTIVE_ENGINEERING_ONLY',
             'executables': {'python': {'resolved': self.python['path'], 'sha256': '1'*64},
@@ -29,6 +30,8 @@ class ActivationEnvironmentTests(unittest.TestCase):
         result = contract.validate(self.plan, self.freeze, expected)
         self.assertTrue(result['complete_parent_environment_frozen'])
         self.assertFalse(result['secret_bearing_ambient_environment_inherited'])
+        self.assertTrue(result['bounded_activation_platform_contract_verified'])
+        self.assertFalse(result['operating_system_kernel_bytes_frozen'])
         self.assertFalse(result['activation_guard_complete'])
         self.assertEqual(result['environment_sha256'], hashlib.sha256(contract.canonical(expected)).hexdigest())
         self.assertNotIn('PYTHONPATH', expected)
@@ -56,6 +59,17 @@ class ActivationEnvironmentTests(unittest.TestCase):
             if value == '/opt/python': del plan['runtime_executables']['python']['sha256']
             with self.subTest(value=value), self.assertRaises(ValueError):
                 contract.expected_environment(plan, self.freeze)
+
+    def test_platform_contract_is_secret_free_exact_and_drift_closes(self):
+        observed = contract.platform_contract()
+        self.assertFalse(observed['secret_bearing_values_included'])
+        self.assertFalse(observed['operating_system_kernel_bytes_frozen'])
+        self.assertTrue(observed['activation_time_exact_recheck_required'])
+        self.assertEqual(contract.validate_platform(observed), observed)
+        changed = copy.deepcopy(observed)
+        changed['kernel_public_fields']['boot_id'] = '00000000-0000-0000-0000-000000000000'
+        with self.assertRaisesRegex(ValueError, 'platform differs'):
+            contract.validate_platform(changed)
 
 
 if __name__ == '__main__': unittest.main()

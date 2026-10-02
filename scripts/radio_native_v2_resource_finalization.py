@@ -57,9 +57,9 @@ MAX_INVENTORY_ENTRIES = 32768
 # the final code of the fixed source implementations; a supplied bundle cannot
 # select an arbitrary implementation for any admission check.
 BOOTSTRAP_SOURCE_PINS = {
-    FIXTURE: {'bytes': 108473, 'sha256': '0469db1c88daabcf67630bba3670b6fdb8b4284e20bd5dc9eae7c583f93eb32f'},
+    FIXTURE: {'bytes': 109233, 'sha256': 'f4449ac6d47f03be3bc8a7898ef7ba59285de0fa586f7bb6dab20e73e27257ff'},
     ADMISSION: {'bytes': 67121, 'sha256': 'f0e78a51244bca357cf1ea11a89d9ca2bbe91cfb9584e9a9345141c3248629ff'},
-    SUPERVISOR: {'bytes': 57814, 'sha256': 'd3ef4a0c3eb3866a4b13bb3c1bb2b92a3567963c17d33f03db50577c0020068f'},
+    SUPERVISOR: {'bytes': 57814, 'sha256': '45f413a9ee48b9168f633cacf6c3225d7ce4eb97dbcc4ad4e73020b991a0f0fd'},
 }
 AUTHORITY = {'execution_authorized': False, 'reservation_authorized': False,
     'scientific_execution_authorized': False, 'native_case_reservations': 0,

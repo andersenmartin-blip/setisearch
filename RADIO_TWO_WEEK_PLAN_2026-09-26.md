@@ -1,5 +1,20 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 2 October: bounded activation platform passes; public execution preread remains
+
+[The contract, isolated receipt, tests and fresh freeze](RADIO_NATIVE_V2_ACTIVATION_PLATFORM_2026-10-02_RESULT.md)
+bind the bounded public activation platform without claiming to freeze kernel bytes.
+**207 tests pass**; plan `20261002i` is bound to a fresh
+922-code/8-input/1,366-runtime freeze.
+
+The plan remains **BLOCKED_PREPARATION_REVIEW**. **Next:** publish/read back this
+preparation, then construct and verify a separate immutable execution preread without
+rewriting the historical preparation contract. Only after that gate may one fresh
+eight-input engineering control be considered. No large source, reservation, RNG,
+telescope spectrum or holdout was opened. HD189733 selected; HD1461 HOLD; GJ724
+reserve; 127/24 NOT ACTIVATED; LS paused; CHEOPS UNSENT. Consolidate 9 October.
+No external messages.
+
 ## 2 October: final-report lifetime passes; platform gate remains
 
 [The implementation, tiny control, tests and refreshed runtime freeze](RADIO_NATIVE_V2_FINAL_REPORT_LIFETIME_2026-10-02_RESULT.md)

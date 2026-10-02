@@ -36,7 +36,7 @@ PLAN_SCHEMA = SCHEMA + '-prospective-plan'
 PREREAD_SCHEMA = SCHEMA + '-public-preread'
 EXECUTION_STATUS = 'BLOCKED_PREPARATION_REVIEW'
 EXECUTION_BLOCKERS = (
-    'Complete structural and actual expected runtime-freeze closure must be joined to the engineering runtime supplement and exact parent/child environments.',
+    'The current runtime freeze, exact parent environment and bounded platform contract require one integrated activation-time recheck against a distinct immutable execution preread.',
     'Every source-generating worker must independently enforce the outer public-preread admission and materialized code/derived pins.',
     'An independent measurement harness must cover the material runner through final metadata fsync and process termination; the final authoritative disposition must follow all storage/time checks.',
     'Whole-scope timing and final shared storage reservations must include every preparation, observer, directory and finalization entry under original limits.',
@@ -306,6 +306,7 @@ def build_plan(repo=REPO):
         'complete_resource_measurement_join_qualified':False,
         'code_files': code, 'derived_code': {name: {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()} for name, raw in derived.items()},
         'runtime_executables': runtime, 'engineering_runtime_supplement':runtime_supplement(),
+        'activation_platform_contract':activation_environment_module(repo).platform_contract(),
         'child_environment':CHILD_ENVIRONMENT,'complete_runtime_freeze_required': True,
         'public_immutable_preread_required': True, 'original_limits': LIMITS,
         'prospective_shared_storage_allocation_complete':False,
@@ -413,6 +414,16 @@ def runtime_supplement():
         'child_repository_imports_use_fresh_source_only':True,'scientific_runtime_qualified':False}
 
 
+def activation_environment_module(repo=REPO):
+    """Load the sibling source lazily; closed worker gates do not import it."""
+    path = Path(repo)/'scripts/radio_native_v2_activation_environment.py'
+    spec = importlib.util.spec_from_file_location('radio_native_v2_activation_environment_material', path)
+    if spec is None or spec.loader is None:
+        raise ValueError('Material activation environment source cannot be loaded')
+    module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
+    return module
+
+
 def validate_activation(plan, preread, freeze, repo=REPO):
     """Preparation subset checks only; the execution status stays hard closed.
 
@@ -422,6 +433,7 @@ def validate_activation(plan, preread, freeze, repo=REPO):
     """
     require_execution_ready()
     if plan != build_plan(repo): raise ValueError('Exact current prospective plan/code/runtime executable pins required')
+    activation_environment_module(repo).validate_platform(plan.get('activation_platform_contract'))
     expected = {'schema': PREREAD_SCHEMA, 'namespace': NAMESPACE,
         'plan_sha256': hashlib.sha256(canonical(plan)).hexdigest(),
         'complete_freeze_sha256': hashlib.sha256(canonical(freeze)).hexdigest(),

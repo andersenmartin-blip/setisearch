@@ -1,5 +1,18 @@
 # Long-term project direction
 
+## 2 October: bounded activation platform contract verified
+
+[The exact platform/runtime result](RADIO_NATIVE_V2_ACTIVATION_PLATFORM_2026-10-02_RESULT.md)
+adds a secret-free activation-time identity for the bounded engineering control.
+The isolated check and a fresh 922-code/8-input/1,366-runtime freeze pass; **207
+tests** pass. Kernel bytes are explicitly not described as frozen.
+
+**Direction:** keep plan `20261002i` and the historical preparation contract
+blocked. Publish/read back the current preparation, then construct a distinct
+execution-qualified preread. Do not open large sources until that separate gate is
+verified. All target/holdout dispositions, 127/24 status and the 9 October end date
+remain unchanged. No external messages.
+
 ## 2 October: final-report writer lifetime component verified
 
 [The code, actual control and refreshed freeze](RADIO_NATIVE_V2_FINAL_REPORT_LIFETIME_2026-10-02_RESULT.md)
