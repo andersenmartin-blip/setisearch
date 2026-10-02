@@ -4,7 +4,8 @@
 
 [The frozen protocol, blocker audit and retained failures](RADIO_NATIVE_V2_CONTROL_ACTIVATION_TRANSITION_2026-10-02_RESULT.md)
 show that every material runner entry point rejects before it reads the valid public
-preread. A seven-phase marker-only transition resolves the pin cycle without changing
+preread. The protocol's science and README publications have matching public readback.
+A seven-phase marker-only transition resolves the pin cycle without changing
 the historical blocked plan or reusing its preread for changed code.
 
 No large input, control, reservation, RNG or telescope spectrum was opened. Next is
