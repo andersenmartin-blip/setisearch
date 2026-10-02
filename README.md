@@ -1,5 +1,16 @@
 # SETIsearch
 
+## 2 October: distinct execution preread constructed
+
+[The artifact, eight identity checks and retained failed control](RADIO_NATIVE_V2_EXECUTION_PREREAD_2026-10-02_RESULT.md)
+bind the exact public preparation commit, plan, freeze and material code pins. The
+historical plan remains blocked and unchanged; no execution route was opened.
+
+The preread still requires its own immutable public readback before a separate
+one-control activation transition may be assessed. No large input, reservation, RNG
+or telescope spectrum was opened. HD189733 selected; HD1461 HOLD; GJ724 reserve;
+127/24 NOT ACTIVATED; LS paused; CHEOPS UNSENT. Consolidate 9 October.
+
 ## 2 October: bounded activation platform verified
 
 [The exact contract, isolated receipt and fresh freeze](RADIO_NATIVE_V2_ACTIVATION_PLATFORM_2026-10-02_RESULT.md)
