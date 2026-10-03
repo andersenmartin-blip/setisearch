@@ -1,5 +1,12 @@
 # SETIsearch
 
+## 3 October: source-format preparation and isolated pipe repair verified
+
+[The new source-readiness checkpoint](https://github.com/andersenmartin-blip/setisearch/blob/b5a8e6fed55debb64cbd992ce1da09bb7b0ab294/RADIO_SOURCE_READINESS_2026-10-03_RESULT.md) prepares an isolated, unactivated g version while preserving concurrent primary f work. The retained-log forecast is corrected under unchanged limits; **154 focused tests**, guarded audit and preflight pass. Fresh synthetic checks cover **48 row/window codec combinations**, **31 strict evidence-verifier tests** and **97 normalization/receipt laws**. Complete immutable readback matches all **197 published files / 6,116,158 raw bytes**.
+
+No new telescope data or scientific candidate was analyzed. This separate preparation branch grants no additional control: reconcile the primary branch, select one successor, then supply its fresh integrated freeze, distinct preread, activation, permanent public spend and whole-control observer. All eleven source/scientific fields remain pending; acquisition/import, receiver handoff, hosted transport, external source lifetime and 127/24 qualification remain open. The 9 October consolidation date, target/HOLD/reserve decisions and all prior spend remain unchanged.
+
+
 ## 3 October: e control closed once; HDF5 bytes provisioned
 
 [The actual engineering e result](https://github.com/andersenmartin-blip/setisearch/blob/39b3d09d7f4986dd7fb0f1e8d631c9bb0e023cc3/RADIO_NATIVE_V3_CONTROL_E_2026-10-03_RESULT.md) is **CLOSED_FAILED**, with zero completed cases and permanent e spend. The first reader never launched: pipe mode forecast 4 MiB of duplicate logs that it does not retain, exceeding its 1.75 MiB metadata bucket. Complete raw failure evidence, whole-launcher wait4/ECHILD observations and independent restoration of both original deterministic inputs are retained. A fresh f repair requires its own frozen version, preread, activation, original preclaim, public create-only spend and observer; e is never retried or revived.
