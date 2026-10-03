@@ -1,5 +1,15 @@
 # SETIsearch
 
+## 3 October: missing-folder dependency repaired for fresh v3 work
+
+[The implemented and independently reviewed successor](https://github.com/andersenmartin-blip/setisearch/blob/8c258e37388d9237de7668650047c3b2d23dd3dc/RADIO_PORTABLE_CUSTODY_2026-10-03_RESULT.md) removes the missing original b/c private-directory prerequisite from a separate integrated v3 preparation route. This implements the owner's subsequent request to fix the obstruction so new analyses can be made. [The prospective amendment](https://github.com/andersenmartin-blip/setisearch/blob/8c258e37388d9237de7668650047c3b2d23dd3dc/RADIO_PORTABLE_CUSTODY_AMENDMENT_2026-10-03.md) changes the fresh route's custody/accounting domain; the old v2 refusal and every previous failure remain valid.
+
+**53 focused tests across four modules pass**, zero failures/errors/skips; a separate machine review verifies 2,486 checks and independently reruns all 53 tests. A genuine current-root preparation capture/audit binds 947 repository code files, 31 inputs, 1,366 runtime files and 56 selected material files; a separate read-only launcher preflight passes. Nineteen archive payloads / 356,392 raw bytes use complete disjoint current-copy inventories. All 1,190 prior source/test/helper pins remain unchanged. A real synthetic GitHub create-only reference probe rejects duplicate creation and preserves the first target; it qualifies that observed connector edge only.
+
+**Continuation supersedes the consolidation-only direction below:** finish a distinct immutable execution preread, new activation/public-claim readback and whole-control resource/lifetime qualification for one distinct e engineering control, then satisfy the unchanged eleven source/scientific admission fields before new telescope analysis. Recovering old b/c private state is no longer a prerequisite for this new lifetime. The preparation snapshot retains all five execution blockers; no real e marker/claim/journal/dispatch/control or telescope analysis ran. Publisher, complete runtime, hosted transport, lifetime and scientific qualification remain pending.
+
+Preserve a/b/c permanent spend, d uncreated, old missing storage/continuity unqualified, HD189733 selected, HD1461 HOLD, GJ724 untouched reserve, spectra/holdouts unopened, native8 unreserved, 127/24 NOT ACTIVATED, LS paused, CHEOPS UNSENT and earlier outcomes. Consolidate **9 October 2026**, with no automatic extension, restart, target change, person messages or scheduled-task changes.
+
 ## 3 October: current protected route blocked; consolidate existing evidence
 
 [The reviewed custody stop decision](https://github.com/andersenmartin-blip/setisearch/blob/9b13b9af11e2cf9a9d61eef0671b119bd5749ee7/RADIO_NATIVE_V2_CUSTODY_DECISION_2026-10-03.md) records **BLOCKED_ORIGINAL_HISTORY_CUSTODY** for the current protected engineering route. The original b/c scopes and private journals remain unavailable. Public archive copies cannot satisfy unchanged original identity/storage requirements; a/b/c remain permanently spent and d remains uncreated. No alternate custody protocol or new execution authority is adopted.
