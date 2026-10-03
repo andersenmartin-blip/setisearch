@@ -1,5 +1,13 @@
 # SETIsearch — current project status
 
+## 3 October: e control closed; HDF5 candidate provisioned
+
+[The actual e result](RADIO_NATIVE_V3_CONTROL_E_2026-10-03_RESULT.md) records one admitted engineering invocation, **CLOSED_FAILED**, zero completed cases and permanent e spend. The first source-reader child never launched because pipe mode forecast 4 MiB of logs that it does not retain; this exceeded the 1.75 MiB metadata bucket. A genuine targeted regression supports a fresh-version pipe reservation correction without changing any limit. The original e scope/journal and every old failure remain untouched. A future f requires its own full freeze, preread, marker, original preclaim, public create-only spend and observer; it is not yet activated.
+
+[A separate HDF5 candidate](results_radio_native_v3_hdf5_runtime_candidate_20261003a/README.md) is now installed from exact official wheel hashes and passes three deterministic codec round-trips. All thirty archived codec binary bytes match; the primary runtime's 1,366 frozen plus 240 supplemental pins remain unchanged. Historical identity continuity and all eleven scientific/source fields remain unqualified. No scientific or telescope analysis has started.
+
+Continue the concrete engineering repair and fresh source-specific qualification. Preserve a/b/c/e permanent spend, d uncreated, spectra/holdouts unopened, native8 unreserved, 127/24 NOT ACTIVATED, target/HOLD/reserve decisions, LS pause and CHEOPS UNSENT. The 9 October consolidation date and no automatic extension/restart/target-change rule remain unchanged.
+
 ## 3 October: missing-folder dependency repaired for new v3 work
 
 [The implemented successor result](RADIO_PORTABLE_CUSTODY_2026-10-03_RESULT.md) removes the missing original b/c private-directory prerequisite from a separate integrated v3 preparation route. This implements the owner’s subsequent request to fix the obstruction so new analyses can be made. [The prospective amendment](RADIO_PORTABLE_CUSTODY_AMENDMENT_2026-10-03.md) changes only the fresh route’s custody/accounting domain; the earlier v2 refusal and every old failure remain valid historical records.

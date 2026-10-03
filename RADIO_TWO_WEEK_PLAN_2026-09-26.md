@@ -1,5 +1,11 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 3 October: actual e closure and fresh HDF5 provisioning
+
+[The actual e engineering result](RADIO_NATIVE_V3_CONTROL_E_2026-10-03_RESULT.md) is CLOSED_FAILED with zero completed cases and permanent e spend. Correct the demonstrated pipe-mode disk forecast in a separately frozen fresh f route; retain original limits and require new immutable preread, marker, original preclaim, create-only public spend and observer before any f control. Never retry or revive e.
+
+The [isolated HDF5 candidate](results_radio_native_v3_hdf5_runtime_candidate_20261003a/README.md) now supplies exact official package bytes, passes three synthetic round-trips and preserves the primary runtime. Continue fresh source-specific codec/runtime and executable-contract qualification. All eleven source/scientific fields remain pending; spectra/holdouts stay unopened, native8 unreserved and 127/24 NOT ACTIVATED. Consolidate on 9 October with no automatic extension/restart/target change; target/HOLD/reserve, LS pause and CHEOPS UNSENT remain unchanged.
+
 ## 3 October: missing-folder dependency repaired for new v3 work
 
 [The implemented successor result](RADIO_PORTABLE_CUSTODY_2026-10-03_RESULT.md) removes the missing original b/c private-directory prerequisite from a separate integrated v3 preparation route. This implements the owner’s subsequent request to fix the obstruction so new analyses can be made. [The prospective amendment](RADIO_PORTABLE_CUSTODY_AMENDMENT_2026-10-03.md) changes only the fresh route’s custody/accounting domain; the earlier v2 refusal and every old failure remain valid historical records.

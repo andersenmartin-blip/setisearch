@@ -1,0 +1,115 @@
+{
+  "schema": "radio-native-v2-compact-eight-input-resource-control-v1",
+  "control_case_identity": {
+    "case_ordinal": 0,
+    "engineering_case_binding_sha256": "42ffda0c7e82e6999561652e691fd7bf4aad6b7844c3f688c662564ba452599b",
+    "namespace": "radio-native-v3-compact-eight-input-control-20261003e",
+    "native_case_binding_verified": false,
+    "source_case_id": "radio-native-v3-compact-eight-input-control-20261003e/case00",
+    "source_sha256": "72c94511827b0aec1e845fd5cef2dc9447ebecb54dbb5fde065594228443acd7"
+  },
+  "controller_terminal": null,
+  "status": "CLOSED_FAILED",
+  "source_reads": 0,
+  "mock_connector_operations": 1,
+  "mock_delivery_operations": 1,
+  "real_local_tail_saver_calls": 0,
+  "process_memory_usage_checkpoints": [
+    {
+      "label": "caller_entry",
+      "at_epoch_ms": 1791046996162,
+      "rss_bytes": 31588352,
+      "heap_used_bytes": 5232336,
+      "external_bytes": 2142180
+    },
+    {
+      "label": "controller_start",
+      "at_epoch_ms": 1791046996172,
+      "rss_bytes": 37335040,
+      "heap_used_bytes": 6127736,
+      "external_bytes": 2142476
+    },
+    {
+      "label": "connector_0",
+      "at_epoch_ms": 1791046996173,
+      "rss_bytes": 37466112,
+      "heap_used_bytes": 6339800,
+      "external_bytes": 2142988
+    },
+    {
+      "label": "progress_connector_0",
+      "at_epoch_ms": 1791046996175,
+      "rss_bytes": 38461440,
+      "heap_used_bytes": 6485352,
+      "external_bytes": 2143244
+    },
+    {
+      "label": "delivery_0",
+      "at_epoch_ms": 1791046996176,
+      "rss_bytes": 39247872,
+      "heap_used_bytes": 6762104,
+      "external_bytes": 2143500
+    },
+    {
+      "label": "qualified_wrapper_returned",
+      "at_epoch_ms": 1791046998596,
+      "rss_bytes": 42348544,
+      "heap_used_bytes": 6804648,
+      "external_bytes": 2151536
+    },
+    {
+      "label": "full_scratch_transcript_written",
+      "at_epoch_ms": 1791046998604,
+      "rss_bytes": 42610688,
+      "heap_used_bytes": 6275632,
+      "external_bytes": 2151536
+    }
+  ],
+  "process_memory_usage_peak_sampled_rss_bytes": 42610688,
+  "process_resource_usage_max_rss_bytes": 43278336,
+  "caller_identity": "node-proc:85217",
+  "caller_started_at_epoch_ms": 1791046996161,
+  "caller_finished_at_epoch_ms": 1791046998605,
+  "elapsed_seconds": 2.444,
+  "combined_usage": {
+    "calls": 45,
+    "request_bytes": 23078,
+    "response_bytes": 40628,
+    "response_charged_bytes": 37232976,
+    "unknown_response_bytes": 37192348,
+    "unknown_response_count": 38,
+    "elapsed_seconds": 2.426,
+    "all_visible_polls_and_deliveries_counted": true,
+    "hidden_http_bytes_known": false
+  },
+  "tail_record": null,
+  "persistence": null,
+  "client_rss_observation": null,
+  "client_status": "CLOSED_FAILED",
+  "client_reason": "Error: Source extraction failed; whole scope closed",
+  "read_receipts": [],
+  "deliveries": [
+    {
+      "ordinal": 0,
+      "request_bytes": 1921,
+      "read_descriptors": [],
+      "start_raw_present": true,
+      "previous_delivery_raw_present": false
+    }
+  ],
+  "seen": [
+    {
+      "kind": "mock_controller_start"
+    },
+    {
+      "kind": "mock_connector",
+      "ordinal": 0,
+      "tool": "mcp__codex_apps__github_fetch",
+      "request_sha256": "94111b29321d0030c8eaf17c99024ae64f0a7d3ecc7ed25ea31d9fd5af0021bd",
+      "response_sha256": "41b3ff4af770a1f2d711cedf35ea85e22d3a1f6c3a7292c250d2c8cf3bee6e06"
+    }
+  ],
+  "execution_authorized": false,
+  "scientific_execution_authorized": false,
+  "automatic_retry": false
+}
