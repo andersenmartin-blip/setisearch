@@ -2,6 +2,8 @@
 
 ## 3 October: cold admission and terminal identity repaired; preparation only
 
+The [immutable repair checkpoint](https://github.com/andersenmartin-blip/setisearch/commit/67567020b27620c70214254f78f047fb493cbaeb) has complete public Git payload readback of all **86 changed files / 4,712,486 raw bytes**; [main README](https://github.com/andersenmartin-blip/setisearch/commit/f6b5d8befb2a5a8e59a2aceec36729b9289b18cd) also matches all 52,077 bytes. A separate machine-agent GET review matches 19 selected files / 1,151,691 bytes. These publication receipts are non-authorizing.
+
 [The repair report and retained evidence](RADIO_NATIVE_V2_COLD_DRIVER_2026-10-03_RESULT.md) record **555 passing tests across 21 modules**, zero failures/errors/skips and exit 0. Actual producer/driver-bootstrap regressions cover the eight reserved empty directories; a reproduced tiny-writer EOF/identity race is repaired with a pre-reap identity check. All 1,183 tested source/helper pins remain unchanged across the final suite, and all 16 forward bootstrap edges match.
 
 The selected distinct b plan/runtime is independently reaudited after persistence: 931 code files, 331 inputs, 1,366 runtime paths, 49 material files and three derived files. Earlier import failure, 551-test observer error and the first capture's active-stdout invalidation remain retained. The final metadata adapter changes no tested production/test source and excludes active output inodes.
