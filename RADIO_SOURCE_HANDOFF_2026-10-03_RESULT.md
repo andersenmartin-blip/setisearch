@@ -1,0 +1,41 @@
+# Full local source import and receiver handoff — 3 October 2026
+
+The fresh source-import candidate passes **80 case laws** and the fresh receiver handoff reproduces all **288 normalized rows** in three receiver contexts. The complete source helpers remain unchanged. A new local-fixture receiver bridge adds explicit trusted receipt ancestry, metadata checks before row loading and bounded owned row reads. This checkpoint contains synthetic engineering evidence; no telescope data, candidate, sensitivity result or non-detection was evaluated.
+
+| Component | Fresh observed result | Scope |
+|---|---|---|
+| Complete source import, attempt 03 | 18 scan/window products; 288 rows; 54 accepted laws and 26 expected refusals | Actual HEAD/range identity checking, HDF5 decoding, sparse checkpoints, range planning, native rows, normalization and receipt reconstruction over simulated HTTP |
+| Independent numerical oracles | 18,874,368 raw cells and 1,179,648 normalized cells match exact scalar reference bytes | All raw rows and the complete first normalized row of each product; remaining normalization reproduced by the source receipt implementation |
+| Receiver bridge tests | 18 tests pass | Six-source ancestry, trusted manifests/receipts, window/role/filter/runtime checks, strict JSON numeric types and bounded owned-file reads |
+| Independent bridge review | 20 focused checks pass | Separate alias, swapped-source, checkpoint, FIFO, symlink, hardlink and oversized-file checks; this is machine review |
+| Integrated receiver handoff, attempt 02 | Calibration, validation and pilot contexts constructed; 288/288 normalized row hashes match the independently retained import index | Six distinct raw and normalized payloads per context; no cache, scoring, reduction or controls invoked |
+
+Source attempt 03 takes 16.61 seconds under external observation, with sampled peak RSS 265,928,704 bytes. Its own resource record reports 545,436,438 generated logical bytes before the final index, below the prospectively fixed 640 MiB limit. The receiver handoff takes 2.54 seconds with sampled peak RSS 104,177,664 bytes; its own output footprint before the report is 752,638 bytes, below 16 MiB. Each candidate has a 60-second and 512 MiB limit. These candidate observations do not change any production limits or establish a complete lifetime certificate. Observation begins after the child declares its procfs identity, following module imports; sampled peaks can miss changes between samples.
+
+All source definitions preserve the six retained labels, ON/OFF roles, headers, shape `[16,1,264503296]`, chunks `[1,1,1048576]` and legacy filter declaration `[[32008,1,[0,3,4,0,2]]]`. Only URL, strong ETag and object size change to identify fresh synthetic `.invalid` objects. The local encoder's declaration remains separately recorded. Synthetic source pixels, distinct payloads and reproduction do not establish independent noise draws or historical archive encoder identity.
+
+The bridge checks all six source receipts before loading any row, rejects telescope kinds and real service URLs, rehydrates only the externally retained local receipt identities, reads bounded native bytes through regular sole-link nofollow descriptors, and checks both file and actual owned payload hashes. It verifies all returned normalized rows against the acquisition report. Existing inherited `rehydrate` reopens metadata/row paths; hostile concurrent filesystem mutation during that call and complete process resource lifetime remain outside qualification.
+
+## Genuine failures retained
+
+Source attempt 01 successfully imported/restarted/reconstructed its first product, then failed the driver's Python tuple/list comparison after JSON reconstruction. Attempt 02 corrected that comparison and completed all 80 observed laws and 18 products, then failed the overall logical-file ceiling. Negative sparse mirrors reserved the full synthetic object extent even when no response body was admitted. Attempt 03 uses a separately constructed 6,144-byte metadata-only HDF5 fixture for predecode faults, keeping the same limit. The earlier attempts, original scripts, source products and failure evidence are retained without relabelling them as overall passes.
+
+Receiver attempt 01 completed its three handoffs but failed the final tuple/list comparison of the eleven pending scientific fields. A separate attempt 02 changes that intended JSON comparison and passes. The original driver and failed scope are retained. The first external source observer sampled a process wrapper; its original record is retained with an explicit disposition that its RSS number is not the child's peak.
+
+Immediate same-window local replay passes for all 18 source products without new GET requests. The unchanged helper refuses six local-fixture replays after other windows expand the shared mirror checkpoint. Those measured refusals preserve the original source receipt bytes and are not a live-transport restart certificate.
+
+## Continuation
+
+The primary F engineering preparation is separate and remains responsible for its own immutable preread, activation, permanent spend, dispatch and whole-control result. This continuation admits no second F/G control. The read-only F/G audit identifies an eager-client timeout hazard in the isolated G candidate that the primary F scheduler repair addresses; G requires fresh repair and qualification before selection.
+
+Next source work is the durable acquisition session/journal boundary joined to this import and handoff route, followed by authenticated hosted transport and complete code/input/runtime/resource/lifetime evidence. The eleven immutable source/scientific fields remain pending, including the source case-law certificate, complete 127/24 scientific certificate, executable trial protocol, cumulative limits, reservation store, public acquisition ledger and fresh irrevocable allocation. No executable source contract, production source admission or scientific qualification is granted here.
+
+Preserve permanent A/B/C/E spend, D uncreated, HD189733 selected, HD1461 HOLD, GJ724 untouched reserve, unopened telescope spectra/holdouts, native8 unreserved, 127/24 NOT ACTIVATED, LS paused and CHEOPS UNSENT. Consolidate **9 October 2026** without automatic extension, restart or target change. No person messages or schedule changes occurred.
+
+## Evidence
+
+The evidence archive preserves every included original file byte, including unsuccessful attempts, complete synthetic inputs, sparse mirror file contents, raw/normalized rows, source snapshots, observed runtime pins, scripts, tests, logs, receipts and independent reviews. Content deduplication preserves file bytes; it does not reconstruct original inode, sparse allocation or historical custody. The restore utility verifies compressed parts, safe paths and every restored file hash without executing evidence.
+
+Key immutable local records: source index SHA256 `0507a6a40511c8f6fe458ef2fe5bf98651a7e301b1ab4f82e769fe38b1b65de0`; receiver bridge SHA256 `72a8b4fbfdc3aad809b079523022def77bbfdc44e71408ddfc13ba79e0d7a090`. The archive manifest supplies complete per-file identities and preserves recorded original absolute paths inside evidence records. Relocated restored drivers require new invocation pins; they are not restart commands for closed attempts.
+
+Verified archive publication supplement: the corrected archive has **2,300 files / 1,748,308,829 original file bytes**, compressed to **21,395,330 bytes**. Both streamed comparison against originals and full safe restoration reproduce every included file hash. Archive SHA256: `38db92885a16440b4e2f5b2f519a86366bf4471382db3e5c9e69a38d73e64ce1`. Eight archive-support tests pass. The first archive writer omitted short-write handling and produced two incomplete parts; that bundle and its failed verification are preserved separately in `results_radio_source_handoff_candidate_20261003a/evidence-archive-incomplete01`, and are not a verified restore source. The corrected writer loops on partial writes, flushes/fsyncs and independently rereads every part. Archive operation failures/logs are retained beside the verified evidence. This does not change any scientific admission field.

@@ -1,0 +1,215 @@
+{
+  "schema": "seti-evidence-archive-isolated-tests-v1",
+  "tests_run": 5,
+  "success": false,
+  "subprocesses": [
+    {
+      "args": [
+        "build",
+        "--root",
+        "/tmp/seti-archive-test-ahzqsu7e/source",
+        "--output",
+        "/tmp/seti-archive-test-ahzqsu7e/bundle"
+      ],
+      "returncode": 0,
+      "stdout": "{\"output\": \"/tmp/seti-archive-test-ahzqsu7e/bundle\", \"file_count\": 6, \"unique_blobs\": 5, \"source_bytes\": 51279, \"compressed_bytes\": 1515, \"compressed_sha256\": \"73377594961df11e83b2063736ae536c09f39508ad8fdf0118f69a00a1a93d27\"}\n",
+      "stderr": "",
+      "expected_success": true
+    },
+    {
+      "args": [
+        "verify",
+        "--archive",
+        "/tmp/seti-archive-test-ahzqsu7e/bundle",
+        "--source-root",
+        "/tmp/seti-archive-test-ahzqsu7e/source"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 524, in <module>\n    main()\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 520, in main\n    args.func(args)\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 382, in restore\n    first = strict_header(decompressed)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 204, in strict_header\n    data = read_exact(reader, 512)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 195, in read_exact\n    data = reader.read(min(BLOCK, remaining))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nzstandard.backend_c.ZstdError: zstd decompress error: Frame requires too much memory for decoding\n",
+      "expected_success": false
+    },
+    {
+      "args": [
+        "restore",
+        "--archive",
+        "/tmp/seti-archive-test-ahzqsu7e/bundle",
+        "--dest",
+        "/tmp/seti-archive-test-ahzqsu7e/rejected"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 524, in <module>\n    main()\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 520, in main\n    args.func(args)\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 370, in restore\n    raise ValueError(\"archive part identity mismatch: \" + expected_name)\nValueError: archive part identity mismatch: evidence.tar.zst.part0000\n",
+      "expected_success": false
+    },
+    {
+      "args": [
+        "build",
+        "--root",
+        "/tmp/seti-archive-test-hpu8q85j/source",
+        "--output",
+        "/tmp/seti-archive-test-hpu8q85j/bundle-a"
+      ],
+      "returncode": 0,
+      "stdout": "{\"output\": \"/tmp/seti-archive-test-hpu8q85j/bundle-a\", \"file_count\": 6, \"unique_blobs\": 5, \"source_bytes\": 51279, \"compressed_bytes\": 1517, \"compressed_sha256\": \"1fc37a517aacbbb6012b88516bad8759c1ab32d81bd4188484d62289f620dfef\"}\n",
+      "stderr": "",
+      "expected_success": true
+    },
+    {
+      "args": [
+        "build",
+        "--root",
+        "/tmp/seti-archive-test-hpu8q85j/source",
+        "--output",
+        "/tmp/seti-archive-test-hpu8q85j/bundle-b"
+      ],
+      "returncode": 0,
+      "stdout": "{\"output\": \"/tmp/seti-archive-test-hpu8q85j/bundle-b\", \"file_count\": 6, \"unique_blobs\": 5, \"source_bytes\": 51279, \"compressed_bytes\": 1517, \"compressed_sha256\": \"1fc37a517aacbbb6012b88516bad8759c1ab32d81bd4188484d62289f620dfef\"}\n",
+      "stderr": "",
+      "expected_success": true
+    },
+    {
+      "args": [
+        "build",
+        "--root",
+        "/tmp/seti-archive-test-e95_yul9/source",
+        "--output",
+        "/tmp/seti-archive-test-e95_yul9/archive"
+      ],
+      "returncode": 0,
+      "stdout": "{\"output\": \"/tmp/seti-archive-test-e95_yul9/archive\", \"file_count\": 6, \"unique_blobs\": 5, \"source_bytes\": 51279, \"compressed_bytes\": 1515, \"compressed_sha256\": \"6ca6fd789243bbdbbfb2bdadf8b35db431544ea488005a2416a427684de17583\"}\n",
+      "stderr": "",
+      "expected_success": true
+    },
+    {
+      "args": [
+        "verify",
+        "--archive",
+        "/tmp/seti-archive-test-e95_yul9/archive",
+        "--source-root",
+        "/tmp/seti-archive-test-e95_yul9/source"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 524, in <module>\n    main()\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 520, in main\n    args.func(args)\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 382, in restore\n    first = strict_header(decompressed)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 204, in strict_header\n    data = read_exact(reader, 512)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 195, in read_exact\n    data = reader.read(min(BLOCK, remaining))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nzstandard.backend_c.ZstdError: zstd decompress error: Frame requires too much memory for decoding\n",
+      "expected_success": true
+    },
+    {
+      "args": [
+        "build",
+        "--root",
+        "/tmp/seti-archive-test-y81mblaw/source",
+        "--output",
+        "/tmp/seti-archive-test-y81mblaw/bad-source"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 524, in <module>\n    main()\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 520, in main\n    args.func(args)\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 229, in build\n    files = inventory(root, output, args.include_dir)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 92, in inventory\n    raise ValueError(\"source symlinks are prohibited: \" + str(top))\nValueError: source symlinks are prohibited: /tmp/seti-archive-test-y81mblaw/source/link\n",
+      "expected_success": false
+    },
+    {
+      "args": [
+        "restore",
+        "--archive",
+        "/tmp/seti-archive-test-w0t9qhuo/hostile-0",
+        "--dest",
+        "/tmp/seti-archive-test-w0t9qhuo/restore-0"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 524, in <module>\n    main()\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 520, in main\n    args.func(args)\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 400, in restore\n    relative = safe_relative(entry[\"path\"]).as_posix()\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 60, in safe_relative\n    raise ValueError(\"unsafe relative path: \" + repr(value))\nValueError: unsafe relative path: '../escape'\n",
+      "expected_success": false
+    },
+    {
+      "args": [
+        "restore",
+        "--archive",
+        "/tmp/seti-archive-test-w0t9qhuo/hostile-1",
+        "--dest",
+        "/tmp/seti-archive-test-w0t9qhuo/restore-1"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 524, in <module>\n    main()\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 520, in main\n    args.func(args)\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 400, in restore\n    relative = safe_relative(entry[\"path\"]).as_posix()\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 60, in safe_relative\n    raise ValueError(\"unsafe relative path: \" + repr(value))\nValueError: unsafe relative path: '/absolute'\n",
+      "expected_success": false
+    },
+    {
+      "args": [
+        "restore",
+        "--archive",
+        "/tmp/seti-archive-test-w0t9qhuo/hostile-2",
+        "--dest",
+        "/tmp/seti-archive-test-w0t9qhuo/restore-2"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 524, in <module>\n    main()\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 520, in main\n    args.func(args)\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 400, in restore\n    relative = safe_relative(entry[\"path\"]).as_posix()\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 60, in safe_relative\n    raise ValueError(\"unsafe relative path: \" + repr(value))\nValueError: unsafe relative path: 'a/../escape'\n",
+      "expected_success": false
+    },
+    {
+      "args": [
+        "restore",
+        "--archive",
+        "/tmp/seti-archive-test-w0t9qhuo/hostile-3",
+        "--dest",
+        "/tmp/seti-archive-test-w0t9qhuo/restore-3"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 524, in <module>\n    main()\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 520, in main\n    args.func(args)\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 417, in restore\n    while (member := strict_header(decompressed)) is not None:\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 211, in strict_header\n    raise ValueError(\"archive member is not an ordinary regular file\")\nValueError: archive member is not an ordinary regular file\n",
+      "expected_success": false
+    },
+    {
+      "args": [
+        "restore",
+        "--archive",
+        "/tmp/seti-archive-test-w0t9qhuo/hostile-4",
+        "--dest",
+        "/tmp/seti-archive-test-w0t9qhuo/restore-4"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 524, in <module>\n    main()\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 520, in main\n    args.func(args)\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 417, in restore\n    while (member := strict_header(decompressed)) is not None:\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 211, in strict_header\n    raise ValueError(\"archive member is not an ordinary regular file\")\nValueError: archive member is not an ordinary regular file\n",
+      "expected_success": false
+    },
+    {
+      "args": [
+        "restore",
+        "--archive",
+        "/tmp/seti-archive-test-w0t9qhuo/hostile-5",
+        "--dest",
+        "/tmp/seti-archive-test-w0t9qhuo/restore-5"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 524, in <module>\n    main()\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 520, in main\n    args.func(args)\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 417, in restore\n    while (member := strict_header(decompressed)) is not None:\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 211, in strict_header\n    raise ValueError(\"archive member is not an ordinary regular file\")\nValueError: archive member is not an ordinary regular file\n",
+      "expected_success": false
+    },
+    {
+      "args": [
+        "restore",
+        "--archive",
+        "/tmp/seti-archive-test-w0t9qhuo/hostile-6",
+        "--dest",
+        "/tmp/seti-archive-test-w0t9qhuo/restore-6"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 524, in <module>\n    main()\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 520, in main\n    args.func(args)\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 422, in restore\n    raise ValueError(\"unknown or duplicate blob\")\nValueError: unknown or duplicate blob\n",
+      "expected_success": false
+    },
+    {
+      "args": [
+        "restore",
+        "--archive",
+        "/tmp/seti-archive-test-w0t9qhuo/hostile-7",
+        "--dest",
+        "/tmp/seti-archive-test-w0t9qhuo/restore-7"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 524, in <module>\n    main()\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 520, in main\n    args.func(args)\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 455, in restore\n    raise ValueError(\"archive has missing blobs\")\nValueError: archive has missing blobs\n",
+      "expected_success": false
+    }
+  ]
+}

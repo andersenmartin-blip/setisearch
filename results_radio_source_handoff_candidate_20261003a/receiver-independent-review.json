@@ -1,0 +1,306 @@
+{
+  "schema": "independent-local-receiver-candidate-final-static-review-v1",
+  "review_time_utc": "2026-10-03T18:27:16.447107+00:00",
+  "status": "PASS_OWNED_READ_AND_ANCESTRY_REVIEW_WITH_EXPLICIT_INHERITED_REOPEN_LIMITATION",
+  "source_pin": {
+    "path": "/workspace/scratch/fb4056c33767/receiver-candidate/local_receipt_receiver.py",
+    "bytes": 18161,
+    "sha256": "72a8b4fbfdc3aad809b079523022def77bbfdc44e71408ddfc13ba79e0d7a090"
+  },
+  "source_matches_final_agent_pin": true,
+  "source_matches_independently_loaded_actual_runtime_probe_pin": true,
+  "source_unchanged_during_independent_probe": true,
+  "owner_reported_test_suite": {
+    "tests": 18,
+    "successful": true,
+    "elapsed_seconds": 1.504,
+    "reviewer_did_not_repeat_complete_suite": true
+  },
+  "independent_runtime": {
+    "numpy": "2.3.5",
+    "h5py": "3.16.0",
+    "hdf5": "2.0.0",
+    "hdf5plugin": "7.1.0"
+  },
+  "independent_focused_probe_count": 20,
+  "independent_focused_probe_results": [
+    {
+      "case": "valid_pinned_manifest",
+      "elapsed_seconds": 0.002963234997878317,
+      "accepted": true
+    },
+    {
+      "case": "wrong_trusted_manifest_digest",
+      "elapsed_seconds": 0.0018616019951878116,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "local codec/receiver binding or context ancestry changed"
+    },
+    {
+      "case": "shape_IF_bool_alias",
+      "elapsed_seconds": 0.0021668219997081906,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "only exact receiver-matched local fixture scope is allowed"
+    },
+    {
+      "case": "shape_channels_float_alias",
+      "elapsed_seconds": 0.002366875000006985,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "only exact receiver-matched local fixture scope is allowed"
+    },
+    {
+      "case": "top_geometry_channels_float_alias",
+      "elapsed_seconds": 0.0019443359997239895,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "local codec/receiver binding or context ancestry changed"
+    },
+    {
+      "case": "scope_geometry_channels_float_alias",
+      "elapsed_seconds": 0.002208334997703787,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "only exact receiver-matched local fixture scope is allowed"
+    },
+    {
+      "case": "swapped_source_scope",
+      "elapsed_seconds": 0.002255145998788066,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "only exact receiver-matched local fixture scope is allowed"
+    },
+    {
+      "case": "wrong_receiver_role",
+      "elapsed_seconds": 0.0019248169992351905,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "local codec/receiver binding or context ancestry changed"
+    },
+    {
+      "case": "wrong_runtime",
+      "elapsed_seconds": 0.0021819850007887,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "local codec/receiver runtime changed"
+    },
+    {
+      "case": "checkpoint_schema_bool_alias",
+      "elapsed_seconds": 0.00025845000345725566,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "local transport checkpoint metadata types changed"
+    },
+    {
+      "case": "checkpoint_remote_size_float_alias",
+      "elapsed_seconds": 0.00028162499802419916,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "local transport checkpoint metadata types changed"
+    },
+    {
+      "case": "row_ordinal_bool_alias",
+      "elapsed_seconds": 0.0002696369992918335,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "codec receipt row order or scope changed"
+    },
+    {
+      "case": "changed_runtime_receipt",
+      "elapsed_seconds": 0.0002711199995246716,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "local codec transport/filter/runtime ancestry changed"
+    },
+    {
+      "case": "changed_filter_pipeline",
+      "elapsed_seconds": 0.00024772399774519727,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "local codec transport/filter/runtime ancestry changed"
+    },
+    {
+      "case": "bounded_owned_four_float_row",
+      "elapsed_seconds": 0.00011827900016214699,
+      "accepted": true
+    },
+    {
+      "case": "declared_4GiB_NPY_header_rejected",
+      "elapsed_seconds": 4.8103000153787434e-05,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "oversized native row NPY header before allocation"
+    },
+    {
+      "case": "declared_2pow40_NPY_shape_rejected",
+      "elapsed_seconds": 5.2799005061388016e-05,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "native row shape/dtype/size changed before allocation"
+    },
+    {
+      "case": "symlink_rejected_before_header",
+      "elapsed_seconds": 8.10199708212167e-06,
+      "accepted": false,
+      "error_type": "OSError",
+      "error": "[Errno 40] Too many levels of symbolic links: '/tmp/independent-receiver-guard-1uwn94oc/linked.npy'"
+    },
+    {
+      "case": "FIFO_rejected_without_blocking",
+      "elapsed_seconds": 1.626399898668751e-05,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "native row must be one bounded regular file before allocation"
+    },
+    {
+      "case": "hardlink_rejected_before_header",
+      "elapsed_seconds": 1.1516996892169118e-05,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "native row must be one bounded regular file before allocation"
+    }
+  ],
+  "initial_probe_fixture_construction_error": {
+    "case": "valid_metadata_receipt",
+    "reason": "Reviewer constructed only source.json; repaired guard now additionally requires the sixteen row JSON files. The FileNotFoundError is an incomplete positive test fixture, not a bridge implementation failure. Owner complete-fixture suite covers success.",
+    "retained_initial_report": {
+      "path": "/workspace/scratch/fb4056c33767/receiver-independent-review-initial-fixture-probe.json",
+      "bytes": 6064,
+      "sha256": "daeb8d8330bb676a2b19484fa3d0509b8e53462cc4720d12f7c62f2ccf6c1f34"
+    }
+  },
+  "findings_closed": [
+    "Canonical JSON equality rejects bool/int and float/int aliases in receiver window metadata, exact retained source/header/chunk/filter metadata, geometry and scope.",
+    "Six ordered scan labels, exact context factor bank, role/window/archive interval, local .invalid identity and externally trusted manifest/receipt SHA reject source swaps, wrong receiver role, altered runtime and self-selected manifest digest.",
+    "Checkpoint schema_version is a strict int and checkpoint remote identity is type-sensitive; row ordinal is a strict int.",
+    "All six source and row-metadata inventories are guarded before any row payload is read; own source JSON limit128KiB and row JSON limit4KiB use nofollow nonblock sole-link regular FDs.",
+    "Owned post-rehydrate native NPY reader admits a fixed channel payload only after nonblocking nofollow regular sole-link FD stat size, bounded version/header length, exact shape dtype C layout and stat size. Owned file SHA and actual payload SHA are rechecked before normalization.",
+    "Normalization retains fixed descending-to-ascending origin and compares every normalized row SHA against the trusted receipt. NativeRun receives immutable SyntheticSource arrays with context/factor ancestry; no scoring, cache, reduction, calibration, controls or RNG are invoked by the candidate."
+  ],
+  "remaining_limitations": [
+    "Inherited source_m43h.rehydrate reopens source metadata, row metadata and NPY paths with its legacy implementation after the six-scan guard. Concurrent hostile replacement can still cause unbounded I/O or blocking during inherited rehydration; neither this static review nor the candidate qualifies a hostile mutable filesystem or whole process resource lifetime.",
+    "The externally supplied manifest SHA remains the trust root; the candidate cannot authenticate where the caller obtained it. Local codec receipt ancestry and receiver metadata are not telescope provenance, independent Gaussian draws or scientific selection authority.",
+    "Candidate array modelling excludes native-library/OS overhead; complete acquisition/control resource evidence is separate."
+  ],
+  "selected_source_lines": [
+    {
+      "line": 31,
+      "text": "MAX_SOURCE_JSON_BYTES = 128 * 1024"
+    },
+    {
+      "line": 32,
+      "text": "MAX_ROW_JSON_BYTES = 4 * 1024"
+    },
+    {
+      "line": 35,
+      "text": "def _exact(left, right):"
+    },
+    {
+      "line": 40,
+      "text": "def _bounded_json(path, maximum):"
+    },
+    {
+      "line": 159,
+      "text": "def _guard_receipt(directory, entry, binding):"
+    },
+    {
+      "line": 180,
+      "text": "    if (type(checkpoint.get(\"schema_version\")) is not int"
+    },
+    {
+      "line": 187,
+      "text": "        if type(row[\"row\"]) is not int or row[\"row\"] != i or row[\"scope_sha256\"] != rows.digest(entry[\"scope\"]):"
+    },
+    {
+      "line": 197,
+      "text": "def _owned_native_row(path, channels, expected):"
+    },
+    {
+      "line": 225,
+      "text": "        if header_length > 4096:"
+    },
+    {
+      "line": 232,
+      "text": "        if (shape != (channels,) or any(type(n) is not int for n in shape)"
+    },
+    {
+      "line": 244,
+      "text": "    if file_hash.hexdigest() != expected[\"native_file_sha256\"]:"
+    },
+    {
+      "line": 253,
+      "text": "    receipt = rows.rehydrate(directory, entry[\"receipt_sha256\"], required_kind=\"local-fixture\")"
+    },
+    {
+      "line": 286,
+      "text": "    This candidate bounds its own metadata and payload reads. The inherited"
+    },
+    {
+      "line": 287,
+      "text": "    rehydrate implementation reopens row paths; mutable hostile filesystems"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "/workspace/scratch/fb4056c33767/frozen-project/src/seti_repeater/pipeline_receiver_radio.py",
+      "bytes": 14258,
+      "sha256": "6bc871d4a80b59eac7cf13cf4f66092ca06ebc340066414df7d892a2d0b7c080"
+    },
+    {
+      "path": "/workspace/scratch/fb4056c33767/frozen-project/src/seti_repeater/receiver_contract_radio.py",
+      "bytes": 4879,
+      "sha256": "62d68029d10226edcf3daaacfa591b672822a30e1331cbbe50fdca98d8234464"
+    },
+    {
+      "path": "/workspace/scratch/fb4056c33767/frozen-project/src/seti_repeater/receiver_bank_radio.py",
+      "bytes": 7958,
+      "sha256": "5945d37eeb8948d0dae0917784ab7837f6d00da58c8294024e011989580b41bf"
+    },
+    {
+      "path": "/workspace/scratch/fb4056c33767/frozen-project/src/seti_repeater/transfer_m43g.py",
+      "bytes": 12271,
+      "sha256": "2d1071bcd619280ec5869fb24047f7bc3c5dfd5c44de4b9f89bfe6964ccb1ffc"
+    },
+    {
+      "path": "/workspace/scratch/fb4056c33767/frozen-project/src/seti_repeater/source_m43h.py",
+      "bytes": 15415,
+      "sha256": "85ce563e78b2d16f65b6a15313c4ae0c22a58f1455ce8db77acbc9a62d33429d"
+    },
+    {
+      "path": "/workspace/scratch/fb4056c33767/frozen-project/src/seti_repeater/source_radio.py",
+      "bytes": 10344,
+      "sha256": "d189028cacf05482a8b9a74a9544d30a1c45cd60f95784be5f06b2ce093e677f"
+    },
+    {
+      "path": "/workspace/scratch/fb4056c33767/frozen-project/src/seti_repeater/hdf5_filter_contract_radio.py",
+      "bytes": 1651,
+      "sha256": "65533ad8ead2bd7283beee9645a18b3a652a3ede50425573b64aaca69120e6a6"
+    },
+    {
+      "path": "/workspace/scratch/fb4056c33767/frozen-project/src/seti_repeater/search_v0p6.py",
+      "bytes": 280310,
+      "sha256": "6bac0d68d76d818d49d57e3b6a19b30b1e6c2ef25c9d06b9c25a1ab2321ac7e4"
+    }
+  ],
+  "test_source": {
+    "path": "/workspace/scratch/fb4056c33767/receiver-candidate/test_local_receipt_receiver.py",
+    "bytes": 18932,
+    "sha256": "8a246e08f967e16bf8cb0520a38d207a89d6cef7edb7234c00101660fd947af2"
+  },
+  "review_scope": {
+    "candidate_files_modified": false,
+    "new_acquisition_launches": 0,
+    "control_launches": 0,
+    "activations": 0,
+    "claims": 0,
+    "private_ledgers_read": false,
+    "telescope_reads": 0,
+    "scientific_cases": 0,
+    "rng_draws": 0,
+    "scientific_execution_authorized": false,
+    "source_codec_extraction_invocations": 0,
+    "tiny_owned_reader_probe_values": 4
+  },
+  "acquisition_attempt02_not_relabelled": true
+}

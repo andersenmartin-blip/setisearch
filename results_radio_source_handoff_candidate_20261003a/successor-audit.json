@@ -1,0 +1,302 @@
+{
+  "schema": "seti-read-only-f-g-successor-reconciliation-v1",
+  "audit_time_utc": "2026-10-03T18:14:01.457525+00:00",
+  "public_head_supplied_by_parent": "fb4632cf5b81530861fdb42a4e81d45904a54230",
+  "public_head_not_requeried_by_this_subagent": true,
+  "recommendation": "Continue source work only in this turn; avoid duplicate f control while primary continuation is active. For a later successor, current primary f has a verified scheduler repair absent from public g; g requires equivalent repair and fresh pins/freeze/public reread before consideration. Neither preparation authorizes dispatch.",
+  "g": {
+    "namespace": "radio-native-v3-compact-eight-input-control-20261003g",
+    "fixture": {
+      "path": "/workspace/scratch/fa2e54995e11/setisearch-isolated/scripts/radio_native_v3g_compact_eight_case_resource_fixture.py",
+      "bytes": 148057,
+      "sha256": "56bedfa34d7410a7ca388e35939e2a73299dc73989cc4f5bc4703fec7d2feccc"
+    },
+    "source_unchanged_during_derivation": true,
+    "derived_caller_bytes": 17290,
+    "derived_caller_sha256": "241ec00473046cdda84dc10c37980f716ae9cd564240fa306f905543bd248531",
+    "source_client": "unchanged frozen v2 tool courier client required",
+    "sequential_source_dispatch_then_validation": false,
+    "client_reference_lines": [
+      {
+        "line": 63,
+        "text": "    c=require(path.join(code,'scripts/radio_native_v2_tool_courier_client.js')),"
+      }
+    ],
+    "control_activated": false,
+    "source_generated": false,
+    "templates_derived_in_memory_only": true
+  },
+  "primary_f": {
+    "namespace": "radio-native-v3-compact-eight-input-control-20261003f",
+    "fixture": {
+      "path": "/workspace/scratch/8fcd6bf45392/setisearch-20261003-archive/scripts/radio_native_v3_compact_eight_case_resource_fixture.py",
+      "bytes": 149752,
+      "sha256": "b1509d7ec03e3886ba9e34a9db16af98ad03b48d8b5dea8796ad43836e7d891d"
+    },
+    "source_unchanged_during_derivation": true,
+    "derived_caller_bytes": 36433,
+    "derived_caller_sha256": "666cc03476f7613da840290dc0862d10a37b9dd68abd35a508d2ae2dd7ae00e8",
+    "source_client": "embedded sequential FRESH_SOURCE_READ_CLIENT",
+    "sequential_source_dispatch_then_validation": true,
+    "client_reference_lines": [
+      {
+        "line": 4,
+        "text": "const FRESH_SOURCE_READ_CLIENT=(()=>{"
+      },
+      {
+        "line": 167,
+        "text": "      const p=reads[i],raw=await call('exec_command',p.arguments,p.response_reserved_bytes,'actual_source_read',deadline);"
+      },
+      {
+        "line": 309,
+        "text": "    c=FRESH_SOURCE_READ_CLIENT,"
+      }
+    ],
+    "control_activated": false,
+    "source_generated": false,
+    "templates_derived_in_memory_only": true
+  },
+  "g_public_preparation": {
+    "commit": "b5a8e6fed55debb64cbd992ce1da09bb7b0ab294",
+    "tree": "9aa312bb03fcca367fcdddb67a74181f931b71a0",
+    "file_count": 197,
+    "raw_payload_bytes": 6116158,
+    "all_raw_payloads_match": true
+  },
+  "g_graph_read_only_verified_against_local_pins": {
+    "recorded_status": "PASS",
+    "all_28_source_pins_match_current_local_bytes": true,
+    "dependency_edges_reported_checked": 26,
+    "g_modules_and_tests": 27,
+    "material_files": 66,
+    "freeze_inputs": 41,
+    "complete_freeze_pin": {
+      "bytes": 1020893,
+      "sha256": "2fc15d2b1bd28454c2dc17904417a7dae67b3cd37805e45ab3be1e9276a3f912"
+    },
+    "suite_tests": 154,
+    "suite_failures": 0
+  },
+  "proven_scheduler_gap": {
+    "g_imports_retained_eager_client": true,
+    "g_local_executor_is_serialized": true,
+    "description": "The retained v2 client initiates all 38 ACK timers immediately; g serializes physical source helpers afterward. A delayed helper can make queued reads expire before they physically start. Primary f embeds a reviewed derived client that dispatches and validates each read before initiating the next. This was demonstrated in a deterministic injected accelerated-clock probe; it is not an actual F/G control measurement.",
+    "old_eager_probe": {
+      "status": "CLOSED_FAILED",
+      "at_return_ms": 120000,
+      "physical_at_return": 30,
+      "physical_total_after_draining": 38,
+      "ack_timer_fires": 9
+    },
+    "fresh_sequential_probe": {
+      "status": "SINGLE_CASE_COMPONENT_COMPLETE",
+      "at_return_ms": 152000,
+      "physical_at_return": 38,
+      "physical_total_after_draining": 38,
+      "ack_timer_fires": 0
+    },
+    "old_post_closure_read_dispatch_demonstrated": true,
+    "probe_scenarios": 12,
+    "undefined_client_symbol_not_asserted": true
+  },
+  "resource_findings": [
+    "g attempt2 retained exact refusal: 201414144 allocated bytes > unchanged 201326592-byte case limit. Attempt3 authenticates differential immutable-e-fixture.py as a test-only complete-freeze input without per-case copy.",
+    "g final graph audit reports 66 per-case material files, 41 complete-freeze inputs, limits unchanged, and 154 passing preparation tests. This is preparation coherence, not whole-control lifetime qualification.",
+    "Latest primary-f scheduler repair preserves case600s, per-call ACK120s, source cardinality38 and call/storage limits; refreshed larger derived caller requires its own capacity/freezing/public chain.",
+    "No new hardcoded g-to-f/e executable dependency flaw found beyond the retained eager v2 client selection. Public g dependency graph pins match retained audit."
+  ],
+  "remaining_gates": false,
+  "remaining_execution_blockers": [
+    "Fresh complete source/runtime preparation, distinct immutable execution preread, activation and independently authenticated create-only public permanent-spend/readback are still required before any f dispatch.",
+    "Every source-generating worker must independently enforce the outer public-preread admission and materialized code/derived pins.",
+    "An independent measurement harness must cover the material runner through final metadata fsync and process termination; the final authoritative disposition must follow all storage/time checks.",
+    "Whole-scope timing and final shared storage reservations must include every preparation, observer, directory and finalization entry under original limits.",
+    "Fresh prepared source and terminal identities must be explicitly audited against the frozen source domain, archive prefix and outer ordinal; host/native joins remain unqualified."
+  ],
+  "artifact_scope": {
+    "source_files_modified": false,
+    "control_launches": 0,
+    "activations": 0,
+    "claims": 0,
+    "dispatches": 0,
+    "private_ledger_files_read": false,
+    "scientific_cases": 0,
+    "telescope_reads": 0,
+    "rng_draws": 0,
+    "network_fetches": 0,
+    "execution_authorized": false,
+    "activation_authorized": false,
+    "native_execution_authorized": false,
+    "scientific_execution_authorized": false,
+    "only_written_artifact": "/workspace/scratch/fb4056c33767/successor-audit.json"
+  },
+  "evidence": [
+    {
+      "path": "/workspace/scratch/fa2e54995e11/setisearch-isolated/scripts/radio_native_v3g_compact_eight_case_resource_fixture.py",
+      "bytes": 148057,
+      "sha256": "56bedfa34d7410a7ca388e35939e2a73299dc73989cc4f5bc4703fec7d2feccc",
+      "selected_lines": [
+        {
+          "line": 125,
+          "text": "SERIAL_EXECUTOR_HELPER = '''function serializeLocalExecutor(run) {"
+        },
+        {
+          "line": 399,
+          "text": "def templates(source, repo=REPO):"
+        },
+        {
+          "line": 446,
+          "text": "        'const execLocal=serializeLocalExecutor(args=>new Promise((resolve,reject)=>{')"
+        },
+        {
+          "line": 457,
+          "text": "    caller_code = header + guard + SERIAL_EXECUTOR_HELPER + case_metadata_worker_guard() + helpers + caller + \"\\nif(process.argv.length!==6||process.argv[2]!=='--caller')throw Error('Exact admitted fresh caller mode required');caller(path.resolve(process.argv[3]),path.resolve(process.argv[4]),process.argv[5]).catch(error=>{process.stderr.write(String(error)+'\\\\n');process.exitCode=1;});\\n\""
+        }
+      ]
+    },
+    {
+      "path": "/workspace/scratch/fa2e54995e11/setisearch-isolated/tests/test_radio_native_v3g_caller_queue.py",
+      "bytes": 8659,
+      "sha256": "72962cb014f114a2ace04cc316c56267d9532cec6afeeec6052ab14c8ca0e457",
+      "selected_lines": [
+        {
+          "line": 28,
+          "text": "        return subprocess.run([shutil.which('node'),'-e',source],capture_output=True,"
+        },
+        {
+          "line": 78,
+          "text": "        result=subprocess.run([shutil.which('node'),'-e',source],capture_output=True,"
+        },
+        {
+          "line": 87,
+          "text": "        completed = subprocess.run([shutil.which('node'), '-e',"
+        },
+        {
+          "line": 103,
+          "text": "Promise.allSettled(calls.map(args => run(args))).then(results => {"
+        },
+        {
+          "line": 123,
+          "text": "Promise.allSettled(Array.from({length:39}, (_,i) => run(i))).then(async results => {"
+        },
+        {
+          "line": 124,
+          "text": "  const later = await Promise.allSettled([run(99)]);"
+        },
+        {
+          "line": 141,
+          "text": "Promise.allSettled([run(0),run(1),run(2)]).then(results => {"
+        },
+        {
+          "line": 150,
+          "text": "    def test_actual_fresh_caller_wraps_only_the_local_subprocess_executor(self):"
+        },
+        {
+          "line": 159,
+          "text": "        syntax = subprocess.run([shutil.which('node'), '--check'], input=derived,"
+        }
+      ]
+    },
+    {
+      "path": "/workspace/scratch/fa2e54995e11/setisearch-isolated/scripts/radio_native_v2_tool_courier_client.js",
+      "bytes": 19274,
+      "sha256": "5240193fb91c7f5f5bfe46dd0953ebfb7cc93bbd6377b4c278f0cae874b4ec70",
+      "selected_lines": [
+        {
+          "line": 72,
+          "text": "      const timeout=new Promise((resolve,reject)=>{timer=setTimer(()=>reject(stop(Error('Actual tool acknowledgement deadline lost; no retry'))),remaining);});"
+        },
+        {
+          "line": 160,
+          "text": "    const settled=await Promise.allSettled(reads.map(p=>call('exec_command',p.arguments,p.response_reserved_bytes,'actual_source_read',deadline)));"
+        }
+      ]
+    },
+    {
+      "path": "/workspace/scratch/8fcd6bf45392/setisearch-20261003-archive/scripts/radio_native_v3_compact_eight_case_resource_fixture.py",
+      "bytes": 149752,
+      "sha256": "b1509d7ec03e3886ba9e34a9db16af98ad03b48d8b5dea8796ad43836e7d891d",
+      "selected_lines": [
+        {
+          "line": 145,
+          "text": "def derive_source_read_client(source):"
+        },
+        {
+          "line": 420,
+          "text": "def templates(source, repo=REPO):"
+        },
+        {
+          "line": 422,
+          "text": "    fresh_client = derive_source_read_client("
+        },
+        {
+          "line": 424,
+          "text": "    client_capsule = ('const FRESH_SOURCE_READ_CLIENT=(()=>{\\nconst module={exports:{}};\\n'"
+        },
+        {
+          "line": 461,
+          "text": "        'c=FRESH_SOURCE_READ_CLIENT')"
+        },
+        {
+          "line": 485,
+          "text": "    caller_code = header + client_capsule + guard + SERIAL_EXECUTOR_HELPER + case_metadata_worker_guard() + helpers + caller + \"\\nif(process.argv.length!==6||process.argv[2]!=='--caller')throw Error('Exact admitted fresh caller mode required');caller(path.resolve(process.argv[3]),path.resolve(process.argv[4]),process.argv[5]).catch(error=>{process.stderr.write(String(error)+'\\\\n');process.exitCode=1;});\\n\""
+        }
+      ]
+    },
+    {
+      "path": "/workspace/scratch/8fcd6bf45392/setisearch-20261003-archive/tests/test_radio_native_v3_caller_queue.py",
+      "bytes": 15316,
+      "sha256": "fb310860756e0fe9159eafac25e32fb892db1d3c92e7198bcffe768b2c91aefd",
+      "selected_lines": [
+        {
+          "line": 249,
+          "text": "    def test_actual_client_and_executor_timers_receipts_stop_and_deadlines(self):"
+        },
+        {
+          "line": 257,
+          "text": "                str(ROOT/'tests/radio_native_v3_client_scheduler_probe.js'),str(ROOT),str(fresh_path)],"
+        }
+      ]
+    },
+    {
+      "path": "/workspace/scratch/fa2e54995e11/setisearch-isolated/results_radio_native_v3g_execution_preparation_20261003a/independent-final-graph-audit.json",
+      "bytes": 16676,
+      "sha256": "e282613a91f58b906b7d107bad23b147b3c1ec559a3067d5d2dbc5dfd79cbc51"
+    },
+    {
+      "path": "/workspace/scratch/fa2e54995e11/setisearch-isolated/results_radio_native_v3g_execution_preparation_20261003a/complete-public-readback.json",
+      "bytes": 58342,
+      "sha256": "3932bb9fcbda1c65338cc47672cfb642b9d4466ffde16425bb69f3fe6a37d0e3"
+    },
+    {
+      "path": "/workspace/scratch/fa2e54995e11/setisearch-isolated/results_radio_native_v3g_execution_preparation_20261003a/execution-preparation-attempt-3/preparation-result.json",
+      "bytes": 17338,
+      "sha256": "4b87a3b59231d054f5961884310e4569e94c25418cbdb17e52e008ac70df1465"
+    },
+    {
+      "path": "/workspace/scratch/fa2e54995e11/setisearch-isolated/results_radio_native_v3g_execution_preparation_20261003a/execution-preparation-attempt-3/complete-freeze.json",
+      "bytes": 1020893,
+      "sha256": "2fc15d2b1bd28454c2dc17904417a7dae67b3cd37805e45ab3be1e9276a3f912"
+    },
+    {
+      "path": "/workspace/scratch/fa2e54995e11/setisearch-isolated/results_radio_native_v3g_execution_preparation_20261003a/attempt2-capacity-review.json",
+      "bytes": 564,
+      "sha256": "7a4e9add1989956b953dde2a870288ef3081ad9b80fed97184993a701f5c3d75"
+    },
+    {
+      "path": "/workspace/scratch/8fcd6bf45392/setisearch-20261003-archive/results_radio_native_v3_execution_preparation_20261003f/scheduler-repair-regression.json",
+      "bytes": 5637,
+      "sha256": "bb032ebb70a917386d3e0b847d93f54fd2e55e91f42fb8b7a0cd4317a1e5a740"
+    },
+    {
+      "path": "/workspace/scratch/8fcd6bf45392/setisearch-20261003-archive/results_radio_native_v3_execution_preparation_20261003f/scheduler-repair-client-probe.json",
+      "bytes": 13389,
+      "sha256": "5442ecb7ef3069ad19be9c1795cdf3501e7faa2c0cc98c70a0c975434942df97"
+    },
+    {
+      "path": "/workspace/scratch/8fcd6bf45392/setisearch-20261003-archive/results_radio_native_v3_execution_preparation_20261003f/execution-preparation-attempt-1/preparation-result.json",
+      "bytes": 17316,
+      "sha256": "aae7ffc9b5476b7735aed6c8583e417d6c6be098439719593b5c496d70d8876d"
+    }
+  ]
+}

@@ -1,0 +1,269 @@
+{
+  "schema": "seti-evidence-archive-isolated-tests-v1",
+  "tests_run": 8,
+  "success": true,
+  "subprocesses": [
+    {
+      "args": [
+        "build",
+        "--root",
+        "/tmp/seti-archive-test-da6dkt0p/source",
+        "--output",
+        "/tmp/seti-archive-test-da6dkt0p/bundle"
+      ],
+      "returncode": 0,
+      "stdout": "{\"output\": \"/tmp/seti-archive-test-da6dkt0p/bundle\", \"file_count\": 6, \"unique_blobs\": 5, \"source_bytes\": 51279, \"compressed_bytes\": 1514, \"compressed_sha256\": \"cb52bc41b02b3fa62bd426c29d68b6d18def15c521b8c7cee9748a464238162d\"}\n",
+      "stderr": "",
+      "expected_success": true
+    },
+    {
+      "args": [
+        "verify",
+        "--archive",
+        "/tmp/seti-archive-test-da6dkt0p/bundle",
+        "--source-root",
+        "/tmp/seti-archive-test-da6dkt0p/source"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 554, in <module>\n    main()\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 550, in main\n    args.func(args)\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 496, in restore\n    raise ValueError(\"file verification failed: \" + relative)\nValueError: file verification failed: empty.txt\n",
+      "expected_success": false
+    },
+    {
+      "args": [
+        "restore",
+        "--archive",
+        "/tmp/seti-archive-test-da6dkt0p/bundle",
+        "--dest",
+        "/tmp/seti-archive-test-da6dkt0p/rejected"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 554, in <module>\n    main()\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 550, in main\n    args.func(args)\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 395, in restore\n    raise ValueError(\"archive part identity mismatch: \" + expected_name)\nValueError: archive part identity mismatch: evidence.tar.zst.part0000\n",
+      "expected_success": false
+    },
+    {
+      "args": [
+        "build",
+        "--root",
+        "/tmp/seti-archive-test-paxnlz28/source",
+        "--output",
+        "/tmp/seti-archive-test-paxnlz28/over-cap",
+        "--archive-cap-mib",
+        "1"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 298, in build\n    tar.addfile(tar_header(\"blobs/\" + digest, size), source)\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/tarfile.py\", line 2290, in addfile\n    copyfileobj(fileobj, self.fileobj, tarinfo.size, bufsize=bufsize)\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/tarfile.py\", line 254, in copyfileobj\n    dst.write(buf)\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/tarfile.py\", line 443, in write\n    self.__write(s)\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/tarfile.py\", line 451, in __write\n    self.fileobj.write(self.buf[:self.bufsize])\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 161, in write\n    raise RuntimeError(\"compressed archive exceeds its fixed byte cap\")\nRuntimeError: compressed archive exceeds its fixed byte cap\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 554, in <module>\n    main()\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 550, in main\n    args.func(args)\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 300, in build\n    source.close_verified()\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 205, in close_verified\n    raise RuntimeError(\"source changed during archiving: \" + str(self.path))\nRuntimeError: source changed during archiving: /tmp/seti-archive-test-paxnlz28/source/incompressible-test.bin\n",
+      "expected_success": false
+    },
+    {
+      "args": [
+        "build",
+        "--root",
+        "/tmp/seti-archive-test-dhy8pbuk/source",
+        "--output",
+        "/tmp/seti-archive-test-dhy8pbuk/multi-bundle"
+      ],
+      "returncode": 0,
+      "stdout": "{\"output\": \"/tmp/seti-archive-test-dhy8pbuk/multi-bundle\", \"file_count\": 7, \"unique_blobs\": 6, \"source_bytes\": 3197007, \"compressed_bytes\": 3147731, \"compressed_sha256\": \"d079806ed0e7b70994c3d705cc43edb0e1a28869e1cb7fd98bce2e3d3fb3402c\"}\n",
+      "stderr": "",
+      "expected_success": true
+    },
+    {
+      "args": [
+        "restore",
+        "--archive",
+        "/tmp/seti-archive-test-dhy8pbuk/multi-bundle",
+        "--dest",
+        "/tmp/seti-archive-test-dhy8pbuk/multi-restored"
+      ],
+      "returncode": 0,
+      "stdout": "{\"compressed_sha256\": \"d079806ed0e7b70994c3d705cc43edb0e1a28869e1cb7fd98bce2e3d3fb3402c\", \"evidence_reexecuted\": false, \"original_inode_or_path_lifetime_preserved\": false, \"schema\": \"seti-lossless-evidence-restore-receipt-v1\", \"scientific_qualification\": false, \"source_manifest_sha256\": \"3f49ffd951dfeedd224f1f7284064575b6a76ced3a513a0c4cd89688ce1ac886\", \"verification_mode\": \"safe_restore_then_every_file_hashed\", \"verified_bytes\": 3197007, \"verified_regular_files\": 7}\n",
+      "stderr": "",
+      "expected_success": true
+    },
+    {
+      "args": [
+        "build",
+        "--root",
+        "/tmp/seti-archive-test-vvz3ekdo/source",
+        "--output",
+        "/tmp/seti-archive-test-vvz3ekdo/bundle-a"
+      ],
+      "returncode": 0,
+      "stdout": "{\"output\": \"/tmp/seti-archive-test-vvz3ekdo/bundle-a\", \"file_count\": 6, \"unique_blobs\": 5, \"source_bytes\": 51279, \"compressed_bytes\": 1515, \"compressed_sha256\": \"a8a8f3cbfea860752bca58606b38ff7218947c3e68fcb6b2fe3a734f63af4e91\"}\n",
+      "stderr": "",
+      "expected_success": true
+    },
+    {
+      "args": [
+        "build",
+        "--root",
+        "/tmp/seti-archive-test-vvz3ekdo/source",
+        "--output",
+        "/tmp/seti-archive-test-vvz3ekdo/bundle-b"
+      ],
+      "returncode": 0,
+      "stdout": "{\"output\": \"/tmp/seti-archive-test-vvz3ekdo/bundle-b\", \"file_count\": 6, \"unique_blobs\": 5, \"source_bytes\": 51279, \"compressed_bytes\": 1515, \"compressed_sha256\": \"a8a8f3cbfea860752bca58606b38ff7218947c3e68fcb6b2fe3a734f63af4e91\"}\n",
+      "stderr": "",
+      "expected_success": true
+    },
+    {
+      "args": [
+        "build",
+        "--root",
+        "/tmp/seti-archive-test-thmf9__v/source",
+        "--output",
+        "/tmp/seti-archive-test-thmf9__v/archive"
+      ],
+      "returncode": 0,
+      "stdout": "{\"output\": \"/tmp/seti-archive-test-thmf9__v/archive\", \"file_count\": 6, \"unique_blobs\": 5, \"source_bytes\": 51279, \"compressed_bytes\": 1515, \"compressed_sha256\": \"303e4b56351c8ac4706b41fa7168d4c59a9dc12455f6e7101547ecb261cc904f\"}\n",
+      "stderr": "",
+      "expected_success": true
+    },
+    {
+      "args": [
+        "verify",
+        "--archive",
+        "/tmp/seti-archive-test-thmf9__v/archive",
+        "--source-root",
+        "/tmp/seti-archive-test-thmf9__v/source"
+      ],
+      "returncode": 0,
+      "stdout": "{\"compressed_sha256\": \"303e4b56351c8ac4706b41fa7168d4c59a9dc12455f6e7101547ecb261cc904f\", \"evidence_reexecuted\": false, \"original_inode_or_path_lifetime_preserved\": false, \"schema\": \"seti-lossless-evidence-restore-receipt-v1\", \"scientific_qualification\": false, \"source_manifest_sha256\": \"9c3c8cef0b03be348436fb2d92b82f8bab6f75ce75e5335c6ab3df9849670315\", \"verification_mode\": \"streamed_archive_against_original_files\", \"verified_bytes\": 51279, \"verified_regular_files\": 6}\n",
+      "stderr": "",
+      "expected_success": true
+    },
+    {
+      "args": [
+        "restore",
+        "--archive",
+        "/tmp/seti-archive-test-thmf9__v/archive",
+        "--dest",
+        "/tmp/seti-archive-test-thmf9__v/restored"
+      ],
+      "returncode": 0,
+      "stdout": "{\"compressed_sha256\": \"303e4b56351c8ac4706b41fa7168d4c59a9dc12455f6e7101547ecb261cc904f\", \"evidence_reexecuted\": false, \"original_inode_or_path_lifetime_preserved\": false, \"schema\": \"seti-lossless-evidence-restore-receipt-v1\", \"scientific_qualification\": false, \"source_manifest_sha256\": \"9c3c8cef0b03be348436fb2d92b82f8bab6f75ce75e5335c6ab3df9849670315\", \"verification_mode\": \"safe_restore_then_every_file_hashed\", \"verified_bytes\": 51279, \"verified_regular_files\": 6}\n",
+      "stderr": "",
+      "expected_success": true
+    },
+    {
+      "args": [
+        "build",
+        "--root",
+        "/tmp/seti-archive-test-enotur_r/source",
+        "--output",
+        "/tmp/seti-archive-test-enotur_r/bad-source"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 554, in <module>\n    main()\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 550, in main\n    args.func(args)\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 254, in build\n    files = inventory(root, output, args.include_dir)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 111, in inventory\n    raise ValueError(\"source symlinks are prohibited: \" + str(top))\nValueError: source symlinks are prohibited: /tmp/seti-archive-test-enotur_r/source/link\n",
+      "expected_success": false
+    },
+    {
+      "args": [
+        "restore",
+        "--archive",
+        "/tmp/seti-archive-test-_nz75mok/hostile-0",
+        "--dest",
+        "/tmp/seti-archive-test-_nz75mok/restore-0"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 554, in <module>\n    main()\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 550, in main\n    args.func(args)\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 425, in restore\n    relative = safe_relative(entry[\"path\"]).as_posix()\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 79, in safe_relative\n    raise ValueError(\"unsafe relative path: \" + repr(value))\nValueError: unsafe relative path: '../escape'\n",
+      "expected_success": false
+    },
+    {
+      "args": [
+        "restore",
+        "--archive",
+        "/tmp/seti-archive-test-_nz75mok/hostile-1",
+        "--dest",
+        "/tmp/seti-archive-test-_nz75mok/restore-1"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 554, in <module>\n    main()\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 550, in main\n    args.func(args)\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 425, in restore\n    relative = safe_relative(entry[\"path\"]).as_posix()\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 79, in safe_relative\n    raise ValueError(\"unsafe relative path: \" + repr(value))\nValueError: unsafe relative path: '/absolute'\n",
+      "expected_success": false
+    },
+    {
+      "args": [
+        "restore",
+        "--archive",
+        "/tmp/seti-archive-test-_nz75mok/hostile-2",
+        "--dest",
+        "/tmp/seti-archive-test-_nz75mok/restore-2"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 554, in <module>\n    main()\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 550, in main\n    args.func(args)\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 425, in restore\n    relative = safe_relative(entry[\"path\"]).as_posix()\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 79, in safe_relative\n    raise ValueError(\"unsafe relative path: \" + repr(value))\nValueError: unsafe relative path: 'a/../escape'\n",
+      "expected_success": false
+    },
+    {
+      "args": [
+        "restore",
+        "--archive",
+        "/tmp/seti-archive-test-_nz75mok/hostile-3",
+        "--dest",
+        "/tmp/seti-archive-test-_nz75mok/restore-3"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 554, in <module>\n    main()\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 550, in main\n    args.func(args)\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 442, in restore\n    while (member := strict_header(decompressed)) is not None:\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 236, in strict_header\n    raise ValueError(\"archive member is not an ordinary regular file\")\nValueError: archive member is not an ordinary regular file\n",
+      "expected_success": false
+    },
+    {
+      "args": [
+        "restore",
+        "--archive",
+        "/tmp/seti-archive-test-_nz75mok/hostile-4",
+        "--dest",
+        "/tmp/seti-archive-test-_nz75mok/restore-4"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 554, in <module>\n    main()\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 550, in main\n    args.func(args)\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 442, in restore\n    while (member := strict_header(decompressed)) is not None:\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 236, in strict_header\n    raise ValueError(\"archive member is not an ordinary regular file\")\nValueError: archive member is not an ordinary regular file\n",
+      "expected_success": false
+    },
+    {
+      "args": [
+        "restore",
+        "--archive",
+        "/tmp/seti-archive-test-_nz75mok/hostile-5",
+        "--dest",
+        "/tmp/seti-archive-test-_nz75mok/restore-5"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 554, in <module>\n    main()\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 550, in main\n    args.func(args)\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 442, in restore\n    while (member := strict_header(decompressed)) is not None:\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 236, in strict_header\n    raise ValueError(\"archive member is not an ordinary regular file\")\nValueError: archive member is not an ordinary regular file\n",
+      "expected_success": false
+    },
+    {
+      "args": [
+        "restore",
+        "--archive",
+        "/tmp/seti-archive-test-_nz75mok/hostile-6",
+        "--dest",
+        "/tmp/seti-archive-test-_nz75mok/restore-6"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 554, in <module>\n    main()\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 550, in main\n    args.func(args)\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 447, in restore\n    raise ValueError(\"unknown or duplicate blob\")\nValueError: unknown or duplicate blob\n",
+      "expected_success": false
+    },
+    {
+      "args": [
+        "restore",
+        "--archive",
+        "/tmp/seti-archive-test-_nz75mok/hostile-7",
+        "--dest",
+        "/tmp/seti-archive-test-_nz75mok/restore-7"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 554, in <module>\n    main()\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 550, in main\n    args.func(args)\n  File \"/workspace/scratch/fb4056c33767/archive-support/evidence_archive.py\", line 485, in restore\n    raise ValueError(\"archive has missing blobs\")\nValueError: archive has missing blobs\n",
+      "expected_success": false
+    }
+  ]
+}
