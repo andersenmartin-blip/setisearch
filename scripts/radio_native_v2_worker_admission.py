@@ -921,6 +921,65 @@ def _large_identity(descriptor, identity):
     _exact(value, identity, 'actual leading retained caller identity')
 
 
+def _cold_control_cases(root):
+    """Check the producer's exact private empty case reservations read-only.
+
+    run_control creates these eight directories before any admitted child.
+    Their presence is preparation scaffolding; any content is still reuse.
+    Keep opened directory identities through the final name/path recheck.
+    """
+    directory = _directory(root); retained = []; cases = None
+    owner = os.geteuid()
+    def safe(info, *, private=True):
+        if (not stat.S_ISDIR(info.st_mode) or info.st_uid != owner
+                or (stat.S_IMODE(info.st_mode) != 0o700 if private else info.st_mode & 0o022)):
+            raise ValueError('Owned safe cold control directory required')
+    try:
+        before = os.fstat(directory); safe(before, private=False)
+        named = os.stat('cases', dir_fd=directory, follow_symlinks=False); safe(named)
+        cases = os.open('cases', os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW, dir_fd=directory)
+        opened = os.fstat(cases)
+        if _identity(opened) != _identity(named):
+            raise ValueError('Cold control cases directory changed during open')
+        expected = [f'case{index:02d}' for index in range(8)]
+        _exact(sorted(os.listdir(cases)), expected, 'exact cold eight-case directory names')
+        identities = {(before.st_dev, before.st_ino), (opened.st_dev, opened.st_ino)}
+        if len(identities) != 2 or opened.st_dev != before.st_dev:
+            raise ValueError('Cold control directory alias or filesystem boundary refused')
+        for name in expected:
+            info = os.stat(name, dir_fd=cases, follow_symlinks=False); safe(info)
+            identity = (info.st_dev, info.st_ino)
+            if identity in identities or info.st_dev != before.st_dev:
+                raise ValueError('Cold control directory alias or filesystem boundary refused')
+            identities.add(identity)
+            child = os.open(name, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW, dir_fd=cases)
+            retained.append((name, child, info))
+            if _identity(os.fstat(child)) != _identity(info):
+                raise ValueError('Cold control case directory changed during open')
+        for name, child, info in retained:
+            if os.listdir(child):
+                raise ValueError('Existing cold control case output/scope reuse refused: ' + name)
+        for name, child, info in retained:
+            current = os.fstat(child); safe(current)
+            named_child = os.stat(name, dir_fd=cases, follow_symlinks=False); safe(named_child)
+            if _identity(info) != _identity(current) or _identity(current) != _identity(named_child):
+                raise ValueError('Cold control case directory changed during check')
+        current = os.fstat(cases); safe(current)
+        named_cases = os.stat('cases', dir_fd=directory, follow_symlinks=False); safe(named_cases)
+        if _identity(opened) != _identity(current) or _identity(current) != _identity(named_cases):
+            raise ValueError('Cold control cases directory changed during check')
+        again = _directory(root)
+        try:
+            current_root = os.fstat(again); safe(current_root, private=False)
+            if (before.st_dev, before.st_ino) != (current_root.st_dev, current_root.st_ino):
+                raise ValueError('Cold control scope directory replaced')
+        finally: os.close(again)
+    finally:
+        for _, child, _ in retained: os.close(child)
+        if cases is not None: os.close(cases)
+        os.close(directory)
+
+
 def _validate_role_phase(bundle, *, running_caller=False):
     role = bundle['role']; ordinal = bundle['case_ordinal']; inputs = bundle['phase_inputs']
     root, _, _ = _role_roots(bundle, role, ordinal); plan = bundle['plan']
@@ -933,7 +992,8 @@ def _validate_role_phase(bundle, *, running_caller=False):
         for name, key in (('plan_json', 'plan'), ('freeze_json', 'complete_freeze'), ('preread_json', 'public_preread')):
             _exact(values[name], bundle[key], 'current whole-scope ' + name)
         if role == 'control':
-            for name in ('control-worker-identity.json', 'cases', 'worker-result.json', 'compact-input-plan.json', 'closed-failure.json'):
+            _cold_control_cases(root)
+            for name in ('control-worker-identity.json', 'worker-result.json', 'compact-input-plan.json', 'closed-failure.json'):
                 _absent(root + '/' + name)
         else:
             compact = values['compact_input_plan']

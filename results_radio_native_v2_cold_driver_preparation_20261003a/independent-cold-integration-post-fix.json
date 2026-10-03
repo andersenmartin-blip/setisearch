@@ -1,0 +1,57 @@
+{
+  "argv": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "tests/test_radio_native_v2_cold_driver_admission.py"
+  ],
+  "exit_code": 0,
+  "tests": 4,
+  "sources": {
+    "tests/test_radio_native_v2_cold_driver_admission.py": {
+      "bytes": 9118,
+      "sha256": "c6c85b49305cc9413b4d1f325a7edc4c48aa1fdd51ab59d1b2d177735ce32704"
+    },
+    "scripts/radio_native_v2_worker_admission.py": {
+      "bytes": 81344,
+      "sha256": "10cabcd51f4bcf812e76bf5410cdc2f202b4ffa9e3bf88eee69537863c39ce42"
+    },
+    "scripts/radio_native_v2_compact_eight_case_resource_fixture.py": {
+      "bytes": 128291,
+      "sha256": "a53f3ee5869b43e1ef3d38dec750b7fabc44a92a57df3d3447f189453c6c3250"
+    },
+    "scripts/radio_native_v2_process_tree_supervisor.py": {
+      "bytes": 82676,
+      "sha256": "513e1856df09f5dc10d89a87a3aed31b04fba481efb6c790ec1ca0bfde6ccbda"
+    },
+    "scripts/radio_native_v2_resource_finalization.py": {
+      "bytes": 79175,
+      "sha256": "139f7a253d475d78196e9f4527b5d2e469d544303be8ad824408ca1655d5650d"
+    }
+  },
+  "baseline_test_sha256": "524bcab846b512e7da33ffdd98d47238cbff713ccc1f3165c118476e159d731e",
+  "baseline_admission_sha256": "41e147d00488bb00c8be4825d26e964857b5f3841f07d3f908ad112e133c8fa1",
+  "baseline_scope_error": "Existing role output/scope reuse refused: synthetic whole/cases",
+  "test_extension": "Final test extends baseline with actual finalizer structural driver bootstrap and four repeated read-only admissions after synthetic metadata outside cases; baseline snapshot separately retained.",
+  "actual_producer": "fixture.run_control preparation path in temporary synthetic directory",
+  "actual_consumer": "admission.validate_worker_admission and finalization.check_admitted_measurement_driver -> frozen supervisor -> frozen admission",
+  "mocked_boundaries": [
+    "authenticated repository root",
+    "activation receipt check",
+    "activation readiness",
+    "historical observation",
+    "spending consume_once (returns existing temporary synthetic witness)",
+    "storage qualification",
+    "observe_process (intercept before child creation)"
+  ],
+  "subprocess_Popen_forbidden": true,
+  "synthetic_only": true,
+  "runtime_children_started_by_test": 0,
+  "production_control_invocations": 0,
+  "scientific_cases": 0,
+  "large_deterministic_generation": 0,
+  "protected_state_touched": false,
+  "limits": "Read-only structural admission preparation only; no actual isolated driver/supervisor/case process, public/runtime closure, scientific execution or whole-control lifetime/resource qualification."
+}

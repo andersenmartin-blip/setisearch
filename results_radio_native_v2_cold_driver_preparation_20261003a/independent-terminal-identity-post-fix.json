@@ -1,0 +1,463 @@
+{
+  "source_pins": {
+    "tests/test_radio_native_v2_observer_terminal_identity.py": {
+      "bytes": 6666,
+      "sha256": "0419b0c25e2e52be9c681cbd5ec3ed14d35ac2320963826d76b12b12652a6f17"
+    },
+    "scripts/radio_native_v2_compact_eight_case_resource_fixture.py": {
+      "bytes": 128667,
+      "sha256": "acc361a324af4a3bc469f8da756e86382e320a0b1c14c8eecf3988318f7c100c"
+    }
+  },
+  "tests": 4,
+  "errors": 0,
+  "failures": 0,
+  "success": true,
+  "evidence": {
+    "test_radio_native_v2_observer_terminal_identity.ObserverTerminalIdentityTests.test_forged_terminal_identity_is_still_refused": {
+      "presence_checks": 2,
+      "select_calls": 1,
+      "reaps": [
+        {
+          "pid": 6,
+          "status": 0,
+          "peak_rss_bytes": 24682496
+        }
+      ],
+      "namespace_pid": 6,
+      "bound_identity": {
+        "procfs_pid": 4728,
+        "namespace_pid": 6,
+        "procfs_start_ticks": "660568",
+        "namespace_pid_chain": [
+          4728,
+          6
+        ]
+      },
+      "identity_exists_at_terminal": true,
+      "observed": {
+        "actual_connector_calls": 0,
+        "actual_functions_sdk_calls": 0,
+        "actual_git_processes": 0,
+        "aggregate_concurrent_rss_measured": false,
+        "automatic_retry": false,
+        "bound_child_identity": {
+          "namespace_pid": 6,
+          "namespace_pid_chain": [
+            4728,
+            6
+          ],
+          "procfs_pid": 4728,
+          "procfs_start_ticks": "660568"
+        },
+        "child_environment": {
+          "LANG": "C",
+          "LC_ALL": "C",
+          "PATH": "/usr/bin:/bin"
+        },
+        "child_executable_pin": {
+          "bytes": 30894944,
+          "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+          "sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7"
+        },
+        "child_procfs_pid": 4728,
+        "cleanup_grace_seconds": 1,
+        "complete_descendant_wait_chain_verified": false,
+        "complete_pipe_output": false,
+        "direct_child_reaped": true,
+        "elapsed_seconds": 0.017,
+        "execution_authorized": false,
+        "exit_code": 0,
+        "hidden_http_bytes_known": false,
+        "host_ledger_join_complete": false,
+        "includes_entire_child_lifetime": true,
+        "interval_end_epoch_ms": 1791005208792,
+        "interval_start_epoch_ms": 1791005208775,
+        "label": "terminal",
+        "monotonic_end_ns": 6605706763067,
+        "monotonic_start_ns": 6605668945944,
+        "native_case_binding_verified": false,
+        "native_case_executions": 0,
+        "native_case_reservations": 0,
+        "network_fetches": 0,
+        "observed_argv": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+          "-I",
+          "-S",
+          "-B",
+          "-c",
+          "import json,os,sys\npath,kind=sys.argv[1:]\nif kind != 'missing':\n    with open(path,'x') as stream:\n        if kind == 'malformed': stream.write('{')\n        else:\n            value={'procfs_pid':int(os.readlink('/proc/self')),'namespace_pid':os.getpid()}\n            if kind == 'forged': value['procfs_pid'] += 1\n            json.dump(value,stream)\n        stream.flush(); os.fsync(stream.fileno())\n",
+          "/tmp/seti-terminal-identity-test-hpzbqm_0/identity.json",
+          "forged"
+        ],
+        "observed_output_bytes": {
+          "stderr": 0,
+          "stdout": 0
+        },
+        "observer_metadata_fsync_and_termination_covered": false,
+        "observer_procfs_pid": 4727,
+        "observer_self_kernel_peak_rss_bytes": 24813568,
+        "observer_source": "independent_parent_procfs_and_kernel_wait4",
+        "peak_rss_bytes": 24682496,
+        "raw_stdout_duplicate_written": false,
+        "real_public_github_mutations": 0,
+        "reason": "Observer/child phase failed: ValueError('Reported identity differs from independently launched direct child')",
+        "reported_identity_verified": false,
+        "reservation_authorized": false,
+        "retained_sample_count": 1,
+        "rng_draws": 0,
+        "sample_count": 1,
+        "sample_retention_limit": 2048,
+        "samples": [
+          {
+            "at_epoch_ms": 1791005208777,
+            "kernel_vm_hwm_bytes": 847872,
+            "rss_bytes": 847872
+          }
+        ],
+        "schema": "radio-native-v2-compact-eight-input-resource-control-v1-process-observation",
+        "scientific_cases_run": 0,
+        "scientific_execution_authorized": false,
+        "telescope_reads": 0,
+        "tree_termination_coverage": "NOT_INDEPENDENTLY_VERIFIED",
+        "wait4_maximum_includes_completely_reaped_descendants": false,
+        "wait4_ru_maxrss_bytes": 24682496
+      },
+      "error": "Fixed child/control scope closed: terminal: Observer/child phase failed: ValueError('Reported identity differs from independently launched direct child')"
+    },
+    "test_radio_native_v2_observer_terminal_identity.ObserverTerminalIdentityTests.test_identity_published_before_terminal_eof_is_verified": {
+      "presence_checks": 2,
+      "select_calls": 1,
+      "reaps": [
+        {
+          "pid": 7,
+          "status": 0,
+          "peak_rss_bytes": 24813568
+        }
+      ],
+      "namespace_pid": 7,
+      "bound_identity": {
+        "procfs_pid": 4729,
+        "namespace_pid": 7,
+        "procfs_start_ticks": "660572",
+        "namespace_pid_chain": [
+          4729,
+          7
+        ]
+      },
+      "identity_exists_at_terminal": true,
+      "observed": {
+        "actual_connector_calls": 0,
+        "actual_functions_sdk_calls": 0,
+        "actual_git_processes": 0,
+        "aggregate_concurrent_rss_measured": false,
+        "automatic_retry": false,
+        "bound_child_identity": {
+          "namespace_pid": 7,
+          "namespace_pid_chain": [
+            4729,
+            7
+          ],
+          "procfs_pid": 4729,
+          "procfs_start_ticks": "660572"
+        },
+        "child_environment": {
+          "LANG": "C",
+          "LC_ALL": "C",
+          "PATH": "/usr/bin:/bin"
+        },
+        "child_executable_pin": {
+          "bytes": 30894944,
+          "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+          "sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7"
+        },
+        "child_procfs_pid": 4729,
+        "cleanup_grace_seconds": 1,
+        "complete_descendant_wait_chain_verified": false,
+        "complete_pipe_output": true,
+        "direct_child_reaped": true,
+        "elapsed_seconds": 0.016,
+        "execution_authorized": false,
+        "exit_code": 0,
+        "hidden_http_bytes_known": false,
+        "host_ledger_join_complete": false,
+        "includes_entire_child_lifetime": true,
+        "interval_end_epoch_ms": 1791005208830,
+        "interval_start_epoch_ms": 1791005208814,
+        "label": "terminal",
+        "monotonic_end_ns": 6605745225536,
+        "monotonic_start_ns": 6605707382703,
+        "native_case_binding_verified": false,
+        "native_case_executions": 0,
+        "native_case_reservations": 0,
+        "network_fetches": 0,
+        "observed_argv": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+          "-I",
+          "-S",
+          "-B",
+          "-c",
+          "import json,os,sys\npath,kind=sys.argv[1:]\nif kind != 'missing':\n    with open(path,'x') as stream:\n        if kind == 'malformed': stream.write('{')\n        else:\n            value={'procfs_pid':int(os.readlink('/proc/self')),'namespace_pid':os.getpid()}\n            if kind == 'forged': value['procfs_pid'] += 1\n            json.dump(value,stream)\n        stream.flush(); os.fsync(stream.fileno())\n",
+          "/tmp/seti-terminal-identity-test-05ya03pi/identity.json",
+          "valid"
+        ],
+        "observed_output_bytes": {
+          "stderr": 0,
+          "stdout": 0
+        },
+        "observer_metadata_fsync_and_termination_covered": false,
+        "observer_procfs_pid": 4727,
+        "observer_self_kernel_peak_rss_bytes": 24813568,
+        "observer_source": "independent_parent_procfs_and_kernel_wait4",
+        "peak_rss_bytes": 24813568,
+        "raw_stdout_duplicate_written": false,
+        "real_public_github_mutations": 0,
+        "reason": null,
+        "reported_identity_verified": true,
+        "reservation_authorized": false,
+        "retained_sample_count": 1,
+        "rng_draws": 0,
+        "sample_count": 1,
+        "sample_retention_limit": 2048,
+        "samples": [
+          {
+            "at_epoch_ms": 1791005208815,
+            "kernel_vm_hwm_bytes": 729088,
+            "rss_bytes": 729088
+          }
+        ],
+        "schema": "radio-native-v2-compact-eight-input-resource-control-v1-process-observation",
+        "scientific_cases_run": 0,
+        "scientific_execution_authorized": false,
+        "telescope_reads": 0,
+        "tree_termination_coverage": "NOT_INDEPENDENTLY_VERIFIED",
+        "wait4_maximum_includes_completely_reaped_descendants": false,
+        "wait4_ru_maxrss_bytes": 24813568
+      },
+      "error": null
+    },
+    "test_radio_native_v2_observer_terminal_identity.ObserverTerminalIdentityTests.test_malformed_terminal_identity_is_still_refused": {
+      "presence_checks": 2,
+      "select_calls": 1,
+      "reaps": [
+        {
+          "pid": 8,
+          "status": 0,
+          "peak_rss_bytes": 24813568
+        }
+      ],
+      "namespace_pid": 8,
+      "bound_identity": {
+        "procfs_pid": 4730,
+        "namespace_pid": 8,
+        "procfs_start_ticks": "660576",
+        "namespace_pid_chain": [
+          4730,
+          8
+        ]
+      },
+      "identity_exists_at_terminal": true,
+      "observed": {
+        "actual_connector_calls": 0,
+        "actual_functions_sdk_calls": 0,
+        "actual_git_processes": 0,
+        "aggregate_concurrent_rss_measured": false,
+        "automatic_retry": false,
+        "bound_child_identity": {
+          "namespace_pid": 8,
+          "namespace_pid_chain": [
+            4730,
+            8
+          ],
+          "procfs_pid": 4730,
+          "procfs_start_ticks": "660576"
+        },
+        "child_environment": {
+          "LANG": "C",
+          "LC_ALL": "C",
+          "PATH": "/usr/bin:/bin"
+        },
+        "child_executable_pin": {
+          "bytes": 30894944,
+          "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+          "sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7"
+        },
+        "child_procfs_pid": 4730,
+        "cleanup_grace_seconds": 1,
+        "complete_descendant_wait_chain_verified": false,
+        "complete_pipe_output": false,
+        "direct_child_reaped": true,
+        "elapsed_seconds": 0.018,
+        "execution_authorized": false,
+        "exit_code": 0,
+        "hidden_http_bytes_known": false,
+        "host_ledger_join_complete": false,
+        "includes_entire_child_lifetime": true,
+        "interval_end_epoch_ms": 1791005208871,
+        "interval_start_epoch_ms": 1791005208853,
+        "label": "terminal",
+        "monotonic_end_ns": 6605785409542,
+        "monotonic_start_ns": 6605745890890,
+        "native_case_binding_verified": false,
+        "native_case_executions": 0,
+        "native_case_reservations": 0,
+        "network_fetches": 0,
+        "observed_argv": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+          "-I",
+          "-S",
+          "-B",
+          "-c",
+          "import json,os,sys\npath,kind=sys.argv[1:]\nif kind != 'missing':\n    with open(path,'x') as stream:\n        if kind == 'malformed': stream.write('{')\n        else:\n            value={'procfs_pid':int(os.readlink('/proc/self')),'namespace_pid':os.getpid()}\n            if kind == 'forged': value['procfs_pid'] += 1\n            json.dump(value,stream)\n        stream.flush(); os.fsync(stream.fileno())\n",
+          "/tmp/seti-terminal-identity-test-aqo6jizl/identity.json",
+          "malformed"
+        ],
+        "observed_output_bytes": {
+          "stderr": 0,
+          "stdout": 0
+        },
+        "observer_metadata_fsync_and_termination_covered": false,
+        "observer_procfs_pid": 4727,
+        "observer_self_kernel_peak_rss_bytes": 24813568,
+        "observer_source": "independent_parent_procfs_and_kernel_wait4",
+        "peak_rss_bytes": 24813568,
+        "raw_stdout_duplicate_written": false,
+        "real_public_github_mutations": 0,
+        "reason": "Required direct-child identity was never verified",
+        "reported_identity_verified": false,
+        "reservation_authorized": false,
+        "retained_sample_count": 1,
+        "rng_draws": 0,
+        "sample_count": 1,
+        "sample_retention_limit": 2048,
+        "samples": [
+          {
+            "at_epoch_ms": 1791005208854,
+            "kernel_vm_hwm_bytes": 475136,
+            "rss_bytes": 475136
+          }
+        ],
+        "schema": "radio-native-v2-compact-eight-input-resource-control-v1-process-observation",
+        "scientific_cases_run": 0,
+        "scientific_execution_authorized": false,
+        "telescope_reads": 0,
+        "tree_termination_coverage": "NOT_INDEPENDENTLY_VERIFIED",
+        "wait4_maximum_includes_completely_reaped_descendants": false,
+        "wait4_ru_maxrss_bytes": 24813568
+      },
+      "error": "Fixed child/control scope closed: terminal: Required direct-child identity was never verified"
+    },
+    "test_radio_native_v2_observer_terminal_identity.ObserverTerminalIdentityTests.test_missing_terminal_identity_is_still_refused": {
+      "presence_checks": 2,
+      "select_calls": 1,
+      "reaps": [
+        {
+          "pid": 9,
+          "status": 0,
+          "peak_rss_bytes": 24813568
+        }
+      ],
+      "namespace_pid": 9,
+      "bound_identity": {
+        "procfs_pid": 4731,
+        "namespace_pid": 9,
+        "procfs_start_ticks": "660580",
+        "namespace_pid_chain": [
+          4731,
+          9
+        ]
+      },
+      "identity_exists_at_terminal": false,
+      "observed": {
+        "actual_connector_calls": 0,
+        "actual_functions_sdk_calls": 0,
+        "actual_git_processes": 0,
+        "aggregate_concurrent_rss_measured": false,
+        "automatic_retry": false,
+        "bound_child_identity": {
+          "namespace_pid": 9,
+          "namespace_pid_chain": [
+            4731,
+            9
+          ],
+          "procfs_pid": 4731,
+          "procfs_start_ticks": "660580"
+        },
+        "child_environment": {
+          "LANG": "C",
+          "LC_ALL": "C",
+          "PATH": "/usr/bin:/bin"
+        },
+        "child_executable_pin": {
+          "bytes": 30894944,
+          "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+          "sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7"
+        },
+        "child_procfs_pid": 4731,
+        "cleanup_grace_seconds": 1,
+        "complete_descendant_wait_chain_verified": false,
+        "complete_pipe_output": false,
+        "direct_child_reaped": true,
+        "elapsed_seconds": 0.016,
+        "execution_authorized": false,
+        "exit_code": 0,
+        "hidden_http_bytes_known": false,
+        "host_ledger_join_complete": false,
+        "includes_entire_child_lifetime": true,
+        "interval_end_epoch_ms": 1791005208908,
+        "interval_start_epoch_ms": 1791005208892,
+        "label": "terminal",
+        "monotonic_end_ns": 6605823252875,
+        "monotonic_start_ns": 6605786045041,
+        "native_case_binding_verified": false,
+        "native_case_executions": 0,
+        "native_case_reservations": 0,
+        "network_fetches": 0,
+        "observed_argv": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+          "-I",
+          "-S",
+          "-B",
+          "-c",
+          "import json,os,sys\npath,kind=sys.argv[1:]\nif kind != 'missing':\n    with open(path,'x') as stream:\n        if kind == 'malformed': stream.write('{')\n        else:\n            value={'procfs_pid':int(os.readlink('/proc/self')),'namespace_pid':os.getpid()}\n            if kind == 'forged': value['procfs_pid'] += 1\n            json.dump(value,stream)\n        stream.flush(); os.fsync(stream.fileno())\n",
+          "/tmp/seti-terminal-identity-test-tpdj5s5z/identity.json",
+          "missing"
+        ],
+        "observed_output_bytes": {
+          "stderr": 0,
+          "stdout": 0
+        },
+        "observer_metadata_fsync_and_termination_covered": false,
+        "observer_procfs_pid": 4727,
+        "observer_self_kernel_peak_rss_bytes": 24813568,
+        "observer_source": "independent_parent_procfs_and_kernel_wait4",
+        "peak_rss_bytes": 24813568,
+        "raw_stdout_duplicate_written": false,
+        "real_public_github_mutations": 0,
+        "reason": "Required direct-child identity was never verified",
+        "reported_identity_verified": false,
+        "reservation_authorized": false,
+        "retained_sample_count": 1,
+        "rng_draws": 0,
+        "sample_count": 1,
+        "sample_retention_limit": 2048,
+        "samples": [
+          {
+            "at_epoch_ms": 1791005208893,
+            "kernel_vm_hwm_bytes": 839680,
+            "rss_bytes": 839680
+          }
+        ],
+        "schema": "radio-native-v2-compact-eight-input-resource-control-v1-process-observation",
+        "scientific_cases_run": 0,
+        "scientific_execution_authorized": false,
+        "telescope_reads": 0,
+        "tree_termination_coverage": "NOT_INDEPENDENTLY_VERIFIED",
+        "wait4_maximum_includes_completely_reaped_descendants": false,
+        "wait4_ru_maxrss_bytes": 24813568
+      },
+      "error": "Fixed child/control scope closed: terminal: Required direct-child identity was never verified"
+    }
+  },
+  "limits": "Tiny isolated local children only; real procfs mapping, waitid WNOWAIT, EOF reads and sole wait4. Parent first-presence observation and select scheduling controlled. No control/science/telescope/source generation/RNG."
+}

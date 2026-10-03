@@ -107,7 +107,7 @@ CODE_FILES = (
 LOG_LIMIT = 65536
 OBSERVATION_SAMPLE_LIMIT = 2048
 CHILD_ENVIRONMENT = {'PATH':'/usr/bin:/bin','LANG':'C','LC_ALL':'C'}
-WORKER_ADMISSION_IMPLEMENTATION_PIN = {'bytes': 81344, 'sha256': '10cabcd51f4bcf812e76bf5410cdc2f202b4ffa9e3bf88eee69537863c39ce42'}
+WORKER_ADMISSION_IMPLEMENTATION_PIN = {'bytes': 77783, 'sha256': '41e147d00488bb00c8be4825d26e964857b5f3841f07d3f908ad112e133c8fa1'}
 CONTROL_ACTIVATION_IMPLEMENTATION_PIN = {'bytes': 20022, 'sha256': 'b0fc36e2ed4b925f0ff51e812b18c79ef8e8f3d93ea4f6091159dc6cfc0bfb6a'}
 INVOCATION_SPENDING_IMPLEMENTATION_PIN = {'bytes': 22296, 'sha256': '189da9f870628573e85ae6943a63d79b1390fce0aee8a04e003318cc506e895f'}
 HISTORICAL_OBSERVATION_IMPLEMENTATION_PIN = {'bytes': 13863, 'sha256': 'f725ff94a2ff8f375fec1e477e0cb20902d179e6d43e7a6b8fa649f282b1a008'}
@@ -732,19 +732,6 @@ def observe_process(argv, root, label, identity_path, *, deadline, on_tick=None,
     sample_count = 0; reported_identity_verified = False
     observed_output_bytes = {'stdout':0,'stderr':0}
     cleanup_deadline = None
-    def check_reported_identity():
-        nonlocal reported_identity_verified
-        if not reported_identity_verified and Path(identity_path).exists():
-            try:
-                reported = small_json(identity_path)
-                reported_pid = reported.get('procfs_pid',reported.get('proc_pid'))
-                namespace_pid = reported.get('namespace_pid',reported.get('pid'))
-                if (type(reported_pid) is not int or type(namespace_pid) is not int
-                        or reported_pid != proc_pid or namespace_pid != child.pid):
-                    raise ValueError('Reported identity differs from independently launched direct child')
-                reported_identity_verified = True
-            except (json.JSONDecodeError, JSONEvidenceChangedDuringRead):
-                pass
     try:
         stdout_file = stdout_path.open('xb'); stderr_file = stderr_path.open('xb')
         selector = selectors.DefaultSelector()
@@ -756,7 +743,16 @@ def observe_process(argv, root, label, identity_path, *, deadline, on_tick=None,
         bound_identity = launched_child_identity(child.pid)
         proc_pid = bound_identity['procfs_pid']
         while status is None or (pipe_output and selector.get_map()):
-            check_reported_identity()
+            if not reported_identity_verified and Path(identity_path).exists():
+                try:
+                    reported = small_json(identity_path)
+                    reported_pid = reported.get('procfs_pid',reported.get('proc_pid'))
+                    namespace_pid=reported.get('namespace_pid',reported.get('pid'))
+                    if (type(reported_pid) is not int or type(namespace_pid) is not int
+                            or reported_pid!=proc_pid or namespace_pid!=child.pid):
+                        raise ValueError('Reported identity differs from independently launched direct child')
+                    reported_identity_verified = True
+                except (json.JSONDecodeError, JSONEvidenceChangedDuringRead): pass
             if proc_pid is not None:
                 try:
                     ticks=(Path('/proc')/str(proc_pid)/'stat').read_text().rsplit(')',1)[1].split()[19]
@@ -795,10 +791,6 @@ def observe_process(argv, root, label, identity_path, *, deadline, on_tick=None,
             # Keep an exited root unreaped while descendants can retain pipes.
             # Its PID/PGID then cannot be recycled before bounded cancellation.
             if status is None and (not pipe_output or not selector.get_map() or reason):
-                # A short child can publish identity and close both pipes after
-                # the iteration's first check. Recheck before the sole wait4
-                # consumes its exit, while the direct-child mapping is owned.
-                check_reported_identity()
                 waited, wait_status, waited_usage = os.wait4(child.pid,os.WNOHANG)
                 if waited:
                     status = os.waitstatus_to_exitcode(wait_status); usage = waited_usage; child.returncode = status

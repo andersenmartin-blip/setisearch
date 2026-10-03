@@ -70,7 +70,7 @@ TINY_REPORT_SECONDS = 3.0
 # Independent reviewed dispatch pins. Root refreshes these only after reviewing
 # the final code of the fixed source implementations; a supplied bundle cannot
 # select an arbitrary implementation for any admission check.
-BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v2_compact_eight_case_resource_fixture.py': {'bytes': 128291, 'sha256': 'c1acc2e3f7148fecedec507d1fd8fabba8a85e1be3907945653ffd0aeaa7c5b4'}, 'scripts/radio_native_v2_worker_admission.py': {'bytes': 77783, 'sha256': '41e147d00488bb00c8be4825d26e964857b5f3841f07d3f908ad112e133c8fa1'}, 'scripts/radio_native_v2_process_tree_supervisor.py': {'bytes': 82676, 'sha256': '897cdba99e28edaf64541a8af43674954bb1bf19c872d5b45f8c033d374c3881'}}
+BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v2_compact_eight_case_resource_fixture.py': {'bytes': 128667, 'sha256': 'acc361a324af4a3bc469f8da756e86382e320a0b1c14c8eecf3988318f7c100c'}, 'scripts/radio_native_v2_worker_admission.py': {'bytes': 81344, 'sha256': '10cabcd51f4bcf812e76bf5410cdc2f202b4ffa9e3bf88eee69537863c39ce42'}, 'scripts/radio_native_v2_process_tree_supervisor.py': {'bytes': 82676, 'sha256': '5e8d88555e45b9733acd26572ad4dc2c337ab0a6b6b45bed711538578e470226'}}
 AUTHORITY = {'execution_authorized': False, 'reservation_authorized': False,
     'scientific_execution_authorized': False, 'native_case_reservations': 0,
     'native_case_executions': 0, 'scientific_cases_run': 0, 'rng_draws': 0,

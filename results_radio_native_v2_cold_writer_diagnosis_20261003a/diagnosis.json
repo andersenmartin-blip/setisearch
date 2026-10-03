@@ -1,0 +1,106 @@
+{
+  "attempts": 2,
+  "direct_evidence": {
+    "actual_identity_matches_independently_bound_child": true,
+    "child_exit_code": 0,
+    "direct_child_reaped": true,
+    "final_disposition_persisted": true,
+    "observed_output_bytes": {
+      "stderr": 0,
+      "stdout": 0
+    },
+    "observer_reason": "Required direct-child identity was never verified",
+    "report_writer_fsync_completed_before_return": true,
+    "reported_identity_verified": false
+  },
+  "evidence_pins": {
+    "attempt-00/observation-call.json": {
+      "bytes": 5555,
+      "sha256": "411e4cda51dd04069eacfd19689aba4cb11dda40f8dac773369f7ac4329f972e"
+    },
+    "attempt-00/retained-actual-writer/final-report-input.json": {
+      "bytes": 820,
+      "sha256": "c760186c8c79c1bef270b6bd5742da77910837620e76f3644cd7649d8db3a790"
+    },
+    "attempt-00/retained-actual-writer/final-report-writer-identity.json": {
+      "bytes": 125,
+      "sha256": "1c834ef8eebaa500b6cf863631e21a242a759fa6a8d70e57b8bddb8bb3a6c9c6"
+    },
+    "attempt-00/retained-actual-writer/final-report-writer-observation.json": {
+      "bytes": 2965,
+      "sha256": "663512c58add32d6da39aaf8924518461c61a309ea7d4c9c6a31d6826a029124"
+    },
+    "attempt-00/retained-actual-writer/final-report-writer-stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "attempt-00/retained-actual-writer/final-report-writer-stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "attempt-00/retained-actual-writer/resource-final-disposition.json": {
+      "bytes": 1331,
+      "sha256": "aced01dab21124ea81aaa20692da8f0f2ae2f6d01923cab3b3d31d17f5999fe4"
+    },
+    "attempt-00/unittest-output.log": {
+      "bytes": 291,
+      "sha256": "e9c344b74ee151d547ecbc40a979609f7ecaf7ba0562f4bb44cbb6173be8ad4c"
+    },
+    "attempt-01/observation-call.json": {
+      "bytes": 1786,
+      "sha256": "2263dddf9b7e59a8fca9a4e6c1253b1573d5727b18ef7cc4940f0e8c7734f429"
+    },
+    "attempt-01/observer-exception.txt": {
+      "bytes": 807,
+      "sha256": "8b803f654c537ab06a37cf86b6fbb5f5667897bd783d4fff68cebad3b8aac086"
+    },
+    "attempt-01/retained-actual-writer/final-report-input.json": {
+      "bytes": 820,
+      "sha256": "3148642043697166911e9e91b1dc0f0d8e7d2743744785f22ef26a05583e1909"
+    },
+    "attempt-01/retained-actual-writer/final-report-writer-identity.json": {
+      "bytes": 125,
+      "sha256": "1243f520c566ad3676c4ce3b09460e30e8deec2947ecd5ca2125becffbc263ac"
+    },
+    "attempt-01/retained-actual-writer/final-report-writer-observation.json": {
+      "bytes": 3010,
+      "sha256": "891e47e7ae706f87bac47b73f3296ba43827fafd2bd2fca1f7e67efda0d174f7"
+    },
+    "attempt-01/retained-actual-writer/final-report-writer-stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "attempt-01/retained-actual-writer/final-report-writer-stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "attempt-01/retained-actual-writer/resource-final-disposition.json": {
+      "bytes": 1331,
+      "sha256": "e5d6e08367911bb9db024b952c0208d80b00691a647f3cd3e9c94d834fbdccac"
+    },
+    "attempt-01/unittest-output.log": {
+      "bytes": 2484,
+      "sha256": "c008a5d1d3ca624218541e28a12f83689df93370db9f5d72a68b71460206bc9c"
+    },
+    "focused-writer-summary.json": {
+      "bytes": 1827,
+      "sha256": "2e51062a41f20e799f5f5a28c36aaf4f2de74afece60e69103a15899aa2ea087"
+    },
+    "focused_writer_diagnosis.py": {
+      "bytes": 3566,
+      "sha256": "1d921948ac548664df5dacee78c859358a8e1c6ee40c4d1523300a9547217e57"
+    }
+  },
+  "failure_attempt": "attempt-01",
+  "focused_test": "ResourceFinalizationTests.test_actual_isolated_final_report_writer_fsyncs_and_exits",
+  "import_closure_findings": "Tiny report writer uses stdlib imports and completed normally. No child import or source-pin exception was emitted; this observed failure is not caused by changed dependency pins.",
+  "native_scientific_executions": 0,
+  "real_control_invocations": 0,
+  "recommended_narrow_fix": "Repeat the unchanged bounded identity-file check after pipe-drain/EOF and immediately before wait4, while the independently mapped direct child remains unreaped. Keep missing/wrong-identity refusal, output caps, deadlines and authority unchanged.",
+  "schema": "radio-native-v2-tiny-final-writer-observer-race-diagnosis-v1",
+  "scope": "existing tiny synthetic report-writer unittest only; no control invocation",
+  "source_or_test_edits_performed": false,
+  "source_ordering_inference": "observe_process checks identity only at loop entry. Pipe EOF can arrive after identity was written and before wait4 reaps; the final iteration then exits without a further identity check.",
+  "status": "CONFIRMED_ORIGINAL_TINY_TEST_OBSERVER_RACE",
+  "successful_comparison_attempt": "attempt-00"
+}

@@ -241,7 +241,10 @@ def synthetic_role_materials(root, role='caller', *, command_label='command-0'):
         inputs = {'plan_json':phase_descriptor(scope/'plan.json'),
             'freeze_json':phase_descriptor(scope/'complete-freeze.json'),
             'preread_json':phase_descriptor(scope/'public-preread.json')}
-        if role == 'verifier':
+        if role == 'control':
+            (scope/'cases').mkdir(mode=0o700)
+            for index in range(8): (scope/'cases'/f'case{index:02d}').mkdir(mode=0o700)
+        else:
             rows = []; prepared_cases = []
             for index in range(8):
                 case_root = scope/f'cases/case{index:02d}'
@@ -898,13 +901,98 @@ class WorkerRoleAdmissionTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'leading retained caller identity'): self.validate()
 
     def test_whole_control_exact_roots_none_ordinal_and_no_case_scope_reuse(self):
-        material=self.material('control'); receipt=self.validate(); layout=receipt['worker_role_layout']
+        material=self.material('control'); before=sorted(str(path) for path in self.root.rglob('*'))
+        with mock.patch.object(subprocess,'Popen',side_effect=AssertionError('No launch')):
+            receipt=self.validate()
+        self.assertEqual(before,sorted(str(path) for path in self.root.rglob('*')))
+        layout=receipt['worker_role_layout']
         self.assertIsNone(receipt['case_ordinal']); self.assertEqual(layout['receipt_scope'],str(material['scope']/'whole-control-supervisor'))
         self.assertEqual(layout['seconds_limit'],4800); self.assertEqual(layout['shared_storage_limit_bytes'],1536*1024**2)
+        for key,value in admission.AUTHORITY.items(): self.assertEqual(receipt[key],value)
         for ordinal in (False,0,0.0):
             with self.subTest(ordinal=ordinal), self.assertRaisesRegex(ValueError,'exactly None'): self.validate(ordinal=ordinal)
-        (material['scope']/'cases').mkdir()
-        with self.assertRaisesRegex(ValueError,'Existing role output'): self.validate()
+        (material['scope']/'cases/case07/previous-work.json').write_bytes(b'{}\n')
+        with self.assertRaisesRegex(ValueError,'case output/scope reuse'): self.validate()
+
+    def test_whole_control_requires_exact_eight_empty_case_reservations(self):
+        changes = ('absent', 'missing', 'extra', 'wrong-name', 'file', 'nested', 'hardlink', 'fifo')
+        for change in changes:
+            with self.subTest(change=change):
+                self.materials=synthetic_role_materials(self.root/change,'control'); cases=self.materials['scope']/'cases'
+                if change == 'absent': shutil.rmtree(cases)
+                elif change == 'missing': (cases/'case07').rmdir()
+                elif change == 'extra': (cases/'case08').mkdir(mode=0o700)
+                elif change == 'wrong-name': (cases/'case07').rename(cases/'case7')
+                elif change == 'file': (cases/'case00/empty').touch()
+                elif change == 'nested': (cases/'case00/nested').mkdir()
+                elif change == 'hardlink':
+                    source=self.root/'external-file'; source.write_bytes(b'old output')
+                    os.link(source,cases/'case00/linked')
+                elif change == 'fifo': os.mkfifo(cases/'case00/pipe')
+                with self.assertRaises((ValueError,OSError)): self.validate()
+
+    def test_whole_control_refuses_hierarchy_aliases_and_unsafe_permissions(self):
+        changes = ('cases-link', 'case-link', 'scope-link', 'cases-readable', 'case-writable', 'case-sticky', 'scope-writable')
+        for change in changes:
+            with self.subTest(change=change):
+                self.materials=synthetic_role_materials(self.root/change,'control'); scope=self.materials['scope']; cases=scope/'cases'
+                if change == 'cases-link':
+                    moved=scope/'reserved-cases'; cases.rename(moved); cases.symlink_to(moved,target_is_directory=True)
+                elif change == 'case-link':
+                    (cases/'case07').rmdir(); (cases/'case07').symlink_to(cases/'case06',target_is_directory=True)
+                elif change == 'scope-link':
+                    moved=scope.parent/'actual-whole'; scope.rename(moved); scope.symlink_to(moved,target_is_directory=True)
+                elif change == 'cases-readable': cases.chmod(0o755)
+                elif change == 'case-writable': (cases/'case07').chmod(0o702)
+                elif change == 'case-sticky': (cases/'case07').chmod(0o1700)
+                elif change == 'scope-writable': scope.chmod(0o777)
+                with self.assertRaises((ValueError,OSError)): self.validate()
+
+    def test_whole_control_refuses_foreign_directory_ownership(self):
+        material=self.material('control'); bundle=material['role_materials']['bundle']
+        with mock.patch.object(admission.os,'geteuid',return_value=os.geteuid()+1):
+            with self.assertRaisesRegex(ValueError,'Owned safe cold control directory'):
+                admission._validate_role_phase(bundle)
+
+    def test_whole_control_detects_case_and_cases_directory_replacement_during_check(self):
+        for change in ('case', 'cases'):
+            with self.subTest(change=change):
+                self.materials=synthetic_role_materials(self.root/change,'control'); scope=self.materials['scope']; cases=scope/'cases'
+                selected=os.stat(cases/'case03'); listdir=os.listdir; replaced=[]
+                def replace_while_reading(path):
+                    if type(path) is int and not replaced:
+                        info=os.fstat(path)
+                        if (info.st_dev,info.st_ino)==(selected.st_dev,selected.st_ino):
+                            replaced.append(True)
+                            if change == 'case':
+                                (cases/'case03').rename(scope/'previous-case03'); (cases/'case03').mkdir(mode=0o700)
+                            else:
+                                cases.rename(scope/'previous-cases'); cases.mkdir(mode=0o700)
+                                for index in range(8): (cases/f'case{index:02d}').mkdir(mode=0o700)
+                    return listdir(path)
+                with mock.patch.object(admission.os,'listdir',side_effect=replace_while_reading):
+                    with self.assertRaisesRegex(ValueError,'Cold control .* changed during check'): self.validate()
+                self.assertEqual(replaced,[True])
+
+    def test_whole_control_allows_observer_metadata_outside_cases_but_refuses_prior_outputs(self):
+        material=self.material('control'); scope=material['scope']
+        (scope/'measurement-driver-identity.json').write_bytes(b'{}\n')
+        (scope/'whole-control-supervisor').mkdir()
+        self.validate()
+        for name in ('control-worker-identity.json','worker-result.json','compact-input-plan.json','closed-failure.json'):
+            with self.subTest(name=name):
+                path=scope/name; path.write_bytes(b'{}\n')
+                with self.assertRaisesRegex(ValueError,'Existing role output/scope reuse'): self.validate()
+                path.unlink()
+
+    def test_whole_control_empty_case_scaffolding_cannot_admit_spent_history(self):
+        material=self.material('control'); original=material['role_materials']['bundle']
+        for namespace,marker,commit in admission.SPENT_ACTIVATIONS:
+            bundle=copy.deepcopy(original); bundle['activation_receipt']={'namespace':namespace,'marker_path':marker,'activation_commit':commit}
+            with self.subTest(namespace=namespace), mock.patch.object(admission,'_cold_control_cases') as check:
+                with self.assertRaisesRegex(ValueError,'permanently spent'):
+                    admission._validate_bundle(bundle,role='control',ordinal=None)
+                check.assert_not_called()
 
     def test_whole_control_current_embedded_plan_snapshot_must_match(self):
         material=self.material('control'); path=material['scope']/'plan.json'; plan=json.loads(path.read_bytes()); plan['execution_authorized']=True
