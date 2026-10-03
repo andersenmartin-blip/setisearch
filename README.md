@@ -1,5 +1,13 @@
 # SETIsearch
 
+## 3 October: cold admission and terminal identity repaired; preparation only
+
+[The repair report and retained evidence](https://github.com/andersenmartin-blip/setisearch/blob/67567020b27620c70214254f78f047fb493cbaeb/RADIO_NATIVE_V2_COLD_DRIVER_2026-10-03_RESULT.md) record **555 passing tests across 21 modules**, zero failures/errors/skips and exit 0. Actual producer/driver-bootstrap regressions cover the eight reserved empty directories; a reproduced tiny-writer EOF/identity race is repaired with a pre-reap identity check. All 1,183 tested source/helper pins remain unchanged across the final suite, and all 16 forward bootstrap edges match.
+
+The selected distinct b plan/runtime is independently reaudited after persistence: 931 code files, 331 inputs, 1,366 runtime paths, 49 material files and three derived files. Earlier import failure, 551-test observer error and the first capture's active-stdout invalidation remain retained. The final metadata adapter changes no tested production/test source and excludes active output inodes.
+
+Original b and c remain CLOSED_FAILED, 0/8 and permanently spent; their scopes and private journals match full sampled before/after inventories. No new protected invocation, marker, large input, telescope read or scientific case. Next preparation needs a distinct future identity and historical c storage/journal join; the current c identity cannot be reused. The astronomical pilot window has not been achieved. HD189733 selected; HD1461 HOLD; GJ724 reserve; spectra/holdouts unopened; native8 unreserved; 127/24 inactive; LS paused; CHEOPS UNSENT. No person messages. Consolidate **9 October 2026**, without extension, restart or target change.
+
 ## 2 October: c engineering control CLOSED_FAILED; no retry
 
 [The actual c result and retained evidence](https://github.com/andersenmartin-blip/setisearch/blob/5eae7e5428f08a1ec0aa481216a15b60c1b49fdf/RADIO_NATIVE_V2_CONTROL_C_2026-10-02_RESULT.md) record **one invocation, exit 1, 0/8 completed and permanently spent** after immutable preread P → marker-only A → public fixed sidecars B. The fixture created eight empty case directories; driver admission then refused the existing `cases` directory before identity/workload. The resulting missing-identity observer error is secondary. No retry, resume, cleanup or rearm occurred.
