@@ -1,5 +1,13 @@
 # SETIsearch
 
+## 3 October: current protected route blocked; consolidate existing evidence
+
+[The reviewed custody stop decision](https://github.com/andersenmartin-blip/setisearch/blob/9b13b9af11e2cf9a9d61eef0671b119bd5749ee7/RADIO_NATIVE_V2_CUSTODY_DECISION_2026-10-03.md) records **BLOCKED_ORIGINAL_HISTORY_CUSTODY** for the current protected engineering route. The original b/c scopes and private journals remain unavailable. Public archive copies cannot satisfy unchanged original identity/storage requirements; a/b/c remain permanently spent and d remains uncreated. No alternate custody protocol or new execution authority is adopted.
+
+A fresh read-only recheck and separate machine review verify **1,190 unchanged selected source/test/helper pins**, 15 copied metadata files and unchanged original-state refusals. The existing **635 tests / 24 modules** are preparation evidence and were **not rerun**. Machine review is not human authorization.
+
+[The interim pilot report](https://github.com/andersenmartin-blip/setisearch/blob/9b13b9af11e2cf9a9d61eef0671b119bd5749ee7/RADIO_PILOT_INTERIM_2026-10-03.md) records that the planned 30 September–3 October independent radio pilot was not achieved. No new telescope values or candidates were analyzed in this continuation. Continue evidence consolidation for **9 October 2026**, without automatic extension, restart or target change. Recheck original state only if concrete new accessible-state evidence appears; more software tests or a fresh control label do not resolve this blocker. All target/holdout/native/LS/CHEOPS dispositions persist. This route-specific decision does not close the whole SETI project.
+
 ## 3 October: archive-only storage qualified; original history unavailable
 
 [The separate archival-closure/current-copy contract](https://github.com/andersenmartin-blip/setisearch/blob/b9f0cd300d78c1dfc85621e12de229cdfa26bfac/RADIO_NATIVE_V2_ARCHIVE_CONTRACT_2026-10-03_RESULT.md) passes **635 tests across 24 modules**, zero failures/errors/skips and exit 0. All 1,190 selected source/test/helper pins and the independently fixed input package remain unchanged. Current selected b/c metadata copies verify 15 files / 189,645 raw bytes and charge 197,837 logical / 237,568 allocated bytes, including their two directories. This accounts only for those copies; missing original storage remains unaccounted for.
