@@ -1,5 +1,13 @@
 # SETIsearch
 
+## 3 October: archive-only storage qualified; original history unavailable
+
+[The separate archival-closure/current-copy contract](https://github.com/andersenmartin-blip/setisearch/blob/b9f0cd300d78c1dfc85621e12de229cdfa26bfac/RADIO_NATIVE_V2_ARCHIVE_CONTRACT_2026-10-03_RESULT.md) passes **635 tests across 24 modules**, zero failures/errors/skips and exit 0. All 1,190 selected source/test/helper pins and the independently fixed input package remain unchanged. Current selected b/c metadata copies verify 15 files / 189,645 raw bytes and charge 197,837 logical / 237,568 allocated bytes, including their two directories. This accounts only for those copies; missing original storage remains unaccounted for.
+
+The original working root/private journals are unavailable. Both untouched frozen historical spenders refuse their original state with FileNotFoundError errno2. Original witnesses and production admission/activation/spending guards are unchanged; a/b/c remain permanently spent. The new standalone component grants no storage-join, original continuity, lifetime, reconstruction, activation or scientific authority. No real d marker, ledger, launch config, scope or invocation exists.
+
+The incomplete 593-test first run, missing-metadata recovery and corrected qualification wrapper are retained. The final 635-test run includes 20 strict archival tests and 15 new copy-accounting tests. Independent provenance/source review is machine review, not a human review or complete runtime/lifetime qualification. No telescope values or candidates were analyzed. Next: an explicitly reviewed custody protocol and fresh complete source/runtime/preread qualification would be required before any distinct control; existing d remains blocked. Preserve missing continuity as the terminal blocker if unresolved. All holds, unopened spectra/holdouts, native8/127-24 inactivity, LS pause and CHEOPS UNSENT remain. Stop/consolidate **9 October 2026**, without extension, restart or target change.
+
 ## 3 October: mandatory b/c storage integrated; original journal identities refused
 
 [The new integrated preparation and report](https://github.com/andersenmartin-blip/setisearch/blob/df27d97df7340a554acf8109751e6443cfffdd39/RADIO_NATIVE_V2_JOINT_HISTORY_2026-10-03_RESULT.md) pass **608 tests across 23 modules**, with zero failures/errors/skips and exit 0. All 1,187 tested source/helper pins and sampled historical inventories are unchanged across the final run; an independent machine review checks the complete tested-source/material closure. The distinct blocked plan/runtime is independently reaudited after persistence.
