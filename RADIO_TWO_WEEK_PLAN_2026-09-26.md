@@ -1,5 +1,13 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 3 October: actual F closure and concrete scientific execution code
+
+[The one F engineering invocation](RADIO_NATIVE_V3_CONTROL_F_2026-10-03_RESULT.md) is **CLOSED_FAILED**, 0/8, after 24 accepted source reads. F and E remain permanently spent. Preserve available original evidence and losslessly recover deterministic inputs/partial transcript offline. The inner failure stderr was not retained; do not infer its contents or repeat F to obtain it.
+
+Publish the independently reviewed [scientific execution code](results_radio_scientific_execution_prospective_20261003a/README.md): detached admission, runtime/public-source checks, irreversible append-only quotas and exact receiver binding. The selected aggregate passed 148 tests, including 43 receiver/live-clock checks; the isolated HDF5 semantic certificate passed 38 tests. Bounded failure diagnostics passed 24 tiny tests and per-load expiry is implemented. Integrate them into a fresh one-shot bounded runner, then qualify actual hosted-native measurements, complete public/runtime/source closure, atomic CAS and bounded one-shot dispatch before fresh scientific allocation. No synthetic test or offline engineering result satisfies the required actual 127/24 outcomes or pilot/source/session admission.
+
+The original astronomical basis, 151 cases/recipes and limits remain exact. Spectra/holdouts remain unopened; native8 unreserved; 127/24 NOT ACTIVATED. HD189733 remains selected, HD1461 HOLD, GJ724 reserve; LS paused; CHEOPS UNSENT. Consolidate **9 October 2026**, without automatic extension, restart or target change. No new person messages or schedule changes.
+
 ## 3 October: actual e closure and fresh HDF5 provisioning
 
 [The actual e engineering result](RADIO_NATIVE_V3_CONTROL_E_2026-10-03_RESULT.md) is CLOSED_FAILED with zero completed cases and permanent e spend. Correct the demonstrated pipe-mode disk forecast in a separately frozen fresh f route; retain original limits and require new immutable preread, marker, original preclaim, create-only public spend and observer before any f control. Never retry or revive e.

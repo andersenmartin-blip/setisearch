@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/8fcd6bf45392/setisearch-20261003-archive/scripts/radio_native_v3_compact_eight_case_resource_fixture.py", line 1743, in <module>
+    main()
+  File "/workspace/scratch/8fcd6bf45392/setisearch-20261003-archive/scripts/radio_native_v3_compact_eight_case_resource_fixture.py", line 1736, in main
+    summary=run_control(args.scope,plan,preread,freeze,receipt,helper,
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/8fcd6bf45392/setisearch-20261003-archive/scripts/radio_native_v3_compact_eight_case_resource_fixture.py", line 1606, in run_control
+    observed,completion_stdout,_ = observe_process(driver_argv,scope,'measurement-driver',
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/8fcd6bf45392/setisearch-20261003-archive/scripts/radio_native_v3_compact_eight_case_resource_fixture.py", line 1095, in observe_process
+    if status!=0 or reason: raise RuntimeError('Fixed child/control scope closed: '+label+': '+str(reason or status))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Fixed child/control scope closed: measurement-driver: 1

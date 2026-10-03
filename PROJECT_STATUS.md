@@ -1,5 +1,13 @@
 # SETIsearch — current project status
 
+## 3 October: F closed after 24 reads; scientific execution APIs implemented
+
+[The actual F result](RADIO_NATIVE_V3_CONTROL_F_2026-10-03_RESULT.md) records exactly one admitted engineering invocation, **CLOSED_FAILED**, **0/8 completed cases** and permanent F spend. Case 00 accepted 24 source-reader results before command 24's inner worker exited 1 before its identity/pread. The 3,000-byte original inner stderr was hashed but not retained on failure; the exact exception is unproven. Preserve the original terminal evidence and losslessly reconstructable partial transcript. Never retry, resume or re-admit E or F.
+
+[The distinct scientific execution code](results_radio_scientific_execution_prospective_20261003a/README.md) now supplies detached admission, complete runtime/public-source verification, append-only quota accounting and a receiver adapter. Its independent selected aggregate passed **148 tests**, including live checks before and after each load; five original scientific source pins and all 151 case/recipe identities remain exact. The isolated source-profile HDF5 certificate passed **38 tests**. These are enabling software and qualification evidence; actual scientific readiness is still false.
+
+A separate future failure-output utility passed 24 tiny tests and preserves exact bounded raw bytes; per-load session clocks are implemented. Next work must integrate these into a fresh bounded runner and qualify the real hosted-native/public-runtime/CAS/one-shot path with fresh evidence and allocations. All eleven original source/scientific fields remain pending. Spectra/holdouts stay unopened, native8 unreserved and 127/24 NOT ACTIVATED. Preserve a/b/c/E/F spends, d uncreated, target/HOLD/reserve choices, LS pause and CHEOPS UNSENT. Consolidate **9 October 2026**, with no automatic extension, restart or target change.
+
 ## 3 October: e control closed; HDF5 candidate provisioned
 
 [The actual e result](RADIO_NATIVE_V3_CONTROL_E_2026-10-03_RESULT.md) records one admitted engineering invocation, **CLOSED_FAILED**, zero completed cases and permanent e spend. The first source-reader child never launched because pipe mode forecast 4 MiB of logs that it does not retain; this exceeded the 1.75 MiB metadata bucket. A genuine targeted regression supports a fresh-version pipe reservation correction without changing any limit. The original e scope/journal and every old failure remain untouched. A future f requires its own full freeze, preread, marker, original preclaim, public create-only spend and observer; it is not yet activated.
