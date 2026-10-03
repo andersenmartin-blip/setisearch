@@ -47,3 +47,11 @@ The 30 September–3 October astronomical pilot window was not achieved. This ch
 ## Reproduction
 
 Run `python -B results_radio_native_v2_joint_history_20261003a/verify_checkpoint.py suite --attempt <new-number>` for the bounded software suite; existing attempts are exclusive and immutable. Selected summary raw SHA256: `1c61c9bb242330010ea6576af31a7b643b9420091fcdfc0900615cb37ccf293a`.
+
+## Publication readback
+
+Complete public HTTPS Git payload readback verifies [df27d97](https://github.com/andersenmartin-blip/setisearch/commit/df27d97df7340a554acf8109751e6443cfffdd39): **all 102 changed files / 5,031,776 raw bytes**, exact Git tree/parent and local content. Main README [12418ee](https://github.com/andersenmartin-blip/setisearch/commit/12418eea208138f355fcd2f39bc31714230ec054) matches all **54,522 bytes**. A separate machine GET review verifies **15 complete files / 1,177,136 raw bytes**. All 1,187 tested pins and current protected histories are reverified unchanged after publication. These receipts do not repair original identity continuity or grant execution/scientific authority.
+
+The [full readback receipt](results_radio_native_v2_joint_history_20261003a/public-checkpoint-readback.json) uses a freshly initialized empty bare object database, an HTTPS Git fetch and explicit selected engineering/documentation blob requests. It compares every payload in full by bytes, SHA256 and Git blob identity and verifies both commit trees and exact parents. No telescope value blob was requested; raw REST envelopes or hidden HTTP transport bytes are not qualified.
+
+The [separate public machine review](results_radio_native_v2_joint_history_20261003a/public-independent-review.json) uses complete decoded GitHub GET payloads for 14 selected source-checkpoint files and main README. Its earlier local review is disclosed, and its normalized commit response does not supply tree/parent metadata; topology is covered by the separate full Git readback. The [post-publication preservation check](results_radio_native_v2_joint_history_20261003a/post-publication-preservation.json) binds all 1,187 tested sources, current protected inventories and real d absence again. No human review or original custody/lifetime proof is claimed.

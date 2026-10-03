@@ -2,6 +2,8 @@
 
 ## 3 October: b/c storage integrated; distinct d prepared; original identities refused
 
+Complete public HTTPS Git payload readback verifies [df27d97](https://github.com/andersenmartin-blip/setisearch/commit/df27d97df7340a554acf8109751e6443cfffdd39): **all 102 changed files / 5,031,776 raw bytes**, exact Git tree/parent and local content. Main README [12418ee](https://github.com/andersenmartin-blip/setisearch/commit/12418eea208138f355fcd2f39bc31714230ec054) matches all **54,522 bytes**. A separate machine GET review verifies **15 complete files / 1,177,136 raw bytes**. All 1,187 tested pins and current protected histories are reverified unchanged after publication. These receipts do not repair original identity continuity or grant execution/scientific authority.
+
 [The joined-history result](RADIO_NATIVE_V2_JOINT_HISTORY_2026-10-03_RESULT.md) passes **608 tests across 23 modules**, zero failures/errors/skips and exit 0. All **1,187** tested source/helper pins and sampled b/c scope/journal inventories are unchanged across the final run. Independent machine review checks 2,584 source/evidence conditions, including 23 literal source edges, all 59 material pins and 19 historical inputs. The persisted blocked snapshot binds 933 code files, 1,276 inputs and 1,366 runtime paths; all tested sources are explicitly frozen and the complete audit repeats after persistence.
 
 Worker, observer, polling and finalizer now require b scope/journal, c scope/journal and one prospective d journal, with unchanged **192 MiB/case / 1536 MiB/run** and other limits. a/b/c identities remain permanently refused. No real d marker, ledger, launch config, control scope or invocation exists.
