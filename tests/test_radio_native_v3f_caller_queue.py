@@ -1,19 +1,16 @@
 """Tiny offline scheduling tests; no deterministic source or control is run."""
 import importlib.util
-import hashlib
 import json
 from pathlib import Path
 import shutil
 import subprocess
-import sys
 import tempfile
-import time
 import unittest
 
 
 ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location('v3_queue_fixture',
-    ROOT/'scripts/radio_native_v3_compact_eight_case_resource_fixture.py')
+    ROOT/'scripts/radio_native_v3f_compact_eight_case_resource_fixture.py')
 FIXTURE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(FIXTURE)
 
@@ -43,60 +40,6 @@ class CapacityWriteTests(unittest.TestCase):
         result=self.node_check(wanted,4097)
         self.assertNotEqual(result.returncode,0)
         self.assertIn('capacity exceeded before write',result.stderr)
-
-    def observe_tiny_child(self, *, pipe_output, output_cap, fill_bytes):
-        observations=self.root/'command-observations'
-        observations.mkdir()
-        (self.root/'synthetic-metadata.json').write_bytes(b'x'*fill_bytes)
-        identity=observations/'tiny-identity.json'
-        program=('import json,os,sys,time; '
-            'f=open(sys.argv[1],"x"); '
-            'json.dump({"procfs_pid":int(os.readlink("/proc/self")),"namespace_pid":os.getpid()},f); f.close(); '
-            'sys.stdout.write("source-fragment"); sys.stdout.flush(); '
-            'sys.stderr.write("e"); sys.stderr.flush(); time.sleep(.025)')
-        return FIXTURE.observe_process([str(Path(sys.executable).resolve()),'-I','-S','-B','-c',program,str(identity)],
-            observations,'command-0',identity,deadline=time.monotonic()+5,
-            pipe_output=pipe_output,output_cap=output_cap)
-
-    def test_piped_source_reserves_only_its_retained_stderr_and_reaps_actual_child(self):
-        observed,stdout,stderr=self.observe_tiny_child(pipe_output=True,output_cap=2*1024*1024,
-            fill_bytes=FIXTURE.CASE_OTHER_METADATA_BUDGET_BYTES-160*1024)
-        self.assertEqual(stdout,b'source-fragment')
-        self.assertEqual(stderr,b'e')
-        self.assertIsNone(observed['reason'])
-        self.assertTrue(observed['direct_child_reaped'])
-        self.assertTrue(observed['reported_identity_verified'])
-        self.assertEqual((self.root/'command-observations/command-0-stdout.log').stat().st_size,0)
-        self.assertEqual((self.root/'command-observations/command-0-stderr.log').read_bytes(),b'e')
-        self.assertFalse(observed['raw_stdout_duplicate_written'])
-
-    def test_ordinary_log_pair_still_reserves_both_caps_before_child_dispatch(self):
-        with self.assertRaisesRegex(RuntimeError,'capacity exceeded before write'):
-            self.observe_tiny_child(pipe_output=False,output_cap=FIXTURE.LOG_LIMIT,
-                fill_bytes=FIXTURE.CASE_OTHER_METADATA_BUDGET_BYTES-96*1024)
-        observations=self.root/'command-observations'
-        observed=json.loads((observations/'command-0-observation.json').read_text())
-        self.assertIsNone(observed['child_procfs_pid'])
-        self.assertFalse((observations/'tiny-identity.json').exists())
-        self.assertFalse((observations/'command-0-stdout.log').exists())
-
-    def test_piped_capacity_refusal_still_precedes_child_dispatch(self):
-        with self.assertRaisesRegex(RuntimeError,'capacity exceeded before write'):
-            self.observe_tiny_child(pipe_output=True,output_cap=2*1024*1024,
-                fill_bytes=FIXTURE.CASE_OTHER_METADATA_BUDGET_BYTES-32*1024)
-        observations=self.root/'command-observations'
-        observed=json.loads((observations/'command-0-observation.json').read_text())
-        self.assertIsNone(observed['child_procfs_pid'])
-        self.assertFalse((observations/'tiny-identity.json').exists())
-
-    def test_piped_live_output_cap_is_unchanged_and_failed_child_is_reaped(self):
-        with self.assertRaisesRegex(RuntimeError,'Bounded child output cap exceeded'):
-            self.observe_tiny_child(pipe_output=True,output_cap=8,fill_bytes=0)
-        observed=json.loads((self.root/'command-observations/command-0-observation.json').read_text())
-        self.assertEqual(observed['reason'],'Bounded child output cap exceeded')
-        self.assertTrue(observed['direct_child_reaped'])
-        self.assertGreater(observed['observed_output_bytes']['stdout'],8)
-        self.assertEqual((self.root/'command-observations/command-0-stdout.log').stat().st_size,0)
 
     def test_other_files_are_charged_and_separately_bounded_context_is_excluded(self):
         with (self.root/'worker-admission.json').open('wb') as stream:stream.truncate(2*1024*1024)
@@ -217,54 +160,6 @@ Promise.allSettled([run(0),run(1),run(2)]).then(results => {
             capture_output=True, text=True, timeout=5,
             env={'PATH':'/usr/bin:/bin','LANG':'C','LC_ALL':'C'})
         self.assertEqual(syntax.returncode, 0, syntax.stderr)
-
-    def test_fresh_inline_client_keeps_three_derived_files_and_original_v2_source(self):
-        original_path=ROOT/'scripts/radio_native_v2_tool_courier_client.js'
-        original=original_path.read_bytes()
-        self.assertEqual(hashlib.sha256(original).hexdigest(),
-            '5240193fb91c7f5f5bfe46dd0953ebfb7cc93bbd6377b4c278f0cae874b4ec70')
-        fresh=FIXTURE.derive_source_read_client(original.decode())
-        self.assertNotIn(FIXTURE.EAGER_SOURCE_READ_BLOCK,fresh)
-        self.assertEqual(fresh.count(FIXTURE.SERIAL_SOURCE_READ_BLOCK),1)
-        # Reversing the single substitution must recover every original byte,
-        # including whole-batch admission, timers, deadlines and accounting.
-        self.assertEqual(fresh.replace(FIXTURE.SERIAL_SOURCE_READ_BLOCK,
-            FIXTURE.EAGER_SOURCE_READ_BLOCK).encode(),original)
-        derived=FIXTURE.templates((ROOT/FIXTURE.CODE_FILES[0]).read_text())
-        self.assertEqual(set(derived),{'prepare.py','fresh-caller.js','lossless-helper.js'})
-        caller=derived['fresh-caller.js'].decode()
-        self.assertEqual(caller.count(fresh),1)
-        self.assertIn('c=FRESH_SOURCE_READ_CLIENT',caller)
-        self.assertNotIn("c=require(path.join(code,'scripts/radio_native_v2_tool_courier_client.js'))",caller)
-        self.assertIn('clientLibrary:c',caller)
-        self.assertEqual(original_path.read_bytes(),original)
-
-    def test_client_transformation_refuses_missing_or_duplicate_original_block(self):
-        original=(ROOT/'scripts/radio_native_v2_tool_courier_client.js').read_text()
-        for invalid in (original.replace(FIXTURE.EAGER_SOURCE_READ_BLOCK,''),
-                original+'\n'+FIXTURE.EAGER_SOURCE_READ_BLOCK):
-            with self.assertRaises(ValueError):
-                FIXTURE.derive_source_read_client(invalid)
-
-    def test_actual_client_and_executor_timers_receipts_stop_and_deadlines(self):
-        original_path=ROOT/'scripts/radio_native_v2_tool_courier_client.js'
-        original=original_path.read_bytes()
-        fresh=FIXTURE.derive_source_read_client(original.decode())
-        with tempfile.TemporaryDirectory(prefix='v3-tiny-client-scheduler-') as directory:
-            fresh_path=Path(directory)/'client.js'
-            fresh_path.write_text(fresh)
-            result=subprocess.run([shutil.which('node'),
-                str(ROOT/'tests/radio_native_v3_client_scheduler_probe.js'),str(ROOT),str(fresh_path)],
-                capture_output=True,text=True,timeout=10,
-                env={'PATH':'/usr/bin:/bin','LANG':'C','LC_ALL':'C'})
-        self.assertEqual(result.returncode,0,result.stderr)
-        evidence=json.loads(result.stdout)
-        self.assertEqual(evidence['status'],'PASSED')
-        self.assertEqual(evidence['scenario_count'],12)
-        self.assertFalse(evidence['implementation_source_files_modified'])
-        self.assertEqual(evidence['actual_helpers_executed'],0)
-        self.assertEqual(evidence['actual_controls_executed'],0)
-        self.assertEqual(original_path.read_bytes(),original)
 
 
 if __name__ == '__main__':

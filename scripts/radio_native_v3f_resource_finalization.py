@@ -44,10 +44,10 @@ LIMITS = {'case_calls': 64, 'run_calls': 512,
     'rss_bytes': 512*MIB, 'case_storage_bytes': 192*MIB,
     'run_storage_bytes': 1536*MIB}
 ENVIRONMENT = {'PATH': '/usr/bin:/bin', 'LANG': 'C', 'LC_ALL': 'C'}
-SELF = 'scripts/radio_native_v3_resource_finalization.py'
-FIXTURE = 'scripts/radio_native_v3_compact_eight_case_resource_fixture.py'
-SUPERVISOR = 'scripts/radio_native_v3_process_tree_supervisor.py'
-ADMISSION = 'scripts/radio_native_v3_worker_admission.py'
+SELF = 'scripts/radio_native_v3f_resource_finalization.py'
+FIXTURE = 'scripts/radio_native_v3f_compact_eight_case_resource_fixture.py'
+SUPERVISOR = 'scripts/radio_native_v3f_process_tree_supervisor.py'
+ADMISSION = 'scripts/radio_native_v3f_worker_admission.py'
 PENDING_NAME = 'pending-resource-measurements.json'
 DRIVER_IDENTITY_NAME = 'measurement-driver-identity.json'
 DRIVER_OBSERVATION_NAME = 'measurement-driver-observation.json'
@@ -81,7 +81,7 @@ TINY_REPORT_SECONDS = 3.0
 # Independent reviewed dispatch pins. Root refreshes these only after reviewing
 # the final code of the fixed source implementations; a supplied bundle cannot
 # select an arbitrary implementation for any admission check.
-BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v3_compact_eight_case_resource_fixture.py': {'bytes': 149752, 'sha256': 'b1509d7ec03e3886ba9e34a9db16af98ad03b48d8b5dea8796ad43836e7d891d'}, 'scripts/radio_native_v3_worker_admission.py': {'bytes': 91850, 'sha256': 'e1b06d923e98bcc53db48e1647227c41a7170de1477f7192b9162fe095640ae7'}, 'scripts/radio_native_v3_process_tree_supervisor.py': {'bytes': 84431, 'sha256': 'e9b3ae8dc473003c499ceda7b90a191bba9d02c6bbd64a057afd6413e991b5f2'}}
+BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v3f_compact_eight_case_resource_fixture.py': {'bytes': 148057, 'sha256': '31f58f27f0674ba385ba76b89af1387c7af4424b8a02dd2fed79378fcfbb2e65'}, 'scripts/radio_native_v3f_worker_admission.py': {'bytes': 91855, 'sha256': '28569ba4dd93906b4fb5feededadee46e5b3c1c06909fecc2224880d196c1b11'}, 'scripts/radio_native_v3f_process_tree_supervisor.py': {'bytes': 84437, 'sha256': 'd1a6af86257740d453776488158e7d59b849fc19504d66f30c2f694dab05c63f'}}
 AUTHORITY = {'execution_authorized': False, 'reservation_authorized': False,
     'scientific_execution_authorized': False, 'native_case_reservations': 0,
     'native_case_executions': 0, 'scientific_cases_run': 0, 'rng_draws': 0,

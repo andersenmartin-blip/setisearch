@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fresh e current-lifetime metadata preclaim and once-only dispatch arbitration.
+"""Fresh f current-lifetime metadata preclaim and once-only dispatch arbitration.
 
 This component is wired into the still-blocked prospective control. Importing
 it creates no marker or ledger and grants no activation or execution authority.
@@ -19,7 +19,7 @@ workload failures leave the claim spent; this module offers no deletion/rearm
 API. This trusts the local kernel/filesystem and a stable, private ledger root.
 It cannot prevent a privileged/same-owner writer from deleting, rolling back,
 replacing or copying the ledger, nor promise durability beyond filesystem fsync
-semantics. Losing this e lifetime's original private journal permanently blocks e; a public
+semantics. Losing this f lifetime's original private journal permanently blocks f; a public
 copy cannot restore it. This lifetime never requires old a/b/c original journals.
 
 No subprocess, Git, RNG, workload, source generation or telescope read occurs.
@@ -480,9 +480,9 @@ def consume_dispatch_once(bundle, receipt, *, execution_scope, ledger_root, repo
     try:
         _same_directory(directory,ledger,value['local_witness']['ledger_identity'])
         if _ledger_names(directory,claim_name)!=[claim_name]:
-            raise ValueError('e dispatch permanently spent; no replay/rearm')
+            raise ValueError('f dispatch permanently spent; no replay/rearm')
         try:fd=os.open(name,os.O_WRONLY|os.O_CREAT|os.O_EXCL|os.O_NOFOLLOW,0o600,dir_fd=directory)
-        except FileExistsError as failure:raise ValueError('e dispatch permanently spent or incomplete') from failure
+        except FileExistsError as failure:raise ValueError('f dispatch permanently spent or incomplete') from failure
         os.fsync(fd);os.fsync(directory)
         position=0
         while position<len(raw):

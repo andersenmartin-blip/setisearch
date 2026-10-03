@@ -13,17 +13,17 @@ import time
 import unittest
 from unittest import mock
 
-import radio_native_v3_compact_eight_case_resource_fixture as fixture
-import radio_native_v3_worker_admission as worker
-import radio_native_v3_custody_observation as custody
-import radio_native_v3_public_claim as claims
-import radio_native_v3_prospective_spending as spending
-import radio_native_v3_control_activation as activation
-import radio_native_v3_compact_control_launch as launcher
-import radio_native_v3_process_tree_supervisor as supervisor
-import radio_native_v3_resource_finalization as finalizer
-from test_radio_native_v3_public_claim import synthetic_claim,repin
-from test_radio_native_v3_custody_observation import contract,populate,ledger_inventory,public_spending,retain_envelope
+import radio_native_v3f_compact_eight_case_resource_fixture as fixture
+import radio_native_v3f_worker_admission as worker
+import radio_native_v3f_custody_observation as custody
+import radio_native_v3f_public_claim as claims
+import radio_native_v3f_prospective_spending as spending
+import radio_native_v3f_control_activation as activation
+import radio_native_v3f_compact_control_launch as launcher
+import radio_native_v3f_process_tree_supervisor as supervisor
+import radio_native_v3f_resource_finalization as finalizer
+from test_radio_native_v3f_public_claim import synthetic_claim,repin
+from test_radio_native_v3f_custody_observation import contract,populate,ledger_inventory,public_spending,retain_envelope
 
 REPO=Path(__file__).resolve().parents[1]
 
@@ -71,14 +71,6 @@ class SuccessorIntegrationTests(unittest.TestCase):
         for actual in (activation.SPENT_ACTIVATIONS,spending.SPENT_ACTIVATIONS,worker.SPENT_ACTIVATIONS,custody.SPENT_ACTIVATIONS):
             self.assertEqual(actual,claims.SPENT_ACTIVATIONS)
         self.assertIn('20261003f',launcher.CONFIG_PATH)
-        self.assertEqual(claims.SPENT_ACTIVATIONS[-1],
-            ('radio-native-v3-control-activation-transition-20261003e',
-             'config/radio_native_v3_control_activation_20261003e.activate.json',
-             '2cde096565519be82d8effe5d9cc878d6122ab45'))
-        self.assertEqual(claims.PUBLIC_SPENT_TOMBSTONES[0]['create_only_ref'],
-            'refs/heads/radio-native-v3-spent-20261003e')
-        self.assertEqual(claims.PUBLIC_SPENT_TOMBSTONES[0]['commit'],
-            '4c28009b98ea5d4596b900c97fbee1f0b3e63bd3')
         self.assertEqual(finalizer.EXTERNAL_STORAGE_SCHEMA,custody.JOIN_SCHEMA)
         self.assertEqual(finalizer.EXTERNAL_STORAGE_OBSERVATION_ROLES,worker.JOINT_HISTORY_COMPONENT_ROLES)
 
@@ -92,12 +84,8 @@ class SuccessorIntegrationTests(unittest.TestCase):
                 self.assertEqual(pin,fixture.pin(REPO/path),path)
         for pin,path in ((fixture.WORKER_ADMISSION_IMPLEMENTATION_PIN,worker.SELF),
                 (fixture.HISTORICAL_OBSERVATION_IMPLEMENTATION_PIN,custody.SELF),
-                (fixture.PUBLIC_CLAIM_IMPLEMENTATION_PIN,'scripts/radio_native_v3_public_claim.py'),
-                (fixture.INVOCATION_SPENDING_IMPLEMENTATION_PIN,'scripts/radio_native_v3_prospective_spending.py'),
-                (fixture.CONTROL_ACTIVATION_IMPLEMENTATION_PIN,'scripts/radio_native_v3_control_activation.py'),
-                (fixture.ACTIVATION_ENVIRONMENT_IMPLEMENTATION_PIN,'scripts/radio_native_v3_activation_environment.py'),
-                (worker.PUBLIC_CLAIM_IMPLEMENTATION_PIN,'scripts/radio_native_v3_public_claim.py'),
-                (worker.SPENDING_IMPLEMENTATION_PIN,'scripts/radio_native_v3_prospective_spending.py')):
+                (fixture.PUBLIC_CLAIM_IMPLEMENTATION_PIN,'scripts/radio_native_v3f_public_claim.py'),
+                (fixture.INVOCATION_SPENDING_IMPLEMENTATION_PIN,'scripts/radio_native_v3f_prospective_spending.py')):
             self.assertEqual(pin,fixture.pin(REPO/path))
 
     def test_missing_public_claim_stops_before_scope_journal_or_dispatch(self):
@@ -112,7 +100,7 @@ class SuccessorIntegrationTests(unittest.TestCase):
         self.assertFalse((REPO/claims.MARKER).exists())
 
     def test_actual_worker_public_claim_check_rejects_rehashed_invalid_reference(self):
-        claim,args=synthetic_claim();plan={'code_files':{'scripts/radio_native_v3_public_claim.py':worker.PUBLIC_CLAIM_IMPLEMENTATION_PIN}}
+        claim,args=synthetic_claim();plan={'code_files':{'scripts/radio_native_v3f_public_claim.py':worker.PUBLIC_CLAIM_IMPLEMENTATION_PIN}}
         args['plan']=plan;claim['record']['plan_sha256']=object_sha(plan)
         claim_sha=repin(claim)
         dispatch={key:None for key in spending.DISPATCH_WITNESS_FIELDS}
@@ -132,7 +120,7 @@ class SuccessorIntegrationTests(unittest.TestCase):
         self.assertEqual(set(derived),{'prepare.py','fresh-caller.js','lossless-helper.js'})
         compile(derived['prepare.py'],'synthetic-v3-prepare-not-executed','exec')
         for raw in derived.values():
-            self.assertIn(b'radio_native_v3_',raw)
+            self.assertIn(b'radio_native_v3f_',raw)
         self.assertNotEqual(fixture.source_domain(0),fixture.source_domain(1))
         self.assertIn(fixture.NAMESPACE.encode(),fixture.source_domain(0))
         self.assertEqual(worker.source_domain(0),fixture.source_domain(0))

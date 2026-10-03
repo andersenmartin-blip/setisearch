@@ -29,19 +29,19 @@ import time
 import types
 
 REPO = Path(__file__).resolve().parents[1]
-SELF = 'scripts/radio_native_v3_compact_control_launch.py'
+SELF = 'scripts/radio_native_v3f_compact_control_launch.py'
 CONFIG_PATH = 'results_radio_native_v3_predispatch_20261003f/launch-config.json'
 CONFIG_SCHEMA = 'radio-native-v2-compact-control-launch-config-v1'
 SCHEMA = 'radio-native-v2-compact-control-launch-v1'
 NAMESPACE = 'radio-native-v3-compact-eight-input-control-20261003f'
-FIXTURE = 'scripts/radio_native_v3_compact_eight_case_resource_fixture.py'
-AUDIT = 'scripts/radio_native_v3_compact_preparation_audit.py'
-FREEZER = 'scripts/radio_native_v3_runner_freeze.py'
-ENVIRONMENT = 'scripts/radio_native_v3_activation_environment.py'
-FINALIZER = 'scripts/radio_native_v3_resource_finalization.py'
+FIXTURE = 'scripts/radio_native_v3f_compact_eight_case_resource_fixture.py'
+AUDIT = 'scripts/radio_native_v3f_compact_preparation_audit.py'
+FREEZER = 'scripts/radio_native_v3f_runner_freeze.py'
+ENVIRONMENT = 'scripts/radio_native_v3f_activation_environment.py'
+FINALIZER = 'scripts/radio_native_v3f_resource_finalization.py'
 # Independently reviewed literals, never supplied by a plan or launch config.
 # Root finalizes these only after all owning agents freeze their sources.
-BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v3_activation_environment.py': {'bytes': 11741, 'sha256': '059003934a8b51c544f72b488c41c19a6067c0ffb0e65c31afc6eacd35d76bfd'}, 'scripts/radio_native_v3_compact_eight_case_resource_fixture.py': {'bytes': 149752, 'sha256': 'b1509d7ec03e3886ba9e34a9db16af98ad03b48d8b5dea8796ad43836e7d891d'}, 'scripts/radio_native_v3_compact_preparation_audit.py': {'bytes': 25154, 'sha256': 'ac50218e699eb098331af893217eb6b0864f7b0d26ebb59498d3028dcc0bdcd8'}, 'scripts/radio_native_v2_historical_storage.py': {'bytes': 25274, 'sha256': '9f709c42ad726732b9da98d2b830a9905e6d3ae90f3a8ba1f49482d11db299d5'}, 'scripts/radio_native_v3_prospective_spending.py': {'bytes': 31970, 'sha256': 'c5f4718fb9d4e7d31edd3762b3cffca625691299f2fe869bfe31463d7709563c'}, 'scripts/radio_native_v3_resource_finalization.py': {'bytes': 86336, 'sha256': 'c24797b9044c969ba136bbcd1141ec1cf1baece3cf4f30081aa9459b1a2d5429'}, 'scripts/radio_native_v3_runner_freeze.py': {'bytes': 24313, 'sha256': 'b7bc62e24ca80b0f64b9fcea39f42edcafb42332409503ffd0d6d28c98604a27'}, 'scripts/radio_native_v2_runtime_custody.py': {'bytes': 22519, 'sha256': 'd0cd311c1615a2c299b101ca75b98ba2412b41bb1cfd668725461e4d307fb0b5'}, 'scripts/radio_native_v3_worker_admission.py': {'bytes': 91850, 'sha256': 'e1b06d923e98bcc53db48e1647227c41a7170de1477f7192b9162fe095640ae7'}, 'scripts/radio_native_v3_custody_observation.py': {'bytes': 41830, 'sha256': '0c37688909cca83784362e12b3a98300501a1b2d345199af34e7cd06a94fb636'}, 'scripts/radio_native_v3_public_claim.py': {'bytes': 18209, 'sha256': '65710fbe403e90cb8b0764c87631cfff6325bd531e6568b2a2ed2410de14906b'}}
+BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v3f_activation_environment.py': {'bytes': 11741, 'sha256': '059003934a8b51c544f72b488c41c19a6067c0ffb0e65c31afc6eacd35d76bfd'}, 'scripts/radio_native_v3f_compact_eight_case_resource_fixture.py': {'bytes': 148057, 'sha256': '31f58f27f0674ba385ba76b89af1387c7af4424b8a02dd2fed79378fcfbb2e65'}, 'scripts/radio_native_v3f_compact_preparation_audit.py': {'bytes': 25156, 'sha256': '73c83b5065d3141c0830698a190236c11010ce18e6151fed43c4dc2d4b551c02'}, 'scripts/radio_native_v2_historical_storage.py': {'bytes': 25274, 'sha256': '9f709c42ad726732b9da98d2b830a9905e6d3ae90f3a8ba1f49482d11db299d5'}, 'scripts/radio_native_v3f_prospective_spending.py': {'bytes': 31970, 'sha256': 'a8cf9d515a949c9f094621f3e60dbe0ef48e9da29a73a629e53bdd5bd0bc02d3'}, 'scripts/radio_native_v3f_resource_finalization.py': {'bytes': 86343, 'sha256': 'a3a60c5db97fb4950a3184e6d255e16be688b332da72bc8bc4d740bc9a42be57'}, 'scripts/radio_native_v3f_runner_freeze.py': {'bytes': 24314, 'sha256': '199c41a0213e91733119c370270e7536952b65168a53dd071e8c2edeb692fced'}, 'scripts/radio_native_v2_runtime_custody.py': {'bytes': 22519, 'sha256': 'd0cd311c1615a2c299b101ca75b98ba2412b41bb1cfd668725461e4d307fb0b5'}, 'scripts/radio_native_v3f_worker_admission.py': {'bytes': 91855, 'sha256': '28569ba4dd93906b4fb5feededadee46e5b3c1c06909fecc2224880d196c1b11'}, 'scripts/radio_native_v3f_custody_observation.py': {'bytes': 41589, 'sha256': 'ae8cc1231bad8c48cf13679e1e0e3d4b869b696fe2a3f016ff814d3bc4a7c485'}, 'scripts/radio_native_v3f_public_claim.py': {'bytes': 17482, 'sha256': '07b9c92213b7c45347b34080d92734ff4a56645c274348bf4a3a65a6489823ce'}}
 STDOUT_NAME = 'compact-control-launch-stdout.log'
 STDERR_NAME = 'compact-control-launch-stderr.log'
 OBSERVATION_NAME = 'compact-control-launch-observation.json'
@@ -264,7 +264,7 @@ class _PinnedPreflightFinder:
             if len(actual) != 1: raise ImportError('Unique pinned repository import path required: '+fullname)
             selected, package = actual[0]
             loader = _PinnedSourceLoader(str(REPO/selected), hashes[selected], package=package)
-        elif fullname.startswith(('radio_native_v2_', 'radio_native_v3_')):
+        elif fullname.startswith(('radio_native_v2_', 'radio_native_v3_', 'radio_native_v3f_')):
             selected = 'scripts/'+fullname+'.py'; package = False
             digest = self.freeze['code_sha256s'].get(selected)
             if digest is None: raise ImportError('Pinned preflight script import required: '+fullname)
@@ -288,7 +288,7 @@ def preflight(plan, freeze):
             or plan.get('invocation_repository_root') != str(REPO)
             or plan.get('invocation_ledger_root') != str(REPO/'.radio-native-v3-invocation-ledger-20261003f')):
         raise ValueError('Prospective d journal must bind the independently selected original repository root')
-    environment = _source_module('radio_native_v3_activation_environment', ENVIRONMENT)
+    environment = _source_module('radio_native_v3f_activation_environment', ENVIRONMENT)
     expected = environment.expected_environment(plan, freeze)
     environment.validate(plan, freeze, dict(os.environ))
     python = plan['runtime_executables']['python']
@@ -312,15 +312,15 @@ def preflight(plan, freeze):
     finder = _PinnedPreflightFinder(freeze, numpy_site)
     controlled = [name for name in sys.modules if name == 'numpy' or name.startswith('numpy.')
         or name == 'seti_repeater' or name.startswith('seti_repeater.')
-        or name.startswith(('radio_native_v2_', 'radio_native_v3_'))]
-    if set(controlled) != {'radio_native_v3_activation_environment'}:
+        or name.startswith(('radio_native_v2_', 'radio_native_v3_', 'radio_native_v3f_'))]
+    if set(controlled) != {'radio_native_v3f_activation_environment'}:
         raise ValueError('Preloaded uncontrolled repository or NumPy module refused')
     sys.meta_path.insert(0, finder)
     sys.path.append(numpy_site)
     try:
-        import radio_native_v3_runner_freeze as freezer
-        import radio_native_v3_compact_preparation_audit as audit
-        import radio_native_v3_compact_eight_case_resource_fixture as fixture
+        import radio_native_v3f_runner_freeze as freezer
+        import radio_native_v3f_compact_preparation_audit as audit
+        import radio_native_v3f_compact_eight_case_resource_fixture as fixture
         audited = audit.audit(plan, freeze, repo=REPO)
         if plan != fixture.build_plan(REPO):
             raise ValueError('Current exact blocked plan differs before marker or spending')
@@ -516,7 +516,7 @@ def _launch_control_once(config, anchor):
     prepared = preflight(plan, freeze)
     # Cold preflight independently controls imported modules; loading a guarded
     # spending helper before it would invalidate the required preload set.
-    spender=_source_module('radio_native_v3_prospective_spending','scripts/radio_native_v3_prospective_spending.py')
+    spender=_source_module('radio_native_v3f_prospective_spending','scripts/radio_native_v3f_prospective_spending.py')
     spender.validate_spending_bundle(inputs['invocation_spending'],require_dispatch=False)
     prepared['admission_start_monotonic_ns'] = anchor
     if time.monotonic_ns()-anchor >= RUN_SECONDS*10**9:
@@ -530,7 +530,7 @@ def _launch_control_once(config, anchor):
         _retain_child_observation(scope, prepared, observation, stdout, stderr)
         raise RuntimeError('Observed control child failed or emitted unexpected stderr')
     try:
-        finalizer = _source_module('radio_native_v3_resource_finalization', FINALIZER)
+        finalizer = _source_module('radio_native_v3f_resource_finalization', FINALIZER)
         terminal_reference = _json(stdout)
         input_value, input_pin = finalizer.read_pinned_json(scope/finalizer.FINAL_INPUT_NAME)
         report_value, report_pin = finalizer.read_pinned_json(scope/finalizer.FINAL_NAME)
@@ -605,7 +605,7 @@ def main():
         raise ValueError('Exact actual fixed launcher argv required; no options or path overrides')
     result = launch_control(load_launch_config(args.config_sha256),
         admission_start_monotonic_ns=anchor)
-    finalizer = _source_module('radio_native_v3_resource_finalization',FINALIZER)
+    finalizer = _source_module('radio_native_v3f_resource_finalization',FINALIZER)
     disposition_pin = read_pinned(Path(result['scope'])/DISPOSITION_NAME)[0]
     print(canonical(finalizer.launcher_completion_reference(result,disposition_pin)).decode())
 

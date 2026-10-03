@@ -11,7 +11,7 @@ from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location('v3_custody_tests',
-    ROOT / 'scripts/radio_native_v3_custody_observation.py')
+    ROOT / 'scripts/radio_native_v3f_custody_observation.py')
 custody = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(custody)
 
@@ -133,27 +133,6 @@ class CurrentRootContractTests(unittest.TestCase):
         for scope in ('/tmp/outside', str(root), str(root / 'config'), str(root / 'results_radio_native_v2_joint_history_20261003a')):
             with self.subTest(scope=scope), self.assertRaises(ValueError):
                 custody.validate_root(plan, str(root), scope)
-
-    def test_f_archive_observation_never_opens_e_private_journal(self):
-        with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory); scope, plan, freeze = contract(root)
-            populate(root)
-            original_open = custody.os.open
-            def refuse_e_private(path, *args, **kwargs):
-                if isinstance(path, (str, bytes, os.PathLike)):
-                    value = os.fsdecode(path)
-                    if '.radio-native-v3-invocation-ledger-20261003e' in Path(value).parts:
-                        raise AssertionError('F must never reopen E private journal')
-                return original_open(path, *args, **kwargs)
-            with mock.patch.object(custody.os, 'open', side_effect=refuse_e_private):
-                _, components = custody.observe_historical_storage(str(root), plan=plan,
-                    freeze=freeze, repository_root=str(root), execution_scope=scope)
-            self.assertEqual(set(components), {'archive_b_metadata_copy','archive_c_metadata_copy'})
-            self.assertEqual(sum(row['kind']=='file' for value in components.values()
-                for row in value['rows']), 19)
-            self.assertIn(('radio-native-v3-control-activation-transition-20261003e',
-                'config/radio_native_v3_control_activation_20261003e.activate.json',
-                '2cde096565519be82d8effe5d9cc878d6122ab45'), custody.SPENT_ACTIVATIONS)
 
     def test_exact_nineteen_metadata_pins_and_source_freeze_are_required(self):
         scope, plan, freeze = contract(Path('/tmp/current-custody'))

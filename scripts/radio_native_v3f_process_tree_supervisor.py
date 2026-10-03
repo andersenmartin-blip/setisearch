@@ -52,7 +52,7 @@ DIRECTORY_RESERVATION_BYTES = 65536
 # Independently reviewed implementation pins bootstrap admission. Supplied
 # bundle hashes cannot select executable validator/fixture implementations.
 # Updating either implementation requires reviewing and refreshing this table.
-BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v3_worker_admission.py': {'bytes': 91850, 'sha256': 'e1b06d923e98bcc53db48e1647227c41a7170de1477f7192b9162fe095640ae7'}, 'scripts/radio_native_v3_compact_eight_case_resource_fixture.py': {'bytes': 149752, 'sha256': 'b1509d7ec03e3886ba9e34a9db16af98ad03b48d8b5dea8796ad43836e7d891d'}}
+BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v3f_worker_admission.py': {'bytes': 91855, 'sha256': '28569ba4dd93906b4fb5feededadee46e5b3c1c06909fecc2224880d196c1b11'}, 'scripts/radio_native_v3f_compact_eight_case_resource_fixture.py': {'bytes': 148057, 'sha256': '31f58f27f0674ba385ba76b89af1387c7af4424b8a02dd2fed79378fcfbb2e65'}}
 AUTHORITY = {'execution_authorized': False, 'reservation_authorized': False,
     'scientific_execution_authorized': False, 'native_case_reservations': 0,
     'native_case_executions': 0, 'scientific_cases_run': 0, 'rng_draws': 0,
@@ -440,7 +440,7 @@ def check_admitted_worker(bundle_path, *, role='prepare', ordinal=None, expected
     raw = bounded_bytes(bundle_path, 16 * 1024 * 1024)
     if hashlib.sha256(raw).hexdigest() != expected_bundle_sha256:
         raise ValueError('Admission bundle differs from independently retained byte hash')
-    module_key = 'scripts/radio_native_v3_worker_admission.py'
+    module_key = 'scripts/radio_native_v3f_worker_admission.py'
     # Bootstrap from this dispatcher's own fixed material root, before any
     # bundle-selected path or expanded context is used. The independently
     # pinned loader reopens a phase reference's original full preparation
@@ -451,7 +451,7 @@ def check_admitted_worker(bundle_path, *, role='prepare', ordinal=None, expected
     bundle = admission.load_bundle(bundle_path,
         expected_bundle_sha256=expected_bundle_sha256)
     code_files = bundle['plan']['code_files']
-    own_key = 'scripts/radio_native_v3_process_tree_supervisor.py'
+    own_key = 'scripts/radio_native_v3f_process_tree_supervisor.py'
     if pin_file(Path(__file__).resolve()) != code_files[own_key]:
         raise ValueError('Dispatcher source differs from materialized admission pins')
     if code_files.get(module_key) != BOOTSTRAP_SOURCE_PINS[module_key]:
@@ -469,7 +469,7 @@ def check_admitted_worker(bundle_path, *, role='prepare', ordinal=None, expected
             'shared_storage_root': argv[5], 'command_label': None, 'runtime_name': 'python'}
     else:
         raise ValueError('Pinned validator does not support this worker role')
-    fixture_key = 'scripts/radio_native_v3_compact_eight_case_resource_fixture.py'
+    fixture_key = 'scripts/radio_native_v3f_compact_eight_case_resource_fixture.py'
     if code_files.get(fixture_key) != BOOTSTRAP_SOURCE_PINS[fixture_key]:
         raise ValueError('Supplied fixture implementation differs from dispatcher bootstrap pins')
     fixture = source_module(Path(bundle['code_root']) / fixture_key,
@@ -754,7 +754,7 @@ def prepare_admitted_storage_monitor(checked, fixture):
         evidence['plan'], evidence['freeze'], evidence['activation_receipt'], evidence['invocation_spending'],
         execution_scope=evidence['execution_scope'], repository_root=evidence['repository_root'])
     joined = json.loads(canonical(joined))
-    relative = 'scripts/radio_native_v3_resource_finalization.py'
+    relative = 'scripts/radio_native_v3f_resource_finalization.py'
     finalizer = fixture.pinned_component(code_root, relative, evidence['plan']['code_files'])
     digest = hashlib.sha256(canonical(joined)).hexdigest()
     state = {'samples': 0, 'external_sha256': digest}

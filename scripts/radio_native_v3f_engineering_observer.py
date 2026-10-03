@@ -24,10 +24,10 @@ import time
 import types
 
 REPO = Path(__file__).resolve().parents[1]
-SELF = 'scripts/radio_native_v3_engineering_observer.py'
-LAUNCHER = 'scripts/radio_native_v3_compact_control_launch.py'
-FINALIZER = 'scripts/radio_native_v3_resource_finalization.py'
-SUPERVISOR = 'scripts/radio_native_v3_process_tree_supervisor.py'
+SELF = 'scripts/radio_native_v3f_engineering_observer.py'
+LAUNCHER = 'scripts/radio_native_v3f_compact_control_launch.py'
+FINALIZER = 'scripts/radio_native_v3f_resource_finalization.py'
+SUPERVISOR = 'scripts/radio_native_v3f_process_tree_supervisor.py'
 SOURCE_PATHS = frozenset((SELF, LAUNCHER, FINALIZER, SUPERVISOR))
 CAPSULE_PATH = 'results_radio_native_v3_predispatch_20261003f/observer-capsule.json'
 CONFIG_PATH = 'results_radio_native_v3_predispatch_20261003f/launch-config.json'
@@ -170,7 +170,7 @@ def validate_capsule(capsule, *, root=REPO):
         raise ValueError('Exact independently authenticated observer capsule required')
     if (capsule['schema'] != CAPSULE_SCHEMA or capsule['namespace'] != NAMESPACE
             or capsule['repository_root'] != root or capsule['scope'] != root+'/'+SCOPE_NAME):
-        raise ValueError('Fixed current repository and e scope required')
+        raise ValueError('Fixed current repository and f scope required')
     python = capsule['python']
     if type(python) is not dict or set(python) != {'path','bytes','sha256'}:
         raise ValueError('Exact independently pinned Python executable required')
@@ -408,8 +408,8 @@ def run_observer(capsule, *, capsule_pin, admission_start_monotonic_ns):
     _,config_raw=read_pinned(REPO/CONFIG_PATH,expected=config_pin,maximum=65536,retain=True)
     config=_json(config_raw)
     if config.get('repository_root')!=str(REPO) or config.get('scope')!=capsule['scope']:
-        raise ValueError('Pinned launch config differs from independently fixed e root/scope')
-    if os.path.lexists(capsule['scope']): raise ValueError('Fresh e scope required before external launcher dispatch')
+        raise ValueError('Pinned launch config differs from independently fixed f root/scope')
+    if os.path.lexists(capsule['scope']): raise ValueError('Fresh f scope required before external launcher dispatch')
     finalizer=_source_module(FINALIZER,capsule['source_pins'][FINALIZER])
     supervisor=_source_module(SUPERVISOR,capsule['source_pins'][SUPERVISOR])
     if not set(OUTPUT_NAMES)<=set(finalizer.FINAL_METADATA_NAMES):

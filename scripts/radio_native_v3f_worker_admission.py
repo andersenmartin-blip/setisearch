@@ -25,8 +25,8 @@ SCHEMA = 'radio-native-v2-worker-admission-bundle-v3'
 ROLE_SCHEMA = 'radio-native-v2-worker-role-admission-bundle-v4'
 PHASE_REFERENCE_SCHEMA = 'radio-native-v3-case-role-admission-reference-v1'
 RECEIPT_SCHEMA = 'radio-native-v2-worker-admission-local-check-v1'
-SELF = 'scripts/radio_native_v3_worker_admission.py'
-FIXTURE = 'scripts/radio_native_v3_compact_eight_case_resource_fixture.py'
+SELF = 'scripts/radio_native_v3f_worker_admission.py'
+FIXTURE = 'scripts/radio_native_v3f_compact_eight_case_resource_fixture.py'
 NAMESPACE = 'radio-native-v3-compact-eight-input-control-20261003f'
 PREFIX = 'results_radio_native_v3_compact_eight_input_control_20261003f'
 PLAN_SCHEMA = 'radio-native-v2-compact-eight-input-resource-control-v1-prospective-plan'
@@ -41,10 +41,10 @@ INVOCATION_LEDGER_DIRECTORY = '.radio-native-v3-invocation-ledger-20261003f'
 CUSTODY_SOURCE = 'scripts/radio_native_v2_runtime_custody.py'
 CUSTODY_IMPLEMENTATION_PIN = {'bytes':22519,
     'sha256':'d0cd311c1615a2c299b101ca75b98ba2412b41bb1cfd668725461e4d307fb0b5'}
-SPENDING_SOURCE = 'scripts/radio_native_v3_prospective_spending.py'
-PUBLIC_CLAIM_SOURCE='scripts/radio_native_v3_public_claim.py'
-PUBLIC_CLAIM_IMPLEMENTATION_PIN = {'bytes': 18209, 'sha256': '65710fbe403e90cb8b0764c87631cfff6325bd531e6568b2a2ed2410de14906b'}
-SPENDING_IMPLEMENTATION_PIN = {'bytes': 31970, 'sha256': 'c5f4718fb9d4e7d31edd3762b3cffca625691299f2fe869bfe31463d7709563c'}
+SPENDING_SOURCE = 'scripts/radio_native_v3f_prospective_spending.py'
+PUBLIC_CLAIM_SOURCE='scripts/radio_native_v3f_public_claim.py'
+PUBLIC_CLAIM_IMPLEMENTATION_PIN = {'bytes': 17482, 'sha256': '07b9c92213b7c45347b34080d92734ff4a56645c274348bf4a3a65a6489823ce'}
+SPENDING_IMPLEMENTATION_PIN = {'bytes': 31970, 'sha256': 'a8cf9d515a949c9f094621f3e60dbe0ef48e9da29a73a629e53bdd5bd0bc02d3'}
 HISTORICAL_INPUT_MAP_SHA256 = 'c00b3286edd3a8c4a4215874c791403b9c5d1369de69b0ff35e91e3eb2dea304'
 JOINT_HISTORY_COMPONENT_ROLES = {
     'archive_b_metadata_copy':'archive_b_metadata_copy',
@@ -392,7 +392,7 @@ def _validate_freeze(freeze):
         for path, digest in freeze[hashes].items():
             (_absolute if hashes == 'runtime_sha256s' else _relative)(path)
             _sha(digest, path)
-    if not {'scripts/radio_native_v3_runner_freeze.py', 'scripts/radio_native_v2_broker_host.js'}.issubset(freeze['code_sha256s']):
+    if not {'scripts/radio_native_v3f_runner_freeze.py', 'scripts/radio_native_v2_broker_host.js'}.issubset(freeze['code_sha256s']):
         raise ValueError('Original freeze helper and broker host must be pinned')
     for path in set(freeze['code_sha256s']) & set(freeze['input_sha256s']):
         _exact(freeze['code_sha256s'][path], freeze['input_sha256s'][path], 'overlapping freeze file pin')

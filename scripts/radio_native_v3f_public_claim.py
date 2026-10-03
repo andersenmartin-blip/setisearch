@@ -14,7 +14,7 @@ bytes are canonical JSON plus one newline. The envelope digest covers canonical
 JSON WITHOUT a newline, consistently with plan/freeze/preread object digests.
 
 A successful receipt proves only that the trusted outer readback describes the
-fresh e engineering claim as permanently SPENT_BEFORE_DISPATCH. It grants no
+fresh f engineering claim as permanently SPENT_BEFORE_DISPATCH. It grants no
 dispatch, retry, scientific execution, source acquisition or telescope access.
 Repeated read-only verification cannot rearm a claim. Actual publication,
 durability, dispatch admission and local once-only arbitration belong to the
@@ -38,18 +38,6 @@ WITNESS_SCHEMA = 'radio-native-v3-control-invocation-spend-witness-v1'
 REPOSITORY = 'andersenmartin-blip/setisearch'
 BRANCH = 'm43-support-qualification'
 SPENT_ACTIVATIONS = (('radio-native-v2-control-activation-transition-20261002a', 'config/radio_native_v2_control_activation_20261002a.activate.json', 'ba1b6c918931a02a84cd23e0e14057bd9f700e40'), ('radio-native-v2-control-activation-transition-20261002b', 'config/radio_native_v2_control_activation_20261002b.activate.json', '1bc31d49b2552de10c3fbabb7bc106618a44a241'), ('radio-native-v2-control-activation-transition-20261002c', 'config/radio_native_v2_control_activation_20261002c.activate.json', 'f514d782a0f807223e4bc47cb0b330b4b46a198f'), ('radio-native-v3-control-activation-transition-20261003e', 'config/radio_native_v3_control_activation_20261003e.activate.json', '2cde096565519be82d8effe5d9cc878d6122ab45'))
-# Public reference facts for the permanently spent E generation. F never
-# consults E's private journal or adopts its original local witness.
-PUBLIC_SPENT_TOMBSTONES = ({
-    'namespace': 'radio-native-v3-control-activation-transition-20261003e',
-    'activation_commit': '2cde096565519be82d8effe5d9cc878d6122ab45',
-    'registry_path': 'config/radio_native_v3_control_spent_20261003e.claim.json',
-    'create_only_ref': 'refs/heads/radio-native-v3-spent-20261003e',
-    'commit': '4c28009b98ea5d4596b900c97fbee1f0b3e63bd3',
-    'tree': '97a0d58ec03027fddda419199c73baee90cd18ab',
-    'blob': 'f88175a1ce9c1756298e793f4a91d2dc6c669563',
-    'raw_sha256': '759184e96e50e7785351ad14ef66a626f388501c8bd6310e2308f028bdf26bec',
-},)
 REJECTED_PROSPECTIVE_IDENTIFIERS = (
     ('radio-native-v2-control-activation-transition-20261003d',
      'config/radio_native_v2_control_activation_20261003d.activate.json'),)
@@ -160,7 +148,7 @@ def _historical_identity(value):
     if any(value.get('namespace') == namespace
             or value.get('marker_path') == marker
             for namespace, marker in REJECTED_PROSPECTIVE_IDENTIFIERS):
-        raise ValueError('Prospective d identifiers are excluded from the fresh e lifetime')
+        raise ValueError('Prospective d identifiers are excluded from the fresh f lifetime')
 
 
 def verify_public_claim(claim, *, expected_sha256, plan, complete_freeze,
@@ -238,7 +226,7 @@ def verify_public_claim(claim, *, expected_sha256, plan, complete_freeze,
     activation_identity = hashlib.sha256(canonical({'namespace': NAMESPACE,
         'repository': REPOSITORY, 'branch': BRANCH, 'marker_path': MARKER})).hexdigest()
     if invocation_spending['activation_identity_sha256'] != activation_identity:
-        raise ValueError('Local invocation witness fresh e activation identity differs')
+        raise ValueError('Local invocation witness fresh f activation identity differs')
     if invocation_spending['record_name'] != 'spent-' + invocation_spending['activation_identity_sha256'] + '.json':
         raise ValueError('Local invocation spend record name differs')
     for name, fields in (('ledger_identity', LEDGER_IDENTITY_FIELDS),
@@ -274,7 +262,7 @@ def verify_public_claim(claim, *, expected_sha256, plan, complete_freeze,
             or public_pin['commit'] == record['activation_commit']):
         raise ValueError('Public claim requires a distinct commit after activation')
     if public_pin['commit'] in {row[2] for row in SPENT_ACTIVATIONS}:
-        raise ValueError('Historical activation cannot publish a fresh e claim')
+        raise ValueError('Historical activation cannot publish a fresh f claim')
     public_bytes = canonical(record) + b'\n'
     record_digest = hashlib.sha256(public_bytes).hexdigest()
     blob_digest = hashlib.sha1(b'blob ' + str(len(public_bytes)).encode('ascii')
