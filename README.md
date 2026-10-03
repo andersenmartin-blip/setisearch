@@ -1,5 +1,13 @@
 # SETIsearch
 
+## 3 October: e control closed once; HDF5 bytes provisioned
+
+[The actual engineering e result](https://github.com/andersenmartin-blip/setisearch/blob/39b3d09d7f4986dd7fb0f1e8d631c9bb0e023cc3/RADIO_NATIVE_V3_CONTROL_E_2026-10-03_RESULT.md) is **CLOSED_FAILED**, with zero completed cases and permanent e spend. The first reader never launched: pipe mode forecast 4 MiB of duplicate logs that it does not retain, exceeding its 1.75 MiB metadata bucket. Complete raw failure evidence, whole-launcher wait4/ECHILD observations and independent restoration of both original deterministic inputs are retained. A fresh f repair requires its own frozen version, preread, activation, original preclaim, public create-only spend and observer; e is never retried or revived.
+
+[The separately provisioned HDF5 candidate](https://github.com/andersenmartin-blip/setisearch/blob/39b3d09d7f4986dd7fb0f1e8d631c9bb0e023cc3/results_radio_native_v3_hdf5_runtime_candidate_20261003a/SOURCE_PROFILE_QUALIFICATION.md) passes three basic codec round-trips and the exact legacy source-profile probe: six full chunks and six window selections are bit-identical, with 22 metadata cases. All thirty archived codec binary hashes match fresh official wheel bytes. The primary runtime remains unchanged. These checks do not restore old identities or supply the missing full source-specific certificate verifier.
+
+All eleven scientific/source admission fields remain pending. Preserve a/b/c/e spend, d uncreated, selected/HOLD/reserve targets, spectra/holdouts unopened, native8 unreserved, 127/24 NOT ACTIVATED, LS paused and CHEOPS UNSENT. Consolidate 9 October 2026 with no automatic extension, restart or target change; person messages and schedules remain unchanged.
+
 ## 3 October: missing-folder dependency repaired for fresh v3 work
 
 [The implemented and independently reviewed successor](https://github.com/andersenmartin-blip/setisearch/blob/8c258e37388d9237de7668650047c3b2d23dd3dc/RADIO_PORTABLE_CUSTODY_2026-10-03_RESULT.md) removes the missing original b/c private-directory prerequisite from a separate integrated v3 preparation route. This implements the owner's subsequent request to fix the obstruction so new analyses can be made. [The prospective amendment](https://github.com/andersenmartin-blip/setisearch/blob/8c258e37388d9237de7668650047c3b2d23dd3dc/RADIO_PORTABLE_CUSTODY_AMENDMENT_2026-10-03.md) changes the fresh route's custody/accounting domain; the old v2 refusal and every previous failure remain valid.
