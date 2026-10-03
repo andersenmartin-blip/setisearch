@@ -1,5 +1,13 @@
 # SETIsearch
 
+## 3 October: mandatory b/c storage integrated; original journal identities refused
+
+[The new integrated preparation and report](https://github.com/andersenmartin-blip/setisearch/blob/df27d97df7340a554acf8109751e6443cfffdd39/RADIO_NATIVE_V2_JOINT_HISTORY_2026-10-03_RESULT.md) pass **608 tests across 23 modules**, with zero failures/errors/skips and exit 0. All 1,187 tested source/helper pins and sampled historical inventories are unchanged across the final run; an independent machine review checks the complete tested-source/material closure. The distinct blocked plan/runtime is independently reaudited after persistence.
+
+Storage admission, polling and finalization now require both closed b/c scopes, both spent journals and one distinct prospective d journal under the unchanged limits. Actual retained bytes match the public engineering evidence and occupy 74,592,256 allocated bytes, while both original spending implementations still refuse changed journal inode identities. Original witnesses remain untouched; current byte matches do not establish original identity continuity or permit a new control. No real d marker, journal, launch config, scope or invocation was created.
+
+No new telescope data were analyzed; spectra/holdouts remain unopened and scientific/native allocations inactive. Next is an explicit prospective archival-closure/current-storage contract that preserves permanent a/b/c spend and the original refusal. Consolidate **9 October 2026**, without extension, target change or replay.
+
 ## 3 October: b+c archive boundary verified; future control blocked
 
 [The multi-history and archival-closure result](https://github.com/andersenmartin-blip/setisearch/blob/b3c5dd4c0d05c2bdbd61c82b004170d633b94050/RADIO_NATIVE_V2_MULTI_HISTORY_STORAGE_2026-10-03_RESULT.md) passes **61 adjacent tests**. c's exact public closure bundle verifies one failed invocation, 0/8 completed and permanent spend, while the new receipt explicitly denies live-storage continuity, retry, activation, science and telescope authority.
