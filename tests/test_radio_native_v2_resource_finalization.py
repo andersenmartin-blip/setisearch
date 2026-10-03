@@ -101,7 +101,7 @@ class ResourceFinalizationTests(unittest.TestCase):
             **({'tiny_engineering_probe_only': True} if tiny else {}), **finalization.AUTHORITY}
 
     def ledger_inventory(self, *, logical=8, allocated=16):
-        """Explicit tiny synthetic three-component join; no real spend witness."""
+        """Explicit tiny synthetic five-component join; no real spend witness."""
         components = []; rows = []; inode = 0
         template = {'mode': 0o700, 'nlink': 2, 'uid': os.geteuid(), 'gid': os.getegid(),
             'bytes': 0, 'allocated_bytes': 0, 'device': 987654321, 'mtime_ns': 0, 'ctime_ns': 0}
@@ -118,7 +118,7 @@ class ResourceFinalizationTests(unittest.TestCase):
                 if role != 'prospective_ledger':
                     row['raw_pin'] = {'bytes': 0, 'sha256': hashlib.sha256(b'').hexdigest()}
                 component_rows.append(row)
-            components.append({'role': role, 'root': root, 'observation_sha256': str(ordinal+1)*64,
+            components.append({'role': role, 'observation_role': finalization.EXTERNAL_STORAGE_OBSERVATION_ROLES[role], 'root': root, 'observation_sha256': str(ordinal+1)*64,
                 'entry_count': len(component_rows),
                 'logical_bytes': sum(row['bytes'] for row in component_rows),
                 'allocated_bytes': sum(row['allocated_bytes'] for row in component_rows)})
@@ -570,15 +570,19 @@ class ResourceFinalizationTests(unittest.TestCase):
     def charged_history_inventory(self):
         """Each historical component contributes visible distinct synthetic bytes."""
         external = self.ledger_inventory()
-        root = external['components'][0]['root']
         template = copy.deepcopy(external['rows'][-1])
-        raw = b'explicit historical synthetic source'
-        historical = {**template, 'component': 'historical_scope', 'path': root+'/source.txt',
-            'inode': 6, 'bytes': len(raw), 'allocated_bytes': 24,
-            'raw_pin': {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()}}
-        external['rows'].insert(1, historical)
-        old = next(row for row in external['rows'] if row['component'] == 'historical_ledger' and row['kind'] == 'file')
-        old.update(bytes=16, allocated_bytes=32, raw_pin={'bytes': 16, 'sha256': hashlib.sha256(b'historical-spend').hexdigest()})
+        for ordinal, label in enumerate(('historical_b_scope', 'historical_c_scope')):
+            root = next(component['root'] for component in external['components'] if component['role'] == label)
+            raw = ('explicit historical synthetic source '+label).encode()
+            historical = {**template, 'component': label, 'path': root+'/source.txt',
+                'inode': 100000+ordinal, 'bytes': len(raw), 'allocated_bytes': 24+8*ordinal,
+                'raw_pin': {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()}}
+            external['rows'].insert(1, historical)
+        for ordinal, label in enumerate(('historical_b_ledger', 'historical_c_ledger')):
+            old = next(row for row in external['rows'] if row['component'] == label and row['kind'] == 'file')
+            raw = ('historical-spend-'+label).encode()
+            old.update(bytes=len(raw), allocated_bytes=32+8*ordinal,
+                raw_pin={'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()})
         for component in external['components']:
             selected = [row for row in external['rows'] if row['component'] == component['role']]
             component.update(entry_count=len(selected), logical_bytes=sum(row['bytes'] for row in selected),
@@ -587,7 +591,7 @@ class ResourceFinalizationTests(unittest.TestCase):
             allocated_bytes=sum(row['allocated_bytes'] for row in external['rows']))
         return external
 
-    def test_three_component_external_rows_are_charged_once_with_both_reservations(self):
+    def test_five_component_external_rows_are_charged_once_with_both_reservations(self):
         inventory = finalization.storage_inventory(self.scope)
         external = self.charged_history_inventory()
         before = finalization.allocate_storage(inventory)
@@ -599,7 +603,7 @@ class ResourceFinalizationTests(unittest.TestCase):
             self.assertEqual(sum(component[dimension+'_bytes'] for component in external['components']), external[dimension+'_bytes'])
             for old, new in zip(before['cases'], after['cases']):
                 self.assertEqual(new['complete_'+dimension+'_bytes'], old['complete_'+dimension+'_bytes'] + external[dimension+'_bytes']/8)
-        self.assertEqual(after['external_ledger_storage']['entry_count'], 6)
+        self.assertEqual(after['external_ledger_storage']['entry_count'], 10)
         self.assertEqual(after['final_metadata_reservation_bytes'], 256*1024)
         self.assertEqual(after['terminal_directory_growth_reservation_bytes'], 65536)
         self.assertEqual(finalization.LIMITS['case_storage_bytes'], 192*finalization.MIB)
@@ -616,11 +620,13 @@ class ResourceFinalizationTests(unittest.TestCase):
 
     def test_external_missing_component_duplicate_role_and_legacy_schema_fail_closed(self):
         inventory = finalization.storage_inventory(self.scope)
-        for failure in ('missing', 'duplicate', 'legacy', 'authority', 'lifetime'):
+        for failure in ('missing', 'duplicate', 'legacy', 'v1', 'role', 'authority', 'lifetime'):
             external = self.charged_history_inventory()
             if failure == 'missing': external['components'].pop()
-            elif failure == 'duplicate': external['components'][1]['role'] = 'historical_scope'
+            elif failure == 'duplicate': external['components'][1]['role'] = 'historical_b_scope'
             elif failure == 'legacy': external['schema'] = finalization.LEDGER_STORAGE_SCHEMA
+            elif failure == 'v1': external['schema'] = 'radio-native-v2-historical-prospective-storage-join-v1'
+            elif failure == 'role': external['components'][2]['observation_role'] = 'historical_ledger'
             elif failure == 'authority': external['execution_authorized'] = True
             else: external['lifetime_accounting_proved'] = True
             with self.subTest(failure=failure), self.assertRaises(ValueError):
@@ -712,7 +718,7 @@ class ResourceFinalizationTests(unittest.TestCase):
         inventory = finalization.storage_inventory(self.scope)
         for kind in ('directory', 'file'):
             external = self.charged_history_inventory()
-            original = next(row for row in external['rows'] if row['component'] == 'historical_scope' and row['kind'] == kind)
+            original = next(row for row in external['rows'] if row['component'] == 'historical_b_scope' and row['kind'] == kind)
             duplicate = {**copy.deepcopy(original), 'inode': 999999}
             external['rows'].append(duplicate)
             external['entry_count'] += 1; external['logical_bytes'] += duplicate['bytes']; external['allocated_bytes'] += duplicate['allocated_bytes']

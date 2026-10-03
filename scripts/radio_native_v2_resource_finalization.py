@@ -22,8 +22,13 @@ import types
 
 SCHEMA = 'radio-native-v2-whole-resource-finalization-v1'
 LEDGER_STORAGE_SCHEMA = 'radio-native-v2-control-invocation-spend-storage-v1'
-EXTERNAL_STORAGE_SCHEMA = 'radio-native-v2-historical-prospective-storage-join-v1'
-EXTERNAL_STORAGE_ROLES = ('historical_scope', 'historical_ledger', 'prospective_ledger')
+EXTERNAL_STORAGE_SCHEMA = 'radio-native-v2-retained-prospective-storage-join-v2'
+EXTERNAL_STORAGE_ROLES = ('historical_b_scope', 'historical_b_ledger',
+    'historical_c_scope', 'historical_c_ledger', 'prospective_ledger')
+EXTERNAL_STORAGE_OBSERVATION_ROLES = {
+    'historical_b_scope': 'historical_scope', 'historical_b_ledger': 'historical_ledger',
+    'historical_c_scope': 'historical_scope', 'historical_c_ledger': 'historical_ledger',
+    'prospective_ledger': 'prospective_ledger'}
 EXTERNAL_STORAGE_METADATA = frozenset(('device', 'inode', 'mode', 'nlink',
     'uid', 'gid', 'bytes', 'allocated_bytes', 'mtime_ns', 'ctime_ns'))
 MAX_EXTERNAL_STORAGE_BYTES = 16 * 1024 * 1024
@@ -70,7 +75,7 @@ TINY_REPORT_SECONDS = 3.0
 # Independent reviewed dispatch pins. Root refreshes these only after reviewing
 # the final code of the fixed source implementations; a supplied bundle cannot
 # select an arbitrary implementation for any admission check.
-BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v2_compact_eight_case_resource_fixture.py': {'bytes': 128667, 'sha256': 'acc361a324af4a3bc469f8da756e86382e320a0b1c14c8eecf3988318f7c100c'}, 'scripts/radio_native_v2_worker_admission.py': {'bytes': 81344, 'sha256': '10cabcd51f4bcf812e76bf5410cdc2f202b4ffa9e3bf88eee69537863c39ce42'}, 'scripts/radio_native_v2_process_tree_supervisor.py': {'bytes': 82676, 'sha256': '5e8d88555e45b9733acd26572ad4dc2c337ab0a6b6b45bed711538578e470226'}}
+BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v2_compact_eight_case_resource_fixture.py': {'bytes': 129756, 'sha256': '9d73a4b31a97423fd7bc5fdee176b9d090b8534153b4727c54bc2da073cfcd1d'}, 'scripts/radio_native_v2_worker_admission.py': {'bytes': 82049, 'sha256': '1660d0b644674fd839aec2364fee1b1adf08539b524191dba9b54a83ea722917'}, 'scripts/radio_native_v2_process_tree_supervisor.py': {'bytes': 82676, 'sha256': '84950f2f6fe8094f2e86f55e0b4c6826b7e142581ec4503f8ccc75fe476d9b8b'}}
 AUTHORITY = {'execution_authorized': False, 'reservation_authorized': False,
     'scientific_execution_authorized': False, 'native_case_reservations': 0,
     'native_case_executions': 0, 'scientific_cases_run': 0, 'rng_draws': 0,
@@ -269,7 +274,7 @@ def _external_ledger_inventory(inventory, external_inventory):
     this value anew through the independently pinned fixture, which authenticates
     and reobserves historical scope/ledger inputs and the current spend witness.
     Structural validation here never replaces that source/evidence gate. Tiny
-    unit probes explicitly construct three-component observations in memory;
+    unit probes explicitly construct five-component observations in memory;
     there is no single-ledger production or test fallback.
     """
     if (type(external_inventory) is not dict
@@ -294,7 +299,7 @@ def _external_ledger_inventory(inventory, external_inventory):
                 ('execution_authorized', 'whole_control_qualified', 'lifetime_accounting_proved'))
             or type(external_inventory['components']) is not list
             or len(external_inventory['components']) != len(EXTERNAL_STORAGE_ROLES)):
-        raise ValueError('Exact independently observed three-component external storage contract required')
+        raise ValueError('Exact independently observed five-component external storage contract required')
     scope = inventory.get('scope')
     if type(scope) is not str or external_inventory['current_control_scope'] != scope:
         raise ValueError('Complete external storage must bind the exact measured control scope')
@@ -303,9 +308,10 @@ def _external_ledger_inventory(inventory, external_inventory):
         raise ValueError('Combined current/external storage inventory capacity exceeded')
     roots = {}; by_role = {}
     for role, component in zip(EXTERNAL_STORAGE_ROLES, external_inventory['components']):
-        if (type(component) is not dict or set(component) != {'role', 'root',
+        if (type(component) is not dict or set(component) != {'role', 'observation_role', 'root',
                 'observation_sha256', 'entry_count', 'logical_bytes', 'allocated_bytes'}
-                or component['role'] != role):
+                or component['role'] != role
+                or component['observation_role'] != EXTERNAL_STORAGE_OBSERVATION_ROLES[role]):
             raise ValueError('Exact ordered historical/prospective storage components required')
         if type(component['observation_sha256']) is not str or not re.fullmatch('[a-f0-9]{64}', component['observation_sha256']):
             raise ValueError('Exact authenticated component observation digest required')

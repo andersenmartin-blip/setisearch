@@ -30,7 +30,7 @@ import types
 
 REPO = Path(__file__).resolve().parents[1]
 SELF = 'scripts/radio_native_v2_compact_control_launch.py'
-CONFIG_PATH = 'config/radio_native_v2_compact_control_launch_20261002c.launch.json'
+CONFIG_PATH = 'config/radio_native_v2_compact_control_launch_20261003d.launch.json'
 CONFIG_SCHEMA = 'radio-native-v2-compact-control-launch-config-v1'
 SCHEMA = 'radio-native-v2-compact-control-launch-v1'
 NAMESPACE = 'radio-native-v2-compact-eight-input-control-20261001a'
@@ -41,7 +41,7 @@ ENVIRONMENT = 'scripts/radio_native_v2_activation_environment.py'
 FINALIZER = 'scripts/radio_native_v2_resource_finalization.py'
 # Independently reviewed literals, never supplied by a plan or launch config.
 # Root finalizes these only after all owning agents freeze their sources.
-BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v2_activation_environment.py': {'bytes': 11741, 'sha256': '059003934a8b51c544f72b488c41c19a6067c0ffb0e65c31afc6eacd35d76bfd'}, 'scripts/radio_native_v2_compact_eight_case_resource_fixture.py': {'bytes': 128667, 'sha256': 'acc361a324af4a3bc469f8da756e86382e320a0b1c14c8eecf3988318f7c100c'}, 'scripts/radio_native_v2_compact_preparation_audit.py': {'bytes': 25154, 'sha256': '8a7711b93cd520fb6f9ffc634722de3ff47eb8f03b899145bda443c77c111e05'}, 'scripts/radio_native_v2_historical_observation.py': {'bytes': 13863, 'sha256': 'f725ff94a2ff8f375fec1e477e0cb20902d179e6d43e7a6b8fa649f282b1a008'}, 'scripts/radio_native_v2_historical_storage.py': {'bytes': 21869, 'sha256': '37d7225a9b24ee0de6002653d4676417b0b2befb5ce32cd071719fc01694d717'}, 'scripts/radio_native_v2_prospective_spending.py': {'bytes': 22296, 'sha256': '189da9f870628573e85ae6943a63d79b1390fce0aee8a04e003318cc506e895f'}, 'scripts/radio_native_v2_resource_finalization.py': {'bytes': 79175, 'sha256': '0dd8e168b445ec7618a17d7daad1b2bcfc930afd195c3b93560624b7ab1ebf43'}, 'scripts/radio_native_v2_runner_freeze.py': {'bytes': 24313, 'sha256': '74ea2fee48eccf6e74a7b3f34517c0c0ccb50ff9abaacd57ab0a187acd24482b'}, 'scripts/radio_native_v2_runtime_custody.py': {'bytes': 22519, 'sha256': 'd0cd311c1615a2c299b101ca75b98ba2412b41bb1cfd668725461e4d307fb0b5'}, 'scripts/radio_native_v2_worker_admission.py': {'bytes': 81344, 'sha256': '10cabcd51f4bcf812e76bf5410cdc2f202b4ffa9e3bf88eee69537863c39ce42'}}
+BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v2_activation_environment.py': {'bytes': 11741, 'sha256': '059003934a8b51c544f72b488c41c19a6067c0ffb0e65c31afc6eacd35d76bfd'}, 'scripts/radio_native_v2_compact_eight_case_resource_fixture.py': {'bytes': 129756, 'sha256': '9d73a4b31a97423fd7bc5fdee176b9d090b8534153b4727c54bc2da073cfcd1d'}, 'scripts/radio_native_v2_compact_preparation_audit.py': {'bytes': 25154, 'sha256': '8a7711b93cd520fb6f9ffc634722de3ff47eb8f03b899145bda443c77c111e05'}, 'scripts/radio_native_v2_historical_observation.py': {'bytes': 22260, 'sha256': 'b2a4a80d587fa888bc4a87483fab719646ad99f9b367568a95500ebc52c305e2'}, 'scripts/radio_native_v2_historical_storage.py': {'bytes': 25274, 'sha256': '9f709c42ad726732b9da98d2b830a9905e6d3ae90f3a8ba1f49482d11db299d5'}, 'scripts/radio_native_v2_prospective_spending.py': {'bytes': 22483, 'sha256': '6facbf7e104cfdafae6a511788fcb2feb3a3ee170b97813005e578cf07df7d5b'}, 'scripts/radio_native_v2_resource_finalization.py': {'bytes': 79604, 'sha256': '194469be45d5f5f1bbcf527aa0455324cbdf359825cfab628caaf85b478faba7'}, 'scripts/radio_native_v2_runner_freeze.py': {'bytes': 24313, 'sha256': '74ea2fee48eccf6e74a7b3f34517c0c0ccb50ff9abaacd57ab0a187acd24482b'}, 'scripts/radio_native_v2_runtime_custody.py': {'bytes': 22519, 'sha256': 'd0cd311c1615a2c299b101ca75b98ba2412b41bb1cfd668725461e4d307fb0b5'}, 'scripts/radio_native_v2_worker_admission.py': {'bytes': 82049, 'sha256': '1660d0b644674fd839aec2364fee1b1adf08539b524191dba9b54a83ea722917'}}
 STDOUT_NAME = 'compact-control-launch-stdout.log'
 STDERR_NAME = 'compact-control-launch-stderr.log'
 OBSERVATION_NAME = 'compact-control-launch-observation.json'
@@ -285,8 +285,8 @@ def preflight(plan, freeze):
     # importing any activation, fixture or storage adapter.
     if (type(plan) is not dict
             or plan.get('invocation_repository_root') != str(REPO)
-            or plan.get('invocation_ledger_root') != str(REPO/'.radio-native-v2-invocation-ledger-20261002c')):
-        raise ValueError('Prospective c journal must bind the independently selected original repository root')
+            or plan.get('invocation_ledger_root') != str(REPO/'.radio-native-v2-invocation-ledger-20261003d')):
+        raise ValueError('Prospective d journal must bind the independently selected original repository root')
     environment = _source_module('radio_native_v2_activation_environment', ENVIRONMENT)
     expected = environment.expected_environment(plan, freeze)
     environment.validate(plan, freeze, dict(os.environ))
@@ -561,7 +561,7 @@ def _launch_control_once(config, anchor):
         'maximum_preflight_fixture_observer_rss_bytes':peak,
         'storage_after_fixture_termination_with_remaining_terminal_allowance':storage,
         'persistent_ledger_reobserved_and_charged_after_fixture_termination':True,
-        'historical_scope_and_b_and_c_journals_reobserved_after_fixture_termination':True,
+        'historical_b_and_c_scopes_and_b_c_and_d_journals_reobserved_after_fixture_termination':True,
         'complete_resource_measurement_join_qualified':False,
         'terminal_observer_own_future_termination_covered':False,
         'terminal_observer_final_self_checks_not_independent_lifetime_evidence':True,

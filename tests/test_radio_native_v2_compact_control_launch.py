@@ -53,7 +53,7 @@ def tiny_worker():
 
 
 def tiny_external(root, scope):
-    """Explicit three-component tiny fixture; no actual journal is consumed."""
+    """Explicit five-component tiny fixture; no actual journal is consumed."""
     rows=[]; components=[]
     for ordinal,role in enumerate(finalizer.EXTERNAL_STORAGE_ROLES):
         retained=root/('tiny-'+role); retained.mkdir(mode=0o700)
@@ -69,7 +69,7 @@ def tiny_external(root, scope):
             if kind=='file' and role!='prospective_ledger':
                 raw=path.read_bytes(); row['raw_pin']={'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest()}
             selected.append(row)
-        components.append({'role':role,'root':str(retained),'observation_sha256':str(ordinal+1)*64,
+        components.append({'role':role,'observation_role':finalizer.EXTERNAL_STORAGE_OBSERVATION_ROLES[role],'root':str(retained),'observation_sha256':str(ordinal+1)*64,
             'entry_count':len(selected),'logical_bytes':sum(row['bytes'] for row in selected),
             'allocated_bytes':sum(row['allocated_bytes'] for row in selected)})
         rows.extend(selected)
@@ -202,9 +202,9 @@ class FixedConfigAndSourcePreflightTests(unittest.TestCase):
 
     def test_original_repository_and_c_journal_binding_precedes_imports(self):
         flags=types.SimpleNamespace(isolated=1,no_site=1,dont_write_bytecode=1)
-        for root, ledger in ((str(ROOT.parent/'other'), str(ROOT/'.radio-native-v2-invocation-ledger-20261002c')),
+        for root, ledger in ((str(ROOT.parent/'other'), str(ROOT/'.radio-native-v2-invocation-ledger-20261003d')),
                 (str(ROOT), str(ROOT/'.radio-native-v2-invocation-ledger')),
-                (str(ROOT), str(ROOT/'nested'/'.radio-native-v2-invocation-ledger-20261002c'))):
+                (str(ROOT), str(ROOT/'nested'/'.radio-native-v2-invocation-ledger-20261003d'))):
             with self.subTest(root=root, ledger=ledger), mock.patch.object(launch.sys,'flags',flags), \
                     mock.patch.object(launch,'_source_module') as source:
                 with self.assertRaisesRegex(ValueError,'independently selected original repository'):

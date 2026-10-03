@@ -69,6 +69,7 @@ def synthetic_worker_materials(root, *, ordinal=0, plan=None, derived_sources=No
     plan['code_files'][admission.SPENDING_SOURCE] = tiny_pin((ROOT/admission.SPENDING_SOURCE).read_bytes())
     # Synthetic material roots can relocate; historical input bytes retain the
     # exact immutable published pins, without observing any original storage.
+    plan['retained_storage_component_roles'] = copy.deepcopy(history.JOINT_HISTORY_COMPONENT_ROLES)
     plan['historical_storage_inputs'] = copy.deepcopy(history.HISTORICAL_INPUT_PINS)
     plan['code_files'].update(plan['historical_storage_inputs'])
     if derived_sources is None:
@@ -493,6 +494,54 @@ class WorkerAdmissionTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'independently pinned historical storage'):
                 admission._validate_bundle(bundle,ordinal=0)
             custody_module.assert_not_called(); spender.assert_not_called()
+
+    def test_restored_history_continuity_claim_cannot_rehash_into_worker_admission(self):
+        bundle = copy.deepcopy(self.materials['bundle'])
+        bundle['plan']['historical_storage_original_identity_continuity_qualified'] = True
+        with mock.patch.object(admission, '_custody_module') as custody_module, \
+                mock.patch.object(admission, '_spending_module') as spender:
+            with self.assertRaisesRegex(ValueError, 'Unfinished execution claim'):
+                admission._validate_bundle(bundle, ordinal=0)
+            custody_module.assert_not_called(); spender.assert_not_called()
+
+    def test_complete_b_c_history_cannot_be_omitted_from_selfconsistent_worker_plan(self):
+        for relative in self.materials['bundle']['plan']['historical_storage_inputs']:
+            bundle = copy.deepcopy(self.materials['bundle']); plan = bundle['plan']
+            del plan['historical_storage_inputs'][relative]
+            del plan['code_files'][relative]
+            del bundle['complete_freeze']['input_sha256s'][relative]
+            bundle['complete_freeze']['input_file_inventory'] = sorted(bundle['complete_freeze']['input_sha256s'])
+            with self.subTest(relative=relative), \
+                    mock.patch.object(admission, '_custody_module') as custody_module, \
+                    mock.patch.object(admission, '_spending_module') as spender:
+                with self.assertRaisesRegex(ValueError, 'independently pinned historical storage'):
+                    admission._validate_bundle(bundle, ordinal=0)
+                custody_module.assert_not_called(); spender.assert_not_called()
+
+    def test_missing_relabelled_or_extra_retained_component_cannot_rehash_into_admission(self):
+        roles = self.materials['bundle']['plan']['retained_storage_component_roles']
+        for name in roles:
+            omitted = dict(roles); del omitted[name]
+            relabelled = dict(roles); relabelled[name] = 'prospective_ledger'
+            extra = dict(roles); extra[name + '_replacement'] = extra.pop(name)
+            for changed in (omitted, relabelled, extra):
+                if changed == roles: continue
+                bundle = copy.deepcopy(self.materials['bundle'])
+                bundle['plan']['retained_storage_component_roles'] = changed
+                with self.subTest(name=name, roles=changed), \
+                        mock.patch.object(admission, '_custody_module') as custody_module, \
+                        mock.patch.object(admission, '_spending_module') as spender:
+                    with self.assertRaisesRegex(ValueError, 'mandatory b/c historical'):
+                        admission._validate_bundle(bundle, ordinal=0)
+                    custody_module.assert_not_called(); spender.assert_not_called()
+
+    def test_new_worker_identity_cannot_reuse_the_actual_spent_c_journal(self):
+        bundle = copy.deepcopy(self.materials['bundle'])
+        bundle['plan']['invocation_ledger_root'] = bundle['invocation_repository_root'] + '/.radio-native-v2-invocation-ledger-20261002c'
+        with mock.patch.object(admission, '_spending_module') as spender:
+            with self.assertRaisesRegex(ValueError, 'd invocation ledger'):
+                admission._validate_bundle(bundle, ordinal=0)
+            spender.assert_not_called()
 
     def test_historical_input_must_be_frozen_as_input_even_if_present_in_code_hashes(self):
         bundle=self.materials['bundle']; freeze=bundle['complete_freeze']

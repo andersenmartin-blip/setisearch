@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_joint_history_20261003a/observation-capture.py", line 276, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_joint_history_20261003a/observation-capture.py", line 205, in main
+    outputs[letter]=collect(storage,held,scope,ledger,files,dirs,json.loads(raw[scope+'/activation-receipt.json']),
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_joint_history_20261003a/observation-capture.py", line 122, in collect
+    before = spend()
+             ^^^^^^^
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_joint_history_20261003a/observation-capture.py", line 121, in spend
+    return source.observe_spend_storage(witness, receipt, **args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_compact_control_20261002b/frozen-code/scripts/radio_native_v2_invocation_spending.py", line 347, in observe_spend_storage
+    if verify_spend_witness(witness, receipt, execution_scope=scope,
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_compact_control_20261002b/frozen-code/scripts/radio_native_v2_invocation_spending.py", line 297, in verify_spend_witness
+    _same_directory(directory, ledger, witness['ledger_identity'])
+  File "/workspace/scratch/97e21f28a7b4/setisearch-repo-20261002/results_radio_native_v2_compact_control_20261002b/frozen-code/scripts/radio_native_v2_invocation_spending.py", line 155, in _same_directory
+    raise ValueError('Invocation ledger directory identity changed')
+ValueError: Invocation ledger directory identity changed

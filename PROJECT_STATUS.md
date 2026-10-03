@@ -1,5 +1,17 @@
 # SETIsearch — current project status
 
+## 3 October: b/c storage integrated; distinct d prepared; original identities refused
+
+[The joined-history result](RADIO_NATIVE_V2_JOINT_HISTORY_2026-10-03_RESULT.md) passes **608 tests across 23 modules**, zero failures/errors/skips and exit 0. All **1,187** tested source/helper pins and sampled b/c scope/journal inventories are unchanged across the final run. Independent machine review checks 2,584 source/evidence conditions, including 23 literal source edges, all 59 material pins and 19 historical inputs. The persisted blocked snapshot binds 933 code files, 1,276 inputs and 1,366 runtime paths; all tested sources are explicitly frozen and the complete audit repeats after persistence.
+
+Worker, observer, polling and finalizer now require b scope/journal, c scope/journal and one prospective d journal, with unchanged **192 MiB/case / 1536 MiB/run** and other limits. a/b/c identities remain permanently refused. No real d marker, ledger, launch config, control scope or invocation exists.
+
+The actual read-only inventory matches all 175 historical scope file payloads and both 496-byte spent records: **74,198,896 logical / 74,592,256 allocated bytes**, 220 entries. Current journal inode/ctime values differ from original immutable witnesses. Both unchanged original spending implementations therefore refuse live admission. Matching archived bytes and the passing synthetic suite do not prove original inode continuity, an accepted actual storage join or whole-control lifetime. Original witnesses/manifests remain untouched; no rebinding or replay occurred.
+
+The failed observation, 588-test first aggregate (one error/one failure from an unmigrated synthetic launcher helper), its five-test correction and all final evidence are retained. The newer public 751d6ea archival/multi-history checkpoint was reconciled before the selected final suite, preserving its 20 tests and all evidence.
+
+**Next:** qualify an explicit prospective archival-closure/current-storage contract while preserving the original identity refusal and permanent a/b/c spend; do not silently re-pin a witness or infer custody from matching bytes. Missing continuity may remain the terminal blocker. No new telescope data, candidates, source/native allocations or person messages. HD189733 selected; HD1461 HOLD; GJ724 reserve; spectra/holdouts unopened; native8 unreserved; 127/24 inactive; LS paused; CHEOPS UNSENT. Consolidate **9 October 2026**, without extension, restart or target change.
+
 ## 3 October: multi-history storage join verified; live c continuity absent
 
 [The new bounded component and result](RADIO_NATIVE_V2_MULTI_HISTORY_STORAGE_2026-10-03_RESULT.md)

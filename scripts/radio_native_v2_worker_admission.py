@@ -33,22 +33,31 @@ PREREAD_SCHEMA = 'radio-native-v2-compact-eight-input-resource-control-v1-public
 FREEZE_SCHEMA = 'radio-native-v2-runner-broker-runtime-freeze-v1'
 FREEZE_NAMESPACE = 'radio-native-v2-engineering-20260930a'
 ACTIVATION_RECEIPT_SCHEMA = 'radio-native-v2-control-single-activation-receipt-v2'
-ACTIVATION_NAMESPACE = 'radio-native-v2-control-activation-transition-20261002c'
-ACTIVATION_MARKER = 'config/radio_native_v2_control_activation_20261002c.activate.json'
+ACTIVATION_NAMESPACE = 'radio-native-v2-control-activation-transition-20261003d'
+ACTIVATION_MARKER = 'config/radio_native_v2_control_activation_20261003d.activate.json'
 SPENT_ACTIVATIONS = (
     ('radio-native-v2-control-activation-transition-20261002a',
         'config/radio_native_v2_control_activation_20261002a.activate.json',
         'ba1b6c918931a02a84cd23e0e14057bd9f700e40'),
     ('radio-native-v2-control-activation-transition-20261002b',
         'config/radio_native_v2_control_activation_20261002b.activate.json',
-        '1bc31d49b2552de10c3fbabb7bc106618a44a241'))
-INVOCATION_LEDGER_DIRECTORY = '.radio-native-v2-invocation-ledger-20261002c'
+        '1bc31d49b2552de10c3fbabb7bc106618a44a241'),
+    ('radio-native-v2-control-activation-transition-20261002c',
+        'config/radio_native_v2_control_activation_20261002c.activate.json',
+        'f514d782a0f807223e4bc47cb0b330b4b46a198f'))
+INVOCATION_LEDGER_DIRECTORY = '.radio-native-v2-invocation-ledger-20261003d'
 CUSTODY_SOURCE = 'scripts/radio_native_v2_runtime_custody.py'
 CUSTODY_IMPLEMENTATION_PIN = {'bytes':22519,
     'sha256':'d0cd311c1615a2c299b101ca75b98ba2412b41bb1cfd668725461e4d307fb0b5'}
 SPENDING_SOURCE = 'scripts/radio_native_v2_prospective_spending.py'
-SPENDING_IMPLEMENTATION_PIN = {'bytes': 22296, 'sha256': '189da9f870628573e85ae6943a63d79b1390fce0aee8a04e003318cc506e895f'}
-HISTORICAL_INPUT_MAP_SHA256 = 'bb526b01d160f26e8bbd2a3baf7c1e55d99fd66ffa72b357a4751e98af2aa225'
+SPENDING_IMPLEMENTATION_PIN = {'bytes': 22483, 'sha256': '6facbf7e104cfdafae6a511788fcb2feb3a3ee170b97813005e578cf07df7d5b'}
+HISTORICAL_INPUT_MAP_SHA256 = '69e84161a67cfbb8ed8e5596de0581b6cce22c9b940d064905e7c450df91b106'
+JOINT_HISTORY_COMPONENT_ROLES = {
+    'historical_b_scope': 'historical_scope',
+    'historical_b_ledger': 'historical_ledger',
+    'historical_c_scope': 'historical_scope',
+    'historical_c_ledger': 'historical_ledger',
+    'prospective_ledger': 'prospective_ledger'}
 ACTIVATION_DISABLED = ('reservation_authorized', 'rng_authorized',
     'scientific_execution_authorized', 'native_execution_authorized',
     'restart_authorized', 'automatic_retry')
@@ -242,7 +251,8 @@ def _validate_plan(plan, *, repository_root):
     for name, value in AUTHORITY.items():
         _exact(plan.get(name), value, 'plan authority ' + name)
     for name in ('large_source_generation_admitted', 'large_inputs_generated', 'activation_guard_complete',
-                 'complete_resource_measurement_join_qualified', 'prospective_shared_storage_allocation_complete'):
+                 'complete_resource_measurement_join_qualified', 'prospective_shared_storage_allocation_complete',
+                 'historical_storage_original_identity_continuity_qualified'):
         if plan.get(name) is not False:
             raise ValueError('Unfinished execution claim refused: ' + name)
     for name in ('complete_runtime_freeze_required', 'public_immutable_preread_required',
@@ -262,12 +272,14 @@ def _validate_plan(plan, *, repository_root):
             or _absolute(plan['invocation_repository_root']) != repository):
         raise ValueError('Plan invocation repository root differs from independent original root')
     if type(plan.get('invocation_ledger_root')) is not str:
-        raise ValueError('Exact independently pinned original-repository c invocation ledger required')
+        raise ValueError('Exact independently pinned original-repository d invocation ledger required')
     ledger = _absolute(plan['invocation_ledger_root'])
     if ledger != repository+'/'+INVOCATION_LEDGER_DIRECTORY:
-        raise ValueError('Exact independently pinned original-repository c invocation ledger required')
+        raise ValueError('Exact independently pinned original-repository d invocation ledger required')
     if plan['code_files'].get(SPENDING_SOURCE) != SPENDING_IMPLEMENTATION_PIN:
         raise ValueError('Prospective spending source differs from independent implementation pin')
+    _exact(plan.get('retained_storage_component_roles'), JOINT_HISTORY_COMPONENT_ROLES,
+        'complete mandatory b/c historical and prospective storage roles')
     history = plan.get('historical_storage_inputs')
     _pin_map(history)
     if hashlib.sha256(canonical(history)).hexdigest() != HISTORICAL_INPUT_MAP_SHA256:

@@ -249,7 +249,7 @@ class AdmittedJoinedStorageMonitorTests(unittest.TestCase):
         scope = root/'current'; scope.mkdir(); (scope/'cases').mkdir()
         for ordinal in range(8): (scope/'cases'/f'case{ordinal:02d}').mkdir()
         components = []; rows = []
-        for index, role in enumerate(('historical_scope', 'historical_ledger', 'prospective_ledger')):
+        for index, role in enumerate(finalizer.EXTERNAL_STORAGE_ROLES):
             path = root/role; path.mkdir(); (path/'record').write_bytes(b'tiny')
             sample = supervisor.sampled_storage_inventory(path)
             for source in sample['rows']:
@@ -257,7 +257,7 @@ class AdmittedJoinedStorageMonitorTests(unittest.TestCase):
                 if row['kind']=='file' and role!='prospective_ledger':
                     row['raw_pin']={'bytes':4,'sha256':hashlib.sha256(b'tiny').hexdigest()}
                 rows.append(row)
-            components.append({'role':role,'root':str(path),'observation_sha256':str(index+1)*64,
+            components.append({'role':role,'observation_role':finalizer.EXTERNAL_STORAGE_OBSERVATION_ROLES[role],'root':str(path),'observation_sha256':str(index+1)*64,
                 'entry_count':sample['entry_count'],'logical_bytes':sample['logical_bytes'],
                 'allocated_bytes':sample['allocated_bytes']})
         joined={'schema':finalizer.EXTERNAL_STORAGE_SCHEMA,'components':components,'rows':rows,
@@ -274,7 +274,7 @@ class AdmittedJoinedStorageMonitorTests(unittest.TestCase):
             pinned_component=mock.Mock(return_value=finalizer.__dict__))
         return scope, joined, checked, fixture, finalizer
 
-    def test_monitor_uses_checked_material_source_and_samples_all_three_components(self):
+    def test_monitor_uses_checked_material_source_and_samples_all_five_components(self):
         with tempfile.TemporaryDirectory() as directory:
             scope,joined,checked,fixture,_=self.material(Path(directory))
             monitor,state=supervisor.prepare_admitted_storage_monitor(checked,fixture)
@@ -293,7 +293,7 @@ class AdmittedJoinedStorageMonitorTests(unittest.TestCase):
             with self.subTest(mutation=mutation),tempfile.TemporaryDirectory() as directory:
                 root=Path(directory);scope,joined,checked,fixture,_=self.material(root)
                 monitor,_=supervisor.prepare_admitted_storage_monitor(checked,fixture)
-                historical=root/'historical_scope'; target=historical/'record'
+                historical=root/'historical_c_scope'; target=historical/'record'
                 if mutation=='content': target.write_bytes(b'tine')
                 elif mutation=='membership': (historical/'extra').write_bytes(b'x')
                 elif mutation=='symlink': (scope/'cases/case00/alias').symlink_to(target)
