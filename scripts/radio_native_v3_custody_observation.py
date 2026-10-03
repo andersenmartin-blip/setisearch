@@ -88,6 +88,10 @@ ARCHIVE_SCHEMA = 'radio-native-v3-current-archive-metadata-observation-v1'
 JOIN_SCHEMA = 'radio-native-v3-current-retained-storage-join-v1'
 LEDGER_STORAGE_SCHEMA = 'radio-native-v3-control-invocation-spend-storage-v1'
 CURRENT_PUBLIC_CLAIM_PATH = 'results_radio_native_v3_predispatch_20261003e/public-spending-envelope.json'
+CURRENT_LAUNCH_CONFIG_PATH = 'results_radio_native_v3_predispatch_20261003e/launch-config.json'
+CURRENT_OBSERVER_CAPSULE_PATH = 'results_radio_native_v3_predispatch_20261003e/observer-capsule.json'
+CURRENT_PREDISPATCH_PATHS = (CURRENT_PUBLIC_CLAIM_PATH,
+    CURRENT_LAUNCH_CONFIG_PATH, CURRENT_OBSERVER_CAPSULE_PATH)
 PUBLIC_SPENDING_SCHEMA = 'radio-native-v3-public-private-spending-bundle-v1'
 CLAIM_STORAGE_SCHEMA = 'radio-native-v3-current-public-claim-metadata-observation-v1'
 ARCHIVE_FIELDS = frozenset(('schema', 'role', 'repository_root', 'scope', 'rows',
@@ -96,7 +100,8 @@ ARCHIVE_FIELDS = frozenset(('schema', 'role', 'repository_root', 'scope', 'rows'
     'original_identity_continuity_proved', 'missing_original_storage_accounted', 'execution_authorized'))
 CLAIM_FIELDS = frozenset(('schema', 'role', 'repository_root', 'scope', 'control_scope',
     'public_claim_sha256', 'normalized_spending_sha256', 'rows', 'logical_bytes',
-    'allocated_bytes', 'entry_count', 'current_observation_stable', 'read_only', 'execution_authorized'))
+    'allocated_bytes', 'entry_count', 'current_observation_stable', 'read_only', 'execution_authorized',
+    'metadata_only', 'bootstrap_origin_qualified'))
 LEDGER_FIELDS = frozenset(('schema', 'ledger_root', 'control_scope', 'activation_receipt_sha256',
     'invocation_spending_sha256', 'rows', 'logical_bytes', 'allocated_bytes', 'entry_count',
     'witness_bindings_verified', 'ledger_inventory_exact', 'current_observation_stable'))
@@ -231,9 +236,14 @@ def _directory(info):
     return (info.st_dev, info.st_ino, stat.S_IMODE(info.st_mode), info.st_uid, info.st_gid)
 
 
-def _read_snapshot(path, expected):
-    """Hold each ancestor and sole-link leaf; authenticate bytes before return."""
-    path = absolute(path); expected = dict(_pin(expected))
+def _read_snapshot(path, expected=None):
+    """Read a stable sole-link leaf, optionally against an independent byte pin.
+
+    Omitting ``expected`` only measures current raw bytes for accounting. It
+    proves no metadata origin, admission, execution, or bootstrap authority.
+    """
+    path = absolute(path)
+    expected = dict(_pin(expected)) if expected is not None else None
     opened = []; chain = []
     try:
         fd = os.open('/', os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
@@ -249,7 +259,9 @@ def _read_snapshot(path, expected):
         name = Path(path).name; parent = fd
         fd = os.open(name, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK, dir_fd=parent)
         opened.append(fd); before = os.fstat(fd); metadata = _metadata(before)
-        if not stat.S_ISREG(before.st_mode) or before.st_nlink != 1 or before.st_size != expected['bytes']:
+        if (not stat.S_ISREG(before.st_mode) or before.st_nlink != 1
+                or not 0 < before.st_size <= MAX_BYTES
+                or expected is not None and before.st_size != expected['bytes']):
             raise ValueError('Exact stable sole-link current metadata input required')
         chunks = []; remaining = before.st_size + 1
         while remaining:
@@ -259,14 +271,16 @@ def _read_snapshot(path, expected):
         raw = b''.join(chunks)
         if (metadata != _metadata(os.fstat(fd))
                 or metadata != _metadata(os.stat(name, dir_fd=parent, follow_symlinks=False))
-                or len(raw) != expected['bytes'] or hashlib.sha256(raw).hexdigest() != expected['sha256']):
+                or len(raw) != before.st_size
+                or expected is not None and hashlib.sha256(raw).hexdigest() != expected['sha256']):
             raise ValueError('Current metadata changed or differs from independent raw pin')
         for held, ancestor_parent, ancestor_name, identity in chain:
             if (_directory(os.fstat(held)) != identity
                     or (ancestor_parent is not None and
                         _directory(os.stat(ancestor_name, dir_fd=ancestor_parent, follow_symlinks=False)) != identity)):
                 raise ValueError('Current custody ancestor binding changed during read')
-        return raw, {'path': path, 'kind': 'file', **metadata, 'raw_pin': expected}
+        actual_pin = {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()}
+        return raw, {'path': path, 'kind': 'file', **metadata, 'raw_pin': actual_pin}
     except OSError as error:
         raise ValueError('Required nofollow current custody input unavailable') from error
     finally:
@@ -274,7 +288,7 @@ def _read_snapshot(path, expected):
 
 
 def read_raw(path, expected):
-    return _read_snapshot(path, expected)[0]
+    return _read_snapshot(path, dict(_pin(expected)))[0]
 
 
 def _directory_snapshot(path, expected_names=None):
@@ -444,23 +458,48 @@ def _normalized_public_spending(value, *, root, scope):
 
 
 def observe_current_public_claim(public_spending, *, root, scope):
-    """Charge one separately authenticated predispatch envelope and directory."""
+    """Charge the fixed three-file bootstrap directory, granting no authority.
+
+    The envelope must match the independently authenticated spending argument.
+    Config and capsule canonical bytes are measured only; their independent
+    outer CLI pins must be checked by the launcher and observer respectively.
+    A self-pinned config/capsule or this accounting result cannot admit dispatch.
+    """
     normalized = _normalized_public_spending(public_spending, root=root, scope=scope)
     raw = canonical(normalized) + b'\n'; expected = {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()}
     path = root + '/' + CURRENT_PUBLIC_CLAIM_PATH; directory = str(Path(path).parent)
-    before = _directory_snapshot(directory, {Path(path).name})
-    observed, row = _read_snapshot(path, expected)
-    if (observed != raw or _read_snapshot(path, expected)[1] != row
-            or _directory_snapshot(directory, {Path(path).name}) != before):
-        raise ValueError('Retained public claim envelope changed during observation')
+    names = {Path(relative).name for relative in CURRENT_PREDISPATCH_PATHS}
+    before = _directory_snapshot(directory, names)
+    observed, envelope_row = _read_snapshot(path, expected)
+    if observed != raw:
+        raise ValueError('Retained public claim envelope differs from authenticated normalized bytes')
+    rows = [before, envelope_row]
+    for relative in (CURRENT_LAUNCH_CONFIG_PATH, CURRENT_OBSERVER_CAPSULE_PATH):
+        measured, row = _read_snapshot(root + '/' + relative)
+        try:
+            value = json.loads(measured)
+            if type(value) is not dict or canonical(value) + b'\n' != measured:
+                raise ValueError('Bounded exact canonical bootstrap metadata object required')
+        except (TypeError, json.JSONDecodeError) as error:
+            raise ValueError('Bounded exact canonical bootstrap metadata object required') from error
+        rows.append(row)
+    identities = {(row['device'], row['inode']) for row in rows}
+    if len(identities) != len(rows):
+        raise ValueError('Predispatch metadata device/inode alias rejected')
+    for row in rows[1:]:
+        if _read_snapshot(row['path'], row['raw_pin'])[1] != row:
+            raise ValueError('Predispatch metadata changed across the observation window')
+    if _directory_snapshot(directory, names) != before:
+        raise ValueError('Predispatch metadata directory changed across the observation window')
     return {'schema': CLAIM_STORAGE_SCHEMA, 'role': 'current_claim_metadata',
         'repository_root': root, 'scope': directory, 'control_scope': scope,
         'public_claim_sha256': normalized['public_claim_sha256'],
         'normalized_spending_sha256': hashlib.sha256(canonical(normalized)).hexdigest(),
-        'rows': sorted((before, row), key=lambda value: value['path']),
-        'logical_bytes': before['bytes'] + row['bytes'],
-        'allocated_bytes': before['allocated_bytes'] + row['allocated_bytes'], 'entry_count': 2,
-        'current_observation_stable': True, 'read_only': True, 'execution_authorized': False}
+        'rows': sorted(rows, key=lambda value: value['path']),
+        'logical_bytes': sum(row['bytes'] for row in rows),
+        'allocated_bytes': sum(row['allocated_bytes'] for row in rows), 'entry_count': len(rows),
+        'current_observation_stable': True, 'read_only': True, 'execution_authorized': False,
+        'metadata_only': True, 'bootstrap_origin_qualified': False}
 
 
 def observe_current_claim(plan, public_spending, *, repository_root, execution_scope):
@@ -515,14 +554,16 @@ def join_retained_storage_components(components, *, expected_observation_pins, e
                 raise ValueError('Exact fixed archival metadata and selected parent membership required')
         elif label == 'current_claim':
             claim_root = root + '/' + str(Path(CURRENT_PUBLIC_CLAIM_PATH).parent)
-            claim_path = root + '/' + CURRENT_PUBLIC_CLAIM_PATH
+            claim_paths = {root + '/' + relative for relative in CURRENT_PREDISPATCH_PATHS}
             if (value.get('schema') != CLAIM_STORAGE_SCHEMA or value.get('role') != role
                     or value.get('repository_root') != root or value.get('scope') != claim_root
-                    or value.get('control_scope') != scope or len(rows) != 2
+                    or value.get('control_scope') != scope or len(rows) != 4
                     or {row['path'] for row in rows if row['kind'] == 'directory'} != {claim_root}
-                    or {row['path'] for row in rows if row['kind'] == 'file'} != {claim_path}
+                    or {row['path'] for row in rows if row['kind'] == 'file'} != claim_paths
                     or any(value.get(field) is not True for field in ('current_observation_stable', 'read_only'))
                     or value.get('execution_authorized') is not False
+                    or value.get('metadata_only') is not True
+                    or value.get('bootstrap_origin_qualified') is not False
                     or any('raw_pin' not in row for row in rows if row['kind'] == 'file')):
                 raise ValueError('Exact current retained public-claim file/directory observation required')
             for field in ('public_claim_sha256', 'normalized_spending_sha256'):

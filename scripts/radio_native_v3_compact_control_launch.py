@@ -30,7 +30,7 @@ import types
 
 REPO = Path(__file__).resolve().parents[1]
 SELF = 'scripts/radio_native_v3_compact_control_launch.py'
-CONFIG_PATH = 'config/radio_native_v3_compact_control_launch_20261003e.launch.json'
+CONFIG_PATH = 'results_radio_native_v3_predispatch_20261003e/launch-config.json'
 CONFIG_SCHEMA = 'radio-native-v2-compact-control-launch-config-v1'
 SCHEMA = 'radio-native-v2-compact-control-launch-v1'
 NAMESPACE = 'radio-native-v3-compact-eight-input-control-20261003e'
@@ -41,7 +41,7 @@ ENVIRONMENT = 'scripts/radio_native_v3_activation_environment.py'
 FINALIZER = 'scripts/radio_native_v3_resource_finalization.py'
 # Independently reviewed literals, never supplied by a plan or launch config.
 # Root finalizes these only after all owning agents freeze their sources.
-BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v3_activation_environment.py': {'bytes': 11741, 'sha256': '059003934a8b51c544f72b488c41c19a6067c0ffb0e65c31afc6eacd35d76bfd'}, 'scripts/radio_native_v3_compact_eight_case_resource_fixture.py': {'bytes': 134552, 'sha256': '42fa6b4da3d96e3974c5043334f558c83d20c2da3d189f80b7ae0aa5ab150d54'}, 'scripts/radio_native_v3_compact_preparation_audit.py': {'bytes': 25154, 'sha256': 'ac50218e699eb098331af893217eb6b0864f7b0d26ebb59498d3028dcc0bdcd8'}, 'scripts/radio_native_v2_historical_storage.py': {'bytes': 25274, 'sha256': '9f709c42ad726732b9da98d2b830a9905e6d3ae90f3a8ba1f49482d11db299d5'}, 'scripts/radio_native_v3_prospective_spending.py': {'bytes': 31857, 'sha256': '3dc5fafa3f7e5921b1154def909640f5a3d90b4d33625afff3353eeff3438a34'}, 'scripts/radio_native_v3_resource_finalization.py': {'bytes': 80134, 'sha256': '612e213cc03b9806d2344c0c36189fbe6c5211b5ecf1074f63f6db5bcca0de24'}, 'scripts/radio_native_v3_runner_freeze.py': {'bytes': 24313, 'sha256': 'b7bc62e24ca80b0f64b9fcea39f42edcafb42332409503ffd0d6d28c98604a27'}, 'scripts/radio_native_v2_runtime_custody.py': {'bytes': 22519, 'sha256': 'd0cd311c1615a2c299b101ca75b98ba2412b41bb1cfd668725461e4d307fb0b5'}, 'scripts/radio_native_v3_worker_admission.py': {'bytes': 84412, 'sha256': '31df40757be62bb544e1960edfb50c8cb47cc89318d81e3ea0b34c11c9ae1175'}, 'scripts/radio_native_v3_custody_observation.py': {'bytes': 39046, 'sha256': '7bc991d0fa4f24fe9cd0a8d6a62bb3b85d0ff042b48d94204cbaaaae5981a7c7'}, 'scripts/radio_native_v3_public_claim.py': {'bytes': 17351, 'sha256': 'c55ab766c8aa8604d2bbac6f0bacb2bb0c58682e59897890a4f16c3670f56173'}}
+BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v3_activation_environment.py': {'bytes': 11741, 'sha256': '059003934a8b51c544f72b488c41c19a6067c0ffb0e65c31afc6eacd35d76bfd'}, 'scripts/radio_native_v3_compact_eight_case_resource_fixture.py': {'bytes': 147886, 'sha256': '1052e92361c9fed84d4edde65c2f46eef3a51990ad91c544e35c879fe9aa94e1'}, 'scripts/radio_native_v3_compact_preparation_audit.py': {'bytes': 25154, 'sha256': 'ac50218e699eb098331af893217eb6b0864f7b0d26ebb59498d3028dcc0bdcd8'}, 'scripts/radio_native_v2_historical_storage.py': {'bytes': 25274, 'sha256': '9f709c42ad726732b9da98d2b830a9905e6d3ae90f3a8ba1f49482d11db299d5'}, 'scripts/radio_native_v3_prospective_spending.py': {'bytes': 31857, 'sha256': '3dc5fafa3f7e5921b1154def909640f5a3d90b4d33625afff3353eeff3438a34'}, 'scripts/radio_native_v3_resource_finalization.py': {'bytes': 86336, 'sha256': 'ea645d409796740c670f006cf0eaf0543441d3f098a0cdbb6bb4657ebcba5817'}, 'scripts/radio_native_v3_runner_freeze.py': {'bytes': 24313, 'sha256': 'b7bc62e24ca80b0f64b9fcea39f42edcafb42332409503ffd0d6d28c98604a27'}, 'scripts/radio_native_v2_runtime_custody.py': {'bytes': 22519, 'sha256': 'd0cd311c1615a2c299b101ca75b98ba2412b41bb1cfd668725461e4d307fb0b5'}, 'scripts/radio_native_v3_worker_admission.py': {'bytes': 91737, 'sha256': 'ca74fc03e400e85d3e2d6b1dcb298544b54a4c9a2d7a6e25dd3658125e405fd4'}, 'scripts/radio_native_v3_custody_observation.py': {'bytes': 41475, 'sha256': '91eaee679833fda6bc59724bda6f242006836cc1524f965a2dc1432dab2355bf'}, 'scripts/radio_native_v3_public_claim.py': {'bytes': 17351, 'sha256': 'c55ab766c8aa8604d2bbac6f0bacb2bb0c58682e59897890a4f16c3670f56173'}}
 STDOUT_NAME = 'compact-control-launch-stdout.log'
 STDERR_NAME = 'compact-control-launch-stderr.log'
 OBSERVATION_NAME = 'compact-control-launch-observation.json'
@@ -531,7 +531,7 @@ def _launch_control_once(config, anchor):
         raise RuntimeError('Observed control child failed or emitted unexpected stderr')
     try:
         finalizer = _source_module('radio_native_v3_resource_finalization', FINALIZER)
-        summary = _json(stdout)
+        terminal_reference = _json(stdout)
         input_value, input_pin = finalizer.read_pinned_json(scope/finalizer.FINAL_INPUT_NAME)
         report_value, report_pin = finalizer.read_pinned_json(scope/finalizer.FINAL_NAME)
         writer_observation, writer_pin = finalizer.read_pinned_json(scope/finalizer.FINAL_WRITER_OBSERVATION_NAME)
@@ -541,8 +541,8 @@ def _launch_control_once(config, anchor):
         independently_joined = finalizer.join_final_report_lifetime(scope,
             expected_input_pin=input_pin, expected_report_pin=report_pin,
             expected_writer_observation_pin=writer_pin, expected_writer_argv=writer_argv)
-        if canonical(summary) != canonical(independently_joined):
-            raise ValueError('Retained fixture stdout differs from independently replayed report join')
+        finalizer.verify_final_report_join_reference(terminal_reference,independently_joined)
+        summary = independently_joined
     except BaseException:
         _retain_child_observation(scope, prepared, observation, stdout, stderr)
         raise
@@ -605,7 +605,9 @@ def main():
         raise ValueError('Exact actual fixed launcher argv required; no options or path overrides')
     result = launch_control(load_launch_config(args.config_sha256),
         admission_start_monotonic_ns=anchor)
-    print(canonical(result).decode())
+    finalizer = _source_module('radio_native_v3_resource_finalization',FINALIZER)
+    disposition_pin = read_pinned(Path(result['scope'])/DISPOSITION_NAME)[0]
+    print(canonical(finalizer.launcher_completion_reference(result,disposition_pin)).decode())
 
 
 if __name__ == '__main__': main()

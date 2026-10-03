@@ -82,6 +82,8 @@ def retain_envelope(root, spending):
     path = root / custody.CURRENT_PUBLIC_CLAIM_PATH; path.parent.mkdir(parents=True, exist_ok=True)
     normalized = copy.deepcopy(spending); normalized['dispatch_witness'] = None
     path.write_bytes(custody.canonical(normalized) + b'\n')
+    for relative in (custody.CURRENT_LAUNCH_CONFIG_PATH, custody.CURRENT_OBSERVER_CAPSULE_PATH):
+        (root / relative).write_bytes(custody.canonical({'synthetic_tiny_bootstrap_metadata': Path(relative).name}) + b'\n')
 
 
 class CurrentRootContractTests(unittest.TestCase):
@@ -321,7 +323,8 @@ class TinyArchiveJoinTests(unittest.TestCase):
             prospective_ledger=ledger_inventory(self.root, self.scope), public_spending=running)
         self.assertEqual(joined['schema'], custody.JOIN_SCHEMA)
         self.assertEqual([row['path'] for row in joined['rows']], sorted(row['path'] for row in joined['rows']))
-        claim_files = [row for row in joined['rows'] if row['component'] == 'current_claim' and row['kind'] == 'file']
+        claim_files = [row for row in joined['rows'] if row['component'] == 'current_claim'
+            and row['path'] == str(self.root / custody.CURRENT_PUBLIC_CLAIM_PATH)]
         self.assertEqual(len(claim_files), 1)
         self.assertEqual(claim_files[0]['raw_pin'], raw_pin((self.root / custody.CURRENT_PUBLIC_CLAIM_PATH).read_bytes()))
 
@@ -354,6 +357,105 @@ class TinyArchiveJoinTests(unittest.TestCase):
             with self.subTest(envelope=changed), self.assertRaises(ValueError):
                 custody.observe_current_claim(self.plan, changed,
                     repository_root=str(self.root), execution_scope=self.scope)
+
+    def test_bootstrap_three_file_inventory_is_metadata_only_and_charged_in_full(self):
+        # Labels inside an untrusted config/capsule are content to measure,
+        # never evidence that an outer independently pinned admission passed.
+        for relative in (custody.CURRENT_LAUNCH_CONFIG_PATH, custody.CURRENT_OBSERVER_CAPSULE_PATH):
+            (self.root / relative).write_bytes(custody.canonical({
+                'execution_authorized': True, 'self_pin': '0' * 64}) + b'\n')
+        observed = custody.observe_current_claim(self.plan, self.spending,
+            repository_root=str(self.root), execution_scope=self.scope)
+        self.assertEqual(observed['entry_count'], 4)
+        self.assertEqual({row['path'] for row in observed['rows'] if row['kind'] == 'file'},
+            {str(self.root / relative) for relative in custody.CURRENT_PREDISPATCH_PATHS})
+        self.assertEqual(observed['logical_bytes'], sum(row['bytes'] for row in observed['rows']))
+        self.assertEqual(observed['allocated_bytes'], sum(row['allocated_bytes'] for row in observed['rows']))
+        self.assertIs(observed['execution_authorized'], False)
+        self.assertIs(observed['bootstrap_origin_qualified'], False)
+        self.assertIs(observed['metadata_only'], True)
+        for row in observed['rows']:
+            if row['kind'] == 'file':
+                self.assertEqual(row['raw_pin'], raw_pin(Path(row['path']).read_bytes()))
+
+    def test_each_bootstrap_file_required_before_and_after_synthetic_dispatch(self):
+        running = copy.deepcopy(self.spending); running['dispatch_witness'] = {'synthetic_dispatch': True}
+        for relative in (custody.CURRENT_LAUNCH_CONFIG_PATH, custody.CURRENT_OBSERVER_CAPSULE_PATH):
+            path = self.root / relative; retained = path.read_bytes(); path.unlink()
+            for spending in (self.spending, running):
+                with self.subTest(path=relative, dispatched=spending['dispatch_witness'] is not None), self.assertRaisesRegex(ValueError, 'membership'):
+                    custody.observe_current_claim(self.plan, spending,
+                        repository_root=str(self.root), execution_scope=self.scope)
+            path.write_bytes(retained)
+
+    def test_bootstrap_canonical_json_object_and_numeric_bound_are_required(self):
+        path = self.root / custody.CURRENT_LAUNCH_CONFIG_PATH; retained = path.read_bytes()
+        invalid = (b'', b'[]\n', b'{"x": 1}\n', b'{"x":1,"x":1}\n',
+            b'{"x":NaN}\n', b'{"x":1}', b'{"x":1}\n\n')
+        for raw in invalid:
+            path.write_bytes(raw)
+            with self.subTest(raw=raw), self.assertRaises(ValueError):
+                custody.observe_current_claim(self.plan, self.spending,
+                    repository_root=str(self.root), execution_scope=self.scope)
+        with path.open('wb') as stream:
+            # A sparse metadata-only scratch file checks the scan limit without
+            # constructing or reading any full engineering input.
+            stream.truncate(custody.MAX_BYTES + 1)
+        with self.assertRaisesRegex(ValueError, 'sole-link'):
+            custody.observe_current_claim(self.plan, self.spending,
+                repository_root=str(self.root), execution_scope=self.scope)
+        path.write_bytes(retained)
+
+    def test_bootstrap_symlink_hardlink_and_special_file_are_refused(self):
+        for relative in (custody.CURRENT_LAUNCH_CONFIG_PATH, custody.CURRENT_OBSERVER_CAPSULE_PATH):
+            path = self.root / relative; retained = path.read_bytes()
+            source = self.root / 'external-tiny-bootstrap'; source.write_bytes(retained)
+            path.unlink(); path.symlink_to(source)
+            with self.subTest(path=relative, type='symlink'), self.assertRaises(ValueError):
+                custody.observe_current_claim(self.plan, self.spending,
+                    repository_root=str(self.root), execution_scope=self.scope)
+            path.unlink(); os.link(source, path)
+            with self.subTest(path=relative, type='hardlink'), self.assertRaisesRegex(ValueError, 'sole-link'):
+                custody.observe_current_claim(self.plan, self.spending,
+                    repository_root=str(self.root), execution_scope=self.scope)
+            path.unlink(); source.unlink(); os.mkfifo(path)
+            with self.subTest(path=relative, type='fifo'), self.assertRaisesRegex(ValueError, 'sole-link'):
+                custody.observe_current_claim(self.plan, self.spending,
+                    repository_root=str(self.root), execution_scope=self.scope)
+            path.unlink(); path.write_bytes(retained)
+
+    def test_bootstrap_directory_symlink_is_refused(self):
+        directory = (self.root / custody.CURRENT_PUBLIC_CLAIM_PATH).parent
+        relocated = self.root / 'relocated-tiny-bootstrap'; directory.rename(relocated)
+        directory.symlink_to(relocated, target_is_directory=True)
+        with self.assertRaises(ValueError):
+            custody.observe_current_claim(self.plan, self.spending,
+                repository_root=str(self.root), execution_scope=self.scope)
+
+    def test_bootstrap_change_between_first_read_and_stable_recheck_is_detected(self):
+        original = custody._read_snapshot; changed = False
+        config_path = self.root / custody.CURRENT_LAUNCH_CONFIG_PATH
+        def mutate(path, expected=None):
+            nonlocal changed
+            result = original(path, expected)
+            if not changed and path.endswith('/observer-capsule.json'):
+                config_path.write_bytes(custody.canonical({'changed_bootstrap_metadata': True}) + b'\n')
+                changed = True
+            return result
+        with mock.patch.object(custody, '_read_snapshot', side_effect=mutate):
+            with self.assertRaises(ValueError):
+                custody.observe_current_claim(self.plan, self.spending,
+                    repository_root=str(self.root), execution_scope=self.scope)
+
+    def test_bootstrap_join_cannot_drop_metadata_or_promote_its_origin(self):
+        components = self.components(); claim = components['current_claim']
+        removed = next(row for row in claim['rows'] if row['path'].endswith('/launch-config.json'))
+        claim['rows'].remove(removed); claim['logical_bytes'] -= removed['bytes']
+        claim['allocated_bytes'] -= removed['allocated_bytes']; claim['entry_count'] -= 1
+        with self.assertRaisesRegex(ValueError, 'file/directory observation'): self.join(components)
+        for field, value in (('metadata_only', False), ('bootstrap_origin_qualified', True), ('execution_authorized', True)):
+            components = self.components(); components['current_claim'][field] = value
+            with self.subTest(field=field), self.assertRaises(ValueError): self.join(components)
 
     def test_current_ledger_cannot_drop_dispatch_or_relocate_record(self):
         components = self.components(); ledger = components['current_ledger']

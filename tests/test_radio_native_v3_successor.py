@@ -161,6 +161,23 @@ class SuccessorIntegrationTests(unittest.TestCase):
             checked=finalizer._external_ledger_inventory({'scope':scope,'rows':[]},external)
             self.assertEqual(checked,external)
             self.assertEqual(len(checked['components']),4)
+            scope_path=Path(scope);scope_path.mkdir()
+            (scope_path/'cases').mkdir()
+            for ordinal in range(8):(scope_path/'cases'/f'case{ordinal:02d}').mkdir()
+            (scope_path/finalizer.RETAINED_STORAGE_SNAPSHOT_NAME).write_bytes(finalizer.canonical(checked)+b'\n')
+            allocated=finalizer.allocate_storage(finalizer.storage_inventory(scope),external_inventory=checked)
+            reference=allocated['external_ledger_storage']
+            self.assertEqual(reference,finalizer.external_storage_reference(checked))
+            self.assertNotIn('rows',reference)
+            self.assertLess(len(finalizer.canonical(reference)),1024)
+            self.assertTrue(finalizer.verify_external_storage_reference(reference,checked))
+            self.assertEqual(reference['logical_bytes'],checked['logical_bytes'])
+            self.assertEqual(reference['allocated_bytes'],checked['allocated_bytes'])
+            self.assertEqual(reference['entry_count'],len(checked['rows']))
+            for key,value in (('inventory_sha256','0'*64),('logical_bytes',reference['logical_bytes']+1)):
+                changed=dict(reference);changed[key]=value
+                with self.assertRaises(ValueError):
+                    finalizer.verify_external_storage_reference(changed,checked)
             roots=[item['root'] for item in checked['components']]
             for index,first in enumerate(roots):
                 for second in roots[index+1:]:

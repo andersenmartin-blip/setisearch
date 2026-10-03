@@ -52,7 +52,7 @@ DIRECTORY_RESERVATION_BYTES = 65536
 # Independently reviewed implementation pins bootstrap admission. Supplied
 # bundle hashes cannot select executable validator/fixture implementations.
 # Updating either implementation requires reviewing and refreshing this table.
-BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v3_worker_admission.py': {'bytes': 84412, 'sha256': '31df40757be62bb544e1960edfb50c8cb47cc89318d81e3ea0b34c11c9ae1175'}, 'scripts/radio_native_v3_compact_eight_case_resource_fixture.py': {'bytes': 134552, 'sha256': '42fa6b4da3d96e3974c5043334f558c83d20c2da3d189f80b7ae0aa5ab150d54'}}
+BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v3_worker_admission.py': {'bytes': 91737, 'sha256': 'ca74fc03e400e85d3e2d6b1dcb298544b54a4c9a2d7a6e25dd3658125e405fd4'}, 'scripts/radio_native_v3_compact_eight_case_resource_fixture.py': {'bytes': 147886, 'sha256': '1052e92361c9fed84d4edde65c2f46eef3a51990ad91c544e35c879fe9aa94e1'}}
 AUTHORITY = {'execution_authorized': False, 'reservation_authorized': False,
     'scientific_execution_authorized': False, 'native_case_reservations': 0,
     'native_case_executions': 0, 'scientific_cases_run': 0, 'rng_draws': 0,
@@ -72,7 +72,7 @@ PROBES = {
     'output-overflow': "import sys; sys.stdout.write('x'*200000); sys.stdout.flush()",
     'stdout-passthrough': "import sys; sys.stdout.buffer.write(b'tiny exact forwarded output\\n'); sys.stdout.buffer.flush()",
     'rss-handshake': "import json,os,sys,time\nfrom pathlib import Path\nroot=Path(sys.argv[1]); start=time.time_ns()//1000000\nidentity={'identity':'engineering-probe-proc:'+os.readlink('/proc/self'),'pid':os.getpid(),'proc_pid':int(os.readlink('/proc/self')),'started_at_epoch_ms':start}\n(root/'caller-start.json').write_text(json.dumps(identity))\npayload=bytearray(2*1024*1024)\nrequest={'dispatch_at_epoch_ms':start,'returned_at_epoch_ms':time.time_ns()//1000000,'client_sha256':'1'*64}\n(root/'rss-observation-request.json').write_text(json.dumps(request))\nend=time.monotonic()+2\nwhile not (root/'rss-observation.json').exists() and time.monotonic()<end: time.sleep(0.005)\nresponse=json.loads((root/'rss-observation.json').read_bytes())\nassert response['client_sha256']==request['client_sha256'] and response['client_peak_rss_bytes']>0\nassert response['interval_start_epoch_ms']<=start and response['interval_end_epoch_ms']>=request['returned_at_epoch_ms']\nassert response['includes_entire_caller_lifetime'] is False\nprint('tiny handshake complete')",
-    'escape-guard': "import ctypes,errno,os\narch=os.uname().machine\nnumbers={'x86_64':(272,308,101,435),'aarch64':(97,268,117,435)}[arch]\nlibc=ctypes.CDLL(None,use_errno=True)\nfor nr,args in ((numbers[0],(0x20000000,)),(numbers[1],(-1,0)),(numbers[2],(0,0,0,0)),(numbers[3],(0,0))):\n ctypes.set_errno(0); result=libc.syscall(nr,*args); assert result == -1 and ctypes.get_errno() == errno.EPERM\nstatus=dict(line.split(':',1) for line in open('/proc/self/status') if ':' in line)\nassert status['NoNewPrivs'].strip()=='1' and status['Seccomp'].strip()=='2'\nprint('escape guard active')",
+    'escape-guard': "import ctypes,errno,os\narch=os.uname().machine\nnumbers={'x86_64':(272,308,101,435),'aarch64':(97,268,117,435)}[arch]\nlibc=ctypes.CDLL(None,use_errno=True)\nfor nr,args in ((numbers[0],(0x20000000,)),(numbers[1],(-1,0)),(numbers[2],(0,0,0,0)),(numbers[3],(0,0))):\n ctypes.set_errno(0); result=libc.syscall(nr,*args); assert result == -1 and ctypes.get_errno() == (errno.ENOSYS if nr == numbers[3] else errno.EPERM)\nstatus=dict(line.split(':',1) for line in open('/proc/self/status') if ':' in line)\nassert status['NoNewPrivs'].strip()=='1' and status['Seccomp'].strip()=='2'\nprint('escape guard active')",
 }
 
 
@@ -80,12 +80,12 @@ PROBES = {
 # already freezes the executable/ELF platform. Unknown architectures close
 # before child exec instead of silently launching without the guard.
 _SECCOMP_ARCH = {
-    'x86_64': {'audit': 0xC000003E, 'clone': 56,
+    'x86_64': {'audit': 0xC000003E, 'clone': 56, 'clone3': 435,
         'blocked': (101, 272, 308, 310, 311, 425, 435)},
-    'aarch64': {'audit': 0xC00000B7, 'clone': 220,
+    'aarch64': {'audit': 0xC00000B7, 'clone': 220, 'clone3': 435,
         'blocked': (97, 117, 268, 270, 271, 425, 435)},
 }
-_CLONE_NAMESPACE_FLAGS = (0x00020000 | 0x02000000 | 0x04000000 |
+_CLONE_NAMESPACE_FLAGS = (0x00008000 | 0x00020000 | 0x02000000 | 0x04000000 |
     0x08000000 | 0x10000000 | 0x20000000 | 0x40000000)
 
 
@@ -109,7 +109,9 @@ def install_child_escape_guard():
     supervisor. It does not claim a general syscall sandbox. It closes the
     process-tree escapes material to the subreaper proof: namespace creation or
     transition, ptrace/process_vm injection, clone3 and io_uring setup. Ordinary
-    fork/vfork and clone without namespace flags remain available to workers.
+    fork/vfork and clone without parent/namespace flags remain available.
+    clone3 returns ENOSYS so libc can use the inspected legacy clone path for
+    ordinary threads; clone3 itself remains unconditionally unavailable.
     """
     architecture = os.uname().machine
     contract = _SECCOMP_ARCH.get(architecture)
@@ -120,8 +122,13 @@ def install_child_escape_guard():
     instructions = [_bpf(0x20, 4), _bpf(0x15, contract['audit'], jt=1),
         _bpf(0x06, 0x80000000), _bpf(0x20, 0)]
     deny = 0x00050000 | 1  # SECCOMP_RET_ERRNO | EPERM
+    if architecture == 'x86_64':
+        # The audit architecture is shared by x32. Never let its syscall bit
+        # bypass the independently reviewed native-number/argument filters.
+        instructions.extend((_bpf(0x45, 0x40000000, jf=1), _bpf(0x06, deny)))
     for number in contract['blocked']:
-        instructions.extend((_bpf(0x15, number, jf=1), _bpf(0x06, deny)))
+        result = 0x00050000 | 38 if number == contract['clone3'] else deny
+        instructions.extend((_bpf(0x15, number, jf=1), _bpf(0x06, result)))
     # If this is not clone, skip the argument load, JSET and deny instruction.
     instructions.extend((_bpf(0x15, contract['clone'], jf=3),
         _bpf(0x20, 16), _bpf(0x45, _CLONE_NAMESPACE_FLAGS, jf=1),
@@ -229,7 +236,16 @@ def compact_admitted_attestation(checked):
     if any(type(value) not in (str, int, bool, type(None))
             for key, value in structural.items() if key not in nested):
         raise ValueError('Structural admission scalar fields cannot contain arbitrary bulk')
-    if structural['worker_role_layout'] != {key: checked[key] for key in ADMITTED_LAYOUT_KEYS}:
+    expected_layout = {key: checked[key] for key in ADMITTED_LAYOUT_KEYS}
+    expected_layout.update(bundle_path=checked['bundle_path'], role=role,
+        ordinal=checked['ordinal'],
+        seconds_limit=4800 if role in ('control', 'verifier') else 120 if role == 'command' else 600,
+        shared_storage_limit_bytes=RUN_STORAGE_BYTES if role in ('control', 'verifier') else CASE_STORAGE_BYTES)
+    if (checked['runtime_name'] != ('node' if role in ('caller', 'lossless-project', 'lossless-verify-retained') else 'python')
+            or (role != 'command' and checked['command_label'] is not None)
+            or (role == 'command' and (type(checked['command_label']) is not str
+                or not re.fullmatch(r'command-(?:[0-9]|[12][0-9]|3[0-7]|tail)', checked['command_label'])))
+            or canonical(structural['worker_role_layout']) != canonical(expected_layout)):
         raise ValueError('Structural admission layout differs from exact checked layout')
     _exact_pin(structural['loaded_validator_code'])
     if role != 'prepare':
@@ -310,7 +326,7 @@ def _receipt_fixed_fields(controls, code_pin, runtime_pin, input_pin, attestatio
         'sole_wait4_owner': True, 'concurrent_process_rss_sum_measured': False,
         'complete_process_tree_qualified': False,
         'descendant_wait_chain_scope': 'INHERITED_SECCOMP_GUARD_AND_LINUX_SUBREAPER_TO_ECHILD',
-        'child_escape_guard_denied_operations': ['clone-namespace-flags', 'clone3', 'io-uring-setup',
+        'child_escape_guard_denied_operations': ['clone-parent-flag', 'clone-namespace-flags', 'clone3', 'io-uring-setup',
             'process-vm-read', 'process-vm-write', 'ptrace', 'setns', 'unshare'],
         'procfs_descendant_escape_detection_complete': False,
         'raw_stdout_duplicate_written': False, 'raw_stderr_duplicate_written': False,
@@ -424,17 +440,22 @@ def check_admitted_worker(bundle_path, *, role='prepare', ordinal=None, expected
     raw = bounded_bytes(bundle_path, 16 * 1024 * 1024)
     if hashlib.sha256(raw).hexdigest() != expected_bundle_sha256:
         raise ValueError('Admission bundle differs from independently retained byte hash')
-    bundle = json.loads(raw)
+    module_key = 'scripts/radio_native_v3_worker_admission.py'
+    # Bootstrap from this dispatcher's own fixed material root, before any
+    # bundle-selected path or expanded context is used. The independently
+    # pinned loader reopens a phase reference's original full preparation
+    # snapshot on every check; retained JSON cannot select its loader.
+    own_root = Path(__file__).absolute().parents[1]
+    admission = source_module(own_root / module_key,
+        'pinned_worker_admission', BOOTSTRAP_SOURCE_PINS[module_key])
+    bundle = admission.load_bundle(bundle_path,
+        expected_bundle_sha256=expected_bundle_sha256)
     code_files = bundle['plan']['code_files']
     own_key = 'scripts/radio_native_v3_process_tree_supervisor.py'
     if pin_file(Path(__file__).resolve()) != code_files[own_key]:
         raise ValueError('Dispatcher source differs from materialized admission pins')
-    module_key = 'scripts/radio_native_v3_worker_admission.py'
-    # The module is loaded only from the prospectively pinned materialization.
     if code_files.get(module_key) != BOOTSTRAP_SOURCE_PINS[module_key]:
         raise ValueError('Supplied admission implementation differs from dispatcher bootstrap pins')
-    admission = source_module(Path(bundle['code_root']) / module_key,
-        'pinned_worker_admission', BOOTSTRAP_SOURCE_PINS[module_key])
     argv = admission.expected_worker_argv(bundle, str(Path(bundle_path).absolute()),
         role=role, ordinal=ordinal, expected_bundle_sha256=expected_bundle_sha256)
     structural = admission.validate_worker_admission(bundle_path, role=role,
@@ -455,7 +476,8 @@ def check_admitted_worker(bundle_path, *, role='prepare', ordinal=None, expected
         'pinned_preparation_fixture', BOOTSTRAP_SOURCE_PINS[fixture_key])
     return {'schema': SCHEMA + ('-admitted-prepare-check' if role == 'prepare' else '-admitted-worker-check'), 'role': role,
         'ordinal': ordinal, 'argv': argv, 'bundle_path': str(Path(bundle_path).absolute()),
-        'bundle_sha256': expected_bundle_sha256, **layout,
+        'bundle_sha256': expected_bundle_sha256,
+        **{key: layout[key] for key in ADMITTED_LAYOUT_KEYS},
         'supervisor_python_path': bundle['plan']['runtime_executables']['python']['path'],
         'activation_evidence': {'activation_receipt':bundle['activation_receipt'],
             'plan':bundle['plan'],'freeze':bundle['complete_freeze'],

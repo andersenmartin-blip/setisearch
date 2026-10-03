@@ -31,6 +31,9 @@ ARCHIVE_STORAGE_ROLES=frozenset(('archive_b_metadata_copy','archive_c_metadata_c
 EXTERNAL_STORAGE_METADATA = frozenset(('device', 'inode', 'mode', 'nlink',
     'uid', 'gid', 'bytes', 'allocated_bytes', 'mtime_ns', 'ctime_ns'))
 MAX_EXTERNAL_STORAGE_BYTES = 16 * 1024 * 1024
+MAX_EXTERNAL_RETAINED_STORAGE_BYTES = 2 * 1024 * 1024
+MAX_RETAINED_STORAGE_SNAPSHOT_BYTES = 32768
+MAX_COMPLETE_CONTEXT_BUNDLE_BYTES = 2 * 1024 * 1024
 OBSERVATION_SCHEMA = 'radio-native-v2-compact-eight-input-resource-control-v1-process-observation'
 NAMESPACE = 'radio-native-v3-compact-eight-input-control-20261003e'
 MIB = 1024 * 1024
@@ -50,6 +53,7 @@ DRIVER_IDENTITY_NAME = 'measurement-driver-identity.json'
 DRIVER_OBSERVATION_NAME = 'measurement-driver-observation.json'
 RUNNER_OBSERVATION_NAME = 'whole-control-supervisor-observation.json'
 FINAL_NAME = 'resource-final-disposition.json'
+RETAINED_STORAGE_SNAPSHOT_NAME = 'current-retained-storage-inventory.json'
 FINAL_INPUT_NAME = 'final-report-input.json'
 FINAL_WRITER_IDENTITY_NAME = 'final-report-writer-identity.json'
 FINAL_WRITER_OBSERVATION_NAME = 'final-report-writer-observation.json'
@@ -58,6 +62,9 @@ FINAL_WRITER_STDERR_NAME = 'final-report-writer-stderr.log'
 OUTER_LAUNCH_METADATA_NAMES = ('compact-control-launch-stdout.log',
     'compact-control-launch-stderr.log', 'compact-control-launch-observation.json',
     'compact-control-launch-disposition.json', 'compact-control-launch-preflight.json',
+    'engineering-observer-stdout.log', 'engineering-observer-stderr.log',
+    'engineering-observer-observation.json', 'engineering-observer-disposition.json',
+    'engineering-observer-closed-failure.json',
     'compact-control-launch-closed-failure.json')
 FINAL_METADATA_NAMES = (PENDING_NAME, DRIVER_IDENTITY_NAME,
     DRIVER_OBSERVATION_NAME, FINAL_INPUT_NAME, FINAL_WRITER_IDENTITY_NAME,
@@ -74,7 +81,7 @@ TINY_REPORT_SECONDS = 3.0
 # Independent reviewed dispatch pins. Root refreshes these only after reviewing
 # the final code of the fixed source implementations; a supplied bundle cannot
 # select an arbitrary implementation for any admission check.
-BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v3_compact_eight_case_resource_fixture.py': {'bytes': 134552, 'sha256': '42fa6b4da3d96e3974c5043334f558c83d20c2da3d189f80b7ae0aa5ab150d54'}, 'scripts/radio_native_v3_worker_admission.py': {'bytes': 84412, 'sha256': '31df40757be62bb544e1960edfb50c8cb47cc89318d81e3ea0b34c11c9ae1175'}, 'scripts/radio_native_v3_process_tree_supervisor.py': {'bytes': 82676, 'sha256': '6755183939fdabc1347344c8eb2defba985c7d5877a35e487b060a6c8fceef3e'}}
+BOOTSTRAP_SOURCE_PINS = {'scripts/radio_native_v3_compact_eight_case_resource_fixture.py': {'bytes': 147886, 'sha256': '1052e92361c9fed84d4edde65c2f46eef3a51990ad91c544e35c879fe9aa94e1'}, 'scripts/radio_native_v3_worker_admission.py': {'bytes': 91737, 'sha256': 'ca74fc03e400e85d3e2d6b1dcb298544b54a4c9a2d7a6e25dd3658125e405fd4'}, 'scripts/radio_native_v3_process_tree_supervisor.py': {'bytes': 84431, 'sha256': 'bace559d3619d8ae48e9fbb7e290f6ce46820fd90d23259d6737d4eeeddaacf9'}}
 AUTHORITY = {'execution_authorized': False, 'reservation_authorized': False,
     'scientific_execution_authorized': False, 'native_case_reservations': 0,
     'native_case_executions': 0, 'scientific_cases_run': 0, 'rng_draws': 0,
@@ -282,8 +289,8 @@ def _external_ledger_inventory(inventory, external_inventory):
             or len(external_inventory['rows']) > MAX_INVENTORY_ENTRIES):
         raise ValueError('Bounded complete external storage inventory required')
     raw = canonical(external_inventory)
-    if len(raw) > MAX_EXTERNAL_STORAGE_BYTES:
-        raise ValueError('Bounded external storage observation serialization exceeded')
+    if len(raw)+1 > MAX_RETAINED_STORAGE_SNAPSHOT_BYTES:
+        raise ValueError('Fixed 32KiB retained external storage snapshot capacity exceeded')
     # Validate and return the detached snapshot actually allocated, never mutable
     # caller dictionaries that could change after the totals or binding check.
     external_inventory = json.loads(raw)
@@ -381,8 +388,8 @@ def _external_ledger_inventory(inventory, external_inventory):
     if (_storage_integer(external_inventory['entry_count'], 'external entries', minimum=1)
             != len(external_inventory['rows'])):
         raise ValueError('External storage entry count differs from its exact rows')
-    if max(external_inventory['logical_bytes'], external_inventory['allocated_bytes']) > LIMITS['run_storage_bytes']:
-        raise ValueError('Original 1536MiB external storage bound exceeded')
+    if max(external_inventory['logical_bytes'], external_inventory['allocated_bytes']) > MAX_EXTERNAL_RETAINED_STORAGE_BYTES:
+        raise ValueError('Fixed 2MiB retained external storage capacity exceeded')
     return external_inventory
 
 
@@ -411,6 +418,32 @@ def _ledger_inventory_pin(inventory):
     return hashlib.sha256(canonical(inventory)).hexdigest()
 
 
+def external_storage_reference(external):
+    """Describe the one retained full inventory; never duplicate its rows."""
+    raw = canonical(external)
+    return {'schema': EXTERNAL_STORAGE_SCHEMA+'-retained-reference',
+        'path': external['current_control_scope']+'/'+RETAINED_STORAGE_SNAPSHOT_NAME,
+        'bytes': len(raw)+1, 'sha256': hashlib.sha256(raw+b'\n').hexdigest(),
+        'inventory_sha256': hashlib.sha256(raw).hexdigest(),
+        'entry_count': external['entry_count'], 'logical_bytes': external['logical_bytes'],
+        'allocated_bytes': external['allocated_bytes']}
+
+
+def prepare_retained_storage_snapshot(external, *, scope):
+    """Detached bounded snapshot for the authenticated caller's exclusive write.
+
+    Authentication remains the independently pinned fixture's responsibility.
+    This pure structural guard reserves the full snapshot once before writing.
+    """
+    return _external_ledger_inventory({'scope':_storage_absolute(str(scope)),'rows':[]},external)
+
+
+def verify_external_storage_reference(reference, external):
+    if canonical(reference) != canonical(external_storage_reference(external)):
+        raise ValueError('Retained external storage reference differs from complete observation')
+    return True
+
+
 def observe_authenticated_ledger_storage(scope):
     """Read-only live ledger observation through the independently pinned gate."""
     scope = _absolute(scope); code_root = _absolute(scope/'frozen-code')
@@ -425,7 +458,17 @@ def observe_authenticated_ledger_storage(scope):
     if (type(observed) is not dict or observed.get('schema') != EXTERNAL_STORAGE_SCHEMA
             or observed.get('current_control_scope') != str(scope)):
         raise ValueError('Pinned fixture returned an invalid persistent ledger observation')
-    return _external_ledger_inventory({'scope': str(scope), 'rows': []}, observed)
+    observed = _external_ledger_inventory({'scope': str(scope), 'rows': []}, observed)
+    snapshot, snapshot_pin = read_pinned_json(scope/RETAINED_STORAGE_SNAPSHOT_NAME,
+        maximum=MAX_EXTERNAL_STORAGE_BYTES)
+    if canonical(snapshot) != canonical(observed):
+        raise ValueError('Current retained external storage differs from its original full snapshot')
+    verify_external_storage_reference({'schema':EXTERNAL_STORAGE_SCHEMA+'-retained-reference',
+        'path':str(scope/RETAINED_STORAGE_SNAPSHOT_NAME), **snapshot_pin,
+        'inventory_sha256':_ledger_inventory_pin(snapshot),
+        'entry_count':snapshot['entry_count'],'logical_bytes':snapshot['logical_bytes'],
+        'allocated_bytes':snapshot['allocated_bytes']}, observed)
+    return observed
 
 
 def _match_retained_ledger(inventory, expected_sha256):
@@ -495,7 +538,7 @@ def allocate_storage(inventory, *, reserved_bytes=METADATA_RESERVATION_BYTES,
         'external_ledger_logical_bytes': external_logical,
         'external_ledger_allocated_bytes': external_allocated,
         'external_ledger_inventory_sha256': _ledger_inventory_pin(external) if external is not None else None,
-        'external_ledger_storage': external,
+        'external_ledger_storage': external_storage_reference(external) if external is not None else None,
         'external_ledger_allocation': 'one eighth of every historical scope and historical/prospective ledger byte' if external is not None else None,
         'cases': cases}
 
@@ -1008,6 +1051,75 @@ def join_final_report_lifetime(scope, *, expected_input_pin, expected_report_pin
             'storage_after_report_writer_lifetime_with_final_reservation': storage} if not tiny else {})}
 
 
+def final_report_join_core(joined):
+    """Detach the immutable report/writer join from its live storage recheck.
+
+    That one allocation changes when later observers retain their own metadata.
+    Every observer must separately recompute and charge current storage rather
+    than treating the earlier allocation as evidence for those later writes.
+    """
+    if type(joined) is not dict:
+        raise ValueError('Complete final report join object required')
+    core = json.loads(canonical(joined))
+    core.pop('storage_after_report_writer_lifetime_with_final_reservation', None)
+    return core
+
+
+def final_report_join_reference(joined):
+    """Small terminal wire binding the exact retained report and stable join."""
+    core = final_report_join_core(joined)
+    fields = (('report_input_pin','final_report_input_pin'),
+        ('persisted_final_report_pin','persisted_final_report_pin'),
+        ('report_writer_observation_pin','final_report_writer_observation_pin'))
+    pins = {}
+    for output, source in fields:
+        pin = core.get(source)
+        if (type(pin) is not dict or set(pin) != {'bytes','sha256'}
+                or type(pin['bytes']) is not int or not 0 < pin['bytes'] <= MAX_EVIDENCE_BYTES
+                or type(pin['sha256']) is not str
+                or not re.fullmatch('[a-f0-9]{64}',pin['sha256'])):
+            raise ValueError('Exact retained terminal report pin required: '+source)
+        pins[output] = pin
+    if (type(core.get('scope')) is not str or type(core.get('status')) is not str
+            or type(core.get('complete_resource_measurement_join_qualified')) is not bool):
+        raise ValueError('Exact terminal report scope/status/join state required')
+    return {'schema':SCHEMA+'-compact-report-join-reference',
+        'scope':core['scope'],'status':core['status'],
+        'join_core_sha256':hashlib.sha256(canonical(core)).hexdigest(), **pins,
+        'complete_resource_measurement_join_qualified':core['complete_resource_measurement_join_qualified'],
+        **AUTHORITY}
+
+
+def verify_final_report_join_reference(reference, joined):
+    if canonical(reference) != canonical(final_report_join_reference(joined)):
+        raise ValueError('Compact terminal reference differs from independently replayed report join')
+    return True
+
+
+def launcher_completion_reference(result, disposition_pin):
+    """Reference the already retained launcher disposition on the outer wire."""
+    if (type(result) is not dict or type(result.get('scope')) is not str
+            or type(result.get('status')) is not str
+            or type(result.get('independently_observed_fixture_child_join_qualified')) is not bool):
+        raise ValueError('Exact retained launcher disposition required')
+    raw = canonical(result)+b'\n'
+    expected_pin = {'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest()}
+    if canonical(disposition_pin) != canonical(expected_pin):
+        raise ValueError('Launcher completion raw retained disposition pin differs')
+    return {'schema':SCHEMA+'-compact-launcher-completion-reference',
+        'scope':result['scope'],'status':result['status'],
+        'disposition_pin':expected_pin,
+        'disposition_canonical_sha256':hashlib.sha256(canonical(result)).hexdigest(),
+        'fixture_child_join_qualified':result['independently_observed_fixture_child_join_qualified'],
+        'launcher_termination_covered':False, **AUTHORITY}
+
+
+def verify_launcher_completion_reference(reference, result, disposition_pin):
+    if canonical(reference) != canonical(launcher_completion_reference(result, disposition_pin)):
+        raise ValueError('Compact launcher completion differs from exact retained disposition')
+    return True
+
+
 def _material_directory_fd(path):
     """Open each existing directory component without following an alias."""
     path = _absolute(path)
@@ -1135,7 +1247,7 @@ def check_admitted_measurement_driver(bundle_path, *, expected_bundle_sha256):
     """No side effects; selects only the fixed control supervisor role."""
     if type(expected_bundle_sha256) is not str or not re.fullmatch('[a-f0-9]{64}', expected_bundle_sha256):
         raise ValueError('Independently retained exact bundle SHA256 required')
-    bundle, observed = read_pinned_json(bundle_path, maximum=16*MIB)
+    bundle, observed = read_pinned_json(bundle_path, maximum=MAX_COMPLETE_CONTEXT_BUNDLE_BYTES)
     if observed['sha256'] != expected_bundle_sha256:
         raise ValueError('Admission bundle differs from independent parent digest')
     code = bundle['plan']['code_files']; root = _absolute(bundle['code_root'])

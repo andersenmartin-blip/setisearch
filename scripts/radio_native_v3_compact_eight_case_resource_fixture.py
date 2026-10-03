@@ -91,15 +91,45 @@ CODE_FILES = (
     'tests/test_radio_native_v3_dispatch_spending.py',
     'tests/test_radio_native_v3_public_claim.py',
     'tests/test_radio_native_v3_custody_observation.py',
+    'tests/test_radio_native_v3_phase_reference.py',
+    'tests/test_radio_native_v3_caller_queue.py',
+    'tests/test_radio_native_v3_command_evidence_index.py',
+    'tests/test_radio_native_v3_terminal_reference.py',
+    'tests/test_radio_native_v3_terminal_capacity.py',
+    'scripts/radio_native_v3_engineering_observer.py',
+    'tests/test_radio_native_v3_engineering_observer.py',
+    'scripts/radio_native_v3_public_source_proof.py',
+    'tests/test_radio_native_v3_public_source_proof.py',
     *HISTORICAL_INPUT_PATHS)
 LOG_LIMIT = 65536
 OBSERVATION_SAMPLE_LIMIT = 2048
+TERMINAL_OBSERVATION_SAMPLE_LIMIT = 64
+CASE_OTHER_METADATA_BUDGET_BYTES = 7*256*1024
+SOURCE_WIRE_CAPACITY_BYTES = 36*MIB
+TRANSCRIPT_CAPACITY_BYTES = 108*MIB
+SHARED_METADATA_GROUP_BYTES = 2*MIB
+CAPACITY_BLOCK_BYTES = 4096
+CASE_CAPACITY_EXCLUDED_FILES = frozenset(('deterministic-source.bin',
+    'store/items/request-000001/part','caller-result.json','worker-admission.json',
+    'preparation-observation.json','caller-observation.json',
+    'lossless-project-observation.json','lossless-verify-retained-observation.json',
+    'public-evidence/preparation-observation.json','public-evidence/caller-observation.json',
+    'public-evidence/preparation-subreaper-receipt.json'))
 CHILD_ENVIRONMENT = {'PATH':'/usr/bin:/bin','LANG':'C','LC_ALL':'C'}
-WORKER_ADMISSION_IMPLEMENTATION_PIN = {'bytes': 84412, 'sha256': '31df40757be62bb544e1960edfb50c8cb47cc89318d81e3ea0b34c11c9ae1175'}
+WORKER_ADMISSION_IMPLEMENTATION_PIN = {'bytes': 91737, 'sha256': 'ca74fc03e400e85d3e2d6b1dcb298544b54a4c9a2d7a6e25dd3658125e405fd4'}
 CONTROL_ACTIVATION_IMPLEMENTATION_PIN = {'bytes': 20216, 'sha256': '4db260dc99a0b3a23ed3bdd27d7ab69cd7286c7da952a7d92a41775bbe43f48c'}
 INVOCATION_SPENDING_IMPLEMENTATION_PIN = {'bytes': 31857, 'sha256': '3dc5fafa3f7e5921b1154def909640f5a3d90b4d33625afff3353eeff3438a34'}
-HISTORICAL_OBSERVATION_IMPLEMENTATION_PIN = {'bytes': 39046, 'sha256': '7bc991d0fa4f24fe9cd0a8d6a62bb3b85d0ff042b48d94204cbaaaae5981a7c7'}
+HISTORICAL_OBSERVATION_IMPLEMENTATION_PIN = {'bytes': 41475, 'sha256': '91eaee679833fda6bc59724bda6f242006836cc1524f965a2dc1432dab2355bf'}
 ACTIVATION_ENVIRONMENT_IMPLEMENTATION_PIN = {'bytes': 11741, 'sha256': '059003934a8b51c544f72b488c41c19a6067c0ffb0e65c31afc6eacd35d76bfd'}
+SERIAL_EXECUTOR_HELPER = '''function serializeLocalExecutor(run) {
+  let pending = Promise.resolve();
+  return args => {
+    const result = pending.then(() => run(args));
+    pending = result;
+    return result;
+  };
+}
+'''
 LOSSLESS_HELPER = "'use strict';\n// OFFLINE engineering evidence only. No connector, SDK, Git, RNG, scientific\n// case, telescope access, retry, or native reservation is used by this helper.\nconst fs = require('node:fs'), path = require('node:path'), cp = require('node:child_process'), crypto = require('node:crypto');\nconst SCHEMA = 'radio-native-v2-compact-eight-case-lossless-projection-v1';\nconst HASH = /^[a-f0-9]{64}$/;\nconst ensure = (ok, message) => { if (!ok) throw Error(message); };\nconst same = (a, b) => JSON.stringify(a) === JSON.stringify(b);\nfunction* textChunks(value) {\n  ensure(typeof value === 'string', 'Exact string scalar required');\n  for (let offset = 0; offset < value.length;) {\n    let end = Math.min(value.length, offset + 32768);\n    const last = value.charCodeAt(end - 1), next = value.charCodeAt(end);\n    if (end < value.length && last >= 0xd800 && last <= 0xdbff && next >= 0xdc00 && next <= 0xdfff) end--;\n    yield value.slice(offset, end); offset = end;\n  }\n}\nfunction* quoted(chunks) {\n  yield '\"';\n  for (const chunk of chunks) yield JSON.stringify(chunk).slice(1, -1);\n  yield '\"';\n}\nfunction* jsonChunks(value, virtualStrings = new WeakMap()) {\n  if (value && typeof value === 'object' && virtualStrings.has(value)) {\n    yield* quoted(virtualStrings.get(value)());\n  } else if (typeof value === 'string') yield* quoted(textChunks(value));\n  else if (Array.isArray(value)) {\n    yield '['; for (let i = 0; i < value.length; i++) { if (i) yield ','; yield* jsonChunks(value[i], virtualStrings); } yield ']';\n  } else if (value && typeof value === 'object') {\n    yield '{'; const keys = Object.keys(value);\n    for (let i = 0; i < keys.length; i++) { if (i) yield ','; yield* quoted(textChunks(keys[i])); yield ':'; yield* jsonChunks(value[keys[i]], virtualStrings); }\n    yield '}';\n  } else {\n    const literal = JSON.stringify(value); ensure(typeof literal === 'string', 'JSON scalar required'); yield literal;\n  }\n}\nfunction digest(chunks, newline = false) {\n  const hash = crypto.createHash('sha256'); let bytes = 0;\n  for (const chunk of chunks) { const b = Buffer.from(chunk, 'utf8'); bytes += b.length; hash.update(b); }\n  if (newline) { bytes++; hash.update('\\n'); }\n  return { bytes, sha256: hash.digest('hex') };\n}\nfunction shaFile(filename) {\n  const fd = fs.openSync(filename, fs.constants.O_RDONLY | fs.constants.O_NOFOLLOW | fs.constants.O_NONBLOCK), hash = crypto.createHash('sha256'), buffer = Buffer.alloc(65536); let bytes = 0;\n  try { const before=fs.fstatSync(fd); ensure(before.isFile()&&before.nlink===1,'Sole-link regular hash input required'); while (true) { const n = fs.readSync(fd, buffer, 0, buffer.length, null); if (!n) break; hash.update(buffer.subarray(0, n)); bytes += n; } }\n  finally { fs.closeSync(fd); }\n  return { bytes, sha256: hash.digest('hex') };\n}\nfunction writeJsonExclusive(filename, value) {\n  const fd = fs.openSync(filename, 'wx', 0o600);\n  try { for (const chunk of jsonChunks(value)) fs.writeSync(fd, chunk); fs.writeSync(fd, '\\n'); fs.fsyncSync(fd); }\n  finally { fs.closeSync(fd); }\n  const directory=fs.openSync(path.dirname(filename),fs.constants.O_RDONLY|fs.constants.O_DIRECTORY|fs.constants.O_NOFOLLOW);\n  try{fs.fsyncSync(directory);}finally{fs.closeSync(directory);}\n}\nfunction readJson(filename) {\n  const fd=fs.openSync(filename,fs.constants.O_RDONLY|fs.constants.O_NOFOLLOW|fs.constants.O_NONBLOCK);\n  try { const before=fs.fstatSync(fd); ensure(before.isFile()&&before.nlink===1&&before.size<=192*1024*1024,'Bounded sole-link JSON file required');\n    const result=JSON.parse(fs.readFileSync(fd,'utf8')),after=fs.fstatSync(fd);\n    ensure(before.dev===after.dev&&before.ino===after.ino&&before.size===after.size&&before.mtimeMs===after.mtimeMs,'JSON file changed during parse'); return result;\n  } finally { fs.closeSync(fd); }\n}\nfunction identityCheck(transcript, prepared) {\n  ensure(same(Object.keys(transcript), ['schema', 'control_case_identity', 'qualified', 'seen', 'deliveries', 'read_receipts']), 'Exact fresh eight-case top-level property order required');\n  const id = transcript.control_case_identity;\n  ensure(id && typeof id.namespace === 'string' && id.namespace.length && Number.isInteger(id.case_ordinal) && id.case_ordinal >= 0 && id.case_ordinal < 8 &&\n    typeof id.source_case_id === 'string' && id.source_case_id.length && HASH.test(id.engineering_case_binding_sha256) && HASH.test(id.source_sha256) &&\n    id.native_case_binding_verified === false, 'Distinct engineering identity with native binding false required');\n  ensure(same(id,prepared.control_case_identity),'Exact prepared engineering identity required');\n  ensure(id.source_sha256 === prepared.source_sha256, 'Actual deterministic source must bind the fresh engineering identity');\n  ensure(Array.isArray(transcript.qualified?.client?.records) && Array.isArray(transcript.read_receipts), 'Complete caller records and source read receipts required');\n}\nfunction uniqueMap(rows, key, message) { const result = new Map(); for (const row of rows) { ensure(!result.has(row[key]), message); result.set(row[key], row); } return result; }\nfunction envelopeCheck(record, receipt) {\n  ensure(same(Object.keys(record.raw_result), receipt.envelope_entries.map(row => row[0])), 'Exact original source envelope property order required');\n  for (const [key, value] of receipt.envelope_entries) {\n    if (key === 'output') ensure(value === null, 'Removed source output must use the exact null receipt descriptor');\n    else ensure(same(record.raw_result[key], value), 'Exact retained source envelope metadata required: ' + key);\n  }\n  ensure(record.response_bytes === receipt.envelope_bytes && record.response_sha256 === receipt.envelope_sha256, 'Receipt must bind the complete source envelope');\n}\nfunction project({ fullPath, preparedPath, recipePath, projectionPath, recipeArguments }) {\n  const started = Date.now(), originalPin = shaFile(fullPath), prepared = readJson(preparedPath), recipePin = shaFile(recipePath);\n  let transcript = readJson(fullPath); // This is the only complete full-transcript parse. Parent must independently observe this process.\n  if (global.gc) global.gc();\n  identityCheck(transcript, prepared);\n  ensure(Array.isArray(recipeArguments) && recipeArguments.length === 5 && recipeArguments.every(v => typeof v === 'string') &&\n    recipeArguments[0] === prepared.scope && recipeArguments[1] === prepared.python && recipeArguments[3] === String(transcript.control_case_identity.case_ordinal) &&\n    recipeArguments[2].length && recipeArguments[4].length, 'Exact original root/python/run-id/case-ordinal/archive-prefix recipe arguments required');\n  const plans = uniqueMap(prepared.reads, 'ordinal', 'Repeated preparation read ordinal refused'),\n    commands = uniqueMap(prepared.reads.map(row => ({ ...row, cmd: row.arguments.cmd })), 'cmd', 'Repeated original source reader command refused'),\n    receipts = uniqueMap(transcript.read_receipts, 'ordinal', 'Repeated source receipt ordinal refused'), replacements = [];\n  ensure(plans.size === 38 && receipts.size === 38, 'Exactly 38 frozen maximum source reads required');\n  let sourceCount = 0, requestCount = 0;\n  for (let index = 0; index < transcript.qualified.client.records.length; index++) {\n    const record = transcript.qualified.client.records[index]; ensure(record.ordinal === index, 'Original complete caller ordinal sequence required');\n    if (record.kind === 'actual_source_read') {\n      const request = JSON.parse(record.request_json), plan = commands.get(request.arguments.cmd), receipt = plan && receipts.get(plan.ordinal);\n      ensure(plan && receipt && request.tool === 'exec_command' && same(request.arguments, plan.arguments), 'Exact original source reader request required');\n      ensure(receipt.path === plan.path && receipt.offset === plan.offset && receipt.bytes === plan.bytes && receipt.source_sha256 === plan.source_sha256 && receipt.output_sha256 === plan.output_sha256,\n        'Source read descriptor must bind the frozen source range');\n      envelopeCheck(record, receipt);\n      const outputPin = digest(textChunks(record.raw_result.output)), responsePin = digest(textChunks(record.response_json)), rawPin = digest(jsonChunks(record.raw_result));\n      ensure(outputPin.bytes === plan.bytes && outputPin.sha256 === plan.output_sha256 && responsePin.bytes === record.response_bytes && responsePin.sha256 === record.response_sha256 && same(responsePin, rawPin),\n        'Complete original source output and ordered response bytes must match every retained pin before omission');\n      record.raw_result.output = { $compact_eight_lossless: 'immutable_source_range', source_plan_ordinal: plan.ordinal };\n      record.response_json = { $compact_eight_lossless: 'ordered_source_read_envelope', source_plan_ordinal: plan.ordinal };\n      replacements.push({ record_ordinal: index, field: 'raw_result.output', source_plan_ordinal: plan.ordinal }, { record_ordinal: index, field: 'response_json', source_plan_ordinal: plan.ordinal }); sourceCount++;\n    } else if (record.kind === 'actual_connector' && record.tool.endsWith('_create_tree')) {\n      const requestPin = digest(textChunks(record.request_json)), view = prepared.request_view;\n      ensure(requestPin.bytes === view.request_bytes && requestPin.sha256 === view.request_sha256 && record.request_bytes === requestPin.bytes && record.request_sha256 === requestPin.sha256,\n        'Exact original large create_tree request pin required');\n      record.request_json = { $compact_eight_lossless: 'immutable_create_tree_request_view' };\n      replacements.push({ record_ordinal: index, field: 'request_json', source_request_view: true }); requestCount++;\n    }\n  }\n  ensure(sourceCount === 38 && requestCount === 1 && replacements.length === 77, 'Precisely 77 large fields must be omitted; no other field removal permitted');\n  if (global.gc) global.gc();\n  const relative = path.relative(prepared.scope, prepared.request_view.path);\n  ensure(relative && !path.isAbsolute(relative) && relative.split(path.sep).every(part => part !== '..'), 'Request source must remain inside the original preparation root');\n  const projection = { schema: SCHEMA, fixture_only: true, original_full_transcript: { ...originalPin, original_scratch_path: path.resolve(fullPath) },\n    regeneration: { recipe_file: path.basename(recipePath), recipe_sha256: recipePin.sha256, recipe_bytes: recipePin.bytes,\n      recipe_arguments: recipeArguments, regenerated_relative_source_path: relative, prepared },\n    large_field_replacements: replacements, transcript, execution_authorized: false, scientific_execution_authorized: false,\n    native_case_reservations: 0, native_case_executions: 0, scientific_cases_run: 0, rng_draws: 0, telescope_reads: 0,\n    actual_connector_calls: 0, actual_functions_sdk_calls: 0, network_fetches: 0, automatic_retry: false,\n    limitations: ['Offline lossless evidence projection only; source readers and tail evidence belong to the separately measured caller.',\n      'Projection does not establish native binding, live transport, publication custody, scientific execution, or eight-case resource qualification.'] };\n  writeJsonExclusive(projectionPath, projection);\n  const pin = shaFile(projectionPath); transcript = null; if (global.gc) global.gc();\n  return { schema: SCHEMA + '-project-audit', status: 'PASSED', original_full_transcript: originalPin, projection: pin, omitted_fields: 77,\n    complete_original_envelope_pins_checked_before_omission: true, elapsed_seconds: (Date.now() - started) / 1000 };\n}\nfunction* rangeChunks(fd, offset, bytes) {\n  const buffer = Buffer.alloc(65536); let used = 0;\n  while (used < bytes) {\n    const n = fs.readSync(fd, buffer, 0, Math.min(buffer.length, bytes - used), offset + used); ensure(n > 0, 'Regenerated source range truncated');\n    const part = buffer.subarray(0, n); ensure(part.every(v => v < 128), 'Exact immutable ASCII source range required');\n    yield part.toString('ascii'); used += n;\n  }\n}\nfunction verifyProjection({ projectionPath, recipePath, freshRoot, auditPath, python, retainedSourcePath, retainedPayloadPath }) {\n  const started = Date.now(), projection = readJson(projectionPath), regeneration = projection.regeneration, prepared = regeneration.prepared,\n    transcript = projection.transcript, expected = projection.original_full_transcript, recipePin = shaFile(recipePath), projectionPin = shaFile(projectionPath);\n  ensure(projection.schema === SCHEMA && projection.fixture_only === true && projection.execution_authorized === false && projection.scientific_execution_authorized === false,\n    'Pinned offline engineering projection required');\n  identityCheck(transcript, prepared);\n  ensure(recipePin.sha256 === regeneration.recipe_sha256 && recipePin.bytes === regeneration.recipe_bytes, 'Exact frozen published preparation recipe required');\n  ensure(Array.isArray(regeneration.recipe_arguments) && regeneration.recipe_arguments.length === 5 && regeneration.recipe_arguments[0] === prepared.scope &&\n    regeneration.recipe_arguments[1] === prepared.python && regeneration.recipe_arguments[3] === String(transcript.control_case_identity.case_ordinal), 'Exact retained original recipe identity arguments required');\n  const relative = path.relative(prepared.scope, prepared.request_view.path);\n  ensure(path.isAbsolute(prepared.scope) && path.isAbsolute(prepared.request_view.path) && relative && !path.isAbsolute(relative) &&\n    relative.split(path.sep).every(part => part !== '..') && regeneration.regenerated_relative_source_path === relative,\n    'Exact bounded original-to-regenerated source path mapping required');\n  ensure(typeof python === 'string' && path.isAbsolute(python), 'Absolute independently pinned Python executable required');\n  let data, actualPrepared, sourceFile, payloadFile, independentlyRegenerated;\n  if (retainedSourcePath !== undefined) {\n    ensure(path.isAbsolute(retainedSourcePath) && path.resolve(retainedSourcePath) === path.resolve(prepared.request_view.path), 'Exact original retained source path required');\n    data = prepared.scope; actualPrepared = prepared; sourceFile = retainedSourcePath;\n    payloadFile = retainedPayloadPath || path.join(data, 'deterministic-source.bin');\n    ensure(path.isAbsolute(payloadFile) && path.resolve(payloadFile) === path.resolve(path.join(prepared.scope, 'deterministic-source.bin')), 'Exact original retained deterministic payload path required');\n    independentlyRegenerated = false;\n  } else {\n    ensure(path.isAbsolute(freshRoot) && !fs.existsSync(freshRoot), 'Exclusive fresh absolute regeneration root required; no overwrite or retry');\n    fs.mkdirSync(freshRoot, { mode: 0o700 }); data = path.join(freshRoot, 'regenerated-archive'); fs.mkdirSync(data, { mode: 0o700 });\n    const args = [...regeneration.recipe_arguments]; args[0] = data;\n    const regenerated = cp.spawnSync(python, ['-I', '-S', '-B', recipePath, ...args], { encoding: 'utf8', maxBuffer: 1048576, timeout: 120000,\n      env: { PATH: '/usr/bin:/bin', LANG: 'C', LC_ALL: 'C' } });\n    ensure(!regenerated.error && regenerated.status === 0 && regenerated.stdout === '' && regenerated.stderr === '', 'Exact offline deterministic preparation failed without retry: ' + String(regenerated.error || regenerated.stderr));\n    actualPrepared = readJson(path.join(data, 'prepared.json')); sourceFile = path.join(data, regeneration.regenerated_relative_source_path);\n    payloadFile = path.join(data, 'deterministic-source.bin'); independentlyRegenerated = true;\n  }\n  const sourcePin = shaFile(sourceFile), payloadPin = shaFile(payloadFile);\n  ensure(sourcePin.bytes === prepared.request_view.source_bytes && sourcePin.sha256 === prepared.request_view.source_sha256 &&\n    payloadPin.bytes === prepared.source_bytes && payloadPin.sha256 === prepared.source_sha256 &&\n    actualPrepared.archive_bytes === prepared.archive_bytes && actualPrepared.archive_files === prepared.archive_files && same(actualPrepared.files, prepared.files), 'Exact regenerated source, archive layout, and file pins required');\n  for (const field of ['source_bytes', 'source_sha256', 'offset', 'bytes', 'sha256', 'request_prefix', 'request_suffix', 'request_bytes', 'request_sha256'])\n    ensure(same(actualPrepared.request_view[field], prepared.request_view[field]), 'Regenerated request view differs: ' + field);\n  ensure(actualPrepared.reads.length === prepared.reads.length, 'Exact original read count required');\n  for (let i = 0; i < prepared.reads.length; i++) for (const field of ['ordinal', 'tool', 'offset', 'bytes', 'source_sha256', 'output_sha256', 'response_reserved_bytes'])\n    ensure(same(actualPrepared.reads[i][field], prepared.reads[i][field]), 'Regenerated source read content descriptor differs: ' + field);\n  // Original paths, commands, wall times, envelopes, binding values, and property\n  // order stay in the retained transcript. Only regenerated byte ranges replace\n  // the 77 explicitly omitted strings. No restored large field is accumulated.\n  const plans = uniqueMap(prepared.reads, 'ordinal', 'Repeated source plan refused'), receipts = uniqueMap(transcript.read_receipts, 'ordinal', 'Repeated source receipt refused'),\n    virtual = new WeakMap(), seen = new Set(), fd = fs.openSync(sourceFile, fs.constants.O_RDONLY | fs.constants.O_NOFOLLOW | fs.constants.O_NONBLOCK);\n  let sourceFields = 0, envelopeFields = 0, requestFields = 0;\n  try {\n    ensure(plans.size === 38 && receipts.size === 38 && projection.large_field_replacements.length === 77, 'Exact complete 38-source/77-field projection required');\n    for (const item of projection.large_field_replacements) {\n      const key = item.record_ordinal + ':' + item.field; ensure(!seen.has(key), 'Duplicate large field replacement refused'); seen.add(key);\n      const record = transcript.qualified.client.records[item.record_ordinal]; ensure(record && record.ordinal === item.record_ordinal, 'Original complete record ordinal required');\n      if (item.field === 'raw_result.output') {\n        const marker = record.raw_result?.output, plan = plans.get(item.source_plan_ordinal), receipt = plan && receipts.get(plan.ordinal);\n        ensure(record.kind === 'actual_source_read' && marker && same(Object.keys(marker), ['$compact_eight_lossless', 'source_plan_ordinal']) && marker.$compact_eight_lossless === 'immutable_source_range' && marker.source_plan_ordinal === plan?.ordinal && receipt,\n          'Exact removed source output descriptor required');\n        const request = JSON.parse(record.request_json);\n        ensure(request.tool === 'exec_command' && same(request.arguments, plan.arguments) && receipt.path === plan.path && receipt.offset === plan.offset && receipt.bytes === plan.bytes &&\n          receipt.source_sha256 === plan.source_sha256 && receipt.output_sha256 === plan.output_sha256, 'Original source command and receipt metadata must remain unchanged');\n        const pin = digest(rangeChunks(fd, plan.offset, plan.bytes)); ensure(pin.bytes === plan.bytes && pin.sha256 === plan.output_sha256, 'Exact regenerated source output pin differs');\n        virtual.set(marker, () => rangeChunks(fd, plan.offset, plan.bytes)); sourceFields++;\n      } else if (item.field === 'response_json') {\n        const marker = record.response_json, plan = plans.get(item.source_plan_ordinal), receipt = plan && receipts.get(plan.ordinal);\n        ensure(record.kind === 'actual_source_read' && marker && same(Object.keys(marker), ['$compact_eight_lossless', 'source_plan_ordinal']) && marker.$compact_eight_lossless === 'ordered_source_read_envelope' &&\n          marker.source_plan_ordinal === plan?.ordinal && virtual.has(record.raw_result.output) && receipt, 'Exact ordered removed response descriptor required');\n        envelopeCheck(record, receipt);\n        const pin = digest(jsonChunks(record.raw_result, virtual));\n        ensure(pin.bytes === record.response_bytes && pin.sha256 === record.response_sha256 && receipt.envelope_bytes === pin.bytes && receipt.envelope_sha256 === pin.sha256,\n          'Exact reconstructed complete source envelope pin differs');\n        virtual.set(marker, () => jsonChunks(record.raw_result, virtual)); envelopeFields++;\n      } else if (item.field === 'request_json') {\n        const marker = record.request_json, view = prepared.request_view;\n        ensure(record.kind === 'actual_connector' && record.tool.endsWith('_create_tree') && marker && same(Object.keys(marker), ['$compact_eight_lossless']) && marker.$compact_eight_lossless === 'immutable_create_tree_request_view',\n          'Exact removed create_tree request descriptor required');\n        const chunks = function* () { yield* textChunks(view.request_prefix); yield* rangeChunks(fd, view.offset, view.bytes); yield* textChunks(view.request_suffix); }, pin = digest(chunks());\n        ensure(pin.bytes === record.request_bytes && pin.sha256 === record.request_sha256 && pin.bytes === view.request_bytes && pin.sha256 === view.request_sha256,\n          'Exact complete regenerated create_tree request pin differs');\n        virtual.set(marker, chunks); requestFields++;\n      } else throw Error('Unknown or extra large field replacement refused');\n    }\n    ensure(sourceFields === 38 && envelopeFields === 38 && requestFields === 1, 'Precisely all 77 original large string fields must be restored');\n    const reconstructed = digest(jsonChunks(transcript, virtual), true);\n    ensure(reconstructed.bytes === expected.bytes && reconstructed.sha256 === expected.sha256, 'Entire original caller transcript UTF-8 byte count and SHA differ after hash-only reconstruction');\n    const audit = { schema: SCHEMA + '-reconstruction-audit', status: 'PASSED', control_case_identity: transcript.control_case_identity,\n      projection: projectionPin, recipe: recipePin, reconstruction_helper: shaFile(__filename), original_full_transcript: expected,\n      reconstructed_full_transcript: { ...reconstructed, hash_only_sink: true, full_duplicate_file_written: false }, request_source: { ...sourcePin, path: sourceFile },\n      deterministic_source: { ...payloadPin, path: payloadFile }, independently_regenerated_for_this_proof: independentlyRegenerated,\n      deterministic_recipe_reexecuted_for_this_proof: independentlyRegenerated,\n      source_mode: independentlyRegenerated ? 'independently_regenerated_from_frozen_recipe' : 'existing_exact_pinned_fresh_generator_output',\n      additional_full_source_copy_written: independentlyRegenerated, additional_full_transcript_copy_written: false,\n      restored_source_output_fields: sourceFields, restored_complete_raw_response_json_fields: envelopeFields,\n      restored_complete_create_tree_request_fields: requestFields, exact_original_metadata_and_property_order_preserved: true,\n      complete_full_file_bytecount_and_sha256_match: true, no_accumulated_reconstructed_large_strings: true, no_reconstructed_full_buffer: true,\n      data_reconstruction_only: true, new_case_executions: 0, actual_functions_sdk_calls: 0, actual_connector_calls: 0, network_fetches: 0,\n      real_public_github_mutations: 0, native_case_reservations: 0, native_case_executions: 0, scientific_cases_run: 0, rng_draws: 0, telescope_reads: 0,\n      automatic_retry: false, execution_authorized: false, scientific_execution_authorized: false, live_transport_qualified: false, elapsed_seconds: (Date.now() - started) / 1000 };\n    writeJsonExclusive(auditPath, audit); return audit;\n  } finally { fs.closeSync(fd); }\n}\nmodule.exports = { SCHEMA, project, verifyProjection, textChunks, quoted, jsonChunks, digest, shaFile, rangeChunks };\nif (require.main === module) {\n  try {\n    const args = process.argv.slice(2); let result;\n    if (args[0] === '--resource-project' || args[0] === '--resource-verify-retained') {\n      ensure(args.length===2,'Exact resource helper argument file required');\n      const options=readJson(args[1]),identityPath=options.identityPath;\n      ensure(typeof identityPath==='string'&&path.isAbsolute(identityPath),'Independent observer identity destination required');\n      writeJsonExclusive(identityPath,{procfs_pid:Number(fs.readlinkSync('/proc/self')),namespace_pid:process.pid});\n      result=args[0]==='--resource-project'?project(options):verifyProjection(options);\n    } else if (args[0] === '--project') {\n      ensure(args.length === 6, 'Usage: helper.js --project full.json prepared.json recipe.py projection.json recipe-arguments.json');\n      result = project({ fullPath: args[1], preparedPath: args[2], recipePath: args[3], projectionPath: args[4], recipeArguments: readJson(args[5]) });\n    } else if (args[0] === '--verify-projection') {\n      ensure(args.length === 6, 'Usage: helper.js --verify-projection projection.json recipe.py fresh-absolute-root audit.json absolute-python');\n      result = verifyProjection({ projectionPath: args[1], recipePath: args[2], freshRoot: args[3], auditPath: args[4], python: args[5] });\n    } else if (args[0] === '--verify-retained-source') {\n      ensure(args.length === 6 || args.length === 7, 'Usage: helper.js --verify-retained-source projection.json recipe.py original-absolute-source-wire audit.json absolute-python [original-absolute-deterministic-payload]');\n      result = verifyProjection({ projectionPath: args[1], recipePath: args[2], retainedSourcePath: args[3], auditPath: args[4], python: args[5], retainedPayloadPath: args[6] });\n    } else throw Error('Only --project, --verify-projection, and --verify-retained-source modes are permitted');\n    process.stdout.write(JSON.stringify({ status: result.status, schema: result.schema, bytes: result.reconstructed_full_transcript?.bytes ?? result.original_full_transcript.bytes,\n      sha256: result.reconstructed_full_transcript?.sha256 ?? result.original_full_transcript.sha256, elapsed_seconds: result.elapsed_seconds }) + '\\n');\n  } catch (error) { process.stderr.write(String(error) + '\\n'); process.exitCode = 1; }\n}\n"
 
 PUBLIC_CLAIM_IMPLEMENTATION_PIN = {'bytes': 17351, 'sha256': 'c55ab766c8aa8604d2bbac6f0bacb2bb0c58682e59897890a4f16c3670f56173'}
@@ -128,6 +158,8 @@ def pin(path):
 
 def write(path, value):
     raw = value if isinstance(value, bytes) else canonical(value) + b'\n'
+    check_case_metadata_write(path,len(raw))
+    check_shared_metadata_write(path,len(raw))
     fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o400)
     try:
         view = memoryview(raw)
@@ -146,6 +178,108 @@ def write(path, value):
     reopened = os.stat(path,follow_symlinks=False)
     if (reopened.st_dev,reopened.st_ino)!=(written_identity.st_dev,written_identity.st_ino):
         raise ValueError('Durable evidence file identity replaced')
+    check_case_metadata_write(path,0)
+    check_shared_metadata_write(path,0)
+
+
+def case_capacity_excluded(relative):
+    relative=str(relative)
+    if relative in CASE_CAPACITY_EXCLUDED_FILES or relative.startswith(('frozen-code/','derived/')):
+        return True
+    if re.fullmatch(r'(?:caller|lossless-project|lossless-verify-retained|command-(?:[0-9]|[12][0-9]|3[0-7]|tail))-admission\.json',relative):
+        return True
+    if re.fullmatch(r'command-observations/command-(?:[0-9]|[12][0-9]|3[0-7]|tail)-observation\.json',relative):
+        return True
+    return bool(re.fullmatch(r'(?:preparation|caller|lossless-project|lossless-verify-retained|command-(?:[0-9]|[12][0-9]|3[0-7]|tail))-supervisor/subreaper-(?:measurements|receipt)\.json',relative))
+
+
+def check_case_metadata_write(path,additional_bytes):
+    """Check the model's remaining file bucket before every fixture write.
+
+    Payloads, full context, phase references, observations and supervisor
+    envelopes each have separate bounds. This bucket charges every other file
+    including its actual allocation; directory allocation remains separate.
+    """
+    path=Path(path).absolute()
+    if '..' in path.parts:raise ValueError('Canonical capacity write path required')
+    match=re.match(r'^(.*?/cases/case0[0-7])/(.+)$',str(path))
+    if not match or case_capacity_excluded(match.group(2)):return
+    if type(additional_bytes) is not int or additional_bytes<0:raise ValueError('Bounded metadata write size required')
+    root=Path(match.group(1));total=0
+    if root.resolve()!=root:raise ValueError('Canonical case metadata root required')
+    if os.statvfs(root).f_frsize!=CAPACITY_BLOCK_BYTES:raise ValueError('Frozen 4096-byte capacity filesystem required')
+    for retained in root.rglob('*'):
+        info=retained.lstat()
+        if stat.S_ISDIR(info.st_mode):continue
+        if not stat.S_ISREG(info.st_mode) or info.st_nlink!=1:raise ValueError('Ordinary sole-link case metadata required')
+        if not case_capacity_excluded(retained.relative_to(root)):
+            total+=max(info.st_size,info.st_blocks*512)
+    proposed=((additional_bytes+CAPACITY_BLOCK_BYTES-1)//CAPACITY_BLOCK_BYTES)*CAPACITY_BLOCK_BYTES
+    if total+proposed>CASE_OTHER_METADATA_BUDGET_BYTES:
+        raise ValueError('Fixed engineering other-metadata capacity exceeded before write')
+
+
+def check_shared_metadata_write(path,additional_bytes):
+    """Bound the two prospective shared file buckets before their writes."""
+    path=Path(path).absolute()
+    match=re.match(r'^(.*?/'+re.escape(PREFIX)+r')/(.+)$',str(path))
+    if not match:return
+    relative=match.group(2)
+    excluded=('cases/','frozen-code/','derived/')
+    if relative.startswith(excluded) or relative in ('control-admission.json','verifier-admission.json',
+            'current-retained-storage-inventory.json') or relative.startswith(('whole-control-supervisor/',
+            'independent-verifier-supervisor/')):return
+    # Terminal writes have their separately reserved aggregate 256 KiB.
+    if relative.startswith(('final-','measurement-driver','report-writer','launcher-',
+            'engineering-observer','closed-failure')):return
+    context_names={'plan.json','complete-freeze.json','public-preread.json',
+        'activation-receipt.json','invocation-spending.json'}
+    context=relative in context_names;root=Path(match.group(1));total=0
+    if root.resolve()!=root or os.statvfs(root).f_frsize!=CAPACITY_BLOCK_BYTES:
+        raise ValueError('Canonical shared capacity root and 4096-byte filesystem required')
+    for retained in root.iterdir():
+        info=retained.lstat()
+        if stat.S_ISDIR(info.st_mode):continue
+        name=retained.name
+        if (name in context_names)!=context:continue
+        if not context and (name in ('control-admission.json','verifier-admission.json',
+                'current-retained-storage-inventory.json') or name.startswith(('final-',
+                'measurement-driver','report-writer','launcher-','engineering-observer','closed-failure'))):continue
+        if not stat.S_ISREG(info.st_mode) or info.st_nlink!=1:
+            raise ValueError('Sole-link shared capacity metadata required')
+        total+=max(info.st_size,info.st_blocks*512)
+    if type(additional_bytes)is not int or additional_bytes<0:raise ValueError('Bounded shared metadata write required')
+    proposed=((additional_bytes+CAPACITY_BLOCK_BYTES-1)//CAPACITY_BLOCK_BYTES)*CAPACITY_BLOCK_BYTES
+    if total+proposed>SHARED_METADATA_GROUP_BYTES:raise ValueError('Fixed shared metadata capacity exceeded before write')
+
+
+def case_metadata_worker_guard():
+    """The same finite other-file budget in each derived Node writer."""
+    return '''
+const CASE_CAPACITY_EXCLUDED=new Set('''+json.dumps(sorted(CASE_CAPACITY_EXCLUDED_FILES))+''');
+function caseCapacityExcluded(relative){
+ return CASE_CAPACITY_EXCLUDED.has(relative)||relative.startsWith('frozen-code/')||relative.startsWith('derived/')||
+ /^(?:caller|lossless-project|lossless-verify-retained|command-(?:[0-9]|[12][0-9]|3[0-7]|tail))-admission\\.json$/.test(relative)||
+ /^command-observations\\/command-(?:[0-9]|[12][0-9]|3[0-7]|tail)-observation\\.json$/.test(relative)||
+ /^(?:preparation|caller|lossless-project|lossless-verify-retained|command-(?:[0-9]|[12][0-9]|3[0-7]|tail))-supervisor\\/subreaper-(?:measurements|receipt)\\.json$/.test(relative);
+}
+function checkCaseMetadataWrite(filename,additionalBytes){
+ const absolute=path.resolve(filename),match=absolute.match(/^(.*?\\/cases\\/case0[0-7])\\/(.+)$/);
+ if(!match||caseCapacityExcluded(match[2]))return;
+ if(!Number.isSafeInteger(additionalBytes)||additionalBytes<0)throw Error('Bounded metadata write required');
+ const root=match[1];if(fs.realpathSync(root)!==root)throw Error('Canonical case metadata root required');
+ if(Number(fs.statfsSync(root).bsize)!==4096)throw Error('Frozen 4096-byte capacity filesystem required');
+ let total=0;const visit=directory=>{for(const name of fs.readdirSync(directory)){
+  const retained=path.join(directory,name),info=fs.lstatSync(retained);
+  if(info.isDirectory())visit(retained);else{
+   if(!info.isFile()||info.nlink!==1)throw Error('Sole-link case metadata required');
+   if(!caseCapacityExcluded(path.relative(root,retained)))total+=Math.max(info.size,info.blocks*512);
+  }
+ }};visit(root);
+ if(total+Math.ceil(additionalBytes/4096)*4096>'''+str(CASE_OTHER_METADATA_BUDGET_BYTES)+''')
+  throw Error('Fixed engineering other-metadata capacity exceeded before write');
+}
+'''
 
 
 class JSONEvidenceChangedDuringRead(ValueError):
@@ -220,7 +354,8 @@ def frozen_module(relative):
  exec(compile(bytes(raw),str(path),'exec'),module)
  return module
 IMPLEMENTATION_PINS='''+repr(pins)+'''
-frozen_module('''+repr(SELF)+''')['source_worker_admission'](
+SOURCE_FIXTURE=frozen_module('''+repr(SELF)+''')
+SOURCE_FIXTURE['source_worker_admission'](
  Path(sys.argv[6]),sys.argv[7],ordinal=ordinal,
  argv=list(sys.orig_argv),environment=dict(os.environ))
 '''
@@ -269,8 +404,13 @@ def templates(source, repo=REPO):
         source_worker_guard(repo)+
         'assert namespace=='+repr(NAMESPACE)+' and 0<=ordinal<8 and prefix=='+repr(PREFIX)+'+f"/case{ordinal:02d}-fixed"\n'
         'case_id=namespace+f"/case{ordinal:02d}"\n'
-        'with (root/"preparation-identity.json").open("x") as identity:\n'
-        ' json.dump({"procfs_pid":int(os.readlink("/proc/self")),"namespace_pid":os.getpid()},identity); identity.flush(); os.fsync(identity.fileno())')
+        'SOURCE_FIXTURE["write"](root/"preparation-identity.json",{"procfs_pid":int(os.readlink("/proc/self")),"namespace_pid":os.getpid()})')
+    prepare = replace_once(prepare,'def write(p,b):\n p.parent.mkdir(parents=True,exist_ok=True)',
+        'def write(p,b):\n SOURCE_FIXTURE["check_case_metadata_write"](p,len(b))\n p.parent.mkdir(parents=True,exist_ok=True)')
+    prepare = replace_once(prepare,"with p.open('xb') as f:f.write(b);f.flush();os.fsync(f.fileno())",
+        "with p.open('xb') as f:f.write(b);f.flush();os.fsync(f.fileno())\n SOURCE_FIXTURE[\"check_case_metadata_write\"](p,0)")
+    prepare = replace_once(prepare,'wire=canon(packet); null=',
+        'wire=canon(packet); assert len(wire)<='+str(SOURCE_WIRE_CAPACITY_BYTES)+',"Fixed source-wire capacity exceeded before write"; null=')
     prepare = replace_once(prepare, "source_bytes=26*1024*1024;domain=b'seti-local-transport-sha256-counter-v1\\0'+(0).to_bytes(8,'big')",
         "source_bytes=26*1024*1024;domain=b'seti-compact-eight-input-sha256-counter-v3\\0'+namespace.encode()+b'\\0'+ordinal.to_bytes(8,'big')")
     prepare = replace_once(prepare, "prefix='results_radio_native_v2_tail_integration_20261001a/offline_full03/case00-fixed'", '')
@@ -283,6 +423,10 @@ def templates(source, repo=REPO):
         "'control_case_identity':identity,'source_domain_hex':domain.hex(),'source_bytes':len(source)")
     helper_end = source.index('const PREPARE=String.raw`')
     helpers = source[helper_start:helper_end]
+    helpers = replace_once(helpers,"function writeExclusive(filename,value){const fd=fs.openSync(filename,'wx',0o600);try{fs.writeFileSync(fd,typeof value==='string'?value:JSON.stringify(value,null,2)+'\\n');fs.fsyncSync(fd);}finally{fs.closeSync(fd);}}",
+        "function writeExclusive(filename,value){const raw=typeof value==='string'?value:JSON.stringify(value,null,2)+'\\n';checkCaseMetadataWrite(filename,Buffer.byteLength(raw));const fd=fs.openSync(filename,'wx',0o600);try{fs.writeFileSync(fd,raw);fs.fsyncSync(fd);}finally{fs.closeSync(fd);}checkCaseMetadataWrite(filename,0);}")
+    helpers = replace_once(helpers,"function streamJson(filename,value){const fd=fs.openSync(filename,'wx',0o600);try{const put=s=>fs.writeSync(fd,s),",
+        "function streamJson(filename,value){let written=0;const fd=fs.openSync(filename,'wx',0o600);try{const put=s=>{const amount=Buffer.byteLength(s);if(written+amount>"+str(TRANSCRIPT_CAPACITY_BYTES)+")throw Error('Fixed full-transcript capacity exceeded before write');const n=fs.writeSync(fd,s);if(n!==amount)throw Error('Complete transcript chunk write required');written+=n;},")
     caller_start = source.index('async function caller(scope){')
     caller_end = source.index('async function runOfflineFixture(')
     caller = source[caller_start:caller_end]
@@ -294,6 +438,13 @@ def templates(source, repo=REPO):
     caller = replace_once(caller, "cp.execFile('/bin/bash',['--noprofile','--norc','-c',args.cmd]", "cp.execFile(prepared.python,['-I','-S','-B',path.join(code,'"+SELF+"'),'--command-worker',scope,'command-'+String(readByCommand.get(args.cmd)?.ordinal??'tail'),args.cmd]")
     caller = replace_once(caller, "String(readByCommand.get(args.cmd)?.ordinal??'tail'),args.cmd]",
         "String(readByCommand.get(args.cmd)?.ordinal??'tail'),args.cmd,bundlePath,bundleDigest]")
+    # Every source helper checks the same strict storage inventory. Queue the
+    # local subprocesses so one helper's writes cannot race another's check.
+    # A rejected helper leaves the queue rejected, so queued work never starts.
+    caller = replace_once(caller, 'const execLocal=args=>new Promise((resolve,reject)=>{',
+        'const execLocal=serializeLocalExecutor(args=>new Promise((resolve,reject)=>{')
+    caller = replace_once(caller, 'output:stdout,offline_fixture:true});});});',
+        'output:stdout,offline_fixture:true});});}));')
     caller = replace_once(caller, '{schema:SCHEMA,qualified,seen,deliveries,read_receipts:readReceipts}', '{schema:SCHEMA,control_case_identity:prepared.control_case_identity,qualified,seen,deliveries,read_receipts:readReceipts}')
     header = "'use strict';\nconst fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process'),crypto=require('node:crypto');\n"
     caller = replace_once(caller, 'const result={schema:SCHEMA,status:qualified.status',
@@ -302,11 +453,17 @@ def templates(source, repo=REPO):
     caller = replace_once(caller, 'async function caller(scope){',
         "async function caller(scope,bundlePath,bundleDigest){\n requireNodeWorkerAdmission('caller',scope,bundlePath,bundleDigest);")
     guard = node_worker_guard(repo)
-    caller_code = header + guard + helpers + caller + "\nif(process.argv.length!==6||process.argv[2]!=='--caller')throw Error('Exact admitted fresh caller mode required');caller(path.resolve(process.argv[3]),path.resolve(process.argv[4]),process.argv[5]).catch(error=>{process.stderr.write(String(error)+'\\n');process.exitCode=1;});\n"
+    caller_code = header + guard + SERIAL_EXECUTOR_HELPER + case_metadata_worker_guard() + helpers + caller + "\nif(process.argv.length!==6||process.argv[2]!=='--caller')throw Error('Exact admitted fresh caller mode required');caller(path.resolve(process.argv[3]),path.resolve(process.argv[4]),process.argv[5]).catch(error=>{process.stderr.write(String(error)+'\\n');process.exitCode=1;});\n"
     helper_code = guard + replace_once(LOSSLESS_HELPER,
         "ensure(args.length===2,'Exact resource helper argument file required');",
         "ensure(args.length===4,'Exact resource helper argument file and admission required');\n"+
         "      requireNodeWorkerAdmission(args[0]==='--resource-project'?'lossless-project':'lossless-verify-retained',path.dirname(args[1]),args[2],args[3]);")
+    helper_code = replace_once(helper_code,"function writeJsonExclusive(filename, value) {\n  const fd = fs.openSync(filename, 'wx', 0o600);",
+        "function writeJsonExclusive(filename, value) {\n  checkCaseMetadataWrite(filename,digest(jsonChunks(value),true).bytes);\n  const fd = fs.openSync(filename, 'wx', 0o600);")
+    helper_code = replace_once(helper_code,'function readJson(filename) {',
+        case_metadata_worker_guard()+'\nfunction readJson(filename) {')
+    helper_code = replace_once(helper_code,'try{fs.fsyncSync(directory);}finally{fs.closeSync(directory);}',
+        'try{fs.fsyncSync(directory);}finally{fs.closeSync(directory);}\n  checkCaseMetadataWrite(filename,0);')
     # The admitted recipe retains its exact bundle path and digest as well as
     # the five historical source parameters. Generic tiny helper tests keep
     # their original five-argument contract.
@@ -339,6 +496,8 @@ def authenticated_repository_root(plan, freeze=None, *, repo=REPO, repository_ro
 
 def build_plan(repo=REPO, *, invocation_repository_root=None):
     repo = Path(repo)
+    if os.statvfs(repo).f_frsize!=CAPACITY_BLOCK_BYTES:
+        raise ValueError('Fixed engineering capacity preparation requires a4096-byte filesystem')
     history=historical_observation_module(repo)
     original_root=str(repo.absolute()) if invocation_repository_root is None else str(invocation_repository_root)
     history['validate_current_root'](original_root)
@@ -746,9 +905,11 @@ def launched_child_identity(namespace_pid):
     return candidates[0]
 
 
-def observe_process(argv, root, label, identity_path, *, deadline, on_tick=None, output_cap=LOG_LIMIT, pipe_output=False,new_session=False):
+def observe_process(argv, root, label, identity_path, *, deadline, on_tick=None, output_cap=LOG_LIMIT, pipe_output=False,new_session=False,sample_retention_limit=OBSERVATION_SAMPLE_LIMIT):
     """Bounded direct-child observation; descendant reap coverage stays unknown."""
     monotonic_start_ns = time.monotonic_ns()
+    if type(sample_retention_limit) is not int or not 1 <= sample_retention_limit <= OBSERVATION_SAMPLE_LIMIT:
+        raise ValueError('Bounded retained RSS sample count required')
     executable = Path(argv[0]).resolve()
     executable_pin = {'path':str(executable),**pin(executable)}
     root = Path(root); start = time.time_ns()//1000000
@@ -773,6 +934,9 @@ def observe_process(argv, root, label, identity_path, *, deadline, on_tick=None,
             except (json.JSONDecodeError, JSONEvidenceChangedDuringRead):
                 pass
     try:
+        # A source-pinned supervisor can emit at most output_cap per pipe.
+        # Reserve both retained log bounds before giving it writable fds.
+        check_case_metadata_write(stdout_path,2*output_cap)
         stdout_file = stdout_path.open('xb'); stderr_file = stderr_path.open('xb')
         selector = selectors.DefaultSelector()
         child = subprocess.Popen(argv, stdout=subprocess.PIPE if pipe_output else stdout_file,
@@ -789,7 +953,7 @@ def observe_process(argv, root, label, identity_path, *, deadline, on_tick=None,
                     ticks=(Path('/proc')/str(proc_pid)/'stat').read_text().rsplit(')',1)[1].split()[19]
                     if ticks!=bound_identity['procfs_start_ticks']: raise ValueError('Child procfs identity recycled')
                     sample=proc_memory(proc_pid); sample_count += 1
-                    if len(samples)<OBSERVATION_SAMPLE_LIMIT:
+                    if len(samples)<sample_retention_limit:
                         samples.append(sample)
                     else:
                         samples[-1] = sample
@@ -843,7 +1007,9 @@ def observe_process(argv, root, label, identity_path, *, deadline, on_tick=None,
         if pipe_output:
             # Source bytes already live in the authoritative caller transcript.
             # Persisting them again here would add37MB and break192MiB custody.
-            stderr_file.write(buffers['stderr'][:LOG_LIMIT])
+            retained_stderr=buffers['stderr'][:LOG_LIMIT]
+            check_case_metadata_write(stderr_path,len(retained_stderr))
+            stderr_file.write(retained_stderr)
         stdout_file.flush(); stderr_file.flush(); os.fsync(stdout_file.fileno()); os.fsync(stderr_file.fileno())
     except BaseException as error:
         reason='Observer/child phase failed: '+repr(error)
@@ -873,7 +1039,7 @@ def observe_process(argv, root, label, identity_path, *, deadline, on_tick=None,
             if status is None: reason=(reason or 'Child cancellation failed')+'; bounded cleanup ended without terminal wait4'
     end = time.time_ns()//1000000; monotonic_end_ns = time.monotonic_ns()
     wait4_peak = usage.ru_maxrss*1024 if usage is not None else None
-    measured = max([wait4_peak or 0]+[max(row['rss_bytes'],row['kernel_vm_hwm_bytes']) for row in samples])
+    measured = max([peak,wait4_peak or 0]+[max(row['rss_bytes'],row['kernel_vm_hwm_bytes']) for row in samples])
     if measured>LIMITS['rss_bytes']: reason = 'Original512MiB complete material process lifetime cap exceeded'
     result = {'schema':SCHEMA+'-process-observation','label':label,
         'observer_source':'independent_parent_procfs_and_kernel_wait4','observer_procfs_pid':int(os.readlink('/proc/self')),
@@ -891,7 +1057,7 @@ def observe_process(argv, root, label, identity_path, *, deadline, on_tick=None,
         'wait4_maximum_includes_completely_reaped_descendants':False,
         'tree_termination_coverage':'NOT_INDEPENDENTLY_VERIFIED',
         'complete_descendant_wait_chain_verified':False,
-        'retained_sample_count':len(samples),'sample_retention_limit':OBSERVATION_SAMPLE_LIMIT,
+        'retained_sample_count':len(samples),'sample_retention_limit':sample_retention_limit,
         'observed_output_bytes':observed_output_bytes,'complete_pipe_output':pipe_output and reason is None,
         'aggregate_concurrent_rss_measured':False,'raw_stdout_duplicate_written':False if pipe_output else None,
         'samples':samples,**AUTHORITY}
@@ -1115,8 +1281,11 @@ def verified_command_observations(case_root,plan,ordinal):
         layout=admission['worker_role_layout'](bundle,role='command',ordinal=ordinal)
         child_argv=admission['expected_worker_argv'](bundle,str(path),role='command',
             ordinal=ordinal,expected_bundle_sha256=digest)
-        observed=small_json(observations/(label+'-observation.json'))
-        receipt=small_json(Path(layout['receipt_scope'])/'subreaper-receipt.json')
+        observed_path=observations/(label+'-observation.json')
+        receipt_path=Path(layout['receipt_scope'])/'subreaper-receipt.json'
+        observed_pin=phase_file(observed_path); receipt_pin=phase_file(receipt_path)
+        observed=small_json(observed_path)
+        receipt=small_json(receipt_path)
         checked=receipt.get('admitted_worker_check') or {}
         prefix=[plan['runtime_executables']['python']['path'],'-I','-S','-B',
             str(root/'frozen-code'/'scripts/radio_native_v3_process_tree_supervisor.py'),
@@ -1146,7 +1315,13 @@ def verified_command_observations(case_root,plan,ordinal):
             receipt.get('maximum_individual_process_rss_bytes')]
         if any(type(value) is not int or not 0<value<=LIMITS['rss_bytes'] for value in values):
             raise ValueError('Original512MiB command/observer RSS cap required')
-        joined.append({'label':label,'observation':observed,'subreaper_receipt':receipt,
+        if phase_file(observed_path)!=observed_pin or phase_file(receipt_path)!=receipt_pin:
+            raise ValueError('Original command evidence changed during independent verification')
+        # Originals stay retained and charged. Keep their exact references in
+        # the publication index rather than a second copy of every sample and
+        # complete adoption receipt.
+        joined.append({'label':label,'admission_bundle':phase_file(path),
+            'observation':observed_pin,'subreaper_receipt':receipt_pin,
             'maximum_individual_material_process_rss_bytes':max(values),
             'complete_descendant_wait_chain_verified':False})
     return joined
@@ -1374,6 +1549,14 @@ def run_control(scope,plan,preread,freeze,activation_receipt,lossless_helper,*,i
     write(scope/'plan.json',plan); write(scope/'public-preread.json',preread); write(scope/'complete-freeze.json',freeze)
     write(scope/'activation-receipt.json',activation_receipt)
     write(scope/'invocation-spending.json',invocation_spending)
+    # Keep one complete, authenticated external inventory before workloads.
+    # Later allocation reports reference these exact retained bytes and each
+    # current custody gate must independently reobserve the same inventory.
+    finalizer = pinned_component(REPO,'scripts/radio_native_v3_resource_finalization.py',plan['code_files'])
+    retained_external = observe_authenticated_invocation_storage(REPO,plan,freeze,
+        activation_receipt,invocation_spending,execution_scope=str(scope),repository_root=repository_root)
+    retained_external = finalizer['prepare_retained_storage_snapshot'](retained_external,scope=str(scope))
+    write(scope/finalizer['RETAINED_STORAGE_SNAPSHOT_NAME'],retained_external)
     copy_code(REPO,scope/'frozen-code',plan['code_files'])
     write(scope/'lossless-helper.js',lossless_helper)
     (scope/'derived').mkdir()
@@ -1392,7 +1575,7 @@ def run_control(scope,plan,preread,freeze,activation_receipt,lossless_helper,*,i
             '--admission-start-monotonic-ns',str(admission_start_monotonic_ns)]
         observed,completion_stdout,_ = observe_process(driver_argv,scope,'measurement-driver',
             scope/'measurement-driver-identity.json',deadline=preparation_started+4800,
-            new_session=True,pipe_output=True)
+            new_session=True,pipe_output=True,sample_retention_limit=TERMINAL_OBSERVATION_SAMPLE_LIMIT)
         expected_runner_prefix = [plan['runtime_executables']['python']['path'],'-I','-S','-B',
             str(scope/'frozen-code'/'scripts/radio_native_v3_process_tree_supervisor.py'),
             '--admitted-worker','--worker-role','control','--admission-bundle',str(control_bundle),
@@ -1432,7 +1615,8 @@ def run_control(scope,plan,preread,freeze,activation_receipt,lossless_helper,*,i
         require_execution_ready(activation_receipt,plan,freeze,preread,execution_scope=str(scope),
             invocation_spending=invocation_spending,repository_root=repository_root)
         writer_observed,_,_ = observe_process(writer_argv,scope,'final-report-writer',
-            scope/finalizer['FINAL_WRITER_IDENTITY_NAME'],deadline=preparation_started+4800)
+            scope/finalizer['FINAL_WRITER_IDENTITY_NAME'],deadline=preparation_started+4800,
+            sample_retention_limit=TERMINAL_OBSERVATION_SAMPLE_LIMIT)
         summary = finalizer['join_final_report_lifetime'](scope,
             expected_input_pin=input_pin,
             expected_report_pin=pin(scope/finalizer['FINAL_NAME']),
@@ -1521,7 +1705,8 @@ def main():
     helper=templates((REPO/CODE_FILES[0]).read_text())['lossless-helper.js']
     summary=run_control(args.scope,plan,preread,freeze,receipt,helper,
         invocation_spending=supplied,admission_start_monotonic_ns=invocation_started_monotonic_ns)
-    print(canonical(summary).decode())
+    finalizer = pinned_component(REPO,'scripts/radio_native_v3_resource_finalization.py',plan['code_files'])
+    print(canonical(finalizer['final_report_join_reference'](summary)).decode())
 
 
 if __name__=='__main__':

@@ -23,6 +23,7 @@ import types
 
 SCHEMA = 'radio-native-v2-worker-admission-bundle-v3'
 ROLE_SCHEMA = 'radio-native-v2-worker-role-admission-bundle-v4'
+PHASE_REFERENCE_SCHEMA = 'radio-native-v3-case-role-admission-reference-v1'
 RECEIPT_SCHEMA = 'radio-native-v2-worker-admission-local-check-v1'
 SELF = 'scripts/radio_native_v3_worker_admission.py'
 FIXTURE = 'scripts/radio_native_v3_compact_eight_case_resource_fixture.py'
@@ -82,6 +83,11 @@ BUNDLE_KEYS = frozenset(('schema', 'namespace', 'case_ordinal', 'execution_scope
     'activation_receipt', 'plan_sha256', 'complete_freeze_sha256',
     'public_preread_sha256', 'activation_receipt_sha256',
     'invocation_spending', 'invocation_spending_sha256', 'invocation_repository_root'))
+PHASE_REFERENCE_KEYS = frozenset(('schema', 'namespace', 'role', 'case_ordinal',
+    'execution_scope', 'invocation_repository_root', 'code_root', 'derived_root',
+    'base_preparation_bundle', 'phase_inputs'))
+SHARED_CONTEXT_KEYS = frozenset(('plan', 'complete_freeze', 'public_preread',
+    'activation_receipt', 'invocation_spending'))
 DERIVED_FILES = frozenset(('prepare.py', 'fresh-caller.js', 'lossless-helper.js'))
 MAX_JSON_BYTES = 16 * 1024**2
 MAX_SOURCE_BYTES = 2 * 1024**2
@@ -94,6 +100,12 @@ TAIL_BOOTSTRAP = ('import os,sys,hashlib; p=sys.argv[1]; f=os.open(p,os.O_RDONLY
     '"Pinned caller-tail helper source differs"; sys.argv=[p]+sys.argv[3:]; '
     'exec(compile(s,p,"exec"),{"__name__":"__main__","__file__":p})')
 MIB = 1024**2
+MAX_FULL_BUNDLE_BYTES = 2*MIB
+MAX_SOURCE_WIRE_BYTES = 36*MIB
+MAX_FULL_TRANSCRIPT_BYTES = 108*MIB
+MAX_SOURCE_READER_COMMAND_BYTES = 1024
+MAX_SMALL_PHASE_REFERENCE_BYTES = 4096
+MAX_TAIL_PHASE_REFERENCE_BYTES = 68*1024
 ORIGINAL_LIMITS = {'case_calls': 64, 'run_calls': 512,
     'case_request_bytes': 48*MIB, 'run_request_bytes': 384*MIB,
     'case_response_bytes': 64*MIB, 'run_response_bytes': 512*MIB,
@@ -555,6 +567,11 @@ def _file_descriptor(value, expected_path, label):
     _exact(_absolute(value['path']), expected_path, 'fixed role input ' + label)
     if type(value['bytes']) is not int or not 0 < value['bytes'] <= ORIGINAL_LIMITS['case_storage_bytes']:
         raise ValueError('Bounded exact positive role input byte count required: ' + label)
+    maximum = (MAX_FULL_BUNDLE_BYTES if label == 'preparation_bundle' else
+        MAX_SOURCE_WIRE_BYTES if label == 'source_wire' else
+        MAX_FULL_TRANSCRIPT_BYTES if label in ('caller_transcript', 'verifier source') else None)
+    if maximum is not None and value['bytes'] > maximum:
+        raise ValueError('Fixed engineering capacity input exceeded: ' + label)
     _sha(value['sha256'], label)
 
 
@@ -677,6 +694,8 @@ def build_admission_bundle(plan, complete_freeze, public_preread, activation_rec
         'activation_receipt_sha256': hashlib.sha256(canonical(activation_receipt)).hexdigest(),
         'invocation_spending_sha256': hashlib.sha256(canonical(invocation_spending)).hexdigest()}
     _validate_bundle(bundle, ordinal=ordinal)
+    if len(canonical(bundle))+1 > MAX_FULL_BUNDLE_BYTES:
+        raise ValueError('Complete preparation admission exceeds fixed 2MiB capacity')
     return json.loads(canonical(bundle))
 
 
@@ -684,7 +703,37 @@ def bundle_bytes(bundle):
     """Exactly these retained bytes, including newline, are the argv digest."""
     if type(bundle) is not dict: raise ValueError('Worker bundle object required')
     _validate_bundle(bundle, ordinal=bundle.get('case_ordinal'))
-    return canonical(bundle) + b'\n'
+    if bundle.get('role') not in CASE_ROLES:
+        raw = canonical(bundle) + b'\n'
+        if len(raw) > MAX_FULL_BUNDLE_BYTES:
+            raise ValueError('Complete admission bundle exceeds fixed 2MiB capacity')
+        return raw
+    # Every case already retains one complete preparation admission. Reference
+    # its exact immutable bytes rather than duplicating the complete runtime
+    # freeze in every one of the 39 reader/tail and later phase snapshots.
+    # Full logical bundle validation remains unchanged on both sides.
+    ordinal = _ordinal(bundle['case_ordinal'])
+    root = _absolute(bundle['execution_scope']) + f'/cases/case{ordinal:02d}'
+    path = root + '/worker-admission.json'
+    base_pin, raw = read_pinned_file(path, maximum=MAX_FULL_BUNDLE_BYTES, retain=True)
+    base = _canonical_bundle_value(raw)
+    if base.get('schema') != SCHEMA:
+        raise ValueError('Phase reference requires one full original preparation bundle')
+    _validate_prepare_bundle(base, ordinal=ordinal)
+    for name in BUNDLE_KEYS - {'schema'}:
+        _exact(bundle[name], base[name], 'phase reference shared preparation context ' + name)
+    reference = {name: bundle[name] for name in PHASE_REFERENCE_KEYS
+        if name not in ('schema', 'base_preparation_bundle')}
+    reference.update(schema=PHASE_REFERENCE_SCHEMA,
+        base_preparation_bundle={'path': path, **base_pin})
+    expanded = _expand_phase_reference(reference)
+    _exact(expanded, bundle, 'phase reference complete logical bundle')
+    raw = canonical(reference) + b'\n'
+    maximum = (MAX_TAIL_PHASE_REFERENCE_BYTES if reference['role']=='command'
+        and reference['phase_inputs']['label']=='command-tail' else MAX_SMALL_PHASE_REFERENCE_BYTES)
+    if len(raw)>maximum:
+        raise ValueError('Fixed retained phase reference wire capacity exceeded')
+    return raw
 
 
 def expected_worker_argv(bundle, bundle_path, *, ordinal, expected_bundle_sha256, role='prepare'):
@@ -762,8 +811,13 @@ def _json_value(raw):
 
 
 def _phase_file(descriptor, *, json_input=False):
+    path = descriptor['path']
+    maximum = (MAX_FULL_BUNDLE_BYTES if path.endswith('/worker-admission.json') else
+        MAX_FULL_TRANSCRIPT_BYTES if path.endswith('/caller-result.json') else
+        MAX_SOURCE_WIRE_BYTES if path.endswith('/store/items/request-000001/part') else
+        MAX_JSON_BYTES if json_input else ORIGINAL_LIMITS['case_storage_bytes'])
     actual, raw = read_pinned_file(descriptor['path'],
-        maximum=MAX_JSON_BYTES if json_input else ORIGINAL_LIMITS['case_storage_bytes'], retain=json_input)
+        maximum=maximum, retain=json_input)
     _exact(actual, {key: descriptor[key] for key in ('bytes', 'sha256')}, 'current role input ' + descriptor['path'])
     return _json_value(raw) if json_input else actual
 
@@ -817,7 +871,7 @@ def _prepared_identity(prepared, plan, case_root, ordinal):
     for key in ('source_bytes', 'offset', 'bytes'):
         if type(view.get(key)) is not int or view[key] < 0:
             raise ValueError('Exact prepared request-view integer fields required')
-    if not 0 < view['bytes'] <= view['source_bytes'] <= ORIGINAL_LIMITS['case_request_bytes'] or view['offset'] + view['bytes'] > view['source_bytes']:
+    if not 0 < view['bytes'] <= view['source_bytes'] <= MAX_SOURCE_WIRE_BYTES or view['offset'] + view['bytes'] > view['source_bytes']:
         raise ValueError('Prepared request-view range bounds differ')
     cursor = view['offset']
     for index, row in enumerate(reads):
@@ -835,6 +889,8 @@ def _prepared_identity(prepared, plan, case_root, ordinal):
             raise ValueError('Exact prepared reader tool arguments required')
         _exact(row['arguments'].get('max_output_tokens'), 400000, 'reader output-token bound')
         _exact(row['arguments'].get('yield_time_ms'), 1000, 'reader yield interval')
+        if type(row['arguments']['cmd']) is not str or len(row['arguments']['cmd'].encode()) > MAX_SOURCE_READER_COMMAND_BYTES:
+            raise ValueError('Fixed 1024-byte engineering source reader command capacity exceeded')
         try: actual = shlex.split(row['arguments']['cmd'])
         except (TypeError, ValueError) as failure: raise ValueError('Prepared reader argv cannot be parsed') from failure
         _exact(actual, [prepared['python'], '-I', '-S', '-B', '-c', SOURCE_READER,
@@ -1143,11 +1199,8 @@ def _validate_role_phase(bundle, *, running_caller=False):
     return extra
 
 
-def load_bundle(bundle_path, *, expected_bundle_sha256):
-    expected = _sha(expected_bundle_sha256, 'independently retained exact bundle bytes')
-    actual, raw = read_pinned_file(bundle_path, maximum=MAX_JSON_BYTES, retain=True)
-    if actual['sha256'] != expected:
-        raise ValueError('Exact admission bundle bytes changed from independently retained digest')
+def _canonical_bundle_value(raw):
+    """Parse exact bounded admission bytes without following another context."""
     def unique(pairs):
         value = {}
         for key, item in pairs:
@@ -1157,8 +1210,75 @@ def load_bundle(bundle_path, *, expected_bundle_sha256):
     def nonfinite(value):
         raise ValueError('Nonfinite admission JSON refused')
     bundle = json.loads(raw, object_pairs_hook=unique, parse_constant=nonfinite)
-    if raw != canonical(bundle) + b'\n':
+    if type(bundle) is not dict or raw != canonical(bundle) + b'\n':
         raise ValueError('Exact canonical admission bundle plus newline required')
+    return bundle
+
+
+def _expand_phase_reference(reference, *, bundle_path=None):
+    """Reopen one hash-bound full preparation snapshot; references never recurse.
+
+    A reference is a storage representation, not a substitute for the existing
+    logical phase, activation, spend, runtime and material-source validators.
+    Only fixed per-case paths can select the shared snapshot. No expanded
+    object is cached across checks or processes.
+    """
+    if (type(reference) is not dict or set(reference) != PHASE_REFERENCE_KEYS
+            or reference.get('schema') != PHASE_REFERENCE_SCHEMA
+            or reference.get('namespace') != NAMESPACE
+            or type(reference.get('role')) is not str
+            or reference['role'] not in CASE_ROLES):
+        raise ValueError('Exact per-case phase reference structure and role required')
+    ordinal = _ordinal(reference['case_ordinal'])
+    scope = _absolute(reference['execution_scope'])
+    root = scope + f'/cases/case{ordinal:02d}'
+    _exact(reference['code_root'], root + '/frozen-code', 'phase reference fixed code root')
+    _exact(reference['derived_root'], root + '/derived', 'phase reference fixed derived root')
+    _absolute(reference['invocation_repository_root'])
+    descriptor = reference['base_preparation_bundle']
+    path = root + '/worker-admission.json'
+    if (type(descriptor) is not dict or set(descriptor) != {'path', 'bytes', 'sha256'}
+            or type(descriptor.get('bytes')) is not int
+            or not 0 < descriptor['bytes'] <= MAX_FULL_BUNDLE_BYTES):
+        raise ValueError('Exact bounded full preparation reference descriptor required')
+    _exact(_absolute(descriptor['path']), path, 'phase reference fixed preparation path')
+    _sha(descriptor['sha256'], 'phase reference preparation bytes')
+    actual, raw = read_pinned_file(path, maximum=MAX_FULL_BUNDLE_BYTES, retain=True)
+    expected = {name: descriptor[name] for name in ('bytes', 'sha256')}
+    _exact(actual, expected, 'phase reference original preparation bytes')
+    base = _canonical_bundle_value(raw)
+    if base.get('schema') != SCHEMA:
+        raise ValueError('Phase reference requires one full original preparation bundle; recursion refused')
+    _validate_prepare_bundle(base, ordinal=ordinal)
+    for name in ('namespace', 'case_ordinal', 'execution_scope',
+            'invocation_repository_root', 'code_root', 'derived_root'):
+        _exact(reference[name], base[name], 'phase reference original preparation identity ' + name)
+    expanded = {**base, 'schema': ROLE_SCHEMA, 'role': reference['role'],
+        'phase_inputs': reference['phase_inputs']}
+    _validate_bundle(expanded, ordinal=ordinal, role=reference['role'])
+    if bundle_path is not None:
+        expected_name = (expanded['phase_inputs']['label'] if expanded['role'] == 'command'
+            else expanded['role']) + '-admission.json'
+        _exact(_absolute(bundle_path), root + '/' + expected_name,
+            'phase reference fixed retained role path')
+    reopened, _ = read_pinned_file(path, maximum=MAX_FULL_BUNDLE_BYTES)
+    _exact(reopened, expected, 'phase reference context unchanged after validation')
+    return expanded
+
+
+def load_bundle(bundle_path, *, expected_bundle_sha256):
+    expected = _sha(expected_bundle_sha256, 'independently retained exact bundle bytes')
+    actual, raw = read_pinned_file(bundle_path, maximum=MAX_FULL_BUNDLE_BYTES, retain=True)
+    if actual['sha256'] != expected:
+        raise ValueError('Exact admission bundle bytes changed from independently retained digest')
+    bundle = _canonical_bundle_value(raw)
+    if bundle.get('schema') == PHASE_REFERENCE_SCHEMA:
+        inputs=bundle.get('phase_inputs')
+        maximum = (MAX_TAIL_PHASE_REFERENCE_BYTES if bundle.get('role')=='command'
+            and type(inputs) is dict and inputs.get('label')=='command-tail' else MAX_SMALL_PHASE_REFERENCE_BYTES)
+        if len(raw)>maximum:
+            raise ValueError('Fixed retained phase reference wire capacity exceeded')
+        return _expand_phase_reference(bundle, bundle_path=bundle_path)
     return bundle
 
 
