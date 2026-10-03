@@ -1,5 +1,15 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 3 October: current protected route stopped at missing original custody
+
+[The reviewed custody decision](RADIO_NATIVE_V2_CUSTODY_DECISION_2026-10-03.md) records **BLOCKED_ORIGINAL_HISTORY_CUSTODY** for the present protected engineering route. The original b/c scopes/private journals remain unavailable; public copies cannot satisfy unchanged original identity and storage requirements. a/b/c remain permanently spent; d remains uncreated. This decision changes no production guard, witness, limit or old result.
+
+A fresh read-only recheck verifies all **1,190 selected source/test/helper pins**, 15 metadata copies and both frozen spender refusals, with original/d absence unchanged. The prior 635-test / 24-module preparation pass was **not rerun**. The [independent machine review](results_radio_native_v2_custody_decision_20261003a/independent-machine-review.json) supplies evidence, not human or execution authority.
+
+[The readable interim pilot report](RADIO_PILOT_INTERIM_2026-10-03.md) records that the 30 September–3 October independent radio pilot window was missed. No new telescope values, candidate evaluations or protected invocation occurred in this continuation; no scientific non-detection or sensitivity conclusion follows.
+
+**Exact continuation:** consolidate retained evidence and scientific limitations for **9 October 2026**. Recheck originals only if concrete new accessible-state evidence appears; a fresh namespace or additional software suite does not resolve missing custody. No alternate custody protocol is adopted. Keep HD189733 selected, HD1461 HOLD, GJ724 untouched reserve, spectra/holdouts unopened, native8 unreserved, 127/24 NOT ACTIVATED, LS paused and CHEOPS UNSENT. No automatic extension, restart, target change or person messages. Existing scheduled tasks are unchanged. The whole SETI project is not closed by this route-specific decision.
+
 ## 3 October: archive-only storage qualified; original history unavailable
 
 Complete public HTTPS Git readback at [b9f0cd3](https://github.com/andersenmartin-blip/setisearch/commit/b9f0cd300d78c1dfc85621e12de229cdfa26bfac) verifies **all 45 changed files / 2,651,725 raw bytes**, exact tree/parent and full local payload equality. Main README at [1855f08](https://github.com/andersenmartin-blip/setisearch/commit/1855f082a2d256d63d12f86385343c8d2c3e9428) verifies all 56,515 bytes. A separate full-payload connector review verifies **10 files / 481,819 raw bytes**. Post-publication checks rehash all 1,190 tested source pins and 15 copies and repeat the exact read-only accounting/refusals; original/d absence remains unchanged. These receipts grant no original custody or execution authority.
