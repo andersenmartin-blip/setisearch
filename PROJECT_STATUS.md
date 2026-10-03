@@ -1,5 +1,15 @@
 # SETIsearch — current project status
 
+## 3 October: missing-folder dependency repaired for new v3 work
+
+[The implemented successor result](RADIO_PORTABLE_CUSTODY_2026-10-03_RESULT.md) removes the missing original b/c private-directory prerequisite from a separate integrated v3 preparation route. This implements the owner’s subsequent request to fix the obstruction so new analyses can be made. [The prospective amendment](RADIO_PORTABLE_CUSTODY_AMENDMENT_2026-10-03.md) changes only the fresh route’s custody/accounting domain; the earlier v2 refusal and every old failure remain valid historical records.
+
+All **53 focused tests across four modules** pass, with zero failures/errors/skips. A fresh metadata-only capture binds 947 repository code files, 31 inputs, 1,366 runtime files and 56 selected material files; its audit and launcher preflight recompute current inventories. Nineteen archive payloads / 356,392 raw bytes have complete disjoint current-copy inventories. All prior **1,190 source/test/helper pins remain unchanged**. A separate real GitHub create-only reference probe refuses duplicate creation and preserves the first target; it is synthetic evidence for that connector edge, not a complete publisher/transport certificate.
+
+**Continuation supersedes the older consolidation-only direction below:** finish fresh engineering freeze/preread, public-claim publication/readback and whole-control resource/lifetime qualification for one distinct e control. Then satisfy the unchanged eleven source/scientific admission fields before new telescope analysis. A new lifetime no longer depends on recovering old b/c private state. The current preparation snapshot keeps all five execution blockers; no real e marker/claim/journal/dispatch/control or telescope analysis occurred, and no runtime/host/scientific gate is implied by the tests.
+
+Preserve a/b/c permanent spend, d uncreated, original missing storage/continuity unqualified, HD189733 selected, HD1461 HOLD, GJ724 untouched reserve, spectra/holdouts unopened, native8 unreserved, 127/24 NOT ACTIVATED, LS paused, CHEOPS UNSENT and all prior outcomes. Consolidate **9 October 2026**, with no automatic extension, restart or target change. Person messages and scheduled tasks remain unchanged.
+
 ## 3 October: current protected route stopped at missing original custody
 
 [The reviewed custody decision](RADIO_NATIVE_V2_CUSTODY_DECISION_2026-10-03.md) records **BLOCKED_ORIGINAL_HISTORY_CUSTODY** for the present protected engineering route. The original b/c scopes/private journals remain unavailable; public copies cannot satisfy unchanged original identity and storage requirements. a/b/c remain permanently spent; d remains uncreated. This decision changes no production guard, witness, limit or old result.

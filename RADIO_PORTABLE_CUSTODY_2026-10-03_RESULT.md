@@ -1,0 +1,38 @@
+# New-work custody dependency repaired — 3 October 2026
+
+**A separate v3 engineering route now prepares genuinely new work without requiring the missing original b/c private directories. The repair runs through the planner, activation and spending checks, workers, supervisor, storage observer, finalizer and derived admission code. Old v2 attempts and scientific outcomes are preserved.**
+
+This implements the owner's request to fix the obstruction so new analyses can be made. The [prospective amendment](RADIO_PORTABLE_CUSTODY_AMENDMENT_2026-10-03.md) explicitly changes the new route's custody and accounting domain. The [previous refusal](RADIO_NATIVE_V2_CUSTODY_DECISION_2026-10-03.md) remains valid for unchanged v2; its missing private directory is no longer a universal prerequisite for new work. This result qualifies the software repair and its bounded preparation checks, not a telescope analysis.
+
+## Concrete change
+
+| Edge | Implemented v3 behavior |
+|---|---|
+| New plan and current root | A distinct e namespace and current lifetime replace the old live-history dependency; absent old private state is not reconstructed |
+| Retained history | Nineteen metadata payloads, 356,392 raw bytes, are copied into disjoint b/c archive directories with fixed original byte pins; a/b/c remain permanently refused and d remains retired/uncreated |
+| New invocation | A metadata-only exclusive local preclaim, a fixed create-only public claim and a separate exclusive/fsynced dispatch record bind one fresh attempt |
+| Worker admission | Workers independently validate the public claim and original current-lifetime local witness before workload admission |
+| Storage and finalization | Complete current copy, claim and journal inventories join under the strict disjoint-root, ancestry, inode and quota rules; old missing storage is explicitly unqualified |
+| Future interruptions | Losing e's private state refuses e; a separately frozen later control must bind its own state rather than inherit another vanished private directory |
+
+All thirteen new v3 modules are separate files. Original v2 guards, spenders, frozen records and source-specific scientific admission remain unchanged. New numerical engineering limits remain 192 MiB/case, 1536 MiB/run, 512 MiB individual-process RSS, 600 seconds/case and 4800 seconds/run, with unchanged call and request/response allocations. Scientific 40/80-second and 18-MiB allocations are unchanged.
+
+## Verification and limits
+
+The focused suite passes **53 tests across four modules**. It exercises actual successor plan construction and worker plan admission with the old root absent; exact archive provenance; old-identity and e-binding refusals; missing-public-claim refusal before mutation; independent worker rejection of a rehashed wrong public reference; derived guard compilation; an actual custody join accepted by the strict finalizer; once-only dispatch, replay, lost/replaced journals, fsync failures and concurrency. Its spending/journal cases use temporary synthetic metadata. It creates no real e activation, public claim, ledger, dispatch or workload scope.
+
+The [real create-only public-reference probe](results_radio_native_v3_portable_custody_20261003a/create-only-ref-probe.json) created a separate synthetic branch pointing at an existing evidence checkpoint. Attempting the same name at a different checkpoint failed with HTTP 422; fresh readback confirmed the first target remained. This observes one GitHub connector publication edge. It does not qualify the whole publisher, hosted transport, privileged ref immutability or a real protected claim.
+
+The [current-root preparation capture](results_radio_native_v3_portable_custody_20261003a/preparation-attempt-3/preparation-result.json) verifies 947 repository code files, 31 input files, 1,366 runtime files and 56 selected material files. It holds the exact imported source bytes and derived-code pins across the isolated 53-test run. The [preparation audit](results_radio_native_v3_portable_custody_20261003a/preparation-attempt-3/preparation-audit.json) and [launcher preflight](results_radio_native_v3_portable_custody_20261003a/preparation-attempt-3/launcher-preflight.json) recompute current local inventories, including the 1,606-file runtime/supplement union. Both retain all five execution blockers and explicitly deny complete runtime, hosted transport, immutable execution preread and whole-control lifetime qualification. This is a verified current-root preparation snapshot. A first wrapper attempt failed because its repository-root index was incorrect; its source and failure receipt remain. The corrected second attempt passed 52 tests and its preparation receipts are retained. Before final freezing, review found a launcher cold-start ordering defect: the spending module was loaded before a preflight that requires it absent. The final source moves that load after preflight and adds a mocked no-child ordering regression. The third fresh capture is the selected 53-test result.
+
+The [retained-state recheck](results_radio_native_v3_portable_custody_20261003a/retained-state-recheck.json) verifies all 1,190 previous source/test/helper pins unchanged and all nineteen archive sources and copies byte-identical. Original/d and real e state remain absent. The older 635-test preparation pass is retained historical evidence and is not a new test run in this repair. The [independent machine review](results_radio_native_v3_portable_custody_20261003a/independent-machine-review.json) separately checks the repair and reruns the focused suite; it supplies no human or scientific execution authority.
+
+The implementation review identified and corrected four integration issues: deterministic journal row order/stable observation, disjoint complete archive roots, independent worker public-claim checking, and retained-envelope verification before irreversible dispatch. Their regression coverage is included in the focused suite. No retry or reconstruction authority is supplied by a passing suite.
+
+## What this enables next
+
+The immediate next step is a fresh complete engineering freeze and preread for the e route, including actual create-only public claim/readback and resource/lifetime qualification. Only that qualified new plan may dispatch its one distinct engineering control. Neither an old activation nor the software suite supplies that admission.
+
+For a telescope analysis, the unchanged [scientific boundary receipt](results_radio_native_v3_portable_custody_20261003a/scientific-boundary.json) identifies eleven source admission fields still missing: complete execution/input/runtime freeze; HDF5 and source codec/runtime qualification; complete 127/24 scientific certificate; joined hosted transport; source-specific executable trial protocol; cumulative limits; reservation store; pinned public acquisition ledger; fresh irrevocable acquisition/trial allocation; and new executable source contract. These are concrete source and scientific prerequisites, not a requirement to recover the old folder.
+
+No telescope values, full deterministic control inputs, native/scientific cases, candidate evaluations or RNG draws occur in this repair. Missing original b/c inode continuity and storage remain unknown. HD189733/HIP98505 cadence85030 remains selected; HD1461 HOLD; GJ724 untouched reserve; spectra and original M43AF holdouts unopened; native8 unreserved; 127/24 NOT ACTIVATED; LS paused; CHEOPS UNSENT. M33 HD3651 and all earlier outcomes remain unchanged. Consolidate on **9 October 2026**, without automatic extension, restart or target change. No person-directed message or scheduled-task change is made.
