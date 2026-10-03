@@ -19,6 +19,11 @@ live-storage contract, or preserve missing continuity as the terminal blocker;
 never reconstruct or retry c. All astronomical/source/native gates and the
 9 October boundary remain unchanged.
 
+Public readback at [`b3c5dd4`](https://github.com/andersenmartin-blip/setisearch/commit/b3c5dd4c0d05c2bdbd61c82b004170d633b94050)
+matches all 12 changed files / 721,313 raw bytes; main README at
+[`1da0265`](https://github.com/andersenmartin-blip/setisearch/commit/1da0265154d0986497b16099c8765b10776ee9d8)
+matches all 53,002 bytes. These receipts grant no new authority.
+
 ## 3 October: cold admission and terminal identity repaired; preparation only
 
 The [immutable repair checkpoint](https://github.com/andersenmartin-blip/setisearch/commit/67567020b27620c70214254f78f047fb493cbaeb) has complete public Git payload readback of all **86 changed files / 4,712,486 raw bytes**; [main README](https://github.com/andersenmartin-blip/setisearch/commit/f6b5d8befb2a5a8e59a2aceec36729b9289b18cd) also matches all 52,077 bytes. A separate machine-agent GET review matches 19 selected files / 1,151,691 bytes. These publication receipts are non-authorizing.

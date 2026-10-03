@@ -70,3 +70,12 @@ telescope value was opened. HD189733 remains selected; HD1461 HOLD; GJ724
 reserve; spectra/holdouts unopened; native8 unreserved; 127/24 inactive; LS
 paused; CHEOPS UNSENT. No person-directed message was sent. Consolidation remains
 **9 October 2026**, without extension, target change or closed-control replay.
+
+## Publication readback
+
+The immutable [science checkpoint `b3c5dd4`](https://github.com/andersenmartin-blip/setisearch/commit/b3c5dd4c0d05c2bdbd61c82b004170d633b94050)
+matches the complete local tree. A fresh HTTPS Git fetch verifies all **12 changed
+files / 721,313 raw bytes** by length, SHA256 and Git blob identity. Main README
+at [`1da0265`](https://github.com/andersenmartin-blip/setisearch/commit/1da0265154d0986497b16099c8765b10776ee9d8)
+also matches all 53,002 bytes. The [readback receipt](results_radio_native_v2_multi_history_storage_20261003a/public-readback.json)
+is non-authorizing.
