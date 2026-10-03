@@ -1,5 +1,12 @@
 # SETIsearch
 
+## 3 October: isolated source-readiness preparation verified
+
+[The new source-readiness result](RADIO_SOURCE_READINESS_2026-10-03_RESULT.md) records a distinct unactivated g engineering graph: retained-log reservation corrected, **154 tests** plus guarded audit/preflight pass under unchanged limits. Fresh synthetic source checks cover **48 row/window codecs**, **31 strict evidence-verifier tests**, and **97 normalization/receipt laws**. No new telescope observation or scientific candidate was analyzed.
+
+The g candidate is isolated from concurrent primary f work. Reconcile the primary branch and select one successor before any separately admitted control; this publication grants no activation or execution. All eleven source/scientific fields remain pending. Complete acquisition/import, receiver handoff, hosted transport, external lifetime and 127/24 qualification remain open. Preserve prior spend/holds, unopened spectra/holdouts, paused LS, CHEOPS UNSENT and the **9 October** consolidation date.
+
+
 ## 3 October: multi-history preparation remains blocked
 
 [The b+c storage-accounting component](RADIO_NATIVE_V2_MULTI_HISTORY_STORAGE_2026-10-03_RESULT.md)

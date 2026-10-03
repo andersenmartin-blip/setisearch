@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/8fcd6bf45392/setisearch-20261003-archive/results_radio_native_v3f_execution_preparation_20261003a/qualify-successor-execution-preparation.py", line 173, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/scratch/8fcd6bf45392/setisearch-20261003-archive/results_radio_native_v3f_execution_preparation_20261003a/qualify-successor-execution-preparation.py", line 137, in main
+    tests=unittest.defaultTestLoader.loadTestsFromNames(TEST_MODULES)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 207, in loadTestsFromNames
+    suites = [self.loadTestsFromName(name, module) for name in names]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "/workspace/scratch/8fcd6bf45392/setisearch-20261003-archive/results_radio_native_v3f_execution_preparation_20261003a/qualify-successor-execution-preparation.py", line 72, in exec_module
+    exec(compile(self.raw,self.path,'exec'),module.__dict__)
+  File "/workspace/scratch/8fcd6bf45392/setisearch-20261003-archive/tests/test_radio_native_v3f_pipe_reservation.py", line 55, in <module>
+    ORIGINAL = load(False)
+               ^^^^^^^^^^^
+  File "/workspace/scratch/8fcd6bf45392/setisearch-20261003-archive/tests/test_radio_native_v3f_pipe_reservation.py", line 45, in load
+    raise RuntimeError('Expected immutable baseline source differs')
+RuntimeError: Expected immutable baseline source differs

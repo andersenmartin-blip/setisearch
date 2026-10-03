@@ -1,5 +1,12 @@
 # SETIsearch — current project status
 
+## 3 October: isolated source-readiness preparation verified
+
+[The new source-readiness result](RADIO_SOURCE_READINESS_2026-10-03_RESULT.md) records a distinct unactivated g engineering graph: retained-log reservation corrected, **154 tests** plus guarded audit/preflight pass under unchanged limits. Fresh synthetic source checks cover **48 row/window codecs**, **31 strict evidence-verifier tests**, and **97 normalization/receipt laws**. No new telescope observation or scientific candidate was analyzed.
+
+The g candidate is isolated from concurrent primary f work. Reconcile the primary branch and select one successor before any separately admitted control; this publication grants no activation or execution. All eleven source/scientific fields remain pending. Complete acquisition/import, receiver handoff, hosted transport, external lifetime and 127/24 qualification remain open. Preserve prior spend/holds, unopened spectra/holdouts, paused LS, CHEOPS UNSENT and the **9 October** consolidation date.
+
+
 ## 3 October: e control closed; HDF5 candidate provisioned
 
 [The actual e result](RADIO_NATIVE_V3_CONTROL_E_2026-10-03_RESULT.md) records one admitted engineering invocation, **CLOSED_FAILED**, zero completed cases and permanent e spend. The first source-reader child never launched because pipe mode forecast 4 MiB of logs that it does not retain; this exceeded the 1.75 MiB metadata bucket. A genuine targeted regression supports a fresh-version pipe reservation correction without changing any limit. The original e scope/journal and every old failure remain untouched. A future f requires its own full freeze, preread, marker, original preclaim, public create-only spend and observer; it is not yet activated.

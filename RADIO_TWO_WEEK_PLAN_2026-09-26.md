@@ -1,5 +1,12 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 3 October: isolated source-readiness preparation verified
+
+[The new source-readiness result](RADIO_SOURCE_READINESS_2026-10-03_RESULT.md) records a distinct unactivated g engineering graph: retained-log reservation corrected, **154 tests** plus guarded audit/preflight pass under unchanged limits. Fresh synthetic source checks cover **48 row/window codecs**, **31 strict evidence-verifier tests**, and **97 normalization/receipt laws**. No new telescope observation or scientific candidate was analyzed.
+
+The g candidate is isolated from concurrent primary f work. Reconcile the primary branch and select one successor before any separately admitted control; this publication grants no activation or execution. All eleven source/scientific fields remain pending. Complete acquisition/import, receiver handoff, hosted transport, external lifetime and 127/24 qualification remain open. Preserve prior spend/holds, unopened spectra/holdouts, paused LS, CHEOPS UNSENT and the **9 October** consolidation date.
+
+
 ## 3 October: actual e closure and fresh HDF5 provisioning
 
 [The actual e engineering result](RADIO_NATIVE_V3_CONTROL_E_2026-10-03_RESULT.md) is CLOSED_FAILED with zero completed cases and permanent e spend. Correct the demonstrated pipe-mode disk forecast in a separately frozen fresh f route; retain original limits and require new immutable preread, marker, original preclaim, create-only public spend and observer before any f control. Never retry or revive e.

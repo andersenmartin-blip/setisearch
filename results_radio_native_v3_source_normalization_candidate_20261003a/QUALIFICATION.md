@@ -1,0 +1,21 @@
+The fresh source normalization and receipt candidate passes **97 case laws: 42 acceptances and 55 rejections**, with process exit 0 and empty stderr. It exercises exact pinned source function bytes in isolated, explicitly allowlisted namespaces. No SETI project module, HDF5 reader, acquisition function, search/scoring/calibration function or old fixture is imported or invoked.
+
+| Boundary | Fresh candidate evidence |
+|---|---|
+| Source metadata and mapping | All six retained scan definitions × three windows pass the exact nested `source_radio._extract_bound_source.dataset_checked` guard. Their header-affine geometry matches the retained low/high endpoints. Correct metadata and nine wrong header/shape/dtype/chunk/filter cases make zero payload index attempts. |
+| Row direction and normalization | The exact `source_m43h.normalize_native_row` and its actual float32 median/MAD dependency reverse the descending row once, anchor blocks at ascending channel zero, and handle full and terminal 4096-cell blocks. An independent standard-library float32 rounding/order-statistic implementation agrees on 20,487 cells across lengths 1, 2, 3, 4095, 4096, 4097 and 8193. Constant data normalizes to zero. |
+| Normalization rejection | Float64, big-endian float32, matrix, empty, strided, oversized, NaN, infinity and overflow inputs are refused. |
+| Exact hyperslab intake | Three new synthetic local products persist all 16 rows at each retained window. The 48 native payload hashes exactly match the already frozen codec48 selected-window hashes. Float64, short, non-array and NaN hyperslabs are refused without a completed row product. |
+| Receipts and reconstruction | Actual `_extract_rows`, `_check_row`, `_complete` and `rehydrate` functions persist and reconstruct every local product. Idempotent completion preserves receipts; resumed extraction revalidates all 16 rows while attempting no new payload indexing. |
+| Receipt rejection | Wrong trusted digest, default telescope-kind requirement, changed mapping/kind/completion, missing or reordered rows, unsealed receipts, file/payload dtype or shape changes, nonfinite raw values, wrong ascending hash and wrong normalization are refused. Resealed wrong normalized data still fails independent reproduction. |
+| Checkpoint metadata | Exact inherited checkpoint canonical encoding accepts one synthetic `.invalid` identity and refuses changed identity, artifact, schema and digest. These pure metadata laws authenticate no transport transaction. |
+
+The successful report pins nine complete source/metadata files, the codec48 report, 47 actual function/class/constant byte and AST fragments, its own script, and all generated data and receipts. Positive products and held inputs are unchanged after the adversarial checks. Each mutation has a separate new directory; the codec48 synthetic HDF5 fixtures remain unopened and unmodified.
+
+The probe reports 0.548 seconds, peak RSS 62,644,224 bytes, and 31,961,116 generated logical / 32,718,848 allocated file bytes. Its candidate ceilings are 60 seconds, 256 MiB peak RSS and 96 MiB generated files. These are bounded in-process observations, not an externally observed whole-source lifetime or complete resource certificate.
+
+`attempt01/result.json` is 116,758 bytes with SHA256 `3ab96a4934d901b5e80e08330136000e1ed8e883a621f3bc9eeec6bb006df50f`. Its completed files are frozen.
+
+This establishes the specified candidate normalization, mapping and local receipt case laws. It does not exercise the complete acquisition/import route, receiver handoff, hosted transport or scientific 127/24 execution. The synthetic row persistence uses one scan definition at three windows; the metadata checks cover all six scans. The normalized known-answer comparison covers the explicit 20,487-cell cases; all 48 persisted rows are separately reconstructed through the actual production normalization function.
+
+All eleven immutable source/scientific admission fields remain pending. Complete execution code/input/runtime freeze, externally observed source lifetime, independent public certificate authentication, an executable source contract and acquisition/trial allocation remain false. Network requests, telescope/holdout/archived HDF5 opens, RNG draws and native/scientific cases remain zero.
