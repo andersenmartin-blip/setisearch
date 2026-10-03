@@ -1,5 +1,11 @@
 # SETIsearch
 
+## 3 October: b+c archive boundary verified; future control blocked
+
+[The multi-history and archival-closure result](https://github.com/andersenmartin-blip/setisearch/blob/b3c5dd4c0d05c2bdbd61c82b004170d633b94050/RADIO_NATIVE_V2_MULTI_HISTORY_STORAGE_2026-10-03_RESULT.md) passes **61 adjacent tests**. c's exact public closure bundle verifies one failed invocation, 0/8 completed and permanent spend, while the new receipt explicitly denies live-storage continuity, retry, activation, science and telescope authority.
+
+The restored checkout does not contain c's original private journal or original absolute live scope, so no actual b+c+future-d join, new journal, marker or control was created. Public copies are not substituted for live inode/journal identity. HD189733 remains selected; all spectra, native/scientific allocations and holdouts remain unopened. Consolidate **9 October 2026** without extension or replay.
+
 ## 3 October: cold admission and terminal identity repaired; preparation only
 
 [The repair report and retained evidence](https://github.com/andersenmartin-blip/setisearch/blob/67567020b27620c70214254f78f047fb493cbaeb/RADIO_NATIVE_V2_COLD_DRIVER_2026-10-03_RESULT.md) record **555 passing tests across 21 modules**, zero failures/errors/skips and exit 0. Actual producer/driver-bootstrap regressions cover the eight reserved empty directories; a reproduced tiny-writer EOF/identity race is repaired with a pre-reap identity check. All 1,183 tested source/helper pins remain unchanged across the final suite, and all 16 forward bootstrap edges match.
