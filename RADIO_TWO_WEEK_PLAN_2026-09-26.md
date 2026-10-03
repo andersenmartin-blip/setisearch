@@ -1,5 +1,13 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 3 October: archive-only storage qualified; original history unavailable
+
+[The separate archival-closure/current-copy contract](RADIO_NATIVE_V2_ARCHIVE_CONTRACT_2026-10-03_RESULT.md) passes **635 tests across 24 modules**, zero failures/errors/skips and exit 0. All 1,190 selected source/test/helper pins and the independently fixed input package remain unchanged. Current selected b/c metadata copies verify 15 files / 189,645 raw bytes and charge 197,837 logical / 237,568 allocated bytes, including their two directories. This accounts only for those copies; missing original storage remains unaccounted for.
+
+The original working root/private journals are unavailable. Both untouched frozen historical spenders refuse their original state with FileNotFoundError errno2. Original witnesses and production admission/activation/spending guards are unchanged; a/b/c remain permanently spent. The new standalone component grants no storage-join, original continuity, lifetime, reconstruction, activation or scientific authority. No real d marker, ledger, launch config, scope or invocation exists.
+
+The incomplete 593-test first run, missing-metadata recovery and corrected qualification wrapper are retained. The final 635-test run includes 20 strict archival tests and 15 new copy-accounting tests. Independent provenance/source review is machine review, not a human review or complete runtime/lifetime qualification. No telescope values or candidates were analyzed. Next: an explicitly reviewed custody protocol and fresh complete source/runtime/preread qualification would be required before any distinct control; existing d remains blocked. Preserve missing continuity as the terminal blocker if unresolved. All holds, unopened spectra/holdouts, native8/127-24 inactivity, LS pause and CHEOPS UNSENT remain. Stop/consolidate **9 October 2026**, without extension, restart or target change.
+
 ## 3 October: b/c storage integrated; distinct d prepared; original identities refused
 
 Complete public HTTPS Git payload readback verifies [df27d97](https://github.com/andersenmartin-blip/setisearch/commit/df27d97df7340a554acf8109751e6443cfffdd39): **all 102 changed files / 5,031,776 raw bytes**, exact Git tree/parent and local content. Main README [12418ee](https://github.com/andersenmartin-blip/setisearch/commit/12418eea208138f355fcd2f39bc31714230ec054) matches all **54,522 bytes**. A separate machine GET review verifies **15 complete files / 1,177,136 raw bytes**. All 1,187 tested pins and current protected histories are reverified unchanged after publication. These receipts do not repair original identity continuity or grant execution/scientific authority.

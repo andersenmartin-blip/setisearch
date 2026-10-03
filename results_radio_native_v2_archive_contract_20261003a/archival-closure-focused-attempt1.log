@@ -1,0 +1,57 @@
+test_bool_and_float_values_cannot_satisfy_integer_contracts (test_radio_native_v2_archival_closure.ArchivalClosureTests.test_bool_and_float_values_cannot_satisfy_integer_contracts) ... ok
+test_exact_public_bundle_closes_c_without_live_storage_authority (test_radio_native_v2_archival_closure.ArchivalClosureTests.test_exact_public_bundle_closes_c_without_live_storage_authority) ... ERROR
+test_inventory_cannot_claim_completed_nonempty_or_scientific_work (test_radio_native_v2_archival_closure.ArchivalClosureTests.test_inventory_cannot_claim_completed_nonempty_or_scientific_work) ... ok
+test_inventory_directory_modes_allocation_and_ancestry_are_validated (test_radio_native_v2_archival_closure.ArchivalClosureTests.test_inventory_directory_modes_allocation_and_ancestry_are_validated) ... ok
+test_inventory_empty_case_and_frozen_file_claims_require_corresponding_rows (test_radio_native_v2_archival_closure.ArchivalClosureTests.test_inventory_empty_case_and_frozen_file_claims_require_corresponding_rows) ... ok
+test_inventory_paths_cannot_escape_duplicate_or_alias_directory_labels (test_radio_native_v2_archival_closure.ArchivalClosureTests.test_inventory_paths_cannot_escape_duplicate_or_alias_directory_labels) ... ok
+test_inventory_row_digests_links_and_exact_shapes_are_validated (test_radio_native_v2_archival_closure.ArchivalClosureTests.test_inventory_row_digests_links_and_exact_shapes_are_validated) ... ok
+test_inventory_rows_and_declared_totals_must_agree (test_radio_native_v2_archival_closure.ArchivalClosureTests.test_inventory_rows_and_declared_totals_must_agree) ... ok
+test_launch_argv_must_bind_isolation_script_and_config (test_radio_native_v2_archival_closure.ArchivalClosureTests.test_launch_argv_must_bind_isolation_script_and_config) ... ok
+test_launch_config_commit_ledger_and_utc_fields_are_validated (test_radio_native_v2_archival_closure.ArchivalClosureTests.test_launch_config_commit_ledger_and_utc_fields_are_validated) ... ok
+test_launch_environment_must_preserve_isolation_and_canonical_path (test_radio_native_v2_archival_closure.ArchivalClosureTests.test_launch_environment_must_preserve_isolation_and_canonical_path) ... ok
+test_missing_extra_and_changed_pins_are_refused (test_radio_native_v2_archival_closure.ArchivalClosureTests.test_missing_extra_and_changed_pins_are_refused) ... ok
+test_noncanonical_or_duplicate_json_is_refused_even_when_pinned (test_radio_native_v2_archival_closure.ArchivalClosureTests.test_noncanonical_or_duplicate_json_is_refused_even_when_pinned) ... ok
+test_preservation_status_baseline_count_and_no_rerun_claim_are_bound (test_radio_native_v2_archival_closure.ArchivalClosureTests.test_preservation_status_baseline_count_and_no_rerun_claim_are_bound) ... ok
+test_public_archive_never_asserts_original_live_observation (test_radio_native_v2_archival_closure.ArchivalClosureTests.test_public_archive_never_asserts_original_live_observation) ... ERROR
+test_retry_restart_and_authority_bits_cannot_be_relaxed (test_radio_native_v2_archival_closure.ArchivalClosureTests.test_retry_restart_and_authority_bits_cannot_be_relaxed) ... ok
+test_scope_label_must_be_canonical_and_bind_the_closed_c_generation (test_radio_native_v2_archival_closure.ArchivalClosureTests.test_scope_label_must_be_canonical_and_bind_the_closed_c_generation) ... ok
+test_spend_state_and_cross_file_activation_commit_are_bound (test_radio_native_v2_archival_closure.ArchivalClosureTests.test_spend_state_and_cross_file_activation_commit_are_bound) ... ok
+test_terminal_spend_hash_filename_and_counts_are_cross_checked (test_radio_native_v2_archival_closure.ArchivalClosureTests.test_terminal_spend_hash_filename_and_counts_are_cross_checked) ... ok
+test_terminal_timestamp_must_be_canonical_and_not_precede_start (test_radio_native_v2_archival_closure.ArchivalClosureTests.test_terminal_timestamp_must_be_canonical_and_not_precede_start) ... ok
+
+======================================================================
+ERROR: test_exact_public_bundle_closes_c_without_live_storage_authority (test_radio_native_v2_archival_closure.ArchivalClosureTests.test_exact_public_bundle_closes_c_without_live_storage_authority)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/8fcd6bf45392/setisearch-20261003-archive/tests/test_radio_native_v2_archival_closure.py", line 51, in test_exact_public_bundle_closes_c_without_live_storage_authority
+    result = self.verify()
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/8fcd6bf45392/setisearch-20261003-archive/tests/test_radio_native_v2_archival_closure.py", line 32, in verify
+    return closure.verify_archival_closure(self.files if files is None else files,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/8fcd6bf45392/setisearch-20261003-archive/scripts/radio_native_v2_archival_closure.py", line 259, in verify_archival_closure
+    _inventory_rows(inventory, scope_path)
+  File "/workspace/scratch/8fcd6bf45392/setisearch-20261003-archive/scripts/radio_native_v2_archival_closure.py", line 76, in _inventory_rows
+    raise ValueError('Private archived directory mode required')
+ValueError: Private archived directory mode required
+
+======================================================================
+ERROR: test_public_archive_never_asserts_original_live_observation (test_radio_native_v2_archival_closure.ArchivalClosureTests.test_public_archive_never_asserts_original_live_observation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/8fcd6bf45392/setisearch-20261003-archive/tests/test_radio_native_v2_archival_closure.py", line 108, in test_public_archive_never_asserts_original_live_observation
+    result = self.verify()
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/8fcd6bf45392/setisearch-20261003-archive/tests/test_radio_native_v2_archival_closure.py", line 32, in verify
+    return closure.verify_archival_closure(self.files if files is None else files,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/8fcd6bf45392/setisearch-20261003-archive/scripts/radio_native_v2_archival_closure.py", line 259, in verify_archival_closure
+    _inventory_rows(inventory, scope_path)
+  File "/workspace/scratch/8fcd6bf45392/setisearch-20261003-archive/scripts/radio_native_v2_archival_closure.py", line 76, in _inventory_rows
+    raise ValueError('Private archived directory mode required')
+ValueError: Private archived directory mode required
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.052s
+
+FAILED (errors=2)
