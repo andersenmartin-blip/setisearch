@@ -1,5 +1,13 @@
 # SETIsearch
 
+## 3 October: multi-history preparation remains blocked
+
+[The b+c storage-accounting component](RADIO_NATIVE_V2_MULTI_HISTORY_STORAGE_2026-10-03_RESULT.md)
+passes 61 adjacent tests but grants no execution authority. The restored checkout
+has c's public closure records, not its original private journal/live storage
+identities, so no actual future-control join, marker or telescope read occurred.
+Closed b/c failures and all science gates remain unchanged; consolidate 9 October.
+
 ## 2 October: c engineering control CLOSED_FAILED; no retry
 
 [The actual c result and retained evidence](RADIO_NATIVE_V2_CONTROL_C_2026-10-02_RESULT.md) record **one invocation, exit 1, 0/8 completed and permanently spent** after immutable preread P → marker-only A → public fixed sidecars B. The fixture created eight empty case directories; driver admission then refused the existing `cases` directory before identity/workload. The resulting missing-identity observer error is secondary. No retry, resume, cleanup or rearm occurred.

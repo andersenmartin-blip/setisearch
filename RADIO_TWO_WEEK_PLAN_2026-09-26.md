@@ -1,5 +1,21 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 3 October: multi-history boundary prepared without reconstructing c
+
+[The bounded storage result](RADIO_NATIVE_V2_MULTI_HISTORY_STORAGE_2026-10-03_RESULT.md)
+passes 61 adjacent tests and introduces an explicit b+c→future-d accounting
+interface. It retains every generation separately, applies the original entry
+and byte ceilings and leaves execution/lifetime/reconstruction authority false.
+
+c's public terminal evidence now independently verifies the permanent failure,
+but its original private journal
+and absolute live scope are absent from this restored checkout. Public copies
+must not be substituted for those identities. No actual join, new journal,
+plan/freeze, marker, control or telescope read was made. Exact continuation:
+qualify a separate archival-closure versus live-storage contract, then integrate
+only under a wholly fresh identity; otherwise preserve missing continuity as the
+terminal engineering blocker. Stop/consolidate 9 October without extension.
+
 ## 3 October: cold admission and terminal identity repaired; preparation only
 
 The [immutable repair checkpoint](https://github.com/andersenmartin-blip/setisearch/commit/67567020b27620c70214254f78f047fb493cbaeb) has complete public Git payload readback of all **86 changed files / 4,712,486 raw bytes**; [main README](https://github.com/andersenmartin-blip/setisearch/commit/f6b5d8befb2a5a8e59a2aceec36729b9289b18cd) also matches all 52,077 bytes. A separate machine-agent GET review matches 19 selected files / 1,151,691 bytes. These publication receipts are non-authorizing.

@@ -1,5 +1,19 @@
 # Long-term project direction
 
+## 3 October: b+c multi-history accounting prepared, continuity still blocked
+
+[The standalone multi-history result](RADIO_NATIVE_V2_MULTI_HISTORY_STORAGE_2026-10-03_RESULT.md)
+adds a fail-closed, generation-labelled join and a public/archive-versus-live
+closure verifier with 61 passing adjacent tests. They
+does not accept the published c closure copy as the missing original private
+journal or live scope and grants no activation or lifetime authority.
+
+**Direction:** define and verify an explicit archival-closure contract before
+threading b+c accounting into a distinct future fixture/worker/finalizer chain.
+If original continuity cannot be established, retain that blocker through the
+9 October consolidation. Do not reconstruct, reset or rerun c; do not open
+telescope spectra or scientific/native allocations.
+
 ## 2 October: portable custody proof implemented, not integrated
 
 [The component](RADIO_NATIVE_V2_RUNTIME_CUSTODY_COMPONENT_2026-10-02_RESULT.md)

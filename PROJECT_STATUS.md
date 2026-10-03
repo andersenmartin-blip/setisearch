@@ -1,5 +1,24 @@
 # SETIsearch — current project status
 
+## 3 October: multi-history storage join verified; live c continuity absent
+
+[The new bounded component and result](RADIO_NATIVE_V2_MULTI_HISTORY_STORAGE_2026-10-03_RESULT.md)
+pass 61 adjacent tests (20 new, 41 existing), zero failures/errors/skips and
+exit 0. It joins explicit b+c historical scope/journal pairs to one distinct
+prospective journal while refusing missing pins, aliases, overlaps, false flags,
+single-history relabelling and unchanged entry/byte ceilings. All authority and
+lifetime fields remain false.
+
+The restored checkout contains c's immutable public closure evidence, but not
+the original private c journal or absolute live scope from the earlier checkout.
+Those public copies are pinned and verify c as CLOSED_FAILED, one invocation,
+0/8 and permanently spent, while explicitly **not** establishing inode/journal
+continuity. No actual b+c+future-d join, journal, plan, freeze, marker, scope,
+reservation or control exists. Next: qualify a separate archival-closure versus
+live-storage contract, or preserve missing continuity as the terminal blocker;
+never reconstruct or retry c. All astronomical/source/native gates and the
+9 October boundary remain unchanged.
+
 ## 3 October: cold admission and terminal identity repaired; preparation only
 
 The [immutable repair checkpoint](https://github.com/andersenmartin-blip/setisearch/commit/67567020b27620c70214254f78f047fb493cbaeb) has complete public Git payload readback of all **86 changed files / 4,712,486 raw bytes**; [main README](https://github.com/andersenmartin-blip/setisearch/commit/f6b5d8befb2a5a8e59a2aceec36729b9289b18cd) also matches all 52,077 bytes. A separate machine-agent GET review matches 19 selected files / 1,151,691 bytes. These publication receipts are non-authorizing.
