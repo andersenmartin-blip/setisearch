@@ -1,5 +1,11 @@
 # SETIsearch
 
+[Current readable pilot status](https://github.com/andersenmartin-blip/setisearch/blob/71cbc6dca41aed054df23493a8501fa43f9d5eba/RADIO_PILOT_INTERIM_2026-10-03.md)
+corrects the earlier custody-only next action: v3 removed the missing-folder
+dependency for new work, while actual CAS/runtime/source/session requirements
+still block the telescope pilot. The original 3 October checkpoint is preserved
+as historical. This documentation correction adds no experiment or qualification.
+
 ## 4 October2026 — selected native metadata transport verified once
 
 [The new actual transport result](https://github.com/andersenmartin-blip/setisearch/blob/af08c6c0cbb137af2690c1812b02b4fcbd3ae916/RADIO_DYNAMIC_NETWORK_POLICY_2026-10-04_RESULT.md) addresses the platform's changed local proxy ports under a separate published policy. After full15-file/765,023-byte prospective readback, one admitted run completed **seven native Git subprocesses**, all exit0/reaped/full bounded raw output, in6,611ms helper time. All six changed proxy hashes matched the narrow credential-free127.0.0.1 policy; fixed bypass/trust and13 selected code/runtime/utility bindings remained exact. An independent actual raw commit/member/blob/capture verifier accepted the observation. The30 new targeted tests are prepublication synthetic evidence, distinct from this one actual run.
