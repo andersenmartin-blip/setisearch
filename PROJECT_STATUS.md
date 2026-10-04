@@ -1,5 +1,35 @@
 # SETIsearch — current project status
 
+## 4 October: dynamic loopback Git metadata observation passed once and closed
+
+[The actual transport result](RADIO_DYNAMIC_NETWORK_POLICY_2026-10-04_RESULT.md)
+verifies one admitted run after full15-file/765,023-byte prospective readback:
+7 Git subprocesses, exit0/reaped/full retained output,6,611ms helper time. All6
+changed proxy hashes satisfy the frozen local endpoint policy; bypass/trust and
+13 selected source/runtime/utility bindings stay pinned. Independent actual raw
+commit/member/blob/capture review passes. Original35 files/18 directories charge
+370,271 logical/450,560 allocated bytes including dirs. Identity permanently spent;
+40s/4MiB not refunded. Earlier CAS a/b failures and c retired unused unchanged.
+
+Only old c scope and store source were read, using the existing public Git-object
+alternate; no new sandbox pack.30 new tests are synthetic preparation evidence.
+No fresh transfer of both blob bodies, full hosted/ELF/RSS/HTTP/SDK/descendant
+qualification or atomic CAS/scientific authority follows.
+
+**Latest exact continuation:** actual callable atomic expected-branch CAS for the
+exact pre-created candidate plus authentic hosted-runtime/public-source/session
+inputs under a new complete prospective integration/allocation. Native receive-pack
+is a documented design direction requiring authorized write transport and real
+server qualification; none is exposed/invoked here. Retain this concrete blocker
+if unavailable; no automatic further experiment, empty checks, replay, target
+change or plan extension. Consolidate **9October2026**.
+
+Selected live reservation subtotal610s/20MiB; old budgets/ledgers unchanged.
+All11 genuine fields pending, preparation blocked, spectra/holdouts unopened,
+native8 unreserved,127/24 NOT ACTIVATED. HD189733/neighbor9 selected, HD1461 HOLD,
+GJ724 untouched reserve, M43/native/M15/M33 dispositions, LS pause/BF untouched
+and CHEOPS UNSENT remain. No person messages or schedule changes.
+
 ## 4 October: separate dynamic loopback policy frozen for one metadata read
 
 [New prospective transport protocol](RADIO_DYNAMIC_NETWORK_POLICY_2026-10-04_PROTOCOL.md)
