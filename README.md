@@ -1,5 +1,22 @@
 # SETIsearch
 
+## 4 October: freeze-bound one-shot runner qualified synthetically
+
+[The new bounded runner and retained result](https://github.com/andersenmartin-blip/setisearch/blob/5d153be0c886cab5c356eb23b16dbfe0d4e2e6aa/RADIO_BOUNDED_SCIENTIFIC_RUNNER_2026-10-04_RESULT.md)
+integrate maintained admission/closure verification, exact executable-freeze
+file identities, source-session/per-load clocks and lossless bounded stdout/stderr
+around one exclusive child dispatch. Its **25 new tests pass**; the selected 148
+scientific-component and 24 retention regressions also pass (197 total).
+
+This is synthetic interface qualification only. It opened no telescope values,
+native cases or 127/24 trials and grants no scientific execution authority.
+Actual hosted-native/public-runtime evidence, a genuine atomic expected-revision
+CAS service, a fresh executable freeze containing the real child, irreversible
+allocations/ledgers and a live bounded source session remain required. F stays
+CLOSED_FAILED, 0/8 and permanently spent. Preserve all target/HOLD/reserve,
+holdout, LS and CHEOPS dispositions and consolidate on **9 October 2026** without
+automatic extension.
+
 ## 3 October: F closed once; scientific execution software implemented
 
 [The actual F engineering result](https://github.com/andersenmartin-blip/setisearch/blob/93d382c64bb35f03834f683ef116aa34d1cc1a59/RADIO_NATIVE_V3_CONTROL_F_2026-10-03_RESULT.md) is **CLOSED_FAILED, 0/8**, after 24 accepted source reads. Command 24's inner worker exited before its identity and source pread. Its original 3,000-byte stderr was hashed but not retained; the exact exception is unproved. F is permanently spent and is never retried, resumed or re-admitted. All 1,004 frozen source/input and 1,366 primary runtime hashes still match; the complete local stage-0 membership matches the original activation tree.
@@ -755,4 +772,3 @@ they are not commands to restart the current work.
 The archive link preserves the previous full README and all its milestone
 summaries. Its “current” labels and “next step” instructions describe their
 historical dates. The current work queue is maintained in PROJECT_STATUS.md.
-
