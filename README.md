@@ -1,5 +1,22 @@
 # SETIsearch
 
+## 4 October — hosted CAS direction recovered; separate adapter prepared
+
+[The new preparation](https://github.com/andersenmartin-blip/setisearch/blob/3cbe40846602a3f8964639db0d1b6d1252bf44a7/RADIO_HOSTED_CAS_2026-10-04_PREPARATION.md)
+identifies the project's already successful Actions `updateRefs` operation with
+exact expected old and pre-created new revisions. The local connector limitation
+is route-specific. A separate inert adapter passes **19 new synthetic tests**;
+a type-confusable identity pin was reproduced and repaired, with all development
+logs and the original reproducing source retained.
+
+No real transport, workflow, activation or live allocation was added. The next
+step is complete prospective hosted integration/readback and separately allocated
+one-shot activation, followed by actual accepted/conflict and runtime/source/
+session evidence. All eleven scientific/source gates stay pending; HD189733 stays
+selected, spectra/holdouts unopened, native8 unreserved and 127/24 inactive.
+Consolidate **9 October 2026** without automatic experiment, target change or
+extension. This is preparation, with no new telescope-data analysis.
+
 [Current readable pilot status](https://github.com/andersenmartin-blip/setisearch/blob/71cbc6dca41aed054df23493a8501fa43f9d5eba/RADIO_PILOT_INTERIM_2026-10-03.md)
 corrects the earlier custody-only next action: v3 removed the missing-folder
 dependency for new work, while actual CAS/runtime/source/session requirements
