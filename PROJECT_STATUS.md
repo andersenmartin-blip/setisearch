@@ -1,5 +1,10 @@
 # SETIsearch — current project status
 
+[Readable pilot status and current restart requirement](RADIO_PILOT_INTERIM_2026-10-03.md)
+now distinguish the repaired v3 custody dependency from the remaining actual
+CAS/runtime/source/session blockers; the original 3 October report is historical.
+This is a documentation correction, with no new qualification or telescope run.
+
 ## 4 October: dynamic loopback Git metadata observation passed once and closed
 
 [The actual transport result](RADIO_DYNAMIC_NETWORK_POLICY_2026-10-04_RESULT.md)

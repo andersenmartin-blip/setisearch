@@ -1,3 +1,50 @@
+# Independent radio-search pilot: current continuation — 4 October 2026
+
+**The independent telescope-data pilot still has not run.** This update corrects
+the obsolete continuation in the original 3 October checkpoint retained below.
+It is interim documentation maintenance, not a new engineering/scientific
+invocation or the 9 October period-end report.
+
+The [published portable-custody v3 repair](RADIO_PORTABLE_CUSTODY_2026-10-03_RESULT.md)
+removed the missing original b/c-directory dependency for genuinely new work.
+The unchanged v2 refusals, missing historical continuity/storage and every spent
+attempt remain valid. The later E/F controls remain **CLOSED_FAILED, 0/8**; the
+repair did not qualify telescope access.
+
+The [latest actual transport result](RADIO_DYNAMIC_NETWORK_POLICY_2026-10-04_RESULT.md)
+verified a selected native Git metadata read once. Its selected blob bodies came
+from an existing public-object alternate; it supplies neither a fresh transfer
+of those bodies nor complete hosted-native/runtime/source qualification.
+
+**Immediate next requirement:** a callable atomic expected-branch revision CAS
+of the exact pre-created candidate, plus authentic hosted-runtime/public-source/
+session evidence under a fresh complete prospective integration and allocation.
+The exposed ref update has no expected old head. Contents updates condition on
+the file blob and create their own commit. Neither supplies the operation
+required by the unchanged [scientific store](results_radio_scientific_execution_prospective_20261003a/scientific_store.py).
+Native receive-pack remains an unqualified design direction, without an exposed
+authorized write transport. Publication of this report is ordinary documentation
+publication and grants no scientific-store authority.
+
+All eleven authentic source/scientific fields remain pending. HD189733/HIP98505
+cadence 85030 with `neighbor9` stays selected; HD1461 stays HOLD and GJ724 stays
+untouched reserve. Spectra and original 112+128 holdouts remain unopened,
+native8 remains unreserved and 127/24 remains NOT ACTIVATED. Earlier candidate
+dispositions remain unchanged. LS stays paused, with LS8BF saved for a possible
+restart; CHEOPS remains UNSENT.
+
+If the required service and genuine inputs remain inaccessible, preserve those
+concrete blockers and consolidate **9 October 2026**. Do not automatically
+allocate another experiment, repeat spent or unchanged checks, change target,
+extend the plan or send person-directed messages. No experiment, test rerun,
+telescope read or schedule change was performed for this correction.
+
+## Historical checkpoint — 3 October 2026
+
+The original report below is retained unchanged. Its custody-only next action
+describes the earlier v2 route and is superseded for the successor route by the
+current continuation above.
+
 # Independent radio-search pilot: interim result — 3 October 2026
 
 **The planned independent telescope-data pilot has not run.** Source selection, a source-specific design and software preparation are available, but no new spectrum search, qualified scientific detector, candidate search ledger or candidate follow-up was produced. The current protected engineering route is paused at a documented original-history custody blocker. The plan still closes on **9 October 2026**.
