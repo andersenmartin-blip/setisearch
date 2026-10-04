@@ -1,5 +1,26 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 4 October: ELF and child-process repairs prepared; no new capture
+
+[The inert repair preparation](RADIO_RUNTIME_CAPTURE_REPAIR_2026-10-04_PREPARATION.md)
+repairs complete adjacent ELF string-table mapping and replaces numeric PID-tail
+matching with kernel-held own-child, namespace/session/lifetime and verified
+interpreter-object binding. Bounded selected-file failure context is retained
+without adopting partial observations. Final primary-Python synthetic cohorts
+pass 26 ELF, 26 collector and 45 gate tests (97 total); failed versions and logs
+are preserved with the independent review.
+
+A separately bounded current Python ELF preread supplies exact geometry, not
+proof of the original unnamed failing input or a runtime certificate. No actual
+collector/supervisor capture, successor marker or new allocation occurred.
+The old activation-path API still requires a fresh namespace/path contract and
+complete future code/input/runtime freeze, readback, bounds and one-shot admission.
+Original metadata capture and hosted CAS remain CLOSED_FAILED and spent;
+selected engineering subtotal stays **970s/48MiB**. All eleven scientific fields
+remain pending. Spectra/112+128 holdouts unopened, native8/127-24 inactive,
+HD189733/neighbor9 and holds fixed, LS paused, CHEOPS UNSENT. Consolidate
+**9 October 2026**.
+
 ## 4 October: selected runtime capture CLOSED_FAILED; procfs attribution defective
 
 [The actual metadata-capture result](RADIO_RUNTIME_METADATA_CAPTURE_2026-10-04_RESULT.md)
