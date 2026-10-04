@@ -1,5 +1,11 @@
 # SETIsearch
 
+## 4 October 2026: runtime repairs tested; fresh capture still pending
+
+Prospective ELF mapping and authenticated child-process repairs pass **97 synthetic checks** (26 ELF, 26 collector, 45 gate). The independent review and all failed versions/logs are retained in [the repair preparation](https://github.com/andersenmartin-blip/setisearch/blob/d9218710eff0d63bf6a886989a6de845ba1a317c/RADIO_RUNTIME_CAPTURE_REPAIR_2026-10-04_PREPARATION.md). A separate bounded static Python ELF diagnostic establishes current segment geometry; the original unnamed failing input remains unknown.
+
+No new actual collector/supervisor capture or allocation occurred. The original metadata capture and hosted CAS remain **CLOSED_FAILED**, and selected engineering subtotal stays **970 seconds / 48 MiB**. The inherited closed activation path requires a distinct future namespace/path contract, complete code/input/runtime freeze, bounds, immutable readback and fresh one-shot allocation before any genuine capture. All eleven scientific admission fields remain pending; no new telescope analysis. Targets, unopened spectra/112+128 holdouts, native8/127-24 inactivity, LS pause and CHEOPS UNSENT remain fixed. Consolidate **9 October 2026**.
+
 ## 4 October: runtime metadata capture CLOSED_FAILED; process attribution defective
 
 [The actual result](https://github.com/andersenmartin-blip/setisearch/blob/9b2eee6192a8cc016253a90347bd9c8fecfc1118/RADIO_RUNTIME_METADATA_CAPTURE_2026-10-04_RESULT.md) records one fully published/read-back original activation and one child. The ELF parser refused a dynamic-string-table mapping; the child exited 1 and was reaped, with empty stdout and exact 87-byte stderr. No collector runtime/package/maps/ELF receipt or telescope analysis was produced. The selected gate clock was 0.450933547 seconds; 772 parent source/runtime pins matched before and after. All eight original artifacts are published losslessly.
