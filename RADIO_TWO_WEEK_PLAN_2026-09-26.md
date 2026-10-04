@@ -1,5 +1,23 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 4 October: existing hosted exact-CAS direction recovered; new adapter is inert
+
+[Hosted CAS preparation](RADIO_HOSTED_CAS_2026-10-04_PREPARATION.md) identifies the
+already successful October 1 Actions `updateRefs` operation with exact
+`beforeOid`/pre-created `afterOid` and `force:false`. The local connector's missing
+expected-head argument is a route-specific limitation. A separate injected
+adapter is preparation only; no old scope was replayed, real service qualified,
+workflow/activation created or new live experiment/reservation allocated.
+
+**Next:** prepare, publish and read back one complete prospective hosted callback
+integration and allocation contract. Only after its separate one-shot activation,
+retain actual accepted/conflict outcomes and current runtime/source/session and
+resource evidence; scientific admission remains a later unchanged gate. The original scientific store
+and all eleven genuine gates remain unchanged and pending. No automatic probe
+follows from this prototype. Preserve HD189733/neighbor9, all holds/spends,
+unopened spectra/holdouts, native8/127-24 inactivity, LS/CHEOPS dispositions and
+consolidation **9 October 2026**.
+
 ## 4 October: dynamic loopback Git metadata observation passed once and closed
 
 [The actual transport result](RADIO_DYNAMIC_NETWORK_POLICY_2026-10-04_RESULT.md)

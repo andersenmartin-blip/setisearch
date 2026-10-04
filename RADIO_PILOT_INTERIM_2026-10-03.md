@@ -1,5 +1,10 @@
 # Independent radio-search pilot: current continuation — 4 October 2026
 
+[The subsequent hosted-CAS preparation](RADIO_HOSTED_CAS_2026-10-04_PREPARATION.md)
+identifies the existing Actions `updateRefs` route and supplies a separate inert
+adapter. It qualifies no new live service or scientific gate; the current
+source/runtime/session requirements and historical report below remain.
+
 **The independent telescope-data pilot still has not run.** This update corrects
 the obsolete continuation in the original 3 October checkpoint retained below.
 It is interim documentation maintenance, not a new engineering/scientific
