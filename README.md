@@ -1,5 +1,11 @@
 # SETIsearch
 
+## 4 October: hosted first CAS accepted; stale control closed at GitHub server error
+
+[Actual result and preserved evidence](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_HOSTED_CAS_CONTROL_2026-10-04_RESULT.md): one original frozen activation, 90 synthetic tests and full 50-file preparation readback. The first exact update was accepted; the stale expected-head request returned a generic internal GraphQL error. The control correctly CLOSED_FAILED after 29 calls, with child exit1/reaped and full lossless 117-member archive. No expected-head conflict qualification is claimed. Independent immutable object/evidence reviews are retained.
+
+Original 300s/20MiB reservation stays spent; selected live engineering subtotal 910s/40MiB. No rerun, automatic successor, spectrum/holdout access or native8/127-24 activation. All eleven genuine scientific gates, target holds, LS/CHEOPS dispositions and consolidation **9 October 2026** remain unchanged.
+
 ## 4 October — hosted CAS direction recovered; separate adapter prepared
 
 [The new preparation](https://github.com/andersenmartin-blip/setisearch/blob/3cbe40846602a3f8964639db0d1b6d1252bf44a7/RADIO_HOSTED_CAS_2026-10-04_PREPARATION.md)
