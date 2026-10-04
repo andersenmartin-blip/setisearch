@@ -1,5 +1,24 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 4 October checkpoint: one v2 synthetic subprocess qualified and closed
+
+[The fully retained integration result](RADIO_RECEIVER_RUNNER_V2_2026-10-04_RESULT.md)
+passes exactly once after immutable protocol/source/input publication and full
+readback: six loader calls, 96 tiny rows, twelve clocks, 342 ms and 802,816
+allocated retained bytes including directories. Its identity is permanently
+spent; the 30-second/4-MiB engineering reservation is not refunded. No original
+scientific/source ledger or budget is reset. All 21 new tests pass; reproduced
+v1 defects and the initial development failure remain retained.
+
+The eleven actual evidence fields remain pending. Next requires genuinely new
+accessible runtime/native/hosted transport/expected-revision CAS evidence and
+a complete fresh prospective allocation. The available GitHub non-forced
+fast-forward publication is insufficient for the required scientific CAS law.
+No repeated synthetic scope/test pass can remove that blocker. Telescope spectra
+and holdouts stay unopened, native8 unreserved and 127/24 NOT ACTIVATED. All
+old control spends, target/HOLD/reserve choices, LS pause and CHEOPS UNSENT stay
+unchanged. Consolidate 9 October without automatic extension/restart/target change.
+
 ## 4 October checkpoint: separate v2 receiver integration scope, not science
 
 [One prospective tiny engineering invocation](RADIO_RECEIVER_RUNNER_V2_2026-10-04_PROTOCOL.md)

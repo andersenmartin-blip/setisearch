@@ -1,5 +1,25 @@
 # SETIsearch — current project status
 
+## 4 October: v2 synthetic receiver integration passed once and closed
+
+The [retained v2 result](RADIO_RECEIVER_RUNNER_V2_2026-10-04_RESULT.md) records one
+published, fully read-back synthetic subprocess invocation: six ordered calls,
+96 pinned rows, 12 clock observations, 342 ms, child exit 0/reaped and exact
+11,933-byte stdout with empty stderr. Original retained storage is 784,483
+logical / 802,816 allocated bytes including directories. Its dispatch identity
+is permanently spent; no retry or scientific allocation. All 21 new tests pass;
+both reproduced v1 gaps and the initial development failure remain retained.
+
+No authentic scientific/source/runtime/hosted/CAS qualification is implied.
+All eleven actual evidence fields remain pending; spectra/holdouts unopened,
+native8 unreserved, 127/24 NOT ACTIVATED, F CLOSED_FAILED 0/8 and all previous
+dispositions preserved. **Exact continuation:** obtain genuinely new actual
+runtime/hosted transport/atomic expected-revision CAS evidence under a complete
+fresh prospective allocation. The available GitHub fast-forward tool does not
+supply that CAS primitive. Do not replay this closed synthetic scope or count
+unchanged tests as progress. If real inputs remain unavailable, preserve the
+blocker and consolidate 9 October, without automatic extension or target change.
+
 ## 4 October: v1 gaps retained; v2 single synthetic subprocess scope frozen
 
 The [new prospective protocol](RADIO_RECEIVER_RUNNER_V2_2026-10-04_PROTOCOL.md)

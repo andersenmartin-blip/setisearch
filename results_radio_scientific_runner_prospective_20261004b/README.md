@@ -20,7 +20,13 @@ scientific RNG. `fixture_scope.py` uses the preserved maintained test fixture;
 its simulated publications/outcomes remain synthetic and cannot authorize science.
 `smoke_entry.py` executes only an externally pinned scope with an independently
 retained local registry identity. The [prospective protocol](../RADIO_RECEIVER_RUNNER_V2_2026-10-04_PROTOCOL.md)
-freezes exactly one integration invocation; its result is pending publication.
+freezes exactly one integration invocation. The [retained result](../RADIO_RECEIVER_RUNNER_V2_2026-10-04_RESULT.md)
+is SYNTHETIC_PROCESS_QUALIFIED: six calls, 96 rows, twelve clocks, 342 ms and
+802,816 allocated evidence bytes including directories. This identity is closed
+and permanently spent. Publication preread verifies all 17 files / 974,032 bytes.
+The terminal/capture/claim, exact entry output, full original accounting and
+post-smoke review are retained here. All eleven actual evidence fields remain
+pending; no runtime/hosted/CAS/scientific readiness follows from the pass.
 
 The 21 targeted tests passed in 6.033 seconds, zero failures/errors/skips, in
 `development_test_02.log`. The first development failure is retained separately:

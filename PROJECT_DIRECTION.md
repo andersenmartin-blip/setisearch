@@ -1,5 +1,22 @@
 # Long-term project direction
 
+## Active continuation — 4 October closed v2 synthetic integration
+
+[V2's single retained subprocess result](RADIO_RECEIVER_RUNNER_V2_2026-10-04_RESULT.md)
+passes its frozen engineering scope, with six receiver calls, 96 tiny rows,
+twelve clocks and exact failure-output retention. Its original identity is now
+permanently spent. The 21 new tests and this one smoke address concrete v1
+replay/clock/subprocess gaps; old evidence and development failures are retained.
+This closes only that synthetic boundary. The local registry is not a global
+CAS service and the fixture is not real source/native/runtime evidence.
+
+Next requires genuinely new authentic runtime/hosted transport and atomic
+expected-revision CAS evidence, then a complete fresh prospective allocation
+before any further invocation. All eleven scientific/source fields remain
+pending. Do not reuse the closed scope, promote synthetic evidence or reopen
+spectra/holdouts. If actual inputs remain unavailable, retain the blocker and
+consolidate 9 October without automatically extending the plan or changing target.
+
 ## Active continuation — 4 October v2 receiver subprocess freeze
 
 The [fresh bounded engineering protocol](RADIO_RECEIVER_RUNNER_V2_2026-10-04_PROTOCOL.md)
