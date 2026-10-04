@@ -1,5 +1,22 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 4 October checkpoint: separate v2 receiver integration scope, not science
+
+[One prospective tiny engineering invocation](RADIO_RECEIVER_RUNNER_V2_2026-10-04_PROTOCOL.md)
+is frozen with exact input/code hashes, local registry identity, 30 seconds and
+4 MiB retained evidence. It addresses two retained v1 defects: identity replay
+at another destination and empty clock admission. All 21 targeted v2 tests pass;
+original source/tests and development failures remain retained. The fixed child
+uses full synthetic metadata and 96 tiny pinned rows; all actual authority is false.
+
+Next: verify complete publication/readback, execute this one original scope once,
+retain its terminal and then report authentic service/source evidence gaps.
+No restart, refund, second registry or telescope values. This engineering scope
+does not reset the closed acquisition ledger, spend any native/scientific case
+or alter 127/24 NOT ACTIVATED, native8 unreserved, historical control failures,
+target/HOLD/reserve choices, LS pause or CHEOPS UNSENT. Consolidate on 9 October
+within the original plan; do not expand it automatically.
+
 ## 4 October checkpoint: bounded runner qualified only in synthetic domain
 
 A fresh one-shot runner now binds maintained current admission and closure,

@@ -1,5 +1,24 @@
 # SETIsearch — current project status
 
+## 4 October: v1 gaps retained; v2 single synthetic subprocess scope frozen
+
+The [new prospective protocol](RADIO_RECEIVER_RUNNER_V2_2026-10-04_PROTOCOL.md)
+records two reproduced v1 gaps: the same dispatch identity could be reused at a
+different output destination, and an empty per-load clock list could pass. The
+separate v2 fixes those edges and passes 21 targeted tests through a fixed actual
+receiver subprocess with complete synthetic metadata. The first development
+failure and original v1 sources/results remain retained.
+
+Exactly one tiny synthetic integration scope is frozen, pending full publication
+readback and invocation. Never replay its identity or reconstruct its claim
+registry if a terminal is missing. No actual scientific/runtime/CAS service,
+native control, source reservation or telescope analysis is qualified by this
+scope. All eleven scientific/source fields remain pending. Exact continuation:
+verify the frozen protocol/code/input publication, execute this one scope only if
+its independently pinned original registry is empty, retain the terminal, then
+document remaining actual service/evidence blockers. All earlier scientific
+dispositions and consolidation on 9 October remain unchanged.
+
 ## 4 October: bounded scientific runner integrated; actual services still blocked
 
 [The prospective runner result](RADIO_BOUNDED_SCIENTIFIC_RUNNER_2026-10-04_RESULT.md)

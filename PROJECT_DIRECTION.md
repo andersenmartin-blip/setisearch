@@ -1,5 +1,19 @@
 # Long-term project direction
 
+## Active continuation — 4 October v2 receiver subprocess freeze
+
+The [fresh bounded engineering protocol](RADIO_RECEIVER_RUNNER_V2_2026-10-04_PROTOCOL.md)
+supersedes v1's destination/clock one-shot assertions with retained concrete
+reproductions and a separate identity-registry runner. Its 21 new tests use a
+fixed receiver subprocess and full synthetic metadata; they are not scientific
+or real service qualification. One tiny published integration scope is pending
+full readback and its single invocation. Do not reuse the identity or substitute
+archived registry copies for original continuity. Retain its terminal and all
+technical failures. Next actual work still requires authentic runtime/native,
+hosted transport, expected-revision CAS and scientific/source evidence under
+fresh allocations. No spectra/holdouts or original controls may be reopened.
+Consolidation remains 9 October; no automatic extension or target change.
+
 ## Active continuation — 4 October bounded runner checkpoint
 
 The maintained scientific admission/closure, receiver per-load clocks and
