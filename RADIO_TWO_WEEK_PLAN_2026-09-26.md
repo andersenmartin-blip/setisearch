@@ -1,5 +1,23 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 4 October: separate dynamic loopback policy frozen for one metadata read
+
+[New prospective transport protocol](RADIO_DYNAMIC_NETWORK_POLICY_2026-10-04_PROTOCOL.md)
+addresses the six changed proxy hashes without altering retired CAS c. It freezes
+only canonical credential-free127.0.0.1 dynamic ports, fixed bypass/trust inputs
+and explicit child environment; unrelated secrets and external endpoints are
+refused. A fresh bare sandbox and seven bounded raw-output captures may read
+only the unchanged store source and c scope.30 new focused tests pass using
+synthetic fixtures; no actual network success is inferred.
+
+**Next:** full code/scope/protocol publication/readback, one original-root admission,
+one40-second/4-MiB metadata-only invocation, retained actual independent review,
+result/main publication. Prior a/b spent and c retired unchanged; no retries or
+automatic successors. Selected live reservation subtotal610seconds/20MiB; old
+budgets/ledgers unchanged. Even a pass leaves compatible atomic expected-branch
+CAS and authentic hosted-runtime/source/session gates pending. No telescope/
+holdout/native8/127-24 activation, target change or extension; consolidate9October.
+
 ## 4 October: CAS edge attempts closed; c refused before admission
 
 [Actual c closure](RADIO_CONTENTS_CAS_EDGE_C_2026-10-04_RESULT.md) followed complete

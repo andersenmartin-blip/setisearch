@@ -1,0 +1,5 @@
+# Separate dynamic loopback policy and public Git metadata read
+
+[Prospective protocol](../RADIO_DYNAMIC_NETWORK_POLICY_2026-10-04_PROTOCOL.md) addresses changed platform proxy ports without changing retired CAS c. A fixed narrow endpoint law admits only credential-free canonical127.0.0.1 dynamic ports, a hash-pinned bypass list/trust file and an explicit child environment. The fresh bare sandbox has neutral config and a pinned existing public-object alternate. Seven bounded Git captures may read only the unchanged scientific store source and retired c's scope; no telescope files or remote writes.
+
+30 new targeted tests pass in0.157seconds. They are synthetic Git/capture fixtures with temporary files, not actual network evidence. Scope pins13 source/runtime/utility bindings and reserves one40-second/4-MiB metadata-only invocation. Full publication/readback must precede the exclusive original marker. No actual invocation yet. Every old source/failure/identity stays unchanged; CAS and complete hosted/runtime/scientific authority remain false.
