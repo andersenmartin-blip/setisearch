@@ -1,5 +1,22 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 4 October: one fresh hosted exact-CAS control prepared prospectively
+
+[The complete hosted service protocol](RADIO_HOSTED_CAS_CONTROL_2026-10-04_PROTOCOL.md)
+freezes one acceptance and one deliberately stale expected-head rejection, with
+an immutable candidate, marker-only activation, full raw retention and independent
+child supervision. Preparation and synthetic tests confer no actual service or
+scientific qualification. The original scientific store and all eleven genuine
+fields remain unchanged and pending.
+
+**Next:** publish and fully read back the complete code/protocol/manifest, then
+activate this original namespace once. Retain and independently review every
+actual outcome; no retry or automatic successor. Only activation allocates the
+new 300-second/20-MiB engineering reservation; selected live subtotal then becomes
+910 seconds/40 MiB, with all previous spends unchanged. Scientific budgets,
+HD189733/neighbor9, HD1461 HOLD, GJ724 reserve, unopened spectra/holdouts,
+native8/127-24 inactivity, LS/CHEOPS and **9 October** consolidation remain fixed.
+
 ## 4 October: existing hosted exact-CAS direction recovered; new adapter is inert
 
 [Hosted CAS preparation](RADIO_HOSTED_CAS_2026-10-04_PREPARATION.md) identifies the

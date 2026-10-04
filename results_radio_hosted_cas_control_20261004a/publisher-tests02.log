@@ -1,0 +1,51 @@
+test_archive_is_deterministic (test_publisher.PublisherTests.test_archive_is_deterministic) ... ok
+test_archive_lossless_all_original_regular_files (test_publisher.PublisherTests.test_archive_lossless_all_original_regular_files) ... ok
+test_candidate_witness_cannot_alter_parent_or_body (test_publisher.PublisherTests.test_candidate_witness_cannot_alter_parent_or_body) ... ok
+test_cas_error_spends_instance_without_retry (test_publisher.PublisherTests.test_cas_error_spends_instance_without_retry) ... FAIL
+test_changed_body_refused (test_publisher.PublisherTests.test_changed_body_refused) ... ok
+test_exact_transport_secret_refused (test_publisher.PublisherTests.test_exact_transport_secret_refused) ... ok
+test_failed_child_can_archive_activation_head (test_publisher.PublisherTests.test_failed_child_can_archive_activation_head) ... FAIL
+test_hardlink_refused (test_publisher.PublisherTests.test_hardlink_refused) ... ok
+test_immutable_blob_mismatch_blocks_cas (test_publisher.PublisherTests.test_immutable_blob_mismatch_blocks_cas) ... ok
+test_passed_child_requires_accepted_head (test_publisher.PublisherTests.test_passed_child_requires_accepted_head) ... ok
+test_secret_patterns_refused (test_publisher.PublisherTests.test_secret_patterns_refused) ... ok
+test_source_pin_failure_zero_network_calls (test_publisher.PublisherTests.test_source_pin_failure_zero_network_calls) ... ok
+test_success_exact_single_delta_and_one_cas (test_publisher.PublisherTests.test_success_exact_single_delta_and_one_cas) ... FAIL
+test_symlink_refused (test_publisher.PublisherTests.test_symlink_refused) ... ok
+test_unknown_remote_head_refused_before_object_creation (test_publisher.PublisherTests.test_unknown_remote_head_refused_before_object_creation) ... ok
+test_unreaped_child_zero_network_calls (test_publisher.PublisherTests.test_unreaped_child_zero_network_calls) ... ok
+
+======================================================================
+FAIL: test_cas_error_spends_instance_without_retry (test_publisher.PublisherTests.test_cas_error_spends_instance_without_retry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_hosted_cas_control_20261004a/test_publisher.py", line 233, in test_cas_error_spends_instance_without_retry
+    self.assertEqual(self.transport.cas_count, 1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_failed_child_can_archive_activation_head (test_publisher.PublisherTests.test_failed_child_can_archive_activation_head)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_hosted_cas_control_20261004a/test_publisher.py", line 259, in test_failed_child_can_archive_activation_head
+    self.assertEqual(result['status'], 'SYNTHETIC_PUBLICATION_ONLY')
+AssertionError: 'CLOSED_FAILED' != 'SYNTHETIC_PUBLICATION_ONLY'
+- CLOSED_FAILED
++ SYNTHETIC_PUBLICATION_ONLY
+
+
+======================================================================
+FAIL: test_success_exact_single_delta_and_one_cas (test_publisher.PublisherTests.test_success_exact_single_delta_and_one_cas)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_hosted_cas_control_20261004a/test_publisher.py", line 216, in test_success_exact_single_delta_and_one_cas
+    self.assertEqual(result['status'], 'SYNTHETIC_PUBLICATION_ONLY')
+AssertionError: 'CLOSED_FAILED' != 'SYNTHETIC_PUBLICATION_ONLY'
+- CLOSED_FAILED
++ SYNTHETIC_PUBLICATION_ONLY
+
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.048s
+
+FAILED (failures=3)

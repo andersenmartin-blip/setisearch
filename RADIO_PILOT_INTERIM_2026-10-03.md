@@ -1,5 +1,7 @@
 # Independent radio-search pilot: current continuation — 4 October 2026
 
+Current 4 October continuation: [one fresh hosted exact-CAS service control](RADIO_HOSTED_CAS_CONTROL_2026-10-04_PROTOCOL.md) is being frozen for full publication/readback and a separate single activation. Its scope remains engineering only; the historical pilot below and all scientific admission gates remain unchanged.
+
 [The subsequent hosted-CAS preparation](RADIO_HOSTED_CAS_2026-10-04_PREPARATION.md)
 identifies the existing Actions `updateRefs` route and supplies a separate inert
 adapter. It qualifies no new live service or scientific gate; the current

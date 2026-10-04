@@ -1,0 +1,30 @@
+test_bad_synthetic_limits_and_live_credential_refused (test_supervisor.SupervisorTests.test_bad_synthetic_limits_and_live_credential_refused) ... ok
+test_changed_freeze_refused_before_claim (test_supervisor.SupervisorTests.test_changed_freeze_refused_before_claim) ... ok
+test_child_environment_matches_only_selected_metadata (test_supervisor.SupervisorTests.test_child_environment_matches_only_selected_metadata) ... ok
+test_child_symlink_member_closes_failed (test_supervisor.SupervisorTests.test_child_symlink_member_closes_failed) ... ok
+test_combined_stream_limit (test_supervisor.SupervisorTests.test_combined_stream_limit) ... ok
+test_descendant_sampling_and_orphan_reaping (test_supervisor.SupervisorTests.test_descendant_sampling_and_orphan_reaping) ... FAIL
+test_duplicate_proof_keys_refused (test_supervisor.SupervisorTests.test_duplicate_proof_keys_refused) ... ok
+test_full_binary_streams_reaping_and_selected_runtime (test_supervisor.SupervisorTests.test_full_binary_streams_reaping_and_selected_runtime) ... ok
+test_inherited_environment_not_passed (test_supervisor.SupervisorTests.test_inherited_environment_not_passed) ... ok
+test_invalid_proof_or_source_refused_before_claim (test_supervisor.SupervisorTests.test_invalid_proof_or_source_refused_before_claim) ... ok
+test_nonzero_preserves_complete_exact_failure (test_supervisor.SupervisorTests.test_nonzero_preserves_complete_exact_failure) ... ok
+test_occupied_scope_refused_without_second_launch (test_supervisor.SupervisorTests.test_occupied_scope_refused_without_second_launch) ... ok
+test_source_change_during_child_is_failure (test_supervisor.SupervisorTests.test_source_change_during_child_is_failure) ... ok
+test_storage_includes_directory_allocations_and_closes_on_limit (test_supervisor.SupervisorTests.test_storage_includes_directory_allocations_and_closes_on_limit) ... ok
+test_stream_limit_retains_exact_bounded_prefix (test_supervisor.SupervisorTests.test_stream_limit_retains_exact_bounded_prefix) ... ok
+test_symlink_input_and_destination_refused (test_supervisor.SupervisorTests.test_symlink_input_and_destination_refused) ... ok
+test_whole_child_timeout_reaps_and_retains_partial_stream (test_supervisor.SupervisorTests.test_whole_child_timeout_reaps_and_retains_partial_stream) ... ok
+
+======================================================================
+FAIL: test_descendant_sampling_and_orphan_reaping (test_supervisor.SupervisorTests.test_descendant_sampling_and_orphan_reaping)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_hosted_cas_control_20261004a/test_supervisor.py", line 187, in test_descendant_sampling_and_orphan_reaping
+    self.assertGreaterEqual(len(terminal['procfs']['individual_process_peaks']), 2)
+AssertionError: 0 not greater than or equal to 2
+
+----------------------------------------------------------------------
+Ran 17 tests in 7.341s
+
+FAILED (failures=1)

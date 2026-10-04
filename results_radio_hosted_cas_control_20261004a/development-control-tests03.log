@@ -1,0 +1,27 @@
+test_ambiguous_positive_ack_never_retries_or_conflict_tests (test_control.ControlTests.test_ambiguous_positive_ack_never_retries_or_conflict_tests) ... ok
+test_deadline_and_call_budget_are_closed (test_control.ControlTests.test_deadline_and_call_budget_are_closed) ... ok
+test_duplicate_json_and_oversize_response_stop (test_control.ControlTests.test_duplicate_json_and_oversize_response_stop) ... ok
+test_existing_owned_metadata_path_stops_without_mutation (test_control.ControlTests.test_existing_owned_metadata_path_stops_without_mutation) ... ok
+test_forged_remote_sources_rejected_before_creates (test_control.ControlTests.test_forged_remote_sources_rejected_before_creates) ... ok
+test_full_tree_intrinsic_hash_prevents_outside_delta (test_control.ControlTests.test_full_tree_intrinsic_hash_prevents_outside_delta) ... ok
+test_inert_import_contains_no_live_transport_call (test_control.ControlTests.test_inert_import_contains_no_live_transport_call) ... ok
+test_isolated_entrypoint_success_exit_remains_zero (test_control.ControlTests.test_isolated_entrypoint_success_exit_remains_zero) ... FAIL
+test_missing_negative_error_and_moving_head_rejected (test_control.ControlTests.test_missing_negative_error_and_moving_head_rejected) ... ok
+test_negative_transport_failure_cannot_be_evidence (test_control.ControlTests.test_negative_transport_failure_cannot_be_evidence) ... ok
+test_source_mismatch_before_api_and_exclusive_output (test_control.ControlTests.test_source_mismatch_before_api_and_exclusive_output) ... ok
+test_success_discriminates_stale_beforeoid_from_ancestry (test_control.ControlTests.test_success_discriminates_stale_beforeoid_from_ancestry) ... ok
+test_token_response_is_rejected_before_retention (test_control.ControlTests.test_token_response_is_rejected_before_retention) ... ok
+
+======================================================================
+FAIL: test_isolated_entrypoint_success_exit_remains_zero (test_control.ControlTests.test_isolated_entrypoint_success_exit_remains_zero)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_hosted_cas_control_20261004a/test_control.py", line 309, in test_isolated_entrypoint_success_exit_remains_zero
+    self.assertEqual(result.returncode, 0, result.stderr.decode())
+AssertionError: 1 != 0 : CLOSED_FAILED
+
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.944s
+
+FAILED (failures=1)
