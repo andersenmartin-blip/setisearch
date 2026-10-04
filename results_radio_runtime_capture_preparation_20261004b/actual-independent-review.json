@@ -1,0 +1,1265 @@
+{
+  "schema": "radio-runtime-capture-b-independent-actual-review-v1",
+  "date_utc": "2026-10-04",
+  "reviewer": "capture_b_review",
+  "verdict": "NO_BLOCKING_ACTUAL_RESULT_FINDINGS_WITHIN_ADMITTED_METADATA_SCOPE",
+  "actual_status": "OBSERVED_METADATA_ONLY",
+  "admission_status": "PENDING_MISSING_INPUTS",
+  "blocking_findings": [],
+  "corrected_nonblocking_findings": [
+    {
+      "finding": "Ambiguous wording described 27 dependency rows as 27 unique compatible candidates.",
+      "resolution": "Root result now says 27 rows each with one observed compatible candidate, representing seven distinct loaded candidate paths.",
+      "status": "CORRECTED_BEFORE_FINAL_REVIEW"
+    }
+  ],
+  "review_scope": {
+    "original_and_copied_retained_artifacts_read": true,
+    "independent_sha256_intrinsic_blob_and_exact_source_body_comparison": true,
+    "independent_raw_proc_and_maps_text_parsing": true,
+    "independent_budget_and_filesystem_accounting": true,
+    "independent_source_bootstrap_reconstruction_without_execution": true,
+    "independent_original_a_preservation_rechecked_after_b": true,
+    "separate_narrow_narrative_reviewer": "actual_narrative_check",
+    "producer_tests_executed_by_reviewer": 0,
+    "supervisor_or_collector_invocations_by_reviewer": 0,
+    "synthetic_child_runs_by_reviewer": 0,
+    "new_native_binary_reads_by_reviewer": 0,
+    "native_scientific_package_imports_by_reviewer": 0,
+    "telescope_or_dataset_operations_by_reviewer": 0,
+    "network_origin_or_live_head_reauthentication_by_reviewer": false,
+    "writes_by_reviewer": [
+      "results_radio_runtime_capture_preparation_20261004b/README-actual-review.md",
+      "results_radio_runtime_capture_preparation_20261004b/actual-independent-review.json"
+    ],
+    "current_status_documents_are_capture_dependencies": false
+  },
+  "capture_identity": "e3d5aae494ef041c668a9fbec11edc2ac821a0e27bef15588181d166e125736c",
+  "immutable_publication_and_local_binding_review": {
+    "prepared_commit": "5d1ad060b389d5b3fb8670fc5b69dfa07a684983",
+    "prepared_tree": "075a3f76e86de6d5dd59df37653bd9f20c62e7b3",
+    "prepared_parent": "75f803615a28394cf91eca404f16fcc418e28955",
+    "activation_commit": "c10e9d5242b23f5e61e7eab48e8ee2eed8bbfb57",
+    "activation_tree": "2fd556103fcac2b2e34028f699040d862111371e",
+    "activation_parent": "5d1ad060b389d5b3fb8670fc5b69dfa07a684983",
+    "activation_only_change": {
+      "all_inherited_config_entries_equal": true,
+      "config_delta": [
+        {
+          "mode": "100644",
+          "path": "radio_runtime_metadata_capture_20261004b.activate.json",
+          "sha": "6d41ffff7de66998c9a73f8309c2a3db580cfc2e",
+          "size": 390,
+          "type": "blob",
+          "url": "https://api.github.com/repos/andersenmartin-blip/setisearch/git/blobs/6d41ffff7de66998c9a73f8309c2a3db580cfc2e"
+        }
+      ],
+      "only_changed_path": "config/radio_runtime_metadata_capture_20261004b.activate.json",
+      "whole_tree_verified": true
+    },
+    "full_bytes": 2396074,
+    "engineering_subtotal_after_activation": {
+      "MiB": 56,
+      "seconds": 1030
+    },
+    "reviewer_verified_external_readback_record_scope": "Local retained external-readback record and exact decoded source bodies checked; reviewer did not repeat network origin/branch authentication. Full 57-body origin comparison and complete tree/sole-parent readback are attributed to root recorded administrative operations.",
+    "proof": {
+      "bytes": 1021640,
+      "sha256": "e3be06c79055d21fbde6e5e98f2d596906988a19b3012388dfc6b95893177eee",
+      "git_blob": "c07ea584c5aae8f549e9b95fa152a02074b264a9",
+      "decoded_source_files": 7,
+      "decoded_source_bytes": 763003
+    },
+    "supervisor_contract": {
+      "bytes": 164445,
+      "sha256": "b4e38001dde17995c3b43f59254f117a55ff12c85e3a19365908010a148db821"
+    },
+    "collector_contract": {
+      "bytes": 179265,
+      "sha256": "a3c7f9b85bd57a340f2b585b96e982a056e797bce65fc05284af68d827c9e8d2"
+    },
+    "marker": {
+      "bytes": 390,
+      "sha256": "72401be3b4e27e38c4fea1b84e8664ebc9a76afbf95be74bde8c3f3f85722e52",
+      "git_blob": "6d41ffff7de66998c9a73f8309c2a3db580cfc2e"
+    },
+    "source_files": [
+      {
+        "repository_path": "RADIO_RUNTIME_METADATA_CAPTURE_2026-10-04B_PROTOCOL.md",
+        "bytes": 10839,
+        "sha256": "e60414432f50d90b77b9ef486696a19ac5a2f0fe4390409b08ebf47d5d3bd2c2",
+        "git_blob": "08a9b4dd2794f3acc37add4e394ef3c38462807e",
+        "mode": "0644"
+      },
+      {
+        "repository_path": "config/radio_runtime_metadata_capture_20261004b.collector.json",
+        "bytes": 179265,
+        "sha256": "a3c7f9b85bd57a340f2b585b96e982a056e797bce65fc05284af68d827c9e8d2",
+        "git_blob": "42ec17c221a516c0b2847910f21526ad7b87dbea",
+        "mode": "0644"
+      },
+      {
+        "repository_path": "results_radio_runtime_capture_preparation_20261004b/capture_gate.py",
+        "bytes": 68248,
+        "sha256": "c0736896f9a1aee3598c11e11149057553e30fc4f436a5600086dad51352251c",
+        "git_blob": "800ca8423d25bbb083eddf9f7dfcb2b8fb70193e",
+        "mode": "0644"
+      },
+      {
+        "repository_path": "results_radio_runtime_capture_preparation_20261004b/collector.py",
+        "bytes": 41872,
+        "sha256": "86d810491b5f44c2f037e73ed344b3537ec8639d0770c608b96d498e6269f8ec",
+        "git_blob": "7cf259318b3836c2d5baba63d93a61d0f5510755",
+        "mode": "0644"
+      },
+      {
+        "repository_path": "results_radio_runtime_capture_preparation_20261004b/elf_metadata.py",
+        "bytes": 14778,
+        "sha256": "e47147aee6092e2a465873ac4761bc4850dc4daf5a57f8f908ed68ba94503446",
+        "git_blob": "4b6ef4dbd0e81a9ddf32fe38349e606a18df67c7",
+        "mode": "0644"
+      },
+      {
+        "repository_path": "results_radio_runtime_capture_preparation_20261004b/runtime-preread-pins.json",
+        "bytes": 423262,
+        "sha256": "b5fe9e7b6cba36d726ecfe4c9bcd3d7bd5ff884cd1a3f6ecd7cb999005d27cac",
+        "git_blob": "0652416b113968f79fe6ee2dea6c6da754cfbc7c",
+        "mode": "0644"
+      },
+      {
+        "repository_path": "results_radio_runtime_materialization_preparation_20261004a/runtime-materialization.plan.json",
+        "bytes": 24739,
+        "sha256": "fe0a2463d75002b2b675d998f7ac4f201b1b67664e21baa22b2e241ed8c46c25",
+        "git_blob": "d3aab19fdf575bca46115d084b3e5d549bb04092",
+        "mode": "0644"
+      }
+    ],
+    "all_seven_current_source_modes_verified": true,
+    "source_runtime_and_input_bindings_exact": true,
+    "no_hash_cycles": true,
+    "collector_bootstrap": {
+      "bytes": 56608,
+      "sha256": "473ba5d2219a7288311021a2559e2cc4bb6b3472cb222d5d377bf8ff928c3cd0",
+      "reconstruction_only_no_execution": true
+    },
+    "source_path_reopened_for_dispatch": false,
+    "interpreter_implicit_loader_closure_qualified": false,
+    "future_initial_authentication_failure_allowed_to_close_failed": true
+  },
+  "caller_and_actual_result": {
+    "stdout": {
+      "bytes": 10684,
+      "sha256": "0e68f79d6379dca753a092e0e521cc2aa62dea692334ba8ed65b5ad9e611abf5",
+      "git_blob": "cdb356f662cac9c91eab35677a81f2e30c8aa890"
+    },
+    "stderr_bytes": 0,
+    "invocation_record": {
+      "bytes": 3066,
+      "sha256": "3e2794da88f47f4045bb000a5010d6556351b07d05582fa9f0e2d994a3265227",
+      "provider_exit_code_recorded": 0,
+      "invocations_recorded": 1,
+      "provider_clock_certified": false
+    },
+    "exact_argv_verified": true,
+    "caller_report_equals_original_supervisor_report": true,
+    "recorded_engineering_child_dispatches": 1,
+    "child_exit_code": 0,
+    "child_wait_status": 0,
+    "child_reaped": true,
+    "failure": null,
+    "whole_scope_elapsed_seconds": 0.571247392,
+    "completed_monotonic_ns": 56957406580786,
+    "clock_scope": "Gate CLI entry through completed original report/root accounting only; final caller serialization, provider termination and implicit pre-entry startup excluded.",
+    "supervisor_summary": {
+      "status": "OBSERVED_METADATA_ONLY",
+      "failure": null,
+      "prepared_commit": "5d1ad060b389d5b3fb8670fc5b69dfa07a684983",
+      "activation_commit": "c10e9d5242b23f5e61e7eab48e8ee2eed8bbfb57",
+      "capture_identity": "e3d5aae494ef041c668a9fbec11edc2ac821a0e27bef15588181d166e125736c",
+      "contract_sha256": "b4e38001dde17995c3b43f59254f117a55ff12c85e3a19365908010a148db821",
+      "publication_proof_sha256": "e3be06c79055d21fbde6e5e98f2d596906988a19b3012388dfc6b95893177eee",
+      "activation_sha256": "72401be3b4e27e38c4fea1b84e8664ebc9a76afbf95be74bde8c3f3f85722e52",
+      "engineering_capture_authorized": true,
+      "engineering_reservation_spent": true,
+      "engineering_child_dispatches": 1,
+      "child_pid": 6,
+      "child_exit_code": 0,
+      "wait_status": 0,
+      "child_reaped": true,
+      "selected_before_after_equal": true,
+      "raw_stdout_bytes": 594419,
+      "raw_stderr_bytes": 0,
+      "started_monotonic_ns": 56956835333394,
+      "before_report_monotonic_ns": 56957406107081,
+      "elapsed_before_final_report_seconds": 0.570774128,
+      "limits": {
+        "artifact_bytes": 8388608,
+        "child_seconds": 50,
+        "read_bytes": 268435456,
+        "reap_seconds": 5,
+        "rss_bytes": 536870912,
+        "sample_count": 1200,
+        "stream_bytes": 1048576,
+        "wall_seconds": 60
+      },
+      "authority": {
+        "acquisition_authorized": false,
+        "allocation_created": false,
+        "cas_qualified": false,
+        "certificate_issued": false,
+        "download_authorized": false,
+        "execution_authorized": false,
+        "hosted_transport_qualified": false,
+        "installation_authorized": false,
+        "reservation_authorized": false,
+        "rng_authorized": false,
+        "runtime_qualified": false,
+        "scientific_execution_authorized": false,
+        "source_contract_admitted": false,
+        "spectral_access_authorized": false
+      },
+      "authority_scope": "scientific-and-source-certificates-only",
+      "spent_forever": true,
+      "retry_allowed": false,
+      "aggregate_descendant_absence_certified": false,
+      "descriptors_closed": true,
+      "pidfd_terminal_observed": true
+    },
+    "spent_summary": {
+      "schema": "radio-runtime-metadata-capture-spent-v1",
+      "capture_identity": "e3d5aae494ef041c668a9fbec11edc2ac821a0e27bef15588181d166e125736c",
+      "contract_sha256": "b4e38001dde17995c3b43f59254f117a55ff12c85e3a19365908010a148db821",
+      "proof_sha256": "e3be06c79055d21fbde6e5e98f2d596906988a19b3012388dfc6b95893177eee",
+      "activation_sha256": "72401be3b4e27e38c4fea1b84e8664ebc9a76afbf95be74bde8c3f3f85722e52",
+      "prepared_commit": "5d1ad060b389d5b3fb8670fc5b69dfa07a684983",
+      "activation_commit": "c10e9d5242b23f5e61e7eab48e8ee2eed8bbfb57",
+      "began_monotonic_ns": 56956835333394,
+      "spent_monotonic_ns": 56956964315692,
+      "irreversible": true,
+      "retry_allowed": false,
+      "engineering_capture_authorized": true,
+      "engineering_reservation_spent": true,
+      "authority_flags_all_false": true
+    }
+  },
+  "actual_original_scope": {
+    "root_identity": {
+      "allocated_bytes": 4096,
+      "bytes": 4096,
+      "ctime_ns": 1791142608857202000,
+      "device": 27,
+      "inode": 1575156,
+      "mode": "0700",
+      "mtime_ns": 1791142608857202000
+    },
+    "exactly_eight_declared_sole_link_regular_files": true,
+    "every_original_full_raw_bytes_and_recorded_metadata_unchanged": true,
+    "every_copy_exact": true,
+    "members": [
+      {
+        "bytes": 1021640,
+        "copied_bytes_equal": true,
+        "git_blob": "c07ea584c5aae8f549e9b95fa152a02074b264a9",
+        "name": "admission-witness.json",
+        "original_identity": {
+          "allocated_bytes": 1024000,
+          "bytes": 1021640,
+          "ctime_ns": 1791142608416593200,
+          "device": 27,
+          "inode": 1575289,
+          "mode": "0644",
+          "mtime_ns": 1791142608416593200
+        },
+        "original_path": "/workspace/scratch/d804553c0e89/radio-runtime-metadata-capture-20261004b/admission-witness.json",
+        "repository_path": "results_radio_runtime_capture_preparation_20261004b/actual/admission-witness.json",
+        "sha256": "e3be06c79055d21fbde6e5e98f2d596906988a19b3012388dfc6b95893177eee",
+        "independently_verified": true
+      },
+      {
+        "bytes": 0,
+        "copied_bytes_equal": true,
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "name": "child.stderr.raw",
+        "original_identity": {
+          "allocated_bytes": 0,
+          "bytes": 0,
+          "ctime_ns": 1791142608852631800,
+          "device": 27,
+          "inode": 1575291,
+          "mode": "0600",
+          "mtime_ns": 1791142608852631800
+        },
+        "original_path": "/workspace/scratch/d804553c0e89/radio-runtime-metadata-capture-20261004b/child.stderr.raw",
+        "repository_path": "results_radio_runtime_capture_preparation_20261004b/actual/child.stderr.raw",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "independently_verified": true
+      },
+      {
+        "bytes": 594419,
+        "copied_bytes_equal": true,
+        "git_blob": "9319eeca3831248270e90d6321cc084d56321e59",
+        "name": "child.stdout.raw",
+        "original_identity": {
+          "allocated_bytes": 598016,
+          "bytes": 594419,
+          "ctime_ns": 1791142608852631800,
+          "device": 27,
+          "inode": 1575290,
+          "mode": "0600",
+          "mtime_ns": 1791142608852631800
+        },
+        "original_path": "/workspace/scratch/d804553c0e89/radio-runtime-metadata-capture-20261004b/child.stdout.raw",
+        "repository_path": "results_radio_runtime_capture_preparation_20261004b/actual/child.stdout.raw",
+        "sha256": "f5a27aa6b1867134304a5b44c0be9a686cb999ef885f575d12f242e7e8d9623b",
+        "independently_verified": true
+      },
+      {
+        "bytes": 51976,
+        "copied_bytes_equal": true,
+        "git_blob": "97c2e0f8365dbf8a5189c9c069bb0b5307b6d6c2",
+        "name": "procfs-samples.json",
+        "original_identity": {
+          "allocated_bytes": 53248,
+          "bytes": 51976,
+          "ctime_ns": 1791142608856635600,
+          "device": 27,
+          "inode": 1575292,
+          "mode": "0600",
+          "mtime_ns": 1791142608856635600
+        },
+        "original_path": "/workspace/scratch/d804553c0e89/radio-runtime-metadata-capture-20261004b/procfs-samples.json",
+        "repository_path": "results_radio_runtime_capture_preparation_20261004b/actual/procfs-samples.json",
+        "sha256": "4940394d2e686e34dd387f0b5347c4461c6e7f18f82da63c44f2796bbbec84ea",
+        "independently_verified": true
+      },
+      {
+        "bytes": 162836,
+        "copied_bytes_equal": true,
+        "git_blob": "2f51d4a5221d96399d9982ea3559ad5e1e92adde",
+        "name": "selected-runtime-after.json",
+        "original_identity": {
+          "allocated_bytes": 163840,
+          "bytes": 162836,
+          "ctime_ns": 1791142608856705500,
+          "device": 27,
+          "inode": 1575293,
+          "mode": "0600",
+          "mtime_ns": 1791142608856705500
+        },
+        "original_path": "/workspace/scratch/d804553c0e89/radio-runtime-metadata-capture-20261004b/selected-runtime-after.json",
+        "repository_path": "results_radio_runtime_capture_preparation_20261004b/actual/selected-runtime-after.json",
+        "sha256": "7b24cc462e15b39ffdd5eebe4e0fdbfeacb71235ead7f5161ac52fcf802e8c4d",
+        "independently_verified": true
+      },
+      {
+        "bytes": 162836,
+        "copied_bytes_equal": true,
+        "git_blob": "2f51d4a5221d96399d9982ea3559ad5e1e92adde",
+        "name": "selected-runtime-before.json",
+        "original_identity": {
+          "allocated_bytes": 163840,
+          "bytes": 162836,
+          "ctime_ns": 1791142608416491300,
+          "device": 27,
+          "inode": 1575288,
+          "mode": "0600",
+          "mtime_ns": 1791142608416491300
+        },
+        "original_path": "/workspace/scratch/d804553c0e89/radio-runtime-metadata-capture-20261004b/selected-runtime-before.json",
+        "repository_path": "results_radio_runtime_capture_preparation_20261004b/actual/selected-runtime-before.json",
+        "sha256": "7b24cc462e15b39ffdd5eebe4e0fdbfeacb71235ead7f5161ac52fcf802e8c4d",
+        "independently_verified": true
+      },
+      {
+        "bytes": 1377,
+        "copied_bytes_equal": true,
+        "git_blob": "905a52932e3eaec062d293efc0027c8dda7c9dd0",
+        "name": "spent.json",
+        "original_identity": {
+          "allocated_bytes": 4096,
+          "bytes": 1377,
+          "ctime_ns": 1791142608412622000,
+          "device": 27,
+          "inode": 1575287,
+          "mode": "0600",
+          "mtime_ns": 1791142608412622000
+        },
+        "original_path": "/workspace/scratch/d804553c0e89/radio-runtime-metadata-capture-20261004b/spent.json",
+        "repository_path": "results_radio_runtime_capture_preparation_20261004b/actual/spent.json",
+        "sha256": "f91b4df89cc7ff5b4e7372e8432ba7206733823f97cede380f7815101f08b434",
+        "independently_verified": true
+      },
+      {
+        "bytes": 9664,
+        "copied_bytes_equal": true,
+        "git_blob": "55ed4e57b546c2001b448e74852b527a11e59b1f",
+        "name": "supervisor-result.json",
+        "original_identity": {
+          "allocated_bytes": 12288,
+          "bytes": 9664,
+          "ctime_ns": 1791142608857202000,
+          "device": 27,
+          "inode": 1575294,
+          "mode": "0600",
+          "mtime_ns": 1791142608857202000
+        },
+        "original_path": "/workspace/scratch/d804553c0e89/radio-runtime-metadata-capture-20261004b/supervisor-result.json",
+        "repository_path": "results_radio_runtime_capture_preparation_20261004b/actual/supervisor-result.json",
+        "sha256": "940de63992d77ea5b8062cc0fd198dafd7db2355ac13ddd19dac6985a7b38a71",
+        "independently_verified": true
+      }
+    ],
+    "file_bytes": 2004748,
+    "directory_inclusive_logical_bytes": 2008844,
+    "directory_inclusive_allocated_bytes": 2023424,
+    "eight_mib_cap_bytes": 8388608,
+    "logical_headroom_bytes": 6379764,
+    "allocated_headroom_bytes": 6365184,
+    "administrative_copies_are_capture_overflow": false
+  },
+  "authenticated_process_and_read_arithmetic": {
+    "schema": "independent-actual-process-and-budget-facts-v1",
+    "all_assertions_verified": true,
+    "parent_anchor_stat": {
+      "pid": 61691,
+      "comm": "python3.12",
+      "state": "R",
+      "ppid": 61688,
+      "pgrp": 61687,
+      "session": 61687,
+      "threads": 1,
+      "starttime": 5695680
+    },
+    "parent_nspid": [
+      61691,
+      5
+    ],
+    "identity": {
+      "executable": {
+        "device": 27,
+        "inode": 9223372036855190000
+      },
+      "namespace": {
+        "device": 4,
+        "inode": 4026532277
+      },
+      "nspid": [
+        61693,
+        6
+      ],
+      "pgrp": 61693,
+      "pid": 61693,
+      "ppid": 61691,
+      "session": 61693,
+      "starttime": 5695696
+    },
+    "held_proc_directory": {
+      "device": 30,
+      "inode": 421767
+    },
+    "pidfd_object": {
+      "device": 5,
+      "inode": 64073
+    },
+    "constructor_read_bytes": 1518,
+    "terminal_pidfd_read_bytes": 62,
+    "terminal_pidfd_raw_ascii": "pos:\t0\nflags:\t02000002\nmnt_id:\t4\nino:\t64073\nPid:\t-1\nNSpid:\t-1\n",
+    "proc_read_bytes": 34703,
+    "sample_facts": [
+      {
+        "number": 1,
+        "monotonic_ns": 56956969404651,
+        "direct_raw_bytes": 3011,
+        "group_stat_raw_bytes": 3584,
+        "proc_raw_bytes": 6595,
+        "visible_records": 17,
+        "group_serialized_bytes": 5807,
+        "sample_serialized_bytes": 10350,
+        "VmRSS_before_after_bytes": [
+          405504,
+          1650688
+        ],
+        "VmHWM_before_after_bytes": [
+          405504,
+          1650688
+        ],
+        "before_after_stat": [
+          {
+            "pid": 61693,
+            "comm": "python3.12",
+            "state": "R",
+            "ppid": 61691,
+            "pgrp": 61693,
+            "session": 61693,
+            "threads": 1,
+            "starttime": 5695696
+          },
+          {
+            "pid": 61693,
+            "comm": "python3.12",
+            "state": "R",
+            "ppid": 61691,
+            "pgrp": 61693,
+            "session": 61693,
+            "threads": 1,
+            "starttime": 5695696
+          }
+        ],
+        "group_members": [
+          61693
+        ],
+        "status_nspid_before_after": [
+          [
+            61693,
+            6
+          ],
+          [
+            61693,
+            6
+          ]
+        ],
+        "both_brackets_authenticated": true
+      },
+      {
+        "number": 2,
+        "monotonic_ns": 56957030358306,
+        "direct_raw_bytes": 3036,
+        "group_stat_raw_bytes": 3596,
+        "proc_raw_bytes": 6632,
+        "visible_records": 17,
+        "group_serialized_bytes": 5823,
+        "sample_serialized_bytes": 10406,
+        "VmRSS_before_after_bytes": [
+          72634368,
+          74764288
+        ],
+        "VmHWM_before_after_bytes": [
+          72634368,
+          74764288
+        ],
+        "before_after_stat": [
+          {
+            "pid": 61693,
+            "comm": "python3.12",
+            "state": "R",
+            "ppid": 61691,
+            "pgrp": 61693,
+            "session": 61693,
+            "threads": 1,
+            "starttime": 5695696
+          },
+          {
+            "pid": 61693,
+            "comm": "python3.12",
+            "state": "R",
+            "ppid": 61691,
+            "pgrp": 61693,
+            "session": 61693,
+            "threads": 1,
+            "starttime": 5695696
+          }
+        ],
+        "group_members": [
+          61693
+        ],
+        "status_nspid_before_after": [
+          [
+            61693,
+            6
+          ],
+          [
+            61693,
+            6
+          ]
+        ],
+        "both_brackets_authenticated": true
+      },
+      {
+        "number": 3,
+        "monotonic_ns": 56957092533255,
+        "direct_raw_bytes": 3036,
+        "group_stat_raw_bytes": 3596,
+        "proc_raw_bytes": 6632,
+        "visible_records": 17,
+        "group_serialized_bytes": 5823,
+        "sample_serialized_bytes": 10406,
+        "VmRSS_before_after_bytes": [
+          50323456,
+          50331648
+        ],
+        "VmHWM_before_after_bytes": [
+          75968512,
+          75968512
+        ],
+        "before_after_stat": [
+          {
+            "pid": 61693,
+            "comm": "python3.12",
+            "state": "R",
+            "ppid": 61691,
+            "pgrp": 61693,
+            "session": 61693,
+            "threads": 1,
+            "starttime": 5695696
+          },
+          {
+            "pid": 61693,
+            "comm": "python3.12",
+            "state": "R",
+            "ppid": 61691,
+            "pgrp": 61693,
+            "session": 61693,
+            "threads": 1,
+            "starttime": 5695696
+          }
+        ],
+        "group_members": [
+          61693
+        ],
+        "status_nspid_before_after": [
+          [
+            61693,
+            6
+          ],
+          [
+            61693,
+            6
+          ]
+        ],
+        "both_brackets_authenticated": true
+      },
+      {
+        "number": 4,
+        "monotonic_ns": 56957154806161,
+        "direct_raw_bytes": 3036,
+        "group_stat_raw_bytes": 3596,
+        "proc_raw_bytes": 6632,
+        "visible_records": 17,
+        "group_serialized_bytes": 5823,
+        "sample_serialized_bytes": 10406,
+        "VmRSS_before_after_bytes": [
+          57503744,
+          57503744
+        ],
+        "VmHWM_before_after_bytes": [
+          75968512,
+          75968512
+        ],
+        "before_after_stat": [
+          {
+            "pid": 61693,
+            "comm": "python3.12",
+            "state": "R",
+            "ppid": 61691,
+            "pgrp": 61693,
+            "session": 61693,
+            "threads": 1,
+            "starttime": 5695696
+          },
+          {
+            "pid": 61693,
+            "comm": "python3.12",
+            "state": "R",
+            "ppid": 61691,
+            "pgrp": 61693,
+            "session": 61693,
+            "threads": 1,
+            "starttime": 5695696
+          }
+        ],
+        "group_members": [
+          61693
+        ],
+        "status_nspid_before_after": [
+          [
+            61693,
+            6
+          ],
+          [
+            61693,
+            6
+          ]
+        ],
+        "both_brackets_authenticated": true
+      },
+      {
+        "number": 5,
+        "monotonic_ns": 56957217266140,
+        "direct_raw_bytes": 3036,
+        "group_stat_raw_bytes": 3596,
+        "proc_raw_bytes": 6632,
+        "visible_records": 17,
+        "group_serialized_bytes": 5823,
+        "sample_serialized_bytes": 10406,
+        "VmRSS_before_after_bytes": [
+          57540608,
+          57544704
+        ],
+        "VmHWM_before_after_bytes": [
+          75968512,
+          75968512
+        ],
+        "before_after_stat": [
+          {
+            "pid": 61693,
+            "comm": "python3.12",
+            "state": "R",
+            "ppid": 61691,
+            "pgrp": 61693,
+            "session": 61693,
+            "threads": 1,
+            "starttime": 5695696
+          },
+          {
+            "pid": 61693,
+            "comm": "python3.12",
+            "state": "R",
+            "ppid": 61691,
+            "pgrp": 61693,
+            "session": 61693,
+            "threads": 1,
+            "starttime": 5695696
+          }
+        ],
+        "group_members": [
+          61693
+        ],
+        "status_nspid_before_after": [
+          [
+            61693,
+            6
+          ],
+          [
+            61693,
+            6
+          ]
+        ],
+        "both_brackets_authenticated": true
+      }
+    ],
+    "sample_serialized_total_bytes": 51976,
+    "parent_read_components": {
+      "cli_inputs": 1186475,
+      "preliminary_collector_contract": 179265,
+      "first_inventory": 54555773,
+      "second_inventory": 54555773,
+      "local_marker_recheck": 390,
+      "raw_proc_constructor_sample_group_and_terminal": 34703,
+      "total": 110512379
+    },
+    "child_read_components": {
+      "cli_inputs": 1225644,
+      "first_inventory": 53953246,
+      "second_inventory": 53953246,
+      "two_raw_maps": 11142,
+      "total": 109143278
+    },
+    "joined_observed_bytes": 219655657,
+    "full_child_reserved_bytes": 146800640,
+    "joined_conservative_bytes": 257313019,
+    "joined_conservative_spare_bytes": 11122437,
+    "parent_selected_spare_after_full_child_reserve": 11122437,
+    "child_observed_spare_without_refund": 37657362,
+    "artifact_fixed_independently_calculated": 4035683,
+    "artifact_reservation": {
+      "filesystem_accounting_slack_bytes": 65536,
+      "fixed_reserved_bytes": 4035683,
+      "full_stream_reservations_include_probe_bytes": true,
+      "next_sample_reserved_bytes": 524288,
+      "samples_reserved_bytes": 4352925,
+      "terminal_report_reserved_bytes": 524288
+    },
+    "terminal_read_reservation": {
+      "optional_proc_reads_cannot_consume_terminal_floor": true,
+      "phase": "terminal-pins",
+      "pin_eof_syscall_allowance_bytes": 1,
+      "pin_pass_reserved_bytes": 54555773,
+      "terminal_pidfd_read_reserved_bytes": 16385,
+      "total_initial_floor_bytes": 54572159
+    },
+    "max_direct_raw_observed_rss_bytes": 74764288,
+    "max_direct_raw_observed_hwm_bytes": 75968512,
+    "wait4_direct_child_peak_bytes": 75968512,
+    "parent_lifetime_selected_peak_bytes": 81879040,
+    "aggregate_or_provider_peak_certified": false,
+    "full_between_sample_absence_certified": false,
+    "artifact_fixed_components": {
+      "proof": 1021640,
+      "spent": 1377,
+      "two_full_inventories": 325672,
+      "two_full_streams_with_one_probe_each": 2097154,
+      "terminal_report": 524288,
+      "filesystem_slack": 65536,
+      "json_container_delimiter_slack": 16
+    },
+    "actual_artifact_caps_verified": true
+  },
+  "selected_child_receipt": {
+    "bytes": 594419,
+    "sha256": "f5a27aa6b1867134304a5b44c0be9a686cb999ef885f575d12f242e7e8d9623b",
+    "git_blob": "9319eeca3831248270e90d6321cc084d56321e59",
+    "selected_file_count": 770,
+    "selected_before_after_equal": true,
+    "parent_selected_file_count": 772,
+    "parent_selected_before_after_equal": true,
+    "detached_binding": {
+      "activation_commit": "c10e9d5242b23f5e61e7eab48e8ee2eed8bbfb57",
+      "activation_sha256": "72401be3b4e27e38c4fea1b84e8664ebc9a76afbf95be74bde8c3f3f85722e52",
+      "activation_tree": "2fd556103fcac2b2e34028f699040d862111371e",
+      "capture_identity": "e3d5aae494ef041c668a9fbec11edc2ac821a0e27bef15588181d166e125736c",
+      "collector_contract_sha256": "a3c7f9b85bd57a340f2b585b96e982a056e797bce65fc05284af68d827c9e8d2",
+      "parent_gate_authentication_required": true,
+      "plan_sha256": "fe0a2463d75002b2b675d998f7ac4f201b1b67664e21baa22b2e241ed8c46c25",
+      "prepared_commit": "5d1ad060b389d5b3fb8670fc5b69dfa07a684983",
+      "prepared_tree": "075a3f76e86de6d5dd59df37653bd9f20c62e7b3",
+      "supervisor_contract_sha256": "b4e38001dde17995c3b43f59254f117a55ff12c85e3a19365908010a148db821",
+      "witness_sha256": "e3be06c79055d21fbde6e5e98f2d596906988a19b3012388dfc6b95893177eee"
+    },
+    "authority_flags_all_false": true,
+    "elf_count": 14,
+    "dependency_count": 31,
+    "unique_candidate_count": 27,
+    "unresolved_dependencies": [
+      {
+        "allowlisted_selected_candidates": [],
+        "complete_loader_search_order_proven": false,
+        "consumer": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/lib-dynload/_crypt.cpython-312-x86_64-linux-gnu.so",
+        "loaded_compatible_candidates": [],
+        "needed": "libcrypt.so.1",
+        "observed_loader_edge_proven": false,
+        "rpath": null,
+        "runpath": null,
+        "runpath_direct_dependencies_only": true,
+        "status": "UNRESOLVED"
+      },
+      {
+        "allowlisted_selected_candidates": [],
+        "complete_loader_search_order_proven": false,
+        "consumer": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/lib-dynload/_tkinter.cpython-312-x86_64-linux-gnu.so",
+        "loaded_compatible_candidates": [],
+        "needed": "libtcl9tk9.0.so",
+        "observed_loader_edge_proven": false,
+        "rpath": null,
+        "runpath": null,
+        "runpath_direct_dependencies_only": true,
+        "status": "UNRESOLVED"
+      },
+      {
+        "allowlisted_selected_candidates": [],
+        "complete_loader_search_order_proven": false,
+        "consumer": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/lib-dynload/_tkinter.cpython-312-x86_64-linux-gnu.so",
+        "loaded_compatible_candidates": [],
+        "needed": "libtcl9.0.so",
+        "observed_loader_edge_proven": false,
+        "rpath": null,
+        "runpath": null,
+        "runpath_direct_dependencies_only": true,
+        "status": "UNRESOLVED"
+      },
+      {
+        "allowlisted_selected_candidates": [
+          "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1"
+        ],
+        "complete_loader_search_order_proven": false,
+        "consumer": "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33",
+        "loaded_compatible_candidates": [],
+        "needed": "libgcc_s.so.1",
+        "observed_loader_edge_proven": false,
+        "rpath": null,
+        "runpath": null,
+        "runpath_direct_dependencies_only": true,
+        "status": "UNRESOLVED"
+      }
+    ],
+    "map_count_before": 51,
+    "map_count_after": 51,
+    "module_count": 83,
+    "module_main_origin": "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_capture_preparation_20261004b/collector.py",
+    "scientific_package_modules_present": false,
+    "host": {
+      "cache_tag": "cpython-312",
+      "dont_write_bytecode": true,
+      "endianness": "little",
+      "executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+      "executable_realpath": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+      "implementation": "cpython",
+      "import_paths": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python312.zip",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/lib-dynload"
+      ],
+      "isolated": true,
+      "libc": "glibc 2.39",
+      "machine": "x86_64",
+      "no_site": true,
+      "python": "3.12.14",
+      "python_full": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+      "release": "6.18.44",
+      "system": "Linux"
+    },
+    "packages": {
+      "h5py": {
+        "status": "MISSING_OR_NOT_IMPORTED",
+        "version": null
+      },
+      "hdf5": {
+        "status": "MISSING_OR_NOT_IMPORTED",
+        "version": null
+      },
+      "hdf5plugin": {
+        "status": "MISSING_OR_NOT_IMPORTED",
+        "version": null
+      },
+      "numpy": {
+        "status": "MISSING_OR_NOT_IMPORTED",
+        "version": null
+      }
+    },
+    "static_distributions": [
+      {
+        "complete_package_custody_proven": false,
+        "metadata_path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy-2.3.5.dist-info/METADATA",
+        "name": "numpy",
+        "observed_static_version": "2.3.5",
+        "package_imported": false,
+        "record_member_files_opened": 0,
+        "record_path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy-2.3.5.dist-info/RECORD",
+        "record_rows": 1313,
+        "required_version": "2.3.5",
+        "version_matches_retained_target": true,
+        "wheel_path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy-2.3.5.dist-info/WHEEL",
+        "wheel_tags": [
+          "cp312-cp312-manylinux_2_27_x86_64",
+          "cp312-cp312-manylinux_2_28_x86_64"
+        ],
+        "wheel_version": "1.0"
+      }
+    ],
+    "missing_paths": [
+      {
+        "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/h5py",
+        "status": "MISSING_AT_EXACT_PATH"
+      },
+      {
+        "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/h5py-3.16.0.dist-info",
+        "status": "MISSING_AT_EXACT_PATH"
+      },
+      {
+        "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/hdf5plugin",
+        "status": "MISSING_AT_EXACT_PATH"
+      },
+      {
+        "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/hdf5plugin-7.1.0.dist-info",
+        "status": "MISSING_AT_EXACT_PATH"
+      },
+      {
+        "path": "/workspace/scratch/8fcd6bf45392/seti-hdf5-runtime-candidate-20261003a",
+        "status": "MISSING_AT_EXACT_PATH"
+      },
+      {
+        "path": "/workspace/scratch/8fcd6bf45392/seti-hdf5-runtime-candidate-20261003a/wheelhouse/h5py-3.16.0-cp312-cp312-manylinux_2_28_x86_64.whl",
+        "status": "MISSING_AT_EXACT_PATH"
+      },
+      {
+        "path": "/workspace/scratch/8fcd6bf45392/seti-hdf5-runtime-candidate-20261003a/wheelhouse/hdf5plugin-7.1.0-py3-none-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+        "status": "MISSING_AT_EXACT_PATH"
+      },
+      {
+        "path": "/workspace/scratch/8fcd6bf45392/seti-hdf5-runtime-candidate-20261003a/wheelhouse/numpy-2.3.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+        "status": "MISSING_AT_EXACT_PATH"
+      }
+    ],
+    "read_ledger": {
+      "accounting_scope": "explicit selected application reads only; implicit Python loader, kernel and provider IO excluded",
+      "cli_input_read_bytes": 1225644,
+      "proc_maps_read_bytes": 11142,
+      "read_bytes": 109143278,
+      "read_limit_bytes": 146800640,
+      "regular_file_read_bytes": 107906492,
+      "retained_artifact_bytes_are_separate": true
+    },
+    "python_dynamic_string_table_mapping": {
+      "continuous_file_translation": true,
+      "file_offset": 1496,
+      "load_indices": [
+        0,
+        1
+      ],
+      "loader_emulation": false,
+      "range_size": 42266,
+      "segment_count": 2,
+      "virtual_address": 4191704
+    }
+  },
+  "remaining_shortcomings": [
+    "Eight frozen exact HDF5/plugin/historical candidate paths are missing in both selected availability passes.",
+    "Four dependency rows are unresolved within the selected ELF/maps candidates. This does not prove global physical-file absence.",
+    "Twenty-seven dependency rows each have one observed compatible candidate, representing seven distinct loaded paths; actual loader edges and full search order remain unproven.",
+    "Static NumPy 2.3.5 distribution agreement and 1,313 RECORD rows with zero member files opened do not certify loaded package version or complete custody.",
+    "NumPy, h5py, hdf5plugin and HDF5 were not imported; all four loaded versions are null.",
+    "Five sequential own-child brackets and finite visible-group scans cannot certify between-sample or escaped/out-of-mount descendant absence, aggregate/provider peaks or lifetime usage.",
+    "RLIMIT_AS is child address space; direct-child wait4 and parent lifetime ru_maxrss are distinct bounded observations.",
+    "Explicit application read accounting excludes implicit interpreter/native-loader/kernel/provider IO.",
+    "Held collector-byte dispatch avoids source pathname selection races, while interpreter pathname launch and postlaunch identity do not certify complete pre-execution/native-loader closure.",
+    "Administrative external Git readback provenance is supplied and recorded; this review does not reauthenticate origin/live head or supply the original scientific CAS certificate.",
+    "The observed repaired Python ELF geometry does not identify original A's unnamed parser-refusal input or provide a scientific runtime certificate."
+  ],
+  "scientific_boundary": {
+    "all_eleven_scientific_fields_pending": true,
+    "parent_spent_and_child_authority_flags_all_false": true,
+    "scientific_execution_authorized": false,
+    "scientific_freeze_issued": false,
+    "source_contract_admitted": false,
+    "qualified_runtime_or_codec_certificate_issued": false,
+    "telescope_detector_result_issued": false,
+    "original_materialization_and_scientific_cas_laws_waived": false,
+    "another_live_scope_authorized": false,
+    "acquisition_or_dataset_analysis_authorized": false,
+    "required_original_runtime_source_session_host_resource_trial_reservation_acquisition_inputs_still_missing": true,
+    "twelve_receiver_handoffs_required": true,
+    "engineering_capture_authorized": true,
+    "engineering_reservation_spent_forever": true,
+    "full_child_reservation_remains_charged": true,
+    "reservation_refund": false,
+    "retry_allowed": false,
+    "replay_reset_rearm_or_automatic_successor": false,
+    "b_engineering_reservation": {
+      "seconds": 60,
+      "MiB": 8
+    },
+    "selected_engineering_spent_subtotal": {
+      "seconds": 1030,
+      "MiB": 56
+    },
+    "selected_subtotal_excludes_other_history_bootstrap_and_hidden_provider_usage": true,
+    "telescope_pilot_ran": false,
+    "spectra_or_112_plus_128_holdouts_opened": false,
+    "native8_reserved": false,
+    "original_127_24_activated": false,
+    "target": "HD189733/HIP98505",
+    "cadence": 85030,
+    "neighbor": 9,
+    "on_off_pairs": 3,
+    "observing_dates": 1,
+    "HD1461": "HOLD",
+    "GJ724": "UNTOUCHED_RESERVE",
+    "prior_M43_native_M15_M33_E_F_outcomes_changed": false,
+    "LS": "PAUSED_BF_SAVED_RESTART",
+    "CHEOPS": "UNSENT",
+    "paid_services_or_person_messages": false,
+    "consolidation_date": "2026-10-09"
+  },
+  "original_a_post_observation_preservation": {
+    "all_assertions_verified": true,
+    "root_identity": {
+      "device": 27,
+      "inode": 1572892,
+      "mode": "0700"
+    },
+    "members": [
+      {
+        "path": "/workspace/scratch/d804553c0e89/radio-runtime-metadata-capture-20261004a/admission-witness.json",
+        "bytes": 665875,
+        "sha256": "e28964b45a93267d5499d1b0c8d543e540c75a45de1283406dc1f6cd9eb8b497",
+        "git_blob": "c10c356815ce704ff68d0815e8ab8dfc0241b78f",
+        "exact_raw_metadata_and_copy": true
+      },
+      {
+        "path": "/workspace/scratch/d804553c0e89/radio-runtime-metadata-capture-20261004a/child.stderr.raw",
+        "bytes": 87,
+        "sha256": "24b36bd0058480fc84cc96d3f02b81595039f72439a939d223ac120b7a739fc5",
+        "git_blob": "347b8fc8c6e069d5d5869ec1ec70b250dd047ad0",
+        "exact_raw_metadata_and_copy": true
+      },
+      {
+        "path": "/workspace/scratch/d804553c0e89/radio-runtime-metadata-capture-20261004a/child.stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "exact_raw_metadata_and_copy": true
+      },
+      {
+        "path": "/workspace/scratch/d804553c0e89/radio-runtime-metadata-capture-20261004a/procfs-samples.json",
+        "bytes": 5879,
+        "sha256": "9191d8aacbc9ccf7bdbe8d2fd1555fe324e616bcc27e9ca13c7548aef7dba6f4",
+        "git_blob": "e93abeedb7e2032c6296fe0a56aeded04c69b4ed",
+        "exact_raw_metadata_and_copy": true
+      },
+      {
+        "path": "/workspace/scratch/d804553c0e89/radio-runtime-metadata-capture-20261004a/selected-runtime-after.json",
+        "bytes": 162834,
+        "sha256": "e77feeb740b004faa4352f2ab07cd8fb0b1d3f741b98ad3e6c9b6b6fc2e86340",
+        "git_blob": "a8948f43d689467e2fc39982ac2433367029aaa5",
+        "exact_raw_metadata_and_copy": true
+      },
+      {
+        "path": "/workspace/scratch/d804553c0e89/radio-runtime-metadata-capture-20261004a/selected-runtime-before.json",
+        "bytes": 162834,
+        "sha256": "e77feeb740b004faa4352f2ab07cd8fb0b1d3f741b98ad3e6c9b6b6fc2e86340",
+        "git_blob": "a8948f43d689467e2fc39982ac2433367029aaa5",
+        "exact_raw_metadata_and_copy": true
+      },
+      {
+        "path": "/workspace/scratch/d804553c0e89/radio-runtime-metadata-capture-20261004a/spent.json",
+        "bytes": 1377,
+        "sha256": "a15f593f66b12dd1192c70305189490e005d8d6f7ccc7a13d5a6caa60106c214",
+        "git_blob": "3bc6c9f96431a5880548220f91f213eb2ac28b6d",
+        "exact_raw_metadata_and_copy": true
+      },
+      {
+        "path": "/workspace/scratch/d804553c0e89/radio-runtime-metadata-capture-20261004a/supervisor-result.json",
+        "bytes": 3452,
+        "sha256": "b4f2e0a1e4073c1211fc8854966b55b5f04e36e040566ad78ef917bbd44fff85",
+        "git_blob": "73385b45e0a417577363f0083bddefe0fdfa9ab0",
+        "exact_raw_metadata_and_copy": true
+      }
+    ],
+    "source_files": [
+      {
+        "path": "/workspace/scratch/d804553c0e89/setisearch-status-20261004/RADIO_RUNTIME_METADATA_CAPTURE_2026-10-04_PROTOCOL.md",
+        "bytes": 6741,
+        "sha256": "aa2c80657fc50b105b35259b1766dba600eeb39277452b9025f373530a8d5344",
+        "exact_original_witness_body": true
+      },
+      {
+        "path": "/workspace/scratch/d804553c0e89/setisearch-status-20261004/config/radio_runtime_metadata_capture_20261004a.collector.json",
+        "bytes": 179263,
+        "sha256": "d42cb1e9a08ae712297fb4581ba9a2df73fe225320f5fd2486131470ad3d638f",
+        "exact_original_witness_body": true
+      },
+      {
+        "path": "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_capture_preparation_20261004a/capture_gate.py",
+        "bytes": 38651,
+        "sha256": "6fe2a5ce7c5383270192f7db1ae50e72ffd260d5b99a6dd9ef4e9854facb89ca",
+        "exact_original_witness_body": true
+      },
+      {
+        "path": "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_capture_preparation_20261004a/collector.py",
+        "bytes": 38263,
+        "sha256": "3ec1068c347020b26e79dc2e31456d44a9962269ec4dc99295eb25b54fc74094",
+        "exact_original_witness_body": true
+      },
+      {
+        "path": "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_capture_preparation_20261004a/elf_metadata.py",
+        "bytes": 10788,
+        "sha256": "26f325ea7349334d1bc486eaf9789067ea73b802bcc8afa4e0018339d1d8468f",
+        "exact_original_witness_body": true
+      },
+      {
+        "path": "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_capture_preparation_20261004a/runtime-preread-pins.json",
+        "bytes": 197530,
+        "sha256": "a2024780c32d7e9629631963bf035fe6b848c35f98930578c23526c918327cc8",
+        "exact_original_witness_body": true
+      },
+      {
+        "path": "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/runtime-materialization.plan.json",
+        "bytes": 24739,
+        "sha256": "fe0a2463d75002b2b675d998f7ac4f201b1b67664e21baa22b2e241ed8c46c25",
+        "exact_original_witness_body": true
+      }
+    ],
+    "extra_marker_and_freeze": [
+      {
+        "path": "config/radio_runtime_metadata_capture_20261004a.activate.json",
+        "bytes": 391,
+        "sha256": "66fe9e00fefbf933deaba2b14aa26e5e59f246905cc31f5fed99b2818826b6f9",
+        "exact": true
+      },
+      {
+        "path": "config/radio_runtime_metadata_capture_20261004a.freeze.json",
+        "bytes": 164443,
+        "sha256": "0156e96314d4d20d99cb089df93799e529cf5a417a83fba526c16bb958fe6ad0",
+        "exact": true
+      }
+    ],
+    "status": "CLOSED_FAILED",
+    "failure": "CHILD_NONZERO",
+    "spent_forever": true,
+    "retry_allowed": false
+  },
+  "preparation_and_narrative_review": {
+    "actual_argv_exact": true,
+    "narrative_and_ledgers_verified": true,
+    "unique_candidate_dependency_rows": 27,
+    "distinct_loaded_candidate_paths": [
+      "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+      "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      "/usr/lib/x86_64-linux-gnu/libdl.so.2",
+      "/usr/lib/x86_64-linux-gnu/libm.so.6",
+      "/usr/lib/x86_64-linux-gnu/libpthread.so.0",
+      "/usr/lib/x86_64-linux-gnu/librt.so.1",
+      "/usr/lib/x86_64-linux-gnu/libutil.so.1"
+    ],
+    "reviewed_document_pins": [
+      {
+        "repository_path": "RADIO_RUNTIME_METADATA_CAPTURE_2026-10-04B_RESULT.md",
+        "bytes": 8753,
+        "sha256": "32935a3e512bbc7de60416dd11ed640b6e04383d3730e5c5ec9b54d1f37cb3da",
+        "review_scope": "Retained actual or publication/narrative evidence; not a dispatched source dependency"
+      },
+      {
+        "repository_path": "PROJECT_STATUS.md",
+        "bytes": 331977,
+        "sha256": "6ea556d776cb0a2231cb3b6d95cbacc0ba4dae3ec15967f6b3ebc07f9173fe66",
+        "review_scope": "Retained actual or publication/narrative evidence; not a dispatched source dependency"
+      },
+      {
+        "repository_path": "PROJECT_DIRECTION.md",
+        "bytes": 227862,
+        "sha256": "b4d6fb7f344a46679afc6f104bc441a731fb1bf013247eb09649c32d5f3c4a18",
+        "review_scope": "Retained actual or publication/narrative evidence; not a dispatched source dependency"
+      },
+      {
+        "repository_path": "RADIO_TWO_WEEK_PLAN_2026-09-26.md",
+        "bytes": 173691,
+        "sha256": "6faa157bcaf037a38dbab91d7bd5c8b65fbb03b3437a6a6ff635a51304fc8e43",
+        "review_scope": "Retained actual or publication/narrative evidence; not a dispatched source dependency"
+      },
+      {
+        "repository_path": "RADIO_PILOT_INTERIM_2026-10-03.md",
+        "bytes": 9547,
+        "sha256": "4f0220458728241ebc4004f2b7dd02c0a02d7589b463dd1e9c1b790bf9395e05",
+        "review_scope": "Retained actual or publication/narrative evidence; not a dispatched source dependency"
+      },
+      {
+        "repository_path": "results_radio_runtime_capture_preparation_20261004b/actual-unresolved-input-ledger.json",
+        "bytes": 8085,
+        "sha256": "afafba61a796dac5fe81df554326451ef168f1b51719b9ad1174d3630ec544f6",
+        "review_scope": "Retained actual or publication/narrative evidence; not a dispatched source dependency"
+      },
+      {
+        "repository_path": "results_radio_runtime_capture_preparation_20261004b/actual-read-reconciliation.json",
+        "bytes": 1091,
+        "sha256": "b658dc6be9e997047f334e6dd8cd3c5b895bba7a15ea245b3b1f0a112ac08c84",
+        "review_scope": "Retained actual or publication/narrative evidence; not a dispatched source dependency"
+      },
+      {
+        "repository_path": "results_radio_runtime_capture_preparation_20261004b/actual-lossless-manifest.json",
+        "bytes": 6874,
+        "sha256": "1c1844ada6ee1c279e8c8d59628465cbe58855ffa564959d1791be476c6b1968",
+        "review_scope": "Retained actual or publication/narrative evidence; not a dispatched source dependency"
+      },
+      {
+        "repository_path": "results_radio_runtime_capture_preparation_20261004b/administrative/prepared-artifact-preservation.json",
+        "bytes": 18324,
+        "sha256": "c4598c119eb9683ba5effcf6bbaea50c0148d72ee46b3a9c28bbd1cb9e6a1484",
+        "review_scope": "Retained actual or publication/narrative evidence; not a dispatched source dependency"
+      },
+      {
+        "repository_path": "results_radio_runtime_capture_preparation_20261004b/administrative/preparation-activation-full-readback.json",
+        "bytes": 30580,
+        "sha256": "3d9b7bb97aff2b47f4c99fe24817a65ff5051d92a0772a8ece493b5e1ba186e6",
+        "review_scope": "Retained actual or publication/narrative evidence; not a dispatched source dependency"
+      }
+    ],
+    "preserved_preparation_artifacts": 52,
+    "historical_pilot_tail_bytes": 6320,
+    "historical_pilot_tail_sha256": "6af4973b34ad11357bd8be9c6373cca2ab29a968858e7ab63477ba32bc3b0799"
+  },
+  "companion_readme": {
+    "repository_path": "results_radio_runtime_capture_preparation_20261004b/README-actual-review.md",
+    "bytes": 12670,
+    "sha256": "46d0dee3f210f725de3bd7375269555b6ef5dd1ae57826d5171f8e8af42f4a8a",
+    "git_blob": "d1444be00227942f77a594c666bb799e0fec4301"
+  }
+}

@@ -1,5 +1,33 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 4 October: repaired metadata capture B completed; scientific admission pending
+
+[The one-shot B result](RADIO_RUNTIME_METADATA_CAPTURE_2026-10-04B_RESULT.md)
+is **OBSERVED_METADATA_ONLY / PENDING_MISSING_INPUTS**. Complete preparation
+and marker-only activation readbacks preceded one successful child, reaped with
+exit 0. Five raw procfs samples are authenticated to its held kernel identity;
+14 selected ELF metadata objects parsed successfully. Parent 772 / child 770
+selected pins agree before/after. The selected gate elapsed 0.571247392 seconds;
+eight originals total 2,008,844 logical / 2,023,424 allocated bytes including
+its directory. Raw results and independent actual review are retained.
+
+Static NumPy 2.3.5 metadata supplies no loaded package custody. All eight exact
+HDF5/plugin/historical paths remain missing and four observed dependency rows
+remain unresolved. No package import, dataset analysis or scientific certificate
+occurred. Observed joined explicit reads are 219,655,657 bytes; conservative
+parent plus full 140 MiB child reservation remains 257,313,019 bytes within
+256 MiB. Finite process snapshots and direct-child wait4 do not qualify complete
+descendant/provider lifetime usage.
+
+B's 60s/8MiB is permanently spent; selected engineering subtotal is now
+**1,030s/56MiB**, excluding other history/bootstrap/hidden usage. Next: reconcile
+missing inputs and unresolved dependency observations with complete native
+custody and original runtime/source/trial admission inputs. No retry, refund,
+reset, rearm or automatic successor. Original A capture and hosted CAS remain
+CLOSED_FAILED. All eleven scientific fields pending, spectra/112+128 holdouts
+unopened, native8/127-24 inactive, HD189733/neighbor9 and holds fixed, LS paused,
+CHEOPS UNSENT. Consolidate **9 October 2026**.
+
 ## 4 October: distinct repaired metadata capture B prepared
 
 [Capture B preparation](RADIO_RUNTIME_METADATA_CAPTURE_2026-10-04B_PREPARATION.md)

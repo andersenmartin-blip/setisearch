@@ -1,49 +1,53 @@
 # Independent radio-search pilot: current continuation — 4 October 2026
 
-**The independent telescope-data pilot has not run.** A distinct repaired
-[runtime-metadata capture B](RADIO_RUNTIME_METADATA_CAPTURE_2026-10-04B_PREPARATION.md)
-is prepared with a new identity, source/input freeze and fixed new activation
-path. The collector runs from verified held source bytes; kernel child identity,
-raw evidence/artifact guards and terminal read reservations have stronger checks.
-Final producer and builder cohorts pass **110 + 23 = 133 tests**. Failed
-versions/logs are retained. These engineering checks do not qualify a detector,
-complete native runtime or any scientific source/trial.
+**The telescope-data pilot has not run.** The repaired engineering metadata
+capture B completed once after 133 preparation checks and full immutable
+publication/activation readback. Its child exited 0 and was reaped; five raw
+process samples are bound to the held own-child kernel identity. Fourteen
+selected ELF objects parsed, and the selected before/after pins agree.
 
-The single bounded current preread checks 765 files/53,792,770 selected bytes,
-with total54,015,039 explicit content bytes including comparison inputs. All
-eight HDF5/plugin/historical paths remain missing. Static NumPy metadata is not
-loaded package identity. The exact original materialization plan stays unchanged;
-bootstrap remains unallocated.
+## 4 October: repaired metadata capture B completed; scientific admission pending
 
-B preparation has dispatched no genuine collector/supervisor, marker or live
-allocation. Selected engineering subtotal remains **970 seconds/48 MiB**.
-Only a separately published fully read-back B marker may spend60seconds/8MiB,
-changing it to **1,030 seconds/56 MiB** before its sole admitted attempt.
-The original actual capture and hosted CAS remain CLOSED_FAILED and spent.
-Original capture stdout was empty with87-byte stderr and unqualified procfs
-attribution; its exact eight files/source proof remain unchanged. No failure
-is replayed, rearmed, refunded or promoted to successful metadata.
+[The one-shot B result](RADIO_RUNTIME_METADATA_CAPTURE_2026-10-04B_RESULT.md)
+is **OBSERVED_METADATA_ONLY / PENDING_MISSING_INPUTS**. Complete preparation
+and marker-only activation readbacks preceded one successful child, reaped with
+exit 0. Five raw procfs samples are authenticated to its held kernel identity;
+14 selected ELF metadata objects parsed successfully. Parent 772 / child 770
+selected pins agree before/after. The selected gate elapsed 0.571247392 seconds;
+eight originals total 2,008,844 logical / 2,023,424 allocated bytes including
+its directory. Raw results and independent actual review are retained.
 
-**Next:** finish independent exact preparation review and immutable fullbody/blob
-readback, verify the new marker-only activation delta, execute once if admitted,
-and preserve/independently review/publish the actual outcome. A failed gate is a
-concrete blocker, without an automatic successor. Static headroom does not
-promise future wall time, physical allocation, RSS or all1200sample slots.
+Static NumPy 2.3.5 metadata supplies no loaded package custody. All eight exact
+HDF5/plugin/historical paths remain missing and four observed dependency rows
+remain unresolved. No package import, dataset analysis or scientific certificate
+occurred. Observed joined explicit reads are 219,655,657 bytes; conservative
+parent plus full 140 MiB child reservation remains 257,313,019 bytes within
+256 MiB. Finite process snapshots and direct-child wait4 do not qualify complete
+descendant/provider lifetime usage.
 
-All eleven scientific admission fields remain pending. Complete HDF5/ELF/plugin/
-filter runtime, scientific-store CAS law, full127/24, twelve receiver handoffs
-with16raw+normalized hashes, source/session/host/resource/trial/reservation and
-public acquisition ledger inputs remain required. Administrative publication
-supplies no scientific CAS certificate. No ScientificFreeze or source contract
-is issued by this metadata preparation.
+B's 60s/8MiB is permanently spent; selected engineering subtotal is now
+**1,030s/56MiB**, excluding other history/bootstrap/hidden usage. Next: reconcile
+missing inputs and unresolved dependency observations with complete native
+custody and original runtime/source/trial admission inputs. No retry, refund,
+reset, rearm or automatic successor. Original A capture and hosted CAS remain
+CLOSED_FAILED. All eleven scientific fields pending, spectra/112+128 holdouts
+unopened, native8/127-24 inactive, HD189733/neighbor9 and holds fixed, LS paused,
+CHEOPS UNSENT. Consolidate **9 October 2026**.
 
-HD189733/HIP98505 cadence85030 with neighbor9 remains fixed, with three ON/OFF
-pairs within one observing date. HD1461 pointing HOLD and untouched GJ724 reserve
-remain. Spectra/original112+128holdouts are unopened, native8 unreserved and
-127/24 NOT ACTIVATED. Original M43/native/M15/M33 and E/F outcomes remain.
-LS paused with BF saved restart, CHEOPS UNSENT. No paid service, person message,
-target or schedule change. Consolidate **9 October 2026** without automatic
-extension. The original3October checkpoint below is retained unchanged.
+The selected runtime still lacks HDF5 and plugins at the eight frozen exact
+paths. Four observed dependency rows remain unresolved; static NumPy metadata
+and unique compatible library candidates prove neither complete native custody
+nor loader edges. Complete HDF5/ELF/plugin/filter runtime, unchanged scientific
+CAS law, full127/24, twelve receiver handoffs with16 raw/normalized hashes,
+source/session/host/resource/trial/reservation and public acquisition ledger
+inputs remain required. No ScientificFreeze or source contract was issued.
+
+HD189733/HIP98505 cadence85030 with neighbor9 and three ON/OFF pairs within one
+observing date remain fixed. HD1461 pointing HOLD and untouched GJ724 reserve
+remain. Original M43/native/M15/M33 and E/F outcomes remain. No paid service,
+person message, target or schedule change. The original3October checkpoint below
+is retained unchanged. The prepared B checkpoint is preserved in its immutable
+preparation commit and protocol.
 
 ## Historical checkpoint — 3 October 2026
 
