@@ -1,5 +1,7 @@
 # Hosted exact-CAS service control 20261004a
 
+**Closed actual result:** see [RADIO_HOSTED_CAS_CONTROL_2026-10-04_RESULT.md](../RADIO_HOSTED_CAS_CONTROL_2026-10-04_RESULT.md). The first update was accepted, but the stale expected-head test produced a generic GitHub internal error. Original control CLOSED_FAILED; full archive retained; no retry, refund or scientific authority. Earlier preparation text below is historical.
+
 See the [prospective protocol](../RADIO_HOSTED_CAS_CONTROL_2026-10-04_PROTOCOL.md).
 Code and local synthetic tests are inert preparation until the immutable source
 freeze is published and read back and its separate marker-only activation occurs.

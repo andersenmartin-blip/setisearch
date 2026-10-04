@@ -1,5 +1,7 @@
 # Independent radio-search pilot: current continuation — 4 October 2026
 
+Latest 4 October result: [the original hosted control is CLOSED_FAILED](RADIO_HOSTED_CAS_CONTROL_2026-10-04_RESULT.md). Its first update was accepted; the stale test returned a generic server error. Logs/archive and allocation are preserved, with no retry or telescope analysis. The historical pilot below and all scientific admission fields remain unchanged.
+
 Current 4 October continuation: [one fresh hosted exact-CAS service control](RADIO_HOSTED_CAS_CONTROL_2026-10-04_PROTOCOL.md) is being frozen for full publication/readback and a separate single activation. Its scope remains engineering only; the historical pilot below and all scientific admission gates remain unchanged.
 
 [The subsequent hosted-CAS preparation](RADIO_HOSTED_CAS_2026-10-04_PREPARATION.md)

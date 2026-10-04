@@ -1,5 +1,24 @@
 # Long-term project direction
 
+## 4 October: first hosted CAS accepted; stale test CLOSED_FAILED at server error
+
+[The actual hosted result](RADIO_HOSTED_CAS_CONTROL_2026-10-04_RESULT.md) records
+one original fully published/read-back activation. Exact E -> A was accepted;
+stale E -> B returned a generic GitHub internal error, so the unchanged checker
+closed failed after29 calls. No definitive expected-head conflict or direct
+post-negative control readback was obtained. Child exit1/reaped9.300751seconds,
+full streams and117 lossless archive members remain retained. The separate
+administrative archive publication succeeded; independent immutable A/B/publication
+reviews preserve the distinction between an initial acceptance and failed control.
+
+The original identity and300-second/20-MiB allocation are permanently spent;
+selected live engineering subtotal910seconds/40MiB, without refund or reset.
+**Next:** preserve the concrete failed gate until genuinely new authenticated
+service/integration input exists. No rerun, automatic successor or scientific
+admission. All eleven original fields remain pending, original store unchanged,
+spectra/holdouts unopened, native8/127-24 inactive, targets/holds and LS/CHEOPS fixed.
+Consolidate **9 October 2026**.
+
 ## 4 October: one fresh hosted exact-CAS control prepared prospectively
 
 [The complete hosted service protocol](RADIO_HOSTED_CAS_CONTROL_2026-10-04_PROTOCOL.md)
