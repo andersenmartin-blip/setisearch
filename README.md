@@ -1,5 +1,38 @@
 # SETIsearch
 
+## 4 October: separate v2 receiver subprocess passed once; real gates stay pending
+
+[The retained v2 result and evidence](https://github.com/andersenmartin-blip/setisearch/blob/12c87b6bc4c3a03be8b385867a61bb50e100555e/RADIO_RECEIVER_RUNNER_V2_2026-10-04_RESULT.md)
+correct two reproduced v1 gaps: replay of the same dispatch identity at another
+destination and acceptance of an empty per-load clock list. V1 and its original
+test evidence remain retained with those limits. A distinct identity-registry
+runner and fixed isolated receiver child pass **21 new targeted tests** and
+**one prospectively published integration invocation** through the maintained
+validators over complete synthetic metadata. No verification tokens are manually
+manufactured by this child/runner; its fixture publications/outcomes stay synthetic.
+
+The smoke made six ordered calls, accepted 96 tiny rows / 1,536 normalized bytes,
+and verified twelve clock observations. It took 342 ms, exited 0/reaped and
+retains exact 11,933-byte stdout with empty stderr. Its original retained storage
+is 784,483 logical / 802,816 allocated bytes including directories. The 30-second
+/4-MiB engineering reservation remains charged and the identity is permanently
+spent. Full publication preread matched all 17 files / 974,032 raw bytes; the
+initial development failure, claims, terminal, capture and storage review are public.
+
+**All eleven actual scientific/source evidence fields remain pending.** This
+local synthetic claim is not global expected-revision CAS, hosted transport,
+native/runtime/ELF/plugin closure, RSS or complete descendant-lifetime qualification.
+The available GitHub fast-forward interface does not provide the scientific
+store's required atomic expected-revision operation. Next requires genuinely
+new actual service/source/runtime evidence and a complete fresh prospective
+allocation; do not replay the closed scope or promote its synthetic pass.
+
+HD189733 remains selected, HD1461 HOLD and GJ724 untouched reserve. F stays
+CLOSED_FAILED 0/8; all historical spends and dispositions remain unchanged.
+Spectra/holdouts remain unopened, native8 unreserved, 127/24 NOT ACTIVATED,
+LS paused and CHEOPS unsent. Consolidate **9 October 2026** without automatic
+extension, restart or target change. No external message or schedule change.
+
 ## 4 October: freeze-bound one-shot runner qualified synthetically
 
 [The new bounded runner and retained result](https://github.com/andersenmartin-blip/setisearch/blob/5d153be0c886cab5c356eb23b16dbfe0d4e2e6aa/RADIO_BOUNDED_SCIENTIFIC_RUNNER_2026-10-04_RESULT.md)
