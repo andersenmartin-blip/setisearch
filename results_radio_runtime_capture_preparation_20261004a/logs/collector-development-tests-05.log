@@ -1,0 +1,18 @@
+..............E........
+======================================================================
+ERROR: test_zero_length_selected_regular_metadata_is_admissible (__main__.AdmissionTests.test_zero_length_selected_regular_metadata_is_admissible)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_capture_preparation_20261004a/test_collector.py", line 128, in test_zero_length_selected_regular_metadata_is_admissible
+    admitted, _ = c.validate_inputs(body, pin(body), PLAN_RAW, PLAN_PIN)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_capture_preparation_20261004a/collector.py", line 120, in validate_inputs
+    _integer(entry["bytes"], contract["limits"]["per_file_bytes"], "file size")
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_capture_preparation_20261004a/collector.py", line 74, in _integer
+    raise CaptureError(name + " finite positive cap")
+capture_collector_under_test.CaptureError: file size finite positive cap
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.018s
+
+FAILED (errors=1)
