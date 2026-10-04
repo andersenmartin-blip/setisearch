@@ -1,52 +1,54 @@
 # Independent radio-search pilot: current continuation — 4 October 2026
 
-Latest 4 October result: [the original hosted control is CLOSED_FAILED](RADIO_HOSTED_CAS_CONTROL_2026-10-04_RESULT.md). Its first update was accepted; the stale test returned a generic server error. Logs/archive and allocation are preserved, with no retry or telescope analysis. The historical pilot below and all scientific admission fields remain unchanged.
+**The independent telescope-data pilot has not run.** The latest
+[integration preparation](RADIO_SCIENTIFIC_INTEGRATION_2026-10-04_PREPARATION.md)
+connects all six operations to the unchanged scientific store in the explicitly
+synthetic domain. Its full synthetic publication is SIMULATION_ONLY; the actual
+retained generic GraphQL error closes callback and store permanently. This code
+has no network implementation, credentials, workflow, activation or certificate
+producer, and refuses public-scientific use before dispatch.
 
-Current 4 October continuation: [one fresh hosted exact-CAS service control](RADIO_HOSTED_CAS_CONTROL_2026-10-04_PROTOCOL.md) is being frozen for full publication/readback and a separate single activation. Its scope remains engineering only; the historical pilot below and all scientific admission gates remain unchanged.
+A separate exact HDF5 materialization plan uses the retained official wheel
+pins and current verifier interfaces. The old recorded wheel files and
+installation are absent now; historical codec evidence cannot authenticate a
+new runtime. Complete Python/package/ELF/plugin closure and twelve calibration/
+validation by six-scan handoffs, each with16 raw and normalized row hashes,
+remain actual inputs for the existing verifier. Bootstrap is unallocated.
 
-[The subsequent hosted-CAS preparation](RADIO_HOSTED_CAS_2026-10-04_PREPARATION.md)
-identifies the existing Actions `updateRefs` route and supplies a separate inert
-adapter. It qualifies no new live service or scientific gate; the current
-source/runtime/session requirements and historical report below remain.
+[The original hosted control remains CLOSED_FAILED](RADIO_HOSTED_CAS_CONTROL_2026-10-04_RESULT.md).
+Its first exact expected-head update was accepted; its stale test returned a
+generic server error. The original result,117-member lossless archive and
+300s/20MiB spent allocation are preserved. No retry or new live probe occurred;
+the selected engineering subtotal remains910s/40MiB, excluding other history,
+bootstrap and hidden provider usage.
 
-**The independent telescope-data pilot still has not run.** This update corrects
-the obsolete continuation in the original 3 October checkpoint retained below.
-It is interim documentation maintenance, not a new engineering/scientific
-invocation or the 9 October period-end report.
+**Immediate next requirement:** independently authenticated integrated atomic
+expected-revision CAS and exact original Git-byte reading, authentic hosted
+runtime/public-source/session evidence, full127/24 qualification and the other
+original admission inputs, under a fresh complete prospective freeze and
+allocation. Preparation must be fully published/read back before a separate
+one-shot activation. The inert bridge does not supply the scientific store's
+externally pinned CAS law or independently verified executable freeze.
 
-The [published portable-custody v3 repair](RADIO_PORTABLE_CUSTODY_2026-10-03_RESULT.md)
+The [portable-custody v3 repair](RADIO_PORTABLE_CUSTODY_2026-10-03_RESULT.md)
 removed the missing original b/c-directory dependency for genuinely new work.
-The unchanged v2 refusals, missing historical continuity/storage and every spent
-attempt remain valid. The later E/F controls remain **CLOSED_FAILED, 0/8**; the
-repair did not qualify telescope access.
-
-The [latest actual transport result](RADIO_DYNAMIC_NETWORK_POLICY_2026-10-04_RESULT.md)
-verified a selected native Git metadata read once. Its selected blob bodies came
-from an existing public-object alternate; it supplies neither a fresh transfer
-of those bodies nor complete hosted-native/runtime/source qualification.
-
-**Immediate next requirement:** a callable atomic expected-branch revision CAS
-of the exact pre-created candidate, plus authentic hosted-runtime/public-source/
-session evidence under a fresh complete prospective integration and allocation.
-The exposed ref update has no expected old head. Contents updates condition on
-the file blob and create their own commit. Neither supplies the operation
-required by the unchanged [scientific store](results_radio_scientific_execution_prospective_20261003a/scientific_store.py).
-Native receive-pack remains an unqualified design direction, without an exposed
-authorized write transport. Publication of this report is ordinary documentation
-publication and grants no scientific-store authority.
+The unchanged v2 refusals, missing historical continuity/storage and every
+spent attempt remain valid. The E/F controls remain **CLOSED_FAILED,0/8**;
+selected native Git metadata observations supply no complete scientific
+transport or telescope-access qualification.
 
 All eleven authentic source/scientific fields remain pending. HD189733/HIP98505
-cadence 85030 with `neighbor9` stays selected; HD1461 stays HOLD and GJ724 stays
-untouched reserve. Spectra and original 112+128 holdouts remain unopened,
-native8 remains unreserved and 127/24 remains NOT ACTIVATED. Earlier candidate
-dispositions remain unchanged. LS stays paused, with LS8BF saved for a possible
-restart; CHEOPS remains UNSENT.
+cadence85030 with neighbor9 stays selected; HD1461 stays pointing HOLD and GJ724
+stays untouched reserve. Spectra and original112+128 holdouts remain unopened,
+native8 remains unreserved and127/24 remains NOT ACTIVATED. Earlier candidate
+and native outcomes remain unchanged. LS stays paused with LS8BF saved for a
+possible restart; CHEOPS remains UNSENT. No paid service, person message,
+schedule or target change.
 
-If the required service and genuine inputs remain inaccessible, preserve those
-concrete blockers and consolidate **9 October 2026**. Do not automatically
-allocate another experiment, repeat spent or unchanged checks, change target,
-extend the plan or send person-directed messages. No experiment, test rerun,
-telescope read or schedule change was performed for this correction.
+If the required genuine inputs remain inaccessible, retain those concrete
+blockers and consolidate **9 October 2026**, without an automatic experiment,
+replay or plan extension. This updates the current continuation; the original
+3 October checkpoint below is retained unchanged.
 
 ## Historical checkpoint — 3 October 2026
 

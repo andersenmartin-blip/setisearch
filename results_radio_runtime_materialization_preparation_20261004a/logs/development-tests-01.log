@@ -1,0 +1,22 @@
+test_prepare_plan (unittest.loader._FailedTest.test_prepare_plan) ... ERROR
+
+======================================================================
+ERROR: test_prepare_plan (unittest.loader._FailedTest.test_prepare_plan)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_prepare_plan
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/test_prepare_plan.py", line 40
+    with mock.patch('builtins.open', side_effect=AssertionError('pure builder opened a file')),
+                                                                                               ^
+SyntaxError: invalid syntax
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)

@@ -1,5 +1,31 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 4 October: scientific-store callback integrated synthetically; exact runtime plan prepared
+
+[The new integration preparation](RADIO_SCIENTIFIC_INTEGRATION_2026-10-04_PREPARATION.md)
+connects all six unchanged scientific-store operations through an inert injected
+callback. Complete synthetic publication remains SIMULATION_ONLY; the retained
+actual generic server error permanently closes both callback and store. Default
+and public-scientific domains refuse before dispatch. Raw signed-parent commits,
+exact candidate metadata, complete tree deltas and mutation/budget boundaries
+are checked without issuing a CAS certificate or changing the original store.
+
+The separate pure HDF5 materialization builder pins three retained official
+wheels totaling68,409,067bytes and the current scientific interfaces. The old
+wheel files and installation are absent at their recorded paths; historical
+codec observations do not authenticate a new runtime. A PENDING capture plan
+identifies complete runtime/ELF/plugin closure and all twelve16-row receiver
+handoffs required by the existing verifier. Bootstrap remains unallocated.
+
+**Next:** obtain authentic integrated service, runtime/codec, full127/24,
+source/session and allocation inputs under a complete new prospective freeze,
+full publication/readback and fresh one-shot activation. This preparation adds
+no live probe, workflow, marker or allocation. The hosted control remains
+CLOSED_FAILED and spent; selected engineering subtotal910s/40MiB is unchanged.
+All eleven genuine scientific gates remain pending, spectra/holdouts unopened,
+native8/127-24 inactive, HD189733/neighbor9 and target holds fixed, LS paused and
+CHEOPS UNSENT. Consolidate **9 October 2026**.
+
 ## 4 October: first hosted CAS accepted; stale test CLOSED_FAILED at server error
 
 [The actual hosted result](RADIO_HOSTED_CAS_CONTROL_2026-10-04_RESULT.md) records

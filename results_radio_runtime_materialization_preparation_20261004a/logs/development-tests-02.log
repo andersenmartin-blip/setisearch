@@ -1,0 +1,147 @@
+test_bootstrap_resources_unallocated_not_scientific_budget (test_prepare_plan.PreparationTests.test_bootstrap_resources_unallocated_not_scientific_budget) ... ERROR
+test_build_uses_no_files_network_process_or_native_import (test_prepare_plan.PreparationTests.test_build_uses_no_files_network_process_or_native_import) ... ERROR
+test_duplicate_nonfinite_and_oversized_metadata_refused (test_prepare_plan.PreparationTests.test_duplicate_nonfinite_and_oversized_metadata_refused) ... ok
+test_editing_returned_plan_does_not_mutate_later_fixed_scope (test_prepare_plan.PreparationTests.test_editing_returned_plan_does_not_mutate_later_fixed_scope) ... ERROR
+test_every_missing_input_and_unknown_extra_is_refused (test_prepare_plan.PreparationTests.test_every_missing_input_and_unknown_extra_is_refused) ... ok
+test_every_mutated_input_is_refused (test_prepare_plan.PreparationTests.test_every_mutated_input_is_refused) ... ok
+test_exact_plan_is_inert_and_deterministic (test_prepare_plan.PreparationTests.test_exact_plan_is_inert_and_deterministic) ... ERROR
+test_exclusive_output_refuses_reuse_and_unsafe_paths (test_prepare_plan.PreparationTests.test_exclusive_output_refuses_reuse_and_unsafe_paths) ... ERROR
+test_existing_interface_symbols_required_without_execution (test_prepare_plan.PreparationTests.test_existing_interface_symbols_required_without_execution) ... ERROR
+test_historical_runtime_never_claimed_fresh (test_prepare_plan.PreparationTests.test_historical_runtime_never_claimed_fresh) ... ERROR
+test_local_snapshot_reader_refuses_symlink_hardlink_directory_oversize (test_prepare_plan.PreparationTests.test_local_snapshot_reader_refuses_symlink_hardlink_directory_oversize) ... ERROR
+test_official_metadata_repin_does_not_hide_wrong_wheel (test_prepare_plan.PreparationTests.test_official_metadata_repin_does_not_hide_wrong_wheel) ... ok
+test_official_selected_metadata_duplicate_and_missing_refused (test_prepare_plan.PreparationTests.test_official_selected_metadata_duplicate_and_missing_refused) ... ok
+test_repinning_a_changed_authoritative_map_cannot_promote_it (test_prepare_plan.PreparationTests.test_repinning_a_changed_authoritative_map_cannot_promote_it) ... ok
+test_repinning_changed_source_input_is_refused (test_prepare_plan.PreparationTests.test_repinning_changed_source_input_is_refused) ... ok
+test_wheel_provenance_identity_mutations_refused_semantically (test_prepare_plan.PreparationTests.test_wheel_provenance_identity_mutations_refused_semantically) ... ok
+test_wrong_hash_lock_and_package_order_refused (test_prepare_plan.PreparationTests.test_wrong_hash_lock_and_package_order_refused) ... ok
+test_wrong_independent_outer_pin_is_refused (test_prepare_plan.PreparationTests.test_wrong_independent_outer_pin_is_refused) ... ok
+
+======================================================================
+ERROR: test_bootstrap_resources_unallocated_not_scientific_budget (test_prepare_plan.PreparationTests.test_bootstrap_resources_unallocated_not_scientific_budget)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/test_prepare_plan.py", line 142, in test_bootstrap_resources_unallocated_not_scientific_budget
+    resources = self.plan()['materialization']['bootstrap_resources']
+                ^^^^^^^^^^^
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/test_prepare_plan.py", line 24, in plan
+    return builder.build_plan(RAW if inputs is None else inputs, pins, expected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/prepare_plan.py", line 178, in build_plan
+    need(scan['expected_header']['dataset_shape'] == [16, 1, 264503296] and
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/prepare_plan.py", line 81, in need
+    raise ValueError(message)
+ValueError: Source HDF5 profile differs
+
+======================================================================
+ERROR: test_build_uses_no_files_network_process_or_native_import (test_prepare_plan.PreparationTests.test_build_uses_no_files_network_process_or_native_import)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/test_prepare_plan.py", line 43, in test_build_uses_no_files_network_process_or_native_import
+    self.assertEqual(self.plan()['status'], 'PENDING')
+                     ^^^^^^^^^^^
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/test_prepare_plan.py", line 24, in plan
+    return builder.build_plan(RAW if inputs is None else inputs, pins, expected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/prepare_plan.py", line 178, in build_plan
+    need(scan['expected_header']['dataset_shape'] == [16, 1, 264503296] and
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/prepare_plan.py", line 81, in need
+    raise ValueError(message)
+ValueError: Source HDF5 profile differs
+
+======================================================================
+ERROR: test_editing_returned_plan_does_not_mutate_later_fixed_scope (test_prepare_plan.PreparationTests.test_editing_returned_plan_does_not_mutate_later_fixed_scope)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/test_prepare_plan.py", line 149, in test_editing_returned_plan_does_not_mutate_later_fixed_scope
+    baseline = builder.canonical(self.plan())
+                                 ^^^^^^^^^^^
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/test_prepare_plan.py", line 24, in plan
+    return builder.build_plan(RAW if inputs is None else inputs, pins, expected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/prepare_plan.py", line 178, in build_plan
+    need(scan['expected_header']['dataset_shape'] == [16, 1, 264503296] and
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/prepare_plan.py", line 81, in need
+    raise ValueError(message)
+ValueError: Source HDF5 profile differs
+
+======================================================================
+ERROR: test_exact_plan_is_inert_and_deterministic (test_prepare_plan.PreparationTests.test_exact_plan_is_inert_and_deterministic)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/test_prepare_plan.py", line 27, in test_exact_plan_is_inert_and_deterministic
+    first = self.plan()
+            ^^^^^^^^^^^
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/test_prepare_plan.py", line 24, in plan
+    return builder.build_plan(RAW if inputs is None else inputs, pins, expected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/prepare_plan.py", line 178, in build_plan
+    need(scan['expected_header']['dataset_shape'] == [16, 1, 264503296] and
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/prepare_plan.py", line 81, in need
+    raise ValueError(message)
+ValueError: Source HDF5 profile differs
+
+======================================================================
+ERROR: test_exclusive_output_refuses_reuse_and_unsafe_paths (test_prepare_plan.PreparationTests.test_exclusive_output_refuses_reuse_and_unsafe_paths)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/test_prepare_plan.py", line 193, in test_exclusive_output_refuses_reuse_and_unsafe_paths
+    raw = builder.canonical(self.plan())
+                            ^^^^^^^^^^^
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/test_prepare_plan.py", line 24, in plan
+    return builder.build_plan(RAW if inputs is None else inputs, pins, expected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/prepare_plan.py", line 178, in build_plan
+    need(scan['expected_header']['dataset_shape'] == [16, 1, 264503296] and
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/prepare_plan.py", line 81, in need
+    raise ValueError(message)
+ValueError: Source HDF5 profile differs
+
+======================================================================
+ERROR: test_existing_interface_symbols_required_without_execution (test_prepare_plan.PreparationTests.test_existing_interface_symbols_required_without_execution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/test_prepare_plan.py", line 157, in test_existing_interface_symbols_required_without_execution
+    self.assertFalse(self.plan()['future_metadata_capture']['capture_to_existing_freeze_interface']['replaces_existing_verifier'])
+                     ^^^^^^^^^^^
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/test_prepare_plan.py", line 24, in plan
+    return builder.build_plan(RAW if inputs is None else inputs, pins, expected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/prepare_plan.py", line 178, in build_plan
+    need(scan['expected_header']['dataset_shape'] == [16, 1, 264503296] and
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/prepare_plan.py", line 81, in need
+    raise ValueError(message)
+ValueError: Source HDF5 profile differs
+
+======================================================================
+ERROR: test_historical_runtime_never_claimed_fresh (test_prepare_plan.PreparationTests.test_historical_runtime_never_claimed_fresh)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/test_prepare_plan.py", line 133, in test_historical_runtime_never_claimed_fresh
+    plan = self.plan()
+           ^^^^^^^^^^^
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/test_prepare_plan.py", line 24, in plan
+    return builder.build_plan(RAW if inputs is None else inputs, pins, expected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/prepare_plan.py", line 178, in build_plan
+    need(scan['expected_header']['dataset_shape'] == [16, 1, 264503296] and
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/prepare_plan.py", line 81, in need
+    raise ValueError(message)
+ValueError: Source HDF5 profile differs
+
+======================================================================
+ERROR: test_local_snapshot_reader_refuses_symlink_hardlink_directory_oversize (test_prepare_plan.PreparationTests.test_local_snapshot_reader_refuses_symlink_hardlink_directory_oversize)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/test_prepare_plan.py", line 180, in test_local_snapshot_reader_refuses_symlink_hardlink_directory_oversize
+    builder.safe_read(root)
+  File "/workspace/scratch/d804553c0e89/setisearch-status-20261004/results_radio_runtime_materialization_preparation_20261004a/prepare_plan.py", line 319, in safe_read
+    with os.fdopen(descriptor, 'rb') as source:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen os>", line 1066, in fdopen
+IsADirectoryError: [Errno 21] Is a directory: 3
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.039s
+
+FAILED (errors=8)
