@@ -1,5 +1,19 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 4 October checkpoint: prospectively bounded live Contents CAS observation
+
+The [new service-edge scope](RADIO_CONTENTS_CAS_EDGE_2026-10-04_PROTOCOL.md)
+reserves one synthetic-metadata invocation: 18 visible connector calls, 180
+engineering seconds and 4 MiB retained evidence, no refunds/replay. Together
+with closed v2 this continuation subtotal is 210 seconds/8 MiB; historical
+control accounting and all scientific/source/native ledgers remain unchanged.
+Nine targeted checker tests pass; the initial development error is retained.
+Next: full publication/readback, one original-directory admission, the fixed
+file-blob/branch-interference observations, exact transcript and independent review.
+No hidden SDK/HTTP/RSS or scientific CAS authority can be inferred from this
+probe. All eleven genuine fields, targets/holds, unopened spectra/holdouts,
+native8/127-24 inactivity and consolidation on 9 October remain unchanged.
+
 ## 4 October checkpoint: one v2 synthetic subprocess qualified and closed
 
 [The fully retained integration result](RADIO_RECEIVER_RUNNER_V2_2026-10-04_RESULT.md)

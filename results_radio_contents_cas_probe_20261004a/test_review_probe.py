@@ -1,0 +1,133 @@
+import base64
+import copy
+import json
+from pathlib import Path
+import sys
+import unittest
+
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+import review_probe as r
+
+
+def fixture():
+    scope={'domain':'synthetic-service-probe-only','scientific_execution_authorized':False,
+      'probe_identity':'a'*64,'repository':'andersenmartin-blip/setisearch',
+      'branch':'radio-contents-cas-probe-20261004a','base_commit':'0'*40,
+      'ledger_path':'probe/ledger.json','interference_path':'probe/interference.json',
+      'initial_record_raw':'{"revision":0}\n','interference_raw':'{"interference":true}\n',
+      'max_visible_connector_calls':18,'admission_deadline_milliseconds':180000,
+      'serialized_response_ceiling_characters':2*1024**2}
+    api='https://api.github.com/repos/'+scope['repository']; branch=scope['branch']; repo=scope['repository']
+    path=scope['ledger_path']; r0,r1,r2='1'*40,'2'*40,'3'*40
+    initial=scope['initial_record_raw'].encode();b0=r.blob(initial)
+    update=r.canonical({'schema':'radio-contents-cas-probe-record-v1','domain':scope['domain'],
+        'probe_identity':scope['probe_identity'],'revision':1,'expected_branch_revision':r0,
+        'scientific_execution_authorized':False}).decode()
+    rejected=r.canonical({'schema':'radio-contents-cas-probe-record-v1','domain':scope['domain'],
+        'probe_identity':scope['probe_identity'],'revision':2,'expected_branch_revision':r2,
+        'scientific_execution_authorized':False}).decode()
+    rows=[{'ordinal':i,'label':label,'tool':tool,'args':{},'before_epoch_milliseconds':100+i*2,
+        'after_epoch_milliseconds':101+i*2,'result':{'structuredContent':{}},
+        'serialized_response_characters':0} for i,(label,tool) in enumerate(zip(r.LABELS,r.TOOLS))]
+    by={row['label']:row for row in rows}
+    def data(label,value):by[label]['result']={'structuredContent':value}
+    def get(label,url):by[label]['args']={'url':url}
+    get('branch_absence',api+'/branches/'+branch)
+    by['branch_absence']['result']={'isError':True,'content':[{'type':'text','text':'HTTP 404 Not Found'}]}
+    by['branch_create']['args']={'repository_full_name':repo,'branch_name':branch,'sha':scope['base_commit']}
+    for label,sha in (('branch_initial_read',scope['base_commit']),('branch_after_interference_read',r1),('branch_final_read',r2)):
+        get(label,api+'/branches/'+branch);data(label,{'name':branch,'commit':{'sha':sha}})
+    for label,sha,parent in (('ledger_commit_read',r0,scope['base_commit']),('interference_commit_read',r1,r0),('ledger_update_commit_read',r2,r1)):
+        get(label,api+'/git/commits/'+sha);data(label,{'sha':sha,'parents':[{'sha':parent}]})
+    for label,raw,message,sha,p in (
+        ('ledger_create',scope['initial_record_raw'],'Create synthetic file-CAS probe initial record',r0,path),
+        ('interference_create',scope['interference_raw'],'Advance synthetic probe branch without changing ledger file',r1,scope['interference_path'])):
+        by[label]['args']={'repository_full_name':repo,'branch':branch,'path':p,'content':raw,'message':message}
+        data(label,{'commit_sha':sha})
+    for label,raw,message in (
+        ('ledger_update',update,'Probe current file blob with stale observed branch revision'),
+        ('stale_blob_update',rejected,'Negative probe of stale file blob; expected conflict')):
+        by[label]['args']={'repository_full_name':repo,'branch':branch,'path':path,'sha':b0,'content':raw,'message':message}
+    data('ledger_update',{'commit_sha':r2,'content_sha':r.blob(update.encode())})
+    by['stale_blob_update']['result']={'isError':True,'content':[{'type':'text','text':'HTTP 409 Conflict'}]}
+    for label,p,sha,raw in (('ledger_initial_read',path,r0,initial),('ledger_after_interference_read',path,r1,initial),
+        ('ledger_final_read',path,r2,update.encode()),('interference_final_read',scope['interference_path'],r2,scope['interference_raw'].encode())):
+        get(label,api+'/contents/'+p+'?ref='+sha)
+        data(label,{'path':p,'type':'file','encoding':'base64','sha':r.blob(raw),'size':len(raw),'content':base64.b64encode(raw).decode()})
+    get('science_head_final_read',api+'/branches/m43-support-qualification')
+    data('science_head_final_read',{'commit':{'sha':'4'*40}})
+    terminal={'status':'OBSERVED_FILE_BLOB_CAS_ONLY','probe_identity':scope['probe_identity'],
+      'scientific_execution_authorized':False,'qualified_atomic_expected_revision_cas':False,
+      'complete_hosted_transport_qualified':False,'probe_identity_permanently_spent':True,
+      'automatic_retry_or_resume':False,'operations':rows,'visible_connector_calls':17,
+      'elapsed_visible_milliseconds':34,'serialized_response_characters':0}
+    recount(terminal)
+    return scope,terminal
+
+
+def recount(terminal):
+    total=0
+    for row in terminal['operations']:
+        row['serialized_response_characters']=len(json.dumps(row['result'],ensure_ascii=False,separators=(',',':')).encode('utf-16-le'))//2
+        total+=row['serialized_response_characters']
+    terminal['serialized_response_characters']=total
+
+
+def verify(scope,terminal):
+    a,b=r.canonical(scope),r.canonical(terminal)
+    return r.review(a,r.pin(a),b,r.pin(b),expected_freeze_commit='4'*40)
+
+
+class Tests(unittest.TestCase):
+    def test_complete_fixture_is_a_counterexample_and_never_authority(self):
+        result=verify(*fixture())
+        self.assertEqual(result['actual_update_parent'],'2'*40)
+        self.assertEqual(result['stale_expected_branch_revision_accepted_in_content'],'1'*40)
+        self.assertFalse(result['qualified_atomic_expected_revision_cas'])
+        self.assertFalse(result['scientific_execution_authorized'])
+
+    def test_omitting_interference_or_extra_retry_cannot_pass(self):
+        for mutate in (lambda rows:rows.pop(6),lambda rows:rows.append(copy.deepcopy(rows[10]))):
+            s,t=fixture();mutate(t['operations']);recount(t)
+            with self.assertRaises(ValueError):verify(s,t)
+
+    def test_wrong_commit_parent_cannot_hide_branch_change(self):
+        s,t=fixture();t['operations'][11]['result']['structuredContent']['parents']=[{'sha':'1'*40}];recount(t)
+        with self.assertRaises(ValueError):verify(s,t)
+
+    def test_mutated_or_wrong_blob_payload_cannot_pass(self):
+        for key,value in (('sha','f'*40),('content',base64.b64encode(b'wrong').decode())):
+            s,t=fixture();t['operations'][14]['result']['structuredContent'][key]=value;recount(t)
+            with self.assertRaises(ValueError):verify(s,t)
+
+    def test_failed_update_cannot_be_counted_as_success(self):
+        s,t=fixture();t['operations'][10]['result']={'isError':True,'content':[{'type':'text','text':'HTTP 409 Conflict'}]};recount(t)
+        with self.assertRaises(ValueError):verify(s,t)
+
+    def test_error_text_without_positive_error_or_409_cannot_pass(self):
+        for result in ({'isError':False,'content':[{'type':'text','text':'HTTP 409 Conflict'}]},
+                       {'isError':True,'content':[{'type':'text','text':'ambiguous network failure'}]}):
+            s,t=fixture();t['operations'][12]['result']=result;recount(t)
+            with self.assertRaises(ValueError):verify(s,t)
+
+    def test_response_clock_and_tool_substitution_are_refused(self):
+        for change in ('response','clock','tool'):
+            s,t=fixture()
+            if change=='response':t['operations'][4]['serialized_response_characters']+=1
+            if change=='clock':t['operations'][4]['before_epoch_milliseconds']=True
+            if change=='tool':t['operations'][10]['tool']='mcp__codex_apps__github_update_ref'
+            with self.assertRaises(ValueError):verify(s,t)
+
+    def test_authority_promotion_and_primary_branch_change_are_refused(self):
+        for change in ('authority','head'):
+            s,t=fixture()
+            if change=='authority':t['scientific_execution_authorized']=True
+            else:t['operations'][16]['result']['structuredContent']['commit']['sha']='f'*40;recount(t)
+            with self.assertRaises(ValueError):verify(s,t)
+
+    def test_raw_pin_mutation_is_refused(self):
+        s,t=fixture();a,b=r.canonical(s),r.canonical(t)
+        with self.assertRaises(ValueError):r.review(a+b' ',r.pin(a),b,r.pin(b),expected_freeze_commit='4'*40)
+
+
+if __name__=='__main__':unittest.main()

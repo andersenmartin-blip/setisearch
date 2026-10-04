@@ -1,5 +1,20 @@
 # SETIsearch — current project status
 
+## 4 October: a distinct live Contents/branch CAS edge probe is frozen
+
+The [new prospective service-edge protocol](RADIO_CONTENTS_CAS_EDGE_2026-10-04_PROTOCOL.md)
+freezes one tiny synthetic-metadata probe of current-file blob SHA versus stale
+branch revision. It will deliberately advance a separate probe branch without
+changing its ledger file, then observe Contents update and a separately fixed
+stale-blob conflict. No old scope or scientific ledger is reused. Nine targeted
+transcript-checker tests pass; the initial development error remains retained.
+
+Exact continuation: verify full protocol/source/scope publication, admit only
+this original pinned empty directory once, retain every visible operation and
+error, then independently review the actual commit/file graph. Do not replay
+on ambiguity or infer scientific CAS/transport readiness. All eleven authentic
+fields, spectral holds, old control spends and 9 October consolidation remain.
+
 ## 4 October: v2 synthetic receiver integration passed once and closed
 
 The [retained v2 result](RADIO_RECEIVER_RUNNER_V2_2026-10-04_RESULT.md) records one

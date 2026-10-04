@@ -1,5 +1,17 @@
 # Long-term project direction
 
+## Active continuation — 4 October fresh Contents CAS edge scope
+
+[One bounded live service-edge protocol](RADIO_CONTENTS_CAS_EDGE_2026-10-04_PROTOCOL.md)
+now targets a genuinely new capability question: can file-blob conflict handling
+protect the scientific store's expected branch revision? It uses only two new
+synthetic files in a fresh probe branch and retains all outcomes/errors. Publish
+and read back the full freeze before its single admitted invocation; never
+reuse v2, the earlier ref probe or old scientific/control identities. Nine new
+checker tests pass, with the first development parser error retained. This is
+not an atomic scientific CAS or full hosted-transport qualification. All genuine
+runtime/source/service gates and the 9 October plan boundary remain unchanged.
+
 ## Active continuation — 4 October closed v2 synthetic integration
 
 [V2's single retained subprocess result](RADIO_RECEIVER_RUNNER_V2_2026-10-04_RESULT.md)

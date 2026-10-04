@@ -1,0 +1,42 @@
+test_authority_promotion_and_primary_branch_change_are_refused (results_radio_contents_cas_probe_20261004a.test_review_probe.Tests.test_authority_promotion_and_primary_branch_change_are_refused) ... ok
+test_complete_fixture_is_a_counterexample_and_never_authority (results_radio_contents_cas_probe_20261004a.test_review_probe.Tests.test_complete_fixture_is_a_counterexample_and_never_authority) ... ERROR
+test_error_text_without_positive_error_or_409_cannot_pass (results_radio_contents_cas_probe_20261004a.test_review_probe.Tests.test_error_text_without_positive_error_or_409_cannot_pass) ... ok
+test_failed_update_cannot_be_counted_as_success (results_radio_contents_cas_probe_20261004a.test_review_probe.Tests.test_failed_update_cannot_be_counted_as_success) ... ok
+test_mutated_or_wrong_blob_payload_cannot_pass (results_radio_contents_cas_probe_20261004a.test_review_probe.Tests.test_mutated_or_wrong_blob_payload_cannot_pass) ... ok
+test_omitting_interference_or_extra_retry_cannot_pass (results_radio_contents_cas_probe_20261004a.test_review_probe.Tests.test_omitting_interference_or_extra_retry_cannot_pass) ... ok
+test_raw_pin_mutation_is_refused (results_radio_contents_cas_probe_20261004a.test_review_probe.Tests.test_raw_pin_mutation_is_refused) ... ok
+test_response_clock_and_tool_substitution_are_refused (results_radio_contents_cas_probe_20261004a.test_review_probe.Tests.test_response_clock_and_tool_substitution_are_refused) ... ok
+test_wrong_commit_parent_cannot_hide_branch_change (results_radio_contents_cas_probe_20261004a.test_review_probe.Tests.test_wrong_commit_parent_cannot_hide_branch_change) ... ok
+
+======================================================================
+ERROR: test_complete_fixture_is_a_counterexample_and_never_authority (results_radio_contents_cas_probe_20261004a.test_review_probe.Tests.test_complete_fixture_is_a_counterexample_and_never_authority)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ef1503c23d23/setisearch-contents-cas-20261004/results_radio_contents_cas_probe_20261004a/test_review_probe.py", line 83, in test_complete_fixture_is_a_counterexample_and_never_authority
+    result=verify(*fixture())
+           ^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ef1503c23d23/setisearch-contents-cas-20261004/results_radio_contents_cas_probe_20261004a/test_review_probe.py", line 78, in verify
+    return r.review(a,r.pin(a),b,r.pin(b),expected_freeze_commit='4'*40)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ef1503c23d23/setisearch-contents-cas-20261004/results_radio_contents_cas_probe_20261004a/review_probe.py", line 127, in review
+    contents('ledger_initial_read',path,r0,initial)
+  File "/workspace/scratch/ef1503c23d23/setisearch-contents-cas-20261004/results_radio_contents_cas_probe_20261004a/review_probe.py", line 122, in contents
+    row=by[label];value=body(row)
+                        ^^^^^^^^^
+  File "/workspace/scratch/ef1503c23d23/setisearch-contents-cas-20261004/results_radio_contents_cas_probe_20261004a/review_probe.py", line 50, in body
+    return json.loads(value['content']) if type(value.get('content')) is str else value
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/decoder.py", line 356, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.007s
+
+FAILED (errors=1)
