@@ -1,5 +1,33 @@
 # Long-term project direction
 
+## 4 October: CAS edge attempts closed; c refused before admission
+
+[Actual c closure](RADIO_CONTENTS_CAS_EDGE_C_2026-10-04_RESULT.md) followed complete
+27-file/806,487-byte publication readback. Six platform proxy hashes changed
+before admission; the frozen guard refused correctly before any marker/process.
+c is retired unused, zero live calls/helpers; never re-freeze or admit it later.
+[a](RADIO_CONTENTS_CAS_EDGE_A_2026-10-04_RESULT.md) and[b](RADIO_CONTENTS_CAS_EDGE_B_2026-10-04_RESULT.md)
+remain CLOSED_FAILED and permanently spent, six visible calls each. Every partial
+outcome/archive/refusal remains retained. No interference/update/conflict or live
+CAS counterexample was reached. The19 focused tests contain3 new environment
+risks and16 selected regressions; they grant no real service/scientific authority.
+
+**Latest exact continuation:** genuinely callable atomic expected-branch CAS for
+the already-created candidate, plus authentic hosted-runtime/public-source/session
+evidence under a fresh complete prospective allocation. Current update_ref has
+no expected old head, Contents conditions on file blob, and GraphQL append is
+unavailable/incompatible with the unchanged store law. A future native transport
+also needs a separately reviewed dynamic platform endpoint policy; static proxy
+hashes did not survive the command boundary. No automatic further identity,
+replay, refund, empty recheck, target change or plan extension. Preserve the
+blocker if inputs remain inaccessible; consolidate **9 October 2026**.
+
+v2+a+b+c reserved subtotal570s/16MiB remains charged, not complete historical or
+hidden transport accounting. All eleven authentic fields pending; spectra/holdouts
+unopened, native8 unreserved,127/24 NOT ACTIVATED, original preparation blocked.
+HD189733 selected/neighbor9, HD1461 HOLD, GJ724 untouched reserve, all native/M43/
+M15/M33 outcomes, LS pause/BF untouched and CHEOPS UNSENT remain unchanged.
+
 ## 4 October: b CLOSED_FAILED at isolated network; distinct c is frozen
 
 [Actual b](RADIO_CONTENTS_CAS_EDGE_B_2026-10-04_RESULT.md) made six connector calls
