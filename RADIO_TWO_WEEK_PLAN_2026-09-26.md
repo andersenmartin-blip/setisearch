@@ -1,5 +1,25 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 4 October: distinct repaired metadata capture B prepared
+
+[Capture B preparation](RADIO_RUNTIME_METADATA_CAPTURE_2026-10-04B_PREPARATION.md)
+freezes a new identity and activation path with verified collector-byte dispatch,
+kernel-bound child observations, guarded raw artifact storage and protected
+terminal reads. Final cohorts pass 110 producer plus 23 pure contract-builder
+checks (133). The new bounded preread checks 765 runtime files/53,792,770 bytes;
+eight HDF5/plugin/historical paths remain absent. Exact contract/read/artifact
+headroom is recorded, without a runtime or scientific certificate.
+
+Preparation creates no marker or live allocation. Selected engineering subtotal
+remains **970s/48MiB**; only a separate fully published/read-back B activation
+spends 60s/8MiB and changes it to **1,030s/56MiB**. Next: complete independent
+review and full immutable readback, then the sole admitted engineering attempt
+and lossless publication of its actual result. Original capture and hosted CAS
+remain CLOSED_FAILED and spent; no replay/refund/reset/automatic successor.
+All eleven scientific fields pending, spectra/112+128 holdouts unopened,
+native8/127-24 inactive, HD189733/neighbor9 and holds fixed, LS paused,
+CHEOPS UNSENT. Consolidate **9 October 2026**.
+
 ## 4 October: ELF and child-process repairs prepared; no new capture
 
 [The inert repair preparation](RADIO_RUNTIME_CAPTURE_REPAIR_2026-10-04_PREPARATION.md)

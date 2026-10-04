@@ -1,56 +1,49 @@
 # Independent radio-search pilot: current continuation — 4 October 2026
 
-**The independent telescope-data pilot has not run.** The latest
-[inert runtime repair preparation](RADIO_RUNTIME_CAPTURE_REPAIR_2026-10-04_PREPARATION.md)
-repairs adjacent ELF string-table mapping and replaces numeric PID-tail matching
-with kernel-held own-child, namespace/session/lifetime and verified interpreter
-binding. Bounded selected-file stderr context adopts no partial observation.
-Final primary-Python synthetic cohorts pass **26 ELF, 26 collector and 45 gate
-tests (97 total)**. Exact failed versions/logs and an independent review are
-retained. These checks do not qualify a scientific detector or runtime.
+**The independent telescope-data pilot has not run.** A distinct repaired
+[runtime-metadata capture B](RADIO_RUNTIME_METADATA_CAPTURE_2026-10-04B_PREPARATION.md)
+is prepared with a new identity, source/input freeze and fixed new activation
+path. The collector runs from verified held source bytes; kernel child identity,
+raw evidence/artifact guards and terminal read reservations have stronger checks.
+Final producer and builder cohorts pass **110 + 23 = 133 tests**. Failed
+versions/logs are retained. These engineering checks do not qualify a detector,
+complete native runtime or any scientific source/trial.
 
-A separate bounded current Python ELF preread finds a string table crossing two
-adjacent segments with the same file translation. It supplies current geometry;
-it does not identify the original unnamed failing ELF input or certify native
-runtime custody. The diagnostic reader itself ran under the primary Python;
-its one explicit file pass excludes implicit interpreter/loader startup reads.
+The single bounded current preread checks 765 files/53,792,770 selected bytes,
+with total54,015,039 explicit content bytes including comparison inputs. All
+eight HDF5/plugin/historical paths remain missing. Static NumPy metadata is not
+loaded package identity. The exact original materialization plan stays unchanged;
+bootstrap remains unallocated.
 
-The [original actual capture](RADIO_RUNTIME_METADATA_CAPTURE_2026-10-04_RESULT.md)
-stays CLOSED_FAILED: one child exited 1/reaped, empty stdout, 87-byte stderr,
-0.450933547-second selected gate. All eight original artifacts are unchanged,
-and its 772 parent source/runtime pins matched before/after. Independent actual
-review found all three procfs samples belonged to caas-prefix-tra, so they
-cannot qualify collector RSS or descendant supervision. Direct wait4 evidence
-is separate. Actual child reads remain unknown, with the full 140-MiB allowance
-charged conservatively. The 60-second/8-MiB reservation is permanently spent.
-Selected engineering subtotal remains **970 seconds/48 MiB**, excluding other
-history/bootstrap/hidden provider usage. The actual hosted CAS also remains
-CLOSED_FAILED at the generic server error.
+B preparation has dispatched no genuine collector/supervisor, marker or live
+allocation. Selected engineering subtotal remains **970 seconds/48 MiB**.
+Only a separately published fully read-back B marker may spend60seconds/8MiB,
+changing it to **1,030 seconds/56 MiB** before its sole admitted attempt.
+The original actual capture and hosted CAS remain CLOSED_FAILED and spent.
+Original capture stdout was empty with87-byte stderr and unqualified procfs
+attribution; its exact eight files/source proof remain unchanged. No failure
+is replayed, rearmed, refunded or promoted to successful metadata.
 
-**Next prospective work:** integrate a distinct namespace/path contract and a
-complete new code/input/runtime freeze for any genuine capture, including new
-source hashes and recalculated read/storage headroom. The repaired source
-retains the inherited hardcoded old activation-path API; the closed marker cannot
-authorize it. No new actual collector/supervisor capture, marker or allocation
-occurred in this continuation. Any later scope requires full immutable
-publication/readback and its own fresh one-shot admission and allocation.
+**Next:** finish independent exact preparation review and immutable fullbody/blob
+readback, verify the new marker-only activation delta, execute once if admitted,
+and preserve/independently review/publish the actual outcome. A failed gate is a
+concrete blocker, without an automatic successor. Static headroom does not
+promise future wall time, physical allocation, RSS or all1200sample slots.
 
-All eleven scientific fields remain pending. Genuine integrated atomic CAS and
-original scientific Git bytes, complete hosted runtime/public-source/session,
-HDF5/ELF/plugin/filter/host/resource closure, twelve calibration/validation
-receiver handoffs with 16 raw and normalized hashes each, authentic full 127/24,
-trial/reservation and public acquisition ledger inputs remain required. Old
-missing wheel/install paths do not authenticate a new runtime; bootstrap stays
-unallocated. Scientific interfaces and original materialization plan are unchanged.
+All eleven scientific admission fields remain pending. Complete HDF5/ELF/plugin/
+filter runtime, scientific-store CAS law, full127/24, twelve receiver handoffs
+with16raw+normalized hashes, source/session/host/resource/trial/reservation and
+public acquisition ledger inputs remain required. Administrative publication
+supplies no scientific CAS certificate. No ScientificFreeze or source contract
+is issued by this metadata preparation.
 
-HD189733/HIP98505 cadence85030 with neighbor9 stays selected, with three ON/OFF
+HD189733/HIP98505 cadence85030 with neighbor9 remains fixed, with three ON/OFF
 pairs within one observing date. HD1461 pointing HOLD and untouched GJ724 reserve
-remain. Spectra and original 112+128 holdouts are unopened, native8 unreserved
-and 127/24 NOT ACTIVATED. Original M43/native/M15/M33 outcomes remain; earlier
-original E/F attempts are CLOSED_FAILED and spent, including E/F 0/8. LS remains
-paused with BF saved restart and CHEOPS UNSENT. No paid service, person message,
-target or schedule change. Consolidate **9 October 2026**, without automatic
-extension or restart. The original 3 October checkpoint below is retained unchanged.
+remain. Spectra/original112+128holdouts are unopened, native8 unreserved and
+127/24 NOT ACTIVATED. Original M43/native/M15/M33 and E/F outcomes remain.
+LS paused with BF saved restart, CHEOPS UNSENT. No paid service, person message,
+target or schedule change. Consolidate **9 October 2026** without automatic
+extension. The original3October checkpoint below is retained unchanged.
 
 ## Historical checkpoint — 3 October 2026
 
