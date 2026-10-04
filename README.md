@@ -1,5 +1,15 @@
 # SETIsearch
 
+## 4 October: scientific-store bridge tested; exact HDF5 materialization prepared
+
+[The new preparation report](https://github.com/andersenmartin-blip/setisearch/blob/7c9658e6e8051017d8399496819949be81d7f343/RADIO_SCIENTIFIC_INTEGRATION_2026-10-04_PREPARATION.md) connects all six operations through the unchanged scientific store in the explicit synthetic domain. Full publication remains SIMULATION_ONLY, and the exact archived generic GitHub error permanently closes callback and store. Default/public-scientific use refuses before dispatch. Fixed candidate metadata, original raw commit bytes, complete tree changes, type-exact witnesses, reentrancy and bounded injected replies are checked; six development failures and their original sources are retained.
+
+A separate pure builder produces [the exact PENDING HDF5 plan](https://github.com/andersenmartin-blip/setisearch/blob/7c9658e6e8051017d8399496819949be81d7f343/results_radio_runtime_materialization_preparation_20261004a/runtime-materialization.plan.json), binding three retained official wheels totaling 68,409,067 bytes and the maintained scientific interfaces. The old installation and wheel files are absent at their recorded paths. Bootstrap remains unallocated; a new authentic Python/package/ELF/plugin closure and all twelve 16-row receiver handoffs are required.
+
+**40 focused tests pass**: 21 callback and 19 runtime-plan tests. Both independent reviews, all failure logs and source snapshots are public. [Full immutable preparation readback](https://github.com/andersenmartin-blip/setisearch/blob/9f3f3b7351f1a50decdf253e0a949b405a97ad6a/RADIO_SCIENTIFIC_INTEGRATION_2026-10-04_READBACK.json) matches all 55 files / 1,577,130 bytes and their intrinsic Git blob identities. This administrative publication supplies no live runtime, transport, CAS or scientific certificate.
+
+The original hosted control remains CLOSED_FAILED and spent; selected live engineering subtotal remains 910s/40MiB. No new live probe, workflow, marker, allocation or telescope-data analysis occurred. All eleven authentic scientific fields remain pending, HD189733/neighbor9 and target holds remain fixed, spectra/holdouts stay unopened, native8/127-24 inactive, LS paused and CHEOPS UNSENT. Consolidate **9 October 2026**.
+
 ## 4 October: hosted first CAS accepted; stale control closed at GitHub server error
 
 [Actual result and preserved evidence](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_HOSTED_CAS_CONTROL_2026-10-04_RESULT.md): one original frozen activation, 90 synthetic tests and full 50-file preparation readback. The first exact update was accepted; the stale expected-head request returned a generic internal GraphQL error. The control correctly CLOSED_FAILED after 29 calls, with child exit1/reaped and full lossless 117-member archive. No expected-head conflict qualification is claimed. Independent immutable object/evidence reviews are retained.
