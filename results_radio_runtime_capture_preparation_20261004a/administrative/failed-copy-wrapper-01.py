@@ -1,0 +1,15 @@
+from pathlib import Path
+import json,hashlib,shutil,stat,os
+repo=Path('.');h=repo/'results_radio_runtime_capture_preparation_20261004a';root=Path('/workspace/scratch/d804553c0e89/radio-runtime-metadata-capture-20261004a');outer=json.loads((h/'administrative/parent.stdout.raw').read_bytes());r=outer['report'];dst=h/'actual';dst.mkdir(); rows=[]
+for entry in outer['final_scope']['entries']:
+ p=root/entry['path'];info=p.stat();raw=p.read_bytes();assert len(raw)==entry['bytes'] and format(stat.S_IMODE(info.st_mode),'04o')==entry['mode'] and info.st_blocks*512==entry['allocated_bytes'];out=dst/p.name;out.write_bytes(raw);assert out.read_bytes()==raw
+ rows.append({'path':'actual/'+p.name,'original_scope_path':str(p),'original_mode':entry['mode'],'original_device':info.st_dev,'original_inode':info.st_ino,'original_mtime_ns':info.st_mtime_ns,'original_ctime_ns':info.st_ctime_ns,'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest(),'git_blob':hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest(),'original_allocated_bytes':entry['allocated_bytes'],'copy_exact':True})
+assert set(p.name for p in root.iterdir())==set(entry['path'] for entry in outer['final_scope']['entries'])
+assert (root/'selected-runtime-before.json').read_bytes()==(root/'selected-runtime-after.json').read_bytes()
+assert (root/'admission-witness.json').read_bytes()==(h/'administrative/detached-publication-proof.json').read_bytes()
+assert (root/'child.stderr.raw').read_bytes()==b'CLOSED_FAILED ElfMetadataError: dynamic string table has no unique file-backed PT_LOAD\n'
+manifest={'schema':'radio-runtime-metadata-capture-actual-lossless-manifest-v1','status':'CLOSED_FAILED','capture_identity':r['capture_identity'],'original_root':str(root),'original_root_device':root.stat().st_dev,'original_root_inode':root.stat().st_ino,'original_root_mode':'0700','original_fixed_members':8,'files':rows,'final_scope':outer['final_scope'],'whole_scope_elapsed_seconds':outer['whole_scope_elapsed_seconds'],'original_closed_root_unmodified':True,'copies_are_administrative_publication_evidence_not_additional_capture_members':True,'child_observed_read_count':None,'child_count_unavailable_reason':'no stdout metadata receipt; no inferred or refunded child bytes','all_eleven_scientific_fields_pending':True,'selected_engineering_subtotal_seconds':970,'selected_engineering_subtotal_MiB':48}
+(h/'actual-lossless-manifest.json').write_text(json.dumps(manifest,sort_keys=True,indent=2)+'\n')
+for name in ('capture-activation-git.stderr.log','capture-activation-expected-tree.txt'):
+ p=repo.parent/name;shutil.copyfile(p,h/'administrative'/name)
+print(json.dumps({'lossless_members':len(rows),'file_bytes':sum(row['bytes'] for row in rows),'root_inclusive_logical_bytes':outer['final_scope']['logical_bytes'],'root_inclusive_allocated_bytes':outer['final_scope']['allocated_bytes'],'pins_equal':True,'raw_stderr_sha256':hashlib.sha256((root/'child.stderr.raw').read_bytes()).hexdigest(),'engineering_status':r['status']},sort_keys=True))

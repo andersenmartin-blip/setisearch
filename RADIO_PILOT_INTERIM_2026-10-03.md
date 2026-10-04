@@ -1,54 +1,54 @@
 # Independent radio-search pilot: current continuation — 4 October 2026
 
 **The independent telescope-data pilot has not run.** The latest
-[integration preparation](RADIO_SCIENTIFIC_INTEGRATION_2026-10-04_PREPARATION.md)
-connects all six operations to the unchanged scientific store in the explicitly
-synthetic domain. Its full synthetic publication is SIMULATION_ONLY; the actual
-retained generic GraphQL error closes callback and store permanently. This code
-has no network implementation, credentials, workflow, activation or certificate
-producer, and refuses public-scientific use before dispatch.
+[selected runtime metadata capture](RADIO_RUNTIME_METADATA_CAPTURE_2026-10-04_RESULT.md)
+closed failed after one child: ELF string-table mapping refusal, exit1/reaped,
+empty stdout and87-byte exact stderr. No collector package/runtime/ELF/maps
+receipt, qualified detector, source contract or new telescope search exists.
+All eight original scope artifacts are preserved byte for byte;772 selected
+parent source/runtime pins match before/after.
 
-A separate exact HDF5 materialization plan uses the retained official wheel
-pins and current verifier interfaces. The old recorded wheel files and
-installation are absent now; historical codec evidence cannot authenticate a
-new runtime. Complete Python/package/ELF/plugin closure and twelve calibration/
-validation by six-scan handoffs, each with16 raw and normalized row hashes,
-remain actual inputs for the existing verifier. Bootstrap is unallocated.
+[Independent actual review](results_radio_runtime_capture_preparation_20261004a/actual-independent-review.md)
+finds that the three procfs samples refer to another process (caas-prefix-tra,
+PPid1/session0/starttime139). They cannot authenticate collector RSS/descendant
+supervision. Direct wait4 status/peak is separate. Actual child reads remain
+unknown, with the full140MiB allowance charged conservatively. The selected
+gate clock is0.450933547seconds, not a complete provider lifetime certificate.
 
-[The original hosted control remains CLOSED_FAILED](RADIO_HOSTED_CAS_CONTROL_2026-10-04_RESULT.md).
-Its first exact expected-head update was accepted; its stale test returned a
-generic server error. The original result,117-member lossless archive and
-300s/20MiB spent allocation are preserved. No retry or new live probe occurred;
-the selected engineering subtotal remains910s/40MiB, excluding other history,
-bootstrap and hidden provider usage.
+Preparation, full60-file/1,396,894-byte immutable readback and original
+marker-only activation were completed before invocation. The60s/8MiB allocation
+is permanently spent; selected engineering subtotal is **970s/48MiB**, excluding
+other history/bootstrap/hidden provider usage. No replay, refund, reset, rearm
+or automatic successor. The original actual hosted CAS remains CLOSED_FAILED
+at the generic server error; its first accepted update is not a qualification.
 
-**Immediate next requirement:** independently authenticated integrated atomic
-expected-revision CAS and exact original Git-byte reading, authentic hosted
-runtime/public-source/session evidence, full127/24 qualification and the other
-original admission inputs, under a fresh complete prospective freeze and
-allocation. Preparation must be fully published/read back before a separate
-one-shot activation. The inert bridge does not supply the scientific store's
-externally pinned CAS law or independently verified executable freeze.
+The preceding preread selected the exact Python3.12.14 interpreter and static
+NumPy2.3.5 metadata; HDF5 package/historical wheel paths were missing. These are
+preread inputs, not an adopted loaded-package or successful collector receipt.
+The inert six-operation scientific bridge remains synthetic-only. The exact
+original HDF5 plan and scientific verifiers remain unchanged; full package/ELF/
+plugin closure, twelve calibration/validation by six-scan handoffs with16 raw
+and normalized hashes, and authentic full127/24 qualification are still needed.
+Bootstrap remains unallocated.
 
-The [portable-custody v3 repair](RADIO_PORTABLE_CUSTODY_2026-10-03_RESULT.md)
-removed the missing original b/c-directory dependency for genuinely new work.
-The unchanged v2 refusals, missing historical continuity/storage and every
-spent attempt remain valid. The E/F controls remain **CLOSED_FAILED,0/8**;
-selected native Git metadata observations supply no complete scientific
-transport or telescope-access qualification.
+**Immediate next prospective work:** contextual ELF mapping-law diagnostics and
+an authenticated procfs-to-child namespace/session/lifetime binding, using pure
+preparation rather than rerunning this spent identity. Any later actual scope
+requires a complete new execution/input/runtime freeze, full immutable
+publication/readback and its own fresh allocation. Genuine integrated atomic
+expected-revision CAS/original Git bytes, hosted runtime/public-source/session,
+codec/filter/host/resource and every original admission field remain required.
 
-All eleven authentic source/scientific fields remain pending. HD189733/HIP98505
-cadence85030 with neighbor9 stays selected; HD1461 stays pointing HOLD and GJ724
-stays untouched reserve. Spectra and original112+128 holdouts remain unopened,
-native8 remains unreserved and127/24 remains NOT ACTIVATED. Earlier candidate
-and native outcomes remain unchanged. LS stays paused with LS8BF saved for a
-possible restart; CHEOPS remains UNSENT. No paid service, person message,
-schedule or target change.
-
-If the required genuine inputs remain inaccessible, retain those concrete
-blockers and consolidate **9 October 2026**, without an automatic experiment,
-replay or plan extension. This updates the current continuation; the original
-3 October checkpoint below is retained unchanged.
+The portable-custody v3 repair does not restore missing historical local storage
+or waive v2/E/F failures. Earlier original attempts remain CLOSED_FAILED and
+spent, including E/F0/8. All eleven scientific fields remain pending.
+HD189733/HIP98505 cadence85030 with neighbor9 stays selected; HD1461 pointing
+HOLD, GJ724 untouched reserve. Spectra and original112+128holdouts remain
+unopened, native8 unreserved and127/24 NOT ACTIVATED. Original M43/native/M15/M33
+outcomes remain; LS paused with BF saved restart, CHEOPS UNSENT. No paid service,
+person message, schedule or target change. Consolidate **9 October 2026**,
+without automatic experiment or extension. The original3October checkpoint
+below is retained unchanged.
 
 ## Historical checkpoint — 3 October 2026
 

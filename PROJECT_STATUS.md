@@ -1,5 +1,30 @@
 # SETIsearch — current project status
 
+## 4 October: selected runtime capture CLOSED_FAILED; procfs attribution defective
+
+[The actual metadata-capture result](RADIO_RUNTIME_METADATA_CAPTURE_2026-10-04_RESULT.md)
+records one fully published/read-back fresh activation and one child. The child
+exited1/reaped after an ELF dynamic-string-table mapping refusal; stdout is empty,
+stderr87bytes. The selected gate completed in0.450933547seconds, with772 parent
+source/runtime pins equal before/after and all eight original artifacts preserved.
+No collector runtime/package/maps/ELF observation or scientific certificate exists.
+
+Independent actual review identifies a second defect: all three procfs samples
+refer to caas-prefix-tra with PPid1/session0/starttime139, so they cannot qualify
+collector RSS or descendant supervision. Direct-child wait4 is separate evidence.
+Child read usage is unknown; its full140MiB allowance stays charged conservatively.
+Directory-inclusive original storage is1,006,434logical/1,019,904allocatedbytes.
+
+The new60s/8MiB reservation is permanently spent; selected engineering subtotal
+is **970s/48MiB**, excluding other history/bootstrap/hidden usage. No retry,
+refund, reset, rearm or automatic successor. The original hosted CAS stays
+CLOSED_FAILED. **Next prospective work:** contextual ELF mapping-law diagnostics
+and authenticated procfs/child-namespace linkage, then genuinely new original
+admission inputs under a complete separate freeze/readback/allocation.
+All eleven scientific fields remain pending, spectra/112+128holdouts unopened,
+native8/127-24 inactive, HD189733/neighbor9 and holds fixed, LS paused, CHEOPS
+UNSENT. No paid service/person message. Consolidate **9 October 2026**.
+
 ## 4 October: scientific-store callback integrated synthetically; exact runtime plan prepared
 
 [The new integration preparation](RADIO_SCIENTIFIC_INTEGRATION_2026-10-04_PREPARATION.md)
