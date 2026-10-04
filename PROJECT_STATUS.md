@@ -1,5 +1,25 @@
 # SETIsearch — current project status
 
+## 4 October: bounded scientific runner integrated; actual services still blocked
+
+[The prospective runner result](RADIO_BOUNDED_SCIENTIFIC_RUNNER_2026-10-04_RESULT.md)
+joins maintained admission/closure verification, executable-freeze inventory,
+per-load clocks and exact bounded failure output around one exclusive child
+dispatch. **25 new tests pass**. They cover nonzero binary stderr, timeout,
+output overflow, destination reuse, explicit environment, closure/file
+substitution, clock regression/expiry and false synthetic authority. The 148
+scientific API and 24 retention tests also pass as selected regressions.
+
+This is synthetic interface qualification only. No actual hosted-native runtime,
+atomic CAS, allocation, source session, telescope value, native case or 127/24
+trial was opened. Scientific readiness remains false; F remains CLOSED_FAILED,
+0/8 and permanently spent. Next: place this runner and a real child in a fresh
+actual executable freeze, then qualify authentic hosted runtime/native closure,
+atomic expected-revision CAS and one-shot service evidence with fresh engineering
+identities. If unavailable, preserve the blocker and consolidate **9 October**.
+All target/HOLD/reserve choices, unopened spectra/holdouts, LS pause and CHEOPS
+UNSENT remain unchanged; no external message was sent.
+
 ## 3 October: F closed after 24 reads; scientific execution APIs implemented
 
 [The actual F result](RADIO_NATIVE_V3_CONTROL_F_2026-10-03_RESULT.md) records exactly one admitted engineering invocation, **CLOSED_FAILED**, **0/8 completed cases** and permanent F spend. Case 00 accepted 24 source-reader results before command 24's inner worker exited 1 before its identity/pread. The 3,000-byte original inner stderr was hashed but not retained on failure; the exact exception is unproven. Preserve the original terminal evidence and losslessly reconstructable partial transcript. Never retry, resume or re-admit E or F.

@@ -1,5 +1,22 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 4 October checkpoint: bounded runner qualified only in synthetic domain
+
+A fresh one-shot runner now binds maintained current admission and closure,
+their executable-freeze inventory, explicit argv/environment, receiver per-load
+clock evidence and exact bounded stdout/stderr retention. Its 25 new tests pass;
+the selected 148 scientific-component and 24 retention regressions also pass.
+No old control was rerun.
+
+This does not satisfy the actual hosted-native/runtime, atomic-CAS, allocation,
+source-session or one-shot service gates. No telescope values, native cases or
+127/24 trials were opened or reserved. Next within the unchanged plan is a fresh
+actual executable freeze containing this runner and the real child, followed
+only by authentic service qualification under new engineering identities. If
+those inputs are inaccessible, retain the explicit blocker and consolidate on
+9 October without extending the plan. All target, HOLD/reserve, LS, CHEOPS,
+holdout and failed-control dispositions remain unchanged.
+
 ## 3 October: actual F closure and concrete scientific execution code
 
 [The one F engineering invocation](RADIO_NATIVE_V3_CONTROL_F_2026-10-03_RESULT.md) is **CLOSED_FAILED**, 0/8, after 24 accepted source reads. F and E remain permanently spent. Preserve available original evidence and losslessly recover deterministic inputs/partial transcript offline. The inner failure stderr was not retained; do not infer its contents or repeat F to obtain it.

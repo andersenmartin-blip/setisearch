@@ -1,5 +1,20 @@
 # Long-term project direction
 
+## Active continuation — 4 October bounded runner checkpoint
+
+The maintained scientific admission/closure, receiver per-load clocks and
+lossless failure-output utility are now integrated by a freeze-bound one-shot
+runner; its 25-test synthetic interface qualification passes. This closes the
+software integration item, not the evidence gates. The runner must itself occur
+with the real child in a fresh actual executable freeze. Authentic hosted-native
+runtime/plugin evidence, atomic expected-revision CAS, irreversible allocations,
+live source session and a real one-shot qualification remain prerequisites.
+
+Do not promote the synthetic result, reopen F or use telescope/127+24 identities
+for engineering. Preserve every hold and disposition. If the required actual
+service evidence is unavailable, document that blocker and consolidate on
+9 October 2026; do not extend the plan automatically.
+
 ## 3 October: archive-only storage qualified; original history unavailable
 
 Complete public HTTPS Git readback at [b9f0cd3](https://github.com/andersenmartin-blip/setisearch/commit/b9f0cd300d78c1dfc85621e12de229cdfa26bfac) verifies **all 45 changed files / 2,651,725 raw bytes**, exact tree/parent and full local payload equality. Main README at [1855f08](https://github.com/andersenmartin-blip/setisearch/commit/1855f082a2d256d63d12f86385343c8d2c3e9428) verifies all 56,515 bytes. A separate full-payload connector review verifies **10 files / 481,819 raw bytes**. Post-publication checks rehash all 1,190 tested source pins and 15 copies and repeat the exact read-only accounting/refusals; original/d absence remains unchanged. These receipts grant no original custody or execution authority.
