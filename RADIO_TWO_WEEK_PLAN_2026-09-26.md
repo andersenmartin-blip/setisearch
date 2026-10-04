@@ -1,5 +1,22 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 4 October: b CLOSED_FAILED at isolated network; distinct c is frozen
+
+[Actual b](RADIO_CONTENTS_CAS_EDGE_B_2026-10-04_RESULT.md) made six connector calls
+and one native helper/Git process before closing: Git128 / helper1, exact117-byte
+DNS stderr retained. The frozen minimal environment omitted the platform proxy.
+No interference/update/conflict was attempted; b's identity and180s/4MiB stay
+spent, all nine original files archived and unchanged checker refusal retained.
+
+[Fresh c protocol](RADIO_CONTENTS_CAS_EDGE_C_2026-10-04_PROTOCOL.md) passes only a
+frozen hash-pinned platform network allowlist; unrelated secrets remain excluded.
+19 focused tests pass, including environment changes and transcript substitutions.
+**Next:** full b failure/c freeze publication and readback, one original c admission,
+fixed live invocation, retained independent actual review and final publication.
+No automatic further successor. v2+a+b+c reservations subtotal570s/16MiB, without
+refund/reset or scientific activation. All genuine evidence gates remain pending.
+Consolidation9October, targets/holds, old control failures, LS/CHEOPS unchanged.
+
 ## 4 October checkpoint: actual a retained; one fresh normalized/Git b scope
 
 [a CLOSED_FAILED](RADIO_CONTENTS_CAS_EDGE_A_2026-10-04_RESULT.md) after six calls

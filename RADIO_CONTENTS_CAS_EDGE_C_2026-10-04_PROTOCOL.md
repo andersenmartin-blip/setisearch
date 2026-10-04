@@ -1,0 +1,31 @@
+# Prospective proxy-aware Contents/Git edge probe c — 4 October 2026
+
+This is a distinct engineering successor to [b CLOSED_FAILED](RADIO_CONTENTS_CAS_EDGE_B_2026-10-04_RESULT.md), which retained the actual 117-byte native DNS failure. It never reuses a/b's branch, directory, identity or allocation. The unchanged scientific store requires atomic expected-branch revision CAS of an exact pre-created candidate; this experiment cannot qualify or replace that law.
+
+## Fixed purpose and prospective observable sequence
+
+Observe only GitHub file-blob conflict semantics on two new tiny synthetic JSON files. The seventeen connector phases stay fixed: prove new branch absence; create it from `530446079c7b1cf3dd1445c3d1817488665d4c60`; verify initial head; create initial ledger R0; immutable commit and normalized Contents reads; create separate interference marker R1; immutable commit/unchanged ledger/head reads; attempt ledger update using its current blob B0 but stale R0 recorded as expected branch revision; immutable update R2 parent check; attempt a distinct fixed stale-B0 update expecting HTTP409; final head/ledger/marker reads; verify primary science head is still the freeze publication. Three native readbacks join the selected actual commit/tree/member/blob bytes at initial, interference and final phases. No inferred blob identity is submitted without the first native proof.
+
+## Only new behavior: explicit allowed platform networking
+
+The separate helper preserves only eleven named platform network/proxy/certificate variables when present, alongside fixed PATH, LC_ALL and GIT_TERMINAL_PROMPT=0. Scope contains each name's presence, byte count and SHA256, without raw values. The helper compares the current allowlist fingerprint to the frozen scope before any Git process; changed, absent or added allowed variables close the attempt. It captures those fingerprints in each native proof. Unrelated secrets, user PATH, arbitrary Git configuration variables and SSH commands are excluded. The independent checker requires the exact frozen fingerprints on all three proofs. This respects the permitted platform network route; it adds no credentials or access to protected services.
+
+The helper uses the literal public HTTPS Git URL, never force-fetches, and retains every selected Git process argv/exit/stdout/stderr exactly. Raw commit SHA1, sole parent, tree, regular mode100644 selected members and intrinsic blob IDs are recomputed. This is selected execution-boundary evidence, not complete environment/ELF/RSS/hidden HTTP or retry measurement. The output limit is an admission cap after subprocess output capture, not an OS memory bound.
+
+## Frozen identity, code and one-shot allocation
+
+Scope: [scope.json](results_radio_contents_cas_probe_20261004c/scope.json), **5,480 bytes**, SHA256 `59c90f97901623cf9aa3a6408deb308a398a0899e0365f3b6ab6f9b3783230bd`. Identity `1c4e58ed13646d38f8b4e42f269853a9c285c75b32ea275391b2dfacb45f8328`. Branch `radio-contents-cas-probe-20261004c`. Original root `/workspace/scratch/ef1503c23d23/contents-cas-probe-20261004c-artifacts`, device 27, inode 1319356. One invocation only, no retry/resume/refund, even on ambiguous or failed outcome. Complete publication and immutable full-payload readback precede an exclusive fsynced marker at this original empty root; an archive never grants original admission.
+
+Five exact code/test files, actual Python executable and unchanged scientific store bytes are pinned in the scope. **19 focused tests pass in 0.017 seconds**: the retained normalized/Git semantics plus new allowlist preservation, secret exclusion, changed/missing/added network refusal before invocation, and transcript fingerprint substitution/refusal. Node syntax also passes. These synthetic tests are not the actual c result. a/b's frozen sources and failures stay exact; old 21/148/24 suites are not rerun as new progress.
+
+Reserve 180 visible admission seconds, at most 18 visible GitHub calls (17 expected), three native helper calls and 18 Git processes (17 expected), 30 seconds per helper, 65,536 returned native-output bytes, 2,097,152 JS UTF16 serialized response units and 4MiB logical/allocated original evidence including directories. A helper session result, nonzero exit, timeout, wrapper/commit/member/clock/budget discrepancy closes c without polling/relaunch. Hidden SDK/HTTP retries, hard interruption of a hung connector and whole-runtime RSS remain unproved. Publication/review/readbacks outside the live probe are separately labeled and never counted as server probe phases.
+
+v2+a+b+c prospective reservation subtotal: **570 seconds /16MiB**, with 54 visible CAS connector calls reserved across a/b/c. This is a continuation subtotal, not complete historical/hidden transport accounting. All prior reservations remain charged and no closed original acquisition/scientific/source ledger is reset.
+
+## Truthful closure and unchanged project constraints
+
+Retain every trigger, veto, raw outcome and partial failure. Run the independently pinned checker on the actual transcript only. A complete counterexample would prove this exposed Contents file SHA edge does not protect branch revision; it would not grant expected-revision CAS or hosted/scientific readiness. A failed actual attempt remains CLOSED_FAILED; no tuning it to pass. No further successor is automatically authorized by a terminal result.
+
+All eleven authentic source/scientific fields remain pending, spectra/holdouts unopened, native8 unreserved, 127/24 NOT ACTIVATED. HD189733 remains selected with neighbor9; HD1461 HOLD, GJ724 untouched reserve. Preserve M43AI/AF, M15/M33, old a/b/c/E/F native-control spends (distinct from these service probe labels), d uncreated, LS8BD–BE pause/BF untouched and CHEOPS UNSENT. No person message, force-push, evidence deletion, paid service, booking, subagent, schedule change or plan extension. Consolidate 9 October.
+
+Exact continuation: full publication/readback of b's actual failure and this complete c scope/code/protocol; single original-root admission; one fixed invocation; retain/independently review actual evidence; publish outcome and main README. If the callable expected-branch CAS or real runtime/source inputs remain inaccessible, document the concrete blocker without empty rechecks or automatic further allocation.
