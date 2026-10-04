@@ -22,6 +22,12 @@ error is retained; the scientific store and all old sources remain untouched.
 The single scope pins three selected code/test files, the original store and
 one exact root identity. It reserves 180 visible engineering seconds, 18 visible
 connector calls and 4 MiB original retained evidence with no refund. The prior
-v2 30-second/4-MiB reservation stays spent. The live result is pending publication
-readback and its one allowed invocation. All eleven actual evidence fields stay
+v2 30-second/4-MiB reservation stays spent. [The actual live result](../RADIO_CONTENTS_CAS_EDGE_A_2026-10-04_RESULT.md)
+is CLOSED_FAILED after six calls/6,461 ms: the connector supplied exact decoded
+file bytes instead of raw API blob metadata. The original eight-file directory
+uses 40,811 logical /61,440 allocated bytes including its directory. Its identity
+is permanently spent. No interference or update probe occurred; the full terminal,
+operation archive and subsequent read-only Git/wrapper diagnosis are retained.
+A separate b version has its own prospective scope and must not resume a.
+All eleven actual evidence fields stay
 pending; this directory supplies no scientific CAS law or transport certificate.

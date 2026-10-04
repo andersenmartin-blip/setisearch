@@ -1,5 +1,22 @@
 # SETIsearch — current project status
 
+## 4 October: Contents a CLOSED_FAILED; separate normalized/Git b is prospective
+
+[Actual a](RADIO_CONTENTS_CAS_EDGE_A_2026-10-04_RESULT.md) closed after six calls,
+6,461 ms and two mutations (new branch/start file). The connector returned decoded
+file content instead of raw API blob metadata; the frozen guard refused it before
+interference or either update. All eight original files /61,440 allocated bytes
+are archived; its identity and 180-second/18-call/4-MiB reservation stay spent.
+Read-only Git independently confirms all 295 initial bytes and the actual blob.
+
+[Distinct b's protocol](RADIO_CONTENTS_CAS_EDGE_B_2026-10-04_PROTOCOL.md) now binds
+that explicitly observed normalized wrapper to three independent immutable Git
+readbacks; sixteen new focused tests pass. b has its own branch/root/identity,
+full prospective limits and one invocation allocation, not yet run. **Next:**
+verify this complete new publication/readback, admit only original b once,
+retain every actual server/native result and independently review it. Never
+resume or retune a. All genuine scientific/service gates and 9 October remain.
+
 ## 4 October: a distinct live Contents/branch CAS edge probe is frozen
 
 The [new prospective service-edge protocol](RADIO_CONTENTS_CAS_EDGE_2026-10-04_PROTOCOL.md)

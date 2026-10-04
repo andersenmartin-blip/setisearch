@@ -1,5 +1,17 @@
 # Long-term project direction
 
+## Active continuation — 4 October a failed; fresh normalized/Git b prepared
+
+[The actual a failure](RADIO_CONTENTS_CAS_EDGE_A_2026-10-04_RESULT.md) is retained
+and permanently spent. It proved a decoded-wrapper boundary mismatch, not branch
+CAS or stale-file conflict. The raw initial bytes and intrinsic Git blob now
+match independent public Git readback. [One distinct b protocol](RADIO_CONTENTS_CAS_EDGE_B_2026-10-04_PROTOCOL.md)
+joins the observed wrapper to three exact native Git member/commit readbacks.
+Sixteen focused tests pass; no old source, identity, failure or budget is reset.
+Next is complete b publication/readback and its single original-root invocation,
+then actual evidence review. All runtime/source/scientific gates and the unchanged
+store's expected-branch CAS law remain pending; consolidate 9 October.
+
 ## Active continuation — 4 October fresh Contents CAS edge scope
 
 [One bounded live service-edge protocol](RADIO_CONTENTS_CAS_EDGE_2026-10-04_PROTOCOL.md)

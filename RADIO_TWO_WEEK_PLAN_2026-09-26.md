@@ -1,5 +1,19 @@
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 4 October checkpoint: actual a retained; one fresh normalized/Git b scope
+
+[a CLOSED_FAILED](RADIO_CONTENTS_CAS_EDGE_A_2026-10-04_RESULT.md) after six calls
+and initial branch/file creation; no interference or update occurred. The exact
+295 bytes match independent Git, but the normalized connector wrapper omitted
+raw API blob metadata. Preserve a's spend, all errors, branch/file and original
+archive. [Separate b](RADIO_CONTENTS_CAS_EDGE_B_2026-10-04_PROTOCOL.md) has a fresh
+original root/branch/identity and three native Git joins; sixteen focused tests pass.
+After full publication/readback, admit b once under its own 180-second/18-call/
+3-helper/18-Git-process/4-MiB bounds. v2+a+b continuation reservations subtotal
+390 seconds/12 MiB; historical and scientific/source/native budgets are unchanged.
+No real scientific readiness, spectra, holdouts or native/127-24 activation.
+Retain the actual result and consolidate 9 October without automatic extension.
+
 ## 4 October checkpoint: prospectively bounded live Contents CAS observation
 
 The [new service-edge scope](RADIO_CONTENTS_CAS_EDGE_2026-10-04_PROTOCOL.md)
