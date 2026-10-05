@@ -1,5 +1,13 @@
 # SETIsearch
 
+## 5 October 2026: actual proxy bootstrap B CLOSED_FAILED at CONNECT
+
+[The separately frozen one-shot B result](https://github.com/andersenmartin-blip/setisearch/blob/1643ead06060df36ca0fc701daf610680dab85fb/RADIO_RUNTIME_PACKAGE_BOOTSTRAP_2026-10-05B_RESULT.md) stopped at `CONNECT receive refused: TimeoutError` for the first exact NumPy wheel. **Zero CONNECT response, HTTP header or wheel body bytes were received.** h5py/plugin acquisition, ZIP inspection, pip children, native scientific imports and telescope reads were zero. The timeout cause remains undetermined; packages and HDF5/plugin runtime remain unqualified.
+
+Full immutable readback matched all **121 preparation files / 3,029,584 bytes** before distinct marker-only activation. All **1,258 selected source/runtime pins** agree before/after the actual attempt. Whole-gate selected elapsed was **11.504740273 seconds**. All **491 files and 80 directories** are preserved losslessly with terminal objects and exact caller streams; **28 independent actual checks pass**. Full result readback matches all **36 changed files / 5,302,753 bytes**, including the complete manifest through its immutable Git blob.
+
+B's **300s / 1,536MiB** reservation is permanently spent; selected engineering subtotal is **1,630s / 3,128MiB**, not measured use or complete history. A and earlier failures remain closed without retry/reset/refund. Next: authentic current CONNECT capability/lifetime inputs or an authorized source for the unchanged exact wheel bytes before a separately frozen future operation. No automatic successor. All eleven scientific fields remain pending; spectra/holdouts unopened, native8/127-24 inactive, targets/holds unchanged, LS paused, CHEOPS UNSENT. Consolidate **9 October 2026**.
+
 ## 5 October 2026: explicit proxy/TLS integration prepared; 40 tests pass
 
 [The new integration report](https://github.com/andersenmartin-blip/setisearch/blob/86370bf679c38bff16e074c0009ae8fa1fa0e2de/RADIO_PROXY_TRANSPORT_INTEGRATION_2026-10-05_PREPARATION.md) binds the unchanged official wheel plan, an explicit local CONNECT route, pinned trust, prospective native TLS bindings and the original bounded wheel writer. **All 40 integration tests pass in the primary Python runtime.** Independent review exposed and fixed lost first-attempt evidence, refused-body receive accounting and custom-response cleanup. Original failing source snapshots, focused reproductions, full logs and separate synthetic receipts are retained.
