@@ -1,0 +1,17 @@
+This prospective D collector reuses the separate ELF mapping repair and adds an exact NumPy RECORD relocation witness. No earlier preparation, installed file, RECORD, or closed result is changed.
+
+The byte-verified C installation used pip's explicit target directory. Its two generated NumPy scripts reside at `venv/lib/python3.12/site-packages/bin/f2py` and `bin/numpy-config`. NumPy's generated RECORD retains the regular installation spellings `../../bin/f2py` and `../../bin/numpy-config`, which resolve to absent `venv/lib/bin` files when interpreted from the target directory. Both actual scripts are 224 bytes, mode 0755, and match their recorded SHA-256 values exactly.
+
+The required CLI input is `--record-relocations <record-relocations.json>`, with a 65,536-byte read cap. Schema `seti-exact-target-record-relocations-v1` binds NumPy 2.3.5, the exact existing venv root and exactly those two rows. Each row binds its RECORD path, declared location, actual installed path, declared size/hash and actual whole-file size/hash/mode. The collector verifies every current RECORD expectation and both full script bodies, then reports the declared and actual locations explicitly. It refuses unknown, duplicate or unused mappings, namespace aliases, newly appearing declared files, or changed row/body/mode values. It has no generic fallback search.
+
+The original repaired collector is preserved as `collect_runtime_identity_before_relocations.py`; `record-relocation-repair.diff` shows the complete change. `relocation-static-source-pins.json` preserves the original collector, actual RECORD and both script pins. The actual RECORD and script bodies remain untouched.
+
+All 28 offline tests passed: seven new fake pip target layouts, 13 original injected collector regressions and eight pure ELF mapping regressions. The read-only independent review found no substantive defect. The tests executed no script body, imported no scientific package and launched no installed interpreter.
+
+Static API audit found the expected `hdf5plugin.version` string, `FILTERS`, `PLUGIN_PATH`, and h5py runtime/build version tuple attributes. The plugin's import performs implicit native filter loading/registration, which remains explicitly declared. Only filter availability/info queries are made; no dataset, codec round trip, telescope value or scientific RNG call is added.
+
+Installed RECORD inventories declare 255,895,563 native file bytes in total (NumPy 45,593,806; h5py 16,412,757; hdf5plugin 193,889,000). The largest file is `libh5sz3.so` at 98,832,696 bytes. Stable identity checks reuse earlier full hashes, so later snapshots need not reread those bytes. The 512 MiB read/address-space and 8 MiB output envelopes remain prospective limits, not a completed current measurement. No actual native capture was performed during this audit.
+
+The maps collector retains every absolute file-backed mapping regardless of permissions, records pseudo/anonymous mappings as raw metadata, and refuses deleted file-backed mappings. Its ELF results identify complete named bytes; they do not establish loader history or complete namespace/custody closure. Every scientific and runtime qualification flag remains false.
+
+Root owns the new frozen/read-back source and input map, finite reservation, one-shot activation, guarded metadata child, actual runtime measurement and result publication. These preparation artifacts do not activate or repeat a prior operation.

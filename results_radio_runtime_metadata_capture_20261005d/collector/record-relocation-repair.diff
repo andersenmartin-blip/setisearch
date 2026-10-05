@@ -1,0 +1,173 @@
+--- collect_runtime_identity_before_relocations.py
++++ collect_runtime_identity.py
+@@ -286,14 +286,115 @@
+     return records, sorted(paths)
+ 
+ 
+-def distribution_inventory(name, distribution, venv_root, reader):
++def _validate_record_relocations(value, venv_root):
++    expected_keys = {"schema", "distribution", "distribution_version", "venv_root", "rows"}
++    if (type(value) is not dict or set(value) != expected_keys or
++            value["schema"] != "seti-exact-target-record-relocations-v1" or
++            value["distribution"] != "numpy" or value["distribution_version"] != COHORT["numpy"]):
++        raise Refusal("exact NumPy target RECORD relocation schema required")
++    root = Path(venv_root).resolve(strict=True)
++    if value["venv_root"] != str(root):
++        raise Refusal("relocation venv differs from frozen input")
++    site = root / "lib/python3.12/site-packages"
++    if site.resolve(strict=True) != site:
++        raise Refusal("relocation site contains a namespace alias")
++    expected = {"../../bin/f2py", "../../bin/numpy-config"}
++    if type(value["rows"]) is not list or len(value["rows"]) != 2:
++        raise Refusal("exact two target RECORD relocation rows required")
++    seen = set()
++    row_keys = {"record_path", "declared_location", "actual_installed_path", "record_hash", "record_size", "actual_pin"}
++    for row in value["rows"]:
++        if type(row) is not dict or set(row) != row_keys:
++            raise Refusal("exact target RECORD relocation fields required")
++        record_path = row["record_path"]
++        if record_path not in expected or record_path in seen:
++            raise Refusal("unknown or duplicate target RECORD relocation")
++        seen.add(record_path)
++        declared = str((site / record_path).resolve())
++        actual_path = site / "bin" / Path(record_path).name
++        actual = str(actual_path)
++        if actual_path.resolve() != actual_path:
++            raise Refusal("relocated script contains a namespace alias")
++        if row["declared_location"] != declared or row["actual_installed_path"] != actual:
++            raise Refusal("relocation path differs from exact pip target layout")
++        pin = row["actual_pin"]
++        if (type(pin) is not dict or set(pin) != {"path", "bytes", "sha256", "mode"} or
++                pin["path"] != actual or type(pin["bytes"]) is not int or
++                not 0 < pin["bytes"] <= 65536 or type(pin["mode"]) is not int or
++                not 0 <= pin["mode"] <= 0o777 or type(pin["sha256"]) is not str):
++            raise Refusal("finite exact generated script pin required")
++        try:
++            hashed = bytes.fromhex(pin["sha256"])
++        except ValueError:
++            raise Refusal("generated script SHA256 is invalid") from None
++        if len(hashed) != 32 or hashed.hex() != pin["sha256"]:
++            raise Refusal("generated script SHA256 is not canonical")
++        expected_hash = "sha256=" + base64.urlsafe_b64encode(hashed).rstrip(b"=").decode("ascii")
++        if (row["record_hash"] != expected_hash or type(row["record_size"]) is not int or
++                row["record_size"] != pin["bytes"]):
++            raise Refusal("frozen RECORD expectation differs from whole script pin")
++    if seen != expected:
++        raise Refusal("complete exact target RECORD relocation set required")
++    return value
++
++
++def _read_record_relocations(path, reader, venv_root):
++    raw, ident = reader.file(path, cap=65536)
++    def unique(pairs):
++        value = {}
++        for key, item in pairs:
++            if key in value:
++                raise Refusal("duplicate relocation JSON key")
++            value[key] = item
++        return value
++    value = json.loads(raw, object_pairs_hook=unique)
++    _validate_record_relocations(value, venv_root)
++    return value, {"path": str(path), "bytes": len(raw), "sha256": hashlib.sha256(raw).hexdigest(),
++                   "identity": ident}
++
++
++def distribution_inventory(name, distribution, venv_root, reader, record_relocations=None):
+     files = distribution.files
+     if files is None or len(files) > MAX_FILES:
+         raise Refusal("complete finite distribution RECORD inventory required")
+     root = Path(venv_root).resolve(strict=True)
+-    rows, native = [], []
++    relocation_rows = {}
++    if record_relocations is not None:
++        _validate_record_relocations(record_relocations, root)
++        if name == "numpy":
++            relocation_rows = {r["record_path"]: r for r in record_relocations["rows"]}
++    rows, native, seen, used = [], [], set(), set()
+     for item in sorted(files, key=str):
+-        located = Path(distribution.locate_file(item))
++        record_path = str(item)
++        if record_path in seen:
++            raise Refusal("duplicate distribution RECORD path")
++        seen.add(record_path)
++        declared = Path(distribution.locate_file(item))
++        located = declared
++        witness = None
++        if record_path in relocation_rows:
++            row = relocation_rows[record_path]
++            h = item.hash
++            if (h is None or h.mode != "sha256" or "sha256=" + h.value != row["record_hash"] or
++                    type(item.size) is not int or item.size != row["record_size"]):
++                raise Refusal("current generated script RECORD row differs from frozen relocation")
++            if str(declared.resolve()) != row["declared_location"] or declared.exists():
++                raise Refusal("generated script declared location differs or unexpectedly exists")
++            located = Path(row["actual_installed_path"])
++            raw, observed = reader.file(located, cap=65536)
++            pin = row["actual_pin"]
++            if (len(raw) != pin["bytes"] or hashlib.sha256(raw).hexdigest() != pin["sha256"] or
++                    stat.S_IMODE(observed["mode"]) != pin["mode"]):
++                raise Refusal("actual generated script whole bytes differ from frozen relocation")
++            used.add(record_path)
++            witness = {"schema": "seti-target-record-relocation-witness-v1",
++                       "declared_location": row["declared_location"],
++                       "actual_installed_path": row["actual_installed_path"],
++                       "record_hash": row["record_hash"], "record_size": row["record_size"],
++                       "actual_pin": dict(pin), "actual_identity": observed,
++                       "whole_script_bytes_verified": True}
++        elif ".." in Path(record_path).parts:
++            raise Refusal("unknown target RECORD relocation path")
+         resolved = located.resolve(strict=True)
+         if not resolved.is_relative_to(root):
+             raise Refusal("distribution file escapes isolated venv")
+@@ -301,14 +402,18 @@
+         if not stat.S_ISREG(st.st_mode):
+             raise Refusal("distribution inventory contains nonregular file")
+         h = item.hash
+-        rows.append({"record_path": str(item), "located_path": str(located),
+-                     "resolved_path": str(resolved), "identity": identity(st),
++        rows.append({"record_path": record_path, "declared_located_path": str(declared),
++                     "located_path": str(located), "resolved_path": str(resolved), "identity": identity(st),
+                      "record_size": item.size,
+-                     "record_hash": None if h is None else {"mode": h.mode, "value": h.value}})
++                     "record_hash": None if h is None else {"mode": h.mode, "value": h.value},
++                     "record_relocation": witness})
+         if ".so" in resolved.name:
+             native.append(reader.native(resolved))
++    if used != set(relocation_rows):
++        raise Refusal("frozen target RECORD relocation row was unused")
+     return {"name": name, "version": distribution.version,
+             "file_count": len(rows), "files": rows, "declared_native_elf": native,
++            "verified_generated_script_relocations": len(used),
+             "record_hashes_are_expectations_not_verified_non_native_file_hashes": True}
+ 
+ 
+@@ -404,6 +509,7 @@
+     parser.add_argument("--activate-native-metadata", action="store_true")
+     parser.add_argument("--venv-root", required=True)
+     parser.add_argument("--filter-input", required=True)
++    parser.add_argument("--record-relocations", required=True)
+     parser.add_argument("--output", required=True)
+     args = parser.parse_args(argv)
+     if not args.activate_native_metadata:
+@@ -434,10 +540,11 @@
+         raise Refusal("single-thread numerical-library environment required")
+     reader = BoundedReader()
+     filter_input, input_pin = _read_filter_input(args.filter_input, reader)
++    record_relocations, relocation_input_pin = _read_record_relocations(args.record_relocations, reader, args.venv_root)
+     result = collect(args.venv_root, filter_input["filters"], importer=importlib.import_module,
+                      distribution_getter=importlib.metadata.distribution,
+                      snapshotter=lambda: maps_snapshot(reader),
+-                     inventory=lambda n, d: distribution_inventory(n, d, args.venv_root, reader),
++                     inventory=lambda n, d: distribution_inventory(n, d, args.venv_root, reader, record_relocations),
+                      module_observer=lambda m: module_identity(m, args.venv_root))
+     if Path(result["plugin_path"]).resolve() != expected_plugin.resolve():
+         raise Refusal("imported plugin directory differs from expected isolated package")
+@@ -447,6 +554,8 @@
+     result["required_bitshuffle_decode_metadata_observed"] = True
+     result["filter_input"] = input_pin
+     result["filter_source_members"] = filter_input["source_members"]
++    result["record_relocations_input"] = relocation_input_pin
++    result["record_relocations"] = record_relocations
+     result["process"] = {"pid": os.getpid(), "executable": sys.executable,
+                          "prefix": sys.prefix, "base_prefix": sys.base_prefix,
+                          "python_version": sys.version, "isolated": bool(sys.flags.isolated),
