@@ -1,3 +1,23 @@
+## 5 October: closed bootstrap result recovered; new transport code remains inert
+
+[Recovery and transport continuation](RADIO_BOOTSTRAP_RECOVERY_AND_TRANSPORT_2026-10-05.md)
+completes the interrupted lossless publication of bootstrap A: 75 full immutable
+bodies/19,550,262 bytes, plus current content checks of all 488 retained files
+and 80 directories. Restored inode pairs differ from all 568 historical objects;
+content recovery is distinguished from original-run inode custody. The sole
+attempt remains CLOSED_FAILED at DNS, zero body bytes/no pip child. No retry.
+
+A separate pure explicit-proxy plan and bounded injected CONNECT parser pass
+16 new tests. They perform no network request, install, import or live allocation.
+Next: implement/review inert socket/TLS and raw tunnel-retention integration;
+obtain authentic current transport/runtime inputs before a distinct complete
+future freeze/readback/one-shot allocation. No automatic live successor.
+
+Selected engineering reservation stays1330s/1592MiB, without refund. All eleven
+scientific fields pending; original contracts/CAS unchanged, spectra/112+128
+holdouts unopened, native8/127-24 inactive, HD189733/neighbor9 and holds fixed,
+LS paused/BF untouched, CHEOPS UNSENT. Consolidate **9 October 2026**.
+
 ## 5 October: package bootstrap A CLOSED_FAILED on DNS; packages uninstalled
 
 [The single original package bootstrap](RADIO_RUNTIME_PACKAGE_BOOTSTRAP_2026-10-05A_RESULT.md)
