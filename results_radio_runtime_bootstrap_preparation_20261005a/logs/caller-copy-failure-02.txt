@@ -1,0 +1,8 @@
+The corrected stable-identity reader exited 1 at destination.open('xb'):
+FileExistsError: [Errno 17] File exists: 'administrative/caller.stdout.raw'
+
+Its exact source is caller-copy-failure-02.py. Exclusive creation preserved the
+earlier stdout copy. The subsequent administrative repair validates an existing
+sole-link regular copy by full bytes and stable identity, and creates only a
+missing destination. No original stream or bootstrap object is replaced; no
+bootstrap, installer or network operation is repeated.

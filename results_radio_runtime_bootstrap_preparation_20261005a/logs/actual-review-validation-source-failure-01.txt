@@ -1,0 +1,255 @@
+"""Independent administrative byte review; no bootstrap/runtime invocation."""
+import base64, hashlib, json, os, stat, time
+from pathlib import Path
+
+REPO = Path('/workspace/scratch/d804553c0e89/setisearch-status-20261004')
+NS = REPO/'results_radio_runtime_bootstrap_preparation_20261005a'
+ROOT = Path('/workspace/scratch/d804553c0e89/radio-runtime-bootstrap-20261005a')
+CAP = 2 * 1024**3
+counts = {'requested_read_bytes':0,'returned_read_bytes':0,'read_operations':0,'opened_files':0}
+checks = []
+started = time.monotonic_ns()
+
+def require(condition, label):
+    if not condition: raise AssertionError(label)
+    checks.append(label)
+
+def identity(s):
+    return {'device':s.st_dev,'inode':s.st_ino,'mode':stat.S_IMODE(s.st_mode),
+            'file_type_mode':stat.S_IFMT(s.st_mode),'links':s.st_nlink,'bytes':s.st_size,
+            'mtime_ns':s.st_mtime_ns,'ctime_ns':s.st_ctime_ns,'allocated_bytes':s.st_blocks*512}
+
+def pins(raw):
+    return {'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest(),
+            'git_blob':hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()}
+
+def safe_relative(path):
+    if not isinstance(path,str) or not path or path.startswith('/') or '\\' in path or '\0' in path:
+        raise AssertionError('unsafe path')
+    if any(p in ('','.','..') for p in path.split('/')): raise AssertionError('unsafe component')
+    return path
+
+def read_held(path):
+    path=Path(path)
+    if not path.is_absolute() or os.path.normpath(str(path)) != str(path): raise AssertionError('canonical absolute path')
+    guards=[]; parent=os.open('/',os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW|os.O_CLOEXEC)
+    guards.append((parent,None,None,os.fstat(parent)))
+    fd=None
+    try:
+        for name in path.parts[1:-1]:
+            a=os.stat(name,dir_fd=parent,follow_symlinks=False)
+            child=os.open(name,os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW|os.O_CLOEXEC,dir_fd=parent)
+            b=os.fstat(child)
+            if (a.st_dev,a.st_ino,a.st_mode)!=(b.st_dev,b.st_ino,b.st_mode): raise AssertionError('parent substitution')
+            guards.append((child,parent,name,b));parent=child
+        name=path.name;a=os.stat(name,dir_fd=parent,follow_symlinks=False)
+        if not stat.S_ISREG(a.st_mode) or a.st_nlink!=1 or a.st_size>134217728: raise AssertionError('sole regular bounded input')
+        fd=os.open(name,os.O_RDONLY|os.O_NOFOLLOW|os.O_CLOEXEC,dir_fd=parent)
+        if identity(a)!=identity(os.fstat(fd)): raise AssertionError('file substitution')
+        counts['opened_files']+=1
+        raw=bytearray();remaining=a.st_size
+        while remaining:
+            n=min(65536,remaining)
+            if counts['requested_read_bytes']+n>CAP: raise AssertionError('administrative read cap')
+            counts['requested_read_bytes']+=n;counts['read_operations']+=1
+            chunk=os.read(fd,n);counts['returned_read_bytes']+=len(chunk)
+            if not chunk: raise AssertionError('truncated input')
+            raw.extend(chunk);remaining-=len(chunk)
+        counts['requested_read_bytes']+=1;counts['read_operations']+=1
+        suffix=os.read(fd,1);counts['returned_read_bytes']+=len(suffix)
+        if suffix or identity(os.fstat(fd))!=identity(a) or identity(os.stat(name,dir_fd=parent,follow_symlinks=False))!=identity(a):
+            raise AssertionError('held/named input drift')
+        for held,previous,component,original in guards:
+            now=os.fstat(held)
+            if (now.st_dev,now.st_ino,now.st_mode)!=(original.st_dev,original.st_ino,original.st_mode): raise AssertionError('held directory drift')
+            if previous is not None:
+                named=os.stat(component,dir_fd=previous,follow_symlinks=False)
+                if (named.st_dev,named.st_ino,named.st_mode)!=(now.st_dev,now.st_ino,now.st_mode): raise AssertionError('named directory drift')
+        return bytes(raw),identity(a)
+    finally:
+        if fd is not None:os.close(fd)
+        for held,_,_,_ in reversed(guards):os.close(held)
+
+def get(path):return read_held(path)[0]
+def load(path):return json.loads(get(path))
+def check_pin(raw,pin):
+    if pins(raw)!={k:pin[k] for k in ('bytes','sha256','git_blob')}: raise AssertionError('raw pin mismatch')
+
+def inventory():
+    rows=[];totals={'files':0,'directories':0,'file_bytes':0,'logical_bytes':0,'allocated_bytes':0}
+    def walk(path,rel):
+        s=os.lstat(path);old=identity(s)
+        if not stat.S_ISDIR(s.st_mode) or s.st_dev!=27:raise AssertionError('directory type/device')
+        totals['directories']+=1;totals['logical_bytes']+=s.st_size;totals['allocated_bytes']+=s.st_blocks*512
+        rows.append({'path':rel,'kind':'directory','identity':old})
+        names=sorted(os.listdir(path))
+        for name in names:
+            safe_relative(name);child=path/name;sub=name if rel=='.' else rel+'/'+name
+            a=os.lstat(child)
+            if stat.S_ISDIR(a.st_mode):walk(child,sub)
+            elif stat.S_ISREG(a.st_mode) and a.st_nlink==1:
+                raw,held=read_held(child)
+                if held!=identity(a):raise AssertionError('walk opened substituted file')
+                row={'path':sub,'kind':'file','identity':held,**pins(raw)}
+                rows.append(row);totals['files']+=1;totals['file_bytes']+=len(raw)
+                totals['logical_bytes']+=len(raw);totals['allocated_bytes']+=a.st_blocks*512
+            else:raise AssertionError('source symlink/hardlink/special object')
+        if sorted(os.listdir(path))!=names or identity(os.lstat(path))!=old:raise AssertionError('source directory drift')
+    walk(ROOT,'.')
+    return {'entries':rows,'totals':totals}
+
+contract_raw=get(REPO/'config/radio_runtime_bootstrap_20261005a.freeze.json');contract=json.loads(contract_raw)
+marker_raw=get(REPO/'config/radio_runtime_bootstrap_20261005a.activate.json');marker=json.loads(marker_raw)
+remote=load(NS/'logs/actual-review-remote-publication.txt')
+tree_bindings=load(NS/'logs/actual-review-prepared-tree-bindings.txt')
+small=load(NS/'logs/actual-review-immutable-small-inputs.txt')
+manifest_raw=get(NS/'actual/preservation-manifest.json');manifest=json.loads(manifest_raw)
+require(pins(manifest_raw)=={'bytes':837280,'sha256':'cca4078bd77e1f5cd464b769ac78babdb932755a5e03dc7ee903f3d011e73947','git_blob':'07ed6205dac1ecc47086ac32c5145d14a265247b'},'full preservation manifest exact caller pin')
+require(manifest['bootstrap_identity']==contract['bootstrap_identity'] and manifest['actual_root']==str(ROOT),'preservation fixed identity/root')
+first=inventory();file_rows={r['path']:r for r in first['entries'] if r['kind']=='file'}
+all_rows={r['path']:r for r in first['entries']}
+preserved_rows={r['path']:r for r in manifest['before']['entries']}
+require(set(all_rows)==set(preserved_rows),'every original directory and file represented')
+for path,row in all_rows.items():
+    saved=preserved_rows[path]
+    if row['identity']!=saved['identity'] or row['kind']!=saved['kind']:raise AssertionError('original identity differs from preservation')
+    if row['kind']=='file':check_pin(get(ROOT/path),saved)
+require(first['totals']==manifest['before']['totals']==manifest['after']['totals'],'directory-inclusive totals exact preservation match')
+require([{k:r[k] for k in ('path','kind','identity')} for r in manifest['before']['entries']]==manifest['after']['entries'],'preservation complete original before/after identity equal')
+require(manifest['excluded_operational_objects']==[],'lossless preservation has no original exclusions')
+report_raw=get(ROOT/'supervisor-result.json');report=json.loads(report_raw)
+spent=load(ROOT/'spent.json');proof_raw=get(ROOT/'admission-witness.json');proof=json.loads(proof_raw)
+custody_raw=get(ROOT/'artifact-manifest.json');custody=json.loads(custody_raw)
+before=load(ROOT/'selected-runtime-before.json');after=load(ROOT/'selected-runtime-after.json')
+require(pins(report_raw)['sha256']=='781d8c5dab9535a077f1a4286cbde9f5149e65faf45df323427299405977b02b','actual supervisor report full bytes caller pin')
+require(pins(proof_raw)['sha256']=='c9eba62e25a98eec4f87f50f0a647c5401862eab39940109d67f30adb68a052d','actual detached witness full bytes caller pin')
+require(report['artifact_manifest_sha256']==pins(custody_raw)['sha256'],'supervisor artifact-manifest raw SHA binding')
+require(contract['bootstrap_identity']==report['bootstrap_identity']==spent['bootstrap_identity']==proof['bootstrap_identity']==custody['bootstrap_identity'],'all actual identity bindings')
+require(pins(contract_raw)['sha256']==report['contract_sha256']==spent['contract_sha256']==proof['contract_sha256'],'contract raw SHA binding')
+require(pins(marker_raw)['sha256']==report['activation_sha256']==spent['activation_sha256']==proof['activation_sha256'],'activation raw SHA binding')
+require(pins(proof_raw)['sha256']==spent['publication_proof_sha256']==report['publication_proof_sha256'],'spent/report detached-proof SHA binding')
+require(remote['prepared']['sha']==proof['prepared_commit']==report['prepared_commit']==spent['prepared_commit']=='504651472f649a4bba1c0dbd5b1e0b99c8431e0b','immutable prepared commit binding')
+require(remote['activation']['sha']==proof['activation_commit']==report['activation_commit']==spent['activation_commit']=='c1ff02e8da9dae07b5711595df6d57fd7857e67c','immutable activation commit binding')
+require(remote['activation']['parents']==[{'sha':proof['prepared_commit'],'url':'https://api.github.com/repos/andersenmartin-blip/setisearch/git/commits/'+proof['prepared_commit'],'html_url':'https://github.com/andersenmartin-blip/setisearch/commit/'+proof['prepared_commit']}],'activation sole parent is preparation')
+require(remote['prepared']['tree']['sha']==proof['prepared_tree']==marker['prepared_tree']=='7153f90aa7385276f692484799d79721a2e079c1','prepared immutable tree binding')
+require(remote['activation']['tree']['sha']==proof['activation_tree']=='6023d788555862b9616298dfb2eef44817ef5faa','activation immutable tree binding')
+require([r['path'] for r in remote['delta']['root']]==['config'] and [r['path'] for r in remote['delta']['config']]==['radio_runtime_bootstrap_20261005a.activate.json'],'full remote tree delta only new marker')
+require(remote['marker']['content'].encode()==marker_raw and remote['marker']['sha']==pins(marker_raw)['git_blob'],'immutable activation complete body/blob matches actual local marker')
+require(small['contract_tree_entry']['sha']==pins(contract_raw)['git_blob'],'full contract raw body bound to immutable P config blob')
+plan_raw=get(Path(contract['plan_path']));plan=json.loads(plan_raw)
+require(small['plan']['content'].encode()==plan_raw and small['plan']['sha']==pins(plan_raw)['git_blob'] and pins(plan_raw)['sha256']==contract['plan_sha256']==proof['plan_sha256'],'inherited original plan immutable full body binding')
+ptree={r['path']:r for r in tree_bindings['tree']};ptree[small['plan']['display_url'].split('/'+proof['prepared_commit']+'/')[1]]={'sha':small['plan']['sha'],'mode':'100644','type':'blob'}
+require(tree_bindings['truncated'] is False and tree_bindings['prepared_tree']==proof['prepared_tree'],'prepared namespace complete remote tree')
+source_pins={p['path']:p for p in contract['source_pins']}
+require(len(proof['publication_files'])==len(source_pins)==492,'complete 492 source witness rows')
+for row in proof['publication_files']:
+    raw=base64.b64decode(row['content_base64'],validate=True)
+    require_condition=(pins(raw)=={k:row[k] for k in ('bytes','sha256','git_blob')} and
+        {k:row[k] for k in ('path','bytes','sha256','mode')}==source_pins[row['path']] and
+        ptree[row['repository_path']]['sha']==row['git_blob'] and ptree[row['repository_path']]['mode']=='100644')
+    if not require_condition:raise AssertionError('full source witness raw/immutable Git blob coupling')
+require(True,'all 492 decoded full source bodies and immutable P blobs coupled')
+selected=contract['source_pins']+contract['runtime_pins']
+require(len(selected)==1736 and before==after==selected and report['selected_before_after_equal'] is True,'1736 complete selected before/after rows exactly equal frozen contract')
+for pin in selected:
+    raw,held=read_held(Path(pin['path']))
+    if len(raw)!=pin['bytes'] or pins(raw)['sha256']!=pin['sha256'] or format(held['mode'],'04o')!=pin['mode']:raise AssertionError('current selected raw pin drift')
+require(True,'1736 current selected source/runtime full raw hashes and modes independently equal')
+require(custody['self_and_final_report_exclusions']==['artifact-manifest.json','supervisor-result.json'] and custody['manifest']['complete'] is True,'custody has exactly declared two final-cycle exclusions')
+custody_rows={r['path']:r for r in custody['manifest']['entries']}
+require(set(custody_rows)==set(all_rows)-{'artifact-manifest.json','supervisor-result.json'},'custody covers every operational file/directory including after-pins')
+for path,row in custody_rows.items():
+    actual=all_rows[path];ident=actual['identity']
+    expected={'path':path,'kind':actual['kind'],'bytes':ident['bytes'],'allocated_bytes':ident['allocated_bytes'],'device':ident['device'],'inode':ident['inode'],'mode':format(ident['mode'],'04o')}
+    if actual['kind']=='file':expected['sha256']=actual['sha256']
+    if row!=expected:raise AssertionError('operational custody raw identity/hash differs')
+require(True,'complete original operational custody hashes and identities match')
+require(report['status']=='CLOSED_FAILED' and 'Temporary failure in name resolution' in report['failure'],'actual closed failure is first NumPy DNS resolution')
+require(report['pip_child'] is None and report['installation_preflight'] is None and report['installed_package_checks'] is None,'no pip child or installation stage dispatched')
+require(report['wheel_inspection_summaries']==[] and manifest['archive_members']==[],'no wheel static/member/native inspection observed')
+require(not any(p.startswith('site/') or p.startswith('tmp/') or p in ('child.stdout.raw','child.stderr.raw','procfs-samples.jsonl') for p in file_rows),'site/tmp empty and child/process artifacts absent')
+acquisition=load(ROOT/'acquisition-numpy.json')
+require(report['acquisition_receipts']==[acquisition] and acquisition['requests']==1 and acquisition['requests_are_attempts_not_wire_certificate'] is True,'one attempted acquisition receipt, not one certified on-wire GET')
+require(acquisition['url']==contract['wheels'][0]['url'] and acquisition['filename']==contract['wheels'][0]['filename'],'first attempted exact original NumPy URL/filename')
+require(acquisition['received_body_bytes']==acquisition['written_bytes']==acquisition['charged_body_reads']==0 and acquisition['http_status'] is None and acquisition['headers']==[],'DNS failure precedes headers/body reads/writes')
+wheel_paths={p for p in file_rows if p.startswith('wheelhouse/')}
+require(wheel_paths=={'wheelhouse/'+contract['wheels'][0]['filename']},'both remaining original wheels unattempted and absent')
+empty=file_rows[next(iter(wheel_paths))]
+require(empty['bytes']==0 and empty['sha256']==hashlib.sha256(b'').hexdigest() and empty['identity']['mode']==0o600,'sole empty partial NumPy archive exact raw identity')
+require(acquisition['file_identity']=={'bytes':0,'dev':empty['identity']['device'],'ino':empty['identity']['inode'],'mode':0o600,'nlink':1},'acquisition empty archive held inode matches original')
+for seed in contract['seed_pins']:
+    row=file_rows['installer/'+seed['relative_path']]
+    if row['bytes']!=seed['bytes'] or row['sha256']!=seed['sha256'] or format(row['identity']['mode'],'04o')!=seed['mode']:raise AssertionError('copied seed raw mismatch')
+require(True,'all 479 copied seed raw bytes/hashes/modes exactly frozen')
+payloads={p['root_relative_path']:p for p in manifest['payloads']}
+representation_counts={}; part_count=0
+for path,row in preserved_rows.items():
+    if row['kind']=='directory':continue
+    rep=row['preservation'];kind=rep['kind'];representation_counts[kind]=representation_counts.get(kind,0)+1
+    if kind=='exact-utf8-file':
+        raw=get(REPO/safe_relative(rep['stored']['repository_path']));raw.decode('utf-8');check_pin(raw,rep['stored']);check_pin(raw,row)
+    elif kind=='installer-basis-reference':
+        raw=get(REPO/safe_relative(rep['repository_path']))
+        if pins(raw)!={'bytes':rep['encoded_bytes'],'sha256':rep['encoded_sha256'],'git_blob':rep['encoded_git_blob']}:raise AssertionError('encoded installer basis pin')
+        if rep['stored_encoding']=='base64':
+            decoded=base64.b64decode(raw[:-1],validate=True)
+            if base64.b64encode(decoded)+b'\n'!=raw:raise AssertionError('installer basis canonical base64')
+        elif rep['stored_encoding']=='utf8':raw.decode('utf-8');decoded=raw
+        else:raise AssertionError('basis encoding')
+        check_pin(decoded,row)
+        tree_entry=ptree[rep['repository_path']]
+        if tree_entry['sha']!=pins(raw)['git_blob'] or tree_entry['mode']!='100644':raise AssertionError('basis immutable P body coupling')
+    elif kind=='parts':
+        payload=payloads[path];chunks=[];offset=0
+        for index,part in enumerate(payload['parts']):
+            if part['index']!=index or part['offset']!=offset:raise AssertionError('part ordering')
+            encoded=get(REPO/safe_relative(part['encoded']['repository_path']));check_pin(encoded,part['encoded'])
+            if len(encoded)>500001 or not encoded.endswith(b'\n') or encoded.endswith(b'\n\n'):raise AssertionError('part encoding bound/newline')
+            decoded=base64.b64decode(encoded[:-1],validate=True)
+            if base64.b64encode(decoded)+b'\n'!=encoded or len(decoded)!=min(374997,payload['raw_bytes']-offset) or len(decoded)!=part['raw_bytes'] or hashlib.sha256(decoded).hexdigest()!=part['raw_sha256']:raise AssertionError('canonical raw part pin')
+            offset+=len(decoded);chunks.append(decoded);part_count+=1
+        raw=b''.join(chunks)
+        if pins(raw)!={'bytes':payload['raw_bytes'],'sha256':payload['raw_sha256'],'git_blob':payload['raw_git_blob']}:raise AssertionError('full decoded payload raw SHA/Git mismatch')
+        check_pin(raw,row)
+    else:raise AssertionError('unexpected representation; no native member references on DNS outcome')
+require(representation_counts=={'exact-utf8-file':7,'parts':2,'installer-basis-reference':479},'all 488 original file representations independently decoded and verified')
+require(part_count==28,'all 28 witness parts verified; empty archive has exactly zero parts')
+for artifact in manifest['published_artifacts_before_manifest']:check_pin(get(REPO/safe_relative(artifact['repository_path'])),artifact)
+require(manifest['all_three_original_archives_present_and_exact'] is False and manifest['complete_original_archive_paths']==[],'no complete original archive or successful materialization falsely claimed')
+transport=load(NS/'actual/publication-transport/preservation-manifest.transport.json');chunks=[];offset=0
+for part in transport['parts']:
+    encoded=get(REPO/safe_relative(part['path']));check_pin(encoded,part)
+    decoded=base64.b64decode(encoded[:-1],validate=True)
+    if base64.b64encode(decoded)+b'\n'!=encoded or part['raw_offset']!=offset or len(decoded)!=part['raw_bytes'] or hashlib.sha256(decoded).hexdigest()!=part['raw_sha256']:raise AssertionError('manifest transport part mismatch')
+    chunks.append(decoded);offset+=len(decoded)
+require(b''.join(chunks)==manifest_raw and {k:transport[k] for k in ('bytes','sha256','git_blob')}==pins(manifest_raw),'all three manifest transport parts reconstruct exact original raw manifest/blob')
+require(report['parent_explicit_read_charged_bytes']==167892370 and report['child_read_reserved_bytes']==1073741824 and report['joined_read_conservative_charged_bytes']==1241634194,'exact reported conservative joined charge retains full child reserve')
+require(sum(report['parent_precharged_categories'].values())==report['parent_explicit_read_charged_bytes'] and sum(report['parent_explicit_received_categories'].values())==report['parent_explicit_received_bytes'],'reported explicit category sums consistent')
+require(report['child_read_observed_bytes'] is None and report['joined_read_observed_bytes'] is None and report['joined_full_scope_io_qualified'] is False,'no observed child/joined or full-scope certificate invented')
+require(report['eleven_scientific_fields']=='PENDING' and all(v is False for v in report['authority'].values()) and report['native_package_imports']==report['telescope_reads']==report['scientific_cases_run']==0,'all scientific authority pending/false and no scientific execution')
+require(spent['irreversible'] is True and spent['retry_allowed'] is False and report['spent_forever'] is True and report['retry_allowed'] is False,'activation/spent original outcome permanently closed; no retry')
+final=inventory();require(final==first,'independent complete original full-byte/identity inventory stable before/after administrative review')
+review={'schema':'radio-runtime-package-bootstrap-actual-independent-review-v1','bootstrap_identity':contract['bootstrap_identity'],
+ 'verdict':'CLOSED_FAILED_OUTCOME_LOSSLESSLY_PRESERVED_AND_INDEPENDENTLY_VERIFIED',
+ 'status':'CLOSED_FAILED','original_root':str(ROOT),'original_root_identity':all_rows['.']['identity'],
+ 'original_inventory_totals':first['totals'],'original_full_before_after_equal':True,
+ 'prepared_commit':proof['prepared_commit'],'prepared_tree':proof['prepared_tree'],'activation_commit':proof['activation_commit'],'activation_tree':proof['activation_tree'],
+ 'input_raw_pins':{'contract':pins(contract_raw),'activation':pins(marker_raw),'detached_proof':pins(proof_raw),'original_plan':pins(plan_raw),'supervisor_report':pins(report_raw),'artifact_manifest':pins(custody_raw),'preservation_manifest':pins(manifest_raw)},
+ 'outcome':{'failure':report['failure'],'attempted_acquisitions':1,'actual_on_wire_GETs':'UNOBSERVED; DNS failed before headers/body','body_bytes_received':0,'body_bytes_written':0,'completed_archives':0,'other_wheels_attempted':False,'wheel_inspections':0,'pip_child_started':False,'pip_child_reaping':'NOT_APPLICABLE_NO_CHILD_STARTED','native_member_custodies':0,'installed_package_metadata_verified':False,'hdf5_runtime_version_observed':None},
+ 'selected_source_runtime_files':1736,'selected_current_full_raw_hashes_equal':True,'selected_before_after_equal':True,'decoded_frozen_source_witness_rows':492,
+ 'preservation':{'all_original_files_and_directories_covered':True,'excluded_original_objects':[],'file_representation_counts':representation_counts,'source_payload_parts_verified':part_count,'manifest_transport_parts_verified':len(transport['parts']),'installer_basis_rows_verified':479,'native_member_references':'NONE; no archive passed acquisition/preflight'},
+ 'custody':{'exact_cycle_exclusions':custody['self_and_final_report_exclusions'],'all_operational_hashes_verified':True,'after_pin_file_included':True,'final_report_and_manifest_separately_full_hashed':True},
+ 'bootstrap_budget':{'selected_elapsed_before_final_report_seconds':report['selected_elapsed_before_final_report_seconds'],'parent_explicit_precharge_bytes':report['parent_explicit_read_charged_bytes'],'parent_explicit_received_bytes':report['parent_explicit_received_bytes'],'full_child_reserve_bytes':report['child_read_reserved_bytes'],'joined_conservative_charged_bytes':report['joined_read_conservative_charged_bytes'],'joined_full_scope_certificate':False,'permanently_allocated_seconds':300,'permanently_allocated_artifact_MiB':1536,'selected_engineering_subtotal_seconds':1330,'selected_engineering_subtotal_MiB':1592},
+ 'administrative_review_accounting':{'scope':'separate post-outcome administrative byte verification; not added to or claimed as observed bootstrap child/joined I/O',**counts,'preliminary_original_file_bytes_returned':11526040,'read_cap_bytes':CAP,'elapsed_before_review_write_seconds':(time.monotonic_ns()-started)/1e9,'implicit_loader_and_metadata_IO_qualified':False},
+ 'scientific_authority':False,'eleven_scientific_fields':'PENDING','administrative_installer_invocations':0,'administrative_native_package_imports':0,'original_root_mutations':0,'automatic_successor_or_retry':False,
+ 'checks':checks,'limits':['No child existed to reap, attribute, observe or certify.','No wheel static/native/installed metadata or loaded HDF5 qualification was reached.','No DNS packets, HTTP request-on-wire, TLS loader closure, provider/aggregate peak or full joined scope was certified.','Complete immutable result publication/readback follows this review; review does not claim that later publication has completed.']}
+destination=NS/'actual-independent-review.json'
+fd=os.open(destination,os.O_WRONLY|os.O_CREAT|os.O_EXCL|os.O_NOFOLLOW,0o644)
+raw=(json.dumps(review,indent=2,sort_keys=True)+'\n').encode()
+try:
+    view=memoryview(raw)
+    while view:
+        n=os.write(fd,view);view=view[n:]
+    os.fsync(fd)
+finally:os.close(fd)
+print(json.dumps({'verdict':review['verdict'],'checks':len(checks),'review':pins(raw),'totals':first['totals'],'accounting':counts},sort_keys=True))

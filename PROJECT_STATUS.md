@@ -1,3 +1,38 @@
+## 5 October: package bootstrap A CLOSED_FAILED on DNS; packages uninstalled
+
+[The single original package bootstrap](RADIO_RUNTIME_PACKAGE_BOOTSTRAP_2026-10-05A_RESULT.md)
+ended **CLOSED_FAILED** after full immutable preparation and marker-only
+activation readback. Final preparation passed 160 checks. The first exact NumPy
+wheel request reported `[Errno -3] Temporary failure in name resolution` before
+any HTTP header/body byte was received or written. The empty partial wheel is
+retained. h5py and hdf5plugin were unattempted; ZIP inspection, pip child launches,
+native package imports and telescope reads were zero. Parent CLI exit 0 returned
+the failure report and does not indicate installation success.
+
+All 1,736 selected source/runtime rows agree before/after. The selected
+pre-final-report interval was 5.561721345 seconds; whole-gate final report/root
+inventory interval was 5.57743641 seconds. Parent requested reads were
+167,892,370 bytes; the full unobserved 1 GiB child reserve remains charged, giving
+1,241,634,194 conservative joined bytes within 4 GiB. The 488 original files and
+80 directories total 17,403,277 logical / 18,526,208 allocated bytes including
+directories and are preserved losslessly. Independent actual review verified
+the CLOSED_FAILED outcome with 63 administrative assertions and zero native
+custodies. Full immutable result readback is recorded separately after
+publication. No installed package or scientific certificate was issued.
+
+The new 300s/1,536MiB allocation is permanently spent; selected engineering
+subtotal is now **1,330s/1,592MiB**, excluding other history and hidden usage.
+No retry, refund, reset, rearm, replay or automatic successor. Packages remain
+uninstalled and the runtime unqualified. **Next:** distinct inert, bounded
+package-acquisition transport-readiness preparation, preserving the original
+package identities and resolving transport before any future scope.
+
+All eleven scientific fields remain pending. Original A/CAS and spent B remain
+unchanged; spectra/112+128 holdouts are unopened, native8 unreserved and 127/24
+NOT ACTIVATED. HD189733/neighbor9 cadence and holds remain fixed, HD1461 HOLD,
+GJ724 untouched reserve, LS paused/BF saved, CHEOPS UNSENT. No paid service,
+person message, target or schedule change. Consolidate **9 October 2026**.
+
 # SETIsearch — current project status
 
 ## 4 October: repaired metadata capture B completed; scientific admission pending

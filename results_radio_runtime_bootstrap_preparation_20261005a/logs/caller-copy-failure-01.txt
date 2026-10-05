@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+AssertionError
+
+Exit 1. The first attempt left a partial set of destination copies, including
+caller.stdout.raw. The comparison included access time,
+which a read can update. The corrected caller-copy check compares device, inode,
+mode, link count, size, modification/change times and allocation, excludes access
+time, and verifies the complete raw bytes. This administrative check did not
+invoke the bootstrap, an installer, a package or a network request.
