@@ -1,0 +1,115 @@
+name: Radio exact package source 20261005a
+
+on:
+  push:
+    branches: [m43-support-qualification]
+    paths: ['config/radio_package_source_20261005a.activate.json']
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: radio-package-source-20261005a
+  cancel-in-progress: false
+
+jobs:
+  package_source:
+    if: >-
+      github.repository == 'andersenmartin-blip/setisearch' &&
+      github.event.repository.private == false &&
+      github.ref == 'refs/heads/m43-support-qualification' &&
+      github.event_name == 'push' && github.run_attempt == '1'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    env:
+      PYTHONNOUSERSITE: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONHASHSEED: '0'
+    steps:
+      - name: Check out exact package-source activation
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 2
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.github/workflows/radio-package-source-20261005a.yml
+            /scripts/radio_package_source_20261005a.py
+            /tests/test_radio_package_source_20261005a.py
+            /RADIO_HOSTED_PACKAGE_SOURCE_2026-10-05_PROTOCOL.md
+            /results_radio_runtime_bootstrap_preparation_20261005b/original-plan.json
+            /config/radio_package_source_20261005a.freeze.json
+            /config/radio_package_source_20261005a.activate.json
+
+      - name: Acquire unchanged wheel bytes once
+        id: acquire
+        continue-on-error: true
+        run: >-
+          python3 -I -B -S scripts/radio_package_source_20261005a.py
+          --freeze config/radio_package_source_20261005a.freeze.json
+          --marker config/radio_package_source_20261005a.activate.json
+          --output "$RUNNER_TEMP/radio-package-source-20261005a"
+
+      - name: Retain receipt artifact
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: radio-package-source-20261005a-receipt
+          path: ${{ runner.temp }}/radio-package-source-20261005a/exports/receipt/
+          if-no-files-found: ignore
+          include-hidden-files: true
+          retention-days: 30
+          compression-level: 0
+          overwrite: false
+
+      - name: Retain numpy artifact
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: radio-package-source-20261005a-numpy
+          path: ${{ runner.temp }}/radio-package-source-20261005a/exports/numpy/
+          if-no-files-found: ignore
+          retention-days: 30
+          compression-level: 0
+          overwrite: false
+
+      - name: Retain h5py artifact
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: radio-package-source-20261005a-h5py
+          path: ${{ runner.temp }}/radio-package-source-20261005a/exports/h5py/
+          if-no-files-found: ignore
+          retention-days: 30
+          compression-level: 0
+          overwrite: false
+
+      - name: Retain hdf5plugin-part000 artifact
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: radio-package-source-20261005a-hdf5plugin-part000
+          path: ${{ runner.temp }}/radio-package-source-20261005a/exports/hdf5plugin-part000/
+          if-no-files-found: ignore
+          retention-days: 30
+          compression-level: 0
+          overwrite: false
+
+      - name: Retain hdf5plugin-part001 artifact
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: radio-package-source-20261005a-hdf5plugin-part001
+          path: ${{ runner.temp }}/radio-package-source-20261005a/exports/hdf5plugin-part001/
+          if-no-files-found: ignore
+          retention-days: 30
+          compression-level: 0
+          overwrite: false
+
+      - name: Require complete package-source result
+        if: always()
+        env:
+          ACQUIRE_OUTCOME: ${{ steps.acquire.outcome }}
+        run: test "$ACQUIRE_OUTCOME" = success
