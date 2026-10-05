@@ -1,3 +1,11 @@
+## 5 October 2026: metadata capture D closed; raw RECORD enumeration repair required
+
+[The distinct D result](RADIO_RUNTIME_METADATA_CAPTURE_2026-10-05D_RESULT.md) is **FAILED_CLOSED** before scientific package importers. The pinned Python metadata API filters out the two absent declared NumPy script locations; the collector correctly refuses their now-unused exact relocation rows. No native metadata/filter observation or scientific data read occurred. A new distinct E preparation will consume complete bounded raw RECORD bodies and test the actual filtered-view behavior; D remains frozen and spent.
+
+All **43 preparation bodies / 1,838,704 UTF-8 bytes** matched full immutable readback. Independent closure checks confirm **1,500 source/runtime pins**, all **1,038 installed files** and exact **110 directories** remain unchanged. One guarded leaf and parent were reaped (exits 2/1), without watchdog kill; complete parent lifetime **2.359923170 s**. Full D root is **9 files / 4 directories**, **605,523 logical / 626,688 allocated bytes**. The complete closed D bundle is **445,287 bytes**, SHA-256 `e2d519ae58fb81becf65787b41a8f51d35e1c8653c7d7f648df37d0b929d29c7`, referencing the unchanged complete C input bundle.
+
+D's **180s / 64MiB artifact** and **2GiB read reservation** are spent without refund. Selected live-scope reservation subtotal is **2,590s / 5,240MiB artifact**, separate from guard-control process-AS ceilings. Full native IO/loader custody and all eleven scientific fields remain pending. Targets/holds stay fixed, spectra/112+128 holdouts unopened, native8 unreserved,127/24 NOT ACTIVATED, LS paused, CHEOPS UNSENT. Consolidate **9 October 2026** without automatic extension.
+
 ## 5 October 2026: exact packages installed; metadata capture C closed, parser repair tested
 
 [The distinct offline installation result](RADIO_OFFLINE_RUNTIME_MATERIALIZATION_2026-10-05C_RESULT.md) installed the three unchanged NumPy 2.3.5 / h5py 3.16.0 / hdf5plugin 7.1.0 wheels. Independent installed-byte review confirms **1,025 unchanged original members plus 3 permitted regenerated RECORD files**. The installed environment, exact inputs and logs are saved in a verified complete bundle.
