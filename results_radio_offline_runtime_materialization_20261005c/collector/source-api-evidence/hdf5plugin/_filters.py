@@ -1,0 +1,1395 @@
+# /*##########################################################################
+#
+# Copyright (c) 2016-2022 European Synchrotron Radiation Facility
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
+#
+# ###########################################################################*/
+from __future__ import annotations
+
+import logging
+import math
+import struct
+from collections.abc import Mapping
+from typing import Literal, TypeVar
+
+import h5py
+
+from ._config import build_config
+
+logger = logging.getLogger(__name__)
+
+
+# IDs of provided filters
+BLOSC_ID = 32001
+"""Blosc filter ID"""
+
+BLOSC2_ID = 32026
+"""Blosc 2 filter ID"""
+
+BZIP2_ID = 307
+"""Bzip2 filter ID"""
+
+LZ4_ID = 32004
+"""LZ4_ID filter ID"""
+
+BSHUF_ID = 32008
+"""Bitshuffle filter ID"""
+
+ZFP_ID = 32013
+"""ZFP filter ID"""
+
+HTJ2K_ID = 32033
+"""High troughput JPEG 2000"""
+
+ZSTD_ID = 32015
+"""Zstandard filter ID"""
+
+SZ_ID = 32017
+"""SZ filter ID"""
+
+SZ3_ID = 32024
+"""SZ3 filter ID"""
+
+FCIDECOMP_ID = 32018
+"""FCIDECOMP filter ID"""
+
+SPERR_ID = 32028
+"""SPERR filter ID"""
+
+
+class FilterBase(h5py.filters.FilterRefBase):
+    filter_id: int
+    filter_name: str
+
+    def __init__(
+        self,
+        filter_options: tuple[int, ...] = (),
+        config: Mapping[str, int | float | bool | str] | None = None,
+    ) -> None:
+        self.filter_options = filter_options
+        self.__config = {} if config is None else dict(config)
+
+    def get_config(self) -> dict[str, int | float | bool | str]:
+        """Returns filter configuration"""
+        return self.__config.copy()
+
+    def __repr__(self) -> str:
+        arguments = ", ".join(
+            f"{name}={value!r}" for name, value in self.get_config().items()
+        )
+        return f"{self.__class__.__name__}({arguments})"
+
+    @classmethod
+    def _from_filter_options(cls, filter_options: tuple[int, ...]) -> FilterBase:
+        """Returns compression arguments from HDF5 compression filters "cd_values" options
+
+        :raises ValueError: Unsupported filter_options
+        :raises NotImplementedError: Support of filter_options version is not implemented
+        """
+        raise NotImplementedError()
+
+
+_CNameLiteral = TypeVar("_CNameLiteral", bound=str)
+
+
+def _cname_from_id(
+    compression_id: int, compressions: dict[_CNameLiteral, int]
+) -> _CNameLiteral:
+    for cname, cid in compressions.items():
+        if compression_id == cid:
+            return cname
+    raise ValueError(f"Unsupported compression id: {compression_id}")
+
+
+class Bitshuffle(FilterBase):
+    """``h5py.Group.create_dataset``'s compression arguments for using bitshuffle filter.
+
+    .. code-block:: python
+
+        f = h5py.File('test.h5', 'w')
+        f.create_dataset(
+            'bitshuffle_with_lz4',
+            data=numpy.arange(100),
+            compression=hdf5plugin.Bitshuffle(nelems=0, lz4=True))
+        f.close()
+
+    :param nelems:
+        The number of elements per block.
+        It needs to be divisible by eight.
+        Default: 0 (for about 8 kilobytes per block).
+    :param cname: Compressor name.
+    :param clevel: Compression level, used **only for "zstd"** compression.
+        Must be between 0 (default level) and 22 (maximum compression).
+        Default: 3.
+    """
+
+    filter_name = "bshuf"
+    filter_id = BSHUF_ID
+
+    _CNameType = Literal["none", "lz4", "zstd"]
+
+    __COMPRESSIONS: dict[_CNameType, int] = {
+        "none": 0,
+        "lz4": 2,
+        "zstd": 3,
+    }
+
+    def __init__(
+        self,
+        nelems: int = 0,
+        cname: Bitshuffle._CNameType | None = None,
+        clevel: int = 3,
+        lz4: bool = None,
+    ):
+        nelems = int(nelems)
+        if nelems % 8 != 0:
+            raise ValueError("nelems must be a multiple of 8")
+        if not 0 <= clevel <= 22:
+            raise ValueError("clevel must be in range [0, 22]")
+
+        if lz4 is not None:
+            if cname is not None and lz4 is not False:
+                raise ValueError(
+                    "Providing both cname and lz4 arguments is not supported"
+                )
+            logger.warning(
+                "Deprecation: hdf5plugin.Bitshuffle's lz4 argument is deprecated, "
+                "use cname='lz4' or 'none' instead."
+            )
+            cname = "lz4" if lz4 else "none"
+
+        if cname in (True, False):  # type: ignore[comparison-overlap]
+            logger.warning(
+                "Depreaction: hdf5plugin.Bitshuffle's boolean argument is deprecated, "
+                "use cname='lz4' or 'none' instead."
+            )
+            cname = "lz4" if cname else "none"
+
+        if cname is None:
+            cname = "lz4"
+        if cname not in self.__COMPRESSIONS:
+            raise ValueError(f"Unsupported compression: {cname}")
+
+        filter_options: tuple[int, ...] = (nelems, self.__COMPRESSIONS[cname])
+        config = {"cname": cname, "nelems": nelems}
+        if cname == "zstd":
+            filter_options += (clevel,)
+            config["clevel"] = clevel
+        super().__init__(filter_options, config)
+
+    @property
+    def nelems(self) -> int:
+        """Number of elements per block"""
+        return self.filter_options[0]
+
+    @property
+    def cname(self) -> Bitshuffle._CNameType:
+        """Compressor name"""
+        return _cname_from_id(self.filter_options[1], self.__COMPRESSIONS)
+
+    @property
+    def clevel(self) -> int | None:
+        """Compression level, only for `zstd` compressor, None for others"""
+        return self.filter_options[2] if self.cname == "zstd" else None
+
+    @classmethod
+    def _from_filter_options(cls, filter_options: tuple[int, ...]) -> Bitshuffle:
+        """Returns compression arguments from HDF5 compression filters "cd_values" options
+
+        :param filter_options: Expected format:
+
+          - Zstd: (_, _, _, nelems, compression_id=3, compression_level)
+          - LZ4 and no compression: (_, _, _, nelems, compression_id)
+
+        :raises ValueError: Unsupported filter_options
+        """
+        if len(filter_options) <= 3:
+            return cls(cname="none")
+
+        nelems = filter_options[3]
+
+        if len(filter_options) <= 4:
+            return cls(nelems, cname="none")
+
+        cname = _cname_from_id(filter_options[4], cls.__COMPRESSIONS)
+
+        if cname == "zstd" and len(filter_options) > 5:
+            return cls(nelems, cname, clevel=filter_options[5])
+
+        return cls(nelems, cname)
+
+
+class Blosc(FilterBase):
+    """``h5py.Group.create_dataset``'s compression arguments for using blosc filter.
+
+    .. code-block:: python
+
+        f = h5py.File('test.h5', 'w')
+        f.create_dataset(
+            'blosc_byte_shuffle_blosclz',
+            data=numpy.arange(100),
+            compression=hdf5plugin.Blosc(cname='blosclz', clevel=9, shuffle=hdf5plugin.Blosc.SHUFFLE))
+        f.close()
+
+    :param cname:
+        Compressor name.
+        `snappy` availability depends on compilation (requires C++11).
+    :param clevel:
+        Compression level from 0 (no compression) to 9 (maximum compression).
+        Default: 5.
+    :param shuffle: One of:
+
+        - Blosc.NOSHUFFLE (0): No shuffle
+        - Blosc.SHUFFLE (1): byte-wise shuffle (default)
+        - Blosc.BITSHUFFLE (2): bit-wise shuffle
+    """
+
+    NOSHUFFLE = 0
+    """Flag to disable data shuffle pre-compression filter"""
+
+    SHUFFLE = 1
+    """Flag to enable byte-wise shuffle pre-compression filter"""
+
+    BITSHUFFLE = 2
+    """Flag to enable bit-wise shuffle pre-compression filter"""
+
+    filter_name = "blosc"
+    filter_id = BLOSC_ID
+
+    _CNameType = Literal["blosclz", "lz4", "lz4hc", "snappy", "zlib", "zstd"]
+
+    __COMPRESSIONS: dict[_CNameType, int] = {
+        "blosclz": 0,
+        "lz4": 1,
+        "lz4hc": 2,
+        "snappy": 3,
+        "zlib": 4,
+        "zstd": 5,
+    }
+
+    def __init__(
+        self,
+        cname: Blosc._CNameType = "lz4",
+        clevel: int = 5,
+        shuffle: int = SHUFFLE,
+    ):
+        compression = self.__COMPRESSIONS[cname]
+        clevel = int(clevel)
+        if not 0 <= clevel <= 9:
+            raise ValueError("clevel must be in the range [0, 9]")
+        if shuffle not in (self.NOSHUFFLE, self.SHUFFLE, self.BITSHUFFLE):
+            raise ValueError(f"shuffle={shuffle} is not supported")
+
+        super().__init__(
+            filter_options=(0, 0, 0, 0, clevel, shuffle, compression),
+            config={"cname": cname, "clevel": clevel, "shuffle": shuffle},
+        )
+
+    @property
+    def cname(self) -> Blosc._CNameType:
+        """Compressor name"""
+        return _cname_from_id(self.filter_options[6], self.__COMPRESSIONS)
+
+    @property
+    def clevel(self) -> int:
+        """Compression level from 0 (no compression) to 9 (maximum compression)"""
+        return self.filter_options[4]
+
+    @property
+    def shuffle(self) -> int:
+        """Shuffle mode one of: NOSHUFFLE, SHUFFLE, BITSHUFFLE"""
+        return self.filter_options[5]
+
+    @classmethod
+    def _from_filter_options(cls, filter_options: tuple[int, ...]) -> Blosc:
+        """Returns compression arguments from HDF5 compression filters "cd_values" options
+
+        :param filter_options: Expected format: (_, _, _, _, clevel*, shuffle*, compression*)
+        :raises ValueError: Unsupported filter_options
+        """
+        default_cname: Blosc._CNameType = "blosclz"
+
+        if len(filter_options) <= 4:
+            return cls(default_cname)
+
+        clevel = filter_options[4]
+
+        if len(filter_options) <= 5:
+            return cls(default_cname, clevel)
+
+        shuffle = filter_options[5]
+
+        if len(filter_options) <= 6:
+            return cls(default_cname, clevel, shuffle)
+
+        cname = _cname_from_id(filter_options[6], cls.__COMPRESSIONS)
+        return cls(cname, clevel, shuffle)
+
+
+class Blosc2(FilterBase):
+    """``h5py.Group.create_dataset``'s compression arguments for using blosc2 filter.
+
+    .. code-block:: python
+
+        f = h5py.File('test.h5', 'w')
+        f.create_dataset(
+            'blosc2_byte_shuffle_blosclz',
+            data=numpy.arange(100),
+            compression=hdf5plugin.Blosc2(cname='blosclz', clevel=9, filters=hdf5plugin.Blosc2.SHUFFLE))
+        f.close()
+
+    :param cname: Compressor name.
+    :param clevel:
+        Compression level from 0 (no compression) to 9 (maximum compression).
+        Default: 5.
+    :param filters: One of:
+
+        - Blosc2.NOFILTER (0): No pre-compression filter
+        - Blosc2.SHUFFLE (1): Byte-wise shuffle (default)
+        - Blosc2.BITSHUFFLE (2): Bit-wise shuffle
+        - Blosc2.DELTA (3): Stores diff'ed blocks
+        - Blosc2.TRUNC_PREC (4): Zeroes the least significant bits of the mantissa
+    """
+
+    NOFILTER = 0
+    """Flag to disable pre-compression filter"""
+
+    SHUFFLE = 1
+    """Flag to enable byte-wise shuffle pre-compression filter"""
+
+    BITSHUFFLE = 2
+    """Flag to enable bit-wise shuffle pre-compression filter"""
+
+    DELTA = 3
+    """Flag to store blocks inside a chunk diff'ed with respect to first block in the chunk"""
+
+    TRUNC_PREC = 4
+    """Flag to zeroes the least significant bits of the mantissa of float32 and float64 types"""
+
+    filter_id = BLOSC2_ID
+    filter_name = "blosc2"
+
+    _CNameType = Literal["blosclz", "lz4", "lz4hc", "zlib", "zstd"]
+
+    __COMPRESSIONS: dict[_CNameType, int] = {
+        "blosclz": 0,
+        "lz4": 1,
+        "lz4hc": 2,
+        "zlib": 4,
+        "zstd": 5,
+    }
+
+    def __init__(
+        self,
+        cname: Blosc2._CNameType = "blosclz",
+        clevel: int = 5,
+        filters: int = SHUFFLE,
+    ):
+        compression = self.__COMPRESSIONS[cname]
+        clevel = int(clevel)
+        if not 0 <= clevel <= 9:
+            raise ValueError("clevel must be in the range [0, 9]")
+        if filters not in (
+            self.NOFILTER,
+            self.SHUFFLE,
+            self.BITSHUFFLE,
+            self.DELTA,
+            self.TRUNC_PREC,
+        ):
+            raise ValueError(f"filters={filters} is not supported")
+        super().__init__(
+            filter_options=(0, 0, 0, 0, clevel, filters, compression),
+            config={"cname": cname, "clevel": clevel, "filters": filters},
+        )
+
+    @property
+    def cname(self) -> Blosc2._CNameType:
+        """Compressor name"""
+        return _cname_from_id(self.filter_options[6], self.__COMPRESSIONS)
+
+    @property
+    def clevel(self) -> int:
+        """Compression level from 0 (no compression) to 9 (maximum compression)"""
+        return self.filter_options[4]
+
+    @property
+    def filters(self) -> int:
+        """Pre-compression filter, one of: NOFILTER, SHUFFLE, BITSHUFFLE, DELTA, TRUNC_PREC"""
+        return self.filter_options[5]
+
+    @classmethod
+    def _from_filter_options(cls, filter_options: tuple[int, ...]) -> Blosc2:
+        """Returns compression arguments from HDF5 compression filters "cd_values" options
+
+        :param filter_options: Expected format: (_, _, _, _, clevel*, filters*, compression*)
+        :raises ValueError: Unsupported filter_options
+        """
+        default_cname: Blosc2._CNameType = "blosclz"
+
+        if len(filter_options) <= 4:
+            return cls(default_cname)
+
+        clevel = filter_options[4]
+
+        if len(filter_options) <= 5:
+            return cls(default_cname, clevel)
+
+        filters = filter_options[5]
+
+        if len(filter_options) <= 6:
+            return cls(default_cname, clevel, filters)
+
+        cname = _cname_from_id(filter_options[6], cls.__COMPRESSIONS)
+        return cls(cname=cname, clevel=clevel, filters=filters)
+
+
+class BZip2(FilterBase):
+    """``h5py.Group.create_dataset``'s compression arguments for using BZip2 filter.
+
+    .. code-block:: python
+
+        f = h5py.File('test.h5', 'w')
+        f.create_dataset(
+            'bzip2',
+            data=numpy.arange(100),
+            compression=hdf5plugin.BZip2(blocksize=5))
+        f.close()
+
+    :param blocksize: Size of the blocks as a multiple of 100k
+    """
+
+    filter_name = "bzip2"
+    filter_id = BZIP2_ID
+
+    def __init__(self, blocksize: int = 9):
+        blocksize = int(blocksize)
+        if not 1 <= blocksize <= 9:
+            raise ValueError("blocksize must be in the range [1, 9]")
+
+        super().__init__(
+            filter_options=(blocksize,),
+            config={"blocksize": blocksize},
+        )
+
+    @property
+    def blocksize(self) -> int:
+        """Size of the blocks as a multiple of 100k in [1, 9]"""
+        return self.filter_options[0]
+
+    @classmethod
+    def _from_filter_options(cls, filter_options: tuple[int, ...]) -> BZip2:
+        """Returns compression arguments from HDF5 compression filters "cd_values" options
+
+        :param filter_options: Expected format: (blocksize,)
+        :raises ValueError: Unsupported filter_options
+        """
+        if len(filter_options) == 0:
+            return cls()
+        else:
+            return cls(blocksize=filter_options[0])
+
+
+class FciDecomp(FilterBase):
+    """``h5py.Group.create_dataset``'s compression arguments for using FciDecomp filter.
+
+    .. code-block:: python
+
+        f = h5py.File('test.h5', 'w')
+        f.create_dataset(
+            'fcidecomp',
+            data=numpy.arange(100),
+            compression=hdf5plugin.FciDecomp())
+        f.close()
+    """
+
+    filter_name = "fcidecomp"
+    filter_id = FCIDECOMP_ID
+
+    def __init__(self) -> None:
+        if not build_config.cpp11:
+            logger.error(
+                "The FciDecomp filter is not available as hdf5plugin was not built with C++11.\n"
+                "You may need to reinstall hdf5plugin with a recent version of pip, or rebuild it with a newer compiler."
+            )
+        super().__init__(filter_options=(), config={})
+
+    @classmethod
+    def _from_filter_options(cls, filter_options: tuple[int, ...]) -> FciDecomp:
+        """Returns compression arguments from HDF5 compression filters options
+
+        :raises ValueError: Unsupported filter_options
+        """
+        return cls()
+
+
+class LZ4(FilterBase):
+    """``h5py.Group.create_dataset``'s compression arguments for using lz4 filter.
+
+    .. code-block:: python
+
+        f = h5py.File('test.h5', 'w')
+        f.create_dataset('lz4', data=numpy.arange(100),
+            compression=hdf5plugin.LZ4(nbytes=0))
+        f.close()
+
+    :param nbytes:
+        The number of bytes per block.
+        It needs to be in the range of 0 < nbytes < 2113929216 (1,9GB).
+        Default: 0 (for 1GB per block).
+    """
+
+    filter_name = "lz4"
+    filter_id = LZ4_ID
+
+    def __init__(self, nbytes: int = 0):
+        nbytes = int(nbytes)
+        if not 0 <= nbytes <= 0x7E000000:
+            raise ValueError("clevel must be in the range [0, 2113929216]")
+        super().__init__(
+            filter_options=(nbytes,),
+            config={"nbytes": nbytes},
+        )
+
+    @property
+    def nbytes(self) -> int:
+        """The number of bytes per block.
+
+        If 0, block size is 1GB."""
+        return self.filter_options[0]
+
+    @classmethod
+    def _from_filter_options(cls, filter_options: tuple[int, ...]) -> LZ4:
+        """Returns compression arguments from HDF5 compression filters "cd_values" options
+
+        :param filter_options: Expected format: (nbytes,)
+        :raises ValueError: Unsupported filter_options
+        """
+        if len(filter_options) == 0:
+            return cls()
+        else:
+            return cls(nbytes=filter_options[0])
+
+
+class Zfp(FilterBase):
+    """``h5py.Group.create_dataset``'s compression arguments for using ZFP filter.
+
+    .. code-block:: python
+
+        f = h5py.File('test.h5', 'w')
+        f.create_dataset(
+            'zfp',
+            data=numpy.random.random(100),
+            compression=hdf5plugin.Zfp())
+        f.close()
+
+    This filter provides different modes:
+
+    - **Fixed-rate** mode: To use, set the ``rate`` argument.
+      For details, see `zfp fixed-rate mode <https://zfp.readthedocs.io/en/latest/modes.html#fixed-rate-mode>`_.
+
+      .. code-block:: python
+
+          f.create_dataset(
+              'zfp_fixed_rate',
+              data=numpy.random.random(100),
+              compression=hdf5plugin.Zfp(rate=10.0))
+
+    - **Fixed-precision** mode: To use, set the ``precision`` argument.
+      For details, see `zfp fixed-precision mode <https://zfp.readthedocs.io/en/latest/modes.html#fixed-precision-mode>`_.
+
+      .. code-block:: python
+
+          f.create_dataset(
+              'zfp_fixed_precision',
+              data=numpy.random.random(100),
+              compression=hdf5plugin.Zfp(precision=10))
+
+    - **Fixed-accuracy** mode: To use, set the ``accuracy`` argument
+      For details, see `zfp fixed-accuracy mode <https://zfp.readthedocs.io/en/latest/modes.html#fixed-accuracy-mode>`_.
+
+      .. code-block:: python
+
+          f.create_dataset(
+              'zfp_fixed_accuracy',
+              data=numpy.random.random(100),
+              compression=hdf5plugin.Zfp(accuracy=0.001))
+
+    - **Reversible** (i.e., lossless) mode: To use, set the ``reversible`` argument to True
+      For details, see `zfp reversible mode <https://zfp.readthedocs.io/en/latest/modes.html#reversible-mode>`_.
+
+      .. code-block:: python
+
+          f.create_dataset(
+              'zfp_reversible',
+              data=numpy.random.random(100),
+              compression=hdf5plugin.Zfp(reversible=True))
+
+    - **Expert** mode: To use, set the ``minbits``, ``maxbits``, ``maxprec`` and ``minexp`` arguments.
+      For details, see `zfp expert mode <https://zfp.readthedocs.io/en/latest/modes.html#expert-mode>`_.
+
+      .. code-block:: python
+
+          f.create_dataset(
+              'zfp_expert',
+              data=numpy.random.random(100),
+              compression=hdf5plugin.Zfp(minbits=1, maxbits=16657, maxprec=64, minexp=-1074))
+
+    :param rate:
+        Use fixed-rate mode and set the number of compressed bits per value.
+    :param precision:
+        Use fixed-precision mode and set the number of uncompressed bits per value.
+    :param accuracy:
+        Use fixed-accuracy mode and set the absolute error tolerance.
+    :param reversible:
+        If True, it uses the reversible (i.e., lossless) mode.
+    :param minbits: Minimum number of compressed bits used to represent a block.
+    :param maxbits: Maximum number of bits used to represent a block.
+    :param maxprec: Maximum number of bit planes encoded.
+        It controls the relative error.
+    :param minexp: Smallest absolute bit plane number encoded.
+        It controls the absolute error.
+    """
+
+    filter_name = "zfp"
+    filter_id = ZFP_ID
+
+    def __init__(
+        self,
+        rate: float = None,
+        precision: float = None,
+        accuracy: float = None,
+        reversible: bool | None = False,
+        minbits: int = None,
+        maxbits: int = None,
+        maxprec: int = None,
+        minexp: int = None,
+    ):
+        filter_options: tuple[int, ...]
+
+        if rate is not None:
+            rate = float(rate)
+            rateHigh, rateLow = struct.unpack("II", struct.pack("d", rate))
+            filter_options = 1, 0, rateHigh, rateLow, 0, 0
+            config = {"rate": rate}
+            logger.info("ZFP mode 1 used. H5Z_ZFP_MODE_RATE")
+
+        elif precision is not None:
+            precision = int(precision)
+            filter_options = 2, 0, precision, 0, 0, 0
+            config = {"precision": float(precision)}
+            logger.info("ZFP mode 2 used. H5Z_ZFP_MODE_PRECISION")
+
+        elif accuracy is not None:
+            accuracy = float(accuracy)
+            accuracyHigh, accuracyLow = struct.unpack("II", struct.pack("d", accuracy))
+            filter_options = 3, 0, accuracyHigh, accuracyLow, 0, 0
+            config = {"accuracy": accuracy}
+            logger.info("ZFP mode 3 used. H5Z_ZFP_MODE_ACCURACY")
+
+        elif reversible:
+            filter_options = 5, 0, 0, 0, 0, 0
+            config = {"reversible": True}
+            logger.info("ZFP mode 5 used. H5Z_ZFP_MODE_REVERSIBLE")
+
+        elif minbits is not None:
+            if maxbits is None or maxprec is None or minexp is None:
+                raise ValueError(
+                    f"All arguments must not be None, got: {minbits=} {maxbits=} {maxprec=} {minexp=}"
+                )
+            minbits = int(minbits)
+            maxbits = int(maxbits)
+            maxprec = int(maxprec)
+            minexp = int(minexp)
+            minexp_converted = struct.unpack("I", struct.pack("i", minexp))[0]
+            filter_options = 4, 0, minbits, maxbits, maxprec, minexp_converted
+            config = {
+                "minbits": minbits,
+                "maxbits": maxbits,
+                "maxprec": maxprec,
+                "minexp": minexp,
+            }
+            logger.info("ZFP mode 4 used. H5Z_ZFP_MODE_EXPERT")
+
+        else:
+            logger.info("ZFP default used")
+            filter_options = ()
+            config = {}
+
+        super().__init__(filter_options, config)
+
+    # From zfp.h
+    _ZFP_MIN_BITS = 1  # minimum number of bits per block
+    _ZFP_MAX_BITS = 16658  # maximum number of bits per block
+    _ZFP_MAX_PREC = 64  # maximum precision supported
+    _ZFP_MIN_EXP = -1074  # minimum floating-point base-2 exponent
+    _ZFP_MODE_SHORT_BITS = 12
+    _ZFP_MODE_SHORT_MAX = (1 << _ZFP_MODE_SHORT_BITS) - 2
+
+    @classmethod
+    def _from_filter_options(cls, filter_options: tuple[int, ...]) -> Zfp:
+        """Returns compression arguments from HDF5 compression filters "cd_values" options
+
+        :param filter_options: Expected format: (info, magic, meta, meta&short_mode, long_mode, long_mode)
+        :raises ValueError: Unsupported filter_options
+        :raises NotImplementedError: Support of filter_options version is not implemented
+        """
+        # ZFP header parsing reference:
+        # zfp.c zfp_read_header() and zfp_stream_mode() functions
+
+        if len(filter_options) < 4:
+            raise ValueError(f"Expected at least 4 values, got {len(filter_options)}")
+
+        magic = filter_options[1]
+        if struct.pack("<I", magic).startswith(b"zfp"):
+            endianness = "<"
+        elif struct.pack(">I", magic).startswith(b"zfp"):
+            endianness = ">"
+        else:
+            raise ValueError("Unsupported options: Wrong Zfp magic number")
+
+        codec_version = int(struct.pack(f"{endianness}I", magic)[-1])
+        if codec_version != 5:
+            raise NotImplementedError(
+                f"Unsupported version of Zfp codec: {codec_version}"
+            )
+
+        # Last 12 bits contains the "short" config value
+        short_mode = struct.unpack(
+            "I", struct.pack(f"{endianness}I", filter_options[3] >> 20)
+        )[0]
+        if short_mode < cls._ZFP_MODE_SHORT_MAX:
+            # 12 bits encoding
+            if short_mode < 2048:  # Fixed rate
+                # Fixed rate is converted to ZFP parameters taking chunk's ndim into account
+                # this cannot be reverted here, it returns the corresponding "expert" mode config
+                # See zfp.c zfp_stream_set_rate()
+                return cls(
+                    minbits=short_mode,
+                    maxbits=short_mode,
+                    maxprec=cls._ZFP_MAX_PREC,
+                    minexp=cls._ZFP_MIN_EXP,
+                )
+            elif short_mode < (2048 + 128):  # Fixed precision
+                return cls(precision=short_mode + 1 - 2048)
+            elif short_mode == (2048 + 128):  # Reversible
+                return cls(reversible=True)
+            else:  # Fixed accuracy
+                minexp = short_mode + cls._ZFP_MIN_EXP - (2048 + 128 + 1)
+                return cls(accuracy=2**minexp)
+
+        # 64 bits encoding
+        if len(filter_options) < 6:
+            raise ValueError(f"Expected at least 6 values, got {len(filter_options)}")
+
+        long_mode = struct.unpack(
+            "Q", struct.pack(f"{endianness}II", filter_options[4], filter_options[5])
+        )[0]
+        minbits = (long_mode & 0x7FFF) + 1
+        long_mode >>= 15
+        maxbits = (long_mode & 0x7FFF) + 1
+        long_mode >>= 15
+        maxprec = (long_mode & 0x007F) + 1
+        long_mode >>= 7
+        minexp = (long_mode & 0x7FFF) - 16495
+        return cls(minbits=minbits, maxbits=maxbits, maxprec=maxprec, minexp=minexp)
+
+
+class Htj2k(FilterBase):
+    """``h5py.Group.create_dataset``'s compression arguments for using the HTJ2K filter.
+
+    .. code-block:: python
+
+        f = h5py.File('test.h5', 'w')
+        f.create_dataset(
+            'htj2k',
+            data=numpy.arange(100, dtype=numpy.uint16),
+            compression=hdf5plugin.Htj2k())
+        f.close()
+
+    This filter compresses data losslessly (reversibly) using
+    `High-Throughput JPEG 2000 <https://jpeg.org/jpeg2000/htj2k.html>`_
+    and currently accepts no user-defined option.
+    Use hdf5 direct chunk write to achieve HTJ2K lossy compression,
+    see `filter documentation <https://github.com/silx-kit/h5z-htj2k>`_.
+
+    It only supports datasets of signed or unsigned 8- or 16-bit integers
+    (``int8``, ``uint8``, ``int16``, ``uint16``), with chunk shapes having
+    1, 2 or 3 non-unity dimensions. For chunks with 3 non-unity dimensions,
+    the last one must be equal to 3 (e.g., RGB images).
+
+    For more details, see `h5z-htj2k <https://github.com/silx-kit/h5z-htj2k>`_.
+    """
+
+    filter_name = "htj2k"
+    filter_id = HTJ2K_ID
+
+    def __init__(self) -> None:
+        if not build_config.cpp14:
+            logger.error(
+                "The Htj2k filter is not available as hdf5plugin was not built with C++14.\n"
+                "You may need to reinstall hdf5plugin with a recent version of pip, or rebuild it with a newer compiler."
+            )
+        super().__init__(filter_options=(), config={})
+
+    @classmethod
+    def _from_filter_options(cls, filter_options: tuple[int, ...]) -> Htj2k:
+        """Returns compression arguments from HDF5 compression filters "cd_values" options
+
+        :raises ValueError: Unsupported filter_options
+        """
+        return cls()
+
+
+class Sperr(FilterBase):
+    """``h5py.Group.create_dataset``'s compression arguments for using SPERR filter.
+
+    It can be passed as keyword arguments:
+
+    .. code-block:: python
+
+        f = h5py.File('test.h5', 'w')
+        f.create_dataset(
+            'sperr',
+            data=numpy.random.random(1000).reshape(100, 10),
+            **hdf5plugin.Sperr(rate=16))
+        f.close()
+
+    This filter provides 3 modes:
+
+    - **Fixed bit-per-pixel** with the ``rate`` argument:
+      The quality argument provides the target bitrate (range: 0.0 < rate < 64.0)
+
+      .. code-block:: python
+
+        f.create_dataset(
+            'sperr_fixed_bit-per-pixel',
+            data=numpy.random.random(1000).reshape(100, 10),
+            **hdf5plugin.Sperr(rate=10))
+
+    - **Fixed peak signal-to-noise ratio (PSNR)** with the ``peak_signal_to_noise_ratio`` argument:
+      The quality argument provides the target PSNR (range: 0.0 < peak_signal_to_noise_ratio)
+
+      .. code-block:: python
+
+        f.create_dataset(
+            'sperr_fixed_peak_signal-to-noise_ratio',
+            data=numpy.random.random(1000).reshape(100, 10),
+            **hdf5plugin.Sperr(peak_signal_to_noise_ratio=1e-6))
+
+    - **Fixed point-wise error (PWE)** with the ``absolute`` argument:
+      The quality argument provides the PWE tolerance (range: 0.0 < absolute)
+
+      .. code-block:: python
+
+        f.create_dataset(
+            'sperr_fixed_point-wise_error',
+            data=numpy.random.random(1000).reshape(100, 10),
+            **hdf5plugin.Sperr(absolute=1e-4))
+
+    If the ``swap`` argument is True (False by default) a "rank order swap" pre-filtering is performed.
+
+    The ``missing_value_mode`` argument indicates which value is used to indicate missing data.
+
+    For more details, see `H5Z-SPERR <https://github.com/NCAR/H5Z-SPERR>`_.
+    """
+
+    filter_name = "sperr"
+    filter_id = SPERR_ID
+
+    _FRACTIONAL_BITS = 16
+    _INTEGER_BITS = 12
+
+    NO_MISSING = 0
+    """No missing value."""
+
+    MISSING_NAN = 1
+    """Any NAN is a missing value."""
+
+    MISSING_1E35 = 2
+    """Any value where abs(value) >= 1e35 is a missing value.
+
+    The first occurance of a value with a magnitude larger than 1e35 will be used to fill in all missing value locations.
+    """
+
+    def __init__(
+        self,
+        rate: float = None,
+        peak_signal_to_noise_ratio: float = None,
+        absolute: float = None,
+        swap: bool = False,
+        missing_value_mode: int = NO_MISSING,
+    ):
+        if (rate, peak_signal_to_noise_ratio, absolute).count(None) < 2:
+            raise TypeError("hdf5plugin.Sperr() takes at most one not None argument")
+        if missing_value_mode not in (
+            self.NO_MISSING,
+            self.MISSING_NAN,
+            self.MISSING_1E35,
+        ):
+            raise ValueError(f"Unsupported missing_value_mode: {missing_value_mode}")
+
+        if peak_signal_to_noise_ratio is not None:
+            if peak_signal_to_noise_ratio <= 0:
+                raise ValueError("peak_signal_to_noise_ratio must be strictly positive")
+            mode_name = "peak_signal_to_noise_ratio"
+            mode = 2
+            quality = peak_signal_to_noise_ratio
+        elif absolute is not None:
+            if absolute <= 0:
+                raise ValueError("absolute must be strictly positive")
+            mode_name = "absolute"
+            mode = 3
+            quality = absolute
+        else:
+            if rate is not None and not 0 < rate < 64:
+                raise ValueError("rate must be None or in the range ]0, 64[")
+            mode_name = "rate"
+            mode = 1
+            quality = 16 if rate is None else rate
+
+        super().__init__(
+            filter_options=self.__pack_options(mode, quality, swap, missing_value_mode),
+            config={
+                mode_name: quality,
+                "swap": swap,
+                "missing_value_mode": missing_value_mode,
+            },
+        )
+
+    @classmethod
+    def _from_filter_options(cls, filter_options: tuple[int, ...]) -> Sperr:
+        """Returns compression arguments from HDF5 compression filters "cd_values" options
+
+        :param filter_options: Expected format: (extra info, compression config)
+        :raises ValueError: Unsupported filter_options
+        """
+        if len(filter_options) < 2:
+            raise ValueError(f"Expected at least 2 values, got {len(filter_options)}")
+
+        mode, quality, swap, missing_value_mode = cls.__unpack_options(
+            meta=filter_options[0], ret=filter_options[1]
+        )
+
+        if mode == 1:
+            return cls(rate=quality, swap=swap, missing_value_mode=missing_value_mode)
+        if mode == 2:
+            return cls(
+                peak_signal_to_noise_ratio=quality,
+                swap=swap,
+                missing_value_mode=missing_value_mode,
+            )
+        if mode == 3:
+            return cls(
+                absolute=quality, swap=swap, missing_value_mode=missing_value_mode
+            )
+
+        raise ValueError(f"Mode must be in [1, 3], got {mode}")
+
+    @classmethod
+    def __pack_options(
+        cls, mode: int, quality: float, swap: bool, missing_value_mode: int
+    ) -> tuple[int, int]:
+        if mode not in (1, 2, 3):
+            raise ValueError("mode must be 1, 2 or 3")
+        if quality <= 0:
+            raise ValueError("quality must be strictly positive")
+
+        if mode in (1, 2):
+            ret = int(round(quality * (1 << cls._FRACTIONAL_BITS)))
+        else:  # mode == 3
+            quality_log = math.log2(quality)
+            if quality_log < 0:
+                ret = int(math.ceil(abs(quality_log) * (1 << cls._FRACTIONAL_BITS)))
+                # Store negative sign
+                ret |= 1 << (cls._INTEGER_BITS + cls._FRACTIONAL_BITS - 1)
+            else:
+                ret = int(math.floor(quality_log * (1 << cls._FRACTIONAL_BITS)))
+
+        # encode mode in the top 4 bits
+        if mode == 1:
+            mask = 1 << (cls._INTEGER_BITS + cls._FRACTIONAL_BITS)
+        elif mode == 2:
+            mask = 1 << (cls._INTEGER_BITS + cls._FRACTIONAL_BITS + 1)
+        else:  # mode == 3
+            mask = 1 << (cls._INTEGER_BITS + cls._FRACTIONAL_BITS)
+            mask |= 1 << (cls._INTEGER_BITS + cls._FRACTIONAL_BITS + 1)
+        ret |= mask
+
+        if swap:
+            ret |= 1 << (cls._INTEGER_BITS + cls._FRACTIONAL_BITS + 3)
+
+        return ret, missing_value_mode
+
+    @classmethod
+    def __unpack_options(cls, meta: int, ret: int) -> tuple[int, float, bool, int]:
+        # Unpack missing value mode from packed_info bits 6-9
+        # See h5zsperr_unpack_extra_info
+        missing_value_mode = (meta >> 6) & 0b1111
+
+        # Unpack other fields from ret
+        # See H5Z_SPERR_decode_cd_values
+        swap = bool(ret >> (cls._INTEGER_BITS + cls._FRACTIONAL_BITS + 3))
+
+        bit1 = (ret >> (cls._INTEGER_BITS + cls._FRACTIONAL_BITS)) & 1
+        bit2 = (ret >> (cls._INTEGER_BITS + cls._FRACTIONAL_BITS + 1)) & 1
+        if bit1 and not bit2:
+            mode = 1
+        elif not bit1 and bit2:
+            mode = 2
+        elif bit1 and bit2:
+            mode = 3
+        else:
+            raise ValueError("Mode must be in [1, 3], got 0")
+
+        negative = bool((ret >> (cls._INTEGER_BITS + cls._FRACTIONAL_BITS - 1)) & 1)
+
+        mask = 1 << (cls._INTEGER_BITS + cls._FRACTIONAL_BITS - 1)
+        masked_ret = ret & (mask - 1)
+
+        quality = float(masked_ret) / float(1 << cls._FRACTIONAL_BITS)
+        if negative:
+            quality *= -1.0
+        if mode == 3:
+            quality = 2**quality
+
+        return mode, quality, swap, missing_value_mode
+
+
+def _sz_pack_float64(value: float) -> tuple[int, int]:
+    # Pack as big-endian IEEE 754 double
+    packed = struct.pack(">d", value)
+    # Unpack most-significant bits as unsigned int
+    high = struct.unpack(">I", packed[0:4])[0]
+    # Unpack least-significant bits as unsigned int
+    low = struct.unpack(">I", packed[4:8])[0]
+    return high, low
+
+
+def _sz_unpack_float64(high: int, low: int) -> float:
+    # Pack most-significant & least-significant bits
+    packed = struct.pack(">II", high, low)
+    # Unpack as big-endian IEEE 754 double
+    return float(struct.unpack(">d", packed)[0])
+
+
+class SZ(FilterBase):
+    """``h5py.Group.create_dataset``'s compression arguments for using SZ2 filter.
+
+    .. code-block:: python
+
+        f = h5py.File('test.h5', 'w')
+        f.create_dataset(
+            'sz',
+            data=numpy.random.random(100),
+            compression=hdf5plugin.SZ())
+        f.close()
+
+    This filter provides different modes:
+
+    - **Absolute** mode: To use, set the ``absolute`` argument.
+      It ensures that the resulting values will be within the provided absolute tolerance.
+
+      .. code-block:: python
+
+          f.create_dataset(
+              'sz_absolute',
+              data=numpy.random.random(100),
+              compression=hdf5plugin.SZ(absolute=0.1))
+
+    - **Relative** mode: To use, set the ``relative`` argument.
+      It ensures that the resulting values will be within the provided relative tolerance.
+      The tolerance will be computed by multiplying the provided argument by the range of the data values.
+
+      .. code-block:: python
+
+          f.create_dataset(
+              'sz_relative',
+              data=numpy.random.random(100),
+              compression=hdf5plugin.SZ(relative=0.01))
+
+    - **Point-wise relative** mode: To use, set the ``pointwise_relative`` argument.
+      It ensures that each grid point of the resulting values will be within the provided relative tolerance.
+
+      .. code-block:: python
+
+          f.create_dataset(
+              'sz_pointwise_relative',
+              data=numpy.random.random(100),
+              compression=hdf5plugin.SZ(pointwise_relative=0.01))
+
+    For more details about the compressor, see `SZ2 compressor <https://github.com/szcompressor/SZ2>`_.
+
+    .. warning:: The SZ2 compressor is deprecated, see `SZ repository <https://github.com/szcompressor/SZ?tab=readme-ov-file#deprecatedlegacy-version-sz2>`_
+    """
+
+    filter_name = "sz"
+    filter_id = SZ_ID
+
+    def __init__(
+        self,
+        absolute: float = None,
+        relative: float = None,
+        pointwise_relative: float = None,
+    ):
+        if (absolute, relative, pointwise_relative).count(None) < 2:
+            raise TypeError("hdf5plugin.SZ() takes at most one not None argument")
+
+        # Get SZ encoding options
+        if absolute is not None:
+            sz_mode = 0
+            config = {"absolute": absolute}
+        elif relative is not None:
+            sz_mode = 1
+            config = {"relative": relative}
+        else:
+            sz_mode = 10
+            if pointwise_relative is None:
+                pointwise_relative = 1e-5
+            config = {"pointwise_relative": pointwise_relative}
+
+        filter_options = (
+            sz_mode,
+            *_sz_pack_float64(absolute or 0.0),
+            *_sz_pack_float64(relative or 0.0),
+            *_sz_pack_float64(pointwise_relative or 0.0),
+            *_sz_pack_float64(0.0),  # psnr
+        )
+
+        logger.info(f"SZ mode {sz_mode} used.")
+        logger.info(f"filter options {filter_options}")
+
+        super().__init__(filter_options, config)
+
+    @classmethod
+    def _from_filter_options(cls, filter_options: tuple[int, ...]) -> SZ:
+        """Returns compression arguments from HDF5 compression filters "cd_values" options
+
+        :param filter_options: Expected format:
+            (_, _, _, _, mode, absolute1, absolute2, relative1, relative2, pointwise1, pointwise2)
+        :raises ValueError: Unsupported filter_options
+        """
+        if len(filter_options) < 13:
+            raise ValueError(f"Expected 13 values, got {len(filter_options)}")
+
+        sz_mode = filter_options[4]
+        if sz_mode == 0:
+            return cls(
+                absolute=_sz_unpack_float64(filter_options[5], filter_options[6])
+            )
+        if sz_mode == 1:
+            return cls(
+                relative=_sz_unpack_float64(filter_options[7], filter_options[8])
+            )
+        if sz_mode == 10:
+            return cls(
+                pointwise_relative=_sz_unpack_float64(
+                    filter_options[9], filter_options[10]
+                )
+            )
+
+        raise ValueError(f"Unsupported sz_mode: {sz_mode}")
+
+
+class SZ3(FilterBase):
+    """``h5py.Group.create_dataset``'s compression arguments for using SZ3 filter.
+
+    - **Absolute** mode: To use, set the ``absolute`` argument.
+      It ensures that the resulting values will be within the provided absolute tolerance.
+
+      .. code-block:: python
+
+          f.create_dataset(
+              'sz3_absolute',
+              data=numpy.random.random(100),
+              compression=hdf5plugin.SZ3(absolute=0.1))
+
+    For more details about the compressor, see `SZ3 compressor <https://github.com/szcompressor/SZ3>`_.
+
+    .. warning::
+
+       Backward compatibility is currently not guaranteed:
+       See `this discussion <https://github.com/szcompressor/SZ3/issues/50#issuecomment-1901170917>`_.
+    """
+
+    filter_name = "sz3"
+    filter_id = SZ3_ID
+
+    def __init__(
+        self,
+        absolute: float = None,
+        relative: float = None,
+        norm2: float = None,
+        peak_signal_to_noise_ratio: float = None,
+    ):
+        n_nones = (absolute, relative, norm2, peak_signal_to_noise_ratio).count(None)
+        if n_nones < 3:
+            raise TypeError("hdf5plugin.SZ3() takes at most one not None argument")
+        elif n_nones == 4:
+            absolute = 0.0001
+            logger.warning(
+                f"Defaulting to absolute={absolute}. This default might not be kept in future releases"
+            )
+
+        # Get SZ3 encoding options: range [0, 5]
+        if absolute is not None:
+            sz_mode = 0
+            config = {"absolute": absolute}
+        elif relative is not None:
+            sz_mode = 1
+            config = {"relative": relative}
+        elif norm2 is not None:
+            sz_mode = 2
+            config = {"norm2": norm2}
+        elif peak_signal_to_noise_ratio is not None:
+            sz_mode = 3
+            config = {"peak_signal_to_noise_ratio": peak_signal_to_noise_ratio}
+        if sz_mode not in [0, 2]:
+            logger.warning("Only absolute and norm2 modes properly tested")
+
+        filter_options = (
+            sz_mode,
+            *_sz_pack_float64(absolute or 0.0),
+            *_sz_pack_float64(relative or 0.0),
+            *_sz_pack_float64(norm2 or 0.0),
+            *_sz_pack_float64(peak_signal_to_noise_ratio or 0.0),
+        )
+        logger.info(f"SZ3 mode {sz_mode} used.")
+        logger.info(f"filter options {filter_options}")
+        # 9 values needed
+        if len(filter_options) != 9:
+            raise IndexError("Invalid number of arguments")
+
+        super().__init__(filter_options, config)
+
+    @classmethod
+    def _from_filter_options(cls, filter_options: tuple[int, ...]) -> SZ3:
+        """Returns compression arguments from HDF5 compression filters "cd_values" options
+
+        :param filter_options: Expected format:
+            (_, _, _, _, mode, absolute1, absolute2, relative1, relative2, norm2_1, norm2_2, pointwise1, pointwise2)
+        :raises ValueError: Unsupported filter_options
+        """
+        if len(filter_options) < 13:
+            raise ValueError(f"Expected 13 values, got {len(filter_options)}")
+
+        sz_mode = filter_options[4]
+        if sz_mode == 0:
+            return cls(
+                absolute=_sz_unpack_float64(filter_options[5], filter_options[6])
+            )
+        if sz_mode == 1:
+            return cls(
+                relative=_sz_unpack_float64(filter_options[7], filter_options[8])
+            )
+        if sz_mode == 2:
+            return cls(norm2=_sz_unpack_float64(filter_options[9], filter_options[10]))
+        if sz_mode == 3:
+            psnr = _sz_unpack_float64(filter_options[11], filter_options[12])
+            return cls(peak_signal_to_noise_ratio=psnr)
+
+        raise ValueError(f"Unsupported sz_mode: {sz_mode}")
+
+
+def _to_uint32(value: int) -> int:
+    """Cast an integer to a uint32 and store it as a Python int
+
+    Useful to pass negative integers as hdf5 filter options (uint32)
+    """
+    return int(struct.unpack("I", struct.pack("i", value))[0])
+
+
+def _from_uint32(value: int) -> int:
+    """Cast value stored as uint32 to a signed int"""
+    return int(struct.unpack("i", struct.pack("I", value))[0])
+
+
+class Zstd(FilterBase):
+    """``h5py.Group.create_dataset``'s compression arguments for using Zstd filter.
+
+    .. code-block:: python
+
+        f = h5py.File('test.h5', 'w')
+        f.create_dataset(
+            'zstd',
+            data=numpy.arange(100),
+            compression=hdf5plugin.Zstd(clevel=22))
+        f.close()
+
+    :param clevel: Compression level from -131072 (lowest compression) to 22 (maximum compression).
+        Negative compression levels offer faster compression and decompression speed at the cost of compression ratio.
+        Compression levels from 20 to 22 offer better compression ratio at the expense of requiring more memory.
+        Default: 3.
+    """
+
+    filter_name = "zstd"
+    filter_id = ZSTD_ID
+
+    # As of Zstandard v1.5.7: ZSTD_minCLevel() -> -1<<17 = -131072
+    _ZSTD_MIN_CLEVEL = -131072
+    _ZSTD_MAX_CLEVEL = 22
+
+    def __init__(self, clevel: int = 3):
+        if not self._ZSTD_MIN_CLEVEL <= clevel <= self._ZSTD_MAX_CLEVEL:
+            raise ValueError(
+                f"clevel must be in the range [{self._ZSTD_MIN_CLEVEL}, {self._ZSTD_MAX_CLEVEL}]"
+            )
+        clevel_uint32 = _to_uint32(clevel)
+        super().__init__(
+            filter_options=(clevel_uint32,),
+            config={"clevel": clevel},
+        )
+
+    @property
+    def clevel(self) -> int:
+        """Compression level from -131072 (lowest compression) to 22 (maximum compression)"""
+        clevel = _from_uint32(self.filter_options[0])
+        return clevel
+
+    @classmethod
+    def _from_filter_options(cls, filter_options: tuple[int, ...]) -> Zstd:
+        """Returns compression arguments from HDF5 compression filters "cd_values" options
+
+        :param filter_options: Expected format: (clevel,)
+        :raises ValueError: Unsupported filter_options
+        """
+        if len(filter_options) == 0:
+            return cls()
+        else:
+            return cls(clevel=filter_options[0])
+
+
+FILTER_CLASSES: tuple[type[FilterBase], ...] = (
+    Bitshuffle,
+    Blosc,
+    Blosc2,
+    BZip2,
+    FciDecomp,
+    Htj2k,
+    LZ4,
+    Sperr,
+    SZ,
+    SZ3,
+    Zfp,
+    Zstd,
+)
+
+
+FILTERS: dict[str, int] = {cls.filter_name: cls.filter_id for cls in FILTER_CLASSES}
+"""Mapping of provided filter's name to their HDF5 filter ID."""

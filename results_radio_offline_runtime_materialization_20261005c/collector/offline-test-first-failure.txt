@@ -1,0 +1,11 @@
+Preserved first offline test output; no scientific/native modules imported.
+
+...F........
+FAIL: test_unterminated_dynamic_string_refused (__main__.ElfTests.test_unterminated_dynamic_string_refused)
+AssertionError: Refusal not raised
+Ran 12 tests in 0.011s
+FAILED (failures=1)
+
+The metadata fixture retained its final NUL because the replacement was one byte
+short. The fixture was corrected from bytes 400:430 to 400:431. The ELF parser
+required no corresponding change.

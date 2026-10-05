@@ -1,0 +1,164 @@
+{
+  "absolute_deadline": 46262.078431220994,
+  "argv": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+    "-I",
+    "-B",
+    "-S",
+    "-c",
+    "import time; print('before deadline',flush=True); time.sleep(2)"
+  ],
+  "child_dispatches": 1,
+  "child_exit_code": -9,
+  "child_reaped": true,
+  "complete_direct_leaf_seconds": 0.20169288100441918,
+  "cwd": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/engineering-attempt2/test-evidence/test_deadline_preserves_wait4_and_raw_output",
+  "ended_monotonic": 46262.080124102,
+  "enforcement": "kernel_AS_CPU_per_file; two_phase_seccomp; sampled_IO_storage_output",
+  "exec_seal_pin": {
+    "bytes": 15544,
+    "device": 27,
+    "inode": 544462,
+    "path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/exec_seal.so",
+    "read_charge_bytes": 15544,
+    "sha256": "b43263f19e9d9f99b881e3ad48f85596d22ad8a402114ca712e4f4bc3d7d7ad7"
+  },
+  "failure": "leaf_wall_deadline;nonzero_leaf_exit",
+  "failures": [
+    "leaf_wall_deadline",
+    "nonzero_leaf_exit"
+  ],
+  "full_native_io_custody": false,
+  "guard_pin": {
+    "bytes": 16592,
+    "device": 27,
+    "inode": 544430,
+    "path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/leaf_guard",
+    "read_charge_bytes": 16592,
+    "sha256": "fa103e1e16cbd8087ed86630238b068c4737ee83ab05b02907cdad4d6dd3c6a1"
+  },
+  "guard_status": {
+    "async_io_denied": true,
+    "descendants_denied": true,
+    "no_new_privs": 1,
+    "phase2_required": true,
+    "schema": "radio-leaf-guard-v1",
+    "seccomp_mode": 2,
+    "sockets_denied": true
+  },
+  "guarded_leaf": true,
+  "limits": {
+    "address_space_bytes": 134217728,
+    "artifact_bytes": 16777216,
+    "artifact_root": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/engineering-attempt2/test-evidence/test_deadline_preserves_wait4_and_raw_output",
+    "child_wall_seconds": 0.2,
+    "cleanup_seconds": 10,
+    "cpu_seconds": 2,
+    "exec_seal_path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/exec_seal.so",
+    "exec_seal_sha256": "b43263f19e9d9f99b881e3ad48f85596d22ad8a402114ca712e4f4bc3d7d7ad7",
+    "guard_path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/leaf_guard",
+    "guard_sha256": "fa103e1e16cbd8087ed86630238b068c4737ee83ab05b02907cdad4d6dd3c6a1",
+    "per_file_bytes": 8388608,
+    "phase2_path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/phase2_bootstrap.py",
+    "phase2_sha256": "032aeff623c370771408cbb44daf1edaf36c8e0f00ed074a5a9ae7e861fda5d0",
+    "pin_read_budget_bytes": 33554432,
+    "python_path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+    "python_sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7",
+    "read_reserve_bytes": 67108864,
+    "sample_interval_seconds": 0.005,
+    "stderr_bytes": 65536,
+    "stdout_bytes": 65536
+  },
+  "no_descendants_eligible": true,
+  "observation_limits": [
+    "proc_io_unavailable_local_pid_view_FileNotFoundError"
+  ],
+  "opaque_child_read_reserve_bytes": 67108864,
+  "output": {
+    "stderr": {
+      "bytes": 150,
+      "path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/engineering-attempt2/test-evidence/test_deadline_preserves_wait4_and_raw_output/fake.stderr.bin",
+      "received_bytes": 150,
+      "sha256": "818acce77d638a9556f9cdb3e7a73f66982127a2686ac2db0969d8d2ca0ebba9"
+    },
+    "stdout": {
+      "bytes": 16,
+      "path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/engineering-attempt2/test-evidence/test_deadline_preserves_wait4_and_raw_output/fake.stdout.bin",
+      "received_bytes": 16,
+      "sha256": "61445f08cf013457146da620d76f2426efd3b51b51ca79712c28fc0f6949db2a"
+    }
+  },
+  "phase2_pin": {
+    "bytes": 1631,
+    "device": 27,
+    "inode": 544448,
+    "path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/phase2_bootstrap.py",
+    "read_charge_bytes": 1631,
+    "sha256": "032aeff623c370771408cbb44daf1edaf36c8e0f00ed074a5a9ae7e861fda5d0"
+  },
+  "phase2_status": {
+    "exec_denied": true,
+    "native_imports_started": false,
+    "no_new_privs": 1,
+    "schema": "radio-leaf-phase2-v1",
+    "seccomp_mode": 2
+  },
+  "pid": 21,
+  "pin_read_charge_bytes": 30928711,
+  "proc_samples": [
+    {
+      "available": false,
+      "error": "FileNotFoundError",
+      "local_wait_pid": 21,
+      "no_substituted_counters": true,
+      "terminal": false
+    }
+  ],
+  "python_pin": {
+    "bytes": 30894944,
+    "device": 27,
+    "inode": 9223372036855188960,
+    "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+    "read_charge_bytes": 30894944,
+    "sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7"
+  },
+  "runtime_qualified": false,
+  "schema": "radio-direct-leaf-custody-v1",
+  "scientific_authority": false,
+  "started_monotonic": 46261.878431221,
+  "status": "FAILED_CLOSED",
+  "terminal_observed_monotonic": 46262.079549767,
+  "terminal_proc": {
+    "available": false,
+    "error": "FileNotFoundError",
+    "local_wait_pid": 21,
+    "no_substituted_counters": true,
+    "terminal": true
+  },
+  "wait4": {
+    "exact_direct_child_wait4": true,
+    "inblock": 0,
+    "involuntary_switches": 0,
+    "maxrss_bytes": 46268416,
+    "maxrss_kib": 45184,
+    "oublock": 0,
+    "pid": 21,
+    "raw_status": 9,
+    "returncode": -9,
+    "system_seconds": 0.004464,
+    "user_seconds": 0.022706999999999998,
+    "voluntary_switches": 2
+  },
+  "wait4_direct_child_ru_maxrss_bytes": 46268416,
+  "wrapped_python_argv": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+    "-I",
+    "-B",
+    "-S",
+    "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/phase2_bootstrap.py",
+    "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/exec_seal.so",
+    "b43263f19e9d9f99b881e3ad48f85596d22ad8a402114ca712e4f4bc3d7d7ad7",
+    "code",
+    "import time; print('before deadline',flush=True); time.sleep(2)"
+  ]
+}

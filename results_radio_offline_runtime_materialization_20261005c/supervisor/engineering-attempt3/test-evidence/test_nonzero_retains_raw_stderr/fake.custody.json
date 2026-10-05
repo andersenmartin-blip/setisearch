@@ -1,0 +1,163 @@
+{
+  "absolute_deadline": 46467.240660873,
+  "argv": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+    "-I",
+    "-B",
+    "-S",
+    "-c",
+    "import sys; print('terminal failure',file=sys.stderr); sys.exit(7)"
+  ],
+  "child_dispatches": 1,
+  "child_exit_code": 7,
+  "child_reaped": true,
+  "complete_direct_leaf_seconds": 0.029619884997373447,
+  "cwd": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/engineering-attempt3/test-evidence/test_nonzero_retains_raw_stderr",
+  "ended_monotonic": 46465.270280758,
+  "enforcement": "kernel_AS_CPU_per_file; two_phase_seccomp; sampled_IO_storage_output",
+  "exec_seal_pin": {
+    "bytes": 15544,
+    "device": 27,
+    "inode": 544462,
+    "path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/exec_seal.so",
+    "read_charge_bytes": 15544,
+    "sha256": "b43263f19e9d9f99b881e3ad48f85596d22ad8a402114ca712e4f4bc3d7d7ad7"
+  },
+  "failure": "nonzero_leaf_exit",
+  "failures": [
+    "nonzero_leaf_exit"
+  ],
+  "full_native_io_custody": false,
+  "guard_pin": {
+    "bytes": 16592,
+    "device": 27,
+    "inode": 544430,
+    "path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/leaf_guard",
+    "read_charge_bytes": 16592,
+    "sha256": "fa103e1e16cbd8087ed86630238b068c4737ee83ab05b02907cdad4d6dd3c6a1"
+  },
+  "guard_status": {
+    "async_io_denied": true,
+    "descendants_denied": true,
+    "no_new_privs": 1,
+    "phase2_required": true,
+    "schema": "radio-leaf-guard-v1",
+    "seccomp_mode": 2,
+    "sockets_denied": true
+  },
+  "guarded_leaf": true,
+  "limits": {
+    "address_space_bytes": 134217728,
+    "artifact_bytes": 16777216,
+    "artifact_root": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/engineering-attempt3/test-evidence/test_nonzero_retains_raw_stderr",
+    "child_wall_seconds": 2,
+    "cleanup_seconds": 10,
+    "cpu_seconds": 2,
+    "exec_seal_path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/exec_seal.so",
+    "exec_seal_sha256": "b43263f19e9d9f99b881e3ad48f85596d22ad8a402114ca712e4f4bc3d7d7ad7",
+    "guard_path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/leaf_guard",
+    "guard_sha256": "fa103e1e16cbd8087ed86630238b068c4737ee83ab05b02907cdad4d6dd3c6a1",
+    "per_file_bytes": 8388608,
+    "phase2_path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/phase2_bootstrap.py",
+    "phase2_sha256": "9e953acdd85f3c401abbf078bd62fb7cb898cebb1a12d7d09ed6afcb859cd6f3",
+    "pin_read_budget_bytes": 33554432,
+    "python_path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+    "python_sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7",
+    "read_reserve_bytes": 67108864,
+    "sample_interval_seconds": 0.005,
+    "stderr_bytes": 65536,
+    "stdout_bytes": 65536
+  },
+  "no_descendants_eligible": true,
+  "observation_limits": [
+    "proc_io_unavailable_local_pid_view_FileNotFoundError"
+  ],
+  "opaque_child_read_reserve_bytes": 67108864,
+  "output": {
+    "stderr": {
+      "bytes": 171,
+      "path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/engineering-attempt3/test-evidence/test_nonzero_retains_raw_stderr/fake.stderr.bin",
+      "received_bytes": 171,
+      "sha256": "1b7f17ce96d450c6298dc54ba91d76ab7c7393983c2bcefb6eec9a094966028d"
+    },
+    "stdout": {
+      "bytes": 0,
+      "path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/engineering-attempt3/test-evidence/test_nonzero_retains_raw_stderr/fake.stdout.bin",
+      "received_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "phase2_pin": {
+    "bytes": 1635,
+    "device": 27,
+    "inode": 544448,
+    "path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/phase2_bootstrap.py",
+    "read_charge_bytes": 1635,
+    "sha256": "9e953acdd85f3c401abbf078bd62fb7cb898cebb1a12d7d09ed6afcb859cd6f3"
+  },
+  "phase2_status": {
+    "exec_denied": true,
+    "no_new_privs": 1,
+    "schema": "radio-leaf-phase2-v1",
+    "scientific_imports_started": false,
+    "seccomp_mode": 2
+  },
+  "pid": 23,
+  "pin_read_charge_bytes": 30928715,
+  "proc_samples": [
+    {
+      "available": false,
+      "error": "FileNotFoundError",
+      "local_wait_pid": 23,
+      "no_substituted_counters": true,
+      "terminal": false
+    }
+  ],
+  "python_pin": {
+    "bytes": 30894944,
+    "device": 27,
+    "inode": 9223372036855188960,
+    "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+    "read_charge_bytes": 30894944,
+    "sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7"
+  },
+  "runtime_qualified": false,
+  "schema": "radio-direct-leaf-custody-v1",
+  "scientific_authority": false,
+  "started_monotonic": 46465.240660873,
+  "status": "FAILED_CLOSED",
+  "terminal_observed_monotonic": 46465.26988115,
+  "terminal_proc": {
+    "available": false,
+    "error": "FileNotFoundError",
+    "local_wait_pid": 23,
+    "no_substituted_counters": true,
+    "terminal": true
+  },
+  "wait4": {
+    "exact_direct_child_wait4": true,
+    "inblock": 0,
+    "involuntary_switches": 3,
+    "maxrss_bytes": 46370816,
+    "maxrss_kib": 45284,
+    "oublock": 0,
+    "pid": 23,
+    "raw_status": 1792,
+    "returncode": 7,
+    "system_seconds": 0.0,
+    "user_seconds": 0.028877,
+    "voluntary_switches": 1
+  },
+  "wait4_direct_child_ru_maxrss_bytes": 46370816,
+  "wrapped_python_argv": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+    "-I",
+    "-B",
+    "-S",
+    "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/phase2_bootstrap.py",
+    "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/exec_seal.so",
+    "b43263f19e9d9f99b881e3ad48f85596d22ad8a402114ca712e4f4bc3d7d7ad7",
+    "code",
+    "import sys; print('terminal failure',file=sys.stderr); sys.exit(7)"
+  ]
+}

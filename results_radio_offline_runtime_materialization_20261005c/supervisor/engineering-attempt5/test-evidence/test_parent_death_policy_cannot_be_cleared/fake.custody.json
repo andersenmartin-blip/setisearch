@@ -1,0 +1,171 @@
+{
+  "absolute_deadline": 47517.943615148,
+  "argv": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+    "-I",
+    "-B",
+    "-S",
+    "-c",
+    "import ctypes,errno,os\nlib=ctypes.CDLL(None,use_errno=True)\nassert lib.prctl(1,0,0,0,0)==-1 and ctypes.get_errno()==errno.EPERM\ntry: os.setuid(os.getuid())\nexcept PermissionError: print('credential_change_refused')\nelse: raise RuntimeError('credential syscall remained eligible')\n"
+  ],
+  "child_dispatches": 1,
+  "child_exit_code": 0,
+  "child_reaped": true,
+  "complete_direct_leaf_seconds": 0.03324534200510243,
+  "cwd": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/engineering-attempt5/test-evidence/test_parent_death_policy_cannot_be_cleared",
+  "ended_monotonic": 47515.97686049,
+  "enforcement": "kernel_AS_CPU_per_file; two_phase_seccomp; sampled_IO_storage_output",
+  "exec_seal_pin": {
+    "bytes": 15544,
+    "device": 27,
+    "inode": 544462,
+    "path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/exec_seal.so",
+    "read_charge_bytes": 15544,
+    "sha256": "b43263f19e9d9f99b881e3ad48f85596d22ad8a402114ca712e4f4bc3d7d7ad7"
+  },
+  "expected_parent_pid": 20,
+  "failure": null,
+  "failures": [],
+  "full_native_io_custody": false,
+  "guard_pin": {
+    "bytes": 16720,
+    "device": 27,
+    "inode": 544430,
+    "path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/leaf_guard",
+    "read_charge_bytes": 16720,
+    "sha256": "9d86a24af33cb8d114d8862d901aa270c806a24763221461fbf91ec00e904eb4"
+  },
+  "guard_status": {
+    "async_io_denied": true,
+    "credential_mutation_denied": true,
+    "descendants_denied": true,
+    "expected_parent_pid": 20,
+    "no_new_privs": 1,
+    "parent_death_signal": 9,
+    "parent_race_checked": true,
+    "pdeathsig_clear_denied": true,
+    "phase2_required": true,
+    "python_privilege_metadata_refused": true,
+    "schema": "radio-leaf-guard-v1",
+    "seccomp_mode": 2,
+    "sockets_denied": true
+  },
+  "guarded_leaf": true,
+  "limits": {
+    "address_space_bytes": 134217728,
+    "artifact_bytes": 16777216,
+    "artifact_root": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/engineering-attempt5/test-evidence/test_parent_death_policy_cannot_be_cleared",
+    "child_wall_seconds": 2,
+    "cleanup_seconds": 10,
+    "cpu_seconds": 2,
+    "exec_seal_path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/exec_seal.so",
+    "exec_seal_sha256": "b43263f19e9d9f99b881e3ad48f85596d22ad8a402114ca712e4f4bc3d7d7ad7",
+    "guard_path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/leaf_guard",
+    "guard_sha256": "9d86a24af33cb8d114d8862d901aa270c806a24763221461fbf91ec00e904eb4",
+    "per_file_bytes": 8388608,
+    "phase2_path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/phase2_bootstrap.py",
+    "phase2_sha256": "9e953acdd85f3c401abbf078bd62fb7cb898cebb1a12d7d09ed6afcb859cd6f3",
+    "pin_read_budget_bytes": 33554432,
+    "proc_metadata_budget_bytes": 33554432,
+    "python_path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+    "python_sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7",
+    "read_reserve_bytes": 67108864,
+    "sample_interval_seconds": 0.005,
+    "stderr_bytes": 65536,
+    "stdout_bytes": 65536
+  },
+  "no_descendants_eligible": true,
+  "observation_limits": [
+    "proc_io_unavailable_local_pid_view_FileNotFoundError"
+  ],
+  "opaque_child_read_reserve_bytes": 67108864,
+  "output": {
+    "stderr": {
+      "bytes": 154,
+      "path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/engineering-attempt5/test-evidence/test_parent_death_policy_cannot_be_cleared/fake.stderr.bin",
+      "received_bytes": 154,
+      "sha256": "38bdc7dfc8ca28970cda9ea864fb26a1d4c9dd69a7898eef5c242ffb50302c8f"
+    },
+    "stdout": {
+      "bytes": 26,
+      "path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/engineering-attempt5/test-evidence/test_parent_death_policy_cannot_be_cleared/fake.stdout.bin",
+      "received_bytes": 26,
+      "sha256": "13d109426330d26ad74f1a5809f0916f9d6cd0e33990aa5fe4cd61d2cc823540"
+    }
+  },
+  "phase2_pin": {
+    "bytes": 1635,
+    "device": 27,
+    "inode": 544448,
+    "path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/phase2_bootstrap.py",
+    "read_charge_bytes": 1635,
+    "sha256": "9e953acdd85f3c401abbf078bd62fb7cb898cebb1a12d7d09ed6afcb859cd6f3"
+  },
+  "phase2_status": {
+    "exec_denied": true,
+    "no_new_privs": 1,
+    "schema": "radio-leaf-phase2-v1",
+    "scientific_imports_started": false,
+    "seccomp_mode": 2
+  },
+  "pid": 23,
+  "pin_read_charge_bytes": 30928843,
+  "proc_child_metadata_read_charge_bytes": 0,
+  "proc_metadata_read_charge_bytes": 2322,
+  "proc_samples": [
+    {
+      "available": false,
+      "error": "FileNotFoundError",
+      "local_wait_pid": 23,
+      "no_substituted_counters": true,
+      "terminal": false
+    }
+  ],
+  "python_pin": {
+    "bytes": 30894944,
+    "device": 27,
+    "inode": 9223372036855188960,
+    "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+    "read_charge_bytes": 30894944,
+    "sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7"
+  },
+  "runtime_qualified": false,
+  "schema": "radio-direct-leaf-custody-v1",
+  "scientific_authority": false,
+  "started_monotonic": 47515.943615148,
+  "status": "GUARDED_LEAF_COMPLETED_OBSERVATIONS_ONLY",
+  "terminal_observed_monotonic": 47515.976274538,
+  "terminal_proc": {
+    "available": false,
+    "error": "FileNotFoundError",
+    "local_wait_pid": 23,
+    "no_substituted_counters": true,
+    "terminal": true
+  },
+  "wait4": {
+    "exact_direct_child_wait4": true,
+    "inblock": 0,
+    "involuntary_switches": 1,
+    "maxrss_bytes": 51617792,
+    "maxrss_kib": 50408,
+    "oublock": 0,
+    "pid": 23,
+    "raw_status": 0,
+    "returncode": 0,
+    "system_seconds": 0.011777,
+    "user_seconds": 0.020477,
+    "voluntary_switches": 1
+  },
+  "wait4_direct_child_ru_maxrss_bytes": 51617792,
+  "wrapped_python_argv": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+    "-I",
+    "-B",
+    "-S",
+    "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/phase2_bootstrap.py",
+    "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/exec_seal.so",
+    "b43263f19e9d9f99b881e3ad48f85596d22ad8a402114ca712e4f4bc3d7d7ad7",
+    "code",
+    "import ctypes,errno,os\nlib=ctypes.CDLL(None,use_errno=True)\nassert lib.prctl(1,0,0,0,0)==-1 and ctypes.get_errno()==errno.EPERM\ntry: os.setuid(os.getuid())\nexcept PermissionError: print('credential_change_refused')\nelse: raise RuntimeError('credential syscall remained eligible')\n"
+  ]
+}
