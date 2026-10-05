@@ -1,5 +1,13 @@
 # SETIsearch
 
+## 5 October 2026: explicit proxy/TLS integration prepared; 40 tests pass
+
+[The new integration report](https://github.com/andersenmartin-blip/setisearch/blob/86370bf679c38bff16e074c0009ae8fa1fa0e2de/RADIO_PROXY_TRANSPORT_INTEGRATION_2026-10-05_PREPARATION.md) binds the unchanged official wheel plan, an explicit local CONNECT route, pinned trust, prospective native TLS bindings and the original bounded wheel writer. **All 40 integration tests pass in the primary Python runtime.** Independent review exposed and fixed lost first-attempt evidence, refused-body receive accounting and custom-response cleanup. Original failing source snapshots, focused reproductions, full logs and separate synthetic receipts are retained.
+
+The result remains **SIMULATION_ONLY / PENDING_ACTUAL_NATIVE_CUSTODY**. Current proxy/certificate metadata was observed locally without a socket or TLS call; reachability and actual native behavior remain unqualified. No package was downloaded or installed, no telescope spectrum or original holdout was opened, and no live allocation or activation was added. Full immutable content readback matches all **74 changed files**. Bootstrap A and earlier failed controls remain closed and spent; selected historical reservation stays **1,330s / 1,592MiB**.
+
+Next: complete current native/source/runtime/trust custody and a distinct finite acquisition freeze, readback and one-shot admission. All eleven scientific fields remain pending; targets and holds, native8/127-24 inactivity, LS pause and CHEOPS UNSENT remain unchanged. Consolidate **9 October 2026**.
+
 ## 5 October 2026: bootstrap failure preserved; explicit proxy preparation tested
 
 [The completed bootstrap result](https://github.com/andersenmartin-blip/setisearch/blob/343104e4b96de435912f54c7543b957f6cf6babc/RADIO_RUNTIME_PACKAGE_BOOTSTRAP_2026-10-05A_RESULT.md) is **CLOSED_FAILED** on its first DNS lookup: zero HTTP body bytes and no pip child. Its interrupted publication is now complete: 75 immutable bodies / 19,550,262 bytes. [The recovery audit and exact continuation](https://github.com/andersenmartin-blip/setisearch/blob/5dca3758fa37133c1a54ae11c46b177e4ec8cccc/RADIO_BOOTSTRAP_RECOVERY_AND_TRANSPORT_2026-10-05.md) also verify all 488 retained files and 80 directories. Restored content matches historical hashes; changed inode identities are explicitly distinguished from original-run custody. The spent attempt was never rerun.
