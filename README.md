@@ -1,5 +1,17 @@
 # SETIsearch
 
+## 5 October 2026: native radio metadata observed; full scientific admission still pending
+
+[The distinct E capture result](https://github.com/andersenmartin-blip/setisearch/blob/b9d66f576e6eab2e291ddffa436cd50fddc20fbd/RADIO_RUNTIME_METADATA_CAPTURE_2026-10-05E_RESULT.md) successfully imports **NumPy 2.3.5 / h5py 3.16.0 / hdf5plugin 7.1.0** from the unchanged C installation and observes **HDF5 runtime/built 2.0.0**. All **12 plugin filters**, including bitshuffle **32008**, report encode/decode metadata enabled. No dataset decoding or radio spectrum access occurred.
+
+E fixes the concrete D blocker by reading complete pinned raw RECORD bodies: **904 / 106 / 26 rows**, including both exact script relocations. **37 collector, 12 gate and 4 launcher tests** and an actual-layout metadata-only preflight passed. All **47 preparation bodies / 2,981,845 bytes** matched full immutable readback before marker-only activation; **24 result bodies / 3,570,774 bytes** also matched. Independent review verifies all **1,504 selected source/runtime pins** and the unchanged **1,038-file / 110-directory** installation.
+
+The sole bounded E parent and guarded leaf exited 0 and were reaped; complete parent lifetime **2.436817898 s**. Complete **2,868,865-byte raw metadata** and reviews are preserved. The saved E bundle has **66 regular entries / 1,164,128 bytes**, SHA-256 `c1f3a883a21e40b457414835683ab6dc04ed5859ecb26776bb780d9c100b109f`, referencing the unchanged complete C input archive. [Full status and evidence](https://github.com/andersenmartin-blip/setisearch/blob/6da771e78667f0746e87d05915c6feb683541a25/PROJECT_STATUS.md) distinguish sampled mappings/named hashes from continuous loader/namespace/provider custody and complete native IO.
+
+E is **OBSERVED_METADATA_ONLY_PENDING_RUNTIME_QUALIFICATION**. Its **180s / 64MiB artifact** and **2GiB read reservation** are spent; selected live-scope subtotal becomes **2,770s / 5,304MiB artifact reservations**, separate from process-AS guard controls. Full runtime/CAS/source/session admission and **all eleven scientific fields remain pending**. A/B/C/D remain closed; no automatic successor.
+
+HD189733/HIP98505 cadence85030/neighbor9 stays selected; HD1461 HOLD, GJ724 reserve, spectra/112+128 holdouts unopened, native8 unreserved,127/24 NOT ACTIVATED, LS paused, CHEOPS UNSENT. Consolidate **9 October 2026** without automatic extension.
+
 ## 5 October 2026: exact radio packages installed; metadata failure preserved and repaired
 
 [The separately frozen offline result](https://github.com/andersenmartin-blip/setisearch/blob/4dcfc344b9f083d40d38bdd202db0213a602593d/RADIO_OFFLINE_RUNTIME_MATERIALIZATION_2026-10-05C_RESULT.md) installed unchanged NumPy 2.3.5 / h5py 3.16.0 / hdf5plugin 7.1.0. Independent byte review confirms **1,025 original members unchanged plus 3 permitted regenerated RECORD files**. The complete installed environment, exact inputs and logs were saved in a verified **189,808,619-byte bundle**.
