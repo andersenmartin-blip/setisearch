@@ -1,5 +1,13 @@
 # SETIsearch
 
+## 5 October 2026: exact radio package inputs acquired and independently verified
+
+[The distinct hosted source result](https://github.com/andersenmartin-blip/setisearch/blob/7ee41d0eddb7cb109ba8f986c97e85e54db505e1/RADIO_HOSTED_PACKAGE_SOURCE_2026-10-05_RESULT.md) supplies the three unchanged NumPy/h5py/hdf5plugin wheel archives, **68,409,067 bytes**. Matching [run 37337067481](https://github.com/andersenmartin-blip/setisearch/actions/runs/37337067481), attempt **1**, succeeded. All five artifact ZIP digests, seven source snapshots, raw parts and complete original wheel hashes passed independent verification. The complete input bundle was saved durably.
+
+The missing-package-input blocker is resolved. This scope performed no wheel-member opening, installation, native scientific import or telescope read. A **separately frozen offline runtime-materialization/capture scope** is required next; package availability does not qualify the native runtime, transport/CAS integration or detector. All eleven scientific fields remain pending. A/B stay CLOSED_FAILED; no successor is activated.
+
+The distinct **480s/512MiB** hosted reservation is spent; selected reservation subtotal is **2110s/3640MiB**, not measured use or complete history. HD189733/HIP98505 cadence85030/neighbor9, targets/holds, unopened spectra/112+128 holdouts and native8/127-24 inactivity remain fixed. LS paused, CHEOPS UNSENT. Consolidate **9 October 2026** without automatic extension.
+
 ## 5 October 2026: actual proxy bootstrap B CLOSED_FAILED at CONNECT
 
 [The separately frozen one-shot B result](https://github.com/andersenmartin-blip/setisearch/blob/1643ead06060df36ca0fc701daf610680dab85fb/RADIO_RUNTIME_PACKAGE_BOOTSTRAP_2026-10-05B_RESULT.md) stopped at `CONNECT receive refused: TimeoutError` for the first exact NumPy wheel. **Zero CONNECT response, HTTP header or wheel body bytes were received.** h5py/plugin acquisition, ZIP inspection, pip children, native scientific imports and telescope reads were zero. The timeout cause remains undetermined; packages and HDF5/plugin runtime remain unqualified.
