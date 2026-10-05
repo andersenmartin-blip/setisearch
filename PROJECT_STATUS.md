@@ -1,3 +1,25 @@
+## 5 October: actual proxy package bootstrap B CLOSED_FAILED at CONNECT
+
+[The actual one-shot B result](RADIO_RUNTIME_PACKAGE_BOOTSTRAP_2026-10-05B_RESULT.md)
+closed with CONNECT receive TimeoutError on the first exact NumPy wheel: zero
+CONNECT response/HTTP/body bytes, no h5py/plugin attempt, ZIP inspection, pip child,
+native scientific import or telescope read. All 1,258 selected source/runtime
+pins agree before/after. Whole-gate selected elapsed 11.504740273 seconds; 491
+files/80 directories total 7,679,548 logical  / 8,814,592 allocated bytes and are
+preserved losslessly with terminal objects and exact caller streams. The silent
+proxy timeout cause is not determined; native peer/TLS custody stays pending.
+
+Full immutable readback matched 121 preparation files  / 3,029,584 bytes before
+marker-only activation. B's distinct 300s/1536MiB is permanently spent; selected
+engineering subtotal **1630s/3128MiB**, not measured use or a complete history.
+A and earlier failed controls remain closed, without retry/refund/reset. Next:
+obtain authentic CONNECT capability/lifetime inputs or an authorized exact wheel
+source before any separately frozen future operation. No automatic successor.
+
+All eleven scientific fields pending; spectra/112+128 holdouts unopened, native8
+unreserved,127/24 NOT ACTIVATED, targets/holds and earlier outcomes unchanged,
+LS paused/BF untouched, CHEOPS UNSENT. Consolidate **9 October 2026**.
+
 ## 5 October: explicit proxy integration prepared; 40 primary-runtime tests pass
 
 [The distinct integration report](RADIO_PROXY_TRANSPORT_INTEGRATION_2026-10-05_PREPARATION.md)
