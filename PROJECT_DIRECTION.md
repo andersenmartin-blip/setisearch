@@ -1,3 +1,24 @@
+## 5 October: explicit proxy integration prepared; 40 primary-runtime tests pass
+
+[The distinct integration report](RADIO_PROXY_TRANSPORT_INTEGRATION_2026-10-05_PREPARATION.md)
+connects exact original wheel/plan pins, explicit loopback CONNECT, pinned trust,
+prospective native TLS bindings and unchanged bounded wheel custody. All **40**
+integration tests pass in the primary Python runtime. Independent review exposed
+second-use evidence loss and refused-body accounting errors; fixes, original
+snapshots and dedicated tests are retained. Current selected proxy/certificate
+metadata is observed separately without DNS/socket/TLS operations.
+
+The result remains **SIMULATION_ONLY / PENDING_ACTUAL_NATIVE_CUSTODY**. No genuine
+request, package install, native scientific execution, marker or live allocation
+occurred. Next: complete authentic current native/source/runtime/trust custody
+and a distinct finite original acquisition freeze/readback/one-shot admission.
+Old bootstrap A and earlier failed controls remain closed and spent.
+
+Selected historical engineering reservation remains **1330s/1592MiB**. All eleven
+scientific fields remain pending; spectra/112+128 holdouts unopened, native8
+unreserved, 127/24 NOT ACTIVATED, HD189733/neighbor9 and holds unchanged, LS paused,
+BF untouched, CHEOPS UNSENT. Consolidate **9 October 2026** without extension.
+
 ## 5 October: closed bootstrap result recovered; new transport code remains inert
 
 [Recovery and transport continuation](RADIO_BOOTSTRAP_RECOVERY_AND_TRANSPORT_2026-10-05.md)
