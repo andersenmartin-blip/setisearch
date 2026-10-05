@@ -1,0 +1,83 @@
+--- original-collector.py
++++ collect_runtime_identity_repaired.py
+@@ -112,6 +112,48 @@
+         return dict(obj)
+ 
+ 
++def _file_backed_virtual_bytes(raw, loads, address, length):
++    """Resolve one contiguous virtual interval through exact file-backed spans.
++
++    PT_LOAD boundaries need not coincide with a dynamic string-table boundary.
++    Every virtual byte must have exactly one file-offset translation. Overlapping
++    headers are allowed only when those translations are identical; equal bytes
++    at different offsets do not remove an ambiguity. Zero-filled memory is not
++    a source of file bytes. The caller already validated all segment bounds.
++    """
++    if (type(address) is not int or type(length) is not int or address < 0 or
++            length <= 0 or length > len(raw)):
++        raise Refusal("dynamic string table interval outside finite file bound")
++    end = address + length
++    boundaries = {address, end}
++    for va, file_size, file_offset in loads:
++        if (type(va) is not int or type(file_size) is not int or
++                type(file_offset) is not int or min(va, file_size, file_offset) < 0 or
++                file_offset + file_size > len(raw)):
++            raise Refusal("ELF file-backed load bounds invalid")
++        for value in (va, va + file_size):
++            if address < value < end:
++                boundaries.add(value)
++    chunks = []
++    ordered = sorted(boundaries)
++    for left, right in zip(ordered, ordered[1:]):
++        locations = {file_offset + left - va for va, file_size, file_offset in loads
++                     if va <= left and right <= va + file_size}
++        if not locations:
++            raise Refusal("dynamic string table has a non-file-backed virtual gap")
++        if len(locations) != 1:
++            raise Refusal("dynamic string table has conflicting file-offset translations")
++        location = locations.pop()
++        count = right - left
++        if location < 0 or location + count > len(raw):
++            raise Refusal("dynamic string span outside complete file bytes")
++        chunks.append(raw[location:location + count])
++    table = b"".join(chunks)
++    if len(table) != length:
++        raise Refusal("dynamic string table exact byte coverage failed")
++    return table
++
++
+ def elf_dynamic(raw):
+     """Parse exact ELF header and PT_DYNAMIC strings without running a tool."""
+     if len(raw) < 16 or raw[:4] != b"\x7fELF":
+@@ -136,12 +178,14 @@
+         p = struct.unpack_from(endian + ("IIQQQQQQ" if elf_class == 2 else "IIIIIIII"),
+                                raw, phoff + i * phsize)
+         if elf_class == 2:
+-            p_type, _, off, va, _, filesz, _, _ = p
++            p_type, _, off, va, _, filesz, memsz, _ = p
+         else:
+-            p_type, off, va, _, filesz, _, _, _ = p
++            p_type, off, va, _, filesz, memsz, _, _ = p
+         if off + filesz > len(raw):
+             raise Refusal("ELF segment outside file")
+         if p_type == 1:
++            if filesz > memsz or va + memsz > (1 << (64 if elf_class == 2 else 32)):
++                raise Refusal("ELF load file/memory extent is invalid")
+             loads.append((va, filesz, off))
+         elif p_type == 2:
+             dynamic.append((off, filesz))
+@@ -167,11 +211,9 @@
+     if string_entries:
+         if len(strtab) != 1 or len(strsize) != 1:
+             raise Refusal("dynamic string table is ambiguous")
+-        locations = [off + strtab[0] - va for va, sz, off in loads
+-                     if va <= strtab[0] and strtab[0] + strsize[0] <= va + sz]
+-        if len(locations) != 1:
+-            raise Refusal("dynamic string table outside unique PT_LOAD")
+-        table = raw[locations[0]:locations[0] + strsize[0]]
++        if strtab[0] + strsize[0] > (1 << (64 if elf_class == 2 else 32)):
++            raise Refusal("dynamic string virtual extent overflows ELF address width")
++        table = _file_backed_virtual_bytes(raw, loads, strtab[0], strsize[0])
+         for tag, offset in string_entries:
+             if offset >= len(table):
+                 raise Refusal("dynamic string offset outside table")

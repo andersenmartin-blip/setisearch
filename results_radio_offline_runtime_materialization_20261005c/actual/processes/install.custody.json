@@ -1,0 +1,171 @@
+{
+  "absolute_deadline": 47815.228504215,
+  "argv": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+    "-I",
+    "-B",
+    "-S",
+    "-c",
+    "import sys,runpy;sys.path.insert(0,'/workspace/scratch/da6462abff17/radio-offline-runtime-materialization-20261005c/installer/pip-seed');sys.argv=['pip', '--isolated', '--disable-pip-version-check', 'install', '--no-index', '--no-deps', '--no-cache-dir', '--require-hashes', '--only-binary=:all:', '--no-compile', '--progress-bar', 'off', '--target', '/workspace/scratch/da6462abff17/radio-offline-runtime-materialization-20261005c/installer/venv/lib/python3.12/site-packages', '--find-links', '/workspace/scratch/da6462abff17/radio-offline-runtime-materialization-20261005c/installer/wheelhouse', '-r', '/workspace/scratch/da6462abff17/radio-offline-runtime-materialization-20261005c/installer/wheel-lock.txt'];runpy.run_module(\"pip\",run_name=\"__main__\")"
+  ],
+  "child_dispatches": 1,
+  "child_exit_code": 0,
+  "child_reaped": true,
+  "complete_direct_leaf_seconds": 1.7454283069964731,
+  "cwd": "/workspace/scratch/da6462abff17/radio-offline-runtime-materialization-20261005c/installer",
+  "ended_monotonic": 47696.973932522,
+  "enforcement": "kernel_AS_CPU_per_file; two_phase_seccomp; sampled_IO_storage_output",
+  "exec_seal_pin": {
+    "bytes": 15544,
+    "device": 27,
+    "inode": 544462,
+    "path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/exec_seal.so",
+    "read_charge_bytes": 15544,
+    "sha256": "b43263f19e9d9f99b881e3ad48f85596d22ad8a402114ca712e4f4bc3d7d7ad7"
+  },
+  "expected_parent_pid": 3,
+  "failure": null,
+  "failures": [],
+  "full_native_io_custody": false,
+  "guard_pin": {
+    "bytes": 16720,
+    "device": 27,
+    "inode": 544430,
+    "path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/leaf_guard",
+    "read_charge_bytes": 16720,
+    "sha256": "9d86a24af33cb8d114d8862d901aa270c806a24763221461fbf91ec00e904eb4"
+  },
+  "guard_status": {
+    "async_io_denied": true,
+    "credential_mutation_denied": true,
+    "descendants_denied": true,
+    "expected_parent_pid": 3,
+    "no_new_privs": 1,
+    "parent_death_signal": 9,
+    "parent_race_checked": true,
+    "pdeathsig_clear_denied": true,
+    "phase2_required": true,
+    "python_privilege_metadata_refused": true,
+    "schema": "radio-leaf-guard-v1",
+    "seccomp_mode": 2,
+    "sockets_denied": true
+  },
+  "guarded_leaf": true,
+  "limits": {
+    "address_space_bytes": 536870912,
+    "artifact_bytes": 1610612736,
+    "artifact_root": "/workspace/scratch/da6462abff17/radio-offline-runtime-materialization-20261005c",
+    "child_wall_seconds": 120,
+    "cleanup_seconds": 10,
+    "cpu_seconds": 100,
+    "exec_seal_path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/exec_seal.so",
+    "exec_seal_sha256": "b43263f19e9d9f99b881e3ad48f85596d22ad8a402114ca712e4f4bc3d7d7ad7",
+    "guard_path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/leaf_guard",
+    "guard_sha256": "9d86a24af33cb8d114d8862d901aa270c806a24763221461fbf91ec00e904eb4",
+    "per_file_bytes": 134217728,
+    "phase2_path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/phase2_bootstrap.py",
+    "phase2_sha256": "9e953acdd85f3c401abbf078bd62fb7cb898cebb1a12d7d09ed6afcb859cd6f3",
+    "pin_read_budget_bytes": 33554432,
+    "proc_metadata_budget_bytes": 33554432,
+    "python_path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+    "python_sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7",
+    "read_reserve_bytes": 536870912,
+    "sample_interval_seconds": 0.02,
+    "stderr_bytes": 2097152,
+    "stdout_bytes": 2097152
+  },
+  "no_descendants_eligible": true,
+  "observation_limits": [
+    "proc_io_unavailable_local_pid_view_FileNotFoundError"
+  ],
+  "opaque_child_read_reserve_bytes": 536870912,
+  "output": {
+    "stderr": {
+      "bytes": 518,
+      "path": "/workspace/scratch/da6462abff17/radio-offline-runtime-materialization-20261005c/processes/install.stderr.bin",
+      "received_bytes": 518,
+      "sha256": "13954d24beff8ec22fa508fc4ff633992e32a81bb0467cd23d5761c3fd3673bc"
+    },
+    "stdout": {
+      "bytes": 878,
+      "path": "/workspace/scratch/da6462abff17/radio-offline-runtime-materialization-20261005c/processes/install.stdout.bin",
+      "received_bytes": 878,
+      "sha256": "5032e60aeb97e9d697b484a13a717f03c9326fcda91841e096f3a428c43cbbd4"
+    }
+  },
+  "phase2_pin": {
+    "bytes": 1635,
+    "device": 27,
+    "inode": 544448,
+    "path": "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/phase2_bootstrap.py",
+    "read_charge_bytes": 1635,
+    "sha256": "9e953acdd85f3c401abbf078bd62fb7cb898cebb1a12d7d09ed6afcb859cd6f3"
+  },
+  "phase2_status": {
+    "exec_denied": true,
+    "no_new_privs": 1,
+    "schema": "radio-leaf-phase2-v1",
+    "scientific_imports_started": false,
+    "seccomp_mode": 2
+  },
+  "pid": 4,
+  "pin_read_charge_bytes": 30928843,
+  "proc_child_metadata_read_charge_bytes": 0,
+  "proc_metadata_read_charge_bytes": 2315,
+  "proc_samples": [
+    {
+      "available": false,
+      "error": "FileNotFoundError",
+      "local_wait_pid": 4,
+      "no_substituted_counters": true,
+      "terminal": false
+    }
+  ],
+  "python_pin": {
+    "bytes": 30894944,
+    "device": 27,
+    "inode": 9223372036855188960,
+    "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+    "read_charge_bytes": 30894944,
+    "sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7"
+  },
+  "runtime_qualified": false,
+  "schema": "radio-direct-leaf-custody-v1",
+  "scientific_authority": false,
+  "started_monotonic": 47695.228504215,
+  "status": "GUARDED_LEAF_COMPLETED_OBSERVATIONS_ONLY",
+  "terminal_observed_monotonic": 47696.956875755,
+  "terminal_proc": {
+    "available": false,
+    "error": "FileNotFoundError",
+    "local_wait_pid": 4,
+    "no_substituted_counters": true,
+    "terminal": true
+  },
+  "wait4": {
+    "exact_direct_child_wait4": true,
+    "inblock": 16,
+    "involuntary_switches": 22,
+    "maxrss_bytes": 220483584,
+    "maxrss_kib": 215316,
+    "oublock": 531560,
+    "pid": 4,
+    "raw_status": 0,
+    "returncode": 0,
+    "system_seconds": 0.19292299999999998,
+    "user_seconds": 1.5345900000000001,
+    "voluntary_switches": 2
+  },
+  "wait4_direct_child_ru_maxrss_bytes": 220483584,
+  "wrapped_python_argv": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+    "-I",
+    "-B",
+    "-S",
+    "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/phase2_bootstrap.py",
+    "/workspace/scratch/da6462abff17/runtime-offline-preparation/supervisor/exec_seal.so",
+    "b43263f19e9d9f99b881e3ad48f85596d22ad8a402114ca712e4f4bc3d7d7ad7",
+    "code",
+    "import sys,runpy;sys.path.insert(0,'/workspace/scratch/da6462abff17/radio-offline-runtime-materialization-20261005c/installer/pip-seed');sys.argv=['pip', '--isolated', '--disable-pip-version-check', 'install', '--no-index', '--no-deps', '--no-cache-dir', '--require-hashes', '--only-binary=:all:', '--no-compile', '--progress-bar', 'off', '--target', '/workspace/scratch/da6462abff17/radio-offline-runtime-materialization-20261005c/installer/venv/lib/python3.12/site-packages', '--find-links', '/workspace/scratch/da6462abff17/radio-offline-runtime-materialization-20261005c/installer/wheelhouse', '-r', '/workspace/scratch/da6462abff17/radio-offline-runtime-materialization-20261005c/installer/wheel-lock.txt'];runpy.run_module(\"pip\",run_name=\"__main__\")"
+  ]
+}

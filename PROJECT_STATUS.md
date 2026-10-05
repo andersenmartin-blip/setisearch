@@ -1,3 +1,15 @@
+## 5 October 2026: exact packages installed; metadata capture C closed, parser repair tested
+
+[The distinct offline installation result](RADIO_OFFLINE_RUNTIME_MATERIALIZATION_2026-10-05C_RESULT.md) installed the three unchanged NumPy 2.3.5 / h5py 3.16.0 / hdf5plugin 7.1.0 wheels. Independent installed-byte review confirms **1,025 unchanged original members plus 3 permitted regenerated RECORD files**. The installed environment, exact inputs and logs are saved in a verified complete bundle.
+
+The single scope is **FAILED_CLOSED**: metadata capture stopped in the initial ELF snapshot before scientific package importers. Static authenticated-source analysis identifies a Python dynamic string table spanning two adjacent LOAD segments, which the old parser incorrectly refused. A [separate inert parser repair](results_radio_elf_parser_repair_20261005/README.md) passes **21 offline tests** and complete static interpreter parsing. No capture was repeated; the next step is a distinct frozen **capture-only scope** reusing the verified installation.
+
+All **187 preparation bodies** matched full immutable readback before marker-only activation. Both guarded leaves were reaped (install exit 0, capture exit 2); complete parent lifetime **5.143505303 s**, all **1,643 selected source/runtime pins** agree. Full preserved root: **1,507 files / 169 directories**. Saved bundle **189,808,619 bytes**, SHA-256 `434e5a5d64e9361b591d527608290a0f7443e6b7b0b7543c9d6e9dbad1111b7a`. Native IO/loader custody, HDF5/plugin versions/capabilities and all eleven scientific fields remain pending.
+
+C's **300s / 1,536MiB artifact reservation** is spent. Selected prior live-scope subtotal becomes **2,410s / 5,176MiB artifact reservations**, not measured use or complete history. Five separate harmless guard controls each reserve 30s / 512MiB process-AS; these AS ceilings are kept separate from artifact-storage MiB. A/B/C remain closed without retry, reset, refund or automatic successor.
+
+HD189733/HIP98505 cadence85030/neighbor9 remains selected; HD1461 HOLD, GJ724 reserve, spectra/112+128 holdouts unopened, native8 unreserved,127/24 NOT ACTIVATED, LS paused, CHEOPS UNSENT. Consolidate **9 October 2026** without automatic extension.
+
 ## 5 October 2026: exact package inputs acquired; native runtime qualification still pending
 
 [The distinct hosted package-source result](RADIO_HOSTED_PACKAGE_SOURCE_2026-10-05_RESULT.md) verifies all three unchanged original wheels, **68,409,067 bytes**, against the frozen plan. Matching run **37337067481**, attempt **1**, completed successfully. All five artifact ZIP digests, seven receipt source snapshots, raw export parts and complete wheel hashes passed independent verification. The complete input bundle was saved durably; its 68,547,756 bytes have SHA-256 `7ef4d14eb90d0c4d1722ffbbcf699c14bd50ad4c5e58c0da82408a31a819e22c`.
