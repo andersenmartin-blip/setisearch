@@ -1,3 +1,11 @@
+## 5 October 2026: exact package input still missing; current permission blocker recorded
+
+[The current package-input audit](RADIO_PACKAGE_INPUT_AUDIT_2026-10-05.md) verifies the original plan and unresolved-input ledger against science checkpoint `81019826761463da7720d105c0acc7a5f516931e`. Both retained A/B wheelhouses contain only a zero-byte NumPy file; h5py/hdf5plugin metadata is absent in the primary Python runtime. The supplied current network allowlist does not admit the original `files.pythonhosted.org` destination. This permission observation does **not** determine the cause of B's historical timeout.
+
+No package acquisition, installation, bootstrap replay, fresh native allocation or telescope read occurred. A limited ancillary VTK-library symbol check is disclosed in the audit; it supplies no qualified HDF5/plugin runtime. The concrete missing input is an authorized accessible source for the **three unchanged original wheels, 68,409,067 bytes**, or admitted transport to their original source. More synthetic transport tests cannot supply those bytes.
+
+A/B stay CLOSED_FAILED; all eleven scientific fields remain pending. Package availability would still precede native runtime custody and the original CAS/source/session/scientific admission gates. Targets/holds and unopened spectra/112+128 holdouts remain fixed; native8/127-24 inactive, LS paused, CHEOPS UNSENT. Consolidate **9 October 2026** without automatic extension.
+
 ## 5 October: actual proxy package bootstrap B CLOSED_FAILED at CONNECT
 
 [The actual one-shot B result](RADIO_RUNTIME_PACKAGE_BOOTSTRAP_2026-10-05B_RESULT.md)
