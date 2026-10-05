@@ -1,3 +1,13 @@
+## 5 October 2026: exact package inputs acquired; native runtime qualification still pending
+
+[The distinct hosted package-source result](RADIO_HOSTED_PACKAGE_SOURCE_2026-10-05_RESULT.md) verifies all three unchanged original wheels, **68,409,067 bytes**, against the frozen plan. Matching run **37337067481**, attempt **1**, completed successfully. All five artifact ZIP digests, seven receipt source snapshots, raw export parts and complete wheel hashes passed independent verification. The complete input bundle was saved durably; its 68,547,756 bytes have SHA-256 `7ef4d14eb90d0c4d1722ffbbcf699c14bd50ad4c5e58c0da82408a31a819e22c`.
+
+This supersedes the missing-package-input observation below. The local network allowlist was not changed; acquisition used the separately frozen authorized repository execution scope. No wheel member opening, installation, native scientific package import or telescope read occurred in this source scope. It proves package availability only; native runtime custody, hosted transport/CAS integration and all eleven scientific fields remain pending.
+
+Before any new installation/import, prepare and read back a **separate bounded offline runtime-materialization/capture scope** with a fresh root, actual source/interpreter inputs and complete process/descendant limits. The old A/B plans remain unchanged and CLOSED_FAILED. No automatic successor is activated. The distinct 480s/512MiB hosted reservation is spent; selected reservation subtotal is now **2110s/3640MiB**, not measured use or complete history.
+
+HD189733/HIP98505 cadence85030/neighbor9 remains selected; HD1461 HOLD, GJ724 reserve, spectra/112+128 holdouts unopened, native8 unreserved and 127/24 NOT ACTIVATED. LS paused, CHEOPS UNSENT. Consolidate **9 October 2026** without automatic extension.
+
 ## 5 October 2026: exact package input still missing; current permission blocker recorded
 
 [The current package-input audit](RADIO_PACKAGE_INPUT_AUDIT_2026-10-05.md) verifies the original plan and unresolved-input ledger against science checkpoint `81019826761463da7720d105c0acc7a5f516931e`. Both retained A/B wheelhouses contain only a zero-byte NumPy file; h5py/hdf5plugin metadata is absent in the primary Python runtime. The supplied current network allowlist does not admit the original `files.pythonhosted.org` destination. This permission observation does **not** determine the cause of B's historical timeout.
