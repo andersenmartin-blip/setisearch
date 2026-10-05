@@ -1,5 +1,16 @@
 # SETIsearch
 
+## 5 October 2026: exact radio packages installed; metadata failure preserved and repaired
+
+[The separately frozen offline result](https://github.com/andersenmartin-blip/setisearch/blob/4dcfc344b9f083d40d38bdd202db0213a602593d/RADIO_OFFLINE_RUNTIME_MATERIALIZATION_2026-10-05C_RESULT.md) installed unchanged NumPy 2.3.5 / h5py 3.16.0 / hdf5plugin 7.1.0. Independent byte review confirms **1,025 original members unchanged plus 3 permitted regenerated RECORD files**. The complete installed environment, exact inputs and logs were saved in a verified **189,808,619-byte bundle**.
+
+The sole scope is **FAILED_CLOSED**: the metadata collector stopped in its initial ELF snapshot before scientific package importers. Authenticated static analysis finds a Python string table crossing two adjacent LOAD segments, incorrectly refused by the old parser. A [separate inert repair](https://github.com/andersenmartin-blip/setisearch/blob/4dcfc344b9f083d40d38bdd202db0213a602593d/results_radio_elf_parser_repair_20261005/README.md) passes **21 offline tests** and complete static interpreter parsing. Next: a distinct frozen **capture-only scope** reusing the verified installation. No installation or capture was repeated.
+
+Full immutable readback matched **187 preparation bodies** before marker-only activation and **51 result/repair/status bodies / 5,366,079 UTF-8 bytes** after the run. Both guarded leaves were reaped; complete parent lifetime **5.143505303 s**, all **1,643 selected source/runtime pins** agree. HDF5/plugin versions and capabilities, full native custody and all eleven scientific fields remain pending.
+
+C spends **300s / 1,536MiB artifact reservation**; selected prior live-scope subtotal is **2,410s / 5,176MiB artifact reservations**, not measured use or complete history. Five harmless 30s / 512MiB process-AS controls are accounted separately. A/B/C stay closed with no retry or automatic successor. HD189733/HIP98505 cadence85030/neighbor9, targets/holds and unopened spectra/112+128 holdouts remain fixed; native8 unreserved,127/24 NOT ACTIVATED, LS paused, CHEOPS UNSENT. Consolidate **9 October 2026** without extension.
+
+
 ## 5 October 2026: exact radio package inputs acquired and independently verified
 
 [The distinct hosted source result](https://github.com/andersenmartin-blip/setisearch/blob/7ee41d0eddb7cb109ba8f986c97e85e54db505e1/RADIO_HOSTED_PACKAGE_SOURCE_2026-10-05_RESULT.md) supplies the three unchanged NumPy/h5py/hdf5plugin wheel archives, **68,409,067 bytes**. Matching [run 37337067481](https://github.com/andersenmartin-blip/setisearch/actions/runs/37337067481), attempt **1**, succeeded. All five artifact ZIP digests, seven source snapshots, raw parts and complete original wheel hashes passed independent verification. The complete input bundle was saved durably.
