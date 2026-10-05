@@ -1,0 +1,352 @@
+{
+  "artifact_inventory": {
+    "allocated_bytes": 3485696,
+    "directories": 4,
+    "entries": [
+      {
+        "allocated_bytes": 2871296,
+        "bytes": 2868865,
+        "mode": 384,
+        "path": "native-metadata.json",
+        "sha256": "53f52557608cb3014ffe2d025c0f3019d80cf8419af0eefd578513fa7fce09aa"
+      },
+      {
+        "allocated_bytes": 4096,
+        "bytes": 366,
+        "mode": 384,
+        "path": "spent.json",
+        "sha256": "57c6d8be60b902d9ec3961b6c72d106c643bb6c5cb6bbb74f9a47e8e2a486a55"
+      },
+      {
+        "allocated_bytes": 548864,
+        "bytes": 546986,
+        "mode": 384,
+        "path": "admission/freeze.json",
+        "sha256": "856de5f9288822d26738c6cf82687d819bd48d57313ace0dee37b674246be6d9"
+      },
+      {
+        "allocated_bytes": 4096,
+        "bytes": 418,
+        "mode": 384,
+        "path": "admission/marker.json",
+        "sha256": "689db34a922d494c3df1aad92e2062086510da8811e196aaa61a547f28871d88"
+      },
+      {
+        "allocated_bytes": 24576,
+        "bytes": 24412,
+        "mode": 384,
+        "path": "admission/proof.json",
+        "sha256": "6ce7a531b1db8b2b9524c1b31595f725aeeb95b04e47412aabb0f3c24798a51c"
+      },
+      {
+        "allocated_bytes": 8192,
+        "bytes": 7648,
+        "mode": 420,
+        "path": "processes/capture.custody.json",
+        "sha256": "e01aeba84a12a4c250383d899be420d8894fabc05f087334fb94b01506ad3f26"
+      },
+      {
+        "allocated_bytes": 4096,
+        "bytes": 154,
+        "mode": 420,
+        "path": "processes/capture.stderr.bin",
+        "sha256": "38bdc7dfc8ca28970cda9ea864fb26a1d4c9dd69a7898eef5c242ffb50302c8f"
+      },
+      {
+        "allocated_bytes": 4096,
+        "bytes": 327,
+        "mode": 420,
+        "path": "processes/capture.stdout.bin",
+        "sha256": "f38dbe789bb59edb4214877649e468759e450ee09d62a0558494203ff53b9d6c"
+      }
+    ],
+    "excludes_terminal_result_file": "result.json",
+    "files": 8,
+    "final_inventory_not_transient_storage_peak": true,
+    "logical_bytes": 3465560
+  },
+  "automatic_successor": false,
+  "child_peak_custody_complete": true,
+  "children": [
+    {
+      "absolute_deadline": 54495.178576417,
+      "argv": [
+        "/workspace/scratch/da6462abff17/radio-offline-runtime-materialization-20261005c/installer/venv/bin/python",
+        "-I",
+        "-B",
+        "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/collector/collect_runtime_identity.py",
+        "--activate-native-metadata",
+        "--venv-root",
+        "/workspace/scratch/da6462abff17/radio-offline-runtime-materialization-20261005c/installer/venv",
+        "--filter-input",
+        "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/collector/filter-input.json",
+        "--record-relocations",
+        "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/collector/record-relocations.json",
+        "--record-inputs",
+        "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/collector/record-inputs.json",
+        "--output",
+        "/workspace/scratch/da6462abff17/radio-runtime-metadata-capture-20261005e/native-metadata.json"
+      ],
+      "child_dispatches": 1,
+      "child_exit_code": 0,
+      "child_reaped": true,
+      "complete_direct_leaf_seconds": 1.1218861450033728,
+      "cwd": "/workspace/scratch/da6462abff17/radio-runtime-metadata-capture-20261005e",
+      "ended_monotonic": 54406.300462562,
+      "enforcement": "kernel_AS_CPU_per_file; two_phase_seccomp; sampled_IO_storage_output",
+      "exec_seal_pin": {
+        "bytes": 15544,
+        "device": 27,
+        "inode": 404113,
+        "path": "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/supervisor/exec_seal.so",
+        "read_charge_bytes": 15544,
+        "sha256": "b43263f19e9d9f99b881e3ad48f85596d22ad8a402114ca712e4f4bc3d7d7ad7"
+      },
+      "expected_parent_pid": 5,
+      "failure": null,
+      "failures": [],
+      "full_native_io_custody": false,
+      "guard_pin": {
+        "bytes": 16720,
+        "device": 27,
+        "inode": 404111,
+        "path": "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/supervisor/leaf_guard",
+        "read_charge_bytes": 16720,
+        "sha256": "9d86a24af33cb8d114d8862d901aa270c806a24763221461fbf91ec00e904eb4"
+      },
+      "guard_status": {
+        "async_io_denied": true,
+        "credential_mutation_denied": true,
+        "descendants_denied": true,
+        "expected_parent_pid": 5,
+        "no_new_privs": 1,
+        "parent_death_signal": 9,
+        "parent_race_checked": true,
+        "pdeathsig_clear_denied": true,
+        "phase2_required": true,
+        "python_privilege_metadata_refused": true,
+        "schema": "radio-leaf-guard-v1",
+        "seccomp_mode": 2,
+        "sockets_denied": true
+      },
+      "guarded_leaf": true,
+      "limits": {
+        "address_space_bytes": 536870912,
+        "artifact_bytes": 67108864,
+        "artifact_root": "/workspace/scratch/da6462abff17/radio-runtime-metadata-capture-20261005e",
+        "child_wall_seconds": 90,
+        "cleanup_seconds": 10,
+        "cpu_seconds": 80,
+        "exec_seal_path": "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/supervisor/exec_seal.so",
+        "exec_seal_sha256": "b43263f19e9d9f99b881e3ad48f85596d22ad8a402114ca712e4f4bc3d7d7ad7",
+        "guard_path": "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/supervisor/leaf_guard",
+        "guard_sha256": "9d86a24af33cb8d114d8862d901aa270c806a24763221461fbf91ec00e904eb4",
+        "per_file_bytes": 8388608,
+        "phase2_path": "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/supervisor/phase2_bootstrap.py",
+        "phase2_sha256": "9e953acdd85f3c401abbf078bd62fb7cb898cebb1a12d7d09ed6afcb859cd6f3",
+        "pin_read_budget_bytes": 33554432,
+        "proc_metadata_budget_bytes": 33554432,
+        "python_path": "/workspace/scratch/da6462abff17/radio-offline-runtime-materialization-20261005c/installer/venv/bin/python",
+        "python_sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7",
+        "read_reserve_bytes": 536870912,
+        "sample_interval_seconds": 0.02,
+        "stderr_bytes": 2097152,
+        "stdout_bytes": 2097152
+      },
+      "no_descendants_eligible": true,
+      "observation_limits": [
+        "proc_io_unavailable_local_pid_view_FileNotFoundError"
+      ],
+      "opaque_child_read_reserve_bytes": 536870912,
+      "output": {
+        "stderr": {
+          "bytes": 154,
+          "path": "/workspace/scratch/da6462abff17/radio-runtime-metadata-capture-20261005e/processes/capture.stderr.bin",
+          "received_bytes": 154,
+          "sha256": "38bdc7dfc8ca28970cda9ea864fb26a1d4c9dd69a7898eef5c242ffb50302c8f"
+        },
+        "stdout": {
+          "bytes": 327,
+          "path": "/workspace/scratch/da6462abff17/radio-runtime-metadata-capture-20261005e/processes/capture.stdout.bin",
+          "received_bytes": 327,
+          "sha256": "f38dbe789bb59edb4214877649e468759e450ee09d62a0558494203ff53b9d6c"
+        }
+      },
+      "phase2_pin": {
+        "bytes": 1635,
+        "device": 27,
+        "inode": 404114,
+        "path": "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/supervisor/phase2_bootstrap.py",
+        "read_charge_bytes": 1635,
+        "sha256": "9e953acdd85f3c401abbf078bd62fb7cb898cebb1a12d7d09ed6afcb859cd6f3"
+      },
+      "phase2_status": {
+        "exec_denied": true,
+        "no_new_privs": 1,
+        "schema": "radio-leaf-phase2-v1",
+        "scientific_imports_started": false,
+        "seccomp_mode": 2
+      },
+      "pid": 6,
+      "pin_read_charge_bytes": 30928843,
+      "proc_child_metadata_read_charge_bytes": 0,
+      "proc_metadata_read_charge_bytes": 2313,
+      "proc_samples": [
+        {
+          "available": false,
+          "error": "FileNotFoundError",
+          "local_wait_pid": 6,
+          "no_substituted_counters": true,
+          "terminal": false
+        }
+      ],
+      "python_pin": {
+        "bytes": 30894944,
+        "device": 27,
+        "inode": 544663,
+        "path": "/workspace/scratch/da6462abff17/radio-offline-runtime-materialization-20261005c/installer/venv/bin/python",
+        "read_charge_bytes": 30894944,
+        "sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7"
+      },
+      "runtime_qualified": false,
+      "schema": "radio-direct-leaf-custody-v1",
+      "scientific_authority": false,
+      "started_monotonic": 54405.178576417,
+      "status": "GUARDED_LEAF_COMPLETED_OBSERVATIONS_ONLY",
+      "terminal_observed_monotonic": 54406.29995822,
+      "terminal_proc": {
+        "available": false,
+        "error": "FileNotFoundError",
+        "local_wait_pid": 6,
+        "no_substituted_counters": true,
+        "terminal": true
+      },
+      "wait4": {
+        "exact_direct_child_wait4": true,
+        "inblock": 0,
+        "involuntary_switches": 27,
+        "maxrss_bytes": 227119104,
+        "maxrss_kib": 221796,
+        "oublock": 5616,
+        "pid": 6,
+        "raw_status": 0,
+        "returncode": 0,
+        "system_seconds": 0.47380799999999995,
+        "user_seconds": 0.644573,
+        "voluntary_switches": 1
+      },
+      "wait4_direct_child_ru_maxrss_bytes": 227119104,
+      "wrapped_python_argv": [
+        "/workspace/scratch/da6462abff17/radio-offline-runtime-materialization-20261005c/installer/venv/bin/python",
+        "-I",
+        "-B",
+        "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/supervisor/phase2_bootstrap.py",
+        "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/supervisor/exec_seal.so",
+        "b43263f19e9d9f99b881e3ad48f85596d22ad8a402114ca712e4f4bc3d7d7ad7",
+        "path",
+        "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/collector/collect_runtime_identity.py",
+        "--activate-native-metadata",
+        "--venv-root",
+        "/workspace/scratch/da6462abff17/radio-offline-runtime-materialization-20261005c/installer/venv",
+        "--filter-input",
+        "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/collector/filter-input.json",
+        "--record-relocations",
+        "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/collector/record-relocations.json",
+        "--record-inputs",
+        "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/collector/record-inputs.json",
+        "--output",
+        "/workspace/scratch/da6462abff17/radio-runtime-metadata-capture-20261005e/native-metadata.json"
+      ]
+    }
+  ],
+  "conservative_joined_rss_upper_bound_before_parent_terminal_bytes": 451235840,
+  "elapsed_before_terminal_seconds": 2.3777952320015174,
+  "explicit_parent_read_charged_bytes": 861901711,
+  "full_native_io_custody_qualified": false,
+  "full_scientific_closure_qualified": false,
+  "hdf5_dataset_reads": 0,
+  "identity": "radio-runtime-metadata-capture-20261005e",
+  "installations": 0,
+  "installed_inputs_after": {
+    "allocated_bytes": 302645248,
+    "directories": 110,
+    "files": 1038,
+    "logical_bytes": 300103358,
+    "selected_integrity_not_continuous_namespace_custody": true,
+    "whole_byte_hashes_sizes_modes_and_membership_match": true
+  },
+  "installed_inputs_before": {
+    "allocated_bytes": 302645248,
+    "directories": 110,
+    "files": 1038,
+    "logical_bytes": 300103358,
+    "selected_integrity_not_continuous_namespace_custody": true,
+    "whole_byte_hashes_sizes_modes_and_membership_match": true
+  },
+  "joined_conservative_charged_bytes": 1398772623,
+  "joined_read_reservation_bytes": 2147483648,
+  "limits": {
+    "artifact_bytes": 67108864,
+    "child_address_space_bytes": 536870912,
+    "child_cleanup_seconds": 10,
+    "child_cpu_seconds": 80,
+    "child_dispatches": 1,
+    "child_sample_interval_seconds": 0.02,
+    "child_wall_seconds": 90,
+    "directory_count": 128,
+    "file_count": 2000,
+    "input_file_bytes": 134217728,
+    "joined_read_bytes": 2147483648,
+    "misc_stream_read_bytes": 67108864,
+    "opaque_child_read_reserve_bytes": 536870912,
+    "operation_seconds": 150,
+    "output_file_bytes": 8388608,
+    "parent_address_space_bytes": 536870912,
+    "parent_read_bytes": 1610612736,
+    "root_explicit_read_bytes": 1476395008,
+    "stderr_bytes": 2097152,
+    "stdout_bytes": 2097152,
+    "supervisor_pin_read_bytes": 33554432,
+    "supervisor_proc_read_bytes": 33554432,
+    "terminal_reserve_bytes": 8388608,
+    "wall_seconds": 180
+  },
+  "measurement_limits": [
+    "Opaque child reserve is not complete native IO measurement.",
+    "Input pre/post checks are selected integrity, not continuous namespace/loader custody.",
+    "Lifetime RSS sums are conservative bounds, not simultaneous tree peaks.",
+    "Final stored bytes are observations, not transient storage peaks.",
+    "All eleven scientific fields remain pending; no spectrum/source session/trial is admitted."
+  ],
+  "metadata_sha256": "53f52557608cb3014ffe2d025c0f3019d80cf8419af0eefd578513fa7fce09aa",
+  "network_requests": 0,
+  "parent_kernel_highwater_before_terminal_bytes": 224116736,
+  "read_reservation_fully_spent_no_refund": true,
+  "retained_leaf_stream_reads_charged_bytes": 481,
+  "root_explicit_reads_charged_bytes": 830970074,
+  "runtime_identity": {
+    "h5py": "3.16.0",
+    "hdf5_built_version_tuple": [
+      2,
+      0,
+      0
+    ],
+    "hdf5_runtime": "2.0.0",
+    "hdf5_runtime_tuple": [
+      2,
+      0,
+      0
+    ],
+    "hdf5plugin_distribution": "7.1.0",
+    "hdf5plugin_module": "7.1.0",
+    "numpy": "2.3.5"
+  },
+  "runtime_qualified": false,
+  "schema": "radio-runtime-metadata-capture-result-v1",
+  "scientific_authority": false,
+  "selected_source_runtime_pins_after_match": true,
+  "spent_marker_written": true,
+  "status": "OBSERVED_METADATA_ONLY_PENDING_RUNTIME_QUALIFICATION",
+  "supervisor_explicit_pin_reads_charged_bytes": 30928843,
+  "supervisor_proc_metadata_reads_charged_bytes": 2313
+}

@@ -1,0 +1,190 @@
+{
+  "absolute_deadline": 54495.178576417,
+  "argv": [
+    "/workspace/scratch/da6462abff17/radio-offline-runtime-materialization-20261005c/installer/venv/bin/python",
+    "-I",
+    "-B",
+    "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/collector/collect_runtime_identity.py",
+    "--activate-native-metadata",
+    "--venv-root",
+    "/workspace/scratch/da6462abff17/radio-offline-runtime-materialization-20261005c/installer/venv",
+    "--filter-input",
+    "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/collector/filter-input.json",
+    "--record-relocations",
+    "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/collector/record-relocations.json",
+    "--record-inputs",
+    "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/collector/record-inputs.json",
+    "--output",
+    "/workspace/scratch/da6462abff17/radio-runtime-metadata-capture-20261005e/native-metadata.json"
+  ],
+  "child_dispatches": 1,
+  "child_exit_code": 0,
+  "child_reaped": true,
+  "complete_direct_leaf_seconds": 1.1218861450033728,
+  "cwd": "/workspace/scratch/da6462abff17/radio-runtime-metadata-capture-20261005e",
+  "ended_monotonic": 54406.300462562,
+  "enforcement": "kernel_AS_CPU_per_file; two_phase_seccomp; sampled_IO_storage_output",
+  "exec_seal_pin": {
+    "bytes": 15544,
+    "device": 27,
+    "inode": 404113,
+    "path": "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/supervisor/exec_seal.so",
+    "read_charge_bytes": 15544,
+    "sha256": "b43263f19e9d9f99b881e3ad48f85596d22ad8a402114ca712e4f4bc3d7d7ad7"
+  },
+  "expected_parent_pid": 5,
+  "failure": null,
+  "failures": [],
+  "full_native_io_custody": false,
+  "guard_pin": {
+    "bytes": 16720,
+    "device": 27,
+    "inode": 404111,
+    "path": "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/supervisor/leaf_guard",
+    "read_charge_bytes": 16720,
+    "sha256": "9d86a24af33cb8d114d8862d901aa270c806a24763221461fbf91ec00e904eb4"
+  },
+  "guard_status": {
+    "async_io_denied": true,
+    "credential_mutation_denied": true,
+    "descendants_denied": true,
+    "expected_parent_pid": 5,
+    "no_new_privs": 1,
+    "parent_death_signal": 9,
+    "parent_race_checked": true,
+    "pdeathsig_clear_denied": true,
+    "phase2_required": true,
+    "python_privilege_metadata_refused": true,
+    "schema": "radio-leaf-guard-v1",
+    "seccomp_mode": 2,
+    "sockets_denied": true
+  },
+  "guarded_leaf": true,
+  "limits": {
+    "address_space_bytes": 536870912,
+    "artifact_bytes": 67108864,
+    "artifact_root": "/workspace/scratch/da6462abff17/radio-runtime-metadata-capture-20261005e",
+    "child_wall_seconds": 90,
+    "cleanup_seconds": 10,
+    "cpu_seconds": 80,
+    "exec_seal_path": "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/supervisor/exec_seal.so",
+    "exec_seal_sha256": "b43263f19e9d9f99b881e3ad48f85596d22ad8a402114ca712e4f4bc3d7d7ad7",
+    "guard_path": "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/supervisor/leaf_guard",
+    "guard_sha256": "9d86a24af33cb8d114d8862d901aa270c806a24763221461fbf91ec00e904eb4",
+    "per_file_bytes": 8388608,
+    "phase2_path": "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/supervisor/phase2_bootstrap.py",
+    "phase2_sha256": "9e953acdd85f3c401abbf078bd62fb7cb898cebb1a12d7d09ed6afcb859cd6f3",
+    "pin_read_budget_bytes": 33554432,
+    "proc_metadata_budget_bytes": 33554432,
+    "python_path": "/workspace/scratch/da6462abff17/radio-offline-runtime-materialization-20261005c/installer/venv/bin/python",
+    "python_sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7",
+    "read_reserve_bytes": 536870912,
+    "sample_interval_seconds": 0.02,
+    "stderr_bytes": 2097152,
+    "stdout_bytes": 2097152
+  },
+  "no_descendants_eligible": true,
+  "observation_limits": [
+    "proc_io_unavailable_local_pid_view_FileNotFoundError"
+  ],
+  "opaque_child_read_reserve_bytes": 536870912,
+  "output": {
+    "stderr": {
+      "bytes": 154,
+      "path": "/workspace/scratch/da6462abff17/radio-runtime-metadata-capture-20261005e/processes/capture.stderr.bin",
+      "received_bytes": 154,
+      "sha256": "38bdc7dfc8ca28970cda9ea864fb26a1d4c9dd69a7898eef5c242ffb50302c8f"
+    },
+    "stdout": {
+      "bytes": 327,
+      "path": "/workspace/scratch/da6462abff17/radio-runtime-metadata-capture-20261005e/processes/capture.stdout.bin",
+      "received_bytes": 327,
+      "sha256": "f38dbe789bb59edb4214877649e468759e450ee09d62a0558494203ff53b9d6c"
+    }
+  },
+  "phase2_pin": {
+    "bytes": 1635,
+    "device": 27,
+    "inode": 404114,
+    "path": "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/supervisor/phase2_bootstrap.py",
+    "read_charge_bytes": 1635,
+    "sha256": "9e953acdd85f3c401abbf078bd62fb7cb898cebb1a12d7d09ed6afcb859cd6f3"
+  },
+  "phase2_status": {
+    "exec_denied": true,
+    "no_new_privs": 1,
+    "schema": "radio-leaf-phase2-v1",
+    "scientific_imports_started": false,
+    "seccomp_mode": 2
+  },
+  "pid": 6,
+  "pin_read_charge_bytes": 30928843,
+  "proc_child_metadata_read_charge_bytes": 0,
+  "proc_metadata_read_charge_bytes": 2313,
+  "proc_samples": [
+    {
+      "available": false,
+      "error": "FileNotFoundError",
+      "local_wait_pid": 6,
+      "no_substituted_counters": true,
+      "terminal": false
+    }
+  ],
+  "python_pin": {
+    "bytes": 30894944,
+    "device": 27,
+    "inode": 544663,
+    "path": "/workspace/scratch/da6462abff17/radio-offline-runtime-materialization-20261005c/installer/venv/bin/python",
+    "read_charge_bytes": 30894944,
+    "sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7"
+  },
+  "runtime_qualified": false,
+  "schema": "radio-direct-leaf-custody-v1",
+  "scientific_authority": false,
+  "started_monotonic": 54405.178576417,
+  "status": "GUARDED_LEAF_COMPLETED_OBSERVATIONS_ONLY",
+  "terminal_observed_monotonic": 54406.29995822,
+  "terminal_proc": {
+    "available": false,
+    "error": "FileNotFoundError",
+    "local_wait_pid": 6,
+    "no_substituted_counters": true,
+    "terminal": true
+  },
+  "wait4": {
+    "exact_direct_child_wait4": true,
+    "inblock": 0,
+    "involuntary_switches": 27,
+    "maxrss_bytes": 227119104,
+    "maxrss_kib": 221796,
+    "oublock": 5616,
+    "pid": 6,
+    "raw_status": 0,
+    "returncode": 0,
+    "system_seconds": 0.47380799999999995,
+    "user_seconds": 0.644573,
+    "voluntary_switches": 1
+  },
+  "wait4_direct_child_ru_maxrss_bytes": 227119104,
+  "wrapped_python_argv": [
+    "/workspace/scratch/da6462abff17/radio-offline-runtime-materialization-20261005c/installer/venv/bin/python",
+    "-I",
+    "-B",
+    "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/supervisor/phase2_bootstrap.py",
+    "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/supervisor/exec_seal.so",
+    "b43263f19e9d9f99b881e3ad48f85596d22ad8a402114ca712e4f4bc3d7d7ad7",
+    "path",
+    "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/collector/collect_runtime_identity.py",
+    "--activate-native-metadata",
+    "--venv-root",
+    "/workspace/scratch/da6462abff17/radio-offline-runtime-materialization-20261005c/installer/venv",
+    "--filter-input",
+    "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/collector/filter-input.json",
+    "--record-relocations",
+    "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/collector/record-relocations.json",
+    "--record-inputs",
+    "/workspace/scratch/da6462abff17/runtime-metadata-preparation-E/collector/record-inputs.json",
+    "--output",
+    "/workspace/scratch/da6462abff17/radio-runtime-metadata-capture-20261005e/native-metadata.json"
+  ]
+}

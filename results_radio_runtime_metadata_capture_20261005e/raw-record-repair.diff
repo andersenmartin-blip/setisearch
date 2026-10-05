@@ -1,0 +1,261 @@
+--- collect_runtime_identity_before_raw_record.py
++++ collect_runtime_identity.py
+@@ -6,9 +6,11 @@
+ """
+ import argparse
+ import base64
++import csv
+ import hashlib
+ import importlib
+ import importlib.metadata
++import io
+ import json
+ import os
+ from pathlib import Path
+@@ -23,6 +25,8 @@
+ MAX_OUTPUT_BYTES = 8 * 1024 * 1024
+ MAX_MAP_BYTES = 2 * 1024 * 1024
+ MAX_FILES = 12000
++MAX_RECORD_BYTES = 1024 * 1024
++MAX_RECORD_MEMBER_BYTES = 128 * 1024 * 1024
+ NO_AUTHORITY = {key: False for key in (
+     "scientific_execution_authorized", "spectral_access_authorized",
+     "runtime_qualified", "source_closure_qualified", "native_custody_qualified",
+@@ -353,10 +357,140 @@
+                    "identity": ident}
+ 
+ 
+-def distribution_inventory(name, distribution, venv_root, reader, record_relocations=None):
+-    files = distribution.files
+-    if files is None or len(files) > MAX_FILES:
+-        raise Refusal("complete finite distribution RECORD inventory required")
++def _validate_record_inputs(value, venv_root):
++    """Bind all three complete installed RECORD bodies, independently of .files."""
++    root = Path(venv_root).resolve(strict=True)
++    site = root / "lib/python3.12/site-packages"
++    if (type(value) is not dict or set(value) != {"schema", "venv_root", "records"} or
++            value["schema"] != "seti-installed-raw-record-inputs-v1" or
++            value["venv_root"] != str(root) or type(value["records"]) is not dict or
++            set(value["records"]) != set(COHORT)):
++        raise Refusal("exact cohort raw RECORD input schema required")
++    if site.resolve(strict=True) != site:
++        raise Refusal("raw RECORD site contains a namespace alias")
++    for name, version in COHORT.items():
++        row = value["records"][name]
++        if type(row) is not dict or set(row) != {"version", "record_pin"} or row["version"] != version:
++            raise Refusal("exact cohort raw RECORD version required")
++        pin = row["record_pin"]
++        path = site / (name + "-" + version + ".dist-info") / "RECORD"
++        if (type(pin) is not dict or set(pin) != {"path", "bytes", "sha256", "mode"} or
++                pin["path"] != str(path) or type(pin["bytes"]) is not int or
++                not 0 < pin["bytes"] <= MAX_RECORD_BYTES or type(pin["mode"]) is not int or
++                not 0 <= pin["mode"] <= 0o777 or type(pin["sha256"]) is not str):
++            raise Refusal("exact finite raw RECORD whole-file pin required")
++        try:
++            digest = bytes.fromhex(pin["sha256"])
++        except ValueError:
++            raise Refusal("raw RECORD SHA256 is invalid") from None
++        if len(digest) != 32 or digest.hex() != pin["sha256"]:
++            raise Refusal("raw RECORD SHA256 is not canonical")
++        if path.resolve(strict=True) != path:
++            raise Refusal("raw RECORD path contains a namespace alias")
++    return value
++
++
++def _read_record_inputs(path, reader, venv_root):
++    raw, ident = reader.file(path, cap=65536)
++    def unique(pairs):
++        value = {}
++        for key, item in pairs:
++            if key in value:
++                raise Refusal("duplicate raw RECORD input JSON key")
++            value[key] = item
++        return value
++    value = json.loads(raw, object_pairs_hook=unique)
++    _validate_record_inputs(value, venv_root)
++    return value, {"path": str(path), "bytes": len(raw), "sha256": hashlib.sha256(raw).hexdigest(),
++                   "identity": ident}
++
++
++def _parse_raw_record(raw, name):
++    """Parse every row; this never consults the presence-filtered .files property."""
++    if name not in COHORT or not raw or len(raw) > MAX_RECORD_BYTES:
++        raise Refusal("complete finite raw RECORD body required")
++    try:
++        text = raw.decode("utf-8", "strict")
++    except UnicodeDecodeError:
++        raise Refusal("raw RECORD must be strict UTF-8") from None
++    if "\x00" in text or text.startswith("\ufeff"):
++        raise Refusal("raw RECORD has forbidden control/BOM bytes")
++    own_record = name + "-" + COHORT[name] + ".dist-info/RECORD"
++    rows, seen = [], set()
++    try:
++        for ordinal, row in enumerate(csv.reader(io.StringIO(text, newline=""), strict=True), 1):
++            if ordinal > MAX_FILES or len(row) != 3:
++                raise Refusal("raw RECORD row count or three-column schema invalid")
++            path, hashed, sized = row
++            if (not path or len(path.encode("utf-8")) > 4096 or path.startswith("/") or
++                    "\\" in path or any(ord(c) < 32 or ord(c) == 127 for c in path) or
++                    Path(path).as_posix() != path):
++                raise Refusal("raw RECORD path is unsafe or noncanonical")
++            if path in seen:
++                raise Refusal("duplicate distribution RECORD path")
++            seen.add(path)
++            if ".." in Path(path).parts and not (name == "numpy" and path in
++                    {"../../bin/f2py", "../../bin/numpy-config"}):
++                raise Refusal("unknown target RECORD relocation path")
++            if path == own_record:
++                if hashed or sized:
++                    raise Refusal("raw RECORD self row must have empty hash and size")
++                size = None
++            else:
++                if (not hashed.startswith("sha256=") or len(hashed) != 50 or
++                        not sized or not sized.isascii() or not sized.isdecimal() or
++                        len(sized) > 9):
++                    raise Refusal("raw RECORD sha256/size syntax invalid")
++                try:
++                    digest = base64.b64decode(hashed[7:] + "=", altchars=b"-_", validate=True)
++                except ValueError:
++                    raise Refusal("raw RECORD sha256 encoding invalid") from None
++                if (len(digest) != 32 or base64.urlsafe_b64encode(digest).rstrip(b"=").decode("ascii") != hashed[7:]):
++                    raise Refusal("raw RECORD sha256 is not canonical")
++                size = int(sized)
++                if str(size) != sized or size > MAX_RECORD_MEMBER_BYTES:
++                    raise Refusal("raw RECORD size is noncanonical or outside finite member bound")
++            item = importlib.metadata.PackagePath(path)
++            item.hash = importlib.metadata.FileHash(hashed) if hashed else None
++            item.size = size
++            item.record_ordinal = ordinal
++            rows.append(item)
++    except csv.Error as exc:
++        raise Refusal("raw RECORD CSV invalid: " + str(exc)[:100]) from None
++    if not rows or own_record not in seen:
++        raise Refusal("raw RECORD must contain its unique self row")
++    return rows
++
++
++def _raw_record_entries(name, distribution, venv_root, reader, record_inputs):
++    _validate_record_inputs(record_inputs, venv_root)
++    if name not in COHORT:
++        raise Refusal("distribution outside exact raw RECORD cohort")
++    pin = record_inputs["records"][name]["record_pin"]
++    record_path = Path(pin["path"])
++    # PathDistribution's concrete metadata directory must be the frozen owner.
++    metadata_path = getattr(distribution, "_path", None)
++    if (not isinstance(metadata_path, Path) or metadata_path != record_path.parent or
++            metadata_path.resolve(strict=True) != metadata_path):
++        raise Refusal("distribution metadata path differs from exact raw RECORD owner")
++    if distribution.version != COHORT[name]:
++        raise Refusal("distribution version differs from exact raw RECORD cohort")
++    raw, observed = reader.file(record_path, cap=MAX_RECORD_BYTES)
++    digest = hashlib.sha256(raw).hexdigest()
++    if (len(raw) != pin["bytes"] or digest != pin["sha256"] or
++            stat.S_IMODE(observed["mode"]) != pin["mode"]):
++        raise Refusal("raw RECORD whole bytes differ from frozen input")
++    files = _parse_raw_record(raw, name)
++    source = {"path": str(record_path), "bytes": len(raw), "sha256": digest,
++              "identity": observed, "raw_base64": base64.b64encode(raw).decode("ascii"),
++              "raw_row_count": len(files), "authoritative_complete_raw_rows": True,
++              "distribution_files_property_used_for_inventory": False}
++    return files, source
++
++
++def distribution_inventory(name, distribution, venv_root, reader, record_relocations=None,
++                           record_inputs=None):
++    files, record_source = _raw_record_entries(name, distribution, venv_root, reader, record_inputs)
+     root = Path(venv_root).resolve(strict=True)
+     relocation_rows = {}
+     if record_relocations is not None:
+@@ -364,12 +498,16 @@
+         if name == "numpy":
+             relocation_rows = {r["record_path"]: r for r in record_relocations["rows"]}
+     rows, native, seen, used = [], [], set(), set()
++    # Match stdlib .files presence semantics and retain its raw CSV row order,
++    # while the authoritative inventory below has stable lexical path order.
++    projection = [str(item) for item in files
++                  if (root / "lib/python3.12/site-packages" / str(item)).exists()]
+     for item in sorted(files, key=str):
+         record_path = str(item)
+         if record_path in seen:
+             raise Refusal("duplicate distribution RECORD path")
+         seen.add(record_path)
+-        declared = Path(distribution.locate_file(item))
++        declared = root / "lib/python3.12/site-packages" / record_path
+         located = declared
+         witness = None
+         if record_path in relocation_rows:
+@@ -395,6 +533,8 @@
+                        "whole_script_bytes_verified": True}
+         elif ".." in Path(record_path).parts:
+             raise Refusal("unknown target RECORD relocation path")
++        if not located.exists():
++            raise Refusal("raw RECORD declares a missing ordinary file")
+         resolved = located.resolve(strict=True)
+         if not resolved.is_relative_to(root):
+             raise Refusal("distribution file escapes isolated venv")
+@@ -402,7 +542,8 @@
+         if not stat.S_ISREG(st.st_mode):
+             raise Refusal("distribution inventory contains nonregular file")
+         h = item.hash
+-        rows.append({"record_path": record_path, "declared_located_path": str(declared),
++        rows.append({"record_path": record_path, "raw_record_row_ordinal": item.record_ordinal,
++                     "declared_located_path": str(declared),
+                      "located_path": str(located), "resolved_path": str(resolved), "identity": identity(st),
+                      "record_size": item.size,
+                      "record_hash": None if h is None else {"mode": h.mode, "value": h.value},
+@@ -413,6 +554,13 @@
+         raise Refusal("frozen target RECORD relocation row was unused")
+     return {"name": name, "version": distribution.version,
+             "file_count": len(rows), "files": rows, "declared_native_elf": native,
++            "raw_record_source": record_source,
++            "stdlib_distribution_files_projection": {
++                "projection_reconstructed_from_pinned_raw_RECORD": True,
++                "path_order": "raw_RECORD_row_order",
++                "presence_filtered_paths": projection, "presence_filtered_count": len(projection),
++                "omitted_declared_paths": sorted(seen - set(projection)),
++                "projection_is_not_complete_inventory": True},
+             "verified_generated_script_relocations": len(used),
+             "record_hashes_are_expectations_not_verified_non_native_file_hashes": True}
+ 
+@@ -486,7 +634,9 @@
+     result["declared_plugin_filters"] = actual_filters
+     result["distributions_after"] = {n: inventory(n, d) for n, d in distributions.items()}
+     result["distribution_before_after_equal"] = {
+-        name: result["distributions_before"][name]["files"] == result["distributions_after"][name]["files"]
++        name: (result["distributions_before"][name]["files"] == result["distributions_after"][name]["files"] and
++               result["distributions_before"][name].get("raw_record_source") ==
++               result["distributions_after"][name].get("raw_record_source"))
+         for name in COHORT}
+     result["maps_after_plugin_and_inventory"] = snapshotter()
+     result["status"] = "COLLECTED_IDENTITY_INPUTS_ONLY"
+@@ -510,6 +660,7 @@
+     parser.add_argument("--venv-root", required=True)
+     parser.add_argument("--filter-input", required=True)
+     parser.add_argument("--record-relocations", required=True)
++    parser.add_argument("--record-inputs", required=True)
+     parser.add_argument("--output", required=True)
+     args = parser.parse_args(argv)
+     if not args.activate_native_metadata:
+@@ -541,10 +692,12 @@
+     reader = BoundedReader()
+     filter_input, input_pin = _read_filter_input(args.filter_input, reader)
+     record_relocations, relocation_input_pin = _read_record_relocations(args.record_relocations, reader, args.venv_root)
++    record_inputs, record_input_pin = _read_record_inputs(args.record_inputs, reader, args.venv_root)
+     result = collect(args.venv_root, filter_input["filters"], importer=importlib.import_module,
+                      distribution_getter=importlib.metadata.distribution,
+                      snapshotter=lambda: maps_snapshot(reader),
+-                     inventory=lambda n, d: distribution_inventory(n, d, args.venv_root, reader, record_relocations),
++                     inventory=lambda n, d: distribution_inventory(n, d, args.venv_root, reader,
++                                                                   record_relocations, record_inputs),
+                      module_observer=lambda m: module_identity(m, args.venv_root))
+     if Path(result["plugin_path"]).resolve() != expected_plugin.resolve():
+         raise Refusal("imported plugin directory differs from expected isolated package")
+@@ -556,6 +709,8 @@
+     result["filter_source_members"] = filter_input["source_members"]
+     result["record_relocations_input"] = relocation_input_pin
+     result["record_relocations"] = record_relocations
++    result["raw_record_inputs"] = record_input_pin
++    result["raw_record_expected_pins"] = record_inputs
+     result["process"] = {"pid": os.getpid(), "executable": sys.executable,
+                          "prefix": sys.prefix, "base_prefix": sys.base_prefix,
+                          "python_version": sys.version, "isolated": bool(sys.flags.isolated),
