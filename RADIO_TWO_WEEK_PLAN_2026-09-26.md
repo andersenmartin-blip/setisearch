@@ -1,3 +1,23 @@
+## 6 October: J loader-history reducer prepared, live observation pending
+
+[J](RADIO_LOADER_LIFETIME_2026-10-06J_PREPARATION.md) is
+**SOURCE_COMPONENT_NO_COLLECTOR_NO_DISPATCH**: 27 new source/helper tests pass,
+including retention of transient objects and refusal to turn a rehashed omission
+into collector/coverage authority. I's producer and public readback stay retained;
+no unchanged tests or closed control are replayed. The old canonical runtime path
+is absent here; recorded administrative file reads are 33,771,656 bytes, not a
+native/scientific reservation. No collector, target runtime launch, codec control,
+marker, allocation, trace or telescope data was created.
+
+Next: authentic package recovery and a distinct current-storage/runtime contract,
+then qualify startup-to-terminal collector/descriptor custody, including the
+currently refused kernel objects and additional namespaces. Join I/H and the
+existing process/terminal-IO component before a separately frozen/read-back
+outer and one-shot activation. Proposed codec bounds remain unallocated; selected
+spent subtotal2,920s/5,512MiB and historical exhausted ledgers are unchanged.
+All source/scientific gates, targets/holds, unopened holdouts and paused LS/unsent
+CHEOPS persist. Consolidate 9 October 2026 without automatic extension.
+
 ## 6 October 2026: codec12 I source integration closes the implementation step
 
 [I](RADIO_CODEC12_2026-10-06I_IMPLEMENTATION.md) supplies complete producer

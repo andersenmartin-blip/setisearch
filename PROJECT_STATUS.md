@@ -1,3 +1,31 @@
+## 6 October 2026: transient loader-object source component J; no collector
+
+[The J continuation](RADIO_LOADER_LIFETIME_2026-10-06J_PREPARATION.md) is
+**SOURCE_COMPONENT_NO_COLLECTOR_NO_DISPATCH**. Its bounded pure reducer retains
+transient object generations after unload and refuses substituted, truncated,
+resumed or incomplete event streams. All 27 new source/helper tests pass. The
+explicit omitted/rehashed-pair test preserves the critical limitation: chains
+and self-reported pins cannot authenticate a collector or prove coverage.
+Every runtime/custody/codec/execution/science authority remains false. I's 43-test
+producer result, both receiver contexts and public readback are retained without
+replaying H/G/I or any old scope.
+
+The former canonical G target runtime is absent here. Fresh administrative
+file-only pins and 33,771,656 read bytes are recorded; present strace/base Python
+files are not a qualified installed cohort or proof of tracing access. Eleven
+immutable I/H/G context bodies / 101,933 bytes are source context only. No native
+trace, target interpreter, codec control, activation, allocation or spectrum was
+used. Next: authentic package recovery under a distinct current-storage/runtime
+contract and a real qualified collector with startup/terminal and descriptor
+custody, then join I/H and process/terminal-IO before a separate executable outer
+freeze, independent preread and one-shot activation. Kernel pseudo-objects and
+extra namespaces are currently unsupported, never silently admitted.
+The codec600s/540CPU/448MiB/4GiB+1GiB proposal stays unallocated; selected spent
+2,920s/5,512MiB and old exhausted ledgers stay unchanged. HD189733/neighbor9,
+HD1461 HOLD, GJ724 reserve, unopened spectra/112+128, native8 unreserved,127+24
+inactive,M43AI closed,M15/M33 unresolved,LS paused/BF untouched,CHEOPS UNSENT.
+Consolidate 9 October without extension or person messages.
+
 ## 6 October 2026: complete codec12 producer source integrated; activation closed
 
 [Codec12 I](RADIO_CODEC12_2026-10-06I_IMPLEMENTATION.md) implements the

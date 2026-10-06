@@ -1,5 +1,16 @@
 # SETIsearch
 
+## 6 October: transient loader history retained in an inert component
+
+[Loader lifetime J](RADIO_LOADER_LIFETIME_2026-10-06J_PREPARATION.md) adds a
+bounded source-only event reducer with 27 passing new tests. Loaded/unloaded
+object generations remain in its receipt; a rehashed omitted pair still cannot
+grant collector or completeness authority. The old canonical target runtime is
+absent here. No collector, native trace, codec control, activation or spectrum
+was created. Next is authenticated runtime recovery and a qualified complete
+observer before joining I/H into any executable outer gate. All scientific gates
+remain closed, and consolidation is still 9 October without extension.
+
 ## 6 October: complete codec12 producer source implemented
 
 [Codec12 I](RADIO_CODEC12_2026-10-06I_IMPLEMENTATION.md) implements the fixed

@@ -1,3 +1,18 @@
+## 6 October: loader generation retention J is source-only; restore runtime first
+
+[Loader lifetime J](RADIO_LOADER_LIFETIME_2026-10-06J_PREPARATION.md) adds a
+bounded pure event reducer with 27 passing new tests. Transient object generations
+are retained after unload, while a deliberately rehashed omission still grants
+no collector authentication or completeness. No actual collector/native trace,
+codec run, activation, allocation or telescope analysis exists. I/H remain intact.
+The previously canonical target runtime is absent; administrative binary pins do
+not qualify a replacement. Next is authenticated package recovery under a
+separate current-runtime contract, then collector/descriptor/startup/terminal
+qualification integrated with I/H and the existing process/IO component. Only a
+later independently read-back executable outer freeze and one-shot activation
+could dispatch a controlled codec. All science gates, spent budgets and failure
+states remain; consolidate 9 October with no target change or plan extension.
+
 ## 6 October 2026: codec12 producer implemented; runtime/lifetime integration next
 
 [Codec12 I](RADIO_CODEC12_2026-10-06I_IMPLEMENTATION.md) adds authenticated
