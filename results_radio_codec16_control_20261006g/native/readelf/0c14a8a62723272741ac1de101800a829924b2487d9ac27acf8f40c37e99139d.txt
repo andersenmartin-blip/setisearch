@@ -1,0 +1,73 @@
+
+Elf file type is DYN (Shared object file)
+Entry point 0xd7c00
+There are 15 program headers, starting at offset 64
+
+Program Headers:
+  Type           Offset   VirtAddr           PhysAddr           FileSiz  MemSiz   Flg Align
+  LOAD           0x000000 0x0000000000000000 0x0000000000000000 0x0cf018 0x0cf018 R   0x1000
+  GNU_STACK      0x000000 0x0000000000000000 0x0000000000000000 0x000000 0x000000 RW  0x10
+  LOAD           0x0d0000 0x00000000000d0000 0x00000000000d0000 0x12fd0f5 0x12fd0f5 R E 0x1000
+  LOAD           0x13ce000 0x00000000013ce000 0x00000000013ce000 0x1e8390 0x1e8390 R   0x1000
+  GNU_EH_FRAME   0x13ea950 0x00000000013ea950 0x00000000013ea950 0x01724c 0x01724c R   0x4
+  LOAD           0x15b6d00 0x00000000015b7d00 0x00000000015b7d00 0x015304 0x01d148 RW  0x1000
+  TLS            0x15b6d00 0x00000000015b7d00 0x00000000015b7d00 0x000000 0x023000 R   0x10
+  GNU_RELRO      0x15b6d00 0x00000000015b7d00 0x00000000015b7d00 0x007300 0x007300 R   0x1
+  NOTE           0x16a9000 0x00000000015db000 0x00000000015db000 0x000024 0x000024 R   0x4
+  LOAD           0x16a9000 0x00000000015db000 0x00000000015db000 0x04ee40 0x04ee40 RW  0x1000
+  LOAD           0x16f8000 0x000000000162a000 0x000000000162a000 0x039ee0 0x039ee0 RW  0x1000
+  LOAD           0x1732000 0x0000000001664000 0x0000000001664000 0x039ce0 0x039ce0 RW  0x1000
+  DYNAMIC        0x176c000 0x000000000169e000 0x000000000169e000 0x000230 0x000230 RW  0x8
+  LOAD           0x176c000 0x000000000169e000 0x000000000169e000 0x039f18 0x039f18 RW  0x1000
+  LOAD           0x17a6000 0x00000000016d8000 0x00000000016d8000 0x039d10 0x039d10 RW  0x1000
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .dynsym .gnu.version .gnu.version_r .rela.dyn .rela.plt 
+   01     
+   02     .init .plt .text .fini 
+   03     .rodata .eh_frame_hdr .eh_frame 
+   04     .eh_frame_hdr 
+   05     .init_array .fini_array .data.rel.ro .got .got.plt .data .bss 
+   06     .tbss 
+   07     .init_array .fini_array .data.rel.ro .got 
+   08     .note.gnu.build-id 
+   09     .note.gnu.build-id .gnu.hash 
+   10     
+   11     
+   12     .dynamic 
+   13     .dynamic 
+   14     .dynstr 
+
+Dynamic section at offset 0x176c000 contains 30 entries:
+  Tag        Type                         Name/Value
+ 0x000000000000000f (RPATH)              Library rpath: [$ORIGIN]
+ 0x0000000000000001 (NEEDED)             Shared library: [libm.so.6]
+ 0x0000000000000001 (NEEDED)             Shared library: [libpthread.so.0]
+ 0x0000000000000001 (NEEDED)             Shared library: [libgfortran-040039e1-0352e75f.so.5.0.0]
+ 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
+ 0x0000000000000001 (NEEDED)             Shared library: [ld-linux-x86-64.so.2]
+ 0x000000000000000e (SONAME)             Library soname: [libscipy_openblas64_-fdde5778.so]
+ 0x000000000000000c (INIT)               0xd0000
+ 0x000000000000000d (FINI)               0x13cd0ec
+ 0x0000000000000019 (INIT_ARRAY)         0x15b7d00
+ 0x000000000000001b (INIT_ARRAYSZ)       16 (bytes)
+ 0x000000000000001a (FINI_ARRAY)         0x15b7d10
+ 0x000000000000001c (FINI_ARRAYSZ)       16 (bytes)
+ 0x000000006ffffef5 (GNU_HASH)           0x15db028
+ 0x0000000000000005 (STRTAB)             0x16d8000
+ 0x0000000000000006 (SYMTAB)             0x153f8
+ 0x000000000000000a (STRSZ)              236815 (bytes)
+ 0x000000000000000b (SYMENT)             24 (bytes)
+ 0x0000000000000003 (PLTGOT)             0x15bf000
+ 0x0000000000000002 (PLTRELSZ)           47232 (bytes)
+ 0x0000000000000014 (PLTREL)             RELA
+ 0x0000000000000017 (JMPREL)             0xc3798
+ 0x0000000000000007 (RELA)               0x979e0
+ 0x0000000000000008 (RELASZ)             179640 (bytes)
+ 0x0000000000000009 (RELAENT)            24 (bytes)
+ 0x000000006ffffffe (VERNEED)            0x978d0
+ 0x000000006fffffff (VERNEEDNUM)         5
+ 0x000000006ffffff0 (VERSYM)             0x91f90
+ 0x000000006ffffff9 (RELACOUNT)          35
+ 0x0000000000000000 (NULL)               0x0

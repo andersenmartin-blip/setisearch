@@ -1,0 +1,69 @@
+
+Elf file type is DYN (Shared object file)
+Entry point 0x0
+There are 12 program headers, starting at offset 64
+
+Program Headers:
+  Type           Offset   VirtAddr           PhysAddr           FileSiz  MemSiz   Flg Align
+  LOAD           0x000000 0x0000000000000000 0x0000000000000000 0x055130 0x055130 R   0x1000
+  GNU_STACK      0x000000 0x0000000000000000 0x0000000000000000 0x000000 0x000000 RW  0x10
+  LOAD           0x056000 0x0000000000056000 0x0000000000056000 0x3fde21 0x3fde21 R E 0x1000
+  LOAD           0x454000 0x0000000000454000 0x0000000000454000 0x0c5fc8 0x0c5fc8 R   0x1000
+  GNU_EH_FRAME   0x4c28d0 0x00000000004c28d0 0x00000000004c28d0 0x00a2fc 0x00a2fc R   0x4
+  LOAD           0x51a250 0x000000000051a250 0x000000000051a250 0x016220 0x0197b8 RW  0x1000
+  GNU_RELRO      0x51a250 0x000000000051a250 0x000000000051a250 0x00ddb0 0x00ddb0 R   0x1
+  NOTE           0x597000 0x0000000000534000 0x0000000000534000 0x000024 0x000024 R   0x4
+  LOAD           0x597000 0x0000000000534000 0x0000000000534000 0x01a428 0x01a428 RW  0x1000
+  DYNAMIC        0x5b2000 0x000000000054f000 0x000000000054f000 0x000250 0x000250 RW  0x8
+  LOAD           0x5b2000 0x000000000054f000 0x000000000054f000 0x0136c8 0x0136c8 RW  0x1000
+  LOAD           0x5c6000 0x0000000000563000 0x0000000000563000 0x0134a8 0x0134a8 RW  0x1000
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .dynsym .gnu.version .gnu.version_r .rela.dyn .rela.plt 
+   01     
+   02     .init .plt .text .fini 
+   03     .rodata .eh_frame_hdr .eh_frame 
+   04     .eh_frame_hdr 
+   05     .init_array .fini_array .data.rel.ro .got .got.plt .data .bss 
+   06     .init_array .fini_array .data.rel.ro .got 
+   07     .note.gnu.build-id 
+   08     .note.gnu.build-id .gnu.hash 
+   09     .dynamic 
+   10     .dynamic 
+   11     .dynstr 
+
+Dynamic section at offset 0x5b2000 contains 32 entries:
+  Tag        Type                         Name/Value
+ 0x000000000000000f (RPATH)              Library rpath: [$ORIGIN]
+ 0x0000000000000001 (NEEDED)             Shared library: [libm.so.6]
+ 0x0000000000000001 (NEEDED)             Shared library: [libdl.so.2]
+ 0x0000000000000001 (NEEDED)             Shared library: [libz.so.1]
+ 0x0000000000000001 (NEEDED)             Shared library: [libsz-c6be10dd.so.2.0.1]
+ 0x0000000000000001 (NEEDED)             Shared library: [libaec-a27cf049.so.0.1.4]
+ 0x0000000000000001 (NEEDED)             Shared library: [libpthread.so.0]
+ 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
+ 0x000000000000000e (SONAME)             Library soname: [libhdf5-9e18f0c6.so.320.0.0]
+ 0x000000000000000c (INIT)               0x56000
+ 0x000000000000000d (FINI)               0x453e14
+ 0x0000000000000019 (INIT_ARRAY)         0x51a250
+ 0x000000000000001b (INIT_ARRAYSZ)       8 (bytes)
+ 0x000000000000001a (FINI_ARRAY)         0x51a258
+ 0x000000000000001c (FINI_ARRAYSZ)       8 (bytes)
+ 0x000000006ffffef5 (GNU_HASH)           0x534028
+ 0x0000000000000005 (STRTAB)             0x563000
+ 0x0000000000000006 (SYMTAB)             0x71f0
+ 0x000000000000000a (STRSZ)              79015 (bytes)
+ 0x000000000000000b (SYMENT)             24 (bytes)
+ 0x0000000000000003 (PLTGOT)             0x527fe8
+ 0x0000000000000002 (PLTRELSZ)           52944 (bytes)
+ 0x0000000000000014 (PLTREL)             RELA
+ 0x0000000000000017 (JMPREL)             0x48260
+ 0x0000000000000007 (RELA)               0x35300
+ 0x0000000000000008 (RELASZ)             77664 (bytes)
+ 0x0000000000000009 (RELAENT)            24 (bytes)
+ 0x000000006ffffffe (VERNEED)            0x351f0
+ 0x000000006fffffff (VERNEEDNUM)         5
+ 0x000000006ffffff0 (VERSYM)             0x3310a
+ 0x000000006ffffff9 (RELACOUNT)          1903
+ 0x0000000000000000 (NULL)               0x0

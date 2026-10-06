@@ -1,0 +1,56 @@
+
+Elf file type is DYN (Shared object file)
+Entry point 0x0
+There are 9 program headers, starting at offset 64
+
+Program Headers:
+  Type           Offset   VirtAddr           PhysAddr           FileSiz  MemSiz   Flg Align
+  LOAD           0x000000 0x0000000000000000 0x0000000000000000 0x001bc0 0x001bc0 R   0x1000
+  LOAD           0x002000 0x0000000000002000 0x0000000000002000 0x004d2d 0x004d2d R E 0x1000
+  LOAD           0x007000 0x0000000000007000 0x0000000000007000 0x001a54 0x001a54 R   0x1000
+  LOAD           0x0099b0 0x00000000000099b0 0x00000000000099b0 0x000948 0x000b68 RW  0x1000
+  DYNAMIC        0x009d90 0x0000000000009d90 0x0000000000009d90 0x0001d0 0x0001d0 RW  0x8
+  NOTE           0x000238 0x0000000000000238 0x0000000000000238 0x000024 0x000024 R   0x4
+  GNU_EH_FRAME   0x0080a8 0x00000000000080a8 0x00000000000080a8 0x00011c 0x00011c R   0x4
+  GNU_STACK      0x000000 0x0000000000000000 0x0000000000000000 0x000000 0x000000 RW  0x10
+  GNU_RELRO      0x0099b0 0x00000000000099b0 0x00000000000099b0 0x000650 0x000650 R   0x1
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .note.gnu.build-id .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt 
+   01     .init .plt .text .fini 
+   02     .rodata .eh_frame_hdr .eh_frame 
+   03     .init_array .fini_array .data.rel.ro .dynamic .got .got.plt .data .bss 
+   04     .dynamic 
+   05     .note.gnu.build-id 
+   06     .eh_frame_hdr 
+   07     
+   08     .init_array .fini_array .data.rel.ro .dynamic .got 
+
+Dynamic section at offset 0x9d90 contains 25 entries:
+  Tag        Type                         Name/Value
+ 0x0000000000000001 (NEEDED)             Shared library: [libm.so.6]
+ 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
+ 0x000000000000000c (INIT)               0x2000
+ 0x000000000000000d (FINI)               0x6d20
+ 0x0000000000000019 (INIT_ARRAY)         0x99b0
+ 0x000000000000001b (INIT_ARRAYSZ)       8 (bytes)
+ 0x000000000000001a (FINI_ARRAY)         0x99b8
+ 0x000000000000001c (FINI_ARRAYSZ)       8 (bytes)
+ 0x000000006ffffef5 (GNU_HASH)           0x260
+ 0x0000000000000005 (STRTAB)             0x850
+ 0x0000000000000006 (SYMTAB)             0x2e0
+ 0x000000000000000a (STRSZ)              1105 (bytes)
+ 0x000000000000000b (SYMENT)             24 (bytes)
+ 0x0000000000000003 (PLTGOT)             0x9fe8
+ 0x0000000000000002 (PLTRELSZ)           960 (bytes)
+ 0x0000000000000014 (PLTREL)             RELA
+ 0x0000000000000017 (JMPREL)             0x1800
+ 0x0000000000000007 (RELA)               0xd68
+ 0x0000000000000008 (RELASZ)             2712 (bytes)
+ 0x0000000000000009 (RELAENT)            24 (bytes)
+ 0x000000006ffffffe (VERNEED)            0xd18
+ 0x000000006fffffff (VERNEEDNUM)         2
+ 0x000000006ffffff0 (VERSYM)             0xca2
+ 0x000000006ffffff9 (RELACOUNT)          96
+ 0x0000000000000000 (NULL)               0x0

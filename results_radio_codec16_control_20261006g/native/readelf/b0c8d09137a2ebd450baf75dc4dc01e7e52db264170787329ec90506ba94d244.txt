@@ -1,0 +1,67 @@
+
+Elf file type is DYN (Shared object file)
+Entry point 0x0
+There are 12 program headers, starting at offset 64
+
+Program Headers:
+  Type           Offset   VirtAddr           PhysAddr           FileSiz  MemSiz   Flg Align
+  LOAD           0x000000 0x0000000000000000 0x0000000000000000 0x02a298 0x02a298 R   0x1000
+  GNU_STACK      0x000000 0x0000000000000000 0x0000000000000000 0x000000 0x000000 RW  0x10
+  LOAD           0x02b000 0x000000000002b000 0x000000000002b000 0x7ea185 0x7ea185 R E 0x1000
+  LOAD           0x816000 0x0000000000816000 0x0000000000816000 0x18ee3a 0x18ee3a R   0x1000
+  GNU_EH_FRAME   0x921940 0x0000000000921940 0x0000000000921940 0x010f14 0x010f14 R   0x4
+  LOAD           0x9a5ac0 0x00000000009a5ac0 0x00000000009a5ac0 0x0246d0 0x03bbd8 RW  0x1000
+  TLS            0x9a5ac0 0x00000000009a5ac0 0x00000000009a5ac0 0x000000 0x00b444 R   0x10
+  GNU_RELRO      0x9a5ac0 0x00000000009a5ac0 0x00000000009a5ac0 0x002540 0x002540 R   0x1
+  NOTE           0xa44000 0x00000000009e2000 0x00000000009e2000 0x000024 0x000024 R   0x4
+  LOAD           0xa44000 0x00000000009e2000 0x00000000009e2000 0x005730 0x005730 RW  0x1000
+  DYNAMIC        0xa4a000 0x00000000009e8000 0x00000000009e8000 0x000230 0x000230 RW  0x8
+  LOAD           0xa4a000 0x00000000009e8000 0x00000000009e8000 0x004e68 0x004e68 RW  0x1000
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .dynsym .gnu.version .gnu.version_r .rela.dyn .rela.plt 
+   01     
+   02     .init .plt .text .fini 
+   03     .rodata .eh_frame_hdr .eh_frame .gcc_except_table 
+   04     .eh_frame_hdr 
+   05     .init_array .fini_array .data.rel.ro .got .got.plt .data .bss 
+   06     .tbss 
+   07     .init_array .fini_array .data.rel.ro .got 
+   08     .note.gnu.build-id 
+   09     .note.gnu.build-id .gnu.hash 
+   10     .dynamic 
+   11     .dynamic .dynstr 
+
+Dynamic section at offset 0xa4a000 contains 30 entries:
+  Tag        Type                         Name/Value
+ 0x000000000000000f (RPATH)              Library rpath: [$ORIGIN/../../numpy.libs]
+ 0x0000000000000001 (NEEDED)             Shared library: [libscipy_openblas64_-fdde5778.so]
+ 0x0000000000000001 (NEEDED)             Shared library: [libstdc++.so.6]
+ 0x0000000000000001 (NEEDED)             Shared library: [libm.so.6]
+ 0x0000000000000001 (NEEDED)             Shared library: [libgcc_s.so.1]
+ 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
+ 0x0000000000000001 (NEEDED)             Shared library: [ld-linux-x86-64.so.2]
+ 0x000000000000000c (INIT)               0x2b000
+ 0x000000000000000d (FINI)               0x815178
+ 0x0000000000000019 (INIT_ARRAY)         0x9a5ac0
+ 0x000000000000001b (INIT_ARRAYSZ)       16 (bytes)
+ 0x000000000000001a (FINI_ARRAY)         0x9a5ad0
+ 0x000000000000001c (FINI_ARRAYSZ)       8 (bytes)
+ 0x000000006ffffef5 (GNU_HASH)           0x9e2028
+ 0x0000000000000005 (STRTAB)             0x9e8230
+ 0x0000000000000006 (SYMTAB)             0xd80
+ 0x000000000000000a (STRSZ)              19507 (bytes)
+ 0x000000000000000b (SYMENT)             24 (bytes)
+ 0x0000000000000003 (PLTGOT)             0x9a7fe8
+ 0x0000000000000002 (PLTRELSZ)           14400 (bytes)
+ 0x0000000000000014 (PLTREL)             RELA
+ 0x0000000000000017 (JMPREL)             0x26a58
+ 0x0000000000000007 (RELA)               0xae70
+ 0x0000000000000008 (RELASZ)             113640 (bytes)
+ 0x0000000000000009 (RELAENT)            24 (bytes)
+ 0x000000006ffffffe (VERNEED)            0xad30
+ 0x000000006fffffff (VERNEEDNUM)         5
+ 0x000000006ffffff0 (VERSYM)             0xa6ba
+ 0x000000006ffffff9 (RELACOUNT)          4478
+ 0x0000000000000000 (NULL)               0x0

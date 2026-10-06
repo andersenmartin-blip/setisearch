@@ -1,0 +1,76 @@
+
+Elf file type is EXEC (Executable file)
+Entry point 0x19b1200
+There are 15 program headers, starting at offset 64
+
+Program Headers:
+  Type           Offset   VirtAddr           PhysAddr           FileSiz  MemSiz   Flg Align
+  PHDR           0x000040 0x00000000003ff040 0x00000000003ff040 0x000348 0x000348 R   0x8
+  GNU_STACK      0x001000 0x0000000000000000 0x0000000000000000 0x000000 0x000000 RW  0x10
+  LOAD           0x000000 0x00000000003ff000 0x00000000003ff000 0x001000 0x001000 RW  0x1000
+  DYNAMIC        0x000388 0x00000000003ff388 0x00000000003ff388 0x000250 0x000250 RW  0x8
+  LOAD           0x001000 0x0000000000400000 0x0000000000400000 0x020d70 0x020d70 R   0x1000
+  INTERP         0x01c070 0x000000000041b070 0x000000000041b070 0x00001c 0x00001c R   0x1
+      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+  NOTE           0x01c090 0x000000000041b090 0x000000000041b090 0x000020 0x000020 R   0x4
+  NOTE           0x01c0b0 0x000000000041b0b0 0x000000000041b0b0 0x000024 0x000024 R   0x4
+  LOAD           0x022000 0x0000000000421000 0x0000000000421000 0x9eeb09 0x9eeb09 R E 0x1000
+  LOAD           0xa11000 0x0000000000e10000 0x0000000000e10000 0x5a23d8 0x5a23d8 R   0x1000
+  LOAD           0xfb3d50 0x00000000013b3d50 0x00000000013b3d50 0x2041b0 0x20f7c0 RW  0x1000
+  TLS            0xfb3d50 0x00000000013b3d50 0x00000000013b3d50 0x000000 0x000010 R   0x8
+  GNU_RELRO      0xfb3d50 0x00000000013b3d50 0x00000000013b3d50 0x07f2b0 0x07f2b0 R   0x1
+  LOAD           0x11b8000 0x0000000001600000 0x0000000001600000 0x8cb578 0x8cb578 R E 0x1000
+  GNU_EH_FRAME   0x1a2e784 0x0000000001e76784 0x0000000001e76784 0x054df4 0x054df4 R   0x4
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     
+   01     
+   02     .dynamic 
+   03     .dynamic 
+   04     .dynsym .gnu.hash .interp .note.ABI-tag .note.gnu.build-id .gnu.version .gnu.version_r .rela.dyn .rela.plt 
+   05     .interp 
+   06     .note.ABI-tag 
+   07     .note.gnu.build-id 
+   08     .init .plt .plt.got .bolt.org.text .fini 
+   09     .bolt.org.rodata .bolt.org.eh_frame_hdr .bolt.org.eh_frame 
+   10     .init_array .fini_array .data.rel.ro .got .data .tm_clone_table .PyRuntime .bss 
+   11     .tbss 
+   12     .init_array .fini_array .data.rel.ro .got 
+   13     .text .text.warm .text.cold .eh_frame .rodata .rodata.cold .eh_frame_hdr 
+   14     .eh_frame_hdr 
+
+Dynamic section at offset 0x388 contains 32 entries:
+  Tag        Type                         Name/Value
+ 0x000000000000000f (RPATH)              Library rpath: [$ORIGIN/../lib]
+ 0x0000000000000001 (NEEDED)             Shared library: [libpthread.so.0]
+ 0x0000000000000001 (NEEDED)             Shared library: [libdl.so.2]
+ 0x0000000000000001 (NEEDED)             Shared library: [libutil.so.1]
+ 0x0000000000000001 (NEEDED)             Shared library: [libm.so.6]
+ 0x0000000000000001 (NEEDED)             Shared library: [librt.so.1]
+ 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
+ 0x000000000000000c (INIT)               0x1a099c6
+ 0x000000000000000d (FINI)               0x190c8d6
+ 0x0000000000000019 (INIT_ARRAY)         0x13b3d50
+ 0x000000000000001b (INIT_ARRAYSZ)       24 (bytes)
+ 0x000000000000001a (FINI_ARRAY)         0x13b3d68
+ 0x000000000000001c (FINI_ARRAYSZ)       8 (bytes)
+ 0x000000006ffffef5 (GNU_HASH)           0x417bc8
+ 0x0000000000000005 (STRTAB)             0x3ff5d8
+ 0x0000000000000006 (SYMTAB)             0x409af8
+ 0x000000000000000a (STRSZ)              42266 (bytes)
+ 0x000000000000000b (SYMENT)             24 (bytes)
+ 0x0000000000000015 (DEBUG)              0x0
+ 0x0000000000000003 (PLTGOT)             0x1431d00
+ 0x0000000000000002 (PLTRELSZ)           13440 (bytes)
+ 0x0000000000000014 (PLTREL)             RELA
+ 0x0000000000000017 (JMPREL)             0x41d8f0
+ 0x0000000000000007 (RELA)               0x41d260
+ 0x0000000000000008 (RELASZ)             1680 (bytes)
+ 0x0000000000000009 (RELAENT)            24 (bytes)
+ 0x0000000000000018 (BIND_NOW)           
+ 0x000000006ffffffb (FLAGS_1)            Flags: NOW
+ 0x000000006ffffffe (VERNEED)            0x41d080
+ 0x000000006fffffff (VERNEEDNUM)         6
+ 0x000000006ffffff0 (VERSYM)             0x41bdc4
+ 0x0000000000000000 (NULL)               0x0

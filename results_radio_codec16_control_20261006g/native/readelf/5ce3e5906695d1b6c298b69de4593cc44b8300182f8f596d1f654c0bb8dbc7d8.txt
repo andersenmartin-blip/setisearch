@@ -1,0 +1,54 @@
+
+Elf file type is DYN (Shared object file)
+Entry point 0x1f540
+There are 11 program headers, starting at offset 64
+
+Program Headers:
+  Type           Offset   VirtAddr           PhysAddr           FileSiz  MemSiz   Flg Align
+  LOAD           0x000000 0x0000000000000000 0x0000000000000000 0x000dc0 0x000dc0 R   0x1000
+  LOAD           0x001000 0x0000000000001000 0x0000000000001000 0x02a195 0x02a195 R E 0x1000
+  LOAD           0x02c000 0x000000000002c000 0x000000000002c000 0x0098dc 0x0098dc R   0x1000
+  LOAD           0x036360 0x0000000000036360 0x0000000000036360 0x002da4 0x002f78 RW  0x1000
+  DYNAMIC        0x037e58 0x0000000000037e58 0x0000000000037e58 0x000180 0x000180 RW  0x8
+  NOTE           0x0002a8 0x00000000000002a8 0x00000000000002a8 0x000020 0x000020 R   0x8
+  NOTE           0x0002c8 0x00000000000002c8 0x00000000000002c8 0x000024 0x000024 R   0x4
+  GNU_PROPERTY   0x0002a8 0x00000000000002a8 0x00000000000002a8 0x000020 0x000020 R   0x8
+  GNU_EH_FRAME   0x0324b4 0x00000000000324b4 0x00000000000324b4 0x00093c 0x00093c R   0x4
+  GNU_STACK      0x000000 0x0000000000000000 0x0000000000000000 0x000000 0x000000 RW  0x10
+  GNU_RELRO      0x036360 0x0000000000036360 0x0000000000036360 0x001ca0 0x001ca0 R   0x1
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .note.gnu.property .note.gnu.build-id .hash .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_d .rela.dyn .relr.dyn 
+   01     .text 
+   02     .rodata .stapsdt.base .eh_frame_hdr .eh_frame 
+   03     .data.rel.ro .dynamic .got .data .bss 
+   04     .dynamic 
+   05     .note.gnu.property 
+   06     .note.gnu.build-id 
+   07     .note.gnu.property 
+   08     .eh_frame_hdr 
+   09     
+   10     .data.rel.ro .dynamic .got 
+
+Dynamic section at offset 0x37e58 contains 19 entries:
+  Tag        Type                         Name/Value
+ 0x000000000000000e (SONAME)             Library soname: [ld-linux-x86-64.so.2]
+ 0x0000000000000004 (HASH)               0x2f0
+ 0x000000006ffffef5 (GNU_HASH)           0x430
+ 0x0000000000000005 (STRTAB)             0x950
+ 0x0000000000000006 (SYMTAB)             0x590
+ 0x000000000000000a (STRSZ)              714 (bytes)
+ 0x000000000000000b (SYMENT)             24 (bytes)
+ 0x0000000000000007 (RELA)               0xd60
+ 0x0000000000000008 (RELASZ)             72 (bytes)
+ 0x0000000000000009 (RELAENT)            24 (bytes)
+ 0x000000006ffffffc (VERDEF)             0xc70
+ 0x000000006ffffffd (VERDEFNUM)          7
+ 0x000000000000001e (FLAGS)              BIND_NOW
+ 0x000000006ffffffb (FLAGS_1)            Flags: NOW
+ 0x000000006ffffff0 (VERSYM)             0xc1a
+ 0x0000000000000024 (RELR)               0xda8
+ 0x0000000000000023 (RELRSZ)             24 (bytes)
+ 0x0000000000000025 (RELRENT)            8 (bytes)
+ 0x0000000000000000 (NULL)               0x0
