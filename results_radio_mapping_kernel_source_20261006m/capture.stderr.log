@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/a5b2addacbd5/setisearch-20261006k/results_radio_mapping_kernel_source_20261006m/capture_self.py", line 179, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/workspace/scratch/a5b2addacbd5/setisearch-20261006k/results_radio_mapping_kernel_source_20261006m/capture_self.py", line 164, in main
+    result=snapshot(component,root,budget,freeze_pin)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/a5b2addacbd5/setisearch-20261006k/results_radio_mapping_kernel_source_20261006m/capture_self.py", line 105, in snapshot
+    before=process_identity(proc,pid,budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/a5b2addacbd5/setisearch-20261006k/results_radio_mapping_kernel_source_20261006m/capture_self.py", line 92, in process_identity
+    ticks=int(fields[19]);ns=os.stat('ns/pid',dir_fd=proc)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'ns/pid'

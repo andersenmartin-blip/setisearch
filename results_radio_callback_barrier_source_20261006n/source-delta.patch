@@ -1,0 +1,80 @@
+--- results_radio_loader_collector_source_20261006l/audit_collector.c	2026-10-06 19:12:59.991546860 +0200
++++ results_radio_callback_barrier_source_20261006n/audit_collector.c	2026-10-06 19:56:14.945567459 +0200
+@@ -1,4 +1,4 @@
+-/* L restricted Linux/x86-64/glibc LD_AUDIT source. Not activated or qualified.
++/* N wire-v2 callback barrier, derived from immutable L. Not activated or qualified.
+  * Every unsupported object/channel condition terminates; no silent skips.
+  * Callback descriptors are newly opened: they do NOT establish which inode
+  * the loader mapped. An independent kernel mapping/IO observer is mandatory.
+@@ -13,6 +13,8 @@
+ #include <sys/syscall.h>
+ #include <time.h>
+ #include <unistd.h>
++#include <poll.h>
++#include <errno.h>
+ 
+ #ifndef __x86_64__
+ #error "L source has no qualified architecture other than Linux x86-64"
+@@ -42,6 +44,44 @@
+ static void u32(unsigned char *p, uint32_t x) { for(unsigned i=0;i<4;i++) p[i]=(unsigned char)(x>>(i*8)); }
+ static void u64(unsigned char *p, uint64_t x) { for(unsigned i=0;i<8;i++) p[i]=(unsigned char)(x>>(i*8)); }
+ static uint64_t ns(struct timespec t) { return (uint64_t)t.tv_sec*1000000000u+(uint64_t)t.tv_nsec; }
++
++/* The parent must retain/reject the event and independently validate its
++ * stopped callback/mapping/kernel/process boundary before any future approval.
++ * These raw bytes cannot authenticate that parent. The executable outer is
++ * deliberately absent. Only wire-v2 peers can release this source barrier. */
++static uint32_t read32(const unsigned char *p) {
++    uint32_t value=0;for(unsigned i=0;i<4;i++) value|=(uint32_t)p[i]<<(i*8);return value;
++}
++static uint64_t read64(const unsigned char *p) {
++    uint64_t value=0;for(unsigned i=0;i<8;i++) value|=(uint64_t)p[i]<<(i*8);return value;
++}
++static void await_ack(unsigned kind,uint32_t event_sequence,uint64_t gen) {
++    struct timespec now;
++    if(syscall(SYS_clock_gettime,CLOCK_MONOTONIC,&now)) _exit(125);
++    uint64_t deadline=ns(now)+2000000000u;
++    for(;;) {
++        if(syscall(SYS_clock_gettime,CLOCK_MONOTONIC,&now)) _exit(125);
++        uint64_t at=ns(now);
++        if(at>=deadline) _exit(125);
++        struct pollfd ready={.fd=CHANNEL_FD,.events=POLLIN,.revents=0};
++        int milliseconds=(int)((deadline-at+999999u)/1000000u);
++        long polled=syscall(SYS_poll,&ready,1,milliseconds);
++        if(polled<0 && errno==EINTR) continue;
++        if(polled<=0 || !(ready.revents&POLLIN)) _exit(125);
++        unsigned char body[29]={0};
++        struct iovec io={.iov_base=body,.iov_len=sizeof(body)};
++        struct msghdr msg={.msg_iov=&io,.msg_iovlen=1};
++        long count=syscall(SYS_recvmsg,CHANNEL_FD,&msg,MSG_DONTWAIT);
++        if(count<0 && (errno==EINTR || errno==EAGAIN)) continue;
++        if(count!=28 || (msg.msg_flags & ~MSG_EOR) || body[0]!='R' || body[1]!='A' || body[2]!='C' || body[3]!='K'
++             || body[4]!=2 || body[5] || body[6]!=(unsigned char)kind || body[7]
++             || read32(body+8)!=event_sequence || read32(body+12)!=owner
++             || read64(body+16)!=gen || read32(body+24)>1) _exit(125);
++        if(read32(body+24)==0) _exit(126);
++        return;
++    }
++}
++
+ static unsigned length(const char *s) {
+     unsigned n=0; while(n<MAX_NAME && s[n]) n++; return n;
+ }
+@@ -54,7 +94,8 @@
+     unsigned nl=length(name), pl=length(path);
+     if (nl>=MAX_NAME || pl>=MAX_NAME) _exit(125);
+     body[0]='R';body[1]='L';body[2]='A';body[3]='1';
+-    u16(body+4,1);u16(body+6,(uint16_t)kind);u32(body+8,sequence++);u32(body+12,owner);
++    uint32_t event_sequence=sequence++;
++    u16(body+4,2);u16(body+6,(uint16_t)kind);u32(body+8,event_sequence);u32(body+12,owner);
+     u64(body+16,gen);u64(body+24,namespace_id);u64(body+32,base);
+     if(st) {
+         u64(body+40,(uint64_t)st->st_dev);u64(body+48,(uint64_t)st->st_ino);
+@@ -75,6 +116,7 @@
+     }
+     long sent=syscall(SYS_sendmsg,CHANNEL_FD,&msg,MSG_DONTWAIT|MSG_NOSIGNAL);
+     if(sent != (long)io.iov_len) _exit(125);
++    if(kind!=VETO) await_ack(kind,event_sequence,gen);
+ }
+ static void veto(unsigned reason) {
+     emit(VETO,0,0,0,reason,"","",-1,0);_exit(126);

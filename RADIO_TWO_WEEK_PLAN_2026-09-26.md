@@ -1,3 +1,43 @@
+## 6 October 2026: M access refusal retained; N callback barrier remains source only
+
+[M mapping/kernel result](RADIO_MAPPING_KERNEL_2026-10-06M_RESULT.md) adds
+**64 passing source controls** and preserves the single actual administrative
+self-measurement as **FAILED_CLOSED_PROCESS_NAMESPACE_ACCESS_DENIED**. Exact
+EACCES occurred at `ns/pid` before maps/auxv/executable/vDSO reads (all zero).
+All 12 complete preparation bodies were publicly verified before use. Actual
+explicit source/preflight/proc-stat reads: 74,294 B; final actual root including
+its directory: 4,789 logical / 12,288 allocated B, two files. Duration/RSS were
+not measured in the failure receipt. No retry, bypass or source-rule change.
+
+[N callback barrier source](RADIO_CALLBACK_BARRIER_2026-10-06N_SOURCE.md)
+addresses L's queued-event/callback-return race in a separate wire-v2 source.
+It waits for an exact bounded event/PID/generation acknowledgment before each
+non-veto callback return. **33 final source controls pass** and strict C
+syntax-only validation passes (0.022723868s/10,112KiB). Initial 31 controls and
+all fabricated inputs, vetoes and descriptor controls remain retained; they are
+not summed as independent trials. No C callback was observed or module built/
+loaded; positive production release and all dispatch always refuse. L and the
+published M freeze remain unchanged. Matching bytes do not authenticate a peer,
+prove continuous mapped contents or qualify kernel/startup/terminal custody.
+
+Exact next point: N source-only version-2 J/I/H integration requires a distinct
+prospective interface scope with retained refusals and closed dispatch. Native
+work still needs K's 136 authentic missing members and permitted namespace/
+observer capability, complete current-storage/runtime and independent mapping/
+kernel/startup/terminal qualification. Publish and fully read back a separate
+integrated executable outer and one-shot scope before any native activation.
+Do not replay M, unchanged K transfers or old tests as progress; do not bypass
+access, repair original cfg/RECORD expectations or rewrite a failed evaluation.
+H codec600wall/540CPU/448MiB/4GiB+1GiB remains unallocated; historical selected
+spend **2,920s/5,512MiB** plus five separate guard controls is unchanged. The
+exhausted synthetic acquisition ledger stays closed. Source/syntax controls are
+administrative evidence and confer no native/scientific reservation.
+
+HD189733/HIP98505 cadence85030/neighbor9 selected; HD1461 HOLD/GJ724 reserve;
+spectra/original112+128 untouched; native8 unreserved;127+24 inactive;M43AI closed;
+M15/M33 unresolved;LS paused LS8BD–LS8BE/BF untouched;CHEOPS UNSENT. No person
+messages, new sequence or plan extension. Consolidate **9 October 2026**.
+
 ## 6 October 2026: original-byte recovery K and restricted collector source L
 
 [K recovery](RADIO_RUNTIME_RECOVERY_2026-10-06K_RESULT.md) concretely copied and

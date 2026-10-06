@@ -1,3 +1,18 @@
+## 6 October 2026: access failure preserved; callback barrier source tested
+
+[M](RADIO_MAPPING_KERNEL_2026-10-06M_RESULT.md) has 64 passing source controls.
+Its single actual administrative measurement failed with `ns/pid` EACCES before
+maps/auxv/executable/vDSO reads; it is closed without retry or access bypass.
+[N](RADIO_CALLBACK_BARRIER_2026-10-06N_SOURCE.md) adds a separate wire-v2 source
+barrier for the callback-return/unload race, with 33 passing source controls and
+strict C syntax-only validation. No native module was built/loaded, no real
+callback observed, and positive production release/dispatch remain closed.
+K's 136 missing original members and independent runtime/observer qualification
+remain pending. All scientific gates, budgets, targets and holds are unchanged.
+Next source-only J/I/H integration needs its own prospective scope; native work
+needs actual capability/input and a separately frozen/read-back integrated outer.
+Consolidate 9 October without extending the plan or sending person messages.
+
 ## 6 October 2026: verified partial recovery; collector source remains unqualified
 
 [Original-byte recovery K](RADIO_RUNTIME_RECOVERY_2026-10-06K_RESULT.md) recovered
