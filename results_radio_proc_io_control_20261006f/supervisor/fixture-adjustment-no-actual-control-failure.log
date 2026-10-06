@@ -1,0 +1,22 @@
+test_child_starttime_drift_refuses_and_still_reaps (__main__.SupervisorTests.test_child_starttime_drift_refuses_and_still_reaps) ... ok
+test_missing_terminal_io_refuses_and_still_reaps (__main__.SupervisorTests.test_missing_terminal_io_refuses_and_still_reaps) ... ok
+test_nonzero_exit_retains_terminal_receipt (__main__.SupervisorTests.test_nonzero_exit_retains_terminal_receipt) ... ok
+test_repeated_selector_failure_cannot_skip_terminal_wait4 (__main__.SupervisorTests.test_repeated_selector_failure_cannot_skip_terminal_wait4) ... FAIL
+test_success_observes_namespace_zombie_then_wait4 (__main__.SupervisorTests.test_success_observes_namespace_zombie_then_wait4) ... ok
+
+======================================================================
+FAIL: test_repeated_selector_failure_cannot_skip_terminal_wait4 (__main__.SupervisorTests.test_repeated_selector_failure_cannot_skip_terminal_wait4)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/da6462abff17/runtime-continuation-20261006-draft/test_leaf_supervisor_F.py", line 121, in test_repeated_selector_failure_cannot_skip_terminal_wait4
+    record=self.run_fake('selector-failure')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/da6462abff17/runtime-continuation-20261006-draft/test_leaf_supervisor_F.py", line 96, in run_fake
+    self.assertTrue(record['guarded_leaf']);self.assertGreater(record['proc_metadata_read_charge_bytes'],0)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.017s
+
+FAILED (failures=1)
