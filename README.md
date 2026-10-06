@@ -1,5 +1,17 @@
 # SETIsearch
 
+## 6 October: complete codec producer implemented; native execution still gated
+
+[The codec12 I implementation](https://github.com/andersenmartin-blip/setisearch/blob/534ba182c19a14fac5c8f626a69d9542a057d317/RADIO_CODEC12_2026-10-06I_IMPLEMENTATION.md)
+adds the source for all 12 ordered calibration/validation handoffs, with durable
+row evidence and refusal of incomplete success. All 43 source/helper tests pass.
+An isolated read-only preflight authenticates 12 source artifacts and 14 original
+inputs and reproduces both receiver contexts. No native codec control,
+activation, allocation, telescope spectrum or scientific certificate was created.
+Current runtime and complete loader/process/IO lifetime evidence plus a separately
+frozen and reviewed outer gate remain required. The plan still consolidates
+9 October; target, holds, historical failures, paused LS and unsent CHEOPS remain.
+
 ## 6 October: complete codec12 source scope prepared
 
 Science commit [`071de04`](https://github.com/andersenmartin-blip/setisearch/commit/071de0428bdc50955a239ce5f7374c00d03e35a9)
