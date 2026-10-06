@@ -1,5 +1,16 @@
 # SETIsearch
 
+## 6 October: complete codec12 source scope prepared
+
+Science commit [`071de04`](https://github.com/andersenmartin-blip/setisearch/commit/071de0428bdc50955a239ce5f7374c00d03e35a9)
+freezes all 12 ordered calibration/validation handoffs and the 22 original
+metadata laws. The exact pure guard reproduces 22/22 outcomes with zero payload
+access; nine source-only tests pass. Status remains
+**SOURCE_ONLY_NO_DISPATCH**: no spectrum, native/HDF5 control, activation,
+allocation or certificate exists. Next is a distinct immutable executable freeze
+and independent source/readback review. Target/holds stay fixed and consolidation
+remains 9 October without extension.
+
 ## 6 October 2026: process IO repair verified; next full16-row codec control prepared
 
 [The closed F result](https://github.com/andersenmartin-blip/setisearch/blob/92d94f479ec50466d7c4c3739333f9a60e739ed5/RADIO_PROC_IO_CONTROL_2026-10-06F_RESULT.md) is **OBSERVED_KERNEL_IO_ONLY_PENDING_INTEGRATION**. The new resolver binds the actual child across outer/local PID namespaces and retains terminal kernel IO before exact reaping. One harmless base-Python control reads **1,048,576 fixed test bytes**; terminal **rchar=2,322,467** covers them. All seven counters are present. Complete gate lifetime **0.729374843 s**, one guarded child and parent exited 0 and were reaped.
