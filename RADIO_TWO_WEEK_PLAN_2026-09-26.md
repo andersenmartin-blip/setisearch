@@ -1,3 +1,13 @@
+## 6 October 2026: native codec16 G passes all 16 rows
+
+[The closed G result](RADIO_CODEC16_2026-10-06G_RESULT.md) is **CONTROLLED_CODEC16_PARTIAL_HANDOFF_OBSERVED**. One guarded current-runtime control encoded, transferred and bit-exactly decoded all 16 full controlled chunks, checked every selected 65,536-channel row against independent scalar construction, and ran the unchanged original normalization. The calibration epoch1_on receiver context/bank and one handoff are bound exactly. No archive spectra, network request, RNG draw or scientific case was used.
+
+Whole gate lifetime **3.122654371 s**, direct leaf **1.118978139 s**; both exit 0 and exact wait4 reaping. Complete PRE/POST and independent rehash cover **2,638 files / 411,997,480 B**. Independent stdlib reconstruction matches all 16 descending and ascending raw hashes. Explicit parent reads **875,445,473 B** plus fully spent opaque child **512 MiB** fit the separate **2 GiB + 512 MiB** reservation. Final logical/allocated artifacts including the spent marker are **18,701,815 / 18,722,816 B**, within 192 MiB. The actual NumPy 2.3.5 / h5py 3.16.0 / hdf5plugin 7.1.0 / HDF5 2.0.0 cohort was used. Complete native loader history and scientific qualification remain pending.
+
+Preparation **35e0f0a49858bf204b4e507f30eceef2d41ceefb** has **151 full matching bodies / 5,270,596 representation B**, then verified marker-only activation **9749b12bb4d81a7ad02d79ae11e8b4174aa1dc61**. The earlier read-only ordering refusal, its zero-marker/zero-child evidence and correction remain retained. G is closed and spent without replay. Selected engineering reservations now **2,920 s / 5,512 MiB artifacts**, separate from the five 30 s / 512 MiB-AS guard controls.
+
+Next is a distinct source-only preparation of all **12 ordered role/scan handoffs and 22 original metadata laws**. This one-row-set control cannot complete that certificate or activate science. Genuine joined hosted profiles, complete native/runtime evidence, actual CAS and fresh source/pilot/session/127+24 allocation gates remain pending. HD189733/HIP98505 cadence85030/neighbor9 remains selected; HD1461 HOLD, GJ724 reserve; spectra/112+128 holdouts unopened, native8 unreserved, 127/24 inactive, LS paused, BF untouched, CHEOPS UNSENT. Consolidate **9 October 2026** without extension.
+
 ## 6 October 2026: reusable process IO repair complete; next controlled codec16 handoff prepared
 
 [Closed F evidence](RADIO_PROC_IO_CONTROL_2026-10-06F_RESULT.md) fixes the concrete process-ID mismatch and measures the actual terminal child IO before reaping. The one harmless deterministic control succeeds: **1,048,576 workload bytes**, **2,322,467 terminal rchar**, **0.729374843 s** full gate lifetime, one guarded child and parent reaped. **43 offline fixtures**, **37 actual closure checks** and **1,494 full input pins** pass. All **37 preparation bodies / 1,436,687 UTF8 B** and **54 result bodies / 3,615,484 UTF8 B** matched full immutable readback. The verified saved F bundle is **579,550 B / 56 entries**. F is component evidence, and full scientific admission remains pending.
@@ -2492,3 +2502,4 @@ is admitted.
 Next, and only next, freeze fresh engineering-only Gaussian, compact-score and
 complete native physical/recovery/RFI/null qualification. The 127/24 proposal
 stays NOT ACTIVATED. All old holds, counters and 9 October consolidation remain.
+
