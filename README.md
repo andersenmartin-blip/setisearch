@@ -1,3 +1,28 @@
+## 6 October 2026: partial original-byte recovery and restricted collector source
+
+[Recovery K](https://github.com/andersenmartin-blip/setisearch/blob/33f543de37ad6e66fac46d35d892024aa7b1776c/RADIO_RUNTIME_RECOVERY_2026-10-06K_RESULT.md)
+copied and independently verified **902 original files / 88,333,667 bytes** in
+fresh storage. **136 members remain unrecovered**; archive transfers failed
+with HTTP502. No package installation, cfg/RECORD reconstruction or recovered
+target execution occurred. Full per-member outcomes and resource receipts are
+public. The partial runtime remains unqualified.
+
+[Collector source L](https://github.com/andersenmartin-blip/setisearch/blob/33f543de37ad6e66fac46d35d892024aa7b1776c/RADIO_LOADER_COLLECTOR_2026-10-06L_SOURCE.md)
+implements restricted glibc callbacks and a descriptor receiver that retains
+transient generations. K's **36 recovery tests** and L's **36 local transport
+tests** pass; C syntax-only validation passes, with the first compiler failure
+and all fabricated triggers/vetoes retained. No audit module was built/loaded
+or native callback observed. Kernel/mapped-inode/startup/terminal provenance
+and full runtime qualification remain pending.
+
+All **33 new/changed result bodies / 2,838,023 representation bytes** were read
+back in full at the immutable publication; the readback receipt is also verified.
+Next is authentic remaining input recovery under a distinct complete runtime
+contract and completion of the actual loader/kernel/process observer before a
+separate executable freeze, public preread and one-shot native qualification.
+Neighbor9, unopened spectra/112+128, old holds/closed ledgers and budgets remain
+unchanged. Consolidate **9 October 2026**, without extension or person messages.
+
 # SETIsearch
 
 ## 6 October: transient native objects retained in source-only loader component
