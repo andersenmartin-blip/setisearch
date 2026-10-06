@@ -1,3 +1,19 @@
+## 6 October 2026: verified partial recovery; collector source remains unqualified
+
+[Original-byte recovery K](RADIO_RUNTIME_RECOVERY_2026-10-06K_RESULT.md) recovered
+and independently checked **902 files / 88,333,667 B**; **136 members remain
+unrecovered** and archive transfers failed with HTTP502. No package install,
+RECORD/cfg repair or recovered target execution was performed.
+[Restricted collector source L](RADIO_LOADER_COLLECTOR_2026-10-06L_SOURCE.md)
+implements callback/descriptor handling with **36 new real local socket fixture
+tests**; K has **36 recovery tests**. All pass. Strict C syntax-only validation
+passes, with its first failure retained. No audit module was built/loaded; no
+native loader, runtime, codec or scientific qualification is claimed.
+Next is authentic remaining input recovery and a complete current runtime plus
+mapped-inode/kernel/startup/terminal observer contract, then a separately frozen,
+read-back and one-shot native qualification scope. Spectra/112+128 remain closed,
+neighbor9 and all historical dispositions/budgets remain; consolidate 9 October.
+
 # SETIsearch
 
 ## 6 October: transient loader history retained in an inert component

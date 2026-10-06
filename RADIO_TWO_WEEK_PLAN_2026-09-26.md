@@ -1,3 +1,40 @@
+## 6 October 2026: original-byte recovery K and restricted collector source L
+
+[K recovery](RADIO_RUNTIME_RECOVERY_2026-10-06K_RESULT.md) concretely copied and
+independently verified **902 original files / 88,333,667 B** in fresh current
+storage after all nine immutable preparation bodies were publicly read back.
+**136 original members remain unrecovered**; h5py/hdf5plugin, two scripts,
+NumPy RECORD and pyvenv.cfg are not substituted or regenerated. Archived inputs
+failed to materialize with HTTP502; all attempts and exact member outcomes remain
+retained. K is closed, partial and **runtime unqualified**. No recovered target
+was executed; no old inode, ledger or native/scientific allocation was reused.
+One distinct administrative copy/review measured 0.806348126s/17,540KiB RSS;
+177,910,365 explicit controller-read B; final tree including directories
+90,944,028 logical / 93,196,288 allocated B. All 36 new recovery tests pass.
+
+[L collector source](RADIO_LOADER_COLLECTOR_2026-10-06L_SOURCE.md) implements
+restricted glibc callbacks and a real SCM_RIGHTS fd receiver, preserving transient
+descriptors beyond unload/EOF. Its **36 new transport tests pass** with fabricated
+frames, all triggers/vetoes retained. C syntax-only check passes; the exact first
+compiler failure is retained. No audit module was built/loaded or callback
+observed. Mapped-inode attribution, collector origin/own dependencies, constructor
+ordering, kernel pseudo-objects, symbols, and process/descendant/terminal-IO remain
+unqualified. Unknown/kernel objects and extra namespaces are vetoed. J is not
+upgraded or silently bridged; all native/runtime/codec/science authority is false.
+
+Exact next point: obtain authentic missing archive/package bytes after transfer
+recovery under a **new complete current-storage/runtime contract**; do not replay
+K, alter original C cfg/RECORD expectations or reset any ledger. Independently
+complete/review L's mapped-inode/kernel/startup/terminal/fd boundary and explicit
+provenance-preserving J/I/H interface. Then separately publish/read back a distinct
+executable outer freeze before a one-shot native qualification activation. No
+unchanged G/K/J/H/I repetition or scientific retuning is authorized by these
+source receipts. H codec600s/540CPU/448MiB/4GiB+1GiB remains unallocated; historical
+selected spend **2,920s/5,512MiB** plus five separate guard controls is unchanged.
+HD189733/neighbor9, HD1461 HOLD, GJ724 reserve; spectra/112+128 untouched,
+native8 unreserved,127+24 inactive,M43AI closed,M15/M33 unresolved,LS paused/BF
+untouched,CHEOPS UNSENT. Consolidate **9 October**, no extension or person messages.
+
 ## 6 October: J loader-history reducer prepared, live observation pending
 
 [J](RADIO_LOADER_LIFETIME_2026-10-06J_PREPARATION.md) is
