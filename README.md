@@ -1,5 +1,18 @@
 # SETIsearch
 
+## 6 October: transient native objects retained in source-only loader component
+
+[The J continuation](https://github.com/andersenmartin-blip/setisearch/blob/5283d1177313cf2246e998165e80b862ae5ca07f/RADIO_LOADER_LIFETIME_2026-10-06J_PREPARATION.md)
+adds a bounded event reducer with 27 passing new tests. Loaded/unloaded object
+generations remain in its source-fixture receipt; omitted events plus a recomputed
+chain still grant no collector or coverage authority. The old canonical target
+runtime is absent here, and present administrative binaries do not qualify a
+replacement. No actual collector, native trace, controlled codec, activation,
+allocation or telescope spectrum was created. I's 43-test producer and both
+receiver contexts remain retained. Next is authenticated runtime recovery and a
+qualified complete observer before any separately frozen executable outer gate.
+All science gates, targets, holds and prior failures remain; consolidate 9 October.
+
 ## 6 October: complete codec producer implemented; native execution still gated
 
 [The codec12 I implementation](https://github.com/andersenmartin-blip/setisearch/blob/534ba182c19a14fac5c8f626a69d9542a057d317/RADIO_CODEC12_2026-10-06I_IMPLEMENTATION.md)
