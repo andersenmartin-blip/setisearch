@@ -1,0 +1,23 @@
+{
+  "schema": "radio-K-archive-transfer-failures-v1",
+  "date": "2026-10-06",
+  "status": "TRANSIENT_TRANSFER_FAILURE_NO_ARCHIVE_MATERIALIZED",
+  "installed_archive": {
+    "filename": "SETI_offline_installation_2026-10-05_closed.zip",
+    "declared_bytes": 189808619,
+    "attempts": [
+      {"status": "HTTP_502", "helper_exit": 1, "materialized": false},
+      {"status": "HTTP_502", "helper_exit": 1, "materialized": false}
+    ]
+  },
+  "input_archive": {
+    "filename": "SETI_verified_package_inputs_2026-10-05.zip",
+    "declared_bytes": 68547756,
+    "attempts": [{"status": "HTTP_502", "helper_exit": 1, "materialized": false}]
+  },
+  "earlier_helper_setup_errors": "Two missing-companion-module refusals preceded actual transfers; corrected without archive writes.",
+  "declared_sizes_are_not_recovered_bytes": true,
+  "archive_content_hashes_checked": false,
+  "native_or_scientific_allocation": false,
+  "retry_in_this_contract": false
+}
