@@ -1,3 +1,27 @@
+## 6 October 2026: complete codec handoff scope prepared source-only
+
+[The distinct H preparation](RADIO_CODEC12_2026-10-06H_PREPARATION.md) is
+**SOURCE_ONLY_NO_DISPATCH**. It freezes all **12 ordered** calibration/validation
+× six-scan handoffs, their role-specific chunk159/chunk156 windows, 16-row
+requirements, exact receiver context/bank identities and all **22 original
+metadata laws**. The exact pinned pure guard observes 22/22 expected outcomes
+with zero payload indexing, native import, HDF5 file open or archive read; nine
+source-only regressions pass. Fourteen original inputs and maintained normalizer
+AST selections are hashed. Closed G evidence is design input only; no G output is
+reused.
+
+The proposed future 600s/540-CPU-s, 448MiB-artifact and 4GiB+1GiB-read envelope
+is not reserved or spent. No marker, activation, allocation, controlled payload
+or codec certificate exists. Next is a distinct immutable executable freeze and
+independent source/readback review for one complete 12-handoff controlled scope;
+only a separately activated, observed and independently reviewed result could
+support a codec certificate. Authentic hosted profiles, complete native/runtime
+graph, actual CAS and fresh source/pilot/session/recovery/RFI/null/127+24 gates
+remain pending. HD189733/HIP98505 cadence85030/neighbor9 remains selected;
+HD1461 HOLD, GJ724 reserve; spectra/112+128 holdouts unopened, native8 unreserved,
+127/24 inactive, LS paused, BF untouched, CHEOPS UNSENT. Consolidate 9 October
+without extension.
+
 ## 6 October 2026: native codec16 G passes all 16 rows
 
 [The closed G result](RADIO_CODEC16_2026-10-06G_RESULT.md) is **CONTROLLED_CODEC16_PARTIAL_HANDOFF_OBSERVED**. One guarded current-runtime control encoded, transferred and bit-exactly decoded all 16 full controlled chunks, checked every selected 65,536-channel row against independent scalar construction, and ran the unchanged original normalization. The calibration epoch1_on receiver context/bank and one handoff are bound exactly. No archive spectra, network request, RNG draw or scientific case was used.
@@ -5161,4 +5185,3 @@ M43AI is complete. Do not rerun or retune this closed study. Any successor
 requires a separately fixed protocol and new evaluation evidence. The original
 held-out panels remain reserved. Main CI alone does not establish coverage of
 the science branch; use the native study audit and original-byte archive checks.
-

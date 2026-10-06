@@ -76,6 +76,21 @@ person message, target or schedule change. Consolidate **9 October 2026**.
 
 # Long-term project direction
 
+## 6 October: complete codec evidence shape fixed, execution still closed
+
+[Codec12 H](RADIO_CODEC12_2026-10-06H_PREPARATION.md) replaces the former
+one-handoff continuation with an exact source-only contract for all 12 ordered
+handoffs and 22 metadata laws. The pure guard observation is 22/22 with zero
+payload/native/HDF5/archive access, and nine regressions pass. No control,
+allocation or certificate exists; proposed future resource limits are unspent.
+
+Next is a distinct immutable executable freeze plus independent public readback,
+then—only under a separate one-shot activation—a complete controlled engineering
+attempt and independent actual review. It cannot by itself admit spectra. All
+hosted-profile, native/runtime, CAS, source/pilot/session,
+recovery/RFI/null and scientific 127+24 gates remain. Target/hold/LS/CHEOPS and
+historical failure dispositions remain unchanged; consolidate 9 October.
+
 ## 4 October: repaired metadata capture B completed; scientific admission pending
 
 [The one-shot B result](RADIO_RUNTIME_METADATA_CAPTURE_2026-10-04B_RESULT.md)

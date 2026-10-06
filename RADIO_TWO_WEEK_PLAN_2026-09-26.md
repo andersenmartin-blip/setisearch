@@ -98,6 +98,24 @@ person message, target or schedule change. Consolidate **9 October 2026**.
 
 # Radio SETI work plan — 26 September–9 October 2026
 
+## 6 October: codec12 H source preparation closes the next design step
+
+[H](RADIO_CODEC12_2026-10-06H_PREPARATION.md) fixes all 12 ordered
+calibration/validation × scan handoffs, all 16 row receipts per handoff and the
+22 exact admission laws. The pure pinned guard reproduces 22/22 outcomes with
+zero payload access; nine source-only tests pass. Status is
+**SOURCE_ONLY_NO_DISPATCH**: no native import, HDF5 file, archive value, controlled
+payload, activation, allocation or certificate was created. G stays closed and
+none of its outputs is replayed.
+
+The source proposal has bounded future limits but spends no budget. Continue
+with a distinct immutable executable freeze and independent full readback, not
+with spectra. A future control still needs separate one-shot activation, current
+runtime/lifetime evidence and independent actual review. Hosted profiles,
+native/runtime graph, CAS, source/pilot/session and recovery/RFI/null/127+24 gates
+remain pending. Targets, holds and all prior failure dispositions are unchanged;
+consolidate 9 October without extension.
+
 ## 4 October: repaired metadata capture B completed; scientific admission pending
 
 [The one-shot B result](RADIO_RUNTIME_METADATA_CAPTURE_2026-10-04B_RESULT.md)
@@ -2502,4 +2520,3 @@ is admitted.
 Next, and only next, freeze fresh engineering-only Gaussian, compact-score and
 complete native physical/recovery/RFI/null qualification. The 127/24 proposal
 stays NOT ACTIVATED. All old holds, counters and 9 October consolidation remain.
-

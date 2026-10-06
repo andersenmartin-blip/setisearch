@@ -1,5 +1,16 @@
 # SETIsearch
 
+## 6 October: complete controlled-codec scope prepared, no dispatch
+
+[Codec12 H](RADIO_CODEC12_2026-10-06H_PREPARATION.md) fixes all 12 ordered
+calibration/validation handoffs, 16 row receipts each and the 22 original
+metadata laws. The pinned pure guard reproduces 22/22 expected outcomes with
+zero payload access; nine source-only tests pass. No spectrum, native/HDF5
+control, activation, allocation or certificate was created. Next is a distinct
+immutable executable freeze and independent source/readback review; all
+scientific admission gates remain pending. Target and holds are unchanged, and
+the plan still consolidates 9 October without extension.
+
 ## 3 October: multi-history preparation remains blocked
 
 [The b+c storage-accounting component](RADIO_NATIVE_V2_MULTI_HISTORY_STORAGE_2026-10-03_RESULT.md)
