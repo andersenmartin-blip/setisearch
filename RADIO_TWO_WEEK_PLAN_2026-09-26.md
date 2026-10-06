@@ -1,3 +1,15 @@
+## 6 October 2026: reusable process IO repair complete; next controlled codec16 handoff prepared
+
+[Closed F evidence](RADIO_PROC_IO_CONTROL_2026-10-06F_RESULT.md) fixes the concrete process-ID mismatch and measures the actual terminal child IO before reaping. The one harmless deterministic control succeeds: **1,048,576 workload bytes**, **2,322,467 terminal rchar**, **0.729374843 s** full gate lifetime, one guarded child and parent reaped. **43 offline fixtures**, **37 actual closure checks** and **1,494 full input pins** pass. All **37 preparation bodies / 1,436,687 UTF8 B** and **54 result bodies / 3,615,484 UTF8 B** matched full immutable readback. The verified saved F bundle is **579,550 B / 56 entries**. F is component evidence, and full scientific admission remains pending.
+
+The existing C environment has already been installed and E genuinely observed NumPy2.3.5 / h5py3.16.0 / hdf5plugin7.1.0 / HDF5 2.0.0 and all12 plugin filters. Historical bootstrap/package-uninstalled entries below describe earlier closed stages. No reinstall or old-scope repeat is needed.
+
+[The source-shaped codec16 preparation](RADIO_CODEC16_2026-10-06_PREPARATION.md) is now concrete and **NO_DISPATCHED**. It retains eleven exact original inputs, calibration epoch1_on / chunk159 / rows0–15, original normalization source selections and controlled no-PRNG construction. **10 source-only checks**, two independent reviews and a **31-file / 650,855 B** checkpoint pass. Its future function has no direct dispatcher, no fixture values have been generated, and no resources are reserved. Proposed bounds distinguish memory from stored HDF5 payloads and preserve an outer terminal reserve.
+
+The next execution step is a separately reviewed and frozen engineering integration of that one partial codec/normalization handoff, using the current installed runtime and fixed original metadata. It cannot claim the twelve ordered handoffs,22 laws, genuine hosted profiles, complete native/runtime graph, actual CAS, fresh executable source/session/pilot/allocation or complete127/24 outcomes. [The authoritative original-gate audit](results_radio_proc_io_control_20261006f/AUTHORITATIVE_GATE_AUDIT.md) clarifies that controlled codec evidence is not circularly dependent on first opening archive spectra, and the historical eleven diagnostic labels are not an activatable API.
+
+F's **30 s / 16 MiB artifact** and **528 MiB read reservation** are spent without refund. Selected live engineering subtotal **2,800 s / 5,320 MiB artifact**, with the five independent30 s/512 MiB-process-AS guard controls separate. Historical A/B/C/D/E and other closed controls remain unchanged, with no retries or automatic successor. HD189733/HIP98505 cadence85030/neighbor9 and holds stay fixed; spectra/112+128 holdouts unopened, native8 unreserved,127/24 NOT ACTIVATED, LS paused, BF untouched, CHEOPS UNSENT. Consolidate **9 October 2026**, with no automatic extension.
+
 ## 5 October: explicit proxy integration prepared; 40 primary-runtime tests pass
 
 [The distinct integration report](RADIO_PROXY_TRANSPORT_INTEGRATION_2026-10-05_PREPARATION.md)
