@@ -1,3 +1,31 @@
+## 6 October 2026: namespace access refusal retained; callback barrier remains source only
+
+[Mapping/kernel M](https://github.com/andersenmartin-blip/setisearch/blob/e6028af895bbaa5e558336ccf9b584353ea56eb6/RADIO_MAPPING_KERNEL_2026-10-06M_RESULT.md)
+has **64 passing source controls**. Its single actual administrative self
+measurement failed with `ns/pid` **EACCES** before maps, auxv, executable-prefix
+or vDSO-memory reads. It is closed without retry, access bypass or changed rules.
+The original prospective source freeze and exact failure/traceback are retained.
+
+[Callback acknowledgment N](https://github.com/andersenmartin-blip/setisearch/blob/e6028af895bbaa5e558336ccf9b584353ea56eb6/RADIO_CALLBACK_BARRIER_2026-10-06N_SOURCE.md)
+adds a separate wire-v2 source barrier for L's callback-return/unload race.
+**33 final source controls** and strict C syntax-only validation pass; all
+fabricated triggers/vetoes and earlier controls are retained. No module was
+built/loaded or actual C callback observed. Positive production release and
+all dispatch always refuse. Packet matching does not authenticate an observer
+or establish continuous mapped-inode, kernel/startup/terminal coverage.
+
+All **33 new/changed result bodies / 952,964 representation bytes** were
+read back in full at the immutable result commit. The
+[public readback receipt](https://github.com/andersenmartin-blip/setisearch/blob/e6028af895bbaa5e558336ccf9b584353ea56eb6/results_radio_mn_publication_20261006/PUBLIC_RESULT_READBACK.json)
+was also fetched and verified. K's **136 missing original members**, permitted
+namespace capability and complete independent runtime/observer qualification
+remain pending. A useful source-only version-2 J/I/H interface needs its own
+prospective scope; any native activation needs authentic input/capability and
+a separately frozen/read-back integrated executable outer with cumulative
+budgets. No old control or ledger is reset. Neighbor9, targets/holds, unopened
+spectra/112+128 and budgets are unchanged. Consolidate **9 October 2026**;
+no plan extension or external person messages.
+
 ## 6 October 2026: partial original-byte recovery and restricted collector source
 
 [Recovery K](https://github.com/andersenmartin-blip/setisearch/blob/33f543de37ad6e66fac46d35d892024aa7b1776c/RADIO_RUNTIME_RECOVERY_2026-10-06K_RESULT.md)
