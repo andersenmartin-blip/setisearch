@@ -1,3 +1,28 @@
+## 6 October 2026: complete codec12 producer source integrated; activation closed
+
+[Codec12 I](RADIO_CODEC12_2026-10-06I_IMPLEMENTATION.md) implements the
+unchanged H scope's 12-handoff/192-row producer, with authenticated original
+normalization and law definitions, pre-allocation compressed-chunk vetoes,
+exclusive retained receipts and a 602-event success journal. **43 new source and
+custody tests pass**. Isolated `-I -B` read-only preflight verifies **12 source
+artifacts / 93,404 B**, all **14 original inputs / 632,453 B**, and reproduces both
+maintained receiver contexts. No normalizer/native package, HDF5 file, full-row
+payload, spectrum, RNG, scientific case, marker or allocation was executed.
+
+Status is **BLOCKED_PENDING_OUTER_NATIVE_LIFETIME**. Public dispatch and CLI
+refuse execution; the private future leaf body is uninvoked. A valid journal
+prefix cannot claim completion; raw controlled salts confer no scientific
+disjointness. H's preparation and proposed budget stay unchanged; selected spent
+engineering reservations remain **2,920s / 5,512MiB**. Next: integrate authentic
+current runtime/native-loader and complete process/descendant/terminal-IO lifetime
+inputs with the source-pinned producer, then independently publish/read back a
+distinct executable outer freeze before any separate one-shot activation. No
+unchanged H/G replay or law-only repetition is needed. Hosted profiles, actual
+CAS, fresh source/pilot/session/recovery/RFI/null/127+24 gates remain pending.
+All targets, holds and historical dispositions remain; spectra/112+128 holdouts
+unopened, native8 unreserved, 127/24 inactive, LS paused/BF untouched, CHEOPS
+UNSENT. Consolidate **9 October**, without extension.
+
 ## 6 October 2026: complete codec handoff scope prepared source-only
 
 [The distinct H preparation](RADIO_CODEC12_2026-10-06H_PREPARATION.md) is

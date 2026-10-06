@@ -1,3 +1,20 @@
+## 6 October 2026: codec12 I source integration closes the implementation step
+
+[I](RADIO_CODEC12_2026-10-06I_IMPLEMENTATION.md) supplies complete producer
+source for H's 12 ordered handoffs and 192 rows. New bound/mutation/partial-write
+and journal-completion risks are checked by **43 passing source/custody tests**.
+The isolated read-only preflight verifies 12 source artifacts/93,404 B, all
+14 original inputs/632,453 B and both maintained receiver contexts. No native
+scientific import, HDF5 file, full-row payload, archive read or trial occurred.
+
+**BLOCKED_PENDING_OUTER_NATIVE_LIFETIME** is the exact continuation boundary.
+Integrate fresh authentic runtime/native-loader and complete process/descendant/
+terminal-IO lifetime inputs, then separately freeze and independently read back
+the executable outer scope before a distinct one-shot activation. No live freeze,
+marker, allocation or certificate exists. H's proposal is unspent; selected spent
+subtotal remains 2,920s/5,512MiB. Earlier scopes are not replayed. All science
+gates/targets/holds remain fixed; consolidate **9 October** without extension.
+
 ## 6 October 2026: native codec16 G passes all 16 rows
 
 [The closed G result](RADIO_CODEC16_2026-10-06G_RESULT.md) is **CONTROLLED_CODEC16_PARTIAL_HANDOFF_OBSERVED**. One guarded current-runtime control encoded, transferred and bit-exactly decoded all 16 full controlled chunks, checked every selected 65,536-channel row against independent scalar construction, and ran the unchanged original normalization. The calibration epoch1_on receiver context/bank and one handoff are bound exactly. No archive spectra, network request, RNG draw or scientific case was used.

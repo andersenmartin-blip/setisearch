@@ -1,3 +1,19 @@
+## 6 October 2026: codec12 producer implemented; runtime/lifetime integration next
+
+[Codec12 I](RADIO_CODEC12_2026-10-06I_IMPLEMENTATION.md) adds authenticated
+producer source for the fixed 12 handoffs/192 rows, durable partial evidence and
+exact 602-event completion checks. **43 source/custody tests** and isolated
+read-only preflight pass; both original receiver contexts and all 14 original
+inputs verify. Native/full-row/HDF5/telescope execution remains zero. Status is
+**BLOCKED_PENDING_OUTER_NATIVE_LIFETIME**; no activation, allocation or certificate.
+
+Next is current runtime/native-loader and complete process/descendant/terminal-IO
+lifetime integration, then a separate immutable executable outer freeze and
+independent full readback. H's limits and preparation-only contract remain fixed;
+G stays closed. Scientific hosted/CAS/source/pilot/session/recovery/RFI/null/127+24
+gates stay pending. Targets, holds, historical failures, LS and CHEOPS are
+unchanged. Consolidate 9 October without extension.
+
 ## 5 October: explicit proxy integration prepared; 40 primary-runtime tests pass
 
 [The distinct integration report](RADIO_PROXY_TRANSPORT_INTEGRATION_2026-10-05_PREPARATION.md)

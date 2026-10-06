@@ -1,5 +1,16 @@
 # SETIsearch
 
+## 6 October: complete codec12 producer source implemented
+
+[Codec12 I](RADIO_CODEC12_2026-10-06I_IMPLEMENTATION.md) implements the fixed
+12-handoff/192-row producer with source authentication, compressed-read vetoes,
+durable partial evidence and exact journal completion. **43 source/custody tests**
+and isolated read-only preflight pass; both receiver contexts and 14 original
+inputs verify. No native/HDF5/telescope control, activation, allocation or
+certificate exists. Current native/runtime lifetime integration and a distinct
+executable outer freeze remain next. Targets and holds are unchanged; consolidate
+9 October without extension.
+
 ## 6 October: complete controlled-codec scope prepared, no dispatch
 
 [Codec12 H](RADIO_CODEC12_2026-10-06H_PREPARATION.md) fixes all 12 ordered
