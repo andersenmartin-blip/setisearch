@@ -1,3 +1,20 @@
+## 7 October 2026: Voyager engineering reference ran once and failed closed
+
+The separately frozen [Voyager reference](https://github.com/andersenmartin-blip/setisearch/blob/ca4c79e3f13d62fc2dc4e9d67a04b719818a3e47/RADIO_REFERENCE_VOYAGER_2026-10-07_PROTOCOL.md)
+installed Python 3.10.15, blimpy 2.1.4 and turboSETI 2.3.2, read the exact
+public Voyager header and produced the three known-frequency DAT rows in one
+bounded run. Its original strict absolute S/N gate rejected one +0.001626
+difference and remains `FAILED_CLOSED`.
+
+A [no-replay evidence review](https://github.com/andersenmartin-blip/setisearch/blob/ca4c79e3f13d62fc2dc4e9d67a04b719818a3e47/RADIO_REFERENCE_VOYAGER_2026-10-07_REVIEW.md)
+verifies all eight original manifest members and shows the pinned upstream test
+actually combines absolute and relative tolerance. This explains the mismatch
+without changing the disposition. The source receipt and waterfall are absent,
+so the next-plan continuation is one distinct final engineering route with an
+early transfer receipt and exact validator semantics. HD189733, fresh validation
+and every pilot/holdout value remain unopened. The old period still closes on
+9 October.
+
 ## 7 October 2026: radio closure prepared; telescope pilot has not run
 
 [The period closure preparation](https://github.com/andersenmartin-blip/setisearch/blob/f09939800907e5ef887eed193aba57b8410aa76f/RADIO_CLOSURE_2026-10-07_PREPARATION.md)
