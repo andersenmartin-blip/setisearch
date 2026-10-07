@@ -1,3 +1,27 @@
+## 7 October 2026: reader-facing period report drafted; science remains blocked
+
+[The period report draft](RADIO_PERIOD_2026-10-09_REPORT_DRAFT.md) is ready for
+the 9 October consolidation, based on immutable Q-era checkpoint
+af5b25a97f35d112a9917acb96f7a1eb09c4fa3f. It states the planned pilot was not
+completed; separates controlled codec/source evidence from telescope science;
+preserves closed calibration, zero evaluation runs and inactive 127/24; and
+records runtime-input/observer gaps and unknown whole-period resource totals.
+Independent document review checked Q and original panel/G/K/M reports.
+Its full published draft body matched complete immutable readback.
+
+The scientific obstruction is also explicit: empty conditional shifts are
+legitimate no-eligible-hypothesis outcomes under the fixed two-epoch S/N 3 rule,
+rather than missing computation. A future method contract needs a fresh
+prospectively scoped disjoint allocation; package/observer repair alone does
+not resolve calibration. No old workload/test, native scope, spectrum,
+allocation or capability probe was run for this documentation continuation.
+
+This is a 7 October draft, not final closure or an extension. Exact next remains:
+refresh newest status/direction/plan on 9 October, reconcile intervening
+authorized evidence, finalize the bounded period report and main overview,
+then close this blocked route for the period if its requirements remain unmet.
+Q is complete; no unchanged P/O/M/K work, closed retry or empty check follows.
+
 ## 7 October 2026: period closure inventory prepared; telescope pilot unstarted
 
 [Q closure preparation](RADIO_CLOSURE_2026-10-07_PREPARATION.md) authenticates
