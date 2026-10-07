@@ -7,6 +7,8 @@ See upstream_blimpy_LICENSE. No HDF5/native runtime reconstruction is needed.
 """
 from pathlib import Path
 import argparse, csv, datetime, hashlib, json, os, platform, resource, struct, sys, time, urllib.request
+COMMAND_WALL_START = time.monotonic()
+COMMAND_CPU_START = time.process_time()
 import numpy as np
 import scipy
 from scipy.ndimage import median_filter, maximum_filter1d
@@ -115,8 +117,8 @@ def main():
     a = p.parse_args()
     c = json.loads((ROOT / "config.json").read_text())
     a.output.mkdir(parents=True, exist_ok=False)
-    wall_start = time.monotonic()
-    cpu_start = time.process_time()
+    wall_start = COMMAND_WALL_START
+    cpu_start = COMMAND_CPU_START
     status = "FAILED_CLOSED"
     log = []
     def say(s):
@@ -240,6 +242,8 @@ def main():
                  "single_reference_scan_no_on_off":True,"sky_candidates_claimed":0,"old_failed_ci_disposition":"FAILED_CLOSED"}
         write_json(a.output/"summary.json",summary)
         say(f"Search complete; retained all {hit.size} threshold channels and {peak.size} representative maxima")
+        if not carrier_demonstrated:
+            raise ValueError("Known-carrier threshold/localization gate failed; computational outputs retained")
         status="REFERENCE_CARRIER_DEMONSTRATED" if carrier_demonstrated else "REFERENCE_COMPLETE_CARRIER_GATE_FAILED"
     except Exception as e:
         say(f"FAILED_CLOSED: {type(e).__name__}: {e}")
