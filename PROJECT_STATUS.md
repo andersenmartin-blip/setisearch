@@ -1,3 +1,40 @@
+## 7 October 2026: immediate plan started; complete local reference succeeds
+
+Martin approved immediate execution of the [7-20 October plan](https://github.com/andersenmartin-blip/setisearch/blob/881f7b7825c11cd16ff1df8ee795bf1a5ef5d000/RADIO_TWO_WEEK_PLAN_2026-10-07.md).
+The distinct second and final local engineering route ran exactly once and
+[completed its reference package](https://github.com/andersenmartin-blip/setisearch/blob/5f050b02cf683977f78f95b3f8c674a3b9ce3ebe/RADIO_REFERENCE_LOCAL_2026-10-07_RESULT.md); the
+[independent retained-output review](https://github.com/andersenmartin-blip/setisearch/blob/5f050b02cf683977f78f95b3f8c674a3b9ce3ebe/RADIO_REFERENCE_LOCAL_2026-10-07_REVIEW.md) passes without detector replay.
+
+The source receipt records 67,109,246 bytes and a pinned SHA256 before header/
+array access. All 16,777,216 float32 source powers are finite and nonnegative.
+The 16-row search covers 28,633 native channels (about 80 kHz) over 785 drift
+trials from -4 to +4 Hz/s, with a complete 522-channel halo on each side.
+The known Voyager carrier is recovered at 8419.297027867287 MHz and
+-0.377551020408164 Hz/s. All 2,369 threshold channels and every below-threshold
+maximum are retained; these are channels, not independent signals/candidates.
+
+The analysis command uses 3.750069 s wall, 3.747761 CPU-s and 224,813,056 bytes
+peak RSS. Separate presentation-only plotting adds 1.269175 s wall and
+1.268920 CPU-s; it does not repeat the detector. The initially completed source
+download/preparation is outside those command intervals. Prior CI resource/
+source totals remain unknown; these measurements do not certify whole-period
+totals. The earlier CI attempt remains FAILED_CLOSED, and no third runtime
+route or old retry is authorized.
+
+Code/config/contract were publicly frozen and fully read back before array
+access at ebbdfe02ee32fcf89d0ebd4f4e3fac3fc3678d37. All original result members
+remain unchanged. The published result-directory blob hashes, full report and
+review bodies were verified at 5f050b02cf683977f78f95b3f8c674a3b9ce3ebe.
+The file header gives 19 September 2016; the tutorial's December 2015 narrative
+is explicitly not used as this file's date.
+
+Next is the separate prospective pilot-source/band/halo/time/ON-OFF/mask and
+development/validation contract, then fresh recovery/RFI/noise controls before
+the exploratory pilot. Reference deadline 8 October is satisfied on 7 October.
+No HD189733/pilot value, fresh evaluation or historical holdout was opened.
+The pilot deadline is 13 October; final reporting is 20 October. The historical
+9 October closure and every original scientific failure/hold remain separate.
+
 ## 7 October 2026: Martin approves immediate 7-20 October execution
 
 Martin approved the redesigned plan with one explicit change: start now,
