@@ -1,3 +1,26 @@
+## 7 October 2026: loader ACTIVITY/cookie source model complete
+
+[P result](https://github.com/andersenmartin-blip/setisearch/blob/5bf89ac846329366429f93823a3777fef8ffb3a9/RADIO_ACTIVITY_2026-10-07P_RESULT.md)
+implements the separately frozen and fully pre-read source-only ACTIVITY/cookie/
+startup scope. The deterministic N successor binds registered cookie-slot identity
+and never serializes a raw pointer as an object generation. Its pure wire-v2
+reducer retains/refuses exact bootstrap and runtime ADD/DELETE/CONSISTENT histories.
+
+The retained first cohort passed 30/33; three test-harness sibling-import failures
+remain recorded. After the import-only correction, the second cohort passed
+**33/33**, including strict C syntax-only. No native module was built/loaded, no
+callback/target launched, no positive ACK sent and no spectrum opened. All
+**16 result bodies / 910,830 representation bytes** matched complete immutable
+readback; the [receipt](https://github.com/andersenmartin-blip/setisearch/blob/5bf89ac846329366429f93823a3777fef8ffb3a9/results_radio_activity_source_20261007p/PUBLIC_RESULT_READBACK.json)
+was itself read back and verified.
+
+P/O/M/K are not replayed. Native continuation still requires genuinely new
+authentic runtime inputs (including K's 136 missing members), permitted observer
+capability, and a separately frozen/read-back integrated one-shot outer. Otherwise
+the next useful step is the 9 October consolidation. Preparation remains not ready;
+scientific gates, budgets, target/holds, untouched holdouts and all closed failures
+remain unchanged.
+
 ## 7 October 2026: explicit callback / loader / codec source interface
 
 [O integration](https://github.com/andersenmartin-blip/setisearch/blob/4ab90a06aad2e3c026628bbaca215c23be1e5d2b/RADIO_INTERFACE_2026-10-07O_RESULT.md)
