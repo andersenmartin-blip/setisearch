@@ -1,0 +1,18 @@
+# Second and final engineering route — local SIGPROC reference
+
+Frozen 7 October 2026 before reading telescope array values. The earlier CI route remains FAILED_CLOSED; its comparator and disposition are not changed or replayed. This is the distinct second route allowed by the new plan's two-route ceiling.
+
+Source: http://blpd0.ssl.berkeley.edu/Voyager_data/Voyager1.single_coarse.fine_res.fil
+Official provenance: UCBerkeleySETI/blimpy examples/voyager.ipynb at commit 3ebf04342227a95405aa32e5bc75832d1dd17f28 (blob b9ce93893e1ca256ec1e15400df8f8dd4e72a0eb). It identifies GBT X-band observations of Voyager 1 on 30 December 2015, and defines the known reference region 8419.26–8419.34 MHz. This is publicly exposed engineering reference data, not unseen validation or a pilot target.
+
+An ordinary public download completed; write its byte-count/SHA256 receipt immediately, before reading header or values. Strictly supported format: SIGPROC little-endian 32-bit float power, one IF, complete rectangular rows. Refuse unknown header tokens, invalid dimensions, missing/incomplete rows, non-finite or negative power. Record source header without modifying it.
+
+Declared search: all channel centers in [8419.26,8419.34] MHz, reference time at first integration midpoint; full time row set. Decode a halo sufficient for ±4 Hz/s over the first-to-last midpoint interval, plus 129 channel median-filter margin. Signed frequency-coordinate drift is positive toward higher MHz. Grid includes zero and endpoints, spacing no greater than abs(channel width)/time span, so half-step mismatch is at most half a channel at the final midpoint. Nearest-channel track sum with no wrap, complete carrier coverage only.
+
+Preprocessing: each time row is divided by its median in the decoded region; subtract a 257-channel running median; divide by 1.4826 times the median absolute deviation of the residual within the searched channels. Track score is residual sum/sqrt(number of rows); it is an engineering robust standardized score, not turboSETI S/N or calibrated sky false-alarm probability.
+
+Full output: one row per searched reference channel whose maximum-over-declared-drifts score is at least 10, with first-row frequency, winning drift and score. Ties select the first ordered drift. Save every threshold channel, without clustering or rejection; additionally save a representative frequency-local-maxima list and the maximum score/drift vectors for audit. No compatibility assertion against old turboSETI S/N values. No ON/OFF rule exists for this single reference scan, so no SETI candidate classification.
+
+Before judging hits, save full-band spectrum and known-carrier waterfall (8419.296–8419.298 MHz). Success means complete exact read, finite outputs, these plots, complete hit list, resource receipt and a one-command reproducible bundle. Detection of the known Voyager carrier is reported as reference evidence, with no new scientific validation claim.
+
+Bounds: source <=256 MiB, peak RSS <=4 GiB, wall <=30 minutes. Download max120s; no paid access or person messages. A separate tiny synthetic engineering test verifies frequency sign and drift-grid behavior but does not count as fresh validation. No pilot, old holdout or calibration values are opened.
