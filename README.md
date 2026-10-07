@@ -1,3 +1,31 @@
+## 7 October 2026: explicit callback / loader / codec source interface
+
+[O integration](https://github.com/andersenmartin-blip/setisearch/blob/4ab90a06aad2e3c026628bbaca215c23be1e5d2b/RADIO_INTERFACE_2026-10-07O_RESULT.md)
+implements the separately published prospective wire-v2/J/I/H source interface.
+It retains original packets, transient object/fd history and the exact source of
+each derived J event. Added fixture namespace/handshake/terminal values are never
+attributed to N's native producer. Unsupported ACTIVITY/VETO/aliases and ambiguous
+terminal states refuse. H/I retains all twelve planned handoff identities; no
+actual codec handoff, native wait or positive production ACK is created.
+
+**35 initial integration controls and three additional new closure/flag controls
+pass**. The first 35 were not rerun/recounted; original source, ordinary input
+files and every fabricated trigger/veto remain retained. This is 38 distinct
+controls across the documented source revisions, not a single final 38-case run.
+Public release/dispatch, original N release and original I produce remain closed.
+
+All **79 new/changed result bodies / 1,372,459 representation bytes** were read
+back in full at the immutable result commit; the
+[public readback receipt](https://github.com/andersenmartin-blip/setisearch/blob/4ab90a06aad2e3c026628bbaca215c23be1e5d2b/results_radio_interface_source_20261007o/PUBLIC_RESULT_READBACK.json)
+was also verified. The restricted source interface is complete. Any further
+ACTIVITY/startup extension needs a separate prospective source scope. Actual
+native work still needs K's 136 authentic missing members, permitted namespace/
+observer capability and full current-runtime/mapping/kernel/startup/terminal
+qualification before a separately frozen/read-back integrated one-shot outer.
+M's EACCES remains closed; no old test, transfer, ledger or scientific failure is
+reset. Spectra/112+128, neighbor9, targets/holds and budgets remain unchanged.
+Consolidate **9 October 2026**, without plan extension or person messages.
+
 ## 6 October 2026: namespace access refusal retained; callback barrier remains source only
 
 [Mapping/kernel M](https://github.com/andersenmartin-blip/setisearch/blob/e6028af895bbaa5e558336ccf9b584353ea56eb6/RADIO_MAPPING_KERNEL_2026-10-06M_RESULT.md)
