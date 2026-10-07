@@ -1,3 +1,29 @@
+## 7 October 2026: complete reference; move to prospective pilot contract
+
+The approved plan now runs [7-20 October](https://github.com/andersenmartin-blip/setisearch/blob/881f7b7825c11cd16ff1df8ee795bf1a5ef5d000/RADIO_TWO_WEEK_PLAN_2026-10-07.md).
+The complete [local Voyager reference](https://github.com/andersenmartin-blip/setisearch/blob/5f050b02cf683977f78f95b3f8c674a3b9ce3ebe/RADIO_REFERENCE_LOCAL_2026-10-07_RESULT.md) and its
+[independent review](https://github.com/andersenmartin-blip/setisearch/blob/5f050b02cf683977f78f95b3f8c674a3b9ce3ebe/RADIO_REFERENCE_LOCAL_2026-10-07_REVIEW.md) demonstrate data reading, plotting,
+a bounded linear-drift search, full output retention and measured execution.
+This satisfies the first reference milestone on 7 October, before its 8 October
+deadline. The earlier CI route remains closed failed; both allowed engineering
+routes have now been used. No additional runtime rescue or repeat follows.
+
+Use the working local route as the basis for the separate source/protocol
+contract on 9-10 October. Freeze exact pilot file/metadata identities, frequency
+band and drift halo, time reference, masks, threshold/ON-OFF rules and distinct
+development/validation identities before opening pilot or fresh validation
+values. Fresh recovery, matched-interference and noise gates remain required
+on 11-12 October. Only then run the exploratory six-scan pilot, by 13 October
+or switch promptly to the bounded method alternative.
+
+One public known Voyager scan is engineering evidence, not an ON/OFF search,
+independent visit or calibrated sky result. All original source and result
+hashes are retained. New measured CPU/RAM intervals exclude initial download/
+preparation; unknown earlier totals are not reconstructed or reset. Preserve
+historical holds, untouched panels, unresolved candidates and paused/unsent work.
+Reproduction is 19 October; final delivery 20 October; old-period closure remains
+9 October. No paid service, person message or always-on worker is implied.
+
 ## 7 October 2026: start the approved 7-20 October plan immediately
 
 Martin explicitly approved the plan and changed its start to today.
