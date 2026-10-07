@@ -1,3 +1,17 @@
+## 7 October: bounded Voyager reference executed and failed closed
+
+The new-plan engineering reference installed the pinned Python/blimpy/turboSETI
+stack, read the exact Voyager header and produced three hits at the three known
+frequencies in one run. Its original strict absolute S/N check rejected one
++0.001626 difference. [The evidence review](RADIO_REFERENCE_VOYAGER_2026-10-07_REVIEW.md)
+verifies the retained manifest and documents that upstream actually combines
+absolute and relative tolerance; this explains the discrepancy without changing
+the failed disposition or replaying analysis. Source hash/bytes and waterfall
+were not retained because they followed the failed check. HD189733 and all fresh
+validation/pilot inputs remain unopened. The next-plan continuation is one
+separately frozen final engineering route with early transfer receipt and exact
+validator semantics; the old period still closes 9 October.
+
 ## 7 October 2026: radio period result prepared, pilot not started
 
 [Closure preparation](RADIO_CLOSURE_2026-10-07_PREPARATION.md) indexes 232

@@ -1,3 +1,22 @@
+## 7 October 2026: retain failed Voyager gate; use at most one distinct route
+
+The first new-plan engineering reference executed once and is closed failed.
+It did demonstrate installation, authentic Voyager HDF5/header reading and a
+three-hit turboSETI DAT at the three expected frequencies. Its strict absolute
+S/N gate rejected one +0.001626 difference. A five-test post-hoc audit of the
+retained output shows that the pinned upstream test's actual absolute-plus-
+relative `numpy.isclose` rule would accept all three rows, but the original
+run remains failed and is not repeated or retuned.
+
+The source receipt and waterfall are missing because both were ordered after
+the failing comparison. On 10 October, freeze one genuinely distinct final
+engineering route before execution: record source bytes/hash immediately,
+create the waterfall before compatibility judgment, measure resources and copy
+validator semantics exactly from pinned source. Do not open HD189733 or fresh
+validation inputs until that reference and the separate integrated source/band/
+identity/recovery/RFI/null protocol pass. The 9 October old-period closure and
+all historical failures, holds and untouched allocations remain unchanged.
+
 ## 7 October 2026: next period redesigned for early real-data analysis
 
 Martin's explicit request authorizes the separate

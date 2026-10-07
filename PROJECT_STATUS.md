@@ -1,3 +1,30 @@
+## 7 October 2026: Voyager reference ran once; frozen gate failed closed
+
+The separately frozen [Voyager engineering reference](RADIO_REFERENCE_VOYAGER_2026-10-07_PROTOCOL.md)
+ran exactly once in [workflow 37666576130](https://github.com/andersenmartin-blip/setisearch/actions/runs/37666576130).
+Python 3.10.15, blimpy 2.1.4 and turboSETI 2.3.2 installed; the exact
+Voyager header was read and turboSETI retained three DAT rows at all three
+expected frequencies. Eight pre-run contract tests passed. No HD189733 value,
+fresh validation identity, old holdout or pilot spectrum was opened.
+
+The original disposition is `FAILED_CLOSED`: the middle S/N was 245.709610
+versus frozen 245.707984, so its +0.001626 delta exceeded the package's strict
+absolute 0.001 gate. [The retained-output review](RADIO_REFERENCE_VOYAGER_2026-10-07_REVIEW.md)
+uses five new tests and verifies all eight original manifest members without
+replaying analysis. It identifies a specification error: pinned upstream code
+uses `numpy.isclose(..., atol=0.001)` with default `rtol=1e-5`; all three rows
+pass those actual upstream frequency/S/N semantics. This explains the mismatch
+but does not tune or convert the failed run to pass.
+
+The failure path correctly removed the HDF5, but source byte count/SHA256 were
+written only on success and are therefore absent; the failure preceded waterfall
+creation. CPU/RAM and search-only time are also unmeasured. Exact next at the
+10 October plan start: do not replay this route. Prospectively freeze the distinct
+second and final engineering route with an early transfer receipt, plot-before-
+compatibility ordering, measured resources and exactly pinned validator semantics.
+Pilot-source and fresh validation contracts remain later, closed gates. The old
+period still consolidates on 9 October; no historical disposition changes.
+
 ## 7 October 2026: redesigned 10-23 October SETI plan prepared at Martin's request
 
 Martin explicitly requested a better next two-week plan. The new
