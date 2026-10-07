@@ -1,3 +1,25 @@
+## 7 October 2026: radio closure prepared; telescope pilot has not run
+
+[The period closure preparation](https://github.com/andersenmartin-blip/setisearch/blob/f09939800907e5ef887eed193aba57b8410aa76f/RADIO_CLOSURE_2026-10-07_PREPARATION.md)
+authenticates 232 retained metadata/report bodies, including 214 radio reports,
+and preserves closed failures, partial engineering observations and inactive
+proposals. Eleven distinct new administrative audit tests pass. All 18 published
+package/document bodies (968,018 bytes) have complete immutable
+[public readback](https://github.com/andersenmartin-blip/setisearch/blob/bb72164342427d9f1516f30a5ee6573194653f6f/results_radio_closure_preparation_20261007q/PUBLIC_RESULT_READBACK.json).
+
+The independent HD189733/neighbor9 telescope pilot has not started. Original
+preparation remains blocked, the failed calibration is closed, and 127/24 stays
+inactive. K's 136 missing/mismatched original runtime members and M's closed
+process-access refusal remain explicit. No sky spectrum, old workload or new
+scientific/native allocation was opened.
+
+The 2,920 s / 5,512 MiB figure covers sixteen selected charged reservation
+envelopes; it is neither measured use nor complete project history. Separate
+process-AS guard controls, K's copy envelope and other administration are outside
+that subtotal; whole-period measured resources remain unknown. Final period
+consolidation remains 9 October. All historical holds and untouched holdouts
+remain; no person message, extra target or automatic plan extension.
+
 ## 7 October 2026: loader ACTIVITY/cookie source model complete
 
 [P result](https://github.com/andersenmartin-blip/setisearch/blob/5bf89ac846329366429f93823a3777fef8ffb3a9/RADIO_ACTIVITY_2026-10-07P_RESULT.md)
