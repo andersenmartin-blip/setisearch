@@ -1,3 +1,28 @@
+## 7 October 2026: Martin approves immediate 7-20 October execution
+
+Martin approved the redesigned plan with one explicit change: start now,
+7 October. The authoritative [7-20 October plan](RADIO_TWO_WEEK_PLAN_2026-10-07.md)
+moves the real-reference deadline to 8 October, source/protocol freeze to
+9-10 October, fresh controls to 11-12 October, first scientific pilot deadline
+to 13 October, reproduction to 19 October and final reporting to 20 October.
+The earlier 10-23 October draft is superseded; historical period closure on
+9 October and all original dispositions remain unchanged.
+
+Immediate work uses the prospectively frozen
+[local SIGPROC reference route](RADIO_REFERENCE_LOCAL_2026-10-07_PROTOCOL.md).
+This is the second and final engineering route, after the closed failed Voyager
+CI route below. It uses a distinct local reader/linear search of the already
+public Voyager FIL engineering data; it does not replay turboSETI or tune the
+old comparator. The source receipt records 67,109,246 received bytes and
+SHA256 49af50577e136d6e1184e1709fda54d1f48562290df34aa5ed5df34e96e2baf7
+before telescope-array value access. Plots precede result judgment; resources,
+complete threshold-channel outputs and reproducible code must be retained.
+
+This is an active reference preparation, not a completed pilot or scientific
+validation. No HD189733/pilot value, fresh evaluation or historical holdout
+has been opened. Actual final reference disposition will be published
+separately. No additional runtime route, paid service or person message follows.
+
 ## 7 October 2026: Voyager reference ran once; frozen gate failed closed
 
 The separately frozen [Voyager engineering reference](RADIO_REFERENCE_VOYAGER_2026-10-07_PROTOCOL.md)
