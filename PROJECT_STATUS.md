@@ -1,3 +1,33 @@
+## 7 October 2026: redesigned 10-23 October SETI plan prepared at Martin's request
+
+Martin explicitly requested a better next two-week plan. The new
+[10-23 October plan](RADIO_TWO_WEEK_PLAN_2026-10-10.md) is published and its
+complete body was verified at 53d1a7eac870a9f176b0dff9f1a77894743a1ff6.
+It is a separate prospective exploratory study; the 26 September-9 October
+period still closes on 9 October and its failures remain recorded.
+
+The main deliverable is one fully searched, previously unopened six-scan
+ON/OFF cadence in a frozen band, with measured coverage and a complete
+hit/disposition list. A real engineering reference must run by 11 October;
+fresh signal/RFI/noise validation precedes the scientific pilot by 16 October.
+A hard blocking failure triggers an immediate switch. A computed method
+study is the fallback only after its own runtime capability is demonstrated.
+No permitted working route means a documented capability failure and a
+clearly unexecuted package, never claimed computed results.
+
+The new study proposes normal reproducibility and an available Linux
+runner, rather than reconstruction of the historical native runtime.
+HD189733/HIP98505 cadence 85030 is a metadata candidate, not an approved
+source contract. New source, band/halo, time, ON/OFF and validation identities
+must be frozen prospectively. The old 112+128 holdouts, inactive 127/24,
+closed controls, holds and unresolved candidates remain unchanged.
+Neither runner access nor new scientific qualification is demonstrated yet.
+
+This continuation prepared and independently reviewed the plan and its PDF;
+no new analysis job, scientific test, pilot spectrum or allocation was run.
+The calendar is a plan, not an activated background worker. Analysis and
+publication are separate so an upload failure cannot trigger a compute replay.
+
 ## 7 October 2026: reader-facing period report drafted; science remains blocked
 
 [The period report draft](RADIO_PERIOD_2026-10-09_REPORT_DRAFT.md) is ready for
