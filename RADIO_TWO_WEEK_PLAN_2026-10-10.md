@@ -1,3 +1,5 @@
+> Superseded on 7 October 2026 by Martin's explicit approval to start immediately. Use [the authoritative 7-20 October plan](RADIO_TWO_WEEK_PLAN_2026-10-07.md). The original draft below remains as history.
+
 # SETI: ny 2-ugers plan, 10.-23. oktober 2026
 
 Udarbejdet 7. oktober 2026 efter Martins udtrykkelige ønske om en ny plan.
