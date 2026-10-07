@@ -1,3 +1,17 @@
+## 7 October 2026: explicit callback/loader/codec source interface
+
+[O](RADIO_INTERFACE_2026-10-07O_RESULT.md) implements the separately published
+prospective wire-v2/J/I/H source interface. It preserves original packets and
+explicit projection provenance, retains transient generations and refuses
+unsupported callbacks/aliases and ambiguous terminal claims. Original H/I binds
+all twelve planned handoffs; no codec result, native wait or positive production
+ACK is created. Public release/dispatch remain closed.35 initial controls and
+three additional new closure/flag controls pass; all inputs and the original
+source are retained, without replaying/recounting the earlier35. Actual runtime/
+observer capability and K's136 original missing members remain required. M's
+EACCES stays closed. No spectrum/holdout or new target; budgets/holds unchanged.
+Consolidate9 October without extension or person messages.
+
 ## 6 October 2026: access failure preserved; callback barrier source tested
 
 [M](RADIO_MAPPING_KERNEL_2026-10-06M_RESULT.md) has 64 passing source controls.

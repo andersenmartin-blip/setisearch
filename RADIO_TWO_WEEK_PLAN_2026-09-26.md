@@ -1,3 +1,48 @@
+## 7 October 2026: explicit N/J/I/H source interface O; no native dispatch
+
+[O integration](RADIO_INTERFACE_2026-10-07O_RESULT.md) follows the M/N checkpoint
+under [its distinct prospective protocol](RADIO_INTERFACE_2026-10-07O_PROTOCOL.md),
+publicly frozen/read back before implementation. Nine immutable original source/
+metadata contexts are bound. Original N wire-v2 packets are retained without
+rewriting to L wire-v1; each supported J projection records its raw source and
+all fields added by the adapter. Unsupported ACTIVITY/VETO/aliases refuse rather
+than disappear. Transient object/fd generations remain retained. EOF and a
+constructed fixture terminal are explicitly not native process-wait proof.
+H/I binds twelve planned handoff role/scan/window/context/bank identities;
+actual codec handoffs/journal/certificate and positive production ACKs are zero.
+
+**35 initial integration controls plus three additional new closure/flag controls
+pass** (38 distinct controls, not one final 38-case run). Initial source and all
+raw manufactured inputs, fd/truncation/terminal/refusal evidence remain retained.
+The sole post-35 source change closes O when descriptors are cleaned up; the
+original 35 are not rerun or recounted. Public O release/dispatch, original N
+release and original I public produce stay closed. Native callbacks/build/load,
+scientific package imports, runtime qualification and science authority are zero.
+First administrative source cohort:0.164221297s/19,024KiB child peakRSS;
+three-control body:0.002696673s/17,152KiB processRSS (not full process wall).
+Context-reader bytes171,162;receiver held-fixture reads841B; neither is a certified
+native ledger. Final frozen folder632,790 logical/909,312 allocatedB.
+
+Exact next point: O's restricted interface is complete; do not replay it or use
+fixture ACK/terminal claims as native/scientific evidence. Generic ACTIVITY/cookie/
+startup support would need a separate prospective source-only scope preserving
+all vetoes. Actual native work still needs K's136 missing authentic members,
+permitted namespace/process observer capability and complete current-runtime,
+mapped-inode/content/kernel/collector-own-dependency/constructor/descendant/
+terminal-IO qualification. M's single ns/pid EACCES remains failed/closed with no
+retry/bypass and zero downstream maps/auxv/exe/vDSO reads. K transfers are not
+replayed. Publish/read back a separate integrated executable outer and cumulative
+one-shot scope before any native activation. Original preparation-contract stays
+not ready; full prospective scientific/source/session/recovery/RFI/null gates
+remain pending before telescope opening. H codec600wall/540CPU/448MiB/4GiB+1GiB
+unallocated; historical selected2,920s/5,512MiB plus five separate guard controls
+unchanged; exhausted acquisition ledger stays closed.
+
+HD189733/HIP98505 cadence85030/neighbor9 selected; HD1461 HOLD/GJ724 reserve;
+spectra/original112+128 untouched; native8 unreserved;127+24 inactive;M43AI closed;
+M15/M33 unresolved;LS paused LS8BD–LS8BE/BF untouched;CHEOPS UNSENT. No external
+person messages, new sequence or plan extension. Consolidate **9 October 2026**.
+
 ## 6 October 2026: M access refusal retained; N callback barrier remains source only
 
 [M mapping/kernel result](RADIO_MAPPING_KERNEL_2026-10-06M_RESULT.md) adds
