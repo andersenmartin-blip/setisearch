@@ -1,3 +1,17 @@
+## 7 October 2026: radio period result prepared, pilot not started
+
+[Closure preparation](RADIO_CLOSURE_2026-10-07_PREPARATION.md) indexes 232
+retained metadata/report bodies and distinguishes closed failures, partial
+engineering results, inactive proposals and missing source admission.
+Eleven new audit tests pass; no sky spectrum, old workload or trial was opened.
+
+The planned HD189733/neighbor9 telescope pilot has not run. The often quoted
+2,920 s / 5,512 MiB covers sixteen selected reservation envelopes, not measured
+use or complete project history. Whole-period resource totals remain unknown.
+Original preparation, K's 136 missing runtime members, M's closed access refusal,
+failed calibration and all historical holds remain. Final consolidation is
+9 October; no automatic plan extension or external person message.
+
 ## 7 October 2026: loader activity source step complete
 
 [P](RADIO_ACTIVITY_2026-10-07P_RESULT.md) prospectively freezes and implements a

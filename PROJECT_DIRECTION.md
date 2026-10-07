@@ -1,3 +1,25 @@
+## 7 October 2026: prepare the bounded period result
+
+[Q closure preparation](RADIO_CLOSURE_2026-10-07_PREPARATION.md) turns retained
+history into a pinned metadata index and explicit disposition/resource review:
+232 bodies/214 root RADIO reports, eleven new audit tests and six complete
+original-JSON readbacks. It is provisional; final consolidation stays 9 October.
+
+The independent telescope pilot has not started. Source/runtime/native and
+scientific admission remain unqualified; original preparation is not ready.
+Closed calibration failure, zero evaluation runs and inactive 127/24 are
+preserved. The 2,920 s / 5,512 MiB subtotal is sixteen selected reservation envelopes,
+not measured use or all-project history; address space and K's separate
+administrative envelope are excluded. Whole-period resource totals are unknown.
+
+Q is complete. Next refresh the latest branch on 9 October and publish the
+bounded period failure with exact missing inputs/capabilities, tested/unassessed
+scope and preserved evidence. Earlier native continuation needs genuinely new
+authentic runtime inputs and permitted observer capability plus a separate
+prospective integrated outer; no closed control/recovery replay or empty checks.
+All targets, holds, holdouts, budgets, failures and paused/unsent work remain.
+No external person message, new sequence or automatic plan extension.
+
 ## 7 October 2026: close P source activity model; native inputs still absent
 
 [P](RADIO_ACTIVITY_2026-10-07P_RESULT.md) completes the prospectively separated

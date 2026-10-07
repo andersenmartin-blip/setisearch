@@ -1,3 +1,24 @@
+## 7 October 2026: closure preparation complete; final review remains 9 October
+
+[Q](RADIO_CLOSURE_2026-10-07_PREPARATION.md) inventories 232 original report/
+metadata bodies, reconciles sixteen selected reservation envelopes and retains
+the unstarted telescope pilot, failed calibration, inactive 127/24, pending
+admission and K/M input/access gaps. Eleven new audit tests pass; final-source
+output comparison and six original-JSON full public readbacks pass.
+
+The 2,920 s / 5,512 MiB subtotal is neither measured use nor complete period history.
+Five process-AS guard controls, K's separate administrative envelope and earlier/
+later administration are outside it; whole-period resource totals remain
+unqualified. No science/native allocation or old budget reset occurs.
+
+Exact next: prepare no more unchanged P/O/M/K work. On 9 October refresh the
+latest branch and publish final period consolidation, including explicit
+pilot-not-completed and the bounded failure/next information requirement.
+Actual native continuation needs genuinely new authentic inputs/permitted
+observer access and a separate frozen/read-back integrated outer first.
+All existing dispositions and gates remain. No new cadence, messages or
+automatic extension of this plan.
+
 ## 7 October 2026: P source-only activity step closed
 
 [P result](RADIO_ACTIVITY_2026-10-07P_RESULT.md) records a prospectively frozen,

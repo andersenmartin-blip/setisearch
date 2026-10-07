@@ -1,0 +1,24 @@
+{
+  "schema": "radio-Q-publication-administration-refusals-v1",
+  "date": "2026-10-07",
+  "scientific_or_native_failure": false,
+  "branch_update_performed_by_failed_attempts": false,
+  "failures": [
+    {
+      "stage": "final-output-check orchestration",
+      "message": "SyntaxError: Unexpected token ')'",
+      "nested_tools_dispatched": false,
+      "disposition": "Corrected JavaScript call syntax; the actual output comparison ran once successfully."
+    },
+    {
+      "stage": "local publication staging",
+      "command": "git add -f results_radio_closure_preparation_20261007q",
+      "message": "The following paths and/or pathspecs matched paths that exist outside of your sparse-checkout definition, so will not be updated in the index.",
+      "affected_folder_members": 12,
+      "root_document_paths_staged": 5,
+      "subsequent_assertion": "AssertionError: five staged paths did not equal the draft expected count of eighteen",
+      "disposition": "Use git add --sparse for only this new folder; validate the exact output path set instead of a guessed count. No GitHub tree, commit or branch was published by this attempt."
+    }
+  ],
+  "limits": "Publication administration only; no source, trial, ledger or scientific acceptance rule was changed. This later receipt is outside the initial OUTPUT_PINS set and will be covered by the complete publication readback."
+}

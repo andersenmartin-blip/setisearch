@@ -1,3 +1,34 @@
+## 7 October 2026: period closure inventory prepared; telescope pilot unstarted
+
+[Q closure preparation](RADIO_CLOSURE_2026-10-07_PREPARATION.md) authenticates
+232 retained metadata/report bodies (3,374,885 bytes), including 214 root RADIO
+reports, at completed P checkpoint 5bf89ac846329366429f93823a3777fef8ffb3a9.
+Eleven distinct new administrative audit tests pass; all three output bodies
+match a final-source reconstruction. Six decisive original JSON bodies also
+match fresh complete immutable public readback. No old workload is rerun.
+
+The planned telescope pilot has not run. Original preparation remains blocked;
+its eleven diagnostic admission labels remain missing and all six authority
+flags false. K's 136 authentic members remain missing/mismatched; M's ns/pid
+EACCES remains closed/no-retry. The failed three-calibration/one-diagnosis panel,
+zero evaluation runs and inactive 127/24 proposal remain distinct.
+
+Q reconciles 2,920 s / 5,512 MiB as sixteen selected permanently charged reservation
+envelopes, not measured use or complete history. Contents-C is retired before
+admission; five 512 MiB process-AS guard controls and K's separate copy envelope
+are outside that artifact subtotal. Whole-period measured resources remain
+unqualified/null; H is unallocated. No refund/reset/rearm or authority is issued.
+
+Exact next: Q preparation is complete. Refresh the newest branch on 9 October
+and consolidate the period's bounded failure, evidence, sensitivity/coverage
+limits and named input/capability requirements. Actual native continuation
+before then requires genuinely new authentic inputs/permitted observer access,
+a separate published/read-back integrated outer and cumulative one-shot scope.
+Do not replay P/O/M/K, retry closed scopes or make empty checks. HD189733/
+neighbor9, HD1461 HOLD, GJ724 reserve, 112+128 holdouts, native8 unreserved,
+M43AI closed, M15/M33 unresolved, LS pause/BF untouched and CHEOPS UNSENT remain.
+No additional target, person message or plan extension.
+
 ## 7 October 2026: P activity/cookie/startup source model complete
 
 [P result](RADIO_ACTIVITY_2026-10-07P_RESULT.md) follows the separately published
