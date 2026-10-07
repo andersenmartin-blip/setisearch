@@ -1,3 +1,25 @@
+## 7 October 2026: new plan starts now; complete Voyager reference succeeds
+
+Martin approved starting the [revised 7-20 October plan](https://github.com/andersenmartin-blip/setisearch/blob/881f7b7825c11cd16ff1df8ee795bf1a5ef5d000/RADIO_TWO_WEEK_PLAN_2026-10-07.md) immediately.
+The [distinct local reference](https://github.com/andersenmartin-blip/setisearch/blob/5f050b02cf683977f78f95b3f8c674a3b9ce3ebe/RADIO_REFERENCE_LOCAL_2026-10-07_RESULT.md) completed once and passed an
+[independent retained-output review](https://github.com/andersenmartin-blip/setisearch/blob/5f050b02cf683977f78f95b3f8c674a3b9ce3ebe/RADIO_REFERENCE_LOCAL_2026-10-07_REVIEW.md).
+It reads authentic public GBT Voyager data, saves plots before judgment and
+searches all 28,633 channels in the declared 80 kHz band over 785 drift trials.
+The known carrier is recovered near 8419.297028 MHz with -0.378 Hz/s drift.
+All 2,369 threshold channels and full maximum vectors are preserved.
+
+The reference command took 3.75 s and 214.4 MiB peak process RSS. Source
+bytes/hash, header, versions, coverage, command log and resource receipts are
+public, along with the separately accounted display figures. The original
+failed CI run stays FAILED_CLOSED; this was the second and final engineering
+route. This known single-scan reference provides no ON/OFF pilot, new SETI
+candidate or calibrated sky false-positive claim.
+
+Next: freeze the pilot source and scientific protocol, then pass fresh signal/
+interference/noise controls before the first pilot (deadline 13 October).
+The new plan ends 20 October. Historical 9 October closure, old holdouts,
+inactive allocation, holds and paused/unsent work are preserved.
+
 ## 7 October: bounded Voyager reference executed and failed closed
 
 The new-plan engineering reference installed the pinned Python/blimpy/turboSETI
