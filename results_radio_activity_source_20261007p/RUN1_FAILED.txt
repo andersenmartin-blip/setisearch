@@ -1,0 +1,9 @@
+P cohort 1, 2026-10-07 UTC
+command: python3 -m unittest -v results_radio_activity_source_20261007p/test_activity.py
+result: FAILED (errors=3), 33 tests, 30 passed
+failed controls:
+- test_deterministic_successor_and_no_raw_cookie_emit
+- test_strict_syntax_only
+- test_successor_rejects_drift
+common failure: ModuleNotFoundError: No module named 'build_successor'
+disposition: retained test-harness import-path failure; no scientific/native authority; one corrected cohort permitted.

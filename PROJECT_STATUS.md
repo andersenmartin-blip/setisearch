@@ -1,3 +1,24 @@
+## 7 October 2026: P activity/cookie/startup source model complete
+
+[P result](RADIO_ACTIVITY_2026-10-07P_RESULT.md) follows the separately published
+and fully read-back [prospective protocol](RADIO_ACTIVITY_2026-10-07P_PROTOCOL.md).
+The deterministic N successor binds `la_activity` to registered cookie-slot
+identity, permits generation zero only before registration, requires the unique
+main head thereafter, and never serializes a raw pointer as a generation. A pure
+wire-v2 reducer retains raw activity records and enforces bootstrap/runtime ADD,
+DELETE, CONSISTENT and preinit ordering. Public dispatch and all native/science
+authority remain false.
+
+The retained first cohort passed30/33 and failed three sibling-import harness
+controls. After that import-only correction, a distinct second cohort passed
+**33/33**, including strict C syntax-only. No module was built/loaded, callback or
+target launched, positive ACK sent, or spectrum opened. P is now complete; do not
+replay P/O/M/K. Native activation still requires genuinely new authentic runtime
+inputs, K's136 missing members, permitted observer capability, and a separately
+published/read-back integrated outer with cumulative one-shot bounds. Otherwise
+the useful next step is the 9 October consolidation. The preparation-contract
+remains not ready; all science gates/budgets/targets/holds remain unchanged.
+
 ## 7 October 2026: explicit N/J/I/H source interface O; no native dispatch
 
 [O integration](RADIO_INTERFACE_2026-10-07O_RESULT.md) follows the M/N checkpoint

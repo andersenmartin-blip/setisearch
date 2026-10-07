@@ -1,3 +1,18 @@
+## 7 October 2026: P source-only activity step closed
+
+[P result](RADIO_ACTIVITY_2026-10-07P_RESULT.md) records a prospectively frozen,
+fully pre-read ACTIVITY/cookie/startup scope. The derived C source avoids raw
+cookie serialization and binds registered slot identity; the pure reducer retains
+wire-v2 batch histories. The retained first cohort is30/33 with three harness
+import failures; the corrected cohort passes33/33 and strict syntax-only. No
+native build/load/callback/ACK/runtime/spectrum or authority was created.
+
+Exact next: no P/O/M/K replay. Native continuation requires genuinely new
+authentic runtime members plus permitted observer capability and a separate
+published/read-back integrated outer. Otherwise consolidate on **9 October**.
+Preparation stays not ready; all budgets, gates, target/holds and historical
+dispositions remain unchanged. Do not extend the plan.
+
 ## 7 October 2026: explicit N/J/I/H source interface O; no native dispatch
 
 [O integration](RADIO_INTERFACE_2026-10-07O_RESULT.md) follows the M/N checkpoint

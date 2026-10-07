@@ -1,3 +1,20 @@
+## 7 October 2026: close P source activity model; native inputs still absent
+
+[P](RADIO_ACTIVITY_2026-10-07P_RESULT.md) completes the prospectively separated
+ACTIVITY/cookie/startup source step. The C successor maps callback cookie-slot
+identity to the registered main generation without serializing raw pointers; the
+pure reducer retains wire-v2 activity and refuses invalid batch/startup histories.
+The first30/33 cohort and its three import-harness failures remain; one corrected
+cohort passes33/33 plus strict syntax-only. No module/load/callback/positive ACK,
+runtime or spectrum exists, and dispatch/science authority remain closed.
+
+Do not repeat P/O/M/K. Continue native work only if genuinely new authentic
+runtime members and permitted observer capability become available; then first
+publish/read back a distinct integrated outer and cumulative one-shot scope.
+Otherwise prepare the 9 October consolidation. Historical budgets, selected
+HD189733/neighbor9, HD1461 HOLD, GJ724 reserve, untouched holdouts, closed M43AI,
+unresolved M15/M33, paused LS and unsent CHEOPS remain exactly unchanged.
+
 ## 7 October 2026: explicit N/J/I/H source interface O; no native dispatch
 
 [O integration](RADIO_INTERFACE_2026-10-07O_RESULT.md) follows the M/N checkpoint

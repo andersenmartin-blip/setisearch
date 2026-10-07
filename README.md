@@ -1,3 +1,14 @@
+## 7 October 2026: loader activity source step complete
+
+[P](RADIO_ACTIVITY_2026-10-07P_RESULT.md) prospectively freezes and implements a
+source-only ACTIVITY/cookie/startup model. It maps registered cookie-slot identity
+without serializing raw pointers and retains/refuses exact wire-v2 batch histories.
+The first30/33 cohort's three harness import failures remain; the corrected cohort
+passes33/33 and strict C syntax-only. No native module, callback, positive ACK,
+runtime qualification, dispatch or spectrum exists. New authentic runtime inputs,
+permitted observer access and a separately frozen/read-back integrated outer are
+still required; otherwise consolidate9 October. Budgets/targets/holds unchanged.
+
 ## 7 October 2026: explicit callback/loader/codec source interface
 
 [O](RADIO_INTERFACE_2026-10-07O_RESULT.md) implements the separately published
