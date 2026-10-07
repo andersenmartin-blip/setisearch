@@ -1,3 +1,27 @@
+## 7 October 2026: start the approved 7-20 October plan immediately
+
+Martin explicitly approved the plan and changed its start to today.
+Use the [7-20 October schedule](RADIO_TWO_WEEK_PLAN_2026-10-07.md);
+the earlier 10-23 October draft is superseded. The original period still has
+its separately documented 9 October closure.
+
+The first Voyager CI route is already closed failed. The
+[distinct local SIGPROC route](RADIO_REFERENCE_LOCAL_2026-10-07_PROTOCOL.md)
+is the second and final engineering route. Its public FIL download and early
+checksum/byte receipt exist. Finish its declared read, waterfall, linear search,
+full threshold-channel list and resource/reproduction package without retuning
+the first run or opening pilot data. A failed final route triggers the bounded
+method alternative only if its separate execution capability is demonstrated.
+
+After a complete reference, freeze the exact pilot-source/band/halo/time/ON-OFF/
+mask and distinct development/validation identities, then run fresh recovery,
+matched-RFI and noise controls before any exploratory pilot. Dates are
+8 October reference, 9-10 October protocol, 11-12 October validation,
+13 October pilot-or-switch, 19 October reproduction and 20 October final result.
+Measured work is recorded as it happens; this does not assert an always-on worker.
+All historical failures, budgets, holds, unused panels and paused/unsent work
+are preserved.
+
 ## 7 October 2026: retain failed Voyager gate; use at most one distinct route
 
 The first new-plan engineering reference executed once and is closed failed.
