@@ -1,3 +1,35 @@
+## 7 October 2026: next period redesigned for early real-data analysis
+
+Martin's explicit request authorizes the separate
+[10-23 October two-week plan](RADIO_TWO_WEEK_PLAN_2026-10-10.md).
+The current period still closes on 9 October. Historical requirements and
+failed outcomes are preserved; the new study prospectively chooses its own
+ordinary reproducibility contract, controls and limited exploratory claims.
+
+Next-period order is: prove a complete real-reference command and synthetic
+fallback capability by 11 October; freeze the precise source and scientific
+protocol on 12-13 October; validate on fresh separate controls on 14-15 October;
+complete the first scientific six-scan pilot by 16 October if admitted.
+Use at most one additional independent pilot cadence on 19-21 October,
+reproduce on 22 October and deliver the complete result package on 23 October.
+Hard failures trigger an immediate route change, with at most two runtime
+routes and 90 minutes of active debugging per route. The 16 October deadline
+does not authorize waiting on a known blockage.
+
+Preserve all hits and account for drift, edges, masks and OFF-induced signal
+loss. The plan defines preliminary signal-recovery, matched-interference and
+fresh-noise gates; passing them permits the bounded pilot, not a calibrated
+sky false-alarm, flux/EIRP or population claim. If telescope access or scientific
+admission fails, do the computed method study only in a demonstrated working
+environment. Otherwise report capability failure and an unexecuted package.
+
+The new plan's provisional resource envelope is explicitly separate from
+historic reservation subtotals; measured new time/bytes include failures.
+No paid service, telescope booking or external person message is included.
+This documentation change activates no job and promises no continuous
+background execution. The old holdouts, inactive allocation, closed retries,
+HD1461 hold and paused/unsent work remain preserved.
+
 ## 7 October 2026: prepare the bounded period result
 
 [Q closure preparation](RADIO_CLOSURE_2026-10-07_PREPARATION.md) turns retained
