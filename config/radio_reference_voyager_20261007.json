@@ -1,0 +1,53 @@
+{
+  "schema": "radio-reference-voyager-20261007-v1",
+  "status": "FROZEN_ENGINEERING_REFERENCE_NOT_PILOT",
+  "source": {
+    "url": "http://blpd0.ssl.berkeley.edu/Voyager_data/Voyager1.single_coarse.fine_res.h5",
+    "official_declaration": "UCBerkeleySETI/blimpy tests/download_data.sh at commit 3ebf04342227a95405aa32e5bc75832d1dd17f28",
+    "expected_filename": "Voyager1.single_coarse.fine_res.h5",
+    "minimum_bytes": 40000000,
+    "maximum_bytes": 268435456,
+    "expected_sha256": null,
+    "checksum_policy": "The single bootstrap run records the complete downloaded SHA256. A later reproduction must freeze that observed hash before downloading."
+  },
+  "software": {
+    "python": "3.10.15",
+    "blimpy": "2.1.4",
+    "blimpy_commit": "3ebf04342227a95405aa32e5bc75832d1dd17f28",
+    "turbo_seti": "2.3.2",
+    "turbo_seti_commit": "7d9b4fde9bc98d834dc11cfc0acd2380e6676f0e"
+  },
+  "expected_header": {
+    "source_name": "Voyager1",
+    "shape": [16, 1, 1048576],
+    "fch1_mhz": 8421.386717353016,
+    "foff_mhz": -2.7939677238464355e-06,
+    "tsamp_s": 18.253611008,
+    "tstart_mjd": 57650.78209490741
+  },
+  "search": {
+    "max_drift_hz_s": 4.0,
+    "minimum_snr": 25.0,
+    "expected_reference_hits": [
+      {"frequency_mhz": 8419.319368, "snr": 30.612128},
+      {"frequency_mhz": 8419.297028, "snr": 245.707984},
+      {"frequency_mhz": 8419.274374, "snr": 31.220652}
+    ],
+    "frequency_tolerance_mhz": 0.001,
+    "snr_tolerance": 0.001
+  },
+  "limits": {
+    "job_timeout_minutes": 20,
+    "download_timeout_seconds": 300,
+    "artifact_max_bytes": 268435456,
+    "attempts": 1
+  },
+  "authority": {
+    "pilot_source": false,
+    "pilot_band": false,
+    "scientific_validation": false,
+    "sky_candidate_evaluation": false,
+    "old_holdout_access": false,
+    "automatic_retry": false
+  }
+}

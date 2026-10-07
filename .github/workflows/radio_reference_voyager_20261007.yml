@@ -1,0 +1,136 @@
+name: Radio Voyager bounded engineering reference
+
+on:
+  push:
+    branches: [m43-support-qualification]
+    paths:
+      - '.github/workflows/radio_reference_voyager_20261007.yml'
+      - 'RADIO_REFERENCE_VOYAGER_2026-10-07_PROTOCOL.md'
+      - 'config/radio_reference_voyager_20261007.json'
+      - 'requirements_radio_reference_20261007.txt'
+      - 'scripts/radio_reference_voyager_20261007.py'
+      - 'tests/test_radio_reference_voyager_20261007.py'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: radio-reference-voyager-20261007
+  cancel-in-progress: false
+
+jobs:
+  reference:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      MPLBACKEND: Agg
+      NUMBA_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      PYTHONHASHSEED: '0'
+    steps:
+      - uses: actions/checkout@v4
+        id: checkout
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10.15'
+          cache: pip
+          cache-dependency-path: requirements_radio_reference_20261007.txt
+
+      - name: Test, install and run the one reference
+        id: reference
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m unittest tests.test_radio_reference_voyager_20261007 -v \
+            2>&1 | tee /tmp/radio_reference_tests.log || exit $?
+          python -m pip install --disable-pip-version-check \
+            -r requirements_radio_reference_20261007.txt \
+            2>&1 | tee /tmp/radio_reference_install.log || exit $?
+          timeout --signal=TERM --kill-after=30s 900s \
+            python -u scripts/radio_reference_voyager_20261007.py \
+            --config config/radio_reference_voyager_20261007.json \
+            --output results_radio_reference_voyager_20261007 \
+            2>&1 | tee /tmp/radio_reference_run.log
+
+      - name: Preserve complete or failed reference evidence
+        if: always() && steps.checkout.outcome == 'success'
+        env:
+          RUN_OUTCOME: ${{ steps.reference.outcome }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          out=results_radio_reference_voyager_20261007
+          mkdir -p "$out"
+          rm -f "$out"/*.h5
+          for item in tests install run; do
+            source="/tmp/radio_reference_${item}.log"
+            if test -f "$source"; then cp "$source" "$out/${item}.log"; fi
+          done
+          python -m pip freeze | sort > "$out/environment.txt"
+          python - <<'PY'
+          import hashlib,json,os,platform
+          from pathlib import Path
+          out=Path('results_radio_reference_voyager_20261007')
+          result=out/'RESULT.json'; failure=out/'FAILURE.json'
+          if result.exists(): scientific=json.loads(result.read_text())['status']
+          elif failure.exists(): scientific=json.loads(failure.read_text())['status']
+          else: scientific='INCOMPLETE_BEFORE_RESULT_WRITER'
+          status={'schema':'radio-reference-voyager-run-status-v1',
+            'execution_outcome':os.environ['RUN_OUTCOME'],'scientific_status':scientific,
+            'execution_commit':os.environ['GITHUB_SHA'],'run_id':int(os.environ['GITHUB_RUN_ID']),
+            'python':platform.python_version(),'pilot_spectra_opened':False,
+            'scientific_claim':False,'automatic_retry':False}
+          (out/'RUN_STATUS.json').write_text(json.dumps(status,sort_keys=True,indent=2)+'\n')
+          files=[p for p in sorted(out.rglob('*')) if p.is_file() and p.name!='SHA256SUMS']
+          total=sum(p.stat().st_size for p in files)
+          if total > 268435456: raise SystemExit('artifact cap exceeded')
+          (out/'SHA256SUMS').write_text(''.join(
+            f'{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.relative_to(out)}\n' for p in files))
+          PY
+          cat > RADIO_REFERENCE_VOYAGER_2026-10-07_RESULT.md <<EOF
+          # Voyager engineering reference result — 7 October 2026
+
+          Workflow run: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}
+
+          Execution outcome: **${RUN_OUTCOME}**. Machine status and all limitations
+          are retained in [RUN_STATUS.json](${out}/RUN_STATUS.json) and the complete
+          result/failure JSON. This is an engineering reference, not a pilot or a
+          new sky result. It opens no HD189733 data or held-out validation input.
+          EOF
+
+      - name: Upload evidence independently of branch publication
+        if: always() && steps.checkout.outcome == 'success'
+        id: evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: radio-reference-voyager-20261007
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            RADIO_REFERENCE_VOYAGER_2026-10-07_RESULT.md
+            results_radio_reference_voyager_20261007/
+
+      - name: Publish preserved result without replay
+        if: always() && steps.checkout.outcome == 'success'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin m43-support-qualification
+          test "$(git rev-parse origin/m43-support-qualification)" = "$GITHUB_SHA"
+          git add RADIO_REFERENCE_VOYAGER_2026-10-07_RESULT.md \
+            results_radio_reference_voyager_20261007
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m 'Publish bounded Voyager engineering reference result'
+          git push origin HEAD:m43-support-qualification
+
+      - name: Require successful reference after evidence preservation
+        if: always()
+        env:
+          RUN_OUTCOME: ${{ steps.reference.outcome }}
+        run: test "$RUN_OUTCOME" = success
