@@ -1,0 +1,66 @@
+{
+  "review_status": "PASS_INDEPENDENT_RETAINED_METHOD_COVERAGE_AUDIT",
+  "source_commit": "13131757641c06d7bfcb10790a79811c750b1178",
+  "verified_original_inputs": [
+    {
+      "path": "results/radio_pilot_method_report_20261008/method_cells.csv",
+      "git_blob_sha1": "ee77abf87b5bd83d69124fc1c5246161cd1a009e",
+      "sha256": "59bbd848364ddf68045dd718ab56adeb81ac9322bbc1ecd17ad44d38f44447b7",
+      "bytes": 22537
+    },
+    {
+      "path": "results/radio_pilot_method_report_20261008/report_data.json",
+      "git_blob_sha1": "c94dd0612988e7ccc3bf45cb6116a058e6bc9773",
+      "sha256": "e11b2c892f63e9033468f15aeec8bd57ebfeaf3cae4f789e30260497a4af1ab4",
+      "bytes": 284875
+    },
+    {
+      "path": "results/radio_pilot_method_report_20261008/report_artifact_manifest.json",
+      "git_blob_sha1": "513a3e1523610962dc6507870a1eeb2084277b1d",
+      "sha256": "e71fc66034e86d23bb751d41735203925c6f2ea86b7549006801caea2ed1d640",
+      "bytes": 3097
+    }
+  ],
+  "independently_verified_summary": {
+    "case_count": 64,
+    "active_ON_scan_count": 128,
+    "localized_survivor_active_ON_scans": 115,
+    "NO_ON_THRESHOLD_HIT_active_ON_scans": 13,
+    "cases_with_any_missed_active_ON_scan": 12,
+    "final_ALL_cases": 52,
+    "final_ANY_cases": 59,
+    "pre_OFF_to_final_case_recovery_losses": 0,
+    "surviving_carriers": 7051,
+    "carrier_count_is_not_independent_trial_count": true,
+    "original_ON_threshold": 10.0
+  },
+  "descriptive_groups_verified": 25,
+  "CSV_rows_verified": {
+    "method_active_ON_scores.csv": 128,
+    "method_case_coverage.csv": 64,
+    "method_coverage_groups.csv": 25,
+    "method_missed_active_ON_scans.csv": 13
+  },
+  "scalar_cells_verified": 8091,
+  "arithmetic": "45-digit Decimal division, threshold margins and sorted middle-value medians; no primary analysis imports",
+  "maximum_numeric_comparison_tolerance": "1E-12",
+  "script_sha256": "2d05dcfb1638d692f778ad3bda4c6e28be1816e0a451000a03d67d8cc7c59fdf",
+  "audited_product_sha256": {
+    "method_active_ON_scores.csv": "ffd0fe3edc8e4072e13fbffd42708ae761f80ca1f4f0fb88ff293ca3e97de418",
+    "method_case_coverage.csv": "1546f329413aa865c40c870e059f4cd090807282a2d2e9bce2b3ed69781843a4",
+    "method_coverage_groups.csv": "328dcabd6cc33729c1ff9e345ad5b0fc996ffdc9218bcee12e0ae62ee7c780c3",
+    "method_missed_active_ON_scans.csv": "59d2e27191b295f2393c2bc4a8f95fe80a82de69b88fedef081bb30634fac66e",
+    "METHOD_COVERAGE.json": "672bb5c3f7a955bf43c1b8702a0fa1b0af4efdf65b6f24626c98bc96dc9a553e"
+  },
+  "scope": "Only three authenticated published report products; no map archives or detector/generator code executed.",
+  "limitations": [
+    "This checks report-derived arithmetic and provenance, not the already completed full saved-map audit.",
+    "The saved global template-search maximum is not a prespecified statistic at truth, calibrated SNR, flux, or efficiency estimate.",
+    "The descriptive ratio compares different quantities. One realization per design cell and correlated scans/carriers do not establish general detection probabilities or causal effects.",
+    "The agreement of maximum>=10 with localized recovery is observed in these retained cells, not a general equivalence."
+  ],
+  "new_scores": 0,
+  "new_draws": 0,
+  "original_map_archives_opened": 0,
+  "qualification": false
+}

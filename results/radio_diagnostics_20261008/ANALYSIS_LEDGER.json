@@ -1,0 +1,206 @@
+{
+  "status": "CLOSED_RETAINED_DIAGNOSTICS_METHOD_COVERAGE",
+  "source_commit": "13131757641c06d7bfcb10790a79811c750b1178",
+  "prerequisite_RFI_ledger_sha256": "21b203e85f45c4c23929acc5fc59dc87ca5aa99ca6f3d138f84f77456f15807b",
+  "previous_remaining_CPU_s": 6512.705144981004,
+  "new_conservative_reservation_CPU_s": 200,
+  "remaining_CPU_after_reservation_s": 6312.705144981004,
+  "original1200_preparation_reservation_unchanged": true,
+  "prior100_RFI_reservation_unchanged": true,
+  "retained_report_reproduction_CPU_s": 2000,
+  "measured_whole_job_component_CPU_s": 14.179042,
+  "measured_component_receipts": {
+    "resource_diagnostics.json": {
+      "label": "diagnostics",
+      "command": [
+        "python",
+        "results/radio_diagnostics_20261008/analyze_diagnostics.py"
+      ],
+      "exit_code": 0,
+      "wall_s": 7.390438874999745,
+      "child_cpu_s": 7.368867000000001,
+      "wrapper_cpu_s": 0.010159,
+      "whole_job_cpu_s": 7.3790260000000005,
+      "child_peak_rss_bytes": 90398720,
+      "wrapper_peak_rss_bytes": 10354688,
+      "cpu_cap_child_s": 45,
+      "wall_cap_s": 120,
+      "address_space_cap_bytes": 4294967296,
+      "allocated_analysis_reserve_s": 200,
+      "already_measured_components_s": 0.622655,
+      "charged_against_new_analysis_reserve": true
+    },
+    "resource_method_coverage.json": {
+      "label": "method_coverage",
+      "command": [
+        "python",
+        "results/radio_diagnostics_20261008/analyze_method_coverage.py"
+      ],
+      "exit_code": 0,
+      "wall_s": 0.06514042900016648,
+      "child_cpu_s": 0.052948,
+      "wrapper_cpu_s": 0.001024000000000004,
+      "whole_job_cpu_s": 0.053972000000000006,
+      "child_peak_rss_bytes": 15216640,
+      "wrapper_peak_rss_bytes": 10354688,
+      "cpu_cap_child_s": 45,
+      "wall_cap_s": 120,
+      "address_space_cap_bytes": 4294967296,
+      "allocated_analysis_reserve_s": 200,
+      "already_measured_components_s": 8.001681000000001,
+      "charged_against_new_analysis_reserve": true
+    },
+    "resource_peer_diagnostics.json": {
+      "label": "peer_diagnostics",
+      "command": [
+        "python",
+        "results/radio_diagnostics_20261008/peer_diagnostic_audit.py"
+      ],
+      "exit_code": 0,
+      "wall_s": 5.33178714099995,
+      "child_cpu_s": 5.287917,
+      "wrapper_cpu_s": 0.008405999999999997,
+      "whole_job_cpu_s": 5.296323,
+      "child_peak_rss_bytes": 51900416,
+      "wrapper_peak_rss_bytes": 10354688,
+      "cpu_cap_child_s": 45,
+      "wall_cap_s": 120,
+      "address_space_cap_bytes": 4294967296,
+      "allocated_analysis_reserve_s": 200,
+      "already_measured_components_s": 8.055653000000001,
+      "charged_against_new_analysis_reserve": true
+    },
+    "resource_peer_method_coverage.json": {
+      "label": "peer_method_coverage",
+      "command": [
+        "python",
+        "results/radio_diagnostics_20261008/peer_method_coverage.py"
+      ],
+      "exit_code": 0,
+      "wall_s": 0.06552282099983131,
+      "child_cpu_s": 0.059312,
+      "wrapper_cpu_s": 0.0015280000000000016,
+      "whole_job_cpu_s": 0.06084,
+      "child_peak_rss_bytes": 12443648,
+      "wrapper_peak_rss_bytes": 10354688,
+      "cpu_cap_child_s": 45,
+      "wall_cap_s": 120,
+      "address_space_cap_bytes": 4294967296,
+      "allocated_analysis_reserve_s": 200,
+      "already_measured_components_s": 14.088072,
+      "charged_against_new_analysis_reserve": true
+    },
+    "resource_peer_pulse.json": {
+      "label": "peer_pulse",
+      "command": [
+        "python",
+        "results/radio_diagnostics_20261008/peer_pulse_audit.py"
+      ],
+      "exit_code": 0,
+      "wall_s": 0.3659639050001715,
+      "child_cpu_s": 0.352304,
+      "wrapper_cpu_s": 0.0014159999999999971,
+      "whole_job_cpu_s": 0.35372,
+      "child_peak_rss_bytes": 45670400,
+      "wrapper_peak_rss_bytes": 10354688,
+      "cpu_cap_child_s": 45,
+      "wall_cap_s": 120,
+      "address_space_cap_bytes": 4294967296,
+      "allocated_analysis_reserve_s": 200,
+      "already_measured_components_s": 13.734352000000001,
+      "charged_against_new_analysis_reserve": true
+    },
+    "resource_pulse_geometry.json": {
+      "label": "pulse_geometry",
+      "command": [
+        "python",
+        "results/radio_diagnostics_20261008/analyze_pulse_geometry.py"
+      ],
+      "exit_code": 0,
+      "wall_s": 0.4164337760003036,
+      "child_cpu_s": 0.380291,
+      "wrapper_cpu_s": 0.0020850000000000035,
+      "whole_job_cpu_s": 0.382376,
+      "child_peak_rss_bytes": 46653440,
+      "wrapper_peak_rss_bytes": 10354688,
+      "cpu_cap_child_s": 45,
+      "wall_cap_s": 120,
+      "address_space_cap_bytes": 4294967296,
+      "allocated_analysis_reserve_s": 200,
+      "already_measured_components_s": 13.351976,
+      "charged_against_new_analysis_reserve": true
+    },
+    "resource_report.json": {
+      "label": "report",
+      "command": [
+        "python",
+        "results/radio_diagnostics_20261008/build_diagnostic_report.py"
+      ],
+      "exit_code": 0,
+      "wall_s": 0.03282739400037826,
+      "child_cpu_s": 0.029252,
+      "wrapper_cpu_s": 0.0008780000000000003,
+      "whole_job_cpu_s": 0.03013,
+      "child_peak_rss_bytes": 9650176,
+      "wrapper_peak_rss_bytes": 10354688,
+      "cpu_cap_child_s": 45,
+      "wall_cap_s": 120,
+      "address_space_cap_bytes": 4294967296,
+      "allocated_analysis_reserve_s": 200,
+      "already_measured_components_s": 14.148912000000001,
+      "charged_against_new_analysis_reserve": true
+    },
+    "resource_restore.json": {
+      "label": "restore",
+      "command": [
+        "python",
+        "results/radio_diagnostics_20261008/restore_inputs.py"
+      ],
+      "exit_code": 0,
+      "wall_s": 0.6169947369999136,
+      "child_cpu_s": 0.5914809999999999,
+      "wrapper_cpu_s": 0.002271999999999998,
+      "whole_job_cpu_s": 0.593753,
+      "child_peak_rss_bytes": 14180352,
+      "wrapper_peak_rss_bytes": 10354688,
+      "cpu_cap_child_s": 45,
+      "wall_cap_s": 120,
+      "address_space_cap_bytes": 4294967296,
+      "allocated_analysis_reserve_s": 200,
+      "already_measured_components_s": 0,
+      "charged_against_new_analysis_reserve": true
+    },
+    "resource_restore_reports.json": {
+      "label": "restore_reports",
+      "command": [
+        "python",
+        "results/radio_diagnostics_20261008/restore_report_inputs.py"
+      ],
+      "exit_code": 0,
+      "wall_s": 0.03315671299969836,
+      "child_cpu_s": 0.027955999999999998,
+      "wrapper_cpu_s": 0.0009460000000000024,
+      "whole_job_cpu_s": 0.028902,
+      "child_peak_rss_bytes": 10932224,
+      "wrapper_peak_rss_bytes": 10354688,
+      "cpu_cap_child_s": 45,
+      "wall_cap_s": 120,
+      "address_space_cap_bytes": 4294967296,
+      "allocated_analysis_reserve_s": 200,
+      "already_measured_components_s": 0.593753,
+      "charged_against_new_analysis_reserve": true
+    }
+  },
+  "unmetered_setup_API_report_preparation_publication_covered_by_new_reservation": true,
+  "all_overhead_or_history_claimed_fully_measured": false,
+  "reservation_refunded": false,
+  "components_charged_again_in_addition_to_reservation": false,
+  "new_draws": 0,
+  "new_detector_scores": 0,
+  "new_telescope_payload_bytes": 0,
+  "qualification": false,
+  "A_B_remain_FAIL_CLOSED": true,
+  "old_period_Oct9_closure_only_draft_asof_Oct8": true,
+  "scheduled_Oct19_saved_result_verification_unchanged": true,
+  "scheduled_Oct20_final_report_unchanged": true
+}

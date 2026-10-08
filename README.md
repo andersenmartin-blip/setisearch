@@ -1,3 +1,13 @@
+# SETI — 8. oktober 2026: diagnostik og dækningsgrænser dokumenteret
+
+Alle 12 gemte enkelt-række-transienter overlever. Alle 11 initialt genfundne nær-OFF-signaler mistes ved OFF-veto; ét yderligere forsøg lå allerede under ON-tærsklen. Støjkontrollerne gav nul ON-hits i 32 syntetiske forløb, og METHOD's 13 scan-tab lå under ON10. Uafhængige kontroller af de gemte kort, tabeller og geometrier er bestået. A/B forbliver fejlet; der er ingen nye scores, signaltræk eller kvalificeret teleskoppilot.
+
+[Diagnostikrapport og figurer](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results/radio_diagnostics_20261008/DIAGNOSTIC_REPORT.md) · [Idealniveau versus robust maksimum](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results/radio_diagnostics_20261008/METHOD_COVERAGE.md) · [Aktuel projektstatus](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md).
+
+Den gamle periodes afslutning er klargjort som dateret udkast til 9. oktober. Den nye plan slutter 20. oktober med afgrænset verifikation 19. oktober. Historikken følger nedenfor.
+
+---
+
 # SETI — 8. oktober 2026: RFI-matchningens begrænsning dokumenteret
 
 Analysen af de gemte B-RFI-rester viser, at alle 14 overlevende spor har en driftforskel, der udelukker det indsprøjtede RFI-spor fra deres tilladte OFF-matchfamilie. En uafhængig kontrol bekræfter udelukkelsen ved alle fire OFF-bredder. A/B forbliver fejlet; METHOD64 er afsluttet og beskrivende, og teleskoppiloten er ikke kvalificeret. Der er ingen nye signaltræk, scores eller metodeændringer.

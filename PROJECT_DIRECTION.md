@@ -1,3 +1,25 @@
+# Aktuel status — 8. oktober 2026: gemte diagnostik- og dækningsanalyser afsluttet
+
+Alle 56 relevante B-forsøg er gennemgået fra autentificerede arkiver: 12 enkelt-række-transienter, 12 nær-OFF-forsøg og 32 støjforløb. En uafhængig kontrol af 1.120 originale artefakthashes, 336 vinderkort og seks CSV-tabeller bestod. Ingen nye signaltræk, detektorscores, tærskler, kvalifikation eller himmelspektrer.
+
+Alle 12 transienter overlever. Deres 8.114 korrelerede carrier-svar omfatter 428 sandhedslokaliserede ved begge ON-endepunkter; 8.103 passerer inden for 18,5 kanalbredder ved den eneste indsprøjtede integrations midtpunkt. En separat Decimal-audit bekræfter geometrien for alle 8.114. Punktmatch er ikke et nyt genfund eller en målt tidsprofil; tidsmæssig vedvarenhed efterprøves ikke af denne filterregel.
+
+Nær-OFF: 11/12 ON-signaler var initialt lokaliseret, og alle 66 hits blev vetoet med originale witnesses i netop den efterfølgende kontaminerede OFF. Forsøg008 lå under ON10 med maksimum 9,877217747885116; det tab kom før OFF. Slutresultatet er 0/12. OFF-witnesses stopper tidligt, så deres gemte checked-maksima er delvise; beskrivende OFF-linje-geometri ændrer ingen original gate.
+
+Støj: nul ON-carriers i 32 forløb og 96 ON-scans, otte forløb pr. fastlagt lov. Dette kalibrerer ikke en himmel-falskalarmrate. METHOD64's 128 aktive ON-maksima er sammenholdt med idealniveauet uden ny scoring: 115 lokaliserede scan-genfund, 13 tærskelmisses i 12 celler. ALL52/64 og ANY59/64 er uændret. Globalt søgemaksimum er en anden størrelse end støjfri idealprojektion eller målt SNR/flux. Tre originale rapportprodukter, 128 scan-rækker, 64 forsøgsrækker og 25 grupper har bestået separat uafhængig Decimal-kontrol.
+
+RFI-geometriens tidligere dokumenterede 14 rester står uændret. A/B forbliver FAIL_CLOSED, og teleskoppiloten er ikke kvalificeret. Prioriteter til en senere plan er tidsprofil/artefakter, RFI-familier sammen med nær-OFF-signalbevarelse og særskilt kalibrering af sand-bane-statistik versus udvalgt maksimum. Ingen af forslagene implementeres i denne periode.
+
+Den gamle 26. september–9. oktober-periode har et særskilt udkast pr. 8. oktober, baseret på ni originale rapporter; dens slutlukning 9. oktober er endnu ikke udført. De afsluttede RFI-, diagnostik-, puls- og dækningsanalyser gentages ikke som dagligt fremskridt. Næste faste trin er den faktiske gamle-perioderapport 9. oktober, ét gemt METHOD-resultats afgrænsede frisk-proces-verifikation 19. oktober og slutrapport 20. oktober. Ingen automatisk ny kampagne eller forlængelse.
+
+Ny konservativ reservation 200 CPU-sekunder efterlader 6.312,705144981004. Metrede hele jobs bruger 14,179042 som komponenter af denne reservation; ingen dobbeltdebitering eller refundering. Den tidligere 1.200-forberedelsesreservation og 100-RFI-reservation er uændrede, og mindst 2.000 CPU-sekunder er bevaret til rapport/reproduktion. Brug nu den nye diagnostikledger; tidligere ledgers er historik.
+
+[Diagnostikrapport og figurer](results/radio_diagnostics_20261008/DIAGNOSTIC_REPORT.md) · [Puls-geometri](results/radio_diagnostics_20261008/PULSE_GEOMETRY.md) · [METHOD-dækning](results/radio_diagnostics_20261008/METHOD_COVERAGE.md) · [Uafhængig kontrol](results/radio_diagnostics_20261008/PEER_DIAGNOSTIC_AUDIT.md) · [Aktuelt budget](results/radio_diagnostics_20261008/ANALYSIS_LEDGER.json) · [Gammel periodes daterede udkast](results/radio_diagnostics_20261008/OLD_PERIOD_CLOSURE_DRAFT_2026-10-08.md).
+
+---
+
+Tidligere daterede poster følger som historik.
+
 # Aktuel status — 8. oktober 2026: RFI-resternes geometri dokumenteret
 
 En ny analyse af de to gemte B-RFI-forløb har verificeret alle 14 overlevende spor, 42 originale OFF-sammenligninger og 12 vinderkort. Alle resterne udelukker det præcise indsprøjtede RFI-spors drift fra deres OFF-matchfamilier: største tilladte driftforskel 0,735693561 Hz/s, observeret forskel 0,784632434–0,859992612. Selv med fri referencefrekvens er mindst mulig største endepunktsfejl 37,328226–40,913422 kanalbredder mod den bredeste OFF-tolerance 35. Sandhedslokalisering bruger særskilt tolerance 18,5.

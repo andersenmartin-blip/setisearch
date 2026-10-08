@@ -1,0 +1,58 @@
+{
+  "review_status": "PASS_INDEPENDENT_RETAINED_DIAGNOSTIC_TABLE_AUDIT",
+  "source_commit": "13131757641c06d7bfcb10790a79811c750b1178",
+  "counts_independently_verified": {
+    "artifact_hashes": 1120,
+    "noise_cases": 32,
+    "maps": 336,
+    "noise_ON_scans": 96,
+    "cases": 56,
+    "transient_cases": 12,
+    "transient_localized_surviving_cases": 12,
+    "transient_original_carriers": 8114,
+    "transient_final_carriers": 8114,
+    "transient_truth_localized_final_carriers": 428,
+    "near_OFF_cases": 12,
+    "near_OFF_initial_localized_cases": 11,
+    "near_OFF_final_localized_cases": 0,
+    "near_OFF_original_carriers": 66,
+    "near_OFF_original_veto_witnesses": 66,
+    "near_OFF_witnesses_in_following_contaminated_OFF": 66,
+    "near_OFF_witnesses_localized_to_declared_OFF_line": 19,
+    "noise_ON_carriers": 0
+  },
+  "publication_archive_hash_bindings_verified": 56,
+  "CSV_rows_verified": {
+    "diagnostic_cases.csv": 56,
+    "saved_scan_maxima.csv": 336,
+    "transient_original_carriers.csv": 8114,
+    "near_OFF_original_carriers.csv": 66,
+    "near_OFF_original_witnesses.csv": 66,
+    "noise_law_coverage.csv": 4
+  },
+  "CSV_or_JSON_scalar_cells_verified": 121940,
+  "arithmetic": "45-digit Decimal endpoint geometry; built-in scalar maximum selection; statistics.median; Decimal exp/log conditional bound",
+  "maximum_decimal_vs_original_endpoint_record_delta_hz": "1.6409301812341858813963084499999999999E-7",
+  "geometry_comparison_tolerance_channel_widths": "0.0000003",
+  "script_sha256": "1e0ef5c894a810ed0aff3030a087b3a2d8537006e7d4aa80ce3505f45cd3c318",
+  "audited_product_sha256": {
+    "diagnostic_cases.csv": "8bf1aec35bc511a51e970a4c49ed240f975566af5b702902ec2d8ef76640a960",
+    "saved_scan_maxima.csv": "75bdd3dc50b2f532b273ffd35e6da5a40bfc2a312e456e15b66885e5b23aaf2c",
+    "transient_original_carriers.csv": "fe833680e4b12edb421590b0363990db9de2af47a15957ce77ea32acb8d23afc",
+    "near_OFF_original_carriers.csv": "119a2ea244cd75f539bbf5b1a55db113da8d838919c3c1abc14a39d85ca060f6",
+    "near_OFF_original_witnesses.csv": "95f032328171089d0e6ccd0b256763463e54cd14c71ad261092460a451ff92be",
+    "noise_law_coverage.csv": "765a3d3c8d9e45a893471b7fd8672326d92eb9fdc13a1acc9287ca81d8909a82",
+    "DIAGNOSTIC_EVIDENCE.json": "47365838a901b896f63d1223629d7dd0bc191b10296ab9bdd0a1f113fc614b7d"
+  },
+  "scope": "Only original B cases086..141, saved map maxima and retained classifications/witnesses; no original power or score reconstruction.",
+  "limits": [
+    "Hash and saved-record agreement do not independently reconstruct unretained raw power or OFF witness scores.",
+    "Vetoed OFF families stopped at the original first qualifying witness; their checked maxima and counts are partial traversal records.",
+    "The 19/66 witness localization uses the main ON injection oracle width as an explicitly new descriptive reference; no diagnostic OFF oracle was retained.",
+    "The zero-of-eight 95% bound is illustrative only under IID homogeneous cadences within the specified synthetic law; no such sky calibration or pooled heterogeneous bound is asserted.",
+    "Correlated carriers are not independent events. Both qualification panels remain failed."
+  ],
+  "qualification": false,
+  "new_draws": 0,
+  "new_scores": 0
+}
