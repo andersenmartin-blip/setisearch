@@ -1,3 +1,15 @@
+# SETI-status — 8. oktober 2026: frisk kontrol af ét gemt resultat bestod
+
+Reproduktionsmilepælen er fremrykket fra19. oktober og gennemført én gang8. oktober efter afsluttet64-case METHOD-panel. Seks gemte kort,20 originale hashes og96 OFF-sammenligninger stemmer med hits/veto/genfund. En afkortet lokal transport blev fanget og rettet før verifier-kørsel; dens fejl og forbrug er bevaret. Rå preprocessing og detektorscores blev ikke genberegnet. A/B forbliver FAIL_CLOSED, og teleskoppiloten er ikke admitted.
+
+Kontrollen gentages ikke19. oktober. Gammel periodeafslutning9. oktober og slutrapport20. oktober står uændret; den senere metodeudvikling er fortsat et forslag.
+
+[Resultatrapport](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results/radio_saved_verification_20261008/VERIFICATION_REPORT.md) · [Frisk-proces-kvittering](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/pilot_protocol_20261008/review/METHOD_SAVED_CASE_000_REPRODUCTION.json) · [Aktuel status](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md).
+
+---
+
+Tidligere daterede oversigter følger som historik.
+
 # SETI-status — 8. oktober 2026: næste udvikling konkretiseret
 
 Et gennemgået senere udviklingsforslag beskriver tidsprofiler, fast bane-statistik og RFI-familier med nær-OFF-signalbevarelse. Forslaget består af148 parrede arrayversioner i18 støjblokke; ingen nye data, scores eller metodeændringer er kørt. Korte og enkeltstående ON-hændelser bevares. Betingede stikprøvekrav og historiske omkostningseksempler er kontrolleret; de kalibrerer ingen himmel-falskalarmrate. A/B forbliver FAIL_CLOSED, og teleskoppiloten er ikke admitted.
