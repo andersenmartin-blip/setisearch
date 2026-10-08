@@ -1,0 +1,121 @@
+{
+  "status": "CONDITIONAL_PLANNING_ARITHMETIC_ONLY",
+  "assumption": "Independent Bernoulli cadences with one identical p per declared class; frozen adverse-event endpoint; not assumed for current data or sky",
+  "zero_probability": "(1-p)^n",
+  "zero_event_upper": "1-alpha^(1/n)",
+  "minimum_n": "ceil(log(alpha)/log(1-p0))",
+  "four_class_family": "Bonferroni per-class alpha=.05/4; independence between classes is not required for this union-bound argument",
+  "rows": [
+    {
+      "classes": 1,
+      "family_confidence": 0.95,
+      "per_class_alpha": 0.05,
+      "target_adverse_probability_upper": 0.1,
+      "zero_event_n_per_class": 29,
+      "total_independent_cadences": 29,
+      "minimality_probability_at_n": 0.047101286972462485,
+      "probability_at_n_minus1": 0.05233476330273609,
+      "conditional_upper_at_n": 0.09814462767729573,
+      "illustrative_CPU_s": 2450.149728484375,
+      "stress2_illustrative_CPU_s": 4900.29945696875
+    },
+    {
+      "classes": 1,
+      "family_confidence": 0.95,
+      "per_class_alpha": 0.05,
+      "target_adverse_probability_upper": 0.05,
+      "zero_event_n_per_class": 59,
+      "total_independent_cadences": 59,
+      "minimality_probability_at_n": 0.048494525249423104,
+      "probability_at_n_minus1": 0.051046868683603266,
+      "conditional_upper_at_n": 0.049507609888226944,
+      "illustrative_CPU_s": 4984.787378640625,
+      "stress2_illustrative_CPU_s": 9969.57475728125
+    },
+    {
+      "classes": 1,
+      "family_confidence": 0.95,
+      "per_class_alpha": 0.05,
+      "target_adverse_probability_upper": 0.01,
+      "zero_event_n_per_class": 299,
+      "total_independent_cadences": 299,
+      "minimality_probability_at_n": 0.04953625663766235,
+      "probability_at_n_minus1": 0.050036622866325604,
+      "conditional_upper_at_n": 0.00996914679289927,
+      "illustrative_CPU_s": 25261.888579890627,
+      "stress2_illustrative_CPU_s": 50523.77715978125
+    },
+    {
+      "classes": 4,
+      "family_confidence": 0.95,
+      "per_class_alpha": 0.0125,
+      "target_adverse_probability_upper": 0.1,
+      "zero_event_n_per_class": 42,
+      "total_independent_cadences": 168,
+      "minimality_probability_at_n": 0.011972515182562033,
+      "probability_at_n_minus1": 0.013302794647291146,
+      "conditional_upper_at_n": 0.09907563227814845,
+      "illustrative_CPU_s": 14193.970840875,
+      "stress2_illustrative_CPU_s": 28387.94168175
+    },
+    {
+      "classes": 4,
+      "family_confidence": 0.95,
+      "per_class_alpha": 0.0125,
+      "target_adverse_probability_upper": 0.05,
+      "zero_event_n_per_class": 86,
+      "total_independent_cadences": 344,
+      "minimality_probability_at_n": 0.012140317781059324,
+      "probability_at_n_minus1": 0.012779281874799289,
+      "conditional_upper_at_n": 0.04967742375192544,
+      "illustrative_CPU_s": 29063.845055125,
+      "stress2_illustrative_CPU_s": 58127.69011025
+    },
+    {
+      "classes": 4,
+      "family_confidence": 0.95,
+      "per_class_alpha": 0.0125,
+      "target_adverse_probability_upper": 0.01,
+      "zero_event_n_per_class": 437,
+      "total_independent_cadences": 1748,
+      "minimality_probability_at_n": 0.01237599254632405,
+      "probability_at_n_minus1": 0.012501002572044496,
+      "conditional_upper_at_n": 0.009977412941485698,
+      "illustrative_CPU_s": 147684.8870824375,
+      "stress2_illustrative_CPU_s": 295369.774164875
+    }
+  ],
+  "all_successes_lower_bound_examples": [
+    {
+      "success_probability_lower_target": 0.9,
+      "n_all_successes": 29,
+      "lower_bound": 0.9018553723227043
+    },
+    {
+      "success_probability_lower_target": 0.95,
+      "n_all_successes": 59,
+      "lower_bound": 0.950492390111773
+    }
+  ],
+  "historical_cost": {
+    "B_CPU_s_per_cadence": 82.22560947887324,
+    "METHOD_CPU_s_per_cadence": 84.487921671875,
+    "illustration_CPU_s_per_cadence": 84.487921671875,
+    "stress_multiplier": 2,
+    "limitation": "Retrospective panel averages, not per-case caps, future timing estimates, permission, or proof a changed design fits. Excludes later development, figures, archives, audits and unmeasured setup."
+  },
+  "current_budget_arithmetic": {
+    "remaining_CPU_s": 6212.705144981004,
+    "protected_CPU_s": 2000,
+    "unprotected_arithmetic_CPU_s": 4212.705144981004,
+    "counterfactual_average_cost_cadences": 49,
+    "counterfactual_stress2_cadences": 24,
+    "new_scientific_runs_admitted": false
+  },
+  "eight_per_law_illustration": {
+    "single_class_95_upper": 0.3123439780663679,
+    "four_class_joint95_per_class_upper": 0.42175251622837906,
+    "hypothetical_only": true,
+    "current_noise_laws_not_pooled": true
+  }
+}

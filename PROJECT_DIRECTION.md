@@ -1,3 +1,23 @@
+# Aktuel status — 8. oktober 2026: senere udviklingsdesign og fast verifikationssæt klargjort
+
+De afsluttede dataanalyser er omsat til tre konkrete senere udviklingssammenligninger: tidsprofiler med to amplitudekonventioner; fast sandbane-statistik adskilt fra globalt søgemaksimum; og én RFI-familieprototype sammen med nær-OFF-signalbevarelse. Forslaget omfatter24+40+84=148 parrede arrayversioner i18 støjblokke. Nuldrift er med for at konfrontere den dokumenterede nær-OFF-fejl. Rækkefølgen er tidsprofiler, fast bane/målt baselineomkostning og derefter familieprototype, hvis observerbarhed og separat budget er tilstrækkelige. Versionerne er udviklingskontroller og tælles ikke som uafhængige valideringsforløb. Ingen nye seeds, arrays, scores, regelændringer eller kvalifikation er udført.
+
+Korte signaler og enkelt-ON bevares: identiske observerede arrays med forskellig oprindelseslabel kan ikke skelnes af en algoritme. Ved sammenfaldende komponenter kan dispositionen være uafklaret. De foreslåede instrumenterings-/regelændringer og nye kørselspaneler er til en senere separat protokol; de aktiveres ikke i den nuværende7.–20. oktober-plan. A/B forbliver FAIL_CLOSED, og teleskoppiloten er ikke admitted.
+
+Betinget stikprøvematematik er kontrolleret med uafhængig90-cifret Decimal: nul hændelser kræver29/59/299 forløb for én klasses ensidige95% øvre grænse10/5/1%; fire samtidige klassekrav kræver42/86/437 pr. klasse. Dette forudsætter en hypotetisk uafhængig ens-p-model pr. klasse, som ikke antages for de eksisterende heterogene celler eller himmeldata. Omkostningstabellen bruger afsluttede panelers målte jobgennemsnit som illustration; ændret metode, ekstra scorepasses og øvrig overhead har ukendt faktisk pris. Design- og numerikreview bestod PASS_PLANNING_SCOPE_AND_NUMERIC_REVIEW.
+
+Den19. oktober-verifikations statiske inputsæt er nu identificeret:54 filer/1.896.541 deklarerede restaurerede bytes,21 admission-adgangskrav og to arkiver/608.655 komprimerede bytes. Alle adgangskrav matcher admissions-SHA256; arkivernes Git-SHA/bytes matcher original metadata. Rodkontrollen af21 bindinger, layoutaritmetik og begge arkivers katalogmetadata bestod. Arkivkroppe og maps er fortsat uåbnede i denne fase; NumPy-indlæsning, restaurering og den ene friske proces er ikke efterprøvet nu. Inventaret er ikke en ny reproduktionskvittering.
+
+Ny konservativ reservation100 CPU-sekunder efterlader6.212,705144981004. Metrede beregningskomponenter er0,057588245 CPU-sekunder inde i reservationen; setup/API/statisk inventar/dokumentation/udgivelse og bevarede korrigerede forberedelsesfejl hævdes ikke fuldt målt. Tidligere1.200-forberedelses-,100-RFI- og200-diagnostikreservationer er uændrede. Mindst2.000 CPU-sekunder bevares til rapport/reproduktion. Brug nu results/radio_next_design_20261008/DESIGN_LEDGER.json; tidligere ledgers er historik.
+
+Datotrin er uændrede: gammel26. september–9. oktober-periode afsluttes9. oktober ud fra as-of8. oktober-udkast og seneste status; én gemt METHOD-case verificeres19. oktober; slutrapport20. oktober. Lukkede audits og dette færdige design gentages ikke som dagligt fremskridt. Ingen automatisk senere kampagne eller forlængelse.
+
+[Beslutningsgrundlag](results/radio_next_design_20261008/DECISION_BRIEF.md) · [Senere videnskabelige sammenligninger](results/radio_next_design_20261008/SCIENTIFIC_DESIGN.md) · [Betingede stikprøvekrav](results/radio_next_design_20261008/DESIGN_BOUNDS.md) · [Review](results/radio_next_design_20261008/DESIGN_REVIEW.md) · [19. oktober-inputsæt](results/radio_next_design_20261008/SAVED_VERIFICATION_PREFLIGHT.md) · [Aktuel saldo](results/radio_next_design_20261008/DESIGN_LEDGER.json).
+
+---
+
+Tidligere daterede poster følger som historik.
+
 # Aktuel status — 8. oktober 2026: gemte diagnostik- og dækningsanalyser afsluttet
 
 Alle 56 relevante B-forsøg er gennemgået fra autentificerede arkiver: 12 enkelt-række-transienter, 12 nær-OFF-forsøg og 32 støjforløb. En uafhængig kontrol af 1.120 originale artefakthashes, 336 vinderkort og seks CSV-tabeller bestod. Ingen nye signaltræk, detektorscores, tærskler, kvalifikation eller himmelspektrer.

@@ -1,0 +1,66 @@
+{
+  "status": "CLOSED_PLANNING_AND_STATIC_PREFLIGHT_ONLY",
+  "scientific_source_commit": "a7b086156d55bbfe7678b960d313d03823cf630c",
+  "prerequisite_ledger": "results/radio_diagnostics_20261008/ANALYSIS_LEDGER.json",
+  "previous_remaining_CPU_s": 6312.705144981004,
+  "new_conservative_reservation_CPU_s": 100,
+  "remaining_CPU_after_reservation_s": 6212.705144981004,
+  "protected_report_and_reproduction_CPU_s": 2000,
+  "measured_whole_job_component_CPU_s": 0.057588244999999996,
+  "measured_components_CPU_s": {
+    "resource_bounds.json": 0.028743,
+    "resource_numeric_review.json": 0.028845245
+  },
+  "original1200_preparation_prior100_RFI_prior200_diagnostics_reservations_unchanged": true,
+  "measured_components_not_debited_twice": true,
+  "reservations_not_refunded": true,
+  "setup_API_drafting_static_inventory_publication_and_failed_setup_covered_conservatively": true,
+  "all_overhead_or_history_claimed_fully_measured": false,
+  "resource_receipts": {
+    "resource_bounds.json": {
+      "label": "bounds",
+      "command": [
+        "python",
+        "results/radio_next_design_20261008/calculate_design_bounds.py"
+      ],
+      "exit_code": 0,
+      "wall_s": 0.032890383999983897,
+      "child_cpu_s": 0.027844999999999998,
+      "wrapper_cpu_s": 0.000898000000000003,
+      "whole_job_cpu_s": 0.028743,
+      "child_peak_RSS_bytes": 9306112,
+      "CPU_cap_child_s": 30,
+      "wall_cap_s": 60,
+      "address_space_cap_bytes": 4294967296,
+      "component_of_conservative100_CPU_s_reservation": true,
+      "not_an_additional_debit": true
+    },
+    "resource_numeric_review.json": {
+      "job": "independent_decimal_numeric_design_review",
+      "limits": {
+        "cpu_s": 30,
+        "wall_s": 60,
+        "address_space_bytes": 4294967296
+      },
+      "returncode": 0,
+      "error": null,
+      "whole_child_user_cpu_s": 0.023696,
+      "whole_child_system_cpu_s": 0.004251,
+      "whole_child_cpu_s": 0.027947,
+      "whole_child_wall_s": 0.02855721899868513,
+      "child_maxrss_kib": 9344,
+      "wrapper_cpu_s_through_resource_record_preparation": 0.0008982449999999989,
+      "cpu_meter_includes_child_imports_computation_and_output_writing": true,
+      "wrapper_resource_serialization_and_tool_bookkeeping_not_fully_metered": true,
+      "root_design_reservation_covers_this_component_without_second_debit": true,
+      "success": true
+    }
+  },
+  "preparation_failures": "PREPARATION_EVENTS.json",
+  "new_detector_scores": 0,
+  "new_draws": 0,
+  "archive_map_bodies_opened": 0,
+  "new_source_payloads_opened": 0,
+  "A_B_remain": "FAIL_CLOSED",
+  "sky_pilot_admitted": false
+}
