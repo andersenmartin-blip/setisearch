@@ -1,3 +1,21 @@
+# Aktuel status — 8. oktober 2026: metodeundersøgelsen afsluttet; planen fortsætter
+
+Alle 64 friske syntetiske METHOD-forsøg er afsluttet én gang og har bestået den uafhængige integritetsgennemgang: 384 kort, 1.280 artefakthashes og 21.153 OFF-sammenligninger. Detektor, generator og tærskler er uændrede. Genfund i alle aktive ON: 52/64; mindst ét aktivt ON: 59/64. Ved indsprøjtet idealniveau 10/12/16/24 var ALL-tallene henholdsvis 6/16, 14/16, 16/16, 16/16; ANY-tallene 12/16, 15/16, 16/16, 16/16. Alle 13 tabte aktive scans i 12 celler lå under ON10; ingen lokaliserede genfund mistedes ved OFF i denne signalbank.
+
+Tallene er beskrivende resultater fra én realization pr. præcis faktor-celle, valgt efter B-fejlene. Idealniveau er ikke målt SNR eller flux. Der er ingen ny kvalifikation, kalibreret genfindingschance, sky-falsk-alarm-rate eller universel følsomhedsgrænse. A og B forbliver FAIL_CLOSED; B fejler fortsat tredje-ON-, bredde 3- og RFI-kravene. Ingen teleskoppilot er godkendt, og ingen nye himmelspektrer er åbnet.
+
+Den fulde nye metodepakke bevarer alle 64 caseoutputs og 384 kort samt koordinatorevidens, claims, protokol, admissions og audit: 65 arkiver og 71 core Gitblobs, 34.704.656 bytes. Rapporten har seks PNG/PDF-figurpar, 64-cell-CSV, præcise tabeller, før/efter-OFF genfund og fejlet B's komplette støj/RFI/diagnostik. De gemte kort og råhits er korrelerede carrier-svar, ikke uafhængige kandidater fra himlen.
+
+Hele metodepanelet belastes med 5.407,226987 CPU-sekunder, og 6.612,705145 resterer efter tidligere omkostninger samt uændret 1.200-sekunders forberedelsesreservation. Faktisk archival/audit/rendering er målt som komponenter af denne reservation; ingen ukendt historik er kaldt komplet målt og ingen reserve er tilbagebetalt. Lokal arbejdsmappe ved afslutning: 749.670.718 bytes, under 8 GiB. Mindst 2.000 CPU-sekunder er bevaret til rapport/reproduktion.
+
+Fortsættelsen 9.–20. oktober er konkrete analyser af gemte fejlmekanismer og afgrænsninger, den gamle periodes særskilte afslutning 9. oktober, afgrænset verifikation af ét gemt resultat i frisk proces 19. oktober og slutrapport 20. oktober. Reproduktionen verificerer kort→hits/veto/genfund; den gentager ikke rå preprocessing eller scores. Ingen anden rettelse, nye signaltræk, ny kvalifikationsbank, gammel holdout-eksponering eller automatisk forlængelse. De lukkede tests gentages ikke som dagligt fremskridt.
+
+[Dansk resultat](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_METHOD_STUDY_2026-10-08_RESULT.md) · [Rapport og figurer](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results/radio_pilot_method_report_20261008/METHOD_STUDY_REPORT.md) · [Metodearkivindeks](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/pilot_protocol_20261008/method_study_upload_index.json) · [B-arkivindeks](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/pilot_protocol_20261008/validation_b_upload_index.json) · [Faktisk budget](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/pilot_method_study_20261008/post_method_ledger.json) · [Reproduktionskommando](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/pilot_protocol_20261008/review/METHOD_SAVED_RESULT_REPRODUCTION.md).
+
+---
+
+Tidligere daterede poster følger som historik.
+
 # SETI, 8. oktober 2026: metodeundersøgelsen er startet
 
 Alle 142 friske B-forsøg er afsluttet og gennemgået. Beregningerne er intakte, men metoden fejler tre fastlagte krav: tredje ON alene 6/8, bredde 3 21/24, og 2/24 RFI-forløb med overlevende kandidater. Ingen ny teleskoppilot er derfor godkendt i denne plan; ingen nye himmelspektrer er åbnet.
