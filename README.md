@@ -1,3 +1,13 @@
+# SETI, 8. oktober 2026: frisk validering A er FAIL_CLOSED
+
+140 af 142 kontrolforsøg blev afsluttet; to obligatoriske transientdiagnostikker ramte 250 CPU-sekunders kørselsgrænse. Hovedkravene består med 14/14 stærke signaler, 46/48 genfund på arbejdsniveau, 24/24 afviste interferensforløb og 32/32 støjforløb uden kandidater. Hele adgangskravet fejler, så der er ikke åbnet nye teleskopværdier. Den ene tilladte udviklingsrettelse forberedes; derefter kan kun det stadig ubrugte B-panel anvendes.
+
+[Resultat, fejl og næste skridt](https://github.com/andersenmartin-blip/setisearch/blob/a9e9afcde560d5706dc110154401d1064ba0383f/RADIO_VALIDATION_A_2026-10-08_RESULT.md). Den godkendte periode er 7.–20. oktober; den eksisterende daglige fortsættelse er tilpasset denne periode.
+
+---
+
+Tidligere status følger som historik:
+
 ## Current study — 8 October 2026
 
 [The new 7–20 October study completed its 24-case development bank](https://github.com/andersenmartin-blip/setisearch/blob/d7f08e5caa80efbf029a728c7288d29b2e1166ba/RADIO_PILOT_DEVELOPMENT_2026-10-08_RESULT.md): all 12 injected signal cases recovered, all 8 interference cases rejected after initial ON detection, and 4 noise cases empty. Independent review passed. Source metadata identifies an exact 305 MB six-scan acquisition. Fresh 142-case validation A is now running under the unchanged prospectively frozen method; its complete result is pending and telescope values remain unopened. Full development outputs and review are preserved in this branch.
