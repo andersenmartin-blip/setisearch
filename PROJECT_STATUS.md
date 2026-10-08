@@ -1,3 +1,21 @@
+# Aktuel status — 8. oktober 2026: RFI-resternes geometri dokumenteret
+
+En ny analyse af de to gemte B-RFI-forløb har verificeret alle 14 overlevende spor, 42 originale OFF-sammenligninger og 12 vinderkort. Alle resterne udelukker det præcise indsprøjtede RFI-spors drift fra deres OFF-matchfamilier: største tilladte driftforskel 0,735693561 Hz/s, observeret forskel 0,784632434–0,859992612. Selv med fri referencefrekvens er mindst mulig største endepunktsfejl 37,328226–40,913422 kanalbredder mod den bredeste OFF-tolerance 35. Sandhedslokalisering bruger særskilt tolerance 18,5.
+
+Uafhængig Decimal-intervalkontrol bestod alle 56 kombinationer af 14 spor og fire OFF-bredder samt fire CSV-tabeller, 84 geometrier, 42 OFF-vinderpar og 40 originale artefakthashes. Alle 472 oprindeligt sandhedslokaliserede ON-hits i de to forløb blev korrekt vetoet, men de 14 andre spor overlevede. Alle 42 kompatible OFF-familier var oprindeligt udtømte under tærskel 8; højeste gemte score 7,926772881. Geometriens udelukkelse er bevist; årsagen til ON-scorernes konkrete RFI/støj-bidrag er en fortolkning, ikke et nyt kontrafaktisk resultat.
+
+Ingen nye signaltræk, scores, detektorændringer, kvalifikation eller himmelspektrer. A/B forbliver FAIL_CLOSED; METHOD64 er afsluttet og beskrivende. Den nye rapport giver et afgrænset forslag om samlet kontrol af RFI-familier til en senere plan. Det implementeres ikke i denne periode.
+
+Ny konservativ analysereservation: 100 CPU-sekunder; de metrede restaurerings-/analyse-/figur-/audit-/rapportjobs bruger samlet 4,083591 som komponenter af reservationen. Ingen reserve refunderes eller dobbeltbelastes. Den tidligere 1.200-sekunders reservation er uændret; aktuelt restbudget 6.512,705144981004 CPU-sekunder, mindst 2.000 bevaret til rapport/reproduktion. Den tidligere post-METHOD-ledger bevares som historik; brug nu den nye analyseledger.
+
+Næste autoriserede arbejde er andre konkrete begrænsninger i gemte data, herunder transientoverlevere og nær-OFF-signaltab. Denne afsluttede RFI-analyse gentages ikke som fremskridt. Den gamle periodes afslutning 9. oktober, den afgrænsede verifikation af ét gemt METHOD-resultat 19. oktober og slutrapporten 20. oktober er uændrede; ingen automatisk forlængelse.
+
+[Ny RFI-rapport og figur](results/radio_rfi_alias_analysis_20261008/RFI_ANALYSIS_REPORT.md) · [Uafhængig kontrol](results/radio_rfi_alias_analysis_20261008/PEER_AUDIT.md) · [Aktuelt budget](results/radio_rfi_alias_analysis_20261008/ANALYSIS_LEDGER.json) · [Metoderesultat](RADIO_METHOD_STUDY_2026-10-08_RESULT.md).
+
+---
+
+Tidligere daterede poster følger som historik.
+
 # Aktuel status — 8. oktober 2026: metodeundersøgelsen afsluttet; planen fortsætter
 
 Alle 64 friske syntetiske METHOD-forsøg er afsluttet én gang og har bestået den uafhængige integritetsgennemgang: 384 kort, 1.280 artefakthashes og 21.153 OFF-sammenligninger. Detektor, generator og tærskler er uændrede. Genfund i alle aktive ON: 52/64; mindst ét aktivt ON: 59/64. Ved indsprøjtet idealniveau 10/12/16/24 var ALL-tallene henholdsvis 6/16, 14/16, 16/16, 16/16; ANY-tallene 12/16, 15/16, 16/16, 16/16. Alle 13 tabte aktive scans i 12 celler lå under ON10; ingen lokaliserede genfund mistedes ved OFF i denne signalbank.

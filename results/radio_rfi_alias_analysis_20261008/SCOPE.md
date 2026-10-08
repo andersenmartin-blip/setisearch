@@ -1,0 +1,9 @@
+# Retained RFI alias analysis — 8 October 2026
+
+Read only the two already committed B cases matched_rfi002/003 (case064/065), selected because they contain all 14 surviving RFI carriers. Enumerate every survivor, its original ON parameters, all three original OFF comparisons and exact threshold margins. Compute linear track geometry across the six recorded scans and compare retained OFF map global winning paths with the frozen endpoint compatibility rule. Include original truth-localized hit rejection as context.
+
+No detector/generator imports or execution, synthetic draws, new scoring, threshold/candidate selection changes, new qualification or telescope payload access. Original claims and outputs remain unchanged. This analysis cannot rescue A/B or identify a sky candidate; causal attribution to RFI aliasing remains an interpretation of retained evidence.
+
+Published source commit: 6b8259099721b3acdb98b604fb5c9ea192577d68. Archives must match published SHA256, Git blob SHA1 and bytes before extraction. All artifact hashes in the two original case manifests must match before analysis.
+
+A new conservative 100 CPU-second analysis reservation is debited from the post-METHOD remaining 6612.705144981004 seconds, leaving 6512.705144981004. Measured restoration, analysis, figure and peer audit jobs are components of this new reservation, not additional debits. Unmetered setup/publication overhead remains covered by this reservation; no claim that every historical/preparation process was measured and no refund. Original 1200-second preparation reservation remains unchanged. Keep at least 2000 seconds for the scheduled report/reproduction. Each child is bounded to 30 CPU seconds, 120 wall seconds and 4 GiB address space, with whole-job CPU and RSS receipts. Abort if measured components exceed 100 seconds. No resource reservation authorizes new signal computations.

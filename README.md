@@ -1,3 +1,13 @@
+# SETI — 8. oktober 2026: RFI-matchningens begrænsning dokumenteret
+
+Analysen af de gemte B-RFI-rester viser, at alle 14 overlevende spor har en driftforskel, der udelukker det indsprøjtede RFI-spor fra deres tilladte OFF-matchfamilie. En uafhængig kontrol bekræfter udelukkelsen ved alle fire OFF-bredder. A/B forbliver fejlet; METHOD64 er afsluttet og beskrivende, og teleskoppiloten er ikke kvalificeret. Der er ingen nye signaltræk, scores eller metodeændringer.
+
+[Rapport, alle 14 spor og figur](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results/radio_rfi_alias_analysis_20261008/RFI_ANALYSIS_REPORT.md) · [Aktuel projektstatus](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md) · [Aktuelt budget](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results/radio_rfi_alias_analysis_20261008/ANALYSIS_LEDGER.json).
+
+Planen fortsætter med gemte begrænsninger, afgrænset verifikation 19. oktober og slutrapport 20. oktober. Historikken følger nedenfor.
+
+---
+
 # Aktuel status — 8. oktober 2026: metodeundersøgelsen afsluttet; planen fortsætter
 
 Alle 64 friske syntetiske METHOD-forsøg er afsluttet én gang og har bestået den uafhængige integritetsgennemgang: 384 kort, 1.280 artefakthashes og 21.153 OFF-sammenligninger. Detektor, generator og tærskler er uændrede. Genfund i alle aktive ON: 52/64; mindst ét aktivt ON: 59/64. Ved indsprøjtet idealniveau 10/12/16/24 var ALL-tallene henholdsvis 6/16, 14/16, 16/16, 16/16; ANY-tallene 12/16, 15/16, 16/16, 16/16. Alle 13 tabte aktive scans i 12 celler lå under ON10; ingen lokaliserede genfund mistedes ved OFF i denne signalbank.
