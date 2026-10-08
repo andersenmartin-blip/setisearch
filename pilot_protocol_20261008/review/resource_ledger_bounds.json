@@ -160,6 +160,30 @@
       "CPU_s_charged": 0.107116,
       "source_bytes_new_received": 0,
       "telescope_values_opened": false
+    },
+    {
+      "identity": "VAL_B_complete142_scientific_failure_actual",
+      "date_utc": "2026-10-08",
+      "public_freeze_commit_sha": "69c9526bd22d5f6393f7ec51a60aae746fdc2234",
+      "outcome": "FAIL_CLOSED_THREE_ORIGINAL_SCIENTIFIC_GATES",
+      "case_count_observed": 142,
+      "successful_complete_cases": 142,
+      "full_saved_maps_verified": 852,
+      "artifact_hashes_verified": 2840,
+      "CPU_s_charged": 11676.036546,
+      "CPU_s_individual_wait4_sum": 11642.243364,
+      "CPU_s_cumulative_reaped_children": 11642.245362,
+      "CPU_s_controller_selected_max": 33.7911839999997,
+      "charge_basis": "Larger individual/cumulative/rolling child meter plus larger controller/rolling meter; distinct child meters differ0.001998 seconds and both are retained",
+      "failed_checks": [
+        "each_activity_at_least_7_of_8",
+        "each_width_at_least_22_of_24",
+        "matched_rfi_no_surviving_cadence"
+      ],
+      "scientific_gate": "FAIL_CLOSED",
+      "computational_integrity_review": "PASS_RETAINED_COMPLETE_OUTPUT_INTEGRITY",
+      "source_bytes_new_received": 0,
+      "telescope_values_opened": false
     }
   ],
   "accounting": {
@@ -189,7 +213,7 @@
     "DEV_allocation_status": "COMPLETED_UNUSED_RESERVATION_RELEASED",
     "DEV_CPU_allocation_unused_seconds": 36242.445699,
     "known_local_metadata_DEV_plus_CI_CPU_reservation_seconds": 6564.2415380190005,
-    "CPU_capacity_after_known_completed_jobs_and_CI_reservation_seconds": 24895.968677981,
+    "CPU_capacity_after_known_completed_jobs_and_CI_reservation_seconds": 13219.932131981,
     "prospective_VAL_A_exclusive_CPU_reservation_seconds": 35500,
     "VAL_A_reservation_status": "CLOSED_FAIL_UNUSED_RESERVATION_RELEASED_AFTER_ACTUAL_CHARGE",
     "VAL_A_public_freeze_commit_sha": "d7f08e5caa80efbf029a728c7288d29b2e1166ba",
@@ -197,15 +221,15 @@
     "VAL_A_CPU_s_charged": 11143.686462,
     "VAL_A_unused_CPU_reservation_s": 24356.313538000002,
     "known_local_metadata_DEV_A_plus_CI_CPU_reservation_seconds": 17707.928000019,
-    "CPU_capacity_after_known_closed_jobs_and_CI_reservation_seconds": 24895.968677981,
+    "CPU_capacity_after_known_closed_jobs_and_CI_reservation_seconds": 13219.932131981,
     "additional_unmeasured_preparation_CPU_planning_reservation_s": 1200,
     "preparation_reservation_is_measured_or_complete_historical_bound": false,
-    "CPU_capacity_after_preparation_planning_reservation_s": 23695.968677981,
+    "CPU_capacity_after_preparation_planning_reservation_s": 12019.932131981,
     "prospective_DEV_RUNTIME_two_exclusive_partitions_s": 3600,
-    "fresh_B_admission_status": "DEVELOPMENT_PROOF_CLOSED_PASS_B_REQUIRES_SEPARATE_FRESH_PUBLIC_FREEZE_AND_ROOT_ADMISSION",
+    "fresh_B_admission_status": "CLOSED_COMPLETE_COMPUTATION_SCIENTIFIC_FAIL_NO_PILOT",
     "before_A_known_local_metadata_DEV_plus_CI_CPU_reservation_s": 6564.2415380190005,
     "before_A_CPU_capacity_after_known_completed_jobs_and_CI_reservation_s": 36635.758461981,
-    "known_completed_job_CPU_plus_CI_reservation_seconds": 18304.031322019,
+    "known_completed_job_CPU_plus_CI_reservation_seconds": 29980.067868019,
     "historical_margin_after_original_DEV_allocation_before_actual_refund_s": 393.3127629810042,
     "historical_margin_after_original_A_full_reservation_before_actual_refund_s": 1135.7584619810004,
     "DEV_RUNTIME_CPU_charge_s": 592.0538129999999,
@@ -215,13 +239,27 @@
     "DEV_RUNTIME_packaging_CPU_charge_s": 0.107116,
     "historical_capacity_after_full_DEV_RUNTIME_reservation_before_close_s": 20692.071999981,
     "fresh_B_prospective_CPU_allocation_s": 19500,
-    "CPU_capacity_after_fresh_B_full_allocation_s": 4195.968677981,
     "prospective_reader_plus_pilot_exclusive_CPU_partitions_s": [
       1800,
       1800
     ],
-    "CPU_capacity_after_B_reader_and_pilot_full_reservations_s": 595.9686779809999,
-    "preparation_and_publication_CPU_complete_actual_total": false
+    "preparation_and_publication_CPU_complete_actual_total": false,
+    "VAL_B_CPU_s_charged": 11676.036546,
+    "VAL_B_status": "CLOSED_COMPLETE_COMPUTATION_SCIENTIFIC_FAIL_NO_PILOT",
+    "historical_capacity_after_full_B_allocation_before_actual_refund_s": 4195.968677981,
+    "historical_capacity_after_full_B_reader_pilot_reservations_before_B_failure_s": 595.9686779809999,
+    "reader_plus_pilot_reservation_status": "NOT_ACTIVATED_B_SCIENTIFIC_GATE_FAILED_SOURCE_ACCESS_CLOSED",
+    "METHOD_STUDY_CPU_allocation_s": 6000,
+    "METHOD_STUDY_status": "RUNNING_ROOT_ONLY_ONCE_FRESH64_EXPLORATORY_NO_QUALIFICATION",
+    "CPU_remaining_after_full_METHOD_allocation_s": 6019.932131981001,
+    "retained_report_reproduction_CPU_s": 2000,
+    "METHOD_public_freeze_commit": "89ec7463e745f07dba45790be763b47c522989b5",
+    "METHOD_admission_publication_commit": "5efe2e3f55c184333440966e87ecb393dc763391",
+    "B_retained_audit_CPU_measurements_within_prep_reserve_s": {
+      "first_child": 2.6130419999999996,
+      "corrected_child": 2.872551,
+      "scope": "Read-only review attempts and wrappers counted within unchanged1200 planning reserve, not charged again or labeled scientific reruns"
+    }
   },
   "decisions": [
     "No further engineering downloads; no third route and no CI replay.",
@@ -236,7 +274,8 @@
     "A prospective full VAL_A allocation of 142 \u00d7 250 = 35,500 CPU seconds fits the unchanged global cap with 1,135.758461981 s left after known actuals/conservative CI reservation; unknown preparation overhead remains explicit. Fresh A execution and pilot access still require separate admissions.",
     "VAL_A remains FAIL_CLOSED: two required diagnostic timeouts are not EMPTY and cannot be excluded or replayed. Whole actual child/controller costs are charged, including per-case overruns; unused aggregate reservation is then released.",
     "One prospective operational development correction can use new disjoint DEV_RUNTIME seeds, preserving scientific hashes and A failure. Root planning reserve 1200 CPU s is not a measured historical total. Two full1800 s DEV partitions fit; fresh B and pilot values remain closed pending proof and separate admission.",
-    "DEV_RUNTIME correction1 completed once with both original scientific methods and two new disjoint development seeds; charge max(reaped child CPU, case snapshots) plus controller = 592.053813 s, refund only after both durable commits. Single-row bursts still survive. Fresh B can receive 19,500 s only after separate freeze/admission; no additional correction is allowed."
+    "DEV_RUNTIME correction1 completed once with both original scientific methods and two new disjoint development seeds; charge max(reaped child CPU, case snapshots) plus controller = 592.053813 s, refund only after both durable commits. Single-row bursts still survive. Fresh B can receive 19,500 s only after separate freeze/admission; no additional correction is allowed.",
+    "B completed142 distinct cases with all852 maps; computational integrity passes but three original scientific gates fail. Keep A/B failures, no further correction or sky acquisition. The approved fallback is64 new exploratory fixed-method signal cells,6000CPU aggregate rolling250 partitions, with actual prior costs and1200 preparation planning reserve retained."
   ],
   "prospective_metadata_lookup_allowance": {
     "status": "COMPLETED_ONCE_WITH_ACTUALS_NOT_RETRIED",

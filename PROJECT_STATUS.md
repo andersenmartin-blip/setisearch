@@ -1,3 +1,17 @@
+# Aktuel status — 8. oktober 2026: den godkendte metodeundersøgelse kører
+
+De 64 friske, balancerede METHOD-forsøg er startet én gang efter fuld offentlig fastfrysning i 89ec7463e745f07dba45790be763b47c522989b5 og verificeret admission i 5efe2e3f55c184333440966e87ecb393dc763391. Der bruges samme uændrede detektor, generator og tærskler. Undersøgelsen er beskrivende og kan ikke kvalificere teleskoppiloten eller ophæve A/B-fejlene. Start ingen konkurrerende genkørsel, ny bank eller anden rettelse.
+
+Alle originale B-outputs er nu bevaret i 143 deterministiske arkiver med fuld filhashmanifest og koordinatorevidens: 149 Gitblobs, 77.229.070 bytes. Den uafhængige B-integritetskontrol er afsluttet; den videnskabelige status er fortsat FAIL_CLOSED med tredje-ON-, bredde 3- og RFI-fejl. Begge auditforsøg og alle originale CPU-kvitteringer er bevaret. Archival CPU 4,400708 indgår i den eksisterende 1.200-sekunders forberedelsesreservation; denne reservation er ikke tilbagebetalt eller kaldt målt total.
+
+Næste konkrete trin er at afslutte alle 64 METHOD-forsøg inden for 6.000 CPU-sekunder, gennemgå deres gemte kort og udgive faktiske resultater og figurer. Ingen nye himmelspektrer er åbnet. Planen og den eksisterende daglige fortsættelse slutter 20. oktober.
+
+[B-arkivindeks](pilot_protocol_20261008/validation_b_archives/validation_b_archive_index.json) · [B-resultat](RADIO_VALIDATION_B_2026-10-08_RESULT.md) · [Metodeprotokol](pilot_method_study_20261008/METHOD_STUDY_SCOPE.md).
+
+---
+
+Tidligere daterede poster følger som historik.
+
 # Aktuel status — 8. oktober 2026: B fejler; metodeundersøgelse klargjort
 
 Alle 142 friske B-forsøg er afsluttet med intakte outputs. Den uafhængige gennemgang har kontrolleret 852 kort, 2.840 artefakthashes og 55.302 OFF-sammenligninger. B forbliver FAIL_CLOSED: tredje ON alene 6/8 mod kravet 7; bredde 3 21/24 mod 22; 2/24 RFI-forløb har overlevende kandidater. Stærke signaler 14/14 og samlet arbejdsniveau 45/48 ophæver ikke disse fejl. A forbliver fejlet, og den ene tilladte udviklingsrettelse er brugt.
