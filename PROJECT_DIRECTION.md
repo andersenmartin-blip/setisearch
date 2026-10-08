@@ -1,3 +1,13 @@
+# Status 8. oktober 2026: frisk validering A afsluttet som FAIL_CLOSED
+
+Alle 142 identiteter er forsøgt én gang: 140 afsluttet, 2 nødvendige transientdiagnostikker afbrudt ved 250 CPU-s. De øvrige otte faglige krav består (stærke 14/14; arbejdsniveau 46/48; RFI 24/24 afvist; støj 32/32 uden kandidater). Fuldstændighed/integritet fejler, så teleskopværdier og B er stadig lukkede. A må ikke genkøres eller omklassificeres.
+
+[Resultat og tab](RADIO_VALIDATION_A_2026-10-08_RESULT.md). Den ene tilladte udviklingsrettelse forberedes: løbende eksklusive kørselsreservationer inden for de uændrede samlede grænser; videnskabelig kode og tærskler bevares. To nye, adskilte udviklingsforsøg skal afsluttes og gennemgås før en eventuel frisk validering B. Fejl og originalmateriale gemmes; publicering er adskilt fra analyse. Ingen ny sky-søgning er gennemført.
+
+---
+
+Tidligere status og beslutninger følger som historik:
+
 ## 8 October 2026: development closes unchanged; complete fresh validation next
 
 The [7–20 October study](https://github.com/andersenmartin-blip/setisearch/blob/d7f08e5caa80efbf029a728c7288d29b2e1166ba/RADIO_TWO_WEEK_PLAN_2026-10-07.md) has real full-family computation results: [24/24 DEV cases completed and reviewed](https://github.com/andersenmartin-blip/setisearch/blob/d7f08e5caa80efbf029a728c7288d29b2e1166ba/RADIO_PILOT_DEVELOPMENT_2026-10-08_RESULT.md). Preserve this version, every raw hit and all failures; do not tune it on fresh A outcomes. The current running action is the independently seeded 142-case VAL_A bank, under the exact original detector/generator/settings and full subgroup/RFI/noise gates. DEV success does not authorize sky values.

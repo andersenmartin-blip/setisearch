@@ -1,0 +1,133 @@
+{
+  "case_count_expected": 142,
+  "case_count_observed": 142,
+  "checks": {
+    "complete_and_integrity": false,
+    "each_activity_at_least_7_of_8": true,
+    "each_drift_at_least_10_of_12": true,
+    "each_width_at_least_22_of_24": true,
+    "matched_rfi_all_primary_on_detected_before_off": true,
+    "matched_rfi_no_surviving_cadence": true,
+    "noise_at_most_one_surviving_cadence": true,
+    "operating_at_least_44_of_48": true,
+    "strong_14_of_14": true
+  },
+  "complete": false,
+  "failed_case_ids": [
+    "SETI_RADIO_PILOT_20261008_VAL_A:single_row_transient:010",
+    "SETI_RADIO_PILOT_20261008_VAL_A:single_row_transient:011"
+  ],
+  "families": {
+    "matched_rfi": {
+      "all_active_on_recovered": 0,
+      "all_primary_on_detected_before_off": 24,
+      "any_localized_on_recovered": 0,
+      "cadences_with_any_survivor": 0,
+      "expected": 24,
+      "observed": 24
+    },
+    "near_off_contamination": {
+      "all_active_on_recovered": 0,
+      "all_primary_on_detected_before_off": 12,
+      "any_localized_on_recovered": 0,
+      "cadences_with_any_survivor": 0,
+      "expected": 12,
+      "observed": 12
+    },
+    "noise": {
+      "all_active_on_recovered": 0,
+      "all_primary_on_detected_before_off": 0,
+      "any_localized_on_recovered": 0,
+      "cadences_with_any_survivor": 0,
+      "expected": 32,
+      "observed": 32
+    },
+    "operating": {
+      "all_active_on_recovered": 46,
+      "all_primary_on_detected_before_off": 46,
+      "any_localized_on_recovered": 47,
+      "cadences_with_any_survivor": 47,
+      "expected": 48,
+      "observed": 48
+    },
+    "single_row_transient": {
+      "all_active_on_recovered": 10,
+      "all_primary_on_detected_before_off": 10,
+      "any_localized_on_recovered": 10,
+      "cadences_with_any_survivor": 10,
+      "expected": 12,
+      "observed": 12
+    },
+    "strong": {
+      "all_active_on_recovered": 14,
+      "all_primary_on_detected_before_off": 14,
+      "any_localized_on_recovered": 14,
+      "cadences_with_any_survivor": 14,
+      "expected": 14,
+      "observed": 14
+    }
+  },
+  "missing_case_ids": [],
+  "panel": "VAL_A",
+  "resource_observed": {
+    "cpu_seconds_sum": 11138.534412,
+    "wall_seconds_sum": 11198.53524950201
+  },
+  "scientific_gate": "FAIL_CLOSED",
+  "subgroups": {
+    "activity": {
+      "[0,2]": {
+        "expected": 8,
+        "recovered": 8
+      },
+      "[0,4]": {
+        "expected": 8,
+        "recovered": 8
+      },
+      "[0]": {
+        "expected": 8,
+        "recovered": 8
+      },
+      "[2,4]": {
+        "expected": 8,
+        "recovered": 7
+      },
+      "[2]": {
+        "expected": 8,
+        "recovered": 7
+      },
+      "[4]": {
+        "expected": 8,
+        "recovered": 8
+      }
+    },
+    "drift": {
+      "-1.25": {
+        "expected": 12,
+        "recovered": 12
+      },
+      "-4.0": {
+        "expected": 12,
+        "recovered": 11
+      },
+      "1.25": {
+        "expected": 12,
+        "recovered": 12
+      },
+      "4.0": {
+        "expected": 12,
+        "recovered": 11
+      }
+    },
+    "intrinsic_width": {
+      "1": {
+        "expected": 24,
+        "recovered": 22
+      },
+      "3": {
+        "expected": 24,
+        "recovered": 24
+      }
+    }
+  }
+}

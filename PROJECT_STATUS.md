@@ -1,3 +1,13 @@
+# Status 8. oktober 2026: frisk validering A afsluttet som FAIL_CLOSED
+
+Alle 142 identiteter er forsøgt én gang: 140 afsluttet, 2 nødvendige transientdiagnostikker afbrudt ved 250 CPU-s. De øvrige otte faglige krav består (stærke 14/14; arbejdsniveau 46/48; RFI 24/24 afvist; støj 32/32 uden kandidater). Fuldstændighed/integritet fejler, så teleskopværdier og B er stadig lukkede. A må ikke genkøres eller omklassificeres.
+
+[Resultat og tab](RADIO_VALIDATION_A_2026-10-08_RESULT.md). Den ene tilladte udviklingsrettelse forberedes: løbende eksklusive kørselsreservationer inden for de uændrede samlede grænser; videnskabelig kode og tærskler bevares. To nye, adskilte udviklingsforsøg skal afsluttes og gennemgås før en eventuel frisk validering B. Fejl og originalmateriale gemmes; publicering er adskilt fra analyse. Ingen ny sky-søgning er gennemført.
+
+---
+
+Tidligere status og beslutninger følger som historik:
+
 ## 8 October 2026: complete new development; fresh validation running
 
 The approved 7–20 October study completed [all 24 new DEV cases](https://github.com/andersenmartin-blip/setisearch/blob/d7f08e5caa80efbf029a728c7288d29b2e1166ba/RADIO_PILOT_DEVELOPMENT_2026-10-08_RESULT.md): strong 4/4 and operating 8/8 recovered on every active ON after OFF; all 8 matched-RFI cases were initially detected and then rejected; all 4 noise cases were empty. Independent scientific and output reviews passed. All 144 full maps, raw hits and recipes are preserved in the complete job archives. Charged DEV CPU is 1757.554301 seconds; maximum job wall time 94.033643 seconds and RSS 79,839,232 bytes.
