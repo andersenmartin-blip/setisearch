@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Explicit primary-only pilot admission after complete fresh VAL_A",
+  "type": "object",
+  "required": ["status", "pilot_id", "public_commit_sha", "fresh_validation_panel", "fresh_validation_case_count", "output_directory", "canonical_claim_path", "sha256", "selected_array_file_sha256", "budget"],
+  "properties": {
+    "status": {"const": "ADMITTED_PRIMARY_PILOT_ONLY"},
+    "pilot_id": {"const": "primary_HD189733_cadence85030_chunk152_20261008"},
+    "public_commit_sha": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "fresh_validation_panel": {"const": "VAL_A"},
+    "fresh_validation_case_count": {"const": 142},
+    "output_directory": {"type": "string", "pattern": "^/"},
+    "canonical_claim_path": {"type": "string", "pattern": "^/.*/primary_HD189733_cadence85030_chunk152_20261008\\.json$"},
+    "sha256": {
+      "type": "object",
+      "required": ["runner", "waterfall", "detector", "dev_helpers", "contract", "source_manifest", "value_reader", "reader_result", "validation_cases", "validation_summary", "validation_outcomes", "summarizer"],
+      "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+    },
+    "selected_array_file_sha256": {
+      "type": "object",
+      "required": ["epoch1_on", "epoch1_off", "epoch2_on", "epoch2_off", "epoch3_on", "epoch3_off"],
+      "minProperties": 6,
+      "maxProperties": 6,
+      "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+    },
+    "budget": {
+      "type": "object",
+      "required": ["max_wall_seconds_per_job", "max_rss_bytes", "remaining_cpu_seconds", "exclusive_cpu_allocation_seconds"],
+      "properties": {
+        "max_wall_seconds_per_job": {"type": "number", "exclusiveMinimum": 10},
+        "max_rss_bytes": {"type": "integer", "exclusiveMinimum": 0},
+        "remaining_cpu_seconds": {"type": "number", "exclusiveMinimum": 10},
+        "exclusive_cpu_allocation_seconds": {"type": "number", "exclusiveMinimum": 10}
+      }
+    }
+  }
+}
