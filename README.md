@@ -1,3 +1,15 @@
+# Fremskridt 8. oktober 2026: frisk validering B kører
+
+De to nye udviklingsprøver har afsluttet hele søgningen med uændret videnskabelig kode (cirka295/297 CPU-s), og alle12 kort/3630 rå hits/10890 OFF-sammenligninger er kontrolleret. [Resultat af den ene kørselsrettelse](RADIO_RUNTIME_CORRECTION_2026-10-08_RESULT.md). A forbliver FAIL_CLOSED med sine to kørselsfejl; ingen A-identitet gentages.
+
+De142 stadig ubrugte B-identiteter er nu startet én gang efter verificeret offentlig fastlåsning ved `69c9526bd22d5f6393f7ec51a60aae746fdc2234`. Metode, tærskler og alle oprindelige krav er uændrede. B bruger løbende eksklusive reservationer under19500 CPU-s samlet. Det er sidste validering efter planens ene udviklingsrettelse. B har endnu intet samlet udfald, og pilotens teleskopværdier er fortsat uåbnede. Kun fuld afslutning, alle9 krav og uafhængig gennemgang kan åbne piloten.
+
+Periode7.–20. oktober; første pilot eller konkret metodeundersøgelse senest13. oktober. Daglig fortsættelse9.–20. oktober er aktiveret. Ingen betaling, ny engineering-rute eller åbning af gamle testpaneler.
+
+---
+
+Tidligere status følger som historik:
+
 # Status 8. oktober 2026: frisk validering A afsluttet som FAIL_CLOSED
 
 Alle 142 identiteter er forsøgt én gang: 140 afsluttet, 2 nødvendige transientdiagnostikker afbrudt ved 250 CPU-s. De øvrige otte faglige krav består (stærke 14/14; arbejdsniveau 46/48; RFI 24/24 afvist; støj 32/32 uden kandidater). Fuldstændighed/integritet fejler, så teleskopværdier og B er stadig lukkede. A må ikke genkøres eller omklassificeres.
