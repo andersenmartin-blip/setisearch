@@ -1,0 +1,1978 @@
+{
+  "schema": "setisearch-metadata-qualified-six-scan-source-v1",
+  "created_utc": "2026-10-08T04:18:01.039550+00:00",
+  "status": "METADATA_QUALIFIED_FOR_BOUNDED_PROSPECTIVE_ACQUISITION",
+  "scientific_value_gate": "CLOSED_PENDING_FRESH_PROSPECTIVE_VALIDATION",
+  "spectral_values_read": false,
+  "spectral_payload_fetched": false,
+  "target": "HD 189733",
+  "archive_target": "HIP98505",
+  "cadence_id": 85030,
+  "cadence_completeness": {
+    "source_count": 6,
+    "on_count": 3,
+    "off_count": 3,
+    "sequence": [
+      "ON",
+      "OFF",
+      "ON",
+      "OFF",
+      "ON",
+      "OFF"
+    ],
+    "independent_visit_count": 1,
+    "required_chunk_count": 96,
+    "all_required_chunk_metadata_present": true
+  },
+  "public_freeze_commit": "a35b5436934b6709151c8ada3ba7da5b74919907",
+  "source_history_science_head": "b74e13df1c17baa4300657087ea06a5ee095e499",
+  "prior_use": {
+    "source_freshness": "Historicalpublishedstatus: no telescope pilot/validation/holdout spectral opening; prior source metadata read only. Current array read prohibited until freshscientific gate.",
+    "current_status_excerpt": "prior_use_status_excerpt.txt",
+    "historical_spectral_values_read": false,
+    "old_calibration_chunk": 159,
+    "old_validation_chunk": 156,
+    "historical_unopened_pilot_chunk": 152,
+    "old_holdouts_and_panels_unopened": true,
+    "source_selection_basis": "Metadata-only center of historical unopened pilot chunk152; no spectral selection"
+  },
+  "band": {
+    "reference_channel_interval_half_open": [
+      159905792,
+      159909888
+    ],
+    "reference_channel_count": 4096,
+    "reference_first_center_mhz": 1423.0514239036174,
+    "reference_last_center_mhz": 1423.039812517119,
+    "prospective_science_decode_interval_half_open": [
+      159903921,
+      159911759
+    ],
+    "decode_interval_provided_by": "new_plan_science prospective expanded halo1871",
+    "physical_frequency_chunk_index": 152,
+    "physical_chunk_channel_interval_half_open": [
+      159383552,
+      160432128
+    ],
+    "physical_chunk_decoded_bytes_per_time_row": 4194304,
+    "all_scans_share_exact_channel_grid": true,
+    "physical_dataset_axis_order": [
+      "time",
+      "feed",
+      "frequency"
+    ],
+    "attribute_dimension_labels": [
+      "frequency",
+      "feed_id",
+      "time"
+    ],
+    "attribute_labels_conflict_with_shape_and_filterbank_metadata": true
+  },
+  "bounded_read_feasibility": {
+    "actual_future_compressed_payload_bytes": 305133821,
+    "complete_decoded_chunk_bytes": 402653184,
+    "spent_metadata_body_bytes": 1158240,
+    "payload_plus_spent_metadata_bytes": 306292061,
+    "cadence_received_byte_ceiling": 2147483648,
+    "ram_ceiling_bytes": 4294967296,
+    "whole_chunk_volume_within_ram": true,
+    "full_memory_pipeline_not_yet_executed": true,
+    "chunkwise_decode_can_bound_buffers": true,
+    "partial_read_is_wire_bounded_by_exact_96_ranges": true,
+    "required_codec_filter_id": 32008,
+    "required_codec_declaration": [
+      [
+        32008,
+        1,
+        [
+          0,
+          3,
+          4,
+          0,
+          2
+        ],
+        "bitshuffle; see https://github.com/kiyo-masui/bitshuffle"
+      ]
+    ],
+    "codec_numeric_decode_this_source_executed": false,
+    "normal_reader_proposal": "Retrieve exact pinned96payload ranges after separate value gate; preservefilter masks and write_direct_chunk into small local HDF5float32 datasets with original chunk/filter properties, then decode halos with standard supported bitshufflecodec. No sourcefullfileread or enumeration replay."
+  },
+  "limits": {
+    "budget_dkk": 0,
+    "paid_services": false,
+    "max_primary_plus_alternate_sources": 2,
+    "alternate_selected": false
+  },
+  "sources": [
+    {
+      "label": "epoch1_on",
+      "role": "on",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16A_999_97/holding/spliced_blc02030405_2bit_guppi_57464_59616_HIP98505_0003.gpuspec.0000.h5",
+      "archive_catalogue": {
+        "cadence_id": 85030,
+        "file_id": 85030,
+        "catalogue_url": "http://seti.berkeley.edu/opendata/api/get-cadence/--85030",
+        "declared_md5": "7ab019759c5610150aedba778dec4c13",
+        "full_file_md5_verified": false,
+        "catalogue_tstart_mjd": 57464.69,
+        "catalogue_utc": "Thu, 17 Mar 2016 16:33:36 GMT",
+        "header_minus_catalogue_tstart_s": 0.0
+      },
+      "source_file_bytes": 12633556341,
+      "etag": "\"5a9ec9c6-2f104c575\"",
+      "last_modified": "Tue, 06 Mar 2018 17:03:02 GMT",
+      "observation_header_tstart_utc": "2016-03-17T16:33:36+00:00",
+      "current_header": {
+        "root_attributes": {
+          "CLASS": "FILTERBANK",
+          "VERSION": "1.0"
+        },
+        "data_attributes": {
+          "DIMENSION_LABELS": [
+            "frequency",
+            "feed_id",
+            "time"
+          ],
+          "az_start": 0.0,
+          "data_type": 1,
+          "fch1": 1876.46484375,
+          "foff": -2.835503418452676e-06,
+          "machine_id": 20,
+          "nbits": 32,
+          "nchans": 264503296,
+          "nifs": 1,
+          "source_name": "HIP98505",
+          "src_dej": 22.709715555555555,
+          "src_raj": 20.012139444444443,
+          "telescope_id": 6,
+          "tsamp": 17.986224128,
+          "tstart": 57464.69,
+          "za_start": 0.0
+        },
+        "dataset_shape": [
+          16,
+          1,
+          264503296
+        ],
+        "dataset_dtype": "float32",
+        "dataset_chunks": [
+          1,
+          1,
+          1048576
+        ],
+        "hdf5_filters": [
+          [
+            32008,
+            1,
+            [
+              0,
+              3,
+              4,
+              0,
+              2
+            ],
+            "bitshuffle; see https://github.com/kiyo-masui/bitshuffle"
+          ]
+        ]
+      },
+      "dtype_exact": "<f4",
+      "frequency_axis_order": "descending",
+      "physical_dataset_axis_order": [
+        "time",
+        "feed",
+        "frequency"
+      ],
+      "header_matches_historical_identity": true,
+      "public_range_access_qualified": true,
+      "all_needed_chunk_ranges_qualified": true,
+      "future_spectral_payload_bytes": 50852779,
+      "chunks": [
+        {
+          "time_row": 0,
+          "chunk_origin": [
+            0,
+            0,
+            159383552
+          ],
+          "byte_offset": 475622829,
+          "stored_size": 3178167,
+          "byte_range": "bytes=475622829-478800995",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 1,
+          "chunk_origin": [
+            1,
+            0,
+            159383552
+          ],
+          "byte_offset": 1265478026,
+          "stored_size": 3178568,
+          "byte_range": "bytes=1265478026-1268656593",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 2,
+          "chunk_origin": [
+            2,
+            0,
+            159383552
+          ],
+          "byte_offset": 2055000665,
+          "stored_size": 3178221,
+          "byte_range": "bytes=2055000665-2058178885",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 3,
+          "chunk_origin": [
+            3,
+            0,
+            159383552
+          ],
+          "byte_offset": 2844527866,
+          "stored_size": 3178174,
+          "byte_range": "bytes=2844527866-2847706039",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 4,
+          "chunk_origin": [
+            4,
+            0,
+            159383552
+          ],
+          "byte_offset": 3634044602,
+          "stored_size": 3177832,
+          "byte_range": "bytes=3634044602-3637222433",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 5,
+          "chunk_origin": [
+            5,
+            0,
+            159383552
+          ],
+          "byte_offset": 4423617831,
+          "stored_size": 3178000,
+          "byte_range": "bytes=4423617831-4426795830",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 6,
+          "chunk_origin": [
+            6,
+            0,
+            159383552
+          ],
+          "byte_offset": 5212976682,
+          "stored_size": 3178856,
+          "byte_range": "bytes=5212976682-5216155537",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 7,
+          "chunk_origin": [
+            7,
+            0,
+            159383552
+          ],
+          "byte_offset": 6002737565,
+          "stored_size": 3179052,
+          "byte_range": "bytes=6002737565-6005916616",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 8,
+          "chunk_origin": [
+            8,
+            0,
+            159383552
+          ],
+          "byte_offset": 6792562415,
+          "stored_size": 3178740,
+          "byte_range": "bytes=6792562415-6795741154",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 9,
+          "chunk_origin": [
+            9,
+            0,
+            159383552
+          ],
+          "byte_offset": 7581907986,
+          "stored_size": 3177652,
+          "byte_range": "bytes=7581907986-7585085637",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 10,
+          "chunk_origin": [
+            10,
+            0,
+            159383552
+          ],
+          "byte_offset": 8371194898,
+          "stored_size": 3178671,
+          "byte_range": "bytes=8371194898-8374373568",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 11,
+          "chunk_origin": [
+            11,
+            0,
+            159383552
+          ],
+          "byte_offset": 9160880057,
+          "stored_size": 3178308,
+          "byte_range": "bytes=9160880057-9164058364",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 12,
+          "chunk_origin": [
+            12,
+            0,
+            159383552
+          ],
+          "byte_offset": 9950457952,
+          "stored_size": 3178198,
+          "byte_range": "bytes=9950457952-9953636149",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 13,
+          "chunk_origin": [
+            13,
+            0,
+            159383552
+          ],
+          "byte_offset": 10740126021,
+          "stored_size": 3178436,
+          "byte_range": "bytes=10740126021-10743304456",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 14,
+          "chunk_origin": [
+            14,
+            0,
+            159383552
+          ],
+          "byte_offset": 11529773530,
+          "stored_size": 3178221,
+          "byte_range": "bytes=11529773530-11532951750",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 15,
+          "chunk_origin": [
+            15,
+            0,
+            159383552
+          ],
+          "byte_offset": 12319376325,
+          "stored_size": 3177683,
+          "byte_range": "bytes=12319376325-12322554007",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        }
+      ],
+      "range_evidence_path": "direct_metadata_ranges/current_direct_chunk_metadata.json"
+    },
+    {
+      "label": "epoch1_off",
+      "role": "off",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16A_999_97/holding/spliced_blc02030405_2bit_guppi_57464_59946_HIP98505_OFF_0004.gpuspec.0000.h5",
+      "archive_catalogue": {
+        "cadence_id": 85030,
+        "file_id": 85032,
+        "catalogue_url": "http://seti.berkeley.edu/opendata/api/get-cadence/--85030",
+        "declared_md5": "957bd71ac9e73ea2e115aa10a9bb0e69",
+        "full_file_md5_verified": false,
+        "catalogue_tstart_mjd": 57464.69380787037,
+        "catalogue_utc": "Thu, 17 Mar 2016 16:39:05 GMT",
+        "header_minus_catalogue_tstart_s": 1.0000002337619662
+      },
+      "source_file_bytes": 12635962948,
+      "etag": "\"5a9eca2e-2f1297e44\"",
+      "last_modified": "Tue, 06 Mar 2018 17:04:46 GMT",
+      "observation_header_tstart_utc": "2016-03-17T16:39:06+00:00",
+      "current_header": {
+        "root_attributes": {
+          "CLASS": "FILTERBANK",
+          "VERSION": "1.0"
+        },
+        "data_attributes": {
+          "DIMENSION_LABELS": [
+            "frequency",
+            "feed_id",
+            "time"
+          ],
+          "az_start": 0.0,
+          "data_type": 1,
+          "fch1": 1876.46484375,
+          "foff": -2.835503418452676e-06,
+          "machine_id": 20,
+          "nbits": 32,
+          "nchans": 264503296,
+          "nifs": 1,
+          "source_name": "HIP98505_OFF",
+          "src_dej": 24.70970583333333,
+          "src_raj": 20.01213888888889,
+          "telescope_id": 6,
+          "tsamp": 17.986224128,
+          "tstart": 57464.693819444445,
+          "za_start": 0.0
+        },
+        "dataset_shape": [
+          16,
+          1,
+          264503296
+        ],
+        "dataset_dtype": "float32",
+        "dataset_chunks": [
+          1,
+          1,
+          1048576
+        ],
+        "hdf5_filters": [
+          [
+            32008,
+            1,
+            [
+              0,
+              3,
+              4,
+              0,
+              2
+            ],
+            "bitshuffle; see https://github.com/kiyo-masui/bitshuffle"
+          ]
+        ]
+      },
+      "dtype_exact": "<f4",
+      "frequency_axis_order": "descending",
+      "physical_dataset_axis_order": [
+        "time",
+        "feed",
+        "frequency"
+      ],
+      "header_matches_historical_identity": true,
+      "public_range_access_qualified": true,
+      "all_needed_chunk_ranges_qualified": true,
+      "future_spectral_payload_bytes": 50856655,
+      "chunks": [
+        {
+          "time_row": 0,
+          "chunk_origin": [
+            0,
+            0,
+            159383552
+          ],
+          "byte_offset": 475560877,
+          "stored_size": 3178375,
+          "byte_range": "bytes=475560877-478739251",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 1,
+          "chunk_origin": [
+            1,
+            0,
+            159383552
+          ],
+          "byte_offset": 1265252653,
+          "stored_size": 3178718,
+          "byte_range": "bytes=1265252653-1268431370",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 2,
+          "chunk_origin": [
+            2,
+            0,
+            159383552
+          ],
+          "byte_offset": 2054900173,
+          "stored_size": 3178219,
+          "byte_range": "bytes=2054900173-2058078391",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 3,
+          "chunk_origin": [
+            3,
+            0,
+            159383552
+          ],
+          "byte_offset": 2844830760,
+          "stored_size": 3179421,
+          "byte_range": "bytes=2844830760-2848010180",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 4,
+          "chunk_origin": [
+            4,
+            0,
+            159383552
+          ],
+          "byte_offset": 3634784145,
+          "stored_size": 3179361,
+          "byte_range": "bytes=3634784145-3637963505",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 5,
+          "chunk_origin": [
+            5,
+            0,
+            159383552
+          ],
+          "byte_offset": 4424389827,
+          "stored_size": 3178508,
+          "byte_range": "bytes=4424389827-4427568334",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 6,
+          "chunk_origin": [
+            6,
+            0,
+            159383552
+          ],
+          "byte_offset": 5213836761,
+          "stored_size": 3178516,
+          "byte_range": "bytes=5213836761-5217015276",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 7,
+          "chunk_origin": [
+            7,
+            0,
+            159383552
+          ],
+          "byte_offset": 6003526430,
+          "stored_size": 3178362,
+          "byte_range": "bytes=6003526430-6006704791",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 8,
+          "chunk_origin": [
+            8,
+            0,
+            159383552
+          ],
+          "byte_offset": 6793251906,
+          "stored_size": 3178711,
+          "byte_range": "bytes=6793251906-6796430616",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 9,
+          "chunk_origin": [
+            9,
+            0,
+            159383552
+          ],
+          "byte_offset": 7582685151,
+          "stored_size": 3178105,
+          "byte_range": "bytes=7582685151-7585863255",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 10,
+          "chunk_origin": [
+            10,
+            0,
+            159383552
+          ],
+          "byte_offset": 8372515982,
+          "stored_size": 3178259,
+          "byte_range": "bytes=8372515982-8375694240",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 11,
+          "chunk_origin": [
+            11,
+            0,
+            159383552
+          ],
+          "byte_offset": 9162259283,
+          "stored_size": 3178966,
+          "byte_range": "bytes=9162259283-9165438248",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 12,
+          "chunk_origin": [
+            12,
+            0,
+            159383552
+          ],
+          "byte_offset": 9952074353,
+          "stored_size": 3178911,
+          "byte_range": "bytes=9952074353-9955253263",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 13,
+          "chunk_origin": [
+            13,
+            0,
+            159383552
+          ],
+          "byte_offset": 10741850230,
+          "stored_size": 3177727,
+          "byte_range": "bytes=10741850230-10745027956",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 14,
+          "chunk_origin": [
+            14,
+            0,
+            159383552
+          ],
+          "byte_offset": 11531812158,
+          "stored_size": 3178649,
+          "byte_range": "bytes=11531812158-11534990806",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 15,
+          "chunk_origin": [
+            15,
+            0,
+            159383552
+          ],
+          "byte_offset": 12321821170,
+          "stored_size": 3177847,
+          "byte_range": "bytes=12321821170-12324999016",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        }
+      ],
+      "range_evidence_path": "direct_metadata_ranges/current_direct_chunk_metadata.json"
+    },
+    {
+      "label": "epoch2_on",
+      "role": "on",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16A_999_97/holding/spliced_blc02030405_2bit_guppi_57464_60276_HIP98505_0005.gpuspec.0000.h5",
+      "archive_catalogue": {
+        "cadence_id": 85030,
+        "file_id": 85034,
+        "catalogue_url": "http://seti.berkeley.edu/opendata/api/get-cadence/--85030",
+        "declared_md5": "a04efbe5bd9fd3a888c65b6761318fd5",
+        "full_file_md5_verified": false,
+        "catalogue_tstart_mjd": 57464.69763888889,
+        "catalogue_utc": "Thu, 17 Mar 2016 16:44:36 GMT",
+        "header_minus_catalogue_tstart_s": 0.0
+      },
+      "source_file_bytes": 12632416909,
+      "etag": "\"5a9ecab0-2f0f3628d\"",
+      "last_modified": "Tue, 06 Mar 2018 17:06:56 GMT",
+      "observation_header_tstart_utc": "2016-03-17T16:44:36+00:00",
+      "current_header": {
+        "root_attributes": {
+          "CLASS": "FILTERBANK",
+          "VERSION": "1.0"
+        },
+        "data_attributes": {
+          "DIMENSION_LABELS": [
+            "frequency",
+            "feed_id",
+            "time"
+          ],
+          "az_start": 0.0,
+          "data_type": 1,
+          "fch1": 1876.46484375,
+          "foff": -2.835503418452676e-06,
+          "machine_id": 20,
+          "nbits": 32,
+          "nchans": 264503296,
+          "nifs": 1,
+          "source_name": "HIP98505",
+          "src_dej": 22.709732777777777,
+          "src_raj": 20.012139166666667,
+          "telescope_id": 6,
+          "tsamp": 17.986224128,
+          "tstart": 57464.69763888889,
+          "za_start": 0.0
+        },
+        "dataset_shape": [
+          16,
+          1,
+          264503296
+        ],
+        "dataset_dtype": "float32",
+        "dataset_chunks": [
+          1,
+          1,
+          1048576
+        ],
+        "hdf5_filters": [
+          [
+            32008,
+            1,
+            [
+              0,
+              3,
+              4,
+              0,
+              2
+            ],
+            "bitshuffle; see https://github.com/kiyo-masui/bitshuffle"
+          ]
+        ]
+      },
+      "dtype_exact": "<f4",
+      "frequency_axis_order": "descending",
+      "physical_dataset_axis_order": [
+        "time",
+        "feed",
+        "frequency"
+      ],
+      "header_matches_historical_identity": true,
+      "public_range_access_qualified": true,
+      "all_needed_chunk_ranges_qualified": true,
+      "future_spectral_payload_bytes": 50857795,
+      "chunks": [
+        {
+          "time_row": 0,
+          "chunk_origin": [
+            0,
+            0,
+            159383552
+          ],
+          "byte_offset": 475492603,
+          "stored_size": 3178286,
+          "byte_range": "bytes=475492603-478670888",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 1,
+          "chunk_origin": [
+            1,
+            0,
+            159383552
+          ],
+          "byte_offset": 1265098844,
+          "stored_size": 3178640,
+          "byte_range": "bytes=1265098844-1268277483",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 2,
+          "chunk_origin": [
+            2,
+            0,
+            159383552
+          ],
+          "byte_offset": 2054406443,
+          "stored_size": 3178065,
+          "byte_range": "bytes=2054406443-2057584507",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 3,
+          "chunk_origin": [
+            3,
+            0,
+            159383552
+          ],
+          "byte_offset": 2843800908,
+          "stored_size": 3178967,
+          "byte_range": "bytes=2843800908-2846979874",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 4,
+          "chunk_origin": [
+            4,
+            0,
+            159383552
+          ],
+          "byte_offset": 3632949043,
+          "stored_size": 3179256,
+          "byte_range": "bytes=3632949043-3636128298",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 5,
+          "chunk_origin": [
+            5,
+            0,
+            159383552
+          ],
+          "byte_offset": 4422032863,
+          "stored_size": 3177791,
+          "byte_range": "bytes=4422032863-4425210653",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 6,
+          "chunk_origin": [
+            6,
+            0,
+            159383552
+          ],
+          "byte_offset": 5211468623,
+          "stored_size": 3178851,
+          "byte_range": "bytes=5211468623-5214647473",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 7,
+          "chunk_origin": [
+            7,
+            0,
+            159383552
+          ],
+          "byte_offset": 6000913617,
+          "stored_size": 3178856,
+          "byte_range": "bytes=6000913617-6004092472",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 8,
+          "chunk_origin": [
+            8,
+            0,
+            159383552
+          ],
+          "byte_offset": 6790618431,
+          "stored_size": 3178574,
+          "byte_range": "bytes=6790618431-6793797004",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 9,
+          "chunk_origin": [
+            9,
+            0,
+            159383552
+          ],
+          "byte_offset": 7580324690,
+          "stored_size": 3178723,
+          "byte_range": "bytes=7580324690-7583503412",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 10,
+          "chunk_origin": [
+            10,
+            0,
+            159383552
+          ],
+          "byte_offset": 8369779659,
+          "stored_size": 3179510,
+          "byte_range": "bytes=8369779659-8372959168",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 11,
+          "chunk_origin": [
+            11,
+            0,
+            159383552
+          ],
+          "byte_offset": 9159315076,
+          "stored_size": 3178313,
+          "byte_range": "bytes=9159315076-9162493388",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 12,
+          "chunk_origin": [
+            12,
+            0,
+            159383552
+          ],
+          "byte_offset": 9948992964,
+          "stored_size": 3178045,
+          "byte_range": "bytes=9948992964-9952171008",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 13,
+          "chunk_origin": [
+            13,
+            0,
+            159383552
+          ],
+          "byte_offset": 10738800337,
+          "stored_size": 3179029,
+          "byte_range": "bytes=10738800337-10741979365",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 14,
+          "chunk_origin": [
+            14,
+            0,
+            159383552
+          ],
+          "byte_offset": 11528540955,
+          "stored_size": 3178059,
+          "byte_range": "bytes=11528540955-11531719013",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 15,
+          "chunk_origin": [
+            15,
+            0,
+            159383552
+          ],
+          "byte_offset": 12318270595,
+          "stored_size": 3178830,
+          "byte_range": "bytes=12318270595-12321449424",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        }
+      ],
+      "range_evidence_path": "direct_metadata_ranges/current_direct_chunk_metadata.json"
+    },
+    {
+      "label": "epoch2_off",
+      "role": "off",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16A_999_97/holding/spliced_blc02030405_2bit_guppi_57464_60606_HIP98505_OFF_0006.gpuspec.0000.h5",
+      "archive_catalogue": {
+        "cadence_id": 85030,
+        "file_id": 85036,
+        "catalogue_url": "http://seti.berkeley.edu/opendata/api/get-cadence/--85030",
+        "declared_md5": "3b1c7035095559885393ef64dc2ccb9e",
+        "full_file_md5_verified": false,
+        "catalogue_tstart_mjd": 57464.70144675926,
+        "catalogue_utc": "Thu, 17 Mar 2016 16:50:05 GMT",
+        "header_minus_catalogue_tstart_s": 1.0000002337619662
+      },
+      "source_file_bytes": 12632543923,
+      "etag": "\"5a9ecb49-2f0f552b3\"",
+      "last_modified": "Tue, 06 Mar 2018 17:09:29 GMT",
+      "observation_header_tstart_utc": "2016-03-17T16:50:06+00:00",
+      "current_header": {
+        "root_attributes": {
+          "CLASS": "FILTERBANK",
+          "VERSION": "1.0"
+        },
+        "data_attributes": {
+          "DIMENSION_LABELS": [
+            "frequency",
+            "feed_id",
+            "time"
+          ],
+          "az_start": 0.0,
+          "data_type": 1,
+          "fch1": 1876.46484375,
+          "foff": -2.835503418452676e-06,
+          "machine_id": 20,
+          "nbits": 32,
+          "nchans": 264503296,
+          "nifs": 1,
+          "source_name": "HIP98505_OFF",
+          "src_dej": 24.709720277777773,
+          "src_raj": 20.012139166666667,
+          "telescope_id": 6,
+          "tsamp": 17.986224128,
+          "tstart": 57464.70145833334,
+          "za_start": 0.0
+        },
+        "dataset_shape": [
+          16,
+          1,
+          264503296
+        ],
+        "dataset_dtype": "float32",
+        "dataset_chunks": [
+          1,
+          1,
+          1048576
+        ],
+        "hdf5_filters": [
+          [
+            32008,
+            1,
+            [
+              0,
+              3,
+              4,
+              0,
+              2
+            ],
+            "bitshuffle; see https://github.com/kiyo-masui/bitshuffle"
+          ]
+        ]
+      },
+      "dtype_exact": "<f4",
+      "frequency_axis_order": "descending",
+      "physical_dataset_axis_order": [
+        "time",
+        "feed",
+        "frequency"
+      ],
+      "header_matches_historical_identity": true,
+      "public_range_access_qualified": true,
+      "all_needed_chunk_ranges_qualified": true,
+      "future_spectral_payload_bytes": 50855119,
+      "chunks": [
+        {
+          "time_row": 0,
+          "chunk_origin": [
+            0,
+            0,
+            159383552
+          ],
+          "byte_offset": 475647688,
+          "stored_size": 3178556,
+          "byte_range": "bytes=475647688-478826243",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 1,
+          "chunk_origin": [
+            1,
+            0,
+            159383552
+          ],
+          "byte_offset": 1265303666,
+          "stored_size": 3178579,
+          "byte_range": "bytes=1265303666-1268482244",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 2,
+          "chunk_origin": [
+            2,
+            0,
+            159383552
+          ],
+          "byte_offset": 2054839258,
+          "stored_size": 3179248,
+          "byte_range": "bytes=2054839258-2058018505",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 3,
+          "chunk_origin": [
+            3,
+            0,
+            159383552
+          ],
+          "byte_offset": 2844385442,
+          "stored_size": 3179239,
+          "byte_range": "bytes=2844385442-2847564680",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 4,
+          "chunk_origin": [
+            4,
+            0,
+            159383552
+          ],
+          "byte_offset": 3633963945,
+          "stored_size": 3179640,
+          "byte_range": "bytes=3633963945-3637143584",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 5,
+          "chunk_origin": [
+            5,
+            0,
+            159383552
+          ],
+          "byte_offset": 4423675895,
+          "stored_size": 3177816,
+          "byte_range": "bytes=4423675895-4426853710",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 6,
+          "chunk_origin": [
+            6,
+            0,
+            159383552
+          ],
+          "byte_offset": 5213201664,
+          "stored_size": 3177986,
+          "byte_range": "bytes=5213201664-5216379649",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 7,
+          "chunk_origin": [
+            7,
+            0,
+            159383552
+          ],
+          "byte_offset": 6002450146,
+          "stored_size": 3178404,
+          "byte_range": "bytes=6002450146-6005628549",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 8,
+          "chunk_origin": [
+            8,
+            0,
+            159383552
+          ],
+          "byte_offset": 6791649194,
+          "stored_size": 3178303,
+          "byte_range": "bytes=6791649194-6794827496",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 9,
+          "chunk_origin": [
+            9,
+            0,
+            159383552
+          ],
+          "byte_offset": 7581137358,
+          "stored_size": 3178257,
+          "byte_range": "bytes=7581137358-7584315614",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 10,
+          "chunk_origin": [
+            10,
+            0,
+            159383552
+          ],
+          "byte_offset": 8370463917,
+          "stored_size": 3177554,
+          "byte_range": "bytes=8370463917-8373641470",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 11,
+          "chunk_origin": [
+            11,
+            0,
+            159383552
+          ],
+          "byte_offset": 9159830173,
+          "stored_size": 3179017,
+          "byte_range": "bytes=9159830173-9163009189",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 12,
+          "chunk_origin": [
+            12,
+            0,
+            159383552
+          ],
+          "byte_offset": 9949474264,
+          "stored_size": 3177663,
+          "byte_range": "bytes=9949474264-9952651926",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 13,
+          "chunk_origin": [
+            13,
+            0,
+            159383552
+          ],
+          "byte_offset": 10739104603,
+          "stored_size": 3178391,
+          "byte_range": "bytes=10739104603-10742282993",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 14,
+          "chunk_origin": [
+            14,
+            0,
+            159383552
+          ],
+          "byte_offset": 11528999750,
+          "stored_size": 3178709,
+          "byte_range": "bytes=11528999750-11532178458",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 15,
+          "chunk_origin": [
+            15,
+            0,
+            159383552
+          ],
+          "byte_offset": 12318384348,
+          "stored_size": 3177757,
+          "byte_range": "bytes=12318384348-12321562104",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        }
+      ],
+      "range_evidence_path": "direct_metadata_ranges/current_direct_chunk_metadata.json"
+    },
+    {
+      "label": "epoch3_on",
+      "role": "on",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16A_999_97/holding/spliced_blc02030405_2bit_guppi_57464_60936_HIP98505_0007.gpuspec.0000.h5",
+      "archive_catalogue": {
+        "cadence_id": 85030,
+        "file_id": 85038,
+        "catalogue_url": "http://seti.berkeley.edu/opendata/api/get-cadence/--85030",
+        "declared_md5": "259a7896d5992d9a9c4e4d7a344abb1f",
+        "full_file_md5_verified": false,
+        "catalogue_tstart_mjd": 57464.70527777778,
+        "catalogue_utc": "Thu, 17 Mar 2016 16:55:36 GMT",
+        "header_minus_catalogue_tstart_s": 0.0
+      },
+      "source_file_bytes": 12628346613,
+      "etag": "\"5a9ecbf3-2f0b546f5\"",
+      "last_modified": "Tue, 06 Mar 2018 17:12:19 GMT",
+      "observation_header_tstart_utc": "2016-03-17T16:55:36+00:00",
+      "current_header": {
+        "root_attributes": {
+          "CLASS": "FILTERBANK",
+          "VERSION": "1.0"
+        },
+        "data_attributes": {
+          "DIMENSION_LABELS": [
+            "frequency",
+            "feed_id",
+            "time"
+          ],
+          "az_start": 0.0,
+          "data_type": 1,
+          "fch1": 1876.46484375,
+          "foff": -2.835503418452676e-06,
+          "machine_id": 20,
+          "nbits": 32,
+          "nchans": 264503296,
+          "nifs": 1,
+          "source_name": "HIP98505",
+          "src_dej": 22.70970638888889,
+          "src_raj": 20.012139166666667,
+          "telescope_id": 6,
+          "tsamp": 17.986224128,
+          "tstart": 57464.70527777778,
+          "za_start": 0.0
+        },
+        "dataset_shape": [
+          16,
+          1,
+          264503296
+        ],
+        "dataset_dtype": "float32",
+        "dataset_chunks": [
+          1,
+          1,
+          1048576
+        ],
+        "hdf5_filters": [
+          [
+            32008,
+            1,
+            [
+              0,
+              3,
+              4,
+              0,
+              2
+            ],
+            "bitshuffle; see https://github.com/kiyo-masui/bitshuffle"
+          ]
+        ]
+      },
+      "dtype_exact": "<f4",
+      "frequency_axis_order": "descending",
+      "physical_dataset_axis_order": [
+        "time",
+        "feed",
+        "frequency"
+      ],
+      "header_matches_historical_identity": true,
+      "public_range_access_qualified": true,
+      "all_needed_chunk_ranges_qualified": true,
+      "future_spectral_payload_bytes": 50855862,
+      "chunks": [
+        {
+          "time_row": 0,
+          "chunk_origin": [
+            0,
+            0,
+            159383552
+          ],
+          "byte_offset": 474925853,
+          "stored_size": 3178221,
+          "byte_range": "bytes=474925853-478104073",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 1,
+          "chunk_origin": [
+            1,
+            0,
+            159383552
+          ],
+          "byte_offset": 1264308526,
+          "stored_size": 3178832,
+          "byte_range": "bytes=1264308526-1267487357",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 2,
+          "chunk_origin": [
+            2,
+            0,
+            159383552
+          ],
+          "byte_offset": 2053712948,
+          "stored_size": 3179292,
+          "byte_range": "bytes=2053712948-2056892239",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 3,
+          "chunk_origin": [
+            3,
+            0,
+            159383552
+          ],
+          "byte_offset": 2842585043,
+          "stored_size": 3178237,
+          "byte_range": "bytes=2842585043-2845763279",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 4,
+          "chunk_origin": [
+            4,
+            0,
+            159383552
+          ],
+          "byte_offset": 3631881245,
+          "stored_size": 3179162,
+          "byte_range": "bytes=3631881245-3635060406",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 5,
+          "chunk_origin": [
+            5,
+            0,
+            159383552
+          ],
+          "byte_offset": 4421016743,
+          "stored_size": 3178440,
+          "byte_range": "bytes=4421016743-4424195182",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 6,
+          "chunk_origin": [
+            6,
+            0,
+            159383552
+          ],
+          "byte_offset": 5209803604,
+          "stored_size": 3178684,
+          "byte_range": "bytes=5209803604-5212982287",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 7,
+          "chunk_origin": [
+            7,
+            0,
+            159383552
+          ],
+          "byte_offset": 5999039645,
+          "stored_size": 3178211,
+          "byte_range": "bytes=5999039645-6002217855",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 8,
+          "chunk_origin": [
+            8,
+            0,
+            159383552
+          ],
+          "byte_offset": 6788371076,
+          "stored_size": 3178185,
+          "byte_range": "bytes=6788371076-6791549260",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 9,
+          "chunk_origin": [
+            9,
+            0,
+            159383552
+          ],
+          "byte_offset": 7577803640,
+          "stored_size": 3178489,
+          "byte_range": "bytes=7577803640-7580982128",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 10,
+          "chunk_origin": [
+            10,
+            0,
+            159383552
+          ],
+          "byte_offset": 8367043231,
+          "stored_size": 3178030,
+          "byte_range": "bytes=8367043231-8370221260",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 11,
+          "chunk_origin": [
+            11,
+            0,
+            159383552
+          ],
+          "byte_offset": 9156401813,
+          "stored_size": 3178071,
+          "byte_range": "bytes=9156401813-9159579883",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 12,
+          "chunk_origin": [
+            12,
+            0,
+            159383552
+          ],
+          "byte_offset": 9945910911,
+          "stored_size": 3178326,
+          "byte_range": "bytes=9945910911-9949089236",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 13,
+          "chunk_origin": [
+            13,
+            0,
+            159383552
+          ],
+          "byte_offset": 10735405846,
+          "stored_size": 3178425,
+          "byte_range": "bytes=10735405846-10738584270",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 14,
+          "chunk_origin": [
+            14,
+            0,
+            159383552
+          ],
+          "byte_offset": 11524723024,
+          "stored_size": 3178498,
+          "byte_range": "bytes=11524723024-11527901521",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 15,
+          "chunk_origin": [
+            15,
+            0,
+            159383552
+          ],
+          "byte_offset": 12314175773,
+          "stored_size": 3178759,
+          "byte_range": "bytes=12314175773-12317354531",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        }
+      ],
+      "range_evidence_path": "direct_metadata_ranges/current_direct_chunk_metadata.json"
+    },
+    {
+      "label": "epoch3_off",
+      "role": "off",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16A_999_97/holding/spliced_blc02030405_2bit_guppi_57464_61265_HIP98505_OFF_0008.gpuspec.0000.h5",
+      "archive_catalogue": {
+        "cadence_id": 85030,
+        "file_id": 85040,
+        "catalogue_url": "http://seti.berkeley.edu/opendata/api/get-cadence/--85030",
+        "declared_md5": "2a1e52f0f0bcaa57acfb7a375a604131",
+        "full_file_md5_verified": false,
+        "catalogue_tstart_mjd": 57464.709085648145,
+        "catalogue_utc": "Thu, 17 Mar 2016 17:01:05 GMT",
+        "header_minus_catalogue_tstart_s": 0.0
+      },
+      "source_file_bytes": 12629521140,
+      "etag": "\"5a9ecc81-2f0c732f4\"",
+      "last_modified": "Tue, 06 Mar 2018 17:14:41 GMT",
+      "observation_header_tstart_utc": "2016-03-17T17:01:05+00:00",
+      "current_header": {
+        "root_attributes": {
+          "CLASS": "FILTERBANK",
+          "VERSION": "1.0"
+        },
+        "data_attributes": {
+          "DIMENSION_LABELS": [
+            "frequency",
+            "feed_id",
+            "time"
+          ],
+          "az_start": 0.0,
+          "data_type": 1,
+          "fch1": 1876.46484375,
+          "foff": -2.835503418452676e-06,
+          "machine_id": 20,
+          "nbits": 32,
+          "nchans": 264503296,
+          "nifs": 1,
+          "source_name": "HIP98505_OFF",
+          "src_dej": 24.70973166666667,
+          "src_raj": 20.012140833333333,
+          "telescope_id": 6,
+          "tsamp": 17.986224128,
+          "tstart": 57464.709085648145,
+          "za_start": 0.0
+        },
+        "dataset_shape": [
+          16,
+          1,
+          264503296
+        ],
+        "dataset_dtype": "float32",
+        "dataset_chunks": [
+          1,
+          1,
+          1048576
+        ],
+        "hdf5_filters": [
+          [
+            32008,
+            1,
+            [
+              0,
+              3,
+              4,
+              0,
+              2
+            ],
+            "bitshuffle; see https://github.com/kiyo-masui/bitshuffle"
+          ]
+        ]
+      },
+      "dtype_exact": "<f4",
+      "frequency_axis_order": "descending",
+      "physical_dataset_axis_order": [
+        "time",
+        "feed",
+        "frequency"
+      ],
+      "header_matches_historical_identity": true,
+      "public_range_access_qualified": true,
+      "all_needed_chunk_ranges_qualified": true,
+      "future_spectral_payload_bytes": 50855611,
+      "chunks": [
+        {
+          "time_row": 0,
+          "chunk_origin": [
+            0,
+            0,
+            159383552
+          ],
+          "byte_offset": 475305295,
+          "stored_size": 3177538,
+          "byte_range": "bytes=475305295-478482832",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 1,
+          "chunk_origin": [
+            1,
+            0,
+            159383552
+          ],
+          "byte_offset": 1264809967,
+          "stored_size": 3178528,
+          "byte_range": "bytes=1264809967-1267988494",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 2,
+          "chunk_origin": [
+            2,
+            0,
+            159383552
+          ],
+          "byte_offset": 2054187719,
+          "stored_size": 3178075,
+          "byte_range": "bytes=2054187719-2057365793",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 3,
+          "chunk_origin": [
+            3,
+            0,
+            159383552
+          ],
+          "byte_offset": 2843520105,
+          "stored_size": 3178461,
+          "byte_range": "bytes=2843520105-2846698565",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 4,
+          "chunk_origin": [
+            4,
+            0,
+            159383552
+          ],
+          "byte_offset": 3632908337,
+          "stored_size": 3177690,
+          "byte_range": "bytes=3632908337-3636086026",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 5,
+          "chunk_origin": [
+            5,
+            0,
+            159383552
+          ],
+          "byte_offset": 4422047983,
+          "stored_size": 3178592,
+          "byte_range": "bytes=4422047983-4425226574",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 6,
+          "chunk_origin": [
+            6,
+            0,
+            159383552
+          ],
+          "byte_offset": 5211354843,
+          "stored_size": 3178322,
+          "byte_range": "bytes=5211354843-5214533164",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 7,
+          "chunk_origin": [
+            7,
+            0,
+            159383552
+          ],
+          "byte_offset": 6000738010,
+          "stored_size": 3177845,
+          "byte_range": "bytes=6000738010-6003915854",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 8,
+          "chunk_origin": [
+            8,
+            0,
+            159383552
+          ],
+          "byte_offset": 6790350305,
+          "stored_size": 3178414,
+          "byte_range": "bytes=6790350305-6793528718",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 9,
+          "chunk_origin": [
+            9,
+            0,
+            159383552
+          ],
+          "byte_offset": 7579908013,
+          "stored_size": 3179216,
+          "byte_range": "bytes=7579908013-7583087228",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 10,
+          "chunk_origin": [
+            10,
+            0,
+            159383552
+          ],
+          "byte_offset": 8369269969,
+          "stored_size": 3179124,
+          "byte_range": "bytes=8369269969-8372449092",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 11,
+          "chunk_origin": [
+            11,
+            0,
+            159383552
+          ],
+          "byte_offset": 9158276326,
+          "stored_size": 3178002,
+          "byte_range": "bytes=9158276326-9161454327",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 12,
+          "chunk_origin": [
+            12,
+            0,
+            159383552
+          ],
+          "byte_offset": 9947652944,
+          "stored_size": 3178292,
+          "byte_range": "bytes=9947652944-9950831235",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 13,
+          "chunk_origin": [
+            13,
+            0,
+            159383552
+          ],
+          "byte_offset": 10736913375,
+          "stored_size": 3179045,
+          "byte_range": "bytes=10736913375-10740092419",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 14,
+          "chunk_origin": [
+            14,
+            0,
+            159383552
+          ],
+          "byte_offset": 11526062807,
+          "stored_size": 3178807,
+          "byte_range": "bytes=11526062807-11529241613",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        },
+        {
+          "time_row": 15,
+          "chunk_origin": [
+            15,
+            0,
+            159383552
+          ],
+          "byte_offset": 12315339138,
+          "stored_size": 3179660,
+          "byte_range": "bytes=12315339138-12318518797",
+          "filter_mask": 0,
+          "decoded_size": 4194304,
+          "spectral_payload_fetched": false
+        }
+      ],
+      "range_evidence_path": "direct_metadata_ranges/current_direct_chunk_metadata.json"
+    }
+  ],
+  "ledger_path": "SOURCE_BYTES_LEDGER.json",
+  "metadata_evidence_paths": [
+    "current_access_receipts.json",
+    "current_chunk_metadata.json",
+    "offline_chunk_index_salvage.json",
+    "direct_offline_validation.json",
+    "direct_metadata_public_freeze_receipt.json",
+    "offline_dtype_confirmation.json",
+    "direct_metadata_ranges/current_direct_chunk_metadata.json"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "metadata_only": true,
+  "spectral_values_read": false,
+  "phases": [
+    {
+      "phase": "current_public_access_probe",
+      "status": "PASS",
+      "requests": 12,
+      "source_body_bytes": 384,
+      "wall_s": 12.1026346560011,
+      "evidence": "current_access_receipts.json"
+    },
+    {
+      "phase": "h5py_metadata_enumeration_first_attempt",
+      "status": "FAILED_CLOSED",
+      "requests": 384,
+      "source_body_bytes": 1063776,
+      "wall_s": 420.93566226500116,
+      "sum_worker_cpu_s": 1.475795724,
+      "largest_worker_peak_rss_bytes": 45871104,
+      "sum_worker_peak_rss_upper_bound_bytes": 274149376,
+      "evidence": "current_chunk_metadata.json"
+    },
+    {
+      "phase": "offline_cached_btree_salvage",
+      "status": "72_OF_96_METADATA_RECORDS_RECOVERED",
+      "requests": 0,
+      "source_body_bytes": 0,
+      "evidence": "offline_chunk_index_salvage.json"
+    },
+    {
+      "phase": "separate_direct_btree_metadata_lookup",
+      "status": "PASS_METADATA_SOURCE_RANGES",
+      "requests": 30,
+      "source_body_bytes": 94080,
+      "wall_s": 29.040221907998784,
+      "cpu_s": 0.194760466,
+      "peak_rss_bytes": 21102592,
+      "evidence": "direct_metadata_ranges/current_direct_chunk_metadata.json"
+    }
+  ],
+  "total_source_requests": 426,
+  "total_source_body_bytes": 1158240,
+  "prospective_exact_payload_bytes": 305133821,
+  "prospective_payload_plus_spent_metadata_bytes": 306292061,
+  "full_file_bytes_if_wrongly_downloaded": 75792347874,
+  "cost_dkk": 0,
+  "scope_note": "This ledger covers these8October sourceHTTPphases only. PyPI dependencies and7October reference/acquisition/earlierproject activity are separate; no whole-project total or unknown historical total is inferred."
+}

@@ -1,0 +1,141 @@
+{
+  "schema": "seti-new-plan-resource-bounds-20261008-v1",
+  "status": "CONSERVATIVE_BOUNDS_NOT_COMPLETE_MEASURED_TOTALS",
+  "scope": "7-20 October prospective study; includes both engineering routes without changing their outcomes",
+  "plan_caps": {
+    "source_bytes_aggregate": 4563402752,
+    "source_bytes_per_pilot": 2147483648,
+    "engineering_reference_bytes_nominal": 268435456,
+    "cpu_seconds_aggregate": 43200,
+    "rss_bytes_per_job": 4294967296,
+    "job_wall_seconds": 1800
+  },
+  "engineering_nominal_allowance_status": "UNVERIFIED_NOT_PASSED_NOT_SILENTLY_RAISED",
+  "entries": [
+    {
+      "identity": "CI_reference_37666576130",
+      "date_utc": "2026-10-07",
+      "outcome": "FAILED_CLOSED",
+      "source_bytes_actual": null,
+      "source_bytes_lower_bound": 40000000,
+      "source_bytes_upper_bound": 268435456,
+      "source_bound_basis": "Pinned full-download code capped received body bytes and checked minimum before successful header/data read; no retained source receipt",
+      "cpu_seconds_actual": null,
+      "cpu_seconds_reservation_upper_bound": 4800,
+      "cpu_bound_basis": {
+        "workflow_job_timeout_seconds": 1200,
+        "workflow_label": "ubuntu-24.04",
+        "repository_public": true,
+        "documented_public_runner_vcpu": 4,
+        "hardware_source": "https://docs.github.com/en/actions/reference/runners/github-hosted-runners",
+        "hardware_documentation_checked_utc_date": "2026-10-08",
+        "specific_process_cpu_measured": false,
+        "specific_proc_cpu_count_measured": false,
+        "reason_for_full_timeout_bound": "Conservative full20min job reservation instead of substituting observed521s elapsed for measured CPU"
+      },
+      "observed_workflow_elapsed_seconds": 521,
+      "rerun_authorized": false,
+      "peak_rss_bytes_actual": null,
+      "historical4GiB_RSS_compliance": "UNVERIFIED_NO_PEAK_RECEIPT",
+      "search_only_wall_seconds_actual": null
+    },
+    {
+      "identity": "local_SIGPROC_reference_second_final",
+      "date_utc": "2026-10-07",
+      "outcome": "REFERENCE_CARRIER_DEMONSTRATED",
+      "source_bytes_actual": 67109246,
+      "source_sha256": "49af50577e136d6e1184e1709fda54d1f48562290df34aa5ed5df34e96e2baf7",
+      "cpu_seconds_actual": 3.747760848,
+      "wall_seconds_actual": 3.7500686589992256,
+      "peak_rss_bytes_actual": 224813056,
+      "third_engineering_route_authorized": false
+    },
+    {
+      "identity": "local_reference_presentation_only",
+      "date_utc": "2026-10-07",
+      "outcome": "ORIGINAL_OUTPUTS_UNCHANGED",
+      "source_bytes_new_received": 0,
+      "cpu_seconds_actual": 1.268919981,
+      "wall_seconds_actual": 1.26917504100129,
+      "peak_rss_bytes_actual": 159092736,
+      "detector_invocations": 0
+    },
+    {
+      "identity": "source_preflight_superblocks",
+      "date_utc": "2026-10-08",
+      "source_bytes_actual_reported_by_root": 384,
+      "cpu_seconds_actual": null,
+      "status": "ROOT_REPORTED_METADATA_ONLY_SUPERBLOCK_BYTES",
+      "pilot_values_decoded": false
+    },
+    {
+      "identity": "source_preflight_failed_index_metadata",
+      "date_utc": "2026-10-08",
+      "outcome": "FAILED_METADATA_QUOTA_ATTEMPT_PRESERVED",
+      "source_bytes_actual_reported_by_root": 1063776,
+      "cpu_seconds_actual": 1.475795724,
+      "pilot_values_decoded": false,
+      "retry_same_failed_index_authorized": false,
+      "CPU_measurement_scope": "Sum of six separately measured source-preflight subprocess receipts; parent overhead unmeasured",
+      "wall_seconds_actual_parent": 420.93566226500116
+    },
+    {
+      "identity": "separate_direct_Btree_metadata",
+      "date_utc": "2026-10-08",
+      "outcome": "PASS_METADATA_SOURCE_RANGES",
+      "source_bytes_actual": 94080,
+      "new_metadata_requests_actual": 30,
+      "cpu_seconds_actual": 0.194760466,
+      "wall_seconds_actual": 29.040221907998784,
+      "peak_rss_bytes_actual": 21102592,
+      "spectral_payload_bytes_received": 0,
+      "pilot_values_decoded": false,
+      "future_spectral_payload_bytes_from96actual_stored_chunk_metadata": 305133821
+    }
+  ],
+  "accounting": {
+    "measured_source_bytes_known_to_this_snapshot": 68267486,
+    "CI_unknown_source_bytes_reserved_at_upper_bound": 268435456,
+    "conservative_source_bytes_charged_at_snapshot": 336702942,
+    "aggregate_source_bytes_remaining_before_future_headers": 4226699810,
+    "if_first_pilot_charges_full2GiB_then_maximum_second_pilot_bytes_before_future_headers": 2079216162,
+    "measured_local_analysis_plus_presentation_cpu_seconds": 5.016680829,
+    "CI_unknown_CPU_reserved_seconds": 4800,
+    "known_local_plus_CI_CPU_reservation_seconds": 4805.016680829,
+    "CPU_capacity_after_those_entries_only_seconds": 38394.983319171,
+    "future_header_metadata_bytes_and_CPU_must_be_added": true,
+    "source_actual_global_total_complete": false,
+    "cpu_actual_global_total_complete": false,
+    "all_preparation_publication_and_metadata_CPU_fully_measured": false,
+    "new_source_metadata_received_actual_root_reported_total": 1158240,
+    "metadata_requests_total_actual": 426,
+    "future_selected_pilot_payload_bytes_metadata_proved_not_yet_received": 305133821,
+    "first_pilot_byte_feasibility": "PASS_METADATA_BOUND_ONLY_NOT_DECODER_OR_SCIENCE_ADMISSION",
+    "if_first_pilot_exact_payload_then_aggregate_remaining_before_other_future_transfers": 3921565989,
+    "measured_metadata_CPU_seconds": 1.6705561899999999,
+    "known_local_plus_metadata_plus_CI_CPU_reservation_seconds": 4806.687237018999,
+    "CPU_capacity_after_known_local_metadata_and_CI_reservation_seconds": 38393.312762981004,
+    "root_admitted_DEV_CPU_allocation_seconds": 38000,
+    "CPU_margin_after_root_DEV_allocation_seconds": 393.3127629810042
+  },
+  "decisions": [
+    "No further engineering downloads; no third route and no CI replay.",
+    "Preserve nominal256MiB engineering allowance as UNVERIFIED; no claim of pass or proved breach.",
+    "Reserve unknown failedCI source consumption at256MiB under unchanged4.25GiB aggregate cap.",
+    "Maintain per-pilot2GiB cap but second pilot must also fit conservative cumulative remaining bytes.",
+    "Add actual future metadata/header received bytes and measured new job resources before acquisition.",
+    "Do not report a complete measured historical CPU/source total; distinguish actuals from conservative reservations.",
+    "This ledger is ordinary bounded accounting, not a new runtime/audit qualification campaign.",
+    "The separate directmetadata phasecompletedonce; useactual94080B instead of rollingforwardunused256KiB/file quota. All96 masks0 require the declared codec; metadata bytefeasibility is not decoding/scientific qualification."
+  ],
+  "prospective_metadata_lookup_allowance": {
+    "status": "COMPLETED_ONCE_WITH_ACTUALS_NOT_RETRIED",
+    "per_file_received_body_bytes_cap": 262144,
+    "maximum_files": 6,
+    "maximum_additional_received_body_bytes": 1572864,
+    "actual_received_body_bytes": 94080,
+    "purpose": "narrow root-to-leaf metadata lookup of frozen required chunks only; no data payload access",
+    "actual_requests": 30,
+    "unused_phase_allocation_not_rollforward": true
+  }
+}

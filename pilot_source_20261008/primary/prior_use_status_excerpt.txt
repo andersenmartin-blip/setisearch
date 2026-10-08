@@ -1,0 +1,120 @@
+## 7 October 2026: immediate plan started; complete local reference succeeds
+
+Martin approved immediate execution of the [7-20 October plan](https://github.com/andersenmartin-blip/setisearch/blob/881f7b7825c11cd16ff1df8ee795bf1a5ef5d000/RADIO_TWO_WEEK_PLAN_2026-10-07.md).
+The distinct second and final local engineering route ran exactly once and
+[completed its reference package](https://github.com/andersenmartin-blip/setisearch/blob/5f050b02cf683977f78f95b3f8c674a3b9ce3ebe/RADIO_REFERENCE_LOCAL_2026-10-07_RESULT.md); the
+[independent retained-output review](https://github.com/andersenmartin-blip/setisearch/blob/5f050b02cf683977f78f95b3f8c674a3b9ce3ebe/RADIO_REFERENCE_LOCAL_2026-10-07_REVIEW.md) passes without detector replay.
+
+The source receipt records 67,109,246 bytes and a pinned SHA256 before header/
+array access. All 16,777,216 float32 source powers are finite and nonnegative.
+The 16-row search covers 28,633 native channels (about 80 kHz) over 785 drift
+trials from -4 to +4 Hz/s, with a complete 522-channel halo on each side.
+The known Voyager carrier is recovered at 8419.297027867287 MHz and
+-0.377551020408164 Hz/s. All 2,369 threshold channels and every below-threshold
+maximum are retained; these are channels, not independent signals/candidates.
+
+The analysis command uses 3.750069 s wall, 3.747761 CPU-s and 224,813,056 bytes
+peak RSS. Separate presentation-only plotting adds 1.269175 s wall and
+1.268920 CPU-s; it does not repeat the detector. The initially completed source
+download/preparation is outside those command intervals. Prior CI resource/
+source totals remain unknown; these measurements do not certify whole-period
+totals. The earlier CI attempt remains FAILED_CLOSED, and no third runtime
+route or old retry is authorized.
+
+Code/config/contract were publicly frozen and fully read back before array
+access at ebbdfe02ee32fcf89d0ebd4f4e3fac3fc3678d37. All original result members
+remain unchanged. The published result-directory blob hashes, full report and
+review bodies were verified at 5f050b02cf683977f78f95b3f8c674a3b9ce3ebe.
+The file header gives 19 September 2016; the tutorial's December 2015 narrative
+is explicitly not used as this file's date.
+
+Next is the separate prospective pilot-source/band/halo/time/ON-OFF/mask and
+development/validation contract, then fresh recovery/RFI/noise controls before
+the exploratory pilot. Reference deadline 8 October is satisfied on 7 October.
+No HD189733/pilot value, fresh evaluation or historical holdout was opened.
+The pilot deadline is 13 October; final reporting is 20 October. The historical
+9 October closure and every original scientific failure/hold remain separate.
+
+## 7 October 2026: Martin approves immediate 7-20 October execution
+
+Martin approved the redesigned plan with one explicit change: start now,
+7 October. The authoritative [7-20 October plan](RADIO_TWO_WEEK_PLAN_2026-10-07.md)
+moves the real-reference deadline to 8 October, source/protocol freeze to
+9-10 October, fresh controls to 11-12 October, first scientific pilot deadline
+to 13 October, reproduction to 19 October and final reporting to 20 October.
+The earlier 10-23 October draft is superseded; historical period closure on
+9 October and all original dispositions remain unchanged.
+
+Immediate work uses the prospectively frozen
+[local SIGPROC reference route](RADIO_REFERENCE_LOCAL_2026-10-07_PROTOCOL.md).
+This is the second and final engineering route, after the closed failed Voyager
+CI route below. It uses a distinct local reader/linear search of the already
+public Voyager FIL engineering data; it does not replay turboSETI or tune the
+old comparator. The source receipt records 67,109,246 received bytes and
+SHA256 49af50577e136d6e1184e1709fda54d1f48562290df34aa5ed5df34e96e2baf7
+before telescope-array value access. Plots precede result judgment; resources,
+complete threshold-channel outputs and reproducible code must be retained.
+
+This is an active reference preparation, not a completed pilot or scientific
+validation. No HD189733/pilot value, fresh evaluation or historical holdout
+has been opened. Actual final reference disposition will be published
+separately. No additional runtime route, paid service or person message follows.
+
+## 7 October 2026: Voyager reference ran once; frozen gate failed closed
+
+The separately frozen [Voyager engineering reference](RADIO_REFERENCE_VOYAGER_2026-10-07_PROTOCOL.md)
+ran exactly once in [workflow 37666576130](https://github.com/andersenmartin-blip/setisearch/actions/runs/37666576130).
+Python 3.10.15, blimpy 2.1.4 and turboSETI 2.3.2 installed; the exact
+Voyager header was read and turboSETI retained three DAT rows at all three
+expected frequencies. Eight pre-run contract tests passed. No HD189733 value,
+fresh validation identity, old holdout or pilot spectrum was opened.
+
+The original disposition is `FAILED_CLOSED`: the middle S/N was 245.709610
+versus frozen 245.707984, so its +0.001626 delta exceeded the package's strict
+absolute 0.001 gate. [The retained-output review](RADIO_REFERENCE_VOYAGER_2026-10-07_REVIEW.md)
+uses five new tests and verifies all eight original manifest members without
+replaying analysis. It identifies a specification error: pinned upstream code
+uses `numpy.isclose(..., atol=0.001)` with default `rtol=1e-5`; all three rows
+pass those actual upstream frequency/S/N semantics. This explains the mismatch
+but does not tune or convert the failed run to pass.
+
+The failure path correctly removed the HDF5, but source byte count/SHA256 were
+written only on success and are therefore absent; the failure preceded waterfall
+creation. CPU/RAM and search-only time are also unmeasured. Exact next at the
+10 October plan start: do not replay this route. Prospectively freeze the distinct
+second and final engineering route with an early transfer receipt, plot-before-
+compatibility ordering, measured resources and exactly pinned validator semantics.
+Pilot-source and fresh validation contracts remain later, closed gates. The old
+period still consolidates on 9 October; no historical disposition changes.
+
+## 7 October 2026: redesigned 10-23 October SETI plan prepared at Martin's request
+
+Martin explicitly requested a better next two-week plan. The new
+[10-23 October plan](RADIO_TWO_WEEK_PLAN_2026-10-10.md) is published and its
+complete body was verified at 53d1a7eac870a9f176b0dff9f1a77894743a1ff6.
+It is a separate prospective exploratory study; the 26 September-9 October
+period still closes on 9 October and its failures remain recorded.
+
+The main deliverable is one fully searched, previously unopened six-scan
+ON/OFF cadence in a frozen band, with measured coverage and a complete
+hit/disposition list. A real engineering reference must run by 11 October;
+fresh signal/RFI/noise validation precedes the scientific pilot by 16 October.
+A hard blocking failure triggers an immediate switch. A computed method
+study is the fallback only after its own runtime capability is demonstrated.
+No permitted working route means a documented capability failure and a
+clearly unexecuted package, never claimed computed results.
+
+The new study proposes normal reproducibility and an available Linux
+runner, rather than reconstruction of the historical native runtime.
+HD189733/HIP98505 cadence 85030 is a metadata candidate, not an approved
+source contract. New source, band/halo, time, ON/OFF and validation identities
+must be frozen prospectively. The old 112+128 holdouts, inactive 127/24,
+closed controls, holds and unresolved candidates remain unchanged.
+Neither runner access nor new scientific qualification is demonstrated yet.
+
+This continuation prepared and independently reviewed the plan and its PDF;
+no new analysis job, scientific test, pilot spectrum or allocation was run.
+The calendar is a plan, not an activated background worker. Analysis and
+publication are separate so an upload failure cannot trigger a compute replay.
+
+## 7 October 2026: reader-facing period report drafted; science remains blocked
