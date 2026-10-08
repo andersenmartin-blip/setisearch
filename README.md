@@ -1,3 +1,15 @@
+# SETI-status — 8. oktober 2026: næste udvikling konkretiseret
+
+Et gennemgået senere udviklingsforslag beskriver tidsprofiler, fast bane-statistik og RFI-familier med nær-OFF-signalbevarelse. Forslaget består af148 parrede arrayversioner i18 støjblokke; ingen nye data, scores eller metodeændringer er kørt. Korte og enkeltstående ON-hændelser bevares. Betingede stikprøvekrav og historiske omkostningseksempler er kontrolleret; de kalibrerer ingen himmel-falskalarmrate. A/B forbliver FAIL_CLOSED, og teleskoppiloten er ikke admitted.
+
+Den faste19. oktober-verifikations54-filers inputsæt er statisk inventeret. Arkivkroppe, maps og den faktiske friske proces venter til den planlagte dato. Gammel periodeafslutning9. oktober og slutrapport20. oktober er uændrede; ingen automatisk ny kampagne.
+
+[Beslutningsgrundlag](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results/radio_next_design_20261008/DECISION_BRIEF.md) · [Videnskabeligt design](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results/radio_next_design_20261008/SCIENTIFIC_DESIGN.md) · [Verifikationsinputs](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results/radio_next_design_20261008/SAVED_VERIFICATION_PREFLIGHT.md) · [Aktuel status](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md).
+
+---
+
+Tidligere daterede oversigter følger som historik.
+
 # SETI — 8. oktober 2026: diagnostik og dækningsgrænser dokumenteret
 
 Alle 12 gemte enkelt-række-transienter overlever. Alle 11 initialt genfundne nær-OFF-signaler mistes ved OFF-veto; ét yderligere forsøg lå allerede under ON-tærsklen. Støjkontrollerne gav nul ON-hits i 32 syntetiske forløb, og METHOD's 13 scan-tab lå under ON10. Uafhængige kontroller af de gemte kort, tabeller og geometrier er bestået. A/B forbliver fejlet; der er ingen nye scores, signaltræk eller kvalificeret teleskoppilot.
