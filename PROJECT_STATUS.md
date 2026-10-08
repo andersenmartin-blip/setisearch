@@ -1,3 +1,19 @@
+# Aktuel status — 8. oktober 2026: samlet foreløbig perioderapport gennemgået
+
+Det samlede rapportudkast pr. 8. oktober samler reference, udvikling, A/B, METHOD, gemte fejlanalyser og den faktiske frisk-proces-verifikation. Planens nye seks-scans himmelsøgning er fortsat blokeret: 0 pilotsekvenser, 0 søgte pilot-Hz og 0 analyseret pilot-ON-eksponering. Voyager-referencen er gennemført, og metodealternativet gav faktisk beregnede resultater. A/B forbliver FAIL_CLOSED; ingen konklusion om udenjordisk detektion eller nuldetektion følger.
+
+B's bindinger er uændrede: arbejdsniveauets tredje-ON-delgruppe6/8 mod mindst7, bredde3-delgruppe21/24 mod mindst22, og2/24 RFI-forløb med rester mod nul tilladt. METHOD gav ALL52/64 og ANY59/64;115/128 aktiveON genfund,13 tab førON-tærsklen i12 forsøg. De gemte analyser viser både RFI-matchgeometri med14 overlevende carriers og nær-OFF-tab af11 oprindeligt genfundne signalforløb. Alle12 single-row-transienter overlever;32 støjforløb har nulON-hits. Tallene er beskrivende syntetiske fund, ikke kalibrerede sky-probabiliteter.
+
+Udkastets uafhængige tekstreview bestod med præcise nævnere og begrænsninger. Rapporten bindes til19 eksisterende tekstkilder ved immutable commit bf93df9de8d38c946746c0bf1df5190d69322df9. Ingen raw-/scorekort eller nye teleskopværdier blev åbnet ved denne sammenfatning; ingen generator, detektor eller ekstra verifier kørt. En ny konservativ50-CPU-sekunders rapportreservation efterlader6.012,705144981004 CPU-s. Hele rapport-/API-/reviewforbruget hævdes ikke fuldt målt; tidligere reservationer refunderes ikke og mindst2.000 bevares til slutrapporten. Brug nu results/radio_period_report_draft_20261008/REPORT_LEDGER.json.
+
+Dette er PRELIMINARY_ASOF_2026_10_08, ikke periodens slutlukning. Den gamle periode afsluttes særskilt9. oktober; slutrapporten for7.–20. oktober afventer20. oktober. Case000-verifikationen er allerede gennemført8. oktober og gentages ikke19. oktober. Ældre pending-/budgetfelter bevares som historik og supersederes af de faktiske nye kvitteringer og seneste ledger. Det senere148-versioners design er fortsat et forslag, som ikke aktiverer nye forsøg. Afsluttede analyser og audits gentages ikke som dagligt fremskridt; ingen automatisk forlængelse.
+
+[Foreløbig samlet rapport](results/radio_period_report_draft_20261008/PERIOD_REPORT_DRAFT.md) · [Uafhængigt tekstreview](results/radio_period_report_draft_20261008/REVIEW.md) · [19 kildebindinger](results/radio_period_report_draft_20261008/SOURCE_BINDINGS.json) · [Aktuel saldo](results/radio_period_report_draft_20261008/REPORT_LEDGER.json) · [Faktisk verifikation](results/radio_saved_verification_20261008/VERIFICATION_REPORT.md).
+
+---
+
+Tidligere daterede poster følger som historik.
+
 # Aktuel status — 8. oktober 2026: én frisk-proces-verifikation gennemført og bestået
 
 Den planlagte gemte METHOD-case000-verifikation er fremrykket fra19. oktober til8. oktober og udført én gang. Protokollens gate var durabel afslutning af hele64-case panelet, som var opfyldt; kalenderdatoen er en arbejdsmilepæl. Originalprogrammet bestod PASS_BOUNDED_SAVED_RESULT_VERIFICATION:6 gemte scorekort,20 artefakthashes og96 OFF-sammenligninger. Casens32 ON-carriers og32 overlevende stemmer. Dette er gemt map/hit/veto/recovery-konsistens, uden genberegning af rå preprocessing, detektorscores eller nye signaltræk. Ingen yderligere verifier-invocation den19. oktober.
