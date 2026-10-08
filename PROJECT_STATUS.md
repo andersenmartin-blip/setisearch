@@ -1,3 +1,11 @@
+## 8 October 2026: complete new development; fresh validation running
+
+The approved 7–20 October study completed [all 24 new DEV cases](https://github.com/andersenmartin-blip/setisearch/blob/d7f08e5caa80efbf029a728c7288d29b2e1166ba/RADIO_PILOT_DEVELOPMENT_2026-10-08_RESULT.md): strong 4/4 and operating 8/8 recovered on every active ON after OFF; all 8 matched-RFI cases were initially detected and then rejected; all 4 noise cases were empty. Independent scientific and output reviews passed. All 144 full maps, raw hits and recipes are preserved in the complete job archives. Charged DEV CPU is 1757.554301 seconds; maximum job wall time 94.033643 seconds and RSS 79,839,232 bytes.
+
+The [primary source metadata](https://github.com/andersenmartin-blip/setisearch/blob/d7f08e5caa80efbf029a728c7288d29b2e1166ba/pilot_source_20261008/primary/SOURCE_QUALIFICATION_REPORT.md) qualifies all six HD189733/HIP98505 scans and exact 96 compressed ranges: 305,133,821 future payload bytes, with 1,158,240 metadata bytes already spent. No pilot spectra have been opened. This is one historical visit, not three independent visits.
+
+The unchanged scientific method and [fresh 142-case VAL_A execution](https://github.com/andersenmartin-blip/setisearch/blob/d7f08e5caa80efbf029a728c7288d29b2e1166ba/pilot_protocol_20261008/VALIDATION_A_EXECUTION_SCOPE.md) are prospectively frozen. The actual A bank is running; complete joint outcome and independent review are pending. Telescope access remains closed until all required A gates pass. VAL_B, old holdouts, historical closed failures and the old period closure remain separate. The prior engineering nominal byte allowance remains unverified and conservatively accounted; no third engineering route or cap increase.
+
 ## 7 October 2026: immediate plan started; complete local reference succeeds
 
 Martin approved immediate execution of the [7-20 October plan](https://github.com/andersenmartin-blip/setisearch/blob/881f7b7825c11cd16ff1df8ee795bf1a5ef5d000/RADIO_TWO_WEEK_PLAN_2026-10-07.md).

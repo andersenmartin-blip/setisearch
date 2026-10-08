@@ -1,3 +1,9 @@
+## 8 October 2026: development closes unchanged; complete fresh validation next
+
+The [7–20 October study](https://github.com/andersenmartin-blip/setisearch/blob/d7f08e5caa80efbf029a728c7288d29b2e1166ba/RADIO_TWO_WEEK_PLAN_2026-10-07.md) has real full-family computation results: [24/24 DEV cases completed and reviewed](https://github.com/andersenmartin-blip/setisearch/blob/d7f08e5caa80efbf029a728c7288d29b2e1166ba/RADIO_PILOT_DEVELOPMENT_2026-10-08_RESULT.md). Preserve this version, every raw hit and all failures; do not tune it on fresh A outcomes. The current running action is the independently seeded 142-case VAL_A bank, under the exact original detector/generator/settings and full subgroup/RFI/noise gates. DEV success does not authorize sky values.
+
+After complete joint A PASS and independent review, open only the metadata-qualified 96 source ranges under the unchanged source/RAM/CPU limits, then complete the full 4096-carrier six-scan pilot and retain all hits, OFF dispositions, coverage and waterfall. If A fails, preserve its complete outcome and use only the approved single development correction with wholly fresh validation if resources allow. No historical protocol reopening, CI replay, third engineering runtime, paid activity or band selection from attractive pilot amplitudes. The final period remains 20 October; first pilot/fallback deadline remains 13 October.
+
 ## 7 October 2026: complete reference; move to prospective pilot contract
 
 The approved plan now runs [7-20 October](https://github.com/andersenmartin-blip/setisearch/blob/881f7b7825c11cd16ff1df8ee795bf1a5ef5d000/RADIO_TWO_WEEK_PLAN_2026-10-07.md).
