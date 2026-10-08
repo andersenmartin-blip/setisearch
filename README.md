@@ -1,3 +1,17 @@
+# SETI, 8. oktober 2026: metodeundersøgelsen er startet
+
+Alle 142 friske B-forsøg er afsluttet og gennemgået. Beregningerne er intakte, men metoden fejler tre fastlagte krav: tredje ON alene 6/8, bredde 3 21/24, og 2/24 RFI-forløb med overlevende kandidater. Ingen ny teleskoppilot er derfor godkendt i denne plan; ingen nye himmelspektrer er åbnet.
+
+Den allerede godkendte metodeundersøgelse er nu startet: 64 friske forsøg med fire idealniveauer, fire drifter, to bredder og to ON-aktiviteter. Detektor og tærskler er uændrede. Kode, forsøgsbank, faktisk budget og admission blev offentliggjort og verificeret før første draw. Resultaterne er beskrivende og kan ikke ophæve A/B-fejlene. Ressourcer: højst 6.000 CPU-sekunder til undersøgelsen fra 12.019,932132 tilbage; mindst 2.000 bevares til rapportering/reproduktion.
+
+[B-resultat](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_VALIDATION_B_2026-10-08_RESULT.md) · [Metodeprotokol](https://github.com/andersenmartin-blip/setisearch/blob/89ec7463e745f07dba45790be763b47c522989b5/pilot_method_study_20261008/METHOD_STUDY_SCOPE.md) · [Verificeret admission](https://github.com/andersenmartin-blip/setisearch/blob/5efe2e3f55c184333440966e87ecb393dc763391/pilot_method_study_20261008/method_study_admission.json).
+
+Den nye periode fortsætter 7.–20. oktober. Den gamle periode afsluttes særskilt 9. oktober. Den ene tilladte rettelse er brugt; ingen anden rettelse, ny kvalifikation eller genkørsel af eksponerede banker.
+
+---
+
+Tidligere daterede poster følger som historik.
+
 # SETI, 8. oktober 2026: sidste friske validering B kører
 
 Den ene tilladte kørselsrettelse er afprøvet med to nye udviklingsfrø: begge afsluttede hele søgningen på cirka295/297 CPU-s, og alle kort/hits/OFF-sammenligninger er uafhængigt kontrolleret. A bevares som FAIL_CLOSED; ingen A-identitet gentages.
