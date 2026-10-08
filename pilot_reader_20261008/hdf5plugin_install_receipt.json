@@ -1,0 +1,87 @@
+{
+  "version": "1",
+  "pip_version": "26.2.1",
+  "install": [
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/26/56/3f788afb8d7fc451d20a66a64ea58bbe189f6f11780b28ba09148974fb33/hdf5plugin-7.1.0-py3-none-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+        "archive_info": {
+          "hashes": {
+            "sha256": "9d4cf36434819fae53e4da432f0287ebaeb02386ab97b73d261092efbab12247"
+          },
+          "hash": "sha256=9d4cf36434819fae53e4da432f0287ebaeb02386ab97b73d261092efbab12247"
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "hdf5plugin",
+        "version": "7.1.0",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "HDF5 Plugins for Windows, MacOS, and Linux",
+        "description": "hdf5plugin\n==========\n\n.. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.7257761.svg\n   :target: https://doi.org/10.5281/zenodo.7257761\n\n*hdf5plugin* provides `HDF5 compression filters <https://github.com/HDFGroup/hdf5_plugins/blob/master/docs/RegisteredFilterPlugins.md#list-of-filters-registered-with-the-hdf-group>`_ (namely: Blosc, Blosc2, BitShuffle, BZip2, Htj2k, FciDecomp, LZ4, Sperr, SZ, SZ3, Zfp, ZStd) and makes them usable from `h5py <https://www.h5py.org>`_.\n\nSee `documentation <http://www.silx.org/doc/hdf5plugin/latest/>`_.\n\nInstallation\n------------\n\nTo install, run::\n\n     pip install hdf5plugin [--user]\n     \nor, with conda (https://anaconda.org/conda-forge/hdf5plugin)::\n\n    conda install -c conda-forge hdf5plugin\n\nTo install from source and recompile the HDF5 plugins, run::\n\n     pip install hdf5plugin --no-binary hdf5plugin [--user]\n\nInstalling from source can achieve better performances by enabling AVX2 and OpenMP if available.\n\nFor more details, see the `installation documentation <http://www.silx.org/doc/hdf5plugin/latest/install.html>`_.\n\nHow-to use\n----------\n\nTo use it, just use ``import hdf5plugin`` and supported compression filters are available from `h5py <https://www.h5py.org>`_.\n\nFor details, see `Usage documentation <http://www.silx.org/doc/hdf5plugin/latest/usage.html>`_.\n\nLicense\n-------\n\nThe source code of *hdf5plugin* itself is licensed under the `MIT license <LICENSE>`_.\n\nEmbedded HDF5 compression filters are licensed under different open-source licenses:\nsee the `license documentation <http://www.silx.org/doc/hdf5plugin/latest/information.html#license>`_.\n",
+        "description_content_type": "text/x-rst",
+        "author_email": "ESRF <silx@esrf.fr>",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Console",
+          "Environment :: MacOS X",
+          "Environment :: Win32 (MS Windows)",
+          "Intended Audience :: Education",
+          "Intended Audience :: Science/Research",
+          "Natural Language :: English",
+          "Operating System :: POSIX :: Linux",
+          "Operating System :: MacOS",
+          "Operating System :: Microsoft :: Windows",
+          "Programming Language :: Python :: 3",
+          "Topic :: Software Development :: Libraries :: Python Modules"
+        ],
+        "requires_dist": [
+          "h5py>=3.0.0",
+          "ipython; extra == \"doc\"",
+          "nbsphinx; extra == \"doc\"",
+          "sphinx; extra == \"doc\"",
+          "sphinx-autodoc-typehints; extra == \"doc\"",
+          "sphinx_rtd_theme; extra == \"doc\"",
+          "numpy<2; python_version == \"3.9\" and extra == \"test\"",
+          "blosc2>=2.5.1; extra == \"test\"",
+          "blosc2-grok>=0.2.2; extra == \"test\"",
+          "hdf5plugin[doc,test]; extra == \"dev\"",
+          "mypy; extra == \"dev\"",
+          "ruff; extra == \"dev\""
+        ],
+        "requires_python": ">=3.9",
+        "project_url": [
+          "Homepage, https://github.com/silx-kit/hdf5plugin",
+          "Documentation, http://www.silx.org/doc/hdf5plugin/latest/",
+          "Repository, https://github.com/silx-kit/hdf5plugin"
+        ],
+        "provides_extra": [
+          "doc",
+          "test",
+          "dev"
+        ]
+      }
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.12.14",
+    "os_name": "posix",
+    "platform_machine": "x86_64",
+    "platform_release": "6.18.44",
+    "platform_system": "Linux",
+    "platform_version": "#1 SMP Sat Sep 26 20:02:31 UTC 2026",
+    "python_full_version": "3.12.14",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.12",
+    "sys_platform": "linux"
+  }
+}

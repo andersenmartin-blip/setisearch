@@ -91,6 +91,23 @@
       "spectral_payload_bytes_received": 0,
       "pilot_values_decoded": false,
       "future_spectral_payload_bytes_from96actual_stored_chunk_metadata": 305133821
+    },
+    {
+      "identity": "DEV_complete24_distinct_actual",
+      "date_utc": "2026-10-08",
+      "outcome": "PASS_COMPLETE_SYNTHETIC_DEVELOPMENT_ONLY",
+      "public_freeze_commit_sha": "cbc27ebfb10fc09f58a8ab4a1f00adad47ab1960",
+      "case_count": 24,
+      "source_bytes_new_received": 0,
+      "cpu_seconds_charged": 1757.554301,
+      "cpu_charge_basis": "First case whole receipt 66.326375 + max(sum of other23 whole receipts 1690.443702, measured coordinator child CPU 1691.173278) + coordinator own CPU 0.054648; no double counting",
+      "sum_job_receipt_cpu_seconds": 1756.770077,
+      "sum_case_only_cpu_seconds_not_charged": 1730.658752,
+      "max_job_wall_seconds_actual": 94.03364288000012,
+      "max_job_peak_rss_bytes_actual": 79839232,
+      "all_resource_caps_passed": true,
+      "pilot_values_decoded": false,
+      "scientific_gate": "NOT_EVALUATED_DEVELOPMENT_ONLY"
     }
   ],
   "accounting": {
@@ -116,7 +133,15 @@
     "known_local_plus_metadata_plus_CI_CPU_reservation_seconds": 4806.687237018999,
     "CPU_capacity_after_known_local_metadata_and_CI_reservation_seconds": 38393.312762981004,
     "root_admitted_DEV_CPU_allocation_seconds": 38000,
-    "CPU_margin_after_root_DEV_allocation_seconds": 393.3127629810042
+    "CPU_margin_after_root_DEV_allocation_seconds": 393.3127629810042,
+    "DEV_CPU_seconds_charged_complete24": 1757.554301,
+    "DEV_allocation_status": "COMPLETED_UNUSED_RESERVATION_RELEASED",
+    "DEV_CPU_allocation_unused_seconds": 36242.445699,
+    "known_local_metadata_DEV_plus_CI_CPU_reservation_seconds": 6564.2415380190005,
+    "CPU_capacity_after_known_completed_jobs_and_CI_reservation_seconds": 36635.758461981,
+    "prospective_VAL_A_exclusive_CPU_reservation_seconds": 35500,
+    "CPU_margin_after_prospective_VAL_A_reservation_seconds": 1135.7584619810004,
+    "VAL_A_reservation_status": "PROSPECTIVE_NOT_EXECUTION_ADMISSION"
   },
   "decisions": [
     "No further engineering downloads; no third route and no CI replay.",
@@ -126,7 +151,9 @@
     "Add actual future metadata/header received bytes and measured new job resources before acquisition.",
     "Do not report a complete measured historical CPU/source total; distinguish actuals from conservative reservations.",
     "This ledger is ordinary bounded accounting, not a new runtime/audit qualification campaign.",
-    "The separate directmetadata phasecompletedonce; useactual94080B instead of rollingforwardunused256KiB/file quota. All96 masks0 require the declared codec; metadata bytefeasibility is not decoding/scientific qualification."
+    "The separate direct metadata phase completed once; charge actual 94,080 B instead of rolling forward unused 256 KiB/file quota. All 96 filter masks are 0 and require the declared codec; metadata byte feasibility is not decoding or scientific qualification.",
+    "DEV completed once across 24 distinct cases. Charge first whole receipt plus the larger of continuation receipt sum or measured child CPU, plus coordinator CPU. Release unused DEV reservation; no replay and no scientific validation claim.",
+    "A prospective full VAL_A allocation of 142 \u00d7 250 = 35,500 CPU seconds fits the unchanged global cap with 1,135.758461981 s left after known actuals/conservative CI reservation; unknown preparation overhead remains explicit. Fresh A execution and pilot access still require separate admissions."
   ],
   "prospective_metadata_lookup_allowance": {
     "status": "COMPLETED_ONCE_WITH_ACTUALS_NOT_RETRIED",
