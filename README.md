@@ -1,3 +1,21 @@
+# Aktuel status — 8. oktober 2026: metodeundersøgelsen afsluttet; planen fortsætter
+
+Alle 64 friske syntetiske METHOD-forsøg er afsluttet én gang og har bestået den uafhængige integritetsgennemgang: 384 kort, 1.280 artefakthashes og 21.153 OFF-sammenligninger. Detektor, generator og tærskler er uændrede. Genfund i alle aktive ON: 52/64; mindst ét aktivt ON: 59/64. Ved indsprøjtet idealniveau 10/12/16/24 var ALL-tallene henholdsvis 6/16, 14/16, 16/16, 16/16; ANY-tallene 12/16, 15/16, 16/16, 16/16. Alle 13 tabte aktive scans i 12 celler lå under ON10; ingen lokaliserede genfund mistedes ved OFF i denne signalbank.
+
+Tallene er beskrivende resultater fra én realization pr. præcis faktor-celle, valgt efter B-fejlene. Idealniveau er ikke målt SNR eller flux. Der er ingen ny kvalifikation, kalibreret genfindingschance, sky-falsk-alarm-rate eller universel følsomhedsgrænse. A og B forbliver FAIL_CLOSED; B fejler fortsat tredje-ON-, bredde 3- og RFI-kravene. Ingen teleskoppilot er godkendt, og ingen nye himmelspektrer er åbnet.
+
+Den fulde nye metodepakke bevarer alle 64 caseoutputs og 384 kort samt koordinatorevidens, claims, protokol, admissions og audit: 65 arkiver og 71 core Gitblobs, 34.704.656 bytes. Rapporten har seks PNG/PDF-figurpar, 64-cell-CSV, præcise tabeller, før/efter-OFF genfund og fejlet B's komplette støj/RFI/diagnostik. De gemte kort og råhits er korrelerede carrier-svar, ikke uafhængige kandidater fra himlen.
+
+Hele metodepanelet belastes med 5.407,226987 CPU-sekunder, og 6.612,705145 resterer efter tidligere omkostninger samt uændret 1.200-sekunders forberedelsesreservation. Faktisk archival/audit/rendering er målt som komponenter af denne reservation; ingen ukendt historik er kaldt komplet målt og ingen reserve er tilbagebetalt. Lokal arbejdsmappe ved afslutning: 749.670.718 bytes, under 8 GiB. Mindst 2.000 CPU-sekunder er bevaret til rapport/reproduktion.
+
+Fortsættelsen 9.–20. oktober er konkrete analyser af gemte fejlmekanismer og afgrænsninger, den gamle periodes særskilte afslutning 9. oktober, afgrænset verifikation af ét gemt resultat i frisk proces 19. oktober og slutrapport 20. oktober. Reproduktionen verificerer kort→hits/veto/genfund; den gentager ikke rå preprocessing eller scores. Ingen anden rettelse, nye signaltræk, ny kvalifikationsbank, gammel holdout-eksponering eller automatisk forlængelse. De lukkede tests gentages ikke som dagligt fremskridt.
+
+[Dansk resultat](RADIO_METHOD_STUDY_2026-10-08_RESULT.md) · [Rapport og figurer](results/radio_pilot_method_report_20261008/METHOD_STUDY_REPORT.md) · [Metodearkivindeks](pilot_protocol_20261008/method_study_upload_index.json) · [B-arkivindeks](pilot_protocol_20261008/validation_b_upload_index.json) · [Faktisk budget](pilot_method_study_20261008/post_method_ledger.json) · [Reproduktionskommando](pilot_protocol_20261008/review/METHOD_SAVED_RESULT_REPRODUCTION.md).
+
+---
+
+Tidligere daterede poster følger som historik.
+
 # Aktuel status — 8. oktober 2026: den godkendte metodeundersøgelse kører
 
 De 64 friske, balancerede METHOD-forsøg er startet én gang efter fuld offentlig fastfrysning i 89ec7463e745f07dba45790be763b47c522989b5 og verificeret admission i 5efe2e3f55c184333440966e87ecb393dc763391. Der bruges samme uændrede detektor, generator og tærskler. Undersøgelsen er beskrivende og kan ikke kvalificere teleskoppiloten eller ophæve A/B-fejlene. Start ingen konkurrerende genkørsel, ny bank eller anden rettelse.
@@ -6,7 +24,7 @@ Alle originale B-outputs er nu bevaret i 143 deterministiske arkiver med fuld fi
 
 Næste konkrete trin er at afslutte alle 64 METHOD-forsøg inden for 6.000 CPU-sekunder, gennemgå deres gemte kort og udgive faktiske resultater og figurer. Ingen nye himmelspektrer er åbnet. Planen og den eksisterende daglige fortsættelse slutter 20. oktober.
 
-[B-arkivindeks](pilot_protocol_20261008/validation_b_archives/validation_b_archive_index.json) · [B-resultat](RADIO_VALIDATION_B_2026-10-08_RESULT.md) · [Metodeprotokol](pilot_method_study_20261008/METHOD_STUDY_SCOPE.md).
+[B-arkivindeks](pilot_protocol_20261008/validation_b_upload_index.json) · [B-resultat](RADIO_VALIDATION_B_2026-10-08_RESULT.md) · [Metodeprotokol](pilot_method_study_20261008/METHOD_STUDY_SCOPE.md).
 
 ---
 
