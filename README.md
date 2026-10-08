@@ -1,3 +1,15 @@
+# SETI, 8. oktober 2026: sidste friske validering B kører
+
+Den ene tilladte kørselsrettelse er afprøvet med to nye udviklingsfrø: begge afsluttede hele søgningen på cirka295/297 CPU-s, og alle kort/hits/OFF-sammenligninger er uafhængigt kontrolleret. A bevares som FAIL_CLOSED; ingen A-identitet gentages.
+
+De142 friske B-forsøg er nu startet én gang med uændret videnskabelig metode og alle oprindelige krav. B har endnu intet samlet udfald; teleskopværdier er fortsat uåbnede. [Udviklingsresultat og budget](https://github.com/andersenmartin-blip/setisearch/blob/69c9526bd22d5f6393f7ec51a60aae746fdc2234/RADIO_RUNTIME_CORRECTION_2026-10-08_RESULT.md). [Løbende projektstatus](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md).
+
+Perioden er7.–20. oktober; daglig fortsættelse9.–20. oktober er aktiveret. Pilot kræver fuld B-godkendelse; en fejl giver den godkendte konkrete metodeundersøgelse.
+
+---
+
+Tidligere status følger som historik:
+
 # SETI, 8. oktober 2026: frisk validering A er FAIL_CLOSED
 
 140 af 142 kontrolforsøg blev afsluttet; to obligatoriske transientdiagnostikker ramte 250 CPU-sekunders kørselsgrænse. Hovedkravene består med 14/14 stærke signaler, 46/48 genfund på arbejdsniveau, 24/24 afviste interferensforløb og 32/32 støjforløb uden kandidater. Hele adgangskravet fejler, så der er ikke åbnet nye teleskopværdier. Den ene tilladte udviklingsrettelse forberedes; derefter kan kun det stadig ubrugte B-panel anvendes.
