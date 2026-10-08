@@ -108,6 +108,34 @@
       "all_resource_caps_passed": true,
       "pilot_values_decoded": false,
       "scientific_gate": "NOT_EVALUATED_DEVELOPMENT_ONLY"
+    },
+    {
+      "identity": "VAL_A_complete142_closed_actual",
+      "date_utc": "2026-10-08",
+      "outcome": "FAIL_CLOSED_TWO_REQUIRED_DIAGNOSTIC_CPU_TIMEOUTS",
+      "public_freeze_commit_sha": "d7f08e5caa80efbf029a728c7288d29b2e1166ba",
+      "case_count_observed": 142,
+      "successful_complete_cases": 140,
+      "failed_case_indices": [
+        128,
+        129
+      ],
+      "failed_case_CPU_s": [
+        250.485232,
+        250.985458
+      ],
+      "source_bytes_new_received": 0,
+      "sum_job_receipt_CPU_s": 11138.534412,
+      "measured_reaped_children_CPU_s": 11143.517907,
+      "controller_CPU_s": 0.168555,
+      "CPU_s_charged": 11143.686462,
+      "cpu_charge_basis": "max(sum whole child receipts, reaped children CPU) + controller; failures included",
+      "max_job_wall_s": 252.30885764399864,
+      "max_job_peak_RSS_bytes": 82063360,
+      "per_case_CPU_cap_s": 250,
+      "failed_cases_caps_passed": false,
+      "pilot_values_decoded": false,
+      "scientific_gate": "FAIL_CLOSED"
     }
   ],
   "accounting": {
@@ -141,7 +169,19 @@
     "CPU_capacity_after_known_completed_jobs_and_CI_reservation_seconds": 36635.758461981,
     "prospective_VAL_A_exclusive_CPU_reservation_seconds": 35500,
     "CPU_margin_after_prospective_VAL_A_reservation_seconds": 1135.7584619810004,
-    "VAL_A_reservation_status": "PROSPECTIVE_NOT_EXECUTION_ADMISSION"
+    "VAL_A_reservation_status": "CLOSED_FAIL_UNUSED_RESERVATION_RELEASED_AFTER_ACTUAL_CHARGE",
+    "VAL_A_public_freeze_commit_sha": "d7f08e5caa80efbf029a728c7288d29b2e1166ba",
+    "VAL_A_unspent_reservation_release_before_panel_close": false,
+    "VAL_A_CPU_s_charged": 11143.686462,
+    "VAL_A_unused_CPU_reservation_s": 24356.313538000002,
+    "known_local_metadata_DEV_A_plus_CI_CPU_reservation_seconds": 17707.928000019,
+    "CPU_capacity_after_known_closed_jobs_and_CI_reservation_seconds": 25492.071999981,
+    "additional_unmeasured_preparation_CPU_planning_reservation_s": 1200,
+    "preparation_reservation_is_measured_or_complete_historical_bound": false,
+    "CPU_capacity_after_preparation_planning_reservation_s": 24292.071999981,
+    "prospective_DEV_RUNTIME_two_exclusive_partitions_s": 3600,
+    "CPU_capacity_after_DEV_RUNTIME_full_reservation_s": 20692.071999981,
+    "fresh_B_admission_status": "CLOSED_PENDING_SINGLE_DEVELOPMENT_CORRECTION_PROOF_AND_SEPARATE_FREEZE"
   },
   "decisions": [
     "No further engineering downloads; no third route and no CI replay.",
@@ -153,7 +193,9 @@
     "This ledger is ordinary bounded accounting, not a new runtime/audit qualification campaign.",
     "The separate direct metadata phase completed once; charge actual 94,080 B instead of rolling forward unused 256 KiB/file quota. All 96 filter masks are 0 and require the declared codec; metadata byte feasibility is not decoding or scientific qualification.",
     "DEV completed once across 24 distinct cases. Charge first whole receipt plus the larger of continuation receipt sum or measured child CPU, plus coordinator CPU. Release unused DEV reservation; no replay and no scientific validation claim.",
-    "A prospective full VAL_A allocation of 142 \u00d7 250 = 35,500 CPU seconds fits the unchanged global cap with 1,135.758461981 s left after known actuals/conservative CI reservation; unknown preparation overhead remains explicit. Fresh A execution and pilot access still require separate admissions."
+    "A prospective full VAL_A allocation of 142 \u00d7 250 = 35,500 CPU seconds fits the unchanged global cap with 1,135.758461981 s left after known actuals/conservative CI reservation; unknown preparation overhead remains explicit. Fresh A execution and pilot access still require separate admissions.",
+    "VAL_A remains FAIL_CLOSED: two required diagnostic timeouts are not EMPTY and cannot be excluded or replayed. Whole actual child/controller costs are charged, including per-case overruns; unused aggregate reservation is then released.",
+    "One prospective operational development correction can use new disjoint DEV_RUNTIME seeds, preserving scientific hashes and A failure. Root planning reserve 1200 CPU s is not a measured historical total. Two full1800 s DEV partitions fit; fresh B and pilot values remain closed pending proof and separate admission."
   ],
   "prospective_metadata_lookup_allowance": {
     "status": "COMPLETED_ONCE_WITH_ACTUALS_NOT_RETRIED",

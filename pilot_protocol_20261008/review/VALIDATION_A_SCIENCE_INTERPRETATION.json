@@ -1,0 +1,109 @@
+{
+  "status": "READ_ONLY_SCIENCE_INTERPRETATION_VAL_A_FAIL_CLOSED",
+  "expected_cases": 142,
+  "observed_case_outcomes": 142,
+  "primary_eligibility_cases": 118,
+  "completed_primary_eligibility_cases": 118,
+  "primary_scientific_numeric_checks_pass": true,
+  "full_frozen_complete_integrity_gate_pass": false,
+  "overall_disposition": "FAIL_CLOSED; pilot not admitted by VAL_A",
+  "strong_recovery": {
+    "recovered": 14,
+    "total": 14
+  },
+  "operating_recovery": {
+    "all_active": 46,
+    "any_active": 47,
+    "total": 48
+  },
+  "operating_misses": [
+    {
+      "case_id": "SETI_RADIO_PILOT_20261008_VAL_A:operating:014",
+      "active_scan_indices": [
+        2
+      ],
+      "missing_ON_scan": "epoch2_on",
+      "drift_hz_s": 4.0,
+      "intrinsic_width_channels": 1,
+      "nominal_ideal_box_score": 12.0,
+      "reference_native_offset": 1024.25,
+      "miss_stage": "pre_ON_threshold; not OFF rejection",
+      "maximum_retained_score_in_missing_scan": 9.810068338838528,
+      "ON_threshold": 10,
+      "any_active_final_recovery": false,
+      "all_active_final_recovery": false
+    },
+    {
+      "case_id": "SETI_RADIO_PILOT_20261008_VAL_A:operating:040",
+      "active_scan_indices": [
+        2,
+        4
+      ],
+      "missing_ON_scan": "epoch3_on",
+      "drift_hz_s": -4.0,
+      "intrinsic_width_channels": 1,
+      "nominal_ideal_box_score": 12.0,
+      "reference_native_offset": 0.25,
+      "miss_stage": "pre_ON_threshold; not OFF rejection",
+      "maximum_retained_score_in_missing_scan": 9.004625401105871,
+      "ON_threshold": 10,
+      "any_active_final_recovery": true,
+      "all_active_final_recovery": false
+    }
+  ],
+  "matched_RFI": {
+    "pre_OFF_all_three_ON_detected_cadences": 24,
+    "total": 24,
+    "surviving_cadences": 0
+  },
+  "noise": {
+    "complete_cadences": 32,
+    "surviving_cadences": 0,
+    "laws": 4,
+    "samples_per_law": 8,
+    "empirical_sky_FAP_qualified": false
+  },
+  "single_row_transients": {
+    "allocated": 12,
+    "completed": 10,
+    "completed_surviving": 10,
+    "failed": 2,
+    "failure_type": "250-second per-case admitted watchdog TimeoutError; not scientific nonrecoveries",
+    "failed_case_ids": [
+      "SETI_RADIO_PILOT_20261008_VAL_A:single_row_transient:010",
+      "SETI_RADIO_PILOT_20261008_VAL_A:single_row_transient:011"
+    ]
+  },
+  "near_OFF_contamination": {
+    "cases": 12,
+    "pre_OFF_all_primary_ON_detected": 12,
+    "final_primary_recovery": 0,
+    "surviving_cadences": 0,
+    "OFF_ref_offsets_channels": [
+      2,
+      8
+    ],
+    "OFF_ref_offsets_hz": [
+      5.671006836905352,
+      22.68402734762141
+    ],
+    "meaning": "conservative OFF rule loses real injected ON-only signals in presence of nearby OFF nuisance; known selection limitation"
+  },
+  "no_reruns": true,
+  "no_generated_values": true,
+  "no_threshold_changes": true,
+  "VAL_B_values_read": false,
+  "pilot_values_read": false,
+  "input_sha256": {
+    "validation_a_complete_summary.json": "6e270a49b9094eac26e4d02e152990869374c7f056dc4e0b63d61675d443f67c",
+    "validation_a_cases.json": "1edb1ab43c0ff025662de6ce7f6bd5a00cb3c902e275fa5e38d56794c1b86ad1"
+  },
+  "scope_limitations": [
+    "synthetic laws and finite preset family only",
+    "one source cadence metadata template, not separate sky visits",
+    "robust score not turboSETI SNR or calibrated FAP",
+    "single-row nuisance can survive; temporal morphology required in follow-up",
+    "nearby OFF evidence can suppress genuine ON-only signal",
+    "timeout is missing computation, never EMPTY or measured rejection"
+  ]
+}

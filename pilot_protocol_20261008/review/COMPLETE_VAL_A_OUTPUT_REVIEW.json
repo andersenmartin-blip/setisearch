@@ -1,0 +1,222 @@
+{
+  "review_status": "FAIL_CLOSED_NO_PILOT_ADMISSION",
+  "cases_observed": 142,
+  "successful_complete_cases": 140,
+  "artifact_hashes_verified": 2818,
+  "complete_maps_verified": 840,
+  "valid_hypotheses_per_carrier_in_retained_maps": 21660,
+  "OFF_comparisons_verified": 43209,
+  "compatible_veto_witnesses_verified": 16799,
+  "families": {
+    "matched_rfi": {
+      "expected": 24,
+      "observed": 24,
+      "successful": 24,
+      "failed": 0,
+      "pre_OFF_all_active_recovered_completed_cases": 24,
+      "final_all_active_recovered_completed_cases": 0,
+      "cadences_with_any_survivor_completed_cases": 0,
+      "raw_ON_carriers_completed_cases": 5593,
+      "surviving_ON_carriers_completed_cases": 0
+    },
+    "near_off_contamination": {
+      "expected": 12,
+      "observed": 12,
+      "successful": 12,
+      "failed": 0,
+      "pre_OFF_all_active_recovered_completed_cases": 12,
+      "final_all_active_recovered_completed_cases": 0,
+      "cadences_with_any_survivor_completed_cases": 0,
+      "raw_ON_carriers_completed_cases": 86,
+      "surviving_ON_carriers_completed_cases": 0
+    },
+    "noise": {
+      "expected": 32,
+      "observed": 32,
+      "successful": 32,
+      "failed": 0,
+      "pre_OFF_all_active_recovered_completed_cases": 0,
+      "final_all_active_recovered_completed_cases": 0,
+      "cadences_with_any_survivor_completed_cases": 0,
+      "raw_ON_carriers_completed_cases": 0,
+      "surviving_ON_carriers_completed_cases": 0
+    },
+    "operating": {
+      "expected": 48,
+      "observed": 48,
+      "successful": 48,
+      "failed": 0,
+      "pre_OFF_all_active_recovered_completed_cases": 46,
+      "final_all_active_recovered_completed_cases": 46,
+      "cadences_with_any_survivor_completed_cases": 47,
+      "raw_ON_carriers_completed_cases": 2077,
+      "surviving_ON_carriers_completed_cases": 2077
+    },
+    "single_row_transient": {
+      "expected": 12,
+      "observed": 12,
+      "successful": 10,
+      "failed": 2,
+      "pre_OFF_all_active_recovered_completed_cases": 10,
+      "final_all_active_recovered_completed_cases": 10,
+      "cadences_with_any_survivor_completed_cases": 10,
+      "raw_ON_carriers_completed_cases": 4482,
+      "surviving_ON_carriers_completed_cases": 4482
+    },
+    "strong": {
+      "expected": 14,
+      "observed": 14,
+      "successful": 14,
+      "failed": 0,
+      "pre_OFF_all_active_recovered_completed_cases": 14,
+      "final_all_active_recovered_completed_cases": 14,
+      "cadences_with_any_survivor_completed_cases": 14,
+      "raw_ON_carriers_completed_cases": 2165,
+      "surviving_ON_carriers_completed_cases": 2165
+    }
+  },
+  "operating_subgroups": {
+    "active_scan_indices": {
+      "[0]": {
+        "expected": 8,
+        "recovered": 8,
+        "minimum": 7
+      },
+      "[2]": {
+        "expected": 8,
+        "recovered": 7,
+        "minimum": 7
+      },
+      "[4]": {
+        "expected": 8,
+        "recovered": 8,
+        "minimum": 7
+      },
+      "[0,2]": {
+        "expected": 8,
+        "recovered": 8,
+        "minimum": 7
+      },
+      "[0,4]": {
+        "expected": 8,
+        "recovered": 8,
+        "minimum": 7
+      },
+      "[2,4]": {
+        "expected": 8,
+        "recovered": 7,
+        "minimum": 7
+      }
+    },
+    "drift_hz_s": {
+      "-4.0": {
+        "expected": 12,
+        "recovered": 11,
+        "minimum": 10
+      },
+      "-1.25": {
+        "expected": 12,
+        "recovered": 12,
+        "minimum": 10
+      },
+      "1.25": {
+        "expected": 12,
+        "recovered": 12,
+        "minimum": 10
+      },
+      "4.0": {
+        "expected": 12,
+        "recovered": 11,
+        "minimum": 10
+      }
+    },
+    "intrinsic_width_channels": {
+      "1": {
+        "expected": 24,
+        "recovered": 22,
+        "minimum": 22
+      },
+      "3": {
+        "expected": 24,
+        "recovered": 24,
+        "minimum": 22
+      }
+    }
+  },
+  "joint_checks": {
+    "complete_and_integrity": false,
+    "strong_14_of_14": true,
+    "operating_at_least_44_of_48": true,
+    "each_activity_at_least_7_of_8": true,
+    "each_drift_at_least_10_of_12": true,
+    "each_width_at_least_22_of_24": true,
+    "matched_rfi_no_surviving_cadence": true,
+    "matched_rfi_all_primary_on_detected_before_off": true,
+    "noise_at_most_one_surviving_cadence": true
+  },
+  "failed_cases": [
+    {
+      "case_id": "SETI_RADIO_PILOT_20261008_VAL_A:single_row_transient:010",
+      "index": 128,
+      "failure": {
+        "message": "Admitted wall/CPU watchdog reached; no retry or redraw",
+        "type": "TimeoutError"
+      },
+      "cpu_s": 250.485232,
+      "wall_s": 251.7271481530006
+    },
+    {
+      "case_id": "SETI_RADIO_PILOT_20261008_VAL_A:single_row_transient:011",
+      "index": 129,
+      "failure": {
+        "message": "Admitted wall/CPU watchdog reached; no retry or redraw",
+        "type": "TimeoutError"
+      },
+      "cpu_s": 250.985458,
+      "wall_s": 252.30885764399864
+    }
+  ],
+  "missing_expected_outputs_in_failed_cases": {
+    "SETI_RADIO_PILOT_20261008_VAL_A:single_row_transient:010": [
+      "scan_map_metadata.json",
+      "geometry.json",
+      "geometry_arrays.npz",
+      "all_ON_threshold_carriers.json",
+      "detector_summary.json",
+      "localized_recovery.json",
+      "scan_00_full_map.npz",
+      "scan_01_full_map.npz",
+      "scan_02_full_map.npz",
+      "scan_03_full_map.npz",
+      "scan_04_full_map.npz",
+      "scan_05_full_map.npz"
+    ],
+    "SETI_RADIO_PILOT_20261008_VAL_A:single_row_transient:011": [
+      "scan_map_metadata.json",
+      "geometry.json",
+      "geometry_arrays.npz",
+      "all_ON_threshold_carriers.json",
+      "detector_summary.json",
+      "localized_recovery.json",
+      "scan_00_full_map.npz",
+      "scan_01_full_map.npz",
+      "scan_02_full_map.npz",
+      "scan_03_full_map.npz",
+      "scan_04_full_map.npz",
+      "scan_05_full_map.npz"
+    ]
+  },
+  "resource": {
+    "job_receipt_cpu_s_sum": 11138.534412,
+    "controller_children_CPU_s": 11143.517907,
+    "controller_CPU_s": 0.16855499999999998,
+    "charged_A_CPU_s": 11143.686462,
+    "coordinator_wall_s": 1422.5388969139985,
+    "max_job_wall_s": 252.30885764399864,
+    "max_job_peak_rss_bytes": 82063360,
+    "remaining_conservative_study_CPU_s": 25492.071999981
+  },
+  "pilot_values_opened_by_reviewer": false,
+  "no_generator_detector_RNG_or_source_fetch_by_reviewer": true,
+  "failed_cases_are_not_EMPTY_or_RFI_rejections": true
+}
