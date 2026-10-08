@@ -1,0 +1,136 @@
+{
+  "amplitude_definition": "per active scan A=nominal_ideal_box_score*sigma_raw/B; B=max_width(sum of exact profile in true-centred integer box over active rows)/sqrt(nrows*width). A is the mean-integration frequency-summed positive power before preprocessing; nominal score is only a declared-law ideal projection, not detector SNR or flux.",
+  "authority": "Definitions only; no DEV/VAL invocation authorized by this file",
+  "box_width_bank": [
+    1,
+    3,
+    9,
+    33
+  ],
+  "gates": {
+    "matched_rfi_maximum_surviving_cadences": 0,
+    "noise_maximum_surviving_cadences": 1,
+    "operating_at_least": 44,
+    "operating_each_activity_at_least": 7,
+    "operating_each_drift_at_least": 10,
+    "operating_each_width_at_least": 22,
+    "strong_all": 14
+  },
+  "geometry": {
+    "first_scan_start_mjd": 57464.69,
+    "guard_channels_each_side": 1871,
+    "guard_components": {
+      "compatible_OFF_reference_halo": 250,
+      "largest_box_halfwidth": 16,
+      "midpoint_drift": 1354,
+      "normalization_halfwidth": 250,
+      "rounding": 1
+    },
+    "loaded_source_channel_interval": [
+      159903921,
+      159911759
+    ],
+    "reference_source_channel_interval": [
+      159905792,
+      159909888
+    ],
+    "scan_metadata": [
+      {
+        "df_hz": -2.835503418452676,
+        "fch1_hz": 1876464843.75,
+        "nrows": 16,
+        "role": "on",
+        "scan_id": "epoch1_on",
+        "tsamp_s": 17.986224128,
+        "tstart_mjd": 57464.69
+      },
+      {
+        "df_hz": -2.835503418452676,
+        "fch1_hz": 1876464843.75,
+        "nrows": 16,
+        "role": "off",
+        "scan_id": "epoch1_off",
+        "tsamp_s": 17.986224128,
+        "tstart_mjd": 57464.693819444445
+      },
+      {
+        "df_hz": -2.835503418452676,
+        "fch1_hz": 1876464843.75,
+        "nrows": 16,
+        "role": "on",
+        "scan_id": "epoch2_on",
+        "tsamp_s": 17.986224128,
+        "tstart_mjd": 57464.69763888889
+      },
+      {
+        "df_hz": -2.835503418452676,
+        "fch1_hz": 1876464843.75,
+        "nrows": 16,
+        "role": "off",
+        "scan_id": "epoch2_off",
+        "tsamp_s": 17.986224128,
+        "tstart_mjd": 57464.70145833334
+      },
+      {
+        "df_hz": -2.835503418452676,
+        "fch1_hz": 1876464843.75,
+        "nrows": 16,
+        "role": "on",
+        "scan_id": "epoch3_on",
+        "tsamp_s": 17.986224128,
+        "tstart_mjd": 57464.70527777778
+      },
+      {
+        "df_hz": -2.835503418452676,
+        "fch1_hz": 1876464843.75,
+        "nrows": 16,
+        "role": "off",
+        "scan_id": "epoch3_off",
+        "tsamp_s": 17.986224128,
+        "tstart_mjd": 57464.709085648145
+      }
+    ],
+    "tref_relative_first_scan_start_s": 968.3897927674205
+  },
+  "ideal_box_center_rounding": "numpy.rint on ABSOLUTE source channel index; ties to even before subtracting loaded source_channel0",
+  "noise_laws": {
+    "frequency_ar1_gaussian": {
+      "cross_row_independence": true,
+      "mean": 1.0,
+      "rho": 0.25,
+      "row_initial_state": "stationary N(0,1)",
+      "sigma_raw": 0.05
+    },
+    "gamma16": {
+      "mean": 1.0,
+      "scale": 0.0625,
+      "shape": 16.0,
+      "sigma_raw": 0.25
+    },
+    "gaussian": {
+      "mean": 1.0,
+      "sigma_raw": 0.05
+    },
+    "rowgain_gamma16": {
+      "g_row": "1+.1*sin(2*pi*(row+.5)/16+scan_index*pi/3)",
+      "mean": "g_row",
+      "scale": ".0625*g_row",
+      "shape": 16.0,
+      "sigma_raw": ".25*g_row"
+    }
+  },
+  "panel_counts": {
+    "DEV": 24,
+    "VAL_A": 142,
+    "VAL_B": 142
+  },
+  "pilot_values_status": "NOT_OPENED",
+  "positivity": "All main controls use positive Gamma power. Gaussian diagnostic draws must be finite and positive; failure closes the case, without clipping or re-drawing.",
+  "recovery_definition": "Every active ON must retain a localized hit after full OFF comparison; also report any-active recovery. First/last integration-centre trajectory mismatch must be <=(2+max(winning_width,injection_oracle_width)/2)*abs(df_hz).",
+  "rng": "numpy.Generator(PCG64(integer_from_full_SHA256_case_identity)); NumPy version pinned by admitted run",
+  "schema": "prospective-synthetic-controls-v1",
+  "signal_profile": "unit-area intrinsic uniform top-hat convolved with uniform frequency sweep during each integration; exact bin CDF differences",
+  "source_manifest_sha256": "e6099764c635aa707f01a22ccd47b5396996918f5f4f43b774de8c64383719af",
+  "source_metadata_status": "historical-metadata-template; current-source-admission-separate",
+  "synthetic_values_status": "NOT_GENERATED"
+}

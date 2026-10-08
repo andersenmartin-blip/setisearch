@@ -1,0 +1,120 @@
+{
+  "status": "PROPOSED_CODE_AND_METADATA_ONLY_NOT_EXECUTED",
+  "source_metadata_authority": "historical_headers.json; root must verify current source metadata before freeze",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "max_drift_hz_s": 4.0,
+  "widths": [
+    1,
+    3,
+    9,
+    33
+  ],
+  "running_median_channels": 501,
+  "on_threshold": 10.0,
+  "off_threshold": 8.0,
+  "carrier_count": 4096,
+  "normalization_source_channel_interval": [
+    159905792,
+    159909888
+  ],
+  "drift_tile": 16,
+  "carrier_tile": 512,
+  "match_tile": 64,
+  "rounding": "np.rint complete ABSOLUTE SOURCE channel coordinate, ties to even; then subtract integer source_channel0",
+  "winning_tie_order": "first width then first ascending drift",
+  "OFF_match_semantics": "Existential restricted rescan over ALL width/drift/OFF-halo-reference templates within ((wON+wOFF)/2+2)*abs(df) of ON winning track at BOTH ON integration midpoint endpoints",
+  "OFF_witness_traversal": "width, ascending drift tile, ascending carrier tile, drift/carrier within tile",
+  "geometry": [
+    {
+      "scan_id": "epoch1_on",
+      "role": "ON",
+      "tstart_mjd": 57464.69,
+      "tsamp_s": 17.986224128,
+      "nrows": 16,
+      "fch1_hz": 1876464843.75,
+      "df_hz": -2.835503418452676,
+      "normalization_source_channel_interval": [
+        159905792,
+        159909888
+      ]
+    },
+    {
+      "scan_id": "epoch1_off",
+      "role": "OFF",
+      "tstart_mjd": 57464.693819444445,
+      "tsamp_s": 17.986224128,
+      "nrows": 16,
+      "fch1_hz": 1876464843.75,
+      "df_hz": -2.835503418452676,
+      "normalization_source_channel_interval": [
+        159905792,
+        159909888
+      ]
+    },
+    {
+      "scan_id": "epoch2_on",
+      "role": "ON",
+      "tstart_mjd": 57464.69763888889,
+      "tsamp_s": 17.986224128,
+      "nrows": 16,
+      "fch1_hz": 1876464843.75,
+      "df_hz": -2.835503418452676,
+      "normalization_source_channel_interval": [
+        159905792,
+        159909888
+      ]
+    },
+    {
+      "scan_id": "epoch2_off",
+      "role": "OFF",
+      "tstart_mjd": 57464.70145833334,
+      "tsamp_s": 17.986224128,
+      "nrows": 16,
+      "fch1_hz": 1876464843.75,
+      "df_hz": -2.835503418452676,
+      "normalization_source_channel_interval": [
+        159905792,
+        159909888
+      ]
+    },
+    {
+      "scan_id": "epoch3_on",
+      "role": "ON",
+      "tstart_mjd": 57464.70527777778,
+      "tsamp_s": 17.986224128,
+      "nrows": 16,
+      "fch1_hz": 1876464843.75,
+      "df_hz": -2.835503418452676,
+      "normalization_source_channel_interval": [
+        159905792,
+        159909888
+      ]
+    },
+    {
+      "scan_id": "epoch3_off",
+      "role": "OFF",
+      "tstart_mjd": 57464.709085648145,
+      "tsamp_s": 17.986224128,
+      "nrows": 16,
+      "fch1_hz": 1876464843.75,
+      "df_hz": -2.835503418452676,
+      "normalization_source_channel_interval": [
+        159905792,
+        159909888
+      ]
+    }
+  ],
+  "resource_caps": {
+    "peak_rss_bytes": 4294967296,
+    "wall_seconds_per_job": 1800,
+    "new_total_cpu_seconds": 43200
+  },
+  "execution_authorized": false,
+  "residual_location": "m0 + mean(clip(core_residual-m0,-5*MADscale,+5*MADscale)) on frozen valid normalization core",
+  "loaded_source_channel_interval": [
+    159903921,
+    159911759
+  ],
+  "recovery_gate": "Localized SURVIVOR in every active ON; localization at BOTH ON endpoints within (2+max(w_hit,w_oracle)/2)*abs(df)"
+}
