@@ -1,3 +1,17 @@
+# Aktuel status — 8. oktober 2026: B fejler; metodeundersøgelse klargjort
+
+Alle 142 friske B-forsøg er afsluttet med intakte outputs. Den uafhængige gennemgang har kontrolleret 852 kort, 2.840 artefakthashes og 55.302 OFF-sammenligninger. B forbliver FAIL_CLOSED: tredje ON alene 6/8 mod kravet 7; bredde 3 21/24 mod 22; 2/24 RFI-forløb har overlevende kandidater. Stærke signaler 14/14 og samlet arbejdsniveau 45/48 ophæver ikke disse fejl. A forbliver fejlet, og den ene tilladte udviklingsrettelse er brugt.
+
+Ingen teleskoppilot er godkendt, og ingen nye himmelspektrer er åbnet. Den godkendte metodeundersøgelse er fastlagt som 64 friske, balancerede signalceller med uændret detektor: idealniveau 10/12/16/24, drift ±1,25/±4 Hz/s, bredde 1/3 og tredje ON alene/alle tre ON. Den er beskrivende, valgt efter B-fejlen, og kan ikke kvalificere en pilot. Før første draw kræves verificeret offentlig fastfrysning og rodens præcise admission.
+
+B belastes konservativt med 11.676,036546 CPU-sekunder. Der resterer 12.019,932132 efter tidligere omkostninger og den uændrede 1.200-sekunders forberedelsesreservation; metodeallokeringen er højst 6.000 med mindst 2.000 bevaret til rapport/reproduktion. Ukendte historiske målinger er fortsat markeret som ukendte.
+
+Se [B-resultat](RADIO_VALIDATION_B_2026-10-08_RESULT.md), [metodeprotokol](pilot_method_study_20261008/METHOD_STUDY_SCOPE.md) og [faktisk budget](pilot_method_study_20261008/post_b_ledger.json). Planen fortsætter til 20. oktober; den gamle periodes afslutning 9. oktober behandles særskilt. Ingen anden rettelse, genkørsel af eksponerede banker eller adgang til de gamle holdouts.
+
+---
+
+Tidligere daterede poster følger som historik.
+
 # Fremskridt 8. oktober 2026: frisk validering B kører
 
 De to nye udviklingsprøver har afsluttet hele søgningen med uændret videnskabelig kode (cirka295/297 CPU-s), og alle12 kort/3630 rå hits/10890 OFF-sammenligninger er kontrolleret. [Resultat af den ene kørselsrettelse](RADIO_RUNTIME_CORRECTION_2026-10-08_RESULT.md). A forbliver FAIL_CLOSED med sine to kørselsfejl; ingen A-identitet gentages.

@@ -1,0 +1,7 @@
+# Post-B resource ledger: static review
+
+PASS_STATIC_PREPARATION_ONLY. Helper SHA256342410e23036509e2d0c8effd0260ecdfa60df7fb174f4ea6a0654def6ed1a49 requires the complete142-case closed failed B marker, all children reaped, the unchanged aggregate hashes and closed rolling ledger. It takes the largest child charge across conservative receipt, actual reaped CPU, final rolling totals and individual closures, then adds the largest controller measure.
+
+The starting allowance23695.968677981004 is read from and bound to the original B admission, with exact equality to the current post-development ledger; that ledger’s SHA48b448bbbb5b65ec9e592aa9f663684b5de5d31d75e43ac1ee344214d7833d09 matches the original B admission. The earlier pre-archive snapshot is not used. No cost or planning reserve is credited back. The1200-second unmeasured preparation planning reserve stays retained and is not labeled a complete historical measurement.
+
+A new exclusive-output ledger can admit6000 method CPU seconds only with at least2000 additional seconds retained for reporting/reproduction. It binds all four original B aggregate hashes and the prior ledger/admission, preserves both failed validations and prohibits pilot access or another correction. Actual invocation waits closed B output integrity review and root authorization. This review performed only source/AST/metadata reads; no helper run or scientific values.

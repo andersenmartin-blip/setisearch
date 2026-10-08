@@ -1,0 +1,236 @@
+{
+  "admission_before_first_METHOD_RNG": {
+    "B_final_gate_required": "FAIL_CLOSED",
+    "actual_post_B_resource_ledger_required": true,
+    "all_B_children_reaped_and_resource_receipts_reconciled": true,
+    "both_A_and_B_remain_FAIL_CLOSED": true,
+    "full_B_retained_output_integrity_review_completed": true,
+    "must_close_validation_B_all142_cases": true,
+    "new_public_method_freeze_including_case_bank_protocol_scope_worker_and_coordinator": true,
+    "no_draw_authority_from_this_metadata_definition": true,
+    "no_telescope_values_or_source_payload_GET": true,
+    "root_concrete_admission_required": true
+  },
+  "balanced_placement": {
+    "bucket_order": "Enumerate factor index tuples lexicographically in the listed factor orders, append each to its desired-placement bucket.",
+    "case_order": "For round0..15, emit the next tuple from bucket0,bucket1,bucket2,bucket3; serial=4*round+placement_index.",
+    "counts_per_placement": 16,
+    "counts_per_placement_within_each_drift": 4,
+    "counts_per_placement_within_each_level": 4,
+    "counts_per_placement_within_each_width_activity_pair": 4,
+    "desired_placement_index": "(level_index+drift_index+width_index+activity_index)%4",
+    "each_cell_has_only_one_placement_and_one_seed": true,
+    "factor_index_order": [
+      "nominal_ideal_level",
+      "drift",
+      "intrinsic_width",
+      "activity"
+    ],
+    "global_serial_mod4_equals_placement_index": true,
+    "native_offsets_in_placement_index_order": [
+      0.25,
+      4094.75,
+      1024.25,
+      3070.75
+    ],
+    "remaining_limitation": "Placement is a deterministic balanced blocking factor, not a replicated independent fifth factor; interactions are not independently identified."
+  },
+  "case_bank": {
+    "SHA256": "554a54d9ddfa1c0f82f0932ee93ba2bb652542588c65fbd4be56c144b7c4d2f4",
+    "count": 64,
+    "eligibility_case": false,
+    "factor_grid": {
+      "active_scan_indices": [
+        [
+          4
+        ],
+        [
+          0,
+          2,
+          4
+        ]
+      ],
+      "drift_hz_s": [
+        -4.0,
+        -1.25,
+        1.25,
+        4.0
+      ],
+      "intrinsic_width_channels": [
+        1,
+        3
+      ],
+      "nominal_ideal_box_score": [
+        10.0,
+        12.0,
+        16.0,
+        24.0
+      ]
+    },
+    "family": "method_signal",
+    "no_OFF_signal_or_nuisance_injection": true,
+    "no_additional_draw_or_retry": true,
+    "no_transients": true,
+    "one_independent_realization_per_exact_factor_cell": true,
+    "path": "pilot_method_study_20261008/method_cases.json",
+    "serialization": "JSON array, sorted object keys, indent2, final newline"
+  },
+  "identities": {
+    "ASCII_identity_template": "SETI_RADIO_PILOT_20261008_METHOD_STUDY:method_signal:{serial:03d}",
+    "RNG": "Original numpy.Generator(PCG64(seed_integer)); instantiate only after admission.",
+    "existing_case_banks_checked": [
+      "pilot_controls_20261008/development_cases.json",
+      "pilot_controls_20261008/validation_a_cases.json",
+      "pilot_controls_20261008/validation_b_cases.json",
+      "pilot_runtime_correction_20261008/development_runtime_cases.json"
+    ],
+    "existing_unique_identity_count": 310,
+    "metadata_checks_do_not_generate_arrays": true,
+    "method_identity_overlap_count": 0,
+    "method_seed_overlap_count": 0,
+    "seed_integer": "int(seed_sha256,16), retaining all256 SHA256 bits",
+    "seed_sha256": "Full64-character lowercase SHA256 hex of the complete ASCII case_id",
+    "serial_range_inclusive": [
+      0,
+      63
+    ]
+  },
+  "original_scientific_freeze_commit": "cbc27ebfb10fc09f58a8ab4a1f00adad47ab1960",
+  "outputs": {
+    "activity_interpretation": "ALL-active across three ON scans is stricter than single-ON recovery; ANY-active is a union. Activity groups have independent noise draws and must not be described as a paired causal comparison.",
+    "aggregate_group_expected_counts": {
+      "each_activity_pattern": 32,
+      "each_drift": 16,
+      "each_intrinsic_width": 32,
+      "each_nominal_ideal_level": 16,
+      "each_placement": 16
+    },
+    "existing_measured_method_evidence": "Describe retained A/B matched-RFI, noise, transient and near-OFF diagnostic outcomes as results from failed qualification; no reruns or replacement controls.",
+    "full_factor_cell_table": true,
+    "no_recovery_probability_FAP_or_sky_qualification_claim": true,
+    "no_scientific_PASS_gate": true,
+    "per_case_required": [
+      "frozen case_definition",
+      "synthetic array hashes",
+      "truth and ideal amplitude/oracle widths",
+      "all six retained max score/drift/width maps and geometry",
+      "all raw ON threshold carriers and OFF classifications/witnesses",
+      "localized_recovery",
+      "outcome and integrity status",
+      "whole-child resource receipt and committed artifact hashes"
+    ],
+    "per_cell_measures": [
+      "pre_OFF_all_active_recovery",
+      "pre_OFF_any_active_recovery",
+      "final_all_active_recovery",
+      "final_any_active_recovery",
+      "per-active-ON localized recovery before/afterOFF",
+      "global ON maxima for threshold misses",
+      "raw ON hit and surviving hit counts",
+      "localization versus OFF loss stages",
+      "CPU/wall/RSS and integrity failures"
+    ],
+    "plots_if_produced": "Discrete observed cells/counts only, labeled n=1 per cell and exploratory; no smoothed/interpolated sensitivity boundary or calibrated efficiency curve.",
+    "report_denominators": "Report all64 prespecified cells, completed valid counts, missing/integrity/resource failures and recovery counts separately; incomplete zero placeholders are not measured nonrecovery or rejection."
+  },
+  "panel": "METHOD_STUDY",
+  "prior_exposure": {
+    "both_originating_ON_indices": [
+      4
+    ],
+    "cannot_admit_telescope_pilot": true,
+    "cannot_reclassify_validation_A_or_B": true,
+    "design_selected_after_observed_validation_B_losses": true,
+    "known_loss_stage": "No originating ON threshold hit; retained maxima below frozen ON threshold10.",
+    "not_blind_validation": true,
+    "observed_B_cases": [
+      "SETI_RADIO_PILOT_20261008_VAL_B:operating:019",
+      "SETI_RADIO_PILOT_20261008_VAL_B:operating:021"
+    ]
+  },
+  "purpose": "Describe fixed-method recovery versus declared strength, drift, intrinsic width and ON activity after failed qualification; identify pre-ON versus localization versus OFF losses without tuning.",
+  "qualification": false,
+  "resources": {
+    "RSS_limit_bytes": 4294967296,
+    "admission_resource_inequality": "actual remaining period CPU >= admitted METHOD aggregate allocation + retained report/reproduction CPU margin; charged CPU plus outstanding reservations must remain within both allocation and period ceiling.",
+    "aggregate_METHOD_CPU_ceiling_seconds": 6000,
+    "exclusive_whole_child_CPU_partition_seconds": 250,
+    "max_concurrent_children": 8,
+    "minimum_retained_period_CPU_margin_seconds": 2000,
+    "new_source_payload_bytes": 0,
+    "reservation_and_refund": "Reserve before child submit; charge complete child startup/search/finalization from actual reaped usage, or charge full partition if complete usage cannot be proven; refund only after durable closure.",
+    "root_period_CPU_ceiling_seconds": 43200,
+    "stop_and_retention": "No submit without capacity for a full250-second reservation; retain every incomplete/failed/unsubmitted identity, never redraw, rerun or introduce a second correction.",
+    "whole_job_wall_limit_seconds": 1800,
+    "workspace_ceiling_bytes": 8589934592
+  },
+  "schema": "SETI_RADIO_EXPLORATORY_METHOD_STUDY_PROTOCOL_V1",
+  "scientific_method_changed": false,
+  "status": "PROSPECTIVE_METADATA_ONLY_NOT_ADMITTED_NOT_GENERATED",
+  "study_id": "SETI_RADIO_PILOT_20261008_METHOD_STUDY",
+  "unchanged_science": {
+    "OFF_rule": "Exactly frozen endpoint-coupled all-compatible-template search; raw ON hits retained regardless of OFF outcome.",
+    "OFF_veto_threshold": 8.0,
+    "ON_hit_threshold": 10.0,
+    "background_noise": {
+      "law": "gamma16",
+      "mean": 1.0,
+      "scale": 0.0625,
+      "shape": 16.0,
+      "sigma_raw": 0.25
+    },
+    "contract_path": "pilot_controls_20261008/control_contract.json",
+    "detector_functions": [
+      "control_inputs",
+      "search_cadence",
+      "recovery_matches"
+    ],
+    "detector_path": "pilot_engine_20261008/detector.py",
+    "drift_range_hz_s": [
+      -4.0,
+      4.0
+    ],
+    "generator_function": "generate_case(case,contract)",
+    "generator_path": "pilot_controls_20261008/generator.py",
+    "normalization_and_source_timing": "Exactly the unchanged original frozen contract and detector; all six16-row scans, signed native df and absolute cadence gaps retained.",
+    "pinned_files_SHA256": {
+      "pilot_controls_20261008/control_contract.json": "44854605dbbe40a2c8aa7805433437e7ef03de31db3c76326d235baa88d7406c",
+      "pilot_controls_20261008/development_cases.json": "1f72ab1086a2220da1617aca6dadedc66a6d121359129c90db54ede294fd41df",
+      "pilot_controls_20261008/generator.py": "3864bd49766f71771ac48cb517eaa516fab0768d3c39f2ed8f07b8f1eed21693",
+      "pilot_controls_20261008/summarize.py": "6f9153d8c598eb6bb897d0a00dc632906a00ed203c876902fca955b1b7e4b361",
+      "pilot_controls_20261008/validation_a_cases.json": "1edb1ab43c0ff025662de6ce7f6bd5a00cb3c902e275fa5e38d56794c1b86ad1",
+      "pilot_controls_20261008/validation_b_cases.json": "93b425038ef9ec178610a1f17856258b0bf726b2e326430db85d4240e48ce46c",
+      "pilot_engine_20261008/config_proposed.json": "de31307d596e8cb0d6554fc774e6bc7bc23a700841e760888ac79cc46e478062",
+      "pilot_engine_20261008/detector.py": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45",
+      "pilot_engine_20261008/run_dev.py": "d64aa962c585f536ea969fb09bcc6e16df4289f6fd4e69f396684b94bd995f49",
+      "pilot_protocol_20261008/science/PROTOCOL_CANDIDATE.md": "9fa92677f13c3dbcd6f298331b1ea5a6324a385f36a72dba7c1aa0c99e94c4e2",
+      "pilot_protocol_20261008/science/science_config_candidate.json": "2b1c7f14c04eddf7430aa184f33a50f9227cce2e17682bebeae24b1207225d63",
+      "pilot_runtime_correction_20261008/development_runtime_cases.json": "2bef79ec3c17568243672c1ec65c9ca2baeb8066dcc4ab6842039f6d4f2a94d1"
+    },
+    "recovery_rule": "Exactly frozen truth endpoint localization at originating ON first/last integration midpoints; report ALL-active and ANY-active separately before and after OFF.",
+    "scan_roles": [
+      "ON",
+      "OFF",
+      "ON",
+      "OFF",
+      "ON",
+      "OFF"
+    ],
+    "search_widths_channels": [
+      1,
+      3,
+      9,
+      33
+    ],
+    "signal_profile": "Frozen uniform intrinsic top-hat convolved with integration-duration frequency sweep using exact bin CDF differences; signal present for all16 rows in each declared active ON scan only.",
+    "source_decode_interval_half_open": [
+      159903921,
+      159911759
+    ],
+    "source_reference_channel_interval_half_open": [
+      159905792,
+      159909888
+    ],
+    "strength_definition": "Per active scan A=nominal_ideal_box_score*0.25/B, B the frozen noiseless unfiltered true-track ideal-box projection; declared score is neither measured detector SNR nor physical flux."
+  }
+}

@@ -1,0 +1,11 @@
+# Exploratory method-study fallback: scope review
+
+PASS_PROSPECTIVE_EXPLORATORY_SCOPE_ONLY. The approved plan explicitly switches immediately to a bounded method investigation when the pilot gate cannot pass (lines158–163); its one permitted development correction is already spent. B’s third-ON-only subgroup shortfall cannot be repaired by exclusion, tuning, revalidation or this study. Sky acquisition remains closed.
+
+The proposed64 fresh full-row Gamma16 cases comprise four nominal ideal box-score strengths10/12/16/24, four original drifts−4/−1.25/+1.25/+4 Hz/s, two intrinsic widths1/3 channels and two activity patterns: thirdON only or all threeONs. Scientific detector, generator and result helper bytes remain unchanged. New identities and full SHA256 seeds must be frozen and disjoint before values are generated. This is a targeted exploratory grid chosen after B’s observed shortfall, with one realization per cell. It supports descriptive strength/drift/activity responses, not calibrated recovery probabilities, sky false-alarm rates or independent qualification.
+
+Combine the grid with B’s actual retained RFI/noise and transient/near-OFF diagnostic results, clearly labeled as descriptive evidence from the failed qualification. This covers the approved fallback’s recovery, interference, empty/null, runtime and reproducibility questions without generating unnecessary additional qualification panels. Report all-active, any-active and per-ON recovery, every nonrecovery/empty/failure, maps, hits and compatible OFF results.
+
+A6000-CPU-second aggregate allocation with at most eight rolling250-second exclusive child reservations is plausible for full-row cases but is not demonstrated cost or guaranteed completion. Admit it only after B closes and the actual whole B child/controller charge is reconciled under the unchanged43200-second study cap and existing1200-second preparation planning reservation. Child limits must include startup/finalization, with a flush margin; durable closure precedes unused reservation refunds. An incomplete or failed method grid is reported as such, with no rearmed identities or additional correction. No source bytes or telescope values are needed.
+
+This review read plan and metadata only. It performed no generator/RNG invocation, detector search, B map reading or source access.
