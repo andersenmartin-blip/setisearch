@@ -1,3 +1,15 @@
+# SETI-status — 8. oktober 2026: foreløbig samlet rapport klar
+
+Voyager-referencen og det beregnede metodealternativ er gennemført. En ny seks-scans himmelsøgning er fortsat blokeret af fejlet frisk validering; A/B forbliver FAIL_CLOSED. Det uafhængigt gennemsete udkast samler resultaterne, dokumenterer RFI-rester og nær-OFF-signal-tab og afgrænser konklusionerne. Ingen ny detektion eller nuldetektion på himlen følger.
+
+Dette er en foreløbig rapport pr. 8. oktober. Den gamle periode afsluttes særskilt 9. oktober, og slutrapporten for den nye periode afventer 20. oktober. Den ene gemte-case-verifikation blev gennemført 8. oktober og gentages ikke 19. oktober. Ny konservativ 50-CPU-sekunders rapportreservation efterlader 6.012,705144981004 CPU-s; mindst 2.000 bevares til slutrapporten. Ingen nye forsøgsbanker eller automatisk forlængelse.
+
+[Foreløbig samlet rapport](https://github.com/andersenmartin-blip/setisearch/blob/76405d84b096f1dea4ce9aded0e9aeb792bef220/results/radio_period_report_draft_20261008/PERIOD_REPORT_DRAFT.md) · [Uafhængigt review](https://github.com/andersenmartin-blip/setisearch/blob/76405d84b096f1dea4ce9aded0e9aeb792bef220/results/radio_period_report_draft_20261008/REVIEW.md) · [Kildebindinger](https://github.com/andersenmartin-blip/setisearch/blob/76405d84b096f1dea4ce9aded0e9aeb792bef220/results/radio_period_report_draft_20261008/SOURCE_BINDINGS.json) · [Aktuel status](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md).
+
+---
+
+Tidligere daterede oversigter følger som historik.
+
 # SETI-status — 8. oktober 2026: frisk kontrol af ét gemt resultat bestod
 
 Reproduktionsmilepælen er fremrykket fra19. oktober og gennemført én gang8. oktober efter afsluttet64-case METHOD-panel. Seks gemte kort,20 originale hashes og96 OFF-sammenligninger stemmer med hits/veto/genfund. En afkortet lokal transport blev fanget og rettet før verifier-kørsel; dens fejl og forbrug er bevaret. Rå preprocessing og detektorscores blev ikke genberegnet. A/B forbliver FAIL_CLOSED, og teleskoppiloten er ikke admitted.
