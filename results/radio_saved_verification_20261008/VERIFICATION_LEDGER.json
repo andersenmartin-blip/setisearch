@@ -1,0 +1,92 @@
+{
+  "status": "CLOSED_ONE_SAVED_RESULT_VERIFICATION_PASS",
+  "scientific_source_commit": "b4cb5d9d8ebe17f5651e8b59f46f97f89858b278",
+  "actual_date": "2026-10-08",
+  "previous_remaining_CPU_s": 6212.705144981004,
+  "new_conservative_reservation_CPU_s": 150,
+  "remaining_CPU_after_reservation_s": 6062.705144981004,
+  "protected_report_and_reproduction_CPU_s": 2000,
+  "measured_whole_job_component_CPU_s": 0.262767,
+  "measured_components": {
+    "resource_restoration_corrected.json": {
+      "label": "restoration_corrected",
+      "command": [
+        "python",
+        "results/radio_saved_verification_20261008/restore_exact_inputs.py"
+      ],
+      "exit_code": 0,
+      "error": null,
+      "child_CPU_s": 0.064079,
+      "wrapper_CPU_s_through_measurement": 0.001258999999999997,
+      "whole_job_CPU_s": 0.065338,
+      "wall_s": 0.0651490879990888,
+      "child_peak_RSS_bytes": 13299712,
+      "child_CPU_cap_s": 30,
+      "wall_cap_s": 120,
+      "address_space_cap_bytes": 4294967296,
+      "closed_child": true,
+      "conservative150_reservation_component_not_extra_debit": true,
+      "post_measurement_record_serialization_API_overhead_not_fully_metered": true
+    },
+    "resource_verification.json": {
+      "label": "verification",
+      "command": [
+        "python",
+        "pilot_protocol_20261008/review/audit_retained_method.py",
+        "--admission",
+        "pilot_method_study_20261008/method_study_admission.json",
+        "--case-id",
+        "SETI_RADIO_PILOT_20261008_METHOD_STUDY:method_signal:000",
+        "--output",
+        "pilot_protocol_20261008/review/METHOD_SAVED_CASE_000_REPRODUCTION.json"
+      ],
+      "exit_code": 0,
+      "error": null,
+      "child_CPU_s": 0.150676,
+      "wrapper_CPU_s_through_measurement": 0.0012689999999999958,
+      "whole_job_CPU_s": 0.151945,
+      "wall_s": 0.16606235099970945,
+      "child_peak_RSS_bytes": 30187520,
+      "child_CPU_cap_s": 60,
+      "wall_cap_s": 120,
+      "address_space_cap_bytes": 4294967296,
+      "closed_child": true,
+      "conservative150_reservation_component_not_extra_debit": true,
+      "post_measurement_record_serialization_API_overhead_not_fully_metered": true
+    },
+    "resource_restoration.json": {
+      "label": "restoration",
+      "command": [
+        "python",
+        "results/radio_saved_verification_20261008/restore_exact_inputs.py"
+      ],
+      "exit_code": 1,
+      "error": null,
+      "child_CPU_s": 0.044611,
+      "wrapper_CPU_s_through_measurement": 0.0008730000000000022,
+      "whole_job_CPU_s": 0.045484,
+      "wall_s": 0.06485519899979408,
+      "child_peak_RSS_bytes": 13295616,
+      "child_CPU_cap_s": 30,
+      "wall_cap_s": 120,
+      "address_space_cap_bytes": 4294967296,
+      "closed_child": true,
+      "conservative150_reservation_component_not_extra_debit": true,
+      "post_measurement_record_serialization_API_overhead_not_fully_metered": true
+    }
+  },
+  "restoration_failure_included": true,
+  "verifier_invocations": 1,
+  "no_verifier_retry_or_redraw": true,
+  "no_second_run_on2026_10_19": true,
+  "original1200_preparation_prior100_RFI_prior200_diagnostics_prior100_design_reservations_unchanged": true,
+  "components_not_debited_twice": true,
+  "no_reservation_refund": true,
+  "setup_API_review_report_publication_overhead_conservatively_covered_not_fully_metered": true,
+  "unknown_historical_consumption_not_claimed_fully_measured": true,
+  "new_scores_or_draws": 0,
+  "raw_preprocessing_rerun": false,
+  "telescope_payloads_or_old_holdouts_opened": false,
+  "A_B_remain": "FAIL_CLOSED",
+  "sky_pilot_admitted": false
+}

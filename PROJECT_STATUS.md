@@ -1,3 +1,19 @@
+# Aktuel status — 8. oktober 2026: én frisk-proces-verifikation gennemført og bestået
+
+Den planlagte gemte METHOD-case000-verifikation er fremrykket fra19. oktober til8. oktober og udført én gang. Protokollens gate var durabel afslutning af hele64-case panelet, som var opfyldt; kalenderdatoen er en arbejdsmilepæl. Originalprogrammet bestod PASS_BOUNDED_SAVED_RESULT_VERIFICATION:6 gemte scorekort,20 artefakthashes og96 OFF-sammenligninger. Casens32 ON-carriers og32 overlevende stemmer. Dette er gemt map/hit/veto/recovery-konsistens, uden genberegning af rå preprocessing, detektorscores eller nye signaltræk. Ingen yderligere verifier-invocation den19. oktober.
+
+Alle54 originalfiler/1.896.541 bytes, begge arkiver/SHA256/Git-SHA/bytes og admission/claim er autentificeret. Første restaureringsjob fangede en afkortet lokal koordinatortransport72.000 mod79.878 bytes og stoppede før nogen verifier-invocation. Fejl/log/ressourcekvittering er bevaret. En korrigeret overførsel til en ny stagingfil matchede alle originale identiteter, og den korrigerede restaurering bestod. Det er transportrettelse, ikke en ekstra detektorudviklingsrettelse eller verifier-retry. Peer-review af47 tekstfiler, receipts og scope bestod; reviewer åbnede ingen maps/arkiver og kørte ingen ekstra verifier.
+
+Dagens målt hele child/wrapper-komponenter er0,045484 CPU-s for første restorefejl,0,065338 for korrigeret restore og0,151945 for verifier; i alt0,262767. Verifier-wall var0,166062 s og peak RSS30.187.520 bytes under60CPU-s/120wall-s/4GiB-AS-caps. Den originale cases73,064369 CPU-s angiver historisk fremstilling og blev ikke genkørt. Ny konservativ150-CPU-reservation efterlader6.062,705144981004; komponenter debiteres ikke igen, tidligere reservationer ændres ikke, og mindst2.000 bevares til slutrapporten. Setup/API/review/udgivelse hævdes ikke fuldt målt. Brug nu results/radio_saved_verification_20261008/VERIFICATION_LEDGER.json.
+
+A/B forbliver FAIL_CLOSED; denne PASS kvalificerer ikke teleskoppiloten. Det senere148-versioners udviklingsforslag er stadig kun forslag. Den gamle periodes afslutning9. oktober og slutrapport20. oktober er uændrede. Lukkede audits, planlægningsmatematik, statisk inventar og den nu gennemførte friske kontrol gentages ikke som dagligt fremskridt. Ingen automatisk ny kampagne eller forlængelse.
+
+[Resultatrapport](results/radio_saved_verification_20261008/VERIFICATION_REPORT.md) · [Original ny kvittering](pilot_protocol_20261008/review/METHOD_SAVED_CASE_000_REPRODUCTION.json) · [Restaurering](results/radio_saved_verification_20261008/RESTORATION_RECEIPT.json) · [Review](results/radio_saved_verification_20261008/REPRODUCTION_REVIEW.md) · [Aktuel saldo](results/radio_saved_verification_20261008/VERIFICATION_LEDGER.json).
+
+---
+
+Tidligere daterede poster følger som historik.
+
 # Aktuel status — 8. oktober 2026: senere udviklingsdesign og fast verifikationssæt klargjort
 
 De afsluttede dataanalyser er omsat til tre konkrete senere udviklingssammenligninger: tidsprofiler med to amplitudekonventioner; fast sandbane-statistik adskilt fra globalt søgemaksimum; og én RFI-familieprototype sammen med nær-OFF-signalbevarelse. Forslaget omfatter24+40+84=148 parrede arrayversioner i18 støjblokke. Nuldrift er med for at konfrontere den dokumenterede nær-OFF-fejl. Rækkefølgen er tidsprofiler, fast bane/målt baselineomkostning og derefter familieprototype, hvis observerbarhed og separat budget er tilstrækkelige. Versionerne er udviklingskontroller og tælles ikke som uafhængige valideringsforløb. Ingen nye seeds, arrays, scores, regelændringer eller kvalifikation er udført.
