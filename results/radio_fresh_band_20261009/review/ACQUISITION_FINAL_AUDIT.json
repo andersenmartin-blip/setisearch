@@ -1,0 +1,94 @@
+{
+  "status": "PASS_COMPLETE_SIX_SCAN_ACQUISITION_METADATA_AND_BINARY_HASH_AUDIT",
+  "observed_UTC": "2026-10-09T20:38:13.347811+00:00",
+  "public_prevalue_head": "44872590df8136135a99e52612b456c187c67190",
+  "checks": {
+    "acquisition_status_complete": true,
+    "exact96_unique_complete_receipts": true,
+    "receipt_body_sum_matches": true,
+    "ledger_received_exact": true,
+    "ledger_upper_exact_with96guards": true,
+    "ledger_completed": true,
+    "activity_under400MiB": true,
+    "cadence_under2GiB": true,
+    "scans_exact6": true,
+    "all_receipts_files_valid": true,
+    "source_manifest_pin_matches": true,
+    "acquisition_scope_pin_matches": true,
+    "CPU_under60": true,
+    "wall_under1200": true,
+    "RSS_under4GiB": true,
+    "old_qualification_unmodified": true,
+    "new_visit_false": true
+  },
+  "errors": [],
+  "new_spectral_BODY_bytes": 305137622,
+  "cumulative_same_cadence_BODY_bytes": 611429683,
+  "cumulative_charged_guard_upper_bound_bytes": 611429779,
+  "source_request_count": 96,
+  "decoded_row_receipt_count": 96,
+  "measured_acquisition": {
+    "cpu_s": 3.436158332,
+    "wall_s": 564.9717595940001,
+    "peak_rss_bytes": 132395008
+  },
+  "compact_binary_hashes": [
+    {
+      "scan_id": "epoch1_on",
+      "path": "setisearch_fresh/results/radio_fresh_band_20261009/arrays/epoch1_on.compact.h5",
+      "sha256": "d95d4b65bd8feb079f0c350ab09b26a912fcd3ecc89786f30400e1b288ec4a52",
+      "bytes": 50869783,
+      "row_digest_records": 16,
+      "binary_file_hash_only_no_decoding": true
+    },
+    {
+      "scan_id": "epoch1_off",
+      "path": "setisearch_fresh/results/radio_fresh_band_20261009/arrays/epoch1_off.compact.h5",
+      "sha256": "cb544cee9d8fc67765c4c3b4a65372cf60b6fe7bbbbb9e3065a7448da2349689",
+      "bytes": 50864012,
+      "row_digest_records": 16,
+      "binary_file_hash_only_no_decoding": true
+    },
+    {
+      "scan_id": "epoch2_on",
+      "path": "setisearch_fresh/results/radio_fresh_band_20261009/arrays/epoch2_on.compact.h5",
+      "sha256": "ed8bd68b502a79f0ce3bd45022149b1238d4f08e7b375ee9d6a91605a8ede78f",
+      "bytes": 50867207,
+      "row_digest_records": 16,
+      "binary_file_hash_only_no_decoding": true
+    },
+    {
+      "scan_id": "epoch2_off",
+      "path": "setisearch_fresh/results/radio_fresh_band_20261009/arrays/epoch2_off.compact.h5",
+      "sha256": "07587eb15eab1f8128b31824837f6cc244106d3003c656aca585586cc22a15b3",
+      "bytes": 50870439,
+      "row_digest_records": 16,
+      "binary_file_hash_only_no_decoding": true
+    },
+    {
+      "scan_id": "epoch3_on",
+      "path": "setisearch_fresh/results/radio_fresh_band_20261009/arrays/epoch3_on.compact.h5",
+      "sha256": "3d3187c9be44aee010c763da30ec95c2428a5525a0a46698ece0c857e8908eb0",
+      "bytes": 50866266,
+      "row_digest_records": 16,
+      "binary_file_hash_only_no_decoding": true
+    },
+    {
+      "scan_id": "epoch3_off",
+      "path": "setisearch_fresh/results/radio_fresh_band_20261009/arrays/epoch3_off.compact.h5",
+      "sha256": "01b64853bcfd2b5418355d075ab40e66e83e7edd01bfaa0946797e53d837dc81",
+      "bytes": 50867883,
+      "row_digest_records": 16,
+      "binary_file_hash_only_no_decoding": true
+    }
+  ],
+  "input_receipt_hashes": {
+    "ACQUISITION_RESULT.json": "da165fe31ac4a70167b06f83b8f667fbb8604b595c642d3610fec68788bebf37",
+    "SOURCE_BODY_LEDGER.json": "e4465dbc75dc15d8d31e0fa396133b761421d2601927f5f889ced04b0bd2ae8c"
+  },
+  "limitations": [
+    "Binary compact files were streamed only for SHA256; no HDF5 value decoding, numerical search, analysis rerun or telescope HTTP occurred in this audit.",
+    "Decoded per-row hashes were checked for completeness and equality between acquisition summary/progress records. Independent numerical decode equivalence is enforced in the analysis jobs, not rerun here.",
+    "Application body accounting excludes wire/HTTP header traffic and dependency/cache retrieval."
+  ]
+}

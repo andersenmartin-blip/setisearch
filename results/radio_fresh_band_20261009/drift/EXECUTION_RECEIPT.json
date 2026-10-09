@@ -1,0 +1,189 @@
+{
+  "status": "COMPLETED_FRESH_EXPLORATORY_SPARSE_DRIFT_SEARCH",
+  "verified_inputs": {
+    "epoch1_on": {
+      "path": "epoch1_on.compact.h5",
+      "file_sha256": "d95d4b65bd8feb079f0c350ab09b26a912fcd3ecc89786f30400e1b288ec4a52",
+      "bytes": 50869783
+    },
+    "epoch2_on": {
+      "path": "epoch2_on.compact.h5",
+      "file_sha256": "ed8bd68b502a79f0ce3bd45022149b1238d4f08e7b375ee9d6a91605a8ede78f",
+      "bytes": 50867207
+    },
+    "epoch3_on": {
+      "path": "epoch3_on.compact.h5",
+      "file_sha256": "3d3187c9be44aee010c763da30ec95c2428a5525a0a46698ece0c857e8908eb0",
+      "bytes": 50866266
+    }
+  },
+  "completed_scan_tiles": 96,
+  "sparse_core_count": 32,
+  "carriers_per_ON": 131072,
+  "channel_edge_bandwidth_per_ON_hz": 371655.1040634292,
+  "native_chunk_fraction_searched": 0.125,
+  "sparse_core_intervals_half_open": [
+    [
+      158339072,
+      158343168
+    ],
+    [
+      158371840,
+      158375936
+    ],
+    [
+      158404608,
+      158408704
+    ],
+    [
+      158437376,
+      158441472
+    ],
+    [
+      158470144,
+      158474240
+    ],
+    [
+      158502912,
+      158507008
+    ],
+    [
+      158535680,
+      158539776
+    ],
+    [
+      158568448,
+      158572544
+    ],
+    [
+      158601216,
+      158605312
+    ],
+    [
+      158633984,
+      158638080
+    ],
+    [
+      158666752,
+      158670848
+    ],
+    [
+      158699520,
+      158703616
+    ],
+    [
+      158732288,
+      158736384
+    ],
+    [
+      158765056,
+      158769152
+    ],
+    [
+      158797824,
+      158801920
+    ],
+    [
+      158830592,
+      158834688
+    ],
+    [
+      158863360,
+      158867456
+    ],
+    [
+      158896128,
+      158900224
+    ],
+    [
+      158928896,
+      158932992
+    ],
+    [
+      158961664,
+      158965760
+    ],
+    [
+      158994432,
+      158998528
+    ],
+    [
+      159027200,
+      159031296
+    ],
+    [
+      159059968,
+      159064064
+    ],
+    [
+      159092736,
+      159096832
+    ],
+    [
+      159125504,
+      159129600
+    ],
+    [
+      159158272,
+      159162368
+    ],
+    [
+      159191040,
+      159195136
+    ],
+    [
+      159223808,
+      159227904
+    ],
+    [
+      159256576,
+      159260672
+    ],
+    [
+      159289344,
+      159293440
+    ],
+    [
+      159322112,
+      159326208
+    ],
+    [
+      159354880,
+      159358976
+    ]
+  ],
+  "drift_grid_count": 763,
+  "widths_channels": [
+    1,
+    3
+  ],
+  "half_grid_mismatch_channels": 0.4994662009921942,
+  "display_suppression_channels": 3,
+  "reference_time": "each ON's own first integration midpoint",
+  "score_definition": "unchanged detector row-MAD standardized odd-box track sum / sqrt(Nrow*width)",
+  "normalization": "each 4096-carrier static core, each row, with unchanged 501-channel filtering",
+  "full_drift_band_search": false,
+  "OFF_veto_applied": false,
+  "phase": "drift",
+  "scope_sha256": "41f7bf4821a6f7da2e7c5b010fe26d20217db8e6ec7e02afc79ee23349df3271",
+  "script_sha256": "1a04ab1ea0d8b79b66ebc2a59a5c72b9c17b235f1a331ac19efeba90bade7102",
+  "source_manifest_sha256": "d2e6c76b0d5fe50b26d45830e4b67e4780da97f33cfe8fcdf80c761f47aa3a4c",
+  "acquisition_summary_sha256": "da165fe31ac4a70167b06f83b8f667fbb8604b595c642d3610fec68788bebf37",
+  "one_historical_visit": true,
+  "qualified_sky_pilot": false,
+  "old_A_B_failure_statuses_changed": false,
+  "calibrated_SNR_FAP_flux_EIRP_or_sensitivity": false,
+  "new_telescope_HTTP_requests_during_analysis": 0,
+  "MJD_anchor": 57464.69,
+  "process_CPU_seconds_including_imports": 250.094772573,
+  "wall_seconds_including_imports": 250.1445325299992,
+  "peak_RSS_bytes": 313425920,
+  "limitations": [
+    "Exploratory post-selection ranks across correlated channels, widths and drifts",
+    "Robust scores and positive row counts are not probabilities or calibrated SNR",
+    "One visit; the labels epoch1/2/3 denote scans, not separate visits",
+    "OFF controls provide descriptive evidence without a qualified veto or sky-origin classification",
+    "Drift coverage is exactly 32 separated 4096-channel cores; intervening carriers were not drift searched",
+    "No barycentric correction, nonlinear tracks, other widths, injection recovery or false-alarm calibration"
+  ]
+}

@@ -1,3 +1,23 @@
+# Aktuel SETI-status — 9. oktober 2026: nyt bånd søgt, stærke træk også i OFF
+
+Det tidligere uåbnede native bånd 151, cirka **1424,532–1427,505 MHz**, er nu hentet og analyseret for HIP98505/HD189733. Det udvider frekvensdækningen i det samme besøg fra 17. marts 2016. Alle seks scanninger og 96 tidsrækker er bevaret; der er ingen nye observationsbesøg eller observationstid.
+
+Den stationære søgning er fuldført for **1.048.010 bærefrekvenser pr. scanning** i bredde 1 og 3, inklusive de reciprokke OFF-kontroller. Den separate søgning med drift er fuldført i **32 adskilte delbånd**, **131.072 bærefrekvenser pr. ON** (12,5 % af kanalblokken), med 763 driftværdier fra −4 til +4 Hz/s og bredde 1/3. Hele driftbåndet er ikke søgt.
+
+Alle **18 ON-profiler fra rang 1–3 i de to familier** er gennemgået i alle seks scanninger ved uændret valgt frekvens, drift og bredde. De ni driftprofiler er korrelerede nabovarianter omkring **1426,282 MHz**. Her har ON2s første driftprofil middel **1,578749 mod OFF1s 1,558537**, og ON3 har **0,897975 mod OFF3s 0,877271**, i de samme additive profilenheder. Området omkring **1425,0045 MHz** har også stærke nærliggende kontroltræk. Seks mindre stationære ON-profiler har 13–15 positive ON-rækker og forbliver uafklarede. Postselekterede rangeringer og positive rækker giver ingen kalibreret falskalarmrate.
+
+**A/B er fortsat FAIL_CLOSED. Der er ingen kvalificeret sky-pilot eller bekræftet SETI-detektion.** De gamle holdouts og tidligere syv uafklarede profiler er uændrede. ON/OFF er ikke certificeret udskiftelige, og lavt OFF-center på en driftvariant viser ikke fravær af en nærliggende OFF-linje. Ingen ny sky-SNR, flux, EIRP, følsomhedsgrænse eller generel nuldetektion udledes.
+
+[RAPPORT: nyt frekvensbånd](RADIO_FRESH_BAND_2026-10-09_RESULT.md) · [Samlet resultat](results/radio_fresh_band_20261009/FINAL_RESULT.json) · [Uafhængig kontrol](results/radio_fresh_band_20261009/review/FINAL_INDEPENDENT_AUDIT.md) · [Datapakker og checksums](results/radio_fresh_band_20261009/DATA_AVAILABILITY.json) · [Store JSON-receipts](results/radio_fresh_band_20261009/PUBLICATION_LAYOUT.json)
+
+Metadata-valg og kode blev offentliggjort før de nye værdier i henholdsvis `d2ea2eceda0f969ab82e7563286930c21b36e054` og `44872590df8136135a99e52612b456c187c67190`. De 96 præcise ranges gav **305.137.622 nye spektrale body-byte**, ingen nye metadata-GETs. Kumulativ samme-cadence source plus metadata er **611.429.683 body-byte**. Hele kildefilens MD5 er ikke verificeret; kompakte filer, modtagne chunks og alle afkodede rækker er hashregistreret. HTTP wire-trafik er ikke målt.
+
+De komplette RAW- og RESULTS-pakker er gemt og CRC-/manifestkontrolleret. Git indeholder kode, scopes, JSON/CSV, alle 36 originale og 36 særskilte læsbare figurer; de store arrayfiler leveres i datapakkerne. De største JSON-receipts findes lossless som gzip i Git. De videnskabelige filer er uændrede af figurernes præsentationsarbejde.
+
+Den konservative reservation på **750 CPU-sekunder** er fortsat belastet uden refundering. De målte videnskabelige proceskomponenter summerer til **282,887 CPU-sekunder**; inklusive særskilt figurarbejde, figur-QA og pakning er de registrerede komponenter **351,450 CPU-sekunder**. Hele aktivitetens CPU er ikke målt. Maksimal målt videnskabelig RSS er **805.277.696 byte**, under 4 GiB. Tilbage er **652,705 CPU-sekunder**, hvoraf **650** er beskyttet til 20. oktober og **2,705** er udisponeret; samlet budget og 0 DKK er uændret. Nye signaljobs er ikke disponeret i den frie rest.
+
+---
+
 # Aktuel SETI-status — 9. oktober 2026: frekvensform findes også i kontrolpanelet
 
 En længere sammenhængende omgang har afsluttet tre evidensblokke: udvidet arkivsøgning efter et andet besøg, frekvensform for syv faste svage ON-profiler og samme måling i hele det tidligere frosne top20-panel med 60 ON/60 OFF. De syv formprofiler genbruges i paneludvidelsen; 113 yderligere former er målt i gemte udsnit. Medianen for central minus umiddelbare naboer er **0,116577 ON /0,115920 OFF**; ved oprindelig bredde 1 er den **0,115268 /0,115142** (58/59 profiler). Dette er deskriptiv lighed blandt allerede udvalgte profiler, ikke støjklassifikation, FAP eller uafhængig bekræftelse.

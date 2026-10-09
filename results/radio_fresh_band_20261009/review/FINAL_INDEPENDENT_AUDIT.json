@@ -1,0 +1,66 @@
+{
+  "status": "PASS_RETAINED_RECEIPT_CONTRACT_AND_BINARY_IDENTITY_AUDIT",
+  "observed_UTC": "2026-10-09T20:45:25.935217+00:00",
+  "prevalue_public_head": "44872590df8136135a99e52612b456c187c67190",
+  "component_audit_hashes": {
+    "ACQUISITION_FINAL_AUDIT.json": "9507362f36af6b72ca3443b3902f86d17929e7f0030c261bd7169754ba2ee69a",
+    "STATIONARY_FINAL_AUDIT.json": "fc97cfa45def1bfddc2fecf493ab6c7cf65f600d3e68abbf176d613e14061a6b",
+    "DRIFT_FINAL_AUDIT.json": "5708f45d9e08eafd31ce2ef71c6620084c74735e9cb298d808f0e7df0f793c5a",
+    "PROFILES_FINAL_AUDIT.json": "1d5847bc1f14ace1fce9b884728addb3cafc2525f6570134d88fbbec41ff4fe8"
+  },
+  "all_component_checks_pass": true,
+  "component_errors": {
+    "ACQUISITION_FINAL_AUDIT.json": [],
+    "STATIONARY_FINAL_AUDIT.json": [],
+    "DRIFT_FINAL_AUDIT.json": [],
+    "PROFILES_FINAL_AUDIT.json": []
+  },
+  "binary_output_hashes_verified": 168,
+  "binary_scientific_bytes_hashed": 640043975,
+  "coverage": {
+    "native_physical_channel_interval_half_open": [
+      158334976,
+      159383552
+    ],
+    "stationary_carriers_per_each_of6_scans": 1048010,
+    "sparse_drift_carriers_per_each_of3_ON_scans": 131072,
+    "sparse_drift_core_count": 32,
+    "drift_grid_count": 763,
+    "widths_channels": [
+      1,
+      3
+    ],
+    "stationary_rank_descriptions": 120,
+    "drift_rank_descriptions": 60,
+    "fixed_ON_top3_profile_cases": 18,
+    "scan_profiles": 108,
+    "time_row_occurrences": 1728,
+    "plots": 36,
+    "independent_observation_visits": 1,
+    "new_observing_visits": 0
+  },
+  "new_spectral_BODY_bytes": 305137622,
+  "cumulative_same_cadence_BODY_bytes": 611429683,
+  "charged_guard_upper_bound_bytes": 611429779,
+  "measured_science_process_CPU_components_sum_s": 282.887074009,
+  "measured_science_process_wall_components_sum_s": 844.2861284089995,
+  "largest_science_process_peak_RSS_bytes": 805277696,
+  "activity_reservation_CPU_s": 750,
+  "reservation_not_refunded": true,
+  "whole_activity_CPU_measured": false,
+  "qualified_sky_pilot": false,
+  "old_A_B_failures_unchanged": true,
+  "old_holdouts_unopened": true,
+  "material_gap_found": false,
+  "audit_scope": [
+    "Read-only metadata/receipt comparison and streamed binary SHA256 checks; no analysis reruns, new telescope HTTP, RNG, HDF5 numerical decoding or numerical NPZ parsing.",
+    "Output geometry, complete rows, selected fixed profile ancestry, bounds, resource envelopes and code/source pins checked independently from JSON evidence."
+  ],
+  "remaining_review_scope": [
+    "PNG visual rendering review is separate; binary hashes alone do not verify plotting quality.",
+    "No independent numerical rescoring or recovery/FAP/flux/sky-significance qualification follows from this integrity audit.",
+    "Original source whole-file MD5/SHA is not verified; exact source-range hashes and ETag/file-size identities are retained.",
+    "HTTP status/effective-URL checks were enforced by the frozen reader; per-request receipts store checked headers and completion markers, rather than separate response-status/effective-URL fields.",
+    "Received accounting is application-body accounting, excluding wire/header traffic and separately restored dependency/cache bytes."
+  ]
+}
