@@ -1,0 +1,13 @@
+# Hurtig, særskilt signalinspektion — 9. oktober 2026
+
+Brugeren har prioriteret hurtig analyse af signaler og autonom fremdrift. Derfor åbnes én afgrænset eksplorativ inspektion af de allerede metadataudvalgte seks HIP98505-scans fra 17. marts 2016. Den oprindelige kvalifikationspilot forbliver blokeret, og A/B forbliver FAIL_CLOSED. Dette ændrer ikke historiske udfald eller giver den nye inspektion kalibreret følsomhed, FAP, flux/EIRP eller nuldetektionsmyndighed.
+
+Kilden og de 96 HTTP-ranges er frosset i `pilot_source_20261008/primary/source_manifest.json` ved commit `76f9de3ce5fb1ee06612d60023ec9ac6ae4d8ade`. Samlet spektrumpayload: 305.133.821 bytes, tidligere metadata: 1.158.240 bytes. Ingen retry, fuldfil-download eller ændret ETag accepteres. Standard h5py 3.15.1 og hdf5plugin 7.1.0 bruges med de eksisterende rene reader-hjælpere; den gamle gatede runner kaldes aldrig, og der fremstilles ingen PASS-admission.
+
+Søg hver af tre ON separat: 4.096 native referencekanaler `[159905792,159909888)`, eget første integrationsmidtpunkt som tidsreference, 16 rækker, drift ±4 Hz/s ved 763 punkter, bredder 1 og 3 kanaler. Maksimal halv-grid-afvigelse er under 0,5 kanal over scannens 269,79336192 s. Brug den uændrede robuste preprocessing og box-track-beregning fra den frosne detector. Ingen gamle OFF-vetoer eller ændringer af kvalifikationsregler anvendes.
+
+Gem seks power-arrays med crop `[159901792,159913888)`: 4.000 kanaler på hver side af referencebandet, til faktisk tidsfremføring mellem scans og medianfiltermargin. Gem maksimum og vinderparametre for alle referencekanaler. Vis top 20 repræsentative spor pr. ON med tre-kanalers frekvensafstand; disse er korrelerede beskrivelser, ikke uafhængige kandidater. Undersøg højst seks pr. ON i alle seks scans ved faktisk MJD og samme drift/bredde plus ±1 kanal som beskrivende sammenligning. Gem bidrag pr. tidsrække og plots; korte eller tvetydige spor bevares.
+
+Ny konservativ reservation: 1.200 CPU-s inklusive opsætning, læsning, søgning, gennemgang og publicering. Tidligere saldo 5.912,705144981004; saldo efter reservation 4.712,705144981004 CPU-s, heraf mindst 2.000 beskyttet. Grænser: 0 DKK, 4 GiB RAM/job, 30 min vægtid/job, 8 GiB samlet arbejdsplads, 2 GiB kildedata for denne sekvens og den eksisterende 4,25 GiB samlede kildegrænse. Tidligere reservationer ændres ikke; ingen refundering eller påstand om fuldt målt historisk forbrug. Ingen gamle holdouts, nye syntetiske banker, observationbookinger eller eksterne beskeder åbnes her.
+
+Valg og kode hashes fryses i `scope.json` og publiceres før første spektrumpayload. Resultatværdier er derefter eksplorativt åbnede og kan ikke bruges som blind validering.
