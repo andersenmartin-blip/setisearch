@@ -1,0 +1,136 @@
+{
+  "activity": "EXPLORATORY_FIXED_FREQUENCY_SHAPE_OF_SEVEN_PRESELECTED_WEAK_PROFILES",
+  "prior_scientific_commit": "d4415803c2c43002f8ca3931aeefc524a7c65c16",
+  "same_visit_UTC_date": "2016-03-17",
+  "input_archive": {
+    "name": "SETI_ON_OFF_EXCESS_2026-10-09.zip",
+    "bytes": 77022050,
+    "sha256": "893e1c804436bd46b36b4569eaff361621e5570e8257c82d27ae2a03570ee88c"
+  },
+  "inputs": [
+    {
+      "id": "epoch1_on_contrast_rank_01",
+      "originating_on": "epoch1_on",
+      "source_channel": 160115804,
+      "frequency_mhz": 1422.4559341597014,
+      "path": "epoch1_on_contrast_rank_01_fixed_time_patch.npz",
+      "sha256": "ec835c25a5aef053ea71ac74190d61adccfdcf2349ee2627caa42213a3d085ff",
+      "bytes": 141212
+    },
+    {
+      "id": "epoch1_on_contrast_rank_02",
+      "originating_on": "epoch1_on",
+      "source_channel": 159485702,
+      "frequency_mhz": 1424.2425905346752,
+      "path": "epoch1_on_contrast_rank_02_fixed_time_patch.npz",
+      "sha256": "2c2c93ff68059442f946e90fa81adbf10f5555085b8fd349147a33b16cf0eb24",
+      "bytes": 141075
+    },
+    {
+      "id": "epoch1_on_contrast_rank_03",
+      "originating_on": "epoch1_on",
+      "source_channel": 160214486,
+      "frequency_mhz": 1422.1761210113616,
+      "path": "epoch1_on_contrast_rank_03_fixed_time_patch.npz",
+      "sha256": "999c1922b2ab3adf4be4c4a2f8016455d5417b74bd1cca0b4f63dfc358013cce",
+      "bytes": 141235
+    },
+    {
+      "id": "epoch2_on_contrast_rank_01",
+      "originating_on": "epoch2_on",
+      "source_channel": 159543371,
+      "frequency_mhz": 1424.0790698880364,
+      "path": "epoch2_on_contrast_rank_01_fixed_time_patch.npz",
+      "sha256": "b0bcc5052367dd36349885d9650da69eba7f80cb55f4edadde5bc429cac54c13",
+      "bytes": 141051
+    },
+    {
+      "id": "epoch2_on_contrast_rank_03",
+      "originating_on": "epoch2_on",
+      "source_channel": 160178146,
+      "frequency_mhz": 1422.279163205588,
+      "path": "epoch2_on_contrast_rank_03_fixed_time_patch.npz",
+      "sha256": "20ddfb69304aed623c362193848c22c067a358f376e805d66872b8450108f25e",
+      "bytes": 141268
+    },
+    {
+      "id": "epoch3_on_contrast_rank_01",
+      "originating_on": "epoch3_on",
+      "source_channel": 159552005,
+      "frequency_mhz": 1424.0545881515216,
+      "path": "epoch3_on_contrast_rank_01_fixed_time_patch.npz",
+      "sha256": "514f37ffac89941747874c018331838bf46bce0d94cc680ccd6bdef49f87615d",
+      "bytes": 141068
+    },
+    {
+      "id": "epoch3_on_contrast_rank_03",
+      "originating_on": "epoch3_on",
+      "source_channel": 159835573,
+      "frequency_mhz": 1423.250530118158,
+      "path": "epoch3_on_contrast_rank_03_fixed_time_patch.npz",
+      "sha256": "44182acfb818fcea45e67006f40eaa2275d7ff7a82b57094d8f9a995d6256ada",
+      "bytes": 141053
+    }
+  ],
+  "scans": [
+    "epoch1_on",
+    "epoch1_off",
+    "epoch2_on",
+    "epoch2_off",
+    "epoch3_on",
+    "epoch3_off"
+  ],
+  "adjacency": {
+    "epoch1_on": [
+      "epoch1_off"
+    ],
+    "epoch2_on": [
+      "epoch1_off",
+      "epoch2_off"
+    ],
+    "epoch3_on": [
+      "epoch2_off",
+      "epoch3_off"
+    ]
+  },
+  "offsets": [
+    -64,
+    64
+  ],
+  "rows": 16,
+  "widths_channels": [
+    1,
+    3,
+    5,
+    9,
+    17
+  ],
+  "profile_definition": "p(scan,offset)=mean_rows(saved row_normalized_power(scan,row,offset)-saved fixed_flank_median_row_normalized_power(scan,row)); same additive normalization as previous time review",
+  "window_definition": "arithmetic mean of p across offsets -(w-1)/2..+(w-1)/2; w=1 reuses previous center summary as a provenance check, not new evidence",
+  "side_definition": "p(0) - mean(p(-1),p(+1)); also report the immediate neighbor mean independently",
+  "OFF_comparison": "For each fixed window subtract maximum adjacent OFF same-frequency same-window mean. Also retain each adjacent OFF separately. No neighborhood maximum search.",
+  "plot_definition": "seven panels; fixed offsets -16..16 plotted in increasing physicalfrequency; same common y axis computed from plotted data; all6scanprofiles retained in CSV/JSON/NPZ, originatingON andadjacentOFF highlighted",
+  "no_frequency_drift_time_or_width_selection": true,
+  "no_peak_search_or_linewidth_fit": true,
+  "no_new_significance_or_source_classification": true,
+  "no_new_observations": true,
+  "qualification": "A_B_FAIL_CLOSED_UNCHANGED",
+  "old_holdouts_closed": true,
+  "limits": {
+    "job_CPU_s": 35,
+    "job_wall_s": 90,
+    "job_memory_bytes": 1073741824,
+    "conservative_whole_activity_CPU_reservation_s": 200
+  },
+  "limitations": [
+    "Post-selection shapes from already-ranked channels, one visit only.",
+    "Central localization does not distinguish noise, interference or celestial narrowband signal.",
+    "Fixed-width averages are descriptive; comparing them is not a new detector or calibrated test.",
+    "Windows9/17 include offsets also used in the previously saved flank median, so the baseline and window are dependent.",
+    "The central-side contrast is local three-channel curvature; the shared row baseline cancels algebraically.",
+    "Fixed-center OFF subtraction differs from the original selection's \u00b132-channel OFF envelope and is not a new ranking.",
+    "Averaging16time rows does not estimate physical linewidth or supply independent confirmation."
+  ],
+  "script_sha256": "d861471b10a2b03e1355b91e1af760b498735d9b56d87ab99d820e3041dc4755",
+  "original_reference_sha256": "d43b4bb48749f10baff4eaa6f569a175e51d3fb20c29c0431d37120b0632b284"
+}
