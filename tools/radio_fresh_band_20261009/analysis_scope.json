@@ -1,0 +1,147 @@
+{
+  "schema": "SETI_FRESH_EXPLORATORY_STATIONARY_AND_SPARSE_DRIFT_V1",
+  "frozen_before_new_band_values": true,
+  "source_manifest_sha256": "d2e6c76b0d5fe50b26d45830e4b67e4780da97f33cfe8fcdf80c761f47aa3a4c",
+  "script_sha256": "1a04ab1ea0d8b79b66ebc2a59a5c72b9c17b235f1a331ac19efeba90bade7102",
+  "pinned_dependency_files": {
+    "pilot_engine_20261008/detector.py": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45"
+  },
+  "unchanged_detector_commit": "37b6f880389b610f0a6681aee60205b194487f86",
+  "source_channel_interval_half_open": [
+    158334976,
+    159383552
+  ],
+  "count": 1048576,
+  "rows_per_scan": 16,
+  "fch1_hz": 1876464843.75,
+  "df_hz": -2.835503418452676,
+  "tsamp_s": 17.986224128,
+  "widths_channels": [
+    1,
+    3
+  ],
+  "stationary_eligible_local_interval_half_open": [
+    283,
+    1048293
+  ],
+  "stationary_control_halfwidth_channels": 32,
+  "control_mapping": {
+    "epoch1_on": [
+      "epoch1_off"
+    ],
+    "epoch2_on": [
+      "epoch1_off",
+      "epoch2_off"
+    ],
+    "epoch3_on": [
+      "epoch2_off",
+      "epoch3_off"
+    ],
+    "epoch1_off": [
+      "epoch1_on",
+      "epoch2_on"
+    ],
+    "epoch2_off": [
+      "epoch2_on",
+      "epoch3_on"
+    ],
+    "epoch3_off": [
+      "epoch3_on"
+    ]
+  },
+  "stationary_row_normalization": "per row median of all 1048576 native channels",
+  "stationary_baseline": "501-channel running median of mean row-normalized power, nearest endpoint mode",
+  "stationary_fractional_excess": "mean row-normalized power / running baseline - 1",
+  "stationary_score": "width-mean origin excess minus greatest adjacent control width-mean within +/-32 channels",
+  "stationary_winning_width_tie": "width1",
+  "stationary_display_suppression_channels": 32,
+  "drift_core_start_relative_channels": [
+    4096,
+    36864,
+    69632,
+    102400,
+    135168,
+    167936,
+    200704,
+    233472,
+    266240,
+    299008,
+    331776,
+    364544,
+    397312,
+    430080,
+    462848,
+    495616,
+    528384,
+    561152,
+    593920,
+    626688,
+    659456,
+    692224,
+    724992,
+    757760,
+    790528,
+    823296,
+    856064,
+    888832,
+    921600,
+    954368,
+    987136,
+    1019904
+  ],
+  "drift_core_channel_count": 4096,
+  "drift_crop_halo_channels": 4000,
+  "drift_grid": {
+    "first_hz_s": -4,
+    "last_hz_s": 4,
+    "count": 763
+  },
+  "drift_carriers_per_ON": 131072,
+  "drift_carrier_fraction_of_native_chunk": 0.125,
+  "drift_reference": "each ON own first integration midpoint; actual header times for crossscan profiles",
+  "drift_preprocess": "unchanged detector per-core row normalization, 501-channel median, empirical MAD and winsorized location",
+  "drift_display_suppression_channels": 3,
+  "rank_count": 20,
+  "profile_ranks_per_origin_and_family": 3,
+  "fixed_profile_shift_channels": 0,
+  "profile_halfwidth_channels": 64,
+  "profile_normalization": "reuse full-chunk row medians from stationary phase, no frequency/drift/width adjustment",
+  "profile_flank": "median of offsets with absolute channel offset >3 within +/-64, each row",
+  "CPU_caps_s": {
+    "stationary": 60,
+    "drift": 350,
+    "profiles": 60
+  },
+  "wall_cap_s": 1800,
+  "memory_cap_bytes": 4294967296,
+  "current_runtime_package_versions": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "matplotlib": "3.10.8"
+  },
+  "required_source_codec_versions": {
+    "h5py": "3.15.1",
+    "hdf5plugin": "7.1.0"
+  },
+  "input_contract": "ACQUISITION_RESULT.json complete six compact H5 files represented by decoded_files, per-file and all16row hashes",
+  "stationary_checkpoint": "each origin saved with all full signed width1/width3 maps and rank list",
+  "drift_checkpoint": "each scan/core saved with all4096 carrier maxima, drift/width winners and valid counts; no reruns",
+  "unqualified_exploratory_only": true,
+  "OFF_veto": false,
+  "original_A_B_failures_unchanged": true,
+  "calibrated_SNR_FAP_flux_EIRP_or_sensitivity": false,
+  "old_holdouts_reopened": false,
+  "new_observing_visits": false,
+  "limitations": [
+    "One historical six-scan visit; scan labels epoch1/2/3 do not represent independent visits",
+    "Stationary family covers 1048010 eligible carriers per scan, preserving all six directions",
+    "Drift family covers 32 separated cores, not the full frequency chunk",
+    "All ranks and fixed profiles are descriptive; positive row counts and robust scores are not calibrated probabilities"
+  ],
+  "profile_origin_labels": [
+    "epoch1_on",
+    "epoch2_on",
+    "epoch3_on"
+  ],
+  "expected_profile_count": 18
+}
