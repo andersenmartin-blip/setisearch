@@ -1,0 +1,313 @@
+{
+  "status": "COMPLETED_EXPLORATORY_STATIONARY_ON_OFF_CONTRAST",
+  "scope_sha256": "b5c15ab72bed84a113a4f608a36c40d65ae2e9b7be2ea39f041f81909c026f11",
+  "script_sha256": "23f356ed6e738438a1e886e56790a9c102b636bb6e750926af5fabe313a33f37",
+  "source_manifest_sha256": "6a9c166f15de69c378e3346fcd5dac1082790345622b2df3af674f108bf29aec",
+  "verified_saved_spectrum_members": {
+    "epoch1_on": {
+      "archive_member": "broad_inventory/epoch1_on_full_chunk_spectrum.npz",
+      "sha256": "1d0eda88c3b3dc45cea76a8b293211f9ff85958d86ea33e329747c075c8de8e7",
+      "bytes": 16587710
+    },
+    "epoch1_off": {
+      "archive_member": "broad_inventory/epoch1_off_full_chunk_spectrum.npz",
+      "sha256": "c1bf89e0542a630c9dccfdd54c65c93e05b490cd39c3f7ab148836910a48458d",
+      "bytes": 16582087
+    },
+    "epoch2_on": {
+      "archive_member": "broad_inventory/epoch2_on_full_chunk_spectrum.npz",
+      "sha256": "8c1d527f5da4700fcfd765f31c01b1e10f61761d305a3f1a0096503de4a80536",
+      "bytes": 16589753
+    },
+    "epoch2_off": {
+      "archive_member": "broad_inventory/epoch2_off_full_chunk_spectrum.npz",
+      "sha256": "b49ec3c9429170f1f36b1487d6b864623bea50748d96f2f4bca0fc8b5a2ebfe3",
+      "bytes": 16591739
+    },
+    "epoch3_on": {
+      "archive_member": "broad_inventory/epoch3_on_full_chunk_spectrum.npz",
+      "sha256": "384cd03ec872152a94392b30edb22994f9455476fc784e621be8714c6aceed6a",
+      "bytes": 16588858
+    },
+    "epoch3_off": {
+      "archive_member": "broad_inventory/epoch3_off_full_chunk_spectrum.npz",
+      "sha256": "9dc0cd4e71f0747da30121386b1e1276961966d923f829378fc45ffcf467219a",
+      "bytes": 16589863
+    }
+  },
+  "adjacent_OFF_mapping": {
+    "epoch1_on": [
+      "epoch1_off"
+    ],
+    "epoch2_on": [
+      "epoch1_off",
+      "epoch2_off"
+    ],
+    "epoch3_on": [
+      "epoch2_off",
+      "epoch3_off"
+    ]
+  },
+  "fractional_excess_definition": "row_normalized_mean_power / running_median_baseline - 1",
+  "score_definition": "mean_width(e_ON) minus maximum of mean_width(e_adjacent_OFF) within \u00b132 source channels",
+  "widths_channels": [
+    1,
+    3
+  ],
+  "winner_tie_rule": "width1",
+  "OFF_halo_channels": 32,
+  "eligible_local_index_interval_half_open": [
+    283,
+    1048293
+  ],
+  "eligible_source_channel_interval_half_open": [
+    159383835,
+    160431845
+  ],
+  "eligible_carriers_per_ON": 1048010,
+  "eligible_channel_edge_bandwidth_hz": 2971635.937572589,
+  "all_full_arrays_signed_finite": true,
+  "full_array_edge_values": "Numerical padding retained; outside eligible interval excluded from ranking and summaries",
+  "display_NMS_channels": 32,
+  "display_top_per_ON": 20,
+  "plot_count": 9,
+  "plot_halfwidth_channels": 128,
+  "ONs_ranked_independently": true,
+  "OFF_veto_or_qualification": false,
+  "new_HTTP_requests": 0,
+  "new_telescope_source_bytes": 0,
+  "new_source_chunk_decodes": 0,
+  "new_drift_rescoring": 0,
+  "original_failure_statuses_changed": false,
+  "calibrated_SNR_FAP_flux_EIRP_or_sky_sensitivity": false,
+  "independent_observing_visits": 1,
+  "ON_summary": {
+    "epoch1_on": {
+      "eligible_source_channels": 1048010,
+      "eligible_width_hypotheses": 2096020,
+      "positive_maxD_channels_descriptive_only": 34937,
+      "largest_signed_contrast": 0.07644473312168598,
+      "smallest_signed_contrast": -1.3039611507543685
+    },
+    "epoch2_on": {
+      "eligible_source_channels": 1048010,
+      "eligible_width_hypotheses": 2096020,
+      "positive_maxD_channels_descriptive_only": 17361,
+      "largest_signed_contrast": 0.06863339984462247,
+      "smallest_signed_contrast": -1.3279849872118363
+    },
+    "epoch3_on": {
+      "eligible_source_channels": 1048010,
+      "eligible_width_hypotheses": 2096020,
+      "positive_maxD_channels_descriptive_only": 17728,
+      "largest_signed_contrast": 0.07739029657435337,
+      "smallest_signed_contrast": -1.3197061443101874
+    }
+  },
+  "saved_original_normalization_context": {
+    "epoch1_on": {
+      "residual_location": 0.0,
+      "residual_MAD_scale": 0.025110919153297138,
+      "row_power_medians": [
+        976921856.0,
+        976790304.0,
+        979049568.0,
+        978482784.0,
+        979138816.0,
+        979066528.0,
+        981222368.0,
+        977866208.0,
+        976941504.0,
+        981955168.0,
+        981652896.0,
+        978047488.0,
+        978595776.0,
+        978255264.0,
+        978630368.0,
+        978003424.0
+      ]
+    },
+    "epoch1_off": {
+      "residual_location": 0.0,
+      "residual_MAD_scale": 0.025096034951660188,
+      "row_power_medians": [
+        978012416.0,
+        977721280.0,
+        978616896.0,
+        975260032.0,
+        975728896.0,
+        978995072.0,
+        980612896.0,
+        977857472.0,
+        978289376.0,
+        981660736.0,
+        977012192.0,
+        977784128.0,
+        977264192.0,
+        977420896.0,
+        975405056.0,
+        975007712.0
+      ]
+    },
+    "epoch2_on": {
+      "residual_location": 0.0,
+      "residual_MAD_scale": 0.025123249228847597,
+      "row_power_medians": [
+        977879296.0,
+        978414112.0,
+        981560256.0,
+        980985280.0,
+        983296224.0,
+        983998688.0,
+        981186112.0,
+        980320768.0,
+        977339072.0,
+        977962592.0,
+        980432800.0,
+        979608608.0,
+        978876992.0,
+        977352000.0,
+        976715040.0,
+        977706784.0
+      ]
+    },
+    "epoch2_off": {
+      "residual_location": 0.0,
+      "residual_MAD_scale": 0.025078771566550914,
+      "row_power_medians": [
+        977585632.0,
+        977774112.0,
+        979084544.0,
+        979174464.0,
+        978277152.0,
+        977659712.0,
+        979959488.0,
+        981783456.0,
+        982821472.0,
+        980736704.0,
+        981151264.0,
+        981158464.0,
+        978447424.0,
+        978689536.0,
+        977140608.0,
+        980492352.0
+      ]
+    },
+    "epoch3_on": {
+      "residual_location": 0.0,
+      "residual_MAD_scale": 0.025117050210259475,
+      "row_power_medians": [
+        983424384.0,
+        980798432.0,
+        980326112.0,
+        985118560.0,
+        980966848.0,
+        983347616.0,
+        986442656.0,
+        982291008.0,
+        981420352.0,
+        980995072.0,
+        982014464.0,
+        981146752.0,
+        979888384.0,
+        979741056.0,
+        981974976.0,
+        979569280.0
+      ]
+    },
+    "epoch3_off": {
+      "residual_location": 0.0,
+      "residual_MAD_scale": 0.025062998713783435,
+      "row_power_medians": [
+        981233088.0,
+        980466592.0,
+        981120064.0,
+        981618240.0,
+        980493664.0,
+        982959200.0,
+        981653440.0,
+        980353792.0,
+        977916896.0,
+        979574176.0,
+        981409120.0,
+        984324576.0,
+        980917312.0,
+        982349056.0,
+        983356736.0,
+        982276768.0
+      ]
+    }
+  },
+  "score_files": {
+    "epoch1_on": {
+      "path": "epoch1_on_full_chunk_stationary_contrast.npz",
+      "sha256": "60cdcefe9a450a462a6b89b05baa70f05ca7778d5d81b1dd195abdacfb0c74e9",
+      "bytes": 23625457
+    },
+    "epoch2_on": {
+      "path": "epoch2_on_full_chunk_stationary_contrast.npz",
+      "sha256": "cd412a0c182296db153803e4403b585fdb4c6f26cdf02f794817e5f70c7c2204",
+      "bytes": 23582254
+    },
+    "epoch3_on": {
+      "path": "epoch3_on_full_chunk_stationary_contrast.npz",
+      "sha256": "da1b86e625e12f9b476a2eaed4233b9337bddb195bf98aa70c07854036fc161e",
+      "bytes": 23582730
+    }
+  },
+  "plots": [
+    {
+      "path": "epoch1_on_contrast_rank_01.png",
+      "sha256": "5aa49c51fb3620a5b2a969c3868e45d0125698eda2a52cdd7851fc5920c1918a"
+    },
+    {
+      "path": "epoch1_on_contrast_rank_02.png",
+      "sha256": "09322857547a3ffb9313a11fd185a0146a5e086c2c7b78f89e230e23c9846e72"
+    },
+    {
+      "path": "epoch1_on_contrast_rank_03.png",
+      "sha256": "53c2ba53cffdf3c5ea1b4b79c6b43555d805a7084f8834203b57f25b721b2267"
+    },
+    {
+      "path": "epoch2_on_contrast_rank_01.png",
+      "sha256": "3a32fa16566cb87af0020bd01f02060b6b237d33d6a893654ef2655d7e5cf094"
+    },
+    {
+      "path": "epoch2_on_contrast_rank_02.png",
+      "sha256": "3244bcec8ac89bbc5ce823a0d37000d5e2059450dc4068558341d7a1f9f82178"
+    },
+    {
+      "path": "epoch2_on_contrast_rank_03.png",
+      "sha256": "4a7a529e189de25e34b5f21df91e0fe7d1cc8d214e15f4139cadc6a1f73425e5"
+    },
+    {
+      "path": "epoch3_on_contrast_rank_01.png",
+      "sha256": "8565fbac5c8770ad133ce9ec6a6ae2e5afc6ab80d80b6449660227e830f2c92b"
+    },
+    {
+      "path": "epoch3_on_contrast_rank_02.png",
+      "sha256": "57a40527f2dc6e7255cd147dddf7805b05179cecc629c92aff6693fc520b5b56"
+    },
+    {
+      "path": "epoch3_on_contrast_rank_03.png",
+      "sha256": "48c4c500083c991904de221b66c3df9c05f7d98c6675def769f069a4fe4c7389"
+    }
+  ],
+  "limitations": [
+    "Post-data exploratory prioritization with correlated channel/width trials; ranks are not probabilities",
+    "Each scan has its own row normalization and running baseline; gain/background changes can cause apparent excess",
+    "OFF windows can contain unrelated lines; the control envelope is evidence, not a sky veto",
+    "Only time-averaged stationary spectral projections are compared; drifting or brief signals can be diluted",
+    "Width3 scores average fractional excess; original width1 ON residual units are context only",
+    "ON1 has only a following OFF; no preceding OFF exists in this acquired sequence",
+    "One historical visit; no discovery or qualified sky-null conclusion"
+  ],
+  "caps": {
+    "CPU_seconds": 45,
+    "wall_seconds": 120,
+    "address_space_bytes": 1610612736
+  },
+  "process_CPU_seconds_including_imports": 14.327063844,
+  "wall_seconds_including_imports": 14.358950660999653,
+  "peak_RSS_bytes": 328966144
+}
