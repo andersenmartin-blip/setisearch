@@ -1,0 +1,73 @@
+{
+  "scope": "POST_DATA_EXPLORATORY_SAVED_STATIONARY_ON_OFF_EXCESS",
+  "created_date_Europe_Copenhagen": "2026-10-09",
+  "prior_science_head": "92d48deee94935a9e40c2d10404f4fbd45aabf69",
+  "script_sha256": "23f356ed6e738438a1e886e56790a9c102b636bb6e750926af5fabe313a33f37",
+  "source_manifest_sha256": "6a9c166f15de69c378e3346fcd5dac1082790345622b2df3af674f108bf29aec",
+  "prior_broad_receipt_sha256": "866de0dd7a07f17c1678a23cf04d66640b7ee6c5f398756cb8d3bccf84168dd6",
+  "input_results_archive_sha256": "bb571a1315fdf18cce91f3489e13b92d3499c71e5da2fce58da32074e1346953",
+  "spectra_sha256": {
+    "epoch1_off": "c1bf89e0542a630c9dccfdd54c65c93e05b490cd39c3f7ab148836910a48458d",
+    "epoch1_on": "1d0eda88c3b3dc45cea76a8b293211f9ff85958d86ea33e329747c075c8de8e7",
+    "epoch2_off": "b49ec3c9429170f1f36b1487d6b864623bea50748d96f2f4bca0fc8b5a2ebfe3",
+    "epoch2_on": "8c1d527f5da4700fcfd765f31c01b1e10f61761d305a3f1a0096503de4a80536",
+    "epoch3_off": "9dc0cd4e71f0747da30121386b1e1276961966d923f829378fc45ffcf467219a",
+    "epoch3_on": "384cd03ec872152a94392b30edb22994f9455476fc784e621be8714c6aceed6a"
+  },
+  "channel0": 159383552,
+  "count": 1048576,
+  "df_hz": -2.835503418452676,
+  "fch1_hz": 1876464843.75,
+  "widths_channels": [
+    1,
+    3
+  ],
+  "eligible_relative_channel_interval_half_open": [
+    283,
+    1048293
+  ],
+  "adjacent_OFF_by_ON": {
+    "epoch1_on": [
+      "epoch1_off"
+    ],
+    "epoch2_on": [
+      "epoch1_off",
+      "epoch2_off"
+    ],
+    "epoch3_on": [
+      "epoch2_off",
+      "epoch3_off"
+    ]
+  },
+  "OFF_frequency_neighborhood_halfwidth_channels": 32,
+  "display_NMS_channels": 32,
+  "display_top_ranks_per_ON": 20,
+  "spectral_profile_plots_per_ON": 3,
+  "plot_halfwidth_channels": 128,
+  "statistic": "Fractional mean power over per-scan local baseline minus maximum adjacent-OFF fractional excess in +-32channels, same width; maximize widths1/3 independently perON",
+  "retain_signed_full_score_arrays": true,
+  "selection_after_data_opening": true,
+  "independent_visits": 1,
+  "ON_integration_exposure_s": 863.338758144,
+  "new_telescope_GETs": 0,
+  "new_telescope_source_bytes": 0,
+  "cache_archive_bytes_materialized": 209922108,
+  "new_local_HDF5_decodes": 0,
+  "new_old_detector_scores": 0,
+  "qualified_detection_or_OFF_veto": false,
+  "calibrated_SNR_FAP_sensitivity": false,
+  "old_A_B_qualification": "FAIL_CLOSED_UNCHANGED",
+  "limits": {
+    "conservative_reservation_CPU_s": 60,
+    "job_CPU_limit_s": 45,
+    "job_wall_limit_s": 120,
+    "job_memory_limit_bytes": 1610612736,
+    "protected_final_checkpoint_CPU_s": 2000
+  },
+  "limitations": [
+    "Different scan-relative baselines can create apparent contrast; statistic is descriptive fractional difference, not calibrated significance",
+    "OFF neighborhood maxima can overlap unrelated emission; this ranks, never vetoes or proves origin",
+    "Stationary full-scan mean can dilute drifting or short-duration signals; no new time/drift search or sky-null claim",
+    "Search covers the same historical physical source chunk; do not add exposure or bandwidth as independent observations"
+  ]
+}
