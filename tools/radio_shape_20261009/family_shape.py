@@ -65,9 +65,13 @@ def run(a):
                         d['residual_each_row'],int(d['selected_width_channels']),int(d['source_channel']))
                 else:
                     ids=d['profile_ids'].tolist();assert len(ids)==104 and len(set(ids))==104
+                    # Each NPZ key access decompresses its complete member. Load once.
+                    all_norm=d['row_normalized_power'];all_raw=d['raw_power']
+                    all_residual=d['residual_each_row'];medians=d['saved_row_medians']
+                    widths=d['selected_widths'];channels=d['source_channels']
                     for k,pid in enumerate(ids):
-                        add(pid,d['row_normalized_power'][k],d['raw_power'][k],d['saved_row_medians'],
-                            d['residual_each_row'][k],int(d['selected_widths'][k]),int(d['source_channels'][k]))
+                        add(pid,all_norm[k],all_raw[k],medians,
+                            all_residual[k],int(widths[k]),int(channels[k]))
     assert set(profiles)==set(metadata) and len(checks)==113
     records=[]
     for r in refs:
