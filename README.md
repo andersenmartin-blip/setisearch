@@ -1,3 +1,19 @@
+# SETI — 9. oktober 2026: nyt frekvensbånd søgt, stærke træk også i OFF
+
+Et tidligere uåbnet bånd omkring **1424,532–1427,505 MHz** er nu hentet og analyseret for HIP98505/HD189733 i den samme seks-scans observation fra 17. marts 2016. Dette er ekstra frekvensdækning i ét historisk besøg.
+
+Den stationære søgning er fuldført for **1.048.010 bærefrekvenser pr. scanning**, inklusive reciprokke OFF-kontroller. Søgningen med drift er fuldført i **32 adskilte delbånd**, **131.072 bærefrekvenser pr. ON** (12,5 % af kanalblokken), med 763 driftværdier fra −4 til +4 Hz/s og bredde 1/3. Alle **18 valgte ON-profiler** er gennemgået ved fast frekvens, drift og bredde i alle seks scanninger.
+
+Det stærkt rangerede område ved **1426,282 MHz** viser næsten samme faste profilmiddel i ON og OFF: **ON2 1,578749 mod OFF1 1,558537**; **ON3 0,897975 mod OFF3 0,877271**. De ni driftprofiler er korrelerede nabovarianter af dette område. Stærke træk omkring **1425,0045 MHz** findes også i kontrolscanningerne. De seks mindre stationære ON-profiler forbliver uafklarede.
+
+**A/B er fortsat FAIL_CLOSED, og en kvalificeret pilot er fortsat blokeret.** Rangeringer og positive tidsrækker er beskrivelser efter udvælgelse; de giver ingen kalibreret SNR, falskalarmrate, flux, følsomhedsgrænse eller sky-oprindelse. De gamle holdouts og tidligere syv uafklarede profiler er bevaret.
+
+[Ny rapport med alle 18 profiler og figurer](https://github.com/andersenmartin-blip/setisearch/blob/08d0bc6b7a09a4cc6cd238fc9626515eef842398/RADIO_FRESH_BAND_2026-10-09_RESULT.md) · [Projektstatus](https://github.com/andersenmartin-blip/setisearch/blob/08d0bc6b7a09a4cc6cd238fc9626515eef842398/PROJECT_STATUS.md) · [Uafhængig kontrol](https://github.com/andersenmartin-blip/setisearch/blob/08d0bc6b7a09a4cc6cd238fc9626515eef842398/results/radio_fresh_band_20261009/review/FINAL_INDEPENDENT_AUDIT.md) · [Datapakker og checksums](https://github.com/andersenmartin-blip/setisearch/blob/08d0bc6b7a09a4cc6cd238fc9626515eef842398/results/radio_fresh_band_20261009/DATA_AVAILABILITY.json) · [Verificeret offentliggørelse](https://github.com/andersenmartin-blip/setisearch/blob/08d0bc6b7a09a4cc6cd238fc9626515eef842398/results/radio_fresh_band_20261009/PUBLICATION_RECEIPT.json)
+
+De komplette RAW- og RESULTS-pakker er gemt og kontrolleret. Offentlige kode-, JSON/CSV- og figuridentiteter samt rapport og fuld statushistorik er læst tilbage og verificeret. Resterende konservativ CPU-ramme er **652,705 sekunder**, heraf **650** beskyttet til 20. oktober; samlet budget og 0 DKK er uændret.
+
+---
+
 # SETI — 9. oktober 2026: frekvensformen findes også i kontrolpanelet
 
 En længere sammenhængende arbejdsomgang har afsluttet tre evidensblokke: udvidet arkivsøgning efter et andet målbesøg, frekvensform for de syv faste svage ON-spor og samme måling i hele det gemte top20-panel med **60 ON- og 60 OFF-profiler**. De syv færdige former er genbrugt; 113 yderligere formprofiler er målt i allerede gemte udsnit.
