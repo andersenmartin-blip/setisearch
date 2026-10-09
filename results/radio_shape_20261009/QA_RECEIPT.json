@@ -1,0 +1,159 @@
+{
+  "status": "PASS",
+  "reviewed_UTC": "2026-10-09T18:52:03.199165+00:00",
+  "review_scope": "Independent code/scope review before numerical exposure, then completed JSON/CSV, receipts, document and PNG review; no detector or science job reruns, no NPZ array decoding, no new network requests during final review.",
+  "verified_local_file_pins": [
+    {
+      "path": "output/FIXED_FREQUENCY_PROFILES.csv",
+      "bytes": 160558,
+      "sha256": "fd8dfcfb5cbcdc166942f21b238b8973b2a32420af731501e73a9a0a0ad90de8"
+    },
+    {
+      "path": "output/FIXED_FREQUENCY_PROFILES.npz",
+      "bytes": 43466,
+      "sha256": "87d3ca88a33067f95182eddb8fc700c2530506ffdfb6ff5b8d0fb171da64689c"
+    },
+    {
+      "path": "output/FIXED_FREQUENCY_SHAPES.png",
+      "bytes": 794881,
+      "sha256": "fc89acd2d2f3894b06f5abfe3d457b0fa9e3b38c3106b7e1071d8250b69676ac"
+    },
+    {
+      "path": "output/FREQUENCY_SHAPE_RESULT.json",
+      "bytes": 24968,
+      "sha256": "0ec4da0e56723b3d2de59e222edac781060e4033bb31f7e0788689d8a0ad01c1"
+    },
+    {
+      "path": "family_output/ALL_120_FREQUENCY_PROFILES.npz",
+      "bytes": 713143,
+      "sha256": "657e833b6ff2d143230d01b25427f97c358929578b9893f3d65f132ef41e837b"
+    },
+    {
+      "path": "family_output/ALL_120_SHAPE_COMPARISON.png",
+      "bytes": 106800,
+      "sha256": "7732e1e9b4649c4067200537f1d1148d137bdd347fe378a5ef80b8c58cd87faa"
+    },
+    {
+      "path": "family_output/ALL_120_SHAPE_METRICS.csv",
+      "bytes": 41817,
+      "sha256": "193d0fedab7eb75b7c54e77b303be559d5e18d88b618b715ed01f1e748074324"
+    },
+    {
+      "path": "family_output/ALL_120_SHAPE_RESULT.json",
+      "bytes": 306703,
+      "sha256": "670dc39f1ffa2451cec9c9fb66d69aa31b8d462e6083ae3cbd73fbd91723a3c3"
+    },
+    {
+      "path": "frequency_shape.py",
+      "bytes": 9975,
+      "sha256": "f12cc85be284dbc7972ab999a9c2e6d3cdcdf6ab026076bee491320ffed1479e"
+    },
+    {
+      "path": "original_reference.json",
+      "bytes": 31523,
+      "sha256": "d43b4bb48749f10baff4eaa6f569a175e51d3fb20c29c0431d37120b0632b284"
+    },
+    {
+      "path": "scope.json",
+      "bytes": 5583,
+      "sha256": "80b6d6c81d8dfde64e14165e6dc63fef34aba3f8d38202aef45fbc0d983db250"
+    },
+    {
+      "path": "family_shape.py",
+      "bytes": 11190,
+      "sha256": "769c96929521f143ee073b6e534303367473dc5d6766e126e59f093ea0b4625e"
+    },
+    {
+      "path": "family_reference.json",
+      "bytes": 89726,
+      "sha256": "13ad93e3788d901a6219887db4fa2fb00b153798a10e4499b86d1b3883e1bf1e"
+    },
+    {
+      "path": "family_scope.json",
+      "bytes": 6428,
+      "sha256": "708fb5e65e00e1225c6dc8b2b12f182930fbd2221a1c6cb1ad656476fed792d9"
+    }
+  ],
+  "reviewed_documents": [
+    {
+      "path": "RADIO_FREQUENCY_SHAPE_2026-10-09_RESULT.md",
+      "bytes": 8967,
+      "sha256": "2c21cbfad992e3ac7a06f6acfb2b4d662cbff0937dda2d7b2ed9237527eb3b53"
+    },
+    {
+      "path": "REPRODUCTION.md",
+      "bytes": 3148,
+      "sha256": "fda1a70d33c51c622d0aa2002efb236a59e3ab1bd2b653fe2b22994920370b85"
+    }
+  ],
+  "verification": {
+    "profiles": 120,
+    "unique_profile_ids": 120,
+    "unique_exact_center_channels": 118,
+    "original_ON": 60,
+    "reciprocal_OFF": 60,
+    "seven_reused_without_remeasurement": 7,
+    "remaining_profile_checks": 113,
+    "old_selected_width_scan_means_checked_against_frozen_reference": 720,
+    "max_old_mean_difference": 3.3306690738754696e-16,
+    "max_execution_reported_baseline_reconstruction_error": 4.440892098500626e-16,
+    "CSV_JSON_profiles_match": true,
+    "seven_shape_window_summaries_match_panel": true,
+    "both_PNGs_visually_inspected": true,
+    "seven_origin_curvature_range": [
+      0.056314605417462284,
+      0.17155280614971666
+    ],
+    "selected_panel_curvature_medians": {
+      "on_controls_all_original_width_all": 0.11657659155518955,
+      "off_controls_all_original_width_all": 0.11592019137521364,
+      "on_controls_1_original_width_all": 0.10114825633701724,
+      "off_controls_1_original_width_all": 0.11108916078015263,
+      "on_controls_2_original_width_all": 0.11771403004346473,
+      "off_controls_2_original_width_all": 0.1220550107702828,
+      "on_controls_all_original_width_1": 0.11526754418996799,
+      "off_controls_all_original_width_1": 0.11514244385932938
+    },
+    "archive_metadata_GETs": 8,
+    "archive_metadata_application_body_bytes": 638686
+  },
+  "interpretation": "Comparable central-channel curvature among selected ON/OFF panel cases is descriptive. It supplies no certified noise distribution, exchangeability, FAP, sky confirmation, physical linewidth, or source classification. The complete panel is the frozen top20 selection, not the full original million-channel search family.",
+  "unchanged_statuses": {
+    "seven": "UNRESOLVED",
+    "A_B": "FAIL_CLOSED",
+    "qualified_pilot": "BLOCKED"
+  },
+  "limits_and_cost": {
+    "both_jobs_execution_receipts_report_success": true,
+    "new_telescope_power_bytes": 0,
+    "new_observations": 0,
+    "cost_DKK": 0,
+    "measured_analysis_process_components_CPU_s": 4.899275584,
+    "conservative_whole_activity_reserved_CPU_s": 200,
+    "whole_activity_CPU_measured": false
+  },
+  "memory_estimate_correction": {
+    "earlier_review_estimate_incorrect": "Approximately155MB grouped arrays and16GB repeated decompression.",
+    "corrected_raw_plus_normalized_group_array_bytes": 15455232,
+    "approximately104_repeated_raw_plus_normalized_decompression_bytes": 1607344128,
+    "correction": "The estimate was tenfold too high: approximately15.5MB group arrays and1.6GB repeated decompression. Loading grouped arrays once remains the correct fix; correction does not alter scientific results."
+  },
+  "earlier_preparation_review_error": "One QA inspection initially assumed the seven-profile scope used key reference_sha256; it actually uses original_reference_sha256. The inspection was corrected without a science rerun or data mutation.",
+  "resource_ledger_review": {
+    "path": "RESOURCE_LEDGER.json",
+    "bytes": 3033,
+    "sha256": "a84db5c58e47a45d6276131a8dbd3a00ecd18199371f1e9b95614df064dd3741",
+    "restored_cache_archive_bytes": 163187433,
+    "remaining_CPU_s": 1402.7051449810042,
+    "total_CPU_cap_s": 43200,
+    "metadata_body_bytes": 638686,
+    "A_B_unchanged": "FAIL_CLOSED_UNCHANGED",
+    "whole_activity_CPU_measured": false
+  },
+  "documentation_notes_resolved": [
+    "The report now explicitly states that windows9/17 overlap the original flank-background channels.",
+    "Both cached archives were materialized; ledger now correctly lists163187433bytes, without counting them as new telescope source exposure.",
+    "Guide spacing is corrected; technical family names remain explicitly restricted to the frozen120top20panel."
+  ],
+  "unresolved_findings": []
+}
