@@ -1,0 +1,98 @@
+{
+  "status": "COMPLETED_EXPLORATORY_TELESCOPE_SIGNAL_QUICKLOOK",
+  "family": "EXPLORATORY_SINGLE_SCAN_WIDTH_1_3_NO_OFF_VETO",
+  "qualified_sky_pilot": false,
+  "old_A_B_failures_reclassified": false,
+  "OFF_veto_applied": false,
+  "calibrated_SNR_FAP_flux_EIRP": false,
+  "one_historical_visit": true,
+  "mjd_anchor": 57464.69,
+  "source_manifest_sha256": "6a9c166f15de69c378e3346fcd5dac1082790345622b2df3af674f108bf29aec",
+  "acquisition_summary_sha256": "2e380f79fc45b8f1288876656ee8a71b605f140d4c9130e543f30afe6fae8eac",
+  "decoded_array_sha256": {
+    "epoch1_on": "6d11a15d10b3370ba65f3aafac24723a92d617b31c4dffb72445abb3690f18ba",
+    "epoch1_off": "bdf39e2473dd028c2610483504b9d01b19516c4e9a913105dba3e77602b12f0a",
+    "epoch2_on": "0f5758840653552b48e571f43996fe419e5aa8040a298ca4f9ab9813b64af500",
+    "epoch2_off": "59b88cc9d23ab035e60366eb63304741f7d7b46a984f56cc3d2935e078d11d74",
+    "epoch3_on": "b4542de912374229a7052498263ec2f95d2c11dbb97c9226ef1cd1a4e073711b",
+    "epoch3_off": "8711bcbd9b27e1ac85dee0465e48b7094e26f95a58eeab42dc9087218f39e6c8"
+  },
+  "script_sha256": "dbf72aded16c0c3148f7dabcb4b1b3df4d73d1cf8929f22abb5a7603311075be",
+  "reused_detector_sha256": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45",
+  "searches": [
+    {
+      "scan_id": "epoch1_on",
+      "reference_mjd": 57464.69010408695,
+      "searched_native_carriers": 4096,
+      "drift_trials": 763,
+      "hypotheses_per_carrier": 1526,
+      "widths_channels": [
+        1,
+        3
+      ],
+      "drift_step_hz_s": 0.010498687664041828,
+      "scan_midpoint_span_s": 269.79336192,
+      "maximum_half_grid_mismatch_channels": 0.4994662009921942,
+      "channel_edge_band_width_hz": 11614.222001982162,
+      "scan_integration_exposure_s": 287.779586048
+    },
+    {
+      "scan_id": "epoch2_on",
+      "reference_mjd": 57464.69774297583,
+      "searched_native_carriers": 4096,
+      "drift_trials": 763,
+      "hypotheses_per_carrier": 1526,
+      "widths_channels": [
+        1,
+        3
+      ],
+      "drift_step_hz_s": 0.010498687664041828,
+      "scan_midpoint_span_s": 269.79336192,
+      "maximum_half_grid_mismatch_channels": 0.4994662009921942,
+      "channel_edge_band_width_hz": 11614.222001982162,
+      "scan_integration_exposure_s": 287.779586048
+    },
+    {
+      "scan_id": "epoch3_on",
+      "reference_mjd": 57464.705381864725,
+      "searched_native_carriers": 4096,
+      "drift_trials": 763,
+      "hypotheses_per_carrier": 1526,
+      "widths_channels": [
+        1,
+        3
+      ],
+      "drift_step_hz_s": 0.010498687664041828,
+      "scan_midpoint_span_s": 269.79336192,
+      "maximum_half_grid_mismatch_channels": 0.4994662009921942,
+      "channel_edge_band_width_hz": 11614.222001982162,
+      "scan_integration_exposure_s": 287.779586048
+    }
+  ],
+  "display_track_count": 60,
+  "fixed_track_inspection_count": 18,
+  "display_suppression": "within three reference channels; display only; all carrier maxima retained",
+  "fixed_track_frequency_shift_choices": [
+    -1,
+    0,
+    1
+  ],
+  "plot_robust_residual_scale": {
+    "vmin": -3.0,
+    "vmax": 10.0,
+    "shared": true,
+    "not_SNR": true
+  },
+  "limitations": [
+    "Uncalibrated exploratory statistic and selected ranked tracks",
+    "Single linear topocentric drift per track; no barycentric or curved-track model",
+    "Widths 1/3 only; other widths not searched",
+    "Per-ON reference band is defined at each scan's own first midpoint",
+    "Crossscan fixed predictions may miss variable or nonlinear emission",
+    "Scores/time concentration do not prove celestial origin or artifact duration",
+    "No OFF veto, detection classification, recovery/FAP qualification or sky null inference"
+  ],
+  "analysis_function_wall_seconds_excluding_import_startup": 23.110626161000255,
+  "process_CPU_seconds": 25.004839,
+  "peak_RSS_bytes": 172802048
+}

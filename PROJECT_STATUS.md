@@ -1,3 +1,17 @@
+# Aktuel SETI-status — 9. oktober 2026: faktisk signalanalyse gennemført
+
+Seks autentiske HIP98505-mål-/kontrolscanninger fra én historisk observation er nu åbnet og analyseret. Alle 254 indre frekvensudsnit pr. ON er færdige: **1.040.384 sammenhængende kanaler og 2,950012 MHz pr. ON**, 763 lineære drifthastigheder ±4 Hz/s og bredder 1/3. ON-scanningerne er søgt selvstændigt. De stærkeste stationære linjer findes også i OFF. To svage flag er særskilt gennemgået og har ligeledes OFF-respons; ingen overbevisende ON-eksklusivitet eller udenjordisk oprindelse er etableret.
+
+Den gamle plan er lukket. Dette signalarbejde hører til den godkendte plan **7.–20. oktober** og er særskilt eksplorativ analyse efter åbning af data. **A/B er fortsat FAIL_CLOSED; den oprindelige kvalificerede pilot er ikke åbnet.** Eksplorativ dataåbning er ikke en bestået kvalifikation. Scoregrænse 10 er beskrivende; ingen kalibreret SNR, FAP, følsomhed eller generel sky-nuldetektion hævdes. Én observation, samlet ON-integration 863,34 s.
+
+[Faktisk resultat og metode](RADIO_QUICKLOOK_2026-10-09_RESULT.md) · [Alle gemte signalgrupper](results/radio_quicklook_20261009/SIGNAL_GROUPS.csv) · [Individuel kontrolgennemgang](results/radio_quicklook_20261009/flagged_review/REVIEW.json) · [Dataarkiver](results/radio_quicklook_20261009/EXTERNAL_DATA_ARCHIVES.json).
+
+Første prioritet er konkret signalanalyse og kontrolmålinger i sammenhængende arbejdspas. Afsluttede søgninger og gamle test-/rapportkontroller genkøres ikke. Konservativt reserveret i dette arbejdspas: 3.700 CPU-s; saldo **2.212,705 CPU-s**, heraf **2.000 beskyttet til checkpunkt 20. oktober**. Ingen ekstra debitering eller refusion af samme job. [Aktuelt ressourceregnskab](results/radio_quicklook_20261009/RESOURCE_LEDGER.json). Gamle holdouts, HOLD/UNSENT-dispositioner, pris- og ressourcegrænser bevares.
+
+---
+
+Tidligere afsnit nedenfor er historik. Deres datapåstande beskriver det daværende omfang; den aktuelle eksplorative dataåbning og analyse står ovenfor.
+
 # Aktuel status — 9. oktober 2026: gammel periode lukket; rapport og reproduktionskit færdige
 
 Den gamle26. september–9. oktober-periode er formelt lukket med faktisk dato9. oktober. Dens beregninger og lukkede tests var allerede afsluttet; denne konsolidering ændrer ingen gammel gate eller disposition. Hovedmålet er NOT_ACHIEVED / SKY_PILOT_BLOCKED, ingen nuldetektion. Alle ni gamle primærkilders blob-hashes er uændrede mod det bevarede udkast. Den gamle fejlfinding genoptages ikke.
