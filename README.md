@@ -1,3 +1,17 @@
+# SETI — 9. oktober 2026: frekvensformen findes også i kontrolpanelet
+
+En længere sammenhængende arbejdsomgang har afsluttet tre evidensblokke: udvidet arkivsøgning efter et andet målbesøg, frekvensform for de syv faste svage ON-spor og samme måling i hele det gemte top20-panel med **60 ON- og 60 OFF-profiler**. De syv færdige former er genbrugt; 113 yderligere formprofiler er målt i allerede gemte udsnit.
+
+**Nyt resultat:** medianen for centralkanalens overskud over de to umiddelbare nabokanaler er **0,116577 i ON /0,115920 i OFF**. Den næsten ens centralform findes således også blandt de udvalgte kontroller. Panelet er korreleret og udvalgt; tallene giver ingen kalibreret falskalarmrate eller støjklassifikation. Alle syv svage spor forbliver **UNRESOLVED**, A/B **FAIL_CLOSED**, kvalificeret pilot blokeret.
+
+Ingen ny brugbar uafhængig observation omkring 1424 MHz blev identificeret i det fulde bevarede pipelineindeks og seks nye aliasforespørgsler. Det beviser ikke globalt arkivfravær. **0 nye teleskop-powerbytes, 0 s ny eksponering, 0 DKK.** De to nye analysejob brugte samlet **4,899276 målte process-CPU-s**; 200 CPU-s er konservativt debiteret for hele aktiviteten inklusive forberedelse og publicering. Saldo **1.402,705145 CPU-s**, heraf **1.400 beskyttet til 20. oktober**, inden for uændret totalramme.
+
+[Resultat, tabeller og figurer](https://github.com/andersenmartin-blip/setisearch/blob/8a974adb44a0d5eea8b18459ad3b23decadd141c/RADIO_FREQUENCY_SHAPE_2026-10-09_RESULT.md) · [120-profils måltal](https://github.com/andersenmartin-blip/setisearch/blob/8a974adb44a0d5eea8b18459ad3b23decadd141c/results/radio_shape_20261009/panel/ALL_120_SHAPE_METRICS.csv) · [Reproduktion og kontroller](https://github.com/andersenmartin-blip/setisearch/blob/8a974adb44a0d5eea8b18459ad3b23decadd141c/results/radio_shape_20261009/REPRODUCTION.md).
+
+Tidligere statusser nedenfor er bevaret historik. Den nyeste ledger gælder for interne saldi uden ændring af gamle udfald eller debiteringer.
+
+---
+
 # SETI — 9. oktober 2026: fem senere observationsfilers metadata kontrolleret
 
 Fem HIP98505-filer fra 2018–2019 er nu verificeret for målbetegnelse, starttid, geometri og filspecifik frekvensdækning. **Ingen af de fem læste filer dækker det uafklarede spor ved 1424,079070 MHz.** Resultatet gælder disse filer; de to 2019-headers beskriver kun enkelte `blc40`-produkter og beviser ikke globalt fravær af brugbare L-båndsdata.
