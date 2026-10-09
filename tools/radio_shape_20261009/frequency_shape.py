@@ -6,6 +6,7 @@ import hashlib
 import io
 import json
 import resource
+import signal
 import time
 import zipfile
 from pathlib import Path
@@ -17,7 +18,11 @@ def sha(data):
 
 def run(args):
     scope = json.loads(Path(args.scope).read_text())
+    assert sha(Path(__file__).read_bytes()) == scope['script_sha256'], 'script freeze mismatch'
+    assert sha(Path(args.reference).read_bytes()) == scope['original_reference_sha256'], 'reference freeze mismatch'
     reference = {x['id']: x for x in json.loads(Path(args.reference).read_text())}
+    signal.signal(signal.SIGALRM, lambda signum, frame: (_ for _ in ()).throw(TimeoutError('wall limit')))
+    signal.alarm(scope['limits']['job_wall_s'])
     resource.setrlimit(resource.RLIMIT_CPU, (scope['limits']['job_CPU_s'], scope['limits']['job_CPU_s']))
     resource.setrlimit(resource.RLIMIT_AS, (scope['limits']['job_memory_bytes'], scope['limits']['job_memory_bytes']))
     cpu0, wall0 = time.process_time(), time.monotonic()
@@ -33,7 +38,7 @@ def run(args):
     assert archive.stat().st_size == scope['input_archive']['bytes']
     assert digest.hexdigest() == scope['input_archive']['sha256'], 'archive identity mismatch'
     out = Path(args.output)
-    out.mkdir(parents=True, exist_ok=True)
+    out.mkdir(parents=True, exist_ok=False)
     offsets = np.arange(-64, 65)
     scans = scope['scans']
     results, profiles, input_checks = [], [], []
@@ -55,6 +60,10 @@ def run(args):
                 assert str(data['originating_on'].item()) == item['originating_on']
                 assert int(data['width_channels']) == 1
                 assert np.array_equal(data['source_channel_offsets'], offsets)
+                for key in ['df_hz','tsamp_s','fch1_hz']:
+                    assert float(data[key]) == scope[key], ('grid mismatch', key)
+                np.testing.assert_array_equal(data['frequency_offsets_hz'], offsets*scope['df_hz'])
+                assert abs((scope['fch1_hz'] + item['source_channel']*scope['df_hz'])/1e6 - item['frequency_mhz']) < 1e-9
                 assert np.isfinite(norm).all() and np.isfinite(baseline).all()
                 # Verify the saved normalization identity; do not recompute its medians.
                 np.testing.assert_array_equal(norm, raw.astype(np.float64) / data['saved_full_chunk_row_medians'][:,:,None])
@@ -134,6 +143,7 @@ def run(args):
              'success':True,'new_telescope_HTTP_requests':0,'all_inputs_verified':True,
              'files':{p.name:{'sha256':sha(p.read_bytes()),'bytes':p.stat().st_size} for p in sorted(out.iterdir()) if p.is_file()}}
     (out/'EXECUTION_RECEIPT.json').write_text(json.dumps(receipt,indent=2)+'\n')
+    signal.alarm(0)
     print(json.dumps(receipt))
 
 
