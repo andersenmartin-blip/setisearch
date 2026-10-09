@@ -1,3 +1,15 @@
+# Aktuel SETI-status — 9. oktober 2026: syv nye uafklarede ON-overskud
+
+En ny stationær ON/OFF-sammenligning over 1.048.010 kanaler pr. ON (2,971636 MHz inden for den eksisterende cache) og én samlet tidskontrol af syv udvalgte profiler er færdige. **1424,079070 MHz i ON2** ligger over de faste lokale flanker i alle 16 tidsrækker; de tilstødende OFF-scanninger har ikke et tilsvarende gennemsnitligt overskud på samme kanal. Alle syv spor bevares som uafklarede. Udvælgelsen fra de samme data er ikke en uafhængig bekræftelse eller kalibreret signifikanstest.
+
+Prioriteret opfølgningsliste: ON2 rang 1 ved 1424,079070 MHz, ON2 rang 3 ved 1422,279163 MHz og ON3 rang 3 ved 1423,250530 MHz. Næste bevistrin kræver uafhængig observation/kontrol eller kalibrering af hele udvælgelsesfamilien. Gentag ikke de afsluttede driftsøgninger, stationære kontraster, tidskontroller eller gamle testbanker.
+
+Se [det aktuelle resultat](RADIO_ON_OFF_EXCESS_2026-10-09_RESULT.md) og [TIME_INTERPRETATION.json](results/radio_excess_20261009/TIME_INTERPRETATION.json). Ny analyse brugte 26,281 målte process-CPU-s; hele aktiviteten er ikke samlet CPU-målt. Konservative reservationer er 3.910 CPU-s; saldo 2.002,705 CPU-s med 2.000 beskyttet til 20. oktober og 2,705 ubeskyttede. Ingen nyt væsentligt analysejob før checkpointet inden for den aftalte saldo. A/B er fortsat FAIL_CLOSED; kvalificeret pilot blokeret. Beskyttede holdouts, øvrige stopstatusser og tidligere reservationer er uændrede. Ingen nye teleskopforespørgsler eller udgifter.
+
+Følgende tekst er bevaret historik fra tidligere afsluttede arbejdsblokke; det aktuelle resultat og den nyeste RESOURCE_LEDGER.json har forrang.
+
+---
+
 # Aktuel SETI-status — 9. oktober 2026: gentaget autentisk spor kontrolleret i ON/OFF
 
 Seks autentiske HIP98505-mål-/kontrolscanninger fra én historisk observation er nu åbnet og analyseret. Alle 254 indre frekvensudsnit pr. ON er færdige: **1.040.384 sammenhængende kanaler og 2,950012 MHz pr. ON**, 763 lineære drifthastigheder ±4 Hz/s og bredder 1/3. Fire distinkte prioriterede familier er nu kontrolleret tidsopløst: 1423,954061, 1422,596235, 1424,439182 og 1424,411711 MHz. Alle findes i OFF med sammenlignelig styrke. Den sidste, svage familie gav oprindeligt kun én ON-gruppe over den beskrivende scoregrænse, men står på samme kanal i alle seks scanninger. Sammen med de to tidligere manuelle flag giver alle individuelle kontroller mod-evidens mod ON-eksklusivitet; ingen fysisk oprindelse er klassificeret.

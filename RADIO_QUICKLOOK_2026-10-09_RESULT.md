@@ -1,3 +1,11 @@
+# Seneste fortsættelse: syv uafklarede ON-overskud
+
+En ny stationær ON/OFF-sammenligning og tidskontrol har bevaret syv svage, udvalgte ON-overskud som uafklarede spor. Ved 1424,079070 MHz i ON2 ligger den valgte kanal over de faste lokale flanker i alle 16 rækker. Udvælgelsen fra de samme data er ikke uafhængig validering, og falskalarmraten er ikke kalibreret. Se [det nye konkrete resultat](RADIO_ON_OFF_EXCESS_2026-10-09_RESULT.md), som supplerer de afsluttede driftsøgninger nedenfor.
+
+Den nye kontrast dækker 2,971636 MHz i den eksisterende cache; driftsøgningens dækning er fortsat 2,950012 MHz. Nye målte processer: 14,327 CPU-s + 11,954 CPU-s. Samlet delvist målt sum af signalprocesser er 1.320,980 CPU-s, ikke hele aktivitetens CPU-forbrug. Aktuel saldo: 2.002,705 CPU-s, heraf 2.000 beskyttet til 20. oktober. Ingen gamle søgninger eller kontroller er gentaget.
+
+---
+
 # SETI: faktisk signalanalyse, 9. oktober 2026
 
 Seks autentiske radiooptagelser er hentet og analyseret: tre målscanninger (ON) af HIP98505 og tre tilhørende kontrolscanninger (OFF). Driftsøgningen dækker nu **2,950012 MHz pr. ON-scanning**, med 1.040.384 sammenhængende frekvenskanaler i hver. Der er ikke påvist et overbevisende signal, som kan tilskrives en udenjordisk sender.
@@ -32,7 +40,7 @@ Den oprindelige A/B-kvalifikation forbliver **FAIL_CLOSED**, og den oprindelige 
 
 96 afgrænsede kildeforespørgsler modtog 305.133.821 bytes signaldata. De efterfølgende udvidelser og prioriteringen genbrugte disse data uden nye kildeforespørgsler. Originale komprimerede HDF5-stykker, kanalvise maksimummer, normaliseringer, sporfigurer og kontrolmålinger er bevaret.
 
-Målte CPU-komponenter er 2,22 s for hentning, 25,00 s for første smalle søgning, 23,22 s for den brede oversigt, 433,11 s for de første 64 udsnit, 804,63 s for de øvrige 190, 0,65 s for prioritering af gemte resultater, 2,24 s for individuel gennemgang af de to flag, 1,34 s for 1423,954061-MHz-kontrollen, 0,94 s for 1422,596235-MHz-kontrollen og 1,35 s for de sidste to prioriterede familier. Installation, forberedelse, gemning og publicering er ikke samlet CPU-målt; tallene er ikke et totalregnskab. Den konservative reservation er 3.800 CPU-s. Saldo er **2.112,705 CPU-s**, heraf **2.000 beskyttet til 20. oktober**, uden refusion eller dobbelt debitering. Pris: 0 DKK.
+Målte CPU-komponenter er 2,22 s for hentning, 25,00 s for første smalle søgning, 23,22 s for den brede oversigt, 433,11 s for de første 64 udsnit, 804,63 s for de øvrige 190, 0,65 s for prioritering af gemte resultater, 2,24 s for individuel gennemgang af de to flag, 1,34 s for 1423,954061-MHz-kontrollen, 0,94 s for 1422,596235-MHz-kontrollen og 1,35 s for de sidste to prioriterede familier. Installation, forberedelse, gemning og publicering er ikke samlet CPU-målt; tallene er ikke et totalregnskab. Efter den nye stationære ON/OFF-sammenligning og syv tidskontroller er den konservative reservation 3.910 CPU-s. Saldo er **2.002,705 CPU-s**, heraf **2.000 beskyttet til 20. oktober**, uden refusion eller dobbelt debitering. Pris: 0 DKK.
 
 Videre arbejde prioriterer konkrete, gemte signalspor og deres kontrolmålinger. De afsluttede søgninger, den gamle testbank og tidligere dokumentkontroller skal ikke køres igen. Ny bred søgning kræver plads i det eksisterende budget; det beskyttede slutbudget bruges ikke automatisk.
 
