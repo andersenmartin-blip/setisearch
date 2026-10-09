@@ -1,0 +1,53 @@
+{
+  "schema": "setisearch.repeated-track-inspection-scope.v1",
+  "frozen_utc": "2026-10-09T06:43:24Z",
+  "target": "HIP98505",
+  "cadence_id": 85030,
+  "purpose": "Time-resolved six-scan inspection of the strongest not-previously-manually-reviewed repeated ON group by saved-score/maximum-OFF-projection ratio.",
+  "exploratory_data_selected": true,
+  "source_channel_origin": 159383552,
+  "display_source_channel_interval_half_open": [159587240, 159587500],
+  "candidate_source_channel_interval_half_open": [159587448, 159587474],
+  "candidate_group_ids": [
+    "epoch1_on_contiguous_0005",
+    "epoch2_on_contiguous_0005",
+    "epoch3_on_contiguous_0004"
+  ],
+  "candidate_representative_source_channel": 159587458,
+  "control_source_channel_interval_half_open": [159587259, 159587308],
+  "control_group_ids": [
+    "epoch1_on_contiguous_0004",
+    "epoch2_on_contiguous_0004",
+    "epoch3_on_contiguous_0003"
+  ],
+  "control_representative_source_channel": 159587282,
+  "scan_ids_in_order": [
+    "epoch1_on",
+    "epoch1_off",
+    "epoch2_on",
+    "epoch2_off",
+    "epoch3_on",
+    "epoch3_off"
+  ],
+  "row_count_per_scan": 16,
+  "row_normalization": "Reuse the already-saved full-physical-chunk median for each time row.",
+  "reservation": {
+    "CPU_seconds": 30.0,
+    "wall_seconds": 180.0,
+    "address_space_bytes": 2147483648,
+    "new_external_bytes": 0,
+    "new_GETs": 0
+  },
+  "fixed_outputs": [
+    "RESULT.json",
+    "ROW_PROFILES.csv",
+    "repeated_1423954061.png",
+    "SHA256SUMS"
+  ],
+  "prohibitions": [
+    "No new source request or telescope-data download.",
+    "No new detector score, drift grid, width family, threshold tuning, or origin classification.",
+    "Do not treat OFF response as proof of a physical origin.",
+    "Do not treat descriptive saved scores as calibrated SNR or false-alarm probability."
+  ]
+}

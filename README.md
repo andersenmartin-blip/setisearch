@@ -1,3 +1,13 @@
+# SETI — 9. oktober 2026: autentisk gentaget spor har tydelig OFF-modmåling
+
+En ny tidsopløst kontrol af den stærkeste endnu ikke særskilt gennemgåede gentagne ON-gruppe viser sporet ved **1423,954061 MHz** i alle tre ON- og alle tre OFF-scanninger. OFF-rækkemaksima er sammenlignelige med ON, så ON-eksklusivitet er ikke etableret. Sporet ligger 499,049 Hz under den stærke fælles 1423,954560-MHz-linje. Oprindelsen forbliver uafklaret; OFF-respons er mod-evidens, ikke en fysisk klassifikation.
+
+[Kort dansk resultat](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_REPEATED_TRACK_1423954061_2026-10-09_RESULT.md) · [Maskinlæsbar kvittering](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results/radio_quicklook_20261009/repeated_1423954061/RESULT.json) · [Seks-panels figur](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results/radio_quicklook_20261009/repeated_1423954061/repeated_1423954061.png) · [Aktuel projektstatus](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md).
+
+Analysen genbrugte den lokale cache, læste 24.960 værdier og brugte 1,341838 CPU-s inden for en ikke-refunderet 30-CPU-s-reservation. Ingen nye data, detektorscorer eller parameterfamilier. Saldo 2.182,705145 CPU-s, heraf 2.000 beskyttet til 20. oktober. A/B forbliver FAIL_CLOSED.
+
+---
+
 # SETI — 8. oktober 2026: diagnostik og dækningsgrænser dokumenteret
 
 Alle 12 gemte enkelt-række-transienter overlever. Alle 11 initialt genfundne nær-OFF-signaler mistes ved OFF-veto; ét yderligere forsøg lå allerede under ON-tærsklen. Støjkontrollerne gav nul ON-hits i 32 syntetiske forløb, og METHOD's 13 scan-tab lå under ON10. Uafhængige kontroller af de gemte kort, tabeller og geometrier er bestået. A/B forbliver fejlet; der er ingen nye scores, signaltræk eller kvalificeret teleskoppilot.
