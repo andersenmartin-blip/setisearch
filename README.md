@@ -1,3 +1,17 @@
+# SETI-status — 9. oktober 2026: målsporenes vedvarenhed findes også i kontrollerne
+
+**To nye analysejob er gennemført: omvendt ON/OFF-kontrol og tidsmåling af alle 120 faste top20-profiler.** Blandt 60 udvalgte ON-profiler har fire positive residualer i alle 16 integrationer; blandt 60 omvendt udvalgte OFF-profiler har fem det. Kontrolretningernes største spektrale kontraster er på samme niveau som målretningernes ved samme antal nabokontroller. Tallene er beskrivende fra korrelerede data, ingen kalibreret falskalarmrate.
+
+De syv tidligere svage ON-spor bevares som uafklarede, især 1424,079069888 MHz. Tre af de fire vedvarende ON-profiler findes også tydeligt i kontrolscanningerne. Ingen ny kandidat eller fysisk oprindelse er fastslået. A/B forbliver FAIL_CLOSED; dette er særskilt eksplorativ kontrolanalyse fra ét besøg 17. marts 2016.
+
+[Aktuel resultatrapport](https://github.com/andersenmartin-blip/setisearch/blob/75ce6237b63dc7f8eb07666dc048c6906c076b6f/RADIO_NATIVE_CONTROL_2026-10-09_RESULT.md) · [Alle 120 tidsprofiler](https://github.com/andersenmartin-blip/setisearch/blob/75ce6237b63dc7f8eb07666dc048c6906c076b6f/results/radio_native_controls_20261009/ranked_time_panel/ALL_120_TIME_PROFILES.json) · [Aktuel ressourceledger](https://github.com/andersenmartin-blip/setisearch/blob/75ce6237b63dc7f8eb07666dc048c6906c076b6f/results/radio_native_controls_20261009/RESOURCE_LEDGER.json) · [Array-/figurarkivets identitet](https://github.com/andersenmartin-blip/setisearch/blob/75ce6237b63dc7f8eb07666dc048c6906c076b6f/results/radio_native_controls_20261009/EXTERNAL_DATA_ARCHIVE.json).
+
+De nye analyseprocesser brugte 13,630552 målte CPU-s; hele aktiviteten er ikke samlet CPU-målt. Nye konservative reservationer er 300 CPU-s, omfordelt fra en intern afslutningsreserve inden for uændret 12-CPU-timers total. Ingen gamle reservationer refunderes. Saldo er 1.702,705145 CPU-s, heraf 1.700 bevaret til afslutningen. Ingen nye teleskopbytes, forespørgsler eller udgifter. Det næste bevistrin kræver uafhængig observation med egnede kontroller eller særskilt kvalificering af hele udvælgelsesfamilien; de afsluttede søgninger/tidsprofiler genkøres ikke som fremskridt.
+
+Nedenstående tekst er bevaret historik. Den nye ledger og projektstatus på analysegrenen har forrang.
+
+---
+
 # SETI-status — 9. oktober 2026: syv nye uafklarede ON-overskud
 
 **En ny stationær ON/OFF-sammenligning og tidskontrol af syv udvalgte spor er færdige.** Ved **1424,079070 MHz i ON2** ligger den valgte kanal over sine faste lokale flanker i alle 16 tidsrækker. De nærmeste OFF-scanninger har ikke et sammenligneligt gennemsnitligt overskud på samme kanal. Alle syv spor er bevaret som uafklarede. De er udvalgt fra de samme data blandt over en million kanaler; resultatet er ikke uafhængig bekræftelse eller kalibreret signifikanstest.
