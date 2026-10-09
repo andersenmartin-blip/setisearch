@@ -1,3 +1,21 @@
+# Aktuel status — 9. oktober 2026: gammel periode lukket; rapport og reproduktionskit færdige
+
+Den gamle26. september–9. oktober-periode er formelt lukket med faktisk dato9. oktober. Dens beregninger og lukkede tests var allerede afsluttet; denne konsolidering ændrer ingen gammel gate eller disposition. Hovedmålet er NOT_ACHIEVED / SKY_PILOT_BLOCKED, ingen nuldetektion. Alle ni gamle primærkilders blob-hashes er uændrede mod det bevarede udkast. Den gamle fejlfinding genoptages ikke.
+
+Den nye7.–20. oktober-plans samlede rapport- og pakningsleverance er gennemført9. oktober. Det færdige kit har79 payloadfiler/1.700.259 bytes plus2 kontrolfiler; ZIP421.492 bytes. Alle payloadhashes,ZIP-CRC,21 originale prerequisitehashes og6 originale PDF-figurer er kontrolleret. Frosne kode-/protokoltekster og A/B/METHOD-resultatmetadata er samlet uden videnskabelig invocation eller genrendering. Casearkiver/scorekort og originalPNG-embeds er eksterne. Pakken er ingen komplet offline-verifier eller råpower→preprocessing→scores-reproduktion.
+
+To uafhængige tekstreviews godkendte gamle slutlukning og nye rapport-/kitgrænser. Pakkens metrede Python-proceskomponent til og med kontrol/hashing brugte0,072670 CPU-s; receipt/API/setup/publicering er ikke fuldt målt. En særskilt konservativ100-CPU-sekunders reservation efter den tidligere6012,705144981004 saldo efterlader5.912,705144981004 CPU-s. Målte komponenter debiteres ikke igen, tidligere reservationer refunderes ikke, og mindst2.000 bevares til periodens afsluttende checkpoint. Brug nu results/radio_report_package_20261009/REPORT_PACKAGE_LEDGER.json. Gamle periodetotaler forbliver ukvalificerede/null.
+
+Kalenderen er milepæle. Færdigt rapport-/pakningsarbejde er fremrykket og skal ikke vente på20. oktober eller gentages dagligt. Den formelle7.–20. oktober-periode og det sidste20.-oktober-checkpoint består; checkpointet er endnu ikke udført. Case000-verifikationen blev faktisk gennemført8. oktober og gentages ikke19. oktober. Ingen nye detektor-/generator-/renderer-/verifierkørsler eller sky-payloads er udført her. A/B forbliver FAIL_CLOSED, og teleskoppiloten er ikke admitted.148-versioners senere design er fortsat et ikke-aktiveret forslag.
+
+Arbejd sammenhængende gennem tilgængelige, autoriserede afhængige opgaver; stop ikke mellem små leverancer for at afvente kalenderdatoer. Når de tilladte leverancer er færdige, udføres ikke ekstra tests, audits, pakninger eller rapporter som dagligt fremskridt. Uden nye autoriserede originale resultater resterer kun det afsluttende20.-oktober-checkpoint; ingen automatisk ny kampagne eller forlængelse.
+
+[Gammel periodes slutrapport](RADIO_PERIOD_2026-09-26_TO_2026-10-09_FINAL.md) · [Færdig rapportleverance](RADIO_REPORT_PACKAGE_2026-10-09.md) · [Kit ZIP](results/radio_report_package_20261009/SETI_RADIO_REPORT_KIT_2026-10-09.zip) · [Vejledning](results/radio_report_package_20261009/KIT_GUIDE.md) · [Pakke-/hashkvittering](results/radio_report_package_20261009/PACKAGING_RECEIPT.json) · [Aktuel ledger](results/radio_report_package_20261009/REPORT_PACKAGE_LEDGER.json).
+
+---
+
+Tidligere daterede poster følger som historik.
+
 # Aktuel status — 8. oktober 2026: samlet foreløbig perioderapport gennemgået
 
 Det samlede rapportudkast pr. 8. oktober samler reference, udvikling, A/B, METHOD, gemte fejlanalyser og den faktiske frisk-proces-verifikation. Planens nye seks-scans himmelsøgning er fortsat blokeret: 0 pilotsekvenser, 0 søgte pilot-Hz og 0 analyseret pilot-ON-eksponering. Voyager-referencen er gennemført, og metodealternativet gav faktisk beregnede resultater. A/B forbliver FAIL_CLOSED; ingen konklusion om udenjordisk detektion eller nuldetektion følger.
