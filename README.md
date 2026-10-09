@@ -1,3 +1,17 @@
+# SETI-status — 9. oktober 2026: syv nye uafklarede ON-overskud
+
+**En ny stationær ON/OFF-sammenligning og tidskontrol af syv udvalgte spor er færdige.** Ved **1424,079070 MHz i ON2** ligger den valgte kanal over sine faste lokale flanker i alle 16 tidsrækker. De nærmeste OFF-scanninger har ikke et sammenligneligt gennemsnitligt overskud på samme kanal. Alle syv spor er bevaret som uafklarede. De er udvalgt fra de samme data blandt over en million kanaler; resultatet er ikke uafhængig bekræftelse eller kalibreret signifikanstest.
+
+Aktuelt resultat: [RADIO_ON_OFF_EXCESS_2026-10-09_RESULT.md](https://github.com/andersenmartin-blip/setisearch/blob/19186368012b386ef132bea4475a14f428e9bae7/RADIO_ON_OFF_EXCESS_2026-10-09_RESULT.md).
+Alle målinger og kontrolserier: [TIME_REVIEW.json](https://github.com/andersenmartin-blip/setisearch/blob/19186368012b386ef132bea4475a14f428e9bae7/results/radio_excess_20261009/time_review/TIME_REVIEW.json).
+Figurer og arrays: [arkividentitet](https://github.com/andersenmartin-blip/setisearch/blob/19186368012b386ef132bea4475a14f428e9bae7/results/radio_excess_20261009/EXTERNAL_DATA_ARCHIVE.json).
+
+Det nye job dækkede 1.048.010 kanaler pr. ON og 2,971636 MHz inden for den eksisterende cache; tidligere driftsøgning over 2,950012 MHz er uændret. Målt CPU for de to nye signalprocesser: 26,281 s. Hele aktiviteten er ikke samlet CPU-målt. Konservative reservationer er 3.910 CPU-s; saldo **2.002,705 CPU-s**, heraf **2.000 beskyttet til 20. oktober** og 2,705 ubeskyttede. Ingen nye teleskopforespørgsler eller udgifter. A/B er fortsat FAIL_CLOSED; kvalificeret pilot blokeret.
+
+Dette er den aktuelle fortsættelse. Nedenstående tekst er bevaret historik; den nyeste ledger på analysegrenen har forrang.
+
+---
+
 # SETI-status — 9. oktober 2026: seks autentiske scanninger analyseret
 
 **Faktisk signalanalyse er gennemført over 2,950012 MHz i hver af tre målscanninger**, med tre tilhørende kontrolscanninger. Alle 254 indre frekvensudsnit pr. ON er færdige. De stærkeste linjer findes også i kontrolscanningerne; to svage flag er individuelt gennemgået og viser også OFF-respons. Ingen overbevisende ON-eksklusivitet eller udenjordisk oprindelse er etableret. Optagelserne er én historisk observation, ikke seks uafhængige besøg.
