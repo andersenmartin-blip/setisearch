@@ -1,3 +1,17 @@
+# Aktuel SETI-status — 9. oktober 2026: hele ranglisten målt mod native kontroller
+
+To nye signal-/kontroljob er færdige. Den omvendte ON/OFF-søgning finder spektrale kontrastmaksima i kontrolretningerne på samme niveau som målretningernes ved samme antal nabokontroller. Hele den faste top20-liste pr. scanning er nu tidsmålt: **120 profiler**, med **16 tidligere profiler genbrugt uændret og 104 nye målt i sidste blok**. **4/60 ON og 5/60 OFF har positive residualer i alle 16 rækker**; tallene er beskrivende og korrelerede. Tre af de fire ON-profiler er store linjeoverskud, der også findes i kontrolscanningerne. De syv tidligere svage ON-spor og især 1424,079069888 MHz forbliver uafklarede; ingen ny kandidat promoveres eller oprindelse klassificeres.
+
+[Det nye resultat](RADIO_NATIVE_CONTROL_2026-10-09_RESULT.md) · [Alle 120 profiler](results/radio_native_controls_20261009/ranked_time_panel/ALL_120_TIME_PROFILES.json) · [Matchede tal](results/radio_native_controls_20261009/ranked_time_panel/RANKED_TIME_PANEL_RESULT.json) · [Ny ledger](results/radio_native_controls_20261009/RESOURCE_LEDGER.json) · [Arrays og figurers arkividentitet](results/radio_native_controls_20261009/EXTERNAL_DATA_ARCHIVE.json).
+
+De nye analyseprocesser brugte 13,630552 målte process-CPU-s. Hele aktiviteten er ikke samlet CPU-målt; 300 CPU-s er konservativt reserveret. Den internt fastlagte afslutningsreserve er omfordelt prospektivt under brugerens prioritet til hurtig signalanalyse, uden ændring af godkendt 12-CPU-timers total, pris- eller datagrænser og uden refusion af tidligere reservationer. Saldo er **1.702,705145 CPU-s**, heraf **1.700 fortsat beskyttet til afslutningen 20. oktober**. Ingen nye teleskopforespørgsler, kildebytes eller udgifter. De eksisterende arbejdsmiljøer og gammel periodelukning genåbnes ikke.
+
+**A/B er fortsat FAIL_CLOSED; den kvalificerede pilot er blokeret.** Dette er eksplorativ kontrolanalyse fra det samme besøg 17. marts 2016, ingen uafhængig bekræftelse eller kalibreret sky-FAP. Det næste bevistrin kræver uafhængig observation med egnede kontroller eller en særskilt kvalificeret model for hele udvælgelsesfamilien. Afsluttede driftsøgninger, kontraster og det komplette 120-profilpanel gentages ikke som fremskridt. Slutcheckpointet 20. oktober er endnu ikke udført; der kører ikke en verificeret baggrundsworker.
+
+Følgende poster er bevaret historik. Deres tidligere saldi og interne reservefordelinger supersederes af den nye ledger, uden ændring af gamle udfald eller debiteringer.
+
+---
+
 # Aktuel SETI-status — 9. oktober 2026: syv nye uafklarede ON-overskud
 
 En ny stationær ON/OFF-sammenligning over 1.048.010 kanaler pr. ON (2,971636 MHz inden for den eksisterende cache) og én samlet tidskontrol af syv udvalgte profiler er færdige. **1424,079070 MHz i ON2** ligger over de faste lokale flanker i alle 16 tidsrækker; de tilstødende OFF-scanninger har ikke et tilsvarende gennemsnitligt overskud på samme kanal. Alle syv spor bevares som uafklarede. Udvælgelsen fra de samme data er ikke en uafhængig bekræftelse eller kalibreret signifikanstest.
