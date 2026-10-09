@@ -1,0 +1,157 @@
+{
+  "scope": "POST_DATA_DESCRIPTIVE_EXISTING_COMPLETE_SELECTION_FAMILY_SHAPE",
+  "prior_seven_shape_freeze_commit": "e470c95b2db4d8e05e9af2760e707d75afc9be1c",
+  "script_sha256": "044749ec0291befb82c200e55a6771ab1a7df5f5ef84a9a38353d862dcdf41c0",
+  "reference_sha256": "13ad93e3788d901a6219887db4fa2fb00b153798a10e4499b86d1b3883e1bf1e",
+  "seven_profiles_sha256": "87d3ca88a33067f95182eddb8fc700c2530506ffdfb6ff5b8d0fb171da64689c",
+  "seven_ids": [
+    "epoch1_on_contrast_rank_01",
+    "epoch1_on_contrast_rank_02",
+    "epoch1_on_contrast_rank_03",
+    "epoch2_on_contrast_rank_01",
+    "epoch2_on_contrast_rank_03",
+    "epoch3_on_contrast_rank_01",
+    "epoch3_on_contrast_rank_03"
+  ],
+  "archive": {
+    "name": "SETI_NATIVE_CONTROLS_2026-10-09.zip",
+    "bytes": 86165383,
+    "sha256": "07f840fcfb0453f62c96f6dfc084967a24e44d5f71e40ea5af8ea83c2a105e64"
+  },
+  "patch_members": [
+    {
+      "path": "outputs/epoch1_off_reciprocal_rank_01_fixed_patch.npz",
+      "bytes": 136266,
+      "sha256": "d3103f75fcd932f7069f891e7e3c6753cada7d3cd9c5294b6e068a8b5e2478f1",
+      "kind": "single",
+      "id": "epoch1_off_reciprocal_rank_01"
+    },
+    {
+      "path": "outputs/epoch1_off_reciprocal_rank_02_fixed_patch.npz",
+      "bytes": 136575,
+      "sha256": "1f9e66e81f7279b16b312e8fe72a3f8b1358c8dbc2469ba310c4a6b8a212d1d4",
+      "kind": "single",
+      "id": "epoch1_off_reciprocal_rank_02"
+    },
+    {
+      "path": "outputs/epoch1_off_reciprocal_rank_03_fixed_patch.npz",
+      "bytes": 136371,
+      "sha256": "2d7bc93005dd49919387c4dcd8ee3548b5b273f913635f04788753911fd5b13d",
+      "kind": "single",
+      "id": "epoch1_off_reciprocal_rank_03"
+    },
+    {
+      "path": "outputs/epoch2_off_reciprocal_rank_01_fixed_patch.npz",
+      "bytes": 136199,
+      "sha256": "cdf9ec9399a02bcd2e4f1c9823f373398436cbb8775a905676db77df518a0afb",
+      "kind": "single",
+      "id": "epoch2_off_reciprocal_rank_01"
+    },
+    {
+      "path": "outputs/epoch2_off_reciprocal_rank_02_fixed_patch.npz",
+      "bytes": 136286,
+      "sha256": "76f7fa0ddae6314438f0f1cabf3ea702b1605903d612ae5b55bccbbe793cb6ef",
+      "kind": "single",
+      "id": "epoch2_off_reciprocal_rank_02"
+    },
+    {
+      "path": "outputs/epoch2_off_reciprocal_rank_03_fixed_patch.npz",
+      "bytes": 136204,
+      "sha256": "41c9f4c01b67c84b2c88cec94ab3e25b0f6bb59a6d63bbc6777137cdb2813dc7",
+      "kind": "single",
+      "id": "epoch2_off_reciprocal_rank_03"
+    },
+    {
+      "path": "outputs/epoch3_off_reciprocal_rank_01_fixed_patch.npz",
+      "bytes": 136555,
+      "sha256": "1f4e0b043c17881641caae46ace80443251e44b307cdc2911f900708c77dd77f",
+      "kind": "single",
+      "id": "epoch3_off_reciprocal_rank_01"
+    },
+    {
+      "path": "outputs/epoch3_off_reciprocal_rank_02_fixed_patch.npz",
+      "bytes": 136284,
+      "sha256": "590f0099ff66cc4da7b5ad0fe21bd906ad4a8f06005d210c60a1703f8d263e93",
+      "kind": "single",
+      "id": "epoch3_off_reciprocal_rank_02"
+    },
+    {
+      "path": "outputs/epoch3_off_reciprocal_rank_03_fixed_patch.npz",
+      "bytes": 136262,
+      "sha256": "3e94e9ac4e805a99f554034742f71930148f95a085cfe5d7ff4e2da91a756b37",
+      "kind": "single",
+      "id": "epoch3_off_reciprocal_rank_03"
+    },
+    {
+      "path": "ranked_time_panel/new_104_fixed_patches.npz",
+      "bytes": 13975580,
+      "sha256": "06740174f6c7445316529e6a581952e874d6bc87fcc420c2ec86ab79c6dca51b",
+      "kind": "group"
+    }
+  ],
+  "scans": [
+    "epoch1_on",
+    "epoch1_off",
+    "epoch2_on",
+    "epoch2_off",
+    "epoch3_on",
+    "epoch3_off"
+  ],
+  "adjacency": {
+    "epoch1_on": [
+      "epoch1_off"
+    ],
+    "epoch2_on": [
+      "epoch1_off",
+      "epoch2_off"
+    ],
+    "epoch3_on": [
+      "epoch2_off",
+      "epoch3_off"
+    ],
+    "epoch1_off": [
+      "epoch1_on",
+      "epoch2_on"
+    ],
+    "epoch2_off": [
+      "epoch2_on",
+      "epoch3_on"
+    ],
+    "epoch3_off": [
+      "epoch3_on"
+    ]
+  },
+  "widths_channels": [
+    1,
+    3,
+    5,
+    9,
+    17
+  ],
+  "df_hz": -2.835503418452676,
+  "arithmetic_tolerance": 1e-12,
+  "limits": {
+    "CPU_s": 45,
+    "wall_s": 90,
+    "memory_bytes": 1073741824
+  },
+  "covered_by_existing_whole_activity_reservation_CPU_s": 200,
+  "baseline": "For7reuse previous shapeprofiles. For113 recover saved baseline=original width1/3 normalized center minus saved residual_each_row. No new flank estimate; maxabs reconstruction tolerance1e-12. Verify old selected-width means all6scans before new summaries.",
+  "summaries": "Complete60ON/60OFF family; min,quartiles,median,max(method=linear) for curvature,fixedcenterdifference,window1/3; strata by adjacentcontrol count1/2 and originalwinningwidth1/3; allIDs retained; no rankmatching/subsample exclusion or new thresholdclassification.",
+  "plot": "All120retained, scan-wise rank-preserving jitter; signed symlog linthresh0.1 fixedbefore numeric; sevenoutlined; no exclusions.",
+  "new_selection_or_observations": false,
+  "limitations": [
+    "Post-selection shapes from already-ranked channels, one visit only.",
+    "Central localization does not distinguish noise, interference or celestial narrowband signal.",
+    "Fixed-width averages are descriptive; comparing them is not a new detector or calibrated test.",
+    "Windows9/17 include offsets also used in the previously saved flank median, so the baseline and window are dependent.",
+    "The central-side contrast is local three-channel curvature; the shared row baseline cancels algebraically.",
+    "Fixed-center OFF subtraction differs from the original selection's \u00b132-channel OFF envelope and is not a new ranking.",
+    "Averaging16time rows does not estimate physical linewidth or supply independent confirmation.",
+    "Native OFF observations include interference and unknown background; no certified noise law or sky false-alarm rate.",
+    "ON and OFF distributions are not assumed exchangeable; control counts and original selected widths are stratified but receiver,frequency,time and selection dependencies remain.",
+    "Repeated carrier selections across scans and all profiles are correlated; counts are not independent events.",
+    "Known strong line regions remain in complete-family summaries. Width1 context strata do not amount to excluding interference.",
+    "The seven weak ON shapes were seen before this control extension; this scope is frozen before the113remaining frequency shapes, not before all data or selection."
+  ]
+}
