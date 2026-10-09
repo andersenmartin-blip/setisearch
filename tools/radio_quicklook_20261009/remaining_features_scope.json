@@ -1,0 +1,48 @@
+{
+  "schema": "setisearch.remaining-prioritized-features-scope.v1",
+  "frozen_utc": "2026-10-09T07:22:00Z",
+  "target": "HIP98505",
+  "cadence_id": 85030,
+  "purpose": "Time-resolved six-scan inspection of the two remaining distinct prioritized broad-maxima families not already individually reviewed.",
+  "exploratory_data_selected": true,
+  "source_channel_origin": 159383552,
+  "scan_ids_in_order": [
+    "epoch1_on", "epoch1_off", "epoch2_on", "epoch2_off", "epoch3_on", "epoch3_off"
+  ],
+  "features": [
+    {
+      "feature_id": "repeated_1424439182",
+      "display_source_channel_interval_half_open": [159416245, 159416495],
+      "signal_source_channel_interval_half_open": [159416349, 159416389],
+      "lower_flank_source_channel_interval_half_open": [159416270, 159416320],
+      "upper_flank_source_channel_interval_half_open": [159416415, 159416465],
+      "marker_source_channel": 159416370,
+      "group_ids": [
+        "epoch1_on_contiguous_0001", "epoch2_on_contiguous_0001", "epoch3_on_contiguous_0001"
+      ]
+    },
+    {
+      "feature_id": "single_group_1424411711",
+      "display_source_channel_interval_half_open": [159425933, 159426183],
+      "signal_source_channel_interval_half_open": [159426052, 159426065],
+      "lower_flank_source_channel_interval_half_open": [159425970, 159426020],
+      "upper_flank_source_channel_interval_half_open": [159426095, 159426145],
+      "marker_source_channel": 159426058,
+      "group_ids": ["epoch1_on_contiguous_0002"]
+    }
+  ],
+  "row_count_per_scan": 16,
+  "row_normalization": "Reuse the already-saved full-physical-chunk median for each time row.",
+  "reservation": {
+    "CPU_seconds": 40.0,
+    "wall_seconds": 180.0,
+    "address_space_bytes": 2147483648,
+    "new_external_bytes": 0,
+    "new_GETs": 0
+  },
+  "prohibitions": [
+    "No new source request, telescope-data download, detector score, drift grid, width family, or threshold tuning.",
+    "Adjacent flanks are descriptive local context, not a calibrated noise model.",
+    "OFF response is counterevidence to ON exclusivity, not proof of physical origin."
+  ]
+}

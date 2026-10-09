@@ -1,0 +1,43 @@
+{
+  "schema": "setisearch.repeated-feature-inspection-scope.v1",
+  "frozen_utc": "2026-10-09T07:12:00Z",
+  "target": "HIP98505",
+  "cadence_id": 85030,
+  "purpose": "Time-resolved six-scan inspection of the next distinct repeated feature after completed individual reviews.",
+  "exploratory_data_selected": true,
+  "selection": "Highest saved-score/maximum-OFF-projection repeated family after excluding the completed 1423.954061 MHz review, its nearby explicitly reviewed 1423.954560 MHz line, and the two prior manual flags.",
+  "source_channel_origin": 159383552,
+  "display_source_channel_interval_half_open": [160066200, 160066450],
+  "candidate_source_channel_interval_half_open": [160066319, 160066332],
+  "lower_flank_source_channel_interval_half_open": [160066260, 160066300],
+  "upper_flank_source_channel_interval_half_open": [160066350, 160066390],
+  "candidate_group_ids": [
+    "epoch1_on_contiguous_0093",
+    "epoch2_on_contiguous_0074",
+    "epoch3_on_contiguous_0052"
+  ],
+  "candidate_representative_source_channels": [160066324, 160066324, 160066325],
+  "scan_ids_in_order": [
+    "epoch1_on",
+    "epoch1_off",
+    "epoch2_on",
+    "epoch2_off",
+    "epoch3_on",
+    "epoch3_off"
+  ],
+  "row_count_per_scan": 16,
+  "row_normalization": "Reuse the already-saved full-physical-chunk median for each time row.",
+  "reservation": {
+    "CPU_seconds": 30.0,
+    "wall_seconds": 180.0,
+    "address_space_bytes": 2147483648,
+    "new_external_bytes": 0,
+    "new_GETs": 0
+  },
+  "prohibitions": [
+    "No new source request or telescope-data download.",
+    "No new detector score, drift grid, width family, threshold tuning, or origin classification.",
+    "Adjacent flanks are descriptive local context, not a calibrated noise model.",
+    "OFF response is counterevidence to ON exclusivity, not proof of physical origin."
+  ]
+}
