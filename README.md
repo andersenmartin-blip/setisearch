@@ -1,3 +1,15 @@
+# SETI — 9. oktober 2026: fem senere observationsfilers metadata kontrolleret
+
+Fem HIP98505-filer fra 2018–2019 er nu verificeret for målbetegnelse, starttid, geometri og filspecifik frekvensdækning. **Ingen af de fem læste filer dækker det uafklarede spor ved 1424,079070 MHz.** Resultatet gælder disse filer; de to 2019-headers beskriver kun enkelte `blc40`-produkter og beviser ikke globalt fravær af brugbare L-båndsdata.
+
+Der er læst metadata, med **0 nye signalværdier og 0 s ny signaleksponering**. De tidligere syv svage ON-profiler forbliver **UNRESOLVED**, og A/B forbliver **FAIL_CLOSED**. 100 CPU-s er konservativt reserveret inden for uændret totalramme; saldo **1602,705145 CPU-s**, heraf **1600 beskyttet til 20. oktober**. De afsluttede signal-/kontrolanalyser og gamle testbanker er ikke genkørt.
+
+[Resultat og afgrænsning](https://github.com/andersenmartin-blip/setisearch/blob/c67ac5601528cfe06e5f3e3dd24520393507899f/RADIO_VISIT_FOLLOWUP_2026-10-09_RESULT.md) · [Kildeheaders og frekvenser](https://github.com/andersenmartin-blip/setisearch/blob/c67ac5601528cfe06e5f3e3dd24520393507899f/results/radio_visit_followup_20261009/VISIT_FOLLOWUP_RESULT.json).
+
+Tidligere statusser nedenfor er bevaret historik. Den nyeste ledger har forrang for interne saldi/reservefordelinger, uden ændring af gamle udfald eller debiteringer.
+
+---
+
 # SETI-status — 9. oktober 2026: målsporenes vedvarenhed findes også i kontrollerne
 
 **To nye analysejob er gennemført: omvendt ON/OFF-kontrol og tidsmåling af alle 120 faste top20-profiler.** Blandt 60 udvalgte ON-profiler har fire positive residualer i alle 16 integrationer; blandt 60 omvendt udvalgte OFF-profiler har fem det. Kontrolretningernes største spektrale kontraster er på samme niveau som målretningernes ved samme antal nabokontroller. Tallene er beskrivende fra korrelerede data, ingen kalibreret falskalarmrate.
