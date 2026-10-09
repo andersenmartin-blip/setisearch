@@ -1,3 +1,19 @@
+# Aktuel SETI-status — 9. oktober 2026: fem senere målbesøgs metadata kontrolleret
+
+Fem senere HIP98505-filer fra 2018–2019 har nu verificeret målbetegnelse, tidspunkt, geometri og filspecifik frekvensdækning. **Ingen af de fem læste filer dækker 1424,079070 MHz.** Det er en afgrænset metadatafinding, ikke bevis for global arkivfravær, komplette nye ON/OFF-kadencer eller en sky-nuldetektion. Især de to 2019-headers beskriver kun deres enkelte `blc40`-filer. Live katalogsøgning gav 21 poster med det allerede analyserede 2016-L-båndsbesøg og 2017-S-båndsbesøget; fem senere filserver-sessioner blev undersøgt særskilt.
+
+[Det nye resultat](RADIO_VISIT_FOLLOWUP_2026-10-09_RESULT.md) · [Frekvens-/kildeevidens](results/radio_visit_followup_20261009/VISIT_FOLLOWUP_RESULT.json) · [Færdige headerreceipts](results/radio_visit_followup_20261009/header_completion/COMPLETION_RESULT.json) · [Aktuel ledger](results/radio_visit_followup_20261009/RESOURCE_LEDGER.json).
+
+Første fem 4096-byte prefix-parsninger stoppede ved cachegrænsen; fejl og bytes er bevaret. Ti særskilt frosne, pointerbegrundede metadata-GETs fuldførte de fem headers uden gentagelse af de første requests eller læsning af signalværdier. 15 binære metadatafiler/36.824 bytes er hashkontrolleret. Kendte nye arkiv-/header-application-body-bytes er 388.598. **0 nye datasæt-værdiadgange, 0 s ny signaleksponering, 0 DKK.** De to headerprocesser brugte 0,369753 målte process-CPU-s; hele aktiviteten er ikke samlet CPU-målt, og 100 CPU-s er konservativt reserveret inklusive fejl og publicering.
+
+Den interne afslutningsreserve er prospektivt omfordelt under fortsat brugerautorisation til signalarbejde. Samlet godkendt 12-CPU-timers ramme og alle tidligere debiteringer er uændrede. Ny saldo: **1.602,705145 CPU-s**, heraf **1.600 beskyttet til 20. oktober**. A/B er fortsat **FAIL_CLOSED**, kvalificeret pilot blokeret, de syv svage ON-profiler **UNRESOLVED**. Afsluttede signal-/kontrolsøgninger og gamle testbanker er ikke genkørt. Ingen kontakt, betaling, booking eller ny baggrundsworker.
+
+Næste bevistrin kræver et andet observationsbesøg med verificeret mål, brugbar frekvensdækning og kontroller samt frekvens-/Dopplermodel og fast søgefamilie før værdilæsning, eller en særskilt kvalificeret kalibrering af den oprindelige udvælgelsesfamilie. Metadataopfølgningen ændrer ikke de tidligere signalresultater eller gamle gate-/holdoutudfald.
+
+Følgende poster er bevaret historik. Ældre interne saldi/reservefordelinger supersederes af den nye ledger uden refusion eller ændring af tidligere udfald.
+
+---
+
 # Aktuel SETI-status — 9. oktober 2026: hele ranglisten målt mod native kontroller
 
 To nye signal-/kontroljob er færdige. Den omvendte ON/OFF-søgning finder spektrale kontrastmaksima i kontrolretningerne på samme niveau som målretningernes ved samme antal nabokontroller. Hele den faste top20-liste pr. scanning er nu tidsmålt: **120 profiler**, med **16 tidligere profiler genbrugt uændret og 104 nye målt i sidste blok**. **4/60 ON og 5/60 OFF har positive residualer i alle 16 rækker**; tallene er beskrivende og korrelerede. Tre af de fire ON-profiler er store linjeoverskud, der også findes i kontrolscanningerne. De syv tidligere svage ON-spor og især 1424,079069888 MHz forbliver uafklarede; ingen ny kandidat promoveres eller oprindelse klassificeres.
