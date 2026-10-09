@@ -1,0 +1,93 @@
+{
+  "status": "FROZEN_BEFORE_NEW_104_TIME_PROFILE_OUTCOMES",
+  "scope": "POST_DATA_EXPLORATORY_FULL_FIXED_RANKED_NATIVE_TIME_PANEL",
+  "created_UTC": "2026-10-09T16:43:05.943055+00:00",
+  "prior_protocol_commit": "2cacae559ac1e068a2356410f958c4f6314b5a5b",
+  "script_sha256": "98012e72235470edbe9120ccae68ad458d2baff7d53a99ef015474505e53061f",
+  "total_panel_profiles": 120,
+  "reused_profiles": 16,
+  "new_profiles": 104,
+  "top_per_scan": 20,
+  "rows": 16,
+  "patch_halfwidth": 64,
+  "background_exclusion_halfwidth": 3,
+  "CPU_cap_s": 90,
+  "wall_cap_s": 240,
+  "memory_cap_bytes": 1610612736,
+  "positive_row_summary_cuts": [
+    13,
+    15,
+    16
+  ],
+  "conservative_activity_reservation_CPU_s": 100,
+  "protected_checkpoint_CPU_s": 1700,
+  "selection": "All original top20 perON and all new reciprocal top20 perOFF; include known lines and every rank. Reuse seven exact old ON and nine exact new OFF time profiles. Measure remaining104 once. No re-ranking, drift or time/frequency adjustment.",
+  "center_definition": "Mean of selected width1/3 raw power / preserved row median minus median of fixed flank offsets \u00b14 through \u00b164 per row.",
+  "limitations": [
+    "Exploratory fixed ranked-panel diagnosis after the same data were opened; not a fresh qualification or independent confirmation",
+    "Same observing visit and correlated selection; no p-values or certified native nulls",
+    "Reuses16 old results without remeasurement; newly retained104 includes known line regions at two original ON selected centers, not new physical events"
+  ],
+  "original_ranks": "setisearch_work/results/radio_excess_20261009/top20_per_on.json",
+  "reciprocal_ranks": "setisearch_work/results/radio_native_controls_20261009/outputs/RECIPROCAL_TOP20.json",
+  "original_time_review": "setisearch_work/results/radio_excess_20261009/time_review/TIME_REVIEW.json",
+  "reciprocal_time_review": "setisearch_work/results/radio_native_controls_20261009/outputs/CONTROL_TIME_REVIEW.json",
+  "normalization": "setisearch_work/results/radio_quicklook_20261009/broad_inventory/normalization.json",
+  "inputs": [
+    {
+      "path": "setisearch_work/results/radio_excess_20261009/top20_per_on.json",
+      "bytes": 93595,
+      "sha256": "2a18f96adb08fa3df570d2f17ad5074763ed38352cea842ad09751fbef7a3902"
+    },
+    {
+      "path": "setisearch_work/results/radio_native_controls_20261009/outputs/RECIPROCAL_TOP20.json",
+      "bytes": 19202,
+      "sha256": "09532a2310d1a46e55abf58672e59b524129419974b590f4851a42c40724a904"
+    },
+    {
+      "path": "setisearch_work/results/radio_excess_20261009/time_review/TIME_REVIEW.json",
+      "bytes": 149855,
+      "sha256": "85387051a4cbc8d96390744c6f21bdb02a90d2476b58786f31fe85dfc98a8e93"
+    },
+    {
+      "path": "setisearch_work/results/radio_native_controls_20261009/outputs/CONTROL_TIME_REVIEW.json",
+      "bytes": 40349,
+      "sha256": "7ee600f4389bb3d5ebe36f27514e3790bf222bb600e63c31aaa3673c55b2e502"
+    },
+    {
+      "path": "setisearch_work/results/radio_quicklook_20261009/broad_inventory/normalization.json",
+      "bytes": 2028,
+      "sha256": "773a01afd658d0134a2f9b418350f915ffdc0b8690739279a4fd2723bc1be132"
+    },
+    {
+      "path": "seti_inputs/SETI_RADIO_CACHED_SIGNAL_CHUNKS_2026-10-09/arrays/epoch1_on.compact.h5",
+      "bytes": 50864107,
+      "sha256": "9391403e03c392bd0f12ee208118b1f66d3f419ad9e999ee3eb841b963404195"
+    },
+    {
+      "path": "seti_inputs/SETI_RADIO_CACHED_SIGNAL_CHUNKS_2026-10-09/arrays/epoch1_off.compact.h5",
+      "bytes": 50867983,
+      "sha256": "43ea7eda3d4beba92655769ad22cbc385c0689b438787130fe73c125e0ee64f3"
+    },
+    {
+      "path": "seti_inputs/SETI_RADIO_CACHED_SIGNAL_CHUNKS_2026-10-09/arrays/epoch2_on.compact.h5",
+      "bytes": 50869123,
+      "sha256": "6ca34939cda98135e6ffbb9e4799e1f8239b00a508d3f4546fdde6ba4513a2e7"
+    },
+    {
+      "path": "seti_inputs/SETI_RADIO_CACHED_SIGNAL_CHUNKS_2026-10-09/arrays/epoch2_off.compact.h5",
+      "bytes": 50866447,
+      "sha256": "94bcf4f04027d5d922a7d0b45fcfd9b61492988fdc8231493fd336295fc73fa1"
+    },
+    {
+      "path": "seti_inputs/SETI_RADIO_CACHED_SIGNAL_CHUNKS_2026-10-09/arrays/epoch3_on.compact.h5",
+      "bytes": 50867190,
+      "sha256": "240acdfcd0021975a5f25e336b5316ce91300832cd9801b2df0c8f0bd36c5ee0"
+    },
+    {
+      "path": "seti_inputs/SETI_RADIO_CACHED_SIGNAL_CHUNKS_2026-10-09/arrays/epoch3_off.compact.h5",
+      "bytes": 50866939,
+      "sha256": "3d31ff6c6da00a18f9119c5a93882fed9c83acfdd9f7784ffd28a503dead298c"
+    }
+  ]
+}
