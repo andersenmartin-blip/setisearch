@@ -1,3 +1,17 @@
+# SETI-status — 9. oktober 2026: gammel periode lukket; rapportpakke færdig
+
+Den gamle26. september–9. oktober-plan er nu formelt lukket. Dens beregninger og lukkede tests var allerede færdige; hovedmålet forbliver blokeret, uden sky-nuldetektion. Den nye undersøgelses samlede rapport og reproduktionskit er færdiggjort9. oktober i en sammenhængende arbejdsgang. Kalenderen er milepæle, så færdigt pakningsarbejde venter ikke til20. oktober.
+
+Pakken har79 payloadfiler og2 kontrolfiler, seks originale PDF-figurer og frosne kode-/protokol-/resultatmetadata; ZIP421.492 bytes. Hashes,CRC og originale adgangskrav er kontrolleret. Casearkiver og scorekort ligger eksternt; ingen nye detektor-, generator- eller verifierkørsler er udført. A/B forbliver FAIL_CLOSED. Saldoen efter den særskilte100-CPU-sekunders rapport-/pakkereservation er5.912,705144981004 CPU-s; mindst2.000 bevares til checkpointet.
+
+Rapportleverancen er klar nu. Den formelle7.–20. oktober-periode har fortsat et afsluttende checkpoint20. oktober. Den gemte-case-kontrol blev allerede gennemført8. oktober og gentages ikke19. oktober; færdige audits og pakninger gentages ikke dagligt.
+
+[Gammel periodes slutrapport](https://github.com/andersenmartin-blip/setisearch/blob/76f9de3ce5fb1ee06612d60023ec9ac6ae4d8ade/RADIO_PERIOD_2026-09-26_TO_2026-10-09_FINAL.md) · [Aktuel rapport](https://github.com/andersenmartin-blip/setisearch/blob/76f9de3ce5fb1ee06612d60023ec9ac6ae4d8ade/RADIO_REPORT_PACKAGE_2026-10-09.md) · [Reproduktionskit](https://github.com/andersenmartin-blip/setisearch/blob/76f9de3ce5fb1ee06612d60023ec9ac6ae4d8ade/results/radio_report_package_20261009/SETI_RADIO_REPORT_KIT_2026-10-09.zip) · [Vejledning](https://github.com/andersenmartin-blip/setisearch/blob/76f9de3ce5fb1ee06612d60023ec9ac6ae4d8ade/results/radio_report_package_20261009/KIT_GUIDE.md) · [Aktuel status](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md).
+
+---
+
+Tidligere daterede oversigter følger som historik.
+
 # SETI-status — 8. oktober 2026: foreløbig samlet rapport klar
 
 Voyager-referencen og det beregnede metodealternativ er gennemført. En ny seks-scans himmelsøgning er fortsat blokeret af fejlet frisk validering; A/B forbliver FAIL_CLOSED. Det uafhængigt gennemsete udkast samler resultaterne, dokumenterer RFI-rester og nær-OFF-signal-tab og afgrænser konklusionerne. Ingen ny detektion eller nuldetektion på himlen følger.
