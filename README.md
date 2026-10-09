@@ -1,3 +1,17 @@
+# SETI-status — 9. oktober 2026: seks autentiske scanninger analyseret
+
+**Faktisk signalanalyse er gennemført over 2,950012 MHz i hver af tre målscanninger**, med tre tilhørende kontrolscanninger. Alle 254 indre frekvensudsnit pr. ON er færdige. De stærkeste linjer findes også i kontrolscanningerne; to svage flag er individuelt gennemgået og viser også OFF-respons. Ingen overbevisende ON-eksklusivitet eller udenjordisk oprindelse er etableret. Optagelserne er én historisk observation, ikke seks uafhængige besøg.
+
+[Faktisk resultat, dækning og begrænsninger](https://github.com/andersenmartin-blip/setisearch/blob/141fe1cb7cf7c64477e151fbdc8bc79f1fdfe73c/RADIO_QUICKLOOK_2026-10-09_RESULT.md) · [Gemte signalgrupper](https://github.com/andersenmartin-blip/setisearch/blob/141fe1cb7cf7c64477e151fbdc8bc79f1fdfe73c/results/radio_quicklook_20261009/SIGNAL_GROUPS.csv) · [Kontrolgennemgang](https://github.com/andersenmartin-blip/setisearch/blob/141fe1cb7cf7c64477e151fbdc8bc79f1fdfe73c/results/radio_quicklook_20261009/flagged_review/REVIEW.json).
+
+Den gamle plan er lukket. Den godkendte plan **7.–20. oktober** prioriterer nu konkret signalanalyse og kontrolmålinger i sammenhængende arbejdspas; afsluttede søgninger og gamle rapportkontroller genkøres ikke. Denne dataåbning er særskilt eksplorativ og ændrer ikke **A/B FAIL_CLOSED** eller den oprindelige kvalificerede pilots blokering. Der hævdes ingen kalibreret falskalarmrate eller generel sky-nuldetektion.
+
+Saldo er 2.212,705 CPU-s, heraf 2.000 beskyttet til checkpunkt 20. oktober. Originale kildebytes og alle resultater er bevaret. [Aktuel evidens og ressourceregnskab](https://github.com/andersenmartin-blip/setisearch/tree/141fe1cb7cf7c64477e151fbdc8bc79f1fdfe73c/results/radio_quicklook_20261009).
+
+---
+
+Tidligere afsnit nedenfor er historik; den aktuelle analyse står ovenfor.
+
 # SETI-status — 9. oktober 2026: gammel periode lukket; rapportpakke færdig
 
 Den gamle26. september–9. oktober-plan er nu formelt lukket. Dens beregninger og lukkede tests var allerede færdige; hovedmålet forbliver blokeret, uden sky-nuldetektion. Den nye undersøgelses samlede rapport og reproduktionskit er færdiggjort9. oktober i en sammenhængende arbejdsgang. Kalenderen er milepæle, så færdigt pakningsarbejde venter ikke til20. oktober.
