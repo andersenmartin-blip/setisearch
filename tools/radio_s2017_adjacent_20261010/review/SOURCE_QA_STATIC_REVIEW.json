@@ -1,0 +1,62 @@
+{
+  "status": "PASS_INDEPENDENT_STATIC_SOURCE_QA_NO_VALUES",
+  "qa_script_path": "analysis/s2017_next_native/qa_sources.py",
+  "qa_script_sha256": "16cdef118d9351ca55f89435e20f06ac99f02d74c2110284aeaa840f801c084e",
+  "qa_script_bytes": 26933,
+  "source_manifest_sha256": "2a09dcd018e83e822cf19cb088e4f35469e8b160cbcde69f0428e64544ad7909",
+  "acquisition_scope_sha256": "91392f8cfec0844fe0182d137496202d4f142b89814c91cd8b3f120a11fb920e",
+  "acquisition_driver_sha256": "66c28eee043a02c138e29ac28ed4a38186ad17911f1553a050776b468d2525ba",
+  "compatible_search_driver_sha256": "3c23e8020ee32c5c662922d16fe3517315364eccb59514b9e678e6d248b519e6",
+  "actual_expected_QA_status": "PASS_ADJACENT170_172_12_COMPACTS192_COMPRESSED_CHUNKS192_DECODED_ROWS_AND_SOURCE_RANGE_PROVENANCE",
+  "actual_expected_counts": {
+    "native_chunks": 2,
+    "compact_files": 12,
+    "source_headers": 12,
+    "source_descriptors": 192,
+    "exact_range_records": 192,
+    "unique_source_ranges": 192,
+    "durable_raw_sidecars": 192,
+    "compressed_source_chunks": 192,
+    "decoded_rows": 192
+  },
+  "checks": {
+    "AST_syntax_and_only_stdlib_top_level_imports": true,
+    "ownscript_and_exact_independent_static_review_SHA_before_power_reads": true,
+    "actual_COMPLETE_acquisition_SHA_and_exact_scope_source_driver_freeze_counts_resourceguards": true,
+    "all12_metadata_only_sourceheaders192exactdescriptors_per_source_native_total_and171_disjointness": true,
+    "metadata_only_source_contract_executed_against_exact_frozen_V2_JSON_no_power": true,
+    "source_request_and_raw_record_keys_exactcanonical192_unique_order": true,
+    "every_range_URL_strongETag_206_ContentRange_Length_identity_attempt1_BODYbytes": true,
+    "all192_standalone_raw_sidecar_hashes_sizes_and_fsync_record_contract": true,
+    "exact12flat_compact_filenames_nativeframes_and_canonical192decoded_record_progress": true,
+    "one_readonly_H5_open_percompact_root_dataset_attributes_chunkgeometry_and_actual_filter_semantics": true,
+    "all192_direct_compressed_source_SHA_and_decoded_float32_row_SHA_checks": true,
+    "all207_expected_acquisition_files_exactinventory_no_extra_or_missing": true,
+    "allinput_metadata_raw_compact_pins_rehashed_before_PASS": true,
+    "search_compatible_exactcounts_12compactpins_and3canonical_recordSHAs": true,
+    "persistent_family_EX_nonblocking_flock_no_concurrent_acquire_or_search": true,
+    "new_source_review_output_existfalse_atomic_receipts_failurepreserved_no_rerun": true,
+    "no_HTTP_detector_scores_fits_or_median_calculation": true,
+    "CPU180_wall1800_RLIMIT_AS4GiB_and_measured_guards": true
+  },
+  "resource_limits": {
+    "CPU_s": 180,
+    "wall_s": 1800,
+    "RAM_bytes": 4294967296,
+    "compact_open_handles_max": 1
+  },
+  "static_source_contract_counts": {
+    "source_headers": 12,
+    "source_descriptors": 192
+  },
+  "actual_acquisition_source_QA_result_reviewed": false,
+  "actual_acquisition_or_source_QA_execution": false,
+  "detector_execution": false,
+  "HTTP_H5_NPZ_spectral_value_reads": 0,
+  "blockers": [],
+  "limitations": [
+    "This receipt approves static source-QA code only; actual acquisition must COMPLETE and independently reviewed exact receipts/root QA freeze/GO are required before execution.",
+    "The metadata-only source contract was exercised on already frozen JSON; no actual power file or fabricated acquisition receipt was used.",
+    "SourceQA checks byte and float32 row provenance, not candidate quality, detector score calibration or astronomical origin."
+  ]
+}
