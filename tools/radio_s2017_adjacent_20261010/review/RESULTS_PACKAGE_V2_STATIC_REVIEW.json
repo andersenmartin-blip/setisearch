@@ -1,0 +1,164 @@
+{
+  "schema": "SETI_ADJACENT_RESULTS_PACKAGE_V2_INDEPENDENT_STATIC_ENGINEERING_REVIEW_V1",
+  "status": "PASS_INDEPENDENT_STATIC_RESULTS_PACKAGE_ENGINEERING_REPAIR_V2",
+  "review_date_UTC": "2026-10-10",
+  "reviewer": "independent reproduction_inventory subagent; additional read-only descriptor reviewer archive_fd_review",
+  "builder_path": "analysis/s2017_next_native/delivery/build_results_package_v2.py",
+  "builder_bytes": 44842,
+  "builder_sha256": "d2d77ff3035b9b59abf7207be2bbfb68bc63ff00004046965a2195d6e4facc6f",
+  "scope_path": "analysis/s2017_next_native/delivery/RESULTS_PACKAGE_REPAIR_SCOPE_V2.json",
+  "scope_bytes": 5763,
+  "scope_sha256": "8f1583f645afaaccb8f54b42ef664e9a11ca82279c14a7ac1c6f4fed5e5b2118",
+  "actual_admission_sha256": "1113574be9d3aa327c42d5a88edf5eecc662e9aaed70ff53cf14a397287c1ed7",
+  "concrete_blockers": [],
+  "review_method": "Read-only UTF8 source/diff/AST and metadata SHA review; no builder/common/helper import or execution, and no archive/H5/NPZ/PNG/PDF/binary body read.",
+  "resolved_requirement_gap": "Fresh O_RDONLY|O_NOFOLLOW pathname probe is present while original writer descriptor remains held. It verifies path/fstat identity, central-directory uniqueness/count, manifest/member sizes and whole archive SHA against the retained-descriptor verification.",
+  "static_checks": {
+    "AST_parse": "PASS",
+    "scope_code_pin_count": 4,
+    "preserved_original_attempt_text_pin_count": 6,
+    "all_code_and_preserved_attempt_text_pins_match": true,
+    "canonical_admission_unchanged": true,
+    "four_producer_PNG_declarations_match_admission_and_both_producer_receipts": true,
+    "original_science_source_QA_inventory_helpers_AST_unchanged": [
+      "canonical_sha",
+      "merge_pins",
+      "authenticate_pins",
+      "source_qa_contract",
+      "actual_json"
+    ],
+    "original_builder_common_reconstruction_source_pins_unchanged": true,
+    "create_only_no_follow_retained_descriptor": true,
+    "writer_ZIP_close_flush_file_fsync_stage_directory_fsync_before_read_verification": true,
+    "retained_descriptor_verifies_manifest_all_member_SHA_bytes_CRC_and_full_testzip": true,
+    "descriptor_and_path_dev_inode_size_mtime_checkpoints": true,
+    "held_full_archive_SHA_before_and_after_outer_admission": true,
+    "fresh_pathname_manifest_geometry_and_whole_SHA_probe_with_original_descriptor_retained": true,
+    "full_archive_SHA_ties_fresh_probe_bytes_to_already_completed_CRC_member_verification": true,
+    "empirical_QA_PNG_engineering_and_preserved_history_member_pins_compared_exactly": true,
+    "payload_sources_and_all_authenticated_roots_rechecked_after_assembly": true,
+    "separate_create_only_results_v2_stage_and_unused_canonical_receipt": true,
+    "nonblocking_family_archive_locks_and_failure_preservation_present": true,
+    "workspace_cap_bytes": 8589934592,
+    "CPU_cap_seconds": 180,
+    "wall_cap_seconds": 1800,
+    "address_space_cap_bytes": 2147483648,
+    "conservative_workspace_and_free_space_admission_periodic_allocation_checks_and_outer_final_workspace_guard": true,
+    "archive_identity_rechecked_before_and_after_canonical_receipt_creation_and_delivery_directory_fsync": true,
+    "original_archive_not_opened_repaired_replaced_or_deleted_by_V2": true,
+    "original_failure_cause_remains_UNKNOWN": true,
+    "no_science_QA_detector_or_profile_rerun_HTTP_or_delete_authority_added": true
+  },
+  "input_byte_pins": {
+    "analysis/s2017_next_native/delivery/build_results_package_v2.py": {
+      "bytes": 44842,
+      "sha256": "d2d77ff3035b9b59abf7207be2bbfb68bc63ff00004046965a2195d6e4facc6f"
+    },
+    "analysis/s2017_next_native/delivery/RESULTS_PACKAGE_REPAIR_SCOPE_V2.json": {
+      "bytes": 5763,
+      "sha256": "8f1583f645afaaccb8f54b42ef664e9a11ca82279c14a7ac1c6f4fed5e5b2118"
+    },
+    "analysis/s2017_next_native/delivery/build_results_package.py": {
+      "bytes": 27865,
+      "sha256": "b371d6df3b1b692f456045d89a2076cdfdbf9ae5553bbdd1fea5c08a7b247dee"
+    },
+    "analysis/s2017_next_native/delivery/archive_common.py": {
+      "bytes": 7324,
+      "sha256": "26ecf220ae6d93392abc97e4ce8fb02609dac0340438fdabe4186c55586b7497"
+    },
+    "analysis/s2017_next_native/delivery/reconstruct_raw_sidecars.py": {
+      "bytes": 7950,
+      "sha256": "19e89ad647a0a1d33b156c35a4ccf20aedbb2fdef6e7a5c38507b9cbf043edc7"
+    },
+    "analysis/s2017_next_native/delivery/packages/results/PACKAGE_RECEIPT.json": {
+      "bytes": 112098,
+      "sha256": "aa3284998f04e3b9e39bce8900ea973b9567527361307869559e56b997937f8f"
+    },
+    "analysis/s2017_next_native/delivery/packages/results/RESULTS_ADMISSION_FAILURE_RECEIPT.json": {
+      "bytes": 419,
+      "sha256": "62237ba05fa697b056ac680c8ee5c238220c9ae03b9408a975a73d11bb47c830"
+    },
+    "analysis/s2017_next_native/delivery/results_package_execution.log": {
+      "bytes": 814,
+      "sha256": "bfee54854ba7887a22337b3562a9605768701bc58f293e75665032884feeaf45"
+    },
+    "analysis/s2017_next_native/ROOT_RESULTS_PACKAGE_GO.json": {
+      "bytes": 903,
+      "sha256": "fa9d7e7be8c69aaf71df2df06a9bebdd092887bcc5caf7fc6b6cb5a1de8d196c"
+    },
+    "analysis/s2017_next_native/delivery/ACTUAL_RESULTS_COMPLETION_ADMISSION.json": {
+      "bytes": 26280,
+      "sha256": "1113574be9d3aa327c42d5a88edf5eecc662e9aaed70ff53cf14a397287c1ed7"
+    },
+    "analysis/s2017_next_native/review/RESULTS_V1_TRUNCATED_ARCHIVE_FORENSICS.json": {
+      "bytes": 4901,
+      "sha256": "a2c4ef86ada3e2de850e5b0a23c0b54198a8c81207bd032458bbf18d97067cff"
+    },
+    "analysis/s2017_next_native/results/search/interpretation/INTERPRETATION_RECEIPT.json": {
+      "bytes": 9175,
+      "sha256": "3c006c6d8a221dae37ce8636979737062b80badb658b68a266e71e740e79c060"
+    },
+    "analysis/s2017_next_native/boundaries/results/interpretation/INTERPRETATION_RECEIPT.json": {
+      "bytes": 11957,
+      "sha256": "b8bce06c708fd8dd8840ac6dde163036e8f199f64ab9050b3a48ae47be46f2fb"
+    },
+    "analysis/s2017_next_native/delivery/RADIO_S2017_ADJACENT_2026-10-10_RESULT.md": {
+      "bytes": 10317,
+      "sha256": "1ab6c981ded6905e890446f96b914c7b0390426e2642f68d90c0744f4b474d53"
+    },
+    "analysis/s2017_next_native/delivery/DATA_AVAILABILITY.md": {
+      "bytes": 9952,
+      "sha256": "8fb39f25d3b1682ddb7c887cf939ea9de24a7e0939b9323c8d0fc37af860894e"
+    },
+    "analysis/s2017_next_native/delivery/FINAL_REPORT_EVIDENCE_REVIEW.json": {
+      "bytes": 22933,
+      "sha256": "2aa5f9c6a4d6dea31c9f9c7ee76542b356af1740e008535de0ecf8c39a49a1ed"
+    },
+    "analysis/s2017_next_native/review/FINAL_SCIENTIFIC_SYNTHESIS_REVIEW.json": {
+      "bytes": 13578,
+      "sha256": "175bcc286e30b66bed6374e8382aafbebd29ee00d9c76eb4179a90aba5d359e2"
+    }
+  },
+  "producer_PNG_declared_byte_pins": {
+    "analysis/s2017_next_native/results/search/interpretation/FROZEN_TRACK_SCAN_CONTEXT.png": {
+      "sha256": "6ac2cae59c992b2e00f6a1faa0d48e8e8e856fbbdb3f112a29b00b4860d2932f",
+      "bytes": 628521
+    },
+    "analysis/s2017_next_native/results/search/interpretation/LOCAL_TOP20_REFERENCE_TRACKS.png": {
+      "sha256": "974b4e81a880a726307689bf78ab1cbe95a4388a311332fbd57abded28df36b3",
+      "bytes": 300532
+    },
+    "analysis/s2017_next_native/boundaries/results/interpretation/FIXED_SIX_SCAN_CONTEXT.png": {
+      "sha256": "203b373b775f0ef7d951a6f4084c96781bd03c0e89d286dc4e9dd251aca5dab0",
+      "bytes": 297356
+    },
+    "analysis/s2017_next_native/boundaries/results/interpretation/SAVED_MAXIMA_REFERENCE_FREQUENCY.png": {
+      "sha256": "4e6eebcdd27cc51da3c4f0d0b42064b9abb3e31a62618dfb6ed1a347b981e1b2",
+      "bytes": 1026106
+    }
+  },
+  "producer_PNG_bodies_read_by_this_static_review": false,
+  "root_only_execution_contract": {
+    "new_public_freeze_exact_static_review_scope_and_root_GO_before_execution": true,
+    "one_uninterrupted_root_writer_exec_yield_time_ms": 30000,
+    "no_concurrent_tools_workspace_readers_polling_publication_or_save_until_terminal": true,
+    "root_reported_writer_stdout_stderr_outside_phase_payload_tree_until_terminal": true,
+    "active_writer_log_must_not_be_in_phase_payload_snapshot": true
+  },
+  "limitations": [
+    "Static PASS authorizes no execution by this reviewer and is not a completed RESULTS archive, empirical numeric QA, save/publication or identification of the original failure cause.",
+    "Original common PACKAGE_RECEIPT reports a historical inner PASS; original final-admission failure and forensic text confirm the original package is incomplete. Both meanings and their exact receipts remain preserved.",
+    "PNG bytes/SHA/CRC are to be authenticated only by the actual bounded packaging run; this static review compares declared producer/admission metadata without opening images.",
+    "Fresh-path probe checks ZIP structure/manifest/member sizes and complete SHA. It does not repeat all member CRC reads because exact SHA equality ties it to the retained-descriptor full member/CRC verification.",
+    "Outer-final workspace allocation is measured before canonical receipt creation. Archive identity is checked again after receipt creation/directory fsync; this review does not claim a post-receipt workspace remeasurement.",
+    "Wall measurement starts at main entry after imports; the inherited historical wall_seconds_including_imports field is explicitly annotated. Process CPU includes imports.",
+    "Future archive persistence and remote save remain separate from this one-shot local packaging proof."
+  ],
+  "target_modules_imported": false,
+  "target_builder_executed": false,
+  "new_HTTP_requests": 0,
+  "binary_or_archive_bodies_opened": false,
+  "source_value_reads": 0,
+  "detector_or_profile_runs": 0,
+  "existing_science_admission_reports_original_attempt_or_receipts_mutated": false
+}

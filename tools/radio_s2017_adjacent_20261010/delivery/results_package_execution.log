@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/5bf3860dacd6/analysis/s2017_next_native/delivery/build_results_package.py", line 405, in <module>
+    main()
+  File "/workspace/scratch/5bf3860dacd6/analysis/s2017_next_native/delivery/build_results_package.py", line 371, in main
+    with zipfile.ZipFile(root / receipt['archive_path'], 'r') as archive:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/zipfile/__init__.py", line 1371, in __init__
+    self._RealGetContents()
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/zipfile/__init__.py", line 1438, in _RealGetContents
+    raise BadZipFile("File is not a zip file")
+zipfile.BadZipFile: File is not a zip file

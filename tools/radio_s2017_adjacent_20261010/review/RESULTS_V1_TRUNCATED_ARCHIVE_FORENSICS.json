@@ -1,0 +1,98 @@
+{
+  "schema": "SETI_RESULTS_V1_TRUNCATED_ARCHIVE_BOUNDED_FORENSICS_V1",
+  "status": "CONFIRMED_TRUNCATED_LOCAL_RECORD_PREFIX_NOT_ADMISSIBLE_RESULTS_ARCHIVE",
+  "created_UTC": "2026-10-10T20:40:03.913343+00:00",
+  "reviewer": "fresh_visit_driver",
+  "observations_source": "Already completed one bounded read-only forensic examination; archive was not read or hashed again while writing this receipt.",
+  "preserved_original_metadata_pins": {
+    "analysis/s2017_next_native/delivery/packages/results/PACKAGE_RECEIPT.json": {
+      "bytes": 112098,
+      "sha256": "aa3284998f04e3b9e39bce8900ea973b9567527361307869559e56b997937f8f"
+    },
+    "analysis/s2017_next_native/delivery/packages/results/RESULTS_ADMISSION_FAILURE_RECEIPT.json": {
+      "bytes": 419,
+      "sha256": "62237ba05fa697b056ac680c8ee5c238220c9ae03b9408a975a73d11bb47c830"
+    },
+    "analysis/s2017_next_native/delivery/results_package_execution.log": {
+      "bytes": 814,
+      "sha256": "bfee54854ba7887a22337b3562a9605768701bc58f293e75665032884feeaf45"
+    }
+  },
+  "original_common_receipt_status_preserved": "PASS_ARCHIVE_CRC_AND_ALL_MEMBER_SHA256",
+  "original_actual_builder_failure_status": "INCOMPLETE_RESULTS_ADMISSION_PRESERVE_NO_RETRY_NO_OVERWRITE",
+  "original_failure_error": {
+    "type": "BadZipFile",
+    "message": "File is not a zip file",
+    "public_freeze_commit": "072df5d212fe8fac7b34382067275ceac1bd521b"
+  },
+  "archive_observed": {
+    "path": "analysis/s2017_next_native/delivery/packages/results/SETI_S2017_ADJACENT170_172_RESULTS_2026-10-10.zip",
+    "bytes": 137666560,
+    "allocated_bytes": 137666560,
+    "sha256": "dc6a2090600c5b65007e8710add6b5276737dd7c215957d165a3c07df517f3be",
+    "inode": 1707307,
+    "link_count": 1,
+    "mode": "0o100644",
+    "mtime_UTC": "2026-10-10T20:36:46.359010+00:00",
+    "ctime_UTC": "2026-10-10T20:36:49.302194+00:00",
+    "size_SHA_match_original_common_receipt": true,
+    "inode_size_mtime_stable_during_original_forensic_read": true,
+    "EOCD_signature_count_in_final65557_bytes": 0,
+    "central_directory_signature_count_in_final65557_bytes": 0,
+    "last16_bytes_hex": "3ba6ff3107ffd68fcdfb576f3288fd7f"
+  },
+  "local_record_prefix": {
+    "manifest_payload_files": 3413,
+    "manifest_total_members_including_manifest": 3414,
+    "manifest_uncompressed_payload_bytes": 404749269,
+    "complete_local_records_including_manifest": 3325,
+    "complete_payload_local_records": 3324,
+    "complete_local_names_equal_ordered_manifest_prefix": true,
+    "complete_prefix_end": 137617246,
+    "last_complete_member": {
+      "name": "analysis/s2017_next_native/results/search/native172_batch03/epoch3_on_q248_normalization.json",
+      "record_offset": 137606964,
+      "record_end": 137617246,
+      "compressed_bytes": 10159,
+      "uncompressed_bytes": 63242
+    },
+    "partial_member": {
+      "name": "analysis/s2017_next_native/results/search/native172_batch03/epoch3_on_q249_all_carriers.npz",
+      "record_offset": 137617246,
+      "data_start": 137617367,
+      "compressed_bytes_declared": 70461,
+      "compressed_bytes_available": 49193,
+      "compressed_bytes_missing_in_this_member": 21268,
+      "uncompressed_bytes_declared": 180262,
+      "expected_record_end": 137687828
+    },
+    "manifest_members_remaining_including_partial": 89,
+    "later_manifest_members_not_present": 88
+  },
+  "preserved_log_evidence": "Builder failed at build_results_package.py line371 reopening the archive with ZipFile after common assembly returned its PASS receipt.",
+  "cause": {
+    "status": "UNKNOWN",
+    "root_reported_concurrent_archive_stat_polling": true,
+    "snapshot_contamination_hypothesis": "Concurrent workspace snapshot/copy activity is plausible but unproven. No creator or mutator was identified."
+  },
+  "repair_assessment": {
+    "central_directory_only_recovery_sufficient": false,
+    "reason": "At least one compressed member is incomplete and88 subsequent members are absent; central-directory reconstruction cannot supply missing payload bytes.",
+    "recommended_strategy": "Separately reviewed and publicly frozen additive builder, fresh output stage, unchanged source outputs and actualQA pins; preserve original failed archive and receipts.",
+    "narrow_stability_controls": [
+      "Retain one create-only no-follow archive descriptor across write, ZIPclose, fsync, verification and whole-byte SHA.",
+      "Check descriptor and pathname device/inode/size/mtime identity before completion.",
+      "Use one uninterrupted writer exec; no concurrent workspace reads/polls until writer DONE."
+    ]
+  },
+  "review_actions": {
+    "archive_reads_repeated_for_receipt_creation": 0,
+    "array_or_source_value_parsing": 0,
+    "full_CRC_passes": 0,
+    "science_or_numeric_QA_runs": 0,
+    "source_HTTP_requests": 0,
+    "archive_mutations_or_repairs": 0,
+    "files_deleted": 0,
+    "publication_or_save_performed": false
+  }
+}
