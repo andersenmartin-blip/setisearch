@@ -1,0 +1,36 @@
+{
+  "schema": "SETI_BYTE_EXACT_RAW_ARCHIVE_PARTS_V1",
+  "status": "PLANNED_THREE_ORDERED_BYTE_EXACT_PARTS_NOT_YET_DURABLY_SAVED",
+  "original_archive_path": "/workspace/scratch/5bf3860dacd6/analysis/s2017_next_native/delivery/packages/raw/SETI_S2017_NATIVE170_172_RAW_2026-10-10.zip",
+  "original_archive_filename": "SETI_S2017_NATIVE170_172_RAW_2026-10-10.zip",
+  "original_archive_bytes": 604399781,
+  "original_archive_sha256": "b78521c9f51a47d698af1ea1f8949b5676c843656389655191042a0fbc06817f",
+  "part_count": 3,
+  "parts": [
+    {
+      "index": 1,
+      "filename": "SETI_S2017_NATIVE170_172_RAW_2026-10-10.zip.part01",
+      "source_offset": 0,
+      "bytes": 209715200,
+      "sha256": "ad4be599d3e7da809df1d473c8fa677e0c2581d251fb65d9cc01d90849dd8dbb"
+    },
+    {
+      "index": 2,
+      "filename": "SETI_S2017_NATIVE170_172_RAW_2026-10-10.zip.part02",
+      "source_offset": 209715200,
+      "bytes": 209715200,
+      "sha256": "2ad6609f4984c536fc4dbee2223975f756459d681b8c9e1f5c6b8731f149a97f"
+    },
+    {
+      "index": 3,
+      "filename": "SETI_S2017_NATIVE170_172_RAW_2026-10-10.zip.part03",
+      "source_offset": 419430400,
+      "bytes": 184969381,
+      "sha256": "d585965102de3ac3cbc9864a92249e0fb660ed6968540249c34e650b880b15ca"
+    }
+  ],
+  "assembly_rule": "concatenate part01 then part02 then part03; total bytes and SHA256 must match original archive",
+  "source_or_detector_rerun": false,
+  "reason": "full archive preparation failed twice; three smaller dependency-ordered save checkpoints keep transfer duplication below workspace cap",
+  "UTC": "2026-10-10T19:43:20.657534+00:00"
+}

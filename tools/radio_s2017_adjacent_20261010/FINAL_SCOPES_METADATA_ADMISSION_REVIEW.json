@@ -1,0 +1,106 @@
+{
+  "schema": "SETI_S2017_ADJACENT_EIGHT_FINAL_SCOPES_METADATA_ADMISSION_V1",
+  "status": "PASS_EIGHT_FROZEN_METADATA_CODE_ACTUAL_SOURCE_QA_SCOPES_NO_VALUES",
+  "reviewer": "/root/full_band_review",
+  "reviewed_UTC": "2026-10-10T19:33:39.109339+00:00",
+  "acquisition_receipt_sha256": "2dd9d1f6f99cb41dbf60d47e28f23771da6b27c6ab786f4945b5696d2449df3e",
+  "source_QA_receipt_sha256": "21a8edaf91e9a60d3209d33e4620a5f93038aabfafd3910094bd25e0fd66318a",
+  "source_manifest_sha256": "2a09dcd018e83e822cf19cb088e4f35469e8b160cbcde69f0428e64544ad7909",
+  "jobs": [
+    {
+      "job_id": "native170_batch01",
+      "scope_path": "analysis/s2017_next_native/search/scopes/native170_batch01.json",
+      "scope_sha256": "4b73cedea7872b70cb098e374f954a04e77674a6d7d9cea3ae3be0a8c6d84345",
+      "driver_sha256": "3c23e8020ee32c5c662922d16fe3517315364eccb59514b9e678e6d248b519e6",
+      "metadata_code_pin_count": 493,
+      "expected_maps": 255,
+      "expected_profiles": 9
+    },
+    {
+      "job_id": "native170_batch02",
+      "scope_path": "analysis/s2017_next_native/search/scopes/native170_batch02.json",
+      "scope_sha256": "970a0505c96cecc2f496deb05425018db98b73cc794e36aff754e8d493c342fa",
+      "driver_sha256": "3c23e8020ee32c5c662922d16fe3517315364eccb59514b9e678e6d248b519e6",
+      "metadata_code_pin_count": 493,
+      "expected_maps": 255,
+      "expected_profiles": 9
+    },
+    {
+      "job_id": "native170_batch03",
+      "scope_path": "analysis/s2017_next_native/search/scopes/native170_batch03.json",
+      "scope_sha256": "52666368598e29fee75a0135cd051f6443df8be9940c499e3416faa9a07a9253",
+      "driver_sha256": "3c23e8020ee32c5c662922d16fe3517315364eccb59514b9e678e6d248b519e6",
+      "metadata_code_pin_count": 493,
+      "expected_maps": 252,
+      "expected_profiles": 9
+    },
+    {
+      "job_id": "native172_batch01",
+      "scope_path": "analysis/s2017_next_native/search/scopes/native172_batch01.json",
+      "scope_sha256": "577d90d832d498dfb6b4addab8d490e4b826e6129ec5a7a4c4415ead2ff63a2d",
+      "driver_sha256": "3c23e8020ee32c5c662922d16fe3517315364eccb59514b9e678e6d248b519e6",
+      "metadata_code_pin_count": 493,
+      "expected_maps": 255,
+      "expected_profiles": 9
+    },
+    {
+      "job_id": "native172_batch02",
+      "scope_path": "analysis/s2017_next_native/search/scopes/native172_batch02.json",
+      "scope_sha256": "1c534e3ea486b4503494fa1e2fcf4ab915661471e8c07cd490fb88c64f4b992f",
+      "driver_sha256": "3c23e8020ee32c5c662922d16fe3517315364eccb59514b9e678e6d248b519e6",
+      "metadata_code_pin_count": 493,
+      "expected_maps": 255,
+      "expected_profiles": 9
+    },
+    {
+      "job_id": "native172_batch03",
+      "scope_path": "analysis/s2017_next_native/search/scopes/native172_batch03.json",
+      "scope_sha256": "e912a94bb307e07d610c3d52164dbab0138301501cf0791ec3ac4fcd8f29f8c1",
+      "driver_sha256": "3c23e8020ee32c5c662922d16fe3517315364eccb59514b9e678e6d248b519e6",
+      "metadata_code_pin_count": 493,
+      "expected_maps": 252,
+      "expected_profiles": 9
+    },
+    {
+      "job_id": "pair170_171",
+      "scope_path": "analysis/s2017_next_native/boundaries/scopes/pair170_171.json",
+      "scope_sha256": "208f79a0f4535bcdfbc99853cd70595588c3f9dc35cbae7348acf90246f15bcd",
+      "driver_sha256": "766ec772404ad59086907154571fe2ebf1e9017eac9ea4af8e501a91fe7f4129",
+      "metadata_code_pin_count": 15,
+      "expected_maps": 6,
+      "expected_profiles": 9
+    },
+    {
+      "job_id": "pair171_172",
+      "scope_path": "analysis/s2017_next_native/boundaries/scopes/pair171_172.json",
+      "scope_sha256": "05bb1651f80fff29ef4d06ad5ffc98116855d267b37f0e3840068e2d2b144121",
+      "driver_sha256": "766ec772404ad59086907154571fe2ebf1e9017eac9ea4af8e501a91fe7f4129",
+      "metadata_code_pin_count": 15,
+      "expected_maps": 6,
+      "expected_profiles": 9
+    }
+  ],
+  "unique_metadata_code_pins_authenticated": 501,
+  "checks": [
+    "Both170/172 have ascending disjoint85/85/84 q1..254 partitions,including new nativeq128; no old171interior rerun.",
+    "Both joined boundaries add only leftnativeq255/rightnativeq0 outside prior171safe reference interval.",
+    "All8 jobs bind exact actual192-row acquisition and actualsourceQA PASS; source/driver/code metadata byte pins match.",
+    "All785drifts/two widths1570hypotheses,negativeDF/sourcefrequency/timeframe agree.",
+    "All source/slot lock paths agree,retained kernel two-slot aggregate4GiB and perprocess2GiB caps; no values opened."
+  ],
+  "expected_counts": {
+    "new_jobs": 8,
+    "new_maps": 1536,
+    "new_fixed_profiles": 72,
+    "new_top20_entries": 480
+  },
+  "HDF5_NPZ_values_opened": false,
+  "HTTP_requests": 0,
+  "scientific_or_candidate_execution": false,
+  "publication_or_root_GO": false,
+  "original_A_B_status": "FAIL_CLOSED_UNCHANGED",
+  "limitations": [
+    "Metadata admission is not empirical saved-output QA or permission to run science.",
+    "Future science requires exact public freeze/readback and root GO; maxima/templates are correlated exploratory records."
+  ]
+}

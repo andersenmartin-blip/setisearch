@@ -1,0 +1,192 @@
+{
+  "schema": "SETI_S2017_EIGHT_JOB_ACTUAL_ADMISSION_SCRIPT_STATIC_REVIEW_V1",
+  "status": "PASS_INDEPENDENT_STATIC_EIGHT_JOB_ADMISSION_REVIEW_NO_VALUES",
+  "reviewer": "/root/boundary_review",
+  "reviewed_UTC": "2026-10-10T19:37:42.283732+00:00",
+  "admission_script_sha256": "09ce30bca7e64d91bb66a77d75ecc518f12cc52d43a65282008d724c46b63dec",
+  "code_and_metadata_byte_pins": {
+    "analysis/s2017_next_native/review_actual_admission.py": {
+      "sha256": "09ce30bca7e64d91bb66a77d75ecc518f12cc52d43a65282008d724c46b63dec",
+      "bytes": 24728
+    },
+    "analysis/s2017_next_native/search/driver.py": {
+      "sha256": "3c23e8020ee32c5c662922d16fe3517315364eccb59514b9e678e6d248b519e6",
+      "bytes": 32396
+    },
+    "analysis/s2017_next_native/search/prepare_scopes.py": {
+      "sha256": "fb64221096a268d3bcbfd37e48614a53f7c247f4b09568e5631646d36f763e70",
+      "bytes": 9152
+    },
+    "analysis/s2017_next_native/boundaries/driver.py": {
+      "sha256": "766ec772404ad59086907154571fe2ebf1e9017eac9ea4af8e501a91fe7f4129",
+      "bytes": 35679
+    },
+    "analysis/s2017_next_native/boundaries/prepare_scopes.py": {
+      "sha256": "8c7604648e9d35d441ffdc53bd7a4309058be2d3c6e47a9069d58b5da65be1dc",
+      "bytes": 8546
+    },
+    "analysis/s2017_next_native/qa_sources.py": {
+      "sha256": "16cdef118d9351ca55f89435e20f06ac99f02d74c2110284aeaa840f801c084e",
+      "bytes": 26933
+    },
+    "analysis/s2017_next_native/source_manifest_v2.json": {
+      "sha256": "2a09dcd018e83e822cf19cb088e4f35469e8b160cbcde69f0428e64544ad7909",
+      "bytes": 472849
+    },
+    "analysis/s2017_next_native/publication/SCIENCE_RAW_FREEZE_READBACK_RECEIPT.json": {
+      "sha256": "4da07747c4af2c8057c287ee1fd6246ae21ac2e949021fd784ef27e5de97e44b",
+      "bytes": 16309
+    },
+    "analysis/s2017_next_native/search/scopes/native170_batch01.json": {
+      "sha256": "4b73cedea7872b70cb098e374f954a04e77674a6d7d9cea3ae3be0a8c6d84345",
+      "bytes": 115554
+    },
+    "analysis/s2017_next_native/search/scopes/native170_batch02.json": {
+      "sha256": "970a0505c96cecc2f496deb05425018db98b73cc794e36aff754e8d493c342fa",
+      "bytes": 115634
+    },
+    "analysis/s2017_next_native/search/scopes/native170_batch03.json": {
+      "sha256": "52666368598e29fee75a0135cd051f6443df8be9940c499e3416faa9a07a9253",
+      "bytes": 115639
+    },
+    "analysis/s2017_next_native/search/scopes/native172_batch01.json": {
+      "sha256": "577d90d832d498dfb6b4addab8d490e4b826e6129ec5a7a4c4415ead2ff63a2d",
+      "bytes": 115554
+    },
+    "analysis/s2017_next_native/search/scopes/native172_batch02.json": {
+      "sha256": "1c534e3ea486b4503494fa1e2fcf4ab915661471e8c07cd490fb88c64f4b992f",
+      "bytes": 115634
+    },
+    "analysis/s2017_next_native/search/scopes/native172_batch03.json": {
+      "sha256": "e912a94bb307e07d610c3d52164dbab0138301501cf0791ec3ac4fcd8f29f8c1",
+      "bytes": 115639
+    },
+    "analysis/s2017_next_native/boundaries/scopes/pair170_171.json": {
+      "sha256": "208f79a0f4535bcdfbc99853cd70595588c3f9dc35cbae7348acf90246f15bcd",
+      "bytes": 69289
+    },
+    "analysis/s2017_next_native/boundaries/scopes/pair171_172.json": {
+      "sha256": "05bb1651f80fff29ef4d06ad5ffc98116855d267b37f0e3840068e2d2b144121",
+      "bytes": 69289
+    }
+  },
+  "concrete_blockers_remaining": [],
+  "corrections_verified": [
+    "Exact frozen36-file public readback path/SHA and unique sorted-path-set SHA are required; a scope/driver-only subset cannot pass.",
+    "Both result branches require2GiB per-job/4GiB aggregate/max2 declarations together with finite positive measuredCPU/wall/RSS and sharedslot0/1."
+  ],
+  "checks": [
+    "Exact eight root-supplied scope and actualCOMPLETE receipt SHA namespaces, with all8 scopes and both drivers in the exact36-file public readback.",
+    "Interior q partitions1..85/86..170/171..254 and joinedpair q255/256 match the frozen writer schemas, metadata coordinate intervals, scan order,785drift/two-width declarations and actual header time frame.",
+    "Scope/code/prerequisite hashes are authenticated; adjacent acquisition and actual sourceQA receipts share exact hashes across all8 jobs; original acquisition failure status is preserved.",
+    "SourceQA directly binds manifest/acquisition/scope/driver/freezes, its own current pinned script, all12 compact hashes/sizes, and canonical raw-range/decoded-file/request-record SHA digests, with zero newHTTP and no score rerun.",
+    "All required maps and patch NPZ files are read as opaque bytes only; JSON output metadata declares complete ordered map checkpoints, full scan rows, fixed top3 identities and required normalization declarations.",
+    "Exact expected per-job file sets reject partial, failure, temporary or extra outputs; all3192 required output files are pinned and all observed input/output pins are rehashed before create-only admission receipt.",
+    "Saved top20 metadata ordering/suppression is checked without opening map values; exact full rank reconstruction, raw-source medians, np.rint centers and bitwise cell arithmetic are explicitly deferred to the two empirical QA receipts.",
+    "No scientific dependency imports, HDF5 or NPZ parsing, HTTP, detector execution, scoring, fitting or signal interpretation occur."
+  ],
+  "expected_per_job_counts": {
+    "native170_batch01": {
+      "kind": "interior",
+      "core_count_per_ON": 85,
+      "maps": 255,
+      "required_output_files": 525,
+      "fixed_profiles": 9,
+      "top20_entries": 60,
+      "scan_profiles": 54,
+      "declared_raw_patch_cells": 111456
+    },
+    "native170_batch02": {
+      "kind": "interior",
+      "core_count_per_ON": 85,
+      "maps": 255,
+      "required_output_files": 525,
+      "fixed_profiles": 9,
+      "top20_entries": 60,
+      "scan_profiles": 54,
+      "declared_raw_patch_cells": 111456
+    },
+    "native170_batch03": {
+      "kind": "interior",
+      "core_count_per_ON": 84,
+      "maps": 252,
+      "required_output_files": 519,
+      "fixed_profiles": 9,
+      "top20_entries": 60,
+      "scan_profiles": 54,
+      "declared_raw_patch_cells": 111456
+    },
+    "native172_batch01": {
+      "kind": "interior",
+      "core_count_per_ON": 85,
+      "maps": 255,
+      "required_output_files": 525,
+      "fixed_profiles": 9,
+      "top20_entries": 60,
+      "scan_profiles": 54,
+      "declared_raw_patch_cells": 111456
+    },
+    "native172_batch02": {
+      "kind": "interior",
+      "core_count_per_ON": 85,
+      "maps": 255,
+      "required_output_files": 525,
+      "fixed_profiles": 9,
+      "top20_entries": 60,
+      "scan_profiles": 54,
+      "declared_raw_patch_cells": 111456
+    },
+    "native172_batch03": {
+      "kind": "interior",
+      "core_count_per_ON": 84,
+      "maps": 252,
+      "required_output_files": 519,
+      "fixed_profiles": 9,
+      "top20_entries": 60,
+      "scan_profiles": 54,
+      "declared_raw_patch_cells": 111456
+    },
+    "pair170_171": {
+      "kind": "boundary",
+      "core_count_per_ON": 2,
+      "maps": 6,
+      "required_output_files": 27,
+      "fixed_profiles": 9,
+      "top20_entries": 60,
+      "scan_profiles": 54,
+      "declared_raw_patch_cells": 111456
+    },
+    "pair171_172": {
+      "kind": "boundary",
+      "core_count_per_ON": 2,
+      "maps": 6,
+      "required_output_files": 27,
+      "fixed_profiles": 9,
+      "top20_entries": 60,
+      "scan_profiles": 54,
+      "declared_raw_patch_cells": 111456
+    }
+  },
+  "expected_total_counts": {
+    "search_jobs": 8,
+    "maps": 1536,
+    "required_output_files": 3192,
+    "fixed_profiles": 72,
+    "scan_profiles": 432,
+    "top20_entries": 480,
+    "declared_raw_patch_cells": 891648,
+    "carrier_maximum_records": 6291456,
+    "correlated_drift_width_combinations": 9877585920
+  },
+  "admission_candidate_executed": false,
+  "HDF5_NPZ_values_opened": false,
+  "actual_job_outputs_opened_in_this_static_review": false,
+  "HTTP_requests": 0,
+  "scientific_or_detector_execution": false,
+  "publication_or_science_GO": false,
+  "limitations": [
+    "This is a prospective source review of the admission code, not actual8-job output admission or empirical QA.",
+    "Actual output admission still requires all8 actualCOMPLETE receipts, exact root pin-fileSHA and root-authorized execution of the published admission code.",
+    "Robust score maxima, fixed top3 tracks and frequency/job partitions are not calibrated significance or independent visits."
+  ]
+}
