@@ -1,3 +1,17 @@
+## Seneste SETI-resultat — 10. oktober 2026
+
+Hele den udvalgte stationære profilfamilie i chunk151 er nu gennemgået: 120 profiler, 720 scanprofiler og 11.520 tidsmålinger. Ni eksisterende profiler blev genbrugt uændret, og 111 blev beregnet én gang uden nye downloads.
+
+De seks svage ON-spor har positive gennemsnit i begge faste halvdele af deres scanninger og større gennemsnit end deres faste nabokontroller. Det udvalgte OFF-panel viser tilsvarende vedholdenhed og frekvensform. For bredde 1 er ON/OFF-medianerne næsten ens: gennemsnit 0,116305/0,115910; laveste halvgennemsnit 0,092240/0,092513; kontrast mod nærmeste kanaler 0,114243/0,112607. De seks spor forbliver uafklarede.
+
+Rapport: [120 stationære profiler og de seks svage ON-spor](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_STATIONARY_FAMILY_REPORT_2026-10-10.md). Data og kontrolkvitteringer: [radio_stationary_family_20261010](https://github.com/andersenmartin-blip/setisearch/tree/m43-support-qualification/results/radio_stationary_family_20261010). Den komplette datapakke `SETI_STATIONARY_FAMILY_2026-10-10.zip` er gemt med alle 120 rå og normaliserede profiler.
+
+Dette er opfølgning på allerede udvalgte spor fra ét historisk besøg den 17. marts 2016. A/B er fortsat FAIL_CLOSED, og kvalificeret himmelpilot er blokeret. Ingen SETI-detektion eller kalibreret falsk-alarmrate er fastslået.
+
+250 CPU-sekunder er afsat til denne omgang inden for den godkendte ramme på 12 CPU-timer. Selve analysen brugte 8,696 CPU-sekunder. 402,705 CPU-sekunder er tilbage efter reservationen, heraf 400 beskyttet til sidste kontrol. Pris 0 kr.; ingen nye teleskopbytes.
+
+---
+
 # SETI — 9. oktober 2026: nyt frekvensbånd søgt, stærke træk også i OFF
 
 Et tidligere uåbnet bånd omkring **1424,532–1427,505 MHz** er nu hentet og analyseret for HIP98505/HD189733 i den samme seks-scans observation fra 17. marts 2016. Dette er ekstra frekvensdækning i ét historisk besøg.
