@@ -1,0 +1,72 @@
+{
+  "status": "PROSPECTIVE_POSTSELECTION_FAMILY_MEASUREMENTS_NOT_RUN",
+  "created_UTC": "2026-10-10T00:46:38.488Z",
+  "parent_scientific_commit": "08d0bc6b7a09a4cc6cd238fc9626515eef842398",
+  "source_band": 151,
+  "source_channel_interval_half_open": [
+    158334976,
+    159383552
+  ],
+  "existing_source_values_and_rankings_already_open": true,
+  "blind_or_independent_validation": false,
+  "stationary_family": "Allsix existing frozen top20 origin lists; no rank rerun or display-suppression changes",
+  "family_cases": 120,
+  "reused_existing_ON_top3_cases": 9,
+  "new_case_measurements": 111,
+  "focus_track_ids": [
+    "epoch1_on_stationary_rank_03",
+    "epoch2_on_stationary_rank_01",
+    "epoch2_on_stationary_rank_02",
+    "epoch2_on_stationary_rank_03",
+    "epoch3_on_stationary_rank_01",
+    "epoch3_on_stationary_rank_02"
+  ],
+  "scans_per_case": 6,
+  "rows_per_scan": 16,
+  "width_from_existing_rank": true,
+  "drift_Hz_s": 0,
+  "fixed_frequency_shift_channels": 0,
+  "frequency_profile_offsets_inclusive": [
+    -64,
+    64
+  ],
+  "row_normalization": "Unchanged saved fullchunk row medians from completed stationary phase",
+  "flank_definition": "Median over absolute offsets greater than3 within±64 in each normalized row",
+  "time_metrics": [
+    "all16 centerbox-minus-flank rows",
+    "full16 mean",
+    "full16 median",
+    "positive rowcount",
+    "first8 mean",
+    "last8 mean",
+    "minimum of first8 and last8 means"
+  ],
+  "frequency_shape_metrics": [
+    "e0 minus mean of e(-1) and e(+1)",
+    "originalwidth centralbox mean minus mean of immediateouteroffsets±(width//2+1)",
+    "fixed centered supportmeans of3,5,9 channels",
+    "centralbox mean minus median of e at absoluteoffset>3"
+  ],
+  "e_definition": "Mean over16 rows of aligned normalized power minus eachrow fixed flank",
+  "comparison": "Origin scan case metrics grouped by originalrole ON/OFF and originalwinningwidth1/3; sixfocuscases preserved. Descriptive only.",
+  "forbidden": [
+    "telescope HTTP",
+    "source reacquisition",
+    "stationary or drift searches",
+    "width/offset/drift refits",
+    "new thresholds",
+    "qualification or false-alarm probability",
+    "oldholdout opening"
+  ],
+  "resources": {
+    "activity_CPU_reservation_s": 250,
+    "analysis_CPU_cap_s": 80,
+    "memory_cap_bytes": 4294967296,
+    "wall_cap_s": 1800,
+    "new_source_BODY_byte_cap": 0,
+    "cost_DKK": 0
+  },
+  "new_visits": 0,
+  "new_frequency_coverage": false,
+  "qualification": "FAIL_CLOSED_UNCHANGED"
+}
