@@ -1,0 +1,37 @@
+{
+  "schema": "SETI_S2017_ADJACENT170_172_PROSPECTIVE_ACQUISITION_REVIEW_V1",
+  "status": "PASS_PROSPECTIVE_ACQUISITION_CODE_SCOPE_METADATA_ONLY_AWAIT_PUBLIC_FREEZE_READBACK_AND_ROOT_GO",
+  "reviewer": "/root/full_band_review",
+  "reviewed_UTC": "2026-10-10T19:15:32.307472+00:00",
+  "driver_sha256": "66c28eee043a02c138e29ac28ed4a38186ad17911f1553a050776b468d2525ba",
+  "raw_acquire_sha256": "7268bab0c6732456acdc4552900c5f3c5512c34786122c6cfcbde436ca442990",
+  "scope_sha256": "91392f8cfec0844fe0182d137496202d4f142b89814c91cd8b3f120a11fb920e",
+  "source_manifest_sha256": "2a09dcd018e83e822cf19cb088e4f35469e8b160cbcde69f0428e64544ad7909",
+  "metadata_code_pins_checked": 491,
+  "source_descriptors": 192,
+  "exact_expected_payload_BODY_bytes": 597792529,
+  "reserved_payload_BODY_upper_bound_bytes": 597792721,
+  "HDF5_NPZ_values_opened": false,
+  "candidate_code_executed": false,
+  "HTTP_requests": 0,
+  "unresolved_concrete_bugs": [],
+  "resolved_before_freeze": [
+    "Initial6-worker draft was aligned to parent4-worker activation cap.",
+    "Stale cloned171 per-source totals were repaired in preserved V2 metadata before freeze.",
+    "Prereview raw-sidecar reconstruction syntax was fixed, preserving the original scope; this review binds current91392f8c scope."
+  ],
+  "checks": [
+    "All metadata/code pins independently SHA/byte checked; no power-file pins or data opened.",
+    "192 exact native170/172 source coordinates, size/filtermask/decoded-size/Range bounds and12source/native/global BODY sums independently checked; source URLs/ETags/fullheaders match prior2017 source and all192newranges are disjoint from each other and previously fetched171ranges.",
+    "Strong If-Match ETag, no redirects, exactURL/206/ETag/full-source Content-Range/Content-Length/identity checks before BODY; reserve size+1 before each one-shot GET; all bytes including failures charged, no retry or resume.",
+    "All192 raw payloads and directory fsynced before HDF5write;4source workers joined before serial assembly. Exact unchanged corrected write-close helper and official codec reader, separately bound per-nativeC0; all12 writers close before any value decode.",
+    "Retains192 compressed source SHA/raw-sidecar provenance and192 decoded float32 rowSHA,12fileSHA, current/original semantic filter records.",
+    "Actual CPU/wall/RSS/artifact/workspace and exact192range/BODY accounting guards precede ledger.complete and COMPLETE receipt.",
+    "Persistent fcntl exclusive family lock and empty namespace;2GiB AS,180CPU,1800wall,640MiB BODY,8GiB unique-inode allocated-workspace limits.",
+    "Original failures/control status/protected2016data and prior171 outputs unchanged; no detector or independent sky detection/visit claim."
+  ],
+  "limitations": [
+    "Prospective static review only. Empirical compact/source QA remains required after actual acquisition.",
+    "Exact public prospective readback and rootGO are root prerequisites; no acquisition authorization or execution by this reviewer."
+  ]
+}

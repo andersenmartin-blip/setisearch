@@ -1,0 +1,52 @@
+{
+  "status": "PASS_FINAL_ACQUISITION_STATIC_REVIEW_NO_EXECUTION",
+  "scope_path": "analysis/s2017_next_native/acquire_scope.json",
+  "scope_sha256": "91392f8cfec0844fe0182d137496202d4f142b89814c91cd8b3f120a11fb920e",
+  "driver_sha256": "66c28eee043a02c138e29ac28ed4a38186ad17911f1553a050776b468d2525ba",
+  "raw_helper_sha256": "7268bab0c6732456acdc4552900c5f3c5512c34786122c6cfcbde436ca442990",
+  "reconstruction_helper_sha256": "4cbc0e25e9a885e5dd7c20b778c77e6db451449a267b9cf501582df6a12a6565",
+  "source_manifest_sha256": "2a09dcd018e83e822cf19cb088e4f35469e8b160cbcde69f0428e64544ad7909",
+  "activation_sha256": "69d2883e044eafba286b8cc9fe28f96f8e737737d125a560505a66a6d86dd30c",
+  "metadata_and_code_pins_checked": 491,
+  "checks": {
+    "all4_immediate_acquisition_python_files_AST_parse": true,
+    "192_unique_first_attempt_ranges_disjoint_from171_and_each_other": true,
+    "V2_actual_source_coordinates_grid_dtype_filter_and_scan_order_required": true,
+    "each12_source_payload_total_checked_and_total597792529": true,
+    "4_HTTP_workers_rows_serial_per_source_NO_retry_or_redirect": true,
+    "HTTP_206_exact_URL_ETag_ContentRange_Length_identity_encoding_before_body": true,
+    "per_range_size_plus1_reserved_and_all_observed_partial_body_bytes_accounted": true,
+    "all192_raw_source_bodies_fsynced_before_any_HDF5_assembly": true,
+    "all12_HDF5_writers_serial_and_closed_before_any_roundtrip_or_value_decode": true,
+    "independent_reader_module_and_native_PHYSICAL_INTERVAL_binding_per_frame": true,
+    "unchanged_corrected_write_compact_helper_called_directly": true,
+    "compact_raw_SHA_roundtrip_and_all192_decoded_row_SHA_records_required": true,
+    "retained_EX_family_flock_and_new_stage_exist_false_prevent_rerun": true,
+    "process_RLIMIT_AS_2GiB_CPU180_wall1800_and_measured_resource_guards": true,
+    "workspace_unique_inode_allocated_block_guard_pre_and_post_8GiB": true,
+    "artifact_cap1262693922_pre_reserved_and_measured_before_COMPLETE": true,
+    "check_only_imports_metadata_code_receipts_no_power_or_codec": true
+  },
+  "serial_write_function_source_sha256": "f62a3c53e6e8e354b1047de14bda8abb44b834a222c97aaef43db5f29ea04c5e",
+  "resolved_pre_execution_blocker": {
+    "finding": "Pinned reconstruct helper failed AST parsing at else192.",
+    "resolution": "Corrected else 192; final helper AST parse and current scope pin pass. Original prereview scope preserved.",
+    "preserved_prereview_scope_path": "analysis/s2017_next_native/acquire_scope_prereview_v1.json",
+    "preserved_prereview_scope_sha256": "afef67b4c01d46e516dba10df4af1c7ab2a01c60948fa47fa20c9d2051479b7f"
+  },
+  "blockers": [],
+  "limits": {
+    "new_ranges": 192,
+    "BODY_bytes_exact": 597792529,
+    "BODY_upper_bound_bytes": 597792721,
+    "HTTP_workers_max": 4,
+    "HDF5_writers": 1,
+    "CPU_s": 180,
+    "wall_s": 1800,
+    "RAM_bytes": 2147483648,
+    "workspace_bytes": 8589934592
+  },
+  "HTTP_or_acquisition_run_by_reviewer": false,
+  "H5_NPZ_or_spectral_value_reads_by_reviewer": 0,
+  "not_actual_acquisition_or_source_QA": true
+}
