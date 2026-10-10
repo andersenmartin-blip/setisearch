@@ -1,0 +1,32 @@
+{
+  "schema": "SETI_TREE1_SOURCE_ONLY_COMPONENT_FIELD_SCHEMA_V1",
+  "status": "PROSPECTIVE_UNEXECUTED_SOURCE_ONLY",
+  "function": "plan_source(source, authenticated_cache)",
+  "source_record": {
+    "status": "COMPLETE_HEADER_METADATA_ONLY",
+    "required_fields": ["source_id", "source_file_bytes", "shape", "chunks", "dtype_string", "dtype_itemsize_bytes", "creation_filters", "superblock", "native_chunks_along_frequency", "fixed_midpoint_rule", "metadata_derived_midpoint", "chunk_layout"],
+    "superblock_origin": "Exact actual typed structure plan, composed with the same pinned qualified source record",
+    "cache_protocol": ["file_size", "missing(offset,length)", "read(offset,length)", "evidence(offset,length,interpretation)"]
+  },
+  "per_source_schema": "SETI_CACHE_ONLY_LEGACY_TREE1_MIDPOINT_PLAN_V1",
+  "per_source_terminal_statuses": ["COMPLETE_SELECTED_NATIVE_CHUNK_DESCRIPTORS_NO_VALUES_ADMISSION", "INCOMPLETE_TYPED_CHUNK_INDEX_METADATA", "UNSUPPORTED_FORMAT", "INVALID_METADATA"],
+  "descriptor_fields": ["time_row", "coordinates", "source_channel_start", "logical_channel_count", "decoded_full_chunk_bytes", "file_offset", "size", "filter_mask", "payload_interval_half_open", "typed_leaf_pointer_evidence", "metadata_traversal", "payload_pointer_followed", "HTTP_authorized"],
+  "missing_metadata_fragment_fields": ["source_id", "offset", "length", "range", "object_kind", "typed_object_interval_half_open", "typed_parent_evidence", "payload_pointer", "HTTP_authorized"],
+  "aggregate_manifest_schema": "SETI_VISIT2019_ONE_NATIVE_RAW_DESCRIPTOR_MANIFEST_V1",
+  "aggregate_success_status": "PASS_CLEAN_EXACT_SIX_NATIVE_ROW_DESCRIPTORS_METADATA_ONLY",
+  "aggregate_fields": ["qualification_result_pin", "typed_index_evidence_pins", "source_worker_pins", "sources"],
+  "planning_scope_schema": "SETI_VISIT2019_TYPED_TREE1_PLAN_SCOPE_V1",
+  "planning_result_schema": "SETI_VISIT2019_PURE_TREE1_METADATA_PLAN_RESULT_V1",
+  "planning_incomplete_status": "INCOMPLETE_TYPED_CHUNK_INDEX_METADATA",
+  "execution_schema": "SETI_VISIT2019_TREE1_METADATA_PLAN_EXECUTION_V1",
+  "execution_status": "COMPLETE_PURE_TREE1_METADATA_PLAN_CAPTURE_NO_VALUES_ADMISSION",
+  "scope_configuration_schema": "SETI_TREE1_SCOPE_PREPARATION_CONFIGURATION_V1",
+  "scope_configuration_fields": ["metadata_qualification", "tree_metadata_rounds", "tree_cache_admission_worker_pin", "source_review_pin", "toy_result_pin", "output_directory"],
+  "metadata_qualification_pin_fields": ["scope_pin", "result_pin", "execution_pin", "worker_pin"],
+  "scope_cache_protocol": "c677.admit_cache_history(scope,admitted), then extension.admit_tree_cache_history(scope,admitted,loader,caches)",
+  "input_pins_manifest_schema": "SETI_VISIT2019_TYPED_STRUCTURE_INPUT_PINS_V1",
+  "ordered_source_fields": ["source_id", "url", "ordered_index", "etag", "source_file_bytes", "status", "selected_native", "descriptors"],
+  "no_HTTP_or_payload_read": true,
+  "no_scope_generated": true,
+  "production_execution_authorized": false
+}
