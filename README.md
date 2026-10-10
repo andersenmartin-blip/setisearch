@@ -1,3 +1,15 @@
+# SETI-opdatering — 10. oktober 2026
+
+De ni seneste gap-driftprofiler er nu også undersøgt ved deres oprindelige faste frekvenser i alle seks scanninger. Alle ni origin-ON-profiler har højere middel langs det tidligere driftspor end ved den faste reference. Det følger efter tidligere udvælgelse efter driftmaksima og afgør ikke signalernes oprindelse. En konkret OFF-kontrol har positiv fast frekvenskontekst, selv om værdien langs driftsporet er negativ; lave OFF-sporværdier er derfor utilstrækkelige alene.
+
+[Ny rapport](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_GAP_STATIC_CONTEXT_REPORT_2026-10-10.md) · [Resultatkontrol](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results/radio_gap_static_context_20261010/measurement/QA_RECEIPT.json) · [Projektstatus](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md).
+
+Én fastlåst videnskabelig kørsel er afsluttet; alle ni profiler og 54 scan-sammenligninger er bevaret, og uafhængig kontrol består. To originale figurer består visuel kontrol. Plotningens særskilte CPU-grænse blev overskredet (7,614 mod 6 s), dokumenteret uden genkørsel. Den samlede resultatpakke `SETI_GAP_STATIC_CONTEXT_2026-10-10.zip` er gemt og udleveret med 66 byte-/CRC-kontrollerede medlemmer, kode, profiler, tabeller og reproduktionsgrundlag. Alle gamle resultater bevares.
+
+Den godkendte ramme på 43.200 CPU-sekunder har nu 2,705145 ureserverede sekunder tilbage. [Et konkret forslag](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results/radio_gap_static_context_20261010/RADIO_NEXT_COMPUTE_PROPOSAL_2026-10-10.md) anmoder om 3.600 ekstra CPU-sekunder til de resterende 214 sikre delbånd i de samme gemte data. Dækningen kan blive 99,21875 % af referencekanalerne i dette udsnit, med to randdelbånd usøgte. Forslaget er **ikke godkendt, ikke reserveret og ikke kørt**; 0 DKK og øvrige grænser bevares.
+
+Alle scanninger tilhører ét besøg den 17. marts 2016. Profilerne er fortsat uafklarede, A/B er FAIL_CLOSED, og ingen kvalificeret himmelpilot er optaget. Tidligere oversigt følger uændret nedenfor.
+
 # SETI signalopfølgning — 10. oktober 2026
 
 Driftsøgningen er udvidet med otte nye delbånd til **15,625 % af det gemte frekvensudsnit**, og ni nye profiler er dokumenteret og kontrolleret. Den tidligere stærke linje ved **1426,282128 MHz** ses også tydeligt i alle tre OFF-scanninger ved samme faste frekvens. De nye profiler er uafklarede; ingen bekræftet SETI-detektion eller kvalificeret himmelkandidat. Alle scanninger er fra ét historisk besøg, og A/B er fortsat FAIL_CLOSED.
