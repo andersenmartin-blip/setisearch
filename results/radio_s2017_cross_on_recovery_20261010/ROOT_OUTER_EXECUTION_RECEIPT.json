@@ -1,0 +1,19 @@
+{
+  "status": "FAIL_ONE_CHILD_NO_RETRY_OUTER_OR_INNER_INCOMPLETE",
+  "freeze_commit": "e911b6ef3cf8709f6bdf1a840af69d4a79e4f4ad",
+  "launcher_sha256": "ed346e7671b8136a9a93a59ef8f52e000d7588a72de1a03937f4f284585476f6",
+  "child_exit_code": 1,
+  "child_PID": 3,
+  "child_timed_out": false,
+  "child_process_CPU_seconds": 0.25937099999999996,
+  "child_wall_seconds": 0.259921848999511,
+  "child_peak_RSS_bytes": 19808256,
+  "CPU_cap_s": 120,
+  "wall_cap_s": 1800,
+  "memory_cap_bytes": 1073741824,
+  "automatic_retry_performed": false,
+  "inner_terminal_sha256": null,
+  "inner_terminal_status": null,
+  "child_stdout": "",
+  "child_stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_recovery_20261010/match_saved.py\", line 556, in <module>\n    main()\n  File \"/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_recovery_20261010/match_saved.py\", line 463, in main\n    scope, pins, admission, workspace = load_contract(args)\n                                        ^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_recovery_20261010/match_saved.py\", line 252, in load_contract\n    require(workspace + OUTPUT_CAP <= WORKSPACE_CAP, 'Fresh shared 8GiB disk gate fails including 64MiB reservation')\n  File \"/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_recovery_20261010/match_saved.py\", line 54, in require\n    raise ValueError(message)\nValueError: Fresh shared 8GiB disk gate fails including 64MiB reservation\n"
+}

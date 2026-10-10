@@ -1,0 +1,77 @@
+{
+  "AST_proof": {
+    "match_saved.py": {
+      "AST_identical_after_disk_budget_literal_normalization": true,
+      "changed_definition_AST_due_only_to_disk_literals": [
+        "load_contract",
+        "main"
+      ],
+      "definition_count": 23
+    },
+    "prepare_scope.py": {
+      "AST_identical_after_disk_budget_literal_normalization": true,
+      "changed_definition_AST_due_only_to_disk_literals": [
+        "main"
+      ],
+      "definition_count": 7
+    }
+  },
+  "after_source_pins": {
+    "METHOD.md": {
+      "bytes": 15462,
+      "path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_storage_recovery_20261010/METHOD.md",
+      "sha256": "f34264ff01ff68e597d2defad87189519b059e5635773425e2fb97dfc50730bf"
+    },
+    "match_saved.py": {
+      "bytes": 34246,
+      "path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_storage_recovery_20261010/match_saved.py",
+      "sha256": "4e91ee2495ee898fb77b3c11d7831dd4a37ef32fbb3689115e491688293f5455"
+    },
+    "prepare_scope.py": {
+      "bytes": 19714,
+      "path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_storage_recovery_20261010/prepare_scope.py",
+      "sha256": "7cd07f2d398be7cb8951d19050c232e82184e9475243bfab3e8706c22ed9f9de"
+    }
+  },
+  "before_source_sha256": {
+    "METHOD.md": "d8fa35cc967f72c703e1247deeeaf7598dcf5399fd5ef45ec11145c2b8832ffa",
+    "match_saved.py": "1c7ae165ed463721a7176df39796bd8cabe8758dec336aa2ff58d57d1acb5945",
+    "prepare_scope.py": "c2f2c9e98bd68a38f422a4ae1d14a6d4e89d7f7f8583d5ee296ace0d7c46ac13"
+  },
+  "exact_replacements": {
+    "match_saved.py": [
+      [
+        "OUTPUT_CAP, WORKSPACE_CAP = 67108864, 8589934592",
+        "OUTPUT_CAP, WORKSPACE_CAP = 67108864, 12884901888"
+      ],
+      [
+        "Fresh shared 8GiB disk gate fails including 64MiB reservation",
+        "Fresh shared 12GiB disk gate fails including 64MiB reservation"
+      ],
+      [
+        "Final shared workspace exceeds 8GiB",
+        "Final shared workspace exceeds 12GiB"
+      ]
+    ],
+    "prepare_scope.py": [
+      [
+        "'output_reservation_bytes': 67108864, 'shared_workspace_cap_bytes': 8589934592",
+        "'output_reservation_bytes': 67108864, 'shared_workspace_cap_bytes': 12884901888"
+      ]
+    ]
+  },
+  "family_id": "radio_s2017_cross_on_storage_recovery_20261010",
+  "metadata_process_CPU_seconds": 0.132559761,
+  "new_shared_workspace_cap_bytes": 12884901888,
+  "no_generator_or_target_import_or_array_read_or_execution": true,
+  "old_shared_workspace_cap_bytes": 8589934592,
+  "prior_families_source_SHA_unchanged": {
+    "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_20261010/METHOD.md": "6a64fbf3ea025544c3791cf27b1f1557c90a9ddf8d3829fae611c698dc775591",
+    "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_20261010/match_saved.py": "8ec587be2e0cccd7a443373dbb5b466da9554576beeb019c91b59a3eee746a62",
+    "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_20261010/prepare_scope.py": "2d5692cea09bdef334b3400d34a6f858cc454ce674788c945f6f10c4348d9eb4",
+    "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_recovery_20261010/METHOD.md": "d77db1073ef38448fb221f2b00b3f6866c3494e713d3dd6ea13a2e14d148db66",
+    "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_recovery_20261010/match_saved.py": "18c782e7e4e46fc82d6f60877eb42e53f8f1e95df4c40401adf7d79b7b0ec2bf",
+    "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_recovery_20261010/prepare_scope.py": "f8af7857800376cb5a0216cf7a6d0daf3b9c78d06c511d4dbccd4ff352efd627"
+  },
+  "status": "PASS_SOURCE_ONLY_PROSPECTIVE_DISK_BUDGET_DELTA"
+}
