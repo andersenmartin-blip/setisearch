@@ -1,3 +1,15 @@
+# SETI signalopfølgning — 10. oktober 2026
+
+Driftsøgningen er udvidet med otte nye delbånd til **15,625 % af det gemte frekvensudsnit**, og ni nye profiler er dokumenteret og kontrolleret. Den tidligere stærke linje ved **1426,282128 MHz** ses også tydeligt i alle tre OFF-scanninger ved samme faste frekvens. De nye profiler er uafklarede; ingen bekræftet SETI-detektion eller kvalificeret himmelkandidat. Alle scanninger er fra ét historisk besøg, og A/B er fortsat FAIL_CLOSED.
+
+[Samlet resultat og kontrol](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_SIGNAL_FOLLOWUP_REPORT_2026-10-10.md) · [Fast frekvens](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_DRIFT_ANCHOR_REPORT_2026-10-10.md) · [Otte nye delbånd](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_GAP_DRIFT_REPORT_2026-10-10.md) · [Reproduktion](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_SIGNAL_FOLLOWUP_REPRODUCIBILITY_2026-10-10.md).
+
+Begge analyser er kørt én gang efter offentlig fastlåsning og har bestået uafhængig resultatkontrol. Ingen nye teleskopdownloads; **0 DKK**. To aktivitetsreservationer på 180 og 160 CPU-sekunder bevares uden refusion; resterende budget **62,705144981 CPU-sekunder** inden for den godkendte samlede ramme.
+
+Resultatpakke: **`SETI_SIGNAL_FOLLOWUP_2026-10-10.zip`** (6418319 bytes, SHA256 `8cde42def9d1d46dfabc12da56fc7778fd796d260e5e9a985e359cfbe6a4eb70`), gemt med 115 verificerede medlemmer. [Paknings- og savekvitteringer](https://github.com/andersenmartin-blip/setisearch/tree/m43-support-qualification/results/radio_signal_followup_20261010).
+
+---
+
 ## Seneste SETI-resultat — 10. oktober 2026
 
 Hele den udvalgte stationære profilfamilie i chunk151 er nu gennemgået: 120 profiler, 720 scanprofiler og 11.520 tidsmålinger. Ni eksisterende profiler blev genbrugt uændret, og 111 blev beregnet én gang uden nye downloads.
