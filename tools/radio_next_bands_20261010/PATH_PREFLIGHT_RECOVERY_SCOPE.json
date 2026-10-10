@@ -1,0 +1,95 @@
+{
+  "schema": "SETI_NEXT_BANDS_PRE_NUMERIC_ABSOLUTE_PATH_CORRECTION_V1",
+  "status": "PROSPECTIVE_CORRECTED_CLI_REQUIRES_PUBLIC_READBACK_BEFORE_NUMERIC_START",
+  "scientific_scope_sha256": "60ec39a777575ba25352e2eeb0b6db3ec21e3aed84fb92d534b82b5ded3f74b4",
+  "unchanged_script_sha256": "f189abc0a27503cbf2a35b1c63626ef2d3847728894a0a4fcfce9b16da36800b",
+  "original_acquisition_and_scientific_freeze_commit": "d1bfe755e205e99b3c93544f4af84cc8d4585938",
+  "cause": "Relative CLI output Path accepted by resolved-directory admission then failed at relative_to(ROOT) line354 before first fresh.load_power line355. Correct all CLI paths to absolute. No source signal arrays loaded or numerical measurements made in failed invocations.",
+  "authorizes_one_corrected_CLI_invocation_per_listed_job": true,
+  "code_invocations_if_complete_each": 2,
+  "source_array_loads_and_numerical_searches_if_complete_each": 1,
+  "numerical_retry_after_measurements_start": false,
+  "partial_numeric_resume": false,
+  "changed_numerical_code_selection_grid_width_or_normalization": false,
+  "new_source_GETs": 0,
+  "rerun_acquisition": false,
+  "failures": [
+    {
+      "source_chunk_id": 153,
+      "batch_id": 1,
+      "preserved_directory": "results/radio_next_bands_20261010/preflight_failures/chunk153/batch_01/measurement",
+      "preserved_file_sha256": {
+        "FAILURE_RECEIPT.json": "93a92b8c4580595c89073bcfbe746dced1551efc98d50ee175e8785300676b4a",
+        "INPUT_PINS.json": "5aaa553bc5105d7d64610405a7c8995e1fa956f496c1cea4653e996856db0fd8"
+      },
+      "failed_process_CPU_s": 0.243458199,
+      "original_output_directory": "results/radio_next_bands_20261010/chunk153/batch_01/measurement",
+      "corrected_output_directory_absolute": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/results/radio_next_bands_20261010/chunk153/batch_01/measurement",
+      "previous_code_invocations": 1,
+      "previous_source_array_loads": 0,
+      "previous_detector_searches": 0,
+      "previous_profile_measurements": 0
+    },
+    {
+      "source_chunk_id": 153,
+      "batch_id": 2,
+      "preserved_directory": "results/radio_next_bands_20261010/preflight_failures/chunk153/batch_02/measurement",
+      "preserved_file_sha256": {
+        "FAILURE_RECEIPT.json": "d9a96467e81c8a3b1aef171100923576d176cedd40e5b8bda0b1d03a797a4c84",
+        "INPUT_PINS.json": "11f8ff08a693ddc2326d022a6451190c0f45006dd1ac345e30e48c0dacde62bc"
+      },
+      "failed_process_CPU_s": 0.235441773,
+      "original_output_directory": "results/radio_next_bands_20261010/chunk153/batch_02/measurement",
+      "corrected_output_directory_absolute": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/results/radio_next_bands_20261010/chunk153/batch_02/measurement",
+      "previous_code_invocations": 1,
+      "previous_source_array_loads": 0,
+      "previous_detector_searches": 0,
+      "previous_profile_measurements": 0
+    },
+    {
+      "source_chunk_id": 154,
+      "batch_id": 1,
+      "preserved_directory": "results/radio_next_bands_20261010/preflight_failures/chunk154/batch_01/measurement",
+      "preserved_file_sha256": {
+        "FAILURE_RECEIPT.json": "1519f3e6bacda106d830fbbbd99ca9e6e9c26d27fa7b19c637fbe95bfeff8168",
+        "INPUT_PINS.json": "b5412128d9afa5b4b26628d7b96770cb0ede118939740e4ce0bafaaaec4f79cb"
+      },
+      "failed_process_CPU_s": 0.226212987,
+      "original_output_directory": "results/radio_next_bands_20261010/chunk154/batch_01/measurement",
+      "corrected_output_directory_absolute": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/results/radio_next_bands_20261010/chunk154/batch_01/measurement",
+      "previous_code_invocations": 1,
+      "previous_source_array_loads": 0,
+      "previous_detector_searches": 0,
+      "previous_profile_measurements": 0
+    },
+    {
+      "source_chunk_id": 154,
+      "batch_id": 2,
+      "preserved_directory": "results/radio_next_bands_20261010/preflight_failures/chunk154/batch_02/measurement",
+      "preserved_file_sha256": {
+        "FAILURE_RECEIPT.json": "c5f1c6ddb3ab99fdc706f1a10610425959c4582b6799a17ad3e065433d7874e4",
+        "INPUT_PINS.json": "49dcb27bdae150396e8d07cdd0d1885cc5e071de35d90e0acf0024c927a91a7d"
+      },
+      "failed_process_CPU_s": 0.32484308,
+      "original_output_directory": "results/radio_next_bands_20261010/chunk154/batch_02/measurement",
+      "corrected_output_directory_absolute": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/results/radio_next_bands_20261010/chunk154/batch_02/measurement",
+      "previous_code_invocations": 1,
+      "previous_source_array_loads": 0,
+      "previous_detector_searches": 0,
+      "previous_profile_measurements": 0
+    }
+  ],
+  "failed_preflight_CPU_sum_s": 1.029956039,
+  "stage_CPU_planning_allocation_s_unchanged": 7200,
+  "CPU_cap_s_each": 1500,
+  "wall_cap_s_each": 1800,
+  "memory_cap_bytes_each": 4294967296,
+  "cost_DKK": 0,
+  "A_B": "FAIL_CLOSED_UNCHANGED",
+  "protected_chunks": [
+    156,
+    159
+  ],
+  "old_holdouts_reopened": false,
+  "authorization_basis": "Latest user requests full-power rolling zero-cost work; necessary reversible path repair falls within that instruction. This explicitly supersedes a once-only code-invocation interpretation only for these four zero-measurement failures; original no numerical retry remains."
+}
