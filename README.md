@@ -1,3 +1,13 @@
+## Afsluttet SETI-udvidelse: S2017 native 170/171/172
+
+Den tilstødende fase er færdig med **1536 nye ON-kort og 72 faste profiler**, faktisk kilde-/output-QA og uafhængig videnskabelig gennemgang. Ingen kvalificeret SETI-detektion er etableret: de største nye stationære linjer ved 2303.3203125 og 2297.4609375 MHz er positive i alle tre ON- og alle tre OFF-scanninger. Det er en udvidelse af samme historiske besøg; fysisk oprindelse og falskalarmssandsynlighed er ikke fastlagt.
+
+Tripletdækningen er 766/768 referencekerner (8.76617431640625 MHz). RESULTS-pakken på 140586178 bytes er faktisk gemt efter fuld CRC/SHA-kontrol, eksakte QA-/figurpins, genåbningskontrol og uafhængig leverance-PASS. RAW er gemt i tre ordnede dele på i alt 604399781 bytes. Den første afkortede RESULTS-pakke er dokumenteret; ingen science eller numerisk QA er genkørt. Omkostning: **0 DKK**. Beskyttede 2016-holdouts forbliver lukkede.
+
+[Rapport](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/tools/radio_s2017_adjacent_20261010/delivery/RADIO_S2017_ADJACENT_2026-10-10_RESULT.md) · [Data og samlevejledning](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/tools/radio_s2017_adjacent_20261010/delivery/DATA_AVAILABILITY.md) · [Pakkeidentiteter og gemmekvitteringer](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/tools/radio_s2017_adjacent_20261010/delivery/DATA_PACKAGES.json)
+
+---
+
 **Seneste afsluttede fase, 10. oktober 2026:** Den nye S2017-analyse og de to nye 2016-grænsesøgninger er afsluttet med udført kilde- og outputkontrol. Der er ingen aktive beregningsjob i denne fase.
 
 S2017 dækker **254 af 256 referencefelter (99,21875 %)** i ét erhvervet native-udsnit på **2,9296875 MHz**, med **762 gemte ON-kort** og **4.900.208.640 korrelerede drift-/breddekombinationer**. Det er dækning af dette udsnits referencekanaler på det valgte grid. De to randfelter er usøgte; dækningen er ikke hele teleskopets S-bånd eller en følsomhedsgrænse.
