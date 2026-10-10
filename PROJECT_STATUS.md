@@ -1,3 +1,15 @@
+**Status 10. oktober 2026:** Driftsøgningen i det sikre indre af native udsnit 151 er afsluttet og kvalitetskontrolleret. De 214 nye referencefelter gav **2.629.632 ON-referencekanal/originkombinationer**, hver med 1.526 gyldige drift-/breddehypoteser: **4.012.818.432 evaluerede hypotesekombinationer**. Checkpoints gemmer ét maksimum med vindende drift/bredde og hypoteseantal pr. referencekanal.
+
+Sammen med de tidligere 40 felter dækker dette **254 af 256 referencefelter, 99,21875 %**, alene i udsnit 151 på det fastlåste grid med bredde 1 og 3. De to randfelter er usøgte. **222.912 gemte rå profilceller** matchede de kompakte kildefiler bit for bit; hele de oprindelige HDF5-filers MD5 er stadig ikke verificeret.
+
+De 18 udvalgte spor beskriver to snævre frekvensområder omkring **1426,757812 MHz** og **1425,0045 MHz**. Den stærkeste stationære struktur ses i både alle ON- og alle OFF-scanninger. Alle seks scanninger stammer fra samme besøg den 17. marts 2016. Resultaterne fastslår ingen oprindelse og giver ingen kalibreret SNR eller kvalificeret SETI-kandidat.
+
+Se [rapporten](RADIO_FULL_SAFE_REPORT_2026-10-10.md) og [reproduktionsvejledningen](tools/radio_full_safe_20261010/REPRODUCTION.md). Den verificerede resultatpakke hedder `SETI_FULL_SAFE_RESULTS_2026-10-10.zip` og har SHA256 `da818bcdb82fcf583d4c890aa6b6055e81f96e09bd6beb35e5e5a7edd114aee8`. Den samlede ZIP leveres som brugerfil. En byteidentisk kopi fordelt på seks arkivdele med samlingsvejledning findes i [arkivmanifestet](results/radio_full_safe_20261010/archive_parts_10MiB/PARTS_MANIFEST.json).
+
+**Næste fase:** Native udsnit 153 og 154 er fastlåst ved commit `d1bfe755e205e99b3c93544f4af84cc8d4585938`; alle 610.283.243 databytes er modtaget, og kildekontrollen består for begge udsnit. Fire søgninger kører parallelt; søgeresultaterne afventer. Den nye fase er endnu ikke afsluttet eller fortolket. Fire nulmålingers stifejl er bevaret og korrigeret med absolutte startstier ved [recovery-frysningen](https://github.com/andersenmartin-blip/setisearch/commit/8f88b722c9508d4e209c3df540407029b80c3203); søgekode og videnskabeligt scope er uændret.
+
+---
+
 # 10. oktober 2026 — ni faste gap-frekvenskontekster afsluttet
 
 Den ene prospektivt fastlåste målekørsel er afsluttet for alle ni tidligere gap-driftprofiler i alle seks scanninger. I samtlige ni origin-ON-profiler er det kopierede bevægelige middel højere end det faste middel på samme baggrund: statisk minus bevægelig spænder fra −0,193264 til −0,045825. Dette er betinget af tidligere udvælgelse efter driftmaksima og validerer ikke drift eller oprindelse. ON2 rang 3 viser konkret positiv fast OFF1-kontekst (0,034722) trods negativt bevægeligt OFF1-middel (−0,016682). Vinduerne er ±181,472 Hz omkring oprindelige første-midpoint-referencer; de dækker ikke hele driftsporet.
