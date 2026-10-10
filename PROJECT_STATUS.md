@@ -1,3 +1,17 @@
+**Seneste afsluttede fase, 10. oktober 2026:** Den nye S2017-analyse og de to nye 2016-grænsesøgninger er afsluttet med udført kilde- og outputkontrol. Der er ingen aktive beregningsjob i denne fase.
+
+S2017 dækker **254 af 256 referencefelter (99,21875 %)** i ét erhvervet native-udsnit på **2,9296875 MHz**, med **762 gemte ON-kort** og **4.900.208.640 korrelerede drift-/breddekombinationer**. Det er dækning af dette udsnits referencekanaler på det valgte grid. De to randfelter er usøgte; dækningen er ikke hele teleskopets S-bånd eller en følsomhedsgrænse.
+
+Den kraftige stationære linje ved **2300,390625 MHz** findes i alle seks ON/OFF-scans. Alle 60 top-20-spor i det stærke nabofelt rammer den samme kanals støtte. Øvrige top-profiler har små, ikke-nul ON/OFF-værdier og er uafklarede. **Ingen kvalificeret SETI-detektion eller kalibreret SNR/FAP** følger; den tidligere A/B-status er fortsat **FAIL_CLOSED**. Det nye 2017 S-båndsbesøg er ikke en gentagelse ved samme frekvens af 2016 L-båndssporene.
+
+De nye 2016-grænsesøgninger tilføjer 12 kort og 18 faste profiler i allerede bevarede data. Samlet har denne fase gemt **774 kort og 54 faste profiler**, med **668.736 bitpræcist kontrollerede rå profilcelleforekomster**. De 90 tidligere profiler har desuden fået en separat beskrivende OFF-kontekst. **Kost: 0 DKK.**
+
+[Resultatrapport](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/tools/radio_full_power_20261010/RADIO_FULL_POWER_2026-10-10_RESULT.md) · [Datatilgængelighed](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/tools/radio_full_power_20261010/DATA_AVAILABILITY.md) · [Pakkernes checksums](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/tools/radio_full_power_20261010/DATA_PACKAGES.json) · [Projektstatus](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md)
+
+**Historik nedenfor:** Tidligere statusmeldinger er bevaret uændret. Deres ord som “nu i gang” eller “næste fase” beskriver daværende status. Historiske 153/154-receipts findes, men de fulde outputbytes fra det tabte arbejdsrum er ikke tilgængelige; de er ikke rekonstrueret eller ommærket som en ny afslutning.
+
+---
+
 **Status 10. oktober 2026:** Driftsøgningen i det sikre indre af native udsnit 151 er afsluttet og kvalitetskontrolleret. De 214 nye referencefelter gav **2.629.632 ON-referencekanal/originkombinationer**, hver med 1.526 gyldige drift-/breddehypoteser: **4.012.818.432 evaluerede hypotesekombinationer**. Checkpoints gemmer ét maksimum med vindende drift/bredde og hypoteseantal pr. referencekanal.
 
 Sammen med de tidligere 40 felter dækker dette **254 af 256 referencefelter, 99,21875 %**, alene i udsnit 151 på det fastlåste grid med bredde 1 og 3. De to randfelter er usøgte. **222.912 gemte rå profilceller** matchede de kompakte kildefiler bit for bit; hele de oprindelige HDF5-filers MD5 er stadig ikke verificeret.

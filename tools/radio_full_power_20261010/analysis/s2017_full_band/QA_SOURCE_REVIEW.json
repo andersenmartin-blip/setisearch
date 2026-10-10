@@ -1,0 +1,137 @@
+{
+  "HDF5_files_opened": 0,
+  "NPZ_files_opened": 0,
+  "checks": {
+    "12144_ON_core_row_medians_recomputed_in_float64_matching_detector_preprocess": true,
+    "334368_raw_cells_bitwise_uint32_compared_at_actual_physical_indices": true,
+    "759_new_maps_4096carriers_785drifts_widths1_3_full1570_counts": true,
+    "96_full_native_decoded_row_SHAs_checked_one_H5_open_and_dataset_read_per_scan": true,
+    "AST_parse_passes_without_importing_QA": true,
+    "RLIMIT_CPU180_AS4GiB_wall1800_and_final_measured_resource_checks": true,
+    "absolute_rounding_before_subtracting_C0_matches_unchanged_fixed_profiles": true,
+    "actual_public_freeze_commit_matches_all_three_future_receipts": true,
+    "all253_distinct_qcores_exclude0_128_255_and_split84_84_85": true,
+    "all27_selected_patches_fixed_to_top3_of_each_ON_batch": true,
+    "all_input_code_metadata_and_power_file_bytes_rechecked_before_PASS": true,
+    "all_normalization_flank_width_mean_residual_mean_profile_and162_scan_summary_arithmetic_checked": true,
+    "dedicated_review_lock_and_empty_review_namespace_enforce_one_shot": true,
+    "exact_actual_driver_SHA_matches_scopes_and_file": true,
+    "exact_loaded_JSON_bytes_SHA_authenticated_before_parse": true,
+    "exact_loaded_NPZ_bytes_SHA_authenticated_before_BytesIO_and_duplicate_fields_rejected": true,
+    "fixed_drift_width_frequency_shift_zero_and_all129_offsets_preserved": true,
+    "full_native_float32_row_medians_authenticated_from_actual_q128_QA_and_saved_norm_SHA": true,
+    "no_H5_NPZ_HTTP_or_empirical_QA_performed_during_this_source_review": true,
+    "no_HTTP_detector_import_score_rerun_or_track_optimization_in_source": true,
+    "own_QA_exact_SHA_checked_at_start_pinned_and_rehashed_before_PASS": true,
+    "per_batch_global_top20_reconstructed_only_from_saved_maxima": true,
+    "physical_source_channels_FCH1_DF_actual_scan_tstart_TSAMP_reference_midpoints_match": true,
+    "retained_native_acquisition_lock_shared_for_input_stability": true,
+    "root_GO_required_before_power_files_open": true,
+    "saved_map_schema_dtype_geometry_drift_winner_family_and_finite_checks": true,
+    "three_root_reviewed_exact_scope_and_future_COMPLETE_receipt_SHAs_required": true,
+    "top20_tie_ascending_channel_and_distance_gt3_suppression_matches_driver": true,
+    "two_science_slots_exclusive_nonblocking_locks_required_idle": true
+  },
+  "empirical_QA_executed": false,
+  "expected_counts_independently_rederived": {
+    "ON_core_row_medians_recomputed": 12144,
+    "batch_families": 3,
+    "carrier_maximum_records": 3108864,
+    "compact_files": 6,
+    "decoded_rows": 96,
+    "map_normalization_records": 759,
+    "maps": 759,
+    "patches": 27,
+    "previously_source_qualified_full_row_medians_authenticated": 96,
+    "raw_cells_bitwise_checked": 334368,
+    "retained_raw_patch_cells": 334368,
+    "scan_profiles": 162,
+    "time_row_occurrences": 2592,
+    "top20_entries": 180,
+    "valid_hypothesis_records": 4880916480
+  },
+  "generated_UTC": "2026-10-10T18:19:24.637207+00:00",
+  "imports_reviewed": [
+    "argparse",
+    "fcntl",
+    "h5py",
+    "hashlib",
+    "hdf5plugin",
+    "importlib.metadata",
+    "io",
+    "json",
+    "math",
+    "numpy",
+    "os",
+    "re",
+    "resource",
+    "signal",
+    "time"
+  ],
+  "input_code_and_scope_pins": {
+    "analysis/new_visit_search/dependencies/detector.py": {
+      "bytes": 22819,
+      "sha256": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45"
+    },
+    "analysis/new_visit_search/dependencies/gap_search.py": {
+      "bytes": 21995,
+      "sha256": "b1a2cc31d47dbebc707f36c5de3eafbae6a62f0d0d19061c798c676c9fbcdb58"
+    },
+    "analysis/new_visit_search/qa_saved_outputs.py": {
+      "bytes": 51791,
+      "sha256": "2f70b95aec9237e5a7bec689e339980893ececee4bc8d9373cfdf636059b8b00"
+    },
+    "analysis/s2017_full_band/driver.py": {
+      "bytes": 27241,
+      "sha256": "5ce9d5f861e06691183cf43fd4351bfe8a09b97763c3bd23add82ad338864554"
+    },
+    "analysis/s2017_full_band/qa_saved_outputs.py": {
+      "bytes": 36730,
+      "sha256": "a1573fd36df4ee685cbafbaec429c0dd7b63efc9586e41825cbef3e2857340e3"
+    },
+    "analysis/s2017_full_band/scopes/batch01.json": {
+      "bytes": 8580,
+      "sha256": "551083a9ba56bf960fa49e8868047f8016ba9a70a3a7b1df1a54333af8d56c9c"
+    },
+    "analysis/s2017_full_band/scopes/batch02.json": {
+      "bytes": 8658,
+      "sha256": "d9b499662e8766058a74ac794225fd95a34d208a07f5a7e289ce306e8c957d68"
+    },
+    "analysis/s2017_full_band/scopes/batch03.json": {
+      "bytes": 8682,
+      "sha256": "72c82c8fb36c26ce2f22d68d5e57a34e7c841ab7e0c83050f5b67e8f1459f759"
+    }
+  },
+  "limitations": [
+    "Static source review is not empirical verification of future batch outputs. Execution requires all three exact COMPLETE receipts, root GO, public freeze/readback, and idle slots.",
+    "Saved scores and winners are checked for provenance/schema/family/ranks, without independent detector recomputation.",
+    "Compressed range provenance and96 float32 native row medians rely on the pinned actual q128 source QA PASS; this combined QA separately rechecks unchanged native file hashes,96 decoded row SHAs and all334368 patch occurrences.",
+    "Correlated historical S-band batch results remain exploratory; no calibrated significance or qualified sky-detection claim follows from QA."
+  ],
+  "new_HTTP_requests": 0,
+  "qa_script_bytes": 36730,
+  "qa_script_path": "/workspace/scratch/5bf3860dacd6/analysis/s2017_full_band/qa_saved_outputs.py",
+  "qa_script_sha256": "a1573fd36df4ee685cbafbaec429c0dd7b63efc9586e41825cbef3e2857340e3",
+  "remaining_blocking_findings": [],
+  "resolved_findings": [
+    {
+      "finding": "Own exact QA code SHA was checked only at entry.",
+      "id": "QA_OWN_CODE_END_PIN",
+      "initial_script_sha256": "dcc01887eea1b5bdb8d5a4c16f6e2651d2002a61c48cec0fad562c9c52309639",
+      "resolution": "Own source added to all_input_byte_pins and final byte reauthentication."
+    },
+    {
+      "finding": "Separate pre-read file digest and later NPZ/JSON open did not authenticate the exact loaded bytes; duplicate NPZ fields collapsed in dictionary construction.",
+      "id": "LOADED_ARCHIVE_AND_METADATA_BYTE_BINDING",
+      "resolution": "Loaded bytes hashed and length-bound before BytesIO/JSON parsing; duplicate NPZ field names rejected."
+    }
+  ],
+  "schema": "SETI_S2017_COMBINED_FULL_BAND_QA_SOURCE_REVIEW_V1",
+  "scientific_scores_computed": 0,
+  "scope_q_counts": [
+    84,
+    84,
+    85
+  ],
+  "status": "PASS_STATIC_SOURCE_ONLY_NO_DATA_QA"
+}

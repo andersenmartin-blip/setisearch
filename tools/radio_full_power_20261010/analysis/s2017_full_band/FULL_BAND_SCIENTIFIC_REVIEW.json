@@ -1,0 +1,3818 @@
+{
+  "schema": "SETI_S2017_FULL_NATIVE171_INTERIOR_SAVED_SCIENTIFIC_REVIEW_V1",
+  "status": "COMPLETE_SAVED_SCIENCE_REVIEW_WITH_ACTUAL_COMBINED_PASS_QA",
+  "reviewed_UTC": "2026-10-10T18:42:27.126580+00:00",
+  "target": "HIP98505 / HD189733",
+  "visit": "2017-04-28 / AGBT17A_999_55",
+  "independent_visits": 1,
+  "administrative_batches": 3,
+  "public_freeze_commit": "76fb1da5a0af22d6182daed90e4bdca92f2470f8",
+  "input_byte_pins": {
+    "/workspace/scratch/5bf3860dacd6/analysis/s2017_full_band/summary/FULL_BAND_SUMMARY.json": {
+      "sha256": "d7ffd5c831b46649cebfc6e85aa05c11a701a8fada382ad290c79cb9f7da62c2",
+      "bytes": 374313
+    },
+    "/workspace/scratch/5bf3860dacd6/analysis/s2017_full_band/summary/FULL_BAND_PROFILE_MEANS.csv": {
+      "sha256": "c0cc85517398267102a0cbfb3b9e953be06a9bd836ad0cd3938ca48900dbde8b",
+      "bytes": 41045
+    },
+    "/workspace/scratch/5bf3860dacd6/analysis/s2017_full_band/summary/FULL_BAND_SUMMARY_RECEIPT.json": {
+      "sha256": "5387e497d6654590ee23a48d39bb681d250bb082029d0d810e8c0b0909ddf43c",
+      "bytes": 4000
+    },
+    "/workspace/scratch/5bf3860dacd6/analysis/s2017_full_band/summarize_saved_outputs.py": {
+      "sha256": "0549eb9b6e528ed10637660bf02f8e575aad5da32a576831b8804a61ecbcda1e",
+      "bytes": 15023
+    },
+    "/workspace/scratch/5bf3860dacd6/analysis/s2017_full_band/SUMMARY_SOURCE_REVIEW.json": {
+      "sha256": "c565bcc9b8dfabe36ae3c0394a7b0d9d4529cf01d8f6e66261d38878ac9830e2",
+      "bytes": 2342
+    },
+    "/workspace/scratch/5bf3860dacd6/analysis/s2017_full_band/results/review/QA_RECEIPT.json": {
+      "sha256": "e1d77ef88fa7a47965bd783b09258b36578c476cd5788ffc94924f3e03d1bc6f",
+      "bytes": 313782
+    },
+    "/workspace/scratch/5bf3860dacd6/analysis/next_visit/S2017_MIDPOINT_SOURCE_MANIFEST.json": {
+      "sha256": "1fd17cbf60251b77c06a2bbeb00f405b068f3d60b32b9f4cfcf39eccc4076107",
+      "bytes": 111227
+    },
+    "/workspace/scratch/5bf3860dacd6/analysis/new_visit_recovery/SCIENTIFIC_REVIEW.json": {
+      "sha256": "5bfc29fac502d0bd0542a9db8f3af7fb89bfed9d7e0da8ceda8708d813722e6a",
+      "bytes": 15310
+    },
+    "/workspace/scratch/5bf3860dacd6/analysis/s2017_full_band/scopes/batch01.json": {
+      "sha256": "551083a9ba56bf960fa49e8868047f8016ba9a70a3a7b1df1a54333af8d56c9c",
+      "bytes": 8580
+    },
+    "/workspace/scratch/5bf3860dacd6/analysis/s2017_full_band/results/batch01/EXECUTION_RECEIPT.json": {
+      "sha256": "b94f5b640fd73f36dfe04c3f362b7e76e0dc7d0f9aa56e90def9f879bb2672d8",
+      "bytes": 6091
+    },
+    "/workspace/scratch/5bf3860dacd6/analysis/s2017_full_band/results/batch01/DRIFT_TOP20.json": {
+      "sha256": "e9b6c5df20449cf1fbcb5c8110499bfa2c8163a698bbbfcc6aef2be7d822ab79",
+      "bytes": 36256
+    },
+    "/workspace/scratch/5bf3860dacd6/analysis/s2017_full_band/results/batch01/FIXED_TOP3_PROFILES.json": {
+      "sha256": "2f40484ba63160b35ef022ac0c64bbf17250b9606b6f76aa84c71060ca695af3",
+      "bytes": 103349
+    },
+    "/workspace/scratch/5bf3860dacd6/analysis/s2017_full_band/scopes/batch02.json": {
+      "sha256": "d9b499662e8766058a74ac794225fd95a34d208a07f5a7e289ce306e8c957d68",
+      "bytes": 8658
+    },
+    "/workspace/scratch/5bf3860dacd6/analysis/s2017_full_band/results/batch02/EXECUTION_RECEIPT.json": {
+      "sha256": "ef5ac61e4a2a949fc9d056561f91d3c130755abe8254264fecb4ca3edb21ca81",
+      "bytes": 6165
+    },
+    "/workspace/scratch/5bf3860dacd6/analysis/s2017_full_band/results/batch02/DRIFT_TOP20.json": {
+      "sha256": "f717910967e612c434c68a9e17e02613921d9d193da3bf7761426342ca08f37b",
+      "bytes": 36414
+    },
+    "/workspace/scratch/5bf3860dacd6/analysis/s2017_full_band/results/batch02/FIXED_TOP3_PROFILES.json": {
+      "sha256": "14f54b5279917f855e3d80144281fec4af0ec0c499396622f1489f620ebeab57",
+      "bytes": 103615
+    },
+    "/workspace/scratch/5bf3860dacd6/analysis/s2017_full_band/scopes/batch03.json": {
+      "sha256": "72c82c8fb36c26ce2f22d68d5e57a34e7c841ab7e0c83050f5b67e8f1459f759",
+      "bytes": 8682
+    },
+    "/workspace/scratch/5bf3860dacd6/analysis/s2017_full_band/results/batch03/EXECUTION_RECEIPT.json": {
+      "sha256": "639643106f3aeffbd88bff1d88326f6a91ce1ebcf291d518198bc418d9a56d92",
+      "bytes": 6197
+    },
+    "/workspace/scratch/5bf3860dacd6/analysis/s2017_full_band/results/batch03/DRIFT_TOP20.json": {
+      "sha256": "8eb0c0ce5cf727d70b7ca3cf21ebfb6ecc78cbbcdd33f3c6423976b6d2503d97",
+      "bytes": 36310
+    },
+    "/workspace/scratch/5bf3860dacd6/analysis/s2017_full_band/results/batch03/FIXED_TOP3_PROFILES.json": {
+      "sha256": "298708473701e7bb0e4fe11617aacfead91fe0a85394020932cd8a9e7c3c53c2",
+      "bytes": 103223
+    },
+    "/workspace/scratch/5bf3860dacd6/analysis/s2017_full_band/summary/REPORT.md": {
+      "sha256": "20b758c7e99e659f15c0509a4b7c26ba2bfe320d9d3ebc76b7bd54b4e608a7e0",
+      "bytes": 7402
+    }
+  },
+  "actual_combined_QA_receipt_sha256": "e1d77ef88fa7a47965bd783b09258b36578c476cd5788ffc94924f3e03d1bc6f",
+  "actual_combined_QA_status": "PASS759_S2017_MAPS27_FIXED_PROFILES_AND334368_BITWISE_SOURCE_CELLS",
+  "actual_combined_QA_counts": {
+    "batch_families": 3,
+    "maps": 759,
+    "map_normalization_records": 759,
+    "carrier_maximum_records": 3108864,
+    "valid_hypothesis_records": 4880916480,
+    "top20_entries": 180,
+    "patches": 27,
+    "scan_profiles": 162,
+    "time_row_occurrences": 2592,
+    "retained_raw_patch_cells": 334368,
+    "compact_files": 6,
+    "decoded_rows": 96,
+    "previously_source_qualified_full_row_medians_authenticated": 96,
+    "ON_core_row_medians_recomputed": 12144,
+    "raw_cells_bitwise_checked": 334368
+  },
+  "actual_batch_receipts": {
+    "batch01": "b94f5b640fd73f36dfe04c3f362b7e76e0dc7d0f9aa56e90def9f879bb2672d8",
+    "batch02": "ef5ac61e4a2a949fc9d056561f91d3c130755abe8254264fecb4ca3edb21ca81",
+    "batch03": "639643106f3aeffbd88bff1d88326f6a91ce1ebcf291d518198bc418d9a56d92"
+  },
+  "conclusion": "The extension completes nearly all safe reference carriers in one acquired S2017 native chunk. Batch02 strong maxima and selected moving boxes geometrically intersect the already known common ON/OFF stationary channel. Batch01/03 fixed profiles retain small nonzero other-ON and OFF values and ON-selected half-window persistence, without independent significance calibration. No qualified target-specific sky detection, physical-origin classification or general null result follows.",
+  "coverage": {
+    "extension": {
+      "distinct_reference_cores_per_ON": 253,
+      "completed_ON_maps": 759,
+      "reference_carriers_per_ON": 1036288,
+      "ON_carrier_origin_entries": 3108864,
+      "correlated_drift_width_combinations": 4880916480,
+      "nominal_reference_carrier_bandwidth_per_ON_hz": 2895355.224609375,
+      "native_chunk_fraction_of_reference_carriers": 0.98828125,
+      "native_chunk_percent_of_reference_carriers": 98.828125,
+      "fixed_profiles": 27,
+      "scan_profiles": 162,
+      "integration_row_occurrences": 2592,
+      "retained_raw_patch_cell_occurrences": 334368
+    },
+    "prior_q128": {
+      "distinct_reference_cores_per_ON": 1,
+      "completed_ON_maps": 3,
+      "reference_carriers_per_ON": 4096,
+      "ON_carrier_origin_entries": 12288,
+      "correlated_drift_width_combinations": 19292160,
+      "nominal_reference_carrier_bandwidth_per_ON_hz": 11444.091796875,
+      "native_chunk_fraction_of_reference_carriers": 0.00390625,
+      "native_chunk_percent_of_reference_carriers": 0.390625,
+      "fixed_profiles": 9,
+      "scan_profiles": 54,
+      "integration_row_occurrences": 864,
+      "retained_raw_patch_cell_occurrences": 111456
+    },
+    "combined_q128_and_extension": {
+      "distinct_reference_cores_per_ON": 254,
+      "completed_ON_maps": 762,
+      "reference_carriers_per_ON": 1040384,
+      "ON_carrier_origin_entries": 3121152,
+      "correlated_drift_width_combinations": 4900208640,
+      "nominal_reference_carrier_bandwidth_per_ON_hz": 2906799.31640625,
+      "native_chunk_fraction_of_reference_carriers": 0.9921875,
+      "native_chunk_percent_of_reference_carriers": 99.21875,
+      "fixed_profiles": 36,
+      "scan_profiles": 216,
+      "integration_row_occurrences": 3456,
+      "retained_raw_patch_cell_occurrences": 445824
+    },
+    "combined_native_reference_channel_interval_half_open": [
+      179310592,
+      180350976
+    ],
+    "unsearched_edge_q": [
+      0,
+      255
+    ],
+    "counts_are_reference_carriers_not_halo_sensitivity_or_independent_trials": true
+  },
+  "ranking_context": [
+    {
+      "batch_id": "batch01",
+      "top20_entries": 60,
+      "saved_score_range": [
+        5.591633747478519,
+        6.356479449150366
+      ],
+      "top20_reference_channel_limits_inclusive": [
+        179312668,
+        179643064
+      ],
+      "all_selected_q_values": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        18,
+        19,
+        20,
+        21,
+        24,
+        25,
+        26,
+        28,
+        30,
+        33,
+        40,
+        41,
+        44,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        53,
+        54,
+        56,
+        59,
+        60,
+        61,
+        65,
+        66,
+        68,
+        70,
+        71,
+        73,
+        75,
+        77,
+        78,
+        82
+      ],
+      "top20_frozen_origin_boxes_intersecting_common_line": 0,
+      "origin_box_line_row_occurrences": 0
+    },
+    {
+      "batch_id": "batch02",
+      "top20_entries": 60,
+      "saved_score_range": [
+        1418.7785086314536,
+        15458.566495845871
+      ],
+      "top20_reference_channel_limits_inclusive": [
+        179830500,
+        179830783
+      ],
+      "all_selected_q_values": [
+        127
+      ],
+      "top20_frozen_origin_boxes_intersecting_common_line": 60,
+      "origin_box_line_row_occurrences": 150
+    },
+    {
+      "batch_id": "batch03",
+      "top20_entries": 60,
+      "saved_score_range": [
+        5.5567265674845485,
+        6.2013175809012555
+      ],
+      "top20_reference_channel_limits_inclusive": [
+        180019163,
+        180338469
+      ],
+      "all_selected_q_values": [
+        173,
+        175,
+        180,
+        181,
+        183,
+        184,
+        185,
+        186,
+        187,
+        189,
+        190,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        204,
+        211,
+        212,
+        213,
+        217,
+        222,
+        223,
+        226,
+        227,
+        229,
+        230,
+        231,
+        233,
+        234,
+        236,
+        238,
+        243,
+        245,
+        247,
+        248,
+        250,
+        251
+      ],
+      "top20_frozen_origin_boxes_intersecting_common_line": 0,
+      "origin_box_line_row_occurrences": 0
+    }
+  ],
+  "q128_common_structure": {
+    "source_channel": 179830784,
+    "frequency_hz": 2300390625.0,
+    "prior_q128_review_path": "analysis/new_visit_recovery/SCIENTIFIC_REVIEW.json",
+    "all60_batch02_top20_origin_boxes_intersect_this_channel": true,
+    "all9_batch02_fixed_top3_origin_boxes_intersect_this_channel": true,
+    "batch02_reference_carriers_all_q127": true,
+    "q128_reference_search_excluded_but_width_drift_support_can_include_its_channel": true,
+    "interpretation": "These saved coordinates explain strong crossing contributions; no new fitting or nearby OFF optimization is performed and signal physical origin is not established."
+  },
+  "batch02_top20_saved_origin_geometry": [
+    {
+      "track_id": "epoch1_on_visit20170428_Sband_batch02_rank_01",
+      "originating_scan": "epoch1_on",
+      "display_rank": 1,
+      "source_reference_channel": 179830783,
+      "drift_hz_s": -0.010204081632653406,
+      "width_channels": 3,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "track_id": "epoch1_on_visit20170428_Sband_batch02_rank_02",
+      "originating_scan": "epoch1_on",
+      "display_rank": 2,
+      "source_reference_channel": 179830779,
+      "drift_hz_s": -0.06122448979591866,
+      "width_channels": 3,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "track_id": "epoch1_on_visit20170428_Sband_batch02_rank_03",
+      "originating_scan": "epoch1_on",
+      "display_rank": 3,
+      "source_reference_channel": 179830775,
+      "drift_hz_s": -0.13265306122449028,
+      "width_channels": 3,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "track_id": "epoch1_on_visit20170428_Sband_batch02_rank_04",
+      "originating_scan": "epoch1_on",
+      "display_rank": 4,
+      "source_reference_channel": 179830770,
+      "drift_hz_s": -0.1938775510204085,
+      "width_channels": 3,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "track_id": "epoch1_on_visit20170428_Sband_batch02_rank_05",
+      "originating_scan": "epoch1_on",
+      "display_rank": 5,
+      "source_reference_channel": 179830756,
+      "drift_hz_s": -0.4081632653061229,
+      "width_channels": 3,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        10,
+        11
+      ]
+    },
+    {
+      "track_id": "epoch1_on_visit20170428_Sband_batch02_rank_06",
+      "originating_scan": "epoch1_on",
+      "display_rank": 6,
+      "source_reference_channel": 179830766,
+      "drift_hz_s": -0.2551020408163267,
+      "width_channels": 3,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        10,
+        11
+      ]
+    },
+    {
+      "track_id": "epoch1_on_visit20170428_Sband_batch02_rank_07",
+      "originating_scan": "epoch1_on",
+      "display_rank": 7,
+      "source_reference_channel": 179830760,
+      "drift_hz_s": -0.34693877551020424,
+      "width_channels": 3,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        10,
+        11
+      ]
+    },
+    {
+      "track_id": "epoch1_on_visit20170428_Sband_batch02_rank_08",
+      "originating_scan": "epoch1_on",
+      "display_rank": 8,
+      "source_reference_channel": 179830751,
+      "drift_hz_s": -0.4387755102040818,
+      "width_channels": 3,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        11,
+        12
+      ]
+    },
+    {
+      "track_id": "epoch1_on_visit20170428_Sband_batch02_rank_09",
+      "originating_scan": "epoch1_on",
+      "display_rank": 9,
+      "source_reference_channel": 179830747,
+      "drift_hz_s": -0.41836734693877586,
+      "width_channels": 3,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        13,
+        14
+      ]
+    },
+    {
+      "track_id": "epoch1_on_visit20170428_Sband_batch02_rank_10",
+      "originating_scan": "epoch1_on",
+      "display_rank": 10,
+      "source_reference_channel": 179830707,
+      "drift_hz_s": -1.1734693877551021,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        10
+      ]
+    },
+    {
+      "track_id": "epoch1_on_visit20170428_Sband_batch02_rank_11",
+      "originating_scan": "epoch1_on",
+      "display_rank": 11,
+      "source_reference_channel": 179830583,
+      "drift_hz_s": -3.0714285714285716,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        10
+      ]
+    },
+    {
+      "track_id": "epoch1_on_visit20170428_Sband_batch02_rank_12",
+      "originating_scan": "epoch1_on",
+      "display_rank": 12,
+      "source_reference_channel": 179830575,
+      "drift_hz_s": -3.2040816326530615,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        10
+      ]
+    },
+    {
+      "track_id": "epoch1_on_visit20170428_Sband_batch02_rank_13",
+      "originating_scan": "epoch1_on",
+      "display_rank": 13,
+      "source_reference_channel": 179830666,
+      "drift_hz_s": -1.806122448979592,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        10
+      ]
+    },
+    {
+      "track_id": "epoch1_on_visit20170428_Sband_batch02_rank_14",
+      "originating_scan": "epoch1_on",
+      "display_rank": 14,
+      "source_reference_channel": 179830629,
+      "drift_hz_s": -2.3775510204081636,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        10
+      ]
+    },
+    {
+      "track_id": "epoch1_on_visit20170428_Sband_batch02_rank_15",
+      "originating_scan": "epoch1_on",
+      "display_rank": 15,
+      "source_reference_channel": 179830670,
+      "drift_hz_s": -1.7448979591836737,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        10
+      ]
+    },
+    {
+      "track_id": "epoch1_on_visit20170428_Sband_batch02_rank_16",
+      "originating_scan": "epoch1_on",
+      "display_rank": 16,
+      "source_reference_channel": 179830556,
+      "drift_hz_s": -3.489795918367347,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        10
+      ]
+    },
+    {
+      "track_id": "epoch1_on_visit20170428_Sband_batch02_rank_17",
+      "originating_scan": "epoch1_on",
+      "display_rank": 17,
+      "source_reference_channel": 179830567,
+      "drift_hz_s": -3.316326530612245,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        10
+      ]
+    },
+    {
+      "track_id": "epoch1_on_visit20170428_Sband_batch02_rank_18",
+      "originating_scan": "epoch1_on",
+      "display_rank": 18,
+      "source_reference_channel": 179830687,
+      "drift_hz_s": -1.479591836734694,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        10
+      ]
+    },
+    {
+      "track_id": "epoch1_on_visit20170428_Sband_batch02_rank_19",
+      "originating_scan": "epoch1_on",
+      "display_rank": 19,
+      "source_reference_channel": 179830725,
+      "drift_hz_s": -0.9081632653061229,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        10
+      ]
+    },
+    {
+      "track_id": "epoch1_on_visit20170428_Sband_batch02_rank_20",
+      "originating_scan": "epoch1_on",
+      "display_rank": 20,
+      "source_reference_channel": 179830636,
+      "drift_hz_s": -2.2653061224489797,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        10
+      ]
+    },
+    {
+      "track_id": "epoch2_on_visit20170428_Sband_batch02_rank_01",
+      "originating_scan": "epoch2_on",
+      "display_rank": 1,
+      "source_reference_channel": 179830783,
+      "drift_hz_s": -0.010204081632653406,
+      "width_channels": 3,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "track_id": "epoch2_on_visit20170428_Sband_batch02_rank_02",
+      "originating_scan": "epoch2_on",
+      "display_rank": 2,
+      "source_reference_channel": 179830779,
+      "drift_hz_s": -0.06122448979591866,
+      "width_channels": 3,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "track_id": "epoch2_on_visit20170428_Sband_batch02_rank_03",
+      "originating_scan": "epoch2_on",
+      "display_rank": 3,
+      "source_reference_channel": 179830773,
+      "drift_hz_s": -0.13265306122449028,
+      "width_channels": 3,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        11,
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "track_id": "epoch2_on_visit20170428_Sband_batch02_rank_04",
+      "originating_scan": "epoch2_on",
+      "display_rank": 4,
+      "source_reference_channel": 179830767,
+      "drift_hz_s": -0.18367346938775553,
+      "width_channels": 3,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "track_id": "epoch2_on_visit20170428_Sband_batch02_rank_05",
+      "originating_scan": "epoch2_on",
+      "display_rank": 5,
+      "source_reference_channel": 179830749,
+      "drift_hz_s": -0.3979591836734695,
+      "width_channels": 3,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        13,
+        14
+      ]
+    },
+    {
+      "track_id": "epoch2_on_visit20170428_Sband_batch02_rank_06",
+      "originating_scan": "epoch2_on",
+      "display_rank": 6,
+      "source_reference_channel": 179830761,
+      "drift_hz_s": -0.2653061224489801,
+      "width_channels": 3,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        13,
+        14
+      ]
+    },
+    {
+      "track_id": "epoch2_on_visit20170428_Sband_batch02_rank_07",
+      "originating_scan": "epoch2_on",
+      "display_rank": 7,
+      "source_reference_channel": 179830754,
+      "drift_hz_s": -0.3367346938775513,
+      "width_channels": 3,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        13,
+        14
+      ]
+    },
+    {
+      "track_id": "epoch2_on_visit20170428_Sband_batch02_rank_08",
+      "originating_scan": "epoch2_on",
+      "display_rank": 8,
+      "source_reference_channel": 179830740,
+      "drift_hz_s": -3.3469387755102042,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        2
+      ]
+    },
+    {
+      "track_id": "epoch2_on_visit20170428_Sband_batch02_rank_09",
+      "originating_scan": "epoch2_on",
+      "display_rank": 9,
+      "source_reference_channel": 179830744,
+      "drift_hz_s": -3.0510204081632653,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        2
+      ]
+    },
+    {
+      "track_id": "epoch2_on_visit20170428_Sband_batch02_rank_10",
+      "originating_scan": "epoch2_on",
+      "display_rank": 10,
+      "source_reference_channel": 179830732,
+      "drift_hz_s": -3.989795918367347,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        2
+      ]
+    },
+    {
+      "track_id": "epoch2_on_visit20170428_Sband_batch02_rank_11",
+      "originating_scan": "epoch2_on",
+      "display_rank": 11,
+      "source_reference_channel": 179830736,
+      "drift_hz_s": -3.6530612244897958,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        2
+      ]
+    },
+    {
+      "track_id": "epoch2_on_visit20170428_Sband_batch02_rank_12",
+      "originating_scan": "epoch2_on",
+      "display_rank": 12,
+      "source_reference_channel": 179830668,
+      "drift_hz_s": -2.9693877551020407,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        6
+      ]
+    },
+    {
+      "track_id": "epoch2_on_visit20170428_Sband_batch02_rank_13",
+      "originating_scan": "epoch2_on",
+      "display_rank": 13,
+      "source_reference_channel": 179830682,
+      "drift_hz_s": -2.591836734693878,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        6
+      ]
+    },
+    {
+      "track_id": "epoch2_on_visit20170428_Sband_batch02_rank_14",
+      "originating_scan": "epoch2_on",
+      "display_rank": 14,
+      "source_reference_channel": 179830642,
+      "drift_hz_s": -3.612244897959184,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        6
+      ]
+    },
+    {
+      "track_id": "epoch2_on_visit20170428_Sband_batch02_rank_15",
+      "originating_scan": "epoch2_on",
+      "display_rank": 15,
+      "source_reference_channel": 179830662,
+      "drift_hz_s": -3.1020408163265305,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        6
+      ]
+    },
+    {
+      "track_id": "epoch2_on_visit20170428_Sband_batch02_rank_16",
+      "originating_scan": "epoch2_on",
+      "display_rank": 16,
+      "source_reference_channel": 179830633,
+      "drift_hz_s": -3.857142857142857,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        6
+      ]
+    },
+    {
+      "track_id": "epoch2_on_visit20170428_Sband_batch02_rank_17",
+      "originating_scan": "epoch2_on",
+      "display_rank": 17,
+      "source_reference_channel": 179830705,
+      "drift_hz_s": -2.0204081632653064,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        6
+      ]
+    },
+    {
+      "track_id": "epoch2_on_visit20170428_Sband_batch02_rank_18",
+      "originating_scan": "epoch2_on",
+      "display_rank": 18,
+      "source_reference_channel": 179830690,
+      "drift_hz_s": -2.3877551020408165,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        6
+      ]
+    },
+    {
+      "track_id": "epoch2_on_visit20170428_Sband_batch02_rank_19",
+      "originating_scan": "epoch2_on",
+      "display_rank": 19,
+      "source_reference_channel": 179830650,
+      "drift_hz_s": -3.4081632653061225,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        6
+      ]
+    },
+    {
+      "track_id": "epoch2_on_visit20170428_Sband_batch02_rank_20",
+      "originating_scan": "epoch2_on",
+      "display_rank": 20,
+      "source_reference_channel": 179830676,
+      "drift_hz_s": -2.7448979591836737,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        6
+      ]
+    },
+    {
+      "track_id": "epoch3_on_visit20170428_Sband_batch02_rank_01",
+      "originating_scan": "epoch3_on",
+      "display_rank": 1,
+      "source_reference_channel": 179830783,
+      "drift_hz_s": -0.020408163265306367,
+      "width_channels": 3,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "track_id": "epoch3_on_visit20170428_Sband_batch02_rank_02",
+      "originating_scan": "epoch3_on",
+      "display_rank": 2,
+      "source_reference_channel": 179830779,
+      "drift_hz_s": -0.06122448979591866,
+      "width_channels": 3,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "track_id": "epoch3_on_visit20170428_Sband_batch02_rank_03",
+      "originating_scan": "epoch3_on",
+      "display_rank": 3,
+      "source_reference_channel": 179830773,
+      "drift_hz_s": -0.12244897959183687,
+      "width_channels": 3,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "track_id": "epoch3_on_visit20170428_Sband_batch02_rank_04",
+      "originating_scan": "epoch3_on",
+      "display_rank": 4,
+      "source_reference_channel": 179830768,
+      "drift_hz_s": -0.17346938775510257,
+      "width_channels": 3,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "track_id": "epoch3_on_visit20170428_Sband_batch02_rank_05",
+      "originating_scan": "epoch3_on",
+      "display_rank": 5,
+      "source_reference_channel": 179830748,
+      "drift_hz_s": -0.3775510204081636,
+      "width_channels": 3,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        14,
+        15
+      ]
+    },
+    {
+      "track_id": "epoch3_on_visit20170428_Sband_batch02_rank_06",
+      "originating_scan": "epoch3_on",
+      "display_rank": 6,
+      "source_reference_channel": 179830759,
+      "drift_hz_s": -0.2653061224489801,
+      "width_channels": 3,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        14,
+        15
+      ]
+    },
+    {
+      "track_id": "epoch3_on_visit20170428_Sband_batch02_rank_07",
+      "originating_scan": "epoch3_on",
+      "display_rank": 7,
+      "source_reference_channel": 179830763,
+      "drift_hz_s": -0.2142857142857144,
+      "width_channels": 3,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        14,
+        15
+      ]
+    },
+    {
+      "track_id": "epoch3_on_visit20170428_Sband_batch02_rank_08",
+      "originating_scan": "epoch3_on",
+      "display_rank": 8,
+      "source_reference_channel": 179830753,
+      "drift_hz_s": -0.3265306122448983,
+      "width_channels": 3,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        14,
+        15
+      ]
+    },
+    {
+      "track_id": "epoch3_on_visit20170428_Sband_batch02_rank_09",
+      "originating_scan": "epoch3_on",
+      "display_rank": 9,
+      "source_reference_channel": 179830712,
+      "drift_hz_s": -3.663265306122449,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        3
+      ]
+    },
+    {
+      "track_id": "epoch3_on_visit20170428_Sband_batch02_rank_10",
+      "originating_scan": "epoch3_on",
+      "display_rank": 10,
+      "source_reference_channel": 179830706,
+      "drift_hz_s": -3.979591836734694,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        3
+      ]
+    },
+    {
+      "track_id": "epoch3_on_visit20170428_Sband_batch02_rank_11",
+      "originating_scan": "epoch3_on",
+      "display_rank": 11,
+      "source_reference_channel": 179830721,
+      "drift_hz_s": -3.2346938775510203,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        3
+      ]
+    },
+    {
+      "track_id": "epoch3_on_visit20170428_Sband_batch02_rank_12",
+      "originating_scan": "epoch3_on",
+      "display_rank": 12,
+      "source_reference_channel": 179830732,
+      "drift_hz_s": -2.673469387755102,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        3
+      ]
+    },
+    {
+      "track_id": "epoch3_on_visit20170428_Sband_batch02_rank_13",
+      "originating_scan": "epoch3_on",
+      "display_rank": 13,
+      "source_reference_channel": 179830737,
+      "drift_hz_s": -2.3877551020408165,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        3
+      ]
+    },
+    {
+      "track_id": "epoch3_on_visit20170428_Sband_batch02_rank_14",
+      "originating_scan": "epoch3_on",
+      "display_rank": 14,
+      "source_reference_channel": 179830726,
+      "drift_hz_s": -2.938775510204082,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        3
+      ]
+    },
+    {
+      "track_id": "epoch3_on_visit20170428_Sband_batch02_rank_15",
+      "originating_scan": "epoch3_on",
+      "display_rank": 15,
+      "source_reference_channel": 179830743,
+      "drift_hz_s": -2.0714285714285716,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        3
+      ]
+    },
+    {
+      "track_id": "epoch3_on_visit20170428_Sband_batch02_rank_16",
+      "originating_scan": "epoch3_on",
+      "display_rank": 16,
+      "source_reference_channel": 179830717,
+      "drift_hz_s": -3.4183673469387754,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        3
+      ]
+    },
+    {
+      "track_id": "epoch3_on_visit20170428_Sband_batch02_rank_17",
+      "originating_scan": "epoch3_on",
+      "display_rank": 17,
+      "source_reference_channel": 179830634,
+      "drift_hz_s": -1.6428571428571432,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        14
+      ]
+    },
+    {
+      "track_id": "epoch3_on_visit20170428_Sband_batch02_rank_18",
+      "originating_scan": "epoch3_on",
+      "display_rank": 18,
+      "source_reference_channel": 179830669,
+      "drift_hz_s": -1.2551020408163267,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        14
+      ]
+    },
+    {
+      "track_id": "epoch3_on_visit20170428_Sband_batch02_rank_19",
+      "originating_scan": "epoch3_on",
+      "display_rank": 19,
+      "source_reference_channel": 179830500,
+      "drift_hz_s": -3.1020408163265305,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        14
+      ]
+    },
+    {
+      "track_id": "epoch3_on_visit20170428_Sband_batch02_rank_20",
+      "originating_scan": "epoch3_on",
+      "display_rank": 20,
+      "source_reference_channel": 179830542,
+      "drift_hz_s": -2.6428571428571432,
+      "width_channels": 1,
+      "origin_rows_whose_frozen_box_contains_q128_common_line": [
+        14
+      ]
+    }
+  ],
+  "fixed27_profile_context": [
+    {
+      "batch_id": "batch01",
+      "selected_track": {
+        "track_id": "epoch1_on_visit20170428_Sband_batch01_rank_01",
+        "family": "S2017_native171_safe_interior_extension_batch01",
+        "originating_scan": "epoch1_on",
+        "originating_role": "ON",
+        "display_rank": 1,
+        "source_reference_channel": 179516217,
+        "reference_frequency_hz": 2301269515.044987,
+        "reference_seconds_from_anchor": 9.126805504,
+        "drift_hz_s": 0.33673469387755084,
+        "width_channels": 3,
+        "maximum_robust_box_track_score": 6.16081289803628,
+        "reference_core_tile": 51,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        0.09145121129559988,
+        -0.01940053263732691,
+        -0.005640318656940785,
+        -0.008366195545315529,
+        0.00602171053173408,
+        0.017493714340463783
+      ],
+      "saved_first8_means": [
+        0.07466164407052947,
+        -0.021343285403896933,
+        -0.0034591139656749426,
+        0.006641989998871917,
+        0.03876165761802616,
+        0.001111479474301652
+      ],
+      "saved_last8_means": [
+        0.1082407785206703,
+        -0.01745777987075689,
+        -0.007821523348206627,
+        -0.023374381089502974,
+        -0.026718236554558003,
+        0.03387594920662591
+      ],
+      "saved_positive_rows": [
+        14,
+        6,
+        8,
+        6,
+        9,
+        9
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch01",
+      "selected_track": {
+        "track_id": "epoch1_on_visit20170428_Sband_batch01_rank_02",
+        "family": "S2017_native171_safe_interior_extension_batch01",
+        "originating_scan": "epoch1_on",
+        "originating_role": "ON",
+        "display_rank": 2,
+        "source_reference_channel": 179580433,
+        "reference_frequency_hz": 2301090097.6136327,
+        "reference_seconds_from_anchor": 9.126805504,
+        "drift_hz_s": 1.2142857142857135,
+        "width_channels": 1,
+        "maximum_robust_box_track_score": 6.023770499417139,
+        "reference_core_tile": 66,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        0.16219998540910124,
+        -0.010893130924969512,
+        -0.017008774711093716,
+        0.004480101084657233,
+        0.003324013695870272,
+        0.030144654047363585
+      ],
+      "saved_first8_means": [
+        0.16629994173955648,
+        -0.023205989613086828,
+        -0.04459183033078411,
+        0.011852781931286277,
+        0.023102622001418965,
+        0.02284914386807363
+      ],
+      "saved_last8_means": [
+        0.158100029078646,
+        0.0014197277631478045,
+        0.010574280908596675,
+        -0.0028925797619718113,
+        -0.016454594609678422,
+        0.03744016422665354
+      ],
+      "saved_positive_rows": [
+        13,
+        8,
+        5,
+        7,
+        10,
+        7
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch01",
+      "selected_track": {
+        "track_id": "epoch1_on_visit20170428_Sband_batch01_rank_03",
+        "family": "S2017_native171_safe_interior_extension_batch01",
+        "originating_scan": "epoch1_on",
+        "originating_role": "ON",
+        "display_rank": 3,
+        "source_reference_channel": 179628621,
+        "reference_frequency_hz": 2300955461.896956,
+        "reference_seconds_from_anchor": 9.126805504,
+        "drift_hz_s": -2.091836734693878,
+        "width_channels": 3,
+        "maximum_robust_box_track_score": 5.95703609055558,
+        "reference_core_tile": 78,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        0.09213832088621157,
+        -0.012796904479141023,
+        -0.008250578081791839,
+        -0.014487009817045732,
+        -0.006404952082359638,
+        -0.003656815392556488
+      ],
+      "saved_first8_means": [
+        0.10127324994321571,
+        -0.024411174064546584,
+        0.008172714456066418,
+        -0.0009889488717006317,
+        -0.002672719496503023,
+        -0.01831820692368752
+      ],
+      "saved_last8_means": [
+        0.08300339182920743,
+        -0.0011826348937354625,
+        -0.024673870619650096,
+        -0.027985070762390832,
+        -0.010137184668216254,
+        0.011004576138574543
+      ],
+      "saved_positive_rows": [
+        15,
+        6,
+        9,
+        5,
+        9,
+        9
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch01",
+      "selected_track": {
+        "track_id": "epoch2_on_visit20170428_Sband_batch01_rank_01",
+        "family": "S2017_native171_safe_interior_extension_batch01",
+        "originating_scan": "epoch2_on",
+        "originating_role": "ON",
+        "display_rank": 1,
+        "source_reference_channel": 179327898,
+        "reference_frequency_hz": 2301795672.2527742,
+        "reference_seconds_from_anchor": 703.1268055449782,
+        "drift_hz_s": -0.9489795918367347,
+        "width_channels": 1,
+        "maximum_robust_box_track_score": 6.1889119416537435,
+        "reference_core_tile": 5,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        -0.005026722583442202,
+        0.004491166565138722,
+        0.08947729953372169,
+        -0.026870717353508915,
+        -0.00010230383284148131,
+        0.011583093786847985
+      ],
+      "saved_first8_means": [
+        -0.007511297779637965,
+        -0.005902676707590711,
+        0.06783538502806943,
+        -0.03517869849499309,
+        -0.034986312394258465,
+        0.015206165542387462
+      ],
+      "saved_last8_means": [
+        -0.002542147387246438,
+        0.014885009837868154,
+        0.11111921403937394,
+        -0.01856273621202474,
+        0.0347817047285755,
+        0.007960022031308508
+      ],
+      "saved_positive_rows": [
+        8,
+        8,
+        16,
+        4,
+        9,
+        8
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch01",
+      "selected_track": {
+        "track_id": "epoch2_on_visit20170428_Sband_batch01_rank_02",
+        "family": "S2017_native171_safe_interior_extension_batch01",
+        "originating_scan": "epoch2_on",
+        "originating_role": "ON",
+        "display_rank": 2,
+        "source_reference_channel": 179607805,
+        "reference_frequency_hz": 2301013621.1290956,
+        "reference_seconds_from_anchor": 703.1268055449782,
+        "drift_hz_s": -1.275510204081633,
+        "width_channels": 1,
+        "maximum_robust_box_track_score": 6.11991585912658,
+        "reference_core_tile": 73,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        -0.037731213254490276,
+        0.04838324192207817,
+        0.16632271700575746,
+        -0.016029313456056876,
+        -0.03853207997104473,
+        -0.016733555342767853
+      ],
+      "saved_first8_means": [
+        -0.03636867836224843,
+        0.06387485428746367,
+        0.18242842645132656,
+        -0.028762913765357875,
+        -0.03555060558972416,
+        -0.007911057256931586
+      ],
+      "saved_last8_means": [
+        -0.039093748146732124,
+        0.03289162955669267,
+        0.15021700756018838,
+        -0.003295713146755877,
+        -0.0415135543523653,
+        -0.02555605342860412
+      ],
+      "saved_positive_rows": [
+        4,
+        10,
+        15,
+        8,
+        4,
+        6
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch01",
+      "selected_track": {
+        "track_id": "epoch2_on_visit20170428_Sband_batch01_rank_03",
+        "family": "S2017_native171_safe_interior_extension_batch01",
+        "originating_scan": "epoch2_on",
+        "originating_role": "ON",
+        "display_rank": 3,
+        "source_reference_channel": 179432736,
+        "reference_frequency_hz": 2301502758.2645416,
+        "reference_seconds_from_anchor": 703.1268055449782,
+        "drift_hz_s": 0.21428571428571352,
+        "width_channels": 1,
+        "maximum_robust_box_track_score": 6.010966689351618,
+        "reference_core_tile": 30,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        0.042740723570214086,
+        -0.03908442184000343,
+        0.15359556282596737,
+        0.00988222382612361,
+        0.02904547960074042,
+        -0.0003128946641475089
+      ],
+      "saved_first8_means": [
+        0.024879531748486353,
+        -0.07256159805087885,
+        0.18360786253900102,
+        0.05704360512163745,
+        0.016943229381438524,
+        0.018097448175771774
+      ],
+      "saved_last8_means": [
+        0.06060191539194182,
+        -0.00560724562912801,
+        0.12358326311293374,
+        -0.03727915746939023,
+        0.04114772982004232,
+        -0.018723237504066792
+      ],
+      "saved_positive_rows": [
+        11,
+        7,
+        15,
+        9,
+        11,
+        8
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": true
+    },
+    {
+      "batch_id": "batch01",
+      "selected_track": {
+        "track_id": "epoch3_on_visit20170428_Sband_batch01_rank_01",
+        "family": "S2017_native171_safe_interior_extension_batch01",
+        "originating_scan": "epoch3_on",
+        "originating_role": "ON",
+        "display_rank": 1,
+        "source_reference_channel": 179599801,
+        "reference_frequency_hz": 2301035984.046757,
+        "reference_seconds_from_anchor": 1392.126805674432,
+        "drift_hz_s": -2.938775510204082,
+        "width_channels": 3,
+        "maximum_robust_box_track_score": 6.356479449150366,
+        "reference_core_tile": 71,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        -0.020237720337639507,
+        0.004203009143228027,
+        0.022096366858618807,
+        0.0017420585497473565,
+        0.09754740290089314,
+        0.004584382575116806
+      ],
+      "saved_first8_means": [
+        -0.006399314863807085,
+        0.03606303689273491,
+        0.03506211916048037,
+        0.019988447903932824,
+        0.09317997526411739,
+        0.012949790268448641
+      ],
+      "saved_last8_means": [
+        -0.03407612581147193,
+        -0.027657018606278852,
+        0.009130614556757247,
+        -0.01650433080443811,
+        0.1019148305376689,
+        -0.0037810251182150284
+      ],
+      "saved_positive_rows": [
+        3,
+        8,
+        8,
+        8,
+        14,
+        10
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch01",
+      "selected_track": {
+        "track_id": "epoch3_on_visit20170428_Sband_batch01_rank_02",
+        "family": "S2017_native171_safe_interior_extension_batch01",
+        "originating_scan": "epoch3_on",
+        "originating_role": "ON",
+        "display_rank": 2,
+        "source_reference_channel": 179406250,
+        "reference_frequency_hz": 2301576759.2936754,
+        "reference_seconds_from_anchor": 1392.126805674432,
+        "drift_hz_s": -1.7040816326530615,
+        "width_channels": 3,
+        "maximum_robust_box_track_score": 6.218762697064939,
+        "reference_core_tile": 24,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        -0.01620380760179021,
+        0.024809280370868755,
+        0.009850025013853854,
+        0.016036392244842802,
+        0.08742596380637863,
+        0.015253278859480045
+      ],
+      "saved_first8_means": [
+        -0.03632999545361938,
+        0.04413304340342948,
+        0.019733719859822224,
+        0.01688332430269178,
+        0.09458710769473154,
+        0.04085442139976664
+      ],
+      "saved_last8_means": [
+        0.003922380250038965,
+        0.00548551733830803,
+        -3.366983211451624e-05,
+        0.015189460186993825,
+        0.08026481991802573,
+        -0.010347863680806549
+      ],
+      "saved_positive_rows": [
+        6,
+        12,
+        10,
+        11,
+        14,
+        8
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch01",
+      "selected_track": {
+        "track_id": "epoch3_on_visit20170428_Sband_batch01_rank_03",
+        "family": "S2017_native171_safe_interior_extension_batch01",
+        "originating_scan": "epoch3_on",
+        "originating_role": "ON",
+        "display_rank": 3,
+        "source_reference_channel": 179422047,
+        "reference_frequency_hz": 2301532622.985542,
+        "reference_seconds_from_anchor": 1392.126805674432,
+        "drift_hz_s": 0.5816326530612237,
+        "width_channels": 3,
+        "maximum_robust_box_track_score": 6.199942065381075,
+        "reference_core_tile": 28,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        0.016026054054558807,
+        0.005826970770209466,
+        0.014223730352735518,
+        -0.017146210564011992,
+        0.09002531824145577,
+        0.005195049783852122
+      ],
+      "saved_first8_means": [
+        0.017708906142813022,
+        0.01120205843650747,
+        -0.006660790570609684,
+        -0.00832652648998379,
+        0.10556623720685099,
+        0.0020902668119076456
+      ],
+      "saved_last8_means": [
+        0.014343201966304592,
+        0.0004518831039114629,
+        0.03510825127608072,
+        -0.025965894638040193,
+        0.07448439927606056,
+        0.008299832755796599
+      ],
+      "saved_positive_rows": [
+        10,
+        10,
+        10,
+        6,
+        16,
+        8
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch02",
+      "selected_track": {
+        "track_id": "epoch1_on_visit20170428_Sband_batch02_rank_01",
+        "family": "S2017_native171_safe_interior_extension_batch02",
+        "originating_scan": "epoch1_on",
+        "originating_role": "ON",
+        "display_rank": 1,
+        "source_reference_channel": 179830783,
+        "reference_frequency_hz": 2300390627.7939677,
+        "reference_seconds_from_anchor": 9.126805504,
+        "drift_hz_s": -0.010204081632653406,
+        "width_channels": 3,
+        "maximum_robust_box_track_score": 15458.566495845871,
+        "reference_core_tile": 127,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        230.3969369086544,
+        176.1446307231302,
+        -0.009473547379617885,
+        -0.011128711816536276,
+        0.022506547660284218,
+        -0.028581901633760516
+      ],
+      "saved_first8_means": [
+        230.73317349598807,
+        176.67383299239663,
+        -0.0006837661197717781,
+        -0.022481744251638527,
+        0.005227458692295267,
+        -0.013147864592620712
+      ],
+      "saved_last8_means": [
+        230.06070032132072,
+        175.6154284538638,
+        -0.01826332863946399,
+        0.0002243206185659763,
+        0.03978563662827317,
+        -0.04401593867490032
+      ],
+      "saved_positive_rows": [
+        16,
+        16,
+        4,
+        7,
+        10,
+        6
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "epoch1_off": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch02",
+      "selected_track": {
+        "track_id": "epoch1_on_visit20170428_Sband_batch02_rank_02",
+        "family": "S2017_native171_safe_interior_extension_batch02",
+        "originating_scan": "epoch1_on",
+        "originating_role": "ON",
+        "display_rank": 2,
+        "source_reference_channel": 179830779,
+        "reference_frequency_hz": 2300390638.9698386,
+        "reference_seconds_from_anchor": 9.126805504,
+        "drift_hz_s": -0.06122448979591866,
+        "width_channels": 3,
+        "maximum_robust_box_track_score": 6803.306797046191,
+        "reference_core_tile": 127,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        100.58820079109145,
+        0.03156008032408905,
+        0.006063063508090487,
+        0.00044953130737651614,
+        0.03532831103756641,
+        -0.017358185430817206
+      ],
+      "saved_first8_means": [
+        0.0005197292993686792,
+        0.043466181689193445,
+        0.002761350806871385,
+        -0.00546090064919974,
+        0.047467630610171674,
+        -0.034094777099317713
+      ],
+      "saved_last8_means": [
+        201.17588185288355,
+        0.019653978958984658,
+        0.009364776209309589,
+        0.0063599632639527726,
+        0.023188991464961145,
+        -0.0006215937623166995
+      ],
+      "saved_positive_rows": [
+        11,
+        11,
+        10,
+        9,
+        9,
+        6
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": true
+    },
+    {
+      "batch_id": "batch02",
+      "selected_track": {
+        "track_id": "epoch1_on_visit20170428_Sband_batch02_rank_03",
+        "family": "S2017_native171_safe_interior_extension_batch02",
+        "originating_scan": "epoch1_on",
+        "originating_role": "ON",
+        "display_rank": 3,
+        "source_reference_channel": 179830775,
+        "reference_frequency_hz": 2300390650.1457095,
+        "reference_seconds_from_anchor": 9.126805504,
+        "drift_hz_s": -0.13265306122449028,
+        "width_channels": 3,
+        "maximum_robust_box_track_score": 3915.388080657537,
+        "reference_core_tile": 127,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        57.524608030610054,
+        -0.0006798311836048315,
+        -0.006559621824866295,
+        0.0053718343389836665,
+        -0.013413445237531511,
+        -0.0031653282367210336
+      ],
+      "saved_first8_means": [
+        -0.017016513701501285,
+        0.033032120491334235,
+        -0.019535926354364352,
+        0.027816463229582464,
+        -0.0030088609267740485,
+        -0.002392412458089632
+      ],
+      "saved_last8_means": [
+        115.06623257492163,
+        -0.0343917828585439,
+        0.006416682704631763,
+        -0.01707279455161513,
+        -0.023818029548288974,
+        -0.003938244015352435
+      ],
+      "saved_positive_rows": [
+        9,
+        6,
+        9,
+        5,
+        5,
+        6
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [
+          9,
+          10,
+          11,
+          12
+        ],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch02",
+      "selected_track": {
+        "track_id": "epoch2_on_visit20170428_Sband_batch02_rank_01",
+        "family": "S2017_native171_safe_interior_extension_batch02",
+        "originating_scan": "epoch2_on",
+        "originating_role": "ON",
+        "display_rank": 1,
+        "source_reference_channel": 179830783,
+        "reference_frequency_hz": 2300390627.7939677,
+        "reference_seconds_from_anchor": 703.1268055449782,
+        "drift_hz_s": -0.010204081632653406,
+        "width_channels": 3,
+        "maximum_robust_box_track_score": 12813.73928744989,
+        "reference_core_tile": 127,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        0.008896295343365765,
+        43.94698338117271,
+        189.50611627231075,
+        183.41838772344187,
+        0.007931058794039395,
+        -0.015740730056288378
+      ],
+      "saved_first8_means": [
+        0.0196558055793377,
+        0.027053072224096114,
+        189.6829985804743,
+        183.08083256135535,
+        0.010015531831003538,
+        -0.04464405877044675
+      ],
+      "saved_last8_means": [
+        -0.0018632148926061715,
+        87.86691369012132,
+        189.32923396414722,
+        183.75594288552838,
+        0.005846585757075251,
+        0.013162598657869992
+      ],
+      "saved_positive_rows": [
+        9,
+        12,
+        16,
+        16,
+        9,
+        7
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "epoch2_on": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "epoch2_off": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch02",
+      "selected_track": {
+        "track_id": "epoch2_on_visit20170428_Sband_batch02_rank_02",
+        "family": "S2017_native171_safe_interior_extension_batch02",
+        "originating_scan": "epoch2_on",
+        "originating_role": "ON",
+        "display_rank": 2,
+        "source_reference_channel": 179830779,
+        "reference_frequency_hz": 2300390638.9698386,
+        "reference_seconds_from_anchor": 703.1268055449782,
+        "drift_hz_s": -0.06122448979591866,
+        "width_channels": 3,
+        "maximum_robust_box_track_score": 5541.721637160234,
+        "reference_core_tile": 127,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        -0.01767535939423421,
+        -0.023247156402765402,
+        82.8549289137724,
+        -0.0365615439804794,
+        -0.005395472272199803,
+        0.010680131798562593
+      ],
+      "saved_first8_means": [
+        -0.0029231118037838233,
+        -0.04238684693461403,
+        0.01594825916598548,
+        -0.04353486748643025,
+        -0.01755807751799543,
+        0.019933198066046598
+      ],
+      "saved_last8_means": [
+        -0.032427606984684595,
+        -0.004107465870916774,
+        165.69390956837884,
+        -0.029588220474528554,
+        0.006767132973595824,
+        0.001427065531078589
+      ],
+      "saved_positive_rows": [
+        6,
+        8,
+        14,
+        3,
+        8,
+        9
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch02",
+      "selected_track": {
+        "track_id": "epoch2_on_visit20170428_Sband_batch02_rank_03",
+        "family": "S2017_native171_safe_interior_extension_batch02",
+        "originating_scan": "epoch2_on",
+        "originating_role": "ON",
+        "display_rank": 3,
+        "source_reference_channel": 179830773,
+        "reference_frequency_hz": 2300390655.733645,
+        "reference_seconds_from_anchor": 703.1268055449782,
+        "drift_hz_s": -0.13265306122449028,
+        "width_channels": 3,
+        "maximum_robust_box_track_score": 3184.8328785365266,
+        "reference_core_tile": 127,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        0.01584878521754135,
+        0.03251830390350814,
+        47.28051433524996,
+        0.004427521594185406,
+        0.02987154075557672,
+        0.01075725544437408
+      ],
+      "saved_first8_means": [
+        -0.0027189894891602173,
+        0.03333938223712757,
+        -0.004133253465464115,
+        -0.007867360544343033,
+        0.01841508019739012,
+        0.035048787318458854
+      ],
+      "saved_last8_means": [
+        0.03441655992424292,
+        0.031697225569888715,
+        94.56516192396538,
+        0.016722403732713845,
+        0.041328001313763324,
+        -0.013534276429710695
+      ],
+      "saved_positive_rows": [
+        8,
+        11,
+        13,
+        6,
+        10,
+        9
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [
+          11,
+          12,
+          13,
+          14
+        ],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch02",
+      "selected_track": {
+        "track_id": "epoch3_on_visit20170428_Sband_batch02_rank_01",
+        "family": "S2017_native171_safe_interior_extension_batch02",
+        "originating_scan": "epoch3_on",
+        "originating_role": "ON",
+        "display_rank": 1,
+        "source_reference_channel": 179830783,
+        "reference_frequency_hz": 2300390627.7939677,
+        "reference_seconds_from_anchor": 1392.126805674432,
+        "drift_hz_s": -0.020408163265306367,
+        "width_channels": 3,
+        "maximum_robust_box_track_score": 12942.460482065651,
+        "reference_core_tile": 127,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        0.002847246239580853,
+        0.018148063863638368,
+        -0.001418896631125939,
+        -0.016114466654654477,
+        191.24151553440123,
+        11.514521351377677
+      ],
+      "saved_first8_means": [
+        -0.0010005711551655527,
+        0.039973530342426886,
+        0.006893252962779345,
+        -0.011532977593661634,
+        191.85363547449737,
+        23.026003275995567
+      ],
+      "saved_last8_means": [
+        0.0066950636343272585,
+        -0.0036774026151501493,
+        -0.009731046225031223,
+        -0.02069595571564732,
+        190.6293955943051,
+        0.0030394267597824015
+      ],
+      "saved_positive_rows": [
+        7,
+        12,
+        6,
+        5,
+        16,
+        9
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "epoch3_off": [
+          0
+        ]
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch02",
+      "selected_track": {
+        "track_id": "epoch3_on_visit20170428_Sband_batch02_rank_02",
+        "family": "S2017_native171_safe_interior_extension_batch02",
+        "originating_scan": "epoch3_on",
+        "originating_role": "ON",
+        "display_rank": 2,
+        "source_reference_channel": 179830779,
+        "reference_frequency_hz": 2300390638.9698386,
+        "reference_seconds_from_anchor": 1392.126805674432,
+        "drift_hz_s": -0.06122448979591866,
+        "width_channels": 3,
+        "maximum_robust_box_track_score": 5633.611922361729,
+        "reference_core_tile": 127,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        0.004614935295684422,
+        0.03243465516913586,
+        0.03566952179497319,
+        0.024031088007023152,
+        83.39185720526655,
+        -0.042910810270618056
+      ],
+      "saved_first8_means": [
+        0.0034616927461412206,
+        0.028385937529074867,
+        0.02882059333743507,
+        0.041899146647163946,
+        0.001766859833638848,
+        -0.05084205488184859
+      ],
+      "saved_last8_means": [
+        0.005768177845227623,
+        0.03648337280919685,
+        0.0425184502525113,
+        0.006163029366882358,
+        166.78194755069944,
+        -0.03497956565938752
+      ],
+      "saved_positive_rows": [
+        7,
+        12,
+        10,
+        10,
+        11,
+        5
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": true
+    },
+    {
+      "batch_id": "batch02",
+      "selected_track": {
+        "track_id": "epoch3_on_visit20170428_Sband_batch02_rank_03",
+        "family": "S2017_native171_safe_interior_extension_batch02",
+        "originating_scan": "epoch3_on",
+        "originating_role": "ON",
+        "display_rank": 3,
+        "source_reference_channel": 179830773,
+        "reference_frequency_hz": 2300390655.733645,
+        "reference_seconds_from_anchor": 1392.126805674432,
+        "drift_hz_s": -0.12244897959183687,
+        "width_channels": 3,
+        "maximum_robust_box_track_score": 3272.2882331187225,
+        "reference_core_tile": 127,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        -0.016004294713571107,
+        -0.007828583569751399,
+        0.0198732969382621,
+        -0.014210308970366452,
+        47.761784554667344,
+        -0.00016955110042448512
+      ],
+      "saved_first8_means": [
+        -0.0042492754161140844,
+        0.0047153333712385,
+        0.021857233605980464,
+        -0.03886816852575137,
+        0.0058089999314239055,
+        0.006655234638612298
+      ],
+      "saved_last8_means": [
+        -0.02775931401102813,
+        -0.020372500510741298,
+        0.017889360270543733,
+        0.010447550585018464,
+        95.51776010940326,
+        -0.006994336839461268
+      ],
+      "saved_positive_rows": [
+        6,
+        7,
+        11,
+        8,
+        11,
+        8
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch03",
+      "selected_track": {
+        "track_id": "epoch1_on_visit20170428_Sband_batch03_rank_01",
+        "family": "S2017_native171_safe_interior_extension_batch03",
+        "originating_scan": "epoch1_on",
+        "originating_role": "ON",
+        "display_rank": 1,
+        "source_reference_channel": 180310075,
+        "reference_frequency_hz": 2299051501.41567,
+        "reference_seconds_from_anchor": 9.126805504,
+        "drift_hz_s": 3.887755102040816,
+        "width_channels": 3,
+        "maximum_robust_box_track_score": 6.121756760637013,
+        "reference_core_tile": 245,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        0.05880860836621854,
+        0.003673219522238265,
+        0.01145972785560944,
+        -0.006592532691869317,
+        0.0022123980973625113,
+        0.0015076557747543962
+      ],
+      "saved_first8_means": [
+        0.0651958402656169,
+        0.00013987048932427582,
+        0.011408678071850836,
+        -0.006216931490295535,
+        -0.006493375404150001,
+        0.011430448401327717
+      ],
+      "saved_last8_means": [
+        0.052421376466820185,
+        0.007206568555152254,
+        0.011510777639368044,
+        -0.006968133893443099,
+        0.010918171598875023,
+        -0.008415136851818925
+      ],
+      "saved_positive_rows": [
+        16,
+        9,
+        10,
+        5,
+        8,
+        8
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch03",
+      "selected_track": {
+        "track_id": "epoch1_on_visit20170428_Sband_batch03_rank_02",
+        "family": "S2017_native171_safe_interior_extension_batch03",
+        "originating_scan": "epoch1_on",
+        "originating_role": "ON",
+        "display_rank": 2,
+        "source_reference_channel": 180177800,
+        "reference_frequency_hz": 2299421073.4963417,
+        "reference_seconds_from_anchor": 9.126805504,
+        "drift_hz_s": -0.48979591836734704,
+        "width_channels": 3,
+        "maximum_robust_box_track_score": 6.095829310156233,
+        "reference_core_tile": 212,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        0.09686234538744155,
+        0.003498886529386319,
+        0.0073882079599525766,
+        0.024905704048761204,
+        0.004294983085508512,
+        0.004626885268405587
+      ],
+      "saved_first8_means": [
+        0.10736714984585088,
+        0.03294520864286146,
+        -0.004556925215313562,
+        0.037570494898741646,
+        0.019118176598553666,
+        0.030395892708154112
+      ],
+      "saved_last8_means": [
+        0.08635754092903222,
+        -0.025947435584088824,
+        0.019333341135218715,
+        0.012240913198780762,
+        -0.010528210427536641,
+        -0.02114212217134294
+      ],
+      "saved_positive_rows": [
+        16,
+        9,
+        8,
+        9,
+        7,
+        9
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch03",
+      "selected_track": {
+        "track_id": "epoch1_on_visit20170428_Sband_batch03_rank_03",
+        "family": "S2017_native171_safe_interior_extension_batch03",
+        "originating_scan": "epoch1_on",
+        "originating_role": "ON",
+        "display_rank": 3,
+        "source_reference_channel": 180322453,
+        "reference_frequency_hz": 2299016917.683184,
+        "reference_seconds_from_anchor": 9.126805504,
+        "drift_hz_s": -1.1326530612244898,
+        "width_channels": 1,
+        "maximum_robust_box_track_score": 5.955837567389556,
+        "reference_core_tile": 248,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        0.08969544699767887,
+        0.008303115451865961,
+        0.005208558190839832,
+        -0.03208308315017443,
+        -0.029281998355648486,
+        0.008256353087983458
+      ],
+      "saved_first8_means": [
+        0.08363031816174074,
+        0.016249345103403492,
+        -0.0043009333991692045,
+        -0.03492099776707221,
+        -0.016959015191023295,
+        0.00477582026988381
+      ],
+      "saved_last8_means": [
+        0.09576057583361701,
+        0.00035688580032842976,
+        0.014718049780848869,
+        -0.029245168533276654,
+        -0.04160498152027368,
+        0.011736885906083107
+      ],
+      "saved_positive_rows": [
+        16,
+        8,
+        10,
+        4,
+        4,
+        8
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch03",
+      "selected_track": {
+        "track_id": "epoch2_on_visit20170428_Sband_batch03_rank_01",
+        "family": "S2017_native171_safe_interior_extension_batch03",
+        "originating_scan": "epoch2_on",
+        "originating_role": "ON",
+        "display_rank": 1,
+        "source_reference_channel": 180112603,
+        "reference_frequency_hz": 2299603231.8100333,
+        "reference_seconds_from_anchor": 703.1268055449782,
+        "drift_hz_s": -1.8673469387755102,
+        "width_channels": 3,
+        "maximum_robust_box_track_score": 6.005317753096566,
+        "reference_core_tile": 196,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        0.012403861929705336,
+        -0.002263991086978258,
+        0.09174660279441736,
+        0.0029602746311827507,
+        0.010846287362160499,
+        0.005074658457156392
+      ],
+      "saved_first8_means": [
+        0.02367299141756804,
+        0.012981808877983461,
+        0.07688569457606739,
+        -0.0029750905727640303,
+        0.022760785465223643,
+        0.006588368970361927
+      ],
+      "saved_last8_means": [
+        0.0011347324418426313,
+        -0.017509791051939977,
+        0.10660751101276733,
+        0.008895639835129532,
+        -0.0010682107409026448,
+        0.003560947943950857
+      ],
+      "saved_positive_rows": [
+        8,
+        8,
+        16,
+        9,
+        9,
+        8
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch03",
+      "selected_track": {
+        "track_id": "epoch2_on_visit20170428_Sband_batch03_rank_02",
+        "family": "S2017_native171_safe_interior_extension_batch03",
+        "originating_scan": "epoch2_on",
+        "originating_role": "ON",
+        "display_rank": 2,
+        "source_reference_channel": 180179255,
+        "reference_frequency_hz": 2299417008.2733035,
+        "reference_seconds_from_anchor": 703.1268055449782,
+        "drift_hz_s": 2.5102040816326525,
+        "width_channels": 1,
+        "maximum_robust_box_track_score": 5.988877398981845,
+        "reference_core_tile": 213,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        0.015259175742586353,
+        0.025227945428293153,
+        0.15836448546169749,
+        0.010265194362210503,
+        0.04977708335775278,
+        0.005565619774087448
+      ],
+      "saved_first8_means": [
+        0.05350527554253641,
+        0.0038047353391766625,
+        0.19915971996158477,
+        0.031084223567186695,
+        0.04642915393230282,
+        0.007502324781833394
+      ],
+      "saved_last8_means": [
+        -0.022986924057363703,
+        0.04665115551740964,
+        0.1175692509618102,
+        -0.010553834842765689,
+        0.05312501278320274,
+        0.003628914766341501
+      ],
+      "saved_positive_rows": [
+        7,
+        9,
+        14,
+        6,
+        11,
+        8
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch03",
+      "selected_track": {
+        "track_id": "epoch2_on_visit20170428_Sband_batch03_rank_03",
+        "family": "S2017_native171_safe_interior_extension_batch03",
+        "originating_scan": "epoch2_on",
+        "originating_role": "ON",
+        "display_rank": 3,
+        "source_reference_channel": 180101682,
+        "reference_frequency_hz": 2299633744.7315454,
+        "reference_seconds_from_anchor": 703.1268055449782,
+        "drift_hz_s": 0.8877551020408161,
+        "width_channels": 3,
+        "maximum_robust_box_track_score": 5.959034816549776,
+        "reference_core_tile": 194,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        0.009065778206241534,
+        0.0007898433957692699,
+        0.09206306112276,
+        -0.0009116864386849305,
+        0.024927236484094,
+        -0.002824021513626568
+      ],
+      "saved_first8_means": [
+        -0.017100245629949162,
+        -0.01796453607852437,
+        0.08280483805766253,
+        -0.01130230650249163,
+        0.01480890675176072,
+        0.017359951513468627
+      ],
+      "saved_last8_means": [
+        0.03523180204243223,
+        0.01954422287006291,
+        0.10132128418785746,
+        0.009478933625121769,
+        0.03504556621642728,
+        -0.023007994540721763
+      ],
+      "saved_positive_rows": [
+        11,
+        7,
+        15,
+        9,
+        10,
+        8
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch03",
+      "selected_track": {
+        "track_id": "epoch3_on_visit20170428_Sband_batch03_rank_01",
+        "family": "S2017_native171_safe_interior_extension_batch03",
+        "originating_scan": "epoch3_on",
+        "originating_role": "ON",
+        "display_rank": 1,
+        "source_reference_channel": 180302753,
+        "reference_frequency_hz": 2299071958.847344,
+        "reference_seconds_from_anchor": 1392.126805674432,
+        "drift_hz_s": 1.091836734693877,
+        "width_channels": 1,
+        "maximum_robust_box_track_score": 6.2013175809012555,
+        "reference_core_tile": 243,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        0.025065214768382436,
+        0.0026936206944439406,
+        -0.011871320183589426,
+        -0.010735110271180896,
+        0.10457219178789297,
+        0.009870547703037053
+      ],
+      "saved_first8_means": [
+        0.022840458677857445,
+        -0.018631586275892204,
+        -0.0014227590504126142,
+        -0.01176490361668471,
+        0.1219339896932114,
+        -0.029773694241372675
+      ],
+      "saved_last8_means": [
+        0.027289970858907428,
+        0.024018827664780085,
+        -0.022319881316766238,
+        -0.009705316925677082,
+        0.08721039388257454,
+        0.04951478964744678
+      ],
+      "saved_positive_rows": [
+        11,
+        8,
+        6,
+        9,
+        15,
+        10
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch03",
+      "selected_track": {
+        "track_id": "epoch3_on_visit20170428_Sband_batch03_rank_02",
+        "family": "S2017_native171_safe_interior_extension_batch03",
+        "originating_scan": "epoch3_on",
+        "originating_role": "ON",
+        "display_rank": 2,
+        "source_reference_channel": 180125660,
+        "reference_frequency_hz": 2299566750.973463,
+        "reference_seconds_from_anchor": 1392.126805674432,
+        "drift_hz_s": 1.0612244897959178,
+        "width_channels": 1,
+        "maximum_robust_box_track_score": 5.931198398768379,
+        "reference_core_tile": 199,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        0.019555895261641726,
+        -0.024728665515732502,
+        -0.02910933750846626,
+        -0.004361603415083633,
+        0.15507473177982542,
+        -0.008284564124212107
+      ],
+      "saved_first8_means": [
+        -0.041927726527289905,
+        -0.06071252117928014,
+        0.004611578081822998,
+        0.007273769853151174,
+        0.16195907078183622,
+        -0.012924782225911105
+      ],
+      "saved_last8_means": [
+        0.08103951705057336,
+        0.011255190147815133,
+        -0.06283025309875552,
+        -0.01599697668331844,
+        0.14819039277781462,
+        -0.003644346022513109
+      ],
+      "saved_positive_rows": [
+        9,
+        6,
+        6,
+        8,
+        15,
+        7
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch03",
+      "selected_track": {
+        "track_id": "epoch3_on_visit20170428_Sband_batch03_rank_03",
+        "family": "S2017_native171_safe_interior_extension_batch03",
+        "originating_scan": "epoch3_on",
+        "originating_role": "ON",
+        "display_rank": 3,
+        "source_reference_channel": 180338469,
+        "reference_frequency_hz": 2298972169.496119,
+        "reference_seconds_from_anchor": 1392.126805674432,
+        "drift_hz_s": 0.612244897959183,
+        "width_channels": 1,
+        "maximum_robust_box_track_score": 5.8864034625913995,
+        "reference_core_tile": 251,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        0.017784951806850167,
+        0.036247749808631255,
+        -0.023721629159785946,
+        0.0015497344923215868,
+        0.08307591593308172,
+        0.004445917896284429
+      ],
+      "saved_first8_means": [
+        0.013770853724439862,
+        0.05328547320634756,
+        -0.028001086134915164,
+        0.005872001460111374,
+        0.08771280705091097,
+        -0.0005567552587666391
+      ],
+      "saved_last8_means": [
+        0.02179904988926047,
+        0.01921002641091496,
+        -0.019442172184656728,
+        -0.0027725324754682007,
+        0.07843902481525246,
+        0.009448591051335498
+      ],
+      "saved_positive_rows": [
+        10,
+        12,
+        5,
+        5,
+        16,
+        7
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    }
+  ],
+  "rank1_nine_six_scan_table": [
+    {
+      "batch_id": "batch01",
+      "selected_track": {
+        "track_id": "epoch1_on_visit20170428_Sband_batch01_rank_01",
+        "family": "S2017_native171_safe_interior_extension_batch01",
+        "originating_scan": "epoch1_on",
+        "originating_role": "ON",
+        "display_rank": 1,
+        "source_reference_channel": 179516217,
+        "reference_frequency_hz": 2301269515.044987,
+        "reference_seconds_from_anchor": 9.126805504,
+        "drift_hz_s": 0.33673469387755084,
+        "width_channels": 3,
+        "maximum_robust_box_track_score": 6.16081289803628,
+        "reference_core_tile": 51,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        0.09145121129559988,
+        -0.01940053263732691,
+        -0.005640318656940785,
+        -0.008366195545315529,
+        0.00602171053173408,
+        0.017493714340463783
+      ],
+      "saved_first8_means": [
+        0.07466164407052947,
+        -0.021343285403896933,
+        -0.0034591139656749426,
+        0.006641989998871917,
+        0.03876165761802616,
+        0.001111479474301652
+      ],
+      "saved_last8_means": [
+        0.1082407785206703,
+        -0.01745777987075689,
+        -0.007821523348206627,
+        -0.023374381089502974,
+        -0.026718236554558003,
+        0.03387594920662591
+      ],
+      "saved_positive_rows": [
+        14,
+        6,
+        8,
+        6,
+        9,
+        9
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch01",
+      "selected_track": {
+        "track_id": "epoch2_on_visit20170428_Sband_batch01_rank_01",
+        "family": "S2017_native171_safe_interior_extension_batch01",
+        "originating_scan": "epoch2_on",
+        "originating_role": "ON",
+        "display_rank": 1,
+        "source_reference_channel": 179327898,
+        "reference_frequency_hz": 2301795672.2527742,
+        "reference_seconds_from_anchor": 703.1268055449782,
+        "drift_hz_s": -0.9489795918367347,
+        "width_channels": 1,
+        "maximum_robust_box_track_score": 6.1889119416537435,
+        "reference_core_tile": 5,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        -0.005026722583442202,
+        0.004491166565138722,
+        0.08947729953372169,
+        -0.026870717353508915,
+        -0.00010230383284148131,
+        0.011583093786847985
+      ],
+      "saved_first8_means": [
+        -0.007511297779637965,
+        -0.005902676707590711,
+        0.06783538502806943,
+        -0.03517869849499309,
+        -0.034986312394258465,
+        0.015206165542387462
+      ],
+      "saved_last8_means": [
+        -0.002542147387246438,
+        0.014885009837868154,
+        0.11111921403937394,
+        -0.01856273621202474,
+        0.0347817047285755,
+        0.007960022031308508
+      ],
+      "saved_positive_rows": [
+        8,
+        8,
+        16,
+        4,
+        9,
+        8
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch01",
+      "selected_track": {
+        "track_id": "epoch3_on_visit20170428_Sband_batch01_rank_01",
+        "family": "S2017_native171_safe_interior_extension_batch01",
+        "originating_scan": "epoch3_on",
+        "originating_role": "ON",
+        "display_rank": 1,
+        "source_reference_channel": 179599801,
+        "reference_frequency_hz": 2301035984.046757,
+        "reference_seconds_from_anchor": 1392.126805674432,
+        "drift_hz_s": -2.938775510204082,
+        "width_channels": 3,
+        "maximum_robust_box_track_score": 6.356479449150366,
+        "reference_core_tile": 71,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        -0.020237720337639507,
+        0.004203009143228027,
+        0.022096366858618807,
+        0.0017420585497473565,
+        0.09754740290089314,
+        0.004584382575116806
+      ],
+      "saved_first8_means": [
+        -0.006399314863807085,
+        0.03606303689273491,
+        0.03506211916048037,
+        0.019988447903932824,
+        0.09317997526411739,
+        0.012949790268448641
+      ],
+      "saved_last8_means": [
+        -0.03407612581147193,
+        -0.027657018606278852,
+        0.009130614556757247,
+        -0.01650433080443811,
+        0.1019148305376689,
+        -0.0037810251182150284
+      ],
+      "saved_positive_rows": [
+        3,
+        8,
+        8,
+        8,
+        14,
+        10
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch02",
+      "selected_track": {
+        "track_id": "epoch1_on_visit20170428_Sband_batch02_rank_01",
+        "family": "S2017_native171_safe_interior_extension_batch02",
+        "originating_scan": "epoch1_on",
+        "originating_role": "ON",
+        "display_rank": 1,
+        "source_reference_channel": 179830783,
+        "reference_frequency_hz": 2300390627.7939677,
+        "reference_seconds_from_anchor": 9.126805504,
+        "drift_hz_s": -0.010204081632653406,
+        "width_channels": 3,
+        "maximum_robust_box_track_score": 15458.566495845871,
+        "reference_core_tile": 127,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        230.3969369086544,
+        176.1446307231302,
+        -0.009473547379617885,
+        -0.011128711816536276,
+        0.022506547660284218,
+        -0.028581901633760516
+      ],
+      "saved_first8_means": [
+        230.73317349598807,
+        176.67383299239663,
+        -0.0006837661197717781,
+        -0.022481744251638527,
+        0.005227458692295267,
+        -0.013147864592620712
+      ],
+      "saved_last8_means": [
+        230.06070032132072,
+        175.6154284538638,
+        -0.01826332863946399,
+        0.0002243206185659763,
+        0.03978563662827317,
+        -0.04401593867490032
+      ],
+      "saved_positive_rows": [
+        16,
+        16,
+        4,
+        7,
+        10,
+        6
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "epoch1_off": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch02",
+      "selected_track": {
+        "track_id": "epoch2_on_visit20170428_Sband_batch02_rank_01",
+        "family": "S2017_native171_safe_interior_extension_batch02",
+        "originating_scan": "epoch2_on",
+        "originating_role": "ON",
+        "display_rank": 1,
+        "source_reference_channel": 179830783,
+        "reference_frequency_hz": 2300390627.7939677,
+        "reference_seconds_from_anchor": 703.1268055449782,
+        "drift_hz_s": -0.010204081632653406,
+        "width_channels": 3,
+        "maximum_robust_box_track_score": 12813.73928744989,
+        "reference_core_tile": 127,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        0.008896295343365765,
+        43.94698338117271,
+        189.50611627231075,
+        183.41838772344187,
+        0.007931058794039395,
+        -0.015740730056288378
+      ],
+      "saved_first8_means": [
+        0.0196558055793377,
+        0.027053072224096114,
+        189.6829985804743,
+        183.08083256135535,
+        0.010015531831003538,
+        -0.04464405877044675
+      ],
+      "saved_last8_means": [
+        -0.0018632148926061715,
+        87.86691369012132,
+        189.32923396414722,
+        183.75594288552838,
+        0.005846585757075251,
+        0.013162598657869992
+      ],
+      "saved_positive_rows": [
+        9,
+        12,
+        16,
+        16,
+        9,
+        7
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "epoch2_on": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "epoch2_off": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch02",
+      "selected_track": {
+        "track_id": "epoch3_on_visit20170428_Sband_batch02_rank_01",
+        "family": "S2017_native171_safe_interior_extension_batch02",
+        "originating_scan": "epoch3_on",
+        "originating_role": "ON",
+        "display_rank": 1,
+        "source_reference_channel": 179830783,
+        "reference_frequency_hz": 2300390627.7939677,
+        "reference_seconds_from_anchor": 1392.126805674432,
+        "drift_hz_s": -0.020408163265306367,
+        "width_channels": 3,
+        "maximum_robust_box_track_score": 12942.460482065651,
+        "reference_core_tile": 127,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        0.002847246239580853,
+        0.018148063863638368,
+        -0.001418896631125939,
+        -0.016114466654654477,
+        191.24151553440123,
+        11.514521351377677
+      ],
+      "saved_first8_means": [
+        -0.0010005711551655527,
+        0.039973530342426886,
+        0.006893252962779345,
+        -0.011532977593661634,
+        191.85363547449737,
+        23.026003275995567
+      ],
+      "saved_last8_means": [
+        0.0066950636343272585,
+        -0.0036774026151501493,
+        -0.009731046225031223,
+        -0.02069595571564732,
+        190.6293955943051,
+        0.0030394267597824015
+      ],
+      "saved_positive_rows": [
+        7,
+        12,
+        6,
+        5,
+        16,
+        9
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "epoch3_off": [
+          0
+        ]
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch03",
+      "selected_track": {
+        "track_id": "epoch1_on_visit20170428_Sband_batch03_rank_01",
+        "family": "S2017_native171_safe_interior_extension_batch03",
+        "originating_scan": "epoch1_on",
+        "originating_role": "ON",
+        "display_rank": 1,
+        "source_reference_channel": 180310075,
+        "reference_frequency_hz": 2299051501.41567,
+        "reference_seconds_from_anchor": 9.126805504,
+        "drift_hz_s": 3.887755102040816,
+        "width_channels": 3,
+        "maximum_robust_box_track_score": 6.121756760637013,
+        "reference_core_tile": 245,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        0.05880860836621854,
+        0.003673219522238265,
+        0.01145972785560944,
+        -0.006592532691869317,
+        0.0022123980973625113,
+        0.0015076557747543962
+      ],
+      "saved_first8_means": [
+        0.0651958402656169,
+        0.00013987048932427582,
+        0.011408678071850836,
+        -0.006216931490295535,
+        -0.006493375404150001,
+        0.011430448401327717
+      ],
+      "saved_last8_means": [
+        0.052421376466820185,
+        0.007206568555152254,
+        0.011510777639368044,
+        -0.006968133893443099,
+        0.010918171598875023,
+        -0.008415136851818925
+      ],
+      "saved_positive_rows": [
+        16,
+        9,
+        10,
+        5,
+        8,
+        8
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch03",
+      "selected_track": {
+        "track_id": "epoch2_on_visit20170428_Sband_batch03_rank_01",
+        "family": "S2017_native171_safe_interior_extension_batch03",
+        "originating_scan": "epoch2_on",
+        "originating_role": "ON",
+        "display_rank": 1,
+        "source_reference_channel": 180112603,
+        "reference_frequency_hz": 2299603231.8100333,
+        "reference_seconds_from_anchor": 703.1268055449782,
+        "drift_hz_s": -1.8673469387755102,
+        "width_channels": 3,
+        "maximum_robust_box_track_score": 6.005317753096566,
+        "reference_core_tile": 196,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        0.012403861929705336,
+        -0.002263991086978258,
+        0.09174660279441736,
+        0.0029602746311827507,
+        0.010846287362160499,
+        0.005074658457156392
+      ],
+      "saved_first8_means": [
+        0.02367299141756804,
+        0.012981808877983461,
+        0.07688569457606739,
+        -0.0029750905727640303,
+        0.022760785465223643,
+        0.006588368970361927
+      ],
+      "saved_last8_means": [
+        0.0011347324418426313,
+        -0.017509791051939977,
+        0.10660751101276733,
+        0.008895639835129532,
+        -0.0010682107409026448,
+        0.003560947943950857
+      ],
+      "saved_positive_rows": [
+        8,
+        8,
+        16,
+        9,
+        9,
+        8
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    },
+    {
+      "batch_id": "batch03",
+      "selected_track": {
+        "track_id": "epoch3_on_visit20170428_Sband_batch03_rank_01",
+        "family": "S2017_native171_safe_interior_extension_batch03",
+        "originating_scan": "epoch3_on",
+        "originating_role": "ON",
+        "display_rank": 1,
+        "source_reference_channel": 180302753,
+        "reference_frequency_hz": 2299071958.847344,
+        "reference_seconds_from_anchor": 1392.126805674432,
+        "drift_hz_s": 1.091836734693877,
+        "width_channels": 1,
+        "maximum_robust_box_track_score": 6.2013175809012555,
+        "reference_core_tile": 243,
+        "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+      },
+      "six_scan_order": [
+        "epoch1_on",
+        "epoch1_off",
+        "epoch2_on",
+        "epoch2_off",
+        "epoch3_on",
+        "epoch3_off"
+      ],
+      "saved_means": [
+        0.025065214768382436,
+        0.0026936206944439406,
+        -0.011871320183589426,
+        -0.010735110271180896,
+        0.10457219178789297,
+        0.009870547703037053
+      ],
+      "saved_first8_means": [
+        0.022840458677857445,
+        -0.018631586275892204,
+        -0.0014227590504126142,
+        -0.01176490361668471,
+        0.1219339896932114,
+        -0.029773694241372675
+      ],
+      "saved_last8_means": [
+        0.027289970858907428,
+        0.024018827664780085,
+        -0.022319881316766238,
+        -0.009705316925677082,
+        0.08721039388257454,
+        0.04951478964744678
+      ],
+      "saved_positive_rows": [
+        11,
+        8,
+        6,
+        9,
+        15,
+        10
+      ],
+      "box_contains_common_line_rows": {
+        "epoch1_on": [],
+        "epoch1_off": [],
+        "epoch2_on": [],
+        "epoch2_off": [],
+        "epoch3_on": [],
+        "epoch3_off": []
+      },
+      "all_three_ON_profiles_positive_in_both_saved_halves": false
+    }
+  ],
+  "saved_half_sign_context": {
+    "origin_ON": {
+      "positive_in_both_halves": 25,
+      "total": 27
+    },
+    "other_ON": {
+      "positive_in_both_halves": 18,
+      "total": 54
+    },
+    "OFF": {
+      "positive_in_both_halves": 25,
+      "total": 81
+    }
+  },
+  "tracks_with_all3_ON_saved_halves_positive": [
+    "epoch2_on_visit20170428_Sband_batch01_rank_03",
+    "epoch1_on_visit20170428_Sband_batch02_rank_02",
+    "epoch3_on_visit20170428_Sband_batch02_rank_02"
+  ],
+  "nonline_batch01_03_saved_mean_ranges": {
+    "origin_ON": [
+      0.05880860836621854,
+      0.16632271700575746
+    ],
+    "other_ON": [
+      -0.03853207997104473,
+      0.04977708335775278
+    ],
+    "OFF": [
+      -0.03908442184000343,
+      0.04838324192207817
+    ]
+  },
+  "half_window_interpretation": "First8/last8 means and positive-row counts use the same ON-selected integrations; their signs are descriptive and are neither independent confirmation nor calibrated persistence/detection tests. All nonzero other-ON/OFF means are retained.",
+  "units": "Fixed profile residual is raw width-mean power/full-native raw-float32 row median minus each row fixed flank median; dimensionless descriptive values, not flux or calibrated SNR. Ranking score is a separate unchanged core-median/MAD box-track statistic.",
+  "resources": {
+    "batches": {
+      "batch01": {
+        "process_CPU_seconds_including_imports": 468.237484036,
+        "wall_seconds_including_imports": 468.2578663459999,
+        "peak_RSS_bytes": 543232000,
+        "CPU_cap_s": 1000,
+        "wall_cap_s": 1800,
+        "memory_cap_bytes_per_process": 2147483648,
+        "memory_cap_bytes_aggregate": 4294967296,
+        "simultaneous_job_slot": 0
+      },
+      "batch02": {
+        "process_CPU_seconds_including_imports": 465.514561239,
+        "wall_seconds_including_imports": 465.509392467,
+        "peak_RSS_bytes": 543346688,
+        "CPU_cap_s": 1000,
+        "wall_cap_s": 1800,
+        "memory_cap_bytes_per_process": 2147483648,
+        "memory_cap_bytes_aggregate": 4294967296,
+        "simultaneous_job_slot": 1
+      },
+      "batch03": {
+        "process_CPU_seconds_including_imports": 469.011888958,
+        "wall_seconds_including_imports": 469.0442999280003,
+        "peak_RSS_bytes": 543305728,
+        "CPU_cap_s": 1000,
+        "wall_cap_s": 1800,
+        "memory_cap_bytes_per_process": 2147483648,
+        "memory_cap_bytes_aggregate": 4294967296,
+        "simultaneous_job_slot": 0
+      }
+    },
+    "sum_three_reported_batch_CPU_seconds": 1402.7639342329999,
+    "actual_QA": {
+      "process_CPU_seconds_including_imports": 4.464805467,
+      "wall_seconds_including_imports": 4.4147005539998645,
+      "peak_RSS_bytes": 156336128,
+      "CPU_cap_s": 180,
+      "wall_cap_s": 1800,
+      "memory_cap_bytes": 4294967296
+    },
+    "per_process_AS_cap_bytes": 2147483648,
+    "maximum_simultaneous_extension_jobs": 2,
+    "aggregate_AS_cap_bytes": 4294967296,
+    "not_end_to_end_setup_or_delivery_resource_measurement": true
+  },
+  "new_review_detector_profile_fit_or_search_runs": 0,
+  "new_review_HDF5_or_NPZ_reads": 0,
+  "new_review_telescope_HTTP_requests": 0,
+  "extension_new_telescope_HTTP_BODY_bytes": 0,
+  "extension_cost_DKK": 0,
+  "report_path": "analysis/s2017_full_band/summary/REPORT.md",
+  "summary_path": "analysis/s2017_full_band/summary/FULL_BAND_SUMMARY.json",
+  "all162_profile_records_CSV_path": "analysis/s2017_full_band/summary/FULL_BAND_PROFILE_MEANS.csv",
+  "calibrated_SNR_FAP": false,
+  "qualified_OFF_veto": false,
+  "qualified_sky_detection": false,
+  "general_null_result": false,
+  "original_A_B_status": "FAIL_CLOSED_UNCHANGED",
+  "limitations": [
+    "Only native171 of the343 source chunks was acquired; safe interior reference carriers are99.21875% of that chunk after including priorq128, not99.21875% of the telescope spectrum.",
+    "Administrative batches and overlapping drift/width/preprocess hypotheses are correlated; three ON scans are positions in one visit.",
+    "Saved maxima are authenticated by actual QA; detector scores and physical-origin truth are not independently recomputed or calibrated.",
+    "Exact frozen OFF tracks can move away from stationary structure; small exact-track OFF values do not prove nearby OFF absence.",
+    "Full native raw float32 normalization and per-core detector float64/MAD/filter normalization remain distinct; descriptive power residuals are not comparable to calibrated sensitivity.",
+    "This S-band visit cannot same-frequency replicate2016 L-band cases. ExistingA/B and original failed receipts stay unchanged."
+  ]
+}

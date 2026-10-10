@@ -1,0 +1,264 @@
+{
+  "schema": "SETI_S2017_SAFE_INTERIOR_EXTENSION_V1",
+  "batch_id": "batch03",
+  "target": "HIP98505 / HD189733",
+  "visit": "2017-04-28 / AGBT17A_999_55",
+  "core_q_indices": [
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199,
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208,
+    209,
+    210,
+    211,
+    212,
+    213,
+    214,
+    215,
+    216,
+    217,
+    218,
+    219,
+    220,
+    221,
+    222,
+    223,
+    224,
+    225,
+    226,
+    227,
+    228,
+    229,
+    230,
+    231,
+    232,
+    233,
+    234,
+    235,
+    236,
+    237,
+    238,
+    239,
+    240,
+    241,
+    242,
+    243,
+    244,
+    245,
+    246,
+    247,
+    248,
+    249,
+    250,
+    251,
+    252,
+    253,
+    254
+  ],
+  "scan_order": [
+    "epoch1_on",
+    "epoch1_off",
+    "epoch2_on",
+    "epoch2_off",
+    "epoch3_on",
+    "epoch3_off"
+  ],
+  "rows_per_scan": 16,
+  "native_chunk_index": 171,
+  "native_chunk_count": 343,
+  "source_channel_interval_half_open": [
+    179306496,
+    180355072
+  ],
+  "excluded_previously_searched_q": [
+    128
+  ],
+  "excluded_edge_q": [
+    0,
+    255
+  ],
+  "core_channel_count": 4096,
+  "crop_halo_channels": 4000,
+  "fch1_hz": 2802832031.25,
+  "df_hz": -2.7939677238464355,
+  "tsamp_s": 18.253611008,
+  "drift_grid": {
+    "first_hz_s": -4,
+    "last_hz_s": 4,
+    "count": 785
+  },
+  "widths_channels": [
+    1,
+    3
+  ],
+  "valid_hypotheses_per_carrier": 1570,
+  "search_ON_maps": 255,
+  "rank_count_per_ON_per_batch": 20,
+  "display_suppression_channels": 3,
+  "top20_selection_domain": "all saved carrier maxima from all cores of this batch, separately for each ON",
+  "fixed_profile_ranks_per_ON_per_batch": 3,
+  "expected_fixed_profiles": 9,
+  "profile_shift_channels": 0,
+  "profile_halfwidth_channels": 64,
+  "fixed_profile_normalization": "full1048576-channel row median computed on raw float32, then profile float64 promotion",
+  "CPU_cap_s": 1000,
+  "wall_cap_s": 1800,
+  "memory_cap_bytes_per_process": 2147483648,
+  "memory_cap_bytes_aggregate": 4294967296,
+  "simultaneous_extension_jobs_max": 2,
+  "runtime_package_versions": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "h5py": "3.15.1",
+    "hdf5plugin": "7.1.0"
+  },
+  "hdf5_version": "1.14.6",
+  "output_stage": "analysis/s2017_full_band/results/batch03",
+  "new_telescope_HTTP_requests": 0,
+  "new_telescope_BODY_bytes": 0,
+  "cost_DKK": 0,
+  "new_visit": false,
+  "new_acquisition": false,
+  "independent_tests_claimed": false,
+  "original_q128_search_rerun": false,
+  "retry_resume_or_rerun_authorized": false,
+  "blind_selection_before_fresh_values": false,
+  "OFF_veto_applied": false,
+  "qualified_sky_detection": false,
+  "calibrated_SNR_FAP": false,
+  "original_A_B_status": "FAIL_CLOSED_UNCHANGED",
+  "code_paths": {
+    "detector": "analysis/new_visit_search/dependencies/detector.py",
+    "gap": "analysis/new_visit_search/dependencies/gap_search.py",
+    "reader": "analysis/new_visit_search/dependencies/standard_reader.py"
+  },
+  "driver_sha256": "5ce9d5f861e06691183cf43fd4351bfe8a09b97763c3bd23add82ad338864554",
+  "source_manifest_path": "analysis/next_visit/S2017_MIDPOINT_SOURCE_MANIFEST.json",
+  "prerequisites": {
+    "acquisition": {
+      "path": "analysis/new_visit_recovery/results/acquire/ACQUISITION_RESULT.json",
+      "sha256": "e10cb04bef9f5fd7a8cd132ffc90af16f9345e94b3630e4ce98c5adc8f46edbf",
+      "status": "COMPLETE_NEW_S2017_SIX_SCAN_NATIVE_CHUNK_ACQUISITION_EXPLORATORY_ONLY"
+    },
+    "q128_search": {
+      "path": "analysis/new_visit_recovery/results/search/EXECUTION_RECEIPT.json",
+      "sha256": "3fe2b007a552b149a68f5d81bde3f9911c8d4ba0d3a31695356c76706cf7f27f",
+      "status": "COMPLETE_NEW_S2017_THREE_CORE_MAPS_AND_NINE_FIXED_PROFILES_EXPLORATORY_ONLY"
+    },
+    "q128_QA": {
+      "path": "analysis/new_visit_recovery/results/review/QA_RECEIPT.json",
+      "sha256": "e50f21617244a8d45dcdd3698e95db13c8ca1d11891f4bfa21ef7012bcb70d6f",
+      "status": "PASS_THREE_S2017_MAPS_NINE_FIXED_PROFILES_AND111456_BITWISE_SOURCE_CELLS"
+    }
+  },
+  "pinned_metadata_code_and_prerequisites": {
+    "analysis/s2017_full_band/driver.py": {
+      "bytes": 27241,
+      "sha256": "5ce9d5f861e06691183cf43fd4351bfe8a09b97763c3bd23add82ad338864554"
+    },
+    "analysis/s2017_full_band/prepare_scopes.py": {
+      "bytes": 8217,
+      "sha256": "388172db393605bca590cbf5a50787893b6be278c7a1273f5e22770649869a8f"
+    },
+    "analysis/next_visit/S2017_MIDPOINT_SOURCE_MANIFEST.json": {
+      "bytes": 111227,
+      "sha256": "1fd17cbf60251b77c06a2bbeb00f405b068f3d60b32b9f4cfcf39eccc4076107"
+    },
+    "analysis/new_visit_recovery/scope.json": {
+      "bytes": 17372,
+      "sha256": "a93d6dda3f813b84be2452928fe42be76b6de3cb96cf4f85c9beda47adc9ea86"
+    },
+    "analysis/new_visit_recovery/driver.py": {
+      "bytes": 23214,
+      "sha256": "ca9c3890a8be325061e62c03b05aa795a582fc7d10012f0a565d8779920e6bf6"
+    },
+    "analysis/new_visit_recovery/raw_acquire.py": {
+      "bytes": 16424,
+      "sha256": "c2d44f7893e4c826401a24428e58f123791f9b26d8932e2f6f893dc2d2045a0d"
+    },
+    "analysis/new_visit_search/results/acquire/FAILURE_RECEIPT.json": {
+      "bytes": 42942,
+      "sha256": "37e2fcdb66dfe4187dd6a43f067879cdc4e6cf3bfb7dae6c877cb0fcafdf33f6"
+    },
+    "analysis/new_visit_search/results/acquire/ACQUISITION_RESULT.json": {
+      "bytes": 42942,
+      "sha256": "37e2fcdb66dfe4187dd6a43f067879cdc4e6cf3bfb7dae6c877cb0fcafdf33f6"
+    },
+    "analysis/new_visit_recovery/results/acquire/ACQUISITION_RESULT.json": {
+      "bytes": 183508,
+      "sha256": "e10cb04bef9f5fd7a8cd132ffc90af16f9345e94b3630e4ce98c5adc8f46edbf"
+    },
+    "analysis/new_visit_recovery/results/search/EXECUTION_RECEIPT.json": {
+      "bytes": 5635,
+      "sha256": "3fe2b007a552b149a68f5d81bde3f9911c8d4ba0d3a31695356c76706cf7f27f"
+    },
+    "analysis/new_visit_recovery/results/review/QA_RECEIPT.json": {
+      "bytes": 40095,
+      "sha256": "e50f21617244a8d45dcdd3698e95db13c8ca1d11891f4bfa21ef7012bcb70d6f"
+    },
+    "analysis/new_visit_search/dependencies/detector.py": {
+      "bytes": 22819,
+      "sha256": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45"
+    },
+    "analysis/new_visit_search/dependencies/gap_search.py": {
+      "bytes": 21995,
+      "sha256": "b1a2cc31d47dbebc707f36c5de3eafbae6a62f0d0d19061c798c676c9fbcdb58"
+    },
+    "analysis/new_visit_search/dependencies/standard_reader.py": {
+      "bytes": 17506,
+      "sha256": "329b922431a925a08ad48e7315f54f556e1af5f7bccbec0f51d71fb52216ffb0"
+    }
+  },
+  "unchanged_original_dependency_SHA256s": {
+    "detector": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45",
+    "gap": "b1a2cc31d47dbebc707f36c5de3eafbae6a62f0d0d19061c798c676c9fbcdb58",
+    "reader": "329b922431a925a08ad48e7315f54f556e1af5f7bccbec0f51d71fb52216ffb0"
+  },
+  "selection_rule": "All safe interior cores q1..q254 except previously searched q128; sorted partition first84/next84/final85. No carrier amplitudes read during partition or scope preparation.",
+  "run_admission": "Actual complete corrected96-row acquisition and q128 search and independent q128 QA PASS receipt hashes; prospective public driver/scopes freeze and exact readback; root GO; empty batch output; retained kernel batch/2slot/source locks.",
+  "limitations": [
+    "Exploratory extension of previously acquired S2017 native171 power; no new visit, new source download, blind confirmation or independent test is claimed.",
+    "Coreq128 is excluded, its completed search and QA remain unchanged. Original acquisition failure and prior failed metadata receipts remain preserved.",
+    "Each core has its own unchanged4096-channel row median/MAD detector normalization; per-batch top20 pools saved scores across those cores.",
+    "Three balanced disjoint batches are administrative partitions, not independent scientific samples. 253cores overlap in decoded preprocessing halos.",
+    "Scores maximize correlated drift/width hypotheses; they are not calibrated SNR, false-alarm probabilities, flux, EIRP or sensitivity.",
+    "One historical2017 S-band visit with three ON/OFF pairs, not three independent visits or a same-frequency replication of2016 L-band cases.",
+    "Nine frozen profiles perbatch are selected from global batch top20 perON; exact OFF predictions are descriptive and carry no qualified OFF veto.",
+    "No barycentric correction, nonlinear tracks, injection/recovery, sky calibration, protected2016 chunk access, or paid resources."
+  ]
+}

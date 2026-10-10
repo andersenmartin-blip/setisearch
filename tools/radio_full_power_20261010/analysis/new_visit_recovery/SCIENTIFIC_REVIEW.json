@@ -1,0 +1,333 @@
+{
+  "schema": "SETI_S2017_Q128_SAVED_SCIENTIFIC_REVIEW_V1",
+  "status": "COMPLETE_SAVED_SCIENCE_REVIEW_WITH_ACTUAL_PASS_QA",
+  "visit_label": "visit20170428_Sband",
+  "target": "HIP98505 / HD189733",
+  "visit": "2017-04-28 / AGBT17A_999_55",
+  "input_pins": [
+    {
+      "path": "/workspace/scratch/5bf3860dacd6/analysis/new_visit_recovery/scope.json",
+      "sha256": "a93d6dda3f813b84be2452928fe42be76b6de3cb96cf4f85c9beda47adc9ea86",
+      "bytes": 17372
+    },
+    {
+      "path": "/workspace/scratch/5bf3860dacd6/analysis/new_visit_recovery/results/search/EXECUTION_RECEIPT.json",
+      "sha256": "3fe2b007a552b149a68f5d81bde3f9911c8d4ba0d3a31695356c76706cf7f27f",
+      "bytes": 5635
+    },
+    {
+      "path": "/workspace/scratch/5bf3860dacd6/analysis/new_visit_recovery/results/review/QA_RECEIPT.json",
+      "sha256": "e50f21617244a8d45dcdd3698e95db13c8ca1d11891f4bfa21ef7012bcb70d6f",
+      "bytes": 40095
+    },
+    {
+      "path": "/workspace/scratch/5bf3860dacd6/analysis/new_visit_recovery/results/acquire/ACQUISITION_RESULT.json",
+      "sha256": "e10cb04bef9f5fd7a8cd132ffc90af16f9345e94b3630e4ce98c5adc8f46edbf",
+      "bytes": 183508
+    },
+    {
+      "path": "/workspace/scratch/5bf3860dacd6/analysis/new_visit_recovery/results/search/FIXED_TOP3_PROFILES.json",
+      "sha256": "11ccb7870d99411c6491f70fffda4c06233f1a281aecc189a932d90d8ccaecad",
+      "bytes": 103068
+    },
+    {
+      "path": "/workspace/scratch/5bf3860dacd6/analysis/new_visit_recovery/results/search/DRIFT_TOP20.json",
+      "sha256": "41ccd18244539b6d8f321a4a866a0c140f2a3d406f40e7223ab20af8d29c0807",
+      "bytes": 35488
+    },
+    {
+      "path": "/workspace/scratch/5bf3860dacd6/analysis/new_visit_recovery/summary/Q128_SUMMARY.json",
+      "sha256": "f96e6e8692cdac723632b276be5baaabce9a6019838fd675651042a607ec97dc",
+      "bytes": 11162
+    },
+    {
+      "path": "/workspace/scratch/5bf3860dacd6/analysis/new_visit_recovery/summary/Q128_PROFILE_MEANS.csv",
+      "sha256": "b4b6cbdb19ec709afaa89251894a88dba716e6d9f930a77e11e2e6473dc7cb66",
+      "bytes": 11958
+    },
+    {
+      "path": "/workspace/scratch/5bf3860dacd6/analysis/new_visit_recovery/summary/Q128_SUMMARY_RECEIPT.json",
+      "sha256": "c927741d41ea381b027dbfd5c2f1375d9c4b666def51d9b95446884a40e74be3",
+      "bytes": 1851
+    },
+    {
+      "path": "/workspace/scratch/5bf3860dacd6/analysis/new_visit_recovery/figures/S2017_FIXED_RANK1.json",
+      "sha256": "27d0c1baea61229478695b87e361ac68a77c3be9130da8e625ff6ac73572a489",
+      "bytes": 5074
+    }
+  ],
+  "scope_sha256": "a93d6dda3f813b84be2452928fe42be76b6de3cb96cf4f85c9beda47adc9ea86",
+  "public_freeze_commit": "e8ada3c888d1f07b33d25dccb9f7ddc0c7d23995",
+  "search_receipt_sha256": "3fe2b007a552b149a68f5d81bde3f9911c8d4ba0d3a31695356c76706cf7f27f",
+  "QA_receipt_sha256": "e50f21617244a8d45dcdd3698e95db13c8ca1d11891f4bfa21ef7012bcb70d6f",
+  "QA_status": "PASS_THREE_S2017_MAPS_NINE_FIXED_PROFILES_AND111456_BITWISE_SOURCE_CELLS",
+  "conclusion": "The first searched S2017 core is dominated by a stationary narrow spectral structure present in every ON and OFF scan. The selected drifting rank2/3 boxes cross this same channel in their origin ON scan; their large ranks and tiny exact-track OFF means do not demonstrate independent target-specific signals. Signal origin, qualified detection and false-alarm probabilities remain unresolved.",
+  "coverage": {
+    "completed_maps": 3,
+    "carriers_per_ON": 4096,
+    "carrier_origin_entries": 12288,
+    "drift_grid_count": 785,
+    "widths_channels": [
+      1,
+      3
+    ],
+    "hypotheses_per_carrier": 1570,
+    "correlated_hypothesis_combinations": 19292160,
+    "fixed_profiles": 9,
+    "scan_profiles": 54,
+    "integration_row_occurrences": 864,
+    "reference_carrier_bandwidth_per_ON_hz": 11444.091796875,
+    "native_chunk_channels": 1048576,
+    "core_q": 128,
+    "native_chunk_percent_searched": 0.390625,
+    "only_this_core_reviewed": true,
+    "remaining253_safe_cores_extension_not_in_this_review": true
+  },
+  "stationary_structure": {
+    "source_channel": 179830784,
+    "frequency_hz": 2300390625.0,
+    "selected_grid_drift_hz_s": -4.440892098500626e-16,
+    "drift_description": "Numerical grid value -4.440892098500626e-16 Hz/s is effectively stationary and all saved source-channel centers are constant.",
+    "rank1_same_physical_channel_in_all_three_ON_rankings": true,
+    "rank1_scores_by_ON": {
+      "epoch1_on": 26960.027528339142,
+      "epoch2_on": 22022.861549127494,
+      "epoch3_on": 22372.010098873776
+    },
+    "same_stationary_fixed_six_scan_measures": {
+      "epoch1_on": {
+        "mean": 691.1251232247437,
+        "first_half_mean": 692.1374049261125,
+        "last_half_mean": 690.112841523375,
+        "positive_rows": 16
+      },
+      "epoch1_off": {
+        "mean": 528.4636770601088,
+        "first_half_mean": 530.0058263515666,
+        "last_half_mean": 526.921527768651,
+        "positive_rows": 16
+      },
+      "epoch2_on": {
+        "mean": 568.4759921419218,
+        "first_half_mean": 568.9419923787925,
+        "last_half_mean": 568.009991905051,
+        "positive_rows": 16
+      },
+      "epoch2_off": {
+        "mean": 550.2481261294922,
+        "first_half_mean": 549.2038410532957,
+        "last_half_mean": 551.2924112056888,
+        "positive_rows": 16
+      },
+      "epoch3_on": {
+        "mean": 573.674658825631,
+        "first_half_mean": 575.4723623170852,
+        "last_half_mean": 571.876955334177,
+        "positive_rows": 16
+      },
+      "epoch3_off": {
+        "mean": 556.76188583932,
+        "first_half_mean": 557.2021463403951,
+        "last_half_mean": 556.3216253382449,
+        "positive_rows": 16
+      }
+    },
+    "origin_inference": "The exact source-center/midpoint frequency and common ON/OFF presence suggest a possible instrumental feature. This is an inference, not an established source classification."
+  },
+  "nearby_selected_drift_geometry": [
+    {
+      "track_id": "epoch1_on_visit20170428_Sband_core128_rank_02",
+      "display_rank": 2,
+      "reference_frequency_hz": 2300390613.824129,
+      "reference_channel_offset_from_stationary": 4,
+      "frozen_drift_hz_s": 0.05102040816326525,
+      "width_channels": 3,
+      "origin_saved_mean": 115.04409378675896,
+      "origin_first_half_mean": 0.012373344184914717,
+      "origin_last_half_mean": 230.075814229333,
+      "origin_frozen_box_includes_stationary_channel_row_indices": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "interpretation": "The frozen selected box intersects the same very strong stationary channel in the latter part of the originating scan; this geometric relationship explains why a large selected moving-track mean need not represent a separate emission feature."
+    },
+    {
+      "track_id": "epoch1_on_visit20170428_Sband_core128_rank_03",
+      "display_rank": 3,
+      "reference_frequency_hz": 2300390602.648258,
+      "reference_channel_offset_from_stationary": 8,
+      "frozen_drift_hz_s": 0.0918367346938771,
+      "width_channels": 3,
+      "origin_saved_mean": 71.8446213724288,
+      "origin_first_half_mean": 0.02568948892935273,
+      "origin_last_half_mean": 143.66355325592826,
+      "origin_frozen_box_includes_stationary_channel_row_indices": [
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "interpretation": "The frozen selected box intersects the same very strong stationary channel in the latter part of the originating scan; this geometric relationship explains why a large selected moving-track mean need not represent a separate emission feature."
+    },
+    {
+      "track_id": "epoch2_on_visit20170428_Sband_core128_rank_02",
+      "display_rank": 2,
+      "reference_frequency_hz": 2300390613.824129,
+      "reference_channel_offset_from_stationary": 4,
+      "frozen_drift_hz_s": 0.05102040816326525,
+      "width_channels": 3,
+      "origin_saved_mean": 94.68024007965425,
+      "origin_first_half_mean": 0.01602783908793899,
+      "origin_last_half_mean": 189.34445232022057,
+      "origin_frozen_box_includes_stationary_channel_row_indices": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "interpretation": "The frozen selected box intersects the same very strong stationary channel in the latter part of the originating scan; this geometric relationship explains why a large selected moving-track mean need not represent a separate emission feature."
+    },
+    {
+      "track_id": "epoch2_on_visit20170428_Sband_core128_rank_03",
+      "display_rank": 3,
+      "reference_frequency_hz": 2300390602.648258,
+      "reference_channel_offset_from_stationary": 8,
+      "frozen_drift_hz_s": 0.1020408163265305,
+      "width_channels": 3,
+      "origin_saved_mean": 59.18796399018167,
+      "origin_first_half_mean": 0.02592145991098084,
+      "origin_last_half_mean": 118.35000652045235,
+      "origin_frozen_box_includes_stationary_channel_row_indices": [
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "interpretation": "The frozen selected box intersects the same very strong stationary channel in the latter part of the originating scan; this geometric relationship explains why a large selected moving-track mean need not represent a separate emission feature."
+    },
+    {
+      "track_id": "epoch3_on_visit20170428_Sband_core128_rank_02",
+      "display_rank": 2,
+      "reference_frequency_hz": 2300390613.824129,
+      "reference_channel_offset_from_stationary": 4,
+      "frozen_drift_hz_s": 0.05102040816326525,
+      "width_channels": 3,
+      "origin_saved_mean": 95.31493018146864,
+      "origin_first_half_mean": 0.01162830538198567,
+      "origin_last_half_mean": 190.6182320575553,
+      "origin_frozen_box_includes_stationary_channel_row_indices": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "interpretation": "The frozen selected box intersects the same very strong stationary channel in the latter part of the originating scan; this geometric relationship explains why a large selected moving-track mean need not represent a separate emission feature."
+    },
+    {
+      "track_id": "epoch3_on_visit20170428_Sband_core128_rank_03",
+      "display_rank": 3,
+      "reference_frequency_hz": 2300390602.648258,
+      "reference_channel_offset_from_stationary": 8,
+      "frozen_drift_hz_s": 0.1020408163265305,
+      "width_channels": 3,
+      "origin_saved_mean": 59.48833224359704,
+      "origin_first_half_mean": -0.015496023804732043,
+      "origin_last_half_mean": 118.99216051099883,
+      "origin_frozen_box_includes_stationary_channel_row_indices": [
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "interpretation": "The frozen selected box intersects the same very strong stationary channel in the latter part of the originating scan; this geometric relationship explains why a large selected moving-track mean need not represent a separate emission feature."
+    }
+  ],
+  "ranking_context": {
+    "top20_count": 60,
+    "top20_score_range": [
+      1412.5340505259142,
+      26960.027528339142
+    ],
+    "fixed_top3_score_range": [
+      4008.467542020983,
+      26960.027528339142
+    ],
+    "top20_reference_channel_span_inclusive": [
+      179830784,
+      179831045
+    ],
+    "top20_reference_frequency_span_hz": 729.2255759239197,
+    "interpretation": "All 60 ON-selected top20 carriers lie within 261 source channels of the common stationary channel. The count of selected ranks is not the count of independent physical signals. Scores are robust ranking statistics, not calibrated SNR or probabilities."
+  },
+  "saved_half_sign_context": {
+    "origin_profiles_positive_in_both_halves": 8,
+    "origin_profiles_total": 9,
+    "other_ON_scan_profiles_positive_in_both_halves": 11,
+    "other_ON_scan_profiles_total": 18,
+    "OFF_scan_profiles_positive_in_both_halves": 11,
+    "OFF_scan_profiles_total": 27,
+    "interpretation": "Sign counts describe saved values after ON selection; they are not a detection gate, independent holdout or calibrated significance. Rank1 repeats the same common ON/OFF structure; rank2/3 can have nearly zero first-half means and very large second-half means because their frozen boxes intersect it late."
+  },
+  "source_and_recovery_accounting": {
+    "original_source_selection_before_first_value_opening": true,
+    "source_values_previously_opened_in_failed_family": true,
+    "previously_decoded_rows": 26,
+    "earlier_scientific_search_run": false,
+    "original_received_ranges_reused": 27,
+    "new_previously_unattempted_GETs": 69,
+    "repeated_GETs": 0,
+    "cumulative_source_GETs": 96,
+    "new_recovery_body_bytes": 214393415,
+    "cumulative_source_body_bytes": 298238620,
+    "search_new_telescope_bytes": 0,
+    "review_raw_HDF5_reads": 0,
+    "render_saved_NPZ_profiles_read": 9,
+    "QA_raw_cells_checked": 111456,
+    "original_full_telescope_MD5_verified": false
+  },
+  "figures": {
+    "renderer_receipt_path": "/workspace/scratch/5bf3860dacd6/analysis/new_visit_recovery/figures/S2017_FIXED_RANK1.json",
+    "renderer_receipt_sha256": "27d0c1baea61229478695b87e361ac68a77c3be9130da8e625ff6ac73572a489",
+    "paths": [
+      "/workspace/scratch/5bf3860dacd6/analysis/new_visit_recovery/figures/S2017_FIXED_RANK1.png",
+      "/workspace/scratch/5bf3860dacd6/analysis/new_visit_recovery/figures/S2017_FIXED_RANK1_RANK2.png",
+      "/workspace/scratch/5bf3860dacd6/analysis/new_visit_recovery/figures/S2017_FIXED_RANK1_RANK3.png"
+    ],
+    "output_hashes_verified": true,
+    "all_three_rank_pages_visually_inspected": true,
+    "scan_panels": 54,
+    "tsamp_s": 18.253611008,
+    "cyan_line": "Frozen selected-track coordinate, not a detected signal.",
+    "scale_limit": "Color scales use shared 1st/99th percentiles within each six-scan selected-track column. Exceptionally bright stationary pixels saturate; saved numerical means provide amplitudes, and colors are not calibrated SNR."
+  },
+  "limitations": [
+    "One new historical S-band visit on 2017-04-28, distinct from the 2016 L-band visit and frequencies; this does not replicate the earlier L-band cases at the same frequency.",
+    "The three ON labels are scan positions within one visit, not three independent visits.",
+    "Source selection was fixed before the original acquisition; the correction reused values already opened there and is not independent blind validation.",
+    "Only q128, 0.390625% of the acquired native chunk, is included. Future completed extension batches require their own actual execution/QA receipts and summaries.",
+    "No optimized OFF shift, new profile measurement, source-origin classification, qualified sky veto, injection recovery, false-alarm calibration, flux, EIRP or sensitivity is added.",
+    "The source-center instrumental interpretation is an inference. Common OFF structure prevents a target-specific inference from these selected profiles, without proving the physical cause.",
+    "A/B failure statuses and original acquisition failure records remain unchanged."
+  ],
+  "new_detector_or_profile_optimization_runs_by_review": 0,
+  "calibrated_SNR_FAP": false,
+  "qualified_sky_detection": false,
+  "general_null_result": false
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "SETI_S2017_FULL_INTERIOR_SUMMARY_STATIC_REVIEW_V1",
+  "status": "PASS_STATIC_SAVED_JSON_ONLY_SUMMARY_AWAIT_ACTUAL_COMBINED_QA_AND_ROOT_GO",
+  "reviewer": "/root/full_band_review",
+  "reviewed_UTC": "2026-10-10T18:32:15.838231+00:00",
+  "summary_code_sha256": "0549eb9b6e528ed10637660bf02f8e575aad5da32a576831b8804a61ecbcda1e",
+  "candidate_executed": false,
+  "HDF5_NPZ_values_opened": false,
+  "HTTP_requests": 0,
+  "unresolved_concrete_bugs": [],
+  "resolved_before_execution": [
+    "Summary originally expected absolute combined-QA pin keys, but actual combined-QA uses root-relative POSIX keys. saved(name) now uses matching root-relative keys while the summary retains absolute local pin records."
+  ],
+  "checks": [
+    "Exact all3 scope and actual COMPLETE receipt SHA pins, exact combined-QA schema/status/counts/science freeze/receipt hashes before output creation.",
+    "DRIFT_TOP20/FIXED_TOP3 JSON bytes are authenticated against actual combined-QA pins; only original27 top3 identities and162 six-scan records are exported.",
+    "Coverage correctly counts253 extension cores/759 maps plus1 previously completedq128 core/3maps, totaling254 reference cores/762maps and99.21875percent of256 native reference cores.",
+    "Drift-width combinations are declared correlated maxima; 4,880,916,480 extension combinations and4,900,208,640 combined combinations, not independent trials or signals.",
+    "Known q128 channel intersection derives only from saved absolute channel centers and selected odd box width, with no track fitting, new selection, remeasurement or extra source reads.",
+    "Positive-half signs are descriptive origin/otherON/OFF context; no qualifiedOFF veto, significance, detection or null claim is made.",
+    "Only confined JSON files are decoded; all input JSON hashes are rechecked before creating a new summary namespace."
+  ],
+  "conditions": [
+    "Requires actual combined empiricalQA PASS/rootGO before generator execution.",
+    "The common stationarychannel179830784 is an already-established q128 context reference supplied by project analysis; the generator only reports geometric intersections.",
+    "Final user-facing interpretation must preserve selection bias, one historical visit, correlated hypotheses, percentile rendering context and lack of calibrated sky inference."
+  ]
+}

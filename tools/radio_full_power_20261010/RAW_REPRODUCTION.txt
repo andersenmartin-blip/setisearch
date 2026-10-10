@@ -1,0 +1,30 @@
+SETI S2017 native171 raw evidence, 10 October2026
+
+The RAW archive preserves all six original partial HDF5 files from the failed
+ingestion and all six corrected complete HDF5 files, exact source/header/tree
+metadata, original failures, scopes, code and integrity receipts.
+
+The96 durable compressed raw-range sidecars are redundant with the compressed
+chunks inside the complete HDF5 files. Their declared byte sizes and SHA256s
+remain in the corrected acquisition receipt. To restore their exact original
+relative paths without HTTP or value decoding, run from the extracted root:
+  python3 analysis/delivery/reconstruct_raw_sidecars.py
+This needs h5py3.15.1; the official hdf5plugin7.1.0 is needed for decoded-value
+verification. Use the pinned numpy2.3.5/scipy1.17.0/HDF51.14.6 runtime for exact
+historical numerical conventions. No private codec is used.
+
+The original H5Dwrite_chunk failure remains a failure. All27 received payloads
+were recovered unchanged, including the27th unindexed file suffix. Only69
+previously unattempted ranges were downloaded in the corrected namespace;
+there were no repeated GETs. The full original telescope files' catalog MD5s
+are unverified. Current strongETag/range/source identity and decoded hashes
+authenticate the retained partial data, not entire17GB telescope files.
+
+The scientific RESULTS archive contains completed maps, selected fixed tracks,
+source-cell QA, figures and reports. This is exploratory work. Old A/B remains
+FAIL_CLOSED; robust rank scores are not calibrated SNR or false-alarm rates.
+
+PACKAGE_MANIFEST.json records every archived member's byte size and SHA256.
+Historical scopes retain their original absolute workspace path; when inspecting
+them elsewhere, resolve that prefix to the extracted archive root. Original
+scopes and receipts must not be edited or relabeled as new executions.

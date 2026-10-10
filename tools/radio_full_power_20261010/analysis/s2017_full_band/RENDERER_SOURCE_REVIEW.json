@@ -1,0 +1,29 @@
+{
+  "schema": "SETI_S2017_EXTENSION_RENDERER_STATIC_REVIEW_V1",
+  "status": "PASS_STATIC_GEOMETRY_AND_EXPLORATORY_LABELS_AWAIT_ACTUAL_COMPLETE_BATCH_ROOT_GO_AND_VISUAL_QA",
+  "reviewer": "/root/full_band_review",
+  "reviewed_UTC": "2026-10-10T18:27:32.850138+00:00",
+  "renderer_sha256": "4ac233ac7bd4ea213bfc00109304833bb0cb6013f72aec6afb7ed52dbef712d3",
+  "candidate_executed": false,
+  "HDF5_NPZ_values_opened": false,
+  "HTTP_requests": 0,
+  "unresolved_concrete_rendering_bugs": [],
+  "checks": [
+    "Requires actual COMPLETE receipt SHA and exact matching scope before opening saved patches.",
+    "Checks batch/visit/profile identities, top20 hash and patch byte hashes, with confined saved NPZ paths.",
+    "All nine selected profiles are shown across rank1/rank2/rank3 figures, three origin ON columns and six scan rows each.",
+    "Negative df reverses spectral pixels and gives ascending-Hz edges; zero marks the frozen selected track coordinate.",
+    "Extent0..16*18.253611008s gives correct elapsed scan-time bin centers.",
+    "Color limits use the1st/99th percentiles of each selected track across all six scans; labels identify normalized power minus saved flank, and disclaim calibrated SNR/signal inference.",
+    "Output files must not already exist."
+  ],
+  "operational_conditions": [
+    "Save plots and rendering receipts outside scientific batch directories so combined QA exact output inventory remains valid.",
+    "Root must bind this source SHA and give a separate actual COMPLETE batch GO before rendering.",
+    "Rendering before independent empirical combined QA is visualization of saved exploratory profiles; root must visually inspect final images and preserve percentile scaling context."
+  ],
+  "limitations": [
+    "Static review only; no rendered images inspected.",
+    "This renderer does not independently validate source cells, winning scores or full fixed-profile arithmetic; combined empirical QA performs the source-cell/arithmetic checks."
+  ]
+}

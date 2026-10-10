@@ -1,0 +1,665 @@
+{
+  "schema": "SETI_NEW_S2017_RETAINED27_UNATTEMPTED69_CORE128_V1",
+  "target": "HIP98505 / HD189733",
+  "visit": "2017-04-28 / AGBT17A_999_55",
+  "scan_order": [
+    "epoch1_on",
+    "epoch1_off",
+    "epoch2_on",
+    "epoch2_off",
+    "epoch3_on",
+    "epoch3_off"
+  ],
+  "rows_per_scan": 16,
+  "native_chunk_index": 171,
+  "native_chunk_count": 343,
+  "source_channel_interval_half_open": [
+    179306496,
+    180355072
+  ],
+  "core_q": 128,
+  "core_interval_half_open": [
+    179830784,
+    179834880
+  ],
+  "crop_interval_half_open": [
+    179826784,
+    179838880
+  ],
+  "fch1_hz": 2802832031.25,
+  "df_hz": -2.7939677238464355,
+  "tsamp_s": 18.253611008,
+  "drift_grid": {
+    "first_hz_s": -4,
+    "last_hz_s": 4,
+    "count": 785
+  },
+  "widths_channels": [
+    1,
+    3
+  ],
+  "core_channel_count": 4096,
+  "crop_halo_channels": 4000,
+  "search_ON_maps": 3,
+  "valid_hypotheses_per_carrier": 1570,
+  "rank_count_per_ON": 20,
+  "display_suppression_channels": 3,
+  "fixed_profile_ranks_per_ON": 3,
+  "expected_fixed_profiles": 9,
+  "profile_shift_channels": 0,
+  "profile_halfwidth_channels": 64,
+  "source_workers_max": 6,
+  "rows_serial_per_source": 16,
+  "payload_HTTP_request_cap": 96,
+  "payload_BODY_cap_bytes": 536870912,
+  "exact_expected_payload_BODY_bytes": 298238620,
+  "reserved_payload_BODY_upper_bound_bytes": 298238716,
+  "acquisition_CPU_cap_s": 180,
+  "search_CPU_cap_s": 120,
+  "wall_cap_s_per_phase": 1800,
+  "memory_cap_bytes_per_phase": 4294967296,
+  "output_stage": "analysis/new_visit_recovery/results",
+  "runtime_package_versions": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "h5py": "3.15.1",
+    "hdf5plugin": "7.1.0"
+  },
+  "hdf5_version": "1.14.6",
+  "retry_resume_or_rerun_authorized": false,
+  "new_visit": true,
+  "same_frequency_replication_of_old_Lband_cases": false,
+  "blind_selection_before_fresh_values": true,
+  "OFF_veto_applied": false,
+  "qualified_sky_detection": false,
+  "calibrated_SNR_FAP": false,
+  "original_A_B_status": "FAIL_CLOSED_UNCHANGED",
+  "cost_DKK": 0,
+  "fixed_profile_normalization": "full1048576-channel row median computed on raw float32, then profile float64 promotion",
+  "source_manifest_path": "analysis/next_visit/S2017_MIDPOINT_SOURCE_MANIFEST.json",
+  "code_paths": {
+    "detector": "analysis/new_visit_search/dependencies/detector.py",
+    "gap": "analysis/new_visit_search/dependencies/gap_search.py",
+    "reader": "analysis/new_visit_search/dependencies/standard_reader.py",
+    "recovery_acquire": "analysis/new_visit_recovery/raw_acquire.py"
+  },
+  "driver_sha256": "ca9c3890a8be325061e62c03b05aa795a582fc7d10012f0a565d8779920e6bf6",
+  "pinned_metadata_and_code": {
+    "analysis/new_visit_search/driver.py": {
+      "bytes": 30736,
+      "sha256": "e6c2c54dedb6b70a2997a62b03ded523a1915940c2dae16fcc5d3d3c8ffe57dd"
+    },
+    "analysis/new_visit_search/prepare_scope.py": {
+      "bytes": 7561,
+      "sha256": "ee04b0de2ad3ad92b18414dbcdc780368d2f56d9e0937240d357ad062bf41578"
+    },
+    "analysis/next_visit/S2017_MIDPOINT_SOURCE_MANIFEST.json": {
+      "bytes": 111227,
+      "sha256": "1fd17cbf60251b77c06a2bbeb00f405b068f3d60b32b9f4cfcf39eccc4076107"
+    },
+    "analysis/next_visit/MIDPOINT_CHUNK_METADATA_SCOPE.json": {
+      "bytes": 114227,
+      "sha256": "402153c14890909397b69e0345f5103e9b275ba04f186205f71325b611e1d9dc"
+    },
+    "analysis/next_visit/DIRECT_MIDPOINT_METADATA_SCOPE.json": {
+      "bytes": 788664,
+      "sha256": "68c4e425194c03a568642a8011e5a9ae1ba513e71e811a645e28a050ba629bca"
+    },
+    "analysis/next_visit/METADATA_QUALIFICATION_RECEIPT.json": {
+      "bytes": 113268,
+      "sha256": "84df9793bb3fcf595aa1599c8d2423a59c3b1a688ac37d2a60179fe5e7a9a6f4"
+    },
+    "analysis/next_visit/midpoint_chunk_metadata/epoch1_off/METADATA_MAP_RECEIPT.json": {
+      "bytes": 103501,
+      "sha256": "9068ce7a6224ca2f066a2fb6de6585f496cf6db1f3c86ceb820ff5ed77582b34"
+    },
+    "analysis/next_visit/midpoint_chunk_metadata/epoch1_on/METADATA_MAP_RECEIPT.json": {
+      "bytes": 103373,
+      "sha256": "9df69020a8c4a4045be3d4dcc16650b9583d77d935c5ff6834630512c69296b6"
+    },
+    "analysis/next_visit/midpoint_chunk_metadata/epoch2_off/METADATA_MAP_RECEIPT.json": {
+      "bytes": 103503,
+      "sha256": "0639be49f450a0fc13536d0e14fac138f30aaea8b772d2c519e6d02afd5e8b23"
+    },
+    "analysis/next_visit/midpoint_chunk_metadata/epoch2_on/METADATA_MAP_RECEIPT.json": {
+      "bytes": 103383,
+      "sha256": "274105367761b2cd541f6ef5aae3ee2def19b5c53be3f2608b724ddb8e03688a"
+    },
+    "analysis/next_visit/midpoint_chunk_metadata/epoch3_off/METADATA_MAP_RECEIPT.json": {
+      "bytes": 103501,
+      "sha256": "36d1a1cc0c008ae6ea6d6c3b78bebf81a777279fd463a32e78d8d62f0b7276d7"
+    },
+    "analysis/next_visit/midpoint_chunk_metadata/epoch3_on/METADATA_MAP_RECEIPT.json": {
+      "bytes": 103374,
+      "sha256": "80dafd27f67d64d5487b15cebe772f5deb1f7c9edc12252b40b29bd52c90e443"
+    },
+    "analysis/next_visit/direct_midpoint_metadata/epoch1_off/METADATA_MAP_RECEIPT.json": {
+      "bytes": 23943,
+      "sha256": "18208f0dd3343848e8bf3862b0c14f4cfcf98594f276299c24e5c8477a390d99"
+    },
+    "analysis/next_visit/direct_midpoint_metadata/epoch1_on/METADATA_MAP_RECEIPT.json": {
+      "bytes": 23930,
+      "sha256": "4eeb23ffdeed1c6d8ef04f5eb60ee07bfcfab04fd87ce321fbb35ac4412e7908"
+    },
+    "analysis/next_visit/direct_midpoint_metadata/epoch2_off/METADATA_MAP_RECEIPT.json": {
+      "bytes": 23943,
+      "sha256": "6119edf2d0b0e935474716caa00f734e79c8ac005cf1dcb58e04e07a953a0357"
+    },
+    "analysis/next_visit/direct_midpoint_metadata/epoch2_on/METADATA_MAP_RECEIPT.json": {
+      "bytes": 23929,
+      "sha256": "38435d24d00b615e3358184ab6c63c650a6b8f1f200504c747bf634c78455bc9"
+    },
+    "analysis/next_visit/direct_midpoint_metadata/epoch3_off/METADATA_MAP_RECEIPT.json": {
+      "bytes": 23941,
+      "sha256": "4080095b41ebe433a5728a558f807454e709538938b609bdb785314c050a1465"
+    },
+    "analysis/next_visit/direct_midpoint_metadata/epoch3_on/METADATA_MAP_RECEIPT.json": {
+      "bytes": 23930,
+      "sha256": "5803af08b106f4f25ee7eb11a479cb112122355ff5a12513edc33877fad8df89"
+    },
+    "analysis/new_visit_search/dependencies/detector.py": {
+      "bytes": 22819,
+      "sha256": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45"
+    },
+    "analysis/new_visit_search/dependencies/gap_search.py": {
+      "bytes": 21995,
+      "sha256": "b1a2cc31d47dbebc707f36c5de3eafbae6a62f0d0d19061c798c676c9fbcdb58"
+    },
+    "analysis/new_visit_search/dependencies/standard_reader.py": {
+      "bytes": 17506,
+      "sha256": "329b922431a925a08ad48e7315f54f556e1af5f7bccbec0f51d71fb52216ffb0"
+    },
+    "analysis/new_visit_recovery/driver.py": {
+      "bytes": 23214,
+      "sha256": "ca9c3890a8be325061e62c03b05aa795a582fc7d10012f0a565d8779920e6bf6"
+    },
+    "analysis/new_visit_recovery/raw_acquire.py": {
+      "bytes": 16424,
+      "sha256": "c2d44f7893e4c826401a24428e58f123791f9b26d8932e2f6f893dc2d2045a0d"
+    },
+    "analysis/new_visit_recovery/prepare_scope.py": {
+      "bytes": 6348,
+      "sha256": "372380ecb704adcef40cd66cc6fe0ac291aca4849e1685f9bfb838a6c80d3eea"
+    },
+    "analysis/new_visit_search/scope.json": {
+      "bytes": 8519,
+      "sha256": "4fbbf3f3c82aad866a08d864bf3232662549f7d0d93c01dff21655f8513aa468"
+    },
+    "analysis/new_visit_search/results/acquire/ACQUISITION_RESULT.json": {
+      "bytes": 42942,
+      "sha256": "37e2fcdb66dfe4187dd6a43f067879cdc4e6cf3bfb7dae6c877cb0fcafdf33f6"
+    },
+    "analysis/new_visit_search/results/acquire/SOURCE_BODY_LEDGER.json": {
+      "bytes": 165,
+      "sha256": "1edc41ee462c8f2e1c617e192d0b5d44bca43efeff2a7d4b40bd06d3e88aeb99"
+    },
+    "analysis/new_visit_search/results/acquire/FAILURE_RECEIPT.json": {
+      "bytes": 42942,
+      "sha256": "37e2fcdb66dfe4187dd6a43f067879cdc4e6cf3bfb7dae6c877cb0fcafdf33f6"
+    },
+    "analysis/new_visit_search/READ_ONLY_PARTIAL_RAW_INVENTORY.json": {
+      "bytes": 11530,
+      "sha256": "918ad5800cbe66eb3c2677c51648cc4f2aed9450792b479eefb1a9ab6b296af9"
+    },
+    "analysis/new_visit_search/FAILED_ACQUISITION_RECEIPT_REVIEW.json": {
+      "bytes": 4668,
+      "sha256": "b6609c149b06db6af31b4577737c5a1989e0368ec7d83f30639990dbb4f537ae"
+    },
+    "analysis/new_visit_search/PARTIAL_RAW_MAPPING_INDEPENDENT_AUDIT.json": {
+      "bytes": 15697,
+      "sha256": "0f695bb480b7b138b43aa30d47f5955bfd7d427240136ff34f6e6dd86e0edb70"
+    },
+    "analysis/new_visit_search/results/acquire/epoch1_on.compact.h5": {
+      "bytes": 15576863,
+      "sha256": "9335a5d164c411055f2bf9f540d604df85ec85278a89dc23dc48647ebd18f130"
+    },
+    "analysis/new_visit_search/results/acquire/epoch1_off.compact.h5": {
+      "bytes": 12617428,
+      "sha256": "c46aeee887bef12c0e8ffbab312767c6b8c1f83ee5ff043421e4647cdff5148c"
+    },
+    "analysis/new_visit_search/results/acquire/epoch2_on.compact.h5": {
+      "bytes": 15440187,
+      "sha256": "6b03be080c3e3657cac46cc36ae9ed0459a889d420955bc90d84d94bcc75cdd9"
+    },
+    "analysis/new_visit_search/results/acquire/epoch2_off.compact.h5": {
+      "bytes": 12447095,
+      "sha256": "326f3c5aa16937f32a0b677cbcb1bca89773fd62aa2171b5b5c1bb8e0b6ee26c"
+    },
+    "analysis/new_visit_search/results/acquire/epoch3_on.compact.h5": {
+      "bytes": 15426875,
+      "sha256": "92e3de2547d893335a160e01eb5a8a2392f439df3b8ea0e8fafa669c20be04f6"
+    },
+    "analysis/new_visit_search/results/acquire/epoch3_off.compact.h5": {
+      "bytes": 12404725,
+      "sha256": "e6fd85579db62cd1317166f5cdd3b3f0ec43c35a8cf7f0690a33eb95c4d23773"
+    }
+  },
+  "unchanged_original_dependency_SHA256s": {
+    "detector": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45",
+    "gap": "b1a2cc31d47dbebc707f36c5de3eafbae6a62f0d0d19061c798c676c9fbcdb58",
+    "reader": "329b922431a925a08ad48e7315f54f556e1af5f7bccbec0f51d71fb52216ffb0"
+  },
+  "selection_rule": "Source171/core128 geometry and all96 descriptors remain exactly the original public pre-value freeze. Twenty-seven received raw ranges are reused locally; only69 previously unattempted ranges may be fetched. No rank or search result has been calculated.",
+  "run_admission": "Independent corrected code/scope/retained27 provenance review; second public prospective freeze with exact readback; actual40-hex commit argument and root GO; empty corrected per-phase directory; search additionally requires root-reviewed successful corrected acquisition receipt SHA.",
+  "limitations": [
+    "Original source selection was frozen before the first value opening. The failed initial acquisition decoded26 rows; this correction does not claim blind first opening or independent blind validation.",
+    "The original failure, receipt, scope, driver and partial files remain unchanged. Its27 successful requests retain all27 exact compressed bodies, including one unindexed matching suffix.",
+    "Underlying cause of H5Dwrite_chunk failure is not identified. Payload bytes were written, but the row3 chunk-index entry was absent. This correction separates durable raw storage from a serial write-close-read-only decode pass.",
+    "The69 allowed GETs are for previously unattempted source rows only. Reused27 rows have zero repeated GETs. Original charged and received byte totals are carried forward without refund.",
+    "S2017 S-band is a new historical visit and frequency band; it cannot replicate old1424MHz L-band cases at the same frequency.",
+    "Exactly one4096-carrier core per ON, about11.444kHz, is searched. The rest of the acquired2.930MHz chunk remains unsearched.",
+    "One historical visit with three ON/OFF pairs; epoch1/2/3 labels are scan positions, not independent visits.",
+    "Robust row-MAD box-track scores are post-selection maxima over correlated hypotheses, not calibrated SNR, false-alarm probabilities, flux, EIRP or sensitivity.",
+    "Exact fixed OFF channel predictions are descriptive profiles; they provide no qualified OFF veto or proof of absence of nearby interference.",
+    "Linear tracks only, widths1/3; no barycentric correction, nonlinear tracks, injection-recovery or sky false-alarm calibration.",
+    "Original control A/B failures and original saved receipts remain unchanged. No retry, resume, rerun or alternative source is authorized."
+  ],
+  "reused_source_ranges": 27,
+  "previously_unattempted_source_ranges": 69,
+  "original_received_BODY_bytes": 83845205,
+  "original_reserved_BODY_upper_bound_bytes": 83845232,
+  "exact_remaining_payload_BODY_bytes": 214393415,
+  "remaining_reserved_BODY_upper_bound_bytes": 214393484,
+  "original_source_selection_scope_sha256": "4fbbf3f3c82aad866a08d864bf3232662549f7d0d93c01dff21655f8513aa468",
+  "original_source_selection_public_freeze_commit": "ba61e32dfbb041c6ddc2c1a6c0eeabd1c15edc6d",
+  "original_acquisition_directory": "analysis/new_visit_search/results/acquire",
+  "original_acquisition_receipt": "analysis/new_visit_search/results/acquire/ACQUISITION_RESULT.json",
+  "retained_raw_inventory": "analysis/new_visit_search/READ_ONLY_PARTIAL_RAW_INVENTORY.json",
+  "source_values_already_opened_in_original_failed_family": true,
+  "previously_decoded_rows": 26,
+  "scientific_search_previously_run": false,
+  "original_failed_family_preserved": true,
+  "repeated_source_GETs_authorized": 0,
+  "received_original_payloads_lost": 0,
+  "standalone_raw_sidecars_expected": 96,
+  "HDF5_assembly_threads": 1,
+  "write_decode_interleaving": false,
+  "reused_range_keys": [
+    [
+      "epoch1_on",
+      0
+    ],
+    [
+      "epoch1_on",
+      1
+    ],
+    [
+      "epoch1_on",
+      2
+    ],
+    [
+      "epoch1_on",
+      3
+    ],
+    [
+      "epoch1_on",
+      4
+    ],
+    [
+      "epoch1_off",
+      0
+    ],
+    [
+      "epoch1_off",
+      1
+    ],
+    [
+      "epoch1_off",
+      2
+    ],
+    [
+      "epoch1_off",
+      3
+    ],
+    [
+      "epoch2_on",
+      0
+    ],
+    [
+      "epoch2_on",
+      1
+    ],
+    [
+      "epoch2_on",
+      2
+    ],
+    [
+      "epoch2_on",
+      3
+    ],
+    [
+      "epoch2_on",
+      4
+    ],
+    [
+      "epoch2_off",
+      0
+    ],
+    [
+      "epoch2_off",
+      1
+    ],
+    [
+      "epoch2_off",
+      2
+    ],
+    [
+      "epoch2_off",
+      3
+    ],
+    [
+      "epoch3_on",
+      0
+    ],
+    [
+      "epoch3_on",
+      1
+    ],
+    [
+      "epoch3_on",
+      2
+    ],
+    [
+      "epoch3_on",
+      3
+    ],
+    [
+      "epoch3_on",
+      4
+    ],
+    [
+      "epoch3_off",
+      0
+    ],
+    [
+      "epoch3_off",
+      1
+    ],
+    [
+      "epoch3_off",
+      2
+    ],
+    [
+      "epoch3_off",
+      3
+    ]
+  ],
+  "unattempted_range_keys": [
+    [
+      "epoch1_on",
+      5
+    ],
+    [
+      "epoch1_on",
+      6
+    ],
+    [
+      "epoch1_on",
+      7
+    ],
+    [
+      "epoch1_on",
+      8
+    ],
+    [
+      "epoch1_on",
+      9
+    ],
+    [
+      "epoch1_on",
+      10
+    ],
+    [
+      "epoch1_on",
+      11
+    ],
+    [
+      "epoch1_on",
+      12
+    ],
+    [
+      "epoch1_on",
+      13
+    ],
+    [
+      "epoch1_on",
+      14
+    ],
+    [
+      "epoch1_on",
+      15
+    ],
+    [
+      "epoch1_off",
+      4
+    ],
+    [
+      "epoch1_off",
+      5
+    ],
+    [
+      "epoch1_off",
+      6
+    ],
+    [
+      "epoch1_off",
+      7
+    ],
+    [
+      "epoch1_off",
+      8
+    ],
+    [
+      "epoch1_off",
+      9
+    ],
+    [
+      "epoch1_off",
+      10
+    ],
+    [
+      "epoch1_off",
+      11
+    ],
+    [
+      "epoch1_off",
+      12
+    ],
+    [
+      "epoch1_off",
+      13
+    ],
+    [
+      "epoch1_off",
+      14
+    ],
+    [
+      "epoch1_off",
+      15
+    ],
+    [
+      "epoch2_on",
+      5
+    ],
+    [
+      "epoch2_on",
+      6
+    ],
+    [
+      "epoch2_on",
+      7
+    ],
+    [
+      "epoch2_on",
+      8
+    ],
+    [
+      "epoch2_on",
+      9
+    ],
+    [
+      "epoch2_on",
+      10
+    ],
+    [
+      "epoch2_on",
+      11
+    ],
+    [
+      "epoch2_on",
+      12
+    ],
+    [
+      "epoch2_on",
+      13
+    ],
+    [
+      "epoch2_on",
+      14
+    ],
+    [
+      "epoch2_on",
+      15
+    ],
+    [
+      "epoch2_off",
+      4
+    ],
+    [
+      "epoch2_off",
+      5
+    ],
+    [
+      "epoch2_off",
+      6
+    ],
+    [
+      "epoch2_off",
+      7
+    ],
+    [
+      "epoch2_off",
+      8
+    ],
+    [
+      "epoch2_off",
+      9
+    ],
+    [
+      "epoch2_off",
+      10
+    ],
+    [
+      "epoch2_off",
+      11
+    ],
+    [
+      "epoch2_off",
+      12
+    ],
+    [
+      "epoch2_off",
+      13
+    ],
+    [
+      "epoch2_off",
+      14
+    ],
+    [
+      "epoch2_off",
+      15
+    ],
+    [
+      "epoch3_on",
+      5
+    ],
+    [
+      "epoch3_on",
+      6
+    ],
+    [
+      "epoch3_on",
+      7
+    ],
+    [
+      "epoch3_on",
+      8
+    ],
+    [
+      "epoch3_on",
+      9
+    ],
+    [
+      "epoch3_on",
+      10
+    ],
+    [
+      "epoch3_on",
+      11
+    ],
+    [
+      "epoch3_on",
+      12
+    ],
+    [
+      "epoch3_on",
+      13
+    ],
+    [
+      "epoch3_on",
+      14
+    ],
+    [
+      "epoch3_on",
+      15
+    ],
+    [
+      "epoch3_off",
+      4
+    ],
+    [
+      "epoch3_off",
+      5
+    ],
+    [
+      "epoch3_off",
+      6
+    ],
+    [
+      "epoch3_off",
+      7
+    ],
+    [
+      "epoch3_off",
+      8
+    ],
+    [
+      "epoch3_off",
+      9
+    ],
+    [
+      "epoch3_off",
+      10
+    ],
+    [
+      "epoch3_off",
+      11
+    ],
+    [
+      "epoch3_off",
+      12
+    ],
+    [
+      "epoch3_off",
+      13
+    ],
+    [
+      "epoch3_off",
+      14
+    ],
+    [
+      "epoch3_off",
+      15
+    ]
+  ]
+}
