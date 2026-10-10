@@ -3,32 +3,17 @@ import argparse
 import hashlib
 import json
 import os
-import shutil
-import stat
-import time
 from pathlib import Path
-
-PLAN_SHA256 = '764b48cffa38f72d41b870de4640f5e744339093297c94296b492fa790131a15'
 
 
 def main():
-    started = time.monotonic()
-    if os.name == 'posix':
-        import signal
-        def deadline(signum, frame):
-            raise TimeoutError('Archive assembly exceeded1800seconds')
-        signal.signal(signal.SIGALRM, deadline)
-        signal.alarm(1800)
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--manifest', type=Path,
                         default=Path(__file__).with_name('RAW_ARCHIVE_PARTS_PLAN.json'))
     parser.add_argument('--parts-dir', type=Path, required=True)
     parser.add_argument('--output', type=Path)
     args = parser.parse_args()
-    manifest_bytes = args.manifest.read_bytes()
-    if hashlib.sha256(manifest_bytes).hexdigest() != PLAN_SHA256:
-        raise ValueError('The provided frozen archive-part manifest SHA256 differs')
-    plan = json.loads(manifest_bytes)
+    plan = json.loads(args.manifest.read_text())
     if plan['schema'] != 'SETI_BYTE_EXACT_RAW_ARCHIVE_PARTS_V1':
         raise ValueError('Unsupported archive-part manifest')
     parts = plan['parts']
@@ -47,55 +32,25 @@ def main():
     temporary = output.with_name(output.name + '.assembling')
     if output.exists() or temporary.exists():
         raise FileExistsError('Output or partial output already exists; no file is overwritten')
-    if shutil.disk_usage(output.parent).free < offset + 1024 * 1024:
-        raise OSError('At least the declared archive size plus1MiB of free space is required')
-    if os.name == 'posix':
-        import resource
-        resource.setrlimit(resource.RLIMIT_CPU, (180, 185))
-        resource.setrlimit(resource.RLIMIT_AS, (2 * 1024**3, 2 * 1024**3))
     whole = hashlib.sha256()
     with temporary.open('xb') as assembled:
         for part in parts:
             digest = hashlib.sha256()
             with (args.parts_dir / part['filename']).open('rb') as source:
-                before = os.fstat(source.fileno())
-                if not stat.S_ISREG(before.st_mode) or before.st_size != part['bytes']:
-                    raise ValueError('An opened part must be a regular file of the declared size')
-                remaining = part['bytes']
-                while remaining:
-                    if time.monotonic() - started > 1800:
-                        raise TimeoutError('Archive assembly exceeded1800seconds')
-                    block = source.read(min(1024 * 1024, remaining))
+                while True:
+                    block = source.read(1024 * 1024)
                     if not block:
-                        raise ValueError('Part ended before its declared length')
+                        break
                     digest.update(block)
                     whole.update(block)
                     assembled.write(block)
-                    remaining -= len(block)
-                if source.read(1):
-                    raise ValueError('Part exceeds its declared length')
-                after = os.fstat(source.fileno())
-                if (before.st_dev, before.st_ino, before.st_size, before.st_mtime_ns) != (
-                        after.st_dev, after.st_ino, after.st_size, after.st_mtime_ns):
-                    raise ValueError('Opened part changed during assembly')
             if digest.hexdigest() != part['sha256']:
                 raise ValueError('Part SHA256 differs: ' + part['filename'])
         assembled.flush()
         os.fsync(assembled.fileno())
     if temporary.stat().st_size != offset or whole.hexdigest() != plan['original_archive_sha256']:
         raise ValueError('Combined archive SHA256 differs')
-    os.link(temporary, output)
-    temporary.unlink()
-    if os.name == 'posix':
-        directory_fd = os.open(output.parent, os.O_RDONLY)
-        try:
-            os.fsync(directory_fd)
-        finally:
-            os.close(directory_fd)
-    if time.monotonic() - started > 1800:
-        raise TimeoutError('Archive assembly exceeded1800seconds')
-    if os.name == 'posix':
-        signal.alarm(0)
+    temporary.rename(output)
     print(json.dumps({'status': 'PASS_BYTE_EXACT_RAW_ARCHIVE_REASSEMBLY',
                       'path': str(output), 'bytes': offset, 'sha256': whole.hexdigest()}))
 

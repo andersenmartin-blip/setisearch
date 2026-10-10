@@ -1,0 +1,102 @@
+{
+  "schema": "SETI_RAW_ORDERED_PARTS_RESTORE_PROSPECTIVE_STATIC_REVIEW_V1",
+  "status": "PASS_STATIC_EXACT_RESTORE_SCRIPT_AND_THREE_PART_DURABILITY_RETENTION_METADATA",
+  "UTC": "2026-10-10T19:52:56.243362+00:00",
+  "reviewer": "/root/repo_status",
+  "input_byte_pins": {
+    "script": {
+      "path": "analysis/s2017_next_native/delivery/restore_raw_archive.py",
+      "bytes": 4933,
+      "sha256": "75fc94179549e33817bb01c4ba47c8881a227cbcc147905f045372980d739fd9"
+    },
+    "plan": {
+      "path": "analysis/s2017_next_native/delivery/RAW_ARCHIVE_PARTS_PLAN.json",
+      "bytes": 1615,
+      "sha256": "764b48cffa38f72d41b870de4640f5e744339093297c94296b492fa790131a15"
+    },
+    "durability": {
+      "path": "analysis/s2017_next_native/delivery/RAW_PARTS_DURABILITY_RECEIPT.json",
+      "bytes": 2314,
+      "sha256": "3dd049745aa9c739b4ee823cc53d34042b6ea34496f2d345a95aa844a568a58e"
+    },
+    "retention": {
+      "path": "analysis/s2017_next_native/delivery/ROOT_RAW_RETENTION_RECEIPT.json",
+      "bytes": 1141,
+      "sha256": "8e44c465c5fd324fbf0de89873d626532c677c77405fa2dadcefaf27dcd7103a"
+    },
+    "raw_package": {
+      "path": "analysis/s2017_next_native/delivery/RAW_PACKAGE_RECEIPT.json",
+      "bytes": 1924,
+      "sha256": "992b4cf9de44fc1b665292e10966d080d7149fa36a31fab53294cdc28c0d048a"
+    },
+    "results_builder": {
+      "path": "analysis/s2017_next_native/delivery/build_results_package.py",
+      "bytes": 27865,
+      "sha256": "b371d6df3b1b692f456045d89a2076cdfdbf9ae5553bbdd1fea5c08a7b247dee"
+    },
+    "initial_review": {
+      "path": "analysis/s2017_next_native/review/RAW_RESTORE_PARTS_INITIAL_STATIC_REVIEW.json",
+      "bytes": 5766,
+      "sha256": "859b280394f8e06dea8c04aa4a50fbc921604ef8754e9584fcfa77c7a80adeed"
+    },
+    "original_script": {
+      "path": "analysis/s2017_next_native/delivery/previous_preparation/restore_raw_archive_v1.py",
+      "bytes": 2691,
+      "sha256": "764a9d2017512891a97792aa0d104fa3bafc9f29418a25bba0822450a4e497a9"
+    }
+  },
+  "resolved_initial_finding_ids": [
+    "RESTORE01",
+    "RESTORE02",
+    "RESTORE03",
+    "RESTORE04"
+  ],
+  "checks": {
+    "AST_parse": true,
+    "immutable_plan_SHA_hard_pinned": true,
+    "three_ordered_contiguous_parts_cover_original_archive": true,
+    "declared_part_byte_reads_bounded": true,
+    "short_and_extra_byte_rejection": true,
+    "fstat_regular_file_size_dev_inode_mtime_pre_and_post_copy": true,
+    "each_part_SHA_and_combined_size_SHA_validated_before_publication": true,
+    "exclusive_temporary_creation_preserves_failed_partial": true,
+    "atomic_os_link_publication_cannot_replace_existing_output": true,
+    "only_own_temporary_unlinked_after_success": true,
+    "output_file_and_POSIX_destination_directory_fsync": true,
+    "disk_free_at_least_declared_archive_plus_1MiB": true,
+    "POSIX_CPU_soft180_hard185_seconds": true,
+    "POSIX_AS2GiB": true,
+    "POSIX_SIGALRM1800_from_beginning_main_through_final_IO_and_link": true,
+    "final_elapsed_wall_le1800": true,
+    "v1_original_script_preserved_exact": true,
+    "durability_metadata_all3_actual_succeeded_statuses_match_frozen_part_pins": true,
+    "durability_metadata_matches_existing_RAW_CRC_all_member_receipt": true,
+    "root_retention_metadata_matches_unchanged_RESULTS_builder_admission": true,
+    "private_Library_IDs_absent_from_inspected_public_receipts": true,
+    "RESULTS_builder_b371_unchanged": true
+  },
+  "archive_identity": {
+    "bytes": 604399781,
+    "sha256": "b78521c9f51a47d698af1ea1f8949b5676c843656389655191042a0fbc06817f",
+    "durable_form": "three ordered exact byte parts; one saved ZIP is not claimed"
+  },
+  "remaining_blockers": [],
+  "final_RESULTS_admission_required_external_reference_pins": [
+    "analysis/s2017_next_native/delivery/restore_raw_archive.py",
+    "analysis/s2017_next_native/delivery/RAW_ARCHIVE_PARTS_PLAN.json",
+    "analysis/s2017_next_native/delivery/RAW_PARTS_DURABILITY_RECEIPT.json",
+    "analysis/s2017_next_native/delivery/ROOT_RAW_RETENTION_RECEIPT.json",
+    "root final local-part/auxiliary reconstruction and whole-concatenation proof, once complete"
+  ],
+  "independent_second_reader": "/root/repo_status/reproduction_inventory",
+  "science_or_detector_runs": 0,
+  "archive_binary_reads": 0,
+  "H5_or_NPZ_value_reads": 0,
+  "copies_assemblies_or_restore_executions": 0,
+  "HTTP_or_Library_operations": 0,
+  "limitations": [
+    "This receipt is static source/metadata review; it does not claim an empirical run of restore_raw_archive.py, independent remote-byte retrieval, or current local part/prefix reconstruction. Root actual receipts and later whole-concatenation/source byte proofs establish those engineering events separately.",
+    "CPU/address-space/asynchronous wall guards are POSIX-specific; non-POSIX execution has the explicit elapsed checks but is not claimed to enforce these POSIX caps.",
+    "The immutable parts plan retains prospective wording; actual successful saves are established by the separate hard-pinned complete durability receipt."
+  ]
+}

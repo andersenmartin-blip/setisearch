@@ -1,0 +1,122 @@
+{
+  "schema": "SETI_RAW_ORDERED_PARTS_RESTORE_PROSPECTIVE_STATIC_REVIEW_V1",
+  "status": "FAIL_INITIAL_STATIC_RESTORE_GUARDS_PENDING_FIX_NO_EXECUTION",
+  "UTC": "2026-10-10T19:48:41.759784+00:00",
+  "inspected_script": {
+    "path": "analysis/s2017_next_native/delivery/restore_raw_archive.py",
+    "bytes": 2691,
+    "sha256": "764a9d2017512891a97792aa0d104fa3bafc9f29418a25bba0822450a4e497a9"
+  },
+  "immutable_plan": {
+    "path": "analysis/s2017_next_native/delivery/RAW_ARCHIVE_PARTS_PLAN.json",
+    "bytes": 1615,
+    "sha256": "764b48cffa38f72d41b870de4640f5e744339093297c94296b492fa790131a15"
+  },
+  "progress_checkpoint_snapshot": {
+    "path": "analysis/s2017_next_native/delivery/RAW_PARTS_SAVE_CHECKPOINT.json",
+    "bytes": 1019,
+    "sha256": "82e0fa97a0350b16fa435710a025c24a77e7915034d7160f26872f8b21c107a8",
+    "status": "IN_PROGRESS_DEPENDENCY_ORDERED_RAW_PART_SAVES",
+    "saved_parts_count": 2
+  },
+  "original_archive_identity": {
+    "original_archive_filename": "SETI_S2017_NATIVE170_172_RAW_2026-10-10.zip",
+    "original_archive_bytes": 604399781,
+    "original_archive_sha256": "b78521c9f51a47d698af1ea1f8949b5676c843656389655191042a0fbc06817f"
+  },
+  "plan_offsets_sizes_and_archive_identity_match": true,
+  "plan_status_is_prospective_and_not_actual_durability_evidence": true,
+  "findings": [
+    {
+      "id": "RESTORE01",
+      "blocker": true,
+      "issue": "temporary.rename(output) may replace an output created after preflight, including a dangling symlink, despite the no-overwrite promise.",
+      "fix": "Use atomic no-replace publication, such as os.link(own_temporary,output), then remove only own temporary after success and fsync the destination directory."
+    },
+    {
+      "id": "RESTORE02",
+      "blocker": true,
+      "issue": "Manifest admission checks schema but does not authenticate approved immutable plan bytes.",
+      "fix": "Require expected plan SHA256 or bind the exact approved plan SHA before parsing."
+    },
+    {
+      "id": "RESTORE03",
+      "blocker": true,
+      "issue": "Source copy reads to EOF, without enforcing each declared part byte bound during copying.",
+      "fix": "Read exactly declared bytes, reject short reads and one extra byte, and verify source descriptor identity/size before and after copying."
+    },
+    {
+      "id": "RESTORE04",
+      "blocker": true,
+      "issue": "No CPU, wall, address-space or storage admission limits are implemented.",
+      "fix": "Declare and enforce bounded execution/storage admission before creating output; keep all incomplete outputs unchanged."
+    }
+  ],
+  "proposed_public_durable_parts_receipt_contract": {
+    "schema": "SETI_BYTE_EXACT_RAW_ARCHIVE_PARTS_DURABLE_SAVE_V1",
+    "status_required": "COMPLETE_ALL3_RAW_ARCHIVE_PARTS_DURABLY_SAVED",
+    "must_pin": [
+      "actual_RAW_package_receipt_SHA256",
+      "immutable_RAW_ARCHIVE_PARTS_PLAN_SHA256",
+      "reviewed_restore_script_SHA256"
+    ],
+    "whole_archive_filename": "SETI_S2017_NATIVE170_172_RAW_2026-10-10.zip",
+    "whole_archive_bytes": 604399781,
+    "whole_archive_sha256": "b78521c9f51a47d698af1ea1f8949b5676c843656389655191042a0fbc06817f",
+    "saved_parts_required": [
+      {
+        "index": 1,
+        "filename": "SETI_S2017_NATIVE170_172_RAW_2026-10-10.zip.part01",
+        "source_offset": 0,
+        "bytes": 209715200,
+        "sha256": "ad4be599d3e7da809df1d473c8fa677e0c2581d251fb65d9cc01d90849dd8dbb"
+      },
+      {
+        "index": 2,
+        "filename": "SETI_S2017_NATIVE170_172_RAW_2026-10-10.zip.part02",
+        "source_offset": 209715200,
+        "bytes": 209715200,
+        "sha256": "2ad6609f4984c536fc4dbee2223975f756459d681b8c9e1f5c6b8731f149a97f"
+      },
+      {
+        "index": 3,
+        "filename": "SETI_S2017_NATIVE170_172_RAW_2026-10-10.zip.part03",
+        "source_offset": 419430400,
+        "bytes": 184969381,
+        "sha256": "d585965102de3ac3cbc9864a92249e0fb660ed6968540249c34e650b880b15ca"
+      }
+    ],
+    "every_part_requires_actual_prepared_helper_per_item_status": "succeeded",
+    "complete_saved_parts_required": 3,
+    "whole_archive_recoverable_required": true,
+    "ordered_concatenation_rule": "part01 then part02 then part03; sizes, individual hashes, total bytes and whole SHA must all match the immutable plan",
+    "private_Library_IDs_must_remain_outside_public_Git_text": true,
+    "actual_complete_receipt_pending": true
+  },
+  "existing_results_builder_retention_contract": {
+    "builder_must_remain_sha256": "b371d6df3b1b692f456045d89a2076cdfdbf9ae5553bbdd1fea5c08a7b247dee",
+    "root_retention_status_required": "COMPLETE_ROOT_ONLY192_REDUNDANT_SIDECARS_REMOVED_AFTER_DURABLE_RAW_SAVE",
+    "raw_archive_sha256_required": "b78521c9f51a47d698af1ea1f8949b5676c843656389655191042a0fbc06817f",
+    "sidecars_removed_required": 192,
+    "durable_RAW_save_confirmed_required": true,
+    "compressed_H5_chunks_verified_required": 192,
+    "final_admission_external_reference_file_pins_must_include": [
+      "immutable parts plan",
+      "final reviewed restore helper",
+      "actual complete public durable-all-parts receipt",
+      "root actual retention receipt",
+      "actual local parts/prefix restoration evidence"
+    ],
+    "ordered_durable_parts_are_compatible_without_RESULTS_builder_change": true
+  },
+  "independent_second_static_reader": "/root/repo_status/reproduction_inventory",
+  "private_Library_IDs_found_in_inspected_public_text": false,
+  "archive_byte_reads": 0,
+  "H5_or_NPZ_value_reads": 0,
+  "copies_or_assemblies_executed": 0,
+  "HTTP_or_Library_operations": 0,
+  "detector_runs": 0,
+  "limitations": [
+    "This is static source/metadata review and a proposed receipt contract, not actual reassembly, archive readback, source QA, or complete durable-save evidence."
+  ]
+}
