@@ -1,0 +1,19 @@
+{
+  "schema": "SETI_VISIT2019_TYPED_STRUCTURE_PLAN_FIELD_SCHEMA_V2",
+  "pure_parser_API": "MetadataCache(ranges, file_size), plan_source(source_id, cache, file_size)",
+  "cache_range": "(absolute_file_offset, bytes, {path optional, bytes, sha256})",
+  "source_structure_statuses": ["COMPLETE_SUPPORTED_HEADER_STRUCTURE", "INCOMPLETE_TYPED_METADATA_FRAGMENTS", "UNSUPPORTED_FORMAT", "INVALID_METADATA"],
+  "status_priority_high_to_low": ["INVALID_METADATA", "UNSUPPORTED_FORMAT", "INCOMPLETE_TYPED_METADATA_FRAGMENTS", "COMPLETE_SUPPORTED_HEADER_STRUCTURE"],
+  "missing_fragment_fields": ["source_id", "offset", "length", "range", "object_kind", "typed_object_interval_half_open", "typed_parent_evidence", "payload_pointer", "HTTP_authorized"],
+  "new_missing_kinds": ["global_heap_proven_free_space", "global_heap_implied_trailing_free_space", "global_heap_typed_attribute_alignment_padding"],
+  "coverage_field": "global_heap_collection_coverage",
+  "coverage_fields": ["address", "collection_bytes", "live_object_headers", "free_space_interval_half_open", "status", "uncovered_untyped_live_intervals"],
+  "coverage_statuses": ["COMPLETE_CACHED_COLLECTION", "INCOMPLETE_PROVEN_METADATA_COVERAGE", "INCOMPLETE_TYPED_OBJECT_HEADERS", "BLOCKED_UNCACHED_UNTYPED_LIVE_DATA", "UNSET"],
+  "HTTP_authorized": false,
+  "spectral_values_read": false,
+  "payload_ranges_proposed": 0,
+  "prefix_length_or_geometry_assumed": false,
+  "new_source_selection": "Separate frozen source transport manifest; no lost old BLC66 prefix reuse or request repetition",
+  "actual_new_scope_generated": false,
+  "actual_new_prefixes_parsed": false
+}

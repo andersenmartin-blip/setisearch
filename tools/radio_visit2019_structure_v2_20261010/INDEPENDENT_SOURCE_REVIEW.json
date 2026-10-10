@@ -1,0 +1,156 @@
+{
+  "schema": "SETI_VISIT2019_TYPED_PARSER_V2_SOURCE_ONLY_PEER_REVIEW_V1",
+  "status": "PASS_SOURCE_ONLY_NO_HTTP_OR_VALUES",
+  "created_UTC": "2026-10-10T21:35:52Z",
+  "reviewer_task": "/root/next_checkpoint_scope/owner_profile_registry",
+  "scope": "Pure parser V2, handmade V3 fixture source and five final source/document pins; finite predecessor/source-format metadata comparison only.",
+  "reviewed_file_count": 8,
+  "reviewed_file_pins": [
+    {
+      "path": "tools/radio_visit2019_structure_v2_20261010/structure.py",
+      "absolute_path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_visit2019_structure_v2_20261010/structure.py",
+      "bytes": 35587,
+      "sha256": "5fb4bf41245017ce9780c3e8b5727ff297fdbfaaa7fbe089aab8d53a014bcce8"
+    },
+    {
+      "path": "tools/radio_visit2019_structure_v2_20261010/HDF5_TYPED_METADATA_TOY_FIXTURE_V3.py",
+      "absolute_path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_visit2019_structure_v2_20261010/HDF5_TYPED_METADATA_TOY_FIXTURE_V3.py",
+      "bytes": 17123,
+      "sha256": "5e7f84380058052bd9f8ee8a71edc3f9924423eee22db3aa5e60173b970b6f2a"
+    },
+    {
+      "path": "tools/radio_visit2019_structure_v2_20261010/METHOD.md",
+      "absolute_path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_visit2019_structure_v2_20261010/METHOD.md",
+      "bytes": 5444,
+      "sha256": "82e34f26564c534dce37403e0a162c9c5e4415f46e2c5ae19c8049a2bdf0e088"
+    },
+    {
+      "path": "tools/radio_visit2019_structure_v2_20261010/OFFICIAL_IMPLEMENTATION_COMPATIBILITY.json",
+      "absolute_path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_visit2019_structure_v2_20261010/OFFICIAL_IMPLEMENTATION_COMPATIBILITY.json",
+      "bytes": 2234,
+      "sha256": "6eb03f4c676633e4bf3599987b13351a4d20ab305d8403c2831c1762e6c662a9"
+    },
+    {
+      "path": "tools/radio_visit2019_structure_v2_20261010/FIELD_SCHEMA.json",
+      "absolute_path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_visit2019_structure_v2_20261010/FIELD_SCHEMA.json",
+      "bytes": 1624,
+      "sha256": "9703127bbacc7207ac3a927eec384ba47f5dedc5df427ed0300048a95c6d8186"
+    },
+    {
+      "path": "tools/radio_visit2019_blc66_structure_20261010/structure.py",
+      "absolute_path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_visit2019_blc66_structure_20261010/structure.py",
+      "bytes": 28565,
+      "sha256": "b35003916c4ca79fe2b508b4ef1b83b1aadd3cff584cbbeef3fc655cdcb82273"
+    },
+    {
+      "path": "tools/radio_visit2019_blc66_structure_20261010/HDF5_TYPED_METADATA_TOY_FIXTURE_V2.py",
+      "absolute_path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_visit2019_blc66_structure_20261010/HDF5_TYPED_METADATA_TOY_FIXTURE_V2.py",
+      "bytes": 15098,
+      "sha256": "93ded18d7a7436765a1bb7a57de8c84ce823173dcc058f367c18ed334f3e77a9"
+    },
+    {
+      "path": "tools/radio_visit2019_blc66_structure_20261010/OFFICIAL_FORMAT_RESEARCH.json",
+      "absolute_path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_visit2019_blc66_structure_20261010/OFFICIAL_FORMAT_RESEARCH.json",
+      "bytes": 10227,
+      "sha256": "a26ece9c088547719f586e574847df839405c3eefb38334e4efd9c2c22e030b9"
+    }
+  ],
+  "wrapper_or_transport_review_included": false,
+  "parser_sha256": "5fb4bf41245017ce9780c3e8b5727ff297fdbfaaa7fbe089aab8d53a014bcce8",
+  "fixture_sha256": "5e7f84380058052bd9f8ee8a71edc3f9924423eee22db3aa5e60173b970b6f2a",
+  "predecessor_parser_sha256": "b35003916c4ca79fe2b508b4ef1b83b1aadd3cff584cbbeef3fc655cdcb82273",
+  "predecessor_fixture_sha256": "93ded18d7a7436765a1bb7a57de8c84ce823173dcc058f367c18ed334f3e77a9",
+  "static_AST": {
+    "four_python_sources_parse": true,
+    "target_imports": [
+      "hashlib",
+      "math"
+    ],
+    "target_forbidden_IO_dynamic_import_calls_found": [],
+    "target_source_imported_or_executed": false
+  },
+  "findings": [
+    {
+      "check": "Narrow live GCOL refcount compatibility",
+      "result": "PASS_SOURCE_ONLY",
+      "detail": "Only positive-refcount admission is removed. Referenced live object index remains positive and <=65535; exact typed sequence length, collection bounds, reserved bytes and duplicate-index checks remain. Free object0 still requires refcount0 and an inclusive remaining size."
+    },
+    {
+      "check": "Typed parent evidence",
+      "result": "PASS_SOURCE_ONLY",
+      "detail": "VL descriptor proposals carry cached descriptor, attribute header, datatype and dataspace evidence. Collection/header walks carry verified GCOL header, originating typed reference and predecessor/free header evidence. Shared or unsupported schema does not create a GCOL edge."
+    },
+    {
+      "check": "Collection coverage without payload proposals",
+      "result": "PASS_SOURCE_ONLY",
+      "detail": "Traversal reads only bounded16-byte sequential headers until a final free object or an implied less-than16-byte tail. Only known typed string bytes/alignment and proved final free/slack are queued. Missing unrelated live body plus padding records blocked intervals and UNSUPPORTED_FORMAT; no such body is queued."
+    },
+    {
+      "check": "Independent missing continuation and heap coverage",
+      "result": "PASS_SOURCE_ONLY",
+      "detail": "Heap coverage runs after main structural traversal even when a data OH continuation is absent. INVALID_METADATA and UNSUPPORTED_FORMAT take priority over incomplete or complete labels."
+    },
+    {
+      "check": "Finite bounds",
+      "result": "PASS_SOURCE_ONLY",
+      "detail": "Supplied cache <=4MiB and128 spans; typed read <=65536B; separate object/heap collection and per-heap object counts <=128; aggregate messages <=2048; depth<=8; missing fragments<=128 and summed missing bytes<=1MiB. All proposed extents are nonempty and checked against pinned logical source size."
+    },
+    {
+      "check": "Raw storage remains untraversed",
+      "result": "PASS_SOURCE_ONLY",
+      "detail": "Chunked layout storage address is not decoded or followed; group TREE type1 is rejected; fixed attribute descriptor lookalikes do not generate heap proposals. The pure target has no filesystem, HTTP, native/HDF5 or NumPy API."
+    },
+    {
+      "check": "Fixture inventory and arithmetic",
+      "result": "PASS_SOURCE_ONLY_NOT_EXECUTED",
+      "detail": "24 static cases retain original expectations and add refs0/length mismatch, unknown13-byte live data plus3-byte alignment hole[8224,8240), and independent OH continuation[1024,1048) plus proved free tail[8248,12288). Final two target pins were independently rechecked by a delegated source reviewer."
+    }
+  ],
+  "official_source_provenance_limits": {
+    "reviewed_local_provenance_metadata": true,
+    "primary_source_contents_refetched_by_this_reviewer": false,
+    "exact_official_blobs_are_author_observations": true,
+    "H5HG_git_blob_sha1": "29cd90fc2a15622b6d18dcb7921debd31e1f752a",
+    "H5HG_sha256": "5b36e760f3d99a17a7c904afc2f8d33f3a74f900f278ff5f8ffd272d1bb80395",
+    "H5Tvlen_git_blob_sha1": "ba31cd131efe727da2eba37345528262c6a168d7",
+    "H5Tvlen_sha256": "a954818405856833b3f851a55d609fea8e3b8f0bdd100a73542d646ab97152fc",
+    "implementation_vs_current_spec_refcount_difference_preserved": true,
+    "independent_official_network_validation_by_this_reviewer": false
+  },
+  "delegated_fixture_review": {
+    "reviewer_task": "/root/next_checkpoint_scope/owner_profile_registry/parser_v2_fixture_review",
+    "status": "NO_MATERIAL_SOURCE_ONLY_BLOCKER",
+    "HTTP": 0,
+    "target_imports_or_execution": 0,
+    "actual_source_cache_reads": 0,
+    "writes": 0
+  },
+  "blocking_issues": [],
+  "nonblocking_limits": [
+    "Synthetic fixture execution remains pending root invocation; this receipt is not a24-case runtime PASS.",
+    "Missing typed alignment padding and implied trailing free space lack standalone negative fixture cases; their source branches were reviewed.",
+    "Supplied cache authentication rests on a separately admitted caller/source manifest; this pure API cannot certify public provenance, global ownership, protected frames or scientific geometry.",
+    "Any invalid or unsupported plan must remain blocked for acquisition even if safe typed fragments were already recorded.",
+    "New missing object kinds require a separately reviewed transport allowlist/admission; this peer receipt authorizes no HTTP.",
+    "The actual old BLC66 invalid result and lost prefixes are not superseded, reconstructed, reused or re-requested."
+  ],
+  "activity": {
+    "target_imports": 0,
+    "target_executions": 0,
+    "synthetic_fixture_executions": 0,
+    "source_HTTP_requests": 0,
+    "source_prefix_HDF5_or_array_reads": 0,
+    "spectral_values_read": false,
+    "owner_writes": 0,
+    "broad_eligibility_scans": 0,
+    "new_private_receipts": 1
+  },
+  "geometry_qualified": false,
+  "protected_frame_qualified": false,
+  "scientific_values_authorized": false,
+  "HTTP_authorized": false,
+  "end_source_pin_recheck": true,
+  "metadata_receipt_preparation_process_CPU_seconds_including_stdlib_imports": 0.050888283,
+  "metadata_receipt_preparation_wall_seconds": 0.0274317469993548,
+  "metadata_receipt_preparation_peak_RSS_bytes": 16916480
+}

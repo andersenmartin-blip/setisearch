@@ -1,0 +1,21 @@
+{
+  "schema": "HDF5_TYPED_GCOL_REFS0_IMPLEMENTATION_COMPATIBILITY_V1",
+  "status": "SOURCE_ONLY_OFFICIAL_IMPLEMENTATION_CHECK",
+  "observed_UTC_date": "2026-10-10",
+  "repository": "HDFGroup/hdf5",
+  "historical_release_ref": "hdf5-1_10_5",
+  "sources": [
+    {"path": "src/H5HG.c", "git_blob_sha1": "29cd90fc2a15622b6d18dcb7921debd31e1f752a", "bytes": 30179, "sha256": "5b36e760f3d99a17a7c904afc2f8d33f3a74f900f278ff5f8ffd272d1bb80395", "git_blob_identity_recomputed": true, "observations": {"live_allocation_nrefs_zero_line": 348, "H5HG_read_definition_line": 595, "read_admission": "object index, beginning and size; no positive reference-count admission"}},
+    {"path": "src/H5Tvlen.c", "git_blob_sha1": "ba31cd131efe727da2eba37345528262c6a168d7", "bytes": 39648, "sha256": "a954818405856833b3f851a55d609fea8e3b8f0bdd100a73542d646ab97152fc", "git_blob_identity_recomputed": true, "observations": {"disk_write_definition_line": 873, "H5HG_insert_line": 912, "H5HG_link_call_present_in_file": false}}
+  ],
+  "official_specification": {"URL": "https://support.hdfgroup.org/documentation/hdf5/latest/_f_m_t4.html", "version": "4.0", "section": "III.E", "observed_positive_reference_count_wording_line": 838, "implementation_difference_explicit": true, "free_object_size_includes_header": true, "free_space_at_collection_end": true, "implied_free_header_when_remaining_extent_less_than_header": true},
+  "frozen_predecessor_parser": {"path": "tools/radio_visit2019_blc66_structure_20261010/structure.py", "bytes": 28565, "sha256": "b35003916c4ca79fe2b508b4ef1b83b1aadd3cff584cbbeef3fc655cdcb82273"},
+  "compatibility_change": "Remove only positive-refcount requirement from typed live string-attribute object admission; retain exact length/index/extent checks.",
+  "coverage_policy_change": "Propose known attribute data/alignment or proved free/slack only; never uncached untyped live heap data.",
+  "old_BLC66_prefix_state": "LOST_AFTER_ACTUAL_ONCE_CAPTURE_NO_REFETCH_OR_RECONSTRUCTION",
+  "old_BLC66_BODY_charge_bytes_retained_without_refund": 24576,
+  "real_source_cache_opened_for_this_proof": false,
+  "parser_or_synthetic_fixture_executed_for_this_proof": false,
+  "source_GET_requests": 0,
+  "scientific_values_read": false
+}

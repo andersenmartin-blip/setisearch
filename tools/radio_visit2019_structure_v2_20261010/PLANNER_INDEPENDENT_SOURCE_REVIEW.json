@@ -1,0 +1,144 @@
+{
+  "schema": "SETI_VISIT2019_TYPED_TRANSPORT_PLANNER_V2_SOURCE_PEER_REVIEW_V1",
+  "status": "PASS_SOURCE_ONLY_NO_HTTP_OR_VALUES",
+  "created_UTC": "2026-10-10T21:39:17Z",
+  "reviewer_task": "/root/next_checkpoint_scope/owner_profile_registry",
+  "planner_sha256": "c2a018710856c6f24bf22bcfa83a62dc08ebc39af1c1a5b7deb9d54896490b86",
+  "preparer_sha256": "3723faaa9a3dfd88f6a17bb6bbede47ecdba36573a670ddf48b5d50bbdd0ce2b",
+  "parser_sha256": "5fb4bf41245017ce9780c3e8b5727ff297fdbfaaa7fbe089aab8d53a014bcce8",
+  "fixture_sha256": "5e7f84380058052bd9f8ee8a71edc3f9924423eee22db3aa5e60173b970b6f2a",
+  "readbackpins": [
+    {
+      "path": "tools/radio_visit2019_structure_v2_20261010/planner.py",
+      "absolute_path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_visit2019_structure_v2_20261010/planner.py",
+      "bytes": 17723,
+      "sha256": "c2a018710856c6f24bf22bcfa83a62dc08ebc39af1c1a5b7deb9d54896490b86"
+    },
+    {
+      "path": "tools/radio_visit2019_structure_v2_20261010/prepare_scope.py",
+      "absolute_path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_visit2019_structure_v2_20261010/prepare_scope.py",
+      "bytes": 9966,
+      "sha256": "3723faaa9a3dfd88f6a17bb6bbede47ecdba36573a670ddf48b5d50bbdd0ce2b"
+    },
+    {
+      "path": "tools/radio_visit2019_structure_v2_20261010/structure.py",
+      "absolute_path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_visit2019_structure_v2_20261010/structure.py",
+      "bytes": 35587,
+      "sha256": "5fb4bf41245017ce9780c3e8b5727ff297fdbfaaa7fbe089aab8d53a014bcce8"
+    },
+    {
+      "path": "tools/radio_visit2019_structure_v2_20261010/HDF5_TYPED_METADATA_TOY_FIXTURE_V3.py",
+      "absolute_path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_visit2019_structure_v2_20261010/HDF5_TYPED_METADATA_TOY_FIXTURE_V3.py",
+      "bytes": 17123,
+      "sha256": "5e7f84380058052bd9f8ee8a71edc3f9924423eee22db3aa5e60173b970b6f2a"
+    },
+    {
+      "path": "tools/radio_visit2019_structure_v2_20261010/METHOD.md",
+      "absolute_path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_visit2019_structure_v2_20261010/METHOD.md",
+      "bytes": 5444,
+      "sha256": "82e34f26564c534dce37403e0a162c9c5e4415f46e2c5ae19c8049a2bdf0e088"
+    },
+    {
+      "path": "tools/radio_visit2019_structure_v2_20261010/OFFICIAL_IMPLEMENTATION_COMPATIBILITY.json",
+      "absolute_path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_visit2019_structure_v2_20261010/OFFICIAL_IMPLEMENTATION_COMPATIBILITY.json",
+      "bytes": 2234,
+      "sha256": "6eb03f4c676633e4bf3599987b13351a4d20ab305d8403c2831c1762e6c662a9"
+    },
+    {
+      "path": "tools/radio_visit2019_structure_v2_20261010/FIELD_SCHEMA.json",
+      "absolute_path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_visit2019_structure_v2_20261010/FIELD_SCHEMA.json",
+      "bytes": 1624,
+      "sha256": "9703127bbacc7207ac3a927eec384ba47f5dedc5df427ed0300048a95c6d8186"
+    },
+    {
+      "absolute_path": "/workspace/scratch/a8d1e29996d0/seti_fullpower_work/recovery_design/metadata_2019_review/TYPED_PARSER_V2_SOURCE_PEER_REVIEW.json",
+      "bytes": 9239,
+      "sha256": "caaacc92a29c2e06c1575f04c57c7b928ed4009d15c80746ef3ef693847aa028",
+      "role": "private_completed_pure_parser_peer"
+    }
+  ],
+  "end_source_pin_recheck": true,
+  "scope": "Source-only initial single-prefix-phase V2 planner and stat-only preparer. Generic initial-family contract consumes a separately frozen new transport manifest; completion-round loader/fetch worker is outside this review.",
+  "reviewed_findings": [
+    {
+      "check": "Explicit root gates and distinct namespace",
+      "result": "PASS_SOURCE_ONLY",
+      "detail": "prepare_scope requires root GO after initial closure and exact manifest SHA. planner requires root GO after own public freeze, exact scope SHA and commit form. Initial family regex permits separately admitted s/node transport families and excludes lost old BLC66 family. Output and pin paths remain canonical inside OUR repo."
+    },
+    {
+      "check": "Stat-only prefix scope preparation",
+      "result": "PASS_SOURCE_ONLY",
+      "detail": "prepare_scope does not open PREFIX.bin or import parser/planner. It stats canonical new-family prefix paths and size, reads only source/JSON metadata, and emits current source pins and original frozen prefix_bytes. No assumed geometry or inferred offsets are used."
+    },
+    {
+      "check": "Exact six-source provenance joins",
+      "result": "PASS_SOURCE_ONLY",
+      "detail": "planner joins exact manifest/files, original scope/code hash, initial execution/result, root admission and public freeze. It requires exactly six unique ordered IDs and URLs, per-source HEAD/PREFIX/HEADER receipt paths and exact embedded copies, new-family PREFIX.bin paths and bytes, complete BODY counts and zero retry/redirect/followup counters."
+    },
+    {
+      "check": "HTTP receipt authentication before cached bytes",
+      "result": "PASS_SOURCE_ONLY",
+      "detail": "HEAD must be one exact source URL attempt with200, strong ETag, identity encoding, pinned source size and zero BODY. GET must be one exact URL206, Range0..prefix_bytes-1, If-Match ETag, exact Content-Range/Length/ETag and retained BODY reservation. The current producer contract was confirmed unchanged by next_checkpoint_scope through fresh_band_analysis; no actual HEAD/GET receipt or source cache was opened in this review."
+    },
+    {
+      "check": "Exact proof-to-current-source binding repaired",
+      "result": "PASS_SOURCE_ONLY",
+      "detail": "The initial startswith(PASS) peer test and missing toy fixture join were identified before freeze. Final preparer3723faaa requires exact pure-peer schema/status and current parser/fixture hashes, exact planner/preparer author+independent review schemas and four current source hashes, plus actual24-case toy status, current parser and fixture hash. This closes stale source-proof admission."
+    },
+    {
+      "check": "Once-only and durable result capture",
+      "result": "PASS_SOURCE_ONLY",
+      "detail": "Scope preparation starts with exclusive marker and emits new files using xb/fsync. Planner uses exclusive output-directory marker, no retry, fsynced result and new prepared execution receipt, atomic exclusive hardlink publication, failure receipt before commitment, then directory fsync. Original incomplete/unsupported/invalid structural status remains separately recorded without science admission."
+    },
+    {
+      "check": "Metadata-only parser execution under finite bounds",
+      "result": "PASS_SOURCE_ONLY",
+      "detail": "Only exact reviewed pure parser source is compiled at later authorized runtime. Cached prefixes are hash/size checked before typed parsing and all admitted inputs are reread at end. No network, h5py, NumPy, chunk-index or science API exists. Invalid/unsupported source statuses remain explicit."
+    },
+    {
+      "check": "Runtime resource/output reservations",
+      "result": "PASS_SOURCE_ONLY",
+      "detail": "Planner requires20CPU/300wall/512MiB limits,4MiB output and12GiB summed shared-workspace cap, with preflight and end stat accounting. Resource snapshots are before terminal serialization and publication; this source receipt does not certify eventual full-process metrics or closure."
+    }
+  ],
+  "blocking_issues": [],
+  "producer_contract_confirmation": {
+    "source": "fresh_band_analysis message conveying next_checkpoint_scope confirmation",
+    "claim": "All current result booleans/counts and joins consumed by initial planner exist unchanged in the new producer.",
+    "independently_executed_or_opened_actual_transport_receipts_by_this_reviewer": false,
+    "selected_root_branch": "radio_visit2019_s31_blc77_headers_20261010",
+    "declared_prefix_bytes": 8192,
+    "all_six_declared_reservation_bytes": 49152
+  },
+  "actual_toy_status_external_report": {
+    "source": "fresh_band_analysis",
+    "reported_status": "CLOSED0_PASS_24_CASES",
+    "independently_executed_by_this_reviewer": false,
+    "actual_toy_receipt_opened_by_this_reviewer": false
+  },
+  "limits_and_dependencies": [
+    "Root must separately freeze current source/proof files and admit actual initial transport after full process closure before scope generation or planner runtime.",
+    "This receipt certifies source logic only; generated scope, actual prefix pins, actual source plans and full runtime resource/closure receipts do not yet form part of this review.",
+    "No completion-round cache reuse, metadata range fetch, native index, geometry, protected-frame qualification or scientific values are admitted.",
+    "Existing frozen old BLC66 files and invalid result are preserved; no lost bytes are reconstructed or replayed.",
+    "Full child/outer resource measurements remain the responsibility of root launch/closure evidence; inner resource_caps_satisfied is paired with a named pre-terminal snapshot."
+  ],
+  "activity": {
+    "source_HTTP_requests": 0,
+    "target_imports": 0,
+    "target_executions": 0,
+    "fixture_executions": 0,
+    "source_PREFIX_HDF5_or_array_reads": 0,
+    "spectral_values_read": false,
+    "owner_mutations": 0,
+    "broad_eligibility_scans": 0,
+    "new_private_receipts": 1
+  },
+  "HTTP_authorized": false,
+  "geometry_qualified": false,
+  "protected_frame_qualified": false,
+  "scientific_values_authorized": false,
+  "metadata_receipt_preparation_CPU_seconds_including_stdlib_imports": 0.038600355,
+  "metadata_receipt_preparation_wall_seconds": 0.015074577000632416,
+  "metadata_receipt_preparation_peak_RSS_bytes": 14548992
+}
