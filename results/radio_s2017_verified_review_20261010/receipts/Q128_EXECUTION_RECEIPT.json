@@ -1,0 +1,108 @@
+{
+  "status": "COMPLETE_NEW_S2017_THREE_CORE_MAPS_AND_NINE_FIXED_PROFILES_EXPLORATORY_ONLY",
+  "phase": "search",
+  "scope_sha256": "a93d6dda3f813b84be2452928fe42be76b6de3cb96cf4f85c9beda47adc9ea86",
+  "driver_sha256": "ca9c3890a8be325061e62c03b05aa795a582fc7d10012f0a565d8779920e6bf6",
+  "public_freeze_commit": "e8ada3c888d1f07b33d25dccb9f7ddc0c7d23995",
+  "source_manifest_sha256": "1fd17cbf60251b77c06a2bbeb00f405b068f3d60b32b9f4cfcf39eccc4076107",
+  "new_visit": true,
+  "same_frequency_replication_of_old_Lband_cases": false,
+  "blind_source_selection_before_original_value_opening": true,
+  "source_values_already_opened_in_original_failed_family": true,
+  "previously_decoded_rows": 26,
+  "scientific_search_previously_run": false,
+  "qualified_sky_detection": false,
+  "OFF_veto_applied": false,
+  "calibrated_SNR_FAP": false,
+  "original_A_B_status": "FAIL_CLOSED_UNCHANGED",
+  "retry_resume_or_rerun_authorized": false,
+  "CPU_cap_s": 120,
+  "wall_cap_s": 1800,
+  "memory_cap_bytes": 4294967296,
+  "cost_DKK": 0,
+  "limitations": [
+    "Original source selection was frozen before the first value opening. The failed initial acquisition decoded26 rows; this correction does not claim blind first opening or independent blind validation.",
+    "The original failure, receipt, scope, driver and partial files remain unchanged. Its27 successful requests retain all27 exact compressed bodies, including one unindexed matching suffix.",
+    "Underlying cause of H5Dwrite_chunk failure is not identified. Payload bytes were written, but the row3 chunk-index entry was absent. This correction separates durable raw storage from a serial write-close-read-only decode pass.",
+    "The69 allowed GETs are for previously unattempted source rows only. Reused27 rows have zero repeated GETs. Original charged and received byte totals are carried forward without refund.",
+    "S2017 S-band is a new historical visit and frequency band; it cannot replicate old1424MHz L-band cases at the same frequency.",
+    "Exactly one4096-carrier core per ON, about11.444kHz, is searched. The rest of the acquired2.930MHz chunk remains unsearched.",
+    "One historical visit with three ON/OFF pairs; epoch1/2/3 labels are scan positions, not independent visits.",
+    "Robust row-MAD box-track scores are post-selection maxima over correlated hypotheses, not calibrated SNR, false-alarm probabilities, flux, EIRP or sensitivity.",
+    "Exact fixed OFF channel predictions are descriptive profiles; they provide no qualified OFF veto or proof of absence of nearby interference.",
+    "Linear tracks only, widths1/3; no barycentric correction, nonlinear tracks, injection-recovery or sky false-alarm calibration.",
+    "Original control A/B failures and original saved receipts remain unchanged. No retry, resume, rerun or alternative source is authorized."
+  ],
+  "verified_inputs": [
+    {
+      "scan_id": "epoch1_on",
+      "file_sha256": "8dd5d3461772a5b670ee322903ac59113a724be3ea38c6c65a9dc9c6e9c50a82",
+      "decoded_rows_verified": 16
+    },
+    {
+      "scan_id": "epoch1_off",
+      "file_sha256": "7808fdf482af7d6eeead61f4aee17e185ffa55e5767d74debe3bfa1362eb91e3",
+      "decoded_rows_verified": 16
+    },
+    {
+      "scan_id": "epoch2_on",
+      "file_sha256": "b6c96c859938dabe4501d56ac3f7ec09cb009df1c6884fd7c3b342bddfc24df1",
+      "decoded_rows_verified": 16
+    },
+    {
+      "scan_id": "epoch2_off",
+      "file_sha256": "2ae845df0df0cf6e0d3665c61930b63f61539b7eecd9c2987b1709ef8609e0a4",
+      "decoded_rows_verified": 16
+    },
+    {
+      "scan_id": "epoch3_on",
+      "file_sha256": "431afe1b7bd5a3c2f2444945dcbfcf5ea7c5fd35558186ad6edf3c9a5bb6d0fc",
+      "decoded_rows_verified": 16
+    },
+    {
+      "scan_id": "epoch3_off",
+      "file_sha256": "ffa798638d16e3db51ce106af46aa8b921d3b94fb5dc4f5951fc62e18935643c",
+      "decoded_rows_verified": 16
+    }
+  ],
+  "acquisition_receipt_sha256": "e10cb04bef9f5fd7a8cd132ffc90af16f9345e94b3630e4ce98c5adc8f46edbf",
+  "search_summary": {
+    "completed_ON_maps": 3,
+    "carriers_per_ON": 4096,
+    "drift_grid_count": 785,
+    "widths_channels": [
+      1,
+      3
+    ],
+    "half_grid_mismatch_channels": 0.4999914688345971,
+    "bandwidth_per_ON_hz": 11444.091796875,
+    "native_chunk_fraction_searched": 0.00390625,
+    "reference_time": "each ON first integration midpoint; six-scan profiles use actual header epochs",
+    "score_definition": "unchanged row-MAD-standardized odd-box track sum/sqrt(Nrow*width)",
+    "normalization": "unchanged each4096-carrier row core and501-channel filter"
+  },
+  "fixed_profile_summary": {
+    "profile_count": 9,
+    "plot_count": 0,
+    "all_rows_retained": 16,
+    "source_top20_sha256": "41ccd18244539b6d8f321a4a866a0c140f2a3d406f40e7223ab20af8d29c0807",
+    "saved_normalization_sha256": "6dced4644d01db8a6a2dc8d4b740c63ca2d582691bdef810d1a9138c8d97b7cf",
+    "shift_frequency_drift_width_optimization_applied": false,
+    "raw_patch_alignment": "rounded absolute source channels along exact fixed selected track in each actual scan",
+    "time_profile_units": "width-mean raw power/full-chunk row median minus fixed flank median",
+    "mean_profile_units": "mean track-aligned row-normalized power minus each row fixed flank median"
+  },
+  "MJD_anchor": 57871.54416666667,
+  "runtime_versions": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "h5py": "3.15.1",
+    "hdf5plugin": "7.1.0",
+    "HDF5": "1.14.6"
+  },
+  "new_telescope_HTTP_requests": 0,
+  "new_telescope_BODY_bytes": 0,
+  "process_CPU_seconds_including_imports": 8.057192907,
+  "wall_seconds_including_imports": 8.00415670899929,
+  "peak_RSS_bytes": 542978048
+}
