@@ -1,3 +1,15 @@
+**Senest afsluttet, 10. oktober 2026:** Native udsnit 151 er gennemgået i to faste grupper med 214 nye referencefelter. **4.012.818.432 drift-/breddehypotesekombinationer** blev evalueret over 2.629.632 ON-referencekanal/originkombinationer. Med de tidligere felter er **99,21875 % af referencefelterne i dette udsnit** dækket på netop dette grid og bredderne 1 og 3; det er ikke en generel fuldstændigheds- eller følsomhedsmåling.
+
+Kildekontrollen bestod for **222.912 rå profilceller**. De 18 udvalgte spor samler sig i to snævre frekvensområder, og den stærkeste stationære struktur er til stede i alle ON- og OFF-scanninger. Scanningerne er fra samme historiske besøg. Der er ingen kvalificeret SETI-kandidat, oprindelsesbestemmelse eller kalibreret SNR fra denne fase; originalfilernes fulde MD5 er fortsat ikke verificeret.
+
+[Resultatrapport](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_FULL_SAFE_REPORT_2026-10-10.md) · [Reproduktion](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/tools/radio_full_safe_20261010/REPRODUCTION.md) · [Projektstatus](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md)
+
+Resultatpakken `SETI_FULL_SAFE_RESULTS_2026-10-10.zip` er verificeret og klargjort som brugerleverance. SHA256: `da818bcdb82fcf583d4c890aa6b6055e81f96e09bd6beb35e5e5a7edd114aee8`. En byteidentisk kopi fordelt på seks arkivdele kan samles efter [arkivmanifestet](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results/radio_full_safe_20261010/archive_parts_10MiB/PARTS_MANIFEST.json).
+
+**Nu i gang:** Native udsnit 153 og 154 er fastlåst ved `d1bfe755e205e99b3c93544f4af84cc8d4585938`; alle 610.283.243 databytes og begge kildekontroller er færdige; fire søgninger kører parallelt. Resultater og kvalitetskontrol for denne fase afventer.
+
+---
+
 # SETI-opdatering — 10. oktober 2026
 
 De ni seneste gap-driftprofiler er nu også undersøgt ved deres oprindelige faste frekvenser i alle seks scanninger. Alle ni origin-ON-profiler har højere middel langs det tidligere driftspor end ved den faste reference. Det følger efter tidligere udvælgelse efter driftmaksima og afgør ikke signalernes oprindelse. En konkret OFF-kontrol har positiv fast frekvenskontekst, selv om værdien langs driftsporet er negativ; lave OFF-sporværdier er derfor utilstrækkelige alene.
