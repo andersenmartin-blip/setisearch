@@ -1,0 +1,272 @@
+{
+  "status": "OFFICIAL_FORMAT_RESEARCH_COMPLETE_IMPLEMENTATION_REVIEW_PENDING",
+  "research_scope": "Primary official HDF Group format specifications only; no telescope requests, source HDF5 bytes, arrays, h5py or structural-parser execution.",
+  "sources": [
+    {
+      "url": "https://portal.hdfgroup.org/documentation/hdf5/latest/_f_m_t4.html",
+      "sections": [
+        "I.A",
+        "II.A",
+        "III.A.1",
+        "III.B",
+        "III.C",
+        "III.D",
+        "III.E",
+        "IV.A.1.a",
+        "IV.A.3.g",
+        "IV.A.3.m",
+        "IV.A.3.q",
+        "IV.B",
+        "V"
+      ],
+      "web_refs": [
+        "turn49view0",
+        "turn53view0",
+        "turn53view2",
+        "turn53view3",
+        "turn54view1",
+        "turn54view4",
+        "turn59view0",
+        "turn59view1",
+        "turn59view3"
+      ]
+    },
+    {
+      "url": "https://portal.hdfgroup.org/documentation/hdf5/latest/_f_m_t2.html",
+      "sections": [
+        "IV.A.2.m",
+        "IV.A.2.q"
+      ],
+      "web_refs": [
+        "turn50view5",
+        "turn53view4"
+      ]
+    },
+    {
+      "url": "https://portal.hdfgroup.org/documentation/hdf5/latest/_f_m_t11.html",
+      "sections": [
+        "Level1E",
+        "Level2A"
+      ],
+      "web_refs": [
+        "turn50view6",
+        "turn53view5"
+      ]
+    }
+  ],
+  "conventions": {
+    "O": "unsigned little-endian object-address width from superblock",
+    "L": "unsigned little-endian length width from superblock",
+    "undefined_address": "all bits set in O-byte address",
+    "object_pointer_physical_location": "base_address + stored_relative_address, subject to explicit format exceptions",
+    "superblock_EOF": "absolute byte position, not base plus EOF",
+    "conservative_initial_implementation_restrictions": [
+      "Superblock version0 only",
+      "O=L=8 only",
+      "base address equals admitted signature position",
+      "Object header version1 only",
+      "Only explicitly decoded metadata pointer kinds",
+      "No raw dataset-layout or chunk-index traversal"
+    ]
+  },
+  "superblock_v0": {
+    "relative_offsets": {
+      "signature": [
+        0,
+        8
+      ],
+      "superblock_version": [
+        8,
+        1
+      ],
+      "free_space_version": [
+        9,
+        1
+      ],
+      "root_entry_version": [
+        10,
+        1
+      ],
+      "reserved0": [
+        11,
+        1
+      ],
+      "shared_message_version": [
+        12,
+        1
+      ],
+      "O": [
+        13,
+        1
+      ],
+      "L": [
+        14,
+        1
+      ],
+      "reserved1": [
+        15,
+        1
+      ],
+      "group_leaf_K": [
+        16,
+        2
+      ],
+      "group_internal_K": [
+        18,
+        2
+      ],
+      "consistency_flags": [
+        20,
+        4
+      ],
+      "base_address": [
+        "24",
+        "O"
+      ],
+      "free_space_address": [
+        "24+O",
+        "O"
+      ],
+      "EOF_absolute": [
+        "24+2*O",
+        "O"
+      ],
+      "driver_information_relative": [
+        "24+3*O",
+        "O"
+      ],
+      "root_symbol_entry": [
+        "24+4*O",
+        "L+O+24"
+      ]
+    },
+    "root_symbol_entry_fields": [
+      "name_heap_offset L",
+      "object_header_relative_address O",
+      "cache_type uint32",
+      "reserved uint32",
+      "scratch bytes16"
+    ],
+    "root_OH_address_field_offset": "24+4*O+L (64 when O=L=8)",
+    "superblock_total_bytes": "48+5*O+L (96 when O=L=8)",
+    "signature_locations": "0,512,1024,2048,...; candidate finite probe list must be prospective, not arbitrary signature scanning",
+    "version0_has_no_indexed_storage_K_extension": true
+  },
+  "object_header_v1": {
+    "prefix_bytes": 16,
+    "prefix_fields": [
+      "version uint8=1",
+      "reserved uint8=0",
+      "all_message_count uint16",
+      "hard_link_count uint32",
+      "first_chunk_message_bytes uint32",
+      "reserved uint32=0"
+    ],
+    "first_message_offset": 16,
+    "message_header_bytes": 8,
+    "message_header_fields": [
+      "type uint16",
+      "payload_bytes uint16",
+      "flags uint8",
+      "reserved bytes3"
+    ],
+    "message_alignment": "8-byte within the object-header or continuation block; initial prefix already16-byte",
+    "payload_size_includes_8byte_padding": true,
+    "message_count_includes_continuation_messages": true,
+    "header_size_excludes_other_continuation_blocks": true,
+    "shared_flag": "bit1 changes payload into shared-message encoding; unsupported shared payload must not be decoded as ordinary attribute/continuation"
+  },
+  "continuation": {
+    "message_type": "0x0010",
+    "payload_fields": [
+      "relative_address O",
+      "block_length L"
+    ],
+    "padded_payload_bytes_with_O_L_8": 16,
+    "version1_target": "message sequences only, without OCHK/OHDR magic or checksum",
+    "version2_target_is_different": true
+  },
+  "attribute_to_global_heap": {
+    "attribute_type": "0x000c",
+    "version1_header_bytes": 8,
+    "version1_subfields": "name, datatype and dataspace each independently round up to8; raw data follows without additional field padding",
+    "version2_header_bytes": 8,
+    "version2_subfields": "name/type/dataspace packed, no independent8-byte padding",
+    "version3_header_bytes": 9,
+    "version3_addition": "name encoding byte after first8bytes; packed subsequent fields",
+    "shared_attribute_datatype_or_dataspace": "must decode supported shared encoding or fail closed; no interpreting shared bytes as a normal datatype",
+    "typed_vlen_string": "datatype class9; subtype1; character base; scalar/simple dataspace gives exact descriptor count",
+    "element_descriptor_fields": [
+      "sequence_length uint32 (independent of L)",
+      "collection_relative_address O",
+      "object_index uint32"
+    ],
+    "element_bytes": "8+O (16 with O=8)",
+    "fixed_string_datatype_class3_is_not_a_heap_reference": true
+  },
+  "global_heap_collection_v1": {
+    "header_fields": [
+      "signature bytes4=GCOL",
+      "version uint8=1",
+      "reserved bytes3=0",
+      "collection_total_bytes L"
+    ],
+    "header_bytes": "8+L (16 with L=8)",
+    "collection_size_includes_collection_header": true,
+    "object_header_fields": [
+      "object_index uint16",
+      "reference_count uint16",
+      "reserved uint32=0",
+      "object_data_bytes L"
+    ],
+    "object_header_bytes": "8+L (16 with L=8)",
+    "live_object_next": "current + (8+L) + round_up_to8(object_data_bytes)",
+    "live_object_size_is_data_only": true,
+    "index0_free_object_size": "includes its own object header and remaining free allocation; unlike live data size",
+    "object_count_not_stored": "parse sequentially until index0 or declared collection end; no gaps except possible final fragment shorter than a header",
+    "discovery": "Only through typed metadata reference; GCOL collections neither form a discoverable linked list nor imply every matching byte signature is metadata",
+    "heap_ID_object_index_uint32_differs_from_object_header_index_uint16": true
+  },
+  "legacy_group_metadata": {
+    "symbol_table_message": "0x0011: relative TREE address O + relative local HEAP address O",
+    "group_TREE": "signature TREE, type0, level uint8, children_count uint16, sibling addresses O/O, alternating L-byte name-offset keys and O-byte children; N children and N+1 keys",
+    "leaf_children": "level0 points to SNOD; higher levels point to same-type TREE at lower level",
+    "TREE_type1": "raw chunk index; outside first structural metadata scope",
+    "SNOD": "signature4, version1 uint8, reserved uint8, valid_entry_count uint16; valid entries only",
+    "HEAP": "signature4, version0 uint8, reserved3, data_length L, free_offset L, data_relative_address O; relocated data must follow its address rather than assume immediate adjacency"
+  },
+  "compact_hard_link": {
+    "message_type": "0x0006",
+    "version": 1,
+    "flags": "bits0..1 name-length-width selector1/2/4/8; bit2 creation-order uint64; bit3 link-type; bit4 charset; bits5..7 reserved",
+    "hard_link": "bit3 clear; link name is length-delimited without NUL; target is O-byte object-header relative address",
+    "nonhard_links": "soft/external/user-defined links require separate typed support or explicit rejection; not follow as object headers"
+  },
+  "implementation_policy_inferences": [
+    "Every proposed missing byte fragment must name an admitted parent byte interval and its decoded pointer field/type.",
+    "A parser/cache miss by itself is insufficient authorization for remote fetch.",
+    "Ranges must be nonnegative, nonempty, within independently pinned file length and strict finite per-object/global byte caps.",
+    "Cycles, duplicate conflicting geometry, unknown unsupported versions/shared encodings, malformed count/length/reserved fields fail closed; no recovery via signature search.",
+    "Unsupported raw storage/chunk addresses are recorded as metadata descriptions without being proposed as fetches."
+  ],
+  "planned_source_only_fixture_cases": [
+    "v0width8 rootentry and nonzero admitted userblock base",
+    "v1continuation normal message sequence and global count",
+    "typed missing continuation range with exact parent pointer provenance",
+    "class3 fixedstring resembling16-byte vlen reference yields no GCOL edge",
+    "actual class9 scalar string yields exact GCOL header then bounded collection",
+    "live object data length vs index0 total-free length",
+    "malformed descriptor bounds and invalid object index",
+    "continuation cycle/count mismatch/shared flag reject",
+    "legacy TREE0/HEAP relocatedsegment/SNOD data name only; TREE1 never fetched",
+    "compact hardlink optional flag ordering and length selector"
+  ],
+  "limitations": [
+    "This note derives parser requirements from official specifications and is not evidence of any2019 file geometry.",
+    "Some historical editions label symbol-table name-offset width differently; admitted O=L=8 restriction avoids interpreting unequal widths.",
+    "The version1.0 global-heap wording is obsolete relative to version1.1/2.0/4.0; candidate supports GCOL version1 only.",
+    "No fixture or parser has been imported or executed."
+  ],
+  "metadata_note_process_CPU_seconds": 0.00012259200000000123,
+  "metadata_note_peak_RSS_bytes": 9699328
+}

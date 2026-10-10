@@ -1,0 +1,392 @@
+{
+  "status": "PASS_SYNTHETIC_ONLY_HDF5_TYPED_METADATA_FIXTURES_V2",
+  "structure_source_pin": {
+    "path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_visit2019_blc66_structure_20261010/structure.py",
+    "sha256": "b35003916c4ca79fe2b508b4ef1b83b1aadd3cff584cbbeef3fc655cdcb82273",
+    "bytes": 28565
+  },
+  "fixture_source_sha256": "93ded18d7a7436765a1bb7a57de8c84ce823173dcc058f367c18ed334f3e77a9",
+  "preserved_original_fixture_source_sha256": "f67566165954bcc3c874772fa83ad905204f504508ec23d184b293ad498e6794",
+  "fixture_cases": [
+    {
+      "case": "v0_root_entry_v1_data_hardlink",
+      "passed": true,
+      "actual_status": "COMPLETE_SUPPORTED_HEADER_STRUCTURE",
+      "missing_fragments": [],
+      "errors": []
+    },
+    {
+      "case": "v1_continuation_without_OCHK",
+      "passed": true,
+      "actual_status": "COMPLETE_SUPPORTED_HEADER_STRUCTURE",
+      "missing_fragments": [],
+      "errors": []
+    },
+    {
+      "case": "typed_continuation_missing_exact24bytes",
+      "passed": true,
+      "actual_status": "INCOMPLETE_TYPED_METADATA_FRAGMENTS",
+      "missing_fragments": [
+        {
+          "source_id": "synthetic_2019_metadata_only",
+          "offset": 1024,
+          "length": 24,
+          "range": "bytes=1024-1047",
+          "object_kind": "v1_object_header_messages",
+          "typed_object_interval_half_open": [
+            1024,
+            1048
+          ],
+          "typed_parent_evidence": {
+            "offset": 280,
+            "bytes": 16,
+            "sha256": "e29d618ed0073d60c2320116c3842e281c4edb3168075a443b05861c9365e559",
+            "interpretation": "v1 continuation offset and length",
+            "cache_pins": [
+              {
+                "path": "synthetic://typed_continuation_missing_exact24bytes/256",
+                "bytes": 40,
+                "sha256": "834bd033922d675299d31ce69322833fcefc5a9d9c3c57835b9b3fc02354057e"
+              }
+            ],
+            "encoded_field_hex": "00040000000000001800000000000000",
+            "message_type": 16,
+            "object_header": "root",
+            "message_header_evidence": {
+              "offset": 272,
+              "bytes": 8,
+              "sha256": "a0b14c341ab8cd76a823923ebf0a365e9e61961ec4f6eab8e72c47286417a630",
+              "interpretation": "v1 continuation message envelope",
+              "cache_pins": [
+                {
+                  "path": "synthetic://typed_continuation_missing_exact24bytes/256",
+                  "bytes": 40,
+                  "sha256": "834bd033922d675299d31ce69322833fcefc5a9d9c3c57835b9b3fc02354057e"
+                }
+              ]
+            }
+          },
+          "payload_pointer": false,
+          "HTTP_authorized": false
+        }
+      ],
+      "errors": []
+    },
+    {
+      "case": "v1_continuation_cycle",
+      "passed": true,
+      "actual_status": "INVALID_METADATA",
+      "missing_fragments": [],
+      "errors": [
+        "Continuation depth/cycle invalid"
+      ]
+    },
+    {
+      "case": "v1_total_message_count_mismatch",
+      "passed": true,
+      "actual_status": "INVALID_METADATA",
+      "missing_fragments": [],
+      "errors": [
+        "Total message count differs across continuation blocks"
+      ]
+    },
+    {
+      "case": "fixed_string_descriptor_lookalike_no_GCOL_edge",
+      "passed": true,
+      "actual_status": "COMPLETE_SUPPORTED_HEADER_STRUCTURE",
+      "missing_fragments": [],
+      "errors": []
+    },
+    {
+      "case": "unsupported_compound_attribute_no_GCOL_edge",
+      "passed": true,
+      "actual_status": "UNSUPPORTED_FORMAT",
+      "missing_fragments": [],
+      "errors": [
+        "Compound/reference/enum/array attribute schemas are not traversed"
+      ]
+    },
+    {
+      "case": "unsupported_VL_dataspace_version_no_GCOL_edge",
+      "passed": true,
+      "actual_status": "UNSUPPORTED_FORMAT",
+      "missing_fragments": [],
+      "errors": [
+        "Unsupported attribute dataspace version"
+      ]
+    },
+    {
+      "case": "typed_vlen_attribute_v1",
+      "passed": true,
+      "actual_status": "COMPLETE_SUPPORTED_HEADER_STRUCTURE",
+      "missing_fragments": [],
+      "errors": []
+    },
+    {
+      "case": "typed_vlen_attribute_v2",
+      "passed": true,
+      "actual_status": "COMPLETE_SUPPORTED_HEADER_STRUCTURE",
+      "missing_fragments": [],
+      "errors": []
+    },
+    {
+      "case": "typed_GCOL_header_missing_exact16bytes",
+      "passed": true,
+      "actual_status": "INCOMPLETE_TYPED_METADATA_FRAGMENTS",
+      "missing_fragments": [
+        {
+          "source_id": "synthetic_2019_metadata_only",
+          "offset": 8192,
+          "length": 16,
+          "range": "bytes=8192-8207",
+          "object_kind": "global_heap_collection_header",
+          "typed_object_interval_half_open": [
+            8192,
+            8208
+          ],
+          "typed_parent_evidence": {
+            "offset": 584,
+            "bytes": 16,
+            "sha256": "d4e442469b80c980ebcc228efc5b4cd1a2373b8c6d8cc2cbe65fa48f973a0595",
+            "interpretation": "VL string attribute sequence-length/global-heap ID",
+            "cache_pins": [
+              {
+                "path": "synthetic://typed_GCOL_header_missing_exact16bytes/512",
+                "bytes": 88,
+                "sha256": "a8cd761888809c98ba8ecf21b01a9df7163c1e09bd89c9e9ef53306f98cafca9"
+              }
+            ],
+            "encoded_field_hex": "05000000002000000000000001000000",
+            "attribute_message_offset": 536,
+            "element": 0,
+            "heap_object_index": 1,
+            "attribute_header_evidence": {
+              "offset": 536,
+              "bytes": 8,
+              "sha256": "1ede3116647026ce8061db4548e4cbdeda7f002ac01734e95b16422f7f575a30",
+              "interpretation": "verified attribute message header",
+              "cache_pins": [
+                {
+                  "path": "synthetic://typed_GCOL_header_missing_exact16bytes/512",
+                  "bytes": 88,
+                  "sha256": "a8cd761888809c98ba8ecf21b01a9df7163c1e09bd89c9e9ef53306f98cafca9"
+                }
+              ]
+            },
+            "datatype_evidence": {
+              "offset": 552,
+              "bytes": 20,
+              "sha256": "e8c11ba8799059ad79411295f311602875a010817719ce9e944aee98c511e1b5",
+              "interpretation": "verified VL string datatype",
+              "cache_pins": [
+                {
+                  "path": "synthetic://typed_GCOL_header_missing_exact16bytes/512",
+                  "bytes": 88,
+                  "sha256": "a8cd761888809c98ba8ecf21b01a9df7163c1e09bd89c9e9ef53306f98cafca9"
+                }
+              ]
+            },
+            "dataspace_evidence": {
+              "offset": 576,
+              "bytes": 8,
+              "sha256": "7c9fa136d4413fa6173637e883b6998d32e1d675f88cddff9dcbcf331820f4b8",
+              "interpretation": "verified VL attribute dataspace",
+              "cache_pins": [
+                {
+                  "path": "synthetic://typed_GCOL_header_missing_exact16bytes/512",
+                  "bytes": 88,
+                  "sha256": "a8cd761888809c98ba8ecf21b01a9df7163c1e09bd89c9e9ef53306f98cafca9"
+                }
+              ]
+            }
+          },
+          "payload_pointer": false,
+          "HTTP_authorized": false
+        }
+      ],
+      "errors": []
+    },
+    {
+      "case": "typed_string_data_missing_exact5bytes",
+      "passed": true,
+      "actual_status": "INCOMPLETE_TYPED_METADATA_FRAGMENTS",
+      "missing_fragments": [
+        {
+          "source_id": "synthetic_2019_metadata_only",
+          "offset": 8224,
+          "length": 5,
+          "range": "bytes=8224-8228",
+          "object_kind": "referenced_string_attribute_heap_bytes",
+          "typed_object_interval_half_open": [
+            8224,
+            8229
+          ],
+          "typed_parent_evidence": {
+            "offset": 8208,
+            "bytes": 16,
+            "sha256": "b4510e77669223b059fc6b06d7af84724c1472e7b92c08013b293dca7a3f339a",
+            "interpretation": "referenced GCOL live-object index/refcount/data size",
+            "cache_pins": [
+              {
+                "path": "synthetic://typed_string_data_missing_exact5bytes/8208",
+                "bytes": 16,
+                "sha256": "b4510e77669223b059fc6b06d7af84724c1472e7b92c08013b293dca7a3f339a"
+              }
+            ],
+            "encoded_field_hex": "01000100000000000500000000000000",
+            "originating_attribute_reference": {
+              "offset": 584,
+              "bytes": 16,
+              "sha256": "d4e442469b80c980ebcc228efc5b4cd1a2373b8c6d8cc2cbe65fa48f973a0595",
+              "interpretation": "VL string attribute sequence-length/global-heap ID",
+              "cache_pins": [
+                {
+                  "path": "synthetic://typed_string_data_missing_exact5bytes/512",
+                  "bytes": 88,
+                  "sha256": "a8cd761888809c98ba8ecf21b01a9df7163c1e09bd89c9e9ef53306f98cafca9"
+                }
+              ],
+              "encoded_field_hex": "05000000002000000000000001000000",
+              "attribute_message_offset": 536,
+              "element": 0,
+              "heap_object_index": 1,
+              "attribute_header_evidence": {
+                "offset": 536,
+                "bytes": 8,
+                "sha256": "1ede3116647026ce8061db4548e4cbdeda7f002ac01734e95b16422f7f575a30",
+                "interpretation": "verified attribute message header",
+                "cache_pins": [
+                  {
+                    "path": "synthetic://typed_string_data_missing_exact5bytes/512",
+                    "bytes": 88,
+                    "sha256": "a8cd761888809c98ba8ecf21b01a9df7163c1e09bd89c9e9ef53306f98cafca9"
+                  }
+                ]
+              },
+              "datatype_evidence": {
+                "offset": 552,
+                "bytes": 20,
+                "sha256": "e8c11ba8799059ad79411295f311602875a010817719ce9e944aee98c511e1b5",
+                "interpretation": "verified VL string datatype",
+                "cache_pins": [
+                  {
+                    "path": "synthetic://typed_string_data_missing_exact5bytes/512",
+                    "bytes": 88,
+                    "sha256": "a8cd761888809c98ba8ecf21b01a9df7163c1e09bd89c9e9ef53306f98cafca9"
+                  }
+                ]
+              },
+              "dataspace_evidence": {
+                "offset": 576,
+                "bytes": 8,
+                "sha256": "7c9fa136d4413fa6173637e883b6998d32e1d675f88cddff9dcbcf331820f4b8",
+                "interpretation": "verified VL attribute dataspace",
+                "cache_pins": [
+                  {
+                    "path": "synthetic://typed_string_data_missing_exact5bytes/512",
+                    "bytes": 88,
+                    "sha256": "a8cd761888809c98ba8ecf21b01a9df7163c1e09bd89c9e9ef53306f98cafca9"
+                  }
+                ]
+              }
+            }
+          },
+          "payload_pointer": false,
+          "HTTP_authorized": false
+        }
+      ],
+      "errors": []
+    },
+    {
+      "case": "other_heap_data13bytes_not_queued",
+      "passed": true,
+      "actual_status": "COMPLETE_SUPPORTED_HEADER_STRUCTURE",
+      "missing_fragments": [],
+      "errors": []
+    },
+    {
+      "case": "free_object_size_includes_header",
+      "passed": true,
+      "actual_status": "INVALID_METADATA",
+      "missing_fragments": [],
+      "errors": [
+        "Referenced VL attribute heap index absent"
+      ]
+    },
+    {
+      "case": "free_object_data_only_size_rejected",
+      "passed": true,
+      "actual_status": "INVALID_METADATA",
+      "missing_fragments": [],
+      "errors": [
+        "GCOL free object size must include its header"
+      ]
+    },
+    {
+      "case": "unsupported_parent_datatype_version",
+      "passed": true,
+      "actual_status": "UNSUPPORTED_FORMAT",
+      "missing_fragments": [],
+      "errors": [
+        "Unsupported VL string parent datatype version"
+      ]
+    },
+    {
+      "case": "typed_reference_outside_file_rejected",
+      "passed": true,
+      "actual_status": "INVALID_METADATA",
+      "missing_fragments": [],
+      "errors": [
+        "Typed metadata extent outside source or object bound"
+      ]
+    },
+    {
+      "case": "legacy_TREE0_relocated_HEAP_SNOD_data_only",
+      "passed": true,
+      "actual_status": "COMPLETE_SUPPORTED_HEADER_STRUCTURE",
+      "missing_fragments": [],
+      "errors": []
+    },
+    {
+      "case": "TREE1_chunk_storage_not_followed",
+      "passed": true,
+      "actual_status": "UNSUPPORTED_FORMAT",
+      "missing_fragments": [],
+      "errors": [
+        "Only group TREE type 0 is traversed"
+      ]
+    },
+    {
+      "case": "compact_hardlink_width4_corder_utf8",
+      "passed": true,
+      "actual_status": "COMPLETE_SUPPORTED_HEADER_STRUCTURE",
+      "missing_fragments": [],
+      "errors": []
+    },
+    {
+      "case": "raw_layout_pointer_never_queued",
+      "passed": true,
+      "actual_status": "COMPLETE_SUPPORTED_HEADER_STRUCTURE",
+      "missing_fragments": [],
+      "errors": []
+    },
+    {
+      "case": "partial_superblock_no_false_COMPLETE",
+      "passed": true,
+      "actual_status": "INCOMPLETE_TYPED_METADATA_FRAGMENTS"
+    }
+  ],
+  "passed_cases": 22,
+  "source_end_pin_exact": true,
+  "actual_HDF5_source_or_cached_telescope_bytes_opened": false,
+  "arrays_or_h5py_imported": false,
+  "network_or_source_GET": false,
+  "pure_target_definitions_executed_only_with_handmade_metadata_bytes": true,
+  "no_scientific_detector_or_profiles_or_medians_or_matching": true,
+  "CPU_cap_s": 10,
+  "wall_cap_s": 30,
+  "memory_cap_bytes": 1073741824,
+  "process_CPU_seconds_including_imports": 0.047690909,
+  "wall_seconds": 0.018976026000018464,
+  "peak_RSS_bytes": 15597568
+}
