@@ -1,0 +1,62 @@
+{
+  "schema": "SETI_VISIT2019_SIX_HEADER_CACHE_QUALIFICATION_SCOPE_V2",
+  "script_sha256": "Exact qualify_generic_once.py SHA256",
+  "metadata_core_pin": "Exact {path,bytes,sha256} pin for metadata_with_types.py; original metadata.py remains unchanged",
+  "source_manifest_pin": "Exact {path,bytes,sha256} pin for the newly selected SIX_SOURCE_IDENTITIES.json",
+  "source_manifest_schema": "Exact schema from that frozen manifest, with no old visit/node identity constants",
+  "cache_admission_worker_pin": "Exact {path,bytes,sha256} pin for inert cache_admission.py",
+  "last_complete_planner_worker_pin": "Exact {path,bytes,sha256} pin for the actual last complete typed planner CLI",
+  "typed_parser_pin": "Exact {path,bytes,sha256} pin for that planner's pure parser",
+  "cache_history_scope_pin": "Exact {path,bytes,sha256} pin for that planner's actual complete scope",
+  "last_complete_planner_result_pin": "Exact {path,bytes,sha256} pin for all six actual complete typed plans",
+  "last_complete_planner_execution_pin": "Exact {path,bytes,sha256} pin for actual resource-closed planner execution",
+  "limits": {
+    "CPU_seconds": 20,
+    "wall_seconds": 300,
+    "memory_bytes": 536870912,
+    "output_bytes": 4194304,
+    "shared_workspace_bytes": 12884901888
+  },
+  "shared_workspace_roots": [
+    "/workspace/scratch/a8d1e29996d0",
+    "/workspace/scratch/5bf3860dacd6"
+  ],
+  "qualification_rules": {
+    "ON_pointing_tolerance_degrees": 0.016666666666666666,
+    "distinct_pointing_minimum_degrees": 0.016666666666666666,
+    "midpoint_rule": "floor(n_native_frequency_chunks/2); zero-based; fixed before amplitudes",
+    "source_values_admission": "BLOCKED",
+    "independent_validation_admission": "BLOCKED"
+  },
+  "output_directory": "New ROOT-relative results/radio_visit2019_blc66_metadata_20261010/qualification_once directory; never reuse an attempted output",
+  "cache_admission": {
+    "schema": "SETI_VISIT2019_GENERIC_METADATA_CACHE_ADMISSION_V1",
+    "source_manifest_pin": "Exact pin, equal to top-level source_manifest_pin",
+    "source_manifest_schema": "Exact schema, equal to top-level source_manifest_schema",
+    "initial_transport": {
+      "scope_pin": "Actual initial opaque transport scope pin",
+      "result_pin": "Actual HEADER_RESULT.json pin",
+      "execution_pin": "Actual EXECUTION_RECEIPT.json pin",
+      "worker_pin": "Actual opaque transport source pin",
+      "outer_worker_pin": "Actual transport launcher source pin",
+      "outer_resources_pin": "Actual resource-PASS COMMAND_RESOURCES.json binding reaped child exit0 and exact original inner receipt pins",
+      "root_admission_pin": "Actual root transport admission pin",
+      "expected_scope_schema": "SETI_VISIT2019_INITIAL_PREFIX_TRANSPORT_SCOPE_V1",
+      "expected_result_schema": "SETI_VISIT2019_INITIAL_PREFIX_TRANSPORT_RESULT_V1",
+      "expected_complete_status": "COMPLETE_INITIAL_PREFIX_TRANSPORT_ONLY_NO_VALUES_ADMISSION",
+      "expected_root_admission_schema": "Exact root admission schema",
+      "expected_root_admission_status": "Exact root admission PASS status"
+    },
+    "initial_sources": "Six ordered identity entries each with HEAD_receipt_pin, PREFIX_receipt_pin, HEADER_receipt_pin and prefix_pin",
+    "completion_rounds": "Empty for initial-only coverage; otherwise finite exact typed-completion transport and typed-parent pins"
+  },
+  "frozen_initial_V2_anchor_adapter": "Initial-only config joins the unchanged V2 source_id_manifest_pin, initial_scope_pin, initial_execution_pin, initial_header_result_pin, initial_family, initial_root_admission_schema, cache_prefix_bytes and exact sources; later scopes carry cache_admission directly",
+  "planner_input_pin_admission": "Exact inline input_pins list or authenticated input_pins_manifest_pin with schema SETI_VISIT2019_TYPED_STRUCTURE_INPUT_PINS_V1",
+  "output_schemas": {
+    "result": "SETI_VISIT2019_SIX_HEADER_METADATA_QUALIFICATION_RESULT_V1",
+    "source": "SETI_VISIT2019_SOURCE_HEADER_METADATA_V1",
+    "execution": "SETI_VISIT2019_SIX_HEADER_METADATA_QUALIFICATION_EXECUTION_V1",
+    "attribute_types": "root_attribute_types/data_attribute_types keyed bijectively with values; each {shape,numpy_dtype_string,numpy_dtype_kind,hdf5_type_encoded_hex,hdf5_type_encoded_bytes,hdf5_type_encoded_sha256}",
+    "superblock": "Exact already authenticated per-source typed-plan superblock; no chunk-index traversal"
+  }
+}

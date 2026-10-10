@@ -1,0 +1,59 @@
+{
+  "schema": "SETI_VISIT2019_METADATA_CORE_AND_FIXTURE_SOURCE_PEER_V1",
+  "status": "PASS_SOURCE_ONLY_NO_TARGET_EXECUTION",
+  "reviewer": "fresh_band_analysis",
+  "source_pins": [
+    {
+      "path": "tools/radio_visit2019_blc66_metadata_20261010/metadata.py",
+      "bytes": 17037,
+      "sha256": "8df1214f21cf911422d0254aa8fd446b9260dcc273495295fe027c7f83db0e71",
+      "imports": [
+        "import hashlib",
+        "import io",
+        "import math"
+      ]
+    },
+    {
+      "path": "tools/radio_visit2019_blc66_metadata_20261010/metadata_fixture.py",
+      "bytes": 9627,
+      "sha256": "eab87ec73938d977c70d9b2658ffca1039842fbe89add0d77ab1d6e7704f24a0",
+      "imports": [
+        "import argparse",
+        "import copy",
+        "import hashlib",
+        "import json",
+        "import math",
+        "import os",
+        "from pathlib import Path",
+        "import re",
+        "import resource",
+        "import signal",
+        "import sys",
+        "import time",
+        "import types"
+      ]
+    }
+  ],
+  "checks": [
+    "Core top-level imports are hashlib/io/math only; no producer, network, decoder or array API.",
+    "Logical cache reader is exact-span and bounded to4096calls; cache gaps are non-authorizing metadata hints.",
+    "Attribute shape/count/size/name/string limits checked before admitting serialized metadata.",
+    "Actual float32little3D/chunk1x1xN metadata and typed cached v3/class2 layout parent evidence checked; no TREE or payload dereference.",
+    "SIGPROC scalar RA/DEC conversion bounds and spherical wrap computation are coherent.",
+    "Six-source gate checks actual frequency/chunk/filter grid, alternating ON/control names, ordered finite cadence, fixed pointing rules and midpoint metadata.",
+    "Metadata gate does not grant source-values or independent-validation admission.",
+    "Twelve hand-built fixture cases cover analytic angles/cache misses/layout pointer identity/grid/cadence/pointing only; toy top-level is standard library and source admission SHA-bound.",
+    "Fixture receipt fsync and measured pre-serialization resource fields are explicit; no claim of full-command measurement."
+  ],
+  "limitations": [
+    "Source-only review cannot establish actual header eligibility; caller must authenticate cache histories and apply native runtime resource limits before h5py.",
+    "This peer has not executed the fixture or imported the metadata module; fixture receipt validation and actual process measurement belong to root.",
+    "This is source/method review, not independent noise, beam model, source origin or blind-validation certification."
+  ],
+  "target_imported": false,
+  "fixture_executed": false,
+  "actual_cache_bytes_read": 0,
+  "HTTP_requests": 0,
+  "spectral_values_read": false,
+  "metadata_CPU_seconds": 0.010226025
+}

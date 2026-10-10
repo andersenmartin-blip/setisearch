@@ -1,0 +1,52 @@
+{
+  "schema": "SETI_VISIT2019_METADATA_ATTRIBUTE_TYPE_CAPTURE_SOURCE_DELTA_REVIEW_V1",
+  "status": "PASS_SOURCE_ONLY_TYPES_METADATA_DELTA",
+  "reviewer": "fresh_band_analysis",
+  "source_pins": [
+    {
+      "path": "tools/radio_visit2019_blc66_metadata_20261010/metadata.py",
+      "bytes": 17037,
+      "sha256": "8df1214f21cf911422d0254aa8fd446b9260dcc273495295fe027c7f83db0e71"
+    },
+    {
+      "path": "tools/radio_visit2019_blc66_metadata_20261010/metadata_with_types.py",
+      "bytes": 18083,
+      "sha256": "9cbdf397cafa901c7811d53c5aac4f570fc1f40c03cd7442c0e25b74f6e2c34b"
+    }
+  ],
+  "changed_definitions": [
+    "attributes",
+    "extract"
+  ],
+  "identical_remaining_definitions": [
+    "require",
+    "sha",
+    "plain",
+    "number",
+    "integer",
+    "packed_coordinate",
+    "separation",
+    "CacheOnly",
+    "chunk_layout_pointer",
+    "qualify"
+  ],
+  "top_level_AST_identical": true,
+  "checks": [
+    "Only bounded HDF5 TypeID capture added to attributes; datatype closed in finally and existing AttrID closes unchanged.",
+    "Encoded type requires bytes and length1..4096, saves shape/dtype-kind/dtype-string plus exact encoded hex/length/SHA.",
+    "Extract adds separate root/data attribute type maps and exact value/type key bijections.",
+    "Original normalization-free header extraction, physical coordinates, filename/time/grid/layout and six-source qualification functions remain AST-identical.",
+    "No HTTP, amplitude access, chunk-tree traversal or decoder added."
+  ],
+  "limitations": [
+    "This review does not run h5py or a real cache; runtime metadata authenticity and native resource caps remain root gates.",
+    "TypeID.encode is native metadata work and must run only under the approved actual qualification caps.",
+    "Original12-case fixture source remains unchanged; this delta was reviewed structurally and not executed."
+  ],
+  "target_imported": false,
+  "fixture_executed": false,
+  "actual_cache_bytes_read": 0,
+  "HTTP_requests": 0,
+  "spectral_values_read": false,
+  "metadata_CPU_seconds": 0.013348968000000003
+}
