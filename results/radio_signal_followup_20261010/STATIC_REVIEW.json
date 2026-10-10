@@ -1,0 +1,89 @@
+{
+  "schema": "SETI_SIGNAL_FOLLOWUP_STATIC_REVIEW_V1",
+  "status": "STATIC_PASS_NO_SCIENTIFIC_ARRAYS_OPENED",
+  "reviewer": "fresh_band_scope_review",
+  "reviewed_public_parent_commit": "c940df7e1c1e5ac721158bdf0b7335dcbbce7ea2",
+  "reviewed_candidates": [
+    {
+      "name": "fixed_drift_anchor",
+      "script_path": "tools/radio_drift_anchor_20261010/drift_anchor.py",
+      "script_sha256": "930a89ee67b4a417917e1874629a595a644f0727077af02bfb370f7f18f0dbb5",
+      "scope_path": "tools/radio_drift_anchor_20261010/analysis_scope.json",
+      "scope_sha256": "f037f6b838ae964047584595b5ce79c5a3b7df4f2316c381c266c1c0d154ae0c",
+      "status": "STATIC_PASS",
+      "input_pin_count": 14,
+      "all_input_size_and_SHA_pins_verified_without_array_decoding": true,
+      "contracts": [
+        "Nine saved drift top3 identities only; all six scans and all sixteen rows.",
+        "Anchor158766416 fixed from exposed ON2 drift rank01; physical offsets minus10 through plus10.",
+        "Require all nine physical6x16x21 rawfloat32 and normalizedfloat64 extractions byte-identical.",
+        "Validate old centers and times using pinned actual headers and original frozen drift reference.",
+        "One per-row static14channel flank at absoluteoffset greaterthan3 within plusminus10.",
+        "Fixed widths1,3,5,9; copied original moving center powers at originalwidth1 or3; no remeasurement or refit.",
+        "Separate old track-aligned plusminus64-background mean retains original meaning.",
+        "All24 static summaries and54 case-scan comparisons retain sixteen rows.",
+        "Public expected scope SHA bound on CLI; input SHA checked before and after.",
+        "Measured resource excess becomes INCOMPLETE before receipt writing.",
+        "Display clamps explicitly indicated by two extend-both colorbars; saved numbers complete."
+      ],
+      "limitations_checked": [
+        "Post-data anchor and selected ranks are not blind or independent validation.",
+        "Nine variants represent one common physical context, not nine independent features.",
+        "Width9 overlaps fixed flank at plusminus4; widths are correlated descriptive summaries.",
+        "One historical visit, no qualified OFF veto, FAP, SNR, flux or sky-origin inference."
+      ],
+      "analysis_CPU_cap_s": 40
+    },
+    {
+      "name": "eight_gap_drift_cores",
+      "script_path": "tools/radio_gap_drift_20261010/gap_search.py",
+      "script_sha256": "b1a2cc31d47dbebc707f36c5de3eafbae6a62f0d0d19061c798c676c9fbcdb58",
+      "scope_path": "tools/radio_gap_drift_20261010/scope.json",
+      "scope_sha256": "c226ad41a87f344f71a642e0e7129657f00e44684db74d50124f075fd35d7a44",
+      "status": "STATIC_PASS",
+      "metadata_code_dependency_pin_count": 5,
+      "acquisition_summary_pin_verified": true,
+      "contracts": [
+        "Eight uniform metadata-selected4096carrier cores disjoint from prior32 carrier cores and one another.",
+        "Starts20480,151552,282624,413696,544768,675840,806912,937984; crop halos4000 fit saved chunk.",
+        "Exactly24 scan-core maps;763drifts from minus4 to plus4 and widths1,3;1526validhypotheses percarrier.",
+        "Unchanged frozen detector/preprocessing/score/ties; top20 perON uses suppression3.",
+        "Exactlynine top3 selected fixed profiles; six scans, sixteen rows,129channel context.",
+        "Original actual-header timing and saved positive fullchunk row medians; no projection refit.",
+        "Compact file and decoded row hashes checked by unchanged helper.",
+        "Expected public scope SHA bound on CLI; measured resource excess/deadline becomes INCOMPLETE."
+      ],
+      "limitations_checked": [
+        "Values were exposed earlier for stationary work; prospective only for new gap drift outcomes.",
+        "New cores are disjoint but crop and trajectory halos may overlap; not independent trials.",
+        "Coverage after success is40sparse cores or15.625percent, not a fullchunk drift search.",
+        "Post-selection fixed OFF predictions are descriptive and can miss nearby stationary features.",
+        "No calibrated probability, qualified veto or new observing coverage."
+      ],
+      "analysis_CPU_cap_s": 90
+    }
+  ],
+  "CPU_components_s": {
+    "anchor_metadata_input_pin_check": 0.009575781,
+    "anchor_final_display_scope_syntax_check": 0.007983393,
+    "gap_final_metadata_pin_scope_syntax_check": 0.007597094,
+    "combined_receipt_final_hash_readback_and_serialization_preparation": 0.00045971600000000584
+  },
+  "CPU_components_are_only_measured_metadata_review_processes_not_whole_activity": true,
+  "review_input_mode": "Code text, JSON metadata, file byte counts and SHA256 only; no NPZ decode, source HDF5 read, numeric projection, detector search or rescoring.",
+  "resource_ledger_arithmetic": {
+    "approved_total_CPU_cap_s": 43200,
+    "prior_remaining_CPU_s": 402.7051449810042,
+    "anchor_activity_reservation_CPU_s": 180,
+    "gap_activity_reservation_CPU_s": 160,
+    "remaining_CPU_s": 62.705144981004196,
+    "internal_protected_closing_CPU_s": 60,
+    "unallocated_CPU_s": 2.705144981004196,
+    "prior_reservations_preserved": true,
+    "new_telescope_HTTP_and_BODY_caps": 0
+  },
+  "old_A_B": "FAIL_CLOSED_UNCHANGED",
+  "qualified_pilot_admitted": false,
+  "old_holdouts_closed": true,
+  "combined_receipt_preparation_wall_s": 0.0004602230037562549
+}

@@ -1,3 +1,17 @@
+# Signalopfølgning — 10. oktober 2026
+
+To fastlåste analyser er gennemført én gang og har bestået uafhængig resultatkontrol. Den faste linje ved **1426,282128 MHz** har positive residualer i alle 16 rækker i alle seks scanninger ved bredde 1 og 3, inklusive alle tre OFF-scanninger. Alle 21 OFF-sammenligninger fra de syv gamle ikke-nul-driftprofiler har større middel ved den faste reference end på det bevægelige spor. Det diagnosticerer en begrænsning ved små ekstrapolerede OFF-værdier; det afgør ikke fysisk oprindelse.
+
+Otte nye disjunkte søgefelter tilføjer **32.768 referencekanaler pr. ON**. Samlet driftsøgt dækning er **163.840 pr. ON = 15,625 %** af chunk151. Alle 24 felter og ni nye faste top-3-profiler er gemt og kontrolleret. Profilerne forbliver uafklarede; robuste scores er ikke kalibreret SNR/FAP. Alle seks scanninger er stadig fra ét historisk besøg. **A/B FAIL_CLOSED; kvalificeret pilot blokeret; gamle holdouts lukkede.**
+
+[Samlet rapport](RADIO_SIGNAL_FOLLOWUP_REPORT_2026-10-10.md) · [Fast reference](RADIO_DRIFT_ANCHOR_REPORT_2026-10-10.md) · [Nye driftfelter](RADIO_GAP_DRIFT_REPORT_2026-10-10.md) · [Reproduktion](RADIO_SIGNAL_FOLLOWUP_REPRODUCIBILITY_2026-10-10.md).
+
+Offentlig kode-/scopefastlåsning: `ada64c4d46ead59b92f8e65ae2ce6aa4d13d0759`, eksakt læst tilbage før begge jobs. Målt analyse-CPU: **1,61992847 + 73,861582975 sekunder**. Hele aktiviteterne reserverede **180 + 160 CPU-sekunder**, uden refusion af tidligere reservationer. Resterende **62,705144981 CPU-sekunder**, heraf intern afslutningsreserve 60. Godkendt total 43.200 CPU-sekunder, 4 GiB RAM, 8 GiB arbejdsplads, 0 DKK. Ingen nye teleskoprequests eller teleskopbytes; konservativt samlet kilde-/gendannelses-/afhængighedsregnskab 1.638.958.570 bytes.
+
+Resultatpakken **`SETI_SIGNAL_FOLLOWUP_2026-10-10.zip`**, 6418319 bytes, SHA256 `8cde42def9d1d46dfabc12da56fc7778fd796d260e5e9a985e359cfbe6a4eb70`, er gemt med alle 115 medlemmer byte-kontrolleret. NPZ-input og resultater leveres i pakken; offentlige JSON/CSV/figurer og et byte-tabsfrit gzip af checkpointet ledsager rapporterne. [Pakningskvittering](results/radio_signal_followup_20261010/BUNDLE_RECEIPT.json) · [Gemt resultatpakke](results/radio_signal_followup_20261010/RESULT_PACKAGE_SAVE_RECEIPT.json).
+
+---
+
 ## 2026-10-10 — Complete selected stationary profile family
 
 Completed one bounded descriptive follow-up of all 120 stationary top20 identities from retained native chunk151 of the 2016-03-17 HIP98505/HD189733 cadence. Nine existing ON top3 patches were reused exactly; 111 remaining cases were measured once at their original channel and width, across all six scans and 16 rows. No new source HTTP requests, telescope bytes, frequency coverage, observing time or independent visit were added.

@@ -1,0 +1,129 @@
+{
+  "status": "COMPLETED_EIGHT_GAP_DRIFT_CORES_AND_NINE_FIXED_PROFILES_EXPLORATORY_ONLY",
+  "verified_inputs": {
+    "epoch1_on": {
+      "path": "epoch1_on.compact.h5",
+      "file_sha256": "d95d4b65bd8feb079f0c350ab09b26a912fcd3ecc89786f30400e1b288ec4a52",
+      "bytes": 50869783
+    },
+    "epoch1_off": {
+      "path": "epoch1_off.compact.h5",
+      "file_sha256": "cb544cee9d8fc67765c4c3b4a65372cf60b6fe7bbbbb9e3065a7448da2349689",
+      "bytes": 50864012
+    },
+    "epoch2_on": {
+      "path": "epoch2_on.compact.h5",
+      "file_sha256": "ed8bd68b502a79f0ce3bd45022149b1238d4f08e7b375ee9d6a91605a8ede78f",
+      "bytes": 50867207
+    },
+    "epoch2_off": {
+      "path": "epoch2_off.compact.h5",
+      "file_sha256": "07587eb15eab1f8128b31824837f6cc244106d3003c656aca585586cc22a15b3",
+      "bytes": 50870439
+    },
+    "epoch3_on": {
+      "path": "epoch3_on.compact.h5",
+      "file_sha256": "3d3187c9be44aee010c763da30ec95c2428a5525a0a46698ece0c857e8908eb0",
+      "bytes": 50866266
+    },
+    "epoch3_off": {
+      "path": "epoch3_off.compact.h5",
+      "file_sha256": "01b64853bcfd2b5418355d075ab40e66e83e7edd01bfaa0946797e53d837dc81",
+      "bytes": 50867883
+    }
+  },
+  "search_summary": {
+    "completed_scan_tiles": 24,
+    "sparse_core_count": 8,
+    "carriers_per_ON": 32768,
+    "new_channel_edge_bandwidth_per_ON_hz": 92913.7760158573,
+    "new_native_chunk_fraction_searched": 0.03125,
+    "prior_plus_new_unique_carriers_per_ON": 163840,
+    "prior_plus_new_native_chunk_fraction_searched": 0.15625,
+    "sparse_core_intervals_half_open": [
+      [
+        158355456,
+        158359552
+      ],
+      [
+        158486528,
+        158490624
+      ],
+      [
+        158617600,
+        158621696
+      ],
+      [
+        158748672,
+        158752768
+      ],
+      [
+        158879744,
+        158883840
+      ],
+      [
+        159010816,
+        159014912
+      ],
+      [
+        159141888,
+        159145984
+      ],
+      [
+        159272960,
+        159277056
+      ]
+    ],
+    "drift_grid_count": 763,
+    "widths_channels": [
+      1,
+      3
+    ],
+    "half_grid_mismatch_channels": 0.4994662009921942,
+    "display_suppression_channels": 3,
+    "reference_time": "each ON's own first integration midpoint",
+    "score_definition": "unchanged detector row-MAD standardized odd-box track sum / sqrt(Nrow*width)",
+    "normalization": "each 4096-carrier static core, each row, unchanged 501-channel filtering"
+  },
+  "profile_summary": {
+    "profile_count": 9,
+    "plot_count": 0,
+    "all_rows_retained": 16,
+    "source_top20_sha256": "e0316afebfb3b13b077eff264cd3e739265e6773cb0ef3fb48195bc2289918e7",
+    "saved_normalization_sha256": "b7ec903775d522272607e83638adf68c02db95be5e2b613dd2f9ff839514fefc",
+    "shift_frequency_drift_width_optimization_applied": false,
+    "raw_patch_alignment": "rounded absolute source channels along exact fixed selected track in each actual scan",
+    "time_profile_units": "width-mean raw power/full-chunk row median minus fixed flank median",
+    "mean_profile_units": "mean track-aligned row-normalized power minus each row fixed flank median"
+  },
+  "scope_sha256": "c226ad41a87f344f71a642e0e7129657f00e44684db74d50124f075fd35d7a44",
+  "script_sha256": "b1a2cc31d47dbebc707f36c5de3eafbae6a62f0d0d19061c798c676c9fbcdb58",
+  "source_manifest_sha256": "d2e6c76b0d5fe50b26d45830e4b67e4780da97f33cfe8fcdf80c761f47aa3a4c",
+  "acquisition_summary_sha256": "da165fe31ac4a70167b06f83b8f667fbb8604b595c642d3610fec68788bebf37",
+  "new_telescope_HTTP_requests_during_analysis": 0,
+  "new_telescope_BODY_bytes_during_analysis": 0,
+  "MJD_anchor": 57464.69,
+  "one_historical_visit": true,
+  "source_values_already_opened_stationary": true,
+  "prospective_for_new_gap_drift_outcomes": true,
+  "blind_source_values": false,
+  "qualified_sky_pilot": false,
+  "OFF_veto_applied": false,
+  "old_A_B_failure_statuses_changed": false,
+  "old_holdouts_reopened": false,
+  "calibrated_SNR_FAP_flux_EIRP_or_sensitivity": false,
+  "numeric_retry_authorized": false,
+  "process_CPU_seconds_including_imports": 73.861582975,
+  "wall_seconds_including_imports": 73.89685867400112,
+  "peak_RSS_bytes": 491298816,
+  "limitations": [
+    "Eight previously unsearched carrier cores; the rest of each gap remains unsearched",
+    "Old and new carrier cores are disjoint; crop/trajectory halos may overlap",
+    "Source values were already opened for stationary work; prospective only for these drift outcomes",
+    "One historical visit; epoch1/2/3 are scan labels, not independent visits",
+    "Post-selection ranks and correlated hypotheses; robust score is not calibrated SNR or a probability",
+    "Fixed OFF predictions are descriptive and do not implement a qualified OFF veto",
+    "A small OFF value at an exact predicted channel does not establish absence of a nearby OFF feature",
+    "No barycentric correction, nonlinear tracks, other widths, injection recovery or false-alarm calibration"
+  ]
+}
