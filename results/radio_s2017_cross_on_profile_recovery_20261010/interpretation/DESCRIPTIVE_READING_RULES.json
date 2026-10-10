@@ -1,0 +1,52 @@
+{
+  "adjacent_OFF_controls": {
+    "epoch1_on": [
+      "epoch1_off"
+    ],
+    "epoch2_on": [
+      "epoch1_off",
+      "epoch2_off"
+    ],
+    "epoch3_on": [
+      "epoch2_off",
+      "epoch3_off"
+    ]
+  },
+  "authorized_input_format": "saved JSON only; no HDF5/NPZ/source arrays or scientific helpers",
+  "counting_unit": "logical profiles/members/triples; 61 geometry aliases and shared controls remain correlated",
+  "excluded_known_match": "radio_s2017_cross_on_storage_recovery_20261010_rank_0001 only, as frozen before profiles",
+  "existing_example_selection": "Only original display rank2; all three original members and all six saved scan metric objects copied unchanged. No new ordering.",
+  "family_id": "radio_s2017_cross_on_profile_recovery_20261010",
+  "limitations": [
+    "Posthoc same2017visit, ON-selected and correlated; counts are descriptive not probabilities/veto/FAP or independent validation.",
+    "Fixed moving OFF paths can miss nearby stationary OFF structure; OFF signs do not prove absence/origin.",
+    "No robust detector score is subtracted from or equated with profile means.",
+    "No data-adaptive threshold, ranking, refit, consensus, calibrated SNR/flux/sensitivity or origin classification."
+  ],
+  "logical_member_rules": [
+    "original member originON mean > 0",
+    "all three targetON means > 0",
+    "any of three OFF means > 0",
+    "all three OFF means > 0",
+    "any of three OFF means >= same member original originON mean",
+    "all three OFF means >= same member original originON mean",
+    "any fixed adjacentOFF mean >= same member original originON mean",
+    "all fixed adjacentOFF means >= same member original originON mean",
+    "originON saved minimum_half_mean > 0"
+  ],
+  "mean_sign_definition": "mean > 0, exact float comparison with zero; zero and negative counted separately",
+  "no_new_hypotheses_or_qualification": true,
+  "original_detector_or_profile_reexecution": false,
+  "per_target_scan_rules": [
+    "mean > 0 / mean == 0 / mean < 0 exact categories",
+    "saved minimum_half_mean > 0",
+    "saved positive_rows == 16"
+  ],
+  "schema": "S2017_PROFILE_SAVED_JSON_DESCRIPTIVE_READING_RULES_V1",
+  "status": "FIXED_BEFORE_NEW_PROFILE_METRICS_READ",
+  "triple_histograms": [
+    "number of three positive original-originON means (0..3)",
+    "number of members with anyOFF mean >= own originalON mean (0..3)",
+    "number of members with allOFF means positive (0..3)"
+  ]
+}
