@@ -1,0 +1,93 @@
+{
+  "schema": "SETI_S2017_ADJACENT_TWO_JOB_ONE_SHOT_WAVE_CONTROL_V1",
+  "status": "COMPLETE_TWO_ROOT_AUTHORIZED_JOBS_ONCE_NO_RETRY",
+  "wave": 3,
+  "public_freeze_commit": "2ba6ee3497abf3d24e5190df8630133f8a04bcb0",
+  "driver_sha256": "3c23e8020ee32c5c662922d16fe3517315364eccb59514b9e678e6d248b519e6",
+  "controller_sha256": "d2ce5453f3390ba8037d175284f9621b298a155061d0e76bae7209217cc0cb81",
+  "constants_sha256": "9c9ff58d7157a53e079914c58b3f9b57aa2df16844eb57b0b87827d68aff14c7",
+  "root_GO_path": "analysis/s2017_next_native/ROOT_INTERIOR_WAVE3_GO.json",
+  "root_GO_sha256": "062cb65e75194bbac3c3838bda0ab83b9c4e85c49ad31639c3f5d4588942b011",
+  "simultaneous_science_jobs_max": 2,
+  "other_waves_executed_by_this_control": false,
+  "retry_resume_rerun_authorized": false,
+  "HTTP_requests": 0,
+  "controller_values_read": false,
+  "started_UTC": "2026-10-10T20:03:20.914692+00:00",
+  "jobs": [
+    {
+      "job_id": "native170_batch03",
+      "status": "COMPLETE_S2017_ADJACENT_NATIVE_SAFE_INTERIOR_JOB_EXPLORATORY_ONLY",
+      "scope_sha256": "52666368598e29fee75a0135cd051f6443df8be9940c499e3416faa9a07a9253",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/5bf3860dacd6/analysis/s2017_next_native/search/driver.py",
+        "--root",
+        "/workspace/scratch/5bf3860dacd6",
+        "--scope",
+        "/workspace/scratch/5bf3860dacd6/analysis/s2017_next_native/search/scopes/native170_batch03.json",
+        "--expected-scope-sha256",
+        "52666368598e29fee75a0135cd051f6443df8be9940c499e3416faa9a07a9253",
+        "--freeze-commit",
+        "2ba6ee3497abf3d24e5190df8630133f8a04bcb0",
+        "--root-go-after-review"
+      ],
+      "log_path": "analysis/s2017_next_native_execution/actual_wave3/native170_batch03.log",
+      "started_UTC": "2026-10-10T20:03:20.915010+00:00",
+      "process_id": 5,
+      "exit_code": 0,
+      "log_sha256": "1449a533a80f41762788ce58e0a0e45cd1d4a1bfe9b107515b3a00dcc01462c7",
+      "actual_receipt_path": "analysis/s2017_next_native/results/search/native170_batch03/EXECUTION_RECEIPT.json",
+      "actual_receipt_sha256": "8878b0e04cbddeb7a6e0c58d3efabc44d82051fcc800966d597127a2733f3823",
+      "completed_ON_maps": 252,
+      "process_CPU_seconds": 458.673285193,
+      "wall_seconds": 458.7087644830008,
+      "peak_RSS_bytes": 544292864
+    },
+    {
+      "job_id": "native172_batch03",
+      "status": "COMPLETE_S2017_ADJACENT_NATIVE_SAFE_INTERIOR_JOB_EXPLORATORY_ONLY",
+      "scope_sha256": "e912a94bb307e07d610c3d52164dbab0138301501cf0791ec3ac4fcd8f29f8c1",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/5bf3860dacd6/analysis/s2017_next_native/search/driver.py",
+        "--root",
+        "/workspace/scratch/5bf3860dacd6",
+        "--scope",
+        "/workspace/scratch/5bf3860dacd6/analysis/s2017_next_native/search/scopes/native172_batch03.json",
+        "--expected-scope-sha256",
+        "e912a94bb307e07d610c3d52164dbab0138301501cf0791ec3ac4fcd8f29f8c1",
+        "--freeze-commit",
+        "2ba6ee3497abf3d24e5190df8630133f8a04bcb0",
+        "--root-go-after-review"
+      ],
+      "log_path": "analysis/s2017_next_native_execution/actual_wave3/native172_batch03.log",
+      "started_UTC": "2026-10-10T20:03:20.915955+00:00",
+      "process_id": 6,
+      "exit_code": 0,
+      "log_sha256": "39e0459fdbe406c8ae9c9e669fcdfe4545cdf62de11f9d823f0937d0b8ad5044",
+      "actual_receipt_path": "analysis/s2017_next_native/results/search/native172_batch03/EXECUTION_RECEIPT.json",
+      "actual_receipt_sha256": "10d3340b16484a6054acfc7731630af8736b1c7a532fb4d61aec22a124dda709",
+      "completed_ON_maps": 252,
+      "process_CPU_seconds": 457.757360532,
+      "wall_seconds": 457.73669901500034,
+      "peak_RSS_bytes": 544337920
+    }
+  ],
+  "last_saved_checkpoint_progress": [
+    {
+      "job_id": "native170_batch03",
+      "completed_ON_maps": 247,
+      "expected_ON_maps": 252,
+      "process_exit_code": null
+    },
+    {
+      "job_id": "native172_batch03",
+      "completed_ON_maps": 247,
+      "expected_ON_maps": 252,
+      "process_exit_code": null
+    }
+  ],
+  "completed_UTC": "2026-10-10T20:11:00.014691+00:00",
+  "completed_ON_maps": 504
+}

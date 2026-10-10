@@ -1,0 +1,69 @@
+{
+  "schema": "SETI_S2017_ADJACENT_FINAL_SCIENTIFIC_SYNTHESIS_FRAMEWORK_V1",
+  "status": "PREPARED_METADATA_FRAMEWORK_FINAL_INTERIOR_REPORTS_PENDING",
+  "reference_coverage_after_all_actual_jobs_pass": {
+    "native_chunks": [
+      170,
+      171,
+      172
+    ],
+    "cores_by_native": {
+      "170": 255,
+      "171": 256,
+      "172": 255
+    },
+    "core_count": 766,
+    "triplet_core_count": 768,
+    "reference_channels": 3137536,
+    "reference_channel_interval_half_open": [
+      178262016,
+      181399552
+    ],
+    "reference_channel_count_bandwidth_MHz": 8.76617431640625,
+    "lowest_reference_channel_center_frequency_MHz": 2296.0075406357646,
+    "highest_reference_channel_center_frequency_MHz": 2304.773712158203,
+    "excluded_outer_native_cores": [
+      [
+        170,
+        0
+      ],
+      [
+        172,
+        255
+      ]
+    ],
+    "whole_Sband_claim": false,
+    "drift_halo_or_sensitivity_coverage_claim": false
+  },
+  "expected_newphase_counts": {
+    "maps": 1536,
+    "fixed_profiles": 72,
+    "scan_profiles": 432,
+    "bitwise_source_patch_cell_occurrences": 891648,
+    "correlated_drift_width_combinations": 9877585920
+  },
+  "expected_limited_combined_prior_plus_new_counts": {
+    "maps": 2310,
+    "fixed_profiles": 126,
+    "bitwise_source_patch_cell_occurrences": 1560384,
+    "correlated_drift_width_combinations": 14852800512,
+    "combined_context": "New native170/native172 interiors and two S2017 joins; prior native171 q128 and 253 interior cores; prior two new 2016 joined families. This total describes the specified execution families, not all historical workspace searches or independent visits."
+  },
+  "completed_boundary_scientific_review": {
+    "path": "analysis/s2017_next_native/review/BOUNDARY_SCIENTIFIC_REVIEW.json",
+    "sha256": "fc16c5518a8fef41cdb338a90f833f8dd4fdb78e0005edc39d10f3e0d6dcb9ea"
+  },
+  "final_review_requirements": [
+    "Bind all six interior and two boundary actual COMPLETE receipts and both empirical output QA PASS receipts before final conclusions.",
+    "Check final reported reference carrier bounds and counts separately from decoded drift, filter and patch support, and from sensitivity.",
+    "Review all fixed selected identities with six saved scan means, halves and row signs. Preserve exact OFF and other ON context, and select no new tracks.",
+    "Preserve full-native float32 profile denominators for interiors and joined-pair float32 denominators for boundaries. Scores and profile means are different quantities.",
+    "One historical 2017 visit, known prior native171 selection, administrative batches and correlated hypotheses are not independent visits or trials.",
+    "The known 2300.390625 MHz line is established within prior native171. Infer no adjacent chunk central spill or instrumental origin without evidence.",
+    "Assert no qualified SETI detection, calibrated SNR or FAP, global null result, astronomical origin, whole S-band coverage, or uniform sensitivity."
+  ],
+  "unfinished_output_values_read": false,
+  "HDF5_NPZ_values_opened": false,
+  "newscience_executed": false,
+  "HTTP_requests": 0
+}

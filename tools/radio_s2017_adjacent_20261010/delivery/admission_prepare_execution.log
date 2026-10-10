@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/5bf3860dacd6/analysis/s2017_next_native/delivery/prepare_results_admission.py", line 515, in <module>
+    main()
+  File "/workspace/scratch/5bf3860dacd6/analysis/s2017_next_native/delivery/prepare_results_admission.py", line 425, in main
+    evidence = linked_review(root, evidence_contract, {**final_text,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/5bf3860dacd6/analysis/s2017_next_native/delivery/prepare_results_admission.py", line 139, in linked_review
+    metadata(root, name, pins, expected)
+  File "/workspace/scratch/5bf3860dacd6/analysis/s2017_next_native/delivery/prepare_results_admission.py", line 69, in metadata
+    require(path.suffix in TEXT and 'raw_ranges' not in path.parts and path.name != 'DATA_PACKAGES.json',
+  File "/workspace/scratch/5bf3860dacd6/analysis/s2017_next_native/delivery/prepare_results_admission.py", line 46, in require
+    raise ValueError(message)
+ValueError: Only bounded text/code metadata may be opened

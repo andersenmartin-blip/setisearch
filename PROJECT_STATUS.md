@@ -1,3 +1,15 @@
+# Afsluttet: S2017 native 170/171/172 — 10. oktober 2026
+
+Den nye tilstødende fase er færdig: **1536 ON-kort, 72 faste profilinstanser og 891648 bitvist kontrollerede rå patchcelleforekomster**. Alle otte science-job, kilde-QA, begge faktiske output-QA'er og de uafhængige videnskabelige gennemgange er afsluttet med PASS. Der er **ingen kvalificeret SETI-detektion**. De stærkeste nye stationære midterlinjer ved 2303.3203125 og 2297.4609375 MHz findes i samtlige tre ON- og tre OFF-scanninger; fysisk oprindelse og falskalarmssandsynlighed er ikke fastlagt.
+
+Med tidligere native 171 er 766/768 referencekerner dækket, svarende til 8.76617431640625 MHz. Samlet inklusiv de tidligere 2016-grænser: 2310 kort, 126 profiler og 1560384 patchcelleforekomster. Det er samme historiske S2017-besøg, ikke en blind uafhængig bekræftelse. Beskyttede 2016-holdouts er fortsat lukkede, og oprindelige A/B-kontroller forbliver FAIL_CLOSED. Ny science-CPU: 2820.830356624 s; omkostning: 0 DKK.
+
+RESULTS er faktisk gemt: 140586178 bytes, SHA256 `c332e310d8f79b1ce7d0171eca9abc8deaa1a104729f1e9cd0f5ecc0b9a22e87`, 3423 medlemmer. RAW er faktisk gemt som tre ordnede dele, samlet 604399781 bytes, SHA256 `b78521c9f51a47d698af1ea1f8949b5676c843656389655191042a0fbc06817f`. Den afkortede første RESULTS-fil og dens fejlkvitteringer er bevaret; en separat gennemgået V2-pakke har fuld CRC/SHA-kontrol, eksakte QA-/figurpins, genåbningskontrol og uafhængig leverance-PASS. Ingen science eller numerisk QA er genkørt.
+
+[Rapport](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/tools/radio_s2017_adjacent_20261010/delivery/RADIO_S2017_ADJACENT_2026-10-10_RESULT.md) · [Data og reproduktion](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/tools/radio_s2017_adjacent_20261010/delivery/DATA_AVAILABILITY.md) · [Faktiske pakkeidentiteter og gemninger](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/tools/radio_s2017_adjacent_20261010/delivery/DATA_PACKAGES.json)
+
+---
+
 **Seneste afsluttede fase, 10. oktober 2026:** Den nye S2017-analyse og de to nye 2016-grænsesøgninger er afsluttet med udført kilde- og outputkontrol. Der er ingen aktive beregningsjob i denne fase.
 
 S2017 dækker **254 af 256 referencefelter (99,21875 %)** i ét erhvervet native-udsnit på **2,9296875 MHz**, med **762 gemte ON-kort** og **4.900.208.640 korrelerede drift-/breddekombinationer**. Det er dækning af dette udsnits referencekanaler på det valgte grid. De to randfelter er usøgte; dækningen er ikke hele teleskopets S-bånd eller en følsomhedsgrænse.
