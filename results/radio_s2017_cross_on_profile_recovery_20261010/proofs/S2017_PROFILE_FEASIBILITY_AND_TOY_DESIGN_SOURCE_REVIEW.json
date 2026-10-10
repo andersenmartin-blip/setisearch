@@ -1,0 +1,218 @@
+{
+  "schema": "SETI_PROFILE_PROSPECTIVE_PURE_TOY_DESIGN_REVIEW_V1",
+  "status": "PASS_SOURCE_ONLY_FEASIBILITY_AND_NINE_TEST_DESIGNS_FINAL_IMPLEMENTATION_REVIEW_PENDING",
+  "pins": {
+    "original_profile_source": {
+      "path": "/workspace/scratch/5bf3860dacd6/analysis/new_visit_search/dependencies/gap_search.py",
+      "sha256": "b1a2cc31d47dbebc707f36c5de3eafbae6a62f0d0d19061c798c676c9fbcdb58",
+      "bytes": 21995
+    },
+    "feasibility_note": {
+      "path": "/workspace/scratch/a8d1e29996d0/seti_fullpower_work/recovery_design/cross_on_review/S2017_CROSS_ON_ALL_SIX_PROFILE_FEASIBILITY.md",
+      "sha256": "14d0edeae607acfd6eb60a2dc6b3e7a72df02f828be6bd2d0625d4bc7c7a5879",
+      "bytes": 10509
+    },
+    "prospective_fixture_source": {
+      "path": "/workspace/scratch/a8d1e29996d0/seti_fullpower_work/recovery_design/cross_on_review/S2017_PROFILE_PURE_TOY_FIXTURE.py",
+      "sha256": "608089218c6b8abc46fdf0078236b0e89ce554327d508791b6527ea37889b658",
+      "bytes": 16505
+    },
+    "early_candidate_source_not_final": {
+      "path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_profiles_20261010/profile_saved.py",
+      "sha256": "e49dc707c6e9b560b1f8a17e2fb606329ffbdbf00f0abe7011a88ecc9f3d5bc6",
+      "bytes": 19731
+    }
+  },
+  "counts": {
+    "selected_triples": 635,
+    "selected_original_ON_members": 1905,
+    "logical_scan_profiles": 11430,
+    "logical_rows": 182880,
+    "planned_unique_geometries": 11369,
+    "new_geometry_aliases": 61,
+    "claimed_old_geometry_aliases": 0
+  },
+  "arithmetic_checks": {
+    "635_times3_times6": 11430,
+    "logical_profiles_times16": 182880,
+    "logical_minus_unique": 61
+  },
+  "original_semantics": [
+    "Absolute np.rint((saved_original_frequency-FCH1)/DF + saved_original_drift*original_member_dt/DF), without early base rounding",
+    "Every target ON/OFF uses each original member first-integration-midpoint reference",
+    "Convert raw float32 patches to float64 and divide each stored full-native-row denominator before any flank or center reduction",
+    "122 flank channels abs(offset)>3; width1/3 original center mean; preserve mean(normalized-per-row-baseline) operation order",
+    "Default float32 raw width/frequency means are separate descriptive outputs",
+    "Geometry cache shares only identical target scan/width/ordered16centers under the fixed source/denominator context; logical dt stays per member"
+  ],
+  "cases": [
+    {
+      "case": "absolute ties-even and frequency-derived base",
+      "hand_expected": {
+        "odd_base101_positive_slope_centers": [
+          100,
+          100,
+          98,
+          98,
+          96,
+          96,
+          94,
+          94,
+          92,
+          92,
+          90,
+          90,
+          88,
+          88,
+          86,
+          86
+        ],
+        "odd_base101_negative_slope_centers": [
+          102,
+          102,
+          104,
+          104,
+          106,
+          106,
+          108,
+          108,
+          110,
+          110,
+          112,
+          112,
+          114,
+          114,
+          116,
+          116
+        ]
+      },
+      "distinguishes": "int(reference channel) + rint(relative drift shift) and rounding base early"
+    },
+    {
+      "case": "original ON reference for transported OFF rows",
+      "hand_expected": {
+        "target_tstart_days": 0.125,
+        "tsamp_seconds": 2,
+        "original_refs_seconds": [
+          1,
+          10801,
+          21601
+        ],
+        "OFF_first_dt_seconds": [
+          10800,
+          0,
+          -10800
+        ],
+        "first_centers": [
+          27301,
+          30001,
+          32701
+        ]
+      },
+      "distinguishes": "target OFF self-zero reference or common association reference"
+    },
+    {
+      "case": "whole 129-channel bounds including nearest-even edges",
+      "hand_expected": {
+        "C0": 1000,
+        "COUNT": 129,
+        "only_legal_center": 1064,
+        "rejected_centers": [
+          1063,
+          1065
+        ]
+      },
+      "distinguishes": "clamping/trimming source windows"
+    },
+    {
+      "case": "constant baseline, zero and negative residuals",
+      "hand_expected": {
+        "raw4_denominator2_residual": 0,
+        "raw_center2_flank6_denominator2_residual": -2,
+        "strict_positive_rows_for_zero": 0
+      }
+    },
+    {
+      "case": "varying supplied denominators normalize first",
+      "hand_expected": {
+        "raw_center12_flank8_denominators_first8_last8": [
+          2,
+          4
+        ],
+        "residual_first8_last8": [
+          2,
+          1
+        ],
+        "mean_residual": 1.5
+      }
+    },
+    {
+      "case": "width1/3, 122-flank median, unmasked 129 context",
+      "hand_expected": {
+        "flank_channels": 122,
+        "excluded_offsets": [
+          -3,
+          -2,
+          -1,
+          0,
+          1,
+          2,
+          3
+        ],
+        "width1_residual": 3,
+        "width3_residual": 2,
+        "normalize_first_even_median": 0.8333333333333333,
+        "raw_median_then_divide_wrong_value": 0.8333333333333334
+      }
+    },
+    {
+      "case": "raw float32 versus normalized float64 means",
+      "hand_expected": {
+        "raw_width3_cells": [
+          16777216,
+          16777216,
+          16777218
+        ],
+        "raw_float32_mean": 16777216,
+        "float64_center": 16777216.666666668
+      }
+    },
+    {
+      "case": "mean of rowwise subtraction arithmetic order",
+      "hand_expected": {
+        "first8_raw_flank": 9007199254740992,
+        "first8_center_increment": 1073741824,
+        "last8_raw_flank": 1,
+        "last8_center": 3,
+        "mean_residual": 536870913
+      }
+    },
+    {
+      "case": "alias geometry identity retains separate logical dt",
+      "hand_expected": {
+        "same_centers_different_original_refs_can_alias": true,
+        "logical_dt_must_differ": true,
+        "target_scan_width_and_ordered16centers_change_key": true
+      },
+      "scope_note": "Source/normalization/hash/offset context is globally fixed for this one family, not an interchangeable cross-family cache"
+    }
+  ],
+  "fixture_extraction_safety": "AST selects only profile_kernel, dt/base/centers assignments, full-window bound assertion and cache-key expression. The target module is never imported; no main, derive_geometry fixed-count contract, load_contract, generator or compute is invoked. NumPy, if later authorized, receives only fabricated 16x129 toy arrays.",
+  "runtime_authorization": {
+    "fixture_source_written": true,
+    "fixture_syntax_checked": true,
+    "fixture_executed": false,
+    "target_imports": false,
+    "generator_executed": false,
+    "original_arrays_H5_NPZ_or_normalization_values_read": false,
+    "new_scientific_measurements": false
+  },
+  "limitations": [
+    "Exact 11369 geometry and zero-old-alias counts are metadata screening statements awaiting the frozen runtime NumPy geometry hash; this source review does not recompute them",
+    "No claim about scientific candidate quality, noise calibration, OFF veto, independent visit or source origin",
+    "Final stable implementation/source/gates pin review remains pending"
+  ],
+  "process_CPU_seconds": 0.031602992,
+  "wall_seconds": 0.010503191999305272,
+  "peak_RSS_bytes": 13119488
+}

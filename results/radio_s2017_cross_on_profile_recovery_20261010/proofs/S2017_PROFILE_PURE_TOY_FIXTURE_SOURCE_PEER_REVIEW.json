@@ -1,0 +1,104 @@
+{
+  "schema": "SETI_S2017_PROFILE_PURE_TOY_FIXTURE_SOURCE_PEER_REVIEW_V1",
+  "status": "PASS_SOURCE_ONLY_PROSPECTIVE_FIXTURE_WITH_FINAL_TARGET_SOURCE_SHA_CONDITION",
+  "reviewer": "full_safe_plot_static_review",
+  "fixture_pin": {
+    "path": "/workspace/scratch/a8d1e29996d0/seti_fullpower_work/recovery_design/cross_on_review/S2017_PROFILE_PURE_TOY_FIXTURE.py",
+    "sha256": "608089218c6b8abc46fdf0078236b0e89ce554327d508791b6527ea37889b658",
+    "bytes": 16505
+  },
+  "review_scope": "Read fixture Python source; stdlib SHA256 and AST syntax parsing only. Hand-review expected toy values and inspected early target-fragment shapes. No test result is asserted.",
+  "hand_expected_checks": [
+    {
+      "case": "absolute_frequency_base_ties_even_both_slopes_and_negative_dt",
+      "finding": "PASS: odd-base plus/minus lists, even-base list, reversed negative-dt list and fractional-base101..86 match nearest-even absolute-channel arithmetic."
+    },
+    {
+      "case": "target_OFF_times_keep_each_original_ON_reference",
+      "finding": "PASS: target_start0.125day yields first dt10800,0,-10800 for references1,10801,21601; first/last centers27301/27294,30001/29994,32701/32694."
+    },
+    {
+      "case": "full_129_channel_bounds_inclusive_and_fail_without_trimming",
+      "finding": "PASS: center1064 including1063.5/1064.5 ties fits [1000,1129); centers1063/1065 exceed full-window bounds."
+    },
+    {
+      "case": "constant_background_zero_and_negative_residuals",
+      "finding": "PASS: constant raw4/denominator2 gives zero; raw6 with center2/denominator2 gives -2."
+    },
+    {
+      "case": "provided_varying_denominators_normalize_each_row_first",
+      "finding": "PASS: background8/center12 with denominator2 then4 gives residual2 then1, mean1.5."
+    },
+    {
+      "case": "fixed_122_flank_median_width1_width3_and_unmasked_context",
+      "finding": "PASS:129 offsets minus7 central offsets leaves122 flanks; expected width1 residual3 and width3 residual2, retained offset-3 context496, normalized even median0.8333333333333333 distinct from2.5/3."
+    },
+    {
+      "case": "raw_float32_means_distinct_from_normalized_float64_center",
+      "finding": "PASS: three values2^24,2^24,2^24+2 give float32 mean2^24 and normalized-first float64 center2^24+2/3."
+    },
+    {
+      "case": "mean_of_rowwise_subtraction_preserves_small_residual_terms",
+      "finding": "PASS: eight residual2^30 and eight residual2 yield mean536870913; row subtraction precedes reduction."
+    },
+    {
+      "case": "geometry_aliases_preserve_logical_dt_scan_width_and_center_order",
+      "finding": "PASS: zero-drift references0/2 share centers but retain distinct dt; cache key changes for scan,width or reversed center order."
+    }
+  ],
+  "AST_extraction_isolation": {
+    "module_or_main_extracted": false,
+    "extracted_target_candidates": [
+      "profile_kernel function definition",
+      "dt/base/centers assignments",
+      "full129channel require expression",
+      "ordered geometry cache-key assignment"
+    ],
+    "target_module_import_candidate": false,
+    "target_main_or_generator_call_candidate": false,
+    "current_inspected_fragments_contain_I_O": false,
+    "logical_dt_assignment_syntax_check": "times[j] = dt required in derive_geometry",
+    "allowed_name_and_forbidden_node_guards_present": true,
+    "guard_limit": "Name/dunder guards are not a general sandbox for arbitrary future NumPy attributes. Final approved target fragments must receive source review and remain SHA-pinned; do not rely on these guards alone for changed source."
+  },
+  "final_source_SHA_condition": {
+    "condition_required": true,
+    "final_live_profile_source_pin_reviewed_by_this_receipt": false,
+    "text": "This PASS applies to fixture bytes608089218c6b8abc46fdf0078236b0e89ce554327d508791b6527ea37889b658 only as a prospective source design. Before any root-authorized execution, the final profile_saved.py SHA must be independently approved and supplied to --expected-profile-source-sha256; its actual extracted kernel/geometry/key fragments and logical dt storage must satisfy the reviewed source contracts. Stable implementation source review and root GO remain separate."
+  },
+  "prospective_fixture_limits": {
+    "CPU_soft_s": 10,
+    "CPU_hard_s": 12,
+    "wall_s": 30,
+    "address_space_bytes": 1073741824,
+    "thread_environment": "OPENBLAS/OMP/MKL/NUMEXPR=1"
+  },
+  "execution_boundaries": {
+    "fixture_imported": false,
+    "fixture_executed": false,
+    "target_imported": false,
+    "target_executed": false,
+    "NumPy_imported": false,
+    "tests_executed": 0,
+    "original_H5_opened": false,
+    "original_NPZ_decoded": false,
+    "raw_source_values_read": false,
+    "original_normalization_or_profile_arrays_read": false,
+    "generator_run": false,
+    "telescope_HTTP_requests": 0,
+    "source_mutations": false,
+    "shared_result_mutations": false,
+    "new_private_review_receipt_written_only": true
+  },
+  "context_update_reported_not_independently_verified": {
+    "reporting_owner": "fresh_figure_presentation/root",
+    "old_hypotheses": 54,
+    "old_unique_scan_geometries": 312,
+    "new_unique_geometries": 11369,
+    "old_geometry_overlap": 0,
+    "note": "Joined old-profile inventory update is owner-reported. This fixture-source receipt does not rederive those live counts or edit earlier observations."
+  },
+  "meaningful_fixture_blockers": [],
+  "syntax_check": "PASS_AST_PARSE_ONLY",
+  "fixture_end_pin_unchanged": true
+}

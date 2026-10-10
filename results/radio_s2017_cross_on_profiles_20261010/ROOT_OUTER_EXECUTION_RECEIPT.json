@@ -1,0 +1,19 @@
+{
+  "status": "FAIL_ONE_CHILD_NO_RETRY_OUTER_OR_INNER_INCOMPLETE",
+  "freeze_commit": "e3c7f3e17b5a0aac51ed9d2ccfa6d7ff2431022e",
+  "launcher_sha256": "790870837106e72f8fcbb6d273df05b641c2356a6b31b41736d30878300f60c6",
+  "child_exit_code": 1,
+  "child_PID": 3,
+  "child_timed_out": false,
+  "child_process_CPU_seconds": 0.5308459999999999,
+  "child_wall_seconds": 0.531407748001584,
+  "child_peak_RSS_bytes": 18972672,
+  "CPU_cap_s": 180,
+  "wall_cap_s": 1800,
+  "memory_cap_bytes": 1073741824,
+  "automatic_retry_performed": false,
+  "inner_terminal_sha256": null,
+  "inner_terminal_status": null,
+  "child_stdout": "",
+  "child_stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_profiles_20261010/profile_saved.py\", line 277, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_profiles_20261010/profile_saved.py\", line 225, in main\n    scope,pins,admission,source,norm,members,oldgeo=load_contract(args)\n                                                    ^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_profiles_20261010/profile_saved.py\", line 98, in load_contract\n    verify_no_live_owner_processes(scope)\n  File \"/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_profiles_20261010/profile_contract.py\", line 151, in verify_no_live_owner_processes\n    require(not any(argument == suffix or argument.endswith(b'/' + suffix) for argument in arguments),\n  File \"/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_profiles_20261010/profile_contract.py\", line 38, in require\n    raise ValueError(message)\nValueError: An original scientific numeric/QA process remains active\n"
+}
