@@ -1,3 +1,19 @@
+# 10. oktober 2026 — ni faste gap-frekvenskontekster afsluttet
+
+Den ene prospektivt fastlåste målekørsel er afsluttet for alle ni tidligere gap-driftprofiler i alle seks scanninger. I samtlige ni origin-ON-profiler er det kopierede bevægelige middel højere end det faste middel på samme baggrund: statisk minus bevægelig spænder fra −0,193264 til −0,045825. Dette er betinget af tidligere udvælgelse efter driftmaksima og validerer ikke drift eller oprindelse. ON2 rang 3 viser konkret positiv fast OFF1-kontekst (0,034722) trods negativt bevægeligt OFF1-middel (−0,016682). Vinduerne er ±181,472 Hz omkring oprindelige første-midpoint-referencer; de dækker ikke hele driftsporet.
+
+- [Rapport](RADIO_GAP_STATIC_CONTEXT_REPORT_2026-10-10.md), [alle resultater som tabsfri gzip](results/radio_gap_static_context_20261010/measurement/STATIC_CONTEXT_PROFILES.json.gz), [54 scan-oversigter](results/radio_gap_static_context_20261010/measurement/STATIC_CONTEXT_54_SCAN_SUMMARIES.csv) og [864 tidsrækker](results/radio_gap_static_context_20261010/measurement/STATIC_CONTEXT_864_TIME_ROWS.csv).
+- Uafhængig kontrol PASS: 153 bytepræcise gamle arraykopier, 216 opsummeringer, 1.296 skalarkontroller, 6.966 frekvenssamples og begge CSV-filer. [Kvittering](results/radio_gap_static_context_20261010/measurement/QA_RECEIPT.json).
+- Numerisk kørsel: 4,580136 CPU-s, 4,175947 s vægtid, RSS 476.180.480 bytes; 20 CPU-s-grænsen overholdt. Offentlig fastlåsning før kørsel: `1fbb2fcf328581a7ceffda97d6db36850c4ba8ea`.
+- To originale figurer består visuel kontrol. Plotningen overskred sin 6 CPU-s-komponentgrænse med 7,613889 CPU-s; resultater bevaret, ingen genkørsel. Denne afvigelse er separat fra den videnskabelige kørsels PASS.
+- Den samlede resultatpakke `SETI_GAP_STATIC_CONTEXT_2026-10-10.zip` er gemt og udleveret: 6.206.173 bytes, SHA256 `c00195d119596d1cf2a42653754a70bfd39e60262b406e59408c4e1759517146`, 66 byte-/CRC-kontrollerede medlemmer. Den rummer NPZ, rå JSON, CSV, kode, provenance og det ikke godkendte næste forslag. [Manifest](results/radio_gap_static_context_20261010/BUNDLE_MANIFEST.json).
+- CPU-reservation 60 s inden for den uændrede 43.200 s-ramme; tidligere reservationer tilbageføres ikke. Resterende ureserveret CPU: 2,705144981 s. Målte delprocesser og afgrænsninger findes i [ressourceoversigten](results/radio_gap_static_context_20261010/RESOURCE_SUMMARY.json); ingen samlet ende-til-ende måling hævdes.
+- Ingen nye teleskoprequests eller teleskopbytes. Samlet konservativt kilde-/gendannelses-/afhængighedsregnskab: 2.002.313.292 bytes; uændret cap 4.563.402.752. Beløb 0 DKK.
+
+[Det konkrete næste forslag](results/radio_gap_static_context_20261010/RADIO_NEXT_COMPUTE_PROPOSAL_2026-10-10.md) er **IKKE GODKENDT · IKKE KØRT**: 3.600 ekstra CPU-s, total 46.800 s kun efter udtrykkelig godkendelse; 214 resterende sikre delbånd i to grupper på 107 kan øge referencekanaldækningen fra 15,625 % til 99,21875 %. Det er fortsat samme historiske besøg og samme frekvensudsnit. Forslaget foretager ingen ny reservation.
+
+A/B er fortsat FAIL_CLOSED, kvalificeret himmelpilot blokeret, gamle holdouts lukkede. Ingen kalibreret SNR/FAP, følsomhed eller oprindelsesafgørelse. Tidligere dokumentation følger uændret nedenfor.
+
 # Signalopfølgning — 10. oktober 2026
 
 To fastlåste analyser er gennemført én gang og har bestået uafhængig resultatkontrol. Den faste linje ved **1426,282128 MHz** har positive residualer i alle 16 rækker i alle seks scanninger ved bredde 1 og 3, inklusive alle tre OFF-scanninger. Alle 21 OFF-sammenligninger fra de syv gamle ikke-nul-driftprofiler har større middel ved den faste reference end på det bevægelige spor. Det diagnosticerer en begrænsning ved små ekstrapolerede OFF-værdier; det afgør ikke fysisk oprindelse.
