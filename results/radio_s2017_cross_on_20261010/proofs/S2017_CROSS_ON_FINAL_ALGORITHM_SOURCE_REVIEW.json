@@ -1,0 +1,64 @@
+{
+  "status": "PASS_FINAL_SOURCE_ONLY_ALGORITHM_AND_REVIEWED_LIFECYCLE_DELTAS_SYNTHETIC_TESTS_NOT_RUN",
+  "family": "radio_s2017_cross_on_20261010",
+  "source_pins": {
+    "match_saved.py": {
+      "path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_20261010/match_saved.py",
+      "sha256": "8ec587be2e0cccd7a443373dbb5b466da9554576beeb019c91b59a3eee746a62",
+      "bytes": 34226
+    },
+    "prepare_scope.py": {
+      "path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_20261010/prepare_scope.py",
+      "sha256": "2d5692cea09bdef334b3400d34a6f858cc454ce674788c945f6f10c4348d9eb4",
+      "bytes": 19696
+    },
+    "METHOD.md": {
+      "path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_20261010/METHOD.md",
+      "sha256": "6a64fbf3ea025544c3791cf27b1f1557c90a9ddf8d3829fae611c698dc775591",
+      "bytes": 8828
+    }
+  },
+  "pure_function_AST_sha256": {
+    "sorted_bins": "c2349ee1ebe026b65a6f5e568ec32f1520e1842c827f92d74e03c35830039f83",
+    "directed_nearest": "adb4b5f33511eb41c2a4c961116aca458daca769204a5615716ac649c458647b",
+    "consistent_triples": "b75f316e845ae49236ef507971482f54ea6b5afb45ed07589a54894fb528c316",
+    "top_records": "62e5c7c98db8a035d91024730399dc16c33956d658a7ded829e7a8408ac9c1d2"
+  },
+  "independent_algorithm_findings": [
+    "Transport keeps original global carrier frequency and saved winning drift/width; common reference is midpoint ON1/ON3 first-integration midpoint references, not ON2 time. Exact original negative df and grid bytes/winner roundtrip are enforced.",
+    "Sorted target bins are ordered driftindex, transportedfrequency, then global sourcechannel. For each source, inclusive driftindex neighbors k-1/k/k+1 are searched. The nearest frequency within each bin is among predecessor/successor; predecessor duplicate frequency group is moved to its first minimum-channel member.",
+    "Directed selection is exact lexicographic(abs frequencygap, abs driftindexgap, target globalchannel), with gap<=tau inclusive and no epsilon, scorethreshold or equalwidth rule.",
+    "All six directed links must name the exact same three vector indices. Independent full-triple frequency and drift spans reject incompatible injected links. Mutuality gives one-to-one members; output bounds and per-column uniqueness are asserted before little-endian int32 relation publication.",
+    "Top1000 display sorts minimum of three finite saved scores descending, then ON1/ON2/ON3 channeltriple. Negative finite scores remain eligible; original member coordinates, score, width and gridkey are copied. Empty0x3 relation is legal for axis1 reductions and yields zero top rows.",
+    "No detector, H5/HTTP/preprocessing/OFF/profile import or measurement is in this source. Exact seven-array dtype/shape, finite values, width1/3, complete1570 hypotheses and sourceframe validation guard saved-map intake."
+  ],
+  "source_resource_analysis": {
+    "N_per_ON": 1040384,
+    "carrier_maxima": 3121152,
+    "directed_matches": 6,
+    "maximum_candidate_evaluations": 37453824,
+    "retained_dense_array_bytes_estimate": 120684544,
+    "asymptotic_work": "O(N log N), no Cartesian pair/triple enumeration",
+    "temporary_memory": "O(N); enforced runtime1GiB cap remains required",
+    "benchmark_or_runtime_resource_PASS_claimed": false,
+    "terminal_headroom_is_not_a_filesystem_latency_bound": true,
+    "actual_full_command_outer_CPU_wall_RSS_measurement_required": true
+  },
+  "reviewed_fix_deltas": [
+    "File and directory fsync for durable exclusive markers/checkpoints.",
+    "Same bytes hashed and JSON decoded, explicit original scope/driver/freeze/QA-code and four execution receipt SHA joins, checkpoint/map/normalization QA byte attestation.",
+    "Source/output/code/scope contained by non-overlapping canonical shared roots before64MiB reservation under8GiB.",
+    "Terminal JSON prepared and fsynced, cap/headroom checked, exclusive hardlink commit; clocks disarmed for finite terminalcommit and stdout BrokenPipe cannot produce conflicting FAILURE besideCOMPLETE. Original ownerguards and stable ownflock retained through terminal."
+  ],
+  "scope_and_admission_execution": "Not run or read by this reviewer; final publicfreeze/rootGO/admission remain parent responsibilities.",
+  "synthetic_design_pin": {
+    "path": "/workspace/scratch/a8d1e29996d0/seti_fullpower_work/recovery_design/continuity_review/S2017_CROSS_ON_SYNTHETIC_TEST_DESIGN.json",
+    "sha256": "01a3d626016f0c335d2bc742f631dd74369c490608879ccb16c5e95d665ed561",
+    "bytes": 6385
+  },
+  "target_imported": false,
+  "numpy_imported": false,
+  "scientific_arrays_or_values_read": false,
+  "target_helpers_or_tests_executed": false,
+  "source_AST_only_validation_process_CPU_seconds": 0.018026506
+}
