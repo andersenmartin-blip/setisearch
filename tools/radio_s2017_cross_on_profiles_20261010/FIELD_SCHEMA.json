@@ -1,0 +1,200 @@
+{
+  "schema": "SETI_S2017_CROSS_ON_COMPACT_PROFILE_FIELD_SCHEMA_V1",
+  "family_id": "radio_s2017_cross_on_profiles_20261010",
+  "NPZ_file": "COMPACT_FIXED_PROFILES.npz",
+  "arrays": {
+    "logical_geometry_indices": {
+      "dtype": "<i4",
+      "shape": [
+        1905,
+        6
+      ],
+      "meaning": "index into unique geometry arrays for each logical member,target scan"
+    },
+    "logical_times_seconds_from_original_reference": {
+      "dtype": "<f8",
+      "shape": [
+        1905,
+        6,
+        16
+      ],
+      "meaning": "original member tref preserved individually, including aliases"
+    },
+    "geometry_source_channel_centers": {
+      "dtype": "<i8",
+      "shape": [
+        11369,
+        16
+      ],
+      "meaning": "absolute np.rint source-channel centers"
+    },
+    "geometry_scan_indices": {
+      "dtype": "<i2",
+      "shape": [
+        11369
+      ],
+      "meaning": "index into chronological six scans"
+    },
+    "geometry_width_channels": {
+      "dtype": "<i2",
+      "shape": [
+        11369
+      ],
+      "meaning": "unchanged original winning width1/3"
+    },
+    "source_channel_offsets": {
+      "dtype": "<i8",
+      "shape": [
+        129
+      ],
+      "meaning": "all offsets-64..64"
+    },
+    "scans": {
+      "dtype": "<U10",
+      "shape": [
+        6
+      ],
+      "meaning": "epoch1_on,epoch1_off,epoch2_on,epoch2_off,epoch3_on,epoch3_off"
+    },
+    "saved_full_native_row_medians": {
+      "dtype": "<f8",
+      "shape": [
+        6,
+        16
+      ],
+      "meaning": "stored96 denominators, never recomputed"
+    },
+    "geometry_center_row_normalized_power": {
+      "dtype": "<f8",
+      "shape": [
+        11369,
+        16
+      ],
+      "meaning": "mean(normalized selectedwidth) after float64 conversion/division"
+    },
+    "geometry_flank_median_row_normalized_power": {
+      "dtype": "<f8",
+      "shape": [
+        11369,
+        16
+      ],
+      "meaning": "new eachrow median(normalized122 offsetsabs>3)"
+    },
+    "geometry_center_minus_flank_rows": {
+      "dtype": "<f8",
+      "shape": [
+        11369,
+        16
+      ],
+      "meaning": "center-flank eachrow"
+    },
+    "geometry_raw_width_mean_power": {
+      "dtype": "<f4",
+      "shape": [
+        11369,
+        16
+      ],
+      "meaning": "separate originalfloat32 rawselectedwidth mean; never used as normalizedcenter substitute"
+    },
+    "geometry_mean_raw_frequency_profile": {
+      "dtype": "<f4",
+      "shape": [
+        11369,
+        129
+      ],
+      "meaning": "defaultfloat32 mean(raw16rows) at fixed aligned offsets"
+    },
+    "geometry_mean_row_normalized_frequency_profile": {
+      "dtype": "<f8",
+      "shape": [
+        11369,
+        129
+      ],
+      "meaning": "mean(normalized16rows) at fixed aligned offsets"
+    },
+    "geometry_mean_normalized_minus_flank_frequency_profile": {
+      "dtype": "<f8",
+      "shape": [
+        11369,
+        129
+      ],
+      "meaning": "EXACTmean(normalized-eachrowflank), not algebraic reordering"
+    },
+    "geometry_raw_row_SHA256": {
+      "dtype": "|u1",
+      "shape": [
+        11369,
+        16,
+        32
+      ],
+      "meaning": "SHA256 digest of exact C-order littleendianfloat32[129] rawrow bytes; packed binary"
+    }
+  },
+  "JSON_file": "FIXED_ALL_SIX_PROFILES.json (small index)",
+  "JSON_records": 1905,
+  "logical_identity_fields": [
+    "family_id",
+    "match_id",
+    "member_scan_id",
+    "target_scan_id"
+  ],
+  "JSON_scan_fields": [
+    "scan_id",
+    "target_scan_id",
+    "geometry_index",
+    "metrics",
+    "row_array_ref",
+    "origin_ON_mean_minus_this_scan_mean",
+    "target_role"
+  ],
+  "fixed_metrics": [
+    "mean",
+    "median",
+    "positive_rows",
+    "first_eight_mean",
+    "last_eight_mean",
+    "minimum_half_mean"
+  ],
+  "comparison_definition": "each original member originON residualmean minus same member frozen residualmean at each targetscan; all6 targets retained; no score subtraction",
+  "raw_patch_retention": "Full raw/normalized patches absent. RowSHA and original source pins identify exact selected cells; means and scalararrays alone cannot reconstruct all129 rawrowvalues.",
+  "profile_coordinate_definition": "Frequency profiles use trackaligned offsets, not one static frequency axis. Physicalrowchannel=geometrycenter[row]+offset; physicalHz=FCH1+DF*physicalrowchannel.",
+  "counts": {
+    "selected_triples": 635,
+    "members": 1905,
+    "logical_scan_profiles": 11430,
+    "logical_rows": 182880,
+    "unique_geometries": 11369,
+    "unique_geometry_rows": 181904,
+    "aliases": 61,
+    "old_geometry_overlap": 0,
+    "logical_raw_cell_occurrences": 23591520,
+    "unique_raw_cell_occurrences": 23465616,
+    "old_saved_profiles_excluded": 54,
+    "old_saved_geometries_excluded": 312
+  },
+  "completeness": "JSON/NPZ measurementcomplete does not certify resourceadmission. Only canonical EXECUTION_RECEIPT plus CLOSED outerexit0/resourcePASS establishes actual COMPLETE.",
+  "flags": {
+    "H5_source_opened": true,
+    "profiles_measured": true,
+    "new_profile_normalization_performed": true,
+    "fixed_profile_flank_medians_newly_measured": true,
+    "full_native_row_denominator_medians_recomputed": false,
+    "original_detector_or_map_preprocessing_reexecuted": false,
+    "new_HTTP_requests": 0,
+    "new_source_BODY_bytes": 0,
+    "cost_DKK": 0
+  },
+  "JSON_origin_record_files": [
+    "PROFILES_epoch1_on.json",
+    "PROFILES_epoch2_on.json",
+    "PROFILES_epoch3_on.json"
+  ],
+  "JSON_origin_records_each": 635,
+  "JSON_row_values": "All16 exact residuals are in compact NPZ referenced by geometry_index; no redundant JSON row lists.",
+  "logical_identity_field_locations": {
+    "family_id": "origin file envelope",
+    "match_id": "member record",
+    "member_scan_id": "member record",
+    "target_scan_id": "nested scan_profiles record"
+  }
+}

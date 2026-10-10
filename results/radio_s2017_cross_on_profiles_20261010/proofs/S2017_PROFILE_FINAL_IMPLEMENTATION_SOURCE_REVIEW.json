@@ -1,0 +1,118 @@
+{
+  "schema": "SETI_S2017_ALL_SIX_PROFILES_INDEPENDENT_FINAL_SOURCE_REVIEW_V1",
+  "status": "PASS_FINAL_PROFILE_SOURCE_REFERENCE_GEOMETRY_PROVENANCE_AND_LIFECYCLE_CONTRACTS",
+  "all_source_contract_checks_passed": true,
+  "remaining_source_blockers": [],
+  "scientific_GO_granted_by_this_review": false,
+  "pins": {
+    "profile_saved.py": {
+      "path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_profiles_20261010/profile_saved.py",
+      "sha256": "e49dc707c6e9b560b1f8a17e2fb606329ffbdbf00f0abe7011a88ecc9f3d5bc6",
+      "bytes": 19731
+    },
+    "profile_contract.py": {
+      "path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_profiles_20261010/profile_contract.py",
+      "sha256": "2cafbb6c4400b2e2b11c8da286244635b687bd81bb4daa5477a80e3905748e07",
+      "bytes": 23759
+    },
+    "prepare_scope.py": {
+      "path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_profiles_20261010/prepare_scope.py",
+      "sha256": "cad9580ebd6cb8d9e4a8a0d7143421882d59bd9e27ff34399fbdaf3722a6a189",
+      "bytes": 7382
+    },
+    "METHOD.md": {
+      "path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_profiles_20261010/METHOD.md",
+      "sha256": "c1ceb0771e3aa9c9b3427d6b426804a00a07d08f7401d50dc5b495a1341b2aba",
+      "bytes": 9623
+    },
+    "FIELD_SCHEMA.json": {
+      "path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_profiles_20261010/FIELD_SCHEMA.json",
+      "sha256": "5a7c29d22f760bd0bac1d73993378b8df7496759d279c0ada27342edaf71ae4b",
+      "bytes": 5837
+    },
+    "run_frozen_once.py": {
+      "path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_profiles_20261010/run_frozen_once.py",
+      "sha256": "790870837106e72f8fcbb6d273df05b641c2356a6b31b41736d30878300f60c6",
+      "bytes": 4720
+    },
+    "original_fixed_profiles_source": {
+      "path": "/workspace/scratch/5bf3860dacd6/analysis/new_visit_search/dependencies/gap_search.py",
+      "sha256": "b1a2cc31d47dbebc707f36c5de3eafbae6a62f0d0d19061c798c676c9fbcdb58",
+      "bytes": 21995
+    },
+    "S2017_PROFILE_PURE_TOY_FIXTURE.py": {
+      "path": "/workspace/scratch/a8d1e29996d0/seti_fullpower_work/recovery_design/cross_on_review/S2017_PROFILE_PURE_TOY_FIXTURE.py",
+      "sha256": "608089218c6b8abc46fdf0078236b0e89ce554327d508791b6527ea37889b658",
+      "bytes": 16505
+    },
+    "S2017_PROFILE_PURE_TOY_FIXTURE_V2.py": {
+      "path": "/workspace/scratch/a8d1e29996d0/seti_fullpower_work/recovery_design/cross_on_review/S2017_PROFILE_PURE_TOY_FIXTURE_V2.py",
+      "sha256": "07c3cfdc8c2e49a8a9d72588bc40d717acb13690bd3332426c73663480ab649c",
+      "bytes": 16875
+    },
+    "S2017_PROFILE_PURE_TOY_FIXTURE_V2_RECEIPT.json": {
+      "path": "/workspace/scratch/a8d1e29996d0/seti_fullpower_work/recovery_design/cross_on_review/S2017_PROFILE_PURE_TOY_FIXTURE_V2_RECEIPT.json",
+      "sha256": "01789a47149a43765c73f16e4fc5e012edcbd69e24823aa8400fdaa2d065c751",
+      "bytes": 1647
+    },
+    "S2017_PROFILE_PURE_TOY_FIXTURE_V2_SOURCE_DELTA_REVIEW.json": {
+      "path": "/workspace/scratch/a8d1e29996d0/seti_fullpower_work/recovery_design/cross_on_review/S2017_PROFILE_PURE_TOY_FIXTURE_V2_SOURCE_DELTA_REVIEW.json",
+      "sha256": "ff2713a6294a476e26058a03ce35ba304cf1fdb3a3f155071e85e289abdb9016",
+      "bytes": 1468
+    }
+  },
+  "worker_function_AST_sha256": {
+    "profile_kernel": "f71a383f7fc6e174e6de654c4c39d5557163bf62e6b56d58a8208a3608bbe477",
+    "derive_geometry": "80b4d959fedab974afc544d1b3d7ed8972636613c202a5ac7654debe1ab08e14",
+    "summary_metrics": "f1544cc4a4203d2aa63e4f5db3c16358c4bb9de1499392a480d4e87795438e69",
+    "load_contract": "a22ae62dec225a5e1e8251324702d629ced992a5217c9ee1fb7066413c273c1a",
+    "compute": "d5c0910275a5ae91dc5f357c6e7e27c63319bef881ac30127eca78a5b2a7684a",
+    "main": "08ea0404861709178f4efe77b4af51b671fe79fa413facf0c94f0e20429fc1c2"
+  },
+  "findings": [
+    "Original absolute frequency-derived nearest-even np.rint and separate IEEE operation order retained, including exact nominal-zero grid epsilon. Every target ON/OFF uses each original member ON first-integration-midpoint reference. No relative-shift rounding, common-reference recentering or profile refit.",
+    "Normalize raw float32 into float64 per stored full-native row denominator before the122-flank median or selected width1/3 mean. Residual=center-minus-flank and129 mean remains mean(normalized-minus-each-row-baseline). Float32 raw width/129 means are distinct descriptive outputs. All signs,16 rows and129 context channels retained.",
+    "635 triples/1905 unique original members/11430 logical scan profiles/182880 logical rows. Exact known rank1 alone excluded; no score, frequency, sign or OFF threshold or global reranking. Cache uses targetscan,width,ordered16centers under one fixed source/denominator/offset contract, enforces11369 geometries/61 aliases and stores separate logical1905x6x16 dt.",
+    "Historical actual q128/bulk scopes and drivers are now SHA/size pinned and endchecked; execution/QA/code/scope/freeze joins bind source/canonical96 normalization/acquisition/compacts/decodedrows and actual completed matcher/closed outer/output QA.",
+    "Old inventory updated to54 hypotheses/312 geometries including joined18. Separate pinned native170/17254-case/324-window metadata proof validates EACH full129 support outside native171 and inside its own band, rather than an enclosing interval; inputs are endpinned. Actual new geometry digest must equal independent root admission and generator metadata digests before extraction.",
+    "One exclusive durable preparation marker and one durable scientific-attempt marker; worker marker precedes fullcontract/NumPy. Readonly exclusive seven original171 flocks and stable own process-owned flock persist through terminal handling. Joined driver/QA command paths are excluded while unrelated native170/172 interior work is permitted under shared resource assessment.",
+    "Launcher/worker startup limits match180CPUsoft/182hard,1GiBAS/RSS,1800wall and four thread variables1. Fresh12GiB shared and128MiB output reservations precede extraction. Final1MiB headroom and preparedterminal<=64KiB actual transient-link/output/shared-size checks resolve the earlier finalpublication gap.",
+    "All96 source rows and every compact/header/url/etag/dtype/SHA are authenticated; each unique geometry is extracted/measured once.16 output arrays retain fixed geometry, independent logical mapping/times, three129 means, center/flank/residual16 and packed129-cell rawrow SHA. Full raw/normalized patches are absent and flagged honestly.",
+    "End input/source/guard/disk/resource checks precede exclusive fsynced canonical COMPLETE. Intermediate JSON/NPZ completeness stays resource-admission-pending; actual closed outerexit0/resourcePASS is separately required. Partial/failure evidence is preserved with no automatic retry.",
+    "METHOD/FIELD distinguish newly performed local normalization/flank medians from reused full-native denominators and unchanged detector/preprocessing. Same-visit/posthoc/control correlation and weak transported OFF limitations are explicit; no calibration, candidate qualification, independent validation, sky/Earth/RFI origin or sourceMD5 conclusion."
+  ],
+  "resolved_early_source_gaps": [
+    "Actual historical scope/driver file pins",
+    "Prepared/published terminal bytes reserved",
+    "Final joined54/312 inventory and separately bound outside54/324 supports"
+  ],
+  "root_run_toy_V2": {
+    "status": "PASS_NINE_SOURCE_EXTRACTED_PURE_PROFILE_TOY_FIXTURES_V2",
+    "case_count": 9,
+    "actual_worker_sha256": "e49dc707c6e9b560b1f8a17e2fb606329ffbdbf00f0abe7011a88ecc9f3d5bc6",
+    "process_CPU_seconds": 0.080881595,
+    "wall_seconds": 0.054392177999034175,
+    "peak_RSS_bytes": 26284032,
+    "executed_by_root_not_reviewer": true,
+    "original_failed_runner_and_root_failure_evidence_preserved": true
+  },
+  "review_boundaries": {
+    "source_text_and_own_root_toy_receipt_metadata_only": true,
+    "target_or_fixture_imported": false,
+    "generator_profile_QA_or_target_helpers_executed": false,
+    "NumPy_H5_imported": false,
+    "original_observation_arrays_NPZ_H5_read": false,
+    "real_kernel_geometry_medians_matching_recomputed": false,
+    "toy_tests_repeated_by_reviewer": false,
+    "source_mutations": false,
+    "HTTP_requests": 0
+  },
+  "remaining_runtime_conditions": [
+    "Root actual admission, generated scope and public freeze/readback before one scientific GO",
+    "Exact geometry/data counts and final resource completion need actual worker/outer receipts",
+    "Independent saved-output/source-integrity QA remains required; toys do not authenticate observation cells"
+  ],
+  "process_CPU_seconds": 0.044278515,
+  "wall_seconds": 0.017407662000550772,
+  "peak_RSS_bytes": 15704064
+}

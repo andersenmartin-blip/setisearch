@@ -1,0 +1,174 @@
+{
+  "schema": "SETI_S2017_CROSS_ON_PROFILES_INDEPENDENT_SCIENTIFIC_SOURCE_REVIEW_V1",
+  "UTC": "2026-10-10T20:21:17.453846+00:00",
+  "status": "PASS_SOURCE_ONLY_FIXED_KERNEL_COMPACT_SCHEMA_AND_PROFILE_IDENTITY_CONTRACTS",
+  "family_id": "radio_s2017_cross_on_profiles_20261010",
+  "reviewer": "/root/fresh_band_analysis/qa_contract_review",
+  "reviewed_file_pins": {
+    "profile_saved.py": {
+      "path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_profiles_20261010/profile_saved.py",
+      "sha256": "e49dc707c6e9b560b1f8a17e2fb606329ffbdbf00f0abe7011a88ecc9f3d5bc6",
+      "bytes": 19731
+    },
+    "profile_contract.py": {
+      "path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_profiles_20261010/profile_contract.py",
+      "sha256": "2cafbb6c4400b2e2b11c8da286244635b687bd81bb4daa5477a80e3905748e07",
+      "bytes": 23759
+    },
+    "prepare_scope.py": {
+      "path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_profiles_20261010/prepare_scope.py",
+      "sha256": "cad9580ebd6cb8d9e4a8a0d7143421882d59bd9e27ff34399fbdaf3722a6a189",
+      "bytes": 7382
+    },
+    "METHOD.md": {
+      "path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_profiles_20261010/METHOD.md",
+      "sha256": "c1ceb0771e3aa9c9b3427d6b426804a00a07d08f7401d50dc5b495a1341b2aba",
+      "bytes": 9623
+    },
+    "FIELD_SCHEMA.json": {
+      "path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_profiles_20261010/FIELD_SCHEMA.json",
+      "sha256": "5a7c29d22f760bd0bac1d73993378b8df7496759d279c0ada27342edaf71ae4b",
+      "bytes": 5837
+    },
+    "NATIVE170172_PROFILE_INTERVAL_DISJOINTNESS.json": {
+      "path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_profiles_20261010/NATIVE170172_PROFILE_INTERVAL_DISJOINTNESS.json",
+      "sha256": "2c05744df764f03a0b5cc8765115d1c803fa9103742f6feb7c0e08a59a103452",
+      "bytes": 147795
+    }
+  },
+  "authenticated_original_kernel_source": {
+    "path": "/workspace/scratch/5bf3860dacd6/analysis/new_visit_search/dependencies/gap_search.py",
+    "sha256": "b1a2cc31d47dbebc707f36c5de3eafbae6a62f0d0d19061c798c676c9fbcdb58",
+    "bytes": 21995,
+    "function": "fixed_profiles"
+  },
+  "kernel_AST_proof": {
+    "transformation": "Remove only the independent leading scan dimension from row_medians/normalized/baseline indexing; decrement the corresponding reduction axis; substitute unchanged width argument for track width lookup. No floating arithmetic reassociation.",
+    "expressions": {
+      "offsets": {
+        "exact_dimension_adapted_AST": true,
+        "new_expression_AST_sha256": "b1d00b3cd7327fdca4f0255b24936995d613e4babbefc47f5289384e0511549b"
+      },
+      "flank": {
+        "exact_dimension_adapted_AST": true,
+        "new_expression_AST_sha256": "5df19b7a37ab33cd3fcfad26419651f512ae1d64bb21af420d070c11f565c072"
+      },
+      "normalized": {
+        "exact_dimension_adapted_AST": true,
+        "new_expression_AST_sha256": "c6d82ec925b506a1a931d7c6e2d31a64d775cff35e764ba21122655bd4cb9c01"
+      },
+      "baseline": {
+        "exact_dimension_adapted_AST": true,
+        "new_expression_AST_sha256": "39ff3e11a796e5cc09ba37f8fa5f95f10882ec3624f4ab19030351d86c0ac2ce"
+      },
+      "radius": {
+        "exact_dimension_adapted_AST": true,
+        "new_expression_AST_sha256": "b0296f787e327e2343a8f37431d1b9c73363ac54ff3038569b3dffab64da3f56"
+      },
+      "center": {
+        "exact_dimension_adapted_AST": true,
+        "new_expression_AST_sha256": "b194c9f49fcfe7a807bd63ff4a5b2a579d194565fa7846462f2901eddcee0a05"
+      },
+      "residual": {
+        "exact_dimension_adapted_AST": true,
+        "new_expression_AST_sha256": "47b253ae07aed6692cfdc92e2c13f81472f74b0ea97a59a5ba23f1040288d47e"
+      },
+      "mean_profile": {
+        "exact_dimension_adapted_AST": true,
+        "new_expression_AST_sha256": "49a67a7751a3f2eaab11a9b9a49104c71b5c842df3e3cf6588d642c08f820c1b"
+      }
+    },
+    "all_eight_expressions_exact": true,
+    "proof_kind": "stdlib AST comparison only; no target function imported, compiled for execution or called"
+  },
+  "scientific_source_checks": {
+    "normalized_dtype": "float64 conversion before division by stored targetscan denominator",
+    "flank": "exact fixed122 offsets abs(offset)>3; perrow median",
+    "center": "unchanged width1/3; radius=width//2; offsets -radius..+radius",
+    "residual": "center minus rowflank; mean129 uses mean(normalized-baseline[:,None],axis=0) without rearrangement",
+    "raw_dtype_and_reductions": "littleendian float32 raw; defaultfloat32 width mean and aligned129 mean",
+    "normalized_reductions": "float64 normalized and residual129 means",
+    "raw_row_identity": "SHA256 exact C-order littleendian float32[129] bytes, packed uint8[11369,16,32]",
+    "absolute_geometry": "original frequency-derived base and original ON reference; np.rint absolute sourcechannel before C0 subtraction, actual six header times, unchanged785 saved-grid validation",
+    "logical_alias_times": "logical_times_seconds_from_original_reference[1905,6,16] assigned separately per original member before geometry sharing",
+    "geometry_sharing": "same targetscan,width,16absolute centers share extraction/kernel; perlogical reference/time metadata retained",
+    "all_six_scan_symmetry": "all three original ON hypotheses transported unchanged to all six targetscans; same metrics/difference definition, no threshold",
+    "finite_outputs": "raw source rows finite/nonnegative and all seven numerical kernel products finite; JSON allow_nan=False fails closed",
+    "stored_denominators": "hardcoded canonical norm6dced4644d01db8a6a2dc8d4b740c63ca2d582691bdef810d1a9138c8d97b7cf/2425B; source validates all96 finite-positive stored values; no denominator median recomputation"
+  },
+  "compact_schema_checks": {
+    "array_keys_exactly_match_code": true,
+    "array_count": 16,
+    "dtype_shape_review": "All16 declared shapes/dtypes agree with source allocations; scans default U10; littleendian f4/f8/i2/i4/i8 and packed u1.",
+    "counts": {
+      "selected_triples": 635,
+      "members": 1905,
+      "logical_scan_profiles": 11430,
+      "logical_rows": 182880,
+      "unique_geometries": 11369,
+      "unique_geometry_rows": 181904,
+      "aliases": 61,
+      "old_geometry_overlap": 0,
+      "logical_raw_cell_occurrences": 23591520,
+      "unique_raw_cell_occurrences": 23465616,
+      "old_saved_profiles_excluded": 54,
+      "old_saved_geometries_excluded": 312
+    },
+    "logical_identity_field_locations": {
+      "family_id": "origin file envelope",
+      "match_id": "member record",
+      "member_scan_id": "member record",
+      "target_scan_id": "nested scan_profiles record"
+    },
+    "origin_JSON_files": "three635-member envelopes; total1905members/11430nested scan records; residual16 values indexed from compact NPZ",
+    "JSON_completeness": "measurementcomplete is explicitly final-resource-admission-pending; actual scientific completion requires canonical execution plus CLOSED outerexit0/resourcePASS"
+  },
+  "inventory_and_admission_source_checks": {
+    "targeted_old_inventory": "six pinned old profile JSONs:36native+18joined=54hypotheses/312scan-width-center16 geometries; retained as a separate exact exclusion set",
+    "outside_native_proof_metadata": {
+      "pin": {
+        "path": "/workspace/scratch/a8d1e29996d0/setisearch_fullpower/tools/radio_s2017_cross_on_profiles_20261010/NATIVE170172_PROFILE_INTERVAL_DISJOINTNESS.json",
+        "sha256": "2c05744df764f03a0b5cc8765115d1c803fa9103742f6feb7c0e08a59a103452",
+        "bytes": 147795
+      },
+      "recorded_status": "PASS_54_NATIVE170172_FIXED_CASE_WINDOWS_DISJOINT_FROM_NATIVE171",
+      "recorded_cases": 54,
+      "recorded_scan_profiles": 324,
+      "recorded_individual_native171_intersections": 0,
+      "source_validation": "metadata_inventory validates every pinned outside profile full129 support inside native170 or172 and disjoint171. Global enclosing bounds are not used to prove individual disjointness.",
+      "independent_runtime_verification_by_this_review": false
+    },
+    "admission_digest_join": "generator compares independently supplied selected-member and ordered-geometry admission digests to its own metadata derivation; worker derives NumPy geometry and checks frozen geometry digest before H5",
+    "code_scope_metadata_endpins": "source and frozen dependency/metadata pins rechecked before final terminal publication",
+    "joined_closure": "joined18 driver/QA command paths included in prior-owner process closure checks; unrelated outside-native interior processes permitted",
+    "lifecycle": "once-only marker; root freeze+GO; read-only prior171 flock guards; own stable flock; no retry/resume; terminal published exclusively after resource/disk checks",
+    "caps": "180CPU soft/182hard,1800wall,1GiB,128MiB output,12GiB shared; terminal publication has explicit small-control budget/headroom checks"
+  },
+  "resolved_findings": [
+    "Width interval documentation now parenthesizes radius for correct width1 behavior.",
+    "Logical identity locations now explicitly state envelope/member/nested scan fields."
+  ],
+  "blockers_in_assigned_kernel_data_schema_scope": [],
+  "limitations": [
+    "Source-only PASS does not certify actual root admission, scope generation, publicfreeze, fixture execution, runtime resources or actual COMPLETE scientific outputs.",
+    "Existing norm and candidate/profile scientific values were not opened by this review; canonical SHA is supplied/authenticated source contract.",
+    "Outside interval evidence is bound by exact bytes and its recorded metadata; this review does not rerun its original metadata producer or reread old numerical profiles.",
+    "Compact means and row hashes cannot reconstruct all raw patches or independently prove entire profile algebra; a separately authorized source/algebra integrity pass remains necessary for that stronger claim.",
+    "Posthoc same-visit correlations and shared controls are descriptive, not independent validation, calibrated sensitivity/SNR/FAP, candidate qualification or origin classification."
+  ],
+  "operations": {
+    "target_imports": 0,
+    "target_execution": 0,
+    "numerical_or_synthetic_tests": 0,
+    "HDF5_or_NPZ_reads": 0,
+    "candidate_or_profile_value_reads": 0,
+    "HTTP_requests": 0,
+    "scope_generation": 0,
+    "source_files_modified": 0
+  },
+  "metering": {
+    "prior_final_candidate_AST_proof_CPU_seconds": 0.012641768000000001,
+    "receipt_preparation_CPU_seconds_before_write": 0.018514020000000003,
+    "wall_clock_review_total_not_claimed": true
+  }
+}
