@@ -1,0 +1,369 @@
+{
+  "schema": "SETI_FIXED_DRIFT_ANCHOR_ANALYSIS_SCOPE_V1",
+  "authoritative_parent_commit": "c940df7e1c1e5ac721158bdf0b7335dcbbce7ea2",
+  "public_activity_reservation_commit": "6e2b1804bd5cd72c089c3e0f8a92ed5b1e8c1f8a",
+  "status": "PROSPECTIVE_DERIVED_DIAGNOSTIC_CODE_SCOPE_NOT_EXECUTED",
+  "already_exposed_input_values_and_selected_ranks": true,
+  "prospective_only_for_new_derivative_metrics": true,
+  "not_blind_or_independent_validation": true,
+  "script_path": "tools/radio_drift_anchor_20261010/drift_anchor.py",
+  "script_sha256": "930a89ee67b4a417917e1874629a595a644f0727077af02bfb370f7f18f0dbb5",
+  "runtime_versions": {
+    "numpy": "2.3.5",
+    "matplotlib": "3.10.8"
+  },
+  "input_files": [
+    {
+      "path": "tools/radio_fresh_band_20261009/source_manifest.json",
+      "sha256": "d2e6c76b0d5fe50b26d45830e4b67e4780da97f33cfe8fcdf80c761f47aa3a4c",
+      "bytes": 108156
+    },
+    {
+      "path": "results/radio_fresh_band_20261009/profiles/FIXED_TOP3_PROFILES.json",
+      "sha256": "68bdf54dbabd7049954cf4ee625110aa122481cf57c3603854d77936e3decf1e",
+      "bytes": 199652
+    },
+    {
+      "path": "results/radio_fresh_band_20261009/stationary/NORMALIZATION.json",
+      "sha256": "b7ec903775d522272607e83638adf68c02db95be5e2b613dd2f9ff839514fefc",
+      "bytes": 3248
+    },
+    {
+      "path": "tools/radio_fresh_band_20261009/fresh_search.py",
+      "sha256": "1a04ab1ea0d8b79b66ebc2a59a5c72b9c17b235f1a331ac19efeba90bade7102",
+      "bytes": 29786
+    },
+    {
+      "path": "tools/radio_drift_anchor_20261010/PREPARATION_SCOPE.json",
+      "sha256": "edbc474a0224075c54c90176b22f82486ccc71b3d9c58c59e94bddf83ad77c59",
+      "bytes": 1991
+    },
+    {
+      "path": "results/radio_fresh_band_20261009/profiles/epoch1_on_drift_rank_01.npz",
+      "sha256": "a34fd16fe5a4b61cab99d0e97020f48cc4cc2a4c839eb91937b0d4bb45b530ce",
+      "bytes": 165414
+    },
+    {
+      "path": "results/radio_fresh_band_20261009/profiles/epoch1_on_drift_rank_02.npz",
+      "sha256": "93d8926b7a93828f9dc31f3d7374b08fcf3f2ceca9d461485b73fc953b12296a",
+      "bytes": 165414
+    },
+    {
+      "path": "results/radio_fresh_band_20261009/profiles/epoch1_on_drift_rank_03.npz",
+      "sha256": "8c40f5972dcb7106df5edb411aa6b59e238705545d0c8a5f7cbd8e9da009e3be",
+      "bytes": 165414
+    },
+    {
+      "path": "results/radio_fresh_band_20261009/profiles/epoch2_on_drift_rank_01.npz",
+      "sha256": "e5069d4df00a95dc46417348b340fbb96a3b00323a6106fdbb85066949c99877",
+      "bytes": 165414
+    },
+    {
+      "path": "results/radio_fresh_band_20261009/profiles/epoch2_on_drift_rank_02.npz",
+      "sha256": "b645c283961bf2407915e03309e6e14e2a88df054fbdef37833de8df4cefec8a",
+      "bytes": 165414
+    },
+    {
+      "path": "results/radio_fresh_band_20261009/profiles/epoch2_on_drift_rank_03.npz",
+      "sha256": "4c4d9179948fa331b8e1cd00536a2930678188b2e9b1f56b32c2d39a0e47a3c1",
+      "bytes": 165414
+    },
+    {
+      "path": "results/radio_fresh_band_20261009/profiles/epoch3_on_drift_rank_01.npz",
+      "sha256": "8398afd5c60f0b2b0f7515f743a9c57bb36ff940a964a2e531da8dcec35b7bc8",
+      "bytes": 165414
+    },
+    {
+      "path": "results/radio_fresh_band_20261009/profiles/epoch3_on_drift_rank_02.npz",
+      "sha256": "2e82687c296bed52241e8b8719b0d86d9e3d442f4d7a3a385b72e14bf635053c",
+      "bytes": 165414
+    },
+    {
+      "path": "results/radio_fresh_band_20261009/profiles/epoch3_on_drift_rank_03.npz",
+      "sha256": "85963980a7a8eccc2125562b4f8b82925d7a7b61deb930043fac8a506464b626",
+      "bytes": 165414
+    }
+  ],
+  "source_manifest_path": "tools/radio_fresh_band_20261009/source_manifest.json",
+  "old_profile_json_path": "results/radio_fresh_band_20261009/profiles/FIXED_TOP3_PROFILES.json",
+  "normalization_path": "results/radio_fresh_band_20261009/stationary/NORMALIZATION.json",
+  "old_profile_directory": "results/radio_fresh_band_20261009/profiles",
+  "selected_track_ids": [
+    "epoch1_on_drift_rank_01",
+    "epoch1_on_drift_rank_02",
+    "epoch1_on_drift_rank_03",
+    "epoch2_on_drift_rank_01",
+    "epoch2_on_drift_rank_02",
+    "epoch2_on_drift_rank_03",
+    "epoch3_on_drift_rank_01",
+    "epoch3_on_drift_rank_02",
+    "epoch3_on_drift_rank_03"
+  ],
+  "selected_tracks": [
+    {
+      "track_id": "epoch1_on_drift_rank_01",
+      "family": "drift",
+      "originating_scan": "epoch1_on",
+      "originating_role": "ON",
+      "display_rank": 1,
+      "source_reference_channel": 158766416,
+      "reference_frequency_hz": 1426282128.4465203,
+      "reference_seconds_from_anchor": 8.993112064,
+      "drift_hz_s": -0.010498687664042272,
+      "width_channels": 3,
+      "maximum_robust_box_track_score": 54.10348326250348,
+      "reference_core_tile": 13,
+      "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+    },
+    {
+      "track_id": "epoch1_on_drift_rank_02",
+      "family": "drift",
+      "originating_scan": "epoch1_on",
+      "originating_role": "ON",
+      "display_rank": 2,
+      "source_reference_channel": 158766420,
+      "reference_frequency_hz": 1426282117.1045067,
+      "reference_seconds_from_anchor": 8.993112064,
+      "drift_hz_s": 0.052493438320209584,
+      "width_channels": 3,
+      "maximum_robust_box_track_score": 29.264132709295293,
+      "reference_core_tile": 13,
+      "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+    },
+    {
+      "track_id": "epoch1_on_drift_rank_03",
+      "family": "drift",
+      "originating_scan": "epoch1_on",
+      "originating_role": "ON",
+      "display_rank": 3,
+      "source_reference_channel": 158766412,
+      "reference_frequency_hz": 1426282139.788534,
+      "reference_seconds_from_anchor": 8.993112064,
+      "drift_hz_s": -0.08398950131233596,
+      "width_channels": 3,
+      "maximum_robust_box_track_score": 27.909688831524683,
+      "reference_core_tile": 13,
+      "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+    },
+    {
+      "track_id": "epoch2_on_drift_rank_01",
+      "family": "drift",
+      "originating_scan": "epoch2_on",
+      "originating_role": "ON",
+      "display_rank": 1,
+      "source_reference_channel": 158766416,
+      "reference_frequency_hz": 1426282128.4465203,
+      "reference_seconds_from_anchor": 668.9931117007842,
+      "drift_hz_s": 0.0,
+      "width_channels": 1,
+      "maximum_robust_box_track_score": 58.20042488975179,
+      "reference_core_tile": 13,
+      "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+    },
+    {
+      "track_id": "epoch2_on_drift_rank_02",
+      "family": "drift",
+      "originating_scan": "epoch2_on",
+      "originating_role": "ON",
+      "display_rank": 2,
+      "source_reference_channel": 158766412,
+      "reference_frequency_hz": 1426282139.788534,
+      "reference_seconds_from_anchor": 668.9931117007842,
+      "drift_hz_s": -0.06299212598425186,
+      "width_channels": 3,
+      "maximum_robust_box_track_score": 30.11348418667823,
+      "reference_core_tile": 13,
+      "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+    },
+    {
+      "track_id": "epoch2_on_drift_rank_03",
+      "family": "drift",
+      "originating_scan": "epoch2_on",
+      "originating_role": "ON",
+      "display_rank": 3,
+      "source_reference_channel": 158766420,
+      "reference_frequency_hz": 1426282117.1045067,
+      "reference_seconds_from_anchor": 668.9931117007842,
+      "drift_hz_s": 0.052493438320209584,
+      "width_channels": 3,
+      "maximum_robust_box_track_score": 27.903186338563785,
+      "reference_core_tile": 13,
+      "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+    },
+    {
+      "track_id": "epoch3_on_drift_rank_01",
+      "family": "drift",
+      "originating_scan": "epoch3_on",
+      "originating_role": "ON",
+      "display_rank": 1,
+      "source_reference_channel": 158766417,
+      "reference_frequency_hz": 1426282125.611017,
+      "reference_seconds_from_anchor": 1328.993111966211,
+      "drift_hz_s": 0.0,
+      "width_channels": 3,
+      "maximum_robust_box_track_score": 58.0592012155399,
+      "reference_core_tile": 13,
+      "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+    },
+    {
+      "track_id": "epoch3_on_drift_rank_02",
+      "family": "drift",
+      "originating_scan": "epoch3_on",
+      "originating_role": "ON",
+      "display_rank": 2,
+      "source_reference_channel": 158766413,
+      "reference_frequency_hz": 1426282136.9530306,
+      "reference_seconds_from_anchor": 1328.993111966211,
+      "drift_hz_s": -0.05249343832021003,
+      "width_channels": 3,
+      "maximum_robust_box_track_score": 35.24312175513985,
+      "reference_core_tile": 13,
+      "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+    },
+    {
+      "track_id": "epoch3_on_drift_rank_03",
+      "family": "drift",
+      "originating_scan": "epoch3_on",
+      "originating_role": "ON",
+      "display_rank": 3,
+      "source_reference_channel": 158766421,
+      "reference_frequency_hz": 1426282114.2690034,
+      "reference_seconds_from_anchor": 1328.993111966211,
+      "drift_hz_s": 0.06299212598425186,
+      "width_channels": 3,
+      "maximum_robust_box_track_score": 25.754032618120146,
+      "reference_core_tile": 13,
+      "status": "EXPLORATORY_RANK_UNCLASSIFIED"
+    }
+  ],
+  "anchor_source_channel": 158766416,
+  "anchor_selection_rule": "Previously published ON2 drift rank01 exact zero-drift native reference channel, fixed before these new derivative metrics.",
+  "anchor_frequency_hz": 1426282128.4465203,
+  "reference_drift_hz_s": 0,
+  "fixed_frequency_shift_channels": 0,
+  "source_channel0": 158334976,
+  "fch1_hz": 1876464843.75,
+  "df_hz": -2.835503418452676,
+  "tsamp_s": 17.986224128,
+  "scan_order": [
+    "epoch1_on",
+    "epoch1_off",
+    "epoch2_on",
+    "epoch2_off",
+    "epoch3_on",
+    "epoch3_off"
+  ],
+  "scan_header_starts_mjd": {
+    "epoch1_on": 57464.69,
+    "epoch1_off": 57464.693819444445,
+    "epoch2_on": 57464.69763888889,
+    "epoch2_off": 57464.70145833334,
+    "epoch3_on": 57464.70527777778,
+    "epoch3_off": 57464.709085648145
+  },
+  "common_time_axis": "Seconds from first row midpoint of earliest scan: (scan_header_tstart \u2212 earliest_header_tstart) \u00d7 86400 + row_index \u00d7 TSAMP; indices0..15.",
+  "old_time_geometry_validation": "Reproduce old saved dt = (scan_header_tstart \u2212 earliest_header_tstart) \u00d786400 + (row_index+0.5)\u00d7TSAMP \u2212 original_reference_seconds_from_anchor. Reproduce frozen moving center using rint((original_reference_frequency_hz\u2212FCH1)/DF + original_drift\u00d7dt/DF). Require exact saved dt and center equality.",
+  "common_physical_source_channels_inclusive": [
+    158766406,
+    158766426
+  ],
+  "common_patch_shape": [
+    6,
+    16,
+    21
+  ],
+  "common_unique_raw_cells": 2016,
+  "physical_copy_gather": "old_patch_index = anchor + physical_offset \u2212 saved_frozen_moving_center +64; offsets\u221210..+10.",
+  "metadata_anchor_offset_min": -53,
+  "metadata_anchor_offset_max": 32,
+  "coverage_guard": "All gather indices must lie0..128 in each of9\u00d76\u00d716 rows; missing context fails closed without extension/retry.",
+  "identity_guards": [
+    "All9 same-physical raw float32 windows must be byte-identical in C order.",
+    "All9 same-physical normalized float64 windows must be byte-identical in C order.",
+    "Copied normalized window must equal raw.astype(float64)/saved positive full-chunk row median byte-exactly.",
+    "Saved row medians must be byte-identical to retained NORMALIZATION JSON values.",
+    "Full old NPZ SHA pins checked before and after; all pinned input files rechecked after diagnostic."
+  ],
+  "flank_offsets": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "flank_definition": "Per row median of common row-normalized physical channels with |offset|>3 within anchor\u00b110; exactly14channels.",
+  "reference_widths": [
+    1,
+    3,
+    5,
+    9
+  ],
+  "reference_definition": "Arithmetic mean of centered physical offsets\u2212(width//2)..+(width//2) minus same fixed per-row14channel physical flank. No width selection or optimization.",
+  "same_background_drift_comparison": "Copy old saved center_row_normalized_power without remeasurement. Subtract same new static physical flank. Compare with fixed stationary anchor at each case original width1/3. Signed difference = stationary residual \u2212 original drifting residual. Save all9\u00d76\u00d716 rows.",
+  "original_mean_retention": "Copy old scan_profiles.mean_center_minus_flank from pinned profile JSON into separate field/array. It used track-aligned|offset|>3 within\u00b164 and is not directly the same-background comparison; never recompute old means.",
+  "metrics_per_16_row_array": [
+    "all16rows",
+    "mean",
+    "median",
+    "strictly_positive_row_count",
+    "first8mean",
+    "last8mean",
+    "minimum_of_fixed_half_means"
+  ],
+  "fixed_reference_scan_width_summaries": 24,
+  "original_drift_case_scan_comparisons": 54,
+  "new_raw_or_source_requests": 0,
+  "HDF5_or_full_chunk_reads": false,
+  "new_searches_or_thresholds": false,
+  "frequency_drift_or_width_refitting": false,
+  "no_rank_changes": true,
+  "no_old_holdout_reads": true,
+  "output_directory": "results/radio_drift_anchor_20261010/measurement",
+  "scientific_outputs": [
+    "COMMON_ANCHOR_AND_COMPARISONS.npz",
+    "DRIFT_ANCHOR_RESULT.json",
+    "EXECUTION_RECEIPT.json"
+  ],
+  "plots": [
+    {
+      "path": "COMMON_PHYSICAL_WATERFALL.png",
+      "definition": "6scan\u00d716row\u00d721physical-channel normalized-minus-static-flank waterfall; shared physical MHz axes; fixed color range[\u22120.5,3.0], no data clipping in saved arrays. Colors clamp at fixed limits and colorbar extends at both ends; full numeric values retained."
+    },
+    {
+      "path": "FIXED_REFERENCE_TIME.png",
+      "definition": "Six panels,all16rows,width1/3fixed reference residual curves; one shared y range derived from min/max of all plotted values plus max(0.05,0.08\u00d7range) margin, includezero."
+    },
+    {
+      "path": "SAME_BACKGROUND_MEAN_DIFFERENCE.png",
+      "definition": "9\u00d76 signed mean stationary-minus-drifting matrix; fixed diverging color range[\u22122.5,+2.5], each cell labels stationary and drifting means and signed difference. Colors are display only. Colors clamp at fixed limits and colorbar extends at both ends; full numeric values retained."
+    }
+  ],
+  "maximum_plot_count": 3,
+  "CPU_cap_s": 40,
+  "wall_cap_s": 1800,
+  "RAM_cap_bytes": 4294967296,
+  "one_process_no_retry": true,
+  "activity_reserved_CPU_s": 180,
+  "reserved_analysis_CPU_s": 40,
+  "reserved_preparation_QA_publication_CPU_s": 140,
+  "limitations": [
+    "Derivative diagnostic after earlier source values and rank exposure; not blind or independent validation.",
+    "Nine selected variants copy one common physical context. They are not nine independent features or observations.",
+    "All six scans belong to one historical visit; ON/OFF sky positions differ and are not exchangeable null samples.",
+    "One preselected 21channel neighborhood; neither a new band search nor a fitted drift or frequency estimate.",
+    "New14channel static physical flank differs from old track-aligned\u00b164flank; original saved means retained separately.",
+    "Width9 includes physical offsets\u00b14 also present in its fixed flank; center/background dependence is retained explicitly.",
+    "Widths1/3/5/9 are correlated fixed summaries of the same cells, not independent evidence; no winning width is selected.",
+    "Signed stationary-minus-drifting differences compare frozen geometries under one common background; no sky origin, noise probability, SNR, flux or sensitivity certification.",
+    "No telescope acquisition, native HDF5 reads, old holdout use, A/B qualification or independent confirmation."
+  ]
+}
