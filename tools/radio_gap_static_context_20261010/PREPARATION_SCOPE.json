@@ -1,0 +1,79 @@
+{
+  "schema": "SETI_NINE_GAP_STATIC_PHYSICAL_CONTEXT_PREPARATION_V1",
+  "created_UTC": "2026-10-10T08:02:54.067Z",
+  "status": "PROSPECTIVE_METADATA_ONLY_PREPARATION",
+  "prior_scientific_head": "18a5de85ae1fa38a3c6766a7129287987fc52250",
+  "prior_resource_path": "results/radio_signal_followup_20261010/RESOURCE_SUMMARY.json",
+  "activity_CPU_reservation_s": 60,
+  "analysis_CPU_cap_s": 20,
+  "preparation_QA_packaging_publication_CPU_reservation_s": 40,
+  "remaining_CPU_after_reservation_s": 2.705144981004196,
+  "remaining_internal_final_summary_reserve_s": 2,
+  "approved_total_CPU_s": 43200,
+  "prior_reservations_preserved_no_refund": true,
+  "allocation_authority": "Continued user direction to prioritize signal analysis; prospective use of assistant-internal closing reserve within unchanged approved total. Approved plan has no numerical closing reservation.",
+  "selection": "All nine previously exposed gap top3 cases; original source_reference_channel and width; no subset selection or tuning from new static outcomes.",
+  "analysis": "Extract fixed physical +/-64 around each original first-midpoint reference in all6scans16rows; retained full-chunk row medians; fixed122channel flank abs(offset)>3; compare original width static center and copied old moving center using same static flank, retain old moving flank separately.",
+  "reference_channels": [
+    158358343,
+    158355634,
+    158879966,
+    159145548,
+    159144660,
+    159014473,
+    158489515,
+    158490607,
+    159145372
+  ],
+  "original_widths": [
+    3,
+    3,
+    3,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "source_values_already_exposed": true,
+  "new_static_outcomes_not_yet_evaluated": true,
+  "new_drift_search": false,
+  "new_frequency_coverage": 0,
+  "new_observing_visits": 0,
+  "new_telescope_HTTP_requests": 0,
+  "new_telescope_BODY_bytes": 0,
+  "required_saved_archives": [
+    {
+      "name": "SETI_SIGNAL_FOLLOWUP_2026-10-10.zip",
+      "bytes": 6418319,
+      "sha256": "8cde42def9d1d46dfabc12da56fc7778fd796d260e5e9a985e359cfbe6a4eb70"
+    },
+    {
+      "name": "SETI_FRESH_BAND151_RAW_2026-10-09.zip",
+      "bytes": 305428707,
+      "sha256": "6696fe54086e019ce966816dc818969ca5f1682e3ff9211326f1a68d2323ef1d"
+    }
+  ],
+  "expected_archive_recovery_payload_bytes": 311847026,
+  "expected_exact_dependency_wheel_bytes": 51507696,
+  "prior_conservative_source_recovery_dependencies_envelope_bytes": 1638958570,
+  "prospective_conservative_all_source_recovery_dependencies_envelope_bytes": 2002313292,
+  "source_cap_bytes": 4563402752,
+  "cost_DKK": 0,
+  "RAM_cap_bytes": 4294967296,
+  "workspace_cap_bytes": 8589934592,
+  "wall_cap_s": 1800,
+  "engineering_route": "Same previously documented exact h5py3.15.1/hdf5plugin7.1.0 standard workspace environment after maintenance, no third route.",
+  "numeric_retry_authorized": false,
+  "A_B": "FAIL_CLOSED_UNCHANGED",
+  "qualified_pilot_admitted": false,
+  "old_holdouts_closed": true,
+  "limitations": [
+    "Original reference is first-midpoint track position, not fitted stationary-line center",
+    "Fixed +/-64 physical neighborhood does not cover whole drifting trajectory",
+    "Same-background difference cancels its background algebraically but distinct frequencies can have different continuum/bandpass",
+    "No calibrated SNR/FAP, OFF veto, flux/EIRP, origin or general null statement",
+    "One2016visit; selected correlated cases, not blind or independent validation"
+  ]
+}
