@@ -1,0 +1,162 @@
+{
+  "UTC": "2026-10-10T21:09:21.632493+00:00",
+  "blockers": [],
+  "checks": [
+    {
+      "PASS": true,
+      "evidence": "Final launcher12973B/ed3bce5a pin matches; AST parsed only. Imports are stdlib; no HTTP, HDF5 parser, dataset values or arrays API.",
+      "name": "exact_source_pin_AST_valid_stdlib_only"
+    },
+    {
+      "PASS": true,
+      "evidence": "Before spawn, exact self SHA, fixed401948worker and5e3c19scope, exact root admission SHA/schema/status/sourcecommit and header-only flag required; pins rechecked after child. Launcher public commit must be exact40hex and is preserved for root readback binding.",
+      "name": "self_worker_scope_live_admission_and_commit_binding"
+    },
+    {
+      "PASS": true,
+      "evidence": "One Popen of sys.executable and exact pinned worker argv; stdin DEVNULL, cwd fixed root, no shell, retry or alternate command. Environment inherited with single-thread settings; root may supply retained dependency PYTHONPATH without launcher metadata-library import.",
+      "name": "single_fixed_child_no_shell_no_retry"
+    },
+    {
+      "PASS": true,
+      "evidence": "Existing initial blocks launch; command_attempt mkdir(exist_ok=False) and directory LOCK_EX|NB prevents another launch. Input/final receipts and stdout/stderr use xb and fsync; failed marker persists.",
+      "name": "once_marker_and_create_only_receipts"
+    },
+    {
+      "PASS": true,
+      "evidence": "wait4 exactPID supplies kernel termination status, user+system CPU and RSS after interpreter exit/receipt writing/guard close; actual child returncode/exitcode/signal separately preserved. No invented external tool-session status.",
+      "name": "actual_full_child_wait4_usage_after_exit"
+    },
+    {
+      "PASS": true,
+      "evidence": "Timeout compares monotonic WALL_STARTED including launcher init; group SIGTERM, then SIGKILL after2s if needed, followed by actual wait4. Gate checks childwall and whole-launch snapshot<=600; timeout fails caps even if cleanup later succeeds.",
+      "name": "whole_launch_wall_timeout_and_group_termination"
+    },
+    {
+      "PASS": true,
+      "evidence": "Complete childCPU+launcherCPU snapshot<=60, each-process maxRSS<=512MiB, childwall/outerwall<=600. AS512MiB enforced on parent and inherited child; worker retains own hard limits. Measurements distinguish child completion from parent before-final-receipt snapshot.",
+      "name": "combined_CPU_per_process_RSS_labeled_resource_gate"
+    },
+    {
+      "PASS": true,
+      "evidence": "Child exit2 may coexist with resourcePASS; launcher return0 then denotes only resource meterPASS. Actual child returncode and original HEADER_RESULT/EXECUTION_RECEIPT statuses and pins stay separate; source values remain BLOCKED.",
+      "name": "resource_PASS_preserves_childexit2_metadataINCOMPLETE"
+    },
+    {
+      "PASS": true,
+      "evidence": "SIGTERM/SIGHUP/SIGINT raise ExternalTermination into existing caught-exception cleanup; external signal is recorded. Cleanup ignores repeated termination signals, kills/reaps any unreaped child, writes fail-closed final receipt and never retries.",
+      "name": "external_termination_cleanup_blocker_resolved"
+    },
+    {
+      "PASS": true,
+      "evidence": "Termination signals masked around Popen; child preexec restores original mask; child object plus child_started=True assigned before parent unmasks pending signals. Stdlib launcher is single-threaded in this source.",
+      "name": "spawn_assignment_signal_window_closed"
+    },
+    {
+      "PASS": true,
+      "evidence": "Any caught BaseException enters protected cleanup; actual started unreturned child is group-killed and wait4 reaped, actual usage/status recorded, missing reaping evidence labeled rather than invented. Meter failure has return2 and resource_caps_satisfied false.",
+      "name": "caught_exception_kill_reap_failure_receipt"
+    },
+    {
+      "PASS": true,
+      "evidence": "Seven carried components sum8717080295; +24576=8717104871; cap12884901888 leaves4167797017. Seven evidence byte/SHA pins match. Ledger labels conservative planningcharges, no refund, no actual-wire/global historical-coverage or retroactive-old-cap claim.",
+      "name": "root_ledger_arithmetic_proof_labels_only"
+    }
+  ],
+  "important_measurement_interpretation": "wait4 measurements cover the complete child through exit. Launcher CPU/wall fields and its combined gate are explicitly snapshots before its own final receipt serialization/close. Outer resourcePASS does not convert childexit2 or metadataINCOMPLETE into header qualification.",
+  "launcher_bytes": 12973,
+  "launcher_path": "tools/radio_visit2019_blc66_headers_20261010/launch_once.py",
+  "launcher_sha256": "ed3bce5a9571ebb0d2fe7ac08e901e9d51cbcfcecec32998655c926e863ec04f",
+  "ledger_observation": {
+    "actual_wire_measurement_certified": false,
+    "budget_authorization_independently_certified": false,
+    "bytes": 4707,
+    "charged_after": 8717104871,
+    "charged_before": 8717080295,
+    "components": 7,
+    "evidence_pins": [
+      {
+        "bytes": 15346,
+        "pin_matches": true,
+        "purpose": "Previous pinned no-refund source envelope",
+        "sha256": "3d55718b9cd439ad99e0ed7b2d54789102361527e4681f4ac01088afa7d24c5b"
+      },
+      {
+        "bytes": 112604,
+        "pin_matches": true,
+        "purpose": "Entire separately owned2017 native170/172 payloadcap carried once withoutrefund",
+        "sha256": "91392f8cfec0844fe0182d137496202d4f142b89814c91cd8b3f120a11fb920e"
+      },
+      {
+        "bytes": 1904,
+        "pin_matches": true,
+        "purpose": "Nine restored own archivefile sizes conservatively carried again; possibleprioroverlap intentionallynotrefunded",
+        "sha256": "ab68ff43815ca0448d0c80345418ca43a3e9c02bc11c93e80c2e2c95286562fb"
+      },
+      {
+        "bytes": 984,
+        "pin_matches": true,
+        "purpose": "Nine restored own archivefile sizes conservatively carried again; possibleprioroverlap intentionallynotrefunded",
+        "sha256": "32f5854826c804b0233a5d2c6aead14a2f6d33000c6e9b0f3bc1a2c15898365b"
+      },
+      {
+        "bytes": 1417,
+        "pin_matches": true,
+        "purpose": "Four abandoned own transferprefix sizes conservativelycarried, despite duplicatecleanup",
+        "sha256": "9286114bcebfa560c70ffc5191628a7c2f04056122e58c0753652b96ecb7f3e7"
+      },
+      {
+        "bytes": 360,
+        "pin_matches": true,
+        "purpose": "Released transientclone physicalsize conservativelyallocated; not asserted measuredHTTPBODY",
+        "sha256": "feb1fdc97ea9bd405d970851b7c7bbd9ac63bb448bb588a3b7187fabc049f5ba"
+      },
+      {
+        "bytes": 3003,
+        "pin_matches": true,
+        "purpose": "Four primaryHTML once-only restorationreservation; actual182726BODY reported separately",
+        "sha256": "46bd0c28204e0f41585d27b3f6b04d1b13a10134d64c92286b21f306f4c272fe"
+      }
+    ],
+    "global_past_transfer_coverage_certified": false,
+    "headroom": 4167797017,
+    "historical_prior_cap_changed": false,
+    "path": "results/radio_visit2019_blc66_headers_20261010/ROOT_GLOBAL_SOURCE_BODY_LEDGER.json",
+    "prospective_cap": 12884901888,
+    "reserved": 24576,
+    "sha256": "af81fae241d0e416cc64453827410980f7e1bece8b6f097ee13e650f7081ed3d"
+  },
+  "live_root_admission_pin_observed": {
+    "bytes": 2983,
+    "path": "results/radio_visit2019_blc66_headers_20261010/ROOT_ADMISSION.json",
+    "sha256": "f70a925445ef805c4b7a96cd8284a2b7f4b6e3f82d6330f37e840926f81c41f2",
+    "source_public_freeze_commit": "217bd79a7932e9fbc4000e6870493659f142bafa"
+  },
+  "prior_blocker_resolution": "The earlier candidate default external termination could bypass cleanup for its new-session worker. The final reviewed source adds caught termination signals, protected cleanup and masked assignment/start bookkeeping before parent unmask. Earlier rejected candidates are not approved.",
+  "receipt_generation_resources": {
+    "CPU_seconds": 0.004600442999999999,
+    "peak_RSS_bytes": 11927552,
+    "wall_seconds": 0.004601028998877155
+  },
+  "remaining_root_steps": [
+    "Public-freeze and read back exact launcher and this separate peer receipt before once-only root execution.",
+    "Run with the exact original worker commit, separate launcher commit, final launcher SHA and live root admission SHA; preserve resourcePASS and child metadata/termination status separately.",
+    "Root provides the retained metadata dependency environment; no metadata import or runtime library validation was performed in this review."
+  ],
+  "review_limits": {
+    "HDF5_or_array_reads": 0,
+    "HTTP_requests": 0,
+    "Popen_calls_executed": 0,
+    "existing_frozen_files_or_initial_peer_receipt_modified": 0,
+    "new_broad_scans": 0,
+    "owner_writes_or_lock_probes": 0,
+    "public_launcher_freeze_or_runtime_admission_certified": false,
+    "source_values_or_control_qualification_admission": false,
+    "target_imports_or_execution": 0
+  },
+  "schema": "SETI_VISIT2019_BLC66_LAUNCHER_SOURCE_ONLY_REVIEW_V1",
+  "scope_sha256": "5e3c19e59cc831f5ba0a5a8dc61035753ceba12b246b153d05c28cdfbdc05a99",
+  "stage_id": "radio_visit2019_blc66_headers_20261010",
+  "status": "PASS_SOURCE_ONLY_NO_HTTP_OR_VALUES",
+  "worker_sha256": "401948c7facf7af6f3ed4aaa572a142d8b6e6ceab498d9d4951756c7d2e62381"
+}
