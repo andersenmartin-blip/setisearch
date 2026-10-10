@@ -1,3 +1,21 @@
+## 2026-10-10 — Complete selected stationary profile family
+
+Completed one bounded descriptive follow-up of all 120 stationary top20 identities from retained native chunk151 of the 2016-03-17 HIP98505/HD189733 cadence. Nine existing ON top3 patches were reused exactly; 111 remaining cases were measured once at their original channel and width, across all six scans and 16 rows. No new source HTTP requests, telescope bytes, frequency coverage, observing time or independent visit were added.
+
+The six previously identified weak ON cases have positive means in both fixed eight-row halves, with lower-half means 0.069296–0.130416. Their fixed adjacent exact-channel OFF means are smaller. This behavior also appears in the selected reciprocal OFF family: width1 ON/OFF median means are 0.116305/0.115910, median lower-half means 0.092240/0.092513, and median central-minus-neighbor contrasts 0.114243/0.112607. All 120 selected origin profiles have positive means in both halves. Width1 has six ON and seven OFF profiles positive in all16 rows. The six weak ON cases remain unresolved; the panel provides no calibrated evidence of exceptional behavior or extraterrestrial origin.
+
+The width strata remain58ONw1,2ONw3,60OFFw1,0OFFw3. The empty OFFw3 group supplies no comparison statistics. At width1, the two neighbor-contrast formulas are identical and must not be counted twice. All120 native centers are distinct, but nearby spectral regions and shared controls prevent treating them as120 independent features. This is selected-family follow-up after source/rank exposure, not blind validation or a full-search null calibration.
+
+The execution method was frozen publicly at `03de4adda318905f3c0685af827e62a8d1af72a3` and read back exactly before the single run. Script SHA256 `2fa6bd1c25cd208db852cb571eb5153a85ec63fe5907d2e1ffe1fc2c99faac82`; scope SHA256 `79ec1b48e7ecfd0cb3753736a827ac566a928309c55049c06c4fa97d6c09f890`. Analysis CPU8.696378128s, wall8.597558445s, peak RSS573505536 bytes, within80CPU/1800wall/4GiB caps. Independent saved-output QA passed120cases/720scan profiles/11520row occurrences,54 exact reused-array checks and8640 metric comparisons at1e-12. Three original summary PNGs had clipped labels; separate display copies repair layout, with original scientific files unchanged.
+
+The activity reserved250CPU seconds prospectively (80analysis+170preparation/QA/package/publication) from the assistant's internal closing reserve. The approved43200CPU-second total is unchanged; prior reservations receive no refund. Remaining budget after reservation402.7051449810042CPU seconds, including400 protected for final checkpoint. Measured components are reported separately; whole-activity CPU is not claimed measured. Cost0DKK; cumulative source accounting and source caps unchanged.
+
+Report: [RADIO_STATIONARY_FAMILY_REPORT_2026-10-10.md](RADIO_STATIONARY_FAMILY_REPORT_2026-10-10.md). Complete saved data package: `SETI_STATIONARY_FAMILY_2026-10-10.zip`, including120raw/normalized patches,720scan rows,11520time-row CSV entries, provenance, fixed metrics, original/display figures and review receipts. Public metadata is losslessly gzip-compressed where needed; see `results/radio_stationary_family_20261010/PUBLICATION_LAYOUT.json`.
+
+**A/B remains FAIL_CLOSED; the qualified sky pilot remains blocked; historical holdouts remain closed. No calibrated SNR/FAP, flux, EIRP, sensitivity, sky origin or general null conclusion is admitted.**
+
+---
+
 # Aktuel SETI-status — 9. oktober 2026: nyt bånd søgt, stærke træk også i OFF
 
 Det tidligere uåbnede native bånd 151, cirka **1424,532–1427,505 MHz**, er nu hentet og analyseret for HIP98505/HD189733. Det udvider frekvensdækningen i det samme besøg fra 17. marts 2016. Alle seks scanninger og 96 tidsrækker er bevaret; der er ingen nye observationsbesøg eller observationstid.

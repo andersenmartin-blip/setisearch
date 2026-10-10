@@ -1,0 +1,100 @@
+{
+  "status": "PASS_BOUNDED_INDEPENDENT_SAVED_OUTPUT_QA",
+  "public_preexecution_freeze": "03de4adda318905f3c0685af827e62a8d1af72a3",
+  "observed_UTC": "2026-10-10T00:54:59.233426+00:00",
+  "checks": {
+    "all6pinned_metadata_code_inputs_unchanged": true,
+    "new_script_scope_pins_match": true,
+    "complete_status": true,
+    "exact120unique_cases_in_original_order": true,
+    "exact720scan_profiles_11520row_occurrences": true,
+    "exact9reuse111new_labels": true,
+    "exact6weak_cases_reused_originals": true,
+    "payload_sha_size_match": true,
+    "all_arrays_complete_finite": true,
+    "raw_float32_nonnegative": true,
+    "payload_identity_geometry": true,
+    "allcase_flat_rows_times_and_rank_contracts_match": true,
+    "9prior_patches54arrays_exact_byte_reuse_and_stats": true,
+    "width1_neighbor_contrasts_identical_dependent": true,
+    "exact_role_width_counts_58_2_60_0": true,
+    "empty_OFFw3_no_fabricated_statistics": true,
+    "all10PNG_sha_size_match": true,
+    "execution_within80CPU_1800wall_4GiB": true,
+    "no_new_HTTP_search_holdouts_qualification": true,
+    "all8640metric_comparisons_match_at1e_minus12": true,
+    "all6older_frozen_text_files_unchanged_after_job": true
+  },
+  "errors": [],
+  "metric_disagreements": [],
+  "row_contract_disagreements": [],
+  "reuse_disagreements": [],
+  "metric_comparisons": 8640,
+  "exact_reused_array_comparisons": 54,
+  "measurement_input_hashes": {
+    "EXECUTION_RECEIPT.json": "7ebe190c0684923ef78bea39b14652a17e4211a5f09469f813dce4e70b3fbfed",
+    "FAMILY_RESULT.json": "f5fa5381410f061e64847474bf3ccc984312356d6195066e73db4f38665acd2b",
+    "ALL_120_STATIONARY_CASES.json": "b038510a05bb39883b5b8e173bc15af6995f2a34c9545f387947a5b7d4414c2d",
+    "ALL_720_SCAN_PROFILE_ROWS.json": "0acf356404db2a8860ddcfc76585275f70e3c624a154baa7d738324eed26479d",
+    "SIX_FIXED_WEAK_CASES.json": "ca754a2d36d20237b9f073db7170f49611924b3e62e9b1d79898ed85f08b2a7d",
+    "ALL_120_FIXED_STATIONARY_PATCHES.npz": "565ba969043da62d8854b92b77c7a9da0683d4cf1c4f92866e2e933fada7a7b0"
+  },
+  "no_HDF5_read_or_search_rerun": true,
+  "old_9_NPZ_arrays_read_only_for_identity_checks": true,
+  "width1_neighbor_metrics_are_aliases_not_independent_evidence": true,
+  "limits": {
+    "CPU_s": 30,
+    "wall_s": 120,
+    "memory_bytes": 4294967296
+  },
+  "limitations": [
+    "QA recomputes only declared summaries from saved residual/profile arrays; it does not reload six native H5 files or rerun any signal search or projection job.",
+    "Compact-file identity and decoded-row equivalence were enforced in the measurement job; this audit did not rehash or decode those H5 files.",
+    "PNG binary integrity checked; visual layout review is separate.",
+    "Descriptive post-selection comparisons are not noise-model calibration, independent trials or sky evidence."
+  ],
+  "QA_process_CPU_seconds_including_imports": 1.889413882,
+  "QA_wall_seconds": 0.9015127560014662,
+  "QA_peak_RSS_bytes": 51163136,
+  "metric_comparison_tolerances": {
+    "relative": 1e-12,
+    "absolute": 1e-12
+  },
+  "preexecution_static_review": {
+    "status": "PASS_METADATA_CODE_ONLY_NO_VALUE_PROCESSING",
+    "script_sha256": "2fa6bd1c25cd208db852cb571eb5153a85ec63fe5907d2e1ffe1fc2c99faac82",
+    "scope_sha256": "79ec1b48e7ecfd0cb3753736a827ac566a928309c55049c06c4fa97d6c09f890",
+    "public_freeze_commit": "03de4adda318905f3c0685af827e62a8d1af72a3",
+    "exact_public_readback_before_job": "Confirmed by root; independent reviewer inspected the same local hashes before execution",
+    "findings": "Exact9 reuse/111 new/120 total; fixed metric definitions, input pins, geometry, resource limits, zero HTTP and empty OFF width3 policy passed."
+  },
+  "older_frozen_text_file_checks": {
+    "pilot_reader_20261008/value_reader.py": {
+      "expected_sha256": "329b922431a925a08ad48e7315f54f556e1af5f7bccbec0f51d71fb52216ffb0",
+      "unchanged": true
+    },
+    "pilot_engine_20261008/detector.py": {
+      "expected_sha256": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45",
+      "unchanged": true
+    },
+    "tools/radio_fresh_band_20261009/acquire.py": {
+      "expected_sha256": "51240c7e94fa0f65a31cafdd0e2641526fcfc450a77471a3e36da4d356f96e60",
+      "unchanged": true
+    },
+    "tools/radio_fresh_band_20261009/fresh_search.py": {
+      "expected_sha256": "1a04ab1ea0d8b79b66ebc2a59a5c72b9c17b235f1a331ac19efeba90bade7102",
+      "unchanged": true
+    },
+    "tools/radio_fresh_band_20261009/analysis_scope.json": {
+      "expected_sha256": "41f7bf4821a6f7da2e7c5b010fe26d20217db8e6ec7e02afc79ee23349df3271",
+      "unchanged": true
+    },
+    "tools/radio_fresh_band_20261009/source_manifest.json": {
+      "expected_sha256": "d2e6c76b0d5fe50b26d45830e4b67e4780da97f33cfe8fcdf80c761f47aa3a4c",
+      "unchanged": true
+    }
+  },
+  "projection_jobs_rerun_in_QA": 0,
+  "saved_metric_reductions_only": true,
+  "QA_receipt_annotation_process_CPU_s": 0.0007098009999999995
+}
