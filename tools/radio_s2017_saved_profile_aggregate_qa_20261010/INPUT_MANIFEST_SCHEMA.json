@@ -1,0 +1,37 @@
+{
+  "schema": "SETI_S2017_SAVED_PROFILE_AGGREGATE_QA_INPUT_MANIFEST_CONTRACT_V1",
+  "status": "PROSPECTIVE_SOURCE_ONLY_NO_QA_EXECUTION",
+  "input_manifest_schema": "SETI_S2017_SAVED_PROFILE_AGGREGATE_QA_INPUT_MANIFEST_V1",
+  "family_id": "radio_s2017_saved_profile_aggregate_qa_20261010",
+  "producer_family_id": "radio_s2017_saved_profile_aggregate_20261010",
+  "manifest_path": "results/radio_s2017_saved_profile_aggregate_qa_20261010/QA_INPUT_MANIFEST.json",
+  "required_keys": [
+    "schema", "family_id", "producer_family_id", "qa_worker_pin",
+    "producer_scope_pin", "producer_worker_pin", "producer_execution_pin",
+    "producer_aggregate_pin", "producer_whole_closed_pin", "producer_marker_pin",
+    "producer_public_freeze_commit", "producer_guard_path",
+    "all_pinned_own_source_producers_and_aggregate_closed", "no_retry", "limits", "input_file_pins"
+  ],
+  "producer_guard_path": "results/radio_s2017_saved_profile_aggregate_20261010/AGGREGATE_SERIAL.flock",
+  "all_pinned_own_source_producers_and_aggregate_closed": true,
+  "no_retry": true,
+  "limits": {
+    "CPU_seconds": 120,
+    "wall_seconds": 600,
+    "memory_bytes": 1073741824,
+    "output_bytes": 33554432,
+    "shared_workspace_bytes": 12884901888
+  },
+  "input_file_pins": "Unique exact path/bytes/SHA256, at most128: all producer scope input_pins values and dependency_pins; all six original producer measurement files (including prepared terminal alias); scope, worker, marker and root whole-command receipt. Optional exact QA source/METHOD/contract pins may be included. Only OWN repository/private-workspace canonical files are admitted.",
+  "producer_whole_closed_fields": [
+    "schema", "status", "scope_pin", "worker_pin", "execution_pin", "result_pin",
+    "public_freeze_commit", "actual_return_code", "child_closed_reaped", "timed_out", "no_retry",
+    "resource_caps_satisfied", "CPU_seconds", "wall_seconds", "peak_RSS_bytes"
+  ],
+  "terminal_path": "results/radio_s2017_saved_profile_aggregate_qa_20261010/review/QA_RECEIPT.json",
+  "terminal_schema": "SETI_S2017_SAVED_PROFILE_AGGREGATE_INDEPENDENT_QA_V1",
+  "terminal_status": "PASS_SAVED_2017_AGGREGATE_COMPLETE_INDEPENDENT_ARITHMETIC_QA",
+  "QA_guard_path": "results/radio_s2017_saved_profile_aggregate_qa_20261010/QA_SERIAL.flock",
+  "actual_QA_process_closed_exit0_and_whole_resources_required_before_downstream_GO": true,
+  "actual_NPZ_reads_or_scientific_execution_allowed_by_this_contract": false
+}
