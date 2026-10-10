@@ -1,0 +1,71 @@
+{
+  "schema": "SETI_S2017_ADJACENT170_172_RAW_DELIVERY_STATIC_REVIEW_V1",
+  "status": "PASS_STATIC_CODE_SCOPE_METADATA_ONLY_NO_H5_NO_ARCHIVE_NO_HTTP",
+  "created_UTC": "2026-10-10T19:27:03.237194+00:00",
+  "reviewer": "independent s2017_full_band agent",
+  "scope_path": "analysis/s2017_next_native/delivery/RAW_DELIVERY_SCOPE.json",
+  "scope_sha256": "573c8134f15ac714751dc4903e102f5e5d17bdb400dcf627b139c13ece1ca15e",
+  "reviewed_code_byte_pins": {
+    "analysis/s2017_next_native/delivery/build_raw_package.py": {
+      "bytes": 8875,
+      "sha256": "c0fabf372c042a2e63d706f532bee839b6265067ccc28252240643f06368e993"
+    },
+    "analysis/s2017_next_native/delivery/archive_common.py": {
+      "bytes": 7324,
+      "sha256": "26ecf220ae6d93392abc97e4ce8fb02609dac0340438fdabe4186c55586b7497"
+    },
+    "analysis/s2017_next_native/delivery/reconstruct_raw_sidecars.py": {
+      "bytes": 7950,
+      "sha256": "19e89ad647a0a1d33b156c35a4ccf20aedbb2fdef6e7a5c38507b9cbf043edc7"
+    },
+    "analysis/s2017_next_native/reconstruct_raw_sidecars.py": {
+      "bytes": 3794,
+      "sha256": "4cbc0e25e9a885e5dd7c20b778c77e6db451449a267b9cf501582df6a12a6565"
+    }
+  },
+  "source_manifest_sha256": "2a09dcd018e83e822cf19cb088e4f35469e8b160cbcde69f0428e64544ad7909",
+  "activation_scope_sha256": "69d2883e044eafba286b8cc9fe28f96f8e737737d125a560505a66a6d86dd30c",
+  "retained_metadata_code_pins_verified": 479,
+  "retained_metadata_code_bytes": 2625678,
+  "checks": {
+    "all_four_scripts_AST_parse": true,
+    "scope_pins_match_current_exact_bytes": true,
+    "actual_SHA_arguments_COMPLETE192_acquisition_and_exact_source_QA_PASS_required": true,
+    "source_QA_schema_counts_script_acquisition_scope_driver_freeze_zero_HTTP_and_three_canonical_records_strict": true,
+    "source_QA_twelve_compact_file_pins_exact": true,
+    "required_40hex_delivery_public_freeze_and_explicit_root_GO": true,
+    "source_family_EX_and_archive_EX_retained_kernel_flocks": true,
+    "exact_twelve_native170_172_H5_no_native171_or_rawsidecar_duplicates": true,
+    "all192_compressed_chunks_match_stored_size_mask_recordSHA_and_original_descriptor": true,
+    "both_helpers_read_direct_compressed_chunks_without_dataset_values_and_create_only_raw_outputs": true,
+    "all479_frozen_source_metadata_code_pins_included_by_set_union_plus_saved_phase_text_code_receipts": true,
+    "ZIP_STORED_RAW_create_only_payload_manifest_self_excluded_external_archive_SHA": true,
+    "ZIP_unique_members_full_CRC_each_member_SHA_and_source_recheck": true,
+    "8GiB_unique_inode_allocated_blocks_conservative_space_admission_free_space_and_measured_rechecks": true,
+    "180CPU_1800wall_2GiBAS_caps_and_actual_resource_receipts": true,
+    "partial_archive_failure_preserved_no_retry_overwrite_deletion_or_remote_save": true,
+    "sidecar_candidates_only_root_requires_durable_RAW_save_and_H5_chunk_proof_before_cleanup": true
+  },
+  "resolved_pre_freeze_findings": [
+    {
+      "prior_scope_sha256": "191cfb887dc90784fcb0a981bf70ae8491f5c6c2ea2714ab001a1a4c096e541e",
+      "finding": "Missing delivery freeze argument/receipt binding and incomplete source-QA engineering gate",
+      "resolution": "Author preserved prior unexecuted preparation and refreshed current builder/common/scope with exact frozen admission"
+    }
+  ],
+  "unresolved_findings": [],
+  "review_actions": {
+    "H5_or_NPZ_opened": false,
+    "archives_created_or_opened": false,
+    "power_values_read": false,
+    "compressed_power_chunks_read": false,
+    "HTTP_requests": 0,
+    "builder_or_reconstruction_executed": false,
+    "source_deletions": 0
+  },
+  "limits": [
+    "Static review proves source contracts only; actual archive/sourceQA/runtime/cap/CRC/member integrity PASS remains required after separate root GO.",
+    "A40hex delivery freeze argument is admitted and recorded; root independently verifies public exact-byte readback.",
+    "Delivery helper requires externally available exact h5py3.15.1/HDF51.14.6; archive does not bundle a hermetic runtime."
+  ]
+}

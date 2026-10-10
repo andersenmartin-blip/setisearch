@@ -1,0 +1,74 @@
+{
+  "status": "PASS_SEARCH_DRIVER_AND_SCOPE_TEMPLATE_STATIC_ONLY_PENDING_ACTUAL_GATE_SCOPE_CHECKS",
+  "driver_sha256": "3c23e8020ee32c5c662922d16fe3517315364eccb59514b9e678e6d248b519e6",
+  "scope_preparer_sha256": "fb64221096a268d3bcbfd37e48614a53f7c247f4b09568e5631646d36f763e70",
+  "source_manifest_sha256": "2a09dcd018e83e822cf19cb088e4f35469e8b160cbcde69f0428e64544ad7909",
+  "root_activation_file_SHA256s": {
+    "analysis/s2017_next_native/ACTIVATION_SCOPE.json": "838d03d55a3b7a5a8593cf426d8fcb15b2dfb07404812b60b051fdd214efa6cc",
+    "analysis/s2017_next_native/ACTIVATION_SCOPE_V2.json": "69d2883e044eafba286b8cc9fe28f96f8e737737d125a560505a66a6d86dd30c"
+  },
+  "selection_canonical_sha256": "689662401dd48ba1a2a65569815cc80c63fed875eaddfda06abb63cd67afa840",
+  "unchanged_numerical_dependency_SHA256s": {
+    "detector": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45",
+    "gap": "b1a2cc31d47dbebc707f36c5de3eafbae6a62f0d0d19061c798c676c9fbcdb58",
+    "reader": "329b922431a925a08ad48e7315f54f556e1af5f7bccbec0f51d71fb52216ffb0"
+  },
+  "checked_geometry": [
+    {
+      "native_chunk_index": 170,
+      "source_channel_interval_half_open": [
+        178257920,
+        179306496
+      ],
+      "six_scan_max_profile_displacement_channels_including64": 2925,
+      "minimum_crop_support_outside_native_edges_channels": 96
+    },
+    {
+      "native_chunk_index": 172,
+      "source_channel_interval_half_open": [
+        180355072,
+        181403648
+      ],
+      "six_scan_max_profile_displacement_channels_including64": 2925,
+      "minimum_crop_support_outside_native_edges_channels": 96
+    }
+  ],
+  "job_count": 6,
+  "disjoint_new_cores_per_ON_per_native": 254,
+  "ON_maps_expected": 1524,
+  "profiles_expected": 54,
+  "checks": {
+    "final_code_AST_parse": true,
+    "exact_V2source_and_both_actual_activation_file_pins_plus_canonical_fixedselection": true,
+    "native170172_source_frames_and_all192descriptor_payloads_before_read": true,
+    "actual_COMPLETE192acquisition_and_independent_actual_sourceQA_PASS_required": true,
+    "QA_script_hash_12compactpins_and3canonical_recordSHA_contract": true,
+    "actual_flat_compact_filenames_and_all192decoded_rowSHA_contract": true,
+    "raw_float32_full_native_profile_medians_computed_before_float64_profile_promotion": true,
+    "detector_and_fixedprofile_arithmetic_imports_byte_identical": true,
+    "allq1through254_including_each_nativeq128_no_prior171_carriers": true,
+    "batch_partitions_85_85_84_disjoint_complete": true,
+    "4096carrier_normalization_each_map_785drifts_widths1_3": true,
+    "max_full_sixscan_displacement_plus64_less_than4096_and_full_crop_support": true,
+    "top20_by_saved_maxima_no_recompute_fit_or_OFFveto_fixedtop3_perON": true,
+    "retained_perjobEX_familySH_two_shared_slotEX_flocks": true,
+    "new_output_exist_false_and_INCOMPLETE_receipt_preserved_no_retry": true,
+    "2GiB_RLIMIT_AS_perjob_CPU1000_wall1800_and_measured_guards": true,
+    "two_shared_slots_bound_aggregate_process_limit_to4GiB": true,
+    "scope_preparer_validates_all6actual_contracts_before_creating_scopes": true,
+    "old171_archives_outside_all_new_output_and_source_intervals": true
+  },
+  "resolved_pre_execution_findings": [
+    "Draft search compact path disagreed with final acquisition flat names; corrected before freeze.",
+    "Ready driver confused V1selection canonical hash with whole-file digest; corrected actualfile SHA plus separately verified canonical selection."
+  ],
+  "blockers": [],
+  "deferred_checks": [
+    "Actual acquisition and sourceQA receipts do not yet exist; no substitute receipts were fabricated.",
+    "All6 generated scopes and actual pin/gate bytes must be independently checked after acquisition and sourceQA COMPLETE/PASS and before root publicfreeze/GO.",
+    "qa_sources.py independent static review is separate and pending its ready signal."
+  ],
+  "check_only_or_detector_execution": false,
+  "metadata_constants_function_definitions_only_import": true,
+  "HTTP_H5_NPZ_spectral_reads": 0
+}

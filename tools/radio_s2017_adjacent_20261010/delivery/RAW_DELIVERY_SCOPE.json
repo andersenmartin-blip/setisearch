@@ -1,0 +1,80 @@
+{
+  "schema": "SETI_ADJACENT170_172_RAW_DELIVERY_SCOPE_V1",
+  "status": "PROSPECTIVE_ARCHIVE_BUILDER_PREPARED_NOT_EXECUTED",
+  "purpose": "Archive authenticated saved compressed source bytes; no new decoding, detector, measurement, HTTP, deletion or remote-save claim.",
+  "source_manifest_path": "analysis/s2017_next_native/source_manifest_v2.json",
+  "source_manifest_sha256": "2a09dcd018e83e822cf19cb088e4f35469e8b160cbcde69f0428e64544ad7909",
+  "activation_scope_path": "analysis/s2017_next_native/ACTIVATION_SCOPE_V2.json",
+  "activation_scope_sha256": "69d2883e044eafba286b8cc9fe28f96f8e737737d125a560505a66a6d86dd30c",
+  "code_and_metadata_pins": {
+    "analysis/s2017_next_native/delivery/archive_common.py": {
+      "bytes": 7324,
+      "sha256": "26ecf220ae6d93392abc97e4ce8fb02609dac0340438fdabe4186c55586b7497"
+    },
+    "analysis/s2017_next_native/delivery/reconstruct_raw_sidecars.py": {
+      "bytes": 7950,
+      "sha256": "19e89ad647a0a1d33b156c35a4ccf20aedbb2fdef6e7a5c38507b9cbf043edc7"
+    },
+    "analysis/s2017_next_native/delivery/build_raw_package.py": {
+      "bytes": 8875,
+      "sha256": "c0fabf372c042a2e63d706f532bee839b6265067ccc28252240643f06368e993"
+    },
+    "analysis/s2017_next_native/source_manifest_v2.json": {
+      "bytes": 472849,
+      "sha256": "2a09dcd018e83e822cf19cb088e4f35469e8b160cbcde69f0428e64544ad7909"
+    },
+    "analysis/s2017_next_native/ACTIVATION_SCOPE_V2.json": {
+      "bytes": 10447,
+      "sha256": "69d2883e044eafba286b8cc9fe28f96f8e737737d125a560505a66a6d86dd30c"
+    }
+  },
+  "archive_filename": "SETI_S2017_NATIVE170_172_RAW_2026-10-10.zip",
+  "output_stage": "analysis/s2017_next_native/delivery/packages/raw",
+  "acquisition_receipt_path": "analysis/s2017_next_native/results/acquire/ACQUISITION_RESULT.json",
+  "actual_acquisition_sha256_argument_required": true,
+  "required_acquisition_status": "COMPLETE_ADJACENT170_172_192_RANGES_12_COMPACTS_EXPLORATORY_ONLY",
+  "source_QA_receipt_path": "analysis/s2017_next_native/results/source_review/QA_RECEIPT.json",
+  "actual_source_QA_sha256_argument_required": true,
+  "required_source_QA_status": "PASS_ADJACENT170_172_12_COMPACTS192_COMPRESSED_CHUNKS192_DECODED_ROWS_AND_SOURCE_RANGE_PROVENANCE",
+  "exact_native_indices": [
+    170,
+    172
+  ],
+  "compact_files_required": 12,
+  "compressed_H5_chunks_required": 192,
+  "sidecars_required_before_RAW_build": 192,
+  "sidecar_payload_bytes": 597792529,
+  "raw_payload_duplicates_sidecars": false,
+  "raw_payload_copies_native171_H5": false,
+  "power_rows_decoded_by_builder": 0,
+  "CRC_and_every_member_SHA_required": true,
+  "payload_manifest_self_excluded": true,
+  "archive_SHA_external": true,
+  "create_only_archive_and_receipts": true,
+  "retry_resume_overwrite_authorized": false,
+  "failed_partial_archives_preserved": true,
+  "workspace_cap_bytes": 8589934592,
+  "workspace_admission": "current unique-inode allocated blocks + exact payload bytes + manifest +2MiB+1024bytes/member <=8GiB; physical free space checked; measured cap checked during/end.",
+  "CPU_cap_s": 180,
+  "wall_cap_s": 1800,
+  "memory_cap_bytes": 2147483648,
+  "root_GO_after_actual_source_QA_required": true,
+  "persistent_kernel_flock_paths": [
+    "analysis/s2017_next_native/ACTIVE_FAMILY_FLOCK.lock",
+    "analysis/s2017_next_native/delivery/ARCHIVE_ACTIVE_FLOCK.lock"
+  ],
+  "root_only_sidecar_removal_requires_confirmed_durable_RAW_save_and_H5_chunk_SHA": true,
+  "builder_removes_sidecars": false,
+  "builder_performs_remote_save": false,
+  "limitations": [
+    "Planning resource values are estimates; actual artifact sizes/resources appear only after execution.",
+    "Source scientific qualification comes from actual source QA; compressed-byte archiving does not establish sky origin or score calibration.",
+    "Base runtime/dependency references are external; no hermetic runtime claim.",
+    "Previous171 RAW/archive/source data remain separately delivered and unchanged."
+  ],
+  "public_freeze_commit40hex_argument_required": true,
+  "source_QA_gate_binds_exact_schema_code_scope_acquisition_freeze_and_all3_canonical_records": true,
+  "source_QA_compact_input_pins_must_match_all12_acquisition_file_pins": true,
+  "supersedes_unexecuted_preparation_scope_sha256": "191cfb887dc90784fcb0a981bf70ae8491f5c6c2ea2714ab001a1a4c096e541e",
+  "previous_preparation_path": "analysis/s2017_next_native/delivery/previous_preparation/191cfb887dc90784fcb0a981bf70ae8491f5c6c2ea2714ab001a1a4c096e541e"
+}
