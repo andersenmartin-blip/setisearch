@@ -1,0 +1,45 @@
+{
+  "schema": "SETI_VISIT2019_NATIVE_PILOT_QA_INPUT_MANIFEST_CONTRACT_V1",
+  "status": "PROSPECTIVE_SOURCE_ONLY_NO_QA_EXECUTION",
+  "input_manifest_schema": "SETI_VISIT2019_NATIVE_PILOT_QA_INPUT_MANIFEST_V1",
+  "family_id": "radio_visit2019_s31_blc77_native_pilot_qa_20261010",
+  "pilot_family_id": "radio_visit2019_s31_blc77_native_pilot_20261010",
+  "input_manifest_path": "results/radio_visit2019_s31_blc77_native_pilot_qa_20261010/QA_INPUT_MANIFEST.json",
+  "required_fields": {
+    "qa_worker_pin": "Exact root-relative path/bytes/SHA256 of frozen qa_saved_outputs.py",
+    "pilot_scope_pin": "Exact original pilot scope pin",
+    "pilot_execution_pin": "Exact original measurement/EXECUTION_RECEIPT.json pin",
+    "pilot_outer_pin": "Exact original ROOT_OUTER_EXECUTION_RECEIPT.json pin",
+    "pilot_marker_pin": "Exact original SEARCH_STARTED_ONCE.json pin",
+    "pilot_root_admission_pin": "Exact original late root admission pin",
+    "pilot_public_freeze_commit": "Actual40hex original science freeze",
+    "all_pilot_and_acquisition_processes_closed": true,
+    "no_QA_retry_or_resume": true,
+    "input_file_pins": "Unique exact pins for every original scope input, above explicit original inputs, actual outer worker/launcher pins, and all original measurement files including six saved decoded NPY"
+  },
+  "actual_geometry_counts_are_runtime_derived": true,
+  "expected_current_qualified_geometry_if_unchanged": {
+    "rows_per_scan": 16,
+    "native_channels": 65536,
+    "six_scan_maps": 84,
+    "saved_carrier_maxima": 344064,
+    "ON_rank_records": 60,
+    "fixed_cases": 9,
+    "scan_profiles": 54,
+    "fixed_time_rows": 864,
+    "raw_patch_cell_occurrences": 111456,
+    "measurement_files": 190
+  },
+  "terminal_path": "results/radio_visit2019_s31_blc77_native_pilot_qa_20261010/review/QA_RECEIPT.json",
+  "terminal_status": "PASS_COMPLETE_SAVED_NATIVE_PILOT_OUTPUTS_WITH_RETAINED_RAW_ROWS",
+  "CLI": "python -B ABS/tools/radio_visit2019_s31_blc77_native_pilot_qa_20261010/qa_saved_outputs.py --root ABS_PROJECT_ROOT --input-manifest ABS/results/radio_visit2019_s31_blc77_native_pilot_qa_20261010/QA_INPUT_MANIFEST.json --expected-input-manifest-sha256 SHA --qa-freeze-commit COMMIT --root-go-after-pilot-closed",
+  "limits": {
+    "CPU_seconds": 60,
+    "hard_CPU_seconds": 62,
+    "wall_seconds": 1800,
+    "memory_bytes": 1073741824,
+    "output_bytes": 33554432,
+    "shared_workspace_bytes": 12884901888
+  },
+  "scientific_execution_allowed_by_this_document": false
+}

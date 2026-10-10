@@ -1,0 +1,140 @@
+{
+  "schema": "SETI_VISIT2019_NATIVE_PILOT_QA_INDEPENDENT_SOURCE_REVIEW_V2",
+  "status": "PASS_CORRECTED_V2_SOURCE_ONLY_NO_QA_OR_SCIENCE_EXECUTION",
+  "reviewer_task": "/root/visit2019_metadata_qualification",
+  "reviewed_file_pins": [
+    {
+      "path": "tools/radio_visit2019_s31_blc77_native_pilot_qa_20261010/qa_saved_outputs.py",
+      "bytes": 41112,
+      "sha256": "4b3a4b660f4f87034f12050c84a4b3c9f671c0e10026276c21315d8ab0ef15c8"
+    },
+    {
+      "path": "tools/radio_visit2019_s31_blc77_native_pilot_qa_20261010/qa_saved_outputs_v2.py",
+      "bytes": 41139,
+      "sha256": "20c6bb837294db5062486906054560cec75e136e633709927c96c81c45730df0"
+    },
+    {
+      "path": "tools/radio_visit2019_s31_blc77_native_pilot_qa_20261010/METHOD.md",
+      "bytes": 3857,
+      "sha256": "9a85245549808ce50fc18f9973efdd79c5c4b611642d2a8da0c894a29e2a8fe7"
+    },
+    {
+      "path": "tools/radio_visit2019_s31_blc77_native_pilot_qa_20261010/INPUT_MANIFEST_SCHEMA.json",
+      "bytes": 2495,
+      "sha256": "2063834278afea1d4d0682bd38acc913bc03c37b2d31a58cb31825c3992707c7"
+    },
+    {
+      "path": "tools/radio_visit2019_s31_blc77_native_pilot_qa_20261010/AUTHOR_SOURCE_REVIEW.json",
+      "bytes": 2174,
+      "sha256": "e3275344695d9d52d917c0d542335c95ef0042bf80aa2a112fb1a81605692989"
+    },
+    {
+      "path": "tools/radio_visit2019_s31_blc77_native_pilot_20261010/search_saved.py",
+      "bytes": 44173,
+      "sha256": "560c328cd5b22caabda53e72baa1f194ede285f0ec15028dcd09980168bb2ac2"
+    },
+    {
+      "path": "tools/radio_visit2019_s31_blc77_native_pilot_20261010/launch_once.py",
+      "bytes": 14330,
+      "sha256": "b183ca0ab9aa8242c35e3be915c47b8dd671d3df6e3b3aa2e618c09e1ab5026b"
+    },
+    {
+      "path": "tools/radio_visit2019_s31_blc77_native_pilot_20261010/dependencies/detector.py",
+      "bytes": 22819,
+      "sha256": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45"
+    }
+  ],
+  "corrected_candidate_pin": {
+    "path": "tools/radio_visit2019_s31_blc77_native_pilot_qa_20261010/qa_saved_outputs_v2.py",
+    "bytes": 41139,
+    "sha256": "20c6bb837294db5062486906054560cec75e136e633709927c96c81c45730df0"
+  },
+  "historical_candidate_has_unresolved_NameError": true,
+  "historical_candidate_pin": {
+    "path": "tools/radio_visit2019_s31_blc77_native_pilot_qa_20261010/qa_saved_outputs.py",
+    "bytes": 41112,
+    "sha256": "4b3a4b660f4f87034f12050c84a4b3c9f671c0e10026276c21315d8ab0ef15c8"
+  },
+  "minimal_review_finding_fix": {
+    "function": "admit",
+    "finding": "The midpoint/header equality assertion referenced g, which is not defined in admit; the admitted geometry local is geom.",
+    "exact_delta": "Nine g[...] references changed to geom[...] inside that single assertion; 27 bytes added.",
+    "all_other_function_and_class_ASTs_identical": true,
+    "exact_byte_reconstruction_verified": true,
+    "corrected_version_created_only": true,
+    "original_source_bytes_restored_to_historical_pin": true,
+    "author_independently_produced_identical_corrected_bytes": true
+  },
+  "source_only_checks": [
+    {
+      "check": "Original closed pilot provenance",
+      "PASS": true,
+      "evidence": "Requires exact scope/inner COMPLETE/outer reaped exit0/admission/marker freeze joins, all original scope pins, source hashes, conservative child-plus-launcher CPU/RSS and wall limits. Frozen 560c worker and b183 launcher API fields match."
+    },
+    {
+      "check": "Saved decoded row authentication",
+      "PASS": true,
+      "evidence": "Pins all six read-only C-order <f4 NPY files, checks dimensions/order/source IDs and every original worker row SHA, validates finite nonnegative power, and repeats all manifest/source hashes before publication."
+    },
+    {
+      "check": "Float32 and float64 median order-statistic certificate",
+      "PASS": true,
+      "evidence": "Both side counts are at most floor(N/2). Odd N requires the observed saved central value. Even N reconstructs the central pair by side extrema/counts and verifies the dtype-specific two-element mean, including float32 addition/division rounding. It uses neither median, sorting nor partition for these certificates."
+    },
+    {
+      "check": "Every original map and per-core normalization record",
+      "PASS": true,
+      "evidence": "Runtime derives six scans by frozen interior q cores; checks ordered inventory, 4096 channels, exact physical frequency lattice, 785 drifts, widths1/3, finite float64 maxima, int16 widths and int64 count1570. Per-core raw medians use float64 as in frozen detector preprocessing; saved residual/MAD/location are domain checked only."
+    },
+    {
+      "check": "Saved rank list integrity",
+      "PASS": true,
+      "evidence": "Matches original np.lexsort((channels,-scores)), strict distance>3 NMS and exact60 ON records. No score computation, threshold, OFF ranking, optimization or new selection is introduced."
+    },
+    {
+      "check": "Nine cases by six scans fixed-profile algebra",
+      "PASS": true,
+      "evidence": "Reconstructs original absolute np.rint paths, row midtimes and originating ON reference; compares all raw129-cell windows to retained rows, float64 normalize-first arithmetic, rank-certified122-position flank median, width mean, residual and baseline-before-row-mean. All17 patch arrays and54 summaries match original schema; raw-width means retain float32 arithmetic."
+    },
+    {
+      "check": "Finite once-only resources and output closure",
+      "PASS": true,
+      "evidence": "CPU60soft/62hard, wall1800, address space1GiB, output32MiB and shared12GiB are installed before NumPy. QA requires one marker/create-only namespace, existing pilot/acquisition locks, finite pin count, memory admission, end readbacks and publication headroom; process-complete resources still require root closure measurement."
+    }
+  ],
+  "prospective_geometry_counts_only": {
+    "current_parent_supplied_rows": 16,
+    "current_parent_supplied_native_channels": 65536,
+    "maps_if_geometry_unchanged": 84,
+    "measurement_files_if_geometry_unchanged": 190,
+    "decoded_rows_if_geometry_unchanged": 96,
+    "fixed_cases": 9,
+    "scan_profiles": 54,
+    "raw_patch_cell_occurrences_if_geometry_unchanged": 111456,
+    "actual_scope_or_arrays_read": false
+  },
+  "integration_conditions": [
+    "Root must freeze and use corrected qa_saved_outputs_v2.py20c6 as the qa_worker_pin and CLI, or explicitly restore an unfrozen original path to those same corrected bytes. The historical original4b3 must not be executed.",
+    "The original METHOD/manifest example names qa_saved_outputs.py; the future actual CLI/worker pin must name the corrected candidate consistently.",
+    "No actual COMPLETE pilot, QA manifest, retained NPY/NPZ or numerical receipt was examined. Runtime eligibility and full-command closure remain root-owned.",
+    "Current TREE transport did not complete; this source PASS grants no native acquisition, pilot or QA execution."
+  ],
+  "claim_limits": [
+    "Saved NPY rows are authenticated to original decoded-row SHA commitments; no independent codec re-decode or whole-original-file MD5.",
+    "Detector scores and 501-channel preprocessing are not recomputed; rank and original profile algebra checks are integrity-only.",
+    "No calibrated significance, independent-visit validation or sky-origin classification."
+  ],
+  "target_imports": 0,
+  "target_executions": 0,
+  "fixture_executions": 0,
+  "scientific_imports": 0,
+  "NPY_NPZ_array_reads": 0,
+  "H5_or_cache_reads": 0,
+  "HTTP_requests": 0,
+  "review_methods": [
+    "Full source text comparison against pinned frozen worker/launcher/detector",
+    "Independent order-statistic/algebra reasoning",
+    "Stdlib AST parse and exact byte delta/hash checks"
+  ],
+  "all_reviewed_source_end_pins_PASS": true
+}
