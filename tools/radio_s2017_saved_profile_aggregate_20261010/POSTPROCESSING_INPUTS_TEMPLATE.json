@@ -1,0 +1,32 @@
+{
+  "template_status": "SOURCE_ONLY_EXAMPLE_NOT_A_ROOT_GO_OR_EXECUTABLE_ADMISSION",
+  "instructions": "After actual independent QA is closed and PASS, root fills exact pins and measured resources and publishes a finite display freeze. Write only the manifest object to results/radio_s2017_saved_profile_aggregate_20261010/DISPLAY_INPUT_PINS.json. All zero-size or placeholder pins are intentionally inadmissible.",
+  "manifest": {
+    "schema": "SETI_S2017_SAVED_PROFILE_AGGREGATE_POSTPROCESSING_INPUTS_V1",
+    "postprocessing_public_freeze_commit": "REPLACE_WITH_EXACT_NEW_DISPLAY_FREEZE_40_HEX",
+    "one_postprocessing_GO_after_closed_QA": true,
+    "root_verified_original_and_QA_closed_resources": true,
+    "retry_rerender_resume_authorized": false,
+    "script_pin": {"path": "tools/radio_s2017_saved_profile_aggregate_20261010/report_figures_saved.py", "bytes": 29754, "sha256": "5a736cd4cbd74d582d4bf52cdf4dc2132c79e5d03c1e980af57cc3bf41c6555b"},
+    "publisher_pin": {"path": "tools/radio_s2017_saved_profile_aggregate_20261010/saved_png_publish.py", "bytes": 4826, "sha256": "98330391a76d1fa9b0138f1ecd62be1ef0c5a4c3ac3bdc2a5963538c5aa9434a"},
+    "aggregate_public_freeze_commit": "REPLACE_WITH_ACTUAL_ORIGINAL_AGGREGATE_FREEZE",
+    "aggregate_scope_pin": {"path": "REPLACE_WITH_ACTUAL_AGGREGATE_SCOPE_PATH", "bytes": 0, "sha256": "REPLACE_WITH_64_HEX"},
+    "aggregate_execution_pin": {"path": "results/radio_s2017_saved_profile_aggregate_20261010/measurement/EXECUTION_RECEIPT.json", "bytes": 0, "sha256": "REPLACE_WITH_64_HEX"},
+    "aggregate_pin": {"path": "results/radio_s2017_saved_profile_aggregate_20261010/measurement/SAVED_PROFILE_AGGREGATE.json", "bytes": 0, "sha256": "REPLACE_WITH_64_HEX"},
+    "qa_receipt_pin": {"path": "results/radio_s2017_saved_profile_aggregate_qa_20261010/review/QA_RECEIPT.json", "bytes": 0, "sha256": "REPLACE_WITH_64_HEX"},
+    "aggregate_whole_closed_pin": {"path": "REPLACE_WITH_ACTUAL_AGGREGATE_WHOLE_CLOSED_PATH", "bytes": 0, "sha256": "REPLACE_WITH_64_HEX"},
+    "closed_resource_evidence_pin": {"path": "results/radio_s2017_saved_profile_aggregate_20261010/DISPLAY_CLOSED_RESOURCE_ADMISSION.json", "bytes": 0, "sha256": "REPLACE_WITH_64_HEX"},
+    "input_json_pins": ["REPLACE_WITH_EXACT_SIX_PIN_OBJECTS_FROM_THE_SIX_EXPLICIT_FIELDS_ABOVE"],
+    "readonly_guard_paths": ["results/radio_s2017_saved_profile_aggregate_20261010/AGGREGATE_SERIAL.flock", "results/radio_s2017_saved_profile_aggregate_qa_20261010/QA_SERIAL.flock"],
+    "root_verified_closed_resource_summary": {
+      "aggregate": {"closed_reaped": true, "actual_return_code": 0, "resource_caps_satisfied": true, "CPU_seconds": "REPLACE_WITH_ACTUAL_WHOLE_VALUE", "wall_seconds": "REPLACE_WITH_ACTUAL_WHOLE_VALUE", "peak_RSS_bytes": "REPLACE_WITH_ACTUAL_WHOLE_VALUE"},
+      "QA": {"closed_reaped": true, "actual_return_code": 0, "resource_caps_satisfied": true, "CPU_seconds": "REPLACE_WITH_ACTUAL_REAPED_QA_VALUE", "wall_seconds": "REPLACE_WITH_ACTUAL_REAPED_QA_VALUE", "peak_RSS_bytes": "REPLACE_WITH_ACTUAL_REAPED_QA_VALUE"}
+    }
+  },
+  "closed_resource_evidence": {
+    "schema": "SETI_S2017_AGGREGATE_DISPLAY_CLOSED_RESOURCE_ADMISSION_V1",
+    "aggregate_whole_closed_pin": "COPY_EXACT_MANIFEST_PIN_OBJECT",
+    "qa_receipt_pin": "COPY_EXACT_MANIFEST_PIN_OBJECT",
+    "root_verified_closed_resource_summary": "COPY_EXACT_MANIFEST_SUMMARY_OBJECT_AFTER_ACTUAL_ROOT_VERIFICATION"
+  }
+}

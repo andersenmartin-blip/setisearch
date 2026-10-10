@@ -1,0 +1,108 @@
+{
+  "schema": "SETI_S2017_SAVED_PROFILE_AGGREGATE_REPORT_FIGURES_SOURCE_ONLY_REVIEW_V1",
+  "status": "PASS_SOURCE_ONLY_NO_HTTP_OR_VALUES",
+  "family_id": "radio_s2017_saved_profile_aggregate_20261010",
+  "reviewed_at_utc": "2026-10-10T22:46:15.663955+00:00",
+  "reviewer": "independent_source_peer_full_safe_plot_static_review",
+  "renderer_sha256": "5a736cd4cbd74d582d4bf52cdf4dc2132c79e5d03c1e980af57cc3bf41c6555b",
+  "publisher_sha256": "98330391a76d1fa9b0138f1ecd62be1ef0c5a4c3ac3bdc2a5963538c5aa9434a",
+  "source_pins": {
+    "renderer": {
+      "path": "tools/radio_s2017_saved_profile_aggregate_20261010/report_figures_saved.py",
+      "bytes": 29754,
+      "sha256": "5a736cd4cbd74d582d4bf52cdf4dc2132c79e5d03c1e980af57cc3bf41c6555b"
+    },
+    "publisher": {
+      "path": "tools/radio_s2017_saved_profile_aggregate_20261010/saved_png_publish.py",
+      "bytes": 4826,
+      "sha256": "98330391a76d1fa9b0138f1ecd62be1ef0c5a4c3ac3bdc2a5963538c5aa9434a"
+    },
+    "aggregate_API_source": {
+      "path": "tools/radio_s2017_saved_profile_aggregate_20261010/aggregate_saved.py",
+      "bytes": 27366,
+      "sha256": "a0187d9f74f59c58b971d800bc7d5cf5d3877661a7c1a34811d8fb2185d14430"
+    },
+    "QA_API_source": {
+      "path": "tools/radio_s2017_saved_profile_aggregate_qa_20261010/qa_saved_aggregate.py",
+      "bytes": 47409,
+      "sha256": "2916a774efe56000056bd9ccbdaef5c4a26838fc0c437111d3cb2e2102a23fb8"
+    }
+  },
+  "review_mode": {
+    "source_text_and_stdlib_AST_hash_only": true,
+    "authored_source_imports": 0,
+    "authored_helper_executions": 0,
+    "tests_executed": 0,
+    "actual_scientific_output_JSONs_read": 0,
+    "array_or_HDF5_reads_or_decodes": 0,
+    "source_HTTP_requests": 0,
+    "renders_executed": 0,
+    "source_mutations": 0,
+    "upstream_API_review_only_not_independent_arithmetic_QA": true
+  },
+  "findings": [],
+  "initial_findings_resolved": [
+    "The closed-resource evidence is parsed from its authenticated pin; its normalized root summary must exactly equal the manifest summary, join the aggregate whole-command proof and QA receipt, meet each phase cap, and match the actual aggregate whole-proof measurements.",
+    "The held read-only exclusive guard paths must exactly equal AGGREGATE_SERIAL.flock and the independent QA family QA_SERIAL.flock; an arbitrary second guard is rejected."
+  ],
+  "admission_checks": {
+    "late_root_GO_and_postprocessing_freeze_required": true,
+    "finite_exact_JSON_inventory_and_same_read_bytes_SHA_parse": true,
+    "exact_aggregate_scope_EXEC_result_whole_closed_freeze_joins": true,
+    "aggregate_whole_closed_exit0_reaped_no_timeout_and_caps_required": true,
+    "exact_independent_QA_schema_status_aggregate_scope_EXEC_whole_proof_freeze_joins": true,
+    "separate_root_normalized_closed_QA_measurement_required": true,
+    "phase_limits_checked_against_authenticated_aggregate_scope_and_QA_receipt": true,
+    "exact_1905_records_635_triples_six_scan_export_contract_checked": true,
+    "source_rank_lists_checked_as_complete_permutations_without_renderer_reranking": true
+  },
+  "saved_selection_and_headlines": {
+    "fixed_selected_case": "records[rank_by_signed_worst_mean_gap[0]], authenticated saved selected_display_case equality",
+    "headline_counts": [
+      "descriptive_counts.signed_worst_mean_gap_positive",
+      "descriptive_counts.signed_worst_half_gap_positive",
+      "descriptive_counts.signed_neighborhood_gap_positive",
+      "descriptive_counts.all_ON_rows_positive"
+    ],
+    "maximum_local_gap_record": "records[rank_by_signed_neighborhood_gap[0]]",
+    "counts_ranks_metrics_and_profiles_are_saved_pass_through": true,
+    "no_metric_recomputation_new_selection_or_hardcoded_observed_values": true
+  },
+  "presentation_checks": {
+    "two_PNGs_only": [
+      "SIGNED_WORST_ON_OFF_GAP_VS_DRIFT.png",
+      "PRESELECTED_MAX_MEAN_GAP_LOCAL_PROFILES.png"
+    ],
+    "signed_scatter_includes_all_1905_source_records_positive_and_negative": true,
+    "selected_plot_includes_all_six_saved_129_point_curves": true,
+    "negative_df_only_reorders_display_coordinates_with_corresponding_saved_values": true,
+    "labels_preserve_signed_metrics_original_member_reference_and_local_window": true,
+    "prose_states_descriptive_posthoc_correlated_same_visit_no_FAP_detection_or_independent_replication": true,
+    "only_original_rank1_exclusion_described_without_global_OFF_absence_claim": true,
+    "layout_source_checks_no_concrete_blocker": true,
+    "visual_QA": "PENDING_READONLY_IMAGE_INSPECTION_AFTER_ACTUAL_RENDER"
+  },
+  "one_shot_resource_publication_checks": {
+    "limits": {
+      "CPU_seconds": 30,
+      "CPU_hard_seconds": 32,
+      "wall_seconds": 120,
+      "memory_bytes": 1073741824,
+      "derived_output_bytes": 16777216
+    },
+    "persistent_owned_exclusive_fsynced_marker_before_full_admission_matplotlib_and_render": true,
+    "stable_readonly_exclusive_guard_lifetime_through_terminal_publication": true,
+    "create_only_new_presentation_outputs_and_report": true,
+    "prepared_fsynced_exclusive_terminal_publication_with_signals_blocked_and_committed_state": true,
+    "failure_receipt_only_for_owned_uncommitted_attempt_no_conflicting_failure_after_commit": true,
+    "end_readbacks_of_admitted_JSONs_manifest_renderer_and_publisher": true,
+    "unchanged_publisher_buffer_PNG_CRC_decode_dimensions_SHA_and_published_SHA_checks": true,
+    "receipt_marks_own_resource_boundary_and_visual_QA_pending": true
+  },
+  "runtime_conditions_not_established_by_this_review": [
+    "Actual immutable input manifest, root GO and postprocessing public freeze must bind this exact renderer and publisher.",
+    "Actual aggregate and independent QA completion, end-readbacks and full-command closed resource evidence must satisfy the runtime admission checks; no actual outcome or completion receipt was inspected by this reviewer.",
+    "The single authorized writer, complete outer-command resource measurement and subsequent read-only visual QA remain root responsibilities."
+  ],
+  "final_source_pins_exact_before_receipt_creation": true
+}

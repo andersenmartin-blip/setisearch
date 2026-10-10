@@ -1,0 +1,28 @@
+SOURCE-ONLY CONTRACT: saved 2017 aggregate interpretation and display
+
+This source bundle performs one saved-JSON postprocessing attempt after the original aggregate and independent aggregate QA have both closed successfully. The example is prospective and contains deliberately invalid placeholder pins. It is not an execution scope or scientific result.
+
+Owned outputs:
+results/radio_s2017_saved_profile_aggregate_20261010/README_DANSK.txt
+results/radio_s2017_saved_profile_aggregate_20261010/presentation/SIGNED_WORST_ON_OFF_GAP_VS_DRIFT.png
+results/radio_s2017_saved_profile_aggregate_20261010/presentation/PRESELECTED_MAX_MEAN_GAP_LOCAL_PROFILES.png
+results/radio_s2017_saved_profile_aggregate_20261010/DISPLAY_STARTED_ONCE.json
+results/radio_s2017_saved_profile_aggregate_20261010/DISPLAY_RECEIPT.json
+On failure, preserve the attempt and DISPLAY_FAILURE_RECEIPT.json; no retry, rerender or replacement is authorized by this source.
+
+Input admission:
+Exactly six pinned JSON files: original aggregate scope, original aggregate execution, aggregate result, independent aggregate QA receipt, original whole-command closed resource proof, and a root-normalized closed-resource admission. The last admission joins the actual original whole-proof pin and QA-receipt pin to the exact full reaped CPU/wall/RSS summary that root has verified. The script checks each phase against its original limits. It does not independently reap previously closed processes. Both original and QA stable guards are acquired readonly and checked for exclusive ownership.
+
+The late DISPLAY_INPUT_PINS.json must bind the exact display script and publisher plus the newly published display freeze. It is prepared only after actual QA PASS and full QA closure. Root's finite GO and all exact byte pins are required; the renderer does not fabricate these pins or resource observations. POSTPROCESSING_INPUTS_TEMPLATE.json documents the fields; root fills and writes only its manifest object to the exact result path.
+
+Execution contract:
+python -B ABS_ROOT/tools/radio_s2017_saved_profile_aggregate_20261010/report_figures_saved.py --root ABS_ROOT --input-manifest ABS_ROOT/results/radio_s2017_saved_profile_aggregate_20261010/DISPLAY_INPUT_PINS.json --expected-input-manifest-sha256 ACTUAL_64_HEX --postprocessing-freeze-commit ACTUAL_NEW_40_HEX --root-go-after-closed-qa
+
+Finite plotting process caps: 30 CPU seconds, CPU hard limit 32, 120 wall seconds, 1073741824 memory bytes, 16777216 derived output bytes. Thread variables are fixed to one before Matplotlib imports; Matplotlib Agg is used. Root records the actual full child return code and reaped CPU/wall/RSS separately. The terminal source receipt is published only after all input end readbacks and cap checks. Actual image visual QA remains pending until separate readonly inspection; it is not inferred from rendering success.
+
+Saved-content behavior:
+All 1905 records' saved signed mean gaps are plotted against original drift, retaining originating ON and width. No detector or original profile arithmetic is called. The chosen curve figure is exactly the source's preset largest signed mean-gap record, with all six saved 129-channel curves and actual native frequency offsets. Negative native df is reordered ascending Hz for display only. Four headline counts are copied from descriptive_counts. The maximum neighborhood gap is copied from the source's full neighborhood rank list. No gaps, counts, rankings, drift, scores or profile values are recomputed.
+
+The report is plain Danish TXT. It explains same-visit posthoc selection and correlated paths, separate mean/half/local OFF measures, limited 129-channel windows, no false-alarm calibration and no physical-origin or detection claim. The original A/B FAIL_CLOSED and independent_validation BLOCKED remain unchanged.
+
+Intake excludes NPY, NPZ, HDF5 and telescope HTTP. The original measured profiles, scientific helpers and all historical failure/status bytes remain unchanged. Complete CRC-validated PNGs are published atomically using the pinned existing publisher.
