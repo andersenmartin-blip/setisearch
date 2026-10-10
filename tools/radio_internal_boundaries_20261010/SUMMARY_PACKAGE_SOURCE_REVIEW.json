@@ -1,0 +1,77 @@
+{
+  "schema": "SETI_JOINED_BOUNDARY_SUMMARY_PACKAGE_SOURCE_REVIEW_V1",
+  "status": "PASS_SOURCE_ONLY_PROSPECTIVE_SAVED_SUMMARY_PACKAGE_CONTRACT",
+  "review_date_UTC": "2026-10-10",
+  "reviewer": "/root/fresh_band_analysis/qa_contract_review",
+  "independent_of_reviewed_helper_author": true,
+  "reviewed_files": {
+    "tools/radio_internal_boundaries_20261010/summarize_saved.py": {
+      "sha256": "9c40b9d60d683607d19f6bcb73990ffd66b8754ab722258cf5862a864383173c",
+      "bytes": 35600,
+      "stdlib_AST_parse": "PASS"
+    },
+    "tools/radio_internal_boundaries_20261010/package_saved.py": {
+      "sha256": "c46f0c922ce6e94b336d7eedeb52ab03f49846c98bc651cfcd2dc4271fe335d7",
+      "bytes": 21490,
+      "stdlib_AST_parse": "PASS"
+    },
+    "tools/radio_internal_boundaries_20261010/REPRODUCTION.md": {
+      "sha256": "3d53476b90b573f746fcf709de5dc3d419a34a1edfbd7d849bc13c78c7b9f400",
+      "bytes": 6347,
+      "text_contract_review": "PASS"
+    }
+  },
+  "review_method": "Read source and reproduction text; parse Python syntax using stdlib ast only. No reviewed helper was imported or executed.",
+  "contracts_reviewed": {
+    "fixed_pair_ids": ["pair153_154", "pair154_155", "pair157_158"],
+    "joined_reference_core_q": [255, 256],
+    "profile_identity_fields": ["pair_id", "track_id"],
+    "exact_required_JSON_input_count": 24,
+    "original_new_numeric_status_required_for_all_three_pairs": "COMPLETE_TWO_JOINED_BOUNDARY_CORES_EXPLORATORY_ONLY",
+    "saved_QA_status_required_for_each_pair": "PASS_COMPLETE_SAVED_JOINED_BOUNDARY_OUTPUTS",
+    "joint_source_audit_status_required": "PASS_27_FIXED_RAW_PATCHES_AUTHENTICATED_BITWISE_TO_SOURCE",
+    "saved_QA_CPU_caps_s": [20, 20, 20],
+    "joint_source_audit_CPU_cap_s": 60,
+    "summary_CPU_cap_s": 20,
+    "package_CPU_cap_s": 40,
+    "new_scientific_files_admitted_opaquely_to_package": 63,
+    "exact_admitted_NPZ_member_count": 45,
+    "counts_if_required_gates_pass": {
+      "maps": 18,
+      "tile_normalization_JSONs": 18,
+      "carrier_origin_entries": 73728,
+      "evaluated_hypothesis_combinations": 112508928,
+      "top20_records": 180,
+      "profiles": 27,
+      "scan_profiles": 162,
+      "time_row_occurrences": 2592,
+      "raw_cell_occurrences": 334368,
+      "unique_compact_files_authenticated_by_separate_source_audit": 30,
+      "unique_decoded_rows_authenticated_by_separate_source_audit": 480,
+      "compact_file_input_occurrences": 36,
+      "decoded_row_input_occurrences": 576
+    },
+    "once_only_started_and_failure_guards": "PASS",
+    "immutable_original_status_and_output_contracts": "PASS",
+    "summary_additional_metadata_end_readbacks_and_conflicting_pin_rejection": "PASS",
+    "package_admission_to_snapshot_binding": "PASS",
+    "package_Snapshot_to_ZIP_SHA_size_CRC_and_final_readbacks": "PASS",
+    "optional_editorial_bridge_preserves_generated_report_and_scientific_JSON": "PASS",
+    "profile_joined_median_authenticity_limit_explicit": "PASS",
+    "coverage_union_conditional_on_separately_verified_original_254_cores": "PASS",
+    "exposed_single_visit_and_uncalibrated_scientific_limits": "PASS"
+  },
+  "resolved_findings": [
+    "Additional QA-opened metadata and late native158 admission pins are rechecked before and after summary writes, with conflicting duplicate declarations rejected.",
+    "Archive snapshots must match all admitted main JSONs, input-pin map, code and metadata dependencies, scientific byte pins, QA-opened metadata, runtime receipts, summary and receipt, reviewed report and CSV. Optional editorial receipt and preserved generated report are also bound. Same-byte JSON admission avoids adopting different JSON after a separate hash check.",
+    "Reproduction allocation is explicit: 360 numeric + 120 QA (three20 plus one60) + 60 preparation + 60 publication (summary20 plus package40) equals600 CPU seconds."
+  ],
+  "reviewed_helpers_imported_or_executed": false,
+  "numerical_outcome_values_read": false,
+  "scientific_arrays_or_archives_opened": false,
+  "source_HTTP_requests": 0,
+  "numerical_or_synthetic_algorithm_execution": false,
+  "new_QA_or_source_audit_execution_certified_by_this_review": false,
+  "review_does_not_authorize_execution": true,
+  "remaining_execution_condition": "Public code and common scope freeze/readback plus separate root GO; actual original COMPLETE, saved QA and source audit gates remain mandatory."
+}
