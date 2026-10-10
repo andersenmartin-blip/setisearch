@@ -1,0 +1,23 @@
+{
+  "actual_invalid_initial_plan_preserved": true,
+  "allowed_change": "Only a node's final boundary key may have element coordinate4 and then stored bytes/filter mask must both equal0. All real lower keys retain element coordinate0. Other fourth-coordinate values fail closed.",
+  "diagnostic_pin": {
+    "bytes": 11660,
+    "path": "results/radio_visit2019_chunk_index_20261010/ROOT_ACTUAL_CACHED_TREE_KEY_FIELD_DIAGNOSTIC.json",
+    "sha256": "31e41c8aba9d714eb9d0fdafa7d3061df6da05b081c75a593bdaac857d65dfa5"
+  },
+  "frozen_original_parser_and_actual20toy_pass_preserved": true,
+  "functions": [
+    "H5D__btree_new_node",
+    "H5D__btree_encode_key",
+    "H5D__btree_decode_key"
+  ],
+  "primary_source_UTF8_bytes": 52824,
+  "primary_source_sha256": "b3fe4fd6a80d8a19ed1ea373fa65130e1ae8237bde8c45894d2497c11b3ee94e",
+  "right_boundary_semantics": "A newly created right key has zero stored bytes and filter mask; each scaled coordinate increments the inserted chunk's scaled coordinate by one. Key encoding multiplies each scaled coordinate by its matching layout dimension. With verified element-size dimension4 and actual chunk element offset0, the generated final fence element coordinate is4. Existing final boundary keys may instead be ordinary zero-element-coordinate keys.",
+  "schema": "SETI_LEGACY_TREE1_RIGHT_BOUNDARY_PRIMARY_IMPLEMENTATION_EVIDENCE_V1",
+  "source_HTTP": 0,
+  "spectral_values_read": false,
+  "status": "PRIMARY_IMPLEMENTATION_EXPLAINS_CACHED_ZERO_SIZE_RIGHT_BOUNDARY",
+  "url": "https://github.com/HDFGroup/hdf5/blob/hdf5-1_10_5/src/H5Dbtree.c"
+}
