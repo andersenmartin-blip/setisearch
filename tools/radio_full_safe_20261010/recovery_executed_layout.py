@@ -6,8 +6,8 @@ import resource
 import time
 import zipfile
 
-ROOT=Path(__file__).resolve().parents[2]
-ARCHIVES=ROOT.parent/'seti_fullpower_work'/'recovered'
+ROOT=Path(__file__).resolve().parent.parent/'setisearch_fullpower'
+ARCHIVES=Path(__file__).resolve().parent/'recovered'
 OUT=ROOT/'results/radio_full_safe_20261010'
 EXPECTED={
  'SETI_GAP_STATIC_CONTEXT_2026-10-10.zip':(6206173,'c00195d119596d1cf2a42653754a70bfd39e60262b406e59408c4e1759517146'),
