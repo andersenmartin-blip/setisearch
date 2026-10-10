@@ -1,0 +1,103 @@
+{
+  "HDF5_NPZ_NPY_or_actual_cache_opened": false,
+  "HTTP_requests": 0,
+  "actual_scope_or_root_admission_read": false,
+  "concrete_blockers": [],
+  "file_pins": [
+    {
+      "bytes": 44173,
+      "path": "tools/radio_visit2019_s31_blc77_native_pilot_20261010/search_saved.py",
+      "sha256": "560c328cd5b22caabda53e72baa1f194ede285f0ec15028dcd09980168bb2ac2"
+    },
+    {
+      "bytes": 9867,
+      "path": "tools/radio_visit2019_s31_blc77_native_pilot_20261010/prepare_scope.py",
+      "sha256": "eba06e6774f6e300770fe53ba7e1697b351dddf744eb67f40b2f88164bea7d88"
+    },
+    {
+      "bytes": 14330,
+      "path": "tools/radio_visit2019_s31_blc77_native_pilot_20261010/launch_once.py",
+      "sha256": "b183ca0ab9aa8242c35e3be915c47b8dd671d3df6e3b3aa2e618c09e1ab5026b"
+    },
+    {
+      "bytes": 22819,
+      "path": "tools/radio_visit2019_s31_blc77_native_pilot_20261010/dependencies/detector.py",
+      "sha256": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45"
+    },
+    {
+      "bytes": 6649,
+      "path": "tools/radio_visit2019_s31_blc77_native_pilot_20261010/METHOD.md",
+      "sha256": "1d2ba21f46cb8bf41efffdf6296d56f6e11bb56783aad35bc0d4ba40d42e715d"
+    }
+  ],
+  "findings": [
+    "Actual metadata derives common six-source ntime/chunks/native midpoint/frequency/time geometry, unchanged785-point linspace(-4,4) and widths1/3. The selected full4096-channel q1..floor(native count/4096)-2 family is fixed before amplitudes. Half-grid mismatch, chronological integrations and complete own-search/six-scan profile margins fail closed before values.",
+    "All six scans are scored on the same fixed grid and all carrier maxima are saved. Expected maps, carriers and correlated width/drift combinations multiply by six. Only the three ON scans contribute independently ranked top20 and top3 profile origins; no OFF optimization, rescore, veto or cross-visit inference is applied.",
+    "Exact unchanged detector preprocessing and robust scorer preserve float64 kernel/core normalization, median501/MAD/winsorized location, absolute-frequency rint and strict winner tie behavior. Original14 profile expressions are AST-identical after declared parameterization: original ON first-integration reference for all six scans, raw float32 full-native medians, float64 profile normalization, fixed122-flank median, width mean residual and mean(normalized-baseline). Nine profiles retain all6 scans and actual rows.",
+    "Expanded prerequisites include actual acquisition scope/result/closed inner and whole-child outer, every acquisition source pin, typed descriptor evidence, complete BODY ledger and authenticated acquisition end-input inventory. Six compact records/row origins/filter masks/byte ranges match frozen typed descriptors; original acquisition API uses1-based source order. Every input is authenticated before values and at the end.",
+    "Conservative memory admission includes six retained raw arrays, full-native median workspace,128 bytes per selected carrier for collection/sort,256 bytes per scorer cell and192MiB runtime. Pure output reservation runs in both producer and admission before amplitudes, includes uncompressed decoded NPY/maps/profiles/metadata, and cannot rely on noise compression. Each decoded NPY has a prewrite size guard, fsync/SHA/shape/dtype/source pin and immediate full output/shared/resource check.",
+    "Own stable serial flock and exclusive fsynced once marker precede complete source admission and numerical imports. The actual acquired-directory readonly exclusive flock is held from opaque authentication through terminal. Existing attempts/output/failure are preserved; failure writes require ownership flags. Exact own readonly dependency PYTHONPATH and disabled bytecode are required before NumPy/HDF5 imports.",
+    "Inner terminal is prepared/fsynced before final caps/headroom and committed by exclusive hardlink with termination signals blocked. Commit state precedes cleanup, preventing a later cleanup/stdout exception from appending contradictory FAILURE beside COMPLETE. Partial outputs and failures remain without retry; input end readbacks precede completion.",
+    "Launcher uses compatible CPUsoft/hard caps up to6000/6002,7200wall and1.5GiB, fixes codec deps/bytecode/thread environment, creates its own once marker and refuses existing inner attempts. Signals are blocked through Popen assignment and delivered to owned kill/reap cleanup; live selector logs are bounded65536B. Actual wait4 reaps the child through interpreter close, full parent+child CPU and summed peakRSS plus endreadback checks govern PASS with exact closed inner COMPLETE.",
+    "Scope preparation is stdlib metadata-only plus opaque authentication and cannot decode arrays or grant automatic numerical GO. The fixed prospective scope carries all source/code/method/detector/provenance pins and all6 scored scans; own source preparation marker/scope/receipt are create-only."
+  ],
+  "launcher_sha256": "b183ca0ab9aa8242c35e3be915c47b8dd671d3df6e3b3aa2e618c09e1ab5026b",
+  "numerical_source_evidence": {
+    "all14_AST_comparisons": "PASS_IDENTICAL_AFTER_ONLY_GENERIC_HEADER_AND_ROW_PARAMETERS",
+    "assignment_expressions_compared": [
+      "row_medians",
+      "offsets",
+      "flank",
+      "dt",
+      "base",
+      "centers",
+      "indices",
+      "raw",
+      "normalized",
+      "baseline",
+      "radius",
+      "center",
+      "residual",
+      "mean_profile"
+    ],
+    "original_profile_source": {
+      "bytes": 21995,
+      "path": "/workspace/scratch/5bf3860dacd6/analysis/new_visit_search/dependencies/gap_search.py",
+      "sha256": "b1a2cc31d47dbebc707f36c5de3eafbae6a62f0d0d19061c798c676c9fbcdb58"
+    },
+    "permitted_AST_parameterization": {
+      "integer_constant16": "actual nrows",
+      "names": {
+        "C0": "c0",
+        "COUNT": "count",
+        "DF": "df",
+        "FCH1": "fch1",
+        "TSAMP": "tsamp"
+      }
+    },
+    "vendored_detector": "Exact22819B original1df20d source SHA; direct search_scan path, no cadence/grid adaptation/classify/OFF veto."
+  },
+  "receipt_preparation_resources": {
+    "CPU_seconds_before_receipt_serialization": 0.019806710999999998,
+    "peak_RSS_bytes": 17395712,
+    "wall_seconds_before_receipt_serialization": 0.019825670999125578
+  },
+  "review_method": "Read staged source and declarative method only; stdlib AST/hash comparisons. No target/helper/fixture imports or execution, no scope generation, no actual metadata/cache/HDF5/NPZ/NPY/arrays or scientific values, no source HTTP.",
+  "reviewed_UTC": "2026-10-10T22:15:12.518854+00:00",
+  "reviewer": "independent full_safe_plot_static_review",
+  "runtime_conditions": [
+    "This is final candidate source review, not an executed science/eligibility/QA result. Root must join the actual corrected V3 PASS metadata and closed acquisition/typed/protected/source-history evidence into the finite new scope, verify its geometry/resource reservations, public freeze/readbacks and late admission, then issue separate one-shot numerical GO through the reviewed launcher.",
+    "Final exact scope/dependency/registry/closed-parent and scientific output QA remain root-owned. Original A/B FAIL_CLOSED and independent validation BLOCKED are preserved; no calibrated SNR/FAP, independent-test count, source replication or sky detection is established by this source-only proof.",
+    "Whole-child resources are authoritative; inner resource fields stop before final serialization and outer final accounting explicitly stops before its own receipt/stdout. No actual command measurement is claimed here."
+  ],
+  "schema": "SETI_VISIT2019_FIXED_ONE_NATIVE_PILOT_SOURCE_ONLY_REVIEW_V1",
+  "scientific_values_read": false,
+  "scope_preparer_sha256": "eba06e6774f6e300770fe53ba7e1697b351dddf744eb67f40b2f88164bea7d88",
+  "source_mutations": false,
+  "source_pin_end_check": "All five exact final candidate source/method files were reread and matched immediately before reviewer receipt creation.",
+  "status": "PASS_SOURCE_ONLY_NO_HTTP_HDF5_ARRAYS_OR_VALUES",
+  "target_imports_or_executions": 0,
+  "tests_executed": 0,
+  "unchanged_detector_sha256": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45",
+  "wrapper_sha256": "560c328cd5b22caabda53e72baa1f194ede285f0ec15028dcd09980168bb2ac2"
+}
