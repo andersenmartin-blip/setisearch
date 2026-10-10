@@ -1,0 +1,10 @@
+{
+  "status": "REPRODUCTION_CLI_CORRECTION_REQUIRED_ABSOLUTE_OUTDIR",
+  "guide_path": "tools/radio_next_bands_20261010/RAW_CHECKPOINT_REPRODUCTION.md",
+  "reviewed_old_guide_sha256": "da5cf6dc9e8bc4be7a553e2109594414c4fbab5867f1fb84c76375e09854cad4",
+  "superseded_review_path": "results/radio_next_bands_20261010/review/RAW_CHECKPOINT_CODE_REVIEW.json",
+  "finding": "The unchanged native wrapper computes (out/NORMALIZATION.json).relative_to(ROOT) before load_power. A relative --outdir raises ValueError before any observation array read. The guide must pass an absolute output directory from the clean extraction root.",
+  "existing_archives_or_receipts_to_replace": false,
+  "scientific_code_or_numeric_outputs_changed": false,
+  "reason_for_later_discovery": "Public path-preflight recovery metadata made this exact runtime path requirement explicit."
+}

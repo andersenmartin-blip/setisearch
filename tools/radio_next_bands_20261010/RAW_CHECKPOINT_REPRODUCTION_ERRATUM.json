@@ -1,0 +1,74 @@
+{
+  "CPU_measurement_basis": "This one standard-library process reads only small code/metadata files, writes the corrected guide and assembles this receipt; timing is captured immediately before writing the receipt. No full archive/source-array reads or scientific jobs occur.",
+  "ZIP_archives_rewritten_or_repackaged": 0,
+  "corrected_guide": {
+    "bytes": 4476,
+    "path": "tools/radio_next_bands_20261010/RAW_CHECKPOINT_REPRODUCTION_CORRECTED.md",
+    "sha256": "87018431beec2ff9529aa83f1ff31aad3db0304a0c5bac242e03887232995575"
+  },
+  "cost_DKK": 0,
+  "discovery_review": {
+    "path": "results/radio_next_bands_20261010/review/RAW_REPRODUCTION_GUIDE_ERRATUM_REVIEW.json",
+    "sha256": "8fff0a01cc2377fd7e18ce94afd1041c5a31e12e2c044c836f9ab01464c9c671"
+  },
+  "editorial_operation_CPU_seconds": 0.00959539899999999,
+  "editorial_operation_wall_seconds": 0.009640012998715974,
+  "finding": "The original packaged guide gives a relative --outdir. The unchanged native wrapper accepts its resolved admission path but computes (out/NORMALIZATION.json).relative_to(ROOT) before its first source array load, so a relative output directory raises ValueError. The correction defines absolute PROJECT_ROOT and passes absolute script, scope, compact-dir, acquisition-summary and outdir paths.",
+  "future_native155157_reproduction_guideline": "Use absolute project-root CLI paths in the appropriate future namespace. This erratum does not authorize new source acquisitions or numerical retries.",
+  "original_acquisition_scientific_freeze_commit": "d1bfe755e205e99b3c93544f4af84cc8d4585938",
+  "original_guide": {
+    "bytes": 3567,
+    "path": "tools/radio_next_bands_20261010/RAW_CHECKPOINT_REPRODUCTION.md",
+    "preserved_byte_unchanged": true,
+    "sha256": "da5cf6dc9e8bc4be7a553e2109594414c4fbab5867f1fb84c76375e09854cad4"
+  },
+  "original_packager": {
+    "modified_or_reexecuted": false,
+    "path": "tools/radio_next_bands_20261010/package_raw_checkpoint.py",
+    "sha256": "826e1b73adba005a7cffdd0733f40828e9b376197b76cf3d0fcdc1d7365c805a"
+  },
+  "peak_RSS_bytes": 10190848,
+  "preserved_raw_archives": [
+    {
+      "byte_hash_basis": "Preserved completed byte-only packaging/readback manifest; the correction performs no further ZIP or HDF5 decode.",
+      "bytes": 306081676,
+      "completed_package_manifest_path": "results/radio_next_bands_20261010/chunk153/raw_checkpoint/RAW_CHECKPOINT_ARCHIVE_MANIFEST.json",
+      "completed_package_manifest_sha256": "79ada8a632117ee9de4db9f5614dfdbabe72b9b54a4b354ffa148569430db453",
+      "filename": "SETI_NATIVE153_RAW_2026-10-10.zip",
+      "sha256": "30348d3c08c58b37133b294c40fb6ac8940ef7df51474fcba406d90ef23ec870",
+      "source_chunk_id": 153
+    },
+    {
+      "byte_hash_basis": "Preserved completed byte-only packaging/readback manifest; the correction performs no further ZIP or HDF5 decode.",
+      "bytes": 306093326,
+      "completed_package_manifest_path": "results/radio_next_bands_20261010/chunk154/raw_checkpoint/RAW_CHECKPOINT_ARCHIVE_MANIFEST.json",
+      "completed_package_manifest_sha256": "3f88c7b4baf4b822d7f3d8dbe1ef9d9327d8c5254fa9c3439ff5cd229d231b46",
+      "filename": "SETI_NATIVE154_RAW_2026-10-10.zip",
+      "sha256": "62425c70dc903a425e9b0a1837f9ddbf1654b0af057c97695c690e56ec657ce3",
+      "source_chunk_id": 154
+    }
+  ],
+  "prior_code_review_relative_CLI_detail_superseded": true,
+  "process_CPU_seconds_including_stdlib_imports_to_receipt": 0.081712034,
+  "protected_old_chunks_reopened": false,
+  "public_absolute_path_recovery_commit": "8f88b722c9508d4e209c3df540407029b80c3203",
+  "public_absolute_path_recovery_scope": {
+    "path": "tools/radio_next_bands_20261010/PATH_PREFLIGHT_RECOVERY_SCOPE.json",
+    "sha256": "a1a6856f6a27e6f20deaaa894de88a3138e25460686c78cdda949b3e566ee268"
+  },
+  "qualification": "FAIL_CLOSED_UNCHANGED",
+  "schema": "SETI_PRESERVED_RAW_CHECKPOINT_REPRODUCTION_CLI_ERRATUM_V1",
+  "scientific_or_profile_measurement_runs": 0,
+  "source_HTTP_requests": 0,
+  "source_arrays_opened_or_decoded": 0,
+  "source_selection_grid_width_normalization_or_scientific_values_changed": false,
+  "status": "EDITORIAL_CORRECTION_ABSOLUTE_CLI_PATHS_ORIGINAL_ARCHIVES_PRESERVED",
+  "unchanged_scientific_scope": {
+    "path": "tools/radio_next_bands_20261010/scope.json",
+    "sha256": "60ec39a777575ba25352e2eeb0b6db3ec21e3aed84fb92d534b82b5ded3f74b4"
+  },
+  "unchanged_scientific_script": {
+    "path": "tools/radio_next_bands_20261010/native_search.py",
+    "sha256": "f189abc0a27503cbf2a35b1c63626ef2d3847728894a0a4fcfce9b16da36800b"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "schema": "SETI_NEXT_BANDS_METADATA_COUNT_CONTRACT_REVIEW_V1",
+  "status": "PASS_METADATA_ONLY_NO_NEW_VALUES",
+  "scope_sha256": "60ec39a777575ba25352e2eeb0b6db3ec21e3aed84fb92d534b82b5ded3f74b4",
+  "script_sha256": "f189abc0a27503cbf2a35b1c63626ef2d3847728894a0a4fcfce9b16da36800b",
+  "public_pre_value_freeze_commit": "d1bfe755e205e99b3c93544f4af84cc8d4585938",
+  "expected_if_all_four_batches_complete": {
+    "source_chunks": 2,
+    "numeric_batches": 4,
+    "cores_per_batch": 127,
+    "new_core_count": 508,
+    "maps": 1524,
+    "reference_carriers_per_ON_across_two_chunks": 2080768,
+    "carrier_origin_entries": 6242304,
+    "evaluated_hypothesis_combinations": 9525755904,
+    "top20_records": 240,
+    "selected_profiles": 36,
+    "fixed_scan_summaries": 216,
+    "fixed_time_row_occurrences": 3456,
+    "raw_patch_cell_occurrences": 445824,
+    "omitted_edge_channels_per_source_chunk": 8192,
+    "reference_carrier_coverage_percent_per_source_chunk": 99.21875
+  },
+  "source_contexts": [
+    {
+      "source_chunk_id": 153,
+      "manifest_path": "tools/radio_next_bands_20261010/source_manifest_chunk153.json",
+      "manifest_sha256": "e9db891df1989b75a06d9925079f9da88c8bb7912870c700ee0eb554aee7b4e0",
+      "source_channel_interval_half_open": [
+        160432128,
+        161480704
+      ],
+      "prospective_safe_reference_channel_interval_half_open": [
+        160436224,
+        161476608
+      ],
+      "compressed_payload_bytes": 305135800
+    },
+    {
+      "source_chunk_id": 154,
+      "manifest_path": "tools/radio_next_bands_20261010/source_manifest_chunk154.json",
+      "manifest_sha256": "74582122d10487480c67d3d6574847ad8fb0e26db8887e0c15a5cff6c4fa6877",
+      "source_channel_interval_half_open": [
+        161480704,
+        162529280
+      ],
+      "prospective_safe_reference_channel_interval_half_open": [
+        161484800,
+        162525184
+      ],
+      "compressed_payload_bytes": 305147443
+    }
+  ],
+  "verified_dependency_pins": {
+    "tools/radio_fresh_band_20261009/source_manifest.json": {
+      "sha256": "d2e6c76b0d5fe50b26d45830e4b67e4780da97f33cfe8fcdf80c761f47aa3a4c",
+      "bytes": 108156
+    },
+    "tools/radio_fresh_band_20261009/fresh_search.py": {
+      "sha256": "1a04ab1ea0d8b79b66ebc2a59a5c72b9c17b235f1a331ac19efeba90bade7102",
+      "bytes": 29786
+    },
+    "pilot_engine_20261008/detector.py": {
+      "sha256": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45",
+      "bytes": 22819
+    },
+    "tools/radio_gap_drift_20261010/gap_search.py": {
+      "sha256": "b1a2cc31d47dbebc707f36c5de3eafbae6a62f0d0d19061c798c676c9fbcdb58",
+      "bytes": 21995
+    },
+    "tools/radio_next_bands_20261010/ACTIVATION_SCOPE.json": {
+      "sha256": "f69420b5444dc1109bafa2d33fef4d334c20b468cb50cf5ee0fecfb9d79936d4",
+      "bytes": 9541
+    },
+    "tools/radio_next_bands_20261010/analysis_inputs.json": {
+      "sha256": "653f30b901c28124150f42d1d543e86b267d94a98a29a008524d12ec1920cf20",
+      "bytes": 941
+    },
+    "tools/radio_next_bands_20261010/acquisition_scope_chunk153.json": {
+      "sha256": "a812f9a0736f9a198f6ec43053e654351addd5bc4633077788e8154cfa22fe65",
+      "bytes": 2589
+    },
+    "tools/radio_next_bands_20261010/acquire.py": {
+      "sha256": "ab198efe36eb45a0abde0feadcf18898f31d47b05c691c379cea1cc024b61c19",
+      "bytes": 13091
+    },
+    "tools/radio_next_bands_20261010/source_manifest_chunk153.json": {
+      "sha256": "e9db891df1989b75a06d9925079f9da88c8bb7912870c700ee0eb554aee7b4e0",
+      "bytes": 108567
+    },
+    "results/radio_next_bands_20261010/PUBLIC_RESOURCE_LEDGER.json": {
+      "sha256": "bc4d8241ba27873ff6dc0f0ab4e1a4f5b043fe1d31ad95abc7f58f4d43b9b020",
+      "bytes": 2174
+    },
+    "tools/radio_next_bands_20261010/standard_reader.py": {
+      "sha256": "329b922431a925a08ad48e7315f54f556e1af5f7bccbec0f51d71fb52216ffb0",
+      "bytes": 17506
+    },
+    "tools/radio_next_bands_20261010/acquisition_scope_chunk154.json": {
+      "sha256": "35b2acbaf162a1ff508b96914bb15aed5469d1a2323b979bd46e556e64071b23",
+      "bytes": 2589
+    },
+    "tools/radio_next_bands_20261010/source_manifest_chunk154.json": {
+      "sha256": "74582122d10487480c67d3d6574847ad8fb0e26db8887e0c15a5cff6c4fa6877",
+      "bytes": 108567
+    }
+  },
+  "source_or_result_arrays_opened": false,
+  "numeric_analysis_executed": false,
+  "protected_prior_native_chunks_opened": false,
+  "interpretive_limits": [
+    "Counts apply only when all four saved execution receipts and expected core inventories are COMPLETE; incomplete jobs retain exact completed coverage.",
+    "Reference-carrier coverage for the fixed 763-drift and widths1/3 family is not calibrated sensitivity or complete sky-frequency coverage.",
+    "Hypothesis combinations are evaluated computations, not independent trials; the 36 selected paths are batch-local ON selections, not a count of independent physical signals.",
+    "Two new frequency chunks remain the same six-scan historical visit; no independent observation or validation is created.",
+    "Exact compact and decoded-row hashes do not establish the unverified whole original source-file MD5."
+  ],
+  "CPU_s_metadata_review": 0.004821728999999997
+}
