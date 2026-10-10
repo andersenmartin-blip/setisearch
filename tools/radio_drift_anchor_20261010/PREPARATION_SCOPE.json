@@ -1,0 +1,42 @@
+{
+  "schema": "SETI_FIXED_DRIFT_ANCHOR_PREPARATION_V1",
+  "authoritative_parent_commit": "c940df7e1c1e5ac721158bdf0b7335dcbbce7ea2",
+  "already_exposed_input_values_and_ranks": true,
+  "prospective_for_new_derived_measurements_only": true,
+  "anchor_source_reference_channel": 158766416,
+  "anchor_rule": "Previously published ON2 drift rank01 exact zero-drift channel; chosen before newly derived anchor metrics.",
+  "physical_offsets": [
+    -10,
+    10
+  ],
+  "fixed_reference_drift_Hz_s": 0,
+  "source": "Nine completed ON drift top3 raw patches from saved chunk151 results; no native source/HDF5 reread",
+  "common_patch_shape": [
+    6,
+    16,
+    21
+  ],
+  "common_patch_requirements": "All nine physical-cell extractions must agree byte exactly; missing context or disagreement fails closed without retry",
+  "flank_rule": "Per-row median of normalized common physical offsets with absolute offset greater than3, within ±10 (14channels)",
+  "reference_widths": [
+    1,
+    3,
+    5,
+    9
+  ],
+  "time_halves": "Rows0..7 and8..15 only",
+  "comparison": "Original copied drift center box minus SAME new static physical flank vs fixed anchor at original selected width1/3; preserve old original means separately with explicit different original background",
+  "maximum_plot_definitions": 3,
+  "new_search_or_frequency_drift_width_optimization": false,
+  "new_data_or_calibration": false,
+  "CPU_cap_s": 40,
+  "wall_cap_s": 1800,
+  "RAM_cap_bytes": 4294967296,
+  "limitations": [
+    "New derivative diagnostics after input/rank exposure; not blind validation",
+    "One selected spectral region in one historical visit; no independent observing coverage",
+    "Anchor and its flank chosen from already published profiles; no calibrated false-alarm or origin inference",
+    "Fixed short21channel context, fourteen-channel background; distinct from prior full129channel flank",
+    "Zero-drift reference is a diagnostic, not a fitted drift estimate or a sky-location test"
+  ]
+}
