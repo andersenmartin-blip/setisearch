@@ -1,0 +1,32 @@
+{
+  "HTTP_requests": 0,
+  "actual_source_cache_reads": 0,
+  "checks": [
+    "Legacy rank4 key40 plus pointer8; exact used extent24+48*n+40=64+48*n",
+    "Dynamic actual time rows and midpoint verified from qualified geometry, no old fixed geometry",
+    "Layout envelope/body/pointer proofs retained; every missing gap subtracts cached spans",
+    "Internal children descend one level, cycle/conflicting parent interval rejection, strictly sorted keys",
+    "Leaf child pointer/length/mask recorded without raw-payload reads or HTTP",
+    "Full descriptors required per actual time row; interval overlap and source bounds reject",
+    "20 independent hand-built toy cases cover complete leaf/internal/base offsets/partial native/mask, missing header/body, invalid/unsupported scenarios; toy cache forbids payload reads"
+  ],
+  "reviewer": "root independent from fresh_band_analysis author",
+  "schema": "SETI_TREE1_PURE_CORE_AND_FIXTURE_SOURCE_ONLY_PEER_REVIEW_V1",
+  "scientific_detection_claim": false,
+  "source_pins": [
+    {
+      "bytes": 18146,
+      "path": "tools/radio_visit2019_chunk_index_20261010/tree_index.py",
+      "sha256": "05c42ca9026553e6286e0dc711ddb70c106d0fb5810f61abaa34a7000b66f7a4"
+    },
+    {
+      "bytes": 11647,
+      "path": "tools/radio_visit2019_chunk_index_20261010/TREE1_TOY_FIXTURE.py",
+      "sha256": "1b3edaedf42e643ce141b1ccf6ca97407e07a27bc6fcb27a6980fab8fb617322"
+    }
+  ],
+  "spectral_values_read": false,
+  "status": "PASS_SOURCE_ONLY_NO_ACTUAL_CACHE_OR_EXECUTION",
+  "target_imports": 0,
+  "target_runs": 0
+}

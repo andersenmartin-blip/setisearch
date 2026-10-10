@@ -1,0 +1,27 @@
+{
+  "schema": "SETI_HDF_COORDINATE_AND_NOMINAL_BEAM_PRIMARY_EVIDENCE_V1",
+  "status": "PRIMARY_SOURCE_CONVENTIONS_VERIFIED_BEFORE_ANY_S31_AMPLITUDES",
+  "hdf_coordinates": {
+    "url": "https://github.com/UCBerkeleySETI/blimpy/blob/master/blimpy/io/hdf_reader.py",
+    "class": "H5Reader",
+    "method": "read_header",
+    "src_raj": "Angle(val, unit='hr')",
+    "src_dej": "Angle(val, unit='deg')",
+    "assertion": "HDF5 numeric RA is decimal hours and DEC decimal degrees, distinct from packed SIGPROC filterbank angles."
+  },
+  "beam_model": {
+    "url": "https://www.greenbankobservatory.org/~dfrayer/papers/NGVLA_14.pdf",
+    "equation": 5,
+    "nominal_FWHM_radians": "1.18 * wavelength_m / diameter_m",
+    "diameter_m": 100,
+    "speed_of_light_m_s": 299792458,
+    "usage": "Exploratory metadata consistency only. ON pair separation <= half the nominal FWHM at actual highest band frequency; every control separated >= one nominal FWHM from every ON. This is an approximate beam model, not measured response or noise independence."
+  },
+  "protocol_change": {
+    "prior_COORDINATE_RESULT_preserved": true,
+    "prior_arbitrary_one_arcmin_rule_preserved": true,
+    "signal_values_seen": false,
+    "new_coordinates_and_beam_gate_frozen_before_amplitudes": true,
+    "independent_detection_validation": false
+  }
+}
