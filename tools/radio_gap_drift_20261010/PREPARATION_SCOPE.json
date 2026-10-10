@@ -1,0 +1,66 @@
+{
+  "schema": "SETI_EIGHT_METADATA_CHOSEN_GAP_CORES_PREPARATION_V1",
+  "chosen_before_new_gap_drift_scores": true,
+  "chosen_before_anchor_diagnostic_outcomes": true,
+  "original_source_values_already_exposed": true,
+  "selection_rule": "Take every fourth of original32gapindices starting at0, place new core halfway between neighboring old cores; no amplitude-dependent choice.",
+  "gap_indices": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    28
+  ],
+  "new_relative_core_starts": [
+    20480,
+    151552,
+    282624,
+    413696,
+    544768,
+    675840,
+    806912,
+    937984
+  ],
+  "core_channel_count": 4096,
+  "read_halo_channels": 4000,
+  "new_core_count": 8,
+  "ON_scan_count": 3,
+  "expected_scan_tiles": 24,
+  "new_carriers_per_ON": 32768,
+  "previous_drift_carriers_per_ON": 131072,
+  "cumulative_unique_drift_carriers_per_ON": 163840,
+  "cumulative_drift_carrier_fraction_of_chunk": 0.15625,
+  "grid": {
+    "min_Hz_s": -4,
+    "max_Hz_s": 4,
+    "count": 763
+  },
+  "widths_channels": [
+    1,
+    3
+  ],
+  "unchanged_detector_sha256": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45",
+  "source_channel_interval_half_open": [
+    158334976,
+    159383552
+  ],
+  "preserved_outputs": "All4096carriermaxima/winningdrift/width/valid1526counts per24tiles; allONtop20; fixedtop3 profiles9 across6scans ×16rows.",
+  "CPU_cap_s": 90,
+  "wall_cap_s": 1800,
+  "RAM_cap_bytes": 4294967296,
+  "new_telescope_SOURCE_bytes": 0,
+  "unqualified_exploratory_only": true,
+  "old_A_B": "FAIL_CLOSED_UNCHANGED",
+  "old_holdouts_closed": true,
+  "new_observing_visits": 0,
+  "new_source_HTTP": 0,
+  "limitations": [
+    "New drift hypotheses in eight gaps of an already source-exposed chunk, not blind source data",
+    "One historical six-scan visit; no independent confirmation",
+    "Fixed selected top3 follow-up remains postselection; no calibratedSNR/FAP or origin inference",
+    "Previous32-core search remains untouched; new coverage listed separately"
+  ]
+}
