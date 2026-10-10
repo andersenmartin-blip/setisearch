@@ -1,0 +1,137 @@
+{
+  "schema": "SETI_FINITE_SAVED_JSON_DISPLAY_REPAIR_PLAN_V1",
+  "mode": "ONE_SAVED_JSON_MEAN_DISPLAY_REPAIR_NO_SCIENTIFIC_PROCESSING",
+  "scope": "Only reconstruct the unchanged saved36x6 annotated mean figure; no new scientific processing or classification",
+  "script_path": "tools/radio_next_bands_20261010/repair_saved_mean_display.py",
+  "script_sha256": "a09b21da5d05cd24dd37329b5fcfc39351909ff737df76625a31bc697df8607b",
+  "script_bytes": 22077,
+  "cpu_cap_seconds": 30,
+  "wall_cap_seconds": 120,
+  "memory_cap_bytes": 2147483648,
+  "maximum_attempts": 1,
+  "retry_authorized": false,
+  "single_authorized_image_writer": true,
+  "root_GO_required_after_prospective_public_freeze_and_exact_readback": true,
+  "public_freeze_must_include_observed_corrupt_opaque_copy_and_corruption_receipt_before_restore": true,
+  "original_renderer_sha256": "f122449e317d90b8c08f7c259e193c014022b76c44828f470942551b39564f3c",
+  "original_renderer_main_may_be_called": false,
+  "permitted_frozen_helpers": [
+    "PinnedJSON",
+    "activation_geometry",
+    "load_batches",
+    "plot_means (one invocation only)"
+  ],
+  "temporary_savefig_adapter": "Preserve original figure/DPI/layout/labels/metadata; redirect only destination to BytesIO with format=png",
+  "frozen_import_resource_adapter": "Clamp RLIMIT_CPU to soft29/hard30 seconds and RLIMIT_AS to2GiB so original module import cannot widen its historical60s/4GiB caps",
+  "original_coverage_may_be_rerendered": false,
+  "saved_scoring_reexecuted": false,
+  "profiles_remeasured": false,
+  "HDF5_or_NPZ_access_allowed": false,
+  "source_HTTP_allowed": false,
+  "residual_recalculation_allowed": false,
+  "ranking_or_optimization_allowed": false,
+  "original_numeric_failure_statuses_preserved": true,
+  "expected_original_resource_failure_jobs": 3,
+  "expected_original_complete_jobs": 1,
+  "expected_profile_count": 36,
+  "expected_saved_mean_count": 216,
+  "original_mean_values_and_case_batch_metadata_must_match_original_render_receipt": true,
+  "plot_input_pins_path": "results/radio_next_bands_20261010/acceptance/PLOT_INPUT_PINS.json",
+  "plot_input_pins_sha256": "d3b5652b1f101f0abd422f7f84e32ae3c9845be28a11d2865743d9163e1cb08c",
+  "exact_saved_JSON_pin_count": 37,
+  "acceptance_scope_path": "tools/radio_next_bands_20261010/SAVED_OUTPUT_ACCEPTANCE_SCOPE.json",
+  "acceptance_scope_sha256": "8f744e099b0b31b9c976255c5c321b2ce49243ec56f60460048b966885f2cf37",
+  "acceptance_public_freeze_commit": "50c120ba94e0a24c9473afc883ef24f7dd1846f5",
+  "source_audit_receipt_path": "results/radio_next_bands_20261010/acceptance/review/SOURCE_CELL_QA_RECEIPT.json",
+  "source_audit_receipt_sha256": "de5cf2f956c42f6fee82f5372dadc48b82c81a115f0a33a5c6f46a91fe088643",
+  "source_audit_required_status": "PASS_36_FIXED_RAW_PATCHES_AUTHENTICATED_BITWISE_TO_SOURCE_WITH_ORIGINAL_TERMINAL_STATUS_PRESERVED",
+  "source_audit_required_counts": {
+    "compact_files": 12,
+    "decoded_rows": 192,
+    "patches": 36,
+    "scan_profiles": 216,
+    "time_rows": 3456,
+    "raw_cells_bitwise_checked": 445824
+  },
+  "source_audit_may_be_rerun": false,
+  "original_plotting_receipt_path": "results/radio_next_bands_20261010/figures/PLOTTING_RECEIPT.json",
+  "original_coverage_png_path": "results/radio_next_bands_20261010/figures/NEXT_BANDS_COVERAGE.png",
+  "canonical_mean_png_path": "results/radio_next_bands_20261010/figures/NEXT_BANDS_FIXED_PROFILE_MEANS.png",
+  "observed_corrupt_opaque_copy_path": "results/radio_next_bands_20261010/figures/NEXT_BANDS_FIXED_PROFILE_MEANS_OBSERVED_CORRUPT.bin",
+  "observed_corrupt_sha256": "e1fd8c9cb3aac5cd148216b0c59d8806e34dad5f2d0affe6ea32b2f8ef4eea14",
+  "observed_corrupt_bytes": 393485,
+  "corruption_cause": "UNKNOWN_NOT_ATTRIBUTED_TO_A_TOOL_OR_WRITER",
+  "intended_original_sha256": "df753bf0f3a2733225e394e820bd9e19cb50bddfa627e7d2a05dd335a00d2072",
+  "intended_original_bytes": 738873,
+  "intended_dimensions_pixels": [
+    1569,
+    2932
+  ],
+  "canonical_replace_permitted_only_for_exact_intended_sha256_and_byte_count": true,
+  "different_valid_render_must_preserve_canonical_corrupt_bytes": true,
+  "versioned_mean_png_path": "results/radio_next_bands_20261010/figures/NEXT_BANDS_FIXED_PROFILE_MEANS_REPAIR_01.png",
+  "validated_buffer_opaque_copy_path": "results/radio_next_bands_20261010/figures/NEXT_BANDS_FIXED_PROFILE_MEANS_REPAIR_BUFFER.bin",
+  "attempt_marker_path": "results/radio_next_bands_20261010/figures/DISPLAY_REPAIR_ATTEMPT.json",
+  "execution_receipt_path": "results/radio_next_bands_20261010/figures/DISPLAY_REPAIR_EXECUTION_RECEIPT.json",
+  "outer_complete_command_resources_path": "results/radio_next_bands_20261010/figures/DISPLAY_REPAIR_COMMAND_RESOURCES.json",
+  "image_QA_receipt_path": "results/radio_next_bands_20261010/figures/DISPLAY_REPAIR_FIGURE_QA.json",
+  "buffer_validation_required": [
+    "All PNG chunk CRCs",
+    "IHDR bounds and intended dimensions",
+    "IEND at exact EOF",
+    "Full PIL decode",
+    "Compare exact intended SHA256 and byte count before publication"
+  ],
+  "publication_required": [
+    "Complete validated buffer preserved as opaque bytes",
+    "Fsynced complete non-PNG temporary file",
+    "Original corrupt canonical SHA256 and byte count rechecked immediately before publish",
+    "Atomic PNG publication",
+    "Published SHA256 checked against validated buffer",
+    "All37 saved JSON pins and protected source/receipt/coverage/corruption artifacts checked before and after"
+  ],
+  "outer_resource_measurement_required": "Measure child user+system CPU/RSS/wall for the complete single CLI command including final receipt/stdout; save separate COMMAND_RESOURCES receipt. Internal receipt boundary is explicitly before its own final serialization/stdout. No further plotting retry if cap exceeded or any failure.",
+  "protected_input_files": {
+    "frozen_renderer": {
+      "path": "tools/radio_next_bands_20261010/plots_qualified_saved.py",
+      "sha256": "f122449e317d90b8c08f7c259e193c014022b76c44828f470942551b39564f3c",
+      "bytes": 35953
+    },
+    "publisher": {
+      "path": "tools/radio_next_bands_20261010/png_publish.py",
+      "sha256": "98330391a76d1fa9b0138f1ecd62be1ef0c5a4c3ac3bdc2a5963538c5aa9434a",
+      "bytes": 4826
+    },
+    "frozen_original_renderer": {
+      "path": "tools/radio_next_bands_20261010/plots_saved.py",
+      "sha256": "044dd2b5ee3d89f127abb6508bc8c4383a087b64ae27da716f85e99a96ddbd6d",
+      "bytes": 28800
+    },
+    "plot_input_pins": {
+      "path": "results/radio_next_bands_20261010/acceptance/PLOT_INPUT_PINS.json",
+      "sha256": "d3b5652b1f101f0abd422f7f84e32ae3c9845be28a11d2865743d9163e1cb08c",
+      "bytes": 5753
+    },
+    "original_plotting_receipt": {
+      "path": "results/radio_next_bands_20261010/figures/PLOTTING_RECEIPT.json",
+      "sha256": "775d8b3f19cc141af5cd22a2ab43b18e64f684cc5a64e61689dad998d4a0950f",
+      "bytes": 68614
+    },
+    "observed_corrupt_opaque_copy": {
+      "path": "results/radio_next_bands_20261010/figures/NEXT_BANDS_FIXED_PROFILE_MEANS_OBSERVED_CORRUPT.bin",
+      "sha256": "e1fd8c9cb3aac5cd148216b0c59d8806e34dad5f2d0affe6ea32b2f8ef4eea14",
+      "bytes": 393485
+    },
+    "corruption_receipt": {
+      "path": "results/radio_next_bands_20261010/figures/DISPLAY_CORRUPTION_RECEIPT.json",
+      "sha256": "07a8ace239acfe6d6c733b7dc14ac87a9e225e1c4a0ffad0387bd56af8600194",
+      "bytes": 2585
+    },
+    "original_coverage_png": {
+      "path": "results/radio_next_bands_20261010/figures/NEXT_BANDS_COVERAGE.png",
+      "sha256": "954c9e19bd351e0d16fe152d7739721fce5e6f42070115fc64f69d1303737cc3",
+      "bytes": 178923
+    }
+  },
+  "prospective_preparation_CPU_seconds_this_metadata_process": 0.140177603
+}
