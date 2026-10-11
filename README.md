@@ -1,3 +1,27 @@
+## Afsluttet: 288 SETI-burstkort og 54 faste kontekstprofiler · 11. oktober 2026
+
+**288 burst-søgekort, 1.179.648 gemte kanalmaksima og 54 faste kontekstprofiler er afsluttet. Begge numeriske QA-kørsler og rapportens figurer har bestået kontrollen.** Piloten anvender syv overlappende vinduer med fire integrationer (73,014 sekunder) i de eksisterende OFF-scanninger af HIP97319, HIP97461 og HIP97663 fra 28. april 2017. Hver retning omfatter 96 på forhånd fastlagte frekvenskerner, cirka 12,5 % af de 766 tidligere undersøgte kerner.
+
+Det højeste gemte maksimum er **7,315816** i HIP97663 ved 2302,264352 MHz. Det er en empirisk søgescore; ingen kalibreret sigma-værdi eller falsk-alarm-sandsynlighed er etableret. Ni udvalgte spor er målt uden refit i alle seks oprindelige scanninger på fire retninger, med separate fire-række- og fulde 16-række-scorer. **Ingen kvalificeret SETI-detektion, ny frekvensdækning, ny observation eller blind validering er etableret.** Scanninger af andre stjerner er ikke gentagelser af samme mål.
+
+Den uændrede detektor normaliserer fortsat på alle 16 rækker; ingen ny OFF-maske eller OFF-veto er anvendt. QA omfatter 1.161 gemte primære råscoreforespørgsler, 54 kontekstprofiler/108 scorer og ni match til de oprindelige fire-række-scorer. Kontrollen af den endelige score er betinget af de gemte normaliseringskonstanter og udgør ikke en uafhængig genkørsel af hele søgegitteret.
+
+Resultatpakken er på **86.496.254 bytes**, med **1.939 arkivmedlemmer** kontrolleret med CRC og SHA256. Den indeholder alle nye kort og råkapsler; de 18 originale H5-kompakter er eksterne forudsætninger. Den offentlige gren indeholder kildekode, rapporter, figurer og kontrolkvitteringer, mens hele array-pakken er bevaret separat. Udgift: **0 DKK**.
+
+- [Rapport](https://github.com/andersenmartin-blip/setisearch/blob/6f9bed481833726946168bc8d6d55701620142a9/analysis/burst4_20261011_context/delivery_v3/SETI_BURST4_FINAL_2026-10-11.md)
+- [Ni udvalgte spor](https://github.com/andersenmartin-blip/setisearch/blob/6f9bed481833726946168bc8d6d55701620142a9/analysis/burst4_20261011_context/delivery_v3/TOP9.csv)
+- [54 kontekstprofiler](https://github.com/andersenmartin-blip/setisearch/blob/6f9bed481833726946168bc8d6d55701620142a9/analysis/burst4_20261011_context/delivery_v3/CONTEXT54.csv)
+- [Primær numerisk QA](https://github.com/andersenmartin-blip/setisearch/blob/6f9bed481833726946168bc8d6d55701620142a9/analysis/burst4_20261011_qa/results/QA_RECEIPT.json)
+- [Kontekst-QA](https://github.com/andersenmartin-blip/setisearch/blob/6f9bed481833726946168bc8d6d55701620142a9/analysis/burst4_20261011_context/CONTEXT_QA_RECEIPT.json)
+- [Pakkeidentitet](https://github.com/andersenmartin-blip/setisearch/blob/6f9bed481833726946168bc8d6d55701620142a9/analysis/burst4_20261011_context/delivery_v3/RESULT_PACKAGE_RECEIPT.json)
+- [Offentligt evidensindeks](https://github.com/andersenmartin-blip/setisearch/blob/6f9bed481833726946168bc8d6d55701620142a9/analysis/burst4_20261011/PUBLIC_EVIDENCE_INDEX.md)
+
+Den fulde evidens er publiceret i [commit 6f9bed481833](https://github.com/andersenmartin-blip/setisearch/commit/6f9bed481833726946168bc8d6d55701620142a9) på forskningsgrenen. Alle 75 publicerede filer er læst tilbage og kontrolleret mod de forventede Git-objekter; projektoversigt, status, retning og evidensindeks er også sammenlignet som eksakt tekst.
+
+---
+
+### Tidligere projektoversigter, bevaret uændret
+
 ## Afsluttet: 1536 nye SETI-kort og 54 signalprofiler · 11. oktober 2026
 
 **1536 nye kort, 6.291.456 gemte carrier-maksima og 54 faste kontekstprofiler er afsluttet med begge uafhængige numeriske QA-kørsler og gennemgået rapport og figurer.** HIP97319, HIP97461 og HIP97663 har fået 5,859375 MHz ekstra dækning hver i deres oprindelige OFF-scanning fra 28. april 2017.
