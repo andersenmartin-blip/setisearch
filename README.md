@@ -1,3 +1,20 @@
+## Afsluttet: 1536 nye SETI-kort og 54 signalprofiler · 11. oktober 2026
+
+**1536 nye kort, 6.291.456 gemte carrier-maksima og 54 faste kontekstprofiler er afsluttet med begge uafhængige numeriske QA-kørsler og gennemgået rapport og figurer.** HIP97319, HIP97461 og HIP97663 har fået 5,859375 MHz ekstra dækning hver i deres oprindelige OFF-scanning fra 28. april 2017.
+
+De to stationære komponenter ved **2297,4609375 og 2303,3203125 MHz** er stærke i alle seks scanninger på fire stjerneretninger. Tredjepladsernes driftsskabeloner rammer den første komponent i otte rækker, som bærer mindst 99,976% af deres positive hele box-bidrag. Det er foreneligt med flere skabeloner omkring fælles spektralkomponenter; fysisk årsag er uafklaret. Der er **intet kvalificeret SETI-fund**, ingen kalibreret SNR/FAP og ingen ny uafhængig genobservation af de tre primærstjerner.
+
+Den fulde resultatpakke på **337.585.733 bytes og 9.416 ZIP-medlemmer** er leveret med CRC og payload-SHA256 verificeret. Rapport, figurer og tabeller er gemt. Pris: **0 DKK**.
+
+- [Endelig rapport](https://github.com/andersenmartin-blip/setisearch/blob/5d7ec8719cb5c5944a09c019f03af50773b4903c/analysis/off_adjacent_20261011_context/delivery/SETI_ADJACENT_FINAL_2026-10-11.md)
+- [Kontekstfigur](https://github.com/andersenmartin-blip/setisearch/blob/5d7ec8719cb5c5944a09c019f03af50773b4903c/analysis/off_adjacent_20261011_context/delivery/SETI_CONTEXT54_2026-10-11.png) · [Tidsbidrag](https://github.com/andersenmartin-blip/setisearch/blob/5d7ec8719cb5c5944a09c019f03af50773b4903c/analysis/off_adjacent_20261011_context/delivery/SETI_ROW_CONTRIBUTIONS_2026-10-11.png)
+- [QA-evidens](https://github.com/andersenmartin-blip/setisearch/blob/5d7ec8719cb5c5944a09c019f03af50773b4903c/analysis/off_adjacent_20261011_context/delivery/QA_SUMMARY.json) · [Pakkens identitet](https://github.com/andersenmartin-blip/setisearch/blob/5d7ec8719cb5c5944a09c019f03af50773b4903c/analysis/off_adjacent_20261011_context/delivery/RESULT_PACKAGE_RECEIPT.json)
+- [Projektstatus](https://github.com/andersenmartin-blip/setisearch/blob/5d7ec8719cb5c5944a09c019f03af50773b4903c/PROJECT_STATUS.md) · [Kode og reproduktion](https://github.com/andersenmartin-blip/setisearch/blob/5d7ec8719cb5c5944a09c019f03af50773b4903c/analysis/off_adjacent_20261011/REPRODUCTION_AND_DATA_AVAILABILITY.md)
+
+Nedenstående er bevaret historik.
+
+---
+
 ## Afsluttet: 753 SETI-kort i tre kontrolretninger · 11. oktober 2026
 
 **753 nye kort, 60 top-poster og 54 faste kontekstmålinger er afsluttet med uafhængig QA og gennemgået rapport og figur.** HIP97319, HIP97461 og HIP97663 har hver én oprindelig OFF-scanning fra besøget 28. april 2017. De ni største udvalg er forenelige med flere søgeskabeloner omkring den tidligere kendte 2300.390625-MHz-komponent; det næsten stationære udvalg giver store scorer i alle seks scanninger. Fysisk oprindelse er uafklaret, og ingen ny kvalificeret SETI-detektion eller besøgsreplikation er etableret. Scorer er ikke kalibreret S/N eller FAP.
