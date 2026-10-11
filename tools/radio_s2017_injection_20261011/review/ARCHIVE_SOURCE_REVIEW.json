@@ -1,0 +1,24 @@
+{
+  "schema": "SETI_SIGNALTEST_ARCHIVE_STATIC_SOURCE_REVIEW_V1",
+  "status": "PASS_FINAL_SOURCE_ONLY",
+  "builder": {
+    "path": "analysis/s2017_injection_20261011/delivery/build_archive.py",
+    "bytes": 20072,
+    "sha256": "9b0e748912a999efef5ad52b8412af978c5f348af50bc37199ba55efb7c9c236"
+  },
+  "root_admission_sha256": "12d8f23fbbe1a6e1ad2e2c03261e7b26cef0a30629ef36673297c6f38c090b12",
+  "independent_review": "archive_fd_review actual final handoff: no concrete deterministic blocker; final SHA and external-HDF5 delta independently checked.",
+  "source_checks": [
+    "CPU300s/wall600s/AS512MiB/workspace8GiB/output500MiB",
+    "conservative free space and unique inode workspace admission",
+    "all16 immutable rootGO and V2 producer input/output/QA-scope bindings",
+    "all selected numeric NPZ must match actual QA input byte pins",
+    "postpack selected-source reauthentication",
+    "fresh lstat/O_NOFOLLOW/fstat/fullSHA and structure",
+    "retained writer FD through create-only receipt close and directory fsync",
+    "six original compact HDF5 pins retained as exact external RAW references; not reopened or included"
+  ],
+  "source_only": true,
+  "archive_executed_during_review": false,
+  "scientific_rerun": false
+}

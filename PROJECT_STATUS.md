@@ -1,3 +1,19 @@
+# Afsluttet: S2017 kontrolleret signaltest — 11. oktober 2026
+
+Ny fase gennemført på de seks allerede autentificerede native171-scanninger fra 28. april 2017: **450 forskellige søgekort = 18 delte baselines + 432 modificerede kort**, og **540 diagnostikposter = 108 baseline-geometrispørgsmål + 432 indsprøjtninger**. Alle 30 forudfastlagte q/bredde/A-grupper er bevaret. Ingen ny sky- eller besøgsdækning, ingen ny kvalificeret SETI-detektion, ingen nye teleskop-HTTP-forespørgsler; **0 DKK**. Original A/B `FAIL_CLOSED` og beskyttede 2016-kontroller uændrede.
+
+Smalle bredde-1-spor: den fastlagte lokale regel for samme tuples tærskelpassage giver **0/54 ved A = 1 og 54/54 ved hver A = 3, 6 og 12**. Hele kernens rang-1-flag giver **0/54 og dernæst 36/54**. I q128 beholder den kendte kanal 179830784 førstepladsen i alle 180 logiske cases; lokal genfinding er 18/18 ved hvert højere niveau. Alle 4096 referencekanaler er gemt, så rangkonkurrence er ikke et survey-komplethedsmål. Bredde 9 er en mismatch-stresstest med ni gange råeffekten ved samme A, uden præcis breddegenfinding. De faste, afhængige cases er ikke Monte Carlo-forsøg eller kalibrerede detektionssandsynligheder; alle scanninger får separate indsprøjtninger, også OFF.
+
+De to faktiske primærjob afsluttede med exit 0. Samlet målt child-CPU inklusive imports: 809,180381 sekunder; længste child-vægtid 537,248069 sekunder. Uafhængig numerisk QA afsluttede med exit 0/PASS og kontrollerede blandt andet 5.400 udvalgte tuple-scorer, 1.080 sandhedsscorer, 7.200 rækkemedianer, 96 kilde-rækkehashes og 4.363.200 lokale råcelleforekomster. Største kontrollerede sandhedsaritmetikafvigelse var cirka 2,7e-12. Ingen detektor blev genkørt i QA. Uafhængig gemt-JSON-, rapport- og figurgennemgang består; alle 540 oprindelige poster, 30 grupper og 240 rolle/scan-undergrupper er afstemt. Figur V2 retter alene layout; V1 er bevaret, og ingen videnskab eller QA blev genkørt for figuren.
+
+Kode/scope-frysning før værdilæsning: `aedf9a3e2bf33424f2d4e88875569eaa19ef4130`. QA/postprocess-frysning: `3f6cc15bca1d7cbda7f870193db6deb9ea7cfa64`. Faktisk QA-receipt SHA256 `f9deeaf7fe096484d8fe144aae7c0510a4e2aa77d9454976c1081cdeac0c8551`; fuld SUMMARY `e02dd1500a2cb897eeb00592ab272c36f376e303efa240e5e56b88c36d886afc`; final science-review `0a7ee912206a63ed6747607346c1dff59584f359d9061012c5bb3f5d6da5bbc0`.
+
+[Rapport og reproduktion](tools/radio_s2017_injection_20261011/delivery/SETI_SIGNALTEST_2026-10-11.md) · [Alle 30 grupper](tools/radio_s2017_injection_20261011/delivery/ALL30_GROUPS.json) · [QA](tools/radio_s2017_injection_20261011/results/review/QA_RECEIPT.json) · [Datapakker og leveringsidentitet](tools/radio_s2017_injection_20261011/delivery/DATA_PACKAGES.json)
+
+2019-rådatavejen forbliver lukket efter den dokumenterede forbindelsesblokering; denne fase genoptager ikke kildefejlen. Nedenstående tidligere status og historik er bevaret byte for byte.
+
+---
+
 # Afsluttet: S2017 råeffekt-injektionsbenchmark — 11. oktober 2026
 
 Den prospektivt fastlåste benchmark på seks allerede bevarede S2017-scanninger

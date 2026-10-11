@@ -1,3 +1,16 @@
+# SETI — afsluttet signaltest, 11. oktober 2026
+
+**450 kontrollerede søgekort og 540 diagnostikposter er afsluttet med uafhængig numerisk QA.** Ved hvert af A = 3, 6 og 12 passerede alle 54 smalle signalspor den fastlagte lokale regel. Ved A = 1 var tallet 0/54. I hele kernen blev 36/54 rang 1 ved hvert højere niveau; den kendte q128-linje beholdt førstepladsen. Alle 4096 referencekanalers resultater er gemt.
+
+Det er en fast signaltest på de seks kendte scanninger fra 28. april 2017. Den giver ingen ny SETI-detektion, ny sky- eller besøgsdækning eller kalibreret genfindings­sandsynlighed. Bredde 9 er en mismatch-test. Original A/B er fortsat `FAIL_CLOSED`; beskyttede 2016-kontroller er uændrede. Omkostning: **0 DKK**.
+
+- [Rapport og reproduktion](tools/radio_s2017_injection_20261011/delivery/SETI_SIGNALTEST_2026-10-11.md)
+- [Alle 30 fastlagte grupper](tools/radio_s2017_injection_20261011/delivery/ALL30_GROUPS.json)
+- [Uafhængig QA](tools/radio_s2017_injection_20261011/results/review/QA_RECEIPT.json)
+- [Datapakker og identitet](tools/radio_s2017_injection_20261011/delivery/DATA_PACKAGES.json)
+
+---
+
 # SETI — 9. oktober 2026: autentisk gentaget spor har tydelig OFF-modmåling
 
 Fire distinkte prioriterede familier ved **1423,954061, 1422,596235, 1424,439182 og 1424,411711 MHz** er nu kontrolleret tidsopløst i alle seks scanninger. OFF-rækkemaksima er sammenlignelige med ON, så ON-eksklusivitet er ikke etableret. Selv 1424,411711-MHz-linjen, som oprindeligt kun gav én ON-gruppe over den beskrivende scoregrænse, står på samme kanal i alle ON og OFF. Oprindelserne forbliver uafklarede; OFF-respons er mod-evidens, ikke fysisk klassifikation.

@@ -1,0 +1,56 @@
+{
+  "schema": "SETI_S2017_INJECTION_COMPARISON_V2_PRESENTATION_ONLY_STATIC_REVIEW_V1",
+  "status": "PASS_EXACT_BYTE_V2_PRESENTATION_ONLY_SAME_SAVED_SUMMARY_METRIC_AND_GATES",
+  "review_UTC": "2026-10-11T06:25:49.755411+00:00",
+  "reviewer": "repo_status/publication_inventory",
+  "source_pins": {
+    "analysis/s2017_injection_20261011/delivery/render_comparison.py": {
+      "bytes": 12664,
+      "sha256": "80483b804e58f5880bb7e1f797ee1381990e64bdfb18fd330e72949578aac360"
+    },
+    "analysis/s2017_injection_20261011/delivery/render_comparison_v2.py": {
+      "bytes": 12908,
+      "sha256": "79f186f0a8043ae66c29de6234a019b3aa7abf55ac1acb1bc7e693baa839a4ff"
+    }
+  },
+  "AST_parse_without_execution": true,
+  "normalized_V2_source_equals_exact_V1_source": true,
+  "allowed_changes_verified": {
+    "self_source_path": "render_comparison_v2.py",
+    "distinct_create_only_outputs": [
+      "comparison_v2.png",
+      "COMPARISON_DATA_V2.json",
+      "COMPARISON_RENDER_RECEIPT_V2.json"
+    ],
+    "legend_anchor_y": {
+      "V1": 0.929,
+      "V2": 0.938
+    },
+    "subplot_top": {
+      "V1": 0.865,
+      "V2": 0.84
+    },
+    "receipt_additions": [
+      "presentation_revision",
+      "preserved_V1_renderer_sha256"
+    ]
+  },
+  "unchanged_semantics_verified": [
+    "All30 q/width/amplitude group values and18-case denominators",
+    "all16 positive overlap AND stored operational score>=10",
+    "width9 mismatch,9x per-A rawpower and shared-zero caveats",
+    "full-core rank1 competition without completeness claim",
+    "Exact actual QA/SUMMARY/SUMMARY_RECEIPT byte-pin admissions and source/end readbacks",
+    "Root-GO flag,resource caps,scientific-input paths and no detector/array imports",
+    "Original three V1 output paths are not written by V2; exclusive create-only V2 files"
+  ],
+  "concrete_blockers": [],
+  "operation_boundary": {
+    "only_two_renderer_source_files_read": true,
+    "scientific_JSON_results_H5_NPZ_BIN_logs_ZIP_or_numeric_values_read": false,
+    "target_import_render_or_science_execution": false,
+    "source_or_V1_outputs_changed": false,
+    "publication": false
+  },
+  "qualification": "Source/diff review only. Root owns authorized rerender from the same exact already-admitted saved summary and later visual inspection."
+}

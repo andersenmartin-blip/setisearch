@@ -1,0 +1,77 @@
+{
+  "schema": "SETI_INJECTION_ROOT_QA_GO_V1",
+  "status": "GO_ONE_INDEPENDENT_QA_AFTER_BOTH_CLOSED_EXIT0_450_MAPS",
+  "benchmark_public_freeze": "aedf9a3e2bf33424f2d4e88875569eaa19ef4130",
+  "qa_public_freeze": "3f6cc15bca1d7cbda7f870193db6deb9ea7cfa64",
+  "scope_sha256": "64e34e40377751a261381a589dc5603c851ca562a162b9255239aff785d93631",
+  "qa_scope_sha256": "cfd01ef37aefa5c30a5ed91e04ae207e64ab8ed3b7cdee0f40cca3eb99c96eb5",
+  "qa_sha256": "53bf2a8aa2f215cbbcdaab3c0215d07a140fd865dfbcaa9980c0de27979343c4",
+  "jobs": [
+    {
+      "job": "offcenter",
+      "receipt_path": "analysis/s2017_injection_20261011/results/offcenter/EXECUTION_RECEIPT.json",
+      "receipt_sha256": "e98b72030dedab48f656f8c877293d40831f87e0a06bf3534caaf5c784e06893",
+      "maps": 300,
+      "baseline_maps": 12,
+      "modified_maps": 288,
+      "diagnostics": 360,
+      "outer": {
+        "schema": "SETI_INJECTION_OUTER_PROCESS_V1",
+        "job": "offcenter",
+        "exit_code": 0,
+        "argv": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "analysis/s2017_injection_20261011/driver.py",
+          "--root",
+          "/workspace/scratch/5bf3860dacd6",
+          "--job",
+          "offcenter",
+          "--scope-sha256",
+          "64e34e40377751a261381a589dc5603c851ca562a162b9255239aff785d93631",
+          "--freeze-commit",
+          "aedf9a3e2bf33424f2d4e88875569eaa19ef4130"
+        ],
+        "public_freeze_commit": "aedf9a3e2bf33424f2d4e88875569eaa19ef4130",
+        "whole_child_CPU_s": 537.158966,
+        "whole_child_wall_s": 537.248069106,
+        "whole_child_peak_RSS_bytes": 172695552,
+        "new_telescope_HTTP_requests": 0,
+        "cost_DKK": 0,
+        "status": "CLOSED_EXIT0"
+      }
+    },
+    {
+      "job": "known_center_competitor",
+      "receipt_path": "analysis/s2017_injection_20261011/results/known_center_competitor/EXECUTION_RECEIPT.json",
+      "receipt_sha256": "3b5c4012d0268c10f6263e5d412615e8efd3f6f91756cf6ae8ab423dfa112add",
+      "maps": 150,
+      "baseline_maps": 6,
+      "modified_maps": 144,
+      "diagnostics": 180,
+      "outer": {
+        "schema": "SETI_INJECTION_OUTER_PROCESS_V1",
+        "job": "known_center_competitor",
+        "exit_code": 0,
+        "argv": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "analysis/s2017_injection_20261011/driver.py",
+          "--root",
+          "/workspace/scratch/5bf3860dacd6",
+          "--job",
+          "known_center_competitor",
+          "--scope-sha256",
+          "64e34e40377751a261381a589dc5603c851ca562a162b9255239aff785d93631",
+          "--freeze-commit",
+          "aedf9a3e2bf33424f2d4e88875569eaa19ef4130"
+        ],
+        "public_freeze_commit": "aedf9a3e2bf33424f2d4e88875569eaa19ef4130",
+        "whole_child_CPU_s": 272.021415,
+        "whole_child_wall_s": 272.05079400500017,
+        "whole_child_peak_RSS_bytes": 165044224,
+        "new_telescope_HTTP_requests": 0,
+        "cost_DKK": 0,
+        "status": "CLOSED_EXIT0"
+      }
+    }
+  ]
+}
