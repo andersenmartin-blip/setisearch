@@ -1,3 +1,15 @@
+# SETI-status · 11. oktober 2026: fast tidsrækkefølgekontrol afsluttet
+
+**1.161 gemte auditforekomster og 27.864 rækkefølgescorer er beregnet og har bestået uafhængig numerisk QA.** Alle ni tidligere TOP3 får højere score i kronologien end i de 23 alternative centerarrangementer. Det stærkeste spor har scorerne 7,315816 og 4,998336. De oprindelige spor var allerede udvalgt som søgemaksima; sammenligningen giver ingen ny uafhængig signalevidens, kalibreret signifikans eller SETI-kvalifikation.
+
+Kode og scope blev offentliggjort før beregningen. Rapport og begge figurer er gennemgået. Resultatpakken er 21.977.939 bytes med 2.672 CRC-/SHA-kontrollerede arkivmedlemmer; alle 2.671 payloadfiler og inputidentiteter stemmer. Nul nye teleskoprequests og 0 DKK. Original A/B forbliver FAIL_CLOSED, og den kvalificerede nye-himmelpilot er fortsat blokeret. Planen 7.–20. oktober beholder sit formelle checkpoint den 20. oktober.
+
+[Endelig rapport](https://github.com/andersenmartin-blip/setisearch/blob/438b60ff09481e7ddccc0d5b69d245a9fd0df383/analysis/burst_order_20261011/delivery/SETI_BURST_ORDER_FINAL_2026-10-11.md) · [Evidensindeks](https://github.com/andersenmartin-blip/setisearch/blob/438b60ff09481e7ddccc0d5b69d245a9fd0df383/analysis/burst_order_20261011/PUBLIC_EVIDENCE_INDEX.md) · [Fuld projektstatus](https://github.com/andersenmartin-blip/setisearch/blob/438b60ff09481e7ddccc0d5b69d245a9fd0df383/PROJECT_STATUS.md)
+
+---
+
+## Tidligere status, bevaret uændret
+
 ## Afsluttet: 288 SETI-burstkort og 54 faste kontekstprofiler · 11. oktober 2026
 
 **288 burst-søgekort, 1.179.648 gemte kanalmaksima og 54 faste kontekstprofiler er afsluttet. Begge numeriske QA-kørsler og rapportens figurer har bestået kontrollen.** Piloten anvender syv overlappende vinduer med fire integrationer (73,014 sekunder) i de eksisterende OFF-scanninger af HIP97319, HIP97461 og HIP97663 fra 28. april 2017. Hver retning omfatter 96 på forhånd fastlagte frekvenskerner, cirka 12,5 % af de 766 tidligere undersøgte kerner.
