@@ -1,0 +1,61 @@
+{
+  "schema": "SETI_BURST4_TEMPORAL_ORDER_INDEPENDENT_STATIC_REVIEW_V1",
+  "status": "PASS_SOURCE_ONLY_DRIVER_AND_PREPARER",
+  "reviewer": "method_review",
+  "date_UTC": "2026-10-11",
+  "reviewed_source_pins": [
+    {
+      "path": "analysis/burst_order_20261011/driver.py",
+      "bytes": 22054,
+      "sha256": "3814f66c6c65ae99386ab6ca9a00791bfec925342d580c47479cd930aa98ab4a"
+    },
+    {
+      "path": "analysis/burst_order_20261011/prepare_scope.py",
+      "bytes": 7027,
+      "sha256": "3ea668741b9611f620b50189c335b2d9dac44c0e69daea4016e21d2d8d6584c3"
+    }
+  ],
+  "science_execution_performed": false,
+  "numerical_modules_imported": false,
+  "source_arrays_opened": false,
+  "saved_numerical_results_opened": false,
+  "blockers": [],
+  "checked_contract": {
+    "queries_total": 1161,
+    "queries_per_target": 387,
+    "query_strata_per_target": {
+      "first": 96,
+      "midpoint": 96,
+      "last": 96,
+      "core_max": 96,
+      "global_top3": 3
+    },
+    "row_center_boxes_total": 18576,
+    "permutation_score_occurrences_total": 27864,
+    "source_compacts": 9,
+    "decoded_source_rows_total": 144,
+    "permutations_per_query": 24,
+    "physical_rows_per_query": 4,
+    "normalization": "Unchanged saved full16 physical-row constants; no new location/MAD or detector grid.",
+    "centers": "Exact old np.rint full absolute source mapping with times=np.arange(4)*TSAMP at winning window first midpoint.",
+    "raw_support": "min(center)-251 through max(center)+251 inclusive supports all four centers and width1/3 median501 terms.",
+    "matrix": "M[i,j] uses physical source row r0+i and that row normalization at integer center C[j].",
+    "score": "Explicit ((M[0,pi0]+M[1,pi1])+M[2,pi2])+M[3,pi3], divided by sqrt(4*width).",
+    "dedup": "Actual integer center assignment vector, first lexicographic permutation representative; retain multiplicity.",
+    "controls": "Exclude entire identity-vector class; U=1 has null control summaries and explicit degeneracy.",
+    "rank": "Exact distinct-vector score rank interval; no epsilon, identity compared to reconstructed matrix diagonal.",
+    "duplicates": "All query occurrences preserved and separately grouped by fixed scientific tuple key.",
+    "admission": "Prior exact PASS288 status, scope/QA source and all three producer receipt bindings; original audit/TOP3/norm/capsule byte pins.",
+    "outputs": "Create-only source-authenticated capsules, diagnostics and execution receipt; 389 files/job including receipt.",
+    "resources": "600CPU s,900wall s,2GiB/job,max2,50MiB outputs/job,8GiB workspace; no HTTP or cost."
+  },
+  "limitations": [
+    "This is a source review, not acceptance of future numerical outputs or QA.",
+    "The original winning drift, width and window were already selected using these data; most alternative orders are nonlinear center paths. Favorable chronology ranks are conditional descriptive diagnostics, not independent linear-signal support.",
+    "The physical row distributions are not assumed exchangeable. Scores and ranks are not permutation p-values, calibrated FAP/SNR or physical-origin evidence.",
+    "Repeated rounded centers collapse assignments; width3 boxes and reused normalization create correlations even across distinct vectors.",
+    "Query occurrences and duplicate tuples are not independent experiments. First/midpoint/last carriers still contain selected winning templates.",
+    "Independent numerical QA must reconstruct local raw501 matrix terms and verify core row medians; fullcore saved location/MAD remain conditional.",
+    "Protected2016 holdouts and original A/B qualification remain closed; no new observation, mask, veto or qualification repair."
+  ]
+}

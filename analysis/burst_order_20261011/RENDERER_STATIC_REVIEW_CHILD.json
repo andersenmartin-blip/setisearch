@@ -1,0 +1,55 @@
+{
+  "schema": "SETI_FIXED_TEMPORAL_ORDER_RENDERER_CHILD_STATIC_REVIEW_V1",
+  "status": "PASS_SOURCE_ONLY_ACTUAL_PRODUCER_QA_SCHEMA_AND_PROSPECTIVE_LAYOUT",
+  "reviewed_renderer": {
+    "path": "analysis/burst_order_20261011/make_report.py",
+    "bytes": 38967,
+    "sha256": "bad06fa166d4de55cdbc5201a890b26103624f81586c5d26009f94aa25a33e67"
+  },
+  "reviewed_sources": [
+    {
+      "path": "analysis/burst_order_20261011/driver.py",
+      "bytes": 22225,
+      "sha256": "fe0ea4cf54d48ce25bc72ffeb7abba096532a6bf37bd695445140b8d042a37aa"
+    },
+    {
+      "path": "analysis/burst_order_20261011/qa_saved.py",
+      "bytes": 50876,
+      "sha256": "f1433f967fccd0db75ac2ba9f12183ec965a5f7dd2d6b41fa2463c515226414b"
+    },
+    {
+      "path": "analysis/burst_order_20261011/prepare_scope.py",
+      "bytes": 7027,
+      "sha256": "3ea668741b9611f620b50189c335b2d9dac44c0e69daea4016e21d2d8d6584c3"
+    }
+  ],
+  "checks": {
+    "all_four_sources_AST_parse": "PASS",
+    "actual_QA_selected_top3_dictionary_keyed_by_primary_ID": "PASS",
+    "actual_QA_input_byte_pins_dictionary_and_receipt_pin_list": "PASS",
+    "fixed_per_job_and_total_counts": "PASS",
+    "dynamic_unique_tuple_and_duplicate_occurrence_counts": "PASS",
+    "seven_field_scientific_tuple_identity": "PASS",
+    "387_frozen_queries_per_target_and_nine_ordered_TOP3": "PASS",
+    "exact_scope_QA_code_GO_three_completed_receipts_and_diagnostics_bindings": "PASS",
+    "JSON_text_only_input_admission_no_capsule_or_source_reads": "PASS",
+    "all24_identity_inclusive_vs_distinct_center_vector_counts": "PASS",
+    "identity_equivalence_class_excluded_from_wrong_order_summaries": "PASS",
+    "undefined_control_summaries_for_U1_and_exact_rank_ties": "PASS",
+    "nonrandom_winner_strata_repeated_tuple_occurrences_and_degeneracy": "PASS",
+    "conditional_saved_full16_normalization_and_MAD_location_limits": "PASS",
+    "no_permutation_p_FAP_significance_origin_or_RFI_rejection_claims": "PASS",
+    "prospective_two_figure_labels_strata_and_rank_intervals": "PASS",
+    "exclusive_output_creation_and_failure_preservation": "PASS"
+  },
+  "blocking_issues": [],
+  "execution_notes": [
+    "Scope preparation must include make_report.py through --extra-text-pin; otherwise renderer admission correctly fails closed.",
+    "Actual rendered figures still require visual review after authorized execution; this review inspects prospective plotting code only."
+  ],
+  "no_numerical_execution": true,
+  "no_saved_result_reads": true,
+  "no_source_array_or_capsule_reads": true,
+  "producer_QA_renderer_sources_modified": false,
+  "scientific_results_verified_by_this_review": false
+}

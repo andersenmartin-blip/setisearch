@@ -1,0 +1,17 @@
+# Fast tidsrækkefølgediagnose · 11. oktober 2026
+
+Denne fase undersøger de 1.161 allerede gemte vindertuple-audits fra burst4-piloten: 288 første kanaler, 288 midterkanaler, 288 sidste kanaler, 288 kernemaksima og ni globale TOP3-forekomster. De er udvalgte og afhængige auditforekomster, ikke tilfældige støjprøver eller 1.161 forskellige kandidater. Gentagne videnskabelige tuples opgøres særskilt.
+
+Hver forespørgsel beholder sine fire fysiske integrationsrækker, bredde, fire afrundede absolutte kanalcentre og de oprindelige fulde 16-rækkers normaliseringskonstanter. Der beregnes en 4×4 matrix: den samme fysiske række måles ved hvert af de fire valgte centre. Alle 24 leksikografiske permutationer af centerindekserne tilordnes de fire fysiske rækker; scorer divideres med sqrt(4×bredde). Normalisering følger den fysiske række.
+
+Faktiske heltals-centervektorer deduplikeres før rangberegning. Identitetens dubletter udelades fra de forskellige alternativer. Eksakte ranger/ties beregnes med den frosne, fysiske række-summeringsorden. Ved kun én forskellig centervektor er de alternative scorer udefinerede/null, og diagnosen indeholder ingen tidsrækkefølgeinformation. Overlappende bokse for bredde 3 kan også være afhængige.
+
+Original råeffekt genlæses fra de ni allerede eksponerede OFF-kompakter i native170/171/172 fra 28. april 2017. Fil- og 144 afkodede rækkeidentiteter kontrolleres. Nye kapsler bevarer alle råceller til lokal median501 ved samtlige 16 række/center-kombinationer. Identitetens rå503-kapsel skal bitmatche den tidligere, og identitetens score skal stemme inden for den tidligere tolerance 1e-7 absolut/1e-10 relativ. Der foretages ingen ny fuld driftsøgning eller estimation af kerne-MAD/lokation.
+
+Den uafhængige QA rekonstruerer de lokale medianer og 18.576 matrixled fra råkapsler, kontrollerer de 27.864 tildelingsscorer, deduplikering og alle ni TOP3-ankre. Fuldkerne-MAD og winsoriseret lokation forbliver betingede, gemte parametre. Eksakte rangmekanismer efterprøves fra den autentificerede matrix; uafhængig råaritmetik sammenlignes med den frosne numeriske tolerance.
+
+Det kronologiske spor blev allerede optimeret over drift, vindue og bredde. Mange alternative rækkefølger er ikke lineære driftsspor. En gunstig kronologisk rang er derfor et udvælgelsesbetinget geometrisk resultat: den giver ingen uafhængig støtte for et signal og er hverken permutation-p, kalibreret FAP, sigma eller ny metodekvalifikation. Original A/B forbliver FAIL_CLOSED; beskyttede 2016-paneler og den lukkede 2019-adgang åbnes ikke.
+
+Ressourcer fastlåses særskilt for denne fase: højst 600 CPU-s/900 wall-s/2 GiB pr. primærjob, højst to samtidige primærjobs/4 GiB, 50 MiB output pr. primærjob og 150 MiB samlet. Arbejdspladsen holdes under 8 GiB; ny resultat-ZIP under 100 MiB. Ny faseplanlægning er højst 3.600 CPU-s inklusive tre primærjobs, QA, rendering og pakning. Tidligere reservationer tilbageføres ikke. Alle målte komponenter rapporteres; en komplet sessionsmåling hævdes ikke. Der er nul nye teleskoprequests og 0 DKK.
+
+Fortsat gratis fasearbejde bygger på den eksplicitte supersession i PRIOR_CONTINUATION_RESOURCE_LEDGER.json, hentet uændret fra commit6f9bed481833726946168bc8d6d55701620142a9. Dette er ikke en nulstilling af brugerens abonnementsforbrug. Kode, scope og den uafhængige statiske gennemgang fryses offentligt før de nye matrixudfald åbnes. Rodagenten udfører primærberegninger og numerisk QA; andre agenter gennemgår kildekode og færdige tekster/figurer.
