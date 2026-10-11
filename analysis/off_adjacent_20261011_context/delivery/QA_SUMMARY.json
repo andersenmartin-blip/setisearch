@@ -1,0 +1,136 @@
+{
+  "status": "PASS_THREE_PRIMARY_JOBS_AND_BOTH_INDEPENDENT_NUMERICAL_QAS",
+  "primary_jobs": [
+    {
+      "full_receipt": {
+        "path": "analysis/off_adjacent_20261011/results/primary20170428_HIP97319/EXECUTION_RECEIPT.json",
+        "bytes": 623379,
+        "sha256": "1195e9cfcf1ada9f30ec10b87dd4739a039d4b9b85822d480d57608c7b9e23e8"
+      },
+      "status": "COMPLETE_512_NEW_ORIGINAL_OFF_MAPS_EXPLORATORY_ONLY",
+      "counts": {
+        "maps": 512,
+        "carrier_maximum_records": 2097152,
+        "valid_hypothesis_records": 3292528640,
+        "normalization_records": 512,
+        "score_audit_queries": 2051,
+        "score_audit_raw_power_cells": 16506448,
+        "TOP20_entries": 20,
+        "TOP3_entries": 3,
+        "decoded_rows_verified": 48
+      },
+      "process_CPU_seconds": 956.591048751,
+      "wall_seconds": 956.7409984370024,
+      "peak_RSS_bytes": 730214400
+    },
+    {
+      "full_receipt": {
+        "path": "analysis/off_adjacent_20261011/results/primary20170428_HIP97461/EXECUTION_RECEIPT.json",
+        "bytes": 623378,
+        "sha256": "ea5b102b10bd9b154fcce81f4d9c1fe7e9003aa56a36665e3ad74f8cd4e00420"
+      },
+      "status": "COMPLETE_512_NEW_ORIGINAL_OFF_MAPS_EXPLORATORY_ONLY",
+      "counts": {
+        "maps": 512,
+        "carrier_maximum_records": 2097152,
+        "valid_hypothesis_records": 3292528640,
+        "normalization_records": 512,
+        "score_audit_queries": 2051,
+        "score_audit_raw_power_cells": 16506448,
+        "TOP20_entries": 20,
+        "TOP3_entries": 3,
+        "decoded_rows_verified": 48
+      },
+      "process_CPU_seconds": 954.544037864,
+      "wall_seconds": 954.6145528730049,
+      "peak_RSS_bytes": 731045888
+    },
+    {
+      "full_receipt": {
+        "path": "analysis/off_adjacent_20261011/results/primary20170428_HIP97663/EXECUTION_RECEIPT.json",
+        "bytes": 623379,
+        "sha256": "ebe932b47e62d23097811f396667287b738d502bacb6f6cfdd9600ee100f904d"
+      },
+      "status": "COMPLETE_512_NEW_ORIGINAL_OFF_MAPS_EXPLORATORY_ONLY",
+      "counts": {
+        "maps": 512,
+        "carrier_maximum_records": 2097152,
+        "valid_hypothesis_records": 3292528640,
+        "normalization_records": 512,
+        "score_audit_queries": 2051,
+        "score_audit_raw_power_cells": 16506448,
+        "TOP20_entries": 20,
+        "TOP3_entries": 3,
+        "decoded_rows_verified": 48
+      },
+      "process_CPU_seconds": 939.379228501,
+      "wall_seconds": 939.4911603600049,
+      "peak_RSS_bytes": 730050560
+    }
+  ],
+  "primary_QA": {
+    "full_receipt": {
+      "path": "analysis/off_adjacent_20261011_qa/results/QA_RECEIPT.json",
+      "bytes": 2044814,
+      "sha256": "34473d33bd564aa47e02708d24497d2f9f5f55014f890ca4818afe3ebaad2b99"
+    },
+    "status": "PASS1536_MAPS6153_RAW503_QUERIES288_SOURCE_ROWS_NO_DETECTOR_RERUN",
+    "counts": {
+      "carrier_maxima": 6291456,
+      "core_row_medians": 24576,
+      "independent_scores": 6153,
+      "maps": 1536,
+      "raw_power_cells": 49519344,
+      "score_audit_queries": 6153,
+      "source_compacts": 18,
+      "source_decoded_rows": 288,
+      "top20_entries": 60,
+      "top3_entries": 9,
+      "valid_hypothesis_records": 9877585920
+    },
+    "numeric_tolerance": {
+      "absolute": 1e-07,
+      "relative": 1e-10
+    },
+    "max_row_sum_arithmetic_absolute_difference": 9.490186414495838e-13,
+    "max_score_arithmetic_absolute_difference": 3.637978807091713e-12,
+    "process_CPU_seconds": 16.182528119,
+    "wall_seconds": 16.134837027995673,
+    "peak_RSS_bytes": 1768960000
+  },
+  "context_QA": {
+    "full_receipt": {
+      "path": "analysis/off_adjacent_20261011_context/CONTEXT_QA_RECEIPT.json",
+      "bytes": 36509,
+      "sha256": "ad7f3a8fb4fead1ea5acfba96dd0e8e5bcf4aca45fe14d165bd3c6cdf840d491"
+    },
+    "status": "PASS54_FIXED_CONTEXTS864_ROW_BOXES54_SCORES9_OWN_MATCHES288_SOURCE_ROWS",
+    "counts": {
+      "source_files": 18,
+      "source_decoded_rows": 288,
+      "profiles": 54,
+      "row_box_sums": 864,
+      "scores": 54,
+      "own_primary_score_matches": 9,
+      "raw503_source_cells": 434592,
+      "raw_core_row_medians": 864,
+      "contribution_diagnostic_profiles": 54
+    },
+    "numeric_tolerance": {
+      "absolute": 1e-07,
+      "relative": 1e-10
+    },
+    "max_row_box_absolute_difference": 0.0,
+    "max_score_absolute_difference": 0.0,
+    "CPU_seconds": 3.3585598969999997,
+    "wall_seconds": 3.3640662249963498,
+    "peak_RSS_bytes": 287129600
+  },
+  "full_core_MAD_location_independently_refiltered": false,
+  "full_grid_recomputed_in_QA": false,
+  "qualified_SETI_detection": false,
+  "calibrated_SNR_FAP": false,
+  "new_observation": false,
+  "cost_DKK": 0,
+  "limitations": "Raw503 arithmetic QA is conditional on hash-bound saved full-core MAD/location. Other directions are descriptive context, not independent repeats of the selected OFF target."
+}

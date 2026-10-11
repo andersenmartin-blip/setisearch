@@ -1,0 +1,177 @@
+{
+  "schema": "SETI_OFF_ADJACENT_FINAL_REPORT_REVIEW_V1",
+  "status": "PASS_SCIENTIFIC_AND_VISUAL_REVIEW",
+  "input_pins": [
+    {
+      "path": "analysis/off_adjacent_20261011_context/delivery/SETI_OFF_ADJACENT_2026-10-11.md",
+      "bytes": 2795,
+      "sha256": "bb3cad5a7fde5a3db48a2f44e3ebd73ae03bdbc14f408bfc207a09784b5b5249"
+    },
+    {
+      "path": "analysis/off_adjacent_20261011_context/delivery/SUMMARY.json",
+      "bytes": 5242,
+      "sha256": "502d255d9fe0181077a9b72f8954de4144dc1bb2c25c5d8a0869d71ed072aedc"
+    },
+    {
+      "path": "analysis/off_adjacent_20261011_context/delivery/CONTEXT54.csv",
+      "bytes": 3143,
+      "sha256": "e62a720678ab60e1bfa3909ae865326e47f6fe65b57bb598c5ee27001494841d"
+    },
+    {
+      "path": "analysis/off_adjacent_20261011_context/results/CONTEXT_PROFILES.json",
+      "bytes": 250732,
+      "sha256": "387524df32ec6bc11aaf31040729a14d3cecf6a5db9234846c58f907ae1fcc5e"
+    },
+    {
+      "path": "analysis/off_adjacent_20261011_context/results/EXECUTION_RECEIPT.json",
+      "bytes": 26301,
+      "sha256": "0d2a47570be219020e25e89eab6c4966234de93dad40c1483e192d9d699a8653"
+    },
+    {
+      "path": "analysis/off_adjacent_20261011_context/CONTEXT_QA_RECEIPT.json",
+      "bytes": 36509,
+      "sha256": "ad7f3a8fb4fead1ea5acfba96dd0e8e5bcf4aca45fe14d165bd3c6cdf840d491"
+    },
+    {
+      "path": "analysis/off_adjacent_20261011_qa/results/QA_RECEIPT.json",
+      "bytes": 2044814,
+      "sha256": "34473d33bd564aa47e02708d24497d2f9f5f55014f890ca4818afe3ebaad2b99"
+    },
+    {
+      "path": "analysis/off_adjacent_20261011_context/delivery/SETI_CONTEXT54_2026-10-11.png",
+      "bytes": 247118,
+      "sha256": "0cf4207f6d0b965666c4e1ff62cd3f393ca9c032b414c25aa843d35e36a67a23"
+    },
+    {
+      "path": "analysis/off_adjacent_20261011_context/delivery/SETI_ROW_CONTRIBUTIONS_2026-10-11.png",
+      "bytes": 304723,
+      "sha256": "67b82dd07367c551733ad5a7643da2d5c5bca987cca2fbc1994b711e90254bc2"
+    }
+  ],
+  "blocking_issues": [],
+  "numerical_outcome": {
+    "maps": 1536,
+    "carrier_maximum_records": 6291456,
+    "fixed_context_scores": 54,
+    "own_primary_score_matches": 9,
+    "source_rows_verified": 288,
+    "primary_QA_status": "PASS1536_MAPS6153_RAW503_QUERIES288_SOURCE_ROWS_NO_DETECTOR_RERUN",
+    "context_QA_status": "PASS54_FIXED_CONTEXTS864_ROW_BOXES54_SCORES9_OWN_MATCHES288_SOURCE_ROWS"
+  },
+  "findings": [
+    {
+      "finding": "All three primary TOP3 lists rank the same two stationary source channels first and second.",
+      "frequencies_hz": [
+        2297460937.5,
+        2303320312.5
+      ],
+      "selected_drift_hz_s": -4.440892098500626e-16,
+      "interpretation": "The tiny drift is numerical grid representation of effectively zero physical drift. These are two common spectral components, not six independent newly discovered sources."
+    },
+    {
+      "finding": "Both stationary components have large robust box-track responses in all six historical scans.",
+      "rank1_fixed_score_min_max": [
+        20540.23412234549,
+        26778.722047714724
+      ],
+      "rank2_fixed_score_min_max": [
+        20213.060915500708,
+        26634.60238820961
+      ],
+      "scan_count": 6,
+      "unique_target_direction_count": 4,
+      "unique_targets": [
+        "HIP98505",
+        "HIP97319",
+        "HIP97461",
+        "HIP97663"
+      ],
+      "interpretation": "Multi-direction recurrence is consistent with a common contribution such as terrestrial or instrumental contamination; physical origin is not established. There is no direction-exclusive SETI detection and no independent repeat of an OFF primary."
+    },
+    {
+      "finding": "The stationary primaries receive positive contributions from all 16 rows. Largest single positive primary-row share is roughly 6.4–6.6%.",
+      "interpretation": "They are persistent across each primary scan rather than supported by a single isolated integration. Persistence alone does not establish celestial origin."
+    },
+    {
+      "finding": "Each rank3 drifting box overlaps the first stationary component during its final eight primary rows, which supply more than 99.976% of its positive box contribution.",
+      "geometry_and_saved_contributions": [
+        {
+          "target": "HIP97319",
+          "rank": 3,
+          "shared_stationary_source_channel": 180879360,
+          "primary_reference_offset_channels": -4,
+          "box_overlapping_rows": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "positive_box_contribution_fraction_on_overlap_rows": 0.9997628311040714,
+          "derivation": "Read-only arithmetic on saved validated absolute centres, width, and signed per-row score contributions; no source array was opened and no refit/search occurred."
+        },
+        {
+          "target": "HIP97461",
+          "rank": 3,
+          "shared_stationary_source_channel": 180879360,
+          "primary_reference_offset_channels": -4,
+          "box_overlapping_rows": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "positive_box_contribution_fraction_on_overlap_rows": 0.9998896610873065,
+          "derivation": "Read-only arithmetic on saved validated absolute centres, width, and signed per-row score contributions; no source array was opened and no refit/search occurred."
+        },
+        {
+          "target": "HIP97663",
+          "rank": 3,
+          "shared_stationary_source_channel": 180879360,
+          "primary_reference_offset_channels": 4,
+          "box_overlapping_rows": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "positive_box_contribution_fraction_on_overlap_rows": 0.999919464889069,
+          "derivation": "Read-only arithmetic on saved validated absolute centres, width, and signed per-row score contributions; no source array was opened and no refit/search occurred."
+        }
+      ],
+      "interpretation": "Consistent with alternate search templates crossing the common stationary line. The fraction concerns whole box contributions; it cannot assign all power to the single stationary source cell. A weak fixed score in other scans does not establish a target-specific transient."
+    },
+    {
+      "finding": "No primary TOP3 box overlaps the earlier 2300.390625 MHz reference component.",
+      "interpretation": "The earlier component was not used to explain these different frequencies."
+    }
+  ],
+  "visual_review": {
+    "heatmap": "PASS: all54 annotated values legible; nine row labels and six scan labels visible; primary yellow frames correct; signed symmetric logarithmic colour scale explicitly labelled; no clipping.",
+    "row_contributions": "PASS: all nine panels legible, signed contributions preserved, actual gaps visible, and six scan segments separated. Blue primary highlights and grey/orange comparison roles match saved outputs."
+  },
+  "editorial_additions": [
+    "Publish the separate concise Danish PROJECT_STATUS addition to state the two common-frequency findings explicitly; the immutable automatic report already shows them correctly in tables and figures.",
+    "Use six scans across four target directions when describing recurrence.",
+    "Reference-channel counts are carrier maximum records across three primaries, not 6.29 million distinct sky frequencies."
+  ],
+  "scientific_limits": [
+    "One historical 2017 observation per OFF-primary star; context scans do not constitute independent target replication.",
+    "Robust box-track scores are uncalibrated; no global FAP, flux sensitivity, source-origin classification or detection claim is made.",
+    "Independent QA validates source bits, selected arithmetic and ranking; it does not exhaustively recompute the detector grid or independently refilter fullcore MAD/location."
+  ],
+  "frozen_producers_or_results_modified": false,
+  "new_scientific_execution": false,
+  "new_telescope_requests": 0
+}

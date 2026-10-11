@@ -1,0 +1,9 @@
+## 11. oktober 2026 · 1536 nye spektralkort afsluttet
+
+Søgningen har undersøgt 512 nye frekvenskerner i hver af de oprindelige OFF-observationer af HIP97319, HIP97461 og HIP97663: 1536 nye kort og 6.291.456 referencekanalmaksima i alt. De tre stjerner har hver fået 5,859375 MHz ekstra frekvensdækning. Uafhængig QA har godkendt alle kort, rangeringerne og 6153 gemte råscorekontroller. Ni udvalgte spor er derefter målt uændret i alle seks observationer; alle 54 kontekstscorer og de ni primærscore-match har bestået separat QA.
+
+De to højest rangerede svar ligger ved **2297,4609375 og 2303,3203125 MHz**, med praktisk talt nul drift. Begge optræder stærkt i alle seks scanninger på fire forskellige stjerneretninger. Det peger på fælles smalle spektralkomponenter frem for signaler isoleret til en primærstjerne. De tredjepladser, som har lille positiv eller negativ drift, rammer den første stationære komponent i deres sidste otte tidsrækker. Disse rækker bærer mindst 99,976% af deres positive box-bidrag; mønstret er foreneligt med alternative søgeskabeloner omkring samme linje. Den fysiske årsag er endnu ikke fastslået.
+
+**Der er intet kvalificeret SETI-fund.** De høje scorer er ikke kalibreret SNR eller falsk-alarm-sandsynligheder. Alle data er fra det historiske besøg 28. april 2017; sammenligningsretningerne er ikke uafhængige genobservationer af de tre primærstjerner. Der er ingen ny driftstilpasning, kildeklassifikation eller gentagelse af detektorgridet i QA. Rå profiler, tidsbidrag, tabeller og figurer er bevaret til efterprøvning.
+
+[Rapport og figurer](analysis/off_adjacent_20261011_context/delivery/SETI_OFF_ADJACENT_2026-10-11.md) · [Alle ni primære udvalg](analysis/off_adjacent_20261011_context/delivery/TOP9.csv) · [Alle 54 faste kontekster](analysis/off_adjacent_20261011_context/delivery/CONTEXT54.csv)

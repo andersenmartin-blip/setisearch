@@ -1,3 +1,15 @@
+# Aktuel SETI-retning — 11. oktober 2026: udvidet OFF-søgning afsluttet
+
+1536 nye søgekort og 54 uændrede kontekstprofiler er afsluttet og kontrolleret. De stationære komponenter ved 2297,4609375 og 2303,3203125 MHz er fælles for alle seks scanninger på fire retninger. Rank-3-skabelonernes otte-række-overlap er beskrivende evidens for flere skabeloner omkring samme komponent. Den fysiske årsag kræver videre kontrol; ingen SETI-detektion eller uafhængig gentagelse er etableret.
+
+Den konkrete videre forskningsopgave er at afklare den fælles spektralstruktur og skelne instrumentel respons fra himmeloprindelse med en ny prospektiv afgrænsning. De eksponerede 2017-data kan bruges til sådan eksplorativ engineering, mens en uafhængig bekræftelse kræver nye målrelevante data. De beskyttede 2016-kontroller og original A/B forbliver lukkede. Den tidligere metadata-kvalificerede 2019-kadence er fortsat en mulighed i et andet frekvensbånd, når kildens transportadgang kan etableres; denne runde har hentet nul nye teleskopdata.
+
+[Endelig rapport](analysis/off_adjacent_20261011_context/delivery/SETI_ADJACENT_FINAL_2026-10-11.md) · [Fuld status](PROJECT_STATUS.md) · [Reproduktion](analysis/off_adjacent_20261011/REPRODUCTION_AND_DATA_AVAILABILITY.md)
+
+Følgende tekst er bevaret historik.
+
+---
+
 # Aktuel SETI-retning — 11. oktober 2026: injektionsbenchmark afsluttet
 
 Den fastlåste S2017-råeffektbenchmark er afsluttet og uafhængigt kontrolleret:
@@ -4120,3 +4132,4 @@ seconds). Prior labels, unassessed points, closed studies, cohort order and
 reserved TESS/M43 panels remain unchanged. See LS8BE_CONTINUATION.md.
 Calibration NOT_READY; request UNSENT. Publication authorized; delegation
 deferred.
+

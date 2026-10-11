@@ -1,0 +1,72 @@
+{
+  "schema": "SETI_OFF_ADJACENT_FINAL_ASSEMBLED_REPORT_REVIEW_V1",
+  "status": "PASS_EXACT_FINAL_ASSEMBLED_REPORT_RECEIPT_AND_SCIENTIFIC_INTERPRETATION",
+  "final_report": {
+    "path": "analysis/off_adjacent_20261011_context/delivery/SETI_ADJACENT_FINAL_2026-10-11.md",
+    "bytes": 5376,
+    "sha256": "bb4970b8bce9689ee2e7e319471e472a1de0724722ff17e33549df8637368d82"
+  },
+  "final_delivery_receipt": {
+    "path": "analysis/off_adjacent_20261011_context/delivery/FINAL_DELIVERY_RECEIPT.json",
+    "bytes": 3548,
+    "sha256": "94da23a815ab28674c0e46491a7ca78d0b3fd933bba08caa765cfadd2b9eb785"
+  },
+  "additional_reviewed_inputs": [
+    {
+      "path": "analysis/off_adjacent_20261011_context/FINAL_REPORT_REVIEW.json",
+      "bytes": 8121,
+      "sha256": "3156e32f3285599c0e8f21918ecd396e09b84c4b2f87a05b503ec6beec41332f"
+    },
+    {
+      "path": "analysis/off_adjacent_20261011_context/delivery/QA_SUMMARY.json",
+      "bytes": 4875,
+      "sha256": "692ce6baa96e875f9e13c7f0ab4cb8947c745c3d6a9a5f0be3bbb51cbb221318"
+    },
+    {
+      "path": "analysis/off_adjacent_20261011_context/delivery/CORE_MAX1536.csv",
+      "bytes": 229782,
+      "sha256": "8dcca56583691354a7cda90d54f1a9fe1e6028111ff7a8f9a5ff29b93664bf84"
+    },
+    {
+      "path": "analysis/off_adjacent_20261011_context/delivery/NEARBY_STATIONARY_GEOMETRY.json",
+      "bytes": 5671,
+      "sha256": "e8ba9659686233912e229d30d65c3f6f4d70f2cbedc260505ff18da47cf7a7a1"
+    },
+    {
+      "path": "analysis/off_adjacent_20261011_context/finalize_report.py",
+      "bytes": 6656,
+      "sha256": "e5cd83b1408d9df9c390e352f70ef090f4fcf1c937a5feb040c1ed4aa5d32d1f"
+    },
+    {
+      "path": "analysis/off_adjacent_20261011_context/describe_saved_geometry.py",
+      "bytes": 2041,
+      "sha256": "efed3185a836fd6e04eb0a077b0dcb91dd170b89b7595d35247831f9de13fb1a"
+    }
+  ],
+  "blocking_issues": [],
+  "checks": {
+    "all_final_receipt_input_and_output_pins_match_actual_bytes": true,
+    "frozen_original_report_exact_byte_pin_unchanged": true,
+    "core_table_rows": 1536,
+    "core_table_rows_each_target": 512,
+    "core_table_exactly_matches_saved_core_max_audit_tuples": true,
+    "qa_summary_matches_primary_and_context_QA_receipt_evidence": true,
+    "four_directions_six_scans_wording_correct": true,
+    "one_historical_scan_per_OFF_primary_no_independent_repeat": true,
+    "stationary_frequencies_and_third_rank_geometry_match_prior_final_review": true,
+    "whole_box_contribution_caveat_explicit": true,
+    "full_core_MAD_location_conditional_QA_caveat_explicit": true,
+    "post_selection_geometry_description_label_explicit": true,
+    "physical_origin_and_false_alarm_calibration_not_claimed": true,
+    "same_two_PNGs_as_prior_visual_PASS_review": true
+  },
+  "scientific_findings": [
+    "The two stationary components recur in all six scans, spanning four target directions, and are not six independent sky-source discoveries.",
+    "Third-rank overlap remains a descriptive property of the saved whole-box contributions, not a new significance test or physical source-cell attribution.",
+    "Symmetry around the earlier 2300.390625 MHz component is labelled observed frequency geometry and motivates investigation only; it does not establish an instrument-origin classification.",
+    "Arithmetic QA is explicitly conditional on saved hash-bound full-core MAD/location, with no exhaustive independent grid rerun."
+  ],
+  "review_scope": "Read-only document, receipt, table and saved-geometry review; no H5/NPZ/source-array opens, no detector, filtering, refit or new science execution.",
+  "frozen_producers_or_results_modified": false,
+  "new_scientific_execution": false
+}

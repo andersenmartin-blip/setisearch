@@ -1,3 +1,21 @@
+# SETI — 1536 nye kort og kontrollerede signalprofiler · 11. oktober 2026
+
+**1536 nye kort, 6.291.456 gemte carrier-maksima og 54 faste kontekstprofiler er afsluttet med begge uafhængige numeriske kontroller og gennemgåede figurer.** HIP97319, HIP97461 og HIP97663 har fået 5,859375 MHz ekstra dækning hver i deres oprindelige OFF-scanning fra 28. april 2017.
+
+De to stationære komponenter ved **2297,4609375 og 2303,3203125 MHz** optræder stærkt i alle seks scanninger på fire stjerneretninger. De tre rank-3-skabeloner rammer den første komponent i otte rækker, som bærer mindst 99,976% af deres positive hele box-bidrag. Det er foreneligt med flere søgeskabeloner omkring fælles spektralkomponenter. Den fysiske årsag er ikke fastslået. Der er **intet kvalificeret SETI-fund**, ingen kalibreret SNR/FAP og ingen ny uafhængig genobservation.
+
+Den fulde resultatpakke er leveret: 337.585.733 bytes, 9.416 medlemmer, CRC og SHA256 verificeret. Pris: **0 DKK**. [Fuld projektstatus](PROJECT_STATUS.md).
+
+- [Endelig rapport](analysis/off_adjacent_20261011_context/delivery/SETI_ADJACENT_FINAL_2026-10-11.md)
+- [Kontekstfigur](analysis/off_adjacent_20261011_context/delivery/SETI_CONTEXT54_2026-10-11.png) · [Tidsbidrag](analysis/off_adjacent_20261011_context/delivery/SETI_ROW_CONTRIBUTIONS_2026-10-11.png)
+- [Alle 1536 kernemaksima](analysis/off_adjacent_20261011_context/delivery/CORE_MAX1536.csv) · [Ni primære udvalg](analysis/off_adjacent_20261011_context/delivery/TOP9.csv) · [54 kontekster](analysis/off_adjacent_20261011_context/delivery/CONTEXT54.csv)
+- [QA-evidens](analysis/off_adjacent_20261011_context/delivery/QA_SUMMARY.json) · [Resultatpakkens identitet](analysis/off_adjacent_20261011_context/delivery/RESULT_PACKAGE_RECEIPT.json)
+- [Reproduktion og rådataidentitet](analysis/off_adjacent_20261011/REPRODUCTION_AND_DATA_AVAILABILITY.md)
+
+Følgende oversigt er bevaret historik.
+
+---
+
 # SETI — 753 nye kort i tre kontrolretninger · 11. oktober 2026
 
 **753 nye søgekort og 54 faste kontekstmålinger er afsluttet med uafhængig numerisk QA og gennemgået rapport og figur.** HIP97319, HIP97461 og HIP97663 har hver én oprindelig OFF-scanning fra besøget 28. april 2017. Alle 3.084.288 carrier-maksima er gemt.
@@ -900,3 +918,4 @@ they are not commands to restart the current work.
 The archive link preserves the previous full README and all its milestone
 summaries. Its “current” labels and “next step” instructions describe their
 historical dates. The current work queue is maintained in PROJECT_STATUS.md.
+

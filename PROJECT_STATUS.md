@@ -1,3 +1,19 @@
+# Afsluttet: 1536 nye OFF-kort · 11. oktober 2026
+
+Søgningen har undersøgt 512 nye frekvenskerner i hver af de oprindelige OFF-observationer af HIP97319, HIP97461 og HIP97663: 1536 nye kort og 6.291.456 referencekanalmaksima i alt. De tre stjerner har hver fået 5,859375 MHz ekstra frekvensdækning. Uafhængig QA har godkendt alle kort, rangeringerne og 6153 gemte råscorekontroller. Ni udvalgte spor er derefter målt uændret i alle seks observationer; alle 54 kontekstscorer og de ni primærscore-match har bestået separat QA.
+
+De to højest rangerede svar ligger ved **2297,4609375 og 2303,3203125 MHz**, med praktisk talt nul drift. Begge optræder stærkt i alle seks scanninger på fire forskellige stjerneretninger. Det peger på fælles smalle spektralkomponenter frem for signaler isoleret til en primærstjerne. De tredjepladser, som har lille positiv eller negativ drift, rammer den første stationære komponent i deres sidste otte tidsrækker. Disse rækker bærer mindst 99,976% af deres positive box-bidrag; mønstret er foreneligt med alternative søgeskabeloner omkring samme linje. Den fysiske årsag er endnu ikke fastslået.
+
+**Der er intet kvalificeret SETI-fund.** De høje scorer er ikke kalibreret SNR eller falsk-alarm-sandsynligheder. Alle data er fra det historiske besøg 28. april 2017; sammenligningsretningerne er ikke uafhængige genobservationer af de tre primærstjerner. Der er ingen ny driftstilpasning, kildeklassifikation eller gentagelse af detektorgridet i QA. Rå profiler, tidsbidrag, tabeller og figurer er bevaret til efterprøvning.
+
+[Rapport og figurer](analysis/off_adjacent_20261011_context/delivery/SETI_ADJACENT_FINAL_2026-10-11.md) · [Alle ni primære udvalg](analysis/off_adjacent_20261011_context/delivery/TOP9.csv) · [Alle 54 faste kontekster](analysis/off_adjacent_20261011_context/delivery/CONTEXT54.csv)
+
+Primær-QA: 24.576 kernemedianer, 6153 rå503-queries, 288 kilde-rækkehashes; største scoreafvigelse 3,64 × 10⁻¹². Kontekst-QA: 54 profiler, 864 rækkesummer, ni primærscore-match og alle bidragsdiagnostikker; scorearitmetikken stemmer præcist. QA er betinget af gemte hashbundne fuldkerne-MAD/lokation; disse parametre er ikke uafhængigt fuldt refiltreret.
+
+Resultatpakken `SETI_ADJACENT_CONTROL_RESULTS_2026-10-11.zip` er faktisk leveret: **337.585.733 bytes, 9.416 ZIP-medlemmer, CRC og alle payload-SHA256 verificeret**. Arkiv-SHA256: `49aeeb5efd539a0829cd041b695dae668462e8e77c2a63782546a5b086643bd4`. Original A/B forbliver FAIL_CLOSED; pris 0 DKK.
+
+---
+
 # Afsluttet: tre oprindelige OFF-stjerner · 11. oktober 2026
 
 **753 nye primærkort = 251 pr. HIP97319, HIP97461 og HIP97663; alle tre V2-job afsluttede med exit 0.** Referencekerner q1..254, bortset fra de allerede kortlagte q64/128/192, giver 3.084.288 gemte carrier-maksima og 4.842.332.160 korrelerede drift/bredde-kombinationer. Det er ikke et antal uafhængige statistiske forsøg. De oprindelige roller er bevaret; hver stjerne har én primær OFF-scanning fra 28. april 2017. Global TOP20 og TOP3 blev valgt én gang pr. stjerne, efterfulgt af 9 × 6 = 54 uændrede kontekstmålinger med de faktiske tidsmellemrum. Ingen nye teleskopforespørgsler eller data, **0 DKK**.
@@ -5990,3 +6006,4 @@ M43AI is complete. Do not rerun or retune this closed study. Any successor
 requires a separately fixed protocol and new evaluation evidence. The original
 held-out panels remain reserved. Main CI alone does not establish coverage of
 the science branch; use the native study audit and original-byte archive checks.
+
