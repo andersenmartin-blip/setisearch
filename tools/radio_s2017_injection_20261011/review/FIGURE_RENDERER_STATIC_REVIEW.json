@@ -1,0 +1,118 @@
+{
+  "schema": "SETI_S2017_INJECTION_FIGURE_RENDERER_SOURCE_ONLY_STATIC_REVIEW_V1",
+  "status": "PASS_SOURCE_ONLY_FIGURE_RENDERER_INTERFACES_AND_ALL30_GROUP_SEMANTICS",
+  "review_UTC": "2026-10-11T06:10:47.319732+00:00",
+  "reviewer": "repo_status/publication_inventory",
+  "reviewed_source_byte_pins": {
+    "analysis/s2017_injection_20261011/delivery/render_comparison.py": {
+      "bytes": 12664,
+      "sha256": "80483b804e58f5880bb7e1f797ee1381990e64bdfb18fd330e72949578aac360"
+    },
+    "analysis/s2017_injection_20261011/summarize.py": {
+      "bytes": 13488,
+      "sha256": "3d294adc53bd29b28123c7d79e75c1d2ebf4c441f21e5f381851a7f0d9989bbb"
+    },
+    "analysis/s2017_injection_20261011/qa_saved.py": {
+      "bytes": 40761,
+      "sha256": "53bf2a8aa2f215cbbcdaab3c0215d07a140fd865dfbcaa9980c0de27979343c4"
+    },
+    "analysis/s2017_injection_20261011/scope.json": {
+      "bytes": 26232,
+      "sha256": "64e34e40377751a261381a589dc5603c851ca562a162b9255239aff785d93631"
+    }
+  },
+  "renderer_direct_source_imports": [
+    "from __future__ import annotations",
+    "import argparse",
+    "import hashlib",
+    "import io",
+    "import json",
+    "import math",
+    "import os",
+    "from pathlib import Path",
+    "import resource",
+    "import signal",
+    "import time",
+    "import matplotlib",
+    "import matplotlib.pyplot as plt"
+  ],
+  "checks": [
+    {
+      "check": "exact_source_identity_and_AST",
+      "status": "PASS",
+      "evidence": "Renderer12664 bytes and expected SHA80483b\u2026 exact; all3 Python files parse without execution. Science scope SHA64e34e\u2026 matches both renderer and summarizer constants."
+    },
+    {
+      "check": "exact_actual_QA_and_saved_summary_interface",
+      "status": "PASS",
+      "evidence": "Renderer requires root GO plus exact64hex hashes for actual QA, SUMMARY and SUMMARY_RECEIPT; verifies exact QA schema/status450maps540diagnostics, scope SHA and detector-rerun false. Summary schema/status/actual-QA SHA, producer code SHA, output pin and input-pin equality are verified."
+    },
+    {
+      "check": "job_completeness_chain",
+      "status": "PASS",
+      "evidence": "summarize.py requires both exact COMPLETE job receipts, current QA-authenticated execution/diagnostic JSON hashes, frozen driver/scope/public-freeze equality,540 complete unique geometry identities,450 unique maps and18 shared-zero identities. Source contracts are300maps/360diagnostics offcenter plus150maps/180diagnostics known_center_competitor; no current result files inspected."
+    },
+    {
+      "check": "all30_q_width_amplitude_groups",
+      "status": "PASS",
+      "evidence": "Exact keys q64/128/192 x injectedwidth1/9 x A0/1/3/6/12; duplicate/unexpected keys rejected and group count exactly30. Summary retains all540 original logical diagnostics and all30 groups with no positive-only filter."
+    },
+    {
+      "check": "denominator18",
+      "status": "PASS",
+      "evidence": "Each summary group requires6scan x3drift members. Renderer requires logical_records==flag_denominator==18 and integer support counts in0..18. Summary also declares9 per role and3 per scan."
+    },
+    {
+      "check": "all16_support_AND_operational10",
+      "status": "PASS",
+      "evidence": "qa_saved.py independently checks positive_interval_overlap_all16==all(overlap>0), rounded16-row geometry and score_at_least_operational10==(score>=10). summarize.group explicitly sums Boolean conjunction of those two flags. Renderer reads only support_overlap_and_operational10; footer explicitly states all16 rows AND score>=10."
+    },
+    {
+      "check": "width9_mismatch_and9x_rawpower",
+      "status": "PASS",
+      "evidence": "Frozen searched widths1/3 versus injected1/9; numeric-QA source checks width-integrated rawpower==width*percell increment and width9 stress labels. Renderer title labels width9 mismatch, footer9x rawpower at equal A, data says support stress not exact-width recovery. No calibrated energy/flux inference."
+    },
+    {
+      "check": "shared_zero108_queries18maps_no_injection_credit",
+      "status": "PASS",
+      "evidence": "Summary/QA constants distinguish108 case-specific zero-geometry queries from18 distinct baseline maps, plus432 modified maps. Width9 and A0 cannot receive nominal matched-tuple threshold-crossing credit. Renderer checks shared-zero record kind, plots A0 separately as unfilled markers, labels it shared geometry and records zero_geometry_queries_not_injection_credit_or_fresh_trials_per_amplitude=true."
+    },
+    {
+      "check": "fullcore_rank1_not_completeness",
+      "status": "PASS",
+      "evidence": "QA chooses full-core winner from rank1 of saved4096-carrier maxima; summary preserves conditional rank1/threshold caveats. Renderer axis says whole core/rank1 and data explicitly full_core_metric_is_rank1_competition_not_search_completeness=true. Local\u00b15 uses known truth and is separately labelled."
+    },
+    {
+      "check": "conditional_counts_no_probability_intervals",
+      "status": "PASS",
+      "evidence": "Figure uses raw case counts out of18, includes ON/OFF roles, states dependent cases, and draws no uncertainty interval. Receipt sets Bernoulli_error_bars=false. Summary forbids calibrated SNR/FAP/global-null/population-completeness and coherent ON-only/OFF-veto claims."
+    },
+    {
+      "check": "create_only_and_end_readbacks",
+      "status": "PASS",
+      "evidence": "All3 output names must be absent; PNG and plot-data JSON use exclusive xb and render receipt exclusive x. Existing outputs cannot be overwritten. Exact input byte pins are re-read after PNG/data creation and before completion receipt. No source file mutation or automatic retry."
+    },
+    {
+      "check": "renderer_no_science_binary_or_detector_import",
+      "status": "PASS",
+      "evidence": "Renderer own input gate accepts only confined .json/.py; imports stdlib and lazy Matplotlib Agg/pyplot, with no direct NumPy/HDF5/NPZ/driver/detector/search imports. Matplotlib is the plotting dependency; saved scalar counts are the scientific input. No rendering or imports performed by this review."
+    }
+  ],
+  "concrete_blockers": [],
+  "qualification": "Static source/interface review only. This is not an actual job/QA/summary/figure completion or visual audit. Root must freeze/read back exact source and authorize rendering only after both jobs terminal COMPLETE, actual numeric QA PASS and exact saved summary.",
+  "operation_boundary": {
+    "allowed_source_files_read": [
+      "analysis/s2017_injection_20261011/delivery/render_comparison.py",
+      "analysis/s2017_injection_20261011/summarize.py",
+      "analysis/s2017_injection_20261011/qa_saved.py",
+      "analysis/s2017_injection_20261011/scope.json"
+    ],
+    "AST_parse_only_no_target_import_or_execution": true,
+    "phase_results_files_or_running_output_values_read": false,
+    "H5_NPZ_BIN_logs_ZIP_or_numeric_arrays_read": false,
+    "science_QA_summary_or_renderer_executed": false,
+    "source_code_or_scopes_changed": false,
+    "HTTP_requests": 0,
+    "publication": false
+  }
+}

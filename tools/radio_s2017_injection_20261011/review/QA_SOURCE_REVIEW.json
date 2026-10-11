@@ -1,0 +1,85 @@
+{
+  "reviewer": "/root/full_band_review",
+  "reviewed_UTC": "2026-10-11T06:11:10.668195+00:00",
+  "review_actions": {
+    "candidate_programs_imported_or_executed": 0,
+    "empirical_JSON_values_read": 0,
+    "H5_files_or_bytes_opened": 0,
+    "NPZ_files_or_values_opened": 0,
+    "detector_or_score_calls": 0,
+    "source_HTTP_requests": 0
+  },
+  "actual_empirical_QA_or_summary_authorized_by_this_review": false,
+  "unresolved_blockers": [],
+  "schema": "SETI_S2017_INJECTION_QA_INDEPENDENT_STATIC_REVIEW_V1",
+  "status": "PASS_INDEPENDENT_STATIC_SAVED_INJECTION_QA_NO_VALUES",
+  "qa_script_sha256": "53bf2a8aa2f215cbbcdaab3c0215d07a140fd865dfbcaa9980c0de27979343c4",
+  "qa_scope_sha256": "cfd01ef37aefa5c30a5ed91e04ae207e64ab8ed3b7cdee0f40cca3eb99c96eb5",
+  "source_byte_pins": {
+    "analysis/s2017_injection_20261011/qa_saved.py": {
+      "sha256": "53bf2a8aa2f215cbbcdaab3c0215d07a140fd865dfbcaa9980c0de27979343c4",
+      "bytes": 40761
+    },
+    "analysis/s2017_injection_20261011/qa_scope.json": {
+      "sha256": "cfd01ef37aefa5c30a5ed91e04ae207e64ab8ed3b7cdee0f40cca3eb99c96eb5",
+      "bytes": 2336
+    }
+  },
+  "benchmark_scope_sha256": "64e34e40377751a261381a589dc5603c851ca562a162b9255239aff785d93631",
+  "benchmark_public_freeze_commit": "aedf9a3e2bf33424f2d4e88875569eaa19ef4130",
+  "expected_counts": {
+    "maps": 450,
+    "baseline_maps": 18,
+    "modified_maps": 432,
+    "carrier_maxima": 1843200,
+    "carrier_rank_positions": 1843200,
+    "valid_hypothesis_records": 2893824000,
+    "diagnostics": 540,
+    "zero_geometry_queries": 108,
+    "modified_cases": 432,
+    "truth_audits": 540,
+    "raw_truth_window_cells": 4363200,
+    "independent_truth_scores": 1080,
+    "independent_tuple_score_checks": 5400,
+    "core_row_medians": 7200,
+    "width9_stress_diagnostics": 270,
+    "compact_files": 6,
+    "decoded_rows": 96
+  },
+  "admission_checks": [
+    "Self SHA, separate QA-scope SHA and benchmark-scope SHA are required CLI pins; both science and QA public freeze commits plus rootGO required.",
+    "Exact two COMPLETE receipt SHAs are checked before NumPy/codec imports or source-value opens.",
+    "Both receipt schemas/runtime versions/declaredCPU1000/wall1800/2GiBAS/validslot/workspace8GiB/final6sourceintegrity and measuredCPU/wall/RSS limits are checked.",
+    "Actual prior source/acquisition-QA hashes and6sourcecompact declarations are checked against science scope.",
+    "Family and bothscience slots are held exclusive; retained source family held shared. No lockfiles unlinked.",
+    "Read-only source handles;6compacts decoded once;96float32rowSHA and headers/frame checks. No original arrays/files modified.",
+    "Exact map/case/audit order and completefile inventory required. 450maparrays, frequencies/physicalchannels/grid/precision/finite/hypothesis support and all4096rankpositions checked.",
+    "NPZ hashes authenticate the exact bytes loaded through BytesIO; duplicate NPZ/JSON fields rejected. All input/code/source pins rehashed before PASS.",
+    "Create-only QA output and created_output guard preserve existing failed namespace. CPU180/wall300/AS2GiB, singlethread environment, saved failure receipt/no automaticretry."
+  ],
+  "independent_arithmetic_checks": {
+    "raw_window_definition": "For odd widthw, radius250+w//2; raw shape16×(501+w−1). Every scoring point has its own501sample median centered on that point, matching unchanged preprocessing away from crop edges.",
+    "standardization": "raw/row_power_median − local501runningmedian − savedrow_winsorized_residual_location, divided by savedrow_residual_MAD_scale. Sum pointvalues byrow then allrows/sqrt(16*w).",
+    "frozen_full_core_statistics": "All450×16 float64 core row-power medians independently recomputed; full-core residualMAD/location schema+hash-bound, not independently refiltered.",
+    "raw_injection": "Promote full-source float32 samples tofloat64; add amplitude×baselinepowerMedian×baselineMAD to each rounded truthwidthcell. Audit baseline andmodified rawcells are independently compared bitwise.",
+    "rounded_geometry": "Ownscan firstmidpoint reference, np.arange16×TSAMP; complete absolutechannel mapping rounded before offset subtraction. Frequencies/centers/error16vectors/support overlap recalculated.",
+    "truth_widths": "501and509raw audit windows for width1and9; width9 known-truth arithmetic only, not a newsearchedwidth.",
+    "tuple_checks": "Modified localwindow, nearestcarrier, fullcorewinner; matchedzero local andfullcorewinner. Each current and same-tuple baseline score independently reconstructed from501/503pointwindows in fullnative source arrays.",
+    "selected_rank_choices": "Lexsort saved4096maxima by−score,absolutechannel; no scores optimized or fullcarrier/driftgrid rerun.",
+    "threshold_flags": "Specific matchedtuple thresholdcrossings recomputed exactly; width9 andzero get no nominalcredit; no exhaustivecompatiblebaselineabsence is asserted.",
+    "absolute_tolerance": 1e-07,
+    "relative_tolerance": 1e-10,
+    "tolerance_reason": "Direct localpoint sums versus unchanged detector cumulative-prefix differences can differ in floatingrounding. Tolerance is prospective; empirical success is stillunverified."
+  },
+  "resolved_review_findings": [
+    "Closedreceipt admission tightened to exactschema/runtime/declaredresource/finalbyteintegrity fields, beyond measuredCPU/wall/RSS.",
+    "created_output flag added so rejected existingreviewdirectory is not mutated by exception handler.",
+    "Countinterface verified: benchmark receipt diagnostic_records360/180; aggregateQA counts diagnostics540; summary reads the matching names."
+  ],
+  "limitations": [
+    "No empiricalvalues read by reviewer; actual numerical tolerance/runtime/output success remain pending rootGO.",
+    "All saved maxima are authenticated and ranks reconstructed; only knowntruth and5selectedtuple families are independently rescored locally, not all1570 hypotheses at everycarrier.",
+    "Saved residualMAD/location are conditional inputs to directarithmetic; full preprocessing is not independently regenerated.",
+    "Onehistoricalvisit/18fixedbackgrounds and deterministiccases are not independenttests, blindconfirmation, calibratedSNR/FAP or populationsensitivity."
+  ]
+}
