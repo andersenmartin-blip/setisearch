@@ -1,3 +1,19 @@
+# Aktuel SETI-status · 11. oktober 2026: fast rækkefølgekontrol afsluttet
+
+**1.161 gemte vindertuple-forekomster, 18.576 række/center-bokse og 27.864 permutationsscorer er beregnet og har bestået uafhængig numerisk QA.** Kode og scope blev offentliggjort ved commit `76fb3d56e5600b3f970405b373c53d66917cb71b` før de nye matrixudfald. De tre primærjob er gennemført én gang på eksisterende OFF-data fra 28. april 2017; intet søgegitter eller fuldkerne-MAD/location er genberegnet.
+
+Alle ni tidligere TOP3 har fire forskellige centerkanaler. Deres kronologiske score er strengt større end hver af de 23 alternative centervektorer. For det stærkeste spor, HIP97663 ved 2302,264352 MHz, er de to scorer **7,315816 og 4,998336**. Kronologien var allerede optimeret over drift, vindue og bredde; alternative arrangementer er typisk ikke lineære spor. Resultatet er derfor en betinget geometrisk diagnose og giver ingen uafhængig signalevidens, permutation-p, kalibreret FAP eller SETI-kvalifikation.
+
+De 1.161 forekomster omfatter 1.152 forskellige videnskabelige tuples med ni gentagelser. Fire forekomster har kun én centervektor og ingen tidsrækkefølgeinformation; 22 har gentagne centre og 1.135 har fire forskellige centre. De gemte full16-normaliseringskonstanter følger den fysiske række. Uafhængig råkapselaritmetik stemmer præcist med de nye matrixled og permutationsscorer; største forskel mod den tidligere identitetsscore er 2,71×10⁻¹⁴. De fulde kerners gemte MAD/location er fortsat betingede forudsætninger.
+
+Planen **7.–20. oktober** fortsætter med sit oprindelige slutcheckpoint den 20. oktober. Metodealternativet og rapport-/reproduktionsarbejdet er allerede gennemført. Original A/B er fortsat `FAIL_CLOSED`; den oprindelige kvalificerede nye-himmelpilot er ikke åbnet. Denne eksplorative fase ændrer ingen kvalifikationsgate og tilføjer ingen observation, frekvensdækning eller holdout-validering. Udgift: **0 DKK**; nul nye teleskoprequests.
+
+[Rapport](analysis/burst_order_20261011/delivery/SETI_BURST_ORDER_FINAL_2026-10-11.md) · [Ni spor](analysis/burst_order_20261011/delivery/TOP9.csv) · [Hele auditten](analysis/burst_order_20261011/delivery/AUDIT1161.csv) · [Numerisk QA](analysis/burst_order_20261011/QA_RECEIPT.json) · [Reproduktion](analysis/burst_order_20261011/REPRODUCTION.md) · [Offentligt evidensindeks](analysis/burst_order_20261011/PUBLIC_EVIDENCE_INDEX.md)
+
+---
+
+## Tidligere status og retning, bevaret uændret
+
 # Afsluttet: 288 burst-kort og 54 faste kontekstprofiler · 11. oktober 2026
 
 **288 burst-søgekort, 1.179.648 gemte kanalmaksima og 54 faste kontekstprofiler er afsluttet. Begge numeriske QA-kørsler og rapportens figurer har bestået kontrollen.** Piloten anvender syv overlappende vinduer med fire integrationer (73,014 sekunder) i de eksisterende OFF-scanninger af HIP97319, HIP97461 og HIP97663 fra 28. april 2017. Hver retning omfatter 96 på forhånd fastlagte frekvenskerner, cirka 12,5 % af de 766 tidligere undersøgte kerner.

@@ -1,3 +1,17 @@
+# Aktuel SETI-retning · 11. oktober 2026: tidsrækkefølge afhænger af udvælgelsen
+
+Den fastlåste kontrol af 1.161 tidligere gemte burst4-vindertuple-forekomster er færdig og uafhængigt kontrolleret. Alle ni TOP3 står højere i kronologien end i de 23 forskellige alternative centerarrangementer. For det stærkeste spor er scorerne 7,315816 og 4,998336. Kontrollen beskriver følsomhed over for kanalcentrenes tilordning; den kalibrerer ingen nulfordeling og giver ingen ny uafhængig signalevidens.
+
+Det næste uløste metodeproblem er **en prospektiv kalibrering af hele udvælgelsesfamilien**. Et senere design skal fastlåse støj-/kalibreringsdata, normalisering, søgefamilie og maksimumstatistik før værdier åbnes og gentage hele den relevante vinderudvælgelse i nulmodellen. At omarrangere et allerede udvalgt vinderspor kan ikke erstatte denne kalibrering. Der er ikke startet en ny nulbank eller søgekampagne som del af denne afslutning.
+
+Uafhængig himmelbekræftelse kræver målrelevante, uafhængige data. Den senest dokumenterede 2019-mulighed har endnu ingen etableret transportadgang og ligger i et andet frekvensbånd. Original A/B forbliver FAIL_CLOSED, de beskyttede 2016-paneler forbliver lukkede, og de afsluttede analyser gentages ikke. Den formelle 7.–20.-oktober-periode og checkpointet den 20. oktober består.
+
+[Kontrolleret resultat](analysis/burst_order_20261011/delivery/SETI_BURST_ORDER_FINAL_2026-10-11.md) · [Fast scope](analysis/burst_order_20261011/scope.json) · [Metode og datagrænser](analysis/burst_order_20261011/PROTOCOL.md) · [Fuld status](PROJECT_STATUS.md)
+
+---
+
+## Tidligere status og retning, bevaret uændret
+
 # Aktuel SETI-retning — 11. oktober 2026: burstpilot afsluttet
 
 **288 burst-søgekort, 1.179.648 gemte kanalmaksima og 54 faste kontekstprofiler er afsluttet. Begge numeriske QA-kørsler og rapportens figurer har bestået kontrollen.** Piloten anvender syv overlappende vinduer med fire integrationer (73,014 sekunder) i de eksisterende OFF-scanninger af HIP97319, HIP97461 og HIP97663 fra 28. april 2017. Hver retning omfatter 96 på forhånd fastlagte frekvenskerner, cirka 12,5 % af de 766 tidligere undersøgte kerner.
