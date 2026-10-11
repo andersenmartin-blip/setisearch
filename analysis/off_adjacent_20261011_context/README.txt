@@ -1,0 +1,1 @@
+Preparation only. Fixed nine selected OFF-primary tracks in six original scans (54 contexts); no new search, fit, observing epoch, or FAP. Execution waits for root GO and pinned actual producer/results.

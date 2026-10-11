@@ -1,0 +1,53 @@
+{
+  "schema": "SETI_OFF_ADJACENT_INDEPENDENT_STATIC_QA_CONTEXT_REVIEW_V1",
+  "status": "PASS_STATIC_SOURCE_REVIEW_NO_NUMERICAL_EXECUTION",
+  "reviewer": "/root/adjacent_driver",
+  "reviewed_UTC": "2026-10-11T15:15:18.820258+00:00",
+  "source_code_pins": [
+    {
+      "path": "analysis/off_adjacent_20261011_qa/qa_saved.py",
+      "bytes": 38243,
+      "sha256": "4af6828f03f9b307766e3ec5fb4bdc56ba5e011d1fb75c36330645543353b770"
+    },
+    {
+      "path": "analysis/off_adjacent_20261011_context/context_profiles.py",
+      "bytes": 24145,
+      "sha256": "e4124488f366bff9089de067210cc16bcd9169b7d16a95f29adf3ff0fe4b9e76"
+    }
+  ],
+  "QA_review": {
+    "independent_of_detector": true,
+    "raw503_width1_support": "center251, median columns1:502",
+    "raw503_width3_support": "centers250,251,252, median columns0:501,1:502,2:503",
+    "raw_float32_bits_vs_authenticated_source": true,
+    "full_core_row_medians_independently_recomputed": true,
+    "MAD_and_location_conditioned_on_saved_normalization": "explicit and correct limitation",
+    "carrier_map_shapes_grid_and_validity": true,
+    "pooled_512_core_TOP20_and_first3_TOP3_tie_order": "score descending, absolute channel ascending, greedy distance>3",
+    "source_checks": "18 whole compactSHA and288 decoded rowSHA; whole-file rehash after QA",
+    "resource_caps": {
+      "CPU_s": 1800,
+      "wall_s": 1800,
+      "RAM_bytes": 3221225472
+    },
+    "blockers": []
+  },
+  "context_review": {
+    "original_actual_timestamp_gaps_used": true,
+    "absolute_np_rint_after_combined_carrier_drift": true,
+    "unchanged_raw_core_plus4000halo_preprocessing": true,
+    "own_primary_normalization_and_score_reconciled": true,
+    "maximum_conservative_filter_support_halo_by_origin": {
+      "epoch1_off": 2615,
+      "epoch2_off": 1739,
+      "epoch3_off": 2720
+    },
+    "available_halo": 4000,
+    "undefined_positive_fractions_saved_as_null": true,
+    "runtime_versions_recorded": true,
+    "blockers": []
+  },
+  "source_arrays_opened": false,
+  "numerical_modules_imported": false,
+  "detector_or_science_rerun": false
+}
