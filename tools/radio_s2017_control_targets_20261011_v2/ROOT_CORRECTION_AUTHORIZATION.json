@@ -1,0 +1,47 @@
+{
+  "schema": "SETI_CONTROL_SOURCE_FORMAT_CORRECTION_ROOT_AUTHORIZATION_V1",
+  "status": "GO_PREPARE_NEW_V2_NAMESPACE_IDENTICAL_SCIENTIFIC_FAMILY_AFTER_PRE_SCORE_METADATA_FAILURE",
+  "initial_public_freeze_commit": "1897b2cceb1846516447707fa5c4d492d33cb6f2",
+  "initial_failed_executions": [
+    {
+      "path": "analysis/s2017_control_targets_20261011/results/primary20170428_HIP97319/EXECUTION_RECEIPT.json",
+      "bytes": 457,
+      "sha256": "ed7545453d18e6bab9efbf8338ca591894899bb9711677b7a2a89fcc1240ed4c",
+      "completed_science_maps": 0,
+      "decoded_source_value_assignment_reached": false
+    },
+    {
+      "path": "analysis/s2017_control_targets_20261011/results/primary20170428_HIP97461/EXECUTION_RECEIPT.json",
+      "bytes": 457,
+      "sha256": "d2ac76e4bd854260cd1e59ad9b157984143c63e6a4e7b5c0147a3a935e2a321f",
+      "completed_science_maps": 0,
+      "decoded_source_value_assignment_reached": false
+    },
+    {
+      "path": "analysis/s2017_control_targets_20261011/results/primary20170428_HIP97663/EXECUTION_RECEIPT.json",
+      "bytes": 457,
+      "sha256": "eb7f308cd448fcb3b974e6286981a3f30186f9ff0d5c95cdc90c12e294595cf1",
+      "completed_science_maps": 0,
+      "decoded_source_value_assignment_reached": false
+    },
+    {
+      "path": "continuation_20261011/execution/control_target_primary/OUTER_EXECUTION.json",
+      "bytes": 4526,
+      "sha256": "79e44422f69fc5f81081d96a2a316c75ad7b9435e9e661454fa5ea2ad4679c58"
+    }
+  ],
+  "old_namespace_preserved": true,
+  "new_namespace": "analysis/s2017_control_targets_20261011_v2",
+  "failure": "Initial driver expected original header fields as compact HDF5 attrs; reader.create_compact_dataset writes only the three provenance attrs. All3jobs failed at first absent DIMENSION_LABELS, before data[:,0,:] decode or detector.search_scan.",
+  "authorized_change": "Remove HDF5 original-header attr loop; retain pinned source-manifest original headers, compact shape/dtype/three provenance attrs/full SHA and16row SHA pre/post. Namespace and provenance pins change; numerical dependency/family/carriers/selection/context remain identical.",
+  "detector_sha256": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45",
+  "new_maps": 753,
+  "new_targets": 3,
+  "audit_queries": 3021,
+  "selected_tracks": 9,
+  "fixed_context_profiles": 54,
+  "new_GET_requests": 0,
+  "cost_DKK": 0,
+  "new_public_source_freeze_and_explicit_ROOT_GO_required": true,
+  "automatic_rerun_of_failed_namespace": false
+}

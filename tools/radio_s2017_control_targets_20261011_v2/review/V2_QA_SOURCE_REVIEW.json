@@ -1,0 +1,89 @@
+{
+  "HDF5_files_statted_or_opened": false,
+  "NPZ_files_statted_or_opened": false,
+  "QA_arithmetic_caps_counts_schema_and_admission_logic_changed": false,
+  "checks": [
+    "Both V2 QA sources are byte-for-byte identical to the reviewed originals except the single BASE assignment and pass standard-library AST parsing.",
+    "Both fresh QA scopes change only namespace paths and source/driver/scope pins; counts, caps, arithmetic, tolerance, claims and external root publication/GO controls are identical to the reviewed original scopes.",
+    "Fresh primary and context scopes bind the current corrected V2 driver sources and the V2 independent arithmetic helper.",
+    "The original failed phase and source-review receipts remain unchanged; V2 output paths are fresh creation-only namespaces."
+  ],
+  "exact_route_diff_checks": {
+    "qa_context.py": "PASS_EXACT_SINGLE_BASE_ASSIGNMENT_CHANGE_ONLY",
+    "qa_context_scope.json": [
+      "context_driver_sha256",
+      "context_scope_sha256",
+      "independent_arithmetic_helper_sha256",
+      "one_shot_output_namespace",
+      "qa_source_path",
+      "qa_source_sha256"
+    ],
+    "qa_saved.py": "PASS_EXACT_SINGLE_BASE_ASSIGNMENT_CHANGE_ONLY",
+    "qa_scope.json": [
+      "one_shot_output_namespace",
+      "primary_driver_sha256",
+      "primary_scope_sha256",
+      "qa_source_path",
+      "qa_source_sha256"
+    ]
+  },
+  "limitations": [
+    "This review covers the independent QA route and fresh scope bindings. The corrected primary driver implementation has its own source review.",
+    "The prior conditional-normalization, selected-score-only, external root publication/GO and scientific interpretation limits remain unchanged.",
+    "This prospective source review does not claim empirical numerical QA PASS or authorize numerical execution before public freeze and root GO."
+  ],
+  "network_requests": 0,
+  "numeric_saved_outputs_read": false,
+  "numerical_execution": false,
+  "numerical_modules_imported": false,
+  "original_failed_namespace_modified": false,
+  "preceding_source_reviews": {
+    "continuation_20261011/metadata/control_target_sweep/QA_SOURCE_REVIEW.json": {
+      "bytes": 5205,
+      "sha256": "b8eb6285e5170c92b570fe73857336d72bcdebc28561185db74bed1cd507cd48"
+    },
+    "continuation_20261011/metadata/control_target_sweep/QA_SOURCE_REVIEW_SUPPLEMENT.json": {
+      "bytes": 3383,
+      "sha256": "0a56bb16905c0a8b7c4cb3809a631810eb655819b364e0d127edcee8389d7eaa"
+    }
+  },
+  "reviewed_file_byte_pins": {
+    "analysis/s2017_control_targets_20261011_v2/context_profiles.py": {
+      "bytes": 33192,
+      "sha256": "1497c5b6af9736e82b245eacd504d133a2bbd34a564e62186ebfc0ae7d91e693"
+    },
+    "analysis/s2017_control_targets_20261011_v2/context_scope.json": {
+      "bytes": 58546,
+      "sha256": "022b93be228cd2e19684bcd8d6471b18e086fdcca6a120092bae6be4b8f95f60"
+    },
+    "analysis/s2017_control_targets_20261011_v2/driver.py": {
+      "bytes": 31824,
+      "sha256": "5f0f06373ca2f5143b036e4203c77b983ef9cf9646ffb0e0ab5cf4883133fd15"
+    },
+    "analysis/s2017_control_targets_20261011_v2/qa_context.py": {
+      "bytes": 29524,
+      "sha256": "75161351c62a7847611ef74af1f02e0467afb199c8ae215634afb1dc9784bd8b"
+    },
+    "analysis/s2017_control_targets_20261011_v2/qa_context_scope.json": {
+      "bytes": 2310,
+      "sha256": "f9d37c5f80f600ade3136c4acbc58ab8a9cc857b910c619510960abc1c82457a"
+    },
+    "analysis/s2017_control_targets_20261011_v2/qa_saved.py": {
+      "bytes": 36137,
+      "sha256": "210f85fb8874218396149da18b9242d8934a8c4377812dc22205eb8477f740b5"
+    },
+    "analysis/s2017_control_targets_20261011_v2/qa_scope.json": {
+      "bytes": 2037,
+      "sha256": "ab9c4a00d949cb91951f2be84723d42de86738fd35ae573fdd4de827e2fdd1ec"
+    },
+    "analysis/s2017_control_targets_20261011_v2/scope.json": {
+      "bytes": 31574,
+      "sha256": "2bc4e6b4176a68e7714c7a0547d2bec70efb630e593569a46f96785fe119d733"
+    }
+  },
+  "reviewer": "/root/runtime_restore/control_qa_source_review",
+  "schema": "SETI_S2017_CONTROL_TARGET_V2_INDEPENDENT_QA_SOURCE_REVIEW_V1",
+  "scientific_values_read": false,
+  "source_only": true,
+  "status": "PASS_SOURCE_ONLY_V2_NAMESPACE_ROUTE_AND_FRESH_QA_SCOPE_PINS"
+}

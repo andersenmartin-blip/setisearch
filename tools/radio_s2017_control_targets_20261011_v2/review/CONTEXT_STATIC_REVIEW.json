@@ -1,0 +1,182 @@
+{
+  "schema": "SETI_S2017_CONTROL_TARGET_V2_INDEPENDENT_CONTEXT_MINIMAL_DIFF_REVIEW_V1",
+  "status": "PASS_V2_CONTEXT_MINIMAL_SOURCE_DIFF_FIXED54_METHOD18_GEOMETRY_AND_FAILURE_PROVENANCE",
+  "reviewer": "/root/repo_status/publication_inventory",
+  "review_date_UTC": "2026-10-11",
+  "context_driver_sha256": "1497c5b6af9736e82b245eacd504d133a2bbd34a564e62186ebfc0ae7d91e693",
+  "context_preparer_sha256": "be4d8c2e72ec43b86aae80279d47a74377c7b9b577458ae045a20b8ee04ac457",
+  "context_scope_sha256": "022b93be228cd2e19684bcd8d6471b18e086fdcca6a120092bae6be4b8f95f60",
+  "primary_scope_sha256": "2bc4e6b4176a68e7714c7a0547d2bec70efb630e593569a46f96785fe119d733",
+  "primary_QA_source_sha256": "210f85fb8874218396149da18b9242d8934a8c4377812dc22205eb8477f740b5",
+  "reviewed_V2_bytes": {
+    "context_profiles.py": {
+      "path": "analysis/s2017_control_targets_20261011_v2/context_profiles.py",
+      "bytes": 33192,
+      "sha256": "1497c5b6af9736e82b245eacd504d133a2bbd34a564e62186ebfc0ae7d91e693"
+    },
+    "prepare_context_scope.py": {
+      "path": "analysis/s2017_control_targets_20261011_v2/prepare_context_scope.py",
+      "bytes": 5550,
+      "sha256": "be4d8c2e72ec43b86aae80279d47a74377c7b9b577458ae045a20b8ee04ac457"
+    },
+    "context_scope.json": {
+      "path": "analysis/s2017_control_targets_20261011_v2/context_scope.json",
+      "bytes": 58546,
+      "sha256": "022b93be228cd2e19684bcd8d6471b18e086fdcca6a120092bae6be4b8f95f60"
+    }
+  },
+  "preserved_V1_bytes_reauthenticated": {
+    "context_profiles.py": {
+      "path": "analysis/s2017_control_targets_20261011/context_profiles.py",
+      "bytes": 33193,
+      "sha256": "1a4ca1b67e38bd4a627c584985cdd92fcae42d308f790dde25658513faa7b8b6"
+    },
+    "prepare_context_scope.py": {
+      "path": "analysis/s2017_control_targets_20261011/prepare_context_scope.py",
+      "bytes": 5544,
+      "sha256": "803a549ed2379212099c3b9fcf1e0b74b35443440ba03fdebc48a865851c2310"
+    },
+    "context_scope.json": {
+      "path": "analysis/s2017_control_targets_20261011/context_scope.json",
+      "bytes": 57229,
+      "sha256": "dc232c4fe07b33ecccf3d0aff78d5946c88f2f0782a080c8cffbfaa212629125"
+    }
+  },
+  "blocking_findings": [],
+  "minimal_diff": {
+    "normalized_source_exactly_equals_preserved_V1": true,
+    "source_changes_only": [
+      "BASE/output/input namespace becomes V2",
+      "Both independent context review paths move to V2/review"
+    ],
+    "scope_changed_keys": [
+      "independent_context_review_paths",
+      "primary_QA_source_sha256",
+      "primary_scope_path",
+      "primary_scope_sha256",
+      "text_code_pins"
+    ],
+    "all_other_scope_fields_identical": true,
+    "new_primary_and_QA_byte_pins_current": true
+  },
+  "unchanged_method_checks": [
+    "Exactly9 primary selected TOP3 tuples ×6 canonical scans =54 fixed context queries;9 origin score matches.",
+    "Original OFF targets HIP97319/HIP97461/HIP97663 retain acquisition roles and separate single-scan identities; other5 scans remain descriptive direction/time context.",
+    "Physical time=(context tstart-origin tstart)*86400+j*TSAMP; checked equal tsamp cancels midpoint halves. Absolute source np.rint precedes crop subtraction.",
+    "Same original q4096 static normalization core, halo4000 and unchanged detector.preprocess; no old full-native float32 profile denominators.",
+    "Direct fixed selected-width16-row scores and503float32 capsules; no carrier/frequency/drift/width optimization or detector search grid.",
+    "Exact3 actual COMPLETE primary receipts + independent actual primaryQA + receipt/QA-bound TOP20/TOP3 gate before numerical work.",
+    "Exact code/preparer/scope/review public readback and rootGO pins, rechecked before COMPLETE; create-only output/family lock/no automatic retry.",
+    "Same180CPU/300wall/2GiB/32MiBoutput/8GiBworkspace caps, explicit measured terminal gate and final receipt size check.",
+    "Same post-selection/no recurrence/no veto/no calibrated significance or qualified sky claim limits."
+  ],
+  "metadata_geometry": {
+    "unchanged_all18_scope_records": true,
+    "independent_V1_evidence": {
+      "path": "continuation_20261011/metadata/control_target_sweep/CONTEXT_STATIC_REVIEW.json",
+      "bytes": 22477,
+      "sha256": "ee67e2688831bac0b891cc9490ee9daf05b11940f609fc7ade54a8059fa0b81d"
+    },
+    "retained_independent_geometry": {
+      "source_manifest_sha256": "1fd17cbf60251b77c06a2bbeb00f405b068f3d60b32b9f4cfcf39eccc4076107",
+      "origin_context_geometry_pairs": 18,
+      "eligible_cores_per_primary": 251,
+      "targets": [
+        {
+          "origin_scan_id": "epoch1_off",
+          "max_absolute_time_from_primary_first_midpoint_s": 1650.8041651451458,
+          "maximum_drift_displacement_ceiling_channels": 2364,
+          "raw503_support_inclusive_core_relative_min_max": [
+            -2615,
+            6710
+          ]
+        },
+        {
+          "origin_scan_id": "epoch2_off",
+          "max_absolute_time_from_primary_first_midpoint_s": 1039.000000222586,
+          "maximum_drift_displacement_ceiling_channels": 1488,
+          "raw503_support_inclusive_core_relative_min_max": [
+            -1739,
+            5834
+          ]
+        },
+        {
+          "origin_scan_id": "epoch3_off",
+          "max_absolute_time_from_primary_first_midpoint_s": 1724.0000000456348,
+          "maximum_drift_displacement_ceiling_channels": 2469,
+          "raw503_support_inclusive_core_relative_min_max": [
+            -2720,
+            6815
+          ]
+        }
+      ],
+      "all_guarded_raw503_support_native_relative_half_open": [
+        1376,
+        1047200
+      ],
+      "parent_conservative_ceiling_plus_guard_bound_half_open": [
+        1375,
+        1047201
+      ],
+      "all_complete_support_inside_native171": true
+    }
+  },
+  "textpin_inventory_audit": {
+    "count": 57,
+    "total_UTF8_bytes": 4381199,
+    "all_current_declared_SHA256s_match": true,
+    "UTF8_plain_no_NUL": true,
+    "metadata_inventory_SHA256": "1037fc0e3eac24b1daf8fca859bfed827a264cd40067d88a71606e7387fc884e",
+    "added_failure_provenance_pins_reauthenticated": true
+  },
+  "failure_provenance": {
+    "preserved_V1_primary_failures": [
+      {
+        "path": "analysis/s2017_control_targets_20261011/results/primary20170428_HIP97319/EXECUTION_RECEIPT.json",
+        "bytes": 457,
+        "sha256": "ed7545453d18e6bab9efbf8338ca591894899bb9711677b7a2a89fcc1240ed4c",
+        "status": "INCOMPLETE_PRESERVED_NO_AUTOMATIC_RETRY",
+        "failure_type": "KeyError",
+        "missing_attribute": "DIMENSION_LABELS"
+      },
+      {
+        "path": "analysis/s2017_control_targets_20261011/results/primary20170428_HIP97461/EXECUTION_RECEIPT.json",
+        "bytes": 457,
+        "sha256": "d2ac76e4bd854260cd1e59ad9b157984143c63e6a4e7b5c0147a3a935e2a321f",
+        "status": "INCOMPLETE_PRESERVED_NO_AUTOMATIC_RETRY",
+        "failure_type": "KeyError",
+        "missing_attribute": "DIMENSION_LABELS"
+      },
+      {
+        "path": "analysis/s2017_control_targets_20261011/results/primary20170428_HIP97663/EXECUTION_RECEIPT.json",
+        "bytes": 457,
+        "sha256": "eb7f308cd448fcb3b974e6286981a3f30186f9ff0d5c95cdc90c12e294595cf1",
+        "status": "INCOMPLETE_PRESERVED_NO_AUTOMATIC_RETRY",
+        "failure_type": "KeyError",
+        "missing_attribute": "DIMENSION_LABELS"
+      }
+    ],
+    "preserved_outer": {
+      "path": "continuation_20261011/execution/control_target_primary/OUTER_EXECUTION.json",
+      "bytes": 4526,
+      "sha256": "79e44422f69fc5f81081d96a2a316c75ad7b9435e9e661454fa5ea2ad4679c58",
+      "status": "FAILED_PRESERVED_NO_RETRY",
+      "exit_codes": [
+        1,
+        1,
+        1
+      ],
+      "new_source_requests": 0,
+      "automated_retries": 0
+    },
+    "failure_stage_source_evidence": "Preserved V1 primary driver accesses all manifest header keys through data.attrs before power=data[:,0,:]. The DIMENSION_LABELS KeyError therefore precedes power-array materialization and detector/scoring. V2 primary correction is reviewed separately by parent.",
+    "failed_namespace_outputs_reused": false,
+    "V2_is_additive_root_authorized_phase": true
+  },
+  "static_review_limits": "Source/AST/diff/metadata byte pins only; no scientific arrays/results values, H5/NPZ or execution. PASS is not actual numerical QA, completion or rootGO.",
+  "scientific_execution_performed": false,
+  "H5_NPZ_or_array_body_reads": 0,
+  "saved_science_values_interpreted": false,
+  "new_HTTP_requests": 0,
+  "publication_performed": false
+}

@@ -1,0 +1,77 @@
+{
+  "schema": "SETI_S2017_CONTROL_PRIMARY_V2_HEADER_REPRESENTATION_FIX_V1",
+  "status": "PASS_SOURCE_ONLY_CORRECTED_NEW_NAMESPACE_NO_SCIENCE_EXECUTION",
+  "old_scope_sha256": "ca5783a60f5a00bb6037f368efa9ed61b7680e45c0e4f25c9ce25f91dea09314",
+  "old_driver_sha256": "1967142d06b3d7e28b8c24f588069923f8fcd121fb448c4b5a1162d36c9ca3b1",
+  "new_scope_sha256": "2bc4e6b4176a68e7714c7a0547d2bec70efb630e593569a46f96785fe119d733",
+  "new_driver_sha256": "5f0f06373ca2f5143b036e4203c77b983ef9cf9646ffb0e0ab5cf4883133fd15",
+  "initial_failures": {
+    "initial_phase": "analysis/s2017_control_targets_20261011",
+    "initial_scope_sha256": "ca5783a60f5a00bb6037f368efa9ed61b7680e45c0e4f25c9ce25f91dea09314",
+    "initial_public_freeze_commit": "1897b2cceb1846516447707fa5c4d492d33cb6f2",
+    "initial_attempt_file_pins": {
+      "analysis/s2017_control_targets_20261011/driver.py": {
+        "sha256": "1967142d06b3d7e28b8c24f588069923f8fcd121fb448c4b5a1162d36c9ca3b1",
+        "bytes": 31749
+      },
+      "analysis/s2017_control_targets_20261011/scope.json": {
+        "sha256": "ca5783a60f5a00bb6037f368efa9ed61b7680e45c0e4f25c9ce25f91dea09314",
+        "bytes": 28196
+      },
+      "analysis/s2017_control_targets_20261011/launch_primary.py": {
+        "sha256": "6f099d94aaab6dfac8cba77ab94922065b1d03dedc28258c1195778c176d8f6d",
+        "bytes": 6557
+      },
+      "analysis/s2017_control_targets_20261011/PUBLIC_FREEZE.json": {
+        "sha256": "118e6e178ab73e518cd6f9f788c3b8ebffb8938a8706360b49b4e5b87667dac6",
+        "bytes": 9854
+      },
+      "continuation_20261011/execution/control_target_primary/OUTER_EXECUTION.json": {
+        "sha256": "79e44422f69fc5f81081d96a2a316c75ad7b9435e9e661454fa5ea2ad4679c58",
+        "bytes": 4526
+      },
+      "analysis/s2017_control_targets_20261011/results/primary20170428_HIP97319/EXECUTION_RECEIPT.json": {
+        "sha256": "ed7545453d18e6bab9efbf8338ca591894899bb9711677b7a2a89fcc1240ed4c",
+        "bytes": 457
+      },
+      "analysis/s2017_control_targets_20261011/results/primary20170428_HIP97461/EXECUTION_RECEIPT.json": {
+        "sha256": "d2ac76e4bd854260cd1e59ad9b157984143c63e6a4e7b5c0147a3a935e2a321f",
+        "bytes": 457
+      },
+      "analysis/s2017_control_targets_20261011/results/primary20170428_HIP97663/EXECUTION_RECEIPT.json": {
+        "sha256": "eb7f308cd448fcb3b974e6286981a3f30186f9ff0d5c95cdc90c12e294595cf1",
+        "bytes": 457
+      }
+    },
+    "reason": "Original compact writer stores only its three original_source provenance attributes, not original header attrs; actual shape/dtype and immutable source metadata remain authenticated",
+    "new_spectrum_map_count_before_correction": 0,
+    "initial_failed_outputs_reused": false
+  },
+  "source_writer_evidence": {
+    "path": "analysis/new_visit_recovery/raw_acquire.py",
+    "sha256": "c2d44f7893e4c826401a24428e58f123791f9b26d8932e2f6f893dc2d2045a0d",
+    "function": "write_compact calls reader.create_compact_dataset and writes raw chunks; no original header copy"
+  },
+  "reader_evidence": {
+    "path": "analysis/new_visit_search/dependencies/standard_reader.py",
+    "sha256": "329b922431a925a08ad48e7315f54f556e1af5f7bccbec0f51d71fb52216ffb0",
+    "function": "create_compact_dataset writes only original_source_frequency_chunk_origin/original_source_url/original_source_etag"
+  },
+  "correction": "Remove whole original-header data.attrs loop; retain immutable SOURCE/proposal fullheader equality, actualcompact shape/dtype/threeprovenanceattrs/fileSHA/16rowSHA checks",
+  "unchanged_scientific_family": {
+    "maps753": true,
+    "audit_queries3021": true,
+    "widths": [
+      1,
+      3
+    ],
+    "drifts": 785,
+    "detector_byte_SHA_unchanged": true,
+    "source_role_OFF_preserved": true
+  },
+  "original_namespace_unchanged": true,
+  "H5_files_statted_or_opened": false,
+  "scientific_values_decoded": false,
+  "scientific_scores_computed": false,
+  "new_telescope_HTTP_requests": 0
+}

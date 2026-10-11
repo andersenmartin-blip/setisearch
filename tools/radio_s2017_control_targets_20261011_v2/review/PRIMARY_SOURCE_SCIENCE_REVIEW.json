@@ -1,0 +1,168 @@
+{
+  "schema": "SETI_S2017_CONTROL_PRIMARY_V2_INDEPENDENT_SOURCE_SCIENCE_REVIEW_V1",
+  "status": "PASS_PROSPECTIVE_PRIMARY_TARGET_V2_REPRESENTATION_REPAIR_SOURCE_AND_SCIENCE_REVIEW",
+  "reviewer": "/root/repo_status",
+  "created_utc": "2026-10-11T07:26:31.016339+00:00",
+  "review_type": "Source-only additive engineering repair review before prospective public freeze; no empirical result admission",
+  "primary_driver_sha256": "5f0f06373ca2f5143b036e4203c77b983ef9cf9646ffb0e0ab5cf4883133fd15",
+  "primary_preparer_sha256": "4c1c2598dc32259a0d2f0accd25b33266ff6946b8593c6430f20c9e9f8b1ed90",
+  "primary_scope_sha256": "2bc4e6b4176a68e7714c7a0547d2bec70efb630e593569a46f96785fe119d733",
+  "launcher_sha256": "97987bbc77746eb49e1e5b72fe433bc68c3760271b22bc2135e73b135982fe67",
+  "input_byte_pins": {
+    "analysis/s2017_control_targets_20261011_v2/driver.py": {
+      "bytes": 31824,
+      "sha256": "5f0f06373ca2f5143b036e4203c77b983ef9cf9646ffb0e0ab5cf4883133fd15"
+    },
+    "analysis/s2017_control_targets_20261011_v2/prepare_scope.py": {
+      "bytes": 6971,
+      "sha256": "4c1c2598dc32259a0d2f0accd25b33266ff6946b8593c6430f20c9e9f8b1ed90"
+    },
+    "analysis/s2017_control_targets_20261011_v2/launch_primary.py": {
+      "bytes": 6563,
+      "sha256": "97987bbc77746eb49e1e5b72fe433bc68c3760271b22bc2135e73b135982fe67"
+    },
+    "analysis/s2017_control_targets_20261011_v2/scope.json": {
+      "bytes": 31574,
+      "sha256": "2bc4e6b4176a68e7714c7a0547d2bec70efb630e593569a46f96785fe119d733"
+    },
+    "analysis/s2017_control_targets_20261011_v2/HEADER_FIX_RECEIPT.json": {
+      "bytes": 3942,
+      "sha256": "4879e3b0bb939505a40c0be4eb125116b85511edb314c5f171d9f608851c286d"
+    },
+    "analysis/s2017_control_targets_20261011_v2/CHECK_ONLY_RECEIPT.json": {
+      "bytes": 1017,
+      "sha256": "6d288f3ca373c03b5c9c2fa46a07a4f647562980cc663e4f3dbee20cd4d8efa3"
+    },
+    "analysis/s2017_control_targets_20261011/review/PRIMARY_SOURCE_SCIENCE_REVIEW.json": {
+      "bytes": 9055,
+      "sha256": "ddd241c8afe75fb46955ea2da9de1737bf496881474097183d30cc0d763e92a7"
+    },
+    "analysis/new_visit_recovery/raw_acquire.py": {
+      "bytes": 16424,
+      "sha256": "c2d44f7893e4c826401a24428e58f123791f9b26d8932e2f6f893dc2d2045a0d"
+    },
+    "analysis/new_visit_search/dependencies/standard_reader.py": {
+      "bytes": 17506,
+      "sha256": "329b922431a925a08ad48e7315f54f556e1af5f7bccbec0f51d71fb52216ffb0"
+    },
+    "analysis/new_visit_search/dependencies/detector.py": {
+      "bytes": 22819,
+      "sha256": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45"
+    }
+  },
+  "scope_text_pin_audit": {
+    "pins": 53,
+    "UTF8_bytes": 4274746,
+    "mismatches": 0
+  },
+  "minimal_diff_checks": {
+    "method_contract_AST_identical": true,
+    "run_function_AST_identical_after_only_unsupported_original_header_attr_loop_removed": true,
+    "driver_changes": [
+      "BASE changes to new isolated v2 namespace",
+      "Compare complete original source header with immutable proposal actual_header in stdlib metadata contract",
+      "Remove compact data.attrs original-header loop; compact writer stores only three provenance attributes"
+    ],
+    "preparer_changes": [
+      "New BASE",
+      "Pin original raw_acquire writer and all initial failure/old code/scope/public-freeze/outer evidence",
+      "Assert all three old INCOMPLETE DIMENSION_LABELS failures and failed outer exits",
+      "Record original freeze and zero prior numerical map outputs in new scope"
+    ],
+    "launcher_changes": [
+      "New BASE only",
+      "Separate create-only continuation_20261011/execution/control_target_primary_v2 evidence directory"
+    ],
+    "unchanged": [
+      "Numerical search_scan call, detector/reader bytes, widths1/3,785drifts,4096core/4000halo",
+      "OriginalOFF primary identities, own-first-midpoint reference, absolute-channel np.rint",
+      "Global251core ranking, greedy>3 suppression and first3 metadata selection",
+      "1007query/job capsule construction and cached-score arithmetic",
+      "Source shape/dtype/three provenanceattrs/whole-file and16decoded-row hashes before and after",
+      "1000CPU/1800wall/2GiB/job,3slots/6GiB aggregate,8GiB workspace/100MiB outputs,retained flocks and create-only/no-auto-retry gates"
+    ]
+  },
+  "writer_interface_evidence": {
+    "raw_acquire_write_compact": "Calls standard_reader.create_compact_dataset, writes exact raw chunks and closes; no original-header attribute copy.",
+    "standard_reader_create_compact_dataset": "Creates shape16x1x1048576 float32 compact and stores exactly original_source_frequency_chunk_origin,original_source_url,original_source_etag.",
+    "repair": "Coordinates/target/original header remain exact SHA-bound source/proposal metadata. Actual compact identity and all row/file bytes remain authenticated. Omitting only DIMENSION_LABELS would still fail on the next absent original scalar header, so the whole unsupported loop is removed."
+  },
+  "initial_attempt_provenance": {
+    "initial_phase": "analysis/s2017_control_targets_20261011",
+    "initial_scope_sha256": "ca5783a60f5a00bb6037f368efa9ed61b7680e45c0e4f25c9ce25f91dea09314",
+    "initial_public_freeze_commit": "1897b2cceb1846516447707fa5c4d492d33cb6f2",
+    "initial_attempt_file_pins": {
+      "analysis/s2017_control_targets_20261011/driver.py": {
+        "sha256": "1967142d06b3d7e28b8c24f588069923f8fcd121fb448c4b5a1162d36c9ca3b1",
+        "bytes": 31749
+      },
+      "analysis/s2017_control_targets_20261011/scope.json": {
+        "sha256": "ca5783a60f5a00bb6037f368efa9ed61b7680e45c0e4f25c9ce25f91dea09314",
+        "bytes": 28196
+      },
+      "analysis/s2017_control_targets_20261011/launch_primary.py": {
+        "sha256": "6f099d94aaab6dfac8cba77ab94922065b1d03dedc28258c1195778c176d8f6d",
+        "bytes": 6557
+      },
+      "analysis/s2017_control_targets_20261011/PUBLIC_FREEZE.json": {
+        "sha256": "118e6e178ab73e518cd6f9f788c3b8ebffb8938a8706360b49b4e5b87667dac6",
+        "bytes": 9854
+      },
+      "continuation_20261011/execution/control_target_primary/OUTER_EXECUTION.json": {
+        "sha256": "79e44422f69fc5f81081d96a2a316c75ad7b9435e9e661454fa5ea2ad4679c58",
+        "bytes": 4526
+      },
+      "analysis/s2017_control_targets_20261011/results/primary20170428_HIP97319/EXECUTION_RECEIPT.json": {
+        "sha256": "ed7545453d18e6bab9efbf8338ca591894899bb9711677b7a2a89fcc1240ed4c",
+        "bytes": 457
+      },
+      "analysis/s2017_control_targets_20261011/results/primary20170428_HIP97461/EXECUTION_RECEIPT.json": {
+        "sha256": "d2ac76e4bd854260cd1e59ad9b157984143c63e6a4e7b5c0147a3a935e2a321f",
+        "bytes": 457
+      },
+      "analysis/s2017_control_targets_20261011/results/primary20170428_HIP97663/EXECUTION_RECEIPT.json": {
+        "sha256": "eb7f308cd448fcb3b974e6286981a3f30186f9ff0d5c95cdc90c12e294595cf1",
+        "bytes": 457
+      }
+    },
+    "reason": "Original compact writer stores only its three original_source provenance attributes, not original header attrs; actual shape/dtype and immutable source metadata remain authenticated",
+    "new_spectrum_map_count_before_correction": 0,
+    "initial_failed_outputs_reused": false
+  },
+  "previous_review_limitation": "The initial prospective review did not reconcile its original-header H5attr loop against the original compact-writer representation. The actual metadata-only failure exposed that mismatch. V1 review/code/scope/outputs remain unchanged; this V2 review traces the writer and reader source explicitly.",
+  "counts": {
+    "primary_jobs": 3,
+    "maps": 753,
+    "map_normalization_records": 753,
+    "carrier_maximum_records": 3084288,
+    "valid_hypothesis_records": 4842332160,
+    "top20_entries": 60,
+    "top3_metadata_entries": 9,
+    "score_audit_queries": 3021,
+    "score_audit_raw_power_cell_occurrences": 24313008,
+    "distinct_primary_compacts": 3,
+    "distinct_decoded_rows": 48,
+    "later_fixed_context_count": 54
+  },
+  "scientific_review": {
+    "novelty": "All251 q cores1..254 excluding64/128/192 for each of three originalOFF stars; nine prior baseline map keys excluded. No completed score map exists in the preserved failed initial family.",
+    "original_pointings": "HIP97319/epoch1_off, HIP97461/epoch2_off and HIP97663/epoch3_off keep originalOFF labels; each is one historical scan, not repeated same-target ON cadence or a new visit.",
+    "arithmetic": "Unchanged full-core robust normalization and detector; capsule audit is conditional on full-core saved normalization, not an independent MAD/location calibration.",
+    "later_context": "Nine frozen prospective globalTOP3 tuples times six original pointings=54 fixed contexts, no re-fit. Exact context code/scope review is separate. Source-only geometric support proof from V1 remains applicable because actual headers and numerical family are unchanged.",
+    "limits": [
+      "No qualified SETI, physical-origin, SNR/FAP, independence, completeness, or general-null assertion.",
+      "No new telescopeGET or paid service; protected2016 controls and original A/B FAIL_CLOSED remain unchanged.",
+      "Old failures happened before power=data read and before search_scan; V2 is an explicitly root-authorized new engineering namespace, not an automatic retry or completed-science rerun."
+    ]
+  },
+  "review_actions": {
+    "AST_parse_pass": true,
+    "source_diff_read": true,
+    "numerical_code_executed": false,
+    "H5_or_NPZ_opened": false,
+    "new_science_values_read": false,
+    "telescope_HTTP_requests": 0,
+    "Git_mutations": 0
+  },
+  "unresolved_blockers": 0
+}
