@@ -1,0 +1,35 @@
+{
+  "schema": "SETI_BURST4_PRIMARY_AND_QA_INDEPENDENT_STATIC_REVIEW_V1",
+  "status": "PASS_BURST4_SOURCE_CONTRACT_ARITHMETIC_AND_INDEPENDENT_QA_INTERFACE",
+  "reviewer": "/root/method_review",
+  "primary_driver_sha256": "5cda139f404a29fa96659e46237bad2978588920da019198ba3e21009cea1d84",
+  "qa_source_sha256": "3b4a6ddcb526fa3894a47f15019d8ee787de5a4772d4d3dc908ffcdb3d1f4cdd",
+  "scope_present": false,
+  "scope_sha256": null,
+  "source_values_opened": false,
+  "numerical_modules_imported": false,
+  "science_or_QA_executed": false,
+  "checks": [
+    "96fixedinteriorcores pertarget:3natives\u00d7q4+8k;288combinedmapstotal",
+    "Full16row4096core preprocessing once/core; boxes sliced atsevenstarts0,2,4,6,8,10,12",
+    "Windowfirstmidpoint epoch; source rowsr0..r0+3; fourrelative times0,TSAMP,2TSAMP,3TSAMP",
+    "159linspace[-4,4]drifts withindex79exactzero;nearestepointquantizationbelow0.5channel over54.760833midpointspan",
+    "Score_tile4rows dividesbysqrt4width; cachedwinner rowlookup usesr0+relative row and matchingroundedabsolutecenters",
+    "Tieorder strictgreater update:earlieststart,width1before3,earliestdriftindex; carrierloopdoesnotchangeties",
+    "Everycarrier combinedvalidcount2226; maximumtuple recordswinningwindow,driftindex,width",
+    "387auditqueries pertarget:96\u00d74fixedcarriers+3globalTOP3;raw4x503float32cellswithabsolute_time_rows",
+    "Pooled96combinedmaps pertarget globalTOP20 withscoredescending/channelascending anddistance>3",
+    "IndependentQA source9OFFcompacts/144rowSHA beforeoutputs;all288mapdtype/geometry/valid2226/winningstart/index consistency checks",
+    "Independentraw4096core medians computedforall16rows (4608rows);raw501 medians reconstruct1161selectedfourrowscores conditional onsavedfullcoreMAD/location",
+    "IndependentQA exactdeterministicranking and583pre-receipt outputpins/target; exactrootGOreceiptpin andpublicservedblobchecks",
+    "QAdoesnotrecompute fullwindow/drift/widthgrid ortieargmax;explicitlimitationsandseparatefull16contextdenominator",
+    "Memory/CPU/wall/output caps explicit; halos4000vs~330neededchannels sufficient"
+  ],
+  "independent_secondary_QA_reviewer": "/root/method_review/qa_source_review read-only source review PASS; noblockinginterface/arithmetic mismatch",
+  "blocking_defects": 0,
+  "limitations": [
+    "96sampledcores/target are a burstpilot, not all766cores or newfrequencybandwidth",
+    "Existingobservationdataalreadyexposed; no blindindependentreplication orcalibratedfalsealarm",
+    "QAfullcoreMAD/location conditionedonsavedparameters; noexhaustivemaximum/tieindependentvalidation"
+  ]
+}
