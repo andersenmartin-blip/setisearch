@@ -1,0 +1,161 @@
+{
+  "schema": "SETI_S2017_CONTROL_PRIMARY_INDEPENDENT_SOURCE_SCIENCE_REVIEW_V1",
+  "status": "PASS_PROSPECTIVE_PRIMARY_TARGET_SOURCE_AND_SCIENCE_REVIEW",
+  "reviewer": "/root/repo_status",
+  "created_utc": "2026-10-11T07:15:08.813380+00:00",
+  "review_type": "Independent source-only prospective implementation and scientific-design review; no empirical result admission",
+  "input_byte_pins": {
+    "analysis/s2017_control_targets_20261011/driver.py": {
+      "bytes": 31749,
+      "sha256": "1967142d06b3d7e28b8c24f588069923f8fcd121fb448c4b5a1162d36c9ca3b1"
+    },
+    "analysis/s2017_control_targets_20261011/prepare_scope.py": {
+      "bytes": 5041,
+      "sha256": "cc9dbf09b6f94b6ad85530442a2872168450c60b9fcc05d58cd5d9787792ebf7"
+    },
+    "analysis/s2017_control_targets_20261011/scope.json": {
+      "bytes": 28196,
+      "sha256": "ca5783a60f5a00bb6037f368efa9ed61b7680e45c0e4f25c9ce25f91dea09314"
+    },
+    "analysis/s2017_control_targets_20261011/launch_primary.py": {
+      "bytes": 6557,
+      "sha256": "6f099d94aaab6dfac8cba77ab94922065b1d03dedc28258c1195778c176d8f6d"
+    },
+    "continuation_20261011/metadata/control_target_sweep/SCIENTIFIC_SCOPE_PROPOSAL.json": {
+      "bytes": 340682,
+      "sha256": "2fcb046bd49d2ef22491493a430c429c646afaf0f89691a6b0f194740fef8b5d"
+    },
+    "analysis/next_visit/S2017_MIDPOINT_SOURCE_MANIFEST.json": {
+      "bytes": 111227,
+      "sha256": "1fd17cbf60251b77c06a2bbeb00f405b068f3d60b32b9f4cfcf39eccc4076107"
+    },
+    "analysis/new_visit_search/dependencies/detector.py": {
+      "bytes": 22819,
+      "sha256": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45"
+    },
+    "analysis/new_visit_search/dependencies/standard_reader.py": {
+      "bytes": 17506,
+      "sha256": "329b922431a925a08ad48e7315f54f556e1af5f7bccbec0f51d71fb52216ffb0"
+    }
+  },
+  "scope_sha256": "ca5783a60f5a00bb6037f368efa9ed61b7680e45c0e4f25c9ce25f91dea09314",
+  "scope_text_code_pin_audit": {
+    "pins": 44,
+    "bytes": 4174064,
+    "SHA256_mismatches": 0,
+    "UTF8_decode_failures": 0
+  },
+  "counts": {
+    "primary_jobs": 3,
+    "new_maps": 753,
+    "map_normalization_records": 753,
+    "carrier_maximum_records": 3084288,
+    "valid_hypothesis_records": 4842332160,
+    "top20_entries": 60,
+    "top3_metadata_entries": 9,
+    "score_audit_queries": 3021,
+    "score_audit_raw_power_cell_occurrences": 24313008,
+    "distinct_compact_files_to_open": 3,
+    "distinct_decoded_rows_to_verify": 48,
+    "prospective_later_fixed_contexts": 54
+  },
+  "findings": [
+    {
+      "check": "Novelty and original identities",
+      "result": "PASS",
+      "detail": "Exactly q1..254 excluding q64,q128,q192 for epoch1_off/HIP97319, epoch2_off/HIP97461 and epoch3_off/HIP97663. Nine prior untouched OFF-baseline map keys are explicitly excluded; edges q0/q255 remain outside this family. Original OFF roles/source headers are preserved. Each star contributes one historical scan."
+    },
+    {
+      "check": "Unchanged detector and reader",
+      "result": "PASS",
+      "detail": "Exact detector1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45 and reader329b922431a925a08ad48e7315f54f556e1af5f7bccbec0f51d71fb52216ffb0; driver calls unchanged search_scan with widths1/3,785 drifts[-4,+4],4096-carrier core and4000 halo,1570 correlated hypotheses/carrier. No cadence classifier, OFF veto, gap.fixed_profiles, or other five source arrays are called/opened."
+    },
+    {
+      "check": "Time/frequency geometry",
+      "result": "PASS",
+      "detail": "Each primary reference is its own first integration midpoint. Row times are j*18.253611008 seconds; frequencies derive from original negative df. Detector and capsules round complete absolute source-channel mapping with np.rint before crop subtraction. All declared primary hypotheses and503-channel score capsules have native171/filter support."
+    },
+    {
+      "check": "Ranking and fixed audit arithmetic",
+      "result": "PASS",
+      "detail": "Global top20 pools all251*4096 saved carrier maxima per primary, lexsort by descending score then absolute source channel, greedy separation>3; TOP3 is exactly first3 metadata records with no context fit. Four audit-query occurrences/core (0,2048,4095,core maximum) plus3 global winners yield1007/job. Capsules reuse cached unchanged box sums and check selected scores at ATOL1e-7/RTOL1e-10. Duplicate audit occurrences are not independent tests."
+    },
+    {
+      "check": "Prospective provenance and numerical admission",
+      "result": "PASS",
+      "detail": "Stdlib contract/check-only authenticates exact proposal/source/acquisition/sourceQA/prior full-bandQA/injectionQA/opaque-restoration/dependency text pins before numerical imports. Actual search requires exact scopeSHA,40hex public commit,exact SHA-bound public readback and rootGO resource record. Each job opens only its own one compact, authenticates all original headers/full-file SHA/16 decoded-row SHAs before search, then repeats16 decoded-row SHA checks and whole-file SHA after."
+    },
+    {
+      "check": "Create-only and retained locks",
+      "result": "PASS",
+      "detail": "Family shared nonblocking flock permits at most3 admitted primary children, each requires one of3 EX slots and its own EX lock. Output directory requires exist_ok=False and all files use x/xb. No retry/resume/rerun path exists; failure preserves incomplete terminal evidence. Later exclusive family context lock cannot overlap primary family readers."
+    },
+    {
+      "check": "Resource/output budgets",
+      "result": "PASS",
+      "detail": "1000CPU/1800wall/2GiB RLIMIT_AS per job;3 process slots and rootGO6GiB aggregate contract,8GiB unique-inode workspace accounting. Reserve300MiB and max100MiB/job including terminal receipt. NPZ/norm/audit/auxiliary budgets and exact1513+receipt1514 file inventory checked. Root resource caps explicitly override advisory proposal caps."
+    },
+    {
+      "check": "Launcher success/failure control",
+      "result": "PASS",
+      "detail": "Final launcher SHA6f099d94 admits actual root/public-freeze SHA flags and launches exactly3 jobs once. Outer1810s guard, wait4 per-child CPU/RSS/exit, create-only logs/evidence outside phase, exact successful receipt status for3 exits0. Exception/timeout kills and reaps started children, fsyncs logs and preserves FAILED outer receipt; no retry."
+    }
+  ],
+  "later_context_design_review": {
+    "status": "PASS_FIXED_DESIGN_AND_METADATA_GEOMETRY_ONLY_CONTEXT_CODE_RECEIPT_SEPARATE",
+    "fixed_context_count": 54,
+    "selection": "9 prospective primary TOP3 tuples times all6 original scan pointings; frozen tuple frequency/drift/width/core and no refit",
+    "time_formula": "(context.tstart-primary.tstart)*86400 + j*18.253611008; primary first-midpoint reference",
+    "conservative_metadata_bounds": [
+      {
+        "primary_scan": "epoch1_off",
+        "max_abs_relative_time_s": 1650.8041651451458,
+        "ceil_drift_channel_displacement": 2364,
+        "raw503_half_open_bounds_relative_to_native171": [
+          1480,
+          1047096
+        ],
+        "minimum_native_edge_margin_channels": 1480,
+        "remaining4000halo_channels": 1384
+      },
+      {
+        "primary_scan": "epoch2_off",
+        "max_abs_relative_time_s": 1039.000000222586,
+        "ceil_drift_channel_displacement": 1488,
+        "raw503_half_open_bounds_relative_to_native171": [
+          2356,
+          1046220
+        ],
+        "minimum_native_edge_margin_channels": 2356,
+        "remaining4000halo_channels": 2260
+      },
+      {
+        "primary_scan": "epoch3_off",
+        "max_abs_relative_time_s": 1724.0000000456348,
+        "ceil_drift_channel_displacement": 2469,
+        "raw503_half_open_bounds_relative_to_native171": [
+          1375,
+          1047201
+        ],
+        "minimum_native_edge_margin_channels": 1375,
+        "remaining4000halo_channels": 1279
+      }
+    ],
+    "bound_basis": "All q1..254 carrier extremes, +/-4Hz/s, original sourceJSON tstarts/negative df,503 support+one rounding guard; source metadata only, no values."
+  },
+  "scientific_limits": [
+    "One scan per distinct control star; no repeated same-target cadence, new visit, independent blind replication or astronomical OFF-veto test.",
+    "Scores and fixed post-selection contexts remain descriptive/uncalibrated; no SNR, FAP, physical-origin, qualified SETI, or broad null/absence claim.",
+    "503-row windows can audit selected scores conditional on saved full-core normalization parameters; they alone do not reconstruct or calibrate full-core MAD/location.",
+    "No completed753-map or54-context result is asserted by this prospective source review. Protected2016 controls and original A/B FAIL_CLOSED remain unchanged."
+  ],
+  "scope_of_execution": {
+    "numerical_driver_run": false,
+    "check_only_execution_by_this_reviewer": false,
+    "numerical_imports": false,
+    "HDF5_or_NPZ_or_telescope_binary_opened": false,
+    "new_telescope_HTTP_requests": 0,
+    "Git_mutations": 0,
+    "unresolved_blockers": 0
+  }
+}

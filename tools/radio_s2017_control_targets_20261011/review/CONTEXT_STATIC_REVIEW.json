@@ -1,0 +1,529 @@
+{
+  "schema": "SETI_S2017_CONTROL_TARGET_INDEPENDENT_CONTEXT_STATIC_REVIEW_V1",
+  "status": "PASS_INDEPENDENT_CONTEXT_SOURCE_SCOPE_GATES_AND_GEOMETRY_NO_SCIENCE_VALUES",
+  "reviewer": "/root/repo_status/publication_inventory",
+  "review_date_UTC": "2026-10-11",
+  "context_driver_sha256": "1a4ca1b67e38bd4a627c584985cdd92fcae42d308f790dde25658513faa7b8b6",
+  "context_preparer_sha256": "803a549ed2379212099c3b9fcf1e0b74b35443440ba03fdebc48a865851c2310",
+  "context_scope_sha256": "dc232c4fe07b33ecccf3d0aff78d5946c88f2f0782a080c8cffbfaa212629125",
+  "primary_scope_sha256": "ca5783a60f5a00bb6037f368efa9ed61b7680e45c0e4f25c9ce25f91dea09314",
+  "primary_QA_source_sha256": "abe6c0920dfac966d671e87f531328c55a89e0f9d0580df0ffeee35df5c35cca",
+  "reviewed_sources": {
+    "context_profiles.py": {
+      "local_path": "analysis/s2017_control_targets_20261011/context_profiles.py",
+      "bytes": 33193,
+      "sha256": "1a4ca1b67e38bd4a627c584985cdd92fcae42d308f790dde25658513faa7b8b6",
+      "UTF8_plain_no_NUL": true
+    },
+    "prepare_context_scope.py": {
+      "local_path": "analysis/s2017_control_targets_20261011/prepare_context_scope.py",
+      "bytes": 5544,
+      "sha256": "803a549ed2379212099c3b9fcf1e0b74b35443440ba03fdebc48a865851c2310",
+      "UTF8_plain_no_NUL": true
+    },
+    "context_scope.json": {
+      "local_path": "analysis/s2017_control_targets_20261011/context_scope.json",
+      "bytes": 57229,
+      "sha256": "dc232c4fe07b33ecccf3d0aff78d5946c88f2f0782a080c8cffbfaa212629125",
+      "UTF8_plain_no_NUL": true
+    }
+  },
+  "blocking_findings": [],
+  "resolved_required_findings": [
+    {
+      "finding": "Freeze/GO initially only Boolean/commit syntax",
+      "resolution": "Final source authenticates exact public readback/rootGO/independentreview bindings and rechecks them before COMPLETE."
+    },
+    {
+      "finding": "Missing final measured CPU/wall/RSS cap gate",
+      "resolution": "Final source explicitly requires positive measured use<=180s/300s/2GiB before successful terminal receipt."
+    }
+  ],
+  "checks": [
+    {
+      "id": "exact_future_query_inventory",
+      "status": "PASS_STATIC",
+      "evidence": "Three exact original OFF targets × first3 primary TOP20 tuples × six canonical scans =9 fixed tracks,54 scan profiles,9 origin-score matches; no threshold/context-driven selection."
+    },
+    {
+      "id": "original_targets_and_roles",
+      "status": "PASS_STATIC",
+      "evidence": "epoch1_off/HIP97319, epoch2_off/HIP97461, epoch3_off/HIP97663 remain original OFF acquisitions and distinct single-scan primary targets. Context preserves each header source_name and original role."
+    },
+    {
+      "id": "actual_time_and_absolute_rounding",
+      "status": "PASS_STATIC",
+      "evidence": "Equal checked tsamp cancels midpoint halves: (context_tstart-origin_tstart)*86400+j*TSAMP. Physical base=(frequency-FCH1)/DF; np.rint absolute source centers precedes crop subtraction, including negativeDF/nearest-even ties."
+    },
+    {
+      "id": "prospective_native_and_crop_support",
+      "status": "PASS_STATIC",
+      "evidence": "Independent stdlib metadata check reproduces all18 scope geometry pairs and validates full503 support for every eligible coreq1..254 except64/128/192 within native171 and halo4000."
+    },
+    {
+      "id": "no_reoptimization",
+      "status": "PASS_STATIC",
+      "evidence": "run calls unchanged detector.preprocess only, followed by direct selected-width16-row sums. No search_scan, cadence, fitting, carrier/frequency shifts, drift/width optimization or detector grid is invoked."
+    },
+    {
+      "id": "explicit_normalization",
+      "status": "PASS_STATIC",
+      "evidence": "Each context scan uses the original selected q4096 static absolute normalization core and halo4000 through exact unchanged detector.preprocess: float64 promotion before core median, medianfilter501, rowMAD1.4826 and winsorized location. This is not the old full-native float32 profile denominator."
+    },
+    {
+      "id": "raw_and_row_evidence",
+      "status": "PASS_STATIC",
+      "evidence": "Each profile saves a16×503 rawfloat32 capsule, rounded absolute centers, relative times, standardized row-box terms and exact core normalization JSON pins; matrix retains direct score and actual target/role."
+    },
+    {
+      "id": "primary_origin_score_match",
+      "status": "PASS_STATIC",
+      "evidence": "All9 origin queries must match their exact saved primary winning scores with absolute1e-7/relative1e-10 tolerance; fixed tuple/code/source identities are retained."
+    },
+    {
+      "id": "actual_completed_primary_and_QA_gate",
+      "status": "PASS_STATIC",
+      "evidence": "admission requires3 exact COMPLETE primary receipt hashes and actual independent QA PASS753maps/3021queries/9top3, matching primary scope/driver/QA code and exact jointly receipt/QA-pinned TOP20/TOP3. TOP3 is exact TOP20[:3]."
+    },
+    {
+      "id": "public_freeze_and_root_GO_gate",
+      "status": "PASS_STATIC",
+      "evidence": "public_admission requires exact readback and GO SHA, successful commit-bound served bytes for context driver/preparer/scope and both independent reviews, matching3 context SHA fields, exact actual primary/QA hashes and resource contract. Admission pins are retained/rechecked before COMPLETE."
+    },
+    {
+      "id": "create_only_and_exclusion",
+      "status": "PASS_STATIC",
+      "evidence": "Preparer/save/capsules use exclusive creation; results/context mkdir(exist_ok=False); nonblocking exclusive family flock precedes scientific run. Failed outputs remain with INCOMPLETE and no retry/resume."
+    },
+    {
+      "id": "source_authentication",
+      "status": "PASS_STATIC",
+      "evidence": "Numerical run prospectively opens each of6 sourcefiles once read-only with O_NOFOLLOW, verifies compact SHA/header/frame and96 decoded row hashes, and verifies descriptor/path stability after fixed queries. Current static review never opens these bodies."
+    },
+    {
+      "id": "bounded_resources",
+      "status": "PASS_STATIC",
+      "evidence": "Root caps180CPU/300wall/2GiB/32MiBoutput/8GiBworkspace enforced by hard limits/alarm/reservation/per-query output checks, explicit measured-terminal check and final receipt byte precheck before COMPLETE."
+    },
+    {
+      "id": "qualification_limits",
+      "status": "PASS_STATIC",
+      "evidence": "Scope/matrix explicitly classify other five direction/time pointings as post-selection context, with no same-target recurrence/blanksky control, OFF veto, calibratedSNR/FAP, independent visit, sky detection or whole-cadence drift-grid precision claim."
+    },
+    {
+      "id": "source_only_preparation",
+      "status": "PASS_STATIC",
+      "evidence": "Top-level source imports are stdlib only; numerical imports stay in gated run. Review used AST/source inspection and stdlib metadata geometry, no source execution, scientific results parsing, arrays or HTTP."
+    }
+  ],
+  "textpin_inventory_audit": {
+    "count": 48,
+    "total_UTF8_bytes": 4277131,
+    "all_declared_current_hashes_match": true,
+    "all_UTF8_plain_no_NUL": true,
+    "scientific_results_JSON_content_interpreted": false,
+    "inventory": [
+      {
+        "path": "analysis/next_visit/S2017_MIDPOINT_SOURCE_MANIFEST.json",
+        "bytes": 111227,
+        "sha256": "1fd17cbf60251b77c06a2bbeb00f405b068f3d60b32b9f4cfcf39eccc4076107",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/new_visit_recovery/results/acquire/ACQUISITION_RESULT.json",
+        "bytes": 183508,
+        "sha256": "e10cb04bef9f5fd7a8cd132ffc90af16f9345e94b3630e4ce98c5adc8f46edbf",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/new_visit_recovery/results/review/QA_RECEIPT.json",
+        "bytes": 40095,
+        "sha256": "e50f21617244a8d45dcdd3698e95db13c8ca1d11891f4bfa21ef7012bcb70d6f",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/new_visit_search/dependencies/detector.py",
+        "bytes": 22819,
+        "sha256": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/new_visit_search/dependencies/standard_reader.py",
+        "bytes": 17506,
+        "sha256": "329b922431a925a08ad48e7315f54f556e1af5f7bccbec0f51d71fb52216ffb0",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_control_targets_20261011/context_profiles.py",
+        "bytes": 33193,
+        "sha256": "1a4ca1b67e38bd4a627c584985cdd92fcae42d308f790dde25658513faa7b8b6",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_control_targets_20261011/prepare_context_scope.py",
+        "bytes": 5544,
+        "sha256": "803a549ed2379212099c3b9fcf1e0b74b35443440ba03fdebc48a865851c2310",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_control_targets_20261011/qa_saved.py",
+        "bytes": 36134,
+        "sha256": "abe6c0920dfac966d671e87f531328c55a89e0f9d0580df0ffeee35df5c35cca",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_control_targets_20261011/scope.json",
+        "bytes": 28196,
+        "sha256": "ca5783a60f5a00bb6037f368efa9ed61b7680e45c0e4f25c9ce25f91dea09314",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_full_band/results/review/QA_RECEIPT.json",
+        "bytes": 313782,
+        "sha256": "e1d77ef88fa7a47965bd783b09258b36578c476cd5788ffc94924f3e03d1bc6f",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "continuation_20261011/recovery/NATIVE171_OPAQUE_RESTORATION_SCOPE.json",
+        "bytes": 2325,
+        "sha256": "8b0f69363ece5be1c21f16a46ebac7a161c5f56de9545ff6d5f18b72bfb0bd43",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "continuation_20261011/recovery/NATIVE171_OPAQUE_RESTORATION_RECEIPT.json",
+        "bytes": 3518,
+        "sha256": "1b8392ea4eeccfce9bd5e4727ca2258ed4028998e67226fe388007e3dd6a11a2",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_injection_20261011/scope.json",
+        "bytes": 26232,
+        "sha256": "64e34e40377751a261381a589dc5603c851ca562a162b9255239aff785d93631",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_injection_20261011/results/review/QA_RECEIPT.json",
+        "bytes": 321317,
+        "sha256": "f9deeaf7fe096484d8fe144aae7c0510a4e2aa77d9454976c1081cdeac0c8551",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_injection_20261011/results/offcenter/MAPS.json",
+        "bytes": 125253,
+        "sha256": "5dca284ecf186729614d20497af76edff4cd82d440b3416e1a61f6cc67c7039b",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_injection_20261011/results/offcenter/EXECUTION_RECEIPT.json",
+        "bytes": 2603,
+        "sha256": "e98b72030dedab48f656f8c877293d40831f87e0a06bf3534caaf5c784e06893",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_injection_20261011/results/known_center_competitor/MAPS.json",
+        "bytes": 62703,
+        "sha256": "992a39f49cfb3fbf0d5124db02f67b76c0045ea304117569f9a999c968d7e531",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_injection_20261011/results/known_center_competitor/EXECUTION_RECEIPT.json",
+        "bytes": 2610,
+        "sha256": "3b5c4012d0268c10f6263e5d412615e8efd3f6f91756cf6ae8ab423dfa112add",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/new_visit_search/scope.json",
+        "bytes": 8519,
+        "sha256": "4fbbf3f3c82aad866a08d864bf3232662549f7d0d93c01dff21655f8513aa468",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/new_visit_recovery/scope.json",
+        "bytes": 17372,
+        "sha256": "a93d6dda3f813b84be2452928fe42be76b6de3cb96cf4f85c9beda47adc9ea86",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_full_band/scopes/batch01.json",
+        "bytes": 8580,
+        "sha256": "551083a9ba56bf960fa49e8868047f8016ba9a70a3a7b1df1a54333af8d56c9c",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_full_band/scopes/batch02.json",
+        "bytes": 8658,
+        "sha256": "d9b499662e8766058a74ac794225fd95a34d208a07f5a7e289ce306e8c957d68",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_full_band/scopes/batch03.json",
+        "bytes": 8682,
+        "sha256": "72c82c8fb36c26ce2f22d68d5e57a34e7c841ab7e0c83050f5b67e8f1459f759",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_next_native/search/scopes/native170_batch01.json",
+        "bytes": 115554,
+        "sha256": "4b73cedea7872b70cb098e374f954a04e77674a6d7d9cea3ae3be0a8c6d84345",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_next_native/search/scopes/native170_batch02.json",
+        "bytes": 115634,
+        "sha256": "970a0505c96cecc2f496deb05425018db98b73cc794e36aff754e8d493c342fa",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_next_native/search/scopes/native170_batch03.json",
+        "bytes": 115639,
+        "sha256": "52666368598e29fee75a0135cd051f6443df8be9940c499e3416faa9a07a9253",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_next_native/search/scopes/native172_batch01.json",
+        "bytes": 115554,
+        "sha256": "577d90d832d498dfb6b4addab8d490e4b826e6129ec5a7a4c4415ead2ff63a2d",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_next_native/search/scopes/native172_batch02.json",
+        "bytes": 115634,
+        "sha256": "1c534e3ea486b4503494fa1e2fcf4ab915661471e8c07cd490fb88c64f4b992f",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_next_native/search/scopes/native172_batch03.json",
+        "bytes": 115639,
+        "sha256": "e912a94bb307e07d610c3d52164dbab0138301501cf0791ec3ac4fcd8f29f8c1",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_next_native/boundaries/scopes/pair170_171.json",
+        "bytes": 69289,
+        "sha256": "208f79a0f4535bcdfbc99853cd70595588c3f9dc35cbae7348acf90246f15bcd",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_next_native/boundaries/scopes/pair171_172.json",
+        "bytes": 69289,
+        "sha256": "05bb1651f80fff29ef4d06ad5ffc98116855d267b37f0e3840068e2d2b144121",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/new_visit_search/dependencies/gap_search.py",
+        "bytes": 21995,
+        "sha256": "b1a2cc31d47dbebc707f36c5de3eafbae6a62f0d0d19061c798c676c9fbcdb58",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/new_visit_recovery/results/search/DRIFT_CHECKPOINT.json",
+        "bytes": 266502,
+        "sha256": "c7e880b7836e8b78470cd5b66323dae6d86ac76a64fdb9ce70b05b8f8b198002",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_full_band/results/batch01/DRIFT_CHECKPOINT.json",
+        "bytes": 147491,
+        "sha256": "73e3e55bbe59f99935a3349bb4b4e327261bd24c01eafffde70b3bab46d8cf8d",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_full_band/results/batch02/DRIFT_CHECKPOINT.json",
+        "bytes": 147725,
+        "sha256": "3d1631215453d89e9b3b000869138cbafcf6bde799b072176020204cee6786a7",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_full_band/results/batch03/DRIFT_CHECKPOINT.json",
+        "bytes": 149528,
+        "sha256": "919ec17262528e6082bc61be8c3f84b73c7aa9ca6c52a7bd3b79555e7ec2af71",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_next_native/results/search/native170_batch01/DRIFT_CHECKPOINT.json",
+        "bytes": 149246,
+        "sha256": "16bce85d646cf9bb13d4bb7edcd22312e40c46ce92e208eb943a49de58aba6e0",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_next_native/results/search/native170_batch02/DRIFT_CHECKPOINT.json",
+        "bytes": 149486,
+        "sha256": "3e5490cf0be3efdaf800ec6736ea3574be6a4f6eb40380bebb1835a161c8d7f0",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_next_native/results/search/native170_batch03/DRIFT_CHECKPOINT.json",
+        "bytes": 147770,
+        "sha256": "fa71341cac0784575c8595a8fe64384abaf3966c5989a5086d9a3a32d91c6768",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_next_native/results/search/native172_batch01/DRIFT_CHECKPOINT.json",
+        "bytes": 149246,
+        "sha256": "18c8e462e00987cd866b6aae2b7c570c5cf340bef5b4cc384cd3d280dcb83dbe",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_next_native/results/search/native172_batch02/DRIFT_CHECKPOINT.json",
+        "bytes": 149486,
+        "sha256": "fe89f0e5f7d8b63db88c225df8ba5a0874daf4362ad8d40bdbad04b803e5f489",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_next_native/results/search/native172_batch03/DRIFT_CHECKPOINT.json",
+        "bytes": 147770,
+        "sha256": "82a1c72e5b7ce77e4f10cde10cf1daafd1acf8f08a64541d29ec560b73a80c4a",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_next_native/boundaries/results/pair170_171/measurement/DRIFT_CHECKPOINT.json",
+        "bytes": 3932,
+        "sha256": "70d2859ad4ec9a3ba96f5d1084ffee519d43a333513c1da98472c1bc8d7a09ae",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_next_native/boundaries/results/pair171_172/measurement/DRIFT_CHECKPOINT.json",
+        "bytes": 3932,
+        "sha256": "d60bc6b8fabaf698cb4b38fa37891b27638a1409cd36db45a87ac6a7bea4b1ae",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "continuation_20261011/metadata/control_target_sweep/SCIENTIFIC_SCOPE_PROPOSAL.json",
+        "bytes": 340682,
+        "sha256": "2fcb046bd49d2ef22491493a430c429c646afaf0f89691a6b0f194740fef8b5d",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_control_targets_20261011/driver.py",
+        "bytes": 31749,
+        "sha256": "1967142d06b3d7e28b8c24f588069923f8fcd121fb448c4b5a1162d36c9ca3b1",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/s2017_control_targets_20261011/prepare_scope.py",
+        "bytes": 5041,
+        "sha256": "cc9dbf09b6f94b6ad85530442a2872168450c60b9fcc05d58cd5d9787792ebf7",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      },
+      {
+        "path": "analysis/new_visit_search/results/acquire/FAILURE_RECEIPT.json",
+        "bytes": 42942,
+        "sha256": "37e2fcdb66dfe4187dd6a43f067879cdc4e6cf3bfb7dae6c877cb0fcafdf33f6",
+        "UTF8_plain_no_NUL": true,
+        "pin_matches": true
+      }
+    ]
+  },
+  "independent_metadata_geometry": {
+    "source_manifest_sha256": "1fd17cbf60251b77c06a2bbeb00f405b068f3d60b32b9f4cfcf39eccc4076107",
+    "origin_context_geometry_pairs": 18,
+    "eligible_cores_per_primary": 251,
+    "targets": [
+      {
+        "origin_scan_id": "epoch1_off",
+        "max_absolute_time_from_primary_first_midpoint_s": 1650.8041651451458,
+        "maximum_drift_displacement_ceiling_channels": 2364,
+        "raw503_support_inclusive_core_relative_min_max": [
+          -2615,
+          6710
+        ]
+      },
+      {
+        "origin_scan_id": "epoch2_off",
+        "max_absolute_time_from_primary_first_midpoint_s": 1039.000000222586,
+        "maximum_drift_displacement_ceiling_channels": 1488,
+        "raw503_support_inclusive_core_relative_min_max": [
+          -1739,
+          5834
+        ]
+      },
+      {
+        "origin_scan_id": "epoch3_off",
+        "max_absolute_time_from_primary_first_midpoint_s": 1724.0000000456348,
+        "maximum_drift_displacement_ceiling_channels": 2469,
+        "raw503_support_inclusive_core_relative_min_max": [
+          -2720,
+          6815
+        ]
+      }
+    ],
+    "all_guarded_raw503_support_native_relative_half_open": [
+      1376,
+      1047200
+    ],
+    "parent_conservative_ceiling_plus_guard_bound_half_open": [
+      1375,
+      1047201
+    ],
+    "all_complete_support_inside_native171": true
+  },
+  "prospective_counts": {
+    "selected_tracks": 9,
+    "context_scan_profiles": 54,
+    "source_files": 6,
+    "source_decoded_rows": 96,
+    "raw_capsule_channels": 503,
+    "raw_capsule_cells": 434592,
+    "required_primary_origin_score_matches": 9
+  },
+  "limits": {
+    "CPU_s": 180,
+    "wall_s": 300,
+    "memory_bytes": 2147483648,
+    "output_bytes": 33554432,
+    "workspace_bytes": 8589934592
+  },
+  "review_scope": "Prospective source, scope, interfaces, byte pins, gates and metadata support only; neither actual numerical QA nor runtime completion is asserted.",
+  "scientific_execution_performed": false,
+  "scientific_array_or_binary_body_reads": 0,
+  "new_HTTP_requests": 0,
+  "publication_performed": false,
+  "execution_GO_granted_by_this_review": false
+}
