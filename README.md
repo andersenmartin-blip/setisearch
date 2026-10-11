@@ -1,3 +1,11 @@
+## Afsluttet SETI-signaltest — 11. oktober 2026
+
+**450 kontrollerede kort og 540 diagnoser er afsluttet; uafhængig QA består.** Den smalle indsprøjtning passerede den fastlagte lokale regel i 54/54 cases ved hvert A = 3, 6 og 12, og i 0/54 ved A = 1. Den kendte q128-linje vandt fortsat rang 1, så hele kernens rang-1-tal var 36/54 ved de højere niveauer. Det er en betinget detektortest på ét historisk besøg, uden ny kvalificeret SETI-detektion eller ny observationsdækning. Bredde 9 er en mismatch-test. Original A/B er `FAIL_CLOSED`. **0 DKK**.
+
+[Rapport, figur og reproduktion](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/tools/radio_s2017_injection_20261011/delivery/SETI_SIGNALTEST_2026-10-11.md) · [Alle 30 grupper](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/tools/radio_s2017_injection_20261011/delivery/ALL30_GROUPS.json) · [Datapakker](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/tools/radio_s2017_injection_20261011/delivery/DATA_PACKAGES.json)
+
+---
+
 ## Afsluttet SETI-udvidelse: S2017 native 170/171/172
 
 Den tilstødende fase er færdig med **1536 nye ON-kort og 72 faste profiler**, faktisk kilde-/output-QA og uafhængig videnskabelig gennemgang. Ingen kvalificeret SETI-detektion er etableret: de største nye stationære linjer ved 2303.3203125 og 2297.4609375 MHz er positive i alle tre ON- og alle tre OFF-scanninger. Det er en udvidelse af samme historiske besøg; fysisk oprindelse og falskalarmssandsynlighed er ikke fastlagt.
