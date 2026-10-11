@@ -1,0 +1,139 @@
+{
+  "schema": "SETI_S2017_NATIVE171_INDEPENDENT_PROSPECTIVE_INJECTION_SCIENCE_REVIEW_V1",
+  "status": "PASS_INDEPENDENT_PROSPECTIVE_INJECTION_SCIENCE_SOURCE_ONLY",
+  "reviewer": "signals_review",
+  "driver_sha256": "4942208fef8bdc2eae702f8db44901cb54422f6a83168bd1b3a4ab05fcc191bc",
+  "scope_sha256": "64e34e40377751a261381a589dc5603c851ca562a162b9255239aff785d93631",
+  "scope_preparer_sha256": "6490b47295318334fcd0cd62217b43878f9da99d388957db4d9efd88db4d951a",
+  "independent_metadata_only_check": {
+    "status": "PASS_METADATA_ONLY_NO_NUMERICAL_IMPORTS_OR_SOURCE_OPENS",
+    "exit_code": 0,
+    "runtime_executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "covers": "Global scope contract verifies both fixed job partitions and all six source identity/row declarations"
+  },
+  "read_input_byte_pins": {
+    "analysis/s2017_injection_20261011/scope.json": {
+      "sha256": "64e34e40377751a261381a589dc5603c851ca562a162b9255239aff785d93631",
+      "bytes": 26232
+    },
+    "analysis/next_visit/S2017_MIDPOINT_SOURCE_MANIFEST.json": {
+      "sha256": "1fd17cbf60251b77c06a2bbeb00f405b068f3d60b32b9f4cfcf39eccc4076107",
+      "bytes": 111227
+    },
+    "analysis/new_visit_recovery/results/acquire/ACQUISITION_RESULT.json": {
+      "sha256": "e10cb04bef9f5fd7a8cd132ffc90af16f9345e94b3630e4ce98c5adc8f46edbf",
+      "bytes": 183508
+    },
+    "analysis/new_visit_recovery/results/review/QA_RECEIPT.json": {
+      "sha256": "e50f21617244a8d45dcdd3698e95db13c8ca1d11891f4bfa21ef7012bcb70d6f",
+      "bytes": 40095
+    },
+    "analysis/new_visit_search/dependencies/detector.py": {
+      "sha256": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45",
+      "bytes": 22819
+    },
+    "analysis/new_visit_search/dependencies/standard_reader.py": {
+      "sha256": "329b922431a925a08ad48e7315f54f556e1af5f7bccbec0f51d71fb52216ffb0",
+      "bytes": 17506
+    },
+    "analysis/s2017_injection_20261011/driver.py": {
+      "sha256": "4942208fef8bdc2eae702f8db44901cb54422f6a83168bd1b3a4ab05fcc191bc",
+      "bytes": 26066
+    },
+    "analysis/s2017_injection_20261011/prepare_scope.py": {
+      "sha256": "6490b47295318334fcd0cd62217b43878f9da99d388957db4d9efd88db4d951a",
+      "bytes": 7204
+    },
+    "continuation_20261011/metadata/injection_review/PROSPECTIVE_METHOD_FINDINGS_V1.json": {
+      "sha256": "1be316ea4a1e4a155960ba9786d6643288ec541079f24b97cfb0b1b72398b44f",
+      "bytes": 4116
+    },
+    "continuation_20261011/metadata/injection_review/PROSPECTIVE_GEOMETRY_CHECK.json": {
+      "sha256": "ffd0d10f099b2bfef0a2eef1b5f231e426971c95f394dad946552a24965a923c",
+      "bytes": 2213
+    }
+  },
+  "source_container_opens": 0,
+  "H5_NPZ_scientific_values_opened": false,
+  "detector_preprocess_score_or_search_executed": false,
+  "HTTP_GET_performed": false,
+  "source_body_bytes_read": 0,
+  "new_sky_reference_coverage": false,
+  "actual_injection_results_reviewed": false,
+  "exact_source_metadata_checks": {
+    "six_actual_headers": 6,
+    "declared_compacts": 6,
+    "declared_decoded_rows": 96,
+    "native_source_channel0": 179306496,
+    "source_native_chunk_index": 171,
+    "compact_records_match_actual_prior_acquisition": true,
+    "source_and_prior_QA_and_acquisition_text_pins_verified": true
+  },
+  "prospective_counts": {
+    "shared_zero_maps": 18,
+    "modified_maps": 432,
+    "distinct_maps": 450,
+    "case_specific_zero_geometry_diagnostics": 108,
+    "all_diagnostic_and_truth_audit_records": 540,
+    "fixed_scan_core_backgrounds": 18
+  },
+  "scientific_contract_checks": {
+    "raw_power_float64_injection_before_unchanged_preprocessing": true,
+    "amplitude_calibration_from_untouched_baseline_row_median_times_residual_MAD": true,
+    "baseline_raw_digest_unchanged_after_each_case": true,
+    "modified_preprocessing_recomputed_no_direct_z_injection": true,
+    "existing_search_widths_1_3_and_785_drift_grid_unchanged": true,
+    "width9_non_nominal_template_mismatch_flag_explicit": true,
+    "fixed_q64_q192_q128_and_core_offset2048_before_values": true,
+    "each_scan_first_midpoint_reset_not_cadence_coherent": true,
+    "absolute_source_rounding_before_crop_subtraction": true,
+    "full_core_nearest_and_fixed_11carrier_local_winners_separate": true,
+    "score_descending_channel_ascending_ties_and_original_width_drift_ties_frozen": true,
+    "truth_scores_and_same_winning_tuple_zero_scores_persisted": true,
+    "all16_center_error_overlap_fraction_and_exact_width_components_persisted": true,
+    "zero_map_identity_and_SHA_bound_to_every_case": true,
+    "full_core_rank1_flag_is_promotion_competition_not_every_carrier_completeness": true,
+    "zero_all_compatible_templates_absence_never_claimed": true
+  },
+  "operational_width1_matched_tuple_threshold_crossing": {
+    "required": [
+      "positive amplitude",
+      "injected width1 and exact winning width1",
+      "winning trajectory center error at most1 source channel on all16 rows",
+      "winner score at least10",
+      "strictly positive truth-template score change",
+      "strictly positive same-winning-tuple score change",
+      "same-winning-tuple baseline score strictly below10",
+      "corresponding zero local or fullcore top1 not already center-compatible at10"
+    ],
+    "local_field": "local_known_truth_nominal_width1_matched_tuple_threshold_crossing_at10",
+    "full_rank1_field": "full_core_rank1_nominal_width1_matched_tuple_threshold_crossing_at10",
+    "not_proven": "No proof that all baseline geometry-compatible templates were below10; no calibrated false-alarm significance"
+  },
+  "q128_context": {
+    "known_center_source_channel": 179830784,
+    "known_center_frequency_hz": 2300390625.0,
+    "injected_reference_channel": 179832832,
+    "injected_reference_frequency_hz": 2300384902.9541016,
+    "distance_channels": 2048,
+    "local_maximum_trajectory_support_bound_channels": 398,
+    "meaning": "Known fullcore competing structure, not a coincident injected feature; fullcoretop1 can remain elsewhere while all carrier maxima remain retained"
+  },
+  "prospective_QA_arithmetic_tolerance": {
+    "absolute": 1e-07,
+    "relative": 1e-10,
+    "reason": "Prefix-sum differences and floating reduction order need not equal direct raw-window truth arithmetic bitwise; tolerance fixed before measured outcomes"
+  },
+  "required_report_limits": [
+    "Every proportion states the appropriate number of positive-amplitude cases, not540 diagnostics or450 maps as independent trials.",
+    "Results remain conditional on18 fixed scan/core backgrounds and a deterministic grid; no population completeness, independent Monte Carlo probability or new-visit confirmation.",
+    "Fullcoretop1 records rank1 promotion/competition, not loss of survey detection sensitivity or absence from the full4096-carrier map.",
+    "Knowntruth localwindow and nearestcarrier are conditional diagnostics; neither supports calibrated global FAP.",
+    "Width9 is outside the1/3 search family: report support capture and score response, never exact-width recovery.",
+    "Six resets and injections into every ON/OFF role do not exercise a common sky track, ON-only source or OFF-veto classification.",
+    "Amplitude units and score changes do not establish physical flux, EIRP, calibrated SNR/FAP or a qualified SETI source."
+  ],
+  "concrete_scientific_blockers": [],
+  "root_public_freeze_and_explicit_GO_still_required_before_numerical_run": true,
+  "later_independent_saved_output_review": "continuation_20261011/metadata/injection_review/INJECTION_SAVED_OUTPUT_SCIENCE_REVIEW.json"
+}
