@@ -1,3 +1,18 @@
+# SETI — 753 nye kort i tre kontrolretninger · 11. oktober 2026
+
+**753 nye søgekort og 54 faste kontekstmålinger er afsluttet med uafhængig numerisk QA og gennemgået rapport og figur.** HIP97319, HIP97461 og HIP97663 har hver én oprindelig OFF-scanning fra besøget 28. april 2017. Alle 3.084.288 carrier-maksima er gemt.
+
+De ni stærkeste udvalg ligger ved den tidligere kendte **2300.390625 MHz**-komponent. Deres søgevinduer overlapper referencekanalen i 16/7/4 rækker pr. stjerne; mindst 99,9426 % af den positive rækkemasse ligger på sådanne rækker. Det er foreneligt med flere skabeloner omkring samme komponent. Hele rækkebokse måles, så dette fastslår ingen fysisk årsag. Det næsten stationære HIP97461 #1-spor giver store scorer i alle seks scanninger. Der er **ingen ny kvalificeret SETI-detektion**; scorerne er ikke kalibreret S/N eller FAP, og konteksterne giver ikke nye besøg eller uafhængige bekræftelser.
+
+Rapport, figur og resultatpakken på 149.831.981 bytes er faktisk gemt. Alle 4.773 ZIP-medlemmer er kontrolleret med CRC/SHA og genåbnet filidentitet. Original A/B og beskyttede 2016-kontroller forbliver uændrede. **0 DKK**.
+
+- [Afsluttende rapport](tools/radio_s2017_control_targets_20261011_v2/delivery/SETI_CONTROL_TARGETS_FINAL_2026-10-11.md)
+- [Figur](tools/radio_s2017_control_targets_20261011_v2/delivery/SETI_CONTROL_TARGETS_2026-10-11.png)
+- [Alle 753 kernemaksima](tools/radio_s2017_control_targets_20261011_v2/delivery/CORE_MAX753.csv) · [Alle 60 top-poster](tools/radio_s2017_control_targets_20261011_v2/delivery/TOP60.csv) · [54 kontekster](tools/radio_s2017_control_targets_20261011_v2/delivery/CONTEXT54.csv)
+- [Kilder og efterprøvning](tools/radio_s2017_control_targets_20261011_v2/delivery/DATA_AVAILABILITY.md) · [Pakker og gemmekvitteringer](tools/radio_s2017_control_targets_20261011_v2/delivery/DATA_PACKAGES.json)
+
+---
+
 # SETI — afsluttet signaltest, 11. oktober 2026
 
 **450 kontrollerede søgekort og 540 diagnostikposter er afsluttet med uafhængig numerisk QA.** Ved hvert af A = 3, 6 og 12 passerede alle 54 smalle signalspor den fastlagte lokale regel. Ved A = 1 var tallet 0/54. I hele kernen blev 36/54 rang 1 ved hvert højere niveau; den kendte q128-linje beholdt førstepladsen. Alle 4096 referencekanalers resultater er gemt.

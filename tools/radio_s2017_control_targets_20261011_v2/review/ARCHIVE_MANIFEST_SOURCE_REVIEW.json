@@ -1,0 +1,43 @@
+{
+  "schema": "SETI_S2017_CONTROL_ARCHIVE_MANIFEST_SOURCE_REVIEW_V1",
+  "status": "PASS_INDEPENDENT_ARCHIVE_MANIFEST_SOURCE_AND_CLOSED_REPORT_INTERFACE",
+  "created_UTC": "2026-10-11T07:58:37.357263+00:00",
+  "reviewer": "/root/repo_status",
+  "independent_interface_reviewer": "/root/repo_status/publication_inventory",
+  "manifest_source_path": "analysis/s2017_control_targets_20261011_v2/delivery/prepare_archive_manifest.py",
+  "manifest_source_sha256": "b78182be97f08ba0a2ed7ba963f6c9bc2165ad9e0aeaba2348b0fe1346980eee",
+  "input_byte_pins": {
+    "analysis/s2017_control_targets_20261011_v2/delivery/prepare_archive_manifest.py": {
+      "bytes": 15998,
+      "sha256": "b78182be97f08ba0a2ed7ba963f6c9bc2165ad9e0aeaba2348b0fe1346980eee"
+    },
+    "analysis/s2017_control_targets_20261011_v2/delivery/build_archive.py": {
+      "bytes": 24326,
+      "sha256": "19da8e2b9bd0f82acc8b51a2f42fe675e8f900317c0037894153258ab0f56222"
+    }
+  },
+  "source_checks": [
+    "AST parsed; importing the exact frozen builder exposes stdlib metadata definitions without calling producer/main or decoding arrays.",
+    "Requires exact both completed QA receipts, preserved original report failure, repaired COMPLETE receipt and final independent science/figure PASS bound to bothQAs/source/renderer/failure/completion.",
+    "Requires exact six closed original-text/PNG output pins; includes separate FINAL MD, text-edit proof and DATA_AVAILABILITY hard pins.",
+    "Unions frozen53/57 text provenance pins, all new-phase outputs and QA namespaces; current NPZ paths must belong to actual QA inventories.",
+    "Excludes H5/BIN/prior NPZ/ZIP/private/cache/locks and archive manifest/GO cycles.",
+    "Gate/member schemas match frozen builder admission; all selected members, own source and builder reauthenticated before create-only fsynced manifest closure."
+  ],
+  "caps": {
+    "CPU_s": 180,
+    "wall_s": 300,
+    "AS_bytes": 536870912,
+    "manifest_output_bytes": 8388608,
+    "workspace_bytes": 8589934592
+  },
+  "review_actions": {
+    "maker_executed": false,
+    "archive_created": false,
+    "opaque_NPZ_or_H5_or_BIN_read": false,
+    "scientific_arithmetic_or_detector_or_QA_rerun": false,
+    "new_HTTP_requests": 0
+  },
+  "limitation": "Prospective static PASS only; root must admit completed figure/report science inputs and execute maker once before archive preparation. No actual manifest or archive was made in this review.",
+  "unresolved_concrete_blockers": []
+}

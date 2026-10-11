@@ -1,0 +1,79 @@
+{
+  "schema": "SETI_S2017_CONTROL_REPORT_FIGURE_REPAIR_SOURCE_REVIEW_V1",
+  "status": "PASS_INDEPENDENT_FIGURE_ONLY_REPAIR_SOURCE_AND_EXACT_RENDER_AST",
+  "created_UTC": "2026-10-11T07:58:37.355007+00:00",
+  "reviewer": "/root/repo_status",
+  "repair_source_path": "analysis/s2017_control_targets_20261011_v2/delivery/render_figure_v2.py",
+  "repair_source_sha256": "70ec5d3756f81fc38ce49a75fbad9d5cb728b00418aabd032877a396295f071d",
+  "repair_source_bytes": 22933,
+  "input_byte_pins": {
+    "analysis/s2017_control_targets_20261011_v2/delivery/render_figure_v2.py": {
+      "bytes": 22933,
+      "sha256": "70ec5d3756f81fc38ce49a75fbad9d5cb728b00418aabd032877a396295f071d"
+    },
+    "analysis/s2017_control_targets_20261011_v2/delivery/make_report.py": {
+      "bytes": 37718,
+      "sha256": "48e216b2aa60d1c999fa7c5065c32e5449c1ad6b13fa0360f9b573319acbe2e1"
+    },
+    "analysis/s2017_control_targets_20261011_v2/delivery/REPORT_RENDER_FAILURE_PROVENANCE.json": {
+      "bytes": 2839,
+      "sha256": "31eba3ef24c983e1c96d8dababa6c8013ea4499b7f2d5bfc9732b47387bcb3d0"
+    }
+  },
+  "source_checks": {
+    "AST_parsed": true,
+    "copied_render_function_change_count": 1,
+    "sole_render_change": "Colorbar.set_ticks second positional labels moved to labels= keyword",
+    "original_producer_source_immutable_sha256": "48e216b2aa60d1c999fa7c5065c32e5449c1ad6b13fa0360f9b573319acbe2e1",
+    "copied_scan_target_and_known_reference_constants_manually_equal": true,
+    "no_import_or_call_to_original_producer_main_or_derive": true
+  },
+  "admission": {
+    "exact_CLI_source_review_summary_both_QA_and_root_GO_SHAs_required": true,
+    "parsed_source_review_GO_provenance_SUMMARY_and_QA_use_exact_admitted_byte_buffers": true,
+    "closed_failure_provenance_hard_pin": {
+      "bytes": 2839,
+      "sha256": "31eba3ef24c983e1c96d8dababa6c8013ea4499b7f2d5bfc9732b47387bcb3d0"
+    },
+    "all_original_nine_file_pins_preserved_and_verified_now": true,
+    "all_SUMMARY_read_input_pins_reauthenticated_before_drawing": true,
+    "hard_both_QA_schema_status_actual_SHA_and_primary_linkage": true,
+    "original_TypeError_failure_and_original_root_GO_log_source_preserved": true,
+    "original_five_text_outputs_read_only": true,
+    "root_GO_requires_figure_only_two_exact_paths_no_numerical_rerun": true,
+    "all_input_pins_rehashed_after_drawing_before_COMPLETION": true
+  },
+  "outputs_and_resources": {
+    "only_new_outputs": [
+      "SETI_CONTROL_TARGETS_2026-10-11.png",
+      "REPORT_COMPLETION_RECEIPT.json"
+    ],
+    "new_outputs_create_only": true,
+    "retained_nonblocking_exclusive_kernel_flock": true,
+    "POSIX_CPU_AS_and_SIGALRM_caps_applied_before_admission": true,
+    "CPU_cap_s": 180,
+    "wall_cap_s": 300,
+    "memory_cap_bytes": 2147483648,
+    "output_cap_bytes": 33554432,
+    "workspace_cap_bytes": 8589934592,
+    "observed_CPU_wall_RSS_must_fit_before_COMPLETE": true,
+    "PNG_and_receipt_fsynced": true,
+    "failure_create_only_INCOMPLETE_without_automatic_retry": true,
+    "completion_output_pins_exact_original_five_texts_and_new_PNG": true
+  },
+  "scientific_limits": [
+    "Drawing consumes the exact already derived saved SUMMARY; there is no scientific derivation, detector, score-grid, QA or source-array rerun.",
+    "All original logical selections and fraction/reference geometry remain unchanged.",
+    "Actual image/layout inspection and final scientific prose reconciliation are a separate completed-output review."
+  ],
+  "review_actions": {
+    "renderer_executed": false,
+    "H5_NPZ_BIN_ZIP_opened": false,
+    "detector_QA_or_search_rerun": false,
+    "new_HTTP_requests": 0,
+    "new_BODY_bytes": 0,
+    "new_paid_cost_DKK": 0
+  },
+  "acknowledged_prior_interface_miss": "Original source review failed to catch the keyword-only Matplotlib Colorbar labels interface. Original source review, failed attempt and five complete text outputs remain immutable; this PASS reviews the additive drawing repair only.",
+  "unresolved_concrete_blockers": []
+}

@@ -1,0 +1,138 @@
+{
+  "schema": "SETI_CONTROL_TARGET_REPORT_SOURCE_REVIEW_V1",
+  "status": "PASS_INDEPENDENT_CONTROL_TARGET_REPORT_SOURCE_AND_SCIENCE_DESIGN_ONLY",
+  "created_UTC": "2026-10-11T07:52:00.514329+00:00",
+  "reviewer": "/root/repo_status",
+  "independent_scientific_source_reviewer": "/root/repo_status/publication_inventory",
+  "report_source_path": "analysis/s2017_control_targets_20261011_v2/delivery/make_report.py",
+  "report_source_sha256": "48e216b2aa60d1c999fa7c5065c32e5449c1ad6b13fa0360f9b573319acbe2e1",
+  "report_source_bytes": 37718,
+  "input_byte_pins": {
+    "analysis/s2017_control_targets_20261011_v2/delivery/make_report.py": {
+      "bytes": 37718,
+      "sha256": "48e216b2aa60d1c999fa7c5065c32e5449c1ad6b13fa0360f9b573319acbe2e1"
+    },
+    "analysis/s2017_control_targets_20261011_v2/scope.json": {
+      "bytes": 31574,
+      "sha256": "2bc4e6b4176a68e7714c7a0547d2bec70efb630e593569a46f96785fe119d733"
+    },
+    "analysis/s2017_control_targets_20261011_v2/context_scope.json": {
+      "bytes": 58546,
+      "sha256": "022b93be228cd2e19684bcd8d6471b18e086fdcca6a120092bae6be4b8f95f60"
+    },
+    "analysis/s2017_control_targets_20261011_v2/qa_saved.py": {
+      "bytes": 36137,
+      "sha256": "210f85fb8874218396149da18b9242d8934a8c4377812dc22205eb8477f740b5"
+    },
+    "analysis/s2017_control_targets_20261011_v2/qa_context.py": {
+      "bytes": 29524,
+      "sha256": "75161351c62a7847611ef74af1f02e0467afb199c8ae215634afb1dc9784bd8b"
+    },
+    "analysis/s2017_control_targets_20261011_v2/delivery/make_report_prereview_v1.py": {
+      "bytes": 35624,
+      "sha256": "ef901f45ebaa5b561cb0b8e0986d35c213ad8d97e1016cf02cfeaf9ad72eb08c"
+    },
+    "analysis/s2017_control_targets_20261011_v2/delivery/make_report_prereview_v2.py": {
+      "bytes": 35722,
+      "sha256": "27a446a08d89798a5b1d2921614dc141cae27e249d7235e46b7e117aa4b1657b"
+    },
+    "analysis/s2017_injection_20261011/delivery/SETI_SIGNALTEST_2026-10-11.md": {
+      "bytes": 7986,
+      "sha256": "58bd6b0113c1696737a3b24342ec695aad161b4ee187094f32db5c01359f8525"
+    }
+  },
+  "review_scope": "Static source/AST and five frozen UTF8 code/metadata prerequisite identities only. The producer was not executed and actual output/scientific result JSON, arrays or figure were not opened.",
+  "admission_checks": {
+    "root_GO_after_both_QA_required": true,
+    "own_source_and_independent_review_exact_SHA_required": true,
+    "primary_QA_schema": "SETI_S2017_CONTROL_TARGET_SAVED_INDEPENDENT_QA_V1",
+    "primary_QA_status": "PASS753_ORIGINAL_OFF_MAPS3021_RAW_SCORE_QUERIES_NO_DETECTOR_RERUN",
+    "context_QA_schema": "SETI_S2017_CONTROL_TARGET_FIXED_CONTEXT_INDEPENDENT_QA_V1",
+    "context_QA_status": "PASS54_FIXED_CONTEXT_RAW503_SCORES96_SOURCE_ROWS_NO_SEARCH",
+    "parsed_review_and_QA_bytes_equal_CLI_authenticated_full_byte_pins": true,
+    "every_loaded_primary_TOP20_TOP3_SCORE_AUDITS_and_execution_JSON_matches_primary_QA_pin": true,
+    "primary_execution_receipts_also_match_context_QA_pins": true,
+    "loaded_context_execution_and_profile_JSON_match_context_QA_pins": true,
+    "context_COMPLETE_binds_exact_primary_receipt_SHA_dict_and_actual_primary_QA_SHA": true,
+    "QA_schema_code_scope_numeric_tolerance_no_HTTP_no_rerun_and_qualified_false_required": true,
+    "all_loaded_inputs_and_source_review_rehashed_before_COMPLETE": true,
+    "actual_QA_SHA_values_supplied_by_parent_not_opened_by_this_source_review": {
+      "primary": "67c11a8d3d09a29e4d8dbdc2b22d1183e8a8bebcecf87f5100d7e46297f7cd45",
+      "context": "37b8cb78bcfb93a5c2ae4c6bbc8553ca78c74ae1ef8c295eab29353c36fccec6"
+    }
+  },
+  "prospective_cardinality_checks": {
+    "primary_targets": 3,
+    "maps": 753,
+    "cores_per_target": 251,
+    "top20_entries": 60,
+    "selected_top3_entries": 9,
+    "raw_score_queries": 3021,
+    "fixed_contexts": 54,
+    "source_decoded_rows": 96,
+    "origin_primary_score_matches": 9,
+    "primary_row_fraction_cells": 144,
+    "carrier_maxima": 3084288,
+    "correlated_drift_width_combinations": 4842332160,
+    "fixed_context_raw_503_window_cell_occurrences": 434592,
+    "exact_declared_output_files": 7
+  },
+  "scientific_source_findings": [
+    "Original OFF role is retained for HIP97319, HIP97461 and HIP97663. Each star has one primary historical scan. The other five scans are time/direction context, with their original targets and ON/OFF labels; they are not repeated primary-star visits or certified blank sky.",
+    "Primary q1..254 excluding64/128/192 is251 new cores per target. The producer summarizes existing saved selections without reranking, filtering, refitting, masking, veto or new detector execution.",
+    "Known-channel hit is abs(saved rounded absolute center-179830784)<=selected width//2 on each of16 primary rows. The test uses width1/3 rather than the503-cell raw capsule. Excluded q128 does not mask source bytes: q127 width/halo can validly include the boundary channel.",
+    "Positive fractions are max(saved signed row-box term,0) divided by the sum of all16 positive row-box terms; zero denominator yields null. Hit-row positive mass is a whole-box row measure and is not attributed to the reference cell.",
+    "Exact measurement-geometry grouping includes normalization core, selected width and all96 centers across six scans. Logical duplicate selections remain in all output tables and are not counted as independent physical sources.",
+    "The added q/width, per-target rank overlap counts, minimum hit-row mass and fixed HIP97461 rank1 six-score range are derived from already selected saved diagnostics. Multiple templates around the known component are explicitly an inference; physical origin remains unresolved.",
+    "Weak fixed-track context scores establish neither blank sky nor source exclusivity. Fixed tracks use the primary first midpoint and actual historical times; coarse primary drift quantization is not a guarantee of subchannel matching over the cadence.",
+    "Robust scores and correlated hypothesis counts are not calibrated S/N, global FAP, flux sensitivity, population completeness or a qualified SETI detection. No new visit or independent replication is asserted.",
+    "The text correctly limits independent QA: core row medians were recomputed, while saved MAD/location parameters are hash-bound and were not independently fully refiltered from503-cell windows; no full detector grid rerun is claimed."
+  ],
+  "figure_source_checks": {
+    "standard_Matplotlib_scientific_PNG": true,
+    "Matplotlib_version_required": "3.10.8",
+    "all753_core_maximum_points_retained_with_explicit_excluded_core_gaps": true,
+    "all9x6_fixed_context_scores_with_original_scan_labels_and_primary_outline": true,
+    "all9x16_positive_row_fractions_with_reference_box_hit_marks": true,
+    "undefined_fractions_displayed_as_missing": true,
+    "robust_score_symlog_and_fraction_color_scales_labeled": true,
+    "actual_image_and_layout_inspection_not_yet_performed": true
+  },
+  "execution_resource_and_failure_checks": {
+    "CPU_cap_s": 180,
+    "wall_cap_s": 300,
+    "address_space_cap_bytes": 2147483648,
+    "declared_output_cap_bytes": 33554432,
+    "unique_allocated_workspace_cap_bytes": 8589934592,
+    "POSIX_CPU_AS_and_wall_alarm_before_actual_admission": true,
+    "retained_family_exclusive_nonblocking_kernel_flock": true,
+    "all_outputs_create_only_and_fsynced": true,
+    "no_automatic_retry_or_existing_output_overwrite": true,
+    "initial_three_metadata_failures_required_zero_maps_and_preserved": true,
+    "initial_failure_receipts_read_against_corrected_scope_pins": true,
+    "partial_report_failure_preserved_as_INCOMPLETE_without_overwriting_existing_receipt": true
+  },
+  "pre_review_correction": {
+    "original_candidate_sha256": "ef901f45ebaa5b561cb0b8e0986d35c213ad8d97e1016cf02cfeaf9ad72eb08c",
+    "defect": "Review and QA files were first CLI-hash-checked, then separately parsed without passing the already observed full byte pin.",
+    "repair": "Parsed loads now require exact equality to the same full byte pin. Previous source bytes are preserved as make_report_prereview_v1.py.",
+    "narrow_gate_repair_sha256": "27a446a08d89798a5b1d2921614dc141cae27e249d7235e46b7e117aa4b1657b",
+    "final_AST_difference_from_narrow_gate_repair": [
+      "report_text"
+    ],
+    "final_change": "Root-requested plain Danish descriptive finding paragraph only; no new scientific selection, detector arithmetic or numerical execution."
+  },
+  "review_actions": {
+    "AST_parsed": true,
+    "frozen_prerequisite_pins_matched": 5,
+    "producer_executions": 0,
+    "actual_scientific_result_JSON_opened": 0,
+    "HDF5_NPZ_BIN_ZIP_opened": 0,
+    "detector_or_preprocessing_reruns": 0,
+    "new_HTTP_requests": 0,
+    "new_BODY_bytes": 0,
+    "new_paid_cost_DKK": 0
+  },
+  "unresolved_concrete_blockers": [],
+  "limitation": "This PASS admits source only. Actual producer output identities, saved numerical/report reconciliation and image/layout inspection require a separate completed-output review."
+}

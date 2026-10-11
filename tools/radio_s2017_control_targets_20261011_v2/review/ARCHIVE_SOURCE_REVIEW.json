@@ -1,0 +1,152 @@
+{
+  "schema": "SETI_S2017_CONTROL_RESULTS_ARCHIVE_INDEPENDENT_SOURCE_REVIEW_V1",
+  "status": "PASS_SOURCE_ONLY_CURRENT_PHASE_CLOSED_RESULTS_ARCHIVE_BUILDER",
+  "reviewer": "/root/repo_status",
+  "second_lifecycle_reviewer": "/root/repo_status/publication_inventory",
+  "created_utc": "2026-10-11T07:35:52.954157+00:00",
+  "builder_sha256": "19da8e2b9bd0f82acc8b51a2f42fe675e8f900317c0037894153258ab0f56222",
+  "interface_sha256": "6b0a77fb20962ed124586da6e54778eccb840a9a041c90439e013b38ebb63dc2",
+  "input_byte_pins": {
+    "analysis/s2017_control_targets_20261011_v2/delivery/build_archive.py": {
+      "bytes": 24326,
+      "sha256": "19da8e2b9bd0f82acc8b51a2f42fe675e8f900317c0037894153258ab0f56222"
+    },
+    "analysis/s2017_control_targets_20261011_v2/delivery/ARCHIVE_INTERFACE.md": {
+      "bytes": 4063,
+      "sha256": "6b0a77fb20962ed124586da6e54778eccb840a9a041c90439e013b38ebb63dc2"
+    },
+    "analysis/s2017_control_targets_20261011_v2/driver.py": {
+      "bytes": 31824,
+      "sha256": "5f0f06373ca2f5143b036e4203c77b983ef9cf9646ffb0e0ab5cf4883133fd15"
+    },
+    "analysis/s2017_control_targets_20261011_v2/context_profiles.py": {
+      "bytes": 33192,
+      "sha256": "1497c5b6af9736e82b245eacd504d133a2bbd34a564e62186ebfc0ae7d91e693"
+    },
+    "analysis/s2017_control_targets_20261011_v2/qa_saved.py": {
+      "bytes": 36137,
+      "sha256": "210f85fb8874218396149da18b9242d8934a8c4377812dc22205eb8477f740b5"
+    },
+    "analysis/s2017_control_targets_20261011_v2/qa_context.py": {
+      "bytes": 29524,
+      "sha256": "75161351c62a7847611ef74af1f02e0467afb199c8ae215634afb1dc9784bd8b"
+    },
+    "analysis/s2017_control_targets_20261011_v2/scope.json": {
+      "bytes": 31574,
+      "sha256": "2bc4e6b4176a68e7714c7a0547d2bec70efb630e593569a46f96785fe119d733"
+    },
+    "analysis/s2017_control_targets_20261011_v2/context_scope.json": {
+      "bytes": 58546,
+      "sha256": "022b93be228cd2e19684bcd8d6471b18e086fdcca6a120092bae6be4b8f95f60"
+    },
+    "analysis/s2017_control_targets_20261011_v2/qa_scope.json": {
+      "bytes": 2037,
+      "sha256": "ab9c4a00d949cb91951f2be84723d42de86738fd35ae573fdd4de827e2fdd1ec"
+    },
+    "analysis/s2017_control_targets_20261011_v2/qa_context_scope.json": {
+      "bytes": 2310,
+      "sha256": "f9d37c5f80f600ade3136c4acbc58ab8a9cc857b910c619510960abc1c82457a"
+    }
+  },
+  "scope": "Prospective standard-library source/AST/diff review only. No closed-result gates were executed or result values/archives/arrays opened.",
+  "current_phase_gate_review": {
+    "gate_keys": 12,
+    "primary_jobs": 3,
+    "primary_maps": 753,
+    "primary_score_queries": 3021,
+    "primary_top20_entries": 60,
+    "primary_top3_entries": 9,
+    "context_fixed_scores": 54,
+    "primary_QA_counts_contract": {
+      "maps": 753,
+      "carrier_maxima": 3084288,
+      "valid_hypothesis_records": 4842332160,
+      "core_row_medians": 12048,
+      "score_audit_queries": 3021,
+      "raw_power_cells": 24313008,
+      "independent_scores": 3021,
+      "source_decoded_rows": 48,
+      "source_compacts": 3,
+      "top20_entries": 60,
+      "top3_entries": 9
+    },
+    "context_QA_counts_contract": {
+      "selected_tracks": 9,
+      "fixed_profiles": 54,
+      "raw503_capsules": 54,
+      "raw_power_cells": 434592,
+      "source_compacts": 6,
+      "source_decoded_rows": 96,
+      "conditional_normalization_core_row_medians": 864,
+      "independent_fixed_scores": 54,
+      "origin_primary_score_matches": 9
+    },
+    "check": "Exact3 COMPLETE receipt schemas/statuses/identities/OFF roles, exact753-map and54-context QA schemas/statuses/counts, primary/context/QA own code and scope SHA links, primary receipt dictionaries, context receipt and common science freeze are bound to SHA-authenticated bytes loaded and parsed together. Contracts match frozen prospective producer/QA source.",
+    "independent_QA_output_admission": "Every primary output_byte_pin and every context output_pin must equal actual independent QA input-byte pins. Every packaged NPZ additionally must belong to this phase results/ and match those pins.",
+    "no_old_phase_semantic_expansion": true
+  },
+  "manifest_and_members": {
+    "closed_root_schema": "SETI_S2017_CONTROL_RESULTS_MANIFEST_V1",
+    "closed_root_status": "CLOSED_ROOT_SELECTED_BYTE_MANIFEST_AFTER_ALL_QA_PASS",
+    "exact_member_identity": "Canonical confined source/archive names, unique source and archive paths, reservedMANIFEST.json excluded from root members, integer byte counts and64hexSHA. Gate files/all declared primary/context outputs must be members; every actual regular results/ file must be listed.",
+    "allowed_suffixes": [
+      ".json",
+      ".py",
+      ".md",
+      ".txt",
+      ".csv",
+      ".log",
+      ".png",
+      ".npz"
+    ],
+    "excluded": [
+      "HDF5",
+      "raw bins",
+      "locks",
+      "cache",
+      "prior_preparation"
+    ],
+    "figure_interface_repaired": "Exact phase delivery/SETI_CONTROL_TARGETS_2026-10-11.png is admitted only when also declared in required_report_paths and the exact closed root byte manifest. Other PNGs must belong to phase results/. Numerical NPZ admission remains results/+actualQA only.",
+    "root_owns_final_closed_selection_and_report_review": true
+  },
+  "FD_integrity_review": {
+    "required_repair_complete": true,
+    "writer": "Exclusive create xb; original writer FD retained through ZipFile writer close, writerflush/fsync, both fresh reader validations, terminal receiptfsync and parentdirectoryfsync, then closed.",
+    "fresh_reader": "O_RDONLY|O_NOFOLLOW plus regular fstat/lstat and exact(dev,inode,size) equality against original writer. That same reader is used for wholeZIP SHA then seek0/ZipFile exact member names/count/no duplicates and every member EOF CRC, size and SHA.",
+    "terminal_recheck": "After selected-source and gate byte reauthentication, independently reopen a fresh nofollow reader, repeat retained-writer identity and wholeZIP SHA. No central-directory-only rescue, replacement or overwrite.",
+    "source_pre_stream_post": "All selected source whole-file pins checked before streaming; each streamed size/SHA checked; all selected source/code/manifest/GO pins and metadata admission rechecked afterward.",
+    "crc_is_actual_stream_EOF_check": true
+  },
+  "resources_and_control": {
+    "CPU_cap_s": 300,
+    "wall_cap_s": 600,
+    "RLIMIT_AS_bytes": 536870912,
+    "archive_cap_bytes": 524288000,
+    "workspace_cap_bytes": 8589934592,
+    "actual_GO": "Exact SHA-bound GO_SERIALIZED_CLOSED_CONTROL_RESULTS_ARCHIVE requires matching builder/manifestSHA,caps and all_filesystem_actors_paused:true.",
+    "locks": "Retained exclusive nonblocking family lock and archive lock.",
+    "guards": "Unique inode allocated workspace accounting; reserve500MiB+8MiB; during-stream/final archive checks; measured CPU/wall/RSS checked and rounded terminalreceipt storage reserved before PASS.",
+    "create_only_failure": "Existing archive or receipt rejects. New partial archive and INCOMPLETE terminal evidence preserved on failure; no automatic retry/resume.",
+    "source_acquisition_or_science_run": false
+  },
+  "changes_reviewed": [
+    "Original builder copied only BASE→v2 initially",
+    "Narrow fresh reader FD binding added after independent review",
+    "Exact producer-declared final report PNG path exception added to resolve known interface mismatch"
+  ],
+  "limitations": [
+    "This is prospective source review, not actual packaging/CRC/SHA/readback or durable-save proof. Root must admit all actual3 primary completions, both actual QA PASS receipts and context completion before serialized archive GO.",
+    "No original HDF5 source payload is duplicated; reproduction needs separately authenticated source package.",
+    "Manifest contains predeclared byte-pinned report/figure outputs; root owns scientific report review and final delivery claims."
+  ],
+  "review_actions": {
+    "source_AST_parse": true,
+    "QA_source_contract_reconciliation": true,
+    "builder_executed": false,
+    "scientific_values_read": false,
+    "HDF5_NPZ_ZIP_opened": false,
+    "telescope_HTTP_requests": 0,
+    "Git_mutations": 0
+  },
+  "unresolved_blockers": 0
+}
