@@ -1,0 +1,52 @@
+{
+  "schema": "SETI_BURST4_STATIC_CONTEXT_REVIEW_V1",
+  "status": "PASS_STATIC_SOURCE_REVIEW_NO_NUMERICAL_ARRAYS_OR_OUTPUTS_OPENED",
+  "reviewer": "independent_method_review",
+  "reviewed_files": {
+    "analysis/burst4_20261011_context/context_profiles.py": {
+      "bytes": 27101,
+      "sha256": "d27d8180754641ed15ae1ee260943f948c06edc0885be429a64ff3f4d56661c0"
+    },
+    "analysis/burst4_20261011_context/qa_context.py": {
+      "bytes": 25203,
+      "sha256": "e910975468c7998e8cbdd78d740d187649177a1eafc414c86f1ebdf71beaa39a"
+    }
+  },
+  "primary_scope_metadata_pin": {
+    "path": "analysis/burst4_20261011/scope.json",
+    "bytes": 44518,
+    "sha256": "7352992e3f31e92267b12618cbe3a0d4c02fd022760a97ae30f0aeaf1a65da41"
+  },
+  "checks": {
+    "syntax_AST": true,
+    "actual_original_tstart_gaps_plus_row_offset_reference": true,
+    "own_selected_window_reference_times_exact_arange4_TSAMP": true,
+    "absolute_channel_rounding_before_crop_subtraction": true,
+    "full16_preprocess_unchanged_each4096core": true,
+    "own_four_row_score_sqrt4width_reconciled": true,
+    "separate_full16_score_sqrt16width_not_primary_match": true,
+    "local501_median503_capsules_independent_of_detector": true,
+    "source18compact_288decoded_rows_SHA_and_capsule_bits": true,
+    "full4096_raw_power_row_medians_864": true,
+    "54profiles_864row_boxes_108scores_9own_matches": true,
+    "both_fourrow_and_full16_positive_contribution_null_handling": true,
+    "exact_selected_primary_TOP3_no_reranking": true,
+    "runtime_and_resource_boundaries_300CPU_600wall_2GiB": true,
+    "input_output_pins_before_after": true
+  },
+  "findings": [],
+  "scientific_limits": [
+    "Four-row scores use each selected local row window in every context scan; only origin own window scores are primary reconciliations.",
+    "Full16 scores have different support/normalization and are descriptive context, not a score match requirement.",
+    "Other direction/time fixed extrapolation uses the four-row drift grid; no refit and no exclusion of other signal origins.",
+    "Independent arithmetic is conditional on saved fullcore MAD and winsorized location. Fullcore raw row medians are independently recomputed.",
+    "Six scans are one visit across four distinct directions; OFF primaries have no independent same-target revisit.",
+    "Whole width-box positive contribution fractions diagnose concentration but do not isolate one-cell causal power or calibrate FAP."
+  ],
+  "execution": {
+    "science_run": false,
+    "numerical_modules_imported": false,
+    "H5_NPZ_arrays_opened": false,
+    "saved_numerical_outputs_opened": false
+  }
+}
