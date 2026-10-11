@@ -1,0 +1,181 @@
+{
+  "schema": "SETI_BURST4_FINAL_SAVED_REPORT_AND_VISUAL_REVIEW_V1",
+  "status": "PASS_WITH_MINOR_VISUAL_LAYOUT_ISSUE",
+  "scientific_report_and_saved_value_review": "PASS",
+  "read_scope": "Saved JSON/CSV/Markdown, immutable source text, artifact byte hashes and both rendered PNGs (row plot also at original resolution); no raw H5/NPZ, detector, normalization/profile/search or QA rerun.",
+  "artifact_pins": [
+    {
+      "path": "analysis/burst4_20261011_context/delivery/SETI_BURST4_FINAL_2026-10-11.md",
+      "bytes": 5092,
+      "sha256": "b4d8721707c4ba717c1de294649520d0b0436ac16b31b08e8559af66333f3d27"
+    },
+    {
+      "path": "analysis/burst4_20261011_context/delivery/TOP9.csv",
+      "bytes": 1765,
+      "sha256": "233a09390db10f98ba41287c1c0467edb67017bd3bc19e45a6ecf0a61369bb28"
+    },
+    {
+      "path": "analysis/burst4_20261011_context/delivery/CONTEXT54.csv",
+      "bytes": 4693,
+      "sha256": "acd92619b3ca6077b8a18534b74237307e00d55446663db5597407d96a879a57"
+    },
+    {
+      "path": "analysis/burst4_20261011_context/delivery/SUMMARY.json",
+      "bytes": 8867,
+      "sha256": "f418178feb3feaea4be503dbd22b678c83430514cff33dfa4ff4699454eccf81"
+    },
+    {
+      "path": "analysis/burst4_20261011_context/delivery/REPORT_RECEIPT.json",
+      "bytes": 4031,
+      "sha256": "70b986d153f43a4b46138f0bbad4895fd8b8b0b830d558fbf68c6e8937d7a027"
+    }
+  ],
+  "image_pins_and_visual_inspection": [
+    {
+      "path": "analysis/burst4_20261011_context/delivery/SETI_BURST4_CONTEXT54_2026-10-11.png",
+      "bytes": 507603,
+      "sha256": "a796003a16c37bae603475a4b5d5fbe80e2c1eeaac6d8b39c7b4a3587f1fcab0",
+      "pixel_size": [
+        2174,
+        2224
+      ],
+      "viewed": true,
+      "original_resolution_viewed": false
+    },
+    {
+      "path": "analysis/burst4_20261011_context/delivery/SETI_BURST4_ROW_CONTRIBUTIONS_2026-10-11.png",
+      "bytes": 667154,
+      "sha256": "b71bd0de8dda13cfb8ced86f4f2364c45e0c2801665af426649b7ecd7b20aa51",
+      "pixel_size": [
+        2363,
+        1718
+      ],
+      "viewed": true,
+      "original_resolution_viewed": true
+    }
+  ],
+  "saved_result_and_QA_pins": [
+    {
+      "path": "analysis/burst4_20261011_context/results/CONTEXT_PROFILES.json",
+      "bytes": 289117,
+      "sha256": "f42c5bc3d1e49414ae9a5c23ea67c68c5ccd2d27b596f695fe2b7c022eed3f9b"
+    },
+    {
+      "path": "analysis/burst4_20261011_context/results/EXECUTION_RECEIPT.json",
+      "bytes": 25693,
+      "sha256": "78dcfe131cd87b40a0cef9b61295acbc81d87f4aa00914ccff614a5253d77e74"
+    },
+    {
+      "path": "analysis/burst4_20261011_context/CONTEXT_QA_RECEIPT.json",
+      "bytes": 36619,
+      "sha256": "a22113a685187032f320eff935871c0dad9203e91554fdf6f288ab2f2fd48e3e"
+    },
+    {
+      "path": "analysis/burst4_20261011_qa/results/QA_RECEIPT.json",
+      "bytes": 392095,
+      "sha256": "f1d8551cf1622480e4ee4db669379c9dacdbb882f84d5d36a13fe1767d07abc8"
+    }
+  ],
+  "code_pins": [
+    {
+      "path": "analysis/burst4_20261011_context/make_report.py",
+      "bytes": 22621,
+      "sha256": "6bf92974bf23729976f8a427f3f68cf67ed6a18a7bb5e834632ce60c04632350"
+    },
+    {
+      "path": "analysis/burst4_20261011_context/make_report_v2.py",
+      "bytes": 23640,
+      "sha256": "9d62ef125295ee03245694839aea2db04f9037856010c1e4a790baf5979a08e1"
+    },
+    {
+      "path": "analysis/burst4_20261011_context/context_profiles.py",
+      "bytes": 27101,
+      "sha256": "d27d8180754641ed15ae1ee260943f948c06edc0885be429a64ff3f4d56661c0"
+    },
+    {
+      "path": "analysis/burst4_20261011_context/qa_context.py",
+      "bytes": 25203,
+      "sha256": "e910975468c7998e8cbdd78d740d187649177a1eafc414c86f1ebdf71beaa39a"
+    }
+  ],
+  "all_report_receipt_input_output_pins_verified": true,
+  "CONTEXT54_csv_all_scores_identity_and_windows_match_saved_profiles": true,
+  "TOP9_csv_identity_score_and_reference_frequency_match_saved_summary_and_selected_tracks": true,
+  "heatmap_review": {
+    "status": "PASS",
+    "scores_and_row_column_order_match_saved_54_profiles": true,
+    "four_row_and_full16_scores_clearly_separate": true,
+    "separate_color_scale_labels_present": true,
+    "cell_text_contrast_legible": true,
+    "titles_ticks_colorbars_and_notes_not_clipped": true,
+    "nine_primary_cells_framed_correctly": true
+  },
+  "row_plot_review": {
+    "status": "PASS_WITH_MINOR_LAYOUT_ISSUE",
+    "all16_fixed_row_contributions_shown": true,
+    "selected_four_row_source_indices_highlighted": true,
+    "actual_scan_time_gaps_preserved_with_disjoint_scan_segments": true,
+    "primary_ON_and_other_OFF_colors_correct": true,
+    "titles_ticks_bottom_notes_and_data_not_clipped": true,
+    "minor_issue": "Long repeated left-column vertical y-axis labels touch or overlap between panel rows. Numerical points, titles, ticks, highlighted windows and notes remain legible. A separate display-only copy using one shared shorter y-label would improve publication layout; retain this original."
+  },
+  "actual_findings": {
+    "combined_primary_maps": 288,
+    "carrier_maxima": 1179648,
+    "correlated_hypothesis_combinations": 2625896448,
+    "raw_four_row_score_queries": 1161,
+    "selected_tracks": 9,
+    "fixed_six_scan_profiles": 54,
+    "four_row_context_scores": 54,
+    "full16_context_scores": 54,
+    "source_files_context_verified": 18,
+    "source_decoded_rows_context_verified": 288,
+    "own_four_row_scores_reconciled": 9,
+    "strongest_saved_primary_track": {
+      "target": "HIP97663",
+      "rank": 1,
+      "score": 7.315816003257552,
+      "frequency_MHz_at_own_window_reference": 2302.2643519565463,
+      "window_source_rows": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "drift_hz_s": -0.6075949367088609,
+      "width_channels": 1,
+      "own_full16_score": 4.636825514802808
+    },
+    "selected_primary_four_row_score_range": [
+      6.193986552280917,
+      7.315816003257552
+    ],
+    "own_fixed_full16_score_range": [
+      2.1171855477187673,
+      4.7890348719360425
+    ],
+    "primary_largest_positive_four_row_contribution_fraction_range": [
+      0.30112152918774704,
+      0.42639414235510703
+    ],
+    "selected_own_four_row_terms_all_positive": true
+  },
+  "scientific_limits_verified": {
+    "four_row_score_is_not_sigma_or_calibrated_SNR": true,
+    "full16_score_does_not_have_to_match_burst_score": true,
+    "reference_frequency_is_own_winning_window_first_midpoint": true,
+    "73_014444032_seconds_exposure_distinct_from_54_760833024_seconds_midpoint_span": true,
+    "selected_maxima_and_overlapping_windows_are_dependent": true,
+    "fullcore_MAD_location_QA_condition_explicit": true,
+    "coarse_four_row_drift_grid_extrapolation_does_not_exclude_other_context_origins": true,
+    "six_scans_four_distinct_target_directions_one_visit": true,
+    "three_HIP98505_ON_repeats_not_independent_OFF_primary_repeats": true,
+    "no_mask_OFF_veto_origin_or_detection_classification": true,
+    "no_new_reference_frequency_or_observation_coverage": true,
+    "protected2016_holdouts_closed": true
+  },
+  "primary_QA_max_score_arithmetic_absolute_difference": 2.708944180085382e-14,
+  "context_QA_max_score_absolute_difference": 0.0,
+  "source_or_scientific_outputs_edited": false,
+  "report_or_plot_artifacts_edited": false
+}

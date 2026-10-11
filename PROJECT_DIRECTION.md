@@ -1,3 +1,27 @@
+# Aktuel SETI-retning — 11. oktober 2026: burstpilot afsluttet
+
+**288 burst-søgekort, 1.179.648 gemte kanalmaksima og 54 faste kontekstprofiler er afsluttet. Begge numeriske QA-kørsler og rapportens figurer har bestået kontrollen.** Piloten anvender syv overlappende vinduer med fire integrationer (73,014 sekunder) i de eksisterende OFF-scanninger af HIP97319, HIP97461 og HIP97663 fra 28. april 2017. Hver retning omfatter 96 på forhånd fastlagte frekvenskerner, cirka 12,5 % af de 766 tidligere undersøgte kerner.
+
+Det højeste gemte maksimum er **7,315816** i HIP97663 ved 2302,264352 MHz. Det er en empirisk søgescore; ingen kalibreret sigma-værdi eller falsk-alarm-sandsynlighed er etableret. Ni udvalgte spor er målt uden refit i alle seks oprindelige scanninger på fire retninger, med separate fire-række- og fulde 16-række-scorer. **Ingen kvalificeret SETI-detektion, ny frekvensdækning, ny observation eller blind validering er etableret.** Scanninger af andre stjerner er ikke gentagelser af samme mål.
+
+Den uændrede detektor normaliserer fortsat på alle 16 rækker; ingen ny OFF-maske eller OFF-veto er anvendt. QA omfatter 1.161 gemte primære råscoreforespørgsler, 54 kontekstprofiler/108 scorer og ni match til de oprindelige fire-række-scorer. Kontrollen af den endelige score er betinget af de gemte normaliseringskonstanter og udgør ikke en uafhængig genkørsel af hele søgegitteret.
+
+Resultatpakken er på **86.496.254 bytes**, med **1.939 arkivmedlemmer** kontrolleret med CRC og SHA256. Den indeholder alle nye kort og råkapsler; de 18 originale H5-kompakter er eksterne forudsætninger. Den offentlige gren indeholder kildekode, rapporter, figurer og kontrolkvitteringer, mens hele array-pakken er bevaret separat. Udgift: **0 DKK**.
+
+Det næste metodiske spørgsmål er at fastlægge en prospektiv nulfordeling og en eventuel bredere tidsbank, før flere maksimumværdier fortolkes som signifikans. Denne pilot er eksplorativ på allerede eksponerede 2017-data. Der er ikke igangsat en ny observationsrunde eller en udvidet søgning som del af denne afslutning. Tidligere A/B-forløb med FAIL_CLOSED og de beskyttede 2016-data bevarer deres eksisterende status.
+
+- [Rapport](analysis/burst4_20261011_context/delivery_v3/SETI_BURST4_FINAL_2026-10-11.md)
+- [Ni udvalgte spor](analysis/burst4_20261011_context/delivery_v3/TOP9.csv)
+- [54 kontekstprofiler](analysis/burst4_20261011_context/delivery_v3/CONTEXT54.csv)
+- [Primær numerisk QA](analysis/burst4_20261011_qa/results/QA_RECEIPT.json)
+- [Kontekst-QA](analysis/burst4_20261011_context/CONTEXT_QA_RECEIPT.json)
+- [Pakkeidentitet](analysis/burst4_20261011_context/delivery_v3/RESULT_PACKAGE_RECEIPT.json)
+- [Offentligt evidensindeks](analysis/burst4_20261011/PUBLIC_EVIDENCE_INDEX.md)
+
+---
+
+## Tidligere retning, bevaret uændret
+
 # Aktuel SETI-retning — 11. oktober 2026: udvidet OFF-søgning afsluttet
 
 1536 nye søgekort og 54 uændrede kontekstprofiler er afsluttet og kontrolleret. De stationære komponenter ved 2297,4609375 og 2303,3203125 MHz er fælles for alle seks scanninger på fire retninger. Rank-3-skabelonernes otte-række-overlap er beskrivende evidens for flere skabeloner omkring samme komponent. Den fysiske årsag kræver videre kontrol; ingen SETI-detektion eller uafhængig gentagelse er etableret.
