@@ -1,0 +1,50 @@
+{
+  "schema": "SETI_S2017_INJECTION_RESULT_PACKAGE_V1",
+  "status": "COMPLETE_ZIP_CRC_VERIFIED_AND_TWO_PART_DURABLE_SAVE_CONFIRMED",
+  "original_archive": {
+    "filename": "SETI_S2017_INJECTION_2026-10-11.zip",
+    "bytes": 72542890,
+    "sha256": "fb10a8b5371ade34faa09c9d4e927e0a6cce2b103fa9bd262d5a35cd811b8023",
+    "member_count": 1481,
+    "zip_test": "PASS_NO_ERRORS",
+    "single_file_save_attempts": 2,
+    "single_file_save_status": "FAILED_TRANSFER_NO_LIBRARY_ITEM_CREATED"
+  },
+  "durable_parts": [
+    {
+      "index": 0,
+      "filename": "SETI_S2017_INJECTION_2026-10-11.zip.part00",
+      "source_offset": 0,
+      "bytes": 41943040,
+      "sha256": "3902abf00de0fe9f4c2b46adebf35bbd98897c7235647212c82c0ae21e356be2",
+      "save_status": "SUCCEEDED"
+    },
+    {
+      "index": 1,
+      "filename": "SETI_S2017_INJECTION_2026-10-11.zip.part01",
+      "source_offset": 41943040,
+      "bytes": 30599850,
+      "sha256": "e34a7349cf94539aa46dee98baeeb292b4383e7f56a7903bb0f2ee781c0bc638",
+      "save_status": "SUCCEEDED"
+    }
+  ],
+  "assembly_command": "cat SETI_S2017_INJECTION_2026-10-11.zip.part00 SETI_S2017_INJECTION_2026-10-11.zip.part01 > SETI_S2017_INJECTION_2026-10-11.zip",
+  "ordered_part_stream_sha256_verified": true,
+  "assembled_sha256_expected": "fb10a8b5371ade34faa09c9d4e927e0a6cce2b103fa9bd262d5a35cd811b8023",
+  "scientific_counts": {
+    "maps": 450,
+    "baseline_maps": 18,
+    "modified_maps": 432,
+    "diagnostics": 540,
+    "truth_audits": 540,
+    "groups": 30,
+    "independent_tuple_score_checks": 5400
+  },
+  "source_files_duplicated_in_package": false,
+  "new_telescope_HTTP_requests": 0,
+  "new_telescope_BODY_bytes": 0,
+  "cost_DKK": 0,
+  "qualified_SETI_detection": false,
+  "original_A_B_status": "FAIL_CLOSED_UNCHANGED",
+  "UTC": "2026-10-11T06:27:12Z"
+}

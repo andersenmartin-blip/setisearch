@@ -1,3 +1,36 @@
+# Afsluttet: S2017 råeffekt-injektionsbenchmark — 11. oktober 2026
+
+Den prospektivt fastlåste benchmark på seks allerede bevarede S2017-scanninger
+er afsluttet: **450 kort**, heraf 18 baselines og 432 digitale
+råeffekt-injektioner, **540 diagnostiske cases** og 30 komplette grupper.
+Uafhængig saved-output-QA består alle deklarerede kontroller: 1.843.200
+carrier-maksima, 2.893.824.000 gyldige hypotese-records, 4.363.200 rå
+truth-vinduesceller og 5.400 tuple-scorekontroller. Maksimal uafhængig
+rå-aritmetikafvigelse er `2.6929569685307797e-12`.
+
+Bredde-1-injektioner har 0/18 lokal støtte ved operationel score 10 for A=1 og
+18/18 for A=3, 6 og 12 i hver af q64/q128/q192. I de rene sidekerner q64/q192
+bliver A≥3 også global rang 1 i 18/18; i q128 bliver de **0/18 global rang 1**
+ved alle amplituder, fordi den kendte stærke konkurrent bevarer førstepladsen.
+Bredde 9 er mismatchstress uden eksakt-bredde-recovery og må ikke tælles som
+kvalificeret genfinding.
+
+Dette er afhængige engineeringcases i ét historisk besøg, ikke ny himmel,
+uafhængig observation, ON-only-kildeprøve, OFF-veto eller kalibreret SNR/FAP.
+Oprindelig A/B forbliver `FAIL_CLOSED`; ingen kvalificeret SETI-detektion.
+De målte benchmark-, QA-, sammenfatnings- og figurkomponenter bruger tilsammen
+**815.212301605 CPU-s**, 0 DKK og nul nye telescope-requests/bytes.
+
+Den komplette 72.542.890-byte resultat-ZIP er CRC-kontrolleret og gemt i to
+ordnede dele; den faktiske partstrøm reproducerer SHA256
+`fb10a8b5371ade34faa09c9d4e927e0a6cce2b103fa9bd262d5a35cd811b8023`.
+
+[Resultat og figur](tools/radio_s2017_injection_20261011/delivery/RADIO_S2017_INJECTION_2026-10-11_RESULT.md) ·
+[datatilgængelighed](tools/radio_s2017_injection_20261011/delivery/DATA_AVAILABILITY.md) ·
+[pakkeidentitet](tools/radio_s2017_injection_20261011/delivery/DATA_PACKAGE.json)
+
+---
+
 # Afsluttet: S2017 native 170/171/172 — 10. oktober 2026
 
 Den nye tilstødende fase er færdig: **1536 ON-kort, 72 faste profilinstanser og 891648 bitvist kontrollerede rå patchcelleforekomster**. Alle otte science-job, kilde-QA, begge faktiske output-QA'er og de uafhængige videnskabelige gennemgange er afsluttet med PASS. Der er **ingen kvalificeret SETI-detektion**. De stærkeste nye stationære midterlinjer ved 2303.3203125 og 2297.4609375 MHz findes i samtlige tre ON- og tre OFF-scanninger; fysisk oprindelse og falskalarmssandsynlighed er ikke fastlagt.

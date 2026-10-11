@@ -1,3 +1,31 @@
+# Aktuel SETI-retning — 11. oktober 2026: injektionsbenchmark afsluttet
+
+Den fastlåste S2017-råeffektbenchmark er afsluttet og uafhængigt kontrolleret:
+450 kort, 540 cases og 30 komplette grupper. Bredde-1-resultatet viser 0/18
+lokale score≥10-cases ved A=1 og 18/18 ved A≥3. I q64/q192 er A≥3 også global
+rang 1 i 18/18; i q128 er den indsprøjtede linje 0/18 global rang 1 gennem
+A=12 på grund af den kendte stærke konkurrent. Bredde 9 er mismatchstress og
+ikke eksakt recovery. Det er et engineeringresultat i bevarede 2017-data, ikke
+ny himmel eller kalibreret detektionssandsynlighed. A/B forbliver
+`FAIL_CLOSED`.
+
+Den nærmeste konkrete nye-himmelmulighed er fortsat den metadata-kvalificerede
+seks-scan HIP98505-kadence fra 29. september 2019 i 3563,965–3751,465 MHz.
+Den aktuelle transportadgang tillader ikke kildens teleskophost, så ingen
+spektralbytes eller requests må opfindes eller omgås. Den kan heller ikke
+validere 2017-træk ved samme frekvens, fordi båndet er et andet. Beskyttede
+2016-kontroller forbliver lukkede, og den afsluttede 2017-benchmark genkøres
+ikke. Et efterfølgende numerisk studie kræver en ny, præcis prospektiv
+afgrænsning og må ikke tunes mod disse eksponerede 450 cases.
+
+[Benchmarkresultat](tools/radio_s2017_injection_20261011/delivery/RADIO_S2017_INJECTION_2026-10-11_RESULT.md) ·
+[fuld status](PROJECT_STATUS.md)
+
+Følgende tekst er bevaret historik; ovenstående er det aktuelle
+fortsættelsespunkt.
+
+---
+
 # Aktuel SETI-status — 9. oktober 2026: syv nye uafklarede ON-overskud
 
 En ny stationær ON/OFF-sammenligning over 1.048.010 kanaler pr. ON (2,971636 MHz inden for den eksisterende cache) og én samlet tidskontrol af syv udvalgte profiler er færdige. **1424,079070 MHz i ON2** ligger over de faste lokale flanker i alle 16 tidsrækker; de tilstødende OFF-scanninger har ikke et tilsvarende gennemsnitligt overskud på samme kanal. Alle syv spor bevares som uafklarede. Udvælgelsen fra de samme data er ikke en uafhængig bekræftelse eller kalibreret signifikanstest.
