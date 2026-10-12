@@ -1,0 +1,20 @@
+{
+  "schema": "SETI_CARRIER_FIXED_CONTEXT_PROSPECTIVE_CONTRACT_V1",
+  "written_before_selector_outcomes": true,
+  "selected_input": "carrier_followup/ranking/SELECTED_TOP9.json",
+  "record_fields": ["primary_target", "scan_id", "native_chunk_index", "core_q", "carrier_index_in_core", "frequency_hz_at_own_first_midpoint", "reference_time_mjd", "drift_hz_s", "width_channels", "score", "exploratory_selection_rank", "map_pin"],
+  "logical_profiles": "Six scans for each final selected logical tuple; preserve originals and explicit alias links",
+  "physical_template_reuse_identity": "Same original normalization core(native, q), same original width, exact same rounded source center vectors in all six fixed scans. Reference epochs remain explicit and can differ for a stationary alias.",
+  "baseline": "Preserve previously exposed54 logical profiles and48 source-normalization crops by exact original hashes. Existing exact physical queries/scores are imported, never recomputed.",
+  "new_queries": "Only previously absent physical templates. No new carrier/drift/width optimization. Verify own selected score directly against original per-carrier map scalar and original drift/width at the original carrier index.",
+  "normalization": "Full16 rows, static4096 original core,4000 halo eachside, original exact501 median/residualMAD/winsorized location. Reuse existing exactsamecore/scannorm+rawcrop if available; otherwise compute and preserve a new raw12096 crop once per unique core/scan.",
+  "raw_proof": "Original18 H5 file hash identities and288 decoded row hashes retained. New crop row hashes link preserved queries to authenticated source rows; source file identities rechecked unchanged.",
+  "DC_contacts": "Annotate transported original box contact with three frozen DC bins without veto or altering tracks.",
+  "no_source_float_read_before_public_scope_GO": true,
+  "no_download": true,
+  "no_telescope_request": true,
+  "no_reranking_in_context_driver": true,
+  "no_significance_calibration": true,
+  "no_independent_sky_confirmation_claim": true,
+  "limits": {"CPU_seconds":600,"wall_seconds":900,"RAM_bytes":2147483648}
+}

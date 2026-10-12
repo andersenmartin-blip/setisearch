@@ -1,0 +1,74 @@
+{
+  "schema": "SETI_CARRIER_PROSPECTIVE_STATIC_CODE_REVIEW_V1",
+  "status": "PASS_STATIC_SELECTOR_SCOPE_AND_CODE",
+  "input_pins": {
+    "carrier_followup/ranking/select_streaming.py": {
+      "bytes": 16455,
+      "sha256": "8e320ce586c377415aebdad41e7c1085180b088d9f21e0a086a86a84b8d398c2"
+    },
+    "carrier_followup/ranking/prepare_scope.py": {
+      "bytes": 9088,
+      "sha256": "6b9c32baaf7528b3dad9d7fd0335b2a369642e088f603d6796d3902bcb49842b"
+    },
+    "carrier_followup/ranking/scope.json": {
+      "bytes": 1339205,
+      "sha256": "66522ab04290aba321717dacaf598392f05ce50d2681a4d326bdca102ac7fc1d"
+    },
+    "carrier_followup/science_review/schema_metadata_review.json": {
+      "bytes": 46772,
+      "sha256": "996c670b022ff56bead532a8032db22563390265598f4336cd6777d03a160fa2"
+    },
+    "carrier_followup/context/PROSPECTIVE_CONTRACT.json": {
+      "bytes": 2138,
+      "sha256": "c61205fb4229a4830412b2bb171bce234a45cdf3ea2c2662b9cb98f16b9b6d37"
+    },
+    "carrier_followup/context/driver.py": {
+      "bytes": 25008,
+      "sha256": "30c7fb9ac550b06eb6825350dac183149b65e16c38089ca634c74f8a92a32532"
+    }
+  },
+  "counts": {
+    "map_domains": 2289,
+    "cached_carrier_winners": 9375744,
+    "carrier_winners_per_OFF_target": 3125248,
+    "NPY_headers_reviewed_independently": 16023,
+    "array_payload_values_opened_by_review": 0
+  },
+  "selector_checks": {
+    "whole_NPZ_hash_before_payload_use": true,
+    "all4096carriers_processed_per_map_not_coremax_only": true,
+    "source_array_channel_sequence_and_frequency_relation_asserted": true,
+    "finite_values_original_drift_grid_membership_widths1_3_and1570counts_asserted": true,
+    "original_absolute_nearest_even_rounding_and_elapsed_time_order_preserved": true,
+    "inclusive_width1_3_DC_contact_any16rows": true,
+    "historical_coremax_score_channel_tieorder_kept_separate": true,
+    "global_heap_quality_inverse_exactly_matches_final_rank_key": true,
+    "localTOP700_then_globalTOP700_exact_prefix_safe": true,
+    "reference_domain_uniqueness_checked_before_prefix_claim": true,
+    "rawTOP700_sufficient_for_separatedTOP100_by694bound": true,
+    "finalTOP3_exact_first3_of_separated_list": true,
+    "all_map_native171_boundarycores_retained": true,
+    "no_raw_power_or_detector_grid_evaluation": true,
+    "scope_code_GO_hashes_required_no_target_overwrite": true
+  },
+  "bounded_prefix_proof": "At most7unique carriers are excluded by one previous retained reference channel, including itself. Before choice100,99previous picks block at most693carriers; rank694therefore suffices. Unique disjoint channel domains and one winning tuple percarrier are validated. Keeping700permap preserves globalrawTOP700; minheap inverse keys and finalcanonical keys agree.",
+  "scientific_interpretation": "New exploratory ranking over previously exposed per-carrier maxima; not blind discovery, masked detector recomputation, exhaustive clean-hypothesis recovery, new coverage or independent observations. Removed winning paths can conceal clean nonwinning drift/widthhypotheses at the samecarrier. Reference separation does not establish distinct physical sources; uncalibrated scores remain uncalibrated.",
+  "context_static_review": {
+    "exact_reuse_key_includes_all6x16rounded_paths_width_and_original_normalizationcore": true,
+    "same_reference_frequency_alone_not_reuse_identity": true,
+    "baseline_scores_hash_pinned_and_not_recomputed_for_exact_queries": true,
+    "new_fixed_queries_use_original_static4096core_full16_normalization": true,
+    "existing_crop_reuse_and_new_crop_501support_geometrically_checked": true,
+    "own_query_compared_to_original_percarrier_scalar_drift_width_channel": true,
+    "separate_rawgeometry_and_normalizedmeasurement_labels": "Required interpretive distinction communicated to contextowner; current reusekey is safely stronger than rawgeometryidentity. Rawgeometrycan match across differentnormalizationcores, whose scores must not be merged.",
+    "new_context_scope_not_prepared_or_executed_by_review": true
+  },
+  "resource_note": "Selector enforces CPU/RAM and outputlimits internally. The scope900secondwallcap should be enforced by the parent runner; selector itself does not install a wallalarm.",
+  "review_activity": "Static code and metadata/NPYheader review only. No cached scorepayload read, eligibilityfilter, ranking, rawpower query or source/canonicalmutation performed.",
+  "original_AB": "FAIL_CLOSED_UNCHANGED",
+  "protected2016": "CLOSED",
+  "new_telescope_requests": 0,
+  "cost_DKK": 0,
+  "blocking_findings": [],
+  "GO_for_public_freeze": true
+}
