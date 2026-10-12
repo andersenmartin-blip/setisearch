@@ -1,3 +1,21 @@
+# Aktuel SETI-status · 12. oktober 2026: udvælgelsesfordel påvist under en fast støjmodel
+
+**Otte uafhængige Gamma51-modelrealiseringer af hele den 96-kerne burst-pilot er færdige og har bestået uafhængig numerisk QA.** Der er beregnet 768 nye syntetiske søgekort, 3.145.728 carrier-maksima og 7.002.390.528 korrelerede skabelonforekomster. Kode, scope og kildegennemgange blev offentliggjort før modelgeneration ved commit `682281a0f5eee08af620f06f36bdb1918d825952`.
+
+Alle otte familiers TOP1 og alle 24 sammenbundne TOP3 står strengt højere i kronologien end i de 23 alternative centervektorer. TOP1-scorerne ligger mellem **6,534836 og 7,247618**, med median **7,014702**. Dermed forekommer den samme kronologiske rangfordel også efter vinderudvælgelse under denne rene støjmodel. Det er ikke en kalibreret falsk-alarm-rate for teleskopsporene eller en forklaring af deres fysiske oprindelse. Otte familier er de otte modelenheder; de 24 vindere er afhængige inden for hver familie.
+
+Modellen er IID Gamma(51,1/51), valgt før nye værdier og uden fit til observationerne. Den genestimerer full16-normaliseringen på 4096 kernekanaler med 4000 halo og gentager hele syv-vindue/159-drift/bredde1,3-familien før TOP20/TOP3 og rækkefølgediagnoser. Den modellerer ingen instrumentrespons, tids-/frekvenskorrelationer eller radioforstyrrelser. Den tidligere bredere ordinary16-søgning eller nye observationsdata er ikke gentaget.
+
+QA har verificeret alle 768 modelstreams og 12.288 rækkehashes/rå kernemedianer samt 3.096 lokale scoreaudits. Fuld median501, MAD og lokation er uafhængigt rekonstrueret for alle 24 vindende modelkerner. Andre auditkerners MAD/lokation er betingede gemte termer, og hele søgegitteret er ikke uafhængigt genmaksimeret i QA. Rapport og begge figurer er gennemgået. Resultatpakken er **101.270.902 bytes med 4.801 CRC-kontrollerede medlemmer og 4.800 SHA256-kontrollerede payloadfiler**; inputidentiteterne er uændrede.
+
+Original A/B er fortsat **FAIL_CLOSED**, og den oprindelige kvalificerede nye-himmelpilot er ikke åbnet. Ingen beskyttede holdouts, ny observation eller astronomisk frekvensdækning følger af denne modelkontrol. De ni tidligere datareferencer vises separat og stammer fra tre OFF-scanninger i ét historisk besøg. Planen **7.–20. oktober** beholder sit formelle checkpoint den **20. oktober**. Udgift **0 DKK**, nul nye teleskoprequests. Kendte målte proceskomponenter inklusive pakning er 1.148,976702 CPU-s; dette er ingen komplet sessionsmåling eller abonnementsgrænse.
+
+[Rapport](analysis/burst_null_20261012/delivery/SETI_BURST_NULL_FINAL_2026-10-12.md) · [Otte modelenheder](analysis/burst_null_20261012/delivery/FAMILY8.csv) · [24 udvalgte modelspor](analysis/burst_null_20261012/delivery/SYNTHETIC_TOP24.csv) · [Numerisk QA](analysis/burst_null_20261012/QA_RECEIPT.json) · [Reproduktion](analysis/burst_null_20261012/REPRODUCTION.md) · [Evidensindeks](analysis/burst_null_20261012/PUBLIC_EVIDENCE_INDEX.md)
+
+---
+
+## Tidligere status og retning, bevaret uændret
+
 # Aktuel SETI-status · 11. oktober 2026: fast rækkefølgekontrol afsluttet
 
 **1.161 gemte vindertuple-forekomster, 18.576 række/center-bokse og 27.864 permutationsscorer er beregnet og har bestået uafhængig numerisk QA.** Kode og scope blev offentliggjort ved commit `76fb3d56e5600b3f970405b373c53d66917cb71b` før de nye matrixudfald. De tre primærjob er gennemført én gang på eksisterende OFF-data fra 28. april 2017; intet søgegitter eller fuldkerne-MAD/location er genberegnet.

@@ -1,3 +1,17 @@
+# Aktuel SETI-retning · 12. oktober 2026: kronologirang er udvælgelsesbetinget
+
+Den fastlåste fulde Gamma51-kontrol er afsluttet: otte uafhængige familier, 768 syntetiske kort og bestået uafhængig QA. Alle otte TOP1 og alle 24 sammenbundne TOP3 får størst score i kronologien. Valgte familie-topscorer spænder 6,534836–7,247618. Den tidligere observerede kronologifordel forekommer således også efter udvælgelse under denne rene støjmodel; den kan ikke alene bruges som ny signalevidens.
+
+Den afgrænsede engineeringfase er færdig. De otte frø og den afsluttede søgning gentages ikke som løbende fremdrift. **Næste uløste metodeproblem er kontrollernes relevans for virkelige teleskopdata:** en ny særskilt prospektiv model skal håndtere og efterprøve tids-/frekvenskorrelationer, instrumentrespons og radioforstyrrelser, eller der skal etableres målrelevant uafhængig observation. Otte rene IID-familier validerer ingen instrumentmodel og kalibrerer ikke en teleskop-FAP eller scoretærskel. Der er ikke startet en ny kontrolbank eller observationsrunde som del af denne afslutning.
+
+Den senest dokumenterede 2019-mulighed har endnu ingen etableret transportadgang og ligger i et andet frekvensbånd. Original A/B forbliver FAIL_CLOSED, og de beskyttede 2016-paneler er lukkede. Metodealternativet og rapport-/reproduktionsarbejdet i planen 7.–20. oktober er gennemført; slutcheckpointet den 20. oktober består.
+
+[Kontrolleret modelresultat](analysis/burst_null_20261012/delivery/SETI_BURST_NULL_FINAL_2026-10-12.md) · [Frosset scope](analysis/burst_null_20261012/scope.json) · [Model og datagrænser](analysis/burst_null_20261012/PROTOCOL.md) · [Projektstatus](PROJECT_STATUS.md)
+
+---
+
+## Tidligere status og retning, bevaret uændret
+
 # Aktuel SETI-retning · 11. oktober 2026: tidsrækkefølge afhænger af udvælgelsen
 
 Den fastlåste kontrol af 1.161 tidligere gemte burst4-vindertuple-forekomster er færdig og uafhængigt kontrolleret. Alle ni TOP3 står højere i kronologien end i de 23 forskellige alternative centerarrangementer. For det stærkeste spor er scorerne 7,315816 og 4,998336. Kontrollen beskriver følsomhed over for kanalcentrenes tilordning; den kalibrerer ingen nulfordeling og giver ingen ny uafhængig signalevidens.

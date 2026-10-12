@@ -1,0 +1,47 @@
+{
+  "schema": "SETI_BURST_NULL_PACKAGE_REVIEW_QA_DELTA_V1",
+  "status": "PASS_FINAL_QA_SCHEMA_DELTA_NO_PACKAGE_INTERFACE_CHANGE",
+  "reviewer": "context_finish",
+  "original_package_review_already_pins_final_QA": true,
+  "original_package_review": {
+    "path": "analysis/burst_null_20261012/PACKAGE_SOURCE_REVIEW.json",
+    "bytes": 3714,
+    "sha256": "5caa5de3e2b882857ca273fc16a29e609deb527a6d6044cf39bb6bb8035c8d47"
+  },
+  "final_source_pins": [
+    {
+      "path": "analysis/burst_null_20261012/build_delivery.py",
+      "bytes": 24541,
+      "sha256": "7a1dc496372170e1805758ae385e8d3ab8ac4fd7dc37c3f7376cadc324203843"
+    },
+    {
+      "path": "analysis/burst_null_20261012/REPRODUCTION.md",
+      "bytes": 6350,
+      "sha256": "73a69f4dd3ff478fe25e67c0dbc05b0f8901e7a9be4ab55cab20c274473de59c"
+    },
+    {
+      "path": "analysis/burst_null_20261012/qa_saved.py",
+      "bytes": 49942,
+      "sha256": "3e402c69512c184e88d00e0ee96db4774fe842b24c246b7618c71f0c2944a1de"
+    },
+    {
+      "path": "analysis/burst_null_20261012/make_report.py",
+      "bytes": 46989,
+      "sha256": "997c0a7c1efd54a1a6e3a2dc34c03af900b915610dff8db014cdedcd20ed68fc"
+    }
+  ],
+  "findings": [
+    "Final QA strengthens synthetic tuple/RNG final-state/context associations and independently reconstructed normalization checks; package-facing receipt schema, status, counts and input/receipt pin types are unchanged.",
+    "Separate science ROOT_GO and independent QA_ROOT_GO remain explicitly admitted. Winning raw count and dynamic full-core preprocessing totals reconcile the same saved winner payload.",
+    "Fixed QA base counts plus dynamic winning_raw_core_crops, winning_full_core_preprocess_rows and winning_full_core_residual_cells remain literal-compatible with package code.",
+    "Final report source997c0a7c corrects the prior-reference description to three OFF scans in one historical visit; no package filename or status changes."
+  ],
+  "blocking_findings": [],
+  "execution_limits": {
+    "source_only": true,
+    "model_or_QA_execution": false,
+    "saved_results_or_arrays_opened": false,
+    "package_built": false
+  },
+  "acceptance": "PASS for final prospective freeze; original review and prior candidates preserved."
+}
