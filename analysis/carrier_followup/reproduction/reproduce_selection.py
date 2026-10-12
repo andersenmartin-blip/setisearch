@@ -20,7 +20,7 @@ def main():
     if out.exists():raise ValueError('Choose a new output directory; existing results are preserved')
     source=root/'carrier_followup/qa/selection/independent_selection_qa.py'
     scope=root/'carrier_followup/qa/selection/scope.json'
-    go=root/'carrier_followup/qa/selection/GO.json'
+    go=root/'carrier_followup/qa/selection/ROOT_GO.json'
     for p in (source,scope,go):
         if not p.is_file():raise ValueError('Missing authenticated checker input: '+str(p))
     out.mkdir(parents=True)

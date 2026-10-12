@@ -1,3 +1,15 @@
+# Aktuel SETI-status - 12. oktober 2026: alle 9,38 millioner gemte kanalmaksima kontrolleret
+
+**9.375.744 gemte per-carrier-vindere er nu gennemgået i alle 2.289 kort.** 5.901 vinderbaner rammer DC, og 9.369.843 passerer den fastlåste geometrikontrol. Global TOP3 pr. OFF-stjerne giver præcis de samme ni tupler, rangtal og scorer som før. Der genfindes 55.539 vinderbaner uden DC-kontakt i de 15 kerner med et DC-ramt kernemaksimum; ingen overtager en top-3-plads.
+
+Uafhængig QA verificerede alle kort, vinderbaner og lister med 197.106 eksakte sammenligninger uden afvigelser. De 54 eksisterende kontekstprofiler genbruges med eksakte geometri- og byteidentiteter; der er ingen nye råmålinger eller normaliseringer. Den bærbare kontrol bestod 2.048 sammenligninger. En metadatarettelse i kontekst-QA og dens første fejlkvittering er bevaret.
+
+[Resultat og afgrænsning](analysis/carrier_followup/RESULTS.md) · [Kort rapport](analysis/carrier_followup/delivery/SETI_KANALMAKSIMA_2026-10-12.pdf) · [Udvalg](analysis/carrier_followup/ranking/SELECTED_TOP9.csv) · [Reproduktionsvejledning](analysis/carrier_followup/reproduction/README.md)
+
+Der er fortsat ingen kvalificeret SETI-detektion. 2300 MHz-komponenten er tidligere målt i alle seks scanninger på fire stjerneretninger; syv øvrige spor er ubekræftede. Domænet omfatter kun allerede gemte vinderhypoteser; rene ikke-vindende alternativer ved DC-ramte carriers kan stadig være skjult. Ingen ny observation eller frekvensdækning. **0 DKK, nul nye teleskoprequests, original A/B FAIL_CLOSED og beskyttede 2016-kontroller lukkede.** Formelt checkpoint: 20. oktober 2026.
+
+---
+
 # Aktuel SETI-status - 12. oktober 2026: ni DC-uberørte spor fulgt i alle seks scanninger
 
 **Ni tidligere gemte kernemaksima uden DC-kontakt er nu undersøgt med 54 faste råprofiler og fuld uafhængig kontrol.** Udvælgelsen gennemgik 2.289 oprindelige kernemaksima, fravalgte 15 med DC-kontakt og valgte tre pr. OFF-stjerne fra de 2.274 øvrige. Ingen detektorsøgning blev gentaget.

@@ -1,0 +1,95 @@
+{
+  "schema": "SETI_CARRIER_REPORT_DATA_EDITORIAL_REVIEW_V1",
+  "status": "PASS_REPORT_SOURCE_AND_SAVED_JSON_CSV_DATA",
+  "checks": [
+    "cached_carrier_winners",
+    "DC_contacting_winners",
+    "eligible_winners",
+    "maps",
+    "all_nine_previous_logical_tuples_preserved",
+    "new_selected_tuples",
+    "logical_contexts54",
+    "all_context_profiles_hash_reuse",
+    "new_fixed_queries",
+    "new_normalizations",
+    "selection_QA_checks",
+    "selection_QA_mismatches",
+    "context_QA_current_pass",
+    "recovered_per_target",
+    "recovered_carriers55539",
+    "all_recovered_below_selected_rank3",
+    "DC_core_count15",
+    "prefix_actual110_104_105",
+    "all9_report_CSV_track_fields_and54_context_values_exact",
+    "report_source_no_new_sky_query_normalization_or_score_replay_claims_and_QA_recovery_disclosed",
+    "eight_normalized_template_identities_exact",
+    "48_physical_geometry_contexts_exact",
+    "stationary2300_aliases_positive_in_all_six_scans_across_four_named_directions"
+  ],
+  "input_pins": [
+    {
+      "path": "carrier_followup/build_report.py",
+      "bytes": 11768,
+      "sha256": "6392fc1159f759df7728e9306099fc4fe882b053e8243508c4accf93a2d1f153"
+    },
+    {
+      "path": "carrier_followup/delivery/SUMMARY.json",
+      "bytes": 1837,
+      "sha256": "681b659d48670aaf837c3655ab89afb800fca702ceb84627dc6e6da99353dbcd"
+    },
+    {
+      "path": "carrier_followup/delivery/SELECTED9_REUSED_CONTEXT54.csv",
+      "bytes": 1899,
+      "sha256": "6992261fb1b09434570729f04bc437481b1fe79b39cefec18d86dfbdd6293895"
+    },
+    {
+      "path": "carrier_followup/delivery/RECOVERED_FROM_DC_CORES.csv",
+      "bytes": 399,
+      "sha256": "4a7b75328451894e745cf2f879e46dd38afb755f4fc325994a9f3b058258c920"
+    },
+    {
+      "path": "carrier_followup/ranking/SELECTED_TOP9.json",
+      "bytes": 19889,
+      "sha256": "72a2afd75089af2647c1018f19072a89308063ae6d81effbae213206793f0de2"
+    },
+    {
+      "path": "carrier_followup/context/results/CONTEXT_PROFILES.json",
+      "bytes": 782706,
+      "sha256": "bf84bc24603034d0b4ee45d5737b3f411b856cf5616c1ad5cb7fa2d34dd3b15e"
+    },
+    {
+      "path": "carrier_followup/qa/selection/QA_RECEIPT.json",
+      "bytes": 2062,
+      "sha256": "214243df2ac04de0a0e0fc7c67e5a1dc603c56f739a769c912864ea983d79d68"
+    },
+    {
+      "path": "carrier_followup/qa/context/QA_RECEIPT.json",
+      "bytes": 44631,
+      "sha256": "622488983f6ad6bc7944bdfa59c63f9562bb85fb4bd7f838c84f6d47a56b59c3"
+    }
+  ],
+  "count_facts": {
+    "carrier_maxima": 9375744,
+    "DC_contacting": 5901,
+    "eligible": 9369843,
+    "recovered_from15_DC_coremax_domains": 55539,
+    "selected_unchanged": 9,
+    "new_context_queries": 0,
+    "new_normalizations": 0
+  },
+  "numerical_QA_rerun": false,
+  "NPZ_payload_arrays_read": 0,
+  "new_query_claims_found": false,
+  "limitations": [
+    "Editorial/data checks read saved JSON and CSV outputs and report source, with no detector or ranking rerun. PDF visual layout is outside this review."
+  ],
+  "CPU_seconds": 0.189737524,
+  "wall_seconds": 0.19737003199952596,
+  "physical_identity_facts": {
+    "distinct_templates": 8,
+    "physical_profile_geometries": 48,
+    "stationary2300_logical_profile_aliases": 12,
+    "stationary2300_context_scans": 6,
+    "stationary2300_target_directions": 4
+  }
+}

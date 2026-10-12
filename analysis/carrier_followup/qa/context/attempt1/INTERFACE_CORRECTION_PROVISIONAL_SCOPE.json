@@ -1,0 +1,85 @@
+{
+  "admission_required": [
+    "scope_sha256",
+    "qa_sha256",
+    "producer_scope_sha256",
+    "producer_receipt_sha256",
+    "producer_matrix_sha256"
+  ],
+  "baseline_reuse": "Hash-only import of old54logical/48physical profiles; same native,q,width and all6x16 exact centers. No baseline normalization or score rerun.",
+  "detector_grid_rerun": false,
+  "detector_imported": false,
+  "input_pins": [
+    {
+      "bytes": 28283,
+      "path": "carrier_followup/qa/context/fullraw_context_qa.py",
+      "sha256": "03842863f4b87dd3170f2c1f8a2dd9e2926529713252ebc7304ea83eb9a2c60e"
+    },
+    {
+      "bytes": 38341,
+      "path": "next_dc/qa/context/QA_RECEIPT.json",
+      "sha256": "48f048ed5af184441df0eac53d7d0f124dcb80d8adf7db85ede647ae2d6f1232"
+    },
+    {
+      "bytes": 33952,
+      "path": "next_dc/qa/context/REPRODUCTION_RECEIPT.json",
+      "sha256": "9a7464fcdd0076e566cd0709401fd5aee7ff2eb20cfdca61f0f6061ab5484a8a"
+    },
+    {
+      "bytes": 477076,
+      "path": "carrier_followup/context/BASELINE_REUSE_METADATA.json",
+      "sha256": "4b9c7a459e202d059b97489a905e47b925809917e4ead5146db3d5deea8352db"
+    },
+    {
+      "bytes": 2138,
+      "path": "carrier_followup/context/PROSPECTIVE_CONTRACT.json",
+      "sha256": "c61205fb4229a4830412b2bb171bce234a45cdf3ea2c2662b9cb98f16b9b6d37"
+    },
+    {
+      "bytes": 183508,
+      "path": "seti_previous/analysis/new_visit_recovery/results/acquire/ACQUISITION_RESULT.json",
+      "sha256": "e10cb04bef9f5fd7a8cd132ffc90af16f9345e94b3630e4ce98c5adc8f46edbf"
+    },
+    {
+      "bytes": 481527,
+      "path": "seti_previous/analysis/s2017_next_native/results/acquire/ACQUISITION_RESULT.json",
+      "sha256": "2dd9d1f6f99cb41dbf60d47e28f23771da6b27c6ab786f4945b5696d2449df3e"
+    },
+    {
+      "bytes": 111227,
+      "path": "seti_previous/analysis/next_visit/S2017_MIDPOINT_SOURCE_MANIFEST.json",
+      "sha256": "1fd17cbf60251b77c06a2bbeb00f405b068f3d60b32b9f4cfcf39eccc4076107"
+    },
+    {
+      "bytes": 19716,
+      "path": "next_dc/qa/context/fullraw_context_qa.py",
+      "sha256": "495cbc518816e008079db9de14b12bb6cb5b6b948604088bbde8b0c18c15c2e3"
+    }
+  ],
+  "interface_correction": {
+    "prior_attempt_receipt": {
+      "bytes": 47280,
+      "path": "carrier_followup/qa/context/attempt1/QA_RECEIPT.json",
+      "sha256": "273fd4eac704d7f26c878f06978ca7e40195e4891011733060dc4119ebaea9a1"
+    },
+    "reason": "Final producer adds explicit raw_geometry_id to normalized physical identity; independent formula now validates nested raw identity digest.",
+    "scientific_formulas_changed": false
+  },
+  "limits": {
+    "CPU_seconds": 600,
+    "RAM_bytes": 2147483648,
+    "wall_seconds": 900
+  },
+  "new_mask_or_veto": false,
+  "new_profiles": "Recompute only absent physical fixed templates. Authenticate source files and decoded rows; preserve unique absent12096 crops.",
+  "new_telescope_requests": 0,
+  "normalization": "Independent full16 static4096core, original rowmedian, exact501 median NumPy512channel tiles, residualMAD and winsorized location.",
+  "own_scalar_check": "Compare selected own context score to original per-carrier map scalar; no optimization.",
+  "producer_matrix_path": "carrier_followup/context/results/CONTEXT_PROFILES.json",
+  "producer_receipt_path": "carrier_followup/context/results/EXECUTION_RECEIPT.json",
+  "producer_scope_path": "carrier_followup/context/SCOPE.json",
+  "qa_sha256": "03842863f4b87dd3170f2c1f8a2dd9e2926529713252ebc7304ea83eb9a2c60e",
+  "qualified_SETI_detection": false,
+  "schema": "SETI_ALL_CARRIER_INDEPENDENT_CONTEXT_QA_SCOPE_V1",
+  "status": "FROZEN_BEFORE_CONTEXT_SCIENCE_READ"
+}

@@ -1,0 +1,44 @@
+{
+  "schema": "SETI_PORTABLE_CARRIER_WRAPPER_STATIC_REVIEW_V1",
+  "status": "PASS_STATIC_CURRENT_WRAPPER_ROOT_BASE_ROUTING_AND_ADMISSION",
+  "wrapper": {
+    "path": "carrier_followup/reproduction/reproduce_selection.py",
+    "bytes": 1582,
+    "sha256": "7d7ff452c10493b90d2d4ae35702011565b8bfe1a9bebd0f79e18ebfc913a53e"
+  },
+  "unchanged_authenticated_checker": {
+    "path": "carrier_followup/qa/selection/independent_selection_qa.py",
+    "bytes": 18694,
+    "sha256": "a733e65ad406155f06a4a0148270aa82a5d560b0f37c355d1b3686fc7a910ee7"
+  },
+  "scope": {
+    "path": "carrier_followup/qa/selection/scope.json",
+    "bytes": 4925,
+    "sha256": "a91ebcd4097617265e3fdb777ac2c244d468ac2bbac6d0f1cf26f71cbbe7fd32"
+  },
+  "root_go": {
+    "path": "carrier_followup/qa/selection/ROOT_GO.json",
+    "bytes": 319,
+    "sha256": "4c5ae86bbff18e5a0b9ba739b5590242756deb088395bdb933836a6402abc20d"
+  },
+  "checks": {
+    "all_three_numerical_checker_outputs_routed_via_BASE": true,
+    "all_numerical_inputs_root_relative_to_ROOT": true,
+    "source_scope_go_preserved_and_exact_hashes_passed": true,
+    "fresh_output_directory_required": true,
+    "resolved_output_inside_ROOT_required": true,
+    "audit_relative_path_remains_defined": true,
+    "default_root_parent_depth_matches_package_layout": true,
+    "wrapper_mutates_only_runtime_ROOT_and_BASE_before_main": true,
+    "original_result_overwrite_prevented": true
+  },
+  "initial_static_issue": "Wrapper initially referenced GO.json while frozen admission file was ROOT_GO.json. Root corrected wrapper path only before this final review.",
+  "numerical_QA_rerun": false,
+  "numerical_payload_arrays_read": 0,
+  "source_code_changed_by_reviewer": false,
+  "limitations": [
+    "Static control/path review only; existing independent all-carrier numerical PASS remains the executed verification."
+  ],
+  "CPU_seconds": 0.019587720999999995,
+  "wall_seconds": 0.020252475998859154
+}
