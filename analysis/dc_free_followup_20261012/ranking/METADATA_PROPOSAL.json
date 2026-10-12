@@ -1,0 +1,34 @@
+{
+  "schema": "SETI_DC_UNTOUCHED_EXPOSED_COREMAX_METADATA_PROPOSAL_V1",
+  "date": "2026-10-12",
+  "status": "PREPARED_NOT_SELECTED_AWAITING_ROOT_GO",
+  "concrete_next_result": "Nine or fewer deterministic followup tracks selected from2289 cached original per-core winners, after excluding only frozenDC contact geometry. Preserve all2289 originals and eligibility annotations, and all selected raw503 provenance for the subsequent fixed six-scan profiles.",
+  "sources": {
+    "central_phase": "seti_previous/analysis/s2017_control_targets_20261011_v2/results/{primary_id}/SCORE_AUDITS.json and MAPS.json",
+    "central_source_count": 753,
+    "adjacent_phase": "seti_previous/analysis/off_adjacent_20261011/results/{primary_id}/SCORE_AUDITS.json and MAPS.json",
+    "adjacent_source_count": 1536,
+    "combined_count": 2289,
+    "targets": ["HIP97319", "HIP97461", "HIP97663"],
+    "per_target": 763,
+    "capsule_query_kind": "core_max",
+    "capsule_geometry_member": "rounded_absolute_centers.npy",
+    "unused_power_member": "raw_power.npy",
+    "unused_cached_score_component_member": "standardized_row_box_sums.npy",
+    "source_domain_detail": "Central each: native171 q1..254 except64,128,192. Adjacent each: native170 q1..255, native171 q0/255, native172 q0..254."
+  },
+  "novelty": "The completed120TOP20 annotation found DC contact in every storedTOP20 entry. This separate prospective scope reaches the previously unselected core winners instead of stopping at those truncated global lists. It does not reconstruct hidden carrier/template runners-up or rerun the detector.",
+  "selection": "FixedDC channels178782208,179830784,180879360; eligible iff no own16row width1/3 box contacts any. Rank once pertarget by scoredescending then frequency/drift/width/native/q/carrierascending; greedy channel separation>3; take up to3; no scorethreshold or additional veto.",
+  "preparation_evidence": "The original audit JSON was parsed to inspect keys and select metadata records; scientific score fields were not printed, compared or ranked. Source map arrays and power arrays remained unopened. Original capsule files were checked only for presence and size. A metadata assertion revealed that adjacent512 includes two native171 edge cores, and the source domains were corrected before the prospective scope was written.",
+  "prospective_limits": {
+    "CPU_seconds": 600,
+    "wall_seconds": 900,
+    "RAM_bytes": 1073741824,
+    "output_bytes": 8388608,
+    "new_detector_scores": 0,
+    "power_arrays_decoded": 0,
+    "new_telescope_HTTP": 0,
+    "DKK": 0
+  },
+  "interpretation": "Exploratory DC-untouched exposed-coremax selection. Incomplete relative to allcarrier runners-up; no new frequency coverage, physical classification, calibratedSNR/FAP, A/Bqualification, independentvisit or sensitivity claim. PriorFAIL_CLOSED and protected2016holdouts remain unchanged."
+}
