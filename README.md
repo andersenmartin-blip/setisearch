@@ -1,3 +1,19 @@
+# Aktuel SETI-status - 12. oktober 2026: ni DC-uberørte spor fulgt i alle seks scanninger
+
+**Ni tidligere gemte kernemaksima uden DC-kontakt er nu undersøgt med 54 faste råprofiler og fuld uafhængig kontrol.** Udvælgelsen gennemgik 2.289 oprindelige kernemaksima, fravalgte 15 med DC-kontakt og valgte tre pr. OFF-stjerne fra de 2.274 øvrige. Ingen detektorsøgning blev gentaget.
+
+Den stationære bane ved **2300,000000373 MHz** blev valgt i to OFF-scanninger, men er én fysisk måleskabelon. Dens seks faste scorer er **3,35 / 9,83 / 9,11 / 7,12 / 5,24 / 2,72**, på fire stjerneretninger. Det er foreneligt med en fælles interferens- eller instrumentkomponent; stjerneeksklusivitet er ikke etableret. Oprindelsen er ikke fysisk bevist.
+
+De **syv andre spor forbliver uafklarede**. De er stærkest i deres egen udvælgelsesscanning; de 35 målinger i andre scanninger ligger -2,59 til +1,60. Egenscanningerne har allerede valgt sporene over frekvens/drift/bredde, så forskellen er ikke uafhængig signifikans. Ni logiske valg repræsenterer otte måleskabeloner, og 54 profiler repræsenterer 48 forskellige fysiske boksgeometrier.
+
+Uafhængig QA genberegnede alle **48 fulde normaliseringer** fra autentificerede rådata med separate median501-beregninger. De ni oprindelige scorer stemmer inden for 1,24e-14. 48 komplette råcrops på 37,25 MB og alle rå503-profiler er bevaret; en separat **NumPy-only reproduktion uden HDF5-kilder** har også bestået. **Ingen kvalificeret SETI-detektion**, ny observation eller frekvensdækning; original A/B **FAIL_CLOSED**, beskyttede 2016-kontroller lukkede. **0 DKK**, nul nye teleskoprequests. Checkpoint 20. oktober består.
+
+[Rapport](analysis/dc_free_followup_20261012/delivery/SETI_DCFRIE_SPOR_2026-10-12.md) · [Ni spor og 54 scorer](analysis/dc_free_followup_20261012/delivery/SELECTED9_AND_CONTEXT54.csv) · [Kontekstfigur](analysis/dc_free_followup_20261012/delivery/SETI_DCFRIE_KONTEKST_2026-10-12.png) · [Uafhængig QA](analysis/dc_free_followup_20261012/qa/context/QA_RECEIPT.json) · [Reproduktion](analysis/dc_free_followup_20261012/delivery/REPRODUCTION.md)
+
+---
+
+## Tidligere status og retning, bevaret uændret
+
 # Aktuel SETI-status - 12. oktober 2026: dominerende stationære spor passer til instrumentets DC-bins
 
 **Ny konkret signaldiagnose har bestået uafhængig numerisk kontrol.** De tre linjer ved 2297,4609375, 2300,3906250 og 2303,3203125 MHz ligger præcis i tre grove kanalers dokumenterede DC-bins. I alle 18 tidligere TOP3-skabeloners egne primærscanninger kommer mindst **99,906437 %** af den positive standardiserede cellemasse fra selve DC-binnen. Alle **120 gemte TOP20-poster** rammer en sådan bin i mindst én række.

@@ -1,0 +1,113 @@
+{
+  "schema": "SETI_DC_UNTOUCHED_FINAL_REPORT_EDITORIAL_REVIEW_V1",
+  "status": "PASS_CURRENT_RENDERER_MARKDOWN_AND_PDF_TEXT_CLAIMS",
+  "input_pins": {
+    "next_dc/build_report.py": {
+      "bytes": 11364,
+      "sha256": "8338f3da3c7134f01914a67b47a09e3a5afc31d4a4608fffcc778d2551883399"
+    },
+    "next_dc/delivery/SETI_DCFRIE_SPOR_2026-10-12.md": {
+      "bytes": 5152,
+      "sha256": "8346c6baa8e560627badbed9d8baf5f66d8eed6fbb710a3beaaddefbe096ca2f"
+    },
+    "next_dc/delivery/SUMMARY.json": {
+      "bytes": 1124,
+      "sha256": "8d6bc297451d81ec0b00f1c920e9e61ccaf58d8a6679793d69ef1a53a83301c5"
+    },
+    "next_dc/science_review/FINAL_REVIEW.json": {
+      "bytes": 10082,
+      "sha256": "2f2679fe279db9781a324e8a1def224146ce8f5d54760e2bf56be21b64042723"
+    },
+    "next_dc/qa/context/QA_RECEIPT.json": {
+      "bytes": 38341,
+      "sha256": "48f048ed5af184441df0eac53d7d0f124dcb80d8adf7db85ede647ae2d6f1232"
+    },
+    "next_dc/qa/selection/QA_RECEIPT.json": {
+      "bytes": 10329,
+      "sha256": "fcb1514616dc9b42b547ea16177958640f1f4c9ddcf48a6701add64fc87fb828"
+    },
+    "next_dc/qa/context/REPRODUCTION_RECEIPT.json": {
+      "bytes": 33952,
+      "sha256": "9a7464fcdd0076e566cd0709401fd5aee7ff2eb20cfdca61f0f6061ab5484a8a"
+    },
+    "next_dc/delivery/REPRODUCTION.md": {
+      "bytes": 1839,
+      "sha256": "073904d14218b9f1a0904327c56b063af4ae23b2237a7cba96e2bed2d89699e7"
+    },
+    "next_dc/qa/context/reproduce_from_saved_crops.py": {
+      "bytes": 13918,
+      "sha256": "e6d486157ce117e52759ad101e1a842611b4a48a11b097610bcbdb00e8724246"
+    },
+    "next_dc/qa/context/REPRODUCTION_GO.json": {
+      "bytes": 326,
+      "sha256": "56dd9089a65f4848015ffd253b18bdaf3f0569c2806187f730ff7c29e4c67d4e"
+    },
+    "next_dc/delivery/SETI_DCFRIE_SPOR_2026-10-12.pdf": {
+      "bytes": 369293,
+      "sha256": "359286280596e285120dc7db4208c3fbe079e07542d32b5ab628322bc25276a7"
+    }
+  },
+  "checks": {
+    "9logical_8physical_templates_explicit_in_MD_and_PDF": true,
+    "54logical_48physical_profiles_6duplicates_correct": true,
+    "7unconfirmed_templates_and35other_contexts_not_significance": true,
+    "shared2300_component_has_no_target_exclusivity_no_definiteRFI_claim": true,
+    "score_ranges_and_row_fraction_denominators_match_canonical_summary": true,
+    "2289_15_2274_selection_counts_and_incomplete_corewinner_domain_correct": true,
+    "independent48full_normalization_QA_correctly_distinguished_from_previous_conditional_DC_phase": true,
+    "1_24e_minus14_original_score_linkage_error_matches_QA": true,
+    "portable_NumPy_only_reproduction_PASS_actual_receipt_noHDF5_required": true,
+    "portable_reproduction_scope_preserves_external_fullsource_authentication_requirement": true,
+    "original_AB_FAIL_CLOSED_no_new_observation_or_coverage_no_calibratedSNR_FAP": true,
+    "relative_markdown_artifact_links_resolve": true
+  },
+  "portable_reproduction": {
+    "status": "PASS_NUMPY_ONLY54_FIXED_PROFILES48_FULLCORE_NORMALIZATIONS",
+    "HDF5_files_opened": 0,
+    "HDF5_or_plugin_imported": false,
+    "fixed_profiles": 54,
+    "fullcore_normalizations": 48,
+    "code_pin_matches_reproduction_GO_and_receipt": true
+  },
+  "relative_links": [
+    {
+      "target": "SETI_DCFRIE_KONTEKST_2026-10-12.png",
+      "exists": true
+    },
+    {
+      "target": "SETI_DCFRIE_TIDSBIDRAG_2026-10-12.png",
+      "exists": true
+    },
+    {
+      "target": "SELECTED9_AND_CONTEXT54.csv",
+      "exists": true
+    },
+    {
+      "target": "SUMMARY.json",
+      "exists": true
+    },
+    {
+      "target": "../qa/context/QA_RECEIPT.json",
+      "exists": true
+    },
+    {
+      "target": "../qa/selection/QA_RECEIPT.json",
+      "exists": true
+    },
+    {
+      "target": "REPRODUCTION.md",
+      "exists": true
+    },
+    {
+      "target": "../science_review/FINAL_REVIEW.json",
+      "exists": true
+    },
+    {
+      "target": "SETI_DCFRIE_SPOR_2026-10-12.pdf",
+      "exists": true
+    }
+  ],
+  "review_scope": "Scientific editorial review of current generator, Markdown, canonical saved scalar summaries and extracted renderedPDFtext. Root performed2page visualQA; this review does not replace layout inspection. No source/canonical data edited and no raw-power or detector arrays opened.",
+  "clarification_resolved": "PDF now explicitly prints8measurementtemplates and48distinct box geometries, matching Markdown and canonical metadata.",
+  "remaining_corrections": []
+}

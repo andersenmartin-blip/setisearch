@@ -1,0 +1,197 @@
+{
+  "schema": "SETI_DC_UNTOUCHED_NEW_PHASE_FINAL_SCIENTIFIC_REVIEW_V1",
+  "status": "PASS_SAVED_RESULTS_AND_LIMITED_EXPLORATORY_INTERPRETATION",
+  "input_pins": {
+    "next_dc/ranking/SELECTED_TOP9.json": {
+      "bytes": 23300,
+      "sha256": "97ea0583e6b94a243f6bfad9a224062957783f016b723b80ad58c18021315fc1"
+    },
+    "next_dc/crossscan/results/CONTEXT_PROFILES.json": {
+      "bytes": 641236,
+      "sha256": "c869e7f6e1944c04d6e7ebf939d96aa1b3d57321b0cdf10ad30eddf9972f25e3"
+    },
+    "next_dc/qa/selection/QA_RECEIPT.json": {
+      "bytes": 10329,
+      "sha256": "fcb1514616dc9b42b547ea16177958640f1f4c9ddcf48a6701add64fc87fb828"
+    },
+    "next_dc/qa/context/QA_RECEIPT.json": {
+      "bytes": 38341,
+      "sha256": "48f048ed5af184441df0eac53d7d0f124dcb80d8adf7db85ede647ae2d6f1232"
+    },
+    "next_dc/qa/context/RAW_NORMALIZATION_CROP_MANIFEST.json": {
+      "bytes": 97235,
+      "sha256": "5f0d6130092194f545eda044626bc8f90f5b3db651263cb76409bd3e640f8694"
+    },
+    "next_dc/crossscan/results/EXECUTION_RECEIPT.json": {
+      "bytes": 76974,
+      "sha256": "e0bbd1a3837c178d8de317242c5dbb532275a35ee76efc901bde6d883d7a78c5"
+    },
+    "next_dc/ROOT_SCOPE.json": {
+      "bytes": 1416,
+      "sha256": "ab6a8d67ca63441dfefcaf59ecb6e4c0667e16e276221e481aa89334aa3c1219"
+    },
+    "next_dc/science_review/final_review.py": {
+      "bytes": 11717,
+      "sha256": "8f73db5b1d33d66c4b7f6b082fd80970546782472b2ad5151d4056d2a82f2780"
+    }
+  },
+  "activity": "Saved JSON scalar/geometry review only. No raw power, cached score arrays, detector grid, eligibility query or new ranking executed.",
+  "selection_counts": {
+    "stored_core_winners": 2289,
+    "eligible_DC_untouched": 2274,
+    "excluded_by_DC_contact": 15,
+    "geometry_rows": 36624,
+    "frozen_DC_row_box_checks": 109872,
+    "whole_capsule_hashes_checked": 2289,
+    "saved_center_vectors_checked": 2289,
+    "selected_records": 9,
+    "new_detector_scores": 0,
+    "decoded_power_arrays": 0,
+    "new_frequency_coverage": 0,
+    "new_telescope_requests": 0
+  },
+  "physical_denominators": {
+    "selected_logical_records": 9,
+    "own_primary_logical_profiles": 9,
+    "selected_distinct_physical_measurement_templates": 8,
+    "fixed_logical_context_profiles": 54,
+    "distinct_physical_context_score_boxes": 48,
+    "duplicate_logical_contexts": 6,
+    "total_nonown_logical_profiles": 45,
+    "shared_line_logical_profiles": 12,
+    "shared_line_distinct_physical_profiles": 6,
+    "remaining_template_count": 7,
+    "remaining_own_profiles": 7,
+    "remaining_nonown_profiles": 35,
+    "independent_source_or_visit_count_not_established": true
+  },
+  "shared_near_zero_drift_template": {
+    "selected_in": [
+      "HIP97319_rank1",
+      "HIP97461_rank1"
+    ],
+    "source_channel": 179970594,
+    "frequency_MHz": 2300.000000372529,
+    "nominal_drift_Hz_s": -4.440892098500626e-16,
+    "same_physical_measurement_geometry_all6scans": true,
+    "fixed_context_scores": [
+      {
+        "scan_id": "epoch1_on",
+        "target": "HIP98505",
+        "original_role": "ON",
+        "score": 3.3491769054665923
+      },
+      {
+        "scan_id": "epoch1_off",
+        "target": "HIP97319",
+        "original_role": "OFF",
+        "score": 9.827307965008114
+      },
+      {
+        "scan_id": "epoch2_on",
+        "target": "HIP98505",
+        "original_role": "ON",
+        "score": 9.107593200898473
+      },
+      {
+        "scan_id": "epoch2_off",
+        "target": "HIP97461",
+        "original_role": "OFF",
+        "score": 7.120813559315926
+      },
+      {
+        "scan_id": "epoch3_on",
+        "target": "HIP98505",
+        "original_role": "ON",
+        "score": 5.237798376217644
+      },
+      {
+        "scan_id": "epoch3_off",
+        "target": "HIP97663",
+        "original_role": "OFF",
+        "score": 2.7225396507756177
+      }
+    ],
+    "interpretation": "The same nominal stationary frequency template has positive fixed scores in all six historical pointings and is selected in two original OFF-star scans. This favors a common interference or instrumental explanation over an excess restricted to one target. It does not prove terrestrial RFI or identify a specific hardware cause; no formal qualified OFF veto is asserted."
+  },
+  "remaining7_templates": {
+    "own_score_min": 6.377129977625867,
+    "own_score_max": 7.078701443106988,
+    "other5_per_template_context_count": 35,
+    "other_context_score_min": -2.587387651398407,
+    "other_context_score_max": 1.6049529465882024,
+    "interpretation": "Seven additional exposed winning templates show own-primary excesses without strong recurrence on their transported fixed paths in the five other scans. They remain unconfirmed selections. Post-selection correlated noise, time-variable interference and other artifacts remain possible; lack of fixed-path recurrence does not establish a sky source or rule out an intermittent signal."
+  },
+  "own_primary_row_distribution": {
+    "positive_rows_min": 14,
+    "positive_rows_max": 16,
+    "largest_positive_row_mass_fraction_min": 0.10895075615161832,
+    "largest_positive_row_mass_fraction_max": 0.18794639004919675,
+    "positive_effective_rows_min": 10.078828168219243,
+    "positive_effective_rows_max": 13.952924238238129,
+    "interpretation": "The saved score mass is spread over multiple rows and is not dominated by one positive row. This rejects a single-row-dominated explanation for these scores only; it is not an independent coherence, significance or origin test."
+  },
+  "transported_context_DC_contact_rows": 0,
+  "normalization_and_numerical_QA": {
+    "selection_QA_status": "PASS",
+    "context_QA_status": "PASS_INDEPENDENT_FULLRAW_NORMALIZATION_AND54_FIXED_CONTEXTS",
+    "all48_fullcore_normalizations_independently_recomputed": true,
+    "saved_full16_constants_reused_in_producer": 24,
+    "new_full16_normalizations_in_producer": 24,
+    "not_merely_conditional_on_saved_normalization_in_this_new_QA_scope": true,
+    "maximum_errors": {
+      "fixedscore": 1.7763568394002505e-15,
+      "morphology_center_over_symmetric98_flank_median": 0,
+      "morphology_raw_center_power": 0,
+      "morphology_symmetric98_flank_median": 0,
+      "origin_score": 1.2434497875801753e-14,
+      "original_cell_standardized": 8.881784197001252e-16,
+      "positive_effective_rows": 3.552713678800501e-15,
+      "positive_row_fraction": 2.220446049250313e-16,
+      "row_power_median": 0,
+      "row_residual_MAD_scale": 0,
+      "row_residual_median": 0,
+      "row_score_contribution": 2.220446049250313e-16,
+      "row_standardized_box_sum": 1.3322676295501878e-15,
+      "row_winsorized_residual_location": 3.382710778154774e-17
+    },
+    "raw_normalization_crops_preserved": 48,
+    "raw_normalization_crop_shape": [
+      16,
+      12096
+    ],
+    "raw_normalization_crop_total_bytes": 37247328,
+    "precision_wording": "Fullcore row medians/MAD scales match exactly; largest winsorized-location difference3.382710778154774e-17. Fixed-score reproduction differs up to1.7763568394002505e-15; original own-score linkage up to1.2434497875801753e-14. Do not report1e-17 as the maximum error across all score checks."
+  },
+  "limitations": [
+    "The9selected records represent8distinct physical measurement templates, not9independent detections or8independent physical sources.",
+    "All6context scans belong to one historical visit and include different target pointings; no independent repeated visit of any selected star was established.",
+    "The eligibility/ranking was newly declared on previously exposed core maxima, not a blind discovery test.",
+    "Only winning core tuples were eligible. Discarded or retained cores can hide other carrier maxima and lower-ranked width/drift hypotheses.",
+    "Exact noncontact with three known DCbins does not imply freedom from other RFI or instrumental effects.",
+    "Fixed box-track scores are not calibrated SNR, false-alarm probabilities, sensitivity, flux or EIRP.",
+    "No formal detection threshold, qualified sky detection, automatic OFF veto, A/B qualification or protected2016holdout opening follows.",
+    "Numerical QA establishes reproducibility of the disclosed preprocessing and scores, not astrophysical origin."
+  ],
+  "next_science_priority": {
+    "action": "Freeze a new streaming inspection of all previously saved per-carrier maximum arrays across the same2289target/core domains; annotate the saved winning width/drift path at each carrier for frozen DC contact and rank retained carrier winners without recalculating the detector grid.",
+    "reason": "This can recover exposed clean carrier maxima concealed by a DC-contacting or different overall core winner and can reveal multiple useful templates inside a retained core.",
+    "scope_size": "Up to2289x4096=9375744existing carrier maxima; these are correlated maxima, not9375744independent tests.",
+    "ranking_and_geometry_rules": "Freeze source hashes, exact original rounding/time convention, own-window DC eligibility, stable tie order and descriptive alias grouping before selecting new raw profiles. Preserve original scores and never adapt the filter after power inspection.",
+    "raw_followup": "Analyze only a small predetermined number of the newly selected carrier templates with full501halos and fixed six-scan paths using existing restored2017raw data; independently verify numerical results.",
+    "remaining_incompleteness": "If a carrier winning hypothesis touches DC, another clean width/drift hypothesis at that same carrier remains hidden. Recovering that requires a separate new detector evaluation, which this cached-map phase must not imply.",
+    "no_new_telescope_HTTP_requests": true,
+    "no_new_observation_or_coverage": true,
+    "not_executed_by_this_review": true
+  },
+  "limits_preserved": {
+    "original_AB": "FAIL_CLOSED_UNCHANGED",
+    "protected2016": "CLOSED",
+    "closed2019transport": "UNCHANGED",
+    "new_telescope_requests": 0,
+    "new_detector_grid": false,
+    "qualified_SETI_detection": false,
+    "calibrated_SNR_FAP": false
+  },
+  "remaining_corrections": []
+}

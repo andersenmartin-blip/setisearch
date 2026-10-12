@@ -1,0 +1,125 @@
+{
+  "scope_sha256": "2e3313e35c96d25e570a22a8c34042a8d773768fdd83f6d4ff2f8842e199f679",
+  "producer_sha256": "eedc302921edfedcbb2977f1393b06c2f13b73b3ba519f7678c5d1fc1eed52c2",
+  "counts": {
+    "stored_core_winners": 2289,
+    "eligible_DC_untouched": 2274,
+    "excluded_by_DC_contact": 15,
+    "geometry_rows": 36624,
+    "frozen_DC_row_box_checks": 109872,
+    "whole_capsule_hashes_checked": 2289,
+    "saved_center_vectors_checked": 2289,
+    "selected_records": 9,
+    "new_detector_scores": 0,
+    "decoded_power_arrays": 0,
+    "new_frequency_coverage": 0,
+    "new_telescope_requests": 0
+  },
+  "group_summary": [
+    {
+      "phase": "central171",
+      "primary_target": "HIP97319",
+      "records": 251,
+      "eligible_DC_untouched": 250,
+      "excluded_by_DC_contact": 1
+    },
+    {
+      "phase": "central171",
+      "primary_target": "HIP97461",
+      "records": 251,
+      "eligible_DC_untouched": 250,
+      "excluded_by_DC_contact": 1
+    },
+    {
+      "phase": "central171",
+      "primary_target": "HIP97663",
+      "records": 251,
+      "eligible_DC_untouched": 250,
+      "excluded_by_DC_contact": 1
+    },
+    {
+      "phase": "adjacent512",
+      "primary_target": "HIP97319",
+      "records": 512,
+      "eligible_DC_untouched": 508,
+      "excluded_by_DC_contact": 4
+    },
+    {
+      "phase": "adjacent512",
+      "primary_target": "HIP97461",
+      "records": 512,
+      "eligible_DC_untouched": 508,
+      "excluded_by_DC_contact": 4
+    },
+    {
+      "phase": "adjacent512",
+      "primary_target": "HIP97663",
+      "records": 512,
+      "eligible_DC_untouched": 508,
+      "excluded_by_DC_contact": 4
+    }
+  ],
+  "target_summary": [
+    {
+      "primary_target": "HIP97319",
+      "stored_core_winners": 763,
+      "eligible_DC_untouched": 758,
+      "excluded_by_DC_contact": 5,
+      "selected": 3,
+      "EMPTY": false
+    },
+    {
+      "primary_target": "HIP97461",
+      "stored_core_winners": 763,
+      "eligible_DC_untouched": 758,
+      "excluded_by_DC_contact": 5,
+      "selected": 3,
+      "EMPTY": false
+    },
+    {
+      "primary_target": "HIP97663",
+      "stored_core_winners": 763,
+      "eligible_DC_untouched": 758,
+      "excluded_by_DC_contact": 5,
+      "selected": 3,
+      "EMPTY": false
+    }
+  ],
+  "interpretation_limits": [
+    "The newly adopted DC eligibility rule and ranking are exploratory and apply only to this new scope; they do not alter historical results or retrospectively validate earlier A/B.",
+    "Cached per-core winners are maxima over carrier, drift and width; the selection adds an eligibility condition and target ranking. It yields no calibrated false-alarm probability or SNR.",
+    "A DC-contacting core winner can conceal a clean carrier or template runner-up. No runner-ups or new masked detector search are reconstructed; this shortlist is incomplete.",
+    "No DC contact does not exclude other instrumental effects or radio interference and does not establish a sky source.",
+    "All three primary OFF targets have one scan in one historical visit; their OFF labels are preserved and they are not independent repeat observations of the same star.",
+    "No automatic detection threshold, OFF veto, A/B qualification, 2016 holdout opening, flux sensitivity or EIRP limit is established.",
+    "Original A/B FAIL_CLOSED, protected2016 holdouts and closed2019 transport remain unchanged; existing2017 sources only."
+  ],
+  "status": "PASS_ONCE_DC_UNTOUCHED_EXPOSED_COREMAX_SELECTION",
+  "outputs": [
+    {
+      "path": "next_dc/ranking/ALL2289_GEOMETRY.json",
+      "bytes": 4948061,
+      "sha256": "afcc766ade2eeb2c8ceb7375093c9d79ab695d2f84f4260fb09b604e94bc36af"
+    },
+    {
+      "path": "next_dc/ranking/ALL2289_GEOMETRY.csv",
+      "bytes": 1210513,
+      "sha256": "4bf92e0298c6aa9aee2c5ec2f3145be42758b8215a4de28ecdc48b1d4952262b"
+    },
+    {
+      "path": "next_dc/ranking/SELECTED_TOP9.json",
+      "bytes": 23300,
+      "sha256": "97ea0583e6b94a243f6bfad9a224062957783f016b723b80ad58c18021315fc1"
+    },
+    {
+      "path": "next_dc/ranking/SELECTED_TOP9.csv",
+      "bytes": 5126,
+      "sha256": "2bd997c59415b78de02318e610f2e95af667578454de34865f39ae3b8a47174f"
+    }
+  ],
+  "CPU_seconds": 2.2191705859999997,
+  "wall_seconds": 3.031016230000205,
+  "maximum_RSS_KiB": 69408,
+  "selection_ranking_executions": 1,
+  "whole_power_cells_decoded": 0
+}
