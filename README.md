@@ -1,3 +1,17 @@
+# Aktuel SETI-status - 12. oktober 2026: dominerende stationære spor passer til instrumentets DC-bins
+
+**Ny konkret signaldiagnose har bestået uafhængig numerisk kontrol.** De tre linjer ved 2297,4609375, 2300,3906250 og 2303,3203125 MHz ligger præcis i tre grove kanalers dokumenterede DC-bins. I alle 18 tidligere TOP3-skabeloners egne primærscanninger kommer mindst **99,906437 %** af den positive standardiserede cellemasse fra selve DC-binnen. Alle **120 gemte TOP20-poster** rammer en sådan bin i mindst én række.
+
+De 18 deduplikerede DC/scanning-udsnit giver **288 rækkespektre**. DC-centret er det strengt stærkeste af 129 bins i alle 288; medianforholdet mellem råeffekten og den lokale flankemedian er **543,898**. 108 faste kontekstprofiler er rekonstrueret med de eksisterende fuldkerne-normaliseringstermer. Præcis enkeltcelle-attribution viser, hvordan små driftsskabeloner kan opnå store scorer fra den samme stationære bin. Originale scorer og rangordener er bevaret.
+
+Dette støtter stærkt en instrumental DC-fortolkning, men beviser ikke den konkrete hardwareårsag. De 288 rækker er ikke uafhængige bekræftelser, og de kortvarige burst4-vindere klassificeres ikke af denne fase. **Ingen kvalificeret SETI-detektion**, ny observation eller frekvensdækning. A/B er fortsat **FAIL_CLOSED**, beskyttede 2016-holdouts forbliver lukkede; **0 DKK**. Planen 7.-20. oktober beholder checkpoint 20. oktober.
+
+[Resultatrapport](analysis/dc_diagnostic_20261012/delivery/SETI_DC_RESULTAT_2026-10-12.md) · [18 egne primærscanninger](analysis/dc_diagnostic_20261012/delivery/PRIMARY18.csv) · [120 eksisterende udvalg](analysis/dc_diagnostic_20261012/ranking/ANNOTATED_TOP120.csv) · [Uafhængig QA](analysis/dc_diagnostic_20261012/delivery/QA_SUMMARY.json) · [Rå patches](analysis/dc_diagnostic_20261012/primary/results/DC_RAW_PATCHES.npz)
+
+---
+
+## Tidligere status og retning, bevaret uændret
+
 # Aktuel SETI-status · 12. oktober 2026: udvælgelsesfordel påvist under en fast støjmodel
 
 **Otte uafhængige Gamma51-modelrealiseringer af hele den 96-kerne burst-pilot er færdige og har bestået uafhængig numerisk QA.** Der er beregnet 768 nye syntetiske søgekort, 3.145.728 carrier-maksima og 7.002.390.528 korrelerede skabelonforekomster. Kode, scope og kildegennemgange blev offentliggjort før modelgeneration ved commit `682281a0f5eee08af620f06f36bdb1918d825952`.

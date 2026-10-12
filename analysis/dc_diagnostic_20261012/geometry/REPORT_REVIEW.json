@@ -1,0 +1,268 @@
+{
+  "schema": "SETI_DC_FINAL_REPORT_SCIENTIFIC_EDITORIAL_REVIEW_V1",
+  "status": "PASS_FINAL_RENDERER_AND_MARKDOWN_SCIENTIFIC_EDITORIAL_REVIEW",
+  "reviewed_renderer_input_pin": {
+    "bytes": 9485,
+    "sha256": "8dcbc0ae40866ee79dcf5f2e3a8076e78377ae20d69cf0e59a11381cad2f9c4a"
+  },
+  "input_pins": {
+    "dc_study/build_report.py": {
+      "bytes": 9485,
+      "sha256": "8dcbc0ae40866ee79dcf5f2e3a8076e78377ae20d69cf0e59a11381cad2f9c4a"
+    },
+    "dc_study/geometry/GEOMETRY_RESULT.json": {
+      "bytes": 17193,
+      "sha256": "245ff44107b07573a46f8ba91d3f409f7e5a4f783698e93c79e8bdc728054a80"
+    },
+    "dc_study/geometry/SOURCE_METADATA.json": {
+      "bytes": 1443,
+      "sha256": "bc7e4e719aad99743279f6f4acef56d3a738f85c2f88bb4fafb2391ac902887a"
+    },
+    "dc_study/primary/results/FROZEN_TEMPLATE_ATTRIBUTION.json": {
+      "bytes": 63447,
+      "sha256": "7aaf66a56a670260c2a4ee038ba963abf8cb70769f46759fd4f569b5d092495d"
+    },
+    "dc_study/primary/results/PROFILE_ATTRIBUTION.json": {
+      "bytes": 186005,
+      "sha256": "66698058920c99be1be2205f79a3212c2dc01945cbc8adf2b479837576bba9e2"
+    },
+    "dc_study/primary/results/DC_PATCH_METRICS.json": {
+      "bytes": 301071,
+      "sha256": "aa8aac158b620268d223daf4ff63d507e3399730a6ae1aae96071d3d3a027ff8"
+    },
+    "dc_study/primary/results/RAW_RECONCILIATION.json": {
+      "bytes": 280,
+      "sha256": "aa81e9106ccfc9fe029c9469891bb5ab84d1b74be1c7f3a9c1fb82cf095a7923"
+    },
+    "dc_study/primary/results/EXECUTION_RECEIPT.json": {
+      "bytes": 84346,
+      "sha256": "e19b3dbc966e79f8ca46640d8de46bfd12e2ce97bfab05826a8c21a7af26fd0d"
+    },
+    "dc_study/ranking/ANNOTATED_TOP120.json": {
+      "bytes": 233684,
+      "sha256": "37a014a0fdf6f9ba0b7a4c9227aa0058f398881f6f655dced8f2d7bfe9663c11"
+    },
+    "dc_study/ranking/DC_UNTOUCHED_EXPOSED_SUBSET.json": {
+      "bytes": 1069,
+      "sha256": "7d68d18365352672d6c87aba83e2d771e442639f7e24750f197af5da94ccb1b8"
+    },
+    "dc_study/delivery/SETI_DC_RESULTAT_2026-10-12.md": {
+      "bytes": 4923,
+      "sha256": "8cd2a474d23b104d6fa0fe0596cf5589bf8b9536e36ecd652d6018f409ab2309"
+    },
+    "dc_study/qa/QA_RECEIPT.json": {
+      "bytes": 4973935,
+      "sha256": "d0536359c23ce4541864dc7b19a6394a0116c8abf6aa63394fcbef6c2040ac5c"
+    }
+  },
+  "review_scope": "Scientific wording and displayed scalar claims in final report generator, checked against saved geometry/primary/ranking JSON. No detector, raw capsule or score grid opened. PDF visual QA and independent numerical reconstruction are separate.",
+  "evidence_checks": {
+    "DC_instrument_interpretation_explicitly_inferred_not_proved": true,
+    "coarse_frequency_grid_agreement_qualified_by_published_standard_tuning": true,
+    "minimum99_9064percent_exactly18own_primary_profiles_not_all108contexts": true,
+    "288strict_peaks_match_saved_metrics_and_are_explicitly_not_independent_confirmations": true,
+    "120saved_TOP20_contacts_are_geometry_only_no_reranking_or_clean_exhaustive_search": true,
+    "algebraic_remainder_preserves_original_normalization_and_is_not_masked_research": true,
+    "conditional_full16_normalization_limit_explicit": true,
+    "715625duplicate_cells_claim_has_correct_occurrence_denominator": true,
+    "same_historical_visit_no_new_coverage_no_false_alarm_calibration_no_qualified_detection": true,
+    "original_AB_FAIL_CLOSED_and_protected2016_control_limits_explicit": true,
+    "all_geometry_input_byte_pins_match_current_actual_files": true,
+    "official_source_snapshots_match_retrieved_Git_blobs": true,
+    "final_markdown_preserves18own_vs108context_fraction_denominator": true,
+    "renderer_QA_pass_claim_supported_by_actual_independent_receipt": true,
+    "final_markdown_DC_origin_and_AB_limits_correct": true,
+    "final_markdown_all_relative_links_resolve": true
+  },
+  "confirmed_values": {
+    "templates_own_primary": 18,
+    "context_profiles": 108,
+    "minimum_own_primary_positive_DC_cell_mass_fraction": 0.999064374503219,
+    "minimum_over_all108_contexts": 0.0,
+    "own_primary_remainder_score_min": -1.6337447234224667,
+    "own_primary_remainder_score_max": 1.0596373475603702,
+    "own_primary_original_score_min": 2980.0732258447233,
+    "own_primary_original_score_max": 21687.068710451058,
+    "strict_center_peaks_over288": 288,
+    "center_over_flank_stats": {
+      "count": 288,
+      "max": 688.5376685391137,
+      "median": 543.8979423894631,
+      "min": 492.5533312673502
+    },
+    "max_score_reconstruction_absolute_difference": 3.637978807091713e-12,
+    "duplicate_raw_cell_instances_bit_identical": 715625,
+    "annotated_stored_records": 120,
+    "DC_untouched_stored_records": 0
+  },
+  "editorial_clarifications_requested_and_now_resolved": [
+    "Specified99.9064percent is measured in18templates own primary scans, not all108context profiles.",
+    "Explicitly stated288deduplicated physical rows are not288independent confirmations.",
+    "Qualified exact published Sband grid agreement by standard tuning."
+  ],
+  "geometry_current_file_pin_audit": [
+    {
+      "path": "seti_previous/analysis/next_visit/S2017_MIDPOINT_SOURCE_MANIFEST.json",
+      "current_actual": {
+        "bytes": 111227,
+        "sha256": "1fd17cbf60251b77c06a2bbeb00f405b068f3d60b32b9f4cfcf39eccc4076107"
+      },
+      "matches_geometry_result_input_pin": true
+    },
+    {
+      "path": "seti_previous/analysis/s2017_control_targets_20261011_v2/delivery/SUMMARY.json",
+      "current_actual": {
+        "bytes": 749832,
+        "sha256": "b9a448848d97ad2b9abc28b022ab9233d85b946fb75757963164567eea0e65e7"
+      },
+      "matches_geometry_result_input_pin": true
+    },
+    {
+      "path": "dc_study/geometry/SOURCE_METADATA.json",
+      "current_actual": {
+        "bytes": 1443,
+        "sha256": "bc7e4e719aad99743279f6f4acef56d3a738f85c2f88bb4fafb2391ac902887a"
+      },
+      "matches_geometry_result_input_pin": true
+    },
+    {
+      "path": "dc_study/geometry/blimpy_waterfall.py",
+      "current_actual": {
+        "bytes": 23380,
+        "sha256": "97f090cdd529325a07544a6f4a066bd0515a0b275cc8a61468d973cf6bde94c7"
+      },
+      "matches_geometry_result_input_pin": true
+    },
+    {
+      "path": "dc_study/geometry/blimpy_base_reader.py",
+      "current_actual": {
+        "bytes": 12577,
+        "sha256": "263014e375c35edbc6ecc60aa62b5a2b124079439d78196a9a2a88a14c26cd1e"
+      },
+      "matches_geometry_result_input_pin": true
+    },
+    {
+      "path": "dc_study/geometry/analyze_geometry.py",
+      "current_actual": {
+        "bytes": 8775,
+        "sha256": "8c002d6b13bd7e0b279d96e25f34acfc32ec68ae89915e1bfb625d0e3c19271b"
+      },
+      "matches_geometry_result_input_pin": true
+    },
+    {
+      "path": "seti_previous/analysis/s2017_control_targets_20261011_v2/results/primary20170428_HIP97319/TOP3.json",
+      "current_actual": {
+        "bytes": 1641,
+        "sha256": "ee62c1e8b4a062d771df353e9e6403da2a4320c9903d46c41d00b0ce1abadf73"
+      },
+      "matches_geometry_result_input_pin": true
+    },
+    {
+      "path": "seti_previous/analysis/s2017_control_targets_20261011_v2/results/primary20170428_HIP97461/TOP3.json",
+      "current_actual": {
+        "bytes": 1637,
+        "sha256": "c0c3085936cce267b59e7a1a5874e36ea67c570a0a6423228d241bd8f02d9afa"
+      },
+      "matches_geometry_result_input_pin": true
+    },
+    {
+      "path": "seti_previous/analysis/s2017_control_targets_20261011_v2/results/primary20170428_HIP97663/TOP3.json",
+      "current_actual": {
+        "bytes": 1641,
+        "sha256": "d46544a0c82678885775746a7683e47b0536e97a6af1ee931dd220da69490ea1"
+      },
+      "matches_geometry_result_input_pin": true
+    },
+    {
+      "path": "seti_previous/analysis/off_adjacent_20261011/results/primary20170428_HIP97319/TOP3.json",
+      "current_actual": {
+        "bytes": 1771,
+        "sha256": "6e1a371086412fb1a1aeaba430c8863d52c74964d46c9312da35049f815390ff"
+      },
+      "matches_geometry_result_input_pin": true
+    },
+    {
+      "path": "seti_previous/analysis/off_adjacent_20261011/results/primary20170428_HIP97461/TOP3.json",
+      "current_actual": {
+        "bytes": 1766,
+        "sha256": "8cf0a71c394147cca00f3ec11af779304932905b2874376baf1a7c15e4954b99"
+      },
+      "matches_geometry_result_input_pin": true
+    },
+    {
+      "path": "seti_previous/analysis/off_adjacent_20261011/results/primary20170428_HIP97663/TOP3.json",
+      "current_actual": {
+        "bytes": 1768,
+        "sha256": "3b5b3c1c3e76b49cc8bda508c1ee5577b500263247d5c8521a0667b7c765e92e"
+      },
+      "matches_geometry_result_input_pin": true
+    }
+  ],
+  "software_git_blob_audit": [
+    {
+      "path": "dc_study/geometry/blimpy_waterfall.py",
+      "git_blob_SHA1": "5514a7544b49439a91277970c53047af09794193",
+      "retrieved_git_blob_SHA1_matches": true
+    },
+    {
+      "path": "dc_study/geometry/blimpy_base_reader.py",
+      "git_blob_SHA1": "68e2002d8aa208b4d68882fbaa66c022ce501e4d",
+      "retrieved_git_blob_SHA1_matches": true
+    }
+  ],
+  "earlier_size_discrepancy_explanation": "Initial source apply_patch added one surplus terminal newline; it was removed and exact Git blob SHA1 verified before final geometry handoff. Analyzer subsequently gained an explicit Git-blob verification assertion. Geometry was rerun with final current source/code bytes and input hashes. The earlier sizes refer to pre-handoff snapshots, not current files; no edits were made to geometry scientific outputs during this final editorial review.",
+  "remaining_corrections": [],
+  "release_dependency": "Independent numerical QA nowPASS as verified in actual receipt. Final PDF visual QA is separate; root reports2pagesPASS, and this reviewer does not replace that visual check.",
+  "measured_review_resources": {
+    "process_CPU_seconds": 0.07852304699999998,
+    "wall_seconds": 0.09913942599996517,
+    "peak_RSS_bytes": 12476416
+  },
+  "previous_reviewed_renderer_input_pin": {
+    "bytes": 9485,
+    "sha256": "8dcbc0ae40866ee79dcf5f2e3a8076e78377ae20d69cf0e59a11381cad2f9c4a"
+  },
+  "reviewed_markdown_input_pin": {
+    "bytes": 4923,
+    "sha256": "8cd2a474d23b104d6fa0fe0596cf5589bf8b9536e36ecd652d6018f409ab2309"
+  },
+  "renderer_change_after_initial_review": "Added supported statement that108fixed profiles passed independent numerical QA.",
+  "final_markdown_review": {
+    "status": "PASS_SCIENTIFIC_WORDING_AND_SAVED_RESULT_COUNTS",
+    "independent_QA_status": "PASS_INDEPENDENT_DC_DIAGNOSTIC_QA",
+    "independent_QA_mismatches": 0,
+    "claim_denominators": {
+      "99_906437percent": "18own-primary profiles only",
+      "108profiles": "descriptive fixed-context reconstruction",
+      "288rows": "deduplicated physical raw rows within onevisit, not independent confirmations",
+      "120records": "savedTOP20postselection geometry annotation, not completeness or calibrated significance"
+    },
+    "QA_score_difference_scope": "Final wording explicitly separates1.82e-12 independent score reconstruction vs saved profiles from3.64e-12 original winner-score linkage comparison; both match the QA receipt.",
+    "relative_links": [
+      {
+        "target": "PRIMARY18.csv",
+        "exists": true
+      },
+      {
+        "target": "../ranking/ANNOTATED_TOP120.csv",
+        "exists": true
+      },
+      {
+        "target": "REPRODUCTION.md",
+        "exists": true
+      },
+      {
+        "target": "../qa/QA_RECEIPT.json",
+        "exists": true
+      },
+      {
+        "target": "../geometry/GEOMETRY_RESULT.json",
+        "exists": true
+      }
+    ]
+  },
+  "previous_reviewed_markdown_input_pin": {
+    "bytes": 4923,
+    "sha256": "8cd2a474d23b104d6fa0fe0596cf5589bf8b9536e36ecd652d6018f409ab2309"
+  }
+}

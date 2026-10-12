@@ -1,0 +1,66 @@
+{
+  "status": "PASS_INDEPENDENT_DC_DIAGNOSTIC_QA",
+  "counts": {
+    "all_profile_DC_overlap_row_instances": 782,
+    "covering_capsule_row_bit_comparisons": 1440,
+    "duplicate_raw_cells_bit_equal": 715625,
+    "geometry_input_hashes_verified": 12,
+    "independent_patches": 18,
+    "independent_profiles": 108,
+    "local501_medians": 4032,
+    "normalizations_hashed": 108,
+    "original_ranking_records_verified": 120,
+    "own_primary_positive_DC_fraction_min": 0.9990643745032189,
+    "own_primary_profiles_verified": 18,
+    "physical_DC_scan_rows_with_original_box_contact": 288,
+    "physical_raw_rows": 288,
+    "ranking_DC_contact_checks": 5760,
+    "ranking_DC_touched_records": 120,
+    "ranking_DC_untouched_records": 0,
+    "ranking_center_rows_verified": 1920,
+    "raw503_cells_read": 869184,
+    "raw_cell_instances": 869184,
+    "raw_center_flank_ratio_max": 688.5376685391137,
+    "raw_center_flank_ratio_median": 543.8979423894631,
+    "raw_center_flank_ratio_min": 492.5533312673502,
+    "raw_center_strict_peak_count": 288,
+    "raw_peak_count": 288,
+    "reconstructed_box_cells": 4032,
+    "source_capsules_hashed": 108,
+    "unique_raw_cells": 153559
+  },
+  "limits": {
+    "CPU_seconds": 600,
+    "RAM_bytes": 2147483648,
+    "wall_seconds": 900
+  },
+  "limitations": [
+    "Local501 arithmetic is independent of producer but conditional on saved fullcore power median, MAD and winsorized residual location; fullcore residual filtering and normalization were not rerun.",
+    "Original source compact HDF5 arrays are not decoded here: raw patch provenance follows pinned pre-existing raw503 capsule bytes and consistency across every covering capsule.",
+    "Algebraic score decomposition is not a masked-detector score or reoptimized search and does not supply sensitivity, SNR or false-alarm calibration.",
+    "TOP20 geometric contact annotation preserves exposed original ranks. Geometric contact alone does not prove physical origin, and an untouched record is not independently qualified.",
+    "These historical original OFF targets differ and their contexts do not constitute independent repeats of one target. Nonstationary burst4 family is outside this study."
+  ],
+  "numeric_tolerance": {
+    "absolute": 1e-07,
+    "relative": 1e-10
+  },
+  "CPU_seconds": 5.738554520999999,
+  "wall_seconds": 5.8512383779998345,
+  "peak_RSS_bytes": 82161664,
+  "mismatches": [],
+  "detector_imported": false,
+  "detector_rerun": false,
+  "new_mask_veto": false,
+  "reranked_records": 0,
+  "telescope_requests": 0,
+  "qualified_SETI_detection": false,
+  "full_QA_receipt_sha256": "d0536359c23ce4541864dc7b19a6394a0116c8abf6aa63394fcbef6c2040ac5c",
+  "full_QA_receipt_bytes": 4973935,
+  "full_QA_receipt_location": "standalone result ZIP: dc_study/qa/QA_RECEIPT.json",
+  "root_visual_QA": "PASS_FINAL_TWO_PDF_PAGES_INSPECTED",
+  "public_freeze_commits": [
+    "239058b7758ce590ed848ed608231a84744dca88",
+    "44b549aabe2042b667ee61696d14eadd21989b2e"
+  ]
+}
