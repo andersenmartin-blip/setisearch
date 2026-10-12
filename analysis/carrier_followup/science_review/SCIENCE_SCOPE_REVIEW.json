@@ -1,0 +1,109 @@
+{
+  "schema": "SETI_CACHED_CARRIER_WINNER_PROSPECTIVE_SCIENTIFIC_REVIEW_V1",
+  "status": "SCIENCE_SCOPE_GO_IMPLEMENTATION_REVIEW_PENDING",
+  "metadata_review": "carrier_followup/science_review/schema_metadata_review.json",
+  "domain": {
+    "map_domains": 2289,
+    "carriers_per_domain": 4096,
+    "cached_carrier_winners": 9375744,
+    "per_OFF_target_domains": 763,
+    "per_OFF_target_carrier_winners": 3125248,
+    "native_counts_per_target": {
+      "170": 255,
+      "171": 253,
+      "172": 255
+    },
+    "retain_adjacent_family_native171_boundary_q": [
+      0,
+      255
+    ],
+    "excluded_domains": [
+      {
+        "native": 170,
+        "q": 0
+      },
+      {
+        "native": 171,
+        "q": 64
+      },
+      {
+        "native": 171,
+        "q": 128
+      },
+      {
+        "native": 171,
+        "q": 192
+      },
+      {
+        "native": 172,
+        "q": 255
+      }
+    ],
+    "domain_is_complete_only_for_declared_saved_maps": true,
+    "not_independent_tests": true
+  },
+  "scientific_intent": "A separately frozen deterministic DC-aware selection over every existing per-carrier winning drift/width tuple can recover strong exposed carrier maxima hidden by a different overall core maximum. It remains a selection over previously exposed maxima, not a fresh detector search, blind confirmation or exhaustive clean-hypothesis recovery.",
+  "scope_limits": {
+    "no_new_width_drift_grid": true,
+    "no_other_hypotheses_at_discarded_carriers": true,
+    "no_new_frequency_coverage": true,
+    "no_new_observation_visit": true,
+    "no_telescope_HTTP": true,
+    "cost_DKK": 0,
+    "original_AB": "FAIL_CLOSED_UNCHANGED",
+    "protected2016": "CLOSED",
+    "closed2019_transport": "UNCHANGED"
+  },
+  "rounding_invariants": [
+    "Validate whole NPZ SHA256/length before decoding payload arrays; schema/header inspection alone does not authenticate scientific values.",
+    "Validate all seven array fields, exact4096/785shapes, finite frequency/score/drift values, widths1/3, expected source-channel sequence, original drift-grid membership and full valid-hypothesis counts.",
+    "Base=(cached frequency_hz_at_tref-FCH1)/DF. Verify exact relation to source_reference_channels; preserve cached values.",
+    "Elapsed own-reference times are np.arange(16)*TSAMP, with own first integration midpoint at0. Avoid recomputing small elapsed times by subtracting large rounded midpointMJDs.",
+    "Round np.rint(base + cached_winning_drift*elapsed/DF) in absolute source coordinates using the original multiplication/division order. Subtract source offsets afterward.",
+    "Do not independently round drift displacement, usefloor(x+0.5), or snap stored near-zero drift to zero.",
+    "Width1 coverscenter; width3 coverscenter-1,center,center+1. Eligibility is inclusive exact contact with any frozen DCbin in any16own rows."
+  ],
+  "tie_and_global_selection_invariants": [
+    "Freeze global exact order before payload values are read: scoredescending and explicit frequency/drift/width/native/q/carrier tiebreaks; noepsilon ties.",
+    "Global greedily separatedTOP3 must be computed from a sufficiently complete ordered candidate prefix. LocalTOP3permap is not sufficient.",
+    "A per-target exactTOP700 prefix is sufficient for separatedTOP100 under unique reference channels and distance>3: each earlier retained channel blocks at most7channels; before choice100 at most693can be blocked, so raw rank694suffices.",
+    "The prefix proof depends on validating disjoint source intervals and unique source channels per target. It would fail with duplicate channels or multiplehypotheses per carrier.",
+    "Selecting at most700permap before a global exactTOP700 merge is safe; selecting a smaller localprefix requires another proof.",
+    "Historical coremax verification must retain the original scoredescending/source_channelascending tieorder, independently of the newly declared global ranking tieorder.",
+    "Separation>3reference bins means only integer reference locations differ by at least4; it is not physical-source independence or a calibrated association radius."
+  ],
+  "grouping_and_normalization": {
+    "reference_frequency_groups": "Same own-reference frequency alone is a descriptive grouping. Different reference epochs, drifts or widths can imply different transported physical paths.",
+    "raw_geometry_identity": "A raw profile's physical identity is original source scan plus width and all16absolute rounded score-cell centers. For a template spanning sixscans, compare the entire sixscan family of these identities.",
+    "normalized_measurement_equivalence": "Identical raw-cell paths do not ensure identical scores if their fixed physical4096normalization-core anchors or normalization terms differ. Track raw-geometry groups and normalized-measurement groups separately.",
+    "no_physical_source_claim": "Even distinct physical measurement templates can be aliases of the same underlying stationary/intermittent interference. Group counts are not source counts.",
+    "followup_anchor": "For fixed context profiles, preserve each selected original map's physical4096core anchor in every scan. Explicitly identify reused versus newly computed full16normalizations, algorithm/input hashes and full501halo support.",
+    "baseline_reuse": "A previous capsule may be reused only for exactly identical raw geometry; previous fixed scores require normalized-measurement equivalence as well. A full12096crop can support other paths only after every501median support is geometrically verified.",
+    "context_extrapolation": "Compute cross-scan elapsed times in original order: (context_tstart-primary_tstart)*86400 + row*TSAMP; equal midpoint half-integrations cancel. Never refit drift or width in the context.",
+    "context_DC": "Own-window DC eligibility does not guarantee transported context boxes avoidDC. Report those contacts without adapting the selected shortlist afterward."
+  },
+  "incompleteness": [
+    "Each carrier exposes only its already chosen maximum over1570width/drift hypotheses. Discarding a DC-contacting winner can still hide a clean nonwinning hypothesis at that same carrier.",
+    "Existing original native171gaps64/128/192 and outer native170q0/native172q255 remain outside this domain.",
+    "Removing exact knownDCcontacts cannot certify absence of other RFI, spectral leakage, receiver structure, nonlinear signals or chance maxima.",
+    "Original row-MAD box-track scores and ranking over many correlated maxima have no calibrated SNR/FAP or source-origin interpretation.",
+    "GlobalTOP3perOFFtarget is a small descriptive shortlist; failure to appear there is not absence, and multiplepointings in one historical visit do not give independent repeated observations.",
+    "Any own-versus-context excess remains conditioned on own data having selected its frequency, drift and width."
+  ],
+  "planned_review_activity": {
+    "schema_NPY_headers_checked": 16023,
+    "array_payload_values_read_by_science_review": 0,
+    "DC_eligibility_executed": false,
+    "carrier_ranking_executed": false,
+    "new_detector_scores": false
+  },
+  "implementation_review_required_before_freeze": [
+    "Exact absolute rounding/time expression",
+    "eligible winner inclusiveDCboxes",
+    "heap order and globalprefix proof",
+    "original coremax tieorder verification",
+    "normalization/physical-path grouping semantics",
+    "whole NPZ input hashes and scope/code pins"
+  ],
+  "remaining_scientific_objections": []
+}
