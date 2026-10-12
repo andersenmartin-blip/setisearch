@@ -40,6 +40,7 @@ for rel in ['next_dc/ranking/scope.json','next_dc/ranking/ALL2289_GEOMETRY.json'
             'next_dc/qa/context/reproduce_from_saved_crops.py',
             'next_dc/qa/context/REPRODUCTION_SCOPE.json',
             'next_dc/qa/context/REPRODUCTION_RECEIPT.json',
+            'next_dc/qa/context/REPRODUCTION_GO.json',
             'seti_previous/analysis/new_visit_search/dependencies/detector.py',
             'seti_previous/analysis/s2017_next_native/source_manifest_v2.json']:
     selected.add(rel)
