@@ -1,0 +1,153 @@
+{
+  "schema": "SETI_EXPLORATORY_DC_AWARE_EXISTING_CORE_WINNER_SCIENCE_PROPOSAL_V1",
+  "status": "SCIENTIFIC_GO_FOR_SEPARATELY_FROZEN_LIMITED_SELECTION",
+  "scope_relationship": "This is a new exploratory phase. Completed DC-study prohibitions on reranking or masking applied to that completed diagnostic scope; they are not a permanent ban on a separately declared follow-on analysis authorized by the user's continuation instruction.",
+  "recommended_goal": "Expose and analyze the strongest saved core-winning tuples whose original sixteen-row score boxes never include any of the three frozen DC bins. Describe them as DC-untouched exposed winners until their raw morphology and six-scan context have been assessed.",
+  "source_domain": {
+    "metadata_review": "next_dc/science_review/DOMAIN_METADATA_REVIEW.json",
+    "actual_source_domains_per_OFF_target": {
+      "170": {
+        "q_inclusive": [
+          1,
+          255
+        ],
+        "count": 255
+      },
+      "171": {
+        "q_inclusive": [
+          0,
+          255
+        ],
+        "excluded_q": [
+          64,
+          128,
+          192
+        ],
+        "count": 253
+      },
+      "172": {
+        "q_inclusive": [
+          0,
+          254
+        ],
+        "count": 255
+      }
+    },
+    "central_family_count_per_target": 251,
+    "adjacent_named_family_count_per_target": 512,
+    "adjacent_family_includes_native171_boundary_cores": [
+      0,
+      255
+    ],
+    "cores_per_OFF_target": 763,
+    "total_unique_target_core_domains": 2289,
+    "OFF_targets": [
+      "HIP97319",
+      "HIP97461",
+      "HIP97663"
+    ],
+    "source_native_rule": "native=floor(source_core_low/1048576), q=(source_core_low % 1048576)/4096, based on actual half-open channel intervals rather than family naming.",
+    "selection_domain_is_only_saved_core_max_tuples": true,
+    "score_maps_need_not_be_recomputed_or_maximized_again": true
+  },
+  "frozen_DC_channels": [
+    178782208,
+    179830784,
+    180879360
+  ],
+  "recommended_selection": {
+    "input": "Exactly one existing query_kind=core_max tuple per unique target/core from authenticated SCORE_AUDITS records, linked to corresponding MAPS entries.",
+    "geometry": "Use the original tuple's reference time, sixteen elapsed row midpoints, saved width and unchanged frequency/drift convention. For each rounded absolute center c_r, score cells are c_r-(w-1)/2 through c_r+(w-1)/2 inclusive. Reject eligibility if any score cell equals any frozen DC channel in any own-primary row.",
+    "terminology": "This filters saved winner records by geometry. It neither masks power values nor reruns a detector.",
+    "stable_order": [
+      "saved score descending",
+      "reference_source_channel ascending",
+      "source native ascending",
+      "source q ascending",
+      "map_id lexical"
+    ],
+    "count": "First3 eligible distinct core winners per original OFF target, up to9 tuples total. If fewer are eligible, report fewer; do not change the exclusion or substitute new hypotheses after inspecting spectra.",
+    "data_adaptation": "No score threshold, signal-quality requirement, cross-scan outcome filter, or widened eligibility may be chosen after seeing selected raw profiles.",
+    "role_integrity": "Preserve each original OFF acquisition role. Each of these stars has one scan in the historical visit, not a new repeated cadence.",
+    "reported_counts": [
+      "all2289 input tuples",
+      "eligible tuples per target",
+      "DC-contact tuples per target",
+      "selected up-to9 tuples",
+      "any duplicate or associated selected tracks"
+    ],
+    "preserve_original_scores_and_ranks": true,
+    "new_annotation_order_must_be_named_as_new_scope": true
+  },
+  "association_rule": {
+    "purpose": "Metadata-only, descriptive compatibility between saved linear templates across pointings. It is not an OFF veto, calibrated error region, physical-source identity, or evidence of independent confirmation.",
+    "frequency_frame": "Use the identical recorded topocentric frequency frame and absolute observation times; do not compare frequencies at different own-reference times directly.",
+    "definitions": {
+      "df_abs_Hz": 2.7939677238464355,
+      "original_drift_grid_spacing_Hz_s": 0.01020408163265306,
+      "F_i_at_t": "f_i + d_i*(t-t_i)",
+      "t_i": "The tuple's original first-integration midpoint in absolute seconds relative to a single shared time origin.",
+      "radius_channels_at_t": "ceil((w_i+w_j)/2 + (drift_grid_spacing/(2*abs(df)))*(abs(t-t_i)+abs(t-t_j)))",
+      "pair_midpoint": "(t_i+t_j)/2",
+      "pair_midpoint_radius": "ceil((w_i+w_j)/2 + drift_grid_spacing*abs(t_j-t_i)/(2*abs(df)))"
+    },
+    "decision": "Require abs(F_i(t)-F_j(t)) <= abs(df)*radius_channels_at_t at the pair midpoint AND at each scan's first and last integration midpoint. Inclusive comparisons and the listed evaluation times must be frozen.",
+    "reasoning": "The base support radius is1,2or3fine channels for width1/1,1/3or3/3 templates. Absolute-time transport plus fixed half-grid padding prevents a distant scan's drift quantization from being mistaken for a mismatch; endpoint checks prevent one crossing of two different model tracks from being labeled persistent compatibility.",
+    "same_time_max_base_radius_channels": 3,
+    "uncertainty_limit": "The half-grid padding is a deterministic convention for gridded template geometry. Actual fitted drift uncertainty has not been calibrated and need not be confined to half a grid step. Compatible means compatible under this rule only; incompatible does not exclude a common nonlinear or intermittent source.",
+    "component_limit": "If pairwise matches are summarized as graph components, explicitly state that transitive components can join mutually incompatible pairs. Preserve pairwise decisions; do not call components independent sources."
+  },
+  "fixed_context_profiles": {
+    "recommended_count": 54,
+    "template_parameters_frozen_from_selected_own_winners": true,
+    "source": "Restore existing authenticated full18raw compact files for native170/171/172 × six scans; no telescope acquisition.",
+    "model": "Propagate each original selected linear template, including its original absolute reference time, unchanged drift and width, into all six scan times. Never refit drift or select a different local maximum in a context scan.",
+    "halo": "Every scored width1/3 cell needs its full501-channel median. Verify all actual row support including250+(width-1)/2fine-channel halo; no clamping, truncated medians, zero padding or nearest capsule substitution.",
+    "normalization": "Declare the physical4096-channel normalization-core anchor and per-context normalization source before computing profiles. Reuse authenticated full16 constants when they exactly match that defined core, scan and algorithm. If missing constants must be recomputed from restored raw data, explicitly call that fixed preprocessing; it is not the earlier no-renormalization DC scope.",
+    "transported_DC_contact": "Annotate any context row whose projected box includes a frozen DC bin, even if the original own-primary winner was DC-untouched. Such context excess cannot be used as a clean RFI or sky-localization comparison.",
+    "median_halo_DC_contact": "Also report whether a full501median support contains a frozen DC bin. This is provenance/geometry information, not a second adaptive rejection rule.",
+    "missing_support": "Fail closed for that profile or mark unavailable; unavailable coverage is not an absence of signal.",
+    "score_language": "Fixed context profiles generate newly evaluated descriptive score values. The accurate restriction is no new search-score grid, maximization or refit, not the literal claim that no new numerical scores are evaluated.",
+    "capsule_warning_resolved_by_full_raw": "A503capsule centered on another winner has only±1bin slack for a width1median501 and zero slack for width3. Full restored compacts avoid that limitation."
+  },
+  "bias_and_incompleteness": [
+    "All input maxima and prior DC findings were already exposed. The phase is deterministic follow-up, not blind discovery or independent validation.",
+    "Core-winning tuple filtering discards an entire core's opportunities whenever its saved winner touches DC, even though that core can contain strong DC-untouched carrier maxima.",
+    "Even in an eligible core, retaining only the strongest tuple hides lower-ranked real signals. Across cores, unequal noise or the original normalization can affect score ordering.",
+    "DC contact is geometry, not direct evidence that DC caused the entire winning score. A real track crossing a DC bin can be excluded.",
+    "A tuple that avoids exact DC score cells can still contain RFI, broader instrumental structure, or median/core-normalization effects. DC-untouched does not mean clean or extraterrestrial.",
+    "The three omitted native171cores64/128/192 and outer native170q0/native172q255 remain outside this chosen saved-domain selection. No completeness claim extends into them.",
+    "Six historical scans form one visit. They include different original OFF targets; sparse or variable interference can appear strongest in one pointing without implying sky origin.",
+    "Robust post-selection scores remain uncalibrated SNR/FAP. Association radii are deterministic descriptions, not confidence intervals.",
+    "No absence conclusion follows from no associated saved core winner: another pointing's stronger different winner may hide the corresponding signal.",
+    "A selected track's raw comparison may touch DC after extrapolation to other scan times. Track that contact explicitly rather than changing the original selection after the fact."
+  ],
+  "fixed_safe_geometry_question": {
+    "answer": "Yes. Selecting only DC-untouched saved core winners loses hidden clean hypotheses near DC and elsewhere in discarded cores.",
+    "already_available_map_followup": "A later separate frozen phase could inspect each existing carrier-max tuple in the saved maps and retain DC-untouched winning paths. This requires no new drift/width score grid and can recover useful carrier maxima in a core whose overall winner was DC-touched.",
+    "remaining_hidden_hypotheses": "Filtering existing per-carrier winners still cannot recover a clean lower-ranked width/drift hypothesis when that carrier's saved winning hypothesis is DC-touched. Recovering that would require a new scientifically specified detector evaluation.",
+    "uniform_guard_option": "A future carrier-position guard can preclude every original width1/3, |drift|<=4 hypothesis from touching DC over the own sixteen rows. Fifteen row spacings imply a maximum rounded drift excursion392bins, plus width3half-span1; integer reference carriers at distance>=394bins from every DC point are geometrically safe for the original own-window grid. This intentionally removes a small region containing potentially real signals and is not completeness.",
+    "current_phase_recommendation": "Use the core-winner-only phase now for fast real raw/context diagnosis; retain its incomplete label. Do not silently replace it with carrier or alternative-hypothesis searches."
+  },
+  "release_and_scope_limits": {
+    "original_A_B": "FAIL_CLOSED_UNCHANGED",
+    "protected_2016_holdouts": "CLOSED",
+    "closed_2019_access_route": "UNCHANGED",
+    "new_telescope_HTTP_requests": 0,
+    "new_observation_visit": false,
+    "new_frequency_coverage": false,
+    "cost_DKK": 0,
+    "new_detector_grid": false,
+    "new_source_hypothesis_maximization": false,
+    "no_sky_detection_or_calibrated_significance_claim": true,
+    "prior_scope_output_mutation": false,
+    "freeze_before_eligibility_or_selected_power_analysis": true
+  },
+  "review_activity": {
+    "metadata_domain_counts_verified": true,
+    "eligibility_filter_run": false,
+    "winner_selection_run": false,
+    "raw_NPZ_or_full_compacts_opened_by_reviewer": false,
+    "association_outcomes_computed": false
+  }
+}
