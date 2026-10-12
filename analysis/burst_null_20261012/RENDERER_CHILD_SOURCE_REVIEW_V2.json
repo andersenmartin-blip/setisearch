@@ -1,0 +1,40 @@
+{
+  "schema": "SETI_GAMMA_NULL_RENDERER_CHILD_SOURCE_REVIEW_V1",
+  "status": "PASS_ACTUAL_SOURCE_SCHEMAS_AND_CORRECTED_ONE_VISIT_PROVENANCE",
+  "renderer": {
+    "path": "analysis/burst_null_20261012/make_report.py",
+    "bytes": 46989,
+    "sha256": "997c0a7c1efd54a1a6e3a2dc34c03af900b915610dff8db014cdedcd20ed68fc"
+  },
+  "supersedes_review": {
+    "path": "analysis/burst_null_20261012/RENDERER_CHILD_SOURCE_REVIEW.json",
+    "sha256": "25637b3e0a9265aa5853894ab91079fe786d4aed4cb6bfeeb95419bba29714a1"
+  },
+  "actual_source_comparisons": {
+    "driver_sha256": "4a4d8577fec7c182569435079c85d0c55e29503da5c5a20648efdfc24f055798",
+    "QA_sha256": "3e402c69512c184e88d00e0ee96db4774fe842b24c246b7618c71f0c2944a1de",
+    "prepare_scope_sha256": "6330b2660b8b7e8cc58c9ce4fdc0aa9a303b8f3add36927f06dcd5d3c65b9482"
+  },
+  "resolved_issue": "Both real-reference figure footer and report paragraph now describe three OFF scans in one historical visit and one scan per target; they do not imply three separate visits.",
+  "checks": [
+    "AST parse passes for final renderer source.",
+    "Science ROOT_GO and independent QA_ROOT_GO are separately bound to actual source receipt types.",
+    "QA selected_top3 is a job dictionary; producer receipt pins are a list; byte pins and job hashes are dictionaries.",
+    "Full fixed primary and QA counters match actual sources, including generated model crops/rows/cells.",
+    "Dynamic winning raw core counters reconcile payload domains, per-family QA counts and total winning rows/cells.",
+    "Eight COMPLETE primary families and exact new JSON output bindings gate rendering.",
+    "Old top9 reference is an authenticated list with consistent JSON/CSV and report receipt bindings; prior arrays are not opened.",
+    "Eight model families are the analysis units; 24 nested winners and exposed real references are kept separate.",
+    "U1 degeneracy, exact ties, identity-vector exclusion and conditional versus reconstructed preprocessing limits are stated.",
+    "No telescope FAP, tail calibration, significance, RFI rejection or physical-origin claim is made.",
+    "Two separate prospective plot layouts include legends, outside rank annotations, tight bounds and explicit unit labels. Actual rendered figures still need visual QA.",
+    "Create-only outputs and failure receipts preserve completed or failed attempts."
+  ],
+  "unresolved_issues": [],
+  "review_source_only": true,
+  "saved_result_metadata_read": false,
+  "numerical_or_renderer_execution": false,
+  "source_arrays_or_capsules_opened": false,
+  "reviewed_sources_modified": false,
+  "scientific_results_verified": false
+}
