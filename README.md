@@ -1,3 +1,15 @@
+# SETI-status · 13. oktober 2026: fuld ON-burstsøgning afsluttet
+
+**2.010 nye kort plus 288 pilotkort og 54 faste ON/OFF-profiler er færdige med bestået kilde-, global sorterings- og kontekst-QA.** Den erklærede 766-kerne familie pr. ON-scan omfatter 9.412.608 kanalmaksima og 20.952.465.408 korrelerede hypoteseforekomster i ét historisk besøg fra 2017. Syv af ni udvalg er nye i forhold til piloten. Egne fire-række-scorer er 6,638491-7,450295; andre ON når 2,042495 og OFF 2,306076. Ingen etableret fast-banegenfinding, kvalificeret SETI-detektion eller kalibreret SNR/FAP.
+
+Den komplette resultatpakke på **446.289.003 bytes** og den danske tosidede PDF er gemt. Alle 16.418 payloadfiler er kontrolleret med SHA/CRC; frisk udpakning uden H5-filer består 10.050 scorekontroller og 18 gemte DC-rammer. 0 DKK og nul nye teleskopforespørgsler. Original A/B er fortsat FAIL_CLOSED; checkpoint 20. oktober 2026.
+
+[Dansk resultat](https://github.com/andersenmartin-blip/setisearch/blob/cf4bbad2a9afb33c31cb964d752d3ff3d5e1b774/analysis/burst_full_20261013/report_results/RESULTS_DA.md) · [Ni spor](https://github.com/andersenmartin-blip/setisearch/blob/cf4bbad2a9afb33c31cb964d752d3ff3d5e1b774/analysis/burst_full_20261013/report_results/SELECTED_CLEAN_TOP9.csv) · [54 profiler](https://github.com/andersenmartin-blip/setisearch/blob/cf4bbad2a9afb33c31cb964d752d3ff3d5e1b774/analysis/burst_full_20261013/context_results/CONTEXT_PROFILES.json) · [Projektstatus](https://github.com/andersenmartin-blip/setisearch/blob/cf4bbad2a9afb33c31cb964d752d3ff3d5e1b774/PROJECT_STATUS.md) · [Næste metodekontrol](https://github.com/andersenmartin-blip/setisearch/blob/cf4bbad2a9afb33c31cb964d752d3ff3d5e1b774/analysis/burst_full_20261013/NEXT_STEP.md)
+
+---
+
+## Tidligere status, bevaret uændret
+
 # SETI-status · 13. oktober 2026: ON-burstpilot og DC-alternativer afsluttet
 
 **288 nye søgekort og 54 faste profiler er færdige med uafhængig rå-/normaliserings-QA.** Søgningen efter korte signaler er nu anvendt på de tre HIP98505/HD189733 ON-scanninger i det historiske besøg 28. april 2017. De ni udvalgte korte spor har ingen etableret fast-banegenfinding i de andre ON-scanninger. Scorerne er efter udvælgelse, uden kalibreret SNR/FAP eller kvalificeret SETI-detektion.
