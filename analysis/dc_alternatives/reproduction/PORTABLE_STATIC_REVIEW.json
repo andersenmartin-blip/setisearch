@@ -1,0 +1,115 @@
+{
+  "NPZ_array_payload_decodes": 0,
+  "blockers": [],
+  "counts": {
+    "inventory_group_indices": 7083,
+    "manifest_members_at_review": 122,
+    "manifest_uncompressed_bytes_at_review": 87601675,
+    "runtime_dependencies_matching_completed_QA_audit": 82,
+    "runtime_dependency_symlinks": 0,
+    "runtime_input_pins_verified_as_opaque_bytes_or_JSON": 83,
+    "saved_EMPTY_records": 9,
+    "saved_result_identities": 7083,
+    "scope_groups": 18,
+    "unique_inventory_carriers": 7083,
+    "whole_H5_runtime_dependencies": 0
+  },
+  "date": "2026-10-13",
+  "findings": [
+    {
+      "area": "Exact original arithmetic",
+      "finding": "Source preserves complete 16 \u00d7 12,096 original crop, nearest-edge 501-channel sliding medians with odd-window np.median, immutable saved original row median/location/MAD, full original-left-edge float64 sequential cumsum, width 1 before width 3 and ascending 785-point drift first exact ties, sequential 16 row additions and one final sqrt normalization. Full z row-major SHA256 is compared before exhaustive score use. No detector imports or reestimated normalization feed winner selection.",
+      "severity": "none"
+    },
+    {
+      "area": "All 7,083 carrier coverage",
+      "finding": "Runner explicitly requires 7,083 unique inventory identities, prohibits repeated group/carrier visits, and requires inventory == visited == saved result identity sets. Metadata confirms 18 groups, 7,083 indices covering exact range 0..7,082 once, and 7,083 saved result identities equal inventory.",
+      "severity": "none"
+    },
+    {
+      "area": "Recovered winner NPZ and EMPTY",
+      "finding": "All 11 winner-array fields and exact array schema compared. EMPTY score remains -inf; drift NaN, width 0, grid index -1. np.array_equal(equal_nan=True) accepts matching NaN drift only, preserves exact finite values and infinities. EMPTY JSON maximum must be None and status/count/boolean all match. Current result metadata contains 9 EMPTY entries.",
+      "severity": "none"
+    },
+    {
+      "area": "Merge and selected9",
+      "finding": "Same seven-field score/frequency/drift/width/native/q/carrier ordering as producer. Replay independently reconstructs raw 700/raw 100 and greedy >3 reference-channel separation with 100 outputs and a 694-position prefix bound, then TOP3 per ON and global 9, comparing full saved dictionaries. Base clean family prefix authenticity and broader all 2,298-map coverage remain inherited from completed source QA.",
+      "severity": "none"
+    },
+    {
+      "area": "Admission and immutable inputs",
+      "finding": "Exact authorized GO binds replay code, scope and source QA hashes; actual source QA PASS with zero mismatches required before NumPy work. Entry code/scope/GO hashes captured and all three required unchanged at close. Every loaded dependency verified before use and all checked pins reverified at close; fresh output namespace required. --check-only returns before metadata/array loading or NumPy import.",
+      "severity": "none"
+    },
+    {
+      "area": "Minimal archive closure",
+      "finding": "All 83 executable runtime input pins match actual bytes, appear in archive manifest, and are regular files with no H5 leaf.82 runtime dependency pins exactly match completed source QA detailed-audit pin catalog;83rd is the resulting completedQA receipt.18 raw crops, 18 winner NPZ files, 18 maps and 18 normalizations plus metadata/kernel/prefix files provide complete replay input closure. Unused whole-H5 provenance references inside historical scopes are inherited metadata, never runtime dependencies.",
+      "severity": "none"
+    }
+  ],
+  "numerical_replay_executed_by_reviewer": false,
+  "qualification": "Static code and metadata review and opaque byte hashes only. Existing completed source QA PASS is authenticated evidence; this review does not execute or certify a new numerical replay, establish celestial origin, calibrate SNR/FAP or claim SETI detection.",
+  "remaining_root_actions": [
+    "Publish exact reviewed code/scope,then write authorized root GO; draft remains authorized = false.",
+    "Run separately admitted portable replay and preserve its actual receipt. This static review claims no portable numerical PASS.",
+    "Complete final archive manifest with stated later delivery files,including thisreview/authorized GO/README/replayreceipt. Retain regular file bytes and correct analysis-relative layout; no dangling links.",
+    "README must specify a POSIX/Linux runtime with Python and NumPy 2.3.5 because resource limits and SIGALRM are Unix interfaces."
+  ],
+  "resolved_review_findings": [
+    {
+      "issue": "Scope/code could change during replay and output receipt use unadmitted current hashes.",
+      "resolution": "Code now captures admitted code/scope/GO hashes, rechecks unchanged at close and writes admitted hashes."
+    },
+    {
+      "issue": "Runner lacked complete unique inventory/result/visited coverage assertion.",
+      "resolution": "Exact equality of all 7,083 identity sets and unique group visits now required."
+    }
+  ],
+  "reviewed_artifact_pins": {
+    "GO_draft": {
+      "bytes": 397,
+      "path": "dc_alternatives/reproduction/PORTABLE_GO_DRAFT.json",
+      "sha256": "b5eb26b6beeaf871b93ee12ddfa350ae29dd2c10543daacd7f1a9c7cbffe18d4"
+    },
+    "arithmetic_kernel": {
+      "bytes": 6293,
+      "path": "dc_alternatives/qa/exhaustive_core.py",
+      "sha256": "f10c6941b502a0d14defd1aa4bc4d8fc6fb4b48fbc4977c5880f5f380ba34e0b"
+    },
+    "completed_source_QA": {
+      "bytes": 4381,
+      "path": "dc_alternatives/qa/selection/QA_RECEIPT.json",
+      "sha256": "f01f211a875f14ebff92fc78641b27931f879b3e1235381f39388d6d739dc7aa"
+    },
+    "completed_source_QA_detailed_audit": {
+      "bytes": 60771,
+      "path": "dc_alternatives/qa/selection/DETAILED_AUDIT.json.gz",
+      "sha256": "c11c2f923e945e6e015fe0257d7272c12bdcebd7a819cbdc88f172a8f10ca50b"
+    },
+    "minimal_archive_manifest": {
+      "bytes": 26451,
+      "path": "dc_alternatives/reproduction/MINIMAL_ARCHIVE_MANIFEST.json",
+      "sha256": "86ee9c6dcefc64bd2f7aef5e66ca42c86ce5ae43a6a6304dd9c2784f2dc2dcf8"
+    },
+    "portable_scope": {
+      "bytes": 29527,
+      "path": "dc_alternatives/reproduction/portable_scope.json",
+      "sha256": "ea59c84924a010786648e9fc4ad66d3b18a5651d6f9db86d389f2e7bf746c690"
+    },
+    "replay": {
+      "bytes": 15976,
+      "path": "dc_alternatives/reproduction/replay_from_saved_frames.py",
+      "sha256": "11fd3c2c1f9ac043d76312257eed2afeab4c3779ed510a27e1eb40992ed3d3d7"
+    },
+    "scope_preparer": {
+      "bytes": 8248,
+      "path": "dc_alternatives/reproduction/prepare_portable_scope.py",
+      "sha256": "ab1734771c9e4c0a3710f7f64c760c351a0feb92dc54c1660cdd8816832a9d4c"
+    }
+  },
+  "reviewed_replay_sha256": "11fd3c2c1f9ac043d76312257eed2afeab4c3779ed510a27e1eb40992ed3d3d7",
+  "schema": "SETI_DC_PORTABLE_METADATA_ONLY_STATIC_REVIEW_V1",
+  "source_H5_opens": 0,
+  "source_and_metadata_only": true,
+  "status": "STATIC_REVIEW_READY_FOR_ROOT_FREEZE_AND_ADMISSION"
+}
