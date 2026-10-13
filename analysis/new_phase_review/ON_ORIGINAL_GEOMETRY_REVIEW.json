@@ -1,0 +1,213 @@
+{
+  "schema": "SETI_ORIGINAL_ON_METADATA_GEOMETRY_INDEPENDENT_REVIEW_V1",
+  "status": "PASS_ORIGINAL_METADATA_DOMAIN_AND_OWN_MIDPOINT_CODE_PROOF",
+  "input_pin": {
+    "path": "on_cached/feasibility/ON_RESULTS_RESTORATION_RECEIPT.json",
+    "bytes": 4230381,
+    "sha256": "b10a8695fbff0da867116a65c9ae2a4a87f49aea6f19ce6420a415c17b989dc3"
+  },
+  "reviewer_pin": {
+    "path": "new_phase_review/review_original_on_metadata.py",
+    "bytes": 5898,
+    "sha256": "951657f8be89613b1230f353af70231f66f00cafb34b08d738856db09acf8fe1"
+  },
+  "domain": {
+    "maps": 2298,
+    "saved_carrier_winners": 9412608,
+    "primary_scans": [
+      {
+        "scan_id": "epoch1_on",
+        "domains": 766,
+        "reference_carriers": 3137536,
+        "native_counts": {
+          "171": 256,
+          "170": 255,
+          "172": 255
+        },
+        "disjoint_contiguous_reference_interval": [
+          178262016,
+          181399552
+        ]
+      },
+      {
+        "scan_id": "epoch2_on",
+        "domains": 766,
+        "reference_carriers": 3137536,
+        "native_counts": {
+          "171": 256,
+          "170": 255,
+          "172": 255
+        },
+        "disjoint_contiguous_reference_interval": [
+          178262016,
+          181399552
+        ]
+      },
+      {
+        "scan_id": "epoch3_on",
+        "domains": 766,
+        "reference_carriers": 3137536,
+        "native_counts": {
+          "171": 256,
+          "170": 255,
+          "172": 255
+        },
+        "disjoint_contiguous_reference_interval": [
+          178262016,
+          181399552
+        ]
+      }
+    ]
+  },
+  "checkpoint_group_counts": {
+    "analysis/new_visit_recovery/results/search/DRIFT_CHECKPOINT.json": 3,
+    "analysis/s2017_full_band/results/batch01/DRIFT_CHECKPOINT.json": 252,
+    "analysis/s2017_full_band/results/batch02/DRIFT_CHECKPOINT.json": 252,
+    "analysis/s2017_full_band/results/batch03/DRIFT_CHECKPOINT.json": 255,
+    "analysis/s2017_next_native/boundaries/results/pair170_171/measurement/DRIFT_CHECKPOINT.json": 6,
+    "analysis/s2017_next_native/boundaries/results/pair171_172/measurement/DRIFT_CHECKPOINT.json": 6,
+    "analysis/s2017_next_native/results/search/native170_batch01/DRIFT_CHECKPOINT.json": 255,
+    "analysis/s2017_next_native/results/search/native170_batch02/DRIFT_CHECKPOINT.json": 255,
+    "analysis/s2017_next_native/results/search/native170_batch03/DRIFT_CHECKPOINT.json": 252,
+    "analysis/s2017_next_native/results/search/native172_batch01/DRIFT_CHECKPOINT.json": 255,
+    "analysis/s2017_next_native/results/search/native172_batch02/DRIFT_CHECKPOINT.json": 255,
+    "analysis/s2017_next_native/results/search/native172_batch03/DRIFT_CHECKPOINT.json": 252
+  },
+  "original_producer_code": [
+    {
+      "group": "native171 recovery q128",
+      "map_instances": 3,
+      "driver_pin": {
+        "path": "on_cached/on_results/central/analysis/new_visit_recovery/driver.py",
+        "bytes": 23214,
+        "sha256": "ca9c3890a8be325061e62c03b05aa795a582fc7d10012f0a565d8779920e6bf6"
+      },
+      "code_evidence": [
+        {
+          "line": 230,
+          "text": "cfg = detector.Config(widths=(1, 3))"
+        },
+        {
+          "line": 231,
+          "text": "drifts, dt = np.linspace(-4.0, 4.0, 785), np.arange(16)*TSAMP"
+        },
+        {
+          "line": 242,
+          "text": "result, _ = detector.search_scan(scan, frequencies, dt, drifts, cfg)"
+        }
+      ]
+    },
+    {
+      "group": "native171 interiors q1..254 except128",
+      "map_instances": 759,
+      "driver_pin": {
+        "path": "on_cached/on_results/central/analysis/s2017_full_band/driver.py",
+        "bytes": 27241,
+        "sha256": "5ce9d5f861e06691183cf43fd4351bfe8a09b97763c3bd23add82ad338864554"
+      },
+      "code_evidence": [
+        {
+          "line": 263,
+          "text": "cfg = detector.Config(widths=(1, 3))"
+        },
+        {
+          "line": 264,
+          "text": "drifts, dt = np.linspace(-4.0, 4.0, 785), np.arange(16) * TSAMP"
+        },
+        {
+          "line": 277,
+          "text": "result, _ = detector.search_scan(scan, frequencies, dt, drifts, cfg)"
+        }
+      ]
+    },
+    {
+      "group": "native170/172 safe interior batches",
+      "map_instances": 1524,
+      "driver_pin": {
+        "path": "on_cached/on_results/adjacent/analysis/s2017_next_native/search/driver.py",
+        "bytes": 32396,
+        "sha256": "3c23e8020ee32c5c662922d16fe3517315364eccb59514b9e678e6d248b519e6"
+      },
+      "code_evidence": [
+        {
+          "line": 339,
+          "text": "cfg = detector.Config(widths=(1, 3))"
+        },
+        {
+          "line": 340,
+          "text": "drifts, dt = np.linspace(-4.0, 4.0, 785), np.arange(16) * TSAMP"
+        },
+        {
+          "line": 353,
+          "text": "result, _ = detector.search_scan(scan, frequencies, dt, drifts, cfg)"
+        }
+      ]
+    },
+    {
+      "group": "joined native boundaries",
+      "map_instances": 12,
+      "driver_pin": {
+        "path": "on_cached/on_results/adjacent/analysis/s2017_next_native/boundaries/driver.py",
+        "bytes": 35679,
+        "sha256": "766ec772404ad59086907154571fe2ebf1e9017eac9ea4af8e501a91fe7f4129"
+      },
+      "code_evidence": [
+        {
+          "line": 351,
+          "text": "cfg = detector.Config(widths=(1, 3))"
+        },
+        {
+          "line": 352,
+          "text": "drifts, dt = np.linspace(-4.0, 4.0, 785), np.arange(16) * TSAMP"
+        },
+        {
+          "line": 365,
+          "text": "result, _ = detector.search_scan(scan, FCH1 + DF * channels, dt, drifts, cfg)"
+        }
+      ]
+    }
+  ],
+  "identical_original_detector_code_pins": [
+    {
+      "path": "on_cached/on_results/central/analysis/new_visit_search/dependencies/detector.py",
+      "bytes": 22819,
+      "sha256": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45"
+    },
+    {
+      "path": "on_cached/on_results/adjacent/analysis/new_visit_search/dependencies/detector.py",
+      "bytes": 22819,
+      "sha256": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45"
+    },
+    {
+      "path": "on_cached/on_results/adjacent/analysis/s2017_next_native/boundaries/dependencies/detector.py",
+      "bytes": 22819,
+      "sha256": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45"
+    }
+  ],
+  "time_rule": "All four actual ON producer families directly call search_scan with dt=np.arange(16)*TSAMP; frequency_hz_at_tref therefore refers to that originating ON's first integration midpoint. Generic cadence_geometry/search_cadence shared-tref helpers are not called by these producers.",
+  "configuration": {
+    "rows": 16,
+    "drifts": 785,
+    "widths": [
+      1,
+      3
+    ],
+    "hypotheses_per_carrier": 1570,
+    "static_core_channels": 4096,
+    "halo_each_side": 4000,
+    "median_channels": 501
+  },
+  "normalization_rule": "Original search_scan preprocess uses row raw medians on the static4096 source core, median501 residuals, core residual median/MAD and +/-5MAD winsorized location; complete16 rows and12096 loaded columns. No DC mask is inserted.",
+  "reference_rounding": "np.rint(base+drift*time/df) in absolute source coordinates before subtracting loaded source_channel0. Retain original frequency and stored winning drift, including tiny nonzero near-zero values.",
+  "scope_correction": "ON full_band has253 interior domains per scan, excluding onlyq128; recovery suppliesq128. q64/q192 belong full_band. OFF central had different omissions, so its763-domain inventory cannot be inherited.",
+  "proof_limits": "Independently checks restored inventory metadata and actual source code. Opaque archive authentication is inherited from the separately pinned root restoration receipt. No map values, winner eligibility, ranking or score arithmetic is independently tested here.",
+  "selector_implementation_GO": false,
+  "review_activity": {
+    "NPZ_payload_values_decoded": 0,
+    "HDF5_files_opened": 0,
+    "source_float_cells_read": 0,
+    "new_detector_scores": 0,
+    "new_ranking": false,
+    "new_telescope_requests": 0
+  }
+}

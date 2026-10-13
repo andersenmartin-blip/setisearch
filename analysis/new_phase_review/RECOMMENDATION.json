@@ -1,0 +1,131 @@
+{
+  "schema": "SETI_NEXT_PHASE_METADATA_SCIENTIFIC_RECOMMENDATION_V1",
+  "date_utc": "2026-10-13",
+  "status": "ON_CACHED_WINNER_SELECTION_RECOMMENDED_PROVENANCE_PREFLIGHT_REQUIRED",
+  "input_pins": [
+    {
+      "path": "repo_metadata/PROJECT_STATUS.md",
+      "bytes": 467246,
+      "sha256": "4f5960dbd2344b8f3489e1556fc1efdf12a226d9091a41d313b289c2f3c8b22d"
+    },
+    {
+      "path": "carrier_followup/ranking/scope.json",
+      "bytes": 1339205,
+      "sha256": "66522ab04290aba321717dacaf598392f05ce50d2681a4d326bdca102ac7fc1d"
+    },
+    {
+      "path": "carrier_followup/science_review/FINAL_REVIEW.json",
+      "bytes": 13477,
+      "sha256": "f82d685829f06948f6b5d70093ab3ed0204119379523a1d7fd76f6d305ff9278"
+    },
+    {
+      "path": "carrier_followup/context/PROSPECTIVE_CONTRACT.json",
+      "bytes": 2138,
+      "sha256": "c61205fb4229a4830412b2bb171bce234a45cdf3ea2c2662b9cb98f16b9b6d37"
+    },
+    {
+      "path": "seti_previous/analysis/new_visit_search/dependencies/detector.py",
+      "bytes": 22819,
+      "sha256": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45"
+    },
+    {
+      "path": "new_phase_review/write_recommendation.py",
+      "bytes": 9687,
+      "sha256": "57658593cde6936fc099f8474545826b5b37dc0998c9fd074bcdd4e30de7287e"
+    }
+  ],
+  "observations": {
+    "existing_ON_detector_coverage": {
+      "adjacent_maps_completed_in_restored_status": 1536,
+      "central_native171_maps_completed_in_restored_status": 762,
+      "combined_ON_domains_per_scan": 766,
+      "combined_ON_map_instances": 2298,
+      "combined_ON_saved_carrier_winners_expected": 9412608,
+      "per_ON_scan_saved_carrier_winners_expected": 3137536,
+      "domain_geometry_reported_by_root": {
+        "native170_q": "1..255",
+        "native171_q": "0..255",
+        "native172_q": "0..254",
+        "unsampled_reference_domains": [
+          "native170 q0",
+          "native172 q255"
+        ]
+      },
+      "verification_strength": "Restored current status independently confirms completed 1536 adjacent ON and 762 central ON maps and 766/768 combined domains. Exact source-map inventory, per-map metadata and payload provenance require the new phase preflight; this review has not enumerated or decoded those source maps."
+    },
+    "latest_carrier_selection": {
+      "primary_targets": [
+        "HIP97319",
+        "HIP97461",
+        "HIP97663"
+      ],
+      "primary_roles": "OFF",
+      "map_instances": 2289,
+      "cached_carrier_winners": 9375744,
+      "selected9_unchanged": true,
+      "not_an_ON_global_DC_aware_selection": true
+    },
+    "old_scope_novelty_limit": "No restored current result examined here declares this three-native global ON DC-aware cached-winner selection. That absence alone is not an exhaustive history search; corroborate against restored original ON results and cross-ON reports before freeze."
+  },
+  "recommended_new_scope": {
+    "priority": "DC-aware selection of already stored per-carrier winning drift/width tuples in all 766 ON reference domains, separately for the three HIP98505 ON scans, followed by unchanged fixed-path measurements in all six original scans.",
+    "selection_units": "TOP3 per original ON scan, not TOP3 for a pooled HIP98505 target. All three scans observe the same source in one visit; their labels are not three independent targets or observing epochs.",
+    "expected_logical_selected_count": 9,
+    "maximum_logical_context_profile_count": 54,
+    "distinct_geometry_counts": "Determine after selection from exact paths; neither 9 distinct templates nor 54 distinct physical profiles is pre-established.",
+    "why_higher_yield_than_more_OFF_TOP100_profiles": "It directly prioritizes the intended ON source, while the latest all-carrier pass selected only OFF controls. Expanding lower-ranked OFF winner profiles can diagnose receiver/interference or selection behavior but is a weaker next source-target question after unchanged nine OFF choices.",
+    "do_not_repeat_adjacent_ON_detector_search": "Those 1536 ON map instances were already completed. Restoring raw arrays or archived maps does not create a new search or a new observation.",
+    "no_new_detector_grid_required": true,
+    "no_new_telescope_request_required": true
+  },
+  "mandatory_time_provenance_preflight": {
+    "warning": "Do not copy the previous OFF own-first-midpoint dt=0 assumption into historical ON maps.",
+    "observed_generic_detector": "cadence_geometry uses one shared cadence midpoint tref=(first+last)/2 and saves per-map scan_first_time_from_tref_s. An original ON adapter may override this geometry. The actual pinned historical driver and per-map metadata govern.",
+    "required": [
+      "Resolve each original ON frequency_hz_at_tref reference epoch and its exact 16-element times_from_tref_s from original pinned driver and metadata.",
+      "Use np.rint((stored_frequency-FCH1)/DF + stored_winning_drift*original_row_time_from_tref/DF) in complete absolute source coordinates, with the original arithmetic order, before subtracting crop origins.",
+      "Do not re-anchor cached reference frequency to an ON first midpoint or snap near-zero drift; algebraically similar expressions can change half-channel rounding.",
+      "Context times must retain the same original reference convention and original absolute rounding. Do not transport through a reconstructed own-epoch frequency if it changes original centers.",
+      "Verify selected own scores against original saved map scalars using their original full preprocessing and static normalization cores."
+    ],
+    "implementation_GO_not_issued_by_this_recommendation": true
+  },
+  "selection_invariants": [
+    "Authenticate whole source NPZ bytes and original map metadata before any payload decoding; validate disjoint reference domains and unique reference carriers per ON scan.",
+    "Expected ON domain includes native171 q64/128/192; the preceding OFF 763-domain inventory must not be copied unchanged.",
+    "Reject a stored winner only if its width1/3 box touches a frozen DC center in any of the original 16 own rows, using that map's actual time reference. Keep original scalar score and winning drift/width.",
+    "Use exact frozen deterministic global order and an adequately proven prefix. The prior >3 reference-channel rule remains a descriptive spacing rule; it does not identify independent physical sources.",
+    "Full normalization support and score-cell median501 support must be available for every transported context. Freeze any unsupported-profile handling before outcomes and do not adapt the shortlist afterward."
+  ],
+  "grouping_and_inference": {
+    "same_reference_frequency": "Descriptive only. Even with one common tref, different drift/width can represent different physical paths; with different epochs even equal frequencies and equal drifts need not match.",
+    "raw_profile_identity": "Original source scan, width and all 16 absolute rounded score-cell centers. Template identity compares the complete six-scan family of these profiles.",
+    "normalized_score_identity": "Raw geometry plus the original fixed physical 4096-channel normalization core and identical full preprocessing terms. Separate this from raw-path alias grouping.",
+    "source_identity": "Distinct sampled paths can still be aliases of one physical receiver/RFI structure. Geometry groups are measurement templates, not astrophysical source counts.",
+    "ON_repetition": "Other ON scans are useful fixed-path context on the same target, but they are already exposed observations in one historical visit. Own-versus-context excess is conditioned on selecting frequency/drift/width from the own scan.",
+    "OFF_controls": "Retain the three actual OFF pointings and their original roles. No OFF veto qualification or star exclusivity follows from absence at one exact transported gridded path.",
+    "DC_rule": "Avoiding three exact DC centers removes their direct box contribution; it does not certify freedom from DC leakage, other receiver structure, RFI or chance maxima."
+  },
+  "remaining_incompleteness": [
+    "Each carrier stores only its maximum over the original drift/width hypotheses. A DC-contacting maximum can hide a clean nonwinning hypothesis at that carrier; this proposed pass does not recover it.",
+    "TOP3 per scan is a descriptive shortlist, not exhaustive fixed-context analysis of all eligible maxima. Failure to appear is not absence of a signal.",
+    "No new frequency coverage, observation, independent visit, nonlinear track family, calibrated false-alarm probability, sensitivity, flux or EIRP limit is established.",
+    "The two outer reference domains and all unrecorded source bands remain outside the declared inventory."
+  ],
+  "preserved_limits": {
+    "original_AB": "FAIL_CLOSED_UNCHANGED",
+    "protected2016": "CLOSED",
+    "closed2019_transport": "UNCHANGED",
+    "new_telescope_HTTP": 0,
+    "cost_DKK": 0,
+    "new_observation": false,
+    "new_frequency_coverage": false
+  },
+  "review_activity": {
+    "metadata_and_source_code_only": true,
+    "cached_array_payloads_read": 0,
+    "raw_power_queries": 0,
+    "new_detector_scores": 0,
+    "new_ranking": false
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "schema": "SETI_ON_CACHED_SELECTOR_INDEPENDENT_STATIC_SCIENCE_REVIEW_V1",
+  "status": "PASS_IMPLEMENTATION_GO_WITHIN_FROZEN_EXPLORATORY_SCOPE",
+  "review_completed_before_outcomes": true,
+  "input_pins": [
+    {
+      "path": "on_cached/ranking/scope.json",
+      "bytes": 3382956,
+      "sha256": "4c447a0c2f83d627ec99d0d8d501befbce56912ed9c5c4bfc7256d3b354c0282"
+    },
+    {
+      "path": "on_cached/ranking/scope.json.gz",
+      "bytes": 264411,
+      "sha256": "343aa4e7db5122210f7d2475828f3c98d926ae6c407c666390364cc797e20f50"
+    },
+    {
+      "path": "on_cached/ranking/select_streaming.py",
+      "bytes": 13312,
+      "sha256": "610983ca4d6aec061c3c8bb97c1f614828cbe461feeb022fae034477e22eb1ef"
+    },
+    {
+      "path": "on_cached/ranking/prepare_scope.py",
+      "bytes": 9886,
+      "sha256": "0f30d182ae2aa93ba6acaadbe811151fa2313459d642106322d7f067a05b9069"
+    },
+    {
+      "path": "on_cached/ROOT_SCOPE.json",
+      "bytes": 2234,
+      "sha256": "80edb61cc720f6d665df55c24ca7b77412a8d03c248a808307d51a374a97b90c"
+    },
+    {
+      "path": "new_phase_review/ON_ORIGINAL_GEOMETRY_REVIEW.json",
+      "bytes": 8058,
+      "sha256": "52fa812155a908f157a0f0e25cdfb23494de9974797e9bf5086f8138bc840c98"
+    },
+    {
+      "path": "new_phase_review/write_selector_static_review.py",
+      "bytes": 8230,
+      "sha256": "c88f8193871658f526e894d038a42f24e60ce6122fe1e2d4ca565afff6890bc6"
+    }
+  ],
+  "original_geometry_proof": "All2298 scope records exactly match restored metadata inventory; four actual producer pins match independent original-source review. All use own dt=arange16*TSAMP,785drifts,width1/3 and full16 static4096 normalization with4000halo and501median. Generic shared-tref helpers are not used.",
+  "domain_checks": {
+    "primary_ON_scans": 3,
+    "domains_per_scan": 766,
+    "maps": 2298,
+    "cached_winners": 9412608,
+    "unique_disjoint_reference_intervals_per_scan": true,
+    "native170_q": "1..255",
+    "native171_q": "0..255",
+    "native172_q": "0..254",
+    "source_record_and_pin_comparisons": 2298,
+    "NPY_headers_declared": 16086
+  },
+  "implementation_checks": {
+    "input_authentication": "Whole NPZ and original normalization bytes are SHA/length verified before NPZ value decoding. Scope preparation checks seven member headers, exact shapes/dtypes and C order for all2298 maps. Runtime validates finite values, full1570 counts, widths1/3, exact source channels/frequencies and exact original785 drift grid/membership.",
+    "rounding": "Complete absolute base+stored drift*original own time/DF is rounded once with np.rint, then used for DC support. No displacement-only rounding or near-zero drift snapping. Row0 equals original reference channel.",
+    "DC_eligibility": "Inclusive abs(center-DC)<=width//2 across every16rows and each of three frozen DC bins; only existing winning tuple filtered, scalar score retained.",
+    "grouping": "Primary scan IDs remain separate although target name is sharedHIP98505. No pooling across ON scans or role reassignment.",
+    "exact_order": "Local np.lexsort priority and global canonical/heap priorities agree: scoredescending,frequencyascending,driftascending,widthascending,nativeascending,qascending,indexascending. Heap inverse priorities give the worst retained item at root; native/q/index uniqueness avoids dictionary tiecomparison.",
+    "bounded_prefix": "At most700 winners permap is sufficient for exact globalTOP700, since any omitted local entry already has700 same-map predecessors. Unique integer reference channels make each prior pick block at most7; before100th pick at most693 can be blocked, so rank694 guarantees100th when at least694eligible. Global700 supports exact separated100 and first3.",
+    "reference_spacing": "Greedy abs(reference_channel_difference)>3 exactly implements frozen spacing. It is a descriptive grid rule, not proof of distinct physical sources.",
+    "preserved_outputs": "Raw700,raw100,separated100,TOP3 and per-core summary records preserved. Aggregate verifies producer output pins and scope IDs; no new ranking in aggregation.",
+    "scope_pin_enforcement": "GO checks exact scope hash and running producer hash. Jobs refuse existing output directories; root enforces external900s wall limit in addition to process600s CPU/2GiB AS."
+  },
+  "audit_counter_semantics": {
+    "name": "cached_coremax_indices_computed",
+    "meaning": "The within-map core argmax index is computed directly from authenticated cached arrays with scoredescending/source-channelascending order. It is not compared against a historical selected winner tuple or independently recomputed detector score.",
+    "reporting_requirement": "Do not call this historical winner-linkage verification. Rename the earlier relations_checked wording or state its precise within-map argmax meaning."
+  },
+  "context_contract_review_pending": true,
+  "context_time_note": "New fixed-context transport is explicitly dt=(context.tstart-origin.tstart)*86400+the exact own arange16*TSAMP vector. This preserves own-map arithmetic. It is not claimed bitwise identical to older gap.fixed_profiles anchor arithmetic; reuse requires exact resulting center vectors and original normalization core.",
+  "interpretation_limits": [
+    "Exposed cached winning paths only; nonwinning clean alternatives at DC-discarded carriers remain unrecovered.",
+    "No fresh data, visit, frequency coverage, calibrated significance, qualified OFF veto or sky detection.",
+    "Same visit and post-selection ON/context contrast; geometry aliases must be grouped after selection using exact six-scan paths separately from normalization identity.",
+    "Original A/B FAIL_CLOSED,protected2016closed,closed2019unchanged,0DKK and no telescopeHTTP."
+  ],
+  "review_activity": {
+    "selector_executed": false,
+    "cached_array_payloads_decoded": 0,
+    "HDF5_files_opened": 0,
+    "raw_power_queries": 0,
+    "new_detector_scores": 0,
+    "metadata_comparisons_and_source_review_only": true
+  },
+  "remaining_selector_logic_blockers": []
+}

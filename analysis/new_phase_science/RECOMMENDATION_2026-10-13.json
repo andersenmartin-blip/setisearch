@@ -1,0 +1,104 @@
+{
+  "schema": "SETI_NEXT_SOURCE_FOCUSED_STAGE_METADATA_RECOMMENDATION_V1",
+  "date": "2026-10-13",
+  "status": "PROSPECTIVE_RECOMMENDATION_NO_NUMERICAL_WORK",
+  "recommended_stage": "Global DC-aware selection of existing HIP98505 ON carrier winners, followed by frozen six-scan raw profiles for the selected tracks.",
+  "reason": "The latest exhaustive DC-aware carrier selection evaluated OFF scans of three other stars. The target HIP98505 ON maps were searched earlier, but their published adjacent-band outputs retained batch-local lists dominated by the now explained DC bins. A three-native global ON shortlist after the fixed DC geometry condition has not been documented in the reviewed reports. This stage evaluates previously unreviewed source-target winner paths rather than repeating the completed OFF ranking or original detector.",
+  "actual_prior_coverage": {
+    "ON_maps": 2298,
+    "ON_maps_per_scan": 766,
+    "ON_cached_carriers_per_scan": 3137536,
+    "ON_cached_carrier_occurrences_total": 9412608,
+    "ON_native_domains": {
+      "170": "q1 through q255",
+      "171": "q0 through q255, including original q64, q128 and q192",
+      "172": "q0 through q254"
+    },
+    "ON_missing_outer_domains": [
+      "native170 q0",
+      "native172 q255"
+    ],
+    "latest_OFF_maps": 2289,
+    "latest_OFF_carrier_occurrences": 9375744,
+    "earlier_cross_ON_maps": 762,
+    "earlier_cross_ON_carrier_occurrences": 3121152,
+    "earlier_cross_ON_matches": 636,
+    "earlier_cross_ON_profiled_matches": 635,
+    "earlier_cross_ON_scope": "Native171 nearest-neighbor associations among already selected winner tuples; not a common-track fit or a global DC-aware ranking across all three natives."
+  },
+  "newly_examined_subject": "The original cached winner path at every carrier in each of the three HIP98505 ON scans, under one prospective fixed DC-contact eligibility rule and global per-scan ordering. Frequencies and detector hypotheses are already exposed; the source-target shortlist and its raw six-scan context are the new analyses.",
+  "source_focused_yield": [
+    "Select each ON scan separately. A signal active in only one ON is retained; recurrence is not an admission requirement.",
+    "Follow the exact selected frequency, drift, width and original reference epoch through all six scans. This tests whether a selected ON excess appears at the same fixed measurement path in other target scans or controls.",
+    "Keep three ON observation identities distinct even though they point at the same star. Multiple selections can describe the same physical receiver feature or rounded-box geometry.",
+    "Compare against earlier selected ON profiles and cross-ON members before opening new raw arrays; reuse exact existing profiles when both geometry and numerical definition match.",
+    "A global ON selection can reveal non-DC tracks hidden behind batch-local DC-dominated TOP20 lists. No claim is made that its winning tracks are independently significant."
+  ],
+  "essential_timing_condition": {
+    "required": "Recover the actual original cadence reference MJD and each scan's pinned sixteen-row relative time vector from the historical driver/checkpoint metadata before freezing eligibility or context code.",
+    "forbidden_shortcut": "Do not assume that frequency_hz_at_tref is referenced to each scan's own first midpoint. Old ON search_cadence and later own-scan OFF adapters have different possible conventions.",
+    "observed_metadata_warning": "The generic cadence_geometry shared midpoint convention initially raised a concern, resolved by reading all four actual adapters. The new selection scope pins those exact producers and source header manifests.",
+    "eligibility_geometry": "Round the complete absolute channel from the cached frequency reference and the actual original row times. Test the original width1 or width3 boxes against source channels178782208,179830784,180879360.",
+    "context_transport": "Project the same frozen physical frequency law with actual scan start times and gaps. Preserve its original reference epoch, and deduplicate identical final rounded-box vectors explicitly.",
+    "status": "RESOLVED_BY_ACTUAL_ADAPTER_REVIEW",
+    "actual_original_convention": "The four actual adapters (q128 recovery, full-band native171, adjacent native170/172, joined boundaries) directly call search_scan with dt = np.arange(16) * TSAMP and 785 drifts, widths1/3. Their frequency reference is the origin scan first integration midpoint. The generic shared-reference search_cadence is not invoked."
+  },
+  "suggested_bounded_workflow": [
+    "Restore the two original ON result archives and validate manifest/map metadata without reading score payloads.",
+    "Freeze exact source domains, map identities, timing, ranking keys and DC condition publicly before the new selection.",
+    "Stream each ON cache once. Preserve raw TOP700, raw TOP100, separated TOP100 and final TOP3, using the already reviewed deterministic ordering and greater-than-three-channel reference separation.",
+    "Verify new selected tuples directly against cached arrays and per-core provenance; source-map hashes and time geometry require independent QA.",
+    "Compute or reuse up to54 logical fixed six-scan profiles for the nine selections, with raw source checks and unchanged normalization conventions. Measure profile identity reuse separately from new physical geometries.",
+    "Report all selected tracks, including unresolved or common ON/OFF features, without a new detection threshold or automatic OFF veto."
+  ],
+  "suggested_limits": {
+    "selection_CPU_seconds_per_ON_job": 600,
+    "selection_wall_seconds_per_ON_job": 900,
+    "selection_RAM_bytes_per_job": 2147483648,
+    "maximum_parallel_selection_jobs": 2,
+    "source_queries": 0,
+    "detector_grid_runs": 0,
+    "DKK": 0,
+    "runtime_expectation_basis": "The closely sized previous OFF cache selection used16.03 producer CPU seconds over all three jobs. This is a planning comparison, not a promised ON runtime or a new measurement. Raw archive restoration and context calculations are separately bounded tasks."
+  },
+  "lower_priority_alternative": {
+    "option": "Expand fixed raw context from the nine OFF tracks to the three separated TOP100 lists.",
+    "value": "Useful broader diagnostics and a reusable comparison set, including the17 separated-list winners that were not original per-core maxima.",
+    "limitation": "These are weaker already selected OFF maxima at other stars within one visit. Most own-scan capsules can be reused, but other-scan profiles still need original raw archives. Its immediate source-target yield is lower than evaluating the unreviewed HIP98505 ON cache.",
+    "no_hidden_reanalysis_claim": "A larger selected panel is not an independent null calibration, a new observation or proof that selected ON tracks are exceptional."
+  },
+  "separate_future_option": {
+    "option": "A bounded short-duration ON search using the existing four-row burst family after the cached ON followup.",
+    "novelty": "The reviewed burst4 family searched three OFF scans only. Applying the same frozen windows, drift family and widths to HIP98505 ON raw arrays would test new temporal hypotheses that full sixteen-row averaging can suppress.",
+    "condition": "This requires its own prospective raw-source scope and explicit bounded detector authorization; it is not part of the recommended cache-only stage and must not repeat completed ordinary16 searches."
+  },
+  "interpretation_limits": [
+    "No new astronomical observation, frequency coverage, blind data or independent visit is added.",
+    "One cached winner per carrier can still conceal an eligible nonwinning drift or width hypothesis. Those alternatives remain unexamined.",
+    "Removing DC contact does not rule out other instrumentation, interference or chance maxima. Score selection and fixed followup are postselection analyses.",
+    "Weak controls along a precise extrapolated moving path can miss a nearby stationary or differently drifting feature; they do not prove ON exclusivity.",
+    "No calibrated SNR, false-alarm probability, flux sensitivity or EIRP limit follows. A/B remains FAIL_CLOSED; protected2016 and closed2019 boundaries remain unchanged."
+  ],
+  "evidence": [
+    {
+      "source": "Current PROJECT_STATUS.md reviewed on13 October2026",
+      "local_copy": "repo_metadata/PROJECT_STATUS.md",
+      "url": "https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md",
+      "claims": "Latest9,375,744 carrier pass is OFF-only; original adjacent ON and native171 searches are already complete."
+    },
+    {
+      "source": "RADIO_S2017_ADJACENT_2026-10-10_RESULT.md",
+      "git_blob_sha": "8ed40ddd60071e1ee38fe2ef1fd59d0b938c5f59",
+      "url": "https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/tools/radio_s2017_adjacent_20261010/delivery/RADIO_S2017_ADJACENT_2026-10-10_RESULT.md",
+      "claims": "1536 adjacent ON maps complete;18 batch-local TOP20 lists preserved; no globalTOP360 ranking; all batch02TOP20 paths touch native center; triplet total2298maps766domainsperON."
+    },
+    {
+      "source": "SETI_S2017_CROSS_ON_RESULTAT_2026-10-10.md",
+      "claims": "636 cross-ON matches used762 native171 maps and3,121,152 existing winners; no barycentric correction, track refit or OFF veto."
+    },
+    {
+      "source": "SETI_S2017_ALLE_SEKS_PROFILER_2026-10-10.md",
+      "claims": "635 selected associations were already profiled in all six scans with individual frozen member tracks; that analysis should not be repeated as new evidence."
+    }
+  ]
+}
