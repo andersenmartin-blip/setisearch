@@ -1,0 +1,22 @@
+{
+  "schema": "SETI_ON_CACHED_FIXED_CONTEXT_PROSPECTIVE_CONTRACT_V1",
+  "written_before_ON_selector_outcomes": true,
+  "selected_input": "on_cached/ranking/SELECTED_TOP9.json",
+  "time_contract_agreed_with_selector_owner": true,
+  "reference_fields": ["reference_time_mjd", "reference_origin_scan_id", "original_origin_row_times_from_reference_s", "frequency_hz_at_own_first_midpoint"],
+  "source_time_rule": "Original direct search_scan uses selected origin ownfirstmidpoint and exact sixteen values arange(16)*tsamp. Context dt=(context.tstart-origin.tstart)*86400+original_origin_row_times_from_reference_s. Own profile reuses exact original vector without MJD cancellation.",
+  "transport_semantics": "This is a newly fixed crossscan arithmetic convention; it does not claim bitwise replay of historical gap.fixed_profiles operation ordering. Deduplicate only exact resulting center vectors, and retain native/q normalization domains for score reuse.",
+  "logical_ids": "origin ON scan_id plus exploratory_selection_rank; all primary targets remain HIP98505",
+  "physical_template_reuse_identity": "Same original normalization core(native,q), original width, and exact allsix16-row rounded center vectors; prior byte-pinned full16 normalization remains part of measurement identity",
+  "raw_geometry_identity": "Width and allsix16-row absolute center vectors, independent of normalizationcore or origin reference epoch",
+  "baseline": "Hash-pin and import previous54 exposed logical profiles/48 raw crops; reuse only exactly identical physical query geometries and normalization domains; no recomputation of imported scores",
+  "new_queries": "Six fixed scan profiles only per genuinely new physical template; own score validated against original ON per-carrier map scalar, drift, width and channel at selected carrier index",
+  "normalization": "Retain authenticated original normalization domain per selected family. Require completed metadata census to verify4096 physical core and16 rows; use original preprocess exact501 median/full16 residualMAD/winsorizedlocation and4000halo; preserve raw12096 crop once per new unique core/scan",
+  "source_role": "Original selected primaries are ON; other HIP98505 ON scans are same-target scans in one visit, not independent observing visits; original OFF targets remain different directions",
+  "transported_DC_contacts": "Annotate original propagated box overlap without veto or adaptive track changes",
+  "no_source_float_read_before_public_scope_GO": true,
+  "no_new_detector_grid": true,
+  "no_telescope_requests": true,
+  "no_calibrated_SNR_FAP": true,
+  "limits": {"CPU_seconds":600,"wall_seconds":900,"RAM_bytes":2147483648}
+}
