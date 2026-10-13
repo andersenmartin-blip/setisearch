@@ -1,0 +1,48 @@
+{
+  "schema": "SETI_FULL_ON_BURST4_GLOBAL_AGGREGATE_STATIC_SCIENCE_REVIEW_V1",
+  "date_utc": "2026-10-13",
+  "status": "PASS_EXACT_GLOBAL_AGGREGATE_CODE_STATIC_NO_ARRAYS_OPENED",
+  "input_pins": [
+    {
+      "path": "seti_burst_full/aggregate.py",
+      "bytes": 29702,
+      "sha256": "ca952ed3c436689414f8c4c73d47c696c157163da617b3129f28eb5cc2e27de8"
+    },
+    {
+      "path": "seti_burst_full/SCOPE.json",
+      "bytes": 206358,
+      "sha256": "d8944b1a8959c945cc5179c7bc1b3677d5aba4352d8e7529e72dce64c66a2ab7"
+    },
+    {
+      "path": "seti_burst_full/driver.py",
+      "bytes": 41388,
+      "sha256": "6d4a0f898cbebb140844225ae8815eb52331713054d619a6f96dcf59df7ee661"
+    },
+    {
+      "path": "seti_burst_on/SCOPE.json",
+      "bytes": 51259,
+      "sha256": "d57760f51fc34c853591a077f2732b2aba1da21b1dae950ed27bedc0fb36cdce"
+    }
+  ],
+  "source_or_result_array_payloads_opened": 0,
+  "numerical_runs": 0,
+  "findings": [
+    "Preparation binds all 21 complete new shards and three complete pilot producers, their exact scopes/drivers/receipts, authenticated map and normalization declarations, and the completed pilot QA. The union has exactly one map for every original ON scan and each of 766 supported native/q cores.",
+    "Execution authenticates whole map and normalization byte hashes before loading saved NPZ fields. It verifies original frequency coordinates, drift grid, window/width indices and valid counts. It performs no preprocessing or window/drift search.",
+    "Each original ON scan has separate unrestricted and DC-clean heaps. New maps use stored per-hypothesis clean maxima; the untouched pilot uses raw fields for both families, supported by its prospective all-hypothesis DC-clean geometry and prior numerical QA.",
+    "Clean EMPTY records must occur only at the three frozen DC reference channels per ON scan, with -inf/NaN/-1/0 sentinels. Finite clean maxima cannot exceed raw maxima and all winning clean boxes must avoid DC. The complete union counts 9,412,608 raw and 9,412,599 nonempty clean carrier winners.",
+    "Global ordering is score descending then integer reference channel ascending. Map reference domains are disjoint, so each score/channel key is unique within a scan and heap tie handling does not compare dictionaries.",
+    "Keeping the first 700 candidates per map cannot omit a global top700 record: any excluded record already has 700 better records in its own map. The fixed-size heap therefore recovers exact global top700 for each scan and family.",
+    "Greedy spacing suppresses integer reference channels within three inclusive. Each selected channel can account for at most seven candidate channels; after 99 selections at most 693 can be accounted for. Therefore the 100th selection must appear by raw rank694, and top700 is sufficient. This is an ordering/completeness bound, not statistical independence.",
+    "All six family/scan combinations retain rawTOP700, spacedTOP100 and TOP3 in JSON plus CSV. CSV cells encode exact compact JSON values and preserve typed round trips. All map maxima/counts and selected cleanTOP9 are retained with producer provenance.",
+    "Winning-window reference epochs, original drifts/widths, source headers and static normalization cores are unchanged. Reference-bin spacing across different winning-window epochs remains a descriptive rule and does not identify physical sources.",
+    "Exact prepared scope and root GO, create-only output, resource caps and post-run input/hash checks guard execution. No shard shortlist, refit, sky qualification or pooled HIP98505 ranking is introduced."
+  ],
+  "orchestration_requirements": [
+    "The main full dual-map numerical QA must PASS before these ranks are used scientifically. Aggregate preparation directly checks pilot PASS; bind the full QA receipt in extra metadata pins/root admission and enforce its PASS in the root workflow.",
+    "Run the separately frozen independent complete-carrier full-sort QA after aggregation. It must match all top700/spaced100/TOP3 JSON/CSV records and nine EMPTY identities before preparing context.",
+    "Only then freeze context selections, keeping primary four-row DC-clean eligibility distinct from transported four-row/full16 context DC contact diagnostics."
+  ],
+  "limits": "This is exact ranking of exposed cached maxima within one historical visit, not independent validation of every original raw grid, calibrated SNR/FAP, a sky-origin statement or qualified SETI detection. The two outer reference cores remain excluded.",
+  "blocking_findings": []
+}
