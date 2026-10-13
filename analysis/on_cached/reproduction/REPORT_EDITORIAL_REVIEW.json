@@ -1,0 +1,140 @@
+{
+  "schema": "SETI_ON_REPORT_SAVED_DATA_EDITORIAL_REVIEW_V1",
+  "status": "PASS_SAVED_JSON_CSV_AND_REPORT_SOURCE_DATA",
+  "checks": [
+    "ON_cached_maps",
+    "ON_cached_carrier_winners",
+    "DC_contacting_winners",
+    "eligible_winners",
+    "allONroleHIP98505",
+    "threeDistinctOriginScans",
+    "nineSelected",
+    "54LogicalContexts",
+    "48NewFixedProfiles",
+    "48NewFullNorms",
+    "48RawCrops",
+    "rawQA/source_file_byte_identities_verified",
+    "rawQA/decoded_source_rows_verified_for_new_queries",
+    "rawQA/distinct_new_profile_core_scan_normalizations_independently_recomputed",
+    "rawQA/new_distinct_physical_profiles_independently_verified",
+    "rawQA/baseline_logical_profiles_hash_imported",
+    "rawQA/baseline_physical_profiles_recomputed",
+    "portableQA/new_distinct_fixed_profiles_replayed",
+    "portableQA/independent_full16_normalization_cores_for_new_queries",
+    "portableQA/baseline_scores_recomputed",
+    "portableQA/selected_context_baseline_reuses",
+    "selectionQAmismatches",
+    "rawQAmismatches",
+    "portableQAmismatches",
+    "231099SelectionChecks",
+    "eightNewTemplates",
+    "oneReusedTemplate",
+    "nineNormalizedTemplateIDs",
+    "newOwn",
+    "otherON16",
+    "OFF24",
+    "positiveRows",
+    "rowConcentration",
+    "otherON16",
+    "OFF24",
+    "transportedDCContactProfiles",
+    "CSVnine",
+    "allCSVtupleFieldsPositiveRowsConcentrationAnd54ContextScoresExact",
+    "reportSourceNoNewSkyOrGridAndMetadataOnlyFailureDisclosed",
+    "metadataFailureDeclared",
+    "ABFailClosed",
+    "noQualifiedDetection",
+    "requests0",
+    "separated100LastRawRankepoch1_on",
+    "separated100LastRawRankepoch2_on",
+    "separated100LastRawRankepoch3_on"
+  ],
+  "input_pins": [
+    {
+      "path": "on_cached/build_report.py",
+      "bytes": 12351,
+      "sha256": "9f1a76237b0aeb927a969677b0095225f1c81514b2d66113d7b63a54d27fcd1d"
+    },
+    {
+      "path": "on_cached/delivery/SUMMARY.json",
+      "bytes": 1033,
+      "sha256": "492bdc6ffc66703efe16df187e4b623a4172c0b66cd697010d08748169dc8215"
+    },
+    {
+      "path": "on_cached/delivery/SELECTED9_CONTEXT54.csv",
+      "bytes": 2521,
+      "sha256": "ada84e805a14267bf7f5d36e5364b7a37b70f7375eec88d494074c63cffaa3ee"
+    },
+    {
+      "path": "on_cached/ranking/SELECTED_TOP9.json",
+      "bytes": 25614,
+      "sha256": "d90fe94179ed3b4ad2c35eb551699c92221dfcad94dde79c0b976cb4ebaa21aa"
+    },
+    {
+      "path": "on_cached/context/SCOPE.json",
+      "bytes": 245609,
+      "sha256": "fd74f18a079b6cc24ba7a6a52af37553e9d2af003b9013e4196da7b6139a69db"
+    },
+    {
+      "path": "on_cached/context/results/CONTEXT_PROFILES.json",
+      "bytes": 1096723,
+      "sha256": "e772292b0d594df1f050e32e5498b86d8bdb6ea653eed2dceea04cda0d54be47"
+    },
+    {
+      "path": "on_cached/qa/selection/QA_RECEIPT.json",
+      "bytes": 2129,
+      "sha256": "5d991848a6811dd72ff3ff91558853509e4d717cdf5f262d5f5e52ea11a9d88b"
+    },
+    {
+      "path": "on_cached/qa/context/QA_RECEIPT.json",
+      "bytes": 76359,
+      "sha256": "8a9a22f635a13d1e9df913727d93436ac6190c83542bb8d4c8a9819d959bb3fe"
+    },
+    {
+      "path": "on_cached/reproduction/REPRODUCTION_RECEIPT.json",
+      "bytes": 83840,
+      "sha256": "dd4bb3e71a9689d9fc62a54d9ed600268aa761b701ad3c84152fc40ad9e3cfe0"
+    }
+  ],
+  "verified_facts": {
+    "ON_cached_maps": 2298,
+    "cached_carriers": 9412608,
+    "DC_contacting": 7083,
+    "eligible": 9405525,
+    "selected_logical_tracks": 9,
+    "new_physical_templates": 8,
+    "reused_templates": 1,
+    "new_profiles": 48,
+    "reused_profiles": 6,
+    "new_full16_norm_cores": 48,
+    "raw_source_files": 18,
+    "decoded_source_rows": 288,
+    "baseline_score_replay": 0,
+    "new_telescope_requests": 0,
+    "new_sky_visits": 0
+  },
+  "score_ranges": {
+    "ownNew8": [
+      6.541930287268538,
+      6.953941938314788
+    ],
+    "otherON16": [
+      -1.3387820395328827,
+      0.939184654347038
+    ],
+    "OFF24": [
+      -2.4476797690517484,
+      1.2908062803783935
+    ]
+  },
+  "transported_DC_contact_profile_count": 0,
+  "numerical_QA_or_ranking_rerun": false,
+  "NPZ_or_HDF5_payload_arrays_read": 0,
+  "new_query_claims_found": false,
+  "limitations": [
+    "Saved JSON/CSV and report-source data checked without replaying numerical QA. PDF visual layout is outside this editorial review.",
+    "Reported scores and postselection contexts remain uncalibrated descriptive quantities."
+  ],
+  "CPU_seconds": 0.08650101700000001,
+  "wall_seconds": 0.08650804399985645
+}

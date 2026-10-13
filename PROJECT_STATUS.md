@@ -1,3 +1,17 @@
+# Aktuel SETI-status - 13. oktober 2026: 48 nye faste råprofiler fra målstjernens valg
+
+**Målstjernens 9.412.608 gemte ON-carrier-vindere er nu globalt kontrolleret; 7.083 rammer DC og 9.405.525 passerer den faste geometriregel.** TOP3 er valgt separat for hver af de tre HIP98505/HD189733 ON-scanninger. Otte valgte baner er nye i forhold til den tidligere OFF-opfølgning; den niende er den kendte stationære 2300 MHz-komponent.
+
+48 nye faste profiler og 48 fulde normaliseringer er målt i de seks eksisterende scanninger, mens seks præcise 2300 MHz-profiler genbruges med hashes. De otte nye valg har egne scorer 6,542-6,954; samme baner i de øvrige ON-scanninger ligger fra -1,339 til 0,939 og i OFF fra -2,448 til 1,291. Der er ingen etableret fast-banegenfinding i de øvrige ON-scanninger. Resultaterne er beskrivende efter udvælgelse, uden kalibreret SNR eller FAP.
+
+Udvælgelses-QA bestod 231.099 eksakte checks. Rå-QA verificerede 18 kompakte kildefiler, 288 decoded rækkehashes og alle 48 nye fulde normaliseringer og profiler. NumPy-reproduktion uden HDF5 bestod 6.239 checks. En indledende metadata-only QA-formatfejl er bevaret og rettet før arrays eller scorer blev læst; producentdata og numeriske formler er uændrede.
+
+[Resultat og afgrænsning](analysis/on_cached/RESULTS.md) · [Kort rapport](analysis/on_cached/delivery/SETI_MAALSTJERNE_2026-10-13.pdf) · [Alle ni valg og 54 kontekster](analysis/on_cached/delivery/SELECTED9_CONTEXT54.csv) · [Reproduktion](analysis/on_cached/reproduction/README.md)
+
+**Ingen kvalificeret SETI-detektion. 0 DKK, nul nye teleskoprequests, original A/B FAIL_CLOSED.** Dette er det samme historiske besøg fra 28. april 2017, uden ny observation eller frekvensdækning. Beskyttede 2016-kontroller og den lukkede 2019-adgangsrute er uændrede. Formelt checkpoint: 20. oktober 2026.
+
+---
+
 # Aktuel SETI-status - 12. oktober 2026: alle 9,38 millioner gemte kanalmaksima kontrolleret
 
 **9.375.744 gemte per-carrier-vindere er nu gennemgået i alle 2.289 kort.** 5.901 vinderbaner rammer DC, og 9.369.843 passerer den fastlåste geometrikontrol. Global TOP3 pr. OFF-stjerne giver præcis de samme ni tupler, rangtal og scorer som før. Der genfindes 55.539 vinderbaner uden DC-kontakt i de 15 kerner med et DC-ramt kernemaksimum; ingen overtager en top-3-plads.
