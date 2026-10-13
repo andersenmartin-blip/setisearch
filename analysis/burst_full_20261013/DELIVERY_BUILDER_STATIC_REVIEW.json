@@ -1,0 +1,41 @@
+{
+  "schema": "SETI_FULL_BURST_DELIVERY_BUILDER_STATIC_REVIEW_V1",
+  "date_utc": "2026-10-13",
+  "status": "PASS_EXACT_METADATA_DELIVERY_BUILDER_SOURCE_NO_PAYLOADS_DECODED",
+  "input_pins": [
+    {
+      "path": "seti_burst_full/prepare_full_delivery.py",
+      "bytes": 18045,
+      "sha256": "732fe88c893cab590c8fbb837367cc749bad7e85aad9f92f093d30afe7e5ce17"
+    },
+    {
+      "path": "seti_burst_full/FINAL_SCIENCE_REVIEW.py",
+      "bytes": 23670,
+      "sha256": "c84a96c1929900eddfc2ec7bb14952f6d3f0b9f8275999f973edbd45d2aa0d71"
+    }
+  ],
+  "source_or_rank_or_profile_payloads_opened": 0,
+  "artifact_bytes_hashed_by_reviewer": false,
+  "numerical_or_builder_runs": 0,
+  "findings": [
+    "Check-only reads no outcome metadata and imports no scientific helpers, numerical libraries or reporting libraries. Run requires exact public builder freeze and separate root GO with fixed resource bounds.",
+    "Each scientific metadata input is individually GO-pinned. Actual main2010QA, full2298/carrier globalQA and original-source context54/own9QA mustPASS and bind the same completed aggregate/context receipts. Finalscience review and nonemptyRESULTS.md are required.",
+    "Finalscience QA receipt pins must equal the same three actual receipts admitted by the builder. Finalscience counts and no-qualified-detection status are checked before extension preparation.",
+    "The immutable NEW2010 replay closure remains the base. Extras cannot conflict with any base bytepin and do not duplicate new primary result files. Only exact seti_burst_full/seti_burst_on research namespaces, extensions and explicitly approved stable directories/root files are added.",
+    "OriginalHDF5 sources, archives, lockfiles, caches, temporary andfreshreplay trees fail the exact extension/path allowlist. Every added file is confined and bytehashed; no NPZ/HDF5/PDF content is decoded.",
+    "All288 unchangedpilot maps and normalizations must be present with their originalmanifest pins. Every completed aggregate/context output must also appear exactly in the merged closure.",
+    "All report/review dependency pins and finalscience consumed inputs are bound, whether inherited from base or added as extras. Builder source/publicfreeze/rootGO are added automatically for provenance.",
+    "FinalPDF is optional and cannot be required before the first archive. Archive/replay receipts and laterPDF remain separately available, preventing a self-referential archive hash cycle.",
+    "Extras, admitted metadata, source/freeze/GO hashes are rechecked before create-only manifest output. This builder prepares authenticatedclosure metadata and makes no claim that an archive or numerical replay has already passed."
+  ],
+  "limits": "The existing saved replay numerically validates NEW2010 scalar audits and18DCframes. Extra pilot/global/context/report bytes are included and authenticated; their inclusion alone does not constitute a separate numerical revalidation of every archived result.",
+  "pending_actual_gates": [
+    "Allthree actualobservationalQA PASS",
+    "Finalscience artifacts",
+    "ActualbuilderGO andmanifest",
+    "Packing/payloadSHA/CRC checks",
+    "Freshstrictarchive extraction/replayPASS",
+    "SeparatefinalPDF"
+  ],
+  "blocking_findings": []
+}

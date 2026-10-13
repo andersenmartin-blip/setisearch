@@ -1,0 +1,101 @@
+{
+  "status": "PROSPECTIVE_CODE_ONLY_REPORT_INTERFACE_NO_NUMERICAL_PAYLOADS_READ",
+  "science_code_pin": {
+    "path": "seti_burst_full/FINAL_SCIENCE_REVIEW.py",
+    "bytes": 23670,
+    "sha256": "c84a96c1929900eddfc2ec7bb14952f6d3f0b9f8275999f973edbd45d2aa0d71"
+  },
+  "pdf_code_pin": {
+    "path": "seti_burst_full/make_final_report.py",
+    "bytes": 19617,
+    "sha256": "aa454bd154eff40609762fc9474ef45e2adc596d913ae83327509f39eabdd344"
+  },
+  "science_phase": {
+    "go_path": "seti_burst_full/FINAL_SCIENCE_GO.json",
+    "GO_fields": [
+      "status=GO_COMPLETE_FULL_ON_FINAL_SCIENCE_REVIEW",
+      "science_review_code_sha256",
+      "public_freeze_commit:40hex",
+      "date",
+      "input_pins:alllistedpathsbyte/SHA"
+    ],
+    "required_input_paths": [
+      "seti_burst_full/qa_results/QA_RECEIPT.json",
+      "seti_burst_full/aggregate_qa_results/QA_RECEIPT.json",
+      "seti_burst_full/context_qa_results/QA_RECEIPT.json",
+      "seti_burst_full/SCOPE.json",
+      "seti_burst_full/AGGREGATE_SCOPE.json",
+      "seti_burst_full/CONTEXT_SCOPE.json",
+      "seti_burst_full/aggregate_results/EXECUTION_RECEIPT.json",
+      "seti_burst_full/context_results/EXECUTION_RECEIPT.json",
+      "seti_burst_full/aggregate_results/SELECTED_CLEAN_TOP9.json",
+      "seti_burst_full/aggregate_results/MAP_MAXIMA_AND_COUNTS.json",
+      "seti_burst_full/context_results/CONTEXT_PROFILES.json",
+      "seti_burst_full/SYNTHETIC_V2_RECEIPT.json",
+      "seti_burst_on/qa_results/QA_RECEIPT.json",
+      "seti_burst_full/driver.py",
+      "seti_burst_full/qa_v2.py",
+      "seti_burst_full/aggregate.py",
+      "seti_burst_full/aggregate_qa.py",
+      "seti_burst_full/context_v2.py",
+      "seti_burst_full/context_qa.py",
+      "seti_burst_full/test_qa_synthetic_v2.py",
+      "seti_burst_full/aggregate_results/epoch1_on_UNRESTRICTED_TOP3.json",
+      "seti_burst_full/aggregate_results/epoch1_on_DC_CLEAN_TOP3.json",
+      "seti_burst_on/results/on20170428_epoch1_HIP98505/EXECUTION_RECEIPT.json",
+      "seti_burst_on/results/on20170428_epoch1_HIP98505/DC_AWARE_TOP3.json",
+      "seti_burst_full/aggregate_results/epoch2_on_UNRESTRICTED_TOP3.json",
+      "seti_burst_full/aggregate_results/epoch2_on_DC_CLEAN_TOP3.json",
+      "seti_burst_on/results/on20170428_epoch2_HIP98505/EXECUTION_RECEIPT.json",
+      "seti_burst_on/results/on20170428_epoch2_HIP98505/DC_AWARE_TOP3.json",
+      "seti_burst_full/aggregate_results/epoch3_on_UNRESTRICTED_TOP3.json",
+      "seti_burst_full/aggregate_results/epoch3_on_DC_CLEAN_TOP3.json",
+      "seti_burst_on/results/on20170428_epoch3_HIP98505/EXECUTION_RECEIPT.json",
+      "seti_burst_on/results/on20170428_epoch3_HIP98505/DC_AWARE_TOP3.json"
+    ],
+    "command": "python seti_burst_full/FINAL_SCIENCE_REVIEW.py --run --go-sha256 SCIENCE_GO_SHA",
+    "outputs": [
+      "seti_burst_full/report_results/FINAL_SCIENCE_REVIEW.json",
+      "seti_burst_full/report_results/RESULTS.md",
+      "seti_burst_full/report_results/SELECTED_CLEAN_TOP9.csv",
+      "seti_burst_full/report_results/SCIENCE_REVIEW_RECEIPT.json"
+    ],
+    "all_3_actual_QA_PASS_required": true
+  },
+  "PDF_phase": {
+    "go_path": "seti_burst_full/FINAL_REPORT_GO.json",
+    "GO_fields": [
+      "status=GO_CREATE_DANISH_FULL_ON_PDF_AFTER_FRESH_ARCHIVE_REPLAY",
+      "pdf_generator_code_sha256",
+      "public_freeze_commit:40hex",
+      "science_GO_pin",
+      "science_review_pin",
+      "science_review_receipt_pin",
+      "archive_receipt_pin",
+      "fresh_replay_receipt_pin",
+      "fresh_extraction_receipt_pin"
+    ],
+    "command": "python seti_burst_full/make_final_report.py --run --go-sha256 PDF_GO_SHA",
+    "artifact_marker": "Generator invokes required PDF marker exactly once after admission and before first PDF authoring; do not call an extra marker externally.",
+    "outputs": [
+      "seti_burst_full/output/pdf/SETI_FULL_ON_DATE.pdf",
+      "seti_burst_full/output/pdf/PDF_RECEIPT.json",
+      "seti_burst_full/tmp/pdfs/full_on_report/page-1.png",
+      "seti_burst_full/tmp/pdfs/full_on_report/page-2.png"
+    ],
+    "visual_review_required_before_delivery": true,
+    "PDF_is_separate_deliverable_not_archive_member": true
+  },
+  "sequence": [
+    "all source/global/context actual QA PASS",
+    "scientific review +RESULTS/CSV",
+    "one complete archive including science artifacts/code",
+    "fresh strict full_dc extraction +actual saved replay PASS",
+    "new independent final PDF GO binds earlier science GO and archive/replay proofs",
+    "mark/create/render/visuallyverify PDF",
+    "deliver immutable archive and separate PDF"
+  ],
+  "hypothesis_occurrences_are_correlated_not_independent_trials": true,
+  "detector_or_production_code_modified": false,
+  "PDF_created": false
+}
