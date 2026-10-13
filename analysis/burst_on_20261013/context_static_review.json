@@ -1,0 +1,65 @@
+{
+  "schema": "SETI_ON_BURST4_CONTEXT_AND_MAIN_QA_STATIC_SCIENCE_REVIEW_V1",
+  "date_utc": "2026-10-13",
+  "status": "PASS_EXACT_FINAL_CONTEXT_AND_MAIN_QA_STATIC_CODE_NO_PAYLOADS_OPENED",
+  "input_pins": [
+    {
+      "path": "seti_burst_on/context.py",
+      "bytes": 31240,
+      "sha256": "7c9fc3485f534bfc1102528458c5d9c1767a76e8daf9f850228d5c8a3782f20d"
+    },
+    {
+      "path": "seti_burst_on/qa.py",
+      "bytes": 45688,
+      "sha256": "74dab096c20df253b32b27314df31ccd79c735c0c69d9ae6df9939fa466a0d16"
+    },
+    {
+      "path": "seti_burst_on/SCOPE.json",
+      "bytes": 51259,
+      "sha256": "d57760f51fc34c853591a077f2732b2aba1da21b1dae950ed27bedc0fb36cdce"
+    },
+    {
+      "path": "seti_burst_on/driver.py",
+      "bytes": 36750,
+      "sha256": "ca3f3c24a2b9da77d99fb50a63c74ffc85b4bea6122f5d675ddb95a09ef26587"
+    }
+  ],
+  "review_activity": {
+    "raw_arrays_opened": 0,
+    "result_array_payloads_opened": 0,
+    "producer_results_read": 0,
+    "numerical_runs": 0,
+    "AST_syntax_checks": 2,
+    "context_QA_code_reviewed": false
+  },
+  "context_findings": [
+    "Nine actual completed DC-aware TOP3 tuples are validated against their per-scan primary receipts, source identity, original window/channel/width/drift-index and saved score; no new selection, fit, maximizing grid or parameter adaptation occurs.",
+    "Source epochs are the immutable original six headers. Row times use(context_tstart-origin_tstart)*86400+(row-selected_start)*TSAMP. Own chosen four rows reduce exactly to0,TSAMP,2TSAMP,3TSAMP; rounded MJD window timestamps are never subtracted to form numerical transport times.",
+    "Absolute channel rounding occurs on the complete frequency-plus-drift expression before crop subtraction. Width1/3 fixed raw cells and all16 rows are stored.",
+    "Each context keeps the origin selected4096-channel normalization core. All16 rows receive unchanged detector preprocessing in a12096-channel crop; another scan never recenters the normalization core on its extrapolated track.",
+    "The complete16x503 profile halo must fit the frozen crop, which gives local median501 support for every width1/3 cell. Unsupported paths fail rather than silently crop or alter the selected list.",
+    "Own full16 normalization must exactly equal the saved primary normalization. Own four-row score is checked atATOL1e-7/RTOL1e-10; full16 score is separately reported and is not claimed to match the selected four-row score.",
+    "Context uses direct z-cell summation while primary uses prefix-box subtraction. This difference in floating summation order explains the explicit tolerance; it is not an altered scientific statistic. Primary QA independently checks scalar medians/row terms at the same tolerances.",
+    "All54 context profiles, four-row and full16 contributions, dominant-positive-row descriptors, full raw normalization crops and original raw503 cells are saved. Duplicate core normalizations are reused by exact(native,q) within each scan; the54 profiles are logical contexts and not preclaimed54 distinct physical sources.",
+    "Full byte pins/source row hashes are checked before numerical use, all inputs are rehashed after execution, and create-only output/resource limits preserve failure receipts.",
+    "Context can only execute after a prepared exact scope and separate reviewed root GO. Root must also retain the public context-code freeze and completed primary QA before using results in conclusions; this review does not execute or authorize a run."
+  ],
+  "main_QA_findings": [
+    "Independent QA imports neither producer nor detector. It authenticates source metadata, public-freeze admission and exact COMPLETE receipts before numerical output admission.",
+    "Nine ON source compacts and144 full decoded rows are authenticated; all288 saved map schemas,1,179,648 winning tuple geometries, drift/window/width indices, valid-count censuses and DC identities are checked.",
+    "All96maps per original ONscan are globally re-ranked from all saved carrier maxima for both unvetoed and DC-aware lists, with score/channel deterministic ordering and greedy>3 reference-channel spacing. This verifies saved ranking rather than every original drift/window maximization.",
+    "All288 full4096-channel normalization row-power medians are independently computed from raw cells. Complete residual median501/MAD/winsorized location is independently reconstructed by NumPy sliding501 medians for all distinct selected raw/DC TOP3 cores, not for every map.",
+    "All1170 saved raw4x503 score capsules are checked bitwise against original decoded cells, with independent direct501 cell medians and scalar row sums/score arithmetic conditional on saved whole-core normalization. Selected core normalizations receive the additional full independent check.",
+    "QA checks complete588file output closures per scan, input byte pins, final source identity and resource bounds; it never repeats the2.626billion alternative grid family.",
+    "Numerical tolerances1e-7 absolute/1e-10 relative are retained consistently. No independently exhaustive winning-alternative proof, calibrated significance, false-alarm rate or ON/OFF veto is asserted."
+  ],
+  "interpretation_requirements": [
+    "The three ON origins shareHIP98505 and one2017visit; the six contexts observe four directions and do not create independent nights.",
+    "Own-vs-other scores are postselection descriptors. Selected windows already influenced the maximized primary score and row-contribution patterns are not extra evidence.",
+    "The159slope grid is adequate only for the primary four-row span. Exact long-gap weak recurrence can miss a between-grid/differently drifting/stationary neighbor and cannot establish directional exclusivity.",
+    "Context four-row score uses the same selected local row window in each scan, rather than maximizing over context windows. Its absence cannot exclude a burst occurring at a different local time.",
+    "DC-aware and unvetoed lists should be equal by prospective sample geometry; equality does not add detection evidence. DC-free does not implyRFI-free.",
+    "Preserve no-qualified-detection, uncalibrated robust score, sparse reference coverage, A/BFAIL_CLOSED,0DKK and zero new telescope requests in final reporting."
+  ],
+  "pending_separate_review": "context_qa.py is not yet final and is intentionally excluded from this exact-pin review. Review/freeze its final bytes separately before context QA execution."
+}
