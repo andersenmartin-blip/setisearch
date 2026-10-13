@@ -1,0 +1,131 @@
+{
+  "schema": "SETI_FULL_ON_BURST4_PROSPECTIVE_SCIENCE_AND_PRODUCER_REVIEW_V1",
+  "date_utc": "2026-10-13",
+  "status": "PASS_EXACT_SCOPE_AND_DUAL_PRODUCER_STATIC_METADATA_NO_ARRAYS_OPENED",
+  "input_pins": [
+    {
+      "path": "seti_burst_full/SCOPE.json",
+      "bytes": 206358,
+      "sha256": "d8944b1a8959c945cc5179c7bc1b3677d5aba4352d8e7529e72dce64c66a2ab7"
+    },
+    {
+      "path": "seti_burst_full/driver.py",
+      "bytes": 41388,
+      "sha256": "6d4a0f898cbebb140844225ae8815eb52331713054d619a6f96dcf59df7ee661"
+    },
+    {
+      "path": "seti_burst_full/prepare_scope.py",
+      "bytes": 5882,
+      "sha256": "3646e28d9d066c521033d7d21006253a780120ef8b4ec87917d5013711239630"
+    }
+  ],
+  "review_activity": {
+    "code_text_pins_verified": 18,
+    "pilot_manifest_pins_verified": 3,
+    "source_or_result_arrays_opened": 0,
+    "numerical_searches": 0,
+    "AST_checks": 1
+  },
+  "coverage": {
+    "missing_reference_domains_per_ON_scan": 670,
+    "missing_by_native": {
+      "170": 223,
+      "171": 224,
+      "172": 223
+    },
+    "pilot_reference_domains_reused_per_ON_scan": 96,
+    "complete_reference_domains_per_ON_scan_after_merge": 766,
+    "new_shards": 21,
+    "per_ON_shard_core_counts": [
+      96,
+      96,
+      96,
+      96,
+      96,
+      96,
+      94
+    ],
+    "new_maps": 2010,
+    "new_unrestricted_carrier_maxima": 8232960,
+    "new_original_hypothesis_occurrences": 18326568960,
+    "combined_pilot_plus_remaining_map_instances": 2298,
+    "combined_raw_carrier_maxima": 9412608,
+    "combined_original_hypothesis_occurrences": 20952465408,
+    "expected_combined_DC_clean_nonempty_maxima": 9412599,
+    "outer_domains_excluded": [
+      "native170q0",
+      "native172q255"
+    ],
+    "scientific_novelty": "Completes the available declared ON reference domains for the same four-row family, and maximizes over every DC-clean hypothesis. It adds no astronomical observation, raw telescope bandwidth or different duration/drift/width family."
+  },
+  "producer_review_findings": [
+    "The missing domains are the exact disjoint complement of the 96 frozen pilot domains in the 766 supported reference cores, sorted by native then q. Each original ON scan has six 96-core shards and one 94-core shard. The scans remain separate despite sharing HIP98505.",
+    "Original ON identities, headers, URL/ETags, compact byte hashes and decoded row hashes are preserved. The pilot producer, freeze, GO and PASS QA are pinned. Each shard authenticates its three compacts before opening payloads, and rechecks source rows and bytes afterward.",
+    "All sixteen rows receive unchanged preprocessing on the static 4096-channel core. Median501 support and the 12096-channel crop remain fixed, including across native boundaries. There is no DC masking in preprocessing.",
+    "Unrestricted scoring retains seven ascending window starts, widths 1 then 3, 159 ascending drifts and strict-greater updates. Frequencies refer to each winning window first integration midpoint. Complete absolute mapping is rounded before subtracting the crop origin.",
+    "DC-clean admissibility is applied to every original hypothesis before clean-max updates. All four chosen row boxes, including width edges, are checked against all three DC centers. Raw scores, normalization and trajectory coordinates are unchanged.",
+    "Geometry can be cached across window starts because each candidate window uses its own first midpoint and the same four relative times. Actual score rows still change with window start; only admissibility is cached.",
+    "Only q127/q128 can reach a DC center within the allowed displacement. Other cores admit every hypothesis, so their raw/clean scores, tuples and counts are exactly identical.",
+    "The DC reference carrier is forced EMPTY in every native/ON pair, because its first chosen row always has dt=0. Every other carrier has at least the zero-drift width1 template in all seven windows. Exactly nine EMPTY records are therefore expected before outcomes.",
+    "EMPTY is explicit: score -inf, drift NaN, index/window/width -1, count 0. Nonempty clean scores are finite and no larger than raw maxima. EMPTY is never replaced.",
+    "Five fixed audits per core save raw 4x503 capsules; 18 affected core crops preserve raw 16x12096 data for full independent QA. No shard-level ranking or adaptive followup is performed.",
+    "Each job enforces CPU 600s, wall 900s, address space 2GiB and output 50MiB, with at most two scientific jobs at once. Exact public readback and root GO are required before execution. Failed outputs are preserved without automatic retry."
+  ],
+  "geometry_proof": {
+    "maximum_fourrow_displacement_ceiling_bins": 79,
+    "maximum_width_radius_bins": 1,
+    "minimum_nonaffected_reference_endpoint_distance_bins": 4096,
+    "affected_native_q_pairs": [
+      [
+        170,
+        127
+      ],
+      [
+        170,
+        128
+      ],
+      [
+        171,
+        127
+      ],
+      [
+        171,
+        128
+      ],
+      [
+        172,
+        127
+      ],
+      [
+        172,
+        128
+      ]
+    ],
+    "total_affected_map_instances": 18,
+    "forced_EMPTY_reference_channels_per_ON": [
+      178782208,
+      179830784,
+      180879360
+    ],
+    "expected_EMPTY_new_records": 9,
+    "zero_drift_width1_clean_hypotheses_per_non_DC_carrier_minimum": 7
+  },
+  "mandatory_independent_QA_and_merge": [
+    "Final QA code needs separate review and freeze before payload admission. The planned independent remax of all alternatives in 18 DC-affected cores validates per-hypothesis clean selection; this static review is not numerical PASS.",
+    "When a raw winning tuple is already DC-clean, strict first-tie traversal implies equal clean/raw scores and tuples. Nonaffected cores require full raw/clean array identity. Preserve any failure instead of introducing an adaptive epsilon.",
+    "Independent full501 normalization and shorter-prefix arithmetic may differ from producer full-prefix sums. Freeze score tolerances 1e-7 absolute / 1e-10 relative separately from exact tuple, sentinel and count checks. Do not claim bitwise independent floating scores without evidence.",
+    "Authenticate and reuse all 96 pilot maps per ON scan without recomputing them. Every pilot hypothesis is DC-clean by the frozen geometry, so clean/raw maxima and all 2226 admitted hypotheses per carrier are identical.",
+    "After all 21 shards and independent QA pass, rank all 766 combined maps globally per ON scan for both families. Preserve deterministic score/channel ordering and complete carrier evidence. Shard TOP3 cannot establish global TOP3."
+  ],
+  "scientific_limits": [
+    "The 73.014444032-second four-row window is a tested template duration, not measured emission duration. Selected maxima are window-track excesses, not confirmed physical signals.",
+    "The three ON positions observe HIP98505 during one exposed 2017 visit. They are not independent nights or blind validation.",
+    "The extension examines more reference carriers in existing raw data. It adds no raw bandwidth or observation. The two unsupported outer cores and other bands remain excluded.",
+    "Overlapping windows, slopes and widths are correlated. The 18.327 billion new hypothesis occurrences are not independent trials, physical sources, calibrated SNR/FAP, flux sensitivity or EIRP limits.",
+    "DC-clean describes score-box avoidance. Whole-core normalization can contain DC; leakage, nearby receiver structure, other RFI and chance maxima remain possible.",
+    "Frequencies anchored at different winning-window times, and greater-than-three reference-bin spacing, do not establish independent sources or common physical tracks.",
+    "Later fixed context must retain the winning window first midpoint, law and normalization core. Coarse 159-point slope extrapolation across long gaps can miss between-grid or differently drifting neighbors, so weak responses do not prove ON exclusivity.",
+    "Original A/B remains FAIL_CLOSED; protected2016 and closed2019 remain unchanged; cost is 0 DKK and new telescope requests are zero. Planning and raw maxima qualify no SETI detection."
+  ],
+  "future_scope_refinement": "Complete fixed four-row coverage and global ranks before adding durations. A longer window does not automatically satisfy the half-channel endpoint condition with 159 slopes: prospectively size the slope grid to its midpoint span. Duration, alignment or grid changes need a new finite scope and correlated-trial interpretation."
+}
