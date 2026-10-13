@@ -1,0 +1,505 @@
+{
+  "schema": "SETI_ORIGINAL_ON_FRAME_TEXT_EVIDENCE_V1",
+  "evidence": [
+    {
+      "file_pin": {
+        "path": "on_cached/on_results/central/analysis/new_visit_recovery/driver.py",
+        "bytes": 23214,
+        "sha256": "ca9c3890a8be325061e62c03b05aa795a582fc7d10012f0a565d8779920e6bf6"
+      },
+      "line_range_inclusive": [
+        234,
+        242
+      ],
+      "purpose": "Actual original Scan power slice, source origin, normalization channels, and search call",
+      "numbered_lines": [
+        {
+          "line": 234,
+          "text": "    channels = np.arange(FIRST, FIRST+CORE)"
+        },
+        {
+          "line": 235,
+          "text": "    frequencies = FCH1+DF*channels"
+        },
+        {
+          "line": 236,
+          "text": "    crop0, cropstop = Q*CORE-HALO, (Q+1)*CORE+HALO"
+        },
+        {
+          "line": 237,
+          "text": "    tops, receipts = {}, []"
+        },
+        {
+          "line": 238,
+          "text": "    for label in ONS:"
+        },
+        {
+          "line": 239,
+          "text": "        header = next(item['current_header']['data_attributes'] for item in source['sources'] if item['label'] == label)"
+        },
+        {
+          "line": 240,
+          "text": "        scan = detector.Scan(label, 'ON', arrays[label][:, crop0:cropstop], header['tstart'], TSAMP,"
+        },
+        {
+          "line": 241,
+          "text": "                             FCH1, DF, C0+crop0, channels)"
+        },
+        {
+          "line": 242,
+          "text": "        result, _ = detector.search_scan(scan, frequencies, dt, drifts, cfg)"
+        }
+      ]
+    },
+    {
+      "file_pin": {
+        "path": "on_cached/on_results/central/analysis/s2017_full_band/driver.py",
+        "bytes": 27241,
+        "sha256": "5ce9d5f861e06691183cf43fd4351bfe8a09b97763c3bd23add82ad338864554"
+      },
+      "line_range_inclusive": [
+        272,
+        277
+      ],
+      "purpose": "Actual original Scan power slice, source origin, normalization channels, and search call",
+      "numbered_lines": [
+        {
+          "line": 272,
+          "text": "            first, crop0, cropstop = C0 + q * CORE, q * CORE - HALO, (q + 1) * CORE + HALO"
+        },
+        {
+          "line": 273,
+          "text": "            channels = np.arange(first, first + CORE)"
+        },
+        {
+          "line": 274,
+          "text": "            frequencies = FCH1 + DF * channels"
+        },
+        {
+          "line": 275,
+          "text": "            scan = detector.Scan(label, 'ON', arrays[label][:, crop0:cropstop], header['tstart'], TSAMP,"
+        },
+        {
+          "line": 276,
+          "text": "                FCH1, DF, C0 + crop0, channels)"
+        },
+        {
+          "line": 277,
+          "text": "            result, _ = detector.search_scan(scan, frequencies, dt, drifts, cfg)"
+        }
+      ]
+    },
+    {
+      "file_pin": {
+        "path": "on_cached/on_results/adjacent/analysis/s2017_next_native/search/driver.py",
+        "bytes": 32396,
+        "sha256": "3c23e8020ee32c5c662922d16fe3517315364eccb59514b9e678e6d248b519e6"
+      },
+      "line_range_inclusive": [
+        348,
+        353
+      ],
+      "purpose": "Actual original Scan power slice, source origin, normalization channels, and search call",
+      "numbered_lines": [
+        {
+          "line": 348,
+          "text": "            first, crop0, cropstop = c0 + q * CORE, q * CORE - HALO, (q + 1) * CORE + HALO"
+        },
+        {
+          "line": 349,
+          "text": "            channels = np.arange(first, first + CORE)"
+        },
+        {
+          "line": 350,
+          "text": "            frequencies = FCH1 + DF * channels"
+        },
+        {
+          "line": 351,
+          "text": "            scan = detector.Scan(label, 'ON', arrays[label][:, crop0:cropstop], header['tstart'], TSAMP,"
+        },
+        {
+          "line": 352,
+          "text": "                FCH1, DF, c0 + crop0, channels)"
+        },
+        {
+          "line": 353,
+          "text": "            result, _ = detector.search_scan(scan, frequencies, dt, drifts, cfg)"
+        }
+      ]
+    },
+    {
+      "file_pin": {
+        "path": "on_cached/on_results/adjacent/analysis/s2017_next_native/search/driver.py",
+        "bytes": 32396,
+        "sha256": "3c23e8020ee32c5c662922d16fe3517315364eccb59514b9e678e6d248b519e6"
+      },
+      "line_range_inclusive": [
+        348,
+        353
+      ],
+      "purpose": "Actual original Scan power slice, source origin, normalization channels, and search call",
+      "numbered_lines": [
+        {
+          "line": 348,
+          "text": "            first, crop0, cropstop = c0 + q * CORE, q * CORE - HALO, (q + 1) * CORE + HALO"
+        },
+        {
+          "line": 349,
+          "text": "            channels = np.arange(first, first + CORE)"
+        },
+        {
+          "line": 350,
+          "text": "            frequencies = FCH1 + DF * channels"
+        },
+        {
+          "line": 351,
+          "text": "            scan = detector.Scan(label, 'ON', arrays[label][:, crop0:cropstop], header['tstart'], TSAMP,"
+        },
+        {
+          "line": 352,
+          "text": "                FCH1, DF, c0 + crop0, channels)"
+        },
+        {
+          "line": 353,
+          "text": "            result, _ = detector.search_scan(scan, frequencies, dt, drifts, cfg)"
+        }
+      ]
+    },
+    {
+      "file_pin": {
+        "path": "on_cached/on_results/central/analysis/new_visit_search/dependencies/detector.py",
+        "bytes": 22819,
+        "sha256": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45"
+      },
+      "line_range_inclusive": [
+        17,
+        28
+      ],
+      "purpose": "Original Scan positional-field mapping and full16 expected rows",
+      "numbered_lines": [
+        {
+          "line": 17,
+          "text": "class Scan:"
+        },
+        {
+          "line": 18,
+          "text": "    scan_id: str"
+        },
+        {
+          "line": 19,
+          "text": "    role: str"
+        },
+        {
+          "line": 20,
+          "text": "    power: np.ndarray"
+        },
+        {
+          "line": 21,
+          "text": "    tstart_mjd: float"
+        },
+        {
+          "line": 22,
+          "text": "    tsamp_s: float"
+        },
+        {
+          "line": 23,
+          "text": "    fch1_hz: float"
+        },
+        {
+          "line": 24,
+          "text": "    df_hz: float"
+        },
+        {
+          "line": 25,
+          "text": "    source_channel0: int"
+        },
+        {
+          "line": 26,
+          "text": "    normalization_source_channels: np.ndarray"
+        },
+        {
+          "line": 27,
+          "text": "    valid_mask: np.ndarray | None = None"
+        },
+        {
+          "line": 28,
+          "text": "    expected_nrows: int = 16"
+        }
+      ]
+    },
+    {
+      "file_pin": {
+        "path": "on_cached/on_results/central/analysis/new_visit_search/dependencies/detector.py",
+        "bytes": 22819,
+        "sha256": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45"
+      },
+      "line_range_inclusive": [
+        111,
+        150
+      ],
+      "purpose": "Whole-frame float64 preprocessing, core4096 metadata domain,501 median filter, location/MAD and z equation",
+      "numbered_lines": [
+        {
+          "line": 111,
+          "text": "def preprocess(s: Scan, cfg: Config) -> tuple[np.ndarray, np.ndarray, dict]:"
+        },
+        {
+          "line": 112,
+          "text": "    \"\"\"Normalize on frozen static source channels, not data-selected regions.\"\"\""
+        },
+        {
+          "line": 113,
+          "text": "    p = np.asarray(s.power, dtype=np.float64)"
+        },
+        {
+          "line": 114,
+          "text": "    if not np.isfinite(p).all() or np.any(p < 0):"
+        },
+        {
+          "line": 115,
+          "text": "        raise ValueError(f\"{s.scan_id}: non-finite/missing or negative power is an input error\")"
+        },
+        {
+          "line": 116,
+          "text": "    m = _input_mask(s)"
+        },
+        {
+          "line": 117,
+          "text": "    source = np.asarray(s.normalization_source_channels, dtype=np.int64)"
+        },
+        {
+          "line": 118,
+          "text": "    if (source.ndim != 1 or len(source) != cfg.carrier_count or"
+        },
+        {
+          "line": 119,
+          "text": "            len(np.unique(source)) != len(source)):"
+        },
+        {
+          "line": 120,
+          "text": "        raise ValueError(f\"{s.scan_id}: unique frozen normalization core required\")"
+        },
+        {
+          "line": 121,
+          "text": "    local = source - s.source_channel0"
+        },
+        {
+          "line": 122,
+          "text": "    margin = cfg.running_median_channels//2"
+        },
+        {
+          "line": 123,
+          "text": "    if local.min() < margin or local.max() >= p.shape[1] - margin:"
+        },
+        {
+          "line": 124,
+          "text": "        raise ValueError(f\"{s.scan_id}: normalization core lacks filtering margin\")"
+        },
+        {
+          "line": 125,
+          "text": "    core = np.where(m[:, local], p[:, local], np.nan)"
+        },
+        {
+          "line": 126,
+          "text": "    core_count = m[:, local].sum(axis=1)"
+        },
+        {
+          "line": 127,
+          "text": "    if np.any(core_count == 0):"
+        },
+        {
+          "line": 128,
+          "text": "        raise ValueError(f\"{s.scan_id}: entirely masked normalization row\")"
+        },
+        {
+          "line": 129,
+          "text": "    row_level = np.nanmedian(core, axis=1)"
+        },
+        {
+          "line": 130,
+          "text": "    if np.any(row_level <= 0) or not np.isfinite(row_level).all():"
+        },
+        {
+          "line": 131,
+          "text": "        raise ValueError(f\"{s.scan_id}: invalid row power median\")"
+        },
+        {
+          "line": 132,
+          "text": "    normalized = p / row_level[:, None]"
+        },
+        {
+          "line": 133,
+          "text": "    residual = normalized - median_filter(normalized, size=(1, cfg.running_median_channels),"
+        },
+        {
+          "line": 134,
+          "text": "                                           mode=\"nearest\")"
+        },
+        {
+          "line": 135,
+          "text": "    center = np.nanmedian(np.where(m[:, local], residual[:, local], np.nan), axis=1)"
+        },
+        {
+          "line": 136,
+          "text": "    scale = 1.4826 * np.nanmedian(np.where(m[:, local],"
+        },
+        {
+          "line": 137,
+          "text": "                       np.abs(residual[:, local] - center[:, None]), np.nan), axis=1)"
+        },
+        {
+          "line": 138,
+          "text": "    if np.any(scale <= 0) or not np.isfinite(scale).all():"
+        },
+        {
+          "line": 139,
+          "text": "        raise ValueError(f\"{s.scan_id}: invalid empirical residual MAD\")"
+        },
+        {
+          "line": 140,
+          "text": "    centered_core = residual[:, local] - center[:, None]"
+        },
+        {
+          "line": 141,
+          "text": "    winsorized = np.clip(centered_core, -5*scale[:, None], 5*scale[:, None])"
+        },
+        {
+          "line": 142,
+          "text": "    location = center + np.nanmean(np.where(m[:, local], winsorized, np.nan), axis=1)"
+        },
+        {
+          "line": 143,
+          "text": "    z = (residual - location[:, None]) / scale[:, None]"
+        },
+        {
+          "line": 144,
+          "text": "    return z, m, {\"row_power_median\": row_level.tolist(),"
+        },
+        {
+          "line": 145,
+          "text": "                  \"row_residual_median\": center.tolist(),"
+        },
+        {
+          "line": 146,
+          "text": "                  \"row_winsorized_residual_location\": location.tolist(),"
+        },
+        {
+          "line": 147,
+          "text": "                  \"row_residual_MAD_scale\": scale.tolist(),"
+        },
+        {
+          "line": 148,
+          "text": "                  \"normalization_unmasked_counts\": core_count.tolist(),"
+        },
+        {
+          "line": 149,
+          "text": "                  \"normalization_source_channels\": source.tolist()}"
+        },
+        {
+          "line": 150,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "file_pin": {
+        "path": "on_cached/on_results/central/analysis/new_visit_search/dependencies/detector.py",
+        "bytes": 22819,
+        "sha256": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45"
+      },
+      "line_range_inclusive": [
+        152,
+        160
+      ],
+      "purpose": "Original float64 cumulative-sum origin is first z/s.power frame cell",
+      "numbered_lines": [
+        {
+          "line": 152,
+          "text": "def _box_arrays(z: np.ndarray, mask: np.ndarray, cfg: Config) -> dict:"
+        },
+        {
+          "line": 153,
+          "text": "    # Prefix sums form four cached row-box arrays. Search needs one score"
+        },
+        {
+          "line": 154,
+          "text": "    # gather and one validity gather per row, rather than two prefix pairs."
+        },
+        {
+          "line": 155,
+          "text": "    prefix = np.zeros((z.shape[0], z.shape[1] + 1), dtype=np.float64)"
+        },
+        {
+          "line": 156,
+          "text": "    prefix[:, 1:] = np.cumsum(z, axis=1, dtype=np.float64)"
+        },
+        {
+          "line": 157,
+          "text": "    bad = np.zeros(prefix.shape, dtype=np.int32)"
+        },
+        {
+          "line": 158,
+          "text": "    bad[:, 1:] = np.cumsum(~mask, axis=1, dtype=np.int32)"
+        },
+        {
+          "line": 159,
+          "text": "    return {width: (prefix[:, width:] - prefix[:, :-width],"
+        },
+        {
+          "line": 160,
+          "text": "                    (bad[:, width:] - bad[:, :-width]) == 0) for width in cfg.widths}"
+        }
+      ]
+    },
+    {
+      "file_pin": {
+        "path": "on_cached/on_results/central/analysis/new_visit_recovery/driver.py",
+        "bytes": 23214,
+        "sha256": "ca9c3890a8be325061e62c03b05aa795a582fc7d10012f0a565d8779920e6bf6"
+      },
+      "line_range_inclusive": [
+        224,
+        232
+      ],
+      "purpose": "Full-native row medians are separate historical fixed-profile normalization; then detector uses original Config widths1/3",
+      "numbered_lines": [
+        {
+          "line": 224,
+          "text": "        verified.append({'scan_id': label, 'file_sha256': record['file_sha256'], 'decoded_rows_verified': 16})"
+        },
+        {
+          "line": 225,
+          "text": "    normalization = {'source_channel0': C0, 'count': COUNT,"
+        },
+        {
+          "line": 226,
+          "text": "        'row_power_medians': {label: np.median(arrays[label], axis=1).tolist() for label in SCANS},"
+        },
+        {
+          "line": 227,
+          "text": "        'method': scope['fixed_profile_normalization'], 'raw_dtype': '<f4'}"
+        },
+        {
+          "line": 228,
+          "text": "    save(out/'NORMALIZATION.json', normalization)"
+        },
+        {
+          "line": 229,
+          "text": "    detector = load_module('s2017_unchanged_detector', root/scope['code_paths']['detector'])"
+        },
+        {
+          "line": 230,
+          "text": "    cfg = detector.Config(widths=(1, 3))"
+        },
+        {
+          "line": 231,
+          "text": "    drifts, dt = np.linspace(-4.0, 4.0, 785), np.arange(16)*TSAMP"
+        },
+        {
+          "line": 232,
+          "text": "    mismatch = float((drifts[1]-drifts[0])*dt[-1]/(2*abs(DF)))"
+        }
+      ]
+    }
+  ]
+}

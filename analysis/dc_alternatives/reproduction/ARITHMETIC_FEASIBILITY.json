@@ -1,0 +1,141 @@
+{
+  "alternative_hypothesis_scores_computed": 0,
+  "archive_payload_sizes": [
+    {
+      "MiB": 13.2890625,
+      "asset": "raw_float32_all18_frames",
+      "uncompressed_payload_bytes": 13934592
+    },
+    {
+      "MiB": 26.578125,
+      "asset": "original_z_float64_all18_frames",
+      "uncompressed_payload_bytes": 27869184
+    },
+    {
+      "MiB": 3.322265625,
+      "asset": "original_mask_bool_all18_frames",
+      "uncompressed_payload_bytes": 3483648
+    },
+    {
+      "MiB": 26.580322265625,
+      "asset": "original_prefix_float64_all18_frames",
+      "uncompressed_payload_bytes": 27871488
+    },
+    {
+      "MiB": 13.2901611328125,
+      "asset": "original_bad_prefix_int32_all18_frames",
+      "uncompressed_payload_bytes": 13935744
+    },
+    {
+      "MiB": 192.0,
+      "asset": "hypothetical_full_native_raw_for3initialq128_ONframes_not_needed",
+      "uncompressed_payload_bytes": 201326592
+    },
+    {
+      "MiB": 39.8671875,
+      "asset": "raw_plus_original_z",
+      "uncompressed_payload_bytes": 41803776
+    },
+    {
+      "MiB": 43.189453125,
+      "asset": "raw_plus_original_z_and_mask",
+      "uncompressed_payload_bytes": 45287424
+    }
+  ],
+  "archive_size_limits": "Figures are exact array payload bytes; NPZ/JSON/ZIP headers add overhead. Compression savings are not assumed. Full-native parent frames are unnecessary.",
+  "bad_carrier_inventory_pin": {
+    "bytes": 7389864,
+    "path": "dc_alternatives/search/EXCLUDED_CARRIERS.json",
+    "sha256": "5d62b8e4329cfc5b5ec5216aaadbdf6f03a8774da6c7a8ca8460692b14fc158b"
+  },
+  "confirmed_frame_contract": {
+    "all18_are_crop_frames": true,
+    "frame_mask": "Preserve original valid_mask; all source adapters passed default unmasked frames. Do not introduce DC power masks.",
+    "full_native_parent_arrays_are_not_the_scoring_frame": true,
+    "normalization_local_core_half_open": [
+      4000,
+      8096
+    ],
+    "original_runtime": {
+      "NumPy": "2.3.5",
+      "SciPy": "1.17.0"
+    },
+    "raw_dtype": "<f4",
+    "running_median": "entire12096 nearest501 frame, including padding at both original edges",
+    "runtime_evidence_owner": "ORIGINAL_ON_FRAME_INVENTORY producing contracts and completed receipts; current installed versions match but are not the provenance proof.",
+    "shape": [
+      16,
+      12096
+    ],
+    "source_channel0": "native*1048576+q*4096-4000"
+  },
+  "existing_crop_reuse_gate": "Matching scan/native/core/shape/domain is necessary; producer must also prove exact newframe rawSHA and16rowSHA equality to the earlier crop before reuse. Geometry alone is not byte equivalence. No crop float payloads were decoded or queried for this metadata comparison.",
+  "existing_matching_crop_count": 0,
+  "existing_matching_crop_geometry_records": [],
+  "input_counts": {
+    "frozen_bad_carriers": 7083,
+    "original_drifts": 785,
+    "original_family_hypotheses_total": 11120310,
+    "original_frames": 18,
+    "original_hypotheses_per_carrier": 1570,
+    "original_widths": [
+      1,
+      3
+    ]
+  },
+  "minimal_prefix_state_assessment": {
+    "admission_requirement": "A seeded alternative requires explicit fullprefix bitwise proof at all needed endpoints and preserved original operation order/sourceframe provenance. No such seed artifact is declared by the original adapters.",
+    "cumsum_shortcrop_plus_offset": "Not equivalent in general: shortcrop sums start from zero and round along a different path before an offset is added.",
+    "direct_row_box_cell_sum": "Not equivalent to original prefix subtraction, even for width1; accumulated-prefix roundoff and subtraction belong to original measurement.",
+    "one_seed_per_row": "An authenticated originalprefix value at a chosen start plus the exact subsequent z stream and integerbadprefix state is theoretically enough for the same explicit scalar recurrence. It is not permission to assume NumPy batched cumsum plus posthoc offset or altered buffering yields those bits.",
+    "recommendation": "Do not implement seeded/shortened prefix paths here: all18 complete rawframes are only13.29MiB and preserve arithmetic with much less risk/complexity."
+  },
+  "numerical_replays_run": 0,
+  "original_frame_inventory_pin": {
+    "bytes": 79740,
+    "path": "dc_alternatives/feasibility/ORIGINAL_ON_FRAME_INVENTORY.json",
+    "sha256": "c3ef310b3de5683829980f078ff99da6e83ece7f9e8aa6d8d8e61f3d138c8541"
+  },
+  "prefix_contract_pin": {
+    "bytes": 4978,
+    "path": "dc_alternatives/feasibility/PREFIX_ARITHMETIC_CONTRACT.json",
+    "sha256": "9478863882f8ee64d367c761192f0ebb2fbfdcd7f39db16038fcb807cb899ffd"
+  },
+  "primary_public_reference": {
+    "relevance": "Official NumPy2.3 docs specify accumulator dtype and note floating cumsum and sum can differ because sum may use pairwise summation. This supports preserving the original cumulative measurement rather than substituting direct sums.",
+    "url": "https://numpy.org/doc/2.3/reference/generated/numpy.cumsum.html"
+  },
+  "prior_crop_manifest_pins": [
+    {
+      "bytes": 97235,
+      "path": "next_dc/qa/context/RAW_NORMALIZATION_CROP_MANIFEST.json",
+      "sha256": "5f0d6130092194f545eda044626bc8f90f5b3db651263cb76409bd3e640f8694"
+    },
+    {
+      "bytes": 97905,
+      "path": "on_cached/qa/context/RAW_NORMALIZATION_CROP_MANIFEST.json",
+      "sha256": "d47b55da1244b4685f3700c1171cdd8181fb3e77dc940be105a5e3af608babd5"
+    }
+  ],
+  "prototype_code_pin": {
+    "bytes": 8720,
+    "path": "dc_alternatives/reproduction/original_frame_numpy.py",
+    "sha256": "480135d59e713009f2ed011f2f7d0e731916c278d7780e2a2b82588ffad8e285"
+  },
+  "recommended_replay": {
+    "floating_tie_caveat": "Independent median reconstruction is a prospective equivalence proposal. Preserve signed-zero/tied-median or other bit discrepancies via exact original winner/optional fullz reconciliation; do not infer universal bit equivalence solely from matching package versions.",
+    "normalization_rule": "Verify original full16/core4096 terms independently, but never substitute slightly different verified terms into original prefix arithmetic. JSON float64 roundtrip retains the stored original constants.",
+    "portable_exactness_is_not_yet_numerically_demonstrated": true,
+    "preferred_inputs": "All18 producer-saved exact original raw12096 frames + immutable original normalization pins/float64 terms + original frame/source/row hashes + frozen7083 carrier metadata/maps. No second materializer or source request.",
+    "prototype_is_only_callable_kernels_and_metadata_check_only": true,
+    "prototype_runner_present": false,
+    "raw_path": "Promote entirefloat32 frame tofloat64, divide original stored rowlevel, reproduce finite odd501 nearest median by padded NumPy partition, subtract, use stored original winsorizedlocation andMADscale. Then copy exact _box_arrays cumsum/difference operations from trueleftedge.",
+    "saved_z_path": "If producer also retains authenticated original z+mask frames, directly mirror original _box_arrays with np.cumsum(z,axis=1,dtype=float64) and int32 badprefix. This gives the strongest bitwise-prefix provenance and requires no median/preprocessing recreation.",
+    "score_rule": "Originalbase frequency expression; originaltiny zero-neighbour drift retained; originalabsolute rint before local offset; add row0..15 sequentially; divide once; preserve width1 then3, ascending drift16tiles, firstargmax and strictlygreater update.",
+    "unrestricted_winner_gate": "At every frozen DC-bad carrier, full original1570-family winner must reconcile original score bits/drift/width before alternatives are reported. Any changed argmax or scalar is an exposed failure, not silently repaired with epsilon."
+  },
+  "schema": "SETI_DC_ALTERNATIVES_PORTABLE_ARITHMETIC_FEASIBILITY_V1",
+  "selector_map_score_payloads_read": 0,
+  "source_float_values_read": 0,
+  "status": "PROSPECTIVE_METADATA_ONLY_READY_NO_ARRAYS_OR_SCORES"
+}

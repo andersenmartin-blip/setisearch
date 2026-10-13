@@ -1,0 +1,121 @@
+{
+  "schema": "SETI_DC_CLEAN_ALTERNATIVE_PROSPECTIVE_SCIENTIFIC_REVIEW_V1",
+  "status": "SCIENCE_SCOPE_GO_ORIGINAL_FRAME_PROVEN_IMPLEMENTATION_REVIEW_PENDING",
+  "numerical_source_queries_performed_by_reviewer": 0,
+  "scope": {
+    "primary_scans": [
+      "epoch1_on",
+      "epoch2_on",
+      "epoch3_on"
+    ],
+    "existing_map_domains": 2298,
+    "existing_reference_carriers": 9412608,
+    "previously_eligible_cached_winners_retained": 9405525,
+    "cached_winner_DC_contact_carriers_to_recover": 7083,
+    "original_hypotheses_per_carrier": 1570,
+    "fresh_alternative_hypothesis_occurrences_to_evaluate": 11120310,
+    "new_detector_frequency_drift_width_family": false,
+    "raw_or_DC_mask_introduced": false,
+    "normalization_domain_changed": false
+  },
+  "conditional_completeness_proof": [
+    "For a carrier whose original globally winning hypothesis is DC-clean, that same hypothesis is also a maximum within the admissible clean family. Retaining it preserves the original historical within-carrier tie choice; alternatives cannot have a strictly larger original score.",
+    "For each of7083 carriers whose stored winner contacts DC, explicitly evaluate all785 original drifts for width1 followed by width3, using the original full16 row times and score arithmetic. Exclude a hypothesis iff its inclusive sampled-row box contacts any frozen DC center; maximize only the remaining hypotheses.",
+    "The union of retained original clean maxima and recovered clean maxima therefore supplies one exact best admissible original hypothesis per reference carrier whenever an admissible hypothesis exists, conditional on authenticated original maps being valid maxima and exact historical scoring arithmetic being reproduced.",
+    "Exactly9 reference carriers equal a frozen DC center at own row0: three centers in each of three ON scans. Both widths1 and3 include that center at row0 for every drift, so all1570 hypotheses are inadmissible at these carriers.",
+    "Every other reference carrier admits at least the original near-zero-drift width1 path. Its16 centers remain at the reference integer channel, which differs from all three DC centers. Thus the exact no-admissible-carrier count is9, the recovery count is7074, and the total best-clean carrier count is9412599.",
+    "This is completeness only over the declared2298 reference domains, original785 linear drifts, widths1/3 and own16-row DC-contact definition. It does not cover new bands, outer170q0/172q255 domains, other widths/drifts/nonlinear families, broader receiver leakage or physical-source classes."
+  ],
+  "score_and_tie_invariants": [
+    "Bind each of18 affected physical core/scan groups to the actual completed producer receipt and its exact producing driver/scope/detector hashes. A current source filename alone does not prove the runtime frame.",
+    "Preserve the original Scan.power frame extent and leftmost source_channel0, static4096 normalization core, full16 rows, rawfloat32 tofloat64 conversion, median501 nearest-edge policy, original row medians/residual median/MAD/winsorized location, and complete z-array used by the prefix sum.",
+    "A shorter mathematically sufficient strip, a different prefix origin or direct-cell summation can change floating-point values and exact ties. Use the original full z prefix sequence and original _box_arrays/_score_tile operation ordering for winner selection.",
+    "Original within-carrier ties are resolved by width1 before3, ascending original drift-grid order and strict score> updates. Do not substitute drift-first canonical global rank ordering for this historical local argmax tie rule.",
+    "Unrestricted rescoring of all7083 original contaminated carriers must reproduce original stored maximum score and original first-tie drift/width under the unchanged family before promoting recovered maxima. Any mismatch must be explained and resolved before exact-original-MAX claims.",
+    "Use complete absolute np.rint(base+drift*time/DF) with original own arange16*TSAMP times. Width radius is0 or1; equality with a DC center is contact. Do not snap stored tiny near-zero drift values or separately round displacements."
+  ],
+  "global_ranking_proof": [
+    "The previous authenticated exact per-ON clean rawTOP700 prefix can be merged with every recovered clean carrier winner. A previously eligible cached winner outside that prefix already has700 preserved predecessors and cannot enter the new globalTOP700 merely because additional eligible records are inserted.",
+    "Recovered and retained clean reference carriers are disjoint. Preserve one record per reference carrier, exact global score/frequency/drift/width/native/q/index order and no epsilon ties.",
+    "Under unique integer reference channels and the unchanged>3 spacing rule, each prior pick blocks at most7 carriers; the100th greedy separated choice occurs by raw rank694 when at least694 eligible records exist. The exact mergedTOP700 remains sufficient for separatedTOP100 andTOP3.",
+    "Frequency spacing and exact template hashes identify measurement geometry only; they do not certify independent physical sources."
+  ],
+  "interpretation": [
+    "The alternative scores are newly examined local hypothesis values, even though their raw observations and original detector family are already exposed. They are not new sky data, blind validation or calibrated noise realizations.",
+    "Removing direct DC-cell support does not remove adjacent-bin leakage, other receiver structure, interference or chance post-selection maxima. No physical origin, SNR/FAP, source exclusivity or qualified OFF veto follows.",
+    "Only genuinely changed finalTOP3 measurement identities justify new six-scan fixed contexts. Preserve the later stable context transport convention and use exact six-scan raw geometry plus original normalization-core identity to determine reuse.",
+    "Three ON scans observe one target during one already exposed2017 visit; different OFF directions and repeated same-visit scans are not independent observing visits."
+  ],
+  "preserved_limits": {
+    "original_AB": "FAIL_CLOSED_UNCHANGED",
+    "protected2016": "CLOSED",
+    "closed2019_transport": "UNCHANGED",
+    "new_telescope_HTTP": 0,
+    "new_observation_or_frequency_coverage": false,
+    "cost_DKK": 0
+  },
+  "implementation_GO_issued": false,
+  "input_pins": [
+    {
+      "path": "dc_alternatives/feasibility/ORIGINAL_ON_FRAME_INVENTORY.json",
+      "bytes": 79740,
+      "sha256": "c3ef310b3de5683829980f078ff99da6e83ece7f9e8aa6d8d8e61f3d138c8541"
+    },
+    {
+      "path": "dc_alternatives/feasibility/ORIGINAL_ON_FRAME_EVIDENCE.json",
+      "bytes": 15760,
+      "sha256": "01691727c7a97e0a9db48f8416d16b37fe265732d1f0ed511892a68c897395e8"
+    },
+    {
+      "path": "dc_alternatives/feasibility/PREFIX_ARITHMETIC_CONTRACT.json",
+      "bytes": 4978,
+      "sha256": "9478863882f8ee64d367c761192f0ebb2fbfdcd7f39db16038fcb807cb899ffd"
+    },
+    {
+      "path": "dc_alternatives/qa/exhaustive_core.py",
+      "bytes": 6293,
+      "sha256": "f10c6941b502a0d14defd1aa4bc4d8fc6fb4b48fbc4977c5880f5f380ba34e0b"
+    },
+    {
+      "path": "on_cached/qa/selection/QA_RECEIPT.json",
+      "bytes": 2129,
+      "sha256": "5d991848a6811dd72ff3ff91558853509e4d717cdf5f262d5f5e52ea11a9d88b"
+    },
+    {
+      "path": "dc_alternatives/search/INVENTORY_RECEIPT.json",
+      "bytes": 1504,
+      "sha256": "c8eb2209d0dfae8b2c55d4daedf5e084f79fa20581d93bc98da5fdfd1aa3d15e"
+    },
+    {
+      "path": "dc_alternatives/search/EXCLUDED_CARRIERS.json",
+      "bytes": 7389864,
+      "sha256": "5d62b8e4329cfc5b5ec5216aaadbdf6f03a8774da6c7a8ca8460692b14fc158b"
+    }
+  ],
+  "original_frame_audit": {
+    "status": "PASS_EXACT18_ORIGINAL12096_CROP_FRAMES_PRODUCING_CODE_SCOPE_CHECKPOINT_AND_RUNTIME_BOUND",
+    "frames": 18,
+    "shape": [
+      16,
+      12096
+    ],
+    "fullnative_frames": 0,
+    "producing_contracts": 4,
+    "driver_codes": 3,
+    "runtime": {
+      "numpy": "2.3.5",
+      "scipy": "1.17.0"
+    },
+    "query_activity": "Metadata/code proof only; no source power or fresh alternative scores read."
+  },
+  "independent_QA_core_static_review": "Independent odd501 NumPy median with explicit nearest-edge padding reconstructs frozen-normalization z over the full originalframe. Fullframe cumsum and sequential16row additions match original prefix sequence; flattened width1then3/ascendingdrift argmax preserves first exact tie. Independent reestimated normalization is audit-only; direct-cell scorer is tolerance audit-only and never selects winners. Actual wrapper/scope/source authentication remains to review.",
+  "exposed_inventory_review": {
+    "records": 7083,
+    "groups": 18,
+    "unique_primary_reference_channel_pairs": 7083,
+    "row0_DC_origin_exceptions": 9,
+    "row0_centers_match_reference_channel_for_all_records": true,
+    "inventory_producer_group_gate": "Uses per-core cached-winner DC contact counts, not merely the coremax DC flag. Authenticated previous full-domain results account for every omitted group with zero contact count.",
+    "fresh_alternative_values_read": 0
+  }
+}

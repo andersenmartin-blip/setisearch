@@ -1,0 +1,51 @@
+{
+  "schema": "SETI_DC_ALTERNATIVES_ORIGINAL_PREFIX_ARITHMETIC_METADATA_V1",
+  "status": "PROSPECTIVE_METADATA_ONLY_NO_SOURCE_POWER_OR_ALTERNATIVE_SCORES",
+  "original_detector_pin": {
+    "path": "on_cached/on_results/central/analysis/new_visit_search/dependencies/detector.py",
+    "bytes": 22819,
+    "sha256": "1df20d639ededb342ca6d3669ed1c5c75a0229ea23512feea1e38dfe02937b45"
+  },
+  "independent_original_detector_copies_same_sha256": [
+    "on_cached/on_results/adjacent/analysis/new_visit_search/dependencies/detector.py",
+    "on_cached/on_results/adjacent/analysis/s2017_next_native/boundaries/dependencies/detector.py"
+  ],
+  "original_scoring_frame": {
+    "shape": [16, 12096],
+    "raw_dtype": "<f4",
+    "source_channel0_formula": "native_chunk_index*1048576 + core_q*4096 - 4000",
+    "half_open_stop_formula": "native_chunk_index*1048576 + (core_q+1)*4096 + 4000",
+    "normalization_source_domain": "the original same core_q physical4096 channels, all16 rows",
+    "q128_recovery_note": "The recovery adapter loads full-native parent arrays, but explicitly passes a12096-column view to detector.Scan. Historical full-native visual-profile row medians are a separate statistic. Per-group producing-driver/receipt provenance is bound in ORIGINAL_ON_FRAME_INVENTORY.json."
+  },
+  "exact_operation_order": [
+    "Promote the complete original12096-column raw frame to float64 before normalization.",
+    "Use original stored float64 row_power_median terms to form normalized = p / row_level[:,None]. Verify original normalization terms against the original4096 core without changing the source domain.",
+    "Compute median_filter(normalized,size=(1,501),mode='nearest') across the entire original12096 frame; preserve nearest padding at both original frame edges.",
+    "Form residual = normalized - filtered; then z = (residual - original row_winsorized_residual_location[:,None]) / original row_residual_MAD_scale[:,None].",
+    "Allocate zero prefix with shape(16,12097), dtypefloat64; assign prefix[:,1:] = np.cumsum(z,axis=1,dtype=np.float64). Prefix origin is the original frame leftedge.",
+    "Build each original width1/3 box array as prefix[:,width:] - prefix[:,:-width]; retain exact original width order1,3.",
+    "Use original dt=np.arange(16)*TSAMP and original stored np.linspace(-4,4,785) drift grid. Preserve its floating zero-neighbour value; do not replace it with an exact zero.",
+    "Reconstruct base exactly as(original cached frequency_hz_at_tref - FCH1)/DF and centers as np.rint(base[None,:] + drifts[:,None]*time/DF).astype(int64) before subtracting source_channel0.",
+    "Start score with float64 zeros; for row0..15 add the corresponding original row box sequentially; divide once by np.sqrt(16*width).",
+    "Preserve original tie ordering: width1 before width3; drift ascending in original16-value tiles; np.argmax chooses the first tied drift inside a tile; update the current best only when the next value is strictly greater."
+  ],
+  "counterfactual_admission_rule": {
+    "domain": "only original785-by-width1/3 hypotheses at the frozen originally DC-touched carrier inventory",
+    "DC_contact_geometry": "test all16 original rounded absolute centers plus the original width radius against frozen native DC source channels",
+    "no_spectral_power_masking_or_normalization_change": true,
+    "no_drift_width_frequency_extension": true,
+    "no_new_telescope_requests": true
+  },
+  "portable_reproduction_recommendation": {
+    "preferred": "Save the complete original12096 raw frames, exact original normalization pins, source row/file hashes and frame source_channel0. NumPy-only501 reconstruction must preserve fullframe nearest edges and float64 prefix arithmetic, rather than scoring by direct cell sums.",
+    "full_native_frames_needed": false,
+    "metadata_upper_bound_new_raw_cells": 3483648,
+    "metadata_upper_bound_new_raw_bytes": 13934592,
+    "prefix_state_shortcut": "Do not use cumsum(shortcrop)+storedoffset or prefix-difference recentering as an assumed exact substitute. Floating addition order differs. A shorter seeded prefix path is admissible only after explicit bitwise verification against the complete original frame; the full12096 frame is small enough to avoid this shortcut.",
+    "original_cached_winner_reconciliation_required": "Before reporting an admissible alternative, replay the original unrestricted family at the frozen bad carriers with the same prefix frame and verify original score, drift and width against the authenticated map. Preserve any discrepancy; do not tolerate or repair a changed argmax silently.",
+    "normalization_reuse": "Use immutable original stored terms, binding them to the exact physical4096 core and original checkpoint/normfile. Any independent normalization verification is recorded separately; it cannot replace the frozen original terms."
+  },
+  "source_power_values_read_for_this_audit": 0,
+  "alternative_hypothesis_scores_computed_for_this_audit": 0
+}
