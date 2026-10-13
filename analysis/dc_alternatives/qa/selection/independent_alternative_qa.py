@@ -99,6 +99,7 @@ def main():
  norm_errors={};tie_carriers=0;tie_max=0;row_hashes=0;fullframe_positions=0;direct_audits=0
  for scan in TARGETS:
   groups=[g for g in scope['groups'] if g['primary_scan_id']==scan]
+  expected_source_proofs=[]
   require({(g['native_chunk_index'],g['core_q']) for g in groups}=={(n,q) for n in (170,171,172) for q in (127,128)},'Affected group coverage differs')
   for native in (170,171,172):
    same=[g for g in groups if g['native_chunk_index']==native];declaration=same[0]['raw_source_metadata']
@@ -108,6 +109,7 @@ def main():
     data=f['data'];require(data.shape==(16,1,CHUNK) and data.dtype.str=='<f4','Raw source header differs')
     equal(int(data.attrs['original_source_frequency_chunk_origin']),native*CHUNK,scan+'/raw_source_origin');parent=data[:,0,:]
    require(len(declaration['decoded_rows'])==16,'Raw source row pins incomplete')
+   expected_source_proofs.append({'source_pin':same[0]['raw_source_pin'],'decoded_row_hashes':declaration['decoded_rows']})
    for row in declaration['decoded_rows']:
     payload=parent[row['time_row']].astype('<f4',copy=False).tobytes();equal(len(payload),row['decoded_bytes'],'source_row/bytes');equal(hashlib.sha256(payload).hexdigest(),row['decoded_sha256'],'source_row/hash');row_hashes+=1
    counts[scan]['native_sources_decoded_once']+=1
@@ -172,6 +174,7 @@ def main():
      groupaudit['winner_audits'].append({'carrier':identity[1],'chosen_original_order_index':None if empty else int(family['best_clean_index'][j]),'exact_maximum_tie_count':int(ties[j]),'admissible_count':int(admissible_counts[j])})
     audits.append(groupaudit);del raw,z,maps,family
    del parent
+  equal(producer[scan]['source_row_proofs'],expected_source_proofs,scan+'/all_source_row_proofs')
  require(set(actual_records)==set(expected_records),'Recovered record identity coverage differs')
  reconstructed={};global9=[]
  def compare_point(actual,expected,label):
@@ -196,10 +199,13 @@ def main():
    for i,(a,b) in enumerate(zip(result[field],expected),1):compare_point(a,b,scan+'/'+field+'/'+str(i))
   equal(result['prefix_completeness']['last_separated_choice_raw_rank'],separated[-1]['raw_rank'],scan+'/separation_bound')
   rows=list(csv.DictReader(checked(search/scan/'RECOVERED_CARRIERS.csv').open()));require(len(rows)==2361,'RecoveredCSVcount differs')
+  csv_identities=set()
   for row in rows:
    identity=(row['group_id'],int(row['carrier_index_in_core']));e=expected_records[identity];o=e['original'];c=e['clean'];label='CSV/'+str(identity)
+   require(identity not in csv_identities,'Duplicate recoveredCSV identity');csv_identities.add(identity)
    for field,value in [('reference_source_channel',o['reference_source_channel']),('admissible_hypothesis_count',e['admissible_count']),('original_score',o['original_cached_score']),('original_drift',o['original_cached_drift_hz_s']),('original_width',o['original_cached_width_channels']),('clean_score',c['score'] if c else None),('clean_drift',c['drift_hz_s'] if c else None),('clean_width',c['width_channels'] if c else None)]:equal(None if row[field]=='' else (int(row[field]) if isinstance(value,int) else float(row[field])),value,label+'/'+field)
    equal(row['status'],e['status'],label+'/status')
+  equal(csv_identities,{k for k,v in expected_records.items() if v['original']['primary_scan_id']==scan},scan+'/CSV_identity_coverage')
  aggregate=read(checked(search/'AGGREGATION_RECEIPT.json'))
  for pin in aggregate['inputs']+aggregate['outputs']:checked(ROOT/pin['path'],pin)
  selected=read(checked(search/'SELECTED_TOP9.json'));equal(len(selected['records']),9,'global9_count')
