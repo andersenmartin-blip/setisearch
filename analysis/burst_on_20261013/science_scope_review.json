@@ -1,0 +1,106 @@
+{
+  "schema": "SETI_ON_BURST4_PROSPECTIVE_SCIENCE_SCOPE_REVIEW_V1",
+  "date_utc": "2026-10-13",
+  "status": "PASS_METADATA_AND_STATIC_SCIENCE_SCOPE_NO_ARRAYS_OPENED",
+  "input_pins": [
+    {
+      "path": "seti_burst_on/SCOPE.json",
+      "bytes": 51259,
+      "sha256": "d57760f51fc34c853591a077f2732b2aba1da21b1dae950ed27bedc0fb36cdce"
+    },
+    {
+      "path": "seti_burst_on/driver.py",
+      "bytes": 36750,
+      "sha256": "ca3f3c24a2b9da77d99fb50a63c74ffc85b4bea6122f5d675ddb95a09ef26587"
+    },
+    {
+      "path": "seti_work/on_cached/RESULTS.md",
+      "bytes": 3889,
+      "sha256": "1dec33d27c29b75bd8238a68e94d3718a664cb8d52a1bdbae82245e3ce50acbc"
+    },
+    {
+      "path": "burst_previous/analysis/burst4_20261011/PROTOCOL.md",
+      "bytes": 3039,
+      "sha256": "60826dcc34caa88b9e34a66cdae2cbe623f4f5e5e739617a93f971e7bd20fdac"
+    }
+  ],
+  "review_activity": {
+    "source_power_arrays_opened": 0,
+    "cached_map_payloads_opened": 0,
+    "numerical_searches_run": 0,
+    "metadata_text_pins_verified": 10,
+    "prior_outputs_modified": false
+  },
+  "correct_new_subject": "The prior frozen burst4 family searched three OFF stars. This stage newly searches its temporal alternatives in each of the three original HIP98505 ON scans. The completed ordinary16 grids and global ON winner followup did not maximize these seven four-row windows.",
+  "confirmed_scope": {
+    "scan_ids": [
+      "epoch1_on",
+      "epoch2_on",
+      "epoch3_on"
+    ],
+    "source": "HIP98505 / HD189733",
+    "historical_visit": "2017-04-28",
+    "independent_visits": 1,
+    "maps_per_ON_scan": 96,
+    "maps_total": 288,
+    "reference_carrier_occurrences": 1179648,
+    "correlated_hypothesis_occurrences": 2625896448,
+    "q_domains": "native170/171/172; q=4+8k, k0..31",
+    "windows_start_rows": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10,
+      12
+    ],
+    "window_length_rows": 4,
+    "integrated_duration_s": 73.014444032,
+    "window_midpoint_span_s": 54.760833024,
+    "drifts_hz_s": "159 evenly spaced values from-4 to+4, exact zero at79",
+    "widths_channels": [
+      1,
+      3
+    ],
+    "reference_frequency_bandwidth_MHz_per_scan": 1.0986328125,
+    "fraction_of_triplet_reference_channels": 0.125,
+    "sampling_claim": "Sparse reference carriers; trajectory/median halos do not constitute full reference-carrier bandwidth."
+  },
+  "static_implementation_findings": [
+    "Original acquisition roles and all metadata assertions are ON; the target name is HIP98505 for all three jobs.",
+    "Preprocessing remains the pinned detector full16-row per-row power median, median501 residual, winsorized location and MAD on the unchanged 4096-channel normalization core. It is computed once per core, then reused for all windows.",
+    "Window-first midpoint frequency reference is retained. Each score uses four row contributions divided bysqrt(4*width), absolute-frequency channel rounding before crop subtraction, and ascending window/width/drift strict-greater tie order.",
+    "All96 maps and393216 carrier maxima are ranked per original ON scan/job. No truncation to per-core maxima precedes global ranking, and scans sharing the same target are not pooled.",
+    "Unvetoed and separately DC-aware TOP20/TOP3 are retained; DC checks use only the four winning rows and inclusive width boxes, without recovering hidden alternatives.",
+    "All allowed four-row hypotheses are already DC-clean from fixed metadata geometry, so equal raw and DC ranks are prospectively expected and are not an observed selection improvement.",
+    "All nine compact byte hashes are checked per job triplet before opening any payload. Full decoded source rows are checked before and after scoring. Prior source and detector scope pins remain exact.",
+    "Public-freeze/root-GO byte pins and resource/output caps are checked before run; import/check-only reads metadata. This review does not authorize or execute a numerical run."
+  ],
+  "DC_geometry_proof": {
+    "minimum_reference_distance_bins": 12289,
+    "maximum_fourrow_drift_displacement_ceiling_bins": 79,
+    "maximum_width_radius_bins": 1,
+    "minimum_conservative_clearance_bins": 12209,
+    "all_hypotheses_DC_clean_by_geometry": true
+  },
+  "inference_limits": [
+    "Exposed existing observations in one visit; no new observation, independent visit, blind validation or broader frequency coverage.",
+    "The seven overlapping windows, two widths and159 slopes form correlated trials. The maximum empirical robust score is not calibrated SNR, a false-alarm probability or evidence of extraterrestrial origin.",
+    "Four-row rectangular windows only start at even rows. Bursts of other duration/alignment, nonlinear tracks, drifts outside+-4Hz/s and unsampled reference-frequency cores remain outside this family.",
+    "The family can retain a short-duration excess diluted in ordinary16 averaging, but the trial search and unchanged preprocessing prevent treating any nominal score increase as a calibrated sensitivity gain.",
+    "DC avoidance does not certify freedom from receiver structure, RFI, leakage or chance maxima. Greater-than-three reference-bin spacing is a selection rule, not independence or distinct physical-source counting.",
+    "Only one winning window/drift/width per carrier is saved. Nonwinning burst hypotheses remain unexamined by subsequent winner filtering/followup.",
+    "The159-point slope grid controls own four-row endpoint mismatch to about0.4962 bins for nearest drift. Over long scan gaps the same physical between-grid source may move many bins from the fixed extrapolation; weak exact transported scores cannot demonstrate ON exclusivity.",
+    "Fixed followup should keep each selected physical frequency law and original window reference, report chosen-four-row and full16-row scores separately, and keep actual ON/OFF source identities. It is a postselection comparison, not a new independent test.",
+    "A/B remainsFAIL_CLOSED; protected2016 and closed2019 routes remain unchanged; new telescope requests0 and cost0DKK."
+  ],
+  "context_timing_required": "(context_header.tstart-origin_header.tstart)*86400+(rows-winning_window_start_row)*TSAMP, then np.rint((frequency_at_window_reference-FCH1)/DF+drift*times/DF). The saved MJD reference is identity/reporting; direct subtraction of rounded MJD midpoints must not alter own rounded boxes.",
+  "prospective_followup": {
+    "default_selection": "DC_AWARE_TOP3 from each ON scan, expected identical to rawTOP3 by frozen geometry",
+    "logical_selection_count": 9,
+    "maximum_logical_six_scan_profiles": 54,
+    "unsupported_geometry_policy": "Freeze exact normalization core and complete median501/box support handling before opening followup outcomes; no adaptive replacement."
+  },
+  "editorial_note": "Inherited maps_per_target and expected_counts_per_target fields describe one ON scan/job. All three jobs observe the same target; reports must state this explicitly."
+}
