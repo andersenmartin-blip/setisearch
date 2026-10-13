@@ -1,3 +1,21 @@
+# Aktuel SETI-status - 13. oktober 2026: fuld ON-burstsøgning afsluttet
+
+**2.010 nye kort plus 288 uændrede pilotkort og 54 faste ON/OFF-profiler er færdige. Kilde-QA, uafhængig global sorterings-QA og kildebaseret kontekst-QA består.** De erklærede 766 referencekerner pr. ON-scan giver 9.412.608 carrier-forekomster og 20.952.465.408 korrelerede hypoteseforekomster i det samme eksponerede besøg 28. april 2017. Dækningen gælder denne afgrænsede frekvens- og skabelonfamilie.
+
+Syv af de ni globale DC-tilladte udvalg er nye i forhold til piloten; to matcher eksakte tidligere tupler. Egne fire-række-scorer er 6,638491-7,450295, andre ON -1,243823 til 2,042495 og OFF -2,191447 til 2,306076. Ingen etableret fast-banegenfinding eller kvalificeret SETI-detektion. Udvælgelsesfordel, grove drifttrin og tidsrum mellem scans begrænser fortolkningen; svage faste kontekster beviser ikke fravær eller stjerneeksklusivitet. Scorerne er ikke kalibreret SNR/FAP. Alle 54 profiler undgår de tre kendte DC-centerkanaler på valgte4 og fuld16; dette udelukker ikke anden interferens.
+
+Begge maksimumfamilier er bevaret. 1.431 vindere ændres eller bliver EMPTY under DC-betingelsen; 1.422 har tilladte alternativer og ni er tomme. Kilde-QA efterregner 10.050 rå scoreforespørgsler og hele dual-søgegitteret i 18 DC-nære kerner. Global QA fuldsorterer begge familier og består 32.524 kontrolpunkter. Alle 54 profiler beregnes; 12 tidligere query-identiteter verificeres bitidentiske og 42 er nye.
+
+**Resultatpakke og dansk rapport er faktisk gemt.** Arkivet er 446.289.003 bytes, 16.419 ZIP-medlemmer inklusive manifest, og alle 16.418 payloadfiler består SHA/CRC. En frisk, selektiv udpakning uden originale H5-filer består alle 10.050 scorekontroller og 18 gemte DC-rammer/ni EMPTY. Det er reproduktion med den samme uafhængige QA-implementering, ikke en tredje implementering eller en genkørsel af alle 2.298 gitre. Den endelige tosidede PDF har bestået visuel kontrol; dens sene scoretabel ændrer ingen science eller arkivbytes.
+
+Arkiv-SHA256: `7c08be27fa4c913757863bacca4b3923cac80e3441e6642914f0534bb106ffc8`. Original A/B er fortsat FAIL_CLOSED, beskyttede 2016-data og lukkede 2019-data er uændrede. 0 DKK, ingen nye teleskopforespørgsler. Checkpoint: 20. oktober 2026.
+
+[Dansk resultat](analysis/burst_full_20261013/report_results/RESULTS_DA.md) · [Ni spor](analysis/burst_full_20261013/report_results/SELECTED_CLEAN_TOP9.csv) · [54 profiler](analysis/burst_full_20261013/context_results/CONTEXT_PROFILES.json) · [Næste afgrænsede metodekontrol](analysis/burst_full_20261013/NEXT_STEP.md)
+
+---
+
+## Tidligere status, bevaret uændret
+
 # Aktuel SETI-status - 13. oktober 2026: ON-burstpilot og DC-alternativer afsluttet
 
 **288 nye fire-række-kort, 1.179.648 carrier-vindere og 54 faste kontekstprofiler er færdige med uafhængig QA.** Piloten anvender syv 73,014-sekunders vinduer, 159 drifter og bredderne 1/3 i de tre HIP98505/HD189733 ON-scanninger fra samme historiske besøg 28. april 2017. De 96 fastlagte referencekerner pr. ON-scanning omfatter 1,0986328125 MHz, cirka 12,5 procent af tripletens referencekanaler. 2.625.896.448 hypoteseforekomster er korrelerede, ikke uafhængige forsøg.
