@@ -1,0 +1,113 @@
+{
+  "schema": "SETI_DC_ALTERNATIVE_INDEPENDENT_PRE_SCORE_STATIC_SCIENCE_REVIEW_V1",
+  "status": "PASS_IMPLEMENTATION_GO_EXACT_ORIGINAL_FRAME_AND_TIE_ARITHMETIC",
+  "before_fresh_alternative_scores": true,
+  "input_pins": [
+    {
+      "path": "dc_alternatives/search/scope.json",
+      "bytes": 294431,
+      "sha256": "d112dca058d8abc6e0e788954f848bbf7f3dbcfbc3bb558b1ed57aefdd383ed9"
+    },
+    {
+      "path": "dc_alternatives/search/scope.json.gz",
+      "bytes": 36938,
+      "sha256": "895604427a5698300a86c14adbe9e1c9e03e2697699dc8a12c275ca2ac067d48"
+    },
+    {
+      "path": "dc_alternatives/search/recover_alternatives.py",
+      "bytes": 20617,
+      "sha256": "48136943d68fb269db9705b53cc50213fe2b03afc13b78c635f19883aadf074f"
+    },
+    {
+      "path": "dc_alternatives/search/prepare_scope.py",
+      "bytes": 9089,
+      "sha256": "ce384363c872a206336129304a41a834714359048427f253d531d6d8db69ef84"
+    },
+    {
+      "path": "dc_alternatives/search/EXCLUDED_CARRIERS.json",
+      "bytes": 7389864,
+      "sha256": "5d62b8e4329cfc5b5ec5216aaadbdf6f03a8774da6c7a8ca8460692b14fc158b"
+    },
+    {
+      "path": "dc_alternatives/feasibility/ORIGINAL_ON_FRAME_INVENTORY.json",
+      "bytes": 79740,
+      "sha256": "c3ef310b3de5683829980f078ff99da6e83ece7f9e8aa6d8d8e61f3d138c8541"
+    },
+    {
+      "path": "dc_alternatives/feasibility/ORIGINAL_ON_FRAME_EVIDENCE.json",
+      "bytes": 15760,
+      "sha256": "01691727c7a97e0a9db48f8416d16b37fe265732d1f0ed511892a68c897395e8"
+    },
+    {
+      "path": "dc_alternatives/feasibility/PREFIX_ARITHMETIC_CONTRACT.json",
+      "bytes": 4978,
+      "sha256": "9478863882f8ee64d367c761192f0ebb2fbfdcd7f39db16038fcb807cb899ffd"
+    },
+    {
+      "path": "dc_alternatives/qa/exhaustive_core.py",
+      "bytes": 6293,
+      "sha256": "f10c6941b502a0d14defd1aa4bc4d8fc6fb4b48fbc4977c5880f5f380ba34e0b"
+    },
+    {
+      "path": "dc_alternatives/review/SCIENCE_SCOPE_REVIEW.json",
+      "bytes": 9114,
+      "sha256": "28f091d169decbb0c8f15bc712bfd9a5356a37bef25f8ffd09c9fb3263e68c41"
+    },
+    {
+      "path": "dc_alternatives/review/write_static_review.py",
+      "bytes": 9478,
+      "sha256": "6022f6675d34d84a77d0cf2863fe9abf0c603fa7f7aa8382fccf4331ae2bad08"
+    }
+  ],
+  "scope_checks": {
+    "inventory_carriers": 7083,
+    "exact_cover_of_inventory_indices": true,
+    "original_frame_groups": 18,
+    "source_ON_natives": 9,
+    "frame_shape": [
+      16,
+      12096
+    ],
+    "normalization_local_core": [
+      4000,
+      8096
+    ],
+    "original_drifts": 785,
+    "original_widths": [
+      1,
+      3
+    ],
+    "original_hypothesis_score_occurrences": 11120310,
+    "previous_clean_cached_maxima_retained": 9405525,
+    "row0_DC_carriers_forced_EMPTY": 9,
+    "expected_recovered_nonempty": 7074,
+    "expected_complete_clean_family_carriers": 9412599
+  },
+  "arithmetic_review": {
+    "frame_binding": "All18 scope frames exactly match completed-producing-code/scope/receipt-bound metadata. All are original12096 crops, not fullnative scoring frames; source origin/crop extents and static4096 core retained.",
+    "normalization": "Immutable saved original row power medians, winsorized residual locations and MAD scales feed the score. No refit, raw/DC mask or altered core is introduced. Independent reestimated terms are QA-only.",
+    "prefix_sequence": "Complete rawfloat32 crop is promoted tofloat64, normalized, filtered with original nearest-edge median501, and standardized. Zero16x12097 prefix receives float64cumsum of the entire original z frame; width boxes use original prefix differences. No shorter-strip prefix offset or direct-cell replacement.",
+    "time_and_rounding": "Exact originating arange16*TSAMP vector; original stored785 grid matches original linspace including near-zero value. Complete base+drift*time/DF rounds absolute source channel once withnp.rint before localoffset.",
+    "score_and_ties": "Sequential row0..15 additions into float64zero scores, one sqrt(16*width) division. Width1 before3, ascending16drift tiles, argmaxfirst exact tie and strict> best updates reproduce original local argmax order. This order is distinct from global sorting keys.",
+    "reconciliation_gate": "Before recovered maxima are written, all7083 unrestricted replays must exactly match authenticated original cached score,drift,width; mismatches are saved and stop the job. No epsilon reconciliation or silent repair.",
+    "admission": "Per hypothesis, all16 sampled boxes must satisfy abs(center-DC)>width//2 for all three bins. Width1/3 support is inclusive. EMPTY clean maxima remainnull and are excluded from global candidate merge."
+  },
+  "global_merge_review": "All recovered nonempty winners merge with each old exact cleanTOP700. Any omitted original clean record retains700 predecessors and cannot enter the newTOP700. Carrier sets are disjoint; canonical order uses exact scoredesc/frequencyasc/driftasc/widthasc/native/q/index. Unique reference channels and>3spacing give the694bound for100th separated pick, so merged700 yields exactseparated100/TOP3.",
+  "independent_QA_core_review": "Odd501 explicit nearest-edge NumPy median reconstructs completeframe z using frozen terms, then independent fullprefix/sequentialrow scorer evaluates all1570hypotheses. Width-major flattened argmax equals historical first-tie order. Directcell scorer is tolerance audit only; independently recomputed norm does not change scored terms. Wrapper/source pin and admission scope are separate QA gates.",
+  "source_and_scope_guards": "Runtime pins original NumPy2.3.5/SciPy1.17.0 plusdecoder versions; sourcefiles are SHA/length authenticated and each of9ON natives decoded once with16originalrow hashes. Eighteen completeframes saved. GO pins scope and running code; output directories refuse overwrite. Root supplies external900s wall cap plus600s CPU/2GiB process limits.",
+  "later_context_requirement": "If a recovered alternative changes finalTOP3, link ownscore/drift/width to the freshly recovered hypothesis output, not equality with the old contaminated map maximum. Oldmap/norm pins remainprovenance. Stable six-scan transport and exactraw/normalized identities govern reuse; no new context for unchanged identities.",
+  "inference_limits": [
+    "Conditional completeness over the original admissible grid, not every possible astrophysical hypothesis or independent validation of the9.4million preserved maxima.",
+    "Newly examined11.12million local hypothesis values over exposed raw/original family; no new sky data or blind calibration.",
+    "DCclean denotes original score-cell support avoidance only. Unchanged median/normalization can still includeDC; leakage,RFI andotherreceiver effects remainpossible.",
+    "No calibratedSNR,FAP,source origin,physical independence,qualifiedOFFveto orSETIdetection. Same2017visit; protected2016closed,2019transportunchanged,A/BFAIL_CLOSED,0DKK,no telescopeHTTP."
+  ],
+  "review_activity": {
+    "fresh_score_queries": 0,
+    "cached_NPZ_payload_arrays_read": 0,
+    "raw_HDF5_files_opened": 0,
+    "new_normalization_or_detector_execution": 0,
+    "source_text_and_existing_metadata_only": true
+  },
+  "remaining_implementation_logic_blockers": []
+}

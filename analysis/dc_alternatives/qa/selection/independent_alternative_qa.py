@@ -35,7 +35,7 @@ def clean_point(group,original,score,drift,width,index,centers):
  'MJD_anchor':group['MJD_anchor'],'original_origin_row_times_from_reference_s':group['original_origin_row_times_from_reference_s'],
  'score':float(score),'drift_hz_s':float(drift),'width_channels':int(width),'drift_grid_index':int(index),'rounded_absolute_centers':[int(c) for c in centers],
  'map_pin':m['map_pin'],'normalization_pin':m['normalization_pin'],'original_checkpoint_pin':m['checkpoint_pin'],
- 'score_provenance':'EXACT_ORIGINAL_PREFIX_DC_UNTOUCHED_ALTERNATIVE'}
+ 'score_provenance':'EXACT_ORIGINAL_PREFIX_DC_UNTOUCHED_ALTERNATIVE','source_kind':'recovered_original_DC_free_hypothesis'}
 
 def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--check-only',action='store_true');p.add_argument('--scope',type=Path,default=BASE/'scope.json');p.add_argument('--go',type=Path);args=p.parse_args()
@@ -126,7 +126,7 @@ def main():
     independent=kernel.independent_core_normalization_audit(raw,source0,frame['normalization_source_channel_interval_half_open'],np)
     for name,value in independent.items():norm_errors[name]=max(norm_errors.get(name,0),close(value,norm[name],'norm_'+name+'/'+gid,qascope['normalization_absolute_tolerance']))
     z=kernel.original_z_from_raw_frame(raw,norm,np);fullframe_positions+=z.size
-    if 'original_fullframe_z_sha256' in summary:equal(hashlib.sha256(z.astype('<f8',copy=False).tobytes()).hexdigest(),summary['original_fullframe_z_sha256'],gid+'/fullframe_z_bits')
+    equal(hashlib.sha256(z.astype('<f8',copy=False).tobytes()).hexdigest(),summary['original_normalized_z_rowmajor_float64_sha256'],gid+'/fullframe_z_bits')
     with np.load(checked(ROOT/m['map_pin']['path'],m['map_pin']),allow_pickle=False) as a:maps={k:a[k] for k in a.files}
     grid=maps['drift_grid_hz_s'];equal(grid,np.linspace(-4,4,785),gid+'/original_grid_bits');equal(maps['valid_hypothesis_count'],np.full(4096,1570,dtype=np.int64),gid+'/old_valid_counts')
     equal(maps['source_reference_channels'],np.arange(native*CHUNK+q*CORE,native*CHUNK+(q+1)*CORE,dtype=np.int64),gid+'/reference_channels');equal(maps['frequency_hz_at_tref'],FCH1+DF*maps['source_reference_channels'],gid+'/reference_frequencies')
@@ -141,9 +141,18 @@ def main():
      i=o['carrier_index_in_core'];label=gid+'/'+str(i)
      equal(o['original_cached_score'],float(maps['maximum_robust_box_track_score'][i]),label+'/oldscore');equal(o['original_cached_drift_hz_s'],float(maps['winning_drift_hz_s'][i]),label+'/olddrift');equal(o['original_cached_width_channels'],int(maps['winning_width_channels'][i]),label+'/oldwidth')
      equal(o['original_cached_rounded_centers'],original_centers[i],label+'/oldcenters');equal(o['reference_source_channel'],int(maps['source_reference_channels'][i]),label+'/sourcechannel');equal(o['frequency_hz_at_own_first_midpoint'],float(maps['frequency_hz_at_tref'][i]),label+'/frequency')
+     equal(o['original_cached_drift_grid_index'],int(np.searchsorted(grid,maps['winning_drift_hz_s'][i])),label+'/old_grid_index')
+     contact=np.abs(original_centers[i][:,None]-np.asarray(DC)[None,:])<=int(maps['winning_width_channels'][i])//2
+     equal(o['original_DC_contact_row_indices'],np.flatnonzero(contact.any(axis=1)).tolist(),label+'/old_contact_rows');equal(o['original_DC_contact_counts_by_bin'],{str(dc):int(contact[:,k].sum()) for k,dc in enumerate(DC)},label+'/old_contact_counts')
     family=kernel.exhaustive_original_scores(z,source0,maps['frequency_hz_at_tref'][indices],grid,(1,3),[r*TSAMP for r in range(16)],FCH1,DF,DC,np)
     oldidx=family['unconstrained_best_index'];equal(family['unconstrained_best_score'],maps['maximum_robust_box_track_score'][indices],gid+'/unrestricted_scores_exact');equal(grid[oldidx%785],maps['winning_drift_hz_s'][indices],gid+'/unrestricted_drifts_exact');equal(np.where(oldidx<785,1,3),maps['winning_width_channels'][indices],gid+'/unrestricted_widths_exact')
     admissible_counts=family['admissible'].sum(axis=0);n=len(indices);nonempty=int(family['has_clean_hypothesis'].sum());admissible_total=int(admissible_counts.sum())
+    winnerpin=summary['recovered_winner_arrays_pin'];winnerpath=checked(ROOT/winnerpin['path'],winnerpin)
+    with np.load(winnerpath,allow_pickle=False) as a:winning={k:a[k] for k in a.files}
+    has=family['has_clean_hypothesis'];choice=family['best_clean_index'];expectedarrays={'reference_source_channel':maps['source_reference_channels'][indices],'carrier_index_in_core':indices,'admissible_hypothesis_count':admissible_counts,'no_admissible_hypothesis':~has,'clean_maximum_score':family['best_clean_score'],'clean_winning_width_channels':np.where(has,np.where(choice<785,1,3),0),'clean_winning_drift_grid_index':np.where(has,choice%785,-1),'original_cached_maximum_score':family['unconstrained_best_score'],'original_cached_winning_drift_hz_s':grid[oldidx%785],'original_cached_winning_width_channels':np.where(oldidx<785,1,3)}
+    require(set(winning)==set(expectedarrays)|{'clean_winning_drift_hz_s'},'Corrected winner NPZ schema differs')
+    for name,value in expectedarrays.items():equal(winning[name],value,gid+'/winner_NPZ/'+name)
+    equal(winning['clean_winning_drift_hz_s'][has],grid[choice[has]%785],gid+'/winner_NPZ/clean_drift');equal(np.isnan(winning['clean_winning_drift_hz_s'][~has]).all(),True,gid+'/winner_NPZ/empty_drift_NaN')
     counts[scan]['inventory_carriers']+=n;counts[scan]['recovered_nonempty_carriers']+=nonempty;counts[scan]['EMPTY_carriers']+=n-nonempty;counts[scan]['original_unrestricted_tuples_reconciled_exactly']+=n;counts[scan]['original_hypothesis_score_occurrences']+=1570*n;counts[scan]['admissible_hypothesis_occurrences']+=admissible_total;counts[scan]['raw_frames_saved']+=1
     equal(summary['inventory_carriers'],n,gid+'/summary_count');equal(summary['original_hypothesis_score_occurrences'],1570*n,gid+'/summary_hypotheses');equal(summary['admissible_hypothesis_occurrences'],admissible_total,gid+'/summary_admissible');equal(summary['EMPTY_carriers'],n-nonempty,gid+'/summary_empty');equal(summary['original_unrestricted_tuples_reconciled_exactly'],n,gid+'/summary_unrestricted')
     ties=family['exact_maximum_tie_count'];tie_carriers+=int((ties>1).sum());tie_max=max(tie_max,int(ties.max()))
@@ -154,6 +163,7 @@ def main():
      if not empty:
       index=int(family['best_clean_index'][j]);width=1 if index<785 else 3;di=index%785;drift=float(grid[di]);score=float(family['best_clean_score'][j]);frequency=o['frequency_hz_at_own_first_midpoint'];centers=np.rint((frequency-FCH1)/DF+drift*np.asarray([r*TSAMP for r in range(16)])/DF).astype(np.int64)
       new=clean_point(group,o,score,drift,width,di,centers);clean_candidates[scan].append(new)
+      new['authoritative_score_source']={'kind':'recovered_original_DC_free_hypothesis','pin':winnerpin,'record_index':j,'score_field':'clean_maximum_score','drift_field':'clean_winning_drift_hz_s','width_field':'clean_winning_width_channels','channel_field':'reference_source_channel','group_id':gid}
       for name,value in new.items():equal(actual['clean_maximum'][name],value,label+'/clean/'+name)
       equal(bool(np.any(np.abs(centers[:,None]-np.asarray(DC)[None,:])<=width//2)),False,label+'/clean_geometry');require(score<=o['original_cached_score'],'Conditional maximum exceeded original maximum')
       direct=kernel.direct_cell_score(z,source0,frequency,drift,width,[r*TSAMP for r in range(16)],FCH1,DF,np);close(direct,score,'direct_vs_prefix/'+label,qascope['direct_score_absolute_tolerance']);direct_audits+=1
@@ -168,6 +178,8 @@ def main():
   for name,value in expected.items():equal(actual.get(name),value,label+'/'+name)
  for scan in TARGETS:
   oldpin=next(p['result_pin'] for p in scope['cached_clean_prefixes'] if p['primary_scan_id']==scan);old=read(checked(ROOT/oldpin['path'],oldpin));base=[dict(r,score_provenance='ORIGINAL_CACHED_DC_UNTOUCHED_WINNER') for r in old['raw_TOP700']]
+  for r in base:
+   r['source_kind']='original_clean_cached_carrier_maximum';r['authoritative_score_source']={'kind':r['source_kind'],'pin':r['map_pin'],'record_index':r['carrier_index_in_core'],'score_field':'maximum_robust_box_track_score','drift_field':'winning_drift_hz_s','width_field':'winning_width_channels','channel_field':'source_reference_channels'}
   require(len(base)==700 and len({r['reference_source_channel'] for r in base})==700,'Old exact prefix invalid');require(not ({r['reference_source_channel'] for r in base}&{r['reference_source_channel'] for r in clean_candidates[scan]}),'Old/new carrier sets overlap')
   merged=sorted(base+clean_candidates[scan],key=rankkey)[:700];require(len({r['reference_source_channel'] for r in merged})==700,'Merged sourcechannel uniqueness failed')
   for rank,r in enumerate(merged,1):r['raw_rank']=rank
