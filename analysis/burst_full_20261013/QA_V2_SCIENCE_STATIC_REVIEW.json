@@ -1,0 +1,67 @@
+{
+  "schema": "SETI_FULL_ON_DUAL_BURST4_QA_V2_STATIC_SCIENCE_REVIEW_V1",
+  "date_utc": "2026-10-13",
+  "status": "PASS_QA_V2_METADATA_GATE_AND_CORRECTED_SYNTHETIC_FIXTURE_STATIC_REVIEW",
+  "input_pins": [
+    {
+      "path": "seti_burst_full/qa.py",
+      "bytes": 56443,
+      "sha256": "4e756407378e271e2039a85f32776f719625ffe79d8e909e33693ac43c72f3d9"
+    },
+    {
+      "path": "seti_burst_full/qa_v2.py",
+      "bytes": 56614,
+      "sha256": "ccc7f96d079653d04df5a679af2192173a8e1281c80a3d21b995d5a3dd847cd5"
+    },
+    {
+      "path": "seti_burst_full/test_qa_synthetic.py",
+      "bytes": 18084,
+      "sha256": "4258e43e65adbded7a9fd02a44a9c8346567055b06273d9b86a72c7609fe637d"
+    },
+    {
+      "path": "seti_burst_full/test_qa_synthetic_v2.py",
+      "bytes": 18181,
+      "sha256": "832d3adb826b9b354bd0d1aefa8132d31e9e92deece2af36c96b2bbaeba11bc0"
+    },
+    {
+      "path": "seti_burst_full/SCOPE.json",
+      "bytes": 206358,
+      "sha256": "d8944b1a8959c945cc5179c7bc1b3677d5aba4352d8e7529e72dce64c66a2ab7"
+    },
+    {
+      "path": "seti_burst_full/driver.py",
+      "bytes": 41388,
+      "sha256": "6d4a0f898cbebb140844225ae8815eb52331713054d619a6f96dcf59df7ee661"
+    },
+    {
+      "path": "seti_burst_full/QA_SCIENCE_STATIC_REVIEW.json",
+      "bytes": 5810,
+      "sha256": "4a509a6e62f23b6520d2d4837b0bed3e0fcca10a9d9c9ef566aab20a44ac5e0b"
+    }
+  ],
+  "source_or_result_arrays_opened": 0,
+  "numerical_or_synthetic_tests_executed": 0,
+  "scientific_helper_AST_identity": {
+    "independent_dual_max": true,
+    "independent_clean_counts": true,
+    "independent_normal": true,
+    "independent_standardized_region": true,
+    "scalar_rows": true
+  },
+  "changes": [
+    "The original frozen QA, test and review remain at their original byte hashes. New files carry this revision; the primary scope, producer and active numerical queue are unchanged.",
+    "QA v2 changes only synthetic-test admission from a hardcoded filename to root GO synthetic_test_path, restricted to a confined Python file under seti_burst_full and authenticated by its exact SHA256. All five scientific arithmetic helpers are AST-identical to the original frozen QA.",
+    "The v2 test imports qa_v2.py and corrects two boundary-contact fixtures to a spike in source row0 only, with expected winning window0. Other test cases and the independent scalar brute oracle retain their definitions."
+  ],
+  "fixture_correction_reason": "The original four-row DC spike did not guarantee a width3 winner: a drifting width1 path could hit the DC spike in three later rows and achieve a larger score. The original fixture assertion was invalid; no numerical test was executed before this correction.",
+  "corrected_fixture_static_proof": [
+    "The reference channel is1040 and dt0=0. The only nonzero cell is in source row0 at DC1039 or1041. Only window0 includes that source row.",
+    "Every width1 hypothesis has center1040 in its first chosen row and therefore misses the adjacent row0 spike. All other source rows are zero, so all width1 scores are zero.",
+    "Every supported width3 hypothesis in window0 includes the adjacent DC at the inclusive first-row boundary. Its positive raw score exceeds every width1 score, so the first raw maximum is window0/width3/ascending drift index0.",
+    "All width3 hypotheses contact DC at their first chosen row and are inadmissible for clean maximization. The first width1 drift index0 moves away from either adjacent center in later rows, remains supported and yields a clean zero-score alternative. Strict first ties select window0/width1/index0.",
+    "The fixture therefore exercises inclusive boundaries and recovery of a clean alternative without relying on an outcome-sensitive inequality."
+  ],
+  "unchanged_QA_coverage": "The original review of 18 affected-core independent full501/dual remax, 1992 far-DC geometry proofs, all10050 scalar audits, source authentication, EMPTY sentinels and exact tuple versus tolerant score checks still applies to the AST-identical v2 science helpers.",
+  "next_gate": "Publish/read back the new v2 files and this review before root synthetic GO. Actual synthetic PASS is required before numerical saved-output QA; this static review does not claim tests passed.",
+  "blocking_findings": []
+}
