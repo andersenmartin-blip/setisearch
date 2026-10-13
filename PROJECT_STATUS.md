@@ -1,3 +1,21 @@
+# Aktuel SETI-status - 13. oktober 2026: ON-burstpilot og DC-alternativer afsluttet
+
+**288 nye fire-række-kort, 1.179.648 carrier-vindere og 54 faste kontekstprofiler er færdige med uafhængig QA.** Piloten anvender syv 73,014-sekunders vinduer, 159 drifter og bredderne 1/3 i de tre HIP98505/HD189733 ON-scanninger fra samme historiske besøg 28. april 2017. De 96 fastlagte referencekerner pr. ON-scanning omfatter 1,0986328125 MHz, cirka 12,5 procent af tripletens referencekanaler. 2.625.896.448 hypoteseforekomster er korrelerede, ikke uafhængige forsøg.
+
+De ni udvalgte egne fire-række-scorer er 6,242477-6,916444. De 18 andre ON-profiler ligger -1,582630 til 1,648399, og de 27 OFF-profiler -2,921665 til 1,590202. **Ingen fast-banegenfinding i andre ON-scanninger er etableret.** Udvælgelsesfordel, grove drifttrin og lange pauser begrænser fortolkningen; svage faste kontekster beviser ikke fravær eller stjerneeksklusivitet. 73 sekunder er testvinduets varighed, ikke en målt fysisk emissionsvarighed.
+
+**Den tidligere DC-alternativfase er også afsluttet:** alle 11.120.310 originale lokale hypoteser ved 7.083 tidligere fravalgte carriers er gennemgået. 7.074 får en tilladt alternativ hypotese; ni har ingen. Den komplette familie har 9.412.599 ikke-tomme DC-tilladte carrier-maksima over det oprindelige domæne. TOP9 og de tidligere 54 kontekstgeometrier er uændrede; ingen nye DC-kontekstqueries var nødvendige.
+
+Primær-QA kontrollerer alle 288 kort, 1.170 råscoreforespørgsler, 144 decoded kilderækker og fulde median501-normaliseringer i de otte valgte kerner. Kontekst-QA kontrollerer 54 profiler, 48 normaliseringer/768 rækker og 18 kildefiler/288 decoded rækker. DC-QA bestod 446.669 checks med nul afvigelser, og dens NumPy-only replay bestod 156.083 checks. ON-konteksterne er også faktisk genberegnet fra en frisk udpakket pakke uden originale HDF5-filer; de dokumenterede runtimebiblioteker er fortsat nødvendige.
+
+Den samlede resultatpakke er **84.571.828 bytes, 2.106 ZIP-medlemmer**, med alle CRC- og 2.105 payload-SHA256 kontrolleret. Rapport, alle kort, råcrops, profiler, kode, scopes, kontroller og reproduktionsvejledninger er bevaret. Den indeholder ingen fulde HDF5-filer.
+
+[ON-resultat og afgrænsning](analysis/burst_on_20261013/delivery/RESULTS.md) · [TOP9](analysis/burst_on_20261013/delivery/TOP9.csv) · [Kontekst54](analysis/burst_on_20261013/delivery/CONTEXT54.csv) · [Primær-QA](analysis/burst_on_20261013/qa_results/QA_RECEIPT.json) · [Kontekst-QA](analysis/burst_on_20261013/context_qa_results/QA_RECEIPT.json) · [DC-resultat](analysis/dc_alternatives/reproduction/DC_RESULTS.md) · [Pakkeidentitet](analysis/burst_on_20261013/delivery/RESULT_PACKAGE_RECEIPT.json) · [Næste fase](analysis/burst_on_20261013/NEXT_STEP.md)
+
+**Ingen kvalificeret SETI-detektion. 0 DKK; nul nye teleskoprequests.** Original A/B er fortsat FAIL_CLOSED; beskyttede 2016-kontroller og den lukkede 2019-rute er uændrede. Formelt checkpoint: 20. oktober 2026. Næste prioritet er de resterende 670 ON-burstkerner pr. scanning med både ubegrænsede og DC-tilladte maksimumsbaner bevaret; pilotkortene skal genbruges, ikke genkøres.
+
+---
+
 # Aktuel SETI-status - 13. oktober 2026: 48 nye faste råprofiler fra målstjernens valg
 
 **Målstjernens 9.412.608 gemte ON-carrier-vindere er nu globalt kontrolleret; 7.083 rammer DC og 9.405.525 passerer den faste geometriregel.** TOP3 er valgt separat for hver af de tre HIP98505/HD189733 ON-scanninger. Otte valgte baner er nye i forhold til den tidligere OFF-opfølgning; den niende er den kendte stationære 2300 MHz-komponent.
