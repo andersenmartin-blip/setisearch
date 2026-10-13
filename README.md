@@ -1,3 +1,15 @@
+# SETI-status · 13. oktober 2026: ON-burstpilot og DC-alternativer afsluttet
+
+**288 nye søgekort og 54 faste profiler er færdige med uafhængig rå-/normaliserings-QA.** Søgningen efter korte signaler er nu anvendt på de tre HIP98505/HD189733 ON-scanninger i det historiske besøg 28. april 2017. De ni udvalgte korte spor har ingen etableret fast-banegenfinding i de andre ON-scanninger. Scorerne er efter udvælgelse, uden kalibreret SNR/FAP eller kvalificeret SETI-detektion.
+
+Den parallelle genberegning af alle **11.120.310** oprindelige lokale DC-hypoteser giver 7.074 tilladte alternativer og ni tomme carriers; den tidligere TOP9 forbliver uændret. Begge kilde-QA og gemte-crop-reproduktioner består. Resultatpakken på 84.571.828 bytes er bevaret med 2.106 CRC-/SHA-kontrollerede medlemmer. 0 DKK; nul nye teleskoprequests. Original A/B er fortsat FAIL_CLOSED. Checkpoint: 20. oktober 2026.
+
+[Resultatrapport](https://github.com/andersenmartin-blip/setisearch/blob/207f75b03b9dae6ebe4af93e3723df3762bc7828/analysis/burst_on_20261013/delivery/RESULTS.md) · [Alle ni spor og 54 scorer](https://github.com/andersenmartin-blip/setisearch/blob/207f75b03b9dae6ebe4af93e3723df3762bc7828/analysis/burst_on_20261013/delivery/CONTEXT54.csv) · [Aktuel projektstatus](https://github.com/andersenmartin-blip/setisearch/blob/207f75b03b9dae6ebe4af93e3723df3762bc7828/PROJECT_STATUS.md) · [Næste fase](https://github.com/andersenmartin-blip/setisearch/blob/207f75b03b9dae6ebe4af93e3723df3762bc7828/analysis/burst_on_20261013/NEXT_STEP.md)
+
+---
+
+## Tidligere status, bevaret uændret
+
 # SETI-status · 11. oktober 2026: fast tidsrækkefølgekontrol afsluttet
 
 **1.161 gemte auditforekomster og 27.864 rækkefølgescorer er beregnet og har bestået uafhængig numerisk QA.** Alle ni tidligere TOP3 får højere score i kronologien end i de 23 alternative centerarrangementer. Det stærkeste spor har scorerne 7,315816 og 4,998336. De oprindelige spor var allerede udvalgt som søgemaksima; sammenligningen giver ingen ny uafhængig signalevidens, kalibreret signifikans eller SETI-kvalifikation.
