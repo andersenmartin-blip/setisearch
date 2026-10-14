@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-14",
+  "findings": [
+    "Two placements per54 profiles are frozen:host-640/start0/drift-67/100/phase-19/100 andhost+640/start12/drift23/100/phase33/100.108 physical placements yield648 paired cases across3 kernels and2 reference amplitudes; no outcome-dependent grid or case choices.",
+    "All108 physical central4 placements and all positive kernel cells are disjoint from old512/\u00b1768 injection cells, including cross-profile context-scan aliases.",
+    "delta/fixed3 are round-centered engineering kernels. integration_smear preserves exact unrounded affine phase, intrinsic width1 and sweep abs(true_drift)*TSAMP/absDF; this is a declared idealized generator law rather than measured instrument response.",
+    "Total raw perrow reference power is identical across kernels. Additions use original saved row median\u00d7MAD inbinary64 then onefloat32 cast.12 unaffected raw rows remain bit-identical and fullmodified-crop hashes are saved for independent reconstruction.",
+    "Baselinefull4096 core/501 median/residual/MAD/winsor authentication covers864rows. Casefullcore recomputation covers2592 modified rows; unaffected normalized rows/pathterms reuse authenticated baseline exactly.",
+    "Same-host raw501 scoring uses the complete frozen exact width1 family across7 windows; all family paths have support/DC-clean metadata. No width3/matched-smear template or changed score is added.",
+    "Top5 versus1 ranks eligible unique hypotheses byscore descending,window start ascending,native4 lexicographic. Actual membership determines designated central4 retention; strict rank_min and greater-or-equal rank_max remain separate.",
+    "Spread-kernel central4 retention is not fullsignal recovery. Perpath ideal deposited-weight fractions, family oracle and best actual top1/top5 fractions are descriptive, without threshold or ranking changes.",
+    "108 A0 sham-target ranks reuse54 baselines and do not create kernel-specific null realizations or calibrated FAP evidence.",
+    "Case/normalization outputs include central-core inside/outside and kernel-row core/halo/outside labels. Prespecified summary strata separate these; halo-only signals can affect501 core normalization.",
+    "111 source declarations and bundled prior-placement/generator provenance pins authenticate before arrays open. Root-GO scope/producer/manifest hashes and a fresh resultdirectory outside the source archive are mandatory.",
+    "Incremental reserve600CPU-s retains prior ledger:metadata60+producer270+QA270,2GiBprocess memory,600swall and0telescope requests/bytes/DKK.",
+    "OriginalA/B staysFAIL_CLOSED; fullsixscan qualification,protected2016 andclosed2019 gates are preserved. Raw backgrounds remain the exposed2017 observing visit."
+  ],
+  "gates_changed": false,
+  "observed_outcomes_scored": false,
+  "pins": [
+    {
+      "bytes": 28207,
+      "path": "SCOPE.json",
+      "sha256": "873d6b1fdd2a2d45af374a1bba24c309577883757c1f841b666584a13565f3d8"
+    },
+    {
+      "bytes": 33862,
+      "path": "producer.py",
+      "sha256": "569dc196707539e1b9bdf61e86462690c365c1831c952d3478ff452f728019a8"
+    },
+    {
+      "bytes": 3717785,
+      "path": "GEOMETRY_MANIFEST.json",
+      "sha256": "fc9c8ebf8d9ba9fd35a71ee36cb0c49b9cc79d0851b9fa79e684ad2cfe988585"
+    },
+    {
+      "bytes": 6213475,
+      "path": "prior_placements/GEOMETRY_MANIFEST_TOP5.json",
+      "sha256": "106b0bffba727c95cd6fa9bb1c7217ec1e23ed8b0476716184192fa0c1c73297"
+    },
+    {
+      "bytes": 17484,
+      "path": "source_provenance/generator_original.py",
+      "sha256": "3864bd49766f71771ac48cb517eaa516fab0768d3c39f2ed8f07b8f1eed21693"
+    }
+  ],
+  "prerequisites": [
+    "Root GO pins this exact final scope/producer/manifest.",
+    "Separately frozen independent QA metadata/code before outcomes, followed by rawhash/normalization/score/rank/capture QA."
+  ],
+  "producer_executed": false,
+  "raw_spectral_arrays_opened": false,
+  "reviewed_scope": "Final scope/producer static code and JSON-only geometry/kernel/crop metadata. No NumPy import, raw/score array load, normalization, injection application or observed outcome scoring.",
+  "root_authorized_operational_amendments": [
+    "Finite nonnegative raw powers are accepted (zero allowed); this supersedes the draft manifest strictpositive adjective. Core power median and residual MAD must remain positive. Negative/nonfinite powers are rejected without clipping/redraw.",
+    "Baseline16 row normalization is freshly recomputed and authenticated against saved metadata. The12 unchanged case rows reuse RECOMPUTED authenticated baseline values. Original saved median/MAD serve only the prespecified injection amplitude reference."
+  ],
+  "saved_scores_opened": false,
+  "schema": "SETI_RAW_RETENTION_SCOPE_CODE_REVIEW_V1",
+  "status": "PASS_STATIC_SCOPE_CODE_REVIEW_READY_FOR_ROOT_GO"
+}

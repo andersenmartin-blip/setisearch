@@ -1,0 +1,230 @@
+{
+  "code_pin": {
+    "bytes": 19200,
+    "path": "raw_retention_design/build_manifest.py",
+    "sha256": "af4f92a40636c673683d39874630adf98f840a040d809f3c7755f0d575df7205"
+  },
+  "complete_manifest_bytes": 3717785,
+  "complete_manifest_sha256": "fc9c8ebf8d9ba9fd35a71ee36cb0c49b9cc79d0851b9fa79e684ad2cfe988585",
+  "counts": {
+    "all_frozen_search_family_host_DC_contacts": 0,
+    "all_frozen_search_family_host_raw501_checks": 44470,
+    "amplitudes": 2,
+    "baseline_raw_crops": 54,
+    "baseline_rows_normalized": 864,
+    "baseline_sham_target_rows": 108,
+    "central_bins_in_core_perplacement_histogram": {
+      "0": 16,
+      "4": 92
+    },
+    "kernel_row_normalization_support_classes": {
+      "delta": {
+        "CORE_OVERLAP": 368,
+        "HALO_ONLY": 20,
+        "OUTSIDE_NORMALIZATION_SUPPORT": 44
+      },
+      "fixed3": {
+        "CORE_OVERLAP": 368,
+        "HALO_ONLY": 20,
+        "OUTSIDE_NORMALIZATION_SUPPORT": 44
+      },
+      "integration_smear": {
+        "CORE_OVERLAP": 369,
+        "HALO_ONLY": 19,
+        "OUTSIDE_NORMALIZATION_SUPPORT": 44
+      }
+    },
+    "models": 3,
+    "modified_rows_normalized": 2592,
+    "new_model_prior_cell_overlap_counts": {
+      "delta": 0,
+      "fixed3": 0,
+      "integration_smear": 0
+    },
+    "new_overlap_prior_physical_placements": 0,
+    "perturbed_raw_cases": 648,
+    "physical_unique_placements": 108,
+    "prior_unique_physical_placements": 4250,
+    "profiles": 54,
+    "unique_new_injection_cells": {
+      "delta": 432,
+      "fixed3": 1296,
+      "integration_smear": 6559
+    }
+  },
+  "date": "2026-10-14",
+  "declared_profile_capture_diagnostic": {
+    "oracle": "Maximum ideal depositedfraction acrossALL frozen width1 hypotheses atsame host, metadata-only.",
+    "per_hypothesis": "Average across4 active source rows of declared normalized kernelweights at the nativebin selected by that hypothesis; nonactive chosenrows contribute0; fraction=sum(weights_at_chosen_active_cells)/4.",
+    "quantization": "Diagnostic uses declared kernelweights; castfloat32 realized power/normalization can change scores and selectedpaths. This is not measuredphysical energyfraction or physical sensitivity.",
+    "retained": "Maximum ideal depositedfraction among actual score-selected top1/top5; descriptive only, not rankrule or acceptance threshold."
+  },
+  "fixed_panel": {
+    "amplitudes": [
+      2,
+      8
+    ],
+    "baseline_A0": "One authenticated baseline per54 crops;108 sham-target ranks reuse those baselines, not216/324 duplicate null realizations.",
+    "models": [
+      "delta",
+      "fixed3",
+      "integration_smear"
+    ],
+    "placements": [
+      {
+        "drift_fraction": [
+          "-67",
+          "100"
+        ],
+        "host_offset_channels": -640,
+        "phase_fraction": [
+          "-19",
+          "100"
+        ],
+        "window_start_row": 0
+      },
+      {
+        "drift_fraction": [
+          "23",
+          "100"
+        ],
+        "host_offset_channels": 640,
+        "phase_fraction": [
+          "33",
+          "100"
+        ],
+        "window_start_row": 12
+      }
+    ],
+    "retention_k": [
+      1,
+      5
+    ],
+    "truth": "Complete canonical width1 central native4 identity; integration-smear wings or retained off-center hypotheses do not redefine truth."
+  },
+  "frozen_top5_policy_commit": "f1108023a7bf7e2700d97a0b31c6eb30d9fa1f14",
+  "full_identity_and_kernel_bank_in_delivery": true,
+  "geometry_arithmetic": "Exact separately rationalized binary64 d0,time,DF,half_step,TSAMP; exact new rational drift/phase; nearest absolute native index ties-even.",
+  "input_pins": [
+    {
+      "bytes": 14588343,
+      "path": "checkpoints/SETI_NATIVE_SPOR_2026-10-14/SETI_NATIVE_SPOR_2026-10-14/rounding_followup/exact_geometry_results/GEOMETRY.json",
+      "sha256": "77651a3d9122398a8ebe9467ee8be93be7422dfd9a5958655e88ea480d94a7f1"
+    },
+    {
+      "bytes": 629588,
+      "path": "checkpoints/SETI_NATIVE_SPOR_2026-10-14/SETI_NATIVE_SPOR_2026-10-14/seti_work/seti_burst_full/context_results/CONTEXT_PROFILES.json",
+      "sha256": "31efe1e5eeba63d10fbc04ea60bd29eb3086f142b6111a185f821a40a0558522"
+    },
+    {
+      "bytes": 12586465,
+      "path": "checkpoints/SETI_NATIVE_SPOR_2026-10-14/SETI_NATIVE_SPOR_2026-10-14/rounding_followup/results/INJECTIONS.json",
+      "sha256": "aeffd0a53ef0b2b4aab69e2829af9ef76dac1cf5223062fe2e12c32d42bf5a16"
+    },
+    {
+      "bytes": 6213475,
+      "path": "retention_validation_20261014/GEOMETRY_MANIFEST.json",
+      "sha256": "106b0bffba727c95cd6fa9bb1c7217ec1e23ed8b0476716184192fa0c1c73297"
+    },
+    {
+      "bytes": 17484,
+      "path": "repo_latest/raw_chain_sources/generator_original.py",
+      "sha256": "3864bd49766f71771ac48cb517eaa516fab0768d3c39f2ed8f07b8f1eed21693"
+    }
+  ],
+  "integration_sweep_range": [
+    3.269918890154559,
+    25.582112025301242
+  ],
+  "interpretation": [
+    "Prospective frozen engineering control on new raw-power injection cells but previously exposed2017 background; no fresh observation.",
+    "delta/fixed3/integration_smear have identical total reference power perrow; central-bin power differs intentionally.",
+    "Canonical central4 retention underfrozen width1 family is primary; broadsmear can produce many comparable shifted trajectories and this statistic is not all-signal recovery.",
+    "No instrument response, physical sensitivity,FAP,p-value or independent case assumption established.",
+    "Whole six-scan qualification chain is untested; original A/B and protected2016/closed2019 routes retain gates."
+  ],
+  "metadata_resource_usage": {
+    "CPU_s": 0.906726,
+    "peak_RSS_bytes": 103387136,
+    "wall_s": 0.9062073109998892
+  },
+  "normalization": {
+    "baseline": "Authenticate54 original raw crops and saved metadata; recompute16 full4096 core rows and compare original power median, residual median,MAD,winsorized location before perturbed cases.",
+    "formula": "Core raw median over4096; ratio tothatmedian;501 local median subtraction for every4096 core channel; row residual median,1.4826*MAD and center+mean(clip(residual-center,\u00b15*MADscale)).",
+    "halo_caution": "Outside4096 core but insidecore\u00b1250 can affect local medians and residual normalization; only outsideexpanded support guarantees unchanged normalization.",
+    "modified_rows": "Recompute full4096 normalization for4 modified rows independently percase;12 unchanged rows reuse exact baseline normalization.",
+    "path_scoring": "Same frozen exact width1 family acrossall7 windows translated toSAME injection host; direct raw501 local residual using percase normalization; four standardized terms summed/divided2."
+  },
+  "observed_outcomes_scored": false,
+  "preserved": {
+    "checkpoint": "2026-10-20",
+    "closed_2019": true,
+    "new_observation": false,
+    "new_telescope_bytes": 0,
+    "new_telescope_requests": 0,
+    "original_A_B": "FAIL_CLOSED",
+    "pilot_gate_pass": false,
+    "protected_2016": true,
+    "qualified_SETI_detection": false
+  },
+  "raw501_family_support_crop_indices_inclusive": [
+    3787,
+    10097
+  ],
+  "raw_injection": {
+    "amplitude_reference": "Total positive per-active-row power in pre-existing raw median\u00d7MAD reference units; comparable total power across kernels, not physical SNR, flux or matched-filter ideal score.",
+    "casting": "Original16x12096 little-endianfloat32 raw crop copied tofloat64; additions in ascending kernelchannel order; cast each modified row once back tofloat32; unchanged12rows reused bit-identical; reject nonfinite/nonpositive values; no clipping/redraw.",
+    "delta": "One bin of weight1 at canonical integer center.",
+    "delta_power": "A * ORIGINAL saved row_power_median[row] * ORIGINAL saved row_residual_MAD_scale[row] * normalized_kernel_weight",
+    "fixed3": "Fixed engineering split1/4,1/2,1/4 at canonical integer center\u00b11; no measured line response claim.",
+    "integration_smear": "Unit-area uniform intrinsic width1 nativebin convolved with uniform linear exposure sweep L=abs(true_drift)*TSAMP/absDF, centered on exact UNROUNDED affine integration midpoint; bin weights are exact CDF differences then deterministic binary64 normalization.",
+    "kernel_weights": "Each positive exact rational CDF mass converted tobinary64 once; fail mass< -1e-14; clip tinynegative to0; divide each by math.fsum(clipped_weights). No ideal-projection power rescaling.",
+    "source_profile_contract": "Same mathematical profile family as pinned original_generator._uniform_convolution_cdf/_profile; exact affine/rational arithmetic extension explicitly differs from original float evaluation and amplitude prescription."
+  },
+  "raw_spectral_arrays_opened": false,
+  "resource_envelope": {
+    "DKK": 0,
+    "QA_CPU_s_cap": 270,
+    "incremental_reserved_CPU_s": 600,
+    "memory_bytes_cap_each": 2147483648,
+    "metadata_CPU_s_cap": 60,
+    "prior_ledger_retained": true,
+    "producer_CPU_s_cap": 270,
+    "wall_s_cap_each": 600
+  },
+  "saved_scores_opened": false,
+  "schema": "SETI_RAW_RETENTION_GEOMETRY_V1",
+  "signal_only_projection_metadata": {
+    "delta": {
+      "best_frozen_family_score_per_A_range": [
+        2.0,
+        2.0
+      ],
+      "central4_score_per_A_range": [
+        2.0,
+        2.0
+      ]
+    },
+    "fixed3": {
+      "best_frozen_family_score_per_A_range": [
+        1.0,
+        1.0
+      ],
+      "central4_score_per_A_range": [
+        1.0,
+        1.0
+      ]
+    },
+    "integration_smear": {
+      "best_frozen_family_score_per_A_range": [
+        0.07817962793775425,
+        0.6116359662687126
+      ],
+      "central4_score_per_A_range": [
+        0.07817962793775425,
+        0.6116359662687126
+      ]
+    }
+  },
+  "status": "PASS_METADATA_ONLY_AVAILABLE_NOVEL_RAW_PLACEMENTS"
+}
