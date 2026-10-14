@@ -1,3 +1,17 @@
+# SETI · seneste afsluttede fortsættelse · 14. oktober 2026
+
+**864 nye råeffekttests i to frosne studier er afsluttet med 6.501.177 uafhængige QA-kontroller. Ingen kvalificeret SETI-detektion.**
+
+Den særskilte bank med faste skabelonbredder 1/3/9/33 bevarer med én samlet top-5-liste en median på **77,17 %** af den indsatte models referenceeffekt ved A8, mod **7,72 %** med enkeltkanalsbaner. Ved A32 er tallene **83,56 %** og **7,81 %**. Det er kendte, syntetiske indsprøjtninger på eksponerede baggrunde fra 28. april 2017; fysisk flux, astronomisk recovery og detektionssandsynlighed er ikke etableret. Ved A8 forekommer fortsat tab.
+
+Fem kandidatpladser bevares, men den lokale skabelonfamilie er fire gange større, og **falskalarmraten er endnu ikke kalibreret**. Den globale carrier-udvælgelse og fulde seks-scan recovery-/OFF-/RFI-/null-kæde er næste ukvalificerede trin. Original A/B forbliver **FAIL_CLOSED**, 2016-holdouts beskyttet og 2019-ruten lukket. Ingen nye observing visits, teleskopbytes eller teleskopforespørgsler; 0 DKK. Slutcheckpoint: 20. oktober 2026.
+
+[Bredere skabeloner: rapport](https://github.com/andersenmartin-blip/setisearch/blob/ad83b98d1bd3e8254900225964a30b7487c90128/analysis/matched_width_20261014/RESULTS_DA.md) · [648 råeffekttests](https://github.com/andersenmartin-blip/setisearch/blob/ad83b98d1bd3e8254900225964a30b7487c90128/analysis/raw_retention_20261014/RESULTS_DA.md) · [Uafhængig QA](https://github.com/andersenmartin-blip/setisearch/blob/ad83b98d1bd3e8254900225964a30b7487c90128/analysis/matched_width_20261014/results/QA_RECEIPT.json) · [Næste trin](https://github.com/andersenmartin-blip/setisearch/blob/ad83b98d1bd3e8254900225964a30b7487c90128/analysis/matched_width_20261014/NEXT_STEP.md) · [Leverancekvittering](https://github.com/andersenmartin-blip/setisearch/blob/ad83b98d1bd3e8254900225964a30b7487c90128/results/radio_raw_matched_20261014/DELIVERY_RECEIPT.json)
+
+Den samlede ejerleverance med kildearkiv, arrays, kode, rapporter og logs er `SETI_RAAEFFEKT_BREDE_SKABELONER_2026-10-14.zip` (67.953.040 bytes), SHA256 `e7643ec2d5786cbec90cd23dd7a7a4e7438c8871d0d30c713d60208852cce8dc`.
+
+---
+
 # SETI-status · 14. oktober 2026: fastlåst top 5 bevarer flere svage spor
 
 **8.466 betingede cases er afsluttet med uafhængig QA.** På 2.822 nye indsprøjtningsplaceringer bevarer top 5 den komplette svage bane i 2.623 cases (92,95 %), mod 1.898 (67,26 %) med kun maksimum: 725 flere. 199 svage cases mangler stadig, og kandidatbyrden bliver fem gange større. Stærke indsatser bevares alle med begge regler. 270 lokale kandidatposter fra de faktiske profiler er nu bevaret.
