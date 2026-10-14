@@ -1,1 +1,1045 @@
-YªçŠx-®éÜj×¢ëiºÚ+Š§j[h‘éÜ¢éíßM¸å:-jZ.¶›­–)Þ³R24UD’(	B7fvR¶ö×ÆWGFR7÷"&ævW&WB+rBâö·Fö&W"##` ¤FVâ¶VæGFR¶ö×ÆWGFRf—&RÖ&–âÖ&æRW"&ævW&WB’ÆÆRãS"7fvR–æG7,;†§Fæ–ævW"g&FVâV·6·FRæF—fRÖfÖ–Æ–RâF÷R&Wf&W"ãCóãS"örÆÆRC2F–FÆ–vW&RgVÆN(i''F–VÂ×F"ÂÖVâW"VâVgFW"ÖV·7öæW&–ærfÆwBVGf–¶Æ–æw7&VvVÂÂ–¶¶RVâfÆ–FW&WBFWFV·F÷,:fæG&–ærâ6W&B&W7FöB#ãƒ’¶öçG&öÆÆW"VFVâgf–vVÇ6RâFRBvV×FRfæFfÆBv—fW"–ævVâWGfWG–F–rb×,:f¶¶R×'–rVÆÆW"f7BÖ&æVvVæf–æF–ær’FRfVÒæG&R66ææ–ævW"à ¥´¶÷'B&÷'EÒ…$D”õõtTµõE%UD…õ$äµó##bÓÓBæÖB’+rµ&W7VÇFEÒ†æÇ—6—2÷vVµ÷G'WF…÷&æµó##cB÷&W7VÇG2õ5TÔÔ%’æ§6öâ’+r´ÆÆR&ævW&–ævW%Ò†æÇ—6—2÷vVµ÷G'WF…÷&æµó##cB÷&W7VÇG2õE$”Åõ$äµ2æ77b’+rµÒ†æÇ—6—2÷vVµ÷G'WF…÷&æµó##cB÷&W7VÇG2õõ$T4T•Bæ§6öâ ¢¢¤–ævVâ·fÆ–f–6W&WB4UD’ÖFWFV·F–öâÂç’ö'6W'fF–öâVÆÆW"ç’g&V·fVç6L:f¶æ–ærâ¢¢ô"f÷&&Æ—fW"d”Åô4Äõ4TF²#bó#’ÖvFW2ör6ÇWF6†V6·ö–çB#âö·Fö&W"W"\:fæG&VFRà ¢ÒÒÐ ¢22F–FÆ–vW&R&ö¦V·G7FGW2Â&Wf&WB\:fæG&W@ ¢2·GVVÂ4UD’×7FGW2Ò2âö·Fö&W"##c¢C‚ç–Rf7FR,:W&öf–ÆW"g&Ü:VÇ7F¦W&æVç2fÆp ¢¢¤Ü:VÇ7F¦W&æVç2’ãC"ãc‚vV×FRôâÖ6'&–W"×f–æFW&RW"çRvÆö&ÇB¶öçG&öÆÆW&WC²rãƒ2&ÖÖW"D2ör’ãCRãS#R76W&W"FVâf7FRvVöÖWG&—&VvVÂâ¢¢Dõ2W"fÆwB6W&Bf÷"‡fW"bFRG&R„•“ƒSRô„Cƒ“s32ôâ×66ææ–ævW"â÷GFRfÆwFR&æW"W"ç–R’f÷&†öÆBF–ÂFVâF–FÆ–vW&RôdbÖ÷l;†Ævæ–æs²FVâæ–VæFRW"FVâ¶VæGFR7FF–öì:g&R#3Ô‡¢Ö¶ö×öæVçBà £C‚ç–Rf7FR&öf–ÆW"örC‚gVÆFRæ÷&ÖÆ—6W&–ævW"W"Ü:VÇB’FR6V·2V·6—7FW&VæFR66ææ–ævW"ÂÖVç26V·2,:f6—6R#3Ô‡¢×&öf–ÆW"vVæ''VvW2ÖVB†6†W2âFR÷GFRç–RfÆr†"VvæR66÷&W"bÃSC"ÓbÃ“SC²6ÖÖR&æW"’FR;‡g&–vRôâ×66ææ–ævW"Æ–vvW"g&ÓÃ33’F–ÂÃ“3’ör’ôdbg&Ó"ÃCC‚F–ÂÃ#“âFW"W"–ævVâWF&ÆW&WBf7BÖ&æVvVæf–æF–ær’FR;‡g&–vRôâ×66ææ–ævW"â&W7VÇFFW&æRW"&W6·&—fVæFRVgFW"VGl:fÆvVÇ6RÂVFVâ¶Æ–'&W&WB4å"VÆÆW"dà ¥VGl:fÆvVÇ6W2Õ&W7FöB#3ã“’V·6·FR6†V6·2â,:RÕfW&–f–6W&VFR‚¶ö×·FR¶–ÆFVf–ÆW"Â#ƒ‚FV6öFVB,:f¶¶V†6†W2örÆÆRC‚ç–RgVÆFRæ÷&ÖÆ—6W&–ævW"ör&öf–ÆW"âçVÕ’×&W&öGV·F–öâVFVâ„DcR&W7FöBbã#3’6†V6·2âVâ–æFÆVFVæFRÖWFFFÖöæÇ’Öf÷&ÖFfV¦ÂW"&Wf&WBör&WGFWBl;‡"'&—2VÆÆW"66÷&W"&ÆWbÌ:g7C²&öGV6VçFFFörçVÖW&—6¶Rf÷&ÖÆW"W"\:fæG&VFRà ¥µ&W7VÇFBörfw,:fç6æ–æuÒ†æÇ—6—2ööåö66†VBõ$U5TÅE2æÖB’+r´¶÷'B&÷'EÒ†æÇ—6—2ööåö66†VBöFVÆ—fW'’õ4UD•ôÔÅ5D¤U$äUó##bÓÓ2çFb’+r´ÆÆRæ’fÆrörSB¶öçFV·7FW%Ò†æÇ—6—2ööåö66†VBöFVÆ—fW'’õ4TÄT5DTC•ô4ôåDU…CSBæ77b’+rµ&W&öGV·F–öåÒ†æÇ—6—2ööåö66†VB÷&W&öGV7F–öâõ$TDÔRæÖB ¢¢¤–ævVâ·fÆ–f–6W&WB4UD’ÖFWFV·F–öââD´²ÂçVÂç–RFVÆW6¶÷&WVW7G2Â÷&–v–æÂô"d”Åô4Äõ4TBâ¢¢FWGFRW"FWB6ÖÖR†—7F÷&—6¶R&W<;†rg&#‚â&–Â#rÂVFVâç’ö'6W'fF–öâVÆÆW"g&V·fVç6L:f¶æ–ærâ&W6·—GFVFR#bÖ¶öçG&öÆÆW"örFVâÇV¶¶VFR#’ÖFvæw7'WFRW"\:fæG&VFRâf÷&ÖVÇB6†V6·ö–çC¢#âö·Fö&W"##bà ¢ÒÒÐ ¢2·GVVÂ4UD’×7FGW2Ò"âö·Fö&W"##c¢ÆÆR’Ã3‚Ö–ÆÆ–öæW"vV×FR¶æÆÖ·6–Ö¶öçG&öÆÆW&W@ ¢¢£’ã3sRãsCBvV×FRW"Ö6'&–W"×f–æFW&RW"çRvVææVÖ|:VWB’ÆÆR"ã#ƒ’¶÷'Bâ¢¢Rã“f–æFW&&æW"&ÖÖW"D2Âör’ã3c’ãƒC276W&W"FVâf7FÌ:W7FRvVöÖWG&–¶öçG&öÂâvÆö&ÂDõ2"âôdb×7F¦W&æRv—fW",:f6—2FR6ÖÖRæ’GWÆW"Â&æwFÂör66÷&W"6öÒl;‡"âFW"vVæf–æFW2SRãS3’f–æFW&&æW"VFVâD2Ö¶öçF·B’FRR¶W&æW"ÖVBWBD2×&×B¶W&æVÖ·6–×VÓ²–ævVâ÷fW'FvW"VâF÷Ó2×ÆG2à ¥VfŒ:fæv–rfW&–f–6W&VFRÆÆR¶÷'BÂf–æFW&&æW"örÆ—7FW"ÖVB“rãbV·6·FR6ÖÖVæÆ–væ–ævW"VFVâgf–vVÇ6W"âFRSBV·6—7FW&VæFR¶öçFV·7G&öf–ÆW"vVæ''VvW2ÖVBV·6·FRvVöÖWG&’Òör'—FV–FVçF—FWFW#²FW"W"–ævVâç–R,:VÜ:VÆ–ævW"VÆÆW"æ÷&ÖÆ—6W&–ævW"âFVâ,:g&&&R¶öçG&öÂ&W7FöB"ãC‚6ÖÖVæÆ–væ–ævW"âVâÖWFFF&WGFVÇ6R’¶öçFV·7BÕörFVç2l;‡'7FRfV¦Æ·f—GFW&–ærW"&Wf&WBà ¥µ&W7VÇFBörfw,:fç6æ–æuÒ†æÇ—6—2ö6'&–W%öföÆÆ÷wWõ$U5TÅE2æÖB’+r´¶÷'B&÷'EÒ†æÇ—6—2ö6'&–W%öföÆÆ÷wWöFVÆ—fW'’õ4UD•ô´äÄÔµ4”Ôó##bÓÓ"çFb’+rµVGfÆuÒ†æÇ—6—2ö6'&–W%öföÆÆ÷wW÷&æ¶–ærõ4TÄT5DTEõDõ’æ77b’+rµ&W&öGV·F–öç7fV¦ÆVFæ–æuÒ†æÇ—6—2ö6'&–W%öföÆÆ÷wW÷&W&öGV7F–öâõ$TDÔRæÖB ¤FW"W"f÷'G6B–ævVâ·fÆ–f–6W&WB4UD’ÖFWFV·F–öââ#3Ô‡¢Ö¶ö×öæVçFVâW"F–FÆ–vW&RÜ:VÇB’ÆÆR6V·266ææ–ævW":Rf—&R7F¦W&æW&WFæ–ævW#²7—b;‡g&–vR7÷"W"V&V·,:fgFVFRâFöÜ:fæWBöÖfGFW"·VâÆÆW&VFRvV×FRf–æFW&‡—÷FW6W#²&VæR–¶¶R×f–æFVæFRÇFW&æF—fW"fVBD2×&×FR6'&–W'2¶â7FF–rl:g&R6¶§VÇBâ–ævVâç’ö'6W'fF–öâVÆÆW"g&V·fVç6L:f¶æ–ærâ¢£D´²ÂçVÂç–RFVÆW6¶÷&WVW7G2Â÷&–v–æÂô"d”Åô4Äõ4TBör&W6·—GFVFR#bÖ¶öçG&öÆÆW"ÇV¶¶VFRâ¢¢f÷&ÖVÇB6†V6·ö–çC¢#âö·Fö&W"##bà ¢ÒÒÐ ¢2·GVVÂ4UD’×7FGW2Ò"âö·Fö&W"##c¢æ’D2×V&W,;‡'FR7÷"gVÆwB’ÆÆR6V·266ææ–ævW  ¢¢¤æ’F–FÆ–vW&RvV×FR¶W&æVÖ·6–ÖVFVâD2Ö¶öçF·BW"çRVæFW'<;†wBÖVBSBf7FR,:W&öf–ÆW"örgVÆBVfŒ:fæv–r¶öçG&öÂâ¢¢VGl:fÆvVÇ6VâvVææVÖv–²"ã#ƒ’÷&–æFVÆ–vR¶W&æVÖ·6–ÖÂg&fÆwFRRÖVBD2Ö¶öçF·BörfÆwFRG&R"âôdb×7F¦W&æRg&FR"ã#sB;‡g&–vRâ–ævVâFWFV·F÷'<;†væ–ær&ÆWbvVçFvWBà ¤FVâ7FF–öì:g&R&æRfVB¢£#3Ã3s2Ô‡¢¢¢&ÆWbfÆwB’Fòôdb×66ææ–ævW"ÂÖVâW":–âg—6—6²Ü:VÆW6¶&VÆöââFVç26V·2f7FR66÷&W"W"¢£2Ã3Rò’Ãƒ2ò’ÃòrÃ"òRÃ#Bò"Ãs"¢¢Â:Rf—&R7F¦W&æW&WFæ–ævW"âFWBW"f÷&VæVÆ–wBÖVBVâl:fÆÆW2–çFW&fW&Vç2ÒVÆÆW"–ç7G'VÖVçF¶ö×öæVçC²7F¦W&æVV·6¶ÇW6—f—FWBW"–¶¶RWF&ÆW&WBâ÷&–æFVÇ6VâW"–¶¶Rg—6—6²&Wf—7Bà ¤FR¢§7—bæG&R7÷"f÷&&Æ—fW"Vf¶Æ&VFR¢¢âFRW"7L:g&¶W7B’FW&W2VvVâVGl:fÆvVÇ6W766ææ–æs²FR3RÜ:VÆ–ævW"’æG&R66ææ–ævW"Æ–vvW"Ó"ÃS’F–Â³ÃcâVvVç66ææ–ævW&æR†"ÆÆW&VFRfÆwB7÷&VæR÷fW"g&V·fVç2öG&–gBö'&VFFRÂ<:Rf÷'6¶VÆÆVâW"–¶¶RVfŒ:fæv–r6–væ–f–¶ç2âæ’Æöv—6¶RfÆr&W,:g6VçFW&W"÷GFRÜ:VÆW6¶&VÆöæW"ÂörSB&öf–ÆW"&W,:g6VçFW&W"C‚f÷'6¶VÆÆ–vRg—6—6¶R&ö·6vVöÖWG&–W"à ¥VfŒ:fæv–rvVæ&W&VvæVFRÆÆR¢£C‚gVÆFRæ÷&ÖÆ—6W&–ævW"¢¢g&WFVçF–f–6W&VFR,:VFFÖVB6W&FRÖVF–ãSÖ&W&Vvæ–ævW"âFRæ’÷&–æFVÆ–vR66÷&W"7FVÖÖW"–æFVâf÷"Ã#FRÓBâC‚¶ö×ÆWGFR,:V7&÷2:R3rÃ#RÔ"örÆÆR,:SS2×&öf–ÆW"W"&Wf&WC²Vâ6W&B¢¤çVÕ’ÖöæÇ’&W&öGV·F–öâVFVâ„DcRÖ¶–ÆFW"¢¢†"öw<:R&W7L:VWBâ¢¤–ævVâ·fÆ–f–6W&WB4UD’ÖFWFV·F–öâ¢¢Âç’ö'6W'fF–öâVÆÆW"g&V·fVç6L:f¶æ–æs²÷&–v–æÂô"¢¤d”Åô4Äõ4TB¢¢Â&W6·—GFVFR#bÖ¶öçG&öÆÆW"ÇV¶¶VFRâ¢£D´²¢¢ÂçVÂç–RFVÆW6¶÷&WVW7G2â6†V6·ö–çB#âö·Fö&W"&W7L:W"à ¥µ&÷'EÒ†æÇ—6—2öF5ög&VUöföÆÆ÷wWó##c"öFVÆ—fW'’õ4UD•ôD4e$”Uõ5õ%ó##bÓÓ"æÖB’+r´æ’7÷"örSB66÷&W%Ò†æÇ—6—2öF5ög&VUöföÆÆ÷wWó##c"öFVÆ—fW'’õ4TÄT5DTC•ôäEô4ôåDU…CSBæ77b’+r´¶öçFV·7Ff–wW%Ò†æÇ—6—2öF5ög&VUöföÆÆ÷wWó##c"öFVÆ—fW'’õ4UD•ôD4e$”Uô´ôåDTµ5Eó##bÓÓ"çær’+rµVfŒ:fæv–rÒ†æÇ—6—2öF5ög&VUöföÆÆ÷wWó##c"÷ö6öçFW‡Bõõ$T4T•Bæ§6öâ’+rµ&W&öGV·F–öåÒ†æÇ—6—2öF5ög&VUöföÆÆ÷wWó##c"öFVÆ—fW'’õ$U$ôET5D”ôâæÖB ¢ÒÒÐ ¢22F–FÆ–vW&R7FGW2ör&WFæ–ærÂ&Wf&WB\:fæG&W@ ¢2·GVVÂ4UD’×7FGW2Ò"âö·Fö&W"##c¢FöÖ–æW&VæFR7FF–öì:g&R7÷"76W"F–Â–ç7G'VÖVçFWG2D2Ö&–ç0 ¢¢¤ç’¶öæ·&WB6–væÆF–væ÷6R†"&W7L:VWBVfŒ:fæv–rçVÖW&—6²¶öçG&öÂâ¢¢FRG&RÆ–æ¦W"fVB##“rÃCc“3sRÂ#3Ã3“c#Sör#32Ã3#3#RÔ‡¢Æ–vvW",:f6—2’G&Rw&÷fR¶æÆW'2Fö·VÖVçFW&VFRD2Ö&–ç2â’ÆÆR‚F–FÆ–vW&RDõ2×6¶&VÆöæW'2VvæR&–Ü:g'66ææ–ævW"¶öÖÖW"Ö–æG7B¢£“’Ã“cC3rR¢¢bFVâ÷6—F—fR7FæF&F—6W&VFR6VÆÆVÖ76Rg&6VÇfRD2Ö&–ææVââÆÆR¢£#vV×FRDõ#×÷7FW"¢¢&ÖÖW"Vâ<:VFâ&–â’Ö–æG7B:–â,:f¶¶Rà ¤FR‚FVGWÆ–¶W&VFRD2÷66ææ–ær×VG6æ—Bv—fW"¢£#ƒ‚,:f¶¶W7V·G&R¢¢âD2Ö6VçG&WBW"FWB7G&VæwB7L:g&¶W7FRb#’&–ç2’ÆÆR#ƒƒ²ÖVF–æf÷&†öÆFWBÖVÆÆVÒ,:VVffV·FVâörFVâÆö¶ÆRfÆæ¶VÖVF–âW"¢£SC2Ãƒ“‚¢¢â‚f7FR¶öçFV·7G&öf–ÆW"W"&V¶öç7G'VW&WBÖVBFRV·6—7FW&VæFRgVÆF¶W&æRÖæ÷&ÖÆ—6W&–æw7FW&ÖW"â,:f6—2Væ¶VÇF6VÆÆRÖGG&–'WF–öâf—6W"Â‡f÷&Fâ6Ü:RG&–gG76¶&VÆöæW"¶â÷ì:R7F÷&R66÷&W"g&FVâ6ÖÖR7FF–öì:g&R&–ââ÷&–v–æÆR66÷&W"ör&æv÷&FVæW"W"&Wf&WBà ¤FWGFR7L;‡GFW"7L:g&·BVâ–ç7G'VÖVçFÂD2Öf÷'FöÆ¶æ–ærÂÖVâ&Wf—6W"–¶¶RFVâ¶öæ·&WFR†&Gv&\:W'6râFR#ƒ‚,:f¶¶W"W"–¶¶RVfŒ:fæv–vR&V·,:fgFVÇ6W"ÂörFR¶÷'Gf&–vR'W'7CB×f–æFW&R¶Æ76–f–6W&W2–¶¶RbFVææRf6Râ¢¤–ævVâ·fÆ–f–6W&WB4UD’ÖFWFV·F–öâ¢¢Âç’ö'6W'fF–öâVÆÆW"g&V·fVç6L:f¶æ–ærâô"W"f÷'G6B¢¤d”Åô4Äõ4TB¢¢Â&W6·—GFVFR#bÖ†öÆF÷WG2f÷&&Æ—fW"ÇV¶¶VFS²¢£D´²¢¢âÆæVârâÓ#âö·Fö&W"&V†öÆFW"6†V6·ö–çB#âö·Fö&W"à ¥µ&W7VÇFG&÷'EÒ†æÇ—6—2öF5öF–væ÷7F–5ó##c"öFVÆ—fW'’õ4UD•ôD5õ$U5TÅDEó##bÓÓ"æÖB’+r³‚VvæR&–Ü:g'66ææ–ævW%Ò†æÇ—6—2öF5öF–væ÷7F–5ó##c"öFVÆ—fW'’õ$”Ô%“‚æ77b’+r³#V·6—7FW&VæFRVGfÆuÒ†æÇ—6—2öF5öF–væ÷7F–5ó##c"÷&æ¶–ærôääõDDTEõDõ#æ77b’+rµVfŒ:fæv–rÒ†æÇ—6—2öF5öF–væ÷7F–5ó##c"öFVÆ—fW'’õõ5TÔÔ%’æ§6öâ’+rµ,:RF6†W5Ò†æÇ—6—2öF5öF–væ÷7F–5ó##c"÷&–Ö'’÷&W7VÇG2ôD5õ$uõD4„U2æç¢ ¢ÒÒÐ ¢22F–FÆ–vW&R7FGW2ör&WFæ–ærÂ&Wf&WB\:fæG&W@ ¢2·GVVÂ4UD’×7FGW2+r"âö·Fö&W"##c¢VGl:fÆvVÇ6W6f÷&FVÂ:Wf—7BVæFW"Vâf7B7L;†¦ÖöFVÀ ¢¢¤÷GFRVfŒ:fæv–vRvÖÖSÖÖöFVÇ&VÆ—6W&–ævW"b†VÆRFVâ“bÖ¶W&æR'W'7B×–Æ÷BW"l:g&F–vRör†"&W7L:VWBVfŒ:fæv–rçVÖW&—6²â¢¢FW"W"&W&VvæWBsc‚ç–R7–çFWF—6¶R<;†vV¶÷'BÂ2ãCRãs#‚6'&–W"ÖÖ·6–Öörrã"ã3“ãS#‚¶÷'&VÆW&VFR6¶&VÆöæf÷&V¶ö×7FW"â¶öFRÂ66÷Rör¶–ÆFVvVææVÖvævR&ÆWböffVçFÆ–vv¦÷'Bl;‡"ÖöFVÆvVæW&F–öâfVB6öÖÖ—Bcƒ##ƒcVVVS†cc#cfc3f&F#“†Cƒ#S“S&à ¤ÆÆR÷GFRfÖ–Æ–W'2DõörÆÆR#B6ÖÖVæ'VæFæRDõ27L:W"7G&VæwBŒ;†¦W&R’·&öæöÆöv–VâVæB’FR#2ÇFW&æF—fR6VçFW'fV·F÷&W"âDõ×66÷&W&æRÆ–vvW"ÖVÆÆVÒ¢£bÃS3Cƒ3börrÃ#Csc‚¢¢ÂÖVBÖVF–â¢£rÃCs"¢¢âFW&ÖVBf÷&V¶öÖÖW"FVâ6ÖÖR·&öæöÆöv—6¶R&ævf÷&FVÂöw<:RVgFW"f–æFW'VGl:fÆvVÇ6RVæFW"FVææR&VæR7L;†¦ÖöFVÂâFWBW"–¶¶RVâ¶Æ–'&W&WBfÇ6²ÖÆ&Ò×&FRf÷"FVÆW6¶÷7÷&VæRVÆÆW"Vâf÷&¶Æ&–ærbFW&W2g—6—6¶R÷&–æFVÇ6Râ÷GFRfÖ–Æ–W"W"FR÷GFRÖöFVÆVæ†VFW#²FR#Bf–æFW&RW"fŒ:fæv–vR–æFVâf÷"‡fW"fÖ–Æ–Rà ¤ÖöFVÆÆVâW"””BvÖÖƒSÃóS’ÂfÆwBl;‡"ç–Rl:g&F–W"örVFVâf—BF–Âö'6W'fF–öæW&æRâFVâvVæW7F–ÖW&W"gVÆÃbÖæ÷&ÖÆ—6W&–ævVâ:RC“b¶W&æV¶æÆW"ÖVBC†ÆòörvVçFvW"†VÆR7—b×f–æGVRóS’ÖG&–gBö'&VFFSÃ2ÖfÖ–Æ–Vâl;‡"Dõ#õDõ2ör,:f¶¶Vl;†ÆvVF–væ÷6W"âFVâÖöFVÆÆW&W"–ævVâ–ç7G'VÖVçG&W7öç2ÂF–G2Òög&V·fVç6¶÷'&VÆF–öæW"VÆÆW"&F–öf÷'7G—'&VÇ6W"âFVâF–FÆ–vW&R'&VFW&R÷&F–æ'“b×<;†væ–ærVÆÆW"ç–Rö'6W'fF–öç6FFW"–¶¶RvVçFvWBà ¥†"fW&–f–6W&WBÆÆRsc‚ÖöFVÇ7G&V×2ör"ã#ƒ‚,:f¶¶V†6†W2÷,:R¶W&æVÖVF–æW"6×B2ã“bÆö¶ÆR66÷&VVF—G2âgVÆBÖVF–ãSÂÔBörÆö¶F–öâW"VfŒ:fæv–wB&V¶öç7G'VW&WBf÷"ÆÆR#Bf–æFVæFRÖöFVÆ¶W&æW"âæG&RVF—F¶W&æW'2ÔBöÆö¶F–öâW"&WF–ævVFRvV×FRFW&ÖW"Âör†VÆR<;†vVv—GFW&WBW"–¶¶RVfŒ:fæv–wBvVæÖ·6–ÖW&WB’â&÷'Bör&VvvRf–wW&W"W"vVææVÖ|:VWBâ&W7VÇFG¶¶VâW"¢£ã#sã“"'—FW2ÖVBBãƒ5$2Ö¶öçG&öÆÆW&VFRÖVFÆVÖÖW"örBãƒ4„#SbÖ¶öçG&öÆÆW&VFR–ÆöFf–ÆW"¢£²–çWF–FVçF—FWFW&æRW"\:fæG&VFRà ¤÷&–v–æÂô"W"f÷'G6B¢¤d”Åô4Äõ4TB¢¢ÂörFVâ÷&–æFVÆ–vR·fÆ–f–6W&VFRç–RÖ†–ÖÖVÇ–Æ÷BW"–¶¶R:V&æWBâ–ævVâ&W6·—GFVFR†öÆF÷WG2Âç’ö'6W'fF–öâVÆÆW"7G&öæöÖ—6²g&V·fVç6L:f¶æ–ærl;†ÆvW"bFVææRÖöFVÆ¶öçG&öÂâFRæ’F–FÆ–vW&RFF&VfW&Væ6W"f—6W26W&Bör7FÖÖW"g&G&Rôdb×66ææ–ævW"’:—B†—7F÷&—6²&W<;†râÆæVâ¢£rî(	3#âö·Fö&W"¢¢&V†öÆFW"6—Bf÷&ÖVÆÆR6†V6·ö–çBFVâ¢£#âö·Fö&W"¢¢âVFv–gB¢£D´²¢¢ÂçVÂç–RFVÆW6¶÷&WVW7G2â¶VæGFRÜ:VÇFR&ö6W6¶ö×öæVçFW"–æ¶ÇW6—fR¶æ–ærW"ãC‚Ã“scs"5R×3²FWGFRW"–ævVâ¶ö×ÆWB6W76–öç6Ü:VÆ–ærVÆÆW"&öææVÖVçG6w,:fç6Rà ¥µ&÷'EÒ†æÇ—6—2ö'W'7EöçVÆÅó##c"öFVÆ—fW'’õ4UD•ô%U%5EôåTÄÅôd”äÅó##bÓÓ"æÖB’+r´÷GFRÖöFVÆVæ†VFW%Ò†æÇ—6—2ö'W'7EöçVÆÅó##c"öFVÆ—fW'’ôdÔ”Å“‚æ77b’+r³#BVGfÆwFRÖöFVÇ7÷%Ò†æÇ—6—2ö'W'7EöçVÆÅó##c"öFVÆ—fW'’õ5”åD„UD”5õDõ#Bæ77b’+r´çVÖW&—6²Ò†æÇ—6—2ö'W'7EöçVÆÅó##c"õõ$T4T•Bæ§6öâ’+rµ&W&öGV·F–öåÒ†æÇ—6—2ö'W'7EöçVÆÅó##c"õ$U$ôET5D”ôâæÖB’+r´Wf–FVç6–æFV·5Ò†æÇ—6—2ö'W'7EöçVÆÅó##c"õT$Ä”5ôUd”DTä4Uô”äDU‚æÖB ¢ÒÒÐ ¢22F–FÆ–vW&R7FGW2ör&WFæ–ærÂ&Wf&WB\:fæG&W@ ¢2·GVVÂ4UD’×7FGW2+râö·Fö&W"##c¢f7B,:f¶¶Vl;†ÆvV¶öçG&öÂg6ÇWGFW@ ¢¢£ãcvV×FRf–æFW'GWÆRÖf÷&V¶ö×7FW"Â‚ãSsb,:f¶¶Rö6VçFW"Ö&ö·6Rör#rãƒcBW&×WFF–öç766÷&W"W"&W&VvæWBör†"&W7L:VWBVfŒ:fæv–rçVÖW&—6²â¢¢¶öFRör66÷R&ÆWböffVçFÆ–vv¦÷'BfVB6öÖÖ—Bsff#6CSfSSc#6c“sCV#3s63S6Ccc“v6#s&l;‡"FRç–RÖG&—‡VFfÆBâFRG&R&–Ü:g&¦ö"W"vVææVÖl;‡'B:–âvær:RV·6—7FW&VæFRôdbÖFFg&#‚â&–Â#s²–çFWB<;†vVv—GFW"VÆÆW"gVÆF¶W&æRÔÔBöÆö6F–öâW"vVæ&W&VvæWBà ¤ÆÆRæ’F–FÆ–vW&RDõ2†"f—&Rf÷'6¶VÆÆ–vR6VçFW&¶æÆW"âFW&W2·&öæöÆöv—6¶R66÷&RW"7G&VæwB7L;‡'&RVæB‡fW"bFR#2ÇFW&æF—fR6VçFW'fV·F÷&W"âf÷"FWB7L:g&¶W7FR7÷"Â„•“scc2fVB#3"Ã#cC3S"Ô‡¢ÂW"FRFò66÷&W"¢£rÃ3SƒbörBÃ““ƒ33b¢¢â·&öæöÆöv–Vâf"ÆÆW&VFR÷F–ÖW&WB÷fW"G&–gBÂf–æGVRör'&VFFS²ÇFW&æF—fR'&ævVÖVçFW"W"G——6²–¶¶RÆ–æ\:g&R7÷"â&W7VÇFFWBW"FW&f÷"Vâ&WF–ævWBvVöÖWG&—6²F–væ÷6Rörv—fW"–ævVâVfŒ:fæv–r6–væÆWf–FVç2ÂW&×WFF–öâ×Â¶Æ–'&W&WBdVÆÆW"4UD’Ö·fÆ–f–¶F–öâà ¤FRãcf÷&V¶ö×7FW"öÖfGFW"ãS"f÷'6¶VÆÆ–vRf–FVç6¶&VÆ–vRGWÆW2ÖVBæ’vVçFvVÇ6W"âf—&Rf÷&V¶ö×7FW"†"·Vâ:–â6VçFW'fV·F÷"ör–ævVâF–G7,:f¶¶Vl;†ÆvV–æf÷&ÖF–öã²#"†"vVçFvæR6VçG&Rörã3R†"f—&Rf÷'6¶VÆÆ–vR6VçG&RâFRvV×FRgVÆÃbÖæ÷&ÖÆ—6W&–æw6¶öç7FçFW"l;†ÆvW"FVâg—6—6¶R,:f¶¶RâVfŒ:fæv–r,:V¶6VÆ&—FÖWF–²7FVÖÖW",:f6—7BÖVBFRç–RÖG&—†ÆVBörW&×WFF–öç766÷&W#²7L;‡'7FRf÷'6¶VÂÖöBFVâF–FÆ–vW&R–FVçF—FWG766÷&RW""Ãs9s(¼+ž(BâFRgVÆFR¶W&æW'2vV×FRÔBöÆö6F–öâW"f÷'G6B&WF–ævVFRf÷'VG<:gFæ–ævW"à ¥ÆæVâ¢£rî(	3#âö·Fö&W"¢¢f÷'G<:gGFW"ÖVB6—B÷&–æFVÆ–vR6ÇWF6†V6·ö–çBFVâ#âö·Fö&W"âÖWFöFVÇFW&æF—fWBör&÷'BÒ÷&W&öGV·F–öç6&&V¦FWBW"ÆÆW&VFRvVææVÖl;‡'Bâ÷&–v–æÂô"W"f÷'G6Bd”Åô4Äõ4TF²FVâ÷&–æFVÆ–vR·fÆ–f–6W&VFRç–RÖ†–ÖÖVÇ–Æ÷BW"–¶¶R:V&æWBâFVææRV·7Æ÷&F—fRf6R:fæG&W"–ævVâ·fÆ–f–¶F–öç6vFRörF–Æl;†¦W"–ævVâö'6W'fF–öâÂg&V·fVç6L:f¶æ–ærVÆÆW"†öÆF÷WB×fÆ–FW&–ærâVFv–gC¢¢£D´²¢£²çVÂç–RFVÆW6¶÷&WVW7G2à ¥µ&÷'EÒ†æÇ—6—2ö'W'7Eö÷&FW%ó##cöFVÆ—fW'’õ4UD•ô%U%5Eôõ$DU%ôd”äÅó##bÓÓæÖB’+r´æ’7÷%Ò†æÇ—6—2ö'W'7Eö÷&FW%ó##cöFVÆ—fW'’õDõ’æ77b’+r´†VÆRVF—GFVåÒ†æÇ—6—2ö'W'7Eö÷&FW%ó##cöFVÆ—fW'’ôTD•Ccæ77b’+r´çVÖW&—6²Ò†æÇ—6—2ö'W'7Eö÷&FW%ó##cõõ$T4T•Bæ§6öâ’+rµ&W&öGV·F–öåÒ†æÇ—6—2ö'W'7Eö÷&FW%ó##cõ$U$ôET5D”ôâæÖB’+r´öffVçFÆ–wBWf–FVç6–æFV·5Ò†æÇ—6—2ö'W'7Eö÷&FW%ó##cõT$Ä”5ôUd”DTä4Uô”äDU‚æÖB ¢ÒÒÐ ¢22F–FÆ–vW&R7FGW2ör&WFæ–ærÂ&Wf&WB\:fæG&W@ ¢24UD’(	Bf—&R×,:f¶¶W'2'W'7G–Æ÷Bg6ÇWGFWB+râö·Fö&W"##` ¢¢£#ƒ‚'W'7B×<;†vV¶÷'BÂãs’ãcC‚vV×FR¶æÆÖ·6–ÖörSBf7FR¶öçFV·7G&öf–ÆW"W"g6ÇWGFWBâ&VvvRçVÖW&—6¶RÖ¼;‡'6ÆW"ör&÷'FVç2f–wW&W"†"&W7L:VWB¶öçG&öÆÆVââ¢¢–Æ÷FVâçfVæFW"7—b÷fW&ÆVæFRf–æGVW"ÖVBf—&R–çFVw&F–öæW"ƒs2ÃB6V·VæFW"’’FRV·6—7FW&VæFRôdb×66ææ–ævW"b„•“s3’Â„•“sCcör„•“scc2g&#‚â&–Â#râ‡fW"&WFæ–æröÖfGFW"“b:Rf÷&Œ:VæBf7FÆwFRg&V·fVç6¶W&æW"Â6—&¶"ÃRRbFRscbF–FÆ–vW&RVæFW'<;†wFR¶W&æW"à ¤FWBŒ;†¦W7FRvV×FRÖ·6–×VÒW"¢£rÃ3Sƒb¢¢’„•“scc2fVB#3"Ã#cC3S"Ô‡¢âFWBW"VâV×—&—6²<;†vW66÷&S²–ævVâ¶Æ–'&W&WB6–vÖ×l:g&F’VÆÆW"fÇ6²ÖÆ&Ò×6æG7–æÆ–v†VBW"WF&ÆW&WBâæ’VGfÆwFR7÷"W"Ü:VÇBVFVâ&Vf—B’ÆÆR6V·2÷&–æFVÆ–vR66ææ–ævW":Rf—&R&WFæ–ævW"ÂÖVB6W&FRf—&R×,:f¶¶RÒörgVÆFRb×,:f¶¶R×66÷&W"â¢¤–ævVâ·fÆ–f–6W&WB4UD’ÖFWFV·F–öâÂç’g&V·fVç6L:f¶æ–ærÂç’ö'6W'fF–öâVÆÆW"&Æ–æBfÆ–FW&–ærW"WF&ÆW&WBâ¢¢66ææ–ævW"bæG&R7F¦W&æW"W"–¶¶RvVçFvVÇ6W"b6ÖÖRÜ:VÂà ¤FVâ\:fæG&VFRFWFV·F÷"æ÷&ÖÆ—6W&W"f÷'G6B:RÆÆRb,:f¶¶W#²–ævVâç’ôdbÖÖ6¶RVÆÆW"ôdb×fWFòW"çfVæGBâöÖfGFW"ãcvV×FR&–Ü:g&R,:W66÷&Vf÷&W7;‡&w6ÆW"ÂSB¶öçFV·7G&öf–ÆW"ó‚66÷&W"öræ’ÖF6‚F–ÂFR÷&–æFVÆ–vRf—&R×,:f¶¶R×66÷&W"â¶öçG&öÆÆVâbFVâVæFVÆ–vR66÷&RW"&WF–ævWBbFRvV×FRæ÷&ÖÆ—6W&–æw6¶öç7FçFW"örVF|;‡"–¶¶RVâVfŒ:fæv–rvVæ¼;‡'6VÂb†VÆR<;†vVv—GFW&WBà ¥&W7VÇFG¶¶VâW":R¢£ƒbãC“bã#SB'—FW2¢¢ÂÖVB¢£ã“3’&¶—fÖVFÆVÖÖW"¢¢¶öçG&öÆÆW&WBÖVB5$2ör4„#SbâFVâ–æFV†öÆFW"ÆÆRç–R¶÷'Bör,:V¶6ÆW#²FR‚÷&–v–æÆRƒRÖ¶ö×·FW"W"V·7FW&æRf÷'VG<:gFæ–ævW"âFVâöffVçFÆ–vRw&Vâ–æFV†öÆFW"¶–ÆFV¶öFRÂ&÷'FW"Âf–wW&W"ör¶öçG&öÆ·f—GFW&–ævW"ÂÖVç2†VÆR'&’×¶¶VâW"&Wf&WB6W&BâVFv–gC¢¢£D´²¢¢à ¢Òµ&÷'EÒ†æÇ—6—2ö'W'7CEó##cö6öçFW‡BöFVÆ—fW'•÷c2õ4UD•ô%U%5CEôd”äÅó##bÓÓæÖB¢Ò´æ’VGfÆwFR7÷%Ò†æÇ—6—2ö'W'7CEó##cö6öçFW‡BöFVÆ—fW'•÷c2õDõ’æ77b¢Ò³SB¶öçFV·7G&öf–ÆW%Ò†æÇ—6—2ö'W'7CEó##cö6öçFW‡BöFVÆ—fW'•÷c2ô4ôåDU…CSBæ77b¢Òµ&–Ü:g"çVÖW&—6²Ò†æÇ—6—2ö'W'7CEó##c÷÷&W7VÇG2õõ$T4T•Bæ§6öâ¢Ò´¶öçFV·7BÕÒ†æÇ—6—2ö'W'7CEó##cö6öçFW‡Bô4ôåDU…Eõõ$T4T•Bæ§6öâ¢Òµ¶¶V–FVçF—FWEÒ†æÇ—6—2ö'W'7CEó##cö6öçFW‡BöFVÆ—fW'•÷c2õ$U5TÅEõ4´tUõ$T4T•Bæ§6öâ¢Ò´öffVçFÆ–wBWf–FVç6–æFV·5Ò†æÇ—6—2ö'W'7CEó##cõT$Ä”5ôUd”DTä4Uô”äDU‚æÖB ¢ÒÒÐ ¢22F–FÆ–vW&R&ö¦V·F÷fW'6–wFW  ¢24UD’(	BS3bç–R¶÷'Bör¶öçG&öÆÆW&VFR6–væÇ&öf–ÆW"+râö·Fö&W"##` ¢¢£S3bç–R¶÷'BÂbã#“ãCSbvV×FR6'&–W"ÖÖ·6–ÖörSBf7FR¶öçFV·7G&öf–ÆW"W"g6ÇWGFWBÖVB&VvvRVfŒ:fæv–vRçVÖW&—6¶R¶öçG&öÆÆW"örvVææVÖ|:VVFRf–wW&W"â¢¢„•“s3’Â„•“sCcör„•“scc2†"l:VWBRÃƒS“3sRÔ‡¢V·7G&L:f¶æ–ær‡fW"’FW&W2÷&–æFVÆ–vRôdb×66ææ–ærg&#‚â&–Â#rà ¤FRFò7FF–öì:g&R¶ö×öæVçFW"fVB¢£##“rÃCc“3sRör#32Ã3#3#RÔ‡¢¢¢÷G,:fFW"7L:g&·B’ÆÆR6V·266ææ–ævW":Rf—&R7F¦W&æW&WFæ–ævW"âFRG&R&æ²Ó2×6¶&VÆöæW"&ÖÖW"FVâl;‡'7FR¶ö×öæVçB’÷GFR,:f¶¶W"Â6öÒ,:g&W"Ö–æG7B“’Ã“sbRbFW&W2÷6—F—fR†VÆR&÷‚Ö&–G&râFWBW"f÷&VæVÆ–wBÖVBfÆW&R<;†vW6¶&VÆöæW"öÖ·&–ærl:fÆÆW27V·G&Æ¶ö×öæVçFW"âFVâg—6—6¶R:W'6rW"–¶¶Rf7G6Ì:VWBâFW"W"¢¦–çFWB·fÆ–f–6W&WB4UD’ÖgVæB¢¢Â–ævVâ¶Æ–'&W&WB4å"ôdör–ævVâç’VfŒ:fæv–rvVæö'6W'fF–öâà ¤FVâgVÆFR&W7VÇFG¶¶RW"ÆWfW&WC¢33rãSƒRãs32'—FW2Â’ãCbÖVFÆVÖÖW"Â5$2ör4„#SbfW&–f–6W&WBâ&—3¢¢£D´²¢¢â´gVÆB&ö¦V·G7FGW5Ò…$ô¤T5Eõ5DEU2æÖB’à ¢Ò´VæFVÆ–r&÷'EÒ†æÇ—6—2ööfeöF¦6VçEó##cö6öçFW‡BöFVÆ—fW'’õ4UD•ôD¤4TåEôd”äÅó##bÓÓæÖB¢Ò´¶öçFV·7Ff–wW%Ò†æÇ—6—2ööfeöF¦6VçEó##cö6öçFW‡BöFVÆ—fW'’õ4UD•ô4ôåDU…CSEó##bÓÓçær’+rµF–G6&–G&uÒ†æÇ—6—2ööfeöF¦6VçEó##cö6öçFW‡BöFVÆ—fW'’õ4UD•õ$õuô4ôåE$”%UD”ôå5ó##bÓÓçær¢Ò´ÆÆRS3b¶W&æVÖ·6–ÖÒ†æÇ—6—2ööfeöF¦6VçEó##cö6öçFW‡BöFVÆ—fW'’ô4õ$UôÔƒS3bæ77b’+r´æ’&–Ü:g&RVGfÆuÒ†æÇ—6—2ööfeöF¦6VçEó##cö6öçFW‡BöFVÆ—fW'’õDõ’æ77b’+r³SB¶öçFV·7FW%Ò†æÇ—6—2ööfeöF¦6VçEó##cö6öçFW‡BöFVÆ—fW'’ô4ôåDU…CSBæ77b¢ÒµÖWf–FVç5Ò†æÇ—6—2ööfeöF¦6VçEó##cö6öçFW‡BöFVÆ—fW'’õõ5TÔÔ%’æ§6öâ’+rµ&W7VÇFG¶¶Vç2–FVçF—FWEÒ†æÇ—6—2ööfeöF¦6VçEó##cö6öçFW‡BöFVÆ—fW'’õ$U5TÅEõ4´tUõ$T4T•Bæ§6öâ¢Òµ&W&öGV·F–öâör,:VFF–FVçF—FWEÒ†æÇ—6—2ööfeöF¦6VçEó##cõ$U$ôET5D”ôåôäEôDDôd”Ä$”Ä•E’æÖB ¤l;†ÆvVæFR÷fW'6–wBW"&Wf&WB†—7F÷&–²à ¢ÒÒÐ ¢24UD’(	BsS2ç–R¶÷'B’G&R¶öçG&öÇ&WFæ–ævW"+râö·Fö&W"##` ¢¢£sS2ç–R<;†vV¶÷'BörSBf7FR¶öçFV·7FÜ:VÆ–ævW"W"g6ÇWGFWBÖVBVfŒ:fæv–rçVÖW&—6²örvVææVÖ|:VWB&÷'Börf–wW"â¢¢„•“s3’Â„•“sCcör„•“scc2†"‡fW":–â÷&–æFVÆ–rôdb×66ææ–ærg&&W<;†vWB#‚â&–Â#râÆÆR2ãƒBã#ƒ‚6'&–W"ÖÖ·6–ÖW"vV×Bà ¤FRæ’7L:g&¶W7FRVGfÆrÆ–vvW"fVBFVâF–FÆ–vW&R¶VæGFR¢£#3ã3“c#RÔ‡¢¢¢Ö¶ö×öæVçBâFW&W2<;†vWf–æGVW"÷fW&ÆW"&VfW&Væ6V¶æÆVâ’bóróB,:f¶¶W""â7F¦W&æS²Ö–æG7B“’Ã“C#bRbFVâ÷6—F—fR,:f¶¶VÖ76RÆ–vvW":R<:VFææR,:f¶¶W"âFWBW"f÷&VæVÆ–wBÖVBfÆW&R6¶&VÆöæW"öÖ·&–ær6ÖÖR¶ö×öæVçBâ†VÆR,:f¶¶V&ö·6RÜ:VÆW2Â<:RFWGFRf7G6Ì:W"–ævVâg—6—6²:W'6râFWBì:g7FVâ7FF–öì:g&R„•“sCc3×7÷"v—fW"7F÷&R66÷&W"’ÆÆR6V·266ææ–ævW"âFW"W"¢¦–ævVâç’·fÆ–f–6W&WB4UD’ÖFWFV·F–öâ¢£²66÷&W&æRW"–¶¶R¶Æ–'&W&WB2ôâVÆÆW"dÂör¶öçFV·7FW&æRv—fW"–¶¶Rç–R&W<;†rVÆÆW"VfŒ:fæv–vR&V·,:fgFVÇ6W"à ¥&÷'BÂf–wW"ör&W7VÇFG¶¶Vâ:RC’ãƒ3ã“ƒ'—FW2W"f·F—6²vV×BâÆÆRBãss2¤•ÖÖVFÆVÖÖW"W"¶öçG&öÆÆW&WBÖVB5$2õ4„örvVì:V&æWBf–Æ–FVçF—FWBâ÷&–v–æÂô"ör&W6·—GFVFR#bÖ¶öçG&öÆÆW"f÷&&Æ—fW"\:fæG&VFRâ¢£D´²¢¢à ¢Ò´g6ÇWGFVæFR&÷'EÒ‡FööÇ2÷&F–õ÷3#uö6öçG&öÅ÷F&vWG5ó##c÷c"öFVÆ—fW'’õ4UD•ô4ôåE$ôÅõD$tUE5ôd”äÅó##bÓÓæÖB¢Ò´f–wW%Ò‡FööÇ2÷&F–õ÷3#uö6öçG&öÅ÷F&vWG5ó##c÷c"öFVÆ—fW'’õ4UD•ô4ôåE$ôÅõD$tUE5ó##bÓÓçær¢Ò´ÆÆRsS2¶W&æVÖ·6–ÖÒ‡FööÇ2÷&F–õ÷3#uö6öçG&öÅ÷F&vWG5ó##c÷c"öFVÆ—fW'’ô4õ$UôÔƒsS2æ77b’+r´ÆÆRcF÷×÷7FW%Ò‡FööÇ2÷&F–õ÷3#uö6öçG&öÅ÷F&vWG5ó##c÷c"öFVÆ—fW'’õDõcæ77b’+r³SB¶öçFV·7FW%Ò‡FööÇ2÷&F–õ÷3#uö6öçG&öÅ÷F&vWG5ó##c÷c"öFVÆ—fW'’ô4ôåDU…CSBæ77b¢Ò´¶–ÆFW"örVgFW',;‡fæ–æuÒ‡FööÇ2÷&F–õ÷3#uö6öçG&öÅ÷F&vWG5ó##c÷c"öFVÆ—fW'’ôDDôd”Ä$”Ä•E’æÖB’+rµ¶¶W"örvVÖÖV·f—GFW&–ævW%Ò‡FööÇ2÷&F–õ÷3#uö6öçG&öÅ÷F&vWG5ó##c÷c"öFVÆ—fW'’ôDDõ4´tU2æ§6öâ ¢ÒÒÐ ¢24UD’(	Bg6ÇWGFWB6–væÇFW7BÂâö·Fö&W"##` ¢¢£CS¶öçG&öÆÆW&VFR<;†vV¶÷'BörSCF–væ÷7F–·÷7FW"W"g6ÇWGFWBÖVBVfŒ:fæv–rçVÖW&—6²â¢¢fVB‡fW'BbÒ2Âbör"76W&VFRÆÆRSB6ÖÆÆR6–væÇ7÷"FVâf7FÆwFRÆö¶ÆR&VvVÂâfVBÒf"FÆÆWBóSBâ’†VÆR¶W&æVâ&ÆWb3bóSB&ærfVB‡fW'BŒ;†¦W&Ræ—fVS²FVâ¶VæGFR#‚ÖÆ–æ¦R&V†öÆGBl;‡'7FWÆG6VââÆÆRC“b&VfW&Væ6V¶æÆW'2&W7VÇFFW"W"vV×Bà ¤FWBW"Vâf7B6–væÇFW7B:RFR6V·2¶VæGFR66ææ–ævW"g&#‚â&–Â#râFVâv—fW"–ævVâç’4UD’ÖFWFV·F–öâÂç’6·’ÒVÆÆW"&W<;†w6L:f¶æ–ærVÆÆW"¶Æ–'&W&WBvVæf–æF–æw<*×6æG7–æÆ–v†VBâ'&VFFR’W"VâÖ—6ÖF6‚×FW7Bâ÷&–v–æÂô"W"f÷'G6Bd”Åô4Äõ4TF²&W6·—GFVFR#bÖ¶öçG&öÆÆW"W"\:fæG&VFRâöÖ¶÷7Fæ–æs¢¢£D´²¢¢à ¢Òµ&÷'Bör&W&öGV·F–öåÒ‡FööÇ2÷&F–õ÷3#uö–æ¦V7F–öåó##cöFVÆ—fW'’õ4UD•õ4”täÅDU5Eó##bÓÓæÖB¢Ò´ÆÆR3f7FÆwFRw'WW%Ò‡FööÇ2÷&F–õ÷3#uö–æ¦V7F–öåó##cöFVÆ—fW'’ôÄÃ3ôu$õU2æ§6öâ¢ÒµVfŒ:fæv–rÒ‡FööÇ2÷&F–õ÷3#uö–æ¦V7F–öåó##c÷&W7VÇG2÷&Wf–Wrõõ$T4T•Bæ§6öâ¢Ò´FF¶¶W"ör–FVçF—FWEÒ‡FööÇ2÷&F–õ÷3#uö–æ¦V7F–öåó##cöFVÆ—fW'’ôDDõ4´tU2æ§6öâ ¢ÒÒÐ ¢24UD’(	B’âö·Fö&W"##c¢WFVçF—6²vVçFvWB7÷"†"G–FVÆ–rôdbÖÖöFÜ:VÆ–æp ¤f—&RF—7F–æ·FR&–÷&—FW&VFRfÖ–Æ–W"fVB¢£C#2Ã“SCcÂC#"ÃS“c#3RÂC#BÃC3“ƒ"örC#BÃCsÔ‡¢¢¢W"çR¶öçG&öÆÆW&WBF–G6÷Ì;‡7B’ÆÆR6V·266ææ–ævW"âôdb×,:f¶¶VÖ·6–ÖW"6ÖÖVæÆ–væVÆ–vRÖVBôâÂ<:RôâÖV·6¶ÇW6—f—FWBW"–¶¶RWF&ÆW&WBâ6VÇbC#BÃCsÔÔ‡¢ÖÆ–æ¦VâÂ6öÒ÷&–æFVÆ–wB·Vâvb:–âôâÖw'WR÷fW"FVâ&W6·&—fVæFR66÷&Vw,:fç6RÂ7L:W":R6ÖÖR¶æÂ’ÆÆRôâörôdbâ÷&–æFVÇ6W&æRf÷&&Æ—fW"Vf¶Æ&VFS²ôdb×&W7öç2W"ÖöBÖWf–FVç2Â–¶¶Rg—6—6²¶Æ76–f–¶F–öâà ¥³C#2Ã“SCcÔÔ‡¢×&W7VÇFEÒ†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâõ$D”õõ$UTDTEõE$4µóC#3“SCcó##bÓÓ•õ$U5TÅBæÖB’+r³C#"ÃS“c#3RÔÔ‡¢×&W7VÇFEÒ†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâõ$D”õõ$UTDTEôdTEU$UóC##S“c#3Uó##bÓÓ•õ$U5TÅBæÖB’+rµFò;‡g&–vRfÖ–Æ–W%Ò†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâõ$D”õõ$TÔ”ä”äuôdTEU$U5ó##bÓÓ•õ$U5TÅBæÖB’+r´·GVVÂ&ö¦V·G7FGW5Ò†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâõ$ô¤T5Eõ5DEU2æÖB’à ¤æÇ—6W&æRvVæ''VwFRFVâÆö¶ÆR66†RÂÌ:g7FR“bã“cl:g&F–W"ör''VwFR2Ãc#“SS"Ü:VÇFR5R×2–æFVâf÷"–¶¶R×&VgVæFW&VFR&W6W'fW&VFR5R×6V·VæFW"â–ævVâç–RFFÂFWFV·F÷'66÷&W"VÆÆW"&ÖWFW&fÖ–Æ–W"â6ÆFò"ã"ÃsSCR5R×2Â†W&b"ã&W6·—GFWBF–Â#âö·Fö&W"âô"f÷&&Æ—fW"d”Åô4Äõ4TBà ¢ÒÒÐ ¢24UD’(	B‚âö·Fö&W"##c¢F–væ÷7F–²örL:f¶æ–æw6w,:fç6W"Fö·VÖVçFW&W@ ¤ÆÆR"vV×FRVæ¶VÇB×,:f¶¶R×G&ç6–VçFW"÷fW&ÆWfW"âÆÆR–æ—F–ÇBvVægVæFæRì:g"Ôôdb×6–væÆW"Ö—7FW2fVBôdb×fWFó²:—B–FW&Æ–vW&Rf÷'<;†rÌ:RÆÆW&VFRVæFW"ôâ×L:g'6¶ÆVââ7L;†¦¶öçG&öÆÆW&æRvbçVÂôâÖ†—G2’3"7–çFWF—6¶Rf÷&Ì;†"ÂörÔUD„ôBw2266â×F"Ì:RVæFW"ôãâVfŒ:fæv–vR¶öçG&öÆÆW"bFRvV×FR¶÷'BÂF&VÆÆW"örvVöÖWG&–W"W"&W7L:VWBâô"f÷&&Æ—fW"fV¦ÆWC²FW"W"–ævVâç–R66÷&W2Â6–væÇG,:f²VÆÆW"·fÆ–f–6W&WBFVÆW6¶÷–Æ÷Bà ¥´F–væ÷7F–·&÷'Börf–wW&W%Ò†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâ÷&W7VÇG2÷&F–õöF–væ÷7F–75ó##c‚ôD”täõ5D”5õ$Uõ%BæÖB’+r´–FVÆæ—fVRfW'7W2&ö'W7BÖ·6–×VÕÒ†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâ÷&W7VÇG2÷&F–õöF–væ÷7F–75ó##c‚ôÔUD„ôEô4õdU$tRæÖB’+r´·GVVÂ&ö¦V·G7FGW5Ò†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâõ$ô¤T5Eõ5DEU2æÖB’à ¤FVâvÖÆRW&–öFW2g6ÇWFæ–ærW"¶Æ&v¦÷'B6öÒFFW&WBVF¶7BF–Â’âö·Fö&W"âFVâç–RÆâ6ÇWGFW"#âö·Fö&W"ÖVBfw,:fç6WBfW&–f–¶F–öâ’âö·Fö&W"â†—7F÷&–¶¶Vâl;†ÆvW"æVFVæf÷"à ¢ÒÒÐ ¢24UD’(	B‚âö·Fö&W"##c¢$d’ÖÖF6†æ–ævVç2&Vw,:fç6æ–ærFö·VÖVçFW&W@ ¤æÇ—6VâbFRvV×FR"Õ$d’×&W7FW"f—6W"ÂBÆÆRB÷fW&ÆWfVæFR7÷"†"VâG&–gFf÷'6¶VÂÂFW"VFVÇV¶¶W"FWB–æG7,;†§FVFR$d’×7÷"g&FW&W2F–ÆÆGFRôdbÖÖF6†fÖ–Æ–RâVâVfŒ:fæv–r¶öçG&öÂ&V·,:fgFW"VFVÇV¶¶VÇ6VâfVBÆÆRf—&RôdbÖ'&VFFW"âô"f÷&&Æ—fW"fV¦ÆWC²ÔUD„ôCcBW"g6ÇWGFWBör&W6·&—fVæFRÂörFVÆW6¶÷–Æ÷FVâW"–¶¶R·fÆ–f–6W&WBâFW"W"–ævVâç–R6–væÇG,:f²Â66÷&W2VÆÆW"ÖWFöF\:fæG&–ævW"à ¥µ&÷'BÂÆÆRB7÷"örf–wW%Ò†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâ÷&W7VÇG2÷&F–õ÷&f•öÆ–5öæÇ—6—5ó##c‚õ$d•ôäÅ•4•5õ$Uõ%BæÖB’+r´·GVVÂ&ö¦V·G7FGW5Ò†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâõ$ô¤T5Eõ5DEU2æÖB’+r´·GVVÇB'VFvWEÒ†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâ÷&W7VÇG2÷&F–õ÷&f•öÆ–5öæÇ—6—5ó##c‚ôäÅ•4•5ôÄTDtU"æ§6öâ’à ¥ÆæVâf÷'G<:gGFW"ÖVBvV×FR&Vw,:fç6æ–ævW"Âfw,:fç6WBfW&–f–¶F–öâ’âö·Fö&W"ör6ÇWG&÷'B#âö·Fö&W"â†—7F÷&–¶¶Vâl;†ÆvW"æVFVæf÷"à ¢ÒÒÐ ¢2·GVVÂ7FGW2(	B‚âö·Fö&W"##c¢ÖWFöFWVæFW'<;†vVÇ6Vâg6ÇWGFWC²ÆæVâf÷'G<:gGFW  ¤ÆÆRcBg&—6¶R7–çFWF—6¶RÔUD„ôBÖf÷'<;†rW"g6ÇWGFWB:–âværör†"&W7L:VWBFVâVfŒ:fæv–vR–çFVw&—FWG6vVææVÖvæs¢3ƒB¶÷'BÂã#ƒ'FVf·F†6†W2ör#ãS2ôdb×6ÖÖVæÆ–væ–ævW"âFWFV·F÷"ÂvVæW&F÷"örL:g'6¶ÆW"W"\:fæG&VFRâvVægVæB’ÆÆR·F—fRôã¢S"ócC²Ö–æG7B:—B·F—gBôã¢S’ócBâfVB–æG7,;†§FWB–FVÆæ—fVRó"óbó#Bf"ÄÂ×FÆÆVæR†Væ†öÆG7f—2bóbÂBóbÂbóbÂbóc²å’×FÆÆVæR"óbÂRóbÂbóbÂbóbâÆÆR2F'FR·F—fR66ç2’"6VÆÆW"Ì:RVæFW"ôã²–ævVâÆö¶Æ—6W&VFRvVægVæBÖ—7FVFW2fVBôdb’FVææR6–væÆ&æ²à ¥FÆÆVæRW"&W6·&—fVæFR&W7VÇFFW"g&:–â&VÆ—¦F–öâ"â,:f6—2f·F÷"Ö6VÆÆRÂfÆwBVgFW""ÖfV¦ÆVæRâ–FVÆæ—fVRW"–¶¶RÜ:VÇB4å"VÆÆW"fÇW‚âFW"W"–ævVâç’·fÆ–f–¶F–öâÂ¶Æ–'&W&WBvVæf–æF–æw66†æ6RÂ6·’ÖfÇ6²ÖÆ&Ò×&FRVÆÆW"Væ—fW'6VÂl;†Ç6öÖ†VG6w,:fç6Râör"f÷&&Æ—fW"d”Åô4Äõ4TC²"fV¦ÆW"f÷'G6BG&VF¦RÔôâÒÂ'&VFFR2Òör$d’Ö·&fVæRâ–ævVâFVÆW6¶÷–Æ÷BW"vöF¶VæGBÂör–ævVâç–R†–ÖÖVÇ7V·G&W"W":V&æWBà ¤FVâgVÆFRç–RÖWFöFW¶¶R&Wf&W"ÆÆRcB66V÷WGWG2ör3ƒB¶÷'B6×B¶ö÷&F–æF÷&Wf–FVç2Â6Æ–×2Â&÷Fö¶öÂÂFÖ—76–öç2örVF—C¢cR&¶—fW"örs6÷&Rv—F&Æö'2Â3BãsBãcSb'—FW2â&÷'FVâ†"6V·2ärõDbÖf–wW'"ÂcBÖ6VÆÂÔ55bÂ,:f6—6RF&VÆÆW"Âl;‡"öVgFW"ÔôdbvVægVæBörfV¦ÆWB"w2¶ö×ÆWGFR7L;†¢õ$d’öF–væ÷7F–²âFRvV×FR¶÷'Bör,:V†—G2W"¶÷'&VÆW&VFR6'&–W"×7f"Â–¶¶RVfŒ:fæv–vR¶æF–FFW"g&†–ÖÆVâà ¤†VÆRÖWFöFWæVÆWB&VÆ7FW2ÖVBRãCrÃ##c“ƒr5R×6V·VæFW"Âörbãc"ÃsSCR&W7FW&W"VgFW"F–FÆ–vW&RöÖ¶÷7Fæ–ævW"6×B\:fæG&WBã#×6V·VæFW'2f÷&&W&VFVÇ6W7&W6W'fF–öââf·F—6²&6†—fÂöVF—B÷&VæFW&–ærW"Ü:VÇB6öÒ¶ö×öæVçFW"bFVææR&W6W'fF–öã²–ævVâV¶VæGB†—7F÷&–²W"¶ÆGB¶ö×ÆWBÜ:VÇBör–ævVâ&W6W'fRW"F–Æ&vV&WFÇBâÆö¶Â&&V¦G6ÖRfVBg6ÇWFæ–æs¢sC’ãcsãs‚'—FW2ÂVæFW"‚v”"âÖ–æG7B"ã5R×6V·VæFW"W"&Wf&WBF–Â&÷'B÷&W&öGV·F–öâà ¤f÷'G<:gGFVÇ6Vâ’î(	3#âö·Fö&W"W"¶öæ·&WFRæÇ—6W"bvV×FRfV¦ÆÖV¶æ—6ÖW"örfw,:fç6æ–ævW"ÂFVâvÖÆRW&–öFW2<:g'6¶–ÇFRg6ÇWFæ–ær’âö·Fö&W"Âfw,:fç6WBfW&–f–¶F–öâb:—BvV×B&W7VÇFB’g&—6²&ö6W2’âö·Fö&W"ör6ÇWG&÷'B#âö·Fö&W"â&W&öGV·F–öæVâfW&–f–6W&W"¶÷'N(i&†—G2÷fWFòövVægVæC²FVâvVçFvW"–¶¶R,:R&W&ö6W76–ærVÆÆW"66÷&W2â–ævVâæFVâ&WGFVÇ6RÂç–R6–væÇG,:f²Âç’·fÆ–f–¶F–öç6&æ²ÂvÖÖVÂ†öÆF÷WBÖV·7öæW&–ærVÆÆW"WFöÖF—6²f÷&Ì:fævVÇ6RâFRÇV¶¶VFRFW7G2vVçFvW2–¶¶R6öÒFvÆ–wBg&V×6·&–GBà ¥´Fç6²&W7VÇFEÒ…$D”õôÔUD„ôEõ5ETE•ó##bÓÓ…õ$U5TÅBæÖB’+rµ&÷'Börf–wW&W%Ò‡&W7VÇG2÷&F–õ÷–Æ÷EöÖWF†öE÷&W÷'Eó##c‚ôÔUD„ôEõ5ETE•õ$Uõ%BæÖB’+r´ÖWFöFV&¶—f–æFV·5Ò‡–Æ÷E÷&÷Fö6öÅó##c‚öÖWF†öE÷7GVG•÷WÆöEö–æFW‚æ§6öâ’+r´"Ö&¶—f–æFV·5Ò‡–Æ÷E÷&÷Fö6öÅó##c‚÷fÆ–FF–öåö%÷WÆöEö–æFW‚æ§6öâ’+r´f·F—6²'VFvWEÒ‡–Æ÷EöÖWF†öE÷7GVG•ó##c‚÷÷7EöÖWF†öEöÆVFvW"æ§6öâ’+rµ&W&öGV·F–öç6¶öÖÖæFõÒ‡–Æ÷E÷&÷Fö6öÅó##c‚÷&Wf–WrôÔUD„ôEõ4dTEõ$U5TÅEõ$U$ôET5D”ôâæÖB’à ¢ÒÒÐ ¥F–FÆ–vW&RFFW&VFR÷7FW"l;†ÆvW"6öÒ†—7F÷&–²à ¢2·GVVÂ7FGW2(	B‚âö·Fö&W"##c¢FVâvöF¶VæGFRÖWFöFWVæFW'<;†vVÇ6R¼;‡&W  ¤FRcBg&—6¶RÂ&Ææ6W&VFRÔUD„ôBÖf÷'<;†rW"7F'FWB:–âværVgFW"gVÆBöffVçFÆ–rf7Fg'—6æ–ær’ƒ–V3sCc6SsCVcvF&CSs“&Ssc6#Cv3S##“ƒ–#RörfW&–f–6W&WBFÖ—76–öâ’VVfS&S6cSV3ƒC333CC“cfSƒvV6#3“6F3sc33“âFW"''VvW26ÖÖR\:fæG&VFRFWFV·F÷"ÂvVæW&F÷"örL:g'6¶ÆW"âVæFW'<;†vVÇ6VâW"&W6·&—fVæFRör¶â–¶¶R·fÆ–f–6W&RFVÆW6¶÷–Æ÷FVâVÆÆW"÷Œ:gfRô"ÖfV¦ÆVæRâ7F'B–ævVâ¶öæ·W'&W&VæFRvVæ¼;‡'6VÂÂç’&æ²VÆÆW"æFVâ&WGFVÇ6Rà ¤ÆÆR÷&–v–æÆR"Ö÷WGWG2W"çR&Wf&WB’C2FWFW&Ö–æ—7F—6¶R&¶—fW"ÖVBgVÆBf–Æ†6†Öæ–fW7Bör¶ö÷&F–æF÷&Wf–FVç3¢C’v—F&Æö'2Âsrã##’ãs'—FW2âFVâVfŒ:fæv–vR"Ö–çFVw&—FWG6¶öçG&öÂW"g6ÇWGFWC²FVâf–FVç6¶&VÆ–vR7FGW2W"f÷'G6Bd”Åô4Äõ4TBÖVBG&VF¦RÔôâÒÂ'&VFFR2Òör$d’ÖfV¦Ââ&VvvRVF—Ff÷'<;†rörÆÆR÷&–v–æÆR5RÖ·f—GFW&–ævW"W"&Wf&WBâ&6†—fÂ5RBÃCs‚–æF|:W"’FVâV·6—7FW&VæFRã#×6V·VæFW'2f÷&&W&VFVÇ6W7&W6W'fF–öã²FVææR&W6W'fF–öâW"–¶¶RF–Æ&vV&WFÇBVÆÆW"¶ÆGBÜ:VÇBF÷FÂà ¤ì:g7FR¶öæ·&WFRG&–âW"Bg6ÇWGFRÆÆRcBÔUD„ôBÖf÷'<;†r–æFVâf÷"bã5R×6V·VæFW"ÂvVææVÖ|:RFW&W2vV×FR¶÷'BörVFv—fRf·F—6¶R&W7VÇFFW"örf–wW&W"â–ævVâç–R†–ÖÖVÇ7V·G&W"W":V&æWBâÆæVâörFVâV·6—7FW&VæFRFvÆ–vRf÷'G<:gGFVÇ6R6ÇWGFW"#âö·Fö&W"à ¥´"Ö&¶—f–æFV·5Ò‡–Æ÷E÷&÷Fö6öÅó##c‚÷fÆ–FF–öåö%÷WÆöEö–æFW‚æ§6öâ’+r´"×&W7VÇFEÒ…$D”õõdÄ”DD”ôåô%ó##bÓÓ…õ$U5TÅBæÖB’+r´ÖWFöFW&÷Fö¶öÅÒ‡–Æ÷EöÖWF†öE÷7GVG•ó##c‚ôÔUD„ôEõ5ETE•õ44õRæÖB’à ¢ÒÒÐ ¥F–FÆ–vW&RFFW&VFR÷7FW"l;†ÆvW"6öÒ†—7F÷&–²à ¢2·GVVÂ7FGW2(	B‚âö·Fö&W"##c¢"fV¦ÆW#²ÖWFöFWVæFW'<;†vVÇ6R¶Æ&v¦÷'@ ¤ÆÆRC"g&—6¶R"Öf÷'<;†rW"g6ÇWGFWBÖVB–çF·FR÷WGWG2âFVâVfŒ:fæv–vRvVææVÖvær†"¶öçG&öÆÆW&WBƒS"¶÷'BÂ"ãƒC'FVf·F†6†W2örSRã3"ôdb×6ÖÖVæÆ–væ–æ}tÛŽm¢G§²ÚîÆ­y×÷'BÆ–fWF–ÖR6÷fW&vR&Vf÷&R6öç6–FW&–æröæRg&W6‚V–v‡BÖ–çWBVæv–æVW&–ær6öçG&öÂà¥Æâ&Wf—6–öâ##cV&VÖ–ç2¢¤$Äô4´TEõ$U$D”ôåõ$Ud”Ur¢£²gVÆÂ—VÆ–æRÀ¦æF—fRô…EEö†÷7BæB66–VçF–f–2VÆ–f–6F–öâ&VÖ–âfÇ6Râ#ró#BäõB5D•dDTC°¤„Cƒ“s326VÆV7FVC²„CCc„ôÄC²t£s#B&W6W'fS²7V7G&ö†öÆF÷WG2Væ÷VæVC²Å2W6VC°¤4„Tõ2Tå4TåBâ&Wf–Wr"ö7Fö&W#²6öç6öÆ–FFR’ö7Fö&W"v—F†÷WBW‡FVç6–öâà¤æòW‡FW&æÂÖW76vW2à ¢22ö7Fö&W#¢6÷W&6Rv÷&¶W"æB7WW'f—6÷"Æ–æ¶VC²gVÆÂW†V7WF–öâ7F—2&Æö6¶V@ ¥µF†R6÷W&6Rv÷&¶W"–çFVw&F–öâÂ–æFWVæFVçBVF—BæBÆöw5Ò…$D”õôäD•dUõc%õ4õU$4Uõtõ$´U%ô”åDTu$D”ôåó##bÓÓõ$U5TÅBæÖB§72¢£#b&VÆWfçB—F†öâFW7G2¢¢âF†R7W'&VçBVF—BfW&–f–W2“#6öFRf–ÆW2À§6—‚g&÷¦Vâ–çWG2æBÃcb¦ö–æVB'VçF–ÖRf–ÆW2âF†R6÷W&6Rv÷&¶W"&WVG0¦W†7B7GVÂ&wböVçf—&öæÖVçBÂ66RöFöÖ–âæBÖFW&–Æ—¦VBÖ6öFR6†V6·2&Vf÷&P§w&—F–ærFFâF†RFVF–6FVB7WW'f—6÷"6†V6·2–æFWVæFVçFÇ’–ææVB–×ÆVÖVçFF–öç0¦&Vf÷&RF—7F6‚æB&V6÷&G2VæF–ærÖV7W&VÖVçG2&Vf÷&Rf–ÆW7—7FVÒF—7÷6—F–öâà ¤7GVÂF—&V7B×v÷&¶W"æB7WW'f—6÷"&VgW6Â6öçG&öÇ2ÆVfRæò6÷W&6R÷"&W&F–öà¦–FVçF—G’â7WÆ–VBV&Æ–26Æ–×2&VÖ–âVçfW&–f–VBæBæöâÖWF†÷&—¦–ærâF–ç’÷'†à¦6öçG&öÂ&V6†W2FW&Ö–æÂT4„”ÄBÂ–æFWVæFVçFÇ’ö'6W'fVBF‡&÷Vv‚7WW'f—6÷"g7–æ2æ@§FW&Ö–æF–öã¢¢£ãS’2¢¢Â¢£Cã3Ö”"¢¢Ö†–×VÒ–æF—f–GVÂ×&ö6W72%52âF†—2—2F–ç¦6ö×öæVçB6öçG&öÃ²æògVÆÂ×6—¦R6÷W&6R÷"FVÆW66÷RæÇ—6—2†2'Vâà ¢¢¤æW‡C¢¢¢6ö×ÆWFRFÖ—76–öâf÷"F†R÷F†W"v÷&¶W"&öÆW2æBF†R÷WFW"'VçF–ÖRÀ¦f–æÆ—¦F–öâÂ7F÷&vR÷F–ÖR¦ö–ç3²F†VâV&Æ—6‚æBfW&–g’F†RW†7BW†V7WF–öà§&W&VB&Vf÷&RöæRg&W6‚V–v‡BÖ–çWBVæv–æVW&–ær6öçG&öÂâÆÂf—fR÷&–v–æÂ&Æö6¶W ¦6FVv÷&–W2&VÖ–â÷Vââ7W'&VçBÆâ&Wf—6–öâ##cF7F—0¢¢¤$Äô4´TEõ$U$D”ôåõ$Ud”Ur¢¢â#ró#BäõB5D•dDTC²„Cƒ“s326VÆV7FVC²„CCc„ôÄC°¤t£s#B&W6W'fS²7V7G&ö†öÆF÷WG2Væ÷VæVC²Å2W6VC²4„Tõ2Tå4TåBâ&Wf–Wp£"ö7Fö&W#²6öç6öÆ–FFR’ö7Fö&W"v—F†÷WBW‡FVç6–öââæòW‡FW&æÂÖW76vW2à ¢22ö7Fö&W#¢&W&F–öâVF—BæB&ö6W727WW'f—6–öâ–×&÷fS²Æ&vR'Vâ&VÖ–ç2&Æö6¶V@ ¥µF†R6÷'&V7F–öç2Â–æFWVæFVçBVF—BæBWf–FVæ6UÒ…$D”õôäD•dUõc%ô4ôÕ5Eõ$U$D”ôåôTD•Eó##bÓÓõ$U5TÅBæÖB§72¢£ƒ’&VÆWfçB—F†öâFW7G2¢¢âF†R–æFWVæFVçB7GVÂ&W&F–öâVF—BfW&–f–W0£“’6öFRÂf—fR–çWBæBÃcb¦ö–æVB'VçF–ÖRf–ÆW3²ÖFW&–Æ—¦VB6öFR÷FV×ÆFW0¦ÖF6‚âF†Rö'6W'fW"æ÷r&–æG2F†RÆVæ6†VB”B–æFWVæFVçFÇ’Â&÷VæG2–æ†W&—FVB×—P¦G&–âæB6×ÆW2ÂæB&WF–ç2G'WF†gVÂF—&V7BÖ6†–ÆBöFW66VæFçBF—7F–æ7F–öç2à¤g&W6‚FöÖ–âæB&W&VB÷FW&Ö–æÂ–FVçF—G’6†V6·2&VgW6R66R&VÆ&VÆ–ærà ¤FVF–6FVB7V'&VW"6ö×öæVçBW&Ö—G2f—†VBF–ç’&ö&W2öæÇ’â÷'†âæ@¦F÷V&ÆRÖf÷&²6öçG&öÇ2V6‚&V6‚FW&Ö–æÂT4„”ÄBæB&R–æFWVæFVçFÇ’ö'6W'fV@§F‡&÷Vv‚&V6V—Bg7–æ2æBFW&Ö–æF–öâB&÷WB¢£RÖ”"¢¢âF†—2FöW2æ÷BVÆ–g§F†RgWGW&R–çFVw&FVBv÷&¶W"ÂgVÆÂ×6—¦R†&æW72Â†÷7BÆVFvW"÷"66–VçF–f–2'VçF–ÖRà¥F†R÷&–v–æÂV–v‡BÖ–çWBÆâ&VÖ–ç2¢¤$Äô4´TEõ$U$D”ôåõ$Ud”Ur¢£²ÆÂÆ&vP¦VçG'—ö–çG27F’6Æ÷6VBâæòÖ†–×VÒ–çWBÂ&W6W'fF–öâÂ$är÷"FVÆW66÷R&VBà ¢¢¤æW‡C¢¢¢¦ö–âv÷&¶W"ÖÆWfVÂ–Ö×WF&ÆRV&Æ–2×&W&VB÷'VçF–ÖRö&wböVçf—&öæÖVç@¦FÖ—76–öâv—F‚F†RFVF–6FVB7WW'f—6÷"æB6ö×ÆWFR÷WFW"7F÷&vR÷F–ÖRöf–æÀ¦F—7÷6—F–öâÂ&Vf÷&RöæRg&W6‚V–v‡BÖ–çWB&W6÷W&6R6öçG&öÂâÆÂf—fR&Æö6¶W ¦6FVv÷&–W2&VÖ–â÷Vââ#ró#BäõB5D•dDTBÂ„Cƒ“s326VÆV7FVBÂ„CCc„ôÄBÀ¤t£s#B&W6W'fRÂ7V7G&ö†öÆF÷WG2Væ÷VæVBÂÅ2W6VBÂ4„Tõ2Tå4TåBâ&Wf–Wp£"ö7Fö&W#²6öç6öÆ–FFR’ö7Fö&W"v—F†÷WBW‡FVç6–öââæòW‡FW&æÂÖW76vW2à ¢22ö7Fö&W#¢ÖV7W&VBV&Æ–6F–öâ6ö×öæVçB76W0 ¥µF†R–×ÆVÖVçFF–öâæB–æFWVæFVçFÇ’VF—FVB&W7VÇEÒ…$D”õôäD•dUõc%ô5D”ôå5õT$Ä”4D”ôåó##bÓÓõ$U5TÅBæÖB¦FVÖöç7G&FR&VÂ#bÔÖ”"6÷W&6RV&Æ–6F–öâæB&VF&6²F‡&÷Vv‚F†Rf—†VBv—D‡V ¤7F–öç2V&Æ—6†W"Âv—F‚âFöÖ–2W‡V7FVB×&VçB'&æ6‚WFFRâ6ö×ÆWFP§V&Æ—6†W"%52v2¢£3ãƒ‚óS"Ö”"¢¢Âv—F‚¢£b…EE÷W&F–öç2¢¢æB¢£2ãc‚2¢¢à¥F†RW†7BV&Æ–2&V6V—G2&V6öç7G'V7BÆÂ&WVW7BæB&W7öç6R&öG’'—FW2à¢¢£#3’F&vWFVB—F†öâFW7G272¢¢âF†—2VÆ–f–W2öæRV&Æ–6F–öâ6ö×öæVçC°§F†R÷&–v–æÂgVæ7F–öç2ö'6W'f&–Æ—G’&Æö6¶W"&VÖ–ç2ÂæBgVÆÂG&ç7÷'BÀ¦V–v‡BÖ–çWB&W6÷W&6W2æB66–VçF–f–2FÖ—76–öâ&VÖ–â÷Vâà ¤6ö×7BfW&–f–W"fö–G2&WF–æ–ærV–v‡BÆ&vR6Æ–VçG2âöæR&VBÖöæÇ’Ö†–×VÐ¦–çWB76W2B¢£33"ãc‚óS"Ö”"¢¢âF†R¶V–v‡BÖ–çWB&W&F–öåÒ…$D”õôäD•dUõc%ô4ôÕ5EôT”t…Eõ$U$D”ôåó##bÓÓõ$U5TÅBæÖB¦—2V&Æ–6Ç’7V6–f–VBv—F‚¢£‚fö7W6VBæBRF¦6VçBFW7G276–ær¢¢Â'W@§&VÖ–ç2¢¤$Äô4´TEõ$U$D”ôåõ$Ud”Ur¢¢v—F‚WfW'’Æ&vRW†V7WF–öâ&÷WFR6Æ÷6VBâæòæF—fR66R—2&W6W'fVBâFVÆW66÷P§7V7G&ö†öÆF÷WG2&VÖ–âVæ÷VæVBÂæBF†R6W&FR¢£#ró#BfÆ–FF–öâ—2–æ7F—fR¢¢à¥F†W&R—2æò7W÷'FVBFVÆW66÷RÖæÇ—6—27F'BFFS²6öç6öÆ–FFR’ö7Fö&W §v—F†÷WBW‡FVç6–öâà ¢22ö7Fö&W#¢7GVÂG&ç7÷'B†26öæ7&WFRÆFf÷&Ò&Æö6¶W  ¥µF†R'VçF–ÖRFV6—6–öâæBÖV7W&VBWf–FVæ6UÒ…$D”õôäD•dUõc%õ%TåD”ÔUôDT4•4”ôåó##bÓÓõ$U5TÅBæÖB¦–FVçF–g’¢¤$Äô4´TEõÄDdõ$Õôô%4U%d$”Ä•E’¢£¢F†RFö7VÖVçFVBgVæ7F–öç2–çFW&f6P¦W‡÷6W2æò–æFWVæFVçB7GVÂÖ6ÆÆW"%52ÖV7W&VÖVçBÂæBF†R–ææVBÆö6Âv—@§öÆ–7’7WÆ–W2fWF6‚öæÇ’âæòæWrÆ—fRÖ†–×VÒ×6÷W&6R6÷W&–W"Ö’7F'BVçF–À§F†B6&–Æ—G’W†—7G2÷"6W&FVÇ’g&÷¦VâÖV7W&&ÆRÆö6ÂV&Æ—6†W"—2f–Æ&ÆRà ¤&WF–æVBÖFF—F†öâfW&–f–W"&WÆ’æ÷r76W2B¢£C3’ãSróS"Ö”"¢¢gFW §F†R¢£SCRãrÔÖ”"¢¢f–ÇW&Rv2&WF–æVBâ6W&FVÇ’&W6W'fVBGvòÖ6ÆÂF–À¦6ö×öæVçB76W27GVÂE’Ö†–×VÒÖVçfVÆ÷RFW7G3²6æöæ–6ÂF–Â7F÷&vR†0¦—G2÷vâÃ"Ã“bÖ'—FR†÷7B×&V6V—B&W6W'fRæB&VÖ–ç2Væ¦ö–æVBFòF†RgVÆÂ†÷7@¦ÆVFvW"â¢£#—F†öâæB#r¦f67&—BFW7G272¢¢ÂÇW2F‡&VRfW&–f–W"6†V6·2à¤g&W6‚7GVÂGvò×FööÂF–ÂÖöæÇ’&÷VæF'’&ö&R76VBgFW"–Ö×WF&ÆRV&Æ–0§&VF&6³¢BÃƒ“BÃCƒR&WVW7B'—FW2Â"ÃƒB&WÇ’'—FW2æB‚ãƒC2â—G2gVÆÂ&p§G&ç67&—B&V6öç7G'V7G2'—FRf÷"'—FS²—Bw&çG2æògVÆÂG&ç7÷'B÷"66–VçF–f–2WF†÷&—G’à ¥F†W&R—2æò7W÷'FVBFVÆW66÷RÖæÇ—6—27F'BFFRâgVÆÂG&ç7÷'BÂV–v‡BÖ66P§&W6÷W&6W2ÂæF—fR‡—6–6Â÷&V6÷fW'’õ$d’öçVÆÂ6öçG&öÇ2Â6W&FR#ró#BfÆ–FF–öà¦æBFVÆW66÷R7V—6—F–öâ÷G&–ÂFÖ—76–öâ&VÖ–â&WV—&VBâ„Cƒ“s326VÆV7FVBÀ¤„CCc„ôÄBÂt£s#B&W6W'fS²7V7G&ö†öÆF÷WG2Væ÷VæVBÂÅ2W6VBÂ4„Tõ2Tå4TåBà¤æòW‡FW&æÂÖW76vW2â6öç6öÆ–FFR’ö7Fö&W"v—F†÷WBW‡FVç6–öâà ¢22ö7Fö&W#¢6ÆÆW"×F–Â–çFVw&F–öâ76W2Ö†–×VÒ×6÷W&6RöffÆ–æR6öçG&öÀ ¥µF†R–×ÆVÖVçFF–öâæBW†7BWf–FVæ6UÒ…$D”õôäD•dUõc%õD”Åô”åDTu$D”ôåó##bÓÓõ$U5TÅBæÖB§72¢£ƒR—F†öâæB‚¦f67&—BFW7G2¢¢âg&W6‚#bÔÖ”"FWFW&Ö–æ—7F–26÷W&6P¦—2&V6öç7G'V7FVBF‡&÷Vv‚3‚&VÂÆö6Â&VG2æBöæR&VÂGW&&ÆRF–Â6fRà¥F†R6ö×ÆWFRöffÆ–æR6†RW6W2¢£SbócB6†&vVB6ÆÇ2¢¢ÂæB–æFWVæFVçFÇ¦ö'6W'fVB6ÆÆW"%52—2¢£C“ãRóS"Ö”"¢¢âF†RV&Æ–W"¢£S32ãS2ÔÖ”"¢¢f–ÇW&P¦æB&W&F–öâf–ÇW&R&R&WF–æVB6Æ÷6VBâæò6†&VB6v2VæÆ&vVBà ¥F†R6ö×7BF–Â&–æG2ÆÂ&rVçfVÆ÷R†6†W2ÂæBF–ÖR66÷VçF–ær6÷fW'0§&W&F–öâö7W7FöG’öö'6W'fW"v2âg&W6‚&÷7V7F—fRg&VW¦R–ç2“r6öFRÀ£b–çWBæBÃ3cb'VçF–ÖRf–ÆW3²ÆÂWF†÷&—G’&VÖ–ç2fÇ6RâF†R&W7VÇBW6W0¦Öö6²6öçG&öÆÆW"ö6öææV7F÷"W†6†ævW2æB66WG2öæRöffÆ–æR66RÂÆVf–ærF†P¦V–v‡BÖ66R&V6V—B”ä4ôÕÄUDRà ¢¢¤W†7B6öçF–çVF–öã¢¢¢VÆ–g’F†R7GVÂ4D²6ÆÆW"w2–æFWVæFVçFÇ’ö'6W'fV@¦ÖVÖ÷'’æB¦ö–æVB6öçG&öÆÆW"ö†÷7Bôv—B7W7FöG’ÂÇW2ÆVvÂÆ&vR×F–Â÷öÆÂöW66V@¦VçfVÆ÷R6†W2Â&Vf÷&Rg&W6‚Æ—fRÖ†–×VÒ×6÷W&6R6öçG&öÂâF†R7W'&VçBöæRÖ6ÆÀ§F–Â–ÆöBÆ–Ö—B—2CrÃcb'—FW2âÆ—fRöV–v‡BÖ66RW†V7WF–öâ&VÖ–ç26Æ÷6VC°£#ró#BäõB5D•dDTBâ„Cƒ“s326VÆV7FVBÂ„CCc„ôÄBÂt£s#B&W6W'fS²7V7G&æ@¦†öÆF÷WG2Væ÷VæVBÂÅ2W6VBÂ4„Tõ2Tå4TåBâ6öç6öÆ–FFR’ö7Fö&W"v—F†÷W@¦W‡FVç6–öâ÷"W‡FW&æÂÖW76vW2à ¢2236WFVÖ&W#¢6öæ7&WFR'&–FvR7F÷&vR76W3²gVÆÂ×6—¦R•2'VFvWBf–Ç0 ¥µF†R6öæ7&WFR'&–FvRÂ6÷W&6RÖÆöFW"æB6ö×ÆWFRWf–FVæ6UÒ…$D”õôäD•dUõc%ô%$”DtUó##bÓ’Ó3õ$U5TÅBæÖB§72¢£#Sr—F†öâæB3B¦f67&—BFW7G2¢¢â7GVÂ×FööÂ&ö&S—2&WF–æV@¤4Äõ4TBd”ÄTBgFW"âVæ6†&vVBGWÆ–6FRf–ÆRv2f÷VæBâF†R6÷'&V7FV@§6–ævÆRÖf–ÆR7F÷&R76W2g&W6‚&ö&S"&V6V—B&VF&6²æB–æFWVæFVçB7F÷&vP¦VF—Bâ6÷W&6RÖöæÇ’'VææW"ö'&–FvR–×÷'B&VfÆ–v‡BÇ6ò76W2à ¥F†R&VÂ'&ö¶W"66—G’6†Rƒ3bÃƒsRÃSr'—FW2ò#‚f–ÆW2’76W2Æö6Â†÷7@¦æB6W&FR—F†öâ7F÷&vRÖV7W&VÖVçG2Â'WB7W'&VçBFööÂ•2æVVG2BÆV7@¢¢£2ÃR6ÆÇ2æB2Ã"7W7FöG’—FV×2¢¢f÷"öæRÖ†–×VÒ×6—¦R66RâF†BW†6VVG0£cB6ÆÇ2W"66RÂS"F÷FÂ6ÆÇ2æB"ÃC‚—FV×2&Vf÷&RF—7F6‚âF†W6R&P¦6ö×öæVçBÖV7W&VÖVçG2Âæ÷Bâ–çFVw&FVBÆ—fR÷"V–v‡BÖ66RVÆ–f–6F–öâà ¤æWr&÷7V7F—fRg&VW¦R–ç2¢£ƒ“6öFRÂB–çWBæBÃ3cb'VçF–ÖRf–ÆW2¢£°¥4„#Sb““–#sC6“V6c66CcCVCV##s3C†3&SvCcfVcF&cc#“3“##ƒCcfFVcF6à¤WfW'’W†V7WF–öâ÷&W6W'fF–öâõ$är÷G&ç7÷'BVÆ–f–6F–öâfÆr&VÖ–ç2fÇ6Rà ¢¢¤W†7B6öçF–çVF–öã¢¢¢&WÆ6RW"Ö6‡Væ²FööÂ•2v—F‚&÷VæFVBG&ç7÷'@§F†Bf—G2F†RW†—7F–ærÆÆö6F–öç2ÂÖV7W&RF†R7GVÂ–çFVw&FVBF‚À§&÷vFRv÷&¶W"FVFÆ–æW2&Vf÷&R'&ö¶W"F—7F6‚æB6Æ÷6RF†RFV6Æ&V@§'VçF–ÖRö7W7FöG’÷fW&–f–W"&÷VæF&–W2âF†VâV&Æ—6‚÷&VB&6²âW†V7WF–öâ×VÆ–f–V@¦g&VW¦RæBfW&–g’6W&FR—'&Wfö6&ÆRV–v‡BÖ66R&W6W'fF–öâ&Vf÷&R$ärà£#ró#BäõB5D•dDTC²„Cƒ“s326VÆV7FVBÂ„CCc„ôÄBÂt£s#B&W6W'fRâ7V7G&æ@¦†öÆF÷WG2Væ÷VæVBÂÅ2W6VBÂ4„Tõ2Tå4TåBâ6öç6öÆ–FFR’ö7Fö&W"v—F†÷W@¦W‡FVç6–öââæòW‡FW&æÂÖW76vW2÷"æWr66–VçF–f–2&W7VÇG2à  ¢2236WFVÖ&W#¢6ö×ÆWFR÷&6†W7G&F–öâ6ö×öæVçB76W3²W†V7WF–öâ7F—26Æ÷6V@ ¥µF†R–çFVw&FVB–×ÆVÖVçFF–öâæBW†7B6ö×öæVçBWf–FVæ6UÒ…$D”õôäD•dUõc%õ%TääU%ó##bÓ’Ó3õ$U5TÅBæÖB¦&–æBF†RV–v‡Bf—†VBg&W6‚66W2Fò6ö×7B&6RWf–FVæ6RÂW‡Æ–6—B&VfW&Væ6P¦6Æ÷7W&RÂ‡—6–6ÂöWfÇVF–öâ7FvW2æB6–ævÆR7V×VÆF—fRV&Æ–6F–öâ&'&–W"à¤æW7FVBFVFÆ–æW2ÂW†7Bg&W6‚w&—FW"öÖWFFF&–æF–æw2Â–Ö×WF&ÆRG&VRG&fW'6ÂÀ¦gVÆÂf—6–&ÆRVçfVÆ÷R&V6V—G2æB6W&FR&÷VæFVB&V6V—Bôv—B×7ööÂ66÷VçF–æp¦&R6†V6¶VBâ¢£#b—F†öâæB#BöffÆ–æR¦f67&—BFW7G272â¢¢F†RçVÖW&–6ÂÀ¦WF†÷&—G’æBG&ç7÷'Bf—‡GW&W2&RW‡Æ–6—FÇ’FW7BÖöæÇ“²æò7GVÂæF—fR66RÀ§&W6W'fF–öâÂG&r÷"FVÆW66÷R&VBö67W'&VBà ¥F†RW‡æFVB&÷7V7F—fR'VçF–ÖRg&VW¦R–ç2¢£ƒƒR6öFRÂB–çWBæBÃ3c`§'VçF–ÖRf–ÆW2¢¢Â–æ6ÇVF–ær¦f67&—BæBÆö6Âv—BôæöFRôTÄbFWVæFVæ6–W2à¤—G24„#Sb—2“VV–Csv6fVC#fFVV&&&3&#C#F#ScsCs–C3&3Cc“SfC333#3ffS#“C–VCFCvà¤WfW'’W†V7WF–öâ÷&W6W'fF–öâõ$är÷G&ç7÷'BVÆ–f–6F–öâfÆr&VÖ–ç2fÇ6Rà ¢¢¤W†7B6öçF–çVF–öã¢¢¢VÆ–g’F†R6öæ7&WFRv÷&¶W"×FòÖ†÷7B'&–FvRæB&÷VæFV@¥—F†öâ÷FööÂ&V6V—BÂ7FFRæBv—B×7ööÂW'6—7FVæ6S²ÖV7W&RgVÆÂ×6—¦R%52÷7F÷&vP¦æB6Æ÷6RF†R'VçF–ÖR÷6÷W&6RÖÆöFW"&ööbâF†VâV&Æ—6‚÷&VB&6²æWp¦W†V7WF–öâ×VÆ–f–VB'VææW"¶'&ö¶W"g&VW¦RæBfW&–g’6W&FR—'&Wfö6&ÆP¦V–v‡BÖ66R&W6W'fF–öâ&Vf÷&Rç’$ärâF†—2&÷7V7F—fRf–ÆRg&VW¦R6ææ÷Bw&ç@§F†÷6RW&Ö—76–öç2â#ró#BäõB5D•dDTC²„Cƒ“s326VÆV7FVBÂ„CCc„ôÄBÂt£s#@§&W6W'fS²7V7G&ö†öÆF÷WG2Væ÷VæVBÂÅ2W6VBÂ4„Tõ2Tå4TåBâ6öç6öÆ–FFP£’ö7Fö&W"v—F†÷WBW‡FVç6–öââæòW‡FW&æÂÖW76vRà ¢2236WFVÖ&W#¢c"&W7F÷&W2C"ã3rÔÔ"&W÷'BÆöBv—F†–â‚Ö”  ¥µF†RfW'6–öæVBf÷&ÖBÂ&W7VÇBæB6ö×ÆWFRWf–FVæ6UÒ…$D”õõ…•4”4ÅôUd”DTä4Uõc%ó##bÓ’Ó3õ$U5TÅBæÖB§&W7F÷&RÆÂF‡&VRg&÷¦Vâ'—FRÖöæÇ’6æ6†÷G2W†7FÇ’Â–æ6ÇVF–ærGvòö`¢¢£C"Ã3cbÃ“"Æöv–6Â'—FW2¢¢âF÷FÂ6†&vVB66R7F÷&vR—2¢£BÃƒ#BÃ3r'—FW2¢¢À¦–æ6ÇVF–ærF†R6WfVâ÷&–v–æÂ&6R'F–f7G2Âv—F†–âF†RVæ6†ævVB¢£‚ÔÖ”"¢ §7F÷&VBÖ66RÆÆö6F–öââ¢£CbFW7G272ƒ"æWrÂ3BW†—7F–ær’â¢¢F†RÖV7W&V@¦'—FR×v÷&¶W"7F—fR&Vv–öâF¶W2‚ã3“sSR3²V²&ö6W72%52—2“BÃ3‚Ã33b'—FW2à¥F†RæWr&VFW"7G&V×2v†öÆR&W÷'G2v†–ÆR¶VW–ær–æF—f–GVÂFV6öFVBfÇVW0¦&÷VæFVBB#BÖ”"âöÆBc6öFRÂÆ–Ö—G2æB÷WF6öÖW2&RVæ6†ævVBà ¥F†—2VÆ–f–W2&WFVçF–öâ÷&W7F÷&F–öâöbF†Rf—†VB&6†—fVBÖ'—FR7G&W72ÆöBà¥&WVFVB÷&–v–æÂ6ögGv&R&V6V—fW"—'2&Ræ÷B–æFWVæFVçBÖV7W&VÖVçG3°§F†R6÷W&6R‡—6–6Â÷WF6öÖRæBw&W"&VÖ–âd”ÄTBö–æ6ö×ÆWFRâ—BæV—F†W ¦6ö×ÆWFW2F†RÖ—76–æræF—fR&W÷'Bæ÷"&VF–7G2g&W6‚Ö66R6ö×&W76–öâ÷ ¦gVÆÂæF—fR÷V&Æ–6F–öâ'VçF–ÖRâæò$ärÂæF—fR&VW†V7WF–öâ÷"FVÆW66÷R&VBà¢¢¤7W'&VçB6öçF–çVF–öã¢¢¢–çFVw&FRc"v—F‚F†RW†—7F–ærWfVçB÷&VçBæB&÷VæFV@§&VÖ÷FR&÷Fö6öÂÂF†Vâg&VW¦RöæRg&W6‚6ö×ÆWFRæF—fR‡—6–6Â÷&W6÷W&6P§VÆ–f–6F–öââF†Rc"&VçBF‚—2W‡Æ–6—FÇ’&VgW6VBVçF–ÂVÆ–f–VBà£#ró#B&VÖ–ç2äõB5D•dDTC²7V7G&ööÆB†öÆF÷WG2&VÖ–âVæ÷VæVBâÆÂöÆ@¦f–ÇW&W2Â7VçB–FVçF—F–W2Â†öÆG2ö6÷VçFW'2æB'VFvWG2W'6—7BâæòÖW76vW2÷ ¦FVÆVvF–öã²&Wf–Wr&÷VæB"ö7Fö&W"æB6öç6öÆ–FFR’ö7Fö&W"v—F†÷WBW‡FVç6–öâà ¢22#’6WFVÖ&W#¢6ö×ÆWFR&V6V—fW"Wf–FVæ6Rf–Ç2F†R7W'&VçBÆöv–6Â66—G ¥µF†R&VBÖöæÇ’66—G’FV6—6–öåÒ…$D”õõ$T4T•dU%ô44•E•ó##bÓ’Ó#•ôDT4•4”ôâæÖB¦W7F&Æ—6†W2¢£#’Ãƒ#ÃC3BÖ'—FRÆ÷vW"&÷VæB¢¢f÷"F†R¶æ÷vâ’Ãs“"ÖÖVÖ&W"&W÷'@§v—F‚—G2#Ãs‚&V6V—fW"VW&–W2Â&Vf÷&Rf–æÂÆ–2öFV6—6–öâö6ÇW7FW"Wf–FVæ6Rà¥F†R7W'&VçB‡—6–6Â&VFW"&VgW6W2Æöv–6ÂW‡ç6–öâ&÷fR¢£#BÖ”"¢¢â—G0§&Wf–÷W27F÷&vR526÷fW&VBöæÇ’F†R'F–Â&W÷'B&Vf÷&R&V6V—fW"Wf–FVæ6Rà¤&F6†–ær7VVG26ö×WFF–öâv†–ÆR&W6W'f–ær÷WGWB'—FW3²—B6ææ÷Bf—‚F†—0§6W&FR66—G’&ö&ÆVÒâæòöÆB‡—6–6Â6ö×WFF–öâ÷"æWrG&–Âv2'Vâà ¢¢¤7W'&VçB6öçF–çVF–öã¢¢¢VÆ–g’6ö×ÆWFRÆ÷76ÆW72&W&W6VçFF–öâf÷"F†—0¦¶æ÷vâv÷&¶ÆöBVæFW"Væ6†ævVB7F÷&VBÖ66Rö¦÷W&æÂ'VFvWG2&Vf÷&Rg&VW¦–æp¦æ÷F†W"æF—fRGFV×BâF†—27WW'6VFW2F†R–ÖÖVF–FRÖæWr×'Vâ–ç7G'V7F–öâ&VÆ÷rà¥F†R&÷VæB6öæ6W&ç2Æöv–6Â¥4ôâÂæ÷BF†RÖ–æ–×VÒ6—¦RöbF–ffW&VçB6ö×&W76V@¦f÷&ÖB÷"WfW'’gWGW&RG&râæòÆ–Ö—G2Â66–VçF–f–26WGF–æw2÷"öÆB÷WF6öÖW2&P¦6†ævVBâ#ró#B7F—2äõB5D•dDTC²FVÆW66÷R7V7G&æBöÆB†öÆF÷WG27F§Væ÷VæVBâÆÂ†öÆG2ö6÷VçFW'2ÂæòÖW76vW2öFVÆVvF–öâæB’ö7Fö&W"&VÖ–âà ¢22#’6WFVÖ&W#¢&V6V—fW"&F6†–ær&VÖ÷fW2&WVFVB–ÆöB†6†–æp ¥µF†R&V6V—fW"÷F–Ö—¦F–öåÒ…$D”õõ$T4T•dU%ô$D4…ó##bÓ’Ó#•õ$U5TÅBæÖB’&W6W'fW0¦ÆÂ66Æ"6–væGW&R÷&V6V—B'—FW2æB76W2RF&vWFVBFW7G2âöâGvòf—†V@¦æWrFWFW&Ö–æ—7F–26ögGv&Rv÷&¶ÆöG2ÂÃ#BVW&–W2fÆÂg&öÒ&÷WB"6V6öæG0§FòãB6V6öæG2âgVÆÂ6÷W&6Rö66†RfÆ–FF–öâ'Vç2B&÷F‚VæG2öbV6‚&F6ƒ°¦–Ö×WF&ÆR'—FRÖ&6¶VB'&—2&R&WV—&VBæBWfW'’÷&–v–æÂVW'’—2&WF–æVBà¥F†R66Æ"&—F†ÖWF–2—2Væ6†ævVBv–ç7BF†R–Ö×WF&ÆR&VçBà ¥F†—2—26ö×öæVçBÖV7W&VÖVçBÂæ÷BgVÆÂæF—fRÖ6†–â÷"ƒ×6V6öæB72à¢¢¤æW‡C¢¢¢g&VW¦RöæRg&W6‚6ö×ÆWFRæF—fR‡—6–6Â÷&W6÷W&6RVÆ–f–6F–öâÀ¦–æ6ÇVF–ærF†R6†ævVB6öFRÂ7FvRF–Ö–æræB6ö×ÆWFRf–ÇW&RöWf–FVæ6RGWF–W2à¥&VÖ÷FR66–VçF–f–2–çFVw&F–öâÂ#ró#BVÆ–f–6F–öâæBF†R6W&FRFVÆW66÷P§&÷Fö6öÂ&VÖ–â÷WG7FæF–ærâæòöÆB66Rv2&WÆ–VBÂæò$är÷"FVÆW66÷P§fÇVW2vW&R÷VæVBÂæBæò66–VçF–f–2Æ–Ö—G26†ævVBâ¶VWÆÂV&Æ–W"†öÆG2À¦6÷VçFW'2Â7VçB–FVçF—F–W2æBF†R’ö7Fö&W"VæGö–çBâæòÖW76vW2öFVÆVvF–öâà ¢22#’6WFVÖ&W#¢–Æ÷B&VÖ–ç2&Æö6¶VC²&W6÷W&6R&Wf–WrFVf–æW2F†R7&—F–6ÂF€ ¥µF†R&VF–æW72FV6—6–öåÒ…$D”õõ$TD”äU55ó##bÓ’Ó#•ôDT4•4”ôâæÖB’6ö×&W2F†P§V&Æ—6†VBVæv–æVW&–ærÖV7W&VÖVçG2v—F‚F†RVæ6†ævVB66–VçF–f–2ÆÆö6F–öç2à¥F†R'F–ÂæF—fR'&öB×6–væÂ66RFöö²##Bãs"2VæFW"—G2÷vâ#C×26°¦—BFöW2æ÷BVÆ–g’âƒ×266–VçF–f–2WfÇVF–öââF†RÆö6Â7F÷&vR72W6W0¦#BÔÖ”"66RÆÆö6F–öâÂv†W&V266–VçF–f–2WfÇVF–öç2†fR‚Ö”"â—G0£rÃC#RÃ3R66R'—FW2ÆVfRöæÇ’&—F†ÖWF–2†VG&ööÒf÷"7F–ÆÂ×VæÖV7W&VBgVÆÀ§‡—6–6ÂWf–FVæ6RâF†W6RF–ffW&VçBv÷&¶ÆöG26ææ÷B&RFFVB÷"W‡G&öÆFVBà ¢¢¤7W'&VçB6öçF–çVF–öã¢¢¢&–÷&—F—¦R6ö×ÆWFRæF—fR‡—6–6Â÷&W6÷W&6RfV6–&–Æ—G¦æBF†R–çFVw&FVB66–VçF–f–2FÖ—76–öâWf–FVæ6Râ&VÖ÷FRV&Æ–6F–öâ&VÖ–ç0¦æV6W76'’'WB6ææ÷BÆöæR÷VâF†R–Æ÷Bâv—fVâÆ–Ö—FVBf–Æ&ÆR6ö×WFRÀ¦Fòæ÷BÆVæ6‚æ÷F†W"6W&–W2öb—6öÆFVB7F÷&vRf—‡GW&W2âç’g&W6‚Æ—fP¦Væv–æVW&–ærv÷&²æVVG2f—†VB66÷RÂæWr–FVçF—F–W2æBV&Æ–2g&VW¦R÷&VF&6²à¥F†Vâ7GVÂ#ró#BVÆ–f–6F–öâæB6W&FRFVÆW66÷R7V—6—F–öâ÷G&–À§&÷Fö6öÂ&R7F–ÆÂ&WV—&VBâF†—27WW'6VFW2V&Æ–W"æW‡B×7FWv÷&F–ærÂæ÷BöÆ@§&W7VÇG2÷"ÆÆö6F–öç2âF†R&VBÖöæÇ’&Wf–Wr7&VFW2¦W&òG&–Ç2Â&æFöÒfÇVW2À§66÷&W2÷"FVÆW66÷R&VG2â¢£#ró#B&VÖ–ç2äõB5D•dDTBâ¢¢ÆÂ†öÆG2Â6÷VçFW'2À¦f–ÇW&W2ÂVæ÷VæVBFFÂæòÖW76vW2öFVÆVvF–öâæB’ö7Fö&W"&VÖ–âVæ6†ævVBà¤æò66†VGVÆVBF6²v26†ævVBà ¢22#’6WFVÖ&W#¢6ö×ÆWFRÆö6ÂWfVçBÖ¦÷W&æÂ÷‡—6–6Â†æFöfb76W0 ¥µF†RæWrWfVçB×7F÷&R&W7VÇEÒ…$D”õôUdTåEô44Uó##bÓ’Ó#•õ$U5TÅBæÖB’&W7F÷&W2ÆÀ¢¢£#"ó#"‡—6–6Â6æ6†÷G2æB#‚÷&–v–æÂ¦÷W&æÂfW'6–öç2¢¢W†7FÇ’âF†RÆ—fP¦¦÷W&æÂÂ–æ6ÇVF–ærWfW'’ö–çFW"fW'6–öâÂö67W–W2¢£#c2Ãs3B'—FW2¢¢âF†R6ö×ÆWFP¦66RÇW2¦÷W&æÂö67W–W2¢£rÃcƒ‚Ãsc’'—FW2¢¢Â–ç6–FRF†RVæ6†ævVB#BÔÖ”"66P¦æB‚ÔÖ”"¦÷W&æÂ&W6W'fF–öç2â¢£#rFW7G272â¢¢v†öÆRÖf—‡GW&RF–ÖR—2SRãsƒSCƒ‚2à ¥F†—2—26W&FRg&W6‚'—FRÖöæÇ’7F÷&vRÆÆö6F–öââF†RV&Æ–W"gVÆÂ×6æ6†÷@¦–çFVw&F–öâ&VÖ–ç24Äõ4TBd”ÄTBÂv—F‚ÆÂf–ÆW2æB6†&vW2&WF–æVBâF†P§&W6W'fVB6÷W&6R‡—6–6Â7FGW2æBæWr&VçBF—7÷6—F–öâ&VÖ–âd”ÄTB0§&WV—&VC²F†R52VÆ–f–W26ö×ÆWFR7F÷&vR÷&W7F÷&F–öâÂæ÷BæWr‡—6–6À§&W7VÇBâF†W&R&RæòæWr&æFöÒfÇVW2ÂæF—fR66÷&W2÷"‡—6–6ÂFV6—6–öç2à ¢¢¤W†7B6öçF–çVF–öã¢¢¢&–æBF†R6ö×ÆWFRÖV7W&VBWfVçB÷ö–çFW"÷‡—6–6Â&6†—fP¦–çFò&÷VæFVB&F6†VB&VÖ÷FRV&Æ–6F–öâæB–Ö×WF&ÆR&VF&6²Â&W6W'f–ærFöÖ–0¦Gfæ6VÖVçBÂÆ÷7B×&W7öç6R7F÷2æB7V×VÆF—fR'—FR÷F–ÖR66÷VçF–ærâF†R7W'&Vç@§V&Æ—6†W"—2Æö6ÂVæv–æVW&–æröæÇ’âgVÆÂæF—fR&V6V—fW"öÆ–2Wf–FVæ6RÂ‡—6–6À¦vFW2æB66–VçF–f–2Cóƒ×2F–Ö–ær&VÖ–âVçVÆ–f–VC²7F÷&vRÆöæRF¶W2&÷W@£S6V6öæG2âç’ÆFW"æF—fR'Vâ&WV—&W2æWrf—†VBg&VW¦RæBg&W6‚–FVçF—F–W2à¤¶VW¢£#ró#BäõB5D•dDTB¢¢ÂÆÂ&–÷"f–ÇW&W2÷7VçB–FVçF—F–W2ö†öÆG2ö6÷VçFW'2À§FVÆW66÷R7V7G&æBöÆB†öÆF÷WG2Væ÷VæVBÂæòÖW76vW2÷"FVÆVvF–öâÂæ@£’ö7Fö&W"6öç6öÆ–FF–öâv—F†÷WBW‡FVç6–öâà ¢22#’6WFVÖ&W#¢&VçBWf–FVæ6R–çFVw&F–öâ7F÷26fVÇ’B¦÷W&æÂ66—G ¥µF†R6Æ÷6VB–çFVw&F–öâ&W7VÇEÒ…$D”õõ…•4”4Åô44Uó##bÓ’Ó#•õ$U5TÅBæÖB§&Vv—7FW'2ÆÂ‡—6–6Âf–ÆW2VæFW"öæR&÷VæFVB&VçBÆÆö6F–öâÂv—F‚¢£p§76–ærFW7G2¢¢âF†Rf—†VBÆ&vR'—FRÖöæÇ’f—‡GW&R—2¢¤4Äõ4TBd”ÄTB¢£¢gVÆÀ¦¦÷W&æÂ6æ6†÷G2W††W7B÷&F–æ'’¦÷W&æÂ66—G’gFW"¢£’ó#"¢¢6†V6·ö–çG2à¤—G2ƒƒÖ'—FR÷WFW"f–ÇW&Rfö÷FW"7V66VVG3²F†R&VçB7F—2d”ÄTBæB7VçBà¤ÆÂ“66Rf–ÆW2Â“2÷&–v–æÂ¦÷W&æÂ&Wf—6–öç2æBf÷W"Væ6öÖÖ—GFVB‡—6–6À§'G2&R&WF–æVBâæòG&–Â—2&W'VâæBæòÆ–Ö—B—2&—6VBà ¥F†R&VBÖöæÇ’VF—B&W7F÷&W2WfW'’6öÖÖ—GFVBf–WræB÷&–v–æÂ¦÷W&æÂ&Wf—6–öà¦W†7FÇ’âF†RrÃ“S"Ã“r6æöæ–6Â¦÷W&æÂ'—FW2f—B¢£Ãƒ“bÖ'—FR&VBÖöæÇ¦†—7F÷'’&W&W6VçFF–öâ¢¢Âv—F‚WfW'’÷&–v–æÂ&W6W'fVBâF†—2FöW2æ÷BVÆ–g’¦Æ—fR–æ7&VÖVçFÂw&—FW"÷"6†ævRF†R÷&–v–æÂ–çFVw&F–öâf–ÇW&RâæòæWr&æFöÐ§fÇVW2ÂæF—fR66÷&W2Â‡—6–6ÂFV6—6–öç2÷"FVÆW66÷R&VG2ö67W"à ¢¢¤W†7B6öçF–çVF–öã¢¢¢–×ÆVÖVçBæB&÷7V7F—fVÇ’VÆ–g’GW&&ÆR–æ7&VÖVçFÀ§&VçB¦÷W&æÆ–ærf÷"G–æÖ–2'F–f7G2Â&WF–æ–ærÆÂ÷&–v–æÂ&Wf—6–öâ†6†W2À¦ÆÂö–çFW"fW'6–öç2Â7V×VÆF—fR'—FR÷F–ÖR6†&vW2æB7&6‚öÆ÷7B×&W7öç6RwV&G2à¥F†VâW6R6W&FRf—†VB7F÷&vRæÖW76Rf÷"F†RgVÆÂ#"×f–Wr†æFöfbâFòæ÷@§&W7VÖR–çFVw&F–öã÷"6öægW6R—G26ö×7B&VBÖöæÇ’&6†—fRv—F‚Æ—fR7F÷&Rà¥&VÖ÷FR66–VçF–f–2FFW'2ÂgVÆÂæF—fR‡—6–6ÂvFW2æBCóƒ×2F–Ö–ær&VÖ–à§VçVÆ–f–VC²¢£#ró#B7F—2äõB5D•dDTB¢¢âÆÂ&–÷"f–ÇW&W2Â7VçB–FVçF—F–W2À¦†öÆG2ö6÷VçFW'2ö†öÆF÷WG2ÂæòÖW76vW2÷"FVÆVvF–öâæB’ö7Fö&W"&VÖ–âVæ6†ævVBà ¢22#’6WFVÖ&W#¢&÷VæFVB‡—6–6ÂWf–FVæ6R7F÷&vR76W3²æòæF—fR&WÆ ¥µF†R6Æ÷6VB'—FRÖöæÇ’&W7VÇEÒ…$D”õõ…•4”4ÅôUd”DTä4Uó##bÓ’Ó#•õ$U5TÅBæÖB§&W7F÷&W2ÆÂ¢£#"ó#"¢¢6öç7G'V7FVBf–Ww2öbF†RV&Æ–W"f–ÆVB‡—6–6Â&W÷'Bà¥F†R7V×VÆF—fR66R6†&vR—2¢£rÃ3“ÃC32'—FW2¢¢Â–æ6ÇVF–ærF†R6WfVâW†—7F–æp¦'F–f7G2ÂVæFW"#BÖ”"âF†RFW&Ö–æÂfö÷FW"—2¢£cCB'—FW2¢¢â6W&FRbÔÖ” ¦f—‡GW&R6÷'&V7FÇ’&VgW6W2F†RgVÆÂ&W÷'B&Vf÷&Rw&—F–æræB&W6W'fW2—G2&–÷ ¦6†V6·ö–çBâ†—7F÷&–6Â‡—6–6Â÷WF6öÖW2&VÖ–âd”ÄTC²æV—F†W"7F÷&R6â&W7VÖRà ¢¢£c2FW7G272â¢¢F†R÷F–Ö—¦VB&VBÖöæÇ’FV6öFW"Ç6ò&W7F÷&W2ÆÂ#"²¦6öÖÖ—GFVBf–Ww2v—F‚WfW'’6Æ÷6VBf—‡GW&Rf–ÆRVæ6†ævVBâgVÆÂ÷&–v–æÂ6öFP§fW'6–öç2Â–æ—F–Âf–ÇW&W2ÂÆöw2æBÆ÷76ÆW726†V6·ö–çB&6†—fW2&R&WF–æVBà¤æòæWr&æFöÒfÇVW2ÂæF—fR66÷&W2Â‡—6–6ÂFV6—6–öç2÷"FVÆW66÷R&VG2ö67W"à¥F†—2VÆ–f–W2Æö6Â7F÷&vRöâF†Rö'6W'fVB'F–Â×&W÷'Bv÷&¶ÆöBöæÇ’à ¢¢¤W†7B6öçF–çVF–öã¢¢¢–çFVw&FRF†RVçF—&RG–æÖ–2Wf–FVæ6R–çfVçF÷'’–çFòF†P¦÷WFW"v÷&¶W"w2&÷7V7F—fR66RÆÆö6F–öâæB&÷VæFVBf–ÇW&R†æFÆ–ærÂF†Và¦ÖV7W&R6ö×ÆWFR&6†—fRV&Æ–6F–öâ÷&VF&6²âgVÆÂæF—fR&V6V—fW"öÆ–2Wf–FVæ6RÀ§&VÖ÷FR66–VçF–f–2–çFVw&F–öâæBCóƒ×2F–Ö–ær&VÖ–âVçVÆ–f–VBâç’ÆFW ¦Æ—fRVÆ–f–6F–öâæVVG2—G2÷vâf—†VBg&VW¦RæBg&W6‚–FVçF—F–W2â¶VWÆÂöÆ@¦f–ÇW&W2ö6÷VçFW'2ö†öÆG2ÂÆÂV–v‡B7VçB–FVçF—F–W2æB¢£#ró#BäõB5D•dDTB¢¢à¥FVÆW66÷R7V7G&æBöÆB†öÆF÷WG27F’Væ÷VæVC²æòÖW76vW2÷"FVÆVvF–öâà¤6öç6öÆ–FFR’ö7Fö&W"v—F†÷WBW‡FVç6–öâà ¢22#’6WFVÖ&W#¢æF—fR6†–âW‡÷6W2&V6V—BÖ—6ÖF6ƒ²f–ÆVB'Vâ&W6W'fV@ ¥µF†R6Æ÷6VBV–v‡BÖ66RVæv–æVW&–ær&W7VÇEÒ…$D”õôäD•dUô4„”åôTät”äTU$”äuó##bÓ’Ó#•õ$U5TÅBæÖB§&WF–ç2f÷W"6ö×ÆWFRTÕE’vW76–â&VfW&Væ6W2æB'&öBôâ66Rv—F‚’Ãs“ §&WF–æVBÖVÖ&W'2âF†B66Rf–ÆVB&V6W6RF†RæF—fRæBv†öÆRÖ6FVæ6R&V6V—fW §&V6V—G2W6RF–ffW&VçB¥4ôâæWvÆ–æR6öçfVçF–öç2âF‡&VRÆFW"66W2vW&Ræ÷@¦VçFW&VC²ÆÂV–v‡B&W6W'fF–öç27F’7VçBâF†W&RvW&R3ÃCSrÃ#ƒæWrvW76–à§fÇVW2ÂæòFVÆW66÷R&VG2æBæò&WG'’à ¥F†R÷7BÖ6Æ÷7W&R&V6V—B'&–FvR76W26—‚æWr&Vw&W76–öâFW7G2ÇW23B‡—6–6À¦f—‡GW&W3²—B†2æ÷B&VVâ&WÆ–VBöâF†R6Æ÷6VBæF—fR66RâF†RgVÆÂ66÷RÇ6ð¦f–Ç2—G2F—7F–æ7B‚ÔÖ”"f–ÇW&R&W6W'fS¢&WF–æVB6WGWöf–ÇW&RÖFW&–Â—0£RÃ3Ã#B'—FW2â&÷F‚f–ÇW&W2ÂÆÂSB÷&–v–æÂ¦÷W&æÂfW'6–öç2æBrWf–FVæ6P¦f–ÆW2&R&W6W'fVBÆ÷76ÆW76Ç’â‡—6–6Â&V6÷fW'’õ$d’öçVÆÂæB66–VçF–f–2Cóƒ×0¦'VFvWG2&VÖ–âVçVÆ–f–VC²f÷W"Væv–æVW&–ær&VfW&Væ6W26ææ÷B72R&æ²7WBà ¤æW‡C¢–çFVw&FRF†R6÷'&V7FVB&V6V—B'&–FvRv—F‚&÷VæFVBGW&&ÆR‡—6–6Â×7FvP¦Wf–FVæ6RæBW‡Æ–6—Bf–ÇW&R÷&W6÷W&6R66÷VçF–ærÂF†Vâ&F6‚F†RÖV7W&VBgVÆÀ¦&6†—fRâç’ÆFW"Æ—fRVÆ–f–6F–öâæVVG2g&W6‚–FVçF—F–W2æB—G2÷vâf—†V@¦g&VW¦R÷&W6W'fF–öââFòæ÷B&V÷VâF†—2æÖW76RÂ&V7–6ÆR—G2VæVçFW&VB66W2À§&—6RöÆB62÷"7F—fFR#ró#BâÆÂ&–÷"†öÆG2ö6÷VçFW'2æB’ö7Fö&W"&VÖ–âà ¤G&ç7&VçBÂ&W&öGV6–&ÆR6V&6‚f÷"–çFW&Ö—GFVçBæ'&÷v&æB6–væÇ27&÷70¦×VÇF—ÆRö'6W'f–ærWö6‡2âW†÷ÆæWBÖ÷F–öâ7WÆ–W2g&WVVæ7’ÖG&–g@¦‡—÷F†W6—3²—BFöW2æ÷BW7F&Æ—6‚v†W&Râö'6W'fVB6–væÂ÷&–v–æFVBà ¥F†R¢¦Æ–v‡B×6–Â„Å2’&W6V&6‚'&æ6‚¢¢W‡Æ÷&W2v†WF†W"&F–F–öâ76ö6–FV@§v—F‚&VÖVB&÷VÇ6–öâ6÷VÆBÆVfRFWFV7F&ÆR&F–ò÷"÷F–6Â6–væGW&W2à¥F†R7W'&VçBÅ2v÷&²W6W2DU52†÷FöÖWG'’FòVÆ–g’6V&6‚f÷"6†÷'BvÆ–çG2à¤æV—F†W"â÷F–6Â'&–v‡FVæ–æræ÷"&F–òG&–vvW"ÆöæRW7F&Æ—6†W2'F–f–6–Â÷&–v–âà ¢¢¥7F'B†W&S¢¶7W'&VçB7FGW2æB6öçF–çVF–öåÒ†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâõ$ô¤T5Eõ5DEU2æÖB’â¢  ¥F†R³"6WFVÖ&W"V&Æ–6F–öâ&V6÷&EÒ†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâõT$Ä”4D”ôåó##bÓ’Ó"æÖB¦Æ–æ·2F†R6ö×ÆWFRÅ3t2ôÅ3tB&VÆV6RæBF†R&W6W'fVB†—7F÷&–6Â&6†—fW2à ¢22v†W&RF†R&ö¦V7B7FæG0 ¢¢¤Å3tRDU52ÖöFVÂ6ö×&—6öâ6ö×ÆWFVBÂ"6WFVÖ&W"##bâ¢ ¤7&÷722Ãƒ—&VBFWfVÆ÷ÖVçBG&–Ç2öâ6Æ÷6VB6V7F÷"3"ÂF†R6öÖ&–æVBÖöFVÀ§&—6W2æöÖ–æÂ&V6÷fW'’g&öÒ2óCÂ"óCÂ#róCFò¢£‚óCÂ3róCÂCóC¢¢æ@§&V¦V7G2ÆÂ#÷&–v–æÂ6ö×7B—†VÂ6öçG&öÇ2âvV²×6–væÂ&V6÷fW'’æ@¦'&öFW"Ö6öçFÖ–æF–öâ&V¦V7F–öâ7F–ÆÂf–Ã²æòFWFV7F÷"—2F÷FVB÷"6æF–FFP§&öÖ÷FVBâF†R–æFWVæFVçBçVÖW&–6ÂVF—B76W2âµ&VBF†R&W7VÇBæBf–wW&UÒ†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâ÷&W7VÇG5öÇ3vUö¦ö–çBõ$Uõ%BæÖB’à ¢¢¤Å3tBDU52æö—6RF–væ÷6—26ö×ÆWFVBÂ"6WFVÖ&W"##bâ¢ ¥F†RF–vöæÂ—†VÂÖöFVÂÖ—76W27G&öær6æ6VÆÆF–öâ&WGvVVâ—†VÂfÇV7GVF–öç2à¤ÆÂ#÷&–v–æÂG&–ÂÖæö—6R&F–÷2&W&öGV6R7&÷723Bv–æF÷w2–âFVâ6†&V@¦&6¶w&÷VæG3²V–v‡BæÇ—F–6ÂFW7G2æBF†R6÷f&–æ6RVF—B72âF†—2—0¦ÖWF†öBFWfVÆ÷ÖVçBv—F‚æòæWr6æF–FFR÷"F÷FVBFWFV7F÷"âÅ3tR7V'6WVVçFÇ¦6öÖ&–æVB6÷f&–æ6RÂ&W6–GVÂ†æFÆ–æræB'&öFW"çV—6æ6R6öçG&öÇ2öâF†P¦6Æ÷6VBFFâµ&VBF†R&W7VÇBæBf–wW&UÒ†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâ÷&W7VÇG5öÇ3vEöæö—6Rõ$Uõ%BæÖB’à ¢¢¤Å3t2DU52VÆ–f–6F–öâ6ö×ÆWFVBÂ"6WFVÖ&W"##c¢F†R¦ö–çBFW7Bf–ÆVBâ¢ ¥F†Ræö—6RÖv&R—†VÂÖWF†öB6ö×ÆWFVBÃCcF–v—FÂG&–Ç2÷fW"‚ãs‚6V&6†&ÆP¦6FVæ6RÖF—2öbÂ“‚ÓS’6V7F÷"3"âÆÂÆææVBÖF6†VB×7G&VæwF‚FW7G2&V6‚F†P§67&VVæ–ærF‡&W6†öÆBÂ'WB7FVÆÆ"&V6÷fW'’—2–ç7Vff–6–VçBæBbó#6ö×7@§—†VÂ6öçG&öÇ2&R66WFVBâÆÂ3#RæF—fRW†7W'6–öç2f–Â7F–Â67&VVæ–æs°¦æòÅ26æF–FFR—2&öÖ÷FVBâÅ3tBæBÅ3tR7V'6WVVçFÇ’W†Ö–æVB6÷f&–æ6P¦æB&W6–GVÂ6öçFÖ–æF–öâöâF†W6R6Æ÷6VBFFà¥µ&VBF†R&Wf–WvVB&W7VÇEÒ†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâ÷&W7VÇG5öÇ3v5÷FW72õ$Ud”UræÖB’à ¢¢¤ÓC4’æF—fRWfÇVF–öâ—26ö×ÆWFS¢¢¢F†Rf—†VB6öÖ&–æVB'VÆRf–ÆVBF†R&VFV6Æ&VB6ÖR×6WVVæ6RæF—fR6†ÆÆVævRâ—B&V6÷fW&VBS2ócB6–væÂ66W2æBÆ÷7BóS26–væÇ2&WV—&VB'’F†R&VfW&Væ6RVæ–öââóC‚6öçG&öÇ2æBó#‚æF—fRçVÆÂ66W2†B7W'f—f–ærÖVÖ&W'2à¥F†RÖöFVÂ&VÖ–ç2VæF÷FVC²ÆÂ–çWG2W6RöæRö'6W'f–ær6WVVæ6Rà¥µ&VBF†R6ö×ÆWFR&W7VÇEÒ†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâôÔ”ÄU5DôäUóC4•ôäD•dUõdÄ”DD”ôåõ$U5TÅBæÖB’à ¤ÓC4bw2g&÷¦Vâ¦ö–çB&W7öç6R'VÆRf–ÆVBVÆ–f–6F–öã¢æöæRöbF†RÃS`§FW7FVB&÷VæF&–W2ÖWBÆÂ&WV—&VÖVçG2âF†R6ö×ÆWFR¢£S"×&V6÷&B7GVG’æ@¦—G2Æ÷76ÆW72&6†—fR&Ræ÷rV&Æ–2¢£¢c’'G2&W7F÷&RS‚÷&–v–æÂf–ÆW2À§fW&–f–VB'—FRf÷"'—FRâF†R÷&–v–æÂÓC4b†VÆBÖ÷WBæVÇ2&VÖ–âVæ÷VæVBà¥µ&VBF†R6ö×ÆWFR7GVG•Ò†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâôÔ”ÄU5DôäUóC4eõ$U5ôå4Uõ5ETE•õ$U5TÅBæÖB’à ¥F†W&R—2æòæWrÓC4b7G&öæöÖ–6Â6æF–FFR÷"F÷FVBFWFV7F÷"âF†RV&Æ–W ¢¢¤Ó32„B3cSföÆÆ÷r×WBC#Bã“3C#3ƒ3ƒ"Ô‡¢&VÖ–ç2Vç&W6öÇfVB¢¢ÂVæF–ærà¦–æFWVæFVçBö'6W'f–ær6FVæ6Râ—B—2æ÷BFWFV7F–öâ÷"FV6†æ÷6–væGW&R6Æ–Òà §Â&VB÷"FòÂVçG'’ö–çBÀ§ÂÒÒ×ÂÒÒ×À§Â6öçF–çVRF†R7F—fRv÷&²Â´7W'&VçB&ö¦V7B7FGW5Ò†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâõ$ô¤T5Eõ5DEU2æÖB’À§Â–ç7V7B7W'&VçBDU52v÷&²Â´Å3tR6öÖ&–æVBFWfVÆ÷ÖVçEÒ†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâ÷&W7VÇG5öÇ3vUö¦ö–çBõ$Uõ%BæÖB’Â´Å3tBæö—6RF–væ÷6—5Ò†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâ÷&W7VÇG5öÇ3vEöæö—6Rõ$Uõ%BæÖB’Â´Å3t2&Wf–WvVB&W7VÇEÒ†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâ÷&W7VÇG5öÇ3v5÷FW72õ$Ud”UræÖB’Â¶g&÷¦Vâ&÷Fö6öÅÒ†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâôÅ3t5õDU55õ$õDô4ôÂæÖB’ÂæB·&Wf–÷W2Å3t"&W7VÇEÒ†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâ÷&W7VÇG5öÇ3v%÷FW72õ$Ud”UræÖB’À§Â–ç7V7BF†RÆFW7BæF—fRWfÇVF–öâÂ´ÓC4’&W7VÇEÒ†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâôÔ”ÄU5DôäUóC4•ôäD•dUõdÄ”DD”ôåõ$U5TÅBæÖB’À§Â–ç7V7BF†R6W&FR†—7F÷&–6ÂDU52FWfVÆ÷ÖVçBÂ´Å3t26V7F÷"#’&6†—fS¢Ã3&WG&÷7V7F—fRG&–Ç5Ò†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâö&6†—fW2öÇ3v5÷6V7F÷##•öFWfVÆ÷ÖVçBõ$TDÔRæÖB’À§ÂVæFW'7FæBF†Rf–ÆVBG&–æ–ær'VÆRÂ´ÓC4bG&–æ–ær&W7VÇEÒ†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâôÔ”ÄU5DôäUóC4eõE$”ä”äuõ$U5TÅBæÖB’À§Â–ç7V7BF†Rg&÷¦Vâ66–VçF–f–2ÖWF†öBÂ´ÓC4bW†V7WF&ÆR&÷Fö6öÅÒ†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâôÔ”ÄU5DôäUóC4eôU„T5UD$ÄUõ$õDô4ôÂæÖB’À§Â&W7F÷&RW†—7F–ærÓC4bWf–FVæ6RÂ´ÓC4b6öçF–çVF–öåÒ†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâôÓC4eô5U%$TåEô4ôåD”åTD”ôâæÖB’À§ÂföÆÆ÷rF†RV&Æ–W"÷Vâ66RÂ´Ó326æF–FFR–çfW7F–vF–öåÒ†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâôÔ”ÄU5DôäUó35ô4äD”DDUô”ådU5D”tD”ôâæÖB’À§ÂVæFW'7FæBF†RÆöær×FW&ÒÆâÂµ&ö¦V7BF—&V7F–öåÒ†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâõ$ô¤T5EôD•$T5D”ôâæÖB’À§Â&Wf—6—BV&Æ–W"&F–òÅ2v÷&²Â´Å3b&W7VÇEÒ†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâôÅ3eõE$•5Cõ$U5TÅBæÖB’æB´Å3d&W7VÇEÒ†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"öÓC2×7W÷'B×VÆ–f–6F–öâôÅ3dõ44åôTäEõ$U5TÅBæÖB’À§Â&VBF†RgVÆÂÖ–ÆW7FöæR†—7F÷'’Â´&6†—fVB$TDÔR&Vf÷&R6ÆVçWÒ†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚ö&Æö"óc&CsccFfVV&VVVc3cvcvC#6#ƒfC36SCBõ$TDÔRæÖB’À ¢22v÷&¶–ærv—F‚F†R&W÷6—F÷' ¤7W'&VçB66–VçF–f–2FWfVÆ÷ÖVçB—2öà¥¶ÓC2×7W÷'B×VÆ–f–6F–öæÒ†‡GG3¢òöv—F‡V"æ6öÒöæFW'6VæÖ'F–âÖ&Æ—÷6WF—6V&6‚÷G&VRöÓC2×7W÷'B×VÆ–f–6F–öâ’à¥F†RÖ–â'&æ6‚&÷f–FW2F†—2÷fW'f–WræBV&Æ–W"—VÆ–æR6öFRà¥W6RF†R7W'&VçB7FGW2Fò6VÆV7BF†R6÷'&V7B'&æ6‚æBWf–FVæ6R&6†—fRà ¤6Æ÷6VBWfÇVF–öç2&R&W7F÷&VBg&öÒF†V—"6VÆVB&V6÷&G2âf÷"W†7BÓC4`¦&6†—fR&W7F÷&F–öâÂW6RF†R&V6÷&FVB—F†öâ2ã"ãBò¦Æ–"ã2ã"æBg&÷¦Và¦FWVæFVæ6–W2â†—7F÷&–6Â&W&öGV7F–öâ6öÖÖæG2Ç’FòF†V—"æÖVBÖ–ÆW7FöæW3°§F†W’&Ræ÷B6öÖÖæG2Fò&W7F'BF†R7W'&VçBv÷&²à ¥F†R&6†—fRÆ–æ²&W6W'fW2F†R&Wf–÷W2gVÆÂ$TDÔRæBÆÂ—G2Ö–ÆW7FöæP§7VÖÖ&–W2â—G2(	Æ7W'&VçN(	ÒÆ&VÇ2æB(	ÆæW‡B7FW(	Ò–ç7G'V7F–öç2FW67&–&RF†V— ¦†—7F÷&–6ÂFFW2âF†R7W'&VçBv÷&²VWVR—2Ö–çF–æVB–â$ô¤T5Eõ5DEU2æÖBà  
+# SETI â€” svage komplette spor rangeret Â· 14. oktober 2026
+
+Den kendte komplette fire-bin-bane er rangeret i alle 1.512 svage indsprÃ¸jtninger fra den eksakte native-familie. Top 5 bevarer 1.400/1.512 og alle 43 tidligere fuldâ†’partiel-tab, men er en efter-eksponering valgt udviklingsregel, ikke en valideret detektorÃ¦ndring. Separat QA bestod 21.189 kontroller uden afvigelse. De 14 gemte vandfald giver ingen utvetydig 16-rÃ¦kke-ryg eller fast-banegenfinding i de fem andre scanninger.
+
+[Kort rapport](RADIO_WEAK_TRUTH_RANK_2026-10-14.md) Â· [Resultat](analysis/weak_truth_rank_20261014/results/SUMMARY.json) Â· [Alle rangeringer](analysis/weak_truth_rank_20261014/results/TRIAL_RANKS.csv) Â· [QA](analysis/weak_truth_rank_20261014/results/QA_RECEIPT.json)
+
+**Ingen kvalificeret SETI-detektion, ny observation eller ny frekvensdÃ¦kning.** A/B forbliver `FAIL_CLOSED`; 2016/2019-gates og slutcheckpoint 20. oktober er uÃ¦ndrede.
+
+---
+
+## Tidligere projektstatus, bevaret uÃ¦ndret
+
+# Aktuel SETI-status - 13. oktober 2026: 48 nye faste rÃ¥profiler fra mÃ¥lstjernens valg
+
+**MÃ¥lstjernens 9.412.608 gemte ON-carrier-vindere er nu globalt kontrolleret; 7.083 rammer DC og 9.405.525 passerer den faste geometriregel.** TOP3 er valgt separat for hver af de tre HIP98505/HD189733 ON-scanninger. Otte valgte baner er nye i forhold til den tidligere OFF-opfÃ¸lgning; den niende er den kendte stationÃ¦re 2300 MHz-komponent.
+
+48 nye faste profiler og 48 fulde normaliseringer er mÃ¥lt i de seks eksisterende scanninger, mens seks prÃ¦cise 2300 MHz-profiler genbruges med hashes. De otte nye valg har egne scorer 6,542-6,954; samme baner i de Ã¸vrige ON-scanninger ligger fra -1,339 til 0,939 og i OFF fra -2,448 til 1,291. Der er ingen etableret fast-banegenfinding i de Ã¸vrige ON-scanninger. Resultaterne er beskrivende efter udvÃ¦lgelse, uden kalibreret SNR eller FAP.
+
+UdvÃ¦lgelses-QA bestod 231.099 eksakte checks. RÃ¥-QA verificerede 18 kompakte kildefiler, 288 decoded rÃ¦kkehashes og alle 48 nye fulde normaliseringer og profiler. NumPy-reproduktion uden HDF5 bestod 6.239 checks. En indledende metadata-only QA-formatfejl er bevaret og rettet fÃ¸r arrays eller scorer blev lÃ¦st; producentdata og numeriske formler er uÃ¦ndrede.
+
+[Resultat og afgrÃ¦nsning](analysis/on_cached/RESULTS.md) Â· [Kort rapport](analysis/on_cached/delivery/SETI_MAALSTJERNE_2026-10-13.pdf) Â· [Alle ni valg og 54 kontekster](analysis/on_cached/delivery/SELECTED9_CONTEXT54.csv) Â· [Reproduktion](analysis/on_cached/reproduction/README.md)
+
+**Ingen kvalificeret SETI-detektion. 0 DKK, nul nye teleskoprequests, original A/B FAIL_CLOSED.** Dette er det samme historiske besÃ¸g fra 28. april 2017, uden ny observation eller frekvensdÃ¦kning. Beskyttede 2016-kontroller og den lukkede 2019-adgangsrute er uÃ¦ndrede. Formelt checkpoint: 20. oktober 2026.
+
+---
+
+# Aktuel SETI-status - 12. oktober 2026: alle 9,38 millioner gemte kanalmaksima kontrolleret
+
+**9.375.744 gemte per-carrier-vindere er nu gennemgÃ¥et i alle 2.289 kort.** 5.901 vinderbaner rammer DC, og 9.369.843 passerer den fastlÃ¥ste geometrikontrol. Global TOP3 pr. OFF-stjerne giver prÃ¦cis de samme ni tupler, rangtal og scorer som fÃ¸r. Der genfindes 55.539 vinderbaner uden DC-kontakt i de 15 kerner med et DC-ramt kernemaksimum; ingen overtager en top-3-plads.
+
+UafhÃ¦ngig QA verificerede alle kort, vinderbaner og lister med 197.106 eksakte sammenligninger uden afvigelser. De 54 eksisterende kontekstprofiler genbruges med eksakte geometri- og byteidentiteter; der er ingen nye rÃ¥mÃ¥linger eller normaliseringer. Den bÃ¦rbare kontrol bestod 2.048 sammenligninger. En metadatarettelse i kontekst-QA og dens fÃ¸rste fejlkvittering er bevaret.
+
+[Resultat og afgrÃ¦nsning](analysis/carrier_followup/RESULTS.md) Â· [Kort rapport](analysis/carrier_followup/delivery/SETI_KANALMAKSIMA_2026-10-12.pdf) Â· [Udvalg](analysis/carrier_followup/ranking/SELECTED_TOP9.csv) Â· [Reproduktionsvejledning](analysis/carrier_followup/reproduction/README.md)
+
+Der er fortsat ingen kvalificeret SETI-detektion. 2300 MHz-komponenten er tidligere mÃ¥lt i alle seks scanninger pÃ¥ fire stjerneretninger; syv Ã¸vrige spor er ubekrÃ¦ftede. DomÃ¦net omfatter kun allerede gemte vinderhypoteser; rene ikke-vindende alternativer ved DC-ramte carriers kan stadig vÃ¦re skjult. Ingen ny observation eller frekvensdÃ¦kning. **0 DKK, nul nye teleskoprequests, original A/B FAIL_CLOSED og beskyttede 2016-kontroller lukkede.** Formelt checkpoint: 20. oktober 2026.
+
+---
+
+# Aktuel SETI-status - 12. oktober 2026: ni DC-uberÃ¸rte spor fulgt i alle seks scanninger
+
+**Ni tidligere gemte kernemaksima uden DC-kontakt er nu undersÃ¸gt med 54 faste rÃ¥profiler og fuld uafhÃ¦ngig kontrol.** UdvÃ¦lgelsen gennemgik 2.289 oprindelige kernemaksima, fravalgte 15 med DC-kontakt og valgte tre pr. OFF-stjerne fra de 2.274 Ã¸vrige. Ingen detektorsÃ¸gning blev gentaget.
+
+Den stationÃ¦re bane ved **2300,000000373 MHz** blev valgt i to OFF-scanninger, men er Ã©n fysisk mÃ¥leskabelon. Dens seks faste scorer er **3,35 / 9,83 / 9,11 / 7,12 / 5,24 / 2,72**, pÃ¥ fire stjerneretninger. Det er foreneligt med en fÃ¦lles interferens- eller instrumentkomponent; stjerneeksklusivitet er ikke etableret. Oprindelsen er ikke fysisk bevist.
+
+De **syv andre spor forbliver uafklarede**. De er stÃ¦rkest i deres egen udvÃ¦lgelsesscanning; de 35 mÃ¥linger i andre scanninger ligger -2,59 til +1,60. Egenscanningerne har allerede valgt sporene over frekvens/drift/bredde, sÃ¥ forskellen er ikke uafhÃ¦ngig signifikans. Ni logiske valg reprÃ¦senterer otte mÃ¥leskabeloner, og 54 profiler reprÃ¦senterer 48 forskellige fysiske boksgeometrier.
+
+UafhÃ¦ngig QA genberegnede alle **48 fulde normaliseringer** fra autentificerede rÃ¥data med separate median501-beregninger. De ni oprindelige scorer stemmer inden for 1,24e-14. 48 komplette rÃ¥crops pÃ¥ 37,25 MB og alle rÃ¥503-profiler er bevaret; en separat **NumPy-only reproduktion uden HDF5-kilder** har ogsÃ¥ bestÃ¥et. **Ingen kvalificeret SETI-detektion**, ny observation eller frekvensdÃ¦kning; original A/B **FAIL_CLOSED**, beskyttede 2016-kontroller lukkede. **0 DKK**, nul nye teleskoprequests. Checkpoint 20. oktober bestÃ¥r.
+
+[Rapport](analysis/dc_free_followup_20261012/delivery/SETI_DCFRIE_SPOR_2026-10-12.md) Â· [Ni spor og 54 scorer](analysis/dc_free_followup_20261012/delivery/SELECTED9_AND_CONTEXT54.csv) Â· [Kontekstfigur](analysis/dc_free_followup_20261012/delivery/SETI_DCFRIE_KONTEKST_2026-10-12.png) Â· [UafhÃ¦ngig QA](analysis/dc_free_followup_20261012/qa/context/QA_RECEIPT.json) Â· [Reproduktion](analysis/dc_free_followup_20261012/delivery/REPRODUCTION.md)
+
+---
+
+## Tidligere status og retning, bevaret uÃ¦ndret
+
+# Aktuel SETI-status - 12. oktober 2026: dominerende stationÃ¦re spor passer til instrumentets DC-bins
+
+**Ny konkret signaldiagnose har bestÃ¥et uafhÃ¦ngig numerisk kontrol.** De tre linjer ved 2297,4609375, 2300,3906250 og 2303,3203125 MHz ligger prÃ¦cis i tre grove kanalers dokumenterede DC-bins. I alle 18 tidligere TOP3-skabeloners egne primÃ¦rscanninger kommer mindst **99,906437 %** af den positive standardiserede cellemasse fra selve DC-binnen. Alle **120 gemte TOP20-poster** rammer en sÃ¥dan bin i mindst Ã©n rÃ¦kke.
+
+De 18 deduplikerede DC/scanning-udsnit giver **288 rÃ¦kkespektre**. DC-centret er det strengt stÃ¦rkeste af 129 bins i alle 288; medianforholdet mellem rÃ¥effekten og den lokale flankemedian er **543,898**. 108 faste kontekstprofiler er rekonstrueret med de eksisterende fuldkerne-normaliseringstermer. PrÃ¦cis enkeltcelle-attribution viser, hvordan smÃ¥ driftsskabeloner kan opnÃ¥ store scorer fra den samme stationÃ¦re bin. Originale scorer og rangordener er bevaret.
+
+Dette stÃ¸tter stÃ¦rkt en instrumental DC-fortolkning, men beviser ikke den konkrete hardwareÃ¥rsag. De 288 rÃ¦kker er ikke uafhÃ¦ngige bekrÃ¦ftelser, og de kortvarige burst4-vindere klassificeres ikke af denne fase. **Ingen kvalificeret SETI-detektion**, ny observation eller frekvensdÃ¦kning. A/B er fortsat **FAIL_CLOSED**, beskyttede 2016-holdouts forbliver lukkede; **0 DKK**. Planen 7.-20. oktober beholder checkpoint 20. oktober.
+
+[Resultatrapport](analysis/dc_diagnostic_20261012/delivery/SETI_DC_RESULTAT_2026-10-12.md) Â· [18 egne primÃ¦rscanninger](analysis/dc_diagnostic_20261012/delivery/PRIMARY18.csv) Â· [120 eksisterende udvalg](analysis/dc_diagnostic_20261012/ranking/ANNOTATED_TOP120.csv) Â· [UafhÃ¦ngig QA](analysis/dc_diagnostic_20261012/delivery/QA_SUMMARY.json) Â· [RÃ¥ patches](analysis/dc_diagnostic_20261012/primary/results/DC_RAW_PATCHES.npz)
+
+---
+
+## Tidligere status og retning, bevaret uÃ¦ndret
+
+# Aktuel SETI-status Â· 12. oktober 2026: udvÃ¦lgelsesfordel pÃ¥vist under en fast stÃ¸jmodel
+
+**Otte uafhÃ¦ngige Gamma51-modelrealiseringer af hele den 96-kerne burst-pilot er fÃ¦rdige og har bestÃ¥et uafhÃ¦ngig numerisk QA.** Der er beregnet 768 nye syntetiske sÃ¸gekort, 3.145.728 carrier-maksima og 7.002.390.528 korrelerede skabelonforekomster. Kode, scope og kildegennemgange blev offentliggjort fÃ¸r modelgeneration ved commit `682281a0f5eee08af620f06f36bdb1918d825952`.
+
+Alle otte familiers TOP1 og alle 24 sammenbundne TOP3 stÃ¥r strengt hÃ¸jere i kronologien end i de 23 alternative centervektorer. TOP1-scorerne ligger mellem **6,534836 og 7,247618**, med median **7,014702**. Dermed forekommer den samme kronologiske rangfordel ogsÃ¥ efter vinderudvÃ¦lgelse under denne rene stÃ¸jmodel. Det er ikke en kalibreret falsk-alarm-rate for teleskopsporene eller en forklaring af deres fysiske oprindelse. Otte familier er de otte modelenheder; de 24 vindere er afhÃ¦ngige inden for hver familie.
+
+Modellen er IID Gamma(51,1/51), valgt fÃ¸r nye vÃ¦rdier og uden fit til observationerne. Den genestimerer full16-normaliseringen pÃ¥ 4096 kernekanaler med 4000 halo og gentager hele syv-vindue/159-drift/bredde1,3-familien fÃ¸r TOP20/TOP3 og rÃ¦kkefÃ¸lgediagnoser. Den modellerer ingen instrumentrespons, tids-/frekvenskorrelationer eller radioforstyrrelser. Den tidligere bredere ordinary16-sÃ¸gning eller nye observationsdata er ikke gentaget.
+
+QA har verificeret alle 768 modelstreams og 12.288 rÃ¦kkehashes/rÃ¥ kernemedianer samt 3.096 lokale scoreaudits. Fuld median501, MAD og lokation er uafhÃ¦ngigt rekonstrueret for alle 24 vindende modelkerner. Andre auditkerners MAD/lokation er betingede gemte termer, og hele sÃ¸gegitteret er ikke uafhÃ¦ngigt genmaksimeret i QA. Rapport og begge figurer er gennemgÃ¥et. Resultatpakken er **101.270.902 bytes med 4.801 CRC-kontrollerede medlemmer og 4.800 SHA256-kontrollerede payloadfiler**; inputidentiteterne er uÃ¦ndrede.
+
+Original A/B er fortsat **FAIL_CLOSED**, og den oprindelige kvalificerede nye-himmelpilot er ikke Ã¥bnet. Ingen beskyttede holdouts, ny observation eller astronomisk frekvensdÃ¦kning fÃ¸lger af denne modelkontrol. De ni tidligere datareferencer vises separat og stammer fra tre OFF-scanninger i Ã©t historisk besÃ¸g. Planen **7.â€“20. oktober** beholder sit formelle checkpoint den **20. oktober**. Udgift **0 DKK**, nul nye teleskoprequests. Kendte mÃ¥lte proceskomponenter inklusive pakning er 1.148,976702 CPU-s; dette er ingen komplet sessionsmÃ¥ling eller abonnementsgrÃ¦nse.
+
+[Rapport](analysis/burst_null_20261012/delivery/SETI_BURST_NULL_FINAL_2026-10-12.md) Â· [Otte modelenheder](analysis/burst_null_20261012/delivery/FAMILY8.csv) Â· [24 udvalgte modelspor](analysis/burst_null_20261012/delivery/SYNTHETIC_TOP24.csv) Â· [Numerisk QA](analysis/burst_null_20261012/QA_RECEIPT.json) Â· [Reproduktion](analysis/burst_null_20261012/REPRODUCTION.md) Â· [Evidensindeks](analysis/burst_null_20261012/PUBLIC_EVIDENCE_INDEX.md)
+
+---
+
+## Tidligere status og retning, bevaret uÃ¦ndret
+
+# Aktuel SETI-status Â· 11. oktober 2026: fast rÃ¦kkefÃ¸lgekontrol afsluttet
+
+**1.161 gemte vindertuple-forekomster, 18.576 rÃ¦kke/center-bokse og 27.864 permutationsscorer er beregnet og har bestÃ¥et uafhÃ¦ngig numerisk QA.** Kode og scope blev offentliggjort ved commit `76fb3d56e5600b3f970405b373c53d66917cb71b` fÃ¸r de nye matrixudfald. De tre primÃ¦rjob er gennemfÃ¸rt Ã©n gang pÃ¥ eksisterende OFF-data fra 28. april 2017; intet sÃ¸gegitter eller fuldkerne-MAD/location er genberegnet.
+
+Alle ni tidligere TOP3 har fire forskellige centerkanaler. Deres kronologiske score er strengt stÃ¸rre end hver af de 23 alternative centervektorer. For det stÃ¦rkeste spor, HIP97663 ved 2302,264352 MHz, er de to scorer **7,315816 og 4,998336**. Kronologien var allerede optimeret over drift, vindue og bredde; alternative arrangementer er typisk ikke lineÃ¦re spor. Resultatet er derfor en betinget geometrisk diagnose og giver ingen uafhÃ¦ngig signalevidens, permutation-p, kalibreret FAP eller SETI-kvalifikation.
+
+De 1.161 forekomster omfatter 1.152 forskellige videnskabelige tuples med ni gentagelser. Fire forekomster har kun Ã©n centervektor og ingen tidsrÃ¦kkefÃ¸lgeinformation; 22 har gentagne centre og 1.135 har fire forskellige centre. De gemte full16-normaliseringskonstanter fÃ¸lger den fysiske rÃ¦kke. UafhÃ¦ngig rÃ¥kapselaritmetik stemmer prÃ¦cist med de nye matrixled og permutationsscorer; stÃ¸rste forskel mod den tidligere identitetsscore er 2,71Ã—10â»Â¹â´. De fulde kerners gemte MAD/location er fortsat betingede forudsÃ¦tninger.
+
+Planen **7.â€“20. oktober** fortsÃ¦tter med sit oprindelige slutcheckpoint den 20. oktober. Metodealternativet og rapport-/reproduktionsarbejdet er allerede gennemfÃ¸rt. Original A/B er fortsat `FAIL_CLOSED`; den oprindelige kvalificerede nye-himmelpilot er ikke Ã¥bnet. Denne eksplorative fase Ã¦ndrer ingen kvalifikationsgate og tilfÃ¸jer ingen observation, frekvensdÃ¦kning eller holdout-validering. Udgift: **0 DKK**; nul nye teleskoprequests.
+
+[Rapport](analysis/burst_order_20261011/delivery/SETI_BURST_ORDER_FINAL_2026-10-11.md) Â· [Ni spor](analysis/burst_order_20261011/delivery/TOP9.csv) Â· [Hele auditten](analysis/burst_order_20261011/delivery/AUDIT1161.csv) Â· [Numerisk QA](analysis/burst_order_20261011/QA_RECEIPT.json) Â· [Reproduktion](analysis/burst_order_20261011/REPRODUCTION.md) Â· [Offentligt evidensindeks](analysis/burst_order_20261011/PUBLIC_EVIDENCE_INDEX.md)
+
+---
+
+## Tidligere status og retning, bevaret uÃ¦ndret
+
+# SETI â€” fire-rÃ¦kkers burstpilot afsluttet Â· 11. oktober 2026
+
+**288 burst-sÃ¸gekort, 1.179.648 gemte kanalmaksima og 54 faste kontekstprofiler er afsluttet. Begge numeriske QA-kÃ¸rsler og rapportens figurer har bestÃ¥et kontrollen.** Piloten anvender syv overlappende vinduer med fire integrationer (73,014 sekunder) i de eksisterende OFF-scanninger af HIP97319, HIP97461 og HIP97663 fra 28. april 2017. Hver retning omfatter 96 pÃ¥ forhÃ¥nd fastlagte frekvenskerner, cirka 12,5 % af de 766 tidligere undersÃ¸gte kerner.
+
+Det hÃ¸jeste gemte maksimum er **7,315816** i HIP97663 ved 2302,264352 MHz. Det er en empirisk sÃ¸gescore; ingen kalibreret sigma-vÃ¦rdi eller falsk-alarm-sandsynlighed er etableret. Ni udvalgte spor er mÃ¥lt uden refit i alle seks oprindelige scanninger pÃ¥ fire retninger, med separate fire-rÃ¦kke- og fulde 16-rÃ¦kke-scorer. **Ingen kvalificeret SETI-detektion, ny frekvensdÃ¦kning, ny observation eller blind validering er etableret.** Scanninger af andre stjerner er ikke gentagelser af samme mÃ¥l.
+
+Den uÃ¦ndrede detektor normaliserer fortsat pÃ¥ alle 16 rÃ¦kker; ingen ny OFF-maske eller OFF-veto er anvendt. QA omfatter 1.161 gemte primÃ¦re rÃ¥scoreforespÃ¸rgsler, 54 kontekstprofiler/108 scorer og ni match til de oprindelige fire-rÃ¦kke-scorer. Kontrollen af den endelige score er betinget af de gemte normaliseringskonstanter og udgÃ¸r ikke en uafhÃ¦ngig genkÃ¸rsel af hele sÃ¸gegitteret.
+
+Resultatpakken er pÃ¥ **86.496.254 bytes**, med **1.939 arkivmedlemmer** kontrolleret med CRC og SHA256. Den indeholder alle nye kort og rÃ¥kapsler; de 18 originale H5-kompakter er eksterne forudsÃ¦tninger. Den offentlige gren indeholder kildekode, rapporter, figurer og kontrolkvitteringer, mens hele array-pakken er bevaret separat. Udgift: **0 DKK**.
+
+- [Rapport](analysis/burst4_20261011_context/delivery_v3/SETI_BURST4_FINAL_2026-10-11.md)
+- [Ni udvalgte spor](analysis/burst4_20261011_context/delivery_v3/TOP9.csv)
+- [54 kontekstprofiler](analysis/burst4_20261011_context/delivery_v3/CONTEXT54.csv)
+- [PrimÃ¦r numerisk QA](analysis/burst4_20261011_qa/results/QA_RECEIPT.json)
+- [Kontekst-QA](analysis/burst4_20261011_context/CONTEXT_QA_RECEIPT.json)
+- [Pakkeidentitet](analysis/burst4_20261011_context/delivery_v3/RESULT_PACKAGE_RECEIPT.json)
+- [Offentligt evidensindeks](analysis/burst4_20261011/PUBLIC_EVIDENCE_INDEX.md)
+
+---
+
+## Tidligere projektoversigter
+
+# SETI â€” 1536 nye kort og kontrollerede signalprofiler Â· 11. oktober 2026
+
+**1536 nye kort, 6.291.456 gemte carrier-maksima og 54 faste kontekstprofiler er afsluttet med begge uafhÃ¦ngige numeriske kontroller og gennemgÃ¥ede figurer.** HIP97319, HIP97461 og HIP97663 har fÃ¥et 5,859375 MHz ekstra dÃ¦kning hver i deres oprindelige OFF-scanning fra 28. april 2017.
+
+De to stationÃ¦re komponenter ved **2297,4609375 og 2303,3203125 MHz** optrÃ¦der stÃ¦rkt i alle seks scanninger pÃ¥ fire stjerneretninger. De tre rank-3-skabeloner rammer den fÃ¸rste komponent i otte rÃ¦kker, som bÃ¦rer mindst 99,976% af deres positive hele box-bidrag. Det er foreneligt med flere sÃ¸geskabeloner omkring fÃ¦lles spektralkomponenter. Den fysiske Ã¥rsag er ikke fastslÃ¥et. Der er **intet kvalificeret SETI-fund**, ingen kalibreret SNR/FAP og ingen ny uafhÃ¦ngig genobservation.
+
+Den fulde resultatpakke er leveret: 337.585.733 bytes, 9.416 medlemmer, CRC og SHA256 verificeret. Pris: **0 DKK**. [Fuld projektstatus](PROJECT_STATUS.md).
+
+- [Endelig rapport](analysis/off_adjacent_20261011_context/delivery/SETI_ADJACENT_FINAL_2026-10-11.md)
+- [Kontekstfigur](analysis/off_adjacent_20261011_context/delivery/SETI_CONTEXT54_2026-10-11.png) Â· [Tidsbidrag](analysis/off_adjacent_20261011_context/delivery/SETI_ROW_CONTRIBUTIONS_2026-10-11.png)
+- [Alle 1536 kernemaksima](analysis/off_adjacent_20261011_context/delivery/CORE_MAX1536.csv) Â· [Ni primÃ¦re udvalg](analysis/off_adjacent_20261011_context/delivery/TOP9.csv) Â· [54 kontekster](analysis/off_adjacent_20261011_context/delivery/CONTEXT54.csv)
+- [QA-evidens](analysis/off_adjacent_20261011_context/delivery/QA_SUMMARY.json) Â· [Resultatpakkens identitet](analysis/off_adjacent_20261011_context/delivery/RESULT_PACKAGE_RECEIPT.json)
+- [Reproduktion og rÃ¥dataidentitet](analysis/off_adjacent_20261011/REPRODUCTION_AND_DATA_AVAILABILITY.md)
+
+FÃ¸lgende oversigt er bevaret historik.
+
+---
+
+# SETI â€” 753 nye kort i tre kontrolretninger Â· 11. oktober 2026
+
+**753 nye sÃ¸gekort og 54 faste kontekstmÃ¥linger er afsluttet med uafhÃ¦ngig numerisk QA og gennemgÃ¥et rapport og figur.** HIP97319, HIP97461 og HIP97663 har hver Ã©n oprindelig OFF-scanning fra besÃ¸get 28. april 2017. Alle 3.084.288 carrier-maksima er gemt.
+
+De ni stÃ¦rkeste udvalg ligger ved den tidligere kendte **2300.390625 MHz**-komponent. Deres sÃ¸gevinduer overlapper referencekanalen i 16/7/4 rÃ¦kker pr. stjerne; mindst 99,9426 % af den positive rÃ¦kkemasse ligger pÃ¥ sÃ¥danne rÃ¦kker. Det er foreneligt med flere skabeloner omkring samme komponent. Hele rÃ¦kkebokse mÃ¥les, sÃ¥ dette fastslÃ¥r ingen fysisk Ã¥rsag. Det nÃ¦sten stationÃ¦re HIP97461 #1-spor giver store scorer i alle seks scanninger. Der er **ingen ny kvalificeret SETI-detektion**; scorerne er ikke kalibreret S/N eller FAP, og konteksterne giver ikke nye besÃ¸g eller uafhÃ¦ngige bekrÃ¦ftelser.
+
+Rapport, figur og resultatpakken pÃ¥ 149.831.981 bytes er faktisk gemt. Alle 4.773 ZIP-medlemmer er kontrolleret med CRC/SHA og genÃ¥bnet filidentitet. Original A/B og beskyttede 2016-kontroller forbliver uÃ¦ndrede. **0 DKK**.
+
+- [Afsluttende rapport](tools/radio_s2017_control_targets_20261011_v2/delivery/SETI_CONTROL_TARGETS_FINAL_2026-10-11.md)
+- [Figur](tools/radio_s2017_control_targets_20261011_v2/delivery/SETI_CONTROL_TARGETS_2026-10-11.png)
+- [Alle 753 kernemaksima](tools/radio_s2017_control_targets_20261011_v2/delivery/CORE_MAX753.csv) Â· [Alle 60 top-poster](tools/radio_s2017_control_targets_20261011_v2/delivery/TOP60.csv) Â· [54 kontekster](tools/radio_s2017_control_targets_20261011_v2/delivery/CONTEXT54.csv)
+- [Kilder og efterprÃ¸vning](tools/radio_s2017_control_targets_20261011_v2/delivery/DATA_AVAILABILITY.md) Â· [Pakker og gemmekvitteringer](tools/radio_s2017_control_targets_20261011_v2/delivery/DATA_PACKAGES.json)
+
+---
+
+# SETI â€” afsluttet signaltest, 11. oktober 2026
+
+**450 kontrollerede sÃ¸gekort og 540 diagnostikposter er afsluttet med uafhÃ¦ngig numerisk QA.** Ved hvert af A = 3, 6 og 12 passerede alle 54 smalle signalspor den fastlagte lokale regel. Ved A = 1 var tallet 0/54. I hele kernen blev 36/54 rang 1 ved hvert hÃ¸jere niveau; den kendte q128-linje beholdt fÃ¸rstepladsen. Alle 4096 referencekanalers resultater er gemt.
+
+Det er en fast signaltest pÃ¥ de seks kendte scanninger fra 28. april 2017. Den giver ingen ny SETI-detektion, ny sky- eller besÃ¸gsdÃ¦kning eller kalibreret genfindingsÂ­sandsynlighed. Bredde 9 er en mismatch-test. Original A/B er fortsat `FAIL_CLOSED`; beskyttede 2016-kontroller er uÃ¦ndrede. Omkostning: **0 DKK**.
+
+- [Rapport og reproduktion](tools/radio_s2017_injection_20261011/delivery/SETI_SIGNALTEST_2026-10-11.md)
+- [Alle 30 fastlagte grupper](tools/radio_s2017_injection_20261011/delivery/ALL30_GROUPS.json)
+- [UafhÃ¦ngig QA](tools/radio_s2017_injection_20261011/results/review/QA_RECEIPT.json)
+- [Datapakker og identitet](tools/radio_s2017_injection_20261011/delivery/DATA_PACKAGES.json)
+
+---
+
+# SETI â€” 9. oktober 2026: autentisk gentaget spor har tydelig OFF-modmÃ¥ling
+
+Fire distinkte prioriterede familier ved **1423,954061, 1422,596235, 1424,439182 og 1424,411711 MHz** er nu kontrolleret tidsoplÃ¸st i alle seks scanninger. OFF-rÃ¦kkemaksima er sammenlignelige med ON, sÃ¥ ON-eksklusivitet er ikke etableret. Selv 1424,411711-MHz-linjen, som oprindeligt kun gav Ã©n ON-gruppe over den beskrivende scoregrÃ¦nse, stÃ¥r pÃ¥ samme kanal i alle ON og OFF. Oprindelserne forbliver uafklarede; OFF-respons er mod-evidens, ikke fysisk klassifikation.
+
+[1423,954061-MHz-resultat](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_REPEATED_TRACK_1423954061_2026-10-09_RESULT.md) Â· [1422,596235-MHz-resultat](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_REPEATED_FEATURE_1422596235_2026-10-09_RESULT.md) Â· [To Ã¸vrige familier](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/RADIO_REMAINING_FEATURES_2026-10-09_RESULT.md) Â· [Aktuel projektstatus](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md).
+
+Analyserne genbrugte den lokale cache, lÃ¦ste 96.960 vÃ¦rdier og brugte 3,629552 mÃ¥lte CPU-s inden for 100 ikke-refunderede reserverede CPU-sekunder. Ingen nye data, detektorscorer eller parameterfamilier. Saldo 2.112,705145 CPU-s, heraf 2.000 beskyttet til 20. oktober. A/B forbliver FAIL_CLOSED.
+
+---
+
+# SETI â€” 8. oktober 2026: diagnostik og dÃ¦kningsgrÃ¦nser dokumenteret
+
+Alle 12 gemte enkelt-rÃ¦kke-transienter overlever. Alle 11 initialt genfundne nÃ¦r-OFF-signaler mistes ved OFF-veto; Ã©t yderligere forsÃ¸g lÃ¥ allerede under ON-tÃ¦rsklen. StÃ¸jkontrollerne gav nul ON-hits i 32 syntetiske forlÃ¸b, og METHOD's 13 scan-tab lÃ¥ under ON10. UafhÃ¦ngige kontroller af de gemte kort, tabeller og geometrier er bestÃ¥et. A/B forbliver fejlet; der er ingen nye scores, signaltrÃ¦k eller kvalificeret teleskoppilot.
+
+[Diagnostikrapport og figurer](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results/radio_diagnostics_20261008/DIAGNOSTIC_REPORT.md) Â· [Idealniveau versus robust maksimum](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results/radio_diagnostics_20261008/METHOD_COVERAGE.md) Â· [Aktuel projektstatus](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md).
+
+Den gamle periodes afslutning er klargjort som dateret udkast til 9. oktober. Den nye plan slutter 20. oktober med afgrÃ¦nset verifikation 19. oktober. Historikken fÃ¸lger nedenfor.
+
+---
+
+# SETI â€” 8. oktober 2026: RFI-matchningens begrÃ¦nsning dokumenteret
+
+Analysen af de gemte B-RFI-rester viser, at alle 14 overlevende spor har en driftforskel, der udelukker det indsprÃ¸jtede RFI-spor fra deres tilladte OFF-matchfamilie. En uafhÃ¦ngig kontrol bekrÃ¦fter udelukkelsen ved alle fire OFF-bredder. A/B forbliver fejlet; METHOD64 er afsluttet og beskrivende, og teleskoppiloten er ikke kvalificeret. Der er ingen nye signaltrÃ¦k, scores eller metodeÃ¦ndringer.
+
+[Rapport, alle 14 spor og figur](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results/radio_rfi_alias_analysis_20261008/RFI_ANALYSIS_REPORT.md) Â· [Aktuel projektstatus](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md) Â· [Aktuelt budget](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results/radio_rfi_alias_analysis_20261008/ANALYSIS_LEDGER.json).
+
+Planen fortsÃ¦tter med gemte begrÃ¦nsninger, afgrÃ¦nset verifikation 19. oktober og slutrapport 20. oktober. Historikken fÃ¸lger nedenfor.
+
+---
+
+# Aktuel status â€” 8. oktober 2026: metodeundersÃ¸gelsen afsluttet; planen fortsÃ¦tter
+
+Alle 64 friske syntetiske METHOD-forsÃ¸g er afsluttet Ã©n gang og har bestÃ¥et den uafhÃ¦ngige integritetsgennemgang: 384 kort, 1.280 artefakthashes og 21.153 OFF-sammenligninger. Detektor, generator og tÃ¦rskler er uÃ¦ndrede. Genfund i alle aktive ON: 52/64; mindst Ã©t aktivt ON: 59/64. Ved indsprÃ¸jtet idealniveau 10/12/16/24 var ALL-tallene henholdsvis 6/16, 14/16, 16/16, 16/16; ANY-tallene 12/16, 15/16, 16/16, 16/16. Alle 13 tabte aktive scans i 12 celler lÃ¥ under ON10; ingen lokaliserede genfund mistedes ved OFF i denne signalbank.
+
+Tallene er beskrivende resultater fra Ã©n realization pr. prÃ¦cis faktor-celle, valgt efter B-fejlene. Idealniveau er ikke mÃ¥lt SNR eller flux. Der er ingen ny kvalifikation, kalibreret genfindingschance, sky-falsk-alarm-rate eller universel fÃ¸lsomhedsgrÃ¦nse. A og B forbliver FAIL_CLOSED; B fejler fortsat tredje-ON-, bredde 3- og RFI-kravene. Ingen teleskoppilot er godkendt, og ingen nye himmelspektrer er Ã¥bnet.
+
+Den fulde nye metodepakke bevarer alle 64 caseoutputs og 384 kort samt koordinatorevidens, claims, protokol, admissions og audit: 65 arkiver og 71 core Gitblobs, 34.704.656 bytes. Rapporten har seks PNG/PDF-figurpar, 64-cell-CSV, prÃ¦cise tabeller, fÃ¸r/efter-OFF genfund og fejlet B's komplette stÃ¸j/RFI/diagnostik. De gemte kort og rÃ¥hits er korrelerede carrier-svar, ikke uafhÃ¦ngige kandidater fra himlen.
+
+Hele metodepanelet belastes med 5.407,226987 CPU-sekunder, og 6.612,705145 resterer efter tidligere omkostninger samt uÃ¦ndret 1.200-sekunders forberedelsesreservation. Faktisk archival/audit/rendering er mÃ¥lt som komponenter af denne reservation; ingen ukendt historik er kaldt komplet mÃ¥lt og ingen reserve er tilbagebetalt. Lokal arbejdsmappe ved afslutning: 749.670.718 bytes, under 8 GiB. Mindst 2.000 CPU-sekunder er bevaret til rapport/reproduktion.
+
+FortsÃ¦ttelsen 9.â€“20. oktober er konkrete analyser af gemte fejlmekanismer og afgrÃ¦nsninger, den gamle periodes sÃ¦rskilte afslutning 9. oktober, afgrÃ¦nset verifikation af Ã©t gemt resultat i frisk proces 19. oktober og slutrapport 20. oktober. Reproduktionen verificerer kortâ†’hits/veto/genfund; den gentager ikke rÃ¥ preprocessing eller scores. Ingen anden rettelse, nye signaltrÃ¦k, ny kvalifikationsbank, gammel holdout-eksponering eller automatisk forlÃ¦ngelse. De lukkede tests gentages ikke som dagligt fremskridt.
+
+[Dansk resultat](RADIO_METHOD_STUDY_2026-10-08_RESULT.md) Â· [Rapport og figurer](results/radio_pilot_method_report_20261008/METHOD_STUDY_REPORT.md) Â· [Metodearkivindeks](pilot_protocol_20261008/method_study_upload_index.json) Â· [B-arkivindeks](pilot_protocol_20261008/validation_b_upload_index.json) Â· [Faktisk budget](pilot_method_study_20261008/post_method_ledger.json) Â· [Reproduktionskommando](pilot_protocol_20261008/review/METHOD_SAVED_RESULT_REPRODUCTION.md).
+
+---
+
+Tidligere daterede poster fÃ¸lger som historik.
+
+# Aktuel status â€” 8. oktober 2026: den godkendte metodeundersÃ¸gelse kÃ¸rer
+
+De 64 friske, balancerede METHOD-forsÃ¸g er startet Ã©n gang efter fuld offentlig fastfrysning i 89ec7463e745f07dba45790be763b47c522989b5 og verificeret admission i 5efe2e3f55c184333440966e87ecb393dc763391. Der bruges samme uÃ¦ndrede detektor, generator og tÃ¦rskler. UndersÃ¸gelsen er beskrivende og kan ikke kvalificere teleskoppiloten eller ophÃ¦ve A/B-fejlene. Start ingen konkurrerende genkÃ¸rsel, ny bank eller anden rettelse.
+
+Alle originale B-outputs er nu bevaret i 143 deterministiske arkiver med fuld filhashmanifest og koordinatorevidens: 149 Gitblobs, 77.229.070 bytes. Den uafhÃ¦ngige B-integritetskontrol er afsluttet; den videnskabelige status er fortsat FAIL_CLOSED med tredje-ON-, bredde 3- og RFI-fejl. Begge auditforsÃ¸g og alle originale CPU-kvitteringer er bevaret. Archival CPU 4,400708 indgÃ¥r i den eksisterende 1.200-sekunders forberedelsesreservation; denne reservation er ikke tilbagebetalt eller kaldt mÃ¥lt total.
+
+NÃ¦ste konkrete trin er at afslutte alle 64 METHOD-forsÃ¸g inden for 6.000 CPU-sekunder, gennemgÃ¥ deres gemte kort og udgive faktiske resultater og figurer. Ingen nye himmelspektrer er Ã¥bnet. Planen og den eksisterende daglige fortsÃ¦ttelse slutter 20. oktober.
+
+[B-arkivindeks](pilot_protocol_20261008/validation_b_upload_index.json) Â· [B-resultat](RADIO_VALIDATION_B_2026-10-08_RESULT.md) Â· [Metodeprotokol](pilot_method_study_20261008/METHOD_STUDY_SCOPE.md).
+
+---
+
+Tidligere daterede poster fÃ¸lger som historik.
+
+# Aktuel status â€” 8. oktober 2026: B fejler; metodeundersÃ¸gelse klargjort
+
+Alle 142 friske B-forsÃ¸g er afsluttet med intakte outputs. Den uafhÃ¦ngige gennemgang har kontrolleret 852 kort, 2.840 artefakthashes og 55.302 OFF-sammenligninger. B forbliver FAIL_CLOSED: tredje ON alene 6/8 mod kravet 7; bredde 3 21/24 mod 22; 2/24 RFI-forlÃ¸b har overlevende kandidater. StÃ¦rke signaler 14/14 og samlet arbejdsniveau 45/48 ophÃ¦ver ikke disse fejl. A forbliver fejlet, og den ene tilladte udviklingsrettelse er brugt.
+
+Ingen teleskoppilot er godkendt, og ingen nye himmelspektrer er Ã¥bnet. Den godkendte metodeundersÃ¸gelse er fastlagt som 64 friske, balancerede signalceller med uÃ¦ndret detektor: idealniveau 10/12/16/24, drift Â±1,25/Â±4 Hz/s, bredde 1/3 og tredje ON alene/alle tre ON. Den er beskrivende, valgt efter B-fejlen, og kan ikke kvalificere en pilot. FÃ¸r fÃ¸rste draw krÃ¦ves verificeret offentlig fastfrysning og rodens prÃ¦cise admission.
+
+B belastes konservativt med 11.676,036546 CPU-sekunder. Der resterer 12.019,932132 efter tidligere omkostninger og den uÃ¦ndrede 1.200-sekunders forberedelsesreservation; metodeallokeringen er hÃ¸jst 6.000 med mindst 2.000 bevaret til rapport/reproduktion. Ukendte historiske mÃ¥linger er fortsat markeret som ukendte.
+
+Se [B-resultat](RADIO_VALIDATION_B_2026-10-08_RESULT.md), [metodeprotokol](pilot_method_study_20261008/METHOD_STUDY_SCOPE.md) og [faktisk budget](pilot_method_study_20261008/post_b_ledger.json). Planen fortsÃ¦tter til 20. oktober; den gamle periodes afslutning 9. oktober behandles sÃ¦rskilt. Ingen anden rettelse, genkÃ¸rsel af eksponerede banker eller adgang til de gamle holdouts.
+
+---
+
+Tidligere daterede poster fÃ¸lger som historik.
+
+# Fremskridt 8. oktober 2026: frisk validering B kÃ¸rer
+
+De to nye udviklingsprÃ¸ver har afsluttet hele sÃ¸gningen med uÃ¦ndret videnskabelig kode (cirka295/297 CPU-s), og alle12 kort/3630 rÃ¥ hits/10890 OFF-sammenligninger er kontrolleret. [Resultat af den ene kÃ¸rselsrettelse](RADIO_RUNTIME_CORRECTION_2026-10-08_RESULT.md). A forbliver FAIL_CLOSED med sine to kÃ¸rselsfejl; ingen A-identitet gentages.
+
+De142 stadig ubrugte B-identiteter er nu startet Ã©n gang efter verificeret offentlig fastlÃ¥sning ved `69c9526bd22d5f6393f7ec51a60aae746fdc2234`. Metode, tÃ¦rskler og alle oprindelige krav er uÃ¦ndrede. B bruger lÃ¸bende eksklusive reservationer under19500 CPU-s samlet. Det er sidste validering efter planens ene udviklingsrettelse. B har endnu intet samlet udfald, og pilotens teleskopvÃ¦rdier er fortsat uÃ¥bnede. Kun fuld afslutning, alle9 krav og uafhÃ¦ngig gennemgang kan Ã¥bne piloten.
+
+Periode7.â€“20. oktober; fÃ¸rste pilot eller konkret metodeundersÃ¸gelse senest13. oktober. Daglig fortsÃ¦ttelse9.â€“20. oktober er aktiveret. Ingen betaling, ny engineering-rute eller Ã¥bning af gamle testpaneler.
+
+---
+
+Tidligere status fÃ¸lger som historik:
+
+# Status 8. oktober 2026: frisk validering A afsluttet som FAIL_CLOSED
+
+Alle 142 identiteter er forsÃ¸gt Ã©n gang: 140 afsluttet, 2 nÃ¸dvendige transientdiagnostikker afbrudt ved 250 CPU-s. De Ã¸vrige otte faglige krav bestÃ¥r (stÃ¦rke 14/14; arbejdsniveau 46/48; RFI 24/24 afvist; stÃ¸j 32/32 uden kandidater). FuldstÃ¦ndighed/integritet fejler, sÃ¥ teleskopvÃ¦rdier og B er stadig lukkede. A mÃ¥ ikke genkÃ¸res eller omklassificeres.
+
+[Resultat og tab](RADIO_VALIDATION_A_2026-10-08_RESULT.md). Den ene tilladte udviklingsrettelse forberedes: lÃ¸bende eksklusive kÃ¸rselsreservationer inden for de uÃ¦ndrede samlede grÃ¦nser; videnskabelig kode og tÃ¦rskler bevares. To nye, adskilte udviklingsforsÃ¸g skal afsluttes og gennemgÃ¥s fÃ¸r en eventuel frisk validering B. Fejl og originalmateriale gemmes; publicering er adskilt fra analyse. Ingen ny sky-sÃ¸gning er gennemfÃ¸rt.
+
+---
+
+Tidligere status og beslutninger fÃ¸lger som historik:
+
+## Current study â€” 8 October 2026
+
+[The new 7â€“20 October study completed its 24-case development bank](https://github.com/andersenmartin-blip/setisearch/blob/d7f08e5caa80efbf029a728c7288d29b2e1166ba/RADIO_PILOT_DEVELOPMENT_2026-10-08_RESULT.md): all 12 injected signal cases recovered, all 8 interference cases rejected after initial ON detection, and 4 noise cases empty. Independent review passed. Source metadata identifies an exact 305 MB six-scan acquisition. Fresh 142-case validation A is now running under the unchanged prospectively frozen method; its complete result is pending and telescope values remain unopened. Full development outputs and review are preserved in this branch.
+
+## 7 October 2026: new plan starts now; complete Voyager reference succeeds
+
+Martin approved starting the [revised 7-20 October plan](https://github.com/andersenmartin-blip/setisearch/blob/881f7b7825c11cd16ff1df8ee795bf1a5ef5d000/RADIO_TWO_WEEK_PLAN_2026-10-07.md) immediately.
+The [distinct local reference](https://github.com/andersenmartin-blip/setisearch/blob/5f050b02cf683977f78f95b3f8c674a3b9ce3ebe/RADIO_REFERENCE_LOCAL_2026-10-07_RESULT.md) completed once and passed an
+[independent retained-output review](https://github.com/andersenmartin-blip/setisearch/blob/5f050b02cf683977f78f95b3f8c674a3b9ce3ebe/RADIO_REFERENCE_LOCAL_2026-10-07_REVIEW.md).
+It reads authentic public GBT Voyager data, saves plots before judgment and
+searches all 28,633 channels in the declared 80 kHz band over 785 drift trials.
+The known carrier is recovered near 8419.297028 MHz with -0.378 Hz/s drift.
+All 2,369 threshold channels and full maximum vectors are preserved.
+
+The reference command took 3.75 s and 214.4 MiB peak process RSS. Source
+bytes/hash, header, versions, coverage, command log and resource receipts are
+public, along with the separately accounted display figures. The original
+failed CI run stays FAILED_CLOSED; this was the second and final engineering
+route. This known single-scan reference provides no ON/OFF pilot, new SETI
+candidate or calibrated sky false-positive claim.
+
+Next: freeze the pilot source and scientific protocol, then pass fresh signal/
+interference/noise controls before the first pilot (deadline 13 October).
+The new plan ends 20 October. Historical 9 October closure, old holdouts,
+inactive allocation, holds and paused/unsent work are preserved.
+
+## 7 October: bounded Voyager reference executed and failed closed
+
+The new-plan engineering reference installed the pinned Python/blimpy/turboSETI
+stack, read the exact Voyager header and produced three hits at the three known
+frequencies in one run. Its original strict absolute S/N check rejected one
++0.001626 difference. [The evidence review](RADIO_REFERENCE_VOYAGER_2026-10-07_REVIEW.md)
+verifies the retained manifest and documents that upstream actually combines
+absolute and relative tolerance; this explains the discrepancy without changing
+the failed disposition or replaying analysis. Source hash/bytes and waterfall
+were not retained because they followed the failed check. HD189733 and all fresh
+validation/pilot inputs remain unopened. The next-plan continuation is one
+separately frozen final engineering route with early transfer receipt and exact
+validator semantics; the old period still closes 9 October.
+
+## 7 October 2026: radio period result prepared, pilot not started
+
+[Closure preparation](RADIO_CLOSURE_2026-10-07_PREPARATION.md) indexes 232
+retained metadata/report bodies and distinguishes closed failures, partial
+engineering results, inactive proposals and missing source admission.
+Eleven new audit tests pass; no sky spectrum, old workload or trial was opened.
+
+The planned HD189733/neighbor9 telescope pilot has not run. The often quoted
+2,920 s / 5,512 MiB covers sixteen selected reservation envelopes, not measured
+use or complete project history. Whole-period resource totals remain unknown.
+Original preparation, K's 136 missing runtime members, M's closed access refusal,
+failed calibration and all historical holds remain. Final consolidation is
+9 October; no automatic plan extension or external person message.
+
+## 7 October 2026: loader activity source step complete
+
+[P](RADIO_ACTIVITY_2026-10-07P_RESULT.md) prospectively freezes and implements a
+source-only ACTIVITY/cookie/startup model. It maps registered cookie-slot identity
+without serializing raw pointers and retains/refuses exact wire-v2 batch histories.
+The first30/33 cohort's three harness import failures remain; the corrected cohort
+passes33/33 and strict C syntax-only. No native module, callback, positive ACK,
+runtime qualification, dispatch or spectrum exists. New authentic runtime inputs,
+permitted observer access and a separately frozen/read-back integrated outer are
+still required; otherwise consolidate9 October. Budgets/targets/holds unchanged.
+
+## 7 October 2026: explicit callback/loader/codec source interface
+
+[O](RADIO_INTERFACE_2026-10-07O_RESULT.md) implements the separately published
+prospective wire-v2/J/I/H source interface. It preserves original packets and
+explicit projection provenance, retains transient generations and refuses
+unsupported callbacks/aliases and ambiguous terminal claims. Original H/I binds
+all twelve planned handoffs; no codec result, native wait or positive production
+ACK is created. Public release/dispatch remain closed.35 initial controls and
+three additional new closure/flag controls pass; all inputs and the original
+source are retained, without replaying/recounting the earlier35. Actual runtime/
+observer capability and K's136 original missing members remain required. M's
+EACCES stays closed. No spectrum/holdout or new target; budgets/holds unchanged.
+Consolidate9 October without extension or person messages.
+
+## 6 October 2026: access failure preserved; callback barrier source tested
+
+[M](RADIO_MAPPING_KERNEL_2026-10-06M_RESULT.md) has 64 passing source controls.
+Its single actual administrative measurement failed with `ns/pid` EACCES before
+maps/auxv/executable/vDSO reads; it is closed without retry or access bypass.
+[N](RADIO_CALLBACK_BARRIER_2026-10-06N_SOURCE.md) adds a separate wire-v2 source
+barrier for the callback-return/unload race, with 33 passing source controls and
+strict C syntax-only validation. No native module was built/loaded, no real
+callback observed, and positive production release/dispatch remain closed.
+K's 136 missing original members and independent runtime/observer qualification
+remain pending. All scientific gates, budgets, targets and holds are unchanged.
+Next source-only J/I/H integration needs its own prospective scope; native work
+needs actual capability/input and a separately frozen/read-back integrated outer.
+Consolidate 9 October without extending the plan or sending person messages.
+
+## 6 October 2026: verified partial recovery; collector source remains unqualified
+
+[Original-byte recovery K](RADIO_RUNTIME_RECOVERY_2026-10-06K_RESULT.md) recovered
+and independently checked **902 files / 88,333,667 B**; **136 members remain
+unrecovered** and archive transfers failed with HTTP502. No package install,
+RECORD/cfg repair or recovered target execution was performed.
+[Restricted collector source L](RADIO_LOADER_COLLECTOR_2026-10-06L_SOURCE.md)
+implements callback/descriptor handling with **36 new real local socket fixture
+tests**; K has **36 recovery tests**. All pass. Strict C syntax-only validation
+passes, with its first failure retained. No audit module was built/loaded; no
+native loader, runtime, codec or scientific qualification is claimed.
+Next is authentic remaining input recovery and a complete current runtime plus
+mapped-inode/kernel/startup/terminal observer contract, then a separately frozen,
+read-back and one-shot native qualification scope. Spectra/112+128 remain closed,
+neighbor9 and all historical dispositions/budgets remain; consolidate 9 October.
+
+# SETIsearch
+
+## 6 October: transient loader history retained in an inert component
+
+[Loader lifetime J](RADIO_LOADER_LIFETIME_2026-10-06J_PREPARATION.md) adds a
+bounded source-only event reducer with 27 passing new tests. Loaded/unloaded
+object generations remain in its receipt; a rehashed omitted pair still cannot
+grant collector or completeness authority. The old canonical target runtime is
+absent here. No collector, native trace, codec control, activation or spectrum
+was created. Next is authenticated runtime recovery and a qualified complete
+observer before joining I/H into any executable outer gate. All scientific gates
+remain closed, and consolidation is still 9 October without extension.
+
+## 6 October: complete codec12 producer source implemented
+
+[Codec12 I](RADIO_CODEC12_2026-10-06I_IMPLEMENTATION.md) implements the fixed
+12-handoff/192-row producer with source authentication, compressed-read vetoes,
+durable partial evidence and exact journal completion. **43 source/custody tests**
+and isolated read-only preflight pass; both receiver contexts and 14 original
+inputs verify. No native/HDF5/telescope control, activation, allocation or
+certificate exists. Current native/runtime lifetime integration and a distinct
+executable outer freeze remain next. Targets and holds are unchanged; consolidate
+9 October without extension.
+
+## 6 October: complete controlled-codec scope prepared, no dispatch
+
+[Codec12 H](RADIO_CODEC12_2026-10-06H_PREPARATION.md) fixes all 12 ordered
+calibration/validation handoffs, 16 row receipts each and the 22 original
+metadata laws. The pinned pure guard reproduces 22/22 expected outcomes with
+zero payload access; nine source-only tests pass. No spectrum, native/HDF5
+control, activation, allocation or certificate was created. Next is a distinct
+immutable executable freeze and independent source/readback review; all
+scientific admission gates remain pending. Target and holds are unchanged, and
+the plan still consolidates 9 October without extension.
+
+## 3 October: multi-history preparation remains blocked
+
+[The b+c storage-accounting component](RADIO_NATIVE_V2_MULTI_HISTORY_STORAGE_2026-10-03_RESULT.md)
+passes 61 adjacent tests but grants no execution authority. The restored checkout
+has c's public closure records, not its original private journal/live storage
+identities, so no actual future-control join, marker or telescope read occurred.
+Closed b/c failures and all science gates remain unchanged; consolidate 9 October.
+
+## 2 October: c engineering control CLOSED_FAILED; no retry
+
+[The actual c result and retained evidence](RADIO_NATIVE_V2_CONTROL_C_2026-10-02_RESULT.md) record **one invocation, exit 1, 0/8 completed and permanently spent** after immutable preread P â†’ marker-only A â†’ public fixed sidecars B. The fixture created eight empty case directories; driver admission then refused the existing `cases` directory before identity/workload. The resulting missing-identity observer error is secondary. No retry, resume, cleanup or rearm occurred.
+
+All 49 frozen material files and all 1,002 prior production source/test/wrapper pins remain unchanged. The prior 541-test preparation pass and new 46 preread tests do not override the actual failed integration. b remains CLOSED_FAILED, 0/8 and permanently spent, with unchanged historical storage and private spend record. Next preparation must correct cold-driver phase admission and test the exact empty eight-case hierarchy under a distinct immutable preparation; c cannot be reused.
+
+Scientific/native/telescope gates stay blocked, with zero native reservations/executions, scientific cases, telescope reads or RNG draws. HD189733 remains selected; HD1461 HOLD; GJ724 reserve; spectra/holdouts unopened; 127/24 inactive; LS paused; CHEOPS UNSENT. No person messages. Stop **9 October 2026**, without extension, restart or target change. Earlier sections below are dated preparation checkpoints.
+
+The [immutable terminal checkpoint](https://github.com/andersenmartin-blip/setisearch/commit/5eae7e5428f08a1ec0aa481216a15b60c1b49fdf) has matching complete raw/Git-blob readback of **87 files / 4,551,544 raw bytes**. The [main README update](https://github.com/andersenmartin-blip/setisearch/commit/dc8d9d0f59691d8eac63ca9aa9cb8eae224b8cb1) also has matching full-content/blob readback. These publications preserve c's failure and permanent spend.
+
+## 2 October: distinct c execution preread built and verified
+
+[The distinct c preread and evidence](RADIO_NATIVE_V2_EXECUTION_PREREAD_C_2026-10-02_RESULT.md) bind unchanged plan r/runtime and all 49 material files to the immutable integrated preparation. Fresh public GETs verify **171 unique files / 6,815,970 raw bytes**, including all nine historical inputs. The exact 25-field c proof is built exclusively and independently verified; **46 new metadata-tool tests pass**, with zero failures/errors/skips and process exit 0. The existing 541-test production pass and all 1,002 source pins remain unchanged.
+
+Fresh isolated runtime/preflight and read-only historical checks pass; all five execution blockers and false completion/lifetime fields remain. One future engineering control is conditional on a separate marker-only c transition, exact public readbacks and fixed launch inputs. At this checkpoint no c marker, journal, launch config, scope or control exists. b remains CLOSED_FAILED, 0/8, permanently spent. Scientific/native/telescope gates stay blocked; no person messages. Stop **9 October** without extension, restart or target change.
+
+
+## 2 October: prospective c control integrated; execution blocked
+
+The immutable [public checkpoint readback](results_radio_native_v2_control_integration_20261002a/public-checkpoint-readback.json) verifies all **139 files / 6,143,701 raw bytes** at [`e422fa4`](https://github.com/andersenmartin-blip/setisearch/commit/e422fa4bb61778a5861c4376fd694c37c9208cf6). The main README at [`ffd76db`](https://github.com/andersenmartin-blip/setisearch/commit/ffd76dbd572f7618f3b75b679a4a89a3ef5f5f9c) also has matching complete content and Git-blob readback. This confirms the published preparation and grants no execution or scientific authority.
+
+
+[The integrated preparation and retained evidence](RADIO_NATIVE_V2_CONTROL_INTEGRATION_2026-10-02_RESULT.md) pass **541 tests**, zero failures/errors/skips and **process exit 0**; all 1,002 source/test/wrapper pins remain unchanged. The c spender, worker admission and historical storage checks now share the independently pinned original repository root and nine-file historical bundle. Two reproduced storage races are repaired; quota checks cover all eight case allocations under the original limits.
+
+Fresh plan r/runtime capture and machine audit pass with 931 code files, 142 inputs, 1,366 runtime paths, 49 material files and three derived files. A read-only live check confirms historical overhead of **70,254,559 logical / 70,496,256 allocated bytes**. Five execution blockers remain, including the distinct public preread and complete lifetime qualification. No real c marker, journal, claim or control exists; b stays CLOSED_FAILED, 0/8, permanently spent. No telescope data analyzed. HD189733 selected; HD1461 HOLD; GJ724 reserve; native8 unreserved; 127/24 inactive; LS paused; CHEOPS UNSENT. Stop **9 October** without extension, restart or target change.
+
+
+## 2 October: historical storage and prospective c journal prepared
+
+[The new candidate components and retained evidence](RADIO_NATIVE_V2_HISTORICAL_STORAGE_2026-10-02_RESULT.md) pass two actual **494-test** suites with process exit 0. Hardened read-only checks verify the original 107-file/20-directory failed scope and spent journal: **70,254,559 logical / 70,496,256 allocated bytes** of current historical overhead. Exact path/inode joins and a distinct root-bound c spender are tested; a reproduced manifest-header race is repaired and retained.
+
+Fresh blocked plan q/runtime capture and machine audit bind 930 code files, 61 inputs and 1,366 runtime paths; all 33 registered b material pins remain unchanged. The new components are standalone preparation only. Production allocation/lifetime joins, fresh preread and c activation remain open; no real c ledger, marker, claim or control exists. b stays CLOSED_FAILED, 0/8, permanently spent. No telescope data analyzed. HD189733 selected; HD1461 HOLD; GJ724 reserve; LS paused; CHEOPS UNSENT. Stop **9 October** without extension, restart or target change.
+
+## 2 October: supervisor receipt repair verified; preparation remains blocked
+
+[The bounded receipt and live-identity repair](RADIO_NATIVE_V2_SUPERVISOR_RECEIPT_2026-10-02_RESULT.md)
+passes **401 tests** without failures, errors or skips; all **944 retained
+source/test/wrapper pins** stayed unchanged. Full raw activation guards remain
+required; six observational references and both preparation aliases fit a
+predispatch 73-field/64-row bound under unchanged receipt/resource/deadline caps.
+The earlier 356-test pass and 398-test observer-publication error remain retained.
+A specific live-identity read-instability exception now retries only before
+identity verification, within the original deadline; stable/static errors still
+close the scope. Attempt 3's later final-alias FileExistsError is retained
+separately, with byte-exact final-summary selection and no code change or rerun.
+
+Fresh plan o remains **BLOCKED_PREPARATION_REVIEW**. Capture and independent audit
+actually use the exact ten-value environment and Python `-I -S -B`; 927 repository
+code files, 36 inputs, 1,366 runtime files, 33 copied code files and three derived
+files verify. Fresh launcher preflight passes; all five execution blockers and
+completion/authority limits remain. Independent final selection review verifies
+all current pins, aliases and the post-test error. Final preparation review matches
+all 927/36/33/944 code/input/material/suite pins and 19 bootstrap edges; the
+1,366-runtime/240-additional-supplement union and unchanged failed scope/ledger verify.
+[Immutable checkpoint G](results_radio_native_v2_supervisor_receipt_20261002a/public-checkpoint-readback.json)
+at [`c9988a6`](https://github.com/andersenmartin-blip/setisearch/commit/c9988a65839bffb768bd93a516f4fe80b52f3bba)
+is verified: all 59 publication files / 4,340,566 raw bytes match content and Git
+blob SHA. These status/readback additions are evidence only; blocked gates remain.
+
+Failed control b remains immutable at
+[`1468a19`](https://github.com/andersenmartin-blip/setisearch/commit/1468a19d2603bde2b491b5400a2d3cdf8954c69f),
+with 155 publication paths verified. Its **0/8 completed cases**, partial
+engineering materialization and permanently spent claim remain. No additional
+control, real marker, full-size source generation, telescope read or RNG draw.
+
+[HD189733 metadata preparation](RADIO_HD189733_METADATA_PREPARATION_2026-10-02_RESULT.md)
+passes 42 tests. Fresh public readback at F verifies all 25 raw metadata inputs /
+749,088 bytes by exact content and Git-blob identity, outside the constructor and
+protected control. All 15 component/output/evidence paths also have verified
+public readback at G. Telescope/source admission, cumulative quotas,
+scientific/native certificates and transport remain blocked. HD189733 selected;
+HD1461 HOLD; GJ724 reserve; spectra/holdouts unopened; native8 unreserved;
+127/24 NOT ACTIVATED; LS paused; CHEOPS UNSENT. Stop **9 October** without automatic
+extension or restart.
+
+## 2 October: compact engineering control b closed failed
+
+[The single engineering control and retained failure](RADIO_NATIVE_V2_COMPACT_CONTROL_2026-10-02B_RESULT.md)
+exited **1** after a 45.156-second admission interval. Its durable claim remains
+spent; **0/8 cases completed**. Case00 materialized a 26 MiB deterministic source
+and a 36,880,100-byte request part. Checked activation evidence exceeds the fixed
+131,072-byte terminal receipt allowance and is repeated twice in preparation;
+the supervisor refused serialization. Complete resource/runtime joins remain
+unqualified. The prior **350 passing tests are preparation only**.
+
+All 107 original files / 70,168,047 bytes remain retained. The two large originals
+have a lossless 31-chunk representation; matching chunk uploads are retained,
+with final immutable result readback still separate. No retry/resume/rearm.
+The compact-attestation repair candidate is `/tmp` only, not integrated or admitted.
+[The new-source admission matrix](RADIO_NEW_SOURCE_ADMISSION_MATRIX_2026-10-02.md)
+now maps exact HD189733 metadata to prospective source/acquisition contracts and
+remaining scientific/transport joins. HD189733 selected; HD1461 HOLD; GJ724 reserve;
+spectra/holdouts unopened; native8 unreserved; 127/24 NOT ACTIVATED; LS paused;
+CHEOPS UNSENT. No native/scientific cases or telescope reads. Stop **9 October**
+without automatic extension or restart.
+
+## 2 October: ledger accounting and finite launcher prepared
+
+[The joined preparation and retained evidence](RADIO_NATIVE_V2_LEDGER_LAUNCH_2026-10-02_RESULT.md)
+pass **350 tests** without failures, errors or skips. Permanent-ledger logical and
+allocated storage is charged within original caps. Capture, independent audit and
+a fresh launcher preflight now actually run in the exact ten-value environment.
+The new n/runtime snapshot verifies 926 code files, 17 inputs, 1,366 runtime paths,
+33 copied files and three derived files. All 19 bootstrap comparisons match.
+
+The plan remains **BLOCKED_PREPARATION_REVIEW**. No new real marker, production
+ledger or protected control exists at this checkpoint; the prior failure stays
+spent. Next: distinct immutable preread, marker-only activation and exact config
+readback before one separately observed engineering control. The finite terminal
+observer and native/scientific/hosted-transport joins remain unqualified.
+HD189733 selected; HD1461 HOLD; GJ724 reserve; spectra/holdouts unopened;
+127/24 inactive, native8 unreserved, LS paused, CHEOPS UNSENT. Close 9 October.
+
+## 2 October: authenticated source receipt and durable spending prepared
+
+[The integration and retained evidence](RADIO_NATIVE_V2_ADMISSION_SPENDING_2026-10-02_RESULT.md)
+pass **310 tests** without failures, errors or skips. Source workers now receive
+the exact authenticated bundle's receipt, scope and persistent spend witness;
+the outer runner claims the marker once before scope creation. Independent review
+matches ten bootstrap pins. Fresh revision m/runtime a verifies 925 code files,
+16 inputs, 1,366 runtime paths, 29 material files and three derived files.
+
+The plan remains **BLOCKED_PREPARATION_REVIEW**. The production ledger and new real
+marker are absent; the failed historical marker/invocation remain spent. Next is
+bounded persistent-ledger allocation accounting before fresh public execution
+evidence and a distinct activation. Complete resource and scientific gates remain
+unqualified. No new telescope data were analyzed. HD189733 selected; HD1461 HOLD;
+GJ724 reserve; spectra/holdouts unopened; 127/24 NOT ACTIVATED; native8 unreserved;
+LS paused; CHEOPS UNSENT. Consolidate 9 October without automatic extension.
+
+## 2 October: runtime custody integrated; pilot remains blocked
+
+[The integrated package and evidence](RADIO_NATIVE_V2_RUNTIME_CUSTODY_INTEGRATION_2026-10-02_RESULT.md)
+pass **272 tests** without failures or skips. The fresh revision l/runtime b snapshot
+covers 924 code files, 14 inputs and 1,366 runtime paths; independent audit verifies
+six closed Git hardlink groups, material-only runtime checks and all 26 copied code
+files plus three derived files. Activation preserves fixed Git no-fetch/no-prompt flags.
+
+The plan remains **BLOCKED_PREPARATION_REVIEW**. Authenticated receipt delivery to
+the hardclosed source guard and persistent one-invocation spending remain open.
+No new real marker or protected control was created/invoked; the prior failed marker
+and invocation remain spent. [The scheduled midpoint review](RADIO_TWO_WEEK_REVIEW_2026-10-02.md)
+records that the independent astronomical pilot has not started. HD189733 selected;
+HD1461 HOLD; GJ724 reserve; spectra/holdouts unopened; 127/24 NOT ACTIVATED;
+native8 unreserved; LS paused; CHEOPS UNSENT. Consolidate 9 October without an
+automatic extension. **Next:** the two named admission/spending code gaps.
+
+## 2 October: exact activation parent environment verified
+
+[The contract and evidence](RADIO_NATIVE_V2_ACTIVATION_ENVIRONMENT_2026-10-02_RESULT.md)
+replace ambient credential/proxy/session inheritance with ten fixed public values
+derived from pinned Python, Node and Git paths. The actual isolated check passes,
+the fresh freeze covers 922 code files, 8 inputs and 1,366 runtime files, and
+**204 tests pass**.
+
+Plan `20261002g` and its preparation evidence have matching public readback but remain
+**BLOCKED_PREPARATION_REVIEW**. Remaining runtime/platform closure, outer final-report
+lifetime and a later execution-qualified public preread are still required before one
+fresh eight-input engineering control. No large input, reservation, RNG
+or telescope spectrum was opened. HD189733 selected; HD1461 HOLD; GJ724 reserve;
+127/24 NOT ACTIVATED; LS paused; CHEOPS UNSENT. Consolidate 9 October.
+
+## 2 October: guarded descendant wait component verified
+
+[The implementation, control and evidence](RADIO_NATIVE_V2_ESCAPE_GUARD_2026-10-02_RESULT.md)
+pass **200 tests**. Every supervised worker now inherits a pre-exec
+no-new-privileges/seccomp guard; fresh actual `unshare`, `setns`, `ptrace` and
+`clone3` attempts are refused, and the tiny subreaper chain reaches terminal
+`ECHILD` under independent outer observation.
+
+Plan `20261002f` remains **BLOCKED_PREPARATION_REVIEW**. Complete activation-time
+runtime/parent closure, immutable public preread and outer final-report lifetime are
+still required before one fresh eight-input engineering control. No large input,
+reservation, RNG or telescope spectrum was opened. HD189733 selected; HD1461 HOLD;
+GJ724 reserve; 127/24 NOT ACTIVATED; LS paused; CHEOPS UNSENT. Consolidate 9 October.
+
+## 1 October: seven worker roles wired; execution remains blocked
+
+[The full worker integration, resource-finalization review and logs](RADIO_NATIVE_V2_WHOLE_WORKER_INTEGRATION_2026-10-01_RESULT.md)
+pass **198 relevant Python tests** in **57.503 s**. The actual
+read-only audit verifies **921 repository code files**, **7 frozen inputs** and
+**1,606 joined runtime files**. All 20 materialized code files match their
+prospective pins. Prepare, caller, reader/tail, projection, retained-source proof,
+continuous verifier and whole-control dispatch paths now carry exact local admission.
+
+A separate measurement driver and read-only resource join cover the proposed final
+measurement boundary, original time/storage/RSS caps and terminal metadata reserves.
+Incomplete descendant or final-report coverage retains a pending verdict. Actual
+refusal controls preserve material contents and allocation. Tiny orphan, live RSS
+handshake and exact stdout controls finish under observation; these do not establish
+full workload qualification. **No full-size source or new telescope analysis ran.**
+
+**Next:** finish complete activation-time runtime and parent-environment joins,
+independent immutable execution preread, descendant/escape evidence and outer final
+report lifetime coverage before considering one fresh eight-input engineering control.
+Plan revision `20261001e` remains **BLOCKED_PREPARATION_REVIEW**; full pipeline,
+native/HTTP/host and scientific qualification remain false. 127/24 NOT ACTIVATED;
+HD189733 selected; HD1461 HOLD; GJ724 reserve; spectra/holdouts unopened; LS paused;
+CHEOPS UNSENT. Review 2 October; consolidate 9 October without extension.
+No external messages.
+
+## 1 October: source worker and supervisor linked; full execution stays blocked
+
+[The source worker integration, independent audit and logs](RADIO_NATIVE_V2_SOURCE_WORKER_INTEGRATION_2026-10-01_RESULT.md)
+pass **126 relevant Python tests**. The current audit verifies 920 code files,
+six frozen inputs and 1,606 joined runtime files. The source worker repeats
+exact actual argv/environment, case/domain and materialized-code checks before
+writing data. The dedicated supervisor checks independently pinned implementations
+before dispatch and records pending measurements before filesystem disposition.
+
+Actual direct-worker and supervisor refusal controls leave no source or preparation
+identity. Supplied public claims remain unverified and non-authorizing. A tiny orphan
+control reaches terminal ECHILD, independently observed through supervisor fsync and
+termination: **0.159 s**, **40.31 MiB** maximum individual-process RSS. This is a tiny
+component control; no full-size source or telescope analysis has run.
+
+**Next:** complete admission for the other worker roles and the outer runtime,
+finalization, storage/time joins; then publish and verify the exact execution
+preread before one fresh eight-input engineering control. All five original blocker
+categories remain open. Current plan revision `20261001d` stays
+**BLOCKED_PREPARATION_REVIEW**. 127/24 NOT ACTIVATED; HD189733 selected; HD1461 HOLD;
+GJ724 reserve; spectra/holdouts unopened; LS paused; CHEOPS UNSENT. Review
+2 October; consolidate 9 October without extension. No external messages.
+
+## 1 October: preparation audit and process supervision improve; large run remains blocked
+
+[The corrections, independent audit and evidence](RADIO_NATIVE_V2_COMPACT_PREPARATION_AUDIT_2026-10-01_RESULT.md)
+pass **89 relevant Python tests**. The independent actual preparation audit verifies
+919 code, five input and 1,606 joined runtime files; materialized code/templates
+match. The observer now binds the launched PID independently, bounds inherited-pipe
+drain and samples, and retains truthful direct-child/descendant distinctions.
+Fresh domain and prepared/terminal identity checks refuse case relabeling.
+
+A dedicated subreaper component permits fixed tiny probes only. Orphan and
+double-fork controls each reach terminal ECHILD and are independently observed
+through receipt fsync and termination at about **15 MiB**. This does not qualify
+the future integrated worker, full-size harness, host ledger or scientific runtime.
+The original eight-input plan remains **BLOCKED_PREPARATION_REVIEW**; all large
+entrypoints stay closed. No maximum input, reservation, RNG or telescope read.
+
+**Next:** join worker-level immutable public-preread/runtime/argv/environment
+admission with the dedicated supervisor and complete outer storage/time/final
+disposition, before one fresh eight-input resource control. All five blocker
+categories remain open. 127/24 NOT ACTIVATED, HD189733 selected, HD1461 HOLD,
+GJ724 reserve, spectra/holdouts unopened, LS paused, CHEOPS UNSENT. Review
+2 October; consolidate 9 October without extension. No external messages.
+
+## 1 October: measured publication component passes
+
+[The implementation and independently audited result](RADIO_NATIVE_V2_ACTIONS_PUBLICATION_2026-10-01_RESULT.md)
+demonstrate a real 26-MiB source publication and readback through the fixed GitHub
+Actions publisher, with an atomic expected-parent branch update. Complete
+publisher RSS was **130.88/512 MiB**, with **16 HTTP operations** and **13.608 s**.
+The exact public receipts reconstruct all request and response body bytes.
+**239 targeted Python tests pass**. This qualifies one publication component;
+the original Functions observability blocker remains, and full transport,
+eight-input resources and scientific admission remain open.
+
+A compact verifier avoids retaining eight large clients. One read-only maximum
+input passes at **332.68/512 MiB**. The [eight-input preparation](RADIO_NATIVE_V2_COMPACT_EIGHT_PREPARATION_2026-10-01_RESULT.md)
+is publicly specified with **8 focused and 15 adjacent tests passing**, but
+remains **BLOCKED_PREPARATION_REVIEW** with every large execution route closed. No native case is reserved. Telescope
+spectra/holdouts remain unopened, and the separate **127/24 validation is inactive**.
+There is no supported telescope-analysis start date; consolidate 9 October
+without extension.
+
+## 1 October: actual transport has a concrete platform blocker
+
+[The runtime decision and measured evidence](RADIO_NATIVE_V2_RUNTIME_DECISION_2026-10-01_RESULT.md)
+identify **BLOCKED_PLATFORM_OBSERVABILITY**: the documented Functions interface
+exposes no independent actual-caller RSS measurement, and the pinned local Git
+policy supplies fetch only. No new live maximum-source courier may start until
+that capability exists or a separately frozen measurable local publisher is available.
+
+A retained-data Python verifier replay now passes at **439.57/512 MiB** after
+the **545.17-MiB** failure was retained. A separately reserved two-call tail
+component passes actual PTY maximum-envelope tests; canonical tail storage has
+its own 11,012,096-byte host-receipt reserve and remains unjoined to the full host
+ledger. **200 Python and 127 JavaScript tests pass**, plus three verifier checks.
+A fresh actual two-tool tail-only boundary probe passed after immutable public
+readback: 4,894,485 request bytes, 2,084 reply bytes and 8.841 s. Its full raw
+transcript reconstructs byte for byte; it grants no full transport or scientific authority.
+
+There is no supported telescope-analysis start date. Full transport, eight-case
+resources, native physical/recovery/RFI/null controls, separate 127/24 validation
+and telescope acquisition/trial admission remain required. HD189733 selected,
+HD1461 HOLD, GJ724 reserve; spectra/holdouts unopened, LS paused, CHEOPS UNSENT.
+No external messages. Consolidate 9 October without extension.
+
+## 1 October: caller-tail integration passes maximum-source offline control
+
+[The implementation and exact evidence](RADIO_NATIVE_V2_TAIL_INTEGRATION_2026-10-01_RESULT.md)
+pass **185 Python and 118 JavaScript tests**. A fresh 26-MiB deterministic source
+is reconstructed through 38 real local reads and one real durable tail save.
+The complete offline shape uses **56/64 charged calls**, and independently
+observed caller RSS is **491.15/512 MiB**. The earlier **533.53-MiB** failure
+and preparation failure are retained closed. No shared cap was enlarged.
+
+The compact tail binds all raw envelope hashes, and time accounting covers
+preparation/custody/observer gaps. A fresh prospective freeze pins 907 code,
+16 input and 1,366 runtime files; all authority remains false. The result uses
+mock controller/connector exchanges and accepts one offline case, leaving the
+eight-case receipt INCOMPLETE.
+
+**Exact continuation:** qualify the actual SDK caller's independently observed
+memory and joined controller/host/Git custody, plus legal large-tail/poll/escaped
+envelope shapes, before a fresh live maximum-source control. The current one-call
+tail payload limit is 47,616 bytes. Live/eight-case execution remains closed;
+127/24 NOT ACTIVATED. HD189733 selected, HD1461 HOLD, GJ724 reserve; spectra and
+holdouts unopened, LS paused, CHEOPS UNSENT. Consolidate 9 October without
+extension or external messages.
+
+## 30 September: concrete bridge storage passes; full-size IPC budget fails
+
+[The concrete bridge, source-loader and complete evidence](RADIO_NATIVE_V2_BRIDGE_2026-09-30_RESULT.md)
+pass **257 Python and 34 JavaScript tests**. Actual-tool probe01 is retained
+CLOSED FAILED after an uncharged duplicate file was found. The corrected
+single-file store passes fresh probe02 receipt readback and independent storage
+audit. Source-only runner/bridge import preflight also passes.
+
+The real broker capacity shape (36,875,057 bytes / 28 files) passes local host
+and separate Python storage measurements, but current tool IPC needs at least
+**3,015 calls and 3,002 custody items** for one maximum-size case. That exceeds
+64 calls per case, 512 total calls and 2,048 items before dispatch. These are
+component measurements, not an integrated live or eight-case qualification.
+
+A new prospective freeze pins **890 code, 14 input and 1,366 runtime files**;
+SHA256 `999b743a915cf3ca0d1645d5b270c48c2e7d1a66ea64bf62939228466dea064c`.
+Every execution/reservation/RNG/transport qualification flag remains false.
+
+**Exact continuation:** replace per-chunk tool IPC with a bounded transport
+that fits the existing allocations, measure the actual integrated path,
+propagate worker deadlines before broker dispatch and close the declared
+runtime/custody/verifier boundaries. Then publish/read back an execution-qualified
+freeze and verify a separate irrevocable eight-case reservation before RNG.
+127/24 NOT ACTIVATED; HD189733 selected, HD1461 HOLD, GJ724 reserve. Spectra and
+holdouts unopened, LS paused, CHEOPS UNSENT. Consolidate 9 October without
+extension. No external messages or new scientific results.
+
+
+## 30 September: complete orchestration component passes; execution stays closed
+
+[The integrated implementation and exact component evidence](RADIO_NATIVE_V2_RUNNER_2026-09-30_RESULT.md)
+bind the eight fixed fresh cases to compact base evidence, explicit reference
+closure, physical/evaluation stages and a single cumulative publication barrier.
+Nested deadlines, exact fresh writer/metadata bindings, immutable tree traversal,
+full visible envelope receipts and separate bounded receipt/Git-spool accounting
+are checked. **216 Python and 24 offline JavaScript tests pass.** The numerical,
+authority and transport fixtures are explicitly test-only; no actual native case,
+reservation, draw or telescope read occurred.
+
+The expanded prospective runtime freeze pins **885 code, 14 input and 1,366
+runtime files**, including JavaScript and local Git/Node/ELF dependencies.
+Its SHA256 is `095ea9d77cfed26deebbbc2b421db567479d1c2c46956d31c3236fe2949ed4d7`.
+Every execution/reservation/RNG/transport qualification flag remains false.
+
+**Exact continuation:** qualify the concrete worker-to-host bridge and bounded
+Python/tool receipt, state and Git-spool persistence; measure full-size RSS/storage
+and close the runtime/source-loader proof. Then publish/read back a new
+execution-qualified runner+broker freeze and verify a separate irrevocable
+eight-case reservation before any RNG. This prospective file freeze cannot grant
+those permissions. 127/24 NOT ACTIVATED; HD189733 selected, HD1461 HOLD, GJ724
+reserve; spectra/holdouts unopened, LS paused, CHEOPS UNSENT. Consolidate
+9 October without extension. No external message.
+
+## 30 September: v2 restores a 42.37-MB report load within 18 MiB
+
+[The versioned format, result and complete evidence](RADIO_PHYSICAL_EVIDENCE_V2_2026-09-30_RESULT.md)
+restore all three frozen byte-only snapshots exactly, including two of
+**42,366,912 logical bytes**. Total charged case storage is **4,824,307 bytes**,
+including the seven original base artifacts, within the unchanged **18-MiB**
+stored-case allocation. **46 tests pass (12 new, 34 existing).** The measured
+byte-worker active region takes 8.390755 s; peak process RSS is 194,318,336 bytes.
+The new reader streams whole reports while keeping individual decoded values
+bounded at 24 MiB. Old v1 code, limits and outcomes are unchanged.
+
+This qualifies retention/restoration of the fixed archived-byte stress load.
+Repeated original software receiver pairs are not independent measurements;
+the source physical outcome and wrapper remain FAILED/incomplete. It neither
+completes the missing native report nor predicts fresh-case compression or
+full native/publication runtime. No RNG, native reexecution or telescope read.
+**Current continuation:** integrate v2 with the existing event/parent and bounded
+remote protocol, then freeze one fresh complete native physical/resource
+qualification. The v2 parent path is explicitly refused until qualified.
+127/24 remains NOT ACTIVATED; spectra/old holdouts remain unopened. All old
+failures, spent identities, holds/counters and budgets persist. No messages or
+delegation; review around 2 October and consolidate 9 October without extension.
+
+## 29 September: complete receiver evidence fails the current logical capacity
+
+[The read-only capacity decision](RADIO_RECEIVER_CAPACITY_2026-09-29_DECISION.md)
+establishes a **29,821,434-byte lower bound** for the known 9,792-member report
+with its 21,708 receiver queries, before final alias/decision/cluster evidence.
+The current physical reader refuses logical expansion above **24 MiB**. Its
+previous storage PASS covered only the partial report before receiver evidence.
+Batching speeds computation while preserving output bytes; it cannot fix this
+separate capacity problem. No old physical computation or new trial was run.
+
+**Current continuation:** qualify a complete lossless representation for this
+known workload under unchanged stored-case/journal budgets before freezing
+another native attempt. This supersedes the immediate-new-run instruction below.
+The bound concerns logical JSON, not the minimum size of a different compressed
+format or every future draw. No limits, scientific settings or old outcomes are
+changed. 127/24 stays NOT ACTIVATED; telescope spectra and old holdouts stay
+unopened. All holds/counters, no messages/delegation and 9 October remain.
+
+## 29 September: receiver batching removes repeated payload hashing
+
+[The receiver optimization](RADIO_RECEIVER_BATCH_2026-09-29_RESULT.md) preserves
+all scalar signature/receipt bytes and passes 15 targeted tests. On two fixed
+new deterministic software workloads, 1,024 queries fall from about 12 seconds
+to 0.04 seconds. Full source/cache validation runs at both ends of each batch;
+immutable byte-backed arrays are required and every original query is retained.
+The scalar arithmetic is unchanged against the immutable parent.
+
+This is a component measurement, not a full native-chain or 80-second pass.
+**Next:** freeze one fresh complete native physical/resource qualification,
+including the changed code, stage timing and complete failure/evidence duties.
+Remote scientific integration, 127/24 qualification and the separate telescope
+protocol remain outstanding. No old case was replayed, no RNG or telescope
+values were opened, and no scientific limits changed. Keep all earlier holds,
+counters, spent identities and the 9 October endpoint. No messages/delegation.
+
+## 29 September: pilot remains blocked; resource review defines the critical path
+
+[The readiness decision](RADIO_READINESS_2026-09-29_DECISION.md) compares the
+published engineering measurements with the unchanged scientific allocations.
+The partial native broad-signal case took 224.702 s under its own 240-s cap;
+it does not qualify an 80-s scientific evaluation. The local storage pass uses
+a 24-MiB case allocation, whereas scientific evaluations have 18 MiB. Its
+17,425,035 case bytes leave only arithmetic headroom for still-unmeasured full
+physical evidence. These different workloads cannot be added or extrapolated.
+
+**Current continuation:** prioritize complete native physical/resource feasibility
+and the integrated scientific admission evidence. Remote publication remains
+necessary but cannot alone open the pilot. Given limited available compute,
+do not launch another series of isolated storage fixtures. Any fresh live
+engineering work needs a fixed scope, new identities and public freeze/readback.
+Then actual 127/24 qualification and a separate telescope acquisition/trial
+protocol are still required. This supersedes earlier next-step wording, not old
+results or allocations. The read-only review creates zero trials, random values,
+scores or telescope reads. **127/24 remains NOT ACTIVATED.** All holds, counters,
+failures, unopened data, no messages/delegation and 9 October remain unchanged.
+No scheduled task was changed.
+
+## 29 September: complete local event-journal/physical handoff passes
+
+[The new event-store result](RADIO_EVENT_CASE_2026-09-29_RESULT.md) restores all
+**22/22 physical snapshots and 208 original journal versions** exactly. The live
+journal, including every pointer version, occupies **263,734 bytes**. The complete
+case plus journal occupies **17,688,769 bytes**, inside the unchanged 24-MiB case
+and 8-MiB journal reservations. **127 tests pass.** Whole-fixture time is 55.785488 s.
+
+This is a separate fresh byte-only storage allocation. The earlier full-snapshot
+integration remains CLOSED FAILED, with all files and charges retained. The
+preserved source physical status and new parent disposition remain FAILED as
+required; the PASS qualifies complete storage/restoration, not a new physical
+result. There are no new random values, native scores or physical decisions.
+
+**Exact continuation:** bind the complete measured event/pointer/physical archive
+into bounded batched remote publication and immutable readback, preserving atomic
+advancement, lost-response stops and cumulative byte/time accounting. The current
+publisher is local engineering only. Full native receiver/alias evidence, physical
+gates and scientific 40/80-s timing remain unqualified; storage alone takes about
+50 seconds. Any later native run requires a new fixed freeze and fresh identities.
+Keep **127/24 NOT ACTIVATED**, all prior failures/spent identities/holds/counters,
+telescope spectra and old holdouts unopened, no messages or delegation, and
+9 October consolidation without extension.
+
+## 29 September: parent evidence integration stops safely at journal capacity
+
+[The closed integration result](RADIO_PHYSICAL_CASE_2026-09-29_RESULT.md)
+registers all physical files under one bounded parent allocation, with **117
+passing tests**. The fixed large byte-only fixture is **CLOSED FAILED**: full
+journal snapshots exhaust ordinary journal capacity after **19/22** checkpoints.
+Its 880-byte outer failure footer succeeds; the parent stays FAILED and spent.
+All 190 case files, 193 original journal revisions and four uncommitted physical
+parts are retained. No trial is rerun and no limit is raised.
+
+The read-only audit restores every committed view and original journal revision
+exactly. The 7,952,097 canonical journal bytes fit a **101,896-byte read-only
+history representation**, with every original preserved. This does not qualify a
+live incremental writer or change the original integration failure. No new random
+values, native scores, physical decisions or telescope reads occur.
+
+**Exact continuation:** implement and prospectively qualify durable incremental
+parent journaling for dynamic artifacts, retaining all original revision hashes,
+all pointer versions, cumulative byte/time charges and crash/lost-response guards.
+Then use a separate fixed storage namespace for the full 22-view handoff. Do not
+resume integration01 or confuse its compact read-only archive with a live store.
+Remote scientific adapters, full native physical gates and 40/80-s timing remain
+unqualified; **127/24 stays NOT ACTIVATED**. All prior failures, spent identities,
+holds/counters/holdouts, no messages or delegation and 9 October remain unchanged.
+
+## 29 September: bounded physical evidence storage passes; no native replay
+
+[The closed byte-only result](RADIO_PHYSICAL_EVIDENCE_2026-09-29_RESULT.md)
+restores all **22/22** constructed views of the earlier failed physical report.
+The cumulative case charge is **17,391,433 bytes**, including the seven existing
+artifacts, under 24 MiB. The terminal footer is **644 bytes**. A separate 16-MiB
+fixture correctly refuses the full report before writing and preserves its prior
+checkpoint. Historical physical outcomes remain FAILED; neither store can resume.
+
+**63 tests pass.** The optimized read-only decoder also restores all 22 + 1
+committed views with every closed fixture file unchanged. Full original code
+versions, initial failures, logs and lossless checkpoint archives are retained.
+No new random values, native scores, physical decisions or telescope reads occur.
+This qualifies local storage on the observed partial-report workload only.
+
+**Exact continuation:** integrate the entire dynamic evidence inventory into the
+outer worker's prospective case allocation and bounded failure handling, then
+measure complete archive publication/readback. Full native receiver/alias evidence,
+remote scientific integration and 40/80-s timing remain unqualified. Any later
+live qualification needs its own fixed freeze and fresh identities. Keep all old
+failures/counters/holds, all eight spent identities and **127/24 NOT ACTIVATED**.
+Telescope spectra and old holdouts stay unopened; no messages or delegation.
+Consolidate 9 October without extension.
+
+## 29 September: native chain exposes receipt mismatch; failed run preserved
+
+[The closed eight-case engineering result](RADIO_NATIVE_CHAIN_ENGINEERING_2026-09-29_RESULT.md)
+retains four complete EMPTY Gaussian references and a broad ON case with 9,792
+retained members. That case failed because the native and whole-cadence receiver
+receipts use different JSON newline conventions. Three later cases were not
+entered; all eight reservations stay spent. There were 31,457,280 new Gaussian
+values, no telescope reads and no retry.
+
+The post-closure receipt bridge passes six new regression tests plus 34 physical
+fixtures; it has not been replayed on the closed native case. The full scope also
+fails its distinct 8-MiB failure reserve: retained setup/failure material is
+15,031,024 bytes. Both failures, all 54 original journal versions and 107 evidence
+files are preserved losslessly. Physical recovery/RFI/null and scientific 40/80-s
+budgets remain unqualified; four engineering references cannot pass a 1% rank cut.
+
+Next: integrate the corrected receipt bridge with bounded durable physical-stage
+evidence and explicit failure/resource accounting, then batch the measured full
+archive. Any later live qualification needs fresh identities and its own fixed
+freeze/reservation. Do not reopen this namespace, recycle its unentered cases,
+raise old caps or activate 127/24. All prior holds/counters and 9 October remain.
+
+A transparent, reproducible search for intermittent narrowband signals across
+multiple observing epochs. Exoplanet motion supplies a frequency-drift
+hypothesis; it does not establish where an observed signal originated.
+
+The **light-sail (LS) research branch** explores whether radiation associated
+with beamed propulsion could leave detectable radio or optical signatures.
+The current LS work uses TESS photometry to qualify a search for short glints.
+Neither an optical brightening nor a radio trigger alone establishes artificial origin.
+
+**Start here: [current status and continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md).**
+
+The [12 September publication record](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PUBLICATION_2026-09-12.md)
+links the complete LS7C/LS7D release and the preserved historical archives.
+
+## Where the project stands
+
+**LS7E TESS model comparison completed, 12 September 2026.**
+Across 3,180 paired development trials on closed sector 32, the combined model
+raises nominal recovery from 3/40, 12/40, 27/40 to **18/40, 37/40, 40/40** and
+rejects all 120 original compact pixel controls. Weak-signal recovery and
+broader-contamination rejection still fail; no detector is adopted or candidate
+promoted. The independent numerical audit passes. [Read the result and figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7e_joint/REPORT.md).
+
+**LS7D TESS noise diagnosis completed, 12 September 2026.**
+The diagonal pixel model misses strong cancellation between pixel fluctuations.
+All 120 original trial-noise ratios reproduce across 34 windows in ten shared
+backgrounds; eight analytical tests and the covariance audit pass. This is
+method development with no new candidate or adopted detector. LS7E subsequently
+combined covariance, residual handling and broader nuisance controls on the
+closed data. [Read the result and figure](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7d_noise/REPORT.md).
+
+**LS7C TESS qualification completed, 12 September 2026: the joint test failed.**
+The noise-aware pixel method completed 1,460 digital trials over 18.78 searchable
+cadence-days of L 98-59 sector 32. All planned matched-strength tests reach the
+screening threshold, but stellar recovery is insufficient and 16/120 compact
+pixel controls are accepted. All 325 native excursions fail spatial screening;
+no LS candidate is promoted. LS7D and LS7E subsequently examined covariance
+and residual contamination on these closed data.
+[Read the reviewed result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7c_tess/REVIEW.md).
+
+**M43AI native evaluation is complete:** The fixed combined rule failed the predeclared same-sequence native challenge. It recovered 53/64 signal cases and lost 0/53 signals required by the reference union. 1/48 controls and 0/128 native null cases had surviving members.
+The model remains unadopted; all inputs use one observing sequence.
+[Read the complete result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AI_NATIVE_VALIDATION_RESULT.md).
+
+M43AF's frozen joint response rule failed qualification: none of the 1,156
+tested boundaries met all requirements. The complete **502-record study and
+its lossless archive are now public**: 69 parts restore 508 original files,
+verified byte for byte. The original M43AF held-out panels remain unopened.
+[Read the complete study](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AF_RESPONSE_STUDY_RESULT.md).
+
+There is no new M43AF astronomical candidate or adopted detector. The earlier
+**M33 HD 3651 follow-up at 1424.934238382 MHz remains unresolved**, pending an
+independent observing cadence. It is not a detection or technosignature claim.
+
+| Read or do | Entry point |
+|---|---|
+| Continue the active work | [Current project status](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_STATUS.md) |
+| Inspect current TESS work | [LS7E combined development](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7e_joint/REPORT.md), [LS7D noise diagnosis](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7d_noise/REPORT.md), [LS7C reviewed result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7c_tess/REVIEW.md), [frozen protocol](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS7C_TESS_PROTOCOL.md), and [previous LS7B result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/results_ls7b_tess/REVIEW.md) |
+| Inspect the latest native evaluation | [M43AI result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AI_NATIVE_VALIDATION_RESULT.md) |
+| Inspect the separate historical TESS development | [LS7C sector 29 archive: 1,300 retrospective trials](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/archives/ls7c_sector29_development/README.md) |
+| Understand the failed training rule | [M43AF training result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AF_TRAINING_RESULT.md) |
+| Inspect the frozen scientific method | [M43AF executable protocol](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_43AF_EXECUTABLE_PROTOCOL.md) |
+| Restore existing M43AF evidence | [M43AF continuation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/M43AF_CURRENT_CONTINUATION.md) |
+| Follow the earlier open case | [M33 candidate investigation](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/MILESTONE_33_CANDIDATE_INVESTIGATION.md) |
+| Understand the long-term plan | [Project direction](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/PROJECT_DIRECTION.md) |
+| Revisit earlier radio LS work | [LS6 result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS6_TRAPPIST1_RESULT.md) and [LS6A result](https://github.com/andersenmartin-blip/setisearch/blob/m43-support-qualification/LS6A_SCAN_END_RESULT.md) |
+| Read the full milestone history | [Archived README before cleanup](https://github.com/andersenmartin-blip/setisearch/blob/60bad761f4aa6eebeeef367f7a4123b80fd33e44/README.md) |
+
+## Working with the repository
+
+Current scientific development is on
+[`m43-support-qualification`](https://github.com/andersenmartin-blip/setisearch/tree/m43-support-qualification).
+The main branch provides this overview and earlier pipeline code.
+Use the current status to select the correct branch and evidence archive.
+
+Closed evaluations are restored from their sealed records. For exact M43AF
+archive restoration, use the recorded Python 3.12.14 / zlib 1.3.2 and frozen
+dependencies. Historical reproduction commands apply to their named milestones;
+they are not commands to restart the current work.
+
+The archive link preserves the previous full README and all its milestone
+summaries. Its â€œcurrentâ€ labels and â€œnext stepâ€ instructions describe their
+historical dates. The current work queue is maintained in PROJECT_STATUS.md.
+

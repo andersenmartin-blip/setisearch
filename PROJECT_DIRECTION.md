@@ -1,1 +1,4201 @@
-Y™Áäx-ÆÈ‹j◊ù¢Îi∫⁄+äßj[hëÈ‹¢ÈÌ˜œ|Â:-jZ.∂õ≠ñ)ﬁ≥R2∑GVV¬4UDí◊&WFÊñÊr+rB‚ˆ∑Fˆ&W"##c¢F˜RW"∑V‚V‚VGfñ∂∆ñÊw7&VvV¿†•&ÊvFñvÊ˜6V‚bFV‚∂ˆ◊∆WGFR6ÊFÜVG6&ÊRW"l:g&Fñrf˜"∆∆R„S"7fvR¬∆∆W&VFRV∑7ˆÊW&VFRñÊG7,;ÜßFÊñÊvW"‚F˜R&Wf&W"„C¬ñÊ∂«W6ófR∆∆RC2Fñ∆l:f∆FRáf˜"FV‚7L;á'&RV∑6∑FRf÷ñ∆ñRf˜'G,:fÊwFRV‚FñF∆ñvW&RgV∆B÷∑6ñ◊V◊7fñÊFW"‚&Vv∆V‚W"f∆wBVgFW"VFf∆G6ñÁ7V∑Fñˆ‚ˆr‹:RFW&f˜"ñ∂∂R∑f∆ñfñ6W&RFV‚ÁWl:g&VÊFR÷WFˆFRV∆∆W"GVÊW2fñFW&R:R6÷÷R&Ê≤‡†§FV‚Ï:g7FRWfñFVÁ6vófVÊFR÷WFˆFVÜÊF∆ñÊr∑,:gfW"¢¶g&ó6∂R¬&˜7V∑FógBf7FÃ:W7FRñFVÁFóFWFW"¢¢÷VBF˜”R◊&Vv∆V‚\:fÊG&WBˆr÷VB6÷÷R&V6˜fW'í“¬$dí“¬ÁV∆¬“ˆr&W76˜W&6VvFW2‚ñÊvV‚<:VF‚&Ê≤∑FófW&W2WFˆ÷Fó6≤ÜW"‚FRBvV◊FRfÊFf∆BW"ˆw<:Rg6«WGFWB6ˆ“FW6∑&óFób÷˜&fˆ∆ˆvñvVÊÊV÷vÊs¢ñÊvV‚WGfWGñFñrb◊,:f∂∂R◊'ñr¬ˆrFV‚7L:g&∂W7FRf7FR&ÊRvVÊfñÊFW2ñ∂∂R6ˆ“∆ˆ∂«B÷∑6ñ◊V“íFRfV“ÊG&R66ÊÊñÊvW"‚FWGFR∂∆ñ'&W&W"áfW&∂V‚dV∆∆W"gó6ó6≤˜&ñÊFV«6R‡†§ñÊGFñ¬g&ó6≤f∆ñFW&ñÊrV∆∆W"Vfå:fÊvñr‹:V«&V∆WfÁBˆ'6W'fFñˆ‚f˜&V∆ñvvW"¬&Wf&W2∆∆R&W7V«FFW"6ˆ“V∑7∆˜&FófR‚˜&ñvñÊ¬Ù"W"dî≈Ù4ƒı4TF¬#b÷Üˆ∆F˜WG2ˆr#í◊'WFV‚f˜&&∆ófW"«V∂∂VFR¬ˆr6«WF6ÜV6∑ˆñÁFWBVFl;á&W2l;á'7B#‚ˆ∑Fˆ&W"‡†•¥∑GVV«B&W7V«FE“Ö$DîııtTµıE%UDÖı$‰µÛ##b””BÊ÷Bí+r¥g&˜76WB66˜U“ÜÊ«ó6ó2˜vVµ˜G'WFÖ˜&ÊµÛ##cBı44ıRÊß6ˆ‚í+rµ&W7V«FFW%“ÜÊ«ó6ó2˜vVµ˜G'WFÖ˜&ÊµÛ##cB˜&W7V«G2ı5T‘‘%íÊß6ˆ‚í+rµ&ˆ¶V∑G7FGW5“Ö$Ù§T5Eı5DEU2Ê÷Bê†¢““–†¢22FñF∆ñvW&R7FGW2ˆr&WFÊñÊr¬&Wf&WB\:fÊG&W@†¢2∑GVV¬4UDí◊&WFÊñÊr+r"‚ˆ∑Fˆ&W"##c¢∑&ˆÊˆ∆ˆvó&ÊrW"VGl:f∆vV«6W6&WFñÊvW@†§FV‚f7FÃ:W7FRgV∆FRv÷÷S÷∂ˆÁG&ˆ¬W"g6«WGFWC¢˜GFRVfå:fÊvñvRf÷ñ∆ñW"¬scÇ7ñÁFWFó6∂R∂˜'Bˆr&W7L:VWBVfå:fÊvñr‚∆∆R˜GFRDıˆr∆∆R#B6÷÷VÊ'VÊFÊRDı2l:W"7L;á'7B66˜&Rí∑&ˆÊˆ∆ˆvñV‚‚f∆wFRf÷ñ∆ñR◊F˜66˜&W"7:fÊFW"b√S3CÉ3n(	3r√#CscÇ‚FV‚FñF∆ñvW&Rˆ'6W'fW&VFR∑&ˆÊˆ∆ˆvñf˜&FV¬f˜&V∂ˆ÷÷W"<:V∆VFW2ˆw<:RVgFW"VGl:f∆vV«6RVÊFW"FVÊÊR&VÊR7L;Ü¶÷ˆFV√≤FV‚∂‚ñ∂∂R∆VÊR''VvW26ˆ“Áí6ñvÊ∆WfñFVÁ2‡†§FV‚fw,:fÁ6VFRVÊvñÊVW&ñÊvf6RW"l:g&Fñr‚FR˜GFRg,;ÇˆrFV‚g6«WGFVFR<;ÜvÊñÊrvVÁFvW2ñ∂∂R6ˆ“Ã;Ü&VÊFRg&V÷G&ñgB‚¢§Ï:g7FRVÃ;á7FR÷WFˆFW&ˆ&∆V“W"∂ˆÁG&ˆ∆∆W&ÊW2&V∆WfÁ2f˜"fó&∂V∆ñvRFV∆W6∂˜FF¢¢¢V‚Áí<:g'6∂ñ«B&˜7V∑Fób÷ˆFV¬6∂¬å:VÊGFW&RˆrVgFW',;áfRFñG2“ˆg&V∑fVÁ6∂˜'&V∆FñˆÊW"¬ñÁ7G'V÷VÁG&W7ˆÁ2ˆr&Fñˆf˜'7Gó'&V«6W"¬V∆∆W"FW"6∂¬WF&∆W&W2‹:V«&V∆WfÁBVfå:fÊvñrˆ'6W'fFñˆ‚‚˜GFR&VÊRîîB÷f÷ñ∆ñW"f∆ñFW&W"ñÊvV‚ñÁ7G'V÷VÁF÷ˆFV¬ˆr∂∆ñ'&W&W"ñ∂∂RV‚FV∆W6∂˜‘dV∆∆W"66˜&WL:g'6∂V¬‚FW"W"ñ∂∂R7F'FWBV‚Áí∂ˆÁG&ˆ∆&Ê≤V∆∆W"ˆ'6W'fFñˆÁ7'VÊFR6ˆ“FV¬bFVÊÊRg6«WFÊñÊr‡†§FV‚6VÊW7BFˆ∑V÷VÁFW&VFR#í÷◊V∆ñvÜVBÜ"VÊFÁRñÊvV‚WF&∆W&WBG&Á7˜'FFvÊrˆr∆ñvvW"íWBÊFWBg&V∑fVÁ6,:VÊB‚˜&ñvñÊ¬Ù"f˜&&∆ófW"dî≈Ù4ƒı4TB¬ˆrFR&W6∑óGFVFR#b◊ÊV∆W"W"«V∂∂VFR‚÷WFˆFV«FW&ÊFófWBˆr&˜'B“˜&W&ˆGV∑FñˆÁ6&&V¶FWBí∆ÊV‚rÓ(	3#‚ˆ∑Fˆ&W"W"vVÊÊV÷l;á'C≤6«WF6ÜV6∑ˆñÁFWBFV‚#‚ˆ∑Fˆ&W"&W7L:W"‡†•¥∂ˆÁG&ˆ∆∆W&WB÷ˆFV«&W7V«FE“ÜÊ«ó6ó2ˆ'W'7EˆÁV∆≈Û##c"ˆFV∆ófW'íı4UDïÙ%U%5EÙÂTƒ≈Ùdî‰≈Û##b””"Ê÷Bí+r¥g&˜76WB66˜U“ÜÊ«ó6ó2ˆ'W'7EˆÁV∆≈Û##c"˜66˜RÊß6ˆ‚í+r¥÷ˆFV¬ˆrFFw,:fÁ6W%“ÜÊ«ó6ó2ˆ'W'7EˆÁV∆≈Û##c"ı$ıDÙ4Ù¬Ê÷Bí+rµ&ˆ¶V∑G7FGW5“Ö$Ù§T5Eı5DEU2Ê÷Bê†¢““–†¢22FñF∆ñvW&R7FGW2ˆr&WFÊñÊr¬&Wf&WB\:fÊG&W@†¢2∑GVV¬4UDí◊&WFÊñÊr+r‚ˆ∑Fˆ&W"##c¢FñG7,:f∂∂Vl;Ü∆vRfå:fÊvW"bVGl:f∆vV«6V‡†§FV‚f7FÃ:W7FR∂ˆÁG&ˆ¬b„cFñF∆ñvW&RvV◊FR'W'7CB◊fñÊFW'GW∆R÷f˜&V∂ˆ◊7FW"W"l:g&FñrˆrVfå:fÊvñwB∂ˆÁG&ˆ∆∆W&WB‚∆∆RÊíDı27L:W"å;Ü¶W&Rí∑&ˆÊˆ∆ˆvñV‚VÊBíFR#2f˜'6∂V∆∆ñvR«FW&ÊFófR6VÁFW&'&ÊvV÷VÁFW"‚f˜"FWB7L:g&∂W7FR7˜"W"66˜&W&ÊRr√3SÉbˆrB√ììÉ33b‚∂ˆÁG&ˆ∆∆V‚&W6∑&ófW"l;Ü«6ˆ÷ÜVB˜fW"f˜"∂Ê∆6VÁG&VÊW2Fñ∆˜&FÊñÊs≤FV‚∂∆ñ'&W&W"ñÊvV‚ÁV∆f˜&FV∆ñÊrˆrvófW"ñÊvV‚ÁíVfå:fÊvñr6ñvÊ∆WfñFVÁ2‡†§FWBÏ:g7FRVÃ;á7FR÷WFˆFW&ˆ&∆V“W"¢¶V‚&˜7V∑Fób∂∆ñ'&W&ñÊrbÜV∆RVGl:f∆vV«6W6f÷ñ∆ñV‚¢¢‚WB6VÊW&RFW6ñv‚6∂¬f7FÃ:W6R7L;Ü¢“ˆ∂∆ñ'&W&ñÊw6FF¬Ê˜&÷∆ó6W&ñÊr¬<;ÜvVf÷ñ∆ñRˆr÷∑6ñ◊V◊7FFó7Fñ≤l;á"l:g&FñW":V&ÊW2ˆrvVÁFvRÜV∆RFV‚&V∆WfÁFRfñÊFW'VGl:f∆vV«6RíÁV∆÷ˆFV∆∆V‚‚Bˆ÷'&ÊvW&RWB∆∆W&VFRVGf∆wBfñÊFW'7˜"∂‚ñ∂∂RW'7FGFRFVÊÊR∂∆ñ'&W&ñÊr‚FW"W"ñ∂∂R7F'FWBV‚ÁíÁV∆&Ê≤V∆∆W"<;ÜvV∂◊vÊR6ˆ“FV¬bFVÊÊRg6«WFÊñÊr‡†•Vfå:fÊvñrÜñ÷÷V∆&V∑,:fgFV«6R∑,:gfW"‹:V«&V∆WfÁFR¬Vfå:fÊvñvRFF‚FV‚6VÊW7BFˆ∑V÷VÁFW&VFR#í÷◊V∆ñvÜVBÜ"VÊFÁRñÊvV‚WF&∆W&WBG&Á7˜'FFvÊrˆr∆ñvvW"íWBÊFWBg&V∑fVÁ6,:VÊB‚˜&ñvñÊ¬Ù"f˜&&∆ófW"dî≈Ù4ƒı4TB¬FR&W6∑óGFVFR#b◊ÊV∆W"f˜&&∆ófW"«V∂∂VFR¬ˆrFRg6«WGFVFRÊ«ó6W"vVÁFvW2ñ∂∂R‚FV‚f˜&÷V∆∆RrÓ(	3#‚÷ˆ∑Fˆ&W"◊W&ñˆFRˆr6ÜV6∑ˆñÁFWBFV‚#‚ˆ∑Fˆ&W"&W7L:W"‡†•¥∂ˆÁG&ˆ∆∆W&WB&W7V«FE“ÜÊ«ó6ó2ˆ'W'7Eˆ˜&FW%Û##cˆFV∆ófW'íı4UDïÙ%U%5EÙı$DU%Ùdî‰≈Û##b””Ê÷Bí+r¥f7B66˜U“ÜÊ«ó6ó2ˆ'W'7Eˆ˜&FW%Û##c˜66˜RÊß6ˆ‚í+r¥÷WFˆFRˆrFFw,:fÁ6W%“ÜÊ«ó6ó2ˆ'W'7Eˆ˜&FW%Û##cı$ıDÙ4Ù¬Ê÷Bí+r¥gV∆B7FGW5“Ö$Ù§T5Eı5DEU2Ê÷Bê†¢““–†¢22FñF∆ñvW&R7FGW2ˆr&WFÊñÊr¬&Wf&WB\:fÊG&W@†¢2∑GVV¬4UDí◊&WFÊñÊr(	B‚ˆ∑Fˆ&W"##c¢'W'7Gñ∆˜Bg6«WGFW@†¢¢£#ÉÇ'W'7B◊<;ÜvV∂˜'B¬„sí„cCÇvV◊FR∂Ê∆÷∑6ñ÷ˆrSBf7FR∂ˆÁFV∑7G&ˆfñ∆W"W"g6«WGFWB‚&VvvRÁV÷W&ó6∂R÷º;á'6∆W"ˆr&˜'FVÁ2fñwW&W"Ü"&W7L:VWB∂ˆÁG&ˆ∆∆V‚‚¢¢ñ∆˜FV‚ÁfVÊFW"7ób˜fW&∆VÊFRfñÊGVW"÷VBfó&RñÁFVw&FñˆÊW"És2√B6V∑VÊFW"ííFRV∑6ó7FW&VÊFRÙdb◊66ÊÊñÊvW"bÑïìs3í¬ÑïìsCcˆrÑïìscc2g&#Ç‚&ñ¬#r‚áfW"&WFÊñÊrˆ÷fGFW"ìb:Rf˜&å:VÊBf7F∆wFRg&V∑fVÁ6∂W&ÊW"¬6ó&∂"√RRbFRscbFñF∆ñvW&RVÊFW'<;ÜwFR∂W&ÊW"‡†§FWBå;Ü¶W7FRvV◊FR÷∑6ñ◊V“W"¢£r√3SÉb¢¢íÑïìscc2fVB#3"√#cC3S"‘á¢‚FWBW"V‚V◊ó&ó6≤<;ÜvW66˜&S≤ñÊvV‚∂∆ñ'&W&WB6ñv÷◊l:g&FíV∆∆W"f«6≤÷∆&“◊6ÊG7ñÊ∆ñvÜVBW"WF&∆W&WB‚ÊíVGf∆wFR7˜"W"‹:V«BVFV‚&VfóBí∆∆R6V∑2˜&ñÊFV∆ñvR66ÊÊñÊvW":Rfó&R&WFÊñÊvW"¬÷VB6W&FRfó&R◊,:f∂∂R“ˆrgV∆FRb◊,:f∂∂R◊66˜&W"‚¢§ñÊvV‚∑f∆ñfñ6W&WB4UDí÷FWFV∑Fñˆ‚¬Áíg&V∑fVÁ6L:f∂ÊñÊr¬Áíˆ'6W'fFñˆ‚V∆∆W"&∆ñÊBf∆ñFW&ñÊrW"WF&∆W&WB‚¢¢66ÊÊñÊvW"bÊG&R7F¶W&ÊW"W"ñ∂∂RvVÁFvV«6W"b6÷÷R‹:V¬‡†§FV‚\:fÊG&VFRFWFV∑F˜"Ê˜&÷∆ó6W&W"f˜'G6B:R∆∆Rb,:f∂∂W#≤ñÊvV‚ÁíÙdb÷÷6∂RV∆∆W"Ùdb◊fWFÚW"ÁfVÊGB‚ˆ÷fGFW"„cvV◊FR&ñ‹:g&R,:W66˜&Vf˜&W7;á&w6∆W"¬SB∂ˆÁFV∑7G&ˆfñ∆W"ÛÇ66˜&W"ˆrÊí÷F6ÇFñ¬FR˜&ñÊFV∆ñvRfó&R◊,:f∂∂R◊66˜&W"‚∂ˆÁG&ˆ∆∆V‚bFV‚VÊFV∆ñvR66˜&RW"&WFñÊvWBbFRvV◊FRÊ˜&÷∆ó6W&ñÊw6∂ˆÁ7FÁFW"ˆrVF|;á"ñ∂∂RV‚Vfå:fÊvñrvVÊº;á'6V¬bÜV∆R<;ÜvVvóGFW&WB‡†•&W7V«FG∂∂V‚W":R¢£Éb„Cìb„#SB'óFW2¢¢¬÷VB¢£„ì3í&∂óf÷VF∆V÷÷W"¢¢∂ˆÁG&ˆ∆∆W&WB÷VB5$2ˆr4Ñ#Sb‚FV‚ñÊFVÜˆ∆FW"∆∆RÁñR∂˜'Bˆr,:V∂6∆W#≤FRÇ˜&ñvñÊ∆RÉR÷∂ˆ◊∑FW"W"V∑7FW&ÊRf˜'VG<:gFÊñÊvW"‚FV‚ˆffVÁF∆ñvRw&V‚ñÊFVÜˆ∆FW"∂ñ∆FV∂ˆFR¬&˜'FW"¬fñwW&W"ˆr∂ˆÁG&ˆ∆∑fóGFW&ñÊvW"¬÷VÁ2ÜV∆R'&í◊∂∂V‚W"&Wf&WB6W&B‚VFvñgC¢¢£D¥≤¢¢‡†§FWBÏ:g7FR÷WFˆFó6∂R7;á&w6‹:V¬W"Bf7FÃ:fvvRV‚&˜7V∑FóbÁV∆f˜&FV∆ñÊrˆrV‚WfVÁGVV¬'&VFW&RFñG6&Ê≤¬l;á"f∆W&R÷∑6ñ◊V◊l:g&FñW"f˜'Fˆ∆∂W26ˆ“6ñvÊñfñ∂Á2‚FVÊÊRñ∆˜BW"V∑7∆˜&Fób:R∆∆W&VFRV∑7ˆÊW&VFR#r÷FF‚FW"W"ñ∂∂RñvÊw6BV‚Áíˆ'6W'fFñˆÁ7'VÊFRV∆∆W"V‚VGfñFWB<;ÜvÊñÊr6ˆ“FV¬bFVÊÊRg6«WFÊñÊr‚FñF∆ñvW&RÙ"÷f˜&Ã;Ü"÷VBdî≈Ù4ƒı4TBˆrFR&W6∑óGFVFR#b÷FF&Wf&W"FW&W2V∑6ó7FW&VÊFR7FGW2‡†¢“µ&˜'E“ÜÊ«ó6ó2ˆ'W'7CEÛ##cˆ6ˆÁFWáBˆFV∆ófW'ï˜c2ı4UDïÙ%U%5CEÙdî‰≈Û##b””Ê÷Bê¢“¥ÊíVGf∆wFR7˜%“ÜÊ«ó6ó2ˆ'W'7CEÛ##cˆ6ˆÁFWáBˆFV∆ófW'ï˜c2ıDıíÊ77bê¢“≥SB∂ˆÁFV∑7G&ˆfñ∆W%“ÜÊ«ó6ó2ˆ'W'7CEÛ##cˆ6ˆÁFWáBˆFV∆ófW'ï˜c2Ù4ÙÂDUÖCSBÊ77bê¢“µ&ñ‹:g"ÁV÷W&ó6≤“ÜÊ«ó6ó2ˆ'W'7CEÛ##c˜˜&W7V«G2ıı$T4TïBÊß6ˆ‚ê¢“¥∂ˆÁFV∑7B’“ÜÊ«ó6ó2ˆ'W'7CEÛ##cˆ6ˆÁFWáBÙ4ÙÂDUÖEıı$T4TïBÊß6ˆ‚ê¢“µ∂∂VñFVÁFóFWE“ÜÊ«ó6ó2ˆ'W'7CEÛ##cˆ6ˆÁFWáBˆFV∆ófW'ï˜c2ı$U5T≈Eı4¥tUı$T4TïBÊß6ˆ‚ê¢“¥ˆffVÁF∆ñwBWfñFVÁ6ñÊFV∑5“ÜÊ«ó6ó2ˆ'W'7CEÛ##cıT$ƒî5ÙUdîDT‰4UÙî‰DUÇÊ÷Bê†¢““–†¢22FñF∆ñvW&R&WFÊñÊr¬&Wf&WB\:fÊG&W@†¢2∑GVV¬4UDí◊&WFÊñÊr(	B‚ˆ∑Fˆ&W"##c¢VGfñFWBÙdb◊<;ÜvÊñÊrg6«WGFW@†£S3bÁñR<;ÜvV∂˜'BˆrSB\:fÊG&VFR∂ˆÁFV∑7G&ˆfñ∆W"W"g6«WGFWBˆr∂ˆÁG&ˆ∆∆W&WB‚FR7FFñˆÏ:g&R∂ˆ◊ˆÊVÁFW"fVB##ìr√Ccì3sRˆr#32√3#3#R‘á¢W"l:f∆∆W2f˜"∆∆R6V∑266ÊÊñÊvW":Rfó&R&WFÊñÊvW"‚&Ê≤”2◊6∂&V∆ˆÊW&ÊW2˜GFR◊,:f∂∂R÷˜fW&∆W"&W6∑&ófVÊFRWfñFVÁ2f˜"f∆W&R6∂&V∆ˆÊW"ˆ÷∑&ñÊr6÷÷R∂ˆ◊ˆÊVÁB‚FV‚gó6ó6∂R:W'6r∑,:gfW"fñFW&R∂ˆÁG&ˆ√≤ñÊvV‚4UDí÷FWFV∑Fñˆ‚V∆∆W"Vfå:fÊvñrvVÁFvV«6RW"WF&∆W&WB‡†§FV‚∂ˆÊ∑&WFRfñFW&Rf˜'6∂ÊñÊw6˜vfRW"Bf∂∆&RFV‚l:f∆∆W27V∑G&«7G'V∑GW"ˆr6∂V∆ÊRñÁ7G'V÷VÁFV¬&W7ˆÁ2g&Üñ÷÷V∆˜&ñÊFV«6R÷VBV‚Áí&˜7V∑Fóbfw,:fÁ6ÊñÊr‚FRV∑7ˆÊW&VFR#r÷FF∂‚''VvW2Fñ¬<:VF‚V∑7∆˜&FóbVÊvñÊVW&ñÊr¬÷VÁ2V‚Vfå:fÊvñr&V∑,:fgFV«6R∑,:gfW"ÁñR‹:V«&V∆WfÁFRFF‚FR&W6∑óGFVFR#b÷∂ˆÁG&ˆ∆∆W"ˆr˜&ñvñÊ¬Ù"f˜&&∆ófW"«V∂∂VFR‚FV‚FñF∆ñvW&R÷WFFF÷∑f∆ñfñ6W&VFR#í÷∂FVÊ6RW"f˜'G6BV‚◊V∆ñvÜVBíWBÊFWBg&V∑fVÁ6,:VÊB¬Ï:W"∂ñ∆FVÁ2G&Á7˜'FFvÊr∂‚WF&∆W&W3≤FVÊÊR'VÊFRÜ"ÜVÁFWBÁV¬ÁñRFV∆W6∂˜FF‡†•¥VÊFV∆ñr&˜'E“ÜÊ«ó6ó2ˆˆfeˆF¶6VÁEÛ##cˆ6ˆÁFWáBˆFV∆ófW'íı4UDïÙD§4TÂEÙdî‰≈Û##b””Ê÷Bí+r¥gV∆B7FGW5“Ö$Ù§T5Eı5DEU2Ê÷Bí+rµ&W&ˆGV∑FñˆÂ“ÜÊ«ó6ó2ˆˆfeˆF¶6VÁEÛ##cı$U$ÙET5DîÙÂÙ‰EÙDDÙdîƒ$îƒïEíÊ÷Bê†§l;Ü∆vVÊFRFV∑7BW"&Wf&WBÜó7F˜&ñ≤‡†¢““–†¢2∑GVV¬4UDí◊&WFÊñÊr(	B‚ˆ∑Fˆ&W"##c¢ñÊ¶V∑FñˆÁ6&VÊ6Ü÷&≤g6«WGFW@†§FV‚f7FÃ:W7FR3#r◊,:VVffV∑F&VÊ6Ü÷&≤W"g6«WGFWBˆrVfå:fÊvñwB∂ˆÁG&ˆ∆∆W&WC†£CS∂˜'B¬SC66W2ˆr3∂ˆ◊∆WGFRw'WW"‚'&VFFR”◊&W7V«FFWBfó6W"ÛÄ¶∆ˆ∂∆R66˜&^(öS÷66W2fVB”ˆrÇÛÇfVB(öS2‚ícB˜ì"W"(öS2ˆw<:Rv∆ˆ&¿ß&ÊríÇÛÉ≤í#ÇW"FV‚ñÊG7,;ÜßFVFR∆ñÊ¶RÛÇv∆ˆ&¬&ÊrvVÊÊV–§”":Rw'VÊBbFV‚∂VÊGFR7L:g&∂R∂ˆÊ∑W'&VÁB‚'&VFFRíW"÷ó6÷F6á7G&W72ˆp¶ñ∂∂RV∑6∑B&V6˜fW'í‚FWBW"WBVÊvñÊVW&ñÊw&W7V«FBí&Wf&VFR#r÷FF¬ñ∂∂P¶ÁíÜñ÷÷V¬V∆∆W"∂∆ñ'&W&WBFWFV∑FñˆÁ76ÊG7ñÊ∆ñvÜVB‚Ù"f˜&&∆ófW ¶dî≈Ù4ƒı4TF‡†§FV‚Ï:g&÷W7FR∂ˆÊ∑&WFRÁñR÷Üñ÷÷V∆◊V∆ñvÜVBW"f˜'G6BFV‚÷WFFF÷∑f∆ñfñ6W&VFPß6V∑2◊66‚ÑïìÉSR÷∂FVÊ6Rg&#í‚6WFV÷&W"#íí3Sc2√ìc^(	33sS√CcR‘á¢‡§FV‚∑GVV∆∆RG&Á7˜'FFvÊrFñ∆∆FW"ñ∂∂R∂ñ∆FVÁ2FV∆W6∂˜Ü˜7B¬<:RñÊvV‡ß7V∑G&∆'óFW2V∆∆W"&WVW7G2‹:R˜fñÊFW2V∆∆W"ˆ÷|:W2‚FV‚∂‚ÜV∆∆W"ñ∂∂Pßf∆ñFW&R#r◊G,:f≤fVB6÷÷Rg&V∑fVÁ2¬f˜&Fí,:VÊFWBW"WBÊFWB‚&W6∑óGFVFP£#b÷∂ˆÁG&ˆ∆∆W"f˜&&∆ófW"«V∂∂VFR¬ˆrFV‚g6«WGFVFR#r÷&VÊ6Ü÷&≤vVÊº;á&W0¶ñ∂∂R‚WBVgFW&l;Ü∆vVÊFRÁV÷W&ó6≤7GVFñR∑,:gfW"V‚Áí¬,:f6ó2&˜7V∑Fó`¶fw,:fÁ6ÊñÊrˆr‹:Rñ∂∂RGVÊW2÷ˆBFó76RV∑7ˆÊW&VFRCS66W2‡†•¥&VÊ6Ü÷&∑&W7V«FE“áFˆˆ«2˜&Fñı˜3#uˆñÊ¶V7FñˆÂÛ##cˆFV∆ófW'íı$Dîıı3#uÙî‰§T5DîÙÂÛ##b””ı$U5T≈BÊ÷Bí+p•∂gV∆B7FGW5“Ö$Ù§T5Eı5DEU2Ê÷Bê†§l;Ü∆vVÊFRFV∑7BW"&Wf&WBÜó7F˜&ñ≥≤˜fVÁ7L:VVÊFRW"FWB∑GVV∆∆P¶f˜'G<:gGFV«6W7VÊ∑B‡†¢““–†¢2∑GVV¬4UDí◊7FGW2(	Bí‚ˆ∑Fˆ&W"##c¢7óbÁñRVf∂∆&VFRÙ‚÷˜fW'6∑V@†§V‚Áí7FFñˆÏ:g"Ù‚ÙÙdb◊6÷÷VÊ∆ñvÊñÊr˜fW"„CÇ„∂Ê∆W""‚Ù‚É"√ìsc3b‘á¢ñÊFV‚f˜"FV‚V∑6ó7FW&VÊFR66ÜRíˆr:ñ‚6÷∆WBFñG6∂ˆÁG&ˆ¬b7óbVGf∆wFR&ˆfñ∆W"W"l:g&FñvR‚¢£C#B√sìs‘á¢íÙ„"¢¢∆ñvvW"˜fW"FRf7FR∆ˆ∂∆Rf∆Ê∂W"í∆∆RbFñG7,:f∂∂W#≤FRFñ«7L;ÜFVÊFRÙdb◊66ÊÊñÊvW"Ü"ñ∂∂RWBFñ«7f&VÊFRvVÊÊV◊6ÊóF∆ñwB˜fW'6∑VB:R6÷÷R∂Ê¬‚∆∆R7ób7˜"&Wf&W26ˆ“Vf∂∆&VFR‚VGl:f∆vV«6V‚g&FR6÷÷RFFW"ñ∂∂RV‚Vfå:fÊvñr&V∑,:fgFV«6RV∆∆W"∂∆ñ'&W&WB6ñvÊñfñ∂Á7FW7B‡†•&ñ˜&óFW&WB˜l;Ü∆vÊñÊw6∆ó7FS¢Ù„"&ÊrfVBC#B√sìs‘á¢¬Ù„"&Êr2fVBC#"√#sìc2‘á¢ˆrÙ„2&Êr2fVBC#2√#SS3‘á¢‚Ï:g7FR&Wfó7G&ñ‚∑,:gfW"Vfå:fÊvñrˆ'6W'fFñˆ‚ˆ∂ˆÁG&ˆ¬V∆∆W"∂∆ñ'&W&ñÊrbÜV∆RVGl:f∆vV«6W6f÷ñ∆ñV‚‚vVÁFrñ∂∂RFRg6«WGFVFRG&ñgG<;ÜvÊñÊvW"¬7FFñˆÏ:g&R∂ˆÁG&7FW"¬FñG6∂ˆÁG&ˆ∆∆W"V∆∆W"v÷∆RFW7F&Ê∂W"‡†•6R∂FWB∑GVV∆∆R&W7V«FE“Ö$DîıÙÙÂÙÙdeÙUÑ4U55Û##b””ïı$U5T≈BÊ÷BíˆrµDî‘UÙîÂDU%$UDDîÙ‚Êß6ˆÂ“á&W7V«G2˜&FñıˆWÜ6W75Û##cíıDî‘UÙîÂDU%$UDDîÙ‚Êß6ˆ‚í‚ÁíÊ«ó6R''VwFR#b√#É‹:V«FR&ˆ6W72‘5R◊3≤ÜV∆R∑FófóFWFV‚W"ñ∂∂R6÷∆WB5R÷‹:V«B‚∂ˆÁ6W'fFófR&W6W'fFñˆÊW"W"2„ì5R◊3≤6∆FÚ"„"√sR5R◊2÷VB"„&W6∑óGFWBFñ¬#‚ˆ∑Fˆ&W"ˆr"√sRV&W6∑óGFVFR‚ñÊvV‚ÁóBl:g6VÁF∆ñwBÊ«ó6V¶ˆ"l;á"6ÜV6∑ˆñÁFWBñÊFV‚f˜"FV‚gF«FR6∆FÚ‚Ù"W"f˜'G6Bdî≈Ù4ƒı4TC≤∑f∆ñfñ6W&WBñ∆˜B&∆ˆ∂W&WB‚&W6∑óGFVFRÜˆ∆F˜WG2¬;ág&ñvR7F˜7FGW76W"ˆrFñF∆ñvW&R&W6W'fFñˆÊW"W"\:fÊG&VFR‚ñÊvV‚ÁñRFV∆W6∂˜f˜&W7;á&w6∆W"V∆∆W"VFvñgFW"‡†§l;Ü∆vVÊFRFV∑7BW"&Wf&WBÜó7F˜&ñ≤g&FñF∆ñvW&Rg6«WGFVFR&&V¶G6&∆ˆ∂∂S≤FWB∑GVV∆∆R&W7V«FBˆrFV‚ÁñW7FR$U4ıU$4UÙƒTDtU"Êß6ˆ‚Ü"f˜'&Êr‡†¢““–†¢2∑GVV¬4UDí◊7FGW2(	Bí‚ˆ∑Fˆ&W"##c¢vVÁFvWBWFVÁFó6≤7˜"∂ˆÁG&ˆ∆∆W&WBíÙ‚ÙÙd`†•6V∑2WFVÁFó6∂RÑïìÉSR÷‹:V¬“ˆ∂ˆÁG&ˆ«66ÊÊñÊvW"g&:ñ‚Üó7F˜&ó6≤ˆ'6W'fFñˆ‚W"ÁR:V&ÊWBˆrÊ«ó6W&WB‚∆∆R#SBñÊG&Rg&V∑fVÁ7VG6ÊóB"‚Ù‚W"l:g&FñvS¢¢£„C„3ÉB6÷÷VÊå:fÊvVÊFR∂Ê∆W"ˆr"√ìS"‘á¢"‚Ù‚¢¢¬sc2∆ñÊ\:g&RG&ñgFÜ7FñvÜVFW"+Bá¢˜2ˆr'&VFFW"Û2‚fó&RFó7FñÊ∑FR&ñ˜&óFW&VFRf÷ñ∆ñW"W"ÁR∂ˆÁG&ˆ∆∆W&WBFñG6˜Ã;á7C¢C#2√ìSCc¬C#"√Sìc#3R¬C#B√C3ìÉ"ˆrC#B√Cs‘á¢‚∆∆RfñÊFW2íÙdb÷VB6÷÷VÊ∆ñvÊV∆ñr7Gó&∂R‚FV‚6ñG7FR¬7fvRf÷ñ∆ñRvb˜&ñÊFV∆ñwB∑V‚:ñ‚Ù‚÷w'WR˜fW"FV‚&W6∑&ófVÊFR66˜&Vw,:fÁ6R¬÷V‚7L:W":R6÷÷R∂Ê¬í∆∆R6V∑266ÊÊñÊvW"‚6÷÷V‚÷VBFRFÚFñF∆ñvW&R÷ÁVV∆∆Rf∆rvófW"∆∆RñÊFófñGVV∆∆R∂ˆÁG&ˆ∆∆W"÷ˆB÷WfñFVÁ2÷ˆBÙ‚÷V∑6∂«W6ófóFWC≤ñÊvV‚gó6ó6≤˜&ñÊFV«6RW"∂∆76ñfñ6W&WB‡†§FV‚v÷∆R∆‚W"«V∂∂WB‚FWGFR6ñvÊ∆&&V¶FRå;á&W"Fñ¬FV‚vˆF∂VÊGFR∆‚¢£rÓ(	3#‚ˆ∑Fˆ&W"¢¢ˆrW"<:g'6∂ñ«BV∑7∆˜&FóbÊ«ó6RVgFW":V&ÊñÊrbFF‚¢§Ù"W"f˜'G6Bdî≈Ù4ƒı4TC≤FV‚˜&ñÊFV∆ñvR∑f∆ñfñ6W&VFRñ∆˜BW"ñ∂∂R:V&ÊWB‚¢¢V∑7∆˜&FóbFF:V&ÊñÊrW"ñ∂∂RV‚&W7L:VWB∑f∆ñfñ∂Fñˆ‚‚66˜&Vw,:fÁ6RW"&W6∑&ófVÊFS≤ñÊvV‚∂∆ñ'&W&WB4Â"¬d¬l;Ü«6ˆ÷ÜVBV∆∆W"vVÊW&V¬6∑í÷ÁV∆FWFV∑Fñˆ‚å:gfFW2‚8ñ‚ˆ'6W'fFñˆ‚¬6÷∆WBÙ‚÷ñÁFVw&Fñˆ‚Éc2√3B2‡†•¥f∑Fó6≤&W7V«FBˆr÷WFˆFU“Ö$DîııTî4¥ƒÙÙµÛ##b””ïı$U5T≈BÊ÷Bí+r≥C#2√ìSCc‘‘á¢÷∂ˆÁG&ˆ≈“Ö$Dîıı$UTDTEıE$4µÛC#3ìSCcÛ##b””ïı$U5T≈BÊ÷Bí+r≥C#"√Sìc#3R‘‘á¢÷∂ˆÁG&ˆ≈“Ö$Dîıı$UTDTEÙdTEU$UÛC##Sìc#3UÛ##b””ïı$U5T≈BÊ÷Bí+rµFÚ6ñG7FRf÷ñ∆ñW%“Ö$Dîıı$T‘î‰î‰uÙdTEU$U5Û##b””ïı$U5T≈BÊ÷Bí+r¥∆∆RvV◊FR6ñvÊ∆w'WW%“á&W7V«G2˜&Fñı˜Vñ6∂∆ˆˆµÛ##cíı4ît‰≈Ùu$ıU2Ê77bí+r¥ñÊFófñGVV¬∂ˆÁG&ˆ∆vVÊÊV÷vÊu“á&W7V«G2˜&Fñı˜Vñ6∂∆ˆˆµÛ##cíˆf∆vvVE˜&WfñWrı$UdîUrÊß6ˆ‚í+r¥FF&∂ófW%“á&W7V«G2˜&Fñı˜Vñ6∂∆ˆˆµÛ##cíÙUÖDU$‰≈ÙDDÙ$4ÑïdU2Êß6ˆ‚í‡†§FR<:g'6∂ñ«B&ñ˜&óFW&VFRg&V∑fVÁ6f÷ñ∆ñW"ˆrFRFÚ÷ÁVV∆∆Rf∆rW"ÁRl:g&FñwgW&FW&WBˆrº;á&W2ñ∂∂RñvV‚‚V‚WfVÁGVV¬Ï:g7FRÊ«ó6R6∂¬l:g&RWBÊFWB∂ˆÊ∑&WBVÃ;á7BvV◊B7˜"ˆr76RíFV‚&W7FW&VÊFRg&ñR6∆FÛ≤ñÊvV‚'&VB<;ÜvÊñÊrV∆∆W"Áíf÷ñ∆ñR:V&ÊW2‚g6«WGFVFR<;ÜvÊñÊvW"ˆrv÷∆RFW7B“˜&˜'F∂ˆÁG&ˆ∆∆W"vVÊº;á&W2ÜV∆∆W"ñ∂∂R‚∂ˆÁ6W'fFógB&W6W'fW&WBíFWGFR&&V¶G73¢2„É5R◊3≤6∆FÚ¢£"„"√sR5R◊2¢¢¬ÜW&b¢£"„&W6∑óGFWBFñ¬6ÜV6∑VÊ∑B#‚ˆ∑Fˆ&W"¢¢ˆr"√sRg&óB‚ñÊvV‚V∑7G&FV&óFW&ñÊrV∆∆W"&VgW6ñˆ‚b6÷÷R¶ˆ"‚¥∑GVV«B&W76˜W&6W&VvÁ6∂%“á&W7V«G2˜&Fñı˜Vñ6∂∆ˆˆµÛ##cíı$U4ıU$4UÙƒTDtU"Êß6ˆ‚í‚v÷∆RÜˆ∆F˜WG2¬ÑÙƒBıTÂ4TÂB÷Fó7˜6óFñˆÊW"¬&ó2“ˆr&W76˜W&6Vw,:fÁ6W"&Wf&W2‡†¢““–†•FñF∆ñvW&Rg6ÊóBÊVFVÊf˜"W"Üó7F˜&ñ≤‚FW&W2FF:W7FÊFR&W6∑&ófW"FWBFl:g&VÊFRˆ÷fÊs≤FV‚∑GVV∆∆RV∑7∆˜&FófRFF:V&ÊñÊrˆrÊ«ó6R7L:W"˜fVÊf˜"‡†¢2∑GVV¬7FGW2(	Bí‚ˆ∑Fˆ&W"##c¢v÷÷V¬W&ñˆFR«V∂∂WC≤&˜'Bˆr&W&ˆGV∑FñˆÁ6∂óBl:g&FñvP†§FV‚v÷∆S#b‚6WFV÷&W.(	3í‚ˆ∑Fˆ&W"◊W&ñˆFRW"f˜&÷V«B«V∂∂WB÷VBf∑Fó6≤FFÛí‚ˆ∑Fˆ&W"‚FVÁ2&W&VvÊñÊvW"ˆr«V∂∂VFRFW7G2f"∆∆W&VFRg6«WGFWC≤FVÊÊR∂ˆÁ6ˆ∆ñFW&ñÊr:fÊG&W"ñÊvV‚v÷÷V¬vFRV∆∆W"Fó7˜6óFñˆ‚‚Ü˜fVF‹:V∆WBW"‰ıEÙ4ÑîUdTBÚ4µïıîƒıEÙ$ƒÙ4¥TB¬ñÊvV‚ÁV∆FWFV∑Fñˆ‚‚∆∆RÊív÷∆R&ñ‹:g&∂ñ∆FW'2&∆ˆ"÷Ü6ÜW2W"\:fÊG&VFR÷ˆBFWB&Wf&VFRVF∂7B‚FV‚v÷∆RfV¶∆fñÊFñÊrvVÊ˜FvW2ñ∂∂R‡†§FV‚ÁñSrÓ(	3#‚ˆ∑Fˆ&W"◊∆Á26÷∆VFR&˜'B“ˆr∂ÊñÊw6∆WfW&Ê6RW"vVÊÊV÷l;á'Cí‚ˆ∑Fˆ&W"‚FWBl:g&FñvR∂óBÜ#síñ∆ˆFfñ∆W"Û„s„#Sí'óFW2«W3"∂ˆÁG&ˆ∆fñ∆W#≤§ïC#„Cì"'óFW2‚∆∆Rñ∆ˆFÜ6ÜW2≈§ï‘5$2√#˜&ñvñÊ∆R&W&WVó6óFVÜ6ÜW2ˆsb˜&ñvñÊ∆RDb÷fñwW&W"W"∂ˆÁG&ˆ∆∆W&WB‚g&˜6ÊR∂ˆFR“˜&˜Fˆ∂ˆ«FV∑7FW"ˆrÙ"Ù‘UDÑÙB◊&W7V«FF÷WFFFW"6÷∆WBVFV‚fñFVÁ6∂&V∆ñrñÁfˆ6Fñˆ‚V∆∆W"vVÁ&VÊFW&ñÊr‚66V&∂ófW"˜66˜&V∂˜'Bˆr˜&ñvñÊ≈‰r÷V÷&VG2W"V∑7FW&ÊR‚∂∂V‚W"ñÊvV‚∂ˆ◊∆WBˆff∆ñÊR◊fW&ñfñW"V∆∆W",:W˜vW.(i'&W&ˆ6W76ñÊ~(i'66˜&W2◊&W&ˆGV∑Fñˆ‚‡†•FÚVfå:fÊvñvRFV∑7G&WfñWw2vˆF∂VÊGFRv÷∆R6«WF«V∂ÊñÊrˆrÁñR&˜'B“ˆ∂óFw,:fÁ6W"‚∂∂VÁ2÷WG&VFRóFÜˆ‚◊&ˆ6W6∂ˆ◊ˆÊVÁBFñ¬ˆr÷VB∂ˆÁG&ˆ¬ˆÜ6ÜñÊr''VwFS√s#cs5R◊3≤&V6VóBÙí˜6WGW˜V&∆ñ6W&ñÊrW"ñ∂∂RgV∆GB‹:V«B‚V‚<:g'6∂ñ«B∂ˆÁ6W'fFóc‘5R◊6V∑VÊFW'2&W6W'fFñˆ‚VgFW"FV‚FñF∆ñvW&Sc"√sSCCìÉB6∆FÚVgFW&∆FW#R„ì"√sSCCìÉB5R◊2‚‹:V«FR∂ˆ◊ˆÊVÁFW"FV&óFW&W2ñ∂∂RñvV‚¬FñF∆ñvW&R&W6W'fFñˆÊW"&VgVÊFW&W2ñ∂∂R¬ˆr÷ñÊG7C"„&Wf&W2Fñ¬W&ñˆFVÁ2g6«WGFVÊFR6ÜV6∑ˆñÁB‚''VrÁR&W7V«G2˜&Fñı˜&W˜'E˜6∂vUÛ##cíı$Uı%Eı4¥tUÙƒTDtU"Êß6ˆ‚‚v÷∆RW&ñˆFWF˜F∆W"f˜&&∆ófW"V∑f∆ñfñ6W&VFRˆÁV∆¬‡†§∂∆VÊFW&V‚W"÷ñ∆W:f∆R‚l:g&FñwB&˜'B“˜∂ÊñÊw6&&V¶FRW"g&V◊'ñ∂∂WBˆr6∂¬ñ∂∂RfVÁFR:S#‚ˆ∑Fˆ&W"V∆∆W"vVÁFvW2Fv∆ñwB‚FV‚f˜&÷V∆∆SrÓ(	3#‚ˆ∑Fˆ&W"◊W&ñˆFRˆrFWB6ñG7FS#‚÷ˆ∑Fˆ&W"÷6ÜV6∑ˆñÁB&W7L:W#≤6ÜV6∑ˆñÁFWBW"VÊFÁRñ∂∂RVFl;á'B‚66S◊fW&ñfñ∂FñˆÊV‚&∆Wbf∑Fó6≤vVÊÊV÷l;á'CÇ‚ˆ∑Fˆ&W"ˆrvVÁFvW2ñ∂∂Sí‚ˆ∑Fˆ&W"‚ñÊvV‚ÁñRFWFV∑F˜"“ˆvVÊW&F˜"“˜&VÊFW&W"“˜fW&ñfñW&º;á'6∆W"V∆∆W"6∑í◊ñ∆ˆG2W"VFl;á'BÜW"‚Ù"f˜&&∆ófW"dî≈Ù4ƒı4TB¬ˆrFV∆W6∂˜ñ∆˜FV‚W"ñ∂∂RF÷óGFVB„CÇ◊fW'6ñˆÊW'26VÊW&RFW6ñv‚W"f˜'G6BWBñ∂∂R÷∑FófW&WBf˜'6∆r‡†§&&V¶B6÷÷VÊå:fÊvVÊFRvVÊÊV“Fñ∆|:fÊvV∆ñvR¬WF˜&ó6W&VFRfå:fÊvñvR˜vfW#≤7F˜ñ∂∂R÷V∆∆V“6‹:R∆WfW&Ê6W"f˜"BgfVÁFR∂∆VÊFW&FFˆW"‚Ï:W"FRFñ∆∆GFR∆WfW&Ê6W"W"l:g&FñvR¬VFl;á&W2ñ∂∂RV∑7G&FW7G2¬VFóG2¬∂ÊñÊvW"V∆∆W"&˜'FW"6ˆ“Fv∆ñwBg&V◊6∑&ñGB‚VFV‚ÁñRWF˜&ó6W&VFR˜&ñvñÊ∆R&W7V«FFW"&W7FW&W"∑V‚FWBg6«WGFVÊFS#‚÷ˆ∑Fˆ&W"÷6ÜV6∑ˆñÁC≤ñÊvV‚WFˆ÷Fó6≤Áí∂◊vÊRV∆∆W"f˜&Ã:fÊvV«6R‡†•¥v÷÷V¬W&ñˆFW26«WG&˜'E“Ö$DîııU$îÙEÛ##b”í”#eıDıÛ##b””ïÙdî‰¬Ê÷Bí+r¥l:g&Fñr&˜'F∆WfW&Ê6U“Ö$Dîıı$Uı%Eı4¥tUÛ##b””íÊ÷Bí+r¥∂óB§ï“á&W7V«G2˜&Fñı˜&W˜'E˜6∂vUÛ##cíı4UDïı$Dîıı$Uı%EÙ¥ïEÛ##b””íÁ¶óí+rµfV¶∆VFÊñÊu“á&W7V«G2˜&Fñı˜&W˜'E˜6∂vUÛ##cíÙ¥ïEÙuTîDRÊ÷Bí+rµ∂∂R“ˆÜ6Ü∑fóGFW&ñÊu“á&W7V«G2˜&Fñı˜&W˜'E˜6∂vUÛ##cíı4¥tî‰uı$T4TïBÊß6ˆ‚í+r¥∑GVV¬∆VFvW%“á&W7V«G2˜&Fñı˜&W˜'E˜6∂vUÛ##cíı$Uı%Eı4¥tUÙƒTDtU"Êß6ˆ‚í‡†¢““–†•FñF∆ñvW&RFFW&VFR˜7FW"l;Ü∆vW"6ˆ“Üó7F˜&ñ≤‡†¢2∑GVV¬7FGW2(	BÇ‚ˆ∑Fˆ&W"##c¢6÷∆WBf˜&VÃ;Ü&ñrW&ñˆFW&˜'BvVÊÊV÷|:VW@†§FWB6÷∆VFR&˜'GVF∂7B"‚Ç‚ˆ∑Fˆ&W"6÷∆W"&VfW&VÊ6R¬VGfñ∂∆ñÊr¬Ù"¬‘UDÑÙB¬vV◊FRfV¶∆Ê«ó6W"ˆrFV‚f∑Fó6∂Rg&ó6≤◊&ˆ6W2◊fW&ñfñ∂Fñˆ‚‚∆ÊVÁ2ÁñR6V∑2◊66Á2Üñ÷÷V«<;ÜvÊñÊrW"f˜'G6B&∆ˆ∂W&WC¢ñ∆˜G6V∑fVÁ6W"¬<;ÜwFRñ∆˜B‘á¢ˆrÊ«ó6W&WBñ∆˜B‘Ù‚÷V∑7ˆÊW&ñÊr‚f˜ñvW"◊&VfW&VÊ6V‚W"vVÊÊV÷l;á'B¬ˆr÷WFˆFV«FW&ÊFófWBvbf∑Fó6≤&W&VvÊVFR&W7V«FFW"‚Ù"f˜&&∆ófW"dî≈Ù4ƒı4TC≤ñÊvV‚∂ˆÊ∂«W6ñˆ‚ˆ“VFVÊ¶˜&Fó6≤FWFV∑Fñˆ‚V∆∆W"ÁV∆FWFV∑Fñˆ‚l;Ü∆vW"‡†§"w2&ñÊFñÊvW"W"\:fÊG&VFS¢&&V¶G6ÊófVVWG2G&VF¶R‘Ù‚÷FV∆w'WSbÛÇ÷ˆB÷ñÊG7Cr¬'&VFFS2÷FV∆w'WS#Û#B÷ˆB÷ñÊG7C#"¬ˆs"Û#B$dí÷f˜&Ã;Ü"÷VB&W7FW"÷ˆBÁV¬Fñ∆∆GB‚‘UDÑÙBvbƒ√S"ÛcBˆrÂìSíÛcC≥RÛ#Ç∑FófTÙ‚vVÊgVÊB√2F"l;á$Ù‚◊L:g'6∂∆V‚ì"f˜'<;Ür‚FRvV◊FRÊ«ó6W"fó6W",:VFR$dí÷÷F6ÜvVˆ÷WG&í÷VCB˜fW&∆WfVÊFR6'&ñW'2ˆrÏ:g"‘Ùdb◊F"c˜&ñÊFV∆ñwBvVÊgVÊFÊR6ñvÊ∆f˜&Ã;Ü"‚∆∆S"6ñÊv∆R◊&˜r◊G&Á6ñVÁFW"˜fW&∆WfW#≥3"7L;Ü¶f˜&Ã;Ü"Ü"ÁVƒÙ‚÷ÜóG2‚F∆∆VÊRW"&W6∑&ófVÊFR7ñÁFWFó6∂RgVÊB¬ñ∂∂R∂∆ñ'&W&VFR6∑í◊&ˆ&&ñ∆óFWFW"‡†•VF∂7FWG2Vfå:fÊvñvRFV∑7G&WfñWr&W7FˆB÷VB,:f6ó6RÏ:gfÊW&Rˆr&Vw,:fÁ6ÊñÊvW"‚&˜'FV‚&ñÊFW2Fñ√íV∑6ó7FW&VÊFRFV∑7F∂ñ∆FW"fVBñ÷◊WF&∆R6ˆ÷÷óB&cì6FcñFSÜC3Ü3ìCcsCf3&cFcSìCcì3#&Fcí‚ñÊvV‚&r“˜66˜&V∂˜'BV∆∆W"ÁñRFV∆W6∂˜l:g&FñW"&∆Wb:V&ÊWBfVBFVÊÊR6÷÷VÊfFÊñÊs≤ñÊvV‚vVÊW&F˜"¬FWFV∑F˜"V∆∆W"V∑7G&fW&ñfñW"º;á'B‚V‚Áí∂ˆÁ6W'fFócS‘5R◊6V∑VÊFW'2&˜'G&W6W'fFñˆ‚VgFW&∆FW#b„"√sSCCìÉB5R◊2‚ÜV∆R&˜'B“Ùí“˜&WfñWvf˜&''VvWBå:gfFW2ñ∂∂RgV∆GB‹:V«C≤FñF∆ñvW&R&W6W'fFñˆÊW"&VgVÊFW&W2ñ∂∂Rˆr÷ñÊG7C"„&Wf&W2Fñ¬6«WG&˜'FV‚‚''VrÁR&W7V«G2˜&Fñı˜W&ñˆE˜&W˜'EˆG&gEÛ##cÇı$Uı%EÙƒTDtU"Êß6ˆ‚‡†§FWGFRW"$Tƒî‘î‰%ïÙ4ÙeÛ##eÛÛÇ¬ñ∂∂RW&ñˆFVÁ26«WF«V∂ÊñÊr‚FV‚v÷∆RW&ñˆFRg6«WGFW2<:g'6∂ñ«Cí‚ˆ∑Fˆ&W#≤6«WG&˜'FV‚f˜#rÓ(	3#‚ˆ∑Fˆ&W"gfVÁFW##‚ˆ∑Fˆ&W"‚66S◊fW&ñfñ∂FñˆÊV‚W"∆∆W&VFRvVÊÊV÷l;á'CÇ‚ˆ∑Fˆ&W"ˆrvVÁFvW2ñ∂∂Sí‚ˆ∑Fˆ&W"‚8f∆G&RVÊFñÊr“ˆ'VFvWFfV«FW"&Wf&W26ˆ“Üó7F˜&ñ≤ˆr7WW'6VFW&W2bFRf∑Fó6∂RÁñR∑fóGFW&ñÊvW"ˆr6VÊW7FR∆VFvW"‚FWB6VÊW&SCÇ◊fW'6ñˆÊW'2FW6ñv‚W"f˜'G6BWBf˜'6∆r¬6ˆ“ñ∂∂R∑FófW&W"ÁñRf˜'<;Ür‚g6«WGFVFRÊ«ó6W"ˆrVFóG2vVÁFvW2ñ∂∂R6ˆ“Fv∆ñwBg&V◊6∑&ñGC≤ñÊvV‚WFˆ÷Fó6≤f˜&Ã:fÊvV«6R‡†•¥f˜&VÃ;Ü&ñr6÷∆WB&˜'E“á&W7V«G2˜&Fñı˜W&ñˆE˜&W˜'EˆG&gEÛ##cÇıU$îÙEı$Uı%EÙE$eBÊ÷Bí+rµVfå:fÊvñwBFV∑7G&WfñWu“á&W7V«G2˜&Fñı˜W&ñˆE˜&W˜'EˆG&gEÛ##cÇı$UdîUrÊ÷Bí+r≥í∂ñ∆FV&ñÊFñÊvW%“á&W7V«G2˜&Fñı˜W&ñˆE˜&W˜'EˆG&gEÛ##cÇı4ıU$4UÙ$î‰Dî‰u2Êß6ˆ‚í+r¥∑GVV¬6∆Fı“á&W7V«G2˜&Fñı˜W&ñˆE˜&W˜'EˆG&gEÛ##cÇı$Uı%EÙƒTDtU"Êß6ˆ‚í+r¥f∑Fó6≤fW&ñfñ∂FñˆÂ“á&W7V«G2˜&Fñı˜6fVE˜fW&ñfñ6FñˆÂÛ##cÇıdU$îdî4DîÙÂı$Uı%BÊ÷Bí‡†¢““–†•FñF∆ñvW&RFFW&VFR˜7FW"l;Ü∆vW"6ˆ“Üó7F˜&ñ≤‡†¢2∑GVV¬7FGW2(	BÇ‚ˆ∑Fˆ&W"##c¢:ñ‚g&ó6≤◊&ˆ6W2◊fW&ñfñ∂Fñˆ‚vVÊÊV÷l;á'Bˆr&W7L:VW@†§FV‚∆Ê∆wFRvV◊FR‘UDÑÙB÷66S◊fW&ñfñ∂Fñˆ‚W"g&V◊'ñ∂∂WBg&í‚ˆ∑Fˆ&W"Fñ√Ç‚ˆ∑Fˆ&W"ˆrVFl;á'B:ñ‚vÊr‚&˜Fˆ∂ˆ∆∆VÁ2vFRf"GW&&V¬g6«WFÊñÊrbÜV∆ScB÷66RÊV∆WB¬6ˆ“f"˜gñ∆GC≤∂∆VÊFW&FFˆV‚W"V‚&&V¶G6÷ñ∆W:f¬‚˜&ñvñÊ«&ˆw&÷÷WB&W7FˆB55Ù$ıT‰DTEı4dTEı$U5T≈EıdU$îdî4DîÙ„£bvV◊FR66˜&V∂˜'B√#'FVf∑FÜ6ÜW2ˆsìbÙdb◊6÷÷VÊ∆ñvÊñÊvW"‚66VÁ33"Ù‚÷6'&ñW'2ˆs3"˜fW&∆WfVÊFR7FV÷÷W"‚FWGFRW"vV◊B÷ˆÜóB˜fWFÚ˜&V6˜fW'í÷∂ˆÁ6ó7FVÁ2¬VFV‚vVÊ&W&VvÊñÊrb,:R&W&ˆ6W76ñÊr¬FWFV∑F˜'66˜&W2V∆∆W"ÁñR6ñvÊ«G,:f≤‚ñÊvV‚ñFW&∆ñvW&RfW&ñfñW"÷ñÁfˆ6Fñˆ‚FV„í‚ˆ∑Fˆ&W"‡†§∆∆SSB˜&ñvñÊ∆fñ∆W"Û„Éìb„SC'óFW2¬&VvvR&∂ófW"ı4Ñ#SbÙvóB’4Ñˆ'óFW2ˆrF÷ó76ñˆ‚ˆ6∆ñ“W"WFVÁFñfñ6W&WB‚l;á'7FR&W7FW&W&ñÊw6¶ˆ"fÊvVFRV‚f∂˜'FWB∆ˆ∂¬∂ˆ˜&FñÊF˜'G&Á7˜'Cs"„÷ˆCsí„ÉsÇ'óFW2ˆr7F˜VFRl;á"ÊˆvV‚fW&ñfñW"÷ñÁfˆ6Fñˆ‚‚fV¶¬ˆ∆ˆr˜&W76˜W&6V∑fóGFW&ñÊrW"&Wf&WB‚V‚∂˜'&ñvW&WB˜fW&l;á'6V¬Fñ¬V‚Áí7FvñÊvfñ¬÷F6ÜVFR∆∆R˜&ñvñÊ∆RñFVÁFóFWFW"¬ˆrFV‚∂˜'&ñvW&VFR&W7FW&W&ñÊr&W7FˆB‚FWBW"G&Á7˜'G&WGFV«6R¬ñ∂∂RV‚V∑7G&FWFV∑F˜'VGfñ∂∆ñÊw7&WGFV«6RV∆∆W"fW&ñfñW"◊&WG'í‚VW"◊&WfñWrcCrFV∑7Ffñ∆W"¬&V6VóG2ˆr66˜R&W7FˆC≤&WfñWvW":V&ÊVFRñÊvV‚÷2ˆ&∂ófW"ˆrº;á'FRñÊvV‚V∑7G&fW&ñfñW"‡†§FvVÁ2‹:V«BÜV∆R6Üñ∆B˜w&W"÷∂ˆ◊ˆÊVÁFW"W#√CSCÉB5R◊2f˜"l;á'7FR&W7F˜&VfV¶¬√√cS33Çf˜"∂˜'&ñvW&WB&W7F˜&Rˆs√SìCRf˜"fW&ñfñW#≤í«C√#c#scr‚fW&ñfñW"◊v∆¬f#√ccc"2ˆrV≤%533„Ér„S#'óFW2VÊFW#c5R◊2Û#v∆¬◊2ÛDvî"‘2÷62‚FV‚˜&ñvñÊ∆R66W3s2√cC3cí5R◊2ÊvófW"Üó7F˜&ó6≤g&V◊7Fñ∆∆ñÊrˆr&∆Wbñ∂∂RvVÊº;á'B‚Áí∂ˆÁ6W'fFócS‘5R◊&W6W'fFñˆ‚VgFW&∆FW#b„c"√sSCCìÉC≤∂ˆ◊ˆÊVÁFW"FV&óFW&W2ñ∂∂RñvV‚¬FñF∆ñvW&R&W6W'fFñˆÊW":fÊG&W2ñ∂∂R¬ˆr÷ñÊG7C"„&Wf&W2Fñ¬6«WG&˜'FV‚‚6WGWÙí˜&WfñWr˜VFvófV«6Rå:gfFW2ñ∂∂RgV∆GB‹:V«B‚''VrÁR&W7V«G2˜&Fñı˜6fVE˜fW&ñfñ6FñˆÂÛ##cÇıdU$îdî4DîÙÂÙƒTDtU"Êß6ˆ‚‡†§Ù"f˜&&∆ófW"dî≈Ù4ƒı4TC≤FVÊÊR52∑f∆ñfñ6W&W"ñ∂∂RFV∆W6∂˜ñ∆˜FV‚‚FWB6VÊW&SCÇ◊fW'6ñˆÊW'2VGfñ∂∆ñÊw6f˜'6∆rW"7FFñr∑V‚f˜'6∆r‚FV‚v÷∆RW&ñˆFW2g6«WFÊñÊsí‚ˆ∑Fˆ&W"ˆr6«WG&˜'C#‚ˆ∑Fˆ&W"W"\:fÊG&VFR‚«V∂∂VFRVFóG2¬∆ÊÃ:fvÊñÊw6÷FV÷Fñ≤¬7FFó6≤ñÁfVÁF"ˆrFV‚ÁRvVÊÊV÷l;á'FRg&ó6∂R∂ˆÁG&ˆ¬vVÁFvW2ñ∂∂R6ˆ“Fv∆ñwBg&V◊6∑&ñGB‚ñÊvV‚WFˆ÷Fó6≤Áí∂◊vÊRV∆∆W"f˜&Ã:fÊvV«6R‡†•µ&W7V«FG&˜'E“á&W7V«G2˜&Fñı˜6fVE˜fW&ñfñ6FñˆÂÛ##cÇıdU$îdî4DîÙÂı$Uı%BÊ÷Bí+r¥˜&ñvñÊ¬Áí∑fóGFW&ñÊu“áñ∆˜E˜&˜Fˆ6ˆ≈Û##cÇ˜&WfñWrÙ‘UDÑÙEı4dTEÙ44UÛı$U$ÙET5DîÙ‚Êß6ˆ‚í+rµ&W7FW&W&ñÊu“á&W7V«G2˜&Fñı˜6fVE˜fW&ñfñ6FñˆÂÛ##cÇı$U5Dı$DîÙÂı$T4TïBÊß6ˆ‚í+rµ&WfñWu“á&W7V«G2˜&Fñı˜6fVE˜fW&ñfñ6FñˆÂÛ##cÇı$U$ÙET5DîÙÂı$UdîUrÊ÷Bí+r¥∑GVV¬6∆Fı“á&W7V«G2˜&Fñı˜6fVE˜fW&ñfñ6FñˆÂÛ##cÇıdU$îdî4DîÙÂÙƒTDtU"Êß6ˆ‚í‡†¢““–†•FñF∆ñvW&RFFW&VFR˜7FW"l;Ü∆vW"6ˆ“Üó7F˜&ñ≤‡†¢2∑GVV¬7FGW2(	BÇ‚ˆ∑Fˆ&W"##c¢6VÊW&RVGfñ∂∆ñÊw6FW6ñv‚ˆrf7BfW&ñfñ∂FñˆÁ7<:gB∂∆&v¶˜'@†§FRg6«WGFVFRFFÊ«ó6W"W"ˆ◊6BFñ¬G&R∂ˆÊ∑&WFR6VÊW&RVGfñ∂∆ñÊw76÷÷VÊ∆ñvÊñÊvW#¢FñG7&ˆfñ∆W"÷VBFÚ◊∆óGVFV∂ˆÁfVÁFñˆÊW#≤f7B6ÊF&ÊR◊7FFó7Fñ≤G6∂ñ«Bg&v∆ˆ&«B<;ÜvV÷∑6ñ◊V”≤ˆr:ñ‚$dí÷f÷ñ∆ñW&˜F˜GóR6÷÷V‚÷VBÏ:g"‘Ùdb◊6ñvÊ∆&Wf&V«6R‚f˜'6∆vWBˆ÷fGFW##B≥C≥ÉC”CÇ'&VFR'&ófW'6ñˆÊW"ìÇ7L;Ü¶&∆ˆ∂∂R‚ÁV∆G&ñgBW"÷VBf˜"B∂ˆÊg&ˆÁFW&RFV‚Fˆ∑V÷VÁFW&VFRÏ:g"‘Ùdb÷fV¶¬‚,:f∂∂Vl;Ü∆vV‚W"FñG7&ˆfñ∆W"¬f7B&ÊRˆ‹:V«B&6V∆ñÊVˆ÷∂˜7FÊñÊrˆrFW&VgFW"f÷ñ∆ñW&˜F˜GóR¬áfó2ˆ'6W'fW&&&ÜVBˆr6W&B'VFvWBW"Fñ«7G,:f∂∂V∆ñvR‚fW'6ñˆÊW&ÊRW"VGfñ∂∆ñÊw6∂ˆÁG&ˆ∆∆W"ˆrL:f∆∆W2ñ∂∂R6ˆ“Vfå:fÊvñvRf∆ñFW&ñÊw6f˜&Ã;Ü"‚ñÊvV‚ÁñR6VVG2¬'&ó2¬66˜&W2¬&VvVÃ:fÊG&ñÊvW"V∆∆W"∑f∆ñfñ∂Fñˆ‚W"VFl;á'B‡†§∂˜'FR6ñvÊ∆W"ˆrVÊ∂V«B‘Ù‚&Wf&W3¢ñFVÁFó6∂Rˆ'6W'fW&VFR'&ó2÷VBf˜'6∂V∆∆ñr˜&ñÊFV«6W6∆&V¬∂‚ñ∂∂R6∂V∆ÊW2bV‚∆v˜&óF÷R‚fVB6÷÷VÊf∆FVÊFR∂ˆ◊ˆÊVÁFW"∂‚Fó7˜6óFñˆÊV‚l:g&RVf∂∆&WB‚FRf˜&W6Ã:VVFRñÁ7G'V÷VÁFW&ñÊw2“˜&VvVÃ:fÊG&ñÊvW"ˆrÁñRº;á'6V«7ÊV∆W"W"Fñ¬V‚6VÊW&R6W&B&˜Fˆ∂ˆ√≤FR∑FófW&W2ñ∂∂RíFV‚ÁWl:g&VÊFSrÓ(	3#‚ˆ∑Fˆ&W"◊∆‚‚Ù"f˜&&∆ófW"dî≈Ù4ƒı4TB¬ˆrFV∆W6∂˜ñ∆˜FV‚W"ñ∂∂RF÷óGFVB‡†§&WFñÊvWB7Fñ∑,;áfV÷FV÷Fñ≤W"∂ˆÁG&ˆ∆∆W&WB÷VBVfå:fÊvñsì÷6ñg&WBFV6ñ÷√¢ÁV¬å:fÊFV«6W"∑,:gfW##íÛSíÛ#ìíf˜&Ã;Ü"f˜":ñ‚∂∆76W2VÁ6ñFñvSìRR;ág&Rw,:fÁ6SÛRÛS≤fó&R6◊FñFñvR∂∆76V∑&b∑,:gfW#C"ÛÉbÛC3r"‚∂∆76R‚FWGFRf˜'VG<:gGFW"V‚áó˜FWFó6≤Vfå:fÊvñrVÁ2◊÷÷ˆFV¬"‚∂∆76R¬6ˆ“ñ∂∂RÁFvW2f˜"FRV∑6ó7FW&VÊFRÜWFW&ˆvVÊR6V∆∆W"V∆∆W"Üñ÷÷V∆FF‚ˆ÷∂˜7FÊñÊw7F&V∆∆V‚''VvW"g6«WGFVFRÊV∆W'2‹:V«FR¶ˆ&vVÊÊV◊6ÊóB6ˆ“ñ∆«W7G&Fñˆ„≤:fÊG&WB÷WFˆFR¬V∑7G&66˜&W76W2ˆr;ág&ñr˜fW&ÜVBÜ"V∂VÊGBf∑Fó6≤&ó2‚FW6ñv‚“ˆrÁV÷W&ñ∑&WfñWr&W7FˆB55ıƒ‰‰î‰uı44ıUÙ‰EÙÂT‘U$î5ı$UdîUr‡†§FV„í‚ˆ∑Fˆ&W"◊fW&ñfñ∂FñˆÁ27FFó6∂RñÁWG<:gBW"ÁRñFVÁFñfñ6W&WC£SBfñ∆W"Û„Éìb„SCFV∂∆&W&VFR&W7FW&W&VFR'óFW2√#F÷ó76ñˆ‚÷FvÊw6∑&bˆrFÚ&∂ófW"ÛcÇ„cSR∂ˆ◊&ñ÷W&VFR'óFW2‚∆∆RFvÊw6∑&b÷F6ÜW"F÷ó76ñˆÁ2’4Ñ#Sc≤&∂ófW&ÊW2vóB’4Ñˆ'óFW2÷F6ÜW"˜&ñvñÊ¬÷WFFF‚&ˆF∂ˆÁG&ˆ∆∆V‚c#&ñÊFñÊvW"¬∆ñ˜WF&óF÷WFñ≤ˆr&VvvR&∂ófW'2∂F∆ˆv÷WFFF&W7FˆB‚&∂óf∑&˜Rˆr÷2W"f˜'G6B\:V&ÊVFRíFVÊÊRf6S≤ÁV’í÷ñÊFÃ:g6ÊñÊr¬&W7FW&W&ñÊrˆrFV‚VÊRg&ó6∂R&ˆ6W2W"ñ∂∂RVgFW',;áfWBÁR‚ñÁfVÁF&WBW"ñ∂∂RV‚Áí&W&ˆGV∑FñˆÁ6∑fóGFW&ñÊr‡†§Áí∂ˆÁ6W'fFób&W6W'fFñˆ„5R◊6V∑VÊFW"VgFW&∆FW#b„#"√sSCCìÉB‚÷WG&VFR&W&VvÊñÊw6∂ˆ◊ˆÊVÁFW"W#√SsSÉÉ#CR5R◊6V∑VÊFW"ñÊFRí&W6W'fFñˆÊV„≤6WGWÙí˜7FFó6≤ñÁfVÁF"ˆFˆ∑V÷VÁFFñˆ‚˜VFvófV«6Rˆr&Wf&VFR∂˜'&ñvW&VFRf˜&&W&VFV«6W6fV¶¬å:gfFW2ñ∂∂RgV∆GB‹:V«B‚FñF∆ñvW&S„#÷f˜&&W&VFV«6W2“√’$dí“ˆs#÷FñvÊ˜7Fñ∑&W6W'fFñˆÊW"W"\:fÊG&VFR‚÷ñÊG7C"„5R◊6V∑VÊFW"&Wf&W2Fñ¬&˜'B˜&W&ˆGV∑Fñˆ‚‚''VrÁR&W7V«G2˜&FñıˆÊWáEˆFW6ñvÂÛ##cÇÙDU4îtÂÙƒTDtU"Êß6ˆ„≤FñF∆ñvW&R∆VFvW'2W"Üó7F˜&ñ≤‡†§FF˜G&ñ‚W"\:fÊG&VFS¢v÷÷V√#b‚6WFV÷&W.(	3í‚ˆ∑Fˆ&W"◊W&ñˆFRg6«WGFW3í‚ˆ∑Fˆ&W"VBg&2÷ˆcÇ‚ˆ∑Fˆ&W"◊VF∂7Bˆr6VÊW7FR7FGW3≤:ñ‚vV◊B‘UDÑÙB÷66RfW&ñfñ6W&W3í‚ˆ∑Fˆ&W#≤6«WG&˜'C#‚ˆ∑Fˆ&W"‚«V∂∂VFRVFóG2ˆrFWGFRl:g&FñvRFW6ñv‚vVÁFvW2ñ∂∂R6ˆ“Fv∆ñwBg&V◊6∑&ñGB‚ñÊvV‚WFˆ÷Fó6≤6VÊW&R∂◊vÊRV∆∆W"f˜&Ã:fÊvV«6R‡†•¥&W6«WFÊñÊw6w'VÊF∆u“á&W7V«G2˜&FñıˆÊWáEˆFW6ñvÂÛ##cÇÙDT4ï4îÙÂÙ%$îTbÊ÷Bí+rµ6VÊW&RfñFVÁ6∂&V∆ñvR6÷÷VÊ∆ñvÊñÊvW%“á&W7V«G2˜&FñıˆÊWáEˆFW6ñvÂÛ##cÇı44îTÂDîdî5ÙDU4ît‚Ê÷Bí+r¥&WFñÊvVFR7Fñ∑,;áfV∑&e“á&W7V«G2˜&FñıˆÊWáEˆFW6ñvÂÛ##cÇÙDU4îtÂÙ$ıT‰E2Ê÷Bí+rµ&WfñWu“á&W7V«G2˜&FñıˆÊWáEˆFW6ñvÂÛ##cÇÙDU4îtÂı$UdîUrÊ÷Bí+r≥í‚ˆ∑Fˆ&W"÷ñÁWG<:gE“á&W7V«G2˜&FñıˆÊWáEˆFW6ñvÂÛ##cÇı4dTEıdU$îdî4DîÙÂı$TdƒîtÖBÊ÷Bí+r¥∑GVV¬6∆Fı“á&W7V«G2˜&FñıˆÊWáEˆFW6ñvÂÛ##cÇÙDU4îtÂÙƒTDtU"Êß6ˆ‚í‡†¢““–†•FñF∆ñvW&RFFW&VFR˜7FW"l;Ü∆vW"6ˆ“Üó7F˜&ñ≤‡†¢2∑GVV¬7FGW2(	BÇ‚ˆ∑Fˆ&W"##c¢vV◊FRFñvÊ˜7Fñ≤“ˆrL:f∂ÊñÊw6Ê«ó6W"g6«WGFW@†§∆∆RSb&V∆WfÁFR"÷f˜'<;ÜrW"vVÊÊV÷|:VWBg&WFVÁFñfñ6W&VFR&∂ófW#¢"VÊ∂V«B◊,:f∂∂R◊G&Á6ñVÁFW"¬"Ï:g"‘Ùdb÷f˜'<;Ürˆr3"7L;Ü¶f˜&Ã;Ü"‚V‚Vfå:fÊvñr∂ˆÁG&ˆ¬b„#˜&ñvñÊ∆R'FVf∑FÜ6ÜW2¬33bfñÊFW&∂˜'Bˆr6V∑255b◊F&V∆∆W"&W7FˆB‚ñÊvV‚ÁñR6ñvÊ«G,:f≤¬FWFV∑F˜'66˜&W2¬L:g'6∂∆W"¬∑f∆ñfñ∂Fñˆ‚V∆∆W"Üñ÷÷V«7V∑G&W"‡†§∆∆R"G&Á6ñVÁFW"˜fW&∆WfW"‚FW&W2Ç„B∂˜'&V∆W&VFR6'&ñW"◊7f"ˆ÷fGFW"C#Ç6ÊFÜVG6∆ˆ∂∆ó6W&VFRfVB&VvvRÙ‚÷VÊFWVÊ∑FW#≤Ç„276W&W"ñÊFV‚f˜"Ç√R∂Ê∆'&VFFW"fVBFV‚VÊW7FRñÊG7,;ÜßFVFRñÁFVw&FñˆÁ2÷ñGGVÊ∑B‚V‚6W&BFV6ñ÷¬÷VFóB&V∑,:fgFW"vVˆ÷WG&ñV‚f˜"∆∆RÇ„B‚VÊ∑F÷F6ÇW"ñ∂∂RWBÁóBvVÊgVÊBV∆∆W"V‚‹:V«BFñG7&ˆfñ√≤FñG6‹:g76ñrfVGf&VÊÜVBVgFW',;áfW2ñ∂∂RbFVÊÊRfñ«FW'&VvV¬‡†§Ï:g"‘Ùdc¢Û"Ù‚◊6ñvÊ∆W"f"ñÊóFñ«B∆ˆ∂∆ó6W&WB¬ˆr∆∆RcbÜóG2&∆WbfWFˆWB÷VB˜&ñvñÊ∆RvóFÊW76W2íÊWF˜FV‚VgFW&l;Ü∆vVÊFR∂ˆÁF÷ñÊW&VFRÙdb‚f˜'<;ÜsÇÃ:RVÊFW"Ù„÷VB÷∑6ñ◊V“í√Éss#ssCsÉÉSc≤FWBF"∂ˆ“l;á"Ùdb‚6«WG&W7V«FFWBW"Û"‚Ùdb◊vóFÊW76W27F˜W"FñF∆ñwB¬<:RFW&W2vV◊FR6ÜV6∂VB÷÷∑6ñ÷W"FV«fó6S≤&W6∑&ófVÊFRÙdb÷∆ñÊ¶R÷vVˆ÷WG&í:fÊG&W"ñÊvV‚˜&ñvñÊ¬vFR‡†•7L;Ü£¢ÁV¬Ù‚÷6'&ñW'2í3"f˜&Ã;Ü"ˆrìbÙ‚◊66Á2¬˜GFRf˜&Ã;Ü""‚f7F∆wB∆˜b‚FWGFR∂∆ñ'&W&W"ñ∂∂RV‚Üñ÷÷V¬÷f«6∂∆&◊&FR‚‘UDÑÙCcBw2#Ç∑FófRÙ‚÷÷∑6ñ÷W"6÷÷VÊÜˆ∆GB÷VBñFV∆ÊófVVWBVFV‚Áí66˜&ñÊs¢R∆ˆ∂∆ó6W&VFR66‚÷vVÊgVÊB¬2L:g'6∂V∆÷ó76W2í"6V∆∆W"‚ƒ√S"ÛcBˆrÂìSíÛcBW"\:fÊG&WB‚v∆ˆ&«B<;ÜvV÷∑6ñ◊V“W"V‚ÊFV‚7L;á'&V«6RVÊB7L;Ü¶g&íñFV«&ˆ¶V∑Fñˆ‚V∆∆W"‹:V«B4Â"ˆf«WÇ‚G&R˜&ñvñÊ∆R&˜'G&ˆGV∑FW"¬#Ç66‚◊,:f∂∂W"¬cBf˜'<;Üw7,:f∂∂W"ˆr#Rw'WW"Ü"&W7L:VWB6W&BVfå:fÊvñrFV6ñ÷¬÷∂ˆÁG&ˆ¬‡†•$dí÷vVˆ÷WG&ñVÁ2FñF∆ñvW&RFˆ∑V÷VÁFW&VFRB&W7FW"7L:W"\:fÊG&WB‚Ù"f˜&&∆ófW"dî≈Ù4ƒı4TB¬ˆrFV∆W6∂˜ñ∆˜FV‚W"ñ∂∂R∑f∆ñfñ6W&WB‚&ñ˜&óFWFW"Fñ¬V‚6VÊW&R∆‚W"FñG7&ˆfñ¬ˆ'FVf∑FW"¬$dí÷f÷ñ∆ñW"6÷÷V‚÷VBÏ:g"‘Ùdb◊6ñvÊ∆&Wf&V«6Rˆr<:g'6∂ñ«B∂∆ñ'&W&ñÊrb6ÊB÷&ÊR◊7FFó7Fñ≤fW'7W2VGf∆wB÷∑6ñ◊V“‚ñÊvV‚bf˜'6∆vVÊRñ◊∆V÷VÁFW&W2íFVÊÊRW&ñˆFR‡†§FV‚v÷∆R#b‚6WFV÷&W.(	3í‚ˆ∑Fˆ&W"◊W&ñˆFRÜ"WB<:g'6∂ñ«BVF∂7B"‚Ç‚ˆ∑Fˆ&W"¬&6W&WB:RÊí˜&ñvñÊ∆R&˜'FW#≤FVÁ26«WF«V∂ÊñÊrí‚ˆ∑Fˆ&W"W"VÊFÁRñ∂∂RVFl;á'B‚FRg6«WGFVFR$dí“¬FñvÊ˜7Fñ≤“¬V«2“ˆrL:f∂ÊñÊw6Ê«ó6W"vVÁFvW2ñ∂∂R6ˆ“Fv∆ñwBg&V◊6∑&ñGB‚Ï:g7FRf7FRG&ñ‚W"FV‚¸˜Œm¢Gß≤⁄Óù∆≠y÷«fVB∆&V«2ÊB6∆˜6VB&˜VÊFV@ß7GVFñW2‚T33É”SÇ¬t5”C2¬t¢C3bÊBr#CR”C"&V÷ñ‚6∆˜6VBVÊFW §4ı%$T5DîÙÂÙƒî‰¥TC≤r3C2”"&V÷ñÁ26∆˜6VBFW67&óFófRÁV∆¬‚˜FÜW"6∆˜6V@¶˜Fñ6¬7GVFñW2ÊB”32ÑB3cS&RVÊ6ÜÊvVB‚&W6W'fVBDU52Ù”C2ÊV«27Fê¶6∆˜6VB‚6∆ñ'&Fñˆ‚ó2‰ıEı$TEíÊBóG2FV6ÜÊñ6¬&WVW7B&V÷ñÁ2VÁ6VÁB‡•7FÊFñÊr&W6V&6Ç˜V&∆ñ6Fñˆ‚WFÜ˜&ó¶Fñˆ‚6ˆÁFñÁVW3≤FV∆VvFñˆ‚ó2FVfW'&VB‡††¢22#"6WFV÷&W"##b(	B≈3Ñ˛(	4≈3Ñt5”26ˆ◊∆WFRÊB6∆˜6V@†•FÜR&VFWFW&÷ñÊVB&Ê≤”B4ÑTı2ó"7W∆ñVB¢£ScR&˜w2ÊBÉBV∆ñvñ&∆P¶˜fW&∆ñÊrvñÊF˜w2¢¢‚FÜRfó'7Bfó6óBÜ2ÊÚ6ñvÊVBFá&W6Üˆ∆B7&˜76ñÊs≤FÜPß6V6ˆÊBÜ2Fá&VR˜6óFófR7&˜76ñÊw2ñ‚ˆÊR6«W7FW"ÊBÊÚÊVvFófR7&˜76ñÊr‡•FÜR6ˆ∆R&W&W6VÁFFófR¬¢•Ds%ı¢¢¬ó2&˜r#sBˆ`§4Öı#5ıDs%ıc3¢ˆÊRc◊6V6ˆÊBWá˜7W&R¬√"66˜&R¢¢≥2„cs##SÇ¢¢¿¶ÊB¢¢≥„33sR¢¢&˜fRóG2∆ˆ6¬√"&6V∆ñÊR‚66˜&W2&RÊ˜BvW76ñ‚6ñv÷‡†•FÜR6ˆ◊∆WFRó&VB÷ñ÷vRfˆ∆∆˜r◊W6∆76ñfñW2FÜRWfVÁB¢§4ı%$T5DîÙÂÙƒî‰¥TB¢¢‡§&˜FÇ6ˆ˜&FñÊFR6ˆÁfVÁFñˆÁ2ÜfR6ˆ◊∆WFRW'GW&W2ÊB˜6óFófR4ı"7V◊0¶÷F6ÜñÊr√"‚FÜR4¬WfVÁB◊&W6ñGV¬W'GW&R7V“ó2&˜Üñ÷FV«í”ì√ER¿ßvÜñ∆R4ı"ó2≥Ç√SSES≤DT≈D‘4ı"‘4¬ó2&˜WB≥í√cSER‡§DT≈DÙ4ı"ó2¢£R„ìcsÇÚR„ìSSÉ2¢¢¬ÊBFÜR6ˆ«V÷‚◊&ˆ¶V7FVB&Fñ˜2&P¢¢£b„ÉsìíÚb„ì3Ss"¢¢¬&˜fRFÜR&R÷WÜó7FñÊr„R6˜'&V7Fñˆ‚vFRñ‚&˜FÄ¶6ˆÁfVÁFñˆÁ2‚FÜW6R&RWfVÁB◊&W6ñGV¬7V◊2¬Ê˜BÊVvFófRF˜F¬7FV∆∆"f«WÇ‡•FÜR∆&V¬W7F&∆ó6ÜW27V'7FÁFñ¬6˜W∆ñÊrFÚFV∆ófW&VB&ˆ6W76ñÊs≤óBFˆW0¶Ê˜BñFVÁFñgíˆÊRáó6ñ6¬6˜'&V7Fñˆ‚6ˆ◊ˆÊVÁB˜"WÜ6«VFR6˜W&6Rf&ñ&ñ∆óGí‡†§∆¬f˜W"v˜&∂f∆˜w2ÊBFÜR¢£RG&Á7˜'BÚ"√"Úíñ÷vRFW7G2¢¢72‡§ñÊFWVÊFVÁBVFóG272¢£í√cCÇ√"6ˆ◊&ó6ˆÁ2¢¢¬¢£#cíñ÷vR÷÷WFFF6ÜV6∑2¢†¶ÊB¢£ìB√S3rÁV÷W&ñ6¬Úc√SÉWÜ7Bñ÷vR6ÜV6∑2¢¢¬vóFÇ¶W&ÚFó6w&VV÷VÁG0¶BVÊ6ÜÊvVBFˆ∆W&Ê6W2‚&˜FÇfñwW&W2vW&Rfó7V∆«íñÁ7V7FVB‚7Vó6óFñˆ‚ó0¶WÜ7F«í¢£sr√ìs√"'óFW2¬Ç√Sc√ñ÷vR'óFW2ÊBCb√C6÷V&ñÊr'óFW2¢¢‡•FÜRt5”2ó"ó26ˆ◊∆WFRÊB6∆˜6VBVÊFW"óG2fóÜVBFW67&óFófR∆&V√∞¶ÊÚ&W6ñGV¬7GVGíó2G&ñvvW&VB‚ÊÚV∆ñfñVB4UDí6ÊFñFFR¬FWFV7F˜"¿ß6VÁ6óFófóGí˜"ˆ'6W'fñÊr÷6˜fW&vR6∆ñ“ó2FFVB‡†¢¢§ñ÷÷VFñFRÊWáB7Fñˆ„¢&W&R≈3Ñf˜"&Ê≤”Rt¢SÉ¢¢¬&VvñÊÊñÊpßvóFÇ6W&FRWÜ7B◊ó"ˆÜVFW"g&VW¶Rf˜"4Öı#ıDs#3sıc3Ê@§4Öı#ÖıDsÉ3ıc3‚FÜWí&RFÜRfó'7BGvÚˆb6WfV‚V∆ñvñ&∆Rfó6óG2‡•FÜVó"∆VFvW"GW∆W2&R‰UÖ”¬UÖDî‘S’DUÖDî‘S”c6V6ˆÊG2ÊBóV∆ñÊP£B„„#≤fW&ñgíV6Ç&ˆGV7Bw2˜v‚ñFVÁFóGí¬66ÜV÷¬&˜w2ÊBWá˜7W&W2&Vf˜&Pß6W&FV«íg&VW¶ñÊrWÜ7BDTdT≈B‘√"'óFR&ÊvW2‚G&Á6fW"FÜRVÊ6ÜÊvV@¶ˆÊR˜GvÚ˜Fá&VR◊&˜r6ñvÊVB67&VV‚ÊBñÊFWVÊFVÁBVFóBW6ñÊrFÜRfW&ñfñVB6FVÊ6R‡§t¢SÉ66ñVÊ6Rf«VW2&V÷ñ‚VÊ˜VÊVB‚FÜRÊñÊR∆FW"V∆ñvñ&∆Rt5”2fó6óG0ß7Fí˜WG6ñFRFÜR6∆˜6VBó#≤ÊÚWfVÁBñ‚óB&V6ˆ÷W2ÊWr67&VVÊñÊr7WB‡†•µ66ñVÁFñfñ2ñÁFW'&WFFñˆ‚ÊBWÜ7B6ˆÁFñÁVFñˆÂ“Ñ≈3ÑÙ4ÙÂDîÂTDîÙ‚Ê÷Bí¿•¥√"&W˜'BÊBfñwW&U“á&W7V«G5ˆ«3Üıˆ√%˜67&VV‚ı$Uı%BÊ÷Bí¿•∑ó&VB÷ñ÷vR&W˜'BÊBfñwW&U“á&W7V«G5ˆ«3Üˆñ÷vW2ı$Uı%BÊ÷Bí¿•∑V&∆ñ6Fñˆ‚ñFVÁFóFñW2ÊBfW&ñfñ6FñˆÂ“ÖT$ƒî4DîÙÂÛ##b”í”#%Ù≈3ÑıÙ≈3ÑÊ÷Bí‡†§V&∆ñW"FFVBÊWáB7FñˆÁ2&V∆˜r&RÜó7F˜&ñ6¬‚FÜR7FófR6ˆÁFñÁVFñˆ‚ó0§≈3ÑÙ4ÙÂDîÂTDîÙ‚Ê÷C≤FÜRÊWáB7FvRó2≈3Ñ‡†•FÜR˜&ñvñÊ¬√◊&˜r6VÁ7W2¬CS"V∆ñvñ&∆Rfó6óG2ÊBr÷6ˆÜ˜'B˜&FW&ñÊpß&V÷ñ‚fóÜVB‚ÑBc3R&WFñÁ2∆¬Fá&VRVÁ&W6ˆ«fVB∆&V«2ÊBóG26∆˜6V@¶&˜VÊFVB7GVGí‚DU55Û#ccCscbw2˜6óFófR¬s32”Bw2ÊVvFófRÊ@•r#r”32w2˜6óFófR&WFñ‚FÜVó"VÁ&W6ˆ«fVB∆&V«2ÊB6∆˜6VB&˜VÊFV@ß7GVFñW2‚T33É”SÇ¬t5”C2¬t¢C3bÊBr#CR”C"&V÷ñ‚6∆˜6VBVÊFW §4ı%$T5DîÙÂÙƒî‰¥TC≤r3C2”"&V÷ñÁ26∆˜6VBFW67&óFófRÁV∆¬‚˜FÜW"6∆˜6V@¶˜Fñ6¬7GVFñW2ÊB”32ÑB3cS&RVÊ6ÜÊvVB‚&W6W'fVBDU52Ù”C2ÊV«27Fê¶6∆˜6VB‚6∆ñ'&Fñˆ‚ó2‰ıEı$TEíÊBóG2FV6ÜÊñ6¬&WVW7B&V÷ñÁ2VÁ6VÁB‡•7FÊFñÊr&W6V&6Ç˜V&∆ñ6Fñˆ‚WFÜ˜&ó¶Fñˆ‚6ˆÁFñÁVW3≤FV∆VvFñˆ‚ó2FVfW'&VB‡††¢22#"6WFV÷&W"##b(	B≈3Ñ(	4≈3Ñ2t¢SÉ6ˆ◊∆WFRÊB6∆˜6V@†•FÜR&VFWFW&÷ñÊVB&Ê≤”Rt¢SÉó"7W∆ñVB¢£2√c#2&˜w2ÊBr√Écê¶V∆ñvñ&∆R˜fW&∆ñÊrvñÊF˜w2¢¢‚FÜRfó'7Bfó6óBÜ23˜6óFófR7&˜76ñÊw0¶ñ‚ÊñÊR6«W7FW'2ÊBbÊVvFófR7&˜76ñÊw2ñ‚fófR6«W7FW'3≤FÜR6V6ˆÊBÜ0ß¶W&Ú6ñvÊVB7&˜76ñÊw2ñ‚óG2ÉBV∆ñvñ&∆RvñÊF˜w2‚FÜR˜&ñvñÊ¬≤Ú”Ç„R66˜&W0¶&RÊ˜BvW76ñ‚6ñvÊñfñ6Ê6W2¬ÊBFÜRvñÊF˜w2&RÊ˜BñÊFWVÊFVÁBG&ñ«2‡†§∆¬B&W&W6VÁFFófW26ˆ◊∆WFVBó&VB÷ñ÷vRfˆ∆∆˜r◊W¢¢¶ÊñÊP§4ı%$T5DîÙÂÙƒî‰¥TB¢¢Üf˜W"˜6óFófR¬∆¬fófRÊVvFófRí¬¢ßFá&VP•5Dîƒ≈ïı5E%T5EU$TB¢¢Ö"ıbıÇíÊB¢ßGvÚTÂ$U4Ù≈dTEıtïDÑîÂÙdïÑTEı44ıR¢†¢Ö2ıRí‚FÜR6ˆ◊∆WFR˜6óFófRîG2&R&VfóÜVBDs#3sÚ‚FÜRGvÚ÷Wá˜7W&P¶ÊVvFófR„ó2ñÊ6«VFVBÊB4ı%$T5DîÙÂÙƒî‰¥TC≤∆¬˜FÜW"&W&W6VÁFFófW0¶&RˆÊRc◊6V6ˆÊBWá˜7W&R‚FÜW6R∆&V«2FW67&ñ&R&ˆ6W76ñÊr˜"ñ÷vRfóG2¿ßvóFÜ˜WB76ñvÊñÊrVÊóVRáó6ñ6¬6W6W2˜"'Fñfñ6ñ¬˜&ñvñ‚‡†•FÜR6W&FV«íg&˜¶V‚&WFñÊVB÷FF7GVGíñÊ6«VFW2&˜FÇVÁ&W6ˆ«fVBWfVÁG2¿¶VñváBÊFófR&ˆGV7Bˆ6ˆÁfVÁFñˆ‚66W2¬ì"ÜV∆B66W2ÊB#Ç6ñvÊVB6ˆÁG&ˆ«2¿ßvóFÇ¢ß¶W&ÚÊWr&6ÜófR'óFW2¢¢‚óG24ı"&W6ñGV¬˜&VfW&VÊ6R&Fñ˜2&P¢¢£„sìSCrÚ„cc#f˜"2¢¢ÊB¢£2„ì#csbÚ2„sÉ2f˜"R¢¢Ñ3Ù3í‡§f˜"2¬¢£íÛ#B6ˆÁG&ˆ«2¢¢&RB∆V7B2∆&vRñ‚&˜FÇ6ˆÁfVÁFñˆÁ2‚f˜"R¿ßFÜR6˜VÁG2&R¢£Û#BÊB"Û#B¢¢‚2Ü26WfW&¬6ˆ◊&&∆R˜"∆&vW"∆ˆ6¿¶6ˆÁG&ˆ«3≤Ró2∆&vW"FÜ‚÷˜7B¬vóFÇ6ˆ÷R6ˆ◊&&∆R˜"∆&vW"6ˆÁG&ˆ«2‡•FÜW6RFWVÊFVÁB6˜VÁG2&RÊ˜B◊f«VW2˜"6∆ñ'&FVBf«6R÷∆&“&FW2‡§&˜FÇ6W6W2&V÷ñ‚VÊ∂Ê˜v‚ÊB&˜FÇ˜&ñvñÊ¬VÁ&W6ˆ«fVB∆&V«2&R&WFñÊVB‡§áó˜FÜWFñ6¬Fó7∆6V÷VÁB◊«W2÷6ˆÁ7FÁB7V'G&7Fñˆ‚∆˜6W2¢£„C(	3„#R¢†¶ˆbñÊ¶V7FVB4ı"'&ñváFÊW72f«WÇÊBó2Ê˜BF˜FVB‡†§∆¬fófRv˜&∂f∆˜w2ÊBFÜR¢£RG&Á7˜'BÚ"√"Úñ÷vRÚÇ&W6ñGV¿ßFW7G2¢¢72‚ñÊFWVÊFVÁBVFóG272ìB√C#Ç√"6ˆ◊&ó6ˆÁ2¬2√s#2÷WFFF¶6ÜV6∑2¬√3#2√SÇÁV÷W&ñ6¬Ú"√#CÇ√ìWÜ7Bñ÷vR6ÜV6∑2ÊBc√CCÄ¶ÁV÷W&ñ6¬ÚcC√##"WÜ7B&W6ñGV¬6ÜV6∑2¬vóFÇ¶W&ÚFó6w&VV÷VÁG2@ßVÊ6ÜÊvVBFˆ∆W&Ê6W2‚∆¬rfñwW&W2vW&Rfó7V∆«íñÁ7V7FVB‚FÜRó"Ê@¶óG26ñÊv∆R&˜VÊFVB7GVGí&R6ˆ◊∆WFRÊB6∆˜6VB¬&W6W'fñÊr∆¬B∆&V«2‡§ÊÚÊWr7WB¬7V'G&7Fñˆ‚¬V∆ñfñVB6ÊFñFFR¬FWFV7F˜"¬6VÁ6óFófóGí˜ ¶ˆ'6W'fñÊr÷6˜fW&vR6∆ñ“ó2FFVB‡†¢¢§ñ÷÷VFñFRÊWáB7Fñˆ„¢&W&R≈3ÑBf˜"&Ê≤”bT3CSìí”#Cr¢¢¿ßFÜRfó'7BGvÚˆbFá&VRV∆ñvñ&∆Rfó6óG3¢4Öı#%ıDs3ıc3Ê@§4Öı#%ıDs3%ıc3‚FÜVó"∆VFvW"GW∆Ró2‰UÖ”¿§UÖDî‘S’DUÖDî‘S”c6V6ˆÊG2ÊBóV∆ñÊRB„„"‚g&VW¶RFÜRWÜ7Bó"Ê@¶&˜VÊFVBÜVFW"&VFW"¬ñÊFWVÊFVÁF«ífW&ñgíV6ÇñFVÁFóGí˜66ÜV÷˜&˜r6˜VÁB¶Wá˜7W&R¬FÜV‚6W&FV«íg&VW¶RDTdT≈B‘√"'óFR&ÊvW2&Vf˜&Rf«VW2‡•G&Á6fW"FÜRVÊ6ÜÊvVB6ñvÊVBˆÊR˜GvÚ˜Fá&VR◊&˜r66˜&W"ÊBñÊFWVÊFVÁBVFó@ßW6ñÊrFÜRfW&ñfñVB6FVÊ6R‚T3CSìí”#Cr66ñVÊ6Rf«VW2&V÷ñ‚VÊ˜VÊVC∞•Ds32ÊBFÜRfófR∆FW"V∆ñvñ&∆Rt¢SÉfó6óG2&V÷ñ‚˜WG6ñFRFÜVó"ó'2‡§ÊÚt¢SÉ˜WF6ˆ÷R&V6ˆ÷W2ÊWr67&VVÊñÊr7WB‡†•µ66ñVÁFñfñ2ñÁFW'&WFFñˆ‚ÊBWÜ7B6ˆÁFñÁVFñˆÂ“Ñ≈3Ñ5Ù4ÙÂDîÂTDîÙ‚Ê÷Bí¿•¥√"&W˜'E“á&W7V«G5ˆ«3Üˆ√%˜67&VV‚ı$Uı%BÊ÷Bí¿•∂6ˆ◊∆WFR6ñvÊVB÷ñ÷vR&W˜'E“á&W7V«G5ˆ«3Ü%ˆñ÷vW2ı$Uı%BÊ÷Bí¿•∂&˜VÊFVB&W6ñGV¬7GVGï“á&W7V«G5ˆ«3Ü5˜&W6ñGV«2ı$Uı%BÊ÷Bí¿•∑V&∆ñ6Fñˆ‚ñFVÁFóFñW2ÊBfW&ñfñ6FñˆÂ“ÖT$ƒî4DîÙÂÛ##b”í”#%Ù≈3ÑÙ≈3Ñ2Ê÷Bí‡†§V&∆ñW"FFVBÊWáB7FñˆÁ2&V∆˜r&RÜó7F˜&ñ6¬‚FÜR7FófR6ˆÁFñÁVFñˆ‚ó0§≈3Ñ5Ù4ÙÂDîÂTDîÙ‚Ê÷C≤FÜRÊWáB7FvRó2≈3ÑB‡†•FÜR˜&ñvñÊ¬√◊&˜r6VÁ7W2¬CS"V∆ñvñ&∆Rfó6óG2ÊBr÷6ˆÜ˜'B˜&FW&ñÊpß&V÷ñ‚fóÜVB‚t5”2&V÷ñÁ26∆˜6VBVÊFW"4ı%$T5DîÙÂÙƒî‰¥TC≤óG2ÊñÊR∆FW ßfó6óG27Fí˜WG6ñFRóG2ó"‚ÑBc3R∂VW2∆¬Fá&VRVÁ&W6ˆ«fVB∆&V«2Ê@¶óG26∆˜6VB&˜VÊFVB7GVGí‚V&∆ñW"VÁ&W6ˆ«fVB∆&V«2ÊB6∆˜6VB7GVFñW2¿¶ñÊ6«VFñÊrDU55Û#ccCscb¬s32”BÊBr#r”32¬&V÷ñ‚VÊ6ÜÊvVB‡§˜FÜW"6∆˜6VBF&vWG2ÊB&W6W'fVBDU52Ù”C2ÊV«27Fí6∆˜6VB‚6∆ñ'&Fñˆ‡¶ó2‰ıEı$TEíÊBóG2FV6ÜÊñ6¬&WVW7B&V÷ñÁ2TÂ4TÂB‚7FÊFñÊr&W6V&6ÇÊ@ßV&∆ñ6Fñˆ‚WFÜ˜&ó¶Fñˆ‚6ˆÁFñÁVW3≤FV∆VvFñˆ‚ó2FVfW'&VB‡†¢22#26WFV÷&W"≈3ÑC¢T2CSìí”#CrVFóFVBÁV∆¬vóFÜñ‚V∆ñvñ&∆RvñÊF˜w0†•FÜR&VFWFW&÷ñÊVB&Ê≤”bó"7W∆ñVB¢£s&WFñÊVB&˜w2ÊB##RV∆ñvñ&∆P¶˜fW&∆ñÊrvñÊF˜w2¢¢¬vóFÇ¢ß¶W&Ú˜6óFófR˜"ÊVvFófRFá&W6Üˆ∆B7&˜76ñÊw0¶˜"6«W7FW'2¢¢‚FÜRfó'7Bfó6óB6ˆÁG&ñ'WFW2ÉvñÊF˜w2ÊBFÜR6V6ˆÊBCR‡§&˜FÇfW&ñgí‰UÖ”¬UÖDî‘S’DUÖDî‘S”c6V6ˆÊG2ÊBóV∆ñÊRB„„"‚FÜPßVÊ6ÜÊvVBˆÊR˜GvÚ˜Fá&VR◊&˜r67&VV‚¬"◊&˜r6ñFV&ÊG2¬GvÚ◊&˜rwV&G2Ê@¢≤Ú”Ç„RVÊGˆñÁG2&V÷ñ‚fóÜVC≤66˜&W2&RÊ˜BvW76ñ‚6ñvÊñfñ6Ê6W2‡†•FÜR6ˆ◊∆WFRfñwW&R&WFñÁ2∆&vR5DEU3”ˆñÁBB¢ß¶W&Ú÷&6VB&˜rÉbˆ`•Ds3¢¢¬¢£R„cSì32R&˜fRFÜRfó6óB÷VFñ‚¢¢‚ˆÊ«íFá&VR&˜w2fˆ∆∆˜p¶óB¬6ÚóBó2ñ‚ÊÚV∆ñvñ&∆RWfVÁBvñÊF˜rVÊFW"FÜR&WVó&VB&ñváB6ˆÁFWáB‡§óG26W6Ró2VÊ76ñvÊVBÊBóBÜ2ÊÚñ÷vR6∆76ñfñ6Fñˆ‚‚FÜRÁV∆¬∆ñW0ßFÚV∆ñvñ&∆RvñÊF˜w2¬Ê˜BWfW'ífó6ñ&∆Rf&ñFñˆ„≤ÊÚVFvR'V∆R˜"fˆ∆∆˜r◊W ß6V∆V7Fñˆ‚ó26ÜÊvVB‡†§&˜FÇv˜&∂f∆˜w2¬∆¬fófRG&Á7˜'BFW7G2ÊB&˜FÇ7F&∆R√"FW7G272‡•FÜRñÊFWVÊFVÁBVFóB76W2¢£"√sÁV÷W&ñ6¬ˆFó67&WFR6ˆ◊&ó6ˆÁ2¢¢¬vóFÄß¶W&ÚFó6w&VV÷VÁG2BVÊ6ÜÊvVBFˆ∆W&Ê6W2‚FÜRñÊFWVÊFVÁB66∆"ÜVFW ß&VFW"fW&ñfñW2&˜FÇ66ÜV÷2¬ñFVÁFóFñW2¬&V6VóG2¬&˜w2ÊBWá˜7W&RGW∆W2‡§∆¬cB66ñVÁFñfñ2fñ∆W2÷F6ÇFÜVó"V&∆ó6ÜVBvóBñFVÁFóFñW2∆ˆ6∆«ì≤∆¿£SÜVFW"˜66ñVÊ6R÷ÊñfW7BVÁG&ñW2724Ñ#Sb6ÜV6∑2‚FÜRfñwW&Rv2fó7V∆«ê¶ñÁ7V7FVB‚7Vó6óFñˆ‚ó2WÜ7F«íC√3#ÜVFW"'óFW2ÊB#2√Cc66ñVÊ6R◊F&∆P¶'óFW2¬vóFÇ¶W&Úñ÷vR'óFW2‚FÜRó"ó26ˆ◊∆WFRÊB6∆˜6VB2FW67&óFófP¶ÁV∆√≤ÊÚñ÷vR˜&W6ñGV¬fˆ∆∆˜r◊W¬V∆ñfñVB6ÊFñFFR˜"FWFV7F˜"ó2FFVB‡†¢¢§ñ÷÷VFñFRÊWáB7Fñˆ„¢&W&R≈3ÑRf˜"&Ê≤”r≈2ïb≥í"¢¢¿§4Öı#%ıDsì3ıc3ÊB4Öı#%ıDsì3%ıc3‚g&VW¶RFÜRWÜ7@ßó"ÊB&˜VÊFVBÜVFW"&VFW#≤ñÊFWVÊFVÁF«ífW&ñgíV6ÇñFVÁFóGí¬66ÜV÷¿ß&˜w2ÊBWá˜7W&RGW∆S≤FÜV‚6W&FV«íg&VW¶RDTdT≈B‘√"'óFR&ÊvW2&Vf˜&Pßf«VW2‚FÜVó"∆VFvW"GW∆Ró2‰UÖ”¬UÖDî‘S’DUÖDî‘S”c2¬óV∆ñÊRB„„"‡•G&Á6fW"FÜRVÊ6ÜÊvVB6ñvÊVBˆÊR˜GvÚ˜Fá&VR◊&˜r66˜&W"ÊB66∆"VFóB‡•FÜ˜6R66ñVÊ6Rf«VW2&V÷ñ‚VÊ˜VÊVC≤T2CSìí”#CrDs327Fó2˜WG6ñFP¶óG2ó"‚ÊÚ˜WF6ˆ÷RÜW&R&V6ˆ÷W2ÊWr67&VVÊñÊr7WB‡†•µ66ñVÁFñfñ2ñÁFW'&WFFñˆ‚ÊBWÜ7B6ˆÁFñÁVFñˆÂ“Ñ≈3ÑEÙ4ÙÂDîÂTDîÙ‚Ê÷Bí¿•¥√"&W˜'BÊBfñwW&U“á&W7V«G5ˆ«3ÜEˆ√%˜67&VV‚ı$Uı%BÊ÷Bí¿•∑V&∆ñ6Fñˆ‚ñFVÁFóFñW2ÊBfW&ñfñ6FñˆÂ“ÖT$ƒî4DîÙÂÛ##b”í”#5Ù≈3ÑBÊ÷Bí‡†§V&∆ñW"FFVBÊWáB7FñˆÁ2&V∆˜r&RÜó7F˜&ñ6¬‚7FófR6ˆÁFñÁVFñˆ„†§≈3ÑEÙ4ÙÂDîÂTDîÙ‚Ê÷C≤ÊWáB7FvS¢≈3ÑR‚FÜR˜&ñvñÊ¬6VÁ7W2ÊBr÷6ˆÜ˜'@¶˜&FW"7FífóÜVB‚t¢SÉ∂VW2∆¬B∆&V«2¬ñÊ6«VFñÊróG2GvÚVÁ&W6ˆ«fV@¶WfVÁG2¬ÊBóG26∆˜6VB&˜VÊFVB7GVGí‚∆¬˜FÜW"V&∆ñW"∆&V«2ÊB7GVFñW0¶&RVÊ6ÜÊvVB‚&W6W'fVBDU52Ù”C2ÊV«2&V÷ñ‚6∆˜6VB‚6∆ñ'&Fñˆ‚‰ıEı$TEì∞ßFV6ÜÊñ6¬&WVW7BTÂ4TÂB‚7FÊFñÊr&W6V&6Ç˜V&∆ñ6Fñˆ‚WFÜ˜&ó¶Fñˆ‚6ˆÁFñÁVW3∞¶FV∆VvFñˆ‚ó2FVfW'&VB‡†¢22#26WFV÷&W"≈3ÑS¢≈2ïb≥í"VFóFVBÁV∆¬vóFÜñ‚V∆ñvñ&∆RvñÊF˜w0†•FÜR&VFWFW&÷ñÊVB&Ê≤”ró"7W∆ñVB¢£#"&WFñÊVB&˜w2ÊB#2V∆ñvñ&∆P¶˜fW&∆ñÊrvñÊF˜w2¢¢¬vóFÇ¢ß¶W&Ú˜6óFófR˜"ÊVvFófRFá&W6Üˆ∆B7&˜76ñÊw0¶˜"6«W7FW'2¢¢‚FÜRfó'7Bfó6óB6ˆÁG&ñ'WFW2#vñÊF˜w2ÊBFÜR6V6ˆÊB"‡§&˜FÇfW&ñgí‰UÖ”¬UÖDî‘S’DUÖDî‘S”c6V6ˆÊG2ÊBóV∆ñÊRB„„"‚FÜPßVÊ6ÜÊvVBˆÊR˜GvÚ˜Fá&VR◊&˜r67&VV‚¬"◊&˜r6ñFV&ÊG2¬GvÚ◊&˜rwV&G2Ê@¢≤Ú”Ç„RVÊGˆñÁG2&V÷ñ‚fóÜVC≤66˜&W2&RÊ˜BvW76ñ‚6ñvÊñfñ6Ê6W2‡†§f˜W"f∆vvVB&˜w2W"fó6óBÊB6FVÊ6Rv2&W7G&ñ7BV∆ñvñ&∆RWfVÁB&˜w0ßFÚ#û(	33RÛÉ(	3É"ñ‚Dsì3ÊBN(	3ÇÛCé(	3sÇñ‚Dsì3"á¶W&Ú÷&6VBí‡•FÜR∆&vW7BFó7∆ñVBˆñÁG2¬fó'7B◊fó6óB&˜rC2ÊB6V6ˆÊB◊fó6óB&˜rÉb¿¶&Rí„csCÉìRÊB"„#CÉìrR&˜fRFÜVó"fó6óB÷VFñÁ2‚ÊVóFÜW"ˆ67W'2ñ‚‡¶V∆ñvñ&∆RWfVÁBvñÊF˜s¢óG2&WVó&VB&ñváB6ˆÁFWáBVÊ6˜VÁFW'2f∆w2ˆv2‡§6W6W2&V÷ñ‚VÊ76ñvÊVB‚FÜRÁV∆¬∆ñW2FÚFÜR#2V∆ñvñ&∆RvñÊF˜w2¿¶Ê˜BWfW'ífó6ñ&∆Rf&ñFñˆ‚‚ÊÚV∆ñvñ&ñ∆óGí˜"fˆ∆∆˜r◊W'V∆Ró26ÜÊvVB‡†§&˜FÇv˜&∂f∆˜w2¬∆¬fófRG&Á7˜'BFW7G2ÊB&˜FÇ7F&∆R√"FW7G272‡•FÜRñÊFWVÊFVÁBVFóB76W2¢£√CsbÁV÷W&ñ6¬ˆFó67&WFR6ˆ◊&ó6ˆÁ2¢¢¬vóFÄß¶W&ÚFó6w&VV÷VÁG2BVÊ6ÜÊvVBFˆ∆W&Ê6W2‚6W&FR66∆"ÜVFW"6ÜV6∑0ßfW&ñgí&˜FÇ6ˆ◊∆WFR66ÜV÷2¬ñFVÁFóFñW2¬&V6VóG2¬Wá˜7W&W2ÊB&˜VÊF&ñW2‡§∆¬cB66ñVÁFñfñ2fñ∆W2÷F6ÇFÜVó"V&∆ó6ÜVBvóBñFVÁFóFñW2∆ˆ6∆«ì≤∆¿£SÜVFW"˜66ñVÊ6R÷ÊñfW7BVÁG&ñW2724Ñ#Sb‚FÜRfñwW&Rv2fó7V∆«ê¶ñÁ7V7FVB‚7Vó6óFñˆ‚ó2WÜ7F«íC√3#ÜVFW"'óFW2ÊB#í√#Sb66ñVÊ6R◊F&∆P¶'óFW2¬vóFÇ¶W&Úñ÷vR'óFW2‚FÜRó"ó26ˆ◊∆WFRÊB6∆˜6VB2FW67&óFófP¶ÁV∆¬‚ÊÚñ÷vR˜&W6ñGV¬fˆ∆∆˜r◊W¬V∆ñfñVB6ÊFñFFR˜"FWFV7F˜"ó2FFVB‡†¢¢§ñ÷÷VFñFRÊWáB7Fñˆ„¢&W&R≈3Ñbf˜"&Ê≤”Çt¢ìCB¢¢¿§4Öı#ÖıDss3ıc3ÊB4Öı#ÖıDss3%ıc3¬FÜRfó'7BGvÚˆ`ßFá&VRV∆ñvñ&∆Rfó6óG2‚g&VW¶RFÜRWÜ7Bó"ÊB&˜VÊFVBÜVFW"&VFW#∞¶ñÊFWVÊFVÁF«ífW&ñgíV6ÇñFVÁFóGí¬66ÜV÷¬&˜w2ÊBWá˜7W&RGW∆S≤FÜV‡ß6W&FV«íg&VW¶RDTdT≈B‘√"6˜W&6RñFVÁFóFñW2ÊB&ÊvW2&Vf˜&Rf«VW2‡•FÜVó"∆VFvW"GW∆Ró2‰UÖ”¬UÖDî‘S’DUÖDî‘S”c2¬óV∆ñÊRB„„"‡•G&Á6fW"FÜRVÊ6ÜÊvVB6ñvÊVB67&VV‚ÊBñÊFWVÊFVÁB66∆"VFóB‚FÜW6Pß66ñVÊ6Rf«VW2&V÷ñ‚VÊ˜VÊVC≤Dss327Fó2˜WG6ñFRFÜR&˜7V7FófRó"‡†•µ66ñVÁFñfñ2ñÁFW'&WFFñˆ‚ÊBWÜ7B6ˆÁFñÁVFñˆÂ“Ñ≈3ÑUÙ4ÙÂDîÂTDîÙ‚Ê÷Bí¿•¥√"&W˜'BÊBfñwW&U“á&W7V«G5ˆ«3ÜUˆ√%˜67&VV‚ı$Uı%BÊ÷Bí¿•∑V&∆ñ6Fñˆ‚ñFVÁFóFñW2ÊBfW&ñfñ6FñˆÂ“ÖT$ƒî4DîÙÂÛ##b”í”#5Ù≈3ÑRÊ÷Bí‡†§V&∆ñW"FFVBÊWáB7FñˆÁ2&V∆˜r&RÜó7F˜&ñ6¬‚7FófR6ˆÁFñÁVFñˆ„†§≈3ÑUÙ4ÙÂDîÂTDîÙ‚Ê÷C≤ÊWáB7FvS¢≈3Ñb‚FÜR˜&ñvñÊ¬6VÁ7W2ÊBr÷6ˆÜ˜'@¶˜&FW"7FífóÜVB‚∆¬V&∆ñW"∆&V«2¬6∆˜6VB7GVFñW2ÊB&W6W'fVBDU52Ù”C0ßÊV«2&V÷ñ‚VÊ6ÜÊvVB‚6∆ñ'&Fñˆ‚‰ıEı$TEì≤FV6ÜÊñ6¬&WVW7BTÂ4TÂB‡•7FÊFñÊr&W6V&6Ç˜V&∆ñ6Fñˆ‚WFÜ˜&ó¶Fñˆ‚6ˆÁFñÁVW3≤FV∆VvFñˆ‚FVfW'&VB‡†¢22#26WFV÷&W"≈3Ñc¢t¢ìCBVFóFVBÁV∆¬vóFÜñ‚V∆ñvñ&∆RvñÊF˜w0†•FÜR&VFWFW&÷ñÊVB&Ê≤”Çó"7W∆ñVB¢£CR&WFñÊVB&˜w2ÊBSV∆ñvñ&∆P¶˜fW&∆ñÊrvñÊF˜w2¢¢¬vóFÇ¢ß¶W&Ú˜6óFófR˜"ÊVvFófRFá&W6Üˆ∆B7&˜76ñÊw0¶˜"6«W7FW'2¢¢‚FÜRfó'7Bfó6óB6ˆÁG&ñ'WFW2ìvñÊF˜w2ÊBFÜR6V6ˆÊBc‡§&˜FÇfW&ñgí‰UÖ”¬UÖDî‘S’DUÖDî‘S”c6V6ˆÊG2ÊBóV∆ñÊRB„„"‡•FÜRVÊ6ÜÊvVBˆÊR˜GvÚ˜Fá&VR◊&˜r'V∆R¬"◊&˜r6ñFV&ÊG2¬GvÚ◊&˜rwV&G2Ê@¢≤Ú”Ç„RVÊGˆñÁG2&V÷ñ‚fóÜVC≤66˜&W2&RÊ˜BvW76ñ‚6ñvÊñfñ6Ê6W2‡†§fó'7B◊fó6óBV∆ñvñ&∆RWfVÁB&˜w2&RN(	3CB‚6V6ˆÊB◊fó6óBf∆w2B&˜w23rÛC@¶ÊBv2gFW"3bÛC2&W7G&ñ7BV∆ñvñ&∆RWfVÁB&˜w2FÚN(	3#"ÊBSû(	3s‡§ñÊFñ6W2&R¶W&Ú÷&6VB‚FÜRfó6ñ&∆R∆&vRFóB6V6ˆÊB◊fó6óB&˜rCBó0£32„Cììc2R&V∆˜róG2fó6óB÷VFñ‚ÊBÜ25DEU3”≤óB&V÷ñÁ2&WFñÊVB'W@¶fñ«2FÜR˜&ñvñÊ¬V∆ñvñ&ñ∆óGí'V∆R‚Fó7∆íWáG&V÷ÊV"VFvW2˜"f∆vvV@¶v2&RÊ˜B&W6V∆V7FVB‚FÜRÁV∆¬∆ñW2FÚFÜRSV∆ñvñ&∆RvñÊF˜w2¬Ê˜@¶WfW'í&WFñÊVBf&ñFñˆ‚‚ÊÚV∆ñvñ&ñ∆óGí˜"fˆ∆∆˜r◊W'V∆Ró26ÜÊvVB‡†§&˜FÇv˜&∂f∆˜w2¬∆¬fófRG&Á7˜'BFW7G2ÊB&˜FÇ7F&∆R√"FW7G272‡•FÜRñÊFWVÊFVÁBVFóB76W2¢£√ÉÁV÷W&ñ6¬ˆFó67&WFR6ˆ◊&ó6ˆÁ2¢¢¬vóFÄß¶W&ÚFó6w&VV÷VÁG2BVÊ6ÜÊvVBFˆ∆W&Ê6W2‚6W&FR66∆"ÜVFW"6ÜV6∑0ßfW&ñgígV∆¬66ÜV÷2¬ñFVÁFóFñW2¬&V6VóG2¬Wá˜7W&W2ÊB'óFR&˜VÊF&ñW2‡§∆¬cB66ñVÁFñfñ2fñ∆W2÷F6ÇV&∆ñ2vóBñFVÁFóFñW2∆ˆ6∆«ì≤∆¬SÜVFW"ß66ñVÊ6R÷ÊñfW7BVÁG&ñW2724Ñ#Sb‚FÜR6ˆ◊∆WFRfñwW&Rv2fó7V∆«ê¶ñÁ7V7FVB‚7Vó6óFñˆ‚ó2WÜ7F«íC√3#ÜVFW"'óFW2ÊB#√66ñVÊ6R◊F&∆P¶'óFW2¬vóFÇ¶W&Úñ÷vR'óFW2‚FÜRó"ó26ˆ◊∆WFRÊB6∆˜6VB2FW67&óFófP¶ÁV∆√≤ÊÚñ÷vR˜&W6ñGV¬fˆ∆∆˜r◊W¬V∆ñfñVB6ÊFñFFR˜"FWFV7F˜"ó2FFVB‡†¢¢§ñ÷÷VFñFRÊWáB7Fñˆ„¢&W&R≈3Ñrf˜"&Ê≤”íT3C33Ç”CCR¢¢¿§4Öı#%ıDsccıc3ÊB4Öı#%ıDscc%ıc3‚g&VW¶RFÜRWÜ7@ßó"ÊB&˜VÊFVBÜVFW"&VFW#≤ñÊFWVÊFVÁF«ífW&ñgíV6ÇñFVÁFóGí¬gV∆¿ß66ÜV÷¬&˜w2ÊBWá˜7W&RGW∆S≤FÜV‚6W&FV«íg&VW¶RDTdT≈B‘√"6˜W&6P¶ñFVÁFóFñW2ÊB'óFR&ÊvW2&Vf˜&Rf«VW2‚FÜR∆VFvW"GW∆Ró2‰UÖ”¿§UÖDî‘S’DUÖDî‘S”c2¬óV∆ñÊRB„„"‚G&Á6fW"FÜRVÊ6ÜÊvVB6ñvÊVB67&VV‡¶ÊB66∆"VFóB‚FÜW6R66ñVÊ6Rf«VW2&V÷ñ‚VÊ˜VÊVB‚t¢ìCBDss30ß7Fó2˜WG6ñFRóG26∆˜6VBó#≤ÊÚ˜WF6ˆ÷RÜW&R&V6ˆ÷W2ÊWr67&VVÊñÊr7WB‡†•µ66ñVÁFñfñ2ñÁFW'&WFFñˆ‚ÊBWÜ7B6ˆÁFñÁVFñˆÂ“Ñ≈3ÑeÙ4ÙÂDîÂTDîÙ‚Ê÷Bí¿•¥√"&W˜'BÊBfñwW&U“á&W7V«G5ˆ«3Üeˆ√%˜67&VV‚ı$Uı%BÊ÷Bí¿•∑V&∆ñ6Fñˆ‚ñFVÁFóFñW2ÊBfW&ñfñ6FñˆÂ“ÖT$ƒî4DîÙÂÛ##b”í”#5Ù≈3ÑbÊ÷Bí‡†§V&∆ñW"FFVBÊWáB7FñˆÁ2&V∆˜r&RÜó7F˜&ñ6¬‚7FófR6ˆÁFñÁVFñˆ„†§≈3ÑeÙ4ÙÂDîÂTDîÙ‚Ê÷C≤ÊWáB7FvS¢≈3Ñr‚FÜR˜&ñvñÊ¬6VÁ7W2ÊBr÷6ˆÜ˜'@¶˜&FW"7FífóÜVB‚V&∆ñW"ÁV∆¬66˜W2¬VÊ76W76VBˆñÁG2¬VÁ&W6ˆ«fVB∆&V«2¿¶6∆˜6VB7GVFñW2ÊB&W6W'fVBDU52Ù”C2ÊV«2&RVÊ6ÜÊvVB‚6∆ñ'&Fñˆ‡§‰ıEı$TEì≤FV6ÜÊñ6¬&WVW7BTÂ4TÂB‚7FÊFñÊr&W6V&6Ç˜V&∆ñ6Fñˆ‚WFÜ˜&ó¶Fñˆ‡¶6ˆÁFñÁVW3≤FV∆VvFñˆ‚ó2FVfW'&VB‡†¢22#26WFV÷&W"≈3Ñs¢T3C33Ç”CCRVFóFVBÁV∆¬vóFÜñ‚c2V∆ñvñ&∆RvñÊF˜w0†•FÜR&VFWFW&÷ñÊVB&Ê≤”íó"7W∆ñVB¢£Sí&WFñÊVB&˜w2ÊBc2V∆ñvñ&∆P¶˜fW&∆ñÊrvñÊF˜w2¢¢¬vóFÇ¢ß¶W&Ú˜6óFófR˜"ÊVvFófRFá&W6Üˆ∆B7&˜76ñÊw0¶˜"6«W7FW'2¢¢‚FÜRfó'7Bfó6óB6ˆÁG&ñ'WFW2cvñÊF˜w2ÊBFÜR6V6ˆÊBˆÊ«êßFá&VRáGvÚˆÊR◊&˜r¬ˆÊRGvÚ◊&˜r¬ÊÚFá&VR◊&˜rvñÊF˜w2í‚&˜FÇfW&ñgí‰UÖ”¿§UÖDî‘S’DUÖDî‘S”c6V6ˆÊG2ÊBóV∆ñÊRB„„"‚FÜRVÊ6ÜÊvVBˆÊR˜GvÚ˜Fá&VR◊&˜pß'V∆R¬"◊&˜r6ñFV&ÊG2¬GvÚ◊&˜rwV&G2ÊB≤Ú”Ç„RVÊGˆñÁG2&V÷ñ‚fóÜVC∞ß66˜&W2&RÊ˜BvW76ñ‚6ñvÊñfñ6Ê6W2‡†§fó'7B◊fó6óBV∆ñvñ&∆RWfVÁB&˜w2&RN(	332Ûc>(	3cC≤f∆rCÇÊBvgFW"Cpß&W7G&ñ7BV∆ñvñ&ñ∆óGí‚6V6ˆÊB◊fó6óBf∆w23ÛSBÊBvgFW"#í&W7G&ñ7@¶V∆ñvñ&∆RWfVÁB&˜w2FÚ¢£N(	3R¢¢‚ñÊFñ6W2&R¶W&Ú÷&6VB‚FÜR6V6ˆÊBfó6óBw0¶∆&vR&WFñÊVB÷Üñ◊V“B&˜r#2É#cR„Sc3cs#s2Fñ÷W2FÜRfó6óB÷VFñ‚íÊ@¶÷ñÊñ◊V“B&˜rSRÇ”ÉB„cÉ3cSÉsÇFñ÷W2÷VFñ‚íÜfR5DEU3”'WBfñ¬FÜP¶˜&ñvñÊ¬6ˆÁFWáB'V∆R‚FÜVó"6W6W2&V÷ñ‚VÊ76ñvÊVC≤FÜWí&RÊ˜BFW7FV@¶FWFV7FñˆÁ2˜"ñ÷vR÷6∆76ñfñVBWfVÁG2‚FÜRgV∆¬∆˜B&WFñÁ2FÜV“‚FÜRÁV∆¿¶∆ñW2FÚFÜRc2V∆ñvñ&∆RvñÊF˜w2¬Ê˜BWfW'í&WFñÊVBf&ñFñˆ‚‚ÊÚ÷6≤¿ßFá&W6Üˆ∆B˜"fˆ∆∆˜r◊W6V∆V7Fñˆ‚6ÜÊvW2‡†§&˜FÇv˜&∂f∆˜w2¬∆¬fófRG&Á7˜'BFW7G2ÊB&˜FÇ7F&∆R√"FW7G272‡•FÜRñÊFWVÊFVÁBVFóB76W2¢£sSbÁV÷W&ñ6¬ˆFó67&WFR6ˆ◊&ó6ˆÁ2¢¢¬vóFÄß¶W&ÚFó6w&VV÷VÁG2BVÊ6ÜÊvVBFˆ∆W&Ê6W2‚6W&FR66∆"ÜVFW"6ÜV6∑0ßfW&ñgígV∆¬66ÜV÷2¬ñFVÁFóFñW2¬&V6VóG2¬Wá˜7W&W2ÊB'óFR&˜VÊF&ñW2‡§∆¬cB66ñVÁFñfñ2fñ∆W2÷F6ÇV&∆ñ2vóBñFVÁFóFñW2∆ˆ6∆«ì≤∆¬SÜVFW"ß66ñVÊ6R÷ÊñfW7BVÁG&ñW2724Ñ#Sb‚FÜRgV∆¬fñwW&Rv2fó7V∆«íñÁ7V7FVB‡§7Vó6óFñˆ‚ó2WÜ7F«íC√3#ÜVFW"'óFW2ÊB#√ìC"66ñVÊ6R◊F&∆R'óFW2¿ßvóFÇ¶W&Úñ÷vR'óFW2‚FÜRó"ó26ˆ◊∆WFRÊB6∆˜6VBvóFÜñ‚óG2V∆ñvñ&∆Pß66˜S≤ÊÚñ÷vR˜&W6ñGV¬fˆ∆∆˜r◊W¬V∆ñfñVB6ÊFñFFR˜"FWFV7F˜"ó2FFVB‡†¢¢§ñ÷÷VFñFRÊWáB7Fñˆ„¢&W&R≈3ÑÇf˜"&Ê≤”#t¢S3b¢¢¿§4Öı#ıDs#3Sıc3ÊB4Öı#ÖıDssÉıc3¬FÜRfó'7BGvÚˆ`¶fófRV∆ñvñ&∆Rfó6óG2‚g&VW¶RFÜRó"ÊB&˜VÊFVBÜVFW"&VFW#≤ñÊFWVÊFVÁF«êßfW&ñgíV6ÇñFVÁFóGí¬gV∆¬66ÜV÷¬&˜w2ÊBWá˜7W&RGW∆S≤FÜV‚6W&FV«ê¶g&VW¶RDTdT≈B‘√"6˜W&6RñFVÁFóFñW2ÊB'óFR&ÊvW2&Vf˜&Rf«VW2‚∆VFvW §‰UÖ”¬óV∆ñÊRB„„"¬vóFÇWá˜7W&W2&˜Üñ÷FV«í¢£C„rÊBC„#6V6ˆÊG2¢¢‡•W6RV6ÇñÊFWVÊFVÁF«ífW&ñfñVB6FVÊ6S≤FÚÊ˜BñÊÜW&óBc6V6ˆÊG2‚G&Á6fW ßFÜRVÊ6ÜÊvVB6ñvÊVB67&VV‚ÊB66∆"VFóB‚t¢S3b66ñVÊ6Rf«VW2&V÷ñ‡ßVÊ˜VÊVC≤óG2Fá&VR∆FW"V∆ñvñ&∆Rfó6óG2&V÷ñ‚˜WG6ñFRFÜR6V∆V7FVBó"‡†•µ66ñVÁFñfñ2ñÁFW'&WFFñˆ‚ÊBWÜ7B6ˆÁFñÁVFñˆÂ“Ñ≈3ÑuÙ4ÙÂDîÂTDîÙ‚Ê÷Bí¿•¥√"&W˜'BÊBfñwW&U“á&W7V«G5ˆ«3Üuˆ√%˜67&VV‚ı$Uı%BÊ÷Bí¿•∑V&∆ñ6Fñˆ‚ñFVÁFóFñW2ÊBfW&ñfñ6FñˆÂ“ÖT$ƒî4DîÙÂÛ##b”í”#5Ù≈3ÑrÊ÷Bí‡†§V&∆ñW"FFVBÊWáB7FñˆÁ2&V∆˜r&RÜó7F˜&ñ6¬‚7FófR6ˆÁFñÁVFñˆ„†§≈3ÑuÙ4ÙÂDîÂTDîÙ‚Ê÷C≤ÊWáB7FvS¢≈3ÑÇ‚FÜR˜&ñvñÊ¬6VÁ7W2ÊBr÷6ˆÜ˜'@¶˜&FW"7FífóÜVB‚V&∆ñW"ÁV∆¬66˜W2¬VÊ76W76VBˆñÁG2¬VÁ&W6ˆ«fVB∆&V«2¿¶6∆˜6VB7GVFñW2ÊB&W6W'fVBDU52Ù”C2ÊV«2&RVÊ6ÜÊvVB‚6∆ñ'&Fñˆ‡§‰ıEı$TEì≤FV6ÜÊñ6¬&WVW7BTÂ4TÂB‚7FÊFñÊr&W6V&6Ç˜V&∆ñ6Fñˆ‚WFÜ˜&ó¶Fñˆ‡¶6ˆÁFñÁVW3≤FV∆VvFñˆ‚ó2FVfW'&VB‡†¢22#26WFV÷&W"≈3Ñé(	4≈3Ñ£¢t¢S3bó"ÊB&˜VÊFVB7GVGí6∆˜6V@†•FÜR&VFWFW&÷ñÊVB&Ê≤”#ó"7W∆ñVB¢£B√#SB&WFñÊVB&˜w2ÊB√#P¶V∆ñvñ&∆R˜fW&∆ñÊrvñÊF˜w2¢¢‚óG23Ç˜6óFófRÊBfófRÊVvFófR7&˜76ñÊw0¶f˜&“VñváB˜6óFófR6«W7FW'2ÊBˆÊRÊVvFófR6«W7FW"‚∆¬ÊñÊR6ñvÊV@ß&W&W6VÁFFófW26ˆ◊∆WFVBñ÷vRfˆ∆∆˜r◊W¢¢ßFá&VR4ı%$T5DîÙÂÙƒî‰¥TB¬f˜W •5Dîƒ≈ïı5E%T5EU$TBÊBGvÚTÂ$U4Ù≈dTEıtïDÑîÂÙdïÑTEı44ıRÖıbí¢¢‡§∆&V«2FW67&ñ&R&ˆ6W76ñÊrÊBfóG2vóFÜ˜WB76ñvÊñÊrVÊóVRáó6ñ6¬6W6W2‡§&˜FÇfó6óG2fW&ñgí‰UÖ”ÊBóV∆ñÊRB„„#≤FÜVó"˜v‚Wá˜7W&Rˆ6FVÊ6Rf«VW0¶&R¢£C„cìììÉcÉìCS2ÊBC„#sc#ì3ìR6V6ˆÊG2¢¢‚FÜRVÊ6ÜÊvVB6ñvÊV@¶ˆÊR˜GvÚ˜Fá&VR◊&˜r'V∆RÊB≤Ú”Ç„RVÊGˆñÁG2&V÷ñ‚fóÜVB‚66˜&W2&RÊ˜@§vW76ñ‚6ñvÊñfñ6Ê6W2ÊBvñÊF˜w2&RÊ˜BñÊFWVÊFVÁBG&ñ«2‡†•FÜR6ˆ◊∆WFRVÁ&W6ˆ«fVB6WB&V6VófVBˆÊR6W&FV«íg&˜¶V‚&WFñÊVB÷FFß7GVGì¢VñváBÊFófR&ˆGV7Bˆ6ˆÁfVÁFñˆ‚66W2¬ì"ÜV∆B66W2ÊB#Ç6ñvÊV@¶6ˆÁG&ˆ«2¬¢ß¶W&ÚÊWr&6ÜófR'óFW2¢¢‚w24ı"&W6ñGV¬˜&VfW&VÊ6R&Fñ˜2&P¢¢£„#SsÉì2Ú„#c3CB¢¢¬vóFÇ¢£#2Û#B¢¢∆ˆ6¬6ˆÁG&ˆ«2B∆V7B2∆&vRñ‡¶&˜FÇ6VÁFW"6ˆÁfVÁFñˆÁ2‚bw2&Fñ˜2&R¢£3ÉC„ììCSCÇÚ3ìS„SìÉSs¢¢¬vóFÄ¢¢£Û#B¢¢B∆V7B2∆&vR‚FÜW6RFWVÊFVÁB6˜VÁG2&RÊ˜B◊f«VW2‡†¢¢•bw2fW'í∆&vRV≤6ˆñÊ6ñFW2vóFÇ'&ˆBˆ&∆óVR'&ñváB&ÊB7&˜76ñÊpßFÜR6fVB7V&'&íÊBW'GW&Rñ‚4¬ÊB4ı#≤'&ˆB6ñvÊVB7G'V7GW&R&V÷ñÁ0¶gFW"fóGFñÊr‚¢¢FÜó2ó26WfW&R÷ó6÷F6ÇvóFÇFÜR∆ˆ6¬÷ˆFV¬˜&VfW&VÊ6R¿¶Ê˜BWfñFVÊ6RW7F&∆ó6ÜñÊr6∆V‚ˆñÁB◊6˜W&6R'&ñváFVÊñÊr˜"4UDí6ñvÊ¬‡•w2∆˜r&W6ñGV¬FˆW2Ê˜B&˜fR˜&FñÊ'íÊˆó6R‚&˜FÇ˜&ñvñÊ¬VÁ&W6ˆ«fV@¶∆&V«2&V÷ñ‚‚áó˜FÜWFñ6¬7V'G&7Fñˆ‚∆˜6W2„ì~(	3„CÇRˆbñÊ¶V7FVB4ı ¶'&ñváFÊW72f«WÇÊBó2Ê˜BF˜FVB‚FÜRó"ÊBFÜó26ñÊv∆R&˜VÊFVB7GVGê¶&R6∆˜6VBvóFÜ˜WBFFóFñˆÊ¬t¢S3bGVÊñÊr˜"V∆ñfñVB6ÊFñFFRˆFWFV7F˜"‡†•FÜR∆&vW7B&WFñÊVBˆñÁB¬&˜r3CÇ¬ó2bÊB&V6VófVBWfW'í&W67&ñ&V@¶fˆ∆∆˜r◊W‚6W&FRfó'7B◊fó6óBˆñÁBB&˜rìsró2&˜Üñ÷FV«íS„P¶&˜fRóG25DEU3”fó6óB÷VFñ‚'WBÜ25DEU3”ÊBÊÚV∆ñvñ&∆RWfVÁBvñÊF˜s∞¶óB&V÷ñÁ2&WFñÊVBÊBVÊ76W76VB‚∆¬&˜w2ÊBV∆ñvñ&∆RñÁFW'f«2&P¶Fˆ7V÷VÁFVB‚Fó7∆íf&ñFñˆ‚ó2Ê˜BV∆ñfñVBˆ'6W'fñÊr6˜fW&vR‡†§∆¬fófRFF◊&VFñÊrˆÊ«ó6ó2v˜&∂f∆˜w27V66VVC≤FÜRñÊóFñ¬Ç6ÜV6∂˜W@¶GFV◊BFñ÷VB˜WB&Vf˜&R&6ÜófR66W72ÊBó2&W6W'fVBvóFÇóG2&˜7V7FófPß&V6˜fW'í‚FÜRRG&Á7˜'BÚ"√"Úñ÷vRÚÇ&W6ñGV¬FW7G272‡§ñÊFWVÊFVÁBVFóG272¢£#"√SÉ√"6ˆ◊&ó6ˆÁ2¢¢¬¢£"√3ì2÷WFFF6ÜV6∑2¢¢¿¢¢£ÉS√É32ÁV÷W&ñ6¬Ú√CCR√#WÜ7Bñ÷vR6ÜV6∑2¢¢ÊB¢£c√SÉbÁV÷W&ñ6¬£cC√##BWÜ7B&W6ñGV¬6ÜV6∑2¢¢¬vóFÇ¶W&ÚFó6w&VV÷VÁG2‚∆¬¢£3íÊWpß66ñVÁFñfñ2fñ∆W2¢¢÷F6ÇV&∆ñ2vóBñFVÁFóFñW2∆ˆ6∆«í¬∆¬#s"÷ÊñfW7@¶VÁG&ñW2724Ñ#Sb¬ÊB∆¬"fñwW&W2ÜfR&VV‚fó7V∆«íñÁ7V7FVB‡†¢¢§ñ÷÷VFñFRÊWáB7Fñˆ„¢&W&R≈3Ñ$f˜"&Ê≤”#$‘52£#ÉSc#B≥3ìR¢¢¿§4Öı#ÖıDsÉıc3Ú4Öı#ÖıDsÉ%ıc3‚FÜW6R&R&˜FÇV∆ñvñ&∆Pßfó6óG2ñ‚FÜRfóÜVB∆VFvW#≤‰UÖ”¬UÖDî‘S’DUÖDî‘S”c6V6ˆÊG2ÊBóV∆ñÊP£B„„"&V÷ñ‚7V&¶V7BFÚFÜVó"˜v‚ÜVFW"fW&ñfñ6Fñˆ‚‚g&VW¶R&˜VÊFVBÜVFW'2¿¶VFóBñFVÁFóGí˜66ÜV÷ˆWá˜7W&R¬FÜV‚6W&FV«íg&VW¶RWÜ7B√"&ÊvW2&Vf˜&Pßf«VW2‚G&Á6fW"FÜRVÊ6ÜÊvVB67&VV‚ÊBVFóB‚óG266ñVÊ6Rf«VW2&V÷ñ‡ßVÊ˜VÊVB‚t¢S3bw2Fá&VR∆FW"V∆ñvñ&∆Rfó6óG2&V÷ñ‚˜WG6ñFRFÜR6∆˜6VBó"‡†•µ66ñVÁFñfñ2ñÁFW'&WFFñˆ‚ÊBWÜ7B6ˆÁFñÁVFñˆÂ“Ñ≈3Ñ•Ù4ÙÂDîÂTDîÙ‚Ê÷Bí¿•¥√"&W˜'E“á&W7V«G5ˆ«3ÜÖˆ√%˜67&VV‚ı$Uı%BÊ÷Bí¿•∂6ˆ◊∆WFR6ñvÊVB÷ñ÷vR&W˜'E“á&W7V«G5ˆ«3Üïˆñ÷vW2ı$Uı%BÊ÷Bí¿•∂&˜VÊFVB&W6ñGV¬7GVGï“á&W7V«G5ˆ«3Ü•˜&W6ñGV«2ı$Uı%BÊ÷Bí¿•∑V&∆ñ6Fñˆ‚ÊBfW&ñfñ6FñˆÂ“ÖT$ƒî4DîÙÂÛ##b”í”#5Ù≈3ÑÖÙ≈3Ñ¢Ê÷Bí‡†§V&∆ñW"FFVBÊWáB7FñˆÁ2&RÜó7F˜&ñ6¬‚7FófR6ˆÁFñÁVFñˆ„†§≈3Ñ•Ù4ÙÂDîÂTDîÙ‚Ê÷C≤ÊWáB7FvS¢≈3Ñ$‚FÜR˜&ñvñÊ¬6VÁ7W2ÊBr÷6ˆÜ˜'@¶˜&FW"¬&ñ˜"∆&V«2¬VÊ76W76VBˆñÁG2¬6∆˜6VB7GVFñW2ÊB&W6W'fVBDU52Ù”C0ßÊV«2&V÷ñ‚VÊ6ÜÊvVB‚6∆ñ'&Fñˆ‚‰ıEı$TEì≤FV6ÜÊñ6¬&WVW7BTÂ4TÂB‡•7FÊFñÊr&W6V&6Ç˜V&∆ñ6Fñˆ‚WFÜ˜&ó¶Fñˆ‚6ˆÁFñÁVW3≤FV∆VvFñˆ‚ó2FVfW'&VB‡†¢22#26WFV÷&W"≈3Ñ$(	4≈3Ñ$#¢$‘52£#ÉSc#B≥3ìRó"6∆˜6V@†•FÜR&VFWFW&÷ñÊVB&Ê≤”#ó"7W∆ñVB¢£ìr&WFñÊVB&˜w2ÊBìV∆ñvñ&∆P¶˜fW&∆ñÊrvñÊF˜w2¢¢‚6óÇ˜6óFófR7&˜76ñÊw2f˜&“ˆÊR6«W7FW"ÊBFá&VP¶ÊVvFófR7&˜76ñÊw2f˜&“ˆÊR6«W7FW"‚&˜FÇ6ñvÊVB&W&W6VÁFFófW26ˆ◊∆WFV@¶ñ÷vRfˆ∆∆˜r◊WÊB&R¢§4ı%$T5DîÙÂÙƒî‰¥TB¢¢VÊFW"FÜRVÊ6ÜÊvVBGvÚ÷6ˆÁfVÁFñˆ‡¶vFR‚ÊÚWfVÁBó2VÁ&W6ˆ«fVB¬6ÚÊÚ&W6ñGV¬7GVGíó2G&ñvvW&VB‚FÜRó"ó0¶6∆˜6VBvóFÜ˜WBV∆ñfñVB6ÊFñFFR¬FWFV7F˜"¬6VÁ6óFófóGí˜"6˜fW&vR6∆ñ“‡†§&˜FÇfó6óG2ñÊFWVÊFVÁF«ífW&ñgí‰UÖ”¬UÖDî‘S’DUÖDî‘S”c6V6ˆÊG2ÊBóV∆ñÊP£B„„"‚FÜRfó'7Bfó6óBÜ2Sí&˜w2ÊBìV∆ñvñ&∆RvñÊF˜w3≤FÜR6V6ˆÊBÜ0£3Ç&˜w2ÊB¢ß¶W&ÚV∆ñvñ&∆RvñÊF˜w2¬&˜fñFñÊrÊÚFW7FVBÁV∆¬¢¢‚FÜR˜&ñvñÊ¿¶ˆÊR˜GvÚ˜Fá&VR◊&˜r'V∆RÊB≤Ú”Ç„RVÊGˆñÁG2&V÷ñ‚fóÜVB‚66˜&W2&RÊ˜BvW76ñ‡ß6ñvÊñfñ6Ê6W2ÊB˜fW&∆ñÊrvñÊF˜w2&RÊ˜BñÊFWVÊFVÁBG&ñ«2‡†•FÜR&W&W6VÁFFófW2&RF¶6VÁBfó'7B◊fó6óB&˜w2#Rá66˜&R¢¢≥cR„#ssCSb¢¢¿¶∆ˆ6¬WÜ6W72¢¢≥Ç„ssÉÉ3RR¢¢íÊB#BÇ¢¢”3R„C3C"¢¢¬¢¢”B„sÉÉìSÇR¢¢í‚FÜWíˆ67W ¶ñ‚V6Ç˜FÜW"w2˜&ñvñÊ¬wV&G2ÊB6Ü&R#Ç6ˆÁFWáB&˜w2‚FÜVó"SÇ&˜p¶ˆ67W'&VÊ6W26˜fW"3Fó7FñÊ7BWá˜7W&W3≤b4¬Ù4ı"¶ˆñ‚ˆ67W'&VÊ6W26˜fW £cFó7FñÊ7B&ˆGV7BWá˜7W&W2‚FÜWí&RÊ˜BñÊFWVÊFVÁB&W∆ñ6Fñˆ‚‚WfW'êß6Ü&VB4¬Ù4ı"˜6÷V&ñÊr&˜ró2fW&ñfñVB'óFR÷ñFVÁFñ6¬‡†§DT≈DÙ4ı"&Fñ˜2&R¢¢”„CÉSCíÚ”„S3Cc2¢¢f˜"Ê@¢¢¢≥í„ÉÉccCÚ≥í„S3cs3"¢¢f˜"„Ñ3Ù3í‚&˜FÇ72FÜR6˜'&V7Fñˆ‚vFRfó'7B‡§Fó7∆6V÷VÁBfóG2«6ÚWÜ6VVBFÜR∆FW"7Fñ¬vFR¬vóFÜ˜WB6ÜÊvñÊrFÜP¶fóÜVB6∆76ñfñ6Fñˆ‚‚6÷V&ñÊrfóG2&R&Ê≤FVfñ6ñVÁB‚FÜR÷26Ü˜r'&ˆ@ß&ˆ6W76ñÊrFñffW&VÊ6W2ÊB6ñvÊVB6˜W&6R7G'V7GW&S≤ÊÚVÊóVRáó6ñ6¬6W6P¶˜"'Fñfñ6ñ¬˜&ñvñ‚ó2W7F&∆ó6ÜVB¬ÊB6˜W&6Rf&ñ&ñ∆óGíó2Ê˜BWÜ6«VFVB‡†•FÜRfó'7Bfó6óBw2∆7BˆñÁB¬&˜rSÇ¬ó2¢£Ç„sSÉs#R&˜fRóG25DEU3”fó6ó@¶÷VFñ‚¢¢¬'WB∆6∑2‚V∆ñvñ&∆R6ˆ◊∆WFR6ˆÁFWáBÊB&V÷ñÁ2VÊ76W76VB‚∆¿£ìrˆñÁG2ÊBWfW'íV∆ñvñ&∆RvñÊF˜r&V÷ñ‚&W6W'fVB‚FÜR6V6ˆÊBfó6óBw2v0¶ÊBf∆vvVB&˜w2&WfVÁBÁí6ˆ◊∆WFRFW7B6ˆÁFWáB‚Fó7∆íf&ñFñˆ‚ó2Ê˜@ßV∆ñfñVBˆ'6W'fñÊr6˜fW&vR‡†§∆¬f˜W"FF◊&VFñÊrˆÊ«ó6ó2v˜&∂f∆˜w2ÊBFÜR&WFñÊVBfW&ñfñ6Fñˆ‚v˜&∂f∆˜pß7V66VVB‚FÜRRG&Á7˜'BÚ"√"Úñ÷vRFW7G272‚ñÊFWVÊFVÁBVFóG270¢¢£√É√"6ˆ◊&ó6ˆÁ2¢¢¬¢£S3B÷WFFF6ÜV6∑2¢¢¬ÊB¢£Éí√sBÁV÷W&ñ6¬£3#√SÇWÜ7Bñ÷vR6ÜV6∑2¢¢¬vóFÇ¶W&ÚFó6w&VV÷VÁG2‚∆¬sRFFV@ß66ñVÁFñfñ2˜fW&ñfñ6Fñˆ‚fñ∆W2&RV&∆ñ3≤s÷F6ÇV&∆ñ2vóBñFVÁFóFñW0¶∆ˆ6∆«í‚f˜W"∆&vR6ˆ◊&W76VB4¬Ù4ı"fñ∆W2&RfW&ñfñVB'íFÜRñÊFWVÊFVÁ@¶ñ÷vRÊB&WFñÊVB4íVFóG2'WBvW&RÊ˜BF˜vÊ∆ˆFVB∆ˆ6∆«í‚ˆbC2÷ÊñfW7@¶VÁG&ñW2¬3í&R&V6ˆ◊WFVB∆ˆ6∆«íÊBf˜W"72FÜ˜6RV&∆ó6ÜVB4í6ÜV6∑2‡§∆¬6óÇñ∆ˆB&V6VóG2ÊB∆¬Fá&VRWÜ7B˜fW&∆6ÜV6∑273≤∆¬f˜W ¶fñwW&W2ÜfR&VV‚fó7V∆«í&WfñWvVB‚FÜR˜FñˆÊ¬'Fñf7BW∆ˆFVB¬'WBóG0¶∆ˆ6¬F˜vÊ∆ˆB&WGW&ÊVBÖEEC2ÊBÊÚ∆ˆ6¬§ïfW&ñfñ6Fñˆ‚ó26∆ñ÷VB‡†¢¢§ñ÷÷VFñFRÊWáB7Fñˆ„¢&W&R≈3Ñ$2f˜"&Ê≤”#"t¢C#"¢¢¬WÜ7Bó §4Öı#ÖıDs##ıc3Ú4Öı#ÖıDs##%ıc3‚FÜW6R&R&˜FÇV∆ñvñ&∆Pßfó6óG2ñ‚FÜRfóÜVB∆VFvW"‚‰UÖ”¬UÖDî‘S’DUÖDî‘S”c6V6ˆÊG2ÊBóV∆ñÊP£B„„"&V÷ñ‚7V&¶V7BFÚFÜVó"˜v‚ÜVFW"6ÜV6∑2‚g&VW¶R&˜VÊFVBÜVFW'2¿¶ñÊFWVÊFVÁF«ífW&ñgíñFVÁFóGí˜66ÜV÷ˆWá˜7W&R¬FÜV‚6W&FV«íg&VW¶RWÜ7@§√"&ÊvW2&Vf˜&Rf«VW2‚G&Á6fW"FÜRVÊ6ÜÊvVB67&VV‚ÊBVFóB‚t¢C# ß66ñVÊ6Rf«VW2&V÷ñ‚VÊ˜VÊVB‡†•µ66ñVÁFñfñ2ñÁFW'&WFFñˆ‚ÊBWÜ7B6ˆÁFñÁVFñˆÂ“Ñ≈3Ñ$%Ù4ÙÂDîÂTDîÙ‚Ê÷Bí¿•¥√"&W˜'E“á&W7V«G5ˆ«3Ü&ˆ√%˜67&VV‚ı$Uı%BÊ÷Bí¿•∂6ˆ◊∆WFR6ñvÊVB÷ñ÷vR&W˜'E“á&W7V«G5ˆ«3Ü&%ˆñ÷vW2ı$Uı%BÊ÷Bí¿•∑&VF&∆RVÊ6ÜÊvVB÷÷˜fW'fñWu“áfW&ñfñ6FñˆÂˆ«3Ü&%˜&WFñÊVB˜ó&VEˆñ÷vU˜&WfñWrÁÊrí¿•∑V&∆ñ6Fñˆ‚ÊBfW&ñfñ6FñˆÂ“ÖT$ƒî4DîÙÂÛ##b”í”#5Ù≈3Ñ$Ù≈3Ñ$"Ê÷Bí‡†§V&∆ñW"FFVBÊWáB7FñˆÁ2&RÜó7F˜&ñ6¬‚7FófR6ˆÁFñÁVFñˆ„†§≈3Ñ$%Ù4ÙÂDîÂTDîÙ‚Ê÷C≤ÊWáB7FvS¢≈3Ñ$2‚FÜR˜&ñvñÊ¬6VÁ7W2ÊBr÷6ˆÜ˜'@¶˜&FW"¬&ñ˜"∆&V«2¬VÊ76W76VBˆñÁG2¬6∆˜6VB7GVFñW2ÊB&W6W'fVBDU52Ù”C0ßÊV«27FíVÊ6ÜÊvVB‚t¢S3bw2ıb∂VWFÜVó"VÁ&W6ˆ«fVB∆&V«2ÊBóG2ˆÊP¶&˜VÊFVB7GVGí7Fó26∆˜6VB‚6∆ñ'&Fñˆ‚‰ıEı$TEì≤FV6ÜÊñ6¬&WVW7BTÂ4TÂB‡•7FÊFñÊr&W6V&6Ç˜V&∆ñ6Fñˆ‚WFÜ˜&ó¶Fñˆ‚6ˆÁFñÁVW3≤FV∆VvFñˆ‚ó2FVfW'&VB‡†£#B6WFV÷&W"##c¢≈3Ñ$26∆˜6W2FÜR&VFWFW&÷ñÊVB&Ê≤”#"t¢C#"ó"vóFÄ£ìr&WFñÊVB&˜w2¬sRV∆ñvñ&∆R˜fW&∆ñÊrvñÊF˜w2ÊBÊÚ6ñvÊVBFá&W6Üˆ∆@¶7&˜76ñÊw2‚&˜FÇv˜&∂f∆˜w2ÊBFÜRì÷6ˆ◊&ó6ˆ‚ñÊFWVÊFVÁBVFóB72‡•FÜRÁV∆¬ó2∆ñ÷óFVBFÚV∆ñvñ&∆R6ˆÁFWáG3≤FÜRf∆vvVB#"„ì#ÉRFó7∆íFó ¶ÊB˜FÜW"VÊ76W76VBˆñÁG2&V÷ñ‚&W6W'fVB‚ÊÚñ÷vR˜&W6ñGV¬'&Ê6Çó0ßG&ñvvW&VB‚ÊWáB&W&R≈3Ñ$Bf˜"&Ê≤”#2t¢CìB¬ˆÊ«í6á&ˆÊˆ∆ˆvñ6¬fó'7@ßó"4Öı#ÖıDssCıc3Ú4Öı#ÖıDssC%ıc3¬W6ñÊróG2˜v‡¶ÜVFW"◊fW&ñfñVB6FVÊ6RÜ∆VFvW"C"6V6ˆÊG2í‚óG2˜FÜW"GvÚfó6óG2&V÷ñ‡¶˜WG6ñFRFÜRó"‚˜v‚÷ÜVFW"fW&ñfñ6Fñˆ‚ÊB6W&FRWÜ7B√"g&VW¶Pß&V6VFRf«VW2‚∆¬&ñ˜"∆&V«2¬6∆˜6VB7GVFñW2¬6VÁ7W2ˆ6ˆÜ˜'B˜&FW"Ê@ß&W6W'fVBDU52Ù”C2ÊV«2&V÷ñ‚VÊ6ÜÊvVB‚6VR≈3Ñ$5Ù4ÙÂDîÂTDîÙ‚Ê÷B‡§6∆ñ'&Fñˆ‚‰ıEı$TEì≤&WVW7BTÂ4TÂB‚V&∆ñ6Fñˆ‚WFÜ˜&ó¶VC≤FV∆VvFñˆ‡¶FVfW'&VB‡†£#B6WFV÷&W"##c¢≈3Ñ$N(	4≈3Ñ$R6∆˜6W2FÜR&VFWFW&÷ñÊVB&Ê≤”#2t¢CìBfó'7@ßó"ÊBFÜR6ˆ◊∆WFR6ñvÊVBfˆ∆∆˜r◊W‚FÜRCÇ&˜w27W«ícRV∆ñvñ&∆PßvñÊF˜w2ÊBˆÊR˜6óFófR&W&W6VÁFFófR¬4ı%$T5DîÙÂÙƒî‰¥TBVÊFW"FÜRfóÜV@¶vFR‚ñÊFWVÊFVÁB√"¬÷WFFFÊBñ÷vRVFóG272‚ÊÚVÁ&W6ˆ«fVBWfVÁ@ß&V÷ñÁ2ÊBÊÚ&W6ñGV¬7GVGíó2G&ñvvW&VB‚FÜR6V6ˆÊBfó6óBw2VÊ76W76V@ß&˜r”2÷Üñ◊V“ÊB&˜FÇ∆FW"fó6óG2&V÷ñ‚˜WG6ñFRfˆ∆∆˜r◊W‚ÊWáB&W&P§≈3Ñ$bf˜"&Ê≤”#B$‘52£CsCCC≥CÉcB¬WÜ7Bó §4Öı#ÖıDssıc3Ú4Öı#ÖıDss%ıc3‚fW&ñgí˜v‚ÜVFW'0¶&Vf˜&RóG26W&FR√"g&VW¶RÊBW6RV6ÇfW&ñfñVB6FVÊ6RÜ∆VFvW"c ß6V6ˆÊG2í‚&ñ˜"∆&V«2¬VÊ76W76VBˆñÁG2¬6∆˜6VB7GVFñW2¬6ˆÜ˜'B˜&FW"Ê@ß&W6W'fVBDU52Ù”C2ÊV«2&V÷ñ‚VÊ6ÜÊvVB‚6VR≈3Ñ$UÙ4ÙÂDîÂTDîÙ‚Ê÷B‡§6∆ñ'&Fñˆ‚‰ıEı$TEì≤&WVW7BTÂ4TÂB‚V&∆ñ6Fñˆ‚WFÜ˜&ó¶VC≤FV∆VvFñˆ‡¶FVfW'&VB‡†
+# Aktuel SETI-retning ¬∑ 14. oktober 2026: top 5 er kun en udviklingsregel
+
+Rangdiagnosen af den komplette sandhedsbane er f√¶rdig for alle 1.512 svage, allerede eksponerede indspr√∏jtninger. Top 5 bevarer 1.400, inklusive alle 43 tilf√¶lde hvor den st√∏rre eksakte familie fortr√¶ngte en tidligere fuld maksimumsvinder. Reglen er valgt efter udfaldsinspektion og m√• derfor ikke kvalificere den nuv√¶rende metode eller tunes videre p√• samme bank.
+
+Den n√¶ste evidensgivende metodehandling kr√¶ver **friske, prospektivt fastl√•ste identiteter** med top-5-reglen u√¶ndret og med samme recovery-, RFI-, null- og ressourcegates. Ingen s√•dan bank aktiveres automatisk her. De 14 gemte vandfald er ogs√• afsluttet som deskriptiv morfologigennemgang: ingen utvetydig 16-r√¶kke-ryg, og den st√¶rkeste faste bane genfindes ikke som lokalt maksimum i de fem andre scanninger. Dette kalibrerer hverken FAP eller fysisk oprindelse.
+
+Indtil frisk validering eller uafh√¶ngig m√•lrelevant observation foreligger, bevares alle resultater som eksplorative. Original A/B er `FAIL_CLOSED`, 2016-holdouts og 2019-ruten forbliver lukkede, og slutcheckpointet udf√∏res f√∏rst 20. oktober.
+
+[Aktuelt resultat](RADIO_WEAK_TRUTH_RANK_2026-10-14.md) ¬∑ [Frosset scope](analysis/weak_truth_rank_20261014/SCOPE.json) ¬∑ [Resultater](analysis/weak_truth_rank_20261014/results/SUMMARY.json) ¬∑ [Projektstatus](PROJECT_STATUS.md)
+
+---
+
+## Tidligere status og retning, bevaret u√¶ndret
+
+# Aktuel SETI-retning ¬∑ 12. oktober 2026: kronologirang er udv√¶lgelsesbetinget
+
+Den fastl√•ste fulde Gamma51-kontrol er afsluttet: otte uafh√¶ngige familier, 768 syntetiske kort og best√•et uafh√¶ngig QA. Alle otte TOP1 og alle 24 sammenbundne TOP3 f√•r st√∏rst score i kronologien. Valgte familie-topscorer sp√¶nder 6,534836‚Äì7,247618. Den tidligere observerede kronologifordel forekommer s√•ledes ogs√• efter udv√¶lgelse under denne rene st√∏jmodel; den kan ikke alene bruges som ny signalevidens.
+
+Den afgr√¶nsede engineeringfase er f√¶rdig. De otte fr√∏ og den afsluttede s√∏gning gentages ikke som l√∏bende fremdrift. **N√¶ste ul√∏ste metodeproblem er kontrollernes relevans for virkelige teleskopdata:** en ny s√¶rskilt prospektiv model skal h√•ndtere og efterpr√∏ve tids-/frekvenskorrelationer, instrumentrespons og radioforstyrrelser, eller der skal etableres m√•lrelevant uafh√¶ngig observation. Otte rene IID-familier validerer ingen instrumentmodel og kalibrerer ikke en teleskop-FAP eller scoret√¶rskel. Der er ikke startet en ny kontrolbank eller observationsrunde som del af denne afslutning.
+
+Den senest dokumenterede 2019-mulighed har endnu ingen etableret transportadgang og ligger i et andet frekvensb√•nd. Original A/B forbliver FAIL_CLOSED, og de beskyttede 2016-paneler er lukkede. Metodealternativet og rapport-/reproduktionsarbejdet i planen 7.‚Äì20. oktober er gennemf√∏rt; slutcheckpointet den 20. oktober best√•r.
+
+[Kontrolleret modelresultat](analysis/burst_null_20261012/delivery/SETI_BURST_NULL_FINAL_2026-10-12.md) ¬∑ [Frosset scope](analysis/burst_null_20261012/scope.json) ¬∑ [Model og datagr√¶nser](analysis/burst_null_20261012/PROTOCOL.md) ¬∑ [Projektstatus](PROJECT_STATUS.md)
+
+---
+
+## Tidligere status og retning, bevaret u√¶ndret
+
+# Aktuel SETI-retning ¬∑ 11. oktober 2026: tidsr√¶kkef√∏lge afh√¶nger af udv√¶lgelsen
+
+Den fastl√•ste kontrol af 1.161 tidligere gemte burst4-vindertuple-forekomster er f√¶rdig og uafh√¶ngigt kontrolleret. Alle ni TOP3 st√•r h√∏jere i kronologien end i de 23 forskellige alternative centerarrangementer. For det st√¶rkeste spor er scorerne 7,315816 og 4,998336. Kontrollen beskriver f√∏lsomhed over for kanalcentrenes tilordning; den kalibrerer ingen nulfordeling og giver ingen ny uafh√¶ngig signalevidens.
+
+Det n√¶ste ul√∏ste metodeproblem er **en prospektiv kalibrering af hele udv√¶lgelsesfamilien**. Et senere design skal fastl√•se st√∏j-/kalibreringsdata, normalisering, s√∏gefamilie og maksimumstatistik f√∏r v√¶rdier √•bnes og gentage hele den relevante vinderudv√¶lgelse i nulmodellen. At omarrangere et allerede udvalgt vinderspor kan ikke erstatte denne kalibrering. Der er ikke startet en ny nulbank eller s√∏gekampagne som del af denne afslutning.
+
+Uafh√¶ngig himmelbekr√¶ftelse kr√¶ver m√•lrelevante, uafh√¶ngige data. Den senest dokumenterede 2019-mulighed har endnu ingen etableret transportadgang og ligger i et andet frekvensb√•nd. Original A/B forbliver FAIL_CLOSED, de beskyttede 2016-paneler forbliver lukkede, og de afsluttede analyser gentages ikke. Den formelle 7.‚Äì20.-oktober-periode og checkpointet den 20. oktober best√•r.
+
+[Kontrolleret resultat](analysis/burst_order_20261011/delivery/SETI_BURST_ORDER_FINAL_2026-10-11.md) ¬∑ [Fast scope](analysis/burst_order_20261011/scope.json) ¬∑ [Metode og datagr√¶nser](analysis/burst_order_20261011/PROTOCOL.md) ¬∑ [Fuld status](PROJECT_STATUS.md)
+
+---
+
+## Tidligere status og retning, bevaret u√¶ndret
+
+# Aktuel SETI-retning ‚Äî 11. oktober 2026: burstpilot afsluttet
+
+**288 burst-s√∏gekort, 1.179.648 gemte kanalmaksima og 54 faste kontekstprofiler er afsluttet. Begge numeriske QA-k√∏rsler og rapportens figurer har best√•et kontrollen.** Piloten anvender syv overlappende vinduer med fire integrationer (73,014 sekunder) i de eksisterende OFF-scanninger af HIP97319, HIP97461 og HIP97663 fra 28. april 2017. Hver retning omfatter 96 p√• forh√•nd fastlagte frekvenskerner, cirka 12,5 % af de 766 tidligere unders√∏gte kerner.
+
+Det h√∏jeste gemte maksimum er **7,315816** i HIP97663 ved 2302,264352 MHz. Det er en empirisk s√∏gescore; ingen kalibreret sigma-v√¶rdi eller falsk-alarm-sandsynlighed er etableret. Ni udvalgte spor er m√•lt uden refit i alle seks oprindelige scanninger p√• fire retninger, med separate fire-r√¶kke- og fulde 16-r√¶kke-scorer. **Ingen kvalificeret SETI-detektion, ny frekvensd√¶kning, ny observation eller blind validering er etableret.** Scanninger af andre stjerner er ikke gentagelser af samme m√•l.
+
+Den u√¶ndrede detektor normaliserer fortsat p√• alle 16 r√¶kker; ingen ny OFF-maske eller OFF-veto er anvendt. QA omfatter 1.161 gemte prim√¶re r√•scoreforesp√∏rgsler, 54 kontekstprofiler/108 scorer og ni match til de oprindelige fire-r√¶kke-scorer. Kontrollen af den endelige score er betinget af de gemte normaliseringskonstanter og udg√∏r ikke en uafh√¶ngig genk√∏rsel af hele s√∏gegitteret.
+
+Resultatpakken er p√• **86.496.254 bytes**, med **1.939 arkivmedlemmer** kontrolleret med CRC og SHA256. Den indeholder alle nye kort og r√•kapsler; de 18 originale H5-kompakter er eksterne foruds√¶tninger. Den offentlige gren indeholder kildekode, rapporter, figurer og kontrolkvitteringer, mens hele array-pakken er bevaret separat. Udgift: **0 DKK**.
+
+Det n√¶ste metodiske sp√∏rgsm√•l er at fastl√¶gge en prospektiv nulfordeling og en eventuel bredere tidsbank, f√∏r flere maksimumv√¶rdier fortolkes som signifikans. Denne pilot er eksplorativ p√• allerede eksponerede 2017-data. Der er ikke igangsat en ny observationsrunde eller en udvidet s√∏gning som del af denne afslutning. Tidligere A/B-forl√∏b med FAIL_CLOSED og de beskyttede 2016-data bevarer deres eksisterende status.
+
+- [Rapport](analysis/burst4_20261011_context/delivery_v3/SETI_BURST4_FINAL_2026-10-11.md)
+- [Ni udvalgte spor](analysis/burst4_20261011_context/delivery_v3/TOP9.csv)
+- [54 kontekstprofiler](analysis/burst4_20261011_context/delivery_v3/CONTEXT54.csv)
+- [Prim√¶r numerisk QA](analysis/burst4_20261011_qa/results/QA_RECEIPT.json)
+- [Kontekst-QA](analysis/burst4_20261011_context/CONTEXT_QA_RECEIPT.json)
+- [Pakkeidentitet](analysis/burst4_20261011_context/delivery_v3/RESULT_PACKAGE_RECEIPT.json)
+- [Offentligt evidensindeks](analysis/burst4_20261011/PUBLIC_EVIDENCE_INDEX.md)
+
+---
+
+## Tidligere retning, bevaret u√¶ndret
+
+# Aktuel SETI-retning ‚Äî 11. oktober 2026: udvidet OFF-s√∏gning afsluttet
+
+1536 nye s√∏gekort og 54 u√¶ndrede kontekstprofiler er afsluttet og kontrolleret. De station√¶re komponenter ved 2297,4609375 og 2303,3203125 MHz er f√¶lles for alle seks scanninger p√• fire retninger. Rank-3-skabelonernes otte-r√¶kke-overlap er beskrivende evidens for flere skabeloner omkring samme komponent. Den fysiske √•rsag kr√¶ver videre kontrol; ingen SETI-detektion eller uafh√¶ngig gentagelse er etableret.
+
+Den konkrete videre forskningsopgave er at afklare den f√¶lles spektralstruktur og skelne instrumentel respons fra himmeloprindelse med en ny prospektiv afgr√¶nsning. De eksponerede 2017-data kan bruges til s√•dan eksplorativ engineering, mens en uafh√¶ngig bekr√¶ftelse kr√¶ver nye m√•lrelevante data. De beskyttede 2016-kontroller og original A/B forbliver lukkede. Den tidligere metadata-kvalificerede 2019-kadence er fortsat en mulighed i et andet frekvensb√•nd, n√•r kildens transportadgang kan etableres; denne runde har hentet nul nye teleskopdata.
+
+[Endelig rapport](analysis/off_adjacent_20261011_context/delivery/SETI_ADJACENT_FINAL_2026-10-11.md) ¬∑ [Fuld status](PROJECT_STATUS.md) ¬∑ [Reproduktion](analysis/off_adjacent_20261011/REPRODUCTION_AND_DATA_AVAILABILITY.md)
+
+F√∏lgende tekst er bevaret historik.
+
+---
+
+# Aktuel SETI-retning ‚Äî 11. oktober 2026: injektionsbenchmark afsluttet
+
+Den fastl√•ste S2017-r√•effektbenchmark er afsluttet og uafh√¶ngigt kontrolleret:
+450 kort, 540 cases og 30 komplette grupper. Bredde-1-resultatet viser 0/18
+lokale score‚â•10-cases ved A=1 og 18/18 ved A‚â•3. I q64/q192 er A‚â•3 ogs√• global
+rang 1 i 18/18; i q128 er den indspr√∏jtede linje 0/18 global rang 1 gennem
+A=12 p√• grund af den kendte st√¶rke konkurrent. Bredde 9 er mismatchstress og
+ikke eksakt recovery. Det er et engineeringresultat i bevarede 2017-data, ikke
+ny himmel eller kalibreret detektionssandsynlighed. A/B forbliver
+`FAIL_CLOSED`.
+
+Den n√¶rmeste konkrete nye-himmelmulighed er fortsat den metadata-kvalificerede
+seks-scan HIP98505-kadence fra 29. september 2019 i 3563,965‚Äì3751,465 MHz.
+Den aktuelle transportadgang tillader ikke kildens teleskophost, s√• ingen
+spektralbytes eller requests m√• opfindes eller omg√•s. Den kan heller ikke
+validere 2017-tr√¶k ved samme frekvens, fordi b√•ndet er et andet. Beskyttede
+2016-kontroller forbliver lukkede, og den afsluttede 2017-benchmark genk√∏res
+ikke. Et efterf√∏lgende numerisk studie kr√¶ver en ny, pr√¶cis prospektiv
+afgr√¶nsning og m√• ikke tunes mod disse eksponerede 450 cases.
+
+[Benchmarkresultat](tools/radio_s2017_injection_20261011/delivery/RADIO_S2017_INJECTION_2026-10-11_RESULT.md) ¬∑
+[fuld status](PROJECT_STATUS.md)
+
+F√∏lgende tekst er bevaret historik; ovenst√•ende er det aktuelle
+forts√¶ttelsespunkt.
+
+---
+
+# Aktuel SETI-status ‚Äî 9. oktober 2026: syv nye uafklarede ON-overskud
+
+En ny station√¶r ON/OFF-sammenligning over 1.048.010 kanaler pr. ON (2,971636 MHz inden for den eksisterende cache) og √©n samlet tidskontrol af syv udvalgte profiler er f√¶rdige. **1424,079070 MHz i ON2** ligger over de faste lokale flanker i alle 16 tidsr√¶kker; de tilst√∏dende OFF-scanninger har ikke et tilsvarende gennemsnitligt overskud p√• samme kanal. Alle syv spor bevares som uafklarede. Udv√¶lgelsen fra de samme data er ikke en uafh√¶ngig bekr√¶ftelse eller kalibreret signifikanstest.
+
+Prioriteret opf√∏lgningsliste: ON2 rang 1 ved 1424,079070 MHz, ON2 rang 3 ved 1422,279163 MHz og ON3 rang 3 ved 1423,250530 MHz. N√¶ste bevistrin kr√¶ver uafh√¶ngig observation/kontrol eller kalibrering af hele udv√¶lgelsesfamilien. Gentag ikke de afsluttede drifts√∏gninger, station√¶re kontraster, tidskontroller eller gamle testbanker.
+
+Se [det aktuelle resultat](RADIO_ON_OFF_EXCESS_2026-10-09_RESULT.md) og [TIME_INTERPRETATION.json](results/radio_excess_20261009/TIME_INTERPRETATION.json). Ny analyse brugte 26,281 m√•lte process-CPU-s; hele aktiviteten er ikke samlet CPU-m√•lt. Konservative reservationer er 3.910 CPU-s; saldo 2.002,705 CPU-s med 2.000 beskyttet til 20. oktober og 2,705 ubeskyttede. Ingen nyt v√¶sentligt analysejob f√∏r checkpointet inden for den aftalte saldo. A/B er fortsat FAIL_CLOSED; kvalificeret pilot blokeret. Beskyttede holdouts, √∏vrige stopstatusser og tidligere reservationer er u√¶ndrede. Ingen nye teleskopforesp√∏rgsler eller udgifter.
+
+F√∏lgende tekst er bevaret historik fra tidligere afsluttede arbejdsblokke; det aktuelle resultat og den nyeste RESOURCE_LEDGER.json har forrang.
+
+---
+
+# Aktuel SETI-status ‚Äî 9. oktober 2026: gentaget autentisk spor kontrolleret i ON/OFF
+
+Seks autentiske HIP98505-m√•l-/kontrolscanninger fra √©n historisk observation er nu √•bnet og analyseret. Alle 254 indre frekvensudsnit pr. ON er f√¶rdige: **1.040.384 sammenh√¶ngende kanaler og 2,950012 MHz pr. ON**, 763 line√¶re drifthastigheder ¬±4 Hz/s og bredder 1/3. Fire distinkte prioriterede familier er nu kontrolleret tidsopl√∏st: 1423,954061, 1422,596235, 1424,439182 og 1424,411711 MHz. Alle findes i OFF med sammenlignelig styrke. Den sidste, svage familie gav oprindeligt kun √©n ON-gruppe over den beskrivende scoregr√¶nse, men st√•r p√• samme kanal i alle seks scanninger. Sammen med de to tidligere manuelle flag giver alle individuelle kontroller mod-evidens mod ON-eksklusivitet; ingen fysisk oprindelse er klassificeret.
+
+Den gamle plan er lukket. Dette signalarbejde h√∏rer til den godkendte plan **7.‚Äì20. oktober** og er s√¶rskilt eksplorativ analyse efter √•bning af data. **A/B er fortsat FAIL_CLOSED; den oprindelige kvalificerede pilot er ikke √•bnet.** Eksplorativ data√•bning er ikke en best√•et kvalifikation. Scoregr√¶nse 10 er beskrivende; ingen kalibreret SNR, FAP, f√∏lsomhed eller generel sky-nuldetektion h√¶vdes. √ân observation, samlet ON-integration 863,34 s.
+
+[Faktisk resultat og metode](RADIO_QUICKLOOK_2026-10-09_RESULT.md) ¬∑ [1423,954061-MHz-kontrol](RADIO_REPEATED_TRACK_1423954061_2026-10-09_RESULT.md) ¬∑ [1422,596235-MHz-kontrol](RADIO_REPEATED_FEATURE_1422596235_2026-10-09_RESULT.md) ¬∑ [To sidste familier](RADIO_REMAINING_FEATURES_2026-10-09_RESULT.md) ¬∑ [Alle gemte signalgrupper](results/radio_quicklook_20261009/SIGNAL_GROUPS.csv) ¬∑ [Individuel kontrolgennemgang](results/radio_quicklook_20261009/flagged_review/REVIEW.json) ¬∑ [Dataarkiver](results/radio_quicklook_20261009/EXTERNAL_DATA_ARCHIVES.json).
+
+De s√¶rskilt prioriterede frekvensfamilier og de to manuelle flag er nu f√¶rdigvurderet og k√∏res ikke igen. En eventuel n√¶ste analyse skal v√¶re et andet konkret ul√∏st gemt spor og passe i den resterende frie saldo; ingen bred s√∏gning eller ny familie √•bnes. Afsluttede s√∏gninger og gamle test-/rapportkontroller genk√∏res heller ikke. Konservativt reserveret i dette arbejdspas: 3.800 CPU-s; saldo **2.112,705 CPU-s**, heraf **2.000 beskyttet til checkpunkt 20. oktober** og 112,705 frit. Ingen ekstra debitering eller refusion af samme job. [Aktuelt ressourceregnskab](results/radio_quicklook_20261009/RESOURCE_LEDGER.json). Gamle holdouts, HOLD/UNSENT-dispositioner, pris- og ressourcegr√¶nser bevares.
+
+---
+
+Tidligere afsnit nedenfor er historik. Deres datap√•stande beskriver det dav√¶rende omfang; den aktuelle eksplorative data√•bning og analyse st√•r ovenfor.
+
+# Aktuel status ‚Äî 9. oktober 2026: gammel periode lukket; rapport og reproduktionskit f√¶rdige
+
+Den gamle26. september‚Äì9. oktober-periode er formelt lukket med faktisk dato9. oktober. Dens beregninger og lukkede tests var allerede afsluttet; denne konsolidering √¶ndrer ingen gammel gate eller disposition. Hovedm√•let er NOT_ACHIEVED / SKY_PILOT_BLOCKED, ingen nuldetektion. Alle ni gamle prim√¶rkilders blob-hashes er u√¶ndrede mod det bevarede udkast. Den gamle fejlfinding genoptages ikke.
+
+Den nye7.‚Äì20. oktober-plans samlede rapport- og pakningsleverance er gennemf√∏rt9. oktober. Det f√¶rdige kit har79 payloadfiler/1.700.259 bytes plus2 kontrolfiler; ZIP421.492 bytes. Alle payloadhashes,ZIP-CRC,21 originale prerequisitehashes og6 originale PDF-figurer er kontrolleret. Frosne kode-/protokoltekster og A/B/METHOD-resultatmetadata er samlet uden videnskabelig invocation eller genrendering. Casearkiver/scorekort og originalPNG-embeds er eksterne. Pakken er ingen komplet offline-verifier eller r√•power‚Üípreprocessing‚Üíscores-reproduktion.
+
+To uafh√¶ngige tekstreviews godkendte gamle slutlukning og nye rapport-/kitgr√¶nser. Pakkens metrede Python-proceskomponent til og med kontrol/hashing brugte0,072670 CPU-s; receipt/API/setup/publicering er ikke fuldt m√•lt. En s√¶rskilt konservativ100-CPU-sekunders reservation efter den tidligere6012,705144981004 saldo efterlader5.912,705144981004 CPU-s. M√•lte komponenter debiteres ikke igen, tidligere reservationer refunderes ikke, og mindst2.000 bevares til periodens afsluttende checkpoint. Brug nu results/radio_report_package_20261009/REPORT_PACKAGE_LEDGER.json. Gamle periodetotaler forbliver ukvalificerede/null.
+
+Kalenderen er milep√¶le. F√¶rdigt rapport-/pakningsarbejde er fremrykket og skal ikke vente p√•20. oktober eller gentages dagligt. Den formelle7.‚Äì20. oktober-periode og det sidste20.-oktober-checkpoint best√•r; checkpointet er endnu ikke udf√∏rt. Case000-verifikationen blev faktisk gennemf√∏rt8. oktober og gentages ikke19. oktober. Ingen nye detektor-/generator-/renderer-/verifierk√∏rsler eller sky-payloads er udf√∏rt her. A/B forbliver FAIL_CLOSED, og teleskoppiloten er ikke admitted.148-versioners senere design er fortsat et ikke-aktiveret forslag.
+
+Arbejd sammenh√¶ngende gennem tilg√¶ngelige, autoriserede afh√¶ngige opgaver; stop ikke mellem sm√• leverancer for at afvente kalenderdatoer. N√•r de tilladte leverancer er f√¶rdige, udf√∏res ikke ekstra tests, audits, pakninger eller rapporter som dagligt fremskridt. Uden nye autoriserede originale resultater resterer kun det afsluttende20.-oktober-checkpoint; ingen automatisk ny kampagne eller forl√¶ngelse.
+
+[Gammel periodes slutrapport](RADIO_PERIOD_2026-09-26_TO_2026-10-09_FINAL.md) ¬∑ [F√¶rdig rapportleverance](RADIO_REPORT_PACKAGE_2026-10-09.md) ¬∑ [Kit ZIP](results/radio_report_package_20261009/SETI_RADIO_REPORT_KIT_2026-10-09.zip) ¬∑ [Vejledning](results/radio_report_package_20261009/KIT_GUIDE.md) ¬∑ [Pakke-/hashkvittering](results/radio_report_package_20261009/PACKAGING_RECEIPT.json) ¬∑ [Aktuel ledger](results/radio_report_package_20261009/REPORT_PACKAGE_LEDGER.json).
+
+---
+
+Tidligere daterede poster f√∏lger som historik.
+
+# Aktuel status ‚Äî 8. oktober 2026: samlet forel√∏big perioderapport gennemg√•et
+
+Det samlede rapportudkast pr. 8. oktober samler reference, udvikling, A/B, METHOD, gemte fejlanalyser og den faktiske frisk-proces-verifikation. Planens nye seks-scans himmels√∏gning er fortsat blokeret: 0 pilotsekvenser, 0 s√∏gte pilot-Hz og 0 analyseret pilot-ON-eksponering. Voyager-referencen er gennemf√∏rt, og metodealternativet gav faktisk beregnede resultater. A/B forbliver FAIL_CLOSED; ingen konklusion om udenjordisk detektion eller nuldetektion f√∏lger.
+
+B's bindinger er u√¶ndrede: arbejdsniveauets tredje-ON-delgruppe6/8 mod mindst7, bredde3-delgruppe21/24 mod mindst22, og2/24 RFI-forl√∏b med rester mod nul tilladt. METHOD gav ALL52/64 og ANY59/64;115/128 aktiveON genfund,13 tab f√∏rON-t√¶rsklen i12 fors√∏g. De gemte analyser viser b√•de RFI-matchgeometri med14 overlevende carriers og n√¶r-OFF-tab af11 oprindeligt genfundne signalforl√∏b. Alle12 single-row-transienter overlever;32 st√∏jforl√∏b har nulON-hits. Tallene er beskrivende syntetiske fund, ikke kalibrerede sky-probabiliteter.
+
+Udkastets uafh√¶ngige tekstreview bestod med pr√¶cise n√¶vnere og begr√¶nsninger. Rapporten bindes til19 eksisterende tekstkilder ved immutable commit bf93df9de8d38c946746c0bf1df5190d69322df9. Ingen raw-/scorekort eller nye teleskopv√¶rdier blev √•bnet ved denne sammenfatning; ingen generator, detektor eller ekstra verifier k√∏rt. En ny konservativ50-CPU-sekunders rapportreservation efterlader6.012,705144981004 CPU-s. Hele rapport-/API-/reviewforbruget h√¶vdes ikke fuldt m√•lt; tidligere reservationer refunderes ikke og mindst2.000 bevares til slutrapporten. Brug nu results/radio_period_report_draft_20261008/REPORT_LEDGER.json.
+
+Dette er PRELIMINARY_ASOF_2026_10_08, ikke periodens slutlukning. Den gamle periode afsluttes s√¶rskilt9. oktober; slutrapporten for7.‚Äì20. oktober afventer20. oktober. Case000-verifikationen er allerede gennemf√∏rt8. oktober og gentages ikke19. oktober. √Üldre pending-/budgetfelter bevares som historik og supersederes af de faktiske nye kvitteringer og seneste ledger. Det senere148-versioners design er fortsat et forslag, som ikke aktiverer nye fors√∏g. Afsluttede analyser og audits gentages ikke som dagligt fremskridt; ingen automatisk forl√¶ngelse.
+
+[Forel√∏big samlet rapport](results/radio_period_report_draft_20261008/PERIOD_REPORT_DRAFT.md) ¬∑ [Uafh√¶ngigt tekstreview](results/radio_period_report_draft_20261008/REVIEW.md) ¬∑ [19 kildebindinger](results/radio_period_report_draft_20261008/SOURCE_BINDINGS.json) ¬∑ [Aktuel saldo](results/radio_period_report_draft_20261008/REPORT_LEDGER.json) ¬∑ [Faktisk verifikation](results/radio_saved_verification_20261008/VERIFICATION_REPORT.md).
+
+---
+
+Tidligere daterede poster f√∏lger som historik.
+
+# Aktuel status ‚Äî 8. oktober 2026: √©n frisk-proces-verifikation gennemf√∏rt og best√•et
+
+Den planlagte gemte METHOD-case000-verifikation er fremrykket fra19. oktober til8. oktober og udf√∏rt √©n gang. Protokollens gate var durabel afslutning af hele64-case panelet, som var opfyldt; kalenderdatoen er en arbejdsmilep√¶l. Originalprogrammet bestod PASS_BOUNDED_SAVED_RESULT_VERIFICATION:6 gemte scorekort,20 artefakthashes og96 OFF-sammenligninger. Casens32 ON-carriers og32 overlevende stemmer. Dette er gemt map/hit/veto/recovery-konsistens, uden genberegning af r√• preprocessing, detektorscores eller nye signaltr√¶k. Ingen yderligere verifier-invocation den19. oktober.
+
+Alle54 originalfiler/1.896.541 bytes, begge arkiver/SHA256/Git-SHA/bytes og admission/claim er autentificeret. F√∏rste restaureringsjob fangede en afkortet lokal koordinatortransport72.000 mod79.878 bytes og stoppede f√∏r nogen verifier-invocation. Fejl/log/ressourcekvittering er bevaret. En korrigeret overf√∏rsel til en ny stagingfil matchede alle originale identiteter, og den korrigerede restaurering bestod. Det er transportrettelse, ikke en ekstra detektorudviklingsrettelse eller verifier-retry. Peer-review af47 tekstfiler, receipts og scope bestod; reviewer √•bnede ingen maps/arkiver og k√∏rte ingen ekstra verifier.
+
+Dagens m√•lt hele child/wrapper-komponenter er0,045484 CPU-s for f√∏rste restorefejl,0,065338 for korrigeret restore og0,151945 for verifier; i alt0,262767. Verifier-wall var0,166062 s og peak RSS30.187.520 bytes under60CPU-s/120wall-s/4GiB-AS-caps. Den originale cases73,064369 CPU-s angiver historisk fremstilling og blev ikke genk√∏rt. Ny konservativ150-CPU-reservation efterlader6.062,705144981004; komponenter debiteres ikke igen, tidligere reservationer √¶ndres ikke, og mindst2.000 bevares til slutrapporten. Setup/API/review/udgivelse h√¶vdes ikke fuldt m√•lt. Brug nu results/radio_saved_verification_20261008/VERIFICATION_LEDGER.json.
+
+A/B forbliver FAIL_CLOSED; denne PASS kvalificerer ikke teleskoppiloten. Det senere148-versioners udviklingsforslag er stadig kun forslag. Den gamle periodes afslutning9. oktober og slutrapport20. oktober er u√¶ndrede. Lukkede audits, planl√¶gningsmatematik, statisk inventar og den nu gennemf√∏rte friske kontrol gentages ikke som dagligt fremskridt. Ingen automatisk ny kampagne eller forl√¶ngelse.
+
+[Resultatrapport](results/radio_saved_verification_20261008/VERIFICATION_REPORT.md) ¬∑ [Original ny kvittering](pilot_protocol_20261008/review/METHOD_SAVED_CASE_000_REPRODUCTION.json) ¬∑ [Restaurering](results/radio_saved_verification_20261008/RESTORATION_RECEIPT.json) ¬∑ [Review](results/radio_saved_verification_20261008/REPRODUCTION_REVIEW.md) ¬∑ [Aktuel saldo](results/radio_saved_verification_20261008/VERIFICATION_LEDGER.json).
+
+---
+
+Tidligere daterede poster f√∏lger som historik.
+
+# Aktuel status ‚Äî 8. oktober 2026: senere udviklingsdesign og fast verifikationss√¶t klargjort
+
+De afsluttede dataanalyser er omsat til tre konkrete senere udviklingssammenligninger: tidsprofiler med to amplitudekonventioner; fast sandbane-statistik adskilt fra globalt s√∏gemaksimum; og √©n RFI-familieprototype sammen med n√¶r-OFF-signalbevarelse. Forslaget omfatter24+40+84=148 parrede arrayversioner i18 st√∏jblokke. Nuldrift er med for at konfrontere den dokumenterede n√¶r-OFF-fejl. R√¶kkef√∏lgen er tidsprofiler, fast bane/m√•lt baselineomkostning og derefter familieprototype, hvis observerbarhed og separat budget er tilstr√¶kkelige. Versionerne er udviklingskontroller og t√¶lles ikke som uafh√¶ngige valideringsforl√∏b. Ingen nye seeds, arrays, scores, regel√¶ndringer eller kvalifikation er udf√∏rt.
+
+Korte signaler og enkelt-ON bevares: identiske observerede arrays med forskellig oprindelseslabel kan ikke skelnes af en algoritme. Ved sammenfaldende komponenter kan dispositionen v√¶re uafklaret. De foresl√•ede instrumenterings-/regel√¶ndringer og nye k√∏rselspaneler er til en senere separat protokol; de aktiveres ikke i den nuv√¶rende7.‚Äì20. oktober-plan. A/B forbliver FAIL_CLOSED, og teleskoppiloten er ikke admitted.
+
+Betinget stikpr√∏vematematik er kontrolleret med uafh√¶ngig90-cifret Decimal: nul h√¶ndelser kr√¶ver29/59/299 forl√∏b for √©n klasses ensidige95% √∏vre gr√¶nse10/5/1%; fire samtidige klassekrav kr√¶ver42/86/437 pr. klasse. Dette foruds√¶tter en hypotetisk uafh√¶ngig ens-p-model pr. klasse, som ikke antages for de eksisterende heterogene celler eller himmeldata. Omkostningstabellen bruger afsluttede panelers m√•lte jobgennemsnit som illustration; √¶ndret metode, ekstra scorepasses og √∏vrig overhead har ukendt faktisk pris. Design- og numerikreview bestod PASS_PLANNING_SCOPE_AND_NUMERIC_REVIEW.
+
+Den19. oktober-verifikations statiske inputs√¶t er nu identificeret:54 filer/1.896.541 deklarerede restaurerede bytes,21 admission-adgangskrav og to arkiver/608.655 komprimerede bytes. Alle adgangskrav matcher admissions-SHA256; arkivernes Git-SHA/bytes matcher original metadata. Rodkontrollen af21 bindinger, layoutaritmetik og begge arkivers katalogmetadata bestod. Arkivkroppe og maps er fortsat u√•bnede i denne fase; NumPy-indl√¶sning, restaurering og den ene friske proces er ikke efterpr√∏vet nu. Inventaret er ikke en ny reproduktionskvittering.
+
+Ny konservativ reservation100 CPU-sekunder efterlader6.212,705144981004. Metrede beregningskomponenter er0,057588245 CPU-sekunder inde i reservationen; setup/API/statisk inventar/dokumentation/udgivelse og bevarede korrigerede forberedelsesfejl h√¶vdes ikke fuldt m√•lt. Tidligere1.200-forberedelses-,100-RFI- og200-diagnostikreservationer er u√¶ndrede. Mindst2.000 CPU-sekunder bevares til rapport/reproduktion. Brug nu results/radio_next_design_20261008/DESIGN_LEDGER.json; tidligere ledgers er historik.
+
+Datotrin er u√¶ndrede: gammel26. september‚Äì9. oktober-periode afsluttes9. oktober ud fra as-of8. oktober-udkast og seneste status; √©n gemt METHOD-case verificeres19. oktober; slutrapport20. oktober. Lukkede audits og dette f√¶rdige design gentages ikke som dagligt fremskridt. Ingen automatisk senere kampagne eller forl√¶ngelse.
+
+[Beslutningsgrundlag](results/radio_next_design_20261008/DECISION_BRIEF.md) ¬∑ [Senere videnskabelige sammenligninger](results/radio_next_design_20261008/SCIENTIFIC_DESIGN.md) ¬∑ [Betingede stikpr√∏vekrav](results/radio_next_design_20261008/DESIGN_BOUNDS.md) ¬∑ [Review](results/radio_next_design_20261008/DESIGN_REVIEW.md) ¬∑ [19. oktober-inputs√¶t](results/radio_next_design_20261008/SAVED_VERIFICATION_PREFLIGHT.md) ¬∑ [Aktuel saldo](results/radio_next_design_20261008/DESIGN_LEDGER.json).
+
+---
+
+Tidligere daterede poster f√∏lger som historik.
+
+# Aktuel status ‚Äî 8. oktober 2026: gemte diagnostik- og d√¶kningsanalyser afsluttet
+
+Alle 56 relevante B-fors√∏g er gennemg√•et fra autentificerede arkiver: 12 enkelt-r√¶kke-transienter, 12 n√¶r-OFF-fors√∏g og 32 st√∏jforl√∏b. En uafh√¶ngig kontrol af 1.120 originale artefakthashes, 336 vinderkort og seks CSV-tabeller bestod. Ingen nye signaltr√¶k, detektorscores, t√¶rskler, kvalifikation eller himmelspektrer.
+
+Alle 12 transienter overlever. Deres 8.114 korrelerede carrier-svar omfatter 428 sandhedslokaliserede ved begge ON-endepunkter; 8.103 passerer inden for 18,5 kanalbredder ved den eneste indspr√∏jtede integrations midtpunkt. En separat Decimal-audit bekr√¶fter geometrien for alle 8.114. Punktmatch er ikke et nyt genfund eller en m√•lt tidsprofil; tidsm√¶ssig vedvarenhed efterpr√∏ves ikke af denne filterregel.
+
+N√¶r-OFF: 11/12 ON-signaler var initialt lokaliseret, og alle 66 hits blev vetoet med originale witnesses i netop den efterf√∏lgende kontaminerede OFF. Fors√∏g008 l√• under ON10 med maksimum 9,877217747885116; det tab kom f√∏r OFF. Slutresultatet er 0/12. OFF-witnesses stopper tidligt, s√• deres gemte checked-maksima er delvise; beskrivende OFF-linje-geometri √¶ndrer ingen original gate.
+
+St√∏j: nul ON-carriers i 32 forl√∏b og 96 ON-scans, otte forl√∏b pr. fastlagt lov. Dette kalibrerer ikke en himmel-falskalarmrate. METHOD64's 128 aktive ON-maksima er sammenholdt med idealniveauet uden ny scoring: 115 lokaliserede scan-genfund, 13 t√¶rskelmisses i 12 celler. ALL52/64 og ANY59/64 er u√¶ndret. Globalt s√∏gemaksimum er en anden st√∏rrelse end st√∏jfri idealprojektion eller m√•lt SNR/flux. Tre originale rapportprodukter, 128 scan-r√¶kker, 64 fors√∏gsr√¶kker og 25 grupper har best√•et separat uafh√¶ngig Decimal-kontrol.
+
+RFI-geometriens tidligere dokumenterede 14 rester st√•r u√¶ndret. A/B forbliver FAIL_CLOSED, og teleskoppiloten er ikke kvalificeret. Prioriteter til en senere plan er tidsprofil/artefakter, RFI-familier sammen med n√¶r-OFF-signalbevarelse og s√¶rskilt kalibrering af sand-bane-statistik versus udvalgt maksimum. Ingen af forslagene implementeres i denne periode.
+
+Den gamle 26. september‚Äì9. oktober-periode har et s√¶rskilt udkast pr. 8. oktober, baseret p√• ni originale rapporter; dens slutlukning 9. oktober er endnu ikke udf√∏rt. De afsluttede RFI-, diagnostik-, puls- og d√¶kningsanalyser gentages ikke som dagligt fremskridt. N√¶ste faste trin er den faktiske gamle-perioderapport 9. oktober, √©t gemt METHOD-resultats afgr√¶nsede frisk-proces-verifikation 19. oktober og slutrapport 20. oktober. Ingen automatisk ny kampagne eller forl√¶ngelse.
+
+Ny konservativ reservation 200 CPU-sekunder efterlader 6.312,705144981004. Metrede hele jobs bruger 14,179042 som komponenter af denne reservation; ingen dobbeltdebitering eller refundering. Den tidligere 1.200-forberedelsesreservation og 100-RFI-reservation er u√¶ndrede, og mindst 2.000 CPU-sekunder er bevaret til rapport/reproduktion. Brug nu den nye diagnostikledger; tidligere ledgers er historik.
+
+[Diagnostikrapport og figurer](results/radio_diagnostics_20261008/DIAGNOSTIC_REPORT.md) ¬∑ [Puls-geometri](results/radio_diagnostics_20261008/PULSE_GEOMETRY.md) ¬∑ [METHOD-d√¶kning](results/radio_diagnostics_20261008/METHOD_COVERAGE.md) ¬∑ [Uafh√¶ngig kontrol](results/radio_diagnostics_20261008/PEER_DIAGNOSTIC_AUDIT.md) ¬∑ [Aktuelt budget](results/radio_diagnostics_20261008/ANALYSIS_LEDGER.json) ¬∑ [Gammel periodes daterede udkast](results/radio_diagnostics_20261008/OLD_PERIOD_CLOSURE_DRAFT_2026-10-08.md).
+
+---
+
+Tidligere daterede poster f√∏lger som historik.
+
+# Aktuel status ‚Äî 8. oktober 2026: RFI-resternes geometri dokumenteret
+
+En ny analyse af de to gemte B-RFI-forl√∏b har verificeret alle 14 overlevende spor, 42 originale OFF-sammenligninger og 12 vinderkort. Alle resterne udelukker det pr√¶cise indspr√∏jtede RFI-spors drift fra deres OFF-matchfamilier: st√∏rste tilladte driftforskel 0,735693561 Hz/s, observeret forskel 0,784632434‚Äì0,859992612. Selv med fri referencefrekvens er mindst mulig st√∏rste endepunktsfejl 37,328226‚Äì40,913422 kanalbredder mod den bredeste OFF-tolerance 35. Sandhedslokalisering bruger s√¶rskilt tolerance 18,5.
+
+Uafh√¶ngig Decimal-intervalkontrol bestod alle 56 kombinationer af 14 spor og fire OFF-bredder samt fire CSV-tabeller, 84 geometrier, 42 OFF-vinderpar og 40 originale artefakthashes. Alle 472 oprindeligt sandhedslokaliserede ON-hits i de to forl√∏b blev korrekt vetoet, men de 14 andre spor overlevede. Alle 42 kompatible OFF-familier var oprindeligt udt√∏mte under t√¶rskel 8; h√∏jeste gemte score 7,926772881. Geometriens udelukkelse er bevist; √•rsagen til ON-scorernes konkrete RFI/st√∏j-bidrag er en fortolkning, ikke et nyt kontrafaktisk resultat.
+
+Ingen nye signaltr√¶k, scores, detektor√¶ndringer, kvalifikation eller himmelspektrer. A/B forbliver FAIL_CLOSED; METHOD64 er afsluttet og beskrivende. Den nye rapport giver et afgr√¶nset forslag om samlet kontrol af RFI-familier til en senere plan. Det implementeres ikke i denne periode.
+
+Ny konservativ analysereservation: 100 CPU-sekunder; de metrede restaurerings-/analyse-/figur-/audit-/rapportjobs bruger samlet 4,083591 som komponenter af reservationen. Ingen reserve refunderes eller dobbeltbelastes. Den tidligere 1.200-sekunders reservation er u√¶ndret; aktuelt restbudget 6.512,705144981004 CPU-sekunder, mindst 2.000 bevaret til rapport/reproduktion. Den tidligere post-METHOD-ledger bevares som historik; brug nu den nye analyseledger.
+
+N√¶ste autoriserede arbejde er andre konkrete begr√¶nsninger i gemte data, herunder transientoverlevere og n√¶r-OFF-signaltab. Denne afsluttede RFI-analyse gentages ikke som fremskridt. Den gamle periodes afslutning 9. oktober, den afgr√¶nsede verifikation af √©t gemt METHOD-resultat 19. oktober og slutrapporten 20. oktober er u√¶ndrede; ingen automatisk forl√¶ngelse.
+
+[Ny RFI-rapport og figur](results/radio_rfi_alias_analysis_20261008/RFI_ANALYSIS_REPORT.md) ¬∑ [Uafh√¶ngig kontrol](results/radio_rfi_alias_analysis_20261008/PEER_AUDIT.md) ¬∑ [Aktuelt budget](results/radio_rfi_alias_analysis_20261008/ANALYSIS_LEDGER.json) ¬∑ [Metoderesultat](RADIO_METHOD_STUDY_2026-10-08_RESULT.md).
+
+---
+
+Tidligere daterede poster f√∏lger som historik.
+
+# Aktuel status ‚Äî 8. oktober 2026: metodeunders√∏gelsen afsluttet; planen forts√¶tter
+
+Alle 64 friske syntetiske METHOD-fors√∏g er afsluttet √©n gang og har best√•et den uafh√¶ngige integritetsgennemgang: 384 kort, 1.280 artefakthashes og 21.153 OFF-sammenligninger. Detektor, generator og t√¶rskler er u√¶ndrede. Genfund i alle aktive ON: 52/64; mindst √©t aktivt ON: 59/64. Ved indspr√∏jtet idealniveau 10/12/16/24 var ALL-tallene henholdsvis 6/16, 14/16, 16/16, 16/16; ANY-tallene 12/16, 15/16, 16/16, 16/16. Alle 13 tabte aktive scans i 12 celler l√• under ON10; ingen lokaliserede genfund mistedes ved OFF i denne signalbank.
+
+Tallene er beskrivende resultater fra √©n realization pr. pr√¶cis faktor-celle, valgt efter B-fejlene. Idealniveau er ikke m√•lt SNR eller flux. Der er ingen ny kvalifikation, kalibreret genfindingschance, sky-falsk-alarm-rate eller universel f√∏lsomhedsgr√¶nse. A og B forbliver FAIL_CLOSED; B fejler fortsat tredje-ON-, bredde 3- og RFI-kravene. Ingen teleskoppilot er godkendt, og ingen nye himmelspektrer er √•bnet.
+
+Den fulde nye metodepakke bevarer alle 64 caseoutputs og 384 kort samt koordinatorevidens, claims, protokol, admissions og audit: 65 arkiver og 71 core Gitblobs, 34.704.656 bytes. Rapporten har seks PNG/PDF-figurpar, 64-cell-CSV, pr√¶cise tabeller, f√∏r/efter-OFF genfund og fejlet B's komplette st√∏j/RFI/diagnostik. De gemte kort og r√•hits er korrelerede carrier-svar, ikke uafh√¶ngige kandidater fra himlen.
+
+Hele metodepanelet belastes med 5.407,226987 CPU-sekunder, og 6.612,705145 resterer efter tidligere omkostninger samt u√¶ndret 1.200-sekunders forberedelsesreservation. Faktisk archival/audit/rendering er m√•lt som komponenter af denne reservation; ingen ukendt historik er kaldt komplet m√•lt og ingen reserve er tilbagebetalt. Lokal arbejdsmappe ved afslutning: 749.670.718 bytes, under 8 GiB. Mindst 2.000 CPU-sekunder er bevaret til rapport/reproduktion.
+
+Forts√¶ttelsen 9.‚Äì20. oktober er konkrete analyser af gemte fejlmekanismer og afgr√¶nsninger, den gamle periodes s√¶rskilte afslutning 9. oktober, afgr√¶nset verifikation af √©t gemt resultat i frisk proces 19. oktober og slutrapport 20. oktober. Reproduktionen verificerer kort‚Üíhits/veto/genfund; den gentager ikke r√• preprocessing eller scores. Ingen anden rettelse, nye signaltr√¶k, ny kvalifikationsbank, gammel holdout-eksponering eller automatisk forl√¶ngelse. De lukkede tests gentages ikke som dagligt fremskridt.
+
+[Dansk resultat](RADIO_METHOD_STUDY_2026-10-08_RESULT.md) ¬∑ [Rapport og figurer](results/radio_pilot_method_report_20261008/METHOD_STUDY_REPORT.md) ¬∑ [Metodearkivindeks](pilot_protocol_20261008/method_study_upload_index.json) ¬∑ [B-arkivindeks](pilot_protocol_20261008/validation_b_upload_index.json) ¬∑ [Faktisk budget](pilot_method_study_20261008/post_method_ledger.json) ¬∑ [Reproduktionskommando](pilot_protocol_20261008/review/METHOD_SAVED_RESULT_REPRODUCTION.md).
+
+---
+
+Tidligere daterede poster f√∏lger som historik.
+
+# Aktuel status ‚Äî 8. oktober 2026: den godkendte metodeunders√∏gelse k√∏rer
+
+De 64 friske, balancerede METHOD-fors√∏g er startet √©n gang efter fuld offentlig fastfrysning i 89ec7463e745f07dba45790be763b47c522989b5 og verificeret admission i 5efe2e3f55c184333440966e87ecb393dc763391. Der bruges samme u√¶ndrede detektor, generator og t√¶rskler. Unders√∏gelsen er beskrivende og kan ikke kvalificere teleskoppiloten eller oph√¶ve A/B-fejlene. Start ingen konkurrerende genk√∏rsel, ny bank eller anden rettelse.
+
+Alle originale B-outputs er nu bevaret i 143 deterministiske arkiver med fuld filhashmanifest og koordinatorevidens: 149 Gitblobs, 77.229.070 bytes. Den uafh√¶ngige B-integritetskontrol er afsluttet; den videnskabelige status er fortsat FAIL_CLOSED med tredje-ON-, bredde 3- og RFI-fejl. Begge auditfors√∏g og alle originale CPU-kvitteringer er bevaret. Archival CPU 4,400708 indg√•r i den eksisterende 1.200-sekunders forberedelsesreservation; denne reservation er ikke tilbagebetalt eller kaldt m√•lt total.
+
+N√¶ste konkrete trin er at afslutte alle 64 METHOD-fors√∏g inden for 6.000 CPU-sekunder, gennemg√• deres gemte kort og udgive faktiske resultater og figurer. Ingen nye himmelspektrer er √•bnet. Planen og den eksisterende daglige forts√¶ttelse slutter 20. oktober.
+
+[B-arkivindeks](pilot_protocol_20261008/validation_b_upload_index.json) ¬∑ [B-resultat](RADIO_VALIDATION_B_2026-10-08_RESULT.md) ¬∑ [Metodeprotokol](pilot_method_study_20261008/METHOD_STUDY_SCOPE.md).
+
+---
+
+Tidligere daterede poster f√∏lger som historik.
+
+# Aktuel status ‚Äî 8. oktober 2026: B fejler; metodeunders√∏gelse klargjort
+
+Alle 142 friske B-fors√∏g er afsluttet med intakte outputs. Den uafh√¶ngige gennemgang har kontrolleret 852 kort, 2.840 artefakthashes og 55.302 OFF-sammenligninger. B forbliver FAIL_CLOSED: tredje ON alene 6/8 mod kravet 7; bredde 3 21/24 mod 22; 2/24 RFI-forl√∏b har overlevende kandidater. St√¶rke signaler 14/14 og samlet arbejdsniveau 45/48 oph√¶ver ikke disse fejl. A forbliver fejlet, og den ene tilladte udviklingsrettelse er brugt.
+
+Ingen teleskoppilot er godkendt, og ingen nye himmelspektrer er √•bnet. Den godkendte metodeunders√∏gelse er fastlagt som 64 friske, balancerede signalceller med u√¶ndret detektor: idealniveau 10/12/16/24, drift ¬±1,25/¬±4 Hz/s, bredde 1/3 og tredje ON alene/alle tre ON. Den er beskrivende, valgt efter B-fejlen, og kan ikke kvalificere en pilot. F√∏r f√∏rste draw kr√¶ves verificeret offentlig fastfrysning og rodens pr√¶cise admission.
+
+B belastes konservativt med 11.676,036546 CPU-sekunder. Der resterer 12.019,932132 efter tidligere omkostninger og den u√¶ndrede 1.200-sekunders forberedelsesreservation; metodeallokeringen er h√∏jst 6.000 med mindst 2.000 bevaret til rapport/reproduktion. Ukendte historiske m√•linger er fortsat markeret som ukendte.
+
+Se [B-resultat](RADIO_VALIDATION_B_2026-10-08_RESULT.md), [metodeprotokol](pilot_method_study_20261008/METHOD_STUDY_SCOPE.md) og [faktisk budget](pilot_method_study_20261008/post_b_ledger.json). Planen forts√¶tter til 20. oktober; den gamle periodes afslutning 9. oktober behandles s√¶rskilt. Ingen anden rettelse, genk√∏rsel af eksponerede banker eller adgang til de gamle holdouts.
+
+---
+
+Tidligere daterede poster f√∏lger som historik.
+
+# Fremskridt 8. oktober 2026: frisk validering B k√∏rer
+
+De to nye udviklingspr√∏ver har afsluttet hele s√∏gningen med u√¶ndret videnskabelig kode (cirka295/297 CPU-s), og alle12 kort/3630 r√• hits/10890 OFF-sammenligninger er kontrolleret. [Resultat af den ene k√∏rselsrettelse](RADIO_RUNTIME_CORRECTION_2026-10-08_RESULT.md). A forbliver FAIL_CLOSED med sine to k√∏rselsfejl; ingen A-identitet gentages.
+
+De142 stadig ubrugte B-identiteter er nu startet √©n gang efter verificeret offentlig fastl√•sning ved `69c9526bd22d5f6393f7ec51a60aae746fdc2234`. Metode, t√¶rskler og alle oprindelige krav er u√¶ndrede. B bruger l√∏bende eksklusive reservationer under19500 CPU-s samlet. Det er sidste validering efter planens ene udviklingsrettelse. B har endnu intet samlet udfald, og pilotens teleskopv√¶rdier er fortsat u√•bnede. Kun fuld afslutning, alle9 krav og uafh√¶ngig gennemgang kan √•bne piloten.
+
+Periode7.‚Äì20. oktober; f√∏rste pilot eller konkret metodeunders√∏gelse senest13. oktober. Daglig forts√¶ttelse9.‚Äì20. oktober er aktiveret. Ingen betaling, ny engineering-rute eller √•bning af gamle testpaneler.
+
+---
+
+Tidligere status f√∏lger som historik:
+
+# Status 8. oktober 2026: frisk validering A afsluttet som FAIL_CLOSED
+
+Alle 142 identiteter er fors√∏gt √©n gang: 140 afsluttet, 2 n√∏dvendige transientdiagnostikker afbrudt ved 250 CPU-s. De √∏vrige otte faglige krav best√•r (st√¶rke 14/14; arbejdsniveau 46/48; RFI 24/24 afvist; st√∏j 32/32 uden kandidater). Fuldst√¶ndighed/integritet fejler, s√• teleskopv√¶rdier og B er stadig lukkede. A m√• ikke genk√∏res eller omklassificeres.
+
+[Resultat og tab](RADIO_VALIDATION_A_2026-10-08_RESULT.md). Den ene tilladte udviklingsrettelse forberedes: l√∏bende eksklusive k√∏rselsreservationer inden for de u√¶ndrede samlede gr√¶nser; videnskabelig kode og t√¶rskler bevares. To nye, adskilte udviklingsfors√∏g skal afsluttes og gennemg√•s f√∏r en eventuel frisk validering B. Fejl og originalmateriale gemmes; publicering er adskilt fra analyse. Ingen ny sky-s√∏gning er gennemf√∏rt.
+
+---
+
+Tidligere status og beslutninger f√∏lger som historik:
+
+## 8 October 2026: development closes unchanged; complete fresh validation next
+
+The [7‚Äì20 October study](https://github.com/andersenmartin-blip/setisearch/blob/d7f08e5caa80efbf029a728c7288d29b2e1166ba/RADIO_TWO_WEEK_PLAN_2026-10-07.md) has real full-family computation results: [24/24 DEV cases completed and reviewed](https://github.com/andersenmartin-blip/setisearch/blob/d7f08e5caa80efbf029a728c7288d29b2e1166ba/RADIO_PILOT_DEVELOPMENT_2026-10-08_RESULT.md). Preserve this version, every raw hit and all failures; do not tune it on fresh A outcomes. The current running action is the independently seeded 142-case VAL_A bank, under the exact original detector/generator/settings and full subgroup/RFI/noise gates. DEV success does not authorize sky values.
+
+After complete joint A PASS and independent review, open only the metadata-qualified 96 source ranges under the unchanged source/RAM/CPU limits, then complete the full 4096-carrier six-scan pilot and retain all hits, OFF dispositions, coverage and waterfall. If A fails, preserve its complete outcome and use only the approved single development correction with wholly fresh validation if resources allow. No historical protocol reopening, CI replay, third engineering runtime, paid activity or band selection from attractive pilot amplitudes. The final period remains 20 October; first pilot/fallback deadline remains 13 October.
+
+## 7 October 2026: complete reference; move to prospective pilot contract
+
+The approved plan now runs [7-20 October](https://github.com/andersenmartin-blip/setisearch/blob/881f7b7825c11cd16ff1df8ee795bf1a5ef5d000/RADIO_TWO_WEEK_PLAN_2026-10-07.md).
+The complete [local Voyager reference](https://github.com/andersenmartin-blip/setisearch/blob/5f050b02cf683977f78f95b3f8c674a3b9ce3ebe/RADIO_REFERENCE_LOCAL_2026-10-07_RESULT.md) and its
+[independent review](https://github.com/andersenmartin-blip/setisearch/blob/5f050b02cf683977f78f95b3f8c674a3b9ce3ebe/RADIO_REFERENCE_LOCAL_2026-10-07_REVIEW.md) demonstrate data reading, plotting,
+a bounded linear-drift search, full output retention and measured execution.
+This satisfies the first reference milestone on 7 October, before its 8 October
+deadline. The earlier CI route remains closed failed; both allowed engineering
+routes have now been used. No additional runtime rescue or repeat follows.
+
+Use the working local route as the basis for the separate source/protocol
+contract on 9-10 October. Freeze exact pilot file/metadata identities, frequency
+band and drift halo, time reference, masks, threshold/ON-OFF rules and distinct
+development/validation identities before opening pilot or fresh validation
+values. Fresh recovery, matched-interference and noise gates remain required
+on 11-12 October. Only then run the exploratory six-scan pilot, by 13 October
+or switch promptly to the bounded method alternative.
+
+One public known Voyager scan is engineering evidence, not an ON/OFF search,
+independent visit or calibrated sky result. All original source and result
+hashes are retained. New measured CPU/RAM intervals exclude initial download/
+preparation; unknown earlier totals are not reconstructed or reset. Preserve
+historical holds, untouched panels, unresolved candidates and paused/unsent work.
+Reproduction is 19 October; final delivery 20 October; old-period closure remains
+9 October. No paid service, person message or always-on worker is implied.
+
+## 7 October 2026: start the approved 7-20 October plan immediately
+
+Martin explicitly approved the plan and changed its start to today.
+Use the [7-20 October schedule](RADIO_TWO_WEEK_PLAN_2026-10-07.md);
+the earlier 10-23 October draft is superseded. The original period still has
+its separately documented 9 October closure.
+
+The first Voyager CI route is already closed failed. The
+[distinct local SIGPROC route](RADIO_REFERENCE_LOCAL_2026-10-07_PROTOCOL.md)
+is the second and final engineering route. Its public FIL download and early
+checksum/byte receipt exist. Finish its declared read, waterfall, linear search,
+full threshold-channel list and resource/reproduction package without retuning
+the first run or opening pilot data. A failed final route triggers the bounded
+method alternative only if its separate execution capability is demonstrated.
+
+After a complete reference, freeze the exact pilot-source/band/halo/time/ON-OFF/
+mask and distinct development/validation identities, then run fresh recovery,
+matched-RFI and noise controls before any exploratory pilot. Dates are
+8 October reference, 9-10 October protocol, 11-12 October validation,
+13 October pilot-or-switch, 19 October reproduction and 20 October final result.
+Measured work is recorded as it happens; this does not assert an always-on worker.
+All historical failures, budgets, holds, unused panels and paused/unsent work
+are preserved.
+
+## 7 October 2026: retain failed Voyager gate; use at most one distinct route
+
+The first new-plan engineering reference executed once and is closed failed.
+It did demonstrate installation, authentic Voyager HDF5/header reading and a
+three-hit turboSETI DAT at the three expected frequencies. Its strict absolute
+S/N gate rejected one +0.001626 difference. A five-test post-hoc audit of the
+retained output shows that the pinned upstream test's actual absolute-plus-
+relative `numpy.isclose` rule would accept all three rows, but the original
+run remains failed and is not repeated or retuned.
+
+The source receipt and waterfall are missing because both were ordered after
+the failing comparison. On 10 October, freeze one genuinely distinct final
+engineering route before execution: record source bytes/hash immediately,
+create the waterfall before compatibility judgment, measure resources and copy
+validator semantics exactly from pinned source. Do not open HD189733 or fresh
+validation inputs until that reference and the separate integrated source/band/
+identity/recovery/RFI/null protocol pass. The 9 October old-period closure and
+all historical failures, holds and untouched allocations remain unchanged.
+
+## 7 October 2026: next period redesigned for early real-data analysis
+
+Martin's explicit request authorizes the separate
+[10-23 October two-week plan](RADIO_TWO_WEEK_PLAN_2026-10-10.md).
+The current period still closes on 9 October. Historical requirements and
+failed outcomes are preserved; the new study prospectively chooses its own
+ordinary reproducibility contract, controls and limited exploratory claims.
+
+Next-period order is: prove a complete real-reference command and synthetic
+fallback capability by 11 October; freeze the precise source and scientific
+protocol on 12-13 October; validate on fresh separate controls on 14-15 October;
+complete the first scientific six-scan pilot by 16 October if admitted.
+Use at most one additional independent pilot cadence on 19-21 October,
+reproduce on 22 October and deliver the complete result package on 23 October.
+Hard failures trigger an immediate route change, with at most two runtime
+routes and 90 minutes of active debugging per route. The 16 October deadline
+does not authorize waiting on a known blockage.
+
+Preserve all hits and account for drift, edges, masks and OFF-induced signal
+loss. The plan defines preliminary signal-recovery, matched-interference and
+fresh-noise gates; passing them permits the bounded pilot, not a calibrated
+sky false-alarm, flux/EIRP or population claim. If telescope access or scientific
+admission fails, do the computed method study only in a demonstrated working
+environment. Otherwise report capability failure and an unexecuted package.
+
+The new plan's provisional resource envelope is explicitly separate from
+historic reservation subtotals; measured new time/bytes include failures.
+No paid service, telescope booking or external person message is included.
+This documentation change activates no job and promises no continuous
+background execution. The old holdouts, inactive allocation, closed retries,
+HD1461 hold and paused/unsent work remain preserved.
+
+## 7 October 2026: prepare the bounded period result
+
+[Q closure preparation](RADIO_CLOSURE_2026-10-07_PREPARATION.md) turns retained
+history into a pinned metadata index and explicit disposition/resource review:
+232 bodies/214 root RADIO reports, eleven new audit tests and six complete
+original-JSON readbacks. It is provisional; final consolidation stays 9 October.
+
+The independent telescope pilot has not started. Source/runtime/native and
+scientific admission remain unqualified; original preparation is not ready.
+Closed calibration failure, zero evaluation runs and inactive 127/24 are
+preserved. The 2,920 s / 5,512 MiB subtotal is sixteen selected reservation envelopes,
+not measured use or all-project history; address space and K's separate
+administrative envelope are excluded. Whole-period resource totals are unknown.
+
+Q is complete. Next refresh the latest branch on 9 October and publish the
+bounded period failure with exact missing inputs/capabilities, tested/unassessed
+scope and preserved evidence. Earlier native continuation needs genuinely new
+authentic runtime inputs and permitted observer capability plus a separate
+prospective integrated outer; no closed control/recovery replay or empty checks.
+All targets, holds, holdouts, budgets, failures and paused/unsent work remain.
+No external person message, new sequence or automatic plan extension.
+
+## 7 October 2026: close P source activity model; native inputs still absent
+
+[P](RADIO_ACTIVITY_2026-10-07P_RESULT.md) completes the prospectively separated
+ACTIVITY/cookie/startup source step. The C successor maps callback cookie-slot
+identity to the registered main generation without serializing raw pointers; the
+pure reducer retains wire-v2 activity and refuses invalid batch/startup histories.
+The first30/33 cohort and its three import-harness failures remain; one corrected
+cohort passes33/33 plus strict syntax-only. No module/load/callback/positive ACK,
+runtime or spectrum exists, and dispatch/science authority remain closed.
+
+Do not repeat P/O/M/K. Continue native work only if genuinely new authentic
+runtime members and permitted observer capability become available; then first
+publish/read back a distinct integrated outer and cumulative one-shot scope.
+Otherwise prepare the 9 October consolidation. Historical budgets, selected
+HD189733/neighbor9, HD1461 HOLD, GJ724 reserve, untouched holdouts, closed M43AI,
+unresolved M15/M33, paused LS and unsent CHEOPS remain exactly unchanged.
+
+## 7 October 2026: explicit N/J/I/H source interface O; no native dispatch
+
+[O integration](RADIO_INTERFACE_2026-10-07O_RESULT.md) follows the M/N checkpoint
+under [its distinct prospective protocol](RADIO_INTERFACE_2026-10-07O_PROTOCOL.md),
+publicly frozen/read back before implementation. Nine immutable original source/
+metadata contexts are bound. Original N wire-v2 packets are retained without
+rewriting to L wire-v1; each supported J projection records its raw source and
+all fields added by the adapter. Unsupported ACTIVITY/VETO/aliases refuse rather
+than disappear. Transient object/fd generations remain retained. EOF and a
+constructed fixture terminal are explicitly not native process-wait proof.
+H/I binds twelve planned handoff role/scan/window/context/bank identities;
+actual codec handoffs/journal/certificate and positive production ACKs are zero.
+
+**35 initial integration controls plus three additional new closure/flag controls
+pass** (38 distinct controls, not one final 38-case run). Initial source and all
+raw manufactured inputs, fd/truncation/terminal/refusal evidence remain retained.
+The sole post-35 source change closes O when descriptors are cleaned up; the
+original 35 are not rerun or recounted. Public O release/dispatch, original N
+release and original I public produce stay closed. Native callbacks/build/load,
+scientific package imports, runtime qualification and science authority are zero.
+First administrative source cohort:0.164221297s/19,024KiB child peakRSS;
+three-control body:0.002696673s/17,152KiB processRSS (not full process wall).
+Context-reader bytes171,162;receiver held-fixture reads841B; neither is a certified
+native ledger. Final frozen folder632,790 logical/909,312 allocatedB.
+
+Exact next point: O's restricted interface is complete; do not replay it or use
+fixture ACK/terminal claims as native/scientific evidence. Generic ACTIVITY/cookie/
+startup support would need a separate prospective source-only scope preserving
+all vetoes. Actual native work still needs K's136 missing authentic members,
+permitted namespace/process observer capability and complete current-runtime,
+mapped-inode/content/kernel/collector-own-dependency/constructor/descendant/
+terminal-IO qualification. M's single ns/pid EACCES remains failed/closed with no
+retry/bypass and zero downstream maps/auxv/exe/vDSO reads. K transfers are not
+replayed. Publish/read back a separate integrated executable outer and cumulative
+one-shot scope before any native activation. Original preparation-contract stays
+not ready; full prospective scientific/source/session/recovery/RFI/null gates
+remain pending before telescope opening. H codec600wall/540CPU/448MiB/4GiB+1GiB
+unallocated; historical selected2,920s/5,512MiB plus five separate guard controls
+unchanged; exhausted acquisition ledger stays closed.
+
+HD189733/HIP98505 cadence85030/neighbor9 selected; HD1461 HOLD/GJ724 reserve;
+spectra/original112+128 untouched; native8 unreserved;127+24 inactive;M43AI closed;
+M15/M33 unresolved;LS paused LS8BD‚ÄìLS8BE/BF untouched;CHEOPS UNSENT. No external
+person messages, new sequence or plan extension. Consolidate **9 October 2026**.
+
+## 6 October 2026: M access refusal retained; N callback barrier remains source only
+
+[M mapping/kernel result](RADIO_MAPPING_KERNEL_2026-10-06M_RESULT.md) adds
+**64 passing source controls** and preserves the single actual administrative
+self-measurement as **FAILED_CLOSED_PROCESS_NAMESPACE_ACCESS_DENIED**. Exact
+EACCES occurred at `ns/pid` before maps/auxv/executable/vDSO reads (all zero).
+All 12 complete preparation bodies were publicly verified before use. Actual
+explicit source/preflight/proc-stat reads: 74,294 B; final actual root including
+its directory: 4,789 logical / 12,288 allocated B, two files. Duration/RSS were
+not measured in the failure receipt. No retry, bypass or source-rule change.
+
+[N callback barrier source](RADIO_CALLBACK_BARRIER_2026-10-06N_SOURCE.md)
+addresses L's queued-event/callback-return race in a separate wire-v2 source.
+It waits for an exact bounded event/PID/generation acknowledgment before each
+non-veto callback return. **33 final source controls pass** and strict C
+syntax-only validation passes (0.022723868s/10,112KiB). Initial 31 controls and
+all fabricated inputs, vetoes and descriptor controls remain retained; they are
+not summed as independent trials. No C callback was observed or module built/
+loaded; positive production release and all dispatch always refuse. L and the
+published M freeze remain unchanged. Matching bytes do not authenticate a peer,
+prove continuous mapped contents or qualify kernel/startup/terminal custody.
+
+Exact next point: N source-only version-2 J/I/H integration requires a distinct
+prospective interface scope with retained refusals and closed dispatch. Native
+work still needs K's 136 authentic missing members and permitted namespace/
+observer capability, complete current-storage/runtime and independent mapping/
+kernel/startup/terminal qualification. Publish and fully read back a separate
+integrated executable outer and one-shot scope before any native activation.
+Do not replay M, unchanged K transfers or old tests as progress; do not bypass
+access, repair original cfg/RECORD expectations or rewrite a failed evaluation.
+H codec600wall/540CPU/448MiB/4GiB+1GiB remains unallocated; historical selected
+spend **2,920s/5,512MiB** plus five separate guard controls is unchanged. The
+exhausted synthetic acquisition ledger stays closed. Source/syntax controls are
+administrative evidence and confer no native/scientific reservation.
+
+HD189733/HIP98505 cadence85030/neighbor9 selected; HD1461 HOLD/GJ724 reserve;
+spectra/original112+128 untouched; native8 unreserved;127+24 inactive;M43AI closed;
+M15/M33 unresolved;LS paused LS8BD‚ÄìLS8BE/BF untouched;CHEOPS UNSENT. No person
+messages, new sequence or plan extension. Consolidate **9 October 2026**.
+
+## 6 October 2026: original-byte recovery K and restricted collector source L
+
+[K recovery](RADIO_RUNTIME_RECOVERY_2026-10-06K_RESULT.md) concretely copied and
+independently verified **902 original files / 88,333,667 B** in fresh current
+storage after all nine immutable preparation bodies were publicly read back.
+**136 original members remain unrecovered**; h5py/hdf5plugin, two scripts,
+NumPy RECORD and pyvenv.cfg are not substituted or regenerated. Archived inputs
+failed to materialize with HTTP502; all attempts and exact member outcomes remain
+retained. K is closed, partial and **runtime unqualified**. No recovered target
+was executed; no old inode, ledger or native/scientific allocation was reused.
+One distinct administrative copy/review measured 0.806348126s/17,540KiB RSS;
+177,910,365 explicit controller-read B; final tree including directories
+90,944,028 logical / 93,196,288 allocated B. All 36 new recovery tests pass.
+
+[L collector source](RADIO_LOADER_COLLECTOR_2026-10-06L_SOURCE.md) implements
+restricted glibc callbacks and a real SCM_RIGHTS fd receiver, preserving transient
+descriptors beyond unload/EOF. Its **36 new transport tests pass** with fabricated
+frames, all triggers/vetoes retained. C syntax-only check passes; the exact first
+compiler failure is retained. No audit module was built/loaded or callback
+observed. Mapped-inode attribution, collector origin/own dependencies, constructor
+ordering, kernel pseudo-objects, symbols, and process/descendant/terminal-IO remain
+unqualified. Unknown/kernel objects and extra namespaces are vetoed. J is not
+upgraded or silently bridged; all native/runtime/codec/science authority is false.
+
+Exact next point: obtain authentic missing archive/package bytes after transfer
+recovery under a **new complete current-storage/runtime contract**; do not replay
+K, alter original C cfg/RECORD expectations or reset any ledger. Independently
+complete/review L's mapped-inode/kernel/startup/terminal/fd boundary and explicit
+provenance-preserving J/I/H interface. Then separately publish/read back a distinct
+executable outer freeze before a one-shot native qualification activation. No
+unchanged G/K/J/H/I repetition or scientific retuning is authorized by these
+source receipts. H codec600s/540CPU/448MiB/4GiB+1GiB remains unallocated; historical
+selected spend **2,920s/5,512MiB** plus five separate guard controls is unchanged.
+HD189733/neighbor9, HD1461 HOLD, GJ724 reserve; spectra/112+128 untouched,
+native8 unreserved,127+24 inactive,M43AI closed,M15/M33 unresolved,LS paused/BF
+untouched,CHEOPS UNSENT. Consolidate **9 October**, no extension or person messages.
+
+## 6 October: loader generation retention J is source-only; restore runtime first
+
+[Loader lifetime J](RADIO_LOADER_LIFETIME_2026-10-06J_PREPARATION.md) adds a
+bounded pure event reducer with 27 passing new tests. Transient object generations
+are retained after unload, while a deliberately rehashed omission still grants
+no collector authentication or completeness. No actual collector/native trace,
+codec run, activation, allocation or telescope analysis exists. I/H remain intact.
+The previously canonical target runtime is absent; administrative binary pins do
+not qualify a replacement. Next is authenticated package recovery under a
+separate current-runtime contract, then collector/descriptor/startup/terminal
+qualification integrated with I/H and the existing process/IO component. Only a
+later independently read-back executable outer freeze and one-shot activation
+could dispatch a controlled codec. All science gates, spent budgets and failure
+states remain; consolidate 9 October with no target change or plan extension.
+
+## 6 October 2026: codec12 producer implemented; runtime/lifetime integration next
+
+[Codec12 I](RADIO_CODEC12_2026-10-06I_IMPLEMENTATION.md) adds authenticated
+producer source for the fixed 12 handoffs/192 rows, durable partial evidence and
+exact 602-event completion checks. **43 source/custody tests** and isolated
+read-only preflight pass; both original receiver contexts and all 14 original
+inputs verify. Native/full-row/HDF5/telescope execution remains zero. Status is
+**BLOCKED_PENDING_OUTER_NATIVE_LIFETIME**; no activation, allocation or certificate.
+
+Next is current runtime/native-loader and complete process/descendant/terminal-IO
+lifetime integration, then a separate immutable executable outer freeze and
+independent full readback. H's limits and preparation-only contract remain fixed;
+G stays closed. Scientific hosted/CAS/source/pilot/session/recovery/RFI/null/127+24
+gates stay pending. Targets, holds, historical failures, LS and CHEOPS are
+unchanged. Consolidate 9 October without extension.
+
+## 5 October: explicit proxy integration prepared; 40 primary-runtime tests pass
+
+[The distinct integration report](RADIO_PROXY_TRANSPORT_INTEGRATION_2026-10-05_PREPARATION.md)
+connects exact original wheel/plan pins, explicit loopback CONNECT, pinned trust,
+prospective native TLS bindings and unchanged bounded wheel custody. All **40**
+integration tests pass in the primary Python runtime. Independent review exposed
+second-use evidence loss and refused-body accounting errors; fixes, original
+snapshots and dedicated tests are retained. Current selected proxy/certificate
+metadata is observed separately without DNS/socket/TLS operations.
+
+The result remains **SIMULATION_ONLY / PENDING_ACTUAL_NATIVE_CUSTODY**. No genuine
+request, package install, native scientific execution, marker or live allocation
+occurred. Next: complete authentic current native/source/runtime/trust custody
+and a distinct finite original acquisition freeze/readback/one-shot admission.
+Old bootstrap A and earlier failed controls remain closed and spent.
+
+Selected historical engineering reservation remains **1330s/1592MiB**. All eleven
+scientific fields remain pending; spectra/112+128 holdouts unopened, native8
+unreserved, 127/24 NOT ACTIVATED, HD189733/neighbor9 and holds unchanged, LS paused,
+BF untouched, CHEOPS UNSENT. Consolidate **9 October 2026** without extension.
+
+## 5 October: closed bootstrap result recovered; new transport code remains inert
+
+[Recovery and transport continuation](RADIO_BOOTSTRAP_RECOVERY_AND_TRANSPORT_2026-10-05.md)
+completes the interrupted lossless publication of bootstrap A: 75 full immutable
+bodies/19,550,262 bytes, plus current content checks of all 488 retained files
+and 80 directories. Restored inode pairs differ from all 568 historical objects;
+content recovery is distinguished from original-run inode custody. The sole
+attempt remains CLOSED_FAILED at DNS, zero body bytes/no pip child. No retry.
+
+A separate pure explicit-proxy plan and bounded injected CONNECT parser pass
+16 new tests. They perform no network request, install, import or live allocation.
+Next: implement/review inert socket/TLS and raw tunnel-retention integration;
+obtain authentic current transport/runtime inputs before a distinct complete
+future freeze/readback/one-shot allocation. No automatic live successor.
+
+Selected engineering reservation stays1330s/1592MiB, without refund. All eleven
+scientific fields pending; original contracts/CAS unchanged, spectra/112+128
+holdouts unopened, native8/127-24 inactive, HD189733/neighbor9 and holds fixed,
+LS paused/BF untouched, CHEOPS UNSENT. Consolidate **9 October 2026**.
+
+## 5 October: package bootstrap A CLOSED_FAILED on DNS; packages uninstalled
+
+[The single original package bootstrap](RADIO_RUNTIME_PACKAGE_BOOTSTRAP_2026-10-05A_RESULT.md)
+ended **CLOSED_FAILED** after full immutable preparation and marker-only
+activation readback. Final preparation passed 160 checks. The first exact NumPy
+wheel request reported `[Errno -3] Temporary failure in name resolution` before
+any HTTP header/body byte was received or written. The empty partial wheel is
+retained. h5py and hdf5plugin were unattempted; ZIP inspection, pip child launches,
+native package imports and telescope reads were zero. Parent CLI exit 0 returned
+the failure report and does not indicate installation success.
+
+All 1,736 selected source/runtime rows agree before/after. The selected
+pre-final-report interval was 5.561721345 seconds; whole-gate final report/root
+inventory interval was 5.57743641 seconds. Parent requested reads were
+167,892,370 bytes; the full unobserved 1 GiB child reserve remains charged, giving
+1,241,634,194 conservative joined bytes within 4 GiB. The 488 original files and
+80 directories total 17,403,277 logical / 18,526,208 allocated bytes including
+directories and are preserved losslessly. Independent actual review verified
+the CLOSED_FAILED outcome with 63 administrative assertions and zero native
+custodies. Full immutable result readback is recorded separately after
+publication. No installed package or scientific certificate was issued.
+
+The new 300s/1,536MiB allocation is permanently spent; selected engineering
+subtotal is now **1,330s/1,592MiB**, excluding other history and hidden usage.
+No retry, refund, reset, rearm, replay or automatic successor. Packages remain
+uninstalled and the runtime unqualified. **Next:** distinct inert, bounded
+package-acquisition transport-readiness preparation, preserving the original
+package identities and resolving transport before any future scope.
+
+All eleven scientific fields remain pending. Original A/CAS and spent B remain
+unchanged; spectra/112+128 holdouts are unopened, native8 unreserved and 127/24
+NOT ACTIVATED. HD189733/neighbor9 cadence and holds remain fixed, HD1461 HOLD,
+GJ724 untouched reserve, LS paused/BF saved, CHEOPS UNSENT. No paid service,
+person message, target or schedule change. Consolidate **9 October 2026**.
+
+# Long-term project direction
+
+## 6 October: complete codec evidence shape fixed, execution still closed
+
+[Codec12 H](RADIO_CODEC12_2026-10-06H_PREPARATION.md) replaces the former
+one-handoff continuation with an exact source-only contract for all 12 ordered
+handoffs and 22 metadata laws. The pure guard observation is 22/22 with zero
+payload/native/HDF5/archive access, and nine regressions pass. No control,
+allocation or certificate exists; proposed future resource limits are unspent.
+
+Next is a distinct immutable executable freeze plus independent public readback,
+then‚Äîonly under a separate one-shot activation‚Äîa complete controlled engineering
+attempt and independent actual review. It cannot by itself admit spectra. All
+hosted-profile, native/runtime, CAS, source/pilot/session,
+recovery/RFI/null and scientific 127+24 gates remain. Target/hold/LS/CHEOPS and
+historical failure dispositions remain unchanged; consolidate 9 October.
+
+## 4 October: repaired metadata capture B completed; scientific admission pending
+
+[The one-shot B result](RADIO_RUNTIME_METADATA_CAPTURE_2026-10-04B_RESULT.md)
+is **OBSERVED_METADATA_ONLY / PENDING_MISSING_INPUTS**. Complete preparation
+and marker-only activation readbacks preceded one successful child, reaped with
+exit 0. Five raw procfs samples are authenticated to its held kernel identity;
+14 selected ELF metadata objects parsed successfully. Parent 772 / child 770
+selected pins agree before/after. The selected gate elapsed 0.571247392 seconds;
+eight originals total 2,008,844 logical / 2,023,424 allocated bytes including
+its directory. Raw results and independent actual review are retained.
+
+Static NumPy 2.3.5 metadata supplies no loaded package custody. All eight exact
+HDF5/plugin/historical paths remain missing and four observed dependency rows
+remain unresolved. No package import, dataset analysis or scientific certificate
+occurred. Observed joined explicit reads are 219,655,657 bytes; conservative
+parent plus full 140 MiB child reservation remains 257,313,019 bytes within
+256 MiB. Finite process snapshots and direct-child wait4 do not qualify complete
+descendant/provider lifetime usage.
+
+B's 60s/8MiB is permanently spent; selected engineering subtotal is now
+**1,030s/56MiB**, excluding other history/bootstrap/hidden usage. Next: reconcile
+missing inputs and unresolved dependency observations with complete native
+custody and original runtime/source/trial admission inputs. No retry, refund,
+reset, rearm or automatic successor. Original A capture and hosted CAS remain
+CLOSED_FAILED. All eleven scientific fields pending, spectra/112+128 holdouts
+unopened, native8/127-24 inactive, HD189733/neighbor9 and holds fixed, LS paused,
+CHEOPS UNSENT. Consolidate **9 October 2026**.
+
+## 4 October: distinct repaired metadata capture B prepared
+
+[Capture B preparation](RADIO_RUNTIME_METADATA_CAPTURE_2026-10-04B_PREPARATION.md)
+freezes a new identity and activation path with verified collector-byte dispatch,
+kernel-bound child observations, guarded raw artifact storage and protected
+terminal reads. Final cohorts pass 110 producer plus 23 pure contract-builder
+checks (133). The new bounded preread checks 765 runtime files/53,792,770 bytes;
+eight HDF5/plugin/historical paths remain absent. Exact contract/read/artifact
+headroom is recorded, without a runtime or scientific certificate.
+
+Preparation creates no marker or live allocation. Selected engineering subtotal
+remains **970s/48MiB**; only a separate fully published/read-back B activation
+spends 60s/8MiB and changes it to **1,030s/56MiB**. Next: complete independent
+review and full immutable readback, then the sole admitted engineering attempt
+and lossless publication of its actual result. Original capture and hosted CAS
+remain CLOSED_FAILED and spent; no replay/refund/reset/automatic successor.
+All eleven scientific fields pending, spectra/112+128 holdouts unopened,
+native8/127-24 inactive, HD189733/neighbor9 and holds fixed, LS paused,
+CHEOPS UNSENT. Consolidate **9 October 2026**.
+
+## 4 October: ELF and child-process repairs prepared; no new capture
+
+[The inert repair preparation](RADIO_RUNTIME_CAPTURE_REPAIR_2026-10-04_PREPARATION.md)
+repairs complete adjacent ELF string-table mapping and replaces numeric PID-tail
+matching with kernel-held own-child, namespace/session/lifetime and verified
+interpreter-object binding. Bounded selected-file failure context is retained
+without adopting partial observations. Final primary-Python synthetic cohorts
+pass 26 ELF, 26 collector and 45 gate tests (97 total); failed versions and logs
+are preserved with the independent review.
+
+A separately bounded current Python ELF preread supplies exact geometry, not
+proof of the original unnamed failing input or a runtime certificate. No actual
+collector/supervisor capture, successor marker or new allocation occurred.
+The old activation-path API still requires a fresh namespace/path contract and
+complete future code/input/runtime freeze, readback, bounds and one-shot admission.
+Original metadata capture and hosted CAS remain CLOSED_FAILED and spent;
+selected engineering subtotal stays **970s/48MiB**. All eleven scientific fields
+remain pending. Spectra/112+128 holdouts unopened, native8/127-24 inactive,
+HD189733/neighbor9 and holds fixed, LS paused, CHEOPS UNSENT. Consolidate
+**9 October 2026**.
+
+## 4 October: selected runtime capture CLOSED_FAILED; procfs attribution defective
+
+[The actual metadata-capture result](RADIO_RUNTIME_METADATA_CAPTURE_2026-10-04_RESULT.md)
+records one fully published/read-back fresh activation and one child. The child
+exited1/reaped after an ELF dynamic-string-table mapping refusal; stdout is empty,
+stderr87bytes. The selected gate completed in0.450933547seconds, with772 parent
+source/runtime pins equal before/after and all eight original artifacts preserved.
+No collector runtime/package/maps/ELF observation or scientific certificate exists.
+
+Independent actual review identifies a second defect: all three procfs samples
+refer to caas-prefix-tra with PPid1/session0/starttime139, so they cannot qualify
+collector RSS or descendant supervision. Direct-child wait4 is separate evidence.
+Child read usage is unknown; its full140MiB allowance stays charged conservatively.
+Directory-inclusive original storage is1,006,434logical/1,019,904allocatedbytes.
+
+The new60s/8MiB reservation is permanently spent; selected engineering subtotal
+is **970s/48MiB**, excluding other history/bootstrap/hidden usage. No retry,
+refund, reset, rearm or automatic successor. The original hosted CAS stays
+CLOSED_FAILED. **Next prospective work:** contextual ELF mapping-law diagnostics
+and authenticated procfs/child-namespace linkage, then genuinely new original
+admission inputs under a complete separate freeze/readback/allocation.
+All eleven scientific fields remain pending, spectra/112+128holdouts unopened,
+native8/127-24 inactive, HD189733/neighbor9 and holds fixed, LS paused, CHEOPS
+UNSENT. No paid service/person message. Consolidate **9 October 2026**.
+
+## 4 October: scientific-store callback integrated synthetically; exact runtime plan prepared
+
+[The new integration preparation](RADIO_SCIENTIFIC_INTEGRATION_2026-10-04_PREPARATION.md)
+connects all six unchanged scientific-store operations through an inert injected
+callback. Complete synthetic publication remains SIMULATION_ONLY; the retained
+actual generic server error permanently closes both callback and store. Default
+and public-scientific domains refuse before dispatch. Raw signed-parent commits,
+exact candidate metadata, complete tree deltas and mutation/budget boundaries
+are checked without issuing a CAS certificate or changing the original store.
+
+The separate pure HDF5 materialization builder pins three retained official
+wheels totaling68,409,067bytes and the current scientific interfaces. The old
+wheel files and installation are absent at their recorded paths; historical
+codec observations do not authenticate a new runtime. A PENDING capture plan
+identifies complete runtime/ELF/plugin closure and all twelve16-row receiver
+handoffs required by the existing verifier. Bootstrap remains unallocated.
+
+**Next:** obtain authentic integrated service, runtime/codec, full127/24,
+source/session and allocation inputs under a complete new prospective freeze,
+full publication/readback and fresh one-shot activation. This preparation adds
+no live probe, workflow, marker or allocation. The hosted control remains
+CLOSED_FAILED and spent; selected engineering subtotal910s/40MiB is unchanged.
+All eleven genuine scientific gates remain pending, spectra/holdouts unopened,
+native8/127-24 inactive, HD189733/neighbor9 and target holds fixed, LS paused and
+CHEOPS UNSENT. Consolidate **9 October 2026**.
+
+## 4 October: first hosted CAS accepted; stale test CLOSED_FAILED at server error
+
+[The actual hosted result](RADIO_HOSTED_CAS_CONTROL_2026-10-04_RESULT.md) records
+one original fully published/read-back activation. Exact E -> A was accepted;
+stale E -> B returned a generic GitHub internal error, so the unchanged checker
+closed failed after29 calls. No definitive expected-head conflict or direct
+post-negative control readback was obtained. Child exit1/reaped9.300751seconds,
+full streams and117 lossless archive members remain retained. The separate
+administrative archive publication succeeded; independent immutable A/B/publication
+reviews preserve the distinction between an initial acceptance and failed control.
+
+The original identity and300-second/20-MiB allocation are permanently spent;
+selected live engineering subtotal910seconds/40MiB, without refund or reset.
+**Next:** preserve the concrete failed gate until genuinely new authenticated
+service/integration input exists. No rerun, automatic successor or scientific
+admission. All eleven original fields remain pending, original store unchanged,
+spectra/holdouts unopened, native8/127-24 inactive, targets/holds and LS/CHEOPS fixed.
+Consolidate **9 October 2026**.
+
+## 4 October: one fresh hosted exact-CAS control prepared prospectively
+
+[The complete hosted service protocol](RADIO_HOSTED_CAS_CONTROL_2026-10-04_PROTOCOL.md)
+freezes one acceptance and one deliberately stale expected-head rejection, with
+an immutable candidate, marker-only activation, full raw retention and independent
+child supervision. Preparation and synthetic tests confer no actual service or
+scientific qualification. The original scientific store and all eleven genuine
+fields remain unchanged and pending.
+
+**Next:** publish and fully read back the complete code/protocol/manifest, then
+activate this original namespace once. Retain and independently review every
+actual outcome; no retry or automatic successor. Only activation allocates the
+new 300-second/20-MiB engineering reservation; selected live subtotal then becomes
+910 seconds/40 MiB, with all previous spends unchanged. Scientific budgets,
+HD189733/neighbor9, HD1461 HOLD, GJ724 reserve, unopened spectra/holdouts,
+native8/127-24 inactivity, LS/CHEOPS and **9 October** consolidation remain fixed.
+
+## 4 October: existing hosted exact-CAS direction recovered; new adapter is inert
+
+[Hosted CAS preparation](RADIO_HOSTED_CAS_2026-10-04_PREPARATION.md) identifies the
+already successful October 1 Actions `updateRefs` operation with exact
+`beforeOid`/pre-created `afterOid` and `force:false`. The local connector's missing
+expected-head argument is a route-specific limitation. A separate injected
+adapter is preparation only; no old scope was replayed, real service qualified,
+workflow/activation created or new live experiment/reservation allocated.
+
+**Next:** prepare, publish and read back one complete prospective hosted callback
+integration and allocation contract. Only after its separate one-shot activation,
+retain actual accepted/conflict outcomes and current runtime/source/session and
+resource evidence; scientific admission remains a later unchanged gate. The original scientific store
+and all eleven genuine gates remain unchanged and pending. No automatic probe
+follows from this prototype. Preserve HD189733/neighbor9, all holds/spends,
+unopened spectra/holdouts, native8/127-24 inactivity, LS/CHEOPS dispositions and
+consolidation **9 October 2026**.
+
+## 4 October: dynamic loopback Git metadata observation passed once and closed
+
+[The actual transport result](RADIO_DYNAMIC_NETWORK_POLICY_2026-10-04_RESULT.md)
+verifies one admitted run after full15-file/765,023-byte prospective readback:
+7 Git subprocesses, exit0/reaped/full retained output,6,611ms helper time. All6
+changed proxy hashes satisfy the frozen local endpoint policy; bypass/trust and
+13 selected source/runtime/utility bindings stay pinned. Independent actual raw
+commit/member/blob/capture review passes. Original35 files/18 directories charge
+370,271 logical/450,560 allocated bytes including dirs. Identity permanently spent;
+40s/4MiB not refunded. Earlier CAS a/b failures and c retired unused unchanged.
+
+Only old c scope and store source were read, using the existing public Git-object
+alternate; no new sandbox pack.30 new tests are synthetic preparation evidence.
+No fresh transfer of both blob bodies, full hosted/ELF/RSS/HTTP/SDK/descendant
+qualification or atomic CAS/scientific authority follows.
+
+**Latest exact continuation:** actual callable atomic expected-branch CAS for the
+exact pre-created candidate plus authentic hosted-runtime/public-source/session
+inputs under a new complete prospective integration/allocation. Native receive-pack
+is a documented design direction requiring authorized write transport and real
+server qualification; none is exposed/invoked here. Retain this concrete blocker
+if unavailable; no automatic further experiment, empty checks, replay, target
+change or plan extension. Consolidate **9October2026**.
+
+Selected live reservation subtotal610s/20MiB; old budgets/ledgers unchanged.
+All11 genuine fields pending, preparation blocked, spectra/holdouts unopened,
+native8 unreserved,127/24 NOT ACTIVATED. HD189733/neighbor9 selected, HD1461 HOLD,
+GJ724 untouched reserve, M43/native/M15/M33 dispositions, LS pause/BF untouched
+and CHEOPS UNSENT remain. No person messages or schedule changes.
+
+## 4 October: separate dynamic loopback policy frozen for one metadata read
+
+[New prospective transport protocol](RADIO_DYNAMIC_NETWORK_POLICY_2026-10-04_PROTOCOL.md)
+addresses the six changed proxy hashes without altering retired CAS c. It freezes
+only canonical credential-free127.0.0.1 dynamic ports, fixed bypass/trust inputs
+and explicit child environment; unrelated secrets and external endpoints are
+refused. A fresh bare sandbox and seven bounded raw-output captures may read
+only the unchanged store source and c scope.30 new focused tests pass using
+synthetic fixtures; no actual network success is inferred.
+
+**Next:** full code/scope/protocol publication/readback, one original-root admission,
+one40-second/4-MiB metadata-only invocation, retained actual independent review,
+result/main publication. Prior a/b spent and c retired unchanged; no retries or
+automatic successors. Selected live reservation subtotal610seconds/20MiB; old
+budgets/ledgers unchanged. Even a pass leaves compatible atomic expected-branch
+CAS and authentic hosted-runtime/source/session gates pending. No telescope/
+holdout/native8/127-24 activation, target change or extension; consolidate9October.
+
+## 4 October: CAS edge attempts closed; c refused before admission
+
+[Actual c closure](RADIO_CONTENTS_CAS_EDGE_C_2026-10-04_RESULT.md) followed complete
+27-file/806,487-byte publication readback. Six platform proxy hashes changed
+before admission; the frozen guard refused correctly before any marker/process.
+c is retired unused, zero live calls/helpers; never re-freeze or admit it later.
+[a](RADIO_CONTENTS_CAS_EDGE_A_2026-10-04_RESULT.md) and[b](RADIO_CONTENTS_CAS_EDGE_B_2026-10-04_RESULT.md)
+remain CLOSED_FAILED and permanently spent, six visible calls each. Every partial
+outcome/archive/refusal remains retained. No interference/update/conflict or live
+CAS counterexample was reached. The19 focused tests contain3 new environment
+risks and16 selected regressions; they grant no real service/scientific authority.
+
+**Latest exact continuation:** genuinely callable atomic expected-branch CAS for
+the already-created candidate, plus authentic hosted-runtime/public-source/session
+evidence under a fresh complete prospective allocation. Current update_ref has
+no expected old head, Contents conditions on file blob, and GraphQL append is
+unavailable/incompatible with the unchanged store law. A future native transport
+also needs a separately reviewed dynamic platform endpoint policy; static proxy
+hashes did not survive the command boundary. No automatic further identity,
+replay, refund, empty recheck, target change or plan extension. Preserve the
+blocker if inputs remain inaccessible; consolidate **9 October 2026**.
+
+v2+a+b+c reserved subtotal570s/16MiB remains charged, not complete historical or
+hidden transport accounting. All eleven authentic fields pending; spectra/holdouts
+unopened, native8 unreserved,127/24 NOT ACTIVATED, original preparation blocked.
+HD189733 selected/neighbor9, HD1461 HOLD, GJ724 untouched reserve, all native/M43/
+M15/M33 outcomes, LS pause/BF untouched and CHEOPS UNSENT remain unchanged.
+
+## 4 October: b CLOSED_FAILED at isolated network; distinct c is frozen
+
+[Actual b](RADIO_CONTENTS_CAS_EDGE_B_2026-10-04_RESULT.md) made six connector calls
+and one native helper/Git process before closing: Git128 / helper1, exact117-byte
+DNS stderr retained. The frozen minimal environment omitted the platform proxy.
+No interference/update/conflict was attempted; b's identity and180s/4MiB stay
+spent, all nine original files archived and unchanged checker refusal retained.
+
+[Fresh c protocol](RADIO_CONTENTS_CAS_EDGE_C_2026-10-04_PROTOCOL.md) passes only a
+frozen hash-pinned platform network allowlist; unrelated secrets remain excluded.
+19 focused tests pass, including environment changes and transcript substitutions.
+**Next:** full b failure/c freeze publication and readback, one original c admission,
+fixed live invocation, retained independent actual review and final publication.
+No automatic further successor. v2+a+b+c reservations subtotal570s/16MiB, without
+refund/reset or scientific activation. All genuine evidence gates remain pending.
+Consolidation9October, targets/holds, old control failures, LS/CHEOPS unchanged.
+
+## Active continuation ‚Äî 4 October a failed; fresh normalized/Git b prepared
+
+[The actual a failure](RADIO_CONTENTS_CAS_EDGE_A_2026-10-04_RESULT.md) is retained
+and permanently spent. It proved a decoded-wrapper boundary mismatch, not branch
+CAS or stale-file conflict. The raw initial bytes and intrinsic Git blob now
+match independent public Git readback. [One distinct b protocol](RADIO_CONTENTS_CAS_EDGE_B_2026-10-04_PROTOCOL.md)
+joins the observed wrapper to three exact native Git member/commit readbacks.
+Sixteen focused tests pass; no old source, identity, failure or budget is reset.
+Next is complete b publication/readback and its single original-root invocation,
+then actual evidence review. All runtime/source/scientific gates and the unchanged
+store's expected-branch CAS law remain pending; consolidate 9 October.
+
+## Active continuation ‚Äî 4 October fresh Contents CAS edge scope
+
+[One bounded live service-edge protocol](RADIO_CONTENTS_CAS_EDGE_2026-10-04_PROTOCOL.md)
+now targets a genuinely new capability question: can file-blob conflict handling
+protect the scientific store's expected branch revision? It uses only two new
+synthetic files in a fresh probe branch and retains all outcomes/errors. Publish
+and read back the full freeze before its single admitted invocation; never
+reuse v2, the earlier ref probe or old scientific/control identities. Nine new
+checker tests pass, with the first development parser error retained. This is
+not an atomic scientific CAS or full hosted-transport qualification. All genuine
+runtime/source/service gates and the 9 October plan boundary remain unchanged.
+
+## Active continuation ‚Äî 4 October closed v2 synthetic integration
+
+[V2's single retained subprocess result](RADIO_RECEIVER_RUNNER_V2_2026-10-04_RESULT.md)
+passes its frozen engineering scope, with six receiver calls, 96 tiny rows,
+twelve clocks and exact failure-output retention. Its original identity is now
+permanently spent. The 21 new tests and this one smoke address concrete v1
+replay/clock/subprocess gaps; old evidence and development failures are retained.
+This closes only that synthetic boundary. The local registry is not a global
+CAS service and the fixture is not real source/native/runtime evidence.
+
+Next requires genuinely new authentic runtime/hosted transport and atomic
+expected-revision CAS evidence, then a complete fresh prospective allocation
+before any further invocation. All eleven scientific/source fields remain
+pending. Do not reuse the closed scope, promote synthetic evidence or reopen
+spectra/holdouts. If actual inputs remain unavailable, retain the blocker and
+consolidate 9 October without automatically extending the plan or changing target.
+
+## Active continuation ‚Äî 4 October v2 receiver subprocess freeze
+
+The [fresh bounded engineering protocol](RADIO_RECEIVER_RUNNER_V2_2026-10-04_PROTOCOL.md)
+supersedes v1's destination/clock one-shot assertions with retained concrete
+reproductions and a separate identity-registry runner. Its 21 new tests use a
+fixed receiver subprocess and full synthetic metadata; they are not scientific
+or real service qualification. One tiny published integration scope is pending
+full readback and its single invocation. Do not reuse the identity or substitute
+archived registry copies for original continuity. Retain its terminal and all
+technical failures. Next actual work still requires authentic runtime/native,
+hosted transport, expected-revision CAS and scientific/source evidence under
+fresh allocations. No spectra/holdouts or original controls may be reopened.
+Consolidation remains 9 October; no automatic extension or target change.
+
+## Active continuation ‚Äî 4 October bounded runner checkpoint
+
+The maintained scientific admission/closure, receiver per-load clocks and
+lossless failure-output utility are now integrated by a freeze-bound one-shot
+runner; its 25-test synthetic interface qualification passes. This closes the
+software integration item, not the evidence gates. The runner must itself occur
+with the real child in a fresh actual executable freeze. Authentic hosted-native
+runtime/plugin evidence, atomic expected-revision CAS, irreversible allocations,
+live source session and a real one-shot qualification remain prerequisites.
+
+Do not promote the synthetic result, reopen F or use telescope/127+24 identities
+for engineering. Preserve every hold and disposition. If the required actual
+service evidence is unavailable, document that blocker and consolidate on
+9 October 2026; do not extend the plan automatically.
+
+## 3 October: archive-only storage qualified; original history unavailable
+
+Complete public HTTPS Git readback at [b9f0cd3](https://github.com/andersenmartin-blip/setisearch/commit/b9f0cd300d78c1dfc85621e12de229cdfa26bfac) verifies **all 45 changed files / 2,651,725 raw bytes**, exact tree/parent and full local payload equality. Main README at [1855f08](https://github.com/andersenmartin-blip/setisearch/commit/1855f082a2d256d63d12f86385343c8d2c3e9428) verifies all 56,515 bytes. A separate full-payload connector review verifies **10 files / 481,819 raw bytes**. Post-publication checks rehash all 1,190 tested source pins and 15 copies and repeat the exact read-only accounting/refusals; original/d absence remains unchanged. These receipts grant no original custody or execution authority.
+
+[The separate archival-closure/current-copy contract](RADIO_NATIVE_V2_ARCHIVE_CONTRACT_2026-10-03_RESULT.md) passes **635 tests across 24 modules**, zero failures/errors/skips and exit 0. All 1,190 selected source/test/helper pins and the independently fixed input package remain unchanged. Current selected b/c metadata copies verify 15 files / 189,645 raw bytes and charge 197,837 logical / 237,568 allocated bytes, including their two directories. This accounts only for those copies; missing original storage remains unaccounted for.
+
+The original working root/private journals are unavailable. Both untouched frozen historical spenders refuse their original state with FileNotFoundError errno2. Original witnesses and production admission/activation/spending guards are unchanged; a/b/c remain permanently spent. The new standalone component grants no storage-join, original continuity, lifetime, reconstruction, activation or scientific authority. No real d marker, ledger, launch config, scope or invocation exists.
+
+The incomplete 593-test first run, missing-metadata recovery and corrected qualification wrapper are retained. The final 635-test run includes 20 strict archival tests and 15 new copy-accounting tests. Independent provenance/source review is machine review, not a human review or complete runtime/lifetime qualification. No telescope values or candidates were analyzed. Next: an explicitly reviewed custody protocol and fresh complete source/runtime/preread qualification would be required before any distinct control; existing d remains blocked. Preserve missing continuity as the terminal blocker if unresolved. All holds, unopened spectra/holdouts, native8/127-24 inactivity, LS pause and CHEOPS UNSENT remain. Stop/consolidate **9 October 2026**, without extension, restart or target change.
+
+## 3 October: b/c storage integrated; distinct d prepared; original identities refused
+
+Complete public HTTPS Git payload readback verifies [df27d97](https://github.com/andersenmartin-blip/setisearch/commit/df27d97df7340a554acf8109751e6443cfffdd39): **all 102 changed files / 5,031,776 raw bytes**, exact Git tree/parent and local content. Main README [12418ee](https://github.com/andersenmartin-blip/setisearch/commit/12418eea208138f355fcd2f39bc31714230ec054) matches all **54,522 bytes**. A separate machine GET review verifies **15 complete files / 1,177,136 raw bytes**. All 1,187 tested pins and current protected histories are reverified unchanged after publication. These receipts do not repair original identity continuity or grant execution/scientific authority.
+
+[The joined-history result](RADIO_NATIVE_V2_JOINT_HISTORY_2026-10-03_RESULT.md) passes **608 tests across 23 modules**, zero failures/errors/skips and exit 0. All **1,187** tested source/helper pins and sampled b/c scope/journal inventories are unchanged across the final run. Independent machine review checks 2,584 source/evidence conditions, including 23 literal source edges, all 59 material pins and 19 historical inputs. The persisted blocked snapshot binds 933 code files, 1,276 inputs and 1,366 runtime paths; all tested sources are explicitly frozen and the complete audit repeats after persistence.
+
+Worker, observer, polling and finalizer now require b scope/journal, c scope/journal and one prospective d journal, with unchanged **192 MiB/case / 1536 MiB/run** and other limits. a/b/c identities remain permanently refused. No real d marker, ledger, launch config, control scope or invocation exists.
+
+The actual read-only inventory matches all 175 historical scope file payloads and both 496-byte spent records: **74,198,896 logical / 74,592,256 allocated bytes**, 220 entries. Current journal inode/ctime values differ from original immutable witnesses. Both unchanged original spending implementations therefore refuse live admission. Matching archived bytes and the passing synthetic suite do not prove original inode continuity, an accepted actual storage join or whole-control lifetime. Original witnesses/manifests remain untouched; no rebinding or replay occurred.
+
+The failed observation, 588-test first aggregate (one error/one failure from an unmigrated synthetic launcher helper), its five-test correction and all final evidence are retained. The newer public 751d6ea archival/multi-history checkpoint was reconciled before the selected final suite, preserving its 20 tests and all evidence.
+
+**Next:** qualify an explicit prospective archival-closure/current-storage contract while preserving the original identity refusal and permanent a/b/c spend; do not silently re-pin a witness or infer custody from matching bytes. Missing continuity may remain the terminal blocker. No new telescope data, candidates, source/native allocations or person messages. HD189733 selected; HD1461 HOLD; GJ724 reserve; spectra/holdouts unopened; native8 unreserved; 127/24 inactive; LS paused; CHEOPS UNSENT. Consolidate **9 October 2026**, without extension, restart or target change.
+
+## 3 October: b+c multi-history accounting prepared, continuity still blocked
+
+[The standalone multi-history result](RADIO_NATIVE_V2_MULTI_HISTORY_STORAGE_2026-10-03_RESULT.md)
+adds a fail-closed, generation-labelled join and a public/archive-versus-live
+closure verifier with 61 passing adjacent tests. They
+does not accept the published c closure copy as the missing original private
+journal or live scope and grants no activation or lifetime authority.
+
+**Direction:** define and verify an explicit archival-closure contract before
+threading b+c accounting into a distinct future fixture/worker/finalizer chain.
+If original continuity cannot be established, retain that blocker through the
+9 October consolidation. Do not reconstruct, reset or rerun c; do not open
+telescope spectra or scientific/native allocations.
+
+## 2 October: portable custody proof implemented, not integrated
+
+[The component](RADIO_NATIVE_V2_RUNTIME_CUSTODY_COMPONENT_2026-10-02_RESULT.md)
+now converts ephemeral inode observations into a portable alias/group manifest while
+keeping material runtime sole-link. Its real-freeze and negative tests pass together
+with the 223-test adjacent suite.
+
+**Direction:** thread the manifest hash through the fresh freeze, activation receipt
+and every worker gate before any new preparation. No new marker or control is allowed
+from this component alone; the failed evaluation remains closed.
+
+## 2 October: prospective runtime-custody parity specified
+
+[The topology audit](RADIO_NATIVE_V2_RUNTIME_CUSTODY_REMEDIATION_2026-10-02_RESULT.md)
+shows hardlinks are confined to Git's activation-only runtime. The frozen remediation
+requires complete alias-group closure and stable descriptor hashing before the
+receipt, then prohibits Git use; all post-activation material runtime stays sole-link.
+
+**Direction:** implement this policy with negative tests and a new receipt schema.
+Only later, under wholly fresh preparation, may another marker be considered. The
+failed marker/control remain spent and the 9 October boundary is unchanged.
+
+## 2 October: spent control exposes runtime-custody contract mismatch
+
+[The one permitted invocation](RADIO_NATIVE_V2_ONE_CONTROL_2026-10-02_RESULT.md)
+failed closed before scope creation. Its frozen Git bytes match, but the freezer and
+activation validator disagree on whether an external runtime file may have multiple
+hardlinks.
+
+**Direction:** preserve the failure and spent marker. Define a single prospective
+runtime custody rule, cover its freeze/activation parity and TOCTOU boundary, then
+create fresh preparation only if the existing plan permits it. Never tune or rerun
+this evaluation. All science dispositions and the 9 October end date are unchanged.
+
+## 2 October: fresh preread prepared for marker-only transition
+
+[The distinct preread result](RADIO_NATIVE_V2_EXECUTION_PREREAD_B_2026-10-02_RESULT.md)
+binds the complete public integrated preparation without reusing the old plan/freeze
+proof. Worker-bundle construction waits for the marker-derived receipt by design.
+
+**Direction:** publish and read back this preread. Preserve branch adjacency: the next
+science commit after the preread must add only the unique marker and bind the external
+readback. No intervening status commit, large input or execution is allowed. All
+dispositions and the 9 October end date remain unchanged. No external messages.
+
+## 2 October: activation receipt integrated into all material paths
+
+[The new still-blocked plan, freeze and tests](RADIO_NATIVE_V2_ACTIVATION_BUNDLE_INTEGRATION_2026-10-02_RESULT.md)
+complete the planned outer/worker receipt interface. A missing future marker/readback
+cannot create a scope. The historical plan is unchanged; the new plan also remains
+blocked. Its complete preparation now has public readback and requires a fresh preread.
+
+**Direction:** create and publish a fresh preread bound to exact public preparation
+commit `25e9df22...`. Do not reuse the old preread
+or create a marker early. The eventual marker must be the immediate marker-only child
+of the new preread commit. All target/holdout dispositions and the 9 October end date
+remain unchanged. No external messages.
+
+## 2 October: marker-proof component verified, not integrated
+
+[The implementation and 211-test adjacent result](RADIO_NATIVE_V2_CONTROL_ACTIVATION_INTERFACE_2026-10-02_RESULT.md)
+establish strict future marker/readback semantics without importing the runner or
+granting authority. The receipt validator can be applied independently by each worker,
+and its own public publication now matches readback, but no material entry point or
+bundle carries it yet.
+
+**Direction:** version and thread the receipt through every worker and outer entry,
+keeping all absent/stale/reused proof paths closed before writes. Only after that
+interface and its refusals pass may a new still-blocked plan/freeze and fresh public
+preread be created. Do not reuse the current preread. All dispositions and the
+9 October end date remain unchanged. No external messages.
+
+## 2 October: one-control activation transition protocol verified
+
+[The exact protocol and blocker audit](RADIO_NATIVE_V2_CONTROL_ACTIVATION_TRANSITION_2026-10-02_RESULT.md)
+show that the published preread cannot reach the current runner because every material
+entry point first executes the constant global refusal. The protocol itself now has
+matching public readback. A finite seven-phase sequence separates gate-interface
+preparation from a later marker-only activation.
+
+**Direction:** implement only the fail-closed interface next, thread its proof through
+every independent worker, and prove malformed or absent proofs fail before writes.
+Then create and publish a new still-blocked plan/freeze and fresh preread; never reuse
+the current preread for changed code. Keep all large inputs, reservations, RNG and
+science closed until the unique marker is independently verified. All dispositions
+and the 9 October end date remain unchanged. No external messages.
+
+## 2 October: distinct execution preread publication verified
+
+[The exact artifact and verifier](RADIO_NATIVE_V2_EXECUTION_PREREAD_2026-10-02_RESULT.md)
+bind the current public preparation tree, plan, freeze and all eight fixed worker
+identities without rewriting the blocked plan. The retained first failure clarifies
+that remote commit authenticity comes from independent tree readback, not a JSON
+label or a syntactically valid SHA.
+
+Its science and main publications now have matching independent public readback.
+The preread does not change the still-false global activation guard.
+
+**Direction:** specify and verify a separate one-control activation transition that
+preserves every published pin and does not rewrite the blocked historical contract.
+Keep all large inputs, reservations, RNG and science closed until that gate is
+independently closed. Target/holdout dispositions, 127/24 status and the 9 October
+end date remain unchanged. No external messages.
+
+## 2 October: bounded activation platform contract verified
+
+[The exact platform/runtime result](RADIO_NATIVE_V2_ACTIVATION_PLATFORM_2026-10-02_RESULT.md)
+adds a secret-free activation-time identity for the bounded engineering control.
+The isolated check and a fresh 922-code/8-input/1,366-runtime freeze pass; **207
+tests** pass. Kernel bytes are explicitly not described as frozen.
+
+**Direction:** keep plan `20261002i` and the historical preparation contract
+blocked. Public preparation readback now matches; construct and independently verify
+the distinct execution-qualified preread. Do not open large sources until that
+separate gate is verified. All target/holdout dispositions, 127/24 status and the
+9 October end date remain unchanged. No external messages.
+
+## 2 October: final-report writer lifetime component verified
+
+[The code, actual control and refreshed freeze](RADIO_NATIVE_V2_FINAL_REPORT_LIFETIME_2026-10-02_RESULT.md)
+separate final-report persistence from independent writer-lifetime observation.
+The exact joined component passes at **0.047 s / 14.92 MiB** and the adjacent
+suite passes **206 tests**. A new 922-code/9-input/1,366-runtime freeze binds the
+changed implementation and the exact parent environment passes again.
+
+**Direction:** retain the truthful observer boundary and keep revision `20261002h`
+blocked. Define and verify the bounded activation platform contract, then publish a
+distinct execution-qualified preread before considering one fresh eight-input
+engineering control. No large source or science is authorized. Target dispositions,
+127/24 status and the 9 October end date remain unchanged. No external messages.
+
+## 2 October: secret-free activation parent contract verified
+
+[The exact environment result](RADIO_NATIVE_V2_ACTIVATION_ENVIRONMENT_2026-10-02_RESULT.md)
+replaces ambient automation inheritance with ten fixed public values derived from
+pinned executables. A real isolated check passes, a fresh 922-code/8-input/1,366-runtime
+freeze is retained, and **204 tests pass**.
+
+The blocked revision and its README have been read back with matching blob identities.
+**Direction:** close the remaining runtime/platform and outer final-report lifetime
+joins, then publish a distinct execution-qualified preread. The environment component
+does not authorize the eight-input control or science. Plan `20261002g`, all target
+dispositions and the 9 October end date remain unchanged. No external messages.
+
+## 2 October: guarded descendant wait component verified
+
+[The implementation and evidence](RADIO_NATIVE_V2_ESCAPE_GUARD_2026-10-02_RESULT.md)
+add an inherited no-new-privileges/seccomp boundary before worker exec and require its
+exact contract before finalization can accept terminal subreaper `ECHILD` as the
+bounded descendant wait result. **200 tests pass**; the fresh syscall-negative control
+is independently observed through supervisor termination.
+
+**Direction:** retain this as component evidence, not execution authority. Close the
+activation-time runtime/parent environment, immutable public preread and outer final
+report lifetime next. Plan `20261002f` remains blocked; no large source or scientific
+data may start. All target and holdout dispositions plus the 9 October end date remain
+unchanged. No external messages.
+
+## 1 October: seven worker roles wired; execution remains blocked
+
+[The full worker integration, resource-finalization review and logs](RADIO_NATIVE_V2_WHOLE_WORKER_INTEGRATION_2026-10-01_RESULT.md)
+pass **198 relevant Python tests** in **57.503 s**. The actual
+read-only audit verifies **921 repository code files**, **7 frozen inputs** and
+**1,606 joined runtime files**. All 20 materialized code files match their
+prospective pins. Prepare, caller, reader/tail, projection, retained-source proof,
+continuous verifier and whole-control dispatch paths now carry exact local admission.
+
+A separate measurement driver and read-only resource join cover the proposed final
+measurement boundary, original time/storage/RSS caps and terminal metadata reserves.
+Incomplete descendant or final-report coverage retains a pending verdict. Actual
+refusal controls preserve material contents and allocation. Tiny orphan, live RSS
+handshake and exact stdout controls finish under observation; these do not establish
+full workload qualification. **No full-size source or new telescope analysis ran.**
+
+**Next:** finish complete activation-time runtime and parent-environment joins,
+independent immutable execution preread, descendant/escape evidence and outer final
+report lifetime coverage before considering one fresh eight-input engineering control.
+Plan revision `20261001e` remains **BLOCKED_PREPARATION_REVIEW**; full pipeline,
+native/HTTP/host and scientific qualification remain false. 127/24 NOT ACTIVATED;
+HD189733 selected; HD1461 HOLD; GJ724 reserve; spectra/holdouts unopened; LS paused;
+CHEOPS UNSENT. Review 2 October; consolidate 9 October without extension.
+No external messages.
+
+## 1 October: source worker and supervisor linked; full execution stays blocked
+
+[The source worker integration, independent audit and logs](RADIO_NATIVE_V2_SOURCE_WORKER_INTEGRATION_2026-10-01_RESULT.md)
+pass **126 relevant Python tests**. The current audit verifies 920 code files,
+six frozen inputs and 1,606 joined runtime files. The source worker repeats
+exact actual argv/environment, case/domain and materialized-code checks before
+writing data. The dedicated supervisor checks independently pinned implementations
+before dispatch and records pending measurements before filesystem disposition.
+
+Actual direct-worker and supervisor refusal controls leave no source or preparation
+identity. Supplied public claims remain unverified and non-authorizing. A tiny orphan
+control reaches terminal ECHILD, independently observed through supervisor fsync and
+termination: **0.159 s**, **40.31 MiB** maximum individual-process RSS. This is a tiny
+component control; no full-size source or telescope analysis has run.
+
+**Next:** complete admission for the other worker roles and the outer runtime,
+finalization, storage/time joins; then publish and verify the exact execution
+preread before one fresh eight-input engineering control. All five original blocker
+categories remain open. Current plan revision `20261001d` stays
+**BLOCKED_PREPARATION_REVIEW**. 127/24 NOT ACTIVATED; HD189733 selected; HD1461 HOLD;
+GJ724 reserve; spectra/holdouts unopened; LS paused; CHEOPS UNSENT. Review
+2 October; consolidate 9 October without extension. No external messages.
+
+## 1 October: preparation audit and process supervision improve; large run remains blocked
+
+[The corrections, independent audit and evidence](RADIO_NATIVE_V2_COMPACT_PREPARATION_AUDIT_2026-10-01_RESULT.md)
+pass **89 relevant Python tests**. The independent actual preparation audit verifies
+919 code, five input and 1,606 joined runtime files; materialized code/templates
+match. The observer now binds the launched PID independently, bounds inherited-pipe
+drain and samples, and retains truthful direct-child/descendant distinctions.
+Fresh domain and prepared/terminal identity checks refuse case relabeling.
+
+A dedicated subreaper component permits fixed tiny probes only. Orphan and
+double-fork controls each reach terminal ECHILD and are independently observed
+through receipt fsync and termination at about **15 MiB**. This does not qualify
+the future integrated worker, full-size harness, host ledger or scientific runtime.
+The original eight-input plan remains **BLOCKED_PREPARATION_REVIEW**; all large
+entrypoints stay closed. No maximum input, reservation, RNG or telescope read.
+
+**Next:** join worker-level immutable public-preread/runtime/argv/environment
+admission with the dedicated supervisor and complete outer storage/time/final
+disposition, before one fresh eight-input resource control. All five blocker
+categories remain open. 127/24 NOT ACTIVATED, HD189733 selected, HD1461 HOLD,
+GJ724 reserve, spectra/holdouts unopened, LS paused, CHEOPS UNSENT. Review
+2 October; consolidate 9 October without extension. No external messages.
+
+## 1 October: complete caller accounting is now explicit
+
+[The shared transport contract](RADIO_NATIVE_V2_TRANSPORT_CONTRACT_2026-10-01_RESULT.md)
+retains caller-only polls and the final delivery acknowledgement instead of
+treating the lower-level 57-call shape as a complete actual result. The real
+live04 poll pattern would make a full-size case 74/64 calls; execution therefore
+stays closed. A prospective 30-second wait and reduced 59-call/40-MiB caller
+allocation reserve one bounded tail operation inside the unchanged outer caps.
+
+**Direction:** integrate and measure that exact shared path, including outer
+caller RSS and durable tail readback, before freezing executable authority.
+There is no scientific inference, telescope read or relaxation of the separate
+reservation gate. All target dispositions, old failures and the 9 October end
+date remain unchanged.
+
+## 30 September: failed broker usage and bounded failure closure retained
+
+[The accounting/closure corrections and complete evidence](RADIO_NATIVE_V2_BROKER_ACCOUNTING_2026-09-30_RESULT.md)
+reserve replies before dispatch, retain unknown acknowledgements and failed
+cumulative usage, check post-call RSS, seal exact interrupted prefixes incomplete
+and preserve registered outer footers. Canonical reason bounds keep the last-
+failure model at **129,639/131,072 revision bytes** inside the unchanged 8-MiB
+journal allocation. **167 Python and six offline host tests pass.** Both concurrent histories are retained. No native
+case, RNG or telescope read.
+
+**Exact continuation:** bind the published fresh stage chain, revised components and the
+qualified live02 adapter into the single eight-case orchestrator, including bounded operation
+deadlines and actual Git/tool-envelope accounting. Publish/read back a new
+complete runner+broker runtime freeze before any separate reservation or RNG.
+Earlier freezes remain preparation/component evidence. 127/24 NOT ACTIVATED;
+HD189733 selected, HD1461 HOLD, GJ724 reserve, spectra/holdouts unopened, LS
+paused and CHEOPS UNSENT. Consolidate 9 October without extension.
+
+## 30 September: fresh v2 stages and durable transport receipts pass
+
+[The implementation and complete component evidence](RADIO_NATIVE_V2_CHAIN_2026-09-30_RESULT.md)
+add v2-specific render, four-reference threshold, compressed physical and
+post-decision evaluation stages without relabelling the closed old namespace.
+The broker now durably persists each untouched transport result before parsing;
+any request, call or receipt ambiguity stops without retry. **246 adjacent tests
+pass** (eight new). No reservation, RNG, score or telescope read occurred.
+
+**Exact continuation:** implement the single eight-case orchestrator that binds
+these stages to compact base artifacts, v2 physical closure and per-terminal-case
+`CumulativeBroker(DurableInvoker(...))` publication. Test interruption and
+cumulative limits, then publish/read back a new complete runner+broker runtime
+freeze before reservation or RNG. The prepare-only freeze stays historical and
+non-executable. 127/24 remains NOT ACTIVATED; HD189733 selected, HD1461 HOLD,
+GJ724 reserve; spectra/holdouts unopened, LS paused and CHEOPS UNSENT.
+
+## 30 September: corrected inline-broker live probe passes
+
+[The public freeze and end-to-end live evidence](RADIO_NATIVE_V2_BROKER_LIVE02_2026-09-30_RESULT.md)
+qualify one inline-content tree, raw receipt preservation, exact candidate
+identity, one child/non-forced update and one grouped immutable readback. All
+three blobs and 791 stored bytes reconstruct the exact 38-byte source. The live
+sequence used 11/16 bounded operations; conservative 16-KiB request, 64-KiB
+response and 30-s charges pass the frozen caps. Live01 remains CLOSED FAILED.
+No reservation, RNG, score or telescope read occurred.
+
+**Exact continuation:** implement the qualified adapter with durable raw-receipt
+handling in the missing complete fresh render/threshold/physical/evaluate
+runner. Generate, publish and independently read back a new complete
+runner+broker runtime freeze before any reservation or RNG; the earlier
+prepare-only freeze is not executable authority. 127/24 remains NOT ACTIVATED;
+HD189733 selected, HD1461 HOLD, GJ724 reserve; spectra/holdouts unopened, LS
+paused and CHEOPS UNSENT.
+
+## 30 September: first inline-broker live probe closes failed
+
+[The prospectively frozen live probe and failure evidence](RADIO_NATIVE_V2_BROKER_LIVE_2026-09-30_RESULT.md)
+issued its single permitted inline-tree call. The exact expected tree object
+`8e85413‚Ä¶` exists and the branch remained at the public freeze, but the caller
+lost the returned receipt while attempting unsupported post-call byte accounting.
+No commit or ref update was made and grouped readback was not entered. The probe
+is **CLOSED FAILED** and will not be retried. A later recursive read-only audit
+also exceeded its 1-MiB response cap; both failures are preserved.
+
+**Exact continuation:** prospectively freeze a fresh live02 namespace, with all
+request accounting completed before the mutation and the raw response preserved
+before derived accounting. Use only a non-recursive exact-tree audit. If that
+fresh probe passes, integrate the qualified adapter with the missing complete
+render/threshold/physical/evaluate runner and publish/read back a new complete
+runtime freeze before reservation or RNG. 127/24 remains NOT ACTIVATED;
+HD189733 selected, HD1461 HOLD, GJ724 reserve; spectra/holdouts unopened, LS
+paused and CHEOPS UNSENT.
+
+## 30 September: deterministic publication-during-execution broker passes
+
+[The broker, resource envelope and failure evidence](RADIO_NATIVE_V2_BROKER_2026-09-30_RESULT.md)
+pack a terminal 18-MiB case plus cumulative 8-MiB journal into at most 26
+base64 chunks plus manifest/HEAD. One inline tree mutation replaces serial blob
+calls; one grouped readback reconstructs every source byte. Per-case request and
+response envelopes are **37,923,633 / 50,331,648** and **50,215,320 /
+67,108,864 bytes**. Eight-case cumulative call/byte/time/RSS caps are reserved
+before each case. Conflict, lost response, corruption and RSS all stop without
+retry. **262 tests pass.** No reservation, RNG, score or telescope read.
+
+**Exact continuation:** publicly freeze and run one small no-RNG live probe of
+the connector's inline-tree and grouped-readback adapter, then integrate that
+qualified adapter with the still-missing complete fresh render/threshold/
+physical/evaluate runner. Publish and independently read back a new complete
+runner+broker runtime freeze before any reservation or RNG. The earlier
+prepare-only freeze predates the broker and grants no execution authority.
+127/24 remains NOT ACTIVATED; HD189733 selected, HD1461 HOLD, GJ724 reserve;
+spectra/holdouts unopened, LS paused, CHEOPS UNSENT.
+
+## 30 September: fresh native v2 preparation executable frozen
+
+[The prepare-only contract and complete evidence](RADIO_NATIVE_V2_PREPARATION_2026-09-30_RESULT.md)
+freeze eight new ordered case/plan identities, exact 18-MiB/8-checkpoint/48-file
+configurations, allocation and manifest recipe. They are disjoint from the 151
+proposed science cases and the closed earlier eight-case native scope; the old
+engineering specifications are unchanged. The runtime closure pins **869 code,
+16 input and 1,132 runtime files** at SHA256 `7aaf6c5‚Ä¶`. **255 tests pass** and
+independent local readback verifies every frozen hash. The script refuses `run`;
+no reservation, lease, RNG, score, receiver measurement or telescope read.
+
+**Exact continuation:** implement and test the bounded publication-during-
+execution broker inside the fresh native runner, then generate a new complete
+runner+broker runtime freeze and publish/read it back. The broker must publish
+each terminal case plus cumulative journal before the next case and preserve
+crash/conflict/lost-response, grouped exact readback and cumulative call/byte/
+time/RSS evidence. Only a later separate public reservation may precede RNG.
+127/24 remains NOT ACTIVATED; HD189733 selected, HD1461 HOLD, GJ724 reserve;
+spectra/holdouts unopened, LS paused, CHEOPS UNSENT.
+
+## 30 September: fresh native v2 parent capacity passes
+
+[The prospective parent and exact capacity evidence](RADIO_NATIVE_V2_PARENT_2026-09-30_RESULT.md)
+bind eight distinct fresh case configurations in one cumulative parent while
+retaining old scalar-manifest compatibility. Eight stage-boundary checkpoints,
+48 physical files/case, 168 events and 340 journal files fit all unchanged hard
+caps. The exact worst-count model peaks at **125,548 / 131,072 revision bytes**
+and **789,981 / 8,388,608 cumulative journal bytes including reserves**.
+**252 tests pass.** No reservation, RNG, score, receiver measurement or telescope
+read occurred.
+
+**Exact continuation:** implement and deterministically test the new-identity
+native v2 runner and bounded publication-during-execution broker. It must publish
+each terminal case plus cumulative journal in immutable batches and retain
+crash/conflict/lost-response, request/response/time/RSS and grouped readback
+evidence. Publish and independently read back the complete executable/runtime
+freeze before any reservation or RNG. 127/24 remains NOT ACTIVATED; HD189733
+selected, HD1461 HOLD, GJ724 reserve; spectra/holdouts unopened, LS paused,
+CHEOPS UNSENT.
+
+## 30 September: v2 checkpoint event batching passes
+
+[The prospective contract, implementation and evidence](RADIO_V2_EVENT_BATCH_2026-09-30_RESULT.md)
+register up to 128 new v2 physical files per append-only event while retaining
+every individual filename, length and SHA256. Larger checkpoints split into
+bounded events; artifact bytes, file/case caps, the 8-MiB journal allocation and
+closure reserves are unchanged. Torn and lost-ack paths stop without retry and
+remain read-only recoverable. **125 tests pass**, including five new batch,
+boundary and crash-risk tests. No native case, RNG, score or telescope read.
+
+**Exact continuation:** build and deterministically test the fresh native v2
+parent/runner and batched publication broker with new identities, 18-MiB cases,
+an explicit ‚â§51-stage checkpoint design, exact per-case file/event ceilings,
+cumulative 8-MiB journal budget, receiver batching, all stage timings and bounded
+failure/RSS evidence. Publish and read back its executable/runtime freeze before
+any reservation or RNG. 127/24 remains NOT ACTIVATED; HD189733 selected,
+HD1461 HOLD, GJ724 reserve; spectra/holdouts unopened, LS paused, CHEOPS UNSENT.
+
+## 30 September: content-addressed terminal archive transport passes
+
+[The prospectively frozen batch transport and complete evidence](RADIO_V2_BATCH_2026-09-30_RESULT.md)
+publish the exact 130-file, 4,961,274-byte v2 archive in five logical tree
+batches, one commit and one non-forced ref update. Publication took 8.510 s
+under its 300-s cap. A fresh grouped immutable audit verified every Git blob,
+SHA256 and length with one `git cat-file --batch` operation in 0.049221 s;
+peak RSS was 36,466,688 bytes. **38/38 targeted and adjacent regression tests
+pass.** The earlier 900-s serial scope remains CLOSED FAILED and was not retried.
+
+This qualifies only terminal engineering archive transport. **Exact
+continuation:** freeze one fresh complete native physical/resource qualification
+with receiver batching, complete receiver/alias/cluster evidence, all stage
+timings, recovery/RFI/null and failure evidence, bounded interruption accounting
+and explicit publication during execution. Use fresh identities and public
+freeze/readback. 127/24 remains NOT ACTIVATED; spectra and old holdouts remain
+unopened. HD189733 selected, HD1461 HOLD, GJ724 reserve; LS paused, CHEOPS UNSENT.
+All failures, counters and limits persist. No messages/delegation; review around
+2 October and consolidate 9 October without extension.
+
+## 30 September: v2 restores a 42.37-MB report load within 18 MiB
+
+[The versioned format, result and complete evidence](RADIO_PHYSICAL_EVIDENCE_V2_2026-09-30_RESULT.md)
+restore all three frozen byte-only snapshots exactly, including two of
+**42,366,912 logical bytes**. Total charged case storage is **4,824,307 bytes**,
+including the seven original base artifacts, within the unchanged **18-MiB**
+stored-case allocation. **46 tests pass (12 new, 34 existing).** The measured
+byte-worker active region takes 8.390755 s; peak process RSS is 194,318,336 bytes.
+The new reader streams whole reports while keeping individual decoded values
+bounded at 24 MiB. Old v1 code, limits and outcomes are unchanged.
+
+This qualifies retention/restoration of the fixed archived-byte stress load.
+Repeated original software receiver pairs are not independent measurements;
+the source physical outcome and wrapper remain FAILED/incomplete. It neither
+completes the missing native report nor predicts fresh-case compression or
+full native/publication runtime. No RNG, native reexecution or telescope read.
+**Current continuation:** integrate v2 with the existing event/parent and bounded
+remote protocol, then freeze one fresh complete native physical/resource
+qualification. The v2 parent path is explicitly refused until qualified.
+127/24 remains NOT ACTIVATED; spectra/old holdouts remain unopened. All old
+failures, spent identities, holds/counters and budgets persist. No messages or
+delegation; review around 2 October and consolidate 9 October without extension.
+
+## 29 September: complete receiver evidence fails the current logical capacity
+
+[The read-only capacity decision](RADIO_RECEIVER_CAPACITY_2026-09-29_DECISION.md)
+establishes a **29,821,434-byte lower bound** for the known 9,792-member report
+with its 21,708 receiver queries, before final alias/decision/cluster evidence.
+The current physical reader refuses logical expansion above **24 MiB**. Its
+previous storage PASS covered only the partial report before receiver evidence.
+Batching speeds computation while preserving output bytes; it cannot fix this
+separate capacity problem. No old physical computation or new trial was run.
+
+**Current continuation:** qualify a complete lossless representation for this
+known workload under unchanged stored-case/journal budgets before freezing
+another native attempt. This supersedes the immediate-new-run instruction below.
+The bound concerns logical JSON, not the minimum size of a different compressed
+format or every future draw. No limits, scientific settings or old outcomes are
+changed. 127/24 stays NOT ACTIVATED; telescope spectra and old holdouts stay
+unopened. All holds/counters, no messages/delegation and 9 October remain.
+
+## 29 September: receiver batching removes repeated payload hashing
+
+[The receiver optimization](RADIO_RECEIVER_BATCH_2026-09-29_RESULT.md) preserves
+all scalar signature/receipt bytes and passes 15 targeted tests. On two fixed
+new deterministic software workloads, 1,024 queries fall from about 12 seconds
+to 0.04 seconds. Full source/cache validation runs at both ends of each batch;
+immutable byte-backed arrays are required and every original query is retained.
+The scalar arithmetic is unchanged against the immutable parent.
+
+This is a component measurement, not a full native-chain or 80-second pass.
+**Next:** freeze one fresh complete native physical/resource qualification,
+including the changed code, stage timing and complete failure/evidence duties.
+Remote scientific integration, 127/24 qualification and the separate telescope
+protocol remain outstanding. No old case was replayed, no RNG or telescope
+values were opened, and no scientific limits changed. Keep all earlier holds,
+counters, spent identities and the 9 October endpoint. No messages/delegation.
+
+## 29 September: pilot remains blocked; resource review defines the critical path
+
+[The readiness decision](RADIO_READINESS_2026-09-29_DECISION.md) compares the
+published engineering measurements with the unchanged scientific allocations.
+The partial native broad-signal case took 224.702 s under its own 240-s cap;
+it does not qualify an 80-s scientific evaluation. The local storage pass uses
+a 24-MiB case allocation, whereas scientific evaluations have 18 MiB. Its
+17,425,035 case bytes leave only arithmetic headroom for still-unmeasured full
+physical evidence. These different workloads cannot be added or extrapolated.
+
+**Current continuation:** prioritize complete native physical/resource feasibility
+and the integrated scientific admission evidence. Remote publication remains
+necessary but cannot alone open the pilot. Given limited available compute,
+do not launch another series of isolated storage fixtures. Any fresh live
+engineering work needs a fixed scope, new identities and public freeze/readback.
+Then actual 127/24 qualification and a separate telescope acquisition/trial
+protocol are still required. This supersedes earlier next-step wording, not old
+results or allocations. The read-only review creates zero trials, random values,
+scores or telescope reads. **127/24 remains NOT ACTIVATED.** All holds, counters,
+failures, unopened data, no messages/delegation and 9 October remain unchanged.
+No scheduled task was changed.
+
+## 29 September: complete local event-journal/physical handoff passes
+
+[The new event-store result](RADIO_EVENT_CASE_2026-09-29_RESULT.md) restores all
+**22/22 physical snapshots and 208 original journal versions** exactly. The live
+journal, including every pointer version, occupies **263,734 bytes**. The complete
+case plus journal occupies **17,688,769 bytes**, inside the unchanged 24-MiB case
+and 8-MiB journal reservations. **127 tests pass.** Whole-fixture time is 55.785488 s.
+
+This is a separate fresh byte-only storage allocation. The earlier full-snapshot
+integration remains CLOSED FAILED, with all files and charges retained. The
+preserved source physical status and new parent disposition remain FAILED as
+required; the PASS qualifies complete storage/restoration, not a new physical
+result. There are no new random values, native scores or physical decisions.
+
+**Exact continuation:** bind the complete measured event/pointer/physical archive
+into bounded batched remote publication and immutable readback, preserving atomic
+advancement, lost-response stops and cumulative byte/time accounting. The current
+publisher is local engineering only. Full native receiver/alias evidence, physical
+gates and scientific 40/80-s timing remain unqualified; storage alone takes about
+50 seconds. Any later native run requires a new fixed freeze and fresh identities.
+Keep **127/24 NOT ACTIVATED**, all prior failures/spent identities/holds/counters,
+telescope spectra and old holdouts unopened, no messages or delegation, and
+9 October consolidation without extension.
+
+## 29 September: parent evidence integration stops safely at journal capacity
+
+[The closed integration result](RADIO_PHYSICAL_CASE_2026-09-29_RESULT.md)
+registers all physical files under one bounded parent allocation, with **117
+passing tests**. The fixed large byte-only fixture is **CLOSED FAILED**: full
+journal snapshots exhaust ordinary journal capacity after **19/22** checkpoints.
+Its 880-byte outer failure footer succeeds; the parent stays FAILED and spent.
+All 190 case files, 193 original journal revisions and four uncommitted physical
+parts are retained. No trial is rerun and no limit is raised.
+
+The read-only audit restores every committed view and original journal revision
+exactly. The 7,952,097 canonical journal bytes fit a **101,896-byte read-only
+history representation**, with every original preserved. This does not qualify a
+live incremental writer or change the original integration failure. No new random
+values, native scores, physical decisions or telescope reads occur.
+
+**Exact continuation:** implement and prospectively qualify durable incremental
+parent journaling for dynamic artifacts, retaining all original revision hashes,
+all pointer versions, cumulative byte/time charges and crash/lost-response guards.
+Then use a separate fixed storage namespace for the full 22-view handoff. Do not
+resume integration01 or confuse its compact read-only archive with a live store.
+Remote scientific adapters, full native physical gates and 40/80-s timing remain
+unqualified; **127/24 stays NOT ACTIVATED**. All prior failures, spent identities,
+holds/counters/holdouts, no messages or delegation and 9 October remain unchanged.
+
+## 29 September: bounded physical evidence storage passes; no native replay
+
+[The closed byte-only result](RADIO_PHYSICAL_EVIDENCE_2026-09-29_RESULT.md)
+restores all **22/22** constructed views of the earlier failed physical report.
+The cumulative case charge is **17,391,433 bytes**, including the seven existing
+artifacts, under 24 MiB. The terminal footer is **644 bytes**. A separate 16-MiB
+fixture correctly refuses the full report before writing and preserves its prior
+checkpoint. Historical physical outcomes remain FAILED; neither store can resume.
+
+**63 tests pass.** The optimized read-only decoder also restores all 22 + 1
+committed views with every closed fixture file unchanged. Full original code
+versions, initial failures, logs and lossless checkpoint archives are retained.
+No new random values, native scores, physical decisions or telescope reads occur.
+This qualifies local storage on the observed partial-report workload only.
+
+**Exact continuation:** integrate the entire dynamic evidence inventory into the
+outer worker's prospective case allocation and bounded failure handling, then
+measure complete archive publication/readback. Full native receiver/alias evidence,
+remote scientific integration and 40/80-s timing remain unqualified. Any later
+live qualification needs its own fixed freeze and fresh identities. Keep all old
+failures/counters/holds, all eight spent identities and **127/24 NOT ACTIVATED**.
+Telescope spectra and old holdouts stay unopened; no messages or delegation.
+Consolidate 9 October without extension.
+
+## 29 September: native chain exposes receipt mismatch; failed run preserved
+
+[The closed eight-case engineering result](RADIO_NATIVE_CHAIN_ENGINEERING_2026-09-29_RESULT.md)
+retains four complete EMPTY Gaussian references and a broad ON case with 9,792
+retained members. That case failed because the native and whole-cadence receiver
+receipts use different JSON newline conventions. Three later cases were not
+entered; all eight reservations stay spent. There were 31,457,280 new Gaussian
+values, no telescope reads and no retry.
+
+The post-closure receipt bridge passes six new regression tests plus 34 physical
+fixtures; it has not been replayed on the closed native case. The full scope also
+fails its distinct 8-MiB failure reserve: retained setup/failure material is
+15,031,024 bytes. Both failures, all 54 original journal versions and 107 evidence
+files are preserved losslessly. Physical recovery/RFI/null and scientific 40/80-s
+budgets remain unqualified; four engineering references cannot pass a 1% rank cut.
+
+Next: integrate the corrected receipt bridge with bounded durable physical-stage
+evidence and explicit failure/resource accounting, then batch the measured full
+archive. Any later live qualification needs fresh identities and its own fixed
+freeze/reservation. Do not reopen this namespace, recycle its unentered cases,
+raise old caps or activate 127/24. All prior holds/counters and 9 October remain.
+
+## 29 September: four-reference native physical engineering prepared
+
+The [fixed eight-case scope](RADIO_NATIVE_CHAIN_ENGINEERING_2026-09-29_SCOPE.md)
+uses four fresh same-window Gaussian references and four predeclared native
+physical cases (wide/narrow ON, matched ON/OFF, fresh null). **114 targeted tests
+pass; no new random values have been drawn at this preparation checkpoint.**
+The separate four-reference threshold cannot pass the unchanged 1/100 rank cut;
+engineering gates count physical survivors and do not certify production recovery.
+
+Publish/read back the executable freeze, then separately reserve all eight fresh
+identities before a single non-resumable invocation. Preserve every actual outcome,
+including a missed injection or resource failure. Local original journal history
+and physical evidence are measured before remote incremental integration; this
+stage does not qualify per-artifact external publication or scientific 40/80-second
+limits. All prior closed outcomes/counters/holds stay unchanged; 127/24 remains
+NOT ACTIVATED, telescope spectra remain unopened, and consolidation stays 9 October.
+
+## 29 September: live journal probes pass; complete overhead budget fails
+
+[The closed result](RADIO_INCREMENTAL_JOURNAL_2026-09-29_RESULT.md) verifies
+**6/6 original journal versions**, four exact fast-forward publications and the
+217-byte witness. The normal case completes in **86.932355 s**. A separately
+injected acknowledgement loss stops the other writer; fresh read-only recovery
+confirms its permanently consumed, incomplete state. Both namespaces are CLOSED.
+
+Total journal/artifact bytes are **8,464**; the live worker used 85 GitHub calls
+and **169.958322 s**, within its fixed live caps. The 29 Python risk tests, four
+broker checks and independent byte/state audit pass. However, the downstream
+audit used **41 local Git calls**, already exceeding the separately fixed
+32-operation publication/verification cap. The full scope therefore has an
+overhead-budget failure; the original live PASS is not a whole-scope pass.
+All frames, failures, charges and prior approval rejections are retained.
+The owner approved public preservation of the package and logs in this conversation.
+
+**Exact continuation:** prepare the separate integrated Gaussian same-law
+reference/native physical/recovery/RFI/null engineering stage with fresh identities.
+Batch local and remote immutable reads, bind incremental event/artifact publication,
+and count complete cumulative obligations before new work. The normal small
+archive already exceeds 80 s: scientific 40/80-second timing and the proposed
+151-case ledger capacity remain unqualified. Do not reopen complete01/lost01,
+reuse reserved 127/24 identities or raise historical/scientific caps. The 127/24
+proposal remains NOT ACTIVATED; telescope spectra stay unopened. All earlier
+holds/counters and 9 October consolidation remain unchanged.
+
+## 29 September: publication approved; fixed incremental live qualification next
+
+The owner explicitly approved the prepared journal package and its logs/results
+in the current conversation on 29 September. The earlier publication-review
+block is resolved for this package and its two fixed engineering probes.
+
+**Exact continuation:** publish and independently read back the unchanged
+`d9b20bb7` executable freeze, then run complete01 and lost01 exactly once under
+[RADIO_INCREMENTAL_JOURNAL_2026-09-29_SCOPE.md](RADIO_INCREMENTAL_JOURNAL_2026-09-29_SCOPE.md).
+Retain all actual outcomes, resource charges and acknowledgement-loss evidence;
+never resume an incomplete namespace. The 29 Python tests and four broker checks
+are already complete. This note is not a live result. Scientific 127/24 stays
+NOT ACTIVATED; all prior holds/counters and 9 October consolidation persist.
+
+## 29 September: incremental journal ready; public freeze blocked, live not started
+
+The local incremental implementation passes **29 Python risk tests and four
+broker checks**. Its exact prospective freeze is local commit `d9b20bb7`, with
+841 project Python files, 1,132 runtime files and eight pinned inputs. Both
+engineering namespaces remain untouched genesis states; zero live calls,
+consumptions, Gaussian values, telescope values or messages occurred.
+
+Automatic approval review rejected the public Git push, then rejected the same
+push after an exact prior prospective owner authorization was retrieved. Its
+stated reason was that retrieved authorization was not a trusted user message
+in the current transcript. No alternative publication route was attempted.
+The public science ref was read back unchanged at `379a1a3d`.
+
+**Exact continuation:** the prepared package awaits current public-disclosure
+approval. Publish and independently verify the unchanged freeze before the
+bounded complete01/lost01 live qualification. Preserve both rejections and do
+not report a remote pass. The next section describes the prepared scope, not a
+published or executed run. Scientific 127/24 remains NOT ACTIVATED; all prior
+holds, counters and 9 October consolidation are unchanged.
+
+## 29 September: incremental durable journal frozen for two engineering namespaces
+
+[The prospective scope](RADIO_INCREMENTAL_JOURNAL_2026-09-29_SCOPE.md) replaces
+repeated full snapshots with one immutable event record per transition and
+small historical pointers. **29 new Python tests and four broker checks pass**.
+All original revision digests, complete namespace inventories, cumulative bytes
+and uncertain publication states remain checked. Read-only recovery grants no
+restart. The scientific 127/24 proposal remains NOT ACTIVATED.
+
+**Exact continuation at this freeze:** verify the published runtime, recipe and
+two fresh genesis records. Run complete01 once, then lost01 once with the fixed
+application-boundary acknowledgement loss; independently recover its consumed
+state without mutation. Close both regardless of outcome, preserving every
+failure and budget charge. No corrective live run, Gaussian RNG or telescope
+values. Then prepare the separately bounded integrated Gaussian/native physical/
+recovery/RFI/null stage. All prior holds/counters and 9 October consolidation persist.
+
+## 29 September: cumulative journal budget gap identified; lossless history verified
+
+[The new capacity/history result](RADIO_JOURNAL_CAPACITY_2026-09-29_RESULT.md)
+shows that retaining every full snapshot of the proposed 151-case journal
+requires **at least 423,359,705 canonical bytes**, versus its fixed 8-MiB
+ledger allocation. This is a metadata lower bound, not a run or a Git-pack
+measurement. The last snapshot alone would hide the excess.
+
+A new **read-only** event/history format restores all **19/19** original
+Gaussian engineering journal versions byte for byte: 101,825 bytes represented
+in 10,854 bytes, with every old file preserved. **22 new checks pass.** It grants
+no lease, restart, larger budget or scientific readiness. The prior two actual
+Gaussian/native cases remain closed and fully archived.
+
+**Exact continuation:** qualify incremental durable event/checkpoint publication
+and immutable readback, with cumulative archive-byte and transport limits,
+crash/conflict/lost-response tests and no new execution authority from restored
+history. Then prospectively freeze the still-missing integrated Gaussian
+reference/native physical/recovery/RFI/null run with fresh engineering identities.
+Do not use reserved 127/24 RNGs, reopen closed scopes or assume the present
+full-snapshot budget fits. All source/holdout/disposition boundaries remain;
+telescope spectra stay unopened. Consolidate 9 October without extension.
+
+## 29 September: real Gaussian/native numerical stage passes and closes
+
+[Two fresh engineering cases](RADIO_GAUSSIAN_ENGINEERING_2026-09-29_RESULT.md)
+processed 12,582,912 Gaussian values in **14.849217 s**. Both compact audits
+passed, preserving all **769,824 scores** and exact native maxima. Archives were
+1,985,010 and 1,990,067 bytes; peak RSS was 93,896,704 bytes. All 35 preflight
+tests passed. The scope was frozen and both cases irrevocably reserved on GitHub
+before RNG. Both cases are now closed; their reservations cannot reset.
+
+**Exact continuation:** freeze a fresh engineering-only same-law reference and
+native physical/recovery/RFI/null integration using these measured costs and
+new identities. The production threshold requires 127 actual reference maxima;
+do not relabel deterministic fixtures. The two-case stage does not qualify
+that threshold, physical gates or scientific remote-publication timing. Keep
+the scientific 127/24 proposal NOT ACTIVATED and telescope spectra unopened.
+All prior holds, holdouts, primary neighbor9, selected HD189733/85030, LS pause
+and CHEOPS UNSENT remain unchanged. Consolidate 9 October without extension.
+
+## 29 September: canonical immutable-readback live02 passes and closes
+
+[Live02](RADIO_WHOLE_CADENCE_READBATCH_2026-09-29_RESULT02.md) is **CLOSED
+ENGINEERING PASS**. Seven distinct immutable files, all Git identities and
+**460,826 raw bytes** verified in **0.576 s**. The canonical response used
+615,299 of 619,816 reserved bytes, leaving 4,517 bytes. All seven requests are
+charged; there was no mutation or retry. Live01's response-cap failure remains
+closed and charged, so the two scopes consumed fourteen immutable reads total.
+
+This qualifies only the bounded canonical readback mechanism. It is not a
+controlled speed comparison and does not qualify the scientific 40/80-second
+budgets, Gaussian generation or the full native physical/gate chain.
+
+**Exact continuation:** readback scopes are closed. Freeze a fresh,
+engineering-only integrated Gaussian/compact-score/native physical/recovery/
+RFI/null run with new identities, exact fixtures/runtime, motion-width and
+numerical-transfer pins, durable no-resume journal, artifact-byte limits and
+cumulative time/call budgets. Do not use reserved 127/24 RNGs. Only after that
+passes may a separate fresh scientific allocation be considered.
+
+No source/telescope values, external messages or plan extension. Neighbor9,
+HD189733/85030 and all prior preparations, holds, holdouts, counters, LS pause
+and CHEOPS UNSENT persist; consolidate 9 October.
+
+## 29 September: readback live01 closes failed; distinct canonical live02 frozen
+
+[Live01](RADIO_WHOLE_CADENCE_READBATCH_2026-09-29_RESULT.md) read all seven
+immutable files correctly in **0.605 s**: 703,392 raw bytes and every Git blob
+identity match. It is nevertheless **CLOSED ENGINEERING FAILED** because the
+exact connector frame was 971,981 bytes, **28,741 above** its 943,240-byte
+prospective reservation. Line-wrapped base64 caused 31,268 JSON bytes of avoidable
+expansion. All seven calls are charged; no retry or retrospective cap change.
+
+The [distinct live02 amendment](RADIO_WHOLE_CADENCE_READBATCH_2026-09-29_AMENDMENT.md)
+uses seven different immutable files, projects replies to exact SHA/encoding/
+newline-free content, discards display metadata, and reserves 619,816 bytes.
+The amended 19 checks and 22 retained regressions pass.
+
+**Exact continuation:** publish and independently read back the amendment,
+recipe02, runtime freeze, failure evidence and corrected code. Then execute
+`readbatch-live02` exactly once with seven charged reads, no mutation and an
+80-second engineering cap; close it permanently. If it passes, freeze fresh
+engineering-only Gaussian/compact-score/full-native physical/recovery/RFI/null
+qualification. Do not activate 127/24 or infer scientific timing readiness.
+
+No source/telescope values, external messages or plan extension. All prior
+preparations, holds, holdouts, counters, LS pause and CHEOPS UNSENT persist;
+consolidate 9 October.
+
+## 29 September: immutable-readback batch frozen before one live action
+
+The [new prospective scope](RADIO_WHOLE_CADENCE_READBATCH_2026-09-29_SCOPE.md)
+groups seven fixed files from the already-closed batch archive at immutable
+commit `c054671f...`; it does not reopen or alter that ledger. **18 new risk
+checks pass**, plus 22 retained regression tests. Every underlying request is
+charged before dispatch, 943,240 response bytes are reserved up front, and
+missing, duplicate, reordered, partial, corrupt and over-cap replies are bound
+to explicit no-retry outcomes. Python/Node syntax and the broker harness pass.
+
+**Exact continuation:** first verify the public scope, code, runtime freeze and
+recipe byte-for-byte. Then execute `readbatch-live01` exactly once: seven
+immutable reads, no mutations, 80-second engineering cap. Preserve all timings,
+errors and byte checks and close the scope whether it passes or fails. Only then
+freeze a distinct engineering-only Gaussian/full-native/physical/gate run. The
+scientific 127/24 proposal remains NOT ACTIVATED and the 40/80-second scientific
+budgets are not qualified by this transport scope.
+
+No telescope/source values, scientific allocation, external messages or plan
+extension. All prior preparations, holds, holdouts, counters, LS pause and
+CHEOPS UNSENT remain unchanged; consolidate 9 October.
+
+## 29 September: batched live publication passes; 48.619-s case remains above calibration quota
+
+The [batch result](RADIO_WHOLE_CADENCE_BATCH_2026-09-29_RESULT.md) closes one new
+engineering case with **22 new passing tests**. ASCII content batching, locally
+predicted exact Git trees and combined handoff preserved every byte and reduced
+the observed same-size archive case from 103.808198 to **48.618922 s**. This is a
+descriptive comparison, not a controlled benchmark. All 524,305 binary bytes and
+the JSON witness were verified through a fresh store and independently through Git.
+The archive plus all ledger versions occupy **704,852 physical bytes**.
+
+There were 48 new GitHub calls and no separate blob uploads. The complete worker
+took 114.526863 s; its initial supervisor-start delay remains charged. **The 40-s
+calibration budget is still unqualified**, and no full Gaussian/native physical
+chain or scientific 80-s evaluation has been qualified. The 127/24 proposal remains
+NOT ACTIVATED. All 17 historical invariants and closed journals are preserved.
+
+**Exact continuation:** batch-live01 and all predecessor scopes are CLOSED. Under
+a new bounded prospective engineering scope, group independent immutable file
+readbacks, charge each request and aggregate responses, and retain every error
+and byte check. The measured file-read round trips total 32.443817 s. Qualify
+partial/missing/reordered replies and caps before a new live run. Then proceed
+to fresh engineering-only Gaussian/full-native/gate qualification with separate
+identities and freeze; never use reserved 127/24 seeds or raise scientific caps.
+
+No new source/telescope values, scientific allocation, external messages or plan
+extension. All preparations, holds, holdouts, counters, LS pause and CHEOPS UNSENT
+remain unchanged. Consolidate on 9 October. Follow the result's ordered next steps.
+
+## 29 September: batched publication scope frozen, awaiting one live run
+
+The [new bounded scope](RADIO_WHOLE_CADENCE_BATCH_2026-09-29_SCOPE.md) tests
+ASCII `content` tree entries and combined response/next-request handoff.
+**22 new tests pass**, including an independent Git `mktree` hash oracle.
+All parent-tree entries and external decoded bytes remain checked. One fresh
+524,305-byte deterministic case has an 80-s / 1-MiB reservation; no RNG or science.
+
+**Continuation at this freeze:** independently verify its full executable/runtime
+freeze, recipe and fresh genesis, then execute batch-live01 exactly once. Keep
+all failures and timings. Prior scopes stay CLOSED and charged. Do not raise the
+case cap, restart an incomplete case, activate 127/24, or infer full scientific
+40/80-s feasibility from this binary transport test. Publish the measured result.
+All previous holds/counters and 9 October consolidation remain unchanged.
+
+## 28 September: lossless live archive qualified; scientific timing still blocked
+
+The [lossless integration result](RADIO_WHOLE_CADENCE_LOSSLESS_2026-09-28_RESULT.md)
+closes a distinct scope with **29 new passing tests** and actual external evidence:
+524,305 binary bytes restored exactly, both witnesses sealed atomically, and a
+prescribed over-capacity case refused with its failure receipt archived. All four
+own fast-forward deltas and every raw byte were independently checked through Git.
+Actual encoded artifacts plus all ledger versions occupy **713,337 bytes**.
+
+The full 827-code/1,132-runtime-file freeze preceded work. The run took 258.140481 s
+and 111 new transport calls. Case times **103.808198 / 88.081456 s** fit their
+engineering reservations but do **not** qualify scientific **40/80-s** budgets.
+Actual Gaussian compact evidence and the complete native physical/gate chain
+remain unqualified. The 127/24 proposal remains **NOT ACTIVATED**.
+
+**Exact continuation:** this lossless scope and both preceding failed remote
+scopes are CLOSED. Resolve measured request/handoff/readback latency and physical
+ASCII-byte accounting under a fresh bounded engineering scope; preserve durable
+consumption and all byte checks. Then qualify actual Gaussian/full-native/gate
+execution using fresh, explicitly separated engineering identities and a new
+prospective freeze. Never use reserved 127/24 RNGs for benchmarking or enlarge
+the scientific budget. Follow the result's ordered continuation.
+
+All 17 historical pins, old reservations/counters, preparations, target selection,
+holds/holdouts, LS pause and CHEOPS UNSENT remain unchanged. No new source data,
+scientific allocation, external messages or plan extension. Consolidate 9 October.
+
+## 28 September: distinct lossless integration scope frozen for one live run
+
+The [new engineering scope](RADIO_WHOLE_CADENCE_LOSSLESS_2026-09-28_SCOPE.md)
+qualifies atomic ASCII artifact/journal publication, physical byte accounting and
+a request/done-file broker. **29 new tests pass.** Its two fresh fixed cases are
+one 524,305-byte archive and one expected capacity refusal with bounded failure
+evidence. A full Git-aware executable/runtime inventory is pinned. No source,
+scientific allocation or reserved Gaussian PRNG is admitted.
+
+**Continuation at this freeze:** verify the published runtime/recipe/genesis,
+execute `lossless-live01` once, read every artifact through a fresh store, and
+preserve the measured outcome. A consumed/incomplete/ambiguous case cannot resume;
+old remote live01/live02 remain CLOSED FAILED with their reservations charged.
+Do not interpret an engineering archive or expected capacity failure as science.
+The 127/24 proposal stays NOT ACTIVATED; all prior holds/counters and 9 October
+consolidation remain unchanged.
+
+## 28 September: live transport failures preserved; lossless archive prepared
+
+[The actual GitHub result](RADIO_WHOLE_CADENCE_REMOTE_2026-09-28_RESULT.md)
+records **55 new passing tests, but two CLOSED FAILED live scopes**. Live01
+stopped before consumption on a response-format mismatch. Live02 consumed one
+engineering case and made four fast-forward publications; a 17-byte binary tail
+returned as 31 bytes with replacement characters. The guard stopped the case.
+Independent Git reads prove the original stored bytes are intact; the case is
+still incomplete, with its 1,500-s/1-MiB reservation charged and no restart.
+
+A separately prepared ASCII envelope restores the retained 262,161 bytes exactly
+and counts 350,353 actual stored bytes. It is offline-only and not integrated or
+live qualified. Runtime capture now rejects missing tracked code in sparse
+checkouts; old 360-file engineering snapshots are historical, not a current full
+scientific freeze. Timing also exposes substantial broker overhead.
+
+**Exact continuation:** close both live scopes permanently. Integrate lossless
+storage with physical-byte accounting, bounded failure/finalization publication
+and a measured lower-latency broker under a new prospective engineering scope.
+Publish/read back a fresh full code/runtime freeze before any new live attempt.
+Then qualify actual Gaussian/full-native-physical execution; only afterward may
+a fresh scientific allocation activate 127/24. Do not rerun closed cases or
+silently spend phase overhead. Follow the result's ordered continuation.
+
+All 17 historical pins and prior scientific counters/dispositions remain unchanged.
+No Gaussian/scientific/source/telescope values were opened; no external messages
+were sent. The 127/24 proposal remains NOT ACTIVATED. Consolidate on 9 October.
+
+## 28 September: failed live transport preserved; corrected scope prepared
+
+[Live01](results_radio_whole_cadence_remote_2026-09-28/run01/result.json) stopped
+before consumption: the connector returned decoded file content instead of the
+expected Git blob object. Six reads, 54.148586 s, no branch writes, no science.
+Its original genesis/runtime freeze and full error transcript are preserved.
+
+A [prospective transport amendment](RADIO_WHOLE_CADENCE_REMOTE_2026-09-28_TRANSPORT_AMENDMENT.md)
+qualifies immutable-path base64 reads and prepares one new engineering identity,
+`live02`. **40 distinct tests pass** (three new transport risks added to 37).
+First-attempt resources remain charged conservatively against the original
+300-call/32-MiB/1,800-second total. No further corrective live scope is admitted.
+
+**Exact continuation at this freeze:** verify the new freeze's published bytes,
+then execute live02 once. Never reopen/reset live01. Any consumption or ambiguous
+write in live02 prohibits a retry. Scientific mode and the 127/24 proposal remain
+unactivated; no source/PRNG/scientific counters or plan end date change.
+
+## 28 September: actual GitHub engineering publication prepared
+
+The [new prospective scope](RADIO_WHOLE_CADENCE_REMOTE_2026-09-28_SCOPE.md)
+and pinned runtime/code inputs prepare exactly one live engineering case under
+`results_radio_whole_cadence_remote_2026-09-28/live01`. **37 new tests pass**;
+32 existing journal tests are regression checks, not new scientific progress.
+The initial optional-Tk dependency inventory failure is retained explicitly.
+
+**Continuation at this freeze:** execute the single preregistered live publication
+only after this freeze commit is read back and verified. If its ledger has any
+consumption, do not replay or reset it; inspect the latest remote state and report
+it. Scientific mode remains unavailable. The 127/24 proposal, source and trial
+counters, all earlier holds and 9 October consolidation are unchanged.
+
+## 28 September: compact evidence and exact phase budgets qualified
+
+The [compact archive result](RADIO_WHOLE_CADENCE_COMPACT_2026-09-28_RESULT.md)
+adds **21 distinct passing tests** after the preceding 51: **72 new tests** across
+this connected continuation. Two pinned compact representations retain every one
+of 769,824 score values, source/row hashes and complete maxima in 1,903,981 and
+1,948,902 logical bytes. They deliberately cannot reconstruct omitted native
+arrays; the original full engineering archives remain published.
+
+A separate, **nonactivated** budget binds the original 151 proposed case identities:
+127 √ó 40 s / 4 MiB and 24 √ó 80 s / 18 MiB, plus 200 s overhead, 8 MiB ledger and
+76 MiB failure/summary evidence. Total ceilings remain 7,200 s and 1 GiB, with
+no refunds or expansion. This is not a benchmark or a guarantee every case fits.
+
+**Exact continuation:** compact-format, phase-budget, journal/crash and retained
+native archive fixtures are CLOSED. Qualify the real external scientific store,
+transitive executable code/runtime freeze, exact case-specific/overhead budget
+enforcement and bounded publication of all physical/gate/failure artifacts. Then
+qualify the actual Gaussian and full native physical/gate chain under a fresh
+prospective engineering scope. Follow the detailed next tasks in the compact
+result; test doubles/local stores and compact score audits are not scientific
+admission. Do not replay completed fixtures or closed failed attempts as progress.
+
+The 127/24 proposal remains NOT ACTIVATED. No new Gaussian values, scientific
+allocation, source request or telescope value was consumed. All 17 historical
+invariant pins, scientific counters, preparations and earlier dispositions persist.
+No external messages or plan extension; consolidate on 9 October.
+
+## 28 September: durable case consumption and native archives qualified
+
+The [new journal/archive result](RADIO_WHOLE_CADENCE_JOURNAL_2026-09-28_RESULT.md)
+adds **51 distinct passing tests** and six crash boundaries, including five actual
+process exits. Consumption and conservative resource reservations precede work;
+uncertain publication and incomplete evidence cannot yield a replay or EMPTY.
+Scientific completion now requires external artifact byte readback in the adapter
+contract. The supplied store remains local engineering-only.
+
+Two previously retained mock cadences received their first complete score archives:
+**12 sources, 96 cache receipts, 2,592 vectors and 769,824 score values**. A separate
+process restored all identities and values without RNG or score/cache recomputation.
+These are deterministic archive checks, not calibration or recovery outcomes.
+The guarded Gaussian implementation exists, but its real successful path is unqualified.
+
+**Exact continuation:** the new journal/crash/archive fixtures are CLOSED. Do not
+repeat them or earlier closed experiments as progress. Qualify the real external
+scientific publication adapter, compact score/receipt archive and cumulative phase
+budgets, then the actual Gaussian and complete native physical/gate chain under a
+fresh prospective engineering scope. Full source arrays across 151 cadences total
+3,800,039,424 uncompressed bytes before scores; do not assume mock compression makes
+that fit the fixed 1 GiB evidence cap. Follow the detailed next steps in the result
+and integrated draft. No executable freeze or fresh scientific allocation is issued.
+
+The 127/24 proposal remains NOT ACTIVATED; all scientific counters, 17 historical
+pins, original preparations and prior dispositions are unchanged. New source requests,
+telescope values and external messages remain zero. The old ledger stays exhausted;
+no plan extension, and consolidation remains 9 October.
+
+## 28 September: physical vetoes, renderer binding and gate interface qualified
+
+The [new connected result](RADIO_WHOLE_CADENCE_PHYSICAL_2026-09-28_RESULT.md)
+adds **66 distinct passing tests**. New whole-cadence receipts now feed matched
+OFF, unmasked adjacent OFF, receiver aliases and complete clustering while
+preserving every trigger/veto and the fixed numerical rules. Eleven durable
+fixtures retain 14 triggers in complete runs and six upstream triggers in
+expected capacity failures; these are not measured RFI/recovery outcomes.
+
+All 151 proposed case plans bind without RNG calls. Two separately labelled
+non-Gaussian mock cadences verify row/injection/source binding; all 12 sources
+and 12,582,912 normalized values are preserved and rehydrated with identical
+source identities. A distinct post-decision gate interface binds truth to
+case/context and preserves all associated/unassociated and broad-width counts.
+
+**Exact continuation:** these deterministic interfaces are complete. Do not
+repeat their fixtures, prior closed codec/calibration/development runs or old
+diagnosis as progress. Implement a distinct durable scientific consumption
+journal, connect the actual Gaussian renderer, and qualify the full native
+physical/gate chain plus source/runtime/law binding and cumulative crash/restart.
+Follow the [integrated draft](RADIO_WHOLE_CADENCE_INTEGRATION_2026-09-28_DRAFT.md),
+which is not an executable freeze or allocation. The actual Gaussian entry
+remains disabled, and the complete native physical chain is unqualified.
+
+The 127/24 proposal remains NOT ACTIVATED: no Gaussian values, fresh scientific
+allocation, source request or telescope value consumed. Old 15 pins, original
+preparations, closed attempts and all prior dispositions are unchanged. A fresh
+allocation plus published/readback executable freeze precedes new scientific
+values; separate integrated acquisition/trial admission still precedes telescope
+spectra. No external messages or plan extension; consolidate 9 October.
+
+## 28 September: codec/native and empty-aware downstream handoffs complete
+
+The [new handoff result](RADIO_WHOLE_CADENCE_HANDOFF_2026-09-28_RESULT.md)
+qualifies two connected engineering boundaries. **41 new tests and three native
+negative checks pass.** The retained codec fixture reaches 6 explicit source
+slots, 48 cache receipts and **1,296 vectors / 384,912 preserved score cells**;
+all 2,592 ON hypotheses are enumerated. Its one shared deterministic texture
+is explicitly not independent Gaussian controls or telescope provenance.
+
+A distinct whole-cadence threshold/retention/rank path preserves EMPTY outcomes,
+inclusive ties and every ON/OFF threshold crossing without legacy scramble
+certificates. Six fixed interface scenarios retain 385 complete triggers plus
+partial/capacity-failure evidence. The existing score-map proof is bound to the
+actual receiver contexts and grids. No old map experiment was rerun.
+
+**Exact continuation:** these two handoffs are complete; do not replay their
+fixtures or prior closed attempts as progress. Integrate the new retention
+receipts with matched-OFF, single-adjacent-OFF, receiver-alias and clustering,
+preserving all fixed vetoes and every trigger. The legacy physical validators
+must not be given relabelled new receipts. Bind the proposed Gaussian renderer
+to its exact case/law/source identities; the deterministic codec path does not
+qualify it. Then publish/read back the integrated executable synthetic protocol
+with current code/runtime pins, recovery/RFI/null gates and cumulative budgets.
+
+The 127/24 proposal remains NOT ACTIVATED and requires a separately authorized
+fresh allocation. No new scientific values, allocations or source requests;
+old15 pins, preparation contracts, failed/closed attempts and all previous
+dispositions remain unchanged. Original preparations stay not-ready. Telescope
+spectra require separate integrated acquisition/trial admission even after a
+synthetic pass. No external messages or plan extension; consolidate 9 October.
+
+## 28 September: source filter guard and full-chunk fixture complete
+
+The [source-specific codec result](RADIO_HD189733_CODEC_2026-09-28_RESULT.md)
+adds exact filter-pipeline admission at both HDF5 opens. Missing declarations
+fail before source identity lookup; changed profiles fail before chunk discovery
+or native-row reads. **14 new filter/layout tests pass**, bringing this
+continuation to **49 distinct new tests** with the preceding method work.
+
+One retained local source-shaped fixture verifies **50,331,648 decoded cells**
+and **3,145,728 extracted/normalized cells bit-for-bit**, using the exact
+HD189733 filter declaration and 4 MiB decoded chunks. The original execution's
+oracle C-order failure is preserved; a separate correction reconciles the same
+files without regeneration. Both complete HDF5 files are published losslessly
+in a 2,501,892-byte archive. No archive-produced payload or old-encoder behavior
+is claimed. Runtime versions and 30 binary files are fingerprinted.
+
+**Exact continuation:** the empty-aware method audit, reference fixtures,
+filter guard and retained codec reconciliation are complete. Do not rerun them
+unchanged or restart either closed experimental runner. Finish the distinct
+whole-cadence downstream threshold/retention/rank interface and qualify the
+codec-to-receiver/native receipt handoff, including case/noise-law/source
+identities. The current whole-cadence reference bundle is engineering-only;
+it cannot substitute a legacy scramble certificate. The old renderer lacks
+the new law binding. The original codec generator remains failed/closed; use
+its retained archive and corrected reconciliation as evidence.
+
+The [127/24 protocol proposal](RADIO_WHOLE_CADENCE_NULL_2026-09-28_PROTOCOL_PROPOSAL.md)
+remains PROPOSED_NOT_ACTIVATED. Scientific execution requires an explicitly
+authorized fresh allocation and verified executable freeze. That freeze must
+pin the newly guarded source reader and dependency; the earlier proposal's
+old reader pin is historical, not silently updated. Original preparation
+contracts stay unchanged/not-ready. A synthetic pass still does not authorize
+telescope spectra without integrated acquisition/trial admission.
+
+No new calibration/evaluation allocation, telescope value or source request
+was consumed. Six development cases, three failed calibrations, one closed
+evaluation allocation and one closed retained-score diagnosis remain spent;
+24 old evaluation values stay unopened. The old 15 invariant pins, exhausted
+synthetic acquisition ledger and inactive telescope genesis persist. HD1461's
+hold, untouched GJ724, M43AI failure, original M43AF holdouts, M15/M33, LS pause
+and unsent CHEOPS remain unchanged. No external messages or plan extension;
+consolidation remains 9 October.
+
+## 28 September: empty-aware rank method and reference boundary verified
+
+The [new method study](RADIO_EMPTY_NULL_METHOD_2026-09-28_RESULT.md) is complete:
+**9,856 exact rank-bound checks have zero violations**, and **35 distinct new
+tests pass**. EMPTY is retained as a legitimate outcome below all finite
+scores, with inclusive ties. This establishes arithmetic under a stated
+exchangeability assumption; it does not qualify the old guarded shifts or
+reopen their failed attempt. Two fixed counterexamples document why arbitrary
+transformations and raw iid noise alone do not supply the missing proof.
+
+A separate complete-family reducer/reference bundle now distinguishes a
+fully computed empty outcome from missing vectors, damaged identities and
+eligible-score overflow. Its deterministic fixtures use no reserved controls.
+It emits no detector certificate. Successful native-runtime and downstream
+certificate integration remain unqualified.
+
+The [concrete next proposal](RADIO_WHOLE_CADENCE_NULL_2026-09-28_PROTOCOL_PROPOSAL.md)
+specifies 127 independent whole-cadence synthetic references and 24 fresh
+fixed evaluations, preserving neighbor9, all recipes and numerical gates.
+The 151 proposed namespaces/seeds/case identities have no collision across
+273 published configs plus two identity metadata files. Exact windows, noise
+law, pins and cumulative ceilings are recorded. **PROPOSED_NOT_ACTIVATED**:
+zero new scientific allocations or values; no reuse of the closed 3/24 attempt.
+
+**Exact continuation:** do not rerun this method audit, reference fixtures,
+closed calibration or its completed diagnosis as progress. Finish the distinct
+whole-cadence downstream certificate interface and qualify the native source/
+noise-law receipt boundary; the legacy renderer lacks that new law field.
+Source-specific codec/runtime handoff is also a useful pending engineering
+step. No legacy scramble certificate may be forged or relabelled. A scientific
+execution needs an explicitly authorized fresh allocation and independently
+verified executable freeze; the 127/24 proposal does not spend one. Telescope
+spectra still require the separate integrated acquisition/trial admission.
+
+Counters unchanged: development 6 closed; calibration 3 closed; evaluation
+values/runs 0, one allocation closed; retained-score diagnosis 1 closed;
+remedies/pilots/new source requests 0. Fifteen old invariant pins and the active
+source preparation remain unchanged. HD1461's hold, untouched GJ724, failed
+M43AI, original M43AF holdouts, M15/M33, paused LS and unsent CHEOPS persist.
+No external messages or plan extension. Consolidation remains 9 October.
+
+## 28 September: calibration failed; all evaluation values remain unopened
+
+The [fixed synthetic calibration/evaluation attempt](RADIO_HD189733_PANEL_2026-09-28_RESULT.md)
+has completed its three calibration realizations. Finite null support is
+**104/127, 84/127 and 13/127**; all fail the published prerequisite. The 24
+reserved evaluations were not generated, and no threshold certificate or pilot
+was issued. This is a synthetic calibration-contract failure, not a sky result
+or a measured signal-recovery failure. **22 distinct new interface tests pass**;
+explicit receiver metadata now reaches the full decision chain without orbital
+placeholders, while old records retain their fields.
+
+The plan's single bounded diagnosis is also complete: **3,888 retained score
+vectors** and all **381 conditional support flags** were independently checked.
+All empty/nonempty results agree. No mask cells were excluded; empty samples
+come from absence of simultaneous S/N >= 3 support in at least two active epochs.
+Full scores, original receipts, exact shifts, errors and detailed diagnosis are
+published. No empty row was discarded or turned into a finite null observation.
+
+**Exact continuation:** this attempt and diagnosis are CLOSED. Do not regenerate
+calibrations, run the unopened 24 evaluations, reuse the charged evaluation
+allocation, repeat the diagnosis, tune settings or automatically switch target.
+A next method requires an explicit prospective treatment of the
+no-eligible-hypothesis probability mass and an authorized fresh attempt
+allocation. None is supplied by restarting the old runner. Source codec/runtime
+handoff and a verified integrated acquisition/trial protocol also remain needed
+before telescope spectra. Preserve this bounded failure for 9 October period
+consolidation; do not expand the plan or manufacture progress through empty checks.
+
+Counters: development 6/6 previously closed; calibration 3/3 now closed;
+evaluation values 0/24, runs executed 0, one attempt allocation charged/closed;
+diagnosis 1/1 closed; remedies 0; pilots 0; new source requests 0. Fifteen old
+invariant pins remain unchanged. No external messages. HD1461's hold, untouched
+GJ724 reserve, M43AI failure, original M43AF holdouts, M15/M33, LS pause and unsent
+CHEOPS persist.
+
+## 28 September: synthetic calibration/evaluation protocol frozen before exposure
+
+The [new panel protocol](RADIO_HD189733_PANEL_2026-09-28_PROTOCOL.md) completes
+finite-exposure rendering, explicit conditional scramble tables, threshold/rank
+rules, context-bound synthetic score translation and the remaining fixed
+3-calibration/24-evaluation design. Neighbor9 and all reserved recovery/RFI/null
+gates are unchanged. **22 distinct new interface tests pass.** A pre-exposure
+metadata defect is corrected: receiver detections carry explicit drift fields
+through retention/alias stages without invented orbital phase/scale. Two test
+fixture errors are preserved; no reserved values were opened to fix them.
+
+Publication charges the three calibration slots and one evaluation-attempt
+allocation. Generate no evaluation values unless all three calibrations have
+finite conditional null support. Empty support is a failed prerequisite, not a
+measured zero false-alarm rate. Index 0 supplies the preselected threshold;
+indices 1/2 are diagnostics and never select settings. Every score vector will
+be archived before decisions. No telescope request or pilot is authorized.
+
+**Exact continuation:** verify this published freeze, then execute
+`scripts/radio_hd189733_panel.py --freeze-commit <freeze>` once. Complete the
+three preassigned calibrations despite a scientific support failure; stop on
+integrity/resource errors. If support passes, execute the fixed 24 cases once
+and retain every trigger/veto/outcome. If it fails, close this attempt and keep
+all evaluation values unopened. No reset, replacement, post-freeze remedy or
+replay after lost scratch. Follow any newer result first. The six development
+cases and score-map study remain closed. Source codec/runtime handoff and a
+verified integrated acquisition/trial protocol still precede telescope spectra.
+
+HD1461's hold, untouched GJ724 reserve, M43AI failure, original M43AF holdouts,
+M15/M33, LS pause and unsent CHEOPS persist. No external messages. The plan's
+three-sequence cap and 9 October consolidation remain unchanged.
+
+## 28 September: six receiver development cases complete; score maps match
+
+The [receiver adapter result](RADIO_HD189733_ADAPTER_2026-09-28_RESULT.md)
+completes the next connected work package. A distinct receiver contract/context
+now binds the published drift bank to native normalization, filtering and score
+gathering, retaining explicit drift rates and the unchanged neighbor9 kernels.
+**21 distinct new tests pass**; a sparse-checkout setup failure and a pre-exposure
+oracle-division correction are retained.
+
+All six prospectively reserved development cases ran once after published freeze
+`4c391970e2cbbf374e78e56d6a785233e2126817`. **2,309,472 score cells agree bit-for-bit**
+with independent window selection and accumulation. Execution took 20.366 s
+with 80.35 MiB peak RSS. Their six attempt slots are now CLOSED and may not be
+replayed. This is numerical qualification, not signal recovery or a candidate
+search: mask/retention/veto/rank stages have not run on these cases.
+
+A connected metadata-only comparison establishes identical relative score maps
+in **1,539,648 cross-window address comparisons**. It qualifies score arithmetic
+on identical translated arrays, not real-frequency noise exchangeability or
+absolute-frequency vetoes. No threshold was rebound. The old preparation,
+exhausted ledger, empty telescope genesis and fifteen invariant pins are unchanged.
+
+**Exact continuation:** freeze the remaining three calibration and 24 evaluation
+cases with complete finite-exposure rendering, exact null/scramble construction,
+threshold/rank settings and a context-bound numeric transfer mechanism. Use the
+score-map proof within its stated limit. Execute the fixed panel once only after
+that freeze, retaining all triggers, vetoes, losses and failures. Source codec/
+runtime handoff and the integrated prospective acquisition/trial protocol remain
+necessary before telescope spectra. Do not rerun the closed development or
+score-map work. See `results_radio_hd189733_adapter_2026-09-28/` and
+`results_radio_hd189733_score_map_2026-09-28/` for exact retained evidence.
+
+Counters: development 6/6 closed; calibration 0/3; evaluation 0/24 and 0/1 runs;
+remedies 0; pilot 0; new telescope requests 0. No external messages. HD1461's
+hold, GJ724 reserve, M43AI failure, 112+128 M43AF holdouts, M15/M33 dispositions,
+LS pause and unsent CHEOPS persist. Consolidation remains 9 October.
+
+## 28 September: receiver adapter protocol frozen; six development slots charged
+
+The distinct receiver contract/context and analytic finite-exposure renderer
+are implemented. **21 new targeted tests pass**; a missing sparse-checkout
+metadata file and a pre-exposure float-division correction are documented.
+Old numerical kernels and all prior dispositions remain unchanged.
+
+The [new prospective protocol](RADIO_HD189733_ADAPTER_2026-09-28_PROTOCOL.md)
+authorizes exactly the six previously reserved development cases, on validation
+geometry, with independent comparison of every native score. All six attempt
+slots are durably charged in `results_radio_hd189733_adapter_2026-09-28/published_development_reservation.json`.
+At this freeze, no case values, calibration or evaluation have been opened.
+No telescope access or statistical detection is authorized.
+
+**Exact continuation:** this initial execution may verify the published freeze
+and run `scripts/radio_hd189733_adapter_development.py --freeze-commit <freeze>`
+once. Follow a newer result if present. Missing results after an interrupted
+run or lost scratch do not authorize reusing its charged identities. Preserve
+partial outcomes and stop on mismatch. Calibration/evaluation remain 0/0 with
+the existing 3/24/one-evaluation/zero-remedy ceiling. No external messages.
+
+## 28 September: received linear-drift bank and fresh identities verified
+
+HD189733/HIP98505 cadence 85030 remains active. A new
+[receiver-coordinate preparation](RADIO_HD189733_RECEIVER_2026-09-28_RESULT.md)
+fixes 81 rate labels from ‚àí4 to +4 Hz/s, an explicit whole-cadence linear
+received-track domain, and the unchanged neighbor9 width bank. It does not
+claim planetary/orbital completeness or perform a barycentric conversion.
+The earlier width-257 nominal planet study remains unchanged and is not the
+model adopted for this limited receiver search.
+
+**69,984 exact-rational factor comparisons and 14 new tests pass.** The conditional
+largest-width support requirement is ‚â§138.032898 Hz versus 181.472219 Hz
+available. Arithmetic error is bounded below 6.35e‚àí7 Hz. This is geometric and
+arithmetic qualification, not signal recovery. Each role has 81 scored carriers
+spanning only 226.840273 Hz within its unchanged 65,536-channel extraction;
+the whole extraction is not searched. All 288 native-chunk identities stay disjoint.
+
+Six development, three calibration and 24 evaluation identities are reserved,
+with no seed/namespace collisions across 271 inspected configurations. The old
+unexecuted panel is archived inactive; its 3/24/1-evaluation/0-remedy ceiling is
+transferred, not doubled. Numerical recovery/RFI/null gates are unchanged.
+No reserved control, detector, calibration, telescope spectrum or new telescope
+request was executed. The exhausted ledger and empty telescope genesis persist.
+
+**Exact continuation:** use the new receiver bank records and control reservation
+in `results_radio_hd189733_receiver_2026-09-28/`. Implement and verify a distinct
+receiver-specific downstream adapter with explicit rate metadata and pinned
+window/bank identities; do not relabel orbital DirectFactors or old certificates.
+Freeze finite-exposure control rendering, calibration/null construction and
+cross-window numeric transfer before executing reserved controls. Then satisfy
+recovery/RFI/null, source codec/runtime handoff and integrated prospective
+resource/trial protocol requirements before any telescope spectra. Do not rerun
+completed metadata or bank checks. Preparation contracts remain not-ready.
+
+HD1461's hold, untouched GJ724 reserve, neighbor9, failed/closed M43AI, original
+112+128 M43AF holdouts, unresolved M15/M33, LS pause and unsent CHEOPS are
+preserved. No external message was sent. Three-sequence limit and 9 October
+consolidation are unchanged.
+
+## 27 September: HD189733 selected; new preparation and widened identities verified
+
+Following the owner's instruction to use other data without sending messages,
+**HD189733/HIP98505, cadence 85030**, is now the active preparation target.
+The [prospectively frozen metadata screen](RADIO_ALTERNATE_DATA_2026-09-27_RESULT.md)
+completed with six consistent headers: ON/catalogue separations are
+**0.19‚Äì0.28 arcsec**, within the fixed 60-arcsecond criterion. This verifies
+source identity and gross direction consistency, not independently measured
+pointing or a full physical model. HD1461/71139 and its unresolved hold remain
+preserved; reserve GJ724/73005 is untouched. No external message was sent.
+
+The run consumed **80 requests, 55,841 response-body bytes and 557.320353 active
+seconds**. All 72 retained header ranges replay correctly without network access.
+The separate [new preparation contract](config/radio_hd189733_source_preparation_20260927.json)
+remains BLOCKED for spectra. Five published freeze inputs and 15 old invariant
+pins were verified; no spectrum, scientific trial or reservation was opened.
+
+The [nominal geometry study and separate v2 binding](RADIO_HD189733_GEOMETRY_2026-09-27_RESULT.md)
+select **65,536-channel windows and width 257 among the declared choices**:
+the conditional model's approximately 430 Hz integration sweep exceeds the old
+width. Exact calibration/validation/pilot frequency intervals and **288 distinct
+native chunk identities** are retained. The old v1 correctly rejects this changed
+geometry and is unchanged. **14 new tests pass** across metadata and v2 binding.
+This is preparation, not actual-source physical coverage, calibrated detection
+or a signal result. No unchanged pipeline tests were rerun.
+
+**Exact continuation:** the alternate metadata screen, retained-header replay,
+preparation contract, geometry study and v2 identity binding are complete. Use
+`results_radio_hd189733_geometry_2026-09-27/window_identity_contract_v2.json`
+for the next source-specific motion/width and observer-domain design. Freeze
+fresh disjoint development/calibration/evaluation identities, numeric transfer
+and recovery/RFI/null gates, source codec/runtime handoff and cumulative
+resource/trial accounting in one integrated prospective protocol before spectra.
+Do not transfer HD1461's physical support, thresholds or live receipts. The new
+preparation stays immutable and not-ready; no failed evaluation may be tuned to
+pass. Follow this continuation, not a historical target-lock or email checkpoint.
+
+Neighbor9, closed M43AI, original 112+128 M43AF holdouts, unresolved M15/M33,
+paused LS8BD‚ÄìLS8BE, untouched LS8BF, unsent CHEOPS and all earlier dispositions
+persist. The shortlist stays within three sequences, the continuation end date
+is unchanged, and period consolidation remains **9 October**.
+
+## 27 September: owner authorizes other data; alternate metadata screen frozen
+
+The owner explicitly instructed at 22:26 Europe/Copenhagen: **do not send
+messages; continue with other data**. This supersedes the earlier stay-on-HD1461
+instruction. HD1461/71139 and its pointing hold remain unresolved and preserved;
+its archive request remains unsent. Further progress no longer depends on
+contacting that archive or resolving that particular target first.
+
+The [new prospective protocol](RADIO_ALTERNATE_DATA_2026-09-27_PROTOCOL.md)
+uses the next eligible records in the original metadata ordering: rank 41,
+**HD189733/HIP98505, cadence 85030**, then reserve rank 43, **GJ724/HIP91608,
+cadence 73005**. The fixed L-band catalogue screen and all three excluded
+S-band rows are retained. These fill the plan's remaining two shortlist slots;
+there is no extension beyond three sequences or 9 October.
+
+A refreshed conservative inventory contains 243 URLs from 72 configurations.
+Six new admission/coordinate/filter-metadata boundary tests pass. No new remote
+source read or spectrum has occurred at this freeze. The allocation is at most
+200 metadata requests, 8 MiB and 1200 active seconds; prior consumption and
+combined ceilings are recorded. The exhausted synthetic ledger and empty
+spectral ledger are unchanged.
+
+**Exact continuation:** verify the published freeze and execute
+`scripts/radio_alternate_metadata_20260927.py --freeze-commit <this-freeze>`
+with the retained h5py runtime. Inspect only the fixed catalogue, source
+attributes/filter declarations and exact official planet metadata. Select the
+first metadata/proximity-consistent alternative, preserving every failure;
+leave the reserve untouched if the first qualifies. Then publish its new
+preparation-only contract and freeze the integrated prospective protocol before
+any spectra. Do not rewrite HD1461's preparation to ready or transfer its
+physical support/receipts. Primary neighbor9, closed M43AI, original 112+128
+M43AF holdouts, unresolved M15/M33, LS pause and unsent CHEOPS stay unchanged.
+
+## 27 September: public HIP1499 log row retained; archive request ready and unsent
+
+A [new targeted lookup](RADIO_PUBLIC_LOG_CONTACT_2026-09-27_RESULT.md) found
+HIP1499 in the official-linked public GBT progress sheet: Dec ‚àí8.053611 degrees,
+L-band date `2016-05-14 16:58:31`. The row does not identify the session/scans,
+original coordinate source/frame or clock convention. Its date is six seconds
+earlier than the rounded scan-0019 UTC header only if clocks are comparable.
+It cannot resolve the approximately 34.23-arcminute header discrepancy.
+
+One public query returned one row in 652 bytes; the exact response, receipt,
+scoped retrieval code and offline reconciliation are retained. Fifteen earlier
+input pins remain unchanged. No telescope product, spectrum, scientific trial,
+reservation or external message was opened/sent. All five blockers persist.
+
+A complete [metadata request](RADIO_HD1461_ARCHIVE_EMAIL_DRAFT_2026-09-27.md)
+now lists all three scans and asks the official general Berkeley SETI contact
+to route it to the archive custodian. **It is unsent**, as required by the
+owner's prohibition on external messages. No custodian or sending capability
+is assumed merely from finding a public routing address.
+
+**Exact continuation:** close this particular sheet lookup. The owner can
+review/send the prepared request, authorize sending through an available
+channel, or supply the original same-scan metadata. Reopen only for a new
+original RAW/FIL/GO/log record or documented deployed conversion with original
+input bytes for AGBT16A_999_189 ON 0015/0017/0019. Do not repeat closed directory,
+catalogue, converter or generic engineering checks. Source/observer physics
+and independent live admission also remain required; a reply alone does not
+authorize spectra. HD1461, neighbor9 and every prior disposition are unchanged.
+No unblocked telescope step is established. Consolidate on 9 October.
+
+## 27 September: selected public directory route closed without original provenance
+
+A [new directory-level check](RADIO_DIRECTORY_PROVENANCE_2026-09-27_RESULT.md)
+examined the two publicly linked subdirectories of AGBT16A_999_189, without
+opening any product. All **78 listed files** have .h5 names; nine match the
+three selected ON scans, including all three pinned fine-resolution URLs.
+No RAW/FIL or log/header/conversion sidecar is listed. This limited absence in
+two indexes does not establish that originals are absent elsewhere.
+
+Three direct HTML GETs consumed 14,089 bytes. Three prior web-reader opens
+have unknown wire totals and are separately recorded. Raw child-index bodies,
+complete hrefs, transport receipts and an independent offline inventory check
+are retained. Fifteen prior input pins are unchanged. No telescope product,
+header in a data file, spectrum, reservation or scientific trial was opened.
+
+**Exact continuation:** close this particular directory route; do not repeat its
+unchanged indexes or count the derived HDF5 products as original provenance.
+The next pointing input remains a same-scan RAW/FIL header, observing/GO record
+or file-specific conversion proof for AGBT16A_999_189 ON 0015/0017/0019.
+The unsent retrieval specification already lists the exact requirements;
+external contact is outside the current instructions. A genuinely new public
+original-record link or supplied record may reopen a bounded investigation.
+No unblocked telescope step is established. The source/observer physics and
+independent live admission requirements, all five blockers, HD1461, neighbor9
+and all earlier dispositions persist. Do not invent generic engineering work or
+repeat empty checks. Period consolidation remains 9 October.
+
+## 27 September: score reconstruction gap guarded; local restart verified
+
+A [new score-handoff package](RADIO_SCORE_HANDOFF_2026-09-27_RESULT.md) addresses
+one concrete implementation risk found after the closed motion investigation.
+A reconstructed legacy store can pass its self-computed vector checks while
+retaining stale native-cache hashes. The separate guarded path rejects that
+mismatch and preserves all 4,752 score cells / 48 vector identities exactly.
+**26 new tests pass**, including bounded pinned checkpoint loading, concurrent
+writers and process-crash recovery. The two harness errors are retained.
+
+This is opt-in local engineering: old numerical modules remain unchanged and
+do not automatically gain the guard. A separately retained receipt pin is
+mandatory for restoration. No detector, calibration, telescope request,
+reservation or scientific evaluation ran. Power-loss/remote durability and live
+admission are not qualified. All fifteen old input pins, the exhausted ledger,
+empty telescope genesis, original preparation and five blockers are unchanged.
+
+**Exact continuation:** the score-handoff/checkpoint task is closed. Future
+integration must use its guarded API and external receipt pin. Do not replay
+closed tests or invent a generic hardening task. The scientific path still needs
+new same-scan RAW/FIL/log/file-specific conversion evidence for AGBT16A_999_189
+ON 0015/0017/0019, evidence-backed source/observer physics, and concrete independent
+live admission/transport capability. No unblocked telescope step is established.
+Reopen only for a named new input or demonstrable new risk with a bounded scope.
+Preserve HD1461, neighbor9 and every prior disposition; consolidate on 9 October.
+
+**Owner direction, 26 September 2026: ordinary radio SETI is active; LS is paused.
+Start the new two-week plan and work as autonomously as possible.**
+
+A [scheduled continuation](RADIO_AUTONOMOUS_CONTINUATION_2026-09-26.md) is now
+enabled daily through 9 October; the weekly LS-data watch is paused. Its first
+run is scheduled for 27 September. Three extra hourly evening continuations
+are enabled for 26 September after the owner's request to continue for several
+hours. Existing scientific and publication boundaries remain in force.
+
+The [26 September‚Äì9 October plan](RADIO_TWO_WEEK_PLAN_2026-09-26.md) has now
+started with a completed [integrated restart/metadata package](RADIO_RESTART_2026-09-26_RESULT.md).
+The earlier [rational temporal certificate and integration disposition](RADIO_TEMPORAL_MAJORANT_2026-09-27_RESULT.md)
+completes four connected conditional studies with 58 distinct new tests. Degree-5
+and degree-6 truncation bounds are 0.458764711 and 0.057497818 Hz in the explicitly
+conditional retarded emitter setting. No polynomial, bank or detector was run.
+Mathematical representability does not establish source membership, full
+physical accuracy, coefficient coverage, runtime or recovery. All five blockers,
+the immutable preparation/ledgers and unexecuted 24-case panel remain unchanged.
+
+Follow the newest PROJECT_STATUS.md information frontier: genuinely new same-
+scan provenance; evidence-backed physical support and complete clock/frame/
+omitted-term allowances; and concrete independently durable live admission and
+transport. Reopen bounded engineering for a specific new input or demonstrated
+risk, not repeated tests, more polynomial orders or arbitrary parameter boxes.
+No unblocked telescope-execution step is presently evidenced. The plan remains
+limited to 9 October with its original period consolidation and dispositions.
+
+The latest [continuous conditional covering study](RADIO_MOTION_COVERING_2026-09-27_RESULT.md)
+passes 13 new tests. Its global derivative construction is mathematically
+sufficient but impractically large; the node count is not a minimum or an
+impossibility result. Continue with a bounded analytic low-order temporal
+representation/remainder study before integrating the conditional findings
+with the existing blocked envelope. No templates, widths or controls are
+adopted or changed. Domain, time and sensitivity studies total 44 new tests;
+all science blockers remain unchanged and full physical error stays unknown.
+
+The latest [conditional emission-time/Doppler continuation](RADIO_TIME_TRANSFER_2026-09-27_RESULT.md)
+passes 15 new tests. Varying orbital delay and normalized reciprocal/transverse
+terms are now bounded separately in a declared stationary-receiver setting.
+The 43.833105-Hz conditional emitter comparison bound is not total physical
+error; the real-source/observer/systemic/clock/instrument terms stay unresolved.
+Continue directly with analytic continuous-parameter sensitivity and sufficient
+covering-cost bounds for this retarded model, without templates or detector
+execution. The 16-test phase-domain declaration is complete and immutable.
+
+The latest [conditional phase-domain declaration](RADIO_PHASE_DOMAIN_2026-09-27_RESULT.md)
+passes 16 new tests. It declares finite conditional P/a/e support and all phases/
+orientations, separates relative/emitter/projected axes and received/emitted
+clock and carrier meanings, and makes no probability or real-source membership
+claim. No physical bank or source access is adopted. Continue directly with
+conditional source-time/Doppler error and continuous parameter sensitivity
+bounds, using only retained metadata and new analytic tests. No templates,
+width changes, control evaluation or catalogue refresh. All five original
+blockers and the pointing hold remain; unknown full errors stay null.
+
+The latest [typed connector/ownership package](RADIO_CONNECTOR_2026-09-27_RESULT.md)
+passes 20 new offline tests. Typed tool replies and the durable attempt journal
+now reach the frozen one-append/Git-object/ancestry checks; exact unique-attempt
+commit messages are verified. Independent admission fixtures provide one owner
+and read-only recovery after loss of client state. No live authority, namespace,
+remote grant or telescope access is established by that conditional integration.
+A newly reproduced phase-veto gap is also fixed: semantic rejection now stops
+the journal and revokes the owner, preventing a fresh store from reusing it.
+The diagnostic failure and both passing versions remain archived.
+
+A retained counterexample shows why GitHub cannot silently fund its own first
+call under the existing contract: fresh clients can repeat an unrecorded bootstrap
+GET beyond the phase or total cap without changing the branch/grants. Live
+engineering now specifically needs independently durable exclusive admission
+before the first call, with provisioning/accounting and transport guarantees.
+Do not add another self-funding grant loop or treat fixture setup as free live
+administration. The inactive 160-call / 32-MiB / 1,200-second contract is unchanged.
+
+This offline investigation is closed; do not rerun its tests or earlier backend/
+journal fixtures as new progress. That independent item is now completed above: the motion report's
+explicitly allowed prospective phase-agnostic domain/convention contract. Declare
+conditional parameter support, relative-axis/emitter conventions and source/
+observer time-frequency meanings, with missing error terms explicit. Do not
+adopt a bank, turn an upper limit into a central value, invent a joint-confidence
+box from marginal errors, create templates or run controls. Same-scan pointing
+provenance remains missing, all five science blockers stand, and the original
+preparation, exhausted synthetic ledger and empty telescope genesis are unchanged.
+
+The [motion provenance/coverage contract](RADIO_MOTION_CONTRACT_2026-09-27_RESULT.md)
+is complete with 20 new tests. The historical e=0.172 is a 99% upper credible
+limit, not central eccentricity, and the bank's consumed orbital scalars mix
+two solutions. Preserve the old arithmetic as conditional engineering. One
+fixed witness exceeds half-channel center coverage even with a free carrier;
+this does not measure detector recovery. Complete physical error terms remain
+unqualified; no old bank, failed panel, ledger or preparation gate was changed.
+Its remote v2 backend continuation is complete above, while the live telescope
+namespace remains unactivated. Do not repeat the
+closed orbital-reference lookup/witness or create new templates. See the newest
+PROJECT_STATUS.md section for exact boundaries and missing physical evidence.
+
+The [local codec/publication continuation](RADIO_CODEC_PUBLICATION_2026-09-27_RESULT.md)
+is complete: 24 new tests, receipt-bound gzip/bitshuffle sources, bit-exact direct
+scores and an append-only v2 store guard. It demonstrates and closes a local
+policy gap: the low-level CAS primitive alone could accept a coherent ledger
+reset. Published ledgers remain unchanged; the future remote-store specification
+is pinned but unactivated. Its physical-motion accuracy/coverage continuation
+is now complete above. Do not rerun closed motion audits, tune failed controls
+or infer a physical bank from arithmetic.
+All five execution blockers remain, and no new telescope spectrum was opened.
+The [prospective execution envelope](RADIO_EXECUTION_ENVELOPE_2026-09-27_RESULT.md)
+now binds runtime, local codec evidence, direct-factor arithmetic, the three
+window identities, fresh controls and a new empty cumulative resource namespace.
+Thirteen tests pass. The namespace is not a reset of the exhausted synthetic ledger.
+Its v2 validator fixes a newly exposed contract mismatch: v1 could not represent
+the 1.5 GiB three-session total because it applied a single-session ceiling to
+the cumulative value. The envelope remains BLOCKED by pointing provenance,
+telescope codec handoff, physical motion qualification, numeric cross-window
+transfer and the unexecuted recovery/RFI/null panel. Local durable v2
+reservation integration now passes wrong-order, stale-parent and ambiguous-
+publication tests without issuing a network budget. Its local codec adapter
+and publication-store protocol are now completed by the continuation above;
+do not open spectra.
+A new [cross-window identity contract and fresh control freeze](RADIO_CROSS_WINDOW_CONTRACT_2026-09-26_RESULT.md)
+now bind all three proposed roles, 18 decoded payload identities and 12
+normalization blocks. Thirteen tests pass. Exact-context certificate reuse and
+calibration-to-pilot shortcuts are refused. The unexecuted 24-case evaluation
+freeze explicitly zero-gates unassociated broad-width 65/129 leakage while
+preserving the earlier failed panel as closed development evidence. Its
+execution envelope is now published above. Do not run the panel or open
+telescope values while pointing and cross-window numeric transfer remain
+unqualified.
+The deterministic first pilot source is HD 1461 / HIP1499, cadence 71139, on an
+observing date/session distinct from M43. All six current object/header
+identities are verified, but comparison with the official catalogue exposes a
+34.23-arcminute pointing discrepancy. **Spectral readiness is on hold pending
+pointing provenance.** The bounded original-product catalogue diagnosis is
+complete; it found no matching `.fil` or `.raw` original in that query scope.
+
+Continue from the exact missing-information requirement in PROJECT_STATUS.md:
+a same-scan original header/observing log or documented coordinate-conversion
+provenance. Do not relabel metadata consistency as target confirmation, correct
+coordinates to fit the catalogue, substitute another target automatically, or
+open spectra before the integrated primary/control protocol. The [new explicit-source acquisition interface](RADIO_SOURCE_2026-09-26_RESULT.md)
+is now implemented and passes seven local engineering checks. Its HD 1461
+preparation contract remains blocked before network access. The
+[integrated native search/control runner](RADIO_PIPELINE_2026-09-26_RESULT.md)
+now passes eight engineering tests and completes all six synthetic cases with
+full member/cluster accounting. The primary is the unchanged `neighbor9`
+reference; this choice is fixed before selected telescope spectra. Both toy
+signals are recovered and the four noise/interference controls have zero final
+members. This is not detector adoption or scientific source qualification.
+The [durable acquisition continuation](RADIO_ACQUISITION_2026-09-26_RESULT.md)
+also passes ten local tests and an actual GitHub-backed reservation/restart
+demonstration with simulated source HTTP. Each process reserves its whole
+allowance before access; crashes do not restore quota and a third test process
+is refused at the cumulative limit. No telescope request is made.
+The [source-specific motion and exposure audit](RADIO_MOTION_2026-09-26_RESULT.md)
+now passes twelve new engineering tests. It demonstrates an approximately 8.18 kHz
+sampled error if the circular two-phase construction is applied to the retained
+eccentric HD1461 parameters, and substantial intra-integration signal motion.
+A finite-exposure digital-injection component and an exact, unfrozen three-window
+payload/resource proposal are retained. No physical ephemeris or motion bank is
+adopted and spectra remain closed.
+The [direct-factor/native continuation](RADIO_DIRECT_FACTORS_2026-09-26_RESULT.md)
+now passes eight new tests: 38,016 factors agree with an independent orbital
+implementation, and all 1,015,344 native score cells agree bit-for-bit with the
+independent reference on one synthetic cadence. No physical model is adopted.
+The [versioned downstream continuation](RADIO_DIRECT_DOWNSTREAM_2026-09-26_RESULT.md)
+now carries all 33 direct templates through calibration, retention, matched and
+adjacent OFF vetoes, receiver-frame evidence, rank and clustering. Eight new
+tests and eight targeted legacy regressions pass. The distinct path constructs
+no old two-column basis. Its engineering control gate fails: a matched ON/OFF
+signal leaves 13 unassociated width-129 final members in two clusters after the
+intended track is vetoed. The bounded diagnosis attributes this to one-epoch
+strong-signal intersection plus just-over-floor noise support in another epoch;
+no implementation repair or retuning is claimed.
+The identity-bound disjoint-window calibration contract, fresh control freeze
+and blocked execution envelope are now complete. The local codec receipt
+adapter is now complete as reported above; numeric transfer and panel execution remain
+blocked. Preserve the failed case as exposed development evidence. Seek
+genuinely new pointing evidence; the new official
+operator-log route required NRAO sign-on and supplied no scan record. The
+[retrieval specification](RADIO_HD1461_PROVENANCE_REQUEST_2026-09-26.md) remains unsent.
+Preserve both coordinate identities explicitly; unresolved pointing is not
+permission to choose a correction.
+The [preparation design](RADIO_PIPELINE_2026-09-26_DESIGN.md) lists the remaining
+gates; its synthetic panel settings must not become a telescope freeze by default.
+The source-specific hold must not stop the entire authorized plan.
+Old source configs, receipts, calibrations and closed outcomes stay preserved.
+
+The current HD 3651 catalogue check found only the original M33 cadence.
+Preserve all 24 dedicated historical investigation cases, including unresolved
+M15 GJ 581 and M33 HD 3651, all five non-redetections and M16's conservative
+M35 count. The original M43AF 112+128 held-out inputs remain reserved.
+
+LS remains at LS8BD‚ÄìLS8BE and its period review; LS8BF is its exact saved restart,
+not the current queue. All 16 unresolved LS events remain preserved, CHEOPS
+calibration stays NOT_READY and its technical request stays UNSENT. Standing
+research/publication authorization continues without repeated approval stops;
+delegation remains deferred. Earlier dated directions below describe their
+historical tracks and are superseded operationally by this radio status.
+
+26 September 2026 review: the owner asked to continue the current plan after
+its progress review. The original two-week plan had already completed its
+negative-result branch on 13 September. A consolidated period review now
+accounts for the follow-on work through LS8BD‚ÄìLS8BE, including a pinned
+23-cohort/49-representative ledger and the full 16-event unresolved register.
+This is a synthesis of closed results, not a new numbered science experiment.
+See [TWO_WEEK_REVIEW_2026-09-26.md](TWO_WEEK_REVIEW_2026-09-26.md).
+The scientific queue remains LS8BF, rank-24 2MASS J11474440+0048164, under
+LS8BE_CONTINUATION.md. No closed result is retuned; the 107-cohort order and
+reserved panels stay fixed. Calibration remains NOT_READY and the external
+technical request remains UNSENT. Standing publication authorization continues;
+delegation remains deferred.
+
+Current operational status: [PROJECT_STATUS.md](PROJECT_STATUS.md).
+The decisions below remain in force; dated milestones describe their original scope.
+
+Owner decision, 5 September 2026: SETIsearch may be a multi-year project.
+Resume the narrowband milestone track after LS6A; preserve LS as an open
+research branch. A short run without a candidate is not a reason to abandon
+a scientifically motivated search.
+
+Progress is measured through validated methods, additional observing coverage,
+reproducible negative results, and candidate follow-up. Milestone numbers and
+event counts are not measures of evidence. Allow substantial engineering work
+when it addresses a concrete limitation, and record why each stage was chosen.
+
+Keep code, protocols, derived checkpoints, checksums and readable findings in
+the public project repository. Keep earlier results and their original
+denominators intact. Freeze scientific changes before new evaluation, distinguish
+retrospective diagnostics from independent tests, and make restart points
+explicit. Do not require a new permission merely to continue already authorized
+analysis, publication or README commits. Martin retains project direction;
+collaboration and delegation remain deferred.
+
+Current track: M43 qualification of the support rule after M42. First establish
+a reproducible baseline and explicit requirements across carrier, template,
+integration and epoch axes. Repair an implementation error only if one is
+demonstrated. A change in matching semantics needs its own named endpoint and
+validation, followed by deterministic exhaustive real-data anchors before new
+calibration. Preserve the completed LS6/LS6A results for later investigation.
+
+Future LS return points include independently useful observations, better
+conjunction qualification, or a separately scoped instrumental diagnostic.
+There is no fixed calendar deadline for a discovery and no promise of
+unattended computation between active sessions.
+
+Working cadence, owner clarification after M43O: reduce the number of small
+control milestones and approval stops. Combine related implementation,
+known-answer tests and predeclared real-data anchors into larger useful steps.
+Reuse completed evidence for unchanged arithmetic; repeat a large census only
+when a concrete remaining risk requires it. Prioritize an integrated detector
+and jointly planned null/native-injection calibration. Preserve prospective
+scientific freezes and clear claim boundaries while simplifying the workflow.
+
+Owner authorization, 7 September 2026: ongoing publication of SETI code,
+experiment plans, results and logs, including M43T and subsequent milestones,
+is approved for `andersenmartin-blip/setisearch` on
+`m43-support-qualification`, with README updates on `main`.
+This authorization does not require a fresh publication approval per milestone.
+On 12 September 2026, the owner reaffirmed the public destination and explicitly
+included all SETI files, LS7C, LS7D and M43AF code, experimental data, reports
+and logs, together with README updates on main. This is the same ongoing
+project publication scope; earlier upload-pending notes are historical.
+
+Owner request, 12 September 2026: continue the optical LS investigation with TESS.
+
+Implementation checkpoint: LS7's first mask failed contiguous-background
+eligibility. LS7B repaired that coverage problem on a different L 98-59 sector,
+but failed the fixed weak-glint recovery requirement after 420 digital trials.
+LS7C completed 1,460 stronger trials on sector 32, but the new spatial method
+failed recovery and compact-control rejection. LS7D now measures strong
+cross-pixel cancellation missed by the diagonal spatial model. Develop a joint
+covariance/residual method with broader nuisances on the closed sectors before
+another independent evaluation.
+Preserve all three closed experiments and the M43AI result; current details
+remain in PROJECT_STATUS.md.
+
+LS7E combined development is now complete on the ten closed sector 32
+backgrounds. Covariance and a sparse residual option improve recovery and
+reject the old compact controls, but weak-signal and broader-contamination
+requirements still fail. Continue with a joint stellar/nuisance separation
+study using the saved vectors, then a separately fixed transfer to another
+already closed sector if justified. Preserve LS7E's 3,180 paired cases and all
+prior outcomes; details remain in PROJECT_STATUS.md and LS7E_CONTINUATION.md.
+
+13 September 2026: LS7F completed that separation study on the 3,180 saved
+LS7E vectors. The original nuisance bank cannot meet all requirements at any
+margin. The expanded bank has a development-feasible interval only at negative
+margins, where a nuisance fit may be better than the stellar fit. No detector
+is adopted. Next prepare a separately frozen transfer on already closed sector
+29 with explicit training/eligibility, new nuisance controls, residual stress
+and nonnegative-margin accounting. This remains development before any unseen
+qualification. PROJECT_STATUS.md and LS7F_CONTINUATION.md carry the current
+details; LS7C/LS7E records and M43 held-out panels remain unchanged.
+
+13 September 2026: LS7G completed **3,540 fixed transfer trials** on the ten already closed sector-29 backgrounds. The primary joint descriptive gate **fails**. Nominal recovery at the fixed margin ‚àí1 is **37/40, 40/40, 40/40**; displaced recovery is **135/160, 153/160, 158/160**. **4/30** instrumental control cells exceed their allowance. The independent audit passes; no detector is adopted and no candidate is promoted.
+
+Next, diagnose the failed transfer cells from the saved sector-29 extracts, keeping the frozen LS7G rule and outcomes unchanged. Separate temporal, source-score, residual and nuisance-separation losses before proposing another model or observing sector. Details: LS7G_CONTINUATION.md.
+
+13 September 2026: LS7H completed the frozen diagnosis of all saved LS7G trials.
+All 24 accepted focus controls switch to clean-margin rejection after the known
+native contribution is removed. A 245-template extension reduces those
+acceptances to nine, loses ten recovered stellar rows and still fails two
+control cells, while all six signal cells pass. Continue with a joint model
+of time-varying background and residual pixels using observable outside-event
+samples, with combined planning for the two already closed sectors and full
+signal protection. Truth-dependent subtraction is diagnostic only. No
+threshold change or unseen sector follows automatically. PROJECT_STATUS.md
+and LS7H_CONTINUATION.md carry the current result and concrete input needs.
+
+13 September 2026: the owner asked to proceed with the two-week plan. LS7I
+restored both closed-sector inputs, then froze and completed one protected
+background predictor and static ablation. All 7,080 cases (6,720 historical
+plus 360 separate sector-32 controls), 420 native prediction windows and the
+independent audit are complete. The model fails six of twelve signal cells,
+two of sixty control cells and both native-prediction gates. No detector is
+adopted; unused sectors and M43 held-out panels remain closed.
+
+The plan's negative-result branch is complete. Preserve this fixed model
+outcome without a ridge/cut/bank retry. LS7I_LIMITATIONS.md accounts for
+source-score losses and sector-dependent error calibration. The next proposed
+direction is a separately specified study of additional observable instrumental
+information, beginning with existing outside-aperture pixels and verified
+image-motion/centroid fields on the same closed data. This is a research
+proposal, not evidence those observables will succeed. Publication continues
+under the existing standing authorization. Current restart instructions:
+LS7I_CONTINUATION.md and TWO_WEEK_REPORT_2026-09-14.md.
+
+14 September 2026: the owner asked to continue. LS7J completed the separately
+frozen auxiliary-information study: 420 native windows, all 7,080 existing
+recipes and 2,400 separate full-stamp response cases. Both sectors fail the
+native correction requirements; combined residual energy increases 45.74%
+and 34.51%, with no improved background aggregates. All motion inputs are
+available and all pulse-protection requirements pass. The independent audit
+and publication are complete. The fixed motion response, rather than missing
+fields or downstream pulse removal, is the measured limitation.
+
+Close LS7J without a gain, sign, delay or profile retry. Next assess the
+documented response relationship between mission motion fields and the
+processed short-cadence pixels, including uncertainty and target dependence.
+Identify an independently useful engineering source or calibrated response
+description before a new detector comparison; that input is not yet
+established. Preserve the validated protected-plane building block without
+adopting it as a detector. Current details: LS7J_LIMITATIONS.md and
+LS7J_CONTINUATION.md. Unused sectors and M43 held-out panels remain closed.
+
+
+14 September 2026: LS7K completed the instrument-response provenance and
+input assessment. Fifty original mission PRFs with uncertainty images and
+8,020 reused timing rows are restored and audited. The exact old motion
+values and historical manifests agree. Four matching engineering products
+are listed; their time-series contents remain uninspected.
+
+This establishes a mission-calibrated response family for the next integrated
+coordinate/PRF forward-model benchmark on the same closed data. Combine
+coordinate convention and phase/normalization checks with a bounded inspection
+of the engineering files, exposure timing and explicit uncertainty/upstream
+target dependence. Freeze any new response comparison before evaluation.
+LS7K does not establish that the calibrated response will improve native
+prediction. LS7J remains a closed negative result, with no gain/sign/lag/profile
+retry; unused TESS sectors and M43 held-out panels remain closed.
+Current findings: LS7K_INPUT_FINDINGS.md. Restart: LS7K_CONTINUATION.md.
+
+14 September 2026: LS7L completed the bounded engineering acquisition,
+closed-context extraction and PRF phase accounting. All 81,200 quaternion
+rows, 30,594 thermal rows, 8,020 cadence coverage bins and 4,050 phase images
+are published with a passing independent raw-byte audit. No cadence bin is
+empty; all contain ten quaternion samples. The phase footprint deficit is at
+most 0.405205%. Thermal gaps reach seven minutes.
+
+The recovered exporter copies inherited MATLAB coordinate references without
+an explicit shift and omits the original prfRow/prfColumn arrays; the
+calibration-to-science origin remains unresolved. Continue with that coordinate
+and phase definition, exposure integration, uncertainty and upstream target
+dependence before freezing a native physical-response benchmark. The input
+audit does not establish detector improvement. LS7J and all unused evaluation
+panels remain unchanged. Current findings: LS7L_FINDINGS.md. Restart:
+LS7L_CONTINUATION.md. Publication continues under the existing authorization.
+
+14 September 2026: LS7M completed the calibrated PRF and finite-exposure
+operator, ten known-answer tests, 4,050 phase reconstructions and 144 fixed
+calibration-only cases. The independent original-MATLAB/SciPy/Simpson audit
+passes with maximum absolute flux discrepancy 1.39e-16. Original relative axes
+and FITS identity are established; absolute column origin remains unresolved.
+Both declared origins, finite-stamp coverage and readout placement sensitivity
+are reported without selecting on native outcomes.
+
+Next establish the observable-to-pixel physical contract and freeze one native
+response comparison on the same twenty closed contexts. Address quaternion
+geometry, calibration's inherited pointing blur, exact sample/exposure timing,
+supported footprint, uncertainty and upstream target dependence together.
+Do not repeat completed numerical censuses without a concrete new risk. No
+detector is adopted and unused panels remain closed. LS7J remains a fixed
+negative result without an empirical gain/sign/lag/profile retry. Current
+findings: LS7M_FINDINGS.md. Restart: LS7M_CONTINUATION.md. Standing publication
+authorization continues.
+
+14 September 2026: LS7N completed the separately fixed cadence-level calibrated
+PRF/plane comparison. Its 420 native windows at both column conventions
+(840 paired model rows) fail the joint native requirement: combined energy
+rises 12.14‚Äì12.49% and too few backgrounds improve. All 12,600 downstream pulse
+responses pass. The independent audit confirms all results and unchanged
+historical inputs. This closes the exact cadence-level response family without
+an empirical gain/sign/lag/profile repair; LS7J remains separately closed.
+
+Next assess independently measured reference-star astrometry or documented
+target-excluded motion with timing and uncertainty on these same pointings.
+Availability is not established. Use metadata/geometry first, then freeze
+bounded source identities and an integrated comparison only if a viable input
+exists. If not, reconsider the optical data/product choice instead of another
+local correction adjustment. No unused sector or M43 held-out panel is opened
+and no detector is adopted. Current findings: LS7N_FINDINGS.md. Restart:
+LS7N_CONTINUATION.md. Standing publication authorization continues.
+
+14 September 2026: LS7O completes the reference-product assessment and its
+separately frozen availability experiment. Twelve fast products from seven
+stars supply 48,120 finite centroid/error rows with exact time joins and
+disjoint masks. The requirement that all six references be QUALITY=0 through
+every sideband blocks all 420 windows. Zero new corrections or pulse transfers
+were measured; this is an eligibility obstruction, not a measured failure of
+reference-driven PRF correction. The independent raw-row and quality/scope
+audits pass, and earlier LS7J/LS7N outcomes remain unchanged.
+
+Next establish a pixel-level quality, cosmic-ray and centroid-response contract
+for the same fixed references, with a bounded pixel acquisition and integrated
+endpoints specified together only if justified. The matching FAST-TP products
+are identified but their pixel rows remain unread. Do not waive flags, drop
+stars or retune the completed model to obtain a pass. If a usable contract
+cannot be established, reassess optical products/instruments instead of another
+local correction adjustment. No unused TESS or M43 panel is opened. Current
+findings: LS7O_FINDINGS.md. Restart: LS7O_CONTINUATION.md. Standing publication
+authorization continues.
+
+14 September 2026, LS7Q: the bounded HiPERCAM metadata assessment identifies
+XO-2b science run 5070352 and its calibration/QC provenance. Header-derived
+channel timing is promising, but the raw-file transfer and calibration mapping
+are not ready for a native pilot. The rs/NaI flat mismatch, slow-bias/fast-science
+readout difference and invalid transport length are documented; no science
+pixel was read. Next resolve the input package or assess actual CHEOPS product
+metadata before freezing any new native comparison. Current restart:
+LS7Q_CONTINUATION.md. The separate LS7P publication claim cannot currently be
+verified beyond its public source freeze; recover the result evidence as
+specified in LS7P_PUBLICATION_RECONCILIATION.md. Existing publication authority,
+closed studies and reserved TESS/M43 panels are unchanged.
+
+14 September 2026, LS7R: the planned secondary CHEOPS metadata assessment
+establishes usable bounded delivery for CH_PR300024_TG000301_V0300 (55 Cnc),
+with 3,024 raw imagettes, 432 subarrays and exact individual exposure metadata.
+A timestamp-only pulse comparison quantifies stacking losses; no native pixel
+response is measured. Calibration references are named, but their contents,
+validity and imagette propagation still require checking. Next combine that
+work with a single protected calibration/PSF/background and pulse/nuisance
+response protocol before opening image arrays. Cosmic-ray and instantaneous
+saturation handling must be explicit. Current restart: LS7R_CONTINUATION.md.
+No detector, candidate or qualified observing coverage is added. LS7Q and
+LS7P's separate evidence gap remain unchanged; existing publication authority
+and reserved TESS/M43 panels continue.
+
+15 September 2026: LS7S completes the retained CHEOPS visit's electronic-input
+and reference audit. Exact archive rows are saved, the original gain reference
+is verified from the official PIPE package, and selected metadata plus two
+conditional gain expressions pass byte/scalar checks. All individual onboard
+gain/bias entries are missing. Coaddition mapping, temperature convention and
+the remaining references are not qualified. Keep the native input NOT_READY;
+resolve the combined physical contract before freezing one protected native
+pixel comparison. No candidate, source pulse recovery or coverage is added.
+Current restart: LS7S_CONTINUATION.md. Standing publication authorization and
+unused TESS/M43 boundaries remain unchanged.
+
+15 September 2026, LS7T: the actual native HkExtended input is now retained.
+The pinned PIPE gain function reads a separate CCD-voltage field; its native
+result differs from the centered-temperature diagnostic by a median ‚àí0.57027%.
+This refines, rather than reinterprets as a PIPE measurement, the older 8.129%
+conditional comparison. CHEOPSim/common_sw disagree on the temperature sign.
+The individual missing gain/bias coefficients belong to onboard nonlinearity;
+NLIN_COR=false makes their inverse unnecessary on the declared native path.
+Keep the remaining physical contract explicit, reuse the completed arithmetic,
+and finish it before one integrated prospective native study. No science pixel,
+candidate or qualified coverage is added. Current restart: LS7T_CONTINUATION.md.
+
+15 September 2026, LS7U: the fixed virtual prescan now supplies direct
+562.089864 ADU/readout bias and 7.118046 ADU/readout effective noise. The CAL
+bias difference exceeds descriptive sampling spread. A separately specified
+exploratory check of PIPE's actual eight-column BlankLeft input does not
+explain it and gives noise 7.024590 ADU/readout; CAL is 1.500584% higher.
+Both array identities, all values, scalar calculations and clean offline
+reproduction pass. Electronic-reference array bytes are now retained, while
+target-image bytes, source trials, candidates and new qualified coverage
+remain zero. Reuse these results. The next substantive step requires new
+gain/gcoadd/offline/spatial-reference evidence, followed by one combined
+prospective native study. Do not repeat margin estimators to match CAL or
+create a checkpoint solely to restate unavailable inputs. Current restart:
+LS7U_CONTINUATION.md. Existing publication authority and reserved-data
+boundaries remain unchanged.
+
+15 September 2026, LS7V: the original reduction log establishes that CAL/COR
+bias and RON are the recorded defaults 563.43 and 7.13 ADU/frame. Their binary32
+representations match the saved constants exactly. LS7U's discrepancies are
+now understood as measurements compared with defaults; its measurements and
+all earlier results remain unchanged. The executed module (14.0.1 within DRP
+14.1.2) explicitly skips the spatial bias-frame correction, so the named
+reference is not required to replay an unapplied correction. The dark MAP
+was applied and still requires its exact content/applicability. Keep the
+gain/gcoadd/offline and remaining spatial inputs explicit before the single
+prospective native study. No new transfer, source pixel/trial, candidate or
+coverage is added. Current restart: LS7V_CONTINUATION.md. Reuse the resolved
+defaults and do not repeat margin or generic-source censuses. Standing
+publication authorization and reserved TESS/M43 boundaries continue.
+
+15 September 2026, operational follow-up after LS7V: two additional DRT/IASW
+repository leads did not resolve the missing instrument documentation. A
+complete technical request and exact input manifest are prepared in
+CHEOPS_CALIBRATION_REQUEST.md and CHEOPS_REQUIRED_INPUTS.json. The verified
+official contact has not been contacted; the draft is unsent and there is no
+pending reply. The owner can send it or supply relevant documentation and the
+exact files. The native study now explicitly depends on that external input.
+Keep LS7V as the latest scientific checkpoint, with no new numbered milestone
+for preparing a request. This does not expand the standing authorization to
+person-directed contact. Current restart: LS7V_CONTINUATION.md.
+
+
+19 September 2026, LS8B: the four visits selected at 45bf61f are fully evaluated
+under the unchanged DEFAULT-L2 screen. There are seven positive clusters and
+one negative control cluster over 7,917 eligible windows. The original audit
+failed two near-zero excess comparisons; that failure is preserved. A separate
+60-decimal reference verifies every threshold decision, and a subsequently
+frozen flux-centered arithmetic implementation passes all 31,668 comparisons
+at the unchanged tolerances on the already closed data. This is numerical
+repair, not independent revalidation or detector qualification.
+
+Next freeze a bounded auxiliary-column diagnosis for all eight representatives
+using only the retained L2 tables. Keep both signs, original representative
+windows and all earlier outcomes. Any subsequent image follow-up needs its own
+exact scope. No additional visit, alternative aperture, original producer rerun
+or unused TESS/M43 panel follows automatically. The raw-imagette calibration
+gate and unsent technical request remain separate. Current continuation:
+LS8B_CONTINUATION.md. Standing publication authorization continues.
+
+19 September 2026, LS8C: the separately frozen auxiliary study is complete for
+all eight LS8B representatives. All seven positive events coincide with large
+smearing-column departures at a similar roll orientation; the negative control
+does not share that event pattern. Sideband-only extrapolations do not provide
+a reliable event correction. The independent audit passes 11,635 numerical
+comparisons and 1,009 exact checks, while the original LS8B audit FAIL stays
+unchanged. All eight remain L2_ONLY_UNRESOLVED; no new science bytes or images
+were opened and no detector/candidate/qualified coverage is claimed.
+
+Next prepare a single bounded CAL/COR image-and-correction study retaining
+all eight fixed contexts and both signs. Establish metadata and exposure joins,
+then freeze exact byte/row/pixel scope and stopping rules before image access.
+Do not turn the observed smearing/roll pattern into a retrospective selection
+cut. The separate raw-imagette gate and unsent request remain unresolved;
+unused TESS/M43 panels and the earlier LS7X/Y/Z branches stay closed.
+Current continuation: LS8C_CONTINUATION.md. Standing publication authorization
+continues without a new per-milestone permission request.
+
+20 September 2026, LS8D: the bounded paired CAL/COR image study is complete
+for all eight fixed LS8B/LS8C representatives. Metadata and exposure joins were
+frozen before image access; the run then acquired exactly 154,240,000 CAL/COR
+image bytes plus 385,600 smearing-row bytes. All seven positive excursions and
+the one negative control satisfy the same predeclared CORRECTION_LINKED rule in
+both coordinate conventions. The independent audit passes 756,296 numerical
+comparisons and 1,284,709 exact checks with zero disagreements.
+
+This closes those eight 55 Cnc branches under the frozen stopping rule. The
+label establishes material coupling to delivered CAL‚ÜíCOR processing, not a
+unique instrumental cause and not artificial/astrophysical origin. Do not
+widen the closed events, change apertures or add further 55 Cnc visits to seek
+a different result. Next choose a new independent optical dataset/product by
+a separately frozen metadata-only selection before opening new signal values.
+Retain symmetric positive/negative controls and favor a delivered calibrated
+product that supports bounded image follow-up. The separate raw-imagette gate
+remains NOT_READY and its technical request is unsent. Current report:
+results_ls8d_images/REPORT.md. Restart: LS8D_CONTINUATION.md. Standing
+publication authorization continues.
+
+
+20 September 2026, LS8J‚ÄìLS8L: the bounded chronological CHEOPS census selected
+WASP-189, and a separately dated complete-inventory reconciliation preserved
+all 452 fresh product responses with unchanged 107-cohort order. The original
+missing full-inventory evidence is disclosed, not reconstructed as original.
+LS8K then screened both preselected visits (1,604 rows; 2,603 eligible windows),
+with two positive clusters and one negative control; its independent audit passes.
+
+The separately frozen LS8L image follow-up retained all three representatives.
+The stronger positive is SPATIALLY_STRUCTURED, the negative control is
+CORRECTION_LINKED, and the smaller positive stays UNRESOLVED_WITHIN_FIXED_SCOPE.
+All 283,611 numerical and 481,739 exact image checks pass. No new detector,
+SETI-candidate claim or qualified coverage is added. These labels are descriptive,
+not unique physical-cause determinations.
+
+Next freeze a bounded residual/noise study on the three already retained
+contexts, with both signed comparison cases and signal-loss/control accounting.
+The unresolved event's weak pure-brightness fit is not evidence for a stellar
+pulse. Preserve original gates and outcomes without widening pixels, apertures
+or visits. Current restart: LS8L_CONTINUATION.md. Existing publication authority,
+raw-imagette gate and reserved TESS/M43 boundaries continue.
+
+20 September 2026, LS8M: the prospectively frozen integrated residual/noise
+study is complete on all three retained WASP-189 contexts. The smaller positive
+has a compact COR residual: ten pixels carry 48.393‚Äì48.514% of weighted
+residual energy, while total weighted residual/reference energy is only
+1.10127‚Äì1.10616. Eight and seven of the 24 overlapping sideband controls are at
+least as large in C0/C1. This does not establish that the entire selected event
+is ordinary noise, nor does it identify a unique physical cause. Keep its
+historical UNRESOLVED_WITHIN_FIXED_SCOPE label and both signed comparison labels.
+
+All 288 held-sideband cases and 192 signed injections are retained. Eight
+pre-analysis tests pass, as do 790,128 independent numerical comparisons and
+911,228 exact checks. The hypothetical displacement removal has measured
+brightness-signal loss and is not adopted. No new source bytes, pixels,
+apertures, visits, classifier, qualified candidate or qualified coverage were
+added. Stop the bounded WASP-189 saved-data branch here, without further tuning.
+
+Next separately freeze metadata-first transfer to rank-2 GJ 1132 from the
+unchanged reconciled LS8J ledger: CH_PR100041_TG000401_V0300 and
+CH_PR100041_TG000403_V0300. Preserve the stable LS8K DEFAULT-L2 screen, both
+signs and its audit. LS8M's weights and residual measures are not new selection
+or veto criteria. Any image follow-up requires its own exact exposure/byte
+freeze and retains all signed representatives. Current restart:
+LS8M_CONTINUATION.md. Standing research/publication authorization continues;
+the separate raw-imagette request remains unsent and reserved TESS/M43 panels
+remain closed.
+
+20 September 2026, LS8N‚ÄìLS8O: rank-2 GJ 1132 has completed its metadata-first
+independent transfer. The unchanged stable DEFAULT-L2 screen evaluated 615
+rows and 699 eligible windows, with zero positive crossings and five negative
+control clusters. All 8,388 independent L2 comparisons pass. Every negative
+representative received its separately frozen CAL/COR image follow-up after
+310 unique exposure joins. Nine synthetic tests and all 472,685 numerical /
+802,983 exact image checks pass.
+
+All five negative controls remain UNRESOLVED_WITHIN_FIXED_SCOPE. Complete
+apertures and matching signs rule out missing coverage as the reason for this
+label. No correction ratio reaches the fixed gate in both conventions. One
+displacement fit is 79.74861% in C0 and 83.79823% in C1; preserve the failure
+to pass both without rounding or choosing C1. Another event's signed
+DELTA/COR changes from +0.37227 to -0.03201 across the same two conventions.
+These are concrete coordinate/model limitations, not qualified candidates.
+
+Next freeze one integrated diagnostic on the five retained 31-row contexts:
+three-exposure-sum variability, residual structure, and explicit contributions
+of the two existing apertures' boundary difference. Retain every control,
+both coordinate conventions and both signs in synthetic signal-protection
+tests. Do not reuse LS8M's single-row noise/control procedure without a newly
+specified three-row treatment; do not derive a new veto from these closed
+events. Keep original labels and thresholds and stop after the bounded study.
+No new native pixels, rows, apertures or visits follow automatically.
+
+Rank-3 HD 136352 stays next for a later independent metadata-first transfer;
+the current continuation is LS8O_CONTINUATION.md. No qualified candidate,
+detector or coverage is added. Existing publication authority continues.
+Closed WASP-189, raw-imagette calibration boundaries, the unsent technical
+request and reserved TESS/M43 panels remain unchanged.
+
+
+20 September 2026: LS8P completes and closes the single bounded GJ 1132
+retained-data follow-up. The three-row temporal covariance model and all
+160 held-block cases quantify local variability without a calibrated
+significance claim. Exact C0/C1 boundary accounting explains the previously
+noted signed correction-budget change. All five original LS8O controls
+remain unresolved, and LS8N still has zero positive crossings.
+
+A hypothetical displacement-plus-constant subtraction loses 24‚Äì38% of
+injected brightness flux and is not adopted. The initial audit serialization
+failure is retained; a separately frozen NumPy-coordinate representation
+repair passes the same independent audit, with no scientific arithmetic or
+tolerance change and no producer rerun. All 320 signed controls are retained;
+1,400,704 numerical comparisons and 1,529,059 exact checks pass. The verified
+result is in results_ls8p_verified.
+
+Continue with rank-3 HD 136352's unchanged chronological pair under separate
+metadata/header and exact science-byte freezes. Use the original stable
+DEFAULT-L2 screen, without transferring LS8P residual measures as cuts.
+Do not reopen this bounded GJ 1132 study merely to improve closure or change
+its coordinate convention. LS8P_CONTINUATION.md is the current restart point.
+No qualified candidate, detector or observing coverage is added. The separate
+raw-imagette calibration request remains unsent; reserved data stay closed.
+
+
+20 September 2026, LS8Q‚ÄìLS8R: the independent rank-3 HD 136352 pair is
+complete and closed under the unchanged screen and image diagnostic.
+The L2 result has zero positive threshold crossings in 1,923 eligible
+overlapping windows. All three negative representatives pass the original
+CORRECTION_LINKED gate in both coordinate conventions, with direct signed
+DELTA/COR ratios 0.558559‚Äì0.813813. This describes coupling to delivered
+processing, not one unique physical cause or the exclusion of source
+variability. No new candidate, detector or coverage qualification follows.
+
+Separate public freezes preceded headers, L2 values, image metadata and
+exact image payload. Both stable L2 tests, nine image tests, all 23,076 L2
+comparisons, 812 metadata checks and 283,611 numerical / 481,748 exact image
+checks pass. All signed outcomes and figures are retained. No residual
+study is required under the frozen all-events-closed branch; do not widen
+the pair or tune its diagnostic simply to seek a physical explanation.
+
+Next separately freeze rank-4 TESS_260647166 from the unchanged reconciled
+LS8J chronology: CH_PR300046_TG000101_V0300 and CH_PR100031_TG015701_V0300.
+These are CHEOPS products. Their existing ledger has NEXP=1 in both and
+42-/49-second integrations respectively; verify each exact header before
+freezing table ranges and transferring the original stable DEFAULT-L2
+screen. Do not adopt image labels or previous weighted residual measures
+as a new selection rule. LS8R_CONTINUATION.md is the current restart point.
+Standing publication authorization continues; collaboration remains deferred.
+Closed GJ 1132/WASP-189 work, reserved TESS/M43 panels and the unsent
+raw-imagette calibration request remain unchanged.
+
+
+20 September 2026, LS8S‚ÄìLS8T: rank-4 TESS_260647166's independent CHEOPS
+pair has completed its unchanged L2 screen and both signed image follow-ups.
+The 1,747 rows provide 2,004 eligible overlapping windows: six positive
+crossings in one cluster and two negative crossings in one cluster. Exact
+42-/49-second exposure metadata and separate science-byte scopes were
+verified before acquisition. The L2 audit passes all 24,048 comparisons.
+
+The negative is SPATIALLY_STRUCTURED, with 92.95567% / 92.96205% COR
+displacement explained energy. The positive remains UNRESOLVED_WITHIN_FIXED_SCOPE:
+75.76422% / 75.77892% falls below the fixed 80% requirement in both conventions;
+pure brightness explains about 2.7%. Neither correction gate passes. Complete
+apertures and unique joins leave a model/residual limitation, not missing data.
+The image audit passes 189,074 numerical comparisons and 321,180 exact checks;
+nine synthetic tests pass. No qualified candidate, detector or coverage is added.
+
+Next freeze one integrated retained-data study of the positive's residual
+structure and local variability, preserving the original three-exposure
+negative comparison. Specify duration-matched held controls, training rules,
+appropriate temporal covariance for the three-row sum, both signed signal
+controls and hypothetical signal-loss accounting before native evaluation.
+Use only the two saved contexts and original apertures/conventions. Do not
+change historical gates, remove pixels or adopt a new veto from the study.
+Publish all outcomes and stop after that bounded follow-up; it has not yet
+been executed. LS8T_CONTINUATION.md is the active restart point.
+
+Rank-5 EC 12578-2107 remains the later independent target from the unchanged
+reconciled ledger, requiring its own header/science freezes. Closed
+HD 136352/GJ 1132/WASP-189 studies and reserved TESS/M43 data remain closed.
+The raw-imagette calibration request remains unsent. Standing publication
+authorization continues; collaboration remains deferred.
+
+20 September 2026, LS8U: the single retained-data TESS_260647166 study is
+complete and closed. The positive retains UNRESOLVED_WITHIN_FIXED_SCOPE:
+its COR combined residual/reference energy is 3.77‚Äì3.80, with 1/24 held
+single-row controls at least as large. The weighted residual is extended,
+with only 6.47‚Äì7.03% in its top ten pixels. These dependent comparisons
+are descriptive, not a calibrated significance or unique physical cause.
+The negative remains SPATIALLY_STRUCTURED; its three-row residual/reference
+energy is 0.705‚Äì0.723, with 6/8 held targets at least as large. Exact duration
+and short-lag covariance propagation preserve both IID and correlated
+references without changing the original screen or image gates.
+
+All 18 pre-analysis tests, 583,488 numerical comparisons and 625,868 exact
+checks pass. Both contexts, eight native product/convention cases, 128 held
+cases and 128 signed controls are retained; no new archive bytes were
+acquired. Hypothetical displacement subtraction loses 12.79‚Äì13.09% of
+injected brightness flux in the positive and 7.31‚Äì7.84% in the negative,
+so no correction or veto is adopted. Both figures were checksum verified
+and visually inspected. No qualified candidate, detector or coverage is added.
+
+The active next step is LS8V: separately freeze a metadata-first independent
+transfer of the unchanged DEFAULT-L2 screen to rank-5 EC 12578-2107, exact
+pair CH_PR100002_TG008901_V0300 and CH_PR100002_TG008902_V0300 from the unchanged
+reconciled LS8J ledger. Verify both visits' headers and NEXP=1/60-second
+ledger semantics before freezing exact table intervals and accessing science
+values. Preserve both signs and independent audits. Do not adopt LS8U
+residual ranks, rings or covariance ratios as new screening cuts. The rank-5
+science values remain unopened. LS8U_CONTINUATION.md is the active restart
+point; prior dated next actions are historical.
+
+Do not extend or retune the closed TESS_260647166 pair merely to improve its
+explanation. Closed HD 136352/GJ 1132/WASP-189 work and reserved TESS/M43 data
+stay closed. The calibration gate remains NOT_READY and its technical
+request remains unsent. Standing publication authorization continues;
+collaboration and delegation remain deferred.
+
+
+## 21 September 2026 ‚Äî LS8V closed; proceed to rank-6 GJ 436
+
+The rank-5 EC 12578-2107 pair completed its unchanged prospective DEFAULT-L2
+screen: 174 rows, 201 eligible overlapping windows and zero positive or
+negative threshold crossings. Both known-answer tests and 2,412 independent
+numerical/discrete comparisons pass. The first pre-table TLS failure is
+preserved; a separately frozen transport-only recovery obtained the same
+exact inputs and passed without changes to scientific arithmetic or gates.
+All 20 result files and 26 metadata files were checksum verified, and the
+figure was visually inspected. No CAL/COR image follow-up is triggered.
+
+Keep this pair closed, including its five later eligible visits. The active
+next step is LS8W: separately freeze rank-6 GJ 436's exact chronological pair,
+CH_PR100041_TG000302_V0300 and CH_PR100041_TG001301_V0300, for metadata/header
+checks. Both ledger exposure tuples are NEXP=1 and 60 seconds; verify each
+header before freezing exact DEFAULT-L2 ranges and opening values. Preserve
+the unchanged screen, both signs and independent audit. Current restart:
+LS8V_CONTINUATION.md. GJ 436 science values remain unopened.
+
+This null is not a sensitivity, completeness or observing-coverage result.
+The earlier TESS_260647166 positive remains unresolved and its study closed.
+Other closed optical studies, M33 HD 3651, reserved TESS/M43 panels and the
+unsent calibration request are unchanged. Standing research/publication
+authorization continues; collaboration and delegation remain deferred.
+
+
+## 21 September 2026 ‚Äî LS8W‚ÄìLS8X closed; proceed to rank-7 PG 1245-042
+
+The rank-6 GJ 436 pair completed its unchanged prospective DEFAULT-L2
+screen: 640 rows, 936 eligible overlapping windows, one positive crossing
+and no negative crossing. The complete representative set received a
+separately frozen image diagnostic after 58 unique metadata joins. Its
+single 60-second positive TG000302_P0 is CORRECTION_LINKED: DELTA/COR is
+-2.089268 / -2.001642, with matching positive COR signs and complete
+apertures in both conventions. The correction reduces a larger positive
+CAL residual; this is not a causal determination or a SETI detection.
+
+The L2 audit passes 11,232 comparisons. All nine pre-pixel image tests and
+the independent image audit pass: 94,537 numerical comparisons and 160,581
+exact checks, no disagreements. The fixed scope acquires 88,320 table bytes,
+18,560,000 image bytes and 46,400 smearing bytes. Both figures pass visual
+inspection. Full workflow verification and the local-copy limitation for
+two compressed inputs are explicitly recorded in the publication record.
+No qualified detector, candidate or observing coverage is added.
+
+Keep GJ 436 closed under the original stopping rule. The active next step
+is LS8Y: separately freeze rank-7 PG 1245-042's chronological pair,
+CH_PR100002_TG008601_V0300 and CH_PR100002_TG008602_V0300, for header-only
+checks. Verify the ledger NEXP=1 and 60-second exposure tuples before
+freezing exact DEFAULT-L2 table ranges and opening science values. Preserve
+the unchanged signed screen and audit; do not transfer image correction
+ratios as new L2 selection cuts. This pair's values remain unopened.
+LS8X_CONTINUATION.md is the current restart point; earlier dated next actions
+are historical.
+
+The earlier TESS_260647166 positive remains unresolved and its bounded
+study closed. Other closed optical studies, the M33 HD 3651 radio case,
+reserved TESS/M43 panels and the unsent calibration request are unchanged.
+The calibration gate remains NOT_READY. Standing research/publication
+authorization continues; collaboration and delegation remain deferred.
+
+
+## 21 September 2026 ‚Äî LS8Y‚ÄìLS8Z PG 1245-042 complete and closed
+
+The rank-7 pair completes its unchanged prospective DEFAULT-L2 screen:
+164 rows, 228 eligible windows, four negative crossings in one cluster and
+no positive crossing. Its complete signed representative set receives the
+separately frozen image diagnostic after 58 unique metadata joins.
+The fixed image diagnostic classifies the negative event as
+**CORRECTION_LINKED**. DELTA/COR is **+1.688786 / +1.717959** in the two
+coordinate conventions, with complete apertures and negative COR signs
+matching L2. The delivered correction reverses a positive CAL aperture
+residual into a negative COR residual. The label describes material coupling
+to processing; the responsible component and physical cause remain unassigned.
+
+The L2 audit passes 2,736 comparisons; all nine pre-pixel image tests pass.
+The independent image audit passes 94,537 numerical comparisons and
+160,581 exact checks with no disagreements. Both figures are visually
+inspected. Full workflow verification and the exact local-copy scope are
+recorded in the publication record. No qualified candidate, detector or
+observing coverage is added; no new correction or screening cut is adopted.
+
+**Immediate next action: prepare LS8AA for rank-8 WASP-43**, beginning
+with a separate exact-pair/header freeze for CH_PR100016_TG007801_V0300 and
+CH_PR100016_TG007802_V0300. Verify their NEXP=1/60-second ledger exposures,
+then freeze exact DEFAULT-L2 ranges and transfer the unchanged signed screen.
+Those science values remain unopened. The PG 1245-042 pair is closed.
+
+Current restart: LS8Z_CONTINUATION.md. Earlier dated next actions are
+historical. TESS_260647166's positive remains unresolved and its bounded
+study closed; GJ 436 remains closed under CORRECTION_LINKED. Other optical
+studies, M33 HD 3651, reserved TESS/M43 panels and the unsent calibration
+request are unchanged. Standing research/publication authorization continues;
+collaboration and delegation remain deferred.
+
+
+## 21 September 2026 ‚Äî LS8AA‚ÄìLS8AB WASP-43 complete and closed
+
+The predetermined rank-8 CHEOPS pair supplied **271 rows and 294 eligible
+overlapping windows**, with one positive crossing/cluster and no negative
+crossing. TG007801_P0 is a 60-second exposure at zero-based row 62, score
+**+9.486349813911296**, approximately 0.78% above its local L2 baseline.
+Both visits have verified NEXP=1 and 60-second exposures. Scores are not
+Gaussian significances.
+
+The fixed image diagnostic classifies the positive event as
+**CORRECTION_LINKED**. DELTA/COR is **-0.713546 / -2.797082** in the two
+coordinate conventions, with complete apertures and positive COR signs
+matching L2. The delivered correction reduces the positive aperture residual;
+the amount is sensitive to the coordinate convention, while both satisfy the
+original closure gate. The label describes material coupling to processing;
+the responsible component and physical cause remain unassigned.
+
+The L2 audit passes **3,528 comparisons**. Before pixels, image metadata
+passes **58 unique joins and 269 exact checks**. All nine inherited image
+tests pass; the independent image audit passes **94,537 numerical
+comparisons and 160,581 exact checks**, zero disagreements. Both figures
+were visually inspected. Exactly 37,398 L2 bytes, 18,560,000 image bytes and
+46,400 smearing bytes were acquired. The publication record gives the exact
+workflow and local verification scope. No qualified SETI candidate, detector
+or observing coverage is added.
+
+**Immediate next action: prepare LS8AC for rank-9 PG1303-114**, starting
+with a separate exact-pair/header freeze for CH_PR100002_TG006401_V0300 and
+CH_PR100002_TG006402_V0300. Verify the NEXP=1/60-second ledger exposures,
+then freeze exact DEFAULT-L2 ranges and transfer the unchanged signed screen.
+Those science values remain unopened; the cohort's three later eligible
+visits stay outside scope. The WASP-43 pair is closed.
+
+
+Current restart: LS8AB_CONTINUATION.md. Earlier dated next actions are
+historical. No new correction or screening cut is adopted. The earlier TESS_260647166 positive remains UNRESOLVED_WITHIN_FIXED_SCOPE
+and its bounded study closed. GJ 436 and PG 1245-042 remain closed under
+CORRECTION_LINKED. Other closed optical studies and M33 HD 3651 are unchanged.
+Reserved TESS/M43 panels remain closed. Calibration is NOT_READY and its
+technical request unsent. Standing research/publication authorization
+continues; delegation remains deferred.
+
+
+## 22 September 2026 ‚Äî PG1303-114 bounded study closed; proceed to PG 1207-033
+
+The rank-9 CHEOPS pair supplied **165 rows and 222 eligible overlapping
+windows**, with **zero positive crossings** and two negative crossings in
+one cluster. TG006402_N0 is one 60-second exposure at zero-based row 21,
+score **-10.531570808271077**, approximately 3.00335% below its local L2
+baseline. Both visits have verified NEXP=1 and 60-second exposures.
+Scores are not Gaussian significances.
+
+The complete signed image follow-up leaves the negative
+**UNRESOLVED_WITHIN_FIXED_SCOPE**. DELTA/COR is 0.304773/0.312012 and COR
+displacement explained energy is 58.94%/58.68%, below the original gates in
+both conventions. The subsequent separately frozen retained-data study finds
+COR residual/reference energy **0.878666/0.876726**, with **20/24 and 19/24**
+held single-row controls at least as large. The residual is not exceptional
+in this fixed local comparison; these dependent counts are not p-values and
+do not identify its cause. The original label remains unchanged.
+
+Hypothetical displacement subtraction loses **38.17‚Äì38.23%** of injected
+COR brightness flux and is not adopted. All four native cases, 96 held cases
+and 64 signed controls are retained. The bounded study is closed without
+a new correction, cut, qualified SETI candidate, detector or coverage claim.
+
+All five workflows and the 5 transport / 2 L2 / 9 image / 18 residual tests
+pass. The independent audits pass 2,664 L2 comparisons, 269 image-metadata
+checks, 94,537 numerical / 160,581 exact image checks, then 305,356 numerical /
+320,126 exact residual checks. All three figures were visually inspected.
+Exactly 22,770 L2 bytes and 18,560,000 image plus 46,400 smearing bytes were
+acquired; the residual study used no new archive bytes.
+
+**Immediate next action: prepare LS8AF for rank-10 PG 1207-033**, starting
+with a separate exact-pair/header freeze for CH_PR100002_TG000901_V0300 and
+CH_PR100002_TG000902_V0300. Verify the NEXP=1/60-second ledger exposures,
+then freeze exact DEFAULT-L2 ranges and transfer the unchanged signed screen.
+Those science values remain unopened. PG1303-114's three later eligible
+visits remain outside scope.
+
+[Scientific interpretation and exact continuation](LS8AE_CONTINUATION.md),
+[L2 report](results_ls8ac_l2_screen/REPORT.md),
+[image report](results_ls8ad_images/REPORT.md),
+[residual report and figure](results_ls8ae_residuals/REPORT.md),
+[publication identities and verification](PUBLICATION_2026-09-22_LS8AC_LS8AE.md).
+
+All earlier dated next actions below are historical. The active continuation
+is LS8AE above. The prior TESS_260647166 positive remains unresolved and its
+bounded study closed. Other closed studies and reserved TESS/M43 data remain
+closed. Calibration is NOT_READY and its request unsent. Standing publication
+authorization continues; delegation remains deferred.
+
+## 22 September 2026 ‚Äî LS8AF‚ÄìLS8AH closed; proceed to rank-11 EC13080-1508
+
+The rank-10 CHEOPS pair supplied **153 rows and 165 eligible overlapping
+windows**, with six positive crossings in one cluster and no negative crossing.
+TG000901_P0 is one 60-second exposure at zero-based row 60, score
+**+141.1054591837304**, approximately 43.12658% above its local L2 baseline.
+Both visits have verified NEXP=1 and 60-second exposures. Scores are not
+Gaussian significances.
+
+The fixed image diagnostic leaves the positive
+**UNRESOLVED_WITHIN_FIXED_SCOPE**. DELTA/COR is 0.218211/0.314435 and COR
+displacement explained energy 11.40%/16.23%, below the original gates in
+both conventions. The figure shows an extended stripe crossing the upper
+aperture edge. Its physical cause remains unassigned; the specific original
+displacement-fit gate is not replaced by a visual morphology label.
+
+The separately frozen retained-data study finds COR residual/reference energy
+**278.663206/124.118239**, with **0/24 held controls as large** in each
+convention. The fixed outer ring contains **98.39%/97.84%** of weighted
+residual energy. These results describe a large, edge-dominated mismatch
+with the local sideband model, not a calibrated probability or SETI detection.
+Exact boundary accounting gives COR C1 minus C0 **-46,369.987482 ADU**.
+Hypothetical displacement subtraction loses **42.99‚Äì43.53%** of injected
+COR brightness flux and is not adopted. All four native cases, 96 held cases
+and 64 signed controls are retained. The bounded study is closed and its
+original unresolved label preserved, with no new cut, qualified candidate,
+detector or coverage claim.
+
+All five workflows and the 5 transport / 2 L2 / 9 image / 18 residual tests
+pass. Independent audits pass 1,980 L2 comparisons, 269 image-metadata checks,
+94,537 numerical / 160,581 exact image checks and 305,224 numerical /
+320,118 exact residual checks. All three figures were visually inspected.
+Exact acquisition was 21,114 L2 bytes and 18,560,000 image plus 46,400
+smearing bytes; the residual study used no new archive bytes.
+
+**Immediate next action: prepare LS8AI for rank-11 EC13080-1508**, starting
+with a separate exact-pair/header freeze for CH_PR100002_TG005201_V0300 and
+CH_PR100002_TG005202_V0300. Verify the NEXP=1/60-second ledger exposures,
+then freeze exact DEFAULT-L2 ranges and transfer the unchanged signed screen.
+Those science values remain unopened. The third eligible visit,
+CH_PR100002_TG005203_V0300, stays outside this two-visit transfer.
+
+[Scientific interpretation and exact continuation](LS8AH_CONTINUATION.md),
+[L2 report](results_ls8af_l2_screen/REPORT.md),
+[image report and figure](results_ls8ag_images/REPORT.md),
+[residual report and figure](results_ls8ah_residuals/REPORT.md),
+[publication identities and verification](PUBLICATION_2026-09-22_LS8AF_LS8AH.md).
+
+All earlier dated next actions are historical. The active continuation is
+LS8AH above. The prior TESS_260647166 positive and PG1303-114 negative retain
+their unresolved labels and closed bounded studies. Other closed studies
+and reserved TESS/M43 panels remain closed. Calibration is NOT_READY and
+its request unsent. Standing publication authorization continues;
+delegation remains deferred.
+
+
+## 22 September 2026 ‚Äî LS8AI‚ÄìLS8AJ EC13080-1508 complete and closed
+
+The predetermined rank-11 CHEOPS pair supplied **179 rows and 288 eligible
+overlapping windows**, with four negative crossings in one cluster and no positive
+crossing. TG005201_N0 is a 60-second exposure at zero-based row 65, score
+**-13.17039181262956**, approximately 3.97253% below its local L2 baseline.
+Both visits have verified NEXP=1 and 60-second exposures. Scores are not
+Gaussian significances.
+
+The fixed image diagnostic classifies the negative event as
+**CORRECTION_LINKED**. DELTA/COR is **-3.380189 / -3.413528** in the two
+coordinate conventions, with complete apertures and negative COR signs
+matching L2. The delivered correction substantially reduces a larger CAL
+deficit while leaving a negative COR residual. The label describes material
+coupling to processing; the responsible component and physical cause remain
+unassigned. No new correction or screening cut is adopted.
+
+The L2 audit passes **3,456 comparisons**. Before pixels, image metadata
+passes **58 unique joins and 269 exact checks**. All nine inherited image
+tests pass; the independent image audit passes **94,537 numerical
+comparisons and 160,581 exact checks**, zero disagreements. Both figures
+were visually inspected. Exactly 24,702 L2 bytes, 18,560,000 image bytes and
+46,400 smearing bytes were acquired. The publication record gives the exact
+workflow and local verification scope. No qualified SETI candidate, detector
+or observing coverage is added.
+
+**Immediate next action: prepare LS8AK for rank-12 PG 1343-102**, starting
+with a separate exact-pair/header freeze for CH_PR100002_TG008701_V0300 and
+CH_PR100002_TG008702_V0300. Verify the NEXP=1/60-second ledger exposures,
+then freeze exact DEFAULT-L2 ranges and transfer the unchanged signed screen.
+Those science values remain unopened; the cohort's two later eligible visits
+stay outside scope. The EC13080-1508 pair is closed, with its third visit
+TG005203 outside the completed transfer.
+
+
+Current restart: LS8AJ_CONTINUATION.md. Earlier dated next actions are
+historical. No new correction or screening cut is adopted. The earlier TESS_260647166 positive remains UNRESOLVED_WITHIN_FIXED_SCOPE
+and its bounded study closed. PG1303-114‚Äôs negative and PG 1207-033‚Äôs positive also retain their unresolved
+labels and closed bounded studies. WASP-43, GJ 436 and PG 1245-042 remain
+closed under CORRECTION_LINKED. Other closed optical studies and M33 HD 3651 are unchanged.
+Reserved TESS/M43 panels remain closed. Calibration is NOT_READY and its
+technical request unsent. Standing research/publication authorization
+continues; delegation remains deferred.
+
+
+## 22 September 2026 ‚Äî LS8AK PG 1343-102 complete and closed
+
+The predetermined rank-12 CHEOPS pair supplied **176 rows and 231 eligible
+overlapping windows**, with **zero positive or negative threshold crossings
+and zero clusters of either sign**. Both visits have verified NEXP=1 and
+EXPTIME=TEXPTIME=60 seconds, pipeline 14.1.2. The unchanged screen uses
+60/120/180-second events, 12-row sidebands, two-row guards and endpoints
++/-8.5. The pair is **COMPLETE_AUDITED and closed as a descriptive null**.
+
+The null applies to the eligible windows. The second visit contains an early
+STATUS=0 point at zero-based row 10, about 34.46% above the visit median.
+It lacks the required left context for every tested event duration; it remains
+in the retained table and figure. Its cause is unassigned. No edge rule is
+changed and no image follow-up is triggered by this null result.
+
+The five inherited transport tests and two stable L2 tests pass. The independent
+audit passes **2,772 numerical/discrete comparisons**, with zero disagreements
+at the unchanged tolerances. The figure was visually inspected. Exactly
+**24,288 L2 science bytes** and no image bytes were acquired. All **62 new
+scientific files** were locally verified against their published Git identities;
+the four scientific commits change or remove no earlier file. Scores are not
+Gaussian significances; no sensitivity, candidate, detector or qualified
+observing-coverage claim is added.
+
+**Immediate next action: prepare LS8AL for rank-13 HD 106315**, beginning
+with a separate exact-pair/header freeze for CH_PR100041_TG000801_V0300 and
+CH_PR100041_TG001401_V0300. Their ledger exposures are NEXP=1 and
+EXPTIME=TEXPTIME=41 seconds, pipeline 14.1.2, and still require their own
+header verification. Then freeze exact DEFAULT-L2 ranges and transfer the
+unchanged one/two/three-row screen using each visit's verified cadence
+(41/82/123 seconds if confirmed). Those science values remain unopened.
+The two later eligible PG 1343-102 visits stay outside the closed pair.
+
+[Scientific interpretation and exact continuation](LS8AK_CONTINUATION.md),
+[L2 report and figure](results_ls8ak_l2_screen/REPORT.md),
+[publication identities and verification](PUBLICATION_2026-09-22_LS8AK.md).
+
+Earlier dated next actions below are historical. The active continuation is
+LS8AK_CONTINUATION.md; the next stage is LS8AL.
+
+The original 1,000-row census, 452 eligible visits and 107-cohort ordering
+remain fixed. TESS_260647166's positive, PG1303-114's negative and
+PG 1207-033's positive retain their unresolved labels and closed bounded
+studies. EC13080-1508, WASP-43, GJ 436 and PG 1245-042 remain closed under
+CORRECTION_LINKED. Other closed optical studies and M33 HD 3651 are
+unchanged. Reserved TESS/M43 panels remain closed. Calibration is NOT_READY
+and its technical request remains unsent. Standing research/publication
+authorization continues; delegation remains deferred.
+
+
+## 22 September 2026 ‚Äî LS8AL‚ÄìLS8AN HD 106315 complete and closed
+
+The rank-13 CHEOPS pair supplied **2,382 rows and 4,698 eligible overlapping
+windows**, with 13 positive crossings in three clusters and no negative
+crossing. All three representatives are one 41-second exposure, with L2
+scores **+44.503884, +9.691536 and +28.143189**, approximately 1.02026%,
+0.24451% and 0.64634% above their respective local L2 baselines.
+Scores are not Gaussian significances.
+
+The complete image follow-up leaves all three
+**UNRESOLVED_WITHIN_FIXED_SCOPE**. DELTA/COR magnitudes remain below the
+original correction gate, and COR displacement explained energy is about
+77.58%, 60.39% and 37.60‚Äì37.65%, below the original 80% gate in both
+coordinate conventions. Physical causes remain unassigned.
+
+The separately frozen retained-data study includes **12 native cases,
+288 held cases and 192 signed controls**, using zero new archive bytes.
+Its COR residual/reference ratios and local counts are:
+
+- TG000801_P0: 20.138851/19.920447, with 0/24 and 0/24 held controls at least as large.
+- TG000801_P1: 0.732455/0.741480, with 16/24 and 15/24 held controls at least as large.
+- TG001401_P0: 0.832824/0.840364, with 15/24 and 15/24 held controls at least as large.
+
+TG000801_P0 retains a large mismatch with its local residual/noise model;
+none of its 24 held COR controls is as large in either convention. The other
+two events do not stand out in this comparison, with 15‚Äì16 of 24 held COR
+controls at least as large. These dependent counts are not probabilities and
+do not establish a noise, astrophysical or artificial origin. All physical
+causes remain unassigned. Hypothetical displacement-plus-constant subtraction
+loses 7.01‚Äì13.12% of injected COR brightness flux across the three contexts
+and is not adopted.
+
+All five workflows and the 5 transport / 2 L2 / 9 image / 18 residual tests
+pass. Independent audits pass **56,376** L2 comparisons, **803** image-metadata
+checks, **283,611 numerical / 481,739 exact** image checks, and
+**916,452 numerical / 960,362 exact**
+residual checks, with zero disagreements. All seven figures were visually
+inspected. Acquisition is exactly **328,716 L2 bytes, 55,680,000 image bytes
+and 139,200 smearing bytes**. The bounded HD 106315 study is complete and
+closed; all original labels remain unchanged, with no new correction,
+screening cut, qualified candidate, detector or observing-coverage claim.
+
+**Immediate next action: prepare LS8AO for rank-14 WASP-103**, beginning
+with a separate exact-pair/header freeze for CH_PR100013_TG000101_V0300 and
+CH_PR100013_TG000102_V0300. Verify their own NEXP=1, EXPTIME=TEXPTIME=60-second
+ledger tuples and pipeline 14.1.2 before freezing exact DEFAULT-L2 ranges.
+Transfer the unchanged signed one/two/three-row screen using each visit's
+verified cadence. These science values remain unopened. The remaining nine
+eligible WASP-103 visits stay outside the prospective pair.
+
+[Scientific interpretation and exact continuation](LS8AN_CONTINUATION.md),
+[L2 report and figure](results_ls8al_l2_screen/REPORT.md),
+[image report and all three figures](results_ls8am_images/REPORT.md),
+[residual report and all three figures](results_ls8an_residuals/REPORT.md),
+[publication identities and verification](PUBLICATION_2026-09-22_LS8AL_LS8AN.md).
+
+Earlier dated next actions below are historical. The active continuation is
+LS8AN_CONTINUATION.md; the next stage is LS8AO.
+
+The original 1,000-row census, 452 eligible visits and 107-cohort ordering
+remain fixed. The HD 106315 pair's three positive labels stay unresolved and
+its bounded study is closed. TESS_260647166's positive, PG1303-114's negative
+and PG 1207-033's positive retain their unresolved labels and closed bounded
+studies. EC13080-1508, WASP-43, GJ 436 and PG 1245-042 remain closed under
+CORRECTION_LINKED; PG 1343-102 remains a closed descriptive null. Other closed
+optical studies and M33 HD 3651 are unchanged. Reserved TESS/M43 panels stay
+closed. Calibration is NOT_READY and its technical request remains unsent.
+Standing research/publication authorization continues; delegation is deferred.
+
+
+## 22 September 2026 ‚Äî LS8AO‚ÄìLS8AP WASP-103 complete and closed
+
+The predetermined rank-14 CHEOPS pair supplied **565 rows and 804 eligible
+overlapping windows**. The first visit has no signed threshold crossing; the
+second has three positive crossings in one cluster and no negative crossing.
+The sole representative, **TG000102_P0**, is row 274 of
+CH_PR100013_TG000102_V0300: one 60-second exposure, L2 score **+13.672258**,
+and **+1.301371%** above its local L2 baseline. Scores are not Gaussian sigma.
+
+The complete paired-image follow-up classifies the event **CORRECTION_LINKED**.
+Both coordinate conventions have complete apertures and positive COR sums
+matching L2. The CAL event-residual aperture sum is approximately -91,100 ADU,
+while COR is +18,550 ADU; DELTA=COR-CAL is about +109,650 ADU.
+DELTA/COR is **5.906078 / 5.915583**, and the column-projected ratios are
+**6.087909 / 6.093572**, above the pre-existing 0.5 correction gate in both
+conventions. These are event-residual sums, not negative total stellar flux.
+The label establishes substantial coupling to delivered processing; it does
+not identify one physical correction component or exclude source variability.
+
+All four workflows and the **5 transport / 2 L2 / 9 image tests** pass.
+Independent audits pass **9,648 L2 comparisons**, **269 image-metadata checks**
+and **94,537 numerical / 160,581 exact image checks**, with zero disagreements
+at unchanged tolerances. Both figures were visually inspected. Acquisition is
+exactly **77,970 L2 bytes, 18,560,000 image bytes and 46,400 smearing bytes**.
+The WASP-103 pair is complete and closed under its fixed descriptive label;
+no residual study is triggered. No qualified SETI candidate, detector,
+sensitivity or observing-coverage claim is added.
+
+**Immediate next action: prepare LS8AQ for rank-15 GJ 581**, beginning
+with a separate exact-pair/header freeze for CH_PR100011_TG023701_V0300 and
+CH_PR100018_TG008301_V0300. They are the first two of seven eligible visits.
+Their ledger tuples are NEXP=1, EXPTIME=TEXPTIME=60 seconds and pipeline
+14.1.2; verify each product's own identity, schema, rows and exposures before
+separately freezing exact DEFAULT-L2 byte ranges. Transfer the unchanged
+one/two/three-row signed screen and independent audit using the verified cadence.
+GJ 581 science values remain unopened. The nine later eligible WASP-103 visits
+stay outside the closed pair; no event in it becomes a new screening cut.
+
+[Scientific interpretation and exact continuation](LS8AP_CONTINUATION.md),
+[L2 report and figure](results_ls8ao_l2_screen/REPORT.md),
+[paired-image report and figure](results_ls8ap_images/REPORT.md),
+[publication identities and verification](PUBLICATION_2026-09-22_LS8AO_LS8AP.md).
+
+Earlier dated next actions below are historical. The active continuation is
+LS8AP_CONTINUATION.md; the next stage is LS8AQ.
+
+The original 1,000-row census, 452 eligible visits and 107-cohort ordering
+remain fixed. HD 106315 retains all three unresolved labels and its closed
+bounded study. TESS_260647166's positive, PG1303-114's negative and
+PG 1207-033's positive retain their unresolved labels and closed bounded
+studies. EC13080-1508, WASP-43, GJ 436 and PG 1245-042 remain closed under
+CORRECTION_LINKED; PG 1343-102 remains a closed descriptive null. Other closed
+optical studies and M33 HD 3651 are unchanged. Reserved TESS/M43 panels stay
+closed. Calibration is NOT_READY and its technical request remains unsent.
+Standing research/publication authorization continues; delegation is deferred.
+
+
+## 22 September 2026 ‚Äî LS8AQ‚ÄìLS8AS GJ 581 complete and closed
+
+The predetermined rank-15 GJ 581 pair supplied **3,623 rows and 7,869
+eligible overlapping windows**. The first visit has 30 positive crossings
+in nine clusters and 16 negative crossings in five clusters; the second has
+zero signed crossings in its 84 eligible windows. The original +/-8.5 scores
+are not Gaussian significances, and the windows are not independent trials.
+
+All 14 representatives completed paired-image follow-up: **nine
+CORRECTION_LINKED** (four positive, all five negative), **three
+SPATIALLY_STRUCTURED** (P2/P6/P8) and **two UNRESOLVED_WITHIN_FIXED_SCOPE**
+(P3/P5). The complete positive IDs are prefixed TG023701_. The two-exposure
+negative N1 is included and CORRECTION_LINKED; all other representatives
+are one 60-second exposure. These labels describe processing or image fits,
+without assigning unique physical causes or artificial origin.
+
+The separately frozen retained-data study includes both unresolved events,
+eight native product/convention cases, 192 held cases and 128 signed controls,
+with **zero new archive bytes**. Its COR residual/reference ratios are
+**1.179547 / 1.161620 for P3** and **3.192676 / 3.078003 for P5** (C0/C1).
+For P3, **9/24 controls** are at least as large in both conventions. For P5,
+the counts are **1/24 and 2/24**. P3 has several comparable or larger local
+controls; P5 is larger than most, with some comparable or larger controls.
+These dependent counts are not p-values or calibrated false-alarm rates.
+Both causes remain unknown and both original unresolved labels are retained.
+Hypothetical displacement-plus-constant subtraction loses **10.41‚Äì11.21%**
+of injected COR brightness flux and is not adopted.
+
+All five workflows and the **5 transport / 2 L2 / 11 image / 18 residual
+tests** pass. Independent audits pass 94,428 L2 comparisons, 3,723 metadata
+checks, 1,323,518 numerical / 2,248,091 exact image checks and 610,448
+numerical / 640,222 exact residual checks, with zero disagreements at
+unchanged tolerances. All 17 figures were visually inspected. The pair and
+its single bounded study are complete and closed, preserving all 14 labels.
+No new cut, subtraction, qualified candidate, detector, sensitivity or
+observing-coverage claim is added.
+
+**Immediate next action: prepare LS8AT for rank-16 EC14599-2047**,
+the first two of three eligible visits: CH_PR100002_TG010301_V0300 and
+CH_PR100002_TG010302_V0300. Their ledger tuple is NEXP=1,
+EXPTIME=TEXPTIME=60 seconds and pipeline 14.1.2. Freeze the exact pair and
+bounded header reader, independently verify each identity/schema/row count/
+exposure, then separately freeze DEFAULT-L2 byte ranges before values.
+Transfer the unchanged signed one/two/three-row scorer and independent audit
+using the verified cadence. EC14599-2047 science values remain unopened;
+TG010303 and the five later eligible GJ 581 visits remain outside their pairs.
+No GJ 581 outcome becomes a new screening cut.
+
+[Scientific interpretation and exact continuation](LS8AS_CONTINUATION.md),
+[L2 report](results_ls8aq_l2_screen/REPORT.md),
+[complete signed-image report](results_ls8ar_images/REPORT.md),
+[bounded residual study](results_ls8as_residuals/REPORT.md),
+[publication identities and verification](PUBLICATION_2026-09-22_LS8AQ_LS8AS.md).
+
+Earlier dated next actions below are historical. The active continuation is
+LS8AS_CONTINUATION.md; the next stage is LS8AT.
+
+The original 1,000-row census, 452 eligible visits and 107-cohort ordering
+remain fixed. WASP-103 remains closed under CORRECTION_LINKED; its nine later
+visits stay outside its pair. HD 106315 keeps all three unresolved labels and
+its closed bounded study. Earlier unresolved labels and closed studies,
+including TESS_260647166, PG1303-114 and PG 1207-033, remain unchanged.
+Other closed targets and reserved TESS/M43 panels stay closed. Calibration
+is NOT_READY and its technical request remains UNSENT. Standing research and
+publication authorization continues; delegation is deferred.
+
+## 23 September LS8AT: EC 14599-2047 audited null within eligible windows
+
+The predetermined rank-16 pair supplied **170 retained rows and 225 eligible
+overlapping windows**, with **zero positive or negative threshold crossings
+or clusters**. The first visit contributes 180 windows and the second 45.
+Both verify NEXP=1, EXPTIME=TEXPTIME=60 seconds and pipeline 14.1.2. The
+unchanged one/two/three-row screen, 12-row sidebands, two-row guards and
++/-8.5 endpoints remain fixed; scores are not Gaussian significances.
+
+The complete figure retains a large STATUS=0 point at **zero-based row 86 of
+TG010301**, **115.605933% above the visit median**. Only three rows follow
+it, so it is in no eligible event window under the required right context.
+Its cause is unassigned and it has no image classification. The null applies
+to eligible windows, not every visible variation; no edge rule or follow-up
+selection is changed.
+
+Both workflows, all five transport tests and both stable L2 tests pass.
+The independent audit passes **2,700 numerical/discrete comparisons**, with
+zero disagreements at unchanged tolerances. The independent scalar header
+reader verifies both schemas, identities, receipts, rows and exposure tuples.
+All 64 scientific files match their published Git identities locally; all
+50 header/science manifest entries pass SHA256 checks. The figure was visually
+inspected. Acquisition is exactly 40,320 header bytes and 23,460 science-table
+bytes, with zero image bytes. The pair is complete and closed as a descriptive
+null; no image/residual follow-up, qualified candidate or detector is added.
+
+**Immediate next action: prepare LS8AU for rank-17 LS IV +09 2**,
+CH_PR100002_TG009301_V0300 and CH_PR100002_TG009302_V0300. Freeze the exact
+pair and bounded header reader; independently verify each identity, schema,
+rows and exposure tuple; then separately freeze DEFAULT-L2 byte ranges before
+values. Their ledger tuple is NEXP=1, EXPTIME=TEXPTIME=60 s, pipeline 14.1.2.
+Transfer the unchanged signed one/two/three-row scorer and scalar audit.
+Those science values remain unopened; EC 14599-2047 TG010303 stays outside
+its pair. No outcome here becomes a new screening cut.
+
+[Scientific interpretation and exact continuation](LS8AT_CONTINUATION.md),
+[L2 report and figure](results_ls8at_l2_screen/REPORT.md),
+[publication identities and verification](PUBLICATION_2026-09-23_LS8AT.md).
+
+Earlier dated next actions below are historical. Active continuation:
+LS8AT_CONTINUATION.md; next stage: LS8AU. The original census and 107-cohort
+order stay fixed. GJ 581 keeps all 14 labels, including its two unresolved
+events, and its closed bounded study. All other earlier labels and studies
+are unchanged. Reserved TESS/M43 panels remain closed. Calibration NOT_READY;
+technical request UNSENT. Standing research/publication authorization continues;
+delegation is deferred.
+
+## 23 September LS8AU: LS IV +09 2 audited null within eligible windows
+
+The predetermined rank-17 pair supplied **212 retained rows and 123 eligible
+overlapping windows**, with **zero positive or negative threshold crossings
+or clusters**. The first visit contributes 21 windows and the second 102.
+Both verify NEXP=1, EXPTIME=TEXPTIME=60 seconds and pipeline 14.1.2. The
+unchanged one/two/three-row screen, 12-row sidebands, two-row guards and
++/-8.5 endpoints remain fixed; scores are not Gaussian significances.
+
+Four flagged rows per visit and cadence gaps restrict eligible event rows
+to 29‚Äì35/81‚Äì82 in TG009301 and 14‚Äì18/48‚Äì78 in TG009302 (zero-based).
+The largest displayed points, first-visit row 43 and second-visit row 86,
+are 9.674890% and 12.248097% above their visit medians. Neither occurs in an
+eligible event window: its required right context encounters flags/gaps.
+Causes remain unassigned. The null applies to the 123 eligible windows,
+not every visible variation. No eligibility or follow-up rule is changed.
+
+Both workflows, all five transport tests and both stable L2 tests pass.
+The independent audit passes **1,476 numerical/discrete comparisons**, with
+zero disagreements at unchanged tolerances. Separate scalar header checks
+verify both complete schemas, identities, receipts, exposures and boundaries.
+All 64 scientific files match their published Git identities locally; all
+50 header/science manifest entries pass SHA256. The figure was visually
+inspected. Acquisition is exactly 40,320 header bytes and 29,256 science-table
+bytes, with zero image bytes. The pair is complete and closed as a descriptive
+null. No image/residual follow-up, qualified candidate or detector is added.
+
+**Immediate next action: prepare LS8AV for rank-18 GJ 9404**,
+CH_PR100018_TG007301_V0300 and CH_PR100018_TG007302_V0300, the first two of
+three eligible visits. Freeze the exact pair and bounded header reader;
+independently verify each identity, schema, rows and exposure tuple; then
+separately freeze DEFAULT-L2 source identities and ranges before values.
+Their ledger tuple is NEXP=1, EXPTIME=TEXPTIME=60 s, pipeline 14.1.2.
+Transfer the unchanged signed screen and independent scalar audit. These
+science values remain unopened; TG007303 stays outside the prospective pair.
+
+[Scientific interpretation and exact continuation](LS8AU_CONTINUATION.md),
+[L2 report and figure](results_ls8au_l2_screen/REPORT.md),
+[publication identities and verification](PUBLICATION_2026-09-23_LS8AU.md).
+
+Earlier dated next actions below are historical. Active continuation:
+LS8AU_CONTINUATION.md; next stage: LS8AV. The original census and 107-cohort
+order stay fixed. All earlier labels, closed studies and reserved TESS/M43
+panels remain unchanged. Calibration NOT_READY; technical request UNSENT.
+Standing research/publication authorization continues; delegation deferred.
+
+## 23 September LS8AV: GJ 9404 audited null within eligible windows
+
+The predetermined rank-18 pair supplied **145 retained rows and 150 eligible
+overlapping windows**, with **zero positive or negative threshold crossings
+or clusters**. The first visit contributes 90 windows and the second 60.
+Both verify NEXP=1, EXPTIME=TEXPTIME=60 seconds and pipeline 14.1.2.
+The unchanged one/two/three-row rule, 12-row sidebands, two-row guards and
++/-8.5 endpoints remain fixed; scores are not Gaussian significances.
+
+First-visit eligible event rows are 14‚Äì44. Second-visit flags at rows 37/44
+and gaps after 36/43 restrict eligible event rows to 14‚Äì22 and 59‚Äì71.
+Indices are zero-based. The visible large dip at second-visit row 44 is
+33.149963% below its visit median and has STATUS=1; it remains retained but
+fails the original eligibility rule. Display extrema near edges or flagged
+gaps are not reselected. The null applies to the 150 eligible windows, not
+every retained variation. No eligibility or follow-up rule is changed.
+
+Both workflows, all five transport tests and both stable L2 tests pass.
+The independent audit passes **1,800 numerical/discrete comparisons**, with
+zero disagreements at unchanged tolerances. Separate scalar header checks
+verify full schemas, identities, receipts, exposures and byte boundaries.
+All 64 scientific files match public Git identities locally; all 50 header/
+science manifest entries pass SHA256. The complete figure was visually
+inspected. Acquisition is exactly 40,320 header bytes and 20,010 science-table
+bytes, with zero image bytes. The pair is complete and closed as a descriptive
+null; no image/residual follow-up, qualified candidate or detector is added.
+
+**Immediate next action: prepare LS8AW for rank-19 EC14338-1445**,
+CH_PR100002_TG006601_V0300 and CH_PR100002_TG006602_V0300. Freeze the exact
+pair and bounded header reader; independently verify each identity, full
+schema, rows and exposure tuple; then separately freeze DEFAULT-L2 source
+identities and byte ranges before values. The ledger tuple is NEXP=1,
+EXPTIME=TEXPTIME=60 s, pipeline 14.1.2. Transfer the unchanged signed screen
+and scalar audit. These science values remain unopened. GJ 9404 TG007303
+stays outside its closed pair; no outcome here becomes a new screening cut.
+
+[Scientific interpretation and exact continuation](LS8AV_CONTINUATION.md),
+[L2 report and figure](results_ls8av_l2_screen/REPORT.md),
+[publication identities and verification](PUBLICATION_2026-09-23_LS8AV.md).
+
+Earlier dated next actions below are historical. Active continuation:
+LS8AV_CONTINUATION.md; next stage: LS8AW. The original census and 107-cohort
+order stay fixed. Earlier null scopes, unassessed points, unresolved labels,
+closed studies and reserved TESS/M43 panels are unchanged. Calibration
+NOT_READY; technical request UNSENT. Standing research/publication authorization
+continues; delegation is deferred.
+
+## 23 September LS8AW: EC14338-1445 audited null within 63 eligible windows
+
+The predetermined rank-19 pair supplied **159 retained rows and 63 eligible
+overlapping windows**, with **zero positive or negative threshold crossings
+or clusters**. The first visit contributes 60 windows and the second only
+three (two one-row, one two-row, no three-row windows). Both verify NEXP=1,
+EXPTIME=TEXPTIME=60 seconds and pipeline 14.1.2. The unchanged one/two/three-row
+rule, 12-row sidebands, two-row guards and +/-8.5 endpoints remain fixed;
+scores are not Gaussian significances.
+
+First-visit eligible event rows are 14‚Äì33/63‚Äì64; flag 48 and a gap after 47
+restrict eligibility. Second-visit flags 30/54 and a gap after 29 restrict
+eligible event rows to **14‚Äì15**. Indices are zero-based. The second visit's
+large retained maximum at row 23 (265.563670273 times the visit median) and
+minimum at row 55 (-184.068365878 times median) have STATUS=0 but fail the
+original context rule. Their causes remain unassigned; they are not tested
+detections or image-classified events. The full plot retains them. The null
+applies to the 63 eligible windows, not every retained variation. No mask,
+threshold or follow-up selection changes.
+
+Both workflows, all five transport tests and both stable L2 tests pass.
+The independent audit passes **756 numerical/discrete comparisons**, with
+zero disagreements at unchanged tolerances. Separate scalar header checks
+verify full schemas, identities, receipts, exposures and byte boundaries.
+All 64 scientific files match public Git identities locally; all 50 header/
+science manifest entries pass SHA256. The full figure was visually inspected.
+Acquisition is exactly 40,320 header bytes and 21,942 science-table bytes,
+with zero image bytes. The pair is complete and closed within its eligible
+scope; no image/residual follow-up, qualified candidate or detector is added.
+
+**Immediate next action: prepare LS8AX for rank-20 GJ 536**,
+CH_PR100011_TG023501_V0300 and CH_PR100018_TG007801_V0300, the first two of
+five eligible visits. Freeze the pair and bounded header reader; independently
+verify each identity, full schema, rows and exposure tuple; then separately
+freeze DEFAULT-L2 source identities and byte ranges before values. Ledger
+NEXP=1, pipeline 14.1.2, with exposures approximately **40.17 and 40.20 seconds**.
+Use each independently verified cadence; do not inherit 60 seconds. Transfer
+the unchanged signed screen and scalar audit. GJ 536 science values remain
+unopened; its three later eligible visits remain outside the selected pair.
+
+[Scientific interpretation and exact continuation](LS8AW_CONTINUATION.md),
+[L2 report and figure](results_ls8aw_l2_screen/REPORT.md),
+[publication identities and verification](PUBLICATION_2026-09-23_LS8AW.md).
+
+Earlier dated next actions below are historical. Active continuation:
+LS8AW_CONTINUATION.md; next stage: LS8AX. The original census and 107-cohort
+order stay fixed. Earlier null scopes, unassessed points, unresolved labels,
+closed studies and reserved TESS/M43 panels are unchanged. Calibration
+NOT_READY; technical request UNSENT. Standing research/publication authorization
+continues; delegation is deferred.
+
+## 23 September LS8AX‚ÄìLS8AZ: GJ 536 pair and bounded study closed
+
+The predetermined rank-20 pair supplied **4,254 retained rows and 10,215
+eligible overlapping windows**. Its 38 positive and five negative crossings
+form eight positive clusters and one negative cluster. All nine signed
+representatives completed image follow-up: **three CORRECTION_LINKED, four
+SPATIALLY_STRUCTURED and two UNRESOLVED_WITHIN_FIXED_SCOPE (P1/P6)**.
+Labels describe processing and fits without assigning unique physical causes.
+Both visits verify NEXP=1 and pipeline 14.1.2; their own exposure/cadence values
+are **40.1699981689453 and 40.2000007629395 seconds**. The unchanged signed
+one/two/three-row rule and +/-8.5 endpoints remain fixed. Scores are not
+Gaussian significances and windows are not independent trials.
+
+The complete unresolved set received one separately frozen retained-data
+study: eight native product/convention cases, 192 held cases and 128 signed
+controls, **zero new archive bytes**. P1's COR residual/reference ratios are
+**0.257893 / 0.263414**, with **23/24** local controls at least as large in
+both center conventions. P6's ratios are **3841.994548 / 3951.598570**, with
+**0/24** at least as large. These dependent counts are not p-values.
+
+**P6's very large peak coincides with a broad oblique bright band crossing
+the saved subarray and aperture in CAL and COR; broad signed structure remains
+after fitting.** This is a severe mismatch with the local model/reference,
+not evidence establishing a clean point-source brightening or a SETI signal.
+P1's low residual does not prove ordinary noise. Both original unresolved
+labels remain. Hypothetical subtraction loses 10.97‚Äì11.48% of injected COR
+brightness flux and is not adopted. The pair and this single bounded study
+are closed without additional GJ 536 tuning or a qualified candidate/detector.
+
+The largest retained point, row 3408, is P6 and received every prescribed
+follow-up. A separate first-visit point at row 1977 is approximately 51.10%
+above its STATUS=0 visit median but has STATUS=1 and no eligible event window;
+it remains retained and unassessed. All rows and eligible intervals are
+documented. Display variation is not qualified observing coverage.
+
+All five data-reading/analysis workflows succeed; the initial AX checkout
+attempt timed out before archive access and is preserved with its prospective
+recovery. The 5 transport / 2 L2 / 11 image / 18 residual tests pass.
+Independent audits pass **122,580 L2 comparisons**, **2,393 metadata checks**,
+**850,833 numerical / 1,445,201 exact image checks** and **610,586 numerical /
+640,224 exact residual checks**, with zero disagreements. All **309 new
+scientific files** match public Git identities locally, all 272 manifest
+entries pass SHA256, and all 12 figures have been visually inspected.
+
+**Immediate next action: prepare LS8BA for rank-21 2MASS J11285624+1010395**,
+CH_PR100018_TG010801_V0300 / CH_PR100018_TG010802_V0300. These are both eligible
+visits in the fixed ledger; NEXP=1, EXPTIME=TEXPTIME=60 seconds and pipeline
+14.1.2 remain subject to their own header verification. Freeze bounded headers,
+audit identity/schema/exposure, then separately freeze exact L2 ranges before
+values. Transfer the unchanged screen and audit. Its science values remain
+unopened. GJ 536's three later eligible visits remain outside the closed pair.
+
+[Scientific interpretation and exact continuation](LS8AZ_CONTINUATION.md),
+[L2 report](results_ls8ax_l2_screen/REPORT.md),
+[complete signed-image report](results_ls8ay_images/REPORT.md),
+[bounded residual study](results_ls8az_residuals/REPORT.md),
+[publication and verification](PUBLICATION_2026-09-23_LS8AX_LS8AZ.md).
+
+Earlier dated next actions are historical. Active continuation:
+LS8AZ_CONTINUATION.md; next stage: LS8BA. The original census and 107-cohort
+order, prior labels, unassessed points, closed studies and reserved TESS/M43
+panels remain unchanged. Calibration NOT_READY; technical request UNSENT.
+Standing research/publication authorization continues; delegation is deferred.
+
+## 23 September LS8BA‚ÄìLS8BB: 2MASS J11285624+1010395 pair closed
+
+The predetermined rank-21 pair supplied **97 retained rows and 90 eligible
+overlapping windows**. Six positive crossings form one cluster and three
+negative crossings form one cluster. Both signed representatives completed
+image follow-up and are **CORRECTION_LINKED** under the unchanged two-convention
+gate. No event is unresolved, so no residual study is triggered. The pair is
+closed without a qualified candidate, detector, sensitivity or coverage claim.
+
+Both visits independently verify NEXP=1, EXPTIME=TEXPTIME=60 seconds and pipeline
+14.1.2. The first visit has 59 rows and 90 eligible windows; the second has
+38 rows and **zero eligible windows, providing no tested null**. The original
+one/two/three-row rule and +/-8.5 endpoints remain fixed. Scores are not Gaussian
+significances and overlapping windows are not independent trials.
+
+The representatives are adjacent first-visit rows 25 (score **+65.277456**,
+local excess **+8.778835%**) and 24 (**-35.043142**, **-4.788958%**). They occur
+in each other's original guards and share 28 context rows. Their 58 row
+occurrences cover 30 distinct exposures; 116 CAL/COR join occurrences cover
+60 distinct product exposures. They are not independent replication. Every
+shared CAL/COR/smearing row is verified byte-identical.
+
+DELTA/COR ratios are **-1.485049 / -1.534163** for P0 and
+**+9.886640 / +9.536732** for N0 (C0/C1). Both pass the correction gate first.
+Displacement fits also exceed the later spatial gate, without changing the
+fixed classification. Smearing fits are rank deficient. The maps show broad
+processing differences and signed source structure; no unique physical cause
+or artificial origin is established, and source variability is not excluded.
+
+The first visit's last point, row 58, is **8.758721% above its STATUS=0 visit
+median**, but lacks an eligible complete context and remains unassessed. All
+97 points and every eligible window remain preserved. The second visit's gaps
+and flagged rows prevent any complete test context. Display variation is not
+qualified observing coverage.
+
+All four data-reading/analysis workflows and the retained verification workflow
+succeed. The 5 transport / 2 L2 / 11 image tests pass. Independent audits pass
+**1,080 L2 comparisons**, **534 metadata checks**, and **189,074 numerical /
+321,158 exact image checks**, with zero disagreements. All 175 added
+scientific/verification files are public; 171 match public Git identities
+locally. Four large compressed CAL/COR files are verified by the independent
+image and retained CI audits but were not downloaded locally. Of 143 manifest
+entries, 139 are recomputed locally and four pass those published CI checks.
+All six payload receipts and all three exact overlap checks pass; all four
+figures have been visually reviewed. The optional artifact uploaded, but its
+local download returned HTTP 403 and no local ZIP verification is claimed.
+
+**Immediate next action: prepare LS8BC for rank-22 GJ 422**, exact pair
+CH_PR100018_TG012201_V0300 / CH_PR100018_TG012202_V0300. These are both eligible
+visits in the fixed ledger. NEXP=1, EXPTIME=TEXPTIME=60 seconds and pipeline
+14.1.2 remain subject to their own header checks. Freeze bounded headers,
+independently verify identity/schema/exposure, then separately freeze exact
+L2 ranges before values. Transfer the unchanged screen and audit. GJ 422
+science values remain unopened.
+
+[Scientific interpretation and exact continuation](LS8BB_CONTINUATION.md),
+[L2 report](results_ls8ba_l2_screen/REPORT.md),
+[complete signed-image report](results_ls8bb_images/REPORT.md),
+[readable unchanged-map overview](verification_ls8bb_retained/paired_image_review.png),
+[publication and verification](PUBLICATION_2026-09-23_LS8BA_LS8BB.md).
+
+Earlier dated next actions are historical. Active continuation:
+LS8BB_CONTINUATION.md; next stage: LS8BC. The original census and 107-cohort
+order, prior labels, unassessed points, closed studies and reserved TESS/M43
+panels stay unchanged. GJ 536's P1/P6 keep their unresolved labels and its one
+bounded study stays closed. Calibration NOT_READY; technical request UNSENT.
+Standing research/publication authorization continues; delegation is deferred.
+
+24 September 2026: LS8BC closes the predetermined rank-22 GJ 422 pair with
+97 retained rows, 75 eligible overlapping windows and no signed threshold
+crossings. Both workflows and the 900-comparison independent audit pass.
+The null is limited to eligible contexts; the flagged 22.091280% display dip
+and other unassessed points remain preserved. No image/residual branch is
+triggered. Next prepare LS8BD for rank-23 GJ 494, only chronological first
+pair CH_PR100018_TG007401_V0300 / CH_PR100018_TG007402_V0300, using its own
+header-verified cadence (ledger 42 seconds). Its other two visits remain
+outside the pair. Own-header verification and a separate exact L2 freeze
+precede values. All prior labels, closed studies, census/cohort order and
+reserved TESS/M43 panels remain unchanged. See LS8BC_CONTINUATION.md.
+Calibration NOT_READY; request UNSENT. Publication authorized; delegation
+deferred.
+
+24 September 2026: LS8BD‚ÄìLS8BE closes the predetermined rank-23 GJ 494 first
+pair and the complete signed follow-up. The 148 rows supply 165 eligible
+windows and one positive representative, CORRECTION_LINKED under the fixed
+gate. Independent L2, metadata and image audits pass. No unresolved event
+remains and no residual study is triggered. The second visit's unassessed
+row-13 maximum and both later visits remain outside follow-up. Next prepare
+LS8BF for rank-24 2MASS J11474440+0048164, exact pair
+CH_PR100018_TG007101_V0300 / CH_PR100018_TG007102_V0300. Verify own headers
+before its separate L2 freeze and use each verified cadence (ledger 60
+seconds). Prior labels, unassessed points, closed studies, cohort order and
+reserved TESS/M43 panels remain unchanged. See LS8BE_CONTINUATION.md.
+Calibration NOT_READY; request UNSENT. Publication authorized; delegation
+deferred.
+
