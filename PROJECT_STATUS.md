@@ -1,3 +1,15 @@
+# SETI-status · 14. oktober 2026: fastlåst top 5 bevarer flere svage spor
+
+**8.466 betingede cases på 2.822 nye signalplaceringer er færdige med 1.079.583 uafhængige QA-kontroller.** Den før beregningen offentliggjorte top-5-regel bevarer 2.623/2.822 svage komplette baner (92,95 %), mod 1.898/2.822 (67,26 %) med top 1: 725 flere. Stærke baner bevares i 2.822/2.822 med begge regler. 199 svage cases mistes stadig, og arbejdsbyrden bliver fem gange større.
+
+54 faktiske profiler har nu 270 bevarede lokale kandidatposter. De er korrelerede, efter tidligere udvælgelse og fra samme eksponerede besøg i 2017; dette er lokal metodekontrol, ingen ny detektion, fysisk følsomhed eller kalibreret FAP. Den fulde seks-scan-kædes gates er ikke bestået. Original A/B forbliver FAIL_CLOSED, 2016 er beskyttet og 2019-ruten lukket. 0 DKK, nul nye teleskopbytes/forespørgsler. Checkpoint 20. oktober 2026.
+
+[Resultat](analysis/retention_validation_20261014/RESULTS_DA.md) · [Frosset scope](analysis/retention_validation_20261014/SCOPE.json) · [Uafhængig QA](analysis/retention_validation_20261014/results/QA_RECEIPT.json) · [270 lokale kandidater](analysis/retention_validation_20261014/results/OBSERVED_TOP5.csv) · [Reproduktion og komplet pakke](analysis/retention_validation_20261014/README.md)
+
+---
+
+## Tidligere status, bevaret uændret
+
 # Aktuel SETI-status - 14. oktober 2026: svage sandhedsspor rangeret
 
 **Alle 1.512 svage betingede indsprøjtninger har nu en eksplicit rang for den kendte komplette fire-bin-bane.** Rang 1 genfinder 1.036; top 5 bevarer 1.400, top 10 1.455 og top 20 1.491. De 43 gamle fuld→partiel-tab ligger alle på rang 2–4 og ville derfor alle overleve top 5. Den separat implementerede kontrol bestod 21.189 efterregninger uden afvigelse.

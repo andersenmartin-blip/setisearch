@@ -1,3 +1,17 @@
+# Aktuel SETI-retning · 14. oktober 2026: top-5-kontrol afsluttet på nye placeringer
+
+Den uændrede top-5-regel er nu efterprøvet i et prospektivt fastlåst, afgrænset residualpanel. Alle 2.822 placeringer er fysisk forskellige fra den gamle indsprøjtningsbank; baggrunden er fortsat eksponeret. Svag komplet bevaring stiger fra 1.898 til 2.623, men 199 tilfælde mistes, og kandidatbyrden femdobles. Dette støtter den lokale engineeringregel i den erklærede model og kvalificerer ikke teleskopdetektoren.
+
+De 270 lokale kandidatposter er bevaret med vinduer, fire-bin-identiteter, scorer og indbyrdes overlap. Reglen skal holdes fast; dette færdige panel gentages ikke, og k hæves ikke efter udfaldsinspektion. Næste kvalificerende metodehandling skal håndtere hele råeffekt→normalisering→global udvælgelse→RFI/null-kæden på særskilt fastlåste nye identiteter og relevante korrelations-/instrumentmodeller. Uafhængige målrelevante observationer kræves særskilt til himmelbekræftelse. Ingen sådan ny bank eller observation er startet ved denne afslutning.
+
+Original A/B er FAIL_CLOSED; beskyttede 2016-data og lukket 2019-rute bevares. Der er ingen detektion, kalibreret FAP eller fysisk følsomhed. Formelt checkpoint 20. oktober består.
+
+[Resultat](analysis/retention_validation_20261014/RESULTS_DA.md) · [Næste konkrete afgrænsning](analysis/retention_validation_20261014/NEXT_STEP.md) · [Alle kandidater](analysis/retention_validation_20261014/results/OBSERVED_TOP5.csv)
+
+---
+
+## Tidligere status, bevaret uændret
+
 # Aktuel SETI-retning · 14. oktober 2026: top 5 er kun en udviklingsregel
 
 Rangdiagnosen af den komplette sandhedsbane er færdig for alle 1.512 svage, allerede eksponerede indsprøjtninger. Top 5 bevarer 1.400, inklusive alle 43 tilfælde hvor den større eksakte familie fortrængte en tidligere fuld maksimumsvinder. Reglen er valgt efter udfaldsinspektion og må derfor ikke kvalificere den nuværende metode eller tunes videre på samme bank.
