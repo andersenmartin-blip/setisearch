@@ -1,3 +1,15 @@
+# SETI-status · 14. oktober 2026: fastlåst top 5 bevarer flere svage spor
+
+**8.466 betingede cases er afsluttet med uafhængig QA.** På 2.822 nye indsprøjtningsplaceringer bevarer top 5 den komplette svage bane i 2.623 cases (92,95 %), mod 1.898 (67,26 %) med kun maksimum: 725 flere. 199 svage cases mangler stadig, og kandidatbyrden bliver fem gange større. Stærke indsatser bevares alle med begge regler. 270 lokale kandidatposter fra de faktiske profiler er nu bevaret.
+
+Reglen og kode blev offentliggjort før udfald. Baggrunden er fortsat samme eksponerede besøg i 2017; resultatet gælder lokal metodekontrol omkring tidligere valgte spor. Ingen kvalificeret SETI-detektion, kalibreret FAP, fysisk følsomhed eller bestået fuld seks-scan-kæde. Original A/B forbliver FAIL_CLOSED. Den komplette resultatpakke er gemt; 0 DKK og nul nye teleskopforespørgsler/bytes. Checkpoint 20. oktober 2026.
+
+[Resultat](https://github.com/andersenmartin-blip/setisearch/blob/47d2d2ac086d05e0178784a5e1de28e1b40e6571/analysis/retention_validation_20261014/RESULTS_DA.md) · [Frosset scope](https://github.com/andersenmartin-blip/setisearch/blob/47d2d2ac086d05e0178784a5e1de28e1b40e6571/analysis/retention_validation_20261014/SCOPE.json) · [Uafhængig QA](https://github.com/andersenmartin-blip/setisearch/blob/47d2d2ac086d05e0178784a5e1de28e1b40e6571/analysis/retention_validation_20261014/results/QA_RECEIPT.json) · [270 lokale kandidater](https://github.com/andersenmartin-blip/setisearch/blob/47d2d2ac086d05e0178784a5e1de28e1b40e6571/analysis/retention_validation_20261014/results/OBSERVED_TOP5.csv) · [Projektstatus](https://github.com/andersenmartin-blip/setisearch/blob/47d2d2ac086d05e0178784a5e1de28e1b40e6571/PROJECT_STATUS.md)
+
+---
+
+## Tidligere status, bevaret uændret
+
 # SETI-status · 13. oktober 2026: fuld ON-burstsøgning afsluttet
 
 **2.010 nye kort plus 288 pilotkort og 54 faste ON/OFF-profiler er færdige med bestået kilde-, global sorterings- og kontekst-QA.** Den erklærede 766-kerne familie pr. ON-scan omfatter 9.412.608 kanalmaksima og 20.952.465.408 korrelerede hypoteseforekomster i ét historisk besøg fra 2017. Syv af ni udvalg er nye i forhold til piloten. Egne fire-række-scorer er 6,638491-7,450295; andre ON når 2,042495 og OFF 2,306076. Ingen etableret fast-banegenfinding, kvalificeret SETI-detektion eller kalibreret SNR/FAP.
