@@ -1,0 +1,50 @@
+{
+  "schema": "SETI_WEAK_TRUTH_RANK_SCOPE_V1",
+  "date": "2026-10-14",
+  "repository_base_commit": "a9ddca8e4e80de9fb60fb18e11abea0f9b36a935",
+  "source_archive": {
+    "name": "SETI_NATIVE_SPOR_2026-10-14.zip",
+    "library_id": "libfile_aed79b40b6e48191b3a2ec2e288ab4a5",
+    "sha256": "52b948958c89069a7afb563cf377ee33e4f1324e014428d597b4b3e3a20f6eb3"
+  },
+  "authenticated_inputs": {
+    "INJECTIONS.json": "aeffd0a53ef0b2b4aab69e2829af9ef76dac1cf5223062fe2e12c32d42bf5a16",
+    "PROFILES.json": "36a37d37d761f7e485b950f3421cc14691573ae266184fd91e0932f2dfc6d2ed",
+    "profile_path_arrays": 54,
+    "weak_trials": 1512,
+    "amplitude_per_active_standardized_single_bin": 2.0,
+    "host_offset_channels": 512
+  },
+  "fixed_statistics": {
+    "truth_path": "eligible exact-family path matching all four canonical-float active bins",
+    "truth_score": "maximum injected score among complete truth paths",
+    "rank_min": "1 plus count of eligible hypotheses with score strictly greater than truth_score",
+    "rank_max": "count of eligible hypotheses with score greater than or equal to truth_score",
+    "score_gap": "global eligible maximum minus truth_score",
+    "retention_k": [1, 2, 3, 5, 10, 20, 50, 100]
+  },
+  "resource_envelope": {
+    "conservative_reserved_CPU_s": 120,
+    "analysis_CPU_s_cap": 60,
+    "QA_CPU_s_cap": 60,
+    "wall_s_cap_each": 300,
+    "memory_bytes_cap_each": 1073741824,
+    "cost_DKK": 0
+  },
+  "preserved": {
+    "new_telescope_requests": 0,
+    "new_telescope_bytes": 0,
+    "new_observation": false,
+    "original_A_B": "FAIL_CLOSED",
+    "protected_2016": true,
+    "closed_2019": true,
+    "qualified_SETI_detection": false,
+    "checkpoint": "2026-10-20"
+  },
+  "interpretation": [
+    "This is a post-data diagnostic of previously exposed conditional injections, not fresh validation.",
+    "Ranks span correlated paths and overlapping windows; they are not independent trials or a false-alarm calibration.",
+    "The delta-bin residual injection does not model the instrumental line-spread function or raw preprocessing.",
+    "Any retained-candidate policy inferred from these outcomes is DEVELOPMENT ONLY and must be frozen before fresh validation."
+  ]
+}
