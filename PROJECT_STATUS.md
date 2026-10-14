@@ -1,3 +1,17 @@
+# Aktuel SETI-status - 14. oktober 2026: lokal driftopfølgning afsluttet
+
+**54 profiler, 1.377.810 lokale fire-række-scorer og 3.024 betingede signalindsprøjtninger er beregnet og kontrolleret uafhængigt. Ingen kvalificeret SETI-detektion.** De ni oprindelige ON-topscorer er uændrede (6,638491-7,450295). Efter drift/fase- og tidsmaksimering er største lokale score i andre ON-scans 4,543590 og i OFF 3,605558. Scorer og otte korrelerede forskydningskontroller er beskrivende, uden kalibreret falsk-alarm-sandsynlighed eller kvalificeret OFF-veto.
+
+Den fine 405-tuple familie kan ramme alle fire indsatte native bins i 1.493/1.512 geometrier; den grove faste drift/fase kan i 40/1.512. Den stærke amplitude giver fortsat 19 partielle geometrier (17 med tre, to med to aktive bins). Det er et konkret geometrisk dækningstab; numerisk QA certificerer efterregning, ikke fuld metodevalidering. Indsprøjtningerne sker i standardiserede residualer og måler ikke fysisk følsomhed.
+
+Beregningerne er bevaret efter en JSON-formateringsfejl. En enkelt bool-cast rettede formatet; manglende indsprøjtningsfiler blev rekonstrueret fra de autentificerede gemte familiearrays. Den uafhængige kontrol genberegnede alle oprindelige normaliseringer, samtlige lokale scorer og alle indsprøjtninger fra råcrops. Største numeriske afvigelse er 5,33e-15.
+
+[Rapport](RADIO_DRIFT_FOLLOWUP_2026-10-14.md) · [Frosset scope](analysis/drift_followup_20261014/SCOPE.json) · [Kontrolleret resumé](analysis/drift_followup_20261014/SUMMARY.json) · [Uafhængig QA](analysis/drift_followup_20261014/qa_results/QA_RECEIPT.json).
+
+Næste afgrænsede kontrol forklarer de 19 delvise geometrier via eksakte afrundingsgrænser, før en eventuel udvidelse af observationsfamilien. Samme eksponerede besøg fra 2017; original A/B FAIL_CLOSED, beskyttede 2016-kontroller og lukket 2019-rute bevares. 0 DKK, nul nye teleskopforespørgsler. Formelt checkpoint 20. oktober 2026.
+
+---
+
 # Aktuel SETI-status - 13. oktober 2026: fuld ON-burstsøgning afsluttet
 
 **2.010 nye kort plus 288 uændrede pilotkort og 54 faste ON/OFF-profiler er færdige. Kilde-QA, uafhængig global sorterings-QA og kildebaseret kontekst-QA består.** De erklærede 766 referencekerner pr. ON-scan giver 9.412.608 carrier-forekomster og 20.952.465.408 korrelerede hypoteseforekomster i det samme eksponerede besøg 28. april 2017. Dækningen gælder denne afgrænsede frekvens- og skabelonfamilie.

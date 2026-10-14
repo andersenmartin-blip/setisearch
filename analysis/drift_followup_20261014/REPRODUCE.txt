@@ -1,0 +1,45 @@
+SETI local drift diagnostic - 14 October 2026
+
+The archive contains the frozen diagnostic, all 54 authenticated 16x12096 raw
+context crops and their original normalizations, complete observed family
+scores/centers, all conditional injection outputs and independent QA.
+This is posthoc analysis of the exposed 2017 visit, not fresh validation.
+
+Requirements: Python 3.12, NumPy; ReportLab and Matplotlib only for the PDF.
+
+After extracting this result archive, run one command:
+
+    python3 replay.py /absolute/path/to/a/new-replay-directory
+
+The replay wrapper verifies the fixed scope, corrected producer and independent
+QA hashes. It keeps delivered evidence unchanged, stages fresh GO receipts,
+uses all byte-authenticated inputs with the explicit portable-inputs flag,
+then runs production and independent QA in the new directory. Python/NumPy
+must be available. This wrapper is provided and syntax-checked; the delivered
+full results and their independent QA were run separately. The wrapper has
+not itself been rerun across all54profiles during this delivery.
+
+The first production attempt computed and saved all54family arrays and their
+summary, then hit a NumPy boolean JSON formatting error. Original code, stdout,
+stderr and partial JSON are preserved. A sole bool cast fixed formatting;
+finalize_saved.py rebuilt injections from the pinned savedfamily arrays without
+reopening raw data. The independent QA then recomputed every normalization,
+family score and conditional injection from the original authenticated crops.
+Initial attempt measured time is unavailable; its full600CPU/900wall caps are
+charged conservatively. Recovery and independent QA have measured usage.
+
+Axes and quantities:
+- Original selected first-row midpoint remains the reference for every scan.
+- 81 drift values span the original drift +/-4/158 Hz/s; five native-channel
+  phase offsets span -0.5 to +0.5. Width remains one native channel.
+- All seven four-row windows are saved. The primary score keeps the originally
+  selected window; maximizing seven windows is a separate timing diagnostic.
+- Eight correlated frequency-shift controls use exactly the same family and
+  normalization. Control ranks are descriptive and are not p-values.
+- 3,024 single-native-bin additions to standardized residuals use a +512-bin
+  control background. They bypass raw preprocessing and test conditional
+  scorer geometry only. They do not establish flux sensitivity, FAP, physical
+  repetition, or qualified ON/OFF rejection.
+
+Original A/B FAIL_CLOSED, protected 2016 data and closed 2019 access remain.
+No telescope requests and no spending. Formal plan checkpoint: 20 October.
