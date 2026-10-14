@@ -1,3 +1,15 @@
+# Aktuel SETI-retning · 14. oktober 2026: mål signalformen før nye kvalifikationspåstande
+
+648 råkontroller er afsluttet. Enkeltkanalsmåling har en modelbestemt begrænsning for integrationsudsmøring; top 5 ændrer ikke det geometriske effektloft. Små ekstra normaliseringsændringer kan ikke forklare dette større formtab i panelet. Bevar denne bank lukket.
+
+Brugerens fortsættelse følges med en særskilt prospektivt låst kontrol af de allerede dokumenterede bredder 1/3/9/33 på nye placeringer, sammen med top 5, samme samlede referenceeffekt, fuld rånormalisering og effekt-/geometridækning. Global søgning og den fulde seks-scan OFF/RFI/null-kæde forbliver særskilte uløste gates; en bredere lokal scorebank alene kvalificerer dem ikke. Original A/B er FAIL_CLOSED, 2016 er beskyttet, 2019 er lukket, slutcheckpoint er 20. oktober.
+
+[Afsluttet råstudie](analysis/raw_retention_20261014/RESULTS_DA.md) · [Fortsættelsespunkt](analysis/raw_retention_20261014/NEXT_STEP.md)
+
+---
+
+## Tidligere status, bevaret uændret
+
 # Aktuel SETI-retning · 14. oktober 2026: top-5-kontrol afsluttet på nye placeringer
 
 Den uændrede top-5-regel er nu efterprøvet i et prospektivt fastlåst, afgrænset residualpanel. Alle 2.822 placeringer er fysisk forskellige fra den gamle indsprøjtningsbank; baggrunden er fortsat eksponeret. Svag komplet bevaring stiger fra 1.898 til 2.623, men 199 tilfælde mistes, og kandidatbyrden femdobles. Dette støtter den lokale engineeringregel i den erklærede model og kvalificerer ikke teleskopdetektoren.

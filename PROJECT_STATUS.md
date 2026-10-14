@@ -1,3 +1,15 @@
+# SETI-status · 14. oktober 2026: råeffekt og udsmøring kontrolleret
+
+**648 råeffekttests har bestået 2.089.334 uafhængige kontroller.** Normaliseringens ekstra scoreændring er under 0,027 i panelet. Den større begrænsning er signalfordelingen: selv den bedste enkeltkanalsbane kan opsamle kun 3,91–30,58 % af den idealiserede integrationsudsmørings referenceeffekt, median 7,80 %. Ved A8 når en faktisk top-5-bane dette smalle loft i 89/108 cases; centerbanens identitet alene er derfor ikke generel signalgenfinding.
+
+Ny råinjektion, float32-runding, alle 4096 normaliseringskanaler og 648 råhashes er faktisk beregnet og efterregnet. Det er lokal metodekontrol på eksponerede 2017-data, ikke nye observationer, fysisk følsomhed, FAP eller bestået fuld OFF/RFI/null-kæde. Original A/B forbliver FAIL_CLOSED. 0 DKK og nul nye teleskopbytes/forespørgsler; checkpoint 20. oktober 2026.
+
+[Resultat](analysis/raw_retention_20261014/RESULTS_DA.md) · [Frosset scope](analysis/raw_retention_20261014/SCOPE.json) · [QA](analysis/raw_retention_20261014/results/QA_RECEIPT.json) · [Næste bredde-kontrol](analysis/raw_retention_20261014/NEXT_STEP.md)
+
+---
+
+## Tidligere status, bevaret uændret
+
 # SETI-status · 14. oktober 2026: fastlåst top 5 bevarer flere svage spor
 
 **8.466 betingede cases på 2.822 nye signalplaceringer er færdige med 1.079.583 uafhængige QA-kontroller.** Den før beregningen offentliggjorte top-5-regel bevarer 2.623/2.822 svage komplette baner (92,95 %), mod 1.898/2.822 (67,26 %) med top 1: 725 flere. Stærke baner bevares i 2.822/2.822 med begge regler. 199 svage cases mistes stadig, og arbejdsbyrden bliver fem gange større.
