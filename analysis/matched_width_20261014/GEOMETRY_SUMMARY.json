@@ -1,0 +1,262 @@
+{
+  "amplitudes": [
+    8,
+    32
+  ],
+  "code_pins": [
+    {
+      "bytes": 16735,
+      "path": "matched_width_20261014/build_manifest.py",
+      "sha256": "3baf6bc9638c726ce72a682676954689f082eb8878ee7535128033d24f6ab5c7"
+    },
+    {
+      "bytes": 3857,
+      "path": "matched_width_20261014/kernel_geometry.py",
+      "sha256": "bb5faf6e2ffb65f86d2ac483ca3f8844d1715e486e89f0f5f8741816b6d10bab"
+    }
+  ],
+  "complete_manifest_bytes": 6803228,
+  "complete_manifest_sha256": "89e8450a047d6cd49fea467e767cbcad1f32aa84acd5b14ceb7837f427422017",
+  "counts": {
+    "all_width_template_host_raw501_DC_checks": 177880,
+    "amplitudes": 2,
+    "baseline_combined_lists": 108,
+    "baseline_raw_crops": 54,
+    "baseline_width1_lists": 108,
+    "central_bins_in_core_perplacement_histogram": {
+      "0": 11,
+      "3": 1,
+      "4": 96
+    },
+    "kernel_row_normalization_support_classes": {
+      "CORE_OVERLAP": 388,
+      "HALO_ONLY": 16,
+      "OUTSIDE_NORMALIZATION_SUPPORT": 28
+    },
+    "models": 1,
+    "new_overlap_prior_physical_placements": 0,
+    "new_positive_cells_overlap_prior": 0,
+    "oracle_full_kernel_coverage_geometries_by_width": {
+      "1": 0,
+      "3": 0,
+      "33": 108,
+      "9": 36
+    },
+    "perturbed_raw_cases": 216,
+    "physical_unique_placements": 108,
+    "prior_physical_placements": 4358,
+    "prior_positive_injection_cells": 14372,
+    "profiles": 54,
+    "total_four_row_box_cells": 8182480,
+    "unique_new_positive_injection_cells": 6561,
+    "widths": 4
+  },
+  "date": "2026-10-14",
+  "frozen_top5_policy_base_commit": "f1108023a7bf7e2700d97a0b31c6eb30d9fa1f14",
+  "full_bank_in_delivery": true,
+  "geometry_arithmetic": "Separately rationalized binary64 d0,time,DF,half_step,TSAMP with exact new rational drift/phase and nearest absolute-channel ties-even; same frozen native4 center family.",
+  "input_pins": [
+    {
+      "bytes": 14588343,
+      "path": "checkpoints/SETI_NATIVE_SPOR_2026-10-14/SETI_NATIVE_SPOR_2026-10-14/rounding_followup/exact_geometry_results/GEOMETRY.json",
+      "sha256": "77651a3d9122398a8ebe9467ee8be93be7422dfd9a5958655e88ea480d94a7f1"
+    },
+    {
+      "bytes": 629588,
+      "path": "checkpoints/SETI_NATIVE_SPOR_2026-10-14/SETI_NATIVE_SPOR_2026-10-14/seti_work/seti_burst_full/context_results/CONTEXT_PROFILES.json",
+      "sha256": "31efe1e5eeba63d10fbc04ea60bd29eb3086f142b6111a185f821a40a0558522"
+    },
+    {
+      "bytes": 12586465,
+      "path": "checkpoints/SETI_NATIVE_SPOR_2026-10-14/SETI_NATIVE_SPOR_2026-10-14/rounding_followup/results/INJECTIONS.json",
+      "sha256": "aeffd0a53ef0b2b4aab69e2829af9ef76dac1cf5223062fe2e12c32d42bf5a16"
+    },
+    {
+      "bytes": 6213475,
+      "path": "retention_validation_20261014/GEOMETRY_MANIFEST.json",
+      "sha256": "106b0bffba727c95cd6fa9bb1c7217ec1e23ed8b0476716184192fa0c1c73297"
+    },
+    {
+      "bytes": 3717785,
+      "path": "raw_retention_design/GEOMETRY_MANIFEST.json",
+      "sha256": "fc9c8ebf8d9ba9fd35a71ee36cb0c49b9cc79d0851b9fa79e684ad2cfe988585"
+    },
+    {
+      "bytes": 17484,
+      "path": "repo_latest/raw_chain_sources/generator_original.py",
+      "sha256": "3864bd49766f71771ac48cb517eaa516fab0768d3c39f2ed8f07b8f1eed21693"
+    }
+  ],
+  "integration_sweep_range": [
+    3.17729599797011,
+    25.522568737468383
+  ],
+  "interpretation": [
+    "One prospective fixedwidth1/3/9/33 local stage on new integration-smear injectioncells and already exposed2017 background.",
+    "Same intrinsic/exposure kernel law and totalpower reference; no empirical instrument-response or physical sensitivity claim.",
+    "Full positive-kernel support coverage is geometric completeness, not qualified detection recovery. A smallerbox may have larger ideal standardized projection coefficient while omitting lowweight wings.",
+    "Combinedtop5 and width1-onlytop5 use different finitefamilies with correlated templates; candidateworkload5vs5 and no calibratedFAP.",
+    "No new telescope files, fullglobalsearch, physicalclassification or originalsixscan-chain qualification."
+  ],
+  "kernel_law": {
+    "amplitude_reference": "Total positive per-active-row power in pre-existing raw median\u00d7MAD reference units; comparable total power across kernels, not physical SNR, flux or matched-filter ideal score.",
+    "casting": "Original16x12096 little-endianfloat32 raw crop copied tofloat64; additions in ascending kernelchannel order; cast each modified row once back tofloat32; unchanged12rows reused bit-identical; reject nonfinite/nonpositive values; no clipping/redraw.",
+    "delta": "One bin of weight1 at canonical integer center.",
+    "delta_power": "A * ORIGINAL saved row_power_median[row] * ORIGINAL saved row_residual_MAD_scale[row] * normalized_kernel_weight",
+    "fixed3": "Fixed engineering split1/4,1/2,1/4 at canonical integer center\u00b11; no measured line response claim.",
+    "integration_smear": "Unit-area uniform intrinsic width1 nativebin convolved with uniform linear exposure sweep L=abs(true_drift)*TSAMP/absDF, centered on exact UNROUNDED affine integration midpoint; bin weights are exact CDF differences then deterministic binary64 normalization.",
+    "kernel_weights": "Each positive exact rational CDF mass converted tobinary64 once; fail mass< -1e-14; clip tinynegative to0; divide each by math.fsum(clipped_weights). No ideal-projection power rescaling.",
+    "source_profile_contract": "Same mathematical profile family as pinned original_generator._uniform_convolution_cdf/_profile; exact affine/rational arithmetic extension explicitly differs from original float evaluation and amplitude prescription."
+  },
+  "metadata_resource_usage": {
+    "CPU_s": 2.445562,
+    "peak_RSS_bytes": 130564096,
+    "wall_s": 2.459308104000229
+  },
+  "models": [
+    "integration_smear"
+  ],
+  "normalization": {
+    "baseline": "Authenticate54 original raw crops and saved metadata; recompute16 full4096 core rows and compare original power median, residual median,MAD,winsorized location before perturbed cases.",
+    "formula": "Core raw median over4096; ratio tothatmedian;501 local median subtraction for every4096 core channel; row residual median,1.4826*MAD and center+mean(clip(residual-center,\u00b15*MADscale)).",
+    "halo_caution": "Outside4096 core but insidecore\u00b1250 can affect local medians and residual normalization; only outsideexpanded support guarantees unchanged normalization.",
+    "modified_rows": "Recompute full4096 normalization for4 modified rows independently percase;12 unchanged rows reuse exact baseline normalization.",
+    "path_scoring": "Same frozen exact native4 center family acrossall7 windows translated toSAME injection host; eachwidth1/3/9/33 template sums directly standardized raw501 row residuals in its4\u00d7width nativecells and divides bysqrt(4\u00d7width)."
+  },
+  "observed_outcomes_scored": false,
+  "operational_amendments": [
+    "Finite nonnegativefloat32 raw powers allowed; reject negatives/nonfinite; core median/MAD positive.",
+    "Operational12 unchanged rows reuse RECOMPUTED authenticated baseline normalization; original saved median/MAD define only input power reference."
+  ],
+  "oracle_optimal_width_counts": {
+    "1": 0,
+    "3": 24,
+    "33": 36,
+    "9": 48
+  },
+  "placements": [
+    {
+      "drift_fraction": [
+        "-31",
+        "100"
+      ],
+      "host_offset_channels": -384,
+      "phase_fraction": [
+        "-7",
+        "100"
+      ],
+      "window_start_row": 4
+    },
+    {
+      "drift_fraction": [
+        "79",
+        "100"
+      ],
+      "host_offset_channels": 384,
+      "phase_fraction": [
+        "41",
+        "100"
+      ],
+      "window_start_row": 8
+    }
+  ],
+  "policy": {
+    "DC_eligibility": "Any selected box cell contacting a frozenDC channel makes whole hypothesis ineligible.",
+    "amplitude_reference": "A8/32 total perrow original median\u00d7MAD reference power; strongerA32 declared prospectively, not physicalSNR/flux/sensitivity.",
+    "baseline": "108 unique profile-host combined lists and108 width1 lists, bothk5; equalretained slots but4times candidate hypotheses and altered correlation; not nullFAP calibration.",
+    "canonical_center": "Metadata reference only; full kernel coverage and retained depositedfraction are primary spread-signal diagnostics.",
+    "comparison": "single combined width-bank top5 versus width1-only top5",
+    "deposited_fraction": "Sum declared positive normalized kernelweights inside selected boxes on active rows divided4; report family oracle and best actual top5, not a selection criterion.",
+    "full_support_coverage": "Every positive declared integration_smear kernel channel on all4 active source rows lies inside its selected same-row box; missing any active row or positive cell isfalse.",
+    "hypothesis_identity": [
+      "width",
+      "window_source_rows",
+      "native_four_center_bins"
+    ],
+    "retention_k": 5,
+    "score": "Sum standardized residualz at4row\u00d7width native cells, divided bysqrt(4*width); same raw501 row residual and original full4096 normalization.",
+    "standardized_projection_coefficient": "Sum active declared kernelweights selected by template dividedsqrt(4*width)=2*depositedfraction/sqrt(width). Report family oracle/maximizing width and maximum coefficient among actual score-retained top5; no input power rescaling, ranking change or acceptance threshold.",
+    "tie_order": "descending score,widthascending,windowstartascending,native4centerslexicographic"
+  },
+  "preserved": {
+    "checkpoint": "2026-10-20",
+    "closed_2019": true,
+    "full6scan_chain_gate_pass": false,
+    "new_observation": false,
+    "new_telescope_bytes": 0,
+    "new_telescope_requests": 0,
+    "original_A_B": "FAIL_CLOSED",
+    "protected_2016": true,
+    "qualified_SETI_detection": false
+  },
+  "projection_summary": {
+    "1": {
+      "canonical_deposited_fraction_range": [
+        0.03918100918000275,
+        0.31473303105498307
+      ],
+      "oracle_deposited_fraction_range": [
+        0.03918100918000275,
+        0.31473303105498307
+      ],
+      "oracle_full_coverage_geometries": 0
+    },
+    "3": {
+      "canonical_deposited_fraction_range": [
+        0.11754302754000825,
+        0.8776848254321932
+      ],
+      "oracle_deposited_fraction_range": [
+        0.11754302754000825,
+        0.8776848254321932
+      ],
+      "oracle_full_coverage_geometries": 0
+    },
+    "33": {
+      "canonical_deposited_fraction_range": [
+        1.0,
+        1.0
+      ],
+      "oracle_deposited_fraction_range": [
+        1.0,
+        1.0
+      ],
+      "oracle_full_coverage_geometries": 108
+    },
+    "9": {
+      "canonical_deposited_fraction_range": [
+        0.3526290826200248,
+        1.0
+      ],
+      "oracle_deposited_fraction_range": [
+        0.3526290826200248,
+        1.0
+      ],
+      "oracle_full_coverage_geometries": 36
+    }
+  },
+  "raw501_box_support_crop_indices_inclusive": [
+    4027,
+    9857
+  ],
+  "raw_spectral_arrays_opened": false,
+  "resource_envelope": {
+    "DKK": 0,
+    "QA_CPU_s_cap": 450,
+    "incremental_reserved_CPU_s": 1000,
+    "memory_bytes_cap_each": 2147483648,
+    "metadata_CPU_s_cap": 100,
+    "prior_ledger_retained": true,
+    "producer_CPU_s_cap": 450,
+    "wall_s_cap_each": 900
+  },
+  "saved_scores_opened": false,
+  "schema": "SETI_MATCHED_WIDTH_GEOMETRY_V1",
+  "status": "PASS_METADATA_ONLY_NEW_WIDTH_BANK_PLACEMENTS",
+  "widths": [
+    1,
+    3,
+    9,
+    33
+  ]
+}
