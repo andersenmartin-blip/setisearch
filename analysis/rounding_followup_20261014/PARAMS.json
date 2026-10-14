@@ -1,0 +1,332 @@
+{
+  "CPU_seconds_cap": 120,
+  "compute_before_scope_written": false,
+  "date": "2026-10-14",
+  "expected_distinct_geometries": 1512,
+  "expected_injection_trials": 3024,
+  "expected_missing_four_row_patterns": 19,
+  "expected_profiles": 54,
+  "forbidden_operations": [
+    "reading residual_row_terms or scores NPZ members",
+    "raw spectral arrays",
+    "new score searches",
+    "injection recalculation",
+    "changing original data or outcomes"
+  ],
+  "geometry": {
+    "DF_hz": -2.7939677238464355,
+    "delta_drift_half_width_hz_s": 0.02531645569620253,
+    "host_offset_channels": 512,
+    "model": "exact real affine rounding cells with constants read as exact binary rational floats; legacy float64 tuples checked separately",
+    "phase_interval_channels": [
+      -0.5,
+      0.5
+    ],
+    "rounded_integer_rule": "nearest integer ties to even; odd target strips have open endpoints"
+  },
+  "input_pins": [
+    {
+      "bytes": 8302902,
+      "path": "drift_followup/results/INJECTIONS.json",
+      "sha256": "8a604dfb4b2ba88248f9dcd2871a22985c94b71ba29b99e8f31599b9003787c5"
+    },
+    {
+      "bytes": 629588,
+      "path": "seti_work/seti_burst_full/context_results/CONTEXT_PROFILES.json",
+      "sha256": "31efe1e5eeba63d10fbc04ea60bd29eb3086f142b6111a185f821a40a0558522"
+    },
+    {
+      "bytes": 28991,
+      "path": "drift_followup/SCOPE.json",
+      "sha256": "b0a76f82ba0cb901112f94ae6989e64f20b7aa6e395f37d51840ea3d37484075"
+    },
+    {
+      "bytes": 54334,
+      "path": "drift_followup/results/profiles/epoch1_on_rank1_epoch1_off_family.npz",
+      "sha256": "f528441e404f737b122edea6f26ca1c07c1a0f63815c7b4de66cefe4a784bf87"
+    },
+    {
+      "bytes": 33786,
+      "path": "drift_followup/results/profiles/epoch1_on_rank1_epoch1_on_family.npz",
+      "sha256": "1b74b17fde4fd33d5423343228d5ad7bde417664f33402a609e294bf8fdc27f8"
+    },
+    {
+      "bytes": 97699,
+      "path": "drift_followup/results/profiles/epoch1_on_rank1_epoch2_off_family.npz",
+      "sha256": "8585b8af4f31b3ac7487035acab0df95c8ae9d3f54b203f232d1f06f0f889c8e"
+    },
+    {
+      "bytes": 77635,
+      "path": "drift_followup/results/profiles/epoch1_on_rank1_epoch2_on_family.npz",
+      "sha256": "520ab0f7e33b1ae4d8a0c192c95dd8bff31c47631e542b5a763dde2bd3072030"
+    },
+    {
+      "bytes": 151370,
+      "path": "drift_followup/results/profiles/epoch1_on_rank1_epoch3_off_family.npz",
+      "sha256": "9cf69e5ce8c9016e9f53ec99e5883aaa02eb375042600bc4e23ac1ad4a865a3f"
+    },
+    {
+      "bytes": 121966,
+      "path": "drift_followup/results/profiles/epoch1_on_rank1_epoch3_on_family.npz",
+      "sha256": "afe35b9812d740d3fe3b192ecb0d757b95722f88817687f4345789e7da0c9dac"
+    },
+    {
+      "bytes": 64177,
+      "path": "drift_followup/results/profiles/epoch1_on_rank2_epoch1_off_family.npz",
+      "sha256": "fa06c14bf6c6fa74dbd255c410936f1c17030945c43376f695ed4eb7ac4a83b1"
+    },
+    {
+      "bytes": 34601,
+      "path": "drift_followup/results/profiles/epoch1_on_rank2_epoch1_on_family.npz",
+      "sha256": "2a00d6364cc79cd24ddda245dcc19cd0141ca0dbb653bcfce7b63dce1220b550"
+    },
+    {
+      "bytes": 91177,
+      "path": "drift_followup/results/profiles/epoch1_on_rank2_epoch2_off_family.npz",
+      "sha256": "7ba3e03d3704f86aa07d5adf7d2a3542721a36ac94176de8bf96e3fa8b80dddc"
+    },
+    {
+      "bytes": 88126,
+      "path": "drift_followup/results/profiles/epoch1_on_rank2_epoch2_on_family.npz",
+      "sha256": "207e2f0cf37f6a95d212c91d557d0204345cca8d6eec3b9cd627f0a367a60277"
+    },
+    {
+      "bytes": 147239,
+      "path": "drift_followup/results/profiles/epoch1_on_rank2_epoch3_off_family.npz",
+      "sha256": "d079875685732a9ed61c29207918641ad6ee3e0227628a5659159b64deaeecf0"
+    },
+    {
+      "bytes": 125680,
+      "path": "drift_followup/results/profiles/epoch1_on_rank2_epoch3_on_family.npz",
+      "sha256": "5f15730d21402cdc28ce303eeba32e8069716156a12ffce8f4ecaf8f1ae6cfa3"
+    },
+    {
+      "bytes": 69770,
+      "path": "drift_followup/results/profiles/epoch1_on_rank3_epoch1_off_family.npz",
+      "sha256": "12ffe69f1e845efa29fbb87811dce27a7450e5caafd04c0405100a4674344aea"
+    },
+    {
+      "bytes": 39455,
+      "path": "drift_followup/results/profiles/epoch1_on_rank3_epoch1_on_family.npz",
+      "sha256": "8da580bf9f35a2776fed1fa1ceb54b92e6fdc9994a1dad7628d44eaef8c016ed"
+    },
+    {
+      "bytes": 100802,
+      "path": "drift_followup/results/profiles/epoch1_on_rank3_epoch2_off_family.npz",
+      "sha256": "b4aeba804a616735ce56c3afdc4b07d2e21d7152e73b6d6e9370c944375647d9"
+    },
+    {
+      "bytes": 95175,
+      "path": "drift_followup/results/profiles/epoch1_on_rank3_epoch2_on_family.npz",
+      "sha256": "d7b4454d501f8f2b93ed535b0b1f84a2f7d71d23d65d8b38faec3d54c82c078e"
+    },
+    {
+      "bytes": 164124,
+      "path": "drift_followup/results/profiles/epoch1_on_rank3_epoch3_off_family.npz",
+      "sha256": "74baf0cad3ab3c891e3a1c9b9151e21f5579bcffb97725de3990ad5fe43504e2"
+    },
+    {
+      "bytes": 139626,
+      "path": "drift_followup/results/profiles/epoch1_on_rank3_epoch3_on_family.npz",
+      "sha256": "c6bfced9cc9581844b9a614e6b69c095abfef31bc2f8ea0f313a0c779481ea06"
+    },
+    {
+      "bytes": 55102,
+      "path": "drift_followup/results/profiles/epoch2_on_rank1_epoch1_off_family.npz",
+      "sha256": "09ac6ba9a04f547121e62aa924bb4422948c2ec4957e309514b2fe61fcbd8045"
+    },
+    {
+      "bytes": 78170,
+      "path": "drift_followup/results/profiles/epoch2_on_rank1_epoch1_on_family.npz",
+      "sha256": "18a8f7f82d7aac617118eac17dfe23a0c29981a09149cc76cc6013ab893eb803"
+    },
+    {
+      "bytes": 65444,
+      "path": "drift_followup/results/profiles/epoch2_on_rank1_epoch2_off_family.npz",
+      "sha256": "ec709e4cb53ec1b7c63c828f3b14ea9180b5d9aa9f225816d98a2916a6eba391"
+    },
+    {
+      "bytes": 32134,
+      "path": "drift_followup/results/profiles/epoch2_on_rank1_epoch2_on_family.npz",
+      "sha256": "1806b378be588260759450cc3692d2eae3f5f5a78472e7a319c4d84108156d8d"
+    },
+    {
+      "bytes": 97517,
+      "path": "drift_followup/results/profiles/epoch2_on_rank1_epoch3_off_family.npz",
+      "sha256": "8eb6170598ad1a47033065477be36b005bbc039224031ed214d5f52a0b0e8c31"
+    },
+    {
+      "bytes": 89545,
+      "path": "drift_followup/results/profiles/epoch2_on_rank1_epoch3_on_family.npz",
+      "sha256": "d6de570191a54219d3602e177acdf1b07eb8d14b62144d6816b5af0a120cf68c"
+    },
+    {
+      "bytes": 65002,
+      "path": "drift_followup/results/profiles/epoch2_on_rank2_epoch1_off_family.npz",
+      "sha256": "2af81e837f6dc428c8e845ac10ad975743ed9e65b82c838fd7ce1ce6d1565729"
+    },
+    {
+      "bytes": 88179,
+      "path": "drift_followup/results/profiles/epoch2_on_rank2_epoch1_on_family.npz",
+      "sha256": "93b9ae60faad65a2d5a2c629ed312332e517c66bc5e836593956a9cf0aceeb01"
+    },
+    {
+      "bytes": 51303,
+      "path": "drift_followup/results/profiles/epoch2_on_rank2_epoch2_off_family.npz",
+      "sha256": "5880b2fc3cfed0c93dc5a722d0499632e60789a84b9bcce26b23457c790a7080"
+    },
+    {
+      "bytes": 30901,
+      "path": "drift_followup/results/profiles/epoch2_on_rank2_epoch2_on_family.npz",
+      "sha256": "2bc15c61f2139bc74d31f2d4aa20ec9bd2dd98720308b2cae1488a95ba552070"
+    },
+    {
+      "bytes": 92447,
+      "path": "drift_followup/results/profiles/epoch2_on_rank2_epoch3_off_family.npz",
+      "sha256": "88d65ba2e304c5026e335e09ccff1368b988d6842a43131dafcf5ab52f4cb457"
+    },
+    {
+      "bytes": 73867,
+      "path": "drift_followup/results/profiles/epoch2_on_rank2_epoch3_on_family.npz",
+      "sha256": "6ac5693bfdaa039abef7ee9f329301de6f58d420968baddd1a4ceddc789e7a83"
+    },
+    {
+      "bytes": 61557,
+      "path": "drift_followup/results/profiles/epoch2_on_rank3_epoch1_off_family.npz",
+      "sha256": "c1e6094ca04c7227cc73da7a7f32e3725dc0372ff42f23174d406dfa2b798e4e"
+    },
+    {
+      "bytes": 88035,
+      "path": "drift_followup/results/profiles/epoch2_on_rank3_epoch1_on_family.npz",
+      "sha256": "d701bb3755dc2665e19bbe1c7afa0df31431b54ceb4641324c245c9b5fc921cd"
+    },
+    {
+      "bytes": 60419,
+      "path": "drift_followup/results/profiles/epoch2_on_rank3_epoch2_off_family.npz",
+      "sha256": "a22b98e97ebce26968535d2201b7b90799284a96857703589d3d57b4552fdbc8"
+    },
+    {
+      "bytes": 29885,
+      "path": "drift_followup/results/profiles/epoch2_on_rank3_epoch2_on_family.npz",
+      "sha256": "301c22eb4841ff2b1a1c4f9e17263ba1bd649fdffc75c57cedd4345c58fe7803"
+    },
+    {
+      "bytes": 94770,
+      "path": "drift_followup/results/profiles/epoch2_on_rank3_epoch3_off_family.npz",
+      "sha256": "9e99b85e6fb30c1d41381bbfe03522d7c262dbd59958ec3a20f84eaece7865a2"
+    },
+    {
+      "bytes": 86001,
+      "path": "drift_followup/results/profiles/epoch2_on_rank3_epoch3_on_family.npz",
+      "sha256": "c79e22477258a5abc839d884e64cbd0c0c5c5889aaa96daf3e4e3bdbbfb4671b"
+    },
+    {
+      "bytes": 89146,
+      "path": "drift_followup/results/profiles/epoch3_on_rank1_epoch1_off_family.npz",
+      "sha256": "475c86ee7620a45399d4626cc9726d03767d7cae44e7664f90590ccb4f5383ab"
+    },
+    {
+      "bytes": 98893,
+      "path": "drift_followup/results/profiles/epoch3_on_rank1_epoch1_on_family.npz",
+      "sha256": "9b05424be1eab77cec66cc58c31f11e30f701cef90a9dc8574b2b4394e59180c"
+    },
+    {
+      "bytes": 45841,
+      "path": "drift_followup/results/profiles/epoch3_on_rank1_epoch2_off_family.npz",
+      "sha256": "e4163036ec9844f01649aa44d479ca86853585746f7f94d4fb5e5d5cf40e9d05"
+    },
+    {
+      "bytes": 69489,
+      "path": "drift_followup/results/profiles/epoch3_on_rank1_epoch2_on_family.npz",
+      "sha256": "4eb11bd2968c1f7d5922fb4dce2bbdf60de326865a067fdd61faad729312e989"
+    },
+    {
+      "bytes": 63713,
+      "path": "drift_followup/results/profiles/epoch3_on_rank1_epoch3_off_family.npz",
+      "sha256": "da976445c4b6b9ff5c67fa96a003184fc80ca961aebb3e4a369abaf9aa2c33f1"
+    },
+    {
+      "bytes": 35562,
+      "path": "drift_followup/results/profiles/epoch3_on_rank1_epoch3_on_family.npz",
+      "sha256": "5d7f76f984d29bf85c4cb7cf6d05a2bf0210821a6e2b94278b0e7fc6bc5ce985"
+    },
+    {
+      "bytes": 84340,
+      "path": "drift_followup/results/profiles/epoch3_on_rank2_epoch1_off_family.npz",
+      "sha256": "d7008508d65f1d8398ef2c141cd5394a352d032fe2a0b71bf78e964e3218f486"
+    },
+    {
+      "bytes": 114698,
+      "path": "drift_followup/results/profiles/epoch3_on_rank2_epoch1_on_family.npz",
+      "sha256": "441693f860edab4ebfa8883fe660ef592ef99c0211c4dedcf8c904498dfacda5"
+    },
+    {
+      "bytes": 57986,
+      "path": "drift_followup/results/profiles/epoch3_on_rank2_epoch2_off_family.npz",
+      "sha256": "096b86e6de1b9246e17898b60fa3deb2fe11fc96a3a3a60e13fcc296d166d4ec"
+    },
+    {
+      "bytes": 79456,
+      "path": "drift_followup/results/profiles/epoch3_on_rank2_epoch2_on_family.npz",
+      "sha256": "db3e21325628d2096b914bcb255d802bad07bc2572b340e2b0af9fc24de55c5b"
+    },
+    {
+      "bytes": 56438,
+      "path": "drift_followup/results/profiles/epoch3_on_rank2_epoch3_off_family.npz",
+      "sha256": "14f8c9e97ab1f279153e87501440780f02171bd944c7a09f99e1e4a9b8615169"
+    },
+    {
+      "bytes": 26805,
+      "path": "drift_followup/results/profiles/epoch3_on_rank2_epoch3_on_family.npz",
+      "sha256": "1c3978151b1c772ec7ee381133bba14d093ecbba1da524825d8b4adec6626ccc"
+    },
+    {
+      "bytes": 95033,
+      "path": "drift_followup/results/profiles/epoch3_on_rank3_epoch1_off_family.npz",
+      "sha256": "a746c19c3de43aeb354e283b2b183e4a28bd9a3a6a2751a1a7741f1efe66ace9"
+    },
+    {
+      "bytes": 133598,
+      "path": "drift_followup/results/profiles/epoch3_on_rank3_epoch1_on_family.npz",
+      "sha256": "47c967374b1bd79e6090ccb153f1888fe2f09e2ef0e20591500b26d87fc8a874"
+    },
+    {
+      "bytes": 67160,
+      "path": "drift_followup/results/profiles/epoch3_on_rank3_epoch2_off_family.npz",
+      "sha256": "94563ce45800e02c488de32880404596540b9a34854f41e2f862aa1821bb4606"
+    },
+    {
+      "bytes": 92514,
+      "path": "drift_followup/results/profiles/epoch3_on_rank3_epoch2_on_family.npz",
+      "sha256": "bc0a8288a026b98ae656f6282e5863e8e763a8e012f9d5348cd7ecbad0041eb2"
+    },
+    {
+      "bytes": 54531,
+      "path": "drift_followup/results/profiles/epoch3_on_rank3_epoch3_off_family.npz",
+      "sha256": "431a775522759e8554137c1a5c37f7791adb03b606272d6e8b0733e9d1f5f9de"
+    },
+    {
+      "bytes": 32526,
+      "path": "drift_followup/results/profiles/epoch3_on_rank3_epoch3_on_family.npz",
+      "sha256": "adc6a874865c5f08f19bec4542d39af0ba5f4c3ca64f0e475286c25bfb7ca903"
+    }
+  ],
+  "memory_bytes_cap": 536870912,
+  "output_bytes_cap": 1048576,
+  "outputs": [
+    "DIAGNOSIS19.json",
+    "DIAGNOSIS19.csv",
+    "METHOD.md",
+    "EXECUTION_RECEIPT.json"
+  ],
+  "read_NPZ_fields": [
+    "rounded_absolute_centers",
+    "family_drift_hz_s",
+    "family_phase_channels",
+    "times_from_primary_reference_s",
+    "offset_channels",
+    "window_source_rows"
+  ],
+  "schema": "SETI_GEOMETRY_ONLY_ROUNDING_CELL_DIAGNOSIS_SCOPE_V1",
+  "wall_seconds_cap": 240
+}

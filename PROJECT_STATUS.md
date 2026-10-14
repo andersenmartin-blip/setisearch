@@ -1,3 +1,17 @@
+# Aktuel SETI-status - 14. oktober 2026: eksakt native-sporfamilie verificeret
+
+**De 19 manglende testgeometrier er nu repræsenteret. Uafhængig QA består for 54 profiler, 378 vinduer, 22.235 unikke fire-bin-spor og 200.115 scorer på ni forskydninger. Ingen kvalificeret SETI-detektion.** Den eksakte, kontinuerte drift/fase-familie omfatter alle tidligere 405-tuple-spor og alle opnåelige afrundingsmønstre inden for det erklærede scope, inklusive rand- og punktløsninger.
+
+Alle 1.512 betingede signalgeometrier kan dækkes på fire aktive bins. Ved stærk amplitude 8 finder maksimum alle 1.512 mod tidligere 1.493. Ved svag amplitude 2 falder fuld genfinding fra 1.067 til 1.036: 43 tidligere fulde vindere erstattes af delvise spor med højere støjscore, mens 12 tilfælde forbedres. Det er en afklaret støjselektionseffekt; de komplette spor er bevaret blandt alle beregnede spor. Det er ikke dokumentation for forbedret fysisk følsomhed.
+
+De ni egne ON-topscorer er uændrede, 6,638491-7,450295. Andre ON-scans når 4,543590; OFF når 3,828783. Alle ni egne ON-vindere har et reelt todimensionalt parameterområde. Én nul-forskydningsvinder i OFF har kun en punktløsning. Scorer og korrelerede kontroller er beskrivende; ingen kalibreret FAP eller kvalificeret OFF-veto. 14 faste visninger af de gemte rådata og en fire-siders dansk rapport er færdige og visuelt kontrolleret.
+
+[Rapport](RADIO_EXACT_ROUNDING_2026-10-14.md) · [Frosset scope](analysis/rounding_followup_20261014/SCOPE.json) · [Resultater](analysis/rounding_followup_20261014/SUMMARY.json) · [Uafhængig QA](analysis/rounding_followup_20261014/qa_results/QA_RECEIPT_SUMMARY.json).
+
+Næste afgrænsede analyse undersøger rangplaceringen af kendte komplette spor i de svage tests og en regel for at bevare kandidater før frisk validering. Samme eksponerede besøg 28. april 2017; original A/B FAIL_CLOSED, beskyttede 2016-kontroller og lukket 2019-rute bevares. 0 DKK og ingen nye teleskopforespørgsler. Formelt checkpoint 20. oktober 2026.
+
+---
+
 # Aktuel SETI-status - 14. oktober 2026: lokal driftopfølgning afsluttet
 
 **54 profiler, 1.377.810 lokale fire-række-scorer og 3.024 betingede signalindsprøjtninger er beregnet og kontrolleret uafhængigt. Ingen kvalificeret SETI-detektion.** De ni oprindelige ON-topscorer er uændrede (6,638491-7,450295). Efter drift/fase- og tidsmaksimering er største lokale score i andre ON-scans 4,543590 og i OFF 3,605558. Scorer og otte korrelerede forskydningskontroller er beskrivende, uden kalibreret falsk-alarm-sandsynlighed eller kvalificeret OFF-veto.
