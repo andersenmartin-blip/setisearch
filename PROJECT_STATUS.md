@@ -1,3 +1,17 @@
+# SETI-status · 14. oktober 2026 · råeffekt og bredere skabeloner
+
+**864 nye råeffekttests er afsluttet i to på forhånd frosne studier, med 6.501.177 uafhængige QA-kontroller. Ingen kvalificeret SETI-detektion.** Den første bank har 648 cases med delta-, trekanals- og integrationsudsmøringskerner; den næste har 216 nye udsmørede cases med faste skabelonbredder 1/3/9/33.
+
+Med én samlet liste på fem kandidater er medianen af den bedste bevarede boks' referenceeffektandel ved A8 **77,17 %**, mod **7,72 %** med enkeltkanalsbaner. Ved A32 er tallene **83,56 %** og **7,81 %**. Det er effektandele i en kendt, indsat model på eksponerede baggrunde fra 28. april 2017, ikke fysisk flux, detektionssandsynlighed eller astronomisk recovery. Ved A32 er den bevarede signal-only-scorekoefficient i median 100 % af den kombinerede families oracle, mindst 92,775 % over de 108 placeringer; ved A8 forekommer fortsat tab.
+
+Antallet af opfølgningspladser er stadig fem, men skabelonfamilien er fire gange større. **Falskalarmraten er ikke kalibreret.** Den globale carrier-udvælgelse og den samlede seks-scan recovery-/OFF-/RFI-/null-kæde er endnu ikke kvalificeret. Original A/B står fortsat **FAIL_CLOSED**, 2016-holdouts er beskyttet, og 2019-ruten er lukket. 0 nye observing visits, 0 nye teleskopbytes/-forespørgsler og 0 DKK. Slutcheckpoint: 20. oktober 2026.
+
+[Bredere skabeloner: fuld rapport](analysis/matched_width_20261014/RESULTS_DA.md) · [648 råeffekttests](analysis/raw_retention_20261014/RESULTS_DA.md) · [Uafhængig QA](analysis/matched_width_20261014/results/QA_RECEIPT.json) · [Frosset scope](analysis/matched_width_20261014/SCOPE.json) · [Samlet leverancekvittering](results/radio_raw_matched_20261014/DELIVERY_RECEIPT.json)
+
+Den samlede ejerleverance indeholder kildedata, alle arrays, kode, rapporter og logs: `SETI_RAAEFFEKT_BREDE_SKABELONER_2026-10-14.zip`, SHA256 `e7643ec2d5786cbec90cd23dd7a7a4e7438c8871d0d30c713d60208852cce8dc`. De offentlige tabeller og hashkvitteringer er her i repoet; de komplette arrays ligger i den leverede ZIP.
+
+---
+
 # SETI-status · 14. oktober 2026: råeffekt og udsmøring kontrolleret
 
 **648 råeffekttests har bestået 2.089.334 uafhængige kontroller.** Normaliseringens ekstra scoreændring er under 0,027 i panelet. Den større begrænsning er signalfordelingen: selv den bedste enkeltkanalsbane kan opsamle kun 3,91–30,58 % af den idealiserede integrationsudsmørings referenceeffekt, median 7,80 %. Ved A8 når en faktisk top-5-bane dette smalle loft i 89/108 cases; centerbanens identitet alene er derfor ikke generel signalgenfinding.

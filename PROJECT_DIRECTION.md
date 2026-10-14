@@ -1,3 +1,13 @@
+# SETI-retning · 14. oktober 2026 · efter bredere skabeloner
+
+Råeffekt-/normaliseringsbanken (648 cases) og den særskilte bank med bredder 1/3/9/33 (216 cases) er afsluttet og uafhængigt efterregnet. De samme banker skal ikke gentages eller tuningsvurderes ud fra deres udfald. Se [den nye rapport](analysis/matched_width_20261014/RESULTS_DA.md) og [det konkrete næste trin](analysis/matched_width_20261014/NEXT_STEP.md).
+
+Det næste forskningsmål er at kvalificere den komplette burstfølsomme seks-scan-kæde: global carrier-udvælgelse, kandidatidentitet gennem scangab, tærskelkalibrering samt OFF-/RFI-/null-gates. Den plan skal fryse nye identiteter, samme kombinerede top-5 og bredder 1/3/9/33 før resultater åbnes. Denne fortsættelse har ikke kørt den kæde. Den fire gange større lokale skabelonfamilie giver ingen equal-FAP-garanti, selv om fem kandidatpladser bevares.
+
+Ingen kvalificeret SETI-detektion eller fysisk følsomhedsgrænse. De eksponerede 2017-baggrunde er ikke nye observing visits; originale A/B forbliver FAIL_CLOSED, 2016 beskyttet og 2019-ruten lukket. Slutcheckpoint 20. oktober 2026 står uændret.
+
+---
+
 # Aktuel SETI-retning · 14. oktober 2026: mål signalformen før nye kvalifikationspåstande
 
 648 råkontroller er afsluttet. Enkeltkanalsmåling har en modelbestemt begrænsning for integrationsudsmøring; top 5 ændrer ikke det geometriske effektloft. Små ekstra normaliseringsændringer kan ikke forklare dette større formtab i panelet. Bevar denne bank lukket.
