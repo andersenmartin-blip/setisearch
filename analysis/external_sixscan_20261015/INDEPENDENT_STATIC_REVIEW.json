@@ -1,0 +1,135 @@
+{
+  "schema": "SETI_EXTERNAL_SCHEDULER_INDEPENDENT_STATIC_REVIEW_V1",
+  "created_utc": "2026-10-15T06:16:18.354637+00:00",
+  "reviewer": "independent recovery_audit agent",
+  "status": "PASS_STATIC_PRE_GO",
+  "reviewed_helper": {
+    "path": "/workspace/scratch/b83cfe20d6e1/external_sixscan_20261015/durable_scheduler.py",
+    "sha256": "3a8bb291f10a5f19cd2a41c7750b0ee38a0d670c1c21af0102866f14f6a4db57",
+    "bytes": 28207
+  },
+  "reviewed_scope": {
+    "path": "/workspace/scratch/b83cfe20d6e1/sixscan_burst_20261015/SCOPE.json",
+    "sha256": "551288e6eca87aa5d7449d186916cd84fa6aebdc5743736d914fee14b1ef84ea",
+    "max_concurrent_workers": 8,
+    "maximum_simultaneous_numerical_address_space_bytes": 8589934592,
+    "aggregate_new_CPU_s_cap": 260000,
+    "full_428_children_worst_case_plus_metadata_reservation_CPU_s": 257800,
+    "combined_prior_unknown_plus_new_maximum_CPU_s": 350000
+  },
+  "launch_blockers": [],
+  "pending_workflow_preconditions": [
+    "Root must complete the exact public freeze/readback including this external helper and review before creating GO. This review does not substitute for GO.",
+    "Launch exactly one root-owned scheduler for this fresh stage; retain separate durable upload acknowledgments and checkpoint index."
+  ],
+  "checks": [
+    {
+      "name": "fresh_stage_once_only_preflight",
+      "result": "PASS_STATIC",
+      "evidence": "Runner refuses existing scheduler state, any phase state, claims directory, or result directory; creates exclusive scheduler state before first subprocess. Actual stage had no GO, run states, claims or results at review."
+    },
+    {
+      "name": "public_scope_and_all_frozen_pins",
+      "result": "PASS_STATIC",
+      "evidence": "Every action rechecks GO status, GO scope SHA256, every frozen code pin size/SHA256 and unchanged initial scope SHA256. Unsafe absolute or parent-relative pin paths are rejected."
+    },
+    {
+      "name": "phase_order_and_independence_gate",
+      "result": "PASS_STATIC",
+      "evidence": "63 primary calibration -> calibration-only summary -> 142 primary validation -> 205 independent QA -> synthetic summary/integrity true -> 9 exposed -> 9 exposed QA -> exposed summary/integrity true. Scientific recovery failure with integrity true does not falsely block the declared descriptive exposed work."
+    },
+    {
+      "name": "frozen_coordinator_exclusively_owns_numerical_jobs",
+      "result": "PASS_STATIC",
+      "evidence": "Helper invokes only coordinator.py for five numerical phases and summarize.py for three closures. No detector/generator/worker or QA directly invoked. Worker count is passed unchanged and constrained by frozen max8."
+    },
+    {
+      "name": "resource_envelope_and_historical_charge",
+      "result": "PASS_STATIC",
+      "evidence": "Frozen coordinator independently reserves 600 CPU seconds per live child before launch, replaces each new reservation only with wait4 complete child usage, and includes earlier phase charges plus 1000 CPU seconds metadata reservation in the new 260000 CPU second cap. All 428 children at their full 600 second limit plus metadata require 257800 seconds, within that envelope. New scope explicitly retains unresolved old 90000 CPU seconds as separate historical debit, combined maximum 350000 CPU seconds. Helper does not alter caps/claims/charges; checkpoint bytes are counted in workspace census because destination is within root.parent."
+    },
+    {
+      "name": "committed_cases_only_and_manifest_chain",
+      "result": "PASS_STATIC_AND_TRANSPORT_FIXTURE",
+      "evidence": "Only exit0/wait4_reaped jobs enter payload. COMMITTED status/data_integrity/index/exposed and manifest SHA256 are validated. Required six artifacts must be present; every manifested file is regular and size-checked; full ZIP readback validates every SHA256/length and CRC before final rename."
+    },
+    {
+      "name": "snapshot_races_and_claim_labels",
+      "result": "PASS_STATIC",
+      "evidence": "Producer cases are immutable after successful reap. Claim/coordinator/log/scheduler state snapshots may be live and are explicitly labelled; partial live arrays are excluded. Coordinator state replacement is atomic, so polling reads the previous or next complete file."
+    },
+    {
+      "name": "four_closed_result_delta_checkpoints",
+      "result": "PASS_STATIC",
+      "evidence": "Polling groups four eligible closed jobs and phase closure captures remainder, including empty remainder for closure state. Capture failure is retained, no later phase is launched, and the current coordinator is allowed to finish."
+    },
+    {
+      "name": "QA_transport_references_and_no_array_duplication",
+      "result": "PASS_STATIC_AND_TRANSPORT_FIXTURE",
+      "evidence": "QA receipts must be PASS and bound to scope, producer manifest, output and truth SHA256; archive references prior producer checkpoint hash/bytes and producer pins rather than duplicating scientific arrays. Removed local producer ZIP is tolerated via retained receipt/index."
+    },
+    {
+      "name": "no_automatic_retry_or_resume",
+      "result": "PASS_STATIC",
+      "evidence": "Each action is recorded before launch; nonzero coordinator/summarizer, incomplete phase census, failed integrity or checkpoint failure exits the sequence. Existing scheduler state blocks a later implicit rerun."
+    },
+    {
+      "name": "remote_durability_claims",
+      "result": "PASS_STATIC",
+      "evidence": "DURABLE_UPLOAD_REQUEST receipts explicitly have remote_persistence_confirmed=false; local archive is never claimed as remotely saved. Manual root upload acknowledgments must remain separate from active scheduler state."
+    }
+  ],
+  "tests": {
+    "existing_transport_selftest": {
+      "status": "PASS",
+      "checks": 10,
+      "scheduler_sha256": "3a8bb291f10a5f19cd2a41c7750b0ee38a0d670c1c21af0102866f14f6a4db57",
+      "scientific_arrays_or_numerical_trials_created": false
+    },
+    "independent_transport_fixture": {
+      "status": "PASS",
+      "checks": [
+        "rejects_success_without_whole_child_reap",
+        "same_length_payload_tamper_rejected_by_SHA256_after_archive_readback",
+        "tampered_archive_never_renamed_to_final",
+        "complete_archive_member_CRC_readback_passes"
+      ],
+      "actual_stage_executed": false,
+      "RNG_used": false
+    }
+  },
+  "nonblocking_operating_constraints": [
+    {
+      "id": "SINGLE_LAUNCH_OWNER",
+      "severity": "medium",
+      "finding": "The helper guards its own destination with an exclusive state file, but fresh-stage checks and coordinator phase-state creation are not one cross-destination atomic lock. Two independently launched schedulers using different checkpoint destinations could race before stage claims exist.",
+      "required_operation": "Root owns exactly one scheduler launch for the stage. Do not launch another destination or invoke a frozen coordinator manually in parallel. Worker exclusive claims still protect case RNG, but conflicting coordinators could corrupt resource-state bookkeeping."
+    },
+    {
+      "id": "UNEXPECTED_EXCEPTION_WITH_LIVE_COORDINATOR",
+      "severity": "medium",
+      "finding": "Checkpoint capture exceptions are handled by waiting for current coordinator closure. Unexpected exceptions elsewhere during run_action, such as state read or scheduler-state write failure, can leave its start_new_session coordinator alive while the scheduler stops.",
+      "required_operation": "Treat a STOPPED scheduler as the scheduler status only; inspect retained RUNNING command PID and authoritative phase-state closure before reconciling resources. Never infer NOT_RUN or retry from helper termination. Frozen per-child and aggregate numerical limits remain independent."
+    },
+    {
+      "id": "MANUAL_UPLOAD_RETENTION",
+      "severity": "medium",
+      "finding": "The helper emits requests but does not await remote upload acknowledgment. Its producer checkpoint index deliberately retains remote_persistence_confirmed=false.",
+      "required_operation": "Root must upload each verified ZIP promptly, preserve an independently verified remote acknowledgment keyed by exact SHA256, and remove a local ZIP only after successful remote persistence. Keep all receipts/indexes and original producer results for QA."
+    }
+  ],
+  "limitations": [
+    "Static review and text-only transport fixtures do not establish numerical performance or future science outcomes.",
+    "No actual stage, scientific RNG, science worker, coordinator or numerical QA was executed during this review.",
+    "No new case measurement/output values were read.",
+    "Review binds the exact helper SHA256 and scope SHA256 above; substantive helper changes require review renewal."
+  ],
+  "resource_witness": {
+    "old_unknown_envelope_retained_CPU_s": 90000,
+    "separate_new_envelope_CPU_s": 260000,
+    "maximum_possible_child_count_all_five_phases": 428,
+    "minimum_worst_case_child_plus_metadata_reservation_CPU_s": 257800,
+    "combined_old_unknown_plus_new_maximum_CPU_s": 350000,
+    "no_measured_CPU_claim_inferred": true
+  }
+}

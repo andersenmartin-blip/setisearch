@@ -1,0 +1,142 @@
+{
+  "blockers": [],
+  "code_diff": {
+    "all_seven_python_sources_AST_parse_without_import_or_execution": true,
+    "builder": "Only NAMESPACE constant changes to the full new identity namespace.",
+    "byte_identical": [
+      "detector.py",
+      "worker.py",
+      "coordinator.py",
+      "qa.py",
+      "summarize.py"
+    ],
+    "generator": "Only exact case identity prefix guard changes."
+  },
+  "design_comparison": {
+    "all_205_cases_identical_except_case_id_and_seed_sha256": true,
+    "all_9_exposed_cases_identical_except_case_id": true,
+    "contract_identical_except_study_id": true,
+    "original_deterministic_component_receipts_inherited_byte_identical_not_rerun": true,
+    "scientific_scope_sections_exactly_identical": [
+      "OFF_rule",
+      "calibration",
+      "cases",
+      "exposed_real_baseline",
+      "family",
+      "identity_and_recovery",
+      "joint_gate",
+      "preserved"
+    ]
+  },
+  "execution_order_static_review": {
+    "QA_requires_both_primary_phases_complete": true,
+    "coordinator_rejects_existing_phase_state_no_implicit_retry": true,
+    "exposed_worker_requires_all_primary_and_QA_phase_closures_and_SUMMARY_integrity_gate": true,
+    "independent_QA_requires_committed_artifact_hashes_and_reconstructs_same_recipe_as_reproduction": true,
+    "missing_and_failed_cases_remain_distinct_from_measured_nulls": true,
+    "primary_validation_requires_closed_63_calibration_jobs_exit0_no_live_or_unsubmitted_and_durable_CALIBRATION_json": true,
+    "summarizer_authenticates_closed_wait4_phase_receipts_all_205_QA_and_joint_gates": true,
+    "worker_authenticates_all_pins_and_GO_then_exclusive_claim_before_numerical_import_RNG_or_raw_read": true
+  },
+  "final_prefreeze_engineering_budget_review": {
+    "all_code_scientific_definitions_and_new_identities_unchanged": true,
+    "combined_original_and_new_envelopes_CPU_s": 350000,
+    "derivation": "(205 synthetic primary + 205 independent QA + 9 exposed primary + 9 exposed QA)*600 +1000 =257800 <=260000",
+    "earlier_43200_ledger_also_preserved_separately": true,
+    "final_19_pins_and_all_original_20_recovered_pins_rechecked": true,
+    "new_CPU_cap_after": 260000,
+    "new_CPU_cap_before": 90000,
+    "no_new_RNG_imports_case_values_or_scores_opened": true,
+    "original_unknown_90000_CPU_envelope_preserved_in_full": true,
+    "superseded_unpublished_review_SHA256_preserved_outside_final_stage": "c9094b6192f6074e9409c22f297d83e3ce05eb786a8cc4a02ed24e4c09084123",
+    "unpublished_scope_revisions_superseded_before_GO_or_runtime": [
+      "430d41107220c149d0440bf0457b407b2d115982ef53fc84189deff00fe0b3c0",
+      "758c8220fe638470673f623931882a2049943aad910ee8f178a808fbbf6a2b6f"
+    ]
+  },
+  "geometry": {
+    "OFF_reference_halo_each_side_channels": 1278,
+    "actual_alternating_ON_OFF_roles_preserved": true,
+    "all_54_real_crop_and_normalizer_metadata_pin_pairs_match_authenticated_source": true,
+    "all_96_row_midpoints_recomputed_without_numerical_packages": true,
+    "global_drift_count": 5723,
+    "global_drift_half_range_Hz_s": 4,
+    "loaded_channels": 12096,
+    "no_raw_crop_arrays_decoded": true,
+    "six_full_headers_exact_source_metadata_matches": true,
+    "source_metadata_bytes": 629588,
+    "source_metadata_sha256": "31efe1e5eeba63d10fbc04ea60bd29eb3086f142b6111a185f821a40a0558522",
+    "synthetic_core_carriers": 4096
+  },
+  "identities": {
+    "all_205_new_ids_disjoint_original": true,
+    "all_205_new_seed_hashes_disjoint_original": true,
+    "case_ids_unique": 205,
+    "every_seed_SHA256_of_complete_ASCII_case_id": true,
+    "full_SHA256_seeds_unique": 205,
+    "original_205_plus_9_retired_status": "UNKNOWN_UNRECOVERED",
+    "primary_count": 205,
+    "prior_partial_noise_fragments_excluded_from_new_panel_denominators_and_gates": true,
+    "producer_and_independent_QA_use_full_256_bit_integer_seed_to_PCG64": true
+  },
+  "limitations_preserved": [
+    "Gamma16 law only; no physical sensitivity or telescope/RFI FAP qualification.",
+    "Operating placement, drift, width and diagnostic offsets remain partly confounded.",
+    "Nine historical bands are exposed and postselected in one 2017 visit; new description identities are not independent observing exposure.",
+    "Inherited component selftests are historical evidence; every newly executed case still requires its own independent QA.",
+    "Original A/B remains FAIL_CLOSED, protected 2016 and unavailable 2019 routes remain closed, formal20October checkpoint remains pending."
+  ],
+  "operations_by_reviewer": {
+    "GO_claims_results_or_run_state_present_at_final_review": false,
+    "RNG_instantiated": false,
+    "authenticated_source_JSON_metadata_read": true,
+    "case_outcome_files_opened": false,
+    "existing_pins_or_SCOPE_modified": false,
+    "new_case_values_or_scores_generated": false,
+    "only_written_stage_file": "SCOPE_REVIEW.json",
+    "raw_spectral_arrays_opened_or_decoded": false,
+    "stage_modules_imported_or_executed": false
+  },
+  "original_scope_sha256": "8bb84b8cd8f0a6756523139bff8b8869e1a4ad478a07d84004d1c199cf53e077",
+  "remaining_admission_prerequisites": [
+    "Root public immutable publication of all19pins plus SCOPE and this review.",
+    "Root exact immutable Git blob readback before GO.",
+    "Root GO must bind this exact final SCOPE SHA256, then prescribed once-only execution."
+  ],
+  "resources": {
+    "address_space_ceiling_is_not_RSS": true,
+    "combined_original_unknown_and_new_maximum_CPU_s": 350000,
+    "coordinator_source_byte_identical_default4_root_must_supply_workers8": true,
+    "cost_DKK": 0,
+    "envelopes_are_limits_and_reservations_not_measured_consumption": true,
+    "max_concurrent_workers": 8,
+    "max_simultaneous_numerical_address_space_bytes": 8589934592,
+    "new_260000_envelope_covers_all_428_child_600_CPU_caps_plus_metadata": true,
+    "new_capacity_not_claimed_remaining_old_capacity": true,
+    "new_metadata_delivery_reservation_CPU_s": 1000,
+    "new_observing_visits": 0,
+    "new_stage_CPU_s_cap": 260000,
+    "new_telescope_payload_bytes": 0,
+    "new_telescope_requests": 0,
+    "observed_cgroup_CPU_quota": "800000 100000",
+    "observed_cgroup_memory_max_bytes": 8589934592,
+    "old_43200_ledger_preserved_no_reset_or_refund": true,
+    "original_irreconcilable_90000_CPU_s_envelope_preserved_in_full": true,
+    "per_child_CPU_s": 600,
+    "per_child_address_space_bytes": 1073741824,
+    "per_child_wall_s": 1800,
+    "planned_primary_and_QA_children": 428,
+    "prefreeze_resource_only_revision_from_4_to_8_workers": true,
+    "standing_full_power_free_compute_authority_source_pin_verified": true,
+    "worst_case_planned_children_plus_metadata_CPU_s": 257800
+  },
+  "reviewed_UTC": "2026-10-15T06:16:49.838589+00:00",
+  "reviewer": "independent /root/fresh_scope_audit",
+  "schema": "SETI_SIXSCAN_RECOVERY_INDEPENDENT_STATIC_SCOPE_REVIEW_V1",
+  "scope_bytes": 16432,
+  "scope_sha256": "551288e6eca87aa5d7449d186916cd84fa6aebdc5743736d914fee14b1ef84ea",
+  "status": "PASS_STATIC_FREEZE_WITH_DECLARED_LIMITATIONS",
+  "study_id": "SETI_SIXSCAN_BURST_20261015_RECOVERY_V1",
+  "verified_new_scope_pins": 19,
+  "verified_original_recovered_pins": 20
+}

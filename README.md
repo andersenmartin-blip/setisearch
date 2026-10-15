@@ -1,3 +1,13 @@
+## 15. oktober 2026: seks-scan-kørsel gendannet, ny bank fastlåses
+
+Den oprindelige seks-scan-bank fra 14. oktober har **UNKNOWN_UNRECOVERED** slutstatus efter gendannelse af kørselsmiljøet. Alle 205 syntetiske og ni eksponerede identiteter pensioneres; manglende resultater tælles ikke som nulmålinger. Alle 20 offentliggjorte kildefiler er gendannet og verificeret. Se [afslutningen](analysis/sixscan_recovery_20261015/CLOSURE.md).
+
+**SETI_SIXSCAN_BURST_20261015_RECOVERY_V1** er en særskilt bank med 205 friske identiteter og samme videnskabelige design. Kun namespace og den på forhånd erklærede parallelitet ændres; otte workers kan bruge maskinens tilgængelige CPU-kapacitet. Ingen nye udfald er åbnet ved denne præregistrering. Det gamle fulde 90.000-CPU-s-loft bevares som uafstemt historisk debitering; den nye separate ramme er 260.000 CPU-s. De 428 planlagte child-kørsler kan højst bruge 256.800 CPU-s ved deres uændrede 600-s-loft, plus den bevarede 1.000-s klargørings-/leverancereservation. Se [fastlåsningen](analysis/sixscan_burst_20261015/SCOPE.json) og [den nye bank](analysis/sixscan_burst_20261015/README.md).
+
+Original A/B er fortsat **FAIL_CLOSED**. Ingen kvalificeret SETI-detektion, 0 DKK og ingen nye teleskoprequests eller teleskopbytes. 2016 forbliver beskyttet, 2019-ruten lukket og checkpoint 20. oktober 2026.
+
+---
+
 # SETI-status · 14. oktober 2026 · råeffekt og bredere skabeloner
 
 **864 nye råeffekttests er afsluttet i to på forhånd frosne studier, med 6.501.177 uafhængige QA-kontroller. Ingen kvalificeret SETI-detektion.** Den første bank har 648 cases med delta-, trekanals- og integrationsudsmøringskerner; den næste har 216 nye udsmørede cases med faste skabelonbredder 1/3/9/33.

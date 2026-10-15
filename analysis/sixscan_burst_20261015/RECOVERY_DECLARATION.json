@@ -1,0 +1,269 @@
+{
+  "admission_prerequisites": [
+    "Independent static recovery audit and root review without new numerical outcomes.",
+    "Public immutable freeze of every final SCOPE pin, SCOPE and SCOPE_REVIEW.",
+    "Exact immutable Git blob readback of all frozen bytes.",
+    "Only then root writes GO bound to the final SCOPE SHA256 and public freeze commit.",
+    "Primary 63 calibration references close before the 142 validation identities; no implicit retry.",
+    "All 205 primary and independent QA close with integrity PASS before nine exposed descriptive searches."
+  ],
+  "date": "2026-10-15",
+  "design_comparison": {
+    "all_205_case_recipes_unchanged_except_case_id_and_seed_sha256": true,
+    "code_changes_only_namespace_constant_and_generator_guard": true,
+    "code_diff": {
+      "build_inputs.py": [
+        "--- original/build_inputs.py",
+        "+++ recovery/build_inputs.py",
+        "@@ -10,7 +10,7 @@",
+        " import math",
+        " from pathlib import Path",
+        " ",
+        "-NAMESPACE = 'SETI_SIXSCAN_BURST_20261014'",
+        "+NAMESPACE = 'SETI_SIXSCAN_BURST_20261015_RECOVERY_V1'",
+        " SUBSETS = ((0,), (2,), (4,), (0, 2), (0, 4), (2, 4), (0, 2, 4))",
+        " SOURCE_JSON = 'seti_work/seti_burst_full/context_results/CONTEXT_PROFILES.json'",
+        " SOURCE_JSON_SHA = '31efe1e5eeba63d10fbc04ea60bd29eb3086f142b6111a185f821a40a0558522'"
+      ],
+      "generator.py": [
+        "--- original/generator.py",
+        "+++ recovery/generator.py",
+        "@@ -69,7 +69,7 @@",
+        "     \"\"\"",
+        "     import numpy as np",
+        "     identity = case['case_id']",
+        "-    if not identity.startswith('SETI_SIXSCAN_BURST_20261014:'):",
+        "+    if not identity.startswith('SETI_SIXSCAN_BURST_20261015_RECOVERY_V1:'):",
+        "         raise ValueError('Separate prospective six-scan identity required')",
+        "     if hashlib.sha256(identity.encode('ascii')).hexdigest() != case['seed_sha256']:",
+        "         raise ValueError('Complete identity/seed SHA256 differs')"
+      ]
+    },
+    "detector_worker_coordinator_QA_summarizer_byte_identical": true,
+    "inherited_selftests_apply_to_byte_identical_detector_and_QA": true,
+    "nine_real_recipes_unchanged_except_case_id": true,
+    "no_outcome_based_tuning": true,
+    "original_component_test_receipts_inherited_not_rerun": true,
+    "scientific_contract_unchanged_except_study_id": true
+  },
+  "final_prefreeze_budget_revision": {
+    "GO_exists": false,
+    "combined_prior_envelope_plus_new_envelope_CPU_s": 350000,
+    "cost_DKK": 0,
+    "envelopes_are_limits_and_reservations_not_measured_consumption": true,
+    "headroom_CPU_s": 2200,
+    "maximum_planned_child_caps_plus_metadata_CPU_s": 257800,
+    "maximum_simultaneous_numerical_address_space_bytes_unchanged": 8589934592,
+    "maximum_workers_unchanged": 8,
+    "metadata_and_delivery_CPU_s_reservation": 1000,
+    "new_aggregate_CPU_s_cap_after": 260000,
+    "new_aggregate_CPU_s_cap_before": 90000,
+    "new_outcomes_opened": false,
+    "new_science_executed": false,
+    "new_telescope_bytes": 0,
+    "new_telescope_requests": 0,
+    "per_child_caps_unchanged": {
+      "CPU_s": 600,
+      "address_space_bytes": 1073741824,
+      "wall_s": 1800
+    },
+    "planned_child_CPU_cap_product": 256800,
+    "planned_children": {
+      "exposed": 9,
+      "independent_QA": 205,
+      "independent_exposed_QA": 9,
+      "primary": 205,
+      "total": 428
+    },
+    "prior_irreconcilable_original_envelope_CPU_s_preserved": 90000,
+    "public_freeze_performed": false,
+    "reason": "A full428-child fixed panel at600CPU-s each requires256800CPU-s, plus1000CPU-s metadata/delivery reservation=257800CPU-s. The former90000 envelope could stop a complete scientifically unchanged panel solely from reservation accounting. Final260000 envelope covers that declared worst case.",
+    "scientific_code_design_identities_seeds_thresholds_gates_unchanged": true,
+    "standing_full_power_free_compute_authority": true,
+    "status": "FINAL_PREFREEZE_ENGINEERING_BUDGET_CORRECTION_ONLY",
+    "superseded_unpublished_prefreeze_SCOPE_sha256": "758c8220fe638470673f623931882a2049943aad910ee8f178a808fbbf6a2b6f",
+    "timestamp_UTC": "2026-10-15T06:15:54.590472+00:00"
+  },
+  "identity_protocol": {
+    "all_205_case_ids_and_seed_sha256_disjoint_original": true,
+    "exposed_description_identities": 9,
+    "independent_QA_reconstruction_is_reproduction_not_another_trial": true,
+    "namespace": "SETI_SIXSCAN_BURST_20261015_RECOVERY_V1",
+    "one_primary_draw_per_new_identity": true,
+    "primary_identities": 205,
+    "seed": "SHA256(entire ASCII new case_id), full 256-bit value to PCG64"
+  },
+  "operations_by_preparer": {
+    "GO_written": false,
+    "RNG_instantiated": false,
+    "new_science_arrays_or_scores_generated": false,
+    "numerical_modules_imported": false,
+    "old_numerical_outcomes_opened": false,
+    "original_20_recovered_files_unchanged": true,
+    "publication_performed": false,
+    "raw_telescope_arrays_opened": false,
+    "source_JSON_metadata_only": true
+  },
+  "original_study": {
+    "SCOPE_sha256": "8bb84b8cd8f0a6756523139bff8b8869e1a4ad478a07d84004d1c199cf53e077",
+    "all_205_primary_and_9_exposed_identities_retired": true,
+    "missing_outcomes_are_not_nulls_or_passes": true,
+    "old_draws_not_reexecuted_or_replaced": true,
+    "outcome_status": "UNKNOWN_UNRECOVERED",
+    "partial_16_noise_closure_fragments": "Preserved separately by root if available; excluded from this reference panel, denominators and gates; not used to tune this replication.",
+    "public_GO_commit": "101138540dee6c01b40703b6789c5b3c283c613d",
+    "public_freeze_commit": "bc3a42f7d99dfa19af3070b11e8eb7cafa11984f",
+    "recovered_files_exact_pins": [
+      {
+        "bytes": 669,
+        "path": "GO.json",
+        "sha256": "75bfbaf0b74da1913bdb03753cfe106c8e35cf359214e51f65d305fcda33d9bf"
+      },
+      {
+        "bytes": 16773,
+        "path": "INPUT_DESIGN_REVIEW.json",
+        "sha256": "6684b1d4c60e8bcf7e58fb58aa093b96cc5286bad7e0c411c8d8dda3aa257c17"
+      },
+      {
+        "bytes": 1094,
+        "path": "INPUT_METADATA_RECEIPT.json",
+        "sha256": "a94aea2c3f4a763612d94a84d54103a0801fda7cfd988e671e2e00275f831ced"
+      },
+      {
+        "bytes": 447,
+        "path": "QA_COMPONENT_SELFTEST.json",
+        "sha256": "3354a9dbb5d5415d155dc7e5eb2d36b32852efcebe51184b62014e4949244031"
+      },
+      {
+        "bytes": 4796,
+        "path": "README.md",
+        "sha256": "ca2c5f6605d859a5faabbc63b50060084d6bfda790c860eabd5abbb285a6910d"
+      },
+      {
+        "bytes": 11556,
+        "path": "SCOPE.json",
+        "sha256": "8bb84b8cd8f0a6756523139bff8b8869e1a4ad478a07d84004d1c199cf53e077"
+      },
+      {
+        "bytes": 1543,
+        "path": "SCOPE_REVIEW.json",
+        "sha256": "2fb8f94785068feb431dd5e3907c370f5d211aa6671436209c18c33ff93c0041"
+      },
+      {
+        "bytes": 352,
+        "path": "SELFTEST.json",
+        "sha256": "b4d95e5fb0c3ef5e8da4c43c425619ee552ea6298a2358efdffddf870097cd68"
+      },
+      {
+        "bytes": 14701,
+        "path": "build_inputs.py",
+        "sha256": "ef5c6da92adf4df4dd2f008581c257a5981dde97e247136909d1ec7405e3e132"
+      },
+      {
+        "bytes": 224331,
+        "path": "case_bank.json",
+        "sha256": "e0de7fac3cb2b478a02533763f63dfe15b5f07913d742a87899e850ae92aebcb"
+      },
+      {
+        "bytes": 20343,
+        "path": "contract.json",
+        "sha256": "66b1afd4f9253e12437aa6e5ee9f46441683ecd86aa20282e59b54cdbfa2e2a0"
+      },
+      {
+        "bytes": 8456,
+        "path": "coordinator.py",
+        "sha256": "2e34139c8cf2ba610d7493cdc7fd6a0d7cdb449834952c90183507f5db223ecd"
+      },
+      {
+        "bytes": 31706,
+        "path": "detector.py",
+        "sha256": "f7128db9631da17c8d91497fa327c713fdc1d1af17b286abf7d12d66018d7278"
+      },
+      {
+        "bytes": 9656,
+        "path": "generator.py",
+        "sha256": "9f39b881fb153360543afdaddb7254ee69d116f587713547f58831415d0c8dcc"
+      },
+      {
+        "bytes": 42157,
+        "path": "qa.py",
+        "sha256": "3e3d29bc69bfb5691a93f7ee2baf4ffaa1d3777feadee17e6688bc05048331d6"
+      },
+      {
+        "bytes": 35467,
+        "path": "real_baselines.json",
+        "sha256": "887797f258747b95a7e8206608c08c8c90f0f9322bb55a98f8cebded5c2ecd0e"
+      },
+      {
+        "bytes": 41699,
+        "path": "source_provenance/FULL_POWER_ACTIVATION_SCOPE.json",
+        "sha256": "6e17deded55e48c1d2e3eae5147911f6581d6611637aacb6c1c56e612c03408d"
+      },
+      {
+        "bytes": 7480,
+        "path": "source_provenance/FULL_POWER_EXECUTION_PLAN_2026-10-10.md",
+        "sha256": "dd9503b813388c1fc3217665ac987f81d8012d589dc0feffb874db75fca2505e"
+      },
+      {
+        "bytes": 31733,
+        "path": "summarize.py",
+        "sha256": "b742fc40bebc041c7917e5d6801b3d0e4b13aed41931b922009c01017b6d0c06"
+      },
+      {
+        "bytes": 27132,
+        "path": "worker.py",
+        "sha256": "c339bebcad1c87e6766b407663b168585dba89419e45542befbd2bac76ea7509"
+      }
+    ],
+    "study_id": "SETI_SIXSCAN_BURST_20261014"
+  },
+  "prefreeze_engineering_revision": {
+    "GO_exists": false,
+    "address_space_ceiling_is_not_RSS_claim": true,
+    "aggregate_CPU_s_cap_at_that_revision": 90000,
+    "budget_field_is_historical_superseded_by_final_prefreeze_budget_revision": true,
+    "coordinator_source_unchanged_default_workers4": true,
+    "explicit_execution_argument": "--workers 8",
+    "maximum_simultaneous_numerical_address_space_bytes_after": 8589934592,
+    "maximum_simultaneous_numerical_address_space_bytes_before": 4294967296,
+    "maximum_workers_after": 8,
+    "maximum_workers_before": 4,
+    "new_science_executed": false,
+    "per_child_caps_unchanged": {
+      "CPU_s": 600,
+      "address_space_bytes": 1073741824,
+      "wall_s": 1800
+    },
+    "public_freeze_performed": false,
+    "reason": "Root observed cgroup cpu.max800000/100000 (8 CPUs), affinity9, memory.max8GiB,currentabout1.14GB; previous primary child RSSabout90MB. Eight workers use the free CPU allocation within observed memory capacity.",
+    "scientific_code_and_design_unchanged": true,
+    "status": "PREFREEZE_ENGINEERING_RESOURCE_REVISION_ONLY",
+    "superseded_unpublished_prefreeze_SCOPE_sha256": "430d41107220c149d0440bf0457b407b2d115982ef53fc84189deff00fe0b3c0",
+    "timestamp_UTC": "2026-10-15T06:13:49.460004+00:00"
+  },
+  "prepared_UTC": "2026-10-15T06:10:02.879630+00:00",
+  "preserved": {
+    "formal_checkpoint": "2026-10-20",
+    "original_A_B": "FAIL_CLOSED",
+    "protected_2016_closed": true,
+    "qualified_SETI_detection": false,
+    "unavailable_2019_closed": true
+  },
+  "resources": {
+    "authority": "Standing explicit 10 October full-power continued-free-compute authority and 15 October continue instruction; prior envelope remains fully charged/reserved, new envelope is separately declared.",
+    "combined_prior_unknown_plus_new_maximum_CPU_s": 350000,
+    "cost_DKK": 0,
+    "envelopes_are_not_measured_consumption": true,
+    "historical_43200_CPU_ledger_also_preserved_no_reset_or_refund": true,
+    "new_metadata_delivery_reservation_CPU_s": 1000,
+    "new_stage_CPU_s_cap": 260000,
+    "new_telescope_bytes": 0,
+    "new_telescope_requests": 0,
+    "new_visits": 0,
+    "prior_original_90000_CPU_s_envelope_preserved_as_irreconcilable_historical_reservation_or_debit": 90000
+  },
+  "schema": "SETI_SIXSCAN_FRESH_RECOVERY_DECLARATION_V1",
+  "status": "PROSPECTIVE_NEW_IDENTITIES_NOT_A_RERUN",
+  "study_id": "SETI_SIXSCAN_BURST_20261015_RECOVERY_V1",
+  "trigger": "Runtime rollback left the prior once-only numerical state irreconcilable; restore only publicly frozen definitions and begin a separately admitted replication."
+}

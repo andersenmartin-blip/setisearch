@@ -1,0 +1,727 @@
+{
+  "background": {
+    "dtype_pipeline": "gamma float64 + all float64 signal layers, then one float32 cast per complete scan",
+    "generator": "NumPy Generator(PCG64(int(full SHA256 ASCII case identity,16)))",
+    "independent_scans_rows_channels": true,
+    "law": "independent_gamma16",
+    "mean": 1.0,
+    "numpy_version": "2.3.5",
+    "positivity": "finite positive source; no clipping, retries or redraws",
+    "scale": 0.0625,
+    "shape": 16.0,
+    "sigma": 0.25
+  },
+  "builder_does_not_import_NumPy_generate_RNG_or_open_arrays": true,
+  "geometry": {
+    "first_scan_start_mjd": 57871.54416666667,
+    "global_drift_grid": {
+      "construction": "n=ceil(4*fullsixscan-midpoint-span/minabsdf); linspace(-4,4,2n+1); exact center zero",
+      "count": 5723,
+      "full_midpoint_span_s": 1997.804165165635,
+      "maximum_abs_hz_s": 4.0,
+      "step_hz_s": 0.0013981125480601187
+    },
+    "injection_window_choice": "choices[(case serial + original scan index) % 3]",
+    "injection_window_start_choices": [
+      0,
+      6,
+      12
+    ],
+    "loaded_source_channel_interval": [
+      179527776,
+      179539872
+    ],
+    "reference_source_channel_interval": [
+      179531776,
+      179535872
+    ],
+    "scan_metadata": [
+      {
+        "df_hz": -2.7939677238464355,
+        "fch1_hz": 2802832031.25,
+        "nrows": 16,
+        "original_header_full": {
+          "data_attributes": {
+            "DIMENSION_LABELS": [
+              "frequency",
+              "feed_id",
+              "time"
+            ],
+            "az_start": 0.0,
+            "data_type": 1,
+            "fch1": 2802.83203125,
+            "foff": -2.7939677238464355e-06,
+            "machine_id": 20,
+            "nbits": 32,
+            "nchans": 359661568,
+            "nifs": 1,
+            "source_name": "HIP98505",
+            "src_dej": 22.70972472222222,
+            "src_raj": 20.012132222222224,
+            "telescope_id": 6,
+            "tsamp": 18.253611008,
+            "tstart": 57871.54416666667,
+            "za_start": 0.0
+          },
+          "dataset_chunks": [
+            1,
+            1,
+            1048576
+          ],
+          "dataset_dtype": "float32",
+          "dataset_shape": [
+            16,
+            1,
+            359661568
+          ],
+          "dtype_exact": "<f4",
+          "hdf5_filters": [
+            [
+              32008,
+              1,
+              [
+                0,
+                3,
+                4,
+                0,
+                2
+              ],
+              "bitshuffle; see https://github.com/kiyo-masui/bitshuffle"
+            ]
+          ],
+          "root_attributes": {
+            "CLASS": "FILTERBANK",
+            "VERSION": "1.0"
+          }
+        },
+        "role": "ON",
+        "row_midpoints_seconds_from_anchor": [
+          9.126805504,
+          27.380416512,
+          45.634027520000004,
+          63.887638528,
+          82.141249536,
+          100.394860544,
+          118.648471552,
+          136.90208256,
+          155.155693568,
+          173.409304576,
+          191.662915584,
+          209.916526592,
+          228.1701376,
+          246.423748608,
+          264.677359616,
+          282.930970624
+        ],
+        "row_midpoints_seconds_from_tref": [
+          -998.9020825828175,
+          -980.6484715748174,
+          -962.3948605668174,
+          -944.1412495588174,
+          -925.8876385508174,
+          -907.6340275428174,
+          -889.3804165348174,
+          -871.1268055268174,
+          -852.8731945188174,
+          -834.6195835108174,
+          -816.3659725028175,
+          -798.1123614948175,
+          -779.8587504868175,
+          -761.6051394788175,
+          -743.3515284708175,
+          -725.0979174628175
+        ],
+        "scan_id": "epoch1_on",
+        "tsamp_s": 18.253611008,
+        "tstart_mjd": 57871.54416666667
+      },
+      {
+        "df_hz": -2.7939677238464355,
+        "fch1_hz": 2802832031.25,
+        "nrows": 16,
+        "original_header_full": {
+          "data_attributes": {
+            "DIMENSION_LABELS": [
+              "frequency",
+              "feed_id",
+              "time"
+            ],
+            "az_start": 0.0,
+            "data_type": 1,
+            "fch1": 2802.83203125,
+            "foff": -2.7939677238464355e-06,
+            "machine_id": 20,
+            "nbits": 32,
+            "nchans": 359661568,
+            "nifs": 1,
+            "source_name": "HIP97319",
+            "src_dej": 25.13361027777778,
+            "src_raj": 19.77763361111111,
+            "telescope_id": 6,
+            "tsamp": 18.253611008,
+            "tstart": 57871.54818287037,
+            "za_start": 0.0
+          },
+          "dataset_chunks": [
+            1,
+            1,
+            1048576
+          ],
+          "dataset_dtype": "float32",
+          "dataset_shape": [
+            16,
+            1,
+            359661568
+          ],
+          "dtype_exact": "<f4",
+          "hdf5_filters": [
+            [
+              32008,
+              1,
+              [
+                0,
+                3,
+                4,
+                0,
+                2
+              ],
+              "bitshuffle; see https://github.com/kiyo-masui/bitshuffle"
+            ]
+          ],
+          "root_attributes": {
+            "CLASS": "FILTERBANK",
+            "VERSION": "1.0"
+          }
+        },
+        "role": "OFF",
+        "row_midpoints_seconds_from_anchor": [
+          356.1268055244891,
+          374.3804165324891,
+          392.6340275404891,
+          410.8876385484891,
+          429.14124955648913,
+          447.3948605644891,
+          465.6484715724891,
+          483.9020825804891,
+          502.1556935884891,
+          520.4093045964892,
+          538.6629156044891,
+          556.9165266124891,
+          575.1701376204891,
+          593.4237486284891,
+          611.6773596364891,
+          629.9309706444891
+        ],
+        "row_midpoints_seconds_from_tref": [
+          -651.9020825623284,
+          -633.6484715543284,
+          -615.3948605463283,
+          -597.1412495383283,
+          -578.8876385303283,
+          -560.6340275223283,
+          -542.3804165143283,
+          -524.1268055063283,
+          -505.87319449832836,
+          -487.6195834903283,
+          -469.3659724823284,
+          -451.1123614743284,
+          -432.8587504663284,
+          -414.6051394583284,
+          -396.3515284503284,
+          -378.09791744232837
+        ],
+        "scan_id": "epoch1_off",
+        "tsamp_s": 18.253611008,
+        "tstart_mjd": 57871.54818287037
+      },
+      {
+        "df_hz": -2.7939677238464355,
+        "fch1_hz": 2802832031.25,
+        "nrows": 16,
+        "original_header_full": {
+          "data_attributes": {
+            "DIMENSION_LABELS": [
+              "frequency",
+              "feed_id",
+              "time"
+            ],
+            "az_start": 0.0,
+            "data_type": 1,
+            "fch1": 2802.83203125,
+            "foff": -2.7939677238464355e-06,
+            "machine_id": 20,
+            "nbits": 32,
+            "nchans": 359661568,
+            "nifs": 1,
+            "source_name": "HIP98505",
+            "src_dej": 22.7097275,
+            "src_raj": 20.012132777777783,
+            "telescope_id": 6,
+            "tsamp": 18.253611008,
+            "tstart": 57871.552199074074,
+            "za_start": 0.0
+          },
+          "dataset_chunks": [
+            1,
+            1,
+            1048576
+          ],
+          "dataset_dtype": "float32",
+          "dataset_shape": [
+            16,
+            1,
+            359661568
+          ],
+          "dtype_exact": "<f4",
+          "hdf5_filters": [
+            [
+              32008,
+              1,
+              [
+                0,
+                3,
+                4,
+                0,
+                2
+              ],
+              "bitshuffle; see https://github.com/kiyo-masui/bitshuffle"
+            ]
+          ],
+          "root_attributes": {
+            "CLASS": "FILTERBANK",
+            "VERSION": "1.0"
+          }
+        },
+        "role": "ON",
+        "row_midpoints_seconds_from_anchor": [
+          703.1268055449782,
+          721.3804165529782,
+          739.6340275609782,
+          757.8876385689782,
+          776.1412495769782,
+          794.3948605849782,
+          812.6484715929782,
+          830.9020826009782,
+          849.1556936089783,
+          867.4093046169783,
+          885.6629156249782,
+          903.9165266329782,
+          922.1701376409782,
+          940.4237486489782,
+          958.6773596569782,
+          976.9309706649782
+        ],
+        "row_midpoints_seconds_from_tref": [
+          -304.90208254183926,
+          -286.64847153383926,
+          -268.39486052583925,
+          -250.14124951783924,
+          -231.88763850983923,
+          -213.63402750183923,
+          -195.38041649383922,
+          -177.1268054858392,
+          -158.8731944778392,
+          -140.6195834698392,
+          -122.3659724618393,
+          -104.1123614538393,
+          -85.85875044583929,
+          -67.60513943783928,
+          -49.35152842983928,
+          -31.09791742183927
+        ],
+        "scan_id": "epoch2_on",
+        "tsamp_s": 18.253611008,
+        "tstart_mjd": 57871.552199074074
+      },
+      {
+        "df_hz": -2.7939677238464355,
+        "fch1_hz": 2802832031.25,
+        "nrows": 16,
+        "original_header_full": {
+          "data_attributes": {
+            "DIMENSION_LABELS": [
+              "frequency",
+              "feed_id",
+              "time"
+            ],
+            "az_start": 0.0,
+            "data_type": 1,
+            "fch1": 2802.83203125,
+            "foff": -2.7939677238464355e-06,
+            "machine_id": 20,
+            "nbits": 32,
+            "nchans": 359661568,
+            "nifs": 1,
+            "source_name": "HIP97461",
+            "src_dej": 24.96219833333333,
+            "src_raj": 19.80952138888889,
+            "telescope_id": 6,
+            "tsamp": 18.253611008,
+            "tstart": 57871.55619212963,
+            "za_start": 0.0
+          },
+          "dataset_chunks": [
+            1,
+            1,
+            1048576
+          ],
+          "dataset_dtype": "float32",
+          "dataset_shape": [
+            16,
+            1,
+            359661568
+          ],
+          "dtype_exact": "<f4",
+          "hdf5_filters": [
+            [
+              32008,
+              1,
+              [
+                0,
+                3,
+                4,
+                0,
+                2
+              ],
+              "bitshuffle; see https://github.com/kiyo-masui/bitshuffle"
+            ]
+          ],
+          "root_attributes": {
+            "CLASS": "FILTERBANK",
+            "VERSION": "1.0"
+          }
+        },
+        "role": "OFF",
+        "row_midpoints_seconds_from_anchor": [
+          1048.126805726586,
+          1066.380416734586,
+          1084.634027742586,
+          1102.8876387505861,
+          1121.1412497585861,
+          1139.3948607665861,
+          1157.6484717745861,
+          1175.9020827825861,
+          1194.1556937905862,
+          1212.4093047985862,
+          1230.6629158065862,
+          1248.9165268145862,
+          1267.1701378225862,
+          1285.4237488305862,
+          1303.6773598385862,
+          1321.9309708465862
+        ],
+        "row_midpoints_seconds_from_tref": [
+          40.09791763976864,
+          58.351528647768646,
+          76.60513965576865,
+          94.85875066376866,
+          113.11236167176867,
+          131.36597267976867,
+          149.61958368776868,
+          167.8731946957687,
+          186.1268057037687,
+          204.3804167117687,
+          222.6340277197687,
+          240.88763872776872,
+          259.1412497357687,
+          277.39486074376873,
+          295.64847175176874,
+          313.90208275976875
+        ],
+        "scan_id": "epoch2_off",
+        "tsamp_s": 18.253611008,
+        "tstart_mjd": 57871.55619212963
+      },
+      {
+        "df_hz": -2.7939677238464355,
+        "fch1_hz": 2802832031.25,
+        "nrows": 16,
+        "original_header_full": {
+          "data_attributes": {
+            "DIMENSION_LABELS": [
+              "frequency",
+              "feed_id",
+              "time"
+            ],
+            "az_start": 0.0,
+            "data_type": 1,
+            "fch1": 2802.83203125,
+            "foff": -2.7939677238464355e-06,
+            "machine_id": 20,
+            "nbits": 32,
+            "nchans": 359661568,
+            "nifs": 1,
+            "source_name": "HIP98505",
+            "src_dej": 22.709716944444445,
+            "src_raj": 20.012133611111114,
+            "telescope_id": 6,
+            "tsamp": 18.253611008,
+            "tstart": 57871.56017361111,
+            "za_start": 0.0
+          },
+          "dataset_chunks": [
+            1,
+            1,
+            1048576
+          ],
+          "dataset_dtype": "float32",
+          "dataset_shape": [
+            16,
+            1,
+            359661568
+          ],
+          "dtype_exact": "<f4",
+          "hdf5_filters": [
+            [
+              32008,
+              1,
+              [
+                0,
+                3,
+                4,
+                0,
+                2
+              ],
+              "bitshuffle; see https://github.com/kiyo-masui/bitshuffle"
+            ]
+          ],
+          "root_attributes": {
+            "CLASS": "FILTERBANK",
+            "VERSION": "1.0"
+          }
+        },
+        "role": "ON",
+        "row_midpoints_seconds_from_anchor": [
+          1392.126805674432,
+          1410.380416682432,
+          1428.634027690432,
+          1446.887638698432,
+          1465.141249706432,
+          1483.394860714432,
+          1501.648471722432,
+          1519.902082730432,
+          1538.155693738432,
+          1556.409304746432,
+          1574.662915754432,
+          1592.916526762432,
+          1611.1701377704321,
+          1629.4237487784321,
+          1647.6773597864321,
+          1665.9309707944321
+        ],
+        "row_midpoints_seconds_from_tref": [
+          384.0979175876146,
+          402.3515285956146,
+          420.6051396036146,
+          438.8587506116146,
+          457.1123616196146,
+          475.3659726276146,
+          493.6195836356146,
+          511.8731946436146,
+          530.1268056516146,
+          548.3804166596146,
+          566.6340276676146,
+          584.8876386756147,
+          603.1412496836147,
+          621.3948606916147,
+          639.6484716996147,
+          657.9020827076147
+        ],
+        "scan_id": "epoch3_on",
+        "tsamp_s": 18.253611008,
+        "tstart_mjd": 57871.56017361111
+      },
+      {
+        "df_hz": -2.7939677238464355,
+        "fch1_hz": 2802832031.25,
+        "nrows": 16,
+        "original_header_full": {
+          "data_attributes": {
+            "DIMENSION_LABELS": [
+              "frequency",
+              "feed_id",
+              "time"
+            ],
+            "az_start": 0.0,
+            "data_type": 1,
+            "fch1": 2802.83203125,
+            "foff": -2.7939677238464355e-06,
+            "machine_id": 20,
+            "nbits": 32,
+            "nchans": 359661568,
+            "nifs": 1,
+            "source_name": "HIP97663",
+            "src_dej": 24.627003611111107,
+            "src_raj": 19.84857722222222,
+            "telescope_id": 6,
+            "tsamp": 18.253611008,
+            "tstart": 57871.56412037037,
+            "za_start": 0.0
+          },
+          "dataset_chunks": [
+            1,
+            1,
+            1048576
+          ],
+          "dataset_dtype": "float32",
+          "dataset_shape": [
+            16,
+            1,
+            359661568
+          ],
+          "dtype_exact": "<f4",
+          "hdf5_filters": [
+            [
+              32008,
+              1,
+              [
+                0,
+                3,
+                4,
+                0,
+                2
+              ],
+              "bitshuffle; see https://github.com/kiyo-masui/bitshuffle"
+            ]
+          ],
+          "root_attributes": {
+            "CLASS": "FILTERBANK",
+            "VERSION": "1.0"
+          }
+        },
+        "role": "OFF",
+        "row_midpoints_seconds_from_anchor": [
+          1733.1268055496348,
+          1751.3804165576348,
+          1769.6340275656348,
+          1787.8876385736348,
+          1806.1412495816348,
+          1824.3948605896348,
+          1842.6484715976349,
+          1860.9020826056349,
+          1879.1556936136349,
+          1897.4093046216349,
+          1915.6629156296349,
+          1933.916526637635,
+          1952.170137645635,
+          1970.423748653635,
+          1988.677359661635,
+          2006.930970669635
+        ],
+        "row_midpoints_seconds_from_tref": [
+          725.0979174628173,
+          743.3515284708174,
+          761.6051394788174,
+          779.8587504868174,
+          798.1123614948174,
+          816.3659725028174,
+          834.6195835108174,
+          852.8731945188174,
+          871.1268055268174,
+          889.3804165348174,
+          907.6340275428174,
+          925.8876385508174,
+          944.1412495588174,
+          962.3948605668174,
+          980.6484715748174,
+          998.9020825828175
+        ],
+        "scan_id": "epoch3_off",
+        "tsamp_s": 18.253611008,
+        "tstart_mjd": 57871.56412037037
+      }
+    ],
+    "single_row_diagnostic": {
+      "active_row": 6,
+      "score_normalization_rows": 4,
+      "truth_window_rows": [
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    "source_rows_per_scan": 16,
+    "tref_mjd": 57871.555833667684,
+    "tref_relative_first_scan_start_s": 1008.0288880868175,
+    "window_length_rows": 4,
+    "window_start_rows": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10,
+      12
+    ]
+  },
+  "joint_gate": {
+    "all_205_integrity_required": true,
+    "diagnostics_complete": 24,
+    "matched_RFI_all_pre_OFF_localized": 24,
+    "matched_RFI_maximum_surviving_cadences": 0,
+    "null_case_count": 32,
+    "null_maximum_surviving_cadences": 1,
+    "operating_at_least": 44,
+    "operating_each_activity_at_least": 7,
+    "operating_each_drift_at_least": 10,
+    "operating_each_intrinsic_width_at_least": 22,
+    "strong_all": 14
+  },
+  "preserved": {
+    "closed_2019": true,
+    "new_observation": false,
+    "new_telescope_bytes": 0,
+    "new_telescope_requests": 0,
+    "original_A_B": "FAIL_CLOSED",
+    "protected_2016": true,
+    "qualified_SETI_detection": false
+  },
+  "schema": "SETI_SIXSCAN_BURST_CONTRACT_V1",
+  "selection": {
+    "OFF_threshold": 8.0,
+    "ON_threshold": 10.0,
+    "calibration_law_only": "independent_gamma16",
+    "calibration_references": 63,
+    "calibration_statistic": "global maximum over complete declared ON search family before OFF",
+    "combined_retained_candidates": 5,
+    "final_candidate_p": "(1 + count63(referenceglobalONmax >= candidate score))/64",
+    "final_candidate_p_cut_inclusive": 0.015625,
+    "physical_or_telescope_FAP_calibrated": false,
+    "widths": [
+      1,
+      3,
+      9,
+      33
+    ]
+  },
+  "signal": {
+    "amplitude_is_nominal_noise_free_projection_not_SNR_or_flux_calibration": true,
+    "channel_weight": "CDF(j+.5-continuouscenter)-CDF(j-.5-continuouscenter)",
+    "continuouscenter": "corefirst+offset+d*(actual row midpoint-globaltref)/signeddf; float64 before rounding",
+    "flux": ".25*nominal_ideal_box_score / max_width(sum(unit kernel mass in true nearest-center box on injected rows)/sqrt(4width))",
+    "kernel": "unit-area intrinsic U[-a/2,a/2] convolved with uniform exposure sweep abs(d)*tsamp/abs(df)",
+    "no_observed_values_in_oracle": true,
+    "oracle_before_RNG": true,
+    "oracle_denominator": "sqrt(4*width) including single-row diagnostics",
+    "oracle_widths": [
+      1,
+      3,
+      9,
+      33
+    ],
+    "rounding": "numpy.rint complete absolute source channel; nearest ties to even"
+  },
+  "source_archive_pin": {
+    "archive_payload_opened_by_builder": false,
+    "name": "SETI_NATIVE_SPOR_2026-10-14.zip",
+    "sha256": "52b948958c89069a7afb563cf377ee33e4f1324e014428d597b4b3e3a20f6eb3"
+  },
+  "source_metadata_pin": {
+    "bytes": 629588,
+    "path": "seti_work/seti_burst_full/context_results/CONTEXT_PROFILES.json",
+    "sha256": "31efe1e5eeba63d10fbc04ea60bd29eb3086f142b6111a185f821a40a0558522"
+  },
+  "status": "PROSPECTIVE_METADATA_ONLY_REQUIRES_ROOT_GO",
+  "study_id": "SETI_SIXSCAN_BURST_20261015_RECOVERY_V1"
+}

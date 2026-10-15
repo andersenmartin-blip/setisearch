@@ -1,0 +1,2204 @@
+{
+  "schema": "SETI_LOCAL_RECOVERY_AUDIT_V1",
+  "created_utc": "2026-10-15T06:07:30.268601+00:00",
+  "status": "UNKNOWN_UNRECOVERED",
+  "scope": "Read-only inspection of /workspace plus writing this audit; no science worker, coordinator, generator, detector, or QA executed.",
+  "searched_root": "/workspace",
+  "discovered_file_count": 1751,
+  "searches": [
+    {
+      "method": "rg --files",
+      "roots": [
+        "/workspace"
+      ],
+      "description": "Recursive default visible-file inventory; scope-specific filename filters for sixscan, GO, SCOPE, run states, calibration, closure, reports and archives."
+    },
+    {
+      "method": "rg -l over .json,.jsonl,.md,.txt,.log,.csv,.py",
+      "roots": [
+        "/workspace"
+      ],
+      "patterns": [
+        "SETI_SIXSCAN_BURST_20261014",
+        "bc3a42f7d99dfa19af3070b11e8eb7cafa11984f",
+        "101138540dee6c01b40703b6789c5b3c283c613d",
+        "PRIMARY_CALIBRATION_RUN_STATE",
+        "sixscan_burst_20261014"
+      ],
+      "matches": [
+        "prepare_sixscan_scope.py",
+        "sixscan_burst_20261014/case_bank.json",
+        "sixscan_burst_20261014/build_inputs.py",
+        "sixscan_burst_20261014/real_baselines.json",
+        "sixscan_burst_20261014/generator.py",
+        "sixscan_burst_20261014/contract.json"
+      ]
+    },
+    {
+      "method": "zipfile central-directory inspection",
+      "description": "All files with .zip/.tar/.gz/.tgz/.bz2/.xz extensions in rg inventory; all discovered archives were .zip. The unreadable archive has not been treated as evidence of absence."
+    }
+  ],
+  "public_recovery_references_from_prior_context_only": {
+    "preregistration_commit": "bc3a42f7d99dfa19af3070b11e8eb7cafa11984f",
+    "GO_commit": "101138540dee6c01b40703b6789c5b3c283c613d",
+    "verification_in_this_audit": "NOT_CHECKED_REMOTE_ROOT_OWNER_HANDLES"
+  },
+  "prior_progress_from_parent_continuity_only": {
+    "complete_calibration_reported": 16,
+    "live_calibration_reported": 4,
+    "calibration_target": 63,
+    "helper_reported_waiting_for_calibration": true,
+    "verification_in_this_audit": "UNVERIFIED_PRIOR_CONTEXT",
+    "final_endpoint": "UNKNOWN_UNRECOVERED"
+  },
+  "frozen_code_inventory": [
+    {
+      "relative_path": "build_inputs.py",
+      "prior_context_expected_sha256": "ef5c6da92adf4df4dd2f008581c257a5981dde97e247136909d1ec7405e3e132",
+      "exists": true,
+      "bytes": 14701,
+      "actual_sha256": "ef5c6da92adf4df4dd2f008581c257a5981dde97e247136909d1ec7405e3e132",
+      "matches_prior_context": true
+    },
+    {
+      "relative_path": "case_bank.json",
+      "prior_context_expected_sha256": "e0de7fac3cb2b478a02533763f63dfe15b5f07913d742a87899e850ae92aebcb",
+      "exists": true,
+      "bytes": 224331,
+      "actual_sha256": "e0de7fac3cb2b478a02533763f63dfe15b5f07913d742a87899e850ae92aebcb",
+      "matches_prior_context": true
+    },
+    {
+      "relative_path": "contract.json",
+      "prior_context_expected_sha256": "66b1afd4f9253e12437aa6e5ee9f46441683ecd86aa20282e59b54cdbfa2e2a0",
+      "exists": true,
+      "bytes": 20343,
+      "actual_sha256": "66b1afd4f9253e12437aa6e5ee9f46441683ecd86aa20282e59b54cdbfa2e2a0",
+      "matches_prior_context": true
+    },
+    {
+      "relative_path": "coordinator.py",
+      "prior_context_expected_sha256": "2e34139c8cf2ba610d7493cdc7fd6a0d7cdb449834952c90183507f5db223ecd",
+      "exists": true,
+      "bytes": 7762,
+      "actual_sha256": "5302d0300fd0b03ea321419eee90a71e9d160749a85c20a8373fdd6f011de04b",
+      "matches_prior_context": false
+    },
+    {
+      "relative_path": "detector.py",
+      "prior_context_expected_sha256": "f7128db9631da17c8d91497fa327c713fdc1d1af17b286abf7d12d66018d7278",
+      "exists": true,
+      "bytes": 31706,
+      "actual_sha256": "f7128db9631da17c8d91497fa327c713fdc1d1af17b286abf7d12d66018d7278",
+      "matches_prior_context": true
+    },
+    {
+      "relative_path": "generator.py",
+      "prior_context_expected_sha256": "9f39b881fb153360543afdaddb7254ee69d116f587713547f58831415d0c8dcc",
+      "exists": true,
+      "bytes": 9656,
+      "actual_sha256": "9f39b881fb153360543afdaddb7254ee69d116f587713547f58831415d0c8dcc",
+      "matches_prior_context": true
+    },
+    {
+      "relative_path": "real_baselines.json",
+      "prior_context_expected_sha256": "887797f258747b95a7e8206608c08c8c90f0f9322bb55a98f8cebded5c2ecd0e",
+      "exists": true,
+      "bytes": 35467,
+      "actual_sha256": "887797f258747b95a7e8206608c08c8c90f0f9322bb55a98f8cebded5c2ecd0e",
+      "matches_prior_context": true
+    },
+    {
+      "relative_path": "summarize.py",
+      "prior_context_expected_sha256": "b742fc40bebc041c7917e5d6801b3d0e4b13aed41931b922009c01017b6d0c06",
+      "exists": true,
+      "bytes": 31733,
+      "actual_sha256": "b742fc40bebc041c7917e5d6801b3d0e4b13aed41931b922009c01017b6d0c06",
+      "matches_prior_context": true
+    },
+    {
+      "relative_path": "worker.py",
+      "prior_context_expected_sha256": "c339bebcad1c87e6766b407663b168585dba89419e45542befbd2bac76ea7509",
+      "exists": true,
+      "bytes": 27132,
+      "actual_sha256": "c339bebcad1c87e6766b407663b168585dba89419e45542befbd2bac76ea7509",
+      "matches_prior_context": true
+    },
+    {
+      "relative_path": "qa.py",
+      "prior_context_expected_sha256": "3e3d29bc69bfb5691a93f7ee2baf4ffaa1d3777feadee17e6688bc05048331d6",
+      "exists": false
+    }
+  ],
+  "required_local_paths": [
+    {
+      "path": "/workspace/scratch/b83cfe20d6e1/sixscan_burst_20261014/SCOPE.json",
+      "exists": false
+    },
+    {
+      "path": "/workspace/scratch/b83cfe20d6e1/sixscan_burst_20261014/GO.json",
+      "exists": false
+    },
+    {
+      "path": "/workspace/scratch/b83cfe20d6e1/sixscan_burst_20261014/SCOPE_REVIEW.json",
+      "exists": false
+    },
+    {
+      "path": "/workspace/scratch/b83cfe20d6e1/sixscan_burst_20261014/QA_COMPONENT_SELFTEST.json",
+      "exists": false
+    },
+    {
+      "path": "/workspace/scratch/b83cfe20d6e1/sixscan_burst_20261014/INPUT_DESIGN_REVIEW.json",
+      "exists": false
+    },
+    {
+      "path": "/workspace/scratch/b83cfe20d6e1/sixscan_burst_20261014/README.md",
+      "exists": false
+    },
+    {
+      "path": "/workspace/scratch/b83cfe20d6e1/sixscan_burst_20261014/claims",
+      "exists": false
+    },
+    {
+      "path": "/workspace/scratch/b83cfe20d6e1/sixscan_burst_20261014/results",
+      "exists": false
+    },
+    {
+      "path": "/workspace/scratch/b83cfe20d6e1/sixscan_burst_20261014/PRIMARY_CALIBRATION_RUN_STATE.json",
+      "exists": false
+    },
+    {
+      "path": "/workspace/scratch/b83cfe20d6e1/sixscan_burst_20261014/PRIMARY_VALIDATION_RUN_STATE.json",
+      "exists": false
+    },
+    {
+      "path": "/workspace/scratch/b83cfe20d6e1/sixscan_burst_20261014/QA_RUN_STATE.json",
+      "exists": false
+    },
+    {
+      "path": "/workspace/scratch/b83cfe20d6e1/sixscan_burst_20261014/EXPOSED_RUN_STATE.json",
+      "exists": false
+    },
+    {
+      "path": "/workspace/scratch/b83cfe20d6e1/sixscan_burst_20261014/QA_EXPOSED_RUN_STATE.json",
+      "exists": false
+    }
+  ],
+  "other_required_paths": [
+    {
+      "path": "/workspace/scratch/b83cfe20d6e1/reporting_sixscan",
+      "exists": false
+    },
+    {
+      "path": "/workspace/scratch/b83cfe20d6e1/run1",
+      "exists": false
+    },
+    {
+      "path": "/workspace/scratch/b83cfe20d6e1/orchestration_sixscan_20261014",
+      "exists": false
+    }
+  ],
+  "archives": [
+    {
+      "path": "/workspace/scratch/b83cfe20d6e1/inputs/SETI_DRIFT_OPFOELGNING_2026-10-14.zip",
+      "bytes": 42233047,
+      "sha256": "262f23bf85fcf65483181c9c5e6cd792119d656e3cdde0e15405c569352b35d8",
+      "scan_status": "READABLE_ZIP_DIRECTORY_SCANNED",
+      "member_count": 254,
+      "sixscan_related_members": []
+    },
+    {
+      "path": "/workspace/scratch/b83cfe20d6e1/inputs/SETI_FULD_ON_BURST_2026-10-13.zip",
+      "bytes": 98776576,
+      "sha256": "24081f2fa5cc691fc805b4ac38d63bc58fe09b34d1faecdec629a6dc7ada07e5",
+      "scan_status": "UNREADABLE_ARCHIVE",
+      "archive_read_error": "File is not a zip file",
+      "contents_status": "UNKNOWN_UNRECOVERED"
+    },
+    {
+      "path": "/workspace/scratch/b83cfe20d6e1/inputs/SETI_NATIVE_SPOR_2026-10-14.zip",
+      "bytes": 48468705,
+      "sha256": "52b948958c89069a7afb563cf377ee33e4f1324e014428d597b4b3e3a20f6eb3",
+      "scan_status": "READABLE_ZIP_DIRECTORY_SCANNED",
+      "member_count": 294,
+      "sixscan_related_members": []
+    },
+    {
+      "path": "/workspace/scratch/b83cfe20d6e1/deliverables/SETI_RAAEFFEKT_BREDE_SKABELONER_2026-10-14.zip",
+      "bytes": 67953040,
+      "sha256": "e7643ec2d5786cbec90cd23dd7a7a4e7438c8871d0d30c713d60208852cce8dc",
+      "scan_status": "READABLE_ZIP_DIRECTORY_SCANNED",
+      "member_count": 1037,
+      "sixscan_related_members": []
+    },
+    {
+      "path": "/workspace/scratch/b83cfe20d6e1/deliverables/SETI_TOP5_KONTROL_2026-10-14.zip",
+      "bytes": 49725318,
+      "sha256": "49a079f00cc67625d6483598198b37d1645eb67ff30bf500883834738f311c31",
+      "scan_status": "READABLE_ZIP_DIRECTORY_SCANNED",
+      "member_count": 40,
+      "sixscan_related_members": []
+    }
+  ],
+  "synthetic_endpoints": [
+    {
+      "index": 0,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:000",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 1,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:001",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 2,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:002",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 3,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:003",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 4,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:004",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 5,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:005",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 6,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:006",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 7,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:007",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 8,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:008",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 9,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:009",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 10,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:010",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 11,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:011",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 12,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:012",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 13,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:013",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 14,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:014",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 15,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:015",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 16,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:016",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 17,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:017",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 18,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:018",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 19,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:019",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 20,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:020",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 21,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:021",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 22,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:022",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 23,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:023",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 24,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:024",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 25,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:025",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 26,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:026",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 27,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:027",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 28,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:028",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 29,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:029",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 30,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:030",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 31,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:031",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 32,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:032",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 33,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:033",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 34,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:034",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 35,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:035",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 36,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:036",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 37,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:037",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 38,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:038",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 39,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:039",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 40,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:040",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 41,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:041",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 42,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:042",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 43,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:043",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 44,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:044",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 45,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:045",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 46,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:046",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 47,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:047",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 48,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:048",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 49,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:049",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 50,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:050",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 51,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:051",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 52,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:052",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 53,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:053",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 54,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:054",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 55,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:055",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 56,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:056",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 57,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:057",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 58,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:058",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 59,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:059",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 60,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:060",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 61,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:061",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 62,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:calibration:062",
+      "family": "calibration",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 63,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:strong:000",
+      "family": "strong",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 64,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:strong:001",
+      "family": "strong",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 65,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:strong:002",
+      "family": "strong",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 66,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:strong:003",
+      "family": "strong",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 67,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:strong:004",
+      "family": "strong",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 68,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:strong:005",
+      "family": "strong",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 69,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:strong:006",
+      "family": "strong",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 70,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:strong:007",
+      "family": "strong",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 71,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:strong:008",
+      "family": "strong",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 72,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:strong:009",
+      "family": "strong",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 73,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:strong:010",
+      "family": "strong",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 74,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:strong:011",
+      "family": "strong",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 75,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:strong:012",
+      "family": "strong",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 76,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:strong:013",
+      "family": "strong",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 77,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:000",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 78,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:001",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 79,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:002",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 80,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:003",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 81,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:004",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 82,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:005",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 83,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:006",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 84,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:007",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 85,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:008",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 86,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:009",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 87,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:010",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 88,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:011",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 89,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:012",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 90,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:013",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 91,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:014",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 92,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:015",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 93,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:016",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 94,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:017",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 95,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:018",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 96,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:019",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 97,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:020",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 98,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:021",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 99,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:022",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 100,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:023",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 101,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:024",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 102,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:025",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 103,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:026",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 104,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:027",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 105,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:028",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 106,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:029",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 107,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:030",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 108,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:031",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 109,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:032",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 110,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:033",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 111,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:034",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 112,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:035",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 113,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:036",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 114,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:037",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 115,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:038",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 116,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:039",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 117,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:040",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 118,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:041",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 119,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:042",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 120,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:043",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 121,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:044",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 122,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:045",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 123,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:046",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 124,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:operating:047",
+      "family": "operating",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 125,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:matched_rfi:000",
+      "family": "matched_rfi",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 126,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:matched_rfi:001",
+      "family": "matched_rfi",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 127,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:matched_rfi:002",
+      "family": "matched_rfi",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 128,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:matched_rfi:003",
+      "family": "matched_rfi",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 129,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:matched_rfi:004",
+      "family": "matched_rfi",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 130,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:matched_rfi:005",
+      "family": "matched_rfi",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 131,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:matched_rfi:006",
+      "family": "matched_rfi",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 132,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:matched_rfi:007",
+      "family": "matched_rfi",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 133,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:matched_rfi:008",
+      "family": "matched_rfi",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 134,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:matched_rfi:009",
+      "family": "matched_rfi",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 135,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:matched_rfi:010",
+      "family": "matched_rfi",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 136,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:matched_rfi:011",
+      "family": "matched_rfi",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 137,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:matched_rfi:012",
+      "family": "matched_rfi",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 138,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:matched_rfi:013",
+      "family": "matched_rfi",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 139,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:matched_rfi:014",
+      "family": "matched_rfi",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 140,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:matched_rfi:015",
+      "family": "matched_rfi",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 141,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:matched_rfi:016",
+      "family": "matched_rfi",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 142,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:matched_rfi:017",
+      "family": "matched_rfi",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 143,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:matched_rfi:018",
+      "family": "matched_rfi",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 144,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:matched_rfi:019",
+      "family": "matched_rfi",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 145,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:matched_rfi:020",
+      "family": "matched_rfi",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 146,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:matched_rfi:021",
+      "family": "matched_rfi",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 147,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:matched_rfi:022",
+      "family": "matched_rfi",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 148,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:matched_rfi:023",
+      "family": "matched_rfi",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 149,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:000",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 150,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:001",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 151,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:002",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 152,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:003",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 153,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:004",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 154,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:005",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 155,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:006",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 156,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:007",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 157,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:008",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 158,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:009",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 159,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:010",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 160,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:011",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 161,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:012",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 162,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:013",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 163,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:014",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 164,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:015",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 165,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:016",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 166,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:017",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 167,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:018",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 168,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:019",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 169,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:020",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 170,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:021",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 171,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:022",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 172,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:023",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 173,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:024",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 174,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:025",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 175,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:026",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 176,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:027",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 177,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:028",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 178,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:029",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 179,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:030",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 180,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:null:031",
+      "family": "null",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 181,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:single_row_transient:000",
+      "family": "single_row_transient",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 182,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:single_row_transient:001",
+      "family": "single_row_transient",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 183,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:single_row_transient:002",
+      "family": "single_row_transient",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 184,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:single_row_transient:003",
+      "family": "single_row_transient",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 185,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:single_row_transient:004",
+      "family": "single_row_transient",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 186,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:single_row_transient:005",
+      "family": "single_row_transient",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 187,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:single_row_transient:006",
+      "family": "single_row_transient",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 188,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:single_row_transient:007",
+      "family": "single_row_transient",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 189,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:single_row_transient:008",
+      "family": "single_row_transient",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 190,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:single_row_transient:009",
+      "family": "single_row_transient",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 191,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:single_row_transient:010",
+      "family": "single_row_transient",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 192,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:single_row_transient:011",
+      "family": "single_row_transient",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 193,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:near_off_contamination:000",
+      "family": "near_off_contamination",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 194,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:near_off_contamination:001",
+      "family": "near_off_contamination",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 195,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:near_off_contamination:002",
+      "family": "near_off_contamination",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 196,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:near_off_contamination:003",
+      "family": "near_off_contamination",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 197,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:near_off_contamination:004",
+      "family": "near_off_contamination",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 198,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:near_off_contamination:005",
+      "family": "near_off_contamination",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 199,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:near_off_contamination:006",
+      "family": "near_off_contamination",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 200,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:near_off_contamination:007",
+      "family": "near_off_contamination",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 201,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:near_off_contamination:008",
+      "family": "near_off_contamination",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 202,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:near_off_contamination:009",
+      "family": "near_off_contamination",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 203,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:near_off_contamination:010",
+      "family": "near_off_contamination",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 204,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:near_off_contamination:011",
+      "family": "near_off_contamination",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    }
+  ],
+  "exposed_endpoints": [
+    {
+      "index": 0,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:real_sham:native170_q131",
+      "family": "real_sham",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 1,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:real_sham:native170_q252",
+      "family": "real_sham",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 2,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:real_sham:native171_q055",
+      "family": "real_sham",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 3,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:real_sham:native171_q231",
+      "family": "real_sham",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 4,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:real_sham:native172_q012",
+      "family": "real_sham",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 5,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:real_sham:native172_q048",
+      "family": "real_sham",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 6,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:real_sham:native172_q081",
+      "family": "real_sham",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 7,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:real_sham:native172_q094",
+      "family": "real_sham",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    },
+    {
+      "index": 8,
+      "case_id": "SETI_SIXSCAN_BURST_20261014:real_sham:native172_q168",
+      "family": "real_sham",
+      "primary_endpoint": "UNKNOWN_UNRECOVERED",
+      "qa_endpoint": "UNKNOWN_UNRECOVERED",
+      "measured_result": null,
+      "reason": "No local claim, numerical output, whole-child resource receipt, or phase closure recovered; absence of local files does not establish NOT_RUN."
+    }
+  ],
+  "scientific_interpretation": {
+    "new_detection": "NO_QUALIFIED_DETECTION_ESTABLISHED",
+    "original_AB": "FAIL_CLOSED",
+    "unknown_is_not_null": true,
+    "unknown_is_not_NOT_RUN": true,
+    "new_method_qualification": "NOT_ESTABLISHED"
+  },
+  "resource_accounting": {
+    "new_science_cpu_seconds_this_audit": 0,
+    "prior_whole_child_cpu_seconds": "UNKNOWN_UNRECOVERED",
+    "historical_charges_reset_or_refunded": false,
+    "prior_stage_cap_cpu_seconds": 90000,
+    "prior_unreleased_metadata_delivery_reservation_cpu_seconds": 1000,
+    "instruction": "Recover historical stage ledger and all child closures before asserting remaining budget. Do not infer unused CPU from absent local files."
+  },
+  "operational_next_steps": [
+    "Attempt authoritative remote/Library recovery of exact published frozen sources, claims, outputs, phase state and whole-child resource receipts before any continuation.",
+    "Do not run the locally restored coordinator: its SHA256 differs from the frozen source, and SCOPE/GO/QA/claims/closure are absent.",
+    "Do not rerun or silently replace any SETI_SIXSCAN_BURST_20261014 identity, and do not infer unsubmitted cases from an earlier progress snapshot; the waiting helper may have advanced beyond that snapshot.",
+    "If authoritative endpoint recovery fails, preserve all 205 synthetic and 9 exposed primary/QA endpoints as UNKNOWN_UNRECOVERED, close this attempted qualification without measured rates or nulls, and preserve the unknown prior resource charge.",
+    "Any new study should use an explicitly new preregistration, new identities/seeds and a separately documented bounded resource allocation under existing full-power authority; it must not erase, refund or impersonate the interrupted bank."
+  ],
+  "mutations": [
+    "Created recovery_audit_20261015/LOCAL_RECOVERY_AUDIT.json outside frozen stage."
+  ],
+  "limitations": [
+    "Remote GitHub and Library searches are owned by root and not assessed here.",
+    "One older input archive cannot be opened as ZIP; no conclusion about its internal members.",
+    "Local absence alone cannot establish whether an earlier once-only job did or did not run."
+  ]
+}
