@@ -1,3 +1,11 @@
+## 15. oktober 2026: kompakt payload og procesvagt efterprøvet sammen
+
+11 integrationskontroller består. En konstrueret formatfixture med 61.440 ON-records og 184.320 OFF-kvitteringer er bevaret og genlæst felt for felt, inklusive binary64-bits. Pakken fylder 4.560.903 bytes inklusive et 1 MiB-asset; metadata alene ville fylde 241.906.727 bytes som indrykket JSON. Første afviste version er bevaret, og den nye nøglepulje holder udpakningen under den uændrede 128 MiB-grænse. [Kode, målinger og afgrænsning](https://github.com/andersenmartin-blip/setisearch/blob/ce095643bb9ceb4af9b6c3d423296f1874d575dd/tools/bounded_payload_20261015/README.md).
+
+Dette er **engineering med formatdata**, ingen ny signalanalyse eller videnskabelig admission. Fuld per-case adapter, numeriske inventarer og kumulativt lagerbudget mangler fortsat før en ny bank kan overvejes. Den lukkede bank og original A/B forbliver **FAIL_CLOSED**. 0 DKK, ingen nye teleskopdata og uændret checkpoint 20. oktober.
+
+---
+
 ## 15. oktober 2026: CPU-fejl fulgt op med konkret proceskontrol
 
 En selvstændig procesvagt til fremtidig integration består 12 engineeringkontroller. Den måler hele barnet efter afslutning, bruger barnets POSIX CPU-ur til tidligt stop og afviser ressourcefejl uanset exitkode. Forsinket kernel-stop og procfs-PID-problemer blev fundet under udviklingen; alle fejlede forsøg er bevaret. [Kode, målinger og begrænsninger](https://github.com/andersenmartin-blip/setisearch/blob/2963e8fa6f260736aceccf9cebbc635b0041af0a/tools/whole_child_guard_20261015/README.md).
