@@ -1,0 +1,13 @@
+{"event": "UPLOAD_ATTEMPT_STARTED", "pid": 7, "stem": "UPLOAD_BATCH_0002"}
+{"event": "UPLOAD_ATTEMPT_STARTED", "pid": 9, "stem": "INDEX_SAVE_0002"}
+{"batch": 2, "checkpoint_sequences": [1], "event": "ARCHIVE_BATCH_SAVED", "index_library_file_id": "fixture_index", "index_version": 0}
+{"event": "UPLOAD_ATTEMPT_STARTED", "pid": 10, "stem": "UPLOAD_BATCH_0003"}
+{"event": "UPLOAD_ATTEMPT_STARTED", "pid": 12, "stem": "INDEX_SAVE_0003"}
+{"batch": 3, "checkpoint_sequences": [2], "event": "ARCHIVE_BATCH_SAVED", "index_library_file_id": "fixture_index", "index_version": 1}
+{"count": 2, "event": "ALL_READY_CHECKPOINTS_SAVED", "scheduler_status": "ALL_FROZEN_PHASES_CLOSED"}
+{"event": "UPLOAD_ATTEMPT_STARTED", "pid": 14, "stem": "INDEX_SAVE_INITIAL_0003"}
+{"count": 1, "event": "ALL_READY_CHECKPOINTS_SAVED", "scheduler_status": "ALL_FROZEN_PHASES_CLOSED"}
+{"event": "UPLOAD_WATCHER_STOPPED_NO_RETRY", "failure": {"message": "Checkpoint receipt sequence has a gap; halt before any upload", "type": "ValueError"}}
+{"event": "UPLOAD_ATTEMPT_STARTED", "pid": 15, "stem": "UPLOAD_BATCH_0002"}
+{"event": "UPLOAD_WATCHER_STOPPED_NO_RETRY", "failure": {"message": "Upload item failed or lacks local metadata; no retry or replay", "type": "ValueError"}}
+{"checks": ["short_exclusive_creation_JSON_window_read_retry_only", "ordered_archive_batches_start_at_2", "archive_request_result_stderr_PID_retained", "recorder_ACKs_and_cumulative_index", "index_created_once_then_same_identity_expected_version_replacement", "terminal_scheduler_and_all_ACKs_close_watcher", "second_watcher_start_rejected", "completed_manual_batch_2_adopted_without_replay_next_batch_3", "existing_cumulative_index_saved_before_new_archive_batch", "existing_unknown_request_halts_before_upload", "checkpoint_sequence_gap_halts_before_archive_or_index_upload", "per_item_failure_stops_without_ACK_retry_or_index_save"], "numerical_trials": 0, "real_library_uploads": 0, "schema": "SETI_UPLOAD_WATCHER_TRANSPORT_FIXTURE_V1", "status": "PASS", "watcher_sha256": "445c7ead1e890cf0b8cb6b85bb8ee8c6bbf351d89c1de0fe9259a9f99b81f055"}

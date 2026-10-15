@@ -1,0 +1,105 @@
+{
+  "caps": {
+    "coordinator_prelaunch_margin_bytes": 536870912,
+    "maximum_workers": 8,
+    "new_aggregate_CPU_s_cap": 260000,
+    "results_bytes": 3221225472,
+    "results_prelaunch_guard_bytes": 2684354560,
+    "workspace_bytes": 8589934592,
+    "workspace_prelaunch_guard_bytes": 8053063680
+  },
+  "closed_UTC": "2026-10-15T07:27:11.324890+00:00",
+  "continuous_hardcap_compliance_proven": false,
+  "declared_sample_start_gap_limit_s": 7.0,
+  "last_sample_finished_UTC": "2026-10-15T07:27:11.324255+00:00",
+  "last_sample_started_UTC": "2026-10-15T07:27:11.245406+00:00",
+  "latest_phase_views": {
+    "EXPOSED": {
+      "metadata": {
+        "status": "NOT_RUN_OR_ABSENT"
+      },
+      "planned_children": 9,
+      "status": "NOT_RUN_OR_ABSENT"
+    },
+    "PRIMARY_CALIBRATION": {
+      "closed_children": 63,
+      "complete_successful_phase": true,
+      "live_children": 0,
+      "metadata": {
+        "bytes": 42359,
+        "sha256": "0b57a5b4a1772e152573783745e766e8b6ec8aa936ef592d4d457827593d98d1",
+        "status": "READ"
+      },
+      "planned_children": 63,
+      "status": "COMPLETE",
+      "successful_closed_children": 63,
+      "unsubmitted_children": 0
+    },
+    "PRIMARY_VALIDATION": {
+      "closed_children": 97,
+      "complete_successful_phase": false,
+      "live_children": 0,
+      "metadata": {
+        "bytes": 65457,
+        "sha256": "d8d559b5fd2c289baf4737274fda6f081533358a7b784aee1dacec2995910830",
+        "status": "READ"
+      },
+      "planned_children": 142,
+      "status": "STOPPED_RETAINED_NO_RETRY",
+      "successful_closed_children": 97,
+      "unsubmitted_children": 45
+    },
+    "QA": {
+      "metadata": {
+        "status": "NOT_RUN_OR_ABSENT"
+      },
+      "planned_children": 205,
+      "status": "NOT_RUN_OR_ABSENT"
+    },
+    "QA_EXPOSED": {
+      "metadata": {
+        "status": "NOT_RUN_OR_ABSENT"
+      },
+      "planned_children": 9,
+      "status": "NOT_RUN_OR_ABSENT"
+    }
+  },
+  "latest_scheduler_status": "STOPPED_RETAINED_NO_RETRY",
+  "limitations": [
+    "Traversal samples are not atomic simultaneous counts and do not prove continuous caps.",
+    "No earlier period peak is inferred; existing historical snapshots are not automatically merged.",
+    "Reads only file metadata and small scope/coordinator/scheduler JSON; no array payloads decoded.",
+    "File deletions/renames during traversal are counted as vanished entries; other stat errors remain explicit.",
+    "Writes after a traversal are included only in a subsequent traversal; own growing trace/summary/state files are included.",
+    "An observed hard-cap breach is a separate protocol resource failure; frozen SUMMARY is never edited."
+  ],
+  "maximum_observed_sample_start_gap_s": 5.004111846999876,
+  "monitor_started_UTC": "2026-10-15T07:15:16.150868+00:00",
+  "observed_hardcap_failure": false,
+  "observed_peaks": {
+    "results": {
+      "bytes": 2876638863,
+      "sample_started_UTC": "2026-10-15T07:27:11.245406+00:00",
+      "sequence": 144
+    },
+    "workspace": {
+      "bytes": 5387474035,
+      "sample_started_UTC": "2026-10-15T07:27:11.245406+00:00",
+      "sequence": 144
+    }
+  },
+  "output_relative_to_workspace": "capacity_trace_sixscan_20261015",
+  "resource_protocol_status": "NO_BREACH_OBSERVED_AT_SAMPLED_TRAVERSALS",
+  "sample_gap_violations": 0,
+  "samples": 144,
+  "samples_with_stat_errors": 0,
+  "samples_with_vanished_entries": 0,
+  "sampling_interval_s": 5.0,
+  "schema": "SETI_CAPACITY_SAMPLED_PEAK_SUMMARY_V1",
+  "scope_sha256": "551288e6eca87aa5d7449d186916cd84fa6aebdc5743736d914fee14b1ef84ea",
+  "stage_relative_to_workspace": "sixscan_burst_20261015",
+  "status": "CLOSED_SAMPLED_EVIDENCE_ONLY",
+  "terminal_scheduler_status": "STOPPED_RETAINED_NO_RETRY",
+  "trace_logical_bytes_included_in_workspace_census": true,
+  "trace_starts_at_launch_no_earlier_peak_claim": true
+}

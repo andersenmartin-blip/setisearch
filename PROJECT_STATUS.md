@@ -1,3 +1,11 @@
+SETI 15. oktober 2026: Metodekontrollen er lukket **FAIL_CLOSED**. 160 af 205 worker-resultater er bevaret (63 støjreferencer og 97 øvrige kontroller); 45 er NOT_RUN, uafhængig QA er 0, og de ni eksponerede bånd er NOT_RUN. Koordinatoren stoppede ved den fastlagte lagerreserve. C0147 overskred desuden det bindende loft på 600 CPU-sekunder: wait4 målte 601,151447 sekunder, selv om workerens egen kvittering var 598,727962 og exitkoden 0. Den planlagte lagerforlængelse blev derfor afvist før admission/GO og produktion; dens kode er PREPARED_NOT_ADMITTED. Oprindelig SUMMARY forbliver uændret med falske integritets- og fælles resultatkrav. Ingen kvalificeret SETI-detektion eller QA-verificeret genfindingsrate. Oprindelig A/B er FAIL_CLOSED; 2016 og 2019 forbliver lukkede, kontrolpunkt 20. oktober, 0 DKK og ingen nye teleskopbytes.
+
+
+
+Offentlig evidens: [oprindelig rapport](analysis/sixscan_burst_20261015/REPORT.md), [byteindeks](analysis/sixscan_burst_20261015/evidence/EVIDENCE_INDEX.json).
+
+---
+
 ## 15. oktober 2026: seks-scan-validering stoppet lukket ved outputmargin
 
 `SETI_SIXSCAN_BURST_20261015_RECOVERY_V1` er lukket som **STOPPED_RETAINED_NO_RETRY**. 63/63 primære referencer og 97/142 primære valideringscases blev afsluttet; identiteterne 160–204 blev aldrig indsendt, fordi den frosne 3 GiB-outputmargin blev nået. De 45 manglende cases er ikke nulmålinger. Ingen QA- eller eksponeret fase blev startet, og banken må ikke genoptages eller genkøres.

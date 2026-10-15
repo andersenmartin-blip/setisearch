@@ -1,0 +1,223 @@
+{
+  "C0147": {
+    "CPU_cap_s": 600,
+    "case_id": "SETI_SIXSCAN_BURST_20261015_RECOVERY_V1:matched_rfi:022",
+    "early_snapshot_is_not_whole_child_accounting": true,
+    "exit_code": 0,
+    "generation_call_count": 1,
+    "later_CPU_after_early_snapshot_s": 2.4234850000001416,
+    "output_COMMITTED_and_manifest_and_claim_bindings_verified": true,
+    "peak_RSS_bytes": 505585664,
+    "source_order_observation": "worker.py takes resource_snapshot before writing output.json, hashing final artifacts, writing manifest/claim/COMMITTED and process teardown. The measured difference covers later whole-child work; no individual later component timing is inferred.",
+    "whole_child_CPU_excess_s": 1.1514470000000756,
+    "whole_child_CPU_s": 601.1514470000001,
+    "whole_child_wall_s": 614.168230966,
+    "worker_early_self_snapshot": {
+      "caps": {
+        "address_space_bytes": 1073741824,
+        "cpu_s": 600,
+        "wall_s": 1800
+      },
+      "cpu_s": 598.7279619999999,
+      "peak_rss_bytes": 505585664,
+      "wall_s": 611.6068930619995
+    }
+  },
+  "actual_original_closure": {
+    "active_children_in_closed_phase_receipts": 0,
+    "all160_wait4_reaped_and_exit0": true,
+    "all160_whole_child_resource_fields_finite_nonnegative_and_checked": true,
+    "all160_worker_COMMITTED_and_claim_closures_bound_to_exact_bank_indices": true,
+    "all160_worker_early_self_snapshots_within_caps": true,
+    "calibration_phase_status": "COMPLETE",
+    "calibration_reaped_children": 63,
+    "stop_reason": "workspace_or_output_capacity_margin_exhausted",
+    "total_distinct_reaped_primary_children": 160,
+    "validation_phase_status": "STOPPED_RETAINED_NO_RETRY",
+    "validation_reaped_children": 97,
+    "whole_child_cap_compliant_count": 159,
+    "whole_child_resource_cap_breaches": [
+      {
+        "cap": 600,
+        "case_id": "SETI_SIXSCAN_BURST_20261015_RECOVERY_V1:matched_rfi:022",
+        "excess": 1.1514470000000756,
+        "field": "whole_child_CPU_s",
+        "index": 147,
+        "observed": 601.1514470000001
+      }
+    ],
+    "whole_child_wall_and_RSS_breaches": 0
+  },
+  "evidence_pins": [
+    {
+      "bytes": 16432,
+      "path": "sixscan_burst_20261015/SCOPE.json",
+      "sha256": "551288e6eca87aa5d7449d186916cd84fa6aebdc5743736d914fee14b1ef84ea"
+    },
+    {
+      "bytes": 900,
+      "path": "sixscan_burst_20261015/GO.json",
+      "sha256": "697f252e122a5fad2516cb0e45b8cde7597b8d40eb1d960e6460ed92a92ad475"
+    },
+    {
+      "bytes": 42359,
+      "path": "sixscan_burst_20261015/PRIMARY_CALIBRATION_RUN_STATE.json",
+      "sha256": "0b57a5b4a1772e152573783745e766e8b6ec8aa936ef592d4d457827593d98d1"
+    },
+    {
+      "bytes": 65457,
+      "path": "sixscan_burst_20261015/PRIMARY_VALIDATION_RUN_STATE.json",
+      "sha256": "d8d559b5fd2c289baf4737274fda6f081533358a7b784aee1dacec2995910830"
+    },
+    {
+      "bytes": 8605,
+      "path": "sixscan_burst_20261015/results/SUMMARY.json",
+      "sha256": "851d8e7487bed46669ad58f6cbbd0626e4b370ae61f243a58095a8b39d069879"
+    },
+    {
+      "bytes": 87698140,
+      "path": "sixscan_burst_20261015/results/cases/C0147/output.json",
+      "sha256": "d56c88251acae231a83837cbc6bda87834e9c11b824b6dcb7581c4ea22201826"
+    },
+    {
+      "bytes": 1007,
+      "path": "sixscan_burst_20261015/results/cases/C0147/artifact_manifest.json",
+      "sha256": "72a5a5c1f3559e2d6c0e4604837b1b0bca628fc91630a894228887c66dae58b8"
+    },
+    {
+      "bytes": 308,
+      "path": "sixscan_burst_20261015/results/cases/C0147/COMMITTED.json",
+      "sha256": "3e6bfa29e3a75e6cb94cb835a8a6a32ac6e2b67854f365b84505800f647fb0fb"
+    },
+    {
+      "bytes": 3589,
+      "path": "sixscan_burst_20261015/claims/C0147.json",
+      "sha256": "c2bce7e7fe8e391632d02255b73077b6184d25478000b632f5c38b232447efa9"
+    },
+    {
+      "bytes": 38612,
+      "path": "external_sixscan_20261015/resource_extension_dispatcher.py",
+      "sha256": "b5a18e059b82a9679f55b1b0ed81affdf0afa5aae8e57347ff9dd317e972ba10"
+    },
+    {
+      "bytes": 6643,
+      "path": "external_sixscan_20261015/RESOURCE_EXTENSION_INDEPENDENT_REVIEW.json",
+      "sha256": "cad910a978fe1a43c7d34a5976a7e8cebedd9dadc8fc4781b5963884b44f65a5"
+    }
+  ],
+  "extension_admission": {
+    "actual_admission_status": "REJECTED_ORIGINAL_WHOLE_CHILD_CPU_CAP_BREACH",
+    "capture_route_is_metadata_only_and_rejects_original_resource_breach_before_numerical_dispatch": true,
+    "no_ADMISSION_SNAPSHOT_or_final_AMENDMENT_created": true,
+    "no_extension_phase_ledger_union_gate_or_dispatch_claims": true,
+    "no_extension_worker_QA_or_RNG_trial_evidenced_or_admitted": true,
+    "no_relaxation_of_600_CPU_cap_no_retry_no_redraw_no_replacement": true,
+    "no_separate_extension_GO": true,
+    "prepared_code_PASS_is_not_actual_admission_PASS": true,
+    "prepared_code_review_status": "PASS_CODE_AND_PROTOCOL_REQUIRES_SEPARATE_ACTUAL_ADMISSION"
+  },
+  "frozen_source_pins_verified_unchanged": 19,
+  "operations_by_reviewer": {
+    "C0147_output_JSON_parsed_only_for_identity_and_resource_fields": true,
+    "RNG_instantiated": false,
+    "actual_admission_capture_reexecuted": false,
+    "all160_wait4_and_small_closure_claim_metadata_read": true,
+    "new_tests_or_trial_executions": false,
+    "only_written_artifact": "reporting_20261015/ACTUAL_RESOURCE_CLOSURE_REVIEW.json",
+    "original_sources_scope_states_claims_or_results_modified": false,
+    "raw_spectral_arrays_or_NPZ_payloads_opened_or_decoded": false,
+    "scientific_score_or_recovery_fields_inspected": false
+  },
+  "original_scope_sha256": "551288e6eca87aa5d7449d186916cd84fa6aebdc5743736d914fee14b1ef84ea",
+  "original_summary": {
+    "caps_gate": false,
+    "case_status_counts": {
+      "FAIL": 160,
+      "NOT_RUN": 45
+    },
+    "case_status_interpretation": "160 committed primary artifacts are not independently QA-qualified. FAIL rows do not establish160 scientific failures;45 NOT_RUN rows are not measured nulls. No scientific recovery, RFI or false-positive conclusion is admitted.",
+    "integrity_gate": false,
+    "joint_gate": false,
+    "status": "FAIL_CLOSED_NEW_METHOD_CONTROL"
+  },
+  "preserved": {
+    "exposed9": "NOT_RUN_BLOCKED",
+    "formal_checkpoint": "2026-10-20",
+    "new_spend_DKK": 0,
+    "new_telescope_payload_bytes": 0,
+    "new_telescope_requests": 0,
+    "original_A_B": "FAIL_CLOSED",
+    "protected2016_closed": true,
+    "qualified_SETI_detection": false,
+    "unavailable2019_closed": true
+  },
+  "resources": {
+    "aggregate_current_study_CPU_s_cap": 260000,
+    "charged_plus_metadata_reserved_CPU_s": 31911.988964,
+    "complete_wait4_primary_CPU_s": 30911.988964,
+    "metadata_and_delivery_reservation_CPU_s": 1000,
+    "older43200_ledger_preserved_without_reset_or_refund": true,
+    "one_per_child_cap_breach_closes_admission_even_when_aggregate_budget_remains": true,
+    "unreconciled_20261014_historical_CPU_reservation_s_preserved": 90000,
+    "worker_self_snapshot_CPU_not_added_again_to_wait4": true
+  },
+  "reviewed_UTC": "2026-10-15T07:38:04.594599+00:00",
+  "reviewer": "independent /root/fresh_scope_audit",
+  "schema": "SETI_ACTUAL_RESOURCE_CLOSURE_INDEPENDENT_REVIEW_V1",
+  "status": "VERIFIED_FAIL_CLOSED_ACTUAL_ADMISSION_REJECTED",
+  "untouched": {
+    "all45_lack_primary_claim_and_case_or_partial_folder": true,
+    "exposed_cases_or_claims": 0,
+    "independent_QA_claims_or_receipts": 0,
+    "never_submitted_indices": [
+      160,
+      161,
+      162,
+      163,
+      164,
+      165,
+      166,
+      167,
+      168,
+      169,
+      170,
+      171,
+      172,
+      173,
+      174,
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183,
+      184,
+      185,
+      186,
+      187,
+      188,
+      189,
+      190,
+      191,
+      192,
+      193,
+      194,
+      195,
+      196,
+      197,
+      198,
+      199,
+      200,
+      201,
+      202,
+      203,
+      204
+    ],
+    "never_submitted_validation_count": 45,
+    "original_case_folder_census_exactly_C0000_through_C0159": true,
+    "original_claim_census_exactly_C0000_through_C0159": true
+  }
+}

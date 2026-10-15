@@ -1,0 +1,28 @@
+RESOURCE-ONLY ADMISSION CAPTURE REJECTION — RECONSTRUCTED RECORD
+
+The root agent reported that its actual --capture-admission invocation was
+rejected by the prospective dispatcher's fixed original-child resource guard.
+The tool-returned traceback was not saved as a raw stdout/stderr file by this
+agent. This file is an honest reconstruction of the known failing guard and
+command, not a verbatim traceback or proof of a retained raw process exit code.
+
+Prescribed capture-only command (absolute paths reconstructed from the reviewed
+CLI and intended destination):
+python /workspace/scratch/b83cfe20d6e1/external_sixscan_20261015/resource_extension_dispatcher.py --stage /workspace/scratch/b83cfe20d6e1/sixscan_burst_20261015 --extension-root /workspace/scratch/b83cfe20d6e1/resource_extension_sixscan_20261015 --original-scheduler-state /workspace/scratch/b83cfe20d6e1/checkpoints_sixscan_20261015/SCHEDULER_STATE.json --capture-admission
+
+Reviewed call path:
+main --capture-admission -> admission_snapshot -> closed_jobs
+Fixed guard message in the reviewed source:
+ValueError: Original child resource receipt exceeds a preserved cap
+
+Authoritative offending original wait4 row:
+C0147 / SETI_SIXSCAN_BURST_20261015_RECOVERY_V1:matched_rfi:022
+whole_child_CPU_s = 601.1514470000001
+preserved per-child CPU cap = 600
+exit_code = 0; wait4_reaped = true
+
+The prospective ADMISSION_SNAPSHOT.json is evaluated only after this guard;
+none was written. The intended extension directory does not exist. No extension
+GO, production ledger, dispatch claim or numerical worker was created. The root
+reported no extension production launch. No cap relaxation, rerun or replacement
+identity is authorized by this rejection record.

@@ -1,0 +1,268 @@
+{
+  "calibration": {
+    "critical_maximum": 7.757931310134776,
+    "model_rank_cut_inclusive": 0.015625,
+    "references": 63,
+    "sha256": "44826773ba1eb8db0538a8066cfc86e6603de2e68bfade802ff004deef24bdaa",
+    "ties_inclusive": true
+  },
+  "calibration_cases": 63,
+  "case_status_counts": {
+    "FAIL": 160,
+    "NOT_RUN": 45
+  },
+  "checks": {
+    "RFI_zero_any_survivors_after_OFF_before_rank": false,
+    "all24RFI_localized_in_all3ON_before_OFF": false,
+    "all24diagnostics_complete_without_recovery_gate": false,
+    "all63calibration_references_independently_QA_verified": false,
+    "complete_integrity_QA_and_resource_caps": false,
+    "each_activity7of8": false,
+    "each_drift10of12": false,
+    "each_width22of24": false,
+    "null_at_most1of32_any_final_rank_candidate": false,
+    "operating44of48_final_rank_localized": false,
+    "strong14of14_final_rank_localized": false
+  },
+  "expected_cases": 205,
+  "families": {
+    "calibration": {
+      "all_active_after_OFF_recovered": 0,
+      "all_active_after_rank_recovered": 0,
+      "all_active_pre_OFF_recovered": 0,
+      "any_active_after_rank_recovered": 0,
+      "cadences_with_any_after_OFF_survivor": 0,
+      "cadences_with_any_after_rank_survivor": 0,
+      "expected": 63,
+      "failed": 63,
+      "missing": 0,
+      "missing_or_failed_cases_are_not_measured_null_or_nonrecovery": true,
+      "valid": 0
+    },
+    "matched_rfi": {
+      "all_active_after_OFF_recovered": 0,
+      "all_active_after_rank_recovered": 0,
+      "all_active_pre_OFF_recovered": 0,
+      "any_active_after_rank_recovered": 0,
+      "cadences_with_any_after_OFF_survivor": 0,
+      "cadences_with_any_after_rank_survivor": 0,
+      "expected": 24,
+      "failed": 24,
+      "missing": 0,
+      "missing_or_failed_cases_are_not_measured_null_or_nonrecovery": true,
+      "valid": 0
+    },
+    "near_off_contamination": {
+      "all_active_after_OFF_recovered": 0,
+      "all_active_after_rank_recovered": 0,
+      "all_active_pre_OFF_recovered": 0,
+      "any_active_after_rank_recovered": 0,
+      "cadences_with_any_after_OFF_survivor": 0,
+      "cadences_with_any_after_rank_survivor": 0,
+      "expected": 12,
+      "failed": 0,
+      "missing": 12,
+      "missing_or_failed_cases_are_not_measured_null_or_nonrecovery": true,
+      "valid": 0
+    },
+    "null": {
+      "all_active_after_OFF_recovered": 0,
+      "all_active_after_rank_recovered": 0,
+      "all_active_pre_OFF_recovered": 0,
+      "any_active_after_rank_recovered": 0,
+      "cadences_with_any_after_OFF_survivor": 0,
+      "cadences_with_any_after_rank_survivor": 0,
+      "expected": 32,
+      "failed": 11,
+      "missing": 21,
+      "missing_or_failed_cases_are_not_measured_null_or_nonrecovery": true,
+      "valid": 0
+    },
+    "operating": {
+      "all_active_after_OFF_recovered": 0,
+      "all_active_after_rank_recovered": 0,
+      "all_active_pre_OFF_recovered": 0,
+      "any_active_after_rank_recovered": 0,
+      "cadences_with_any_after_OFF_survivor": 0,
+      "cadences_with_any_after_rank_survivor": 0,
+      "expected": 48,
+      "failed": 48,
+      "missing": 0,
+      "missing_or_failed_cases_are_not_measured_null_or_nonrecovery": true,
+      "valid": 0
+    },
+    "single_row_transient": {
+      "all_active_after_OFF_recovered": 0,
+      "all_active_after_rank_recovered": 0,
+      "all_active_pre_OFF_recovered": 0,
+      "any_active_after_rank_recovered": 0,
+      "cadences_with_any_after_OFF_survivor": 0,
+      "cadences_with_any_after_rank_survivor": 0,
+      "expected": 12,
+      "failed": 0,
+      "missing": 12,
+      "missing_or_failed_cases_are_not_measured_null_or_nonrecovery": true,
+      "valid": 0
+    },
+    "strong": {
+      "all_active_after_OFF_recovered": 0,
+      "all_active_after_rank_recovered": 0,
+      "all_active_pre_OFF_recovered": 0,
+      "any_active_after_rank_recovered": 0,
+      "cadences_with_any_after_OFF_survivor": 0,
+      "cadences_with_any_after_rank_survivor": 0,
+      "expected": 14,
+      "failed": 14,
+      "missing": 0,
+      "missing_or_failed_cases_are_not_measured_null_or_nonrecovery": true,
+      "valid": 0
+    }
+  },
+  "input_pins": {
+    "case_bank_sha256": "203eb8c775df6797652a51c5fb1979cf69be55a731d972abdef3ba1acb43d27c",
+    "contract_sha256": "d5ee1a3376f2decbdc1117f8fd2886a58f10bd1bd3af5d182434575f3047f385",
+    "scope_sha256": "551288e6eca87aa5d7449d186916cd84fa6aebdc5743736d914fee14b1ef84ea",
+    "summarizer_sha256": "b742fc40bebc041c7917e5d6801b3d0e4b13aed41931b922009c01017b6d0c06"
+  },
+  "integrity_gate": false,
+  "interpretation": [
+    "Preliminary complete-chain digital result under the frozen Gamma16 law only.",
+    "Operating level16 differs from old level12; this is a new method control, not reclassification of old A/B.",
+    "Fixed placements, activities and widths are partly confounded; no sensitivity-rate or telescope-FAP inference.",
+    "Transient/near-OFF diagnostics have no hidden scientific rejection criterion.",
+    "Missing/failed cases remain separate; they are not measured nulls or measured nonrecoveries.",
+    "All original source closures, protected2016/closed2019 and20October checkpoint remain unchanged."
+  ],
+  "joint_gate": false,
+  "operating_subgroups": {
+    "activity": {
+      "[0,2]": {
+        "expected": 8,
+        "final_all_active_recovered": 0,
+        "minimum": 7,
+        "valid": 0
+      },
+      "[0,4]": {
+        "expected": 8,
+        "final_all_active_recovered": 0,
+        "minimum": 7,
+        "valid": 0
+      },
+      "[0]": {
+        "expected": 8,
+        "final_all_active_recovered": 0,
+        "minimum": 7,
+        "valid": 0
+      },
+      "[2,4]": {
+        "expected": 8,
+        "final_all_active_recovered": 0,
+        "minimum": 7,
+        "valid": 0
+      },
+      "[2]": {
+        "expected": 8,
+        "final_all_active_recovered": 0,
+        "minimum": 7,
+        "valid": 0
+      },
+      "[4]": {
+        "expected": 8,
+        "final_all_active_recovered": 0,
+        "minimum": 7,
+        "valid": 0
+      }
+    },
+    "drift": {
+      "-1.25": {
+        "expected": 12,
+        "final_all_active_recovered": 0,
+        "minimum": 10,
+        "valid": 0
+      },
+      "-4.0": {
+        "expected": 12,
+        "final_all_active_recovered": 0,
+        "minimum": 10,
+        "valid": 0
+      },
+      "1.25": {
+        "expected": 12,
+        "final_all_active_recovered": 0,
+        "minimum": 10,
+        "valid": 0
+      },
+      "4.0": {
+        "expected": 12,
+        "final_all_active_recovered": 0,
+        "minimum": 10,
+        "valid": 0
+      }
+    },
+    "intrinsic_width": {
+      "1": {
+        "expected": 24,
+        "final_all_active_recovered": 0,
+        "minimum": 22,
+        "valid": 0
+      },
+      "3": {
+        "expected": 24,
+        "final_all_active_recovered": 0,
+        "minimum": 22,
+        "valid": 0
+      }
+    }
+  },
+  "original_A_B": "FAIL_CLOSED",
+  "original_pilot_admitted": false,
+  "output_tables": {
+    "CALIBRATED_HITS.csv": {
+      "bytes": 61171280,
+      "sha256": "f0cabc7bf9dafaa5e537e6e325f61e1e0e4c877f8b985c99a99b3387ff837137"
+    },
+    "CASE_RESULTS.csv": {
+      "bytes": 30670,
+      "sha256": "0d20668f2c0abdb28ae2eee420f84d0289108c8a2dd13eee04a046f3904dc479"
+    }
+  },
+  "physical_sensitivity_established": false,
+  "qualified_SETI_detection": false,
+  "resources": {
+    "aggregate_CPU_s_cap": 260000,
+    "caps_gate": false,
+    "charged_plus_metadata_reserved_CPU_s": 31911.988963999996,
+    "complete_primary_and_QA_wait4_children_CPU_s": 30911.988963999996,
+    "metadata_and_delivery_reserved_CPU_s": 1000,
+    "phase_receipts": {
+      "PRIMARY_CALIBRATION": {
+        "CPU_s": 10870.625001999997,
+        "complete": true,
+        "planned": 63,
+        "reaped": 63,
+        "reason": "",
+        "state_sha256": "0b57a5b4a1772e152573783745e766e8b6ec8aa936ef592d4d457827593d98d1",
+        "state_status": "COMPLETE"
+      },
+      "PRIMARY_VALIDATION": {
+        "CPU_s": 20041.363962,
+        "complete": false,
+        "planned": 142,
+        "reaped": 97,
+        "reason": "resource 147: CPU cap exceeded",
+        "state_sha256": "d8d559b5fd2c289baf4737274fda6f081533358a7b784aee1dacec2995910830",
+        "state_status": "STOPPED_RETAINED_NO_RETRY"
+      },
+      "QA": {
+        "CPU_s": null,
+        "complete": false,
+        "reason": "NOT_RUN"
+      }
+    },
+    "worker_receipt_CPU_is_not_added_again_to_wait4_charge": true
+  },
+  "schema": "SETI_SIXSCAN_BURST_JOINT_SUMMARY_V1",
+  "status": "FAIL_CLOSED_NEW_METHOD_CONTROL",
+  "telescope_FAP_calibrated": false,
+  "validation_and_diagnostic_cases": 142
+}

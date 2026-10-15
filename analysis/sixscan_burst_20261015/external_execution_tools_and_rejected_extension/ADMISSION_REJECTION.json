@@ -1,0 +1,238 @@
+{
+  "authoritative_vs_internal_receipt": {
+    "artifact_commit_preserved_as_COMPLETED_CASE_ONLY_does_not_override_resource_rejection": true,
+    "authoritative_accounting": "Original parent os.wait4 whole-child CPU is binding for admission, including operations after the worker internal receipt.",
+    "internal_receipt_is_not_the_complete_wait4_measurement": true,
+    "internal_self_receipt_CPU_s": 598.7279619999999,
+    "whole_child_CPU_s": 601.1514470000001,
+    "whole_child_minus_cap_CPU_s": 1.1514470000000756,
+    "whole_child_minus_internal_self_receipt_CPU_s": 2.4234850000001416
+  },
+  "capture_attempt_log": {
+    "exact_observed_process_exit_code_retained": null,
+    "raw_stdout_stderr_paths": null,
+    "raw_tool_returned_trace_saved": false,
+    "reconstruction": {
+      "bytes": 1720,
+      "path": "/workspace/scratch/b83cfe20d6e1/external_sixscan_20261015/CAPTURE_ATTEMPT_TRACE_RECONSTRUCTION.txt",
+      "sha256": "15a1fee106baa1aaac258dd67b96b7209fecbd04e761689a0b7f148743e7d633"
+    },
+    "reconstruction_is_not_a_verbatim_raw_trace": true,
+    "status": "ROOT_REPORTED_CAPTURE_REJECTED_BY_FIXED_RESOURCE_GUARD"
+  },
+  "decision": "Permanent rejection of this prospective resource-only continuation; retain bounded failure and all original attempts. Do not relax the preserved cap or rerun/replace the offending identity.",
+  "dispatcher": {
+    "bytes": 38612,
+    "path": "/workspace/scratch/b83cfe20d6e1/external_sixscan_20261015/resource_extension_dispatcher.py",
+    "sha256": "b5a18e059b82a9679f55b1b0ed81affdf0afa5aae8e57347ff9dd317e972ba10"
+  },
+  "evidence_pins": [
+    {
+      "bytes": 42359,
+      "path": "/workspace/scratch/b83cfe20d6e1/sixscan_burst_20261015/PRIMARY_CALIBRATION_RUN_STATE.json",
+      "sha256": "0b57a5b4a1772e152573783745e766e8b6ec8aa936ef592d4d457827593d98d1"
+    },
+    {
+      "bytes": 65457,
+      "path": "/workspace/scratch/b83cfe20d6e1/sixscan_burst_20261015/PRIMARY_VALIDATION_RUN_STATE.json",
+      "sha256": "d8d559b5fd2c289baf4737274fda6f081533358a7b784aee1dacec2995910830"
+    },
+    {
+      "bytes": 79866,
+      "path": "/workspace/scratch/b83cfe20d6e1/checkpoints_sixscan_20261015/SCHEDULER_STATE.json",
+      "sha256": "8e797b0525456f5c24612d7f982872daa8ed614d6c5880fc8f6b0c010fa582c4"
+    },
+    {
+      "bytes": 8605,
+      "path": "/workspace/scratch/b83cfe20d6e1/sixscan_burst_20261015/results/SUMMARY.json",
+      "sha256": "851d8e7487bed46669ad58f6cbbd0626e4b370ae61f243a58095a8b39d069879"
+    },
+    {
+      "bytes": 87698140,
+      "path": "/workspace/scratch/b83cfe20d6e1/sixscan_burst_20261015/results/cases/C0147/output.json",
+      "sha256": "d56c88251acae231a83837cbc6bda87834e9c11b824b6dcb7581c4ea22201826"
+    },
+    {
+      "bytes": 1007,
+      "path": "/workspace/scratch/b83cfe20d6e1/sixscan_burst_20261015/results/cases/C0147/artifact_manifest.json",
+      "sha256": "72a5a5c1f3559e2d6c0e4604837b1b0bca628fc91630a894228887c66dae58b8"
+    },
+    {
+      "bytes": 308,
+      "path": "/workspace/scratch/b83cfe20d6e1/sixscan_burst_20261015/results/cases/C0147/COMMITTED.json",
+      "sha256": "3e6bfa29e3a75e6cb94cb835a8a6a32ac6e2b67854f365b84505800f647fb0fb"
+    },
+    {
+      "bytes": 3589,
+      "path": "/workspace/scratch/b83cfe20d6e1/sixscan_burst_20261015/claims/C0147.json",
+      "sha256": "c2bce7e7fe8e391632d02255b73077b6184d25478000b632f5c38b232447efa9"
+    }
+  ],
+  "extension_absence": {
+    "ADMISSION_SNAPSHOT_written": false,
+    "GO_written": false,
+    "PID_evidence": "Capture-only source path launches no subprocess; intended extension directory is absent; root reports no extension production launch.",
+    "dispatch_claims_written": false,
+    "extension_directory_exists": false,
+    "extension_production_PID": null,
+    "global_process_census": "Unavailable: ps returned fatal library error, lookup self. No global process-census claim is made.",
+    "intended_extension_root": "/workspace/scratch/b83cfe20d6e1/resource_extension_sixscan_20261015",
+    "new_extension_RNG_calls": 0,
+    "new_extension_numerical_trials": 0,
+    "phase_ledger_written": false,
+    "production_launch_commands_issued": 0
+  },
+  "offending_original_wait4_job": {
+    "case_id": "SETI_SIXSCAN_BURST_20261015_RECOVERY_V1:matched_rfi:022",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/scratch/b83cfe20d6e1/sixscan_burst_20261015/worker.py",
+      "--case-index",
+      "147",
+      "--output-root",
+      "/workspace/scratch/b83cfe20d6e1/sixscan_burst_20261015/results"
+    ],
+    "exclusive_reservation_before_submit_CPU_s": 600,
+    "exit_code": 0,
+    "index": 147,
+    "peak_RSS_bytes": 505585664,
+    "phase": "PRIMARY_VALIDATION",
+    "pid": 155,
+    "wait4_reaped": true,
+    "wall_s": 614.168230966,
+    "whole_child_CPU_s": 601.1514470000001
+  },
+  "offending_worker_pre_completion_self_receipt": {
+    "caps": {
+      "address_space_bytes": 1073741824,
+      "cpu_s": 600,
+      "wall_s": 1800
+    },
+    "cpu_s": 598.7279619999999,
+    "peak_rss_bytes": 505585664,
+    "wall_s": 611.6068930619995
+  },
+  "operations_by_this_verifier": {
+    "Library_upload": false,
+    "frozen_source_edit": false,
+    "production_dispatch": false,
+    "publication": false,
+    "rerun_or_new_random_draw": false,
+    "resource_guard_relaxation": false
+  },
+  "original_GO": {
+    "bytes": 900,
+    "path": "/workspace/scratch/b83cfe20d6e1/sixscan_burst_20261015/GO.json",
+    "sha256": "697f252e122a5fad2516cb0e45b8cde7597b8d40eb1d960e6460ed92a92ad475"
+  },
+  "original_closure": {
+    "exposed_expected_bands": 9,
+    "exposed_status": "NOT_RUN_BLOCKED",
+    "independent_QA_count": 0,
+    "original_closed_primary_count": 160,
+    "original_scheduler_status": "STOPPED_RETAINED_NO_RETRY",
+    "original_stop_reason": "workspace_or_output_capacity_margin_exhausted",
+    "original_summary_integrity_gate": false,
+    "original_summary_joint_gate": false,
+    "original_summary_status": "FAIL_CLOSED_NEW_METHOD_CONTROL",
+    "original_unsubmitted_count": 45,
+    "original_unsubmitted_indices": [
+      160,
+      161,
+      162,
+      163,
+      164,
+      165,
+      166,
+      167,
+      168,
+      169,
+      170,
+      171,
+      172,
+      173,
+      174,
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183,
+      184,
+      185,
+      186,
+      187,
+      188,
+      189,
+      190,
+      191,
+      192,
+      193,
+      194,
+      195,
+      196,
+      197,
+      198,
+      199,
+      200,
+      201,
+      202,
+      203,
+      204
+    ],
+    "original_validation_status": "STOPPED_RETAINED_NO_RETRY"
+  },
+  "original_scope": {
+    "bytes": 16432,
+    "path": "/workspace/scratch/b83cfe20d6e1/sixscan_burst_20261015/SCOPE.json",
+    "sha256": "551288e6eca87aa5d7449d186916cd84fa6aebdc5743736d914fee14b1ef84ea"
+  },
+  "preserved": {
+    "cost_DKK": 0,
+    "no_new_source_or_telescope_bytes": true,
+    "no_new_visits": true,
+    "original_execution_gate": false,
+    "original_qualification": "FAIL_CLOSED",
+    "protected_2016_closed": true,
+    "qualified_SETI_detection": false,
+    "unavailable_2019_closed": true
+  },
+  "preserved_caps": {
+    "address_space_bytes": 1073741824,
+    "whole_child_CPU_s": 600,
+    "whole_child_wall_s": 1800
+  },
+  "reason_code": "ORIGINAL_AUTHORITATIVE_WHOLE_CHILD_CPU_CAP_VIOLATION",
+  "recorded_UTC": "2026-10-15T07:35:17.485366+00:00",
+  "resource_accounting_preserved": {
+    "current_study_envelope_CPU_s": 260000,
+    "current_study_reaped_charge_plus_metadata_CPU_s": 31911.988964,
+    "historical_43200_ledger_preserved_no_reset_or_refund": true,
+    "historical_unknown_envelope_CPU_s": 90000,
+    "metadata_reserved_CPU_s": 1000,
+    "original_reaped_wait4_CPU_s": 30911.988964,
+    "unused_envelope_does_not_cure_an_individual_cap_violation": true
+  },
+  "resource_only_independent_verification": {
+    "CPU_cap_violation_indices": [
+      147
+    ],
+    "RSS_cap_violation_indices": [],
+    "all_exit_codes_zero": true,
+    "all_original_running_lists_empty": true,
+    "all_original_scientific_source_pins_unchanged": true,
+    "all_wait4_reaped": true,
+    "calibration_rows": 63,
+    "distinct_original_primary_indices": 160,
+    "numerical_candidate_scores_or_recovery_outcomes_analyzed": false,
+    "reaped_rows_checked": 160,
+    "source_pin_count": 19,
+    "validation_rows": 97,
+    "wall_cap_violation_indices": []
+  },
+  "schema": "SETI_RESOURCE_EXTENSION_ADMISSION_REJECTION_V1",
+  "status": "REJECTED_NOT_ADMITTED_NOT_EXECUTED"
+}
