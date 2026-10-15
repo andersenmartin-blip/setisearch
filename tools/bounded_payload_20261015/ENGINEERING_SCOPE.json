@@ -1,0 +1,37 @@
+{
+  "schema": "SETI_BOUNDED_PAYLOAD_ENGINEERING_SCOPE_V1",
+  "date": "2026-10-15",
+  "base_commit": "2963e8fa6f260736aceccf9cebbc635b0041af0a",
+  "authority": "Martin's standing free-compute full-power authority, reiterated 15 October; a separate finite engineering block, not a transfer or refund from any closed bank.",
+  "aggregate_reservation_CPU_s": 600,
+  "all_fixture_suites_CPU_s_cap": 400,
+  "metadata_delivery_reserved_CPU_s": 200,
+  "whole_suite_wall_s_cap": 900,
+  "whole_suite_address_space_bytes": 2147483648,
+  "per_producer_or_verifier_CPU_s_cap": 120,
+  "per_producer_or_verifier_wall_s_cap": 1800,
+  "per_producer_or_verifier_address_space_bytes": 1073741824,
+  "new_artifact_bytes_cap": 134217728,
+  "workspace_cap_bytes": 8589934592,
+  "cost_DKK": 0,
+  "new_telescope_requests": 0,
+  "new_telescope_bytes": 0,
+  "new_scientific_cases_draws_or_seeds": 0,
+  "closed_bank_sources_results_claims_and_ledgers_unchanged": true,
+  "protected_20_October_reserve_unchanged": true,
+  "prospective_engineering_checks": [
+    "Lossless transport of JSON-compatible values, including float64 signed zero, exact uint64/int64 boundaries, Unicode and all record order/identity fields.",
+    "A dense non-scientific shape fixture with 3*4096*5 ON records and three OFF receipts per record is retained in full, never top-N filtered.",
+    "Compare actual packed bytes and timing with the legacy indent-2/sorted JSON representation using a counting/hash sink, without a second large disk copy.",
+    "Quota exhaustion, truncation, modified bytes, unlisted files, unsafe paths, duplicate map keys, nonfinite scalars and unsupported values fail closed.",
+    "Producer resource compliance alone never creates acceptance; a separately reaped verifier must bind manifest, all asset bytes and decoded semantic digest.",
+    "CPU-stop after a valid producer output, payload failure, verifier failure or missing reservation prevents the next submission; failed and partial files remain retained."
+  ],
+  "limitations": [
+    "The dense fixture stresses the maximum retained ON-record count, not every possible OFF inventory, map or complete future-study payload.",
+    "This is an engineering-only execution path, with no detector, generator, scientific QA or science admission.",
+    "No new study output envelope is asserted adequate by compression of this one fixture.",
+    "Cooperative pinned single-process programs only. Absolute CPU or adversarial filesystem guarantees are not claimed."
+  ],
+  "status": "ENGINEERING_ONLY_NOT_ADMITTED_FOR_SCIENCE"
+}

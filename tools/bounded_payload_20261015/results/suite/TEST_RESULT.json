@@ -1,0 +1,325 @@
+{
+  "errors": 0,
+  "failures": 1,
+  "new_scientific_cases_or_draws": 0,
+  "new_telescope_bytes": 0,
+  "observations": [
+    {
+      "exact_bit_and_order_comparison": true,
+      "stored": {
+        "manifest_sha256": "8d3d69fa863d129f702ef5d8f7ee8bcfed16c9a3893874fac93ec5e9a4b3f81d",
+        "members": 2,
+        "payload_bytes": 1808,
+        "semantic_sha256": "f7c33af165ec52d7cb090dc22213b678cb73b0374b0ed111becf87dccf4dd6ca"
+      },
+      "test": "test_01_exact_edge_values_and_opaque_bytes",
+      "verified": {
+        "manifest_sha256": "8d3d69fa863d129f702ef5d8f7ee8bcfed16c9a3893874fac93ec5e9a4b3f81d",
+        "members": 2,
+        "metadata_unpacked_bytes": 235,
+        "payload_bytes": 1808,
+        "scientific_integrity_or_QA_established": false,
+        "semantic_sha256": "f7c33af165ec52d7cb090dc22213b678cb73b0374b0ed111becf87dccf4dd6ca",
+        "status": "TRANSPORT_INTEGRITY_ONLY"
+      }
+    },
+    {
+      "partial_payload_retained": true,
+      "state": {
+        "CPU_envelope_s": 16,
+        "code_sha256": {
+          "executor.py": "4502e7039e2a3a65d5d90c2e300cd976fc3ecab145ae5bff244bf7943e7000a1",
+          "fixture_worker.py": "929e03d57e1a0f95a1d4b54c0b805c31ddf0461cafc6fd044869a3a25e98e1b1",
+          "payload_store.py": "a8705ce524594138f5a8e550aea53368e09115ce58b606a3c27ba4f4f45a98b4"
+        },
+        "jobs": [
+          {
+            "accepted": false,
+            "index": 0,
+            "producer": {
+              "CPU_monitor_backend": "POSIX_PROCESS_CPU_CLOCK_BY_CHILD_PID",
+              "command": [
+                "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+                "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/fixture_worker.py",
+                "produce",
+                "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/results/suite/test_03_quota_exhaustion_retains_partial_and_stops_next/job_0000/REQUEST.json"
+              ],
+              "errors": [
+                "CHILD_EXIT_FAILED"
+              ],
+              "exit_code": 1,
+              "interruption": null,
+              "last_parent_CPU_sample_s": 0.09867550600000001,
+              "launcher_verified": true,
+              "limits": {
+                "address_space_bytes": 1073741824,
+                "cpu_s": 4,
+                "kernel_CPU_hard_s": 3,
+                "parent_CPU_stop_s": 2.5,
+                "wall_s": 15
+              },
+              "parent_CPU_samples": 11,
+              "peak_RSS_bytes": 16252928,
+              "pid": 9,
+              "resource_acceptance": false,
+              "scientific_integrity_or_QA_or_admission_established": false,
+              "status": "FAILED_RESOURCE_OR_PROCESS",
+              "wait4_reaped": true,
+              "wall_s": 0.11193870499937475,
+              "watchdog_fired": false,
+              "watchdog_reason": null,
+              "whole_child_CPU_s": 0.103088
+            },
+            "status": "PRODUCER_FAILED",
+            "verifier": null
+          }
+        ],
+        "mode": "ENGINEERING_FIXTURES_ONLY",
+        "output_cap_bytes": 8388608,
+        "pinned_guard_sha256": "d02505861e9a5b3883708836e39b6a8712d56f983c740897857bb0f6e201e492",
+        "running": null,
+        "science_admission": false,
+        "status": "STOPPED_RETAINED_NO_RETRY",
+        "unsubmitted": [
+          1
+        ],
+        "whole_child_CPU_s": 0.103088
+      },
+      "test": "test_03_quota_exhaustion_retains_partial_and_stops_next"
+    },
+    {
+      "modified_bytes_preserved": true,
+      "state": {
+        "CPU_envelope_s": 16,
+        "code_sha256": {
+          "executor.py": "4502e7039e2a3a65d5d90c2e300cd976fc3ecab145ae5bff244bf7943e7000a1",
+          "fixture_worker.py": "929e03d57e1a0f95a1d4b54c0b805c31ddf0461cafc6fd044869a3a25e98e1b1",
+          "payload_store.py": "a8705ce524594138f5a8e550aea53368e09115ce58b606a3c27ba4f4f45a98b4"
+        },
+        "jobs": [
+          {
+            "accepted": false,
+            "index": 0,
+            "producer": {
+              "CPU_monitor_backend": "POSIX_PROCESS_CPU_CLOCK_BY_CHILD_PID",
+              "command": [
+                "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+                "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/fixture_worker.py",
+                "verify",
+                "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/results/suite/test_04_modified_bytes_rejected_by_separate_verifier/job_0000/REQUEST.json"
+              ],
+              "errors": [],
+              "exit_code": 0,
+              "interruption": null,
+              "last_parent_CPU_sample_s": 0.118833091,
+              "launcher_verified": true,
+              "limits": {
+                "address_space_bytes": 1073741824,
+                "cpu_s": 4,
+                "kernel_CPU_hard_s": 3,
+                "parent_CPU_stop_s": 2.5,
+                "wall_s": 15
+              },
+              "parent_CPU_samples": 13,
+              "peak_RSS_bytes": 16252928,
+              "pid": 10,
+              "resource_acceptance": true,
+              "scientific_integrity_or_QA_or_admission_established": false,
+              "status": "RESOURCE_COMPLIANT_ONLY",
+              "wait4_reaped": true,
+              "wall_s": 0.1321341040002153,
+              "watchdog_fired": false,
+              "watchdog_reason": null,
+              "whole_child_CPU_s": 0.12175899999999999
+            },
+            "status": "VERIFIER_FAILED",
+            "verifier": {
+              "CPU_monitor_backend": "POSIX_PROCESS_CPU_CLOCK_BY_CHILD_PID",
+              "command": [
+                "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+                "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/fixture_worker.py",
+                "verify",
+                "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/results/suite/test_04_modified_bytes_rejected_by_separate_verifier/job_0000/REQUEST.json"
+              ],
+              "errors": [
+                "CHILD_EXIT_FAILED"
+              ],
+              "exit_code": 1,
+              "interruption": null,
+              "last_parent_CPU_sample_s": 0.10117042400000001,
+              "launcher_verified": true,
+              "limits": {
+                "address_space_bytes": 1073741824,
+                "cpu_s": 4,
+                "kernel_CPU_hard_s": 3,
+                "parent_CPU_stop_s": 2.5,
+                "wall_s": 15
+              },
+              "parent_CPU_samples": 11,
+              "peak_RSS_bytes": 16252928,
+              "pid": 11,
+              "resource_acceptance": false,
+              "scientific_integrity_or_QA_or_admission_established": false,
+              "status": "FAILED_RESOURCE_OR_PROCESS",
+              "wait4_reaped": true,
+              "wall_s": 0.11195289100032824,
+              "watchdog_fired": false,
+              "watchdog_reason": null,
+              "whole_child_CPU_s": 0.10757599999999999
+            }
+          }
+        ],
+        "mode": "ENGINEERING_FIXTURES_ONLY",
+        "output_cap_bytes": 10485760,
+        "pinned_guard_sha256": "d02505861e9a5b3883708836e39b6a8712d56f983c740897857bb0f6e201e492",
+        "running": null,
+        "science_admission": false,
+        "status": "STOPPED_RETAINED_NO_RETRY",
+        "unsubmitted": [
+          1
+        ],
+        "whole_child_CPU_s": 0.22933499999999998
+      },
+      "test": "test_04_modified_bytes_rejected_by_separate_verifier"
+    },
+    {
+      "state": {
+        "CPU_envelope_s": 14,
+        "code_sha256": {
+          "executor.py": "4502e7039e2a3a65d5d90c2e300cd976fc3ecab145ae5bff244bf7943e7000a1",
+          "fixture_worker.py": "929e03d57e1a0f95a1d4b54c0b805c31ddf0461cafc6fd044869a3a25e98e1b1",
+          "payload_store.py": "a8705ce524594138f5a8e550aea53368e09115ce58b606a3c27ba4f4f45a98b4"
+        },
+        "jobs": [
+          {
+            "accepted": false,
+            "index": 0,
+            "producer": {
+              "CPU_monitor_backend": "POSIX_PROCESS_CPU_CLOCK_BY_CHILD_PID",
+              "command": [
+                "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+                "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/fixture_worker.py",
+                "produce",
+                "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/results/suite/test_05_CPU_stop_after_valid_payload_never_accepts_or_submits_next/job_0000/REQUEST.json"
+              ],
+              "errors": [
+                "CHILD_EXIT_FAILED",
+                "WATCHDOG_OR_MISSING_WATCHDOG_STATE"
+              ],
+              "exit_code": -9,
+              "interruption": null,
+              "last_parent_CPU_sample_s": 1.502160063,
+              "launcher_verified": true,
+              "limits": {
+                "address_space_bytes": 1073741824,
+                "cpu_s": 3,
+                "kernel_CPU_hard_s": 2,
+                "parent_CPU_stop_s": 1.5,
+                "wall_s": 15
+              },
+              "parent_CPU_samples": 149,
+              "peak_RSS_bytes": 16252928,
+              "pid": 12,
+              "resource_acceptance": false,
+              "scientific_integrity_or_QA_or_admission_established": false,
+              "status": "FAILED_RESOURCE_OR_PROCESS",
+              "wait4_reaped": true,
+              "wall_s": 1.5138657870002135,
+              "watchdog_fired": true,
+              "watchdog_reason": "PARENT_CPU_STOP_WITH_HEADROOM",
+              "whole_child_CPU_s": 1.506036
+            },
+            "status": "PRODUCER_FAILED",
+            "verifier": null
+          }
+        ],
+        "mode": "ENGINEERING_FIXTURES_ONLY",
+        "output_cap_bytes": 10485760,
+        "pinned_guard_sha256": "d02505861e9a5b3883708836e39b6a8712d56f983c740897857bb0f6e201e492",
+        "running": null,
+        "science_admission": false,
+        "status": "STOPPED_RETAINED_NO_RETRY",
+        "unsubmitted": [
+          1
+        ],
+        "whole_child_CPU_s": 1.506036
+      },
+      "test": "test_05_CPU_stop_after_valid_payload_never_accepts_or_submits_next",
+      "valid_payload_is_not_acceptance": true
+    },
+    {
+      "state": {
+        "CPU_envelope_s": 8,
+        "code_sha256": {
+          "executor.py": "4502e7039e2a3a65d5d90c2e300cd976fc3ecab145ae5bff244bf7943e7000a1",
+          "fixture_worker.py": "929e03d57e1a0f95a1d4b54c0b805c31ddf0461cafc6fd044869a3a25e98e1b1",
+          "payload_store.py": "a8705ce524594138f5a8e550aea53368e09115ce58b606a3c27ba4f4f45a98b4"
+        },
+        "jobs": [],
+        "mode": "ENGINEERING_FIXTURES_ONLY",
+        "output_cap_bytes": 8192,
+        "pinned_guard_sha256": "d02505861e9a5b3883708836e39b6a8712d56f983c740897857bb0f6e201e492",
+        "running": null,
+        "science_admission": false,
+        "status": "STOPPED_OUTPUT_RESERVATION",
+        "unsubmitted": [
+          0
+        ],
+        "whole_child_CPU_s": 0
+      },
+      "test": "test_06_output_reservation_precedes_launch"
+    },
+    {
+      "rejected_without_coercion": 8,
+      "test": "test_07_unsupported_domain_is_not_coerced"
+    },
+    {
+      "faults_rejected_and_reference_preserved": [
+        "unlisted",
+        "truncated",
+        "unsafe_name",
+        "symlink"
+      ],
+      "test": "test_08_inventory_and_path_faults_retained"
+    },
+    {
+      "decoder_faults_retained": [
+        "duplicate",
+        "extension",
+        "decompression"
+      ],
+      "test": "test_09_decoder_extensions_duplicate_keys_and_decompression_cap"
+    },
+    {
+      "completed_attempt_unchanged": true,
+      "science_mode_rejected": true,
+      "test": "test_10_science_mode_and_attempt_reuse_rejected"
+    },
+    {
+      "state": {
+        "CPU_envelope_s": 7.99,
+        "code_sha256": {
+          "executor.py": "4502e7039e2a3a65d5d90c2e300cd976fc3ecab145ae5bff244bf7943e7000a1",
+          "fixture_worker.py": "929e03d57e1a0f95a1d4b54c0b805c31ddf0461cafc6fd044869a3a25e98e1b1",
+          "payload_store.py": "a8705ce524594138f5a8e550aea53368e09115ce58b606a3c27ba4f4f45a98b4"
+        },
+        "jobs": [],
+        "mode": "ENGINEERING_FIXTURES_ONLY",
+        "output_cap_bytes": 8388608,
+        "pinned_guard_sha256": "d02505861e9a5b3883708836e39b6a8712d56f983c740897857bb0f6e201e492",
+        "running": null,
+        "science_admission": false,
+        "status": "STOPPED_CPU_RESERVATION",
+        "unsubmitted": [
+          0
+        ],
+        "whole_child_CPU_s": 0
+      },
+      "test": "test_11_CPU_reservation_for_both_phases_precedes_launch"
+    }
+  ],
+  "science_admission": false,
+  "status": "FAIL_ENGINEERING",
+  "tests_run": 11,
+  "wall_s": 33.93189990500014
+}

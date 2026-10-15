@@ -1,3 +1,11 @@
+## 15. oktober 2026: procesvagt og kompakt payload gennemført som engineering
+
+11 integrationskontroller består. En konstrueret tæt formatfixture med 61.440 ON-records og 184.320 OFF-kvitteringer er bevaret og genlæst felt for felt, inklusive binary64-bits. Den nye pakke er 4.560.903 bytes inklusive et 1 MiB-asset; metadata alene ville fylde 241.906.727 bytes som indrykket JSON. En første afvisning ved den uændrede 128 MiB-udpakningsgrænse er bevaret; nøglepulje og strømmet pakning løser den konkrete repræsentationsfejl. To hele suites brugte 104,074481 målte CPU-s inden for en særskilt, fuldt bevaret 600-s engineeringreservation.
+
+**PREPARED_BOUNDED_ENGINEERING_PATH_ONLY**: ingen ny videnskabelig bank, signalanalyse eller admission. Næste gate er et særskilt prospektivt fuldt per-case payload-/adapterforløb med komplette array-/inventory-bounds og kumulativt budget. Den lukkede bank genoptages ikke; A/B FAIL_CLOSED, beskyttede data og checkpoint 20. oktober bevares. [Kode og konkret evidens](tools/bounded_payload_20261015/README.md).
+
+---
+
 ## 15. oktober 2026: fremadrettet CPU-procesvagt efterprøvet
 
 En separat procesvagt til senere brug består 12 engineeringkontroller med faktisk `wait4`, CPU-/wall-stop og stop før næste indsendelse. Udviklingen afdækkede både forsinket kernel-CPU-stop og forskellige syscall-/procfs-PID'er; de fejlede forsøg og deres præcise kildeversioner er bevaret. Den endelige vagt bruger barnets POSIX CPU-ur og en streng slutgate. Fire suites brugte 18,600335 målte CPU-s; en særskilt engineeringreservation på 120 s beholdes uden refundering eller overførsel fra gamle banker.

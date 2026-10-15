@@ -1,0 +1,444 @@
+{
+  "errors": 0,
+  "failures": 0,
+  "new_scientific_cases_or_draws": 0,
+  "new_telescope_bytes": 0,
+  "observations": [
+    {
+      "exact_bit_and_order_comparison": true,
+      "stored": {
+        "manifest_sha256": "5b328f5465183d5ba906b07d4100cb07cbe2a4add576377fc752a50bd9187a98",
+        "members": 3,
+        "payload_bytes": 2082,
+        "semantic_sha256": "f7c33af165ec52d7cb090dc22213b678cb73b0374b0ed111becf87dccf4dd6ca"
+      },
+      "test": "test_01_exact_edge_values_and_opaque_bytes",
+      "verified": {
+        "key_pool_entries": 14,
+        "manifest_sha256": "5b328f5465183d5ba906b07d4100cb07cbe2a4add576377fc752a50bd9187a98",
+        "members": 3,
+        "metadata_unpacked_bytes": 143,
+        "payload_bytes": 2082,
+        "scientific_integrity_or_QA_established": false,
+        "semantic_sha256": "f7c33af165ec52d7cb090dc22213b678cb73b0374b0ed111becf87dccf4dd6ca",
+        "status": "TRANSPORT_INTEGRITY_ONLY"
+      }
+    },
+    {
+      "metrics": {
+        "OFF_receipts": 184320,
+        "array_numerics_or_scientific_search_run": false,
+        "construct_CPU_s": 5.689237461,
+        "fixture_records": 61440,
+        "input_semantic_sha256": "d486556607cbce83d6d4ee108357ca11e5d21b0475b77cc6c592a2cd30179860",
+        "legacy_indent2_sorted_JSON": {
+          "bytes": 241906727,
+          "sha256": "083394da05aed0644e66b571c55e0e996f51e6fee9244cf6643c99cd80564388"
+        },
+        "legacy_serialization_CPU_s": 14.506007467,
+        "opaque_source_sha256": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+        "pack_and_hash_and_write_CPU_s": 17.301025255999996,
+        "payload": {
+          "manifest_sha256": "ef605619972dd64cdb9ce7e99d44e15a2337e4eadc134ef71c827e589db9096c",
+          "members": 3,
+          "payload_bytes": 4560903,
+          "semantic_sha256": "d486556607cbce83d6d4ee108357ca11e5d21b0475b77cc6c592a2cd30179860"
+        }
+      },
+      "producer": {
+        "CPU_monitor_backend": "POSIX_PROCESS_CPU_CLOCK_BY_CHILD_PID",
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/fixture_worker.py",
+          "verify",
+          "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/results_key_pool/suite/test_02_full_retained_ON_record_shape_through_guard_and_verifier/job_0000/REQUEST.json"
+        ],
+        "errors": [],
+        "exit_code": 0,
+        "interruption": null,
+        "last_parent_CPU_sample_s": 43.3120584,
+        "launcher_verified": true,
+        "limits": {
+          "address_space_bytes": 1073741824,
+          "cpu_s": 120,
+          "kernel_CPU_hard_s": 119,
+          "parent_CPU_stop_s": 118.5,
+          "wall_s": 1800
+        },
+        "parent_CPU_samples": 4212,
+        "peak_RSS_bytes": 286654464,
+        "pid": 6,
+        "resource_acceptance": true,
+        "scientific_integrity_or_QA_or_admission_established": false,
+        "status": "RESOURCE_COMPLIANT_ONLY",
+        "wait4_reaped": true,
+        "wall_s": 43.34027738500026,
+        "watchdog_fired": false,
+        "watchdog_reason": null,
+        "whole_child_CPU_s": 43.323491999999995
+      },
+      "test": "test_02_full_retained_ON_record_shape_through_guard_and_verifier",
+      "verification": {
+        "exact_fixture_comparison_including_binary64": true,
+        "fixture_OFF_receipts_checked": 184320,
+        "fixture_all_records_checked": 61440,
+        "key_pool_entries": 65,
+        "manifest_sha256": "ef605619972dd64cdb9ce7e99d44e15a2337e4eadc134ef71c827e589db9096c",
+        "members": 3,
+        "metadata_unpacked_bytes": 61420629,
+        "payload_bytes": 4560903,
+        "scientific_integrity_or_QA_established": false,
+        "semantic_sha256": "d486556607cbce83d6d4ee108357ca11e5d21b0475b77cc6c592a2cd30179860",
+        "status": "TRANSPORT_INTEGRITY_ONLY",
+        "verified_file_inventory": {
+          "KEYS.json": {
+            "bytes": 1400,
+            "sha256": "b615c4af38fbb3d7f1567feb820b95ee1aa73f9dc512ada5934314f22e3495ce"
+          },
+          "MANIFEST.json": {
+            "bytes": 753,
+            "sha256": "ef605619972dd64cdb9ce7e99d44e15a2337e4eadc134ef71c827e589db9096c"
+          },
+          "OPAQUE_ASSET.bin": {
+            "bytes": 1048576,
+            "sha256": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83"
+          },
+          "output.msgpack.gz": {
+            "bytes": 3510174,
+            "sha256": "8a504b7e494a2cf516e03728b30169a6a8e304e7e224845bef04a9ee6a391774"
+          }
+        }
+      },
+      "verifier": {
+        "CPU_monitor_backend": "POSIX_PROCESS_CPU_CLOCK_BY_CHILD_PID",
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/fixture_worker.py",
+          "verify",
+          "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/results_key_pool/suite/test_02_full_retained_ON_record_shape_through_guard_and_verifier/job_0000/REQUEST.json"
+        ],
+        "errors": [],
+        "exit_code": 0,
+        "interruption": null,
+        "last_parent_CPU_sample_s": 23.524888202,
+        "launcher_verified": true,
+        "limits": {
+          "address_space_bytes": 1073741824,
+          "cpu_s": 120,
+          "kernel_CPU_hard_s": 119,
+          "parent_CPU_stop_s": 118.5,
+          "wall_s": 1800
+        },
+        "parent_CPU_samples": 2303,
+        "peak_RSS_bytes": 395575296,
+        "pid": 7,
+        "resource_acceptance": true,
+        "scientific_integrity_or_QA_or_admission_established": false,
+        "status": "RESOURCE_COMPLIANT_ONLY",
+        "wait4_reaped": true,
+        "wall_s": 23.54033729999992,
+        "watchdog_fired": false,
+        "watchdog_reason": null,
+        "whole_child_CPU_s": 23.529605
+      }
+    },
+    {
+      "partial_payload_retained": true,
+      "state": {
+        "CPU_envelope_s": 16,
+        "code_sha256": {
+          "executor.py": "4502e7039e2a3a65d5d90c2e300cd976fc3ecab145ae5bff244bf7943e7000a1",
+          "fixture_worker.py": "929e03d57e1a0f95a1d4b54c0b805c31ddf0461cafc6fd044869a3a25e98e1b1",
+          "payload_store.py": "494283c37cc0fdc68c78531cbaf4b352db6aa302ee13af2d4f6e89c8fd3d1144"
+        },
+        "jobs": [
+          {
+            "accepted": false,
+            "index": 0,
+            "producer": {
+              "CPU_monitor_backend": "POSIX_PROCESS_CPU_CLOCK_BY_CHILD_PID",
+              "command": [
+                "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+                "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/fixture_worker.py",
+                "produce",
+                "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/results_key_pool/suite/test_03_quota_exhaustion_retains_partial_and_stops_next/job_0000/REQUEST.json"
+              ],
+              "errors": [
+                "CHILD_EXIT_FAILED"
+              ],
+              "exit_code": 1,
+              "interruption": null,
+              "last_parent_CPU_sample_s": 0.10152435900000001,
+              "launcher_verified": true,
+              "limits": {
+                "address_space_bytes": 1073741824,
+                "cpu_s": 4,
+                "kernel_CPU_hard_s": 3,
+                "parent_CPU_stop_s": 2.5,
+                "wall_s": 15
+              },
+              "parent_CPU_samples": 11,
+              "peak_RSS_bytes": 18427904,
+              "pid": 8,
+              "resource_acceptance": false,
+              "scientific_integrity_or_QA_or_admission_established": false,
+              "status": "FAILED_RESOURCE_OR_PROCESS",
+              "wait4_reaped": true,
+              "wall_s": 0.11417595900002198,
+              "watchdog_fired": false,
+              "watchdog_reason": null,
+              "whole_child_CPU_s": 0.10610800000000001
+            },
+            "status": "PRODUCER_FAILED",
+            "verifier": null
+          }
+        ],
+        "mode": "ENGINEERING_FIXTURES_ONLY",
+        "output_cap_bytes": 8388608,
+        "pinned_guard_sha256": "d02505861e9a5b3883708836e39b6a8712d56f983c740897857bb0f6e201e492",
+        "running": null,
+        "science_admission": false,
+        "status": "STOPPED_RETAINED_NO_RETRY",
+        "unsubmitted": [
+          1
+        ],
+        "whole_child_CPU_s": 0.10610800000000001
+      },
+      "test": "test_03_quota_exhaustion_retains_partial_and_stops_next"
+    },
+    {
+      "modified_bytes_preserved": true,
+      "state": {
+        "CPU_envelope_s": 16,
+        "code_sha256": {
+          "executor.py": "4502e7039e2a3a65d5d90c2e300cd976fc3ecab145ae5bff244bf7943e7000a1",
+          "fixture_worker.py": "929e03d57e1a0f95a1d4b54c0b805c31ddf0461cafc6fd044869a3a25e98e1b1",
+          "payload_store.py": "494283c37cc0fdc68c78531cbaf4b352db6aa302ee13af2d4f6e89c8fd3d1144"
+        },
+        "jobs": [
+          {
+            "accepted": false,
+            "index": 0,
+            "producer": {
+              "CPU_monitor_backend": "POSIX_PROCESS_CPU_CLOCK_BY_CHILD_PID",
+              "command": [
+                "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+                "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/fixture_worker.py",
+                "verify",
+                "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/results_key_pool/suite/test_04_modified_bytes_rejected_by_separate_verifier/job_0000/REQUEST.json"
+              ],
+              "errors": [],
+              "exit_code": 0,
+              "interruption": null,
+              "last_parent_CPU_sample_s": 0.200208304,
+              "launcher_verified": true,
+              "limits": {
+                "address_space_bytes": 1073741824,
+                "cpu_s": 4,
+                "kernel_CPU_hard_s": 3,
+                "parent_CPU_stop_s": 2.5,
+                "wall_s": 15
+              },
+              "parent_CPU_samples": 14,
+              "peak_RSS_bytes": 18427904,
+              "pid": 9,
+              "resource_acceptance": true,
+              "scientific_integrity_or_QA_or_admission_established": false,
+              "status": "RESOURCE_COMPLIANT_ONLY",
+              "wait4_reaped": true,
+              "wall_s": 0.21133215700047003,
+              "watchdog_fired": false,
+              "watchdog_reason": null,
+              "whole_child_CPU_s": 0.206204
+            },
+            "status": "VERIFIER_FAILED",
+            "verifier": {
+              "CPU_monitor_backend": "POSIX_PROCESS_CPU_CLOCK_BY_CHILD_PID",
+              "command": [
+                "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+                "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/fixture_worker.py",
+                "verify",
+                "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/results_key_pool/suite/test_04_modified_bytes_rejected_by_separate_verifier/job_0000/REQUEST.json"
+              ],
+              "errors": [
+                "CHILD_EXIT_FAILED"
+              ],
+              "exit_code": 1,
+              "interruption": null,
+              "last_parent_CPU_sample_s": 0.111142445,
+              "launcher_verified": true,
+              "limits": {
+                "address_space_bytes": 1073741824,
+                "cpu_s": 4,
+                "kernel_CPU_hard_s": 3,
+                "parent_CPU_stop_s": 2.5,
+                "wall_s": 15
+              },
+              "parent_CPU_samples": 12,
+              "peak_RSS_bytes": 18427904,
+              "pid": 10,
+              "resource_acceptance": false,
+              "scientific_integrity_or_QA_or_admission_established": false,
+              "status": "FAILED_RESOURCE_OR_PROCESS",
+              "wait4_reaped": true,
+              "wall_s": 0.12258771100005106,
+              "watchdog_fired": false,
+              "watchdog_reason": null,
+              "whole_child_CPU_s": 0.113703
+            }
+          }
+        ],
+        "mode": "ENGINEERING_FIXTURES_ONLY",
+        "output_cap_bytes": 10485760,
+        "pinned_guard_sha256": "d02505861e9a5b3883708836e39b6a8712d56f983c740897857bb0f6e201e492",
+        "running": null,
+        "science_admission": false,
+        "status": "STOPPED_RETAINED_NO_RETRY",
+        "unsubmitted": [
+          1
+        ],
+        "whole_child_CPU_s": 0.319907
+      },
+      "test": "test_04_modified_bytes_rejected_by_separate_verifier"
+    },
+    {
+      "state": {
+        "CPU_envelope_s": 14,
+        "code_sha256": {
+          "executor.py": "4502e7039e2a3a65d5d90c2e300cd976fc3ecab145ae5bff244bf7943e7000a1",
+          "fixture_worker.py": "929e03d57e1a0f95a1d4b54c0b805c31ddf0461cafc6fd044869a3a25e98e1b1",
+          "payload_store.py": "494283c37cc0fdc68c78531cbaf4b352db6aa302ee13af2d4f6e89c8fd3d1144"
+        },
+        "jobs": [
+          {
+            "accepted": false,
+            "index": 0,
+            "producer": {
+              "CPU_monitor_backend": "POSIX_PROCESS_CPU_CLOCK_BY_CHILD_PID",
+              "command": [
+                "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+                "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/fixture_worker.py",
+                "produce",
+                "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/results_key_pool/suite/test_05_CPU_stop_after_valid_payload_never_accepts_or_submits_next/job_0000/REQUEST.json"
+              ],
+              "errors": [
+                "CHILD_EXIT_FAILED",
+                "WATCHDOG_OR_MISSING_WATCHDOG_STATE"
+              ],
+              "exit_code": -9,
+              "interruption": null,
+              "last_parent_CPU_sample_s": 1.500838767,
+              "launcher_verified": true,
+              "limits": {
+                "address_space_bytes": 1073741824,
+                "cpu_s": 3,
+                "kernel_CPU_hard_s": 2,
+                "parent_CPU_stop_s": 1.5,
+                "wall_s": 15
+              },
+              "parent_CPU_samples": 149,
+              "peak_RSS_bytes": 18427904,
+              "pid": 11,
+              "resource_acceptance": false,
+              "scientific_integrity_or_QA_or_admission_established": false,
+              "status": "FAILED_RESOURCE_OR_PROCESS",
+              "wait4_reaped": true,
+              "wall_s": 1.5134441160007555,
+              "watchdog_fired": true,
+              "watchdog_reason": "PARENT_CPU_STOP_WITH_HEADROOM",
+              "whole_child_CPU_s": 1.502878
+            },
+            "status": "PRODUCER_FAILED",
+            "verifier": null
+          }
+        ],
+        "mode": "ENGINEERING_FIXTURES_ONLY",
+        "output_cap_bytes": 10485760,
+        "pinned_guard_sha256": "d02505861e9a5b3883708836e39b6a8712d56f983c740897857bb0f6e201e492",
+        "running": null,
+        "science_admission": false,
+        "status": "STOPPED_RETAINED_NO_RETRY",
+        "unsubmitted": [
+          1
+        ],
+        "whole_child_CPU_s": 1.502878
+      },
+      "test": "test_05_CPU_stop_after_valid_payload_never_accepts_or_submits_next",
+      "valid_payload_is_not_acceptance": true
+    },
+    {
+      "state": {
+        "CPU_envelope_s": 8,
+        "code_sha256": {
+          "executor.py": "4502e7039e2a3a65d5d90c2e300cd976fc3ecab145ae5bff244bf7943e7000a1",
+          "fixture_worker.py": "929e03d57e1a0f95a1d4b54c0b805c31ddf0461cafc6fd044869a3a25e98e1b1",
+          "payload_store.py": "494283c37cc0fdc68c78531cbaf4b352db6aa302ee13af2d4f6e89c8fd3d1144"
+        },
+        "jobs": [],
+        "mode": "ENGINEERING_FIXTURES_ONLY",
+        "output_cap_bytes": 8192,
+        "pinned_guard_sha256": "d02505861e9a5b3883708836e39b6a8712d56f983c740897857bb0f6e201e492",
+        "running": null,
+        "science_admission": false,
+        "status": "STOPPED_OUTPUT_RESERVATION",
+        "unsubmitted": [
+          0
+        ],
+        "whole_child_CPU_s": 0
+      },
+      "test": "test_06_output_reservation_precedes_launch"
+    },
+    {
+      "rejected_without_coercion": 8,
+      "test": "test_07_unsupported_domain_is_not_coerced"
+    },
+    {
+      "faults_rejected_and_reference_preserved": [
+        "unlisted",
+        "truncated",
+        "unsafe_name",
+        "symlink"
+      ],
+      "test": "test_08_inventory_and_path_faults_retained"
+    },
+    {
+      "decoder_faults_retained": [
+        "duplicate",
+        "extension",
+        "decompression"
+      ],
+      "test": "test_09_decoder_extensions_duplicate_keys_and_decompression_cap"
+    },
+    {
+      "completed_attempt_unchanged": true,
+      "science_mode_rejected": true,
+      "test": "test_10_science_mode_and_attempt_reuse_rejected"
+    },
+    {
+      "state": {
+        "CPU_envelope_s": 7.99,
+        "code_sha256": {
+          "executor.py": "4502e7039e2a3a65d5d90c2e300cd976fc3ecab145ae5bff244bf7943e7000a1",
+          "fixture_worker.py": "929e03d57e1a0f95a1d4b54c0b805c31ddf0461cafc6fd044869a3a25e98e1b1",
+          "payload_store.py": "494283c37cc0fdc68c78531cbaf4b352db6aa302ee13af2d4f6e89c8fd3d1144"
+        },
+        "jobs": [],
+        "mode": "ENGINEERING_FIXTURES_ONLY",
+        "output_cap_bytes": 8388608,
+        "pinned_guard_sha256": "d02505861e9a5b3883708836e39b6a8712d56f983c740897857bb0f6e201e492",
+        "running": null,
+        "science_admission": false,
+        "status": "STOPPED_CPU_RESERVATION",
+        "unsubmitted": [
+          0
+        ],
+        "whole_child_CPU_s": 0
+      },
+      "test": "test_11_CPU_reservation_for_both_phases_precedes_launch"
+    }
+  ],
+  "science_admission": false,
+  "status": "PASS_ENGINEERING_ONLY",
+  "tests_run": 11,
+  "wall_s": 68.88751015900016
+}

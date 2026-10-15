@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/fixture_worker.py", line 160, in <module>
+    if __name__ == '__main__': main()
+                               ^^^^^^
+  File "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/fixture_worker.py", line 121, in main
+    receipt = write_bundle(payload, value, {'OPAQUE_ASSET.bin': asset}, request['payload_cap_bytes'])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/payload_store.py", line 149, in write_bundle
+    out.write(block)
+  File "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/payload_store.py", line 112, in write
+    raise QuotaExceeded('Cumulative bundle byte cap exhausted; partial output retained')
+payload_store.QuotaExceeded: Cumulative bundle byte cap exhausted; partial output retained

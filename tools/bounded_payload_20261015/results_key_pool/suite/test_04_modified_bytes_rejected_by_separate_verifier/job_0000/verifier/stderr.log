@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/fixture_worker.py", line 160, in <module>
+    if __name__ == '__main__': main()
+                               ^^^^^^
+  File "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/fixture_worker.py", line 136, in main
+    value, receipt = verify_bundle(payload, cap=request['payload_cap_bytes'])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/payload_store.py", line 248, in verify_bundle
+    raise ValueError('Member hash/length differs: ' + name)
+ValueError: Member hash/length differs: output.msgpack.gz

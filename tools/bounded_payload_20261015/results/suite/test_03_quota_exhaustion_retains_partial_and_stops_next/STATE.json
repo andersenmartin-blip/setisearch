@@ -1,0 +1,60 @@
+{
+  "CPU_envelope_s": 16,
+  "code_sha256": {
+    "executor.py": "4502e7039e2a3a65d5d90c2e300cd976fc3ecab145ae5bff244bf7943e7000a1",
+    "fixture_worker.py": "929e03d57e1a0f95a1d4b54c0b805c31ddf0461cafc6fd044869a3a25e98e1b1",
+    "payload_store.py": "a8705ce524594138f5a8e550aea53368e09115ce58b606a3c27ba4f4f45a98b4"
+  },
+  "jobs": [
+    {
+      "accepted": false,
+      "index": 0,
+      "producer": {
+        "CPU_monitor_backend": "POSIX_PROCESS_CPU_CLOCK_BY_CHILD_PID",
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/fixture_worker.py",
+          "produce",
+          "/workspace/scratch/15d8a5bac355/seti_payload_guard/tools/bounded_payload_20261015/results/suite/test_03_quota_exhaustion_retains_partial_and_stops_next/job_0000/REQUEST.json"
+        ],
+        "errors": [
+          "CHILD_EXIT_FAILED"
+        ],
+        "exit_code": 1,
+        "interruption": null,
+        "last_parent_CPU_sample_s": 0.09867550600000001,
+        "launcher_verified": true,
+        "limits": {
+          "address_space_bytes": 1073741824,
+          "cpu_s": 4,
+          "kernel_CPU_hard_s": 3,
+          "parent_CPU_stop_s": 2.5,
+          "wall_s": 15
+        },
+        "parent_CPU_samples": 11,
+        "peak_RSS_bytes": 16252928,
+        "pid": 9,
+        "resource_acceptance": false,
+        "scientific_integrity_or_QA_or_admission_established": false,
+        "status": "FAILED_RESOURCE_OR_PROCESS",
+        "wait4_reaped": true,
+        "wall_s": 0.11193870499937475,
+        "watchdog_fired": false,
+        "watchdog_reason": null,
+        "whole_child_CPU_s": 0.103088
+      },
+      "status": "PRODUCER_FAILED",
+      "verifier": null
+    }
+  ],
+  "mode": "ENGINEERING_FIXTURES_ONLY",
+  "output_cap_bytes": 8388608,
+  "pinned_guard_sha256": "d02505861e9a5b3883708836e39b6a8712d56f983c740897857bb0f6e201e492",
+  "running": null,
+  "science_admission": false,
+  "status": "STOPPED_RETAINED_NO_RETRY",
+  "unsubmitted": [
+    1
+  ],
+  "whole_child_CPU_s": 0.103088
+}
