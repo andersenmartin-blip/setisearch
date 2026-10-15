@@ -1,3 +1,13 @@
+## 15. oktober 2026: fuldt numerisk transport-footprint efterprøvet
+
+498 konstruerede arrays med **612.781.396 rå bytes** er skrevet og separat genlæst bitpræcist under procesvagt; den sammensatte pakke fylder **120.484.899 bytes**. Afprøvningen omfatter seks millioner OFF-rækker og alle erklærede numeriske feltformer. Seks arrayeksempler består også den uændrede offentlige descriptor-dekoder. De afsluttede job brugte tilsammen **27,910018 målte CPU-s**, og den særskilte 900-s engineeringreservation beholdes fuldt.
+
+Status er **FULL_CASE_ENGINEERING_TRANSPORT_ONLY**. Normaliseringslister er repræsenteret som arrays i dette adapterforsøg; fuld videnskabelig worker-/QA-/summarizer-integration og faseopdelte outputreservationer er stadig åbne. En fejlet interfaceopsætning og en afgrænset rapporteringsfejl er bevaret og forklaret. Dette er ingen ny signalanalyse eller kvalifikation: A/B og den lukkede bank forbliver FAIL_CLOSED, og checkpointet er fortsat 20. oktober. Nye teleskopbytes og udgift: 0.
+
+[Kode, resultater og præcise begrænsninger](https://github.com/andersenmartin-blip/setisearch/blob/ac5d81b683078cccc759f64116cc8ed44f16d20a/tools/fullcase_payload_20261015/README.md).
+
+---
+
 ## 15. oktober 2026: kompakt payload og procesvagt efterprøvet sammen
 
 11 integrationskontroller består. En konstrueret formatfixture med 61.440 ON-records og 184.320 OFF-kvitteringer er bevaret og genlæst felt for felt, inklusive binary64-bits. Pakken fylder 4.560.903 bytes inklusive et 1 MiB-asset; metadata alene ville fylde 241.906.727 bytes som indrykket JSON. Første afviste version er bevaret, og den nye nøglepulje holder udpakningen under den uændrede 128 MiB-grænse. [Kode, målinger og afgrænsning](https://github.com/andersenmartin-blip/setisearch/blob/ce095643bb9ceb4af9b6c3d423296f1874d575dd/tools/bounded_payload_20261015/README.md).
