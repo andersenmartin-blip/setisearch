@@ -1,3 +1,11 @@
+## 15. oktober 2026: CPU-fejl fulgt op med konkret proceskontrol
+
+En selvstændig procesvagt til fremtidig integration består 12 engineeringkontroller. Den måler hele barnet efter afslutning, bruger barnets POSIX CPU-ur til tidligt stop og afviser ressourcefejl uanset exitkode. Forsinket kernel-stop og procfs-PID-problemer blev fundet under udviklingen; alle fejlede forsøg er bevaret. [Kode, målinger og begrænsninger](https://github.com/andersenmartin-blip/setisearch/blob/2963e8fa6f260736aceccf9cebbc635b0041af0a/tools/whole_child_guard_20261015/README.md).
+
+Komponenten er **PREPARED_RESOURCE_GUARD_ONLY**, uden ny videnskabelig admission eller signalresultat. Den lukkede seks-scan-bank genoptages ikke; original A/B er fortsat **FAIL_CLOSED**. 0 DKK, ingen nye teleskopdata og uændret checkpoint 20. oktober.
+
+---
+
 SETI 15. oktober 2026: Metodekontrollen er lukket **FAIL_CLOSED**. 160 af 205 worker-resultater er bevaret (63 støjreferencer og 97 øvrige kontroller); 45 er NOT_RUN, uafhængig QA er 0, og de ni eksponerede bånd er NOT_RUN. Koordinatoren stoppede ved den fastlagte lagerreserve. C0147 overskred desuden det bindende loft på 600 CPU-sekunder: wait4 målte 601,151447 sekunder, selv om workerens egen kvittering var 598,727962 og exitkoden 0. Den planlagte lagerforlængelse blev derfor afvist før admission/GO og produktion; dens kode er PREPARED_NOT_ADMITTED. Oprindelig SUMMARY forbliver uændret med falske integritets- og fælles resultatkrav. Ingen kvalificeret SETI-detektion eller QA-verificeret genfindingsrate. Oprindelig A/B er FAIL_CLOSED; 2016 og 2019 forbliver lukkede, kontrolpunkt 20. oktober, 0 DKK og ingen nye teleskopbytes.
 
 
