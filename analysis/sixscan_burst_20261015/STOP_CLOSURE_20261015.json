@@ -1,0 +1,86 @@
+{
+  "schema": "SETI_SIXSCAN_STOP_CLOSURE_V1",
+  "study": "SETI_SIXSCAN_BURST_20261015_RECOVERY_V1",
+  "closed_UTC": "2026-10-15T07:27:33Z",
+  "status": "STOPPED_RETAINED_NO_RETRY",
+  "stop_reason": "workspace_or_output_capacity_margin_exhausted",
+  "scientific_disposition": {
+    "qualified_SETI_detection": false,
+    "integrity_gate": false,
+    "primary_calibration_references_complete": 63,
+    "primary_calibration_independent_QA_complete": false,
+    "primary_validation_planned": 142,
+    "primary_validation_completed_exit_zero": 97,
+    "primary_validation_failed_children": 0,
+    "primary_validation_unsubmitted": 45,
+    "unsubmitted_half_open_interval": [160, 205],
+    "unsubmitted_are_not_null_measurements": true,
+    "qa_phase_started": false,
+    "exposed_phase_started": false,
+    "pool_with_retired_20261014_bank": false,
+    "original_AB": "FAIL_CLOSED"
+  },
+  "resources": {
+    "aggregate_new_CPU_s_cap": 260000,
+    "initial_prior_charge_and_metadata_reservation_CPU_s": 11870.625001999997,
+    "primary_validation_closed_child_CPU_s": 20041.363962,
+    "final_committed_CPU_s_including_prior_and_metadata_reservation": 31911.988963999996,
+    "maximum_wait4_child_CPU_s": 601.1514470000001,
+    "maximum_wait4_child_wall_s": 614.168230966,
+    "maximum_wait4_child_peak_RSS_bytes": 673579008,
+    "stage_output_cap_bytes": 3221225472,
+    "workspace_cap_bytes": 8589934592,
+    "cost_DKK": 0,
+    "new_telescope_requests": 0,
+    "new_telescope_bytes": 0
+  },
+  "resource_limit_exception": {
+    "case_index": 147,
+    "case_id": "SETI_SIXSCAN_BURST_20261015_RECOVERY_V1:matched_rfi:022",
+    "worker_pre_finalization_CPU_s": 598.7279619999999,
+    "coordinator_whole_child_wait4_CPU_s": 601.1514470000001,
+    "declared_per_child_CPU_s_cap": 600,
+    "whole_child_excess_CPU_s": 1.1514470000001138,
+    "worker_to_wait4_difference_CPU_s": 2.423485000000204,
+    "interpretation": "The worker receipt was sampled before final stdout, manifest, claim and COMMITTED writes. The authoritative whole-child wait4 value exceeds the declared 600 CPU-s ceiling. This is retained as an engineering/integrity failure; exit code zero does not convert it to a pass."
+  },
+  "durable_checkpoints": {
+    "count": 42,
+    "total_saved_archive_bytes": 1287220502,
+    "index_library_file_id": "libfile_2a8bd529fce881918356751ec3dd7844",
+    "index_current_version_number": 32,
+    "index_file_id": "file_0000000043a08230887e44dc680719a3",
+    "index_sha256": "a35eeec2d07e24857001c992e5d4d4789c65fee86befa6bc5786ecb14d46b388",
+    "final_archive": {
+      "sequence": 42,
+      "name": "CHECKPOINT_0042_primary_validation_phase_closed.zip",
+      "bytes": 15823741,
+      "sha256": "05c66f5f5cd2b3cc18aa1c2024e010a2239ecc0ef3d15bbd6100a166a98e705c",
+      "library_file_id": "libfile_00bcc483776481918171c4614d4ded13",
+      "file_id": "file_00000000e8e4820c830eef1cf920e845"
+    }
+  },
+  "evidence_sha256": {
+    "PRIMARY_VALIDATION_RUN_STATE.json": "d8d559b5fd2c289baf4737274fda6f081533358a7b784aee1dacec2995910830",
+    "SCHEDULER_STATE.json": "8e797b0525456f5c24612d7f982872daa8ed614d6c5880fc8f6b0c010fa582c4",
+    "SAVED_CHECKPOINT_INDEX.json": "a35eeec2d07e24857001c992e5d4d4789c65fee86befa6bc5786ecb14d46b388",
+    "SAVED_CHECKPOINT_INDEX_IDENTITY.json": "c92982b0278321bd88a2d09ca2e1e969c9a67f93f8bc474ff376f8aa64a440bc",
+    "C0147/output.json": "d56c88251acae231a83837cbc6bda87834e9c11b824b6dcb7581c4ea22201826",
+    "C0147/claim.json": "c2bce7e7fe8e391632d02255b73077b6184d25478000b632f5c38b232447efa9"
+  },
+  "post_stop_exposure": {
+    "occurred": true,
+    "case_index": 147,
+    "reason": "Resource-receipt reconciliation after the coordinator had already stopped",
+    "scope": "The case output object was read while comparing its worker receipt with coordinator wait4 accounting.",
+    "no_further_scientific_submission_after_exposure": true,
+    "no_threshold_or_method_tuning": true,
+    "effect": "The stopped incomplete bank is not eligible for qualification in any event; the exposure is retained explicitly and must not be described as blind validation."
+  },
+  "continuation": {
+    "retry_or_resume_this_bank": false,
+    "start_QA_or_exposed_phases": false,
+    "new_bank_created": false,
+    "next_formal_action": "Preserve this closure and consolidate it at the scheduled 20 October 2026 checkpoint; any future separate study needs a new prospective output budget and a whole-child cap gate before execution."
+  }
+}

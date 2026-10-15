@@ -1,3 +1,11 @@
+## 15. oktober 2026: seks-scan-validering stoppet lukket ved outputmargin
+
+`SETI_SIXSCAN_BURST_20261015_RECOVERY_V1` er lukket som **STOPPED_RETAINED_NO_RETRY**. 63/63 primære referencer og 97/142 primære valideringscases blev afsluttet; identiteterne 160–204 blev aldrig indsendt, fordi den frosne 3 GiB-outputmargin blev nået. De 45 manglende cases er ikke nulmålinger. Ingen QA- eller eksponeret fase blev startet, og banken må ikke genoptages eller genkøres.
+
+Én case sluttede med exit 0, men coordinatorens autoritative hele-child-forbrug var 601,151447 CPU-s mod et erklæret 600-s-loft. Afvigelsen bevares som integritetsfejl. 42 checkpoints, samlet 1.287.220.502 bytes, er gemt; slutcheckpointets SHA256 er `05c66f5f5cd2b3cc18aa1c2024e010a2239ecc0ef3d15bbd6100a166a98e705c`. Ingen kvalificeret SETI-detektion; original A/B forbliver **FAIL_CLOSED**. Se [lukningen](RADIO_SIXSCAN_STOP_2026-10-15.md).
+
+---
+
 ## 15. oktober 2026: seks-scan-kørsel gendannet, ny bank fastlåses
 
 Den oprindelige seks-scan-bank fra 14. oktober har **UNKNOWN_UNRECOVERED** slutstatus efter gendannelse af kørselsmiljøet. Alle 205 syntetiske og ni eksponerede identiteter pensioneres; manglende resultater tælles ikke som nulmålinger. Alle 20 offentliggjorte kildefiler er gendannet og verificeret. Se [afslutningen](analysis/sixscan_recovery_20261015/CLOSURE.md).
