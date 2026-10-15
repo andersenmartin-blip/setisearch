@@ -1,0 +1,95 @@
+{
+  "checks": [
+    {
+      "evidence": "Exclusive watcher state prevents another default watcher. Every helper attempt exclusively retains REQUEST, RESULT, STDERR and LAUNCH PID; request/attempt state is written before Popen. Existing attempt paths cannot be replayed. Nonzero process, malformed/missing result, failed item or missing metadata halts without retry.",
+      "name": "once_only_and_unknown_outcome_guard",
+      "result": "PASS"
+    },
+    {
+      "evidence": "Existing result-only batches can be adopted only when every ordered item succeeded with local metadata and exact checkpoint ACK Library/file/version identity plus archive SHA/length. Any existing request must match result order/path/purpose. The full receipt/ACK SHA binding is checked before uploads; adopted checkpoint sequences are excluded from pending uploads. next_batch advances above all prior batch numbers, currently to3.",
+      "name": "manual_batch_migration_without_duplicate_upload",
+      "result": "PASS"
+    },
+    {
+      "evidence": "Only final .zip receipt filenames are considered; receipt path must be absolute within batch root and match receipt filename. local_archive_readback_verified must be true. Upload candidates must be regular non-symlink files with exact stored length and streamed SHA256. Archive CRC/readback verification was performed by the upstream checkpoint builder, not repeated by this watcher.",
+      "name": "archive_ready_and_hash_checks",
+      "result": "PASS"
+    },
+    {
+      "evidence": "Receipts are sorted by unique positive sequence. Pending items preserve that order; each helper request contains at most20 files. Response count/order/path/purpose must match and each item must report succeeded plus local metadata and identity/version.",
+      "name": "ordered_bounded_helper_batches",
+      "result": "PASS"
+    },
+    {
+      "evidence": "Current launch has no index identity and prior manual ACKs; the initial cumulative index is saved before any new archive batch. Later saves use replace_library_file with the same Library identity and expected_current_version. Replacement must preserve identity and advance version. A connected index xattr without explicit identity receipt blocks duplicate creation.",
+      "name": "one_cumulative_index_identity",
+      "result": "PASS_FOR_CURRENT_FRESH_IDENTITY"
+    },
+    {
+      "evidence": "Existing recorder owns checkpoint ACK/index creation. Watcher requires successful recorder exit and an ACK for every uploaded sequence, then saves the cumulative index before closing the batch. File IDs/version and original receipt SHA remain recorded. No payload redownload is falsely claimed.",
+      "name": "separate_archive_ACK_and_index_save_closure",
+      "result": "PASS"
+    },
+    {
+      "evidence": "Watcher reads scheduler status and checkpoint metadata and writes only transport/index files. It invokes Library helper and recorder only, with no scientific module imports or job/claim edits.",
+      "name": "numerical_state_is_untouched",
+      "result": "PASS"
+    },
+    {
+      "evidence": "Only JSONDecodeError is reread for at most1second in pauses<=50milliseconds. The retry contains no helper invocation or Library mutation. A permanently invalid JSON still stops without replay.",
+      "name": "bounded_read_only_JSON_window_retry",
+      "result": "PASS_STATIC_AND_STUB_FIXTURE"
+    },
+    {
+      "evidence": "receipts_and_acks requires sequence exactly1..N before any initial index or archive upload. Gap fixture stops with zero archive/index upload requests.",
+      "name": "contiguous_checkpoint_receipt_prefix",
+      "result": "PASS_STATIC_AND_STUB_FIXTURE"
+    }
+  ],
+  "created_utc": "2026-10-15T06:34:32.364080+00:00",
+  "current_launch_metadata_only_observation": {
+    "batch_root": "checkpoints_sixscan_20261015",
+    "existing_batch_result_files": [
+      "UPLOAD_BATCH_0001_RESULT.json",
+      "UPLOAD_BATCH_0002_RESULT.json"
+    ],
+    "index_attempt_files": [],
+    "index_identity_exists": false,
+    "observed_without_reading_numerical_results": true,
+    "watcher_state_exists": false
+  },
+  "launch_blockers": [],
+  "nonblocking_constraints": [
+    {
+      "finding": "If reused in another workflow with an existing saved index identity and newly manual-ACKed archives, startup does not proactively resave that stale index until the next automatic archive batch.",
+      "impact": "This does not apply to the current fresh-identity launch observed here.",
+      "operation": "The current launch must remain the single owner after the manual batches; future migrations should compare the saved index hash before asserting cumulative remote completeness."
+    },
+    {
+      "finding": "An unexpected exception after helper launch may leave that helper alive while watcher stops.",
+      "impact": "PID and attempt evidence are retained, and restart is blocked, preserving unknown outcome rather than duplicating the action.",
+      "operation": "Reconcile the retained PID/request/result before any further transport action. Do not manually launch concurrent uploads or mutate the cumulative index while the watcher owns it."
+    }
+  ],
+  "recorder_sha256": "8a012f3b38fc8cec69eaa84ac1033fdb5b8723a87db71a65ebc6bf110a203bfa",
+  "resolved_review_findings": [
+    "Final watcher now requires the contiguous checkpoint receipt prefix1..N.",
+    "Final watcher tolerates only the short read-only partial-JSON publication window, with no retry of any Library mutation."
+  ],
+  "review_limits": [
+    "Static review plus local stub fixtures; no actual Library helper upload was invoked.",
+    "No numerical result values, science claims, or scientific run states were opened.",
+    "Review applies to the exact watcher/recorder SHA256 above and the current fresh-identity, single-root-owned launch conditions."
+  ],
+  "schema": "SETI_CHECKPOINT_UPLOAD_WATCHER_INDEPENDENT_REVIEW_V1",
+  "status": "PASS_STATIC_FOR_CURRENT_ROOT_OWNED_LAUNCH",
+  "tests": {
+    "actual_Library_uploads": 0,
+    "checks": 12,
+    "existing_stub_fixture": "PASS",
+    "fixture_helper_was_a_local_stub": true,
+    "numerical_trials": 0
+  },
+  "watcher_bytes": 27350,
+  "watcher_sha256": "445c7ead1e890cf0b8cb6b85bb8ee8c6bbf351d89c1de0fe9259a9f99b81f055"
+}
