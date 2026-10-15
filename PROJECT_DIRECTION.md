@@ -1,3 +1,11 @@
+## 15. oktober 2026: fremadrettet CPU-procesvagt efterprøvet
+
+En separat procesvagt til senere brug består 12 engineeringkontroller med faktisk `wait4`, CPU-/wall-stop og stop før næste indsendelse. Udviklingen afdækkede både forsinket kernel-CPU-stop og forskellige syscall-/procfs-PID'er; de fejlede forsøg og deres præcise kildeversioner er bevaret. Den endelige vagt bruger barnets POSIX CPU-ur og en streng slutgate. Fire suites brugte 18,600335 målte CPU-s; en særskilt engineeringreservation på 120 s beholdes uden refundering eller overførsel fra gamle banker.
+
+**PREPARED_RESOURCE_GUARD_ONLY**, ingen videnskabelig admission, ingen nye signalresultater og ingen genoptagelse af seks-scan-banken. Outputbudget og alle videnskabelige gates skal afklares i et senere separat prospektivt studie; 2016/2019, A/B FAIL_CLOSED og checkpoint 20. oktober bevares. [Kode og konkret evidens](tools/whole_child_guard_20261015/README.md).
+
+---
+
 SETI 15. oktober 2026: Metodekontrollen er lukket **FAIL_CLOSED**. 160 af 205 worker-resultater er bevaret (63 støjreferencer og 97 øvrige kontroller); 45 er NOT_RUN, uafhængig QA er 0, og de ni eksponerede bånd er NOT_RUN. Koordinatoren stoppede ved den fastlagte lagerreserve. C0147 overskred desuden det bindende loft på 600 CPU-sekunder: wait4 målte 601,151447 sekunder, selv om workerens egen kvittering var 598,727962 og exitkoden 0. Den planlagte lagerforlængelse blev derfor afvist før admission/GO og produktion; dens kode er PREPARED_NOT_ADMITTED. Oprindelig SUMMARY forbliver uændret med falske integritets- og fælles resultatkrav. Ingen kvalificeret SETI-detektion eller QA-verificeret genfindingsrate. Oprindelig A/B er FAIL_CLOSED; 2016 og 2019 forbliver lukkede, kontrolpunkt 20. oktober, 0 DKK og ingen nye teleskopbytes.
 
 

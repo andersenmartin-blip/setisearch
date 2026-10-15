@@ -1,0 +1,361 @@
+{
+  "errors": 0,
+  "failures": 3,
+  "new_scientific_bank_created": false,
+  "new_telescope_bytes": 0,
+  "observations": [
+    {
+      "receipt": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "-c",
+          "print('fixture completed')"
+        ],
+        "errors": [
+          "CHILD_EXIT_FAILED",
+          "WATCHDOG_OR_MISSING_WATCHDOG_STATE",
+          "LAUNCH_LIMITS_UNVERIFIED"
+        ],
+        "exit_code": -9,
+        "interruption": null,
+        "last_parent_CPU_sample_s": 24.75,
+        "launcher_verified": false,
+        "limits": {
+          "address_space_bytes": 134217728,
+          "cpu_s": 3,
+          "kernel_CPU_hard_s": 2,
+          "parent_CPU_stop_s": 1.5,
+          "wall_s": 4
+        },
+        "parent_CPU_samples": 1,
+        "peak_RSS_bytes": 14680064,
+        "pid": 7,
+        "resource_acceptance": false,
+        "scientific_integrity_or_QA_or_admission_established": false,
+        "status": "FAILED_RESOURCE_OR_PROCESS",
+        "wait4_reaped": true,
+        "wall_s": 0.01281516000017291,
+        "watchdog_fired": true,
+        "watchdog_reason": "PARENT_CPU_STOP_WITH_HEADROOM",
+        "whole_child_CPU_s": 0.00048499999999999997
+      },
+      "test": "test_01_success_is_only_resource_compliance"
+    },
+    {
+      "assessment": {
+        "errors": [
+          "EXCEEDED_whole_child_CPU_s",
+          "LAUNCH_LIMITS_UNVERIFIED"
+        ],
+        "resource_acceptance": false,
+        "scientific_integrity_or_QA_or_admission_established": false,
+        "status": "FAILED_RESOURCE_OR_PROCESS"
+      },
+      "early_receipt": {
+        "early_CPU_s": 0.047654026,
+        "status": "COMPLETED_CASE_ONLY"
+      },
+      "final_wait4": {
+        "exit_code": 0,
+        "launcher_verified": false,
+        "peak_RSS_bytes": 14811136,
+        "wait4_reaped": true,
+        "wall_s": 0.708123506999982,
+        "watchdog_fired": false,
+        "whole_child_CPU_s": 0.707491
+      },
+      "fixture_only_unguarded_exit_zero_reproducer": true,
+      "no_guard_launcher_was_used_in_this_deliberate_legacy_reproducer": true,
+      "test": "test_02_late_finalization_exit_zero_excess_rejected"
+    },
+    {
+      "receipt": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "-c",
+          "while True: pass"
+        ],
+        "errors": [
+          "CHILD_EXIT_FAILED"
+        ],
+        "exit_code": -9,
+        "interruption": null,
+        "last_parent_CPU_sample_s": null,
+        "launcher_verified": true,
+        "limits": {
+          "address_space_bytes": 134217728,
+          "cpu_s": 2,
+          "kernel_CPU_hard_s": 1,
+          "parent_CPU_stop_s": 0.5,
+          "wall_s": 5
+        },
+        "parent_CPU_samples": 0,
+        "peak_RSS_bytes": 14811136,
+        "pid": 9,
+        "resource_acceptance": false,
+        "scientific_integrity_or_QA_or_admission_established": false,
+        "status": "FAILED_RESOURCE_OR_PROCESS",
+        "wait4_reaped": true,
+        "wall_s": 1.4604205400000865,
+        "watchdog_fired": false,
+        "watchdog_reason": null,
+        "whole_child_CPU_s": 1.453092
+      },
+      "test": "test_03_CPU_burn_is_killed_and_reaped"
+    },
+    {
+      "receipt": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "-c",
+          "import atexit,signal\nsignal.signal(signal.SIGXCPU,signal.SIG_IGN)\ndef finalize():\n    while True: pass\natexit.register(finalize)\nprint('worker would have committed before finalization',flush=True)\n"
+        ],
+        "errors": [
+          "CHILD_EXIT_FAILED"
+        ],
+        "exit_code": -9,
+        "interruption": null,
+        "last_parent_CPU_sample_s": null,
+        "launcher_verified": true,
+        "limits": {
+          "address_space_bytes": 134217728,
+          "cpu_s": 2,
+          "kernel_CPU_hard_s": 1,
+          "parent_CPU_stop_s": 0.5,
+          "wall_s": 5
+        },
+        "parent_CPU_samples": 0,
+        "peak_RSS_bytes": 14811136,
+        "pid": 10,
+        "resource_acceptance": false,
+        "scientific_integrity_or_QA_or_admission_established": false,
+        "status": "FAILED_RESOURCE_OR_PROCESS",
+        "wait4_reaped": true,
+        "wall_s": 1.6643963219999023,
+        "watchdog_fired": false,
+        "watchdog_reason": null,
+        "whole_child_CPU_s": 1.655618
+      },
+      "test": "test_04_finalizer_cannot_disable_kernel_limit"
+    },
+    {
+      "sequence": {
+        "CPU_envelope_s": 4,
+        "jobs": [
+          {
+            "command": [
+              "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+              "-c",
+              "import time;time.sleep(5)"
+            ],
+            "errors": [
+              "CHILD_EXIT_FAILED",
+              "EXCEEDED_wall_s",
+              "WATCHDOG_OR_MISSING_WATCHDOG_STATE"
+            ],
+            "exit_code": -9,
+            "interruption": null,
+            "last_parent_CPU_sample_s": null,
+            "launcher_verified": true,
+            "limits": {
+              "address_space_bytes": 134217728,
+              "cpu_s": 2,
+              "kernel_CPU_hard_s": 1,
+              "parent_CPU_stop_s": 0.5,
+              "wall_s": 0.25
+            },
+            "parent_CPU_samples": 0,
+            "peak_RSS_bytes": 14811136,
+            "pid": 11,
+            "resource_acceptance": false,
+            "scientific_integrity_or_QA_or_admission_established": false,
+            "status": "FAILED_RESOURCE_OR_PROCESS",
+            "wait4_reaped": true,
+            "wall_s": 0.2652327499999956,
+            "watchdog_fired": true,
+            "watchdog_reason": "PARENT_WALL_STOP",
+            "whole_child_CPU_s": 0.090384
+          }
+        ],
+        "status": "STOPPED_RETAINED_NO_RETRY",
+        "unsubmitted": [
+          1
+        ],
+        "whole_child_CPU_s": 0.090384
+      },
+      "test": "test_05_wall_timeout_stops_before_next_submission"
+    },
+    {
+      "receipt": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "-c",
+          "raise SystemExit(7)"
+        ],
+        "errors": [
+          "CHILD_EXIT_FAILED"
+        ],
+        "exit_code": 7,
+        "interruption": null,
+        "last_parent_CPU_sample_s": null,
+        "launcher_verified": true,
+        "limits": {
+          "address_space_bytes": 134217728,
+          "cpu_s": 3,
+          "kernel_CPU_hard_s": 2,
+          "parent_CPU_stop_s": 1.5,
+          "wall_s": 4
+        },
+        "parent_CPU_samples": 0,
+        "peak_RSS_bytes": 14811136,
+        "pid": 12,
+        "resource_acceptance": false,
+        "scientific_integrity_or_QA_or_admission_established": false,
+        "status": "FAILED_RESOURCE_OR_PROCESS",
+        "wait4_reaped": true,
+        "wall_s": 0.1023518189999777,
+        "watchdog_fired": false,
+        "watchdog_reason": null,
+        "whole_child_CPU_s": 0.09189999999999998
+      },
+      "test": "test_06_nonzero_exit_rejected"
+    },
+    {
+      "receipt": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "-c",
+          "x=bytearray(512*1024**2)"
+        ],
+        "errors": [
+          "CHILD_EXIT_FAILED"
+        ],
+        "exit_code": 1,
+        "interruption": null,
+        "last_parent_CPU_sample_s": null,
+        "launcher_verified": true,
+        "limits": {
+          "address_space_bytes": 134217728,
+          "cpu_s": 3,
+          "kernel_CPU_hard_s": 2,
+          "parent_CPU_stop_s": 1.5,
+          "wall_s": 4
+        },
+        "parent_CPU_samples": 0,
+        "peak_RSS_bytes": 14811136,
+        "pid": 13,
+        "resource_acceptance": false,
+        "scientific_integrity_or_QA_or_admission_established": false,
+        "status": "FAILED_RESOURCE_OR_PROCESS",
+        "wait4_reaped": true,
+        "wall_s": 0.11375068099982855,
+        "watchdog_fired": false,
+        "watchdog_reason": null,
+        "whole_child_CPU_s": 0.105377
+      },
+      "test": "test_07_address_space_limit_precedes_exec"
+    },
+    {
+      "receipt": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "-c",
+          "print('once')"
+        ],
+        "errors": [],
+        "exit_code": 0,
+        "interruption": null,
+        "last_parent_CPU_sample_s": null,
+        "launcher_verified": true,
+        "limits": {
+          "address_space_bytes": 134217728,
+          "cpu_s": 3,
+          "kernel_CPU_hard_s": 2,
+          "parent_CPU_stop_s": 1.5,
+          "wall_s": 4
+        },
+        "parent_CPU_samples": 0,
+        "peak_RSS_bytes": 14811136,
+        "pid": 14,
+        "resource_acceptance": true,
+        "scientific_integrity_or_QA_or_admission_established": false,
+        "status": "RESOURCE_COMPLIANT_ONLY",
+        "wait4_reaped": true,
+        "wall_s": 0.11346009799990497,
+        "watchdog_fired": false,
+        "watchdog_reason": null,
+        "whole_child_CPU_s": 0.107772
+      },
+      "test": "test_08_duplicate_attempt_retained_without_retry"
+    },
+    {
+      "rejected_bad_receipt_variants": 22,
+      "test": "test_09_missing_nonfinite_negative_and_bool_rejected"
+    },
+    {
+      "exact_cap_accepted_but_next_binary64_value_rejected": true,
+      "historical_CPU_value_rejected_without_rereading_payload": true,
+      "test": "test_10_exact_cap_no_tolerance_and_C0147_regression"
+    },
+    {
+      "receipt": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "-c",
+          "import time;time.sleep(5)"
+        ],
+        "errors": [
+          "CHILD_EXIT_FAILED",
+          "PARENT_INTERRUPTION"
+        ],
+        "exit_code": -9,
+        "interruption": "RuntimeError: fixture parent interruption",
+        "last_parent_CPU_sample_s": null,
+        "launcher_verified": true,
+        "limits": {
+          "address_space_bytes": 134217728,
+          "cpu_s": 3,
+          "kernel_CPU_hard_s": 2,
+          "parent_CPU_stop_s": 1.5,
+          "wall_s": 4
+        },
+        "parent_CPU_samples": 0,
+        "peak_RSS_bytes": 14811136,
+        "pid": 15,
+        "resource_acceptance": false,
+        "scientific_integrity_or_QA_or_admission_established": false,
+        "status": "FAILED_RESOURCE_OR_PROCESS",
+        "wait4_reaped": true,
+        "wall_s": 0.20001135199981945,
+        "watchdog_fired": false,
+        "watchdog_reason": null,
+        "whole_child_CPU_s": 0.086111
+      },
+      "test": "test_11_parent_interruption_kills_and_reaps"
+    },
+    {
+      "sequence": {
+        "CPU_envelope_s": 2.9,
+        "jobs": [],
+        "status": "STOPPED_RESERVATION_CAPACITY",
+        "unsubmitted": [
+          0
+        ],
+        "whole_child_CPU_s": 0
+      },
+      "test": "test_12_reservation_denied_before_any_process"
+    }
+  ],
+  "old_bank_resumed": false,
+  "scientific_result": false,
+  "source_pins": {
+    "ENGINEERING_SCOPE.json": "46ea646a07b488b7551ad3ac2f5f8991e30be32c5d6da2f985d0cfe681cab995",
+    "guard.py": "57e1fbbe5d6f64533be4ab81944a7e1ce34ec0995aab80316d84eaf9118d7097",
+    "test_guard.py": "15592ca0cdccb5db16447929263d0def132a26ead493b2cfb928a8c58f21b628"
+  },
+  "status": "FAIL",
+  "suite_reaped_children_CPU_s": 4.2982380000000004,
+  "suite_self_CPU_s": 0.05995273200000001,
+  "suite_wall_s": 4.6588684240000475,
+  "tests_run": 12
+}

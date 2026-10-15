@@ -1,0 +1,44 @@
+{
+  "CPU_envelope_s": 4,
+  "jobs": [
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-c",
+        "import time;time.sleep(5)"
+      ],
+      "errors": [
+        "CHILD_EXIT_FAILED",
+        "EXCEEDED_wall_s",
+        "WATCHDOG_OR_MISSING_WATCHDOG_STATE"
+      ],
+      "exit_code": -9,
+      "interruption": null,
+      "last_parent_CPU_sample_s": null,
+      "launcher_verified": true,
+      "limits": {
+        "address_space_bytes": 134217728,
+        "cpu_s": 2,
+        "kernel_CPU_hard_s": 1,
+        "parent_CPU_stop_s": 0.5,
+        "wall_s": 0.25
+      },
+      "parent_CPU_samples": 0,
+      "peak_RSS_bytes": 14811136,
+      "pid": 11,
+      "resource_acceptance": false,
+      "scientific_integrity_or_QA_or_admission_established": false,
+      "status": "FAILED_RESOURCE_OR_PROCESS",
+      "wait4_reaped": true,
+      "wall_s": 0.2652327499999956,
+      "watchdog_fired": true,
+      "watchdog_reason": "PARENT_WALL_STOP",
+      "whole_child_CPU_s": 0.090384
+    }
+  ],
+  "status": "STOPPED_RETAINED_NO_RETRY",
+  "unsubmitted": [
+    1
+  ],
+  "whole_child_CPU_s": 0.090384
+}

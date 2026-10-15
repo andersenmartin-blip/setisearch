@@ -1,0 +1,23 @@
+{
+  "AS_rlimit": [
+    134217728,
+    134217728
+  ],
+  "CPU_rlimit": [
+    1,
+    1
+  ],
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-c",
+    "import atexit,signal\nsignal.signal(signal.SIGXCPU,signal.SIG_IGN)\ndef finalize():\n    while True: pass\natexit.register(finalize)\nprint('worker would have committed before finalization',flush=True)\n"
+  ],
+  "limits": {
+    "address_space_bytes": 134217728,
+    "cpu_s": 2,
+    "kernel_CPU_hard_s": 1,
+    "parent_CPU_stop_s": 0.5,
+    "wall_s": 5
+  },
+  "pid": 9
+}

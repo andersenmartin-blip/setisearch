@@ -1,0 +1,18 @@
+{
+  "status": "IMPLEMENTATION_CORRECTION_AFTER_REAL_PROCESS_FAILURE",
+  "prior_failed_evidence_retained": "suite_corrected",
+  "unchanged_acceptance_CPU_cap_s_in_fixtures": 2,
+  "observed_CPU_s_despite_RLIMIT_CPU_hard_1": [2.021513, 3.3401720000000004],
+  "conclusion": "Kernel CPU enforcement alone did not bound these cooperative processes within the declared 2-second acceptance cap in this runtime.",
+  "change": "Parent samples Linux procfs task CPU across exec every 10ms and sends SIGKILL at a separately declared headroom stop; wait4 remains the final strict acceptance measurement.",
+  "parent_CPU_stop_policy": "declared CPU cap minus max(1.5 seconds, 1 percent of cap)",
+  "kernel_CPU_limit_policy_unchanged": "floor(declared cap minus 1 second)",
+  "no_real_time_or_absolute_CPU_bound_claim": true,
+  "no_cap_relaxation_or_failed_scientific_evaluation_promoted": true,
+  "original_closed_bank_unchanged": true,
+  "total_engineering_reservation_CPU_s_unchanged": 120,
+  "prior_measured_fixture_suites_CPU_s": 11.906021,
+  "remaining_fixture_suite_60_CPU_s_envelope": 48.093979,
+  "next_suite_reservation_CPU_s": 20,
+  "new_science": false
+}

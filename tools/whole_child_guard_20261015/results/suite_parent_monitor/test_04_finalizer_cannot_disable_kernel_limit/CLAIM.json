@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-c",
+    "import atexit,signal\nsignal.signal(signal.SIGXCPU,signal.SIG_IGN)\ndef finalize():\n    while True: pass\natexit.register(finalize)\nprint('worker would have committed before finalization',flush=True)\n"
+  ],
+  "guard_sha256": "57e1fbbe5d6f64533be4ab81944a7e1ce34ec0995aab80316d84eaf9118d7097",
+  "limits": {
+    "address_space_bytes": 134217728,
+    "cpu_s": 2,
+    "kernel_CPU_hard_s": 1,
+    "parent_CPU_stop_s": 0.5,
+    "wall_s": 5
+  },
+  "status": "CLAIMED_ONCE"
+}

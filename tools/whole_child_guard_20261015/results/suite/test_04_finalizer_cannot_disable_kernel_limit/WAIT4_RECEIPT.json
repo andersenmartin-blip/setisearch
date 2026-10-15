@@ -1,0 +1,28 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-c",
+    "import atexit,signal\nsignal.signal(signal.SIGXCPU,signal.SIG_IGN)\ndef finalize():\n    while True: pass\natexit.register(finalize)\nprint('worker would have committed before finalization',flush=True)\n"
+  ],
+  "errors": [
+    "CHILD_EXIT_FAILED"
+  ],
+  "exit_code": -9,
+  "interruption": null,
+  "launcher_verified": true,
+  "limits": {
+    "address_space_bytes": 134217728,
+    "cpu_s": 2,
+    "kernel_CPU_hard_s": 1,
+    "wall_s": 5
+  },
+  "peak_RSS_bytes": 14811136,
+  "pid": 10,
+  "resource_acceptance": false,
+  "scientific_integrity_or_QA_or_admission_established": false,
+  "status": "FAILED_RESOURCE_OR_PROCESS",
+  "wait4_reaped": true,
+  "wall_s": 1.4061905200001092,
+  "watchdog_fired": false,
+  "whole_child_CPU_s": 1.395406
+}
