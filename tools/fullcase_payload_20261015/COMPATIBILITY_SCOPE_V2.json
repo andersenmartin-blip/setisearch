@@ -1,0 +1,29 @@
+{
+  "schema": "SETI_LEGACY_DESCRIPTOR_INTERFACE_SCOPE_V1",
+  "status": "ENGINEERING_ABI_ONLY_EXPLICIT_NAMESPACE_CORRECTION",
+  "reserved_CPU_s": 20,
+  "prior_measured_suite_CPU_s": 26.945854,
+  "aggregate_fixture_CPU_s_cap_unchanged": 600,
+  "admission_check": true,
+  "aggregate_900_CPU_s_reservation_unchanged": true,
+  "per_child_address_space_bytes": 1073741824,
+  "original_QA_module_not_imported": true,
+  "only_selected_functions": [
+    "decode",
+    "array_sha"
+  ],
+  "prior_QA_source_sha256": "3e3d29bc69bfb5691a93f7ee2baf4ffaa1d3777feadee17e6688bc05048331d6",
+  "function_sha256": {
+    "array_sha": "427fa965d4e6bbc77f7df501a301502345fc0a5630bb5b1a5e005e8686a6f64c",
+    "decode": "3759d66f857238ebd6a9d0929e4fbcc6005d41d74a62971e2b0567e27ffdbf2c"
+  },
+  "source_pins": {
+    "compatibility.py": "f871c3be74429c28708bc5fd60e3dd173865560b89676e4398ba5433d178610b",
+    "legacy_bridge.py": "c50060b3e312c73093bcc5fc990772886e180aacdd22b4f2ad99bc7b4c206a73",
+    "array_adapter.py": "c531ff63f4712e05bd5e49aa4771d3b65e33ae85aa3b0a9147d3181c0c4d4a75",
+    "runtime.py": "fc1ddf1f9266f474783b121fa46b7d923f2c9b79248c6ffde9301f388211691a"
+  },
+  "prior_measured_suite_and_failed_interface_CPU_s": 27.182026,
+  "first_attempt_retained": "results/legacy_interface_process",
+  "correction": "Bind NumPy in the isolated namespace used by the unchanged public array_sha helper. No original decoder/QA code is modified."
+}

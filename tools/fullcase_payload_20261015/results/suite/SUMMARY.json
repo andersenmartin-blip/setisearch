@@ -1,0 +1,161 @@
+{
+  "groups": [
+    {
+      "bounds": {
+        "428_slots_admitted_in_3GiB": false,
+        "428_slots_at_bound_bytes": 321991133296,
+        "NPZ_physical_writer_cap_bytes": 614886740,
+        "all_array_raw_bytes": 612781396,
+        "array_count_including_two_edge_arrays": 498,
+        "case_cap_is_enforced_not_a_compression_or_completion_guarantee": true,
+        "complete_case_slots_at_that_bound": 4,
+        "legacy_3GiB_bytes_comparison_only": 3221225472,
+        "metadata_unpacked_cap_bytes": 134217728,
+        "per_case_conditional_bundle_cap_bytes": 752315732,
+        "raw_bytes_by_kind": {
+          "OFF_inventory": 576000000,
+          "alias": 21152208,
+          "edge": 72,
+          "geometry": 46552,
+          "map": 10737252,
+          "normalization": 200448,
+          "raw": 4644864
+        },
+        "source_layout_array_count": 496
+      },
+      "group": "complete_layout",
+      "status": "PASS"
+    },
+    {
+      "all_raw_array_bytes_verified": 80,
+      "arrays_verified": 4,
+      "group": "empty_scalar_endian_and_edge_bits",
+      "header_and_every_body_byte_checked": true,
+      "scientific_integrity_or_QA_established": false,
+      "status": "PASS"
+    },
+    {
+      "faults": [
+        {
+          "fault": "wrong_dtype",
+          "rejected": "NPY header shape/dtype/order differs"
+        },
+        {
+          "fault": "wrong_shape",
+          "rejected": "NPY header shape/dtype/order differs"
+        },
+        {
+          "fault": "wrong_raw_hash",
+          "rejected": "Input/decoded raw array bytes differ"
+        },
+        {
+          "fault": "wrong_census",
+          "rejected": "Array descriptor census differs"
+        },
+        {
+          "fault": "quota_exhaustion",
+          "partial_retained": true,
+          "rejected": "NPZ physical writer cap exhausted; retain partial"
+        }
+      ],
+      "group": "array_corruption_and_quota_gates",
+      "status": "PASS"
+    },
+    {
+      "capacity": {
+        "all_slots_at_cap_bytes": 321991133296,
+        "any_ledger_read_or_mutated": false,
+        "comparison_limit_bytes": 3221225472,
+        "max_slots_at_cap": 4,
+        "per_case_conditional_cap_bytes": 752315732,
+        "production_launched": false,
+        "requested_slots": 428,
+        "scientific_admission": false,
+        "status": "NOT_ADMITTED_CAPACITY"
+      },
+      "group": "all_slots_capacity_gate",
+      "status": "PASS"
+    },
+    {
+      "group": "complete_case_guarded_transport",
+      "state": {
+        "accepted": true,
+        "per_case_conditional_cap_bytes": 752315732,
+        "producer": {
+          "CPU_monitor_backend": "POSIX_PROCESS_CPU_CLOCK_BY_CHILD_PID",
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "/workspace/scratch/15d8a5bac355/seti_fullcase_payload/tools/fullcase_payload_20261015/fullcase_worker.py",
+            "verify",
+            "/workspace/scratch/15d8a5bac355/seti_fullcase_payload/tools/fullcase_payload_20261015/results/suite/complete_case/REQUEST.json"
+          ],
+          "errors": [],
+          "exit_code": 0,
+          "interruption": null,
+          "last_parent_CPU_sample_s": 8.764499325,
+          "launcher_verified": true,
+          "limits": {
+            "address_space_bytes": 1073741824,
+            "cpu_s": 240,
+            "kernel_CPU_hard_s": 239,
+            "parent_CPU_stop_s": 237.6,
+            "wall_s": 1800
+          },
+          "parent_CPU_samples": 773,
+          "peak_RSS_bytes": 217518080,
+          "pid": 8,
+          "resource_acceptance": true,
+          "scientific_integrity_or_QA_or_admission_established": false,
+          "status": "RESOURCE_COMPLIANT_ONLY",
+          "wait4_reaped": true,
+          "wall_s": 8.796812264999971,
+          "watchdog_fired": false,
+          "watchdog_reason": null,
+          "whole_child_CPU_s": 8.770313999999999
+        },
+        "reserved_both_child_CPU_s": 480,
+        "science_admission": false,
+        "status": "FULL_CASE_ENGINEERING_TRANSPORT_ONLY",
+        "verifier": {
+          "CPU_monitor_backend": "POSIX_PROCESS_CPU_CLOCK_BY_CHILD_PID",
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "/workspace/scratch/15d8a5bac355/seti_fullcase_payload/tools/fullcase_payload_20261015/fullcase_worker.py",
+            "verify",
+            "/workspace/scratch/15d8a5bac355/seti_fullcase_payload/tools/fullcase_payload_20261015/results/suite/complete_case/REQUEST.json"
+          ],
+          "errors": [],
+          "exit_code": 0,
+          "interruption": null,
+          "last_parent_CPU_sample_s": 16.936597283,
+          "launcher_verified": true,
+          "limits": {
+            "address_space_bytes": 1073741824,
+            "cpu_s": 240,
+            "kernel_CPU_hard_s": 239,
+            "parent_CPU_stop_s": 237.6,
+            "wall_s": 1800
+          },
+          "parent_CPU_samples": 1559,
+          "peak_RSS_bytes": 409038848,
+          "pid": 9,
+          "resource_acceptance": true,
+          "scientific_integrity_or_QA_or_admission_established": false,
+          "status": "RESOURCE_COMPLIANT_ONLY",
+          "wait4_reaped": true,
+          "wall_s": 16.97869063899998,
+          "watchdog_fired": false,
+          "watchdog_reason": null,
+          "whole_child_CPU_s": 16.945062
+        }
+      },
+      "status": "PASS"
+    }
+  ],
+  "groups_checked": 5,
+  "new_scientific_cases_draws_or_seeds": 0,
+  "new_telescope_bytes": 0,
+  "old_bank_resumed": false,
+  "science_admission": false,
+  "status": "PASS_ENGINEERING_ONLY"
+}

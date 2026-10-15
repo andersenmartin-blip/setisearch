@@ -1,0 +1,13 @@
+{
+  "status": "CANONICAL_PROCESS_RECEIPTS_UNCHANGED",
+  "scope": "Reporting alias only, no job rerun or metric alteration",
+  "finding": "The main suite reused a mutable command list. The in-memory producer receipt in STATE.json and SUMMARY.json therefore displays verify after the list was reused. The separately durable producer/WAIT4_RECEIPT.json correctly says produce and its hash remains bound by ACCEPTED_ENGINEERING.json.",
+  "canonical_producer": "results/suite/complete_case/producer/WAIT4_RECEIPT.json",
+  "canonical_verifier": "results/suite/complete_case/verifier/WAIT4_RECEIPT.json",
+  "original_suite_source": "history/suite_attempt01/suite.py",
+  "original_suite_sha256": "2a52d7c78bae942c2b157c7b1ba34584e88e6827753817a13845622dd8dada82",
+  "current_suite_sha256": "ea7a369493b9721ae67055663fc32d2b9489485a958aecebd113451f3a2bb9b3",
+  "change": "Deep-copy each returned receipt before retaining it in state, so later command-list mutation cannot change its summary.",
+  "validation": "Read-only source inspection: both launch returns now pass through copy.deepcopy. Full suite not repeated; original receipts, summaries and pins retained.",
+  "new_scientific_work": false
+}

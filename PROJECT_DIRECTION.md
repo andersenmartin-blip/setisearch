@@ -1,3 +1,11 @@
+## 15. oktober 2026: fuldt numerisk payload-footprint transporteret og verificeret
+
+498 arrays med 612.781.396 rå bytes er skrevet og genlæst bitpræcist under procesvagt, inklusive seks millioner konstruerede OFF-rækker. 496 numeriske feltrepræsentationer plus to ekstra IEEE/endian-arrays er afprøvet; 36 af felterne er normaliseringslister repræsenteret som arrays i dette forsøg. Hele pakken fylder 120.484.899 bytes. Den tidligere tætte recordmetadata er genbrugt uændret, uden nye scores eller generation. Seks arrayeksempler består også den uændrede offentlige descriptor-dekoder; dette er ikke videnskabelig QA.
+
+**FULL_CASE_ENGINEERING_TRANSPORT_ONLY**. Fem hovedgrupper og den særskilte descriptor-interfacekontrol består; ét fejlet interface-setup er bevaret. Målt total er 27,910018 CPU-s; en særskilt 900-s engineeringreservation beholdes fuldt. Næste gate er worker-/QA-/summarizer-integration med korrekte metadata-/listetyper og faseopdelte kumulative outputreservationer. Ingen ny bank eller signalanalyse er aktiveret. Lukket bank, A/B FAIL_CLOSED og checkpoint 20. oktober bevares. [Kode og afgrænset evidens](tools/fullcase_payload_20261015/README.md).
+
+---
+
 ## 15. oktober 2026: procesvagt og kompakt payload gennemført som engineering
 
 11 integrationskontroller består. En konstrueret tæt formatfixture med 61.440 ON-records og 184.320 OFF-kvitteringer er bevaret og genlæst felt for felt, inklusive binary64-bits. Den nye pakke er 4.560.903 bytes inklusive et 1 MiB-asset; metadata alene ville fylde 241.906.727 bytes som indrykket JSON. En første afvisning ved den uændrede 128 MiB-udpakningsgrænse er bevaret; nøglepulje og strømmet pakning løser den konkrete repræsentationsfejl. To hele suites brugte 104,074481 målte CPU-s inden for en særskilt, fuldt bevaret 600-s engineeringreservation.
