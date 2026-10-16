@@ -1,3 +1,15 @@
+## 16. oktober 2026: komplet kæde og første teleskopbånd kontrolleret
+
+Den komplette søgning, nye resultatlagring, uafhængige søge-QA og oprindelige resultatforbruger har bestået på en fuld kendt testcase. Derefter er det første metadatafastlagte 2017-bånd analyseret i alle seks scanninger og genberegnet uafhængigt.
+
+**Ingen bevaret ON-score nåede 10; største score var 6,961946174.** De tre komplette OFF≥8-inventarer er tomme. Båndets ON-referencebredde er 11,444 kHz. Dette er numeriske snit uden kalibreret sigma/FAP og uden kvalificeret SETI-detektion. Gamle banklukninger og A/B-status bevares.
+
+[Dansk resultat](https://github.com/andersenmartin-blip/setisearch/blob/1804daaf90a3c92d1664b7ae653c7b43e995845d/analysis/real_fullscan_20261016/report/RESULTS_DA.md) · [Komplet metodekontrol](https://github.com/andersenmartin-blip/setisearch/blob/1804daaf90a3c92d1664b7ae653c7b43e995845d/tools/fullsearch_integration_20261016/README.md) · [Evidens og næste bånd](https://github.com/andersenmartin-blip/setisearch/blob/1804daaf90a3c92d1664b7ae653c7b43e995845d/RADIO_FULLCHAIN_STATUS_2026-10-16.md).
+
+Alle nye arrays og kontrolbilag er bevaret i leverancen `SETI_FULD_KAEDE_2026-10-16.zip`. Næste bånd er native170/q252 i den faste rækkefølge; de otte øvrige er ikke startet i denne nye serie. Ingen nye teleskopforespørgsler eller teleskopbytes, 0 DKK; kontrolpunkt 20. oktober 2026.
+
+---
+
 ## 16. oktober 2026: signalformen i ni historiske spor kontrolleret
 
 De ni tidligere udvalgte ON-spor er undersøgt i 54 scanningskontekster og 486 frekvensplaceringer. Den brede støtte, som en fast model for emission gennem hele integrationen forudsiger, ses ikke tydeligt omkring de høje enkeltkanalstoppe. Korte bursts og anden kanalrespons er ikke udelukket. Uafhængig QA består **3.087.090 numeriske sammenligninger**; ingen kvalificeret SETI-detektion eller kalibreret signifikans.
