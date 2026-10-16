@@ -1,0 +1,206 @@
+{
+  "actual_output_bytes_before_final_receipt": 5581392,
+  "identity": "SETI_SCIENCE_PAYLOAD_ENGINEERING_FORMAT_20261016_V1",
+  "mode": "ENGINEERING_FIXTURES_ONLY",
+  "original_A_B": "FAIL_CLOSED",
+  "phase_ledger_snapshot": {
+    "claims": {
+      "primary-000000": {
+        "case_id": "SETI_SCIENCE_PAYLOAD_ENGINEERING_FORMAT_20261016_V1_primary",
+        "claim_id": "primary-000000",
+        "cpu_s_reserved_no_refund": 240,
+        "log_receipt_overhead_bytes_reserved": 262144,
+        "payload_bound_bytes": 69206016,
+        "phase": "primary",
+        "slot": 0
+      },
+      "qa-000000": {
+        "case_id": "SETI_SCIENCE_PAYLOAD_ENGINEERING_FORMAT_20261016_V1_qa",
+        "claim_id": "qa-000000",
+        "cpu_s_reserved_no_refund": 240,
+        "log_receipt_overhead_bytes_reserved": 262144,
+        "payload_bound_bytes": 2097152,
+        "phase": "qa",
+        "slot": 0
+      }
+    },
+    "events": 6,
+    "ledger_bytes": 4266,
+    "pending": [],
+    "plan": {
+      "admitted": true,
+      "closed_banks_read_or_reused": false,
+      "cpu_limit_s": 500,
+      "disk_headroom_bytes": 30194991104,
+      "errors": [],
+      "event_cap_bytes": 8192,
+      "format": "SETI_FRESH_PHASE_BUDGET_ENGINEERING_V1",
+      "metadata_cpu_s": 20,
+      "metadata_reserve_bytes": 262144,
+      "mode": "ENGINEERING_FIXTURES_ONLY",
+      "output_limit_bytes": 75497472,
+      "phases": {
+        "exposed": {
+          "count": 0,
+          "cpu_s_per_slot": 240,
+          "external_log_receipt_cap_bytes": 245760,
+          "log_receipt_overhead_bytes_per_slot": 262144,
+          "payload_bound_bytes": 1,
+          "reserved_cpu_s": 0,
+          "reserved_output_bytes": 0
+        },
+        "exposed_qa": {
+          "count": 0,
+          "cpu_s_per_slot": 240,
+          "external_log_receipt_cap_bytes": 245760,
+          "log_receipt_overhead_bytes_per_slot": 262144,
+          "payload_bound_bytes": 1,
+          "reserved_cpu_s": 0,
+          "reserved_output_bytes": 0
+        },
+        "primary": {
+          "count": 1,
+          "cpu_s_per_slot": 240,
+          "external_log_receipt_cap_bytes": 245760,
+          "log_receipt_overhead_bytes_per_slot": 262144,
+          "payload_bound_bytes": 69206016,
+          "reserved_cpu_s": 240,
+          "reserved_output_bytes": 69468160
+        },
+        "qa": {
+          "count": 1,
+          "cpu_s_per_slot": 240,
+          "external_log_receipt_cap_bytes": 245760,
+          "log_receipt_overhead_bytes_per_slot": 262144,
+          "payload_bound_bytes": 2097152,
+          "reserved_cpu_s": 240,
+          "reserved_output_bytes": 2359296
+        }
+      },
+      "production_launched": false,
+      "reservations_refunded": false,
+      "scientific_admission": false,
+      "status": "ENGINEERING_RESERVED_ARITHMETIC_ONLY",
+      "total_reserved_cpu_s": 500.0,
+      "total_reserved_output_bytes": 72089600
+    },
+    "recorded_payload_and_external_bytes": 5573902,
+    "reserved_cpu_s_retained": 500.0,
+    "reserved_output_bytes_retained": 72089600,
+    "scientific_admission": false,
+    "status": "CLOSED",
+    "terminals": {
+      "primary-000000": {
+        "accepted": true,
+        "claim_id": "primary-000000",
+        "error": null,
+        "error_sha256": null,
+        "errors": [],
+        "log_receipt_bytes": 2288,
+        "payload_bytes": 5558067,
+        "receipt_digest_encoding": "CANONICAL_JSON",
+        "receipt_sha256": "417ca24daeaad4a9447bac4348ee37e8b5c0b14dcd7c845d68c9a6db43eadf3d",
+        "reservations_refunded": false,
+        "scientific_admission": false,
+        "whole_child_CPU_s": 10.474476000000001
+      },
+      "qa-000000": {
+        "accepted": true,
+        "claim_id": "qa-000000",
+        "error": null,
+        "error_sha256": null,
+        "errors": [],
+        "log_receipt_bytes": 2939,
+        "payload_bytes": 10608,
+        "receipt_digest_encoding": "CANONICAL_JSON",
+        "receipt_sha256": "a0de7615fb2f08d51f8b2342d8bf2556cbcc45398fc3d7b4e2b7b764dda8907c",
+        "reservations_refunded": false,
+        "scientific_admission": false,
+        "whole_child_CPU_s": 4.237242
+      }
+    }
+  },
+  "producer": {
+    "accepted": true,
+    "log_receipt_bytes": 2288,
+    "payload_bytes": 5558067,
+    "receipt": {
+      "CPU_monitor_backend": "POSIX_PROCESS_CPU_CLOCK_BY_CHILD_PID",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/6ef1b336d8f4/source/tools/science_payload_20261016/integration.py",
+        "produce",
+        "--folder",
+        "/workspace/scratch/6ef1b336d8f4/source/tools/science_payload_20261016/results_semantic/fixture"
+      ],
+      "errors": [],
+      "exit_code": 0,
+      "interruption": null,
+      "last_parent_CPU_sample_s": 10.466216641,
+      "launcher_verified": true,
+      "limits": {
+        "address_space_bytes": 1073741824,
+        "cpu_s": 240,
+        "kernel_CPU_hard_s": 239,
+        "parent_CPU_stop_s": 237.6,
+        "wall_s": 600
+      },
+      "parent_CPU_samples": 987,
+      "peak_RSS_bytes": 87793664,
+      "pid": 5,
+      "resource_acceptance": true,
+      "scientific_integrity_or_QA_or_admission_established": false,
+      "status": "RESOURCE_COMPLIANT_ONLY",
+      "wait4_reaped": true,
+      "wall_s": 10.501216081999928,
+      "watchdog_fired": false,
+      "watchdog_reason": null,
+      "whole_child_CPU_s": 10.474476000000001
+    }
+  },
+  "qualified_SETI_detection": false,
+  "scientific_admission": false,
+  "scope_sha256": "ed509c7c6d09501667c834e4c90e906098b35886ad022f90a85b1bfbbffcc5f6",
+  "status": "PASS_GUARDED_ENGINEERING_SEMANTICS_ONLY",
+  "verification_sha256": "8c2cd0fe519f1b236541ad62a905b9862a890320c01ec4aa15342d340f29811b",
+  "verifier": {
+    "accepted": true,
+    "log_receipt_bytes": 2939,
+    "payload_bytes": 10608,
+    "receipt": {
+      "CPU_monitor_backend": "POSIX_PROCESS_CPU_CLOCK_BY_CHILD_PID",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/6ef1b336d8f4/source/tools/science_payload_20261016/integration.py",
+        "verify",
+        "--folder",
+        "/workspace/scratch/6ef1b336d8f4/source/tools/science_payload_20261016/results_semantic/fixture",
+        "--report",
+        "/workspace/scratch/6ef1b336d8f4/source/tools/science_payload_20261016/results_semantic/SEMANTIC_VERIFICATION.json"
+      ],
+      "errors": [],
+      "exit_code": 0,
+      "interruption": null,
+      "last_parent_CPU_sample_s": 4.225691723,
+      "launcher_verified": true,
+      "limits": {
+        "address_space_bytes": 1073741824,
+        "cpu_s": 240,
+        "kernel_CPU_hard_s": 239,
+        "parent_CPU_stop_s": 237.6,
+        "wall_s": 600
+      },
+      "parent_CPU_samples": 417,
+      "peak_RSS_bytes": 104697856,
+      "pid": 6,
+      "resource_acceptance": true,
+      "scientific_integrity_or_QA_or_admission_established": false,
+      "status": "RESOURCE_COMPLIANT_ONLY",
+      "wait4_reaped": true,
+      "wall_s": 4.244554360000166,
+      "watchdog_fired": false,
+      "watchdog_reason": null,
+      "whole_child_CPU_s": 4.237242
+    }
+  }
+}

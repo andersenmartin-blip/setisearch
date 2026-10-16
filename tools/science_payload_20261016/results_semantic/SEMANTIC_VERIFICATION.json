@@ -1,0 +1,313 @@
+{
+  "RNG_called": false,
+  "checks": 1169639,
+  "controlled_retained_carriers_per_scan": 2,
+  "covered": {
+    "actual_complete_metadata_geometry": true,
+    "actual_controlled_OFF_witnesses_and_recovery": true,
+    "actual_full_shape_preprocessing": true,
+    "actual_legacy_serializer_to_unchanged_QA_decode": true,
+    "actual_rank_and_recovery_summary_functions": true,
+    "truth_and_admission_structures": true
+  },
+  "descriptor_fields_preserved": [
+    "npz_key",
+    "shape",
+    "dtype",
+    "C_order_bytes_sha256",
+    "nbytes",
+    "original_field_path"
+  ],
+  "full_shape_raw_arrays": 6,
+  "identity": "SETI_SCIENCE_PAYLOAD_ENGINEERING_FORMAT_20261016_V1",
+  "independent_recovery": {
+    "applicable": true,
+    "by_scan": {
+      "epoch1_on": {
+        "after_OFF": true,
+        "after_OFF_hit_ids": [
+          "epoch1_on:carrier0000:rank1",
+          "epoch1_on:carrier0000:rank2",
+          "epoch1_on:carrier0000:rank4"
+        ],
+        "pre_OFF": true
+      },
+      "epoch2_on": {
+        "after_OFF": true,
+        "after_OFF_hit_ids": [
+          "epoch2_on:carrier0000:rank1",
+          "epoch2_on:carrier0000:rank2",
+          "epoch2_on:carrier0000:rank4"
+        ],
+        "pre_OFF": true
+      }
+    }
+  },
+  "legacy_array_count": 424,
+  "legacy_code_pins": {
+    "contract.json": {
+      "bytes": 20355,
+      "sha256": "d5ee1a3376f2decbdc1117f8fd2886a58f10bd1bd3af5d182434575f3047f385"
+    },
+    "detector.py": {
+      "bytes": 31706,
+      "sha256": "f7128db9631da17c8d91497fa327c713fdc1d1af17b286abf7d12d66018d7278"
+    },
+    "qa.py": {
+      "bytes": 42157,
+      "sha256": "3e3d29bc69bfb5691a93f7ee2baf4ffaa1d3777feadee17e6688bc05048331d6"
+    },
+    "summarize.py": {
+      "bytes": 31733,
+      "sha256": "b742fc40bebc041c7917e5d6801b3d0e4b13aed41931b922009c01017b6d0c06"
+    },
+    "worker.py": {
+      "bytes": 27132,
+      "sha256": "c339bebcad1c87e6766b407663b168585dba89419e45542befbd2bac76ea7509"
+    }
+  },
+  "legacy_functions_exercised": [
+    "worker.authenticate_arrays",
+    "worker.scan_inputs",
+    "worker.canonical_truth",
+    "worker.json_and_array_store",
+    "detector.preprocess",
+    "detector.search_geometry",
+    "detector._inventory",
+    "detector.off_witness",
+    "detector.recovery",
+    "qa.decode",
+    "qa.preprocess",
+    "qa.geometry",
+    "qa.verify_hits",
+    "qa.verify_recovery",
+    "summarize.rank_hits",
+    "summarize.recovery_metrics"
+  ],
+  "max_absolute_errors": {
+    "Actual stable OFF witness OFF_score": 0.0,
+    "Actual stable OFF witness ON_first_endpoint_error_channels": 0.0,
+    "Actual stable OFF witness ON_last_endpoint_error_channels": 0.0,
+    "Actual stable OFF witness endpoint_tolerance_channels": 0.0,
+    "Independent actual midpoint coordinates": 0.0,
+    "Independent complete raw501 normalized z": 5.551115123125783e-17,
+    "Independent full global drift grid": 0.0,
+    "Independent original normalization row_power_median": 0.0,
+    "Independent original normalization row_residual_MAD_scale": 0.0,
+    "Independent original normalization row_residual_median": 0.0,
+    "Independent original normalization row_winsorized_residual_location": 1.6263032587282567e-19,
+    "Raw ON representative drift": 0.0,
+    "Raw ON threshold score": 0.0
+  },
+  "mode": "ENGINEERING_FIXTURES_ONLY",
+  "new_observation": false,
+  "normalization_types_preserved": "all six original fields remain Python lists",
+  "not_established": {
+    "complete_family_OFF_inventories": true,
+    "complete_scientific_search": true,
+    "full498_array_case_shape_compatibility": true,
+    "full_study_summary_or_case_record_admission": true,
+    "scientific_QA_admission": true,
+    "sensitivity_or_telescope_FAP": true
+  },
+  "old_scientific_mains_called": false,
+  "original_A_B": "FAIL_CLOSED",
+  "qualified_SETI_detection": false,
+  "ranked_controlled_hits": [
+    {
+      "OFF_disposition": "SURVIVOR_EXPLORATORY",
+      "ON_score": 20.0,
+      "calibration_member_in_reference_bank": false,
+      "case_id": "SETI_SCIENCE_PAYLOAD_ENGINEERING_FORMAT_20261016_V1",
+      "family": "engineering_fixture",
+      "final_candidate": true,
+      "hit_id": "epoch1_on:carrier0000:rank1",
+      "index": 0,
+      "model_rank_p": 0.015625,
+      "rank_cut_pass": true,
+      "reference_equal_or_greater": 0,
+      "scan_id": "epoch1_on",
+      "telescope_FAP_interpretation_allowed": false
+    },
+    {
+      "OFF_disposition": "SURVIVOR_EXPLORATORY",
+      "ON_score": 18.0,
+      "calibration_member_in_reference_bank": false,
+      "case_id": "SETI_SCIENCE_PAYLOAD_ENGINEERING_FORMAT_20261016_V1",
+      "family": "engineering_fixture",
+      "final_candidate": false,
+      "hit_id": "epoch1_on:carrier0000:rank2",
+      "index": 0,
+      "model_rank_p": 1.0,
+      "rank_cut_pass": false,
+      "reference_equal_or_greater": 63,
+      "scan_id": "epoch1_on",
+      "telescope_FAP_interpretation_allowed": false
+    },
+    {
+      "OFF_disposition": "SURVIVOR_EXPLORATORY",
+      "ON_score": 16.0,
+      "calibration_member_in_reference_bank": false,
+      "case_id": "SETI_SCIENCE_PAYLOAD_ENGINEERING_FORMAT_20261016_V1",
+      "family": "engineering_fixture",
+      "final_candidate": false,
+      "hit_id": "epoch1_on:carrier0000:rank3",
+      "index": 0,
+      "model_rank_p": 1.0,
+      "rank_cut_pass": false,
+      "reference_equal_or_greater": 63,
+      "scan_id": "epoch1_on",
+      "telescope_FAP_interpretation_allowed": false
+    },
+    {
+      "OFF_disposition": "SURVIVOR_EXPLORATORY",
+      "ON_score": 10.0,
+      "calibration_member_in_reference_bank": false,
+      "case_id": "SETI_SCIENCE_PAYLOAD_ENGINEERING_FORMAT_20261016_V1",
+      "family": "engineering_fixture",
+      "final_candidate": false,
+      "hit_id": "epoch1_on:carrier0000:rank4",
+      "index": 0,
+      "model_rank_p": 1.0,
+      "rank_cut_pass": false,
+      "reference_equal_or_greater": 63,
+      "scan_id": "epoch1_on",
+      "telescope_FAP_interpretation_allowed": false
+    },
+    {
+      "OFF_disposition": "OFF_MATCHED",
+      "ON_score": 25.0,
+      "calibration_member_in_reference_bank": false,
+      "case_id": "SETI_SCIENCE_PAYLOAD_ENGINEERING_FORMAT_20261016_V1",
+      "family": "engineering_fixture",
+      "final_candidate": false,
+      "hit_id": "epoch1_on:carrier0001:rank1",
+      "index": 0,
+      "model_rank_p": 0.015625,
+      "rank_cut_pass": true,
+      "reference_equal_or_greater": 0,
+      "scan_id": "epoch1_on",
+      "telescope_FAP_interpretation_allowed": false
+    },
+    {
+      "OFF_disposition": "OFF_MATCHED",
+      "ON_score": 15.0,
+      "calibration_member_in_reference_bank": false,
+      "case_id": "SETI_SCIENCE_PAYLOAD_ENGINEERING_FORMAT_20261016_V1",
+      "family": "engineering_fixture",
+      "final_candidate": false,
+      "hit_id": "epoch1_on:carrier0001:rank2",
+      "index": 0,
+      "model_rank_p": 1.0,
+      "rank_cut_pass": false,
+      "reference_equal_or_greater": 63,
+      "scan_id": "epoch1_on",
+      "telescope_FAP_interpretation_allowed": false
+    },
+    {
+      "OFF_disposition": "OFF_MATCHED",
+      "ON_score": 14.0,
+      "calibration_member_in_reference_bank": false,
+      "case_id": "SETI_SCIENCE_PAYLOAD_ENGINEERING_FORMAT_20261016_V1",
+      "family": "engineering_fixture",
+      "final_candidate": false,
+      "hit_id": "epoch1_on:carrier0001:rank3",
+      "index": 0,
+      "model_rank_p": 1.0,
+      "rank_cut_pass": false,
+      "reference_equal_or_greater": 63,
+      "scan_id": "epoch1_on",
+      "telescope_FAP_interpretation_allowed": false
+    },
+    {
+      "OFF_disposition": "OFF_MATCHED",
+      "ON_score": 11.0,
+      "calibration_member_in_reference_bank": false,
+      "case_id": "SETI_SCIENCE_PAYLOAD_ENGINEERING_FORMAT_20261016_V1",
+      "family": "engineering_fixture",
+      "final_candidate": false,
+      "hit_id": "epoch1_on:carrier0001:rank4",
+      "index": 0,
+      "model_rank_p": 1.0,
+      "rank_cut_pass": false,
+      "reference_equal_or_greater": 63,
+      "scan_id": "epoch1_on",
+      "telescope_FAP_interpretation_allowed": false
+    },
+    {
+      "OFF_disposition": "SURVIVOR_EXPLORATORY",
+      "ON_score": 19.0,
+      "calibration_member_in_reference_bank": false,
+      "case_id": "SETI_SCIENCE_PAYLOAD_ENGINEERING_FORMAT_20261016_V1",
+      "family": "engineering_fixture",
+      "final_candidate": false,
+      "hit_id": "epoch2_on:carrier0000:rank1",
+      "index": 0,
+      "model_rank_p": 1.0,
+      "rank_cut_pass": false,
+      "reference_equal_or_greater": 63,
+      "scan_id": "epoch2_on",
+      "telescope_FAP_interpretation_allowed": false
+    },
+    {
+      "OFF_disposition": "SURVIVOR_EXPLORATORY",
+      "ON_score": 18.0,
+      "calibration_member_in_reference_bank": false,
+      "case_id": "SETI_SCIENCE_PAYLOAD_ENGINEERING_FORMAT_20261016_V1",
+      "family": "engineering_fixture",
+      "final_candidate": false,
+      "hit_id": "epoch2_on:carrier0000:rank2",
+      "index": 0,
+      "model_rank_p": 1.0,
+      "rank_cut_pass": false,
+      "reference_equal_or_greater": 63,
+      "scan_id": "epoch2_on",
+      "telescope_FAP_interpretation_allowed": false
+    },
+    {
+      "OFF_disposition": "SURVIVOR_EXPLORATORY",
+      "ON_score": 12.0,
+      "calibration_member_in_reference_bank": false,
+      "case_id": "SETI_SCIENCE_PAYLOAD_ENGINEERING_FORMAT_20261016_V1",
+      "family": "engineering_fixture",
+      "final_candidate": false,
+      "hit_id": "epoch2_on:carrier0000:rank3",
+      "index": 0,
+      "model_rank_p": 1.0,
+      "rank_cut_pass": false,
+      "reference_equal_or_greater": 63,
+      "scan_id": "epoch2_on",
+      "telescope_FAP_interpretation_allowed": false
+    },
+    {
+      "OFF_disposition": "SURVIVOR_EXPLORATORY",
+      "ON_score": 10.0,
+      "calibration_member_in_reference_bank": false,
+      "case_id": "SETI_SCIENCE_PAYLOAD_ENGINEERING_FORMAT_20261016_V1",
+      "family": "engineering_fixture",
+      "final_candidate": false,
+      "hit_id": "epoch2_on:carrier0000:rank4",
+      "index": 0,
+      "model_rank_p": 1.0,
+      "rank_cut_pass": false,
+      "reference_equal_or_greater": 63,
+      "scan_id": "epoch2_on",
+      "telescope_FAP_interpretation_allowed": false
+    }
+  ],
+  "raw_shape": [
+    16,
+    12096
+  ],
+  "schema": "SETI_WORKER_PAYLOAD_QA_SUMMARIZER_ENGINEERING_INTEGRATION_V1",
+  "scientific_admission": false,
+  "status": "PASS_ENGINEERING_SEMANTICS_ONLY",
+  "summary_metrics": {
+    "after_OFF_all_active_recovered": true,
+    "after_rank_all_active_recovered": false,
+    "after_rank_any_active_recovered": true,
+    "after_rank_survivor_count": 1,
+    "pre_OFF_all_active_recovered": true,
+    "pre_OFF_any_active_recovered": true
+  }
+}
