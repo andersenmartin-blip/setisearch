@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/6ef1b336d8f4/source/tools/saved_payload_restore_20261016/verify.py", line 716, in <module>
+    main()
+  File "/workspace/scratch/6ef1b336d8f4/source/tools/saved_payload_restore_20261016/verify.py", line 652, in main
+    numerical = verify(Path(saved['restored_folder']), numerical_path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/6ef1b336d8f4/source/tools/saved_payload_restore_20261016/verify.py", line 588, in verify
+    audit.close(output['maximum_pre_OFF_ON_score'], independent_max, 'Independent complete-family global pre-OFF ON maximum', 0.)
+  File "/workspace/scratch/6ef1b336d8f4/source/analysis/sixscan_burst_20261015/qa.py", line 75, in close
+    require(np.isfinite(a).all() and np.isfinite(b).all() and error <= tol, f"{label}: error {error}")
+  File "/workspace/scratch/6ef1b336d8f4/source/analysis/sixscan_burst_20261015/qa.py", line 35, in require
+    if not condition: raise AssertionError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Independent complete-family global pre-OFF ON maximum: error 8.881784197001252e-16
