@@ -1,3 +1,13 @@
+## 16. oktober 2026: alle ni bånd søgt, otte fuldt verificeret
+
+De otte resterende 2017-bånd er nu kørt med den uændrede fulde seks-scan-søgning. Syv består hele den uafhængige QA; inklusive det allerede afsluttede B00 er status **8/9 fuldt QA-verificerede bånd**. Disse otte har **0 bevarede ON-hypoteser ≥10**, **0 OFF-identiteter ≥8** og højeste ON-score **7,031163159**.
+
+B06 fik en afkortet resultatfil. En separat gendannelse matcher den oprindelige filhash præcist og gentager ingen primær søgning. Den efterfølgende QA kontrollerede alle seks søgekort, men dens eksakte maksimumstest fejlede med **8,881784197001252 × 10⁻¹⁶**. Begge fejl bevares; B06 tælles fortsat som ikke bestået. [Samlet status](https://github.com/andersenmartin-blip/setisearch/blob/66c200237be29d63619077573d960723220ee45a/RADIO_NINE_BAND_STATUS_2026-10-16.md) · [Præcis fejl- og gendannelsesrapport](https://github.com/andersenmartin-blip/setisearch/blob/66c200237be29d63619077573d960723220ee45a/tools/saved_payload_restore_20261016/report/RESULTS_SUPPLEMENT_DA.md).
+
+Alle oprindelige resultater, rå arrays, procesbilag og den gendannede kopi er bevaret i `SETI_ALLE_NI_BAAND_2026-10-16.zip` (**76.984.741 bytes**, SHA-256 `ac59da20464780bbcb26251e9ce2dc631d361dfc82a868551125edbdd41584d4`); alle 359 pakkemedlemmer er bytekontrolleret. Repositoryet indeholder kildekode og tekstbilag, mens binære arrays ligger i ejerens gemte pakke. Dette er allerede eksponerede og efterudvalgte data fra ét historisk besøg; snittene er ikke kalibreret SNR/FAP. **Ingen kvalificeret SETI-detektion.** A/B FAIL_CLOSED, beskyttede 2016-data, lukket 2019-rute og kontrolpunkt **20. oktober 2026** bevares. Ingen nye teleskopdata eller udgifter.
+
+---
+
 ## 16. oktober 2026: komplet kæde og første teleskopbånd kontrolleret
 
 Den komplette søgning, nye resultatlagring, uafhængige søge-QA og oprindelige resultatforbruger har bestået på en fuld kendt testcase. Derefter er det første metadatafastlagte 2017-bånd analyseret i alle seks scanninger og genberegnet uafhængigt.
