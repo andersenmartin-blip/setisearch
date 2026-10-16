@@ -1,0 +1,110 @@
+{
+  "actual_output_bytes_before_final_receipt": 8893163,
+  "canonical_index": 3,
+  "identity": "SETI_REAL_FULLSCAN_DESCRIPTIVE_20261016_B03",
+  "known_whole_children_CPU_s": 293.168048,
+  "new_observation": false,
+  "original_A_B": "FAIL_CLOSED",
+  "phases": [
+    {
+      "log_receipt_bytes": 6744,
+      "output_bytes": 8857576,
+      "phase": "primary",
+      "receipt": {
+        "CPU_monitor_backend": "POSIX_PROCESS_CPU_CLOCK_BY_CHILD_PID",
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "/workspace/scratch/6ef1b336d8f4/source/analysis/real_fullscan_cohort_20261016/producer.py",
+          "--folder",
+          "/workspace/scratch/6ef1b336d8f4/work/SETI_REAL_FULLSCAN_COHORT_DESCRIPTIVE_20261016_V1/B03/observation",
+          "--scope",
+          "/workspace/scratch/6ef1b336d8f4/source/analysis/real_fullscan_cohort_20261016/scopes/B03.json",
+          "--scope-sha256",
+          "87befe82b23aa6d657f8a39e2c4949d490904b6568713518c655b356e7c619e0",
+          "--payload-cap",
+          "805306368"
+        ],
+        "errors": [],
+        "exit_code": 0,
+        "interruption": null,
+        "last_parent_CPU_sample_s": 171.163081798,
+        "launcher_verified": true,
+        "limits": {
+          "address_space_bytes": 1073741824,
+          "cpu_s": 600,
+          "kernel_CPU_hard_s": 599,
+          "parent_CPU_stop_s": 594.0,
+          "wall_s": 1800
+        },
+        "parent_CPU_samples": 16906,
+        "peak_RSS_bytes": 89149440,
+        "pid": 15,
+        "resource_acceptance": true,
+        "scientific_integrity_or_QA_or_admission_established": false,
+        "status": "RESOURCE_COMPLIANT_ONLY",
+        "wait4_reaped": true,
+        "wall_s": 171.8994897450002,
+        "watchdog_fired": false,
+        "watchdog_reason": null,
+        "whole_child_CPU_s": 171.171686
+      },
+      "report_sha256": "75a9847ac319f670d487828dfa12d16149c0c7b76952e35381582437afef19a7",
+      "reservations_refunded": false,
+      "status": "ACCEPTED_DESCRIPTIVE_PHASE_ONLY"
+    },
+    {
+      "log_receipt_bytes": 3394,
+      "output_bytes": 11350,
+      "phase": "qa",
+      "receipt": {
+        "CPU_monitor_backend": "POSIX_PROCESS_CPU_CLOCK_BY_CHILD_PID",
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "/workspace/scratch/6ef1b336d8f4/source/analysis/real_fullscan_cohort_20261016/verifier.py",
+          "--folder",
+          "/workspace/scratch/6ef1b336d8f4/work/SETI_REAL_FULLSCAN_COHORT_DESCRIPTIVE_20261016_V1/B03/observation",
+          "--report",
+          "/workspace/scratch/6ef1b336d8f4/work/SETI_REAL_FULLSCAN_COHORT_DESCRIPTIVE_20261016_V1/B03/QA_REPORT.json"
+        ],
+        "errors": [],
+        "exit_code": 0,
+        "interruption": null,
+        "last_parent_CPU_sample_s": 121.991371288,
+        "launcher_verified": true,
+        "limits": {
+          "address_space_bytes": 1073741824,
+          "cpu_s": 600,
+          "kernel_CPU_hard_s": 599,
+          "parent_CPU_stop_s": 594.0,
+          "wall_s": 1800
+        },
+        "parent_CPU_samples": 12019,
+        "peak_RSS_bytes": 101863424,
+        "pid": 26,
+        "resource_acceptance": true,
+        "scientific_integrity_or_QA_or_admission_established": false,
+        "status": "RESOURCE_COMPLIANT_ONLY",
+        "wait4_reaped": true,
+        "wall_s": 122.06523327600007,
+        "watchdog_fired": false,
+        "watchdog_reason": null,
+        "whole_child_CPU_s": 121.99636199999999
+      },
+      "report_sha256": "62d2d2c65691a1147bef3c8fff194d1e0d11ef0333c1b85b0a3ee7ab2569ec52",
+      "reservations_refunded": false,
+      "status": "ACCEPTED_DESCRIPTIVE_PHASE_ONLY"
+    }
+  ],
+  "qualified_SETI_detection": false,
+  "rank_status": "NOT_APPLIED_NO_CALIBRATION",
+  "reservations_refunded": false,
+  "resource_reservation": {
+    "CPU_s": 1300,
+    "output_bytes": 909115392
+  },
+  "scientific_bank_admission": false,
+  "scope_sha256": "87befe82b23aa6d657f8a39e2c4949d490904b6568713518c655b356e7c619e0",
+  "status": "COMPLETE_DESCRIPTIVE_REAL_FULLSCAN_QA_VERIFIED",
+  "unknown_CPU_measurement_count": 0,
+  "whole_children_CPU_s": 293.168048
+}

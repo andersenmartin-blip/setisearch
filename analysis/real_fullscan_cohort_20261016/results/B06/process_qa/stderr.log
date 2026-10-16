@@ -1,0 +1,25 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/6ef1b336d8f4/source/analysis/real_fullscan_cohort_20261016/verifier.py", line 558, in <module>
+    main()
+  File "/workspace/scratch/6ef1b336d8f4/source/analysis/real_fullscan_cohort_20261016/verifier.py", line 542, in main
+    verify(args.folder, args.report)
+  File "/workspace/scratch/6ef1b336d8f4/source/analysis/real_fullscan_cohort_20261016/verifier.py", line 442, in verify
+    raw = archive.load(('inputs', scan_id))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/6ef1b336d8f4/source/tools/science_payload_20261016/payload.py", line 345, in load
+    return self._decode(self._select(path))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/6ef1b336d8f4/source/tools/science_payload_20261016/payload.py", line 327, in _decode
+    result = self.array_store[value]
+             ~~~~~~~~~~~~~~~~^^^^^^^
+  File "/workspace/scratch/6ef1b336d8f4/source/tools/science_payload_20261016/payload.py", line 258, in __getitem__
+    value = arrays.load_typed_array(self.archive.folder / ARRAY_FILE, descriptor)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/6ef1b336d8f4/source/tools/fullcase_payload_20261015/array_adapter.py", line 88, in load_typed_array
+    with zipfile.ZipFile(path) as archive:
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/zipfile/__init__.py", line 1371, in __init__
+    self._RealGetContents()
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/zipfile/__init__.py", line 1438, in _RealGetContents
+    raise BadZipFile("File is not a zip file")
+zipfile.BadZipFile: File is not a zip file
