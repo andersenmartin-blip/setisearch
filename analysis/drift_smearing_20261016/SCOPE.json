@@ -1,0 +1,3940 @@
+{
+  "central_mask": "Mask the original nearest-even width1 native carrier in EVERY saved row, including every control offset and ON/OFF context; center index32 of65 sample spectrum.",
+  "controls": "Same fixed statistic at all nine offsets for all six contexts; retain signs and every result; controls dependent and selected origin targets postselected; no rank-as-pvalue.",
+  "counts": {
+    "context_profiles": 54,
+    "offset_contexts": 486,
+    "row_spectra": 7776,
+    "spectral_cells": 505440,
+    "tracks": 9
+  },
+  "created_utc": "2026-10-16T06:03:48.982720+00:00",
+  "interpretation": [
+    "Already exposed postselected 2017-04-28 visit; not an independent confirmation or newly admitted original sixscan science run.",
+    "Template describes a continuously emitting intrinsically one-channel uniform line with linear drift across each full integration.",
+    "Shorter-than-integration bursts can have narrower sweep; a weak neighboring score cannot rule them out.",
+    "Actual channel filter response and line variability may differ from this ideal convolution; no origin classification, pvalue, detection threshold, calibrated sensitivity or qualified OFF-veto.",
+    "Old retired or failed identities, A/B gates, closed2016/2019 routes and unknown prior outcomes remain unchanged."
+  ],
+  "kernel": {
+    "actual_instrumental_channel_response_measured": false,
+    "center": "source_reference_channel + original_drift_hz_s * original_times_from_primary_reference_s / df_hz + fixed_offset; binary64 original operation order",
+    "channel_mass": "CDF(j+0.5-center)-CDF(j-0.5-center) for convolution of two unit-area uniform densities",
+    "exposure_uniform_full_width_native_channels": "abs(original_drift_hz_s)*tsamp_s/abs(df_hz)",
+    "intrinsic_uniform_full_width_native_channels": 1.0,
+    "no_detector_retuning": true,
+    "phase_native_channels": 0.0
+  },
+  "limits": {
+    "CPU_s": 300,
+    "address_space_bytes": 2147483648,
+    "cost_DKK": 0,
+    "new_telescope_bytes": 0,
+    "new_telescope_requests": 0,
+    "wall_s": 600
+  },
+  "minimum_saved_raw_support_margin_channels": 1591,
+  "normalization": "Reuse original saved row_power_median, row_residual_MAD_scale, row_winsorized_residual_location; reconstruct local median501 directly on raw/level; no fitting or updating normalizations.",
+  "offset_channels": [
+    0,
+    -1024,
+    -768,
+    -512,
+    -256,
+    256,
+    512,
+    768,
+    1024
+  ],
+  "profiles": [
+    {
+      "context_scan_id": "epoch1_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -3.8987341772151898,
+      "normalization": {
+        "bytes": 42334,
+        "path": "seti_burst_full/context_results/epoch1_on_native171_q055_normalization.json",
+        "sha256": "9722922c2f9e8b8b1ae7fcdc3839d0b1c3e0a37047d557522c9e9036cdc18ace"
+      },
+      "normalization_crop_id": "epoch1_on_native171_q055",
+      "origin_rank": 1,
+      "origin_scan_id": "epoch1_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": 6.81276187394856,
+      "original_four_rows": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch1_on_rank1_epoch1_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch1_on_native171_q055_raw12096.npz",
+        "sha256": "995d6a72c69202f1665094dcf1dd2eeb6e2c5adcbae45f3925f6cace2e720ebe"
+      },
+      "source_channel_interval_half_open": [
+        179527776,
+        179539872
+      ],
+      "source_profile_id": "epoch1_on_rank1_epoch1_on",
+      "source_reference_channel": 179533853,
+      "times_from_primary_reference_s": [
+        -219.043332096,
+        -200.789721088,
+        -182.53611008000001,
+        -164.282499072,
+        -146.028888064,
+        -127.775277056,
+        -109.521666048,
+        -91.26805504000001,
+        -73.014444032,
+        -54.760833024,
+        -36.507222016,
+        -18.253611008,
+        0.0,
+        18.253611008,
+        36.507222016,
+        54.760833024
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch1_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -3.8987341772151898,
+      "normalization": {
+        "bytes": 42331,
+        "path": "seti_burst_full/context_results/epoch1_off_native171_q055_normalization.json",
+        "sha256": "f4a6ada4c475f97b0709a484304b385dd65cc99f0f5553a74ad84b273d1450dd"
+      },
+      "normalization_crop_id": "epoch1_off_native171_q055",
+      "origin_rank": 1,
+      "origin_scan_id": "epoch1_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": 0.5793930507264012,
+      "original_four_rows": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch1_on_rank1_epoch1_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch1_off_native171_q055_raw12096.npz",
+        "sha256": "2d8397b81bfd363eec4c8315180c17b3372dfa4f882e9b4b3ad553c450a6124f"
+      },
+      "source_channel_interval_half_open": [
+        179527776,
+        179539872
+      ],
+      "source_profile_id": "epoch1_on_rank1_epoch1_off",
+      "source_reference_channel": 179533853,
+      "times_from_primary_reference_s": [
+        127.9566679244891,
+        146.2102789324891,
+        164.46388994048908,
+        182.7175009484891,
+        200.9711119564891,
+        219.2247229644891,
+        237.4783339724891,
+        255.7319449804891,
+        273.98555598848907,
+        292.2391669964891,
+        310.4927780044891,
+        328.7463890124891,
+        347.0000000204891,
+        365.2536110284891,
+        383.5072220364891,
+        401.7608330444891
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch2_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -3.8987341772151898,
+      "normalization": {
+        "bytes": 42335,
+        "path": "seti_burst_full/context_results/epoch2_on_native171_q055_normalization.json",
+        "sha256": "da0344219f2ae60eaa9e385d5b083a778206717a6f220dd462edcab1045b1367"
+      },
+      "normalization_crop_id": "epoch2_on_native171_q055",
+      "origin_rank": 1,
+      "origin_scan_id": "epoch1_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": 0.4257462024252293,
+      "original_four_rows": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch1_on_rank1_epoch2_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch2_on_native171_q055_raw12096.npz",
+        "sha256": "cbe86291811c256441b311578b7eeed3093cfa2f45356597da5065842c71cc3d"
+      },
+      "source_channel_interval_half_open": [
+        179527776,
+        179539872
+      ],
+      "source_profile_id": "epoch1_on_rank1_epoch2_on",
+      "source_reference_channel": 179533853,
+      "times_from_primary_reference_s": [
+        474.9566679449782,
+        493.21027895297823,
+        511.4638899609782,
+        529.7175009689781,
+        547.9711119769781,
+        566.2247229849781,
+        584.4783339929782,
+        602.7319450009782,
+        620.9855560089782,
+        639.2391670169782,
+        657.4927780249782,
+        675.7463890329782,
+        694.0000000409782,
+        712.2536110489782,
+        730.5072220569782,
+        748.7608330649782
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch2_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -3.8987341772151898,
+      "normalization": {
+        "bytes": 42352,
+        "path": "seti_burst_full/context_results/epoch2_off_native171_q055_normalization.json",
+        "sha256": "9e86482c4a8ae5778ff397f5058f3b64d3372a04a8b9b91e37e190218db5fbb3"
+      },
+      "normalization_crop_id": "epoch2_off_native171_q055",
+      "origin_rank": 1,
+      "origin_scan_id": "epoch1_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": 0.10817117356830136,
+      "original_four_rows": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch1_on_rank1_epoch2_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch2_off_native171_q055_raw12096.npz",
+        "sha256": "97787f8876411ea5a3b5e59097f5e90b50d3a1b5de4dd2e203ff571003d9ebe2"
+      },
+      "source_channel_interval_half_open": [
+        179527776,
+        179539872
+      ],
+      "source_profile_id": "epoch1_on_rank1_epoch2_off",
+      "source_reference_channel": 179533853,
+      "times_from_primary_reference_s": [
+        819.9566681265861,
+        838.2102791345861,
+        856.463890142586,
+        874.717501150586,
+        892.971112158586,
+        911.224723166586,
+        929.478334174586,
+        947.7319451825861,
+        965.9855561905861,
+        984.2391671985861,
+        1002.4927782065861,
+        1020.7463892145861,
+        1039.000000222586,
+        1057.253611230586,
+        1075.507222238586,
+        1093.7608332465861
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch3_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -3.8987341772151898,
+      "normalization": {
+        "bytes": 42315,
+        "path": "seti_burst_full/context_results/epoch3_on_native171_q055_normalization.json",
+        "sha256": "1feec804d6fe6b5a0caf8a9871fa4b218e2d1f5b470e056fa47f15f47240b25a"
+      },
+      "normalization_crop_id": "epoch3_on_native171_q055",
+      "origin_rank": 1,
+      "origin_scan_id": "epoch1_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": 1.7216888809232498,
+      "original_four_rows": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch1_on_rank1_epoch3_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch3_on_native171_q055_raw12096.npz",
+        "sha256": "6f83e8008a066a744d05932838bc3e7a3ff17408eab8dd0467c0f75f5fa8f5e8"
+      },
+      "source_channel_interval_half_open": [
+        179527776,
+        179539872
+      ],
+      "source_profile_id": "epoch1_on_rank1_epoch3_on",
+      "source_reference_channel": 179533853,
+      "times_from_primary_reference_s": [
+        1163.956668074432,
+        1182.210279082432,
+        1200.463890090432,
+        1218.717501098432,
+        1236.971112106432,
+        1255.224723114432,
+        1273.478334122432,
+        1291.731945130432,
+        1309.985556138432,
+        1328.239167146432,
+        1346.492778154432,
+        1364.746389162432,
+        1383.000000170432,
+        1401.253611178432,
+        1419.507222186432,
+        1437.760833194432
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch3_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -3.8987341772151898,
+      "normalization": {
+        "bytes": 42366,
+        "path": "seti_burst_full/context_results/epoch3_off_native171_q055_normalization.json",
+        "sha256": "8b181e1237cd25dbd41b044419e2e8d831d2caad68edf3447f5b9219ef537578"
+      },
+      "normalization_crop_id": "epoch3_off_native171_q055",
+      "origin_rank": 1,
+      "origin_scan_id": "epoch1_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": -0.18454813595851138,
+      "original_four_rows": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch1_on_rank1_epoch3_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch3_off_native171_q055_raw12096.npz",
+        "sha256": "5173afa4e602f5ebfee8a62816fccedf24e05e30636f09fbf7bc8e97968ad9ce"
+      },
+      "source_channel_interval_half_open": [
+        179527776,
+        179539872
+      ],
+      "source_profile_id": "epoch1_on_rank1_epoch3_off",
+      "source_reference_channel": 179533853,
+      "times_from_primary_reference_s": [
+        1504.9566679496347,
+        1523.2102789576347,
+        1541.4638899656347,
+        1559.7175009736347,
+        1577.9711119816347,
+        1596.2247229896348,
+        1614.4783339976348,
+        1632.7319450056348,
+        1650.9855560136348,
+        1669.2391670216348,
+        1687.4927780296348,
+        1705.7463890376348,
+        1724.0000000456348,
+        1742.2536110536348,
+        1760.5072220616348,
+        1778.7608330696348
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch1_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -1.9746835443037973,
+      "normalization": {
+        "bytes": 42360,
+        "path": "seti_burst_full/context_results/epoch1_on_native172_q168_normalization.json",
+        "sha256": "1641b7f1a9054e4b3f3f1014d38b075ce82fefba06cc426c6dff0de8f8747fe3"
+      },
+      "normalization_crop_id": "epoch1_on_native172_q168",
+      "origin_rank": 2,
+      "origin_scan_id": "epoch1_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": 6.744084984219587,
+      "original_four_rows": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch1_on_rank2_epoch1_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch1_on_native172_q168_raw12096.npz",
+        "sha256": "0ec5a65a267a70cff66929838435956a752a4cdb65a17987fc0c110ba3e3dbcb"
+      },
+      "source_channel_interval_half_open": [
+        181039200,
+        181051296
+      ],
+      "source_profile_id": "epoch1_on_rank2_epoch1_on",
+      "source_reference_channel": 181045808,
+      "times_from_primary_reference_s": [
+        0.0,
+        18.253611008,
+        36.507222016,
+        54.760833024,
+        73.014444032,
+        91.26805504000001,
+        109.521666048,
+        127.775277056,
+        146.028888064,
+        164.282499072,
+        182.53611008000001,
+        200.789721088,
+        219.043332096,
+        237.296943104,
+        255.550554112,
+        273.80416512
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch1_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -1.9746835443037973,
+      "normalization": {
+        "bytes": 42380,
+        "path": "seti_burst_full/context_results/epoch1_off_native172_q168_normalization.json",
+        "sha256": "f4e5cdadfaf27101ec6f5d528b2502f1fe9ac66559b27b64c7c96670348367d8"
+      },
+      "normalization_crop_id": "epoch1_off_native172_q168",
+      "origin_rank": 2,
+      "origin_scan_id": "epoch1_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": 1.054889668366833,
+      "original_four_rows": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch1_on_rank2_epoch1_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch1_off_native172_q168_raw12096.npz",
+        "sha256": "406c25b517ec534394f3a07e375bab92551e84c7a0b41cd7d6befd639a756b14"
+      },
+      "source_channel_interval_half_open": [
+        181039200,
+        181051296
+      ],
+      "source_profile_id": "epoch1_on_rank2_epoch1_off",
+      "source_reference_channel": 181045808,
+      "times_from_primary_reference_s": [
+        347.0000000204891,
+        365.2536110284891,
+        383.5072220364891,
+        401.7608330444891,
+        420.0144440524891,
+        438.26805506048913,
+        456.5216660684891,
+        474.7752770764891,
+        493.0288880844891,
+        511.2824990924891,
+        529.5361101004892,
+        547.7897211084891,
+        566.0433321164891,
+        584.2969431244891,
+        602.5505541324891,
+        620.8041651404891
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch2_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -1.9746835443037973,
+      "normalization": {
+        "bytes": 42315,
+        "path": "seti_burst_full/context_results/epoch2_on_native172_q168_normalization.json",
+        "sha256": "d996c4a282dcbbce31cc82e03bac1803b97098a414ec22eb4de2f5e74023c7ac"
+      },
+      "normalization_crop_id": "epoch2_on_native172_q168",
+      "origin_rank": 2,
+      "origin_scan_id": "epoch1_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": 0.7686956857068912,
+      "original_four_rows": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch1_on_rank2_epoch2_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch2_on_native172_q168_raw12096.npz",
+        "sha256": "14fecbe2b14a4bd06ca8cf6f6622b1f9290ad12a14da9ce6913ad8241b2c2a0a"
+      },
+      "source_channel_interval_half_open": [
+        181039200,
+        181051296
+      ],
+      "source_profile_id": "epoch1_on_rank2_epoch2_on",
+      "source_reference_channel": 181045808,
+      "times_from_primary_reference_s": [
+        694.0000000409782,
+        712.2536110489782,
+        730.5072220569782,
+        748.7608330649782,
+        767.0144440729782,
+        785.2680550809782,
+        803.5216660889782,
+        821.7752770969782,
+        840.0288881049783,
+        858.2824991129783,
+        876.5361101209783,
+        894.7897211289782,
+        913.0433321369782,
+        931.2969431449782,
+        949.5505541529782,
+        967.8041651609782
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch2_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -1.9746835443037973,
+      "normalization": {
+        "bytes": 42379,
+        "path": "seti_burst_full/context_results/epoch2_off_native172_q168_normalization.json",
+        "sha256": "542fcd3a911cce7fbc1cfb1a1a9d5b5194fdfb37082237a2bddb8b98a5e9bb73"
+      },
+      "normalization_crop_id": "epoch2_off_native172_q168",
+      "origin_rank": 2,
+      "origin_scan_id": "epoch1_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": 0.5960086340102191,
+      "original_four_rows": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch1_on_rank2_epoch2_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch2_off_native172_q168_raw12096.npz",
+        "sha256": "a966fd9af0b9f63ef0502436469e92968ea6c2b00dce7236fc0f6e51ebfbaddc"
+      },
+      "source_channel_interval_half_open": [
+        181039200,
+        181051296
+      ],
+      "source_profile_id": "epoch1_on_rank2_epoch2_off",
+      "source_reference_channel": 181045808,
+      "times_from_primary_reference_s": [
+        1039.000000222586,
+        1057.253611230586,
+        1075.507222238586,
+        1093.7608332465861,
+        1112.0144442545861,
+        1130.2680552625861,
+        1148.5216662705861,
+        1166.7752772785861,
+        1185.0288882865862,
+        1203.2824992945862,
+        1221.5361103025862,
+        1239.7897213105862,
+        1258.0433323185862,
+        1276.2969433265862,
+        1294.5505543345862,
+        1312.8041653425862
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch3_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -1.9746835443037973,
+      "normalization": {
+        "bytes": 42337,
+        "path": "seti_burst_full/context_results/epoch3_on_native172_q168_normalization.json",
+        "sha256": "6bfb700c5adc7141bd9c2f572f30922e261876c61fb4208c7199f0e0e43e05b1"
+      },
+      "normalization_crop_id": "epoch3_on_native172_q168",
+      "origin_rank": 2,
+      "origin_scan_id": "epoch1_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": 0.8127504612941214,
+      "original_four_rows": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch1_on_rank2_epoch3_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch3_on_native172_q168_raw12096.npz",
+        "sha256": "1d3d39cbf22eae28ae44ac0ec5a7f4a9437e41605694bc8fffba449244ec0315"
+      },
+      "source_channel_interval_half_open": [
+        181039200,
+        181051296
+      ],
+      "source_profile_id": "epoch1_on_rank2_epoch3_on",
+      "source_reference_channel": 181045808,
+      "times_from_primary_reference_s": [
+        1383.000000170432,
+        1401.253611178432,
+        1419.507222186432,
+        1437.760833194432,
+        1456.014444202432,
+        1474.268055210432,
+        1492.521666218432,
+        1510.775277226432,
+        1529.028888234432,
+        1547.282499242432,
+        1565.536110250432,
+        1583.789721258432,
+        1602.0433322664321,
+        1620.2969432744321,
+        1638.5505542824321,
+        1656.8041652904321
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch3_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -1.9746835443037973,
+      "normalization": {
+        "bytes": 42411,
+        "path": "seti_burst_full/context_results/epoch3_off_native172_q168_normalization.json",
+        "sha256": "6c7c3e7e0ff6b1f2fbea0726927bfbabdc9716dcdd8d01500a4bab5fac7740f7"
+      },
+      "normalization_crop_id": "epoch3_off_native172_q168",
+      "origin_rank": 2,
+      "origin_scan_id": "epoch1_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": -0.20520592667670934,
+      "original_four_rows": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch1_on_rank2_epoch3_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch3_off_native172_q168_raw12096.npz",
+        "sha256": "cdbf7a7bf5e226cdbdc0548c57ecb6f9bd85729e9a11aa3f7ccc9981bae783f6"
+      },
+      "source_channel_interval_half_open": [
+        181039200,
+        181051296
+      ],
+      "source_profile_id": "epoch1_on_rank2_epoch3_off",
+      "source_reference_channel": 181045808,
+      "times_from_primary_reference_s": [
+        1724.0000000456348,
+        1742.2536110536348,
+        1760.5072220616348,
+        1778.7608330696348,
+        1797.0144440776348,
+        1815.2680550856348,
+        1833.5216660936348,
+        1851.7752771016349,
+        1870.0288881096349,
+        1888.2824991176349,
+        1906.5361101256349,
+        1924.7897211336349,
+        1943.043332141635,
+        1961.296943149635,
+        1979.550554157635,
+        1997.804165165635
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch1_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -0.5063291139240507,
+      "normalization": {
+        "bytes": 42373,
+        "path": "seti_burst_full/context_results/epoch1_on_native171_q231_normalization.json",
+        "sha256": "0f1af533e009af2d9f70fe0b4c29f00e4a9ad36a03be4177165cd055b7768548"
+      },
+      "normalization_crop_id": "epoch1_on_native171_q231",
+      "origin_rank": 3,
+      "origin_scan_id": "epoch1_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": 6.63849134990182,
+      "original_four_rows": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch1_on_rank3_epoch1_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch1_on_native171_q231_raw12096.npz",
+        "sha256": "738ca6323676e8abda7fec75e16121c048071b0d02589f2a6692818159b1bc69"
+      },
+      "source_channel_interval_half_open": [
+        180248672,
+        180260768
+      ],
+      "source_profile_id": "epoch1_on_rank3_epoch1_on",
+      "source_reference_channel": 180253907,
+      "times_from_primary_reference_s": [
+        0.0,
+        18.253611008,
+        36.507222016,
+        54.760833024,
+        73.014444032,
+        91.26805504000001,
+        109.521666048,
+        127.775277056,
+        146.028888064,
+        164.282499072,
+        182.53611008000001,
+        200.789721088,
+        219.043332096,
+        237.296943104,
+        255.550554112,
+        273.80416512
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch1_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -0.5063291139240507,
+      "normalization": {
+        "bytes": 42327,
+        "path": "seti_burst_full/context_results/epoch1_off_native171_q231_normalization.json",
+        "sha256": "4498c606af7ebfde5497a5731a0a11a730927c27608b45dd481990af0c777ba8"
+      },
+      "normalization_crop_id": "epoch1_off_native171_q231",
+      "origin_rank": 3,
+      "origin_scan_id": "epoch1_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": -0.4099308122444847,
+      "original_four_rows": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch1_on_rank3_epoch1_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch1_off_native171_q231_raw12096.npz",
+        "sha256": "ef21c3c3a9a0b9c524af5df3e34b41209ba07aba14cf116f4759c6fe811222c4"
+      },
+      "source_channel_interval_half_open": [
+        180248672,
+        180260768
+      ],
+      "source_profile_id": "epoch1_on_rank3_epoch1_off",
+      "source_reference_channel": 180253907,
+      "times_from_primary_reference_s": [
+        347.0000000204891,
+        365.2536110284891,
+        383.5072220364891,
+        401.7608330444891,
+        420.0144440524891,
+        438.26805506048913,
+        456.5216660684891,
+        474.7752770764891,
+        493.0288880844891,
+        511.2824990924891,
+        529.5361101004892,
+        547.7897211084891,
+        566.0433321164891,
+        584.2969431244891,
+        602.5505541324891,
+        620.8041651404891
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch2_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -0.5063291139240507,
+      "normalization": {
+        "bytes": 42342,
+        "path": "seti_burst_full/context_results/epoch2_on_native171_q231_normalization.json",
+        "sha256": "59fdc8da6b39925e827efdb670b63fc48898a32f48b9d762588fc269a5836755"
+      },
+      "normalization_crop_id": "epoch2_on_native171_q231",
+      "origin_rank": 3,
+      "origin_scan_id": "epoch1_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": 2.0424949705609654,
+      "original_four_rows": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch1_on_rank3_epoch2_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch2_on_native171_q231_raw12096.npz",
+        "sha256": "42aa1365198e8e035999345cd6888b2a2ecddf64e1a90a2e30b598412337abb6"
+      },
+      "source_channel_interval_half_open": [
+        180248672,
+        180260768
+      ],
+      "source_profile_id": "epoch1_on_rank3_epoch2_on",
+      "source_reference_channel": 180253907,
+      "times_from_primary_reference_s": [
+        694.0000000409782,
+        712.2536110489782,
+        730.5072220569782,
+        748.7608330649782,
+        767.0144440729782,
+        785.2680550809782,
+        803.5216660889782,
+        821.7752770969782,
+        840.0288881049783,
+        858.2824991129783,
+        876.5361101209783,
+        894.7897211289782,
+        913.0433321369782,
+        931.2969431449782,
+        949.5505541529782,
+        967.8041651609782
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch2_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -0.5063291139240507,
+      "normalization": {
+        "bytes": 42298,
+        "path": "seti_burst_full/context_results/epoch2_off_native171_q231_normalization.json",
+        "sha256": "fc228e09271d5ed00225124758035c8b7dff47d0a53a3ea686b9cb94e74c6719"
+      },
+      "normalization_crop_id": "epoch2_off_native171_q231",
+      "origin_rank": 3,
+      "origin_scan_id": "epoch1_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": 1.3012477858493146,
+      "original_four_rows": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch1_on_rank3_epoch2_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch2_off_native171_q231_raw12096.npz",
+        "sha256": "5a6771bc7a5895558f338ef1b4655800a507c7081d1501e5bb373a4d9741cc90"
+      },
+      "source_channel_interval_half_open": [
+        180248672,
+        180260768
+      ],
+      "source_profile_id": "epoch1_on_rank3_epoch2_off",
+      "source_reference_channel": 180253907,
+      "times_from_primary_reference_s": [
+        1039.000000222586,
+        1057.253611230586,
+        1075.507222238586,
+        1093.7608332465861,
+        1112.0144442545861,
+        1130.2680552625861,
+        1148.5216662705861,
+        1166.7752772785861,
+        1185.0288882865862,
+        1203.2824992945862,
+        1221.5361103025862,
+        1239.7897213105862,
+        1258.0433323185862,
+        1276.2969433265862,
+        1294.5505543345862,
+        1312.8041653425862
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch3_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -0.5063291139240507,
+      "normalization": {
+        "bytes": 42301,
+        "path": "seti_burst_full/context_results/epoch3_on_native171_q231_normalization.json",
+        "sha256": "e0758c4c869e989a22d9c1d7f3be50c0b823eee7f08be2bd74d4ec130c3f0af9"
+      },
+      "normalization_crop_id": "epoch3_on_native171_q231",
+      "origin_rank": 3,
+      "origin_scan_id": "epoch1_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": -0.1962928949879037,
+      "original_four_rows": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch1_on_rank3_epoch3_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch3_on_native171_q231_raw12096.npz",
+        "sha256": "6547126cdca161f299fe6c853e6cd7dd992cca102e500f9b7338483df1be1f43"
+      },
+      "source_channel_interval_half_open": [
+        180248672,
+        180260768
+      ],
+      "source_profile_id": "epoch1_on_rank3_epoch3_on",
+      "source_reference_channel": 180253907,
+      "times_from_primary_reference_s": [
+        1383.000000170432,
+        1401.253611178432,
+        1419.507222186432,
+        1437.760833194432,
+        1456.014444202432,
+        1474.268055210432,
+        1492.521666218432,
+        1510.775277226432,
+        1529.028888234432,
+        1547.282499242432,
+        1565.536110250432,
+        1583.789721258432,
+        1602.0433322664321,
+        1620.2969432744321,
+        1638.5505542824321,
+        1656.8041652904321
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch3_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -0.5063291139240507,
+      "normalization": {
+        "bytes": 42369,
+        "path": "seti_burst_full/context_results/epoch3_off_native171_q231_normalization.json",
+        "sha256": "1dfbfcdab83594f19c4a4996c118022d9b2c4b8b6559edaf7d044178ba323ec3"
+      },
+      "normalization_crop_id": "epoch3_off_native171_q231",
+      "origin_rank": 3,
+      "origin_scan_id": "epoch1_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": -0.49200382812324495,
+      "original_four_rows": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch1_on_rank3_epoch3_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch3_off_native171_q231_raw12096.npz",
+        "sha256": "cc7b9d1875b968650a0637c97a4cbee29552e996a0fad0ef03e5a2dd3dc61372"
+      },
+      "source_channel_interval_half_open": [
+        180248672,
+        180260768
+      ],
+      "source_profile_id": "epoch1_on_rank3_epoch3_off",
+      "source_reference_channel": 180253907,
+      "times_from_primary_reference_s": [
+        1724.0000000456348,
+        1742.2536110536348,
+        1760.5072220616348,
+        1778.7608330696348,
+        1797.0144440776348,
+        1815.2680550856348,
+        1833.5216660936348,
+        1851.7752771016349,
+        1870.0288881096349,
+        1888.2824991176349,
+        1906.5361101256349,
+        1924.7897211336349,
+        1943.043332141635,
+        1961.296943149635,
+        1979.550554157635,
+        1997.804165165635
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch1_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -2.8354430379746836,
+      "normalization": {
+        "bytes": 42370,
+        "path": "seti_burst_full/context_results/epoch1_on_native172_q048_normalization.json",
+        "sha256": "fb0fd47a225ef6615a0fbdf9c1250d91427019b73be068317fee1aa57ffafc7f"
+      },
+      "normalization_crop_id": "epoch1_on_native172_q048",
+      "origin_rank": 1,
+      "origin_scan_id": "epoch2_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": 0.9659185451094007,
+      "original_four_rows": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch2_on_rank1_epoch1_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch1_on_native172_q048_raw12096.npz",
+        "sha256": "9a84508e0fb6aa7e8e058271e507fdf8b52bbf5ec25b3f37c13129e09f5079d9"
+      },
+      "source_channel_interval_half_open": [
+        180547680,
+        180559776
+      ],
+      "source_profile_id": "epoch2_on_rank1_epoch1_on",
+      "source_reference_channel": 180555041,
+      "times_from_primary_reference_s": [
+        -767.0144440729782,
+        -748.7608330649782,
+        -730.5072220569782,
+        -712.2536110489782,
+        -694.0000000409782,
+        -675.7463890329782,
+        -657.4927780249782,
+        -639.2391670169782,
+        -620.9855560089782,
+        -602.7319450009782,
+        -584.4783339929782,
+        -566.2247229849781,
+        -547.9711119769781,
+        -529.7175009689781,
+        -511.4638899609782,
+        -493.21027895297823
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch1_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -2.8354430379746836,
+      "normalization": {
+        "bytes": 42323,
+        "path": "seti_burst_full/context_results/epoch1_off_native172_q048_normalization.json",
+        "sha256": "363dd8aff6df7e2a0cad9298420c61a7f3979a0717ed014d02e0ec40fef9be0c"
+      },
+      "normalization_crop_id": "epoch1_off_native172_q048",
+      "origin_rank": 1,
+      "origin_scan_id": "epoch2_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": 1.711453282922174,
+      "original_four_rows": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch2_on_rank1_epoch1_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch1_off_native172_q048_raw12096.npz",
+        "sha256": "1bc5b807ad7358965a41c1abe1d9c5ee8db3a34687eb031132ffd000c92330e6"
+      },
+      "source_channel_interval_half_open": [
+        180547680,
+        180559776
+      ],
+      "source_profile_id": "epoch2_on_rank1_epoch1_off",
+      "source_reference_channel": 180555041,
+      "times_from_primary_reference_s": [
+        -420.0144440524891,
+        -401.7608330444891,
+        -383.5072220364891,
+        -365.2536110284891,
+        -347.0000000204891,
+        -328.7463890124891,
+        -310.4927780044891,
+        -292.2391669964891,
+        -273.98555598848907,
+        -255.7319449804891,
+        -237.4783339724891,
+        -219.2247229644891,
+        -200.9711119564891,
+        -182.7175009484891,
+        -164.46388994048908,
+        -146.2102789324891
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch2_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -2.8354430379746836,
+      "normalization": {
+        "bytes": 42354,
+        "path": "seti_burst_full/context_results/epoch2_on_native172_q048_normalization.json",
+        "sha256": "441f36f7c50f6ca9f8edb9d79b910c7248212b14b98b641099968ea84ce78e94"
+      },
+      "normalization_crop_id": "epoch2_on_native172_q048",
+      "origin_rank": 1,
+      "origin_scan_id": "epoch2_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": 6.996867083638441,
+      "original_four_rows": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch2_on_rank1_epoch2_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch2_on_native172_q048_raw12096.npz",
+        "sha256": "1c6cbeeeffba66afaba7407ffe542ab0957129cf007770f12dd494a76420a374"
+      },
+      "source_channel_interval_half_open": [
+        180547680,
+        180559776
+      ],
+      "source_profile_id": "epoch2_on_rank1_epoch2_on",
+      "source_reference_channel": 180555041,
+      "times_from_primary_reference_s": [
+        -73.014444032,
+        -54.760833024,
+        -36.507222016,
+        -18.253611008,
+        0.0,
+        18.253611008,
+        36.507222016,
+        54.760833024,
+        73.014444032,
+        91.26805504000001,
+        109.521666048,
+        127.775277056,
+        146.028888064,
+        164.282499072,
+        182.53611008000001,
+        200.789721088
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch2_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -2.8354430379746836,
+      "normalization": {
+        "bytes": 42274,
+        "path": "seti_burst_full/context_results/epoch2_off_native172_q048_normalization.json",
+        "sha256": "6cc762a11d23b1b561b83d551543c7258e3d8bf4392256b9a73fe21bdbbbf7ed"
+      },
+      "normalization_crop_id": "epoch2_off_native172_q048",
+      "origin_rank": 1,
+      "origin_scan_id": "epoch2_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": -0.09520364096586129,
+      "original_four_rows": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch2_on_rank1_epoch2_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch2_off_native172_q048_raw12096.npz",
+        "sha256": "2e7703069cb6ff51c4586a09f3165cf9abda5102291a75f91532de2e0a3d37ec"
+      },
+      "source_channel_interval_half_open": [
+        180547680,
+        180559776
+      ],
+      "source_profile_id": "epoch2_on_rank1_epoch2_off",
+      "source_reference_channel": 180555041,
+      "times_from_primary_reference_s": [
+        271.9855561496079,
+        290.2391671576079,
+        308.4927781656079,
+        326.7463891736079,
+        345.0000001816079,
+        363.2536111896079,
+        381.5072221976079,
+        399.7608332056079,
+        418.01444421360793,
+        436.26805522160794,
+        454.5216662296079,
+        472.7752772376079,
+        491.0288882456079,
+        509.2824992536079,
+        527.536110261608,
+        545.7897212696079
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch3_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -2.8354430379746836,
+      "normalization": {
+        "bytes": 42351,
+        "path": "seti_burst_full/context_results/epoch3_on_native172_q048_normalization.json",
+        "sha256": "301c31b21516ce776df97416cc84275132fb74276a953de529ed57cc0424cb46"
+      },
+      "normalization_crop_id": "epoch3_on_native172_q048",
+      "origin_rank": 1,
+      "origin_scan_id": "epoch2_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": 0.4386664214779443,
+      "original_four_rows": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch2_on_rank1_epoch3_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch3_on_native172_q048_raw12096.npz",
+        "sha256": "0e2543ac80d1f5559b52a61b06f65f4d4e9b0f2805903ab8ebfe8a79f90e9cf0"
+      },
+      "source_channel_interval_half_open": [
+        180547680,
+        180559776
+      ],
+      "source_profile_id": "epoch2_on_rank1_epoch3_on",
+      "source_reference_channel": 180555041,
+      "times_from_primary_reference_s": [
+        615.9855560974538,
+        634.2391671054538,
+        652.4927781134538,
+        670.7463891214538,
+        689.0000001294538,
+        707.2536111374538,
+        725.5072221454539,
+        743.7608331534539,
+        762.0144441614539,
+        780.2680551694539,
+        798.5216661774539,
+        816.7752771854539,
+        835.0288881934539,
+        853.2824992014539,
+        871.5361102094539,
+        889.7897212174538
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch3_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -2.8354430379746836,
+      "normalization": {
+        "bytes": 42413,
+        "path": "seti_burst_full/context_results/epoch3_off_native172_q048_normalization.json",
+        "sha256": "a3d9577a6c61e5918fed8cedf36f1e0b3263c1c3dfa7865666aeae8898969d34"
+      },
+      "normalization_crop_id": "epoch3_off_native172_q048",
+      "origin_rank": 1,
+      "origin_scan_id": "epoch2_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": 1.912705220825031,
+      "original_four_rows": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch2_on_rank1_epoch3_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch3_off_native172_q048_raw12096.npz",
+        "sha256": "5fb44a9739f848b6eb34fd56e89f31e860d69ce05b0d5cd8fbfbb0a131a4fc8e"
+      },
+      "source_channel_interval_half_open": [
+        180547680,
+        180559776
+      ],
+      "source_profile_id": "epoch2_on_rank1_epoch3_off",
+      "source_reference_channel": 180555041,
+      "times_from_primary_reference_s": [
+        956.9855559726566,
+        975.2391669806566,
+        993.4927779886566,
+        1011.7463889966566,
+        1030.0000000046566,
+        1048.2536110126566,
+        1066.5072220206566,
+        1084.7608330286566,
+        1103.0144440366566,
+        1121.2680550446566,
+        1139.5216660526567,
+        1157.7752770606567,
+        1176.0288880686567,
+        1194.2824990766567,
+        1212.5361100846567,
+        1230.7897210926567
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch1_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": 3.6962025316455698,
+      "normalization": {
+        "bytes": 42317,
+        "path": "seti_burst_full/context_results/epoch1_on_native170_q131_normalization.json",
+        "sha256": "941374d6f0d6b985b45a82e04be204af763f43999ad5487b0109d12bb0ee2152"
+      },
+      "normalization_crop_id": "epoch1_on_native170_q131",
+      "origin_rank": 2,
+      "origin_scan_id": "epoch2_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": 0.8874705343667739,
+      "original_four_rows": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch2_on_rank2_epoch1_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch1_on_native170_q131_raw12096.npz",
+        "sha256": "e98a0cee33a4c0b249ba363e623354176c7e6fc745dc151b41ec717a7e5f55d3"
+      },
+      "source_channel_interval_half_open": [
+        178790496,
+        178802592
+      ],
+      "source_profile_id": "epoch2_on_rank2_epoch1_on",
+      "source_reference_channel": 178798486,
+      "times_from_primary_reference_s": [
+        -913.0433321369782,
+        -894.7897211289782,
+        -876.5361101209783,
+        -858.2824991129783,
+        -840.0288881049783,
+        -821.7752770969782,
+        -803.5216660889782,
+        -785.2680550809782,
+        -767.0144440729782,
+        -748.7608330649782,
+        -730.5072220569782,
+        -712.2536110489782,
+        -694.0000000409782,
+        -675.7463890329782,
+        -657.4927780249782,
+        -639.2391670169782
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch1_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": 3.6962025316455698,
+      "normalization": {
+        "bytes": 42335,
+        "path": "seti_burst_full/context_results/epoch1_off_native170_q131_normalization.json",
+        "sha256": "d5ea83c3e481eafd83785a5fedf39620f3d94104556b0bdf9810e33bd9730b95"
+      },
+      "normalization_crop_id": "epoch1_off_native170_q131",
+      "origin_rank": 2,
+      "origin_scan_id": "epoch2_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": -0.5781698746990536,
+      "original_four_rows": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch2_on_rank2_epoch1_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch1_off_native170_q131_raw12096.npz",
+        "sha256": "b61d699b8113ee68cbfaf62d28135fb3b46eaa7fc2d5bf981cceaf8c61103879"
+      },
+      "source_channel_interval_half_open": [
+        178790496,
+        178802592
+      ],
+      "source_profile_id": "epoch2_on_rank2_epoch1_off",
+      "source_reference_channel": 178798486,
+      "times_from_primary_reference_s": [
+        -566.0433321164891,
+        -547.7897211084891,
+        -529.5361101004892,
+        -511.2824990924891,
+        -493.0288880844891,
+        -474.7752770764891,
+        -456.5216660684891,
+        -438.26805506048913,
+        -420.0144440524891,
+        -401.7608330444891,
+        -383.5072220364891,
+        -365.2536110284891,
+        -347.0000000204891,
+        -328.7463890124891,
+        -310.4927780044891,
+        -292.2391669964891
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch2_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": 3.6962025316455698,
+      "normalization": {
+        "bytes": 42303,
+        "path": "seti_burst_full/context_results/epoch2_on_native170_q131_normalization.json",
+        "sha256": "cd3a141413212b1d66cd8c06ff0389c1f262dbf2b83b90e6c3881ed4bd1ed718"
+      },
+      "normalization_crop_id": "epoch2_on_native170_q131",
+      "origin_rank": 2,
+      "origin_scan_id": "epoch2_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": 6.9619461743803495,
+      "original_four_rows": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch2_on_rank2_epoch2_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch2_on_native170_q131_raw12096.npz",
+        "sha256": "d1d7470ff2a083abb30932ac6f9febc8631eb14e8b50c35ad10ba86c2a7395c9"
+      },
+      "source_channel_interval_half_open": [
+        178790496,
+        178802592
+      ],
+      "source_profile_id": "epoch2_on_rank2_epoch2_on",
+      "source_reference_channel": 178798486,
+      "times_from_primary_reference_s": [
+        -219.043332096,
+        -200.789721088,
+        -182.53611008000001,
+        -164.282499072,
+        -146.028888064,
+        -127.775277056,
+        -109.521666048,
+        -91.26805504000001,
+        -73.014444032,
+        -54.760833024,
+        -36.507222016,
+        -18.253611008,
+        0.0,
+        18.253611008,
+        36.507222016,
+        54.760833024
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch2_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": 3.6962025316455698,
+      "normalization": {
+        "bytes": 42281,
+        "path": "seti_burst_full/context_results/epoch2_off_native170_q131_normalization.json",
+        "sha256": "159478fbaeec200a59e4d82c0d85c3e8261677ad571a5171c46476d1f06b8754"
+      },
+      "normalization_crop_id": "epoch2_off_native170_q131",
+      "origin_rank": 2,
+      "origin_scan_id": "epoch2_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": -1.224634275765646,
+      "original_four_rows": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch2_on_rank2_epoch2_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch2_off_native170_q131_raw12096.npz",
+        "sha256": "abf5aba13a5ef886737d7a00c0e6d7d4f7b1d1e851769d0863d027c5b4a2b211"
+      },
+      "source_channel_interval_half_open": [
+        178790496,
+        178802592
+      ],
+      "source_profile_id": "epoch2_on_rank2_epoch2_off",
+      "source_reference_channel": 178798486,
+      "times_from_primary_reference_s": [
+        125.9566680856079,
+        144.2102790936079,
+        162.4638901016079,
+        180.7175011096079,
+        198.9711121176079,
+        217.2247231256079,
+        235.47833413360792,
+        253.7319451416079,
+        271.9855561496079,
+        290.2391671576079,
+        308.4927781656079,
+        326.7463891736079,
+        345.0000001816079,
+        363.2536111896079,
+        381.5072221976079,
+        399.7608332056079
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch3_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": 3.6962025316455698,
+      "normalization": {
+        "bytes": 42312,
+        "path": "seti_burst_full/context_results/epoch3_on_native170_q131_normalization.json",
+        "sha256": "8022a09be65b4af556171a1aaf8e6563f9dc50dd6cbae11529ae490b665a840f"
+      },
+      "normalization_crop_id": "epoch3_on_native170_q131",
+      "origin_rank": 2,
+      "origin_scan_id": "epoch2_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": -0.7605544553374316,
+      "original_four_rows": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch2_on_rank2_epoch3_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch3_on_native170_q131_raw12096.npz",
+        "sha256": "666eac7fd0c8cdf49265c8d21626d7132f4c914052be8644f014c5206a082e33"
+      },
+      "source_channel_interval_half_open": [
+        178790496,
+        178802592
+      ],
+      "source_profile_id": "epoch2_on_rank2_epoch3_on",
+      "source_reference_channel": 178798486,
+      "times_from_primary_reference_s": [
+        469.95666803345387,
+        488.2102790414539,
+        506.4638900494538,
+        524.7175010574538,
+        542.9711120654538,
+        561.2247230734538,
+        579.4783340814538,
+        597.7319450894538,
+        615.9855560974538,
+        634.2391671054538,
+        652.4927781134538,
+        670.7463891214538,
+        689.0000001294538,
+        707.2536111374538,
+        725.5072221454539,
+        743.7608331534539
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch3_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": 3.6962025316455698,
+      "normalization": {
+        "bytes": 42350,
+        "path": "seti_burst_full/context_results/epoch3_off_native170_q131_normalization.json",
+        "sha256": "4db435b78f445474849d1d215afd499493502cf12fed15300c496371ee003483"
+      },
+      "normalization_crop_id": "epoch3_off_native170_q131",
+      "origin_rank": 2,
+      "origin_scan_id": "epoch2_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": 2.1876702041331377,
+      "original_four_rows": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch2_on_rank2_epoch3_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch3_off_native170_q131_raw12096.npz",
+        "sha256": "90a3bbbd0358c031df79421254cbd09eb2f594b18a0732e82712f54ec8cf061f"
+      },
+      "source_channel_interval_half_open": [
+        178790496,
+        178802592
+      ],
+      "source_profile_id": "epoch2_on_rank2_epoch3_off",
+      "source_reference_channel": 178798486,
+      "times_from_primary_reference_s": [
+        810.9566679086566,
+        829.2102789166566,
+        847.4638899246565,
+        865.7175009326565,
+        883.9711119406566,
+        902.2247229486566,
+        920.4783339566566,
+        938.7319449646566,
+        956.9855559726566,
+        975.2391669806566,
+        993.4927779886566,
+        1011.7463889966566,
+        1030.0000000046566,
+        1048.2536110126566,
+        1066.5072220206566,
+        1084.7608330286566
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch1_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -0.9620253164556964,
+      "normalization": {
+        "bytes": 42357,
+        "path": "seti_burst_full/context_results/epoch1_on_native170_q252_normalization.json",
+        "sha256": "c30c54082c89ea0e8b226f6f47a399920ec0a8455cee0699443a982dc9a87e6e"
+      },
+      "normalization_crop_id": "epoch1_on_native170_q252",
+      "origin_rank": 3,
+      "origin_scan_id": "epoch2_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": 0.18347682574823534,
+      "original_four_rows": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch2_on_rank3_epoch1_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch1_on_native170_q252_raw12096.npz",
+        "sha256": "d909b40e348fe2b073d21a73c1c445b1ba6ffbfce8acbda1d621b70d646c2b7d"
+      },
+      "source_channel_interval_half_open": [
+        179286112,
+        179298208
+      ],
+      "source_profile_id": "epoch2_on_rank3_epoch1_on",
+      "source_reference_channel": 179291547,
+      "times_from_primary_reference_s": [
+        -840.0288881049783,
+        -821.7752770969782,
+        -803.5216660889782,
+        -785.2680550809782,
+        -767.0144440729782,
+        -748.7608330649782,
+        -730.5072220569782,
+        -712.2536110489782,
+        -694.0000000409782,
+        -675.7463890329782,
+        -657.4927780249782,
+        -639.2391670169782,
+        -620.9855560089782,
+        -602.7319450009782,
+        -584.4783339929782,
+        -566.2247229849781
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch1_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -0.9620253164556964,
+      "normalization": {
+        "bytes": 42357,
+        "path": "seti_burst_full/context_results/epoch1_off_native170_q252_normalization.json",
+        "sha256": "935d3bf92b4d2b9bb016fe6619f9848a292220a7ae364307175c2bf245e9f3e6"
+      },
+      "normalization_crop_id": "epoch1_off_native170_q252",
+      "origin_rank": 3,
+      "origin_scan_id": "epoch2_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": -2.1914469775896874,
+      "original_four_rows": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch2_on_rank3_epoch1_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch1_off_native170_q252_raw12096.npz",
+        "sha256": "f57736b6fd465616edffe9737b3a265b1b28996dfc14019420dd9458ed96ff50"
+      },
+      "source_channel_interval_half_open": [
+        179286112,
+        179298208
+      ],
+      "source_profile_id": "epoch2_on_rank3_epoch1_off",
+      "source_reference_channel": 179291547,
+      "times_from_primary_reference_s": [
+        -493.0288880844891,
+        -474.7752770764891,
+        -456.5216660684891,
+        -438.26805506048913,
+        -420.0144440524891,
+        -401.7608330444891,
+        -383.5072220364891,
+        -365.2536110284891,
+        -347.0000000204891,
+        -328.7463890124891,
+        -310.4927780044891,
+        -292.2391669964891,
+        -273.98555598848907,
+        -255.7319449804891,
+        -237.4783339724891,
+        -219.2247229644891
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch2_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -0.9620253164556964,
+      "normalization": {
+        "bytes": 42358,
+        "path": "seti_burst_full/context_results/epoch2_on_native170_q252_normalization.json",
+        "sha256": "673cfaf86b8b3c24798593e4579375095621075f9f3adef7e5706f19adc17ce9"
+      },
+      "normalization_crop_id": "epoch2_on_native170_q252",
+      "origin_rank": 3,
+      "origin_scan_id": "epoch2_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": 6.916444045238103,
+      "original_four_rows": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch2_on_rank3_epoch2_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch2_on_native170_q252_raw12096.npz",
+        "sha256": "a536334a764111d78c037b86303f936774f69337bf00260be26a649425fb0ccf"
+      },
+      "source_channel_interval_half_open": [
+        179286112,
+        179298208
+      ],
+      "source_profile_id": "epoch2_on_rank3_epoch2_on",
+      "source_reference_channel": 179291547,
+      "times_from_primary_reference_s": [
+        -146.028888064,
+        -127.775277056,
+        -109.521666048,
+        -91.26805504000001,
+        -73.014444032,
+        -54.760833024,
+        -36.507222016,
+        -18.253611008,
+        0.0,
+        18.253611008,
+        36.507222016,
+        54.760833024,
+        73.014444032,
+        91.26805504000001,
+        109.521666048,
+        127.775277056
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch2_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -0.9620253164556964,
+      "normalization": {
+        "bytes": 42355,
+        "path": "seti_burst_full/context_results/epoch2_off_native170_q252_normalization.json",
+        "sha256": "586326e8ac4a4942f54e3851e666d20115c286484212df60e5f3d2e82b41af55"
+      },
+      "normalization_crop_id": "epoch2_off_native170_q252",
+      "origin_rank": 3,
+      "origin_scan_id": "epoch2_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": -0.741398498731862,
+      "original_four_rows": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch2_on_rank3_epoch2_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch2_off_native170_q252_raw12096.npz",
+        "sha256": "9777390f8dc6ea318f2fa8549e4a25a0e8f5643951314dc0eff2aa7c4a3a8a8d"
+      },
+      "source_channel_interval_half_open": [
+        179286112,
+        179298208
+      ],
+      "source_profile_id": "epoch2_on_rank3_epoch2_off",
+      "source_reference_channel": 179291547,
+      "times_from_primary_reference_s": [
+        198.9711121176079,
+        217.2247231256079,
+        235.47833413360792,
+        253.7319451416079,
+        271.9855561496079,
+        290.2391671576079,
+        308.4927781656079,
+        326.7463891736079,
+        345.0000001816079,
+        363.2536111896079,
+        381.5072221976079,
+        399.7608332056079,
+        418.01444421360793,
+        436.26805522160794,
+        454.5216662296079,
+        472.7752772376079
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch3_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -0.9620253164556964,
+      "normalization": {
+        "bytes": 42334,
+        "path": "seti_burst_full/context_results/epoch3_on_native170_q252_normalization.json",
+        "sha256": "3599393a8653cb8d0ab3d3eb4d6b8ab668297c8d5de8b63ba0c0e94c5b9e6712"
+      },
+      "normalization_crop_id": "epoch3_on_native170_q252",
+      "origin_rank": 3,
+      "origin_scan_id": "epoch2_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": -1.1468635394035467,
+      "original_four_rows": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch2_on_rank3_epoch3_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch3_on_native170_q252_raw12096.npz",
+        "sha256": "5ed67cb8db58d0e14005874640884e53e37cce741f74c59ed9127ca3bfcdd8e6"
+      },
+      "source_channel_interval_half_open": [
+        179286112,
+        179298208
+      ],
+      "source_profile_id": "epoch2_on_rank3_epoch3_on",
+      "source_reference_channel": 179291547,
+      "times_from_primary_reference_s": [
+        542.9711120654538,
+        561.2247230734538,
+        579.4783340814538,
+        597.7319450894538,
+        615.9855560974538,
+        634.2391671054538,
+        652.4927781134538,
+        670.7463891214538,
+        689.0000001294538,
+        707.2536111374538,
+        725.5072221454539,
+        743.7608331534539,
+        762.0144441614539,
+        780.2680551694539,
+        798.5216661774539,
+        816.7752771854539
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch3_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -0.9620253164556964,
+      "normalization": {
+        "bytes": 42414,
+        "path": "seti_burst_full/context_results/epoch3_off_native170_q252_normalization.json",
+        "sha256": "94d021ed33ab8fbc35a0e6d5a497218ec13ba7652e2eb617b60549101d86e5bd"
+      },
+      "normalization_crop_id": "epoch3_off_native170_q252",
+      "origin_rank": 3,
+      "origin_scan_id": "epoch2_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": -1.0280039377568426,
+      "original_four_rows": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch2_on_rank3_epoch3_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch3_off_native170_q252_raw12096.npz",
+        "sha256": "2b8cf1c735c21a4741ba8cd78070fb12cb2f8e7a30d176f5978a2ca85efd0e01"
+      },
+      "source_channel_interval_half_open": [
+        179286112,
+        179298208
+      ],
+      "source_profile_id": "epoch2_on_rank3_epoch3_off",
+      "source_reference_channel": 179291547,
+      "times_from_primary_reference_s": [
+        883.9711119406566,
+        902.2247229486566,
+        920.4783339566566,
+        938.7319449646566,
+        956.9855559726566,
+        975.2391669806566,
+        993.4927779886566,
+        1011.7463889966566,
+        1030.0000000046566,
+        1048.2536110126566,
+        1066.5072220206566,
+        1084.7608330286566,
+        1103.0144440366566,
+        1121.2680550446566,
+        1139.5216660526567,
+        1157.7752770606567
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch1_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": 1.9746835443037973,
+      "normalization": {
+        "bytes": 42280,
+        "path": "seti_burst_full/context_results/epoch1_on_native172_q081_normalization.json",
+        "sha256": "f0eb3a9894dda3e82cb21f6eb23b9ff3d7549b8d5dd53e620f46d7aababd6e34"
+      },
+      "normalization_crop_id": "epoch1_on_native172_q081",
+      "origin_rank": 1,
+      "origin_scan_id": "epoch3_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": 0.814410594159813,
+      "original_four_rows": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch3_on_rank1_epoch1_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch1_on_native172_q081_raw12096.npz",
+        "sha256": "227b3e338c3ef1723e8a3198f5d65f0ca0832545250d7a04a1f248f2d27b860f"
+      },
+      "source_channel_interval_half_open": [
+        180682848,
+        180694944
+      ],
+      "source_profile_id": "epoch3_on_rank1_epoch1_on",
+      "source_reference_channel": 180687966,
+      "times_from_primary_reference_s": [
+        -1383.000000170432,
+        -1364.746389162432,
+        -1346.492778154432,
+        -1328.239167146432,
+        -1309.985556138432,
+        -1291.731945130432,
+        -1273.478334122432,
+        -1255.224723114432,
+        -1236.971112106432,
+        -1218.717501098432,
+        -1200.463890090432,
+        -1182.210279082432,
+        -1163.956668074432,
+        -1145.703057066432,
+        -1127.449446058432,
+        -1109.195835050432
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch1_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": 1.9746835443037973,
+      "normalization": {
+        "bytes": 42334,
+        "path": "seti_burst_full/context_results/epoch1_off_native172_q081_normalization.json",
+        "sha256": "50b6a66117c033fa845303bd384306d284ce10df7c9feae4b526bdd0662b87f5"
+      },
+      "normalization_crop_id": "epoch1_off_native172_q081",
+      "origin_rank": 1,
+      "origin_scan_id": "epoch3_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": -0.592400693901666,
+      "original_four_rows": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch3_on_rank1_epoch1_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch1_off_native172_q081_raw12096.npz",
+        "sha256": "130085b002bb4369e8111d78a5e7191049465f2f25ec21bcb1a49ccec06c3a49"
+      },
+      "source_channel_interval_half_open": [
+        180682848,
+        180694944
+      ],
+      "source_profile_id": "epoch3_on_rank1_epoch1_off",
+      "source_reference_channel": 180687966,
+      "times_from_primary_reference_s": [
+        -1036.000000149943,
+        -1017.7463891419429,
+        -999.4927781339429,
+        -981.2391671259429,
+        -962.9855561179429,
+        -944.7319451099429,
+        -926.4783341019429,
+        -908.2247230939429,
+        -889.9711120859429,
+        -871.7175010779429,
+        -853.4638900699429,
+        -835.210279061943,
+        -816.956668053943,
+        -798.703057045943,
+        -780.449446037943,
+        -762.1958350299429
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch2_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": 1.9746835443037973,
+      "normalization": {
+        "bytes": 42387,
+        "path": "seti_burst_full/context_results/epoch2_on_native172_q081_normalization.json",
+        "sha256": "e2e8d23252b716f82a2201801005f98b2d21cf5b04ed047442f0c293dfcf620f"
+      },
+      "normalization_crop_id": "epoch2_on_native172_q081",
+      "origin_rank": 1,
+      "origin_scan_id": "epoch3_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": 0.96741052713988,
+      "original_four_rows": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch3_on_rank1_epoch2_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch2_on_native172_q081_raw12096.npz",
+        "sha256": "07bb219505675adf487504a7fd9fda4b4cd1b5f2c36e3c809996416f715ab733"
+      },
+      "source_channel_interval_half_open": [
+        180682848,
+        180694944
+      ],
+      "source_profile_id": "epoch3_on_rank1_epoch2_on",
+      "source_reference_channel": 180687966,
+      "times_from_primary_reference_s": [
+        -689.0000001294538,
+        -670.7463891214538,
+        -652.4927781134538,
+        -634.2391671054538,
+        -615.9855560974538,
+        -597.7319450894538,
+        -579.4783340814538,
+        -561.2247230734538,
+        -542.9711120654538,
+        -524.7175010574538,
+        -506.4638900494538,
+        -488.2102790414539,
+        -469.95666803345387,
+        -451.70305702545386,
+        -433.44944601745385,
+        -415.19583500945384
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch2_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": 1.9746835443037973,
+      "normalization": {
+        "bytes": 42335,
+        "path": "seti_burst_full/context_results/epoch2_off_native172_q081_normalization.json",
+        "sha256": "bce205a2e8933dcbe8b14ac638b096a429db2867351de623a70b80cec6645e83"
+      },
+      "normalization_crop_id": "epoch2_off_native172_q081",
+      "origin_rank": 1,
+      "origin_scan_id": "epoch3_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": -0.3877204133520293,
+      "original_four_rows": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch3_on_rank1_epoch2_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch2_off_native172_q081_raw12096.npz",
+        "sha256": "51e8d5d425763125a47ae57f7b81e6c8c60cec28625f065924d1cc353c0118c2"
+      },
+      "source_channel_interval_half_open": [
+        180682848,
+        180694944
+      ],
+      "source_profile_id": "epoch3_on_rank1_epoch2_off",
+      "source_reference_channel": 180687966,
+      "times_from_primary_reference_s": [
+        -343.99999994784594,
+        -325.74638893984593,
+        -307.4927779318459,
+        -289.2391669238459,
+        -270.9855559158459,
+        -252.73194490784593,
+        -234.47833389984595,
+        -216.22472289184594,
+        -197.97111188384594,
+        -179.71750087584593,
+        -161.46388986784592,
+        -143.21027885984594,
+        -124.95666785184594,
+        -106.70305684384593,
+        -88.44944583584595,
+        -70.19583482784594
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch3_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": 1.9746835443037973,
+      "normalization": {
+        "bytes": 42291,
+        "path": "seti_burst_full/context_results/epoch3_on_native172_q081_normalization.json",
+        "sha256": "5379470e22315fc8c33eb0c537eeeb64c4768c14bf816e00cf66eaa48b0b79ce"
+      },
+      "normalization_crop_id": "epoch3_on_native172_q081",
+      "origin_rank": 1,
+      "origin_scan_id": "epoch3_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": 7.450294835423304,
+      "original_four_rows": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch3_on_rank1_epoch3_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch3_on_native172_q081_raw12096.npz",
+        "sha256": "7b862e42b45896dc569c04b1d3bc9c05a9d4e8cdb9422e4de9a44a9eeebca5b9"
+      },
+      "source_channel_interval_half_open": [
+        180682848,
+        180694944
+      ],
+      "source_profile_id": "epoch3_on_rank1_epoch3_on",
+      "source_reference_channel": 180687966,
+      "times_from_primary_reference_s": [
+        0.0,
+        18.253611008,
+        36.507222016,
+        54.760833024,
+        73.014444032,
+        91.26805504000001,
+        109.521666048,
+        127.775277056,
+        146.028888064,
+        164.282499072,
+        182.53611008000001,
+        200.789721088,
+        219.043332096,
+        237.296943104,
+        255.550554112,
+        273.80416512
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch3_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": 1.9746835443037973,
+      "normalization": {
+        "bytes": 42289,
+        "path": "seti_burst_full/context_results/epoch3_off_native172_q081_normalization.json",
+        "sha256": "e2ac36fe8f62af948f6108c41e54661ff1fa11f9efb5ef309390d74ff76952e8"
+      },
+      "normalization_crop_id": "epoch3_off_native172_q081",
+      "origin_rank": 1,
+      "origin_scan_id": "epoch3_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": 2.3060757737360884,
+      "original_four_rows": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch3_on_rank1_epoch3_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch3_off_native172_q081_raw12096.npz",
+        "sha256": "f20f2c079b98877650d72f26323f871fb1bb6852fc1b2fb3a5937222ed09b1b8"
+      },
+      "source_channel_interval_half_open": [
+        180682848,
+        180694944
+      ],
+      "source_profile_id": "epoch3_on_rank1_epoch3_off",
+      "source_reference_channel": 180687966,
+      "times_from_primary_reference_s": [
+        340.9999998752028,
+        359.2536108832028,
+        377.5072218912028,
+        395.7608328992028,
+        414.0144439072028,
+        432.2680549152028,
+        450.52166592320276,
+        468.77527693120277,
+        487.0288879392028,
+        505.2824989472028,
+        523.5361099552028,
+        541.7897209632027,
+        560.0433319712027,
+        578.2969429792028,
+        596.5505539872028,
+        614.8041649952028
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch1_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": 1.6708860759493671,
+      "normalization": {
+        "bytes": 42315,
+        "path": "seti_burst_full/context_results/epoch1_on_native172_q094_normalization.json",
+        "sha256": "37d198b42287c81b0cf277d4975da463cda731fb2591d8eea3eb1ac0ce12fd37"
+      },
+      "normalization_crop_id": "epoch1_on_native172_q094",
+      "origin_rank": 2,
+      "origin_scan_id": "epoch3_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": 0.27998986456439656,
+      "original_four_rows": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch3_on_rank2_epoch1_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch1_on_native172_q094_raw12096.npz",
+        "sha256": "8bfb5b65ef6b7fc152b27661a3d83fdcbc08eee2642d05c5a64ca515a7e5ffe6"
+      },
+      "source_channel_interval_half_open": [
+        180736096,
+        180748192
+      ],
+      "source_profile_id": "epoch3_on_rank2_epoch1_on",
+      "source_reference_channel": 180742838,
+      "times_from_primary_reference_s": [
+        -1529.028888234432,
+        -1510.775277226432,
+        -1492.521666218432,
+        -1474.268055210432,
+        -1456.014444202432,
+        -1437.760833194432,
+        -1419.507222186432,
+        -1401.253611178432,
+        -1383.000000170432,
+        -1364.746389162432,
+        -1346.492778154432,
+        -1328.239167146432,
+        -1309.985556138432,
+        -1291.731945130432,
+        -1273.478334122432,
+        -1255.224723114432
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch1_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": 1.6708860759493671,
+      "normalization": {
+        "bytes": 42338,
+        "path": "seti_burst_full/context_results/epoch1_off_native172_q094_normalization.json",
+        "sha256": "389c7c9311a60de42da5fa28d454324ec5f70c3ce30db5de9b124a0923c7909c"
+      },
+      "normalization_crop_id": "epoch1_off_native172_q094",
+      "origin_rank": 2,
+      "origin_scan_id": "epoch3_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": 0.42782084955878985,
+      "original_four_rows": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch3_on_rank2_epoch1_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch1_off_native172_q094_raw12096.npz",
+        "sha256": "63d45f6acb21b1aab948f100e23775af79287d7df38aebc589adf3e510c8aa21"
+      },
+      "source_channel_interval_half_open": [
+        180736096,
+        180748192
+      ],
+      "source_profile_id": "epoch3_on_rank2_epoch1_off",
+      "source_reference_channel": 180742838,
+      "times_from_primary_reference_s": [
+        -1182.028888213943,
+        -1163.775277205943,
+        -1145.521666197943,
+        -1127.268055189943,
+        -1109.014444181943,
+        -1090.760833173943,
+        -1072.507222165943,
+        -1054.253611157943,
+        -1036.000000149943,
+        -1017.7463891419429,
+        -999.4927781339429,
+        -981.2391671259429,
+        -962.9855561179429,
+        -944.7319451099429,
+        -926.4783341019429,
+        -908.2247230939429
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch2_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": 1.6708860759493671,
+      "normalization": {
+        "bytes": 42350,
+        "path": "seti_burst_full/context_results/epoch2_on_native172_q094_normalization.json",
+        "sha256": "45bc6f440002a69ffeeabbaf0abdb8e3933bcf3e80cef381a4b598c7ddc0a892"
+      },
+      "normalization_crop_id": "epoch2_on_native172_q094",
+      "origin_rank": 2,
+      "origin_scan_id": "epoch3_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": -1.2438233406869803,
+      "original_four_rows": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch3_on_rank2_epoch2_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch2_on_native172_q094_raw12096.npz",
+        "sha256": "64e259dafe111904c0aa063d3a825f02f48f4fb3ee6212e203475b7871a17328"
+      },
+      "source_channel_interval_half_open": [
+        180736096,
+        180748192
+      ],
+      "source_profile_id": "epoch3_on_rank2_epoch2_on",
+      "source_reference_channel": 180742838,
+      "times_from_primary_reference_s": [
+        -835.0288881934539,
+        -816.7752771854539,
+        -798.5216661774539,
+        -780.2680551694539,
+        -762.0144441614539,
+        -743.7608331534539,
+        -725.5072221454539,
+        -707.2536111374538,
+        -689.0000001294538,
+        -670.7463891214538,
+        -652.4927781134538,
+        -634.2391671054538,
+        -615.9855560974538,
+        -597.7319450894538,
+        -579.4783340814538,
+        -561.2247230734538
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch2_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": 1.6708860759493671,
+      "normalization": {
+        "bytes": 42378,
+        "path": "seti_burst_full/context_results/epoch2_off_native172_q094_normalization.json",
+        "sha256": "e49c905dbd2f58eba50ff2c7ddd0ee58ecef02ea95fd75986e701077137da97c"
+      },
+      "normalization_crop_id": "epoch2_off_native172_q094",
+      "origin_rank": 2,
+      "origin_scan_id": "epoch3_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": 0.8077534500346009,
+      "original_four_rows": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch3_on_rank2_epoch2_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch2_off_native172_q094_raw12096.npz",
+        "sha256": "60dc9a3bd9af430e15f0818f7ad9c2fea14ab4c5fc15b793865f3e267ed2625e"
+      },
+      "source_channel_interval_half_open": [
+        180736096,
+        180748192
+      ],
+      "source_profile_id": "epoch3_on_rank2_epoch2_off",
+      "source_reference_channel": 180742838,
+      "times_from_primary_reference_s": [
+        -490.02888801184594,
+        -471.77527700384593,
+        -453.5216659958459,
+        -435.26805498784597,
+        -417.01444397984596,
+        -398.76083297184596,
+        -380.50722196384595,
+        -362.25361095584594,
+        -343.99999994784594,
+        -325.74638893984593,
+        -307.4927779318459,
+        -289.2391669238459,
+        -270.9855559158459,
+        -252.73194490784593,
+        -234.47833389984595,
+        -216.22472289184594
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch3_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": 1.6708860759493671,
+      "normalization": {
+        "bytes": 42358,
+        "path": "seti_burst_full/context_results/epoch3_on_native172_q094_normalization.json",
+        "sha256": "bc481661ea24eddc2e773087505f5cb84b664901a3cf342c5e8759ef135905ac"
+      },
+      "normalization_crop_id": "epoch3_on_native172_q094",
+      "origin_rank": 2,
+      "origin_scan_id": "epoch3_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": 7.03116315851317,
+      "original_four_rows": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch3_on_rank2_epoch3_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch3_on_native172_q094_raw12096.npz",
+        "sha256": "ca19363bbaa5fcedd9249ba3fa1b27bd14faed1801c9ec6ce299318f218b8ff7"
+      },
+      "source_channel_interval_half_open": [
+        180736096,
+        180748192
+      ],
+      "source_profile_id": "epoch3_on_rank2_epoch3_on",
+      "source_reference_channel": 180742838,
+      "times_from_primary_reference_s": [
+        -146.028888064,
+        -127.775277056,
+        -109.521666048,
+        -91.26805504000001,
+        -73.014444032,
+        -54.760833024,
+        -36.507222016,
+        -18.253611008,
+        0.0,
+        18.253611008,
+        36.507222016,
+        54.760833024,
+        73.014444032,
+        91.26805504000001,
+        109.521666048,
+        127.775277056
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch3_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": 1.6708860759493671,
+      "normalization": {
+        "bytes": 42347,
+        "path": "seti_burst_full/context_results/epoch3_off_native172_q094_normalization.json",
+        "sha256": "a105835240c955521717280bc4ab5e2857184033bcb1a23764d59ad667d53263"
+      },
+      "normalization_crop_id": "epoch3_off_native172_q094",
+      "origin_rank": 2,
+      "origin_scan_id": "epoch3_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": 0.8673312147975099,
+      "original_four_rows": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch3_on_rank2_epoch3_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch3_off_native172_q094_raw12096.npz",
+        "sha256": "9929cb1446b0e410193c259446b3d1f8f2570ba372b7b22f4ec48dac28ba3b0a"
+      },
+      "source_channel_interval_half_open": [
+        180736096,
+        180748192
+      ],
+      "source_profile_id": "epoch3_on_rank2_epoch3_off",
+      "source_reference_channel": 180742838,
+      "times_from_primary_reference_s": [
+        194.97111181120277,
+        213.22472281920278,
+        231.4783338272028,
+        249.73194483520277,
+        267.98555584320275,
+        286.23916685120275,
+        304.49277785920276,
+        322.74638886720277,
+        340.9999998752028,
+        359.2536108832028,
+        377.5072218912028,
+        395.7608328992028,
+        414.0144439072028,
+        432.2680549152028,
+        450.52166592320276,
+        468.77527693120277
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch1_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -0.6582278481012658,
+      "normalization": {
+        "bytes": 42375,
+        "path": "seti_burst_full/context_results/epoch1_on_native172_q012_normalization.json",
+        "sha256": "1db9fa315e6bf532a39bac2879b257f1d975cfe4d34a2771c6e6a209b6b31192"
+      },
+      "normalization_crop_id": "epoch1_on_native172_q012",
+      "origin_rank": 3,
+      "origin_scan_id": "epoch3_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": 1.2026727199784688,
+      "original_four_rows": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch3_on_rank3_epoch1_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch1_on_native172_q012_raw12096.npz",
+        "sha256": "96695ceeb2fe487e57e9953c7072e1c91cb0cdbe54a5d196ac9688e1d95e5793"
+      },
+      "source_channel_interval_half_open": [
+        180400224,
+        180412320
+      ],
+      "source_profile_id": "epoch3_on_rank3_epoch1_on",
+      "source_reference_channel": 180407265,
+      "times_from_primary_reference_s": [
+        -1602.0433322664321,
+        -1583.789721258432,
+        -1565.536110250432,
+        -1547.282499242432,
+        -1529.028888234432,
+        -1510.775277226432,
+        -1492.521666218432,
+        -1474.268055210432,
+        -1456.014444202432,
+        -1437.760833194432,
+        -1419.507222186432,
+        -1401.253611178432,
+        -1383.000000170432,
+        -1364.746389162432,
+        -1346.492778154432,
+        -1328.239167146432
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch1_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -0.6582278481012658,
+      "normalization": {
+        "bytes": 42369,
+        "path": "seti_burst_full/context_results/epoch1_off_native172_q012_normalization.json",
+        "sha256": "d4d15fcf2eddf988d2d686670c9a808455f8b3675ed5b8b88e0f6a59236c63f8"
+      },
+      "normalization_crop_id": "epoch1_off_native172_q012",
+      "origin_rank": 3,
+      "origin_scan_id": "epoch3_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": -0.3078599163595289,
+      "original_four_rows": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch3_on_rank3_epoch1_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch1_off_native172_q012_raw12096.npz",
+        "sha256": "028a2b3817f9a017bb50bd98e62f37ed6b13c6d53c0b30bba5029c36433d2d5d"
+      },
+      "source_channel_interval_half_open": [
+        180400224,
+        180412320
+      ],
+      "source_profile_id": "epoch3_on_rank3_epoch1_off",
+      "source_reference_channel": 180407265,
+      "times_from_primary_reference_s": [
+        -1255.043332245943,
+        -1236.789721237943,
+        -1218.536110229943,
+        -1200.282499221943,
+        -1182.028888213943,
+        -1163.775277205943,
+        -1145.521666197943,
+        -1127.268055189943,
+        -1109.014444181943,
+        -1090.760833173943,
+        -1072.507222165943,
+        -1054.253611157943,
+        -1036.000000149943,
+        -1017.7463891419429,
+        -999.4927781339429,
+        -981.2391671259429
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch2_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -0.6582278481012658,
+      "normalization": {
+        "bytes": 42378,
+        "path": "seti_burst_full/context_results/epoch2_on_native172_q012_normalization.json",
+        "sha256": "f3189d4a460387c86d84eb9f193608233365302d9837f3a040cb29604363649e"
+      },
+      "normalization_crop_id": "epoch2_on_native172_q012",
+      "origin_rank": 3,
+      "origin_scan_id": "epoch3_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": 1.6483992348987409,
+      "original_four_rows": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch3_on_rank3_epoch2_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch2_on_native172_q012_raw12096.npz",
+        "sha256": "800fa0b1bea484fde5f18c39b00944d9bef8314b23fe086301f5796ad3f79bec"
+      },
+      "source_channel_interval_half_open": [
+        180400224,
+        180412320
+      ],
+      "source_profile_id": "epoch3_on_rank3_epoch2_on",
+      "source_reference_channel": 180407265,
+      "times_from_primary_reference_s": [
+        -908.0433322254538,
+        -889.7897212174538,
+        -871.5361102094539,
+        -853.2824992014539,
+        -835.0288881934539,
+        -816.7752771854539,
+        -798.5216661774539,
+        -780.2680551694539,
+        -762.0144441614539,
+        -743.7608331534539,
+        -725.5072221454539,
+        -707.2536111374538,
+        -689.0000001294538,
+        -670.7463891214538,
+        -652.4927781134538,
+        -634.2391671054538
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch2_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -0.6582278481012658,
+      "normalization": {
+        "bytes": 42381,
+        "path": "seti_burst_full/context_results/epoch2_off_native172_q012_normalization.json",
+        "sha256": "35bb84280ddc0ecc02f6f006e8bbca629930e2d01b24478ac21db7a66978a3b7"
+      },
+      "normalization_crop_id": "epoch2_off_native172_q012",
+      "origin_rank": 3,
+      "origin_scan_id": "epoch3_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": 0.9251587907782788,
+      "original_four_rows": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch3_on_rank3_epoch2_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch2_off_native172_q012_raw12096.npz",
+        "sha256": "41630a79a27fdc99372428e9f46688c6372682dbf07c57a6b612ca7cbd58103b"
+      },
+      "source_channel_interval_half_open": [
+        180400224,
+        180412320
+      ],
+      "source_profile_id": "epoch3_on_rank3_epoch2_off",
+      "source_reference_channel": 180407265,
+      "times_from_primary_reference_s": [
+        -563.0433320438459,
+        -544.7897210358459,
+        -526.536110027846,
+        -508.28249901984594,
+        -490.02888801184594,
+        -471.77527700384593,
+        -453.5216659958459,
+        -435.26805498784597,
+        -417.01444397984596,
+        -398.76083297184596,
+        -380.50722196384595,
+        -362.25361095584594,
+        -343.99999994784594,
+        -325.74638893984593,
+        -307.4927779318459,
+        -289.2391669238459
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch3_on",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -0.6582278481012658,
+      "normalization": {
+        "bytes": 42337,
+        "path": "seti_burst_full/context_results/epoch3_on_native172_q012_normalization.json",
+        "sha256": "2732e56b140154619dbad0d4b90c627dc17d84a178e815ae323a0144ee838877"
+      },
+      "normalization_crop_id": "epoch3_on_native172_q012",
+      "origin_rank": 3,
+      "origin_scan_id": "epoch3_on",
+      "original_acquisition_role": "ON",
+      "original_fixed4_score": 6.749950807237628,
+      "original_four_rows": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch3_on_rank3_epoch3_on",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch3_on_native172_q012_raw12096.npz",
+        "sha256": "444d094d07150d14b1e4e4f9bc18e83e1f562525549ddd0b2d11e4c5ec8d53a7"
+      },
+      "source_channel_interval_half_open": [
+        180400224,
+        180412320
+      ],
+      "source_profile_id": "epoch3_on_rank3_epoch3_on",
+      "source_reference_channel": 180407265,
+      "times_from_primary_reference_s": [
+        -219.043332096,
+        -200.789721088,
+        -182.53611008000001,
+        -164.282499072,
+        -146.028888064,
+        -127.775277056,
+        -109.521666048,
+        -91.26805504000001,
+        -73.014444032,
+        -54.760833024,
+        -36.507222016,
+        -18.253611008,
+        0.0,
+        18.253611008,
+        36.507222016,
+        54.760833024
+      ],
+      "tsamp_s": 18.253611008
+    },
+    {
+      "context_scan_id": "epoch3_off",
+      "df_hz": -2.7939677238464355,
+      "drift_hz_s": -0.6582278481012658,
+      "normalization": {
+        "bytes": 42378,
+        "path": "seti_burst_full/context_results/epoch3_off_native172_q012_normalization.json",
+        "sha256": "e353875539937c83a60b85c0c532e6daf74a5166337481210590faba96918f2b"
+      },
+      "normalization_crop_id": "epoch3_off_native172_q012",
+      "origin_rank": 3,
+      "origin_scan_id": "epoch3_on",
+      "original_acquisition_role": "OFF",
+      "original_fixed4_score": -0.3043832444153569,
+      "original_four_rows": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "profile_id": "SETI_DRIFT_SMEARING_20261016:epoch3_on_rank3_epoch3_off",
+      "raw": {
+        "bytes": 808140,
+        "path": "seti_burst_full/context_results/epoch3_off_native172_q012_raw12096.npz",
+        "sha256": "bc3ceefd8e8ed9239114bd017fb425e7daaf19444ecb678a14b814f8ab0266f8"
+      },
+      "source_channel_interval_half_open": [
+        180400224,
+        180412320
+      ],
+      "source_profile_id": "epoch3_on_rank3_epoch3_off",
+      "source_reference_channel": 180407265,
+      "times_from_primary_reference_s": [
+        121.95666777920277,
+        140.21027878720278,
+        158.46388979520276,
+        176.71750080320277,
+        194.97111181120277,
+        213.22472281920278,
+        231.4783338272028,
+        249.73194483520277,
+        267.98555584320275,
+        286.23916685120275,
+        304.49277785920276,
+        322.74638886720277,
+        340.9999998752028,
+        359.2536108832028,
+        377.5072218912028,
+        395.7608328992028
+      ],
+      "tsamp_s": 18.253611008
+    }
+  ],
+  "schema": "SETI_DESCRIPTIVE_WITHIN_INTEGRATION_SMEARING_SCOPE_V1",
+  "source_archive": {
+    "bytes": 48468705,
+    "path": "/workspace/scratch/6ef1b336d8f4/work/SETI_SEKSSCAN_GENOPRETNING_2026-10-15_v2/inputs/SETI_NATIVE_SPOR_2026-10-14.zip",
+    "sha256": "52b948958c89069a7afb563cf377ee33e4f1324e014428d597b4b3e3a20f6eb3"
+  },
+  "source_metadata": {
+    "bytes": 629588,
+    "member": "SETI_NATIVE_SPOR_2026-10-14/seti_work/seti_burst_full/context_results/CONTEXT_PROFILES.json",
+    "sha256": "31efe1e5eeba63d10fbc04ea60bd29eb3086f142b6111a185f821a40a0558522"
+  },
+  "source_scan_order": [
+    "epoch1_on",
+    "epoch1_off",
+    "epoch2_on",
+    "epoch2_off",
+    "epoch3_on",
+    "epoch3_off"
+  ],
+  "spectral_relative_bins": [
+    -32,
+    -31,
+    -30,
+    -29,
+    -28,
+    -27,
+    -26,
+    -25,
+    -24,
+    -23,
+    -22,
+    -21,
+    -20,
+    -19,
+    -18,
+    -17,
+    -16,
+    -15,
+    -14,
+    -13,
+    -12,
+    -11,
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32
+  ],
+  "statistics": {
+    "primary": "Sum k*z / sqrt(sum k^2), with the central selected bin removed, over original4 rows; unit-L2 weighted standardized sum, not calibrated SNR/FAP",
+    "secondary": [
+      "Same unit-L2 statistic including entire predicted support",
+      "Central-only unit-L2 weighted standardized sum",
+      "Original delta width1 sum/2 over original4 rows as a reproducibility check",
+      "All16-row counterparts",
+      "Per-row raw, median501, z, continuous centers, weights and weighted contributions retained"
+    ]
+  },
+  "status": "FIXED_BEFORE_RAW_SPECTRAL_ARRAY_DECODE",
+  "study_id": "SETI_DRIFT_SMEARING_20261016",
+  "tracks": [
+    {
+      "original_track": {
+        "carrier_index_in_core": 2077,
+        "core_q": 55,
+        "drift_grid_index": 2,
+        "drift_hz_s": -3.8987341772151898,
+        "eligible_DC_untouched": true,
+        "frequency_hz_at_window_reference": 2301220240.6302094,
+        "frozen_DC_source_channels": [
+          178782208,
+          179830784,
+          180879360
+        ],
+        "map_id": "epoch1_on_native171_q055",
+        "map_source_class": "NEW_EXHAUSTIVE_DUAL_MAXIMUM",
+        "minimum_DC_width_box_distance_channels": 296855,
+        "native_chunk_index": 171,
+        "normalization": {
+          "bytes": 1412,
+          "path": "seti_burst_full/results/full20170428_epoch1_HIP98505_shard02/epoch1_on_native171_q055_normalization.json",
+          "sha256": "701a33f89504cf33c63c24fdab43201360886019f18830d0e12018ab330d4a5c"
+        },
+        "original_acquisition_role": "ON",
+        "primary_id": "on20170428_epoch1_HIP98505",
+        "primary_target": "HIP98505",
+        "producer_receipt": {
+          "bytes": 147598,
+          "path": "seti_burst_full/results/full20170428_epoch1_HIP98505_shard02/EXECUTION_RECEIPT.json",
+          "sha256": "df1b490cb40432bc255dcf7b15f5f6c2aa29313c35e33d5d4b659ef3245e7df8"
+        },
+        "rank": 1,
+        "raw_rank": 1,
+        "reference_time_mjd": 57871.54680752474,
+        "rounded_absolute_centers": [
+          179533853,
+          179533878,
+          179533904,
+          179533929
+        ],
+        "row_indices_intersecting_any_frozen_DC": [],
+        "rows_intersecting_any_frozen_DC": 0,
+        "scan_id": "epoch1_on",
+        "score": 6.8127618739485625,
+        "source_header": {
+          "DIMENSION_LABELS": [
+            "frequency",
+            "feed_id",
+            "time"
+          ],
+          "az_start": 0.0,
+          "data_type": 1,
+          "fch1": 2802.83203125,
+          "foff": -2.7939677238464355e-06,
+          "machine_id": 20,
+          "nbits": 32,
+          "nchans": 359661568,
+          "nifs": 1,
+          "source_name": "HIP98505",
+          "src_dej": 22.70972472222222,
+          "src_raj": 20.012132222222224,
+          "telescope_id": 6,
+          "tsamp": 18.253611008,
+          "tstart": 57871.54416666667,
+          "za_start": 0.0
+        },
+        "source_map": {
+          "bytes": 316882,
+          "path": "seti_burst_full/results/full20170428_epoch1_HIP98505_shard02/epoch1_on_native171_q055.npz",
+          "sha256": "b10fac6ff800869171fabe17d56cc802bb005a2df7cd2a608e18151089583838"
+        },
+        "source_reference_channel": 179533853,
+        "touch_counts_by_frozen_DC": {
+          "178782208": 0,
+          "179830784": 0,
+          "180879360": 0
+        },
+        "width_box_source_channels_inclusive": [
+          [
+            179533853,
+            179533853
+          ],
+          [
+            179533878,
+            179533878
+          ],
+          [
+            179533904,
+            179533904
+          ],
+          [
+            179533929,
+            179533929
+          ]
+        ],
+        "width_channels": 1,
+        "window_length_rows": 4,
+        "window_source_rows": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "window_start_row": 12,
+        "winner_family": "DC_clean",
+        "winning_valid_hypothesis_count": 2226
+      },
+      "study_track_id": "SETI_DRIFT_SMEARING_20261016:T01",
+      "sweep_native_channels": 25.47129535072342
+    },
+    {
+      "original_track": {
+        "carrier_index_in_core": 2608,
+        "core_q": 168,
+        "drift_grid_index": 40,
+        "drift_hz_s": -1.9746835443037973,
+        "eligible_DC_untouched": true,
+        "frequency_hz_at_window_reference": 2296995887.160301,
+        "frozen_DC_source_channels": [
+          178782208,
+          179830784,
+          180879360
+        ],
+        "map_id": "epoch1_on_native172_q168",
+        "map_source_class": "NEW_EXHAUSTIVE_DUAL_MAXIMUM",
+        "minimum_DC_width_box_distance_channels": 166448,
+        "native_chunk_index": 172,
+        "normalization": {
+          "bytes": 1438,
+          "path": "seti_burst_full/results/full20170428_epoch1_HIP98505_shard06/epoch1_on_native172_q168_normalization.json",
+          "sha256": "5b7fd0d1719b4a766422884e7c3667c85da6d1684d372ad01d2bd9d280b4c5f3"
+        },
+        "original_acquisition_role": "ON",
+        "primary_id": "on20170428_epoch1_HIP98505",
+        "primary_target": "HIP98505",
+        "producer_receipt": {
+          "bytes": 144826,
+          "path": "seti_burst_full/results/full20170428_epoch1_HIP98505_shard06/EXECUTION_RECEIPT.json",
+          "sha256": "f5319e4796be90f0ece813dafa5763785e40a2ef8712e5552673941dc7bdbd02"
+        },
+        "rank": 2,
+        "raw_rank": 2,
+        "reference_time_mjd": 57871.54427230099,
+        "rounded_absolute_centers": [
+          181045808,
+          181045821,
+          181045834,
+          181045847
+        ],
+        "row_indices_intersecting_any_frozen_DC": [],
+        "rows_intersecting_any_frozen_DC": 0,
+        "scan_id": "epoch1_on",
+        "score": 6.744084984219581,
+        "source_header": {
+          "DIMENSION_LABELS": [
+            "frequency",
+            "feed_id",
+            "time"
+          ],
+          "az_start": 0.0,
+          "data_type": 1,
+          "fch1": 2802.83203125,
+          "foff": -2.7939677238464355e-06,
+          "machine_id": 20,
+          "nbits": 32,
+          "nchans": 359661568,
+          "nifs": 1,
+          "source_name": "HIP98505",
+          "src_dej": 22.70972472222222,
+          "src_raj": 20.012132222222224,
+          "telescope_id": 6,
+          "tsamp": 18.253611008,
+          "tstart": 57871.54416666667,
+          "za_start": 0.0
+        },
+        "source_map": {
+          "bytes": 316882,
+          "path": "seti_burst_full/results/full20170428_epoch1_HIP98505_shard06/epoch1_on_native172_q168.npz",
+          "sha256": "bded7c1752b460c314f468178e7f2fa99364f22da58e29e62200eacfa9633779"
+        },
+        "source_reference_channel": 181045808,
+        "touch_counts_by_frozen_DC": {
+          "178782208": 0,
+          "179830784": 0,
+          "180879360": 0
+        },
+        "width_box_source_channels_inclusive": [
+          [
+            181045808,
+            181045808
+          ],
+          [
+            181045821,
+            181045821
+          ],
+          [
+            181045834,
+            181045834
+          ],
+          [
+            181045847,
+            181045847
+          ]
+        ],
+        "width_channels": 1,
+        "window_length_rows": 4,
+        "window_source_rows": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "window_start_row": 0,
+        "winner_family": "DC_clean",
+        "winning_valid_hypothesis_count": 2226
+      },
+      "study_track_id": "SETI_DRIFT_SMEARING_20261016:T02",
+      "sweep_native_channels": 12.901045697119654
+    },
+    {
+      "original_track": {
+        "carrier_index_in_core": 1235,
+        "core_q": 231,
+        "drift_grid_index": 69,
+        "drift_hz_s": -0.5063291139240507,
+        "eligible_DC_untouched": true,
+        "frequency_hz_at_window_reference": 2299208432.994783,
+        "frozen_DC_source_channels": [
+          178782208,
+          179830784,
+          180879360
+        ],
+        "map_id": "epoch1_on_native171_q231",
+        "map_source_class": "NEW_EXHAUSTIVE_DUAL_MAXIMUM",
+        "minimum_DC_width_box_distance_channels": 423123,
+        "native_chunk_index": 171,
+        "normalization": {
+          "bytes": 1451,
+          "path": "seti_burst_full/results/full20170428_epoch1_HIP98505_shard04/epoch1_on_native171_q231_normalization.json",
+          "sha256": "f46f2758ee79c7d00a5d09ba371c042fa9b70339686022d61cf8ab85a2718f98"
+        },
+        "original_acquisition_role": "ON",
+        "primary_id": "on20170428_epoch1_HIP98505",
+        "primary_target": "HIP98505",
+        "producer_receipt": {
+          "bytes": 147597,
+          "path": "seti_burst_full/results/full20170428_epoch1_HIP98505_shard04/EXECUTION_RECEIPT.json",
+          "sha256": "b029cd8541a3989749e6a57f09af9b39f0e38fa553e9169db8e012115ad3912a"
+        },
+        "rank": 3,
+        "raw_rank": 3,
+        "reference_time_mjd": 57871.54427230099,
+        "rounded_absolute_centers": [
+          180253907,
+          180253910,
+          180253914,
+          180253917
+        ],
+        "row_indices_intersecting_any_frozen_DC": [],
+        "rows_intersecting_any_frozen_DC": 0,
+        "scan_id": "epoch1_on",
+        "score": 6.638491349901817,
+        "source_header": {
+          "DIMENSION_LABELS": [
+            "frequency",
+            "feed_id",
+            "time"
+          ],
+          "az_start": 0.0,
+          "data_type": 1,
+          "fch1": 2802.83203125,
+          "foff": -2.7939677238464355e-06,
+          "machine_id": 20,
+          "nbits": 32,
+          "nchans": 359661568,
+          "nifs": 1,
+          "source_name": "HIP98505",
+          "src_dej": 22.70972472222222,
+          "src_raj": 20.012132222222224,
+          "telescope_id": 6,
+          "tsamp": 18.253611008,
+          "tstart": 57871.54416666667,
+          "za_start": 0.0
+        },
+        "source_map": {
+          "bytes": 316882,
+          "path": "seti_burst_full/results/full20170428_epoch1_HIP98505_shard04/epoch1_on_native171_q231.npz",
+          "sha256": "0e0c25dd5675dcc1245c8c2d6dfb4587e1c020303812403194e971aaa4ba318b"
+        },
+        "source_reference_channel": 180253907,
+        "touch_counts_by_frozen_DC": {
+          "178782208": 0,
+          "179830784": 0,
+          "180879360": 0
+        },
+        "width_box_source_channels_inclusive": [
+          [
+            180253907,
+            180253907
+          ],
+          [
+            180253910,
+            180253910
+          ],
+          [
+            180253914,
+            180253914
+          ],
+          [
+            180253917,
+            180253917
+          ]
+        ],
+        "width_channels": 1,
+        "window_length_rows": 4,
+        "window_source_rows": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "window_start_row": 0,
+        "winner_family": "DC_clean",
+        "winning_valid_hypothesis_count": 2226
+      },
+      "study_track_id": "SETI_DRIFT_SMEARING_20261016:T03",
+      "sweep_native_channels": 3.307960435158886
+    },
+    {
+      "original_track": {
+        "carrier_index_in_core": 3361,
+        "core_q": 48,
+        "drift_grid_index": 23,
+        "drift_hz_s": -2.8354430379746836,
+        "eligible_DC_untouched": true,
+        "frequency_hz_at_window_reference": 2298367074.31823,
+        "frozen_DC_source_channels": [
+          178782208,
+          179830784,
+          180879360
+        ],
+        "map_id": "epoch2_on_native172_q048",
+        "map_source_class": "NEW_EXHAUSTIVE_DUAL_MAXIMUM",
+        "minimum_DC_width_box_distance_channels": 324263,
+        "native_chunk_index": 172,
+        "normalization": {
+          "bytes": 1432,
+          "path": "seti_burst_full/results/full20170428_epoch2_HIP98505_shard05/epoch2_on_native172_q048_normalization.json",
+          "sha256": "0939a70e33de5eb7cc24a7cc8fc1d9380b4d17ec4efc80bb8ddc242c34d95037"
+        },
+        "original_acquisition_role": "ON",
+        "primary_id": "on20170428_epoch2_HIP98505",
+        "primary_target": "HIP98505",
+        "producer_receipt": {
+          "bytes": 147978,
+          "path": "seti_burst_full/results/full20170428_epoch2_HIP98505_shard05/EXECUTION_RECEIPT.json",
+          "sha256": "5e4519b192fa667236ae6fc078bdd890271268cb59653c3a96bea8d479d6c900"
+        },
+        "rank": 1,
+        "raw_rank": 1,
+        "reference_time_mjd": 57871.55314978298,
+        "rounded_absolute_centers": [
+          180555041,
+          180555060,
+          180555078,
+          180555097
+        ],
+        "row_indices_intersecting_any_frozen_DC": [],
+        "rows_intersecting_any_frozen_DC": 0,
+        "scan_id": "epoch2_on",
+        "score": 6.996867083638449,
+        "source_header": {
+          "DIMENSION_LABELS": [
+            "frequency",
+            "feed_id",
+            "time"
+          ],
+          "az_start": 0.0,
+          "data_type": 1,
+          "fch1": 2802.83203125,
+          "foff": -2.7939677238464355e-06,
+          "machine_id": 20,
+          "nbits": 32,
+          "nchans": 359661568,
+          "nifs": 1,
+          "source_name": "HIP98505",
+          "src_dej": 22.7097275,
+          "src_raj": 20.012132777777783,
+          "telescope_id": 6,
+          "tsamp": 18.253611008,
+          "tstart": 57871.552199074074,
+          "za_start": 0.0
+        },
+        "source_map": {
+          "bytes": 316882,
+          "path": "seti_burst_full/results/full20170428_epoch2_HIP98505_shard05/epoch2_on_native172_q048.npz",
+          "sha256": "da2be2a538108e61f760d6c94e3727a25d852a46fec7705bb2657ad6ff94298a"
+        },
+        "source_reference_channel": 180555041,
+        "touch_counts_by_frozen_DC": {
+          "178782208": 0,
+          "179830784": 0,
+          "180879360": 0
+        },
+        "width_box_source_channels_inclusive": [
+          [
+            180555041,
+            180555041
+          ],
+          [
+            180555060,
+            180555060
+          ],
+          [
+            180555078,
+            180555078
+          ],
+          [
+            180555097,
+            180555097
+          ]
+        ],
+        "width_channels": 1,
+        "window_length_rows": 4,
+        "window_source_rows": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "window_start_row": 4,
+        "winner_family": "DC_clean",
+        "winning_valid_hypothesis_count": 2226
+      },
+      "study_track_id": "SETI_DRIFT_SMEARING_20261016:T04",
+      "sweep_native_channels": 18.52457843688976
+    },
+    {
+      "original_track": {
+        "carrier_index_in_core": 3990,
+        "core_q": 131,
+        "drift_grid_index": 152,
+        "drift_hz_s": 3.6962025316455698,
+        "eligible_DC_untouched": true,
+        "frequency_hz_at_window_reference": 2303274832.293391,
+        "frozen_DC_source_channels": [
+          178782208,
+          179830784,
+          180879360
+        ],
+        "map_id": "epoch2_on_native170_q131",
+        "map_source_class": "NEW_EXHAUSTIVE_DUAL_MAXIMUM",
+        "minimum_DC_width_box_distance_channels": 16206,
+        "native_chunk_index": 170,
+        "normalization": {
+          "bytes": 1381,
+          "path": "seti_burst_full/results/full20170428_epoch2_HIP98505_shard01/epoch2_on_native170_q131_normalization.json",
+          "sha256": "0084c4e4c2a03fec8ff3ada9588480c3844c9c4d8090b64f6c4b9e704554918c"
+        },
+        "original_acquisition_role": "ON",
+        "primary_id": "on20170428_epoch2_HIP98505",
+        "primary_target": "HIP98505",
+        "producer_receipt": {
+          "bytes": 147977,
+          "path": "seti_burst_full/results/full20170428_epoch2_HIP98505_shard01/EXECUTION_RECEIPT.json",
+          "sha256": "0262d66f5786611550f1017d6d054ed1ec8c3304a8c4f8630a44230945c5ad30"
+        },
+        "rank": 2,
+        "raw_rank": 2,
+        "reference_time_mjd": 57871.55483993215,
+        "rounded_absolute_centers": [
+          178798486,
+          178798462,
+          178798438,
+          178798414
+        ],
+        "row_indices_intersecting_any_frozen_DC": [],
+        "rows_intersecting_any_frozen_DC": 0,
+        "scan_id": "epoch2_on",
+        "score": 6.9619461743803495,
+        "source_header": {
+          "DIMENSION_LABELS": [
+            "frequency",
+            "feed_id",
+            "time"
+          ],
+          "az_start": 0.0,
+          "data_type": 1,
+          "fch1": 2802.83203125,
+          "foff": -2.7939677238464355e-06,
+          "machine_id": 20,
+          "nbits": 32,
+          "nchans": 359661568,
+          "nifs": 1,
+          "source_name": "HIP98505",
+          "src_dej": 22.7097275,
+          "src_raj": 20.012132777777783,
+          "telescope_id": 6,
+          "tsamp": 18.253611008,
+          "tstart": 57871.552199074074,
+          "za_start": 0.0
+        },
+        "source_map": {
+          "bytes": 316882,
+          "path": "seti_burst_full/results/full20170428_epoch2_HIP98505_shard01/epoch2_on_native170_q131.npz",
+          "sha256": "c8e8d283bbf188a858c071d87d99ff611c6da7f6a28133c39bbaa4e6255eb9e5"
+        },
+        "source_reference_channel": 178798486,
+        "touch_counts_by_frozen_DC": {
+          "178782208": 0,
+          "179830784": 0,
+          "180879360": 0
+        },
+        "width_box_source_channels_inclusive": [
+          [
+            178798486,
+            178798486
+          ],
+          [
+            178798462,
+            178798462
+          ],
+          [
+            178798438,
+            178798438
+          ],
+          [
+            178798414,
+            178798414
+          ]
+        ],
+        "width_channels": 1,
+        "window_length_rows": 4,
+        "window_source_rows": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "window_start_row": 12,
+        "winner_family": "DC_clean",
+        "winning_valid_hypothesis_count": 2226
+      },
+      "study_track_id": "SETI_DRIFT_SMEARING_20261016:T05",
+      "sweep_native_channels": 24.148111176659867
+    },
+    {
+      "original_track": {
+        "carrier_index_in_core": 1435,
+        "core_q": 252,
+        "drift_grid_index": 60,
+        "drift_hz_s": -0.9620253164556964,
+        "eligible_DC_untouched": true,
+        "frequency_hz_at_window_reference": 2301897235.773504,
+        "frozen_DC_source_channels": [
+          178782208,
+          179830784,
+          180879360
+        ],
+        "map_id": "epoch2_on_native170_q252",
+        "map_source_class": "PILOT_REUSED_UNCHANGED_GEOMETRICALLY_DC_CLEAN",
+        "minimum_DC_width_box_distance_channels": 509339,
+        "native_chunk_index": 170,
+        "normalization": {
+          "bytes": 1436,
+          "path": "seti_burst_on/results/on20170428_epoch2_HIP98505/epoch2_on_native170_q252_normalization.json",
+          "sha256": "7ba41db62e30940351ed6969a8ad2dc961a39ee487a9a2186b36755320cf0b12"
+        },
+        "original_acquisition_role": "ON",
+        "primary_id": "on20170428_epoch2_HIP98505",
+        "primary_target": "HIP98505",
+        "producer_receipt": {
+          "bytes": 118139,
+          "path": "seti_burst_on/results/on20170428_epoch2_HIP98505/EXECUTION_RECEIPT.json",
+          "sha256": "c559f15e902530a8a5304b99f81d8fc79ff18b1f3d1ad6b78ee320b80ee58160"
+        },
+        "rank": 3,
+        "raw_rank": 3,
+        "reference_time_mjd": 57871.55399485757,
+        "rounded_absolute_centers": [
+          179291547,
+          179291553,
+          179291560,
+          179291566
+        ],
+        "row_indices_intersecting_any_frozen_DC": [],
+        "rows_intersecting_any_frozen_DC": 0,
+        "scan_id": "epoch2_on",
+        "score": 6.916444045238109,
+        "source_header": {
+          "DIMENSION_LABELS": [
+            "frequency",
+            "feed_id",
+            "time"
+          ],
+          "az_start": 0.0,
+          "data_type": 1,
+          "fch1": 2802.83203125,
+          "foff": -2.7939677238464355e-06,
+          "machine_id": 20,
+          "nbits": 32,
+          "nchans": 359661568,
+          "nifs": 1,
+          "source_name": "HIP98505",
+          "src_dej": 22.7097275,
+          "src_raj": 20.012132777777783,
+          "telescope_id": 6,
+          "tsamp": 18.253611008,
+          "tstart": 57871.552199074074,
+          "za_start": 0.0
+        },
+        "source_map": {
+          "bytes": 192222,
+          "path": "seti_burst_on/results/on20170428_epoch2_HIP98505/epoch2_on_native170_q252.npz",
+          "sha256": "a423908a09a100f267617b3bc2a46fcdd9fa55b0698e813aaec6067553842902"
+        },
+        "source_reference_channel": 179291547,
+        "touch_counts_by_frozen_DC": {
+          "178782208": 0,
+          "179830784": 0,
+          "180879360": 0
+        },
+        "width_box_source_channels_inclusive": [
+          [
+            179291547,
+            179291547
+          ],
+          [
+            179291553,
+            179291553
+          ],
+          [
+            179291560,
+            179291560
+          ],
+          [
+            179291566,
+            179291566
+          ]
+        ],
+        "width_channels": 1,
+        "window_length_rows": 4,
+        "window_source_rows": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "window_start_row": 8,
+        "winner_family": "DC_clean",
+        "winning_valid_hypothesis_count": 2226
+      },
+      "study_track_id": "SETI_DRIFT_SMEARING_20261016:T06",
+      "sweep_native_channels": 6.285124826801885
+    },
+    {
+      "original_track": {
+        "carrier_index_in_core": 1118,
+        "core_q": 81,
+        "drift_grid_index": 118,
+        "drift_hz_s": 1.9746835443037973,
+        "eligible_DC_untouched": true,
+        "frequency_hz_at_window_reference": 2297995686.158538,
+        "frozen_DC_source_channels": [
+          178782208,
+          179830784,
+          180879360
+        ],
+        "map_id": "epoch3_on_native172_q081",
+        "map_source_class": "NEW_EXHAUSTIVE_DUAL_MAXIMUM",
+        "minimum_DC_width_box_distance_channels": 191394,
+        "native_chunk_index": 172,
+        "normalization": {
+          "bytes": 1369,
+          "path": "seti_burst_full/results/full20170428_epoch3_HIP98505_shard05/epoch3_on_native172_q081_normalization.json",
+          "sha256": "08d2e6ec23327ab660d16291cb12cdb64314d0a1a0a629ae60f991cdee6e4a75"
+        },
+        "original_acquisition_role": "ON",
+        "primary_id": "on20170428_epoch3_HIP98505",
+        "primary_target": "HIP98505",
+        "producer_receipt": {
+          "bytes": 148014,
+          "path": "seti_burst_full/results/full20170428_epoch3_HIP98505_shard05/EXECUTION_RECEIPT.json",
+          "sha256": "368d75e0b00a8f7e28d9fd91a44ca00096eb0b73d113c05e0d794c54b521ecad"
+        },
+        "rank": 1,
+        "raw_rank": 1,
+        "reference_time_mjd": 57871.56027924544,
+        "rounded_absolute_centers": [
+          180687966,
+          180687953,
+          180687940,
+          180687927
+        ],
+        "row_indices_intersecting_any_frozen_DC": [],
+        "rows_intersecting_any_frozen_DC": 0,
+        "scan_id": "epoch3_on",
+        "score": 7.450294835423308,
+        "source_header": {
+          "DIMENSION_LABELS": [
+            "frequency",
+            "feed_id",
+            "time"
+          ],
+          "az_start": 0.0,
+          "data_type": 1,
+          "fch1": 2802.83203125,
+          "foff": -2.7939677238464355e-06,
+          "machine_id": 20,
+          "nbits": 32,
+          "nchans": 359661568,
+          "nifs": 1,
+          "source_name": "HIP98505",
+          "src_dej": 22.709716944444445,
+          "src_raj": 20.012133611111114,
+          "telescope_id": 6,
+          "tsamp": 18.253611008,
+          "tstart": 57871.56017361111,
+          "za_start": 0.0
+        },
+        "source_map": {
+          "bytes": 316882,
+          "path": "seti_burst_full/results/full20170428_epoch3_HIP98505_shard05/epoch3_on_native172_q081.npz",
+          "sha256": "08159acffd01225d8e32abbe91df4dd18f767da5a4cbc4e944d6d491135c3703"
+        },
+        "source_reference_channel": 180687966,
+        "touch_counts_by_frozen_DC": {
+          "178782208": 0,
+          "179830784": 0,
+          "180879360": 0
+        },
+        "width_box_source_channels_inclusive": [
+          [
+            180687966,
+            180687966
+          ],
+          [
+            180687953,
+            180687953
+          ],
+          [
+            180687940,
+            180687940
+          ],
+          [
+            180687927,
+            180687927
+          ]
+        ],
+        "width_channels": 1,
+        "window_length_rows": 4,
+        "window_source_rows": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "window_start_row": 0,
+        "winner_family": "DC_clean",
+        "winning_valid_hypothesis_count": 2226
+      },
+      "study_track_id": "SETI_DRIFT_SMEARING_20261016:T07",
+      "sweep_native_channels": 12.901045697119654
+    },
+    {
+      "original_track": {
+        "carrier_index_in_core": 2742,
+        "core_q": 94,
+        "drift_grid_index": 112,
+        "drift_hz_s": 1.6708860759493671,
+        "eligible_DC_untouched": true,
+        "frequency_hz_at_window_reference": 2297842375.561595,
+        "frozen_DC_source_channels": [
+          178782208,
+          179830784,
+          180879360
+        ],
+        "map_id": "epoch3_on_native172_q094",
+        "map_source_class": "NEW_EXHAUSTIVE_DUAL_MAXIMUM",
+        "minimum_DC_width_box_distance_channels": 136522,
+        "native_chunk_index": 172,
+        "normalization": {
+          "bytes": 1436,
+          "path": "seti_burst_full/results/full20170428_epoch3_HIP98505_shard05/epoch3_on_native172_q094_normalization.json",
+          "sha256": "273aceb85c57d154c676322e0de2add7206d000756d10ab3b07dff2816a1666e"
+        },
+        "original_acquisition_role": "ON",
+        "primary_id": "on20170428_epoch3_HIP98505",
+        "primary_target": "HIP98505",
+        "producer_receipt": {
+          "bytes": 148014,
+          "path": "seti_burst_full/results/full20170428_epoch3_HIP98505_shard05/EXECUTION_RECEIPT.json",
+          "sha256": "368d75e0b00a8f7e28d9fd91a44ca00096eb0b73d113c05e0d794c54b521ecad"
+        },
+        "rank": 2,
+        "raw_rank": 2,
+        "reference_time_mjd": 57871.56196939461,
+        "rounded_absolute_centers": [
+          180742838,
+          180742827,
+          180742816,
+          180742805
+        ],
+        "row_indices_intersecting_any_frozen_DC": [],
+        "rows_intersecting_any_frozen_DC": 0,
+        "scan_id": "epoch3_on",
+        "score": 7.0311631585131735,
+        "source_header": {
+          "DIMENSION_LABELS": [
+            "frequency",
+            "feed_id",
+            "time"
+          ],
+          "az_start": 0.0,
+          "data_type": 1,
+          "fch1": 2802.83203125,
+          "foff": -2.7939677238464355e-06,
+          "machine_id": 20,
+          "nbits": 32,
+          "nchans": 359661568,
+          "nifs": 1,
+          "source_name": "HIP98505",
+          "src_dej": 22.709716944444445,
+          "src_raj": 20.012133611111114,
+          "telescope_id": 6,
+          "tsamp": 18.253611008,
+          "tstart": 57871.56017361111,
+          "za_start": 0.0
+        },
+        "source_map": {
+          "bytes": 316882,
+          "path": "seti_burst_full/results/full20170428_epoch3_HIP98505_shard05/epoch3_on_native172_q094.npz",
+          "sha256": "1af28bb50acc73f08a17e1d769c997888292481cb4e3f70d59cbdc413ba92af7"
+        },
+        "source_reference_channel": 180742838,
+        "touch_counts_by_frozen_DC": {
+          "178782208": 0,
+          "179830784": 0,
+          "180879360": 0
+        },
+        "width_box_source_channels_inclusive": [
+          [
+            180742838,
+            180742838
+          ],
+          [
+            180742827,
+            180742827
+          ],
+          [
+            180742816,
+            180742816
+          ],
+          [
+            180742805,
+            180742805
+          ]
+        ],
+        "width_channels": 1,
+        "window_length_rows": 4,
+        "window_source_rows": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "window_start_row": 8,
+        "winner_family": "DC_clean",
+        "winning_valid_hypothesis_count": 2226
+      },
+      "study_track_id": "SETI_DRIFT_SMEARING_20261016:T08",
+      "sweep_native_channels": 10.916269436024324
+    },
+    {
+      "original_track": {
+        "carrier_index_in_core": 3041,
+        "core_q": 12,
+        "drift_grid_index": 66,
+        "drift_hz_s": -0.6582278481012658,
+        "eligible_DC_untouched": true,
+        "frequency_hz_at_window_reference": 2298779955.6925893,
+        "frozen_DC_source_channels": [
+          178782208,
+          179830784,
+          180879360
+        ],
+        "map_id": "epoch3_on_native172_q012",
+        "map_source_class": "PILOT_REUSED_UNCHANGED_GEOMETRICALLY_DC_CLEAN",
+        "minimum_DC_width_box_distance_channels": 472082,
+        "native_chunk_index": 172,
+        "normalization": {
+          "bytes": 1415,
+          "path": "seti_burst_on/results/on20170428_epoch3_HIP98505/epoch3_on_native172_q012_normalization.json",
+          "sha256": "c52555fcea1582e574d1c7ab079f759bbdaecf59e9f2ddde36c0e48578324f71"
+        },
+        "original_acquisition_role": "ON",
+        "primary_id": "on20170428_epoch3_HIP98505",
+        "primary_target": "HIP98505",
+        "producer_receipt": {
+          "bytes": 118138,
+          "path": "seti_burst_on/results/on20170428_epoch3_HIP98505/EXECUTION_RECEIPT.json",
+          "sha256": "d00b26eaf867290900355b4379313bdd3c5f7a317173466ba6d653925d1862da"
+        },
+        "rank": 3,
+        "raw_rank": 3,
+        "reference_time_mjd": 57871.56281446919,
+        "rounded_absolute_centers": [
+          180407265,
+          180407269,
+          180407274,
+          180407278
+        ],
+        "row_indices_intersecting_any_frozen_DC": [],
+        "rows_intersecting_any_frozen_DC": 0,
+        "scan_id": "epoch3_on",
+        "score": 6.749950807237624,
+        "source_header": {
+          "DIMENSION_LABELS": [
+            "frequency",
+            "feed_id",
+            "time"
+          ],
+          "az_start": 0.0,
+          "data_type": 1,
+          "fch1": 2802.83203125,
+          "foff": -2.7939677238464355e-06,
+          "machine_id": 20,
+          "nbits": 32,
+          "nchans": 359661568,
+          "nifs": 1,
+          "source_name": "HIP98505",
+          "src_dej": 22.709716944444445,
+          "src_raj": 20.012133611111114,
+          "telescope_id": 6,
+          "tsamp": 18.253611008,
+          "tstart": 57871.56017361111,
+          "za_start": 0.0
+        },
+        "source_map": {
+          "bytes": 192222,
+          "path": "seti_burst_on/results/on20170428_epoch3_HIP98505/epoch3_on_native172_q012.npz",
+          "sha256": "9ad81a09f37624a31d52ba76642e1d207ed20b1916966d12afbe0f6d20583b6c"
+        },
+        "source_reference_channel": 180407265,
+        "touch_counts_by_frozen_DC": {
+          "178782208": 0,
+          "179830784": 0,
+          "180879360": 0
+        },
+        "width_box_source_channels_inclusive": [
+          [
+            180407265,
+            180407265
+          ],
+          [
+            180407269,
+            180407269
+          ],
+          [
+            180407274,
+            180407274
+          ],
+          [
+            180407278,
+            180407278
+          ]
+        ],
+        "width_channels": 1,
+        "window_length_rows": 4,
+        "window_source_rows": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "window_start_row": 12,
+        "winner_family": "DC_clean",
+        "winning_valid_hypothesis_count": 2226
+      },
+      "study_track_id": "SETI_DRIFT_SMEARING_20261016:T09",
+      "sweep_native_channels": 4.300348565706551
+    }
+  ]
+}
