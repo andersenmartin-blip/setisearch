@@ -1,0 +1,300 @@
+{
+  "actual_output_bytes_before_final_receipt": 19746365,
+  "identity": "SETI_FULLSEARCH_PAYLOAD_ENGINEERING_20261016_V1",
+  "ledger_snapshot": {
+    "claims": {
+      "exposed-000000": {
+        "case_id": "SETI_FULLSEARCH_PAYLOAD_ENGINEERING_20261016_V1_exposed",
+        "claim_id": "exposed-000000",
+        "cpu_s_reserved_no_refund": 120,
+        "log_receipt_overhead_bytes_reserved": 1048576,
+        "payload_bound_bytes": 838860800,
+        "phase": "exposed",
+        "slot": 0
+      },
+      "primary-000000": {
+        "case_id": "SETI_FULLSEARCH_PAYLOAD_ENGINEERING_20261016_V1_primary",
+        "claim_id": "primary-000000",
+        "cpu_s_reserved_no_refund": 600,
+        "log_receipt_overhead_bytes_reserved": 1048576,
+        "payload_bound_bytes": 838860800,
+        "phase": "primary",
+        "slot": 0
+      },
+      "qa-000000": {
+        "case_id": "SETI_FULLSEARCH_PAYLOAD_ENGINEERING_20261016_V1_qa",
+        "claim_id": "qa-000000",
+        "cpu_s_reserved_no_refund": 600,
+        "log_receipt_overhead_bytes_reserved": 1048576,
+        "payload_bound_bytes": 67108864,
+        "phase": "qa",
+        "slot": 0
+      }
+    },
+    "events": 8,
+    "ledger_bytes": 5371,
+    "pending": [],
+    "plan": {
+      "admitted": true,
+      "closed_banks_read_or_reused": false,
+      "cpu_limit_s": 1400,
+      "disk_headroom_bytes": 30435123200,
+      "errors": [],
+      "event_cap_bytes": 8192,
+      "format": "SETI_FRESH_PHASE_BUDGET_ENGINEERING_V1",
+      "metadata_cpu_s": 80,
+      "metadata_reserve_bytes": 1048576,
+      "mode": "ENGINEERING_FIXTURES_ONLY",
+      "output_limit_bytes": 2147483648,
+      "phases": {
+        "exposed": {
+          "count": 1,
+          "cpu_s_per_slot": 120,
+          "external_log_receipt_cap_bytes": 1032192,
+          "log_receipt_overhead_bytes_per_slot": 1048576,
+          "payload_bound_bytes": 838860800,
+          "reserved_cpu_s": 120,
+          "reserved_output_bytes": 839909376
+        },
+        "exposed_qa": {
+          "count": 0,
+          "cpu_s_per_slot": 2,
+          "external_log_receipt_cap_bytes": 1032192,
+          "log_receipt_overhead_bytes_per_slot": 1048576,
+          "payload_bound_bytes": 1,
+          "reserved_cpu_s": 0,
+          "reserved_output_bytes": 0
+        },
+        "primary": {
+          "count": 1,
+          "cpu_s_per_slot": 600,
+          "external_log_receipt_cap_bytes": 1032192,
+          "log_receipt_overhead_bytes_per_slot": 1048576,
+          "payload_bound_bytes": 838860800,
+          "reserved_cpu_s": 600,
+          "reserved_output_bytes": 839909376
+        },
+        "qa": {
+          "count": 1,
+          "cpu_s_per_slot": 600,
+          "external_log_receipt_cap_bytes": 1032192,
+          "log_receipt_overhead_bytes_per_slot": 1048576,
+          "payload_bound_bytes": 67108864,
+          "reserved_cpu_s": 600,
+          "reserved_output_bytes": 68157440
+        }
+      },
+      "production_launched": false,
+      "reservations_refunded": false,
+      "scientific_admission": false,
+      "status": "ENGINEERING_RESERVED_ARITHMETIC_ONLY",
+      "total_reserved_cpu_s": 1400.0,
+      "total_reserved_output_bytes": 1749024768
+    },
+    "recorded_payload_and_external_bytes": 19730298,
+    "reserved_cpu_s_retained": 1400.0,
+    "reserved_output_bytes_retained": 1749024768,
+    "scientific_admission": false,
+    "status": "CLOSED",
+    "terminals": {
+      "exposed-000000": {
+        "accepted": true,
+        "claim_id": "exposed-000000",
+        "error": null,
+        "error_sha256": null,
+        "errors": [],
+        "log_receipt_bytes": 5105,
+        "payload_bytes": 11110520,
+        "receipt_digest_encoding": "CANONICAL_JSON",
+        "receipt_sha256": "f7867f19c901ba73be9182aa60f5eff7cdabca3f98cf41177bc540df5193e2ee",
+        "reservations_refunded": false,
+        "scientific_admission": false,
+        "whole_child_CPU_s": 1.678944
+      },
+      "primary-000000": {
+        "accepted": true,
+        "claim_id": "primary-000000",
+        "error": null,
+        "error_sha256": null,
+        "errors": [],
+        "log_receipt_bytes": 4895,
+        "payload_bytes": 8596107,
+        "receipt_digest_encoding": "CANONICAL_JSON",
+        "receipt_sha256": "29b1fd89fb70c62563c8dc346a698d014526c60389b18cb732cd9c4b4a8f78fa",
+        "reservations_refunded": false,
+        "scientific_admission": false,
+        "whole_child_CPU_s": 143.410664
+      },
+      "qa-000000": {
+        "accepted": true,
+        "claim_id": "qa-000000",
+        "error": null,
+        "error_sha256": null,
+        "errors": [],
+        "log_receipt_bytes": 3364,
+        "payload_bytes": 10307,
+        "receipt_digest_encoding": "CANONICAL_JSON",
+        "receipt_sha256": "5f7beebbeaaaccbbf424816bd6a02e7a78a1fec5a8355edde73b5c57045306a1",
+        "reservations_refunded": false,
+        "scientific_admission": false,
+        "whole_child_CPU_s": 106.935669
+      }
+    }
+  },
+  "original_A_B": "FAIL_CLOSED",
+  "phase_mapping": {
+    "exposed": "engineering_summary_projection_no_telescope_exposure",
+    "exposed_qa": "zero_slots",
+    "primary": "actual_complete_detector_and_transport",
+    "qa": "independent_complete_streamed_search"
+  },
+  "phases": [
+    {
+      "accepted": true,
+      "log_receipt_bytes": 4895,
+      "payload_bytes": 8596107,
+      "phase": "primary",
+      "receipt": {
+        "CPU_monitor_backend": "POSIX_PROCESS_CPU_CLOCK_BY_CHILD_PID",
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "/workspace/scratch/6ef1b336d8f4/source/tools/fullsearch_integration_20261016/producer.py",
+          "--folder",
+          "/workspace/scratch/6ef1b336d8f4/work/SETI_FULLSEARCH_PAYLOAD_ENGINEERING_20261016_V1/fixture",
+          "--payload-cap",
+          "805306368",
+          "--scope",
+          "/workspace/scratch/6ef1b336d8f4/source/tools/fullsearch_integration_20261016/SCOPE.json",
+          "--scope-sha256",
+          "8f453c8d6eb96604fba658636d955093ad2b79d471e8c621e12c0aa39979291e"
+        ],
+        "errors": [],
+        "exit_code": 0,
+        "interruption": null,
+        "last_parent_CPU_sample_s": 143.40767225,
+        "launcher_verified": true,
+        "limits": {
+          "address_space_bytes": 1073741824,
+          "cpu_s": 600,
+          "kernel_CPU_hard_s": 599,
+          "parent_CPU_stop_s": 594.0,
+          "wall_s": 1800
+        },
+        "parent_CPU_samples": 14164,
+        "peak_RSS_bytes": 93609984,
+        "pid": 5,
+        "resource_acceptance": true,
+        "scientific_integrity_or_QA_or_admission_established": false,
+        "status": "RESOURCE_COMPLIANT_ONLY",
+        "wait4_reaped": true,
+        "wall_s": 143.4326811259998,
+        "watchdog_fired": false,
+        "watchdog_reason": null,
+        "whole_child_CPU_s": 143.410664
+      }
+    },
+    {
+      "accepted": true,
+      "log_receipt_bytes": 3364,
+      "payload_bytes": 10307,
+      "phase": "qa",
+      "receipt": {
+        "CPU_monitor_backend": "POSIX_PROCESS_CPU_CLOCK_BY_CHILD_PID",
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "/workspace/scratch/6ef1b336d8f4/source/tools/fullsearch_integration_20261016/verifier.py",
+          "--folder",
+          "/workspace/scratch/6ef1b336d8f4/work/SETI_FULLSEARCH_PAYLOAD_ENGINEERING_20261016_V1/fixture",
+          "--report",
+          "/workspace/scratch/6ef1b336d8f4/work/SETI_FULLSEARCH_PAYLOAD_ENGINEERING_20261016_V1/QA_REPORT.json"
+        ],
+        "errors": [],
+        "exit_code": 0,
+        "interruption": null,
+        "last_parent_CPU_sample_s": 106.929757194,
+        "launcher_verified": true,
+        "limits": {
+          "address_space_bytes": 1073741824,
+          "cpu_s": 600,
+          "kernel_CPU_hard_s": 599,
+          "parent_CPU_stop_s": 594.0,
+          "wall_s": 1800
+        },
+        "parent_CPU_samples": 10560,
+        "peak_RSS_bytes": 99442688,
+        "pid": 6,
+        "resource_acceptance": true,
+        "scientific_integrity_or_QA_or_admission_established": false,
+        "status": "RESOURCE_COMPLIANT_ONLY",
+        "wait4_reaped": true,
+        "wall_s": 106.95533738299991,
+        "watchdog_fired": false,
+        "watchdog_reason": null,
+        "whole_child_CPU_s": 106.935669
+      }
+    },
+    {
+      "accepted": true,
+      "log_receipt_bytes": 5105,
+      "payload_bytes": 11110520,
+      "phase": "exposed",
+      "receipt": {
+        "CPU_monitor_backend": "POSIX_PROCESS_CPU_CLOCK_BY_CHILD_PID",
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "/workspace/scratch/6ef1b336d8f4/source/tools/fullsearch_integration_20261016/summary_check.py",
+          "--payload",
+          "/workspace/scratch/6ef1b336d8f4/work/SETI_FULLSEARCH_PAYLOAD_ENGINEERING_20261016_V1/fixture/payload",
+          "--producer-receipt",
+          "/workspace/scratch/6ef1b336d8f4/work/SETI_FULLSEARCH_PAYLOAD_ENGINEERING_20261016_V1/process_primary/WAIT4_RECEIPT.json",
+          "--qa-report",
+          "/workspace/scratch/6ef1b336d8f4/work/SETI_FULLSEARCH_PAYLOAD_ENGINEERING_20261016_V1/QA_REPORT.json",
+          "--qa-receipt",
+          "/workspace/scratch/6ef1b336d8f4/work/SETI_FULLSEARCH_PAYLOAD_ENGINEERING_20261016_V1/process_qa/WAIT4_RECEIPT.json",
+          "--scope",
+          "/workspace/scratch/6ef1b336d8f4/source/tools/fullsearch_integration_20261016/SCOPE.json",
+          "--projection-root",
+          "/workspace/scratch/6ef1b336d8f4/work/SETI_FULLSEARCH_PAYLOAD_ENGINEERING_20261016_V1/summary_projection",
+          "--report",
+          "/workspace/scratch/6ef1b336d8f4/work/SETI_FULLSEARCH_PAYLOAD_ENGINEERING_20261016_V1/SUMMARY_REPORT.json",
+          "--payload-cap",
+          "805306368",
+          "--projection-cap",
+          "838860800"
+        ],
+        "errors": [],
+        "exit_code": 0,
+        "interruption": null,
+        "last_parent_CPU_sample_s": 1.670805163,
+        "launcher_verified": true,
+        "limits": {
+          "address_space_bytes": 1073741824,
+          "cpu_s": 120,
+          "kernel_CPU_hard_s": 119,
+          "parent_CPU_stop_s": 118.5,
+          "wall_s": 300
+        },
+        "parent_CPU_samples": 166,
+        "peak_RSS_bytes": 46870528,
+        "pid": 7,
+        "resource_acceptance": true,
+        "scientific_integrity_or_QA_or_admission_established": false,
+        "status": "RESOURCE_COMPLIANT_ONLY",
+        "wait4_reaped": true,
+        "wall_s": 1.6835773509997125,
+        "watchdog_fired": false,
+        "watchdog_reason": null,
+        "whole_child_CPU_s": 1.678944
+      }
+    }
+  ],
+  "producer_report_sha256": "951f6670015cc45e4201e3c37273bfe3c448a2b82329723e0a01fcf882a85489",
+  "qa_report_sha256": "69fcd17ecdc16b75a04816b68316de0b0a572019783611a35a188d6410016025",
+  "qualified_SETI_detection": false,
+  "rank_status": "NOT_APPLIED_NO_CALIBRATION",
+  "scientific_bank_admission": false,
+  "scope_sha256": "8f453c8d6eb96604fba658636d955093ad2b79d471e8c621e12c0aa39979291e",
+  "status": "PASS_COMPLETE_SEARCH_ENGINEERING_ONLY",
+  "summary_report_sha256": "4df39c1c757c0a7d1b743252a6f501d62621b24116c4388d033b82b6c34495b6",
+  "whole_children_CPU_s": 252.025277
+}
