@@ -1,0 +1,44 @@
+{
+  "command": "python -m unittest discover -s source/tools/science_payload_20261016 -p test_payload.py -v",
+  "new_scientific_cases_or_draws": 0,
+  "outcome": "PASS",
+  "recorded_at_UTC": "2026-10-16T06:09:02.004995+00:00",
+  "runner_reported_seconds": 0.125,
+  "runtime": {
+    "msgpack": "1.2.1",
+    "numpy": "2.3.5",
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]"
+  },
+  "schema": "SETI_SCIENTIFIC_VALUE_ADAPTER_REGRESSION_V1",
+  "scientific_integrity_or_QA_or_admission_established": false,
+  "scope": "Transport value semantics and unchanged independent decoder compatibility; not whole-application scientific search or admission validation",
+  "source_pins": {
+    "../bounded_payload_20261015/payload_store.py": {
+      "bytes": 10775,
+      "sha256": "494283c37cc0fdc68c78531cbaf4b352db6aa302ee13af2d4f6e89c8fd3d1144"
+    },
+    "../fullcase_payload_20261015/array_adapter.py": {
+      "bytes": 5400,
+      "sha256": "c531ff63f4712e05bd5e49aa4771d3b65e33ae85aa3b0a9147d3181c0c4d4a75"
+    },
+    "payload.py": {
+      "bytes": 22764,
+      "sha256": "97a2113f653df7222a478c403a58399d9cead680eced0c64dac3c75f80fc5bf6"
+    },
+    "test_payload.py": {
+      "bytes": 9401,
+      "sha256": "356fc4671221df62036af026db98ba527cd087487dca327ce941a47048ccb16d"
+    }
+  },
+  "test_names": [
+    "test_corruption_inventory_digest_and_expansion_limits_rejected",
+    "test_exact_types_bits_empty_views_scalar_and_reserved_key",
+    "test_manifest_bytes_are_inside_quota",
+    "test_original_normalization_lists_pass_unchanged_independent_qa_decode",
+    "test_quota_counts_all_physical_files_and_retains_partial_once_only",
+    "test_structured_aligned_dtype_and_padding_bytes_survive",
+    "test_unsupported_or_cyclic_values_fail_before_creating_bundle",
+    "test_verification_and_field_access_do_not_materialize_all_arrays"
+  ],
+  "tests_run": 8
+}
