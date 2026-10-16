@@ -1,3 +1,13 @@
+## 16. oktober 2026: signalformen i ni historiske spor kontrolleret
+
+De ni tidligere udvalgte ON-spor er undersøgt i 54 scanningskontekster og 486 frekvensplaceringer. Den brede støtte, som en fast model for emission gennem hele integrationen forudsiger, ses ikke tydeligt omkring de høje enkeltkanalstoppe. Korte bursts og anden kanalrespons er ikke udelukket. Uafhængig QA består **3.087.090 numeriske sammenligninger**; ingen kvalificeret SETI-detektion eller kalibreret signifikans.
+
+[Dansk rapport og figur](https://github.com/andersenmartin-blip/setisearch/blob/29a1e5c1dc5e172932da300bfcec10ec48ff91d9/analysis/drift_smearing_20261016/RESULTS_DA.md) · [Resultater og QA](https://github.com/andersenmartin-blip/setisearch/blob/29a1e5c1dc5e172932da300bfcec10ec48ff91d9/analysis/drift_smearing_20261016/EVIDENCE_INDEX.json) · [Fortsættelsespunkt](https://github.com/andersenmartin-blip/setisearch/blob/29a1e5c1dc5e172932da300bfcec10ec48ff91d9/RADIO_STATUS_2026-10-16.md).
+
+Separat består værdibevarende resultattransport og faseregnskab 26 målrettede tests og en bevogtet funktionel integration. Komplet søgning og videnskabelig admission er fortsat åbne. A/B og lukkede banker bevarer deres status. 0 DKK, ingen nye teleskopdata; checkpoint 20. oktober.
+
+---
+
 ## 15. oktober 2026: fuldt numerisk transport-footprint efterprøvet
 
 498 konstruerede arrays med **612.781.396 rå bytes** er skrevet og separat genlæst bitpræcist under procesvagt; den sammensatte pakke fylder **120.484.899 bytes**. Afprøvningen omfatter seks millioner OFF-rækker og alle erklærede numeriske feltformer. Seks arrayeksempler består også den uændrede offentlige descriptor-dekoder. De afsluttede job brugte tilsammen **27,910018 målte CPU-s**, og den særskilte 900-s engineeringreservation beholdes fuldt.
