@@ -1,3 +1,13 @@
+## 20. oktober 2026: afsluttende kontrolpunkt for perioden 7.–20. oktober
+
+**Perioden er afsluttet; ingen kvalificeret SETI-detektion.** Den oprindelige A/B-kvalifikation forbliver FAIL_CLOSED. De publicerede resultater omfatter faktiske metodeforsøg, syv uafklarede 2016-ON-overskud og otte fuldt verificerede 2017-bånd. B06 forbliver fejlet og er ikke med i verificerede nuller/maksimum. De otte bånd har 0 bevarede topfem-ON-hypoteser ≥10 og 0 OFF-identiteter ≥8; resultatet giver ingen kalibreret sky-falskalarmrate eller fysisk følsomhedsgrænse.
+
+Slutkontrollen den 20. oktober afstemte 13 bytepinnede rapport-/JSON-kilder og 30 metadata-/regnskabskrav, uden nye søgninger eller åbning af arrays/arkiver. Den beskyttede 2.000-CPU-s-reservation er debiteret én gang og beholdes uden refusion; den målte metadata-child brugte 0,041417 CPU-s. Delvise historiske målinger lægges ikke sammen til et opdigtet samlet projektforbrug. Ingen ny reproduktionskørsel 19. oktober påstås.
+
+[Slutrapport og præcist fortsættelsespunkt](https://github.com/andersenmartin-blip/setisearch/blob/0e0b0d04cbd609677b1e5857f03a70b708ac1572/RADIO_PERIOD_2026-10-07_TO_2026-10-20_FINAL.md). Alle oprindelige fejl, HOLD/pauser, uafklarede dispositioner og uåbnede banker bevares. Ingen automatisk forlængelse, intet nyt budget og ingen lukning af andre særskilt godkendte planer. Slutkontrollen: 0 DKK og 0 nye teleskopbytes.
+
+---
+
 ## 16. oktober 2026: alle ni bånd søgt, otte fuldt verificeret
 
 De otte resterende 2017-bånd er nu kørt med den uændrede fulde seks-scan-søgning. Syv består hele den uafhængige QA; inklusive det allerede afsluttede B00 er status **8/9 fuldt QA-verificerede bånd**. Disse otte har **0 bevarede ON-hypoteser ≥10**, **0 OFF-identiteter ≥8** og højeste ON-score **7,031163159**.
