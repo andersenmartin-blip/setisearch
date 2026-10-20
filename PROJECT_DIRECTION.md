@@ -1,3 +1,13 @@
+## 20. oktober 2026: perioden 7.–20. oktober afsluttet
+
+Slutkontrollen er gennemført på den faktiske slutdato med 13 bytepinnede publicerede kildefiler og 30 metadata-/regnskabskontroller. Ingen søgning, videnskabelig QA, råarrays eller arkiver er genåbnet. **Ingen kvalificeret SETI-detektion; oprindelig A/B forbliver FAIL_CLOSED.** Faktiske metodeudfald og eksplorative teleskopresultater er bevaret: syv uafklarede 2016-ON-overskud, otte fuldt verificerede 2017-bånd og B06 fortsat fejlet og udeladt fra verificerede nuller/maksimum.
+
+De beskyttede 2.000 CPU-s er nu debiteret én gang som slutkontrolreservation, ikke oplyst som målt brugt. Metadata-child brugte 0,041417 CPU-s; hele reservationen beholdes uden refusion. Historiske ledgers, ukendte omkostninger, alle HOLD/pauser og uåbnede banker er uændrede. Ingen ny reproduktionskørsel 19. oktober eller samlet målt projekt-CPU påstås. [Slutrapport, ressourceafgrænsning og præcist fortsættelsespunkt](RADIO_PERIOD_2026-10-07_TO_2026-10-20_FINAL.md).
+
+Afslutningen gælder alene denne periode og dens publicerede kildegrundlag, ikke hele SETI-projektet eller andre særskilt godkendte planer. Ingen automatisk forlængelse eller nyt budget er aktiveret. 0 DKK og 0 nye teleskopbytes i slutkontrollen.
+
+---
+
 ## 16. oktober 2026: alle ni bånd søgt, otte fuldt QA-verificeret
 
 De otte resterende metadatafastlagte 2017-bånd er nu søgt med samme fulde seks-scan-detektor, drift-/bredde-/vinduesfamilie og snit 10/8 som B00. **7/8 nye bånd består hele den uafhængige QA; inklusive B00 er status 8/9.** De otte fuldt verificerede bånd har **0 bevarede ON-hypoteser ≥10**, **0 OFF-identiteter ≥8** og højeste ON-score **7,031163159**. De dækker otte adskilte referencekerner, i alt **91,552734375 kHz**; dette er ingen generel himmel-nuldetektion.

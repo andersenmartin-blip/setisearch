@@ -1,0 +1,10 @@
+{
+  "initial_prepublication_preservation_assertion": "FAILED_COMPARISON_HELPER_OFFSET",
+  "cause": "The ad-hoc history-preservation helper advanced seven bytes beyond a five-byte header separator, incorrectly omitting the original first two hash characters. It did not write any files.",
+  "corrected_comparison": "Use len(b'---\\n\\n') for the separator offset; both complete original root-document tails then match their original Git blob identities.",
+  "PROJECT_STATUS_original_blob": "310590f46725bc5f141f89acec6ac66011c89caa",
+  "PROJECT_DIRECTION_original_blob": "c29ff760f22d6fdb154b227d84d8197a0b469f10",
+  "original_histories_rewritten": false,
+  "checkpoint_process_rerun": false,
+  "scientific_results_or_gates_changed": false
+}
