@@ -128,7 +128,7 @@ jobs:
 
       - name: Upload target audit evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: milestone-34-legacy-audit-m${{ matrix.milestone }}
           if-no-files-found: warn
@@ -184,7 +184,7 @@ jobs:
 
       - name: Upload combined audit evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: milestone-34-legacy-complete-audit
           if-no-files-found: warn

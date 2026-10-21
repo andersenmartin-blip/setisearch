@@ -94,7 +94,7 @@ jobs:
 
       - name: Upload metadata evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: milestone-15-metadata-${{ matrix.target_id }}
           if-no-files-found: warn

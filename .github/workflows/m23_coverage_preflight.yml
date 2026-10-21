@@ -56,7 +56,7 @@ jobs:
             | xargs -0 sha256sum > RESULTS_MANIFEST_M23_COVERAGE_PREFLIGHT.sha256
 
       - name: Upload preflight evidence
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: milestone-23-coverage-preflight
           if-no-files-found: error
