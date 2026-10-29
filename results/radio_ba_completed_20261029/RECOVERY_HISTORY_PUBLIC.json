@@ -1,0 +1,118 @@
+{
+  "accounting_limit": "The displayed phase request/byte counters include failed work and repeats. They are not total historical project usage or HTTP wire-byte counts.",
+  "acquisition_V1": {
+    "actual_process": {
+      "actual_exit_code": 1,
+      "artifact_name": "ACQUISITION_ACTUAL_EXIT_BA.json",
+      "child_wait_completed": true,
+      "completed_utc": "2026-10-29T05:04:40.134636+00:00",
+      "log_bytes": 18102,
+      "log_sha256": "f70aa07de4bb6bff8549c30f924031c5a66887832127be3770d5644be48c1218",
+      "original_sha256": "1127b8260c8998efec4dd0d1fc01c0bf2d10d3ee1799782a318f656a788dbec4",
+      "phase": "ACQUISITION",
+      "started_utc": "2026-10-29T05:03:23.407249+00:00",
+      "stdout_eof": true,
+      "wall_seconds": 76.72728260699978
+    },
+    "error": "Selected chunk must match exactly one new receipt",
+    "new_rows_reported_before_failure": 6,
+    "original_failure_preserved": true,
+    "requested_bytes": 21730775,
+    "requests": 13
+  },
+  "acquisition_V2": {
+    "actual_process": {
+      "actual_exit_code": 0,
+      "artifact_name": "ACQUISITION_V2_ACTUAL_EXIT_BA.json",
+      "child_wait_completed": true,
+      "completed_utc": "2026-10-29T05:24:08.413598+00:00",
+      "log_bytes": 146120,
+      "log_sha256": "267800cbfe896424247cff6bd8e560a686a25ddd8ba8f567ef4267a8d127f84d",
+      "original_sha256": "a874f8825e5dfbd9e21b61aaacb315047d30de49d106fab373a784c9a1ca2d59",
+      "phase": "ACQUISITION_V2",
+      "started_utc": "2026-10-29T05:14:03.826979+00:00",
+      "stdout_eof": true,
+      "wall_seconds": 604.5863744059998
+    },
+    "correction": "Derived compressed payloads explicitly assemble exact cached/new source segments. They are not represented as single HTTP206 receipts.",
+    "requested_bytes": 137206198,
+    "requests": 104,
+    "source_completion_sha256": "c2d7eeb03ee0295b32ea4b69ff96ead7abf98c343af861ccaca1cee272e7d021",
+    "worker_wall_seconds": 602.8751178499997
+  },
+  "freshness": {
+    "V2_acquisition_runner_nominal_first_decoded_rows": 42,
+    "V2_acquisition_runner_reconstructed_prior_V1_partial_rows": 6,
+    "additional_prior_decoded_row": {
+      "compressed_payload_sha256": "ad06b79c42bacffec56d4fc9f9666a5e4a105a31234567da043aa2e8afb118d0",
+      "decoded_power_sha256": "16a4c2a5051c0e26f410dea9b87b316cadfc698b21a19ceb0969ec13b54f6b53",
+      "regression_result_sha256": "1f937e7d37289873ee89b7255779ed2b0e58a2881f6ea90813b7f7f021b6154e",
+      "scan": 3,
+      "time_index": 6
+    },
+    "additional_prior_reviewer_decoded_rows": 1,
+    "globally_never_decoded_selected_rows_remaining_at_this_review": 41,
+    "no_heldout_or_freshness_relabeling": true,
+    "nominal_counter_scope": "The42 counter in frozenV2/source/manifest means firstdecode within V2acquisitionrunner relative to V1sixdecodedrows; it includes row6 alreadydecoded by the rootauthorized offline reviewer. It is not a globalfreshness or heldout count.",
+    "original_AZ_decoded_rows": 48,
+    "prior_BA_acquisition_decoded_rows": 6,
+    "requirement": "Final nativeproof/resume/publicreport must retain this addendum and distinguish42runnercounter from41globallyneverdecoded rows.",
+    "reviewer_offline_regression_before_V2_acquisition": true,
+    "schema": "SETI_BA_POWER_CONTACT_COUNT_SCOPE_ADDENDUM_V1"
+  },
+  "immutable_partial_report": "RADIO_PROGRESS_BA_PARTIAL_2026-10-29.md",
+  "immutable_partial_science_commit": "5a674be4c3df0f6bcb17cf343530e217f6965d3f",
+  "metadata_recovery": {
+    "received_bytes": 16384,
+    "requests": 1,
+    "source_result_sha256": "54a6ac1d385bb91fd0d78884a9b321921f621d858f51daf0611bd0862494a827",
+    "status": "PASS_EXACT_METADATA_RANGE_ONLY"
+  },
+  "native_V4": {
+    "actual_process": {
+      "actual_exit_code": 1,
+      "artifact_name": "NATIVE_ACTUAL_EXIT_BA.json",
+      "child_wait_completed": true,
+      "completed_utc": "2026-10-29T05:24:20.841640+00:00",
+      "log_bytes": 714,
+      "log_sha256": "344c1dfdae0c9404084b48d203619d1d67b84408e1aa7cf630572b7e12cade0f",
+      "original_sha256": "fb41a48abd7b7c9de53ed02769c8b1d2426b05156b1286947505b874ad484322",
+      "phase": "NATIVE",
+      "started_utc": "2026-10-29T05:24:19.820470+00:00",
+      "stdout_eof": true,
+      "wall_seconds": 1.0211824730004082
+    },
+    "failure_preserved": true,
+    "failure_scope": "Content-Range schema check incorrectly conflated derived local source bytes with actual HTTP repeat206 receipt fields."
+  },
+  "native_V5": {
+    "actual_process": {
+      "actual_exit_code": 0,
+      "artifact_name": "NATIVE_V5_ACTUAL_EXIT_BA.json",
+      "child_wait_completed": true,
+      "completed_utc": "2026-10-29T05:28:15.093178+00:00",
+      "log_bytes": 598,
+      "log_sha256": "c6db32b2ae5ce895b28c6b364784f6756a7fb7a17a4c1315d6d97ed56225ac02",
+      "original_sha256": "d35e082c61d0bf397b834fefa6c8bf69d33e7ce4f0cc6d0ab8cb35bff7f58774",
+      "phase": "NATIVE_V5",
+      "started_utc": "2026-10-29T05:28:07.673233+00:00",
+      "stdout_eof": true,
+      "wall_seconds": 7.419830406999608
+    },
+    "all_exact_array_and_power_hashes_match": true,
+    "descriptor_review_scope": "Separate execution of the original review parser; TREE-v1 model/traversal is shared with recovery acquisition, so no independent acquisition-model validation is claimed.",
+    "inherited_repeat_receipts_checked": 3,
+    "inherited_rows_verified": 48,
+    "limitations": "Derived BA compressed chunks are verified by contiguous exact slices of real source206 ranges; no full-chunk206 receipt is invented. Shared original bitshuffle codec and original TREE review implementation; the TREE model/traversal is also used by recovery acquisition and is not independently qualified here. This is an input proof with explicit inherited/new lineages, not a fresh96 acquisition, independent decoder, original-file MD5, signal-origin test or sensitivity calibration.",
+    "new_recovery_rows_verified": 48,
+    "new_repeat_receipts_checked": 3,
+    "reconstructed_chunk_count": 96,
+    "reconstructed_scan_count": 6,
+    "repeat_HTTP_only_fields_verified_on_real_repeat_receipts": true,
+    "repeat_receipts_checked": 6,
+    "retained_HDF_chunk_descriptor_checks": 96,
+    "source_result_sha256": "9443ed375db70eb43d42e99d4867c75dc7fd812585511cd54995409ad2c3f566",
+    "status": "PASS"
+  },
+  "schema": "SETI_BA_COMPLETED_PUBLIC_RECOVERY_HISTORY_V1"
+}
