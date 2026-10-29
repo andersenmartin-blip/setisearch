@@ -1,0 +1,181 @@
+{
+  "candidate_assessment": null,
+  "checkpoint_kind": "PARTIAL",
+  "checkpoint_utc": "2026-10-29T12:54:11.405734+00:00",
+  "delta_proof_sha256": "44e0ece723e7908f072dc5b5fc763a811793134df45412ee4e19fe2e4597777a",
+  "detector_searches_executed": 0,
+  "exact_prefix_request": {
+    "actual_process": {
+      "actual_exit_code": 0,
+      "artifact_name": "EXACT_FAILED_RANGE_ACTUAL_EXIT_BC.json",
+      "child_wait_completed": true,
+      "completed_utc": "2026-10-29T12:36:57.430133+00:00",
+      "log_bytes": 170,
+      "log_sha256": "b070004604d500e084596ab34c054f312213682b79d7ce11cab991101bd0e648",
+      "original_sha256": "654e12a85cbfc3091d60ee9f2fd1c4aa8e4f8daefbaf781602c6771362bfbf72",
+      "phase": "EXACT_FAILED_RANGE",
+      "started_utc": "2026-10-29T12:36:34.758052+00:00",
+      "stdout_eof": true,
+      "wall_seconds": 22.67196073300147
+    },
+    "automatic_retry": false,
+    "bytes": 3103298,
+    "completed_utc": "2026-10-29T12:36:57.389090+00:00",
+    "counter_correction": "Frozen nominal new_compressed_power_chunks_received1 means one new prefix range; it is not one wholly new chunk. Post-dispatch correction is preserved below.",
+    "network_request_attempts": 1,
+    "new_compressed_power_chunks_received": 1,
+    "original_result_sha256": "fddb87ff1ec4912914266e5221f9831414563c7f31cbd51ab1f6721101aa5fa8",
+    "power_rows_decoded": 0,
+    "protocol_sha256": "082d0faaaeecf0f4795698f53c353ae9503387fee65602015ffc99846e801aee",
+    "request": {
+      "archive_id": 65143,
+      "bytes": 3103298,
+      "etag": "\"5ac56577-40d1a6aa0\"",
+      "expected_content_range": "bytes 8154457534-8157560831/17399704224",
+      "method": "GET",
+      "scan": 5,
+      "start": 8154457534,
+      "stop_inclusive": 8157560831,
+      "time_index": 7,
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_32/holding/spliced_blc0001020304050607_guppi_57660_54778_HIP43223_0014.gpuspec.0000.h5"
+    },
+    "sha256": "b6952b2468a4c3b3a2e7f761c1fef4a618e0ccad659404a4039ce3d303548a52",
+    "status": "PASS_EXACT_COMPRESSED_POWER_RANGE_ONLY"
+  },
+  "main_parent_commit": "094a3fafcd2dda5ca0ceb0de95f0015afb89f87e",
+  "new_failed_request": {
+    "archive_id": 65143,
+    "attempts": 1,
+    "automatic_retry": false,
+    "completed_utc": "2026-10-29T12:46:01.228044+00:00",
+    "error": "URLError(OSError('Tunnel connection failed: 403 Forbidden'))",
+    "partial_bytes": 0,
+    "scan": 5,
+    "start": 9241886720,
+    "status": "STOP_NO_AUTOMATIC_RETRY",
+    "stop_inclusive": 9241903103,
+    "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_32/holding/spliced_blc0001020304050607_guppi_57660_54778_HIP43223_0014.gpuspec.0000.h5"
+  },
+  "new_technical_MHz_visits": 0,
+  "new_unique_archive_ids": 0,
+  "next_primary_id": 65133,
+  "next_target": "HIP44295",
+  "no_full_native_gate_or_binding": true,
+  "owner_polling_boundary": {
+    "evidence_scope": "Root-observed polling tool cancellation, separately preserved from child tunnel403 and origin HTTP evidence. No underlying reviewer decision/rationale was returned; no automatic approval rejection is claimed.",
+    "original_receipt_sha256": "4372645046dba7ee4c839a665f376a93e88549d410ca96fea0e86b97e232152c",
+    "recorded_utc": "2026-10-29T12:48:33.559357+00:00",
+    "response": "No retry, escalation, alternate host/route, proxy/environment modification or browser/connector fallback. Offline preservation only.",
+    "subsequent_archive_requests": 0
+  },
+  "partial_state": {
+    "complete_arrays": 5,
+    "inherited_BB_rows": 87,
+    "new_BC_rows": 1,
+    "new_repeats": 0,
+    "prior_repeats": 5,
+    "remaining_repeats": 1,
+    "remaining_rows": 8,
+    "scan5_valid_rows": 8,
+    "valid_rows": 88
+  },
+  "post_dispatch_prefix_scope_addendum": {
+    "additional_network_authorized": false,
+    "assembled_compressed_chunk_sha256_without_decode": "3562197e7d0c478ad63ba3a773093760ea8fa6e298be036ae1fb95f4abc07541",
+    "counter_scope": {
+      "correct_interpretation": "One newly received compressed row7 PREFIX RANGE/contact of3103298bytes. It is not a newly received complete3116878byte chunk and not an HTTP206 receipt for that whole chunk.",
+      "frozen_nominal_value": 1,
+      "frozen_result_field": "new_compressed_power_chunks_received",
+      "inherited_compressed_tail_bytes": 13580,
+      "new_received_HTTP_ranges": 1,
+      "new_received_prefix_bytes": 3103298,
+      "whole_chunk_HTTP_receipt_claimed": false
+    },
+    "created_utc": "2026-10-29T12:38:43.904755+00:00",
+    "full_chunk_descriptor": {
+      "byte_offset": 8154457534,
+      "chunk_offset": [
+        7,
+        0,
+        179306496
+      ],
+      "filter_mask": 0,
+      "size": 3116878,
+      "stop_inclusive": 8157574411
+    },
+    "network_requests_by_this_review": 0,
+    "new_received_prefix_range": {
+      "HTTP_receipt_sha256": "e75241a0c693371ad8938dbf7eb02fa9ebe67b374835f568ef207af09d6b9298",
+      "bytes": 3103298,
+      "payload_sha256": "b6952b2468a4c3b3a2e7f761c1fef4a618e0ccad659404a4039ce3d303548a52",
+      "start": 8154457534,
+      "stop_inclusive": 8157560831
+    },
+    "new_science_credit": 0,
+    "original_protocol_sha256": "082d0faaaeecf0f4795698f53c353ae9503387fee65602015ffc99846e801aee",
+    "original_review_sha256": "a154fa621d4401b4ffa1cc2447a3ce6d613d904d86460117ab4f5589b07ce634",
+    "original_source_sha256": "e3ea51174a373d3d50ff10e10cc55b594e5971b0b5f006d6fdd99bec5bf0bac3",
+    "power_contact_disclosure": {
+      "BC_rows_decoded_at_correction": 0,
+      "new_received_prefix_is_compressed_power_data": true,
+      "no_fresh_or_heldout_relabeling": true,
+      "prior_BB_decoded_rows": 87,
+      "prior_repeat_checks": 5,
+      "remaining_repeat_checks": 1,
+      "row7_tail_was_already_contacted_in_BB": true,
+      "rows_requiring_first_decode_after_correction": 9
+    },
+    "power_decodes_by_this_review": 0,
+    "previously_contacted_tail": {
+      "bytes": 13580,
+      "download_utc": "2026-10-29T07:55:40.025390+00:00",
+      "source_payload_sha256": "decc98da8f4194aa2e9c384bc9f0b4a9ad423f3551635afa790db6b80b3a2a32",
+      "source_payload_slice_start": 0,
+      "source_payload_slice_stop_exclusive": 13580,
+      "source_receipt_sha256": "5cc256ec741b21fb7cb09fceca515398c7ffac42355e7258cad34be155886def",
+      "start": 8157560832,
+      "stop_inclusive": 8157574411
+    },
+    "status": "PASS_SCOPE_CORRECTION_BEFORE_DECODING",
+    "timing_scope": "This addendum was written after the exact GET was dispatched and completed. It does not claim pre-dispatch review or modify the original frozen protocol/source/review/result. No BC power decoding had occurred at this correction."
+  },
+  "primary_id": 65133,
+  "public_scope": "Sanitized documentation and safe hashes only; no payloads, arrays, credentials, Library IDs, absolute workspace paths or programming sources.",
+  "publication_ready": true,
+  "queue_advanced": false,
+  "recovery_phase": {
+    "actual_process": {
+      "actual_exit_code": 1,
+      "artifact_name": "RECOVERY_ACTUAL_EXIT_BC.json",
+      "child_wait_completed": true,
+      "completed_utc": "2026-10-29T12:46:01.325843+00:00",
+      "log_bytes": 6464,
+      "log_sha256": "ed51aea1ccc115933926339473d10c58d066ef343d7b2965da8d235f25aac8a6",
+      "original_sha256": "a8fb7ed44deb8522de13284de1721b4236d6bcd2bd6c65c312fb9078ac856968",
+      "phase": "RECOVERY",
+      "started_utc": "2026-10-29T12:45:50.264348+00:00",
+      "stdout_eof": true,
+      "wall_seconds": 11.061340665997704
+    },
+    "new_repeats": 0,
+    "new_rows_decoded": 1,
+    "original_completion_sha256": "1426ab36001b26e3913554e542193c4d9fc4b81cdbda7c5f7e3ffd653b6f8346",
+    "prior_rows": 87,
+    "protocol_sha256": "6ff82a31b0e65587eb9252fdb60120f46ff906eb859b382a94a0ec85e2e7cd5e",
+    "requested_bytes": 16384,
+    "requests": 1,
+    "scan5_rows_reconstructed": 8,
+    "wall_seconds": 8.145367954002722
+  },
+  "schema": "SETI_BC_PUBLIC_PARTIAL_RECOVERY_EVIDENCE_V1",
+  "science_parent_commit": "7a272a7d883b443449732a47f932c81e8e2b8796",
+  "scope_addendum_original_sha256": "13c1faf95dfc7797efc72f3c1f5ed5eb582cf2c4b13fad0ae36325137d1bf918",
+  "status": "APPROVED_PARTIAL_AFTER_DELTA_INPUT_AUDIT",
+  "target": "HIP44295",
+  "triage_executed": false,
+  "unchanged_completed_authority": {
+    "stage": "BA",
+    "technical_MHz_visits": 268.50128173828125,
+    "unique_archive_ids": 486
+  }
+}

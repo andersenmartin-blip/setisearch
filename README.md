@@ -1,3 +1,13 @@
+## 29. oktober 2026: BC gendannede én række; fortsat delvis og ikke søgt
+
+**HIP44295 / 65133 har nu 88 af 96 gyldige rækker.** Én normal præcis HTTP-206-anmodning hentede 3.103.298 nye prefix-bytes; sammen med 13.580 allerede kontaktede tail-bytes gav de én yderligere dekodet række. Efterfølgende recovery stoppede med faktisk exit 1 ved et nyt TREE-metadatainterval og 0 modtagne bytes.
+
+En afgrænset offline-deltakontrol består med faktisk exit 0; den arver BB-proof for 87 rækker og kontrollerer kun det nye tillæg, uden nye netværksanmodninger. Fem komplette arrays og otte gyldige rækker i scan 5-partial er bevaret; række 8–15 og én gentagelseskontrol mangler. Ingen fuld native-gate, inputbinding, detektor, triage eller kandidatvurdering er gennemført. Ingen yderligere arkivanmodning er foretaget efter adgangsgrænsen.
+
+**BA er fortsat den afsluttede autoritet: 486 unikke arkiv-ID'er og 268,50128173828125 tekniske MHz-besøg.** Ingen ny sciencekredit eller køændring. [BC's delvise kontrolpunkt og præcise fortsættelsespunkt](RADIO_PROGRESS_BC_PARTIAL_2026-10-29.md). Alle BA/BB-rapporter og tidligere statusbytes bevares.
+
+---
+
 ## 29. oktober 2026: BB delvist hentet; ingen gennemført søgning
 
 **HIP44295 / 65133 stoppede efter 87 af 96 rækker med faktisk payload-exit 1.** Fem komplette scan-arrays, fem gentagelseskontroller og syv gyldige rækker i sidste partial-array er bevaret; de øvrige ni allokerede rækker er ikke data. En særskilt offline inddata-kontrol består med faktisk exit 0, uden nye netværksanmodninger eller søgninger.
