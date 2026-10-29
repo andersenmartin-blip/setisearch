@@ -1,3 +1,13 @@
+## 29. oktober 2026: BB delvist hentet; ingen gennemført søgning
+
+**HIP44295 / 65133 stoppede efter 87 af 96 rækker med faktisk payload-exit 1.** Fem komplette scan-arrays, fem gentagelseskontroller og syv gyldige rækker i sidste partial-array er bevaret; de øvrige ni allokerede rækker er ikke data. En særskilt offline inddata-kontrol består med faktisk exit 0, uden nye netværksanmodninger eller søgninger.
+
+Fejlen var tunnel-403 på et præcist interval i arkivfil 65143; ingen bytes eller fjern-HTTP-response blev modtaget. Ingen automatisk gentagelse er foretaget. Den tidligere metadataforberedelsesfejl med faktisk exit 1 er også bevaret.
+
+**BA er fortsat den afsluttede autoritet: 486 unikke arkiv-ID'er og 268,50128173828125 tekniske MHz-besøg.** Ingen BB-detektor, kandidatvurdering eller ny krediteret dækning er gennemført. Køen bliver ved HIP44295; en eventuel senere gendannelse kræver en særskilt prospektiv plan. [Delvist kontrolpunkt, bevarede fejl og præcist næste trin](RADIO_PROGRESS_BB_PARTIAL_2026-10-29.md).
+
+---
+
 ## 29. oktober 2026: BA afsluttet med kontrolleret gendannelse
 
 **HIP92283 / 65097 er færdiganalyseret; afsluttende artefaktkontrol består med faktisk exit 0. Ingen SETI-kandidat er accepteret.** Seks detektorkørsler, numerisk review og alle syv kontekstgrupper er afsluttet med uændrede videnskabelige regler.
