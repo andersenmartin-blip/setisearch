@@ -1,0 +1,146 @@
+{
+  "schema": "SETI_BD_INDEPENDENT_RECOVERY_READINESS_SOURCE_REVIEW_V1",
+  "created_utc": "2026-10-29T14:46:09.625469+00:00",
+  "status": "PASS_SOURCE_REVIEW_OFFLINE_PREFLIGHT_ONLY",
+  "reviewed_sources": [
+    {
+      "path": "restored/work_bc/science_handoff/NEXT_EIGHT_ROW_RECOVERY_SPEC_BC.json",
+      "bytes": 7416,
+      "sha256": "4689cad19751546049693c712f9beb69f2b7b5efa0ce786e2a369c68c517aab4"
+    },
+    {
+      "path": "restored/work_bc/recover_missing_rows_bc.py",
+      "bytes": 18766,
+      "sha256": "2ab628910ab2c27007e33c241b6a79ff890b62364b053bd80460cf209ebf3bf0"
+    },
+    {
+      "path": "restored/work_bc/science_handoff/verify_native_bc.py",
+      "bytes": 13613,
+      "sha256": "c1bab29239ecee5990fdf208dcb0a99f1c48182ba16cc28f8d284beee6e00e5b"
+    },
+    {
+      "path": "restored/work_bc/science_handoff/verify_native_bc_v2.py",
+      "bytes": 16151,
+      "sha256": "f36319f51d42f44e80d1d6a2fd9aac6597a1b4dcf5bfbd5c0d873fa250208db3"
+    },
+    {
+      "path": "restored/work_bc/science_handoff/build_bound_bc_v2.py",
+      "bytes": 5739,
+      "sha256": "d5b6f965b5ab4800b59a48f08e1a02976f6db4554c8603ed59de1295f3b67f8d"
+    },
+    {
+      "path": "restored/work_bc/science_handoff/run_science_phases_bc.py",
+      "bytes": 8266,
+      "sha256": "60629760245e2ea6bee4390c092bf7e3b57f745aa6e53e2164168de3bc37dbce"
+    },
+    {
+      "path": "restored/work_bc/science_handoff/PARTIAL_RETENTION_INVENTORY_BC.json",
+      "bytes": 7074,
+      "sha256": "11a837af762e22d28715b6e88430cc49dbb1a3ec55eae26cc0ce00336516d084"
+    },
+    {
+      "path": "restored/work_bc/review/PARTIAL_INPUT_PROOF_BC.json",
+      "bytes": 177909,
+      "sha256": "44e0ece723e7908f072dc5b5fc763a811793134df45412ee4e19fe2e4597777a"
+    },
+    {
+      "path": "restored/work_bc/NETWORK_FAILURE_RECOVERY_BC.json",
+      "bytes": 3688,
+      "sha256": "1f78acf5ca4e2679997dfe58d573a416d75c8889cca995948ca6662f086f045a"
+    },
+    {
+      "path": "restored/work_bc/execution/RECOVERY_ACTUAL_EXIT_BC.json",
+      "bytes": 573,
+      "sha256": "a8fb7ed44deb8522de13284de1721b4236d6bcd2bd6c65c312fb9078ac856968"
+    },
+    {
+      "path": "restored/work_bc/review/EXACT_PREFIX_SCOPE_ADDENDUM_BC.json",
+      "bytes": 4302,
+      "sha256": "13c1faf95dfc7797efc72f3c1f5ed5eb582cf2c4b13fad0ae36325137d1bf918"
+    }
+  ],
+  "consistency_checks": {
+    "88_prior_rows_BB87_plus_BC1": true,
+    "remaining_rows_8_to_15": true,
+    "prior_repeats5_newBC0_later_required1": true,
+    "failure_receipt_actual1_EOF_wait_complete": true,
+    "exact_pending_TREE_interval_matched": true,
+    "spec_network_requests_authorized": 0
+  },
+  "findings": [
+    {
+      "id": "RUNNER_CLOSED_AND_STALE",
+      "severity": "BLOCKS_REUSE",
+      "source": "restored/work_bc/recover_missing_rows_bc.py",
+      "details": [
+        "verify() fixes new_time_indices to7..15; load() binds priorBB cache plus BC prefix only.",
+        "main() reconstructs and byte-compares only BB rows0..6, classifies row7 as new, requires new_decodes==9, and serializes87inherited+9new rather than BB87+BC1+later8.",
+        "Existing RECOVERY_START_BC.json and nonempty DATA/DERIVED correctly prevent rerun. Do not clear markers, overwrite prior evidence or success-alias old actual1.",
+        "A new BD version needs immutable new output paths and explicit retained eight-row lineage; no imported execution or source mutation was performed in this review."
+      ]
+    },
+    {
+      "id": "DOWNSTREAM_LINEAGE_STALE",
+      "severity": "BLOCKS_REUSE",
+      "source": "restored/work_bc/science_handoff",
+      "details": [
+        "verify_native_bc.py and verify_native_bc_v2.py require inherited/new counts87/9 and recovered coordinate set scan5 time7..15.",
+        "build_bound_bc_v2.py LINEAGE and native proof gates require87/9; run_science_phases_bc.py requires the same lineage.",
+        "Separately versioned reviewed native, binding and phase adapters must consume BB87+BC1+later8 and5prior+1later repeat before any future science execution. Existing numerical engine and original prepower configuration remain byte-identical."
+      ]
+    },
+    {
+      "id": "EXACT_FAILURE_IS_METADATA",
+      "severity": "REQUIRED_PLAN_FACT",
+      "details": [
+        "Pending16384-byte interval9241886720..9241903103 is an aligned TREE-node read while locating scan5row8. It is not a known full compressed power chunk.",
+        "No content or next chunk extent can be inferred from zero-byte tunnel failure. Real retained/new metadata must determine descriptors before compressed-extent requests.",
+        "Prior actual1, EOF/wait-completed receipt, zero-byte failed payload, error and owner tool-cancellation boundary must remain distinct and unchanged."
+      ]
+    },
+    {
+      "id": "PREFIX_UNION_LINEAGE",
+      "severity": "REQUIRED_PLAN_FACT",
+      "details": [
+        "BCrow7 is already decoded from3103298new prefix bytes and13580prior BB tail bytes. Their3116878-byte union is derived locally, not a new full-chunkHTTP206 receipt.",
+        "Preserve oldBB seven-row partial and BC eight-row partial. A later full scan5 must byte-compare all eight retained rows; rows8..15 remain unacquired.",
+        "A genuine new scan5row7repeat remains outstanding, separately recorded from reusing cached row7 data."
+      ]
+    },
+    {
+      "id": "OFFLINE_PREFLIGHT_APPROPRIATE",
+      "severity": "APPROVED_WITH_LIMITS",
+      "details": [
+        "Stdlib hashing plus independent NPY header parsing and direct raw-byte reads of only declared valid rows can test retention, correct coordinate accounting and exact prior-hash consistency.",
+        "Require NPYmagic, supported version, safe literal header parse, dtype<float32 little-endian, C-order, exact shape16x1048576, header/dataoffset and expected total allocation size. Bound header length and require exactly eight contiguous valid rows for row hashes.",
+        "Whole-file archival hash may cover unacquired allocated bytes for integrity only; do not interpret them as measurements or include them in per-row science checks.",
+        "Preflight should distinguish files physically restored now from five canonical arrays retained by exact parent references. Parent references alone are not a current full rehash or fresh native verification."
+      ]
+    },
+    {
+      "id": "NO_NETWORK_RELEASE",
+      "severity": "CURRENT_BLOCKER",
+      "details": [
+        "Current environment explicitly restricts networking and Berkeley is outside its allowlist. Make no archive requests, proxy changes or alternative-route attempts.",
+        "The existing recovery specification authorizes zero requests. A prospective plan may be staged offline, but it does not override current environment restrictions or grant execution release."
+      ]
+    },
+    {
+      "id": "CLAIM_LIMITS",
+      "severity": "REQUIRED_REPORT_LIMIT",
+      "details": [
+        "This review verifies source logic and selected JSON consistency only. It does not re-decode telescope data, check all payload hashes, run any detector or establish astronomical sensitivity/FAP/origin.",
+        "Proposed new preflight adds no archive bytes, completed science coverage, candidate assessment, new observation epoch or queue advancement.",
+        "The BA completed authority remains486 unique archiveIDs and268.50128173828125 technicalMHz-visits."
+      ]
+    }
+  ],
+  "network_requests_by_review": 0,
+  "power_rows_decoded_by_review": 0,
+  "detector_searches_executed": 0,
+  "candidate_assessment": null,
+  "science_completed": false,
+  "coverage_credit_added": 0,
+  "queue_advanced": false,
+  "production_execution_authorized": false
+}
