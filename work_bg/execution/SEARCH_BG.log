@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/737ef6b443bb/work_bg/bounded_search_bg.py", line 264, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/scratch/737ef6b443bb/work_bg/bounded_search_bg.py", line 243, in main
+    if not (args.out/'NORMALIZED_INPUTS_COMPLETE.json').exists():prepare(plan,args.plan,args.out)
+                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/737ef6b443bb/work_bg/bounded_search_bg.py", line 109, in prepare
+    require(int(d.attrs['frequency_chunk_origin'])==plan['native_channel_start'],'Compact native origin differs')
+                ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "/workspace/scratch/737ef6b443bb/work_be/runtime/h5py/_hl/attrs.py", line 55, in __getitem__
+    attr = h5a.open(self._id, self._e(name))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5a.pyx", line 79, in h5py.h5a.open
+KeyError: "Unable to synchronously open attribute (can't locate attribute: 'frequency_chunk_origin')"
