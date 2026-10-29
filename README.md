@@ -1,3 +1,11 @@
+## 29. oktober 2026: BD kontrollerer checkpoint; otte rækker mangler fortsat
+
+**Offlinekontrol består for 136 filer og de otte gyldige rækker i scan 5. Alle 16 tests består.** Gennemgangen viser, at tidligere recovery- og faseadaptere stadig forventer 87+9 rækker; de kan ikke genbruges uændret efter BC's tilføjelse af række 7. En ny offlineplan fastholder BB87 + BC1 + senere8 og fem tidligere plus én manglende gentagelseskontrol.
+
+**HIP44295 / 65133 står fortsat på 88 af 96 rækker.** Miljøets netværksbegrænsning udelukker arkivadgang; BD har foretaget nul arkivanmodninger og ingen signalsøgning. BA er fortsat senest afsluttede autoritet: 486 unikke arkiv-ID'er og 268,50128173828125 tekniske MHz-besøg. [BD: kontrol, kode og præcist fortsættelsespunkt](https://github.com/andersenmartin-blip/setisearch/blob/a4e59b81ee5fa70429cf7e79fa5e9f6694f1ac42/RADIO_PROGRESS_BD_OFFLINE_2026-10-29.md). Tidligere resultater og statusbytes bevares.
+
+---
+
 ## 29. oktober 2026: BC gendannede én række; fortsat delvis og ikke søgt
 
 **HIP44295 / 65133 har nu 88 af 96 gyldige rækker.** Én normal præcis HTTP-206-anmodning hentede 3.103.298 nye prefix-bytes; sammen med 13.580 allerede kontaktede tail-bytes gav de én yderligere dekodet række. Efterfølgende recovery stoppede med faktisk exit 1 ved et nyt TREE-metadatainterval og 0 modtagne bytes.
