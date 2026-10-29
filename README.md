@@ -1,3 +1,13 @@
+## 29. oktober 2026: BA afsluttet med kontrolleret gendannelse
+
+**HIP92283 / 65097 er færdiganalyseret; afsluttende artefaktkontrol består med faktisk exit 0. Ingen SETI-kandidat er accepteret.** Seks detektorkørsler, numerisk review og alle syv kontekstgrupper er afsluttet med uændrede videnskabelige regler.
+
+Med AY som arvet baseline er teknisk status nu **486 unikke arkiv-ID'er og 268,50128173828125 MHz-besøg**, en stigning på seks ID'er og 2,90679931640625 MHz-besøg for én historisk cadence. Dette er teknisk bogføring, ikke kalibreret følsomhed eller en ny observationsepoke.
+
+AZ-fejlen, BA's fejlede første acquisition og native-review V4 med faktisk exit 1 er bevaret; separate V2/V5-korrektioner dokumenterer korrekt cache-/netværksdatalinje. [Afslutning, begrænsninger og næste køpunkt HIP44295 / 65133](https://github.com/andersenmartin-blip/setisearch/blob/4bad738cdc22f696e0628e3f409f3f89a664c568/RADIO_PROGRESS_BA_2026-10-29.md). [Det tidligere delvise kontrolpunkt](https://github.com/andersenmartin-blip/setisearch/blob/5a674be4c3df0f6bcb17cf343530e217f6965d3f/RADIO_PROGRESS_BA_PARTIAL_2026-10-29.md) bevares uændret. Fortsættelsesproceduren omfatter fremtidig GitHub-publicering og præcis readback ved afsluttede kørsler.
+
+---
+
 ## 29. oktober 2026: genopretning dokumenteret; rådatahentning stadig ufuldstændig
 
 **AZ-pakken og det blokerede metadata-interval er gendannet. Den efterfølgende rådatahentning stoppede ved en lokal provenienskontrol, faktisk exit 1.** Kontrolpunktet er kl. 06:04:40 dansk tid; ingen efterfølgende V2-kørsel eller ny gennemført SETI-søgning påstås.
