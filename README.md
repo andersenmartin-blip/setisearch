@@ -1,3 +1,11 @@
+## 29. oktober 2026: BH — næste otte bånd gennemført
+
+**Bånd 9–16 er færdigsøgt med exit 0:** yderligere 433.004.544 korrelerede sporkombinationer på 149,60 sekunder. Ingen ON-spor nåede den faste lokale ESS-tærskel 10. Resultatkontrollen bestod med 1.728 udvalgte uafhængige sporsummer og 576 kalibreringsgenberegninger med den delte kernel.
+
+BG og BH omfatter nu **16 bånd, 96 scan/bånd-søgninger og 866.009.088 korrelerede sporkombinationer over cirka 183 kHz** i de seks gemte 2017-scans. Det er beskrivende genanalyse af samme historiske besøg, uden nye observationer eller kredit i BA's oprindelige dækningstal. De binære resultater er bevaret. Næste batch er q17–q24. [Resultater og fortsættelsespunkt](https://github.com/andersenmartin-blip/setisearch/blob/9b688ef60c93504d2cab9959a97d6a9ab0d3bdbb/RADIO_PROGRESS_BH_2026-10-29.md).
+
+---
+
 ## 29. oktober 2026: BG — reel signalsøgning gennemført igen
 
 **48 scan/bånd-søgninger er faktisk afsluttet med exit 0:** otte faste bånd i de seks gemte S2017-scans, i alt 433.004.544 korrelerede sporkombinationer på 157,93 sekunder. Ingen ON-spor nåede den fastlagte lokale ESS-tærskel 10. En særskilt resultatkontrol består med 1.728 udvalgte scalar-summer og 576 kalibreringsgenberegninger.
