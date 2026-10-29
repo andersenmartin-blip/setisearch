@@ -1,3 +1,11 @@
+## 29. oktober 2026: BG — reel signalsøgning gennemført igen
+
+**48 scan/bånd-søgninger er faktisk afsluttet med exit 0:** otte faste bånd i de seks gemte S2017-scans, i alt 433.004.544 korrelerede sporkombinationer på 157,93 sekunder. Ingen ON-spor nåede den fastlagte lokale ESS-tærskel 10. En særskilt resultatkontrol består med 1.728 udvalgte scalar-summer og 576 kalibreringsgenberegninger.
+
+Løsningen bruger den allerede gemte rådatapakke uden nye Berkeley-anmodninger. Det er en beskrivende genanalyse af tidligere eksponerede 2017-data med lokal båndkalibrering, ikke nye observationer eller kalibreret opdagelsesfølsomhed. Resultater og binære arrays er bevaret. HIP44295 holdes fortsat på pause; de gamle BA-tællere ændres ikke. [Resultater, metode og fortsættelsespunkt](https://github.com/andersenmartin-blip/setisearch/blob/6e97c86a16358d484a7ffa387a8d3940b828e927/RADIO_PROGRESS_BG_2026-10-29.md).
+
+---
+
 ## 29. oktober 2026: BF — gemte 2017-rådata valgt som næste arbejdsgrundlag
 
 **HIP44295 sættes på pause, og den allerede gemte S2017/native171-pakke på 466 MB prioriteres først.** Filen er fundet med korrekt identitet og størrelse samt historisk integritetskvittering. Den kan bruges til en gennemgået udvidet genanalyse uden ny Berkeley-hentning; dataene er tidligere eksponerede og må ikke beskrives som nye observationer.
