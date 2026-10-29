@@ -1,0 +1,31 @@
+{
+  "schema": "S2017_BG_INDEPENDENT_BOUNDED_SOURCE_REVIEW_V1",
+  "status": "PASS_FINITE_SOURCE_AND_SYNTHETIC_SCALAR_CHECKS",
+  "created_utc": "2026-10-29T18:25:02.792101+00:00",
+  "wrapper_sha256": "2f1f8eb14bf020b4d1efa791c594b2a5ecebc8433b8e6f60e478922cf6ee0b91",
+  "scalar_qa_source_sha256": "b7321d521e8f5398169a9bd9fa5e4cdda7f21d1cb9331d248d6937632b212cf1",
+  "scalar_qa_result_sha256": "61c1c5dbc8339cebb57e5af142bd46d7986d8e2c102a56d41ec7b49b6ae3266c",
+  "wrapper_fixture_result_sha256": "f73ea454d67d965f99cfae2d2b0a258b6f4797523da07487ef5e973c7fd53488",
+  "scalar_synthetic_checks": 20,
+  "wrapper_saved_sum_scalar_comparisons": 36,
+  "wrapper_synthetic_search_hypotheses": 9020928,
+  "maximum_wrapper_sum_error": 0.0,
+  "source_findings": [
+    "Full-native AC anchors/interpolation are computed before support cropping; qlocalcalibration domain is explicit and differs from historicalfullnativeESS.",
+    "Kernel widths1/3/9/33 and deterministic839drift grid have complete fixedfrequency centers; original kernel source unchanged.",
+    "Catalog frequencies use native-local fch1 and channelindices consistently; forced prediction propagates the physical midpoint trajectory by per-scan timegap.",
+    "Source-scan forcedscores use the exact stored perdrift calibration and unchanged kernel; zero-seed code preserves empty shapes and no qualifiedcandidate is inferred.",
+    "Allsixscan supporthalo4096 is checked prospectively against maximum interscan shift, trackoffset, width and neighborhoodradius.",
+    "Datasetmanifest hash is bound; source compact HDF origin179306496 and singlebitshufflefilter32008 checked before nativepowerdecode.",
+    "Input/source/plan hashes bind the run, original exposeddata status is explicit, and signal/origin/FAP/sensitivity qualifications remain absent."
+  ],
+  "material_source_defects_remaining": [],
+  "actual_archive_requests": 0,
+  "actual_telescope_power_rows_read": 0,
+  "limitations": [
+    "Finite synthetic scalar and source review only, not full rawcodec/TREE independentmodelqualification.",
+    "No astronomical sensitivity, calibratedfalsealarmprobability or physicalorigin qualification.",
+    "The localqcalibration is a new descriptive family on exposedinputs, not the oldwhole-nativeESS or a blindsearch.",
+    "The finalreal-data measuredresults require separate retainednumeric and ON/OFFartifactreview."
+  ]
+}

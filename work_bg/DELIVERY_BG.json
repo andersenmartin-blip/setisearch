@@ -1,0 +1,83 @@
+{
+  "schema": "SETI_BG_COMPLETED_DESCRIPTIVE_SEARCH_DELIVERY_V1",
+  "stage": "BG",
+  "created_utc": "2026-10-29T18:36:07.756Z",
+  "status": "REAL_SEARCH_COMPLETED_INDEPENDENT_BOUNDED_AUDIT_PASS_BINARY_RESULTS_SAVED",
+  "target": "HIP98505 / HD189733",
+  "observation_date": "2017-04-28",
+  "native_chunk": 171,
+  "q_list": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "actual_search_executed": true,
+  "completed_scan_band_searches": 48,
+  "total_correlated_track_trials_including_OFF": 433004544,
+  "actual_search_exit_code": 0,
+  "ON_hits_at_threshold10": 0,
+  "passing_flags": 0,
+  "real_forced_ON_OFF_measurements": 0,
+  "actual_audit_exit_code": 0,
+  "independent_scalar_sum_checks": 1728,
+  "calibration_vector_replays": 576,
+  "wall_seconds": 157.9309062350003,
+  "search_source_commit": "33dd463b62939ce0321c461794ae8531d1404a85",
+  "summary_path": "work_bg/results/REAL_SEARCH_SUMMARY_BG.json",
+  "actual_path": "work_bg/execution_v2/SEARCH_ACTUAL_EXIT_BG_V2.json",
+  "audit_path": "work_bg/review/REAL_RESULT_AUDIT_BG_V2.json",
+  "binary_results": {
+    "library_file_id": "libfile_6d1ef2595ad8819189807be9d06a10c0",
+    "file_id": "file_00000000e1ec820aadd924845087698a",
+    "file_name": "SETI_BG_SEARCH_RESULTS_2026-10-29.zip",
+    "bytes": 22581750,
+    "sha256": "6d0ee1b218b200dc437c08cc3f3bca70dc8f63f410c83cfd4fab6c82a5e40b2c",
+    "binary_members": 164,
+    "archive_members": 165,
+    "status": "SAVED_WITH_IDENTITY; ZIP_CRC_AND_ALL_BINARY_HASHES_VERIFIED",
+    "contains": "Real normalized support arrays, anchor audits, grids, localcalibrations, catalogs and emptyforcedtriagearrays; RESUME_BG.json with input/source/nextscope references.",
+    "no_program_code_or_original_raw_files_duplicated": true
+  },
+  "raw_input": {
+    "library_file_id": "libfile_f3b5c8d6c61081919aaae0f0438650f1",
+    "file_name": "SETI_S2017_NATIVE171_RAW_2026-10-10.zip",
+    "sha256": "6e08922aec5c5a6737987887cd62aab6d52495650297cae74745a654728f4786"
+  },
+  "input_source_identity": {
+    "visit_count": 1,
+    "data_previously_exposed": true,
+    "new_archival_observations": 0
+  },
+  "original_completed_authority_unchanged": {
+    "stage": "BA",
+    "archive_IDs": 486,
+    "technical_MHz_visits": 268.50128173828125,
+    "new_unique_archive_ID_credit": 0,
+    "new_technical_MHz_visits_credit": 0
+  },
+  "deferred_HIP44295": {
+    "previously_acquired_rows": 88,
+    "expected_rows": 96,
+    "checkpoint_library_file_id": "libfile_05690f3979b48191bfe9e1346af2f1f7",
+    "recovery_not_required_for_cached_S2017_continuation": true
+  },
+  "first_failed_start_preserved": {
+    "actual_exit_code": 1,
+    "path": "work_bg/execution/SEARCH_ACTUAL_EXIT_BG.json",
+    "scope": "Failed metadata-key check before raw power decode; V2 changes attribute name only."
+  },
+  "next_action": "Continue actual bounded descriptive search using the already retainedS2017native171inputs. Propose the next sequential q9..16 batch in a new frozen plan before scores are computed, with support bounds and per-qcalibration explicitly retained. The V2validator deliberately fixes q1..8, so adapt/version only the band-scope admission for the next batch and verify unchangednumericalcore against prior source. Preserve q1..8 outputs and all actualreceipts; do not rescan completedbands or turn old exposure into fresh/blind/independentdata. Use rawLibraryarchive and currentcompletebinaryresultpackage instead of waiting onBerkeley. No background search is currently running.",
+  "qualifications": [
+    "Descriptive local-q ESS family on previouslyexposed data; not historicalfull-gridESS or calibratedsignificance.",
+    "433004544correlatedtracks are not independenttrials or new observationalcoverage.",
+    "ZeroONseeds=>zeroforcedmeasurements; emptysourceconsistency checks are vacuous.",
+    "No astronomicalorigin,FAP,sensitivity or fulloriginalHDFMD5 qualification."
+  ],
+  "background_science_jobs_running": false,
+  "github_publication_required_before_future_checkpoint_delivery": true
+}

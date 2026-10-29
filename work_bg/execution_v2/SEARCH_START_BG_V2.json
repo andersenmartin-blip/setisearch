@@ -1,0 +1,25 @@
+{
+  "schema": "SETI_BG_ACTUAL_SEARCH_START_V2",
+  "started_utc": "2026-10-29T18:26:47.032814+00:00",
+  "command": [
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=5s",
+    "620s",
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-B",
+    "work_bg/bounded_search_bg_v2.py",
+    "--plan",
+    "work_bg/PLAN_BG_V2.json",
+    "--out",
+    "work_bg/results/run_v2",
+    "--all-q"
+  ],
+  "source_sha256": "1fb565424611e527c063a92dd47265fb6b2f547f08154e11458ead3daeaf6806",
+  "plan_sha256": "5961ac286d21d01736b74d010f04a8797ad4daf7bf83333e61ea99576f971fee",
+  "prior_source_review_sha256": "d401bd35ad7b931ac1d2a5d87a9a49af18d81ab3f5ceb68110bd2b6a0b5bf1c3",
+  "metadata_correction_validated_all_six": true,
+  "prereg_github_commit": "33dd463b62939ce0321c461794ae8531d1404a85",
+  "input_data_previously_exposed": true,
+  "archive_requests_authorized": 0
+}

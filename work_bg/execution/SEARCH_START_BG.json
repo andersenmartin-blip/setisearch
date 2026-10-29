@@ -1,0 +1,24 @@
+{
+  "schema": "SETI_BG_ACTUAL_SEARCH_START_V1",
+  "started_utc": "2026-10-29T18:25:33.018400+00:00",
+  "command": [
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=5s",
+    "620s",
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-B",
+    "work_bg/bounded_search_bg.py",
+    "--plan",
+    "work_bg/PLAN_BG.json",
+    "--out",
+    "work_bg/results/run",
+    "--all-q"
+  ],
+  "source_sha256": "2f1f8eb14bf020b4d1efa791c594b2a5ecebc8433b8e6f60e478922cf6ee0b91",
+  "plan_sha256": "97f8ea7121552060d23d84b93642c7db780e97fdb10efd61fccd8d7f3e7f0551",
+  "review_sha256": "d401bd35ad7b931ac1d2a5d87a9a49af18d81ab3f5ceb68110bd2b6a0b5bf1c3",
+  "prereg_github_commit": "2d1334273a2f3ed42dc12c77f2079f5d6bb25ae6",
+  "input_data_previously_exposed": true,
+  "archive_requests_authorized": 0
+}
