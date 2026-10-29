@@ -1,0 +1,167 @@
+{
+  "approved_for_production_after_normal_access": false,
+  "candidate_assessment": null,
+  "coverage_credit_added": 0,
+  "created_utc": "2026-10-29T17:56:19.827898+00:00",
+  "detector_searches_executed": 0,
+  "findings": [
+    {
+      "detail": "The public acquisition CLI verifies the source, protocol, independent review and normal access records before constructing the inert OriginalBackend. The current protocol authorizes zero requests; production_gate requires 60 and refuses this checkpoint before loading helpers or the numerical runtime. Import, construction and default invocation contact no archive.",
+      "id": "GATED_ORIGINAL_BACKEND",
+      "status": "PASS_SOURCE_INSPECTION"
+    },
+    {
+      "detail": "OriginalBackend checks 1,124 source and state pins plus its local source before loading the unchanged BB helpers. It verifies the retained HTTP 206 status, URL, ETag, Content-Range, payload hash and length, and loads 241 HTTP records including five old repeats. Original failures remain retained. All original input pins are checked again after closing HDF, after constructing the manifest and before publishing outputs.",
+      "id": "IMMUTABLE_INPUTS_AND_CACHE",
+      "status": "PASS_SOURCE_INSPECTION"
+    },
+    {
+      "detail": "The transaction requires prior rows 0\u20137 and missing rows 8\u201315, with BB87 + BC1 + later8 lineage. It reconstructs all eight prior rows and compares their bytes and compressed/decoded hashes against the retained partial and prior proof before enabling any new row contact. The original partial and its unacquired allocated tail remain unchanged.",
+      "id": "EIGHT_PRIOR_EIGHT_MISSING",
+      "status": "PASS_SOURCE_AND_SYNTHETIC"
+    },
+    {
+      "detail": "Selected descriptors come from the original TREE traversal and HDF read_direct_chunk, with exact source union equality. Checks cover chunk size, filter, coordinates, genuine HTTP 206 records, URL, ETag, Content-Range, body hash and contiguous source slices. The failed 16 KiB TREE interval remains identified as metadata; no unknown row-8 payload descriptor is guessed.",
+      "id": "TREE_HTTP_DERIVED_PROVENANCE",
+      "status": "PASS_SOURCE_INSPECTION"
+    },
+    {
+      "detail": "Exactly one new complete scan-5 row-7 repeat uses the original download helper with repeat=True. It must have a distinct repeat receipt and explicit repeat coordinate, and match the entire prior compressed chunk and extent. Cached row-7 bytes or a partial repeat cannot substitute. Five old repeat records remain unchanged.",
+      "id": "GENUINE_FULL_ROW7_REPEAT",
+      "status": "PASS_SOURCE_AND_SYNTHETIC"
+    },
+    {
+      "detail": "Exclusive fresh output reservations prevent restart or overwrite. All eight prior and eight new rows, the genuine repeat, HDF close, input checks, manifest validation and a second input check precede promotion. Caught failures retain partial and failure evidence and remove any newly promoted canonical file or marker. Publication uses two files and is explicitly non-atomic; consumers must require both the final marker and actual exit zero.",
+      "id": "FAIL_CLOSED_OUTPUT_TRANSACTION",
+      "status": "PASS_SOURCE_AND_SYNTHETIC"
+    },
+    {
+      "detail": "The manifest mode must match the attempted mode; simulation writes only SIMULATION_COMPLETE_BE. The native, binding and phase adapters separately require literal PRODUCTION and the exact complete-production native-proof scope, as covered in the independent 52-case V2 review. Simulation and source review grant no production qualification.",
+      "id": "SIMULATION_PRODUCTION_SCOPE",
+      "status": "PASS_WITH_SEPARATE_ADAPTER_REVIEW"
+    },
+    {
+      "detail": "The production branch installs a 600-second SIGALRM before preparing the recovery plan, loading the backend and executing acquisition. It refuses to replace an existing timer and restores the timer and handler in finally. Original request and byte caps remain. Python signal delivery during native C calls can be deferred; this is not an independently measured external hard wall limit.",
+      "id": "DEADLINE",
+      "status": "PASS_WITH_QUALIFIED_LIMIT"
+    },
+    {
+      "detail": "The public capture wrapper builds a fixed command and requires explicit execution plus the production gate. It checks source, wrapper, protocol, gate and the gate-asserted review/access hashes before and after the child. The actual receipt separates the child exit, accepted exit, observed PID, EOF, completed wait, exact result path/hash and failures. A write-all loop handles short writes; the observed stdout byte count and SHA-256 must equal the persisted, fsynced log before accepting completion.",
+      "id": "CAPTURE_BINDINGS_AND_BYTES",
+      "status": "PASS_SOURCE_AND_SYNTHETIC"
+    }
+  ],
+  "independent_synthetic_test_run": {
+    "actual_tool_exit_code": 0,
+    "command": "python3 -B -m unittest -q test_recover_missing_rows_be test_capture_recovery_be",
+    "errors": 0,
+    "failures": 0,
+    "fixture_scope": "25 transaction fixtures and 18 local child-capture fixtures; no real archive or production backend dispatch",
+    "reported_test_elapsed_seconds": 4.665,
+    "tests_run": 43,
+    "working_directory": "work_be"
+  },
+  "issues_found_and_resolved_before_final_review": [
+    {
+      "issue": "The 600-second budget originally had only checks before each request and a 45-second HTTP timeout.",
+      "resolution": "A timer now covers the entire production attempt. Existing timers are protected; deferred signal delivery during C calls remains an explicit limitation."
+    },
+    {
+      "issue": "Capture originally omitted the consulted review and access files from its before/after input pins.",
+      "resolution": "It now retains and checks the gate-asserted digests before and after the child. Mutation and incorrect asserted-digest fixtures fail."
+    },
+    {
+      "issue": "Capture originally ignored short-write return counts, permitting a truncated stdout log to be accepted.",
+      "resolution": "A write-all loop plus observed-stream byte count and SHA-256 checks were added. Short writes complete; zero-progress or lying writers fail."
+    }
+  ],
+  "limitations": [
+    "No real production acquisition was dispatched. The current protocol authorizes zero archive requests, and this review grants no production gate.",
+    "The 43 synthetic fixtures test transaction and capture behavior. They do not establish archive availability, a complete 96-row production manifest, successful HTTP acquisition of the missing rows, a full native proof or numerical science results.",
+    "The review inspected the original backend and unchanged helper contracts and verified the parent offline-probe metadata. It did not independently rerun all 1,124 input hashes or decode telescope arrays.",
+    "Python signal delivery during native C calls can be deferred, and resource qualification remains limited. Two-file publication is non-atomic; later actual-exit-zero and readback gates remain mandatory.",
+    "No independent codec or TREE-model qualification, full original-file MD5, calibrated astronomical sensitivity or global false-alarm probability, new observing epoch or signal-origin qualification is claimed."
+  ],
+  "parent_offline_probe_evidence_checked": {
+    "actual_exit_code": 0,
+    "actual_path": "work_be/results/CACHED_EIGHT_ROW_PROBE_FINAL_ACTUAL_EXIT_BE.json",
+    "actual_sha256": "91bb4b62c602d564280cba321f8cc726b70d0e19a0acf08ae4e2b962c4ab4cc4",
+    "archive_requests": 0,
+    "child_wait_completed": true,
+    "log_hash_and_length_checked": true,
+    "result_path": "work_be/results/CACHED_EIGHT_ROW_PROBE_FINAL_BE.json",
+    "result_sha256": "7ee29aceae1a80275bca2c9f1b33d2f94ad7b7bc3e04f532bdcfc6f57e2c207d",
+    "scope": "The reviewer checked the metadata, receipt, log and result hash bindings. Root performed the eight cached-row codec/TREE probe; the reviewer did not independently reopen or decode telescope arrays.",
+    "stdout_eof": true
+  },
+  "production_acquisition_authorized": false,
+  "protocol_checks": {
+    "exact_failed_metadata_interval_matches_BC_specification": true,
+    "missing_time_indices": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "network_requests_authorized_this_checkpoint": 0,
+    "pin_count_is_source_inspection_not_new_full_payload_rehash": true,
+    "prior_valid_time_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "production_gate_created": false,
+    "repeat_lineage": {
+      "new": 1,
+      "prior": 5
+    },
+    "row_lineage": {
+      "BB": 87,
+      "BC": 1,
+      "new": 8,
+      "total": 96
+    },
+    "science_execution_released": false,
+    "source_state_pin_count": 1124
+  },
+  "queue_advanced": false,
+  "review_archive_requests": 0,
+  "review_power_rows_decoded": 0,
+  "review_production_dispatches": 0,
+  "review_telescope_arrays_opened": 0,
+  "reviewed_sources": {
+    "work_be/PROTOCOL_RECOVERY_BE.json": {
+      "bytes": 166252,
+      "sha256": "192c38c891a6d59eca6fee2b82bc1881f8d759f840ce72ff97cd90889f383692"
+    },
+    "work_be/capture_recovery_be.py": {
+      "bytes": 10470,
+      "sha256": "5165adb5a2e93e9131dbe2ea739f85e2620387f697340f90e9105f7aa6f14b31"
+    },
+    "work_be/recover_missing_rows_be.py": {
+      "bytes": 35355,
+      "sha256": "01975a56d1f833907e8d8047829ff33123a9ad48f6da3851e68adb1e608679b5"
+    },
+    "work_be/test_capture_recovery_be.py": {
+      "bytes": 14094,
+      "sha256": "b712687d8d26a0a2855b5e4ff5d180333c1177861c0fc2b73ef2fc9fe76b062e"
+    },
+    "work_be/test_recover_missing_rows_be.py": {
+      "bytes": 19324,
+      "sha256": "34c49c1e0b669645795f5e49169e7a2bcd67566f267e87e0cf0c2333cdaf8dfe"
+    }
+  },
+  "schema": "SETI_BE_INDEPENDENT_RECOVERY_SOURCE_REVIEW_V1",
+  "science_execution_authorized": false,
+  "status": "PASS_PREPARED_SOURCE_AND_SYNTHETIC_ONLY",
+  "unresolved_source_defects": []
+}

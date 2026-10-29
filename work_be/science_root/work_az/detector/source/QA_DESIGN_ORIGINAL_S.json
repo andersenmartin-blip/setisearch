@@ -1,0 +1,139 @@
+{
+  "actual_qa_scope": "Exactly HIP110395/64701 then HIP110526/64719; six scans each; original gates and numerical tolerances unchanged.",
+  "counts_rule": "Independently recompute total ON rows, support, missing/outside status, any OFF flags, fully supported unflagged center>=threshold and neighborhood>=threshold in all three ON.",
+  "coverage_rule": "No coverage added by QA; no sensitivity qualification or source-origin classification.",
+  "destinations": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "ess_absolute_tolerance": 0.0001,
+  "ess_relative_tolerance": 5e-06,
+  "fixed_grid_checks": "Four fixed centers for each of four widths in each destination, choose nearest actual saved search center; independently calculate the saved winning-drift template and compare its ESS to stored grid maximum. Winner choice and nearest-grid rule fixed before powers.",
+  "freeze_timing": "PRE_HEADER_PRE_POWER",
+  "frozen_utc": "2026-10-22T06:40:25.516009+00:00",
+  "header_inspection_before_design_by_target": {
+    "hip110395_64701": false,
+    "hip110526_64719": false
+  },
+  "headers_inspected_before_design": false,
+  "parent_design_filename": "source/QA_DESIGN_ORIGINAL_P.json",
+  "parent_design_sha256": "d73b90611892eede092b271bfe9cfe924468f5505f176e5c1e0d64d04ed48153",
+  "powers_inspected_before_design": false,
+  "prospective_candidate_scope": [
+    {
+      "domain_key": "hip110395_64701",
+      "id": 64701,
+      "output_alias": "hip110395_64701",
+      "target": "HIP110395"
+    },
+    {
+      "domain_key": "hip110526_64719",
+      "id": 64719,
+      "output_alias": "hip110526_64719",
+      "target": "HIP110526"
+    }
+  ],
+  "schema": "SETI_S_INDEPENDENT_QA_DESIGN_V1",
+  "scope_reason": "New S pre-header/pre-power scope. Inherited numeric tolerances, sample rules, sum criterion and shared-codec row7 replay unchanged.",
+  "source_order_plan_filename": "ORDER_PLAN_S.json",
+  "source_order_plan_sha256": "e6fdaa9ecb1bb07dc06e0510e29891853766563e7ad99486792a21ae5c8a3d79",
+  "source_scan": 0,
+  "stored_forced_sample": "16 deterministic evenly spaced indices of concatenated ON source catalogues, source ordering0,2,4. Validate each in all6 destination columns, including out-of-scope status, predicted center, exact-center score, complete integer neighborhood maximum and OFF flag. Selection rule prospective, actual catalogue rows retrospective.",
+  "sum_tolerance": 5e-05,
+  "targets": [
+    "hip110395_64701",
+    "hip110526_64719"
+  ],
+  "templates": [
+    {
+      "drift_fraction": -1.0,
+      "source_center": 16384,
+      "width_channels": 1
+    },
+    {
+      "drift_fraction": -0.25,
+      "source_center": 262144,
+      "width_channels": 1
+    },
+    {
+      "drift_fraction": 0.0,
+      "source_center": 524288,
+      "width_channels": 1
+    },
+    {
+      "drift_fraction": 1.0,
+      "source_center": 1032192,
+      "width_channels": 1
+    },
+    {
+      "drift_fraction": -1.0,
+      "source_center": 16384,
+      "width_channels": 3
+    },
+    {
+      "drift_fraction": -0.25,
+      "source_center": 262144,
+      "width_channels": 3
+    },
+    {
+      "drift_fraction": 0.0,
+      "source_center": 524288,
+      "width_channels": 3
+    },
+    {
+      "drift_fraction": 1.0,
+      "source_center": 1032192,
+      "width_channels": 3
+    },
+    {
+      "drift_fraction": -1.0,
+      "source_center": 16384,
+      "width_channels": 9
+    },
+    {
+      "drift_fraction": -0.25,
+      "source_center": 262144,
+      "width_channels": 9
+    },
+    {
+      "drift_fraction": 0.0,
+      "source_center": 524288,
+      "width_channels": 9
+    },
+    {
+      "drift_fraction": 1.0,
+      "source_center": 1032192,
+      "width_channels": 9
+    },
+    {
+      "drift_fraction": -1.0,
+      "source_center": 16384,
+      "width_channels": 33
+    },
+    {
+      "drift_fraction": -0.25,
+      "source_center": 262144,
+      "width_channels": 33
+    },
+    {
+      "drift_fraction": 0.0,
+      "source_center": 524288,
+      "width_channels": 33
+    },
+    {
+      "drift_fraction": 1.0,
+      "source_center": 1032192,
+      "width_channels": 33
+    }
+  ],
+  "widths": [
+    1,
+    3,
+    9,
+    33
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "archive_requests_authorized": 0,
+  "created_utc": "2026-10-29T17:38:10.176103+00:00",
+  "legacy_observation": "BC runner links canonical scan5.npy before final verify and manifest construction; BE tests must reject promotion on later failure.",
+  "reference_sha256": {
+    "restored/work_bc/recover_missing_rows_bc.py": "2ab628910ab2c27007e33c241b6a79ff890b62364b053bd80460cf209ebf3bf0",
+    "restored/work_bc/science_handoff/NEXT_EIGHT_ROW_RECOVERY_SPEC_BC.json": "4689cad19751546049693c712f9beb69f2b7b5efa0ce786e2a369c68c517aab4",
+    "restored/work_bc/science_handoff/PARTIAL_RETENTION_INVENTORY_BC.json": "11a837af762e22d28715b6e88430cc49dbb1a3ec55eae26cc0ce00336516d084"
+  },
+  "required_fixture_interfaces": [
+    "Missing-only runner with injected backend/transport",
+    "Deterministic small synthetic payload/decoded row fixtures",
+    "Separate immutable parent fixture and new output directory",
+    "Explicit dispatch gate; no transport on import/default invocation"
+  ],
+  "schema": "SETI_BE_RECOVERY_ADVERSARIAL_TEST_PLAN_V1",
+  "science_credit_added": 0,
+  "scope": "Independent offline tests of a missing-eight acquisition runner, using fake injectable backend only. No real archive contacts.",
+  "source_checkpoint_mutation_authorized": false,
+  "status": "PROSPECTIVE_PLAN_WAITING_FOR_BE_SOURCE_INTERFACE",
+  "test_cases": [
+    {
+      "expect": "Only original payload coordinates8..15 acquired; prior8 compared byte-for-byte; new rows=8; total rows=96; repeats=5+1; zero science credit.",
+      "fixture": "8 prior rows0..7 plus fake genuine payloads8..15 and fresh genuine fullrow7repeat",
+      "id": "happy_eight_missing_rows",
+      "priority": "required"
+    },
+    {
+      "expect": "Reject before invoking backend or opening network; no started/science-success output.",
+      "fixture": "missing/false dispatch gate, wrong protocol/source/review hash, false normal_permissions_only or true access_controls_override",
+      "id": "no_gate_no_contact",
+      "priority": "required"
+    },
+    {
+      "expect": "No network; default cannot dispatch recovery.",
+      "fixture": "module import and default CLI invocation with socket connect prohibited",
+      "id": "default_import_no_transport",
+      "priority": "required"
+    },
+    {
+      "expect": "Every prior hash unchanged; new outputs use separate directory.",
+      "fixture": "hash all retained BC/BB input files before and after success/failure",
+      "id": "prior_bc_eight_rows_immutable",
+      "priority": "required"
+    },
+    {
+      "expect": "Fail before missing power contact; never classify row7 as newly acquired.",
+      "fixture": "altered decoded/reconstructed prior row7 versus BC partial",
+      "id": "wrong_prior_row7",
+      "priority": "required"
+    },
+    {
+      "expect": "Exactly one attempted range; no retry or alternate endpoint; exit failure, partial0..7 retained; no complete canonical or acquisition success marker.",
+      "fixture": "first pending metadata GET raises tunnel403 with0 bytes",
+      "id": "row8_transport_failure",
+      "priority": "required"
+    },
+    {
+      "expect": "Explicit partial state12 acquired rows; no promotion to canonical/full acquisition marker; failure accounting retains all attempted bytes.",
+      "fixture": "fail row12 acquisition after rows8..11 success",
+      "id": "late_row_failure",
+      "priority": "required"
+    },
+    {
+      "expect": "No canonical or complete acquisition marker; exactly one repeat attempt; all new partial rows retained.",
+      "fixture": "all rows acquired but row7repeat fails, wrong ETag, non206, wrong Content-Range, truncated bytes or body identity mismatch",
+      "id": "repeat_failure",
+      "priority": "required"
+    },
+    {
+      "expect": "Reject receipt substitution; cached equality alone is insufficient.",
+      "fixture": "return cached original row7 payload without fresh repeat HTTP receipt",
+      "id": "repeat_must_be_genuine",
+      "priority": "required"
+    },
+    {
+      "expect": "Do not infer row8 compressed payload descriptor or count metadata as acquired power row; require TREE descriptor derivation.",
+      "fixture": "9241886720..9241903103 metadata range response",
+      "id": "metadata_not_payload",
+      "priority": "required"
+    },
+    {
+      "expect": "Fail closed; only scan5 and selected channel179306496 allowed.",
+      "fixture": "wrong scan,time index,channel start,filter mask,extent length or archive ID",
+      "id": "descriptor_coordinate",
+      "priority": "required"
+    },
+    {
+      "expect": "Reject any inconsistent overlap, gap or invalid byte accounting before decode.",
+      "fixture": "overlapping cached genuine spans with inconsistent bytes; gaps in prefix/tail union; duplicate-output coverage segments",
+      "id": "range_overlap",
+      "priority": "required"
+    },
+    {
+      "expect": "Reject metadata/payload/repeat bindings; no fabricated wholechunkHTTP206 on a derived union.",
+      "fixture": "wrong URL,ETag,archive size,Content-Range,status,body length,receipt sha or body sha",
+      "id": "http_binding",
+      "priority": "required"
+    },
+    {
+      "expect": "Reject; required lineage is BB87+BC1+BE8 and scan5 prior8+BE8.",
+      "fixture": "87+9,7prior+9remaining,9 new decode assertions,remaining time indices7..15",
+      "id": "stale_lineage",
+      "priority": "required"
+    },
+    {
+      "expect": "Reject unchanged dispatch; distinct new reviewed continuation required.",
+      "fixture": "existing start marker or any output from failed run",
+      "id": "no_automatic_restart",
+      "priority": "required"
+    },
+    {
+      "expect": "Fail and leave no canonical scan5.npy or complete marker; preserves failure evidence.",
+      "fixture": "source/protocol/parent hashes change before manifest finalization",
+      "id": "source_mutation_after_acquisition",
+      "priority": "required"
+    },
+    {
+      "expect": "Reject acquisition completion; requires all6 actual arrays with unchanged old0..4 hashes.",
+      "fixture": "missing/mismatched parent canonical array or only5 scans in completed manifest",
+      "id": "sixscan_manifest",
+      "priority": "required"
+    },
+    {
+      "expect": "No detector,triage,candidate assessment,queue advance or technical coverage credit; acquisition only, further reviewed native/science gates pending.",
+      "fixture": "successful synthetic acquisition",
+      "id": "scientific_boundary",
+      "priority": "required"
+    }
+  ],
+  "tests_executed": 0
+}

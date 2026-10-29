@@ -1,0 +1,134 @@
+{
+  "schema": "SETI_BE_PREPARED_SCIENCE_ADAPTER_INTERFACE_V2",
+  "status": "PREPARED_NOT_EXECUTED_NO_NETWORK_OR_SCIENCE_RELEASE",
+  "lineage": {
+    "inherited_BB_rows": 87,
+    "inherited_BC_rows": 1,
+    "inherited_rows": 88,
+    "new_rows": 8,
+    "total_rows": 96,
+    "inherited_repeat_checks": 5,
+    "new_repeat_checks": 1
+  },
+  "physical_acquisition_root": "<explicit_evidence_root>/work_be/acquire",
+  "source_and_engine_root": "/workspace/scratch/737ef6b443bb/work_be",
+  "manifest_schema": "HDF5_EXACT_RANGE_RECOVERY_SIX_SCAN_BE_V1",
+  "native_result_schema": "SETI_BE_RECOVERY_NATIVE_INPUT_PROOF_V1",
+  "native_actual_completion_contract": {
+    "acquisition_actual0": [
+      "actual_exit_code=0",
+      "stdout_eof=true",
+      "child_wait_completed=true",
+      "log_path/log_bytes/log_sha256",
+      "result_path=acquisition_marker_path",
+      "result_sha256=marker SHA256"
+    ],
+    "native_actual0": [
+      "actual_exit_code=0",
+      "stdout_eof=true",
+      "child_wait_completed=true",
+      "log_path/log_bytes/log_sha256",
+      "result_path=native_result_path",
+      "result_sha256=native result SHA256"
+    ]
+  },
+  "required_manifest_counts": {
+    "inherited_BB_native_rows": 87,
+    "inherited_BC_native_rows": 1,
+    "inherited_native_rows": 88,
+    "new_native_rows": 8,
+    "total_native_rows": 96,
+    "inherited_repeat_checks": 5,
+    "new_repeat_checks": 1,
+    "scan5_prior_rows_reconstructed": 8,
+    "scan5_new_rows_decoded": 8
+  },
+  "required_manifest_reference_pairs": [
+    "prior_BB_partial_proof_path/sha256",
+    "prior_BC_partial_proof_path/sha256",
+    "original_BB_failed_actual_path/sha256",
+    "prior_BC_failed_actual_path/sha256",
+    "power_contact_scope_addendum_path/sha256",
+    "actual_headers_path/sha256",
+    "selection_path/sha256",
+    "prior_BB_partial_array_path/sha256",
+    "prior_BC_partial_array_path/sha256"
+  ],
+  "external_gate_schemas": [
+    "SETI_BE_NATIVE_GO_V1",
+    "SETI_BE_BINDING_GO_V1",
+    "SETI_BE_SINGLE_PHASE_EXECUTION_GO_V1"
+  ],
+  "relocations_schema": "SETI_BE_EXPLICIT_RELOCATIONS_V1",
+  "relocations_example": {
+    "schema": "SETI_BE_EXPLICIT_RELOCATIONS_V1",
+    "network_requests_authorized": 0,
+    "mappings": [
+      {
+        "from": "/workspace/scratch/2fd611398415",
+        "to": "restored"
+      }
+    ]
+  },
+  "no_self_authorization": true,
+  "source_files": [
+    {
+      "path": "work_be/science_handoff/build_bound_be.py",
+      "bytes": 11536,
+      "sha256": "2f43ad0f6604245e99f91388da3011d9f13a0c900d9718c7833aa963a1264fa7"
+    },
+    {
+      "path": "work_be/science_handoff/common_be.py",
+      "bytes": 4874,
+      "sha256": "460f2514d8f66a3b9e5759368a5f0771f5b0fae5e8bd00a2fb617cf5515c963c"
+    },
+    {
+      "path": "work_be/science_handoff/prepare_science_be.py",
+      "bytes": 4150,
+      "sha256": "d69181a82a059bc6613c48ec2b1729184743c50bc8c2a31ac9f7002d5f67609e"
+    },
+    {
+      "path": "work_be/science_handoff/range_provenance_be.py",
+      "bytes": 5159,
+      "sha256": "b2803c9fb67ed777ffb843e724465243c6cfe9b7e9a7603685ee44d93ab385b1"
+    },
+    {
+      "path": "work_be/science_handoff/run_science_phases_be.py",
+      "bytes": 14382,
+      "sha256": "c5ce488a0388181278f47439b8a51b41193e59eca97000bee1a8df527898c208"
+    },
+    {
+      "path": "work_be/science_handoff/test_adapters_be.py",
+      "bytes": 7595,
+      "sha256": "e016bb85423e50c7c0a17bba00b7262fb275aab64295eb8573460278c6d34aae"
+    },
+    {
+      "path": "work_be/science_handoff/verify_native_be.py",
+      "bytes": 22634,
+      "sha256": "c1557444d3e4bbd370a53d55cc9da4789fca250145c275d5f78afc8c75d53ede"
+    }
+  ],
+  "executed_production_phases": [],
+  "numeric_runtime_loaded_for_validation": false,
+  "new_telescope_requests": 0,
+  "new_telescope_power_rows_decoded": 0,
+  "science_completed": false,
+  "candidate_assessment": null,
+  "queue_advanced": false,
+  "limitations": [
+    "Prepared code has only static/source review and synthetic fixture validation until separately executed full gates succeed.",
+    "Shared unchanged codec and TREE traversal remain unqualified as independent models/decoders.",
+    "Binding emits no detector release; each numerical phase requires a separate external reviewed action-specific GO.",
+    "Original numerical sources remain byte-identical; prepared wrappers do not establish astronomical sensitivity/FAP/origin or completed science."
+  ],
+  "supersedes_source_interface_sha256": "ae39739462f82e3be5312b245b07d8c71cb6a8e384e84d972c1417bedb7dc13e",
+  "production_scope_required": {
+    "manifest_execution_mode": "PRODUCTION",
+    "completion_marker_execution_mode": "PRODUCTION",
+    "native_execution_mode": "PRODUCTION",
+    "native_proof_scope": "COMPLETE_PRODUCTION_ACQUISITION_NATIVE_RECONSTRUCTION",
+    "bound_execution_mode": "PRODUCTION",
+    "bound_native_proof_scope": "COMPLETE_PRODUCTION_ACQUISITION_NATIVE_RECONSTRUCTION"
+  },
+  "production_python_optimization": "DISABLED"
+}

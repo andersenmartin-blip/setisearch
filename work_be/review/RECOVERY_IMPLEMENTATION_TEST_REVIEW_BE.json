@@ -1,0 +1,48 @@
+{
+  "created_utc": "2026-10-29T17:52:53.081804+00:00",
+  "limitations": [
+    "SyntheticbackenddoesnotvalidateoriginalHDFTREE,bitshufflecodec,transportadaptororactualarchiveavailability.",
+    "Capturelifecyclewasexercisedonlywithlocaltestsubprocesses;noactualproductiongatesissued.",
+    "Passingtestsdoesnotreleasearchiveacquisitionornative/sciencesuccessgates."
+  ],
+  "material_issues_remaining": [],
+  "prepared_offline_only": true,
+  "production_acquisition_released": false,
+  "real_archive_requests": 0,
+  "real_production_dispatches": 0,
+  "restored_checkpoint_mutated": false,
+  "runs": [
+    {
+      "actual_tool_exit_code": 0,
+      "command": "python3 -m unittest discover -s work_be -p 'test_*.py' -v",
+      "elapsed_seconds": 1.136,
+      "errors": 0,
+      "failures": 0,
+      "tests_run": 43
+    }
+  ],
+  "schema": "SETI_BE_INDEPENDENT_SYNTHETIC_TEST_REVIEW_V1",
+  "source_sha256": {
+    "work_be/capture_recovery_be.py": "5165adb5a2e93e9131dbe2ea739f85e2620387f697340f90e9105f7aa6f14b31",
+    "work_be/recover_missing_rows_be.py": "01975a56d1f833907e8d8047829ff33123a9ad48f6da3851e68adb1e608679b5",
+    "work_be/test_capture_recovery_be.py": "b712687d8d26a0a2855b5e4ff5d180333c1177861c0fc2b73ef2fc9fe76b062e",
+    "work_be/test_recover_missing_rows_be.py": "34c49c1e0b669645795f5e49169e7a2bcd67566f267e87e0cf0c2333cdaf8dfe"
+  },
+  "status": "PASS_SYNTHETIC_ONLY",
+  "tests_run": 43,
+  "validated_behaviors": [
+    "Missing88prior+8new and5prior+1repeat lineage",
+    "Onlyt8..15canhaveallow_newTrue; retained0..7bytes/hashcompared",
+    "Genuinefullrow7repeatrequiresdistinctnewHTTPreceiptandexactbody",
+    "Transport/row/repeat/close/recheck/manifestfailuresleavenocanonicalorcompletionmarker",
+    "Manifestscan5receiptsandpriorrepeatsboundexactly;fiveparentarrayspathandhashverified",
+    "Immutableparentmutatedinsidecallbackdetectedbeforepublication",
+    "Simulationonlymarker;noacquisitioncreditordetectorresults",
+    "Productioncapturefixedcommandrequires--executeandvalidproductiongate",
+    "RealPopenPID,stdoutEOF,waitandchildexitrecordedwithloghash",
+    "Child0withoutvalidmarkerexplicitlyactual1+child0;nofabricatedsuccess",
+    "Restart,existingresult,sourcechangeandspawnfailurerejected",
+    "Review and normal-access receipt gate-asserted digests retained and checked before and after child execution",
+    "Child stdout observed byte count and SHA256 match persisted log; short writes completed; zero writes or lying write counts cannot yield accepted completion"
+  ]
+}

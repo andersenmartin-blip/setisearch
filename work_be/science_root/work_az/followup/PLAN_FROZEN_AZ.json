@@ -1,0 +1,33 @@
+{
+  "HIP44295_powers_read": false,
+  "checks": "Hash-bound protocol, independent reviewPASS, all6closed scan summaries, catalog/triage publication hashes and native hashes. Recover each selected scalar fsum track from saved calibration with tolerance1e-4+5e-6abs(reference).",
+  "current_AZ_detector_or_followup_outcomes_read": false,
+  "current_archive_visit_65133_powers_read": false,
+  "fixed_frequency_companion": "For each selected representative, source midpoint center defines a fixed frequency using source fch1/df. Round mapped native channel in each destination; zero drift, same width, same16rows, use exact zero-rate grid calibration index and scalar per-row/full math.fsum. Preserve unsupported status where outside native band. Descriptive/background control, no flags/counts/ranking/veto/origin changes. AZ freezes this inherited rule before any AZ visit65133 powers are read. Prior AO/AP HIP76603 power reads concern a different target and do not provide AZ outcomes.",
+  "frozen_utc": "2026-10-29T07:26:17.951449+00:00",
+  "grouping": "Inherited exact interval components/counts/memberships. Original representatives retained separately; AZ representatives and top group each selected by maximum source seedESS then lowest global seed row.",
+  "historical_HIP76603_AO_AP_powers_previously_read": true,
+  "limits": [
+    "Empirical detector score is not calibrated Gaussian significance. Templatewidth is not intrinsic linewidth.",
+    "Frequency components and correlated template rows are not physical emitters or accepted SETI candidates.",
+    "Broad OFF evidence remains descriptive; no automatic veto or origin assignment.",
+    "Only selected representatives receive bounded local context; all other components remain queued. Local followup of this same cadence adds no extra coverage or epochs."
+  ],
+  "local_window": "Union of six projected midpoint centers and six metadata-mapped fixed-frequency centers, padded1024channels on either side, clipped to storedband; all16rows/sixscans retained. Normalize complete native arrays by exact AC method before slicing.",
+  "plots": "Metadata-driven full saved windows and \u00b132native-channel zoom centered at each selected source fixed frequency mapped to every scan. Three ON/OFF pairs,all16rows, time-row+seconds axes, cyan original integertrack and orange dashed prospective fixedcenter; shared\u22122..15 display limits. All centers and retained crop computed without power-dependent choices.",
+  "power_flag_scope": "AZ archivevisit65133 only; parent powers concern other archive IDs",
+  "schema": "SETI_AZ_BOUNDED_FOLLOWUP_PLAN_V1",
+  "selection": "At most one exact3ON and one exact1or2ON component; preserve both if intervals overlap and disclose dependence.",
+  "source_sha256": {
+    "SOURCE_ADAPTATIONS_AZ.json": "9d70098e2ec99609828322781353ba11868690257f4eee9ee682e2241fc39acc",
+    "continuous_normalization_ac.py": "8953f595f1fa9e192c98fbb185b69800d046275552a9bcff6c41df40d558bf52",
+    "followup_az.py": "8795a0f2eb13986b469c25ba54e03127c7db81de3d9f3984720f27fe03ba54d3",
+    "inherited_grouping_ab.py": "8daa73ce43e4316f5bcc51600434831223126c3529becef840d7011b26223055",
+    "plot_context_az.py": "bd53683a8f625fd5b65f2e9793ddc6ec9ca93b75d24ad17e72790770600e0083",
+    "publication.py": "245670c15c61536a429dc66cf934f44967de97e62dd9b79d32be3ac6ca7e7282"
+  },
+  "thresholds": {
+    "OFF": 5.0,
+    "ON": 10.0
+  }
+}
