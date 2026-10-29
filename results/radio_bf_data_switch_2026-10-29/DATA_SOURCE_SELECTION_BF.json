@@ -1,0 +1,140 @@
+{
+  "schema": "SETI_BF_OPERATIONAL_DATA_SWITCH_V1",
+  "stage": "BF",
+  "created_utc": "2026-10-29T18:11:10.982Z",
+  "status": "RETAINED_ALTERNATIVE_SELECTED_SEARCH_BLOCKED_BY_EXECUTION_ENVIRONMENT",
+  "authorization": {
+    "source": "Direct current user instruction",
+    "instruction": "kan du gå videre til andre data så signalsøgning kan starte igen?"
+  },
+  "operational_queue_changed": true,
+  "scientific_coverage_credit_added": 0,
+  "science_queue_advanced_by_completed_search": false,
+  "strategy": "Prioritize retained S2017/native171 raw archive for a reviewed descriptive expanded signal search, avoiding new Berkeley acquisition. Keep new catalog targets as backups; preserve HIP44295 partial recovery separately.",
+  "next_primary_id": null,
+  "next_target": "S2017_HIP98505_NATIVE171_REANALYSIS",
+  "active_catalog_priority": [
+    {
+      "cadence_url": "http://seti.berkeley.edu/opendata/api/get-cadence/-telescopes:GBT;fileTypes:hdf5;-65193",
+      "center_freq": 2300.390625,
+      "decl": 43.0458372222,
+      "file_type": "HDF5",
+      "id": 65193,
+      "md5sum": "bafd4d124a0f9fc5167eabb4b441bbb7",
+      "mjd": 57660.73699074074,
+      "powers_inspected": false,
+      "quality": "Ungraded",
+      "ra": 180.5249166667,
+      "size": 17383361874,
+      "status": "CADENCE_METADATA_NOT_YET_RETRIEVED",
+      "target": "HIP58684",
+      "telescope": "GBT",
+      "tempX": "Unknown",
+      "tempY": "Unknown",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_32/holding/spliced_blc0001020304050607_guppi_57660_63677_HIP58684_0039.gpuspec.0000.h5",
+      "utc": "Thu, 29 Sep 2016 17:41:16 GMT",
+      "selection_status": "NEXT_PREFERRED_NEW_TARGET_NO_CADENCE_OR_POWER_DATA_RETRIEVED"
+    },
+    {
+      "cadence_url": "http://seti.berkeley.edu/opendata/api/get-cadence/-telescopes:GBT;fileTypes:hdf5;-65205",
+      "center_freq": 2300.390625,
+      "decl": 40.2516619444,
+      "file_type": "HDF5",
+      "id": 65205,
+      "md5sum": "e740e04e2bbeb445807e27ec3200dd5a",
+      "mjd": 57660.7612037037,
+      "powers_inspected": false,
+      "quality": "Ungraded",
+      "ra": 182.40325,
+      "size": 17387817234,
+      "status": "CADENCE_METADATA_NOT_YET_RETRIEVED",
+      "target": "HIP59280",
+      "telescope": "GBT",
+      "tempX": "Unknown",
+      "tempY": "Unknown",
+      "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_32/holding/spliced_blc0001020304050607_guppi_57660_65769_HIP59280_0045.gpuspec.0000.h5",
+      "utc": "Thu, 29 Sep 2016 18:16:08 GMT",
+      "selection_status": "RESERVE_NEW_TARGET_NO_CADENCE_OR_POWER_DATA_RETRIEVED"
+    }
+  ],
+  "deferred": [
+    {
+      "target": "HIP44295",
+      "primary_id": 65133,
+      "status": "DEFERRED_NOT_ABANDONED",
+      "previously_acquired_rows": 88,
+      "expected_rows": 96,
+      "missing_scan5_time_indices": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prior_repeat_checks": 5,
+      "remaining_repeat_checks": 1,
+      "partial_inputs_and_all_failures_retained": true,
+      "checkpoint_library_file_id": "libfile_05690f3979b48191bfe9e1346af2f1f7",
+      "checkpoint_github_commit": "d44afffa8f462b3e9c559cedc2ad2eb88baf7dfa"
+    }
+  ],
+  "readiness": {
+    "verified_complete_unsearched_dataset_found_in_checked_sources": false,
+    "catalog_metadata_is_not_spectral_data": true,
+    "compute_environment_available": false,
+    "observed_compute_error": "No usable execution environment is available. Wait for an environment to become available before using this tool.",
+    "archive_host_currently_allowed": false,
+    "new_archive_requests": 0,
+    "new_detector_runs": 0,
+    "search_started": false,
+    "background_science_jobs_running": false,
+    "retained_alternative_package_found": true,
+    "current_retained_archive_bytes_authenticated": false
+  },
+  "read_only_inventory_findings": [
+    "Checked recent Library checkpoints and repository source/evidence. HIP76603 and HIP116838 partial attempts were completed in later AP/AV stages; they cannot be relabeled unsearched.",
+    "AW/AX/AY/BA targets are completed historical searches, not newly available unsearched cadences.",
+    "Retained 2017 HIP98505/native171 data and nine16Oct band cuts are exposed and have previous searches; no blind or new-data claim is justified. Full compact availability was not newly established.",
+    "HIP58684/65193 and HIP59280/65205 are genuine catalog candidates but only metadata queue entries. They still require cadence lookup, genuine complete ON/OFF input acquisition and unchanged prospective analysis gates.",
+    "Exact 466351822-byte S2017/native171 raw package resolved in Library with matching historical public CRC/member-SHA receipt. This provides an existing genuine alternative for descriptive reanalysis, not a newly observed or never-searched dataset."
+  ],
+  "authority_unchanged": {
+    "stage": "BA",
+    "unique_archive_ids": 486,
+    "technical_MHz_visits": 268.50128173828125,
+    "new_unique_archive_ids": 0,
+    "new_technical_MHz_visits": 0,
+    "candidate_assessment": null
+  },
+  "parent_checkpoint": {
+    "stage": "BE",
+    "library_file_id": "libfile_05690f3979b48191bfe9e1346af2f1f7",
+    "report_url": "https://github.com/andersenmartin-blip/setisearch/blob/d44afffa8f462b3e9c559cedc2ad2eb88baf7dfa/RADIO_PROGRESS_BE_OFFLINE_2026-10-29.md"
+  },
+  "next_action": "Use the retained S2017/native171 raw archive first, not the blocked HIP44295 recovery or a new Berkeley target. When a working execution environment is available, materialize the exact resolved Library item, verify current ZIP SHA256/CRC/member inventory against the historical receipt, establish the exact six-scan sources, and compare prior search-family/band coverage. Freeze and review an explicitly descriptive expanded search/follow-up protocol on exposed data before any new metric calculations; preserve protected holdouts and all older classifications. Start detector/ONOFF/review only after input and protocol gates actually pass. HIP58684/65193 and HIP59280/65205 remain new-data backups requiring normal permitted archive access. No simulation, prior result or catalog selection may be reported as an executed new search.",
+  "publication_scope": "Operational queue decision and blocker status only. No new science, data, execution, or Library checkpoint file is claimed.",
+  "primary_retained_dataset": {
+    "name": "SETI_S2017_NATIVE171_RAW_2026-10-10.zip",
+    "library_file_id": "libfile_f3b5c8d6c61081919aaae0f0438650f1",
+    "file_id": "file_0000000092dc822fa388a7707f1e8f84",
+    "size_bytes": 466351822,
+    "historical_archive_sha256": "6e08922aec5c5a6737987887cd62aab6d52495650297cae74745a654728f4786",
+    "historical_member_count": 593,
+    "historical_integrity_status": "PASS_ARCHIVE_CRC_AND_ALL_MEMBER_SHA256",
+    "historical_integrity_receipt_url": "https://github.com/andersenmartin-blip/setisearch/blob/d44afffa8f462b3e9c559cedc2ad2eb88baf7dfa/results/radio_s2017_verified_review_20261010/receipts/RAW_PACKAGE_RECEIPT.json",
+    "current_library_item_resolved": true,
+    "current_bytes_downloaded": false,
+    "current_archive_hash_reverified": false,
+    "observation_date": "2017-04-28",
+    "target": "HIP98505 / HD189733",
+    "native_chunk_index": 171,
+    "context_document_library_file_id": "libfile_70bbabf1a0108191b5c920cea4beed5e",
+    "prior_analysis_status": "Previously exposed and searched; six-scan profiles and cross-ON comparisons completed historically.",
+    "next_scope": "Freeze and review an expanded descriptive search/follow-up family on already exposed retained raw data. Compare prior family/band coverage first; no fresh or independent observation claim and no reopening protected holdouts.",
+    "archive_network_download_required": false,
+    "readiness": "PACKAGE_LOCATED_WITH_HISTORICAL_INTEGRITY_RECEIPT; CURRENT_BYTES_AND_NEW_SEARCH_PROTOCOL_PENDING"
+  }
+}

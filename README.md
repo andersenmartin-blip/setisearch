@@ -1,3 +1,11 @@
+## 29. oktober 2026: BF — gemte 2017-rådata valgt som næste arbejdsgrundlag
+
+**HIP44295 sættes på pause, og den allerede gemte S2017/native171-pakke på 466 MB prioriteres først.** Filen er fundet med korrekt identitet og størrelse samt historisk integritetskvittering. Den kan bruges til en gennemgået udvidet genanalyse uden ny Berkeley-hentning; dataene er tidligere eksponerede og må ikke beskrives som nye observationer.
+
+**Søgningen er endnu ikke startet: beregningsmiljøet er utilgængeligt.** Pakken skal genindlæses og bytekontrolleres, og den nye beskrivende søgefamilie skal fastlægges før kørsel. HIP44295s 88 af 96 rækker og BA's afsluttede tællere bevares. [Det valgte alternativ og præcist næste trin](RADIO_DATA_SWITCH_BF_2026-10-29.md).
+
+---
+
 ## 29. oktober 2026: BE genoptagelse implementeret og testet offline
 
 **Ny kode til de otte manglende rækker og de efterfølgende kontroltrin er implementeret.** Alle 43 recovery-/capture-tests består; adapterne består 12 målrettede tests og 52 separate syntetiske kontroller. Fem komplette scans er fysisk gendannet og kontrolleret. De otte allerede hentede rækker i sidste scan er genskabt fra komprimerede kildedata med faktisk exit 0 og nul arkivanmodninger. De 33 oprindelige analysefiler er bevaret byte-identisk.
