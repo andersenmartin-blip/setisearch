@@ -1,3 +1,11 @@
+## 29. oktober 2026: BE genoptagelse implementeret og testet offline
+
+**Ny kode til de otte manglende rækker og de efterfølgende kontroltrin er implementeret.** Alle 43 recovery-/capture-tests består; adapterne består 12 målrettede tests og 52 separate syntetiske kontroller. Fem komplette scans er fysisk gendannet og kontrolleret. De otte allerede hentede rækker i sidste scan er genskabt fra komprimerede kildedata med faktisk exit 0 og nul arkivanmodninger. De 33 oprindelige analysefiler er bevaret byte-identisk.
+
+**HIP44295 / 65133 står stadig på 88 af 96 rækker.** Miljøet tillader ikke arkivadgang; ingen ny acquisition, komplet native-kontrol eller signalsøgning er gennemført. Den fastholdte protokol frigiver nul netværksanmodninger. BA er fortsat senest afsluttede autoritet: 486 unikke arkiv-ID'er og 268,50128173828125 tekniske MHz-besøg. [BE: kode, verifikation og næste trin](https://github.com/andersenmartin-blip/setisearch/blob/d44afffa8f462b3e9c559cedc2ad2eb88baf7dfa/RADIO_PROGRESS_BE_OFFLINE_2026-10-29.md). Tidligere resultater og statusbytes bevares.
+
+---
+
 ## 29. oktober 2026: BD kontrollerer checkpoint; otte rækker mangler fortsat
 
 **Offlinekontrol består for 136 filer og de otte gyldige rækker i scan 5. Alle 16 tests består.** Gennemgangen viser, at tidligere recovery- og faseadaptere stadig forventer 87+9 rækker; de kan ikke genbruges uændret efter BC's tilføjelse af række 7. En ny offlineplan fastholder BB87 + BC1 + senere8 og fem tidligere plus én manglende gentagelseskontrol.
