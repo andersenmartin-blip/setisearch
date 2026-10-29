@@ -1,3 +1,15 @@
+## 29. oktober 2026: genopretning dokumenteret; rådatahentning stadig ufuldstændig
+
+**AZ-pakken og det blokerede metadata-interval er gendannet. Den efterfølgende rådatahentning stoppede ved en lokal provenienskontrol, faktisk exit 1.** Kontrolpunktet er kl. 06:04:40 dansk tid; ingen efterfølgende V2-kørsel eller ny gennemført SETI-søgning påstås.
+
+Den arvede afsluttede AY-status fra 28. oktober er 480 unikke arkiv-ID'er og 265,594482421875 tekniske MHz-besøg. Dette er historisk teknisk bogføring, ikke en ny audit af alle projektets videnskabelige resultater. Tidligere uafklarede sager bevares.
+
+BA verificerede 419 gendannede pakkemedlemmer og 115 transportkvitteringer. Metadatarecovery lykkedes med ét request på 16.384 bytes. Den efterfølgende erhvervelse registrerede 6 nye rækker før en fejl i kravet om én netværkskvittering pr. sammensat chunk; ingen ny scan blev komplet. En prospektiv V2-korrektion af byteproveniens er næste trin. Videnskabelige regler er uændrede; ingen ny dækning eller kandidatvurdering krediteres.
+
+[Dateret status, evidens og næste trin](RADIO_PROGRESS_BA_PARTIAL_2026-10-29.md). Tidligere fejl, lukkede banker og uafklarede sager bevares.
+
+---
+
 SETI 15. oktober 2026: Metodekontrollen er lukket **FAIL_CLOSED**. 160 af 205 worker-resultater er bevaret (63 støjreferencer og 97 øvrige kontroller); 45 er NOT_RUN, uafhængig QA er 0, og de ni eksponerede bånd er NOT_RUN. Koordinatoren stoppede ved den fastlagte lagerreserve. C0147 overskred desuden det bindende loft på 600 CPU-sekunder: wait4 målte 601,151447 sekunder, selv om workerens egen kvittering var 598,727962 og exitkoden 0. Den planlagte lagerforlængelse blev derfor afvist før admission/GO og produktion; dens kode er PREPARED_NOT_ADMITTED. Oprindelig SUMMARY forbliver uændret med falske integritets- og fælles resultatkrav. Ingen kvalificeret SETI-detektion eller QA-verificeret genfindingsrate. Oprindelig A/B er FAIL_CLOSED; 2016 og 2019 forbliver lukkede, kontrolpunkt 20. oktober, 0 DKK og ingen nye teleskopbytes.
 
 

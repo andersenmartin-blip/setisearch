@@ -1,3 +1,15 @@
+## 29. oktober 2026: genopretning dokumenteret; rådatahentning stadig ufuldstændig
+
+**AZ-pakken og det blokerede metadata-interval er gendannet. Den efterfølgende rådatahentning stoppede ved en lokal provenienskontrol, faktisk exit 1.** Kontrolpunktet er kl. 06:04:40 dansk tid; ingen efterfølgende V2-kørsel eller ny gennemført SETI-søgning påstås.
+
+Den arvede afsluttede AY-status fra 28. oktober er 480 unikke arkiv-ID'er og 265,594482421875 tekniske MHz-besøg. Dette er historisk teknisk bogføring, ikke en ny audit af alle projektets videnskabelige resultater. Tidligere uafklarede sager bevares.
+
+BA verificerede 419 gendannede pakkemedlemmer og 115 transportkvitteringer. Metadatarecovery lykkedes med ét request på 16.384 bytes. Den efterfølgende erhvervelse registrerede 6 nye rækker før en fejl i kravet om én netværkskvittering pr. sammensat chunk; ingen ny scan blev komplet. En prospektiv V2-korrektion af byteproveniens er næste trin. Videnskabelige regler er uændrede; ingen ny dækning eller kandidatvurdering krediteres.
+
+[Dateret status, evidens og næste trin](RADIO_PROGRESS_BA_PARTIAL_2026-10-29.md). Tidligere fejl, lukkede banker og uafklarede sager bevares.
+
+---
+
 ## 20. oktober 2026: perioden 7.–20. oktober afsluttet
 
 Slutkontrollen er gennemført på den faktiske slutdato med 13 bytepinnede publicerede kildefiler og 30 metadata-/regnskabskontroller. Ingen søgning, videnskabelig QA, råarrays eller arkiver er genåbnet. **Ingen kvalificeret SETI-detektion; oprindelig A/B forbliver FAIL_CLOSED.** Faktiske metodeudfald og eksplorative teleskopresultater er bevaret: syv uafklarede 2016-ON-overskud, otte fuldt verificerede 2017-bånd og B06 fortsat fejlet og udeladt fra verificerede nuller/maksimum.
