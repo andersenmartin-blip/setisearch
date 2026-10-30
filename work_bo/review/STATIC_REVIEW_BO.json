@@ -1,0 +1,231 @@
+{
+  "blocking_findings": [],
+  "capture_runner_findings": [
+    {
+      "finding": "Hostproc identity is validated using ownNSpid, PPid, process start, group/session and namespace before read-only resource sampling. Host PIDs are never signal targets. Owned namespace groups use killpg. Sampling and cleanup continue after exact childwait; runner quiescence and closed validation require descendant_cleanup_completed=true and an empty remaining list.",
+      "status": "PASS_STATIC",
+      "subject": "Namespace, cleanup and exact wait"
+    },
+    {
+      "finding": "PASS requires exactos.wait4 exit0, natural pipeEOF, complete stdout, object-typed final terminal bound to RESULT SHA, source pins before/after, and no live descendants. Logs publish atomically after capture terminates. Nonobject terminalJSON and changed-pin OSError now preserve failure receipts. Pin verification now lstat-rejects nonregular sources/artifacts before hashing, so a replaced FIFO is not read and a symlink is not followed.",
+      "status": "PASS_STATIC",
+      "subject": "Closed capture and failure evidence"
+    },
+    {
+      "finding": "One positive and seven fixed fault cases cover nonzero exit, timeout, truncated stdout/result, missingEOF, changed pin and existing output. Actual exit/wait/EOF/log hashes and specific rejection reasons are checked. Existing output starts no child and stays byte-identical.",
+      "status": "PASS_STATIC",
+      "subject": "E05 capture contract"
+    },
+    {
+      "finding": "Runner accepts only E01 payload/fixtures/symlink.npy targeting small_v1.npy (S_IFLNK|0777,size12, exact target SHA) and nonblocking_fifo.npy (S_IFIFO|0600,size0). CompleteE01 requires both; other gates have none. STOP may retain recognized prefixes, while unknown paths/types/targets fail. Special nodes are inventoried with lstat/readlink without opening FIFO or following links.",
+      "status": "PASS_STATIC",
+      "subject": "Exact special-node evidence"
+    },
+    {
+      "finding": "Exact public readback receipt, plan/runtime/source pins, fixed gate order, historical failures and caps are checked before exclusive run reservation. E02-E04 share180 CPU seconds,300 wall seconds,1GiB storage and2GiB RSS per gate. Capture-parent and child CPU are included; exact wait4 and validated live tree statistics are retained. Prior closed artifacts are rehashed between gates; any unexpected failure stops without automatic retry, overwrite or cap increase.",
+      "status": "PASS_STATIC",
+      "subject": "Prospective scope and resource limits"
+    },
+    {
+      "finding": "Plan builder uses exclusive open x. It pins implementation/vendor/provenance/spec/review inputs and expressly leaves24 limited paired synthetic cases,2 full839-rate paired cases, actual input admission and astronomical search unauthorized. Engineering PASS is not described as paired synthetic, recovery, sensitivity, FAP or astronomical qualification.",
+      "status": "PASS_STATIC",
+      "subject": "Plan creation and later work"
+    }
+  ],
+  "created_utc": "2026-10-30T20:42:13.514376+00:00",
+  "independent_capture_subreview": {
+    "E05_sha256": "771497b6bd896b74730506d985288080e26c2ea563866d81113fc1d1831a3f0c",
+    "final_capture_sha256": "51cadd2f2e19be492f17e9dd763fc977c3d0302c61e6892a9c0009983539d227",
+    "final_diff_reviewed_by_parent_reviewer": "Only verify_pins adds a regular-file lstat guard before hashing.",
+    "initial_cleared_capture_sha256": "b0a898be24f41a8c314a25bd0f60c8e45c33e3055fb429a5352d2ba11877081d",
+    "runner_sha256": "c9205cbe94d9803119ec25d8c1982aee24d953921ea7fa3ee0eb589669ab43dd",
+    "task": "/root/review_next_science/bo_capture_static",
+    "verdict": "No remaining substantive static blocker for the declared engineering matrix. No imports, fixtures, child runs, tests, powers, RNG, scores or writes by subreviewer."
+  },
+  "independent_static_checks": {
+    "E01_declared_cases_from_AST_literal": 68,
+    "all_reviewed_python_sources_AST_parse": true,
+    "four_vendor_files_match_authenticated_original_SHA256": true,
+    "legacy_function_AST_equal_except_prefix": {
+      "centered_boxcar": true,
+      "drift_grid": true,
+      "ess_calibration": true,
+      "normalize": true,
+      "track_sum": true
+    },
+    "no_candidate_import_or_numeric_execution_used": true
+  },
+  "operations": {
+    "GitHub_writes": false,
+    "Library_writes": false,
+    "RNG_draws": 0,
+    "candidate_or_historical_code_executed": false,
+    "candidate_or_historical_code_imported": false,
+    "gates_or_fixture_generators_executed": false,
+    "new_scores": 0,
+    "only_file_written": "review/STATIC_REVIEW_BO.json",
+    "power_arrays_opened": 0,
+    "raw_DATA_zip_materialized_or_opened": false
+  },
+  "pin_note": "Exact reviewed bytes are listed here. The builder must pin this completed review after creation; this review contains no generated-plan hash and creates no hash cycle.",
+  "prospective_next_step": "Parent may publish/readback the exact engineering plan and sources, then execute only fixedE01-E05 once. Terminal artifacts require independent closed-evidence review before any later control, input or science activation.",
+  "qualification_limits": [
+    "Static review only; no runtime gate results or measured resource feasibility exist from this review. Failure or cap exhaustion must remain terminal for this once-only identity.",
+    "E02 independent normalized comparison is a fixed limited sample, not all-pixel proof. E03 covers1260 points; E04 independent ESS references cover800 complete local vectors and2 complete global vectors with5 selected score rates.",
+    "839-rate offset equality is geometry only; it does not qualify a full839-rate paired search, signal recovery or six-scan association performance.",
+    "Later24 limited paired controls,2 full-rate paired controls, actual DATA admission and astronomical search remain separate unactivated phases.",
+    "No astronomical values, new observations, unique-source-ID/coverage credit, astronomical FAP/sensitivity/origin or scientific nondetection follows. Protected HIP98505/native156159/2019 and B06/restoration identities remain closed."
+  ],
+  "resolved_prefreeze_findings": [
+    "Independent final normalization oracle and full anchor geometry/fatal checks added.",
+    "Nonfinite normalization case corrected to have valid nonzeroMAD before injectedNaN.",
+    "E01 gateID and frozen output path aligned; FIFO rejection made nonblocking.",
+    "Unsafe hostproc/namespace PID mixing corrected; owned groups and surviving descendants tracked.",
+    "E01 link/FIFO evidence retained without following/blocking, with exact runner allowlist.",
+    "Nonobject terminal JSON and changed-pin errors retain failure evidence.",
+    "Runner closed/quiescent claims require proved descendant cleanup.",
+    "Plan creation made exclusive."
+  ],
+  "reviewed_file_pins": [
+    {
+      "bytes": 2884,
+      "path": "PREREG_BO.md",
+      "sha256": "964c4ea189c8e46abc10a863777b59beee960c01f3b2cdc6029144f3378dc0f2"
+    },
+    {
+      "bytes": 26031,
+      "path": "gates/e01_bytes.py",
+      "sha256": "34c5f178e80ec4a9a0b4df309b86b93c7ced62d54578148807c62d89d3e136d4"
+    },
+    {
+      "bytes": 14397,
+      "path": "gates/e02_normalization.py",
+      "sha256": "f0b562ac668050840d74541cc663b870540243c419d84e8b4eab13a7ca44a9e5"
+    },
+    {
+      "bytes": 18968,
+      "path": "gates/e03_arithmetic.py",
+      "sha256": "be987ffbe6e2eefd345cbf5f1269cc745ad25dbc66a50e62a87577403a05017a"
+    },
+    {
+      "bytes": 17661,
+      "path": "gates/e04_calibration_time.py",
+      "sha256": "9a38da01a352263a814cb50096d941166f69b2e7909d6f33f29d2905295e6f11"
+    },
+    {
+      "bytes": 7345,
+      "path": "gates/e05_capture.py",
+      "sha256": "771497b6bd896b74730506d985288080e26c2ea563866d81113fc1d1831a3f0c"
+    },
+    {
+      "bytes": 5860,
+      "path": "prepare_plan_bo.py",
+      "sha256": "3584dc007b41867c7c0bd7a7f13f254ac792e3dbddbae729ecf3d05b57bd72c9"
+    },
+    {
+      "bytes": 19948,
+      "path": "provenance/PRIOR_CONTROL_DRAFT.json",
+      "sha256": "7dfe888e9d7ed4d68afd1898062cd7bea40555b5d506e01918d5cc41ad9842ae"
+    },
+    {
+      "bytes": 33446,
+      "path": "provenance/PRIOR_SCOPE_REVIEW.json",
+      "sha256": "0a09f9957a75cb206d0fb91f5c870c108945ceaa0b8d7e8250de2813652941f5"
+    },
+    {
+      "bytes": 441,
+      "path": "provenance/RUNTIME_PROCESS_NAMESPACE_BO.json",
+      "sha256": "de8545e31cce160e3fceca8d203a5dd5ecf42ca196221f2907f4d66205418a8e"
+    },
+    {
+      "bytes": 1045,
+      "path": "provenance/ZIP_SCHEMA_EVIDENCE_BO.json",
+      "sha256": "23a5d29a03176eab96b6859bc4fd3c226fd8c372a2cd3418d1c0e7c27a58d0a9"
+    },
+    {
+      "bytes": 23281,
+      "path": "run_engineering_bo.py",
+      "sha256": "c9205cbe94d9803119ec25d8c1982aee24d953921ea7fa3ee0eb589669ab43dd"
+    },
+    {
+      "bytes": 6174,
+      "path": "specs/DETERMINISTIC_FIXTURES_BO.json",
+      "sha256": "fe27e49e6c9838e795fe13cddf272d9a5cb71a0addbc147a209f45cf11e09873"
+    },
+    {
+      "bytes": 19730,
+      "path": "src/capture.py",
+      "sha256": "51cadd2f2e19be492f17e9dd763fc977c3d0302c61e6892a9c0009983539d227"
+    },
+    {
+      "bytes": 7997,
+      "path": "src/methods.py",
+      "sha256": "9d7300dadf61872a32f04e9a6fe77fdeb8be8ccc87004f24e1f212cf14942f52"
+    },
+    {
+      "bytes": 24330,
+      "path": "src/npy_adapter.py",
+      "sha256": "9b1813ca6de91410e989ef9a31d3c85dfcefe77cddf83596ae963364026e9ace"
+    },
+    {
+      "bytes": 7936,
+      "path": "vendor/current/continuous_normalization_ac.py",
+      "sha256": "8953f595f1fa9e192c98fbb185b69800d046275552a9bcff6c41df40d558bf52"
+    },
+    {
+      "bytes": 3755,
+      "path": "vendor/current/kernel_v.py",
+      "sha256": "3367c20c93e4ba564b5abceb19e0939fb82fd364fbb400fe85e07f93f15b8999"
+    },
+    {
+      "bytes": 12127,
+      "path": "vendor/legacy/run_pilot.py",
+      "sha256": "4c7e2f4a973b92b518f1134cba3d0529a313d0092bf67460d00ac6b119fb2c23"
+    },
+    {
+      "bytes": 14415,
+      "path": "vendor/legacy/search_pilot.py",
+      "sha256": "56b0800b972f02cc3d2e3f5795571b1ce95684bf37803ec5d007ed3dccbdb101"
+    }
+  ],
+  "schema": "SETI_BO_INDEPENDENT_STATIC_REVIEW_V1",
+  "scientific_findings": [
+    {
+      "finding": "Authenticated M pure functions remain exact except their name prefix. Current continuous normalization, guarded float64 sums and local-q ESS are substantively distinct from M block-constant float32 normalization/sums and full-native ESS. Original HIP45688 24 raw-sum failures, full-QA=false and the old5e-5 guard remain literal. Faithful legacy arithmetic reproduction never passes or repairs that old guard.",
+      "status": "PASS_STATIC",
+      "subject": "Historical identity and method separation"
+    },
+    {
+      "finding": "68 declared accept/reject cases use independent stdlib struct byte recipes, small and full NPYv1/v2 fixtures and exact named rejection codes. Adapter checks literal little-endian float32, C order, exact shape/size/file/payload/row hashes, read-only mapping and rehash at phase exit. No cast, byteswap or repair occurs. Nonblocking no-follow regular-file opens reject FIFO/symlinks. The fixed six-scan API binds HIP45688 IDs/roles/tstarts/origin and1422.36328125MHz and defaults to finite/nonnegative checking.",
+      "status": "PASS_STATIC",
+      "subject": "E01 adapter"
+    },
+    {
+      "finding": "Two full16x1048576 deterministic float32 matrices are normalized before crop. All256 block starts/stops/actual centers, coefficient shapes/dtypes and positive scales are checked. Independent Python sorting reconstructs selected anchors; independent scalar bracketing reconstructs interpolation and final current samples within onefloat32ULP, with legacy samples bit-exact. Six fatal checks cover zeroMAD, nonfinite raw with a valid varying prefix, and copied zero/negative anchors.",
+      "status": "PASS_STATIC",
+      "subject": "E02 normalization oracle"
+    },
+    {
+      "finding": "1200 ordinary plus60 cancellation selected points compare current selected/grid sums with math.fsum under max(1e-8,64*eps64*sum_abs_terms). Legacy has an independent sequential binary64 global-prefix oracle followed by original float32 width/row rounding. A separately labelled normalized arithmetic2**60 fixture must exercise fallback and exact8*width results. All60 expected fresh legacy guard failures remain FAIL diagnostics; any ordinary failures are retained, not tuned away.",
+      "status": "PASS_STATIC",
+      "subject": "E03 arithmetic oracle"
+    },
+    {
+      "finding": "Legacy calibration always uses complete interior[4096,1044480), including historicalq128, at each declared stride; it is not replaced by a local crop. Independent complete-vector sorted references cover800 local vectors and2 full global vectors. All1600 records retain the2x2x2 normalization/accumulation/calibration combinations without after-result method selection.",
+      "status": "PASS_STATIC",
+      "subject": "E04 ESS calibration"
+    },
+    {
+      "finding": "All839x16 legacy/current row7.5 offsets and declared nearest-even ties are checked. Historical M nominalheader+8dt fields remain unchanged; header+7.5dt and half-dt affine conversions are separate BO hypotheses, not corrections or proof of integration-edge semantics. Halo geometry and12 explicit invalid selected/grid center/offset/smoothing cases are checked. This is not six-scan association qualification.",
+      "status": "PASS_STATIC",
+      "subject": "E04 epochs and support"
+    },
+    {
+      "finding": "ZIP schema evidence authenticates the continuation manifest only. Actual DATA_HIP45688 embedded manifest and arrays remain unopened and production compatibility is unestablished. A future mismatch must stop; E01 fixtures cannot establish actual input admission.",
+      "status": "PASS_STATIC_WITH_EXPLICIT_LIMIT",
+      "subject": "Unopened DATA compatibility"
+    }
+  ],
+  "scope": "Independent text, AST and metadata review of the BO E01-E05 engineering sources, strict adapter, methods, capture, runner, plan builder, fixture specification and preservation statements. Runtime success is unverified.",
+  "status": "PASS_STATIC_REVIEW_FOR_ENGINEERING_PREREGISTRATION_ONLY"
+}

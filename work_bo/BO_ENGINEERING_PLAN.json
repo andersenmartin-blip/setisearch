@@ -1,0 +1,248 @@
+{
+  "capture": {
+    "failure_reserve_bytes": 1048576,
+    "max_stdout_bytes": 4194304,
+    "poll_seconds": 0.02
+  },
+  "case_contract": "The exact pinned gate sources define deterministic fixtures, fixed probes and expected acceptance/rejection cases. No input-dependent case choice or threshold change is allowed.",
+  "cost_DKK": 0,
+  "deterministic_fixture_operations_authorized": [
+    "NPY byte controls",
+    "full-native normalization",
+    "explicit sums",
+    "ESS calibration arithmetic",
+    "coordinate/support identities",
+    "fault capture"
+  ],
+  "deterministic_group": {
+    "cpu_seconds": 180,
+    "gate_ids": [
+      "E02",
+      "E03",
+      "E04"
+    ],
+    "rss_bytes": 2147483648,
+    "stored_bytes": 1073741824,
+    "wall_seconds": 300
+  },
+  "engineering_only": true,
+  "execution_relative_dir": "execution/BO_ENGINEERING_V1",
+  "gate_outputs": {
+    "E01": "/workspace/scratch/61f679f95cac/setisearch/work_bo/execution/BO_ENGINEERING_V1/E01/payload",
+    "E02": "/workspace/scratch/61f679f95cac/setisearch/work_bo/execution/BO_ENGINEERING_V1/E02/payload",
+    "E03": "/workspace/scratch/61f679f95cac/setisearch/work_bo/execution/BO_ENGINEERING_V1/E03/payload",
+    "E04": "/workspace/scratch/61f679f95cac/setisearch/work_bo/execution/BO_ENGINEERING_V1/E04/payload",
+    "E05": "/workspace/scratch/61f679f95cac/setisearch/work_bo/execution/BO_ENGINEERING_V1/E05/payload"
+  },
+  "gates": [
+    {
+      "caps": {
+        "cpu_seconds": 120,
+        "rss_bytes": 1073741824,
+        "stored_bytes": 536870912,
+        "wall_seconds": 240
+      },
+      "id": "E01",
+      "script": "gates/e01_bytes.py"
+    },
+    {
+      "caps": {
+        "cpu_seconds": 180,
+        "rss_bytes": 2147483648,
+        "stored_bytes": 1073741824,
+        "wall_seconds": 300
+      },
+      "id": "E02",
+      "script": "gates/e02_normalization.py"
+    },
+    {
+      "caps": {
+        "cpu_seconds": 180,
+        "rss_bytes": 2147483648,
+        "stored_bytes": 1073741824,
+        "wall_seconds": 300
+      },
+      "id": "E03",
+      "script": "gates/e03_arithmetic.py"
+    },
+    {
+      "caps": {
+        "cpu_seconds": 180,
+        "rss_bytes": 2147483648,
+        "stored_bytes": 1073741824,
+        "wall_seconds": 300
+      },
+      "id": "E04",
+      "script": "gates/e04_calibration_time.py"
+    },
+    {
+      "caps": {
+        "cpu_seconds": 60,
+        "rss_bytes": 536870912,
+        "stored_bytes": 67108864,
+        "wall_seconds": 120
+      },
+      "id": "E05",
+      "script": "gates/e05_capture.py"
+    }
+  ],
+  "identity": "SETI_HIP45688_SAVED_NPY_ENGINEERING_BO_20261030_V1",
+  "input_exclusions": [
+    "All astronomical powers, including HIP45688 raw DATA ZIP/NPYs",
+    "Protected HIP98505 2016/native156/native159 and 2019 context",
+    "Original M launchers/run identities",
+    "B06/restoration failed identities"
+  ],
+  "interpretation": "PASS establishes only the explicit deterministic engineering checks. It is not signal recovery, calibrated FAP, sensitivity, statistical qualification or a new SETI result.",
+  "new_archive_requests": 0,
+  "new_coverage_credit": 0,
+  "new_observations": 0,
+  "next_gates_not_authorized_by_this_plan": [
+    "24 limited paired synthetic six-scan cases",
+    "2 full 839-rate paired cases",
+    "Actual HIP45688 input activation",
+    "Astronomical search"
+  ],
+  "numerical_bound": {
+    "current": "abs(error) <= max(1e-8, 64*float64_eps*sum_abs_terms)",
+    "legacy_failure_retention": "Each original failure remains FAIL. A faithful legacy comparator does not requalify old M.",
+    "legacy_original_absolute_guard": 5e-05
+  },
+  "ordering": "E01 then E02 then E03 then E04 then E05; exact child exit and output audited before next gate. Any failure stops this identity; no automatic retry, overwrite or cap increase.",
+  "preserved_history": {
+    "BA_technical_MHz_visits": 268.50128173828125,
+    "BA_unique_archive_IDs": 486,
+    "HIP45688_M_full_QA": false,
+    "HIP45688_M_raw_sum_failures": 24,
+    "all_M_raw_sum_failures": 142
+  },
+  "real_telescope_powers_authorized": false,
+  "resource_accounting": {
+    "CPU_scope": "capture parent CPU plus child-tree CPU; exact wait4 user/system on closure and validated live process-tree sampling",
+    "cleanup": "Only validated owned process groups in the caller PID namespace may receive signals.",
+    "failure_reserve": "One fixed 1 MiB run footer is reserved before children; gate/group stored-byte limits count their own outputs. No automatic cap increase.",
+    "process_identity": "Resolve host procfs identity through own NSpid/PPid/session bindings; host PIDs are read-only sampling identifiers, never signal targets."
+  },
+  "rng_authorized": false,
+  "runtime": {
+    "numpy_version": "2.3.5",
+    "python_executable_sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7",
+    "python_version": "3.12.14"
+  },
+  "schema": "SETI_BO_ENGINEERING_PLAN_V1",
+  "scientific_scores_authorized": false,
+  "source_pins": [
+    {
+      "bytes": 2884,
+      "path": "PREREG_BO.md",
+      "sha256": "964c4ea189c8e46abc10a863777b59beee960c01f3b2cdc6029144f3378dc0f2"
+    },
+    {
+      "bytes": 26031,
+      "path": "gates/e01_bytes.py",
+      "sha256": "34c5f178e80ec4a9a0b4df309b86b93c7ced62d54578148807c62d89d3e136d4"
+    },
+    {
+      "bytes": 14397,
+      "path": "gates/e02_normalization.py",
+      "sha256": "f0b562ac668050840d74541cc663b870540243c419d84e8b4eab13a7ca44a9e5"
+    },
+    {
+      "bytes": 18968,
+      "path": "gates/e03_arithmetic.py",
+      "sha256": "be987ffbe6e2eefd345cbf5f1269cc745ad25dbc66a50e62a87577403a05017a"
+    },
+    {
+      "bytes": 17661,
+      "path": "gates/e04_calibration_time.py",
+      "sha256": "9a38da01a352263a814cb50096d941166f69b2e7909d6f33f29d2905295e6f11"
+    },
+    {
+      "bytes": 7345,
+      "path": "gates/e05_capture.py",
+      "sha256": "771497b6bd896b74730506d985288080e26c2ea563866d81113fc1d1831a3f0c"
+    },
+    {
+      "bytes": 5860,
+      "path": "prepare_plan_bo.py",
+      "sha256": "3584dc007b41867c7c0bd7a7f13f254ac792e3dbddbae729ecf3d05b57bd72c9"
+    },
+    {
+      "bytes": 19948,
+      "path": "provenance/PRIOR_CONTROL_DRAFT.json",
+      "sha256": "7dfe888e9d7ed4d68afd1898062cd7bea40555b5d506e01918d5cc41ad9842ae"
+    },
+    {
+      "bytes": 33446,
+      "path": "provenance/PRIOR_SCOPE_REVIEW.json",
+      "sha256": "0a09f9957a75cb206d0fb91f5c870c108945ceaa0b8d7e8250de2813652941f5"
+    },
+    {
+      "bytes": 441,
+      "path": "provenance/RUNTIME_PROCESS_NAMESPACE_BO.json",
+      "sha256": "de8545e31cce160e3fceca8d203a5dd5ecf42ca196221f2907f4d66205418a8e"
+    },
+    {
+      "bytes": 1045,
+      "path": "provenance/ZIP_SCHEMA_EVIDENCE_BO.json",
+      "sha256": "23a5d29a03176eab96b6859bc4fd3c226fd8c372a2cd3418d1c0e7c27a58d0a9"
+    },
+    {
+      "bytes": 14194,
+      "path": "review/STATIC_REVIEW_BO.json",
+      "sha256": "3f440e7d51cd6ed2c8b244adabd27b4a48454751f09bfe4a87b0cdd2a84d29e8"
+    },
+    {
+      "bytes": 23281,
+      "path": "run_engineering_bo.py",
+      "sha256": "c9205cbe94d9803119ec25d8c1982aee24d953921ea7fa3ee0eb589669ab43dd"
+    },
+    {
+      "bytes": 6174,
+      "path": "specs/DETERMINISTIC_FIXTURES_BO.json",
+      "sha256": "fe27e49e6c9838e795fe13cddf272d9a5cb71a0addbc147a209f45cf11e09873"
+    },
+    {
+      "bytes": 19730,
+      "path": "src/capture.py",
+      "sha256": "51cadd2f2e19be492f17e9dd763fc977c3d0302c61e6892a9c0009983539d227"
+    },
+    {
+      "bytes": 7997,
+      "path": "src/methods.py",
+      "sha256": "9d7300dadf61872a32f04e9a6fe77fdeb8be8ccc87004f24e1f212cf14942f52"
+    },
+    {
+      "bytes": 24330,
+      "path": "src/npy_adapter.py",
+      "sha256": "9b1813ca6de91410e989ef9a31d3c85dfcefe77cddf83596ae963364026e9ace"
+    },
+    {
+      "bytes": 7936,
+      "path": "vendor/current/continuous_normalization_ac.py",
+      "sha256": "8953f595f1fa9e192c98fbb185b69800d046275552a9bcff6c41df40d558bf52"
+    },
+    {
+      "bytes": 3755,
+      "path": "vendor/current/kernel_v.py",
+      "sha256": "3367c20c93e4ba564b5abceb19e0939fb82fd364fbb400fe85e07f93f15b8999"
+    },
+    {
+      "bytes": 12127,
+      "path": "vendor/legacy/run_pilot.py",
+      "sha256": "4c7e2f4a973b92b518f1134cba3d0529a313d0092bf67460d00ac6b119fb2c23"
+    },
+    {
+      "bytes": 14415,
+      "path": "vendor/legacy/search_pilot.py",
+      "sha256": "56b0800b972f02cc3d2e3f5795571b1ce95684bf37803ec5d007ed3dccbdb101"
+    }
+  ],
+  "status": "FROZEN_CANDIDATE_REQUIRES_PUBLIC_EXACT_READBACK",
+  "thread_environment": {
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  }
+}
