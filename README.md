@@ -1,3 +1,11 @@
+## 30. oktober 2026: BM — længere kørsel startet på de resterende 221 native170-bånd
+
+**28 faste batches er startet efter de 32 afsluttede BL-bånd.** Scope er q33–q127 og q129–q254; q0/q128/q255 udelades. Planer og kode blev offentliggjort og genlæst før beregningen. Kun faktisk afsluttede og kontrollerede batches krediteres ved næste status; denne startmeddelelse indeholder ingen BM-resultater.
+
+Metode og tærskler er uændrede. Kørslen stopper ved fejl eller et bestået beskrivende ON/OFF-flag. Samme historiske 2017-besøg; ingen nye observationer, arkivanmodninger eller ændring af BA's dækningstal. [Fast plan og kode](https://github.com/andersenmartin-blip/setisearch/blob/82277dbb08d2d93b2bbd8acdad304cdb7de0fb49/work_bm/PREREG_BM.md).
+
+---
+
 ## 30. oktober 2026: BL — 32 bånd i native170 gennemført
 
 **Alle fire batches med q1–q32 er færdigsøgt og resultatkontrolleret med faktisk exit 0.** Det omfatter 192 scan/bånd-søgninger over 366,2109375 kHz og 1.732.018.176 korrelerede sporkombinationer. Ingen ON- eller OFF-katalogrækker nåede den faste lokale ESS-tærskel 10; ingen ny SETI-kandidat fra denne kørsel.
