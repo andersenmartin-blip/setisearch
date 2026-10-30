@@ -1,8 +1,10 @@
-## 30. oktober 2026: BN — 28 af 32 batches afsluttet
+## 30. oktober 2026: BN afsluttet — alle 253 valgte native172-bånd gennemgået
 
-**223 af 253 valgte sikre carrierbånd i native172 er færdigsøgt og resultatkontrolleret med faktisk exit 0.** Den afsluttede BN-del omfatter 12.070.001.664 korrelerede sporkombinationer; 52.268 ON-katalogrækker og 52.459 OFF-katalogrækker ved lokal ESS ≥10. 0 beskrivende ON/OFF-flag passerer.
+**Alle 32 faste batches er færdigsøgt og resultatkontrolleret med faktisk exit 0.** BN gennemgik 253 valgte sikre carrierbånd og 13.693.768.704 korrelerede sporkombinationer på 38,77 minutter. Sammen med de tidligere native170- og native171-familier er alle tre valgte blokke fra samme 2017-besøg nu gennemgået med denne lokale ESS-metode, i alt 759 carrierbånd.
 
-De resterende faste batches kører videre under uændrede stopregler. Uafsluttede batches tælles ikke. BN er en særskilt local-q-familie med 16 rækker og 839 drifttrin; historisk B06/q81 og restoration-QA forbliver fejlede og uden genkørsel eller omklassificering. Samme tidligere eksponerede 2017-besøg; ingen nye observationer, arkivanmodninger eller BA-dækningskredit. ESS er ikke kalibreret sigma/SNR/FAP. [Faktisk kontrolpunkt og proceskvitteringer](https://github.com/andersenmartin-blip/setisearch/blob/811cc81338a57528178191921d6e00f28e5a0467/work_bn/checkpoints/AFTER_28_BATCHES_BN.json).
+Der var 52.268 korrelerede ON-sporforslag i q127. Kun 32 nåede tærsklen i alle tre ON-scans; alle 32 havde også OFF-udslag og blev fravalgt. Ingen beskrivende ON/OFF-flag passerer. De afgrænsede kontroller består med 54.648 udvalgte uafhængige skalarsummer og 18.216 kalibreringsgenberegninger med delt kernel. Slutkontrollen genhashte 7.489 evidensfiler og sammenholdt 3.072 rækkehashes uden uoverensstemmelser. ESS er ikke kalibreret sigma/SNR/FAP eller astronomisk følsomhed.
+
+Resultatpakken på 722.017.229 bytes er gemt i fire kontrollerede dele. Dette er genanalyse af tidligere eksponerede data med 0 nye observationer og 0 nye forespørgsler til teleskoparkivet. BA's oprindelige dækningstal samt historiske A/B-, B06- og restoration-QA-fejl bevares; BN er ingen genkvalifikation af de gamle identiteter. **Næste konkrete forberedelse er en streng NPY-adapter og særskilte prospektive parrede kontroller for HIP45688. Kontroloplægget er endnu ikke frosset eller aktiveret. BN er afsluttet uden fortsættende baggrundssøgning.** [Resultat, evidens og næste trin](https://github.com/andersenmartin-blip/setisearch/blob/bece6ef5f727fb23ca890b1b1adc67f9a8fe8040/RADIO_PROGRESS_BN_2026-10-30.md) · [Samlet resultatindeks](https://chatgpt.com/library?file_id=libfile_b47bda322a488191b09a6a0f1559c484&account_id=personal).
 
 ---
 
