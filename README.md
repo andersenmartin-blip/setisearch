@@ -1,8 +1,8 @@
-## 30. oktober 2026: BM — længere kørsel startet på de resterende 221 native170-bånd
+## 30. oktober 2026: BM — 4 af 28 batches afsluttet
 
-**28 faste batches er startet efter de 32 afsluttede BL-bånd.** Scope er q33–q127 og q129–q254; q0/q128/q255 udelades. Planer og kode blev offentliggjort og genlæst før beregningen. Kun faktisk afsluttede og kontrollerede batches krediteres ved næste status; denne startmeddelelse indeholder ingen BM-resultater.
+**32 ekstra bånd er færdigsøgt og resultatkontrolleret med faktisk exit 0.** Samlet er nu 64 af 253 valgte sikre carrierbånd i native170 gennemgået. Den afsluttede BM-del omfatter 1.732.018.176 korrelerede sporkombinationer; ingen ON- eller OFF-katalogrækker når lokal ESS 10, og ingen beskrivende ON/OFF-flag passerer.
 
-Metode og tærskler er uændrede. Kørslen stopper ved fejl eller et bestået beskrivende ON/OFF-flag. Samme historiske 2017-besøg; ingen nye observationer, arkivanmodninger eller ændring af BA's dækningstal. [Fast plan og kode](https://github.com/andersenmartin-blip/setisearch/blob/82277dbb08d2d93b2bbd8acdad304cdb7de0fb49/work_bm/PREREG_BM.md).
+De resterende faste batches kører videre under uændrede stopregler. Uafsluttede batches tælles ikke. Samme historiske 2017-besøg; ingen nye observationer, arkivanmodninger eller ændring af BA's dækningstal. ESS er ikke kalibreret sigma/SNR/FAP. [Faktisk kontrolpunkt og proceskvitteringer](https://github.com/andersenmartin-blip/setisearch/blob/2dc9d75c905051e466e36542c20aea2ec327c053/work_bm/checkpoints/AFTER_04_BATCHES_BM.json).
 
 ---
 
