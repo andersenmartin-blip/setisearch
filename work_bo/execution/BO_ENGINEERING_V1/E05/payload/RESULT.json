@@ -1,0 +1,138 @@
+{
+  "case_contract": {
+    "engineering_only": true,
+    "fault_cases": [
+      "nonzero",
+      "timeout",
+      "truncated_stdout",
+      "truncated_result",
+      "missing_eof",
+      "pin_change",
+      "existing_output"
+    ],
+    "fixture_cpu_seconds": 2,
+    "fixture_rss_bytes": 67108864,
+    "fixture_stdout_limit_bytes": 65536,
+    "fixture_stored_bytes": 4194304,
+    "gate": "E05",
+    "missing_eof_fixture_wall_seconds": 0.4,
+    "no_automatic_retry_or_overwrite": true,
+    "ordinary_fixture_wall_seconds": 2,
+    "positive_cases": [
+      "valid"
+    ],
+    "real_telescope_powers_authorized": false,
+    "rng_authorized": false,
+    "scientific_scores_authorized": false,
+    "timeout_fixture_wall_seconds": 0.35
+  },
+  "cases": [
+    {
+      "actual_exit_code": 0,
+      "case": "valid",
+      "expected_acceptance": true,
+      "natural_stdout_eof": true,
+      "observed_capture_status": "PASS",
+      "reasons": [],
+      "receipt_path": "/workspace/scratch/61f679f95cac/setisearch/work_bo/execution/BO_ENGINEERING_V1/E05/payload/cases/valid/capture/ACTUAL_RECEIPT.json",
+      "receipt_sha256": "f415a3813776a3d2fa152e80443a03f80bf189f7a5060665f8cb1b34ace4d179"
+    },
+    {
+      "actual_exit_code": 7,
+      "case": "nonzero",
+      "expected_acceptance": false,
+      "natural_stdout_eof": true,
+      "observed_capture_status": "FAIL",
+      "reasons": [
+        "ACTUAL_CHILD_EXIT_NOT_ZERO"
+      ],
+      "receipt_path": "/workspace/scratch/61f679f95cac/setisearch/work_bo/execution/BO_ENGINEERING_V1/E05/payload/cases/nonzero/capture/ACTUAL_RECEIPT.json",
+      "receipt_sha256": "a5301faca3bfa2130811a1038928a1d8d76b85de7aab167798b51e5534ee4820"
+    },
+    {
+      "actual_exit_code": -9,
+      "case": "timeout",
+      "expected_acceptance": false,
+      "natural_stdout_eof": false,
+      "observed_capture_status": "FAIL",
+      "reasons": [
+        "WALL_DEADLINE_BEFORE_CHILD_AND_STDOUT_CLOSED",
+        "ACTUAL_CHILD_EXIT_NOT_ZERO",
+        "NATURAL_STDOUT_EOF_NOT_OBSERVED",
+        "TERMINAL_OR_RESULT_VALIDATION_FAILED: Final stdout terminal newline missing",
+        "ACTUAL_GATE_OR_GROUP_WALL_CAP_EXCEEDED"
+      ],
+      "receipt_path": "/workspace/scratch/61f679f95cac/setisearch/work_bo/execution/BO_ENGINEERING_V1/E05/payload/cases/timeout/capture/ACTUAL_RECEIPT.json",
+      "receipt_sha256": "f43930182f6ca836500c6b47f39161d21ebd0944f4e4e0e487bd1f81e4ab7e32"
+    },
+    {
+      "actual_exit_code": 0,
+      "case": "truncated_stdout",
+      "expected_acceptance": false,
+      "natural_stdout_eof": true,
+      "observed_capture_status": "FAIL",
+      "reasons": [
+        "TERMINAL_OR_RESULT_VALIDATION_FAILED: Final stdout terminal newline missing"
+      ],
+      "receipt_path": "/workspace/scratch/61f679f95cac/setisearch/work_bo/execution/BO_ENGINEERING_V1/E05/payload/cases/truncated_stdout/capture/ACTUAL_RECEIPT.json",
+      "receipt_sha256": "d58a8a585949480396a06a48bc8dd6570ddf7126ab5f670512271cb8523b3a11"
+    },
+    {
+      "actual_exit_code": 0,
+      "case": "truncated_result",
+      "expected_acceptance": false,
+      "natural_stdout_eof": true,
+      "observed_capture_status": "FAIL",
+      "reasons": [
+        "TERMINAL_OR_RESULT_VALIDATION_FAILED: Expecting value: line 1 column 11 (char 10)"
+      ],
+      "receipt_path": "/workspace/scratch/61f679f95cac/setisearch/work_bo/execution/BO_ENGINEERING_V1/E05/payload/cases/truncated_result/capture/ACTUAL_RECEIPT.json",
+      "receipt_sha256": "7654e00786c931ea03c8c150e8b0161c8016cec8512f625823645e1c458b24f5"
+    },
+    {
+      "actual_exit_code": 0,
+      "case": "missing_eof",
+      "expected_acceptance": false,
+      "natural_stdout_eof": false,
+      "observed_capture_status": "FAIL",
+      "reasons": [
+        "WALL_DEADLINE_BEFORE_CHILD_AND_STDOUT_CLOSED",
+        "NATURAL_STDOUT_EOF_NOT_OBSERVED",
+        "ACTUAL_GATE_OR_GROUP_WALL_CAP_EXCEEDED"
+      ],
+      "receipt_path": "/workspace/scratch/61f679f95cac/setisearch/work_bo/execution/BO_ENGINEERING_V1/E05/payload/cases/missing_eof/capture/ACTUAL_RECEIPT.json",
+      "receipt_sha256": "16ef9f43ebb1392eb38dffa57148ad7dd6735baf4880b4e2b8c5965c94ea8612"
+    },
+    {
+      "actual_exit_code": 0,
+      "case": "pin_change",
+      "expected_acceptance": false,
+      "natural_stdout_eof": true,
+      "observed_capture_status": "FAIL",
+      "reasons": [
+        "POST_CHILD_PIN_FAILURE: Changed pinned file: /workspace/scratch/61f679f95cac/setisearch/work_bo/execution/BO_ENGINEERING_V1/E05/payload/pins/pin_change.txt"
+      ],
+      "receipt_path": "/workspace/scratch/61f679f95cac/setisearch/work_bo/execution/BO_ENGINEERING_V1/E05/payload/cases/pin_change/capture/ACTUAL_RECEIPT.json",
+      "receipt_sha256": "d1285bdfdaea54cf50e70870050cc42c6032696a3ced05751cbf58112cafdd0b"
+    },
+    {
+      "case": "existing_output",
+      "child_started": false,
+      "expected_acceptance": false,
+      "preexisting_artifact_sha256": {
+        "/workspace/scratch/61f679f95cac/setisearch/work_bo/execution/BO_ENGINEERING_V1/E05/payload/cases/existing_output/PRESERVED.bin": "07c306ade68a2c47428406dfd1f77af6fad00ed1a4afb79c959ff11e2ac2ad39"
+      },
+      "preexisting_bytes_unchanged": true,
+      "reservation_refused": true
+    }
+  ],
+  "engineering_only": true,
+  "expected_fault_rejections": 7,
+  "gate": "E05",
+  "positive_captures": 1,
+  "qualification": "Deterministic capture/output/resource-protocol engineering only.",
+  "raw_telescope_reads": 0,
+  "rng_draws": 0,
+  "scientific_scores_computed": 0,
+  "status": "PASS"
+}

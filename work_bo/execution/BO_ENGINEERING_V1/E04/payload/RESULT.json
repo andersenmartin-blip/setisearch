@@ -1,0 +1,383 @@
+{
+  "RNG_draws": 0,
+  "astronomical_powers_opened": false,
+  "complete_global_oracle_checks": 2,
+  "complete_local_oracle_checks": 800,
+  "config_sha256": "cc04271a255bcf97c47450ccc267aa3d8df84e57c853315b8828227c77b2bfb5",
+  "engineering_only": true,
+  "expected_outcome": "Full stated global/local domains, independent complete-vector calibration and separate epoch identities satisfy prospectively frozen bounds; no required equality between distinct methods.",
+  "explicit_support_rejections": [
+    {
+      "case": "NEGATIVE_CENTER",
+      "center": -1,
+      "expected": "ValueError: Requested track outside stored support",
+      "mode": "selected",
+      "observed": "Requested track outside stored support",
+      "offset": 0,
+      "status": "PASS_EXPECTED_SUPPORT_REJECTION",
+      "width": 1
+    },
+    {
+      "case": "NEGATIVE_CENTER",
+      "center": -1,
+      "expected": "ValueError: Requested track outside stored support",
+      "mode": "grid",
+      "observed": "Requested track outside stored support",
+      "offset": 0,
+      "status": "PASS_EXPECTED_SUPPORT_REJECTION",
+      "width": 1
+    },
+    {
+      "case": "HIGH_CENTER",
+      "center": 128,
+      "expected": "ValueError: Requested track outside stored support",
+      "mode": "selected",
+      "observed": "Requested track outside stored support",
+      "offset": 0,
+      "status": "PASS_EXPECTED_SUPPORT_REJECTION",
+      "width": 1
+    },
+    {
+      "case": "HIGH_CENTER",
+      "center": 128,
+      "expected": "ValueError: Requested track outside stored support",
+      "mode": "grid",
+      "observed": "Requested track outside stored support",
+      "offset": 0,
+      "status": "PASS_EXPECTED_SUPPORT_REJECTION",
+      "width": 1
+    },
+    {
+      "case": "NEGATIVE_OFFSET",
+      "center": 64,
+      "expected": "ValueError: Requested track outside stored support",
+      "mode": "selected",
+      "observed": "Requested track outside stored support",
+      "offset": -65,
+      "status": "PASS_EXPECTED_SUPPORT_REJECTION",
+      "width": 1
+    },
+    {
+      "case": "NEGATIVE_OFFSET",
+      "center": 64,
+      "expected": "ValueError: Requested track outside stored support",
+      "mode": "grid",
+      "observed": "Requested track outside stored support",
+      "offset": -65,
+      "status": "PASS_EXPECTED_SUPPORT_REJECTION",
+      "width": 1
+    },
+    {
+      "case": "HIGH_OFFSET",
+      "center": 64,
+      "expected": "ValueError: Requested track outside stored support",
+      "mode": "selected",
+      "observed": "Requested track outside stored support",
+      "offset": 64,
+      "status": "PASS_EXPECTED_SUPPORT_REJECTION",
+      "width": 1
+    },
+    {
+      "case": "HIGH_OFFSET",
+      "center": 64,
+      "expected": "ValueError: Requested track outside stored support",
+      "mode": "grid",
+      "observed": "Requested track outside stored support",
+      "offset": 64,
+      "status": "PASS_EXPECTED_SUPPORT_REJECTION",
+      "width": 1
+    },
+    {
+      "case": "LEFT_SMOOTHING_SUPPORT",
+      "center": 15,
+      "expected": "ValueError: Requested track outside stored support",
+      "mode": "selected",
+      "observed": "Requested track outside stored support",
+      "offset": 0,
+      "status": "PASS_EXPECTED_SUPPORT_REJECTION",
+      "width": 33
+    },
+    {
+      "case": "LEFT_SMOOTHING_SUPPORT",
+      "center": 15,
+      "expected": "ValueError: Requested track outside stored support",
+      "mode": "grid",
+      "observed": "Requested track outside stored support",
+      "offset": 0,
+      "status": "PASS_EXPECTED_SUPPORT_REJECTION",
+      "width": 33
+    },
+    {
+      "case": "RIGHT_SMOOTHING_SUPPORT",
+      "center": 112,
+      "expected": "ValueError: Requested track outside stored support",
+      "mode": "selected",
+      "observed": "Requested track outside stored support",
+      "offset": 0,
+      "status": "PASS_EXPECTED_SUPPORT_REJECTION",
+      "width": 33
+    },
+    {
+      "case": "RIGHT_SMOOTHING_SUPPORT",
+      "center": 112,
+      "expected": "ValueError: Requested track outside stored support",
+      "mode": "grid",
+      "observed": "Requested track outside stored support",
+      "offset": 0,
+      "status": "PASS_EXPECTED_SUPPORT_REJECTION",
+      "width": 33
+    }
+  ],
+  "factorial_records": 1600,
+  "full_global_reference_vectors": [
+    {
+      "centers": 1040384,
+      "complete_domain": [
+        4096,
+        1044480
+      ],
+      "dtype": "float32",
+      "path": "/workspace/scratch/61f679f95cac/setisearch/work_bo/execution/BO_ENGINEERING_V1/E04/payload/full_global_reference_float32.npy",
+      "sha256": "b6140883c884a69efb87f591d1b2275d4e8c4ea9c1189e467c21d095ea3aa695",
+      "stride": 1
+    },
+    {
+      "centers": 1040384,
+      "complete_domain": [
+        4096,
+        1044480
+      ],
+      "dtype": "float64",
+      "path": "/workspace/scratch/61f679f95cac/setisearch/work_bo/execution/BO_ENGINEERING_V1/E04/payload/full_global_reference_float64.npy",
+      "sha256": "633221b474bf93995a14c385f64ea17404d888b8a081d37d1c07ca30254005cf",
+      "stride": 1
+    }
+  ],
+  "gate": "E04",
+  "historical_M_requalified": false,
+  "original_M_full_QA_status_changed": false,
+  "schema": "SETI_BO_E04_CALIBRATION_TIME_RESULT_V1",
+  "source_check": {
+    "historical_module_imported": false,
+    "legacy_AST_equal_except_prefix": [
+      "normalize",
+      "centered_boxcar",
+      "drift_grid",
+      "track_sum",
+      "ess_calibration"
+    ],
+    "status": "PASS_EXACT_VENDOR_AND_LEGACY_FUNCTION_AST",
+    "vendor_sha256": {
+      "vendor/current/continuous_normalization_ac.py": "8953f595f1fa9e192c98fbb185b69800d046275552a9bcff6c41df40d558bf52",
+      "vendor/current/kernel_v.py": "3367c20c93e4ba564b5abceb19e0939fb82fd364fbb400fe85e07f93f15b8999",
+      "vendor/legacy/run_pilot.py": "4c7e2f4a973b92b518f1134cba3d0529a313d0092bf67460d00ac6b119fb2c23",
+      "vendor/legacy/search_pilot.py": "56b0800b972f02cc3d2e3f5795571b1ce95684bf37803ec5d007ed3dccbdb101"
+    }
+  },
+  "status": "PASS",
+  "support_check_scope": "Known invalid selected/grid centers, offsets and smoothing support only; no synthetic six-scan association qualification.",
+  "support_rejection_count": 12,
+  "time_and_support": {
+    "actual_offset_pairs_compared": 13424,
+    "fch1_slice_mhz": 1422.36328125,
+    "fixed_halo_channels": 4096,
+    "full_rate_bank_count": 839,
+    "historical_M_internal_offsets": "row7.5; unchanged",
+    "historical_M_nominal_metadata": "header+8dt; unchanged",
+    "historical_telescope_powers_opened": false,
+    "interscan_interval_checks": [
+      {
+        "absolute_error_seconds": 0.0,
+        "bound_seconds": 2e-06,
+        "legacy_interval_seconds": 342.99999971408397,
+        "new_interval_seconds": 342.99999971408397,
+        "pass_": true,
+        "scan": 1
+      },
+      {
+        "absolute_error_seconds": 0.0,
+        "bound_seconds": 2e-06,
+        "legacy_interval_seconds": 684.9999998230487,
+        "new_interval_seconds": 684.9999998230487,
+        "pass_": true,
+        "scan": 2
+      },
+      {
+        "absolute_error_seconds": 0.0,
+        "bound_seconds": 2e-06,
+        "legacy_interval_seconds": 1031.9999998435378,
+        "new_interval_seconds": 1031.9999998435378,
+        "pass_": true,
+        "scan": 3
+      },
+      {
+        "absolute_error_seconds": 0.0,
+        "bound_seconds": 2e-06,
+        "legacy_interval_seconds": 1377.999999630265,
+        "new_interval_seconds": 1377.999999630265,
+        "pass_": true,
+        "scan": 4
+      },
+      {
+        "absolute_error_seconds": 0.0,
+        "bound_seconds": 2e-06,
+        "legacy_interval_seconds": 1714.9999998277053,
+        "new_interval_seconds": 1714.9999998277053,
+        "pass_": true,
+        "scan": 5
+      }
+    ],
+    "maximum_shift_plus_radius": 2672,
+    "metadata_interval_tolerance_seconds": 2e-06,
+    "native_origin": 180355072,
+    "nearest_even_ties_checked": true,
+    "new_nominal_metadata": "header+7.5dt in a distinct BO hypothesis",
+    "nominal_epoch_records": [
+      {
+        "actual_M_internal_index_center": 7.5,
+        "current_internal_index_center": 7.5,
+        "exact_half_dt_seconds": 9.126805504,
+        "header_tstart_mjd": 57642.735972222225,
+        "historical_M_nominal_tref_mjd": 57642.73766237139,
+        "historical_fields_modified": false,
+        "new_samplecenter_tref_mjd": 57642.73755673707,
+        "observed_nominal_delta_seconds": 9.126805630512536,
+        "pass_": true,
+        "scan": 0
+      },
+      {
+        "actual_M_internal_index_center": 7.5,
+        "current_internal_index_center": 7.5,
+        "exact_half_dt_seconds": 9.126805504,
+        "header_tstart_mjd": 57642.73994212963,
+        "historical_M_nominal_tref_mjd": 57642.7416322788,
+        "historical_fields_modified": false,
+        "new_samplecenter_tref_mjd": 57642.74152664447,
+        "observed_nominal_delta_seconds": 9.126805630512536,
+        "pass_": true,
+        "scan": 1
+      },
+      {
+        "actual_M_internal_index_center": 7.5,
+        "current_internal_index_center": 7.5,
+        "exact_half_dt_seconds": 9.126805504,
+        "header_tstart_mjd": 57642.74390046296,
+        "historical_M_nominal_tref_mjd": 57642.74559061213,
+        "historical_fields_modified": false,
+        "new_samplecenter_tref_mjd": 57642.74548497781,
+        "observed_nominal_delta_seconds": 9.126805630512536,
+        "pass_": true,
+        "scan": 2
+      },
+      {
+        "actual_M_internal_index_center": 7.5,
+        "current_internal_index_center": 7.5,
+        "exact_half_dt_seconds": 9.126805504,
+        "header_tstart_mjd": 57642.74791666667,
+        "historical_M_nominal_tref_mjd": 57642.749606815836,
+        "historical_fields_modified": false,
+        "new_samplecenter_tref_mjd": 57642.74950118151,
+        "observed_nominal_delta_seconds": 9.126805630512536,
+        "pass_": true,
+        "scan": 3
+      },
+      {
+        "actual_M_internal_index_center": 7.5,
+        "current_internal_index_center": 7.5,
+        "exact_half_dt_seconds": 9.126805504,
+        "header_tstart_mjd": 57642.751921296294,
+        "historical_M_nominal_tref_mjd": 57642.75361144546,
+        "historical_fields_modified": false,
+        "new_samplecenter_tref_mjd": 57642.75350581114,
+        "observed_nominal_delta_seconds": 9.126805630512536,
+        "pass_": true,
+        "scan": 4
+      },
+      {
+        "actual_M_internal_index_center": 7.5,
+        "current_internal_index_center": 7.5,
+        "exact_half_dt_seconds": 9.126805504,
+        "header_tstart_mjd": 57642.75582175926,
+        "historical_M_nominal_tref_mjd": 57642.75751190843,
+        "historical_fields_modified": false,
+        "new_samplecenter_tref_mjd": 57642.757406274104,
+        "observed_nominal_delta_seconds": 9.126805630512536,
+        "pass_": true,
+        "scan": 5
+      }
+    ],
+    "sample_time_convention": "Header tstart is explicitly treated as row0 sample time for this engineering hypothesis; no integration-edge semantics claim.",
+    "separate_coordinate_hypotheses": [
+      {
+        "bound": 3.7571794089186476e-09,
+        "historical_M_reported_frequency_label_retained_mhz": 1421.6251373291016,
+        "hypothetical_channel_at_old_nominal_epoch": 264205.06644371885,
+        "hypothetical_frequency_at_old_nominal_epoch_mhz": 1421.6251008218796,
+        "identity": "BO_NEW_COORDINATE_HYPOTHESIS_RATE_0",
+        "maximum_channel_error": 5.820766091346741e-11,
+        "new_frequency_at_sample_center_mhz": 1421.6251373291016,
+        "old_identity_repaired_or_relabelled": false,
+        "pass_": true,
+        "rate_hz_s": -4.0,
+        "rate_index": 0,
+        "same_rounded_sample_indices": true
+      },
+      {
+        "bound": 3.755790092641798e-09,
+        "historical_M_reported_frequency_label_retained_mhz": 1421.6251373291016,
+        "hypothetical_channel_at_old_nominal_epoch": 264198.54881427437,
+        "hypothetical_frequency_at_old_nominal_epoch_mhz": 1421.6251190319258,
+        "identity": "BO_NEW_COORDINATE_HYPOTHESIS_RATE_209",
+        "maximum_channel_error": 5.820766091346741e-11,
+        "new_frequency_at_sample_center_mhz": 1421.6251373291016,
+        "old_identity_repaired_or_relabelled": false,
+        "pass_": true,
+        "rate_hz_s": -2.0047732696897373,
+        "rate_index": 209,
+        "same_rounded_sample_indices": true
+      },
+      {
+        "bound": 3.754394128918648e-09,
+        "historical_M_reported_frequency_label_retained_mhz": 1421.6251373291016,
+        "hypothetical_channel_at_old_nominal_epoch": 264192.0,
+        "hypothetical_frequency_at_old_nominal_epoch_mhz": 1421.6251373291016,
+        "identity": "BO_NEW_COORDINATE_HYPOTHESIS_RATE_419",
+        "maximum_channel_error": 0.0,
+        "new_frequency_at_sample_center_mhz": 1421.6251373291016,
+        "old_identity_repaired_or_relabelled": false,
+        "pass_": true,
+        "rate_hz_s": 0.0,
+        "rate_index": 419,
+        "same_rounded_sample_indices": true
+      },
+      {
+        "bound": 3.755790092641798e-09,
+        "historical_M_reported_frequency_label_retained_mhz": 1421.6251373291016,
+        "hypothetical_channel_at_old_nominal_epoch": 264185.45118572563,
+        "hypothetical_frequency_at_old_nominal_epoch_mhz": 1421.6251556262773,
+        "identity": "BO_NEW_COORDINATE_HYPOTHESIS_RATE_629",
+        "maximum_channel_error": 5.820766091346741e-11,
+        "new_frequency_at_sample_center_mhz": 1421.6251373291016,
+        "old_identity_repaired_or_relabelled": false,
+        "pass_": true,
+        "rate_hz_s": 2.0047732696897373,
+        "rate_index": 629,
+        "same_rounded_sample_indices": true
+      },
+      {
+        "bound": 3.7571794089186476e-09,
+        "historical_M_reported_frequency_label_retained_mhz": 1421.6251373291016,
+        "hypothetical_channel_at_old_nominal_epoch": 264178.93355628115,
+        "hypothetical_frequency_at_old_nominal_epoch_mhz": 1421.6251738363235,
+        "identity": "BO_NEW_COORDINATE_HYPOTHESIS_RATE_838",
+        "maximum_channel_error": 5.820766091346741e-11,
+        "new_frequency_at_sample_center_mhz": 1421.6251373291016,
+        "old_identity_repaired_or_relabelled": false,
+        "pass_": true,
+        "rate_hz_s": 4.0,
+        "rate_index": 838,
+        "same_rounded_sample_indices": true
+      }
+    ]
+  }
+}
