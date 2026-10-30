@@ -1,0 +1,27 @@
+{
+  "batch": 1,
+  "command": [
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=5s",
+    "60s",
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-B",
+    "/workspace/scratch/61f679f95cac/setisearch/work_bl/review/audit_real_results_bl.py",
+    "--plan",
+    "/workspace/scratch/61f679f95cac/setisearch/work_bl/plans/batch01.json",
+    "--out",
+    "/workspace/scratch/61f679f95cac/setisearch/work_bl/results/batch01/run",
+    "--actual",
+    "/workspace/scratch/61f679f95cac/setisearch/work_bl/execution/batch01/SEARCH_ACTUAL_EXIT_BL.json",
+    "--receipt",
+    "/workspace/scratch/61f679f95cac/setisearch/work_bl/review/batch01/REAL_RESULT_AUDIT_BL.json"
+  ],
+  "final_log_published_only_after_child_wait": true,
+  "maximum_stdout_buffer_bytes": 4194304,
+  "plan_sha256": "1f68c3c62fb407c749494ae6801c31ff2ec836caaf5a86cb6e4f9361dd3dcc91",
+  "prereg_github_commit": "3fc8990aa16a34b77326383de1e706b514ec0824",
+  "schema": "SETI_BL_ATOMIC_BUFFER_CAPTURE_START_V2",
+  "source_sha256": "f85ac41be7d363607ab1bda47dca4a4d4b0b3a6f5b61c4e2162055be0b176154",
+  "started_utc": "2026-10-30T17:47:56.614849+00:00"
+}

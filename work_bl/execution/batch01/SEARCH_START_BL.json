@@ -1,0 +1,24 @@
+{
+  "batch": 1,
+  "command": [
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=5s",
+    "620s",
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-B",
+    "/workspace/scratch/61f679f95cac/setisearch/work_bl/bounded_search_bl.py",
+    "--plan",
+    "/workspace/scratch/61f679f95cac/setisearch/work_bl/plans/batch01.json",
+    "--out",
+    "/workspace/scratch/61f679f95cac/setisearch/work_bl/results/batch01/run",
+    "--all-q"
+  ],
+  "final_log_published_only_after_child_wait": true,
+  "maximum_stdout_buffer_bytes": 4194304,
+  "plan_sha256": "1f68c3c62fb407c749494ae6801c31ff2ec836caaf5a86cb6e4f9361dd3dcc91",
+  "prereg_github_commit": "3fc8990aa16a34b77326383de1e706b514ec0824",
+  "schema": "SETI_BL_ATOMIC_BUFFER_CAPTURE_START_V2",
+  "source_sha256": "7553e782e336a30577415a486266dc48ce24f62312998e9030384c8ff4b91bab",
+  "started_utc": "2026-10-30T17:46:48.057609+00:00"
+}
