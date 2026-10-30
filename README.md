@@ -1,8 +1,8 @@
-## 30. oktober 2026: BK — 5 af 17 batches afsluttet
+## 30. oktober 2026: BK — 10 af 17 batches afsluttet
 
-**39 ekstra sikre bånd er færdigsøgt og resultatkontrolleret med exit 0.** Samlet er 159 af de 253 valgte sikre bånd i denne gemte native171-blok gennemgået. Den afsluttede BK-del omfatter 2.110.897.152 korrelerede sporkombinationer; ON-katalogerne har 52510 spor ved lokal ESS ≥10, OFF-katalogerne 52678, og 0 beskrivende ON/OFF-flag passerer.
+**79 ekstra sikre bånd er færdigsøgt og resultatkontrolleret med exit 0.** Samlet er 199 af de 253 valgte sikre bånd i denne gemte native171-blok gennemgået. Den afsluttede BK-del omfatter 4.275.919.872 korrelerede sporkombinationer; ON-katalogerne har 52510 spor ved lokal ESS ≥10, OFF-katalogerne 52678, og 0 beskrivende ON/OFF-flag passerer.
 
-De resterende på forhånd fastlagte batches er ikke medregnet i dette kontrolpunkt. DC-bånd 128 og kantbånd 0/255 er udeladt som carrierbånd. Genanalysen giver ingen nye observationer eller ændring i BA's oprindelige dækningstal. [Kontrolpunkt og faktiske procesreferencer](https://github.com/andersenmartin-blip/setisearch/blob/7886c7c1653103efbd6a89a49952131170900611/work_bk/checkpoints/AFTER_05_BATCHES_BK.json).
+De resterende på forhånd fastlagte batches er ikke medregnet i dette kontrolpunkt. DC-bånd 128 og kantbånd 0/255 er udeladt som carrierbånd. Genanalysen giver ingen nye observationer eller ændring i BA's oprindelige dækningstal. [Kontrolpunkt og faktiske procesreferencer](https://github.com/andersenmartin-blip/setisearch/blob/36ac13c26f80570403216bef60c70cd1e8f6123c/work_bk/checkpoints/AFTER_10_BATCHES_BK.json).
 
 ---
 
