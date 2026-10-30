@@ -1,8 +1,8 @@
-## 30. oktober 2026: BN — 12 af 32 batches afsluttet
+## 30. oktober 2026: BN — 16 af 32 batches afsluttet
 
-**96 af 253 valgte sikre carrierbånd i native172 er færdigsøgt og resultatkontrolleret med faktisk exit 0.** Den afsluttede BN-del omfatter 5.196.054.528 korrelerede sporkombinationer; 0 ON-katalogrækker og 0 OFF-katalogrækker ved lokal ESS ≥10. 0 beskrivende ON/OFF-flag passerer.
+**127 af 253 valgte sikre carrierbånd i native172 er færdigsøgt og resultatkontrolleret med faktisk exit 0.** Den afsluttede BN-del omfatter 6.873.947.136 korrelerede sporkombinationer; 52.268 ON-katalogrækker og 52.459 OFF-katalogrækker ved lokal ESS ≥10. 0 beskrivende ON/OFF-flag passerer.
 
-De resterende faste batches kører videre under uændrede stopregler. Uafsluttede batches tælles ikke. BN er en særskilt local-q-familie med 16 rækker og 839 drifttrin; historisk B06/q81 og restoration-QA forbliver fejlede og uden genkørsel eller omklassificering. Samme tidligere eksponerede 2017-besøg; ingen nye observationer, arkivanmodninger eller BA-dækningskredit. ESS er ikke kalibreret sigma/SNR/FAP. [Faktisk kontrolpunkt og proceskvitteringer](https://github.com/andersenmartin-blip/setisearch/blob/cb7b744f6f1c233371a3e13c8bbeb3bb771a91b4/work_bn/checkpoints/AFTER_12_BATCHES_BN.json).
+De resterende faste batches kører videre under uændrede stopregler. Uafsluttede batches tælles ikke. BN er en særskilt local-q-familie med 16 rækker og 839 drifttrin; historisk B06/q81 og restoration-QA forbliver fejlede og uden genkørsel eller omklassificering. Samme tidligere eksponerede 2017-besøg; ingen nye observationer, arkivanmodninger eller BA-dækningskredit. ESS er ikke kalibreret sigma/SNR/FAP. [Faktisk kontrolpunkt og proceskvitteringer](https://github.com/andersenmartin-blip/setisearch/blob/4910368e66bb49347d821033331faf9c1dd3befe/work_bn/checkpoints/AFTER_16_BATCHES_BN.json).
 
 ---
 
