@@ -1,8 +1,8 @@
-## 30. oktober 2026: BJ — længere kørsel, 8 af 12 batches afsluttet
+## 30. oktober 2026: BJ — 9 batches godkendt; separat genkørsel af batch 10 startet
 
-**Bånd 25–88 er færdigsøgt og resultatkontrolleret:** 64 ekstra bånd og 3.464.036.352 korrelerede sporkombinationer. Ingen ON-spor nåede den lokale ESS-tærskel 10, og ingen ON/OFF-flag passerede. De sidste fire fastlagte batches er endnu ikke medregnet i dette kontrolpunkt.
+**Bånd 25–96 er søgt og resultatkontrolleret:** 72 ekstra bånd, så 96 bånd inklusive BG–BI nu er godkendt. Ingen ON-spor nåede tærsklen i de ni afsluttede BJ-batches.
 
-Sammen med BG–BI er **88 bånd** nu afsluttet i genanalysen af samme gemte 2017-besøg. Ingen nye observationer eller ændring i BA's oprindelige dækningstal. [Kontrolpunkt med faktiske proces- og auditkvitteringer](https://github.com/andersenmartin-blip/setisearch/blob/6f8b8c3d921901e9d52751d14b06a52da9fe9268/work_bj/checkpoints/AFTER_08_BATCHES_BJ.json).
+Den første søgning i batch 10 sluttede med exit 0; efterfølgende kontrol stoppede med exit 1, fordi søgeloggen var blevet afkortet fra 20.161 til 19.347 bytes. Resultatfilerne matcher deres kontrolsummer. Fejlen og de oprindelige filer er bevaret. En særskilt, på forhånd fastlagt genkørsel af batch 10 er startet med uændret numerisk metode og loggemning efter afsluttet proces; derefter følger batch 11–12, hvis kontrollen består. Batch 10 tælles først efter godkendelse og kun én gang. [Ny fast plan og bevaret fejl](https://github.com/andersenmartin-blip/setisearch/blob/5623a1d31476a306cbbeceaba03101fbdb2562d1/work_bj/recovery/TAIL_RECOVERY_PLAN_BJ_V2.json).
 
 ---
 
