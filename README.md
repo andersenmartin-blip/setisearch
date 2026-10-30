@@ -1,8 +1,8 @@
-## 30. oktober 2026: BK — længere kørsel med de resterende sikre bånd startet
+## 30. oktober 2026: BK — 5 af 17 batches afsluttet
 
-**17 batches med 133 yderligere bånd er fastlagt før beregningen:** q121–127, q129–248 og q249–254. Første batch er startet. Målet er at afslutte de 253 valgte sikre carrierbånd i den allerede gemte 2017/native171-blok; DC-bånd 128 og kanterne 0/255 indgår ikke.
+**39 ekstra sikre bånd er færdigsøgt og resultatkontrolleret med exit 0.** Samlet er 159 af de 253 valgte sikre bånd i denne gemte native171-blok gennemgået. Den afsluttede BK-del omfatter 2.110.897.152 korrelerede sporkombinationer; ON-katalogerne har 52510 spor ved lokal ESS ≥10, OFF-katalogerne 52678, og 0 beskrivende ON/OFF-flag passerer.
 
-Numerisk metode og tærskler er uændrede. Hver batch skal bestå søgning og afgrænset resultatkontrol før næste; atomisk loggemning viderefører den gennemgåede BJ V2-løsning. Ingen nye observationer eller arkivanmodninger er med i denne kørsel. [Faste planer og kode](https://github.com/andersenmartin-blip/setisearch/commit/35875088a7b5fcb8c7424386b29acb7318bfc877).
+De resterende på forhånd fastlagte batches er ikke medregnet i dette kontrolpunkt. DC-bånd 128 og kantbånd 0/255 er udeladt som carrierbånd. Genanalysen giver ingen nye observationer eller ændring i BA's oprindelige dækningstal. [Kontrolpunkt og faktiske procesreferencer](https://github.com/andersenmartin-blip/setisearch/blob/7886c7c1653103efbd6a89a49952131170900611/work_bk/checkpoints/AFTER_05_BATCHES_BK.json).
 
 ---
 
