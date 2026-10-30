@@ -1,8 +1,10 @@
-## 30. oktober 2026: BJ — 9 batches godkendt; separat genkørsel af batch 10 startet
+## 30. oktober 2026: BJ V2 — længere kørsel afsluttet, 96 ekstra bånd
 
-**Bånd 25–96 er søgt og resultatkontrolleret:** 72 ekstra bånd, så 96 bånd inklusive BG–BI nu er godkendt. Ingen ON-spor nåede tærsklen i de ni afsluttede BJ-batches.
+**Alle 12 effektive batches, q25–q120, er færdigsøgt og resultatkontrolleret med exit 0.** Det er 96 ekstra bånd, 576 scan/bånd-søgninger og 5.196.054.528 korrelerede sporkombinationer. Ingen ON-spor nåede den faste lokale ESS-tærskel 10. Kontrollerne omfatter 20.736 udvalgte uafhængige sporsummer og 6.912 kalibreringsgenberegninger med den delte kernel.
 
-Den første søgning i batch 10 sluttede med exit 0; efterfølgende kontrol stoppede med exit 1, fordi søgeloggen var blevet afkortet fra 20.161 til 19.347 bytes. Resultatfilerne matcher deres kontrolsummer. Fejlen og de oprindelige filer er bevaret. En særskilt, på forhånd fastlagt genkørsel af batch 10 er startet med uændret numerisk metode og loggemning efter afsluttet proces; derefter følger batch 11–12, hvis kontrollen består. Batch 10 tælles først efter godkendelse og kun én gang. [Ny fast plan og bevaret fejl](https://github.com/andersenmartin-blip/setisearch/blob/5623a1d31476a306cbbeceaba03101fbdb2562d1/work_bj/recovery/TAIL_RECOVERY_PLAN_BJ_V2.json).
+Samlet er **120 bånd, cirka 1,373291 MHz og 6.495.068.160 korrelerede sporkombinationer** gennemført i denne beskrivende genanalyse af de samme seks gemte 2017-scans. Det tilfører ingen nye observationer eller kredit i BA's oprindelige dækningstal.
+
+Den første kontrol af batch 10 fejlede på en afkortet søgelog. Det fejlede forløb bevares; en særskilt, på forhånd fastlagt genkørsel med uændret numerisk metode bestod. Alle 164 tilsvarende binære resultatfiler var byte-identiske. Batch 10 tælles kun én gang. Resultatpakken er gemt med alle effektive resultater og det bevarede første forsøg. [Resultater, fejlhistorik og fortsættelsespunkt](https://github.com/andersenmartin-blip/setisearch/blob/a9c6e2506b01536bf2b73d628b9961dbd5ba452a/RADIO_PROGRESS_BJ_V2_2026-10-30.md). Næste scope er q121–q127, efterfulgt af eksplicit udelukkelse af DC-bånd q128.
 
 ---
 
