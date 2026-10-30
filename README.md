@@ -1,3 +1,13 @@
+## 30. oktober 2026: BM afsluttet — alle 253 valgte native170-bånd gennemgået
+
+**Alle 28 faste batches med 221 ekstra bånd er færdigsøgt og resultatkontrolleret med faktisk exit 0.** Sammen med BL er hele familien af 253 valgte sikre carrierbånd i native170 nu gennemgået. BM omfattede 11.961.750.528 korrelerede sporkombinationer over 34,30 minutter; q0/q128/q255 er udeladt som søgecentre.
+
+Der var 51.652 korrelerede ON-sporforslag i q127. Kun 31 nåede tærsklen i alle tre ON-scans; alle 31 havde også OFF-udslag og blev fravalgt. Ingen beskrivende ON/OFF-flag passerer. De afgrænsede kontroller består med 47.736 udvalgte uafhængige skalarsummer og 15.912 kalibreringsgenberegninger med delt kernel. Den særskilte afslutningskontrol genhashte 6.515 evidensfiler uden uoverensstemmelser. ESS er ikke kalibreret sigma/SNR/FAP eller astronomisk følsomhed.
+
+Resultatpakken på 631.607.700 bytes er gemt i fire kontrollerede dele. Dette er genanalyse af samme historiske 2017-besøg med 0 nye observationer og 0 nye teleskoparkivanmodninger. BA's oprindelige dækningstal samt historiske A/B- og B06-fejl ændres ikke. **Næste trin er en særskilt plan for native172; ingen søgning kører videre i baggrunden efter BM.** [Resultat, evidens og fortsættelsespunkt](https://github.com/andersenmartin-blip/setisearch/blob/9cc5c3857a6b72a088a6ccec5f0482c3e70f99f2/RADIO_PROGRESS_BM_2026-10-30.md) · [Samlet resultatindeks](https://chatgpt.com/library?file_id=libfile_6263729ec6e08191bc3cd3cb6f069b5e&account_id=personal).
+
+---
+
 ## 30. oktober 2026: BL — 32 bånd i native170 gennemført
 
 **Alle fire batches med q1–q32 er færdigsøgt og resultatkontrolleret med faktisk exit 0.** Det omfatter 192 scan/bånd-søgninger over 366,2109375 kHz og 1.732.018.176 korrelerede sporkombinationer. Ingen ON- eller OFF-katalogrækker nåede den faste lokale ESS-tærskel 10; ingen ny SETI-kandidat fra denne kørsel.
