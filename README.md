@@ -1,8 +1,10 @@
-## 30. oktober 2026: BM — 24 af 28 batches afsluttet
+## 30. oktober 2026: BM afsluttet — alle 253 valgte native170-bånd gennemgået
 
-**191 ekstra bånd er færdigsøgt og resultatkontrolleret med faktisk exit 0.** Samlet er nu 223 af 253 valgte sikre carrierbånd i native170 gennemgået. Den afsluttede BM-del omfatter 10.337.983.488 korrelerede sporkombinationer; 51.652 ON-katalogrækker og 52.346 OFF-katalogrækker ved lokal ESS ≥10. 0 beskrivende ON/OFF-flag passerer. Tidligere q127-fordeling er bevaret; dens 31 tre-ON-sporforslag har alle OFF-udslag og fravælges.
+**Alle 28 faste batches med 221 ekstra bånd er færdigsøgt og resultatkontrolleret med faktisk exit 0.** Sammen med BL er hele familien af 253 valgte sikre carrierbånd i native170 nu gennemgået. BM omfattede 11.961.750.528 korrelerede sporkombinationer over 34,30 minutter; q0/q128/q255 er udeladt som søgecentre.
 
-De resterende faste batches kører videre under uændrede stopregler. Uafsluttede batches tælles ikke. Samme historiske 2017-besøg; ingen nye observationer, arkivanmodninger eller ændring af BA's dækningstal. ESS er ikke kalibreret sigma/SNR/FAP. [Faktisk kontrolpunkt og proceskvitteringer](https://github.com/andersenmartin-blip/setisearch/blob/84feb74bc97004b126d393fadcdbb2beacea652b/work_bm/checkpoints/AFTER_24_BATCHES_BM.json).
+Der var 51.652 korrelerede ON-sporforslag i q127. Kun 31 nåede tærsklen i alle tre ON-scans; alle 31 havde også OFF-udslag og blev fravalgt. Ingen beskrivende ON/OFF-flag passerer. De afgrænsede kontroller består med 47.736 udvalgte uafhængige skalarsummer og 15.912 kalibreringsgenberegninger med delt kernel. Den særskilte afslutningskontrol genhashte 6.515 evidensfiler uden uoverensstemmelser. ESS er ikke kalibreret sigma/SNR/FAP eller astronomisk følsomhed.
+
+Resultatpakken på 631.607.700 bytes er gemt i fire kontrollerede dele. Dette er genanalyse af samme historiske 2017-besøg med 0 nye observationer og 0 nye teleskoparkivanmodninger. BA's oprindelige dækningstal samt historiske A/B- og B06-fejl ændres ikke. **Næste trin er en særskilt plan for native172; ingen søgning kører videre i baggrunden efter BM.** [Resultat, evidens og fortsættelsespunkt](https://github.com/andersenmartin-blip/setisearch/blob/9cc5c3857a6b72a088a6ccec5f0482c3e70f99f2/RADIO_PROGRESS_BM_2026-10-30.md) · [Samlet resultatindeks](https://chatgpt.com/library?file_id=libfile_6263729ec6e08191bc3cd3cb6f069b5e&account_id=personal).
 
 ---
 
