@@ -1,0 +1,65 @@
+{
+  "batch10_replay_counted_once_only": true,
+  "finite_synthetic_cases": [
+    {
+      "actual_exit_code": 0,
+      "all_log_identity_checks_pass": true,
+      "case": "success",
+      "child_wait_completed": true,
+      "final_log_absent_while_successful_worker_running": true,
+      "fully_preserved": true,
+      "next_batch_gate_rejected": false,
+      "stdout_eof": true
+    },
+    {
+      "actual_exit_code": 7,
+      "all_log_identity_checks_pass": true,
+      "case": "nonzero",
+      "child_wait_completed": true,
+      "final_log_absent_while_successful_worker_running": true,
+      "fully_preserved": true,
+      "next_batch_gate_rejected": true,
+      "stdout_eof": true
+    },
+    {
+      "actual_exit_code": 124,
+      "all_log_identity_checks_pass": true,
+      "case": "timeout",
+      "child_wait_completed": true,
+      "final_log_absent_while_successful_worker_running": null,
+      "fully_preserved": true,
+      "next_batch_gate_rejected": true,
+      "stdout_eof": true
+    }
+  ],
+  "fixed_tail_batches": [
+    10,
+    11,
+    12
+  ],
+  "full_preserved_prefix_gate_pass": true,
+  "limitations": [
+    "Original batch10 failed audit evidence remains unchanged and is not retroactively certified.",
+    "Replay is descriptive reproducibility on exposed data, not a new observational batch or independent confirmation.",
+    "Cause of original stdout file modification remains unidentified."
+  ],
+  "new_output_directories_only": true,
+  "no_gate_weakening": true,
+  "no_raw_power_decode_or_science_run_by_review": true,
+  "original_source_auditor_and_twelve_plan_files_unchanged": true,
+  "preserved_original_failed_attempt_file_count": 236,
+  "preserved_prefix_and_input_pin_count": 2131,
+  "recovery_plan_sha256": "f9207d67c357e70d57e6d77cba35a77540dd8f276d4f4e6323b3f8548d4557b7",
+  "reviewed_capture_guards": [
+    "Child stdout buffered with explicit4MiB cap and failure if exceeded",
+    "Final log path published only after EOF and exact wait4",
+    "Same-directory tempfile fsync, exclusive hardlink publication, directory fsync, and immediate hash/size verification",
+    "Closed actual gate rehashes saved log and checks observed bytes/hash, EOF, wait, no capture error, actualexit0",
+    "Failed original prefix/files rehashed before and after each new search/audit",
+    "Unchanged strict scientific auditor used for every replay/tail batch",
+    "Failure or passing descriptive flag stops before next batch"
+  ],
+  "runner_sha256": "47c901a5d9841e77eef73690eca939c2bfa0ca7c9db83a1e3a1dc3127fe55b7f",
+  "schema": "SETI_BJ_FIXED_TAIL_RECOVERY_INDEPENDENT_REVIEW_V2",
+  "status": "PASS_READY_FOR_RECOVERY_PREREGISTRATION"
+}
