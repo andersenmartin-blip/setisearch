@@ -1,0 +1,76 @@
+{
+  "schema": "SETI_BK_AUDIT_SCOPE_ADAPTATION_V1",
+  "status": "PASS_SOURCE_ADAPTATION_ONLY",
+  "prior_source_sha256": "ffa70299d0a3eccc84da7edbe0a283f51e6a80c6ae536c92b4df08179eec5e5e",
+  "new_source_sha256": "743ce28d221938fadc08bf995ad391323bcf7a1afc7181425d7f25f3df895e84",
+  "changes": [
+    {
+      "old": "BJ results",
+      "new": "BK results"
+    },
+    {
+      "old": "APPROVED_Q_BATCHES = tuple(tuple(range(start, start + 8)) for start in range(25, 121, 8))",
+      "new": "APPROVED_Q_BATCHES = (tuple(range(121, 128)),) + tuple(tuple(range(start, start + 8)) for start in range(129, 249, 8)) + (tuple(range(249, 255)),)"
+    },
+    {
+      "old": "All-eight-q completion marker required; partial runs are not final results",
+      "new": "Whole frozen batch completion marker required; partial runs are not final results"
+    },
+    {
+      "old": "ALL_EIGHT_BOUNDED_Q_SEARCHES_AND_TRIAGE_COMPLETE",
+      "new": "ALL_FROZEN_BATCH_SEARCHES_AND_TRIAGE_COMPLETE"
+    },
+    {
+      "old": "Expected one of twelve prospectively frozen q25..120 eight-band batches",
+      "new": "Expected one of seventeen prospectively frozen remaining-safe-core batches"
+    },
+    {
+      "old": "bj_saved_result_replay_kernel",
+      "new": "bk_saved_result_replay_kernel"
+    },
+    {
+      "old": "require(sum_checks == 1728, 'Expected1728 fixed real scalar comparisons')",
+      "new": "require(sum_checks == len(plan['core_q_list']) * 216, 'Expected216 fixed real scalar comparisons per q')"
+    },
+    {
+      "old": "require(replay_vectors == 576, 'Expected576 fixed calibration-vector replays')",
+      "new": "require(replay_vectors == len(plan['core_q_list']) * 72, 'Expected72 fixed calibration-vector replays per q')"
+    },
+    {
+      "old": "require(total_trials == complete['total_track_trials'] == 433004544, 'Whole frozen-family hypothesis count differs')",
+      "new": "require(total_trials == complete['total_track_trials'] == len(plan['core_q_list']) * 54125568, 'Whole frozen-family hypothesis count differs')"
+    },
+    {
+      "old": "S2017_BJ_INDEPENDENT_REAL_RESULT_SCALAR_AUDIT_V1",
+      "new": "S2017_BK_INDEPENDENT_REAL_RESULT_SCALAR_AUDIT_V1"
+    },
+    {
+      "old": "The576fullvector sums replay the same unchanged candidate kernel; only1728fixed selected sums and sampled forced measurements use independentmath.fsum.",
+      "new": "Fullvector sums replay the same unchanged candidate kernel; fixed216selected sums perq and sampled forced measurements use independentmath.fsum."
+    }
+  ],
+  "independent_scalar_sum_source_exact": true,
+  "raw_decode_or_metric_computation": false,
+  "per_q_scalar_comparisons": 216,
+  "per_q_shared_kernel_calibration_vector_replays": 72,
+  "per_q_track_trials": 54125568,
+  "expected_batch_cardinalities": [
+    7,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    6
+  ]
+}
