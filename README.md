@@ -1,8 +1,8 @@
-## 30. oktober 2026: BJ — længere kørsel, 4 af 12 batches afsluttet
+## 30. oktober 2026: BJ — længere kørsel, 8 af 12 batches afsluttet
 
-**Bånd 25–56 er færdigsøgt og resultatkontrolleret:** 32 ekstra bånd og 1.732.018.176 korrelerede sporkombinationer. Ingen ON-spor nåede den lokale ESS-tærskel 10, og ingen ON/OFF-flag passerede. De resterende otte på forhånd fastlagte batches er endnu ikke medregnet i dette kontrolpunkt.
+**Bånd 25–88 er færdigsøgt og resultatkontrolleret:** 64 ekstra bånd og 3.464.036.352 korrelerede sporkombinationer. Ingen ON-spor nåede den lokale ESS-tærskel 10, og ingen ON/OFF-flag passerede. De sidste fire fastlagte batches er endnu ikke medregnet i dette kontrolpunkt.
 
-Sammen med BG–BI er **56 bånd** nu afsluttet i genanalysen af samme gemte 2017-besøg. Det giver ingen nye observationer eller ændring i BA's oprindelige dækningstal. [Kontrolpunkt med faktiske proces- og auditkvitteringer](https://github.com/andersenmartin-blip/setisearch/blob/8969c7c520d8c6eca894019a5869af5ec2a78fba/work_bj/checkpoints/AFTER_04_BATCHES_BJ.json).
+Sammen med BG–BI er **88 bånd** nu afsluttet i genanalysen af samme gemte 2017-besøg. Ingen nye observationer eller ændring i BA's oprindelige dækningstal. [Kontrolpunkt med faktiske proces- og auditkvitteringer](https://github.com/andersenmartin-blip/setisearch/blob/6f8b8c3d921901e9d52751d14b06a52da9fe9268/work_bj/checkpoints/AFTER_08_BATCHES_BJ.json).
 
 ---
 
