@@ -1,3 +1,11 @@
+## 30. oktober 2026: BK — længere kørsel med de resterende sikre bånd startet
+
+**17 batches med 133 yderligere bånd er fastlagt før beregningen:** q121–127, q129–248 og q249–254. Første batch er startet. Målet er at afslutte de 253 valgte sikre carrierbånd i den allerede gemte 2017/native171-blok; DC-bånd 128 og kanterne 0/255 indgår ikke.
+
+Numerisk metode og tærskler er uændrede. Hver batch skal bestå søgning og afgrænset resultatkontrol før næste; atomisk loggemning viderefører den gennemgåede BJ V2-løsning. Ingen nye observationer eller arkivanmodninger er med i denne kørsel. [Faste planer og kode](https://github.com/andersenmartin-blip/setisearch/commit/35875088a7b5fcb8c7424386b29acb7318bfc877).
+
+---
+
 ## 30. oktober 2026: BJ V2 — længere kørsel afsluttet, 96 ekstra bånd
 
 **Alle 12 effektive batches, q25–q120, er færdigsøgt og resultatkontrolleret med exit 0.** Det er 96 ekstra bånd, 576 scan/bånd-søgninger og 5.196.054.528 korrelerede sporkombinationer. Ingen ON-spor nåede den faste lokale ESS-tærskel 10. Kontrollerne omfatter 20.736 udvalgte uafhængige sporsummer og 6.912 kalibreringsgenberegninger med den delte kernel.
