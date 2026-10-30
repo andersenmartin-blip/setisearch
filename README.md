@@ -1,3 +1,13 @@
+## 30. oktober 2026: BO — fem tekniske kontroltrin afsluttet
+
+**Alle fem deterministiske kontroltrin afsluttede med faktisk exit 0.** På 42,22 sekunder bestod 68 filcases, 1.260 udvalgte referencesummer med nul målt afvigelse for den aktuelle kernel, 802 komplette kalibreringsvektorer og den fastlagte procesfejlmatrix. Den uafhængige slutgennemgang genhashte 124 evidensfiler to gange og kontrollerede alle 21 frosne inputfiler. Alle fastsatte ressourcegrænser bestod.
+
+Dette er metodekontrol på konstruerede data. De rigtige HIP45688-målinger er endnu ikke åbnet, og ingen ny signalsøgning eller tilfældighedsgenerator er aktiveret. De 24 oprindelige HIP45688-M-fejl og fuld-QA=false bevares; 217 nye float32-guardfejl i kontrolprøverne står også fortsat som FAIL. Fem ekstra ikke-kanoniske kopier med uafklaret oprindelse er hashbundne og bevarede uden sciencekredit.
+
+Den kontrollerede binære resultatpakke på 118.567.847 bytes er gemt. Der er 0 nye observationer, 0 nye teleskoparkivforespørgsler og ingen ændring af BA's dækningstal. **Næste konkrete fase er implementering og præregistrering af de 24 parrede syntetiske kontroller; den efterfølgende fulde 839-rate-kontrol og HIP45688-søgning er ikke aktiveret. Alle ejede kontrolprocesser er afsluttet.** [Resultat og præcist næste trin](https://github.com/andersenmartin-blip/setisearch/blob/b09768a6cec3a251006482028ed35794dbdf81f4/RADIO_PROGRESS_BO_2026-10-30.md) · [Samlet resultatindeks](https://chatgpt.com/library?file_id=libfile_9bd8adbbdaa48191a23d9d5d153fcc2d&account_id=personal).
+
+---
+
 ## 30. oktober 2026: BN afsluttet — alle 253 valgte native172-bånd gennemgået
 
 **Alle 32 faste batches er færdigsøgt og resultatkontrolleret med faktisk exit 0.** BN gennemgik 253 valgte sikre carrierbånd og 13.693.768.704 korrelerede sporkombinationer på 38,77 minutter. Sammen med de tidligere native170- og native171-familier er alle tre valgte blokke fra samme 2017-besøg nu gennemgået med denne lokale ESS-metode, i alt 759 carrierbånd.
