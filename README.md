@@ -1,8 +1,8 @@
-## 30. oktober 2026: BM — 4 af 28 batches afsluttet
+## 30. oktober 2026: BM — 8 af 28 batches afsluttet
 
-**32 ekstra bånd er færdigsøgt og resultatkontrolleret med faktisk exit 0.** Samlet er nu 64 af 253 valgte sikre carrierbånd i native170 gennemgået. Den afsluttede BM-del omfatter 1.732.018.176 korrelerede sporkombinationer; ingen ON- eller OFF-katalogrækker når lokal ESS 10, og ingen beskrivende ON/OFF-flag passerer.
+**64 ekstra bånd er færdigsøgt og resultatkontrolleret med faktisk exit 0.** Samlet er nu 96 af 253 valgte sikre carrierbånd i native170 gennemgået. Den afsluttede BM-del omfatter 3.464.036.352 korrelerede sporkombinationer; ingen ON- eller OFF-katalogrækker når lokal ESS 10, og ingen beskrivende ON/OFF-flag passerer.
 
-De resterende faste batches kører videre under uændrede stopregler. Uafsluttede batches tælles ikke. Samme historiske 2017-besøg; ingen nye observationer, arkivanmodninger eller ændring af BA's dækningstal. ESS er ikke kalibreret sigma/SNR/FAP. [Faktisk kontrolpunkt og proceskvitteringer](https://github.com/andersenmartin-blip/setisearch/blob/2dc9d75c905051e466e36542c20aea2ec327c053/work_bm/checkpoints/AFTER_04_BATCHES_BM.json).
+De resterende faste batches kører videre under uændrede stopregler. Uafsluttede batches tælles ikke. Samme historiske 2017-besøg; ingen nye observationer, arkivanmodninger eller ændring af BA's dækningstal. ESS er ikke kalibreret sigma/SNR/FAP. [Faktisk kontrolpunkt og proceskvitteringer](https://github.com/andersenmartin-blip/setisearch/blob/319112b36a9989729fce514ecb8b4742cf116676/work_bm/checkpoints/AFTER_08_BATCHES_BM.json).
 
 ---
 
