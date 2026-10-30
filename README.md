@@ -1,8 +1,10 @@
-## 30. oktober 2026: BK — 15 af 17 batches afsluttet
+## 30. oktober 2026: BK — alle 253 valgte sikre bånd i den gemte native171-blok gennemgået
 
-**119 ekstra sikre bånd er færdigsøgt og resultatkontrolleret med exit 0.** Samlet er 239 af de 253 valgte sikre bånd i denne gemte native171-blok gennemgået. Den afsluttede BK-del omfatter 6.440.942.592 korrelerede sporkombinationer; ON-katalogerne har 52510 spor ved lokal ESS ≥10, OFF-katalogerne 52678, og 0 beskrivende ON/OFF-flag passerer.
+**Alle 17 batches med 133 ekstra bånd er afsluttet med exit 0 for både søgning og resultatkontrol.** BK gennemgik 7.198.700.544 korrelerede sporkombinationer. Samlet er nu **253 valgte carrierbånd, 2,895355 MHz og 13.693.768.704 korrelerede sporkombinationer** gennemgået i denne genanalyse af samme historiske 2017-besøg. DC-bånd q128 og kanterne q0/q255 er udeladt fra søgecentrene.
 
-De resterende på forhånd fastlagte batches er ikke medregnet i dette kontrolpunkt. DC-bånd 128 og kantbånd 0/255 er udeladt som carrierbånd. Genanalysen giver ingen nye observationer eller ændring i BA's oprindelige dækningstal. [Kontrolpunkt og faktiske procesreferencer](https://github.com/andersenmartin-blip/setisearch/blob/849c4079e81d9c502510681ed454be8f745c02bc/work_bk/checkpoints/AFTER_15_BATCHES_BK.json).
+Der var 52.510 ON-sporforslag i q127. Kun 33 opfyldte kravet i alle tre ON-scans; alle 33 havde også OFF-udslag og blev fravalgt. Ingen sporforslag består alle ON/OFF-reglerne. Der er gemt 315.060 understøttede kontrolmålinger. De afgrænsede efterkontroller omfatter 28.728 udvalgte uafhængige sporsummer og 9.576 kalibreringsgenberegninger med den delte kernel; dette er ikke kalibreret astronomisk følsomhed eller falsk-alarm-sandsynlighed.
+
+Resultatpakken er gemt. Som konkret næste datagrundlag er naboblokkene **native170 og native172 genindlæst og bytekontrolleret: 12 komplette scanfiler og 192 dekodede rækker**. Der er endnu ingen nye søgescorer på disse blokke. De kræver en særskilt fast søgeplan med de historiske A/B- og B06-fejlstatusser bevaret. Ingen nye observationer, arkivanmodninger eller kredit i BA's oprindelige dækningstal tilføjes. [Resultater, kontrolmålinger og næste datagrundlag](https://github.com/andersenmartin-blip/setisearch/blob/43fca25ce5d5e39c8ba929e695f380ea70a158bb/RADIO_PROGRESS_BK_2026-10-30.md).
 
 ---
 
