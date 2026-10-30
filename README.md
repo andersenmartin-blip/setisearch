@@ -1,3 +1,11 @@
+## 30. oktober 2026: BN — ny native172-kørsel startet
+
+**En særskilt kampagne med 32 faste batches og 253 carrierbånd er startet.** Scope er q1–q127 og q129–q254. q0/q128/q255 udelades som søgecentre. Planer og kode blev offentliggjort og genlæst før beregningen; kun faktisk afsluttede og kontrollerede batches krediteres ved kontrolpunkterne.
+
+Den tidligere B06/q81-fejl og restoration-QA forbliver fejlede og uden genkørsel. q81 indgår i BN's særskilte 16-rækkers/839-drifttrins/local-q-familie; de historiske identiteter genåbnes eller omklassificeres ikke. Metode og stopregler fra BL/BM er uændrede. Samme tidligere eksponerede 2017-besøg; ingen nye observationer eller BA-dækningskredit. [Fast plan, kildekode og historisk afgrænsning](https://github.com/andersenmartin-blip/setisearch/blob/793a8adb2fee9bd7ce2d7998328de0ba169806e8/work_bn/PREREG_BN.md).
+
+---
+
 ## 30. oktober 2026: BM afsluttet — alle 253 valgte native170-bånd gennemgået
 
 **Alle 28 faste batches med 221 ekstra bånd er færdigsøgt og resultatkontrolleret med faktisk exit 0.** Sammen med BL er hele familien af 253 valgte sikre carrierbånd i native170 nu gennemgået. BM omfattede 11.961.750.528 korrelerede sporkombinationer over 34,30 minutter; q0/q128/q255 er udeladt som søgecentre.
