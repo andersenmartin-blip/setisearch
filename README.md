@@ -1,3 +1,11 @@
+## 30. oktober 2026: BI — bånd 17–24 gennemført
+
+**Yderligere otte bånd er færdigsøgt med exit 0:** 433.004.544 korrelerede sporkombinationer på 66,25 sekunder. Ingen ON-spor nåede den faste lokale ESS-tærskel 10. Den afgrænsede resultatkontrol bestod med 1.728 udvalgte uafhængige sporsummer og 576 kalibreringsgenberegninger med den delte kernel.
+
+Samlet er **24 bånd, 144 scan/bånd-søgninger og 1.299.013.632 korrelerede sporkombinationer over cirka 275 kHz** gennemført i de seks gemte 2017-scans. Det er beskrivende genanalyse af samme historiske besøg; BA's oprindelige dækningstal og antal observationer ændres ikke. Binære resultater er bevaret, og næste batch er q25–q32. [Resultater og fortsættelsespunkt](https://github.com/andersenmartin-blip/setisearch/blob/896a22fa4d3432ddea5950e48499e46469130871/RADIO_PROGRESS_BI_2026-10-30.md).
+
+---
+
 ## 29. oktober 2026: BH — næste otte bånd gennemført
 
 **Bånd 9–16 er færdigsøgt med exit 0:** yderligere 433.004.544 korrelerede sporkombinationer på 149,60 sekunder. Ingen ON-spor nåede den faste lokale ESS-tærskel 10. Resultatkontrollen bestod med 1.728 udvalgte uafhængige sporsummer og 576 kalibreringsgenberegninger med den delte kernel.
