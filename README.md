@@ -1,8 +1,8 @@
-## 30. oktober 2026: BN — ny native172-kørsel startet
+## 30. oktober 2026: BN — 4 af 32 batches afsluttet
 
-**En særskilt kampagne med 32 faste batches og 253 carrierbånd er startet.** Scope er q1–q127 og q129–q254. q0/q128/q255 udelades som søgecentre. Planer og kode blev offentliggjort og genlæst før beregningen; kun faktisk afsluttede og kontrollerede batches krediteres ved kontrolpunkterne.
+**32 af 253 valgte sikre carrierbånd i native172 er færdigsøgt og resultatkontrolleret med faktisk exit 0.** Den afsluttede BN-del omfatter 1.732.018.176 korrelerede sporkombinationer; 0 ON-katalogrækker og 0 OFF-katalogrækker ved lokal ESS ≥10. 0 beskrivende ON/OFF-flag passerer.
 
-Den tidligere B06/q81-fejl og restoration-QA forbliver fejlede og uden genkørsel. q81 indgår i BN's særskilte 16-rækkers/839-drifttrins/local-q-familie; de historiske identiteter genåbnes eller omklassificeres ikke. Metode og stopregler fra BL/BM er uændrede. Samme tidligere eksponerede 2017-besøg; ingen nye observationer eller BA-dækningskredit. [Fast plan, kildekode og historisk afgrænsning](https://github.com/andersenmartin-blip/setisearch/blob/793a8adb2fee9bd7ce2d7998328de0ba169806e8/work_bn/PREREG_BN.md).
+De resterende faste batches kører videre under uændrede stopregler. Uafsluttede batches tælles ikke. BN er en særskilt local-q-familie med 16 rækker og 839 drifttrin; historisk B06/q81 og restoration-QA forbliver fejlede og uden genkørsel eller omklassificering. Samme tidligere eksponerede 2017-besøg; ingen nye observationer, arkivanmodninger eller BA-dækningskredit. ESS er ikke kalibreret sigma/SNR/FAP. [Faktisk kontrolpunkt og proceskvitteringer](https://github.com/andersenmartin-blip/setisearch/blob/c860fe863f37f97dcc3357d6459567869812bbbe/work_bn/checkpoints/AFTER_04_BATCHES_BN.json).
 
 ---
 
