@@ -1,0 +1,89 @@
+{
+  "execution_review": {
+    "CPU_seconds_per_child": 600,
+    "address_space_bytes": 2147483648,
+    "child_CLI_matches_production_and_review": true,
+    "closed_archive_export_verified_using_pinned_BY_archive_worker": true,
+    "exclusive_tmpfs_phase_outputs_and_no_retry": true,
+    "file_bytes_cap": 67108864,
+    "natural_stdout_eof_exit_code_required": true,
+    "other_executor_filesystem_activity_must_pause_during_children": true,
+    "source_input_plan_freeze_and_production_output_pins_checked": true,
+    "stdout_bytes_checked_after_close": 1048576,
+    "wall_seconds_per_child": 600,
+    "wrapper": "work_bz/run_phase_bz.py"
+  },
+  "method_checks": {
+    "BY_classifier_status_dtype_U28_matches_BZ_exactly": true,
+    "all_arm_case_group_and_gain_loss_summaries_independently_reconstructed": true,
+    "all_new_projection_scalar_tracks_and_classifications_independently_recomputed": true,
+    "all_new_source_local_maxima_reconstructed_including_complete_seed_identity_sets": true,
+    "coarse_calibration_vectors_byte_bound_to_independently_audited_BY": 15840,
+    "exact_3_coarse_anchors_and_all_736_baseline_seed_rows_reused": true,
+    "injections_reconstructed_independently_and_byte_bound_to_BY": true,
+    "missing_OFF5_preserved_as_invalid_NaN_slot": true,
+    "new_calibration_track_sums_audited_completely": 198696960,
+    "new_calibration_vectors_audited_completely": 73920,
+    "only_14_new_rates_scored_once_per_case_with_factor_2_4_8_subsets": true,
+    "original_rate_truth_tolerance_and_OFF_association_radius_held_fixed": true,
+    "plan_generator_schema_config_source_pins_compatible_with_both_children": true,
+    "retained_rejected_overlap_preserved_per_case_and_group": true,
+    "same_264_cases_24_geometries_1320_injected_matrices_as_BY": true,
+    "source_three_ON_retained_and_rejected_monotonicity_checked": true
+  },
+  "observation_arrays_opened": false,
+  "production_executed": false,
+  "public_freeze_still_required": true,
+  "resolved_review_findings": [
+    "Kept original rate tolerance and OFF neighborhood radius to isolate added templates.",
+    "Added explicit source recovery gains/losses and overlapping retained/rejected counts.",
+    "Added CASES_BZ.json and explicit zero-new-observation/no-sensitivity fields.",
+    "Corrected wrapper reviewer filename to review_grid.py.",
+    "Pinned prospective scope alongside executable sources and tests."
+  ],
+  "review_independence_limits": [
+    "Review uses direct additions, Python sorted order statistics, and math.fsum; it imports no production numerical implementation.",
+    "NumPy decoding/storage, original linspace grid, and exact declared injection arithmetic remain shared primitives.",
+    "Each distinct exposure weight is additionally checked by an independent piecewise-linear trapezoid integral.",
+    "Old coarse numeric results rely on their hash-bound prior independent audit and exact byte preservation rather than a new coarse detector rerun."
+  ],
+  "reviewed_source_sha256": {
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bz/SCOPE_BZ.md": "30c18c339663c1b85f94fb4f304e1fa03c71db06bd492e6df105ef85b47c26ea",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bz/grid_recovery.py": "cebde419b7d591d717b7b16b3328ec5e72aea63b5c31e6e6ea3b78b8712cd43e",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bz/prepare_plan_bz.py": "00d2d22514a38d98bbac74a53b0bf33c31b0997bf72ae29bc63aba05d0eaaaf0",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bz/review_grid.py": "e2d4dd05a25f32acae7cb686fa57c9fb4fe96431fe74f51aa7c699d916371b62",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bz/run_phase_bz.py": "da42d407b0c10ce7078c17bdd193821e679182967fb812775ddc730617b9319c",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bz/test_grid.py": "2b5db0ba5c8dc84bac13068c715f058938af4732add767b5579f4cf12636ba06",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bz/test_review_grid.py": "8b2169cadd3944834f6864a71f028c3e43967466ba6c18e1384eb7409f6fda14"
+  },
+  "reviewed_utc": "2026-10-31T17:53:35.954185+00:00",
+  "reviewer": "Independent BZ review agent; no production numerical imports in review_grid.py",
+  "schema": "SETI_BZ_PREFREEZE_INDEPENDENT_SOURCE_REVIEW_V1",
+  "scientific_limits": [
+    "This method was selected after BY; deterministic cases and backgrounds were already exposed.",
+    "Recovery monotonicity is guaranteed by retaining exact old seed rows, not independent scientific evidence.",
+    "Added correlated templates increase trial opportunities; ESS thresholds are not recalibrated to a common global false-alarm probability.",
+    "Only truth-local drift intervals and normalized injected amplitudes are tested; no Jy sensitivity, blind all-bank recovery, or normalization-response result.",
+    "Both retained and rejected flags can be true through distinct overlapping seeds; they are not exclusive case categories.",
+    "No new raw observations, completed cadence, extraterrestrial candidate or source-coverage advance follows from this experiment."
+  ],
+  "status": "PASS_SOURCE_REVIEW_BEFORE_SCIENTIFIC_ARRAY_READS",
+  "synthetic_validation": [
+    {
+      "actual_exit_code": 0,
+      "file": "work_bz/test_grid.py",
+      "scope": "Synthetic full-core new-rate vectors, medians/MADs and scalar forced tracks across every base and width; exact nesting; caps; gain/loss and overlap accounting",
+      "status": "PASS",
+      "tests": 5,
+      "wall_seconds_reported_by_unittest": 0.47
+    },
+    {
+      "actual_exit_code": 0,
+      "file": "work_bz/test_review_grid.py",
+      "scope": "Independent exact grid/offset construction, direct vectors vs scalar sums, support limits, odd/even order statistics, exposure integrals, float32 casts, threshold boundaries, missing sixth scan, overlap and byte identity",
+      "status": "PASS",
+      "tests": 12,
+      "wall_seconds_reported_by_unittest": 0.036
+    }
+  ]
+}
