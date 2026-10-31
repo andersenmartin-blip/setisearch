@@ -1,0 +1,60 @@
+{
+  "completed_utc": "2026-10-31T16:49:56.725701+00:00",
+  "diagnostic_pre_save_check": "An initial all-gpuspec suffix assumption failed before this diagnostic was written; inspection found13rawspec suffixes. No scientific output or source data changed.",
+  "frozen_result_preserved": {
+    "canonical_filename_intersection_count": 0,
+    "raw_filename_intersection_count": 0,
+    "unpaired_per_dataset_analysis_only": true
+  },
+  "inputs": [
+    {
+      "bytes": 708936,
+      "detector": "turboSETI",
+      "git_blob_sha1": "cbbf8b0e3bf5a672ce644fe09eeb035bc191a5f0",
+      "path": "TESS_statistics/turboSETI/S_band_histogram.csv",
+      "published_identifier_count": 171,
+      "sha256": "8abf461a2510913de4642d9c9ab4f07c2311d997e6ea859a0e854088a82d8b80"
+    },
+    {
+      "bytes": 700244,
+      "detector": "energy_detection",
+      "git_blob_sha1": "c8eb396c7bf21bb648fabd83ee8230ea5273b9b4",
+      "path": "TESS_statistics/energy_detection/S_band_histogram.csv",
+      "published_identifier_count": 169,
+      "sha256": "b0fb3926f27a055a3d3b54a472c8f9438fa9018b51f470894ce0f90e54693648"
+    }
+  ],
+  "interpretation": "Processing suffixes remain after the predeclared terminal-.dat rule. They occur in every turboSETI identifier and no energy identifier has a dot, preventing both literal and frozen-canonical joins. This does not establish that the actual observations are disjoint or that removing longer suffixes identifies equivalent observations.",
+  "observed_identifier_format": {
+    "energy_detection_all_169_have_no_dot_or_processing_suffix": true,
+    "examples_not_claimed_to_be_pairs": {
+      "energy_detection": [
+        "spliced_blc0001020304050607_guppi_58811_76031_HIP64679_0094",
+        "spliced_blc7071727374757677_guppi_58814_44040_3C295_0130"
+      ],
+      "turboSETI_gpuspec": "spliced_blc0001020304050607_guppi_58812_02565_HIP80453_0134.gpuspec.0000.datnew.dat",
+      "turboSETI_rawspec": "spliced_blc5051525354555657_guppi_58897_20701_TIC266500992_0134.rawspec.0000.datnew.dat"
+    },
+    "frozen_turbo_canonical_rule": "Removes only one terminal .dat, leaving .gpuspec.0000.datnew or .rawspec.0000.datnew.",
+    "turboSETI_processing_suffix_counts": {
+      ".gpuspec.0000.datnew.dat": 158,
+      ".rawspec.0000.datnew.dat": 13
+    }
+  },
+  "posthoc_limits": [
+    "Only identifier strings were inspected; no additional count-cell analysis or alternative paired science was performed.",
+    "No new matching rule was applied and no hypothetical normalized intersection was counted.",
+    "Any future pairing requires a separately frozen, producer-justified identity mapping, collision checks and explicit accounting for unmatched observations.",
+    "Original zero-intersection outputs, independent audit and per-dataset results remain unchanged."
+  ],
+  "schema": "SETI_BY_POSTHOC_IDENTIFIER_DIAGNOSTIC_V1",
+  "scope_sha256": "1d95bef17a43da3d24019ec9bbd1ef98b6b1c5edd0be4114b973a481247a6ae0",
+  "sealed_identity_artifact": {
+    "archive_sha256": "aee2dffe00bbf3b258d9e671d66948e60227d90ffa90b0a2d6a5f546fc525672",
+    "member": "outputs/OBSERVATION_IDS_RFI_BY.json",
+    "sha256": "6bd844cb2440d281791663655c95124207f65841c51c8bb589ceebd5783e2442"
+  },
+  "source_commit": "de774a274fd2dfe44e31ba88178c9dd8305de3a0",
+  "source_repository": "dbautista98/Breakthrough_Listen",
+  "status": "EXPLAINS_ZERO_PREDECLARED_JOIN_WITHOUT_NEW_PAIRING"
+}

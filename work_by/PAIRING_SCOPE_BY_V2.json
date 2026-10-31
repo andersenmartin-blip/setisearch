@@ -1,0 +1,111 @@
+{
+  "after_original_data_exposure": true,
+  "bin_width_mhz": 1,
+  "canonical_collisions": "reject before calculating any paired counts",
+  "declared_utc": "2026-10-31T16:53:10.358452+00:00",
+  "energy_identifier_rule": "unchanged",
+  "fixed_neighborhood_mhz": [
+    2298,
+    2302
+  ],
+  "frequency_lower_edges_mhz": [
+    1800,
+    2800,
+    1
+  ],
+  "inputs": [
+    {
+      "bytes": 708936,
+      "detector": "turboSETI",
+      "git_blob_sha1": "cbbf8b0e3bf5a672ce644fe09eeb035bc191a5f0",
+      "local_relative_path": "rfi_inputs/turboSETI_S_band_histogram.csv",
+      "path": "TESS_statistics/turboSETI/S_band_histogram.csv",
+      "sha256": "8abf461a2510913de4642d9c9ab4f07c2311d997e6ea859a0e854088a82d8b80"
+    },
+    {
+      "bytes": 700244,
+      "detector": "energy_detection",
+      "git_blob_sha1": "c8eb396c7bf21bb648fabd83ee8230ea5273b9b4",
+      "local_relative_path": "rfi_inputs/energy_detection_S_band_histogram.csv",
+      "path": "TESS_statistics/energy_detection/S_band_histogram.csv",
+      "sha256": "b0fb3926f27a055a3d3b54a472c8f9438fa9018b51f470894ce0f90e54693648"
+    }
+  ],
+  "interpretation_limits": [
+    "This is a separately declared post-exposure identifier extension; neither identifier formats nor count tables are held out.",
+    "Matching canonical stems does not independently validate original telescope headers, time coverage, missing frequency masks or exposure equivalence.",
+    "The parent raw and terminal-.dat-only zero-join outputs remain unchanged. This extension creates new paired outputs only.",
+    "The energy-detection threshold4096 was selected for comparable spectral occupancy to turboSETI; matching occupancy is not independent validation. Different thresholds and algorithms prevent detector-performance ranking.",
+    "All denominators count matched published observation identifiers, not independent trials or qualified observing time.",
+    "Notch-labelled bins2300..2360 are retained and flagged. Zero counts are not evidence of a clean sky or receiver sensitivity.",
+    "No new raw SETI searches, candidate qualification, threshold tuning, calibrated astronomical sensitivity, FAP or original survey coverage."
+  ],
+  "join_rule": "exact canonical string equality",
+  "limits": {
+    "child_memory_bytes": 1073741824,
+    "child_wall_seconds": 60,
+    "original_CSV_parser_caps": "unchanged pinned parent scope",
+    "output_file_size_bytes": 16777216
+  },
+  "matching_basis": "Posthoc identifier inspection found these two processing suffixes; producer code stores turboSETI basename and energy-detection observation-folder basename. Matching stems is a declared operational equivalence, not independent native header validation.",
+  "metadata_and_source_sha256": {
+    "POSTHOC_IDENTIFIER_DIAGNOSTIC_BY.json": "b9954ad0aa52353e7cabc5bc001809e88655a3b83d0e0abfa9c0bac00cea0093",
+    "SUMMARY_RFI_BY.json": "4be15e3bac695ea07fca61e774003ba7ba12a51cb57f9c766c4fb61c49129ee2",
+    "analyze_rfi.py": "013b13d76adb1c183ccdc528649219a69846940e70a6b404d24ebe181af460d9",
+    "pair_rfi_v2.py": "8cbe20862ff33d1e9ab22def6d2bfbc07a0bcf36f4fd40b6e1318abd9ddc07f6",
+    "review_pair_rfi_v2.py": "123479ed3727e6191b26cb4f711554ccdf533876e4de19a2f79e817b41145df7",
+    "review_rfi.py": "d9c2e60a21f795b941b30d56c742ffa5de691440f86af32951959151b76f8b60",
+    "rfi_scope.json": "1d95bef17a43da3d24019ec9bbd1ef98b6b1c5edd0be4114b973a481247a6ae0"
+  },
+  "new_original_technical_MHz_visits": 0,
+  "new_original_unique_archive_ids": 0,
+  "new_raw_SETI_searches": 0,
+  "no_casefold_or_other_edits": true,
+  "no_changes_to_original_outputs": true,
+  "no_fuzzy_matching_or_additional_rules": true,
+  "no_match_result": "Zero matched observations with null occupancy fractions and null medians; no new matching attempts.",
+  "original_scope_relative_path": "rfi_scope.json",
+  "output_all_pairs_and_unmatched": true,
+  "outputs": [
+    "SUMMARY_PAIRING_BY_V2.json",
+    "PER_BIN_PAIRING_BY_V2.json",
+    "PER_BIN_PAIRING_BY_V2.csv",
+    "OBSERVATION_IDS_PAIRING_BY_V2.json"
+  ],
+  "paired_metrics_per_bin": [
+    "paired_observations",
+    "turbo_nonzero_rows",
+    "energy_nonzero_rows",
+    "both_nonzero_rows",
+    "turbo_only_rows",
+    "energy_only_rows",
+    "neither_nonzero_rows",
+    "turbo_nonzero_fraction",
+    "energy_nonzero_fraction",
+    "energy_minus_turbo_nonzero_fraction",
+    "turbo_total_hit_count",
+    "energy_total_hit_count",
+    "turbo_median_hit_count",
+    "energy_median_hit_count"
+  ],
+  "pinned_parser_relative_path": "analyze_rfi.py",
+  "prior_pairing_results_preserved": {
+    "original_terminal_dat_only_intersection": 0,
+    "raw_intersection": 0
+  },
+  "public_freeze_required_for_execution": true,
+  "retain_all_input_rows_and_bins": true,
+  "schema": "SETI_BY_POSTEXPOSURE_IDENTIFIER_PAIRING_V2",
+  "source_commit": "de774a274fd2dfe44e31ba88178c9dd8305de3a0",
+  "source_notch_label_region_inclusive_mhz": [
+    2300,
+    2360
+  ],
+  "source_repository": "dbautista98/Breakthrough_Listen",
+  "status": "DECLARED_BEFORE_V2_JOIN_COMPUTATION_AFTER_ORIGINAL_DATA_EXPOSURE",
+  "turbo_identifier_rule": "Remove exactly one complete terminal whitelisted suffix; reject unknown suffixes and empty stems.",
+  "whitelisted_terminal_suffixes": [
+    ".gpuspec.0000.datnew.dat",
+    ".rawspec.0000.datnew.dat"
+  ]
+}
