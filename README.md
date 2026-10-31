@@ -1,3 +1,15 @@
+## Seneste status — BX — nye testdata kontrolleret (31. oktober 2026)
+
+To originale ATA-testfiler fra én 2024-observation er hentet og analyseret. **Alle 51.968 komplekse værdier blev kontrolleret; ingen opfylder den fastlagte gyldighedsmaske, fordi alle afkodede samplevægte er negative.** Begge filer har kun én integration på 30,015488 sekunder og 500 kHz kanaler. De er uegnede til vores smalbåndede drift- og ON/OFF-søgning. Det er en vurdering af de publicerede testeksporter, ikke af hele teleskopobservationen.
+
+Produktion, uafhængig skalarkontrol og afsluttende rapportkontrol bestod. Kontrollen deler h5py-dekoderen med produktionen. Headerens observationsdato (3. december 2024) afviger fra kilde-README (12. december); konflikten er bevaret. Et separat forsøg på at hente forfatterens otte tidligere publicerede signaludsnit stoppede uden data efter tre dokumenterede transportfejl.
+
+**BX tilføjer ingen SETI-søgning eller observationsdækning.** OFF5 mangler fortsat, og fuld ON/OFF-vurdering er ikke mulig. Tidligere dækning er uændret: 486 arkiv-ID'er og 268,50128173828125 tekniske MHz-besøg; ingen kvalificeret astronomisk følsomhed. Ingen beregningsjob kører i baggrunden.
+
+[Resultat og kontrolrapport](https://github.com/andersenmartin-blip/setisearch/blob/7a3434b4c97b0f9985ff867929edf960fcfd4d80/RADIO_PROGRESS_BX_DATA_SOURCES_2026-10-31.md) · [Bevisoversigt](https://github.com/andersenmartin-blip/setisearch/blob/7a3434b4c97b0f9985ff867929edf960fcfd4d80/work_bx/DELIVERY_BX.json)
+
+---
+
 ## Seneste status — BW — q254 afsluttet (31. oktober 2026)
 
 Det sidste udsnit med fulde støtteområder, q254, er analyseret i de fem komplette HIP44295-scanninger: **ingen katalogrækker over ESS 10; maksimum 5,7560**. 45.104.640 korrelerede sporkombinationer blev gennemført, og både kørsel og uafhængig kontrol bestod. BU+BV+BW dækker nu q1–254, **2,90679931640625 MHz**. Det er yderligere scoring af tidligere indlæste observationer; ingen nye arkivdata er hentet.
