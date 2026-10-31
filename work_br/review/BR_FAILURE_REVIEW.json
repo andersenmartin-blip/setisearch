@@ -1,0 +1,100 @@
+{
+  "BP_original_status": "FAIL",
+  "BQ_effective_status": "EVIDENCE_FAIL",
+  "BR_effective_status": "FAIL",
+  "capture_reasons": [
+    "ACTUAL_CHILD_EXIT_NOT_ZERO",
+    "TERMINAL_OR_RESULT_VALIDATION_FAILED: Terminal status/event differs"
+  ],
+  "captured_exception": "ClosureError: Stream changed while its closed receipt was being verified",
+  "cause": "UNESTABLISHED",
+  "cleanup_complete": true,
+  "closure_guard_detected_change": true,
+  "completed_utc": "2026-10-31T08:24:06.235833+00:00",
+  "evidence_bytes_rehashed": 148676791,
+  "evidence_files_rehashed": 8,
+  "exact_child_exit": 2,
+  "exact_wait": true,
+  "failure_stage": "Legacy pending-stream verification before final-path publication",
+  "full_pair_evidence_qualified": false,
+  "independent_helper_sha256": "6f7036aa4f11cd3d56f0ec498015dfa0f3b4b1bb88537e1f65ebd353465d1f65",
+  "input_pins_verified": 62,
+  "methods": {
+    "current": {
+      "bytes": 82645873,
+      "complete_stream": true,
+      "expected_records": 43306,
+      "incomplete_final_record_bytes": 0,
+      "last_retained_source": {
+        "ESS": 11.465377855174438,
+        "center": 264792,
+        "q": 64,
+        "rate_index": 838,
+        "source_scan": 4,
+        "stride": 8,
+        "width": 33
+      },
+      "missing_complete_records": 0,
+      "path": "current_associations.jsonl",
+      "retained_complete_records_verified": 43306,
+      "retained_records_form_exact_ordered_prefix": true,
+      "sha256": "c2ac481a772ade86eaeabc3b5fab401faa970cddee0edd261d1cced8e26b163d",
+      "status_counts_for_retained_records": {
+        "OFF_VETO": 9669,
+        "PASS": 0,
+        "THREE_ON_FAIL": 33637,
+        "UNSUPPORTED": 0
+      }
+    },
+    "legacy": {
+      "bytes": 64961914,
+      "complete_stream": false,
+      "expected_records": 43845,
+      "incomplete_final_record_bytes": 0,
+      "last_retained_source": {
+        "ESS": 43.20431137084961,
+        "center": 263793,
+        "q": 64,
+        "rate_index": 838,
+        "source_scan": 4,
+        "stride": 1,
+        "width": 1
+      },
+      "missing_complete_records": 10102,
+      "path": ".legacy_associations.jsonl.pending",
+      "retained_complete_records_verified": 33743,
+      "retained_records_form_exact_ordered_prefix": true,
+      "sha256": "79325e18c147dc0f8dfeb7a826dfc5f7bee4fa18207351a4ca2ee3a06b0065d4",
+      "status_counts_for_retained_records": {
+        "OFF_VETO": 7760,
+        "PASS": 0,
+        "THREE_ON_FAIL": 25983,
+        "UNSUPPORTED": 0
+      }
+    }
+  },
+  "natural_EOF": true,
+  "no_false_effective_PASS": true,
+  "operations": {
+    "historical_execution_mutations": 0,
+    "missing_records_filled": 0,
+    "new_RNG_calls": 0,
+    "new_saved_association_results": 0,
+    "new_scan_scores": 0
+  },
+  "prior_input_and_source_pins_unchanged": true,
+  "qualifications": [
+    "Complete retained current stream is independently verified against saved arrays, but no successful BR pair closure exists.",
+    "Retained legacy pending records are verified only as an ordered prefix; missing records are not supplied.",
+    "The closure guard correctly refused qualification. File-change cause remains unestablished. No full839,DATAadmission or astronomical science activation."
+  ],
+  "result_sha256": "61ecfb5f3607deff3bc54bdefbcf5d505f26254583860981389e2225ef4b23d3",
+  "reviewer_source_sha256": "f77d69871ff7e80156874dcecf721603567e7ea0e177ef99ad2949afbbeb9e5d",
+  "schema": "SETI_BR_INDEPENDENT_FAILED_CLOSURE_REVIEW_V1",
+  "source_guard_code": "POSTCLOSE_MUTATION",
+  "source_guard_code_basis": "Inferred from exact frozen stream_closure.py guard identified in saved traceback; child JSON did not serialize exception.code separately.",
+  "source_pins_verified": 25,
+  "status": "PASS_FAILED_EVIDENCE_VERIFICATION",
+  "terminal_sha256": "6e6f7c881069ccf9720997673e0f17b6d402bd6266f5a1d0c3de8755d0cf925b",
+  "wall_seconds": 6.861045796999861
+}

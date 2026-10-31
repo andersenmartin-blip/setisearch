@@ -130,7 +130,7 @@ def main():
     child_closure=result['child_stream_closure'];parent_closures=terminal['parent_stream_closure']
     check(result['output_bindings_verified'] and result['original_computation_status_preserved']=='PASS','Child output closure missing')
     check(child_closure['status']=='PASS' and child_closure['effective_status']=='PASS' and child_closure['stage']=='child_end','Child stream fence failed')
-    check(len(parent_closures)==2 and terminal['capture_status']=='PASS' and terminal['closing_errors']==[],'Parent stream closure missing')
+    check(len(parent_closures)==2 and terminal['capture_status']=='PASS' and terminal['closing_errors']==[] and terminal['final_inventory_matches_result_manifests'],'Parent stream closure or final inventory binding missing')
     for fence in parent_closures:
         check(fence['stage']=='parent_end' and fence['status']=='PASS' and fence['effective_status']=='PASS','Parent stream fence failed')
         check(fence['verification']==child_closure['verification'],'Cross-fence metadata differs')
@@ -143,6 +143,10 @@ def main():
     bq_effective=read(REPO/'work_bq/EFFECTIVE_STATUS_BQ.json')
     check(bq_effective['status']=='EVIDENCE_FAIL' and bq_effective['cause']=='UNESTABLISHED','BQ evidence failure relabeled')
     check(terminal['BQ_effective_status']=='EVIDENCE_FAIL' and result['BQ_effective_status']=='EVIDENCE_FAIL' and result['BQ_effective_failure_preserved'],'BR failed to preserve BQ failure')
+    prior_bq=read(REPO/'work_bq/execution/BQ_A04_ASSOC_V1/A04_POSTPROCESSING/payload/RESULT.json')
+    for method in ('current','legacy'):
+        original=prior_bq['method_results'][method]['association_stream']
+        summaries[method]['matches_prior_BQ_declared_full_stream']=(summaries[method]['stream_sha256']==original['sha256'] and summaries[method]['stream_bytes']==original['bytes'] and summaries[method]['source_ON_hits']==original['records'])
     verify_pins(pins);bp_files2,bp_bytes2=verify_bp(bp_terminal)
     check(sha(bp_terminal_path)==bp_terminal_hash and sha(terminal_path)==terminal_hash,'Terminal changed during audit')
     check((bp_files,bp_bytes)==(bp_files2,bp_bytes2),'BP inventory changed during audit')
