@@ -1,0 +1,71 @@
+{
+  "actual_header_metadata_check": {
+    "actual_tstart_mjd": [
+      57660.61375,
+      57660.6178125,
+      57660.62186342593,
+      57660.62590277778,
+      57660.62993055556
+    ],
+    "catalogue_mjd_not_sample_zero": true,
+    "complete_scan_headers_checked": 5,
+    "native_first_channel_mhz": 2301.85546875,
+    "status": "PASS_METADATA_ONLY"
+  },
+  "adapter_role": "New prospective five-scan HIP44295 transport and partial association only; exact existing per-scan local-ESS numerics. Original full96row gate unchanged.",
+  "artificial_tests": {
+    "command": "python -m unittest discover -s work_bu/tests -p test_partial_search.py -v",
+    "status": "PASS",
+    "test_source_sha256": "17cc8eab400b0112e99d00882f6c8a6cbd9ab8e0187e626378d728bcf3d00604",
+    "tests": 6
+  },
+  "calibration_domain": "Each selected4096channelqcore at its own fixedstride, independently for each scan,width,drift",
+  "exact_vendor_sha256": "7f2e10f1814c29f60808712321e2a904f4dc6716ed7b85b15853a9b928824062",
+  "excluded_historical_entrypoints": [
+    "BN.validate_plan",
+    "BN.prepare",
+    "BN.search_q",
+    "BN.triage_q",
+    "BO.open_saved_scan"
+  ],
+  "numerical_scope": {
+    "calibrated_FAP": false,
+    "calibrated_astronomical_sensitivity": false,
+    "complete_OFF_support": false,
+    "complete_scans": 5,
+    "drift_rates": 839,
+    "original_coverage_credit": 0,
+    "q_count": 32,
+    "rows_per_scan": 16,
+    "scan_q_searches": 160,
+    "selected_carrier_channels": 131072,
+    "selected_independent_scalar_checks_per_batch": 1440,
+    "shared_kernel_calibration_vector_replays_per_batch": 480,
+    "technical_channel_bin_width_hz": 366210.9375,
+    "track_combinations_per_batch": 360837120,
+    "track_combinations_per_scan_q": 9020928,
+    "track_combinations_total": 1443348480
+  },
+  "powers_opened_during_source_recovery": false,
+  "qualification": "Finite source identity, synthetic software checks, and planned saved-result audits. No calibrated FAP, astronomical sensitivity, original coverage credit or complete-cadence candidate qualification.",
+  "real_scores_computed_during_source_recovery": false,
+  "schema": "SETI_BU_SOURCE_PROVENANCE_V1",
+  "source_commit": "bece6ef5f727fb23ca890b1b1adc67f9a8fe8040",
+  "source_path": "work_bn/bounded_search_bn.py",
+  "source_sha256": {
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bo/src/methods.py": "9d7300dadf61872a32f04e9a6fe77fdeb8be8ccc87004f24e1f212cf14942f52",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bo/src/npy_adapter.py": "9b1813ca6de91410e989ef9a31d3c85dfcefe77cddf83596ae963364026e9ace",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bo/vendor/current/continuous_normalization_ac.py": "8953f595f1fa9e192c98fbb185b69800d046275552a9bcff6c41df40d558bf52",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bo/vendor/current/kernel_v.py": "3367c20c93e4ba564b5abceb19e0939fb82fd364fbb400fe85e07f93f15b8999",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bo/vendor/legacy/run_pilot.py": "4c7e2f4a973b92b518f1134cba3d0529a313d0092bf67460d00ac6b119fb2c23",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bo/vendor/legacy/search_pilot.py": "56b0800b972f02cc3d2e3f5795571b1ce95684bf37803ec5d007ed3dccbdb101",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bu/partial_search.py": "20e80c54ebe9dad4ff8b3efd770dd5667a5441ca75748a10437db7780ae3782a",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bu/vendor/bounded_search_bn.py": "7f2e10f1814c29f60808712321e2a904f4dc6716ed7b85b15853a9b928824062"
+  },
+  "source_url": "https://github.com/andersenmartin-blip/setisearch/blob/bece6ef5f727fb23ca890b1b1adc67f9a8fe8040/work_bn/bounded_search_bn.py",
+  "unchanged_AST_compiled_functions": [
+    "drift_rates",
+    "local_maximum",
+    "search_scan"
+  ]
+}
