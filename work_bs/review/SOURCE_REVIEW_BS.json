@@ -1,0 +1,187 @@
+{
+  "blocking_findings": [],
+  "experimental_adequacy": [
+    "Three fixed once-only trials; two45000-record unrelated deterministic JSONL streams each; no RNG or saved-score access.",
+    "Original BQ and BR writer source hashes enforced without weakening checks.",
+    "prepare_plan pins sources, historical status/evidence, Python runtime, exact deterministic expected bytes/hash/count and fixed120wall/90CPU/512MiB/384MiBtrial bounds with1GiBphase storage.",
+    "Prospective public freeze and exact readback required by runner before exclusive trial reservation.",
+    "Serial execution isolation is an explicit operator constraint; only third trial has controlled readonly external-execution witness.",
+    "Python audit wrapper uses exclusive bounded8MiB audit output, serializes writes, retains start/end receipts, and fsyncs/closes after diagnostic exit.",
+    "Final independent review must reconcile inventories, manifests, process outcomes, monitor and audit evidence; no automatic A04 retry or scientific qualification."
+  ],
+  "full_trials_executed": 0,
+  "historical_files_mutated": 0,
+  "initial_review_preserved": {
+    "adequacy": "Three once-only deterministic fixture trials, unchanged writers, fixed bounded counts, no A04 input access, no forced mutation in overlap witness, full artifacts, syscall traces, fd/path monitor and planned independent final review are appropriate. No claim of historical causal proof from serial-vs-overlap difference alone.",
+    "blocking_findings": [
+      {
+        "id": "BS_REVIEW_01",
+        "issue": "main sets RLIMIT_CPU soft/hard to180, but capture child inherits hard91 from plan90CPU. Raising inherited hard maximum fails without CAP_SYS_RESOURCE and defeats imposed hard limit if permitted. Unit tests bypass main, so do not cover this.",
+        "line": 364,
+        "path": "work_bs/diagnostic.py",
+        "remedy": "Remove the CPU-limit reset or set limits no higher than the inherited limits. Keep outer fixed90CPU enforcement."
+      },
+      {
+        "id": "BS_REVIEW_02",
+        "issue": "Parent writes status from capture PASS and final inventory without reconciling inventory with RESULT fixture receipts. This reintroduces BQ false-qualification gap if files change after child verification. Independent review is planned, but diagnostic terminal should itself fail closed.",
+        "line": 61,
+        "path": "work_bs/run_diagnostics.py",
+        "remedy": "Before terminal publication, compare captured RESULT digest with actual RESULT, and every saved final stream byte/hash/record manifest with final artifacts; record effective FAIL on any mismatch and preserve capture status separately."
+      }
+    ],
+    "full_trials_executed": 0,
+    "historical_files_mutated": 0,
+    "nonblocking_findings": [
+      {
+        "id": "BS_REVIEW_03",
+        "issue": "Snapshot can race legitimate pending unlink. FileNotFoundError aborts whole witness without a receipt. Record disappearance and errors as observations instead of suppressing whole witness.",
+        "line": 22,
+        "path": "work_bs/overlap_witness.py"
+      },
+      {
+        "id": "BS_REVIEW_04",
+        "issue": "Held-descriptor map key uses pre-open pathname stat; replacement between stat and open can label fd with old inode key. Capture fstat after open, key by actual fd identity, and record observed path/fd mismatch.",
+        "line": 141,
+        "path": "work_bs/diagnostic.py"
+      },
+      {
+        "id": "BS_REVIEW_05",
+        "issue": "monitor.complete may be true with unavailable inotify; availability/error separately recorded. Keep this explicit limitation; do not call events complete if unavailable.",
+        "line": 217,
+        "path": "work_bs/diagnostic.py"
+      }
+    ],
+    "schema": "SETI_BS_INDEPENDENT_SOURCE_REVIEW_V1",
+    "scope": "Static code review; no full trials executed. Plan JSON not present at review.",
+    "source_pins_at_review": [
+      {
+        "path": "work_bs/run_diagnostics.py",
+        "sha256": "9d46fe30373287924e0ad3fc8a094a47eb96f8339093f40ff0de25492a115a9d"
+      },
+      {
+        "path": "work_bs/overlap_witness.py",
+        "sha256": "3ab3b77c2394ca31b4b10e8cd62fcc38ca8115993f12e0c9224903826b46e8f6"
+      },
+      {
+        "path": "work_bs/PREREG_BS.md",
+        "sha256": "6b506b8aa22c8154cb1a9c695ae2143a7a316e6748c1ebe1682e654c158b68b8"
+      },
+      {
+        "path": "work_bs/diagnostic.py",
+        "sha256": "f498fffc0f696e5b71e229c8259e1e53792bfb652cfb2a71278d579f72341166"
+      },
+      {
+        "path": "work_bs/tests/test_diagnostic.py",
+        "sha256": "aeb27ed960c8bd83514ed93f6683461509150bae495c943f9999e7dc01d1c673"
+      }
+    ],
+    "status": "FIX_REQUIRED_BEFORE_FREEZE"
+  },
+  "instrumentation_change_before_freeze": {
+    "fallback": "Python attempted-operation audit events plus inotify and held-fd/path metadata.",
+    "limitations": "Not a kernel syscall trace. No write/fsync coverage, success-return proof, native/external-process attribution or host reconciliation visibility. Absence of a Python audit event does not prove absence of a write.",
+    "strace": "Unavailable: preflight PTRACE_TRACEME Operation not permitted; no full-size diagnostic trial spent."
+  },
+  "no_A04_qualification": true,
+  "remaining_limitations": [
+    "A single serial-vs-overlap difference is suggestive and cannot by itself establish historical cause.",
+    "20ms monitor sampling and optional inotify cannot prove all transient operations were observed.",
+    "Point-in-time integrity cannot guarantee no future mutation after final closure.",
+    "Operator must actually prevent overlapping tool executions during serial trials and preserve the once-only identities.",
+    "Final source review is not an executed-trial PASS; plan generation/publication/readback and independent result review remain required."
+  ],
+  "resolutions": [
+    {
+      "evidence": "diagnostic.tighten_limit takes minima with inherited soft and hard caps; main no longer raises a finite caller limit.",
+      "id": "BS_REVIEW_01",
+      "status": "RESOLVED"
+    },
+    {
+      "evidence": "run_diagnostics retains capture_status separately; verifies captured RESULT, monitor digest and prospective fixture bindings; rechecks both streams independently against child checks; compares final inventory hashes/bytes against all manifests; any exception marks effective FAIL.",
+      "id": "BS_REVIEW_02",
+      "status": "RESOLVED"
+    },
+    {
+      "evidence": "overlap_witness.snapshot records FileNotFoundError as a disappeared-path observation, preserving the witness receipt.",
+      "id": "BS_REVIEW_03",
+      "status": "RESOLVED"
+    },
+    {
+      "evidence": "LifecycleMonitor uses fstat immediately after open to key held descriptors and records PATH_OPEN_RACE for a differing pathname identity.",
+      "id": "BS_REVIEW_04",
+      "status": "RESOLVED"
+    },
+    {
+      "evidence": "inotify_available and inotify_error are separately retained. monitor.complete describes retained monitor observations, not proof of an available full kernel event stream. Independent result review must retain this distinction.",
+      "id": "BS_REVIEW_05",
+      "status": "ACCEPTED_EXPLICIT_LIMITATION"
+    },
+    {
+      "evidence": "Parent includes verification and final inventory in measured wall and parent+child CPU totals, checks120wall/90CPU caps, and validates frozen Python version/executable digest.",
+      "id": "BS_REVIEW_06",
+      "status": "RESOLVED"
+    }
+  ],
+  "reviewed_scope": "Static review of final diagnostic, parent capture/closure, original writers, overlap witness, plan builder, tests, audit wrapper and preregistration. No full-size trials were executed by this reviewer.",
+  "reviewer_tool_pause": "After sending final review, no reviewer tools until root explicitly requests post-trial review.",
+  "schema": "SETI_BS_INDEPENDENT_SOURCE_REVIEW_V2",
+  "source_pins_at_final_review": [
+    {
+      "bytes": 6980,
+      "path": "work_bs/run_diagnostics.py",
+      "sha256": "7e3e9a484be5d5f055b837e72f3d36ce1ce2725b63f0b120eb98033c8be58f31"
+    },
+    {
+      "bytes": 2519,
+      "path": "work_bs/overlap_witness.py",
+      "sha256": "5cf0f202cfee8133ed1158e287124c1e04e1e777cbea8f8a9eb81441054cb179"
+    },
+    {
+      "bytes": 2861,
+      "path": "work_bs/PREREG_BS.md",
+      "sha256": "b196eb42350397618e303b9f1fed8f3d7dec4185ffac3b5871ef7b6742899fa8"
+    },
+    {
+      "bytes": 18809,
+      "path": "work_bs/diagnostic.py",
+      "sha256": "2192d2a9da560e5a4969f7a404849b9db6f63c5db107321ffd941c11dd4ea608"
+    },
+    {
+      "bytes": 11228,
+      "path": "work_bs/tests/test_diagnostic.py",
+      "sha256": "7a2247f515e7883310ef818561b8e9dd16642f0c493a0e6adacda87f1e1fed00"
+    },
+    {
+      "bytes": 4265,
+      "path": "work_bs/prepare_plan.py",
+      "sha256": "ae69d1630d8fb4fa6f7d535653b454865ccea795549419d6bdd935464ecab92f"
+    },
+    {
+      "bytes": 5876,
+      "path": "work_bs/audited_worker.py",
+      "sha256": "70c9ae7f84ae852a9e1480d5bf531bf99fd64faab9bb755544bff52971280667"
+    },
+    {
+      "bytes": 862,
+      "path": "work_bs/review/TRACING_CAPABILITY.json",
+      "sha256": "a53d47ffc197fdc007dde3ef5fe36c50990f7651204a370b4d40763bb006daef"
+    },
+    {
+      "bytes": 19730,
+      "path": "work_bo/src/capture.py",
+      "sha256": "51cadd2f2e19be492f17e9dd763fc977c3d0302c61e6892a9c0009983539d227"
+    },
+    {
+      "bytes": 12463,
+      "path": "work_bq/stream_association.py",
+      "sha256": "455ad449bbe7ddd540b559461620e652c15bffe76b0c597648f8fd780a5fa115"
+    },
+    {
+      "bytes": 15222,
+      "path": "work_br/stream_closure.py",
+      "sha256": "8b3e3887b1b548e06d28cab4fcba127815c047f28b5c6cd72164472c99ced814"
+    }
+  ],
+  "status": "PASS_BOUNDED_DIAGNOSTIC_SOURCE_REVIEW",
+  "tests": "Harness author reports16passing deterministic tests including inheritedCPU90/91 CLI, held-fd open race, replacement, truncation, metadata mutation and audit-wrapper BR fixture. Reviewer inspected relevant source; did not redundantly rerun them."
+}
