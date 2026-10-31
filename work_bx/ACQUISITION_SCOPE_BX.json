@@ -1,0 +1,43 @@
+{
+  "schema": "SETI_BX_AUTHOR_PUBLISHED_TOP8_ACQUISITION_SCOPE_V1",
+  "status": "METADATA_ONLY_BEFORE_PAYLOAD",
+  "source_repository": "PetchMa/ML_GBT_SETI",
+  "commit": "5f9c006a2960683969d9face28119af4d5b410b5",
+  "path": "data_archive/top_8_data.pkl",
+  "git_blob_sha1": "22b89220de8d38c07f6e3f2813ba0e39535b367f",
+  "bytes": 12613542,
+  "primary_paper": "https://arxiv.org/abs/2301.12670",
+  "known_preselected_signals": true,
+  "expected_keys": [
+    "mlc1",
+    "mlc2",
+    "mlc3",
+    "mlc4",
+    "mlc5",
+    "mlc6",
+    "mlc7",
+    "mlc8"
+  ],
+  "expected_scans_per_candidate": 6,
+  "expected_data_shape": [
+    6,
+    16,
+    1,
+    4096
+  ],
+  "transport": "First-party GitHub connector, exact original author-published git blob; no mirror/proxy/archive access",
+  "acquisition_attempts": 1,
+  "max_payload_bytes": 20971520,
+  "decode_policy": "Inspect pickle opcodes first. Restricted NumPy/primitive-only decoder; reject arbitrary globals, object arrays, unknown reconstruction. Bounded isolated process. No unrestricted pickle.load.",
+  "analysis_policy": "All eight records retained, use actual stored frequency and scan headers. No early power-based selection. Freeze method after metadata validation and before signal scoring. Retrospective published-candidate assessment only; no blind-search/independent-new-discovery credit.",
+  "claims": {
+    "new_project_dataset": true,
+    "new_observation_epoch_not_yet_verified": true,
+    "new_blind_search_coverage": 0,
+    "original_BA_coverage_credit": 0,
+    "full_HIP44295_OFF5_repaired": false,
+    "global_FAP": null
+  },
+  "parent_BW_index": "libfile_be9824abb8cc8191bd02b787c6222203",
+  "fallback": "If exact payload transport or safe decoding fails, preserve failure and stop this acquisition identity; do not use blocked archive/proxy route."
+}
