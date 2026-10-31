@@ -1,0 +1,67 @@
+{
+  "BP_evidence_review_sha256": "df9046ca582df702b3bf8d218df79d899dde78ea4a29b1fd8af5df4602d9e13c",
+  "blocking_issues": [],
+  "checks": {
+    "bounded_retention": "Associations are written one at a time with exclusive file creation, complete JSONL records, flush/fsync and incremental-vs-file SHA/byte/count checks; full association lists are not retained. Original bounded input score/hit stores remain in memory.",
+    "capture": "Unchanged BO exact-child capture with1GiBRSS,180CPUseconds,240wallseconds,2GiBnewstorage. Source/input pins verified before/after. Nonzero, missingEOF, partialstream or bound failures stayFAIL without automatic retry.",
+    "explicit_stream_specification_binding": "prepare_plan stores stream_association.specification(); runtime verify requires exact equality before input access.",
+    "failure_preservation": "BP remainsFAIL23passed+1RSSfailure; BQ has its own reserved identity/caps/capture/result. No additionalRNG, normalization, track sums, scan scores, telescope data or changed thresholds.",
+    "input_evidence": "Prepare plan binds A04 and N04 six-scan RESULT/arrays, immutable seed4base+receipts, A04deltas, originalBPplan/readback, BPterminal/A04failedcapture and independentBP review; terminal inventory pins are checked.",
+    "numerical_policy": "Uses original BP ScoreStore/force/truth_candidates directly. Candidate order,50,000sourcecap, support, rates/widths, physicalqcalibration, nearest-grid, ON10/OFF5 and A04 gate unchanged.",
+    "public_precondition": "Root must publish and read back exact finalBQsource/plan before first new association evaluation.",
+    "source_fidelity": "Every originalBP source pin is required; load_bp enforces exact frozen comparator SHA. No frozenBP source or execution artifact changes."
+  },
+  "limits": [
+    "This source review does not yet establish BQ execution success.",
+    "A successful BQ completes savedA04association evidence separately; it cannot erase or replace originalBPFAIL.",
+    "No full839qualification,DATAadmission,FAP,sensitivity,or sky-origin follows."
+  ],
+  "reason_for_new_identity": "BP saved all144 scan results but A04 association materialization exceeded the frozen2GiBRSS cap; exact child exit-9, EOF/cleanup and incomplete case result retained. Streaming changes output retention only and uses previously fixed score arrays/endpoints.",
+  "review_operations": {
+    "A04_association_evaluations": 0,
+    "astronomical_inputs_opened": 0,
+    "new_RNG_calls": 0,
+    "new_search_scores": 0,
+    "static_source_review": true
+  },
+  "reviewed_sources": [
+    {
+      "bytes": 12463,
+      "path": "work_bq/stream_association.py",
+      "sha256": "455ad449bbe7ddd540b559461620e652c15bffe76b0c597648f8fd780a5fa115"
+    },
+    {
+      "bytes": 5313,
+      "path": "work_bq/run_postprocessing.py",
+      "sha256": "b3182090492a9e40ccc6ca9ddcf4cbed5bfa817fd137b9f61e61b48d05dbe277"
+    },
+    {
+      "bytes": 3590,
+      "path": "work_bq/prepare_plan.py",
+      "sha256": "cf5627def5edf1a57018822081087f86934d6a4a913165e8fae77577185f04e0"
+    },
+    {
+      "bytes": 2126,
+      "path": "work_bq/PREREG_BQ.md",
+      "sha256": "697172dab80ae44445da4aba7da61ccb8c4661df02ffe922a00f1f5c7c0ab658"
+    },
+    {
+      "bytes": 7214,
+      "path": "work_bq/tests/test_stream_association.py",
+      "sha256": "46dbdb52ff5b5776b5da79819669905231a48037f8a10bfeefe5540e43d1afe0"
+    },
+    {
+      "bytes": 22197,
+      "path": "work_bp/paired_search.py",
+      "sha256": "5b9fd6aab563649eca3bc2fcac4f3a0d95853b9f13e851af8f945e84fa51df25"
+    },
+    {
+      "bytes": 19730,
+      "path": "work_bo/src/capture.py",
+      "sha256": "51cadd2f2e19be492f17e9dd763fc977c3d0302c61e6892a9c0009983539d227"
+    }
+  ],
+  "reviewer": "/root/review_next_stage",
+  "schema": "SETI_BQ_INDEPENDENT_SOURCE_REVIEW_V1",
+  "status": "PASS_FOR_PUBLIC_FREEZE_AND_SAVED_SCORE_POSTPROCESSING"
+}
