@@ -1,0 +1,109 @@
+{
+  "all_sources_match_plan": true,
+  "capture_controller": {
+    "actual_exit_and_EOF_for_production_and_review": true,
+    "closed_archive_and_parent_export_validation": true,
+    "fixed_order": true,
+    "independent_review_wall_cpu_seconds": 120,
+    "only_run_remaining_is_approved_top_level_entrypoint": true,
+    "overall_wall_seconds": 3600,
+    "parent_source_sha256": "35abb059590254c44fbdf3ebae210e1155e0c7a2e0e66d53618feab0cb093c75",
+    "per_batch_wall_cpu_seconds": 900,
+    "public_freeze_exact_readback_before_power_scoring": true,
+    "serial_source_sha256": "fd329e01b0444cf4de9b550a1ecc4d55a81a1755100433202c6cad68de901c59",
+    "stop_on_failure_without_retry": true
+  },
+  "completed_utc": "2026-10-31T12:32:51.580836+00:00",
+  "headers": [
+    {
+      "actual_header_time_used": true,
+      "header_sha256": "acb0be401c6f88c360bab413403358918aad8e82beaab0b54e3e90ec1cc585af",
+      "scan": 0
+    },
+    {
+      "actual_header_time_used": true,
+      "header_sha256": "b1df96e95211a36b07b9ed8f095d37c4463a5c0122e554b4f3f59f4c8f7a9988",
+      "scan": 1
+    },
+    {
+      "actual_header_time_used": true,
+      "header_sha256": "3ef679549d4ed8118267a7af02e14ef0d1158c585fbd4a10c1a0b4406b2e571f",
+      "scan": 2
+    },
+    {
+      "actual_header_time_used": true,
+      "header_sha256": "72c77399dfe660d524d18a637984a48917283cacd899741c295c2e438cba49d5",
+      "scan": 3
+    },
+    {
+      "actual_header_time_used": true,
+      "header_sha256": "fc895da06776eb3b59eb5c8d524859b898e958b018f8d8c86bb91bfdf3a148f2",
+      "scan": 4
+    }
+  ],
+  "independent_reviewer": {
+    "additional_checks": "Explicit q-result and five-scan cardinalities; no silent zip truncation",
+    "artificial_tests_passed": 6,
+    "changed_scope": "q33..253,28batches,last5q; last support28672; auditcounts180/60perq",
+    "nonempty_artificial_associations_direct_scalar_checked": true,
+    "production_numerical_imports": false,
+    "source_sha256": "c0a12b528a5bdefdac2043e32f29856560a7ba84a0b4c62069e21f5e6b124bb5"
+  },
+  "numerical_function_AST_equal_to_BU": [
+    "load_numerics",
+    "verify_header_content",
+    "classify_partial",
+    "associate_partial",
+    "scalar_sum"
+  ],
+  "parent_plan_sha256": "f681d59f37a205bf0448736137bdfce37e04a1e18e6a4654899f2e1df342aefd",
+  "plan_sha256": "5c98d2ba7a13842cdf672377c34d98b6652fa130bf7f44d30881da6315487c08",
+  "remaining_changed_functions_reviewed": [
+    "validate_plan: family and fixed q scope only",
+    "prepare_inputs: output schema only",
+    "run_batch: 28 batch range and output schema only",
+    "bounded_run_batch: diagnostic identity only",
+    "audit_batch: output schema only"
+  ],
+  "scan_metadata_identical_to_BU": true,
+  "schema": "SETI_BV_INDEPENDENT_SOURCE_REVIEW_V1",
+  "scientific_limits": [
+    "Five complete scans only; OFF5 remains absent and never substituted.",
+    "No complete-cadence candidate qualification, calibrated FAP or sensitivity.",
+    "No original BA coverage credit or queue advance; historical failures unchanged.",
+    "Raw powers previously decoded and fully normalized in BU; only detector carrier cores are new.",
+    "Same-q destination calibration for forced halo measurements is inherited descriptive local ESS.",
+    "Numerical audit is bounded, not another full839-rate search.",
+    "No real power arrays were numerically opened during this source review."
+  ],
+  "scope": {
+    "batch_count": 28,
+    "combined_BU_BV_correlated_track_combinations": 11411473920,
+    "combined_carrier_bin_width_mhz": 2.895355224609375,
+    "correlated_track_combinations": 9968125440,
+    "final_batch_q_count": 5,
+    "halo_channels": 4096,
+    "maximum_halo_shift_plus_radius_channels": 2218,
+    "new_carrier_bin_width_mhz": 2.529144287109375,
+    "q_count": 221,
+    "scan_q_count": 1105
+  },
+  "source_sha256": {
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bo/src/capture.py": "51cadd2f2e19be492f17e9dd763fc977c3d0302c61e6892a9c0009983539d227",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bo/src/methods.py": "9d7300dadf61872a32f04e9a6fe77fdeb8be8ccc87004f24e1f212cf14942f52",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bo/src/npy_adapter.py": "9b1813ca6de91410e989ef9a31d3c85dfcefe77cddf83596ae963364026e9ace",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bo/vendor/current/continuous_normalization_ac.py": "8953f595f1fa9e192c98fbb185b69800d046275552a9bcff6c41df40d558bf52",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bo/vendor/current/kernel_v.py": "3367c20c93e4ba564b5abceb19e0939fb82fd364fbb400fe85e07f93f15b8999",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bo/vendor/legacy/run_pilot.py": "4c7e2f4a973b92b518f1134cba3d0529a313d0092bf67460d00ac6b119fb2c23",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bo/vendor/legacy/search_pilot.py": "56b0800b972f02cc3d2e3f5795571b1ce95684bf37803ec5d007ed3dccbdb101",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bt/isolated_worker.py": "03273f70e69488db285ea6363cf2c5c5036f6d66845a45538467c1ecab4dca00",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bu/partial_search.py": "20e80c54ebe9dad4ff8b3efd770dd5667a5441ca75748a10437db7780ae3782a",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bu/vendor/bounded_search_bn.py": "7f2e10f1814c29f60808712321e2a904f4dc6716ed7b85b15853a9b928824062",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bv/partial_search.py": "933b63544570224ee2aca4e3b642810135336b52cebba1e9e4683aaba5c15c73",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bv/prepare_plan.py": "fc5e3a06d6819d92b90388d8fa492e0cc859069eb03d9a00e68b8b476b4936fa",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bv/review/audit_partial_bv.py": "c0a12b528a5bdefdac2043e32f29856560a7ba84a0b4c62069e21f5e6b124bb5",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bv/run_remaining.py": "fd329e01b0444cf4de9b550a1ecc4d55a81a1755100433202c6cad68de901c59",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bv/run_stage.py": "35abb059590254c44fbdf3ebae210e1155e0c7a2e0e66d53618feab0cb093c75"
+  },
+  "status": "PASS_PROSPECTIVE_PARTIAL_CONTINUATION_SCOPE"
+}
