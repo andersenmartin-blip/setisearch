@@ -1,3 +1,13 @@
+## 31. oktober 2026: BT — alle 24 begrænsede kontroller kvalificeret
+
+**A04 er nu bestået i en ny, isoleret og uafhængigt verificeret kørsel.** Samlet er de 24 planlagte kontrolcases kvalificeret: 23 fra BP og den komplette nye A04-pair fra BT. Begge metoder genfandt 6/6 stærke og 2/6 svage testsignaler; ingen svag legacy-genfinding gik tabt i current. Alle otte baggrundscadencer havde nul fulde flag, og alle fire forstyrrelseskontroller er kvalificeret.
+
+Blokeringen blev håndteret ved at holde aktive filer i et privat tmpfs-område og først eksportere en lukket, fuldt kontrolleret resultatpakke. En separat fixture med 90.000 poster bestod før A04. Den efterfølgende uafhængige audit genberegnede alle **87.151 A04-associationer** og bekræftede begge metoders OFF-veto samt uændret slut-evidens. BS fandt genskabte filer og kopierings-/synkroniseringsspor; den præcise historiske årsag er fortsat uafklaret. BP, BQ, BR og BS's fejlede identiteter er bevaret som FAIL.
+
+**Næste trin er den særskilte fulde kontrol med 839 rater og 253 sikre q-kerner.** Den er endnu ikke aktiveret eller budgetreserveret. Den afsluttede begrænsede fase omfatter fem rater og fem kerner. Ingen astronomiske powers, nye observationer eller nye arkivforespørgsler indgik; tidligere M-fejl og BA-dækning ændres ikke. Alle ejede processer er afsluttet. [Resultater, evidens og næste scope](https://github.com/andersenmartin-blip/setisearch/blob/e0ef47faad78401192abc2a661f8285f3c3949d2/RADIO_PROGRESS_BT_2026-10-31.md).
+
+---
+
 ## 31. oktober 2026: BP–BR — 23 kontroller godkendt, sidste kontrol blokeret
 
 **23 af 24 parrede syntetiske kontrolforløb er godkendt.** Begge metoder genfandt alle seks stærke testsignaler og to af seks svage; ingen svag legacy-genfinding gik tabt i current. Alle otte baggrundscadencer havde nul fulde ON/OFF-flag. Tre af fire forstyrrelseskontroller bestod.
