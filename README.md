@@ -1,3 +1,17 @@
+## Seneste status: BV — resterende sikre HIP44295-udsnit afsluttet, 31. oktober 2026
+
+**221 nye frekvensudsnit er analyseret autonomt:** 2,529144287109375 MHz og 9.968.125.440 korrelerede sporberegninger. BU og BV dækker nu tilsammen alle de fastlagte sikre q1–253 i fem komplette scanninger: **2,895355224609375 MHz**. Alle 28 produktionskørsler og 28 separate efterkontroller bestod; hele kørslen tog cirka 27½ minut.
+
+Der var tærskeloverskridelser i q127–128 omkring **2300,390625 MHz**, med en kraftig struktur i både ON- og OFF-scanningerne. Af 105.482 korrelerede ON-fundrækker opfyldte 67 tre-ON-kravet; **alle 67 blev afvist af tilgængelige OFF-signaler**, også ved særskilt uafhængig genberegning. Resten opfyldte ikke tre-ON-kravet. Ingen række passerer den foreløbige ON/OFF-udvælgelse; rækkerne er ikke uafhængige kandidater.
+
+**Delanalyse:** scan5 er stadig ufuldstændig. Ingen fuld seks-scanningsbedømmelse, global FAP, følsomhedsgrænse eller ny BA-dækning hævdes. Autoriteten er fortsat 486 arkiv-ID'er og 268,50128173828125 tekniske MHz-besøg. Alle processer er afsluttet. De resterende dataopgaver er den manglende kontrolscanning og næste arkivbesøg via normal tilladt adgang; q0/254/255 er uden for denne scope.
+
+[BV-rapport og frekvensprofil](https://github.com/andersenmartin-blip/setisearch/blob/dc24c8636f8ca3511226007b846dc249e61608d1/RADIO_PROGRESS_BV_REMAINING_2026-10-31.md) · [Resultater](https://github.com/andersenmartin-blip/setisearch/blob/dc24c8636f8ca3511226007b846dc249e61608d1/work_bv/SUMMARY_BV.json) · [Alle 67 OFF-afvisninger](https://github.com/andersenmartin-blip/setisearch/blob/dc24c8636f8ca3511226007b846dc249e61608d1/work_bv/review/THREE_ON_REVIEW_BV.json) · [Gemt evidens](https://github.com/andersenmartin-blip/setisearch/blob/dc24c8636f8ca3511226007b846dc249e61608d1/work_bv/DELIVERY_BV.json)
+
+Tidligere forløb og fejlstatus er bevaret nedenfor.
+
+---
+
 ## Seneste status: BU — første delanalyse af HIP44295, 31. oktober 2026
 
 Fem hidtil ikke signalsøgte scanninger fra 2016 er nu analyseret over **366,2109375 kHz** (q1–32), med 839 driftshastigheder og **1.443.348.480 korrelerede sporberegninger**. Ingen spor nåede den fastlåste lokale ESS-tærskel 10; største score var 6,592147. Alle fire portioner og den afsluttende uafhængige kontrol bestod.
