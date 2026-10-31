@@ -1,0 +1,137 @@
+{
+  "schema": "SETI_BY_DERIVED_RFI_SCOPE_V1",
+  "status": "PROSPECTIVE_BEFORE_OBSERVATIONAL_ROWS",
+  "source_repository": "dbautista98/Breakthrough_Listen",
+  "source_commit": "de774a274fd2dfe44e31ba88178c9dd8305de3a0",
+  "source_readme": {
+    "path": "TESS_statistics/README.md",
+    "git_blob_sha1": "5a9bc6007bbc0adc376d54ab0e510bdb77247b32",
+    "author_reported_observation_dates": [
+      "2019-09-18",
+      "2020-03-26"
+    ],
+    "instrument": "Green Bank Telescope",
+    "energy_detection_minimum_statistic": 4096,
+    "method": "Per-observation 1 MHz histograms of existing detector hit counts; not original telescope powers",
+    "threshold_selection": "The author selected the energy-detection statistic threshold 4096 to obtain spectral occupancy similar to turboSETI."
+  },
+  "source_code_provenance": [
+    {
+      "path": "dat_file_hist.py",
+      "git_blob_sha1": "3dc3bcacd834882c9e0883634e5cde3c5fcfdca7",
+      "supports": "Stores os.path.basename(.dat path) in filename and bin_edges[j] as histogram column labels. S-band notch option excludes labels 2300 through2360 inclusive."
+    },
+    {
+      "path": "GCP/compute_hist.py",
+      "git_blob_sha1": "25c44ff2d62857c3a7b034e907543c802225a669",
+      "supports": "Stores observation folder basename in filename, lower bin edges as labels, S band edges1800..2801 with width1. Notch option excludes labels2300 through2360 inclusive. README states4096 for published dataset; code default2048 is not treated as its applied threshold."
+    }
+  ],
+  "precontact": {
+    "readme_and_generation_code_read": true,
+    "csv_header_lines_read": 1,
+    "observational_rows_read": 0,
+    "power_arrays_acquired": 0
+  },
+  "inputs": [
+    {
+      "detector": "turboSETI",
+      "path": "TESS_statistics/turboSETI/S_band_histogram.csv",
+      "local_relative_path": "rfi_inputs/turboSETI_S_band_histogram.csv",
+      "bytes": 708936,
+      "git_blob_sha1": "cbbf8b0e3bf5a672ce644fe09eeb035bc191a5f0"
+    },
+    {
+      "detector": "energy_detection",
+      "path": "TESS_statistics/energy_detection/S_band_histogram.csv",
+      "local_relative_path": "rfi_inputs/energy_detection_S_band_histogram.csv",
+      "bytes": 700244,
+      "git_blob_sha1": "c8eb396c7bf21bb648fabd83ee8230ea5273b9b4"
+    }
+  ],
+  "schema_expectation": {
+    "first_column": "filename",
+    "frequency_label_first_mhz": 1800,
+    "frequency_label_last_mhz": 2800,
+    "frequency_label_step_mhz": 1,
+    "frequency_columns": 1001,
+    "total_columns": 1002,
+    "bin_label_interpretation": "lower edge",
+    "bin_width_mhz": 1,
+    "last_upper_edge_mhz": 2801,
+    "all_rows_retained": true,
+    "duplicate_raw_identifiers": "reject",
+    "nonfinite_negative_noninteger_counts": "reject",
+    "missing_counts": "reject",
+    "inconsistent_columns": "reject"
+  },
+  "identity_matching": {
+    "raw": "Exact filename string, without any normalization.",
+    "canonical": "Remove one terminal literal '.dat' from turboSETI filename only; energy_detection filename unchanged. No other stripping, case folding, stem matching or fuzzy matching.",
+    "justification": "Pinned producer code stores turboSETI .dat basename and energy-detection observation folder basename.",
+    "duplicate_canonical_identifiers": "reject",
+    "report_raw_and_canonical_intersections": true,
+    "report_all_unmatched_identifiers": true,
+    "no_match_behavior": "Keep unpaired per-dataset summaries and record no exact/canonical pairing; paired fractions null."
+  },
+  "analysis": {
+    "all_frequency_bins": true,
+    "per_detector_per_bin": [
+      "observations",
+      "nonzero_rows",
+      "nonzero_fraction",
+      "median_hit_count",
+      "total_hit_count"
+    ],
+    "paired_per_bin_for_raw_and_canonical_intersections": [
+      "paired_observations",
+      "turbo_nonzero_rows",
+      "energy_nonzero_rows",
+      "both_nonzero_rows",
+      "turbo_only_rows",
+      "energy_only_rows",
+      "neither_nonzero_rows",
+      "turbo_nonzero_fraction",
+      "energy_nonzero_fraction",
+      "energy_minus_turbo_nonzero_fraction"
+    ],
+    "fixed_neighborhood_lower_mhz": 2298,
+    "fixed_neighborhood_upper_exclusive_mhz": 2302,
+    "neighborhood_choice": "Fixed from prior BU/BV/BW search near2298.937\u20132301.844MHz, before reading new histogram rows; no selection by peaks.",
+    "notch_flag_label_lower_inclusive_mhz": 2300,
+    "notch_flag_label_upper_inclusive_mhz": 2360,
+    "notch_rule": "Flag labels2300..2360 as the source code's notch region; retain all bins. Do not infer clean sky, receiver sensitivity or physical notch edges from low counts.",
+    "confidence_intervals": false,
+    "p_values": false,
+    "detector_performance_comparison": false,
+    "ranking_or_threshold_tuning": false
+  },
+  "limits": {
+    "max_file_bytes": 1000000,
+    "max_rows_per_file": 10000,
+    "max_count_integer": 9007199254740991,
+    "max_numeric_cell_chars": 64,
+    "max_filename_chars": 4096,
+    "wall_seconds": 60,
+    "memory_bytes": 1073741824,
+    "output_file_size_bytes": 16777216
+  },
+  "interpretation_limits": [
+    "Counts are derived detector outputs; thresholds and algorithms differ, so occupancy differences do not rank detector performance.",
+    "Similar occupancy between the methods is not independent validation: the energy-detection threshold was selected to obtain comparable spectral occupancy.",
+    "Rows may be correlated and exposure/validity masks are unavailable. Denominators are published rows, not independently qualified observing time.",
+    "Zero counts can reflect notches, missing frequency coverage, dropped nodes or preprocessing rather than a quiet band.",
+    "Date coverage is the author's dataset description, not an independently decoded timestamp validation.",
+    "Published code documents interpretation; the exact historical producer execution and options are not reconstructed.",
+    "No new raw SETI searches, candidate qualification, calibrated sensitivity, FAP or original survey coverage."
+  ],
+  "outputs": [
+    "SUMMARY_RFI_BY.json",
+    "PER_BIN_RFI_BY.json",
+    "PER_BIN_RFI_BY.csv",
+    "OBSERVATION_IDS_RFI_BY.json"
+  ],
+  "new_raw_SETI_searches": 0,
+  "new_original_technical_MHz_visits": 0,
+  "new_original_unique_archive_ids": 0
+}

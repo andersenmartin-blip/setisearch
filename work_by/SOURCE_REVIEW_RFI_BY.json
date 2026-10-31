@@ -1,0 +1,46 @@
+{
+  "completed_utc": "2026-10-31T16:46:17.881999+00:00",
+  "limits": [
+    "Common CSV parser and Python runtime remain shared; this is independent arithmetic and reductions, not independent native telescope decoding.",
+    "Producer historical execution and options are not reconstructed; primary provenance claims were verified by root and source scout."
+  ],
+  "review_scope": "Static source/wrapper review and synthetic-only independent numerical comparison. No original CSV observation rows or telescope powers accessed.",
+  "schema": "SETI_BY_RFI_PREFREEZE_SOURCE_REVIEW_V1",
+  "source_findings": [
+    "All 1001 lower-edge bins are retained, ascending from1800 through2800MHz; final upper edge2801MHz.",
+    "Fixed neighborhood [2298,2302)MHz and source notch-labelled bins2300..2360 are explicit; zeros do not imply clean sky.",
+    "Raw exact matching is preserved alongside prospective terminal .dat removal only for turboSETI; duplicate/canonical collisions fail closed.",
+    "Production checks exact original byte size and Git blob identity, finite nonnegative integer counts, dimensions and identifier uniqueness.",
+    "Independent review redoes every count, sorted median, identity join, paired occupancy table and JSON/CSV output using no production numerical imports.",
+    "The author selected energy threshold4096 for comparable occupancy; similarity is not independent confirmation and methods cannot be ranked by these counts.",
+    "No data-dependent peak ranking, p-values, independence assumption, astronomical sensitivity or new raw-search credit."
+  ],
+  "source_sha256": {
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_by/analyze_rfi.py": "013b13d76adb1c183ccdc528649219a69846940e70a6b404d24ebe181af460d9",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_by/review_rfi.py": "d9c2e60a21f795b941b30d56c742ffa5de691440f86af32951959151b76f8b60",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_by/rfi_scope.json": "1d95bef17a43da3d24019ec9bbd1ef98b6b1c5edd0be4114b973a481247a6ae0",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_by/run_phase_by.py": "626b5cf9f87a9bc07b2b31e5bd9e36f5322b0b903552e0740edea809c00ac9fd"
+  },
+  "status": "PASS_PREFREEZE_RFI_SOURCE_AND_SYNTHETIC_REVIEW",
+  "synthetic_tests": {
+    "actual_observational_rows_opened": 0,
+    "canonical_identifier_collision_rejected": true,
+    "fixture_frequency_bins": 4,
+    "fixture_observation_rows": 8,
+    "malformed_CSV_cases_rejected": 3,
+    "manual_paired_occupancy_expected_values": true,
+    "median_odd_even_checked": true,
+    "nonfinite_negative_fractional_and_oversize_numeric_cases_rejected": 8,
+    "production_and_independent_all_fixture_bins_equal": true,
+    "raw_empty_intersection_vs_canonical_three_pairs": true,
+    "valid_decimal_numeric_edge_cases": 7
+  },
+  "wrapper_review": {
+    "actual_child_exit_natural_EOF_timeout_capture": "PASS",
+    "archive_and_export_after_child_time_cap": true,
+    "exclusive_tmpfs_no_automatic_retry": "PASS",
+    "outer_child_wall_CPU_cap_seconds": 600,
+    "phase_cli_status_mapping": "PASS",
+    "pins_before_after_and_closed_export": "PASS"
+  }
+}
