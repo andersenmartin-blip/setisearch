@@ -1,3 +1,15 @@
+## Seneste status — BW — q254 afsluttet (31. oktober 2026)
+
+Det sidste udsnit med fulde støtteområder, q254, er analyseret i de fem komplette HIP44295-scanninger: **ingen katalogrækker over ESS 10; maksimum 5,7560**. 45.104.640 korrelerede sporkombinationer blev gennemført, og både kørsel og uafhængig kontrol bestod. BU+BV+BW dækker nu q1–254, **2,90679931640625 MHz**. Det er yderligere scoring af tidligere indlæste observationer; ingen nye arkivdata er hentet.
+
+**Rettelse:** BV gennemførte præcis q33–253. Den tidligere formulering om alle sikre udsnit var for bred: q254 har også fulde støtteområder og er nu afsluttet særskilt. Tidligere planer og resultater er bevaret.
+
+OFF5 mangler stadig otte tidsrækker og én kontrolgenlæsning. Fuld ON/OFF-vurdering er derfor ikke mulig, og den oprindelige BA-dækning er uændret. Genoptagelsen kræver normal adgang til den aktuelt utilgængelige arkivvært og de fulde BB/BC/BE-beviskontroller. Ingen beregningsjob kører i baggrunden.
+
+[Resultat og kontrolrapport](https://github.com/andersenmartin-blip/setisearch/blob/d4d94bd429b4f55b29727287408d766688b6618c/RADIO_PROGRESS_BW_Q254_2026-10-31.md) · [Præcis genoptagelsesplan](https://github.com/andersenmartin-blip/setisearch/blob/d4d94bd429b4f55b29727287408d766688b6618c/work_bw/recovery/README.md)
+
+---
+
 ## Seneste status: BV — resterende sikre HIP44295-udsnit afsluttet, 31. oktober 2026
 
 **221 nye frekvensudsnit er analyseret autonomt:** 2,529144287109375 MHz og 9.968.125.440 korrelerede sporberegninger. BU og BV dækker nu tilsammen alle de fastlagte sikre q1–253 i fem komplette scanninger: **2,895355224609375 MHz**. Alle 28 produktionskørsler og 28 separate efterkontroller bestod; hele kørslen tog cirka 27½ minut.
