@@ -1,3 +1,15 @@
+## Seneste status — BY — nye RFI-data og genfindingstest (31. oktober 2026)
+
+To originale, afledte GBT-hit-tabeller fra 2019–2020 er hentet og analyseret: **340.340 tællefelter i 1.001 frekvensbins**. En særskilt deklareret navnekontrol gav **169 fælles observations-ID-stammer**, to uparrede turboSETI-rækker og ingen uparrede energy-rækker. Den oprindelige analyse med nul matches er bevaret. I 2300–2301 MHz har turboSETI hit i 25/169 matchede rækker, energy-metoden i 5/169, og fire er fælles. Forskellige tærskler og kildens notch-markering gør tallene uegnede til at rangordne detektorer eller måle astronomisk følsomhed.
+
+En separat test med **264 situationer** på bevaret q254-baggrund målte genfinding af eksponeringsintegrerede testsignaler. Ved højeste tilførte styrke blev **24/24 geometrier genfundet i alle tre ON-scanninger**; når signalet også var tilført de tilgængelige OFF-scanninger, blev alle 24 afvist. Ved halv styrke faldt tre-ON-genfindingen til 11/24. Alle 24 nul-kontroller var uden genfinding. Dette er en betinget test med tre lokale driftrater omkring den kendte signalrate, ikke blind survey-komplethed eller følsomhed i Jy.
+
+Alle seks analyse- og kontrolkørsler afsluttede med exitkode 0, og de uafhængige audits bestod. **Ingen nye rå SETI-søgninger eller observationsdækning er tilføjet.** OFF5 mangler fortsat; oprindelig autoritet er uændret på 486 arkiv-ID'er og 268,50128173828125 tekniske MHz-besøg. Ingen beregningsjob kører i baggrunden.
+
+[Rapport, tabeller og figur](https://github.com/andersenmartin-blip/setisearch/blob/877af5cddd99697105c85cc96e9855e225c7f5c8/RADIO_PROGRESS_BY_RFI_RECOVERY_2026-10-31.md) · [Bevisoversigt](https://github.com/andersenmartin-blip/setisearch/blob/877af5cddd99697105c85cc96e9855e225c7f5c8/work_by/DELIVERY_BY.json)
+
+---
+
 ## Seneste status — BX — nye testdata kontrolleret (31. oktober 2026)
 
 To originale ATA-testfiler fra én 2024-observation er hentet og analyseret. **Alle 51.968 komplekse værdier blev kontrolleret; ingen opfylder den fastlagte gyldighedsmaske, fordi alle afkodede samplevægte er negative.** Begge filer har kun én integration på 30,015488 sekunder og 500 kHz kanaler. De er uegnede til vores smalbåndede drift- og ON/OFF-søgning. Det er en vurdering af de publicerede testeksporter, ikke af hele teleskopobservationen.
