@@ -1,0 +1,401 @@
+{
+  "schema": "SETI_BW_OFFLINE_OFF5_RESUME_SPEC_V1",
+  "status": "SPECIFICATION_ONLY_NO_EXECUTION_RELEASE",
+  "created_date_utc": "2026-10-31",
+  "scope": "Metadata-only continuation aid for the remaining HIP44295 cadence65133 OFF5 acquisition; the separate BW q254 analysis is outside this document.",
+  "network_requests_authorized": 0,
+  "network_requests_performed": 0,
+  "power_arrays_opened": 0,
+  "new_power_rows_decoded": 0,
+  "new_technical_MHz_visits": 0,
+  "new_unique_archive_ids": 0,
+  "science_completed": false,
+  "queue_advanced": false,
+  "target": "HIP44295",
+  "primary_id": 65133,
+  "current_network_boundary": {
+    "allowed_archive_destination": false,
+    "reason": "The current environment network allowlist excludes bldata.berkeley.edu.",
+    "no_archive_probe_permitted": true,
+    "no_alternative_host_route_proxy_or_access_control_workaround": true,
+    "historical_failure_scope": "BB/BC recorded a tunnel403 before an archive HTTP response; this is not evidence that the telescope server denied access.",
+    "normal_access_basis_required_before_future_execution": true
+  },
+  "current_authority": {
+    "stage": "BA",
+    "unique_archive_ids": 486,
+    "technical_MHz_visits": 268.50128173828125,
+    "unchanged": true
+  },
+  "source": {
+    "center_freq": 2300.390625,
+    "decl": 18.7484272222,
+    "etag": "\"5ac56577-40d1a6aa0\"",
+    "file_type": "HDF5",
+    "id": 65143,
+    "md5sum": "adadb5fcb0f8aaba42daea6bb885f11a",
+    "mjd": 57660.63400462963,
+    "quality": "Ungraded",
+    "ra": 132.0740833333,
+    "size": 17399704224,
+    "target": "HIP43223",
+    "telescope": "GBT",
+    "tempX": "Unknown",
+    "tempY": "Unknown",
+    "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_32/holding/spliced_blc0001020304050607_guppi_57660_54778_HIP43223_0014.gpuspec.0000.h5",
+    "utc": "Thu, 29 Sep 2016 15:12:58 GMT"
+  },
+  "scan_index": 5,
+  "original_selection": {
+    "channel_count": 1048576,
+    "channel_start": 179306496,
+    "halo_channels": 4096,
+    "native_chunk_index": 171
+  },
+  "original_configuration": {
+    "bandpass_block_channels": 4096,
+    "boundary_halo_channels": 4096,
+    "max_abs_drift_hz_s": 4,
+    "maximum_saved_local_hits": 1000000,
+    "off_flag_threshold_ess": 5,
+    "replay_drift_indices": [
+      0,
+      279,
+      559,
+      838
+    ],
+    "run_original_QA_templates": true,
+    "threshold_ess": 10,
+    "top_diagnostics_per_width": 4
+  },
+  "actual_scan5_header": {
+    "tstart": 57660.63400462963,
+    "tsamp": 18.253611008,
+    "fch1": 2802.83203125,
+    "foff": -0.0000027939677238464355,
+    "shape": [
+      16,
+      1,
+      359661568
+    ],
+    "chunks": [
+      1,
+      1,
+      1048576
+    ],
+    "dtype": "float32",
+    "provenance": "Retained work_bb/acquire/hip44295_65133/actual_headers_result.json; read from already local BB part001."
+  },
+  "lineage": {
+    "BB_prior_rows": 87,
+    "BC_prior_rows": 1,
+    "prior_rows": 88,
+    "missing_rows": 8,
+    "total_required_rows": 96,
+    "prior_repeat_checks": 5,
+    "remaining_repeat_checks": 1,
+    "complete_scans": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "scan5_valid_rows": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "scan5_missing_rows": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "no_fresh_or_heldout_relabeling": true,
+    "contact_caution": "Coordinate first-decode lineage does not imply every compressed byte was previously uncontacted; cached metadata ranges can overlap power payloads."
+  },
+  "first_missing_metadata_request": {
+    "archive_id": 65143,
+    "bytes": 16384,
+    "etag": "\"5ac56577-40d1a6aa0\"",
+    "expected_content_range": "bytes 9241886720-9241903103/17399704224",
+    "failure_scope": "Tunnel403 before HTTP response plus separately recorded owner-tool approval-cancellation boundary. Do not describe as telescope server denial.",
+    "method": "GET",
+    "received_bytes": 0,
+    "request_origin": "Aligned retained-HDF TREE-node read while locating selected row8; this is not an identified complete row8 compressed payload range. Do not infer unobserved contents or descriptor from a failed request.",
+    "scan": 5,
+    "start": 9241886720,
+    "stop_inclusive": 9241903103,
+    "url": "https://bldata.berkeley.edu/pipeline/AGBT16B_999_32/holding/spliced_blc0001020304050607_guppi_57660_54778_HIP43223_0014.gpuspec.0000.h5",
+    "accept_encoding": "identity",
+    "execution_authorized": false
+  },
+  "missing_payload_ranges": {
+    "all_ranges_predeclared": false,
+    "row8_payload_offset": null,
+    "row8_payload_bytes": null,
+    "reason": "The first missing TREE-node range was never received. Row8 payload descriptor cannot be inferred from the failed request or neighbouring chunks.",
+    "required_method": "Traverse the original pinned TREE model for each selected coordinate; validate genuine retained/new metadata; obtain only uncovered byte intervals from the original URL after normal access is established.",
+    "no_estimated_payload_offsets": true,
+    "cached_internal_metadata": {
+      "root_address": 7432,
+      "root_level": 2,
+      "root_child_addresses": [
+        11589909381,
+        11589906245
+      ],
+      "retained_ranges": [
+        [
+          11589894144,
+          11589910527
+        ],
+        [
+          11589910528,
+          11589912180
+        ],
+        [
+          11589912181,
+          11589912516
+        ]
+      ],
+      "evidence": "BB INVENTORY_BB.json and ROOT_MODEL_BB.json",
+      "inspected_here": "Inventory and root-model metadata only; these cached internal-node payloads are not in the currently restored ZIPs1–4+9.",
+      "limitation": "May locate later leaf nodes; cannot supply unreceived row8 leaf contents or establish all missing payload ranges."
+    }
+  },
+  "remaining_repeat": {
+    "scan": 5,
+    "time_index": 7,
+    "archive_id": 65143,
+    "channel_start": 179306496,
+    "start": 8154457534,
+    "stop_inclusive": 8157574411,
+    "bytes": 3116878,
+    "expected_content_range": "bytes 8154457534-8157574411/17399704224",
+    "required_new_genuine_HTTP_status": 206,
+    "distinct_repeat_receipt_required": true,
+    "byte_identity_against_prior_assembled_chunk_required": true,
+    "expected_payload_sha256": "3562197e7d0c478ad63ba3a773093760ea8fa6e298be036ae1fb95f4abc07541"
+  },
+  "existing_row7_union": {
+    "prefix": {
+      "stage": "BC",
+      "start": 8154457534,
+      "stop_inclusive": 8157560831,
+      "bytes": 3103298,
+      "payload_sha256": "b6952b2468a4c3b3a2e7f761c1fef4a618e0ccad659404a4039ce3d303548a52",
+      "receipt_sha256": "e75241a0c693371ad8938dbf7eb02fa9ebe67b374835f568ef207af09d6b9298"
+    },
+    "tail": {
+      "stage": "BB",
+      "start": 8157560832,
+      "stop_inclusive": 8157574411,
+      "bytes": 13580,
+      "source_payload_path": "work_bb/acquire/hip44295_65133/raw_transport/scan5_8157560832_8157577215.bin",
+      "source_payload_sha256": "decc98da8f4194aa2e9c384bc9f0b4a9ad423f3551635afa790db6b80b3a2a32",
+      "source_slice_start": 0,
+      "source_slice_stop_exclusive": 13580
+    },
+    "whole_chunk_HTTP_receipt_claimed": false,
+    "re_fetch_for_initial_reconstruction": false,
+    "immutable_addendum_path": "work_bc/review/EXACT_PREFIX_SCOPE_ADDENDUM_BC.json",
+    "immutable_addendum_sha256": "13c1faf95dfc7797efc72f3c1f5ed5eb582cf2c4b13fad0ae36325137d1bf918"
+  },
+  "recovery_sources": {
+    "repository": "andersenmartin-blip/setisearch",
+    "commit": "d44afffa8f462b3e9c559cedc2ad2eb88baf7dfa",
+    "base_url": "https://github.com/andersenmartin-blip/setisearch/tree/d44afffa8f462b3e9c559cedc2ad2eb88baf7dfa/work_be",
+    "protocol_path": "work_be/PROTOCOL_RECOVERY_BE.json",
+    "original_protocol_network_authorization": 0,
+    "runner_path": "work_be/recover_missing_rows_be.py",
+    "runner_sha256": "01975a56d1f833907e8d8047829ff33123a9ad48f6da3851e68adb1e608679b5",
+    "capture_path": "work_be/capture_recovery_be.py",
+    "interface_path": "work_be/science_handoff/INTERFACE_BE_V2.json",
+    "native_path": "work_be/science_handoff/verify_native_be.py",
+    "native_sha256": "c1557444d3e4bbd370a53d55cc9da4789fca250145c275d5f78afc8c75d53ede",
+    "binding_path": "work_be/science_handoff/build_bound_be.py",
+    "phase_runner_path": "work_be/science_handoff/run_science_phases_be.py",
+    "pinned_BB_BC_source_and_evidence_count": 1124,
+    "required_retained_HTTP_receipt_count": 241,
+    "required_retained_repeat_receipts": 5,
+    "historical_absolute_paths_require_explicit_relocation": true,
+    "relocation_schema": "SETI_BE_EXPLICIT_RELOCATIONS_V1",
+    "preserve_original_source_protocol_failure_evidence": true
+  },
+  "restoration_locators": {
+    "BB": {
+      "index_library_file_id": "libfile_6c943f4960b081918aa1d1a6a788af90",
+      "index_filename": "SETI_DELIVERY_INDEX_BB_PARTIAL_2026-10-29.json",
+      "index_sha256": "4d2186f0a62b86fe51334ab3acec4bce7bbca064f60ce7a6371a8011d990d2dd",
+      "required_archive_count": 9,
+      "archive_locator_policy": "Resolve all nine archive IDs, byte counts and hashes from this exact index; individual IDs not verified here are intentionally not guessed.",
+      "inventory_filename": "INVENTORY_BB.json",
+      "inventory_entries": 989,
+      "inventory_uncompressed_bytes": 1052460787,
+      "inventory_sha256": "0c1234a52a82c24f0d9778748571e874ac8c1dbe9f2b4c749f8915bacf53ffff",
+      "current_local_zip_parts": [
+        1,
+        2,
+        3,
+        4,
+        9
+      ],
+      "currently_missing_zip_parts": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "current_local_extraction_scope": "BU restores a subset for the five complete scans, not the complete BE recovery evidence root."
+    },
+    "BC": {
+      "index_library_file_id": "libfile_f7f526bcb6c88191afbc56106c7fef5b",
+      "archive_filename": "SETI_FORTSAETTELSE_BC_2026-10-29_part001.zip",
+      "archive_library_file_id": "libfile_78f062d9caf08191a1468b0f934b49c5",
+      "archive_bytes": 34765851,
+      "archive_sha256": "201847af5cc70e3662c2bfd54649d89abf319b9d7cdcb912c2717d0b42b698f9",
+      "resume_library_file_id": "libfile_4cec5f66655c81919c959397f248ffbe",
+      "resume_sha256": "6c6a84235b18d46ee61500fad206370c516e41cd592f664a2e177a050ca355d4",
+      "restored_locally": false
+    },
+    "BE": {
+      "commit": "d44afffa8f462b3e9c559cedc2ad2eb88baf7dfa",
+      "sources_restored_locally_at_specification": false
+    },
+    "runtime_wheels": [
+      {
+        "path": "restored_ba/restored_ax/seti_work/work_av/runtime_wheels/bitshuffle-0.5.2-cp312-cp312-manylinux_2_17_x86_64.whl",
+        "sha256": "de1bc1c272bd3d1e99a8b0e84c58e7f136a1cbe064be9f7955daa3b17bc82ae8"
+      },
+      {
+        "path": "restored_ba/restored_ax/seti_work/work_av/runtime_wheels/h5py-3.16.0-cp312-cp312-manylinux_2_28_x86_64.whl",
+        "sha256": "dfc21898ff025f1e8e67e194965a95a8d4754f452f83454538f98f8a3fcb207e"
+      },
+      {
+        "path": "restored_ba/restored_ax/seti_work/work_av/runtime_wheels/numpy-2.3.5-cp312-cp312-manylinux_2_27_x86_64.whl",
+        "sha256": "0d8163f43acde9a73c2a33605353a4f1bc4798745a8b1d73183b28e5b435ae28"
+      }
+    ],
+    "runtime_versions": {
+      "python_abi": "cp312",
+      "numpy": "2.3.5",
+      "h5py": "3.16.0",
+      "bitshuffle": "0.5.2",
+      "python_optimization": "DISABLED"
+    }
+  },
+  "preserved_proof_pins": {
+    "original_BB_prepower_sha256": "481fbe04a384e461b90c2a158eb16cad3fe35ddff424c34d47b60df894566a0a",
+    "BB_partial_proof_sha256": "cce5225ebb425c18bc0da910f80161efdc25151de702db5e81e8aa2451b210dd",
+    "BC_partial_proof_sha256": "44e0ece723e7908f072dc5b5fc763a811793134df45412ee4e19fe2e4597777a",
+    "BC_eight_row_recovery_spec_sha256": "4689cad19751546049693c712f9beb69f2b7b5efa0ce786e2a369c68c517aab4",
+    "BC_partial_array_sha256": "788a8bee7ad117908f98339ab272cf1b1379c4e9203b9f21bac9d0af67951d50",
+    "BC_valid_rows_power_sha256": "cc31b6008bf9722fbe27ddbc8a00d1ae17b95a1cba5683a633dc3b1aeda240f8"
+  },
+  "future_transport_limits": {
+    "attempts_per_range": 1,
+    "max_requested_bytes": 67108864,
+    "max_requests": 60,
+    "max_single_request_bytes": 8388608,
+    "max_wall_seconds": 600,
+    "parallel_connections": 1
+  },
+  "future_failure_policy": "First failure stops all archive contact; no automatic retry, original endpoint only; retain failed attempts and partial evidence.",
+  "prospective_preflight": [
+    "Resolve the exact BB index and BC archive locator. Restore all required packages into a separate evidence root; verify archive hashes, BB989-entry inventory and all1124 BE source/state pins before any execution.",
+    "Restore immutable BE sources at the pinned commit and pinned cp312 wheels. Keep Python optimization disabled; do not install replacement codecs or change the TREE model.",
+    "Write an explicit relocation mapping for historical paths; verify old canonical arrays, both BB/BC partial files, real range receipts, original failures/actual exits and the row7 prefix-scope addendum.",
+    "Run only separately reviewed offline preflight until a genuine current normal-access basis exists. The present environment remains blocked; do not test it with an archive request.",
+    "Create a new prospective protocol variant preserving source identity, selection, configuration, BB87+BC1+later8 lineage and5+1 repeats. Freeze missing-only traversal, cache-union rules, transport bounds, source pins and result/log contract; retain the original zero-request protocol unchanged.",
+    "Obtain separate review and a genuine normal-access receipt, then externally bind a production dispatch gate. A generated JSON declaration alone is not evidence of network permission.",
+    "In a normally permitted environment only, use the original capture/runner path to verify prior rows offline, acquire rows8–15 from exact coordinate-derived cache gaps, then obtain the one full row7 repeat. Stop at the first failure; preserve partials and actual-exit evidence.",
+    "Complete every downstream gate below before any claim of full-cadence scientific closure, new coverage or queue advancement."
+  ],
+  "future_gate_contract": {
+    "acquisition_gate_schema": "SETI_BE_RECOVERY_DISPATCH_GATE_V1",
+    "acquisition_gate_requirements": [
+      "authorized=true",
+      "mode=PRODUCTION",
+      "normal_permissions_only=true",
+      "access_controls_override=false",
+      "exact source/protocol/review/access-receipt hashes"
+    ],
+    "reviewed_protocol_requirements": [
+      "network_requests_authorized_this_checkpoint=60",
+      "science_execution_released=false",
+      "unchanged fixed transport limits and selected coordinate lineage"
+    ],
+    "review_requirements": [
+      "approved_for_production_after_normal_access=true",
+      "exact runner and protocol hashes"
+    ],
+    "normal_access_receipt_requirements": [
+      "archive_access_permitted=true based on an actual permitted environment",
+      "alternative_route_used=false"
+    ],
+    "gate_created_by_this_specification": false
+  },
+  "mandatory_completion_gates": [
+    {
+      "stage": "acquisition",
+      "requirements": [
+        "Actual subprocess exit0, stdout EOF, completed child wait, exact log byte count and SHA256, source/protocol/access pins",
+        "Completion marker in PRODUCTION mode bound to exact manifest and capture result",
+        "96 unique selected row coordinates, six retained canonical arrays and six genuine per-scan row7 repeats",
+        "Prior BB87/BC1 rows and failures preserved, eight new rows explicitly labelled, continuous real HTTP source-slice provenance; no invented whole-chunk206 receipts",
+        "Successful backend close and immutable-input recheck before publication; valid marker required by consumers; handled failures preserve partial evidence"
+      ],
+      "science_credit": 0
+    },
+    {
+      "stage": "native",
+      "gate_schema": "SETI_BE_NATIVE_GO_V1",
+      "requirements": [
+        "Separate reviewed native-only release; numerical execution remains unauthorized",
+        "Bind acquisition actual0 to the exact production completion marker",
+        "Reconstruct all96 rows across six scans; validate every retained descriptor, source-range receipt, repeat, array hash and row-byte comparison",
+        "Retain both old partial proofs/files, original failed actual exits, actual header/selection pins and row7 scope correction",
+        "Emit SETI_BE_RECOVERY_NATIVE_INPUT_PROOF_V1 in PRODUCTION mode with proof_scope COMPLETE_PRODUCTION_ACQUISITION_NATIVE_RECONSTRUCTION",
+        "Capture native actual0 with EOF/wait/log and exact result hash; reject simulation"
+      ],
+      "science_credit": 0
+    },
+    {
+      "stage": "binding",
+      "gate_schema": "SETI_BE_BINDING_GO_V1",
+      "requirements": [
+        "Separate reviewed binding release after native actual0",
+        "Bind exact original scientific configuration, selection, production native proof, new headers/manifest, immutable numerical sources and explicit relocations",
+        "Binding alone does not release a detector phase"
+      ],
+      "science_credit": 0
+    },
+    {
+      "stage": "science",
+      "gate_schema": "SETI_BE_SINGLE_PHASE_EXECUTION_GO_V1",
+      "requirements": [
+        "Separate action-specific release for unchanged six-scan numerical phases",
+        "Unchanged detector search, forced ON/OFF triage, bounded independent numerical review, required main and remaining local context",
+        "Actual figure QA and final artifact audit; preserve actual process outcomes and pending limitations",
+        "Only successful complete scientific closure can alter authority or advance the queue"
+      ]
+    }
+  ],
+  "limitations": [
+    "This resume aid is neither an executable transfer script nor a production release.",
+    "Current files have not completed recovery, native reconstruction or six-scan analysis.",
+    "Shared original codec and TREE traversal do not constitute independent codec/model qualification.",
+    "No full original-file MD5, astronomical sensitivity, completeness, global false-alarm probability, new observation epoch or signal-origin qualification is established.",
+    "BW q254 partial-search work is separately governed and cannot substitute for the missing OFF5 acquisition or these gates."
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "completed_utc": "2026-10-31T14:23:36.283194+00:00",
+  "correction": {
+    "bn_evidence": {
+      "exact_message": "One of 32 frozen native172 batches q1..127 or q129..254 required",
+      "exact_terminal_batch_expression": "list(range(249,255))",
+      "function": "validate_plan",
+      "line": 70,
+      "path": "work_bu/vendor/bounded_search_bn.py"
+    },
+    "bn_last_batch": [
+      249,
+      250,
+      251,
+      252,
+      253,
+      254
+    ],
+    "bn_original_q_domain": "q1..127 plus q129..254; 253 cores, excluding q128",
+    "bn_q254_explicitly_admitted": true,
+    "bv_actual_frozen_q_domain": "q33..253, combined with BU q1..32 to q1..253",
+    "bv_evidence": [
+      {
+        "fixed_expression": "list(range(33, 254))",
+        "line": 149,
+        "path": "work_bv/partial_search.py"
+      },
+      {
+        "explicit_exclusion": "Boundary q0,254,255 are outside this scope.",
+        "line": 3,
+        "path": "work_bv/PREREG_BV.md"
+      }
+    ],
+    "different_bn_observation_scope": "Original BN native172 S2017 plan gate is not directly applicable to HIP44295 native171; only its frozen per-scan numerical functions are reused.",
+    "no_claim_of_global_holdout_discovery": true,
+    "prior_all_safe_q_wording": "Overbroad as a geometric statement: q254 also has complete halo support. Historical BV scope, results, freezes and counts remain unchanged.",
+    "reason_for_bv_endpoint": "The reviewed code and metadata fix endpoint253 but provide no q254-specific calibration, quality, or protected-holdout rationale. Author intent cannot be established from these files."
+  },
+  "expected_scope_arithmetic": {
+    "centers_per_scan_q": 10752,
+    "combined_carrier_bin_width_mhz": 2.90679931640625,
+    "combined_carrier_channels": 1040384,
+    "combined_correlated_combinations": 11456578560,
+    "combined_q1_to254_count": 254,
+    "correlated_combinations_all_five": 45104640,
+    "correlated_combinations_per_scan_q": 9020928,
+    "correlated_combinations_three_on": 27062784,
+    "independent_statistical_trials": false,
+    "new_carrier_bin_width_mhz": 0.011444091796875
+  },
+  "header_and_prior_input_proof_checks": [
+    {
+      "declared_input_sha256": "f2f7fbcbe8b0d8d26e7aef018659b951e668a7303326c31af214532cb879e78f",
+      "declared_nchannels": 1048576,
+      "declared_nrows": 16,
+      "declared_powers_sha256": "fbe998591cd8174c4869e3ebaa5a13b182e71b3cc663b929a71fe97d5c57dea1",
+      "header_path": "/workspace/scratch/9f43eeb3bf5a/bu_restore/work_bb/acquire/hip44295_65133/data/scan0_header.json",
+      "header_sha256": "acb0be401c6f88c360bab413403358918aad8e82beaab0b54e3e90ec1cc585af",
+      "header_tstart_mjd": 57660.61375,
+      "power_bytes_reopened": false,
+      "scan": 0,
+      "sixteen_prior_row_proof_hashes_match_plan": true
+    },
+    {
+      "declared_input_sha256": "c2b17053ee42683558ccb8c5aa249c40f5d5412f3dd88d22f57ccbafd4674d5a",
+      "declared_nchannels": 1048576,
+      "declared_nrows": 16,
+      "declared_powers_sha256": "8f2b4103cfc0f400d7f874d11b2f009801b5df17d4f6d055e3950bf2503daf01",
+      "header_path": "/workspace/scratch/9f43eeb3bf5a/bu_restore/work_bb/acquire/hip44295_65133/data/scan1_header.json",
+      "header_sha256": "b1df96e95211a36b07b9ed8f095d37c4463a5c0122e554b4f3f59f4c8f7a9988",
+      "header_tstart_mjd": 57660.6178125,
+      "power_bytes_reopened": false,
+      "scan": 1,
+      "sixteen_prior_row_proof_hashes_match_plan": true
+    },
+    {
+      "declared_input_sha256": "23c13f1e38ff691093de5e8e40e547574405ed3d5b2bfc4b0a99cf7404c6d321",
+      "declared_nchannels": 1048576,
+      "declared_nrows": 16,
+      "declared_powers_sha256": "1c4116626e7d590f1e4424c76afb79e238013a55a01599e513e8e8a341603646",
+      "header_path": "/workspace/scratch/9f43eeb3bf5a/bu_restore/work_bb/acquire/hip44295_65133/data/scan2_header.json",
+      "header_sha256": "3ef679549d4ed8118267a7af02e14ef0d1158c585fbd4a10c1a0b4406b2e571f",
+      "header_tstart_mjd": 57660.62186342593,
+      "power_bytes_reopened": false,
+      "scan": 2,
+      "sixteen_prior_row_proof_hashes_match_plan": true
+    },
+    {
+      "declared_input_sha256": "07a600c15d3601ee874af7cc1d5d2cb2daca85a95b639916632fc59e8a92b807",
+      "declared_nchannels": 1048576,
+      "declared_nrows": 16,
+      "declared_powers_sha256": "4cec2b416ce624b02354baa8d76ec399a0a7375a915de6aa5f6e9becdfb80753",
+      "header_path": "/workspace/scratch/9f43eeb3bf5a/bu_restore/work_bb/acquire/hip44295_65133/data/scan3_header.json",
+      "header_sha256": "72c77399dfe660d524d18a637984a48917283cacd899741c295c2e438cba49d5",
+      "header_tstart_mjd": 57660.62590277778,
+      "power_bytes_reopened": false,
+      "scan": 3,
+      "sixteen_prior_row_proof_hashes_match_plan": true
+    },
+    {
+      "declared_input_sha256": "a295e861df573bec623eabbce31b92d625875efc2bc22bf458550e956b558f08",
+      "declared_nchannels": 1048576,
+      "declared_nrows": 16,
+      "declared_powers_sha256": "a1ccdacbe517f7b96f89123130abb6d59bfa46e2c99beaadd54dc893b25619ab",
+      "header_path": "/workspace/scratch/9f43eeb3bf5a/bu_restore/work_bb/acquire/hip44295_65133/data/scan4_header.json",
+      "header_sha256": "fc895da06776eb3b59eb5c8d524859b898e958b018f8d8c86bb91bfdf3a148f2",
+      "header_tstart_mjd": 57660.62993055556,
+      "power_bytes_reopened": false,
+      "scan": 4,
+      "sixteen_prior_row_proof_hashes_match_plan": true
+    }
+  ],
+  "implementation_requirements": [
+    "Create a new prospective BW identity, fixed q254 plan and public freeze; do not extend an already completed BV run.",
+    "Independently review adapter/transport/audit changes and verify pinned sources before production.",
+    "Retain unchanged numerical functions, full-native normalization and five-scan association semantics.",
+    "Retain original BB/BC provenance limitations and every historical result and failure.",
+    "q254 is previously normalized acquired data; no unseen-data or protected-holdout claim.",
+    "No missing OFF5 substitution, full-cadence qualification, original BA coverage credit, queue advance, calibrated FAP or calibrated sensitivity."
+  ],
+  "review_activity": {
+    "network_requests": 0,
+    "only_written_file": "work_bw/review/BOUNDARY_SCOPE_REVIEW_BW.json",
+    "power_arrays_opened": false,
+    "power_files_hashed": false,
+    "production_source_files_modified": false,
+    "production_source_imports": false,
+    "real_detector_scores_computed": false
+  },
+  "reviewed_file_sha256": {
+    "RADIO_PROGRESS_BV_REMAINING_2026-10-31.md": "28719d3c801b15321a9c83150afaa222fba1348ba5a27e4c89bd6087032aad22",
+    "work_bo/vendor/current/continuous_normalization_ac.py": "8953f595f1fa9e192c98fbb185b69800d046275552a9bcff6c41df40d558bf52",
+    "work_bo/vendor/current/kernel_v.py": "3367c20c93e4ba564b5abceb19e0939fb82fd364fbb400fe85e07f93f15b8999",
+    "work_bu/PREREG_BU.md": "ff71af542ad7ec490633266d559e4767dbb725d8aeeabdfe35145211105373bb",
+    "work_bu/SOURCE_PROVENANCE_BU.json": "08ea318f3d62cfa7ac0da56cacba00f009651af197ff8548867d1b04e0136344",
+    "work_bu/partial_search.py": "20e80c54ebe9dad4ff8b3efd770dd5667a5441ca75748a10437db7780ae3782a",
+    "work_bu/vendor/bounded_search_bn.py": "7f2e10f1814c29f60808712321e2a904f4dc6716ed7b85b15853a9b928824062",
+    "work_bv/BV_PARTIAL_PLAN.json": "5c98d2ba7a13842cdf672377c34d98b6652fa130bf7f44d30881da6315487c08",
+    "work_bv/PREREG_BV.md": "38e8ed94a311691eb49c779267d5ee261a24c9116defa20c011a85a5fd920cb9",
+    "work_bv/SOURCE_PROVENANCE_BV.json": "d8b783467dbd498b41b4fae071d4e67412195e5270ad31539258569f949caf2b",
+    "work_bv/SUMMARY_BV.json": "58dbcc526ca70898b2f8e22df6e276ef1424bb00d2a16386a85f65c310827057",
+    "work_bv/partial_search.py": "933b63544570224ee2aca4e3b642810135336b52cebba1e9e4683aaba5c15c73",
+    "work_bv/prepare_plan.py": "fc5e3a06d6819d92b90388d8fa492e0cc859069eb03d9a00e68b8b476b4936fa",
+    "work_bv/review/SOURCE_REVIEW_BV.json": "3e457d2db452aa666462da1cd5fcc5b6b354a01bcc9eeb2c57f8a0baf96f5aee"
+  },
+  "reviewer": "independent_child_agent_bw_boundary_review",
+  "schema": "SETI_BW_Q254_BOUNDARY_SCOPE_REVIEW_V1",
+  "scientific_recommendation": "Proceed with a separately frozen bounded q254 search to close the one remaining complete-halo carrier core; report as coverage correction within cached five-scan descriptive analysis.",
+  "scope": {
+    "cadence_primary_archive_id": 65133,
+    "complete_scan_ids": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "missing_scan_id": 5,
+    "native_channel_count": 1048576,
+    "native_channel_start": 179306496,
+    "native_index": 171,
+    "prospective_q_list": [
+      254
+    ],
+    "target": "HIP44295"
+  },
+  "status": "PASS_METADATA_CODE_SCOPE_ELIGIBILITY_IMPLEMENTATION_REVIEW_PENDING",
+  "support_geometry": {
+    "association_radius_channels": 4,
+    "guard_strictly_less_than_halo": true,
+    "header_midpoint_span_seconds": 1398.0000005336478,
+    "interval_convention": "zero-based half-open native-relative channels",
+    "left_halo_channels": 4096,
+    "maximum_shift_including_width_channels": 2214,
+    "q0_exclusion": "No complete4096-channel left halo inside native array.",
+    "q254_core": [
+      1040384,
+      1044480
+    ],
+    "q254_normalized_support": [
+      1036288,
+      1048576
+    ],
+    "q255_exclusion": "No complete4096-channel right halo inside native array.",
+    "right_halo_channels": 4096,
+    "support_channel_count": 12288,
+    "total_guard_channels": 2218
+  },
+  "unchanged_numerical_family_required": {
+    "association": "Same-q destination calibration for forced measurements, including support halo; explicit support validity and missing OFF5 preserved.",
+    "available_off_flag_threshold_ess": 5,
+    "calibration_domain": "Each selected4096channelqcore at its own fixedstride, independently for each scan,width,drift",
+    "drift_rates": 839,
+    "functions": [
+      "drift_rates",
+      "local_maximum",
+      "search_scan"
+    ],
+    "max_abs_drift_hz_s": 4,
+    "normalization": "Full16x1048576 native arrays normalized before support crop; block4096.",
+    "source_bn_sha256": "7f2e10f1814c29f60808712321e2a904f4dc6716ed7b85b15853a9b928824062",
+    "strides": [
+      1,
+      1,
+      2,
+      8
+    ],
+    "threshold_ess": 10,
+    "widths_channels": [
+      1,
+      3,
+      9,
+      33
+    ]
+  },
+  "verified_metadata_evidence_sha256": {
+    "/workspace/scratch/9f43eeb3bf5a/bu_delivery/SETI_BU_DELIVERY_INDEX_2026-10-31.json": "79d3c0da177dd68380f14ab299bf8e2ad6e6eb8c0cd067b028337820c5c559a1",
+    "/workspace/scratch/9f43eeb3bf5a/bu_restore/INVENTORY_BB.json": "0c1234a52a82c24f0d9778748571e874ac8c1dbe9f2b4c749f8915bacf53ffff",
+    "/workspace/scratch/9f43eeb3bf5a/bu_restore/RESTORATION_BU.json": "ad1ca34100c84701af4225cf920f0b06aeeca5eb6c9d020aae041175830ee482",
+    "/workspace/scratch/9f43eeb3bf5a/bu_restore/work_bb/review/CACHED_READ_STATE_BB_PARTIAL.json": "09a83fee29a58161b24b00acc6afb9f5f75feeb6d1a07694be017efe6d60f089",
+    "/workspace/scratch/9f43eeb3bf5a/bu_restore/work_bb/review/PARTIAL_INPUT_PROOF_BB.json": "cce5225ebb425c18bc0da910f80161efdc25151de702db5e81e8aa2451b210dd",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bu/BU_PARTIAL_PLAN.json": "f681d59f37a205bf0448736137bdfce37e04a1e18e6a4654899f2e1df342aefd",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bu/SUMMARY_BU.json": "c59043fdd67505910000ff5b0151aff00b8806c0dd94643cd30a7028f1e1e6ea",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bu/provenance/BB_PARTIAL_AUDIT_PUBLIC.json": "154b504743ba4a370cf1fac2cbd4e583e03994b497ef4b86be6af8a56b253509",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bu/provenance/BB_PUBLIC_EVIDENCE.json": "ad8113cfefa0f6ea2bf9c6a12061e6e4da7415e1f116ec060f4f5b5bf12c8801",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bu/review/FINAL_CLOSURE_REVIEW_BU.json": "dcbd3af1f7cb9df6f12a89d7fe37080b95124e390acdb8f3ae53bb60ecd7a61d"
+  }
+}

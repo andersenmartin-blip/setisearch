@@ -1,0 +1,82 @@
+{
+  "bounded_run_batch_exception": "Alarm reduced from600seconds to180seconds; this is a transport/time bound, not numerical tuning.",
+  "changed_scope": {
+    "ON_correlated_track_combinations": 27062784,
+    "batch_q_lists": [
+      [
+        254
+      ]
+    ],
+    "carrier_bin_width_mhz": 0.011444091796875,
+    "correlated_track_combinations": 45104640,
+    "independent_review_wall_cpu_seconds": 120,
+    "overall_stored_bytes": 2147483648,
+    "overall_wall_seconds": 300,
+    "per_batch_wall_cpu_seconds": 180,
+    "q_list": [
+      254
+    ],
+    "scan_q_count": 5,
+    "support_channels_half_open": [
+      1036288,
+      1048576
+    ]
+  },
+  "created_utc": "2026-10-31T14:25:07.955098+00:00",
+  "historical_correction": "BN explicitly allowedq254. BV froze33..253; prior all-safe-q wording was overbroad. Preserve BV frozenhistory; BW is prospective q254 scoring.",
+  "parent_commit": "dc24c8636f8ca3511226007b846dc249e61608d1",
+  "parent_source_sha256": {
+    "partial_search.py": "933b63544570224ee2aca4e3b642810135336b52cebba1e9e4683aaba5c15c73",
+    "prepare_plan.py": "fc5e3a06d6819d92b90388d8fa492e0cc859069eb03d9a00e68b8b476b4936fa",
+    "review/audit_partial_bv.py": "c0a12b528a5bdefdac2043e32f29856560a7ba84a0b4c62069e21f5e6b124bb5",
+    "run_remaining.py": "fd329e01b0444cf4de9b550a1ecc4d55a81a1755100433202c6cad68de901c59",
+    "run_stage.py": "35abb059590254c44fbdf3ebae210e1155e0c7a2e0e66d53618feab0cb093c75"
+  },
+  "partial_adapter_changed_functions": {
+    "audit_batch": "Stage schema/diagnostic strings and q254 batch selection only",
+    "bounded_run_batch": "Stage diagnostic string and alarm600->180seconds only",
+    "prepare_inputs": "Stage schema/diagnostic strings and q254 batch selection only",
+    "run_batch": "Stage schema/diagnostic strings and q254 batch selection only",
+    "validate_plan": "Stage schema/diagnostic strings and q254 batch selection only"
+  },
+  "partial_adapter_identical_function_AST": [
+    "require",
+    "sha",
+    "read",
+    "write",
+    "save_npz",
+    "load_npz",
+    "module_at",
+    "required_source_pins",
+    "load_numerics",
+    "verify_header_content",
+    "classify_partial",
+    "associate_partial",
+    "scalar_sum"
+  ],
+  "plan_generation": "Root must run prepare_plan.py after independent source review; uses check_inputs=False and does not readNPY powers.",
+  "power_arrays_opened": false,
+  "production_executed": false,
+  "schema": "SETI_BW_SOURCE_ADAPTATION_V1",
+  "source_sha256": {
+    "partial_search.py": "e4109325ac0a6d134d43d38e8bec6ca4fbc91b20e20af8a9671bddbc4fb952e5",
+    "prepare_plan.py": "45f9ab1dc2fdbf24099c75fa8b7f9e4a27d2c7ec8a2d62eb1c677914f90ab261",
+    "review/audit_partial_bw.py": "54cf37ea2408067e2b4653aab634355829b157acf25e87478833aa98b5dffaf9",
+    "run_remaining.py": "7eaf3a35608dd639a8c16565c86a34404b38e9d6d6031eabced8b21aeccc5ccd",
+    "run_stage.py": "f38fbb68c3b9eb87541fafa44f5df212d0ceab82d7b809156668405974cb7e8d"
+  },
+  "status": "SOURCE_ONLY_COMPILED_AWAITING_INDEPENDENT_REVIEW",
+  "unchanged_limits": [
+    "OFF5 missing and neverfilled",
+    "No full-cadence or astronomical-sensitivity qualification",
+    "No originalBA coveragecredit orqueueadvance",
+    "No archive request",
+    "Previously normalized rawdata; not unseenpowers ornewobservations"
+  ],
+  "unchanged_numeric_family": [
+    "BN drift_rates/local_maximum/search_scan compiled from exact unchanged vendor AST",
+    "Full-native AC normalization",
+    "Partial association/classification and q-local calibration",
+    "Independent auditor direct-vector/scalar/normalization algorithms"
+  ]
+}

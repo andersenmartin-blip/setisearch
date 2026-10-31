@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "record_type": "metadata_only_data_source_scout",
+  "recorded_date_utc": "2026-10-31",
+  "status": "NO_COMPLETE_NEW_ON_OFF_CADENCE_LOCATED",
+  "scope": "Bounded search of genuinely different public GitHub-hosted radio observations; not an exhaustive archive survey.",
+  "methods": [
+    "Approved GitHub connector: repository trees, branch metadata, README files, code and code search",
+    "Web search for primary repository discovery; repository findings verified through GitHub connector"
+  ],
+  "constraints": {
+    "power_array_payloads_downloaded": false,
+    "power_arrays_inspected": false,
+    "new_science_search_run": false,
+    "new_search_credit": 0,
+    "berkeley_archive_probed": false,
+    "blocked_source_workaround_used": false,
+    "off5_recovered": false,
+    "prospective_plan_required_before_array_acquisition": true,
+    "production_authorized_by_this_record": false
+  },
+  "candidates": [
+    {
+      "repository": "RadioAstronomySoftwareGroup/rasg-datasets",
+      "primary_url": "https://github.com/RadioAstronomySoftwareGroup/rasg-datasets",
+      "commit": "55bd68b28fabe0936011bd9540cbaef9e20809db",
+      "commit_evidence_url": "https://api.github.com/repos/RadioAstronomySoftwareGroup/rasg-datasets/branches/main",
+      "provenance_url": "https://github.com/RadioAstronomySoftwareGroup/rasg-datasets/blob/55bd68b28fabe0936011bd9540cbaef9e20809db/visibility_data/ATA/README.md",
+      "provenance_readme_blob_sha": "c71bbdfd1e451f81d7d8c3a018d8f47f6d0691ec",
+      "classification": "INDEPENDENT_REAL_ASTRONOMICAL_CALIBRATOR_SUBSETS",
+      "observation": {
+        "telescope": "Allen Telescope Array",
+        "target": "3C286",
+        "date": "2024-12-12",
+        "publisher_description": "Written by the ATA correlator to uvh5; downselected, normalized by autos and rewritten using pyuvdata. Two different subbands of the same observation."
+      },
+      "files": [
+        {
+          "path": "visibility_data/ATA/ata.LoA.C0352.uvh5_60647_62965_9760406_3c286_0001.uvh5",
+          "git_blob_sha": "2148dc7fd9d8f28e095a397a3f82884feaa96927",
+          "git_blob_size_bytes": 279504
+        },
+        {
+          "path": "visibility_data/ATA/ata.LoA.C0544.uvh5_60647_62965_9760406_3c286_0001.uvh5",
+          "git_blob_sha": "ca2a9481b00e0e9370d8f67ced9b12837aca191f",
+          "git_blob_size_bytes": 279504
+        }
+      ],
+      "availability_evidence": "Git tree lists substantial ordinary blobs, not the small text blobs expected for Git LFS pointers. Binary content and headers have not been verified.",
+      "useful_scope": "Potential future data-ingestion, interferometric and RFI quality-control exercise after a separate prospective plan.",
+      "limits": [
+        "Two subbands are not two independent observations.",
+        "No complete ON/OFF cadence identified.",
+        "Processed visibility subsets are not native total-power SETI filterbank data.",
+        "Not a replacement for HIP44295 OFF5 and not candidate-search evidence."
+      ],
+      "decision": "DO_NOT_ACQUIRE_IN_BW"
+    },
+    {
+      "repository": "planetaryhablab/Ohio-SETI",
+      "primary_url": "https://github.com/planetaryhablab/Ohio-SETI",
+      "commit": "28624a1eaf955ced940db347684cee61c8e4fd61",
+      "commit_evidence_url": "https://api.github.com/repos/planetaryhablab/Ohio-SETI/branches/main",
+      "provenance_url": "https://github.com/planetaryhablab/Ohio-SETI/blob/28624a1eaf955ced940db347684cee61c8e4fd61/README.md",
+      "provenance_readme_blob_sha": "c92b837b651ed4c0ddd97350fd8dc1ff4aebe256",
+      "classification": "KNOWN_EVENT_HISTORICAL_REANALYSIS",
+      "observation": {
+        "telescope": "Ohio State University Radio Observatory / Big Ear",
+        "date": "1977-08-15",
+        "event": "Wow! signal",
+        "shape_from_documentation": [82, 50],
+        "axis_order": ["time_rows", "channels"],
+        "publisher_description": "PHL/UPR Arecibo transcription and reanalysis of the original printout; corrected coordinates, times and frequencies plus converted SNR and estimated flux."
+      },
+      "files": [
+        {
+          "path": "oseti_19770815_220410.csv",
+          "git_blob_sha": "7f340d309ebb6a9b5c52eea125c13fa8160465dd",
+          "git_blob_size_bytes": 12184
+        },
+        {
+          "path": "oseti_19770815_220410.sav",
+          "git_blob_sha": "c52d25aba0f097c6bf604d044ed96a9abca7b1fa",
+          "git_blob_size_bytes": 189372
+        },
+        {
+          "path": "oseti_19770815_220410.txt",
+          "git_blob_sha": "093658ac810e4165200ca41e93e2a2710fb76375",
+          "git_blob_size_bytes": 8856
+        }
+      ],
+      "license_from_readme": "Creative Commons Attribution 4.0 International",
+      "limits": [
+        "Known-event selection, not a fresh independent SETI candidate test.",
+        "Quantized printout-transcribed SNR is not original unquantized telescope power.",
+        "Flux scaling assumes a 54 Jy maximum according to the README.",
+        "No modern complete ON/OFF cadence and no repair of missing OFF5."
+      ],
+      "decision": "DO_NOT_ACQUIRE_IN_BW"
+    },
+    {
+      "repository": "thepetabyteproject/your",
+      "primary_url": "https://github.com/thepetabyteproject/your",
+      "commit": "5126d3bd5765b7942cb9b67f3b15afa27ed27795",
+      "commit_evidence_url": "https://api.github.com/repos/thepetabyteproject/your/branches/main",
+      "provenance_url": "https://github.com/thepetabyteproject/your/blob/5126d3bd5765b7942cb9b67f3b15afa27ed27795/README.md",
+      "classification": "REPOSITORY_TEST_DATA_WITH_INSUFFICIENT_OBSERVATION_PROVENANCE",
+      "files": [
+        {
+          "path": "tests/data/28.fil",
+          "git_blob_sha": "bf0234cff52cbe35aa04fced6c7dbabfd52829a2",
+          "git_blob_size_bytes": 1720647
+        },
+        {
+          "path": "tests/data/28.fits",
+          "git_blob_sha": "ce2f2e852a849507f652093062d8f34a743f8b82",
+          "git_blob_size_bytes": 1909440
+        }
+      ],
+      "limits": [
+        "Tests identify 336 channels; examples expose the nonspecific source label src1.",
+        "Authoritative astronomical target identity was not established in this scout.",
+        "No complete ON/OFF provenance established.",
+        "The two formats must not be assumed to represent independent observations.",
+        "No binary headers or data were inspected."
+      ],
+      "decision": "DO_NOT_PROMOTE_TO_SCIENCE_ACQUISITION"
+    }
+  ],
+  "excluded_sources": [
+    {
+      "repository": "UCBerkeleySETI/blimpy",
+      "primary_url": "https://github.com/UCBerkeleySETI/blimpy",
+      "observed_tree_response_sha": "4dd6414a6970016bd0f734f5332c146e297609f2",
+      "evidence_path": "tests/download_data.sh",
+      "evidence_blob_sha": "403e3b9718a1f411d54116ce138b50f4caceb14e",
+      "reason": "No observation array blobs in the inspected current tree. Test downloader points to external Berkeley Voyager endpoints. No endpoints followed; Voyager would be a known human-transmitter control."
+    },
+    {
+      "repository": "UCBerkeleySETI/turbo_seti",
+      "primary_url": "https://github.com/UCBerkeleySETI/turbo_seti",
+      "observed_tree_response_sha": "7d9b4fde9bc98d834dc11cfc0acd2380e6676f0e",
+      "evidence_path": "test/download_test_data.py",
+      "evidence_blob_sha": "22ce1880b02054ce44c588e4a3acb8eee726020b",
+      "reason": "No observation array blobs in the inspected current tree. Test downloader points to external Berkeley Voyager 2016/2020 endpoints. No endpoints followed; these are positive controls, not independent SETI targets."
+    },
+    {
+      "repository": "nikitodos/seti_klt",
+      "primary_url": "https://github.com/nikitodos/seti_klt",
+      "observed_tree_response_sha": "8dc41c10aac0526e0166ed8247fdfdfc79cb0f49",
+      "evidence_path": "README.md",
+      "evidence_blob_sha": "f2f595f9f358252a93ff50d4a84dd45e686c82c7",
+      "reason": "README describes SRT TOI-1422b ON/OFF observations, but no observation array blobs were present in the inspected tree. No available complete cadence was established."
+    }
+  ],
+  "conclusion": "No complete new ON/OFF cadence located in the bounded sources inspected. Independent calibrator and known historical-event data exist in GitHub, but do not satisfy the current SETI candidate protocol. Preserve the missing-OFF5 status and existing search-credit accounting. Pause before production."
+}
