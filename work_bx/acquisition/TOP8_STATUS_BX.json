@@ -1,0 +1,36 @@
+{
+  "schema": "SETI_BX_TOP8_FINAL_TRANSPORT_STATUS_V1",
+  "status": "BLOCKED_NO_PAYLOAD",
+  "attempts": [
+    {
+      "identity": 1,
+      "tool": "github_fetch_blob",
+      "error": {
+        "error": "UnicodeDecodeError: 'utf-8' codec can't decode byte 0x80 in position 0: invalid start byte",
+        "error_code": "UNKNOWN"
+      }
+    },
+    {
+      "identity": 2,
+      "tool": "github_fetch_file encoding=base64",
+      "returned_sha": "22b89220de8d38c07f6e3f2813ba0e39535b367f",
+      "returned_content_chars": 0,
+      "local_payload": false
+    },
+    {
+      "identity": 3,
+      "tool": "github_fetch GitData endpoint",
+      "error": {
+        "error": "HTTPError: 400: GitHub Fetch only accepts UTF-8 text. (Response: None)",
+        "error_code": "INVALID_ARGUMENT"
+      }
+    }
+  ],
+  "further_attempts_planned": false,
+  "pickle_decoded": false,
+  "real_power_analysis": false,
+  "synthetic_safe_decoder_tests": 5,
+  "source_target": "Eight previously selected Ma et al. candidates; not blind new observations",
+  "no_original_archive_access": true,
+  "normal_permitted_future_acquisition_required": true
+}

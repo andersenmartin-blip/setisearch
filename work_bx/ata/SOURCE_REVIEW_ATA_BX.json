@@ -1,0 +1,72 @@
+{
+  "activity": {
+    "network_requests": 0,
+    "observation_Data_arrays_opened": false,
+    "observation_files_hashed": false,
+    "provided_header_JSON_read": true,
+    "synthetic_arrays_only": true
+  },
+  "completed_utc": "2026-10-31T15:57:31.734499+00:00",
+  "independent_review_design": {
+    "counts_and_mask_eligibility_exact": true,
+    "decoder_shared": "h5py3.16.0/HDF5 and NumPy storage",
+    "expected_baseline_polarization_groups": 3248,
+    "expected_original_cells": 51968,
+    "input_source_results_pins_before_after": true,
+    "method": "Every original cell via Python scalar finite/flag/weight checks, math.hypot, math.fsum and statistics.median; all saved profiles and all group summaries compared.",
+    "production_numerical_import": false,
+    "profile_absolute_tolerance": 1e-14,
+    "profile_relative_tolerance": 1e-12,
+    "wall_cap_seconds": 60
+  },
+  "limitation": "This source-only review is not an observation result or executed numerical review. No full ON/OFF cadence, narrowband sensitivity or calibrated flux claim follows.",
+  "metadata_findings": {
+    "canonical_shape_each": [
+      406,
+      16,
+      4
+    ],
+    "channel_width_hz": 500000.0,
+    "header_calendar_date": "2024-12-03",
+    "header_jd_each": [
+      2460648.2292826767,
+      2460648.2292826767
+    ],
+    "header_mjd": 60647.72928267671,
+    "maintainer_README_date": "2024-12-12",
+    "one_stored_integration": true,
+    "same_observation_two_subbands": true,
+    "unresolved_date_discrepancy_must_remain_explicit": true
+  },
+  "metadata_sha256": {
+    "HEADERS_ATA_BX.json": "c95c4aa40e02bc21085d8f19be35ee4d08a95c7214ee54f277feb2854ed2669e",
+    "INPUTS_ATA_BX.json": "58659e6bb4ee414bfab4a45e7e4bb044d5526d2486fcfabc77e6de7638226d0a",
+    "SCOPE_ATA_BX.json": "70a3dede1dcd25c7dae4af0e224c236c1234dc712a604b93db853651e2b56c1f"
+  },
+  "schema": "SETI_BX_ATA_INDEPENDENT_SOURCE_REVIEW_V1",
+  "source_review": [
+    "Exact two original Git blob identities bound before and after production.",
+    "Header links/dimensions/antenna membership/phase-center/finite sampling checked before Data arrays are read.",
+    "External and virtual Data storage rejected.",
+    "All cells classified with explicit flag, finite-complex and finite-positive-sample mask; overlapping invalid reasons disclosed.",
+    "Ordered baseline and polarization kept separate; unweighted temporal median amplitude.",
+    "Coherence weighted by nsamples times integration_time; requires at least two valid distinct times and positive amplitude denominator.",
+    "No detection thresholds or drift search; candidate assessment NOT_PERFORMED and original SETI credit zero.",
+    "Closed profile archive and summary bound to input/source/manifest identities."
+  ],
+  "source_sha256": {
+    "qa_ata_bx.py": "c8c49f735872c8b3aaefcabe9d4e94cb83b2485315ff2c848f4963b79204b1ed",
+    "review_ata_bx.py": "8f7949deffdb69661074c4dcaefff619c708039533a5c73cd7a4257d78ed3b51"
+  },
+  "status": "PASS_PROSPECTIVE_DESCRIPTIVE_QA",
+  "synthetic_checks": {
+    "cases": [
+      "Independent six-cell mask fixture with flagged, nonfinite and zero-weight exclusions",
+      "Exact valid counts [2,0,1] and effective exposures [50,0,20]",
+      "Independent median amplitudes and two-time coherence hypot(30,240)/250",
+      "All production profiles/group summaries agree with independent scalar fixture",
+      "Single-time coherence remains NaN for every channel"
+    ],
+    "status": "PASS"
+  }
+}

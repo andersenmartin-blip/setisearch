@@ -1,0 +1,29 @@
+{
+  "schema": "SETI_BX_ATA_BOUNDED_SCOPE_V1",
+  "source_repository": "RadioAstronomySoftwareGroup/rasg-datasets",
+  "source_commit": "55bd68b28fabe0936011bd9540cbaef9e20809db",
+  "sources": [
+    {
+      "band": "C0352",
+      "path": "visibility_data/ATA/ata.LoA.C0352.uvh5_60647_62965_9760406_3c286_0001.uvh5",
+      "bytes": 279504,
+      "git_blob_sha": "2148dc7fd9d8f28e095a397a3f82884feaa96927"
+    },
+    {
+      "band": "C0544",
+      "path": "visibility_data/ATA/ata.LoA.C0544.uvh5_60647_62965_9760406_3c286_0001.uvh5",
+      "bytes": 279504,
+      "git_blob_sha": "ca2a9481b00e0e9370d8f67ced9b12837aca191f"
+    }
+  ],
+  "selection": "Exactly both original ATA files established by BW metadata scout",
+  "same_observation_two_subbands": true,
+  "expected_target": "3c286",
+  "expected_date": "2024-12-12",
+  "provenance": "Downselected and normalized by autos, rewritten using pyuvdata; observational software test files.",
+  "acquisition_attempts_per_file": 1,
+  "transport": "GitHub fetch_file with explicit base64 encoding, exact commit and Git blob identity",
+  "scope": "All cells input quality, per-baseline/polarization frequency profiles and within-baseline temporal coherence when >=2 valid times. No thresholds, no drift search, no candidate classification.",
+  "scientific_credit": "Newly ingested independent telescope dataset for QA only; zero new SETI search coverage.",
+  "top8_status": "No usable payload from three documented connector methods; no decoding or numerical analysis performed."
+}
