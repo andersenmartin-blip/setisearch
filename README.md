@@ -1,3 +1,13 @@
+## 31. oktober 2026: BP–BR — 23 kontroller godkendt, sidste kontrol blokeret
+
+**23 af 24 parrede syntetiske kontrolforløb er godkendt.** Begge metoder genfandt alle seks stærke testsignaler og to af seks svage; ingen svag legacy-genfinding gik tabt i current. Alle otte baggrundscadencer havde nul fulde ON/OFF-flag. Tre af fire forstyrrelseskontroller bestod.
+
+Den sidste kontrol, A04, er fortsat **ikke kvalificeret**. BP ramte hukommelsesgrænsen efter seks afsluttede scanberegninger. BQ havde en afkortet resultatfil trods proces-exit 0. Den nye BR-kontrol med atomisk publicering og streng afslutningskontrol opdagede endnu en filændring under verificering og stoppede korrekt med exit 2. Årsagen er uafklaret; alle fejlede identiteter og bytes er bevaret. De 48 grundarrays, 144 parrede scanberegninger og begge afslutningsforsøg er gemt og uafhængigt gennemgået. 54 deterministiske kodetests består.
+
+**Næste trin er en afgrænset teknisk undersøgelse af filstabiliteten**, før mere A04-arbejde eller den særskilte fulde 839-rate-kontrol. Ingen astronomiske HIP45688-powers er åbnet, ingen nye observationer eller arkivforespørgsler er tilføjet, og BA's dækning samt de historiske M-fejl ændres ikke. Alle ejede processer er afsluttet. [Resultater, fejlhistorik, evidens og fortsættelsespunkt](https://github.com/andersenmartin-blip/setisearch/blob/bf0080342022a4b78c9224d4c9e9b166ed62bfa2/RADIO_PROGRESS_BP_BR_2026-10-31.md).
+
+---
+
 ## 30. oktober 2026: BO — fem tekniske kontroltrin afsluttet
 
 **Alle fem deterministiske kontroltrin afsluttede med faktisk exit 0.** På 42,22 sekunder bestod 68 filcases, 1.260 udvalgte referencesummer med nul målt afvigelse for den aktuelle kernel, 802 komplette kalibreringsvektorer og den fastlagte procesfejlmatrix. Den uafhængige slutgennemgang genhashte 124 evidensfiler to gange og kontrollerede alle 21 frosne inputfiler. Alle fastsatte ressourcegrænser bestod.
