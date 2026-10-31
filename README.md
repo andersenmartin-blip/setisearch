@@ -1,3 +1,15 @@
+## Seneste status — BZ — finere driftrater giver delvis forbedring (31. oktober 2026)
+
+En fastlåst test på de samme 264 tilfælde som BY løfter genfinding af mellemstærke testsignaler i tre ON-scanninger fra **11/24 til 15/24 geometrier**, når det lokale driftrate-gitter bliver otte gange finere. Kildescanningens genfinding er uændret på 20/24. Ved lavere styrke A=4 stiger tre-ON-genfindingen fra 2/24 til 4/24; højeste styrke forbliver 24/24. De svageste signaler genfindes fortsat ikke.
+
+Alle 24 nul-kontroller er uden genfinding. Alle genfundne signaler, som også var tilført de tilgængelige OFF-scanninger, afvises. **198.696.960 nye sporsummer** og alle nye kalibreringer er kontrolleret uafhængigt; begge processer afsluttede med exitkode 0. Dette er betinget metodeudvikling på eksponerede data med faste tærskler, ikke uafhængig validering, samme globale falsk-alarm-rate eller følsomhed i Jy.
+
+Seks yderligere datakilder gav ingen ny egnet rå ON/OFF-sekvens. **Ingen nye rå SETI-søgninger eller observationsdækning er tilføjet.** OFF5 mangler fortsat; original autoritet og observationskø er uændrede. Ingen beregningsjob kører i baggrunden.
+
+[Rapport, tabel og figur](https://github.com/andersenmartin-blip/setisearch/blob/62a61b7c72ec0e1d90053a0c26aebde7ca281263/RADIO_PROGRESS_BZ_DRIFT_GRID_2026-10-31.md) · [Bevisoversigt](https://github.com/andersenmartin-blip/setisearch/blob/62a61b7c72ec0e1d90053a0c26aebde7ca281263/work_bz/DELIVERY_BZ.json)
+
+---
+
 ## Seneste status — BY — nye RFI-data og genfindingstest (31. oktober 2026)
 
 To originale, afledte GBT-hit-tabeller fra 2019–2020 er hentet og analyseret: **340.340 tællefelter i 1.001 frekvensbins**. En særskilt deklareret navnekontrol gav **169 fælles observations-ID-stammer**, to uparrede turboSETI-rækker og ingen uparrede energy-rækker. Den oprindelige analyse med nul matches er bevaret. I 2300–2301 MHz har turboSETI hit i 25/169 matchede rækker, energy-metoden i 5/169, og fire er fælles. Forskellige tærskler og kildens notch-markering gør tallene uegnede til at rangordne detektorer eller måle astronomisk følsomhed.
