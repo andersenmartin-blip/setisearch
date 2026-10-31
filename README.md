@@ -1,3 +1,15 @@
+## Seneste status: BU — første delanalyse af HIP44295, 31. oktober 2026
+
+Fem hidtil ikke signalsøgte scanninger fra 2016 er nu analyseret over **366,2109375 kHz** (q1–32), med 839 driftshastigheder og **1.443.348.480 korrelerede sporberegninger**. Ingen spor nåede den fastlåste lokale ESS-tærskel 10; største score var 6,592147. Alle fire portioner og den afsluttende uafhængige kontrol bestod.
+
+**Dette er en delanalyse.** Den sjette OFF-scanning er stadig ufuldstændig, og resultatet giver ingen fuld kandidatbedømmelse, kalibreret følsomhed eller ny BA-dækning. Autoriteten er fortsat 486 arkiv-ID'er og 268,50128173828125 tekniske MHz-besøg. Alle processer er afsluttet. Næste foreslåede udsnit er q33–64; de resterende kanaler er normaliseret, men endnu ikke detektorsøgt.
+
+[BU-rapport og præcis dækning](https://github.com/andersenmartin-blip/setisearch/blob/4d0b0d44d23575fa486ab8c69559c246edd865a3/RADIO_PROGRESS_BU_PARTIAL_2026-10-31.md) · [Resultater](https://github.com/andersenmartin-blip/setisearch/blob/4d0b0d44d23575fa486ab8c69559c246edd865a3/work_bu/SUMMARY_BU.json) · [Gemt evidens](https://github.com/andersenmartin-blip/setisearch/blob/4d0b0d44d23575fa486ab8c69559c246edd865a3/work_bu/DELIVERY_BU.json)
+
+Tidligere forløb og fejlstatus er bevaret nedenfor.
+
+---
+
 ## 31. oktober 2026: BT — alle 24 begrænsede kontroller kvalificeret
 
 **A04 er nu bestået i en ny, isoleret og uafhængigt verificeret kørsel.** Samlet er de 24 planlagte kontrolcases kvalificeret: 23 fra BP og den komplette nye A04-pair fra BT. Begge metoder genfandt 6/6 stærke og 2/6 svage testsignaler; ingen svag legacy-genfinding gik tabt i current. Alle otte baggrundscadencer havde nul fulde flag, og alle fire forstyrrelseskontroller er kvalificeret.
