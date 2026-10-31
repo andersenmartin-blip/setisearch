@@ -1,0 +1,51 @@
+{
+  "schema": "SETI_BS_CLOSED_STATUS_V1",
+  "status": "TWO_PASS_ONE_FAIL_PATH_RECREATION",
+  "qualified_scientific_controls": 23,
+  "A04_qualified": false,
+  "fixture_streams_verified": 6,
+  "fixture_records_verified": 270000,
+  "trial_statuses": [
+    {
+      "id": "bq_serial",
+      "status": "PASS",
+      "actual_exit_code": 0,
+      "wall_seconds": 5.778896941999847,
+      "current_storage_cap_exceeded": false
+    },
+    {
+      "id": "br_serial",
+      "status": "FAIL",
+      "actual_exit_code": 2,
+      "wall_seconds": 8.820923510000284,
+      "current_storage_cap_exceeded": true
+    },
+    {
+      "id": "br_overlap",
+      "status": "PASS",
+      "actual_exit_code": 0,
+      "wall_seconds": 17.658079104000535,
+      "current_storage_cap_exceeded": false
+    }
+  ],
+  "responsible_process_or_historical_cause": "UNESTABLISHED",
+  "copy_reconciliation_evidence": [
+    ".rsync-tmp events",
+    "random-suffix temporary files",
+    "pending name recreated on distinct inode after original unlink"
+  ],
+  "post_terminal_inventory_preserved_as_failure": true,
+  "missing_terminal_file_reconstructed": false,
+  "RNG_calls": 0,
+  "new_scan_scores": 0,
+  "astronomical_powers_opened": 0,
+  "saved_evidence": {
+    "file_name": "SETI_BS_PRESERVED_DIAGNOSTICS_2026-10-31.zip",
+    "library_file_id": "libfile_9bf50b90e41c819185553e50628d18d1",
+    "bytes": 4178960,
+    "sha256": "b28b33a79c5e6c831f43c232dbe3225b1ba7c81468a0be880341efdc9183a040",
+    "source_bytes": 770127338,
+    "members": 56
+  },
+  "next_step": "Prospective isolated-tmpfs fixture; only after independent acceptance, one new saved-score A04 closure may be separately qualified. No old failed run changes status."
+}

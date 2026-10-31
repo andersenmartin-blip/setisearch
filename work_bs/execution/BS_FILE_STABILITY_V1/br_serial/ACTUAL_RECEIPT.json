@@ -1,0 +1,67 @@
+{
+  "actual_exit_code": 2,
+  "capture_error": null,
+  "child_pid": 6,
+  "child_wait_completed": true,
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bs/audited_worker.py",
+    "--audit",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bs/execution/BS_FILE_STABILITY_V1/br_serial/PYTHON_AUDIT.jsonl",
+    "--writer",
+    "br",
+    "--output-dir",
+    "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bs/execution/BS_FILE_STABILITY_V1/br_serial/payload",
+    "--records",
+    "45000",
+    "--pace-ms",
+    "0"
+  ],
+  "completed_utc": "2026-10-31T08:53:22.747089+00:00",
+  "context": {
+    "identity": "BS_FILE_STABILITY_V1",
+    "operation": "Unrelated deterministic JSONL fixtures; no saved scores or astronomical powers",
+    "trial": "br_serial"
+  },
+  "descendant_cleanup_completed": true,
+  "killed": false,
+  "log_bytes": 1084,
+  "log_path": "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bs/execution/BS_FILE_STABILITY_V1/br_serial/STDOUT.log",
+  "log_sha256": "3bf2816ccfc6c25c0386e7cfcae48f096c167dcaf54a83ead18440a3720a9c4c",
+  "natural_stdout_eof": true,
+  "observed_stdout_bytes": 1084,
+  "observed_stdout_sha256": "3bf2816ccfc6c25c0386e7cfcae48f096c167dcaf54a83ead18440a3720a9c4c",
+  "process_namespace_mapping_verified": true,
+  "reasons": [
+    "ACTUAL_CHILD_EXIT_NOT_ZERO",
+    "TERMINAL_OR_RESULT_VALIDATION_FAILED: Terminal status/event differs"
+  ],
+  "remaining_live_descendants": [],
+  "resources": {
+    "capture_parent_cpu_seconds": 0.6807746029999999,
+    "child_system_cpu_seconds": 1.789509,
+    "child_user_cpu_seconds": 6.265133,
+    "group_stored_bytes_total": 468516599,
+    "max_child_RSS_bytes": 14336000,
+    "observed_tree_cpu_seconds": 8.03,
+    "peak_tree_RSS_bytes": 14204928,
+    "receipt_bytes": 2611,
+    "stored_bytes_before_receipt": 288020635,
+    "stored_bytes_total": 288023246,
+    "wall_seconds": 8.398351711000032
+  },
+  "result_path": "/workspace/scratch/9f43eeb3bf5a/setisearch/work_bs/execution/BS_FILE_STABILITY_V1/br_serial/payload/RESULT.json",
+  "result_sha256": "2b84dc61f01f22f40ad17827f5bb0ea05b23168e894584c05bbc1d95a0ab55fc",
+  "schema": "SETI_BO_EXACT_CHILD_CAPTURE_V1",
+  "source_pins_verified_after": true,
+  "source_pins_verified_before": true,
+  "status": "FAIL",
+  "stdout_eof": true,
+  "stdout_fully_preserved": true,
+  "terminal_stdout_json": {
+    "event": "GATE_TERMINAL_EOF",
+    "result_sha256": "2b84dc61f01f22f40ad17827f5bb0ea05b23168e894584c05bbc1d95a0ab55fc",
+    "status": "FAIL"
+  },
+  "wait_method": "os.wait4 exact child"
+}
