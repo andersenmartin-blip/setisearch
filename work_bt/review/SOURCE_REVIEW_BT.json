@@ -1,0 +1,114 @@
+{
+  "auditor_gate_fields": [
+    "status=PASS_ISOLATED_FIXTURE",
+    "records_verified=90000",
+    "terminal_sha256",
+    "archive_sha256",
+    "plan_sha256"
+  ],
+  "blocking_findings": [],
+  "historical_execution_mutations_by_review": 0,
+  "initial_findings_and_resolutions": [
+    {
+      "finding": "A04 premature contents.mkdir conflicted with frozenBQ exclusive outputmkdir.",
+      "id": "BT01",
+      "resolution": "Removed; mockedA04 test asserts output is absent on entry and originalfrozenmodule owns creation. No saved scores read by test."
+    },
+    {
+      "finding": "Prospective independent auditor and endpoint helper were omitted from plan sourcepins.",
+      "id": "BT02",
+      "resolution": "prepare_plan now explicitly pins review/audit_bt.py and work_bp/review/audit_results.py."
+    },
+    {
+      "finding": "Parent loaded archived source/input bindings without validating them.",
+      "id": "BT03",
+      "resolution": "Parent compares all8inner/outerfields, requires all4verifiedflags, and checks final-export pinlists. Independent auditor additionally compares exact lists with frozenBR source/input pins."
+    },
+    {
+      "finding": "Tmpfs capacity was not checked before reserving identity.",
+      "id": "BT04",
+      "resolution": "statvfs verifies at least1GiB available for bounded payload+archive before new trial directory creation; testedfailure."
+    }
+  ],
+  "new_science_executions_by_review": 0,
+  "remaining_limitations": [
+    "Tmpfsisolation is a mitigationexperiment, notproof ofhistoricalcause.",
+    "Finalintegrity is point-in-time and mustberechecked ifartifactslaterchange.",
+    "Failedproduction identities must notbeoverwritten/retried.",
+    "A04qualification doesnotauthorizefull839,DATAadmissionorastronomicalsearch."
+  ],
+  "reviewer_pause": "Allreviewerandcontrolsubagenttools paused afterfinalmessageuntilrootrequests postexecutionreview.",
+  "schema": "SETI_BT_INDEPENDENT_SOURCE_REVIEW_V1",
+  "scope": [
+    "Two fixed once-only exclusive identities. Fixture must receive independent PASS_ISOLATED_FIXTURE with90000records before one savedA04 association execution.",
+    "Gate binds sameplan,fixtureterminal,exportedarchive. Auditor and independent endpointhelper prospectivelypinned.",
+    "OriginalBR/BQ computation and numeric endpoints unchanged; current+legacy streams both newly computed in oneA04execution. Priorcompletehashes are predictionsonly.",
+    "Activeevidence stays in private verifiedtmpfs. ClosedZIP fullyCRC/hash/size/memberverified beforeandafterexport. No priorfailedstatus or execution bytesmodified.",
+    "Parent binds RESULT/archive/finalinventory and enforcesinclusivewall/CPU/groupstoragecaps. Worker preserves inheritedresourcelimits.",
+    "Independent audit uses own ZIP verification,90000exactfixturelines, or all87151A04associations andtruthendpoints recalculated by priorindependentBP helper on frozen savedscores. No newRNG/scans/astronomicalpowers.",
+    "Operator must actually enforce30secondinitialwait/nootherexecutorwork. Any requiredsame-sessionpolling remains explicitdeviation."
+  ],
+  "source_pins_at_review": [
+    {
+      "bytes": 21712,
+      "path": "work_bt/isolated_worker.py",
+      "sha256": "03273f70e69488db285ea6363cf2c5c5036f6d66845a45538467c1ecab4dca00"
+    },
+    {
+      "bytes": 10180,
+      "path": "work_bt/run_stage.py",
+      "sha256": "b174f9b566ed6e0f324bac612e7923f79af3e3f024316e2776ba7d1b0c22c533"
+    },
+    {
+      "bytes": 3733,
+      "path": "work_bt/prepare_plan.py",
+      "sha256": "e773677d9d2f2e5a61835259ac0d36baeb7b916c588518d23b6a9504bb061fd3"
+    },
+    {
+      "bytes": 2811,
+      "path": "work_bt/PREREG_BT.md",
+      "sha256": "42da3411cb0471b3fe79d15f06a7b3a0fa57f30f1f8615a65312b0612f3c4bc6"
+    },
+    {
+      "bytes": 21515,
+      "path": "work_bt/review/audit_bt.py",
+      "sha256": "7afad388cb8cae1193b93df98902544e785ed50e336aa511cbc2ebf15f69e9ff"
+    },
+    {
+      "bytes": 10079,
+      "path": "work_bt/tests/test_isolated_worker.py",
+      "sha256": "e62df49a9e447b3f394f937f41cdbe5ceca1d7b470f605fcd58945603bc4e914"
+    },
+    {
+      "bytes": 2739,
+      "path": "work_bt/tests/test_independent_audit.py",
+      "sha256": "cc01230717387bd1c081df0fd91cbe0cb93d91d451986ee0a824861485eebf0c"
+    },
+    {
+      "bytes": 23323,
+      "path": "work_bp/review/audit_results.py",
+      "sha256": "6f7036aa4f11cd3d56f0ec498015dfa0f3b4b1bb88537e1f65ebd353465d1f65"
+    }
+  ],
+  "status": "PASS_BOUNDED_ISOLATED_STAGE_SOURCE_REVIEW",
+  "validation": {
+    "actual_exit_code": 0,
+    "coverage": [
+      "archive truncation",
+      "missing/extra/duplicate members",
+      "validCRC but wrongSHA",
+      "unsafe names/symlink entries",
+      "exclusive destinations",
+      "existingisolation preservation",
+      "resourcecaps neverrelaxed",
+      "mockA04 absentoutput contract",
+      "tmpfs capacity rejection",
+      "independentZIP CRC/hash/membership"
+    ],
+    "full_trials_executed": 0,
+    "independent_archive_tests": 6,
+    "largest_fixture_test_records_per_stream": 3,
+    "test_command": "python3 -m unittest discover -s work_bt/tests -v",
+    "unit_tests_passed": 21
+  }
+}
