@@ -1,0 +1,6 @@
+{
+  "status": "FAIL_REVIEW",
+  "exception": "ValueError: Association stream binding",
+  "traceback": "Traceback (most recent call last):\n  File \"/workspace/scratch/9f43eeb3bf5a/setisearch/work_bq/review/audit_results.py\", line 151, in <module>\n    try:sys.exit(main())\n                 ^^^^^^\n  File \"/workspace/scratch/9f43eeb3bf5a/setisearch/work_bq/review/audit_results.py\", line 97, in main\n    check(p.resolve().is_relative_to(payload) and p.stat().st_size==stream['bytes'] and sha(p)==stream['sha256'],'Association stream binding')\n  File \"/workspace/scratch/9f43eeb3bf5a/setisearch/work_bq/review/audit_results.py\", line 21, in check\n    if not ok:raise ValueError(message)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Association stream binding\n",
+  "wall_seconds": 4.525405408000552
+}

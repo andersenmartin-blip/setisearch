@@ -1,0 +1,11 @@
+# BR: atomically published saved A04 association with child and parent closure checks
+
+BP remains FAIL with 23 passed controls and an A04 RSS failure. BQ retains its recorded exit0/capturePASS, but its effective evidence status is FAIL: the current stream contains 36,857 valid prefix records instead of its declared 43,306. Its recorded full size/hash differs from the 71,236,624-byte file bound by its later terminal. The missing 6,449 records are not silently appended or replaced. The cause remains UNESTABLISHED. The independent forensic review verifies the retained prefix and the full legacy stream; no old file is modified.
+
+This is one separate prospective BR_A04_ASSOC_V1 identity using exactly the same saved A04 and N04 scan score arrays and original BP case/association specification. It uses the frozen BQ streaming evaluator with only its output writer substituted. A new writer flushes/fsyncs and validates an exclusive pending stream before atomic exclusive publication. Both complete published streams are validated against their result manifests at child end, again at parent end and in independent postrun review. A zero process exit alone is insufficient for effective PASS. All previous failures and bytes stay unchanged.
+
+No RNG, normalization, track sum, scan score, new candidate choice, threshold adjustment or astronomical data access is authorized. Both complete association streams are recomputed under the unchanged saved-score endpoint policy and retained in new paths; this operation is explicitly distinct from retrying or repairing BP/BQ identities.
+
+All source/runtime/input hashes, exact original recipes, source-order/caps and this closure protocol are published and read back before execution. BR is bounded by the same limits as BQ: 180 CPU seconds, 240 wall seconds, 1 GiB RSS and 2 GiB new stored output. No automatic retry, cap increase or overwrite follows another failure.
+
+Only complete stream hashes, byte and record counts, natural EOF, exact wait/cleanup, unchanged source/input pins, successful parent closure and independent record-by-record result verification permit an A04 postprocessing result. Full839 controls, DATA admission and astronomical search remain separate later stages.

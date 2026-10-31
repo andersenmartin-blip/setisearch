@@ -1,0 +1,84 @@
+{
+  "BP_original_status": "FAIL",
+  "cause": "UNESTABLISHED",
+  "completed_utc": "2026-10-31T08:13:28.225378+00:00",
+  "current_association_gate_qualified": false,
+  "discrepancy": "Result close receipt binds a complete43306record currentstream but terminal/file bind only its first36857records.6449requiredrecords are absent. Legacy43845recordstream is complete and matches every saved-score endpoint.",
+  "effective_evidence_status": "FAIL",
+  "historical_capture_status": "PASS",
+  "historical_result_status": "PASS",
+  "historical_statuses_unchanged": true,
+  "independent_helper_sha256": "6f7036aa4f11cd3d56f0ec498015dfa0f3b4b1bb88537e1f65ebd353465d1f65",
+  "methods": {
+    "current": {
+      "actual_bytes": 71236624,
+      "actual_sha256": "f5c46abc1a3d4347fc35e7cdef958ab84227f2f8b05d183b66287b734afd9bb4",
+      "declared_closed_bytes": 82645873,
+      "declared_closed_sha256": "c2ac481a772ade86eaeabc3b5fab401faa970cddee0edd261d1cced8e26b163d",
+      "expected_records": 43306,
+      "last_retained_source": {
+        "ESS": 70.11129942523687,
+        "center": 264045,
+        "q": 64,
+        "rate_index": 419,
+        "source_scan": 4,
+        "stride": 1,
+        "width": 3
+      },
+      "matches_closed_declaration": false,
+      "missing_records": 6449,
+      "retained_records_form_exact_ordered_prefix": true,
+      "retained_records_verified": 36857,
+      "retained_status_counts": {
+        "OFF_VETO": 8099,
+        "PASS": 0,
+        "THREE_ON_FAIL": 28758,
+        "UNSUPPORTED": 0
+      }
+    },
+    "legacy": {
+      "actual_bytes": 83501000,
+      "actual_sha256": "e1af344f12f36f2deb8205943bcb427faa56a14b3a63593fcc52eba2186a6479",
+      "declared_closed_bytes": 83501000,
+      "declared_closed_sha256": "e1af344f12f36f2deb8205943bcb427faa56a14b3a63593fcc52eba2186a6479",
+      "expected_records": 43845,
+      "last_retained_source": {
+        "ESS": 15.08130168914795,
+        "center": 264792,
+        "q": 64,
+        "rate_index": 838,
+        "source_scan": 4,
+        "stride": 8,
+        "width": 33
+      },
+      "matches_closed_declaration": true,
+      "missing_records": 0,
+      "retained_records_form_exact_ordered_prefix": true,
+      "retained_records_verified": 43845,
+      "retained_status_counts": {
+        "OFF_VETO": 9816,
+        "PASS": 0,
+        "THREE_ON_FAIL": 34029,
+        "UNSUPPORTED": 0
+      }
+    }
+  },
+  "operations": {
+    "execution_files_mutated": 0,
+    "missing_records_reconstructed_or_saved": 0,
+    "new_RNG_calls": 0,
+    "new_saved_association_results": 0,
+    "new_scan_scores": 0
+  },
+  "qualifications": [
+    "Verified only retained ordered records against fixed saved-score arrays.",
+    "No missing current records were supplied or silently inferred as passing.",
+    "Original BQ cannot receive complete evidence credit; BP remains failed."
+  ],
+  "result_sha256": "f15bb9735243419c53d2c955750d7db288e3b8607f3f4c6318c58f086a7aa76f",
+  "reviewer_source_sha256": "dcd900ee49e5710292fdffe222a7e415c3fc6563e2d8af14fc47081226d12dfb",
+  "schema": "SETI_BQ_FORENSIC_REVIEW_V1",
+  "status": "PASS_RETAINED_BYTES_VERIFICATION",
+  "terminal_sha256": "9c96fb7e69e798a5ba7fc9ce6e652386e0b6ee64d6fa4c45f0c51d37cf5b0a5c",
+  "wall_seconds": 5.779929985000308
+}
