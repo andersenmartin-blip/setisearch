@@ -1,0 +1,354 @@
+{
+  "created_utc": "2026-11-01T21:32:41.363084+00:00",
+  "status": "CANONICAL_INPUTS_VERIFIED_TEMPORARY_FILE_ANOMALY_DOCUMENTED",
+  "original_numerical_audit_summary_unchanged": true,
+  "original_numerical_audit_summary_sha256": "9f56731262079a644c567c4b1ba1890fd0917caa811ca70c7e6bb90519eca8d1",
+  "canonical_product_count": 32,
+  "canonical_products_all_match_manifest": true,
+  "canonical_product_bytes": 423684432,
+  "residual_partial_file_count": 5,
+  "residual_partial_file_bytes": 63042967,
+  "all_residual_files_are_exact_canonical_prefixes": true,
+  "full_duplicate_count": 1,
+  "excluded_from_analysis": true,
+  "residual_files_preserved_without_modification": true,
+  "partial_file_origin": "Undetermined. Files remain despite the documented rename/cleanup path. Prefix equality does not establish how these files were created or imply additional network bytes. No unsupported transport explanation is inferred.",
+  "extraction_input_verification": "All32 extraction receipt hashes match canonical manifest products; every spectrum records the correct RAW and ANCILLARY hashes. Frozen extractor reads only those manifest relative_path values. The earlier independent audit reconstructed every saved cutout from canonical paths, not .part paths.",
+  "acquisition_attempts": {
+    "total": 33,
+    "successful": 32,
+    "failed": 1,
+    "failed_attempts": [
+      {
+        "filename": "ADP.2023-02-28T01_02_17.096.tar",
+        "attempt_index": 1,
+        "timeout_seconds": 20,
+        "known_returned_payload_bytes": 0,
+        "charged_payload_bytes": 0,
+        "outcome": "FAILED",
+        "elapsed_seconds": 4.414324215002125,
+        "error": "<HTTPError 503: 'Service Unavailable'>"
+      }
+    ],
+    "known_returned_payload_bytes": 423684432,
+    "charged_payload_bytes": 423684432,
+    "unknown_bytes_conservatively_charged": 0,
+    "reserved_bytes": 0,
+    "correction": "Acquisition succeeded for all32 products with one HTTP503 failure before any response-body bytes, followed by a successful retry. Describing this acquisition as having no retries was incorrect."
+  },
+  "source_hashes": {
+    "products/MANIFEST.json": "e017b4969a66e8c51a4dd37c33d6891cbb272297aecb119659f4fcec71b64f9c",
+    "NATIVE_MAPPING.json": "caae2e56ce6631f72133db99160be1719b8904a7a9c3d9ad782282e909b09393",
+    "extract_native.py": "fbcfbf843cc4b090644641a3eb8201ae16503b639b993cc1091b88b5361c21bb",
+    "FOLLOWUP_FREEZE.json": "780acb5b226bcea8af70e9dd258f6d721a6c6fe5c1054ca1879a65691ba3c210"
+  },
+  "script_sha256": "1ca439ac4a995e74db3b1f3f0077df334649c9091781510acbc86f9a4b094c2c",
+  "canonical_products": [
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/HARPS.2023-02-26T07_07_40.802.fits.Z",
+      "bytes": 19726247,
+      "sha256": "b0bd48f5bd84c0df0a870d03a47f0923733298789a111131bca41144e5d73641",
+      "expected_sha256": "b0bd48f5bd84c0df0a870d03a47f0923733298789a111131bca41144e5d73641",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/ADP.2023-02-27T01_01_03.514.tar",
+      "bytes": 6400000,
+      "sha256": "84c6ce283c08cc9a9a02ca4310ff49bf57f2ca460ccd0ee36cd1190f5b11f2b9",
+      "expected_sha256": "84c6ce283c08cc9a9a02ca4310ff49bf57f2ca460ccd0ee36cd1190f5b11f2b9",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/HARPS.2023-02-27T08_32_54.037.fits.Z",
+      "bytes": 19625305,
+      "sha256": "87d81404a4543aa534a8ada2db07e55844b81ef4f477c6d5341827dff3d718a0",
+      "expected_sha256": "87d81404a4543aa534a8ada2db07e55844b81ef4f477c6d5341827dff3d718a0",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/ADP.2023-02-28T01_02_17.096.tar",
+      "bytes": 6389760,
+      "sha256": "d50ffed9cb59fd968da884ce201bfa2739ef06e930047f8c827c51feb418f611",
+      "expected_sha256": "d50ffed9cb59fd968da884ce201bfa2739ef06e930047f8c827c51feb418f611",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/HARPS.2023-02-28T06_06_39.357.fits.Z",
+      "bytes": 19948593,
+      "sha256": "bfc6c260fc9ec4cdc9ca9e6f06db01633c717373ca6047990e367e046e638ef5",
+      "expected_sha256": "bfc6c260fc9ec4cdc9ca9e6f06db01633c717373ca6047990e367e046e638ef5",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/ADP.2023-03-01T01_01_30.552.tar",
+      "bytes": 6389760,
+      "sha256": "9b53d15a2ea321d31fe3696eda028a3ef49be5cd7c4e096284e090dff6aac681",
+      "expected_sha256": "9b53d15a2ea321d31fe3696eda028a3ef49be5cd7c4e096284e090dff6aac681",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/HARPS.2023-03-01T09_10_00.121.fits.Z",
+      "bytes": 19829411,
+      "sha256": "45f8c41fe3ba5acbee40963675df24980a5ebfb929852a105538a5017234811a",
+      "expected_sha256": "45f8c41fe3ba5acbee40963675df24980a5ebfb929852a105538a5017234811a",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/ADP.2023-03-02T01_01_24.354.tar",
+      "bytes": 6400000,
+      "sha256": "3829397b2c9813784cc491e4e545f311509f779808127615aa760db7ede8f49f",
+      "expected_sha256": "3829397b2c9813784cc491e4e545f311509f779808127615aa760db7ede8f49f",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/HARPS.2022-01-05T07_04_47.116.fits.Z",
+      "bytes": 19748635,
+      "sha256": "803b7c81cf5e5e0f78b3bc2ed9c4e8ae165b33c24026c3771557cfa08cffd7c6",
+      "expected_sha256": "803b7c81cf5e5e0f78b3bc2ed9c4e8ae165b33c24026c3771557cfa08cffd7c6",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/ADP.2022-01-06T01_08_04.690.tar",
+      "bytes": 6400000,
+      "sha256": "7ed959467fb24663d4ae10ac4f58cfff87bdb52cb17b38e78a5f82538c030ca2",
+      "expected_sha256": "7ed959467fb24663d4ae10ac4f58cfff87bdb52cb17b38e78a5f82538c030ca2",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/HARPS.2022-03-07T04_52_12.632.fits.Z",
+      "bytes": 20117129,
+      "sha256": "f19330055b3ba692270febcfc394eccacad0759f8bdb9996067b3cac1f0f2386",
+      "expected_sha256": "f19330055b3ba692270febcfc394eccacad0759f8bdb9996067b3cac1f0f2386",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/ADP.2022-03-08T01_01_37.343.tar",
+      "bytes": 6400000,
+      "sha256": "530db1635f0c6fbf21862ec1c3ded2b9b61552855e1d506ccc8baecbef1c3372",
+      "expected_sha256": "530db1635f0c6fbf21862ec1c3ded2b9b61552855e1d506ccc8baecbef1c3372",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/HARPS.2022-05-07T05_12_25.402.fits.Z",
+      "bytes": 19717285,
+      "sha256": "48eaed37a2db1b8ac037b0b8f9585f0680b7e06e1f5817c43b863a17b2e92e5b",
+      "expected_sha256": "48eaed37a2db1b8ac037b0b8f9585f0680b7e06e1f5817c43b863a17b2e92e5b",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/ADP.2022-05-08T01_01_37.877.tar",
+      "bytes": 6389760,
+      "sha256": "b2097e973630447a348b5aea676b013e6f06c0d97d1b9930d96f0b34c320a79d",
+      "expected_sha256": "b2097e973630447a348b5aea676b013e6f06c0d97d1b9930d96f0b34c320a79d",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/HARPS.2022-12-31T07_26_25.382.fits.Z",
+      "bytes": 21554015,
+      "sha256": "e20fb6a3e48d2c5a1ecd39bb9f6d45e132cf2b6224b4fee26f332a386e2f86d8",
+      "expected_sha256": "e20fb6a3e48d2c5a1ecd39bb9f6d45e132cf2b6224b4fee26f332a386e2f86d8",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/ADP.2023-01-01T01_10_52.480.tar",
+      "bytes": 6400000,
+      "sha256": "9616f0e926d21a99cf98f9625d076862663fdb5b6f8ba099c7f6067d9952c0c7",
+      "expected_sha256": "9616f0e926d21a99cf98f9625d076862663fdb5b6f8ba099c7f6067d9952c0c7",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/HARPS.2023-03-22T04_52_14.904.fits.Z",
+      "bytes": 20803643,
+      "sha256": "dea9841776ca2456a3235f87f42a0e5a7a1e3f05c55b620ea6b56ebdf4bac2d8",
+      "expected_sha256": "dea9841776ca2456a3235f87f42a0e5a7a1e3f05c55b620ea6b56ebdf4bac2d8",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/ADP.2023-03-23T01_02_04.832.tar",
+      "bytes": 6400000,
+      "sha256": "9c74aae17dcfa2c2bc093ccb7f25fe622b1fe27942b7ba1dacef533a0f4da64e",
+      "expected_sha256": "9c74aae17dcfa2c2bc093ccb7f25fe622b1fe27942b7ba1dacef533a0f4da64e",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/HARPS.2023-05-24T03_32_27.955.fits.Z",
+      "bytes": 20467323,
+      "sha256": "a6515102c2c7bcf9e847b1f14c9b1a10fe990b26b2e3053d71f9c747c7203a63",
+      "expected_sha256": "a6515102c2c7bcf9e847b1f14c9b1a10fe990b26b2e3053d71f9c747c7203a63",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/ADP.2023-05-25T01_01_39.294.tar",
+      "bytes": 6389760,
+      "sha256": "9b362ad7635af3807a152a0960412417c78725b2cac56a2ffcbc6e502a1cc8b7",
+      "expected_sha256": "9b362ad7635af3807a152a0960412417c78725b2cac56a2ffcbc6e502a1cc8b7",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/HARPS.2023-07-03T23_55_27.533.fits.Z",
+      "bytes": 20076119,
+      "sha256": "d41711e0e118aadb427e3799942b40a526ac4069c6380848114bf1596d1e66bd",
+      "expected_sha256": "d41711e0e118aadb427e3799942b40a526ac4069c6380848114bf1596d1e66bd",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/ADP.2023-07-05T01_02_00.054.tar",
+      "bytes": 6430720,
+      "sha256": "b15e2f526b5c442ac6d447dd67821cf3ee4b1f3417d8d3aeb4ba95e0844a1686",
+      "expected_sha256": "b15e2f526b5c442ac6d447dd67821cf3ee4b1f3417d8d3aeb4ba95e0844a1686",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/HARPS.2024-12-25T06_13_51.819.fits.Z",
+      "bytes": 20051351,
+      "sha256": "ce0dbae5ae704378e2afb4094958f92b32a69d96c87146cf2ad2499b4ab66779",
+      "expected_sha256": "ce0dbae5ae704378e2afb4094958f92b32a69d96c87146cf2ad2499b4ab66779",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/ADP.2024-12-27T01_01_17.828.tar",
+      "bytes": 6400000,
+      "sha256": "09313c205ee07d5fa322e53fb7fdd03a78ce5d86333c7ee30a22a2350e06ab6e",
+      "expected_sha256": "09313c205ee07d5fa322e53fb7fdd03a78ce5d86333c7ee30a22a2350e06ab6e",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/HARPS.2025-01-18T05_50_49.172.fits.Z",
+      "bytes": 20021123,
+      "sha256": "2b08fd9317d058fdb0bdd4dcca4cc53d567c84b0380ed0e84980a64865859c75",
+      "expected_sha256": "2b08fd9317d058fdb0bdd4dcca4cc53d567c84b0380ed0e84980a64865859c75",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/ADP.2025-01-19T01_00_53.694.tar",
+      "bytes": 6389760,
+      "sha256": "3bb377549853591da60537b5abcfdc0fa842e00f5d045b8a33defacb4b938ba4",
+      "expected_sha256": "3bb377549853591da60537b5abcfdc0fa842e00f5d045b8a33defacb4b938ba4",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/HARPS.2025-02-01T08_55_12.981.fits.Z",
+      "bytes": 19923925,
+      "sha256": "caec1dffa5ea9c2b497d6694dda1859c52bd6328b75f9af3921ce811db038007",
+      "expected_sha256": "caec1dffa5ea9c2b497d6694dda1859c52bd6328b75f9af3921ce811db038007",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/ADP.2025-02-02T01_01_13.385.tar",
+      "bytes": 6400000,
+      "sha256": "2ff3fbbaed1850d4719fe994a101be341ab5866286e4301923b366066845ac09",
+      "expected_sha256": "2ff3fbbaed1850d4719fe994a101be341ab5866286e4301923b366066845ac09",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/HARPS.2025-02-21T08_06_34.238.fits.Z",
+      "bytes": 19818731,
+      "sha256": "28dbc2f353bc0553a2e846da2335cbad6c4b8619097272f2d9e00ebf1180f174",
+      "expected_sha256": "28dbc2f353bc0553a2e846da2335cbad6c4b8619097272f2d9e00ebf1180f174",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/ADP.2025-02-22T01_00_58.802.tar",
+      "bytes": 6400000,
+      "sha256": "2053cbc2a58580b86797d7f72fc82b67a678eb746d05b9eb007312399f724369",
+      "expected_sha256": "2053cbc2a58580b86797d7f72fc82b67a678eb746d05b9eb007312399f724369",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/HARPS.2025-03-07T06_36_06.019.fits.Z",
+      "bytes": 19886317,
+      "sha256": "33c40c7d55c3c18acbd148b8660e342e5ab431f00b4dd7e6d95381eb5d85d540",
+      "expected_sha256": "33c40c7d55c3c18acbd148b8660e342e5ab431f00b4dd7e6d95381eb5d85d540",
+      "matches_manifest": true
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/ADP.2025-03-08T01_00_53.231.tar",
+      "bytes": 6389760,
+      "sha256": "c2aae4ebecb3f79f71c34ee94ba04122bc1e004d85f3948c2306a1c98b2dc2b7",
+      "expected_sha256": "c2aae4ebecb3f79f71c34ee94ba04122bc1e004d85f3948c2306a1c98b2dc2b7",
+      "matches_manifest": true
+    }
+  ],
+  "residual_partial_files": [
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/ADP.2025-02-02T01_01_13.385.tar.part",
+      "bytes": 1048576,
+      "sha256": "4134fb67e35ffa340bb2bac16fca28be318fb14b6a8952d67291f7c949b90078",
+      "mtime_ns": 1793568429559346011,
+      "ctime_ns": 1793568432298743945,
+      "inode": 1973975,
+      "canonical_relative_path": "v2/extension02/raw_followup_batch02/products/ADP.2025-02-02T01_01_13.385.tar",
+      "canonical_bytes": 6400000,
+      "canonical_sha256": "2ff3fbbaed1850d4719fe994a101be341ab5866286e4301923b366066845ac09",
+      "canonical_prefix_sha256": "4134fb67e35ffa340bb2bac16fca28be318fb14b6a8952d67291f7c949b90078",
+      "exact_canonical_prefix_match": true,
+      "complete_canonical_duplicate": false,
+      "included_as_manifest_product": false,
+      "included_as_extraction_input": false
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/HARPS.2023-03-22T04_52_14.904.fits.Z.part",
+      "bytes": 16777216,
+      "sha256": "ddf0b9a1085a0152fa20c73a4c835b8fccf67f091d26aaefea0f6ce11930f48e",
+      "mtime_ns": 1793568407582791355,
+      "ctime_ns": 1793568410226616644,
+      "inode": 1973948,
+      "canonical_relative_path": "v2/extension02/raw_followup_batch02/products/HARPS.2023-03-22T04_52_14.904.fits.Z",
+      "canonical_bytes": 20803643,
+      "canonical_sha256": "dea9841776ca2456a3235f87f42a0e5a7a1e3f05c55b620ea6b56ebdf4bac2d8",
+      "canonical_prefix_sha256": "ddf0b9a1085a0152fa20c73a4c835b8fccf67f091d26aaefea0f6ce11930f48e",
+      "exact_canonical_prefix_match": true,
+      "complete_canonical_duplicate": false,
+      "included_as_manifest_product": false,
+      "included_as_extraction_input": false
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/HARPS.2024-12-25T06_13_51.819.fits.Z.part",
+      "bytes": 20051351,
+      "sha256": "ce0dbae5ae704378e2afb4094958f92b32a69d96c87146cf2ad2499b4ab66779",
+      "mtime_ns": 1793568419472901476,
+      "ctime_ns": 1793568422061591637,
+      "inode": 1973962,
+      "canonical_relative_path": "v2/extension02/raw_followup_batch02/products/HARPS.2024-12-25T06_13_51.819.fits.Z",
+      "canonical_bytes": 20051351,
+      "canonical_sha256": "ce0dbae5ae704378e2afb4094958f92b32a69d96c87146cf2ad2499b4ab66779",
+      "canonical_prefix_sha256": "ce0dbae5ae704378e2afb4094958f92b32a69d96c87146cf2ad2499b4ab66779",
+      "exact_canonical_prefix_match": true,
+      "complete_canonical_duplicate": true,
+      "included_as_manifest_product": false,
+      "included_as_extraction_input": false
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/HARPS.2025-02-01T08_55_12.981.fits.Z.part",
+      "bytes": 15728640,
+      "sha256": "1ebac1a057811955f6c00ab5edb9e8116698bdc9618e012d91f611f44c0798f1",
+      "mtime_ns": 1793568429567346216,
+      "ctime_ns": 1793568432298743945,
+      "inode": 1973977,
+      "canonical_relative_path": "v2/extension02/raw_followup_batch02/products/HARPS.2025-02-01T08_55_12.981.fits.Z",
+      "canonical_bytes": 19923925,
+      "canonical_sha256": "caec1dffa5ea9c2b497d6694dda1859c52bd6328b75f9af3921ce811db038007",
+      "canonical_prefix_sha256": "1ebac1a057811955f6c00ab5edb9e8116698bdc9618e012d91f611f44c0798f1",
+      "exact_canonical_prefix_match": true,
+      "complete_canonical_duplicate": false,
+      "included_as_manifest_product": false,
+      "included_as_extraction_input": false
+    },
+    {
+      "relative_path": "v2/extension02/raw_followup_batch02/products/HARPS.2025-02-21T08_06_34.238.fits.Z.part",
+      "bytes": 9437184,
+      "sha256": "49b4804610c827f0b04f1ef6520da722e73d668f168e5467f9512ddb0450eb24",
+      "mtime_ns": 1793568429459343451,
+      "ctime_ns": 1793568432298743945,
+      "inode": 1973978,
+      "canonical_relative_path": "v2/extension02/raw_followup_batch02/products/HARPS.2025-02-21T08_06_34.238.fits.Z",
+      "canonical_bytes": 19818731,
+      "canonical_sha256": "28dbc2f353bc0553a2e846da2335cbad6c4b8619097272f2d9e00ebf1180f174",
+      "canonical_prefix_sha256": "49b4804610c827f0b04f1ef6520da722e73d668f168e5467f9512ddb0450eb24",
+      "exact_canonical_prefix_match": true,
+      "complete_canonical_duplicate": false,
+      "included_as_manifest_product": false,
+      "included_as_extraction_input": false
+    }
+  ]
+}

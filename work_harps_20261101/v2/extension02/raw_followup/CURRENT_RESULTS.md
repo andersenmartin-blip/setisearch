@@ -1,24 +1,21 @@
-# Aktuel råopfølgning på den nye HARPS prøve
+# Aktuel råopfølgning på den nye HARPS-prøve
 
-**59 af de 336 nye V2-træf er rågennemgået:** 44 sandsynlige detektorartefakter, 8 forenelige med atmosfærisk O I, 6 uafklarede spektralstrukturer og 1 med utilstrækkelig billedkobling. De øvrige **277 mangler rågennemgang**. Alle vurderinger er foreløbige; der er ingen identificeret laser eller kvalificeret SETI-kandidat.
+**127 af336 nye V2-poster er rågennemgået; 209 mangler.** Alle vurderinger er foreløbige. Ingen kvalificeret laser- eller SETI-kandidat er identificeret.
 
-| Aktuel V2 status | Antal |
+| Aktuel status | Antal |
 |---|---:|
-| Sandsynlig detektorartefakt | 44 |
-| Forenelig med atmosfærisk O I | 8 |
-| Uafklaret spektralstruktur | 6 |
-| Utilstrækkelig råbilledkobling | 1 |
-| Endnu ikke rågennemgået | 277 |
+| Provisional detector artefact | 80 |
+| O I-compatible | 13 |
+| Unresolved spectral structure | 27 |
+| Insufficient raw mapping | 7 |
+| No raw review yet | 209 |
 | Hele det nye katalog | 336 |
 
-Delprøven bruger 8 eksponeringer med alle 6 nye V1-træf, suppleret i den fastlagte observationsrækkefølge. Efter opfølgningen har V1-posterne 3 foreløbige artefakt- og 3 O I-vurderinger. Alle seks matcher et V2-træf i samme eksponering og tælles ikke som seks ekstra, uafhængige fysiske hændelser. Det V1-prioriterede udvalg er ikke en repræsentativ prøve til måling af en global falsk-alarm-rate.
+Den første faste gruppe omfattede59 V2-poster og6 V1-poster fra8 eksponeringer. De6 V1 matcher V2-poster og er ikke6 ekstra uafhængige fænomener. Baseline og den senere bredere billedkobling er bevaret uændret. [Batch02](../raw_followup_batch02/README.md) udvalgte derefter68 hidtil ikke rågennemgåede V2-poster i16 eksponeringer fra den nøjagtige restkø; alle dækkende ordener indgår i billedkoblingskravet. Numerisk kontrol og visuelle vurderinger er dokumenteret særskilt. Agentkontrol er ikke menneskelig fagfællebedømmelse eller nye observationer.
 
-Den første rågennemgang af 65 V1/V2-poster er bevaret i [baseline-rapporten](RESULTS.md). To separate analyseagenters vurderinger stemte for alle 65; hovedagentens 9 stikprøver stemte også. Efterfølgende gav den samme bredere referencekontrol som i det tidligere projekt støtte for 8 af de 9 mapping-begrænsede poster. To nye gennemgange stemte på 4 artefakter, 4 uafklarede spektrale/instrumentelle strukturer og 1 fortsat begrænsning. Hovedagenten gennemså alle tre neutrale billedsider og vedtog dette forsigtige statuslag. Det er ikke blindet forskervalidering eller uafhængigt menneskeligt review.
+Aktuelle uafklarede nye poster: V2E2-0001, V2E2-0016, V2E2-0022, V2E2-0023, V2E2-0025, V2E2-0026, V2E2-0027, V2E2-0028, V2E2-0029, V2E2-0033, V2E2-0035, V2E2-0042, V2E2-0043, V2E2-0044, V2E2-0045, V2E2-0046, V2E2-0047, V2E2-0050, V2E2-0051, V2E2-0052, V2E2-0053, V2E2-0054, V2E2-0104, V2E2-0128, V2E2-0129, V2E2-0130, V2E2-0131.
+Aktuelle nye begrænsninger i billedkobling: V2E2-0018, V2E2-0034, V2E2-0041, V2E2-0070, V2E2-0074, V2E2-0075, V2E2-0225.
 
-**V2E2-0225 forbliver begrænset.** Dens tidligere problematiske orden 33 består nu kontrollen, men orden 32 har kun en rå/native-korrelation på 0,6009. Den lille rumlige afvigelse på 0,0162 pixel tilsidesætter ikke korrelationskravet. Alle dækkende ordener blev kontrolleret, og kandidatkoordinaterne blev ikke flyttet. De oprindelige rå- og native-pixels er bevaret præcist.
+[Alle336 aktuelle poster](CURRENT_V2_ALL336_DISPOSITIONS.csv) · [alle133 udvalgte V1/V2-poster](CURRENT_SELECTED_EVENT_DISPOSITIONS.csv) · [aktuel opsummering](CURRENT_SUMMARY.json) · [ny statuskombinationskode](../raw_followup_batch02/update_current.py) · [præcis restkø](../raw_followup_batch02/CONTINUATION_STATE.json) · [tidligere baseline](RESULTS.md) · [tidligere bredere billedkobling](mapping_followup/README.md).
 
-Den numeriske kontrol reproducerede 35 baseline-udsnit fra tre fast valgte eksponeringer. Den udvidede kontrol reproducerede alle 16 større udsnit og alle 65 referencevinduer fra fire eksponeringer. Alle 16 endelige rå/TAR-produkters identiteter og hashes er verificeret. Tre efterladte delvise filer på i alt 4 MiB er bevaret som ubrugte diagnostiske præfikser; deres overlevelsesårsag og netværksproveniens er ukendt. De påvirker ikke de verificerede analyserede input og bruges ikke som ekstra observationer.
-
-[Alle 336 aktuelle statusposter](CURRENT_V2_ALL336_DISPOSITIONS.csv) · [alle 65 udvalgte V1/V2-poster](CURRENT_SELECTED_EVENT_DISPOSITIONS.csv) · [aktuel opsummering](CURRENT_SUMMARY.json) · [statuskombinationskode](combine_current.py) · [bredere billedkobling](mapping_followup/README.md) · [gemte input](../checkpoints/SAVED_INPUTS.md).
-
-Billedkoblingsreglerne varierer mellem historiske gennemgange. Originale produktionskataloger, baseline-tabeller og de friske kontrolforsøg er uændrede. Opfølgningen giver hverken en global følsomhedsmåling eller et kvalificeret fravær af lasersignaler.
+Oprindelige produktionskataloger, baselinetabeller og alle tidligere afgørelser bevares. Kolonner med baseline-status beskriver det historiske trin; `current_code` og `current_evidence_table` angiver gældende opfølgning. Reglerne for billedkobling varierer mellem historiske trin. Der er ingen global følsomheds- eller falsk-alarm-kalibrering og intet kvalificeret nulresultat for lasere.
