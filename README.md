@@ -1,3 +1,15 @@
+## Seneste status — HARPS optisk søgning startet (1. november 2026)
+
+**100 eksponeringer af 20 stjerner er analyseret:** 30.650.658 søgte spektralpunkter og 22,972 timers samlet eksponering. Der er **10 foreløbige emissionshits på seks mål**, alle bevaret med status `UNREVIEWED`. Ingen laser eller kvalificeret SETI-kandidat er identificeret.
+
+**Følsomheden er begrænset:** den fastlåste metode genfinder 11 af 48 parrede signalindsættelser; selv ved største styrke genfindes kun 6/12. De seks missede stærkeste linjer giver tre punkter over tærsklen, mens reglen kræver fire. Uafhængig direkte beregning bekræfter både hovedresultater og samtlige kontroller.
+
+[Rapport, alle ti figurer, komplette tabeller og reproduktion](https://github.com/andersenmartin-blip/setisearch/tree/optical-harps-week-20261101/work_harps_20261101) · [Fast resultatcommit](https://github.com/andersenmartin-blip/setisearch/commit/f3fd8111bea0180f95d70cbec9481b34f0849d1c)
+
+**Delvist gennemført HARPS-uge:** udvælgelse, datahentning, første søgning og kontrolforsøg er færdige. Næste arbejde er råbilleder, atmosfære/instrument/naturlig emission, epokesammenligning og endelig disposition af alle ti hits. HARPS er planlagt 1.–7. november; Rubin 8.–14. november og er endnu ikke analyseret. Ingen automatisk baggrundskørsel er oprettet. Tidligere radioresultater nedenfor bevares uændret.
+
+---
+
 ## Seneste status — CB — faktisk stjerneobservation analyseret (1. november 2026)
 
 **17.891.328 målte radioeffekter fra HIP35136 er hentet og analyseret:** én historisk observation over 187,5 MHz og 293,13 sekunder. En afgrænset historikkontrol fandt ingen tidligere brug af target/epoken i projektets gennemgåede oversigter. Dette er en ny analyse af stjernedata i projektet.
