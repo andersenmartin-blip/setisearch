@@ -1,0 +1,124 @@
+{
+  "trial": {
+    "background": 0,
+    "dp_id": "ADP.2021-11-30T01:05:15.920",
+    "anchor_angstrom": 6612.31,
+    "phase": 0.0,
+    "amplitude": 16,
+    "center_angstrom": 6612.3099999999995,
+    "original_std_adu": 555.7575531527216,
+    "peak_added_adu": 8892.120850443545,
+    "fwhm_angstrom": 0.057498347826086954,
+    "v1_recovered": false,
+    "v2_recovered": true,
+    "v1_control_hit": false,
+    "v2_control_hit": false
+  },
+  "v1": {
+    "schema": "HARPS_FIRST_STAGE_EMISSION_V1",
+    "config": {
+      "wave_min_angstrom": 3800.0,
+      "wave_max_angstrom": 6900.0,
+      "window_pixels": 101,
+      "threshold_local_std": 3.5,
+      "minimum_run_pixels": 4,
+      "maximum_run_pixels": 60,
+      "mask_exact_zero_flux": true,
+      "gap_step_multiple": 1.5
+    },
+    "total_samples": 1001,
+    "nominal_step_angstrom": 0.010000000000218279,
+    "searched_samples": 901,
+    "sum_searched_bin_widths_angstrom": 9.01000000019667,
+    "searched_intervals": [
+      {
+        "first_index": 50,
+        "last_index_exclusive": 951,
+        "first_center_angstrom": 6607.8099999999995,
+        "last_center_angstrom": 6616.8099999999995,
+        "centers": 901
+      }
+    ],
+    "nonfinite_flux_samples": 0,
+    "zero_flux_samples": 0,
+    "all_threshold_runs": [
+      {
+        "start_index": 499,
+        "end_index_exclusive": 502,
+        "peak_index": 500,
+        "run_pixels": 3,
+        "status": "SHORT_RUN",
+        "wave_start_angstrom": 6612.3,
+        "wave_end_angstrom": 6612.32,
+        "wave_peak_angstrom": 6612.3099999999995,
+        "peak_flux_adu": 27981.937256693545,
+        "continuum_adu": 19550.08203125,
+        "local_std_adu": 1838.8414304627174,
+        "peak_local_contrast": 4.585417255538882,
+        "observed_fwhm_angstrom": 0.0589512444794309,
+        "observed_fwhm_pixels": 5.895124447814411
+      }
+    ],
+    "preliminary_hit_count": 0,
+    "short_run_count": 1,
+    "wide_run_count": 0,
+    "interpretation": "Local contrast is not calibrated SNR/sigma/FAP; hits are not identified lasers."
+  },
+  "v2": {
+    "schema": "HARPS_PROFILE_V2",
+    "config": {
+      "wave_min_angstrom": 3800.0,
+      "wave_max_angstrom": 6900.0,
+      "window_pixels": 101,
+      "prescreen_local_mad": 3.0,
+      "amplitude_over_sideband_mad": 6.0,
+      "minimum_profile_cosine": 0.8,
+      "resolving_power": 115000.0,
+      "core_half_pixels": 12,
+      "sideband_outer_pixels": 50,
+      "fit_phases": [
+        -0.5,
+        -0.25,
+        0.0,
+        0.25,
+        0.5
+      ],
+      "mad_normalization": 1.4826,
+      "gap_step_multiple": 1.5
+    },
+    "total_samples": 1001,
+    "searched_samples": 801,
+    "sum_searched_bin_widths_angstrom": 8.010000000174841,
+    "searched_intervals": [
+      {
+        "first_index": 100,
+        "last_index_exclusive": 901,
+        "first_center_angstrom": 6608.3099999999995,
+        "last_center_angstrom": 6616.3099999999995,
+        "centers": 801
+      }
+    ],
+    "screened_events": 1,
+    "preliminary_hit_count": 1,
+    "events": [
+      {
+        "fitted_center_angstrom": 6612.3125,
+        "phase": 0.25,
+        "amplitude_adu": 8658.510321520665,
+        "profile_cosine": 0.9916971650842286,
+        "profile_explained_square_adu": 324458335.6179935,
+        "seed_index": 500,
+        "seed_wave_angstrom": 6612.3099999999995,
+        "sideband_intercept_adu": 19456.28248232887,
+        "sideband_slope_adu_per_pixel": -5.906203497023809,
+        "sideband_mad_adu": 405.34741796874994,
+        "fwhm_model_angstrom": 0.057498347826086954,
+        "amplitude_over_sideband_mad": 21.36071413729392,
+        "status": "PRELIMINARY_PROFILE_HIT",
+        "reasons": [],
+        "prescreen_residual_over_mad": 17.691108414828122
+      }
+    ],
+    "interpretation": "Profile and amplitude scores are exploratory, not calibrated significance/SNR/FAP; accepted events are not identified lasers."
+  }
+}

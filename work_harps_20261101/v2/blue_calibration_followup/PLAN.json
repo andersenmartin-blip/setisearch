@@ -1,0 +1,92 @@
+{
+  "created_utc": "2026-11-01T19:47:07.142202+00:00",
+  "status": "POST_HOC_PLAN_BEFORE_BLUE_FLUX_MEASUREMENTS",
+  "purpose": "Test calibration/ghost plausibility for three preselected terrestrial-frame comb groups; preserve original dispositions and no automatic assignment.",
+  "groups": [
+    {
+      "group_id": "E01",
+      "target": "HD103991",
+      "center_bary_air_angstrom": 3852.41,
+      "member_ids": [
+        "V2-0001"
+      ],
+      "reference_dp_id": "ADP.2023-02-23T01:01:36.775",
+      "member_centers_bary_air_angstrom": [
+        3852.41
+      ],
+      "reference_berv_km_s": 17.0683645185717,
+      "center_topocentric_air_angstrom": 3852.1906796236517
+    },
+    {
+      "group_id": "E10",
+      "target": "HD114386",
+      "center_bary_air_angstrom": 3823.015,
+      "member_ids": [
+        "V2-0103"
+      ],
+      "reference_dp_id": "ADP.2023-02-06T01:01:43.261",
+      "member_centers_bary_air_angstrom": [
+        3823.015
+      ],
+      "reference_berv_km_s": 26.3249206815241,
+      "center_topocentric_air_angstrom": 3822.6793286799484
+    },
+    {
+      "group_id": "E11",
+      "target": "HD114386",
+      "center_bary_air_angstrom": 3823.1674999999996,
+      "member_ids": [
+        "V2-0104"
+      ],
+      "reference_dp_id": "ADP.2023-02-06T01:01:43.261",
+      "member_centers_bary_air_angstrom": [
+        3823.1674999999996
+      ],
+      "reference_berv_km_s": 26.3249206815241,
+      "center_topocentric_air_angstrom": 3822.831815290025
+    }
+  ],
+  "available_native_exposure_ids": [
+    "ADP.2023-02-23T01:01:36.775",
+    "ADP.2023-02-24T01:01:17.479",
+    "ADP.2023-02-26T01:01:15.131",
+    "ADP.2023-02-27T01:01:03.495",
+    "ADP.2023-03-01T01:01:30.533",
+    "ADP.2022-01-06T01:08:04.697",
+    "ADP.2022-03-10T01:02:01.875",
+    "ADP.2022-05-28T01:02:07.296",
+    "ADP.2023-02-06T01:01:43.261",
+    "ADP.2023-06-24T01:01:53.929",
+    "ADP.2023-09-01T01:02:14.186"
+  ],
+  "missing_native_exposure_ids": [
+    "ADP.2023-02-20T01:00:50.713",
+    "ADP.2023-02-22T01:01:22.003",
+    "ADP.2023-02-25T01:01:19.517",
+    "ADP.2023-02-28T01:02:17.061",
+    "ADP.2023-03-02T01:01:24.319",
+    "ADP.2021-12-26T01:05:39.255",
+    "ADP.2022-04-07T01:01:33.267",
+    "ADP.2023-01-10T01:01:03.039",
+    "ADP.2023-05-26T01:01:49.278",
+    "ADP.2023-09-02T01:01:35.631",
+    "ADP.2023-02-21T01:01:25.288"
+  ],
+  "measurements": {
+    "native_window_half_width_angstrom": 2.0,
+    "native_A_and_B": "Retain every covering order, evaluate each native wavelength polynomial; median-filter high-pass residual window31 native pixels.",
+    "comparison": "At same observed wavelength, linearly interpolate B high-pass onto A wavelength. Pearson correlation of finite samples in fixed +/-1.5 Angstrom. Also retain local spectral peak spacings (find_peaks distance5,prominence2 times residual MAD) descriptive, not detection threshold.",
+    "raw_visual": "For reference exposures, retain wider raw patches around every overlapping A order: +/-250 native-dispersion pixels and +/-80 raw cross-dispersion pixels; plot curves for A/B orders from header geometry. Use existing validated raw orientation; retain local mapping uncertainty. No best-shift optimization or fitted ghost-path selection in initial analysis.",
+    "hypothesis_limit": "Direct same-wavelength B correlation cannot prove/refute a reflected ghost that maps another order/position. FP configuration + near published broad affected ranges + terrestrial repetition strengthen only mechanism plausibility; actual ghost identification needs geometry/calibration."
+  },
+  "published_prior": {
+    "url": "https://arxiv.org/pdf/2106.07301",
+    "section": "2.6, Fig6, AppendixB",
+    "summary": "Reported reference-fiber FP ghost comb around3822/3851 Angstrom; broad range, not exact-line ID. Known before new local flux inspection."
+  },
+  "original_hashes": {
+    "v2/production/V2_HITS.csv": "8ff3b35405e4448feba37ceba2a8b46aa7981d2704347dbef12d0572ba14aaaa",
+    "v2/production/V2_DISPOSITIONS.csv": "2d404acf1c3f50ff33fe0a682d4cdb98ca7e5fa672876705b7346152f99a5b27",
+    "v2/triage_batch02/CUMULATIVE_DISPOSITIONS.csv": "5700f9b5a75f799a0f719837154313891050f31783ee7a9f75ab68307f56bbca"
+  }
+}

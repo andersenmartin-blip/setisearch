@@ -1,0 +1,58 @@
+{
+  "created_utc": "2026-11-01T19:48:55.656086+00:00",
+  "purpose": "Post-hoc descriptive native-profile width audit of the31 events promoted from mapping-limited to unresolved. Original candidate data already seen; neither blind validation nor new search.",
+  "input_table_sha256": "5700f9b5a75f799a0f719837154313891050f31783ee7a9f75ab68307f56bbca",
+  "review_ids": [
+    "V2-0099",
+    "V2-0110",
+    "V2-0115",
+    "V2-0117",
+    "V2-0118",
+    "V2-0120",
+    "V2-0125",
+    "V2-0126",
+    "V2-0129",
+    "V2-0131",
+    "V2-0132",
+    "V2-0135",
+    "V2-0139",
+    "V2-0221",
+    "V2-0233",
+    "V2-0243",
+    "V2-0244",
+    "V2-0260",
+    "V2-0263",
+    "V2-0266",
+    "V2-0268",
+    "V2-0272",
+    "V2-0273",
+    "V2-0274",
+    "V2-0277",
+    "V2-0278",
+    "V2-0279",
+    "V2-0280",
+    "V2-0281",
+    "V2-0284",
+    "V2-0322"
+  ],
+  "model": "Positive Gaussian plus linear background evaluated at native wavelength samples; no response deconvolution or photon-noise likelihood.",
+  "nominal_reference_fwhm": "lambda_topocentric_air/115000, matching frozen detector assumption; not a measured instrumental LSF.",
+  "width_ratios": {
+    "minimum": 0.4,
+    "maximum": 10,
+    "log_grid_points": 121
+  },
+  "center_offsets_in_reference_fwhm": {
+    "minimum": -1,
+    "maximum": 1,
+    "grid_points": 41
+  },
+  "background_methods": [
+    "Joint linear background and Gaussian over all available41 native samples",
+    "Linear background from first8 and last8 samples, held fixed for Gaussian fit over all41"
+  ],
+  "fit": "Unweighted least squares, positive amplitude; retain upper/lower-width and center boundaries. No significance or uncertainty intervals because native error/LSF model is unverified.",
+  "descriptive_summary": "Report all order/method widths, and number of events where every available complete order has both width ratios>2. This is a scale description, never an origin veto.",
+  "limitations": "Absorption forests, blended/neighbor lines, low continuum, finite cutout and model mismatch affect widths. A broad feature can contain a narrow component; no exclusion of added lasers follows.",
+  "selection_source_sha256": "ffe818e52873209f629a35bfbc15e31206d2e5fe5379ff3c5242d63b4b18887b"
+}

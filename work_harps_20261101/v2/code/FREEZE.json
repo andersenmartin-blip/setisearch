@@ -1,0 +1,35 @@
+{
+  "status": "FROZEN_BEFORE_NEW_VALIDATION_AND_MAIN_FLUX",
+  "frozen_at_utc": "2026-11-01T16:33:41.850273+00:00",
+  "source_hashes": {
+    "v2/code/profile_detector.py": "577ab049367da078aaed8f525bee1cc856757cc3805c552e7dac9b17dc2bea8b",
+    "v2/code/CONFIG.json": "842c93d4de232b03cd6cd68c54b6399b125f3ea8923946dadcaf4f139fcc19ac",
+    "v2/code/test_profile_detector.py": "773bbb0a32bd29b25c403bf5b1c8f4447f6bb3b162044948030d8d4471217cf5",
+    "code/harps_detector.py": "c9694d9708181c058e420092bffe15e9b39f2bc6355b0a087653a6277d9d2112",
+    "code/DETECTOR_CONFIG.json": "a8203650b6c06bc68685ded44bb42244e327cf2efa648ccd2cdae030a56b28a0"
+  },
+  "config": {
+    "wave_min_angstrom": 3800.0,
+    "wave_max_angstrom": 6900.0,
+    "window_pixels": 101,
+    "prescreen_local_mad": 3.0,
+    "amplitude_over_sideband_mad": 6.0,
+    "minimum_profile_cosine": 0.8,
+    "resolving_power": 115000.0,
+    "core_half_pixels": 12,
+    "sideband_outer_pixels": 50,
+    "fit_phases": [
+      -0.5,
+      -0.25,
+      0.0,
+      0.25,
+      0.5
+    ],
+    "mad_normalization": 1.4826,
+    "gap_step_multiple": 1.5
+  },
+  "new_validation_flux_opened": 0,
+  "new_main_flux_opened": 0,
+  "development_note": "Only original three development spectra and the previously exposed 48 V1 injections. One pre-freeze correction: 100-bin rather than50-bin margin because prescreen has two nested101 filters. No changes after fresh validation.",
+  "interpretation": "Uncalibrated profile-screening method, no laser-origin or false-alarm claim."
+}

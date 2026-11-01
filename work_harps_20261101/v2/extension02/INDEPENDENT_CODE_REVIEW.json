@@ -1,0 +1,50 @@
+{
+  "created_utc": "2026-11-01T19:48:32.602974+00:00",
+  "status": "PASS_INDEPENDENT_READ_ONLY_REVIEW",
+  "reviewer": "mapping_43 agent; separate from implementation agent",
+  "freeze_sha256": "837255ab49b1902f0f6dad8d4b3714d7edd6e68f36ef443b871bd5c4b96c4cbb",
+  "selection_sha256": "680611bead7df87711ac802f0b4221d550345d6c4c900fef77591486ac9ceb71",
+  "source_hashes_checked": 55,
+  "files_reviewed": {
+    "acquire.py": "d77913ced0d2ee1a2ba4123d92741813807dd007eb4c89cd4853877c874286d4",
+    "common.py": "fe2039bd6aeecddfb5ab554db81246f1b4eadbdafead272da2dd78bfcb3dd99f",
+    "run_main.py": "ea33ff19b9d23cb66a199358bae933a45afe3453dbbc964ce343896983747c6a",
+    "freeze_scope.py": "bae39ff56b9b48edd03ea2d60e01216c1023c4e40af37b3284537ad928eda1d3",
+    "verify_guards.py": "dda2c60aba5cf5e12bd5d66cf6598ddbab3e3561bb47a71b5f14ce2a1b539f25",
+    "PROTOCOL.json": "b3b1fc437ab3c0df0bbac68e56309999c25da02aa58860a8480b13cf24e8149b",
+    "FREEZE.json": "837255ab49b1902f0f6dad8d4b3714d7edd6e68f36ef443b871bd5c4b96c4cbb"
+  },
+  "blocking_findings": [],
+  "resolved_findings": [
+    {
+      "issue": "Inherited urllib redirect handling drained redirect response bodies outside PayloadBudget.",
+      "resolution": "Before freeze, the implementation replaced redirect handling with close-without-read, HTTPS ESO host restriction and a maximum of three redirects.",
+      "verification": "Mock response raises on any body read; allowed redirect passed without read, HTTP/outside-host/fourth redirect were rejected and closed."
+    }
+  ],
+  "checks": {
+    "scope_identity": "PASS: 100 unique ADP and raw IDs, 16 targets, frozen order and role, metadata/provenance lookup, all209 previous inputs excluded.",
+    "header_identity": "PASS by code review: ADP ARCFILE, exact queried raw progenitor, intended target/name/coordinates, metadata sky position, MJD/date/exptime, instrument, proposal/OBID, spectrum product, finite bounded BERV, air-Angstrom/barycentric/ADU flags.",
+    "header_only": "PASS: imported inspection code reads primary and extension FITS headers only; rejects primary arrays. Science arrays are opened only in the separately gated production runner after all header checks.",
+    "bounded_attempts": "PASS: two timeout-defined attempts, no attempt starts after900seconds, three workers; elapsed wall time is not claimed to be a hard900second deadline.",
+    "payload_budget": "PASS: atomic concurrent reservations,10MB per data file,700MB total payload charge includes retries; failed reads conservatively consume full reservation. Redirect bodies close unread. HTTP/TLS overhead unmeasured.",
+    "partial_inputs": "PASS: all100 selected manifest rows retained in order; failed/header-excluded inputs recorded NOT_ANALYZED, no replacement. No admitted input means no production. Selected/admitted/analyzed/omitted counts remain distinct.",
+    "source_immutability": "PASS:55 frozen source hashes checked by reviewer; unchanged V1/V2 code/configuration hashes included. Production rechecks frozen sources before and after and writes only new extension02 production.",
+    "catalog_counts": "PASS by code review: hits counted from unchanged accepted event statuses; all screened/rejected events retained separately; searched samples summed per exposure; new stable V1E2/V2E2 IDs follow frozen input/event order.",
+    "pre_freeze_access": "PASS for observed local state and this review: acquisition/data/production absent, no network or FITS access performed by reviewer. Historical zero-access assertion remains the implementation freeze record, not independently reconstructed machine telemetry.",
+    "publication_gate": "PASS with explicit operational dependency: code requires syntactically valid full commit and matching FREEZE hash; root must independently verify remote publication. Script is correctly documented as not verifying GitHub itself.",
+    "original_validation_limit": "PASS:192 old injection trials checked as frozen evidence, explicitly not extension02 sensitivity.",
+    "guard_tests": "PASS: reviewed supplied offline tests; reviewer separately exercised concurrent10007byte cap, failed67byte reservation plus34byte retry under101byte cap, EOF release, missing commit and wrong freeze rejection, redirect behavior, and AST parsing."
+  },
+  "selected_exposures": 100,
+  "prior_unique_inputs": 209,
+  "new_network_calls": 0,
+  "science_files_opened": 0,
+  "production_runner_invoked": false,
+  "download_invoked": false,
+  "code_modified_by_reviewer": false,
+  "limitations": [
+    "Static code and metadata review plus synthetic transport tests; no end-to-end network or new science run was performed.",
+    "Review does not establish absolute astrometric identity, instrument provenance beyond metadata consistency, signal origin, or calibrated extension02 detection sensitivity."
+  ]
+}

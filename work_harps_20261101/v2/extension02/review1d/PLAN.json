@@ -1,0 +1,72 @@
+{
+  "created_utc": "2026-11-01T19:52:55.527076+00:00",
+  "status": "FROZEN_BEFORE_EXTENSION02_HIT_OR_FLUX_INSPECTION",
+  "scope": "Descriptive complete first-pass atlas for every accepted extension02 V2 event. No origin labels from 1D and no modification of production or previous results.",
+  "selection": "All rows of extension02/production/V2_HITS.csv in saved candidate order; zero rows handled explicitly. Preserve candidate_id and all production origin_status=UNREVIEWED.",
+  "inputs": {
+    "new_hits": "v2/extension02/production/V2_HITS.csv",
+    "new_dispositions": "v2/extension02/production/V2_DISPOSITIONS.csv",
+    "new_manifest": "v2/extension02/acquisition/DOWNLOAD_MANIFEST.json",
+    "new_spectra": "v2/extension02/data/main",
+    "old_accepted_hits": "v2/production/V2_HITS.csv",
+    "old_accepted_hits_sha256": "8ff3b35405e4448feba37ceba2a8b46aa7981d2704347dbef12d0572ba14aaaa",
+    "old_review_index": "v2/review/REVIEW_INDEX.csv",
+    "old_review_index_sha256": "a30fb345e9c51257e17350ad63b76615336ce841463cf4a4bc91a060cb3fecb9"
+  },
+  "atlas": {
+    "events_per_page": 8,
+    "layout": "4 rows x 2 columns",
+    "data": "Saved 1D samples at seed_index +/-50; subtract saved linear sideband intercept+slope, divide by saved sideband MAD; preserve NaNs and nonpositive/missing scale flags.",
+    "xlim_air_angstrom": [
+      -0.5,
+      0.5
+    ],
+    "model": "Overlay saved fixed Gaussian using saved amplitude/MAD, fitted center and model FWHM; no refit, shifts or width changes.",
+    "labels": "Candidate ID, target, date, barycentric air center, A/MAD, profile cosine; scores explicitly not calibrated significance.",
+    "coverage": "Every accepted event gets a panel, even if plot data incomplete; missing metadata or ranges recorded, never silently dropped."
+  },
+  "old_match": {
+    "same_target_required": true,
+    "maximum_bary_air_separation_angstrom": 0.03,
+    "include": "All old333 accepted hits within the fixed window; store all matching old review IDs, offsets, exposures, minimum distance, original peer status only as linked context.",
+    "interpretation": "Descriptive repeat-position relation between already-selected hits, not independent validation, raw-origin confirmation, or an all-epoch comparison. Missing match does not imply absence in other epochs."
+  },
+  "oi_flags": {
+    "existing_two_line_policy": {
+      "air_angstrom": [
+        5577.339,
+        6300.304
+      ],
+      "maximum_absolute_offset_angstrom": 0.03,
+      "meaning": "The original two-line descriptive flag remains separate and unchanged."
+    },
+    "separate_posthoc_extension": {
+      "air_angstrom": 6363.776,
+      "maximum_absolute_offset_angstrom": 0.03,
+      "meaning": "Posthoc hypothesis motivated by original0205 followup; separate column, not inserted into original two-line flag."
+    },
+    "transform": "Approximate classical topocentric=lambda_bary/(1+BERV/299792.458). Air-line proximity is not an origin label or rejection."
+  },
+  "summaries": "Counts by target, exposure, fixed 100-Angstrom wavelength bins, and original two-line/posthoc6363 flags. Expose all denominators; no aggregate sensitivity or prevalence claims.",
+  "followup_routes": [
+    "No old accepted-hit match and no OI proximity: prioritize native-order/raw morphology and full-epoch checks.",
+    "Old accepted-hit match: compare existing raw/epoch context, then inspect this exposure independently.",
+    "OI proximity: inspect simultaneous sky fiber/calibration, multi-line and all-epoch context."
+  ],
+  "visual_review": "Visually inspect every atlas panel; describe gross 1D patterns and gaps without detector/airglow/stellar origin labels.",
+  "checks": "Hash inputs; verify expected accepted candidate IDs exactly match panels/index; independently reproduce deterministic first/middle/last candidate plots and matching/flag scalars in a fresh process; verify production dispositions remain byte-identical.",
+  "outputs": [
+    "PLAN.json",
+    "REVIEW_INDEX.csv",
+    "OLD_MATCHES.csv",
+    "TARGET_COUNTS.csv",
+    "WAVELENGTH_COUNTS.csv",
+    "ATLAS_SUMMARY.json",
+    "VISUAL_REVIEW.json",
+    "NUMERICAL_AUDIT.json",
+    "README.md",
+    "atlas/ATLAS_nn.png",
+    "profiles/*.npz"
+  ],
+  "prohibited": "No new detector, threshold tuning, downloads, contacts, production-status changes, null conclusion, or independent-significance claim."
+}

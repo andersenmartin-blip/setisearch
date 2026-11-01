@@ -1,0 +1,214 @@
+{
+  "created_utc": "2026-11-01T19:37:47.224941+00:00",
+  "status": "POST_HOC_FIXED_MEASUREMENT_PLAN_BEFORE_NEW_FLUX_MEASUREMENTS",
+  "purpose": "Investigate atmospheric OI hypotheses with fixed three-line measurements, independent fiber-configuration check and all available epochs of two highlighted targets; no detector or catalog changes.",
+  "lines_air_angstrom": {
+    "OI5577": 5577.339,
+    "OI6300": 6300.304,
+    "OI6363": 6363.776
+  },
+  "frame": "Native e2ds wavelengths use topocentric air polynomial; merged barycentric-air wavelengths divided by1+BERV/c. Approximate transformation; exact drift and pipeline correction caveat retained.",
+  "measurements": {
+    "display_half_width_angstrom": 0.4,
+    "continuum_sidebands_absolute_offset_angstrom": [
+      0.15,
+      0.35
+    ],
+    "continuum_fit": "Ordinary least-squares straight line to finite sideband flux; median and MAD of residuals retained, no fitted noise significance.",
+    "core_half_width_angstrom": 0.08,
+    "fixed_width": "Gaussian FWHM=lambda/115000; signed amplitude with baseline fixed from sidebands.",
+    "centroid_grid_offsets_angstrom": [
+      -0.04,
+      0.04
+    ],
+    "centroid_grid_step_angstrom": 0.0025,
+    "center_selection": "Smallest unweighted residual sum of squares in fixed core; all grid values retained. Signed amplitudes permit absorption; no origin/veto threshold.",
+    "flux_ratios": "Raw ADU line-area ratios descriptive only; no common-flux-calibration assumption and no diagnostic branching-ratio conclusion solely from raw counts."
+  },
+  "selected_provisional_oi_ids": [
+    "V2-0008",
+    "V2-0045",
+    "V2-0050",
+    "V2-0058",
+    "V2-0063",
+    "V2-0067",
+    "V2-0071",
+    "V2-0074",
+    "V2-0092",
+    "V2-0095",
+    "V2-0096",
+    "V2-0109",
+    "V2-0154",
+    "V2-0163",
+    "V2-0164",
+    "V2-0173",
+    "V2-0174",
+    "V2-0181",
+    "V2-0184",
+    "V2-0191",
+    "V2-0193",
+    "V2-0201",
+    "V2-0204",
+    "V2-0212",
+    "V2-0218"
+  ],
+  "native_exposure_ids": [
+    "ADP.2023-02-26T01:01:15.131",
+    "ADP.2024-12-15T01:01:08.159",
+    "ADP.2025-01-01T01:04:41.127",
+    "ADP.2025-01-23T01:02:59.703",
+    "ADP.2025-02-15T01:05:08.703",
+    "ADP.2025-03-07T01:01:05.085",
+    "ADP.2025-03-20T01:03:11.909",
+    "ADP.2024-04-24T01:01:13.099",
+    "ADP.2024-05-11T01:01:15.146",
+    "ADP.2023-09-01T01:02:14.186",
+    "ADP.2023-02-26T01:01:15.127",
+    "ADP.2023-05-15T01:01:10.510",
+    "ADP.2022-04-06T01:01:33.195",
+    "ADP.2022-04-12T01:03:46.282",
+    "ADP.2022-05-12T01:04:10.337",
+    "ADP.2022-05-25T01:02:16.015",
+    "ADP.2023-03-15T01:01:50.983",
+    "ADP.2023-03-25T01:02:18.439"
+  ],
+  "highlighted_ids": [
+    "V2-0165",
+    "V2-0205"
+  ],
+  "all_epoch_spectra": [
+    {
+      "dp_id": "ADP.2023-04-11T01:00:24.801",
+      "target": "HD119130",
+      "relative_path": "data/main/ADP.2023-04-11T01_00_24.801.fits",
+      "sha256": "9cbc87a72acc670efd4dce19846c65526a3072e8b0d5eb0d90eedaa224f4e32e",
+      "date_obs": "2023-04-10T02:27:18.488"
+    },
+    {
+      "dp_id": "ADP.2023-06-07T01:04:24.563",
+      "target": "HD119130",
+      "relative_path": "data/main/ADP.2023-06-07T01_04_24.563.fits",
+      "sha256": "f05aa75746cab94fcda3e14b2ad38a7de119bb5ed5aafc3c9fd147e472f5d0fc",
+      "date_obs": "2023-06-05T23:26:26.332"
+    },
+    {
+      "dp_id": "ADP.2023-06-08T01:01:47.521",
+      "target": "HD119130",
+      "relative_path": "data/main/ADP.2023-06-08T01_01_47.521.fits",
+      "sha256": "a7459b3a573a2752ed2c0ec7261dbba70ad1c09df1f02706c6a4b322f147b2b2",
+      "date_obs": "2023-06-06T22:53:28.415"
+    },
+    {
+      "dp_id": "ADP.2023-06-09T01:01:55.645",
+      "target": "HD119130",
+      "relative_path": "data/main/ADP.2023-06-09T01_01_55.645.fits",
+      "sha256": "e6e048b5a0341b34c36569dda937db0d5133d65921caf925ca94b814469a3f71",
+      "date_obs": "2023-06-08T03:41:42.899"
+    },
+    {
+      "dp_id": "ADP.2023-06-26T01:01:50.313",
+      "target": "HD119130",
+      "relative_path": "data/main/ADP.2023-06-26T01_01_50.313.fits",
+      "sha256": "153e36ecb4eac00bca579b8037439c6d0a81095407ca959bff7843f7abb3d390",
+      "date_obs": "2023-06-24T23:44:58.506"
+    },
+    {
+      "dp_id": "ADP.2022-04-05T01:01:37.242",
+      "target": "HD120411",
+      "relative_path": "data/main/ADP.2022-04-05T01_01_37.242.fits",
+      "sha256": "3c8da4c06037d372b5a034c3f940676e2eac22cf105110668d12412e1269f3a1",
+      "date_obs": "2022-04-04T05:29:32.333"
+    },
+    {
+      "dp_id": "ADP.2022-04-13T01:01:45.269",
+      "target": "HD120411",
+      "relative_path": "data/main/ADP.2022-04-13T01_01_45.269.fits",
+      "sha256": "3340563a3bfed4014abc5c7cddbc19a34aa03eb7ff5932bcb577b1877c263c66",
+      "date_obs": "2022-04-12T03:16:00.088"
+    },
+    {
+      "dp_id": "ADP.2022-05-22T01:07:08.207",
+      "target": "HD120411",
+      "relative_path": "data/main/ADP.2022-05-22T01_07_08.207.fits",
+      "sha256": "3db42ebfd2ce42ded32ad834e0df3b334e5dac9f17768b99d0e7aa8546abfad5",
+      "date_obs": "2022-05-21T00:13:16.005"
+    },
+    {
+      "dp_id": "ADP.2022-06-21T01:11:04.196",
+      "target": "HD120411",
+      "relative_path": "data/main/ADP.2022-06-21T01_11_04.196.fits",
+      "sha256": "24503d8990e0578e9f7e9a3dd5f85df34317b1a3ea3d096f62d75eb05af0278a",
+      "date_obs": "2022-06-20T02:55:29.108"
+    },
+    {
+      "dp_id": "ADP.2023-03-26T01:01:44.221",
+      "target": "HD120411",
+      "relative_path": "data/main/ADP.2023-03-26T01_01_44.221.fits",
+      "sha256": "26d20feedb20c7cd79fa1503d71c0dc8742e90a3fad893c6d946f8bdc995a95d",
+      "date_obs": "2023-03-25T06:04:04.185"
+    },
+    {
+      "dp_id": "ADP.2023-05-15T01:01:10.510",
+      "target": "HD119130",
+      "relative_path": "v2/data/main/ADP.2023-05-15T01_01_10.510.fits",
+      "sha256": "6e85e58dea97be78cfff79cb53d8cd7352ef89715ec5f9252f7d175c490a5d2c",
+      "date_obs": "2023-05-14T01:38:41.261"
+    },
+    {
+      "dp_id": "ADP.2023-06-10T01:02:03.055",
+      "target": "HD119130",
+      "relative_path": "v2/data/main/ADP.2023-06-10T01_02_03.055.fits",
+      "sha256": "8679e0c7a84dd33befc7571ffb71a2fb1206e5c25721bafb6caff1b920d27a73",
+      "date_obs": "2023-06-09T04:25:58.293"
+    },
+    {
+      "dp_id": "ADP.2022-04-06T01:01:33.195",
+      "target": "HD120411",
+      "relative_path": "v2/data/main/ADP.2022-04-06T01_01_33.195.fits",
+      "sha256": "36a176cec5eeac30bda066816161455715057b02f22b6c8a4435e5983d84fc8f",
+      "date_obs": "2022-04-05T02:13:11.042"
+    },
+    {
+      "dp_id": "ADP.2022-04-12T01:03:46.282",
+      "target": "HD120411",
+      "relative_path": "v2/data/main/ADP.2022-04-12T01_03_46.282.fits",
+      "sha256": "2541eddbc771caf9c2711ef235f2a20233c7701cd8279771bf960ece2f7b9a9e",
+      "date_obs": "2022-04-11T01:36:19.902"
+    },
+    {
+      "dp_id": "ADP.2022-05-12T01:04:10.337",
+      "target": "HD120411",
+      "relative_path": "v2/data/main/ADP.2022-05-12T01_04_10.337.fits",
+      "sha256": "b3653e1c6e0970697af0b497665f6529ee5eb30dcbd88c60b3995d4d9d721c0e",
+      "date_obs": "2022-05-11T01:13:24.348"
+    },
+    {
+      "dp_id": "ADP.2022-05-25T01:02:16.015",
+      "target": "HD120411",
+      "relative_path": "v2/data/main/ADP.2022-05-25T01_02_16.015.fits",
+      "sha256": "e9763da8b74f023d9ff0e7e34ace06ee464741cd1525d30e44b8542261e41829",
+      "date_obs": "2022-05-24T02:13:01.387"
+    },
+    {
+      "dp_id": "ADP.2023-03-15T01:01:50.983",
+      "target": "HD120411",
+      "relative_path": "v2/data/main/ADP.2023-03-15T01_01_50.983.fits",
+      "sha256": "d9fe100a2518857c1ba9c8d76e298de8c2dae2249a99b27958fd5a87ea42d0c6",
+      "date_obs": "2023-03-14T04:35:22.473"
+    },
+    {
+      "dp_id": "ADP.2023-03-25T01:02:18.439",
+      "target": "HD120411",
+      "relative_path": "v2/data/main/ADP.2023-03-25T01_02_18.439.fits",
+      "sha256": "df783294bfbf516413a459ef094f03af840368c8097bd8d0cf74498d5863ddf9",
+      "date_obs": "2023-03-24T05:24:38.398"
+    }
+  ],
+  "source_checks": "Inspect every selected ancillary TAR member list and relevant e2ds/raw headers to determine available fiber B and mode. Calibration fiber is not an independent sky control.",
+  "classification_policy": "Keep all25 prior OI dispositions,165 provisional artifact and205 unresolved as original. Follow-up may support hypotheses or show limitations, recorded separately.",
+  "original_hashes": {
+    "v2/production/V2_HITS.csv": "8ff3b35405e4448feba37ceba2a8b46aa7981d2704347dbef12d0572ba14aaaa",
+    "v2/production/V2_DISPOSITIONS.csv": "2d404acf1c3f50ff33fe0a682d4cdb98ca7e5fa672876705b7346152f99a5b27",
+    "v2/triage_batch02/CUMULATIVE_DISPOSITIONS.csv": "5700f9b5a75f799a0f719837154313891050f31783ee7a9f75ab68307f56bbca"
+  }
+}

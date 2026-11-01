@@ -1,3 +1,17 @@
+[**Fortsæt SETI-arbejdet her: aktuel status, input og næste opgaver**](CONTINUE_SETI.md)
+
+## Seneste tilføjelse — epokesammenligning af alle 336 nye HARPS-fund (1. november 2026)
+
+Alle **336 nye V2-fund er nu sammenlignet med hver tilgængelig observation af samme stjerne i extension02-udvalget på 100 spektre**: 2.185 fund/eksponering-par og 4.370 profiler i barycentrisk og topocentrisk referenceframe. Opdagelseseksponeringen er udeladt fra hvert funds sammenligning med andre observationer. Separat numerisk audit består, inklusive alle inputhashes, profiler og opsummeringer samt 50 skalarrekonstruktioner.
+
+Målene er beskrivende og ændrer ikke de gældende råvurderinger. De 59 råkontrollerede nye V2-fund står fortsat som 44 foreløbige detektorartefakter, otte O I-forenelige, seks uafklarede spektralstrukturer og én med utilstrækkelig billedkobling; 277 mangler rågennemgang. Hoveddækningen er uændret på 300 eksponeringer, 20 stjerner og 70,875 timer. Ingen kvalificeret laser er identificeret.
+
+[Ny epokeanalyse, tabeller, figurer og reproduktion](work_harps_20261101/v2/extension02/epoch_followup/README.md) · [Uafhængig numerisk audit](work_harps_20261101/v2/extension02/epoch_followup/independent_audit/README.md) · [Bevaret aktuel råstatus](work_harps_20261101/v2/extension02/raw_followup/CURRENT_RESULTS.md)
+
+De tidligere 200 spektre er ikke genanalyseret her. 33 fund har BERV-spænd under én opløsning, og 36 profiler med svagt kontinuum er bevaret. Ingen global falsk-alarm-rate, astronomisk følsomhed eller endelig ophavsbestemmelse følger af disse sammenligninger. Næste prioritet er de 277 resterende rågennemgange. Rubin er endnu ikke analyseret; ingen automatisk baggrundskørsel er oprettet.
+
+---
+
 ## Seneste status — 300 HARPS eksponeringer og udvidet råkontrol (1. november 2026)
 
 **300 unikke eksponeringer af 20 stjerner er analyseret, samlet 70,875 timers teleskopeksponering.** De seneste 100 blev udvalgt og metoden publiceret før datahentning; alle bestod identitetskontrollen. Den uændrede V1 har 22 foreløbige hits på 300 eksponeringer. V2 har 669 profiltræf på de seneste 200 eksponeringer, heraf 336 nye. Ingen identificeret laser eller kvalificeret SETI-kandidat.

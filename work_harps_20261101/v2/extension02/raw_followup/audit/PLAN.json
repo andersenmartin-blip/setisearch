@@ -1,0 +1,39 @@
+{
+  "created_utc": "2026-11-01T20:09:27.904203+00:00",
+  "status": "FIXED_BEFORE_RAW_DOWNLOAD_AND_NEW_FIGURE_INSPECTION",
+  "followup_freeze_sha256": "bb6b57f4d769db3d08fe5b9ea8797b8520a8c410ed4a8e4e909b1702e1524cfd",
+  "independent_preflight_sha256": "77a84652fb9768bfc3974ecb5fe9a24ea0a629fff0ca1b9648678ae1738c278a",
+  "selected_exposure_order_source": "SELECTED_EXPOSURES.csv",
+  "reconstruction_rule": "First, middle and last selected exposure in the frozen selected order, independently of event count, wavelength or morphology.",
+  "reconstruction_exposures": [
+    {
+      "selected_position": 1,
+      "dp_id": "ADP.2024-12-16T01:03:40.650"
+    },
+    {
+      "selected_position": 5,
+      "dp_id": "ADP.2022-05-28T01:02:07.278"
+    },
+    {
+      "selected_position": 8,
+      "dp_id": "ADP.2023-02-24T01:01:17.499"
+    }
+  ],
+  "checks": [
+    "All16 product identities, hashes, bounded acquisition ledger and all65 event accounting.",
+    "All complete NPZ shapes/background/excess algebra and wavelength/native sample correspondence.",
+    "From original compressed raw/TAR products, independently reconstruct every saved raw/native cutout in the three fixed exposures and compare exactly.",
+    "All65 events receive independent provisional visual review of every available covering-order panel; retain global/local mapping failures and edge limitations.",
+    "Preserve preflight, production, active freeze and original extraction outputs; write only audit/."
+  ],
+  "visual_categories": {
+    "A": "provisional detector artifact",
+    "O": "provisional atmospheric-line interpretation only with supporting evidence",
+    "U": "unresolved spectral feature",
+    "M": "mapping or data limitation prevents a supported raw-origin judgment"
+  },
+  "visual_figures_inspected_at_plan": 0,
+  "new_raw_native_arrays_opened_at_plan": 0,
+  "method_limit": "Inherited local spatial gate is not the later mapping43 broader correlation gate; no retroactive threshold tuning.",
+  "network_calls_allowed": 0
+}

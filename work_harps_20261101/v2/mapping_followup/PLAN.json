@@ -1,0 +1,13 @@
+{
+  "purpose": "Independent post-detection mapping check of the six unresolved batch01 hits; no origin classifier or catalog mutation.",
+  "dp_ids": ["ADP.2024-12-15T01:01:08.159", "ADP.2025-02-15T01:05:08.703"],
+  "review_ids": ["V2-0046", "V2-0047", "V2-0062", "V2-0063", "V2-0064", "V2-0065"],
+  "reference_orders": [10, 30, 50, 62, 63, 69],
+  "reference_windows_half_open": [[600, 900], [1400, 1700], [2200, 2500], [3000, 3300]],
+  "candidate_exclusion_half_width_pixels": 80,
+  "minimum_reference_samples": 100,
+  "orientation_combinations": "All eight row flip, column flip, trace polynomial argument flip combinations, exactly as original extraction.",
+  "fixed_processing": "Seven-column aperture, 31-pixel median high-pass, Pearson correlation per reference window; rank orientations by median of valid reference-window correlations. All window results retained.",
+  "continuum_trace_check": "Median raw spatial profile in each fixed window, offsets -8 through +8 around the predicted center; reported descriptively without choosing a candidate-centered solution.",
+  "notes": "Plan written before executing the new reference grid. All original failed checks and original disposition tables remain untouched. Windows are fixed for both exposures and candidate-neighbor pixels are excluded. This is post-detection troubleshooting, not a blind validation experiment."
+}

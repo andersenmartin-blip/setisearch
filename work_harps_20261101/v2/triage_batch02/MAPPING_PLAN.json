@@ -1,0 +1,55 @@
+{
+  "created_utc": "2026-11-01T17:53:26.878831+00:00",
+  "purpose": "Prospective batch02 registration/display criteria, set before viewing batch02 raw/native products; detector and selection immutable.",
+  "grid": {
+    "orders": [
+      10,
+      30,
+      50,
+      62,
+      63,
+      69
+    ],
+    "windows_half_open": [
+      [
+        600,
+        900
+      ],
+      [
+        1400,
+        1700
+      ],
+      [
+        2200,
+        2500
+      ],
+      [
+        3000,
+        3300
+      ]
+    ],
+    "exclude_candidate_half_width": 80,
+    "usable": "Best median correlation >0.8; >=18 valid regions in >=5 orders; median absolute continuum peak offset <=1 pixel."
+  },
+  "local": {
+    "intervals": [
+      [
+        -280,
+        -80
+      ],
+      [
+        81,
+        281
+      ]
+    ],
+    "exclude_all_saved_candidates_half_width": 80,
+    "minimum_samples_per_side": 60,
+    "spatial_offsets": [
+      -5,
+      5
+    ],
+    "usable": "Both sides have sufficient samples and interpolated continuum peak within 1 pixel of predicted center."
+  },
+  "interpretation": "These conservative heuristic flags control raw mapping usability only, not an automatic astrophysical origin veto. Low-correlation or displaced cases remain explicit. Mapping module derived from post-hoc batch01 troubleshooting; not blind independent validation.",
+  "registration_sha256": "eaa68430bb7fe542da2551165640ba288071ef247237264f50638f930c27d837"
+}

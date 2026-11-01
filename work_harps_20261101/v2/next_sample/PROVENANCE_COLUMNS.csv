@@ -1,0 +1,17 @@
+table_name,column_name,datatype,description
+phase3v2.files,access_estsize,long,ESO file size (in bytes).
+phase3v2.files,archive_id,char,ESO archive unique id.
+phase3v2.files,category,char,"Phase 3 category (PRODCATG FITS keyword, e.g.: SCIENCE.IMAGE, etc.)."
+phase3v2.files,checksum,char,ESO file checksum.
+phase3v2.files,file_id,long,ESO file id.
+phase3v2.files,name,char,ESO file name.
+phase3v2.product_files,access_estsize,long,"Estimated size of the downloaded file in KBytes. It is only ""estimated"" as in general, FITS headers can be patched at download time, making the file size varying with time."
+phase3v2.product_files,access_url,char,The download link of the individual archive_id file.
+phase3v2.product_files,archive_id,char,"ESO identifier of a file belonging to the product: either a science file (eso_category: ""SCIENCE.*"") or an ancillary file (eso_category: ""ANCILLARY.*""). If a science file, its id is the same as the id of the product (product_id=archive_id). Ancillary files are not listed in the ivoa.ObsCore table."
+phase3v2.product_files,eso_category,char,"ESO file category; It starts with ""SCIENCE."" or ""ANCILLARY."" followed by one or more dot-separated and uppercased tokens describing the file at hand. For the full list of categories, please refer to the ESO Science Data Product standard available at: https://www.eso.org/sci/observing/phase3.html"
+phase3v2.product_files,extension,char,"File name extension (upper case) of the product file, e.g.: FITS, PNG, TAR, FZ, etc."
+phase3v2.product_files,internal_file_id,long,"Internal file identification number, useful in combination with the provenance table."
+phase3v2.product_files,original_filename,char,"Original name of the product file before ingestion in the ESO archive. It may provide useful hints on the file content (usually described in the release description of the product, available at: https://archive.eso.org/wdb/wdb/adp/phase3_main/query?dp_id=here_the_product_id). It is not an identifier, as in general, there could be multiple files with the same original_filename but different archive_ids."
+phase3v2.product_files,product_id,char,"ESO identifier of a published phase 3 product. A product is composed of a science file, and optionally of a number of ancillary files. Same as the dp_id field in ivoa.ObCore."
+phase3v2.provenance,product_file,int,File number of a file originating by the provided progenitor.
+phase3v2.provenance,source_file,char,ESO archive id of the progenitor.

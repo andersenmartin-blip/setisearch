@@ -1,0 +1,55 @@
+{
+  "selected_at_utc": "2026-11-01T15:31:41.489599+00:00",
+  "metadata_sha256": "81d3f77d4bf859d25dbcb8b93be0a4e96661b4081c29634b7a80ca438a1f8bf5",
+  "upstream_ids_sha256": "35d6c6f37c0992da662b4854c38773aab2abc733f1ac525f4a1d9ad4050c5ddf",
+  "upstream_commit": "195bb3e3e4d067b153895fd2723f839f00e8f82a",
+  "input_rows": 5000,
+  "eligible_target_groups": 36,
+  "excluded_row_counts": {
+    "non_HD_name": 3598,
+    "catalogue_snr_below_50": 212,
+    "upstream_referenced_ADP": 14,
+    "not_public_at_cutoff": 73
+  },
+  "main_targets": [
+    "HD103991",
+    "HD106515A",
+    "HD109833",
+    "HD112410",
+    "HD114082",
+    "HD114386",
+    "HD114783",
+    "HD115031",
+    "HD118006",
+    "HD119130",
+    "HD120411",
+    "HD122640",
+    "HD124553",
+    "HD126053",
+    "HD126093",
+    "HD128582",
+    "HD13445",
+    "HD135204",
+    "HD1397",
+    "HD141937"
+  ],
+  "main_exposures": 100,
+  "main_exposure_seconds": 82699.582,
+  "development_targets": [
+    "HD203608",
+    "HD100508"
+  ],
+  "validation_backgrounds": [
+    "ADP.2022-12-31T01:08:20.445",
+    "ADP.2023-05-05T01:01:05.168",
+    "ADP.2023-07-04T01:03:35.353"
+  ],
+  "selection_rule": "Public at2026-11-01T00Z; single HARPS exposure>=300s, MJD>=58849,catalogueSNR>=50; HD names normalized by whitespace; remove upstream-referenced ADP IDs; latest ADP per target/start; >=5exposures and>=3noon-UTC nights. Bounded alphabetical5000-row metadata snapshot; first eligible target development, next20 main;5epochs spread evenly over available nights, chronological fill if<5nights.",
+  "limitations": [
+    "Not representative of allHARPSstars; original5000metadata cap and alphabeticalordering are retained.",
+    "Absence from referencedIDs does not prove no prior search. Rawprogenitor crosscheck pendingFITSheaders.",
+    "Coordinates and physicalidentity consistency will be checked before production; no fluxbased reselection."
+  ],
+  "flux_arrays_opened_for_selection": false,
+  "status": "METADATA_SELECTION_FIXED_BEFORE_MAIN_DOWNLOAD"
+}

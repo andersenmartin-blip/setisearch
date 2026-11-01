@@ -1,0 +1,104 @@
+{
+  "status": "PASS_INDEPENDENT_NUMERIC_RAW_AUDIT",
+  "created_utc": "2026-11-01T20:14:48.105698+00:00",
+  "audit_plan_sha256": "d93fb59bceb564130d36e274556073330ca300e138960184b5024518ecdf995d",
+  "audit_code_sha256": "80e0fedf358ff40f64e491e1bf3617ff5e3f06063dbdfd11dc7009ba5ee1084a",
+  "followup_freeze_sha256": "bb6b57f4d769db3d08fe5b9ea8797b8520a8c410ed4a8e4e909b1702e1524cfd",
+  "verified_published_commit": "0b988bfd80db1af068654d640459868c34af2875",
+  "numerical_versions": {
+    "numpy": "2.5.4",
+    "scipy": "1.17.0",
+    "astropy": "8.0.2"
+  },
+  "selected_exposures": 8,
+  "selected_events": 65,
+  "detector_event_counts": {
+    "V1": 6,
+    "V2": 59
+  },
+  "unreviewed_v2_events_outside_selected_exposures": 277,
+  "all_336_v2_events_accounted_for_by_disjoint_union": true,
+  "all_products_hash_length_identity_verified": 16,
+  "product_bytes": 210108924,
+  "charged_payload_bytes": 210108924,
+  "known_returned_payload_bytes": 210108924,
+  "unknown_bytes_conservatively_charged": 0,
+  "payload_cap_bytes": 350000000,
+  "recorded_payload_ledger_internally_consistent": true,
+  "wire_transfer_independently_verified": false,
+  "unresolved_stale_partial_file_anomaly": true,
+  "preserved_partial_files": [
+    {
+      "preserved_relative_path": "diagnostics/stale_partial_files/ADP.2023-01-17T01_07_48.582.tar.part",
+      "bytes": 1048576,
+      "sha256": "61d99d98f836458480aa9d133193274beb6190cf880e0cb4385cb1f184c44379",
+      "final_relative_path": "products/ADP.2023-01-17T01_07_48.582.tar",
+      "final_sha256": "5998e88ad993ea59361f0617d363b024750a5b0312af686758198c896b7175a2",
+      "exact_prefix": true,
+      "mtime_utc": "2026-11-01T20:10:57.019618+00:00",
+      "mtime_predates_manifest": true,
+      "excluded_from_product_manifest": true
+    },
+    {
+      "preserved_relative_path": "diagnostics/stale_partial_files/ADP.2023-07-02T01_01_43.314.tar.part",
+      "bytes": 2097152,
+      "sha256": "c96b9f31d5eb90cf45dc4244e65444be48f620f0885f035d479c382c9e4706e2",
+      "final_relative_path": "products/ADP.2023-07-02T01_01_43.314.tar",
+      "final_sha256": "513a06ee705a3abf07b3ff51f35d02b37be4925433692c3196f16078d368eb97",
+      "exact_prefix": true,
+      "mtime_utc": "2026-11-01T20:10:57.583631+00:00",
+      "mtime_predates_manifest": true,
+      "excluded_from_product_manifest": true
+    },
+    {
+      "preserved_relative_path": "diagnostics/stale_partial_files/HARPS.2023-01-16T08_57_12.203.fits.Z.part",
+      "bytes": 1048576,
+      "sha256": "58cc95973b6ef9d48b90bbe73b3fcfee25073ae69868f21ee1ab90ccc68fade3",
+      "final_relative_path": "products/HARPS.2023-01-16T08_57_12.203.fits.Z",
+      "final_sha256": "8a64ae8bfe35c1b32b4a04e6556646b81f39ad19c23c9ecad61c334f644eae27",
+      "exact_prefix": true,
+      "mtime_utc": "2026-11-01T20:10:57.075619+00:00",
+      "mtime_predates_manifest": true,
+      "excluded_from_product_manifest": true
+    }
+  ],
+  "all_event_covering_orders": 86,
+  "all_npz_checked": 86,
+  "edge_truncated_orders": 0,
+  "fixed_reconstruction_exposures": [
+    {
+      "selected_position": 1,
+      "dp_id": "ADP.2024-12-16T01:03:40.650"
+    },
+    {
+      "selected_position": 5,
+      "dp_id": "ADP.2022-05-28T01:02:07.278"
+    },
+    {
+      "selected_position": 8,
+      "dp_id": "ADP.2023-02-24T01:01:17.499"
+    }
+  ],
+  "raw_orders_exactly_reconstructed": 35,
+  "native_array_correspondence_exposures": 8,
+  "entire_reference_grids_exactly_recomputed": 3,
+  "entire_local_audits_exactly_recomputed": 35,
+  "protected_files_unchanged": 455,
+  "original_frozen_source_hashes_verified": 55,
+  "followup_frozen_source_hashes_verified": 28,
+  "local_gate": "Two candidate-excluded continuum peak offsets within one pixel, at least 60 samples in each window. Local correlation is reported but does not enter the inherited pass rule. This is not the mapping43 broader-reference gate.",
+  "comparison": "Exact numeric array equality with corresponding NaNs allowed; nonfinite counts retained per NPZ. Entire saved JSON grid/local diagnostics match on the three fixed reconstruction exposures.",
+  "network_calls": 0,
+  "downloads": 0,
+  "source_or_extraction_files_modified": 0,
+  "elapsed_seconds": 4.752575437996711,
+  "limitations": [
+    "Fresh-process reconstruction of the same frozen conventions and registration algorithms; not an independent detector implementation.",
+    "All eight native spectra were reopened for sample correspondence; original raw pixel arrays were reconstructed only for the three preselected exposures. Other raw cutouts received algebra, shape, hash and coordinate checks.",
+    "All sixteen containers received archive/date/header identity checks, but metadata identity does not independently establish pointing or photon origin.",
+    "Header-based wavelength mapping uses the frozen classical inverse-BERV convention; this is not a new reduction or absolute wavelength calibration.",
+    "No visual/origin classification, physical-origin validation, false-alarm calibration or sensitivity claim follows from this numeric audit.",
+    "Publication correctness is rooted in the parent/root verification signal and matching local receipt; this audit performs no remote verification.",
+    "Three unexplained stale partial-name files totaling 4194304 bytes are exact prefixes of verified final products, predate the manifest, and are preserved outside the science product inventory. Their cause and network provenance remain unknown. Reconciliation of the recorded 210108924-byte ledger does not independently prove the absence or presence of additional wire transfers or requests."
+  ]
+}

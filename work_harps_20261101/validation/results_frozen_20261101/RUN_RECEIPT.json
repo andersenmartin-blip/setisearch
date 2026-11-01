@@ -1,0 +1,111 @@
+{
+  "schema": "HARPS_PAIRED_INJECTION_RUN_V1",
+  "status": "COMPLETED",
+  "started_utc": "2026-11-01T15:42:55.296629+00:00",
+  "plan_sha256": "45697666c548d1d135ea6d36e76e923a7d33585c2c42e9fa8c4e6c6f1beecb15",
+  "source_sha256": {
+    "validation/run_injections.py": "176ee5feb779a78be551666ffe27712c5e1561ef88cc08d94db82402b3fcf0e7",
+    "code/harps_detector.py": "c9694d9708181c058e420092bffe15e9b39f2bc6355b0a087653a6277d9d2112",
+    "code/DETECTOR_CONFIG.json": "a8203650b6c06bc68685ded44bb42244e327cf2efa648ccd2cdae030a56b28a0",
+    "code/DETECTOR_FREEZE.json": "1bd696e8fb540f31e4f795013e7729b40bdcddfdcf1b1e39ab040325f9d42195"
+  },
+  "software": {
+    "python": "3.12.14",
+    "numpy": "2.5.4",
+    "scipy": "1.17.0",
+    "astropy": "8.0.2"
+  },
+  "backgrounds": [
+    {
+      "relative_path": "data/validation/ADP.2022-12-31T01_08_20.445.fits",
+      "dp_id": "ADP.2022-12-31T01:08:20.445",
+      "sha256": "8a6188394cbce1fa53b360cd8d1c95f593972e1ec28793169be7755e8be2b834",
+      "bytes": 5264640,
+      "date_obs": "2022-12-30T06:10:49.591",
+      "mjd_obs": 59943.25751842,
+      "subpixel_phase": 0.0
+    },
+    {
+      "relative_path": "data/validation/ADP.2023-05-05T01_01_05.168.fits",
+      "dp_id": "ADP.2023-05-05T01:01:05.168",
+      "sha256": "e9fb534afb60040dbe315dadda70060a4dafd5fe43e75a9093390126c33c5c5b",
+      "bytes": 5264640,
+      "date_obs": "2023-05-03T23:58:23.845",
+      "mjd_obs": 60067.9988871,
+      "subpixel_phase": 0.25
+    },
+    {
+      "relative_path": "data/validation/ADP.2023-07-04T01_03_35.353.fits",
+      "dp_id": "ADP.2023-07-04T01:03:35.353",
+      "sha256": "60c06059fcd2d9ed1795b089a0614f6a5b57cf29194a24598c3d854edc01178d",
+      "bytes": 5261760,
+      "date_obs": "2023-07-02T23:58:54.877",
+      "mjd_obs": 60127.99924626,
+      "subpixel_phase": 0.5
+    }
+  ],
+  "interpretation": "Limited deterministic recovery audit of a frozen first-stage emission filter on three withheld reduced spectra of one star, twelve wavelength/background geometries and four paired strengths. It is not a detection of lasers, a complete sensitivity/completeness curve, a calibrated false-alarm rate, a raw-data reduction test or a population occurrence constraint. No tuning after viewing results.",
+  "finished_utc": "2026-11-01T15:42:55.594886+00:00",
+  "wall_seconds": 0.29825334600172937,
+  "summary": {
+    "schema": "HARPS_PAIRED_INJECTION_SUMMARY_V1",
+    "registered_geometries": 12,
+    "registered_trials": 48,
+    "evaluated_geometries": 12,
+    "evaluated_trials": 48,
+    "not_evaluable_trials": 0,
+    "control_hits": 0,
+    "recovered_trials": 11,
+    "recovered_without_control_hit": 11,
+    "by_amplitude": [
+      {
+        "amplitude_factor": 4,
+        "evaluated": 12,
+        "recovered": 0,
+        "recovered_without_control_hit": 0
+      },
+      {
+        "amplitude_factor": 8,
+        "evaluated": 12,
+        "recovered": 0,
+        "recovered_without_control_hit": 0
+      },
+      {
+        "amplitude_factor": 16,
+        "evaluated": 12,
+        "recovered": 5,
+        "recovered_without_control_hit": 5
+      },
+      {
+        "amplitude_factor": 32,
+        "evaluated": 12,
+        "recovered": 6,
+        "recovered_without_control_hit": 6
+      }
+    ],
+    "by_anchor": [
+      {
+        "anchor_angstrom": 4101.37,
+        "evaluated": 12,
+        "recovered": 2
+      },
+      {
+        "anchor_angstrom": 4802.61,
+        "evaluated": 12,
+        "recovered": 2
+      },
+      {
+        "anchor_angstrom": 5703.29,
+        "evaluated": 12,
+        "recovered": 3
+      },
+      {
+        "anchor_angstrom": 6504.73,
+        "evaluated": 12,
+        "recovered": 4
+      }
+    ],
+    "interpretation": "Limited deterministic recovery audit of a frozen first-stage emission filter on three withheld reduced spectra of one star, twelve wavelength/background geometries and four paired strengths. It is not a detection of lasers, a complete sensitivity/completeness curve, a calibrated false-alarm rate, a raw-data reduction test or a population occurrence constraint. No tuning after viewing results.",
+    "errors": []
+  }
+}

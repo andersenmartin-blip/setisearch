@@ -1,0 +1,15 @@
+/workspace/scratch/9ddca116b0b1/python_deps/numpy/_core/fromnumeric.py:3862: RuntimeWarning: Mean of empty slice
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/workspace/scratch/9ddca116b0b1/python_deps/numpy/_core/_methods.py:142: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+Traceback (most recent call last):
+  File "/workspace/scratch/9ddca116b0b1/setisearch/work_harps_20261101/v2/line_identification/analyse_context.py", line 65, in <module>
+    central_median3_peak_adu=finite(np.max(med3[peak])),original_status=h['current_followup_status'],disposition_changed=False,
+                                    ^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/9ddca116b0b1/python_deps/numpy/_core/fromnumeric.py", line 3161, in max
+    return _wrapreduction(a, np.maximum, 'max', axis, None, out,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/9ddca116b0b1/python_deps/numpy/_core/fromnumeric.py", line 83, in _wrapreduction
+    return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: zero-size array to reduction operation maximum which has no identity

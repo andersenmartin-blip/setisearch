@@ -1,0 +1,22 @@
+{
+  "created_utc": "2026-11-01T19:50:47.240508+00:00",
+  "scope": "Independent numerical audit after frozen extension02 acquisition and production complete; no network or changes to frozen files/production.",
+  "frozen_sha256": "837255ab49b1902f0f6dad8d4b3714d7edd6e68f36ef443b871bd5c4b96c4cbb",
+  "published_commit": "13bb29d3c3a730cdb50610f4ed46c882e8448cfb",
+  "science_selection_rule": "First, middle and last metadata-admitted exposures in frozen selection order; chosen without inspecting their event counts or spectra.",
+  "audit_steps": [
+    "Verify all55 original/frozen source hashes and publication receipt consistency.",
+    "Verify all100 selected manifest rows, every locally downloaded file hash/length, every accepted header and exclusion/duplication handling; compare previous209 ADP/raw/target-time identities.",
+    "Recompute all exposure/event/hit/disposition table membership and totals from per-spectrum production JSON; verify stable candidate ordering and exact CSV serialization.",
+    "Rerun frozen V1 and V2 on three fixed-position admitted exposures in a fresh process and compare entire results and input metadata exactly.",
+    "Verify all production and immutable-source hashes remain unchanged after audit."
+  ],
+  "output_directory": "v2/extension02/audit",
+  "new_network_calls": 0,
+  "science_opened_for_audit_at_plan": 0,
+  "not_claimed": [
+    "Independent detector implementation",
+    "Physical-origin validation",
+    "Extension02 sensitivity or false-alarm calibration"
+  ]
+}

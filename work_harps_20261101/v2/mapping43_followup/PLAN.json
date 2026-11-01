@@ -1,0 +1,95 @@
+{
+  "created_utc": "2026-11-01T19:37:21.285286+00:00",
+  "purpose": "Post-hoc investigation of all43 mapping-limited events, selected by saved status; no detector changes or signal-based sample exclusion.",
+  "review_ids": [
+    "V2-0099",
+    "V2-0106",
+    "V2-0110",
+    "V2-0115",
+    "V2-0117",
+    "V2-0118",
+    "V2-0120",
+    "V2-0125",
+    "V2-0126",
+    "V2-0129",
+    "V2-0131",
+    "V2-0132",
+    "V2-0135",
+    "V2-0139",
+    "V2-0149",
+    "V2-0155",
+    "V2-0186",
+    "V2-0217",
+    "V2-0221",
+    "V2-0228",
+    "V2-0231",
+    "V2-0232",
+    "V2-0233",
+    "V2-0235",
+    "V2-0243",
+    "V2-0244",
+    "V2-0260",
+    "V2-0263",
+    "V2-0266",
+    "V2-0268",
+    "V2-0272",
+    "V2-0273",
+    "V2-0274",
+    "V2-0277",
+    "V2-0278",
+    "V2-0279",
+    "V2-0280",
+    "V2-0281",
+    "V2-0284",
+    "V2-0306",
+    "V2-0322",
+    "V2-0326",
+    "V2-0333"
+  ],
+  "exposures": 26,
+  "reference_windows_half_open": [
+    [
+      128,
+      768
+    ],
+    [
+      896,
+      1536
+    ],
+    [
+      1664,
+      2304
+    ],
+    [
+      2432,
+      3072
+    ],
+    [
+      3200,
+      3968
+    ]
+  ],
+  "reference_orders": "Every covering order for each selected event, including old edge-limited orders when the reference aperture exists.",
+  "candidate_exclusion_half_width_pixels": 80,
+  "minimum_samples_per_reference_window": 200,
+  "fixed_orientation": "Reuse multi-order grid best orientation for the exposure; do not fit orientation or trace shift to candidate cores.",
+  "reference_profile": "Sample raw image at polynomial-predicted floating column plus offsets -8 through+8 using linear interpolation. Median spatial profile; subtract outer 4 offset baseline, quadratic interpolation of peak. Report correlation of seven-column aperture and native spectrum after31point highpass. No winsorization or amplitude clipping.",
+  "mapping_criteria": ">=3 usable fixed windows; median correlation>0.8; median absolute peak offset<=0.75 pixels; >=3 windows withabs offset<=1pixel. Header coordinates remain unchanged; no candidate-centered shift.",
+  "candidate_display": "Preserve original native/raw arrays and wider raw31x33 context around predicted trace; display central\u00b16columns separately so adjacent calibrationfiber cannot dominate.",
+  "old_four_displacement_cases": [
+    "V2-0149",
+    "V2-0186",
+    "V2-0221",
+    "V2-0284"
+  ],
+  "interpretation": "Wider fixed reference support may resolve inadequate old two-sidedwindows, including near edges and crowded candidate lists. Any continued discrepancy remains explicit; geometry does not determine origin.",
+  "input_hashes": {
+    "triage_batch02/CUMULATIVE_DISPOSITIONS.csv": "5700f9b5a75f799a0f719837154313891050f31783ee7a9f75ab68307f56bbca",
+    "triage_batch02/NATIVE_MAPPING.json": "77d985d34607e84eafb31d7c6a4f869417f76c91ffd35360952d56fb65917519",
+    "triage_batch02/LOCAL_TRACE_AUDIT.json": "f8e5b05b723886edcd8f7d817b7d7a2999d5c7cf5281ff48eb505b5194c7495c",
+    "production/V2_HITS.csv": "8ff3b35405e4448feba37ceba2a8b46aa7981d2704347dbef12d0572ba14aaaa",
+    "production/V2_DISPOSITIONS.csv": "2d404acf1c3f50ff33fe0a682d4cdb98ca7e5fa672876705b7346152f99a5b27",
+    "code/profile_detector.py": "577ab049367da078aaed8f525bee1cc856757cc3805c552e7dac9b17dc2bea8b",
+    "code/CONFIG.json": "842c93d4de232b03cd6cd68c54b6399b125f3ea8923946dadcaf4f139fcc19ac"
+  }
+}

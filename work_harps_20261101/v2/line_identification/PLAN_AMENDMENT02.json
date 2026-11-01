@@ -1,0 +1,6 @@
+{
+  "status": "METADATA_ONLY_RV_MULTIPLE_MASK_CLARIFICATION",
+  "reason": "Attempt02 stopped at the first dual-mask exposure. Six ancillary TARs contain both G2 and K5 CCF_A products; two contain none. Seven of the original64 events use dual-mask exposures. DATE-OBS and BERV in both masks agree with the ADP header.",
+  "rule": "Retain every mask-specific RVC and provenance. For broad-region coordinates and grouping only, use arithmetic mean of available finite RVC values, and record full min-max mask span. This is descriptive, not a new best-RV estimate. Do not replace missing values by planning RV. Require every CCF DATE-OBS to equal ADP DATE-OBS. Report mask span explicitly; broad context cannot establish precision atomic identification.",
+  "selection_expansion": "The original64 output is retained. A separate31-event output will apply the same frozen profile rules to the31 newly unresolved events supplied by independent mapping followup. No detector or origin classifications changed."
+}

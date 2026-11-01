@@ -1,0 +1,120 @@
+{
+  "dp_id": "ADP.2025-04-28T01:01:15.579",
+  "canonical_target": "HD126093",
+  "date_obs": "2025-04-27T06:05:34.317",
+  "selection_index": 72,
+  "raw_progenitor_id": "HARPS.2025-04-27T06:05:34.318",
+  "input_sha256": "df48335869c1cf198fa7bb737e49917dc6c15d01f4c9a0c3d12ad935d1cfd6f4",
+  "cohort": "extension02",
+  "input": {
+    "OBJECT": "HD 126093",
+    "DATE-OBS": "2025-04-27T06:05:34.317",
+    "MJD-OBS": 60792.25386942,
+    "EXPTIME": 599.9958,
+    "SPECSYS": "BARYCENT",
+    "PROCSOFT": "HARPS_3.8",
+    "ORIGFILE": "HARPS.2025-04-27T06:05:34.318_s1d_A_DRS_HARPS_3.8_ESOSDP.fits",
+    "ARCFILE": "ADP.2025-04-28T01:01:15.579.fits",
+    "WAVELMIN": 378.321,
+    "WAVELMAX": 691.295,
+    "wavelength_unit": "angstrom",
+    "wavelength_ucd": "em.wl;obs.atmos",
+    "flux_unit": "adu",
+    "finite_error_samples": 0,
+    "sha256": "df48335869c1cf198fa7bb737e49917dc6c15d01f4c9a0c3d12ad935d1cfd6f4",
+    "input_filename": "ADP.2025-04-28T01_01_15.579.fits",
+    "raw_progenitors": {
+      "PROV1": "HARPS.2025-04-27T06:05:34.318.fits"
+    },
+    "berv_km_s": 5.77068898867443
+  },
+  "result": {
+    "schema": "HARPS_FIRST_STAGE_EMISSION_V1",
+    "config": {
+      "wave_min_angstrom": 3800.0,
+      "wave_max_angstrom": 6900.0,
+      "window_pixels": 101,
+      "threshold_local_std": 3.5,
+      "minimum_run_pixels": 4,
+      "maximum_run_pixels": 60,
+      "mask_exact_zero_flux": true,
+      "gap_step_multiple": 1.5
+    },
+    "total_samples": 312975,
+    "nominal_step_angstrom": 0.010000000000218279,
+    "searched_samples": 306506,
+    "sum_searched_bin_widths_angstrom": 3065.0600000669037,
+    "searched_intervals": [
+      {
+        "first_index": 1729,
+        "last_index_exclusive": 152066,
+        "first_center_angstrom": 3800.5,
+        "last_center_angstrom": 5303.860000000001,
+        "centers": 150337
+      },
+      {
+        "first_index": 155461,
+        "last_index_exclusive": 311630,
+        "first_center_angstrom": 5337.82,
+        "last_center_angstrom": 6899.5,
+        "centers": 156169
+      }
+    ],
+    "nonfinite_flux_samples": 0,
+    "zero_flux_samples": 3295,
+    "all_threshold_runs": [
+      {
+        "start_index": 2316,
+        "end_index_exclusive": 2317,
+        "peak_index": 2316,
+        "run_pixels": 1,
+        "status": "SHORT_RUN",
+        "wave_start_angstrom": 3806.37,
+        "wave_end_angstrom": 3806.37,
+        "wave_peak_angstrom": 3806.37,
+        "peak_flux_adu": 1845.4130859375,
+        "continuum_adu": 347.9731140136719,
+        "local_std_adu": 253.10694342348404,
+        "peak_local_contrast": 5.916234267103441,
+        "observed_fwhm_angstrom": 0.016592965747804556,
+        "observed_fwhm_pixels": 1.6592965747442368
+      },
+      {
+        "start_index": 8494,
+        "end_index_exclusive": 8496,
+        "peak_index": 8495,
+        "run_pixels": 2,
+        "status": "SHORT_RUN",
+        "wave_start_angstrom": 3868.15,
+        "wave_end_angstrom": 3868.16,
+        "wave_peak_angstrom": 3868.16,
+        "peak_flux_adu": 942.50830078125,
+        "continuum_adu": 430.4627990722656,
+        "local_std_adu": 140.5822200865538,
+        "peak_local_contrast": 3.642320496814801,
+        "observed_fwhm_angstrom": 0.06984628690997852,
+        "observed_fwhm_pixels": 6.984628690845392
+      },
+      {
+        "start_index": 222795,
+        "end_index_exclusive": 222796,
+        "peak_index": 222795,
+        "run_pixels": 1,
+        "status": "SHORT_RUN",
+        "wave_start_angstrom": 6011.16,
+        "wave_end_angstrom": 6011.16,
+        "wave_peak_angstrom": 6011.16,
+        "peak_flux_adu": 47715.0390625,
+        "continuum_adu": 45338.2109375,
+        "local_std_adu": 505.3674821086885,
+        "peak_local_contrast": 4.703167910769573,
+        "observed_fwhm_angstrom": 0.01579563647737814,
+        "observed_fwhm_pixels": 1.5795636477033355
+      }
+    ],
+    "preliminary_hit_count": 0,
+    "short_run_count": 3,
+    "wide_run_count": 0,
+    "interpretation": "Local contrast is not calibrated SNR/sigma/FAP; hits are not identified lasers."
+  }
+}
