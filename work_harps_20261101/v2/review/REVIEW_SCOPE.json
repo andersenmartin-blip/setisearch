@@ -1,0 +1,28 @@
+{
+  "schema": "HARPS_V2_INDEPENDENT_REVIEW_SCOPE_V1",
+  "frozen_utc": "2026-11-01T16:09:39.603515+00:00",
+  "new_main_flux_opened": false,
+  "new_validation_flux_opened": false,
+  "main_zero_based_csv_indices": [
+    0,
+    24,
+    49,
+    74,
+    99
+  ],
+  "main_numerical_scope": "Independent direct re-evaluation of five fixed complete searches or all screened candidates with independently recomputed screening and fit inputs; additionally all accepted events in all 100 exposures, plus combined counts and identity checks. Exact implemented coverage will be reported, not silently broadened in claims.",
+  "validation_numerical_scope": "All 16 unique unmodified patches, 48 phase queries and 192 injected trials: compare saved backgrounds with corresponding FITS, independently compute injection profile/scaling and V2 profile fit quantities, verify acceptance and recovery matching, and cross-check V1 frozen results.",
+  "numeric_comparison_tolerances": {
+    "atol": 1e-08,
+    "rtol": 1e-08,
+    "wavelength_angstrom_atol": 1e-08,
+    "near_threshold_review": "Flag differences within numerical tolerance of a decision boundary explicitly; do not promote an arbitrary floating point difference into a generic failed science outcome."
+  },
+  "metadata_scope": "All 104 selected identities, target/start/ADP/raw-progenitor disjointness against original105 and each other, original quality criteria, metadata/header consistency, checksums, units/frame, intended-coordinate consistency. This is not a full independent astronomical source identification.",
+  "input_sha256": {
+    "v2/selection/MAIN100.csv": "1d6b3a0609666fa343890ba940631db627f1465fc270c56aff4c7f7975e29cc7",
+    "v2/selection/VALIDATION4.csv": "bceb7705b22e5bdb50bb4b1fcd3902d1033b9e3dc7816dcd2dbb33bbeb1dbe98",
+    "v2/selection/SELECTION_FREEZE.json": "e9cb6058fa3f6b3881332ec558968253b5e3e53b50bf695ead5dba5681583119"
+  },
+  "execution_gate": "No new main or validation science arrays until parent root explicitly releases review after corresponding analysis is frozen/authorized."
+}

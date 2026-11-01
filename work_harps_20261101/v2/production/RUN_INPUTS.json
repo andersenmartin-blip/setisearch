@@ -1,0 +1,121 @@
+{
+  "started_utc": "2026-11-01T16:37:21.906795+00:00",
+  "runner_sha256": "49671561146aa1a335fc241b2db3599ac2e390307b99c3a7a1580efed5c51915",
+  "selection_sha256": "1d6b3a0609666fa343890ba940631db627f1465fc270c56aff4c7f7975e29cc7",
+  "manifest_sha256": "180d86f8c7699fb4ea4176fb65dd896a98ed753d602492e85f92521ad2daf356",
+  "detector_freeze": {
+    "status": "FROZEN_BEFORE_NEW_VALIDATION_AND_MAIN_FLUX",
+    "frozen_at_utc": "2026-11-01T16:33:41.850273+00:00",
+    "source_hashes": {
+      "v2/code/profile_detector.py": "577ab049367da078aaed8f525bee1cc856757cc3805c552e7dac9b17dc2bea8b",
+      "v2/code/CONFIG.json": "842c93d4de232b03cd6cd68c54b6399b125f3ea8923946dadcaf4f139fcc19ac",
+      "v2/code/test_profile_detector.py": "773bbb0a32bd29b25c403bf5b1c8f4447f6bb3b162044948030d8d4471217cf5",
+      "code/harps_detector.py": "c9694d9708181c058e420092bffe15e9b39f2bc6355b0a087653a6277d9d2112",
+      "code/DETECTOR_CONFIG.json": "a8203650b6c06bc68685ded44bb42244e327cf2efa648ccd2cdae030a56b28a0"
+    },
+    "config": {
+      "wave_min_angstrom": 3800.0,
+      "wave_max_angstrom": 6900.0,
+      "window_pixels": 101,
+      "prescreen_local_mad": 3.0,
+      "amplitude_over_sideband_mad": 6.0,
+      "minimum_profile_cosine": 0.8,
+      "resolving_power": 115000.0,
+      "core_half_pixels": 12,
+      "sideband_outer_pixels": 50,
+      "fit_phases": [
+        -0.5,
+        -0.25,
+        0.0,
+        0.25,
+        0.5
+      ],
+      "mad_normalization": 1.4826,
+      "gap_step_multiple": 1.5
+    },
+    "new_validation_flux_opened": 0,
+    "new_main_flux_opened": 0,
+    "development_note": "Only original three development spectra and the previously exposed 48 V1 injections. One pre-freeze correction: 100-bin rather than50-bin margin because prescreen has two nested101 filters. No changes after fresh validation.",
+    "interpretation": "Uncalibrated profile-screening method, no laser-origin or false-alarm claim."
+  },
+  "validation_summary": {
+    "status": "COMPLETED_NO_TUNING",
+    "evaluated_trials": 192,
+    "unique_unmodified_patches": 16,
+    "paired_geometries": 48,
+    "control_queries": 48,
+    "v1_control_matches": 0,
+    "v2_control_matches": 0,
+    "by_amplitude": [
+      {
+        "amplitude": 4,
+        "n": 48,
+        "v1": 0,
+        "v2": 5
+      },
+      {
+        "amplitude": 8,
+        "n": 48,
+        "v1": 0,
+        "v2": 36
+      },
+      {
+        "amplitude": 16,
+        "n": 48,
+        "v1": 22,
+        "v2": 48
+      },
+      {
+        "amplitude": 32,
+        "n": 48,
+        "v1": 27,
+        "v2": 48
+      }
+    ],
+    "by_phase": [
+      {
+        "phase": 0.0,
+        "n": 64,
+        "v1": 5,
+        "v2": 46
+      },
+      {
+        "phase": 0.25,
+        "n": 64,
+        "v1": 16,
+        "v2": 46
+      },
+      {
+        "phase": 0.5,
+        "n": 64,
+        "v1": 28,
+        "v2": 45
+      }
+    ],
+    "full_background_counts": [
+      {
+        "dp_id": "ADP.2021-11-30T01:05:15.920",
+        "v1_hits": 0,
+        "v2_hits": 4
+      },
+      {
+        "dp_id": "ADP.2022-05-06T01:04:00.115",
+        "v1_hits": 0,
+        "v2_hits": 6
+      },
+      {
+        "dp_id": "ADP.2023-02-01T01:02:03.967",
+        "v1_hits": 0,
+        "v2_hits": 5
+      },
+      {
+        "dp_id": "ADP.2023-07-04T01:03:35.273",
+        "v1_hits": 0,
+        "v2_hits": 6
+      }
+    ],
+    "wall_seconds": 0.802716545003932,
+    "limitation": "Four spectra of one star; amplitudes and phases reuse backgrounds. Not independent trials, global completeness, full instrument sensitivity or calibrated false-alarm rate."
+  },
+  "scope": "100 extra exposures only; no original-main rerun represented as fresh data."
+}

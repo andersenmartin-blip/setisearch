@@ -1,3 +1,7 @@
+# Opdatering 1. november 2026
+
+Forslaget på 100 ekstra eksponeringer er nu fastlåst, hentet, kontrolleret og analyseret. Den særskilte V2-metode og friske kontrolprøve er gennemført. [Resultat og aktuelt næste trin](../v2/README.md). Teksten nedenfor er den tidligere prioritering før udvidelsen, bevaret som historik.
+
 # Mere data og prioritering
 
 Den første hovedkørsel tog 6,524 sekunder på allerede hentede og kontrollerede filer. Ugeplanen omfatter også adgang, metodeudvikling, følsomhed, råkontroller og fortolkning; tidsrammen er ikke nødvendig beregningstid for 100 spektre.

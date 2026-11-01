@@ -1,4 +1,14 @@
-# HARPS — første analyse, 1. november 2026
+# HARPS analyser og status 1. november 2026
+
+**Nu 200 unikke eksponeringer af 20 stjerner, 46,750 timers samlet teleskopeksponering.** Det nye udvalg på 100 er analyseret med både V1 og en særskilt, fastlåst V2-profildetektor. V2 genfinder 48/48 indsatte linjer ved hver af de to største styrker i en frisk parret kontrolprøve, mod V1's 22/48 og 27/48. De 333 nye V2-profilhits mangler ophavsvurdering og er ikke identificerede lasere.
+
+Alle ti oprindelige hits er fulgt tilbage til råbilleder og native ordener. Den foreløbige vurdering er syv sandsynlige detektorartefakter og tre sandsynlige atmosfæriske iltlinjer. HARPS-ugen er fortsat delvist gennemført.
+
+[Ny V2-rapport, kontroller og alle 333 figurer](v2/README.md) · [Råopfølgning på de oprindelige ti hits](triage_followup/README.md) · [Præcist fortsættelsespunkt](v2/RESTORE.md)
+
+## Historisk første V1-prøve
+
+Nedenstående beskriver den oprindelige prøve på 100 eksponeringer. Dens konfiguration, tabeller og daværende status er bevaret; den aktuelle samlede status står ovenfor.
 
 **Opdatering om tempo og udvidelse:** Selve hovedkørslen tog 6,5 sekunder på klargjorte data. En ny metadataopgørelse finder 959 yderligere mulige eksponeringer, og et forslag på 100 ekstra er klar. Ingen af disse er endnu hentet eller analyseret. [Mulig udvidelse](expansion/FEASIBILITY.md) · [Faglig prioritering](expansion/NEXT_STEPS.md). En første headerkontrol af de eksisterende hits giver tre tætte O I-bølgelængdesammenfald, fortsat uden endelig disposition: [foreløbig kontrol](triage_initial/README.md).
 
