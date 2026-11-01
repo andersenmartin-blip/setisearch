@@ -1,3 +1,27 @@
+## Seneste status — 300 HARPS eksponeringer og udvidet råkontrol (1. november 2026)
+
+**300 unikke eksponeringer af 20 stjerner er analyseret, samlet 70,875 timers teleskopeksponering.** De seneste 100 blev udvalgt og metoden publiceret før datahentning; alle bestod identitetskontrollen. Den uændrede V1 har 22 foreløbige hits på 300 eksponeringer. V2 har 669 profiltræf på de seneste 200 eksponeringer, heraf 336 nye. Ingen identificeret laser eller kvalificeret SETI-kandidat.
+
+**392 af 669 V2-træf har nu en dokumenteret rågennemgang.** Status er fortsat foreløbig:
+
+| V2 prøve | Detektorartefakt | Atmosfærisk O I | Uafklaret struktur | Billedkobling utilstrækkelig | Rågennemgang mangler |
+|---|---:|---:|---:|---:|---:|
+| Oprindelige 333 | 209 | 25 | 95 | 4 | 0 |
+| Nye 336 | 44 | 8 | 6 | 1 | 277 |
+| Samlet 669 | 253 | 33 | 101 | 5 | 277 |
+
+Opfølgningen på de tidligere 95 spektralstrukturer bruger 117 af de tidligere 200 eksponeringer: 91 gentager sig med det barycentriske stjernespektrum, tre har stærk støtte til en kalibreringsrefleks-hypotese, og én har en svag O I-hypotese. Dette er beskrivende forklaringsspor, ikke endelige oprindelser. De nye 100 indgår endnu ikke i denne epokeundersøgelse.
+
+Alle 336 nye træf har individuelle spektrumudsnit på 42 sider. Rådelprøvens 59 V2- og seks overlappende V1-poster er undersøgt af to separate analyseagenter; de første vurderinger stemmer for alle 65 poster. Bredere referencer understøtter efterfølgende otte af ni usikre V1/V2-poster, mens V2E2-0225 fortsat fejler en dækkende ordens korrelationskrav. Alle originale kataloger og baseline-tabeller er bevaret. Dette er ikke blindet forskervalidering eller uafhængigt menneskeligt review.
+
+Numeriske genkørsler reproducerer begge detektorers komplette udfald på tre fast valgte nye eksponeringer, 35 baseline-råudsnit og alle 16 udvidede mapping-udsnit. Den tidligere 192-forsøgsvalidering er uændret og må ikke omtales som global følsomhed eller den nye prøves falsk-alarm-rate.
+
+[Samlet rapport og data](https://github.com/andersenmartin-blip/setisearch/blob/734d58e0a1faa9b4b3d9b4301dfa5ffbfc55129d/work_harps_20261101/README.md) · [Aktuel ny rådelprøve](https://github.com/andersenmartin-blip/setisearch/blob/734d58e0a1faa9b4b3d9b4301dfa5ffbfc55129d/work_harps_20261101/v2/extension02/raw_followup/CURRENT_RESULTS.md) · [Opfølgning på oprindelige 333](https://github.com/andersenmartin-blip/setisearch/blob/734d58e0a1faa9b4b3d9b4301dfa5ffbfc55129d/work_harps_20261101/v2/followup_synthesis/README.md) · [Præcist fortsættelsespunkt](https://github.com/andersenmartin-blip/setisearch/blob/734d58e0a1faa9b4b3d9b4301dfa5ffbfc55129d/work_harps_20261101/v2/RESTORE.md)
+
+**HARPS-ugen er fortsat delvis.** Næste arbejde er råkontrol af de 277 resterende nye V2-træf og opfølgning på de usikre forklaringer. Rubin er endnu ikke analyseret. Tidligere status bevares nedenfor.
+
+---
+
 ## Seneste status — første rågennemgang af alle 333 HARPS V2 hits (1. november 2026)
 
 **Alle 333 har nu en dokumenteret første vurdering:** 201 sandsynlige detektorartefakter, 25 forenelige med atmosfærisk O I, 64 uafklarede spektralstrukturer og 43 med utilstrækkelig lokal råbilledkontrol. Ingen identificeret laser eller kvalificeret SETI-kandidat. Alle ophavsvurderinger er foreløbige; dette er ikke en afsluttet nuldetektion.
