@@ -1,3 +1,19 @@
+## Seneste status — første rågennemgang af alle 333 HARPS V2 hits (1. november 2026)
+
+**Alle 333 har nu en dokumenteret første vurdering:** 201 sandsynlige detektorartefakter, 25 forenelige med atmosfærisk O I, 64 uafklarede spektralstrukturer og 43 med utilstrækkelig lokal råbilledkontrol. Ingen identificeret laser eller kvalificeret SETI-kandidat. Alle ophavsvurderinger er foreløbige; dette er ikke en afsluttet nuldetektion.
+
+De resterende 237 fund blev undersøgt med alle 136 rå- og ancillary-produkter fra 68 eksponeringer. Seks tidligere kortlægningsproblemer er undersøgt særskilt og har nu fem foreløbige artefaktvurderinger og én O I-vurdering. De oprindelige kataloger og fejludfald er bevaret. Af de 43 nye lokale begrænsninger mangler 39 tilstrækkelig referenceunderstøttelse; fire har målt afvigelse over én pixel. Et flag betyder ikke automatisk forkert position.
+
+To analyseagenter gennemgik hver sin del af de 237. Hovedagentens krydstjek af 63 hændelser stemte med de tildelte vurderinger. En særskilt frisk-proces-kontrol bekræftede inputhashes, fuld hændelsesdækning og præcis reproduktion af ti udsnit fra tre metadatavalgte eksponeringer. Dette er ikke uafhængig menneskelig validering.
+
+**Hoveddækningen er fortsat 200 unikke eksponeringer, 20 stjerner og 46,750 timers samlet eksponering.** Råkontrollen tilfører ikke ekstra observationstid. 53 af de 64 uafklarede strukturer har et andet accepteret hit inden for ±0,03 Å barycentrisk på en anden eksponering; denne efterfølgende nærhedskontrol er ikke en fuld epokeanalyse. En særskilt O I 6363,776-hypotese er registreret uden at ændre den oprindelige to-linje-kontrol eller dispositionerne.
+
+[Rapport, alle 333 dispositioner, figurer og input](https://github.com/andersenmartin-blip/setisearch/blob/bcf661174bdb6de814144888798bf45b7ba05d05/work_harps_20261101/v2/triage_batch02/README.md) · [Næste kontrolpunkter og reproduktion](https://github.com/andersenmartin-blip/setisearch/blob/bcf661174bdb6de814144888798bf45b7ba05d05/work_harps_20261101/v2/RESTORE.md)
+
+**HARPS-ugen er fortsat delvis.** Næste arbejde er de 43 lokale kontrolbegrænsninger, de 64 uafklarede strukturer og uafhængig kontrol af foreløbige forklaringer. Rubin er endnu ikke analyseret. Ingen automatisk baggrundskørsel er oprettet. Tidligere status bevares nedenfor.
+
+---
+
 ## Seneste status — første rågennemgang af 96 HARPS V2 hits (1. november 2026)
 
 **96 af 333 V2-hits er nu gennemgået** i native spektralordener og råbilleder: **56 sandsynlige detektorartefakter, 10 forenelige med atmosfærisk O I, 24 uafklarede spektralstrukturer og seks med utilstrækkelig råbilledkortlægning.** De øvrige 237 mangler første gennemgang. Alle vurderinger er foreløbige og udført af hovedagenten; der er ingen identificeret laser.
