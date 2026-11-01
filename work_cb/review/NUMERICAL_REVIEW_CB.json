@@ -1,0 +1,61 @@
+{
+  "schema": "SETI_CB_INDEPENDENT_NUMERICAL_REVIEW_V1",
+  "status": "PASS_COMPLETE_NUMERICAL_REVIEW",
+  "power_samples_checked": 17891328,
+  "all_statistics_arrays_exact": true,
+  "array_maximum_absolute_errors": {
+    "frequency_MHz": 0.0,
+    "row_medians": 0.0,
+    "row_scores": 0.0,
+    "median_normalized_spectrum": 0.0,
+    "spectral_baseline": 0.0,
+    "spectral_residual": 0.0,
+    "spectral_residual_center": 0.0,
+    "spectral_scale": 0.0,
+    "spectral_valid": 0.0,
+    "spectral_scores": 0.0,
+    "spectral_mask": 0.0,
+    "temporal_median": 0.0,
+    "temporal_scale": 0.0,
+    "temporal_valid_channels": 0.0,
+    "temporal_mask_packed": 0.0,
+    "temporal_mask_shape": 0.0,
+    "temporal_count_by_row": 0.0,
+    "temporal_count_by_channel": 0.0,
+    "temporal_max_by_row": 0.0,
+    "temporal_max_by_channel": 0.0
+  },
+  "spectral_flagged_channels": 269,
+  "spectral_components_verified": 74,
+  "temporal_flagged_pixels": 4964,
+  "temporal_components_verified": 310,
+  "spectral_edge_exclusion_each_side": 384,
+  "all_catalogue_fields_verified": true,
+  "raw_file_sha256": "d0b41cf5d38b4128cf569f8c3d7d053ca923c7f5a1537a534b4a475e348dc688",
+  "bound_input_output_hashes": {
+    "work_cb/new_data_discovery/HIP35136_57563_0011_mid.fil": "d0b41cf5d38b4128cf569f8c3d7d053ca923c7f5a1537a534b4a475e348dc688",
+    "work_cb/SCOPE_CB.json": "1e312561f395a5dddcbf99fbb16a5220f68e6e4902b90f7f848d8bc622ed8bc7",
+    "work_cb/PUBLIC_FREEZE_CB.json": "d48ab66eeed3807a8e6321d5e4b4a34cc60fda7435907249146bcc24bfc64694",
+    "work_cb/analyze_stellar.py": "0169250e1e76a119a42cda144104c7cb2bc75b08a85ad26fd7d2f59f71cb7189",
+    "work_cb/results/MANIFEST.json": "2fa0fc2b7751c053e4879ccaa89b33196f977ea029f377d8524533518192dc83",
+    "work_cb/results/RESULT_CB.json": "282eb26382079ecdc051906ab39e91b322ebf75d5398d7c3571fd316871a1890",
+    "work_cb/results/SPECTRAL_FEATURES_CB.csv": "22e921e81f4f337af8e8ffe76bd8cb7464fcbb65a95bf73d025e2b2068ccad99",
+    "work_cb/results/STATISTICS_CB.npz": "48ae76b076b7e6869b2a8e5db4e8f42f3fcf6e76bade661b00547818bbdb2b3d",
+    "work_cb/results/TEMPORAL_FEATURES_CB.csv": "0a3f9cdeed8d18098210fc0487d5317285de22d4efea74bdda590cebf2720c66"
+  },
+  "bound_bytes_unchanged": true,
+  "reviewer_sha256": "ea0f3d2e01bcfa0465bf3b5e5ddc2586123543885692bf9a7a668fa681450328",
+  "independent_header_reader_sha256": "aa173ecd181fc44cd44b88d64d6ededfe7fac91da6ee58bc770d0c753862b67b",
+  "methods": [
+    "Independent SIGPROC header parser; payload identity bound by Git blob and SHA256.",
+    "Sorted medians in1024-channel blocks; explicit padded sorted windows instead of SciPy median_filter.",
+    "Every spectral score,temporal mask cell,row/channel statistic independently regenerated.",
+    "Explicit eight-neighbour BFS instead of SciPy label; all component fields and top20 ordering checked."
+  ],
+  "limits": [
+    "Shared NumPy float64 arithmetic and raw float32 representation.",
+    "Robust scores are descriptive,not calibrated sigma or false-alarm rates.",
+    "One coarse-resolution historical stellar scan lacks OFF controls; no extraterrestrial candidate or narrowband sensitivity qualification."
+  ],
+  "wall_seconds": 2.4130479810000907
+}

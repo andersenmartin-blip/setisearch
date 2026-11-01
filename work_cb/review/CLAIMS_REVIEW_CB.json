@@ -1,0 +1,62 @@
+{
+  "schema": "SETI_CB_REPORT_AND_POSTHOC_CLAIMS_REVIEW_V1",
+  "status": "PASS_CLAIMS_REVIEW",
+  "required_corrections": [],
+  "checks": {
+    "target_epoch_and_sample_counts_match_sealed_records": true,
+    "spectral_partition_is_disjoint_64_plus1_plus9": true,
+    "HI_overlap_explicit_and_not_double_counted": true,
+    "all_nine_other_groups_are_one_native_channel": true,
+    "strongest_temporal_component_metrics_match_sealed_catalogue": true,
+    "duration_described_as_observed_integrations_and_full_duration_unknown": true,
+    "bandwidth_described_as_frequency_extent_not_occupied_bandwidth": true,
+    "posthoc_labels_separated_from_fixed_masks": true,
+    "coarse_resolution_and_missing_OFF_limits_explicit": true,
+    "no_qualified_SETI_candidate_claim": true,
+    "source_attribution_not_claimed_for_HIP35136_emission": true,
+    "novelty_check_bounded_not_exhaustive": true,
+    "no_change_to_BA_coverage": true,
+    "prior_source_tutorial_supports_context_labels": true
+  },
+  "original_masks_and_catalogues_remain_unchanged": true,
+  "posthoc_counts": {
+    "spectral": 74,
+    "grid": 64,
+    "HI_only": 1,
+    "other": 9,
+    "HI_grid_overlap": 1
+  },
+  "event": {
+    "component": 278,
+    "pixels": 2321,
+    "peak_frequency_MHz": 1380.8941841125488,
+    "first_row": 267,
+    "last_row": 272,
+    "observed_integrations": 6,
+    "observed_integration_duration_seconds": 6.442450943999999,
+    "frequency_bounding_box_width_MHz": 1.12152099609375,
+    "time_bounding_box_start_seconds": 286.68906700799994,
+    "touches_end_of_file": true,
+    "interpretation": "Broad time-local excess; origin unresolved without OFF comparison. True end time and full event duration not measured."
+  },
+  "bound_files_sha256": {
+    "RADIO_PROGRESS_CB_HIP35136_2026-11-01.md": "b88fa668c85ca3b9bf590cd9abc052e7c11d95035c9d7093b891d489948c8b63",
+    "work_cb/POSTHOC_DESCRIPTION_CB.json": "21b51f295db998cd984d69640f9a11d31bd6c1e52a893b4589deadbefde0caa0",
+    "work_cb/describe_and_plot_cb.py": "5ab300d4308b8afc12b4a196d6241ca02abd7402b9b6b4014d7e1329d33707a9",
+    "work_cb/results/RESULT_CB.json": "282eb26382079ecdc051906ab39e91b322ebf75d5398d7c3571fd316871a1890",
+    "work_cb/results/SPECTRAL_FEATURES_CB.csv": "22e921e81f4f337af8e8ffe76bd8cb7464fcbb65a95bf73d025e2b2068ccad99",
+    "work_cb/results/TEMPORAL_FEATURES_CB.csv": "0a3f9cdeed8d18098210fc0487d5317285de22d4efea74bdda590cebf2720c66",
+    "work_cb/review/NUMERICAL_REVIEW_CB.json": "83938fb0d099422a576564d4dea6863b0081d2d4c4d3abf150ba1a2d250ee71e",
+    "work_cb/review/BINDING_REVIEW_CB.json": "034377a3fd3fab18a85a25b8bd823e86620b0feb77c424f3108b9b8d8a277866",
+    "work_cb/new_data_discovery/PROVENANCE_CB.md": "755bd7435cccb359c099f6f6fc0892197ae2fad25bee753721132687a59443c3",
+    "work_cb/new_data_discovery/Filterbank_Tutorial_original.ipynb": "b302b3deee38aadb1c3be132c17365a23a7b9475896aa107bb725834fe42bd72",
+    "work_cb/inventory/UNSEARCHED_DATA_INVENTORY_CB.json": "95a2cfc07240f763443b752ecafe35ec0a1bde7caf4e936de76046d28c18cd0b"
+  },
+  "reviewer_sha256": "2f57554f807ffe43d8250bf530f9afbceed8af7074d670bca8ce017c1e66191c",
+  "original_power_values_rescored": 0,
+  "limits": [
+    "Catalogue arithmetic checked independently against sealed CSVs; scientific source labels remain source-supported interpretations.",
+    "No independent physical source classification,blind detection significance,or true event end time is established.",
+    "Figure appearance is not reviewed by this catalogue/report audit."
+  ]
+}
