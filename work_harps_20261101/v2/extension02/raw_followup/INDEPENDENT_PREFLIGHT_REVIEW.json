@@ -1,0 +1,55 @@
+{
+  "created_utc": "2026-11-01T20:09:27.903737+00:00",
+  "status": "PASS_INDEPENDENT_PREFLIGHT_REVIEW",
+  "reviewer": "mapping_43 agent, separate from raw-followup implementation",
+  "freeze_version": 2,
+  "followup_freeze_sha256": "bb6b57f4d769db3d08fe5b9ea8797b8520a8c410ed4a8e4e909b1702e1524cfd",
+  "frozen_sources_verified": 28,
+  "initial_unpublished_freeze_preserved": true,
+  "initial_freeze_sha256": "11441bebc5e21719a76648b73d9037b33d393c46eb8286696c650590c23b754c",
+  "initial_source_hashes_reconstructible": 22,
+  "original_extension02_freeze_sha256": "837255ab49b1902f0f6dad8d4b3714d7edd6e68f36ef443b871bd5c4b96c4cbb",
+  "blocking_findings": [],
+  "resolved_findings": [
+    "Default urllib redirect handler could drain a response body before URL rejection. Amended opener rejects redirects and closes HTTP errors without reading their bodies.",
+    "Failed reads previously charged only known partial bytes. Amended ledger charges the entire outstanding reservation and reports known-returned bytes separately.",
+    "Every frozen JOB already contained HEAD attempts; duplicate keyword receipt construction raised TypeError. Amended make_receipt preserves metadata_attempts and creates a separate payload-attempt list.",
+    "Native acquisition previously checked DATE only. It now checks exact raw-parent TAR basename, instrument, target against the verified science header, DATE and finite matching BERV; extraction repeats these checks before native array use."
+  ],
+  "selection": {
+    "exposures": 8,
+    "V1_events": 6,
+    "V2_events": 59,
+    "all65_events_preserved": true,
+    "exact_fixed_priority_and_fill_rule": true,
+    "products": 16,
+    "raw_products": 8,
+    "ancillary_products": 8,
+    "advertised_payload_bytes": 210108924,
+    "payload_cap_bytes": 350000000,
+    "workers": 3,
+    "maximum_attempts_per_product": 2,
+    "selection_replacements": 0
+  },
+  "checks": {
+    "independent_in_memory_redirect_statuses_rejected_unread": 5,
+    "unknown_and_partial_failed_reads_conservatively_charged": true,
+    "independent_three_worker_cap_test": "PASS_101_BYTES",
+    "all16_frozen_job_receipts_constructed": true,
+    "native_identity_positive_and_negative_tests": true,
+    "supplied_offline_tests_passed": 11,
+    "registration_modules_identical_to_old_baseline": true,
+    "extraction_geometry_unchanged_by_amendment": true,
+    "source_and_prior_extension_hashes_unchanged": true,
+    "acquisition_not_started": true
+  },
+  "interpretation_limits": [
+    "Local mapping usability gates the two spatial peak offsets only; local correlations are reported but not gated. It does not mean the stronger mapping43 criteria were applied.",
+    "Raw/native extraction and morphology are descriptive; no physical-origin classification is made by this preflight.",
+    "Root must independently verify remote publication of this exact amended freeze and sources before download; this review performs no network verification."
+  ],
+  "network_calls": 0,
+  "new_raw_or_native_payloads_opened": 0,
+  "science_values_inspected_for_review": false,
+  "code_modified_by_reviewer": false
+}

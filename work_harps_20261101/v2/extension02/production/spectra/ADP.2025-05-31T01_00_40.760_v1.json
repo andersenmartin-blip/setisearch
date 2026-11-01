@@ -1,0 +1,88 @@
+{
+  "dp_id": "ADP.2025-05-31T01:00:40.760",
+  "canonical_target": "HD126093",
+  "date_obs": "2025-05-30T06:16:14.909",
+  "selection_index": 74,
+  "raw_progenitor_id": "HARPS.2025-05-30T06:16:14.909",
+  "input_sha256": "ca43725e6fd50292f6804349c36d1f56bf9030ea1b866aaa480dc0dd36b4367e",
+  "cohort": "extension02",
+  "input": {
+    "OBJECT": "HD 126093",
+    "DATE-OBS": "2025-05-30T06:16:14.909",
+    "MJD-OBS": 60825.26128367,
+    "EXPTIME": 599.9961,
+    "SPECSYS": "BARYCENT",
+    "PROCSOFT": "HARPS_3.8",
+    "ORIGFILE": "HARPS.2025-05-30T06:16:14.909_s1d_A_DRS_HARPS_3.8_ESOSDP.fits",
+    "ARCFILE": "ADP.2025-05-31T01:00:40.760.fits",
+    "WAVELMIN": 378.3,
+    "WAVELMAX": 691.26,
+    "wavelength_unit": "angstrom",
+    "wavelength_ucd": "em.wl;obs.atmos",
+    "flux_unit": "adu",
+    "finite_error_samples": 0,
+    "sha256": "ca43725e6fd50292f6804349c36d1f56bf9030ea1b866aaa480dc0dd36b4367e",
+    "input_filename": "ADP.2025-05-31T01_00_40.760.fits",
+    "raw_progenitors": {
+      "PROV1": "HARPS.2025-05-30T06:16:14.909.fits"
+    },
+    "berv_km_s": -8.758689738863
+  },
+  "result": {
+    "schema": "HARPS_FIRST_STAGE_EMISSION_V1",
+    "config": {
+      "wave_min_angstrom": 3800.0,
+      "wave_max_angstrom": 6900.0,
+      "window_pixels": 101,
+      "threshold_local_std": 3.5,
+      "minimum_run_pixels": 4,
+      "maximum_run_pixels": 60,
+      "mask_exact_zero_flux": true,
+      "gap_step_multiple": 1.5
+    },
+    "total_samples": 312961,
+    "nominal_step_angstrom": 0.010000000000218279,
+    "searched_samples": 306507,
+    "sum_searched_bin_widths_angstrom": 3065.070000066904,
+    "searched_intervals": [
+      {
+        "first_index": 1750,
+        "last_index_exclusive": 152062,
+        "first_center_angstrom": 3800.5,
+        "last_center_angstrom": 5303.610000000001,
+        "centers": 150312
+      },
+      {
+        "first_index": 155456,
+        "last_index_exclusive": 311651,
+        "first_center_angstrom": 5337.5599999999995,
+        "last_center_angstrom": 6899.5,
+        "centers": 156195
+      }
+    ],
+    "nonfinite_flux_samples": 0,
+    "zero_flux_samples": 3294,
+    "all_threshold_runs": [
+      {
+        "start_index": 8993,
+        "end_index_exclusive": 8994,
+        "peak_index": 8993,
+        "run_pixels": 1,
+        "status": "SHORT_RUN",
+        "wave_start_angstrom": 3872.93,
+        "wave_end_angstrom": 3872.93,
+        "wave_peak_angstrom": 3872.93,
+        "peak_flux_adu": 2574.381103515625,
+        "continuum_adu": 266.97589111328125,
+        "local_std_adu": 264.0130614183472,
+        "peak_local_contrast": 8.739738859912308,
+        "observed_fwhm_angstrom": 0.011408564112116437,
+        "observed_fwhm_pixels": 1.1408564111867412
+      }
+    ],
+    "preliminary_hit_count": 0,
+    "short_run_count": 1,
+    "wide_run_count": 0,
+    "interpretation": "Local contrast is not calibrated SNR/sigma/FAP; hits are not identified lasers."
+  }
+}

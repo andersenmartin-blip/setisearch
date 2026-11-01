@@ -1,0 +1,40 @@
+{
+  "created_utc": "2026-11-01T19:55:18.655625+00:00",
+  "status": "PROSPECTIVE_LOCAL_SELECTION_RULE_FROZEN_BEFORE_AGENT_READS_EXTENSION02_HIT_CONTENTS",
+  "scope": "Bounded raw/native follow-up of initial selected subset of extension02 MAIN100. Does not constitute complete triage of new100.",
+  "selection_rule": {
+    "order_source": "v2/extension02/MAIN100.csv row order",
+    "priority": "Take first up to8 unique exposures with at least one accepted V1E2 event, preserving MAIN100 order. If fewer than8, fill with remaining exposures bearing accepted V2 events, preserving MAIN100 order. No ranking by event strength, wavelength, target, morphology or availability.",
+    "max_unique_exposures": 8,
+    "events": "Review every accepted V2 event and every accepted V1E2 event in the selected exposures; list all V1E2 events outside the cap explicitly as not raw-reviewed. No deduplication that silently discards an event.",
+    "no_replacements": true,
+    "input_requirement": "Read final completed production and acquisition manifests, not evolving checkpoints. Verify all100 frozen MAIN100 spectra accounted for before deriving selection."
+  },
+  "acquisition_bounds": {
+    "max_raw_products": 8,
+    "max_ancillary_products": 8,
+    "payload_cap_bytes": 350000000,
+    "workers": 3,
+    "max_attempts_per_product": 2,
+    "metadata_first": true,
+    "replacement_prohibited": true,
+    "no_fallback_publication": true,
+    "rule": "Validate metadata, unambiguous product identity, parent archive exposure, remote advertised sizes and candidate source hashes before preparing download jobs. If selected set cannot fit payload cap, keep selected exposures fixed; acquire only complete raw+ancillary pairs fitting in selected order, record omitted pairs and reason. Never replace unavailable/oversized selections with later exposures. Attempt bytes including retries count against cap; partial files cannot be used."
+  },
+  "publication_gate": "Prepare selection/provenance/jobs locally after final production; stop before all raw or ancillary downloads until root has reviewed and verified prospective plan/code/selection publication. No local self-approval marker substitutes for root instruction.",
+  "native_review": {
+    "baseline": "Reuse existing triage_batch02 native extraction, fixed reference-grid orientation checks and two-sided local mapping checks; no threshold tuning from new hit morphology.",
+    "wavelength": "Classical inverseBERV to topocentric air for mapping; all overlapping native orders; raw DATE-OBS and archiveID checks.",
+    "reference": "Existing 24-region,6-order reference-grid algorithm and candidate-excluded two-sided local trace test; preserve mapping-uncertain cases.",
+    "raw_cutouts": "Preserve original and background-subtracted fixed21x25-pixel raw cutouts and41-point native snippets.",
+    "fiber_context": "Record raw/native fiberB mode and TAR product membership; Bpresence does not imply sky.",
+    "wider_followup": "Any wider local/raw inspection beyond frozen baseline must have an explicit separate post-hoc plan and cannot retroactively repair original disposition without preserved provenance.",
+    "interpretation": "Descriptive provisional morphology only; no automatic extraterrestrial/particle/atmospheric origin assignment; preserve original production catalogs and dispositions."
+  },
+  "immutable_scope_hashes": {
+    "MAIN100.csv": "680611bead7df87711ac802f0b4221d550345d6c4c900fef77591486ac9ceb71",
+    "FREEZE.json": "837255ab49b1902f0f6dad8d4b3714d7edd6e68f36ef443b871bd5c4b96c4cbb",
+    "PROTOCOL.json": "b3b1fc437ab3c0df0bbac68e56309999c25da02aa58860a8480b13cf24e8149b"
+  },
+  "write_boundary": "Only new v2/extension02/raw_followup/; no edits to extension02 frozen inputs or production."
+}

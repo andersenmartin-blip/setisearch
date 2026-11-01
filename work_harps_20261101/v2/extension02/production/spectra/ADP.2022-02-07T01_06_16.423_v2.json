@@ -1,0 +1,3081 @@
+{
+  "dp_id": "ADP.2022-02-07T01:06:16.423",
+  "canonical_target": "HD141937",
+  "date_obs": "2022-02-06T08:57:02.227",
+  "selection_index": 95,
+  "raw_progenitor_id": "HARPS.2022-02-06T08:57:02.228",
+  "input_sha256": "2bb090cdb08b938a7acb3eb7679cc7f9fc5f7a69fbefbd079d951c509c1b3e75",
+  "cohort": "extension02",
+  "input": {
+    "OBJECT": "HD 141937",
+    "DATE-OBS": "2022-02-06T08:57:02.227",
+    "MJD-OBS": 59616.37294245,
+    "EXPTIME": 899.9964,
+    "SPECSYS": "BARYCENT",
+    "PROCSOFT": "HARPS_3.8",
+    "ORIGFILE": "HARPS.2022-02-06T08:57:02.228_s1d_A_DRS_HARPS_3.8_ESOSDP.fits",
+    "ARCFILE": "ADP.2022-02-07T01:06:16.423.fits",
+    "WAVELMIN": 378.238,
+    "WAVELMAX": 691.349,
+    "wavelength_unit": "angstrom",
+    "wavelength_ucd": "em.wl;obs.atmos",
+    "flux_unit": "adu",
+    "finite_error_samples": 0,
+    "sha256": "2bb090cdb08b938a7acb3eb7679cc7f9fc5f7a69fbefbd079d951c509c1b3e75",
+    "input_filename": "ADP.2022-02-07T01_06_16.423.fits",
+    "raw_progenitors": {
+      "PROV1": "HARPS.2022-02-06T08:57:02.228.fits"
+    },
+    "berv_km_s": 29.6481845615329
+  },
+  "result": {
+    "schema": "HARPS_PROFILE_V2",
+    "config": {
+      "wave_min_angstrom": 3800.0,
+      "wave_max_angstrom": 6900.0,
+      "window_pixels": 101,
+      "prescreen_local_mad": 3.0,
+      "amplitude_over_sideband_mad": 6.0,
+      "minimum_profile_cosine": 0.8,
+      "resolving_power": 115000.0,
+      "core_half_pixels": 12,
+      "sideband_outer_pixels": 50,
+      "fit_phases": [
+        -0.5,
+        -0.25,
+        0.0,
+        0.25,
+        0.5
+      ],
+      "mad_normalization": 1.4826,
+      "gap_step_multiple": 1.5
+    },
+    "total_samples": 313112,
+    "searched_samples": 306118,
+    "sum_searched_bin_widths_angstrom": 3061.180000066819,
+    "searched_intervals": [
+      {
+        "first_index": 1862,
+        "last_index_exclusive": 138495,
+        "first_center_angstrom": 3801.0,
+        "last_center_angstrom": 5167.32,
+        "centers": 136633
+      },
+      {
+        "first_index": 138504,
+        "last_index_exclusive": 140024,
+        "first_center_angstrom": 5167.42,
+        "last_center_angstrom": 5182.610000000001,
+        "centers": 1520
+      },
+      {
+        "first_index": 140079,
+        "last_index_exclusive": 152142,
+        "first_center_angstrom": 5183.17,
+        "last_center_angstrom": 5303.79,
+        "centers": 12063
+      },
+      {
+        "first_index": 155637,
+        "last_index_exclusive": 277952,
+        "first_center_angstrom": 5338.75,
+        "last_center_angstrom": 6561.89,
+        "centers": 122315
+      },
+      {
+        "first_index": 278005,
+        "last_index_exclusive": 278062,
+        "first_center_angstrom": 6562.43,
+        "last_center_angstrom": 6562.99,
+        "centers": 57
+      },
+      {
+        "first_index": 278133,
+        "last_index_exclusive": 311663,
+        "first_center_angstrom": 6563.71,
+        "last_center_angstrom": 6899.0,
+        "centers": 33530
+      }
+    ],
+    "screened_events": 150,
+    "preliminary_hit_count": 2,
+    "events": [
+      {
+        "fitted_center_angstrom": 3868.8650000000002,
+        "phase": 0.5,
+        "amplitude_adu": 2172.3481791276117,
+        "profile_cosine": 0.6336680032464789,
+        "profile_explained_square_adu": 11949816.968481483,
+        "seed_index": 8648,
+        "seed_wave_angstrom": 3868.86,
+        "sideband_intercept_adu": 1827.9991174122645,
+        "sideband_slope_adu_per_pixel": -4.390449645027282,
+        "sideband_mad_adu": 260.25751194661456,
+        "fwhm_model_angstrom": 0.03364226086956522,
+        "amplitude_over_sideband_mad": 8.346918261376508,
+        "status": "REJECTED",
+        "reasons": [
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.2110887370274956
+      },
+      {
+        "fitted_center_angstrom": 3868.885,
+        "phase": -0.5,
+        "amplitude_adu": 2246.257486682461,
+        "profile_cosine": 0.6497657362658178,
+        "profile_explained_square_adu": 12776880.346125998,
+        "seed_index": 8651,
+        "seed_wave_angstrom": 3868.8900000000003,
+        "sideband_intercept_adu": 1807.9558991931733,
+        "sideband_slope_adu_per_pixel": -4.8046148390997026,
+        "sideband_mad_adu": 230.48296668090816,
+        "fwhm_model_angstrom": 0.03364252173913044,
+        "amplitude_over_sideband_mad": 9.745871979304612,
+        "status": "REJECTED",
+        "reasons": [
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.651173870996608
+      },
+      {
+        "fitted_center_angstrom": 3871.9375,
+        "phase": -0.25,
+        "amplitude_adu": 1776.8577005349994,
+        "profile_cosine": 0.7532469427894686,
+        "profile_explained_square_adu": 8001166.138693635,
+        "seed_index": 8956,
+        "seed_wave_angstrom": 3871.94,
+        "sideband_intercept_adu": 1456.1958540659102,
+        "sideband_slope_adu_per_pixel": -0.0932374984499008,
+        "sideband_mad_adu": 259.13967502237955,
+        "fwhm_model_angstrom": 0.03366904347826087,
+        "amplitude_over_sideband_mad": 6.856756690697973,
+        "status": "REJECTED",
+        "reasons": [
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.6500049288886607
+      },
+      {
+        "fitted_center_angstrom": 3882.585,
+        "phase": 0.5,
+        "amplitude_adu": 1051.6528303826813,
+        "profile_cosine": 0.8811361446776745,
+        "profile_explained_square_adu": 2810506.3685283954,
+        "seed_index": 10020,
+        "seed_wave_angstrom": 3882.58,
+        "sideband_intercept_adu": 1182.5901140485491,
+        "sideband_slope_adu_per_pixel": -6.380772181919643,
+        "sideband_mad_adu": 303.81385603637693,
+        "fwhm_model_angstrom": 0.03376156521739131,
+        "amplitude_over_sideband_mad": 3.4615038435138468,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE"
+        ],
+        "prescreen_residual_over_mad": 3.3052742018580816
+      },
+      {
+        "fitted_center_angstrom": 4303.255,
+        "phase": 0.5,
+        "amplitude_adu": 8119.033199959486,
+        "profile_cosine": 0.7207940420955746,
+        "profile_explained_square_adu": 185662666.69820267,
+        "seed_index": 52087,
+        "seed_wave_angstrom": 4303.25,
+        "sideband_intercept_adu": 8640.410454644098,
+        "sideband_slope_adu_per_pixel": 15.39593021453373,
+        "sideband_mad_adu": 1605.8051843831379,
+        "fwhm_model_angstrom": 0.0374195652173913,
+        "amplitude_over_sideband_mad": 5.056051181624733,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.119468686836639
+      },
+      {
+        "fitted_center_angstrom": 4308.705,
+        "phase": 0.5,
+        "amplitude_adu": 10725.843855501287,
+        "profile_cosine": 0.6493310103052183,
+        "profile_explained_square_adu": 324435649.6222625,
+        "seed_index": 52632,
+        "seed_wave_angstrom": 4308.7,
+        "sideband_intercept_adu": 6781.986711774554,
+        "sideband_slope_adu_per_pixel": -9.784388950892858,
+        "sideband_mad_adu": 785.3933885742188,
+        "fwhm_model_angstrom": 0.03746695652173913,
+        "amplitude_over_sideband_mad": 13.656651573006853,
+        "status": "REJECTED",
+        "reasons": [
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 5.6333474493836
+      },
+      {
+        "fitted_center_angstrom": 4932.635,
+        "phase": 0.5,
+        "amplitude_adu": 723.0903362662037,
+        "profile_cosine": 0.695452077113024,
+        "profile_explained_square_adu": 1688041.1401000593,
+        "seed_index": 115025,
+        "seed_wave_angstrom": 4932.63,
+        "sideband_intercept_adu": 27164.34282769097,
+        "sideband_slope_adu_per_pixel": -4.951280381944445,
+        "sideband_mad_adu": 275.97908857421874,
+        "fwhm_model_angstrom": 0.04289243478260869,
+        "amplitude_over_sideband_mad": 2.6200910366139714,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.397995009759615
+      },
+      {
+        "fitted_center_angstrom": 4956.665,
+        "phase": 0.5,
+        "amplitude_adu": 1531.0426994550462,
+        "profile_cosine": 0.4747108741925973,
+        "profile_explained_square_adu": 7604717.886254117,
+        "seed_index": 117428,
+        "seed_wave_angstrom": 4956.66,
+        "sideband_intercept_adu": 24319.796875,
+        "sideband_slope_adu_per_pixel": -75.32713293650794,
+        "sideband_mad_adu": 1099.0164339192706,
+        "fwhm_model_angstrom": 0.04310139130434783,
+        "amplitude_over_sideband_mad": 1.3931026436020615,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 5.5121913073558995
+      },
+      {
+        "fitted_center_angstrom": 4956.705,
+        "phase": 0.5,
+        "amplitude_adu": 2193.4682457965328,
+        "profile_cosine": 0.5152852884298188,
+        "profile_explained_square_adu": 15608986.666704137,
+        "seed_index": 117432,
+        "seed_wave_angstrom": 4956.7,
+        "sideband_intercept_adu": 23746.634633866568,
+        "sideband_slope_adu_per_pixel": -89.64293464781746,
+        "sideband_mad_adu": 1359.9944243815105,
+        "fwhm_model_angstrom": 0.04310173913043478,
+        "amplitude_over_sideband_mad": 1.6128509106160962,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 5.492087867538381
+      },
+      {
+        "fitted_center_angstrom": 4956.845,
+        "phase": 0.5,
+        "amplitude_adu": 6560.10134352638,
+        "profile_cosine": 0.5293657907869029,
+        "profile_explained_square_adu": 139619272.2279593,
+        "seed_index": 117446,
+        "seed_wave_angstrom": 4956.84,
+        "sideband_intercept_adu": 19738.438387431794,
+        "sideband_slope_adu_per_pixel": -204.6022212921627,
+        "sideband_mad_adu": 3231.9957625488287,
+        "fwhm_model_angstrom": 0.04310295652173913,
+        "amplitude_over_sideband_mad": 2.029736987759207,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 5.729142077272537
+      },
+      {
+        "fitted_center_angstrom": 4957.985,
+        "phase": -0.5,
+        "amplitude_adu": 7826.107488712081,
+        "profile_cosine": 0.5335020278377754,
+        "profile_explained_square_adu": 198754346.74428448,
+        "seed_index": 117561,
+        "seed_wave_angstrom": 4957.99,
+        "sideband_intercept_adu": 16573.098706442215,
+        "sideband_slope_adu_per_pixel": 247.56221323164684,
+        "sideband_mad_adu": 2256.5892765787767,
+        "fwhm_model_angstrom": 0.04311295652173913,
+        "amplitude_over_sideband_mad": 3.468113391275736,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.2151191389678053
+      },
+      {
+        "fitted_center_angstrom": 4958.045,
+        "phase": -0.5,
+        "amplitude_adu": 6170.406805363616,
+        "profile_cosine": 0.5722251386142048,
+        "profile_explained_square_adu": 123554301.21243766,
+        "seed_index": 117567,
+        "seed_wave_angstrom": 4958.05,
+        "sideband_intercept_adu": 18719.543294270832,
+        "sideband_slope_adu_per_pixel": 194.93445405505952,
+        "sideband_mad_adu": 1716.462327636719,
+        "fwhm_model_angstrom": 0.043113478260869566,
+        "amplitude_over_sideband_mad": 3.5948396338294426,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 7.083991124761686
+      },
+      {
+        "fitted_center_angstrom": 4958.085,
+        "phase": -0.5,
+        "amplitude_adu": 4393.146611190648,
+        "profile_cosine": 0.5619374721387168,
+        "profile_explained_square_adu": 62630398.070875,
+        "seed_index": 117571,
+        "seed_wave_angstrom": 4958.09,
+        "sideband_intercept_adu": 20139.719350663443,
+        "sideband_slope_adu_per_pixel": 169.6111033606151,
+        "sideband_mad_adu": 1714.24294930013,
+        "fwhm_model_angstrom": 0.043113826086956526,
+        "amplitude_over_sideband_mad": 2.5627327870791174,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 4.937636341915737
+      },
+      {
+        "fitted_center_angstrom": 5182.595,
+        "phase": 0.5,
+        "amplitude_adu": 1177.822058531217,
+        "profile_cosine": 0.6175451452352726,
+        "profile_explained_square_adu": 4705714.6880091475,
+        "seed_index": 140021,
+        "seed_wave_angstrom": 5182.59,
+        "sideband_intercept_adu": 21569.85546875,
+        "sideband_slope_adu_per_pixel": -114.90606398809524,
+        "sideband_mad_adu": 752.2121125,
+        "fwhm_model_angstrom": 0.045066,
+        "amplitude_over_sideband_mad": 1.5658110776981367,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.9967169269940337
+      },
+      {
+        "fitted_center_angstrom": 5184.345,
+        "phase": 0.5,
+        "amplitude_adu": 1459.841875405162,
+        "profile_cosine": 0.2734545779782888,
+        "profile_explained_square_adu": 7231434.92006593,
+        "seed_index": 140196,
+        "seed_wave_angstrom": 5184.34,
+        "sideband_intercept_adu": 18588.82678028894,
+        "sideband_slope_adu_per_pixel": 152.86438957093253,
+        "sideband_mad_adu": 1277.3332980305984,
+        "fwhm_model_angstrom": 0.04508121739130435,
+        "amplitude_over_sideband_mad": 1.1428825018935596,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.0889339618648095
+      },
+      {
+        "fitted_center_angstrom": 5190.807500000001,
+        "phase": -0.25,
+        "amplitude_adu": 1196.7132009781378,
+        "profile_cosine": 0.6010826447459521,
+        "profile_explained_square_adu": 4865580.565890519,
+        "seed_index": 140843,
+        "seed_wave_angstrom": 5190.81,
+        "sideband_intercept_adu": 29882.231987847223,
+        "sideband_slope_adu_per_pixel": -22.412000868055557,
+        "sideband_mad_adu": 480.86327620442705,
+        "fwhm_model_angstrom": 0.04513747826086957,
+        "amplitude_over_sideband_mad": 2.4886766367855984,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.155839318481127
+      },
+      {
+        "fitted_center_angstrom": 5289.9125,
+        "phase": 0.25,
+        "amplitude_adu": 991.1372345068702,
+        "profile_cosine": 0.715142398680121,
+        "profile_explained_square_adu": 3401224.030054451,
+        "seed_index": 150753,
+        "seed_wave_angstrom": 5289.91,
+        "sideband_intercept_adu": 32542.368977864582,
+        "sideband_slope_adu_per_pixel": 6.327799479166667,
+        "sideband_mad_adu": 411.0086209960937,
+        "fwhm_model_angstrom": 0.045999217391304345,
+        "amplitude_over_sideband_mad": 2.4114755357316215,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 4.601650306179004
+      },
+      {
+        "fitted_center_angstrom": 5354.055,
+        "phase": 0.5,
+        "amplitude_adu": 365.9555178423122,
+        "profile_cosine": 0.5419287007429042,
+        "profile_explained_square_adu": 469308.47198462987,
+        "seed_index": 157167,
+        "seed_wave_angstrom": 5354.05,
+        "sideband_intercept_adu": 32307.67189050099,
+        "sideband_slope_adu_per_pixel": 2.9330202132936507,
+        "sideband_mad_adu": 200.1058638020833,
+        "fwhm_model_angstrom": 0.046556956521739135,
+        "amplitude_over_sideband_mad": 1.828809565542088,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 4.088976533505888
+      },
+      {
+        "fitted_center_angstrom": 5372.8825,
+        "phase": 0.25,
+        "amplitude_adu": 284.6423090900029,
+        "profile_cosine": 0.4847132805787615,
+        "profile_explained_square_adu": 284921.6302955371,
+        "seed_index": 159050,
+        "seed_wave_angstrom": 5372.88,
+        "sideband_intercept_adu": 31957.141260540673,
+        "sideband_slope_adu_per_pixel": 5.471276661706349,
+        "sideband_mad_adu": 160.94088151041666,
+        "fwhm_model_angstrom": 0.04672069565217391,
+        "amplitude_over_sideband_mad": 1.768614080019065,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.230987744335863
+      },
+      {
+        "fitted_center_angstrom": 5440.005,
+        "phase": -0.5,
+        "amplitude_adu": 530.97963169729,
+        "profile_cosine": 0.6845538199344802,
+        "profile_explained_square_adu": 1003863.8006749438,
+        "seed_index": 165763,
+        "seed_wave_angstrom": 5440.01,
+        "sideband_intercept_adu": 32723.215029761905,
+        "sideband_slope_adu_per_pixel": 3.9054749503968256,
+        "sideband_mad_adu": 318.3904873046875,
+        "fwhm_model_angstrom": 0.0473044347826087,
+        "amplitude_over_sideband_mad": 1.6676994221537869,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.730735447604913
+      },
+      {
+        "fitted_center_angstrom": 5505.2575,
+        "phase": -0.25,
+        "amplitude_adu": 307.4988640039908,
+        "profile_cosine": 0.4987502035027368,
+        "profile_explained_square_adu": 340709.49580881005,
+        "seed_index": 172288,
+        "seed_wave_angstrom": 5505.26,
+        "sideband_intercept_adu": 33351.59565662203,
+        "sideband_slope_adu_per_pixel": -3.329892113095238,
+        "sideband_mad_adu": 185.20682773437497,
+        "fwhm_model_angstrom": 0.047871826086956525,
+        "amplitude_over_sideband_mad": 1.6602998267699287,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.0616571235705
+      },
+      {
+        "fitted_center_angstrom": 5527.675,
+        "phase": 0.5,
+        "amplitude_adu": 1870.2760590517735,
+        "profile_cosine": 0.706737279099062,
+        "profile_explained_square_adu": 12655313.529601064,
+        "seed_index": 174529,
+        "seed_wave_angstrom": 5527.67,
+        "sideband_intercept_adu": 31704.567243303572,
+        "sideband_slope_adu_per_pixel": -49.103236607142854,
+        "sideband_mad_adu": 590.1945580078125,
+        "fwhm_model_angstrom": 0.04806669565217391,
+        "amplitude_over_sideband_mad": 3.1689144430013814,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.02125525205051
+      },
+      {
+        "fitted_center_angstrom": 5571.702499999999,
+        "phase": 0.25,
+        "amplitude_adu": 788.977468739009,
+        "profile_cosine": 0.7777086165221239,
+        "profile_explained_square_adu": 2270054.575530999,
+        "seed_index": 178932,
+        "seed_wave_angstrom": 5571.7,
+        "sideband_intercept_adu": 33690.8394407242,
+        "sideband_slope_adu_per_pixel": -9.978174603174603,
+        "sideband_mad_adu": 283.90916692708333,
+        "fwhm_model_angstrom": 0.0484495652173913,
+        "amplitude_over_sideband_mad": 2.77897849258824,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.658385323760452
+      },
+      {
+        "fitted_center_angstrom": 5577.895,
+        "phase": 0.5,
+        "amplitude_adu": 986.0575356130201,
+        "profile_cosine": 0.8419616384565222,
+        "profile_explained_square_adu": 3549717.8150917976,
+        "seed_index": 179551,
+        "seed_wave_angstrom": 5577.89,
+        "sideband_intercept_adu": 33719.72008308532,
+        "sideband_slope_adu_per_pixel": -0.45436507936507936,
+        "sideband_mad_adu": 242.27428776041663,
+        "fwhm_model_angstrom": 0.04850339130434783,
+        "amplitude_over_sideband_mad": 4.070004888790038,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE"
+        ],
+        "prescreen_residual_over_mad": 3.9874850169024882
+      },
+      {
+        "fitted_center_angstrom": 5595.56,
+        "phase": 0.0,
+        "amplitude_adu": 481.17177535851494,
+        "profile_cosine": 0.7218668895984078,
+        "profile_explained_square_adu": 847936.2808891733,
+        "seed_index": 181318,
+        "seed_wave_angstrom": 5595.56,
+        "sideband_intercept_adu": 33803.277622767855,
+        "sideband_slope_adu_per_pixel": 0.5276227678571429,
+        "sideband_mad_adu": 206.053683984375,
+        "fwhm_model_angstrom": 0.04865704347826087,
+        "amplitude_over_sideband_mad": 2.3351767658519615,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.044141647513343
+      },
+      {
+        "fitted_center_angstrom": 5676.595,
+        "phase": 0.5,
+        "amplitude_adu": 605.4536474230794,
+        "profile_cosine": 0.6168594802323275,
+        "profile_explained_square_adu": 1361973.6314398577,
+        "seed_index": 189421,
+        "seed_wave_angstrom": 5676.59,
+        "sideband_intercept_adu": 34317.787388392855,
+        "sideband_slope_adu_per_pixel": 4.374720982142857,
+        "sideband_mad_adu": 200.32701738281247,
+        "fwhm_model_angstrom": 0.04936165217391304,
+        "amplitude_over_sideband_mad": 3.0223264706532076,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.60287150038664
+      },
+      {
+        "fitted_center_angstrom": 5703.8949999999995,
+        "phase": -0.5,
+        "amplitude_adu": 2987.5933211695387,
+        "profile_cosine": 0.7746692015779194,
+        "profile_explained_square_adu": 33322243.580172703,
+        "seed_index": 192152,
+        "seed_wave_angstrom": 5703.9,
+        "sideband_intercept_adu": 33545.21041046627,
+        "sideband_slope_adu_per_pixel": 37.262772817460316,
+        "sideband_mad_adu": 922.2461912760414,
+        "fwhm_model_angstrom": 0.049599130434782604,
+        "amplitude_over_sideband_mad": 3.2394748272539187,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 6.580714536611516
+      },
+      {
+        "fitted_center_angstrom": 5736.305,
+        "phase": 0.5,
+        "amplitude_adu": 330.87392146079196,
+        "profile_cosine": 0.5200546953054322,
+        "profile_explained_square_adu": 411032.635305232,
+        "seed_index": 195392,
+        "seed_wave_angstrom": 5736.3,
+        "sideband_intercept_adu": 34549.77281746032,
+        "sideband_slope_adu_per_pixel": -2.2357390873015874,
+        "sideband_mad_adu": 210.654542578125,
+        "fwhm_model_angstrom": 0.049880869565217395,
+        "amplitude_over_sideband_mad": 1.5706944526870645,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.202175699383519
+      },
+      {
+        "fitted_center_angstrom": 5741.185,
+        "phase": 0.5,
+        "amplitude_adu": 942.2906493062707,
+        "profile_cosine": 0.6505844450852565,
+        "profile_explained_square_adu": 3336493.6158949863,
+        "seed_index": 195880,
+        "seed_wave_angstrom": 5741.18,
+        "sideband_intercept_adu": 34351.81209697421,
+        "sideband_slope_adu_per_pixel": -1.3215525793650793,
+        "sideband_mad_adu": 320.4219609375,
+        "fwhm_model_angstrom": 0.04992330434782609,
+        "amplitude_over_sideband_mad": 2.940780483801076,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 6.720308743590028
+      },
+      {
+        "fitted_center_angstrom": 5745.325,
+        "phase": -0.5,
+        "amplitude_adu": 343.93237535541493,
+        "profile_cosine": 0.6307549113790122,
+        "profile_explained_square_adu": 444816.07026652445,
+        "seed_index": 196295,
+        "seed_wave_angstrom": 5745.33,
+        "sideband_intercept_adu": 34548.48107328869,
+        "sideband_slope_adu_per_pixel": -2.168061755952381,
+        "sideband_mad_adu": 181.80603125,
+        "fwhm_model_angstrom": 0.049959391304347824,
+        "amplitude_over_sideband_mad": 1.8917544868600995,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.1540703703462603
+      },
+      {
+        "fitted_center_angstrom": 5747.025000000001,
+        "phase": 0.5,
+        "amplitude_adu": 663.3782220092415,
+        "profile_cosine": 0.6463958974817009,
+        "profile_explained_square_adu": 1655329.6741841089,
+        "seed_index": 196464,
+        "seed_wave_angstrom": 5747.02,
+        "sideband_intercept_adu": 34072.85915798611,
+        "sideband_slope_adu_per_pixel": -4.2825210813492065,
+        "sideband_mad_adu": 238.89403697916669,
+        "fwhm_model_angstrom": 0.049974086956521745,
+        "amplitude_over_sideband_mad": 2.776872250131103,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.136825356105217
+      },
+      {
+        "fitted_center_angstrom": 5770.695000000001,
+        "phase": 0.5,
+        "amplitude_adu": 499.5329857697475,
+        "profile_cosine": 0.7547958885592303,
+        "profile_explained_square_adu": 942487.1972574679,
+        "seed_index": 198831,
+        "seed_wave_angstrom": 5770.6900000000005,
+        "sideband_intercept_adu": 34386.86948164682,
+        "sideband_slope_adu_per_pixel": 2.2737785218253967,
+        "sideband_mad_adu": 163.75088561197916,
+        "fwhm_model_angstrom": 0.05017991304347826,
+        "amplitude_over_sideband_mad": 3.050566620771938,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.8560663264979156
+      },
+      {
+        "fitted_center_angstrom": 5770.9825,
+        "phase": 0.25,
+        "amplitude_adu": 316.48647905070595,
+        "profile_cosine": 0.7018305124193279,
+        "profile_explained_square_adu": 378337.38939061266,
+        "seed_index": 198860,
+        "seed_wave_angstrom": 5770.9800000000005,
+        "sideband_intercept_adu": 34412.109375,
+        "sideband_slope_adu_per_pixel": -0.69921875,
+        "sideband_mad_adu": 149.60939765625,
+        "fwhm_model_angstrom": 0.0501824347826087,
+        "amplitude_over_sideband_mad": 2.1154184430170693,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.831594614886286
+      },
+      {
+        "fitted_center_angstrom": 5772.895,
+        "phase": 0.5,
+        "amplitude_adu": 397.19535050386094,
+        "profile_cosine": 0.6687080886584661,
+        "profile_explained_square_adu": 596102.5318343219,
+        "seed_index": 199051,
+        "seed_wave_angstrom": 5772.89,
+        "sideband_intercept_adu": 34233.000914558535,
+        "sideband_slope_adu_per_pixel": 2.8915240575396823,
+        "sideband_mad_adu": 203.42167369791667,
+        "fwhm_model_angstrom": 0.050199043478260874,
+        "amplitude_over_sideband_mad": 1.9525714408077293,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.213565767260981
+      },
+      {
+        "fitted_center_angstrom": 5788.942500000001,
+        "phase": 0.25,
+        "amplitude_adu": 389.4227865286805,
+        "profile_cosine": 0.586608129470771,
+        "profile_explained_square_adu": 574594.0710391388,
+        "seed_index": 200656,
+        "seed_wave_angstrom": 5788.9400000000005,
+        "sideband_intercept_adu": 34418.98049975198,
+        "sideband_slope_adu_per_pixel": -2.1298983134920637,
+        "sideband_mad_adu": 194.68087890625,
+        "fwhm_model_angstrom": 0.05033860869565218,
+        "amplitude_over_sideband_mad": 2.0003134807923786,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.030930575222775
+      },
+      {
+        "fitted_center_angstrom": 5798.695000000001,
+        "phase": 0.5,
+        "amplitude_adu": 476.8446510806423,
+        "profile_cosine": 0.8134673143352292,
+        "profile_explained_square_adu": 862984.6969409683,
+        "seed_index": 201631,
+        "seed_wave_angstrom": 5798.6900000000005,
+        "sideband_intercept_adu": 34459.40076264881,
+        "sideband_slope_adu_per_pixel": 3.220796130952381,
+        "sideband_mad_adu": 195.0860015625,
+        "fwhm_model_angstrom": 0.05042339130434783,
+        "amplitude_over_sideband_mad": 2.4442791756530764,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE"
+        ],
+        "prescreen_residual_over_mad": 3.0351273740915814
+      },
+      {
+        "fitted_center_angstrom": 5820.4275,
+        "phase": -0.25,
+        "amplitude_adu": 443.5606412260995,
+        "profile_cosine": 0.6467887899546976,
+        "profile_explained_square_adu": 749515.2053229404,
+        "seed_index": 203805,
+        "seed_wave_angstrom": 5820.43,
+        "sideband_intercept_adu": 34711.175083705355,
+        "sideband_slope_adu_per_pixel": 6.305524553571429,
+        "sideband_mad_adu": 164.960347265625,
+        "fwhm_model_angstrom": 0.0506124347826087,
+        "amplitude_over_sideband_mad": 2.688892504038334,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.134891470395724
+      },
+      {
+        "fitted_center_angstrom": 5828.6675,
+        "phase": -0.25,
+        "amplitude_adu": 999.234414887803,
+        "profile_cosine": 0.6591419212065038,
+        "profile_explained_square_adu": 3809110.8047615946,
+        "seed_index": 204629,
+        "seed_wave_angstrom": 5828.67,
+        "sideband_intercept_adu": 34894.85897197421,
+        "sideband_slope_adu_per_pixel": 0.3935391865079365,
+        "sideband_mad_adu": 168.22499973958332,
+        "fwhm_model_angstrom": 0.05068408695652174,
+        "amplitude_over_sideband_mad": 5.93986872601958,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 8.06189482678283
+      },
+      {
+        "fitted_center_angstrom": 5874.79,
+        "phase": 0.0,
+        "amplitude_adu": 476.4136524523986,
+        "profile_cosine": 0.6455672275196291,
+        "profile_explained_square_adu": 872730.4235484422,
+        "seed_index": 209241,
+        "seed_wave_angstrom": 5874.79,
+        "sideband_intercept_adu": 34602.295417906746,
+        "sideband_slope_adu_per_pixel": -2.6615203373015874,
+        "sideband_mad_adu": 161.51652890625,
+        "fwhm_model_angstrom": 0.051085130434782605,
+        "amplitude_over_sideband_mad": 2.9496278534373794,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.0716169224477876
+      },
+      {
+        "fitted_center_angstrom": 5878.455000000001,
+        "phase": 0.5,
+        "amplitude_adu": 255.2037532779325,
+        "profile_cosine": 0.516451524432561,
+        "profile_explained_square_adu": 250585.71806537305,
+        "seed_index": 209607,
+        "seed_wave_angstrom": 5878.450000000001,
+        "sideband_intercept_adu": 34588.56845238095,
+        "sideband_slope_adu_per_pixel": 2.865327380952381,
+        "sideband_mad_adu": 194.579115625,
+        "fwhm_model_angstrom": 0.051116956521739136,
+        "amplitude_over_sideband_mad": 1.31156806041698,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.147648340766866
+      },
+      {
+        "fitted_center_angstrom": 5885.5625,
+        "phase": 0.25,
+        "amplitude_adu": 878.6888578534897,
+        "profile_cosine": 0.7432493070041531,
+        "profile_explained_square_adu": 2974249.53407834,
+        "seed_index": 210318,
+        "seed_wave_angstrom": 5885.5599999999995,
+        "sideband_intercept_adu": 34444.08138020833,
+        "sideband_slope_adu_per_pixel": 6.1750372023809526,
+        "sideband_mad_adu": 300.84893828124996,
+        "fwhm_model_angstrom": 0.05117878260869565,
+        "amplitude_over_sideband_mad": 2.920697885368781,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 5.146283007650012
+      },
+      {
+        "fitted_center_angstrom": 5888.685,
+        "phase": -0.5,
+        "amplitude_adu": 893.0018803622135,
+        "profile_cosine": 0.643547649676684,
+        "profile_explained_square_adu": 3073567.89377364,
+        "seed_index": 210631,
+        "seed_wave_angstrom": 5888.6900000000005,
+        "sideband_intercept_adu": 32167.800874255954,
+        "sideband_slope_adu_per_pixel": -20.153304811507937,
+        "sideband_mad_adu": 420.11782506510406,
+        "fwhm_model_angstrom": 0.051206,
+        "amplitude_over_sideband_mad": 2.125598646579274,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.836796502403718
+      },
+      {
+        "fitted_center_angstrom": 5889.175,
+        "phase": 0.5,
+        "amplitude_adu": 3104.527535081794,
+        "profile_cosine": 0.668930353957908,
+        "profile_explained_square_adu": 37150485.632927574,
+        "seed_index": 210679,
+        "seed_wave_angstrom": 5889.17,
+        "sideband_intercept_adu": 28158.7119140625,
+        "sideband_slope_adu_per_pixel": -121.54887462797619,
+        "sideband_mad_adu": 1377.5618853515625,
+        "fwhm_model_angstrom": 0.05121017391304348,
+        "amplitude_over_sideband_mad": 2.2536392506892704,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 5.349415836002089
+      },
+      {
+        "fitted_center_angstrom": 5889.335,
+        "phase": 0.5,
+        "amplitude_adu": 2956.920226480884,
+        "profile_cosine": 0.5528644475423594,
+        "profile_explained_square_adu": 33702683.199613765,
+        "seed_index": 210695,
+        "seed_wave_angstrom": 5889.33,
+        "sideband_intercept_adu": 25173.1513671875,
+        "sideband_slope_adu_per_pixel": -200.44996279761904,
+        "sideband_mad_adu": 2319.923721874999,
+        "fwhm_model_angstrom": 0.05121156521739131,
+        "amplitude_over_sideband_mad": 1.2745764865454519,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 4.824497039618809
+      },
+      {
+        "fitted_center_angstrom": 5895.045,
+        "phase": 0.5,
+        "amplitude_adu": 969.4008558424848,
+        "profile_cosine": 0.6404379100581487,
+        "profile_explained_square_adu": 3625875.8175571766,
+        "seed_index": 211266,
+        "seed_wave_angstrom": 5895.04,
+        "sideband_intercept_adu": 31690.017702132936,
+        "sideband_slope_adu_per_pixel": -55.80963231646825,
+        "sideband_mad_adu": 570.0411077473959,
+        "fwhm_model_angstrom": 0.05126121739130435,
+        "amplitude_over_sideband_mad": 1.7005806119373033,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.784384840062236
+      },
+      {
+        "fitted_center_angstrom": 5895.095,
+        "phase": 0.5,
+        "amplitude_adu": 1368.932829457758,
+        "profile_cosine": 0.5680557331818443,
+        "profile_explained_square_adu": 7230595.879592853,
+        "seed_index": 211271,
+        "seed_wave_angstrom": 5895.09,
+        "sideband_intercept_adu": 31167.218129960318,
+        "sideband_slope_adu_per_pixel": -65.57741195436508,
+        "sideband_mad_adu": 660.0559928385414,
+        "fwhm_model_angstrom": 0.05126165217391304,
+        "amplitude_over_sideband_mad": 2.0739647004350696,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 5.269842822450389
+      },
+      {
+        "fitted_center_angstrom": 5895.135,
+        "phase": 0.5,
+        "amplitude_adu": 1985.803618928248,
+        "profile_cosine": 0.5361933183662045,
+        "profile_explained_square_adu": 15215469.375370413,
+        "seed_index": 211275,
+        "seed_wave_angstrom": 5895.13,
+        "sideband_intercept_adu": 30506.51052517361,
+        "sideband_slope_adu_per_pixel": -80.48513454861111,
+        "sideband_mad_adu": 981.8796809244792,
+        "fwhm_model_angstrom": 0.051262,
+        "amplitude_over_sideband_mad": 2.0224510777721094,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.14339304339127
+      },
+      {
+        "fitted_center_angstrom": 5895.205000000001,
+        "phase": 0.5,
+        "amplitude_adu": 3302.1318950582017,
+        "profile_cosine": 0.5981259309824707,
+        "profile_explained_square_adu": 42073316.51989247,
+        "seed_index": 211282,
+        "seed_wave_angstrom": 5895.200000000001,
+        "sideband_intercept_adu": 29343.966269841272,
+        "sideband_slope_adu_per_pixel": -104.73234437003968,
+        "sideband_mad_adu": 1381.2112181966145,
+        "fwhm_model_angstrom": 0.05126260869565218,
+        "amplitude_over_sideband_mad": 2.3907508508145825,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 4.346484188251911
+      },
+      {
+        "fitted_center_angstrom": 5926.5425,
+        "phase": 0.25,
+        "amplitude_adu": 308.0717405612349,
+        "profile_cosine": 0.6395195822276022,
+        "profile_explained_square_adu": 368149.58604610426,
+        "seed_index": 214416,
+        "seed_wave_angstrom": 5926.54,
+        "sideband_intercept_adu": 34427.533683655754,
+        "sideband_slope_adu_per_pixel": -0.005983382936507937,
+        "sideband_mad_adu": 167.7833130859375,
+        "fwhm_model_angstrom": 0.05153513043478261,
+        "amplitude_over_sideband_mad": 1.8361286047763439,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.191449974129051
+      },
+      {
+        "fitted_center_angstrom": 5951.185,
+        "phase": -0.5,
+        "amplitude_adu": 600.3056217053412,
+        "profile_cosine": 0.6877630088566017,
+        "profile_explained_square_adu": 1403679.666301951,
+        "seed_index": 216881,
+        "seed_wave_angstrom": 5951.1900000000005,
+        "sideband_intercept_adu": 33766.33637152778,
+        "sideband_slope_adu_per_pixel": 0.003472222222222222,
+        "sideband_mad_adu": 219.57762877604168,
+        "fwhm_model_angstrom": 0.05174947826086957,
+        "amplitude_over_sideband_mad": 2.7339106677284652,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.8214370495022236
+      },
+      {
+        "fitted_center_angstrom": 5971.365000000001,
+        "phase": -0.5,
+        "amplitude_adu": 385.64168686947914,
+        "profile_cosine": 0.6114185566071519,
+        "profile_explained_square_adu": 581247.7726084328,
+        "seed_index": 218899,
+        "seed_wave_angstrom": 5971.370000000001,
+        "sideband_intercept_adu": 33675.382099454364,
+        "sideband_slope_adu_per_pixel": -2.6029885912698414,
+        "sideband_mad_adu": 173.22895859375,
+        "fwhm_model_angstrom": 0.05192495652173914,
+        "amplitude_over_sideband_mad": 2.2261964165810832,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.222706488902485
+      },
+      {
+        "fitted_center_angstrom": 5992.365000000001,
+        "phase": -0.5,
+        "amplitude_adu": 902.3362004083561,
+        "profile_cosine": 0.7473632831402007,
+        "profile_explained_square_adu": 3193410.544960822,
+        "seed_index": 220999,
+        "seed_wave_angstrom": 5992.370000000001,
+        "sideband_intercept_adu": 33362.712782118055,
+        "sideband_slope_adu_per_pixel": 2.705016121031746,
+        "sideband_mad_adu": 403.1723772135416,
+        "fwhm_model_angstrom": 0.05210756521739131,
+        "amplitude_over_sideband_mad": 2.2380903340767087,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.677044823834978
+      },
+      {
+        "fitted_center_angstrom": 6006.515,
+        "phase": -0.5,
+        "amplitude_adu": 1309.019657443153,
+        "profile_cosine": 0.8654958229439373,
+        "profile_explained_square_adu": 6736504.995770466,
+        "seed_index": 222414,
+        "seed_wave_angstrom": 6006.52,
+        "sideband_intercept_adu": 33219.33190724206,
+        "sideband_slope_adu_per_pixel": 7.722594246031746,
+        "sideband_mad_adu": 243.78777526041662,
+        "fwhm_model_angstrom": 0.05223060869565218,
+        "amplitude_over_sideband_mad": 5.369504914858198,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE"
+        ],
+        "prescreen_residual_over_mad": 6.685856413810519
+      },
+      {
+        "fitted_center_angstrom": 6022.865000000001,
+        "phase": 0.5,
+        "amplitude_adu": 422.51749873964326,
+        "profile_cosine": 0.5936556974078845,
+        "profile_explained_square_adu": 703738.8718833396,
+        "seed_index": 224048,
+        "seed_wave_angstrom": 6022.860000000001,
+        "sideband_intercept_adu": 33278.04259672619,
+        "sideband_slope_adu_per_pixel": 0.7870163690476191,
+        "sideband_mad_adu": 248.47973359374998,
+        "fwhm_model_angstrom": 0.052372695652173916,
+        "amplitude_over_sideband_mad": 1.70041030159198,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 4.265471461406746
+      },
+      {
+        "fitted_center_angstrom": 6059.505,
+        "phase": 0.5,
+        "amplitude_adu": 435.0761600005058,
+        "profile_cosine": 0.6650892336408767,
+        "profile_explained_square_adu": 750735.1240486137,
+        "seed_index": 227712,
+        "seed_wave_angstrom": 6059.5,
+        "sideband_intercept_adu": 32947.653428819445,
+        "sideband_slope_adu_per_pixel": 1.9211929563492063,
+        "sideband_mad_adu": 149.75546979166666,
+        "fwhm_model_angstrom": 0.05269130434782609,
+        "amplitude_over_sideband_mad": 2.9052438659219924,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.5094754457229564
+      },
+      {
+        "fitted_center_angstrom": 6060.467500000001,
+        "phase": -0.25,
+        "amplitude_adu": 207.7842373698939,
+        "profile_cosine": 0.43686553109019366,
+        "profile_explained_square_adu": 171258.00281451718,
+        "seed_index": 227809,
+        "seed_wave_angstrom": 6060.47,
+        "sideband_intercept_adu": 32985.91815476191,
+        "sideband_slope_adu_per_pixel": -0.691375248015873,
+        "sideband_mad_adu": 115.75674361979166,
+        "fwhm_model_angstrom": 0.05269973913043478,
+        "amplitude_over_sideband_mad": 1.7950076243710757,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.143563666055371
+      },
+      {
+        "fitted_center_angstrom": 6070.1525,
+        "phase": 0.25,
+        "amplitude_adu": 454.0742875263347,
+        "profile_cosine": 0.694904454005575,
+        "profile_explained_square_adu": 819167.3148476265,
+        "seed_index": 228777,
+        "seed_wave_angstrom": 6070.15,
+        "sideband_intercept_adu": 32886.48908730158,
+        "sideband_slope_adu_per_pixel": -0.7592385912698413,
+        "sideband_mad_adu": 187.4688315104167,
+        "fwhm_model_angstrom": 0.05278391304347826,
+        "amplitude_over_sideband_mad": 2.4221321692139743,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.137374462548194
+      },
+      {
+        "fitted_center_angstrom": 6074.345,
+        "phase": -0.5,
+        "amplitude_adu": 262.74763960666013,
+        "profile_cosine": 0.4827483065209924,
+        "profile_explained_square_adu": 274471.23123522196,
+        "seed_index": 229197,
+        "seed_wave_angstrom": 6074.35,
+        "sideband_intercept_adu": 33002.17795138889,
+        "sideband_slope_adu_per_pixel": -0.4756944444444444,
+        "sideband_mad_adu": 162.31542122395834,
+        "fwhm_model_angstrom": 0.0528204347826087,
+        "amplitude_over_sideband_mad": 1.6187472368637617,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.0734967486341493
+      },
+      {
+        "fitted_center_angstrom": 6104.092500000001,
+        "phase": 0.25,
+        "amplitude_adu": 400.9659029991658,
+        "profile_cosine": 0.678911480973414,
+        "profile_explained_square_adu": 642325.5335821409,
+        "seed_index": 232171,
+        "seed_wave_angstrom": 6104.09,
+        "sideband_intercept_adu": 32577.6599547371,
+        "sideband_slope_adu_per_pixel": 0.3468812003968254,
+        "sideband_mad_adu": 185.22417897135418,
+        "fwhm_model_angstrom": 0.05307904347826087,
+        "amplitude_over_sideband_mad": 2.164760050366735,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.883447689472631
+      },
+      {
+        "fitted_center_angstrom": 6114.035000000001,
+        "phase": 0.5,
+        "amplitude_adu": 311.0633788561431,
+        "profile_cosine": 0.5427602111772416,
+        "profile_explained_square_adu": 387208.344155961,
+        "seed_index": 233165,
+        "seed_wave_angstrom": 6114.030000000001,
+        "sideband_intercept_adu": 32545.04327876984,
+        "sideband_slope_adu_per_pixel": 0.804625496031746,
+        "sideband_mad_adu": 160.47522486979167,
+        "fwhm_model_angstrom": 0.05316547826086957,
+        "amplitude_over_sideband_mad": 1.9383888018137223,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.2111794592400975
+      },
+      {
+        "fitted_center_angstrom": 6118.755,
+        "phase": 0.5,
+        "amplitude_adu": 274.55679355653285,
+        "profile_cosine": 0.5900108624495113,
+        "profile_explained_square_adu": 301888.43053544464,
+        "seed_index": 233637,
+        "seed_wave_angstrom": 6118.75,
+        "sideband_intercept_adu": 32568.648484002973,
+        "sideband_slope_adu_per_pixel": -0.46089099702380953,
+        "sideband_mad_adu": 110.50434033203123,
+        "fwhm_model_angstrom": 0.05320652173913044,
+        "amplitude_over_sideband_mad": 2.4845792729188276,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.2673857726542574
+      },
+      {
+        "fitted_center_angstrom": 6123.865000000001,
+        "phase": 0.5,
+        "amplitude_adu": 1072.9503429155322,
+        "profile_cosine": 0.8020394142016374,
+        "profile_explained_square_adu": 4614279.22276897,
+        "seed_index": 234148,
+        "seed_wave_angstrom": 6123.860000000001,
+        "sideband_intercept_adu": 32154.38890438988,
+        "sideband_slope_adu_per_pixel": 8.794456845238095,
+        "sideband_mad_adu": 250.73396953124998,
+        "fwhm_model_angstrom": 0.05325095652173913,
+        "amplitude_over_sideband_mad": 4.279238050278648,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE"
+        ],
+        "prescreen_residual_over_mad": 4.898127061890163
+      },
+      {
+        "fitted_center_angstrom": 6167.485,
+        "phase": -0.5,
+        "amplitude_adu": 339.55484733219987,
+        "profile_cosine": 0.4915616758301014,
+        "profile_explained_square_adu": 465422.84359890106,
+        "seed_index": 238511,
+        "seed_wave_angstrom": 6167.49,
+        "sideband_intercept_adu": 31965.499968998018,
+        "sideband_slope_adu_per_pixel": -4.127449156746032,
+        "sideband_mad_adu": 169.32456256510417,
+        "fwhm_model_angstrom": 0.05363034782608696,
+        "amplitude_over_sideband_mad": 2.0053490302190697,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.24904521075598
+      },
+      {
+        "fitted_center_angstrom": 6178.807499999999,
+        "phase": -0.25,
+        "amplitude_adu": 1809.5813957675646,
+        "profile_cosine": 0.80496575406914,
+        "profile_explained_square_adu": 13242819.450213663,
+        "seed_index": 239643,
+        "seed_wave_angstrom": 6178.8099999999995,
+        "sideband_intercept_adu": 31677.940104166664,
+        "sideband_slope_adu_per_pixel": 2.0728081597222223,
+        "sideband_mad_adu": 223.35354521484373,
+        "fwhm_model_angstrom": 0.053728782608695645,
+        "amplitude_over_sideband_mad": 8.10187003759859,
+        "status": "PRELIMINARY_PROFILE_HIT",
+        "reasons": [],
+        "prescreen_residual_over_mad": 11.032334392912704
+      },
+      {
+        "fitted_center_angstrom": 6193.18,
+        "phase": 0.0,
+        "amplitude_adu": 411.17958089176113,
+        "profile_cosine": 0.7031612880045305,
+        "profile_explained_square_adu": 685324.3355091211,
+        "seed_index": 241080,
+        "seed_wave_angstrom": 6193.18,
+        "sideband_intercept_adu": 31681.014601934527,
+        "sideband_slope_adu_per_pixel": -2.3658079117063493,
+        "sideband_mad_adu": 121.18502639973958,
+        "fwhm_model_angstrom": 0.053853739130434786,
+        "amplitude_over_sideband_mad": 3.3929899848802174,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.166379469786126
+      },
+      {
+        "fitted_center_angstrom": 6195.965,
+        "phase": -0.5,
+        "amplitude_adu": 543.621193461548,
+        "profile_cosine": 0.7548032324675155,
+        "profile_explained_square_adu": 1198454.18866267,
+        "seed_index": 241359,
+        "seed_wave_angstrom": 6195.97,
+        "sideband_intercept_adu": 31492.099051339286,
+        "sideband_slope_adu_per_pixel": 6.377232142857143,
+        "sideband_mad_adu": 237.04122363281243,
+        "fwhm_model_angstrom": 0.053878,
+        "amplitude_over_sideband_mad": 2.2933614041059873,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.126479383915457
+      },
+      {
+        "fitted_center_angstrom": 6222.315,
+        "phase": -0.5,
+        "amplitude_adu": 145.48304486994823,
+        "profile_cosine": 0.22021960999305784,
+        "profile_explained_square_adu": 86197.85884845651,
+        "seed_index": 243994,
+        "seed_wave_angstrom": 6222.32,
+        "sideband_intercept_adu": 31183.822102864586,
+        "sideband_slope_adu_per_pixel": 2.1149088541666665,
+        "sideband_mad_adu": 165.1868326171875,
+        "fwhm_model_angstrom": 0.05410713043478261,
+        "amplitude_over_sideband_mad": 0.8807181696321895,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.084116058187101
+      },
+      {
+        "fitted_center_angstrom": 6263.862500000001,
+        "phase": 0.25,
+        "amplitude_adu": 195.80900884646258,
+        "profile_cosine": 0.4140169665972205,
+        "profile_explained_square_adu": 157190.6655058437,
+        "seed_index": 248148,
+        "seed_wave_angstrom": 6263.860000000001,
+        "sideband_intercept_adu": 30449.073660714286,
+        "sideband_slope_adu_per_pixel": -1.1809430803571428,
+        "sideband_mad_adu": 154.58349169921874,
+        "fwhm_model_angstrom": 0.05446834782608696,
+        "amplitude_over_sideband_mad": 1.2666877083321322,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.255211990699148
+      },
+      {
+        "fitted_center_angstrom": 6312.897499999999,
+        "phase": -0.25,
+        "amplitude_adu": 456.8516719155511,
+        "profile_cosine": 0.5700032640201319,
+        "profile_explained_square_adu": 862380.085687675,
+        "seed_index": 253052,
+        "seed_wave_angstrom": 6312.9,
+        "sideband_intercept_adu": 29525.104538690473,
+        "sideband_slope_adu_per_pixel": 0.6572730654761905,
+        "sideband_mad_adu": 210.3501490234375,
+        "fwhm_model_angstrom": 0.054894782608695646,
+        "amplitude_over_sideband_mad": 2.171862839349109,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.631565577101116
+      },
+      {
+        "fitted_center_angstrom": 6325.950000000001,
+        "phase": 0.0,
+        "amplitude_adu": 262.2730250654877,
+        "profile_cosine": 0.538720901494498,
+        "profile_explained_square_adu": 284808.12705485395,
+        "seed_index": 254357,
+        "seed_wave_angstrom": 6325.950000000001,
+        "sideband_intercept_adu": 29523.554873511905,
+        "sideband_slope_adu_per_pixel": -2.374054439484127,
+        "sideband_mad_adu": 137.6449843424479,
+        "fwhm_model_angstrom": 0.05500826086956522,
+        "amplitude_over_sideband_mad": 1.9054310356342283,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.211031600183849
+      },
+      {
+        "fitted_center_angstrom": 6326.512500000001,
+        "phase": 0.25,
+        "amplitude_adu": 241.46230477066445,
+        "profile_cosine": 0.38724830479877126,
+        "profile_explained_square_adu": 241425.00783668234,
+        "seed_index": 254413,
+        "seed_wave_angstrom": 6326.51,
+        "sideband_intercept_adu": 29366.1005859375,
+        "sideband_slope_adu_per_pixel": -3.316127232142857,
+        "sideband_mad_adu": 165.98294414062502,
+        "fwhm_model_angstrom": 0.05501313043478261,
+        "amplitude_over_sideband_mad": 1.4547416665057546,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.5897296206609415
+      },
+      {
+        "fitted_center_angstrom": 6328.615000000001,
+        "phase": -0.5,
+        "amplitude_adu": 307.304480975546,
+        "profile_cosine": 0.6527799473273812,
+        "profile_explained_square_adu": 391170.57400725153,
+        "seed_index": 254624,
+        "seed_wave_angstrom": 6328.620000000001,
+        "sideband_intercept_adu": 29500.923246837796,
+        "sideband_slope_adu_per_pixel": 0.24521019345238096,
+        "sideband_mad_adu": 115.91499609374999,
+        "fwhm_model_angstrom": 0.05503147826086957,
+        "amplitude_over_sideband_mad": 2.651119279916152,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.8184897167812406
+      },
+      {
+        "fitted_center_angstrom": 6342.157499999999,
+        "phase": -0.25,
+        "amplitude_adu": 404.7564638557175,
+        "profile_cosine": 0.755718331808775,
+        "profile_explained_square_adu": 680055.178887259,
+        "seed_index": 255978,
+        "seed_wave_angstrom": 6342.16,
+        "sideband_intercept_adu": 28454.489288814482,
+        "sideband_slope_adu_per_pixel": -3.488250248015873,
+        "sideband_mad_adu": 157.60595078125,
+        "fwhm_model_angstrom": 0.055149217391304343,
+        "amplitude_over_sideband_mad": 2.568154703863317,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.461656110488045
+      },
+      {
+        "fitted_center_angstrom": 6365.49,
+        "phase": 0.0,
+        "amplitude_adu": 510.1885354792604,
+        "profile_cosine": 0.5840983003677702,
+        "profile_explained_square_adu": 1084457.66511995,
+        "seed_index": 258311,
+        "seed_wave_angstrom": 6365.49,
+        "sideband_intercept_adu": 28800.103980654763,
+        "sideband_slope_adu_per_pixel": 0.9369264632936508,
+        "sideband_mad_adu": 125.25373059895833,
+        "fwhm_model_angstrom": 0.05535208695652174,
+        "amplitude_over_sideband_mad": 4.073240238351059,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 7.6548683721692345
+      },
+      {
+        "fitted_center_angstrom": 6372.305,
+        "phase": 0.5,
+        "amplitude_adu": 559.9234569374003,
+        "profile_cosine": 0.6946095399258967,
+        "profile_explained_square_adu": 1307593.970397299,
+        "seed_index": 258992,
+        "seed_wave_angstrom": 6372.3,
+        "sideband_intercept_adu": 28819.832194010418,
+        "sideband_slope_adu_per_pixel": 0.8004557291666666,
+        "sideband_mad_adu": 190.24117998046873,
+        "fwhm_model_angstrom": 0.05541130434782609,
+        "amplitude_over_sideband_mad": 2.943229520521715,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 5.784674830171815
+      },
+      {
+        "fitted_center_angstrom": 6379.085,
+        "phase": -0.5,
+        "amplitude_adu": 312.0190523476413,
+        "profile_cosine": 0.6550254150993063,
+        "profile_explained_square_adu": 406481.0731065523,
+        "seed_index": 259671,
+        "seed_wave_angstrom": 6379.09,
+        "sideband_intercept_adu": 28542.72234623016,
+        "sideband_slope_adu_per_pixel": 4.068204365079365,
+        "sideband_mad_adu": 144.6580900390625,
+        "fwhm_model_angstrom": 0.05547034782608696,
+        "amplitude_over_sideband_mad": 2.15694160114644,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.3668937824549707
+      },
+      {
+        "fitted_center_angstrom": 6387.155,
+        "phase": 0.5,
+        "amplitude_adu": 558.178251383035,
+        "profile_cosine": 0.7060230206127641,
+        "profile_explained_square_adu": 1302483.736413885,
+        "seed_index": 260477,
+        "seed_wave_angstrom": 6387.15,
+        "sideband_intercept_adu": 28638.432493179564,
+        "sideband_slope_adu_per_pixel": -0.5333271329365079,
+        "sideband_mad_adu": 171.58631354166667,
+        "fwhm_model_angstrom": 0.05554043478260869,
+        "amplitude_over_sideband_mad": 3.2530464689276712,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 5.789432251484671
+      },
+      {
+        "fitted_center_angstrom": 6388.015,
+        "phase": 0.5,
+        "amplitude_adu": 1182.794009815803,
+        "profile_cosine": 0.5803931938660848,
+        "profile_explained_square_adu": 5849290.518059422,
+        "seed_index": 260563,
+        "seed_wave_angstrom": 6388.01,
+        "sideband_intercept_adu": 28484.34347098214,
+        "sideband_slope_adu_per_pixel": -4.137834821428571,
+        "sideband_mad_adu": 177.91592988281246,
+        "fwhm_model_angstrom": 0.05554791304347826,
+        "amplitude_over_sideband_mad": 6.648050068337735,
+        "status": "REJECTED",
+        "reasons": [
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.746503473858737
+      },
+      {
+        "fitted_center_angstrom": 6388.065,
+        "phase": 0.5,
+        "amplitude_adu": 1585.4028133186994,
+        "profile_cosine": 0.7936219645899563,
+        "profile_explained_square_adu": 10509150.404931678,
+        "seed_index": 260568,
+        "seed_wave_angstrom": 6388.0599999999995,
+        "sideband_intercept_adu": 28484.981305803572,
+        "sideband_slope_adu_per_pixel": -4.137834821428571,
+        "sideband_mad_adu": 157.228819921875,
+        "fwhm_model_angstrom": 0.055548347826086954,
+        "amplitude_over_sideband_mad": 10.083411006369355,
+        "status": "REJECTED",
+        "reasons": [
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 4.386701683888376
+      },
+      {
+        "fitted_center_angstrom": 6388.1050000000005,
+        "phase": -0.5,
+        "amplitude_adu": 1349.099662355598,
+        "profile_cosine": 0.702275844164095,
+        "profile_explained_square_adu": 7609915.335309026,
+        "seed_index": 260573,
+        "seed_wave_angstrom": 6388.110000000001,
+        "sideband_intercept_adu": 28516.52339874752,
+        "sideband_slope_adu_per_pixel": -3.6796719990079363,
+        "sideband_mad_adu": 188.28988974609373,
+        "fwhm_model_angstrom": 0.055548782608695654,
+        "amplitude_over_sideband_mad": 7.165013820842106,
+        "status": "REJECTED",
+        "reasons": [
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 4.43818568867736
+      },
+      {
+        "fitted_center_angstrom": 6395.655,
+        "phase": -0.5,
+        "amplitude_adu": 471.4934645201409,
+        "profile_cosine": 0.6492703665016399,
+        "profile_explained_square_adu": 930585.1001155487,
+        "seed_index": 261328,
+        "seed_wave_angstrom": 6395.66,
+        "sideband_intercept_adu": 28284.058485243055,
+        "sideband_slope_adu_per_pixel": 3.4126519097222223,
+        "sideband_mad_adu": 180.2637131184896,
+        "fwhm_model_angstrom": 0.0556144347826087,
+        "amplitude_over_sideband_mad": 2.6155761265730852,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.0153406001599854
+      },
+      {
+        "fitted_center_angstrom": 6396.4925,
+        "phase": 0.25,
+        "amplitude_adu": 916.6346757338049,
+        "profile_cosine": 0.7261307266823183,
+        "profile_explained_square_adu": 3517658.3924041525,
+        "seed_index": 261411,
+        "seed_wave_angstrom": 6396.49,
+        "sideband_intercept_adu": 28420.090742807537,
+        "sideband_slope_adu_per_pixel": 3.3989645337301586,
+        "sideband_mad_adu": 237.8670046223958,
+        "fwhm_model_angstrom": 0.055621652173913044,
+        "amplitude_over_sideband_mad": 3.8535595854873828,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 6.638443069081666
+      },
+      {
+        "fitted_center_angstrom": 6398.6525,
+        "phase": 0.25,
+        "amplitude_adu": 373.3946660620419,
+        "profile_cosine": 0.7132266987969808,
+        "profile_explained_square_adu": 583907.3564814883,
+        "seed_index": 261627,
+        "seed_wave_angstrom": 6398.65,
+        "sideband_intercept_adu": 28283.171293712796,
+        "sideband_slope_adu_per_pixel": -1.629975818452381,
+        "sideband_mad_adu": 145.37212216796874,
+        "fwhm_model_angstrom": 0.055640434782608696,
+        "amplitude_over_sideband_mad": 2.5685438204624047,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 4.566041703205525
+      },
+      {
+        "fitted_center_angstrom": 6398.765,
+        "phase": -0.5,
+        "amplitude_adu": 183.94956105370048,
+        "profile_cosine": 0.3598565992110792,
+        "profile_explained_square_adu": 141714.20462800856,
+        "seed_index": 261639,
+        "seed_wave_angstrom": 6398.77,
+        "sideband_intercept_adu": 28260.514718191964,
+        "sideband_slope_adu_per_pixel": -3.582821800595238,
+        "sideband_mad_adu": 135.29204169921874,
+        "fwhm_model_angstrom": 0.05564147826086957,
+        "amplitude_over_sideband_mad": 1.3596480527853747,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.254270055095503
+      },
+      {
+        "fitted_center_angstrom": 6399.075,
+        "phase": -0.5,
+        "amplitude_adu": 389.1303663386679,
+        "profile_cosine": 0.6832560669132836,
+        "profile_explained_square_adu": 634201.3431337366,
+        "seed_index": 261670,
+        "seed_wave_angstrom": 6399.08,
+        "sideband_intercept_adu": 28053.544038318454,
+        "sideband_slope_adu_per_pixel": -8.842509920634921,
+        "sideband_mad_adu": 160.7424798828125,
+        "fwhm_model_angstrom": 0.05564417391304348,
+        "amplitude_over_sideband_mad": 2.420830925480054,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.4322888990618337
+      },
+      {
+        "fitted_center_angstrom": 6399.224999999999,
+        "phase": -0.5,
+        "amplitude_adu": 854.274135641391,
+        "profile_cosine": 0.6306401995873897,
+        "profile_explained_square_adu": 3056621.102728143,
+        "seed_index": 261685,
+        "seed_wave_angstrom": 6399.23,
+        "sideband_intercept_adu": 27534.852562313987,
+        "sideband_slope_adu_per_pixel": -20.983212425595237,
+        "sideband_mad_adu": 371.2232802734374,
+        "fwhm_model_angstrom": 0.05564547826086956,
+        "amplitude_over_sideband_mad": 2.3012407384907156,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.0938099338363236
+      },
+      {
+        "fitted_center_angstrom": 6399.325,
+        "phase": 0.5,
+        "amplitude_adu": 969.6151828009695,
+        "profile_cosine": 0.6050985407345376,
+        "profile_explained_square_adu": 3937785.1272128783,
+        "seed_index": 261694,
+        "seed_wave_angstrom": 6399.32,
+        "sideband_intercept_adu": 27320.803408668155,
+        "sideband_slope_adu_per_pixel": -28.47887214781746,
+        "sideband_mad_adu": 511.5577178385416,
+        "fwhm_model_angstrom": 0.055646260869565214,
+        "amplitude_over_sideband_mad": 1.895416976402652,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 4.568222330612707
+      },
+      {
+        "fitted_center_angstrom": 6402.5825,
+        "phase": 0.25,
+        "amplitude_adu": 55.73581010845175,
+        "profile_cosine": 0.08302829539295878,
+        "profile_explained_square_adu": 13017.962657470971,
+        "seed_index": 262020,
+        "seed_wave_angstrom": 6402.58,
+        "sideband_intercept_adu": 28197.51578000992,
+        "sideband_slope_adu_per_pixel": 2.1272631448412698,
+        "sideband_mad_adu": 165.92280084635416,
+        "fwhm_model_angstrom": 0.055674608695652175,
+        "amplitude_over_sideband_mad": 0.33591411080423816,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.327103076728234
+      },
+      {
+        "fitted_center_angstrom": 6404.115000000001,
+        "phase": 0.5,
+        "amplitude_adu": 273.29540694272464,
+        "profile_cosine": 0.5847054043256138,
+        "profile_explained_square_adu": 313070.98580020946,
+        "seed_index": 262173,
+        "seed_wave_angstrom": 6404.110000000001,
+        "sideband_intercept_adu": 28153.04411582341,
+        "sideband_slope_adu_per_pixel": 0.23564608134920634,
+        "sideband_mad_adu": 202.87054785156246,
+        "fwhm_model_angstrom": 0.05568791304347827,
+        "amplitude_over_sideband_mad": 1.3471418588699777,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.778747081333038
+      },
+      {
+        "fitted_center_angstrom": 6410.095,
+        "phase": -0.5,
+        "amplitude_adu": 435.36462445492276,
+        "profile_cosine": 0.6730928732844975,
+        "profile_explained_square_adu": 795225.781860947,
+        "seed_index": 262772,
+        "seed_wave_angstrom": 6410.1,
+        "sideband_intercept_adu": 28051.194661458336,
+        "sideband_slope_adu_per_pixel": -2.4030877976190474,
+        "sideband_mad_adu": 163.45196171875,
+        "fwhm_model_angstrom": 0.055740000000000005,
+        "amplitude_over_sideband_mad": 2.6635631648401374,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.406237162111308
+      },
+      {
+        "fitted_center_angstrom": 6425.237499999999,
+        "phase": -0.25,
+        "amplitude_adu": 1360.4120755984234,
+        "profile_cosine": 0.9288212812918341,
+        "profile_explained_square_adu": 7783047.534234582,
+        "seed_index": 264286,
+        "seed_wave_angstrom": 6425.24,
+        "sideband_intercept_adu": 27636.941569010414,
+        "sideband_slope_adu_per_pixel": 3.0192057291666665,
+        "sideband_mad_adu": 300.44029941406245,
+        "fwhm_model_angstrom": 0.055871652173913045,
+        "amplitude_over_sideband_mad": 4.528061242954372,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE"
+        ],
+        "prescreen_residual_over_mad": 6.415444953827022
+      },
+      {
+        "fitted_center_angstrom": 6429.5599999999995,
+        "phase": 0.0,
+        "amplitude_adu": 1053.7118662660469,
+        "profile_cosine": 0.870075326662713,
+        "profile_explained_square_adu": 4672446.820214124,
+        "seed_index": 264718,
+        "seed_wave_angstrom": 6429.5599999999995,
+        "sideband_intercept_adu": 27624.686686197914,
+        "sideband_slope_adu_per_pixel": -3.955806671626984,
+        "sideband_mad_adu": 180.77984921875,
+        "fwhm_model_angstrom": 0.05590921739130434,
+        "amplitude_over_sideband_mad": 5.828701986530691,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE"
+        ],
+        "prescreen_residual_over_mad": 8.391840738003328
+      },
+      {
+        "fitted_center_angstrom": 6434.245,
+        "phase": 0.5,
+        "amplitude_adu": 175.24384368126627,
+        "profile_cosine": 0.37527653325413696,
+        "profile_explained_square_adu": 129330.86089733565,
+        "seed_index": 265186,
+        "seed_wave_angstrom": 6434.24,
+        "sideband_intercept_adu": 27707.072823660717,
+        "sideband_slope_adu_per_pixel": 1.1117001488095237,
+        "sideband_mad_adu": 171.29669726562497,
+        "fwhm_model_angstrom": 0.05594991304347826,
+        "amplitude_over_sideband_mad": 1.0230427467583953,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.0422571639913953
+      },
+      {
+        "fitted_center_angstrom": 6437.1525,
+        "phase": 0.25,
+        "amplitude_adu": 388.40788551969524,
+        "profile_cosine": 0.8118105136734931,
+        "profile_explained_square_adu": 635607.5951532794,
+        "seed_index": 265477,
+        "seed_wave_angstrom": 6437.15,
+        "sideband_intercept_adu": 27609.9140625,
+        "sideband_slope_adu_per_pixel": -1.134796626984127,
+        "sideband_mad_adu": 161.59466692708332,
+        "fwhm_model_angstrom": 0.055975217391304344,
+        "amplitude_over_sideband_mad": 2.4035934657110762,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE"
+        ],
+        "prescreen_residual_over_mad": 3.368438286075918
+      },
+      {
+        "fitted_center_angstrom": 6440.175,
+        "phase": 0.5,
+        "amplitude_adu": 572.0951795209688,
+        "profile_cosine": 0.7723596035268123,
+        "profile_explained_square_adu": 1379600.3005158405,
+        "seed_index": 265779,
+        "seed_wave_angstrom": 6440.17,
+        "sideband_intercept_adu": 27456.860444568454,
+        "sideband_slope_adu_per_pixel": -0.05505952380952381,
+        "sideband_mad_adu": 124.47958964843748,
+        "fwhm_model_angstrom": 0.05600147826086956,
+        "amplitude_over_sideband_mad": 4.59589544869736,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 4.4573905814868855
+      },
+      {
+        "fitted_center_angstrom": 6444.365000000001,
+        "phase": -0.5,
+        "amplitude_adu": 438.53384673157996,
+        "profile_cosine": 0.7135477912151686,
+        "profile_explained_square_adu": 811159.1589954549,
+        "seed_index": 266199,
+        "seed_wave_angstrom": 6444.370000000001,
+        "sideband_intercept_adu": 27503.830357142855,
+        "sideband_slope_adu_per_pixel": 0.17582775297619047,
+        "sideband_mad_adu": 149.67675722656247,
+        "fwhm_model_angstrom": 0.056038000000000004,
+        "amplitude_over_sideband_mad": 2.929872712753796,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.467324810724701
+      },
+      {
+        "fitted_center_angstrom": 6447.5,
+        "phase": 0.0,
+        "amplitude_adu": 267.6929335756531,
+        "profile_cosine": 0.683635846859258,
+        "profile_explained_square_adu": 302401.91487026267,
+        "seed_index": 266512,
+        "seed_wave_angstrom": 6447.5,
+        "sideband_intercept_adu": 27627.314918154763,
+        "sideband_slope_adu_per_pixel": 0.4392206101190476,
+        "sideband_mad_adu": 130.53081630859376,
+        "fwhm_model_angstrom": 0.05606521739130435,
+        "amplitude_over_sideband_mad": 2.0508025701975865,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.1946940205387313
+      },
+      {
+        "fitted_center_angstrom": 6448.285000000001,
+        "phase": 0.5,
+        "amplitude_adu": 448.1883631325647,
+        "profile_cosine": 0.6937392615046479,
+        "profile_explained_square_adu": 847782.4300607924,
+        "seed_index": 266590,
+        "seed_wave_angstrom": 6448.280000000001,
+        "sideband_intercept_adu": 27325.59466455853,
+        "sideband_slope_adu_per_pixel": -9.201233878968255,
+        "sideband_mad_adu": 137.69355631510416,
+        "fwhm_model_angstrom": 0.056072000000000004,
+        "amplitude_over_sideband_mad": 3.2549697685700716,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.099808769300831
+      },
+      {
+        "fitted_center_angstrom": 6512.635,
+        "phase": -0.5,
+        "amplitude_adu": 0.0,
+        "profile_cosine": -0.20774598220419097,
+        "profile_explained_square_adu": 0.0,
+        "seed_index": 273026,
+        "seed_wave_angstrom": 6512.64,
+        "sideband_intercept_adu": 26863.55078125,
+        "sideband_slope_adu_per_pixel": -6.912233382936508,
+        "sideband_mad_adu": 209.99388561197918,
+        "fwhm_model_angstrom": 0.05663165217391305,
+        "amplitude_over_sideband_mad": 0.0,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.5232311979676663
+      },
+      {
+        "fitted_center_angstrom": 6513.885,
+        "phase": 0.5,
+        "amplitude_adu": 805.8983229829705,
+        "profile_cosine": 0.9310307227504938,
+        "profile_explained_square_adu": 2768978.7936745845,
+        "seed_index": 273150,
+        "seed_wave_angstrom": 6513.88,
+        "sideband_intercept_adu": 27045.669844370037,
+        "sideband_slope_adu_per_pixel": -1.8029978918650793,
+        "sideband_mad_adu": 187.93146604817707,
+        "fwhm_model_angstrom": 0.0566424347826087,
+        "amplitude_over_sideband_mad": 4.288256458215331,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE"
+        ],
+        "prescreen_residual_over_mad": 4.603170704636198
+      },
+      {
+        "fitted_center_angstrom": 6519.5175,
+        "phase": -0.25,
+        "amplitude_adu": 500.51296073087707,
+        "profile_cosine": 0.828769853234131,
+        "profile_explained_square_adu": 1068970.3266346292,
+        "seed_index": 273714,
+        "seed_wave_angstrom": 6519.52,
+        "sideband_intercept_adu": 26626.523111979164,
+        "sideband_slope_adu_per_pixel": -3.8723958333333335,
+        "sideband_mad_adu": 157.56196367187496,
+        "fwhm_model_angstrom": 0.05669147826086957,
+        "amplitude_over_sideband_mad": 3.1766103256570375,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE"
+        ],
+        "prescreen_residual_over_mad": 3.3132278898067327
+      },
+      {
+        "fitted_center_angstrom": 6527.785,
+        "phase": -0.5,
+        "amplitude_adu": 740.7301422919004,
+        "profile_cosine": 0.7642701830481357,
+        "profile_explained_square_adu": 2344258.9452115064,
+        "seed_index": 274541,
+        "seed_wave_angstrom": 6527.79,
+        "sideband_intercept_adu": 26787.181640625,
+        "sideband_slope_adu_per_pixel": 3.0984933035714284,
+        "sideband_mad_adu": 236.80977421875,
+        "fwhm_model_angstrom": 0.05676339130434783,
+        "amplitude_over_sideband_mad": 3.1279542609067326,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 4.598866169226568
+      },
+      {
+        "fitted_center_angstrom": 6539.804999999999,
+        "phase": -0.5,
+        "amplitude_adu": 159.19945908707322,
+        "profile_cosine": 0.31079588497313976,
+        "profile_explained_square_adu": 108484.49673194291,
+        "seed_index": 275743,
+        "seed_wave_angstrom": 6539.8099999999995,
+        "sideband_intercept_adu": 26656.021879650296,
+        "sideband_slope_adu_per_pixel": 0.6964750744047619,
+        "sideband_mad_adu": 184.67081240234373,
+        "fwhm_model_angstrom": 0.056867913043478255,
+        "amplitude_over_sideband_mad": 0.8620715803222012,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.1127971869670152
+      },
+      {
+        "fitted_center_angstrom": 6561.775000000001,
+        "phase": 0.5,
+        "amplitude_adu": 1055.1816534801285,
+        "profile_cosine": 0.5326201302206944,
+        "profile_explained_square_adu": 4781837.776265986,
+        "seed_index": 277939,
+        "seed_wave_angstrom": 6561.77,
+        "sideband_intercept_adu": 17525.271697513643,
+        "sideband_slope_adu_per_pixel": -73.61621868799604,
+        "sideband_mad_adu": 946.6485285644533,
+        "fwhm_model_angstrom": 0.05705886956521739,
+        "amplitude_over_sideband_mad": 1.114649863852068,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.020929253013748
+      },
+      {
+        "fitted_center_angstrom": 6561.835,
+        "phase": 0.5,
+        "amplitude_adu": 2044.6062674144407,
+        "profile_cosine": 0.5930951884148342,
+        "profile_explained_square_adu": 17954103.406164687,
+        "seed_index": 277945,
+        "seed_wave_angstrom": 6561.83,
+        "sideband_intercept_adu": 16569.33812313988,
+        "sideband_slope_adu_per_pixel": -100.0330326140873,
+        "sideband_mad_adu": 1291.147175097656,
+        "fwhm_model_angstrom": 0.057059391304347826,
+        "amplitude_over_sideband_mad": 1.5835578676457214,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 14.064963139431878
+      },
+      {
+        "fitted_center_angstrom": 6561.895,
+        "phase": 0.5,
+        "amplitude_adu": 3043.8808232381034,
+        "profile_cosine": 0.6331785013866347,
+        "profile_explained_square_adu": 39792718.247986145,
+        "seed_index": 277951,
+        "seed_wave_angstrom": 6561.89,
+        "sideband_intercept_adu": 15573.41357421875,
+        "sideband_slope_adu_per_pixel": -122.1500961061508,
+        "sideband_mad_adu": 1368.2138317382814,
+        "fwhm_model_angstrom": 0.057059913043478266,
+        "amplitude_over_sideband_mad": 2.2247113372409992,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 59.54049954700545
+      },
+      {
+        "fitted_center_angstrom": 6563.724999999999,
+        "phase": -0.5,
+        "amplitude_adu": 1917.602391683061,
+        "profile_cosine": 0.598520420252288,
+        "profile_explained_square_adu": 15797457.852332536,
+        "seed_index": 278135,
+        "seed_wave_angstrom": 6563.73,
+        "sideband_intercept_adu": 17244.277959914434,
+        "sideband_slope_adu_per_pixel": 76.07836526537699,
+        "sideband_mad_adu": 1175.4038126139324,
+        "fwhm_model_angstrom": 0.057075913043478255,
+        "amplitude_over_sideband_mad": 1.6314413575183013,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 26.25981093951486
+      },
+      {
+        "fitted_center_angstrom": 6563.815,
+        "phase": -0.5,
+        "amplitude_adu": 1156.1760236910375,
+        "profile_cosine": 0.6381949777152489,
+        "profile_explained_square_adu": 5742803.45057371,
+        "seed_index": 278144,
+        "seed_wave_angstrom": 6563.82,
+        "sideband_intercept_adu": 18251.35193452381,
+        "sideband_slope_adu_per_pixel": 50.678199404761905,
+        "sideband_mad_adu": 661.629141015625,
+        "fwhm_model_angstrom": 0.05707669565217391,
+        "amplitude_over_sideband_mad": 1.7474684109534004,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.1565257712373787
+      },
+      {
+        "fitted_center_angstrom": 6566.76,
+        "phase": 0.0,
+        "amplitude_adu": 194.17605915437034,
+        "profile_cosine": 0.4838695989048444,
+        "profile_explained_square_adu": 162054.79342077434,
+        "seed_index": 278438,
+        "seed_wave_angstrom": 6566.76,
+        "sideband_intercept_adu": 23561.283257378473,
+        "sideband_slope_adu_per_pixel": 4.568281870039683,
+        "sideband_mad_adu": 98.90827884114582,
+        "fwhm_model_angstrom": 0.05710226086956522,
+        "amplitude_over_sideband_mad": 1.9631931869548735,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 4.058250062948205
+      },
+      {
+        "fitted_center_angstrom": 6596.565,
+        "phase": 0.5,
+        "amplitude_adu": 334.42652625173235,
+        "profile_cosine": 0.5543462024692686,
+        "profile_explained_square_adu": 482879.0064423274,
+        "seed_index": 281418,
+        "seed_wave_angstrom": 6596.5599999999995,
+        "sideband_intercept_adu": 25984.530319940477,
+        "sideband_slope_adu_per_pixel": -0.943421378968254,
+        "sideband_mad_adu": 180.2919921875,
+        "fwhm_model_angstrom": 0.05736139130434782,
+        "amplitude_over_sideband_mad": 1.8549161401685306,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.2064881568670143
+      },
+      {
+        "fitted_center_angstrom": 6597.175,
+        "phase": 0.5,
+        "amplitude_adu": 2123.896831178328,
+        "profile_cosine": 0.6769738281153778,
+        "profile_explained_square_adu": 19477978.462465208,
+        "seed_index": 281479,
+        "seed_wave_angstrom": 6597.17,
+        "sideband_intercept_adu": 24770.959247891864,
+        "sideband_slope_adu_per_pixel": -36.09725322420635,
+        "sideband_mad_adu": 990.5896111979166,
+        "fwhm_model_angstrom": 0.057366695652173914,
+        "amplitude_over_sideband_mad": 2.1440733954497126,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.3690993924925654
+      },
+      {
+        "fitted_center_angstrom": 6617.89,
+        "phase": 0.0,
+        "amplitude_adu": 411.9283121672387,
+        "profile_cosine": 0.693050355507015,
+        "profile_explained_square_adu": 734991.304321812,
+        "seed_index": 283551,
+        "seed_wave_angstrom": 6617.89,
+        "sideband_intercept_adu": 25705.949637276786,
+        "sideband_slope_adu_per_pixel": 2.543759300595238,
+        "sideband_mad_adu": 206.5221673828125,
+        "fwhm_model_angstrom": 0.057546869565217394,
+        "amplitude_over_sideband_mad": 1.9945961123082847,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.1189952001636163
+      },
+      {
+        "fitted_center_angstrom": 6620.2775,
+        "phase": -0.25,
+        "amplitude_adu": 241.86037087472337,
+        "profile_cosine": 0.45038738426562147,
+        "profile_explained_square_adu": 253469.179489024,
+        "seed_index": 283790,
+        "seed_wave_angstrom": 6620.280000000001,
+        "sideband_intercept_adu": 25940.707759796627,
+        "sideband_slope_adu_per_pixel": -0.5398685515873016,
+        "sideband_mad_adu": 156.620722265625,
+        "fwhm_model_angstrom": 0.05756765217391305,
+        "amplitude_over_sideband_mad": 1.5442424691704202,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.071431563933722
+      },
+      {
+        "fitted_center_angstrom": 6620.9400000000005,
+        "phase": 0.0,
+        "amplitude_adu": 1959.4611274650183,
+        "profile_cosine": 0.7896262786043435,
+        "profile_explained_square_adu": 16638429.414168054,
+        "seed_index": 283856,
+        "seed_wave_angstrom": 6620.9400000000005,
+        "sideband_intercept_adu": 25872.716169084822,
+        "sideband_slope_adu_per_pixel": -1.5427672371031746,
+        "sideband_mad_adu": 149.62378424479166,
+        "fwhm_model_angstrom": 0.05757339130434783,
+        "amplitude_over_sideband_mad": 13.095920126303223,
+        "status": "REJECTED",
+        "reasons": [
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 18.28434098799611
+      },
+      {
+        "fitted_center_angstrom": 6625.965,
+        "phase": 0.5,
+        "amplitude_adu": 135.74691496143973,
+        "profile_cosine": 0.3668041917984108,
+        "profile_explained_square_adu": 79914.96592360572,
+        "seed_index": 284358,
+        "seed_wave_angstrom": 6625.96,
+        "sideband_intercept_adu": 25858.515206473214,
+        "sideband_slope_adu_per_pixel": -2.071986607142857,
+        "sideband_mad_adu": 145.80340957031248,
+        "fwhm_model_angstrom": 0.05761704347826087,
+        "amplitude_over_sideband_mad": 0.9310270271558835,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.0383651199691415
+      },
+      {
+        "fitted_center_angstrom": 6628.610000000001,
+        "phase": 0.0,
+        "amplitude_adu": 354.67767699488707,
+        "profile_cosine": 0.6259706600915202,
+        "profile_explained_square_adu": 545769.8626756973,
+        "seed_index": 284623,
+        "seed_wave_angstrom": 6628.610000000001,
+        "sideband_intercept_adu": 25821.66524832589,
+        "sideband_slope_adu_per_pixel": -2.2984095982142856,
+        "sideband_mad_adu": 123.56316855468751,
+        "fwhm_model_angstrom": 0.057640086956521744,
+        "amplitude_over_sideband_mad": 2.8704158459477442,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 4.511545741237693
+      },
+      {
+        "fitted_center_angstrom": 6646.407499999999,
+        "phase": -0.25,
+        "amplitude_adu": 353.8451351451719,
+        "profile_cosine": 0.7150038597710132,
+        "profile_explained_square_adu": 544669.3767629936,
+        "seed_index": 286403,
+        "seed_wave_angstrom": 6646.41,
+        "sideband_intercept_adu": 25697.236025855655,
+        "sideband_slope_adu_per_pixel": -3.198335193452381,
+        "sideband_mad_adu": 153.05521542968748,
+        "fwhm_model_angstrom": 0.05779486956521739,
+        "amplitude_over_sideband_mad": 2.3118789787841365,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.534336897470666
+      },
+      {
+        "fitted_center_angstrom": 6654.175,
+        "phase": -0.5,
+        "amplitude_adu": 633.5332895002483,
+        "profile_cosine": 0.7091193546022638,
+        "profile_explained_square_adu": 1748045.7584477928,
+        "seed_index": 287180,
+        "seed_wave_angstrom": 6654.18,
+        "sideband_intercept_adu": 25441.53960503472,
+        "sideband_slope_adu_per_pixel": 6.753038194444445,
+        "sideband_mad_adu": 289.8499087239583,
+        "fwhm_model_angstrom": 0.0578624347826087,
+        "amplitude_over_sideband_mad": 2.1857287873207527,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.2954409274356427
+      },
+      {
+        "fitted_center_angstrom": 6654.725,
+        "phase": 0.5,
+        "amplitude_adu": 119.21606554999401,
+        "profile_cosine": 0.4064625770814691,
+        "profile_explained_square_adu": 61904.00233433531,
+        "seed_index": 287234,
+        "seed_wave_angstrom": 6654.72,
+        "sideband_intercept_adu": 25721.775499131945,
+        "sideband_slope_adu_per_pixel": 0.3625217013888889,
+        "sideband_mad_adu": 123.22817477213542,
+        "fwhm_model_angstrom": 0.05786713043478261,
+        "amplitude_over_sideband_mad": 0.9674416242100453,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.182668878452519
+      },
+      {
+        "fitted_center_angstrom": 6655.3550000000005,
+        "phase": -0.5,
+        "amplitude_adu": 232.3408029228897,
+        "profile_cosine": 0.26670499814160054,
+        "profile_explained_square_adu": 235148.32842918858,
+        "seed_index": 287298,
+        "seed_wave_angstrom": 6655.360000000001,
+        "sideband_intercept_adu": 25719.6376953125,
+        "sideband_slope_adu_per_pixel": -0.38036334325396826,
+        "sideband_mad_adu": 156.79184453125,
+        "fwhm_model_angstrom": 0.05787269565217392,
+        "amplitude_over_sideband_mad": 1.4818423982287046,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 4.285459369333255
+      },
+      {
+        "fitted_center_angstrom": 6657.965,
+        "phase": -0.5,
+        "amplitude_adu": 362.3733443036905,
+        "profile_cosine": 0.6987936588146506,
+        "profile_explained_square_adu": 572234.0469903635,
+        "seed_index": 287559,
+        "seed_wave_angstrom": 6657.97,
+        "sideband_intercept_adu": 25714.970726376487,
+        "sideband_slope_adu_per_pixel": 4.041899181547619,
+        "sideband_mad_adu": 165.17624951171877,
+        "fwhm_model_angstrom": 0.05789539130434783,
+        "amplitude_over_sideband_mad": 2.1938586532562065,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.0083638616014263
+      },
+      {
+        "fitted_center_angstrom": 6674.585,
+        "phase": 0.5,
+        "amplitude_adu": 250.02517997680698,
+        "profile_cosine": 0.5235599599528272,
+        "profile_explained_square_adu": 273093.15316161985,
+        "seed_index": 289220,
+        "seed_wave_angstrom": 6674.58,
+        "sideband_intercept_adu": 25695.27697172619,
+        "sideband_slope_adu_per_pixel": 0.08293030753968254,
+        "sideband_mad_adu": 167.116129296875,
+        "fwhm_model_angstrom": 0.05803982608695652,
+        "amplitude_over_sideband_mad": 1.496116389415934,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.276049271781048
+      },
+      {
+        "fitted_center_angstrom": 6682.815,
+        "phase": -0.5,
+        "amplitude_adu": 229.94189787113405,
+        "profile_cosine": 0.4757950704753475,
+        "profile_explained_square_adu": 231267.9010374996,
+        "seed_index": 290044,
+        "seed_wave_angstrom": 6682.82,
+        "sideband_intercept_adu": 25662.802757626487,
+        "sideband_slope_adu_per_pixel": 0.25888206845238093,
+        "sideband_mad_adu": 195.26095029296872,
+        "fwhm_model_angstrom": 0.05811147826086956,
+        "amplitude_over_sideband_mad": 1.1776133298856233,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.355922795854881
+      },
+      {
+        "fitted_center_angstrom": 6683.205000000001,
+        "phase": 0.5,
+        "amplitude_adu": 452.6836434283165,
+        "profile_cosine": 0.4570481095957051,
+        "profile_explained_square_adu": 896382.6361280612,
+        "seed_index": 290082,
+        "seed_wave_angstrom": 6683.200000000001,
+        "sideband_intercept_adu": 25717.647181919645,
+        "sideband_slope_adu_per_pixel": 0.13188244047619047,
+        "sideband_mad_adu": 205.29170039062498,
+        "fwhm_model_angstrom": 0.05811478260869566,
+        "amplitude_over_sideband_mad": 2.2050752298654013,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 5.614461683495312
+      },
+      {
+        "fitted_center_angstrom": 6686.202500000001,
+        "phase": 0.25,
+        "amplitude_adu": 135.7831935010985,
+        "profile_cosine": 0.23100925825404883,
+        "profile_explained_square_adu": 80684.62271562984,
+        "seed_index": 290382,
+        "seed_wave_angstrom": 6686.200000000001,
+        "sideband_intercept_adu": 25705.340425037204,
+        "sideband_slope_adu_per_pixel": -1.1564825148809523,
+        "sideband_mad_adu": 226.46608134765623,
+        "fwhm_model_angstrom": 0.0581408695652174,
+        "amplitude_over_sideband_mad": 0.5995740849714835,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.0326498593435756
+      },
+      {
+        "fitted_center_angstrom": 6691.535000000001,
+        "phase": 0.5,
+        "amplitude_adu": 1524.0260304715523,
+        "profile_cosine": 0.8620966463129933,
+        "profile_explained_square_adu": 10172543.860048007,
+        "seed_index": 290915,
+        "seed_wave_angstrom": 6691.530000000001,
+        "sideband_intercept_adu": 25653.941917782737,
+        "sideband_slope_adu_per_pixel": -0.45892237103174605,
+        "sideband_mad_adu": 185.9508166015625,
+        "fwhm_model_angstrom": 0.058187217391304356,
+        "amplitude_over_sideband_mad": 8.19585554032327,
+        "status": "PRELIMINARY_PROFILE_HIT",
+        "reasons": [],
+        "prescreen_residual_over_mad": 9.768993237673552
+      },
+      {
+        "fitted_center_angstrom": 6700.6675,
+        "phase": -0.25,
+        "amplitude_adu": 382.2269215988993,
+        "profile_cosine": 0.6065816772339306,
+        "profile_explained_square_adu": 640737.5073125662,
+        "seed_index": 291829,
+        "seed_wave_angstrom": 6700.67,
+        "sideband_intercept_adu": 25483.33930121528,
+        "sideband_slope_adu_per_pixel": -0.5500217013888888,
+        "sideband_mad_adu": 131.65901442057293,
+        "fwhm_model_angstrom": 0.05826669565217391,
+        "amplitude_over_sideband_mad": 2.903158004646075,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.1994152721977236
+      },
+      {
+        "fitted_center_angstrom": 6709.362500000001,
+        "phase": 0.25,
+        "amplitude_adu": 423.9711669655184,
+        "profile_cosine": 0.8041159138604839,
+        "profile_explained_square_adu": 789356.3593467973,
+        "seed_index": 292698,
+        "seed_wave_angstrom": 6709.360000000001,
+        "sideband_intercept_adu": 25366.858134920636,
+        "sideband_slope_adu_per_pixel": -0.5958581349206349,
+        "sideband_mad_adu": 144.60890904947917,
+        "fwhm_model_angstrom": 0.058342260869565225,
+        "amplitude_over_sideband_mad": 2.931846798045154,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE"
+        ],
+        "prescreen_residual_over_mad": 3.242696628128608
+      },
+      {
+        "fitted_center_angstrom": 6709.612500000001,
+        "phase": 0.25,
+        "amplitude_adu": 203.90795480986966,
+        "profile_cosine": 0.4912568221788605,
+        "profile_explained_square_adu": 182593.36264032533,
+        "seed_index": 292723,
+        "seed_wave_angstrom": 6709.610000000001,
+        "sideband_intercept_adu": 25391.95714750744,
+        "sideband_slope_adu_per_pixel": -2.3001457093253967,
+        "sideband_mad_adu": 141.06482122395832,
+        "fwhm_model_angstrom": 0.0583444347826087,
+        "amplitude_over_sideband_mad": 1.4454911794496226,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.2783542048925947
+      },
+      {
+        "fitted_center_angstrom": 6714.495,
+        "phase": -0.5,
+        "amplitude_adu": 202.3110885043643,
+        "profile_cosine": 0.6116652837981674,
+        "profile_explained_square_adu": 179875.66959424282,
+        "seed_index": 293212,
+        "seed_wave_angstrom": 6714.5,
+        "sideband_intercept_adu": 25423.02244543651,
+        "sideband_slope_adu_per_pixel": 0.8449745783730159,
+        "sideband_mad_adu": 95.49977197265625,
+        "fwhm_model_angstrom": 0.05838695652173913,
+        "amplitude_over_sideband_mad": 2.1184457755803914,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.3412750894535437
+      },
+      {
+        "fitted_center_angstrom": 6714.724999999999,
+        "phase": -0.5,
+        "amplitude_adu": 210.06525286316523,
+        "profile_cosine": 0.5625531546985444,
+        "profile_explained_square_adu": 193935.077782034,
+        "seed_index": 293235,
+        "seed_wave_angstrom": 6714.73,
+        "sideband_intercept_adu": 25356.93072606647,
+        "sideband_slope_adu_per_pixel": -1.5004495287698412,
+        "sideband_mad_adu": 123.88539596354165,
+        "fwhm_model_angstrom": 0.05838895652173913,
+        "amplitude_over_sideband_mad": 1.695641776250895,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.0117425464179934
+      },
+      {
+        "fitted_center_angstrom": 6718.815,
+        "phase": -0.5,
+        "amplitude_adu": 262.8874240676709,
+        "profile_cosine": 0.7108742318744535,
+        "profile_explained_square_adu": 303914.9052359953,
+        "seed_index": 293644,
+        "seed_wave_angstrom": 6718.82,
+        "sideband_intercept_adu": 25218.142051091272,
+        "sideband_slope_adu_per_pixel": -1.2573164682539681,
+        "sideband_mad_adu": 82.31612975260417,
+        "fwhm_model_angstrom": 0.05842452173913043,
+        "amplitude_over_sideband_mad": 3.1936319753827367,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.37062111991909
+      },
+      {
+        "fitted_center_angstrom": 6719.045,
+        "phase": 0.5,
+        "amplitude_adu": 358.2911976644384,
+        "profile_cosine": 0.7717515532754574,
+        "profile_explained_square_adu": 564545.403860946,
+        "seed_index": 293666,
+        "seed_wave_angstrom": 6719.04,
+        "sideband_intercept_adu": 25110.43187313988,
+        "sideband_slope_adu_per_pixel": -4.6428106398809526,
+        "sideband_mad_adu": 149.22519990234375,
+        "fwhm_model_angstrom": 0.05842643478260869,
+        "amplitude_over_sideband_mad": 2.4010100029948833,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.70191701359859
+      },
+      {
+        "fitted_center_angstrom": 6721.047500000001,
+        "phase": -0.25,
+        "amplitude_adu": 253.39630804236344,
+        "profile_cosine": 0.6037092674043336,
+        "profile_explained_square_adu": 282460.07115600404,
+        "seed_index": 293867,
+        "seed_wave_angstrom": 6721.05,
+        "sideband_intercept_adu": 25230.372519841272,
+        "sideband_slope_adu_per_pixel": 0.6071118551587301,
+        "sideband_mad_adu": 149.72996002604165,
+        "fwhm_model_angstrom": 0.05844391304347826,
+        "amplitude_over_sideband_mad": 1.6923554110232295,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.1010253443652305
+      },
+      {
+        "fitted_center_angstrom": 6747.8949999999995,
+        "phase": -0.5,
+        "amplitude_adu": 794.5097517318128,
+        "profile_cosine": 0.7548850328868417,
+        "profile_explained_square_adu": 2787959.5865987088,
+        "seed_index": 296552,
+        "seed_wave_angstrom": 6747.9,
+        "sideband_intercept_adu": 24338.232886904763,
+        "sideband_slope_adu_per_pixel": -11.429625496031745,
+        "sideband_mad_adu": 261.3276006510417,
+        "fwhm_model_angstrom": 0.05867739130434782,
+        "amplitude_over_sideband_mad": 3.040282579231823,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.077767948747555
+      },
+      {
+        "fitted_center_angstrom": 6749.465,
+        "phase": -0.5,
+        "amplitude_adu": 281.93625468314826,
+        "profile_cosine": 0.4199440710153157,
+        "profile_explained_square_adu": 351148.5631086127,
+        "seed_index": 296709,
+        "seed_wave_angstrom": 6749.47,
+        "sideband_intercept_adu": 24685.644577752977,
+        "sideband_slope_adu_per_pixel": 2.2503720238095237,
+        "sideband_mad_adu": 177.4999828125,
+        "fwhm_model_angstrom": 0.058691043478260874,
+        "amplitude_over_sideband_mad": 1.5883734196243178,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.0355888023120556
+      },
+      {
+        "fitted_center_angstrom": 6763.305,
+        "phase": 0.5,
+        "amplitude_adu": 337.2149040423728,
+        "profile_cosine": 0.5596291085801254,
+        "profile_explained_square_adu": 503374.88805160375,
+        "seed_index": 298092,
+        "seed_wave_angstrom": 6763.3,
+        "sideband_intercept_adu": 24421.18553137401,
+        "sideband_slope_adu_per_pixel": -1.748015873015873,
+        "sideband_mad_adu": 192.57232441406248,
+        "fwhm_model_angstrom": 0.05881130434782609,
+        "amplitude_over_sideband_mad": 1.751107824389681,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.4660495807971667
+      },
+      {
+        "fitted_center_angstrom": 6763.775000000001,
+        "phase": -0.5,
+        "amplitude_adu": 733.7515842352486,
+        "profile_cosine": 0.727946746358271,
+        "profile_explained_square_adu": 2383454.95755173,
+        "seed_index": 298140,
+        "seed_wave_angstrom": 6763.780000000001,
+        "sideband_intercept_adu": 24307.760718936013,
+        "sideband_slope_adu_per_pixel": -0.8885013640873016,
+        "sideband_mad_adu": 211.12064736328125,
+        "fwhm_model_angstrom": 0.05881547826086957,
+        "amplitude_over_sideband_mad": 3.475508404313774,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 4.1853375326057725
+      },
+      {
+        "fitted_center_angstrom": 6770.235,
+        "phase": 0.5,
+        "amplitude_adu": 326.9195119613153,
+        "profile_cosine": 0.5543502233145202,
+        "profile_explained_square_adu": 473592.1320644982,
+        "seed_index": 298785,
+        "seed_wave_angstrom": 6770.23,
+        "sideband_intercept_adu": 24212.178152901786,
+        "sideband_slope_adu_per_pixel": -0.18754650297619047,
+        "sideband_mad_adu": 172.55712099609374,
+        "fwhm_model_angstrom": 0.0588715652173913,
+        "amplitude_over_sideband_mad": 1.894558219760261,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.038637354577953
+      },
+      {
+        "fitted_center_angstrom": 6780.045,
+        "phase": -0.5,
+        "amplitude_adu": 266.4986445469363,
+        "profile_cosine": 0.49653386471286565,
+        "profile_explained_square_adu": 315168.11740882276,
+        "seed_index": 299767,
+        "seed_wave_angstrom": 6780.05,
+        "sideband_intercept_adu": 24087.946823846723,
+        "sideband_slope_adu_per_pixel": -2.061337425595238,
+        "sideband_mad_adu": 149.11374980468747,
+        "fwhm_model_angstrom": 0.05895695652173913,
+        "amplitude_over_sideband_mad": 1.787217107047487,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.2669294866831735
+      },
+      {
+        "fitted_center_angstrom": 6791.595,
+        "phase": 0.5,
+        "amplitude_adu": 310.004423492795,
+        "profile_cosine": 0.7526369604484252,
+        "profile_explained_square_adu": 427195.44556943537,
+        "seed_index": 300921,
+        "seed_wave_angstrom": 6791.59,
+        "sideband_intercept_adu": 23835.307338169645,
+        "sideband_slope_adu_per_pixel": 0.6969866071428571,
+        "sideband_mad_adu": 129.067693359375,
+        "fwhm_model_angstrom": 0.059057304347826085,
+        "amplitude_over_sideband_mad": 2.401874670756076,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.3790585292565662
+      },
+      {
+        "fitted_center_angstrom": 6802.335,
+        "phase": -0.5,
+        "amplitude_adu": 68.29315154950184,
+        "profile_cosine": 0.16513853336368048,
+        "profile_explained_square_adu": 20765.00389076389,
+        "seed_index": 301996,
+        "seed_wave_angstrom": 6802.34,
+        "sideband_intercept_adu": 23781.811965215777,
+        "sideband_slope_adu_per_pixel": -2.5234530009920637,
+        "sideband_mad_adu": 117.87466318359374,
+        "fwhm_model_angstrom": 0.059150782608695655,
+        "amplitude_over_sideband_mad": 0.5793709157254003,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.4124281601284716
+      },
+      {
+        "fitted_center_angstrom": 6802.8949999999995,
+        "phase": -0.5,
+        "amplitude_adu": 25.36654271905303,
+        "profile_cosine": 0.07766112413541511,
+        "profile_explained_square_adu": 2865.0751574151595,
+        "seed_index": 302052,
+        "seed_wave_angstrom": 6802.9,
+        "sideband_intercept_adu": 23713.50798301091,
+        "sideband_slope_adu_per_pixel": 0.13803633432539683,
+        "sideband_mad_adu": 142.17319755859373,
+        "fwhm_model_angstrom": 0.05915565217391304,
+        "amplitude_over_sideband_mad": 0.17842000570183938,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.414368171746253
+      },
+      {
+        "fitted_center_angstrom": 6803.245,
+        "phase": -0.5,
+        "amplitude_adu": 178.50283565543492,
+        "profile_cosine": 0.43429518434261943,
+        "profile_explained_square_adu": 141881.58828719196,
+        "seed_index": 302087,
+        "seed_wave_angstrom": 6803.25,
+        "sideband_intercept_adu": 23673.995163690477,
+        "sideband_slope_adu_per_pixel": 0.15621899801587302,
+        "sideband_mad_adu": 115.62960846354166,
+        "fwhm_model_angstrom": 0.059158695652173916,
+        "amplitude_over_sideband_mad": 1.5437467792837625,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.168114990382344
+      },
+      {
+        "fitted_center_angstrom": 6817.245,
+        "phase": -0.5,
+        "amplitude_adu": 440.1061186165456,
+        "profile_cosine": 0.7086767742854347,
+        "profile_explained_square_adu": 864257.9943066487,
+        "seed_index": 303487,
+        "seed_wave_angstrom": 6817.25,
+        "sideband_intercept_adu": 23606.75841703869,
+        "sideband_slope_adu_per_pixel": -2.3285745287698414,
+        "sideband_mad_adu": 166.6612511067708,
+        "fwhm_model_angstrom": 0.05928043478260869,
+        "amplitude_over_sideband_mad": 2.6407225176450493,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.860304456558762
+      },
+      {
+        "fitted_center_angstrom": 6821.005,
+        "phase": 0.5,
+        "amplitude_adu": 264.0827079881628,
+        "profile_cosine": 0.6100441988305111,
+        "profile_explained_square_adu": 311348.91095815337,
+        "seed_index": 303862,
+        "seed_wave_angstrom": 6821.0,
+        "sideband_intercept_adu": 23556.81175595238,
+        "sideband_slope_adu_per_pixel": 0.7845362103174603,
+        "sideband_mad_adu": 120.51608450520833,
+        "fwhm_model_angstrom": 0.05931304347826087,
+        "amplitude_over_sideband_mad": 2.191265249550569,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.3488627056365767
+      },
+      {
+        "fitted_center_angstrom": 6821.035,
+        "phase": -0.5,
+        "amplitude_adu": 276.24013042383524,
+        "profile_cosine": 0.6464056478020742,
+        "profile_explained_square_adu": 340677.5450997735,
+        "seed_index": 303866,
+        "seed_wave_angstrom": 6821.04,
+        "sideband_intercept_adu": 23559.94990079365,
+        "sideband_slope_adu_per_pixel": 0.7845362103174603,
+        "sideband_mad_adu": 128.78554615885417,
+        "fwhm_model_angstrom": 0.059313391304347825,
+        "amplitude_over_sideband_mad": 2.1449622155820114,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.185923690571159
+      },
+      {
+        "fitted_center_angstrom": 6824.035,
+        "phase": -0.5,
+        "amplitude_adu": 203.14245918141464,
+        "profile_cosine": 0.43666089044046713,
+        "profile_explained_square_adu": 184315.70722232977,
+        "seed_index": 304166,
+        "seed_wave_angstrom": 6824.04,
+        "sideband_intercept_adu": 23549.964363219246,
+        "sideband_slope_adu_per_pixel": -0.008200024801587302,
+        "sideband_mad_adu": 136.8095050455729,
+        "fwhm_model_angstrom": 0.05933947826086956,
+        "amplitude_over_sideband_mad": 1.484856327151724,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.2980745824316884
+      },
+      {
+        "fitted_center_angstrom": 6847.317499999999,
+        "phase": -0.25,
+        "amplitude_adu": 580.2953277745839,
+        "profile_cosine": 0.7741368180457809,
+        "profile_explained_square_adu": 1509169.9329712235,
+        "seed_index": 306494,
+        "seed_wave_angstrom": 6847.32,
+        "sideband_intercept_adu": 23246.229251922123,
+        "sideband_slope_adu_per_pixel": -4.100461929563492,
+        "sideband_mad_adu": 299.33560016276044,
+        "fwhm_model_angstrom": 0.05954191304347826,
+        "amplitude_over_sideband_mad": 1.938611135658621,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 4.851781076858298
+      },
+      {
+        "fitted_center_angstrom": 6859.192500000001,
+        "phase": 0.25,
+        "amplitude_adu": 318.40395289066765,
+        "profile_cosine": 0.7064472218145771,
+        "profile_explained_square_adu": 455144.29815734585,
+        "seed_index": 307681,
+        "seed_wave_angstrom": 6859.1900000000005,
+        "sideband_intercept_adu": 23169.817072792655,
+        "sideband_slope_adu_per_pixel": -0.06820436507936507,
+        "sideband_mad_adu": 139.15069251302083,
+        "fwhm_model_angstrom": 0.05964513043478261,
+        "amplitude_over_sideband_mad": 2.288195244596957,
+        "status": "REJECTED",
+        "reasons": [
+          "LOW_AMPLITUDE",
+          "PROFILE_MISMATCH"
+        ],
+        "prescreen_residual_over_mad": 3.294337233175509
+      }
+    ],
+    "interpretation": "Profile and amplitude scores are exploratory, not calibrated significance/SNR/FAP; accepted events are not identified lasers."
+  }
+}
