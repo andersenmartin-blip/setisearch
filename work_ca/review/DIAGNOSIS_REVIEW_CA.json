@@ -1,0 +1,53 @@
+{
+  "schema": "SETI_CA_INDEPENDENT_DIAGNOSIS_REVIEW_V1",
+  "status": "PASS_INDEPENDENT_DIAGNOSIS_REVIEW",
+  "diagnostic_sha256": "e6b5eb61b30076539b660bd7c230af3a1865f7f5f13cad3d08cb383048bff358",
+  "reviewer_sha256": "7f4edb340f7a28a931041bade2848638424ed0214363e7a906c43f180f87e869",
+  "selected_cases": 24,
+  "missing_seed_case_indices": [
+    7,
+    18,
+    29,
+    40
+  ],
+  "selected_seeds_checked": 20,
+  "scalar_track_decompositions": 60,
+  "injected_matrices_exact_sha256_matches": 60,
+  "projection_checks": 60,
+  "max_stored_score_absolute_error": 0.0,
+  "max_captured_fraction_absolute_error": 3.3306690738754696e-16,
+  "reflection_geometry_scan_pairs": 120,
+  "reflection_time_rows": 1920,
+  "max_independent_reflected_weight_error": 0.0,
+  "max_independent_template_mass_error": 1.1102230246251565e-16,
+  "integer_track_reflections": 60,
+  "max_mirror_track_sum_error": 0.0,
+  "group_counts_checked": [
+    {
+      "base_drift_index": 314,
+      "tracks": 12,
+      "failed": 8,
+      "failed_with_excess_alone_ge10": 7
+    },
+    {
+      "base_drift_index": 419,
+      "tracks": 24,
+      "failed": 0,
+      "failed_with_excess_alone_ge10": 0
+    },
+    {
+      "base_drift_index": 524,
+      "tracks": 24,
+      "failed": 1,
+      "failed_with_excess_alone_ge10": 0
+    }
+  ],
+  "independence": "No production imports. Piecewise clipped linear integration replaces producer CDF. Scalar loops and math.fsum reconstruct selected sums; Python round verifies projections/offsets. NumPy shares float32 representation and stored array reader.",
+  "limits": [
+    "Posthoc selected paths on exposed BZ backgrounds; this audit is not new scientific validation.",
+    "Stored local medians/MAD are held fixed; no calibration vectors or detector bank rerun.",
+    "Four cases without stored source seeds are intentionally not decomposed.",
+    "Mirror test checks sparse model and integer-track algebra only, not every detector selection/projection branch.",
+    "No new observation, blind ON/OFF search, false-alarm calibration, Jy sensitivity or missing-OFF5 qualification."
+  ]
+}

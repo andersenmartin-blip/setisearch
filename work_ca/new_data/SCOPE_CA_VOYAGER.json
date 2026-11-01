@@ -1,0 +1,39 @@
+{
+  "schema": "SETI_CA_VOYAGER_STAMP_SCOPE_V1",
+  "created_utc": "2026-11-01",
+  "input": "voyager.hits",
+  "input_sha256": "a272009ac00ebc4b3775e2253a1f762963e984d6c83349a3c3104e1fbdd17a08",
+  "source_repo": "lacker/seticore",
+  "source_commit": "2e6781827ca78d9c1f3238fb101f956882df0c46",
+  "source_blob": "d1eb0703218be2287ec7a61a83e27e700b72271c",
+  "scope": "Characterize all five author-selected Voyager1 signal stamps from one previously observed GBT scan. Metadata already inspected; no power values inspected before saving this scope.",
+  "search": {
+    "start_channels": "all integer columns",
+    "endpoint_shift_channels": "integer eighths from -8*(nchan-1) through +8*(nchan-1); deduplicated nearest-neighbour time-index sequences",
+    "rate_limit_Hz_per_s": 4,
+    "time_index": "0..nt-1",
+    "rounding": "np.rint (nearest, ties to even)",
+    "full_support_required": true,
+    "statistic": "sum of original float32 powers in float64, minus sum of each row's median",
+    "normalization": "No variance/SNR/FAP calibration; subtracting per-row median is a constant for every fully supported trace.",
+    "tie_break": "first in ascending endpoint shift then ascending start column",
+    "reference_comparison": "Stored hit frequency/rate/SNR are selected reference measurements, not ground truth or independent validation.",
+    "reference_consistency_tolerances": {
+      "start_channel_error": 2,
+      "endpoint_drift_error_channels": 2
+    }
+  },
+  "outputs": [
+    "stamp_0.npy through stamp_4.npy preserve every original value",
+    "RESULT_CA_VOYAGER.json",
+    "metadata.json"
+  ],
+  "limitations": [
+    "One historical 2016 GBT observation of a known human transmitter; not new observing time.",
+    "Source is preselected hit-stamps, not raw unselected telescope observation.",
+    "No ON/OFF sequence or new SETI candidate.",
+    "The five stamps are related carrier/sideband structures, not five independent observations.",
+    "Rate scan is local to small stamps and finite support; excluded paths have no coverage claim.",
+    "No promotion of original BA survey authority or original closed failures."
+  ]
+}

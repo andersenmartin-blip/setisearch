@@ -1,0 +1,8 @@
+{
+  "schema": "SETI_CA_VOYAGER_REVIEW_ATTEMPTS_V1",
+  "attempts": [
+    {"attempt": 1, "status": "PRELIMINARY_MAXIMA_COMPLETE", "scope": "Independent wire decoder and scalar-search maxima/counts: 9344 samples,391044 tracks,4 of5 reference matches. Not final all-sum audit."},
+    {"attempt": 2, "status": "FAILED_EOF_DURING_CONCURRENT_PRODUCTION_REWRITE", "exit_code": 1, "error": "EOFError reading search_0.npz while production agent regenerated identical numerical outputs to bind byte-exact source schema/header provenance.", "code_issue": "Reviewer accessed compressed raw_sums repeatedly inside scalar loop, causing needless repeated decompression; changed to one in-memory load before final audit.", "scientific_conclusion": "No successful audit claimed for this attempt."},
+    {"attempt": 3, "status": "FINAL_AUDIT_SEPARATE_RESULT", "result_file": "VOYAGER_REVIEW_CA.json", "production_result_sha256": "7e20fe0877621a1173b373756e14145a04e4fe0ad35abd1525b225b3a1b96daf"}
+  ]
+}

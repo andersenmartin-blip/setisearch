@@ -1,0 +1,42 @@
+{
+  "schema": "SETI_CA_VOYAGER_EXECUTION_HISTORY_V1",
+  "closed": true,
+  "production_runs": [
+    {
+      "run": 1,
+      "program": "new_data/analyze_voyager.py",
+      "exit_code": 0,
+      "wall_seconds_reported": 0.40156290200047806,
+      "status": "NUMERICALLY_COMPLETE_SUPERSEDED_FOR_SOURCE_BYTE_PROVENANCE",
+      "reason": "Initial source text files had one appended newline from copying through a patch. Analysis completed; source powers, scope and search method were unchanged.",
+      "summary": {
+        "selected_stamps": 5,
+        "power_samples": 9344,
+        "full_support_tracks": 391044,
+        "reference_consistent": 4
+      },
+      "original_result_bytes_retained": false,
+      "original_result_sha256": null,
+      "provenance_limit": "Initial complete result file was overwritten by run 2. Original result hash was not recorded; no reconstructed identity or final audit is claimed for run 1."
+    },
+    {
+      "run": 2,
+      "program": "new_data/analyze_voyager.py",
+      "exit_code": 0,
+      "wall_seconds_reported": 0.4271432810000988,
+      "status": "FINAL_PRODUCTION_BYTES",
+      "reason": "Reran identical scientific method after saving original schema and header bytes exactly and verifying their original Git blob IDs. Result now binds byte-exact schema SHA256.",
+      "result_sha256": "7e20fe0877621a1173b373756e14145a04e4fe0ad35abd1525b225b3a1b96daf",
+      "summary": {
+        "selected_stamps": 5,
+        "power_samples": 9344,
+        "full_support_tracks": 391044,
+        "reference_consistent": 4
+      }
+    }
+  ],
+  "independent_review_attempts": "review/VOYAGER_REVIEW_ATTEMPTS.json",
+  "review_concurrency_note": "An intermediate independent all-sum review encountered EOF while run 2 rewrote compressed search outputs. That review attempt is explicitly FAIL with exit 1. The final review ran after production closure and independently checked every source sample and every supported scalar sum, finding exact agreement. No successful review is claimed for the interrupted attempt.",
+  "final_review": "review/VOYAGER_REVIEW_CA.json",
+  "processes_continuing": false
+}

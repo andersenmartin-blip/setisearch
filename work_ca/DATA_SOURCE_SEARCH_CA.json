@@ -1,0 +1,89 @@
+{
+  "schema": "SETI_CA_BOUNDED_DATA_SOURCE_SEARCH_V1",
+  "scope": "Bounded source inspection; not exhaustive inventory",
+  "checked_utc_date": "2026-11-01",
+  "repository_trees_checked": 7,
+  "other_deposits_inspected": 2,
+  "all_successful_recursive_trees_untruncated": true,
+  "eligible_new_complete_stellar_ON_OFF_sequences": 0,
+  "new_unselected_raw_observations": 0,
+  "selected_observation_products_acquired": 1,
+  "selected_power_stamps_acquired": 5,
+  "selected_power_samples_acquired": 9344,
+  "original_archive_host_requests": 0,
+  "original_archive_workarounds": 0,
+  "TOP8_requests": 0,
+  "checks": [
+    {
+      "source": "UCBerkeleySETI/turbo_seti",
+      "revision": "7d9b4fde9bc98d834dc11cfc0acd2380e6676f0e",
+      "recursive_tree_truncated": false,
+      "finding": "No .fil/.h5 powers in repository; official test downloader points to original Berkeley Voyager files. These blocked original-host paths were not requested.",
+      "url": "https://github.com/UCBerkeleySETI/turbo_seti/blob/master/test/download_test_data.py"
+    },
+    {
+      "source": "UCBerkeleySETI/blimpy",
+      "revision": "4dd6414a6970016bd0f734f5332c146e297609f2",
+      "recursive_tree_truncated": false,
+      "finding": "No observational power arrays in current tree; test downloader references original Berkeley Voyager files. Observatory ID table explicitly maps telescope_id=6 to GBT.",
+      "url": "https://github.com/UCBerkeleySETI/blimpy/blob/master/tests/download_data.sh"
+    },
+    {
+      "source": "lacker/seticore",
+      "revision": "2e6781827ca78d9c1f3238fb101f956882df0c46",
+      "recursive_tree_truncated": false,
+      "finding": "Acquired original author-deposited data/voyager.hits through ordinary raw GitHub. Five selected Voyager1 power stamps, one 2016 GBT scan, 9344 values; no ON/OFF set. Full source Git blob and SHA256 verified.",
+      "url": "https://github.com/lacker/seticore/blob/2e6781827ca78d9c1f3238fb101f956882df0c46/data/voyager.hits",
+      "acquired_file": "new_data/voyager.hits",
+      "acquired_bytes": 38176,
+      "git_blob_sha": "d1eb0703218be2287ec7a61a83e27e700b72271c",
+      "sha256": "a272009ac00ebc4b3775e2253a1f762963e984d6c83349a3c3104e1fbdd17a08"
+    },
+    {
+      "source": "joebarbere/jansky",
+      "revision": "1f5f428fcdf5e074f72d318d3db33ee43b8bc6f5",
+      "recursive_tree_truncated": false,
+      "finding": "No bundled suitable SETI power sequence. Starter data documentation refers to pulsar/search-mode files and Radio JOVE data; not acquired or characterized as narrowband SETI cadence.",
+      "url": "https://github.com/joebarbere/jansky/blob/main/docs/data-formats.md"
+    },
+    {
+      "source": "bbrzycki/setigen",
+      "revision": "1485b15127e159a433bad080f5dc6a995b238143",
+      "recursive_tree_truncated": false,
+      "finding": "sample.fil is used by the code as a synthetic waterfall container template; sample_noise_params.npy and test_frame_data.npy are also present. No documented original complete ON/OFF sequence was established; no bytes acquired or science claims from these assets.",
+      "url": "https://github.com/bbrzycki/setigen/blob/main/setigen/_frame/io.py"
+    },
+    {
+      "source": "deepfieldlabs/MitraSETI",
+      "revision": "9ff305a516741c2ad905da9040e9355ddf155658",
+      "recursive_tree_truncated": false,
+      "finding": "Tree has download scripts and model embeddings but no .fil/.h5 observational matrices. No source powers acquired.",
+      "url": "https://github.com/deepfieldlabs/MitraSETI"
+    },
+    {
+      "source": "UCBerkeleySETI/event_viewer",
+      "revision": "e7d537a03b6448ba4731ca259912cfd106704056",
+      "recursive_tree_truncated": false,
+      "finding": "No observational .fil/.h5 arrays in repository tree. Author documentation says HDF5 event databases are table columns of frequencies/rates/SNR/categories, paired with images; they are not original power matrices.",
+      "url": "https://github.com/UCBerkeleySETI/event_viewer"
+    },
+    {
+      "source": "Zenodo 7600403 / Price et al. 1327-star data",
+      "metadata_only": true,
+      "finding": "Deposited sband2019.tar.gz is derived turboSETI .dat output; static.tar.gz contains event tables and images according to linked author repository. Original filterbank powers are on Berkeley archive. Neither archive downloaded.",
+      "url": "https://zenodo.org/records/7600403"
+    },
+    {
+      "source": "Zenodo 8028045 / ROAD",
+      "metadata_only": true,
+      "finding": "Author-deposited 3.9 GB LOFAR spectrogram anomaly dataset found. Narrowband SETI ON/OFF suitability not established; no payload acquired or claimed. Page open timed out; metadata corroborated by authoritative search.",
+      "url": "https://zenodo.org/records/8028045"
+    }
+  ],
+  "transport_notes": [
+    "GitHub fetch_blob decoded binary as UTF-8 and failed; ordinary raw.githubusercontent.com retrieval succeeded with HTTP 200. This is the author's repository object, not a proxy for a blocked archive.",
+    "An initial binary retrieval checked 38176-byte response without preserving it; a subsequent ordinary request saved and git-hash-verified identical object bytes.",
+    "Initial probes for absent paths (blimpy tests/download_test_data.py; seticore python/hit.capnp; bl_test_data repository; setigen master branch; old notebook at python/example.ipynb) returned explicit errors and were corrected using observed tree paths."
+  ],
+  "scientific_scope": "Only author-selected signal stamp characterization is added; this is neither a blind survey nor a new SETI candidate. Original BA survey authority is unchanged."
+}

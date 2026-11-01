@@ -1,0 +1,81 @@
+{
+  "schema": "SETI_CA_FINAL_SUMMARY_V1",
+  "stage": "CA",
+  "status": "COMPLETE_WITH_REFERENCE_DISCREPANCY_PRESERVED_AUDITS_PASS",
+  "completed_utc": "2026-11-01T08:41:30.545404+00:00",
+  "parent_stage": "BZ",
+  "parent_evidence_library_file_id": "libfile_b505148d8fb08191b039b95261921813",
+  "new_data": {
+    "kind": "AUTHOR_SELECTED_VOYAGER1_POWER_STAMPS",
+    "newly_acquired_original_selected_product_files": 1,
+    "newly_acquired_selected_stamps": 5,
+    "power_samples": 9344,
+    "historical_observation_starts": 1,
+    "new_telescope_observations": 0,
+    "original_unselected_raw_telescope_files": 0,
+    "integration_duration_seconds": 292.057776128,
+    "scored_full_support_tracks": 391044,
+    "reference_consistent_stamps": 4,
+    "reference_inconsistent_zero_based_hit": 3,
+    "reference_inconsistent_displayed_stamp": 4,
+    "reference_inconsistent_endpoint_channels": -2.75,
+    "raw_sha256": "a272009ac00ebc4b3775e2253a1f762963e984d6c83349a3c3104e1fbdd17a08",
+    "source": {
+      "source_repo": "lacker/seticore",
+      "source_commit": "2e6781827ca78d9c1f3238fb101f956882df0c46",
+      "source_blob": "d1eb0703218be2287ec7a61a83e27e700b72271c",
+      "input_sha256": "a272009ac00ebc4b3775e2253a1f762963e984d6c83349a3c3104e1fbdd17a08"
+    }
+  },
+  "diagnostic": {
+    "posthoc": true,
+    "fixed_selected_ON_tracks": 60,
+    "exact_stored_score_error": 0.0,
+    "no_source_seed_geometries_excluded": 4,
+    "negative_rate_failed_selected_ON_tracks": 8,
+    "failed_tracks_with_injection_term_at_least_threshold": 7,
+    "reflection_checks": {
+      "integer_track_pairs": 60,
+      "maximum_integer_track_sum_absolute_error": 0.0,
+      "maximum_sparse_weight_absolute_error": 3.6637359812630166e-15,
+      "scope": "Frequency-reflected sparse template with opposite rate; integer track against reflected background with opposite integer offsets. Does not test every source-selection/projection branch.",
+      "sparse_geometry_scan_pairs": 120,
+      "sparse_time_rows": 1920
+    }
+  },
+  "review": {
+    "voyager_status": "PASS_INDEPENDENT_WIRE_AND_FULL_SCALAR_SEARCH_REVIEW",
+    "diagnosis_status": "PASS_INDEPENDENT_DIAGNOSIS_REVIEW",
+    "interrupted_attempt_history_preserved": "work_ca/review/VOYAGER_REVIEW_ATTEMPTS.json",
+    "bound_voyager_inputs_outputs_verified_at_finalization": true
+  },
+  "data_discovery": {
+    "repository_trees_checked": 7,
+    "other_deposits_inspected": 2,
+    "eligible_complete_new_stellar_ON_OFF_sequences": 0
+  },
+  "original_authority": {
+    "unique_archive_ids": 486,
+    "technical_MHz_visits": 268.50128173828125,
+    "qualified_astronomical_sensitivity_MHz_visits": 0,
+    "full_cadence_status": "NOT_EVALUABLE_MISSING_OFF5",
+    "new_blind_SETI_searches": 0,
+    "new_original_survey_coverage": 0
+  },
+  "limits": [
+    "Author-selected known human-transmitter stamps; reference metadata is not independent truth.",
+    "No calibrated SNR, global false-alarm rate, Jy sensitivity or detector adoption.",
+    "Different linear-track objective; fourth-stamp reference mismatch remains unresolved.",
+    "BZ diagnostic uses exposed, selected and correlated paths; four no-source cases excluded."
+  ],
+  "next_action": "Prioritize complete original stellar ON/OFF data or normal permitted original OFF5 access with BB/BC/BE gates. Retained Voyager fixture allows a separate bounded linear-versus-seticore path investigation for stamp4. Do not change closed CA acceptance criteria.",
+  "background_processes_running": false,
+  "bound_files": {
+    "work_ca/new_data/RESULT_CA_VOYAGER.json": "7e20fe0877621a1173b373756e14145a04e4fe0ad35abd1525b225b3a1b96daf",
+    "work_ca/review/VOYAGER_REVIEW_CA.json": "32063d75f1598739b34ea2477330070ad03a470330729a6729a127129196f4ab",
+    "work_ca/diagnosis/SCORE_DECOMPOSITION_CA.json": "e6b5eb61b30076539b660bd7c230af3a1865f7f5f13cad3d08cb383048bff358",
+    "work_ca/review/DIAGNOSIS_REVIEW_CA.json": "b6f0d449aa0b38b8b74857102e5287dc0ce2743d3f5059a141236201c7e2c2fa",
+    "work_ca/DATA_SOURCE_SEARCH_CA.json": "14868cd6c97e634402066df4eabec51244222fac67593067818e1f68da7659a0",
+    "RADIO_PROGRESS_CA_VOYAGER_2026-11-01.md": "b0f72d987598fb20336ba891db622950803fe676611dfb5167314f27b1564af9"
+  }
+}
