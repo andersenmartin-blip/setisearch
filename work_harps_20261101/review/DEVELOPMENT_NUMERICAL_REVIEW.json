@@ -1,0 +1,87 @@
+{
+  "schema": "HARPS_DEVELOPMENT_NUMERICS_INDEPENDENT_REVIEW_V1",
+  "reviewed_utc": "2026-11-01T15:40:18.677873+00:00",
+  "status": "PASS",
+  "method": "Direct NumPy 101-value median and population standard deviation at every valid development window; independent convolution-based support mask and index-grouping run extraction; detector module is not imported.",
+  "development_spectra": [
+    {
+      "development_name": "HD100508_20211126",
+      "raw_input": "data/development/ADP.2021-11-27T01_09_23.401.fits",
+      "result_sha256": "53b7890df0d15950656dcfcd9cb0ffee398b5799dfb9828358c79a07dbc3cd3c",
+      "windows_independently_recomputed": 306507,
+      "all_threshold_runs": 6,
+      "preliminary_hits": 0,
+      "max_scatter_absolute_difference_adu": 1.358100121251482e-08,
+      "max_scatter_relative_difference": 1.007788135228065e-10,
+      "checks": {
+        "input_hash_matches": true,
+        "config_matches_frozen": true,
+        "saved_wavelength_matches_raw": true,
+        "saved_flux_matches_raw": true,
+        "searched_mask_exact_match": true,
+        "searched_count_matches": true,
+        "median_exact_match_all_searched_windows": true,
+        "scatter_matches_rtol1e_7_atol1e_7": true,
+        "crossing_mask_exact_match": true,
+        "all_run_boundaries_peaks_classes_match": true
+      },
+      "status": "PASS"
+    },
+    {
+      "development_name": "HD100508_20220310",
+      "raw_input": "data/development/ADP.2022-03-11T01_01_42.938.fits",
+      "result_sha256": "fe6e5a0524e42b597cba3ff50f1bbc31c1afa9781141f527dcf4a87d35ed82fb",
+      "windows_independently_recomputed": 306507,
+      "all_threshold_runs": 3,
+      "preliminary_hits": 0,
+      "max_scatter_absolute_difference_adu": 1.8227041209684103e-08,
+      "max_scatter_relative_difference": 1.4144602928006256e-10,
+      "checks": {
+        "input_hash_matches": true,
+        "config_matches_frozen": true,
+        "saved_wavelength_matches_raw": true,
+        "saved_flux_matches_raw": true,
+        "searched_mask_exact_match": true,
+        "searched_count_matches": true,
+        "median_exact_match_all_searched_windows": true,
+        "scatter_matches_rtol1e_7_atol1e_7": true,
+        "crossing_mask_exact_match": true,
+        "all_run_boundaries_peaks_classes_match": true
+      },
+      "status": "PASS"
+    },
+    {
+      "development_name": "HD203608",
+      "raw_input": "access_probe/DEV_HD203608_ADP.2014-09-16T11_03_30.940.fits",
+      "result_sha256": "745c5bf6d53620322948fb9e1c0234f5fdb2d6158583e1e01b5b3256bead914b",
+      "windows_independently_recomputed": 306507,
+      "all_threshold_runs": 30,
+      "preliminary_hits": 0,
+      "max_scatter_absolute_difference_adu": 5.017923854211404e-10,
+      "max_scatter_relative_difference": 1.3505501749925214e-11,
+      "checks": {
+        "input_hash_matches": true,
+        "config_matches_frozen": true,
+        "saved_wavelength_matches_raw": true,
+        "saved_flux_matches_raw": true,
+        "searched_mask_exact_match": true,
+        "searched_count_matches": true,
+        "median_exact_match_all_searched_windows": true,
+        "scatter_matches_rtol1e_7_atol1e_7": true,
+        "crossing_mask_exact_match": true,
+        "all_run_boundaries_peaks_classes_match": true
+      },
+      "status": "PASS"
+    }
+  ],
+  "main_or_validation_flux_opened": false,
+  "scope_limits": [
+    "Numerical implementation and saved output are verified on three approved development exposures. This is not validation of astrophysical laser identity, calibrated significance, or completeness.",
+    "The descriptive observed FWHM field was not independently reproduced in this audit."
+  ],
+  "input_sha256": {
+    "code/harps_detector.py": "c9694d9708181c058e420092bffe15e9b39f2bc6355b0a087653a6277d9d2112",
+    "code/DETECTOR_CONFIG.json": "a8203650b6c06bc68685ded44bb42244e327cf2efa648ccd2cdae030a56b28a0",
+    "code/DETECTOR_FREEZE.json": "1bd696e8fb540f31e4f795013e7729b40bdcddfdcf1b1e39ab040325f9d42195"
+  }
+}

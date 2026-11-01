@@ -1,0 +1,45 @@
+{
+  "status": "DEVELOPMENT_READY_PARAMETERS_FROZEN",
+  "frozen_at_utc": "2026-11-01T15:33:58.296927+00:00",
+  "method": "Independent implementation of first-stage Fields & Goodman 2025 run threshold; not upstream code",
+  "config": {
+    "wave_min_angstrom": 3800.0,
+    "wave_max_angstrom": 6900.0,
+    "window_pixels": 101,
+    "threshold_local_std": 3.5,
+    "minimum_run_pixels": 4,
+    "maximum_run_pixels": 60,
+    "mask_exact_zero_flux": true,
+    "gap_step_multiple": 1.5
+  },
+  "source_hashes": {
+    "harps_detector.py": "c9694d9708181c058e420092bffe15e9b39f2bc6355b0a087653a6277d9d2112",
+    "test_harps_detector.py": "6d7c841d3adc0eaa2697caf5455b3fa4902630f4eea1b881d228597a81320005",
+    "DETECTOR_CONFIG.json": "a8203650b6c06bc68685ded44bb42244e327cf2efa648ccd2cdae030a56b28a0",
+    "plot_development.py": "f9cd8792cfee1b4b63c098d72f8faf077f7c0ee3123b082a29dcf61e18fee3d9"
+  },
+  "versions": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "numpy": "2.5.4",
+    "scipy": "1.17.0",
+    "astropy": "8.0.2"
+  },
+  "development_inputs": [
+    "access_probe/DEV_HD203608_ADP.2014-09-16T11_03_30.940.fits"
+  ],
+  "main_science_inputs_opened": 0,
+  "validation_inputs_opened": 0,
+  "tests": {
+    "hand_constructed_boundary_and_gap_test": "PASS",
+    "development_scalar_windows": 308,
+    "max_median_error": 0.0,
+    "max_population_std_absolute_error": 3.127880177089537e-10
+  },
+  "limitations": [
+    "Only first-stage emission runs; no airglow or instrumental-origin veto",
+    "Local scatter includes stellar lines and any injected signal; contrast is not calibrated significance",
+    "Exact zero flux treated as missing/filled samples; 50-pixel segment margins discarded",
+    "1D reduced-data search does not assess losses in reduction",
+    "FWHM is observed residual half-height width, not a deconvolved or fitted linewidth"
+  ]
+}
