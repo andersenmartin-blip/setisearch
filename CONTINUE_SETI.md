@@ -38,4 +38,4 @@ All 4,370 epoch profiles are recoverable from [18 ordered parts](work_harps_2026
 
 After each verified batch, retain source IDs/hashes, decisions, limitations, commands, evidence and the exact next queue. Original catalogs and historical results remain immutable. The user authorized public GitHub updates on 1 November 2026; earlier approval-wait notes are historical.
 
-This checkpoint awaits final publication readback. Root must record verified remote heads and file hashes in `work_harps_20261101/v2/extension02/raw_followup_batch03/PUBLICATION_RECEIPT.json` before claiming delivery. No unattended background science search is configured.
+The completed batch was published and remotely verified on both `main` and `optical-harps-week-20261101` at content commit `6d24e1592748a8d8e44f8a13509b98474a220a03`. The [publication receipt](work_harps_20261101/v2/extension02/raw_followup_batch03/PUBLICATION_RECEIPT.json) records the complete matching tree, 13 key-file readbacks and 48 verified binary blob identities. No unattended background science search is configured.
