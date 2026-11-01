@@ -1,0 +1,40 @@
+{
+  "role": "extension02_unopened",
+  "selected_exposures": 100,
+  "selected_targets": 16,
+  "previous_inputs_excluded": 209,
+  "estimated_science_payload_bytes": 538889216,
+  "total_payload_byte_cap": 700000000,
+  "per_file_byte_cap": 10000000,
+  "workers": 3,
+  "maximum_attempts_per_file": 2,
+  "attempt_timeouts_seconds": [
+    20,
+    60
+  ],
+  "maximum_start_wall_seconds": 900,
+  "accounting": "Response-body bytes; retry payload included. Read errors conservatively charge the reserved byte count. HTTP/TLS overhead is not measured.",
+  "ancillary_or_raw_download": false,
+  "replacement_or_scope_expansion": false,
+  "implicit_resume": false,
+  "header_policy": "FITS hash and target/time/coordinates/units/frame/BERV/proposal/OBID/ADP/raw-ID checks before any spectral analysis.",
+  "failed_input_policy": "Keep original selection; report failed or excluded inputs explicitly. Analyze only metadata-pass files, never substitute observations.",
+  "analysis": "Original frozen V1 and V2 code/configurations, unchanged.",
+  "stable_id_rule": "V2E2-0001 onwards (V1E2-0001 for V1) in frozen exposure order and unchanged detector event order.",
+  "output_directory": "v2/extension02/production",
+  "merge_into_original_catalog": false,
+  "publication_gate": "Root publishes and verifies FREEZE.json plus every new hashed input/code file before supplying commit and matching FREEZE SHA256 to acquire.py.",
+  "selection_rule": "Original target-balanced alphabetical round robin to100, capped by available count; maximize distinct nights, prefer nights absent from all209 prior inputs, spread ranks evenly, then fill using unused exposure ranks. Latest ADP per normalized target/start retained.",
+  "quality_cuts": {
+    "instrument": "HARPS",
+    "single_exposure": true,
+    "snr_min": 50,
+    "t_exptime_min_seconds": 300,
+    "t_min_mjd": 58849,
+    "public_before_utc": "2026-11-01T00:00:00Z"
+  },
+  "prior_search_limit": "No match to the pinned reference ADP/raw-ID inventory is not proof these exposures have never been searched.",
+  "metadata_scope_limit": "The bounded alphabetical snapshot is not representative of the whole HARPS archive.",
+  "science_arrays_opened_at_freeze": 0,
+  "new_science_files_downloaded_at_freeze": 0
+}
