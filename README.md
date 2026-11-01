@@ -1,3 +1,17 @@
+## Seneste status — HARPS udvidet til 200 eksponeringer (1. november 2026)
+
+**200 unikke HARPS-eksponeringer af 20 stjerner er nu analyseret**, samlet 46,750 timers teleskopeksponering. De nye 100 er undersøgt med både den oprindelige V1 og en særskilt, fastlåst V2-profildetektor. V1 giver seks nye hits, 16 samlet; V2 giver 333 foreløbige profilhits i de nye 100. Alle 333 har figurer og mangler fortsat ophavsvurdering. Ingen identificeret laser eller kvalificeret SETI-kandidat.
+
+**Frisk validering viser bedre genfinding:** ved de to største indsatte styrker genfinder V2 48/48 og 48/48 mod V1's 22/48 og 27/48. De 192 parrede forsøg genbruger 16 baggrundsudsnit fra fire spektre af én stjerne. Resultatet er ikke global følsomhed eller en sammenligning ved ens falsk-alarm-rate. V2's regler blev fastlåst før de friske signalværdier blev åbnet og er ikke ændret efter resultaterne.
+
+**De oprindelige ti hits er fulgt tilbage til råbilleder:** foreløbig syv sandsynlige detektorartefakter og tre sandsynlige atmosfæriske iltlinjer. De oprindelige resultattabeller er bevaret. Alle 333 nye fits består en særskilt skalarberegning, og fem fulde eksponeringer reproduceres i frisk proces; dette er hovedagentens kontrol, ikke uafhængigt forskerreview.
+
+[Resultatrapport, komplette tabeller og 333 figurer](https://github.com/andersenmartin-blip/setisearch/blob/8212c365662cfc6335b87faa0ccd1aa7db4ba873/work_harps_20261101/v2/README.md) · [Råbilleder og foreløbige dispositioner](https://github.com/andersenmartin-blip/setisearch/blob/8212c365662cfc6335b87faa0ccd1aa7db4ba873/work_harps_20261101/triage_followup/README.md) · [Gendannelse og næste arbejde](https://github.com/andersenmartin-blip/setisearch/blob/8212c365662cfc6335b87faa0ccd1aa7db4ba873/work_harps_20261101/v2/RESTORE.md)
+
+**HARPS-ugen er delvist gennemført.** Næste arbejde er systematisk ophavsvurdering af de 333 nye hændelser og uafhængig kontrol af de foreløbige råvurderinger. HARPS: 1.–7. november; Rubin: 8.–14. november, endnu ikke analyseret. Ingen automatisk baggrundskørsel er oprettet. Tidligere status og radioarbejde er bevaret nedenfor.
+
+---
+
 ## Seneste status — HARPS optisk søgning startet (1. november 2026)
 
 **100 eksponeringer af 20 stjerner er analyseret:** 30.650.658 søgte spektralpunkter og 22,972 timers samlet eksponering. Der er **10 foreløbige emissionshits på seks mål**, alle bevaret med status `UNREVIEWED`. Ingen laser eller kvalificeret SETI-kandidat er identificeret.
