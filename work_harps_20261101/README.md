@@ -1,5 +1,7 @@
 # HARPS — første analyse, 1. november 2026
 
+**Opdatering om tempo og udvidelse:** Selve hovedkørslen tog 6,5 sekunder på klargjorte data. En ny metadataopgørelse finder 959 yderligere mulige eksponeringer, og et forslag på 100 ekstra er klar. Ingen af disse er endnu hentet eller analyseret. [Mulig udvidelse](expansion/FEASIBILITY.md) · [Faglig prioritering](expansion/NEXT_STEPS.md). En første headerkontrol af de eksisterende hits giver tre tætte O I-bølgelængdesammenfald, fortsat uden endelig disposition: [foreløbig kontrol](triage_initial/README.md).
+
 **Den godkendte optiske uge er startet, og første hovedsøgning er gennemført.** 100 individuelle HARPS-eksponeringer af 20 mål er analyseret med regler fastlagt før hoveddata blev åbnet. Der er 10 foreløbige emissionshits på seks mål. Der er ingen identificeret laser eller kvalificeret SETI-kandidat. Ophavet til de 10 hits er endnu ikke vurderet.
 
 Kontrolforsøget viser samtidig en væsentlig følsomhedsbegrænsning: kun 11 af 48 indsatte linjer genfindes. Derfor kan de øvrige eksponeringer ikke bruges som en bred udelukkelse af smalle optiske lasersignaler.
