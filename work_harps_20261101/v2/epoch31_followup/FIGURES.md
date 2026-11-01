@@ -1,0 +1,22 @@
+# Alle-epoke-figurer for de 31 ekstra hændelser
+
+- [Oversigt 1](figures/OVERVIEW_01.png)
+- [Oversigt 2](figures/OVERVIEW_02.png)
+- [Oversigt 3](figures/OVERVIEW_03.png)
+- [Oversigt 4](figures/OVERVIEW_04.png)
+
+- [N01 — HD114386, 3869.9100 Å](figures/N01.png)
+- [N02 — HD114783, 3852.6800 Å](figures/N02.png)
+- [N03 — HD114783, 3869.3325 Å](figures/N03.png)
+- [N04 — HD114783, 4309.8263 Å](figures/N04.png)
+- [N05 — HD114783, 4312.2375 Å](figures/N05.png)
+- [N06 — HD115031, 3852.3050 Å](figures/N06.png)
+- [N07 — HD122640, 3866.9550 Å](figures/N07.png)
+- [N08 — HD122640, 3868.9288 Å](figures/N08.png)
+- [N09 — HD122640, 4302.6850 Å](figures/N09.png)
+- [N10 — HD126093, 3866.1250 Å](figures/N10.png)
+- [N11 — HD126093, 3866.9450 Å](figures/N11.png)
+- [N12 — HD126093, 3867.3263 Å](figures/N12.png)
+- [N13 — HD126093, 3868.1500 Å](figures/N13.png)
+- [N14 — HD126093, 3869.3025 Å](figures/N14.png)
+- [N15 — HD1397, 3868.7250 Å](figures/N15.png)

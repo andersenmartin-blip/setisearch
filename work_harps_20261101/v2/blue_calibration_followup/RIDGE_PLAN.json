@@ -1,0 +1,27 @@
+{
+  "created_utc": "2026-11-01T19:49:38.269592+00:00",
+  "status": "ADDITIONAL_POST_HOC_PLAN_AFTER_RAW_VISUAL_INSPECTION_BEFORE_RIDGE_FITTING",
+  "motivation": "E01 A2 and E10/E11 A1 raw fixed patches visibly contain an oblique train of broad spots crossing science trace. Quantify spatial trajectory using off-trace pixels away from saved hit.",
+  "patches": [
+    "E01_raw_o2.npz",
+    "E10_raw_o1.npz"
+  ],
+  "training": "Exclude all rows within80 raw pixels of candidate row, and every pixel within6 columns of every predicted main A or B trace. Use retained highpass image from fixed31-row median filter.",
+  "grid": {
+    "slope_cross_columns_per_raw_row": [
+      -0.12,
+      -0.03,
+      0.001
+    ],
+    "intercept_offset_from_science_center_column": [
+      -10,
+      10,
+      0.25
+    ],
+    "strip_halfwidth_columns": 2,
+    "score": "Mean signed highpass ADU within strip on unmasked training pixels. All candidate line hypotheses retained; no empirical p-value.",
+    "no_shift_refinement_beyond_grid": true
+  },
+  "evaluation": "At the withheld candidate row, compare fitted ridge center to predicted science center; plot ridge and training exclusion. Reflected spectrum parent order and exact wavelength-transfer function remain unidentified.",
+  "limitations": "Chosen after seeing an oblique structure; optimized scores are descriptive and cannot supply significance. Header trace models may have subpixel errors. Sparse ghost plus particles can perturb fitted trajectory."
+}

@@ -1,0 +1,135 @@
+{
+  "created_utc": "2026-11-01T19:53:17.424419+00:00",
+  "reviewer": "Independent line_catalog agent; separate from synthesis author.",
+  "scope": "Read-only source/code/output audit; no numerical spectrum rerun and no source mutation.",
+  "all_checks_passed": true,
+  "checks": [
+    {
+      "name": "original_identity_unique_and_count",
+      "passed": true,
+      "detail": {
+        "rows": 333,
+        "unique_ids": 333,
+        "expected": 333
+      }
+    },
+    {
+      "name": "mapping_identity_unique_and_count",
+      "passed": true,
+      "detail": {
+        "rows": 43,
+        "unique_ids": 43,
+        "expected": 43
+      }
+    },
+    {
+      "name": "epoch_identity_unique_and_count",
+      "passed": true,
+      "detail": {
+        "rows": 95,
+        "unique_ids": 95,
+        "expected": 95
+      }
+    },
+    {
+      "name": "width_identity_unique_and_count",
+      "passed": true,
+      "detail": {
+        "rows": 95,
+        "unique_ids": 95,
+        "expected": 95
+      }
+    },
+    {
+      "name": "synthesis_identity_unique_and_count",
+      "passed": true,
+      "detail": {
+        "rows": 333,
+        "unique_ids": 333,
+        "expected": 333
+      }
+    },
+    {
+      "name": "original_synthesis_exact_identity_and_order",
+      "passed": true,
+      "detail": "All333 original review IDs and ordering retained."
+    },
+    {
+      "name": "mapping_exact_prior_mapping_subset",
+      "passed": true,
+      "detail": "Every and only original43 insufficient-mapping row is reconsidered."
+    },
+    {
+      "name": "status_only_mapping_overlay",
+      "passed": true,
+      "detail": "No epoch or width result changes a disposition."
+    },
+    {
+      "name": "all_other_original_columns_preserved",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "mapping_evidence_and_provenance_exact",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "epoch_width_exact_unresolved_coverage",
+      "passed": true,
+      "detail": "All95 unresolved IDs match epoch and native-width overlays exactly."
+    },
+    {
+      "name": "all_descriptive_overlay_values_exact",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "no_final_origin_claims",
+      "passed": true,
+      "detail": "All333 final_origin_confirmed=False; summary explicitly states provisional origins and warns that persistence/bands/widths do not identify transitions or exclude a narrow added component."
+    },
+    {
+      "name": "summary_counts_exact",
+      "passed": true,
+      "detail": {
+        "status_counts": {
+          "UNRESOLVED_SPECTRAL_FEATURE": 95,
+          "PROVISIONAL_DETECTOR_ARTIFACT": 209,
+          "PROVISIONAL_ATMOSPHERIC_OI": 25,
+          "INSUFFICIENT_RAW_MAPPING": 4
+        },
+        "epoch_finding_counts": {
+          "PERSISTENT_OBSERVER_FRAME_STRUCTURE": 3,
+          "PERSISTENT_BARYCENTRIC_SPECTRAL_STRUCTURE": 91,
+          "WEAK_LINE_WITH_TOP_FRAME_PREFERENCE": 1
+        },
+        "native_orders": 156,
+        "all_methods_orders_above_two": 50
+      }
+    },
+    {
+      "name": "source_hashes_match_summary",
+      "passed": true,
+      "detail": "Current input hashes exactly match build summary."
+    },
+    {
+      "name": "original333_hash_unchanged_from_independent_plan",
+      "passed": true,
+      "detail": "5700f9b5a75f799a0f719837154313891050f31783ee7a9f75ab68307f56bbca"
+    }
+  ],
+  "errors": [],
+  "source_sha256": {
+    "triage_batch02/CUMULATIVE_DISPOSITIONS.csv": "5700f9b5a75f799a0f719837154313891050f31783ee7a9f75ab68307f56bbca",
+    "mapping43_followup/FOLLOWUP_DISPOSITIONS.csv": "ffe818e52873209f629a35bfbc15e31206d2e5fe5379ff3c5242d63b4b18887b",
+    "epoch31_followup/COMBINED_95_EVENT_FOLLOWUP.csv": "005298e87bbf9a521cc65f0db0521ad051a63adf99843f893ffd1288d7a3a76a",
+    "profile_widths/EVENT_WIDTHS.json": "377a5686ac59ee622b34eb5a93c6d85fb4749ff2cde465bdfea67f6c0646117a",
+    "profile_widths31/EVENT_WIDTHS.json": "37e13dcb6f222934718b1d75592ad5d77d061f1100bd47a90aad392dbe4c0385",
+    "followup_synthesis/CUMULATIVE_333.csv": "b0dda61d6b7aa72042122d8c81a01e2e46829b320d4b66c667f0932a3c136441",
+    "followup_synthesis/build.py": "f211246be27443107cb7c17bbd8fa024fbec8badb6480ea6f2acfb260ca66b80",
+    "followup_synthesis/SUMMARY.json": "8d6027084928fec496151bc7e9ac5a1afa12bc4a5592c80cf7546656988fec23"
+  },
+  "interpretation": "Synthesis faithfully preserves333 identities and only applies43 mapping status overlays. Epoch95 and width95 values are descriptive annotations, not an origin veto. Independence is a separate agent review, not independent observations or independent scientific validation.",
+  "limitation": "This checks assembly and wording against recorded inputs, not the physical correctness of upstream mapping, epoch or width measurements."
+}

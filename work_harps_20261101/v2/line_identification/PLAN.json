@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-11-01T19:38:20.548420+00:00",
+  "status": "POST_HOC_DESCRIPTIVE_CONTEXT_PLAN_BEFORE_FLUX_MEASUREMENTS",
+  "selection": "All64 UNRESOLVED_SPECTRAL_FEATURE rows, unchanged; no tuning of detector, rejection or origin disposition.",
+  "input_table_sha256": "5700f9b5a75f799a0f719837154313891050f31783ee7a9f75ab68307f56bbca",
+  "rv": "Use exact exposure ancillary CCF_A header ESO DRS CCF RVC when finite, with provenance and mask. Do not replace missing RVC by target planning velocity. Approximate stellar-air wavelength=lambda_bary_air/(1+RVC/c), c299792.458km/s; no precision rest-frame identification or air-vacuum conversion.",
+  "bands": [
+    {
+      "label": "CN index passband context",
+      "low_air_angstrom": 3861,
+      "high_air_angstrom": 3884
+    },
+    {
+      "label": "CH G band index passband context",
+      "low_air_angstrom": 4285,
+      "high_air_angstrom": 4315
+    }
+  ],
+  "band_interpretation": "Broad published stellar absorption passbands only, not an identification of individual peaks as CN/CH lines. Frame/air convention of broad bandpass definitions is approximate and not used for narrow line matching.",
+  "profile": "From same exposure barycentric-air 1D spectrum: save \u00b110\u00c5; candidate core median within \u00b10.025\u00c5, descriptive peak max of3-pointmedian within\u00b10.06\u00c5. Upper-envelope percentiles90/95 for offsets1\u20135\u00c5 and3\u201310\u00c5, excluding nonfinite/error<=0 values; central-to-envelope ratios descriptive, not calibrated continuum/excess or significance. No threshold yields a classification.",
+  "groups": "Within each target deterministic sorted maximum span0.06\u00c5 in approximate stellar-air centers, then compare group medians across targets with fixed0.10\u00c5 maximum-span bins. Keep exact offsets and RV spread; grouping not chemical identification.",
+  "output": "Every64event recorded with input hashes, RV provenance, approximate frame, broad band context, context ratios, figures and limitations. All original classifications unchanged."
+}

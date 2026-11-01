@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/9ddca116b0b1/setisearch/work_harps_20261101/v2/oi_followup/analyze_oi.py", line 71, in <module>
+    berv_km_s=float(head['ESO DRS BERV']),**fit))
+                    ~~~~^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/9ddca116b0b1/python_deps/astropy/io/fits/header.py", line 170, in __getitem__
+    card = self._cards[self._cardindex(key)]
+                       ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/9ddca116b0b1/python_deps/astropy/io/fits/header.py", line 1713, in _cardindex
+    raise KeyError(f"Keyword {keyword!r} not found.")
+KeyError: "Keyword 'ESO DRS BERV' not found."

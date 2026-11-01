@@ -1,0 +1,1068 @@
+{
+  "created_utc": "2026-11-01T19:46:35.362511+00:00",
+  "status": "FIXED_BEFORE_EXPANDED_EXTRACTION_POST_HOC_NOT_BLIND",
+  "purpose": "Same descriptive all-epoch method for31 additional events assigned unresolved after mapping43 followup. Some spectra and overlappingregions were already viewed in64-eventstage; this is not newblindvalidation.",
+  "source_dispositions_sha256": "5700f9b5a75f799a0f719837154313891050f31783ee7a9f75ab68307f56bbca",
+  "events": 31,
+  "targets": 6,
+  "groups": 15,
+  "input_exposures": 63,
+  "grouping": "Sort per target by barycentric wavelength then ID; greedy groups with maximum span0.10\u00c5 from the first member; center=median member wavelength; topocentric center anchored to earliest review ID member.",
+  "sampling": {
+    "relative_grid_air_angstrom": [
+      -1.0,
+      1.0
+    ],
+    "step_air_angstrom": 0.01,
+    "interpolation": "Linear, only within existing coverage; preserve NaN/gap flags; no extrapolation.",
+    "normalization": "Median of original flux within\u00b12\u00c5 of each frame-specific barycentric center, positive finite denominator required. This is a local relative profile, not continuum-normalized physical line flux.",
+    "linear_background": "Fit line using fixed outer offsets |x|=0.60..1.00\u00c5; subtract for shape correlation.",
+    "profile_correlation_interval_air_angstrom": [
+      -0.25,
+      0.25
+    ],
+    "reference_comparison": "Median Pearson correlation of all epoch pairs at zero shift; per-epoch correlation against leave-one-out median residual profile. No center/width/shift optimized to maximize correlation.",
+    "line_measure": "Independent unweighted fits of constant+linear slope+positive-or-negative unit-height Gaussian at fixed center, FWHM \u03bb/115000 and three times this width, using |offset|<=0.25\u00c5. Signed amplitudes retained; not detection SNR.",
+    "uncertainty": "ERR field availability checked. No formal amplitude errors if absent. Robust first-difference MAD/sqrt2 is only a local noise proxy because resampling correlations and spectral structure remain. Report epoch amplitude median/IQR/range and correlation ranges, not confidence intervals.",
+    "low_reference_continuum": "Flag local flux normalization median <=3 times first-difference noise proxy; do not exclude silently."
+  },
+  "frame_transform": "\u03bb_top\u2248\u03bb_bary/(1+BERV/c), c299792.458km/s. Classical approximation, not a validated full HARPS drift/relativistic or stellar-rest-frame correction. No fixed stellar radial velocity assumed.",
+  "interpretation": "Greater barycentric similarity is descriptive consistency with persistent source-associated spectral structure, not proof of natural emission, rest wavelength identity, or absence of technology. Source selection on known hits and group centers is explicitly post hoc.",
+  "groups_definition": [
+    {
+      "group_id": "N01",
+      "target": "HD114386",
+      "center_bary_air_angstrom": 3869.91,
+      "member_ids": [
+        "V2-0099"
+      ],
+      "reference_dp_id": "ADP.2022-03-10T01:02:01.875",
+      "member_centers_bary_air_angstrom": [
+        3869.91
+      ],
+      "reference_berv_km_s": 18.4478492213455,
+      "center_topocentric_air_angstrom": 3869.6718781879267
+    },
+    {
+      "group_id": "N02",
+      "target": "HD114783",
+      "center_bary_air_angstrom": 3852.68,
+      "member_ids": [
+        "V2-0125"
+      ],
+      "reference_dp_id": "ADP.2023-02-06T01:01:43.257",
+      "member_centers_bary_air_angstrom": [
+        3852.68
+      ],
+      "reference_berv_km_s": 26.6499714049598,
+      "center_topocentric_air_angstrom": 3852.3375474707823
+    },
+    {
+      "group_id": "N03",
+      "target": "HD114783",
+      "center_bary_air_angstrom": 3869.3325,
+      "member_ids": [
+        "V2-0126",
+        "V2-0129",
+        "V2-0110",
+        "V2-0115",
+        "V2-0135",
+        "V2-0120"
+      ],
+      "reference_dp_id": "ADP.2022-01-12T01:34:47.087",
+      "member_centers_bary_air_angstrom": [
+        3869.3250000000003,
+        3869.33,
+        3869.3325,
+        3869.3325,
+        3869.3325,
+        3869.3325000000004
+      ],
+      "reference_berv_km_s": 30.3702097144176,
+      "center_topocentric_air_angstrom": 3868.940560399598
+    },
+    {
+      "group_id": "N04",
+      "target": "HD114783",
+      "center_bary_air_angstrom": 4309.82625,
+      "member_ids": [
+        "V2-0131",
+        "V2-0117"
+      ],
+      "reference_dp_id": "ADP.2022-03-02T01:01:48.727",
+      "member_centers_bary_air_angstrom": [
+        4309.825,
+        4309.827499999999
+      ],
+      "reference_berv_km_s": 18.2176657342834,
+      "center_topocentric_air_angstrom": 4309.5643681513275
+    },
+    {
+      "group_id": "N05",
+      "target": "HD114783",
+      "center_bary_air_angstrom": 4312.237499999999,
+      "member_ids": [
+        "V2-0118",
+        "V2-0132"
+      ],
+      "reference_dp_id": "ADP.2022-03-02T01:01:48.727",
+      "member_centers_bary_air_angstrom": [
+        4312.237499999999,
+        4312.237499999999
+      ],
+      "reference_berv_km_s": 18.2176657342834,
+      "center_topocentric_air_angstrom": 4311.975471634374
+    },
+    {
+      "group_id": "N06",
+      "target": "HD115031",
+      "center_bary_air_angstrom": 3852.3050000000003,
+      "member_ids": [
+        "V2-0139"
+      ],
+      "reference_dp_id": "ADP.2023-05-13T01:01:50.307",
+      "member_centers_bary_air_angstrom": [
+        3852.3050000000003
+      ],
+      "reference_berv_km_s": -2.9384232767557,
+      "center_topocentric_air_angstrom": 3852.342758833922
+    },
+    {
+      "group_id": "N07",
+      "target": "HD122640",
+      "center_bary_air_angstrom": 3866.955,
+      "member_ids": [
+        "V2-0243"
+      ],
+      "reference_dp_id": "ADP.2023-03-01T01:01:30.547",
+      "member_centers_bary_air_angstrom": [
+        3866.955
+      ],
+      "reference_berv_km_s": 25.5268566688574,
+      "center_topocentric_air_angstrom": 3866.625762892769
+    },
+    {
+      "group_id": "N08",
+      "target": "HD122640",
+      "center_bary_air_angstrom": 3868.92875,
+      "member_ids": [
+        "V2-0244",
+        "V2-0221"
+      ],
+      "reference_dp_id": "ADP.2023-02-21T01:01:25.294",
+      "member_centers_bary_air_angstrom": [
+        3868.9225,
+        3868.935
+      ],
+      "reference_berv_km_s": 27.4377322691831,
+      "center_topocentric_air_angstrom": 3868.574688669441
+    },
+    {
+      "group_id": "N09",
+      "target": "HD122640",
+      "center_bary_air_angstrom": 4302.685,
+      "member_ids": [
+        "V2-0233"
+      ],
+      "reference_dp_id": "ADP.2023-02-23T01:01:36.779",
+      "member_centers_bary_air_angstrom": [
+        4302.685
+      ],
+      "reference_berv_km_s": 26.9645341240171,
+      "center_topocentric_air_angstrom": 4302.298034087229
+    },
+    {
+      "group_id": "N10",
+      "target": "HD126093",
+      "center_bary_air_angstrom": 3866.125,
+      "member_ids": [
+        "V2-0277",
+        "V2-0260",
+        "V2-0266"
+      ],
+      "reference_dp_id": "ADP.2025-04-27T01:01:12.703",
+      "member_centers_bary_air_angstrom": [
+        3866.1225,
+        3866.125,
+        3866.125
+      ],
+      "reference_berv_km_s": 6.34134432819824,
+      "center_topocentric_air_angstrom": 3866.043223722395
+    },
+    {
+      "group_id": "N11",
+      "target": "HD126093",
+      "center_bary_air_angstrom": 3866.9449999999997,
+      "member_ids": [
+        "V2-0284",
+        "V2-0278"
+      ],
+      "reference_dp_id": "ADP.2025-06-25T01:01:14.023",
+      "member_centers_bary_air_angstrom": [
+        3866.9449999999997,
+        3866.945
+      ],
+      "reference_berv_km_s": -17.9744888703539,
+      "center_topocentric_air_angstrom": 3867.1768621620176
+    },
+    {
+      "group_id": "N12",
+      "target": "HD126093",
+      "center_bary_air_angstrom": 3867.32625,
+      "member_ids": [
+        "V2-0272",
+        "V2-0279"
+      ],
+      "reference_dp_id": "ADP.2025-06-12T01:01:54.691",
+      "member_centers_bary_air_angstrom": [
+        3867.3250000000003,
+        3867.3275
+      ],
+      "reference_berv_km_s": -13.5077731091422,
+      "center_topocentric_air_angstrom": 3867.500508284261
+    },
+    {
+      "group_id": "N13",
+      "target": "HD126093",
+      "center_bary_air_angstrom": 3868.1499999999996,
+      "member_ids": [
+        "V2-0268",
+        "V2-0280",
+        "V2-0263",
+        "V2-0273"
+      ],
+      "reference_dp_id": "ADP.2025-04-27T01:01:12.703",
+      "member_centers_bary_air_angstrom": [
+        3868.145,
+        3868.145,
+        3868.1549999999997,
+        3868.1549999999997
+      ],
+      "reference_berv_km_s": 6.34134432819824,
+      "center_topocentric_air_angstrom": 3868.068180889594
+    },
+    {
+      "group_id": "N14",
+      "target": "HD126093",
+      "center_bary_air_angstrom": 3869.3025,
+      "member_ids": [
+        "V2-0274",
+        "V2-0281"
+      ],
+      "reference_dp_id": "ADP.2025-06-12T01:01:54.691",
+      "member_centers_bary_air_angstrom": [
+        3869.3,
+        3869.305
+      ],
+      "reference_berv_km_s": -13.5077731091422,
+      "center_topocentric_air_angstrom": 3869.4768473323293
+    },
+    {
+      "group_id": "N15",
+      "target": "HD1397",
+      "center_bary_air_angstrom": 3868.725,
+      "member_ids": [
+        "V2-0322"
+      ],
+      "reference_dp_id": "ADP.2024-10-15T01:29:59.013",
+      "member_centers_bary_air_angstrom": [
+        3868.725
+      ],
+      "reference_berv_km_s": -11.2646845695349,
+      "center_topocentric_air_angstrom": 3868.870372584348
+    }
+  ],
+  "input_manifest": [
+    {
+      "dp_id": "ADP.2021-12-26T01:05:39.255",
+      "target": "HD114386",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2021-12-26T01_05_39.255.fits",
+      "sha256": "65f32d872b0105697c973cf1f94293b6755e0efbd51df38fbfc7622d22faf33a",
+      "date_obs": "2021-12-25T07:27:54.105",
+      "mjd_obs": 59573.31104289,
+      "berv_km_s": 24.7265789551021,
+      "exptime": 899.9964,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2022-01-06T01:08:04.697",
+      "target": "HD114386",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2022-01-06T01_08_04.697.fits",
+      "sha256": "02641cb8f3d71343b1facc1daf3f070ef9258ad646591f213c597c3fa62c666e",
+      "date_obs": "2022-01-05T08:27:07.059",
+      "mjd_obs": 59584.35216503,
+      "berv_km_s": 26.5628841576932,
+      "exptime": 899.9964,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2022-03-10T01:02:01.875",
+      "target": "HD114386",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2022-03-10T01_02_01.875.fits",
+      "sha256": "d82ad38fdef704a624e6e5766514a051f2625571e8354cb02b9a840cd222972f",
+      "date_obs": "2022-03-09T06:31:03.549",
+      "mjd_obs": 59647.27156886,
+      "berv_km_s": 18.4478492213455,
+      "exptime": 899.9964,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2022-04-07T01:01:33.267",
+      "target": "HD114386",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2022-04-07T01_01_33.267.fits",
+      "sha256": "5fa61fa04accd2adc3df51127ae0cdf5ca559d3aedc39d1497cdce429f32edac",
+      "date_obs": "2022-04-06T03:59:38.868",
+      "mjd_obs": 59675.16642208,
+      "berv_km_s": 7.14935375143177,
+      "exptime": 899.9966,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2022-05-28T01:02:07.296",
+      "target": "HD114386",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2022-05-28T01_02_07.296.fits",
+      "sha256": "1b839c398a665a7b65aea10acc30e97a72c4c1a921810af3db5d6b23f9911353",
+      "date_obs": "2022-05-27T03:35:54.612",
+      "mjd_obs": 59726.14993765,
+      "berv_km_s": -15.2628500425798,
+      "exptime": 899.9965,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-01-10T01:01:03.039",
+      "target": "HD114386",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2023-01-10T01_01_03.039.fits",
+      "sha256": "5cd1b80c5b12fa75ac9376acaed5940d05bd44d21b69ec2512c21f0f6a1df65f",
+      "date_obs": "2023-01-09T07:04:43.045",
+      "mjd_obs": 59953.29494266,
+      "berv_km_s": 27.0265130237137,
+      "exptime": 899.9963,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-02-06T01:01:43.261",
+      "target": "HD114386",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2023-02-06T01_01_43.261.fits",
+      "sha256": "fa3a946385ced77fc3f7feb50dd138baf93dac97ec53dcfc4b293cee7cea1175",
+      "date_obs": "2023-02-05T09:01:20.465",
+      "mjd_obs": 59980.37593131,
+      "berv_km_s": 26.3249206815241,
+      "exptime": 899.9963,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-05-26T01:01:49.278",
+      "target": "HD114386",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2023-05-26T01_01_49.278.fits",
+      "sha256": "fbd4a004c96e50606ec0d398610115f16ca07654817a43b1d6b5e80d4cc37906",
+      "date_obs": "2023-05-25T04:02:44.268",
+      "mjd_obs": 60089.16856792,
+      "berv_km_s": -14.4663137331158,
+      "exptime": 899.9962,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-06-24T01:01:53.929",
+      "target": "HD114386",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2023-06-24T01_01_53.929.fits",
+      "sha256": "12a4e532858a178257a4d4052be05ce5d431cfa46bc808a33c48e515ea4f4a68",
+      "date_obs": "2023-06-23T03:21:23.382",
+      "mjd_obs": 60118.13985397,
+      "berv_km_s": -23.3461556334896,
+      "exptime": 899.9963,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-09-01T01:02:14.186",
+      "target": "HD114386",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2023-09-01T01_02_14.186.fits",
+      "sha256": "1d11b0af9208cae26c69bdb4863ca444563a04b1788ab5a435d6a1105fa06109",
+      "date_obs": "2023-08-30T23:22:18.481",
+      "mjd_obs": 60186.97382501,
+      "berv_km_s": -21.4419100786251,
+      "exptime": 899.9962,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-09-02T01:01:35.631",
+      "target": "HD114386",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2023-09-02T01_01_35.631.fits",
+      "sha256": "41e17111fe1d322501042ef806e8b5939851ea3ba875ed81d7df657b55f06f8c",
+      "date_obs": "2023-08-31T23:20:59.720",
+      "mjd_obs": 60187.97291343,
+      "berv_km_s": -21.1713813051946,
+      "exptime": 899.9961,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2022-01-12T01:34:46.985",
+      "target": "HD114783",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2022-01-12T01_34_46.985.fits",
+      "sha256": "a00de4b512a40efc85d5b94108938996aa6a3ca426b0c4489d662b2f19b9ccff",
+      "date_obs": "2022-01-07T08:23:20.041",
+      "mjd_obs": 59586.34953752,
+      "berv_km_s": 30.4107668029759,
+      "exptime": 899.9964,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2022-01-12T01:34:47.087",
+      "target": "HD114783",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2022-01-12T01_34_47.087.fits",
+      "sha256": "459dc7e63519706760cf1acb2ff1832794bf5de99005797de2ff33016c1a42f1",
+      "date_obs": "2022-01-09T08:37:41.493",
+      "mjd_obs": 59588.35950802,
+      "berv_km_s": 30.3702097144176,
+      "exptime": 899.9966,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2022-03-02T01:01:48.727",
+      "target": "HD114783",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2022-03-02T01_01_48.727.fits",
+      "sha256": "c0d3f638a77dbf8f4ece0a0d8f516f4f2510b9ca302267129561c97b8db37164",
+      "date_obs": "2022-03-01T09:25:32.984",
+      "mjd_obs": 59639.39274287,
+      "berv_km_s": 18.2176657342834,
+      "exptime": 899.9965,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2022-03-11T01:01:42.946",
+      "target": "HD114783",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2022-03-11T01_01_42.946.fits",
+      "sha256": "f37ec2926237188e45d9178c6afc1df214110768b7989142aac6977fb72631a8",
+      "date_obs": "2022-03-10T08:40:11.127",
+      "mjd_obs": 59648.3612399,
+      "berv_km_s": 14.2996682374889,
+      "exptime": 899.9965,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2022-05-17T01:02:16.728",
+      "target": "HD114783",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2022-05-17T01_02_16.728.fits",
+      "sha256": "24a16affa4f4bc506404938cf61c1395df775af8dfa26ba2320a0a0f4f32733d",
+      "date_obs": "2022-05-16T03:07:37.499",
+      "mjd_obs": 59715.13029514,
+      "berv_km_s": -17.5757433452345,
+      "exptime": 899.9965,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-01-09T01:00:52.151",
+      "target": "HD114783",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2023-01-09T01_00_52.151.fits",
+      "sha256": "3ba204730597c44af50a0f130c4db442c3d864e9990fc2b6cc82ec73dc55a690",
+      "date_obs": "2023-01-08T08:30:13.126",
+      "mjd_obs": 59952.35431859,
+      "berv_km_s": 30.3742705699933,
+      "exptime": 899.9963,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-02-06T01:01:43.257",
+      "target": "HD114783",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2023-02-06T01_01_43.257.fits",
+      "sha256": "f671b00abe01d0daa5f6c9770f52e55ac36f6cd10e3aa274932464607387ec5b",
+      "date_obs": "2023-02-05T08:25:51.323",
+      "mjd_obs": 59980.35128847,
+      "berv_km_s": 26.6499714049598,
+      "exptime": 899.9962,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-05-25T01:01:39.295",
+      "target": "HD114783",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2023-05-25T01_01_39.295.fits",
+      "sha256": "3628f5954f065d74ae77dc2838476e50971d3f58e126322749a3a821a8fae4e5",
+      "date_obs": "2023-05-24T03:50:09.595",
+      "mjd_obs": 60088.15983328,
+      "berv_km_s": -20.6414502718018,
+      "exptime": 899.9962,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-06-08T01:01:47.537",
+      "target": "HD114783",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2023-06-08T01_01_47.537.fits",
+      "sha256": "7cfd924ac063c61bbbec74d2c470302b9d116ade1dcdcf3e3fbc5e30fc9c94dd",
+      "date_obs": "2023-06-07T01:14:00.247",
+      "mjd_obs": 60102.05139175,
+      "berv_km_s": -24.7373981920154,
+      "exptime": 899.9962,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-07-04T01:03:35.277",
+      "target": "HD114783",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2023-07-04T01_03_35.277.fits",
+      "sha256": "b805a1958be3224de769d4526d288326c1220019de3eb21156d37329b1643d11",
+      "date_obs": "2023-07-02T02:03:50.422",
+      "mjd_obs": 60127.08600026,
+      "berv_km_s": -29.1608665126043,
+      "exptime": 899.9963,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-07-06T01:01:51.010",
+      "target": "HD114783",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2023-07-06T01_01_51.010.fits",
+      "sha256": "966882873db6a3d1df9eb66e06d5554cc8862f85b7c31d45df53e71906cfd00b",
+      "date_obs": "2023-07-04T23:52:04.768",
+      "mjd_obs": 60129.99449964,
+      "berv_km_s": -29.1398965620597,
+      "exptime": 899.9962,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-05-12T01:02:12.723",
+      "target": "HD115031",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2023-05-12T01_02_12.723.fits",
+      "sha256": "b802dc5e0b8255bc731c004b6d2da5ee341e7c92746224bf42d68492c48c2e2e",
+      "date_obs": "2023-05-11T03:55:47.852",
+      "mjd_obs": 60075.1637483,
+      "berv_km_s": -2.5007961878402,
+      "exptime": 399.9961,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-05-12T01:02:12.725",
+      "target": "HD115031",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2023-05-12T01_02_12.725.fits",
+      "sha256": "75efb8b4445f4f228896ae556b7da42262167565a9e5366a264c3888adfd5d87",
+      "date_obs": "2023-05-11T04:03:00.337",
+      "mjd_obs": 60075.1687539,
+      "berv_km_s": -2.50939457727487,
+      "exptime": 399.9962,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-05-13T01:01:50.283",
+      "target": "HD115031",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2023-05-13T01_01_50.283.fits",
+      "sha256": "b7a8577e7b44f1fb7cda033b448d641caed2e4507c0d50a0efc9a8288d2c0ef3",
+      "date_obs": "2023-05-12T01:57:14.237",
+      "mjd_obs": 60076.08141479,
+      "berv_km_s": -2.72085007043788,
+      "exptime": 399.9963,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-05-13T01:01:50.297",
+      "target": "HD115031",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2023-05-13T01_01_50.297.fits",
+      "sha256": "7238dea586ae7be424ae2ecc4af63986b4b9f6e6d74f9ae290eb94e65aa23c07",
+      "date_obs": "2023-05-12T03:41:43.948",
+      "mjd_obs": 60076.15398089,
+      "berv_km_s": -2.85121642229877,
+      "exptime": 399.9961,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-05-13T01:01:50.299",
+      "target": "HD115031",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2023-05-13T01_01_50.299.fits",
+      "sha256": "e5ca4120fcc6289dcb5bb1642b98341eb2d437d2c19af5297bf1e709b723ad6f",
+      "date_obs": "2023-05-12T03:48:56.252",
+      "mjd_obs": 60076.15898441,
+      "berv_km_s": -2.85999345987938,
+      "exptime": 399.9962,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-05-13T01:01:50.307",
+      "target": "HD115031",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2023-05-13T01_01_50.307.fits",
+      "sha256": "116e4aa4ce086a9270aad6411f90994c77d77ac6dd75af4206cf387771abf53e",
+      "date_obs": "2023-05-12T04:56:56.031",
+      "mjd_obs": 60076.20620407,
+      "berv_km_s": -2.9384232767557,
+      "exptime": 399.9961,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-05-13T01:01:50.309",
+      "target": "HD115031",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2023-05-13T01_01_50.309.fits",
+      "sha256": "53c19f94609399b2122a9acea582ffd470a77aa8d78edb55c52f57c61ed6cfa4",
+      "date_obs": "2023-05-12T05:04:08.245",
+      "mjd_obs": 60076.21120655,
+      "berv_km_s": -2.94633737518175,
+      "exptime": 399.9962,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-06-11T01:10:59.285",
+      "target": "HD115031",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2023-06-11T01_10_59.285.fits",
+      "sha256": "fe2ada69a8c1036765c4a1a850290552ca0b041796201875d26e908f039c7e5a",
+      "date_obs": "2023-06-10T01:57:05.509",
+      "mjd_obs": 60105.08131377,
+      "berv_km_s": -12.5576140042624,
+      "exptime": 399.9963,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-06-11T01:10:59.287",
+      "target": "HD115031",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2023-06-11T01_10_59.287.fits",
+      "sha256": "728bcc564bfe253dc0509d9810f813ab091853ff786b1c5d33d53ab079c16967",
+      "date_obs": "2023-06-10T02:04:17.163",
+      "mjd_obs": 60105.08630976,
+      "berv_km_s": -12.5661656205278,
+      "exptime": 399.9963,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-02-20T01:00:50.723",
+      "target": "HD122640",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2023-02-20T01_00_50.723.fits",
+      "sha256": "00d907abf2542871b3f51ba5ad141e12aed7a029b173d453d2f6569b141455b2",
+      "date_obs": "2023-02-19T08:15:06.680",
+      "mjd_obs": 59994.34382732,
+      "berv_km_s": 27.3563660002404,
+      "exptime": 1199.9961,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-02-21T01:01:25.294",
+      "target": "HD122640",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2023-02-21T01_01_25.294.fits",
+      "sha256": "23bcdb530cfc74b63d33f36bb24af5ca73d494df2bcd030b9072ad58ab9667c8",
+      "date_obs": "2023-02-20T05:04:36.026",
+      "mjd_obs": 59995.21152808,
+      "berv_km_s": 27.4377322691831,
+      "exptime": 1199.9962,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-02-22T01:01:22.009",
+      "target": "HD122640",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2023-02-22T01_01_22.009.fits",
+      "sha256": "ffaba81a095ec3d4b4c317345f76eadfe15acd2d735a073dc2cbbe8914edc1ea",
+      "date_obs": "2023-02-21T06:26:05.219",
+      "mjd_obs": 59996.26811597,
+      "berv_km_s": 27.1233907665458,
+      "exptime": 1199.9961,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-02-22T01:01:22.017",
+      "target": "HD122640",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2023-02-22T01_01_22.017.fits",
+      "sha256": "29132ddafab1efc749ba79c3a25a2fe9a2e709c70a3e500c0adbdbdb5cf06c13",
+      "date_obs": "2023-02-21T07:42:33.859",
+      "mjd_obs": 59996.32122523,
+      "berv_km_s": 27.0017116386097,
+      "exptime": 1199.9962,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-02-23T01:01:36.779",
+      "target": "HD122640",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2023-02-23T01_01_36.779.fits",
+      "sha256": "00ffca9485c86e1bc137f2507a7f2221de658c306d807d47263848bfe1d36508",
+      "date_obs": "2023-02-22T05:44:58.107",
+      "mjd_obs": 59997.23956143,
+      "berv_km_s": 26.9645341240171,
+      "exptime": 1199.9962,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-02-24T01:01:17.493",
+      "target": "HD122640",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2023-02-24T01_01_17.493.fits",
+      "sha256": "e87cfbfe7682982b3254504abd1771505c7e679a1bd00ea9337b2b6b8d4325f6",
+      "date_obs": "2023-02-23T06:04:59.481",
+      "mjd_obs": 59998.25346622,
+      "berv_km_s": 26.7110485850508,
+      "exptime": 1199.9963,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-02-25T01:01:19.523",
+      "target": "HD122640",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2023-02-25T01_01_19.523.fits",
+      "sha256": "f85e4b652e21d2f9d8b755d73eba9339a0529b83b0bc41cd512ecf5a00cb3706",
+      "date_obs": "2023-02-24T05:19:52.357",
+      "mjd_obs": 59999.22213376,
+      "berv_km_s": 26.5388254066591,
+      "exptime": 1199.9962,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-02-26T01:01:15.123",
+      "target": "HD122640",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2023-02-26T01_01_15.123.fits",
+      "sha256": "f196ce8df6f030bab806fc4dc52faf206fe97e194fdb07b0b55082926ba2572c",
+      "date_obs": "2023-02-25T06:21:31.918",
+      "mjd_obs": 60000.26495276,
+      "berv_km_s": 26.2095364097551,
+      "exptime": 1199.9962,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-02-27T01:01:03.501",
+      "target": "HD122640",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2023-02-27T01_01_03.501.fits",
+      "sha256": "cb8251ed28fb211a8e930721f343a83f1a16c4dc60fa6321a0505f5993571815",
+      "date_obs": "2023-02-26T05:08:28.859",
+      "mjd_obs": 60001.21422291,
+      "berv_km_s": 26.0629454299168,
+      "exptime": 1199.9961,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-03-01T01:01:30.547",
+      "target": "HD122640",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2023-03-01T01_01_30.547.fits",
+      "sha256": "17ffb5bd5d5561909d1da22c498e7b250153f6322f39b5a34b3b47329e441159",
+      "date_obs": "2023-02-28T05:20:55.032",
+      "mjd_obs": 60003.22285917,
+      "berv_km_s": 25.5268566688574,
+      "exptime": 1199.9963,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2023-03-02T01:01:24.333",
+      "target": "HD122640",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2023-03-02T01_01_24.333.fits",
+      "sha256": "2819c309e3c734d69c5817d5b9349b566e8b0c73af6d08dc2b6db8ec1f3e16ab",
+      "date_obs": "2023-03-01T05:59:17.361",
+      "mjd_obs": 60004.2495065,
+      "berv_km_s": 25.1998223987202,
+      "exptime": 1199.9962,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2025-04-26T01:02:45.239",
+      "target": "HD126093",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2025-04-26T01_02_45.239.fits",
+      "sha256": "583ff38595b7889ab33c88bc53b255bb18815125be8483fe6cf666925f893d4f",
+      "date_obs": "2025-04-25T06:04:35.409",
+      "mjd_obs": 60790.25318761,
+      "berv_km_s": 6.6545126707819,
+      "exptime": 599.9959,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2025-04-27T01:01:12.703",
+      "target": "HD126093",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2025-04-27T01_01_12.703.fits",
+      "sha256": "ff8b0407422bf77b0b7d221b8ac8e6278c916fd86adf2d5a4c901fdc76eed6b8",
+      "date_obs": "2025-04-26T04:42:44.266",
+      "mjd_obs": 60791.19634568,
+      "berv_km_s": 6.34134432819824,
+      "exptime": 599.9958,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2025-04-30T01:01:50.872",
+      "target": "HD126093",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2025-04-30T01_01_50.872.fits",
+      "sha256": "68dc839df64aead77a0fcba1d392b3a3cbd4345bdc7f8cbc1529cc7131571a0a",
+      "date_obs": "2025-04-29T03:37:32.251",
+      "mjd_obs": 60794.15106772,
+      "berv_km_s": 5.1110178184818,
+      "exptime": 599.9958,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2025-05-29T01:01:14.397",
+      "target": "HD126093",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2025-05-29T01_01_14.397.fits",
+      "sha256": "400eed0a00bd4f48d4089898d11ca6626de5ab341fc7699c095aea75a839631f",
+      "date_obs": "2025-05-28T06:33:08.806",
+      "mjd_obs": 60823.2730186,
+      "berv_km_s": -7.93410114186609,
+      "exptime": 599.996,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2025-06-12T01:01:54.691",
+      "target": "HD126093",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2025-06-12T01_01_54.691.fits",
+      "sha256": "83a60b96cb4b6b60e0b63e154e1c5ace1b94282042d2b26dd85c0b483f30cffa",
+      "date_obs": "2025-06-11T06:06:38.721",
+      "mjd_obs": 60837.25461484,
+      "berv_km_s": -13.5077731091422,
+      "exptime": 599.996,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2025-06-23T01:01:21.171",
+      "target": "HD126093",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2025-06-23T01_01_21.171.fits",
+      "sha256": "301c80217e042c7134314e89e50af72afa22aaebae226b86a12820dc6ba7fb4e",
+      "date_obs": "2025-06-22T04:22:08.007",
+      "mjd_obs": 60848.18203712,
+      "berv_km_s": -17.3119399450596,
+      "exptime": 599.9959,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2025-06-25T01:01:14.023",
+      "target": "HD126093",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2025-06-25T01_01_14.023.fits",
+      "sha256": "8f016b1039f7edda235c98b23baf30b3cbe9dc5a737ac28f56ae81c0d8e6b4bf",
+      "date_obs": "2025-06-24T04:28:29.071",
+      "mjd_obs": 60850.18644758,
+      "berv_km_s": -17.9744888703539,
+      "exptime": 599.9958,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2025-07-13T01:04:36.115",
+      "target": "HD126093",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2025-07-13T01_04_36.115.fits",
+      "sha256": "24c02ac78fec2209fea9456af2c20a1a3b0992e02282e3e0eec1ae9debc39b2c",
+      "date_obs": "2025-07-12T02:40:24.310",
+      "mjd_obs": 60868.11139248,
+      "berv_km_s": -22.7196834334139,
+      "exptime": 599.9959,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2025-07-14T01:04:44.801",
+      "target": "HD126093",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2025-07-14T01_04_44.801.fits",
+      "sha256": "314b9b4488643e2ecce698c7607e934fb8601974620a44f7392df5f48973f757",
+      "date_obs": "2025-07-13T03:47:47.207",
+      "mjd_obs": 60869.15818527,
+      "berv_km_s": -22.9939933608686,
+      "exptime": 599.996,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2025-08-25T01:02:32.223",
+      "target": "HD126093",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2025-08-25T01_02_32.223.fits",
+      "sha256": "5fc09bb11b23fdca0c090507ab0ef4d77fcf553eef1a1bb06279d562a1a5888e",
+      "date_obs": "2025-08-23T23:55:01.781",
+      "mjd_obs": 60910.99654839,
+      "berv_km_s": -25.5683110891315,
+      "exptime": 599.9959,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2025-08-27T01:04:15.745",
+      "target": "HD126093",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2025-08-27T01_04_15.745.fits",
+      "sha256": "7adbff7b2d1870537ee39d6aabfceb6bb0b944828dc62804eeb290a354e22850",
+      "date_obs": "2025-08-26T00:14:20.323",
+      "mjd_obs": 60913.00995744,
+      "berv_km_s": -25.3936336045225,
+      "exptime": 599.996,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2022-05-29T01:02:27.775",
+      "target": "HD1397",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2022-05-29T01_02_27.775.fits",
+      "sha256": "c9120263e326b11c6284a98a3d3e8074a9bbea524c8445259228618da59bf30b",
+      "date_obs": "2022-05-27T10:20:04.464",
+      "mjd_obs": 59726.43060723,
+      "berv_km_s": 14.9086741792867,
+      "exptime": 599.9964,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2022-06-30T01:02:00.059",
+      "target": "HD1397",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2022-06-30T01_02_00.059.fits",
+      "sha256": "f91b8bb1113e680731c227e48dbc84b18fa2810330fdd1cf418c89e6f30584df",
+      "date_obs": "2022-06-29T09:12:23.912",
+      "mjd_obs": 59759.3836101,
+      "berv_km_s": 10.4412711218829,
+      "exptime": 599.9964,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2022-08-24T01:04:10.869",
+      "target": "HD1397",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2022-08-24T01_04_10.869.fits",
+      "sha256": "a0397e7ea3942414819d1c85d73cb474f79f2b368f84cf634e7190be6124b239",
+      "date_obs": "2022-08-23T04:40:08.598",
+      "mjd_obs": 59814.19454397,
+      "berv_km_s": -2.70114676340478,
+      "exptime": 599.9964,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2022-09-05T01:12:11.799",
+      "target": "HD1397",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2022-09-05T01_12_11.799.fits",
+      "sha256": "443669026b30e7d56c97acfb2dbd3d4ba62c84f63ebcf8257bb77a25a2dd71f0",
+      "date_obs": "2022-09-04T04:55:15.603",
+      "mjd_obs": 59826.20504171,
+      "berv_km_s": -5.78107252315564,
+      "exptime": 599.9965,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2024-07-13T01:01:30.775",
+      "target": "HD1397",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2024-07-13T01_01_30.775.fits",
+      "sha256": "65b0fb61bfcf9bfb8fb24b24c755f44ba8e7fdea6a80aa2bba4f48984d030530",
+      "date_obs": "2024-07-12T06:04:08.060",
+      "mjd_obs": 60503.25287107,
+      "berv_km_s": 7.7330292769214,
+      "exptime": 599.9964,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2024-07-14T01:01:46.123",
+      "target": "HD1397",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2024-07-14T01_01_46.123.fits",
+      "sha256": "ed2eea4ec8ef7c1ae070afe6525337398b168c052f10e9c8be67e34bedb19dff",
+      "date_obs": "2024-07-13T05:58:30.092",
+      "mjd_obs": 60504.2489594,
+      "berv_km_s": 7.50804498100739,
+      "exptime": 599.9964,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2024-09-02T01:01:57.775",
+      "target": "HD1397",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2024-09-02T01_01_57.775.fits",
+      "sha256": "ddbcfbb18c60e614ad68ef8a89adc5b98864db26ab59314807bc228a23a04be1",
+      "date_obs": "2024-09-01T04:25:48.157",
+      "mjd_obs": 60554.18458515,
+      "berv_km_s": -5.12014673505856,
+      "exptime": 599.9962,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2024-09-03T01:03:23.207",
+      "target": "HD1397",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2024-09-03T01_03_23.207.fits",
+      "sha256": "1222518ddbd87d7c7f9641dc2cf1d827d451134977d78deed9dac937e9e16f0e",
+      "date_obs": "2024-09-02T05:07:32.203",
+      "mjd_obs": 60555.21356717,
+      "berv_km_s": -5.40660399270255,
+      "exptime": 599.9963,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2024-10-15T01:29:59.013",
+      "target": "HD1397",
+      "cohort": "V2_new",
+      "relative_path": "v2/data/main/ADP.2024-10-15T01_29_59.013.fits",
+      "sha256": "c73fc4f30dd7c6e461ee34c452d5e9033ede27c5929b0e596ae0edd93730c9db",
+      "date_obs": "2024-09-29T02:00:35.116",
+      "mjd_obs": 60582.08373977,
+      "berv_km_s": -11.2646845695349,
+      "exptime": 599.9962,
+      "source_manifest": "v2/acquisition/DOWNLOAD_MANIFEST.json"
+    },
+    {
+      "dp_id": "ADP.2024-10-15T01:29:59.067",
+      "target": "HD1397",
+      "cohort": "V1_original",
+      "relative_path": "data/main/ADP.2024-10-15T01_29_59.067.fits",
+      "sha256": "b3ae3bd44b1621d94ec7c33c35382dc29e4517919cebc1a046acd7873a2ae058",
+      "date_obs": "2024-09-30T01:33:47.901",
+      "mjd_obs": 60583.06513775,
+      "berv_km_s": -11.4330405466647,
+      "exptime": 599.9962,
+      "source_manifest": "acquisition/DOWNLOAD_MANIFEST.json"
+    }
+  ],
+  "selection_review_ids": [
+    "V2-0099",
+    "V2-0110",
+    "V2-0115",
+    "V2-0117",
+    "V2-0118",
+    "V2-0120",
+    "V2-0125",
+    "V2-0126",
+    "V2-0129",
+    "V2-0131",
+    "V2-0132",
+    "V2-0135",
+    "V2-0139",
+    "V2-0221",
+    "V2-0233",
+    "V2-0243",
+    "V2-0244",
+    "V2-0260",
+    "V2-0263",
+    "V2-0266",
+    "V2-0268",
+    "V2-0272",
+    "V2-0273",
+    "V2-0274",
+    "V2-0277",
+    "V2-0278",
+    "V2-0279",
+    "V2-0280",
+    "V2-0281",
+    "V2-0284",
+    "V2-0322"
+  ],
+  "selection_authority": "Parent supplied31 newly unresolved IDs after mapping43 followup; original333table still retains mapping-insufficient status, preserved in all outputs.",
+  "method_source_plan_sha256": "a5c95158e1dd1dd0945130889623f1f31fc8b9f94f0c78f9c82adb76e479cdd3"
+}
