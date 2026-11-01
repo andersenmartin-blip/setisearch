@@ -1,0 +1,67 @@
+{
+  "status": "FROZEN_BEFORE_NEW_FLUX",
+  "created_utc": "2026-11-01T16:36:09.031104+00:00",
+  "backgrounds": [
+    {
+      "dp_id": "ADP.2021-11-30T01:05:15.920",
+      "path": "v2/data/validation/ADP.2021-11-30T01_05_15.920.fits",
+      "sha256": "73cdd6d79cc4357cb1e71db69a527c712eda6bc2d14fd90b2ac2be9fdea2fc2c"
+    },
+    {
+      "dp_id": "ADP.2022-05-06T01:04:00.115",
+      "path": "v2/data/validation/ADP.2022-05-06T01_04_00.115.fits",
+      "sha256": "d1ed06de5fee9331e860399b427f64dfb36193008d3eec1076018e5af695d1d0"
+    },
+    {
+      "dp_id": "ADP.2023-02-01T01:02:03.967",
+      "path": "v2/data/validation/ADP.2023-02-01T01_02_03.967.fits",
+      "sha256": "a877fde34ed212081c2b9ae100affe47f82da5cfd2da772dc02bb7c4b8a24738"
+    },
+    {
+      "dp_id": "ADP.2023-07-04T01:03:35.273",
+      "path": "v2/data/validation/ADP.2023-07-04T01_03_35.273.fits",
+      "sha256": "ab763059f1153cc2248c2160f43b6fd9edf68791f5be91d006709d73522df33a"
+    }
+  ],
+  "anchors_angstrom": [
+    4231.19,
+    4925.43,
+    5781.67,
+    6612.31
+  ],
+  "phases": [
+    0.0,
+    0.25,
+    0.5
+  ],
+  "amplitudes": [
+    4,
+    8,
+    16,
+    32
+  ],
+  "trials": 192,
+  "unique_background_patches": 16,
+  "source_hashes": {
+    "v2/code/profile_detector.py": "577ab049367da078aaed8f525bee1cc856757cc3805c552e7dac9b17dc2bea8b",
+    "v2/code/CONFIG.json": "842c93d4de232b03cd6cd68c54b6399b125f3ea8923946dadcaf4f139fcc19ac",
+    "v2/code/FREEZE.json": "e1ec1e10720809aeedafb0ae611d1c0bcd7eb702a08235f6c560117a26d2dfcd",
+    "v2/validation/run_validation.py": "211ddca073de3393413b1838733688284e372de25985bc5bcb39727dc9a8226d",
+    "v2/code/run_main.py": "49671561146aa1a335fc241b2db3599ac2e390307b99c3a7a1580efed5c51915",
+    "code/harps_detector.py": "c9694d9708181c058e420092bffe15e9b39f2bc6355b0a087653a6277d9d2112",
+    "code/DETECTOR_CONFIG.json": "a8203650b6c06bc68685ded44bb42244e327cf2efa648ccd2cdae030a56b28a0",
+    "v2/selection/MAIN100.csv": "1d6b3a0609666fa343890ba940631db627f1465fc270c56aff4c7f7975e29cc7",
+    "v2/selection/VALIDATION4.csv": "bceb7705b22e5bdb50bb4b1fcd3902d1033b9e3dc7816dcd2dbb33bbeb1dbe98"
+  },
+  "new_validation_flux_opened": 0,
+  "new_main_flux_opened": 0,
+  "design": "Every phase is crossed with every background and anchor. Four strengths share each geometry. Gaussian point samples, FWHM=center/115000, amplitude times original101-sample populationstd. Same injected arrays forV1/V2. Nearest pixel ties within1e-9Angstrom choose lower index. Fixed0.01Angstrom step verified invalidation inputs.",
+  "recovery": "V1 accepted run includes a pixel within2 of nearest center; V2 accepted fitted center within0.02000001Angstrom. Controlmatches separatelyrecorded. 48controlqueries share16patches; not48independentcontrols.",
+  "quality_targets": {
+    "v2_minimum_recovery_at32_of48": 44,
+    "v2_minimum_recovery_at16_of48": 36,
+    "note": "Targets for sensitivityinterpretation, notlicense to tune. Ifmissed, retain limitation; numerical-integrity-passing detector may still be run as explicitly exploratory on frozen100."
+  },
+  "whole_background_screen": "Run bothfrozenmethods on all4completeunmodified backgrounds. Eventcount isnot falsepositive groundtruth because realemission/instrumentevents mayexist.",
+  "failure_rule": "No substitutions or thresholdchanges afterlook. Preservefailures. STOP onhash/unit/provenancemismatch; allmetadataalready passed."
+}
