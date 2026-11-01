@@ -1,0 +1,89 @@
+{
+  "schema": "HARPS_PAIRED_INJECTION_PLAN_V1",
+  "status": "FROZEN_BEFORE_VALIDATION_ARRAY_ACCESS",
+  "frozen_at_utc": "2026-11-01T15:41:52.587507+00:00",
+  "validation_flux_arrays_opened_at_freeze": 0,
+  "main_flux_arrays_opened_by_this_agent": 0,
+  "source_sha256": {
+    "validation/run_injections.py": "176ee5feb779a78be551666ffe27712c5e1561ef88cc08d94db82402b3fcf0e7",
+    "code/harps_detector.py": "c9694d9708181c058e420092bffe15e9b39f2bc6355b0a087653a6277d9d2112",
+    "code/DETECTOR_CONFIG.json": "a8203650b6c06bc68685ded44bb42244e327cf2efa648ccd2cdae030a56b28a0",
+    "code/DETECTOR_FREEZE.json": "1bd696e8fb540f31e4f795013e7729b40bdcddfdcf1b1e39ab040325f9d42195"
+  },
+  "backgrounds_chronological": [
+    {
+      "relative_path": "data/validation/ADP.2022-12-31T01_08_20.445.fits",
+      "dp_id": "ADP.2022-12-31T01:08:20.445",
+      "sha256": "8a6188394cbce1fa53b360cd8d1c95f593972e1ec28793169be7755e8be2b834",
+      "bytes": 5264640,
+      "date_obs": "2022-12-30T06:10:49.591",
+      "mjd_obs": 59943.25751842,
+      "subpixel_phase": 0.0
+    },
+    {
+      "relative_path": "data/validation/ADP.2023-05-05T01_01_05.168.fits",
+      "dp_id": "ADP.2023-05-05T01:01:05.168",
+      "sha256": "e9fb534afb60040dbe315dadda70060a4dafd5fe43e75a9093390126c33c5c5b",
+      "bytes": 5264640,
+      "date_obs": "2023-05-03T23:58:23.845",
+      "mjd_obs": 60067.9988871,
+      "subpixel_phase": 0.25
+    },
+    {
+      "relative_path": "data/validation/ADP.2023-07-04T01_03_35.353.fits",
+      "dp_id": "ADP.2023-07-04T01:03:35.353",
+      "sha256": "60c06059fcd2d9ed1795b089a0614f6a5b57cf29194a24598c3d854edc01178d",
+      "bytes": 5261760,
+      "date_obs": "2023-07-02T23:58:54.877",
+      "mjd_obs": 60127.99924626,
+      "subpixel_phase": 0.5
+    }
+  ],
+  "anchor_wavelengths_angstrom": [
+    4101.37,
+    4802.61,
+    5703.29,
+    6504.73
+  ],
+  "amplitude_factors": [
+    4,
+    8,
+    16,
+    32
+  ],
+  "resolving_power": 115000.0,
+  "patch_pixels": 1001,
+  "unmodified_noise_window_pixels": 101,
+  "recovery_tolerance_pixels": 2,
+  "design": {
+    "registered_geometries": 12,
+    "registered_trials": 48,
+    "unmodified_controls": 12,
+    "paired": "For each geometry, the same unmodified patch supplies the noise scale and control for four separate additive injections; amplitudes are never accumulated.",
+    "independence": "The 48 trials are paired: 12 background/wavelength geometries times four strengths. Three spectra are from the same star. No independent-binomial or stellar-population inference is authorized."
+  },
+  "wavelength_definition": "All anchors, centers, patch wavelengths and Gaussian widths are barycentric AIR wavelengths in Angstrom, matching archived WAVE/TUCD1 and SPECSYS. No air-vacuum or observer-frame conversion.",
+  "center_definition": "Base index is nearest archived WAVE sample to anchor. A tie within 32*float64_epsilon*abs(anchor) Angstrom selects lower index. Patch is original samples base_index-500 through base_index+500 inclusive. Pixel step is the median of its 1000 adjacent wavelength differences; every difference must agree within 1e-8 Angstrom. Injection center equals base wavelength plus phase times that step. Phases 0, 0.25 and 0.5 are assigned in chronological background order. Nearest injection-center index uses the same lower-index roundoff tie rule.",
+  "noise_definition": "Population standard deviation, numpy.std(ddof=0), of exactly 101 UNMODIFIED flux samples centered on the nearest injection-center index: k-50 through k+50 inclusive, ADU. All 101 must be finite and nonzero, and standard deviation positive. The same pre-injection value scales all four strengths. No ERR column or injected-data scatter is used to set amplitude.",
+  "injection_definition": "Point-sampled additive Gaussian in reduced 1-D flux: amplitude_factor*unmodified_local_population_std*exp(-0.5*((wave-center)/sigma_gaussian)^2). FWHM=center/115000 Angstrom; sigma_gaussian=FWHM/(2*sqrt(2*ln(2))). No pixel integration, new random noise or modification of existing flux except the additive Gaussian. Continuous peak and actual sampled peak are both saved.",
+  "detector_definition": "Use frozen harps_detector.analyze_arrays and DETECTOR_CONFIG.json without changes, separately on each original 1001-pixel patch and each injection. Its local continuum and scatter are recomputed for each injected patch, so the Gaussian contributes to detector scatter; injection amplitude still uses the unmodified local population standard deviation.",
+  "recovery_definition": "Recover only when at least one PRELIMINARY_EMISSION_HIT run has an included pixel at index k-2 through k+2, where k is nearest injection-center index in the patch. For inclusive start s and exclusive end e, distance=max(s-k, k-(e-1), 0); match iff distance<=2. SHORT_RUN and WIDE_RUN never count. Store all threshold runs and matched runs.",
+  "control_definition": "Run the identical detector once on each unmodified patch and apply the identical center/tolerance criterion. Save control_hit separately. Report both all recovered injected trials and recovered_without_control_hit = recovered AND NOT control_hit; an existing control event is not evidence that an injection created a detectable event.",
+  "missing_data_rule": "If registered patch, unmodified noise window or searchable center is invalid, retain its four registered rows as NOT_EVALUABLE, with reason and null outcomes. Do not move its wavelength, substitute another spectrum, change width/noise or tune detector. Provenance/hash/frame mismatch or an error after starting trials stops the run and leaves a FAILED receipt.",
+  "outputs": [
+    "RUN_RECEIPT.json",
+    "summary.json",
+    "controls.json",
+    "trials.json",
+    "trials.csv",
+    "per-geometry control JSON and NPZ",
+    "per-injection JSON and NPZ including exact injected addition and all detector arrays"
+  ],
+  "preflight_tests": {
+    "python_compile": "PASS",
+    "handconstructed_recovery_distance_and_half_pixel_tie": "PASS",
+    "validation_or_main_arrays_used": false
+  },
+  "interpretation": "Limited deterministic recovery audit of a frozen first-stage emission filter on three withheld reduced spectra of one star, twelve wavelength/background geometries and four paired strengths. It is not a detection of lasers, a complete sensitivity/completeness curve, a calibrated false-alarm rate, a raw-data reduction test or a population occurrence constraint. No tuning after viewing results.",
+  "execution_authorization": "Do not execute until project lead approves this plan/script hash; user permission is already supplied by the project task."
+}
