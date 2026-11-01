@@ -1,3 +1,17 @@
+## Aktuel SETI-status — rågruppe03 afsluttet (1. november 2026)
+
+**115 yderligere V2-fund i 32 HARPS-observationer er rågennemgået.** Gruppens foreløbige vurderinger er 62 detektorartefakter, 7 O I-forenelige fund, 34 uafklarede strukturer og 12 med utilstrækkelig billedkobling. To separate AI-gennemgange er enige om 114/115; det omstridte fund V2E2-0235 bevares som uafklaret. Den uafhængige numeriske kontrol består.
+
+**575 af 669 V2-poster har nu dokumenteret rågennemgang; 94 poster i 37 observationer mangler.** Næste er V2E2-0243 på HD124553. Den nye kohorte på 336 står som 142 A / 20 O / 61 U / 19 M / 94 N; de ældre 333 afgørelser er bevaret. Hele undersøgelsen er fortsat 300 unikke eksponeringer af 20 stjerner og 70,875 timers observation. Ingen kvalificeret laserkandidat er identificeret. Der foreligger ikke et kalibreret nulresultat.
+
+[**Fortsæt fra den præcise kø og aktuelle status**](CONTINUE_SETI.md) · [Gruppens resultater, råbilleder og kontrol](work_harps_20261101/v2/extension02/raw_followup_batch03/README.md) · [Maskinlæsbar tilstand og gemte input](work_harps_20261101/v2/extension02/raw_followup_batch03/CONTINUATION_STATE.json)
+
+Alle 64 inputprodukter er gemt i 8 kontrollerede pakker. GitHub indeholder dispositioner, figurer, gendannelig numerisk evidens og fortsættelsesinstruktioner. Uafklarede strukturer og billedkoblingsbegrænsninger følges op efter restkøen. Epokesammenligningen er allerede afsluttet; Rubin-ugen er endnu ikke analyseret. Ingen automatisk baggrundssøgning er konfigureret.
+
+Nedenstående tidligere statusafsnit er historiske; brug ovenstående fortsættelsespunkt til nyt arbejde.
+
+---
+
 [**Fortsæt SETI-arbejdet her: aktuel status, input og næste opgaver**](CONTINUE_SETI.md)
 
 ## Seneste tilføjelse — epokesammenligning af alle 336 nye HARPS-fund (1. november 2026)

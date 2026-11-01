@@ -1,0 +1,2979 @@
+{
+  "created_utc": "2026-11-01T21:59:21.514Z",
+  "status": "COMPLETED_SECONDARY_INDEPENDENT_AI_VISUAL_REVIEW",
+  "reviewer": "batch03_visual_b",
+  "selected_events": 115,
+  "selected_exposures": 32,
+  "records_reviewed": 115,
+  "extracted_orders_reviewed": 155,
+  "expected_covering_orders": 157,
+  "missing_full_cutout_order_records": 2,
+  "atlas_pages_inspected": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29
+  ],
+  "additional_pages_inspected": [
+    "secondary_enlarged/CENTRAL_01.png",
+    "secondary_enlarged/CENTRAL_02.png",
+    "secondary_enlarged/CENTRAL_03.png",
+    "secondary_enlarged/CENTRAL_04.png",
+    "secondary_enlarged/CENTRAL_05.png",
+    "secondary_enlarged/CENTRAL_06.png",
+    "secondary_enlarged/CENTRAL_07.png",
+    "secondary_enlarged/CENTRAL_08.png",
+    "secondary_enlarged/CENTRAL_09.png",
+    "secondary_enlarged/CENTRAL_10.png"
+  ],
+  "additional_scope": "55 order panels for 49 records enlarged to central ±8 columns using unchanged 31-row arrays and recorded per-order scales; original full atlas inspected for all 115 records. Positive excess is clipped only for display; original raw, frozen side background and difference spatial curves are retained.",
+  "counts": {
+    "O": 7,
+    "U": 33,
+    "A": 63,
+    "M": 12
+  },
+  "independence": "Primary batch03 visual review and dispositions were not opened before this secondary result was saved. Reviewer knew the frozen plan, prior project context and root notice of mapping accounting. This is a separate AI-agent descriptive review, not blinded scientific validation or human review.",
+  "classification_policy": "Provisional morphology only. Any covering-order mapping limitation or missing full cutout takes precedence as M. O requires observer-frame OI-compatible wavelength plus photon-like trace morphology; wavelength alone is insufficient. A requires clear charge-like morphology but cannot exclude an underlying photon contribution. Broad, ambiguous or mixed unresolved features remain U. No classifier, extraction or mapping threshold was changed.",
+  "display_policy": "Central enlargements were selected after atlas viewing to clarify ambiguous/calibration-B-dominated displays. They are post hoc display-only crops of retained unchanged arrays, not threshold tuning or an independent test. Every exact pixel crop and color scale is recorded in secondary_enlarged/INDEX.json, reproducible by secondary_enlarged/render.py with its recorded selection.",
+  "cautions": [
+    "V2E2-0099 contains a bright off-trace charge deposit plus weaker diffuse trace-centered excess; underlying spectral structure is not excluded (CENTRAL_02).",
+    "V2E2-0122 remains U: an oblique several-pixel enhancement overlaps the trace, with flat-topped/asymmetric native structure; charge contamination or a blend is plausible (CENTRAL_02).",
+    "V2E2-0230 has a clear compact order3 contaminant superposed on a broad feature shared with order4; A concerns the sharp component only (CENTRAL_08).",
+    "OI-compatible V2E2-0100,0168,0219,0221 have weak contrast, residual gradients or some spatial asymmetry; their O codes do not establish atmosphere as the physical source.",
+    "V2E2-0234 remains U despite noisy blue-order amplitude mismatch; central enlargement confirms a broad trace-centered patch in order3.",
+    "V2E2-0194 has photon-like enlarged morphology but retains M because its covering-order mapping is unsupported.",
+    "All32 exposures have STAR,WAVE fiber configuration; no independent sky-fiber confirmation is demonstrated.",
+    "No claim of a qualified laser, calibrated null result, sensitivity or global false-alarm probability."
+  ],
+  "events": [
+    {
+      "review_id": "V2E2-0085",
+      "candidate_id": "V2E2-0085",
+      "dp_id": "ADP.2025-03-16T01:01:40.685",
+      "code": "O",
+      "evidence": "Central enlargement shows a smooth trace-centered, several-pixel emission enhancement matching the continuum spatial profile; observer-frame air wavelength 5577.33967 Å is compatible with OI5577.338. O is compatibility only, not a proved sky origin.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        50
+      ],
+      "orders_seen": [
+        50
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_01.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_01.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Wavelength and morphology compatibility only; no independent sky-fiber confirmation."
+      ]
+    },
+    {
+      "review_id": "V2E2-0086",
+      "candidate_id": "V2E2-0086",
+      "dp_id": "ADP.2025-04-30T01:01:50.866",
+      "code": "U",
+      "evidence": "Broad trace-confined feature across several dispersion pixels; no isolated charge trail explains it.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        1
+      ],
+      "orders_seen": [
+        1
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_01.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": false,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0087",
+      "candidate_id": "V2E2-0087",
+      "dp_id": "ADP.2025-04-30T01:01:50.866",
+      "code": "U",
+      "evidence": "Broad feature shared by overlapping orders2/3, with noisy blue-order continuum; retained spectral structure.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_01.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": false,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0088",
+      "candidate_id": "V2E2-0088",
+      "dp_id": "ADP.2025-04-30T01:01:50.866",
+      "code": "A",
+      "evidence": "Compact bright deposit displaced to the side of the order64 trace coincides with a narrow native spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        64
+      ],
+      "orders_seen": [
+        64
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_01.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0089",
+      "candidate_id": "V2E2-0089",
+      "dp_id": "ADP.2025-05-29T01:01:14.389",
+      "code": "U",
+      "evidence": "Broad low-continuum feature present in both overlapping orders, with a trace-confined raw enhancement.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_02.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0090",
+      "candidate_id": "V2E2-0090",
+      "dp_id": "ADP.2025-06-23T01:01:21.159",
+      "code": "A",
+      "evidence": "Central enlargement resolves a one-row compact bright deposit displaced from the trace center at the sharp native spike; broad residual gradients do not account for that deposit.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        69
+      ],
+      "orders_seen": [
+        69
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_02.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_01.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0091",
+      "candidate_id": "V2E2-0091",
+      "dp_id": "ADP.2025-07-11T01:01:15.079",
+      "code": "A",
+      "evidence": "Central enlargement reveals an irregular nearly transverse charge trail extending far to one side of the trace at the narrow native excess.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        60
+      ],
+      "orders_seen": [
+        60
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_02.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_01.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0092",
+      "candidate_id": "V2E2-0092",
+      "dp_id": "ADP.2022-01-12T01:34:46.931",
+      "code": "U",
+      "evidence": "Weak broad/noisy feature on the order1 trace, among other continuum variations; origin unresolved.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        1
+      ],
+      "orders_seen": [
+        1
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_02.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0093",
+      "candidate_id": "V2E2-0093",
+      "dp_id": "ADP.2022-01-12T01:34:46.931",
+      "code": "A",
+      "evidence": "Small compact off-trace deposit near the predicted dispersion row; narrow native spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        60
+      ],
+      "orders_seen": [
+        60
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_03.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_01.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0094",
+      "candidate_id": "V2E2-0094",
+      "dp_id": "ADP.2022-03-08T01:01:37.348",
+      "code": "U",
+      "evidence": "Broad rounded native structure with adjacent spectral feature and smooth trace-confined excess.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19
+      ],
+      "orders_seen": [
+        19
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_03.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0095",
+      "candidate_id": "V2E2-0095",
+      "dp_id": "ADP.2022-05-17T01:02:16.724",
+      "code": "U",
+      "evidence": "Broad multi-pixel native feature and smooth trace-confined raw enhancement.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        3
+      ],
+      "orders_seen": [
+        3
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_03.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0096",
+      "candidate_id": "V2E2-0096",
+      "dp_id": "ADP.2022-05-17T01:02:16.724",
+      "code": "U",
+      "evidence": "Broad rounded profile with neighboring structure; no distinctive charge trail in the mapped raw context.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19
+      ],
+      "orders_seen": [
+        19
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_03.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0097",
+      "candidate_id": "V2E2-0097",
+      "dp_id": "ADP.2023-01-03T01:08:17.803",
+      "code": "A",
+      "evidence": "Order16 has a compact raw deposit and a sharp narrow spike absent from order17; overlapping-order context is inconsistent with a shared smooth spectral feature. Central enlargement resolves a thin transverse bright cluster in order16 and only weak noisy continuum in order17.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        16,
+        17
+      ],
+      "orders_seen": [
+        16,
+        17
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_04.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_01.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0098",
+      "candidate_id": "V2E2-0098",
+      "dp_id": "ADP.2023-01-03T01:08:17.803",
+      "code": "U",
+      "evidence": "Broad trace-confined native bump and adjacent continuum structure; retained unresolved.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19
+      ],
+      "orders_seen": [
+        19
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_04.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0099",
+      "candidate_id": "V2E2-0099",
+      "dp_id": "ADP.2023-01-03T01:08:17.803",
+      "code": "A",
+      "evidence": "Compact displaced bright pixel feature near the sharp native excess over a broader spectral hump; a weaker underlying spectral component is not excluded. Central crop confirms an off-trace one-row bright deposit plus a weaker diffuse trace-centered excess, so a blend remains possible.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        47
+      ],
+      "orders_seen": [
+        47
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_04.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_02.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0100",
+      "candidate_id": "V2E2-0100",
+      "dp_id": "ADP.2023-01-03T01:08:17.803",
+      "code": "O",
+      "evidence": "Central crop shows a several-pixel trace-centered excess over curved-trace background gradients; native profile is rounded and observer-frame air wavelength 6300.29515 Å is compatible with OI6300.304. Weak pixel irregularity remains and O does not prove atmospheric origin.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        63
+      ],
+      "orders_seen": [
+        63
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_04.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_02.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Wavelength and morphology compatibility only; no independent sky-fiber confirmation."
+      ]
+    },
+    {
+      "review_id": "V2E2-0101",
+      "candidate_id": "V2E2-0101",
+      "dp_id": "ADP.2023-04-30T01:01:26.803",
+      "code": "A",
+      "evidence": "Compact charge cluster in order3 produces a sharp spike absent from the noisy overlapping order4.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        3,
+        4
+      ],
+      "orders_seen": [
+        3,
+        4
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_05.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0102",
+      "candidate_id": "V2E2-0102",
+      "dp_id": "ADP.2023-04-30T01:01:26.803",
+      "code": "A",
+      "evidence": "Bright compact cluster in order4 and sharp spike absent from order3.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        3,
+        4
+      ],
+      "orders_seen": [
+        3,
+        4
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_05.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0103",
+      "candidate_id": "V2E2-0103",
+      "dp_id": "ADP.2023-04-30T01:01:26.803",
+      "code": "A",
+      "evidence": "Central enlargement resolves a thin oblique/transverse charge deposit across the trace at the narrow native spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        56
+      ],
+      "orders_seen": [
+        56
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_05.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_02.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0109",
+      "candidate_id": "V2E2-0109",
+      "dp_id": "ADP.2023-08-29T01:02:07.487",
+      "code": "A",
+      "evidence": "Clear diagonal multi-pixel charge trail through order2; sharp native excess is absent from order1.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        1,
+        2
+      ],
+      "orders_seen": [
+        1,
+        2
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_05.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0110",
+      "candidate_id": "V2E2-0110",
+      "dp_id": "ADP.2023-08-29T01:02:07.487",
+      "code": "U",
+      "evidence": "Broad rounded native feature with neighboring structure; mapped raw trace remains smooth at full scale.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19
+      ],
+      "orders_seen": [
+        19
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_06.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0111",
+      "candidate_id": "V2E2-0111",
+      "dp_id": "ADP.2023-08-29T01:02:07.487",
+      "code": "O",
+      "evidence": "Central crop shows a smooth several-pixel trace-centered emission patch matching the stellar spatial profile; observer-frame air wavelength 6300.30204 Å is compatible with OI6300.304. A distant off-trace deposit does not coincide with the event.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        63
+      ],
+      "orders_seen": [
+        63
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_06.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_02.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Wavelength and morphology compatibility only; no independent sky-fiber confirmation."
+      ]
+    },
+    {
+      "review_id": "V2E2-0112",
+      "candidate_id": "V2E2-0112",
+      "dp_id": "ADP.2023-08-29T01:02:07.487",
+      "code": "A",
+      "evidence": "Central crop resolves a bright one-row compact deposit on one side of the trace, with a thin transverse extension at the narrow native spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        68
+      ],
+      "orders_seen": [
+        68
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_06.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_02.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0113",
+      "candidate_id": "V2E2-0113",
+      "dp_id": "ADP.2022-01-22T01:09:14.958",
+      "code": "A",
+      "evidence": "Oblique small charge trail crosses order2, producing a sharp order-specific peak; order1 lacks the excess.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        1,
+        2
+      ],
+      "orders_seen": [
+        1,
+        2
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_06.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0114",
+      "candidate_id": "V2E2-0114",
+      "dp_id": "ADP.2022-01-22T01:09:14.958",
+      "code": "U",
+      "evidence": "Broad native feature shared by covering orders; raw enhancement follows the stellar trace over multiple dispersion pixels, with blue-order noise retained.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_07.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": false,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0115",
+      "candidate_id": "V2E2-0115",
+      "dp_id": "ADP.2022-01-22T01:09:14.958",
+      "code": "U",
+      "evidence": "Broad native feature shared by covering orders; raw enhancement follows the stellar trace over multiple dispersion pixels, with blue-order noise retained.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        3,
+        4
+      ],
+      "orders_seen": [
+        3,
+        4
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_07.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0116",
+      "candidate_id": "V2E2-0116",
+      "dp_id": "ADP.2022-01-22T01:09:14.958",
+      "code": "U",
+      "evidence": "Broad rounded order19 feature with smooth trace-confined raw enhancement and adjacent continuum structure.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19
+      ],
+      "orders_seen": [
+        19
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_07.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": false,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0117",
+      "candidate_id": "V2E2-0117",
+      "dp_id": "ADP.2022-01-22T01:09:14.958",
+      "code": "U",
+      "evidence": "Broad rounded order19 feature with smooth trace-confined raw enhancement and adjacent continuum structure.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19
+      ],
+      "orders_seen": [
+        19
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_07.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": false,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0118",
+      "candidate_id": "V2E2-0118",
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "code": "U",
+      "evidence": "Broad native feature shared by covering orders; raw enhancement follows the stellar trace over multiple dispersion pixels, with blue-order noise retained.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_08.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": false,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0119",
+      "candidate_id": "V2E2-0119",
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "code": "U",
+      "evidence": "Broad native feature shared by covering orders; raw enhancement follows the stellar trace over multiple dispersion pixels, with blue-order noise retained.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_08.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": false,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0120",
+      "candidate_id": "V2E2-0120",
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "code": "U",
+      "evidence": "Broad native feature shared by covering orders; raw enhancement follows the stellar trace over multiple dispersion pixels, with blue-order noise retained.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        3,
+        4
+      ],
+      "orders_seen": [
+        3,
+        4
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_08.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0121",
+      "candidate_id": "V2E2-0121",
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "code": "U",
+      "evidence": "Broad rounded order19 feature with smooth trace-confined raw enhancement and adjacent continuum structure.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19
+      ],
+      "orders_seen": [
+        19
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_08.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0122",
+      "candidate_id": "V2E2-0122",
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "code": "U",
+      "evidence": "Central crop shows an asymmetric several-pixel enhancement overlapping the trace with an oblique ridge, and native profile is flat-topped/asymmetric. Charge contamination is plausible, but a spectral component or blend remains unresolved.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        57
+      ],
+      "orders_seen": [
+        57
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_09.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_02.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0123",
+      "candidate_id": "V2E2-0123",
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "code": "A",
+      "evidence": "Compact displaced deposit on one side of the order70 trace coincides with an isolated sharp native peak.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        70
+      ],
+      "orders_seen": [
+        70
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_09.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_03.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0124",
+      "candidate_id": "V2E2-0124",
+      "dp_id": "ADP.2022-05-06T01:04:00.123",
+      "code": "U",
+      "evidence": "Broad native feature shared by covering orders; raw enhancement follows the stellar trace over multiple dispersion pixels, with blue-order noise retained.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_09.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": false,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0125",
+      "candidate_id": "V2E2-0125",
+      "dp_id": "ADP.2022-05-06T01:04:00.123",
+      "code": "U",
+      "evidence": "Broad native feature shared by covering orders; raw enhancement follows the stellar trace over multiple dispersion pixels, with blue-order noise retained.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        3,
+        4
+      ],
+      "orders_seen": [
+        3,
+        4
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_09.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0126",
+      "candidate_id": "V2E2-0126",
+      "dp_id": "ADP.2022-05-06T01:04:00.123",
+      "code": "U",
+      "evidence": "Broad rounded native feature, smooth trace-confined excess and neighboring continuum structure; physical origin unresolved.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19
+      ],
+      "orders_seen": [
+        19
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_10.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": false,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0127",
+      "candidate_id": "V2E2-0127",
+      "dp_id": "ADP.2022-05-06T01:04:00.123",
+      "code": "U",
+      "evidence": "Broad rounded native feature, smooth trace-confined excess and neighboring continuum structure; physical origin unresolved.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19
+      ],
+      "orders_seen": [
+        19
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_10.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": false,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0133",
+      "candidate_id": "V2E2-0133",
+      "dp_id": "ADP.2023-03-23T01:02:04.833",
+      "code": "U",
+      "evidence": "Broad feature is present in both overlapping orders; order2 has blue-order noise while order3 shows a smooth multi-pixel trace enhancement.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_10.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": false,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0134",
+      "candidate_id": "V2E2-0134",
+      "dp_id": "ADP.2023-05-16T01:01:18.574",
+      "code": "U",
+      "evidence": "Broad feature is present in both overlapping orders; order2 has blue-order noise while order3 shows a smooth multi-pixel trace enhancement.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_10.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": false,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0135",
+      "candidate_id": "V2E2-0135",
+      "dp_id": "ADP.2023-05-16T01:01:18.574",
+      "code": "U",
+      "evidence": "Broad native excess shared across both covering orders, with smooth trace-centered enhancement in the better-exposed order; noisy blue-order detail remains unresolved.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        3,
+        4
+      ],
+      "orders_seen": [
+        3,
+        4
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_11.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0136",
+      "candidate_id": "V2E2-0136",
+      "dp_id": "ADP.2023-05-16T01:01:18.574",
+      "code": "U",
+      "evidence": "Broad rounded native feature with neighboring emission-like structure; smooth raw trace enhancement.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19
+      ],
+      "orders_seen": [
+        19
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_11.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0137",
+      "candidate_id": "V2E2-0137",
+      "dp_id": "ADP.2023-05-16T01:01:18.574",
+      "code": "A",
+      "evidence": "Central crop resolves a short thin asymmetric charge trail displaced to one side of the stellar trace at the narrow native spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        64
+      ],
+      "orders_seen": [
+        64
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_11.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_03.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0138",
+      "candidate_id": "V2E2-0138",
+      "dp_id": "ADP.2023-07-02T01:01:43.311",
+      "code": "U",
+      "evidence": "Broad native excess shared across both covering orders, with smooth trace-centered enhancement in the better-exposed order; noisy blue-order detail remains unresolved.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_11.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": false,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0139",
+      "candidate_id": "V2E2-0139",
+      "dp_id": "ADP.2023-07-02T01:01:43.311",
+      "code": "U",
+      "evidence": "Broad rounded native profile and smooth trace-centered raw enhancement, with a nearby absorption-like depression.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19
+      ],
+      "orders_seen": [
+        19
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_12.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0140",
+      "candidate_id": "V2E2-0140",
+      "dp_id": "ADP.2023-02-21T01:01:25.312",
+      "code": "A",
+      "evidence": "Central crop shows a one-row bright transverse charge streak across the trace, matching the isolated narrow native spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        64
+      ],
+      "orders_seen": [
+        64
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_12.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_03.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0141",
+      "candidate_id": "V2E2-0141",
+      "dp_id": "ADP.2023-02-22T01:01:22.025",
+      "code": "A",
+      "evidence": "A long oblique charge trail crosses the mapped trace and accounts for the irregular native excess.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        66
+      ],
+      "orders_seen": [
+        66
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_12.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_03.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0142",
+      "candidate_id": "V2E2-0142",
+      "dp_id": "ADP.2023-02-23T01:01:36.781",
+      "code": "A",
+      "evidence": "Central enlargement shows a compact block-like deposit on one side of the trace and an asymmetric transverse extension, consistent with the irregular multi-peaked native excess.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        60
+      ],
+      "orders_seen": [
+        60
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_12.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_03.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0143",
+      "candidate_id": "V2E2-0143",
+      "dp_id": "ADP.2023-02-23T01:01:36.781",
+      "code": "A",
+      "evidence": "Bright compact deposit just off the trace creates an isolated one-pixel-dominated native spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        67
+      ],
+      "orders_seen": [
+        67
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_13.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0144",
+      "candidate_id": "V2E2-0144",
+      "dp_id": "ADP.2023-02-25T01:01:19.541",
+      "code": "A",
+      "evidence": "Short horizontal charge deposit displaced from the trace coincides with the steep-edged narrow native feature.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        64
+      ],
+      "orders_seen": [
+        64
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_13.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_03.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0145",
+      "candidate_id": "V2E2-0145",
+      "dp_id": "ADP.2023-02-25T01:01:19.541",
+      "code": "A",
+      "evidence": "Central crop reveals an asymmetric stepped compact charge cluster across the trace, accounting for the steep-edged native feature.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        65
+      ],
+      "orders_seen": [
+        65
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_13.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_04.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0146",
+      "candidate_id": "V2E2-0146",
+      "dp_id": "ADP.2023-02-28T01:02:17.091",
+      "code": "A",
+      "evidence": "Central crop resolves a short diagonal charge trail crossing the trace, with a separate bright off-trace deposit; the central trail explains the narrow native excess.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        69
+      ],
+      "orders_seen": [
+        69
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_13.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_04.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0147",
+      "candidate_id": "V2E2-0147",
+      "dp_id": "ADP.2023-03-01T01:01:30.557",
+      "code": "A",
+      "evidence": "Central crop resolves separated bright pixels forming a short diagonal charge trail across the trace at the irregular native excess.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        62
+      ],
+      "orders_seen": [
+        62
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_14.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_04.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0148",
+      "candidate_id": "V2E2-0148",
+      "dp_id": "ADP.2023-03-01T01:01:30.557",
+      "code": "A",
+      "evidence": "Order68 contains a short transverse charge streak and sharp spike absent from order67.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        67,
+        68
+      ],
+      "orders_seen": [
+        67,
+        68
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_14.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_04.png"
+      ],
+      "baseline_all_orders_mapping_verified": false,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0149",
+      "candidate_id": "V2E2-0149",
+      "dp_id": "ADP.2023-03-01T01:01:30.557",
+      "code": "A",
+      "evidence": "Central crop resolves a one-row compact transverse charge deposit offset from the trace center at the narrow native spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        71
+      ],
+      "orders_seen": [
+        71
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_14.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_04.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0150",
+      "candidate_id": "V2E2-0150",
+      "dp_id": "ADP.2022-04-07T01:01:33.265",
+      "code": "A",
+      "evidence": "Bright compact deposit on the order16 trace produces a sharp spike absent from order15.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        15,
+        16
+      ],
+      "orders_seen": [
+        15,
+        16
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_14.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0151",
+      "candidate_id": "V2E2-0151",
+      "dp_id": "ADP.2022-04-07T01:01:33.265",
+      "code": "A",
+      "evidence": "Compact asymmetric transverse charge cluster crosses the order27 trace at the narrow native spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        27
+      ],
+      "orders_seen": [
+        27
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_15.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0152",
+      "candidate_id": "V2E2-0152",
+      "dp_id": "ADP.2022-04-07T01:01:33.265",
+      "code": "A",
+      "evidence": "Long transverse charge streak crosses order43 at the sharp peak; overlapping order42 lacks the peak.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        42,
+        43
+      ],
+      "orders_seen": [
+        42,
+        43
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_15.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0153",
+      "candidate_id": "V2E2-0153",
+      "dp_id": "ADP.2022-04-07T01:01:33.265",
+      "code": "A",
+      "evidence": "Small displaced compact bright deposit at the predicted row accompanies the narrow native excess.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        46
+      ],
+      "orders_seen": [
+        46
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_15.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0154",
+      "candidate_id": "V2E2-0154",
+      "dp_id": "ADP.2022-04-07T01:01:33.265",
+      "code": "A",
+      "evidence": "Central crop resolves an isolated thin, approximately one-row transverse charge streak at the trace, matching the sharp native spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        47
+      ],
+      "orders_seen": [
+        47
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_15.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_05.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0155",
+      "candidate_id": "V2E2-0155",
+      "dp_id": "ADP.2022-04-07T01:01:33.265",
+      "code": "A",
+      "evidence": "Sharp order54-only spike coincides with a compact transverse raw deposit; order53 shows ordinary continuum.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        53,
+        54
+      ],
+      "orders_seen": [
+        53,
+        54
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_16.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_05.png"
+      ],
+      "baseline_all_orders_mapping_verified": false,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0156",
+      "candidate_id": "V2E2-0156",
+      "dp_id": "ADP.2022-04-07T01:01:33.265",
+      "code": "A",
+      "evidence": "Central crop resolves a short asymmetric transverse charge cluster extending off the stellar trace at the sharp native spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        55
+      ],
+      "orders_seen": [
+        55
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_16.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_05.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0157",
+      "candidate_id": "V2E2-0157",
+      "dp_id": "ADP.2022-04-07T01:01:33.265",
+      "code": "A",
+      "evidence": "Central crop resolves a segmented diagonal charge trail crossing the trace and accounting for the asymmetric narrow native excess.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        56
+      ],
+      "orders_seen": [
+        56
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_16.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_05.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0158",
+      "candidate_id": "V2E2-0158",
+      "dp_id": "ADP.2022-04-07T01:01:33.265",
+      "code": "M",
+      "evidence": "Order68 mapping is unsupported. Available raw image shows disconnected off-trace deposits near a narrow excess, but morphology cannot repair the mapping limitation.",
+      "all_covering_orders_mapping_verified": false,
+      "covering_orders": [
+        68
+      ],
+      "orders_seen": [
+        68
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [
+        68
+      ],
+      "figure": "figures/REVIEW_16.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Unsupported or incomplete covering-order evidence takes precedence over morphology."
+      ]
+    },
+    {
+      "review_id": "V2E2-0159",
+      "candidate_id": "V2E2-0159",
+      "dp_id": "ADP.2022-04-11T01:04:45.733",
+      "code": "M",
+      "evidence": "Covering order0 lacks its full cutout. Order1 shows an isolated bright compact deposit and sharp spike, but incomplete covering-order evidence takes precedence.",
+      "all_covering_orders_mapping_verified": false,
+      "covering_orders": [
+        0,
+        1
+      ],
+      "orders_seen": [
+        1
+      ],
+      "unavailable_orders": [
+        0
+      ],
+      "unsupported_orders": [
+        0
+      ],
+      "figure": "figures/REVIEW_17.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": false,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Unsupported or incomplete covering-order evidence takes precedence over morphology."
+      ]
+    },
+    {
+      "review_id": "V2E2-0160",
+      "candidate_id": "V2E2-0160",
+      "dp_id": "ADP.2022-04-11T01:04:45.733",
+      "code": "M",
+      "evidence": "Covering order0 lacks its full cutout. Order1 shows compact adjacent charge deposits and sharp native excess, but the incomplete mapping/evidence prevents a supported origin label.",
+      "all_covering_orders_mapping_verified": false,
+      "covering_orders": [
+        0,
+        1
+      ],
+      "orders_seen": [
+        1
+      ],
+      "unavailable_orders": [
+        0
+      ],
+      "unsupported_orders": [
+        0
+      ],
+      "figure": "figures/REVIEW_17.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": false,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Unsupported or incomplete covering-order evidence takes precedence over morphology."
+      ]
+    },
+    {
+      "review_id": "V2E2-0161",
+      "candidate_id": "V2E2-0161",
+      "dp_id": "ADP.2022-04-11T01:04:45.733",
+      "code": "A",
+      "evidence": "Small oblique compact cluster crosses order2 at the sharp native spike; noisy order3 lacks a corresponding feature.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_17.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": false,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0162",
+      "candidate_id": "V2E2-0162",
+      "dp_id": "ADP.2022-04-11T01:04:45.733",
+      "code": "A",
+      "evidence": "Compact asymmetric charge deposit with transverse extension crosses the order17 trace at a sharp native feature.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        17
+      ],
+      "orders_seen": [
+        17
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_17.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0163",
+      "candidate_id": "V2E2-0163",
+      "dp_id": "ADP.2022-04-11T01:04:45.733",
+      "code": "A",
+      "evidence": "Compact oblique/transverse raw deposit at the trace yields a narrow high native spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        24
+      ],
+      "orders_seen": [
+        24
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_18.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0164",
+      "candidate_id": "V2E2-0164",
+      "dp_id": "ADP.2022-04-11T01:04:45.733",
+      "code": "A",
+      "evidence": "Order25 contains an oblique short charge trail crossing the trace at the spike; order26 does not reproduce the excess.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        25,
+        26
+      ],
+      "orders_seen": [
+        25,
+        26
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_18.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": false,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0165",
+      "candidate_id": "V2E2-0165",
+      "dp_id": "ADP.2022-04-11T01:04:45.733",
+      "code": "A",
+      "evidence": "Long transverse charge trail across order43 coincides with the sharp native peak; order42 remains flat.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        42,
+        43
+      ],
+      "orders_seen": [
+        42,
+        43
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_18.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0166",
+      "candidate_id": "V2E2-0166",
+      "dp_id": "ADP.2022-04-11T01:04:45.733",
+      "code": "O",
+      "evidence": "Central crop shows a smooth several-pixel trace-centered excess with a continuum-like spatial profile; observer-frame air wavelength 5577.34756 Å is compatible with OI5577.338. Atmospheric origin remains unproved.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        50
+      ],
+      "orders_seen": [
+        50
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_18.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_05.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Wavelength and morphology compatibility only; no independent sky-fiber confirmation."
+      ]
+    },
+    {
+      "review_id": "V2E2-0167",
+      "candidate_id": "V2E2-0167",
+      "dp_id": "ADP.2022-04-11T01:04:45.733",
+      "code": "A",
+      "evidence": "Central crop resolves a short asymmetric diagonal/transverse charge cluster crossing the stellar trace, explaining the steep-edged native peak.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        60
+      ],
+      "orders_seen": [
+        60
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_19.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_06.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0168",
+      "candidate_id": "V2E2-0168",
+      "dp_id": "ADP.2022-04-11T01:04:45.733",
+      "code": "O",
+      "evidence": "Central crop shows a weak several-pixel trace-centered enhancement amid curved-trace residual gradients; the native profile is rounded and observer-frame air wavelength 6300.31327 Å is compatible with OI6300.304. Low contrast and background structure limit confidence; no sky-origin proof.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        63
+      ],
+      "orders_seen": [
+        63
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_19.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_06.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Wavelength and morphology compatibility only; no independent sky-fiber confirmation."
+      ]
+    },
+    {
+      "review_id": "V2E2-0169",
+      "candidate_id": "V2E2-0169",
+      "dp_id": "ADP.2022-04-11T01:04:45.733",
+      "code": "M",
+      "evidence": "Order68 mapping is unsupported; the available cutout shows a faint diagonal charge-like feature near the narrow native excess.",
+      "all_covering_orders_mapping_verified": false,
+      "covering_orders": [
+        68
+      ],
+      "orders_seen": [
+        68
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [
+        68
+      ],
+      "figure": "figures/REVIEW_19.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Unsupported or incomplete covering-order evidence takes precedence over morphology."
+      ]
+    },
+    {
+      "review_id": "V2E2-0170",
+      "candidate_id": "V2E2-0170",
+      "dp_id": "ADP.2022-04-11T01:04:45.733",
+      "code": "M",
+      "evidence": "Order70 mapping is unsupported; available raw image shows a diagonal charge trail crossing the predicted trace, but that does not establish a supported mapping.",
+      "all_covering_orders_mapping_verified": false,
+      "covering_orders": [
+        70
+      ],
+      "orders_seen": [
+        70
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [
+        70
+      ],
+      "figure": "figures/REVIEW_19.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Unsupported or incomplete covering-order evidence takes precedence over morphology."
+      ]
+    },
+    {
+      "review_id": "V2E2-0184",
+      "candidate_id": "V2E2-0184",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "M",
+      "evidence": "At least one covering-order mapping is unsupported. Order1 has a compact charge cluster and extreme order-specific native spike while order0 is noisy; quality failure takes precedence.",
+      "all_covering_orders_mapping_verified": false,
+      "covering_orders": [
+        0,
+        1
+      ],
+      "orders_seen": [
+        0,
+        1
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [
+        1
+      ],
+      "figure": "figures/REVIEW_20.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": false,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Unsupported or incomplete covering-order evidence takes precedence over morphology."
+      ]
+    },
+    {
+      "review_id": "V2E2-0185",
+      "candidate_id": "V2E2-0185",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "M",
+      "evidence": "Order7 mapping is unsupported. A compact bright deposit lies beside the nominal trace at the native spike, but morphology cannot restore mapping support.",
+      "all_covering_orders_mapping_verified": false,
+      "covering_orders": [
+        7
+      ],
+      "orders_seen": [
+        7
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [
+        7
+      ],
+      "figure": "figures/REVIEW_20.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Unsupported or incomplete covering-order evidence takes precedence over morphology."
+      ]
+    },
+    {
+      "review_id": "V2E2-0186",
+      "candidate_id": "V2E2-0186",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "A",
+      "evidence": "Short transverse bright charge streak crosses order9, with a sharp native spike absent from order8.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        8,
+        9
+      ],
+      "orders_seen": [
+        8,
+        9
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_20.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0187",
+      "candidate_id": "V2E2-0187",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "A",
+      "evidence": "Compact deposit at the order18 trace plus a nearby oblique trail accompany a sharp order18-only spike; order19 does not reproduce it.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        18,
+        19
+      ],
+      "orders_seen": [
+        18,
+        19
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_20.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0188",
+      "candidate_id": "V2E2-0188",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "A",
+      "evidence": "Compact asymmetric bright raw deposit near the trace accompanies the sharp narrow native spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19
+      ],
+      "orders_seen": [
+        19
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_21.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_06.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0189",
+      "candidate_id": "V2E2-0189",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "A",
+      "evidence": "Compact displaced charge deposit in order20 corresponds to the narrow excess; noisy order21 has no matching profile.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        20,
+        21
+      ],
+      "orders_seen": [
+        20,
+        21
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_21.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": false,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0190",
+      "candidate_id": "V2E2-0190",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "A",
+      "evidence": "Small block-like off-center raw charge deposit corresponds to the flat-topped steep-edged native excess.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        30
+      ],
+      "orders_seen": [
+        30
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_21.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0191",
+      "candidate_id": "V2E2-0191",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "A",
+      "evidence": "Short transverse raw deposit in order33 produces a narrow order-specific spike absent from order32.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        32,
+        33
+      ],
+      "orders_seen": [
+        32,
+        33
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_21.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_06.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0192",
+      "candidate_id": "V2E2-0192",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "A",
+      "evidence": "Long faint oblique charge trail crosses the mapped trace at the narrow native peak.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        36
+      ],
+      "orders_seen": [
+        36
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_22.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_06.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0193",
+      "candidate_id": "V2E2-0193",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "A",
+      "evidence": "Central crop resolves a compact block-like deposit concentrated on one side of the trace over only a few pixels, corresponding to the steep-edged native spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        49
+      ],
+      "orders_seen": [
+        49
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_22.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_07.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0194",
+      "candidate_id": "V2E2-0194",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "M",
+      "evidence": "Order50 mapping is unsupported. Central crop shows a smooth several-pixel trace-centered enhancement and rounded native excess, but photon-like appearance cannot override mapping failure.",
+      "all_covering_orders_mapping_verified": false,
+      "covering_orders": [
+        50
+      ],
+      "orders_seen": [
+        50
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [
+        50
+      ],
+      "figure": "figures/REVIEW_22.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_07.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Unsupported or incomplete covering-order evidence takes precedence over morphology."
+      ]
+    },
+    {
+      "review_id": "V2E2-0195",
+      "candidate_id": "V2E2-0195",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "M",
+      "evidence": "Order52 mapping is unsupported; narrow asymmetric native spike has faint transverse raw excess near the nominal row.",
+      "all_covering_orders_mapping_verified": false,
+      "covering_orders": [
+        52
+      ],
+      "orders_seen": [
+        52
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [
+        52
+      ],
+      "figure": "figures/REVIEW_22.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Unsupported or incomplete covering-order evidence takes precedence over morphology."
+      ]
+    },
+    {
+      "review_id": "V2E2-0196",
+      "candidate_id": "V2E2-0196",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "A",
+      "evidence": "Central crop resolves a bright single-row deposit plus asymmetric transverse extension across the trace, explaining the isolated narrow spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        55
+      ],
+      "orders_seen": [
+        55
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_23.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_07.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0197",
+      "candidate_id": "V2E2-0197",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "A",
+      "evidence": "Several compact asymmetric charge deposits near the trace account for the irregular double-spiked native feature.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        55
+      ],
+      "orders_seen": [
+        55
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_23.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_07.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0198",
+      "candidate_id": "V2E2-0198",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "A",
+      "evidence": "Short transverse raw charge streak offset to one side of the trace coincides with a very sharp native spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        63
+      ],
+      "orders_seen": [
+        63
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_23.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_07.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0199",
+      "candidate_id": "V2E2-0199",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "M",
+      "evidence": "Order67 mapping is unsupported; available image shows faint asymmetric raw excess near a narrow native feature, so no physical-origin code is assigned.",
+      "all_covering_orders_mapping_verified": false,
+      "covering_orders": [
+        67
+      ],
+      "orders_seen": [
+        67
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [
+        67
+      ],
+      "figure": "figures/REVIEW_23.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Unsupported or incomplete covering-order evidence takes precedence over morphology."
+      ]
+    },
+    {
+      "review_id": "V2E2-0215",
+      "candidate_id": "V2E2-0215",
+      "dp_id": "ADP.2023-03-16T01:01:48.303",
+      "code": "A",
+      "evidence": "Asymmetric transverse charge streak crosses order20 at a sharp native spike that is absent from order19.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19,
+        20
+      ],
+      "orders_seen": [
+        19,
+        20
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_24.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0216",
+      "candidate_id": "V2E2-0216",
+      "dp_id": "ADP.2023-03-16T01:01:48.303",
+      "code": "A",
+      "evidence": "Compact multi-pixel charge cluster at the mapped trace accompanies an isolated steep native spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        37
+      ],
+      "orders_seen": [
+        37
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_24.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0217",
+      "candidate_id": "V2E2-0217",
+      "dp_id": "ADP.2023-03-16T01:01:48.303",
+      "code": "A",
+      "evidence": "Compact asymmetric transverse charge deposit creates the narrow spike superposed on a rising continuum; the broader continuum component is retained.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        43
+      ],
+      "orders_seen": [
+        43
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_24.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0218",
+      "candidate_id": "V2E2-0218",
+      "dp_id": "ADP.2023-03-16T01:01:48.303",
+      "code": "A",
+      "evidence": "Central crop resolves a bright one-row compact deposit displaced to one side of the trace at the steep-edged native feature.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        49
+      ],
+      "orders_seen": [
+        49
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_24.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_07.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0219",
+      "candidate_id": "V2E2-0219",
+      "dp_id": "ADP.2023-03-16T01:01:48.303",
+      "code": "O",
+      "evidence": "Central crop shows a weak several-pixel trace-centered enhancement matching the smooth native emission profile; observer-frame air wavelength 5577.34219 Å is compatible with OI5577.338. Noise and curved-trace residuals remain, so this is compatibility only.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        50
+      ],
+      "orders_seen": [
+        50
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_25.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_08.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Wavelength and morphology compatibility only; no independent sky-fiber confirmation."
+      ]
+    },
+    {
+      "review_id": "V2E2-0220",
+      "candidate_id": "V2E2-0220",
+      "dp_id": "ADP.2023-03-16T01:01:48.303",
+      "code": "A",
+      "evidence": "Central crop reveals a short diagonal charge trail crossing the trace, explaining the sharp asymmetric native peak.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        56
+      ],
+      "orders_seen": [
+        56
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_25.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_08.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0221",
+      "candidate_id": "V2E2-0221",
+      "dp_id": "ADP.2023-03-16T01:01:48.303",
+      "code": "O",
+      "evidence": "Central crop shows a several-pixel trace-centered enhancement with some spatial asymmetry, alongside a rounded native profile; observer-frame air wavelength 6300.30669 Å is compatible with OI6300.304. Weak background gradients and asymmetry limit confidence; no atmospheric-origin proof.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        63
+      ],
+      "orders_seen": [
+        63
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_25.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_08.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Wavelength and morphology compatibility only; no independent sky-fiber confirmation."
+      ]
+    },
+    {
+      "review_id": "V2E2-0222",
+      "candidate_id": "V2E2-0222",
+      "dp_id": "ADP.2023-03-16T01:01:48.303",
+      "code": "A",
+      "evidence": "Central crop shows a long oblique charge trail crossing the trace at the sharp native excess.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        65
+      ],
+      "orders_seen": [
+        65
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_25.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_08.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0223",
+      "candidate_id": "V2E2-0223",
+      "dp_id": "ADP.2023-03-16T01:01:48.303",
+      "code": "M",
+      "evidence": "Order68 mapping is unsupported; available cutout has a compact transverse deposit at a narrow native spike, but quality failure takes precedence.",
+      "all_covering_orders_mapping_verified": false,
+      "covering_orders": [
+        68
+      ],
+      "orders_seen": [
+        68
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [
+        68
+      ],
+      "figure": "figures/REVIEW_26.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Unsupported or incomplete covering-order evidence takes precedence over morphology."
+      ]
+    },
+    {
+      "review_id": "V2E2-0229",
+      "candidate_id": "V2E2-0229",
+      "dp_id": "ADP.2023-02-21T01:01:25.308",
+      "code": "U",
+      "evidence": "Broad multi-pixel native feature shared by orders2/3 despite large blue-order noise; raw order3 enhancement follows the trace.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_26.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": false,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0230",
+      "candidate_id": "V2E2-0230",
+      "dp_id": "ADP.2023-02-21T01:01:25.308",
+      "code": "A",
+      "evidence": "Compact charge cluster on order3 creates a sharp extra spike above a broad feature shared by orders3/4. This provisional artifact code applies to the sharp component; the underlying broad spectral feature remains unresolved.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        3,
+        4
+      ],
+      "orders_seen": [
+        3,
+        4
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_26.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_08.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0231",
+      "candidate_id": "V2E2-0231",
+      "dp_id": "ADP.2023-02-21T01:01:25.308",
+      "code": "U",
+      "evidence": "Broad native excess shared by orders3/4, with a smooth trace-centered enhancement and substantial order4 noise; no isolated artifact explains the whole feature.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        3,
+        4
+      ],
+      "orders_seen": [
+        3,
+        4
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_26.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0232",
+      "candidate_id": "V2E2-0232",
+      "dp_id": "ADP.2023-02-21T01:01:25.308",
+      "code": "A",
+      "evidence": "Bright long diagonal charge trail through order7 accounts for the native spike; noisy order6 lacks a matching spectral peak.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        6,
+        7
+      ],
+      "orders_seen": [
+        6,
+        7
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_27.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0233",
+      "candidate_id": "V2E2-0233",
+      "dp_id": "ADP.2023-02-21T01:01:25.308",
+      "code": "A",
+      "evidence": "Central crop resolves an isolated one-row compact bright deposit displaced from the trace center, matching the steep-edged native excess.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        67
+      ],
+      "orders_seen": [
+        67
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_27.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_09.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0234",
+      "candidate_id": "V2E2-0234",
+      "dp_id": "ADP.2023-02-23T01:01:36.791",
+      "code": "U",
+      "evidence": "Broad trace-confined feature is present in order3; order2 has very large, irregular blue-order noise. Native amplitude mismatch alone is not a charge-origin proof. Central crops confirm a broad smooth photon-like patch in order3 and only weak noisy trace structure in order2.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_27.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_09.png"
+      ],
+      "baseline_all_orders_mapping_verified": false,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0235",
+      "candidate_id": "V2E2-0235",
+      "dp_id": "ADP.2023-02-23T01:01:36.791",
+      "code": "A",
+      "evidence": "Central crop shows a compact irregular block-like charge cluster concentrated in two columns with a bright asymmetric extension along a few rows; it corresponds to the sharply peaked native excess. This is provisional morphology, not particle-origin proof.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        50
+      ],
+      "orders_seen": [
+        50
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_27.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_09.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0236",
+      "candidate_id": "V2E2-0236",
+      "dp_id": "ADP.2023-02-25T01:01:19.535",
+      "code": "U",
+      "evidence": "Broad native structure is shared by orders2/3 and follows the trace in the raw frame; order2 has substantial noise, with no clear charge trail accounting for the feature.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_28.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": false,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0237",
+      "candidate_id": "V2E2-0237",
+      "dp_id": "ADP.2023-02-25T01:01:19.535",
+      "code": "U",
+      "evidence": "Broad native structure is shared by orders2/3 and follows the trace in the raw frame; order2 has substantial noise, with no clear charge trail accounting for the feature.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_28.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": false,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Broad structure, noise or mixed morphology remains unresolved; not a qualified laser."
+      ]
+    },
+    {
+      "review_id": "V2E2-0238",
+      "candidate_id": "V2E2-0238",
+      "dp_id": "ADP.2023-02-25T01:01:19.535",
+      "code": "M",
+      "evidence": "At least one covering-order mapping is unsupported. Both displayed orders3/4 show broad trace-confined native structure, but mapping incompleteness takes precedence.",
+      "all_covering_orders_mapping_verified": false,
+      "covering_orders": [
+        3,
+        4
+      ],
+      "orders_seen": [
+        3,
+        4
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [
+        4
+      ],
+      "figure": "figures/REVIEW_28.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "Unsupported or incomplete covering-order evidence takes precedence over morphology."
+      ]
+    },
+    {
+      "review_id": "V2E2-0239",
+      "candidate_id": "V2E2-0239",
+      "dp_id": "ADP.2023-02-25T01:01:19.535",
+      "code": "A",
+      "evidence": "Bright compact asymmetric charge cluster on order5 creates a sharp native spike; noisy order6 lacks a corresponding spectral profile.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        5,
+        6
+      ],
+      "orders_seen": [
+        5,
+        6
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_28.png",
+      "additional_figures": [],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0240",
+      "candidate_id": "V2E2-0240",
+      "dp_id": "ADP.2023-02-25T01:01:19.535",
+      "code": "A",
+      "evidence": "Long diagonal charge trail crosses the mapped order64 trace and accounts for the sharp native excess.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        64
+      ],
+      "orders_seen": [
+        64
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_29.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_09.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0241",
+      "candidate_id": "V2E2-0241",
+      "dp_id": "ADP.2022-02-04T01:10:07.709",
+      "code": "A",
+      "evidence": "Very long transverse charge streak crosses the bright stellar trace at the isolated narrow native peak.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        68
+      ],
+      "orders_seen": [
+        68
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_29.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_09.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    },
+    {
+      "review_id": "V2E2-0242",
+      "candidate_id": "V2E2-0242",
+      "dp_id": "ADP.2022-03-04T01:01:47.575",
+      "code": "A",
+      "evidence": "Central crop resolves a thin displaced transverse/oblique charge streak extending toward the trace at the steep-edged native peak; the dominant bright stellar continuum had hidden it in the full display.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        60
+      ],
+      "orders_seen": [
+        60
+      ],
+      "unavailable_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_29.png",
+      "additional_figures": [
+        "secondary_enlarged/CENTRAL_10.png"
+      ],
+      "baseline_all_orders_mapping_verified": true,
+      "limits": [
+        "Descriptive AI visual morphology only; no physical-origin proof or calibrated probability.",
+        "The charge-like component may coexist with a weaker photon or continuum contribution."
+      ]
+    }
+  ],
+  "source_hashes": {
+    "PLAN.json": "0745cff5b1a90e712a34f63f2d56f7b606cfbe2c175c962ae457110c3d09e242",
+    "VISUAL_REVIEW_PLAN.json": "9361051e487bee1e790ba74bb961374f247e7c1ccb10c4d554ec534736120d4d",
+    "FOLLOWUP_FREEZE.json": "dbd1626eb66c17fa62dc3dccca5a0adf51f78ea857b2812104fa10435ac00e1b",
+    "SELECTED_EVENTS.csv": "008bd2e33a4d664bfc95952aa6a1fcc69d6e76a1ae11a0fc787caee2f4efea61",
+    "NATIVE_MAPPING.json": "e02971783ec66d60ca69d500cd6b352e3e31453d8623b44816eba2f5d5777a8c",
+    "FIGURE_INDEX.json": "cb40da901a35f08a680c5acebfc0dd655efc8e83f3b31ba32e3417399dda215c",
+    "FIVE_WINDOW_MAPPING_AUDIT.json": "9d713c3c1dbf57c00bb2d2db227a4f6787dcbbbc1e2176f78ad1edeaa956cbbf",
+    "secondary_enlarged/INDEX.json": "255f076522c006284c70adf747c99a4554136ca8202859508564be61b1d97f85",
+    "secondary_enlarged/render.py": "0c351fd072cbf6cc157e10af6502b14658da1ab3cdc90548b930aca771a55e8f",
+    "figures/REVIEW_01.png": "9a3563135cd74f6dd00be92536c4240a9a73ef69370a39b47d0ed7b0ed9c29f9",
+    "figures/REVIEW_02.png": "f12efdb93c2f7f0e37c1e7b3b7750aa8d7f40096f1f4062e0730d1092346691c",
+    "figures/REVIEW_03.png": "c3027976cfff8aacc99189d9b075cd41f202ff31c886ac9ae1ddbed9120dbf54",
+    "figures/REVIEW_04.png": "0483f533ae5ae098a4791dc3ee3ee145981a20e18e4768e41af4a445410b52fd",
+    "figures/REVIEW_05.png": "883da9b5a6c9caae70318d2ac59dea1f273bcc9e4da2480b31407f2aa2c257eb",
+    "figures/REVIEW_06.png": "679835745f843cef8a33683093b8bbf3ecaad1ea5c0acae602a5a9c06e6987ee",
+    "figures/REVIEW_07.png": "96febbed94c3dac7574006f49aa11946f777cf10ded74491f0f807bcfd6ca913",
+    "figures/REVIEW_08.png": "6c0220cf1de1eee3efae260ffee264862b29a3a4526ee24e16ea118d3f8af4ae",
+    "figures/REVIEW_09.png": "55f7534d72047e63b5196a321cbfe329806cdfbfcd2f6f1715006278d7af0f96",
+    "figures/REVIEW_10.png": "0392bd3606e440ea55a2dff83f52ff432162c22e30efb90a0c7bedb51f73e06d",
+    "figures/REVIEW_11.png": "6b6981f8814f41098445fc16e550406f32ef6c8d35276f6f9a0056e3aeafdf43",
+    "figures/REVIEW_12.png": "55fc540b4aba1388a0009f7f6af545e2f73186a77ca8c28501ddfab6410ec255",
+    "figures/REVIEW_13.png": "69e48de959f659b52ede8fc95a1157570e1ebf5261fb713252fae9320730df2c",
+    "figures/REVIEW_14.png": "b1546ac1dbafb113a0d0b6c5ebeb6dd4a1b8f18e3dee31fd5001490fb6ab6e92",
+    "figures/REVIEW_15.png": "0ea795c682ed5df08ebc126c4865297fc892c164440b6e3fe5b509d3504d7303",
+    "figures/REVIEW_16.png": "4b18f6fa65e16a5668fd7c6f6b4b95fd4ba7d45cb32f5e1655f7df76a16046c2",
+    "figures/REVIEW_17.png": "f5c0a80f96cf6d1ae0a3af340c0e25c85c454a2d6a208be85926527aa9b83063",
+    "figures/REVIEW_18.png": "b082e7d3cec1013e751d0683cb2ca1aeba0aaa8835ed0f28cedae5b3504510a2",
+    "figures/REVIEW_19.png": "40df5c2ee616aa33cddd358b25fc63a483e32a630b2f390130204b59b448a35a",
+    "figures/REVIEW_20.png": "7e02368ec9422953a027b99c6752c6b7f5c759bcd91bbf8905f9bd40850dfeac",
+    "figures/REVIEW_21.png": "95e06413767cef1cc5690b8f9b59b1c3693fee54d8b0cd7a3beb1b9018daf534",
+    "figures/REVIEW_22.png": "1039004ed718ce7c3b07e3df5b5772184285c3b531d6a3e23eab2002981054e6",
+    "figures/REVIEW_23.png": "78eaaf91335e6f04d392c01666e70e9a5e8a99c2687cda4090861496f55b0437",
+    "figures/REVIEW_24.png": "00efb6789c672b583d1d01bffc8ab5b96f715db535b8988336a8e7ec25a2d4cd",
+    "figures/REVIEW_25.png": "16830342a1a950924e732fb9671da595552b54fe87e47d10c6dabc38532b964b",
+    "figures/REVIEW_26.png": "e007b13ebce7939bf178195019bae35da12582302ab23645ae2c8f28b58d4b92",
+    "figures/REVIEW_27.png": "98617a4bc0efa1e3d8cbfe4db56c6f4246f2a2b2895e68f191343908ea60f12d",
+    "figures/REVIEW_28.png": "fcdf77c3537ceb3bd95492c338100cb2194a054eda6c762b4f31d20319d00d5e",
+    "figures/REVIEW_29.png": "a28806fb6951517e9d3d645f734a7c8e9ca6be20ed10078713e2b32904ba574b",
+    "secondary_enlarged/CENTRAL_01.png": "5da05b6b8f2dfb9168f5fb630aa2e163a001f9fcd8f1686e5ac52c49aa03c04e",
+    "secondary_enlarged/CENTRAL_02.png": "af6d022468615f499dc2020ed9ae55a0f44f410d6d5bbb347de9aa9f43b87248",
+    "secondary_enlarged/CENTRAL_03.png": "b77d070b8c93c3f5d5553ff20b933a2b977eea43e8368b51c0f7e68f5ab180d9",
+    "secondary_enlarged/CENTRAL_04.png": "460f543ee36df8ce776feaed0065edf4603b4e8f7a0cfd24464ed9f519ae509e",
+    "secondary_enlarged/CENTRAL_05.png": "f7dcf75a11e40ab2529f51988f7b2a5bdd96de3ca4f87db7cb5634ffbe58afcc",
+    "secondary_enlarged/CENTRAL_06.png": "ed384644280d27f84de43e8909df85616fd955d44d5d5a94556a0420554bda40",
+    "secondary_enlarged/CENTRAL_07.png": "aa5cb38484676ff70edbd4b2936165950a2899bda411abf6bfb23c4f0f7ab22b",
+    "secondary_enlarged/CENTRAL_08.png": "f0ff929529e3941e2becb8ddd1511b20463c97d789b920ec8cd73ae14596f36b",
+    "secondary_enlarged/CENTRAL_09.png": "a2366dcb8582842993b6b76240c456a771e262e516f524aa43af37de6fc59044",
+    "secondary_enlarged/CENTRAL_10.png": "9cf70ab013359dabfd02efd7d07a2d36cadfa4bc5ae1eb5af4d71433b176b121"
+  }
+}

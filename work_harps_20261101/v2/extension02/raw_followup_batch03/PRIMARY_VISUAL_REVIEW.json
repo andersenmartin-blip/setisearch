@@ -1,0 +1,2487 @@
+{
+  "created_utc": "2026-11-01T21:58:37.110927+00:00",
+  "status": "COMPLETED_PRIMARY_INDEPENDENT_AI_VISUAL_REVIEW",
+  "reviewer": "batch03_visual_a",
+  "selected_events": 115,
+  "selected_exposures": 32,
+  "covering_order_records": 157,
+  "extracted_order_cutouts_inspected": 155,
+  "missing_full_cutouts": 2,
+  "atlas_pages_inspected": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29
+  ],
+  "central_pages_inspected": [
+    "primary_enlarged/CENTRAL_01.png",
+    "primary_enlarged/CENTRAL_02.png",
+    "primary_enlarged/CENTRAL_03.png",
+    "primary_enlarged/CENTRAL_04.png",
+    "primary_enlarged/CENTRAL_05.png",
+    "primary_enlarged/CENTRAL_06.png",
+    "primary_enlarged/CENTRAL_07.png",
+    "primary_enlarged/CENTRAL_08.png"
+  ],
+  "counts": {
+    "A": 62,
+    "O": 7,
+    "U": 34,
+    "M": 12,
+    "N": 0
+  },
+  "method": "Actual image inspection of all 29 frozen atlas pages, covering every one of the 155 available raw cutouts and native profiles. Fixed central +/-8-column displays inspected on all eight enlargement pages (43 covering-order panels for 40 events); original arrays and coordinates retained. Per-order display scales are recorded in primary_enlarged/DISPLAY_SCALES.json and reproduced by render.py. Enlargements are post-hoc display aids only, with no numerical extraction or classifier/selection threshold tuning.",
+  "independence": "Judgments recorded and saved without reading batch03 secondary reviewer output or any batch03 adopted morphology labels. Parent provided availability and mapping-gate status only. This AI review is independent of the second AI pass but is not blinded external or human validation.",
+  "code_legend": {
+    "A": "Clear provisional charge-like contamination in the reviewed candidate context; no particle/instrument-origin proof.",
+    "O": "Topocentric O I-compatible wavelength and photon-like trace morphology; provisional compatibility, not proven sky origin.",
+    "U": "Broad, ambiguous, noisy, blended, or unresolved morphology requiring further interpretation.",
+    "M": "At least one covering order lacks required mapping support or a full cutout; morphology cannot override this gate.",
+    "N": "Raw/companion pair unavailable."
+  },
+  "limitations": [
+    "AI visual inspection is not calibrated classifier performance, human validation, or proof of physical origin.",
+    "Bright calibration-fibre features dominate many full-width displays; central enlargement reduces that scale problem but does not remove background, trace-curvature, or faint-feature uncertainty.",
+    "Positive excess uses the frozen background convention; original raw counts were also inspected, and subtraction residuals alone are not origin evidence.",
+    "A can coexist with an underlying broad spectral component; possible blends are explicitly retained for 0099, 0122, 0230 and 0235.",
+    "All 12 mapping-limited events remain M, including two events missing the full edge cutout for order 0.",
+    "O labels establish compatibility only; neither sky origin nor an artificial/laser source is proven. No qualified laser candidate is declared."
+  ],
+  "source_sha256": {
+    "PLAN.json": "0745cff5b1a90e712a34f63f2d56f7b606cfbe2c175c962ae457110c3d09e242",
+    "VISUAL_REVIEW_PLAN.json": "9361051e487bee1e790ba74bb961374f247e7c1ccb10c4d554ec534736120d4d",
+    "FOLLOWUP_FREEZE.json": "dbd1626eb66c17fa62dc3dccca5a0adf51f78ea857b2812104fa10435ac00e1b",
+    "SELECTED_EVENTS.csv": "008bd2e33a4d664bfc95952aa6a1fcc69d6e76a1ae11a0fc787caee2f4efea61",
+    "NATIVE_MAPPING.json": "e02971783ec66d60ca69d500cd6b352e3e31453d8623b44816eba2f5d5777a8c",
+    "FIGURE_INDEX.json": "cb40da901a35f08a680c5acebfc0dd655efc8e83f3b31ba32e3417399dda215c",
+    "primary_enlarged/render.py": "a86541e6ee0097ddbcb7398c06345066dffdc81f2c9d244574fdf3e83b329d5d",
+    "primary_enlarged/DISPLAY_SCALES.json": "c48862c7dfa0ba49d9e8dfb6d98fc42849ff20f8bf984069550ffcc8f5719018"
+  },
+  "events": [
+    {
+      "review_id": "V2E2-0085",
+      "candidate_id": "V2E2-0085",
+      "dp_id": "ADP.2025-03-16T01:01:40.685",
+      "code": "O",
+      "evidence": "Central enlargement shows a trace-centred, spatially spread, few-row photon-like enhancement, rather than a thin charge streak; native profile is compatible with a narrow line. Topocentric wavelength is consistent with O I 5577.338 A.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        50
+      ],
+      "orders_seen": [
+        50
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_01.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_01.png"
+      ],
+      "provisional": true,
+      "topocentric_air_angstrom": 5577.339670264766,
+      "oi_reference_air_angstrom": 5577.338,
+      "oi_offset_angstrom": 0.0016702647662896197
+    },
+    {
+      "review_id": "V2E2-0086",
+      "candidate_id": "V2E2-0086",
+      "dp_id": "ADP.2025-04-30T01:01:50.866",
+      "code": "U",
+      "evidence": "Broad native bump and diffuse trace-confined raw enhancement; no unambiguous compact charge deposit is visible. The broad spectral structure remains unresolved.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        1
+      ],
+      "orders_seen": [
+        1
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_01.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0087",
+      "candidate_id": "V2E2-0087",
+      "dp_id": "ADP.2025-04-30T01:01:50.866",
+      "code": "U",
+      "evidence": "Broad enhancement is present in both orders 2 and 3; order 2 is noisier and order 3 is smoother. Raw enhancement follows the trace rather than a narrow off-trace streak.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_01.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0088",
+      "candidate_id": "V2E2-0088",
+      "dp_id": "ADP.2025-04-30T01:01:50.866",
+      "code": "A",
+      "evidence": "Sharp native spike accompanies a bright compact raw deposit several columns left of the order 64 trace; spatial offset and compactness support provisional charge contamination.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        64
+      ],
+      "orders_seen": [
+        64
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_01.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0089",
+      "candidate_id": "V2E2-0089",
+      "dp_id": "ADP.2025-05-29T01:01:14.389",
+      "code": "U",
+      "evidence": "Both orders 2 and 3 show broad native structure and diffuse central enhancement; neither establishes a clear charge morphology or a qualified narrow emission source.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_02.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0090",
+      "candidate_id": "V2E2-0090",
+      "dp_id": "ADP.2025-06-23T01:01:21.159",
+      "code": "A",
+      "evidence": "Enlargement resolves a very thin, bright deposit at row zero just left of the trace, superposed on a strongly curved background trace. The isolated native spike is consistent with this compact charge feature.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        69
+      ],
+      "orders_seen": [
+        69
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_02.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_01.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0091",
+      "candidate_id": "V2E2-0091",
+      "dp_id": "ADP.2025-07-11T01:01:15.079",
+      "code": "A",
+      "evidence": "A narrow raw streak extends from the trace to the right over several columns, with bright discrete segments; the native peak is sharply asymmetric.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        60
+      ],
+      "orders_seen": [
+        60
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_02.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_01.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0092",
+      "candidate_id": "V2E2-0092",
+      "dp_id": "ADP.2022-01-12T01:34:46.931",
+      "code": "U",
+      "evidence": "Weak, noisy native peak with diffuse central excess in the enlargement. The central feature does not establish a distinct charge trail or an O I identification.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        1
+      ],
+      "orders_seen": [
+        1
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_02.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_01.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0093",
+      "candidate_id": "V2E2-0093",
+      "dp_id": "ADP.2022-01-12T01:34:46.931",
+      "code": "A",
+      "evidence": "Enlargement shows a bright one-row horizontal deposit centred several columns left of the trace, with a much sharper spatial concentration than the trace itself.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        60
+      ],
+      "orders_seen": [
+        60
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_03.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_01.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0094",
+      "candidate_id": "V2E2-0094",
+      "dp_id": "ADP.2022-03-08T01:01:37.348",
+      "code": "U",
+      "evidence": "Broad native bump with a second nearby shoulder; raw enhancement remains trace-confined and diffuse. Spectral structure remains unresolved.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19
+      ],
+      "orders_seen": [
+        19
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_03.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0095",
+      "candidate_id": "V2E2-0095",
+      "dp_id": "ADP.2022-05-17T01:02:16.724",
+      "code": "U",
+      "evidence": "Native peak extends over many dispersion samples and the raw enhancement is diffuse around the trace, with no distinct charge track.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        3
+      ],
+      "orders_seen": [
+        3
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_03.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0096",
+      "candidate_id": "V2E2-0096",
+      "dp_id": "ADP.2022-05-17T01:02:16.724",
+      "code": "U",
+      "evidence": "Broad native peak and nearby secondary structure accompany a weak, trace-confined raw excess; origin cannot be assigned from this morphology.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19
+      ],
+      "orders_seen": [
+        19
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_03.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0097",
+      "candidate_id": "V2E2-0097",
+      "dp_id": "ADP.2023-01-03T01:08:17.803",
+      "code": "A",
+      "evidence": "Order 16 has an isolated narrow native spike and compact raw deposit; order 17 lacks a corresponding narrow peak, supporting charge contamination in one covering order.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        16,
+        17
+      ],
+      "orders_seen": [
+        16,
+        17
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_04.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0098",
+      "candidate_id": "V2E2-0098",
+      "dp_id": "ADP.2023-01-03T01:08:17.803",
+      "code": "U",
+      "evidence": "Broad structured native feature with a weak diffuse central raw enhancement; no clear compact charge morphology is established.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19
+      ],
+      "orders_seen": [
+        19
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_04.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0099",
+      "candidate_id": "V2E2-0099",
+      "dp_id": "ADP.2023-01-03T01:08:17.803",
+      "code": "A",
+      "evidence": "A bright compact deposit lies right of the trace and connects to it through a thin row. Broader positive trace-confined structure is also present, so the charge interpretation does not exclude an underlying spectral blend.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        47
+      ],
+      "orders_seen": [
+        47
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_04.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_01.png"
+      ],
+      "provisional": true,
+      "possible_blend": true
+    },
+    {
+      "review_id": "V2E2-0100",
+      "candidate_id": "V2E2-0100",
+      "dp_id": "ADP.2023-01-03T01:08:17.803",
+      "code": "O",
+      "evidence": "Central enlargement shows a spatially spread central enhancement over several dispersion rows, despite trace curvature in the background residual. Native profile and topocentric wavelength are compatible with O I 6300.304 A.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        63
+      ],
+      "orders_seen": [
+        63
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_04.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_02.png"
+      ],
+      "provisional": true,
+      "topocentric_air_angstrom": 6300.295145402346,
+      "oi_reference_air_angstrom": 6300.304,
+      "oi_offset_angstrom": -0.008854597654135432
+    },
+    {
+      "review_id": "V2E2-0101",
+      "candidate_id": "V2E2-0101",
+      "dp_id": "ADP.2023-04-30T01:01:26.803",
+      "code": "A",
+      "evidence": "Order 3 shows a sharp native spike and compact raw deposit; order 4 is noisier and does not reproduce the narrow spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        3,
+        4
+      ],
+      "orders_seen": [
+        3,
+        4
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_05.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0102",
+      "candidate_id": "V2E2-0102",
+      "dp_id": "ADP.2023-04-30T01:01:26.803",
+      "code": "A",
+      "evidence": "Order 4 contains a strong narrow spike and compact raw charge-like deposit, while order 3 lacks the matching narrow feature.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        3,
+        4
+      ],
+      "orders_seen": [
+        3,
+        4
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_05.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0103",
+      "candidate_id": "V2E2-0103",
+      "dp_id": "ADP.2023-04-30T01:01:26.803",
+      "code": "A",
+      "evidence": "Enlargement reveals a bright, thin horizontal deposit at the predicted row, concentrated left of the trace; the native profile is sharply peaked.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        56
+      ],
+      "orders_seen": [
+        56
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_05.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_02.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0109",
+      "candidate_id": "V2E2-0109",
+      "dp_id": "ADP.2023-08-29T01:02:07.487",
+      "code": "A",
+      "evidence": "A long diagonal raw charge trail crosses the order 2 trace and accompanies the narrow spike; covering order 1 does not reproduce the spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        1,
+        2
+      ],
+      "orders_seen": [
+        1,
+        2
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_05.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0110",
+      "candidate_id": "V2E2-0110",
+      "dp_id": "ADP.2023-08-29T01:02:07.487",
+      "code": "U",
+      "evidence": "Broad native bump and secondary spectral structure accompany only a weak diffuse central raw enhancement.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19
+      ],
+      "orders_seen": [
+        19
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_06.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0111",
+      "candidate_id": "V2E2-0111",
+      "dp_id": "ADP.2023-08-29T01:02:07.487",
+      "code": "O",
+      "evidence": "A smooth trace-centred central enhancement spans several rows and columns, compatible with a photon line at O I 6300.304 A. A separate bright pixel at the upper-right edge is remote from the candidate centre.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        63
+      ],
+      "orders_seen": [
+        63
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_06.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_02.png"
+      ],
+      "provisional": true,
+      "topocentric_air_angstrom": 6300.302040520242,
+      "oi_reference_air_angstrom": 6300.304,
+      "oi_offset_angstrom": -0.0019594797577155987
+    },
+    {
+      "review_id": "V2E2-0112",
+      "candidate_id": "V2E2-0112",
+      "dp_id": "ADP.2023-08-29T01:02:07.487",
+      "code": "A",
+      "evidence": "Central enlargement isolates a one-row bright deposit left of the trace, with an abrupt concentration inconsistent with the broader spatial trace profile.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        68
+      ],
+      "orders_seen": [
+        68
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_06.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_02.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0113",
+      "candidate_id": "V2E2-0113",
+      "dp_id": "ADP.2022-01-22T01:09:14.958",
+      "code": "A",
+      "evidence": "A short diagonal raw charge track crosses the order 2 trace; order 1 does not show a matching narrow native peak.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        1,
+        2
+      ],
+      "orders_seen": [
+        1,
+        2
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_06.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0114",
+      "candidate_id": "V2E2-0114",
+      "dp_id": "ADP.2022-01-22T01:09:14.958",
+      "code": "U",
+      "evidence": "Broad native enhancement is present in both orders 2 and 3, with diffuse trace-centred raw structure; the noisy overlap does not establish an origin.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_07.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0115",
+      "candidate_id": "V2E2-0115",
+      "dp_id": "ADP.2022-01-22T01:09:14.958",
+      "code": "U",
+      "evidence": "Both orders 3 and 4 show broad matching native peaks and spatially diffuse central enhancements, without a distinct charge track.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        3,
+        4
+      ],
+      "orders_seen": [
+        3,
+        4
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_07.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0116",
+      "candidate_id": "V2E2-0116",
+      "dp_id": "ADP.2022-01-22T01:09:14.958",
+      "code": "U",
+      "evidence": "Broad native peak with diffuse trace-confined raw enhancement; unresolved spectral structure remains.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19
+      ],
+      "orders_seen": [
+        19
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_07.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0117",
+      "candidate_id": "V2E2-0117",
+      "dp_id": "ADP.2022-01-22T01:09:14.958",
+      "code": "U",
+      "evidence": "Broad smooth native peak and diffuse central raw enhancement; no isolated compact charge morphology is established.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19
+      ],
+      "orders_seen": [
+        19
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_07.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0118",
+      "candidate_id": "V2E2-0118",
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "code": "U",
+      "evidence": "Both covering orders show a broad peak with nearby additional structure. Raw enhancement is trace-confined and does not isolate a charge deposit.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_08.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0119",
+      "candidate_id": "V2E2-0119",
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "code": "U",
+      "evidence": "Broad enhancement appears in both orders; order 2 is noisier and higher, but no clearly separate compact charge feature is established.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_08.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0120",
+      "candidate_id": "V2E2-0120",
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "code": "U",
+      "evidence": "Broad smooth peak agrees across orders 3 and 4, with diffuse raw enhancement near the trace.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        3,
+        4
+      ],
+      "orders_seen": [
+        3,
+        4
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_08.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0121",
+      "candidate_id": "V2E2-0121",
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "code": "U",
+      "evidence": "Broad native bump and diffuse trace-centred raw structure remain unresolved.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19
+      ],
+      "orders_seen": [
+        19
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_08.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0122",
+      "candidate_id": "V2E2-0122",
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "code": "U",
+      "evidence": "Enlargement reveals an irregular, slightly displaced multi-row central excess, with a bright lower component and a weaker extension to the upper right. The weak flat-topped native enhancement and possible charge/photon mixture are insufficient for a clear A or O assignment.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        57
+      ],
+      "orders_seen": [
+        57
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_09.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_02.png"
+      ],
+      "provisional": true,
+      "possible_blend": true
+    },
+    {
+      "review_id": "V2E2-0123",
+      "candidate_id": "V2E2-0123",
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "code": "A",
+      "evidence": "A thin horizontal deposit sits several columns left of the trace at the candidate row; the native feature is sharply peaked.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        70
+      ],
+      "orders_seen": [
+        70
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_09.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_02.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0124",
+      "candidate_id": "V2E2-0124",
+      "dp_id": "ADP.2022-05-06T01:04:00.123",
+      "code": "U",
+      "evidence": "Broad feature is present in both orders 2 and 3 with noisy overlap and diffuse central raw structure.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_09.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0125",
+      "candidate_id": "V2E2-0125",
+      "dp_id": "ADP.2022-05-06T01:04:00.123",
+      "code": "U",
+      "evidence": "Broad smooth native enhancement appears in both orders 3 and 4, without a clear compact deposit.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        3,
+        4
+      ],
+      "orders_seen": [
+        3,
+        4
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_09.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0126",
+      "candidate_id": "V2E2-0126",
+      "dp_id": "ADP.2022-05-06T01:04:00.123",
+      "code": "U",
+      "evidence": "Broad native peak spans many samples and the raw excess is diffuse and trace-confined.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19
+      ],
+      "orders_seen": [
+        19
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_10.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0127",
+      "candidate_id": "V2E2-0127",
+      "dp_id": "ADP.2022-05-06T01:04:00.123",
+      "code": "U",
+      "evidence": "Broad native maximum and smooth central raw enhancement do not establish a distinct charge track or a narrow source identity.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19
+      ],
+      "orders_seen": [
+        19
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_10.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0133",
+      "candidate_id": "V2E2-0133",
+      "dp_id": "ADP.2023-03-23T01:02:04.833",
+      "code": "U",
+      "evidence": "Both orders 2 and 3 show a broad peak; the noisier order 2 and smoother order 3 are consistent with unresolved broad spectral structure.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_10.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0134",
+      "candidate_id": "V2E2-0134",
+      "dp_id": "ADP.2023-05-16T01:01:18.574",
+      "code": "U",
+      "evidence": "Order 3 contains a broad smooth trace-centred enhancement. Order 2 has a remote bright pixel high and left of the candidate, but its central mean excess remains broad and weak; that remote deposit does not classify the central feature.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_10.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_03.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0135",
+      "candidate_id": "V2E2-0135",
+      "dp_id": "ADP.2023-05-16T01:01:18.574",
+      "code": "U",
+      "evidence": "Broad native profiles agree across orders 3 and 4. A remote off-trace pixel in order 3 is not the central feature, which remains diffuse.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        3,
+        4
+      ],
+      "orders_seen": [
+        3,
+        4
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_11.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0136",
+      "candidate_id": "V2E2-0136",
+      "dp_id": "ADP.2023-05-16T01:01:18.574",
+      "code": "U",
+      "evidence": "Broad native peak with a secondary nearby rise and weak diffuse raw enhancement remains unresolved.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19
+      ],
+      "orders_seen": [
+        19
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_11.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0137",
+      "candidate_id": "V2E2-0137",
+      "dp_id": "ADP.2023-05-16T01:01:18.574",
+      "code": "A",
+      "evidence": "Enlargement resolves a compact bright deposit to the right of the trace at row approximately +1, with a short horizontal extension and a sharp native peak.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        64
+      ],
+      "orders_seen": [
+        64
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_11.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_03.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0138",
+      "candidate_id": "V2E2-0138",
+      "dp_id": "ADP.2023-07-02T01:01:43.311",
+      "code": "U",
+      "evidence": "Both orders contain a broad central enhancement; order 2 is very noisy while order 3 shows the smoother broad profile.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_11.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0139",
+      "candidate_id": "V2E2-0139",
+      "dp_id": "ADP.2023-07-02T01:01:43.311",
+      "code": "U",
+      "evidence": "Broad native peak and diffuse trace-centred raw enhancement remain unresolved.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19
+      ],
+      "orders_seen": [
+        19
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_12.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0140",
+      "candidate_id": "V2E2-0140",
+      "dp_id": "ADP.2023-02-21T01:01:25.312",
+      "code": "A",
+      "evidence": "A bright deposit is confined predominantly to one dispersion row across a few central columns, with a very sharp native spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        64
+      ],
+      "orders_seen": [
+        64
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_12.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_03.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0141",
+      "candidate_id": "V2E2-0141",
+      "dp_id": "ADP.2023-02-22T01:01:22.025",
+      "code": "A",
+      "evidence": "The enlargement shows a long segmented diagonal charge trail crossing the trace from upper left to lower right.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        66
+      ],
+      "orders_seen": [
+        66
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_12.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_03.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0142",
+      "candidate_id": "V2E2-0142",
+      "dp_id": "ADP.2023-02-23T01:01:36.781",
+      "code": "A",
+      "evidence": "A compact, asymmetric multi-pixel deposit is concentrated in a narrow column left of the trace, with separate bright row components; it is substantially narrower spatially than the surrounding trace.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        60
+      ],
+      "orders_seen": [
+        60
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_12.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_03.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0143",
+      "candidate_id": "V2E2-0143",
+      "dp_id": "ADP.2023-02-23T01:01:36.781",
+      "code": "A",
+      "evidence": "A bright nearly single-pixel deposit sits just left of the trace and above row zero, accompanying the sharp isolated native spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        67
+      ],
+      "orders_seen": [
+        67
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_13.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0144",
+      "candidate_id": "V2E2-0144",
+      "dp_id": "ADP.2023-02-25T01:01:19.541",
+      "code": "A",
+      "evidence": "A short horizontal compact deposit lies just right of the trace below row zero, with abrupt native-profile edges.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        64
+      ],
+      "orders_seen": [
+        64
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_13.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0145",
+      "candidate_id": "V2E2-0145",
+      "dp_id": "ADP.2023-02-25T01:01:19.541",
+      "code": "A",
+      "evidence": "Enlargement resolves a short stepped charge pattern from a bright lower-left pixel to a thin central row, rather than a smooth spatial line image.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        65
+      ],
+      "orders_seen": [
+        65
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_13.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_04.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0146",
+      "candidate_id": "V2E2-0146",
+      "dp_id": "ADP.2023-02-28T01:02:17.091",
+      "code": "A",
+      "evidence": "Short diagonal charge structure crosses the candidate trace, with an additional separated compact deposit farther left; the native feature is narrow.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        69
+      ],
+      "orders_seen": [
+        69
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_13.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0147",
+      "candidate_id": "V2E2-0147",
+      "dp_id": "ADP.2023-03-01T01:01:30.557",
+      "code": "A",
+      "evidence": "A short diagonal staircase of bright pixels runs from the trace down to the right, accounting for the irregular few-sample native peak.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        62
+      ],
+      "orders_seen": [
+        62
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_14.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_04.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0148",
+      "candidate_id": "V2E2-0148",
+      "dp_id": "ADP.2023-03-01T01:01:30.557",
+      "code": "A",
+      "evidence": "Order 68 contains a thin compact horizontal deposit and a sharp native spike; order 67 lacks a matching spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        67,
+        68
+      ],
+      "orders_seen": [
+        67,
+        68
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_14.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0149",
+      "candidate_id": "V2E2-0149",
+      "dp_id": "ADP.2023-03-01T01:01:30.557",
+      "code": "A",
+      "evidence": "Central enlargement resolves a predominantly one-row bright deposit immediately left of the trace, with an isolated narrow native feature.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        71
+      ],
+      "orders_seen": [
+        71
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_14.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_04.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0150",
+      "candidate_id": "V2E2-0150",
+      "dp_id": "ADP.2022-04-07T01:01:33.265",
+      "code": "A",
+      "evidence": "Order 16 contains a bright compact cross-like deposit at the predicted centre and narrow native spike; order 15 does not reproduce that feature.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        15,
+        16
+      ],
+      "orders_seen": [
+        15,
+        16
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_14.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0151",
+      "candidate_id": "V2E2-0151",
+      "dp_id": "ADP.2022-04-07T01:01:33.265",
+      "code": "A",
+      "evidence": "Compact raw charge structure crosses the trace near row zero, with a sharply peaked native profile.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        27
+      ],
+      "orders_seen": [
+        27
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_15.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0152",
+      "candidate_id": "V2E2-0152",
+      "dp_id": "ADP.2022-04-07T01:01:33.265",
+      "code": "A",
+      "evidence": "A long, very thin horizontal raw streak crosses order 43 and produces its narrow spike; covering order 42 has no corresponding spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        42,
+        43
+      ],
+      "orders_seen": [
+        42,
+        43
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_15.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0153",
+      "candidate_id": "V2E2-0153",
+      "dp_id": "ADP.2022-04-07T01:01:33.265",
+      "code": "A",
+      "evidence": "A short compact horizontal deposit lies left of the trace just above row zero, coincident with the sharp native feature.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        46
+      ],
+      "orders_seen": [
+        46
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_15.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0154",
+      "candidate_id": "V2E2-0154",
+      "dp_id": "ADP.2022-04-07T01:01:33.265",
+      "code": "A",
+      "evidence": "Enlargement resolves a very thin central horizontal deposit with a sharp row concentration and narrow native spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        47
+      ],
+      "orders_seen": [
+        47
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_15.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_04.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0155",
+      "candidate_id": "V2E2-0155",
+      "dp_id": "ADP.2022-04-07T01:01:33.265",
+      "code": "A",
+      "evidence": "Order 54 shows a bright essentially single-row central deposit and sharp spike; order 53 lacks a corresponding native enhancement and shows only weaker residual structure.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        53,
+        54
+      ],
+      "orders_seen": [
+        53,
+        54
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_16.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_04.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0156",
+      "candidate_id": "V2E2-0156",
+      "dp_id": "ADP.2022-04-07T01:01:33.265",
+      "code": "A",
+      "evidence": "A short thin horizontal raw deposit is visible left of the trace above row zero, accompanying an asymmetric sharp native peak.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        55
+      ],
+      "orders_seen": [
+        55
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_16.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0157",
+      "candidate_id": "V2E2-0157",
+      "dp_id": "ADP.2022-04-07T01:01:33.265",
+      "code": "A",
+      "evidence": "A clear short diagonal sequence of bright pixels crosses the trace from upper left to lower right; the native spike has an asymmetric tail.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        56
+      ],
+      "orders_seen": [
+        56
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_16.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_05.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0158",
+      "candidate_id": "V2E2-0158",
+      "dp_id": "ADP.2022-04-07T01:01:33.265",
+      "code": "M",
+      "evidence": "Order 68 fails the all-covering-order mapping gate. Its displayed raw context contains diagonal and separated compact features, but morphology cannot override unsupported mapping.",
+      "all_covering_orders_mapping_verified": false,
+      "covering_orders": [
+        68
+      ],
+      "orders_seen": [
+        68
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [
+        68
+      ],
+      "figure": "figures/REVIEW_16.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0159",
+      "candidate_id": "V2E2-0159",
+      "dp_id": "ADP.2022-04-11T01:04:45.733",
+      "code": "M",
+      "evidence": "Full raw cutout for covering order 0 is unavailable at the edge; order 1 shows a compact bright deposit. Incomplete covering-order support requires M.",
+      "all_covering_orders_mapping_verified": false,
+      "covering_orders": [
+        0,
+        1
+      ],
+      "orders_seen": [
+        1
+      ],
+      "missing_full_cutout_orders": [
+        0
+      ],
+      "unsupported_orders": [
+        0
+      ],
+      "figure": "figures/REVIEW_17.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0160",
+      "candidate_id": "V2E2-0160",
+      "dp_id": "ADP.2022-04-11T01:04:45.733",
+      "code": "M",
+      "evidence": "Full raw cutout for covering order 0 is unavailable at the edge; order 1 contains compact deposits near the candidate. Incomplete covering-order support requires M.",
+      "all_covering_orders_mapping_verified": false,
+      "covering_orders": [
+        0,
+        1
+      ],
+      "orders_seen": [
+        1
+      ],
+      "missing_full_cutout_orders": [
+        0
+      ],
+      "unsupported_orders": [
+        0
+      ],
+      "figure": "figures/REVIEW_17.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0161",
+      "candidate_id": "V2E2-0161",
+      "dp_id": "ADP.2022-04-11T01:04:45.733",
+      "code": "A",
+      "evidence": "Order 2 contains a bright compact slanted deposit at the trace and sharp spike; the noisy order 3 does not reproduce a comparable narrow feature.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_17.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0162",
+      "candidate_id": "V2E2-0162",
+      "dp_id": "ADP.2022-04-11T01:04:45.733",
+      "code": "A",
+      "evidence": "A compact bright deposit crosses the trace with a short lower-right extension and a sharp native peak.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        17
+      ],
+      "orders_seen": [
+        17
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_17.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0163",
+      "candidate_id": "V2E2-0163",
+      "dp_id": "ADP.2022-04-11T01:04:45.733",
+      "code": "A",
+      "evidence": "A short asymmetric charge-like deposit crosses the trace near row zero and accompanies an isolated narrow spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        24
+      ],
+      "orders_seen": [
+        24
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_18.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0164",
+      "candidate_id": "V2E2-0164",
+      "dp_id": "ADP.2022-04-11T01:04:45.733",
+      "code": "A",
+      "evidence": "A short diagonal compact feature crosses order 25; order 26 does not reproduce its sharp native spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        25,
+        26
+      ],
+      "orders_seen": [
+        25,
+        26
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_18.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0165",
+      "candidate_id": "V2E2-0165",
+      "dp_id": "ADP.2022-04-11T01:04:45.733",
+      "code": "A",
+      "evidence": "A long nearly horizontal thin raw streak crosses order 43; order 42 lacks the associated narrow spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        42,
+        43
+      ],
+      "orders_seen": [
+        42,
+        43
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_18.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0166",
+      "candidate_id": "V2E2-0166",
+      "dp_id": "ADP.2022-04-11T01:04:45.733",
+      "code": "O",
+      "evidence": "Enlargement shows a spatially spread trace-centred enhancement spanning several rows, with a smooth few-sample native peak. Its topocentric wavelength is compatible with O I 5577.338 A.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        50
+      ],
+      "orders_seen": [
+        50
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_18.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_05.png"
+      ],
+      "provisional": true,
+      "topocentric_air_angstrom": 5577.347563145891,
+      "oi_reference_air_angstrom": 5577.338,
+      "oi_offset_angstrom": 0.009563145891661406
+    },
+    {
+      "review_id": "V2E2-0167",
+      "candidate_id": "V2E2-0167",
+      "dp_id": "ADP.2022-04-11T01:04:45.733",
+      "code": "A",
+      "evidence": "The central excess follows a thin stepped horizontal pattern across the trace, including a bright pixel to the lower right, rather than a smooth line image.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        60
+      ],
+      "orders_seen": [
+        60
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_19.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_05.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0168",
+      "candidate_id": "V2E2-0168",
+      "dp_id": "ADP.2022-04-11T01:04:45.733",
+      "code": "O",
+      "evidence": "A weak trace-centred enhancement spans several rows and columns amid curved-trace background residuals. Native profile and topocentric wavelength are compatible with O I 6300.304 A; origin remains provisional.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        63
+      ],
+      "orders_seen": [
+        63
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_19.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_05.png"
+      ],
+      "provisional": true,
+      "topocentric_air_angstrom": 6300.313266575606,
+      "oi_reference_air_angstrom": 6300.304,
+      "oi_offset_angstrom": 0.009266575605579419
+    },
+    {
+      "review_id": "V2E2-0169",
+      "candidate_id": "V2E2-0169",
+      "dp_id": "ADP.2022-04-11T01:04:45.733",
+      "code": "M",
+      "evidence": "Order 68 is unsupported by the required mapping gate; a short slanted raw feature is visible, but no origin assignment is made.",
+      "all_covering_orders_mapping_verified": false,
+      "covering_orders": [
+        68
+      ],
+      "orders_seen": [
+        68
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [
+        68
+      ],
+      "figure": "figures/REVIEW_19.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0170",
+      "candidate_id": "V2E2-0170",
+      "dp_id": "ADP.2022-04-11T01:04:45.733",
+      "code": "M",
+      "evidence": "Order 70 is unsupported by the mapping gate. A diagonal charge-like trail is visible in the displayed context but cannot replace the missing mapping support.",
+      "all_covering_orders_mapping_verified": false,
+      "covering_orders": [
+        70
+      ],
+      "orders_seen": [
+        70
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [
+        70
+      ],
+      "figure": "figures/REVIEW_19.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0184",
+      "candidate_id": "V2E2-0184",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "M",
+      "evidence": "Order 1 fails the required mapping gate. A compact bright deposit appears in that order while order 0 does not reproduce the spike; unsupported covering-order mapping requires M.",
+      "all_covering_orders_mapping_verified": false,
+      "covering_orders": [
+        0,
+        1
+      ],
+      "orders_seen": [
+        0,
+        1
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [
+        1
+      ],
+      "figure": "figures/REVIEW_20.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0185",
+      "candidate_id": "V2E2-0185",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "M",
+      "evidence": "Order 7 fails the mapping gate despite a visible compact central deposit; morphology is not adopted as origin evidence.",
+      "all_covering_orders_mapping_verified": false,
+      "covering_orders": [
+        7
+      ],
+      "orders_seen": [
+        7
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [
+        7
+      ],
+      "figure": "figures/REVIEW_20.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0186",
+      "candidate_id": "V2E2-0186",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "A",
+      "evidence": "Order 9 contains a bright thin horizontal deposit and a sharp native spike; order 8 lacks the matching narrow feature.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        8,
+        9
+      ],
+      "orders_seen": [
+        8,
+        9
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_20.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0187",
+      "candidate_id": "V2E2-0187",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "A",
+      "evidence": "Order 18 shows a compact central deposit and a separate diagonal trail farther upper-left; order 19 does not reproduce the narrow spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        18,
+        19
+      ],
+      "orders_seen": [
+        18,
+        19
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_20.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0188",
+      "candidate_id": "V2E2-0188",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "A",
+      "evidence": "A compact raw deposit lies just to the right of the trace near row zero, with a sharp native spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19
+      ],
+      "orders_seen": [
+        19
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_21.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0189",
+      "candidate_id": "V2E2-0189",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "A",
+      "evidence": "Order 20 has a compact vertically short deposit just left and below the trace centre; the noisy order 21 does not reproduce the same narrow feature.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        20,
+        21
+      ],
+      "orders_seen": [
+        20,
+        21
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_21.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0190",
+      "candidate_id": "V2E2-0190",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "A",
+      "evidence": "A compact rectangular bright deposit lies just left of the trace above row zero, producing a narrow flat-topped native peak.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        30
+      ],
+      "orders_seen": [
+        30
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_21.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0191",
+      "candidate_id": "V2E2-0191",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "A",
+      "evidence": "Order 33 contains a thin horizontal deposit immediately left of the trace below row zero; order 32 lacks its sharp native spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        32,
+        33
+      ],
+      "orders_seen": [
+        32,
+        33
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_21.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0192",
+      "candidate_id": "V2E2-0192",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "A",
+      "evidence": "An extended shallow diagonal charge-like track runs across the trace toward the upper right, with a sharp asymmetric native peak.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        36
+      ],
+      "orders_seen": [
+        36
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_22.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0193",
+      "candidate_id": "V2E2-0193",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "A",
+      "evidence": "Enlargement resolves a compact bright deposit centred near the trace and confined to very few rows, with abrupt spatial and dispersion concentration.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        49
+      ],
+      "orders_seen": [
+        49
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_22.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_05.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0194",
+      "candidate_id": "V2E2-0194",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "M",
+      "evidence": "Order 50 fails the mapping gate. The native peak is near an O I region, but unsupported mapping prevents an O assignment; central morphology alone is not used to override this limit.",
+      "all_covering_orders_mapping_verified": false,
+      "covering_orders": [
+        50
+      ],
+      "orders_seen": [
+        50
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [
+        50
+      ],
+      "figure": "figures/REVIEW_22.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0195",
+      "candidate_id": "V2E2-0195",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "M",
+      "evidence": "Order 52 fails the mapping gate; a weak compact central feature accompanies the native spike, but origin remains unassigned.",
+      "all_covering_orders_mapping_verified": false,
+      "covering_orders": [
+        52
+      ],
+      "orders_seen": [
+        52
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [
+        52
+      ],
+      "figure": "figures/REVIEW_22.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0196",
+      "candidate_id": "V2E2-0196",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "A",
+      "evidence": "Enlargement resolves a bright one-row pixel left of the trace with a short horizontal extension through the trace, accompanying a sharp spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        55
+      ],
+      "orders_seen": [
+        55
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_23.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_05.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0197",
+      "candidate_id": "V2E2-0197",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "A",
+      "evidence": "A short stepped diagonal sequence of compact bright pixels crosses the trace; the native feature contains several narrow peaks.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        55
+      ],
+      "orders_seen": [
+        55
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_23.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0198",
+      "candidate_id": "V2E2-0198",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "A",
+      "evidence": "A thin horizontal deposit lies left of the trace at the candidate row, coincident with a sharp native spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        63
+      ],
+      "orders_seen": [
+        63
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_23.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0199",
+      "candidate_id": "V2E2-0199",
+      "dp_id": "ADP.2022-05-23T01:01:57.919",
+      "code": "M",
+      "evidence": "Order 67 fails the required mapping gate. A weak central raw feature is displayed, but the event remains mapping-limited.",
+      "all_covering_orders_mapping_verified": false,
+      "covering_orders": [
+        67
+      ],
+      "orders_seen": [
+        67
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [
+        67
+      ],
+      "figure": "figures/REVIEW_23.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0215",
+      "candidate_id": "V2E2-0215",
+      "dp_id": "ADP.2023-03-16T01:01:48.303",
+      "code": "A",
+      "evidence": "Order 20 contains a short thin slanted track through the trace and a sharp spike; order 19 lacks the corresponding spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        19,
+        20
+      ],
+      "orders_seen": [
+        19,
+        20
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_24.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0216",
+      "candidate_id": "V2E2-0216",
+      "dp_id": "ADP.2023-03-16T01:01:48.303",
+      "code": "A",
+      "evidence": "A compact vertically short raw deposit at the trace accompanies a sharp isolated native peak.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        37
+      ],
+      "orders_seen": [
+        37
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_24.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0217",
+      "candidate_id": "V2E2-0217",
+      "dp_id": "ADP.2023-03-16T01:01:48.303",
+      "code": "A",
+      "evidence": "Enlargement shows a very bright thin two-column deposit at the candidate row. A broader sloping native background is also present, but the narrow excess has clear charge-like morphology.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        43
+      ],
+      "orders_seen": [
+        43
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_24.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_06.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0218",
+      "candidate_id": "V2E2-0218",
+      "dp_id": "ADP.2023-03-16T01:01:48.303",
+      "code": "A",
+      "evidence": "A bright narrow deposit lies just right of the trace, concentrated primarily in a single dispersion row, with an abrupt native-profile edge.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        49
+      ],
+      "orders_seen": [
+        49
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_24.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_06.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0219",
+      "candidate_id": "V2E2-0219",
+      "dp_id": "ADP.2023-03-16T01:01:48.303",
+      "code": "O",
+      "evidence": "A weak diffuse central enhancement occupies several rows and columns amid substantial background fluctuations. The few-sample native peak and topocentric wavelength are compatible with O I 5577.338 A; this is a provisional compatibility label.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        50
+      ],
+      "orders_seen": [
+        50
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_25.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_06.png"
+      ],
+      "provisional": true,
+      "topocentric_air_angstrom": 5577.342193339537,
+      "oi_reference_air_angstrom": 5577.338,
+      "oi_offset_angstrom": 0.004193339536868734
+    },
+    {
+      "review_id": "V2E2-0220",
+      "candidate_id": "V2E2-0220",
+      "dp_id": "ADP.2023-03-16T01:01:48.303",
+      "code": "A",
+      "evidence": "A short diagonal stepped charge track runs from lower left into the trace and accompanies the sharp native spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        56
+      ],
+      "orders_seen": [
+        56
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_25.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_06.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0221",
+      "candidate_id": "V2E2-0221",
+      "dp_id": "ADP.2023-03-16T01:01:48.303",
+      "code": "O",
+      "evidence": "A spatially spread central enhancement occupies several dispersion rows, with an asymmetric but resolved native peak. Its topocentric wavelength is compatible with O I 6300.304 A; weak background/trace residuals limit origin certainty.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        63
+      ],
+      "orders_seen": [
+        63
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_25.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_06.png"
+      ],
+      "provisional": true,
+      "topocentric_air_angstrom": 6300.3066922379485,
+      "oi_reference_air_angstrom": 6300.304,
+      "oi_offset_angstrom": 0.0026922379483949044
+    },
+    {
+      "review_id": "V2E2-0222",
+      "candidate_id": "V2E2-0222",
+      "dp_id": "ADP.2023-03-16T01:01:48.303",
+      "code": "A",
+      "evidence": "A long shallow diagonal raw charge track crosses the trace from upper left toward row zero, explaining the sharp native excess.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        65
+      ],
+      "orders_seen": [
+        65
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_25.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_06.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0223",
+      "candidate_id": "V2E2-0223",
+      "dp_id": "ADP.2023-03-16T01:01:48.303",
+      "code": "M",
+      "evidence": "Order 68 fails the mapping gate. A compact horizontal central deposit is visible but cannot establish an origin under the covering-order rule.",
+      "all_covering_orders_mapping_verified": false,
+      "covering_orders": [
+        68
+      ],
+      "orders_seen": [
+        68
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [
+        68
+      ],
+      "figure": "figures/REVIEW_26.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0229",
+      "candidate_id": "V2E2-0229",
+      "dp_id": "ADP.2023-02-21T01:01:25.308",
+      "code": "U",
+      "evidence": "Both orders show a broad enhancement; order 2 is substantially noisier, while order 3 has smooth diffuse trace-centred structure.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_26.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0230",
+      "candidate_id": "V2E2-0230",
+      "dp_id": "ADP.2023-02-21T01:01:25.308",
+      "code": "A",
+      "evidence": "Order 3 has a very bright compact stepped deposit and sharp spike atop broader structure. Order 4 has a much weaker diffuse broad enhancement, so an underlying spectral blend is possible even though the sharp spike is charge-contaminated.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        3,
+        4
+      ],
+      "orders_seen": [
+        3,
+        4
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_26.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_07.png"
+      ],
+      "provisional": true,
+      "possible_blend": true
+    },
+    {
+      "review_id": "V2E2-0231",
+      "candidate_id": "V2E2-0231",
+      "dp_id": "ADP.2023-02-21T01:01:25.308",
+      "code": "U",
+      "evidence": "Broad profiles occur in both orders 3 and 4; the noisier order 4 has a split peak, but the raw images do not establish an isolated compact charge deposit at the candidate.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        3,
+        4
+      ],
+      "orders_seen": [
+        3,
+        4
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_26.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0232",
+      "candidate_id": "V2E2-0232",
+      "dp_id": "ADP.2023-02-21T01:01:25.308",
+      "code": "A",
+      "evidence": "A long bright diagonal charge trail crosses order 7; the noisy order 6 does not reproduce the sharp spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        6,
+        7
+      ],
+      "orders_seen": [
+        6,
+        7
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_27.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0233",
+      "candidate_id": "V2E2-0233",
+      "dp_id": "ADP.2023-02-21T01:01:25.308",
+      "code": "A",
+      "evidence": "Central enlargement resolves a bright predominantly one-row deposit immediately left of the trace below row zero, with a sharply asymmetric native peak.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        67
+      ],
+      "orders_seen": [
+        67
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_27.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_07.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0234",
+      "candidate_id": "V2E2-0234",
+      "dp_id": "ADP.2023-02-23T01:01:36.791",
+      "code": "U",
+      "evidence": "Order 2 has highly unstable low-background native normalization and large noise excursions; order 3 shows a broad diffuse enhancement. The raw images do not establish a distinct compact charge source for the candidate.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_27.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0235",
+      "candidate_id": "V2E2-0235",
+      "dp_id": "ADP.2023-02-23T01:01:36.791",
+      "code": "U",
+      "evidence": "Enlargement shows a compact asymmetric multi-row patch just below and left of the trace. Its sharp spatial edge is charge-like, but the patch also spans several dispersion rows; retain U because a clear isolated charge track versus a photon/charge mixture is not resolved.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        50
+      ],
+      "orders_seen": [
+        50
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_27.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_07.png"
+      ],
+      "provisional": true,
+      "possible_blend": true
+    },
+    {
+      "review_id": "V2E2-0236",
+      "candidate_id": "V2E2-0236",
+      "dp_id": "ADP.2023-02-25T01:01:19.535",
+      "code": "U",
+      "evidence": "Broad native enhancement is present in both orders 2 and 3 with diffuse trace-centred raw structure and stronger noise in order 2.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_28.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0237",
+      "candidate_id": "V2E2-0237",
+      "dp_id": "ADP.2023-02-25T01:01:19.535",
+      "code": "U",
+      "evidence": "Order 2 has large noisy native excursions and unstable normalization, while order 3 has a smooth broad peak. Central raw structure is diffuse rather than a clear charge track.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        2,
+        3
+      ],
+      "orders_seen": [
+        2,
+        3
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_28.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0238",
+      "candidate_id": "V2E2-0238",
+      "dp_id": "ADP.2023-02-25T01:01:19.535",
+      "code": "M",
+      "evidence": "Order 4 fails the mapping gate. Both displayed orders show broad central enhancement, but the all-covering-order rule requires M.",
+      "all_covering_orders_mapping_verified": false,
+      "covering_orders": [
+        3,
+        4
+      ],
+      "orders_seen": [
+        3,
+        4
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [
+        4
+      ],
+      "figure": "figures/REVIEW_28.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0239",
+      "candidate_id": "V2E2-0239",
+      "dp_id": "ADP.2023-02-25T01:01:19.535",
+      "code": "A",
+      "evidence": "Order 5 contains a compact stepped bright deposit at the trace and sharp spike; noisy order 6 does not reproduce that narrow peak.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        5,
+        6
+      ],
+      "orders_seen": [
+        5,
+        6
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_28.png",
+      "enlarged_figures": [],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0240",
+      "candidate_id": "V2E2-0240",
+      "dp_id": "ADP.2023-02-25T01:01:19.535",
+      "code": "A",
+      "evidence": "Enlargement shows a long shallow diagonal charge streak crossing the trace, with bright segments on both sides and a sharp native spike.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        64
+      ],
+      "orders_seen": [
+        64
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_29.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_07.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0241",
+      "candidate_id": "V2E2-0241",
+      "dp_id": "ADP.2022-02-04T01:10:07.709",
+      "code": "A",
+      "evidence": "A long thin horizontal charge streak extends from the left edge through the candidate row and trace; its off-trace segments are distinct from the bright stellar continuum.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        68
+      ],
+      "orders_seen": [
+        68
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_29.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_07.png"
+      ],
+      "provisional": true
+    },
+    {
+      "review_id": "V2E2-0242",
+      "candidate_id": "V2E2-0242",
+      "dp_id": "ADP.2022-03-04T01:01:47.575",
+      "code": "A",
+      "evidence": "A bright thin horizontal deposit lies several columns left of the trace, connected by a weaker row toward the trace; the weak native peak remains sharply asymmetric.",
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        60
+      ],
+      "orders_seen": [
+        60
+      ],
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "figure": "figures/REVIEW_29.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_08.png"
+      ],
+      "provisional": true
+    }
+  ]
+}
