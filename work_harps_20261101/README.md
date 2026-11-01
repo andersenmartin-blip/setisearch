@@ -1,17 +1,23 @@
 # HARPS analyser og status 1. november 2026
 
-**200 unikke eksponeringer af 20 stjerner, 46,750 timers samlet teleskopeksponering.** Alle **333 V2-profilhits har nu en dokumenteret første rågennemgang**: 201 sandsynlige detektorartefakter, 25 forenelige med atmosfærisk O I, 64 uafklarede spektralstrukturer og 43 med utilstrækkelig lokal råbilledkontrol. Ingen identificeret laser eller kvalificeret SETI-kandidat. Vurderingerne er foreløbige; HARPS-ugen er fortsat delvis.
+**300 unikke eksponeringer af 20 stjerner er nu analyseret, samlet 70,875 timers teleskopeksponering.** De seneste 100 eksponeringer blev udvalgt og analysemetoden publiceret før hentning. Alle 100 bestod identitets- og datakontrollen. V1 har 22 foreløbige emissionshits på 300 eksponeringer; V2 har 669 profiltræf på de seneste 200. Der er ingen identificeret laser eller kvalificeret SETI-kandidat. HARPS-ugen er fortsat delvis.
 
-| Foreløbig status | Nye 237 | Samlet 333 |
-|---|---:|---:|
-| Sandsynlig detektorartefakt | 140 | 201 |
-| Forenelig med atmosfærisk O I | 14 | 25 |
-| Uafklaret spektralstruktur | 40 | 64 |
-| Utilstrækkelig lokal råbilledkontrol | 43 | 43 |
+| Hovedprøve | Eksponeringer | Timer | V1 hits | V2 profiltræf |
+|---|---:|---:|---:|---:|
+| Første prøve | 100 | 22,972 | 10 | Ikke kørt |
+| Første udvidelse | 100 | 23,778 | 6 | 333 |
+| Anden udvidelse | 100 | 24,125 | 6 | 336 |
+| Samlet | 300 | 70,875 | 22 | 669 på 200 eksponeringer |
 
-De oprindelige ti V1-hits har fortsat syv foreløbige artefakt- og tre atmosfærevurderinger. De nye råprodukter øger kontrollen, ikke antallet af hovedeksponeringer.
+Tiden er summeret over forskellige stjerner og år, ikke sammenhængende overvågning. Detektorerne har forskellige udvælgelsesfunktioner, og deres træf må ikke lægges sammen som uafhængige hændelser.
 
-[Samlet rågennemgang og begrundelser](v2/triage_batch02/README.md) · [V2-metode og frisk validering](v2/README.md) · [Præcist fortsættelsespunkt](v2/RESTORE.md)
+**De oprindelige 333 V2-træf er fulgt videre:**209 sandsynlige detektorartefakter,25 forenelige med atmosfærisk O I,95 uafklarede spektralstrukturer og4 med utilstrækkelig billedkobling. Den udvidede kontrol understøttede39 af 43 tidligere kortlægningsproblemer. For de 95 spektralstrukturer viser117 af de tidligere200 eksponeringer91 gentagne barycentriske strukturer,3 observatørbundne mønstre med stærk mistanke om kalibreringsreflekser og1 svag O I-hypotese. Disse er efterfølgende forklaringsspor, ikke endelige oprindelsesklassifikationer. De nye 100 eksponeringer indgår endnu ikke i denne epokeundersøgelse.
+
+**De nye 336 V2-træf er alle bevaret og vist på 42 oversigtssider.**59 har fået en særskilt rågennemgang i 8 fast udvalgte eksponeringer; alle 6 nye V1-hits ligger i samme delprøve.277 nye V2-træf mangler stadig rågennemgang. Den aktuelle delprøvestatus er 44 foreløbige detektorartefakter, 8 O I-fortolkninger, 6 uafklarede strukturer og 1 resterende billedkoblingsbegrænsning. To analyseagenters separate første vurderinger stemmer for alle 65 V1/V2-poster, og hovedagentens9 stikprøver stemmer. Det er ikke uafhængig menneskelig validering. De aktuelle råvurderinger og den udvidede billedkobling står i delprøvens rapport; de oprindelige produktionskataloger er uændrede.
+
+[Ny100 rapport](v2/extension02/RESULTS.md) · [alle 336 spektre](v2/extension02/review1d/README.md) · [rådelprøve](v2/extension02/raw_followup/CURRENT_RESULTS.md) · [opfølgning på oprindelige 333](v2/followup_synthesis/README.md) · [gendannelse og næste arbejde](v2/RESTORE.md)
+
+En separat beregning har reproduceret begge algoritmers komplette udfald på tre fast valgte nye eksponeringer. Råkontrollen har reproduceret35 udsnit fra tre andre fast valgte eksponeringer præcist. Den tidligere192-forsøgsvalidering er bevaret og er ikke en måling af global følsomhed eller den nye prøves falsk-alarm-rate. Rubin er endnu ikke analyseret.
 
 ## Historisk første V1-prøve
 

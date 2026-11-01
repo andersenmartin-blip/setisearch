@@ -1,0 +1,85 @@
+{
+  "created_utc": "2026-11-01T20:27:57.518451+00:00",
+  "status": "COMPLETE_SEPARATE_POSTHOC_REVIEW_READY_FOR_ROOT_OVERLAY",
+  "records": 9,
+  "exposures": 4,
+  "detector_records": {
+    "V1": 1,
+    "V2": 8
+  },
+  "proposed_codes": {
+    "A": 4,
+    "U": 4,
+    "M": 1
+  },
+  "proposed_status_counts": {
+    "PROVISIONAL_DETECTOR_ARTIFACT": 4,
+    "UNRESOLVED_SPECTRAL_FEATURE": 4,
+    "INSUFFICIENT_RAW_MAPPING": 1
+  },
+  "detector_proposed_codes": {
+    "V1": {
+      "A": 1
+    },
+    "V2": {
+      "U": 4,
+      "A": 3,
+      "M": 1
+    }
+  },
+  "geometry_supported_records": 8,
+  "mapping_limited_records": [
+    "V2E2-0225"
+  ],
+  "reference_orders": 13,
+  "reference_windows": 65,
+  "source_products": 8,
+  "cutouts": 16,
+  "independent_numerical_reconstruction": "PASS_EXACT_FRESH_PROCESS_RECONSTRUCTION_ALL_FOUR_EXPOSURES",
+  "visual_review_agreement_records": 9,
+  "coordinates_changed": false,
+  "original_raw_pixels_and_native_samples_preserved": true,
+  "baseline_files_unchanged": true,
+  "original_catalogs_unchanged": true,
+  "root_overlay_created_by_this_script": false,
+  "overlay_counts_if_root_adopts": {
+    "V1": {
+      "O": 3,
+      "A": 3
+    },
+    "V2": {
+      "U": 6,
+      "A": 44,
+      "O": 8,
+      "M": 1
+    }
+  },
+  "other_V2_records_still_unreviewed": 277,
+  "remaining_limitation": {
+    "review_id": "V2E2-0225",
+    "order": 32,
+    "median_correlation": 0.6008675646809737,
+    "median_abs_peak_offset": 0.016188698935466747,
+    "valid_windows": 5,
+    "explanation": "Previously sample-limited order33 passes. Independently checking every covering order reveals order32 fails the fixed correlation threshold. A small spatial offset never overrides that gate."
+  },
+  "comparisons": {
+    "method": "Exact prior mapping43 five-window method without changes",
+    "criterion_applied_to": "All covering orders, including those previously locally supported; all65 baseline candidates excluded within\u00b180pixels",
+    "previous_local_failure_group": "All9 were insufficient-local-sample cases, none measured-shift failures",
+    "visual_blinding": "Separate AI reviewers withheld new codes until fixed, but knew baseline/detector/project context; not blinded scientific or human validation",
+    "physical_origin": "All interpretations provisional; V1E2-0003 and V2E2-0132 are the same raw feature recorded by two detectors"
+  },
+  "acquisition_anomaly": "Previously disclosed three stale raw-product prefixes remain unexplained and preserved separately. This followup used only hash-verified admitted final products and makes no new network-accounting claim.",
+  "new_network_calls": 0,
+  "hashes": {
+    "PLAN.json": "d0f6934a5c5bde5850a230b24b340c582024ce5b0cc61570d8526924c4d67b7a",
+    "SUMMARY.json": "47c38c2b2e48cd4830d245b21d56f3f2e944119fb64a67435a70732b303f350b",
+    "MAPPING_AUDIT.json": "859591a24107cfc47d7bad082421aa8222466aeac470715ce7ffb040c7f72034",
+    "VERIFICATION.json": "2f7494d435bf3bcbe5baee9f019079e9c1f72f20634754e30a3492435522537e",
+    "FIRST_VISUAL_NOTES.json": "6524534250f024f42dcfe9d3ceccb91428701b69eaefa862712d34f6125e681d",
+    "SECOND_VISUAL_NOTES.json": "81672f298fc55364b3f0ab316024e72965bc59df7cfa0f2f11c4de4100b81362",
+    "FOLLOWUP_DISPOSITIONS.csv": "af19879078c2fa0415e1945d0bba798b6ff7f1a3b8d9b9002284e8625c63dd67",
+    "finalize_review.py": "ded00a50d204eec1ff0230ebd2a3908ae9cf343b566eab33c7055bfd8b791051"
+  }
+}

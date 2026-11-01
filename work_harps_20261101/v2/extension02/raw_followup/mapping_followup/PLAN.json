@@ -1,0 +1,143 @@
+{
+  "created_utc": "2026-11-01T20:20:21.974769+00:00",
+  "status": "POSTHOC_PLAN_FIXED_BEFORE_WIDER_REFERENCE_INSPECTION",
+  "purpose": "Investigate all9 baseline mapping-limited records (1V1 and8V2) only; preserve all baseline classifications and all original geometry. No new downloads.",
+  "prior_method_plan": "v2/mapping43_followup/PLAN.json",
+  "prior_method_plan_sha256": "099247946690be47a9d195e5dcfa6764ce4600a9e4a315c5f1413e038acc809c",
+  "review_ids": [
+    "V1E2-0003",
+    "V2E2-0001",
+    "V2E2-0128",
+    "V2E2-0130",
+    "V2E2-0131",
+    "V2E2-0132",
+    "V2E2-0208",
+    "V2E2-0225",
+    "V2E2-0228"
+  ],
+  "exposures": 4,
+  "reference_windows_half_open": [
+    [
+      128,
+      768
+    ],
+    [
+      896,
+      1536
+    ],
+    [
+      1664,
+      2304
+    ],
+    [
+      2432,
+      3072
+    ],
+    [
+      3200,
+      3968
+    ]
+  ],
+  "candidate_exclusion_half_width_pixels": 80,
+  "candidate_population": "All65 selected V1/V2 records in NATIVE_MAPPING.json, in all covering orders, not just the9 followup records.",
+  "minimum_samples_per_reference_window": 200,
+  "reference_orders": "Every covering order of every selected record; retain missing/edge support explicitly.",
+  "fixed_orientation": "Reuse baseline exposure grid_best; never optimize shift, trace or orientation from candidate cores.",
+  "reference_profile": "Sample raw image at polynomial-predicted floating column plus offsets -8 through+8 using linear interpolation. Median spatial profile; subtract outer 4 offset baseline, quadratic interpolation of peak. Report correlation of seven-column aperture and native spectrum after31point highpass. No winsorization or amplitude clipping.",
+  "mapping_criteria": ">=3 usable fixed windows; median correlation>0.8; median absolute peak offset<=0.75 pixels; >=3 windows withabs offset<=1pixel. Header coordinates remain unchanged; no candidate-centered shift.",
+  "candidate_display": "Original41point native snippets, new31x33 raw context, central original21x25 raw pixels preserved exactly; no origin assignments from geometry alone.",
+  "old_local_failure_reasons": [
+    {
+      "review_id": "V1E2-0003",
+      "failed_orders": [
+        57
+      ],
+      "insufficient_samples": true,
+      "measured_offset_over_one_pixel": false
+    },
+    {
+      "review_id": "V2E2-0001",
+      "failed_orders": [
+        3
+      ],
+      "insufficient_samples": true,
+      "measured_offset_over_one_pixel": false
+    },
+    {
+      "review_id": "V2E2-0128",
+      "failed_orders": [
+        2
+      ],
+      "insufficient_samples": true,
+      "measured_offset_over_one_pixel": false
+    },
+    {
+      "review_id": "V2E2-0130",
+      "failed_orders": [
+        19
+      ],
+      "insufficient_samples": true,
+      "measured_offset_over_one_pixel": false
+    },
+    {
+      "review_id": "V2E2-0131",
+      "failed_orders": [
+        19
+      ],
+      "insufficient_samples": true,
+      "measured_offset_over_one_pixel": false
+    },
+    {
+      "review_id": "V2E2-0132",
+      "failed_orders": [
+        57
+      ],
+      "insufficient_samples": true,
+      "measured_offset_over_one_pixel": false
+    },
+    {
+      "review_id": "V2E2-0208",
+      "failed_orders": [
+        61
+      ],
+      "insufficient_samples": true,
+      "measured_offset_over_one_pixel": false
+    },
+    {
+      "review_id": "V2E2-0225",
+      "failed_orders": [
+        33
+      ],
+      "insufficient_samples": true,
+      "measured_offset_over_one_pixel": false
+    },
+    {
+      "review_id": "V2E2-0228",
+      "failed_orders": [
+        63
+      ],
+      "insufficient_samples": true,
+      "measured_offset_over_one_pixel": false
+    }
+  ],
+  "input_hashes": {
+    "v2/extension02/raw_followup/BASELINE_SELECTED_EVENT_DISPOSITIONS.csv": "bae482548dfd9138703776b74c47d7f3e715685a59202360beae19a77151259b",
+    "v2/extension02/raw_followup/BASELINE_V2_ALL336_DISPOSITIONS.csv": "345f903d935fd18e5b1e9f24f0e6d93c195d8793ae9edb04b018328b8da63ecd",
+    "v2/extension02/raw_followup/BASELINE_SUMMARY.json": "cd3e140893efe6f5442199281e657650dce6349e0840560fad7787dc5353f116",
+    "v2/extension02/raw_followup/NATIVE_MAPPING.json": "7aa89a0f43c20971e77523b488482ae27974491e20338b7513655f323287e1d4",
+    "v2/extension02/raw_followup/LOCAL_TRACE_AUDIT.json": "6312df02c84fabd3fefd44a2cb475961816769df3606685daaad4aa66fc9a244",
+    "v2/extension02/raw_followup/SELECTED_EVENTS.csv": "c5f396fda26b44894fdf764bb024ac847e3a79a33ead0ad307074a08b0eaac88",
+    "v2/extension02/raw_followup/SELECTED_EXPOSURES.csv": "4ec411406b6ac69c101e33d07271bc0117a210338014d1437a3d5174ac4dc054",
+    "v2/extension02/raw_followup/products/MANIFEST.json": "9aba043f117220ead5ca15128f37fc465f7c65bc2a7c350aec0a1929a6f94f55",
+    "v2/extension02/raw_followup/FOLLOWUP_FREEZE.json": "bb6b57f4d769db3d08fe5b9ea8797b8520a8c410ed4a8e4e909b1702e1524cfd",
+    "v2/extension02/raw_followup/audit/INDEPENDENT_VISUAL_NOTES.json": "5404ca51a59b23f568d34cc1e22abcaaf2a40ec38a1a91b4612696040de338cf",
+    "v2/extension02/FREEZE.json": "837255ab49b1902f0f6dad8d4b3714d7edd6e68f36ef443b871bd5c4b96c4cbb",
+    "v2/extension02/production/V1_HITS.csv": "84ecdca8ada90179640441f2bdbba44c23296efb6d37880ac3aff9bd4275eb41",
+    "v2/extension02/production/V2_HITS.csv": "af8e7b1c34516e6a2167eba7788fecd9c7cce9198347c660b4f8d725e5b81e6d",
+    "v2/code/profile_detector.py": "577ab049367da078aaed8f525bee1cc856757cc3805c552e7dac9b17dc2bea8b",
+    "v2/code/CONFIG.json": "842c93d4de232b03cd6cd68c54b6399b125f3ea8923946dadcaf4f139fcc19ac"
+  },
+  "interpretation": "This supplements a posthoc subset, not a homogeneous reapplication to all65 or336. Keep original statuses and expose new evidence separately. Root decides any overlay; no final origin claims.",
+  "new_network_calls_allowed": 0,
+  "wider_reference_arrays_inspected_at_plan": 0
+}

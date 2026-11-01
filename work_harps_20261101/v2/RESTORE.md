@@ -1,31 +1,43 @@
-# Gendannelse og fortsættelse efter V2
+# Gendannelse og fortsættelse efter 300 HARPS eksponeringer
 
-Aktuel status: 200 hovedeksponeringer analyseret med V1; kun de ekstra 100 med V2. V2-metoden, konfigurationen, udvalg og kontrolplan må ikke omskrives som følge af de nu kendte resultater. Det oprindelige V1-materiale er bevaret. Ny metodeudvikling kræver en særskilt version og nye kontroller.
+Aktuel status: 300 unikke hovedeksponeringer af 20 stjerner, 255.148,743 sekunder (70,874651 timer). V1 har 22 træf på 300 eksponeringer. V2 har 333 oprindelige og 336 nye profiltræf på 200 eksponeringer. Det første 100-udvalg er ikke genkørt med V2. Alle detektorkoder, konfigurationer og oprindelige kataloger bevares; ny metodeudvikling kræver en særskilt version og nye kontroller.
 
-## Gendan eksisterende resultater
+## Hvor arbejdet står
 
-1. Hent branch `optical-harps-week-20261101` fra `andersenmartin-blip/setisearch`. Gå til `work_harps_20261101`.
-2. Hent de to inputcheckpoints via [V2-rapportens links](README.md). Pak de nye input ud med projektmappen som rod; arkivet indeholder `v2/data/...` og `triage_followup/products/...`. Det oprindelige checkpoint leverer `data/main/...` og øvrige oprindelige filer. Kontrollér arkivernes SHA-256 før udpakning.
-3. Pak `v2/V2_ANALYSIS_EVIDENCE.zip` ud med samme projektrod. Alle store per-spektrum-JSON og `v2/production/V2_ALL_SCREENED_EVENTS.csv` ligger her. Arkivet fastholder resultatversionen fra commit8212c365; senere statusdokumenter i repository kan være opdateret. Pak først ud i en separat mappe, kontrollér hvert medlem mod `v2/EVIDENCE_ARCHIVE.json`, og kopier de nødvendige numeriske resultater uden at overskrive nyere statusdokumenter.
-4. Brug Python 3.12.14, NumPy 2.5.4, SciPy 1.17.0 og Astropy 8.0.2. Matplotlib anvendes til figurer. Kør `python v2/review/check_results.py` for numerisk reproduktion på gemte input; dette skriver kontrollens nye tidspunkt og skal derfor ske i en arbejdskopi.
-5. Regenerér figurer med `python v2/review/make_review_atlas.py`, `python triage_followup/map_native_products.py` og `python triage_followup/inspect_overlaps.py`. Visuelle dispositioner er eksplicitte vurderinger i `triage_followup/VISUAL_REVIEW.json`, ikke et resultat af en automatisk classifier.
+- Oprindelige 333: den aktuelle tabel er `followup_synthesis/CUMULATIVE_333.csv`: 209 foreløbige detektorartefakter, 25 O I-fortolkninger, 95 uafklarede spektralstrukturer, 4 kortlægningsbegrænsninger. De oprindelige batch-tabeller er historiske og uændrede.
+- De 95 har alle-epoke- og breddekontekst.91 følger det barycentriske spektrum, 3 har en stærk kalibreringsrefleks-hypotese, 1 har en svag O I-hypotese. Denne kontrol omfatter117 relevante eksponeringer fra de tidligere200, ikke de seneste 100. Ingen af disse beskrivelser er et automatisk oprindelsesveto.
+- Nye 336: hele kataloget og alle 42 figursider findes i `extension02/production/` og `extension02/review1d/`. Den uændrede produktionsstatus er `UNREVIEWED`; efterfølgende råvurderinger ligger separat.
+- 59 nye V2-træf og alle 6 nye V1-træf er rågennemgået i 8 eksponeringer. De 6 V1 har V2-match og er ikke6 ekstra uafhængige fysiske hændelser. Den første råtabel er `extension02/raw_followup/BASELINE_SELECTED_EVENT_DISPOSITIONS.csv`; alle 336 inklusive277 ikke-rågennemgåede står i `BASELINE_V2_ALL336_DISPOSITIONS.csv`. Den vedtagne bredere billedkobling ligger særskilt i `mapping_followup/` med bevaret baseline. Aktuel tabel: `CURRENT_V2_ALL336_DISPOSITIONS.csv` (44 A, 8 O, 6 U, 1 M, 277 ikke rågennemgåede); alle 669 V2-poster er samlet i `v2/CURRENT_V2_DISPOSITIONS.csv` med eksplicit kohorte og evidenskilde.
+- Næste hovedopgave er de 277 resterende nye V2-træf, efterfulgt af kontrol af de fortsat usikre forklaringer. Udvid ikke søgetærsklen for at reducere arbejdsbyrden. Rubin-data er endnu ikke analyseret; den godkendte Rubin-uge er8.–14. november.
 
-## Frisk fuld reproduktion
+## Hent og gendan input
 
-Brug en særskilt kopi og bevar det publicerede resultat som reference. Omdøb den kopierede `v2/validation/results` og `v2/production` til separate referencekataloger. Kør først `python v2/validation/run_validation.py`, derefter `python v2/code/run_main.py`. Begge kræver, at deres nye outputmappe ikke findes, og kontrollerer de frosne kode- og inputhashes. Sammenlign semantiske resultater og optællinger; tidsstempler og runtime forventes at ændre sig.
+Hent branch `optical-harps-week-20261101` fra `andersenmartin-blip/setisearch` og gå til `work_harps_20261101`.
 
-## Gendan den komplette første rågennemgang
+De oprindelige inputcheckpoints er fortsat linket i [den første V2-rapport](README.md). De to første råinputdele ligger i [batch01](triage_batch01/README.md), de seks næste i [batch02](triage_batch02/README.md). Disse råprodukter dækker92 eksponeringer med oprindelige V2-træf. Derudover findes de oprindelige V1-råkontroller under `triage_followup/`.
 
-Hent de to batch01-inputarkiver fra [første rågennemgang](triage_batch01/README.md) og de seks batch02-inputarkiver fra [anden rågennemgang](triage_batch02/README.md). Kontrollér SHA-256 mod de respektive `INPUT_CHECKPOINTS.json`. Arkiverne bruger projektmappen som rod. De giver rå/native-produkter for alle92 eksponeringer med mindst ét V2-hit.
+De fire nye inputdele med 100 1D-FITS og 16 rå/TAR-produkter er linket i [gemte input](extension02/checkpoints/SAVED_INPUTS.md). De bruger `work_harps_20261101/` som udpakningsrod; medlemmerne starter med `v2/extension02/`. Kontrollér alle arkiv- og medlemshashes mod checkpointindeksene. Tre ubrugte delvise filer med ukendt overlevelsesårsag er bevaret som diagnostik i rådel1; de er præcise præfikser af verificerede produkter og er udelukket fra videnskabsinput. Det dokumenterer ikke deres netværksproveniens.
 
-Pak `triage_batch01/TRIAGE01_EVIDENCE.zip`, `triage_batch02/TRIAGE02_EVIDENCE.zip`, `mapping_followup/MAPPING_FOLLOWUP_EVIDENCE.zip` og `mapping_followup_additional/ADDITIONAL_MAPPING_EVIDENCE.zip` ud i en separat mappe. Kontrollér medlemmer mod de tilhørende arkivmanifester; overskriv ikke nyere dokumenter. De to mapping-arkiver genbruger batch01-råinput. Den aktuelle tabel er `triage_batch02/CUMULATIVE_DISPOSITIONS.csv`; alle tidligere tabeller bevares.
+## Gendan numerisk evidens
 
-Fra en arbejdskopi kan `python v2/triage_batch02/audit_numerical.py` gentage metadata-/hashkontrol og tre metadatavalgte eksponeringers udtræk. `python v2/triage_batch02/finalize_review.py` og `python v2/triage_batch02/combine_followup.py` gendanner dispositionstabeller fra gemte manuelle noter; dette genskaber ikke en ny visuel vurdering.
+Pak arkiver ud i en separat mappe og kontrollér hvert medlem før kopiering. Undgå at overskrive nyere statusdokumenter med rapportversioner inde i historiske arkiver.
 
-## Næste faglige arbejde
+- Det oprindelige `V2_ANALYSIS_EVIDENCE.zip` indeholder blandt andet store per-spektrum-JSON og alle oprindelige screenede events; følg `EVIDENCE_ARCHIVE.json`.
+- De historiske råarkiver ligger under `triage_batch01/`, `triage_batch02/`, `mapping_followup/` og `mapping_followup_additional/`.
+- De nye opfølgninger på oprindelige 333 har evidensarkiver under `mapping43_followup/`, `epoch64_followup/`, `epoch31_followup/`, `line_identification/`, `oi_followup/` og `blue_calibration_followup/`. Deres manifester angiver præcis udpakningsrod og medlemshashes. Profilbredderne ligger direkte under `profile_widths/` og `profile_widths31/`.
+- De nye 100 hovedresultater er gemt direkte under `extension02/production/`. De 336 1D-udsnit ligger i `extension02/review1d/EXTENSION02_REVIEW1D_EVIDENCE.zip`; råudsnittene i `extension02/raw_followup/RAW_BASELINE_EVIDENCE.zip`. Figursiderne ligger separat i repository.
 
-Alle **333 V2-profilhits har nu en dokumenteret første rågennemgang**: 201 sandsynlige detektorartefakter, 25 forenelige med atmosfærisk O I, 64 uafklarede spektralstrukturer og 43 med utilstrækkelig lokal råbilledkontrol. Ingen identificeret laser eller kvalificeret SETI-kandidat. Vurderingerne er foreløbige; HARPS-ugen er fortsat delvis.
+## Kontroller i en arbejdskopi
 
-Fortsæt med lokale referencemangler for43 hændelser og alle-epoke-sammenligning/linjeidentifikation for64 uafklarede strukturer.53 af de64 har et andet accepteret hit inden for±0,03Å barycentrisk; det er ikke en fuld epokekontrol. V2-0205 har en efterfølgende O I6363,776-hypotese, som ikke ændrer det oprindelige to-linje-flag eller den bevarede uafklarede status.
+Brug Python 3.12.14, NumPy 2.5.4, SciPy 1.17.0, Astropy 8.0.2 og Matplotlib. I den eksisterende runtime findes pakkerne via `PYTHONPATH=/workspace/scratch/9ddca116b0b1/python_deps`; på en ny maskine installeres de dokumenterede versioner lokalt.
 
-Batch01 og batch02 bruger forskellige opfølgningskontroller; sammenfat ikke klassetællinger som en kalibreret falsk-alarm-rate. Den fastlåste detektor må ikke tilpasses de nu kendte udfald. De200 hovedeksponeringer er uændrede. Råprodukterne giver ingen ny eksponeringstid. Rubin-data er endnu ikke analyseret.
+```bash
+python v2/extension02/audit/run_audit.py
+python v2/extension02/raw_followup/audit/run_numeric_audit.py
+```
+
+Disse kontroller skal køres i en kopi, da auditrapporter får nye tidspunkter. De reproducerer fast valgte eksponeringer samt kontrollerer alle relevante inputs og optællinger. De bekræfter beregninger, ikke signalernes fysiske ophav.
+
+En fuld ny hovedkørsel bruger `v2/extension02/run_main.py` i en kopi uden eksisterende `production/`-output. Bevar den publicerede produktion særskilt som reference. Sammenlign semantiske udfald og optællinger; tidspunkter og køretid vil ændre sig. Brug originale publicerede metadata, når råopfølgningens kildehashes skal valideres; nye tidsstempler fra en genkørsel må ikke forveksles med ændrede videnskabelige resultater.
+
+Visuelle vurderinger er gemte, foreløbige agentvurderinger, ikke resultatet af en automatisk fysisk classifier. Billedkoblingsreglerne er ikke ens gennem alle historiske stadier, og hver efterfølgende udvidelse er bevaret som et særskilt lag. Der er ingen global følsomheds- eller falsk-alarm-kalibrering og intet kvalificeret nulresultat for lasere.

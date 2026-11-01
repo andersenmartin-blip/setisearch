@@ -1,6 +1,10 @@
-# HARPS V2 og 100 nye eksponeringer
+# HARPS V2 metode og første hovedprøve
 
-**1. november 2026: Hovedprøven rummer 200 unikke eksponeringer af 20 stjerner, samlet 46,750 timers teleskopeksponering.** Alle **333 V2-profilhits har nu en dokumenteret første rågennemgang**: 201 sandsynlige detektorartefakter, 25 forenelige med atmosfærisk O I, 64 uafklarede spektralstrukturer og 43 med utilstrækkelig lokal råbilledkontrol. Ingen identificeret laser eller kvalificeret SETI-kandidat. Vurderingerne er foreløbige; HARPS-ugen er fortsat delvis. [Aktuel rågennemgang](triage_batch02/README.md).
+Aktuel projektdækning: **300 hovedeksponeringer af 20 stjerner, 70,875 timer**. V1 er kørt på alle 300; den uændrede V2 er kørt på de seneste 200 og har 333 + 336 profiltræf. [Samlet status](../README.md) · [anden udvidelse](extension02/RESULTS.md) · [opfølgning på oprindelige 333](followup_synthesis/README.md) · [gendannelse](RESTORE.md).
+
+Nedenstående beskriver den første V2-prøve, dens friske validering og oprindelige 333 træf. Det efterfølgende materiale og de nye 336 træf ligger særskilt; konfigurationen og de oprindelige kataloger er uændrede. Der er ingen identificeret laser eller kvalificeret SETI-kandidat.
+
+## Historisk dækning ved første V2 hovedkørsel
 
 | Omfang | Oprindelige 100 | Nye 100 | Samlet |
 |---|---:|---:|---:|
