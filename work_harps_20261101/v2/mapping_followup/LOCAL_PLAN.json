@@ -1,0 +1,11 @@
+{
+  "purpose": "Second-stage geometry verification and descriptive diagnosis after the fixed reference grid; not an independent blind confirmation or an origin test.",
+  "fixed_orientation_from_reference_grid": {"row_flip": true, "column_flip": false, "argument_flip": true},
+  "local_reference_intervals_relative_to_native_candidate": [[-280, -80], [81, 281]],
+  "candidate_exclusion_half_width_pixels": 80,
+  "reference_minimum_samples": 100,
+  "continuum_profile_offsets": [-5, 5],
+  "continuum_peak_method": "Median of each raw spatial-column offset over the reference interval, subtract median of outer four profile values, parabolic interpolation of the maximum and its two neighbors. This measures a continuum position without candidate-core rows.",
+  "original_reference_diagnostic": "Retain the original Pearson correlations. In the original order-50 pixels1000:1400 interval, also report correlations after a symmetric 8-MAD high-pass amplitude mask applied to both native and extracted-raw arrays. This is a sensitivity diagnostic and does not replace the old gate. Retain all removed native pixels and high-pass values.",
+  "candidate_display": "Re-extract each candidate around the independently determined trace convention, keep raw and background-subtracted arrays, display old/new trace positions, plus unchanged native spectra. No classification or original disposition update."
+}

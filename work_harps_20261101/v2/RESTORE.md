@@ -14,10 +14,18 @@ Aktuel status: 200 hovedeksponeringer analyseret med V1; kun de ekstra 100 med V
 
 Brug en særskilt kopi og bevar det publicerede resultat som reference. Omdøb den kopierede `v2/validation/results` og `v2/production` til separate referencekataloger. Kør først `python v2/validation/run_validation.py`, derefter `python v2/code/run_main.py`. Begge kræver, at deres nye outputmappe ikke findes, og kontrollerer de frosne kode- og inputhashes. Sammenlign semantiske resultater og optællinger; tidsstempler og runtime forventes at ændre sig.
 
+## Gendan den komplette første rågennemgang
+
+Hent de to batch01-inputarkiver fra [første rågennemgang](triage_batch01/README.md) og de seks batch02-inputarkiver fra [anden rågennemgang](triage_batch02/README.md). Kontrollér SHA-256 mod de respektive `INPUT_CHECKPOINTS.json`. Arkiverne bruger projektmappen som rod. De giver rå/native-produkter for alle92 eksponeringer med mindst ét V2-hit.
+
+Pak `triage_batch01/TRIAGE01_EVIDENCE.zip`, `triage_batch02/TRIAGE02_EVIDENCE.zip`, `mapping_followup/MAPPING_FOLLOWUP_EVIDENCE.zip` og `mapping_followup_additional/ADDITIONAL_MAPPING_EVIDENCE.zip` ud i en separat mappe. Kontrollér medlemmer mod de tilhørende arkivmanifester; overskriv ikke nyere dokumenter. De to mapping-arkiver genbruger batch01-råinput. Den aktuelle tabel er `triage_batch02/CUMULATIVE_DISPOSITIONS.csv`; alle tidligere tabeller bevares.
+
+Fra en arbejdskopi kan `python v2/triage_batch02/audit_numerical.py` gentage metadata-/hashkontrol og tre metadatavalgte eksponeringers udtræk. `python v2/triage_batch02/finalize_review.py` og `python v2/triage_batch02/combine_followup.py` gendanner dispositionstabeller fra gemte manuelle noter; dette genskaber ikke en ny visuel vurdering.
+
 ## Næste faglige arbejde
 
-Det oprindelige 333-hitkatalog er uændret `UNREVIEWED`. [Første gennemgang](triage_batch01/README.md) har særskilte foreløbige dispositioner for V2-0001–0096: 56 sandsynlige detektorartefakter, 10 forenelige med atmosfærisk O I, 24 uafklarede spektralstrukturer og seks utilstrækkeligt kortlagte råbilleder. Fortsæt med V2-0097, og bevar de uafklarede tilfælde i opfølgningskøen. Nye råinput til gennemgangen findes i de to arkiver i samme rapport. Der er et komplet [atlasindeks](review/REVIEW_INDEX.csv), 28 figursider og 25 beskrivende sammenfald med to O I-linjer. O I-flag alene må ikke bruges som veto. Fortsæt i dokumenteret tabelrækkefølge med native ordener og råkontrol i afgrænsede grupper; gem alle dispositioner og begrundelser separat fra de frosne detektorresultater. Ved overlappende ordener skal begge undersøges.
+Alle **333 V2-profilhits har nu en dokumenteret første rågennemgang**: 201 sandsynlige detektorartefakter, 25 forenelige med atmosfærisk O I, 64 uafklarede spektralstrukturer og 43 med utilstrækkelig lokal råbilledkontrol. Ingen identificeret laser eller kvalificeret SETI-kandidat. Vurderingerne er foreløbige; HARPS-ugen er fortsat delvis.
 
-De oprindelige ti har syv foreløbige detektorartefakt-vurderinger og tre foreløbige atmosfæriske O I-vurderinger. En uafhængig visuel gennemgang og relevant sky-/kalibreringskontrol mangler. Den nye numeriske kontrol er udført af hovedagenten; den særskilte agentreview blev afbrudt af kontobrugsgrænsen.
+Fortsæt med lokale referencemangler for43 hændelser og alle-epoke-sammenligning/linjeidentifikation for64 uafklarede strukturer.53 af de64 har et andet accepteret hit inden for±0,03Å barycentrisk; det er ikke en fuld epokekontrol. V2-0205 har en efterfølgende O I6363,776-hypotese, som ikke ændrer det oprindelige to-linje-flag eller den bevarede uafklarede status.
 
-Udvid ikke automatisk hovedprøven igen, før kontrolbyrden er vurderet. De 200 er en reel udvidelse af dækningen; antallet af foreløbige profiler er ikke antallet af teknologiske signaler. HARPS-ugen er delvis; Rubin-data er endnu ikke analyseret.
+Batch01 og batch02 bruger forskellige opfølgningskontroller; sammenfat ikke klassetællinger som en kalibreret falsk-alarm-rate. Den fastlåste detektor må ikke tilpasses de nu kendte udfald. De200 hovedeksponeringer er uændrede. Råprodukterne giver ingen ny eksponeringstid. Rubin-data er endnu ikke analyseret.

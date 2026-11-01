@@ -1,10 +1,17 @@
 # HARPS analyser og status 1. november 2026
 
-**Nu 200 unikke eksponeringer af 20 stjerner, 46,750 timers samlet teleskopeksponering.** Det nye udvalg på 100 er analyseret med både V1 og en særskilt, fastlåst V2-profildetektor. V2 genfinder 48/48 indsatte linjer ved hver af de to største styrker i en frisk parret kontrolprøve, mod V1's 22/48 og 27/48. Af de 333 V2-profilhits er de første 96 nu gennemgået: 56 sandsynlige detektorartefakter, 10 forenelige med atmosfærisk O I, 24 uafklarede spektralstrukturer og seks med utilstrækkelig råbilledkortlægning. De øvrige 237 venter. Ingen er identificeret som laser.
+**200 unikke eksponeringer af 20 stjerner, 46,750 timers samlet teleskopeksponering.** Alle **333 V2-profilhits har nu en dokumenteret første rågennemgang**: 201 sandsynlige detektorartefakter, 25 forenelige med atmosfærisk O I, 64 uafklarede spektralstrukturer og 43 med utilstrækkelig lokal råbilledkontrol. Ingen identificeret laser eller kvalificeret SETI-kandidat. Vurderingerne er foreløbige; HARPS-ugen er fortsat delvis.
 
-Alle ti oprindelige hits er fulgt tilbage til råbilleder og native ordener. Den foreløbige vurdering er syv sandsynlige detektorartefakter og tre sandsynlige atmosfæriske iltlinjer. HARPS-ugen er fortsat delvist gennemført.
+| Foreløbig status | Nye 237 | Samlet 333 |
+|---|---:|---:|
+| Sandsynlig detektorartefakt | 140 | 201 |
+| Forenelig med atmosfærisk O I | 14 | 25 |
+| Uafklaret spektralstruktur | 40 | 64 |
+| Utilstrækkelig lokal råbilledkontrol | 43 | 43 |
 
-[Første gennemgang af 96 V2-hits](v2/triage_batch01/README.md) · [V2-rapport, kontroller og alle 333 figurer](v2/README.md) · [Råopfølgning på de oprindelige ti hits](triage_followup/README.md) · [Præcist fortsættelsespunkt](v2/RESTORE.md)
+De oprindelige ti V1-hits har fortsat syv foreløbige artefakt- og tre atmosfærevurderinger. De nye råprodukter øger kontrollen, ikke antallet af hovedeksponeringer.
+
+[Samlet rågennemgang og begrundelser](v2/triage_batch02/README.md) · [V2-metode og frisk validering](v2/README.md) · [Præcist fortsættelsespunkt](v2/RESTORE.md)
 
 ## Historisk første V1-prøve
 

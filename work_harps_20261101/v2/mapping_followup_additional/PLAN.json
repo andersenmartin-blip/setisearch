@@ -1,0 +1,12 @@
+{
+  "purpose": "Additional display and numerical geometry check of V2-0045 and V2-0048, from the December exposure whose convention was independently checked in mapping_followup. No origin assignment or mutation of previous findings.",
+  "review_ids": ["V2-0045", "V2-0048"],
+  "dp_id": "ADP.2024-12-15T01:01:08.159",
+  "fixed_orientation": {"row_flip": true, "column_flip": false, "argument_flip": true},
+  "local_intervals_relative_to_native_pixel_half_open": [[-280, -80], [81, 281]],
+  "all_known_candidate_exclusion_half_width": 80,
+  "local_correlation": "Seven-column raw aperture and native spectrum, each high-passed by a 31-pixel median filter. Record Pearson correlation for old and corrected arguments separately.",
+  "local_continuum_geometry": "Median spatial profile across each candidate-excluded interval; parabolic interpolation of the highest spatial pixel and its neighbors, compared with the corrected trace polynomial.",
+  "display": "31-by-41 raw cutout around the corrected trace; raw, positive background-subtracted image, native spectrum, and outer-row median profile; old and corrected trace positions overlaid.",
+  "immutability": "No writes to mapping_followup, triage_batch01, detector, catalog or disposition tables. All additional outputs stay in mapping_followup_additional."
+}

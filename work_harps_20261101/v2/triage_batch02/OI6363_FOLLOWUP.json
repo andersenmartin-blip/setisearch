@@ -1,0 +1,42 @@
+{
+  "created_utc": "2026-11-01T18:04:49.145524+00:00",
+  "status": "POST_HOC_REFERENCE_HYPOTHESIS_ONLY",
+  "trigger": "After assigned visual review flagged V2-0205 as a fibre-compatible unresolved feature, root checked its6363.77416\u00c5 position against a third OI reference.",
+  "tested_events": 333,
+  "reference_air_angstrom": 6363.776,
+  "descriptive_tolerance_angstrom": 0.03,
+  "matches": [
+    {
+      "review_id": "V2-0165",
+      "target": "HD119130",
+      "dp_id": "ADP.2023-05-15T01:01:10.510",
+      "approx_topocentric_air_angstrom": 6363.764925652029,
+      "reference_air_angstrom": 6363.776,
+      "offset_angstrom": -0.011074347970861709,
+      "first_pass_code": "A",
+      "disposition_changed": false
+    },
+    {
+      "review_id": "V2-0205",
+      "target": "HD120411",
+      "dp_id": "ADP.2022-05-25T01:02:16.015",
+      "approx_topocentric_air_angstrom": 6363.774155899017,
+      "reference_air_angstrom": 6363.776,
+      "offset_angstrom": -0.001844100982452801,
+      "first_pass_code": "U",
+      "disposition_changed": false
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.govinfo.gov/content/pkg/GOVPUB-C13-8e601b629710db9963b4d618c9a1192a/pdf/GOVPUB-C13-8e601b629710db9963b4d618c9a1192a.pdf",
+      "supports": "O I multiplet table explicitly labels air wavelengths6300.304 and6363.776\u00c5."
+    },
+    {
+      "url": "https://www.eso.org/observing/dfo/quality/FORS1/qc/skybrightness/mess-nightsky.pdf",
+      "supports": "Atmospheric night-sky [O I] doublet630.0,636.4nm."
+    }
+  ],
+  "interpretation": "The third reference provides a plausible atmospheric explanation for205, not confirmation.165 retains a provisional detector-artifact judgment from compact off-centre raw morphology; coincidence alone cannot override raw evidence, and superposed sky emission remains possible. Original two-line flags, detector, hit list and first-pass dispositions are unchanged.",
+  "remaining": "Quantitative native profile comparison of6300/6363, wavelength/drift calibration and independent sky/fibre control. No calibrated doublet flux ratio measured."
+}
