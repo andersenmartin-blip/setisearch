@@ -1,3 +1,17 @@
+## Seneste status — første rågennemgang af 96 HARPS V2 hits (1. november 2026)
+
+**96 af 333 V2-hits er nu gennemgået** i native spektralordener og råbilleder: **56 sandsynlige detektorartefakter, 10 forenelige med atmosfærisk O I, 24 uafklarede spektralstrukturer og seks med utilstrækkelig råbilledkortlægning.** De øvrige 237 mangler første gennemgang. Alle vurderinger er foreløbige og udført af hovedagenten; der er ingen identificeret laser.
+
+Den faste delprøve omfatter alle hits fra de første fem stjerner i tabelrækkefølgen, fordelt på 24 eksponeringer. Alle 48 rå- og ancillary-produkter er hentet og kontrolleret. Der er 116 fulde native ordreudsnit og to randbegrænsede ordener. For 21 af de 24 uafklarede spektralstrukturer findes et andet registreret V2-hit inden for ±0,03 Å barycentrisk på en anden eksponering; dette er en beskrivende nærhedskontrol, ikke ophavsbestemmelse.
+
+**Hoveddækningen er uændret: 200 unikke eksponeringer, 20 stjerner og 46,750 timers summeret eksponering.** Denne session er opfølgning på allerede registrerede hits. Den fastlåste V2-detektor og dens oprindelige katalog er uændret. Afbrudte kortlægningsforsøg, lokale geometriusikkerheder og alle uafklarede hændelser er bevaret.
+
+[Rapport, alle dispositioner og råfigurer](https://github.com/andersenmartin-blip/setisearch/blob/ae075ab13fb810c39c9734de11d69c4ebe1f4f30/work_harps_20261101/v2/triage_batch01/README.md) · [Samlet V2-status og fortsættelse](https://github.com/andersenmartin-blip/setisearch/blob/ae075ab13fb810c39c9734de11d69c4ebe1f4f30/work_harps_20261101/v2/RESTORE.md)
+
+**HARPS-ugen er fortsat delvis.** Næste arbejde er V2-0097 og frem samt afklaring af de seks kortlægningsproblemer og de 24 uafklarede spektralstrukturer. Rubin er endnu ikke analyseret. Ingen automatisk baggrundskørsel er oprettet. Tidligere status bevares nedenfor.
+
+---
+
 ## Seneste status — HARPS udvidet til 200 eksponeringer (1. november 2026)
 
 **200 unikke HARPS-eksponeringer af 20 stjerner er nu analyseret**, samlet 46,750 timers teleskopeksponering. De nye 100 er undersøgt med både den oprindelige V1 og en særskilt, fastlåst V2-profildetektor. V1 giver seks nye hits, 16 samlet; V2 giver 333 foreløbige profilhits i de nye 100. Alle 333 har figurer og mangler fortsat ophavsvurdering. Ingen identificeret laser eller kvalificeret SETI-kandidat.
