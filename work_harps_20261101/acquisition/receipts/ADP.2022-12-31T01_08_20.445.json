@@ -1,0 +1,89 @@
+{
+  "dp_id": "ADP.2022-12-31T01:08:20.445",
+  "canonical_target": "HD100508",
+  "role": "validation_background_unopened",
+  "source_url": "https://dataportal.eso.org/dataPortal/file/ADP.2022-12-31T01:08:20.445",
+  "path": "/workspace/scratch/9ddca116b0b1/setisearch/work_harps_20261101/data/validation/ADP.2022-12-31T01_08_20.445.fits",
+  "started_utc": "2026-11-01T15:34:02.029267+00:00",
+  "attempts": [
+    {
+      "started_utc": "2026-11-01T15:34:02.029287+00:00",
+      "timeout_seconds": 20,
+      "http_status": 200,
+      "response_headers": {
+        "Content-Type": "application/octet-stream",
+        "Content-Length": "5264640",
+        "Content-Disposition": "attachment; filename=\"ADP.2022-12-31T01:08:20.445.fits\"",
+        "Last-Modified": null
+      },
+      "outcome": "SUCCESS",
+      "elapsed_seconds": 8.140700822001236
+    }
+  ],
+  "download_status": "DOWNLOADED",
+  "bytes": 5264640,
+  "sha256": "8a6188394cbce1fa53b360cd8d1c95f593972e1ec28793169be7755e8be2b834",
+  "checks": {
+    "target_name_matches": true,
+    "instrument_harps": true,
+    "mjd_matches_within_0p00864_s": true,
+    "exptime_matches_within_0p02_s": true,
+    "position_matches_within_1_arcsec": true,
+    "single_spectrum_table": true,
+    "has_raw_provenance": true,
+    "no_upstream_adp_match": true,
+    "no_upstream_raw_match": true
+  },
+  "header_status": "PASS_METADATA_ONLY",
+  "position_difference_arcsec": 0.0,
+  "primary_header": {
+    "INSTRUME": "HARPS",
+    "RA": 173.300629,
+    "DEC": -67.05428,
+    "EXPTIME": 899.9963,
+    "MJD-OBS": 59943.25751842,
+    "DATE-OBS": "2022-12-30T06:10:49.591",
+    "SPECSYS": "BARYCENT",
+    "OBJECT": "HD 100508",
+    "FLUXCAL": "UNCALIBRATED",
+    "WAVELMIN": 378.274,
+    "WAVELMAX": 691.311,
+    "SPEC_BIN": 0.001,
+    "NCOMBINE": 1,
+    "SNR": 131.75,
+    "SPEC_RES": 115000.0,
+    "HIERARCH ESO DPR TYPE": "STAR,WAVE,K1",
+    "HIERARCH ESO DRS BERV": 13.1496034017857,
+    "HIERARCH ESO DRS BERVMX": 16.1935611960267
+  },
+  "extension_header": {
+    "NAXIS1": 5008608,
+    "NAXIS2": 1,
+    "TTYPE1": "WAVE",
+    "TFORM1": "313038D",
+    "TTYPE2": "FLUX",
+    "TFORM2": "313038E",
+    "TTYPE3": "ERR",
+    "TFORM3": "313038E",
+    "EXTNAME": "SPECTRUM",
+    "TUCD1": "em.wl;obs.atmos",
+    "TUNIT1": "angstrom",
+    "TCOMM1": "Computed from original WCS information",
+    "TUCD2": "phot.flux.density;em.wl;stat.uncalib",
+    "TUNIT2": "adu",
+    "TCOMM2": "Converted from 1-d pipeline spectrum (s1d_A)",
+    "TUCD3": "stat.error;phot.flux.density;em.wl;stat.uncalib",
+    "TUNIT3": "adu",
+    "TCOMM3": "Error spectrum not available, filled with NaN"
+  },
+  "provenance_header": {
+    "PROV1": "HARPS.2022-12-30T06:10:49.591.fits",
+    "ARCFILE": "ADP.2022-12-31T01:08:20.445.fits"
+  },
+  "raw_progenitor_ids": [
+    "HARPS.2022-12-30T06:10:49.591"
+  ],
+  "upstream_raw_matches": [],
+  "array_values_inspected": false,
+  "finished_utc": "2026-11-01T15:34:10.169994+00:00"
+}

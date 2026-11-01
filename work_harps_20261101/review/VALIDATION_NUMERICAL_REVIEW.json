@@ -1,0 +1,1961 @@
+{
+  "schema": "HARPS_VALIDATION_NUMERICS_INDEPENDENT_REVIEW_V1",
+  "reviewed_utc": "2026-11-01T15:45:29.089056+00:00",
+  "status": "PASS",
+  "checks": {
+    "plan_and_frozen_source_hashes_match": true,
+    "all_12_controls_reproduced": true,
+    "all_48_injections_reproduced": true,
+    "reported_control_hits_match": true,
+    "reported_recovery_total_matches": true,
+    "reported_per_amplitude_recoveries_match": true,
+    "six_strongest_misses_are_three_pixel_short_runs": true
+  },
+  "directly_recomputed_windows": 54060,
+  "control_hits": 0,
+  "recovered_trials": 11,
+  "registered_trials": 48,
+  "by_amplitude": [
+    {
+      "amplitude_factor": 4,
+      "evaluated": 12,
+      "recovered": 0,
+      "outcome_reasons": {
+        "SHORT_RUN_ONLY": 2,
+        "NO_NEAR_CENTER_CROSSING": 10
+      },
+      "center_scatter_over_unmodified_noise_min": 1.2393337181752013,
+      "center_scatter_over_unmodified_noise_max": 1.3911028446682987
+    },
+    {
+      "amplitude_factor": 8,
+      "evaluated": 12,
+      "recovered": 0,
+      "outcome_reasons": {
+        "SHORT_RUN_ONLY": 12
+      },
+      "center_scatter_over_unmodified_noise_min": 1.696228826497358,
+      "center_scatter_over_unmodified_noise_max": 2.0262052003999402
+    },
+    {
+      "amplitude_factor": 16,
+      "evaluated": 12,
+      "recovered": 5,
+      "outcome_reasons": {
+        "SHORT_RUN_ONLY": 7,
+        "ACCEPTED_RUN": 5
+      },
+      "center_scatter_over_unmodified_noise_min": 2.82410496812634,
+      "center_scatter_over_unmodified_noise_max": 3.485930017830637
+    },
+    {
+      "amplitude_factor": 32,
+      "evaluated": 12,
+      "recovered": 6,
+      "outcome_reasons": {
+        "SHORT_RUN_ONLY": 6,
+        "ACCEPTED_RUN": 6
+      },
+      "center_scatter_over_unmodified_noise_min": 5.275971509707991,
+      "center_scatter_over_unmodified_noise_max": 6.562483403579329
+    }
+  ],
+  "strongest_recovery_by_phase_and_background": [
+    {
+      "phase": 0,
+      "evaluated": 4,
+      "recovered": 0
+    },
+    {
+      "phase": 0.25,
+      "evaluated": 4,
+      "recovered": 2
+    },
+    {
+      "phase": 0.5,
+      "evaluated": 4,
+      "recovered": 4
+    }
+  ],
+  "findings": [
+    "All six missed 32-times injections produce a three-pixel threshold run at the injected center and fail the frozen minimum-four-pixel criterion; no injection was lost by a numerical or indexing mismatch.",
+    "The injection width spans 3.57 to 5.66 pixels FWHM, but the detector counts only consecutive pixels above its moving threshold, not FWHM pixels. These widths are not interchangeable.",
+    "The Gaussian is included in the detector local standard deviation. At high amplitude this raises the threshold along with the signal and limits the width above threshold; amplitude factor relative to original scatter is not final detector significance.",
+    "At the strongest level, recovery is 0/4 for the phase-0 background, 2/4 for phase-0.25, and 4/4 for phase-0.5. Background and phase are confounded, so this does not isolate a phase-only effect.",
+    "These results demonstrate a real sensitivity limitation of the frozen filter on this restricted set; they do not justify tuning this completed run or claiming general completeness."
+  ],
+  "input_sha256": {
+    "validation/VALIDATION_PLAN.json": "45697666c548d1d135ea6d36e76e923a7d33585c2c42e9fa8c4e6c6f1beecb15",
+    "validation/results_frozen_20261101/RUN_RECEIPT.json": "1a387067899c2a51348760ec9d4cca35a3de80d699c373f22a993fb1aabcf0fb",
+    "validation/results_frozen_20261101/summary.json": "7c90a3638215d45d7c98a16520309737b75a33403ccbfd12e49468d56ab6c3bf",
+    "review/review_production_numerics.py": "539ae90c2c6c2c1ef7c99ec501e0efdf7954373510a4d8ce76d3f006961d3ae8"
+  },
+  "controls": [
+    {
+      "geometry_id": "b1_a4101p37",
+      "control_hit": false,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_raw": true,
+        "flux_matches_raw": true,
+        "noise_matches_unmodified_window": true,
+        "center_matches_registered_phase": true,
+        "center_index_lower_half_pixel_tie": true,
+        "control_hit_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b1_a4802p61",
+      "control_hit": false,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_raw": true,
+        "flux_matches_raw": true,
+        "noise_matches_unmodified_window": true,
+        "center_matches_registered_phase": true,
+        "center_index_lower_half_pixel_tie": true,
+        "control_hit_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b1_a5703p29",
+      "control_hit": false,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_raw": true,
+        "flux_matches_raw": true,
+        "noise_matches_unmodified_window": true,
+        "center_matches_registered_phase": true,
+        "center_index_lower_half_pixel_tie": true,
+        "control_hit_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b1_a6504p73",
+      "control_hit": false,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_raw": true,
+        "flux_matches_raw": true,
+        "noise_matches_unmodified_window": true,
+        "center_matches_registered_phase": true,
+        "center_index_lower_half_pixel_tie": true,
+        "control_hit_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b2_a4101p37",
+      "control_hit": false,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_raw": true,
+        "flux_matches_raw": true,
+        "noise_matches_unmodified_window": true,
+        "center_matches_registered_phase": true,
+        "center_index_lower_half_pixel_tie": true,
+        "control_hit_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b2_a4802p61",
+      "control_hit": false,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_raw": true,
+        "flux_matches_raw": true,
+        "noise_matches_unmodified_window": true,
+        "center_matches_registered_phase": true,
+        "center_index_lower_half_pixel_tie": true,
+        "control_hit_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b2_a5703p29",
+      "control_hit": false,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_raw": true,
+        "flux_matches_raw": true,
+        "noise_matches_unmodified_window": true,
+        "center_matches_registered_phase": true,
+        "center_index_lower_half_pixel_tie": true,
+        "control_hit_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b2_a6504p73",
+      "control_hit": false,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_raw": true,
+        "flux_matches_raw": true,
+        "noise_matches_unmodified_window": true,
+        "center_matches_registered_phase": true,
+        "center_index_lower_half_pixel_tie": true,
+        "control_hit_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b3_a4101p37",
+      "control_hit": false,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_raw": true,
+        "flux_matches_raw": true,
+        "noise_matches_unmodified_window": true,
+        "center_matches_registered_phase": true,
+        "center_index_lower_half_pixel_tie": true,
+        "control_hit_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b3_a4802p61",
+      "control_hit": false,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_raw": true,
+        "flux_matches_raw": true,
+        "noise_matches_unmodified_window": true,
+        "center_matches_registered_phase": true,
+        "center_index_lower_half_pixel_tie": true,
+        "control_hit_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b3_a5703p29",
+      "control_hit": false,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_raw": true,
+        "flux_matches_raw": true,
+        "noise_matches_unmodified_window": true,
+        "center_matches_registered_phase": true,
+        "center_index_lower_half_pixel_tie": true,
+        "control_hit_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b3_a6504p73",
+      "control_hit": false,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_raw": true,
+        "flux_matches_raw": true,
+        "noise_matches_unmodified_window": true,
+        "center_matches_registered_phase": true,
+        "center_index_lower_half_pixel_tie": true,
+        "control_hit_matches": true
+      },
+      "status": "PASS"
+    }
+  ],
+  "trials": [
+    {
+      "geometry_id": "b1_a4101p37",
+      "anchor_angstrom": 4101.37,
+      "phase": 0.0,
+      "amplitude_factor": 4,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          500,
+          501,
+          500,
+          1,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 3.566408695574327,
+      "center_scatter_over_unmodified_noise": 1.2688328385502001,
+      "maximum_center_plusminus2_contrast": 3.7154160723209553,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b1_a4101p37",
+      "anchor_angstrom": 4101.37,
+      "phase": 0.0,
+      "amplitude_factor": 8,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          499,
+          502,
+          500,
+          3,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 3.566408695574327,
+      "center_scatter_over_unmodified_noise": 1.7393012160249965,
+      "maximum_center_plusminus2_contrast": 4.999569936533022,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b1_a4101p37",
+      "anchor_angstrom": 4101.37,
+      "phase": 0.0,
+      "amplitude_factor": 16,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          499,
+          502,
+          500,
+          3,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 3.566408695574327,
+      "center_scatter_over_unmodified_noise": 2.8760247118078324,
+      "maximum_center_plusminus2_contrast": 5.80406415331571,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b1_a4101p37",
+      "anchor_angstrom": 4101.37,
+      "phase": 0.0,
+      "amplitude_factor": 32,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          499,
+          502,
+          500,
+          3,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 3.566408695574327,
+      "center_scatter_over_unmodified_noise": 5.3317688525523765,
+      "maximum_center_plusminus2_contrast": 6.131508025042744,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b1_a4802p61",
+      "anchor_angstrom": 4802.61,
+      "phase": 0.0,
+      "amplitude_factor": 4,
+      "recovered": false,
+      "near_center_runs": [],
+      "outcome_reason": "NO_NEAR_CENTER_CROSSING",
+      "injected_fwhm_pixels": 4.176182608604495,
+      "center_scatter_over_unmodified_noise": 1.2817799406643504,
+      "maximum_center_plusminus2_contrast": 3.158621184577071,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b1_a4802p61",
+      "anchor_angstrom": 4802.61,
+      "phase": 0.0,
+      "amplitude_factor": 8,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          499,
+          502,
+          500,
+          3,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 4.176182608604495,
+      "center_scatter_over_unmodified_noise": 1.7943941276882953,
+      "maximum_center_plusminus2_contrast": 4.485445616631272,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b1_a4802p61",
+      "anchor_angstrom": 4802.61,
+      "phase": 0.0,
+      "amplitude_factor": 16,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          499,
+          502,
+          500,
+          3,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 4.176182608604495,
+      "center_scatter_over_unmodified_noise": 3.02909609992443,
+      "maximum_center_plusminus2_contrast": 5.296002867925997,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b1_a4802p61",
+      "anchor_angstrom": 4802.61,
+      "phase": 0.0,
+      "amplitude_factor": 32,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          499,
+          502,
+          500,
+          3,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 4.176182608604495,
+      "center_scatter_over_unmodified_noise": 5.68275785262811,
+      "maximum_center_plusminus2_contrast": 5.638477384287049,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b1_a5703p29",
+      "anchor_angstrom": 5703.29,
+      "phase": 0.0,
+      "amplitude_factor": 4,
+      "recovered": false,
+      "near_center_runs": [],
+      "outcome_reason": "NO_NEAR_CENTER_CROSSING",
+      "injected_fwhm_pixels": 4.959382608587399,
+      "center_scatter_over_unmodified_noise": 1.3265706499757868,
+      "maximum_center_plusminus2_contrast": 3.1463117049419864,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b1_a5703p29",
+      "anchor_angstrom": 5703.29,
+      "phase": 0.0,
+      "amplitude_factor": 8,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          499,
+          502,
+          500,
+          3,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 4.959382608587399,
+      "center_scatter_over_unmodified_noise": 1.901276668206658,
+      "maximum_center_plusminus2_contrast": 4.274311276702337,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b1_a5703p29",
+      "anchor_angstrom": 5703.29,
+      "phase": 0.0,
+      "amplitude_factor": 16,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          499,
+          502,
+          500,
+          3,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 4.959382608587399,
+      "center_scatter_over_unmodified_noise": 3.2574223397319244,
+      "maximum_center_plusminus2_contrast": 4.949032695642363,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b1_a5703p29",
+      "anchor_angstrom": 5703.29,
+      "phase": 0.0,
+      "amplitude_factor": 32,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          499,
+          502,
+          500,
+          3,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 4.959382608587399,
+      "center_scatter_over_unmodified_noise": 6.143775552847903,
+      "maximum_center_plusminus2_contrast": 5.228121957652981,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b1_a6504p73",
+      "anchor_angstrom": 6504.73,
+      "phase": 0.0,
+      "amplitude_factor": 4,
+      "recovered": false,
+      "near_center_runs": [],
+      "outcome_reason": "NO_NEAR_CENTER_CROSSING",
+      "injected_fwhm_pixels": 5.656286956398274,
+      "center_scatter_over_unmodified_noise": 1.3779934206284705,
+      "maximum_center_plusminus2_contrast": 2.949789562068249,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b1_a6504p73",
+      "anchor_angstrom": 6504.73,
+      "phase": 0.0,
+      "amplitude_factor": 8,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          499,
+          502,
+          500,
+          3,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 5.656286956398274,
+      "center_scatter_over_unmodified_noise": 2.0082092940740828,
+      "maximum_center_plusminus2_contrast": 4.01585578194536,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b1_a6504p73",
+      "anchor_angstrom": 6504.73,
+      "phase": 0.0,
+      "amplitude_factor": 16,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          499,
+          502,
+          500,
+          3,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 5.656286956398274,
+      "center_scatter_over_unmodified_noise": 3.465039750777809,
+      "maximum_center_plusminus2_contrast": 4.636153306393738,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b1_a6504p73",
+      "anchor_angstrom": 6504.73,
+      "phase": 0.0,
+      "amplitude_factor": 32,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          499,
+          502,
+          500,
+          3,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 5.656286956398274,
+      "center_scatter_over_unmodified_noise": 6.540318516431582,
+      "maximum_center_plusminus2_contrast": 4.902514854831475,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b2_a4101p37",
+      "anchor_angstrom": 4101.37,
+      "phase": 0.25,
+      "amplitude_factor": 4,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          500,
+          501,
+          500,
+          1,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 3.5664108694873695,
+      "center_scatter_over_unmodified_noise": 1.275191071466269,
+      "maximum_center_plusminus2_contrast": 3.68615086529716,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b2_a4101p37",
+      "anchor_angstrom": 4101.37,
+      "phase": 0.25,
+      "amplitude_factor": 8,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          499,
+          502,
+          500,
+          3,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 3.5664108694873695,
+      "center_scatter_over_unmodified_noise": 1.748576614354096,
+      "maximum_center_plusminus2_contrast": 4.896358159530186,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b2_a4101p37",
+      "anchor_angstrom": 4101.37,
+      "phase": 0.25,
+      "amplitude_factor": 16,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          499,
+          502,
+          500,
+          3,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 3.5664108694873695,
+      "center_scatter_over_unmodified_noise": 2.887251791516954,
+      "maximum_center_plusminus2_contrast": 5.698638750140503,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b2_a4101p37",
+      "anchor_angstrom": 4101.37,
+      "phase": 0.25,
+      "amplitude_factor": 32,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          499,
+          502,
+          500,
+          3,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 3.5664108694873695,
+      "center_scatter_over_unmodified_noise": 5.343891469292665,
+      "maximum_center_plusminus2_contrast": 6.032476568879047,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b2_a4802p61",
+      "anchor_angstrom": 4802.61,
+      "phase": 0.25,
+      "amplitude_factor": 4,
+      "recovered": false,
+      "near_center_runs": [],
+      "outcome_reason": "NO_NEAR_CENTER_CROSSING",
+      "injected_fwhm_pixels": 4.17618478251754,
+      "center_scatter_over_unmodified_noise": 1.2826215139676467,
+      "maximum_center_plusminus2_contrast": 3.1444470133070976,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b2_a4802p61",
+      "anchor_angstrom": 4802.61,
+      "phase": 0.25,
+      "amplitude_factor": 8,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          499,
+          502,
+          500,
+          3,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 4.17618478251754,
+      "center_scatter_over_unmodified_noise": 1.7955965590823268,
+      "maximum_center_plusminus2_contrast": 4.451087775151822,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b2_a4802p61",
+      "anchor_angstrom": 4802.61,
+      "phase": 0.25,
+      "amplitude_factor": 16,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          499,
+          502,
+          500,
+          3,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 4.17618478251754,
+      "center_scatter_over_unmodified_noise": 3.0305211487776296,
+      "maximum_center_plusminus2_contrast": 5.250999318316396,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b2_a4802p61",
+      "anchor_angstrom": 4802.61,
+      "phase": 0.25,
+      "amplitude_factor": 32,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          499,
+          502,
+          500,
+          3,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 4.17618478251754,
+      "center_scatter_over_unmodified_noise": 5.684277841135545,
+      "maximum_center_plusminus2_contrast": 5.586475285013254,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b2_a5703p29",
+      "anchor_angstrom": 5703.29,
+      "phase": 0.25,
+      "amplitude_factor": 4,
+      "recovered": false,
+      "near_center_runs": [],
+      "outcome_reason": "NO_NEAR_CENTER_CROSSING",
+      "injected_fwhm_pixels": 4.959384782500442,
+      "center_scatter_over_unmodified_noise": 1.309641328155288,
+      "maximum_center_plusminus2_contrast": 2.9687339079380397,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b2_a5703p29",
+      "anchor_angstrom": 5703.29,
+      "phase": 0.25,
+      "amplitude_factor": 8,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          499,
+          502,
+          500,
+          3,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 4.959384782500442,
+      "center_scatter_over_unmodified_noise": 1.8776567441686536,
+      "maximum_center_plusminus2_contrast": 4.157446227598371,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b2_a5703p29",
+      "anchor_angstrom": 5703.29,
+      "phase": 0.25,
+      "amplitude_factor": 16,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          499,
+          502,
+          500,
+          3,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 4.959384782500442,
+      "center_scatter_over_unmodified_noise": 3.2299049252622596,
+      "maximum_center_plusminus2_contrast": 4.874882269510741,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b2_a5703p29",
+      "anchor_angstrom": 5703.29,
+      "phase": 0.25,
+      "amplitude_factor": 32,
+      "recovered": true,
+      "near_center_runs": [
+        [
+          499,
+          503,
+          500,
+          4,
+          "PRELIMINARY_EMISSION_HIT"
+        ]
+      ],
+      "outcome_reason": "ACCEPTED_RUN",
+      "injected_fwhm_pixels": 4.959384782500442,
+      "center_scatter_over_unmodified_noise": 6.11465094392347,
+      "maximum_center_plusminus2_contrast": 5.173324729276092,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b2_a6504p73",
+      "anchor_angstrom": 6504.73,
+      "phase": 0.25,
+      "amplitude_factor": 4,
+      "recovered": false,
+      "near_center_runs": [],
+      "outcome_reason": "NO_NEAR_CENTER_CROSSING",
+      "injected_fwhm_pixels": 5.656289130311318,
+      "center_scatter_over_unmodified_noise": 1.3911028446682987,
+      "maximum_center_plusminus2_contrast": 3.1403022593814325,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b2_a6504p73",
+      "anchor_angstrom": 6504.73,
+      "phase": 0.25,
+      "amplitude_factor": 8,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          499,
+          502,
+          500,
+          3,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 5.656289130311318,
+      "center_scatter_over_unmodified_noise": 2.0262052003999402,
+      "maximum_center_plusminus2_contrast": 4.11946272436747,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b2_a6504p73",
+      "anchor_angstrom": 6504.73,
+      "phase": 0.25,
+      "amplitude_factor": 16,
+      "recovered": true,
+      "near_center_runs": [
+        [
+          499,
+          503,
+          500,
+          4,
+          "PRELIMINARY_EMISSION_HIT"
+        ]
+      ],
+      "outcome_reason": "ACCEPTED_RUN",
+      "injected_fwhm_pixels": 5.656289130311318,
+      "center_scatter_over_unmodified_noise": 3.485930017830637,
+      "maximum_center_plusminus2_contrast": 4.671440154615082,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b2_a6504p73",
+      "anchor_angstrom": 6504.73,
+      "phase": 0.25,
+      "amplitude_factor": 32,
+      "recovered": true,
+      "near_center_runs": [
+        [
+          499,
+          503,
+          500,
+          4,
+          "PRELIMINARY_EMISSION_HIT"
+        ]
+      ],
+      "outcome_reason": "ACCEPTED_RUN",
+      "injected_fwhm_pixels": 5.656289130311318,
+      "center_scatter_over_unmodified_noise": 6.562483403579329,
+      "maximum_center_plusminus2_contrast": 4.905420722698455,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b3_a4101p37",
+      "anchor_angstrom": 4101.37,
+      "phase": 0.5,
+      "amplitude_factor": 4,
+      "recovered": false,
+      "near_center_runs": [],
+      "outcome_reason": "NO_NEAR_CENTER_CROSSING",
+      "injected_fwhm_pixels": 3.5664130434004138,
+      "center_scatter_over_unmodified_noise": 1.2393337181752013,
+      "maximum_center_plusminus2_contrast": 3.273791853608007,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b3_a4101p37",
+      "anchor_angstrom": 4101.37,
+      "phase": 0.5,
+      "amplitude_factor": 8,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          500,
+          502,
+          500,
+          2,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 3.5664130434004138,
+      "center_scatter_over_unmodified_noise": 1.696228826497358,
+      "maximum_center_plusminus2_contrast": 4.592863469807914,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b3_a4101p37",
+      "anchor_angstrom": 4101.37,
+      "phase": 0.5,
+      "amplitude_factor": 16,
+      "recovered": true,
+      "near_center_runs": [
+        [
+          499,
+          503,
+          500,
+          4,
+          "PRELIMINARY_EMISSION_HIT"
+        ]
+      ],
+      "outcome_reason": "ACCEPTED_RUN",
+      "injected_fwhm_pixels": 3.5664130434004138,
+      "center_scatter_over_unmodified_noise": 2.82410496812634,
+      "maximum_center_plusminus2_contrast": 5.439592767561013,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b3_a4101p37",
+      "anchor_angstrom": 4101.37,
+      "phase": 0.5,
+      "amplitude_factor": 32,
+      "recovered": true,
+      "near_center_runs": [
+        [
+          499,
+          503,
+          500,
+          4,
+          "PRELIMINARY_EMISSION_HIT"
+        ]
+      ],
+      "outcome_reason": "ACCEPTED_RUN",
+      "injected_fwhm_pixels": 3.5664130434004138,
+      "center_scatter_over_unmodified_noise": 5.275971509707991,
+      "maximum_center_plusminus2_contrast": 5.783158871889919,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b3_a4802p61",
+      "anchor_angstrom": 4802.61,
+      "phase": 0.5,
+      "amplitude_factor": 4,
+      "recovered": false,
+      "near_center_runs": [],
+      "outcome_reason": "NO_NEAR_CENTER_CROSSING",
+      "injected_fwhm_pixels": 4.176186956430581,
+      "center_scatter_over_unmodified_noise": 1.2797127476697638,
+      "maximum_center_plusminus2_contrast": 3.029554173454393,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b3_a4802p61",
+      "anchor_angstrom": 4802.61,
+      "phase": 0.5,
+      "amplitude_factor": 8,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          500,
+          502,
+          500,
+          2,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 4.176186956430581,
+      "center_scatter_over_unmodified_noise": 1.7914410383228214,
+      "maximum_center_plusminus2_contrast": 4.2939869342437635,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b3_a4802p61",
+      "anchor_angstrom": 4802.61,
+      "phase": 0.5,
+      "amplitude_factor": 16,
+      "recovered": true,
+      "near_center_runs": [
+        [
+          499,
+          503,
+          500,
+          4,
+          "PRELIMINARY_EMISSION_HIT"
+        ]
+      ],
+      "outcome_reason": "ACCEPTED_RUN",
+      "injected_fwhm_pixels": 4.176186956430581,
+      "center_scatter_over_unmodified_noise": 3.0255988217764287,
+      "maximum_center_plusminus2_contrast": 5.083526596265885,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b3_a4802p61",
+      "anchor_angstrom": 4802.61,
+      "phase": 0.5,
+      "amplitude_factor": 32,
+      "recovered": true,
+      "near_center_runs": [
+        [
+          499,
+          503,
+          500,
+          4,
+          "PRELIMINARY_EMISSION_HIT"
+        ]
+      ],
+      "outcome_reason": "ACCEPTED_RUN",
+      "injected_fwhm_pixels": 4.176186956430581,
+      "center_scatter_over_unmodified_noise": 5.679031733641951,
+      "maximum_center_plusminus2_contrast": 5.415938642169986,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b3_a5703p29",
+      "anchor_angstrom": 5703.29,
+      "phase": 0.5,
+      "amplitude_factor": 4,
+      "recovered": false,
+      "near_center_runs": [],
+      "outcome_reason": "NO_NEAR_CENTER_CROSSING",
+      "injected_fwhm_pixels": 4.9593869564134865,
+      "center_scatter_over_unmodified_noise": 1.333529883304965,
+      "maximum_center_plusminus2_contrast": 3.1535814611244986,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b3_a5703p29",
+      "anchor_angstrom": 5703.29,
+      "phase": 0.5,
+      "amplitude_factor": 8,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          500,
+          502,
+          500,
+          2,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 4.9593869564134865,
+      "center_scatter_over_unmodified_noise": 1.9109888469628988,
+      "maximum_center_plusminus2_contrast": 4.23562981762837,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b3_a5703p29",
+      "anchor_angstrom": 5703.29,
+      "phase": 0.5,
+      "amplitude_factor": 16,
+      "recovered": true,
+      "near_center_runs": [
+        [
+          499,
+          503,
+          500,
+          4,
+          "PRELIMINARY_EMISSION_HIT"
+        ]
+      ],
+      "outcome_reason": "ACCEPTED_RUN",
+      "injected_fwhm_pixels": 4.9593869564134865,
+      "center_scatter_over_unmodified_noise": 3.2687695914457944,
+      "maximum_center_plusminus2_contrast": 4.831342811052887,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b3_a5703p29",
+      "anchor_angstrom": 5703.29,
+      "phase": 0.5,
+      "amplitude_factor": 32,
+      "recovered": true,
+      "near_center_runs": [
+        [
+          499,
+          503,
+          500,
+          4,
+          "PRELIMINARY_EMISSION_HIT"
+        ]
+      ],
+      "outcome_reason": "ACCEPTED_RUN",
+      "injected_fwhm_pixels": 4.9593869564134865,
+      "center_scatter_over_unmodified_noise": 6.155818456227533,
+      "maximum_center_plusminus2_contrast": 5.092018882737021,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b3_a6504p73",
+      "anchor_angstrom": 6504.73,
+      "phase": 0.5,
+      "amplitude_factor": 4,
+      "recovered": false,
+      "near_center_runs": [],
+      "outcome_reason": "NO_NEAR_CENTER_CROSSING",
+      "injected_fwhm_pixels": 5.656291304224361,
+      "center_scatter_over_unmodified_noise": 1.3659672384739878,
+      "maximum_center_plusminus2_contrast": 2.9369501551645425,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b3_a6504p73",
+      "anchor_angstrom": 6504.73,
+      "phase": 0.5,
+      "amplitude_factor": 8,
+      "recovered": false,
+      "near_center_runs": [
+        [
+          500,
+          502,
+          500,
+          2,
+          "SHORT_RUN"
+        ]
+      ],
+      "outcome_reason": "SHORT_RUN_ONLY",
+      "injected_fwhm_pixels": 5.656291304224361,
+      "center_scatter_over_unmodified_noise": 1.9917094892094438,
+      "maximum_center_plusminus2_contrast": 3.97137686149303,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b3_a6504p73",
+      "anchor_angstrom": 6504.73,
+      "phase": 0.5,
+      "amplitude_factor": 16,
+      "recovered": true,
+      "near_center_runs": [
+        [
+          499,
+          503,
+          500,
+          4,
+          "PRELIMINARY_EMISSION_HIT"
+        ]
+      ],
+      "outcome_reason": "ACCEPTED_RUN",
+      "injected_fwhm_pixels": 5.656291304224361,
+      "center_scatter_over_unmodified_noise": 3.445940824182511,
+      "maximum_center_plusminus2_contrast": 4.563815876641994,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    },
+    {
+      "geometry_id": "b3_a6504p73",
+      "anchor_angstrom": 6504.73,
+      "phase": 0.5,
+      "amplitude_factor": 32,
+      "recovered": true,
+      "near_center_runs": [
+        [
+          499,
+          503,
+          500,
+          4,
+          "PRELIMINARY_EMISSION_HIT"
+        ]
+      ],
+      "outcome_reason": "ACCEPTED_RUN",
+      "injected_fwhm_pixels": 5.656291304224361,
+      "center_scatter_over_unmodified_noise": 6.520107013489144,
+      "maximum_center_plusminus2_contrast": 4.810415771753691,
+      "checks": {
+        "searched_mask_matches": true,
+        "searched_count_matches": true,
+        "median_exact_match": true,
+        "std_matches": true,
+        "all_runs_peaks_classes_match": true,
+        "wave_matches_control": true,
+        "gaussian_addition_matches": true,
+        "injected_flux_is_original_plus_independent_addition": true,
+        "continuous_peak_matches": true,
+        "sampled_peak_matches": true,
+        "recovered_matches": true,
+        "control_flag_matches": true,
+        "recovered_without_control_matches": true
+      },
+      "status": "PASS"
+    }
+  ]
+}
