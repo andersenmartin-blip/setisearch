@@ -1,3 +1,15 @@
+## Seneste status — CB — faktisk stjerneobservation analyseret (1. november 2026)
+
+**17.891.328 målte radioeffekter fra HIP35136 er hentet og analyseret:** én historisk observation over 187,5 MHz og 293,13 sekunder. En afgrænset historikkontrol fandt ingen tidligere brug af target/epoken i projektets gennemgåede oversigter. Dette er en ny analyse af stjernedata i projektet.
+
+Den fastlagte analyse giver **74 spektrale grupper og 310 tidslige grupper**. 64 spektralgrupper følger instrumentets regelmæssige kanalgrid; én anden ligger i det allerede kendte hydrogenområde, og ni øvrige er bevaret uden ophavsbestemmelse. En bred opblussen omkring 1380,9 MHz ses i de sidste seks integrationer og når filens slutning. Alle måleværdier, statistikarrays, masker og katalogfelter er kontrolleret uafhængigt med præcis overensstemmelse.
+
+**Ingen kvalificeret SETI-kandidat:** filen har 2.861 Hz kanaler og ingen OFF-sammenligning. Den er derfor ikke en ny finopløst Doppler-/ON/OFF-søgning. Originalt smalbåndsregnskab og manglende OFF5 er uændrede. Ingen Voyager- eller syntetiske metodeforsøg indgik i CB; alle processer er afsluttet.
+
+[Rapport og målte signalfigurer](https://github.com/andersenmartin-blip/setisearch/blob/0f90e8aa2f32dae9c0f83f1098188ac3486fe706/RADIO_PROGRESS_CB_HIP35136_2026-11-01.md) · [Kontrolleret slutstatus](https://github.com/andersenmartin-blip/setisearch/blob/0f90e8aa2f32dae9c0f83f1098188ac3486fe706/work_cb/FINAL_SUMMARY_CB.json) · [Fortsættelsespunkt](https://github.com/andersenmartin-blip/setisearch/blob/0f90e8aa2f32dae9c0f83f1098188ac3486fe706/work_cb/RESTORE_CB.md)
+
+---
+
 ## Seneste status — CA — nye målte Voyager-udsnit analyseret (1. november 2026)
 
 **Fem historiske Voyager-signaludsnit med 9.344 målte effektværdier er hentet og analyseret.** En afgrænset lineær sporsøgning gennemgik 391.044 spor. Fire af fem udsnit ligger inden for den fastlagte tolerance mod forfatterens referenceværdier; **afvigelsen i udsnit 4 er bevaret**. En separat binær afkodning og skalarkontrol reproducerer samtlige samples og sporsummer præcist. Et afbrudt mellemliggende auditforsøg og to produktionskørsler er dokumenteret; den afsluttende kontrol består.
