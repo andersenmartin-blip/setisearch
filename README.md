@@ -1,3 +1,15 @@
+## Seneste status — CA — nye målte Voyager-udsnit analyseret (1. november 2026)
+
+**Fem historiske Voyager-signaludsnit med 9.344 målte effektværdier er hentet og analyseret.** En afgrænset lineær sporsøgning gennemgik 391.044 spor. Fire af fem udsnit ligger inden for den fastlagte tolerance mod forfatterens referenceværdier; **afvigelsen i udsnit 4 er bevaret**. En separat binær afkodning og skalarkontrol reproducerer samtlige samples og sporsummer præcist. Et afbrudt mellemliggende auditforsøg og to produktionskørsler er dokumenteret; den afsluttende kontrol består.
+
+En særskilt efteranalyse reproducerer 60 gemte BZ-scores og viser, hvordan lokal baggrund trækker nogle testsignaler under tærsklen. Fortegnsspejling består i den undersøgte algebra; resultatet generaliserer ikke til survey-følsomhed.
+
+Dette er udvalgte signaler fra **én kendt menneskeskabt radiosender**, ikke nye ukendte SETI-kandidater eller en komplet ON/OFF-sekvens. Original dækning er uændret; OFF5 mangler stadig. Ingen ny detektor er taget i brug, og ingen beregningsjob fortsætter i baggrunden.
+
+[Rapport, måltabel og signalfigur](https://github.com/andersenmartin-blip/setisearch/blob/3e8b28357840b6fb01e6b9b7095861fa331afbd7/RADIO_PROGRESS_CA_VOYAGER_2026-11-01.md) · [Kontrolleret slutstatus](https://github.com/andersenmartin-blip/setisearch/blob/3e8b28357840b6fb01e6b9b7095861fa331afbd7/work_ca/FINAL_SUMMARY_CA.json) · [Fortsættelsespunkt](https://github.com/andersenmartin-blip/setisearch/blob/3e8b28357840b6fb01e6b9b7095861fa331afbd7/work_ca/RESTORE_CA.md)
+
+---
+
 ## Seneste status — BZ — finere driftrater giver delvis forbedring (31. oktober 2026)
 
 En fastlåst test på de samme 264 tilfælde som BY løfter genfinding af mellemstærke testsignaler i tre ON-scanninger fra **11/24 til 15/24 geometrier**, når det lokale driftrate-gitter bliver otte gange finere. Kildescanningens genfinding er uændret på 20/24. Ved lavere styrke A=4 stiger tre-ON-genfindingen fra 2/24 til 4/24; højeste styrke forbliver 24/24. De svageste signaler genfindes fortsat ikke.
