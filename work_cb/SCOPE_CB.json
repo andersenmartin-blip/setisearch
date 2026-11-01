@@ -1,0 +1,51 @@
+{
+  "schema": "SETI_CB_NATIVE_STELLAR_SCOPE_V1",
+  "created_utc": "2026-11-01T09:02:45.538598+00:00",
+  "input": {
+    "path": "work_cb/new_data_discovery/HIP35136_57563_0011_mid.fil",
+    "sha256": "d0b41cf5d38b4128cf569f8c3d7d053ca923c7f5a1537a534b4a475e348dc688",
+    "header": "work_cb/new_data_discovery/HIP35136_HEADER.json",
+    "header_sha256": "f7ea63777d365a8fa8172d229657874b760dabc90b79b06e37ad841be6f85bb6"
+  },
+  "scope": "All273x65536 native stellar power samples. Header/source tutorial inspected; powers not yet inspected.",
+  "gain_normalization": "Divide each time row by its full-band median; separately report raw row medians.",
+  "spectral": {
+    "statistic": "Median over time of row-normalized powers; divide by rolling median baseline,minus1; subtract rolling residual median,divide by1.4826 rolling median absolute local residual",
+    "window_channels": 257,
+    "edge_mode": "nearest",
+    "excluded_each_edge": 384,
+    "threshold": 10,
+    "groups": "adjacent flagged channels",
+    "zero_or_invalid_scale": "unsupported,never patched",
+    "edge_basis": "Three composed257-channel local operators require384 native channels each side for fully supported score"
+  },
+  "temporal": {
+    "statistic": "Per-channel deviation from time median after row gain removal,divided by1.4826 temporal MAD",
+    "threshold": 12,
+    "connectivity": "8-neighbour in time/frequency",
+    "zero_or_invalid_scale": "unsupported,never patched",
+    "catalogue": "Every connected component; top20 only in inline summary,all rows inCSV"
+  },
+  "context_window_MHz": [
+    1419.5,
+    1421.5
+  ],
+  "context_basis": "Official tutorial identifies HI near1420MHz and instrumental artifacts; predefined descriptive window,not independent attribution.",
+  "resources": {
+    "wall_seconds": 600,
+    "expected_max_RSS_bytes": 1500000000
+  },
+  "limitations": [
+    "One author-deposited historical stellar scan,no OFF comparison; features are not extraterrestrial candidates.",
+    "2861Hz bins do not resolve usual narrowband Doppler drift; no fine-rate search or sensitivity inJy.",
+    "Robust contrast scores are not calibrated sigma,SNR,p-values or global false-alarm probability.",
+    "Local bandpass flattening and time-row gain removal alter broad spectral/temporal structures.",
+    "OriginalBA archive coverage remains unchanged; this is separate coarse-resolution stellar analysis.",
+    "No threshold tuning after inspecting powers; complete masks/catalogues preserved."
+  ],
+  "input_quality": "Finite nonnegative native powers; positive finite row medians and entire rolling spectral baseline; nonfinite normalized power or supported scores stops analysis.",
+  "recorded_runtime": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0"
+  }
+}

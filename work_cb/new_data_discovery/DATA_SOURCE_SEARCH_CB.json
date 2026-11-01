@@ -1,0 +1,39 @@
+{
+  "schema": "SETI_CB_NEW_STELLAR_SOURCE_DISCOVERY_V1",
+  "date": "2026-11-01",
+  "scope": "Two new repository checks; bounded discovery, not exhaustive public-data search.",
+  "checks": [
+    {
+      "repository": "UCBerkeleySETI/breakthrough",
+      "commit": "9fbb457da1c1404495927c2527542b25d788a616",
+      "current_recursive_tree_untruncated": true,
+      "original_addition_commit": "7e1852ad6c05351990cfea9b7a9aadda9a17b967",
+      "file_path": "GBT/filterbank_tutorial/blc04_guppi_57563_69862_HIP35136_0011.gpuspec.0002.fil",
+      "git_blob_sha": "6fd2b196909eb35099eb07b7ba6d551bbf445725",
+      "bytes": 71565694,
+      "status": "ACQUIRED_AND_GIT_BLOB_VERIFIED",
+      "kind": "One complete author-deposited historical stellar mid-resolution subband; no companion ON/OFF cadence."
+    },
+    {
+      "repository": "PetchMa/DeepSeti",
+      "commit": "636768e9bbb97052295f69b4c1045dfd3ad49405",
+      "current_recursive_tree_untruncated": true,
+      "power_file_candidates": [
+        "encoder_injected_model_CUDA_04-13-2020.h5",
+        "encoder_injected_model_Cudda.h5",
+        "round_1_2020-04-08/numpy_GBT_57750_28270_HIP42814_mid_h5_index_104900_hit_0.npy"
+      ],
+      "status": "TREE_INSPECTED_NO_PAYLOAD_ACQUIRED",
+      "finding": "Two named encoder HDF5 model files and same small selected HIP42814 NumPy artifact as official repository; no complete unselected observation/ON-OFF sequence established."
+    }
+  ],
+  "powers_inspected_during_discovery": false,
+  "new_complete_stellar_ON_OFF_sequences": 0,
+  "new_stellar_deposited_power_files": 1,
+  "original_Berkeley_archive_requests": 0,
+  "TOP8_requests": 0,
+  "network_workarounds": 0,
+  "transport_notes": [
+    "Initial downloader failed before networking because optional requests package was absent; standard-library urllib request then succeeded HTTP200 with exact71565694-byte/git-blob checks."
+  ]
+}
