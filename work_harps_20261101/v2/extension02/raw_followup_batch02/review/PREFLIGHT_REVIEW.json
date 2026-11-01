@@ -1,0 +1,128 @@
+{
+  "created_utc": "2026-11-01T21:24:40.058439+00:00",
+  "reviewer": "independent batch02_plan agent",
+  "status": "PASS_OFFLINE_PREFLIGHT_NO_BLOCKING_FINDINGS",
+  "scope": "Prospective plan, deterministic selection, provenance, payload transport guards, native extraction, every-covering-order five-window gate and review plotting. No origin review performed.",
+  "reviewed_file_hashes": {
+    "PLAN.json": "88e27367453a40a519e015b821498c46b2265dc2390b94fcfab5eb0b9697b5fa",
+    "common.py": "f8e38cacf74ccdd59ab1dbd86e6d96d2bf200355c3be617d206b81af420dbbf7",
+    "prepare_selection.py": "51607a1130d03aff1232ec6c9a927c9a387fce46e119bf5876962459cfb18f7d",
+    "acquire.py": "913ad79faa061c11aa810104c4c0a2e14f19c5ff83ab046857893c872b708676",
+    "extract_native.py": "fbcfbf843cc4b090644641a3eb8201ae16503b639b993cc1091b88b5361c21bb",
+    "mapping_quality.py": "a5328d4e5dbf26f0e13d1c18192822a613388b26c63c55ff89ba90654d268d42",
+    "plot_review.py": "be3638a2b7832999137437299682e5d28346426455987cc8d088efb41141630f",
+    "registration.py": "eaa68430bb7fe542da2551165640ba288071ef247237264f50638f930c27d837",
+    "local_registration.py": "52414980ba576a8c353cd9f1d2c0cad45fa1cfb1c939349a9c998f51eb420e38",
+    "transfer_guards.py": "20cf8352a600f9ee201e9cc487da2aaf29c5956d27f8078b36990ad05f21538f",
+    "test_transfer_guards.py": "b993054805e4363e777e4c3b971526ed14cd973859895cef9f4aa1087c979113",
+    "VISUAL_REVIEW_PLAN.json": "345ebc8ec696c57e135c875ce4849189cde589b27f44299e0828e89125e0cec7",
+    "inputs/CURRENT_V2_ALL336_DISPOSITIONS.csv": "386d038b573eadef8ccce84f08888c5e8ea47eb232a048efb4ef31031d4fe34d",
+    "inputs/CONTINUATION_STATE.json": "635375a19a2e254df12096d4c470e38b836018fb2006024919f568ef3bc1c539",
+    "inputs/CURRENT_SELECTED_EVENT_DISPOSITIONS.csv": "a5db68e5d3e83df56c4d86134f3326c22e441e60297cb76ed66f6d56e208b964",
+    "inputs/CURRENT_SUMMARY.json": "d2fb7516f0d4b6103ec29980bfc162ef05d2d12f88b6d841c2fbf3dc552fbd4c"
+  },
+  "checks": {
+    "queue": {
+      "pending_events_before": 277,
+      "pending_exposures_before": 85,
+      "selected_exposures": 16,
+      "selected_V2_events": 68,
+      "selected_V1_events": 0,
+      "selection_indices": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "selection_rule": "first16 pending exposures in frozen MAIN100 order; every accepted V2 record from each selected exposure; no already-reviewed record; no replacement",
+      "pending_outside_selected": 209,
+      "previous_reviewed_V2_events_preserved": 59
+    },
+    "provenance": {
+      "queue_snapshot_live_hashes_match": true,
+      "source_science_hashes_verified": 16,
+      "manifest_paths_rebased_using_relative_path": true,
+      "public_product_urls_restricted_to_frozen_ESO_archive_ids": true,
+      "metadata_provenance_unambiguous_before_HEAD": true,
+      "raw_archive_identity_checked_separately_from_header_DATE_OBS": true,
+      "native_member_target_DATE_OBS_BERV_validation_retained": true
+    },
+    "offline_guard_tests": {
+      "tests_passed": 13,
+      "network_calls": 0,
+      "science_payload_downloads": 0,
+      "actual_frozen_jobs_verified_at_test_time": 0,
+      "jobs_file_present_at_test_time": false,
+      "terminal_401_403_HEAD_and_payload_tests": true,
+      "redirect_error_bodies_never_read": true,
+      "failed_reads_charge_full_reserved_bytes": true,
+      "shared_payload_cap_bytes": 700000000,
+      "worker_count": 3,
+      "max_attempts_per_product": 2,
+      "access_denial_scope": "Terminal for denied product; other independently frozen product jobs may continue without alternate endpoint or credentials."
+    },
+    "inherited_methods": {
+      "byte_identical_files": [
+        "common.py",
+        "registration.py",
+        "local_registration.py",
+        "transfer_guards.py"
+      ],
+      "five_window_AST_identical_functions": [
+        "poly",
+        "trace",
+        "interp",
+        "hp",
+        "peak",
+        "reference_order"
+      ],
+      "reference_implementation": "../raw_followup/mapping_followup/run_mapping.py"
+    },
+    "extraction": {
+      "all_covering_orders_audited_before_cutout_edge_check": true,
+      "orientation_and_coordinates_not_adjusted": true,
+      "global_and_all_order_five_window_and_full_cutout_gate_required": true,
+      "baseline_local_flags_preserved_descriptively": true,
+      "baseline_21x25_exactly_nested_in_31x33_asserted": true,
+      "native_samples": 41,
+      "missing_product_pairs_and_edge_orders_explicit": true,
+      "event_order_and_coverage_asserted": true,
+      "fiber_B_presence_not_equated_to_sky": true,
+      "automatic_origin_assignments": 0
+    },
+    "plotting": {
+      "all_selected_events_in_frozen_order": true,
+      "all_extracted_covering_orders_displayed": true,
+      "missing_cutout_orders_explicit": true,
+      "independent_scaling_recorded": true,
+      "negative_excess_clipped_only_for_display_and_labelled_positive_excess": true,
+      "arrays_and_original_counts_retained": true
+    },
+    "python_syntax_all_new_modules": true
+  },
+  "findings": [],
+  "blocking_findings": [],
+  "root_follow_through": [
+    "Run HEAD-only preparation and verify exact32 jobs or explicit fixed-pair omissions.",
+    "Rerun guard tests after JOBS exists to verify all actual frozen product receipts.",
+    "Verify reviewed source hashes match the prepared freeze and published commit before any payload acquisition.",
+    "Preserve all336 production records and previous59 raw-review outcomes when reconciling new results."
+  ],
+  "limitations": [
+    "Offline review did not establish current remote product availability, exact advertised payload sizes, successful downloads or actual-array mapping quality.",
+    "No newly downloaded raw/native arrays were opened. Static review and prior-method equivalence do not replace post-acquisition validation.",
+    "This report is outside FOLLOWUP_FREEZE to avoid a self-hash dependency; publish it in the same reviewed commit and compare its reviewed source hashes with the freeze."
+  ]
+}

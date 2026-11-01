@@ -1,0 +1,116 @@
+{
+  "created_utc": "2026-11-01T21:22:14.144407+00:00",
+  "status": "PROSPECTIVE_BATCH02_METHOD_AND_QUEUE_RULE_BEFORE_NEW_RAW_PAYLOAD",
+  "scope": "Next bounded raw/native follow-up of exactly first16 current pending-N exposures of extension02 MAIN100; all68 V2 records. Previous59 raw-reviewed V2 events are not reclassified by this batch.",
+  "selection_rule": {
+    "order_source": "v2/extension02/MAIN100.csv row order",
+    "priority": "First16 unique MAIN100 exposures containing one or more current_code N records in the frozen current336 disposition table, matched exactly against the frozen continuation queue. No ranking by strength,wavelength,target,morphology or availability.",
+    "max_unique_exposures": 16,
+    "expected_selection_indices": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "expected_V2_events": 68,
+    "events": "Review every accepted V2 event in selected exposures; require every such record was pending N. No deduplication or replacement. All selected exposures have no V1 events.",
+    "no_replacements": true,
+    "input_requirement": "Final production accounts for all100 spectra; selected merged input SHA256, provenance and metadata must match."
+  },
+  "acquisition_bounds": {
+    "max_raw_products": 16,
+    "max_ancillary_products": 16,
+    "payload_cap_bytes": 700000000,
+    "workers": 3,
+    "max_attempts_per_product": 2,
+    "metadata_first": true,
+    "replacement_prohibited": true,
+    "no_fallback_publication": true,
+    "rule": "Validate metadata, unambiguous product identity, parent archive exposure, remote advertised sizes and candidate source hashes before preparing download jobs. If selected set cannot fit payload cap, keep selected exposures fixed; acquire only complete raw+ancillary pairs fitting in selected order, record omitted pairs and reason. Never replace unavailable/oversized selections with later exposures. Attempt bytes including retries count against cap; partial files cannot be used.",
+    "transport": "No redirects. HTTP401/403 are terminal for a product and not retried; no alternate host,path,credential or proxy fallback. Retry at most once for other errors within conservative byte cap."
+  },
+  "publication_gate": "Prepare selection/provenance/jobs locally after final production; stop before all raw or ancillary downloads until root has reviewed and verified prospective plan/code/selection publication. No local self-approval marker substitutes for root instruction.",
+  "native_review": {
+    "baseline": "Byte-identical original registration and local-registration methods. Preserve their global and local flags; local baseline result is descriptive under the prospective wider gate.",
+    "wavelength": "Classical inverseBERV to topocentric air for mapping; all overlapping native orders; raw DATE-OBS and archiveID checks.",
+    "reference": "Existing 24-region6-order global reference must pass. Five-window per-order quality is applied prospectively to every covering order without coordinate or orientation adjustment. Event mapping is supported only if global reference and every covering-order five-window gate and full-cutout availability pass.",
+    "raw_cutouts": "Fixed31x33 raw cutouts with background median from first10/last10 dispersion rows; preserve original21x25 central cutout using wider[5:26,4:29], recompute its original first5/last5 background, retain41-point native snippets.",
+    "fiber_context": "Record raw/native fiberB mode and TAR product membership; Bpresence does not imply sky.",
+    "wider_followup": "Five-window mapping is prospective for all selected events in this batch; historical earlier-batch mapping methods are retained and not overwritten.",
+    "interpretation": "Descriptive provisional morphology only; no automatic extraterrestrial/particle/atmospheric origin assignment; preserve original production catalogs and dispositions."
+  },
+  "immutable_scope_hashes": {
+    "MAIN100.csv": "680611bead7df87711ac802f0b4221d550345d6c4c900fef77591486ac9ceb71",
+    "FREEZE.json": "837255ab49b1902f0f6dad8d4b3714d7edd6e68f36ef443b871bd5c4b96c4cbb",
+    "PROTOCOL.json": "b3b1fc437ab3c0df0bbac68e56309999c25da02aa58860a8480b13cf24e8149b"
+  },
+  "write_boundary": "Only new v2/extension02/raw_followup_batch02/ until reviewed results are deliberately reconciled by root into current status files.",
+  "mapping_quality": {
+    "reference_windows_half_open": [
+      [
+        128,
+        768
+      ],
+      [
+        896,
+        1536
+      ],
+      [
+        1664,
+        2304
+      ],
+      [
+        2432,
+        3072
+      ],
+      [
+        3200,
+        3968
+      ]
+    ],
+    "candidate_exclusion_half_width_pixels": 80,
+    "minimum_samples_per_reference_window": 200,
+    "minimum_valid_reference_windows": 3,
+    "median_correlation_strict_minimum": 0.8,
+    "maximum_median_abs_peak_offset": 0.75,
+    "minimum_windows_within_one_pixel": 3
+  },
+  "queue_snapshot": {
+    "source_revision": "09424fbd2d169f646ebeb09bbdc58af1668583dd",
+    "sources": [
+      {
+        "source_path": "work_harps_20261101/v2/extension02/raw_followup/CURRENT_V2_ALL336_DISPOSITIONS.csv",
+        "snapshot_path": "inputs/CURRENT_V2_ALL336_DISPOSITIONS.csv",
+        "sha256": "386d038b573eadef8ccce84f08888c5e8ea47eb232a048efb4ef31031d4fe34d"
+      },
+      {
+        "source_path": "work_harps_20261101/v2/extension02/epoch_followup/CONTINUATION_STATE.json",
+        "snapshot_path": "inputs/CONTINUATION_STATE.json",
+        "sha256": "635375a19a2e254df12096d4c470e38b836018fb2006024919f568ef3bc1c539"
+      },
+      {
+        "source_path": "work_harps_20261101/v2/extension02/raw_followup/CURRENT_SELECTED_EVENT_DISPOSITIONS.csv",
+        "snapshot_path": "inputs/CURRENT_SELECTED_EVENT_DISPOSITIONS.csv",
+        "sha256": "a5db68e5d3e83df56c4d86134f3326c22e441e60297cb76ed66f6d56e208b964"
+      },
+      {
+        "source_path": "work_harps_20261101/v2/extension02/raw_followup/CURRENT_SUMMARY.json",
+        "snapshot_path": "inputs/CURRENT_SUMMARY.json",
+        "sha256": "d2fb7516f0d4b6103ec29980bfc162ef05d2d12f88b6d841c2fbf3dc552fbd4c"
+      }
+    ],
+    "reason": "Freeze copies before updating live current status; source hashes must match live sources during preparation."
+  }
+}
