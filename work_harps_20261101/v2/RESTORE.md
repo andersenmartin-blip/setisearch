@@ -1,6 +1,6 @@
 # Gendannelse og fortsættelse af HARPS-arbejdet
 
-Start i [CONTINUE_SETI.md](../../CONTINUE_SETI.md) og [aktuel maskinlæsbar tilstand](../../work_harps_20261102_may_quality/CONTINUATION_STATE.json). Hent seneste GitHub og sammenlign kildehashes. Branch: `optical-harps-week-20261101`; fortsættelsespunktet spejles på `main`.
+Start i [CONTINUE_SETI.md](../../CONTINUE_SETI.md) og [aktuel maskinlæsbar tilstand](../../work_harps_20261102_spatial_0235/CONTINUATION_STATE.json). Hent seneste GitHub og sammenlign kildehashes. Branch: `optical-harps-week-20261101`; fortsættelsespunktet spejles på `main`.
 
 Alle 669 V2-poster har første råbilledgennemgang: **403 A / 46 O / 185 U / 35 M / 0 N**. Ældre 333: uændret 209 A / 25 O / 95 U / 4 M. Nye 336: 194 A / 21 O / 90 U / 31 M. Batch05 ændrer kun V2E2-0332 og V2E2-0333 fra N til foreløbig A; øvrige 667 poster bevares. Gennemgang er ikke sikker ophavsbestemmelse.
 
@@ -14,11 +14,19 @@ Hovedprøven er fortsat 300 eksponeringer af 20 stjerner, 70.874650833 timer. V1
 
 Rubin er fremrykket til 2.–8. november. [Første hovedanalyse](../../work_rubin_20261102/main_analysis/README.md) er afsluttet med 188 udvalgte objekter, men kun 2 numerisk vurderbare i hovedsporet og separat 3 i forced-sporet. Minimum 50 er ikke opfyldt. Ingen tærskelpasserende måling og intet kvalificeret nulresultat. Den efterfølgende metadata/Gaia-udvidelse er også gennemført helt til analyse. Samlet Rubin-status er 190 udvalgte objekter, 2 numerisk vurderbare i hovedsporet og separat 4 i forced-sporet. Brug det fælles fortsættelsespunkt til næste afgrænsede datamulighed.
 
+## Afsluttet rumlig diagnose af V2E2-0235
+
+[Den kvantitative rumlige undersøgelse](../../work_harps_20261102_spatial_0235/README.md) er afsluttet: 8.275 native pixels, tre faste profilmodeller og 27 mål-/kontroludfald. Alle målte pixels og deres koordinater ligger direkte i `analysis/results/SELECTED_NATIVE_PIXELS.npz`; `SPATIAL_ARRAYS.npz` indeholder også modeller og residualer. [Gendannelsesvejledningen](../../work_harps_20261102_spatial_0235/preservation/README.md) binder de kompakte filer til de allerede arkiverede fulde rådata. Ingen ny ESO-hentning er nødvendig. Bevar de publicerede udfald og kør eventuel reproduktion i en separat kopi.
+
+Den afsluttende `background_sensitivity/`-fase genbruger kun det gemte `SELECTED_NATIVE_PIXELS.npz`; dens to side-estimatorer, 18 vinduer og 198 rækkefit er færdige og publiceres separat fra den oprindelige måling. Alle dens modeller/residualer ligger i eget `results/SPATIAL_ARRAYS.npz`. Reproduktion behøver ingen ny rådetektorindlæsning; bevar begge fasers engangsguards og resultater.
+
+V2E2-0235 forbliver U: afvigelsen ligger hovedsageligt nær spektrets spor, og oprindelsen er ikke afklaret. Fortsættelsespunktet står i [den aktuelle overdragelse](../../work_harps_20261102_spatial_0235/scientific_review/NEXT_STEP.md).
+
 ## Afsluttet separat maj-kvalitetsopfølgning
 
 [Den tredje referenceepoke](../../work_harps_20261102_may_quality/README.md) er færdiganalyseret med tolv profiler. Fra repository-roden gendanner `python3 work_harps_20261102_may_quality/preservation/restore_archive.py SCIENCE_INPUTS_MANIFEST.json` det nye FITS-input fra to arkivdele. Kør derefter `restore_reference_cache.py` i samme mappe for de tyve discovery-referencer og de 24 tidligere kontekstprofiler, og `restore_archive.py PROFILE_EVIDENCE_MANIFEST.json` for de tolv nye profiler. Alle hashes verificeres; afvigende filer bevares. Ingen ESO-hentning eller genkørsel af den oprindelige søgning er nødvendig.
 
-Fortsæt fra den aktuelle plan for V2E2-0235's rumlige råbilledstruktur. De to afsluttede referencefaser må ikke automatisk udvides ved at vælge flere majprodukter.
+Den efterfølgende rumlige råbilledanalyse er også afsluttet; følg det aktuelle fortsættelsespunkt ovenfor. De to afsluttede referencefaser må ikke automatisk udvides ved at vælge flere majprodukter.
 
 ## Afsluttet bredere HARPS BERV-opfølgning
 
@@ -26,7 +34,7 @@ Fortsæt fra den aktuelle plan for V2E2-0235's rumlige råbilledstruktur. De to 
 
 Fra repository-roden gendanner `python3 work_harps_20261102_berv_followup/science_acquisition/restore_inputs.py` begge præcise FITS-filer fra fire gemte arkivdele. `python3 work_harps_20261102_berv_followup/prospective_comparison/restore_profile_evidence.py` gendanner 20 oprindelige referenceprofiler og 24 nye sammenligningsprofiler fra det samlede profilarkiv. Begge hjælpekoder kontrollerer SHA-256 og overskriver ikke afvigende filer. Originaldata kræver ingen ny ESO-hentning. Reproduktion skal ske i en separat kopi, så tidsstempler, resultater og engangsguards i den publicerede kørsel bevares.
 
-Næste trin står i [den nye overdragelse](../../work_harps_20261102_berv_followup/next_followup/README.md): en særskilt, prospektivt fastlagt kvalitetsopfølgning på en ubrugt majreference. Den er endnu ikke udført.
+Den historiske [overdragelse](../../work_harps_20261102_berv_followup/next_followup/README.md) pegede på en særskilt kvalitetsopfølgning. Den er nu afsluttet som beskrevet ovenfor; gentag den ikke som en ny opgave.
 
 ## Input og reproduktion
 

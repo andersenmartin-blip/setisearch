@@ -1,3 +1,19 @@
+## Aktuel SETI-status — rumlig råbilledanalyse afsluttet (2. november 2026)
+
+**V2E2-0235 ved 5548,09 Å er nu undersøgt kvantitativt i den gemte HARPS-eksponering.** 8.275 native detektorpixels dækker målområdet, otte adskilte kontrolområder og 232 profiltræningsrækker. Metoden blev offentliggjort før den nye beregning; alle 27 sammenligninger med tre fastlagte profilmodeller er gennemført.
+
+Målområdet har større og mere koncentreret afvigelse fra profilmodellen end alle otte kontroller. Med den samlede model er den absolutte residualsum 8.633 ADU mod 2.250–4.025 ADU i kontrollerne. Kun 15,70 % ligger uden for det faste ±3-pixel-sporbånd, mod 29,09–38,81 % i kontrollerne. Afvigelsen er altså overvejende tæt på spektrets spor; tallene er hverken fotonandele, sandsynligheder eller ophavsbestemmelser. Alle tre modeller giver samme kvalitative resultat.
+
+Den sidste særskilt fastlagte kontrol med baggrund fra hver side af sporet er også gennemført: 18 udfald, samme 8.275 pixels og samme kvalitative resultat. Der tilføjes ikke flere varianter af denne sag; næste gruppe i den faste kø er to HD103991-poster omkring 3852 Å.
+
+**Posten forbliver U.** Lys, spor-nær ladningsforurening, modelafvigelse og blandinger kan stadig ikke adskilles sikkert. Uafhængig efterregning består med 13.779 kontroller og 86.442 skalarsammenligninger. Alle tidligere klassifikationer og målinger er bevaret.
+
+[**Fortsæt her**](CONTINUE_SETI.md) · [Ny rapport og evidens](work_harps_20261102_spatial_0235/README.md) · [Målinger og figurer](work_harps_20261102_spatial_0235/analysis/RESULTS_REPORT.md) · [Aktuel maskinlæsbar tilstand](work_harps_20261102_spatial_0235/CONTINUATION_STATE.json)
+
+Hovedprøven er uændret: 300 eksponeringer, 20 stjerner, 70,875 timer; 403 A / 46 O / 185 U / 35 M. Rubin er allerede fremrykket og afsluttet som et begrænset forstudie med 190 objekter; minimum 50 vurderbare stjerneforløb er ikke nået. Ingen kvalificeret laserkandidat eller kalibreret nulresultat. Alle statusafsnit nedenfor er historiske.
+
+---
+
 ## Aktuel SETI-status — bedre majreference analyseret (2. november 2026)
 
 **Endnu ét HARPS-spektrum og tolv profiler er analyseret efter en separat offentlig metodefrysning.** Ingen af de tolv nye profiler har lav-kontinuum-markering. De fem blå hændelsesposter har korrelation **0,956–0,979 i barycentrisk ramme**, mod **−0,313 til 0,153 i topocentrisk ramme**, ved cirka 14 opløsningselementers forskydning fra opdagelsesepokerne. Det styrker beskrivelsen af vedvarende spektralstruktur; fysisk ophav er ikke fastslået.

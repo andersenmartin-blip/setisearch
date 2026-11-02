@@ -1,8 +1,18 @@
-# Continue SETI from the completed May reference-quality follow-up
+# Continue SETI from the completed V2E2-0235 spatial diagnostic
 
-Read [the current machine-readable state](work_harps_20261102_may_quality/CONTINUATION_STATE.json), fetch current GitHub and compare its source hashes before new work. Another session may have advanced the project. The [previous accelerated checkpoint](work_seti_20261102_accelerated/CONTINUATION_STATE.json) is preserved unchanged. Rubin remains explicitly advanced to **2–8 November 2026**. Earlier checkpoints and calendar dates are historical.
+Read [the current machine-readable state](work_harps_20261102_spatial_0235/CONTINUATION_STATE.json), fetch current GitHub and compare its source hashes before new work. Another session may have advanced the project. The [previous accelerated checkpoint](work_seti_20261102_accelerated/CONTINUATION_STATE.json) is preserved unchanged. Rubin remains explicitly advanced to **2–8 November 2026**. Earlier checkpoints and calendar dates are historical.
 
-## Latest completed May quality follow-up
+## Latest completed spatial diagnostic
+
+[The V2E2-0235 raw spatial analysis](work_harps_20261102_spatial_0235/README.md) is complete. The exact method and input identities were published in `8193e79cefabc32ec4a08230b2f77468905a5eee` and all 30 files read back before the one-shot measurement. No new archive request was made. The exact original raw and ancillary bytes were restored from the saved archive.
+
+All 232 training rows were usable; 8 held-out controls and one target were measured with all 3 fixed templates: 27 window outcomes, 297 row fits and 8,275 native pixels preserved. The pooled target residual L1 is 8,633 ADU, above all eight controls (2,250–4,025 ADU), and its largest-pixel share is 6.52% versus 2.08–2.72%. Its off-trace fraction is lower, 15.70% versus 29.09–38.81%; the discrepancy lies mainly inside the predefined ±3-pixel band. Both flank-only templates agree qualitatively. These are uncalibrated model-discrepancy descriptors, not physical fractions or false-alarm probabilities.
+
+The event remains U. This does not establish an isolated remote off-trace deposit or a photon-only feature. Profile mismatch, trace-adjacent contamination and mixtures remain possible. Fixed-background limitations, including possible FP fiber-B wings, remain explicit. [Full measurements and plots](work_harps_20261102_spatial_0235/analysis/RESULTS_REPORT.md) and [scientific interpretation](work_harps_20261102_spatial_0235/scientific_review/RESULT_INTERPRETATION.md) retain those limits. [Independent numerical verification](work_harps_20261102_spatial_0235/independent_audit/NUMERICAL_AUDIT.json) passes 13,779 checks and 86,442 scalar comparisons; every bounded raw pixel agrees exactly and maximum model/residual difference is 2.28e-10 ADU.
+
+The separately frozen final background sensitivity is also complete: exactly negative-side and positive-side medians, both retraining the pooled template on the same 232 rows and evaluating the same nine windows. All 18 outcomes / 198 row fits are retained. Target residual L1 is 8,817.70 / 8,922.85 ADU and off-trace share 16.24% / 19.21%; each remains more concentrated and larger than every control, primarily near the trace. Independent audit passes 506 checks / 57,522 scalar comparisons. [Case closure](work_harps_20261102_spatial_0235/CASE_CLOSURE.json) retains U and ends further variants for this continuation.
+
+## Earlier completed May quality follow-up
 
 [The separate posthoc quality phase](work_harps_20261102_may_quality/README.md) is complete: exactly one new HD122640 input, six event–epoch pairs and twelve profiles, all measured with the unchanged method. The prior two-spectrum/24-profile run is preserved. All ten queue IDs remain U; four HD135204 records have no newly selected epoch. The original full-spectrum survey and all dispositions are unchanged.
 
@@ -51,17 +61,19 @@ The [one-degree metadata extension](work_rubin_20261102/extension_feasibility/RE
 
 [Combined status](work_rubin_20261102/COMBINED_STATUS.json): **190 selected main objects; 861 source and 130 forced measurements; 2 primary numerical objects / 7 October rows and 4 secondary objects / 16 rows.** The primary objects are contained within the secondary set. This remains a limited feasibility study: minimum 50 unmet, no qualified null, no physical-origin assignment. All 10 main requests succeeded without retry. The original 20 development objects are separate; 36 controls are not multiplied by the number of cohorts. Do not repeat the completed 188+2 search or re-expand the same field merely to resume.
 
-## Next work after the completed May quality phase
+## Next work after the completed spatial phase
 
-Use [the concrete next step](work_harps_20261102_may_quality/scientific_review/NEXT_STEP.md): prepare a bounded quantitative spatial-support comparison for V2E2-0235 in its already preserved discovery raw image, order50. The documented compact off-trace structure motivates measuring how its excess is distributed across detector rows relative to nearby trace controls. This is a new diagnostic, not a replay of the completed manual raw classification or epoch pipeline. Freeze exact windows, trace-reference controls, extraction/mapping checks and descriptive metrics before running it. Preserve mixed or inconclusive outcomes; no classifier or automatic U-to-A promotion follows from weak epoch repetition.
+Use [the exact next handoff](work_harps_20261102_spatial_0235/NEXT_ACTION.json): the existing fixed queue begins with C001, V2E2-0001 and V2E2-0016 on HD103991 around 3852 Å. Prepare a single joint broader-profile/native-order context comparison after verifying saved inputs and freezing its bounded method. Native order 3 has low/nonpositive continuum despite unflagged merged-spectrum profiles; preserve that distinction. [Detailed evidence requirements](work_harps_20261102_spatial_0235/scientific_review/NEXT_STEP.md) forbid treating prescribed template widths as measured linewidths. The 0235 spatial and background phases are closed with U retained; no further estimator, aperture, template, registration or May-epoch variants are queued.
 
 Do not automatically select another unused May spectrum to seek a stronger correlation. The separate quality-reference phase and the earlier monthly-selection phase are both closed. The remaining saved metadata pool contains 15 unused products (eight May, seven January), retained as inventory rather than an execution queue. All ten original queue identities and four uncovered HD135204 records remain explicit; the earlier zero-row query is not proof of archive-wide absence.
 
-Rubin's [next-data-route review](work_rubin_20261102/next_data_route/README.md) remains complete and stopped. Reopen only a distinct prospective route with adequate public stellar history, provenance and quality. Preserve 190 main identities and unchanged detector; the 500-object ceiling leaves 310 further unique slots. Minimum50 remains unmet. No new Rubin query was made in this May quality phase.
+Rubin's [next-data-route review](work_rubin_20261102/next_data_route/README.md) remains complete and stopped. Reopen only a distinct prospective route with adequate public stellar history, provenance and quality. Preserve 190 main identities and unchanged detector; the 500-object ceiling leaves 310 further unique slots. Minimum50 remains unmet. No new Rubin query was made in the May quality or spatial phases.
 
 All 35 fixed mapping diagnoses, both normalization follow-ups and the original 4,370 epoch profiles are complete. Do not repeat them merely to resume. All 185 U and 35 M remain unchanged.
 
 ## Restore and maintain continuity
+
+For the spatial phase, all 8,275 measured native pixels, exact coordinates and all raw/model/residual arrays are committed directly as compact NPZ files. See [preservation instructions](work_harps_20261102_spatial_0235/preservation/README.md). The full raw/ancillary bytes retain the original batch03 archived-input identity and are restored by the phase input helper; no new ESO request is needed. Published outputs and one-shot scripts remain immutable; reproduction belongs in a separate copy.
 
 For the new May quality phase, use `python3 work_harps_20261102_may_quality/preservation/restore_archive.py SCIENCE_INPUTS_MANIFEST.json`, then `restore_reference_cache.py` in the same directory, then `restore_archive.py PROFILE_EVIDENCE_MANIFEST.json`. These restore the exact new FITS, original discovery/context references and twelve new profiles from preserved parts/archives; no live ESO request is needed. Helpers verify hashes and preserve differing files. Reproduce in a separate copy, retaining published outputs and one-shot guards.
 

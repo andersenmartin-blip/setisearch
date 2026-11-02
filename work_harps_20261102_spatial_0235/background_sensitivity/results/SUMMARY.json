@@ -1,0 +1,48 @@
+{
+  "status": "COMPLETE_DESCRIPTIVE_BACKGROUND_SENSITIVITY",
+  "completed_utc": "2026-11-02T12:54:15.461761+00:00",
+  "estimators": [
+    "negative_side",
+    "positive_side"
+  ],
+  "background_pixels_per_estimator_per_row": 3,
+  "training_rows_per_estimator": 232,
+  "templates": {
+    "negative_side": {
+      "declared_rows": 232,
+      "valid_rows": 232,
+      "minimum_rows": 200,
+      "status": "USABLE",
+      "pre_normalization_signed_sum": 0.9986081758158012,
+      "negative_grid_samples": 0
+    },
+    "positive_side": {
+      "declared_rows": 232,
+      "valid_rows": 232,
+      "minimum_rows": 200,
+      "status": "USABLE",
+      "pre_normalization_signed_sum": 1.0000039219209773,
+      "negative_grid_samples": 9
+    }
+  },
+  "window_records": 18,
+  "row_records": 198,
+  "held_out_controls_per_estimator": 8,
+  "reused_unique_native_pixels": 8275,
+  "new_native_pixels_read": 0,
+  "original_results_changed": false,
+  "classification": "U",
+  "classification_changed": false,
+  "origin_assignments": 0,
+  "plan_sha256": "94ba2ff062f9d164b8be6fe5922fc5a3bfcb70da35a798ccba7d72861f6dead2",
+  "script_sha256": "e7dbec1598d75f851e49b7f03f956d787f7fc0b4a5fe470c88f6b7e6491a72b3",
+  "release_sha256": "0b01a570d3fecc29b067e9c2ddac6e18648e73943c4f639014ca8096e5ecd43f",
+  "limitations": [
+    "Posthoc estimator sensitivity using the same observed pixels and same fixed controls; no independent observation.",
+    "Three-pixel background medians and MAD proxies are not calibrated noise models.",
+    "Positive-side background is geometrically closer to FP fiberB49, but outcomes do not identify FP contamination or any physical origin.",
+    "Eight local controls are dependent and not a significance distribution.",
+    "No model selection or preferred-background choice from these outcomes; both estimators and all failures are reported.",
+    "The original U label and all prior numerical outputs remain unchanged."
+  ]
+}
