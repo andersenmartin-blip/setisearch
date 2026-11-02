@@ -1,0 +1,62 @@
+{
+  "created_utc": "2026-11-02T07:50:58.154034+00:00",
+  "status": "FROZEN_BEFORE_ANY_DEVELOPMENT_FLUX_READ",
+  "sample": "Access/development only, not main sample",
+  "selection": "20 smallest positive Rubin diaObjectId integers from full433-row metadata-only cone response, sorted numerically as Python arbitrary-precision integers, kept as decimal strings in every stored/query identity",
+  "selected_ids": [
+    "170587116600295459",
+    "170587116600295514",
+    "170587116612878394",
+    "170587116615499955",
+    "170587116618645578",
+    "170587116732416108",
+    "170587116732416143",
+    "170587116749717555",
+    "170587117137166522",
+    "170587117140312187",
+    "170587117274529854",
+    "170595944916582452",
+    "170595944940699661",
+    "170604740787830929",
+    "170609125925847056",
+    "170609125926895617",
+    "170609125930041410",
+    "170631125687861276",
+    "170644274199658562",
+    "170644274844008508"
+  ],
+  "n_requested_objects": 20,
+  "source_metadata_sha256": "65afc59e6b82aa427da9ca06a75f9cd7c78ac1476283fed710c80ca5d78c0f3e",
+  "selection_sha256": "5d2726af407b46dad2cf05a0c22858c3328eeb35ad8765b038762e0f8ed2a887",
+  "selection_limit_anomaly": "Request n100 was accepted but returned433 distinct objects. All433 are retained; no claim of exhaustive regional catalog or effective cap. Earlier n1000 request400 recorded.",
+  "source_query": "Complete available history for20 selectedIDs, direct science/template/difference photometry+errors, time/filter/visit/detector, flags and provenance. No criterion changed after flux values.",
+  "forced_query": "Complete available forced history for same20IDs. Keep forced science and forced difference separately; never add/subtract to reconstruct science.",
+  "cutouts": "Science/Template/Difference FITS at metadata diaSourceId for first2 numerically sorted development objects;6 attempted products, no ranking by measured flux or anomaly.",
+  "cutout_selection": [
+    {
+      "diaObjectId": "170587116600295459",
+      "diaSourceId": "171141221765349424"
+    },
+    {
+      "diaObjectId": "170587116600295514",
+      "diaSourceId": "171141228744671274"
+    }
+  ],
+  "period": "Main event window remains2026-10-01T00:00:00Z inclusive to2026-11-01T00:00:00Z exclusive; development history can precede it, marked by timestamps.",
+  "integrity": "Strict decimal strings/Python integers for64-bit IDs; no floating conversion, no JavaScript number parsing. Preserve rawJSON and request/response receipts.",
+  "limits": {
+    "cost_DKK": 0,
+    "max_response_bytes": 8000000,
+    "max_total_science_bytes": 30000000,
+    "max_concurrency": 2,
+    "timeout_seconds": 40,
+    "retry_per_failed_request": 1,
+    "no_other_provider_used": true
+  },
+  "exclusion": "All20developmentIDs and coordinate-associated/identicalGaia counterparts must be excluded from any future main sample. Gaia association is unverified at freeze; selectedIDs may include nonstellar cases, retained as development only.",
+  "schema_sha256": {
+    "sources_schema.json": "96cb19443ded42e8ba680717d0aa88d83f2f4f33cbb7eb5d04f0e83169724f8b",
+    "fp_schema.json": "db20f6cc1f68e8e6158160cef15d74d00a938ee2d9382ad4740d9fdf8ac0f708",
+    "objects_schema.json": "480b024934eaf30e6e4d87b59b88168224bdaf8133c43145ee1aba8967f7ab13"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "created_utc": "2026-11-02T07:48:39.009177+00:00",
+  "purpose": "Metadata-only access discovery; no main or development flux values requested",
+  "development_selection": "Use first20 distinct positive diaObjectId sorted numerically from metadata-only query output, preferring available Gaia stellar association metadata if present. Freeze exact IDs before sources/fp flux requests. If chosen sample includes nonstellar/unknown associations, retain as access development only and mark ineligible main sample.",
+  "metadata_query": "Documented conesearch example center8.986275,-42.709834; expand fixed radius1800arcsec; across October2026; n1000 limit. Inspect declared explore class list as catalog metadata route if cone returns fewer20.",
+  "constraints": {
+    "max_development_objects": 20,
+    "active_access_debug_limit_hours": 2,
+    "alternative_access_route_limit": 1,
+    "cost_DKK": 0,
+    "no_ZTF_substitution": true,
+    "no_main_flux": true,
+    "max_science_response_bytes": 8000000,
+    "max_metadata_response_bytes": 3000000,
+    "request_retries": 1,
+    "retry_conditions": "One retry only of same idempotent request after5xx or timeout; failures retained; no auth/access bypass."
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "created_utc": "2026-11-02T07:54:47.684851+00:00",
+  "status": "FROZEN_BEFORE_GAIA_RETRIEVAL_AND_MAIN_RUBIN_FLUX",
+  "purpose": "Metadata-only exhaustive GaiaDR3 positional association for433 frozen RubinDiaObjects, exclude20 development identities and counterparts, retain independently eligible stellar associations for main photometry freeze.",
+  "input_files": [
+    {
+      "path": "work_rubin_20261102/access_pilot/DEVELOPMENT_SELECTION.csv",
+      "sha256": "5d2726af407b46dad2cf05a0c22858c3328eeb35ad8765b038762e0f8ed2a887"
+    },
+    {
+      "path": "work_rubin_20261102/access_pilot/MAIN_METADATA_CANDIDATES_UNMATCHED.csv",
+      "sha256": "0812a9d23d6af0da99b7cb1bda980e6874ed5dea7089b48b237b39aa4c17be90"
+    }
+  ],
+  "gaia_query": {
+    "table": "gaiadr3.gaia_source",
+    "url": "https://gea.esac.esa.int/tap-server/tap/sync",
+    "center_deg": [
+      8.986275,
+      -42.709834
+    ],
+    "radius_deg": 0.6,
+    "row_cap": 50000,
+    "response_byte_cap": 8000000,
+    "attempts": 2,
+    "retry": "Same request only for5xx/timeouts; no auth or denial bypass",
+    "prefilter": "None other than field. All Gaia neighbor classes retained."
+  },
+  "association": {
+    "target_epoch": "Each Rubin midpointMjdTai convertedTAI->TCB Julianyear. Rubin object coordinates are assumed representative of contemporaneous astrometry; precise object reference epoch absent, recorded limitation.",
+    "propagation": "Gaia ICRS positions and proper motions from ref_epoch; astropy spherical apply_space_motion; finite positive parallax supplies distance, finiteRV or zeroRV; noPM catalog positions retained as uncertainty neighbors but cannot qualify as sole match.",
+    "match_radius_arcsec": 1.0,
+    "neighbor_ambiguity_radius_arcsec": 2.0,
+    "neighbor_evidence_radius_arcsec": 10.0,
+    "unique_rule": "Exactly1 Gaia source within1arcsec and exactly1 within2arcsec, with finitePM for matching source. All neighbor solutions including noPM enter ambiguity check.",
+    "field_margin": "0.1deg=360arcsec beyond Rubin0.5deg cone atGaia2016epoch. Catalog completeness conditional on motion less thanmargin over epoch baseline; no claim beyond catalog/field/measurement limits."
+  },
+  "stellar_evidence": {
+    "parallax_snr_min": 3.0,
+    "pm_joint_sigma_min": 5.0,
+    "pm_metric": "sqrt(mu.T inverse(C_pm) mu), finite positivePMerrors and validcorrelation; otherwise unavailable.",
+    "rule": "parallaxSNR>=3 ORPMjointSigma>=5. No nearest-only association called stellar proof.",
+    "quality_flags": "ruwe,duplicated_source,astrometric_params_solved retained descriptively; no posthoc threshold tuning"
+  },
+  "development_exclusion": {
+    "exactIDs": true,
+    "sameGaiaID": true,
+    "within2arcsec_of_anyDevelopmentCoordinate": true,
+    "mainGaiaDuplicates": "keep smallest exact numericDiaID among otherwise eligible rows; excludeothers with reason"
+  },
+  "sort": "All eligible main rows ordered by validpositive parallax withSNR>=3 inverse distance1000/parallax pc ascending, then exact integerDiaObjectId; eligiblePM-only/uncertain-distance rows placedlast byID. Max500; original pool413. No Rubin flux/anomaly sorting.",
+  "limitations": [
+    "Alert-selected bounded cone/time sample, not allstars or allsky.",
+    "Association and stellar-evidence selection does not establish>=50 photometrically evaluable objects.",
+    "Missing or ambiguous motion/neighbor evidence remains explicit rejection.",
+    "Gaia parallax distance is only rankingproxy, no inference ofunbiased distanceposterior orzero-pointcorrected distance."
+  ],
+  "primary_documentation": [
+    "https://gea.esac.esa.int/archive/documentation/GDR3/Gaia_archive/chap_datamodel/sec_dm_main_source_catalogue/ssec_dm_gaia_source.html",
+    "https://www.cosmos.esa.int/web/gaia-users/archive/programmatic-access"
+  ],
+  "acquire_script_sha256": "60f923a61803976388c451b804f56be002073d027657f454398487a13cdceadb"
+}

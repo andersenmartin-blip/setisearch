@@ -1,0 +1,59 @@
+{
+  "status": "PASS_OFFLINE_ID_AND_BUDGET_GUARDS",
+  "checks": [
+    {
+      "case": "exact observed18digitID preserved",
+      "passed": true
+    },
+    {
+      "case": "float",
+      "passed": true
+    },
+    {
+      "case": "scientificnotation",
+      "passed": true
+    },
+    {
+      "case": "zero",
+      "passed": true
+    },
+    {
+      "case": "negative",
+      "passed": true
+    },
+    {
+      "case": "int64overflow",
+      "passed": true
+    },
+    {
+      "case": "JSON native64bitinteger roundtrip",
+      "passed": true
+    },
+    {
+      "case": "foreignobject",
+      "passed": true
+    },
+    {
+      "case": "floatJSONobjectID",
+      "passed": true
+    },
+    {
+      "case": "parallel reservations and conservativeunknowncharge",
+      "passed": true
+    },
+    {
+      "case": "no rootrelease prevents allsciencecalls",
+      "passed": true
+    },
+    {
+      "case": "188selection and8jobcoverage validated",
+      "passed": true
+    }
+  ],
+  "network_calls": 0,
+  "main_flux_reads": 0,
+  "selection_sha256": "0983fb2d308c1c734fd89cf57368f6539c81149f12328089c516f077aa1ea14a",
+  "plan_sha256": "9a0ab031b4e8a2629ac2fb6847cf2e45f00701e6824b0529b1ffda543e9f69c1",
+  "script_sha256": "8726556e3181a34a19df776a4dc5327449e17130822d51e34d1ab19e48109ca7",
+  "test_correction": "First offline budget test expected a reservation with only15units available for20unit job. Assertion correctly blocked; test expectation corrected beforepass. No code orscientificselection change."
+}

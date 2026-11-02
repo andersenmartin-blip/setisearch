@@ -1,0 +1,131 @@
+{
+  "status": "REAL_RUBIN_DEVELOPMENT_ACCESS_VALIDATED_NO_MAIN_SEARCH",
+  "selected_objects": 20,
+  "retrieved_source_objects": 20,
+  "retrieved_forced_objects": 14,
+  "streams": [
+    {
+      "stream": "sources",
+      "rows": 259,
+      "distinct_objects": 20,
+      "unique_measurement_ids": 259,
+      "duplicate_id_rows": 0,
+      "valid_direct_science_flux_error_rows": 259,
+      "mjd_tai_min": 61217.4162284394,
+      "mjd_tai_max": 61344.1095896227,
+      "utc_min": "2026-06-26T09:58:45.137",
+      "utc_max": "2026-10-31T02:37:11.543",
+      "input_sha256": "d9f15fb93bf1c8e54600e84ea18396add2f893df37c4a6179919b5d28ed0a4da"
+    },
+    {
+      "stream": "forced",
+      "rows": 326,
+      "distinct_objects": 14,
+      "unique_measurement_ids": 326,
+      "duplicate_id_rows": 0,
+      "valid_direct_science_flux_error_rows": 326,
+      "mjd_tai_min": 61219.4185922694,
+      "mjd_tai_max": 61344.1095896227,
+      "utc_min": "2026-06-28T10:02:09.372",
+      "utc_max": "2026-10-31T02:37:11.543",
+      "input_sha256": "a9ea74a443cd1ec7658bf71ca66ecded548fab4a28df0a38afd4c680d673b15c"
+    }
+  ],
+  "source_schema_versions": {
+    "lsst.v11_1": 181,
+    "lsst.v11_0": 39,
+    "lsst.v10_0": 39
+  },
+  "source_observation_reasons": {
+    "ddf_elaiss1": 240,
+    "pairs_ri_33.0": 19
+  },
+  "source_flag_inventory": {
+    "forced_PsfFlux_flag": {
+      "False": 259
+    },
+    "forced_PsfFlux_flag_edge": {
+      "False": 259
+    },
+    "forced_PsfFlux_flag_noGoodPixels": {
+      "False": 259
+    },
+    "psfFlux_flag": {
+      "False": 259
+    },
+    "psfFlux_flag_edge": {
+      "False": 259
+    },
+    "psfFlux_flag_noGoodPixels": {
+      "False": 259
+    },
+    "centroid_flag": {
+      "False": 259
+    },
+    "pixelFlags_bad": {
+      "False": 258,
+      "True": 1
+    },
+    "pixelFlags_crCenter": {
+      "False": 259
+    },
+    "pixelFlags_edge": {
+      "False": 259
+    },
+    "pixelFlags_injected": {
+      "False": 259
+    },
+    "pixelFlags_injectedCenter": {
+      "False": 259
+    },
+    "pixelFlags_injected_template": {
+      "False": 259
+    },
+    "pixelFlags_injected_templateCenter": {
+      "False": 259
+    },
+    "pixelFlags_nodata": {
+      "False": 259
+    },
+    "pixelFlags_nodataCenter": {
+      "False": 259
+    },
+    "pixelFlags_offimage": {
+      "False": 259
+    },
+    "pixelFlags_saturatedCenter": {
+      "False": 259
+    },
+    "pixelFlags_streakCenter": {
+      "False": 259
+    },
+    "pixelFlags_suspectCenter": {
+      "False": 259
+    },
+    "isDipole": {
+      "False": 238,
+      "True": 21
+    },
+    "glint_trail": {
+      "False": 259
+    }
+  },
+  "source_timeWithdrawnMjdTai_presence": {
+    "absent": 259
+  },
+  "forced_timeWithdrawnMjdTai_presence": {
+    "absent": 326
+  },
+  "source_objects_with_at_least_one_band_three_positive_pre_october_rows": 10,
+  "forced_objects_with_at_least_one_band_three_positive_pre_october_rows": 13,
+  "criteria_note": "Three positive pre-October rows is an inventory descriptor only, not a baseline-quality or main eligibility criterion. Final method is separate.",
+  "time_conversion": "Astropy Time(mjd, format=mjd, scale=tai).utc; original MJDTAI retained. Flux units nJy from API schema.",
+  "flux_handling": "Direct scienceFlux/scienceFluxErr retained separately for source-centroid and object-forced streams; no difference+template reconstruction and no magnitude/dimming search.",
+  "ID_handling": "JSON integers parsed to exact decimal strings; validated against64bit range; never float. Original rawresponse preserved.",
+  "limitations": [
+    "Alert-selected development objects are not yet independentGaia-verified stars.",
+    "Forced stream has no returned quality flags; missing flags and withdrawal values are not false.",
+    "Instrument/packet provenance is officialFink RubinAPI, lsstschemas, timestamps and injected flags; cutout validation separate.",
+    "API catalog completeness and absence of older/missing alerts are not inferred."
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "created_utc": "2026-11-02T07:53:11.097203+00:00",
+  "review_status": "DEVELOPMENT_METHOD_PROPOSAL_NOT_MAIN_SAMPLE_FREEZE",
+  "main_flux_read": false,
+  "sources": [
+    {
+      "title": "Fink photometry",
+      "url": "https://doc.lsst.fink-broker.org/data/photometry/",
+      "retrieved_date": "2026-11-02",
+      "primary_source": true,
+      "notes": "Direct science, template and difference flux are distinct fitted quantities; nJy; history duplication and centroid differences."
+    },
+    {
+      "title": "Fink quality",
+      "url": "https://doc.lsst.fink-broker.org/data/quality/",
+      "retrieved_date": "2026-11-02",
+      "primary_source": true,
+      "notes": "Reliability requires caution; Fink quality block exists, but its current exact expression must be snapshotted if adopted."
+    },
+    {
+      "title": "Fink known issues",
+      "url": "https://doc.lsst.fink-broker.org/data/issues/",
+      "retrieved_date": "2026-11-02",
+      "primary_source": true,
+      "notes": "Missing flags/photometry and mis-association; some fields not populated. Historical date-qualified issues are not asserted universal."
+    },
+    {
+      "title": "Fink source API",
+      "url": "https://doc.lsst.fink-broker.org/services/api/diaobjectid/",
+      "retrieved_date": "2026-11-02",
+      "primary_source": true,
+      "notes": "/sources yields source rows; /objects provides summaries, not independent light-curve flux."
+    },
+    {
+      "title": "Fink forced API",
+      "url": "https://doc.lsst.fink-broker.org/services/api/forced_photometry/",
+      "retrieved_date": "2026-11-02",
+      "primary_source": true,
+      "notes": "/fp provides forced rows; query actual endpoint schema rather than relying on illustrative identifier field."
+    },
+    {
+      "title": "Fink definitions",
+      "url": "https://doc.lsst.fink-broker.org/services/api/definitions/",
+      "retrieved_date": "2026-11-02",
+      "primary_source": true,
+      "notes": "Schema is endpoint-specific and evolves; API metadata snapshots retained by access_pilot."
+    },
+    {
+      "title": "Rubin APDB schema",
+      "url": "https://sdm-schemas.lsst.io/apdb.html",
+      "retrieved_date": "2026-11-02",
+      "primary_source": true,
+      "notes": "Updated2026-10-30; MJD(TAI), nJy, field IDs and flags. API actual schema additionally inspected."
+    },
+    {
+      "title": "Rubin upstream filtering",
+      "url": "https://prompt-products.lsst.io/processing/filtering/index.html",
+      "retrieved_date": "2026-11-02",
+      "primary_source": true,
+      "notes": "Last-modified2026-05-23; masking, reliability and other upstream filtering limits completeness."
+    },
+    {
+      "title": "Rubin alert product",
+      "url": "https://prompt-products.lsst.io/products/alerts/index.html",
+      "retrieved_date": "2026-11-02",
+      "primary_source": true,
+      "notes": "Last-modified2026-07-01; difference-triggered packets, up-to12mo history, unpopulated fields and absent upper limits possible."
+    },
+    {
+      "title": "Astropy time",
+      "url": "https://docs.astropy.org/en/stable/time/index.html",
+      "retrieved_date": "2026-11-02",
+      "primary_source": true,
+      "notes": "Official Astropy8.0.2 docs; use explicit format/scale and table-driven UTC/TAI conversion."
+    }
+  ],
+  "local_evidence": [
+    {
+      "path": "OPTICAL_AND_RUBIN_WEEK_PLANS_2026-11-01.md",
+      "sha256": "6823bfb54a72204f6e89ba7f588bced46ac5301240badafc74b19587714aa454",
+      "bytes": 15352
+    },
+    {
+      "path": "work_rubin_20261102/access_pilot/metadata/sources_schema.json",
+      "sha256": "96cb19443ded42e8ba680717d0aa88d83f2f4f33cbb7eb5d04f0e83169724f8b",
+      "bytes": 19650
+    },
+    {
+      "path": "work_rubin_20261102/access_pilot/metadata/fp_schema.json",
+      "sha256": "db20f6cc1f68e8e6158160cef15d74d00a938ee2d9382ad4740d9fdf8ac0f708",
+      "bytes": 1669
+    }
+  ],
+  "time_conversion": {
+    "astropy": "8.0.2",
+    "input_scale": "utc",
+    "output_scale": "tai",
+    "format": "mjd",
+    "primary_start_utc": "2026-10-01T00:00:00",
+    "primary_end_utc_exclusive": "2026-11-01T00:00:00",
+    "primary_start_mjd_tai": 61314.00042824074,
+    "primary_end_mjd_tai_exclusive": 61345.00042824074,
+    "auto_download": false
+  }
+}

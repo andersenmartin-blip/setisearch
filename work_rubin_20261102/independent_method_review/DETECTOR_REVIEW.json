@@ -1,0 +1,27 @@
+{
+  "status": "PASS_FINAL_METHOD_BOUNDARIES",
+  "created_utc": "2026-11-02T08:23:37.989366+00:00",
+  "checks": [
+    "five_distinct_visits_four_earlier_dates_eligible",
+    "four_visits_five_detector_rows_ineligible",
+    "same_UTC_date_and_future_rows_excluded_from_baseline",
+    "same_band_context_only",
+    "five_visits_only_two_dates_ineligible",
+    "same_object_visit_band_alternate_detectors_exclude_all",
+    "missing_primary_quality_flag_excluded",
+    "forced_stream_quality_limitation_explicit",
+    "primary_secondary_streams_not_merged"
+  ],
+  "checks_passed": 9,
+  "resolved_blocker": "Distinct visit IDs now counted; multiple detector measurements for same object/visit/band all excluded.",
+  "no_main_flux_read": true,
+  "reviewed_hashes": {
+    "detector.py": "749d5eb83c74d6629cd9a312cd4ce3c4d07489d994fe4cff7b40c2b3ac6a93bb",
+    "CONFIG.json": "afb7368008177f4e04d64eae1f188db9d48cc5c3c490d5f7dda527efd8339d48",
+    "METHOD_FREEZE.json": "286ef5f1f36ce1b3f0f5c498ecfff6663a4ac966aff6a6ae491db680b4296539",
+    "RECOVERY_PLAN.json": "38c53daef6e04f2314d3ea137955ba3659906c1d263fe70a586c5c736d697160"
+  },
+  "scope": "Synthetic boundary checks plus code review. Independent DEV arithmetic and recovery reviewed separately by rubin_main_audit.",
+  "remaining_blockers": [],
+  "script_sha256": "46fa424393f53a2b15e63d6910744d0cfffb921cefc5875331847f22f8af1b04"
+}

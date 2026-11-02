@@ -1,0 +1,76 @@
+{
+  "created_utc": "2026-11-02T07:58:24.191953+00:00",
+  "status": "METADATA_SELECTION_COMPLETE_NO_MAIN_FLUX_READ",
+  "gaia_rows": 3933,
+  "rubin_metadata_objects": 433,
+  "development_objects": 20,
+  "main_pool_objects": 413,
+  "main_selected_unique_stellar_associations": 188,
+  "selected_valid_parallax_distance_ranks": 95,
+  "selected_PM_only_or_uncertain_distance": 93,
+  "all433_unique_positional_associations": 247,
+  "all433_stellar_eligible_before_development_exclusion": 193,
+  "all433_association_reason_counts": {
+    "NO_GAIA_WITHIN_1_ARCSEC": 163,
+    "NEAREST_GAIA_MOTION_UNAVAILABLE": 53,
+    "STELLAR_ASTROMETRIC_EVIDENCE_BELOW_FROZEN_GUARD": 119
+  },
+  "main_exclusion_reason_counts": {
+    "ASSOCIATION_OR_STELLAR_GUARD_FAILED": 224,
+    "DUPLICATE_MAIN_GAIA_KEEP_LOWEST_DIAOBJECTID": 1,
+    "WITHIN_2_ARCSEC_OF_DEVELOPMENT": 1,
+    "SAME_GAIA_AS_DEVELOPMENT": 1
+  },
+  "development_gaia_exclusion_ids": [
+    "4980827324964181504",
+    "4992503279457896448",
+    "4992821759871893632",
+    "4992833029866348160",
+    "4992841482361995136",
+    "4992864438962587392",
+    "4992875468438571520",
+    "4992886635353625216",
+    "4992894503733512576",
+    "4992906284828986368",
+    "4992909690737918976",
+    "4993092136653863808",
+    "4993098424486013696"
+  ],
+  "development_annotation_exclusion_ids": [
+    "4980827324964181504",
+    "4992503279457896448",
+    "4992833029866348160",
+    "4992841482361995136",
+    "4992864438962587392",
+    "4992875468438571520",
+    "4992894503733512576",
+    "4992906284828986368",
+    "4992909690737918976",
+    "4993098424486013696"
+  ],
+  "all_neighbors_rows": 867,
+  "coordinate_epoch_proxy": "Each cone metadata midpointMjdTai, not documented DiaObject astrometric reference epoch",
+  "warnings_from_space_motion": {
+    "ERFA function \"pmsafe\" yielded 12 of \"distance overridden (Note 6)\"": 433,
+    "ERFA function \"pmsafe\" yielded 410 of \"distance overridden (Note 6)\"": 433
+  },
+  "catalog_motion_margin_arcsec": 360,
+  "largest_catalog_pm_masyr": 324.96836263348763,
+  "no_claim_of_50_evaluable_objects": true,
+  "source_hashes": {
+    "PLAN.json": "43fd5d1e494749118c4bd9064f5725215c58de403edaed1a31a4e05ed4fee9ac",
+    "match_gaia.py": "26ff54ce636609d99a341197e8d35eb953ddca205b2a8e399010bb8a75f7d639",
+    "GAIA_DR3_FIELD.csv": "6562f075462078d37725ecca028a012b8a9296b3bf12e767fb50535386df0d25"
+  },
+  "limitations": [
+    "Alert-selected bounded cone/time sample, not allstars or allsky.",
+    "Association and stellar-evidence selection does not establish>=50 photometrically evaluable objects.",
+    "Missing or ambiguous motion/neighbor evidence remains explicit rejection.",
+    "Gaia parallax distance is only rankingproxy, no inference ofunbiased distanceposterior orzero-pointcorrected distance.",
+    "Gaia catalog association rule cannot rule out unresolved companions or uncatalogued objects.",
+    "Rubin reference epoch and its astrometric covariance are absent from input; fixed1arcsec/2arcsec guards are descriptive, not calibrated association probability.",
+    "Annual observer parallax is not applied; Gaia positions are barycentric and Rubin coordinate convention/reference epoch is not fully established.",
+    "UnknownRV uses0 and missingdistance uses angular-only propagation; noPM neighbors retain2016 coordinates as uncertainty-neighbor evidence.",
+    "Gaia catalog field completeness conditional on motion within360arcsec margin and finite catalog completeness; no exhaustive sky claim."
+  ]
+}

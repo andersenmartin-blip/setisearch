@@ -1,0 +1,20 @@
+{
+  "created_utc": "2026-11-02T08:22:16.113555+00:00",
+  "status": "TECHNICAL_FIXES_COMPLETE_BEFORE_MAIN",
+  "history_directory": "attempts/initial_before_technical_fixes",
+  "changes": [
+    "Count distinct visit IDs, not detector pairs; exclude ambiguous alternate object/visit/band measurements.",
+    "Missing exposure durations in historical rows no longer abort all controls: use explicitly flagged midpoint sampling; no affected control row required that approximation.",
+    "Whitespace separates numeric literals and comprehension keywords; no numerical change."
+  ],
+  "unchanged": [
+    "All threshold values",
+    "All36 control positions and depths/durations",
+    "Original development science inputs",
+    "Development summary counts after rerun"
+  ],
+  "first_control_attempt": "Stopped on missing historical exposureTime before any result file; failure log retained.",
+  "initial_correction_admin_error": "The preservation/comparison helper temporarily shadowed its archive-path variable with a source-text string and failed at its final equality assertion. Files had been written; a separate successful comparison verified all36 positions identical before running controls.",
+  "recovery": "36 complete:18 sampled/evaluable recovered;18 unsampled. No post-control retuning.",
+  "main_flux_read_by_method_agent": false
+}

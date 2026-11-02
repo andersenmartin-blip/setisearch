@@ -1,5 +1,16 @@
 # SETI ugeplaner for optiske lasere og Rubin data
 
+## Fremskyndelse godkendt 2. november 2026
+
+Martin bad om mest mulig fortsættelse og foreslog at fremskynde Rubin. Første rågennemgang af alle 669 HARPS V2-poster er afsluttet. Rubin-adgangsarbejdet starter derfor **2. november**, parallelt med afgrænset HARPS-opfølgning; den fremrykkede syvdagesramme er **2.–8. november 2026**. Oprindelige kalenderdatoer nedenfor bevares som historisk plan. Den nye dato er ingen baggrundsautomatik: kun faktisk udført arbejde tæller.
+
+Finks offentlige Rubin REST-API er kontrolleret tilgængeligt. Første trin er et separat metadataudvalgt udviklingssæt på højst 20 objekter. Datatilgængelighed, korrekt science-fotometri, fejl, filtre, tidsskalaer, historik og billedkontrol bestemmer, hvor langt analysen kan gennemføres. Udviklingsdata er ikke en gennemført hovedsøgning.
+
+Alle øvrige videnskabelige begrænsninger bevares: højst 500 hovedobjekter med entydig Gaia-stjernematch; oktober 2026 som primært hændelsesvindue; højst én alternativ afsluttet måned valgt ud fra adgangsmetadata før hovedflux; metadatafastlagt rækkefølge; separat udvikling; detektor og kontrolplaceringer fastlagt før hovedanalysen. Minimum 50 vurderbare hovedforløb kræves fortsat for en lille fuldført pilot. Udgiftsrammen er fortsat 0 DKK, og ingen betalt tjeneste, konto eller forskerkontakt indgår.
+
+Adgang, dataproveniens og de faktisk gennemførte trin dokumenteres under `work_rubin_20261102/`. De 35 HARPS-mappingbegrænsninger og 185 uafklarede strukturer bevares; fremskyndelsen er ikke en ophavsbestemmelse eller afslutning af disse sager.
+
+
 To selvstændige arbejdsuger for Martin Andersens SETI-projekt. Første prioritet er en optisk lasersøgning i HARPS-spektre; anden prioritet er en søgning efter usædvanlige stjernedæmpninger i Rubin-data. Hver uge skal ende med en afsluttet, afgrænset analyse eller en præcis opgørelse af, hvorfor den blev delvis eller blokeret.
 
 **Godkendt start:** 1. november 2026. HARPS-ugen løber 1.–7. november, og Rubin-ugen 8.–14. november, Europe/Copenhagen. Arbejdet er startet efter Martins godkendelse. Der er ikke oprettet automatisk baggrundskørsel; fremdrift dokumenteres fra de faktisk udførte arbejdssessioner.
