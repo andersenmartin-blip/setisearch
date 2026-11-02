@@ -1,0 +1,218 @@
+{
+  "created_utc": "2026-11-02T08:54:36.873101+00:00",
+  "status": "PASS_INDEPENDENT_EXTENSION_PREFLIGHT",
+  "checks": [
+    {
+      "check": "acquire_main.py exact bytes after only allowed substitutions",
+      "passed": true
+    },
+    {
+      "check": "run_main.py exactly one OUT=ROOT/'main_analysis'",
+      "passed": true
+    },
+    {
+      "check": "run_main.py exactly one 'all188_accounted_in_both_streams'",
+      "passed": true
+    },
+    {
+      "check": "run_main.py exact bytes after only allowed substitutions",
+      "passed": true
+    },
+    {
+      "check": "acquire_trigger_cutouts.py exactly one ANALYSIS=ROOT/'main_analysis'",
+      "passed": true
+    },
+    {
+      "check": "acquire_trigger_cutouts.py exactly one OUT=ROOT/'main_cutout_review'",
+      "passed": true
+    },
+    {
+      "check": "acquire_trigger_cutouts.py exact bytes after only allowed substitutions",
+      "passed": true
+    },
+    {
+      "check": "exact ordered IDs equal acquisition plan",
+      "passed": true
+    },
+    {
+      "check": "selected count equals plan",
+      "passed": true
+    },
+    {
+      "check": "positive exact signed64bit identity strings",
+      "passed": true
+    },
+    {
+      "check": "no duplicate selected object IDs",
+      "passed": true
+    },
+    {
+      "check": "no duplicate selected Gaia IDs",
+      "passed": true
+    },
+    {
+      "check": "no original main object selected again",
+      "passed": true
+    },
+    {
+      "check": "no original main Gaia counterpart selected again",
+      "passed": true
+    },
+    {
+      "check": "all433 earlier metadata identities remain excluded",
+      "passed": true
+    },
+    {
+      "check": "all selected coordinates remain beyond2arcsec of initial433",
+      "passed": true
+    },
+    {
+      "check": "original188 plus extension does not exceed500",
+      "passed": true
+    },
+    {
+      "check": "selection bytes match frozen hash",
+      "passed": true
+    },
+    {
+      "check": "main acquisition response/retry/worker bounds unchanged",
+      "passed": true
+    },
+    {
+      "check": "all selected IDs meet prior metadata-only necessary condition",
+      "passed": true
+    },
+    {
+      "check": "sources exact once-only ordered job coverage",
+      "passed": true
+    },
+    {
+      "check": "sources_01 unchanged endpoint",
+      "passed": true
+    },
+    {
+      "check": "sources_01 unchanged science/quality field set",
+      "passed": true
+    },
+    {
+      "check": "sources_01 exact request identity list",
+      "passed": true
+    },
+    {
+      "check": "fp exact once-only ordered job coverage",
+      "passed": true
+    },
+    {
+      "check": "fp_01 unchanged endpoint",
+      "passed": true
+    },
+    {
+      "check": "fp_01 unchanged science/quality field set",
+      "passed": true
+    },
+    {
+      "check": "fp_01 exact request identity list",
+      "passed": true
+    },
+    {
+      "check": "original frozen method unchanged CONFIG.json",
+      "passed": true
+    },
+    {
+      "check": "original frozen method unchanged detector.py",
+      "passed": true
+    },
+    {
+      "check": "original frozen method unchanged run_development.py",
+      "passed": true
+    },
+    {
+      "check": "original frozen method unchanged recovery_control.py",
+      "passed": true
+    },
+    {
+      "check": "original frozen method unchanged RECOVERY_PLAN.json",
+      "passed": true
+    },
+    {
+      "check": "original main result unchanged ALL_TRIGGERS.json",
+      "passed": true
+    },
+    {
+      "check": "original main result unchanged CUTOUT_ASSOCIATIONS.json",
+      "passed": true
+    },
+    {
+      "check": "original main result unchanged FORCED_DUPLICATES.json",
+      "passed": true
+    },
+    {
+      "check": "original main result unchanged FORCED_NORMALIZED.json",
+      "passed": true
+    },
+    {
+      "check": "original main result unchanged FORCED_SCORED.json",
+      "passed": true
+    },
+    {
+      "check": "original main result unchanged FORCED_TRIGGERS.json",
+      "passed": true
+    },
+    {
+      "check": "original main result unchanged OBJECT_ELIGIBILITY.csv",
+      "passed": true
+    },
+    {
+      "check": "original main result unchanged SOURCES_DUPLICATES.json",
+      "passed": true
+    },
+    {
+      "check": "original main result unchanged SOURCES_NORMALIZED.json",
+      "passed": true
+    },
+    {
+      "check": "original main result unchanged SOURCES_SCORED.json",
+      "passed": true
+    },
+    {
+      "check": "original main result unchanged SOURCES_TRIGGERS.json",
+      "passed": true
+    },
+    {
+      "check": "original main result unchanged STARTED.json",
+      "passed": true
+    },
+    {
+      "check": "original main result unchanged SUMMARY.json",
+      "passed": true
+    },
+    {
+      "check": "extension science acquisition has not begun",
+      "passed": true
+    },
+    {
+      "check": "extension analysis has not begun",
+      "passed": true
+    }
+  ],
+  "count": 48,
+  "extension_selected_objects": 2,
+  "previous_main_objects": 188,
+  "cumulative_selected_objects": 190,
+  "minimum_separation_arcsec_to_initial433": 639.5598826127695,
+  "original_method_and_science_outputs_unchanged": true,
+  "plan_sha256": "cea285f6d5ed47d9976a971abc424c5b3e8e94b0b3aed7df73c75958d9d8584b",
+  "selection_sha256": "1f63da98d74fabba20297bb15e754d6a14cbe1afc50ba24474fed0888c4fa3e7",
+  "script_sha256": {
+    "acquire_main.py": "8726556e3181a34a19df776a4dc5327449e17130822d51e34d1ab19e48109ca7",
+    "run_main.py": "2ec6857f54686b20c64c92b0e044edae99ac87ef69d34a7990024c0c1a4ffc74",
+    "acquire_trigger_cutouts.py": "2c07ea16e3e4c55f9bec168d8903671e5fc0a4b6888dc04ab960f0cc041bbaad"
+  },
+  "independent_scalar_helper_sha256": "415ad6b80da3c53e18acfa4e4fc458b59991215b18415bcb34b2962c9ec6b6be",
+  "audit_script_sha256": "c65e9cfc3a188076d8027ff9db8148aec968736fda7f7e0aadf085dd3a0f5883",
+  "limits": [
+    "Metadata and Gaia qualification do not guarantee valid flux/errors or baseline precision.",
+    "The extension is a new separately selected cohort; the original188 were not replaced.",
+    "No photometric sensitivity or origin interpretation is established before main execution."
+  ]
+}

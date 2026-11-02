@@ -1,0 +1,231 @@
+{
+  "created_utc": "2026-11-02T08:50:02.259891+00:00",
+  "status": "FROZEN_BEFORE_SEPARATE_EXTENSION_GAIA_QUERY_AND_FLUX",
+  "purpose": "Apply unchanged Gaia DR3 association and stellar guard to the exact104 metadata temporal/quality-pass extension candidates. Original188 and feasibility940/8277 remain unchanged. No flux request or analysis.",
+  "input_files": [
+    {
+      "path": "work_rubin_20261102/extension_gaia/CANDIDATE_METADATA.csv",
+      "sha256": "32b9d034086f72501c870dda48c67889d661e5c81443fbc7a9ff42c3324f7da2"
+    },
+    {
+      "path": "work_rubin_20261102/extension_gaia/QUERY.adql",
+      "sha256": "5abf0a64e0e29ea89aadd08710a3036247c95c99136ff83f0c718bb12378b06f"
+    },
+    {
+      "path": "work_rubin_20261102/gaia_selection/ALL_NEIGHBORS.csv",
+      "sha256": "a9ab17b17a224d7a3ce8bb67266c23aad0ed2cacdf042b9b64da77e81a3b0223"
+    },
+    {
+      "path": "work_rubin_20261102/gaia_selection/MAIN_SELECTION.csv",
+      "sha256": "0983fb2d308c1c734fd89cf57368f6539c81149f12328089c516f077aa1ea14a"
+    },
+    {
+      "path": "work_rubin_20261102/gaia_selection/SELECTION_FREEZE.json",
+      "sha256": "19516d8540cd676c5118820e53f8f30e1a37544dde01c77ee69a5c88de8b8802"
+    },
+    {
+      "path": "work_rubin_20261102/gaia_selection/match_gaia.py",
+      "sha256": "26ff54ce636609d99a341197e8d35eb953ddca205b2a8e399010bb8a75f7d639"
+    },
+    {
+      "path": "work_rubin_20261102/gaia_selection/acquire_gaia.py",
+      "sha256": "60f923a61803976388c451b804f56be002073d027657f454398487a13cdceadb"
+    },
+    {
+      "path": "work_rubin_20261102/gaia_selection/PLAN.json",
+      "sha256": "43fd5d1e494749118c4bd9064f5725215c58de403edaed1a31a4e05ed4fee9ac"
+    },
+    {
+      "path": "work_rubin_20261102/access_pilot/DEVELOPMENT_SELECTION.csv",
+      "sha256": "5d2726af407b46dad2cf05a0c22858c3328eeb35ad8765b038762e0f8ed2a887"
+    },
+    {
+      "path": "work_rubin_20261102/access_pilot/MAIN_METADATA_CANDIDATES_UNMATCHED.csv",
+      "sha256": "0812a9d23d6af0da99b7cb1bda980e6874ed5dea7089b48b237b39aa4c17be90"
+    },
+    {
+      "path": "work_rubin_20261102/access_pilot/DEVELOPMENT_OBJECT_INVENTORY.csv",
+      "sha256": "3e07f4d9caf97d800a8cb34ad80497dd03d42a1f7822ecee2d65cd628de6fdfb"
+    },
+    {
+      "path": "work_rubin_20261102/method_review/CONFIG.json",
+      "sha256": "afb7368008177f4e04d64eae1f188db9d48cc5c3c490d5f7dda527efd8339d48"
+    },
+    {
+      "path": "work_rubin_20261102/method_review/detector.py",
+      "sha256": "749d5eb83c74d6629cd9a312cd4ce3c4d07489d994fe4cff7b40c2b3ac6a93bb"
+    },
+    {
+      "path": "work_rubin_20261102/extension_feasibility/SUMMARY.json",
+      "sha256": "0ba9175ad5119a3edec843c2dac2db2594d28c68525a3b639971abe1c38c5d26"
+    },
+    {
+      "path": "work_rubin_20261102/extension_feasibility/OBJECT_FEASIBILITY.csv",
+      "sha256": "c06cc5a964d868dd0f1ad2367c6478d55a1229e561817ec7cad55e2e2e4225c0"
+    },
+    {
+      "path": "work_rubin_20261102/extension_feasibility/NORMALIZED_METADATA.csv",
+      "sha256": "4b487e0e2e55962abd15f144a4804564861ef1501c5022e86427ff536641198f"
+    },
+    {
+      "path": "work_rubin_20261102/extension_feasibility/OCTOBER_TEMPORAL_CONTEXT.csv",
+      "sha256": "48c5492eb380790f74b8d21faefd4cad1b218ac0ebf49457d6544e4db6ace7b6"
+    },
+    {
+      "path": "work_rubin_20261102/extension_feasibility/PLAN.json",
+      "sha256": "9ac427db58db4fc3835eb8f40c3c99a35329e165136e9a490987e3580eb063bb"
+    },
+    {
+      "path": "work_rubin_20261102/extension_feasibility/CONE_RESULT.json",
+      "sha256": "68f2d0916808283694cb3df6c5ddee947945e11c1ba3d923cc4ed7a305eecd04"
+    },
+    {
+      "path": "work_rubin_20261102/extension_feasibility/HISTORY_SELECTION.csv",
+      "sha256": "e973969682e832c6d00d08d18a734a53666f11869fdf24ab2886ea1eb5e99a0b"
+    },
+    {
+      "path": "work_rubin_20261102/extension_feasibility/HISTORY_MANIFEST.json",
+      "sha256": "ee9742491aff8aa1aec35b53a6b7ac3315d8298aa723b93ed8acc17e29f6d069"
+    },
+    {
+      "path": "work_rubin_20261102/extension_feasibility/HISTORY_JOBS.json",
+      "sha256": "4beb8ba5ca4f714e6f6da0438a778ffbd7050e223d692f07dcf694b25b40f6ef"
+    },
+    {
+      "path": "work_rubin_20261102/extension_feasibility/HISTORY_SELECTION_FREEZE.json",
+      "sha256": "27e80ad3fd57e51196d86b0383c30c04ba880e440f2e4876317072ca8ac7b01f"
+    },
+    {
+      "path": "work_rubin_20261102/extension_feasibility/metadata/history_01.json",
+      "sha256": "68b469c3385f6aab31f3da4ea4c2edde212fc74d1dd587d05cc5b02d6caa7b57"
+    },
+    {
+      "path": "work_rubin_20261102/extension_feasibility/metadata/history_02.json",
+      "sha256": "3b8a72b781a95fb510b7dbcf4cad80a7a3515fbc8cac257d7815a1d9082d6434"
+    },
+    {
+      "path": "work_rubin_20261102/extension_feasibility/metadata/history_03.json",
+      "sha256": "7dd2861beb1c94ffce844fd87dec55e9180d9a9cc722f5c800dfa198397174e9"
+    },
+    {
+      "path": "work_rubin_20261102/extension_feasibility/metadata/history_04.json",
+      "sha256": "23592e8d34ce1bb491f133a2c6a77e9421b3192ed5c7dde89ae68dfc2d8fdf33"
+    },
+    {
+      "path": "work_rubin_20261102/extension_feasibility/metadata/history_05.json",
+      "sha256": "7653d04f00a2d0cd81c1cef0f6917d6a69040d0dbe84469cd29b92c2df7d8653"
+    },
+    {
+      "path": "work_rubin_20261102/extension_feasibility/metadata/history_06.json",
+      "sha256": "d6fc81ef85207be530ed69456b144bb2f0656292256f4fa46b3a3f9cf7e13cff"
+    },
+    {
+      "path": "work_rubin_20261102/extension_feasibility/metadata/history_07.json",
+      "sha256": "26e0ed131183ebba4755472a0bbf48629f4ac4a304b9236e0f99b70213d8810c"
+    },
+    {
+      "path": "work_rubin_20261102/extension_feasibility/metadata/history_08.json",
+      "sha256": "ace35af3720a0f41fa0beb91a7638d6513e316c7531019e2f6acf793f4eb3aa2"
+    },
+    {
+      "path": "work_rubin_20261102/extension_feasibility/metadata/history_09.json",
+      "sha256": "35fbffa21f6f9331422c34c87474b92ec734c03e98856da15a1ad1b41d35ceb4"
+    },
+    {
+      "path": "work_rubin_20261102/extension_feasibility/metadata/history_10.json",
+      "sha256": "383a43d96aefb712babf396b352dcf0c173daa79c850071e10a77c8f5d499fa2"
+    }
+  ],
+  "candidate_pool": {
+    "file": "CANDIDATE_METADATA.csv",
+    "exact_count": 104,
+    "source": "extension_feasibility/OBJECT_FEASIBILITY.csv exact status MEETS_TEMPORAL_QUALITY_NECESSARY_CONDITION",
+    "ordering": "Exact numeric DiaObjectID ascending",
+    "not_scientifically_evaluable_count": true
+  },
+  "gaia_query": {
+    "table": "gaiadr3.gaia_source",
+    "url": "https://gea.esac.esa.int/tap-server/tap/sync",
+    "center_deg": [
+      8.986275,
+      -42.709834
+    ],
+    "radius_deg": 1.1,
+    "columns": [
+      "source_id",
+      "ra",
+      "dec",
+      "ref_epoch",
+      "ra_error",
+      "dec_error",
+      "pmra",
+      "pmdec",
+      "pmra_error",
+      "pmdec_error",
+      "pmra_pmdec_corr",
+      "parallax",
+      "parallax_error",
+      "parallax_over_error",
+      "radial_velocity",
+      "radial_velocity_error",
+      "ruwe",
+      "duplicated_source",
+      "astrometric_params_solved",
+      "phot_g_mean_mag",
+      "ra_pmra_corr",
+      "dec_pmdec_corr",
+      "ra_dec_corr"
+    ],
+    "row_cap": 50000,
+    "response_byte_cap": 8000000,
+    "attempts": 2,
+    "total_attempt_body_cap": 16000000,
+    "per_attempt_timeout_seconds": 45,
+    "query_sha256": "50bfd1758ad68cb591684287340b11d14584c685f06bbed116dd9e09471793e8",
+    "truncation_rule": "TOP/MAXREC50000; if returned count>=50000 or bytes>=8000000, terminal stop. No alternate cone/catalog/field.",
+    "retry": "One identical request only HTTP500/502/503/504, timeout, connection reset/aborted/broken-pipe, including URLError wrapping exactly those exceptions. All denial/redirect/other errors terminal. Unknown bytes charged full8MB reservation.",
+    "coordinate_validation": "Valid finite RA[0,360),Dec[-90,90] and recomputed separation<=3960.001arcsec."
+  },
+  "association": {
+    "target_epoch": "Each Rubin midpointMjdTai convertedTAI->TCB Julianyear. Rubin object coordinates are assumed representative of contemporaneous astrometry; precise object reference epoch absent, recorded limitation.",
+    "propagation": "Gaia ICRS positions and proper motions from ref_epoch; astropy spherical apply_space_motion; finite positive parallax supplies distance, finiteRV or zeroRV; noPM catalog positions retained as uncertainty neighbors but cannot qualify as sole match.",
+    "match_radius_arcsec": 1.0,
+    "neighbor_ambiguity_radius_arcsec": 2.0,
+    "neighbor_evidence_radius_arcsec": 10.0,
+    "unique_rule": "Exactly1 Gaia source within1arcsec and exactly1 within2arcsec, with finitePM for matching source. All neighbor solutions including noPM enter ambiguity check.",
+    "field_margin": "Gaia cone1.1deg around Rubin1deg field leaves0.1deg=360arcsec reference-epoch margin; completeness conditional on unmodelled motion within margin."
+  },
+  "stellar_evidence": {
+    "parallax_snr_min": 3.0,
+    "pm_joint_sigma_min": 5.0,
+    "pm_metric": "sqrt(mu.T inverse(C_pm) mu), finite positivePMerrors and validcorrelation; otherwise unavailable.",
+    "rule": "parallaxSNR>=3 ORPMjointSigma>=5. No nearest-only association called stellar proof.",
+    "quality_flags": "ruwe,duplicated_source,astrometric_params_solved retained descriptively; no posthoc threshold tuning"
+  },
+  "prior_exclusion": {
+    "exact_initial433_ids": true,
+    "within2arcsec_initial433_coordinates": true,
+    "gaia_ids": "Union original all433 Gaia neighbors within2arcsec, original188 selectedGaiaIDs, historicalDEV annotations, and recomputed prior433 neighbors within2arcsec using this same1.1degree catalog. Recomputed prior433 context is exclusion-only and never modifies original cohort.",
+    "duplicate_extension_gaia": "Keep smallest exact numeric DiaObjectID among otherwise eligible candidates."
+  },
+  "sort": "Same original reliable-positive-parallax distance ranking1000/parallax pc withparallaxSNR>=3 ascending then exactnumericDiaObjectID; PM-only/uncertain distance last byID. No flux/anomaly sorting.",
+  "max_additional_selected": 312,
+  "max_total_main": 500,
+  "original_main_count": 188,
+  "unchanged_original_scientific_implementation": "match_gaia.py copied from original; coordinate propagation, neighbor guards, stellar metrics and distance ordering unchanged. Adapted pool/output paths/dimensions, catalog field dimension and additional prior-cohort exclusions only.",
+  "limitations": [
+    "Alert-selected bounded cone/time sample, not allstars or allsky.",
+    "Association and stellar-evidence selection does not establish>=50 photometrically evaluable objects.",
+    "Missing or ambiguous motion/neighbor evidence remains explicit rejection.",
+    "Gaia parallax distance is only rankingproxy, no inference ofunbiased distanceposterior orzero-pointcorrected distance.",
+    "104 candidates were prefiltered only by fixed metadata temporal/quality prerequisites; this is a separate extension cohort, not a revision of initial188.",
+    "All metadata source withdrawal statuses were unknown and remain mandatory quality caveats under the original method."
+  ],
+  "primary_documentation": [
+    "https://gea.esac.esa.int/archive/documentation/GDR3/Gaia_archive/chap_datamodel/sec_dm_main_source_catalogue/ssec_dm_gaia_source.html",
+    "https://www.cosmos.esa.int/web/gaia-users/archive/programmatic-access"
+  ],
+  "acquire_script_sha256": "15cd1408c517769541182cf9327df4861f9df5de6c5935defd8a7c1c96777cc5",
+  "match_script_sha256": "37d5f9f4d072fc82180f6442338db46217eae79412da381917f3cd143afd482b",
+  "independent_preflight": "Required PASS with exact plan_sha256, acquire_script_sha256 and match_script_sha256 before request."
+}

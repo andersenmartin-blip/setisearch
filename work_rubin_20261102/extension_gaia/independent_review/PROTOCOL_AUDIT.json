@@ -1,0 +1,159 @@
+{
+  "schema": "RUBIN_EXTENSION_GAIA_SCIENTIFIC_PROTOCOL_AUDIT_V1",
+  "created_utc": "2026-11-02T08:51:32.471345+00:00",
+  "status": "PASS",
+  "checks_passed": 32,
+  "checks_total": 32,
+  "failures": [],
+  "checks": [
+    {
+      "name": "matcher_hash_matches_plan",
+      "pass": true
+    },
+    {
+      "name": "all_planned_input_hashes",
+      "pass": true
+    },
+    {
+      "name": "association_guards_unchanged",
+      "pass": true
+    },
+    {
+      "name": "stellar_rules_unchanged",
+      "pass": true
+    },
+    {
+      "name": "field_radius_and_margin",
+      "pass": true
+    },
+    {
+      "name": "proper_motion_and_covariance_block_unchanged",
+      "pass": true
+    },
+    {
+      "name": "neighbor_and_stellar_block_byte_identical",
+      "pass": true
+    },
+    {
+      "name": "distance_ordering_byte_identical",
+      "pass": true
+    },
+    {
+      "name": "exact104_metadata_pass_set_order",
+      "pass": true
+    },
+    {
+      "name": "candidate_metadata_preserved",
+      "pass": true
+    },
+    {
+      "name": "all_prior433_preserved",
+      "pass": true
+    },
+    {
+      "name": "no_exact_prior_identity_overlap",
+      "pass": true
+    },
+    {
+      "name": "all_exclusion_sources_frozen",
+      "pass": true
+    },
+    {
+      "name": "metadata_pool_initialization_executes",
+      "pass": true
+    },
+    {
+      "name": "union_all_original433_188_annotations_recomputed",
+      "pass": true
+    },
+    {
+      "name": "stellar_guard_parallax_exact3",
+      "pass": true
+    },
+    {
+      "name": "stellar_guard_parallax_below3",
+      "pass": true
+    },
+    {
+      "name": "stellar_guard_pm_exact5",
+      "pass": true
+    },
+    {
+      "name": "stellar_guard_pm_below5",
+      "pass": true
+    },
+    {
+      "name": "stellar_guard_pm_covariance_correlation",
+      "pass": true
+    },
+    {
+      "name": "stellar_guard_invalid_singular_covariance",
+      "pass": true
+    },
+    {
+      "name": "stellar_guard_negative_pm_uncertainty",
+      "pass": true
+    },
+    {
+      "name": "stellar_guard_missing_motion",
+      "pass": true
+    },
+    {
+      "name": "stellar_guard_no_neighbor",
+      "pass": true
+    },
+    {
+      "name": "stellar_guard_two_one_arcsec_neighbors",
+      "pass": true
+    },
+    {
+      "name": "stellar_guard_second_two_arcsec_neighbor",
+      "pass": true
+    },
+    {
+      "name": "stellar_guard_parallax_unavailable_PM_qualifies",
+      "pass": true
+    },
+    {
+      "name": "synthetic_leak_exclusion_lowestID_dedup_and_rank",
+      "pass": true
+    },
+    {
+      "name": "prior_comparison_cannot_enter_extension",
+      "pass": true
+    },
+    {
+      "name": "caps_consistent",
+      "pass": true
+    },
+    {
+      "name": "no_field_or_stellar_threshold_relaxation",
+      "pass": true
+    },
+    {
+      "name": "reviewed_files_unchanged",
+      "pass": true
+    }
+  ],
+  "reviewed_hashes": {
+    "PLAN.json": "730b44391c7e32bdd394be609507601e034627af7e73265843fe94bb54c17431",
+    "match_gaia.py": "37d5f9f4d072fc82180f6442338db46217eae79412da381917f3cd143afd482b",
+    "CANDIDATE_METADATA.csv": "32b9d034086f72501c870dda48c67889d661e5c81443fbc7a9ff42c3324f7da2",
+    "original_match_gaia.py": "26ff54ce636609d99a341197e8d35eb953ddca205b2a8e399010bb8a75f7d639"
+  },
+  "prior_exclusion_metadata_counts": {
+    "initial433_objects": 433,
+    "original_all_neighbor_within2_gaia_ids": 269,
+    "original188_selected_gaia_ids": 188,
+    "historical_development_annotation_ids": 10
+  },
+  "auditor_script_sha256": "5fa67d14809243bc69de2525355f0f60e8ed6e844988f4f90db71265ca58f86c",
+  "network_requests": 0,
+  "new_Gaia_catalog_read": false,
+  "Rubin_science_flux_files_read": 0,
+  "limitations": [
+    "Scientific code/protocol review with metadata and synthetic guard executions only; does not replace transport preflight or independent matching reconstruction after retrieval.",
+    "Prior433 rematching is exclusion-only; original cohort association/results remain immutable.",
+    "Same original coordinate proxy and incomplete field/motion assumptions remain. No photometric evaluability conclusion."
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "scope": "Path and count-neutral output-accounting adaptations only; no scientific or transfer behavior changes",
+  "scripts": [
+    {
+      "name": "acquire_main.py",
+      "original_sha256": "8726556e3181a34a19df776a4dc5327449e17130822d51e34d1ab19e48109ca7",
+      "extension_sha256": "8726556e3181a34a19df776a4dc5327449e17130822d51e34d1ab19e48109ca7",
+      "identical": true,
+      "unified_diff": ""
+    },
+    {
+      "name": "run_main.py",
+      "original_sha256": "98344d8fe512c9d7a5cfd01cff847fa225872be4ecacf8208a75613f45361469",
+      "extension_sha256": "2ec6857f54686b20c64c92b0e044edae99ac87ef69d34a7990024c0c1a4ffc74",
+      "identical": false,
+      "unified_diff": "--- main_acquisition/run_main.py\n+++ extension_main_acquisition/run_main.py\n@@ -5,7 +5,7 @@\n HERE=Path(__file__).resolve().parent\n ROOT=HERE.parent\n METHOD=ROOT/'method_review'\n-OUT=ROOT/'main_analysis'\n+OUT=ROOT/'extension_main_analysis'\n sys.path.insert(0,str(METHOD))\n import detector\n sys.path.insert(0,str(HERE))\n@@ -92,7 +92,7 @@\n     dump('CUTOUT_ASSOCIATIONS.json',requests)\n     summary={'schema':'RUBIN_MAIN_FIXED_SCREEN_SUMMARY_V1','completed_utc':acquire_main.now(),'status':'FIXED_SCREEN_COMPLETE_WITH_QUALITY_LIMITATIONS',\n              'selected_main_objects':len(ids),'stream_summaries':stream_results,'total_trigger_rows_across_separate_streams':len(all_hits),\n-             'trigger_rows_not_independent_events':True,'all188_accounted_in_both_streams':True,\n+             'trigger_rows_not_independent_events':True,'all_selected_accounted_in_both_streams':True,\n              'raw_input_hashes':raw_hashes,'config_sha256':detector.sha(METHOD/'CONFIG.json'),'detector_sha256':detector.sha(METHOD/'detector.py'),\n              'method_freeze_sha256':detector.sha(METHOD/'METHOD_FREEZE.json'),'wrapper_sha256':detector.sha(Path(__file__)),\n              'main_selection_sha256':plan['selection_sha256'],'publication_commit':release['publication_commit'],\n"
+    },
+    {
+      "name": "acquire_trigger_cutouts.py",
+      "original_sha256": "e65dd0ede6b02a6499ff43db70bc7a00f90a92f22d3ca6c0d483893071a65197",
+      "extension_sha256": "2c07ea16e3e4c55f9bec168d8903671e5fc0a4b6888dc04ab960f0cc041bbaad",
+      "identical": false,
+      "unified_diff": "--- main_acquisition/acquire_trigger_cutouts.py\n+++ extension_main_acquisition/acquire_trigger_cutouts.py\n@@ -5,8 +5,8 @@\n from astropy.io import fits\n HERE=Path(__file__).resolve().parent\n ROOT=HERE.parent\n-ANALYSIS=ROOT/'main_analysis'\n-OUT=ROOT/'main_cutout_review'\n+ANALYSIS=ROOT/'extension_main_analysis'\n+OUT=ROOT/'extension_main_cutout_review'\n \n def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()\n \n"
+    }
+  ],
+  "preserved_source_hashes": {
+    "method_review/detector.py": "749d5eb83c74d6629cd9a312cd4ce3c4d07489d994fe4cff7b40c2b3ac6a93bb",
+    "method_review/CONFIG.json": "afb7368008177f4e04d64eae1f188db9d48cc5c3c490d5f7dda527efd8339d48",
+    "method_review/METHOD_FREEZE.json": "286ef5f1f36ce1b3f0f5c498ecfff6663a4ac966aff6a6ae491db680b4296539",
+    "method_review/MAIN_METHOD_FREEZE.json": "2b2e25dcb5f3ad1e98541b90eda3577b8382b246c327e283cfa5b40b8c0d4af6",
+    "main_acquisition/MAIN_SELECTION_FROZEN.csv": "0983fb2d308c1c734fd89cf57368f6539c81149f12328089c516f077aa1ea14a",
+    "main_analysis/OUTPUT_HASHES.json": "ed08f8590c6d4ddb1caae10b0ecdb1eacb9d31b6b15b3c44f8142b9df5e5a27f"
+  },
+  "extension_flux_read": false
+}

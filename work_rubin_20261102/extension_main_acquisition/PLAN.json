@@ -1,0 +1,122 @@
+{
+  "schema": "RUBIN_EXTENSION_MAIN_ACQUISITION_V1",
+  "created_utc": "2026-11-02T08:54:17.494868+00:00",
+  "status": "FROZEN_BEFORE_EXTENSION_FLUX",
+  "objects": 2,
+  "selection_sha256": "1f63da98d74fabba20297bb15e754d6a14cbe1afc50ba24474fed0888c4fa3e7",
+  "selection_source": "../extension_gaia/MAIN_SELECTION.csv",
+  "selection_snapshot": "MAIN_SELECTION_FROZEN.csv",
+  "selection_order": "Frozen Gaia metadata rule and selection_index; all prior 433 identity/position/Gaia counterpart exclusions applied upstream; no flux-dependent replacement.",
+  "query_history": "All available history of selectedIDs; scientificperiod and eventcuts governed separately by frozenmethod. Acquisition adds no targets or alteredselection.",
+  "limits": {
+    "total_returned_byte_budget": 80000000,
+    "maximum_response_bytes": 20000000,
+    "maximum_workers": 2,
+    "maximum_attempts_per_job": 2,
+    "timeout_seconds": 40,
+    "retry_conditions": [
+      "HTTP500",
+      "HTTP502",
+      "HTTP503",
+      "HTTP504",
+      "transport timeout or connection error"
+    ],
+    "cost_DKK": 0
+  },
+  "require_root_release": {
+    "path": "ROOT_RELEASE.json",
+    "required_keys": [
+      "publication_commit",
+      "publication_readback_verified",
+      "selection_sha256",
+      "acquisition_plan_sha256",
+      "acquisition_script_sha256",
+      "method_sha256"
+    ],
+    "meaning": "Root writes after scientificmethod+selection+thisplan are frozen and published/readback. This is an internal integrity checkpoint, not a new userpermission request."
+  },
+  "data_integrity": [
+    "JSON integerIDs parsed to exactdecimalstrings; reject floatIDs or out-of-selectionobjects.",
+    "Source and forced streams remainseparate. Flux/schema/nulls retained exactly asresponse.",
+    "Store perattemptbytes/errors andSHA256; no overwrite canonicalfiles; timeout incompletebytes charged conservatively to cap.",
+    "Retain all selected selections evenifresponseempty orfailure; no substitutions or ranking by flux.",
+    "Forcedresponse qualityflags and withdrawalvalues may be missing; missingisunknown.",
+    "Only networkresponsebytes count toward cap; schema/documentation copied inputs separate."
+  ],
+  "main_analysis_performed": false,
+  "selected_ids": [
+    "170587117148176510",
+    "313791827794198596"
+  ],
+  "jobs": [
+    {
+      "job_id": "sources_01",
+      "endpoint": "https://api.lsst.fink-portal.org/api/v1/sources",
+      "object_ids": [
+        "170587117148176510",
+        "313791827794198596"
+      ],
+      "payload": {
+        "diaObjectId": "170587117148176510,313791827794198596",
+        "columns": "r:diaObjectId,r:diaSourceId,r:ra,r:dec,r:midpointMjdTai,r:band,r:visit,r:detector,r:exposureTime,r:scienceFlux,r:scienceFluxErr,r:templateFlux,r:templateFluxErr,r:psfFlux,r:psfFluxErr,r:observation_reason,r:target_name,r:timeProcessedMjdTai,r:timeWithdrawnMjdTai,r:isNegative,r:reliability,r:reliabilityVersion,r:ssObjectId,r:parentDiaSourceId,r:pixelFlags,r:pixelFlags_bad,r:pixelFlags_crCenter,r:pixelFlags_edge,r:pixelFlags_injected,r:pixelFlags_injectedCenter,r:pixelFlags_injected_template,r:pixelFlags_injected_templateCenter,r:pixelFlags_interpolatedCenter,r:pixelFlags_nodata,r:pixelFlags_nodataCenter,r:pixelFlags_offimage,r:pixelFlags_saturatedCenter,r:pixelFlags_streakCenter,r:pixelFlags_suspectCenter,r:psfFlux_flag,r:psfFlux_flag_edge,r:psfFlux_flag_noGoodPixels,r:forced_PsfFlux_flag,r:forced_PsfFlux_flag_edge,r:forced_PsfFlux_flag_noGoodPixels,r:centroid_flag,r:isDipole,r:glint_trail,f:lsst_schema_version,f:fink_broker_version,f:fink_science_version,f:xm_gaiadr3_DR3Name,f:xm_gaiadr3_Plx,f:xm_gaiadr3_e_Plx,f:xm_gaiadr3_VarFlag,f:xm_simbad_otype,f:xm_vsx_Type",
+        "output-format": "json"
+      },
+      "canonical_path": "raw/sources_01.json"
+    },
+    {
+      "job_id": "fp_01",
+      "endpoint": "https://api.lsst.fink-portal.org/api/v1/fp",
+      "object_ids": [
+        "170587117148176510",
+        "313791827794198596"
+      ],
+      "payload": {
+        "diaObjectId": "170587117148176510,313791827794198596",
+        "columns": "r:band,r:dec,r:detector,r:diaForcedSourceId,r:diaObjectId,r:midpointMjdTai,r:psfFlux,r:psfFluxErr,r:ra,r:scienceFlux,r:scienceFluxErr,r:timeProcessedMjdTai,r:timeWithdrawnMjdTai,r:visit",
+        "output-format": "json"
+      },
+      "canonical_path": "raw/fp_01.json"
+    }
+  ],
+  "extension_scope": {
+    "prior_selected_objects": 188,
+    "extension_selected_objects": 2,
+    "combined_selected_objects": 190,
+    "combined_selection_cap": 500,
+    "metadata_prerequisite_pool": 104,
+    "one_degree_field_extension_count": 1,
+    "further_field_expansion": false,
+    "original188_unchanged": true,
+    "selection_conditioned_on_metadata_cadence_and_quality": true,
+    "metadata_prerequisite_does_not_establish_numeric_evaluability": true
+  },
+  "scientific_method": {
+    "path": "../method_review/METHOD_FREEZE.json",
+    "sha256": "286ef5f1f36ce1b3f0f5c498ecfff6663a4ac966aff6a6ae491db680b4296539",
+    "config_sha256": "afb7368008177f4e04d64eae1f188db9d48cc5c3c490d5f7dda527efd8339d48",
+    "detector_sha256": "749d5eb83c74d6629cd9a312cd4ce3c4d07489d994fe4cff7b40c2b3ac6a93bb",
+    "changed_for_extension": false
+  },
+  "output_directories": {
+    "photometry": "extension_main_acquisition/raw",
+    "analysis": "extension_main_analysis",
+    "cutouts": "extension_main_cutout_review"
+  },
+  "prerequisite_hashes": {
+    "extension_feasibility/PLAN.json": "9ac427db58db4fc3835eb8f40c3c99a35329e165136e9a490987e3580eb063bb",
+    "extension_feasibility/SUMMARY.json": "0ba9175ad5119a3edec843c2dac2db2594d28c68525a3b639971abe1c38c5d26",
+    "extension_feasibility/OBJECT_FEASIBILITY.csv": "c06cc5a964d868dd0f1ad2367c6478d55a1229e561817ec7cad55e2e2e4225c0",
+    "extension_feasibility/independent_review/RESULTS_AUDIT.json": "24e0edf79daded0820ed2e5678a5607c9eb258c104ae019ca8e6ef74fc8ce0aa",
+    "extension_gaia/MAIN_SELECTION.csv": "1f63da98d74fabba20297bb15e754d6a14cbe1afc50ba24474fed0888c4fa3e7",
+    "main_acquisition/MAIN_SELECTION_FROZEN.csv": "0983fb2d308c1c734fd89cf57368f6539c81149f12328089c516f077aa1ea14a",
+    "main_analysis/OUTPUT_HASHES.json": "ed08f8590c6d4ddb1caae10b0ecdb1eacb9d31b6b15b3c44f8142b9df5e5a27f"
+  },
+  "code_hashes": {
+    "acquire_main.py": "8726556e3181a34a19df776a4dc5327449e17130822d51e34d1ab19e48109ca7",
+    "run_main.py": "2ec6857f54686b20c64c92b0e044edae99ac87ef69d34a7990024c0c1a4ffc74",
+    "acquire_trigger_cutouts.py": "2c07ea16e3e4c55f9bec168d8903671e5fc0a4b6888dc04ab960f0cc041bbaad",
+    "check_offline_guards.py": "8ea4dcd272b3821be326adcff6c89b5250513d444fc253e0c8e1ae8241c6b1e4",
+    "prepare_plan.py": "ff306f23e553ffdc6f59111254a0a60e3fd92ea2ff03eeeee88a29783fb392db",
+    "CODE_ADAPTATIONS.json": "9c83f08b1e678fd6b3e4008ee1f62d139eba720beac881d71b27bcedfbb73fc5"
+  }
+}

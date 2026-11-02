@@ -1,0 +1,7 @@
+The extension matcher copies the original Gaia DR3 implementation. Its motion propagation, covariance-based proper-motion significance, parallax guard, fixed 1/2 arcsec neighbor rules, descriptive quality fields, and distance ordering remain unchanged.
+
+The input is the exact 104 metadata-prerequisite pass IDs, frozen before this Gaia request. The catalog radius changes from 0.6 to 1.1 degrees, preserving the 0.1-degree margin around the expanded Rubin cone. Original433 rows are reprocessed only as counterpart-exclusion context; they cannot enter the extension selection and original files remain unchanged. Exclusion identities union the original within-2-arcsec Gaia neighbors, original188 selected counterparts, historical development annotations, and newly recomputed prior433 neighbors. Initial433 positions are also rechecked within 2 arcsec. Extension duplicates retain the smallest exact numeric DiaObjectID.
+
+The public acquisition wrapper strengthens bounded transport and binds independent preflight to exact frozen code and plan hashes. It retains the original Gaia metadata fields, with no Rubin flux. TOP/MAXREC is 50000 and reaching the row/byte cap is terminal. At most one identical transient retry is allowed. See MATCHER_ADAPTATION.diff for the complete matching-code change.
+
+No new science flux is authorized by these scripts. The selected extension must be published and released by the parent workflow before the access agent retrieves science data.
