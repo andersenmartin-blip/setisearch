@@ -115,6 +115,24 @@ def main():
     assert charged - known == manifest['unknown_bytes_conservatively_charged']
     assert manifest['reserved_bytes'] == 0
     assert sha(summary_path) == before_summary
+    log = BATCH / 'acquisition.log'
+    log_coverage = dict(status='LOG_NOT_PRESENT', cause='No cause inferred.')
+    if log.exists():
+        lines = log.read_text().splitlines()
+        status_lines = [line for line in lines if line.endswith((' DOWNLOADED', ' FAILED'))]
+        logged = []
+        for line in status_lines:
+            dp, kind, status = line.split()
+            assert any(r['dp_id'] == dp and r['kind'] == kind and r['status'] == status for r in products)
+            logged.append((dp, kind))
+        assert len(logged) == len(set(logged))
+        missing = [dict(dp_id=r['dp_id'], kind=r['kind']) for r in products
+                   if (r['dp_id'], r['kind']) not in set(logged)]
+        log_coverage = dict(path='acquisition.log', sha256=sha(log), physical_lines=len(lines),
+                            status_lines=len(status_lines), manifest_receipts=len(products),
+                            receipt_identities_absent_from_log=missing,
+                            complete_summary_line_present=any(line.startswith('COMPLETE ') for line in lines),
+                            cause='UNKNOWN; log is preserved, never reconstructed. Per-product receipts and canonical manifest are authoritative for acquisition accounting.')
     package_checks = dict(requested=args.check_packages, status='NOT_REQUESTED',
                           limits='Exclusion from packaged artifacts is not claimed by this inventory unless --check-packages is used.')
     if args.check_packages:
@@ -126,6 +144,11 @@ def main():
                             if sum(q['dp_id'] == p['dp_id'] for q in successful_products) == 2}
         packaged_paths = []
         archive_checks = []
+        metadata_relatives = ['products/MANIFEST.json', 'JOBS.json', 'FOLLOWUP_FREEZE.json',
+                              'SELECTED_EXPOSURES.csv', 'SELECTED_EVENTS.csv', 'PREREGISTRATION_RECEIPT.json',
+                              'SELECTION.json', 'REMOTE_PRODUCT_METADATA.json', 'PLAN.json']
+        shared_metadata = {str((BATCH / name).relative_to(BASE)): (BATCH / name).read_bytes()
+                           for name in metadata_relatives}
         for archive in input_index['archives']:
             path = Path(archive['local_path'])
             assert path.stat().st_size == archive['bytes'] and sha(path) == archive['sha256']
@@ -133,14 +156,24 @@ def main():
             with zipfile.ZipFile(path) as z:
                 names = z.namelist()
                 assert len(names) == len(set(names))
-                assert set(names) == set(declared)
-                for name in names:
+                receipts = {name + '.json' for name in declared}
+                assert set(names) == set(declared) | receipts | set(shared_metadata) | {'RESTORE_BATCH04_INPUTS.txt'}
+                for name in declared:
                     assert name in expected_packaged and name not in {p['relative_path'] for p in partials}
                     assert z.getinfo(name).file_size == declared[name]['bytes'] == expected_packaged[name]['bytes']
                     assert declared[name]['sha256'] == expected_packaged[name]['sha256']
-            packaged_paths.extend(names)
+                for name in receipts:
+                    assert z.read(name) == (BASE / name).read_bytes()
+                for name, data in shared_metadata.items():
+                    assert z.read(name) == data
+                instructions = z.read('RESTORE_BATCH04_INPUTS.txt').decode('utf8')
+                assert instructions.startswith('Members are relative to work_harps_20261101.')
+                assert 'All noncanonical payload files' in instructions
+                assert not {p['relative_path'] for p in partials}.intersection(names)
+            packaged_paths.extend(declared)
             archive_checks.append(dict(filename=path.name, bytes=path.stat().st_size,
-                                       sha256=archive['sha256'], members=len(names), names_match_canonical_manifest=True))
+                                       sha256=archive['sha256'], members=len(names), canonical_payload_members=len(declared),
+                                       only_canonical_payloads_and_verified_restoration_metadata=True))
         assert len(packaged_paths) == len(set(packaged_paths)) and set(packaged_paths) == set(expected_packaged)
         evidence_zip = BATCH / evidence_index['archive_filename']
         assert evidence_zip.stat().st_size == evidence_index['bytes'] and sha(evidence_zip) == evidence_index['sha256']
@@ -174,6 +207,7 @@ def main():
         excluded_from_analysis=True, residual_files_preserved_without_modification=True,
         partial_file_origin='UNKNOWN. Presence or prefix equality alone does not establish how a file was created or imply additional network bytes.',
         additional_network_byte_attribution='UNKNOWN', package_exclusion_checks=package_checks,
+        acquisition_log_coverage=log_coverage,
         extraction_input_verification='Every completed spectrum records hashes of its canonical RAW and ANCILLARY products; unavailable pairs remain explicit. Frozen extractor reads only canonical manifest relative paths. Independent numerical audit reconstructed saved cutouts from those inputs.',
         acquisition_attempts=dict(total=len(attempts),successful=len(succeeded),failed=len(failed),
             failed_attempts=failed,known_returned_payload_bytes=known,charged_payload_bytes=charged,

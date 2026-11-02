@@ -10,10 +10,16 @@ def main():
  p=read('PRIMARY_VISUAL_REVIEW.json');s=read('SECONDARY_VISUAL_REVIEW.json');audit=read('independent_audit/SUMMARY.json');mapping=read('NATIVE_MAPPING.json');root=read('ROOT_ADJUDICATION.json')
  require(audit['status']=='PASS','Audit not passed');require(root['root_visual_review_complete']is True,'Root review incomplete')
  for f,h in audit['source_hashes'].items():require(sha(OUT/f)==h,'Changed audited output '+f)
- selected=csvrows(OUT/'SELECTED_EVENTS.csv');a={r['review_id']:r for r in p['events']};b={r['review_id']:r for r in s['events']};m={r['review_id']:r for r in mapping['events']};fig={r['review_id']:r for r in read('FIGURE_INDEX.json')}
+ selected=csvrows(OUT/'SELECTED_EVENTS.csv');primary=p['events'];secondary=s['records'];a={r['review_id']:r for r in primary};b={r['review_id']:r for r in secondary};m={r['review_id']:r for r in mapping['events']};fig={r['review_id']:r for r in read('FIGURE_INDEX.json')}
+ require(len(primary)==len(a)==len(secondary)==len(b)==expected_events,'Duplicate or missing review record')
  ids=[r['review_id']for r in selected];require(len(ids)==expected_events and set(ids)==set(a)==set(b)==set(m),'Review coverage mismatch')
  pages=sorted({r['page']for r in fig.values()});require(p['atlas_pages_inspected']==s['atlas_pages_inspected']==pages,'Incomplete atlas review')
- require(p['extracted_order_cutouts_inspected']==s['extracted_orders_reviewed']==mapping['extracted_orders'],'Incomplete available-cutout review')
+ require(p['extracted_order_cutouts_inspected']==s['extracted_orders_reviewed_count']==len(s['extracted_orders_reviewed'])==mapping['extracted_orders'],'Incomplete available-cutout review')
+ actual_cutouts={(r['review_id'],r['order']):r for r in mapping['orders'] if r.get('cutout')}
+ reviewed_cutouts={(r['review_id'],r['order']):r for r in s['extracted_orders_reviewed']}
+ require(set(actual_cutouts)==set(reviewed_cutouts),'Secondary cutout identities differ from extracted evidence')
+ for key,r in reviewed_cutouts.items():
+  require(r['cutout']==actual_cutouts[key]['cutout'] and sha(OUT/r['cutout'])==r['cutout_sha256']==actual_cutouts[key]['cutout_sha256'],'Secondary cutout provenance mismatch')
  overrides={r['review_id']:r for r in root['adjudications']};require(set(overrides)<=set(ids),'Unselected override')
  decisions=[];comparison=[]
  for event in selected:

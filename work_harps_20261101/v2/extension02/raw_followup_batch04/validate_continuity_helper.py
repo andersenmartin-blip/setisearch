@@ -32,6 +32,10 @@ def main():
     main_by = {r['dp_id']: r for r in rows(REPO/BASE_REL/'v2/extension02/MAIN100.csv')}
     hit_by = {r['candidate_id']: r for r in rows(REPO/BASE_REL/'v2/extension02/production/V2_HITS.csv')}
     live_paths = [REPO/rel for rel in state['source_hashes']]
+    actual_freeze = read(OUT/'FOLLOWUP_FREEZE.json') if (OUT/'FOLLOWUP_FREEZE.json').exists() else None
+    if actual_freeze:
+        assert str((OUT/'update_current.py').relative_to(REPO/BASE_REL)) not in actual_freeze['source_hashes']
+        live_paths += [OUT/'FOLLOWUP_FREEZE.json'] + [REPO/BASE_REL/rel for rel in actual_freeze['source_hashes']]
     live_hashes = {str(p): sha(p) for p in live_paths}
     tests = []; scenarios = {}
     with tempfile.TemporaryDirectory(prefix='seti_batch04_continuity_') as temp:
@@ -166,6 +170,62 @@ def main():
         assert updated['pending_raw_queue']['exposure_queue'][0]['dp_id'] == queue[0]['dp_id']
         assert updated['followup_queues']['unresolved_structure']['events'] == 249
         tests.append('unavailable_pair_remains_N_with_exact_resume_queue_and_no_fake_completion')
+        partial_master = rows(current/'CURRENT_SELECTED_EVENT_DISPOSITIONS.csv')
+        partial_new = rows(current/'CURRENT_V2_ALL336_DISPOSITIONS.csv')
+        assert partial['selected_rows'] == len(partial_master) == 341
+        assert {r['review_id'] for r in partial_master if r['detector'] == 'V2'} == {r['candidate_id'] for r in partial_new if r['current_code'] != 'N'}
+        assert not set(missing_ids).intersection(r['review_id'] for r in partial_master)
+        assert len(rows(out/'ADOPTED_DISPOSITIONS.csv')) == 94
+        retained = [r for r in partial_new if r['candidate_id'] in missing_ids]
+        assert len(retained) == 1 and all(r['current_code'] == 'N' and r['selected_for_raw_followup_batch04'] == 'True' and r['current_evidence'] for r in retained)
+        assert all(all(partial_master[i][k] == value for k, value in record.items()) for i, record in enumerate(old_selected))
+        tests.append('unavailable_records_keep_batch_evidence_but_are_excluded_from_cumulative_raw_review_master')
+        # Run a real successor helper in another isolated batch using the produced
+        # predecessor state. The old implementation failed its selected-ID invariant.
+        retry = root/BASE_REL/'v2/extension02/raw_followup_batch05'; (retry/'inputs').mkdir(parents=True)
+        shutil.copy2(out/'update_current.py', retry/'update_current.py')
+        for name in ['CURRENT_V2_ALL336_DISPOSITIONS.csv', 'CURRENT_SELECTED_EVENT_DISPOSITIONS.csv', 'CURRENT_SUMMARY.json']:
+            shutil.copy2(current/name, retry/'inputs'/name)
+        shutil.copy2(v2/'CURRENT_V2_DISPOSITIONS.csv', retry/'inputs/CURRENT_V2_DISPOSITIONS.csv')
+        shutil.copy2(out/'CONTINUATION_STATE.json', retry/'inputs/CONTINUATION_STATE.json')
+        retry_plan = read(out/'PLAN.json')
+        retry_plan['selection_rule'].update(expected_V2_events=len(missing_ids), max_unique_exposures=1)
+        write_json(retry/'PLAN.json', retry_plan)
+        retry_selection = [r for r in selection if r['review_id'] in missing_ids]
+        assert [r['review_id'] for r in retry_selection] == [r['candidate_id'] for r in updated['pending_raw_queue']['events']]
+        write_csv(retry/'SELECTED_EVENTS.csv', retry_selection)
+        write_csv(retry/'SELECTED_EXPOSURES.csv', [main_by[queue[0]['dp_id']]])
+        (retry/'figures').mkdir(); shutil.copy2(out/'figures/SYNTHETIC.png', retry/'figures/SYNTHETIC.png')
+        write_json(retry/'NATIVE_MAPPING.json', dict(events=[dict(review_id=k, mapping_supported=True, status='NATIVE_CONTEXT_EXTRACTED') for k in missing_ids]))
+        write_json(retry/'independent_audit/SUMMARY.json', dict(status='PASS', source_hashes={'NATIVE_MAPPING.json': sha(retry/'NATIVE_MAPPING.json')}, scope='SYNTHETIC SUCCESSOR FIXTURE ONLY'))
+        write_csv(retry/'ADOPTED_DISPOSITIONS.csv', [dict(candidate_id=r['review_id'], dp_id=r['dp_id'], code='U', evidence='Synthetic retry fixture, not a scientific disposition.', all_covering_orders_mapping_verified=True, figure='figures/SYNTHETIC.png') for r in retry_selection])
+        write_json(retry/'SUMMARY.json', dict(created_utc='2000-01-02T00:00:00+00:00', status='ROOT_ADOPTED_CONSERVATIVE_REVIEW', selected_events=len(missing_ids), selected_exposures=1, independent_numeric_audit='PASS', root_visual_review_complete=True, original_production_unchanged=True, adopted_counts={'U': len(missing_ids)}, source_hashes={'ADOPTED_DISPOSITIONS.csv': sha(retry/'ADOPTED_DISPOSITIONS.csv')}, scope='SYNTHETIC SUCCESSOR FIXTURE ONLY'))
+        retry_freeze = [retry/'PLAN.json', retry/'SELECTED_EVENTS.csv', retry/'SELECTED_EXPOSURES.csv'] + list((retry/'inputs').glob('*'))
+        write_json(retry/'FOLLOWUP_FREEZE.json', dict(status='SYNTHETIC_SUCCESSOR_FREEZE', source_hashes={str(p.relative_to(root/BASE_REL)): sha(p) for p in retry_freeze}))
+        retried = subprocess.run([sys.executable, str(retry/'update_current.py'), '--apply'], capture_output=True, text=True)
+        assert retried.returncode == 0, retried.stderr
+        retry_result = json.loads(retried.stdout)
+        assert retry_result['pending_events'] == 0 and retry_result['selected_rows'] == 342
+        successor_master = rows(current/'CURRENT_SELECTED_EVENT_DISPOSITIONS.csv')
+        assert len(successor_master) == len({r['review_id'] for r in successor_master}) == 342
+        assert all(all(successor_master[i][k] == value for k, value in record.items()) for i, record in enumerate(partial_master))
+        tests.append('successor_can_select_only_pending_raw_retry_and_append_it_once_without_invariant_failure')
+        # Match the actual frozen HEAD omission as a two-record administrative fixture.
+        actual_selection = read(OUT/'SELECTION.json') if (OUT/'SELECTION.json').exists() else None
+        omitted_dps = {r['dp_id'] for r in actual_selection['omitted_pairs']} if actual_selection else set()
+        omitted_ids = [r['review_id'] for r in selection if r['dp_id'] in omitted_dps]
+        if omitted_ids:
+            reset_current(); set_decisions({key: 'N' for key in omitted_ids}); omitted = run('--apply')
+            assert omitted['selected_rows'] == 248 + 94 - len(omitted_ids)
+            assert omitted['pending_events'] == len(omitted_ids) and omitted['pending_exposures'] == len(omitted_dps)
+            omitted_state = verify_source_hashes()
+            assert [r['candidate_id'] for r in omitted_state['pending_raw_queue']['events']] == omitted_ids
+            omitted_master = rows(current/'CURRENT_SELECTED_EVENT_DISPOSITIONS.csv')
+            omitted_new = rows(current/'CURRENT_V2_ALL336_DISPOSITIONS.csv')
+            assert {r['review_id'] for r in omitted_master if r['detector'] == 'V2'} == {r['candidate_id'] for r in omitted_new if r['current_code'] != 'N'}
+            scenarios['frozen_HEAD_omission'] = dict(omitted_ids=omitted_ids, selected_rows=omitted['selected_rows'], pending_events=omitted['pending_events'], pending_exposures=omitted['pending_exposures'])
+            tests.append('frozen_HEAD_omission_produces_correct_reviewed_master_and_exact_pending_records')
+
         # A mapping limitation changes M bookkeeping but never becomes unresolved U.
         reset_current(); set_decisions({selected_ids[0]: 'M'}); mapped = run('--apply')
         assert mapped['new_counts']['M'] == 20 and mapped['new_counts']['U'] == 154 and mapped['pending_events'] == 0
@@ -189,6 +249,10 @@ def main():
         synthetic_completed_counts=scenarios['all_94_synthetic_U']['new_counts'],
         synthetic_completed_pending_events=0, synthetic_unavailable_pending_events=1,
         live_scientific_files_modified=False,
+        administrative_change='Post-preregistration bookkeeping correction: unavailable N records remain in all selected batch dispositions and current336 evidence but are excluded from the cumulative raw-reviewed selected master. This preserves the successor invariant and prevents a later retry from failing or duplicating IDs. No frozen selection, acquisition, extraction, mapping rule or original scientific disposition is changed.',
+        frozen_scientific_sources_unchanged=actual_freeze is not None,
+        followup_freeze_sha256=sha(OUT/'FOLLOWUP_FREEZE.json') if actual_freeze else None,
+        frozen_omission_fixture=scenarios.get('frozen_HEAD_omission'),
         limits='Only continuity contracts exercised on copied predecessor metadata and deliberately synthetic decisions. This does not validate scientific classifications, mapping calculations, Library persistence or publication and does not replace actual final continuity audit.')
     write_json(OUT/'CONTINUITY_HELPER_VALIDATION.json', result); print(json.dumps(result, indent=2))
 

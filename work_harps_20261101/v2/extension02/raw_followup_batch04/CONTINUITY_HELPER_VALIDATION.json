@@ -18,14 +18,17 @@
     "missing_adopted_figure_rejected",
     "changed_root_adopted_evidence_rejected",
     "unavailable_pair_remains_N_with_exact_resume_queue_and_no_fake_completion",
+    "unavailable_records_keep_batch_evidence_but_are_excluded_from_cumulative_raw_review_master",
+    "successor_can_select_only_pending_raw_retry_and_append_it_once_without_invariant_failure",
+    "frozen_HEAD_omission_produces_correct_reviewed_master_and_exact_pending_records",
     "new_mapping_limitation_enters_mapping_queue_and_keeps_raw_queue_empty",
     "new_saved_checkpoint_appends_without_replacing_16_earlier_archives",
     "duplicate_saved_archive_identity_rejected",
     "all_live_science_status_and_document_hashes_unchanged_by_fixtures"
   ],
-  "tests_passed": 21,
-  "script_sha256": "09765d6ebda7a6faf96ad26e247af2cd098fdfbd8a8f4aa13f40901f4958bd27",
-  "validation_script_sha256": "f65d0fd2e679ef25b9f99d108645373756c8902aad7c6c8815654510e1e94739",
+  "tests_passed": 24,
+  "script_sha256": "fb76585d4eb5b15ebfbde92bb32af399132f9f7af4261b804b1681d46867c2ad",
+  "validation_script_sha256": "167e684141b813a470217a137e50c358fc0442f046dd47bf51f2913ebbf3aec6",
   "synthetic_selected_events": 94,
   "synthetic_selected_exposures": 37,
   "synthetic_completed_counts": {
@@ -38,5 +41,17 @@
   "synthetic_completed_pending_events": 0,
   "synthetic_unavailable_pending_events": 1,
   "live_scientific_files_modified": false,
+  "administrative_change": "Post-preregistration bookkeeping correction: unavailable N records remain in all selected batch dispositions and current336 evidence but are excluded from the cumulative raw-reviewed selected master. This preserves the successor invariant and prevents a later retry from failing or duplicating IDs. No frozen selection, acquisition, extraction, mapping rule or original scientific disposition is changed.",
+  "frozen_scientific_sources_unchanged": true,
+  "followup_freeze_sha256": "975fea9f72e4a3d384fc4cbb4c3dfd9b838db8c9ee387f36a7aeb37b4bc3aaed",
+  "frozen_omission_fixture": {
+    "omitted_ids": [
+      "V2E2-0332",
+      "V2E2-0333"
+    ],
+    "selected_rows": 340,
+    "pending_events": 2,
+    "pending_exposures": 1
+  },
   "limits": "Only continuity contracts exercised on copied predecessor metadata and deliberately synthetic decisions. This does not validate scientific classifications, mapping calculations, Library persistence or publication and does not replace actual final continuity audit."
 }

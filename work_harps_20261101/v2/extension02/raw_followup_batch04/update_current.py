@@ -161,8 +161,12 @@ def main():
         require(all(old[k] == current[k] for k in old if k not in mutable), 'Historical field changed')
         if old['candidate_id'] not in decision_by:
             require(all(old[k] == current[k] for k in old), 'Unselected predecessor row changed')
+    # This cumulative master contains completed raw reviews, not attempted N records.
+    # Unavailable cases remain fully documented in the batch decisions and new336
+    # table, and can therefore be selected in a later retry without duplicate IDs.
+    reviewed_ids = [key for key in selected_ids if decision_by[key]['code'] != 'N']
     all_selected = copy.deepcopy(prior_selected)
-    for key in selected_ids:
+    for key in reviewed_ids:
         d = decision_by[key]; source = source_selected[key]
         all_selected.append(dict(review_id=key, detector='V2', dp_id=d['dp_id'], target=source['target'],
             note=d['evidence'], figure=batch_figure(d.get('figure', '')), figure_row=d.get('figure_row', ''),
@@ -177,8 +181,11 @@ def main():
             current_code=d['code'], current_disposition=CODES[d['code']], wider_followup_applied='False',
             current_evidence=d['evidence'], current_evidence_table=evidence_table,
             current_raw_batch='extension02/' + BATCH_NAME))
-    require(len(all_selected) == len({r['review_id'] for r in all_selected}) == len(prior_selected) + expected_events,
-            'Selected master duplicates or omissions')
+    require(len(all_selected) == len({r['review_id'] for r in all_selected}) == len(prior_selected) + len(reviewed_ids),
+            'Raw-reviewed selected master duplicates or omissions')
+    require({r['review_id'] for r in all_selected if r['detector'] == 'V2'} ==
+            {r['candidate_id'] for r in new if r['current_code'] != 'N'},
+            'Successor selected-master invariant failed')
     master = copy.deepcopy(prior_master)
     new_by = {r['candidate_id']: r for r in new}
     old_master = [r for r in prior_master if r['cohort'] == 'V2_first100']
@@ -207,11 +214,12 @@ def main():
     put(V2 / 'CURRENT_V2_DISPOSITIONS.csv', csvtext(master))
     current_summary = copy.deepcopy(prior_summary)
     current_summary.update(created_utc=timestamp, status='ROOT_ADOPTED_BATCH04_OVERLAY',
-        basis=f'All {len(prior_selected)} predecessor selected decisions preserved; {expected_events} new decisions adopted after independent numerical audit and visual review. All origins remain provisional.',
+        basis=f'All {len(prior_selected)} predecessor raw-reviewed selected decisions preserved; {len(reviewed_ids)} new raw reviews adopted after independent numerical audit and visual review. The batch accounts for all {expected_events} selected records, including {adopted_counts["N"]} unavailable records retained as N in the current336 table and pending queue. All origins remain provisional.',
         current_new_V2_counts=counts, current_all_V2_counts=total_counts,
         V2_raw_reviewed=combined_size-counts['N'], V2_raw_unreviewed=counts['N'],
         latest_raw_batch=dict(directory='extension02/' + BATCH_NAME, selected_events=expected_events,
-            selected_exposures=expected_exposures, adopted_counts=adopted_counts,
+            selected_exposures=expected_exposures, raw_reviewed_events=len(reviewed_ids),
+            unavailable_events=adopted_counts['N'], adopted_counts=adopted_counts,
             summary_sha256=sha(OUT / 'SUMMARY.json'), adopted_dispositions_sha256=sha(OUT / 'ADOPTED_DISPOSITIONS.csv')),
         all_original_and_baseline_files_unchanged=True)
     current_summary['source_hashes'].update({str(p.relative_to(V2)): sha(p) for p in
@@ -341,7 +349,7 @@ The survey remains **{n_main} unique exposures of {n_targets} targets, {hours:.9
 
 The [epoch comparison](work_harps_20261101/v2/extension02/epoch_followup/README.md) is complete for all {cohort_size} new V2 records against same-target observations among the new 100 spectra: 2,185 event/exposure pairs and 4,370 profiles, with discovery observations excluded from other-epoch summaries. Earlier 200 exposures were excluded. Its audit passed; do not repeat it merely to resume.
 
-[This raw batch]({BATCH_PATH}/README.md) selected {expected_events} pending records in {expected_exposures} exposures. Adopted outcomes: **{adopted_text}**. All {len(prior_selected)} predecessor selected V1/V2 decisions remain unchanged. The current new cohort is:
+[This raw batch]({BATCH_PATH}/README.md) selected {expected_events} pending records in {expected_exposures} exposures. Adopted outcomes: **{adopted_text}**. All {len(prior_selected)} predecessor raw-reviewed selected V1/V2 decisions remain unchanged. This batch adds {len(reviewed_ids)} completed raw reviews to the cumulative selected master; its {adopted_counts['N']} unavailable records remain explicit N cases in the current336 table and pending queue. The current new cohort is:
 
 | New V2 status | Count |
 |---|---:|
@@ -384,7 +392,7 @@ Uafklarede nye poster: {unresolved}.
 Nye begrænsninger i billedkobling: {limited}.
 Den ældre kohorte er uændret: {older_text}. Alle {combined_size} poster samlet: {combined_text}.
 
-[Alle aktuelle nye poster](CURRENT_V2_ALL336_DISPOSITIONS.csv) · [alle {len(all_selected)} udvalgte V1/V2-poster](CURRENT_SELECTED_EVENT_DISPOSITIONS.csv) · [opsummering](CURRENT_SUMMARY.json) · [statuskombinationskode](../{BATCH_NAME}/update_current.py) · [præcise arbejds-køer](../{BATCH_NAME}/CONTINUATION_STATE.json) · [historisk baseline](RESULTS.md) · [tidligere bredere billedkobling](mapping_followup/README.md).
+[Alle aktuelle nye poster](CURRENT_V2_ALL336_DISPOSITIONS.csv) · [alle {len(all_selected)} rågennemgåede udvalgte V1/V2-poster](CURRENT_SELECTED_EVENT_DISPOSITIONS.csv) · [opsummering](CURRENT_SUMMARY.json) · [statuskombinationskode](../{BATCH_NAME}/update_current.py) · [præcise arbejds-køer](../{BATCH_NAME}/CONTINUATION_STATE.json) · [historisk baseline](RESULTS.md) · [tidligere bredere billedkobling](mapping_followup/README.md).
 
 Baseline-kolonner angiver historiske trin; `current_code` og `current_evidence_table` angiver gældende opfølgning. Historiske billedkoblingsregler er heterogene. Der foreligger ingen global følsomheds- eller falsk-alarm-kalibrering og intet kvalificeret nulresultat for lasere.
 ''')
