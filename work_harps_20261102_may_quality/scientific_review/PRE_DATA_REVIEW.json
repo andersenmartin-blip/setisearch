@@ -1,0 +1,378 @@
+{
+  "status": "PRE_DATA_SCIENTIFIC_REVIEW_FIXED_POSTHOC_QUALITY_FOLLOWUP",
+  "created_utc": "2026-11-02T11:33:22.726449+00:00",
+  "scope": "One metadata-ranked unused May2017 HD122640 archival epoch, candidate ADP.2017-05-21T01:01:50.278/raw HARPS.2017-05-20T02:21:45.847. Six existing HD122640 records in both fixed frames give12profiles; all10queue records remain accounted. No new event search, label change or origin assignment.",
+  "descriptive_berv_gate": {
+    "absolute_separation_from_each_same_target_discovery": true,
+    "discovery_records": [
+      {
+        "candidate_id": "V2E2-0229",
+        "discovery_dp_id": "ADP.2023-02-21T01:01:25.308",
+        "discovery_berv_km_s": 27.2411836963856
+      },
+      {
+        "candidate_id": "V2E2-0231",
+        "discovery_dp_id": "ADP.2023-02-21T01:01:25.308",
+        "discovery_berv_km_s": 27.2411836963856
+      },
+      {
+        "candidate_id": "V2E2-0234",
+        "discovery_dp_id": "ADP.2023-02-23T01:01:36.791",
+        "discovery_berv_km_s": 26.7848884193233
+      },
+      {
+        "candidate_id": "V2E2-0235",
+        "discovery_dp_id": "ADP.2023-02-23T01:01:36.791",
+        "discovery_berv_km_s": 26.7848884193233
+      },
+      {
+        "candidate_id": "V2E2-0236",
+        "discovery_dp_id": "ADP.2023-02-25T01:01:19.535",
+        "discovery_berv_km_s": 26.3486734120334
+      },
+      {
+        "candidate_id": "V2E2-0237",
+        "discovery_dp_id": "ADP.2023-02-25T01:01:19.535",
+        "discovery_berv_km_s": 26.3486734120334
+      }
+    ],
+    "threshold_km_s": 26.06890939130435,
+    "resolving_power_reference": 115000.0,
+    "comparison": ">=",
+    "meaning": "At least ten nominal resolving elements of Earth-velocity displacement from every HD122640 discovery reference. This is a planning scale, not power, sensitivity or physical-line width."
+  },
+  "priority_reading_order": [
+    "Verify actual local blue-window continuum/noise and usable normalization before interpreting changed correlations. Average archive metadata SNR77.8 does not guarantee blue-window quality; do not infer improvement before the fixed windows are measured.",
+    "For each fixed event and frame, compare the new quality diagnostics with both prior epochs. Report whether the same inherited low-continuum rule still fires, plus actual normalization/noise values; do not substitute a new empirical quality threshold.",
+    "Read barycentric and topocentric correlations together with fixed-template amplitudes and full-window residual morphology. Do not choose a preferred center, width, normalization or subwindow after inspecting the new profile.",
+    "Keep the five blue records separate from the red V2E2-0235 record. The blue records cover three wavelength groups (3866.96,3868.925~3868.9275,3881.205 Angstrom), including repeated/near-duplicate features in several discoveries; they are correlated evidence.",
+    "Read V2E2-0235 at5548.09Angstrom as its own comparison. Its prior May and January local continua were not low, while correlations were weak in both frames. A new result must not inherit the blue-order low-quality explanation by association.",
+    "State the new epoch is a deliberately selected posthoc quality follow-up after the first fixed comparison. Preserve the original completed result; do not recast the added epoch as an originally preregistered validation sample.",
+    "Preserve all10Urecords: the six HD122640 comparisons add descriptive context; the four HD135204 records still have no new epoch. Nominally matching HARPS_3.8 versions do not rule out year-dependent calibration, extraction, instrumental or stellar-velocity differences."
+  ],
+  "prospective_interpretation_limits": [
+    {
+      "outcome": "Blue local quality remains poor",
+      "allowed_reading": "The intended quality improvement was not established; weak correlation remains limited by local data quality. Retain U and do not keep trying replacements until agreement appears."
+    },
+    {
+      "outcome": "Blue local quality improves and barycentric morphology persists across the large BERV separation",
+      "allowed_reading": "The selected structure is more stable in barycentric coordinates over the sampled archival epochs. This is not a unique emitter/stellar-rest-frame identity, physical line identification, calibrated significance or extraterrestrial evidence."
+    },
+    {
+      "outcome": "Blue local quality improves but neither fixed frame reproduces the discovery morphology",
+      "allowed_reading": "Describe nonreproduction in this fixed epoch and its local noise/metric context. Variability, blends, processing changes and instrumental effects remain possible; no physical-origin label follows."
+    },
+    {
+      "outcome": "Topocentric morphology appears more coherent",
+      "allowed_reading": "Describe the relative fixed-frame association only. Topocentric correlation alone does not prove terrestrial origin."
+    },
+    {
+      "outcome": "V2E2-0235 again fails to reproduce despite adequate local continuum",
+      "allowed_reading": "Record repeated absence of a close profile match under the fixed method, independently of the blue-window issue. No new detection threshold, physical flux limit or origin attribution is available."
+    }
+  ],
+  "prior_saved_measurements": [
+    {
+      "candidate_id": "V2E2-0229",
+      "dp_id": "ADP.2017-05-23T01:01:52.459",
+      "frame": "barycentric",
+      "center_in_frame_air_angstrom": 3868.9275,
+      "local_continuum_low": true,
+      "normalization_adu": 7.921294927597046,
+      "first_difference_noise_proxy_adu": 11.53964103551184,
+      "finite_positive_ERR_samples": 0,
+      "correlation_to_discovery": 0.1261470166256329,
+      "narrow_amplitude": 0.07825878527973461
+    },
+    {
+      "candidate_id": "V2E2-0229",
+      "dp_id": "ADP.2017-05-23T01:01:52.459",
+      "frame": "topocentric",
+      "center_in_frame_air_angstrom": 3868.575974849977,
+      "local_continuum_low": true,
+      "normalization_adu": 7.921294927597046,
+      "first_difference_noise_proxy_adu": 11.636365410085212,
+      "finite_positive_ERR_samples": 0,
+      "correlation_to_discovery": -0.084118427656076,
+      "narrow_amplitude": -0.7799681807429215
+    },
+    {
+      "candidate_id": "V2E2-0231",
+      "dp_id": "ADP.2017-05-23T01:01:52.459",
+      "frame": "barycentric",
+      "center_in_frame_air_angstrom": 3881.2050000000004,
+      "local_continuum_low": true,
+      "normalization_adu": 9.94497537612915,
+      "first_difference_noise_proxy_adu": 13.65708272328855,
+      "finite_positive_ERR_samples": 0,
+      "correlation_to_discovery": 0.10703381601502607,
+      "narrow_amplitude": 0.6512009618147774
+    },
+    {
+      "candidate_id": "V2E2-0231",
+      "dp_id": "ADP.2017-05-23T01:01:52.459",
+      "frame": "topocentric",
+      "center_in_frame_air_angstrom": 3880.8523593341065,
+      "local_continuum_low": true,
+      "normalization_adu": 9.537561416625977,
+      "first_difference_noise_proxy_adu": 13.513331538101111,
+      "finite_positive_ERR_samples": 0,
+      "correlation_to_discovery": -0.2661559832740914,
+      "narrow_amplitude": -0.489119902423907
+    },
+    {
+      "candidate_id": "V2E2-0234",
+      "dp_id": "ADP.2017-05-23T01:01:52.459",
+      "frame": "barycentric",
+      "center_in_frame_air_angstrom": 3868.925,
+      "local_continuum_low": true,
+      "normalization_adu": 7.921294927597046,
+      "first_difference_noise_proxy_adu": 11.53964103551184,
+      "finite_positive_ERR_samples": 0,
+      "correlation_to_discovery": 0.14362787798428694,
+      "narrow_amplitude": 0.23233722728775164
+    },
+    {
+      "candidate_id": "V2E2-0234",
+      "dp_id": "ADP.2017-05-23T01:01:52.459",
+      "frame": "topocentric",
+      "center_in_frame_air_angstrom": 3868.579362663886,
+      "local_continuum_low": true,
+      "normalization_adu": 7.921294927597046,
+      "first_difference_noise_proxy_adu": 11.636365410085212,
+      "finite_positive_ERR_samples": 0,
+      "correlation_to_discovery": -0.18447755480724629,
+      "narrow_amplitude": -0.5689701035537141
+    },
+    {
+      "candidate_id": "V2E2-0235",
+      "dp_id": "ADP.2017-05-23T01:01:52.459",
+      "frame": "barycentric",
+      "center_in_frame_air_angstrom": 5548.09,
+      "local_continuum_low": false,
+      "normalization_adu": 447.7292785644531,
+      "first_difference_noise_proxy_adu": 14.451278448734305,
+      "finite_positive_ERR_samples": 0,
+      "correlation_to_discovery": -0.04016103039302942,
+      "narrow_amplitude": 0.019602725294263792
+    },
+    {
+      "candidate_id": "V2E2-0235",
+      "dp_id": "ADP.2017-05-23T01:01:52.459",
+      "frame": "topocentric",
+      "center_in_frame_air_angstrom": 5547.594351454701,
+      "local_continuum_low": false,
+      "normalization_adu": 441.3867645263672,
+      "first_difference_noise_proxy_adu": 14.94030406526157,
+      "finite_positive_ERR_samples": 0,
+      "correlation_to_discovery": -0.11822082107332027,
+      "narrow_amplitude": -0.01792586664826693
+    },
+    {
+      "candidate_id": "V2E2-0236",
+      "dp_id": "ADP.2017-05-23T01:01:52.459",
+      "frame": "barycentric",
+      "center_in_frame_air_angstrom": 3866.96,
+      "local_continuum_low": true,
+      "normalization_adu": 7.875868320465088,
+      "first_difference_noise_proxy_adu": 11.885655093251863,
+      "finite_positive_ERR_samples": 0,
+      "correlation_to_discovery": 0.20916164107510563,
+      "narrow_amplitude": 0.010503256343327399
+    },
+    {
+      "candidate_id": "V2E2-0236",
+      "dp_id": "ADP.2017-05-23T01:01:52.459",
+      "frame": "topocentric",
+      "center_in_frame_air_angstrom": 3866.620163859406,
+      "local_continuum_low": true,
+      "normalization_adu": 7.921026706695557,
+      "first_difference_noise_proxy_adu": 12.096081787858811,
+      "finite_positive_ERR_samples": 0,
+      "correlation_to_discovery": 0.08638129112440604,
+      "narrow_amplitude": 0.3789285113346961
+    },
+    {
+      "candidate_id": "V2E2-0237",
+      "dp_id": "ADP.2017-05-23T01:01:52.459",
+      "frame": "barycentric",
+      "center_in_frame_air_angstrom": 3868.925,
+      "local_continuum_low": true,
+      "normalization_adu": 7.921294927597046,
+      "first_difference_noise_proxy_adu": 11.53964103551184,
+      "finite_positive_ERR_samples": 0,
+      "correlation_to_discovery": 0.20425311034447105,
+      "narrow_amplitude": 0.23233722728775164
+    },
+    {
+      "candidate_id": "V2E2-0237",
+      "dp_id": "ADP.2017-05-23T01:01:52.459",
+      "frame": "topocentric",
+      "center_in_frame_air_angstrom": 3868.5849911712958,
+      "local_continuum_low": true,
+      "normalization_adu": 7.921294927597046,
+      "first_difference_noise_proxy_adu": 11.612276515888789,
+      "finite_positive_ERR_samples": 0,
+      "correlation_to_discovery": -0.13440146895894461,
+      "narrow_amplitude": -0.21486370700877466
+    },
+    {
+      "candidate_id": "V2E2-0229",
+      "dp_id": "ADP.2018-01-21T01:01:37.761",
+      "frame": "barycentric",
+      "center_in_frame_air_angstrom": 3868.9275,
+      "local_continuum_low": false,
+      "normalization_adu": 108.71381759643555,
+      "first_difference_noise_proxy_adu": 18.676177914540908,
+      "finite_positive_ERR_samples": 0,
+      "correlation_to_discovery": 0.9742630271689526,
+      "narrow_amplitude": 3.2203540788083425
+    },
+    {
+      "candidate_id": "V2E2-0229",
+      "dp_id": "ADP.2018-01-21T01:01:37.761",
+      "frame": "topocentric",
+      "center_in_frame_air_angstrom": 3868.575974849977,
+      "local_continuum_low": false,
+      "normalization_adu": 108.71381759643555,
+      "first_difference_noise_proxy_adu": 18.62056955682831,
+      "finite_positive_ERR_samples": 0,
+      "correlation_to_discovery": 0.7186746009861762,
+      "narrow_amplitude": 1.8488357250647243
+    },
+    {
+      "candidate_id": "V2E2-0231",
+      "dp_id": "ADP.2018-01-21T01:01:37.761",
+      "frame": "barycentric",
+      "center_in_frame_air_angstrom": 3881.2050000000004,
+      "local_continuum_low": false,
+      "normalization_adu": 118.88412857055664,
+      "first_difference_noise_proxy_adu": 23.208924928711422,
+      "finite_positive_ERR_samples": 0,
+      "correlation_to_discovery": 0.9724163910619094,
+      "narrow_amplitude": 3.2651801823509103
+    },
+    {
+      "candidate_id": "V2E2-0231",
+      "dp_id": "ADP.2018-01-21T01:01:37.761",
+      "frame": "topocentric",
+      "center_in_frame_air_angstrom": 3880.8523593341065,
+      "local_continuum_low": false,
+      "normalization_adu": 118.88412857055664,
+      "first_difference_noise_proxy_adu": 23.254583369560375,
+      "finite_positive_ERR_samples": 0,
+      "correlation_to_discovery": 0.7228263803259348,
+      "narrow_amplitude": 2.688850100057521
+    },
+    {
+      "candidate_id": "V2E2-0234",
+      "dp_id": "ADP.2018-01-21T01:01:37.761",
+      "frame": "barycentric",
+      "center_in_frame_air_angstrom": 3868.925,
+      "local_continuum_low": false,
+      "normalization_adu": 108.71381759643555,
+      "first_difference_noise_proxy_adu": 18.676177914540908,
+      "finite_positive_ERR_samples": 0,
+      "correlation_to_discovery": 0.9676318147702044,
+      "narrow_amplitude": 3.2246784290543866
+    },
+    {
+      "candidate_id": "V2E2-0234",
+      "dp_id": "ADP.2018-01-21T01:01:37.761",
+      "frame": "topocentric",
+      "center_in_frame_air_angstrom": 3868.579362663886,
+      "local_continuum_low": false,
+      "normalization_adu": 108.71381759643555,
+      "first_difference_noise_proxy_adu": 18.62056955682831,
+      "finite_positive_ERR_samples": 0,
+      "correlation_to_discovery": 0.6036872619240808,
+      "narrow_amplitude": 1.5879425318527556
+    },
+    {
+      "candidate_id": "V2E2-0235",
+      "dp_id": "ADP.2018-01-21T01:01:37.761",
+      "frame": "barycentric",
+      "center_in_frame_air_angstrom": 5548.09,
+      "local_continuum_low": false,
+      "normalization_adu": 7094.26806640625,
+      "first_difference_noise_proxy_adu": 63.970223054177595,
+      "finite_positive_ERR_samples": 0,
+      "correlation_to_discovery": 0.15669046328123715,
+      "narrow_amplitude": 0.002025296938268572
+    },
+    {
+      "candidate_id": "V2E2-0235",
+      "dp_id": "ADP.2018-01-21T01:01:37.761",
+      "frame": "topocentric",
+      "center_in_frame_air_angstrom": 5547.594351454701,
+      "local_continuum_low": false,
+      "normalization_adu": 7095.510009765625,
+      "first_difference_noise_proxy_adu": 63.40688499586568,
+      "finite_positive_ERR_samples": 0,
+      "correlation_to_discovery": 0.021969818892911153,
+      "narrow_amplitude": -0.010590229083698124
+    },
+    {
+      "candidate_id": "V2E2-0236",
+      "dp_id": "ADP.2018-01-21T01:01:37.761",
+      "frame": "barycentric",
+      "center_in_frame_air_angstrom": 3866.96,
+      "local_continuum_low": false,
+      "normalization_adu": 138.08172607421875,
+      "first_difference_noise_proxy_adu": 21.058455155766865,
+      "finite_positive_ERR_samples": 0,
+      "correlation_to_discovery": 0.964680691260551,
+      "narrow_amplitude": 3.0575248082224356
+    },
+    {
+      "candidate_id": "V2E2-0236",
+      "dp_id": "ADP.2018-01-21T01:01:37.761",
+      "frame": "topocentric",
+      "center_in_frame_air_angstrom": 3866.620163859406,
+      "local_continuum_low": false,
+      "normalization_adu": 138.6619415283203,
+      "first_difference_noise_proxy_adu": 21.310746335533626,
+      "finite_positive_ERR_samples": 0,
+      "correlation_to_discovery": 0.6291700104775294,
+      "narrow_amplitude": 1.4902200405676602
+    },
+    {
+      "candidate_id": "V2E2-0237",
+      "dp_id": "ADP.2018-01-21T01:01:37.761",
+      "frame": "barycentric",
+      "center_in_frame_air_angstrom": 3868.925,
+      "local_continuum_low": false,
+      "normalization_adu": 108.71381759643555,
+      "first_difference_noise_proxy_adu": 18.676177914540908,
+      "finite_positive_ERR_samples": 0,
+      "correlation_to_discovery": 0.9608552432996504,
+      "narrow_amplitude": 3.2246784290543866
+    },
+    {
+      "candidate_id": "V2E2-0237",
+      "dp_id": "ADP.2018-01-21T01:01:37.761",
+      "frame": "topocentric",
+      "center_in_frame_air_angstrom": 3868.5849911712958,
+      "local_continuum_low": false,
+      "normalization_adu": 108.71381759643555,
+      "first_difference_noise_proxy_adu": 18.604756867407556,
+      "finite_positive_ERR_samples": 0,
+      "correlation_to_discovery": 0.5045808247001295,
+      "narrow_amplitude": 1.1513684847071148
+    }
+  ],
+  "uncertainty_limits": "Original and previous comparison profiles have no finite positive ERR samples. Fits/correlations are descriptive and unweighted; first-difference noise proxies are not calibrated detection uncertainties. Positive scalar normalization cannot by itself alter Pearson correlation, while additive background, local low signal and profile shape can matter.",
+  "source_hashes": {
+    "work_harps_20261102_may_quality/acquisition/CANDIDATE.json": "5d28c8d6bfb372fafb176e7bf290baf7467f3d7e5d8ba73ba882790fa759363e",
+    "work_harps_20261102_berv_followup/prospective_comparison/EVENTS.json": "79a0b4d78ff8b0b24b1b46bf138194c4e29904537037ba1529bd528b548ee6ab",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/ALL_COMPARISON_MEASUREMENTS.json": "1fb6713010132f9147f594e940917f512f2ba025724fbccebbeb9d5de8756a3e",
+    "work_harps_20261102_berv_followup/next_followup/INDEPENDENT_CHECK.json": "c4af232eb343ff2a4ef11b59e20264baf577fe48535bf747bd33f63be121acf7"
+  },
+  "new_epoch_header_or_flux_read_by_reviewer": false,
+  "new_network_requests": 0,
+  "science_arrays_read": 0,
+  "thresholds_changed": false,
+  "labels_changed": false,
+  "no_acquisition_authorization": true
+}

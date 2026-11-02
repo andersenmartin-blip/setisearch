@@ -1,0 +1,147 @@
+{
+  "schema": "HARPS_MAY_QUALITY_ACQUISITION_PLAN_V1",
+  "status": "PROSPECTIVE_POSTHOC_QUALITY_PHASE_NOT_EXECUTED",
+  "candidate_path": "work_harps_20261102_may_quality/acquisition/CANDIDATE.json",
+  "candidate_sha256": "5d28c8d6bfb372fafb176e7bf290baf7467f3d7e5d8ba73ba882790fa759363e",
+  "selection_rule": "Highest finite positive saved ObsCore average SNR among nine unused HD122640 observations in May 2017; ties lexicographically smallest dp_id. This quality phase was motivated posthoc by low continuum in the completed May reference; no unseen line flux enters selection.",
+  "job": {
+    "job_index": 0,
+    "target": "HD122640",
+    "month_number": 5,
+    "dp_id": "ADP.2017-05-21T01:01:50.278",
+    "source_file_ids": [
+      "HARPS.2017-05-20T02:21:45.847"
+    ],
+    "metadata": {
+      "dp_id": "ADP.2017-05-21T01:01:50.278",
+      "obs_publisher_did": "ivo://eso.org/ID?ADP.2017-05-21T01:01:50.278",
+      "obs_id": "7",
+      "target_name": "HD 122640",
+      "s_ra": 210.903904,
+      "s_dec": -27.00858,
+      "instrument_name": "HARPS",
+      "obs_collection": "HARPS",
+      "dataproduct_type": "spectrum",
+      "t_min": 57893.0984473,
+      "t_max": 57893.11233617,
+      "t_exptime": 1199.998,
+      "em_min": 3.78171e-07,
+      "em_max": 6.91259e-07,
+      "em_res_power": 115000.0,
+      "snr": 77.8,
+      "proposal_id": "099.C-0798(A)",
+      "n_obs": 1,
+      "multi_ob": "S",
+      "obs_release_date": "2018-05-20T02:51:30.117Z",
+      "access_url": "https://archive.eso.org/datalink/links?ID=ivo://eso.org/ID?ADP.2017-05-21T01:01:50.278",
+      "access_estsize": 5264,
+      "archive_id": "ADP.2017-05-21T01:01:50.278",
+      "eso_category": "SCIENCE.SPECTRUM",
+      "source_file": "HARPS.2017-05-20T02:21:45.847"
+    }
+  },
+  "berv_gate": {
+    "c_km_s": 299792.458,
+    "resolving_power": 115000,
+    "minimum_resolution_elements": 10,
+    "minimum_absolute_delta_km_s": 26.06890939130435,
+    "comparison": ">=",
+    "requirement": "Absolute candidate BERV displacement from EACH of the six preserved discovery BERV values must meet the threshold. Repeated discovery exposures remain six explicit checks.",
+    "meaning": "Descriptive large-shift planning benchmark, not classification, sensitivity or power; no need to extend the known 40.3634787209574 km/s range.",
+    "discovery_events": [
+      {
+        "candidate_id": "V2E2-0229",
+        "discovery_dp_id": "ADP.2023-02-21T01:01:25.308",
+        "discovery_berv_km_s": 27.2411836963856
+      },
+      {
+        "candidate_id": "V2E2-0231",
+        "discovery_dp_id": "ADP.2023-02-21T01:01:25.308",
+        "discovery_berv_km_s": 27.2411836963856
+      },
+      {
+        "candidate_id": "V2E2-0234",
+        "discovery_dp_id": "ADP.2023-02-23T01:01:36.791",
+        "discovery_berv_km_s": 26.7848884193233
+      },
+      {
+        "candidate_id": "V2E2-0235",
+        "discovery_dp_id": "ADP.2023-02-23T01:01:36.791",
+        "discovery_berv_km_s": 26.7848884193233
+      },
+      {
+        "candidate_id": "V2E2-0236",
+        "discovery_dp_id": "ADP.2023-02-25T01:01:19.535",
+        "discovery_berv_km_s": 26.3486734120334
+      },
+      {
+        "candidate_id": "V2E2-0237",
+        "discovery_dp_id": "ADP.2023-02-25T01:01:19.535",
+        "discovery_berv_km_s": 26.3486734120334
+      }
+    ]
+  },
+  "header": {
+    "url": "https://archive.eso.org/hdr?DpId=ADP.2017-05-21T01:01:50.278",
+    "timeout_seconds": 30,
+    "max_response_bytes": 524288,
+    "attempts": 1,
+    "retries": 0,
+    "redirects": 0
+  },
+  "payload": {
+    "url": "https://dataportal.eso.org/dataPortal/file/ADP.2017-05-21T01:01:50.278",
+    "metadata_access_url": "https://archive.eso.org/datalink/links?ID=ivo://eso.org/ID?ADP.2017-05-21T01:01:50.278",
+    "timeout_seconds": 60,
+    "max_response_bytes": 16777216,
+    "attempts": 1,
+    "retries": 0,
+    "redirects": 0,
+    "optional_only_after_separate_root_release": true
+  },
+  "limits": {
+    "maximum_header_requests": 1,
+    "maximum_payload_requests": 1,
+    "maximum_total_requests": 2,
+    "substitution": false,
+    "new_arrays_interpreted_by_acquisition": 0
+  },
+  "identity_checks": "Unchanged checked header_tools: exact ADP/raw provenance, HD122640, HARPS, date/MJD/exposure/coordinates within inherited tolerances, NCOMBINE 1, SPEC_RES 115000, BARYCENT. Require explicit HEFS false, finite coordinate range and DATE-OBS matching exact raw timestamp within 0.02 s. Preserve pipeline differences.",
+  "payload_representation": "Check complete exact primary provenance, NAXIS=0, recorded primary headers and one-row binary table WAVE/FLUX/ERR; same positive fixed numeric-real vector lengths, air-Angstrom WAVE, ADU FLUX, unique column names and HEFS false before any HDU.data access. No arrays accessed by acquisition.",
+  "release_contract": {
+    "freeze_path": "work_harps_20261102_may_quality/PREFLIGHT_FREEZE.json",
+    "header_release": "HEADER_RELEASE.json",
+    "payload_release": "PAYLOAD_RELEASE.json",
+    "requirement": "Root publishes all prospective acquisition/comparison methods before header. Exact stage release binds freeze, candidate, plan, code and successful exact-remote publication receipt. Optional payload release additionally binds verified header results, selection, header release and published original header/receipt evidence.",
+    "no_network_default": true
+  },
+  "source_hashes": {
+    "work_harps_20261102_berv_followup/next_followup/HANDOFF.json": "7710555a0c962f3467ccbe9f2982a7514a72a8425d26cfa3e0b488303e5bfd5d",
+    "work_harps_20261102_berv_followup/metadata_search_v2/CANDIDATES.json": "262af1322378295779d9ee8832619ea9ce7f8929ed367a921f53e2ab6972d0ff",
+    "work_harps_20261102_berv_followup/metadata_search_v2/SCHEMA_CONTRACT.json": "bf2b6f35125cb441bc9998ea1f67944db8a84aef131e3c9348faddf2e2029096",
+    "work_harps_20261102_berv_followup/science_acquisition/PLAN.json": "98842cd2aa09685fa9565a09dcdff3960ea972e9b220a1f701efb870c2da547a",
+    "work_harps_20261102_berv_followup/prospective_comparison/EVENTS.json": "79a0b4d78ff8b0b24b1b46bf138194c4e29904537037ba1529bd528b548ee6ab",
+    "work_harps_20261102_berv_followup/header_acquisition_v2/header_tools.py": "bdc1a93fb40e52c40916c078d703f12fe58f794068d66a8dad4a160359186039",
+    "work_harps_20261102_berv_followup/header_acquisition_v2/docs/URL_BUILDER_RECEIPT.json": "8b7d6c53159c3268dd381d75648cd80c5d1cc342184a526b31fed653674692b7",
+    "work_harps_20261102_berv_followup/header_acquisition_v2/docs/URL_BUILDER_RESPONSE.txt": "b2f8d1835e1842c3841e2890e3a7e865f7e63c288aed08aad3af8f745b38135c",
+    "work_harps_20261102_berv_followup/science_acquisition/DIRECT_FILE_CONTRACT.json": "2d531b3bf5c5395fb55f0e95bc927a64f7ecfa112b8beede73e160a117255c6c",
+    "work_harps_20261101/v2/CURRENT_V2_DISPOSITIONS.csv": "f2bbb73b08ae7dc60b9387495a05d1d6e98ece7571eff9a979ae0b1af139a279"
+  },
+  "code_hashes": {
+    "acquire.py": "03bbd50ae530770397e574e581fb102761bfe2f9c0f5e827640a491e1c5e1d3b",
+    "header_tools.py": "bdc1a93fb40e52c40916c078d703f12fe58f794068d66a8dad4a160359186039",
+    "prepare_plan.py": "33c9d79f152a95489285667bd47c3c467a68afe57b1067625faf278798a3909c"
+  },
+  "original_counts": {
+    "main_survey_exposures": 300,
+    "V2_records": 669,
+    "A": 403,
+    "O": 46,
+    "U": 185,
+    "M": 35,
+    "N": 0
+  },
+  "no_original_classification_changes": true,
+  "current24_profile_run_immutable": true,
+  "failure_rule": "Any header/identity/displacement/transfer/representation failure stops the one-candidate phase. Preserve failed bytes and status; no retry, next-best substitution or scope expansion."
+}
