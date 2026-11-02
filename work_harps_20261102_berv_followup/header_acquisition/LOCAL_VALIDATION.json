@@ -1,0 +1,128 @@
+{
+  "status": "PASS",
+  "created_utc": "2026-11-02T10:35:50.656607+00:00",
+  "network_requests": 0,
+  "spectral_arrays_read": false,
+  "local_primary_source": "work_harps_20261101/v2/extension02/data/main/ADP.2023-07-07T01_08_58.252.fits",
+  "saved_receipt_sha256": "f18d6512d9d5765497b8373fafad08390115359f54211b2a72ce89132c736be8",
+  "primary_blocks_read": 86,
+  "primary_fits_bytes_sha256": "e5d941979405a2c0f3b1996f21bc4af936d2cd665ee4ad9a9f7cf5e0503af96b",
+  "primary_card_text_bytes": 250533,
+  "primary_card_text_sha256": "645fc85ab80e1a63cff378b9e2cb24a41fa5b4cd5d9755441b7e2c569572889a",
+  "checks": [
+    {
+      "case": "existing_primary_plaintext_all_identity_checks",
+      "passed": true
+    },
+    {
+      "case": "existing_recorded_berv_matches_saved_receipt",
+      "passed": true
+    },
+    {
+      "case": "existing_harps_nirps_mode_retained",
+      "passed": true
+    },
+    {
+      "case": "html_pre_equivalent_to_saved_primary",
+      "passed": true
+    },
+    {
+      "case": "missing_end_rejected",
+      "passed": true
+    },
+    {
+      "case": "duplicate_berv_rejected",
+      "passed": true
+    },
+    {
+      "case": "binary_control_rejected",
+      "passed": true
+    },
+    {
+      "case": "wrong_adp_rejected",
+      "passed": true
+    },
+    {
+      "case": "coadd_rejected",
+      "passed": true
+    },
+    {
+      "case": "wrong_resolution_rejected",
+      "passed": true
+    },
+    {
+      "case": "eggs_state_rejected",
+      "passed": true
+    },
+    {
+      "case": "unknown_mode_stays_pending",
+      "passed": true
+    },
+    {
+      "case": "bervmx_not_substituted",
+      "passed": true
+    },
+    {
+      "case": "absurd_finite_berv_rejected",
+      "passed": true
+    },
+    {
+      "case": "mixed_additional_provenance_rejected",
+      "passed": true
+    },
+    {
+      "case": "embedded_expected_raw_in_mixed_provenance_rejected",
+      "passed": true
+    },
+    {
+      "case": "exptime_above_tolerance_rejected",
+      "passed": true
+    },
+    {
+      "case": "mjd_above_tolerance_rejected",
+      "passed": true
+    },
+    {
+      "case": "wrong_date_rejected",
+      "passed": true
+    },
+    {
+      "case": "wrong_raw_progenitor_rejected",
+      "passed": true
+    },
+    {
+      "case": "month_number_across_years_not_year_month",
+      "passed": true
+    },
+    {
+      "case": "month_tie_lexicographically_first_dp",
+      "passed": true
+    },
+    {
+      "case": "byte_cap_does_not_read_overflow_and_marks_incomplete",
+      "passed": true
+    }
+  ],
+  "case_count": 23,
+  "parser_evidence": {
+    "rendering": "FITS_CARD_PLAINTEXT",
+    "primary_cards": 3093,
+    "primary_only": true,
+    "compatibility_card_evidence": [
+      "PROCSOFT= 'HARPS_3.8'                                                           ",
+      "OBSTECH = 'ECHELLE '           / Observation technique                          ",
+      "SPEC_RES=             115000.0 / Reference spectral resolving power             ",
+      "HIERARCH ESO INS HEFS ST     =            F / High Eff. Fiber Shutter If T=EGGS ",
+      "HIERARCH ESO INS MODE        = 'HARPS+NIRPS' / Instrument mode used.            ",
+      "HIERARCH ESO DRS BERV = -20.4341462340943 / Barycentric Earth Radial Velocity   ",
+      "HIERARCH ESO DRS BERVMX = 31.985938322167 / Maximum BERV                        "
+    ]
+  },
+  "code_hashes": {
+    "header_tools.py": "bdc1a93fb40e52c40916c078d703f12fe58f794068d66a8dad4a160359186039",
+    "make_plan.py": "ffad1092ccc3e66cbc29273704c694b98267433af6f2264230ffc530ddbcb82e",
+    "fetch_headers.py": "e691dc8db758b33fe1618d2128a8d302455592eef3d8c345b6651e987572f830",
+    "select_extremes.py": "54326390c0cffc16176c36a2a31d78ae3039a9c1329827f9232a8b7e0904fa6d",
+    "validate_local.py": "d3735eb6e2e243ca9b4b3ef6da607adf6f6eda73f40c542b13c24cb1871fddda"
+  }
+}

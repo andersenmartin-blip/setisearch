@@ -1,0 +1,35 @@
+{
+  "created_utc": "2026-11-02T10:16:42.394989+00:00",
+  "sources": [
+    {
+      "url": "https://archive.eso.org/programmatic/",
+      "retrieved_date_utc": "2026-11-02",
+      "fact": "Learn dataset actions includes distinct header and download GET actions. Form action /cgi-bin/tap_proxy accepts ID, service=header, debug=debug for URL-only mode, server=ops. Demo includes both an ADP HARPS product and a HARPS raw example."
+    },
+    {
+      "url": "https://archive.eso.org/cgi-bin/tap_proxy?ID=ivo%3A%2F%2Feso.org%2FID%3FADP.2014-10-01T10%3A19%3A21.580&service=header&debug=debug&server=ops",
+      "retrieved_date_utc": "2026-11-02",
+      "fact": "URL-only validation with official demo ID returned HTTP 200, Content-Type text/plain; charset=UTF-8, 61 response bytes, naming https://archive.eso.org/hdr?DpId=ADP.2014-10-01T10:19:21.580 . No redirect followed and no actual product header requested."
+    },
+    {
+      "url": "https://archive.eso.org/wdb/help/adp/phase3_help.html",
+      "retrieved_date_utc": "2026-11-02",
+      "fact": "Phase 3 dataset ID corresponds to ARCFILE without extension. Its ADP timestamp is archival, not observation time. Product versions may be current, obsolete, or deprecated."
+    },
+    {
+      "url": "https://archive.eso.org/cms/eso-data/help/1dspectra.html",
+      "retrieved_date_utc": "2026-11-02",
+      "fact": "ESO 1D spectrum product has primary header plus one binary-table extension. Main selection metadata are in primary; spectral arrays are in extension data."
+    },
+    {
+      "url": "https://archive.eso.org/wdb/help/eso/eso_archive_specific_help.html",
+      "retrieved_date_utc": "2026-11-02",
+      "fact": "ESO describes a FITS header viewer available from archive query HDR links. This supports a header display route but does not guarantee its current MIME type or HDU subset."
+    },
+    {
+      "url": "https://www.eso.org/qi/catalog/show/416",
+      "retrieved_date_utc": "2026-11-02",
+      "fact": "Official HARPS Radial Velocities Catalog DR1 schema includes adp_dpid, raw_dpid, date_obs, mjd_obs, exptime and drs_berv in km/s. Advertised 289843 records/6488 objects, 2003-09-19 through 2023-05-30. Useful unqueried future metadata lead; no target catalogue requests were made."
+    }
+  ]
+}
