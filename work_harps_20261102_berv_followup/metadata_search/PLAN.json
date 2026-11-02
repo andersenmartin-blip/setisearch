@@ -1,0 +1,126 @@
+{
+  "schema": "HARPS_BERV_METADATA_PLAN_V1",
+  "status": "PROSPECTIVE_NOT_EXECUTED",
+  "predecessor_commit": "cfc0aa5146237ab82db183008ce8b162ad37c71a",
+  "scope": "Public same-target HARPS single-exposure metadata inventory only, in fixed target order HD122640 then HD135204.",
+  "requests": [
+    {
+      "target": "HD122640",
+      "query_file": "HD122640.adql",
+      "query_sha256": "081c4d42214d50ed9a288bf4aa588615f977fe9b2ec7979dd50f7457f1adff21",
+      "endpoint": "https://archive.eso.org/tap_obs/sync",
+      "method": "POST",
+      "form": {
+        "REQUEST": "doQuery",
+        "LANG": "ADQL",
+        "FORMAT": "votable",
+        "MAXREC": "1000"
+      },
+      "expected_columns": [
+        "dp_id",
+        "obs_publisher_did",
+        "obs_id",
+        "target_name",
+        "s_ra",
+        "s_dec",
+        "instrument_name",
+        "obs_collection",
+        "dataproduct_type",
+        "t_min",
+        "t_max",
+        "t_exptime",
+        "em_min",
+        "em_max",
+        "em_res_power",
+        "snr",
+        "proposal_id",
+        "n_obs",
+        "multi_ob",
+        "obs_release_date",
+        "access_url",
+        "access_estsize",
+        "archive_id",
+        "eso_category",
+        "source_file"
+      ]
+    },
+    {
+      "target": "HD135204",
+      "query_file": "HD135204.adql",
+      "query_sha256": "cd73721bc002e2af960f5d077f30cfa3edfd7f48d4f6bdaafbf34f268a83aa0e",
+      "endpoint": "https://archive.eso.org/tap_obs/sync",
+      "method": "POST",
+      "form": {
+        "REQUEST": "doQuery",
+        "LANG": "ADQL",
+        "FORMAT": "votable",
+        "MAXREC": "1000"
+      },
+      "expected_columns": [
+        "dp_id",
+        "obs_publisher_did",
+        "obs_id",
+        "target_name",
+        "s_ra",
+        "s_dec",
+        "instrument_name",
+        "obs_collection",
+        "dataproduct_type",
+        "t_min",
+        "t_max",
+        "t_exptime",
+        "em_min",
+        "em_max",
+        "em_res_power",
+        "snr",
+        "proposal_id",
+        "n_obs",
+        "multi_ob",
+        "obs_release_date",
+        "access_url",
+        "access_estsize",
+        "archive_id",
+        "eso_category",
+        "source_file"
+      ]
+    }
+  ],
+  "limits": {
+    "target_requests_max": 2,
+    "attempts_per_target": 1,
+    "wall_seconds_per_target": 30,
+    "response_bytes_per_target": 4194304,
+    "rows_per_target": 1000,
+    "redirects": 0,
+    "retries": 0,
+    "science_payload_bytes": 0
+  },
+  "observation_time_exclusion": {
+    "utc_half_open": [
+      "2023-02-19T00:00:00Z",
+      "2023-03-02T00:00:00Z"
+    ],
+    "mjd_half_open": [
+      59994,
+      60005
+    ],
+    "predicate": "t_max<=59994 OR t_min>=60005; entire exposure must be outside the excluded interval"
+  },
+  "public_release_cutoff_utc": "2026-11-02T00:00:00Z",
+  "identity": "Query exact stored HD names OR120arcsec cone; offline candidates require canonical exact name AND coordinate within120arcsec. All other returned rows remain inventoried with rejection reasons; this guard is not independent target verification.",
+  "deduplication": "All300 DP IDs excluded server-side and rechecked locally. All provenance rows remain joined, without filtering individual progenitors server-side. Offline reject whole DP group if any source_file matches any of300 known raw IDs; also reject absent/non-HARPS/ambiguous provenance. Repeated new raw IDs across products are one exposure, with lexicographically first DP kept only for metadata follow-up.",
+  "row_limit": "MAXREC1000 applies to joined metadata rows, not distinct products. No TOP is used. QUERY_STATUS OVERFLOW, any non-OK QUERY_STATUS or count>=1000 marks incomplete and stops the route; no pagination.",
+  "failure": "Any transport, HTTP, XML, overflow, cap or contract failure stops later target requests. An empty valid first result still permits the one frozen second target query. No automatic retries or alternate requests.",
+  "parse": "Preserve original response bytes. Reject XML DTD/entity declarations and external STREAM URLs. Astropy parses only embedded metadata VOTable values, no spectra. Require one table and exact expected columns.",
+  "eligibility": "Candidates are for separately frozen header identity/BERV checks only; no product is scientifically admitted here. No SNR/flux/morphology ranking, no classifier changes, no claims of BERV span from dates alone.",
+  "release_guard": "ROOT_RELEASE.json must identify the SHA256 of PREFLIGHT_FREEZE.json, a40hex prospective GitHub commit and remote_bytes_verified=true. Exclusive RUN_STARTED.json and per-target markers prevent repeats.",
+  "source_hashes": {
+    "work_harps_20261101/acquisition/DOWNLOAD_MANIFEST.json": "7931c0d0088ab490788efcbd45e893065346783deba30ded334839f211d3fa66",
+    "work_harps_20261101/v2/acquisition/DOWNLOAD_MANIFEST.json": "180d86f8c7699fb4ea4176fb65dd896a98ed753d602492e85f92521ad2daf356",
+    "work_harps_20261101/v2/extension02/acquisition/DOWNLOAD_MANIFEST.json": "40b3a53966e4dbdcba35e0e363bb79bc1eeb67a1ea58c8bb9d4a5bb865ae2423",
+    "work_harps_20261101/v2/extension02/next_followup_20261102/HANDOFF.json": "d1981e068e36d4229cd30adc2c2a05fd79dede8d01dd885d9a120d54b3768b10",
+    "work_harps_20261101/v2/CURRENT_V2_DISPOSITIONS.csv": "f2bbb73b08ae7dc60b9387495a05d1d6e98ece7571eff9a979ae0b1af139a279"
+  },
+  "science_arrays_read": 0,
+  "existing_labels_changes": 0
+}
