@@ -118,6 +118,8 @@ Hvis en del af hændelserne ikke kan færdigvurderes, markeres analysen som delv
 
 **2. november — C007 afsluttet:** [Den individuelle analyse ved 4312,7 Å](work_harps_20261102_c007_context/README.md) omfatter syv eksisterende epoker, 16 profiler og 32 sammenligninger med én fast discovery-reference. V2E2-0026 forbliver U; tidligere lokale mapping-forbehold og overlap med C006 er bevaret. Uafhængig efterregning består med 64.179 skalarsammenligninger. Næste faste gruppe er C004 ved 3872,245 Å med tre discovery-referencer; dens kerne overlapper C003. Ingen ny arkivhentning eller Rubin-forespørgsel.
 
+**2. november — C004 afsluttet:** [Den fælles analyse ved 3872,245 Å](work_harps_20261102_c004_context/README.md) omfatter syv eksisterende epoker, 20 profiler og 96 sammenligninger med tre faste discovery-referencer. Alle tre poster forbliver U; tidligere mapping-diagnoser og overlap med C003 er bevaret. Uafhængig efterregning består med 79.803 skalarsammenligninger. Næste faste punkt er C002 ved 3868,6025 Å med én reference; dens kerne var allerede synlig i C003. Ingen ny arkivhentning eller Rubin-forespørgsel.
+
 # Leverancer og opfølgning
 
 Hver uge leverer:

@@ -1,3 +1,15 @@
+## Aktuel SETI-status — HD106515A ved 3872,245 Å analyseret (2. november 2026)
+
+**C004 er færdig: syv eksisterende epoker, 20 profiler og 96 sammenligninger.** Alle tre discovery-referencer er bevaret. 20 profiler har positiv normalisering; 0 er uden normalisering og 0 er blokeret. Alle 12 selvsammenligninger er markeret.
+
+Uafhængig efterregning består med 559 kontroller og 79.803 skalarsammenligninger. **Alle tre poster forbliver U.** Kernen var allerede synlig i C003, så dette er ikke en uafhængig genfinding eller sikker ophavsbestemmelse. De historiske mapping-diagnoser er bevaret; ingen ny klassifikation følger.
+
+[**Fortsæt her**](CONTINUE_SETI.md) · [Rapport](work_harps_20261102_c004_context/README.md) · [Figurer og målinger](work_harps_20261102_c004_context/analysis/RESULTS_REPORT.md) · [Aktuel maskinlæsbar tilstand](work_harps_20261102_c004_context/CONTINUATION_STATE.json)
+
+Næste punkt i den oprindelige kø er C002 ved 3868,6025 Å: én post fra én discovery-observation. Dens kerne var allerede synlig i C003, og det foreslåede bredere vindue overlapper C004. Hovedprøve, klassifikationer og Rubins begrænsede forstudie er uændrede. Alle statusafsnit nedenfor er historiske.
+
+---
+
 ## Aktuel SETI-status — HD106515A ved 4312,7 Å analyseret (2. november 2026)
 
 **C007 er færdig: syv eksisterende epoker, 16 profiler og 32 sammenligninger.** Den faste discovery-reference er sammenlignet med alle seks øvrige epoker. 16 profiler har positiv normalisering; 0 er uden normalisering og 0 er blokeret. Alle fire selvsammenligninger er markeret.

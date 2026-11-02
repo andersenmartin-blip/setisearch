@@ -1,0 +1,17 @@
+# Next bounded context: C002 / HD106515A near 3868.6025 Å
+
+After the bounded C004 context, return to the original ACTION_QUEUE. The first remaining entry after C001, C003, C005, C006, C007 and C004 is **row 10, V2E2-0033**, the singleton **C002 / R002** on route **INDIVIDUAL_PROFILE_CONTEXT**. This queue choice was fixed before C004 values in [NEXT_GROUP_METADATA.json](NEXT_GROUP_METADATA.json), SHA-256 `28d66fe1efb721f539cf657d56cfd6dd2baeae1c9aaac9edb374d8f1a1655c72`. Follow the original queue, without ranking groups by observed agreement.
+
+| Original queue row | Record | Discovery product | Catalog barycentric-air center |
+|---:|---|---|---:|
+| 10 | V2E2-0033 | ADP.2022-05-08T01:01:37.876 | 3868.6025 Å |
+
+There is one fixed discovery reference, observed on **2022-05-07**, with BERV **−18.8907517532076 km/s**. It belongs to the same seven existing HD106515A cohort epochs, spanning 59.6098131157401 km/s in BERV. Retain all seven products. Any next fixed topocentric anchor must use this May 2022 discovery metadata, not C004's March anchor or the January anchor of earlier groups. Shared exposures add no observing time or archive-wide completeness.
+
+**C002 central flux was already visible in C003.** The original ±0.25 Å core, [3868.3525, 3868.8525] Å, lies inside C003's surrounding-spectrum window at offsets [−1.39875, −0.89875] Å from C003's midpoint. It is between the C003 negative reference flank and core, outside both those masks. This original C002 core lies outside C004's [3869.245, 3875.245] Å window. A proposed C002 ±3 Å context, [3865.6025, 3871.6025] Å, would overlap C004 over [3869.245, 3871.6025] Å, a width of 2.3575 Å. These statements concern fixed barycentric catalog windows. Queue selection before C004 interpretation cannot make subsequent C002 interpretation blind, untouched or independent of C003 or of the shared exposures.
+
+The inherited raw evidence describes broad native structure in orders 2 and 3, a smooth trace-centered order 3 raw enhancement and noisy order 2 context, without a decisive charge deposit. Record 0033 remains U. Freshly inventory the exact seven saved merged products, the May 2022 discovery ancillary/native product, every original covering-order raw panel and each historical mapping stage. Do not infer order coverage, finite-flux support, normalization quality or mapping reliability from the prior C003/C004 outcomes. In particular, native order 2 coverage and its signed reference require their own explicit checks.
+
+A metadata-defined proposal is the fixed center 3868.6025 Å, original ±0.25 Å core and ±3 Å context. This handoff does not release or execute C002. Before any additional window reads, freeze exact input identities, fresh header-derived coverage, the May discovery anchor, one fixed reference, signed-flux normalization, support gates and plots. Preserve known neighboring structure and any missing, nonpositive, low-reference or mapping-limited outcomes. Reference medians remain descriptive levels, not established line-free continua.
+
+No fitted width, lag, center, stellar RV, continuum, background, new line identity or origin assignment is implied. Such analyses need separate stated methods and calibration. Keep completed contexts, original 4,370-profile epoch analysis, mapping history and all dispositions immutable. The user's standing authorization covers the next bounded diagnostic and public documentation without another permission question. No new telescope/archive acquisition or background execution is implied.
