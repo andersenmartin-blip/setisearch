@@ -1,8 +1,18 @@
-# Continue SETI from the completed HARPS BERV follow-up
+# Continue SETI from the completed May reference-quality follow-up
 
-Read [the current machine-readable state](work_harps_20261102_berv_followup/CONTINUATION_STATE.json), fetch current GitHub and compare its source hashes before new work. Another session may have advanced the project. The [previous accelerated checkpoint](work_seti_20261102_accelerated/CONTINUATION_STATE.json) is preserved unchanged. Rubin remains explicitly advanced to **2–8 November 2026**. Earlier checkpoints and calendar dates are historical.
+Read [the current machine-readable state](work_harps_20261102_may_quality/CONTINUATION_STATE.json), fetch current GitHub and compare its source hashes before new work. Another session may have advanced the project. The [previous accelerated checkpoint](work_seti_20261102_accelerated/CONTINUATION_STATE.json) is preserved unchanged. Rubin remains explicitly advanced to **2–8 November 2026**. Earlier checkpoints and calendar dates are historical.
 
-## Latest completed HARPS follow-up
+## Latest completed May quality follow-up
+
+[The separate posthoc quality phase](work_harps_20261102_may_quality/README.md) is complete: exactly one new HD122640 input, six event–epoch pairs and twelve profiles, all measured with the unchanged method. The prior two-spectrum/24-profile run is preserved. All ten queue IDs remain U; four HD135204 records have no newly selected epoch. The original full-spectrum survey and all dispositions are unchanged.
+
+The metadata-selected May20 reference has BERV −9.84628486624399 km/s, giving 36.195–37.087 km/s (13.884–14.227 nominal resolution elements) from discovery. All twelve profiles have no inherited low-continuum flag; the ten blue profiles have continuum/noise-proxy ratios 4.04–6.38, with no positive finite ERR samples. Five blue records correlate at 0.955933–0.979149 in the barycentric frame versus −0.312911–0.153460 topocentrically. This describes stable barycentric spectral morphology, not five independent detections or a physical-origin assignment.
+
+V2E2-0235 has barycentric r=0.475244, but the new profile does not reproduce the discovery's sharp central excursion at comparable amplitude. Adequate continuum and moderate whole-core correlation do not resolve its raw-image charge/photon ambiguity. All six figures retain discovery and all three archival references.
+
+[Full measurements and figures](work_harps_20261102_may_quality/comparison/results/README.md) · [Independent numerical audit](work_harps_20261102_may_quality/comparison_audit/NUMERICAL_AUDIT.json): 1,571 checks and 15,096 scalar comparisons passed, including all twelve profiles/correlations. Methods were public before the header; exact new input bytes were public and read back before array interpretation. One header and one payload succeeded with no retry, redirect or substitution.
+
+## Earlier completed HARPS BERV follow-up
 
 [The broader-date BERV follow-up](work_harps_20261102_berv_followup/README.md) is complete. Successful metadata queries returned 18 additional HD122640 products and zero HD135204 rows under the frozen filters. Two seasonal headers and two exact spectra were verified, published and compared with the inherited method. Failed metadata/header requests and prospective technical amendments are preserved; do not replay their one-shot scripts.
 
@@ -41,19 +51,19 @@ The [one-degree metadata extension](work_rubin_20261102/extension_feasibility/RE
 
 [Combined status](work_rubin_20261102/COMBINED_STATUS.json): **190 selected main objects; 861 source and 130 forced measurements; 2 primary numerical objects / 7 October rows and 4 secondary objects / 16 rows.** The primary objects are contained within the secondary set. This remains a limited feasibility study: minimum 50 unmet, no qualified null, no physical-origin assignment. All 10 main requests succeeded without retry. The original 20 development objects are separate; 36 controls are not multiplied by the number of cohorts. Do not repeat the completed 188+2 search or re-expand the same field merely to resume.
 
-## Next work after the completed two-spectrum phase
+## Next work after the completed May quality phase
 
-Use [the new metadata-only handoff](work_harps_20261102_berv_followup/next_followup/README.md). The completed two-spectrum experiment is closed. The saved 18-product pool contains 16 unused products, including nine May 2017 observations. A separate, explicitly posthoc quality-focused phase could address poor May blue-window data using the highest average metadata SNR among unused May observations: `ADP.2017-05-21T01:01:50.278`, observed 20 May 2017, SNR 77.8 versus 16.6 for the used May reference. This is a planning lead; average spectrum SNR does not verify blue-window quality.
+Use [the concrete next step](work_harps_20261102_may_quality/scientific_review/NEXT_STEP.md): prepare a bounded quantitative spatial-support comparison for V2E2-0235 in its already preserved discovery raw image, order50. The documented compact off-trace structure motivates measuring how its excess is distributed across detector rows relative to nearby trace controls. This is a new diagnostic, not a replay of the completed manual raw classification or epoch pipeline. Freeze exact windows, trace-reference controls, extraction/mapping checks and descriptive metrics before running it. Preserve mixed or inconclusive outcomes; no classifier or automatic U-to-A promotion follows from weak epoch repetition.
 
-Before a new request, freeze the exact next header/identity/BERV checks, quality-selection rule, one-product bounds, output paths and failure handling from saved metadata and the corrected literal-colon header contract. Any subsequent payload needs its own fixed scope and unchanged comparison method. Do not change thresholds or substitute another epoch after seeing event-window flux. Describe this future quality-focused phase separately from the completed monthly selection. The handoff does not execute or release a future acquisition.
+Do not automatically select another unused May spectrum to seek a stronger correlation. The separate quality-reference phase and the earlier monthly-selection phase are both closed. The remaining saved metadata pool contains 15 unused products (eight May, seven January), retained as inventory rather than an execution queue. All ten original queue identities and four uncovered HD135204 records remain explicit; the earlier zero-row query is not proof of archive-wide absence.
 
-Preserve V2E2-0229,0231,0234,0235,0236,0237 on HD122640 and V2E2-0303,0305,0308,0309 on HD135204. The latter four lack a new epoch under the bounded query; zero returned rows do not prove archive-wide absence. Do not confuse V2E2-0231 (U) with historical V2-0231 (M).
+Rubin's [next-data-route review](work_rubin_20261102/next_data_route/README.md) remains complete and stopped. Reopen only a distinct prospective route with adequate public stellar history, provenance and quality. Preserve 190 main identities and unchanged detector; the 500-object ceiling leaves 310 further unique slots. Minimum50 remains unmet. No new Rubin query was made in this May quality phase.
 
-The [Rubin next-data-route review](work_rubin_20261102/next_data_route/README.md) remains complete and stopped. The examined alternative broker has no verified currently usable anonymous direct-science/quality route, and one fixed Fink September aggregate request returned an empty list. This is not proof of absent observations. Reopen Rubin only through a distinct prospective route establishing adequate public stellar history, provenance and quality. Preserve all 190 main identities and the unchanged detector; the 500-object ceiling leaves 310 possible additional unique objects. Do not rerun the completed field or loosen gates to reach fifty. No new Rubin request was made in this HARPS continuation.
-
-All fixed mapping diagnoses, both normalization follow-ups and the original epoch comparisons are complete. Do not repeat them merely to resume. All 185 U and 35 M labels remain unchanged; geometry, profile coherence, grouping and local trace offsets alone cannot assign origin.
+All 35 fixed mapping diagnoses, both normalization follow-ups and the original 4,370 epoch profiles are complete. Do not repeat them merely to resume. All 185 U and 35 M remain unchanged.
 
 ## Restore and maintain continuity
+
+For the new May quality phase, use `python3 work_harps_20261102_may_quality/preservation/restore_archive.py SCIENCE_INPUTS_MANIFEST.json`, then `restore_reference_cache.py` in the same directory, then `restore_archive.py PROFILE_EVIDENCE_MANIFEST.json`. These restore the exact new FITS, original discovery/context references and twelve new profiles from preserved parts/archives; no live ESO request is needed. Helpers verify hashes and preserve differing files. Reproduce in a separate copy, retaining published outputs and one-shot guards.
 
 For the new follow-up, run `python3 work_harps_20261102_berv_followup/science_acquisition/restore_inputs.py` to restore both exact FITS files from committed parts. Run `python3 work_harps_20261102_berv_followup/prospective_comparison/restore_profile_evidence.py` to restore all 20 discovery references and 24 derived profiles. Both helpers verify complete hashes and refuse to overwrite differing files. No live ESO download is needed. Reproduce in a separate copy so published outputs and one-shot guards remain intact.
 

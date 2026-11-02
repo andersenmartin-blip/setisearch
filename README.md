@@ -1,3 +1,17 @@
+## Aktuel SETI-status — bedre majreference analyseret (2. november 2026)
+
+**Endnu ét HARPS-spektrum og tolv profiler er analyseret efter en separat offentlig metodefrysning.** Ingen af de tolv nye profiler har lav-kontinuum-markering. De fem blå hændelsesposter har korrelation **0,956–0,979 i barycentrisk ramme**, mod **−0,313 til 0,153 i topocentrisk ramme**, ved cirka 14 opløsningselementers forskydning fra opdagelsesepokerne. Det styrker beskrivelsen af vedvarende spektralstruktur; fysisk ophav er ikke fastslået.
+
+Posten ved 5548,09 Å er anderledes: dens skarpe opdagelsestop genfindes ikke med sammenlignelig amplitude. Den forbliver uafklaret sammen med de øvrige ni poster i opfølgningskøen. Alle tidligere resultater er bevaret, og den uafhængige numeriske kontrol består med 15.096 skalarsammenligninger.
+
+Næste afgrænsede trin er en kvantitativ undersøgelse af den rumlige struktur i **V2E2-0235's allerede gemte råbillede**, hvor en kompakt struktur uden for den forventede spektraltrace fortsat gør ladningsforurening og fotonbidrag svære at skelne. Der vælges ikke automatisk flere majreferencer.
+
+[**Fortsæt her**](CONTINUE_SETI.md) · [Ny rapport og evidens](work_harps_20261102_may_quality/README.md) · [Alle figurer](work_harps_20261102_may_quality/comparison/results/README.md) · [Aktuel maskinlæsbar tilstand](work_harps_20261102_may_quality/CONTINUATION_STATE.json)
+
+Hovedprøven og klassifikationerne er uændrede: 300 eksponeringer, 20 stjerner, 70,875 timer; 403 A / 46 O / 185 U / 35 M. De tre ekstra arkivspektre er målrettede opfølgninger. Rubin er allerede fremrykket og afsluttet som et begrænset forstudie med 190 objekter; minimum 50 vurderbare stjerneforløb er fortsat ikke nået. Ingen kvalificeret laserkandidat eller kalibreret nulresultat. Alle statusafsnit nedenfor er historiske.
+
+---
+
 ## Aktuel SETI-status — HARPS-opfølgning med større BERV-spænd afsluttet (2. november 2026)
 
 **To ekstra arkivspektre af HD122640 er hentet, bevaret og analyseret efter en offentliggjort metode.** De udvider spændet i Jordens barycentriske hastighedskorrektion (BERV) fra **2,24 til 40,36 km/s**. Alle 24 profiler for seks hændelsesposter er sammenlignet i begge referenceframes; en uafhængig beregning består med 29.712 numeriske sammenligninger.
