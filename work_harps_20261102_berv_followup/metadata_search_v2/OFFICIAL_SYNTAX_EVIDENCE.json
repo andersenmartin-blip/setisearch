@@ -1,0 +1,15 @@
+{
+  "source_url": "https://wiki.ivoa.net/internal/IVOA/IvoaVOQL/adql-bnf-v2.0.html",
+  "authority": "IVOA ADQL 2.0 BNF",
+  "review_date_utc": "2026-11-02",
+  "retrieval_method": "Official page opened and searched through the web retrieval tool; relevant productions inspected at lines 218-222 and 576-584. A separate direct documentation GET returned HTTP 403 and was not retried; no raw-response hash is asserted.",
+  "short_exact_grammar_excerpts": [
+    "<sort_key> ::= <column_name> | <unsigned_integer>",
+    "<column_name> ::= <identifier>",
+    "<column_reference> ::= [ <qualifier> <period> ] <column_name>"
+  ],
+  "finding": "ADQL 2.0 sort keys use unqualified column identifiers or ordinals. Qualified column references are a distinct production. The corrected final clause uses t_min, dp_id, source_file; qualification in selected expressions and joins remains unchanged.",
+  "service_error_consistency": "The original ESO response rejected a period where a sort-key terminator or ASC/DESC was expected. This matches the inspected grammar restriction.",
+  "live_archive_query_tests": 0,
+  "raw_document_republished": false
+}
