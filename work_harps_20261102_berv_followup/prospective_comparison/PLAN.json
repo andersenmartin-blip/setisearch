@@ -1,0 +1,105 @@
+{
+  "schema": "HARPS_BERV_PROSPECTIVE_COMPARISON_V1",
+  "created_utc": "2026-11-02T10:27:34.404128+00:00",
+  "status": "METHOD_PREPARED_NEW_INPUT_SELECTION_AND_RELEASE_REQUIRED",
+  "purpose": "Fixed event-specific descriptive comparison of ten preserved U records in at most two newly header-selected archival epochs per target.",
+  "events": 10,
+  "discovery_exposures": 7,
+  "discovery_reference_profiles": 20,
+  "event_metadata": "EVENTS.json",
+  "discovery_profile_index": "DISCOVERY_PROFILES.csv",
+  "selection_rule": "For HD122640 then HD135204, choose minimum then maximum recorded BERV from PASS_RECORDED_BERV header results; equal-BERV ties lexicographically smallest dp_id; deduplicate same dp_id. No new flux enters selection.",
+  "expected_profile_slots": "2 * (6 * selected_HD122640_epochs + 4 * selected_HD135204_epochs); all selected slots retained including failures.",
+  "frames": {
+    "barycentric": "Fixed accepted fitted center in barycentric air wavelengths; not corrected for stellar radial velocity.",
+    "topocentric": "Fixed accepted center divided by(1+BERV_discovery/c); each comparison queried at(center_top+x)*(1+BERV_epoch/c),c=299792.458km/s. Classical approximation, no full relativistic/drift correction."
+  },
+  "sampling": {
+    "offset_grid_angstrom": [
+      -1.0,
+      1.0
+    ],
+    "step_angstrom": 0.01,
+    "interpolation": "Linear within measured coverage; mask bracket gaps exceeding1.51times median input wavelength step; no extrapolation.",
+    "normalization": "Median finite original flux within±2Å of frame-specific requested barycentric center; must be positive. Retain unusable records.",
+    "background": "Unweighted least-squares constant+slope on fixed |offset|>=0.60Å sidebands, minimum20 finite points.",
+    "correlation": "Pearson zero-shift correlation of residual profiles within|offset|<=0.25Å,minimum20 finite shared points. No shift or center optimization.",
+    "line_fits": "Unweighted constant+slope+signed unit-height Gaussian at fixed center and FWHM=center/115000,or3times that width; use|offset|<=0.25Å. Report amplitudes/RMS,not SNR.",
+    "noise": "First-difference1.4826MAD/sqrt2 within±2Å is descriptive proxy only; flag normalization<=3proxy as low reference continuum; no formal errors if ERR unavailable."
+  },
+  "implementation": "Import verified original epoch_followup/measure_epochs.py and call its profile,corr,stats functions without modification or main execution. Reuse the two separately archived discovery residual arrays for each event.",
+  "representation_gate": [
+    "Exactly one raw progenitor distinct from all existing exposures and other selected products; exact DP,target,date,position,exptime,BERV from preserved primary header inspection.",
+    "SPECSYS=BARYCENT; SPEC_RES=115000; ESO INS HEFS ST is explicit False. Actual INS MODE retained; HARPS+NIRPS is not interpreted as EGGS or rejected merely by string.",
+    "Exactly one spectral table row with WAVE,FLUX,ERR columns; WAVE units angstrom and UCD containing obs.atmos; FLUX units ADU. No silent air/vacuum or wavelength-unit conversion.",
+    "All payload headers checked before any new .data access. Finite strictly increasing wavelength and matching1D arrays then required; no sorting/regridding adaptation beyond inherited interpolation.",
+    "Pipeline version differences from HARPS_3.8 retained as context; no new instrumental response, drift, stellar-RV or line-spread correction is fitted."
+  ],
+  "release_contract": {
+    "file": "COMPARISON_RELEASE.json",
+    "schema": "HARPS_BERV_COMPARISON_RELEASE_V1",
+    "required_fields": [
+      "publication_commit",
+      "publication_readback_verified",
+      "comparison_script_sha256",
+      "prospective_plan_sha256",
+      "selection_path",
+      "selection_sha256",
+      "header_results_path",
+      "header_results_sha256",
+      "acquisition_manifest_path",
+      "acquisition_manifest_sha256",
+      "inputs"
+    ],
+    "paths": "Repository-relative for release-linked files and input payloads/receipts; header-body/receipt paths are relative to HEADER_RESULTS parent directory.",
+    "selection": "Header-owner EXTREME_SELECTION.json with selected list, agreed job/hash fields and header_results_sha256.",
+    "acquisition_manifest": "Canonical JSON with inputs list exactly equal release.inputs; every selected identity appears in the same order including failed slots.",
+    "complete_input_fields": [
+      "status=COMPLETE",
+      "dp_id",
+      "target",
+      "local_path",
+      "bytes",
+      "sha256",
+      "acquisition_receipt_path",
+      "acquisition_receipt_sha256"
+    ],
+    "failed_input_fields": [
+      "status",
+      "dp_id",
+      "target",
+      "reason"
+    ],
+    "execution": "No network; refuses without SHA-tied root release and refuses any pre-existing results directory.",
+    "output_directory": "results/"
+  },
+  "no_new_data_downloaded": true,
+  "no_new_arrays_read_at_preparation": true,
+  "no_original100_rerun": true,
+  "no_origin_or_repeat_classifier": true,
+  "limitations": [
+    "Post-detection selection biases all estimates. Metrics do not independently validate a signal or determine its origin.",
+    "Barycentric coherence may describe absorption/emission blends or instrumental structure; no stellar-rest-frame identity follows.",
+    "Topocentric coherence is not proof of terrestrial origin.",
+    "Multiple hit records and nearby centers are correlated and cannot be counted as independent phenomena.",
+    "Temporal repeats are archival exposures,not independent new telescope observations.",
+    "No significance calibration,survey completeness,physical line flux,or extraterrestrial claim.",
+    "New epochs are archival observations, not observations commissioned by this project; records and nearby event centers remain correlated.",
+    "New BERV range alone does not identify physical origin or give a sensitivity/false-alarm calibration.",
+    "Instrument era, pipeline, extraction/blaze/background, line-spread function and wavelength zero-point may differ even when nominal units/resolution match.",
+    "Original discovery ERR samples are unavailable; inherited fits are unweighted and errors are descriptive only, even if a new product supplies positive errors.",
+    "Signed Gaussian widths are fixed templates, not measured linewidths. Normalized amplitudes are not calibrated fluxes or significance.",
+    "Barycentric wavelengths are not a stellar rest frame; stellar radial-velocity changes remain a potential confounder.",
+    "Partial/missing/incompatible products remain explicit blocked selected slots; no replacement target or epoch is chosen from flux outcomes."
+  ],
+  "source_hashes": {
+    "work_harps_20261102_berv_followup/prospective_comparison/EVENTS.json": "79a0b4d78ff8b0b24b1b46bf138194c4e29904537037ba1529bd528b548ee6ab",
+    "work_harps_20261102_berv_followup/prospective_comparison/DISCOVERY_PROFILES.csv": "9f6b67bc057a3a21d09905b6a5ec8d8b48d57e75a35027ee9f844c1ba35742b8",
+    "work_harps_20261102_berv_followup/prospective_comparison/EXISTING_REFERENCE_RECEIPT.json": "6dc688ad2fe0244d23e9225ea5b3821b86f3332334e9558d227a00da23cbcbfa",
+    "work_harps_20261102_berv_followup/prospective_comparison/prepare_existing_references.py": "bae1efdfe1ec2651e61c714e0391163e8a2815486c59bdfedebee89d1964c164",
+    "work_harps_20261102_berv_followup/prospective_comparison/compare_verified_epochs.py": "212104c604612012c2474a348599f8d7d82db3aa9cbf19951a6eb4c60c956f49",
+    "work_harps_20261101/v2/extension02/next_followup_20261102/EXISTING_TARGET_EXPOSURES.csv": "13e2650fed61b7b9c87095425d6f3334daee71f4ed5cd8abc5bfac77ad335f61",
+    "work_harps_20261101/v2/extension02/epoch_followup/PLAN.json": "241d3e0d594ffd5c98857171130e10e0619fd6570862b6949b60311d04a6b0c0",
+    "work_harps_20261101/v2/extension02/epoch_followup/measure_epochs.py": "2d533c408f294c6424bdecd35a44d9b161f8c0470da173ecc1c16c260734bc08"
+  }
+}

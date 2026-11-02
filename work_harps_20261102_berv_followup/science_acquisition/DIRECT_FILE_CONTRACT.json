@@ -1,0 +1,24 @@
+{
+  "status": "VERIFIED_DOCUMENTED_DIRECT_FILE_TEMPLATE_BEFORE_PAYLOADS",
+  "direct_url_prefix": "https://dataportal.eso.org/dataPortal/file/",
+  "construction": "Append the exact archive DP identity without .fits. This is a file endpoint, not the ObsCore access_url DataLink document. No credentials, redirects or DataLink followups are used by the downloader.",
+  "primary_sources": [
+    {
+      "url": "https://archive.eso.org/programmatic/HOWTO/jupyter/query-ancillary-files/query-ancillary-files.html",
+      "evidence": "Official notebook Example1 In[3] shows archive_id ADP.2024-03-19T05:58:04.407 mapped to https://dataportal.eso.org/dataPortal/file/ADP.2024-03-19T05:58:04.407 and analogous science/ancillary examples. The individual archive_id identifies the file; estimated sizes can change if FITS headers are patched."
+    },
+    {
+      "url": "https://archive.eso.org/cms/eso-data/programmatic-access.html",
+      "evidence": "ObsCore access_url identifies a DataLink metadata resource that lists related files; it is not itself the primary spectrum payload."
+    }
+  ],
+  "local_previously_verified_example": {
+    "source_manifest": "work_harps_20261101/acquisition/DOWNLOAD_MANIFEST.json",
+    "manifest_sha256": "7931c0d0088ab490788efcbd45e893065346783deba30ded334839f211d3fa66",
+    "dp_id": "ADP.2023-02-20T01:00:50.713",
+    "source_url": "https://dataportal.eso.org/dataPortal/file/ADP.2023-02-20T01:00:50.713",
+    "payload_sha256": "ac7e48c65d3e38fd7e47889b794b15b7890597a91a5091428097133090cb22eb"
+  },
+  "url_only_lookup_note": "Separate saved official-demo download/debug lookup returned a DataLink URL with eso_download=file. That lookup did not retrieve a spectrum or resolve a target download. Direct-file contract above is supported by the official notebook and prior acquisition receipts.",
+  "new_spectrum_requests": 0
+}

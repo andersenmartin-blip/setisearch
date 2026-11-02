@@ -1,0 +1,60 @@
+{
+  "schema": "HARPS_BERV_SCIENCE_PLAN_V1",
+  "created_utc": "2026-11-02T10:49:09.825355+00:00",
+  "status": "FROZEN_IDENTITIES_BEFORE_PAYLOAD_ACQUISITION",
+  "selection_path": "work_harps_20261102_berv_followup/header_acquisition_v2/EXTREME_SELECTION.json",
+  "selection_sha256": "af59502a1963205dd41bda5ec32ffd54ce766b76fe03671d750b9ad13ffbbd41",
+  "header_results_path": "work_harps_20261102_berv_followup/header_acquisition_v2/HEADER_RESULTS.json",
+  "header_results_sha256": "0cac3813c22322522c209ae18204cb7dd83d49b5b4734307d9e269e6f7acfc49",
+  "comparison_plan_path": "work_harps_20261102_berv_followup/prospective_comparison/PLAN.json",
+  "comparison_plan_sha256": "0f89856dc83f376650e066f2eeedca05d7b3e2df57450a8a4ccc7ff9f84b5884",
+  "direct_file_contract_path": "work_harps_20261102_berv_followup/science_acquisition/DIRECT_FILE_CONTRACT.json",
+  "direct_file_contract_sha256": "2d531b3bf5c5395fb55f0e95bc927a64f7ecfa112b8beede73e160a117255c6c",
+  "inputs": [
+    {
+      "dp_id": "ADP.2017-05-23T01:01:52.459",
+      "target": "HD122640",
+      "berv_km_s": -11.0816664353436,
+      "source_file_ids": [
+        "HARPS.2017-05-22T05:20:05.415"
+      ],
+      "metadata_access_url": "https://archive.eso.org/datalink/links?ID=ivo://eso.org/ID?ADP.2017-05-23T01:01:52.459",
+      "source_url": "https://dataportal.eso.org/dataPortal/file/ADP.2017-05-23T01:01:52.459",
+      "local_path": "work_harps_20261102_berv_followup/science_acquisition/products/ADP.2017-05-23T01_01_52.459.fits",
+      "metadata_estimated_size_kbyte": 5264
+    },
+    {
+      "dp_id": "ADP.2018-01-21T01:01:37.761",
+      "target": "HD122640",
+      "berv_km_s": 29.2818122856138,
+      "source_file_ids": [
+        "HARPS.2018-01-20T08:50:34.271"
+      ],
+      "metadata_access_url": "https://archive.eso.org/datalink/links?ID=ivo://eso.org/ID?ADP.2018-01-21T01:01:37.761",
+      "source_url": "https://dataportal.eso.org/dataPortal/file/ADP.2018-01-21T01:01:37.761",
+      "local_path": "work_harps_20261102_berv_followup/science_acquisition/products/ADP.2018-01-21T01_01_37.761.fits",
+      "metadata_estimated_size_kbyte": 5264
+    }
+  ],
+  "limits": {
+    "requests": 2,
+    "attempts_per_product": 1,
+    "timeout_seconds_per_product": 60,
+    "response_bytes_per_product": 16777216,
+    "total_payload_bytes_upper_bound": 33554432,
+    "redirects": 0,
+    "retries": 0,
+    "first_failure_stops_remaining_jobs": true
+  },
+  "scope": "Two archival follow-up spectra outside original300; compare only the fixed ten-event queue with inherited profile method. Six HD122640 events have selected epochs; four HD135204 events retain no-new-epoch accounting. No full-spectrum search, new telescope observation, survey-coverage expansion or label change.",
+  "before_array_access": "Comparison runner verifies all exact saved product hashes and primary/extension headers against recorded headers; require single-exposure HARPS, SPEC_RES115000, HEFSfalse, BARYCENT air-Angstrom WAVE, ADU FLUX, WAVE/FLUX/ERR one-row table. Retain blocked inputs; no substitution or relaxed gates.",
+  "new_science_arrays_interpreted": 0,
+  "original_classifications": {
+    "A": 403,
+    "O": 46,
+    "U": 185,
+    "M": 35,
+    "N": 0
+  },
+  "payload_persistence": "Exact downloaded FITS bytes will be preserved in checksum-bound compressed archive parts in Git, with a restore script; live products remain ignored. No duplicate survey exposure hours are added."
+}
