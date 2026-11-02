@@ -1,0 +1,36 @@
+{
+  "status": "COMPLETE_DESCRIPTIVE_SPATIAL_SUPPORT",
+  "completed_utc": "2026-11-02T12:38:45.637193+00:00",
+  "event": "V2E2-0235",
+  "original_classification": "U",
+  "classification_changed": false,
+  "origin_assignments": 0,
+  "training_rows_declared": 232,
+  "training_dispositions": {
+    "USABLE": 232,
+    "UNUSABLE": 0
+  },
+  "held_out_controls": 8,
+  "target_rows": 11,
+  "observed_native_pixels": 8275,
+  "templates_reported": [
+    "pooled",
+    "negative_raw_flank",
+    "positive_raw_flank"
+  ],
+  "all_template_window_records": 27,
+  "blocked_window_records": 0,
+  "old_results_recomputed": false,
+  "plan_sha256": "e50124773e52f4857ade054bde0b8afa47b916317e9009326bdfe45a27aea55d",
+  "script_sha256": "17e1f666896fc504105689675611261bbe376ddb325e342ae21101cf33b1d12b",
+  "release_sha256": "80f0aec445e36981cb65f41ed48b10b411a475a36b41215aa2c15b9d6e7434b2",
+  "limitations": [
+    "Explicitly posthoc spatial diagnostic of one previously ambiguous event; no classifier or physical-origin claim and U remains unchanged.",
+    "Template training and controls are disjoint, but all windows share one exposure/order; correlated local empirical context is not a calibrated noise distribution.",
+    "Spatial profile may vary with dispersion, fractional pixel phase, curvature, instrumental response and spectral structure. Training-only interpolation and fixed empirical templates may smear or mismatch the true profile; flank-only sensitivities are reported without selecting a favorite.",
+    "Nearest fiberB order49 FP calibration trace center is about+16.354 pixels from A50 at target; no neighboring center enters\u00b112, but positive background band9..12 lies only4.35..7.35pixels from that FP center. Unknown wings may contaminate background/template; two-sided median does not establish absence. FiberB is not sky.",
+    "Raw ADU measurements have no modeled gain/read-noise/Poisson/bias/flat calibration or formal uncertainty. Outer MAD is descriptive only.",
+    "Off-trace L1 fraction and positive residual centroids quantify model discrepancy; neither estimates photon/charge probability or establishes contamination origin.",
+    "Native target/control pixels are retained unchanged. No historical spectrum/extraction is recomputed, corrected or relabeled."
+  ]
+}
