@@ -114,6 +114,8 @@ Hvis en del af hændelserne ikke kan færdigvurderes, markeres analysen som delv
 
 **2. november — C005 afsluttet:** [Analysen ved 3882 Å](work_harps_20261102_c005_context/README.md) omfatter syv eksisterende epoker, 34 profiler og 180 sammenligninger. Alle profiler har fuld dækning og positiv normalisering; to orden 4-profiler har lave referenceflag. Kernen og omgivelserne har høj barycentrisk formoverensstemmelse. Alle fem poster forbliver U. Uafhængig efterregning består med 135.577 skalarsammenligninger. Næste faste gruppe er C006 med tre poster fra to unikke discovery-eksponeringer. Ingen ny arkivhentning eller Rubin-forespørgsel.
 
+**2. november — C006 afsluttet:** [Analysen ved 4310 Å](work_harps_20261102_c006_context/README.md) omfatter syv epoker, 18 profiler og 64 sammenligninger med to unikke discovery-referencer. Alle tre poster forbliver U. Fuld dækning og positiv normalisering, ingen lave referenceflag; tidligere mapping-forbehold for 0025 er bevaret. Uafhængig efterregning består med 71.701 skalarsammenligninger. Næste faste punkt er C007 ved 4312,7 Å, som overlapper det allerede sete vindue. Ingen ny arkivhentning eller Rubin-forespørgsel.
+
 # Leverancer og opfølgning
 
 Hver uge leverer:

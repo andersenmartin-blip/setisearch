@@ -1,6 +1,6 @@
 # Gendannelse og fortsættelse af HARPS-arbejdet
 
-Start i [CONTINUE_SETI.md](../../CONTINUE_SETI.md) og [aktuel maskinlæsbar tilstand](../../work_harps_20261102_c005_context/CONTINUATION_STATE.json). Hent seneste GitHub og sammenlign kildehashes. Branch: `optical-harps-week-20261101`; fortsættelsespunktet spejles på `main`.
+Start i [CONTINUE_SETI.md](../../CONTINUE_SETI.md) og [aktuel maskinlæsbar tilstand](../../work_harps_20261102_c006_context/CONTINUATION_STATE.json). Hent seneste GitHub og sammenlign kildehashes. Branch: `optical-harps-week-20261101`; fortsættelsespunktet spejles på `main`.
 
 Alle 669 V2-poster har første råbilledgennemgang: **403 A / 46 O / 185 U / 35 M / 0 N**. Ældre 333: uændret 209 A / 25 O / 95 U / 4 M. Nye 336: 194 A / 21 O / 90 U / 31 M. Batch05 ændrer kun V2E2-0332 og V2E2-0333 fra N til foreløbig A; øvrige 667 poster bevares. Gennemgang er ikke sikker ophavsbestemmelse.
 
@@ -14,11 +14,17 @@ Hovedprøven er fortsat 300 eksponeringer af 20 stjerner, 70.874650833 timer. V1
 
 Rubin er fremrykket til 2.–8. november. [Første hovedanalyse](../../work_rubin_20261102/main_analysis/README.md) er afsluttet med 188 udvalgte objekter, men kun 2 numerisk vurderbare i hovedsporet og separat 3 i forced-sporet. Minimum 50 er ikke opfyldt. Ingen tærskelpasserende måling og intet kvalificeret nulresultat. Den efterfølgende metadata/Gaia-udvidelse er også gennemført helt til analyse. Samlet Rubin-status er 190 udvalgte objekter, 2 numerisk vurderbare i hovedsporet og separat 4 i forced-sporet. Brug det fælles fortsættelsespunkt til næste afgrænsede datamulighed.
 
+## Afsluttet C006-kontekst på HD106515A
+
+[C006-resultatet](../../work_harps_20261102_c006_context/README.md) bevarer 18 profiler, 64 sammenligninger og alle tre U-statusser. Ni kildevinduer, 18 profiler og tre råpaneler ligger direkte i repository. [Gendannelsesvejledningen](../../work_harps_20261102_c006_context/preservation/README.md) beskriver 14 eksakte inputs fra to eksisterende arkiver og separat reproduktion.
+
+Det aktuelle næste trin er [C007 ved 4312,7 Å](../../work_harps_20261102_c006_context/NEXT_ACTION.json), en enkelt post fra oprindelig kø-række 6. Kernen overlapper allerede sete C006-referenceområder. Ældre næste-trin-formuleringer nedenfor er historiske.
+
 ## Afsluttet C005-kontekst på HD106515A
 
 [C005-resultatet](../../work_harps_20261102_c005_context/README.md) bevarer 34 profiler, 180 sammenligninger og alle fem U-statusser. De 17 kildevinduer, 34 profiler og ti råpaneler ligger direkte i repository. To lave referenceflag er bevaret, uden manglende dækning eller udeladelser. [Gendannelsesvejledningen](../../work_harps_20261102_c005_context/preservation/README.md) beskriver fuld gendannelse af 27 inputs fra tre eksisterende arkiver og separat reproduktion.
 
-Det aktuelle næste trin er [C006 omkring 4310 Å](../../work_harps_20261102_c005_context/NEXT_ACTION.json): tre katalogposter, men kun to forskellige discovery-produkter. Ældre næste-trin-formuleringer nedenfor er historiske.
+Det daværende næste trin var [C006 omkring 4310 Å](../../work_harps_20261102_c005_context/NEXT_ACTION.json): tre katalogposter, men kun to forskellige discovery-produkter. Ældre næste-trin-formuleringer nedenfor er historiske.
 
 ## Afsluttet C003-kontekst på HD106515A
 

@@ -1,0 +1,43 @@
+{
+  "status": "COMPLETE_FIXED_GROUP_CONTEXT",
+  "completed_utc": "2026-11-02T17:14:02.569765+00:00",
+  "group": "C006",
+  "target": "HD106515A",
+  "events": [
+    "V2E2-0025",
+    "V2E2-0042",
+    "V2E2-0043"
+  ],
+  "merged_epochs": 7,
+  "distinct_discovery_products": 2,
+  "discovery_records": 3,
+  "native_discovery_orders": 2,
+  "structurally_excluded_native_orders": 0,
+  "profile_slots": 18,
+  "comparison_slots": 64,
+  "identical_product_self_comparisons": 8,
+  "raw_only_normalization_slots": 0,
+  "blocked_source_profile_slots": 0,
+  "preserved_raw_context_panels": 3,
+  "group_center_bary_air_angstrom": 4310.455,
+  "topocentric_anchor_air_angstrom": 4310.021714958131,
+  "anchor_berv_km_s": 30.1380355615464,
+  "old_epoch_pipeline_rerun": false,
+  "labels_changed": 0,
+  "origin_assignments": 0,
+  "release_sha256": "497afcfdfc247f4da5cd53d531687d283156e63adbb48f363a1bb755a6e039f1",
+  "plan_sha256": "fbb1334412e103c9991fac9681a71a5d0c6cf5f5acdab08dbf17825567fa0039",
+  "script_sha256": "135c90463764a86fb780bd85fa6f43d18db7d716fdd82d2986c8444011802bf0",
+  "limitations": [
+    "Post-detection context of three correlated records and seven reused original-cohort exposures, not independent detections, new observing time or archive-wide completeness. All three U labels unchanged.",
+    "Two unique discovery products only:0042 and0043 share2022-12-31. Deduplicate reference/native product profiles; preserve separate record/raw histories. A joint-window correlation does not individually establish origin of neighboring features.",
+    "Discovery BERV values30.1380355615464 and30.3750612537025 km/s are near-matched. The other five epochs supply the59.6098131157401 km/s span, which is coordinate separation, not calibrated origin discrimination or survey sensitivity.",
+    "One fixed first-discovery topocentric anchor; features can leave the\u00b10.400 \u00c5 core at large BERV separation. Such comparisons describe the anchor window and possibly neighboring structure, without recentering.",
+    "Fixed flank medians are reference levels, not proven quiet continua. C007 at4312.700 \u00c5 lies at+2.245 \u00c5 inside the positive flank; retain it. Future C007 shares window/pixel/exposure context. No fit of background,width,center,lag,RV or drift.",
+    "Fresh all144order header scans identify only order19 covering the original feature centers for both discovery products. Coordinate coverage does not establish finite/positive flux or usable normalization.",
+    "Historical0025 local_mapping_usable=false and baseline_mapping_verified=false remain despite true global/five-window diagnostics; coordinate coverage and shape agreement do not retrospectively promote local mapping.0042 separate off-trace feature retained. No new mapping validation or origin assignment.",
+    "Native BUNIT absent; native extracted units unspecified. Merged ADU and native scales differ; same-exposure extraction agreement is not an independent observation or physical flux ratio.",
+    "Positive ERR support and descriptive first-difference proxy do not supply formal SNR, calibrated significance, physical width, false-alarm rate or completeness.",
+    "All previous extraction, mapping, raw panels, event labels and epoch outputs unchanged. No original pipeline rerun."
+  ]
+}

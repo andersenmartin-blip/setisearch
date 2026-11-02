@@ -1,3 +1,15 @@
+## Aktuel SETI-status — HD106515A ved 4310 Å analyseret (2. november 2026)
+
+**C006 er færdig: syv eksisterende epoker, 18 profiler og 64 sammenligninger.** Kernen og omgivelserne viser høj barycentrisk formoverensstemmelse. Alle profiler har fuld dækning og positiv normalisering uden lave referenceflag. De tre katalogposter repræsenterer kun to forskellige discovery-eksponeringer.
+
+Uafhængig efterregning består med 488 kontroller og 71.701 skalarsammenligninger. **Alle tre poster forbliver U.** Tidligere usikkerhed om den lokale råbilledkobling for 0025 er bevaret; høj formoverensstemmelse afgør ikke fysisk ophav.
+
+[**Fortsæt her**](CONTINUE_SETI.md) · [Rapport](work_harps_20261102_c006_context/README.md) · [Figurer og målinger](work_harps_20261102_c006_context/analysis/RESULTS_REPORT.md) · [Aktuel maskinlæsbar tilstand](work_harps_20261102_c006_context/CONTINUATION_STATE.json)
+
+Næste punkt er C007 ved 4312,7 Å. Det overlapper allerede sete dele af C006-vinduet og skal behandles med denne afhængighed. Hovedprøve, klassifikationer og Rubins begrænsede forstudie er uændrede. Alle statusafsnit nedenfor er historiske.
+
+---
+
 ## Aktuel SETI-status — HD106515A ved 3882 Å analyseret (2. november 2026)
 
 **C005 er færdiganalyseret i syv eksisterende epoker: 34 profiler og 180 sammenligninger.** Kernen og det omgivende spektralmønster stemmer tæt overens i barycentrisk ramme. Begge spektralordener dækker hele vinduet; to topocentriske profiler i orden 4 har et lavt referenceniveau i forhold til støjmålet og er bevaret med markering.
