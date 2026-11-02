@@ -1,0 +1,134 @@
+{
+  "schema": "HARPS_C004_NEXT_FIXED_QUEUE_GROUP_METADATA_V1",
+  "status": "METADATA_ONLY_FUTURE_HANDOFF_NO_EXECUTION",
+  "created_utc": "2026-11-02T18:28:00.165333+00:00",
+  "selection_rule": "Original ACTION_QUEUE first remaining row after completed C001, C003, C005, C006, C007 and currently planned C004. Keep the singleton individual-profile route, independent of C004 values.",
+  "next_core_group": "C002",
+  "resolution_groups": [
+    "R002"
+  ],
+  "first_remaining_queue_index": 10,
+  "members": [
+    {
+      "queue_index": 10,
+      "candidate_id": "V2E2-0033",
+      "target": "HD106515A",
+      "discovery_dp_id": "ADP.2022-05-08T01:01:37.876",
+      "center_bary_air_angstrom": 3868.6025,
+      "resolution_group": "R002",
+      "current_code": "U",
+      "route": "INDIVIDUAL_PROFILE_CONTEXT",
+      "historical_raw_evidence": "Broad native structure in orders2/3; order3 raw enhancement is smooth and trace-centered, while order2 is noisy. No decisive charge deposit."
+    }
+  ],
+  "distinct_discovery_products": [
+    "ADP.2022-05-08T01:01:37.876"
+  ],
+  "distinct_discovery_product_count": 1,
+  "reference_dependency": "One fixed May 2022 discovery product among the same seven existing original-cohort HD106515A epochs; shared observing products add no new observing time.",
+  "existing_same_target_epochs": [
+    {
+      "dp_id": "ADP.2022-01-06T01:08:04.689",
+      "date_obs": "2022-01-05T07:04:47.115",
+      "mjd_obs": 59584.29498977,
+      "berv_km_s": 30.1380355615464,
+      "exptime": 899.9964,
+      "is_C002_discovery_product": false
+    },
+    {
+      "dp_id": "ADP.2022-03-08T01:01:37.342",
+      "date_obs": "2022-03-07T04:52:12.631",
+      "mjd_obs": 59645.20292398,
+      "berv_km_s": 10.77158288517,
+      "exptime": 899.9964,
+      "is_C002_discovery_product": false
+    },
+    {
+      "dp_id": "ADP.2022-05-08T01:01:37.876",
+      "date_obs": "2022-05-07T05:12:25.401",
+      "mjd_obs": 59706.21696067,
+      "berv_km_s": -18.8907517532076,
+      "exptime": 899.9965,
+      "is_C002_discovery_product": true
+    },
+    {
+      "dp_id": "ADP.2023-01-01T01:10:52.479",
+      "date_obs": "2022-12-31T07:26:25.382",
+      "mjd_obs": 59944.310016,
+      "berv_km_s": 30.3750612537025,
+      "exptime": 1799.9962,
+      "is_C002_discovery_product": false
+    },
+    {
+      "dp_id": "ADP.2023-03-23T01:02:04.831",
+      "date_obs": "2023-03-22T04:52:14.904",
+      "mjd_obs": 60025.20295028,
+      "berv_km_s": 3.26509772194068,
+      "exptime": 899.9962,
+      "is_C002_discovery_product": false
+    },
+    {
+      "dp_id": "ADP.2023-05-25T01:01:39.293",
+      "date_obs": "2023-05-24T03:32:27.955",
+      "mjd_obs": 60088.14754578,
+      "berv_km_s": -24.4076064506785,
+      "exptime": 899.9961,
+      "is_C002_discovery_product": false
+    },
+    {
+      "dp_id": "ADP.2023-07-05T01:02:00.053",
+      "date_obs": "2023-07-03T23:55:27.533",
+      "mjd_obs": 60128.99684645,
+      "berv_km_s": -29.2347518620376,
+      "exptime": 899.9962,
+      "is_C002_discovery_product": false
+    }
+  ],
+  "berv_min_km_s": -29.2347518620376,
+  "berv_max_km_s": 30.3750612537025,
+  "berv_span_km_s": 59.6098131157401,
+  "wavelength_dependency": {
+    "C002_center_bary_air_angstrom": 3868.6025,
+    "C002_original_core_bary_air_angstrom": [
+      3868.3525,
+      3868.8525
+    ],
+    "C003_center_bary_air_angstrom": 3869.75125,
+    "C003_window_bary_air_angstrom": [
+      3866.75125,
+      3872.75125
+    ],
+    "C002_core_offsets_from_C003_angstrom": [
+      -1.39875,
+      -0.89875
+    ],
+    "C002_core_entirely_inside_C003_surrounding_window": true,
+    "C002_core_overlaps_C003_core_or_flanks": false,
+    "C004_window_bary_air_angstrom": [
+      3869.245,
+      3875.245
+    ],
+    "C002_core_outside_C004_window": true,
+    "proposed_C002_window_bary_air_angstrom": [
+      3865.6025,
+      3871.6025
+    ],
+    "proposed_C002_C004_window_overlap_bary_air_angstrom": [
+      3869.245,
+      3871.6025
+    ],
+    "proposed_C002_C004_overlap_width_angstrom": 2.3575,
+    "interpretation": "C002 original core was already visible in completed C003 surrounding-spectrum window (between its core and negative flank), although it is outside the current C004 window. A future \u00b13 \u00c5 C002 context overlaps C003 and C004 windows and reuses all seven observing products. Queue selection before C004 values does not make subsequent interpretation blind, untouched or independent."
+  },
+  "new_array_reads": 0,
+  "new_queries": 0,
+  "labels_changed": 0,
+  "source_sha256": {
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/ACTION_QUEUE.csv": "d789d5ad03963cfe68c0e8d70d0e7e7c199599fb36a2ff2760426e8e69f7267b",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/EVENT_CONTEXT.csv": "2d8129e7963e2678035cf4b915c3c3503529b399d61fe6e8233484d0ee2321d7",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/CORE_OVERLAP_GROUPS.csv": "39cbcc225161abfb8a986fec91583dd3591806d589c7154171fb80d026b305ab",
+    "work_harps_20261101/v2/extension02/epoch_followup/ALL_EPOCH_MEASUREMENTS.csv": "de5b7175959ce7d25aec435d68def4b4e5d471292fd9de19c62ed17567b3f649",
+    "work_harps_20261101/v2/CURRENT_V2_DISPOSITIONS.csv": "f2bbb73b08ae7dc60b9387495a05d1d6e98ece7571eff9a979ae0b1af139a279",
+    "work_harps_20261102_c003_context/analysis/PLAN.json": "9aca980ede2261e4ca570740209c96e8c92e364f39fc56e55722d18de8cba47b"
+  }
+}
