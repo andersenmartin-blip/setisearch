@@ -1,0 +1,43 @@
+{
+  "status": "COMPLETE_FIXED_GROUP_CONTEXT",
+  "completed_utc": "2026-11-02T19:00:12.407586+00:00",
+  "group": "C002",
+  "target": "HD106515A",
+  "events": [
+    "V2E2-0033"
+  ],
+  "merged_epochs": 7,
+  "distinct_discovery_products": 1,
+  "discovery_records": 1,
+  "native_discovery_orders": 2,
+  "structurally_excluded_native_orders": 0,
+  "profile_slots": 18,
+  "comparison_slots": 36,
+  "identical_product_self_comparisons": 4,
+  "raw_only_normalization_slots": 2,
+  "blocked_source_profile_slots": 0,
+  "preserved_raw_context_panels": 2,
+  "group_center_bary_air_angstrom": 3868.6025,
+  "topocentric_anchor_air_angstrom": 3868.846286702511,
+  "anchor_berv_km_s": -18.8907517532076,
+  "old_epoch_pipeline_rerun": false,
+  "labels_changed": 0,
+  "origin_assignments": 0,
+  "release_sha256": "7a1a077bf7f6c7236869fde5d957a5aa448cd1b87460c6336602f819bb984691",
+  "plan_sha256": "3cfcc7ad2007357edb49c39320d33976d5348ea9a3f03b2d700f6bc4cb3e3efe",
+  "script_sha256": "f23907237b2ea3f45bed05d598ed6d1e95d70b60cddd09ae86c6cb90049d002d",
+  "limitations": [
+    "Post-detection context of one U record and seven reused original-cohort exposures; no new observing time, independent detection or archive-wide completeness. V2E2-0033 remains U.",
+    "The C002 original core was already visible in completed C003 surrounding spectrum, between its negative flank and core. Selection by original queue row 10 preceded C004 values but does not make subsequent interpretation blind or independent.",
+    "The C002 window overlaps C003 over 3866.75125\u20133871.6025 Angstrom (4.85125 Angstrom) and C004 over 3869.245\u20133871.6025 Angstrom (2.3575 Angstrom). Its original core lies outside the C004 window. All seven observing products are reused.",
+    "The sole fixed discovery reference is observed on 2022-05-07 with BERV -18.8907517532076 km/s. Use its anchor, not the earlier March or January anchors. The seven-epoch BERV span 59.6098131157401 km/s is coordinate separation, not calibrated origin discrimination.",
+    "The fixed topocentric core is not recentered on other features. A coherent center can leave the original \u00b10.25 Angstrom core; those comparisons may describe neighboring structure.",
+    "C003 original core union lies in C002 surroundings between its core and positive flank, not inside the reference flank. Retain every known neighboring structure. Fixed pooled medians are reference levels, not line-free continua. No fitted widths, centers, lags, RV, drift, background, masks or moved flanks.",
+    "Fresh 72-order header scan and original event centers determine both covering orders. Do not inherit C003/C004 order exclusions or flux quality. Covering the feature center need not provide both flanks, adequate common support or positive signed references.",
+    "Order 2 ends at fixed offsets +1.1609411974559407 Angstrom barycentric and +1.161014356180658 Angstrom topocentric. The whole positive reference flank is absent in both frames. At most 417 total grid centers and 366 surrounding centers have geometric support; retain raw-only normalization and the unchanged 440-sample surrounding Pearson gate. Core raw Pearson remains conditional on finite nonconstant support. This is missing coverage, not a measured nonpositive two-flank reference.",
+    "Order 2 retains historical local_mapping_usable=false and baseline_mapping_verified=false, alongside true global and later five-window diagnostics. Order 3 historical stages are true. Coordinate support and native/merged similarity cannot retroactively validate order 2 raw mapping.",
+    "Native BUNIT absent; native extracted units unspecified. Merged ADU and native scales differ; same-exposure extraction agreement is not independent confirmation or a physical flux ratio.",
+    "ERR coverage and descriptive first-difference proxies do not establish a formal uncertainty model, significance, physical linewidth, false-alarm rate, sensitivity or qualified null.",
+    "All previous extraction, mapping, raw panels, labels, epoch outputs and completed contexts remain unchanged."
+  ]
+}
