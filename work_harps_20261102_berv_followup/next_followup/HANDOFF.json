@@ -1,0 +1,167 @@
+{
+  "schema": "HARPS_NEXT_POSTHOC_QUALITY_CONTEXT_HANDOFF_V1",
+  "status": "PROVISIONAL_FUTURE_PHASE_ONLY_NO_FREEZE_OR_EXECUTION",
+  "this_task": {
+    "new_requests": 0,
+    "new_science_arrays_read": 0,
+    "classifier_changes": 0,
+    "current_scope_expansion": false
+  },
+  "completed_fixed_run": {
+    "status": "COMPLETE_FIXED_DESCRIPTIVE_COMPARISON",
+    "queue_events": 10,
+    "HD122640_events_measured": 6,
+    "HD135204_no_new_epoch_events": 4,
+    "new_archival_payloads": 2,
+    "event_epoch_pairs": 12,
+    "profiles": 24,
+    "all_results_retained": true,
+    "main_survey_exposures_unchanged": 300,
+    "current_V2_records": 669,
+    "current_codes": {
+      "U": 185,
+      "A": 403,
+      "O": 46,
+      "M": 35,
+      "N": 0
+    },
+    "pool_products": 18,
+    "used_pool_products": 2,
+    "unused_pool_products": 16
+  },
+  "known_result_context": {
+    "HD122640_verified_BERV_span_km_s": 40.3634787209574,
+    "HD135204_verified_BERV_span_km_s": 1.714121120020998,
+    "May_used_product": "ADP.2017-05-23T01:01:52.459",
+    "May_used_metadata_average_snr": 16.6,
+    "May_low_continuum_profiles": 10,
+    "May_total_profiles": 12,
+    "January_five_blue_barycentric_correlations_min": 0.9608552432996504,
+    "January_five_blue_barycentric_correlations_max": 0.9742630271689526,
+    "isolated_5548_event": "V2E2-0235",
+    "origin_assignment": "NONE; all 10 remain U"
+  },
+  "proposed_next_phase": {
+    "name": "POSTHOC_METADATA_QUALITY_FOLLOWUP",
+    "motivation": "The completed May2017 large-displacement reference was low-continuum in 10 of 12 profiles. This new quality-focused question is motivated after observing that result; it is explicitly posthoc, not an extension or replacement of the completed fixed two-epoch run.",
+    "deterministic_provisional_selection": "Among unused saved HD122640 metadata candidates observed in May2017, select highest finite positive ObsCore snr; tie lexicographically smallest dp_id. No line flux, local correlation or unseen spectrum is inspected for this choice.",
+    "candidate": {
+      "dp_id": "ADP.2017-05-21T01:01:50.278",
+      "target": "HD122640",
+      "source_file_ids": [
+        "HARPS.2017-05-20T02:21:45.847"
+      ],
+      "query_rows": 1,
+      "coordinate_separation_arcsec": 6.006006330459161,
+      "metadata": {
+        "dp_id": "ADP.2017-05-21T01:01:50.278",
+        "obs_publisher_did": "ivo://eso.org/ID?ADP.2017-05-21T01:01:50.278",
+        "obs_id": "7",
+        "target_name": "HD 122640",
+        "s_ra": 210.903904,
+        "s_dec": -27.00858,
+        "instrument_name": "HARPS",
+        "obs_collection": "HARPS",
+        "dataproduct_type": "spectrum",
+        "t_min": 57893.0984473,
+        "t_max": 57893.11233617,
+        "t_exptime": 1199.998,
+        "em_min": 3.78171e-07,
+        "em_max": 6.91259e-07,
+        "em_res_power": 115000.0,
+        "snr": 77.8,
+        "proposal_id": "099.C-0798(A)",
+        "n_obs": 1,
+        "multi_ob": "S",
+        "obs_release_date": "2018-05-20T02:51:30.117Z",
+        "access_url": "https://archive.eso.org/datalink/links?ID=ivo://eso.org/ID?ADP.2017-05-21T01:01:50.278",
+        "access_estsize": 5264,
+        "archive_id": "ADP.2017-05-21T01:01:50.278",
+        "eso_category": "SCIENCE.SPECTRUM",
+        "source_file": "HARPS.2017-05-20T02:21:45.847"
+      },
+      "status": "METADATA_CANDIDATE_PENDING_HEADER_IDENTITY_BERV",
+      "reasons": []
+    },
+    "metadata_inventory_row": {
+      "dp_id": "ADP.2017-05-21T01:01:50.278",
+      "target": "HD122640",
+      "raw_id": "HARPS.2017-05-20T02:21:45.847",
+      "observation_utc_from_mjd": "2017-05-20T02:21:45.846720+00:00",
+      "year": 2017,
+      "month": 5,
+      "metadata_average_snr": 77.8,
+      "exptime_seconds": 1199.998,
+      "public_release_utc": "2018-05-20T02:51:30.117Z",
+      "coordinate_separation_arcsec": 6.006006330459161,
+      "n_obs": 1,
+      "multi_ob": "S",
+      "used_in_completed_two_epoch_comparison": false,
+      "provisional_quality_followup": true
+    },
+    "pool_eligible_for_rule": 9,
+    "unused_May_snr_range": [
+      56.3,
+      77.8
+    ],
+    "SNR_definition": "ESO-specific field not present in the standard ObsCore. The average signal-to-noise ratio of a spectrum. Not applicable to other data product types.",
+    "SNR_limitation": "Average spectrum metadata SNR is neither local blue continuum quality nor a calibrated error or promised sensitivity gain. Higher average SNR does not guarantee useful 3866–3881 Angstrom profiles or repeatability. Candidate BERV, mode, units and array quality are not yet verified.",
+    "first_action_next_continue": "Prepare and independently review a new exact one-product header/optional-payload/comparison protocol; freeze and publish it prospectively before any new header or array access. This handoff itself is not that freeze.",
+    "provisional_bounds_to_freeze": {
+      "header_products_max": 1,
+      "header_attempts": 1,
+      "header_timeout_seconds": 30,
+      "header_response_bytes": 524288,
+      "payload_products_max": 1,
+      "payload_attempts": 1,
+      "payload_timeout_seconds": 60,
+      "payload_response_bytes": 16777216,
+      "retries": 0,
+      "redirects": 0,
+      "new_profiles_max": 12,
+      "new_full_spectrum_search": false
+    },
+    "header_then_payload_gate": "Use the already documented header route and inherited identity/provenance/mode/representation checks. Verify finite recorded BERV and its intended large displacement from each HD122640 discovery epoch before releasing an optional payload. Freeze the exact BERV benchmark prospectively; this is a quality-reference study, so extending the already known 40.36348 km/s range is not required. No candidate substitution after failure.",
+    "future_comparison_scope": "All six preserved HD122640 events, both inherited frames, one additional archival epoch: 12 slots. Include V2E2-0235 as well as all five blue records. Retain blocked/low-continuum outcomes and both completed references. Keep all ten queue IDs, including the four HD135204 no-new-epoch records.",
+    "method": "Reuse frozen centers, windows, normalization, background and descriptive metrics. Do not optimize shifts/widths, relabel, promote a detection, replace the low-quality reference or refit a classifier.",
+    "stop": "Any identity/representation/BERV/transfer failure is an explicit stopped or blocked future phase; no automatic next-best May candidate, new target query or iterative quality-selection loop."
+  },
+  "HD135204_route": "No eligible rows under the completed exact public/single-exposure/date/name-coordinate/provenance query. Four U remain; this is not proof of no other observations in the full archive. No additional query is proposed in this handoff.",
+  "do_not_repeat": {
+    "current_comparison": "Completed 24 profiles / 12 pairs; do not reopen or expand that fixed run.",
+    "mapping": {
+      "status": "COMPLETE_DESCRIPTIVE_ALL35_REMAIN_M",
+      "records": 35,
+      "exposures": 21,
+      "source": "work_harps_20261101/v2/extension02/mapping_followup_remaining_20261102/SUMMARY.json"
+    },
+    "normalization": {
+      "status": "COMPLETE_DESCRIPTIVE_NORMALIZATION_CONTEXT",
+      "events": [
+        "V2E2-0092",
+        "V2E2-0104"
+      ],
+      "source": "work_harps_20261101/v2/extension02/normalization_context_20261102/SUMMARY.json",
+      "finding": "All4 low profiles are a later reference epoch, neither discovery is low; positive scalar normalization alone cannot increase Pearson correlation."
+    },
+    "original_epoch_pipeline": "Original extension02 all336 comparison is complete:2185 pairs/4370 profiles. Do not rerun to recreate this metadata inventory.",
+    "Rubin": {
+      "source": "work_rubin_20261102/next_data_route/README.md",
+      "status": "STOPPED_AFTER_ONE_EMPTY_SEPTEMBER_REQUEST_AND_ONE_ACCOUNT_GATED_ALTERNATIVE",
+      "main_stars_used": 190,
+      "main_ceiling": 500,
+      "remaining_ceiling": 310,
+      "source_evaluable": 2,
+      "forced_evaluable_separate": 4,
+      "minimum50_met": false,
+      "new_requests_authorized_by_this_handoff": 0
+    },
+    "metadata_and_header_routes": "All original failures/amendments are preserved. Do not rerun previous queries, header batches or payload acquisition to obtain this handoff."
+  },
+  "files": {
+    "unused_pool": "UNUSED_METADATA_POOL.csv",
+    "queue": "PRESERVED_TEN_EVENT_QUEUE.csv",
+    "source_hashes": "SOURCE_HASHES.json",
+    "independent_metadata_check": "INDEPENDENT_CHECK.json"
+  }
+}

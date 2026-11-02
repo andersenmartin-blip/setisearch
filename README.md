@@ -1,3 +1,19 @@
+## Aktuel SETI-status — HARPS-opfølgning med større BERV-spænd afsluttet (2. november 2026)
+
+**To ekstra arkivspektre af HD122640 er hentet, bevaret og analyseret efter en offentliggjort metode.** De udvider spændet i Jordens barycentriske hastighedskorrektion (BERV) fra **2,24 til 40,36 km/s**. Alle 24 profiler for seks hændelsesposter er sammenlignet i begge referenceframes; en uafhængig beregning består med 29.712 numeriske sammenligninger.
+
+Fem blå poster ligner januarreferencen tydeligt, men netop denne observation ligger tæt på opdagelsesepokernes BERV. Majreferencen giver den store forskydning, men har meget lav lokal flux i de blå vinduer. Den større geometriske spændvidde giver derfor endnu ingen sikker ophavsbestemmelse. Posten ved 5548,09 Å har svag korrelation med begge ekstra epoker og er fortsat uafklaret. **Alle ti poster i den faste opfølgningskø bevarer U-status; fire på HD135204 mangler en ny egnet epoke under den afgrænsede forespørgsel.**
+
+Den afsluttede metadataundersøgelse fandt 18 nye HD122640-produkter. Blandt de 16 ubrugte er en majobservation med højere gennemsnitlig metadata-SNR udpeget som næste mulighed. Den kræver sin egen fastlagte kvalitetsopfølgning; gennemsnitlig SNR garanterer ikke bedre data i de blå vinduer.
+
+**Rubin er allerede fremrykket og gennemført til et afgrænset forstudie:** 190 hovedobjekter, men kun 2 numerisk vurderbare i hovedsporet og separat 4 i forced-sporet. Minimum 50 er ikke nået; intet kvalificeret nulresultat. HARPS-hovedprøven er uændret: 300 eksponeringer, 20 stjerner, 70,875 timer og 403 A / 46 O / 185 U / 35 M. De to nye spektre er målrettede sammenligninger og er ikke tilføjet som fulde spektrale søgninger.
+
+[**Fortsæt her**](CONTINUE_SETI.md) · [Ny HARPS-rapport og evidens](work_harps_20261102_berv_followup/README.md) · [Alle sammenligninger og figurer](work_harps_20261102_berv_followup/prospective_comparison/results/README.md) · [Næste konkrete opfølgning](work_harps_20261102_berv_followup/next_followup/README.md) · [Aktuel maskinlæsbar tilstand](work_harps_20261102_berv_followup/CONTINUATION_STATE.json)
+
+Ingen kvalificeret laserkandidat eller kalibreret nulresultat er etableret. Alle statusafsnit nedenfor er historiske. Ingen automatisk baggrundssøgning er konfigureret.
+
+---
+
 ## Aktuel SETI-status — Rubin-prøven og feltudvidelsen afsluttet (2. november 2026)
 
 **Rubin er fremrykket til 2.–8. november. Første prøve og en separat udvidelse er nu gennemført: 190 udvalgte Gaia-associerede objekter, 861 source-målinger og 130 forced-målinger.** Metode og udvælgelse blev publiceret og kontrolleret før begge hovedkørsler.

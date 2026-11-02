@@ -1,6 +1,6 @@
 # Gendannelse og fortsættelse af HARPS-arbejdet
 
-Start i [CONTINUE_SETI.md](../../CONTINUE_SETI.md) og [aktuel maskinlæsbar tilstand](../../work_seti_20261102_accelerated/CONTINUATION_STATE.json). Hent seneste GitHub og sammenlign kildehashes. Branch: `optical-harps-week-20261101`; fortsættelsespunktet spejles på `main`.
+Start i [CONTINUE_SETI.md](../../CONTINUE_SETI.md) og [aktuel maskinlæsbar tilstand](../../work_harps_20261102_berv_followup/CONTINUATION_STATE.json). Hent seneste GitHub og sammenlign kildehashes. Branch: `optical-harps-week-20261101`; fortsættelsespunktet spejles på `main`.
 
 Alle 669 V2-poster har første råbilledgennemgang: **403 A / 46 O / 185 U / 35 M / 0 N**. Ældre 333: uændret 209 A / 25 O / 95 U / 4 M. Nye 336: 194 A / 21 O / 90 U / 31 M. Batch05 ændrer kun V2E2-0332 og V2E2-0333 fra N til foreløbig A; øvrige 667 poster bevares. Gennemgang er ikke sikker ophavsbestemmelse.
 
@@ -13,6 +13,14 @@ Hovedprøven er fortsat 300 eksponeringer af 20 stjerner, 70.874650833 timer. V1
 [De 90 nye U-poster](extension02/unresolved_context_20261102/README.md) har en udtømmende opfølgningskø og grupper af overlappende profiler. Ældre 95 U-poster er bevaret uden ny gruppering. Gruppetal er ikke uafhængige signaler. Epokekontrollen er afsluttet: 2.185 par og 4.370 profiler.
 
 Rubin er fremrykket til 2.–8. november. [Første hovedanalyse](../../work_rubin_20261102/main_analysis/README.md) er afsluttet med 188 udvalgte objekter, men kun 2 numerisk vurderbare i hovedsporet og separat 3 i forced-sporet. Minimum 50 er ikke opfyldt. Ingen tærskelpasserende måling og intet kvalificeret nulresultat. Den efterfølgende metadata/Gaia-udvidelse er også gennemført helt til analyse. Samlet Rubin-status er 190 udvalgte objekter, 2 numerisk vurderbare i hovedsporet og separat 4 i forced-sporet. Brug det fælles fortsættelsespunkt til næste afgrænsede datamulighed.
+
+## Afsluttet bredere HARPS BERV-opfølgning
+
+[Den nye opfølgning](../../work_harps_20261102_berv_followup/README.md) har to nye HD122640-spektre og 24 profiler. De ti udvalgte hændelser bevarer U-status. Den afsluttede kørsel og dens engangsguards må ikke genstartes som ny forskning.
+
+Fra repository-roden gendanner `python3 work_harps_20261102_berv_followup/science_acquisition/restore_inputs.py` begge præcise FITS-filer fra fire gemte arkivdele. `python3 work_harps_20261102_berv_followup/prospective_comparison/restore_profile_evidence.py` gendanner 20 oprindelige referenceprofiler og 24 nye sammenligningsprofiler fra det samlede profilarkiv. Begge hjælpekoder kontrollerer SHA-256 og overskriver ikke afvigende filer. Originaldata kræver ingen ny ESO-hentning. Reproduktion skal ske i en separat kopi, så tidsstempler, resultater og engangsguards i den publicerede kørsel bevares.
+
+Næste trin står i [den nye overdragelse](../../work_harps_20261102_berv_followup/next_followup/README.md): en særskilt, prospektivt fastlagt kvalitetsopfølgning på en ubrugt majreference. Den er endnu ikke udført.
 
 ## Input og reproduktion
 
