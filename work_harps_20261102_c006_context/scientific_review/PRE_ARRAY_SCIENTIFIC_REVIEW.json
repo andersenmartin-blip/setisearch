@@ -1,0 +1,215 @@
+{
+  "schema": "HARPS_C006_PROSPECTIVE_SCIENTIFIC_REVIEW_V1",
+  "status": "PASS_FIXED_DESCRIPTIVE_PROTOCOL_EXACT_IMPLEMENTATION_REVIEW_TO_FOLLOW",
+  "reviewed_utc": "2026-11-02T17:07:09.689571+00:00",
+  "observational_array_values_read_for_new_phase": false,
+  "network_requests": 0,
+  "historical_files_modified": false,
+  "group": "C006",
+  "resolution_groups": [
+    "R006",
+    "R007"
+  ],
+  "target": "HD106515A",
+  "events": {
+    "V2E2-0025": "ADP.2022-01-06T01:08:04.689",
+    "V2E2-0042": "ADP.2023-01-01T01:10:52.479",
+    "V2E2-0043": "ADP.2023-01-01T01:10:52.479"
+  },
+  "purpose": "One joint comparison of the complete three-record neighboring-feature group across all seven existing epochs, both fixed frames and two unique discovery references. All three catalog identities and raw panels remain; shared products are deduplicated. No origin classifier or new detection search.",
+  "fixed_geometry": {
+    "center_bary_air_angstrom": 4310.455,
+    "core_halfwidth_angstrom": 0.4,
+    "core_basis": "Catalog extrema 4310.305–4310.605 Å expanded by the three original ±0.25 Å cores give continuous union [4310.055,4310.855] Å. Midpoint 4310.455 Å and halfwidth 0.400 Å are metadata-defined, not fitted widths.",
+    "grid": "601 centers from −3 to +3 Å by 0.01 Å; 81 core centers from −0.4 to +0.4 and 520 surrounding centers.",
+    "common_support_core_minimum": 65,
+    "common_support_surrounding_minimum": 416,
+    "anchor_berv_km_s": 30.1380355615464,
+    "fixed_topocentric_anchor_air_angstrom": 4310.021714958131
+  },
+  "scope_counts": {
+    "merged_epochs": 7,
+    "catalog_records": 3,
+    "distinct_discovery_references": 2,
+    "measured_native_order_exposure_combinations": 2,
+    "structural_exclusions": 0,
+    "preserved_event_raw_panels": 3,
+    "merged_profiles": 14,
+    "native_profiles": 4,
+    "all_profiles": 18,
+    "merged_comparison_records": 56,
+    "native_comparison_records": 8,
+    "all_comparison_records": 64,
+    "identical_product_self_records": 8
+  },
+  "header_only_coverage_checks": [
+    {
+      "dp_id": "ADP.2022-01-06T01:08:04.689",
+      "events": [
+        "V2E2-0025"
+      ],
+      "order": 19,
+      "header_endpoint_topocentric_air_angstrom": [
+        4285.09765984656,
+        4333.250317231099
+      ],
+      "barycentric_frame_window_inside_header_endpoints": true,
+      "topocentric_frame_window_inside_header_endpoints": true
+    },
+    {
+      "dp_id": "ADP.2023-01-01T01:10:52.479",
+      "events": [
+        "V2E2-0042",
+        "V2E2-0043"
+      ],
+      "order": 19,
+      "header_endpoint_topocentric_air_angstrom": [
+        4285.09520889465,
+        4333.248689049508
+      ],
+      "barycentric_frame_window_inside_header_endpoints": true,
+      "topocentric_frame_window_inside_header_endpoints": true
+    }
+  ],
+  "coverage_interpretation": "Fresh scan covers all 72 orders in each of two unique native products. Only order 19 covers these original centers; both nominal ±3 Å frame windows lie inside its header endpoints. This is coordinate support, not a flux/quality guarantee. Finite-sample, gap and normalization failures must remain explicit.",
+  "reference_dependence": "0042 and 0043 are different catalog locations in the same observation. Two native order 19 profiles per frame are measured, not three. Their three historical raw panels overlap and preserve record provenance; none supplies an independent exposure or independent pixel sample.",
+  "frame_caveat": "One first-discovery topocentric anchor is fixed for all references. Barycentric-coherent feature positions shift with epoch BERV, so fixed topocentric core comparisons may sample neighboring structure and cannot be called re-centered measurements of each feature. A joint-window Pearson value does not validate each of the three neighboring features independently.",
+  "metadata_expected_feature_locations": [
+    {
+      "dp_id": "ADP.2022-01-06T01:08:04.689",
+      "date_obs": "2022-01-05T07:04:47.115",
+      "berv_km_s": 30.1380355615464,
+      "expected_group_center_topocentric_air_angstrom": 4310.021714958131,
+      "expected_group_center_offset_from_fixed_anchor_angstrom": 0.0,
+      "expected_group_midpoint_inside_fixed_core": true,
+      "expected_catalog_feature_offsets_from_fixed_anchor_angstrom": {
+        "V2E2-0025": 0.12998693245754112,
+        "V2E2-0042": -0.14998492206632363,
+        "V2E2-0043": 0.14998492206541414
+      }
+    },
+    {
+      "dp_id": "ADP.2022-03-08T01:01:37.342",
+      "date_obs": "2022-03-07T04:52:12.631",
+      "berv_km_s": 10.77158288517,
+      "expected_group_center_topocentric_air_angstrom": 4310.300130343092,
+      "expected_group_center_offset_from_fixed_anchor_angstrom": 0.27841538496068097,
+      "expected_group_midpoint_inside_fixed_core": true,
+      "expected_catalog_feature_offsets_from_fixed_anchor_angstrom": {
+        "V2E2-0025": 0.4084107142116409,
+        "V2E2-0042": 0.12842077428649645,
+        "V2E2-0043": 0.428409995633956
+      }
+    },
+    {
+      "dp_id": "ADP.2022-05-08T01:01:37.876",
+      "date_obs": "2022-05-07T05:12:25.401",
+      "berv_km_s": -18.8907517532076,
+      "expected_group_center_topocentric_air_angstrom": 4310.726630804863,
+      "expected_group_center_offset_from_fixed_anchor_angstrom": 0.7049158467316374,
+      "expected_group_midpoint_inside_fixed_core": false,
+      "expected_catalog_feature_offsets_from_fixed_anchor_angstrom": {
+        "V2E2-0025": 0.8349240389079569,
+        "V2E2-0042": 0.5549063942207795,
+        "V2E2-0043": 0.8549252992424954
+      }
+    },
+    {
+      "dp_id": "ADP.2023-01-01T01:10:52.479",
+      "date_obs": "2022-12-31T07:26:25.382",
+      "berv_km_s": 30.3750612537025,
+      "expected_group_center_topocentric_air_angstrom": 4310.018307659662,
+      "expected_group_center_offset_from_fixed_anchor_angstrom": -0.0034072984690283192,
+      "expected_group_midpoint_inside_fixed_core": true,
+      "expected_catalog_feature_offsets_from_fixed_anchor_angstrom": {
+        "V2E2-0025": 0.12657953122652543,
+        "V2E2-0042": -0.15339210196452768,
+        "V2E2-0043": 0.14657750502556155
+      }
+    },
+    {
+      "dp_id": "ADP.2023-03-23T01:02:04.831",
+      "date_obs": "2023-03-22T04:52:14.904",
+      "berv_km_s": 3.26509772194068,
+      "expected_group_center_topocentric_air_angstrom": 4310.408054511066,
+      "expected_group_center_offset_from_fixed_anchor_angstrom": 0.3863395529351692,
+      "expected_group_midpoint_inside_fixed_core": true,
+      "expected_catalog_feature_offsets_from_fixed_anchor_angstrom": {
+        "V2E2-0025": 0.5163381370948628,
+        "V2E2-0042": 0.23634118659538217,
+        "V2E2-0043": 0.5363379192731372
+      }
+    },
+    {
+      "dp_id": "ADP.2023-05-25T01:01:39.293",
+      "date_obs": "2023-05-24T03:32:27.955",
+      "berv_km_s": -24.4076064506785,
+      "expected_group_center_topocentric_air_angstrom": 4310.805964317662,
+      "expected_group_center_offset_from_fixed_anchor_angstrom": 0.7842493595308042,
+      "expected_group_midpoint_inside_fixed_core": false,
+      "expected_catalog_feature_offsets_from_fixed_anchor_angstrom": {
+        "V2E2-0025": 0.9142599443448489,
+        "V2E2-0042": 0.6342371462842493,
+        "V2E2-0043": 0.9342615727764496
+      }
+    },
+    {
+      "dp_id": "ADP.2023-07-05T01:02:00.053",
+      "date_obs": "2023-07-03T23:55:27.533",
+      "berv_km_s": -29.2347518620376,
+      "expected_group_center_topocentric_air_angstrom": 4310.8753820634565,
+      "expected_group_center_offset_from_fixed_anchor_angstrom": 0.8536671053252576,
+      "expected_group_midpoint_inside_fixed_core": false,
+      "expected_catalog_feature_offsets_from_fixed_anchor_angstrom": {
+        "V2E2-0025": 0.9836797837242557,
+        "V2E2-0042": 0.7036524764025671,
+        "V2E2-0043": 1.0036817342470385
+      }
+    }
+  ],
+  "normalization": "Signed native-sample pooled median over 1.5 ≤ |offset| ≤ 3 Å with at least 20 finite samples on each flank and positive reference. Keep invalid raw-only outcomes and reasons; no clipping, sign flip, window shrinkage, extrapolation or fitted baseline. The flanks are structured reference levels, not established quiet continuum. In particular the next queued C007 center/core lies entirely in the positive flank.",
+  "statistics": "Unshifted raw Pearson and normalized RMS retain fixed common-support gates, no lag, linewidth, stellar RV, origin threshold or free parameter. Positive scalar normalization leaves Pearson invariant. Missing ERR and first-difference noise proxies cannot support calibrated significance.",
+  "historical_mapping_caveats": [
+    {
+      "candidate_id": "V2E2-0025",
+      "original_grid_mapping_usable": true,
+      "original_local_mapping_usable": false,
+      "original_baseline_mapping_verified": false,
+      "final_reference_mapping_supported": true,
+      "registration_changed": false
+    },
+    {
+      "candidate_id": "V2E2-0042",
+      "original_grid_mapping_usable": true,
+      "original_local_mapping_usable": true,
+      "original_baseline_mapping_verified": true,
+      "final_reference_mapping_supported": true,
+      "registration_changed": false
+    },
+    {
+      "candidate_id": "V2E2-0043",
+      "original_grid_mapping_usable": true,
+      "original_local_mapping_usable": true,
+      "original_baseline_mapping_verified": true,
+      "final_reference_mapping_supported": true,
+      "registration_changed": false
+    }
+  ],
+  "raw_and_native_limits": [
+    "0025 initial local mapping and initial baseline mapping were false, while global and later fixed reference-window mapping support were true. Preserve both stages; no new registration or blanket historical all-true claim.",
+    "0042 retains its separate off-trace feature away from the core; 0043 remains a separate catalog record although the two share an observation.",
+    "Merged and native products share extraction and photons; agreement is not independent observing confirmation. Native BUNIT is absent; merged ADU is uncalibrated. No calibrated physical flux comparison.",
+    "All seven target epochs are shared with completed C003/C005. Distinct wavelength context adds no independent observing time. The two C006 discovery BERV values differ by only about 0.237 km/s; the other five epochs supply the larger span.",
+    "Catalog center span of 0.300 Å is about eight nominal resolution elements, not a measured width or proof of one physical emitter.",
+    "All three U labels remain unchanged; broad spectral morphology alone does not establish physical origin, a qualified laser candidate or a calibrated null."
+  ],
+  "next_group_fixed_before_results": "NEXT_GROUP_METADATA.json fixes C007 / V2E2-0026 at original queue row 6. Its 4312.700 Å center and ±0.25 Å core lie in C006 broader window and positive reference flank. Subsequent interpretation must acknowledge already-seen overlapping flux, even though queue selection predates results.",
+  "source_sha256": {
+    "work_harps_20261102_c006_context/inputs/INPUT_INVENTORY.json": "8cfaa7ec00fe08600213ff385175c1a0cd113ca0352f140eaebbaa793086a0af",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/ACTION_QUEUE.csv": "d789d5ad03963cfe68c0e8d70d0e7e7c199599fb36a2ff2760426e8e69f7267b",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/EVENT_CONTEXT.csv": "2d8129e7963e2678035cf4b915c3c3503529b399d61fe6e8233484d0ee2321d7",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/CORE_OVERLAP_GROUPS.csv": "39cbcc225161abfb8a986fec91583dd3591806d589c7154171fb80d026b305ab",
+    "work_harps_20261101/v2/extension02/epoch_followup/ALL_EPOCH_MEASUREMENTS.csv": "de5b7175959ce7d25aec435d68def4b4e5d471292fd9de19c62ed17567b3f649",
+    "work_harps_20261101/v2/CURRENT_V2_DISPOSITIONS.csv": "f2bbb73b08ae7dc60b9387495a05d1d6e98ece7571eff9a979ae0b1af139a279"
+  }
+}

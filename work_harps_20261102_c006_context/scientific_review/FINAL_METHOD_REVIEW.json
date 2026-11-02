@@ -1,0 +1,53 @@
+{
+  "schema": "HARPS_C006_FINAL_SCIENTIFIC_METHOD_REVIEW_V1",
+  "status": "PASS_SOURCE_ONLY_BEFORE_ARRAY_RELEASE",
+  "reviewed_utc": "2026-11-02T17:11:03.074862+00:00",
+  "plan_sha256": "fbb1334412e103c9991fac9681a71a5d0c6cf5f5acdab08dbf17825567fa0039",
+  "script_sha256": "135c90463764a86fb780bd85fa6f43d18db7d716fdd82d2986c8444011802bf0",
+  "plot_script_sha256": "d94f4d9cdc96d53d4eed9daf26e0c6e4b260636b4f4963190e3d2fbfcb87836c",
+  "inventory_sha256": "8cfaa7ec00fe08600213ff385175c1a0cd113ca0352f140eaebbaa793086a0af",
+  "bound_source_hashes_verified": 43,
+  "failed_source_hashes": [],
+  "scope_checks": [
+    "Three C006 catalog records 0025/0042/0043, all seven existing target epochs, and exactly two unique discovery product references. Same-exposure 0042/0043 do not duplicate a native profile or reference.",
+    "Catalog center 4310.455 Å, union core halfwidth 0.400 Å, 81 core/520 surrounding grid centers and minimum common support 65/416 are fixed before values. No fitted widths.",
+    "All three catalog markers and R006/R007 identities appear in the merged displays. Topocentric markers use respective discovery coordinates, while the whole frame remains anchored to first-discovery BERV.",
+    "Two unique native order 19 contexts, three preserved raw panels, zero structural exclusions, 18 profiles, 64 comparisons, and 8 explicit identical-product self-comparisons.",
+    "Same fixed signed-flux interpolation, gap masking, pooled two-sided reference, positive/count gates, raw Pearson and normalized RMS as C005. All scientific sampling/profile/comparison functions are AST-identical.",
+    "Both native windows have full coordinate endpoint coverage. New flux validity and normalization remain runtime questions; raw-only or blocked outcomes are retained.",
+    "Historical 0025 initial local/baseline mapping failures remain explicit alongside global and later reference support. No new mapping promotion. Separate 0042 off-trace feature is retained.",
+    "Fixed topocentric core can miss individual centers even when the joint midpoint remains inside; pre-array review stores per-feature/per-epoch offsets. No feature-wise origin inference from a joint correlation.",
+    "C007 center and original core overlap the C006 positive reference flank. This known structured neighbor stays unmasked. Future C007 selection is fixed from the queue, but future interpretation cannot claim untouched flux or independent evidence.",
+    "No free shift, width, RV, continuum, background or drift fit; no origin threshold, original pipeline rerun or label change. Native BUNIT missing; merged ADU and first-difference proxies cannot provide calibrated significance."
+  ],
+  "unchanged_C005_functions_by_AST": [
+    "sha",
+    "read",
+    "dump",
+    "location",
+    "value",
+    "normalized_name",
+    "sampling_parameters",
+    "profile",
+    "comparison",
+    "write_csv"
+  ],
+  "changed_C005_functions_by_AST": [
+    "validate",
+    "inspect_headers",
+    "main"
+  ],
+  "implementation_delta_summary": "Source-reviewed changes are group constants/masks, event/product deduplication, scope validation, header-selected order 19 coefficients, native order selection, exact slot assertions and summary identity. Numerical functions are unchanged. Plot changes retain all three event markers, both unique native products and all three overlapping raw histories.",
+  "scientific_caveats_reference": "scientific_review/PRE_ARRAY_SCIENTIFIC_REVIEW.json",
+  "scientific_caveats_sha256": "c614c1f4390b580307f8bf3db8a91306c7690a196c28dfe0daab3eebf7799203",
+  "future_queue_metadata_reference": "scientific_review/NEXT_GROUP_METADATA.json",
+  "future_queue_metadata_sha256": "92a354e5c6243059ade725dea368682d44ea73750f8ca486847b4245f04900f8",
+  "production_module_imported": false,
+  "production_executed": false,
+  "observational_array_values_read_for_new_phase": false,
+  "source_hashing_only_may_read_file_bytes": true,
+  "network_requests": 0,
+  "release_present_at_review": false,
+  "results_present_at_review": false,
+  "labels_modified": false
+}
