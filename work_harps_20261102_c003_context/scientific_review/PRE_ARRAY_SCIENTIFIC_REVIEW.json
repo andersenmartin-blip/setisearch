@@ -1,0 +1,167 @@
+{
+  "schema": "HARPS_C003_PROSPECTIVE_SCIENTIFIC_REVIEW_V1",
+  "status": "PASS_FIXED_DESCRIPTIVE_PROTOCOL_EXACT_IMPLEMENTATION_REVIEW_TO_FOLLOW",
+  "reviewed_utc": "2026-11-02T14:47:07.935927+00:00",
+  "observational_array_values_read_for_new_phase": false,
+  "network_requests": 0,
+  "historical_files_modified": false,
+  "group": "C003",
+  "resolution_group": "R003",
+  "target": "HD106515A",
+  "events": [
+    "V2E2-0022",
+    "V2E2-0027",
+    "V2E2-0044",
+    "V2E2-0051",
+    "V2E2-0053"
+  ],
+  "purpose": "Joint central-versus-surrounding spectral context across all seven existing cohort epochs, both fixed frames, all five discovery references and every historical covering native order; no classifier or origin assignment.",
+  "fixed_geometry": {
+    "center_bary_air_angstrom": 3869.75125,
+    "core_halfwidth_angstrom": 0.25625,
+    "core_basis": "Union of five historical +/-0.25 A cores: catalog extrema 3869.7450 and 3869.7575 A, centered at their midpoint. No fitted width.",
+    "grid": "601 points -3 to +3 A in 0.01 A steps",
+    "actual_core_grid_samples": 51,
+    "actual_core_grid_endpoints": [
+      -0.25,
+      0.25
+    ],
+    "broad_pattern_grid_samples": 550,
+    "minimum_common_core_samples": 41,
+    "minimum_common_broad_samples": 440,
+    "first_discovery_anchor_berv_km_s": 30.1380355615464,
+    "fixed_topocentric_anchor_air_angstrom": 3869.3622643053627
+  },
+  "order_inventory_decision": {
+    "metadata_combinations": 10,
+    "historically_covering_measured_combinations": 8,
+    "structural_not_covering_line_exclusions": 2,
+    "excluded": "V2E2-0051 and V2E2-0053 order2",
+    "coverage_basis": "Exact original individual event topocentric center and native FITS-header endpoint pair; distinct from common groupcenter and fixed plotting anchor.",
+    "preserved_raw_panels": 8,
+    "no_profiles_or_invented_raw_panels_for_excluded_orders": true,
+    "not_mapping_failures": true
+  },
+  "expected_slots": {
+    "merged_profiles": 14,
+    "native_profiles": 16,
+    "total_profiles": 30,
+    "merged_reference_frame_region_comparisons": 140,
+    "native_same_exposure_frame_region_comparisons": 32,
+    "total_comparisons": 172,
+    "identical_product_self_records": 20
+  },
+  "normalization_and_support": "Retain signed flux. Fixed pooled native-sample flank median, 1.5<=|offset|<=3 A, requires >=20 finite native samples separately on both sides and positive pooled median. Missing/nonpositive references stay raw-only. Preserve native gaps/outside coverage; no clipping, absolute normalization, extrapolation or smaller-window fallback. No fitted background.",
+  "prospective_header_coverage_caveat": "The three selected order2 exposures cover their event center but their upper wavelength edges preclude the full positive normalization flank. They must retain missing-right-flank outcomes where confirmed by fixed sampling. This differs from C001 order3 missing-left-flank context. Order3 header coverage is broad enough; no flux-quality outcome is assumed.",
+  "frame_interpretation": "The first catalog discovery fixes the topocentric plotting center for every epoch and every reference. Each exposure has a different expected topocentric location for a barycentric-coherent feature. At this BERV span the feature can leave the fixed core; a later-reference topocentric core then describes the fixed anchor neighborhood, not that exposure's own feature center. Report both frames/all references and surrounding pattern without recentering or treating one whole-core correlation as a physical-origin test.",
+  "metadata_expected_feature_locations": [
+    {
+      "dp_id": "ADP.2022-01-06T01:08:04.689",
+      "observation_date_utc": "2022-01-05T07:04:47.115",
+      "berv_km_s": 30.1380355615464,
+      "expected_topocentric_group_center_air_angstrom": 3869.3622643053627,
+      "group_center_offset_from_fixed_anchor_angstrom": 0.0,
+      "expected_group_center_inside_fixed_topocentric_core": true,
+      "source": "Metadata wavelength conversion only; no measured new feature center."
+    },
+    {
+      "dp_id": "ADP.2022-03-08T01:01:37.342",
+      "observation_date_utc": "2022-03-07T04:52:12.631",
+      "berv_km_s": 10.77158288517,
+      "expected_topocentric_group_center_air_angstrom": 3869.6122143185216,
+      "group_center_offset_from_fixed_anchor_angstrom": 0.24995001315892296,
+      "expected_group_center_inside_fixed_topocentric_core": true,
+      "source": "Metadata wavelength conversion only; no measured new feature center."
+    },
+    {
+      "dp_id": "ADP.2022-05-08T01:01:37.876",
+      "observation_date_utc": "2022-05-07T05:12:25.401",
+      "berv_km_s": -18.8907517532076,
+      "expected_topocentric_group_center_air_angstrom": 3869.9951090929862,
+      "group_center_offset_from_fixed_anchor_angstrom": 0.6328447876235259,
+      "expected_group_center_inside_fixed_topocentric_core": false,
+      "source": "Metadata wavelength conversion only; no measured new feature center."
+    },
+    {
+      "dp_id": "ADP.2023-01-01T01:10:52.479",
+      "observation_date_utc": "2022-12-31T07:26:25.382",
+      "berv_km_s": 30.3750612537025,
+      "expected_topocentric_group_center_air_angstrom": 3869.3592053713264,
+      "group_center_offset_from_fixed_anchor_angstrom": -0.003058934036289429,
+      "expected_group_center_inside_fixed_topocentric_core": true,
+      "source": "Metadata wavelength conversion only; no measured new feature center."
+    },
+    {
+      "dp_id": "ADP.2023-03-23T01:02:04.831",
+      "observation_date_utc": "2023-03-22T04:52:14.904",
+      "berv_km_s": 3.26509772194068,
+      "expected_topocentric_group_center_air_angstrom": 3869.709104248685,
+      "group_center_offset_from_fixed_anchor_angstrom": 0.34683994332226575,
+      "expected_group_center_inside_fixed_topocentric_core": false,
+      "source": "Metadata wavelength conversion only; no measured new feature center."
+    },
+    {
+      "dp_id": "ADP.2023-05-25T01:01:39.293",
+      "observation_date_utc": "2023-05-24T03:32:27.955",
+      "berv_km_s": -24.4076064506785,
+      "expected_topocentric_group_center_air_angstrom": 3870.066331495336,
+      "group_center_offset_from_fixed_anchor_angstrom": 0.7040671899731024,
+      "expected_group_center_inside_fixed_topocentric_core": false,
+      "source": "Metadata wavelength conversion only; no measured new feature center."
+    },
+    {
+      "dp_id": "ADP.2023-07-05T01:02:00.053",
+      "observation_date_utc": "2023-07-03T23:55:27.533",
+      "berv_km_s": -29.2347518620376,
+      "expected_topocentric_group_center_air_angstrom": 3870.1286519252117,
+      "group_center_offset_from_fixed_anchor_angstrom": 0.7663876198489561,
+      "expected_group_center_inside_fixed_topocentric_core": false,
+      "source": "Metadata wavelength conversion only; no measured new feature center."
+    }
+  ],
+  "limits": [
+    "59.6098131157401 km/s BERV span is 22.866247383415203 nominal R=115000 elements, descriptive geometry rather than validated discrimination power.",
+    "Five nearby catalog records overlap and share seven exposures; neither reference-comparison counts nor native/merged shared-exposure agreement are independent detection counts.",
+    "Native units are unspecified and merged units are ADU; no calibrated cross-product flux ratio.",
+    "Flank medians sample structured spectra, not established quiet continuum. Positive scalar normalization alone cannot alter Pearson correlation.",
+    "Noise proxy, incomplete ERR support, interpolation and shared data preclude calibrated significance or origin attribution.",
+    "Preserve every blocked/low/coverage outcome and old mapping labels. No new lag, center, stellar-RV, free-width or continuum fit."
+  ],
+  "next_original_queue_group_metadata_only": {
+    "group": "C005",
+    "resolution_group": "R005",
+    "target": "HD106515A",
+    "first_remaining_queue_row_after_C001_C003": 4,
+    "members": [
+      "V2E2-0023",
+      "V2E2-0029",
+      "V2E2-0035",
+      "V2E2-0046",
+      "V2E2-0054"
+    ],
+    "queue_rows": [
+      4,
+      9,
+      11,
+      16,
+      22
+    ],
+    "center_range_bary_air_angstrom": [
+      3882.035,
+      3882.04
+    ],
+    "same_target_existing_epochs": 7,
+    "berv_span_km_s": 59.6098131157401,
+    "outside_current_plusminus3A_window": true,
+    "shared_epoch_dependency_remains": true,
+    "status": "Future handoff only; no analysis, execution or origin assignment."
+  },
+  "source_sha256": {
+    "work_harps_20261102_c003_context/inputs/INPUT_INVENTORY.json": "05548c32e4d8a20c16fe0e8549c83365b6dd74bcb38814faafde49a3717d77ca",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/ACTION_QUEUE.csv": "d789d5ad03963cfe68c0e8d70d0e7e7c199599fb36a2ff2760426e8e69f7267b",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/EVENT_CONTEXT.csv": "2d8129e7963e2678035cf4b915c3c3503529b399d61fe6e8233484d0ee2321d7",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/CORE_OVERLAP_GROUPS.csv": "39cbcc225161abfb8a986fec91583dd3591806d589c7154171fb80d026b305ab",
+    "work_harps_20261101/v2/extension02/epoch_followup/ALL_EPOCH_MEASUREMENTS.csv": "de5b7175959ce7d25aec435d68def4b4e5d471292fd9de19c62ed17567b3f649",
+    "work_harps_20261101/v2/CURRENT_V2_DISPOSITIONS.csv": "f2bbb73b08ae7dc60b9387495a05d1d6e98ece7571eff9a979ae0b1af139a279"
+  }
+}
