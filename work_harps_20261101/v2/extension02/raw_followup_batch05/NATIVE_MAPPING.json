@@ -1,0 +1,112 @@
+{
+  "created_utc": "2026-11-02T07:30:38.111696+00:00",
+  "spectra": [
+    {
+      "dp_id": "ADP.2023-07-07T01:08:58.252",
+      "status": "REGISTERED",
+      "raw_sha256": "e4cccf8331ecd0a9166dc31d4535e9039646f04391b50095b9657c43b5a3cae7",
+      "ancillary_sha256": "ee9a650f2abc27881a1962a7904a62e6adbcb1452c86bd096d5502adc779dbe4",
+      "date_obs": "2023-07-06T04:02:59.524",
+      "berv_km_s": -20.4341462340943,
+      "native_member": "data/reduced/2023-07-05/HARPS.2023-07-06T04:02:59.524_e2ds_A.fits",
+      "reference_grid": "reference/ADP.2023-07-07T01_08_58.252.json",
+      "grid_best": {
+        "row_flip": true,
+        "column_flip": false,
+        "argument_flip": true,
+        "median_correlation": 0.997088293341942,
+        "min_correlation": 0.704824993205665,
+        "max_correlation": 0.9993925890678468,
+        "regions_above_original_0p8_threshold": 23,
+        "valid_regions": 24,
+        "valid_orders": 6,
+        "median_abs_continuum_peak_offset": 0.0,
+        "max_abs_continuum_peak_offset": 0,
+        "regions_peak_within_one_pixel": 24
+      },
+      "covering_order_count": 2,
+      "five_window_supported_orders": 2
+    }
+  ],
+  "orders": [
+    {
+      "review_id": "V2E2-0332",
+      "detector": "V2",
+      "dp_id": "ADP.2023-07-07T01:08:58.252",
+      "target": "HD141937",
+      "order": 64,
+      "native_pixel": 2691,
+      "topocentric_air_angstrom": 6387.115352009812,
+      "native_nearest_wave_angstrom": 6387.114268016526,
+      "raw_row": 1404,
+      "raw_column": 3385.3345099738335,
+      "grid_mapping_usable": true,
+      "local_mapping_usable": true,
+      "baseline_mapping_verified": true,
+      "five_window_mapping_supported": true,
+      "reference_correlation": 0.997088293341942,
+      "origin_status": "UNREVIEWED",
+      "status": "EXTRACTED",
+      "cutout": "native/V2E2-0332_o64.npz",
+      "cutout_sha256": "9c4583da31fc02c69ab64b9909d88cbb55731518de09f53edf6450d5a59154b6",
+      "mapping_verified": true
+    },
+    {
+      "review_id": "V2E2-0333",
+      "detector": "V2",
+      "dp_id": "ADP.2023-07-07T01:08:58.252",
+      "target": "HD141937",
+      "order": 66,
+      "native_pixel": 2131,
+      "topocentric_air_angstrom": 6513.258950080446,
+      "native_nearest_wave_angstrom": 6513.267462586505,
+      "raw_row": 1964,
+      "raw_column": 3560.107178348937,
+      "grid_mapping_usable": true,
+      "local_mapping_usable": true,
+      "baseline_mapping_verified": true,
+      "five_window_mapping_supported": true,
+      "reference_correlation": 0.997088293341942,
+      "origin_status": "UNREVIEWED",
+      "status": "EXTRACTED",
+      "cutout": "native/V2E2-0333_o66.npz",
+      "cutout_sha256": "1a910822a1cb24546454cbac9230616c7a9ea0462aaf520c673cc340f359307d",
+      "mapping_verified": true
+    }
+  ],
+  "events": [
+    {
+      "review_id": "V2E2-0332",
+      "detector": "V2",
+      "dp_id": "ADP.2023-07-07T01:08:58.252",
+      "covering_orders": [
+        64
+      ],
+      "status": "NATIVE_CONTEXT_EXTRACTED",
+      "mapping_supported": true,
+      "baseline_all_orders_mapping_verified": true,
+      "edge_truncated_orders": [],
+      "unsupported_orders": [],
+      "origin_status": "UNREVIEWED"
+    },
+    {
+      "review_id": "V2E2-0333",
+      "detector": "V2",
+      "dp_id": "ADP.2023-07-07T01:08:58.252",
+      "covering_orders": [
+        66
+      ],
+      "status": "NATIVE_CONTEXT_EXTRACTED",
+      "mapping_supported": true,
+      "baseline_all_orders_mapping_verified": true,
+      "edge_truncated_orders": [],
+      "unsupported_orders": [],
+      "origin_status": "UNREVIEWED"
+    }
+  ],
+  "hits": 2,
+  "extracted_orders": 2,
+  "plan_sha256": "eb621c261550485ebce5760ffbb7634688e9c4b2d43365326182049b33ed83cf",
+  "freeze_sha256": "4bd8f69133cb795c50003a50dbbc03edb23d975f3292f3101c8c1041d39db1a8",
+  "method": "Frozen global-grid orientation; inherited local flags preserved; inherited five-window geometry check prospectively applied to EVERY covering order. Fixed 31x33 raw snippets retain exact nested21x25 baseline pixels and both background conventions. Native41 samples. No classification performed."
+}

@@ -1,0 +1,95 @@
+{
+  "schema": "SETI_RAW_REFERENCE_PREFLIGHT_AUDIT_V1",
+  "created_utc": "2026-11-02T07:32:58.413706+00:00",
+  "status": "PASS",
+  "checks_total": 18,
+  "checks_passed": 18,
+  "checks": [
+    {
+      "name": "script_syntax_valid",
+      "pass": true
+    },
+    {
+      "name": "reviewed_script_hash",
+      "pass": true
+    },
+    {
+      "name": "reviewed_plan_hash",
+      "pass": true
+    },
+    {
+      "name": "source_hashes_match",
+      "pass": true
+    },
+    {
+      "name": "source_files_equal_HEAD",
+      "pass": true
+    },
+    {
+      "name": "two_exact_canonical_product_identities",
+      "pass": true
+    },
+    {
+      "name": "original_registered_orientation_retained",
+      "pass": true
+    },
+    {
+      "name": "complete_original_candidate_exclusion_ids",
+      "pass": true
+    },
+    {
+      "name": "all_72_orders_and_fixed_360_windows",
+      "pass": true
+    },
+    {
+      "name": "fixed_numeric_parameters_match_code",
+      "pass": true
+    },
+    {
+      "name": "spatial_offset_slices_exact_apertures",
+      "pass": true
+    },
+    {
+      "name": "raw_indices_in_bounds_for_all_allowed_columns",
+      "pass": true
+    },
+    {
+      "name": "dispersion_row_indices_in_bounds",
+      "pass": true
+    },
+    {
+      "name": "original_reference_mask_and_hp_equivalent_by_code_review",
+      "pass": true
+    },
+    {
+      "name": "baseline_record_equivalence_guard_exists",
+      "pass": true
+    },
+    {
+      "name": "product_hash_and_FITS_identity_guards_present",
+      "pass": true
+    },
+    {
+      "name": "descriptive_controls_do_not_select_coordinates_or_change_statuses",
+      "pass": true
+    },
+    {
+      "name": "original_and_product_hashes_rechecked_at_completion",
+      "pass": true
+    }
+  ],
+  "script_sha256": "bc132243c43326135dca44fc95d981a79348215329d2568f4eed38c73b9fd79c",
+  "plan_sha256": "33a5be539be5575cae3ba1eecab3c2e372c367e9b3272f1f101014676b720c7b",
+  "source_pairs": 1,
+  "source_exposures": 1,
+  "planned_orders": 72,
+  "planned_windows": 360,
+  "raw_FITS_arrays_read_by_auditor": 0,
+  "science_files_mutated": false,
+  "limitations": [
+    "Code and metadata preflight only; numerical raw/native reconstruction must run and pass its original-window comparisons before results are accepted.",
+    "Code and plan frozen hashes establish reviewed constants; additional descriptive metrics are not new acceptance gates.",
+    "The controls share one selected exposure and cannot supply independent population validation.",
+    "Order0 target trace extends beyond the active detector; no diagnostic recovers missing pixels or clears the event by itself."
+  ]
+}

@@ -1,41 +1,38 @@
 # Continue SETI from this checkpoint
 
-Read the [current continuation state](work_harps_20261101/v2/extension02/raw_followup_batch04/CONTINUATION_STATE.json), fetch current GitHub, and compare source hashes before starting. Another session may have advanced the project.
+Read the [current continuation state](work_harps_20261101/v2/extension02/raw_followup_batch05/CONTINUATION_STATE.json), fetch current GitHub and compare source hashes before starting. Another session may have advanced the project. The approved plan is optical HARPS work first, then Rubin on 8–14 November 2026.
 
-## Completed work and current status
+## Current status — 2 November 2026
 
-The survey remains **300 unique exposures of 20 targets, 70.874650833 hours**. V1 searched 300 exposures and found 22 preliminary hits. V2 searched 200 exposures and produced 669 records. No observing time was added by this follow-up. There is no qualified laser candidate or calibrated null result.
+The first raw-image review covers **all 669 V2 records**. This is review coverage, not 669 independent signals or complete physical-origin identification. [Batch05](work_harps_20261101/v2/extension02/raw_followup_batch05/README.md) acquired the previously unavailable original HD141937 product pair. V2E2-0332 and V2E2-0333 have supported mapping and provisional charge-like detector morphology (A). Historical batch04 metadata failures remain preserved.
 
-The [epoch comparison](work_harps_20261101/v2/extension02/epoch_followup/README.md) is complete for all 336 new V2 records against same-target observations among the new 100 spectra: 2,185 event/exposure pairs and 4,370 profiles, with discovery observations excluded from other-epoch summaries. Earlier 200 exposures were excluded. Its audit passed; do not repeat it merely to resume.
+| Cohort | Provisional artefact A | O I-compatible O | Unresolved U | Mapping-limited M | Unreviewed N |
+|---|---:|---:|---:|---:|---:|
+| Older 333 | 209 | 25 | 95 | 4 | 0 |
+| New 336 | 194 | 21 | 90 | 31 | 0 |
+| All 669 | 403 | 46 | 185 | 35 | 0 |
 
-[This raw batch](work_harps_20261101/v2/extension02/raw_followup_batch04/README.md) selected 94 pending records in 37 exposures. Adopted outcomes: **50 A / 1 O / 29 U / 12 M / 2 N**. All 248 predecessor raw-reviewed selected V1/V2 decisions remain unchanged. This batch adds 92 completed raw reviews to the cumulative selected master; its 2 unavailable records remain explicit N cases in the current336 table and pending queue. The current new cohort is:
+The survey remains **300 unique exposures of 20 targets, 70.874650833 hours**. V1 searched all 300 exposures (22 preliminary hits); V2 searched the latter 200 (669 records). No observing time was added by follow-up. There is **no qualified laser candidate or calibrated null result**.
 
-| New V2 status | Count |
-|---|---:|
-| Provisional detector artefact | 192 |
-| O I-compatible | 21 |
-| Unresolved spectral structure | 90 |
-| Insufficient raw mapping | 31 |
-| No raw review yet | 2 |
+## Completed follow-ups
 
-Older cohort: 209 A / 25 O / 95 U / 4 M / 0 N. Combined 669: 401 A / 46 O / 185 U / 35 M / 2 N. All origin descriptions are provisional.
-
-Unresolved new IDs: V2E2-0001, V2E2-0016, V2E2-0022, V2E2-0023, V2E2-0025, V2E2-0026, V2E2-0027, V2E2-0028, V2E2-0029, V2E2-0033, V2E2-0035, V2E2-0042, V2E2-0043, V2E2-0044, V2E2-0045, V2E2-0046, V2E2-0047, V2E2-0050, V2E2-0051, V2E2-0052, V2E2-0053, V2E2-0054, V2E2-0086, V2E2-0087, V2E2-0089, V2E2-0092, V2E2-0094, V2E2-0095, V2E2-0096, V2E2-0098, V2E2-0104, V2E2-0110, V2E2-0114, V2E2-0115, V2E2-0116, V2E2-0117, V2E2-0118, V2E2-0119, V2E2-0120, V2E2-0121, V2E2-0122, V2E2-0124, V2E2-0125, V2E2-0126, V2E2-0127, V2E2-0128, V2E2-0129, V2E2-0130, V2E2-0131, V2E2-0133, V2E2-0134, V2E2-0135, V2E2-0136, V2E2-0138, V2E2-0139, V2E2-0229, V2E2-0231, V2E2-0234, V2E2-0235, V2E2-0236, V2E2-0237, V2E2-0260, V2E2-0261, V2E2-0262, V2E2-0263, V2E2-0264, V2E2-0265, V2E2-0266, V2E2-0267, V2E2-0268, V2E2-0269, V2E2-0270, V2E2-0271, V2E2-0272, V2E2-0273, V2E2-0274, V2E2-0275, V2E2-0276, V2E2-0277, V2E2-0278, V2E2-0279, V2E2-0281, V2E2-0282, V2E2-0283, V2E2-0289, V2E2-0303, V2E2-0305, V2E2-0308, V2E2-0309, V2E2-0319.
-Mapping-limited new IDs: V2E2-0018, V2E2-0034, V2E2-0041, V2E2-0070, V2E2-0074, V2E2-0075, V2E2-0158, V2E2-0159, V2E2-0160, V2E2-0169, V2E2-0170, V2E2-0184, V2E2-0185, V2E2-0194, V2E2-0195, V2E2-0199, V2E2-0223, V2E2-0225, V2E2-0238, V2E2-0249, V2E2-0259, V2E2-0280, V2E2-0290, V2E2-0295, V2E2-0296, V2E2-0297, V2E2-0298, V2E2-0299, V2E2-0300, V2E2-0312, V2E2-0336.
-Older mapping limitations: V2-0149, V2-0231, V2-0232, V2-0333.
+- [Epoch comparison](work_harps_20261101/v2/extension02/epoch_followup/README.md): all 336 new records, 2,185 event/exposure pairs and 4,370 profiles among the new 100 spectra. Earlier 200 exposures were excluded; discovery observations are excluded from other-epoch summaries. Audit passed. Do not repeat merely to resume.
+- [Mapping diagnosis](work_harps_20261101/v2/extension02/mapping_followup_20261102/README.md): all 35 M records, 21 exposures and 43 distinct exposure/order combinations. There are 28 reference-only cases, five edge-only cases and two with both limitations. Original gates and labels are unchanged.
+- First M record **V2-0149** has a completed fixed raw-reference diagnostic over all 72 orders of its exposure. Its order0 predicted trace falls outside the active detector; its order1 original Pearson gate still fails. Robust correlation and offset diagnostics do not recover missing pixels or authorize a coordinate correction. Do not restart this completed diagnostic.
+- [Unresolved-context analysis](work_harps_20261101/v2/extension02/unresolved_context_20261102/README.md): all 90 new U records form 39 nominal-resolution neighborhoods / 37 overlapping-profile neighborhoods, with an exhaustive evidence-action queue. Groups are not independent physical signals. The older 95 U records are unchanged and outside this derivative analysis. Fixed template widths are not measured linewidths.
 
 ## Next action
 
-Next: **V2E2-0332**, exposure **ADP.2023-07-07T01:08:58.252**, target **HD141937**. The exact pending queue contains **2 records in 1 exposures**. Prepare a separate `raw_followup_batch05/` using frozen MAIN100 order. Freeze selection, original raw/ancillary identities, limits and methods before new raw-array reads. Reuse verified cached pairs. Do not replace failures or omitted pairs with more interesting targets. Review every selected event and every covering order.
+There is no pending first-review N queue. Continue the mapping-limited queue, beginning with **V2-0231**, the next record without the new raw-reference diagnostic. Read existing evidence before defining a bounded follow-up. Distinguish missing detector coverage from low reference correlation. Freeze original product identities, candidate exclusions, methods and limits before new array calculations; reuse hash-verified originals. Preserve failed gates and missing coverage. Do not lower thresholds or shift coordinates to make a selected event pass.
 
-The continuation state preserves exact follow-up queues: 35 mapping-limited records and 185 unresolved structures across both V2 cohorts. Mapping investigations have first priority, followed by interpretation of unresolved structures. Epoch metrics provide context and do not veto an origin. Rubin remains the approved second week (8–14 November) and has not been analyzed.
+After mapping investigations, use the unresolved-context action queue: inspect unnormalized data for V2E2-0092 and V2E2-0104, address inadequate BERV baselines, then inspect grouped and individual profiles with stellar/instrument context. Routes are evidence requirements, not significance rankings. Preserve all 185 U records across both cohorts. Epoch coherence alone cannot determine origin.
 
-## Restore, verify and preserve continuity
+Rubin remains **8–14 November** and has not been analyzed. No unattended science search is configured.
 
-Input package names, sizes, hashes and Library identities are in the current state. The initial science/raw inputs and every later raw batch have separate checkpoints; preserve them all. Extract into staging first: `v2/extension02/` member paths are relative to `work_harps_20261101`. Copy verified payloads without overwriting newer status files with historical archive reports. Residual `.part` files are never science inputs.
+## Restore and preserve continuity
 
-All 4,370 epoch profiles are recoverable from [18 ordered parts](work_harps_20261101/v2/extension02/epoch_followup/PROFILE_ARRAYS_PARTS.json) with `restore_profile_archive.py`. Each raw batch README documents its evidence archive and audit. See [restoration instructions](work_harps_20261101/v2/RESTORE.md). Run audits in a separate copy because reports are rewritten; do not rely on old absolute runtime paths.
+Input archive names, hashes and saved-file identities are in the current state and each batch's checkpoint. Extract into staging: paths beginning `v2/extension02/` are relative to `work_harps_20261101`. Copy verified canonical payloads and receipts only; do not overwrite current-state files with historical archive reports. Partial files are never science inputs.
 
-After each verified batch, retain source IDs/hashes, decisions, limitations, commands, evidence and the exact next queue. Original catalogs and historical results remain immutable. The user authorized public GitHub updates on 1 November 2026; earlier approval-wait notes are historical.
+See [restoration instructions](work_harps_20261101/v2/RESTORE.md). Batch05 evidence has a recoverable archive; all 4,370 epoch profiles remain recoverable from their 18 ordered parts. Run audits in a separate copy because reports are rewritten. Use recorded dependencies instead of old absolute runtime paths.
 
-This checkpoint awaits final publication readback. Root must record verified remote heads and file hashes in `work_harps_20261101/v2/extension02/raw_followup_batch04/PUBLICATION_RECEIPT.json` before claiming delivery. No unattended background science search is configured.
+Preserve source IDs/hashes, methods, limitations, evidence, decisions and the next queue after each analysis. Original detectors/catalogs and historical decisions remain immutable. Public GitHub updates were authorized on 1 November. Publication receipts identify remotely verified commits/files; the receipt's own final commit is verified after publication.

@@ -1,0 +1,106 @@
+{
+  "schema": "SETI_MAPPING35_INDEPENDENT_DIAGNOSTIC_AUDIT_V1",
+  "created_utc": "2026-11-02T07:30:37.717355+00:00",
+  "status": "PASS",
+  "checks_passed": 16,
+  "checks_total": 16,
+  "failures": [],
+  "coverage": {
+    "queue_records": 35,
+    "exposures": 21,
+    "targets": 12,
+    "covering_order_records": 49,
+    "unique_exposure_orders": 43,
+    "source_reference_summaries": 377,
+    "source_reference_profile_peaks": 1871,
+    "original_sources_equal_HEAD": 9
+  },
+  "result": {
+    "reference_only_records": 28,
+    "edge_only_records": 5,
+    "edge_and_reference_records": 2,
+    "original_codes_preserved": true,
+    "changed_thresholds": false
+  },
+  "checks": [
+    {
+      "name": "exact_35_queue_order",
+      "pass": true
+    },
+    {
+      "name": "every_current_and_output_label_M",
+      "pass": true
+    },
+    {
+      "name": "plan_source_hash",
+      "pass": true
+    },
+    {
+      "name": "plan_script_hash",
+      "pass": true
+    },
+    {
+      "name": "all_source_hashes",
+      "pass": true
+    },
+    {
+      "name": "original_sources_equal_git_HEAD",
+      "pass": true
+    },
+    {
+      "name": "independent_reference_arithmetic",
+      "pass": true
+    },
+    {
+      "name": "every_order_and_event_relation",
+      "pass": true
+    },
+    {
+      "name": "exact_49_order_coverage",
+      "pass": true
+    },
+    {
+      "name": "exact_43_reference_coverage",
+      "pass": true
+    },
+    {
+      "name": "categories_28_5_2",
+      "pass": true
+    },
+    {
+      "name": "correlation_is_only_reference_failure",
+      "pass": true
+    },
+    {
+      "name": "cutouts_42_complete_7_missing",
+      "pass": true
+    },
+    {
+      "name": "summary_reference_validation_counts",
+      "pass": true
+    },
+    {
+      "name": "summary_primary_counts",
+      "pass": true
+    },
+    {
+      "name": "all_checked_outputs_stable",
+      "pass": true
+    }
+  ],
+  "checked_outputs_sha256": {
+    "PLAN.json": "24204a2f80604e6f20217d57934ace3fb4b7dc517946c9b662fb65b76b8ee7d9",
+    "diagnose_mapping.py": "17afed6640e49a97c0083d4c4dc6191c694ee66bea75f93bd80e069f169dace0",
+    "SUMMARY.json": "e140edcf2db15c7f3be697e08f085ec49e09415bff8eb34f0e963a39a4c5fc49",
+    "EVENT_LIMITATIONS.csv": "474f53a110142fabb933b42c80c0722372740ad82e26770e623b8f98738f9d29",
+    "ORDER_LIMITATIONS.csv": "d98bffc1fda2cfe93e2d44beffa543f47dbcbfeee57aa72fe4fe8d27b9773ecc",
+    "REFERENCE_PROFILES.json": "e7ef6d968e15ddc084faed974154ae34e863a5f947736dfbd7a0ce8a26fa5bef",
+    "SOURCE_HASHES.json": "4683e3faeadf3fe9b2c534d9e953ee2b42dc8986c8a2eea49c3aac76019f0096"
+  },
+  "limitations": [
+    "Independent scalar and relational audit of committed diagnostic evidence; no raw FITS arrays inspected, no raw/native correlations recalculated.",
+    "Reference-correlation failure mechanism and physical origin remain unresolved.",
+    "No script import and no use of project arithmetic helpers; Python standard-library arithmetic is shared.",
+    "This is an automated agent review, not blinded external validation or human peer review."
+  ]
+}

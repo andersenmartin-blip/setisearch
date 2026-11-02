@@ -1,0 +1,51 @@
+{
+  "schema": "SETI_RAW_REFERENCE_NUMERICAL_AUDIT_V1",
+  "created_utc": "2026-11-02T07:35:00.241370+00:00",
+  "status": "PASS",
+  "independence": "No project analysis modules imported. Independent centered-dot Pearson, average-rank implementation, direct 7-term aperture summation, Horner coordinates checked against direct-power sums, clipping and summary reconstruction. NumPy/SciPy median filtering and Astropy FITS decoding are shared primitives.",
+  "coverage": {
+    "raw_pairs": 1,
+    "orders": 72,
+    "reference_windows": 360,
+    "measured_windows": 358,
+    "unavailable_windows": 2,
+    "offset_correlations": 3222,
+    "valid_subwindows": 3717,
+    "prior_reference_windows": 10,
+    "metrics_compared": 8964
+  },
+  "max_absolute_metric_errors": {
+    "original_pearson": 4.884981308350689e-15,
+    "spearman": 3.3306690738754696e-16,
+    "winsorized_pearson": 2.6645352591003757e-15,
+    "offset": 5.329070518200751e-15,
+    "subwindow": 3.774758283725532e-15,
+    "original_reference": 1.7763568394002505e-15,
+    "summary_original_pearson": 4.884981308350689e-15,
+    "summary_spearman": 2.220446049250313e-16,
+    "summary_winsorized_pearson": 2.6645352591003757e-15,
+    "summary_subwindow": 1.4432899320127035e-15,
+    "summary_offset": 5.329070518200751e-15
+  },
+  "max_horner_vs_direct_power_column_error_pixels": 9.094947017729282e-13,
+  "metric_absolute_tolerance": 1e-10,
+  "mismatches": [],
+  "checked_outputs_sha256": {
+    "RAW_DIAGNOSTIC_PLAN.json": "33a5be539be5575cae3ba1eecab3c2e372c367e9b3272f1f101014676b720c7b",
+    "diagnose_raw_reference.py": "bc132243c43326135dca44fc95d981a79348215329d2568f4eed38c73b9fd79c",
+    "RAW_REFERENCE_DIAGNOSTICS.json": "2e20adee0b4650b99a4e479d1179ab5bc9e3ec0a92d3ec16079f0c334ff637a6",
+    "RAW_REFERENCE_SUMMARY.json": "68af7ddff538fcaeda03caf8628e37c8fd6cdc771d6443cea5d6605dd4e0c4b4"
+  },
+  "auditor_script_sha256": "898d1aeeafa52da565d35380c224efedec44328099202d5085801407ff18c901",
+  "input_product_sha256": {
+    "RAW": "da48da7f164209a72e449e217ac87003a3722a66d7c02a4a51ac2dd9fa98e7f3",
+    "ANCILLARY": "6d2cbe1cda1982efdb1843a642068625841c3f2345a38a6c7666026903a06693"
+  },
+  "input_and_source_hashes_unchanged": true,
+  "no_current_dispositions_changed": true,
+  "limitations": [
+    "One selected exposure; no independent population or calibrated significance.",
+    "Numerical reproduction does not identify the cause of low reference correlation or any physical signal origin.",
+    "Order0 missing pixels remain unavailable and M must be retained."
+  ]
+}

@@ -1,3 +1,25 @@
+## Aktuel SETI-status — første rågennemgang afsluttet (2. november 2026)
+
+**Alle 669 V2-poster er nu råbilledgennemgået.** De to sidste poster på HD141937 har begge foreløbig detektorartefakt-morfologi. De originale filer kunne nu hentes; to separate billedvurderinger og den numeriske kontrol er afsluttet. De øvrige 667 afgørelser er bevaret.
+
+| Samlet status | Antal |
+|---|---:|
+| Foreløbige detektorartefakter | 403 |
+| O I-forenelige | 46 |
+| Uafklarede spektralstrukturer | 185 |
+| Utilstrækkelig billedkobling | 35 |
+| Første rågennemgang mangler | 0 |
+
+**Ingen kvalificeret laserkandidat er identificeret.** Gennemgangens afslutning er ikke et kalibreret nulresultat. Dækningen er uændret: 300 eksponeringer, 20 stjerner og 70,875 timer.
+
+Der er også lavet [en diagnose af alle 35 usikre billedkoblinger](work_harps_20261101/v2/extension02/mapping_followup_20261102/README.md) og en ny kontrol af alle 72 spektralordener i den første af disse observationer. Manglende detektorpixels og utilstrækkelige referencekorrelationer bevares som begrænsninger. [Alle 90 nye uafklarede poster](work_harps_20261101/v2/extension02/unresolved_context_20261102/README.md) har nu grupperet profilkontekst og en konkret opfølgningskø; grupperne er ikke uafhængige signaler.
+
+[**Fortsæt her**](CONTINUE_SETI.md) · [Sidste rågruppe og evidens](work_harps_20261101/v2/extension02/raw_followup_batch05/README.md) · [Aktuel maskinlæsbar tilstand](work_harps_20261101/v2/extension02/raw_followup_batch05/CONTINUATION_STATE.json)
+
+Næste arbejde er mapping-begrænsningerne, derefter de uafklarede strukturer. Rubin følger den godkendte uge 8.–14. november. Ingen automatisk baggrundssøgning er konfigureret. Alle statusafsnit nedenfor er historiske.
+
+---
+
 ## Aktuel SETI-status — rågruppe04 afsluttet (2. november 2026)
 
 **92 yderligere V2-poster i 36 HARPS-observationer er rågennemgået.** Den fastlagte gruppe omfattede 94 poster i 37 observationer: 50 foreløbige detektorartefakter, én O I-forenelig hændelse, 29 uafklarede strukturer, 12 med utilstrækkelig billedkobling og to uden tilgængeligt produktpar. To separate AI-gennemgange er enige om alle 94 registrerede udfald. Uafhængig numerisk kontrol består; alle tidligere afgørelser er bevaret.

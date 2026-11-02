@@ -1,0 +1,95 @@
+{
+  "created_utc": "2026-11-02T07:32:40.158855+00:00",
+  "reviewer": "batch05_secondary",
+  "status": "COMPLETE_DESCRIPTIVE_INDEPENDENT_SECONDARY_AI_REVIEW",
+  "independence": "Primary labels and judgments were not read before this secondary review was saved. Selection, mapping metadata and shared unlabeled plots were visible. This is separate AI-agent review, not blinded external scientific validation or human peer review.",
+  "scope": {
+    "selected_records": 2,
+    "available_records": 2,
+    "covering_order_panels": 2,
+    "atlas_pages_viewed": 1,
+    "central_enlargement_pages_viewed": 1,
+    "all_available_covering_orders_inspected": true
+  },
+  "viewed_figures": [
+    "figures/REVIEW_01.png",
+    "primary_enlarged/CENTRAL_01.png"
+  ],
+  "inspected_evidence": [
+    {
+      "path": "VISUAL_REVIEW_PLAN.json",
+      "sha256": "eba61ce856f311c61017a5204a154eb58e8ea03320c4429177cb69e272589350"
+    },
+    {
+      "path": "SELECTED_EVENTS.csv",
+      "sha256": "dbc257667d7787da5902e73609ddab5dec3320bfd99c5d9129e1b36c5814fbbb"
+    },
+    {
+      "path": "NATIVE_MAPPING.json",
+      "sha256": "5999785ae74d05d19ddb494451d0d8e969fb10522554d40f4212c520a9125c5e"
+    },
+    {
+      "path": "FIGURE_INDEX.json",
+      "sha256": "f96c8819422f0f6ae5da98e701521464eb7aec78520b77f45289ec0430575db6"
+    },
+    {
+      "path": "figures/REVIEW_01.png",
+      "sha256": "d15952ecb25232b32540676641a33c3c1b850f6e6fe229bf478d8101e4a239b0"
+    },
+    {
+      "path": "primary_enlarged/CENTRAL_01.png",
+      "sha256": "2e02c6f8ab13c7980ae6c642ca7f6be8b05907ff9c3e49dea4ad1d142c896914"
+    },
+    {
+      "path": "primary_enlarged/DISPLAY_SCALES.json",
+      "sha256": "34d543bd78703a589a5bea3f3a0fd9e438aeb6c97be9df5bc3595f0f3d33c4f6"
+    },
+    {
+      "path": "native/V2E2-0332_o64.npz",
+      "sha256": "9c4583da31fc02c69ab64b9909d88cbb55731518de09f53edf6450d5a59154b6"
+    },
+    {
+      "path": "native/V2E2-0333_o66.npz",
+      "sha256": "1a910822a1cb24546454cbac9230616c7a9ea0462aaf520c673cc340f359307d"
+    }
+  ],
+  "display_note": "Full31x33 images were inspected first; bright far-right neighboring trace pixels dominate their independent scales. The shared unlabeled central display retains all31 rows and fixed column offsets -8..+8 using original pixels, with per-order ranges from DISPLAY_SCALES.json. No thresholds or coordinates changed.",
+  "records": [
+    {
+      "review_id": "V2E2-0332",
+      "candidate_id": "V2E2-0332",
+      "code": "A",
+      "covering_orders": [
+        64
+      ],
+      "viewed_orders": [
+        64
+      ],
+      "all_covering_orders_mapping_verified": true,
+      "evidence": "Order64 contains a thin oblique charge-like streak running from roughly column -8,row+3 toward column0,row0, crossing the stellar trace at the narrow native spike. The strong central excess is confined to approximately one dispersion row with a lateral continuation well outside the trace, unlike a several-row photon profile. This supports a provisional detector-artefact explanation of the detected narrow component. The far-right bright structure belongs to separate neighboring-trace context and was not used for the origin decision.",
+      "limitation": "Physical particle identity is not established; weaker residual spectral components are not excluded by the charge-like morphology."
+    },
+    {
+      "review_id": "V2E2-0333",
+      "candidate_id": "V2E2-0333",
+      "code": "A",
+      "covering_orders": [
+        66
+      ],
+      "viewed_orders": [
+        66
+      ],
+      "all_covering_orders_mapping_verified": true,
+      "evidence": "Order66 has a compact oblique charge-like feature: the brightest excess is near column-2,row+1, with adjoining pixels extending from approximately column-3,row+2 toward the predicted trace near column0,row0. Its narrow slanted/off-trace morphology, superposed on the continuous stellar trace, supports a provisional detector-artefact explanation for the weak irregular native enhancement. It is not a clean trace-centered multi-row photon patch.",
+      "limitation": "The event may contain weaker spectral or background components; this description does not prove a specific particle source or exclude a blended photon signal."
+    }
+  ],
+  "counts": {
+    "A": 2,
+    "O": 0,
+    "U": 0,
+    "M": 0,
+    "N": 0
+  },
+  "claims": "Provisional morphology only. No calibrated detection significance, sensitivity, null result, physical-origin proof or qualified laser candidate follows."
+}

@@ -1,0 +1,101 @@
+{
+  "created_utc": "2026-11-02T07:32:40.589895+00:00",
+  "status": "COMPLETED_PRIMARY_AI_VISUAL_REVIEW",
+  "reviewer": "batch05_primary",
+  "selected_events": 2,
+  "selected_exposures": 1,
+  "covering_order_records": 2,
+  "extracted_order_cutouts_inspected": 2,
+  "missing_full_cutouts": 0,
+  "unavailable_events": 0,
+  "atlas_pages_inspected": [
+    1
+  ],
+  "central_pages_inspected": [
+    "primary_enlarged/CENTRAL_01.png"
+  ],
+  "counts": {
+    "A": 2,
+    "O": 0,
+    "U": 0,
+    "M": 0,
+    "N": 0
+  },
+  "method": "Actual inspection of the atlas for both selected events, both covering order cutouts, native profiles and one systematic fixed central +/-8-column, full31-row enlargement for both orders. Original counts and positive excess both inspected. No coordinate, method, selection or classifier threshold changed.",
+  "display_scales": "primary_enlarged/DISPLAY_SCALES.json",
+  "independence": "No secondary review or root-adopted labels read before saving this review. Primary reviewer also prepared and ran extraction; this is not an independent numerical audit.",
+  "limitations": [
+    "Post-detection AI visual judgments, not blinded scientific validation, human review or physical-origin proof.",
+    "A is provisional charge morphology for the selected component; additional underlying photon flux is not excluded.",
+    "Fixed side-background subtraction and nearby calibration-fiber signal limit interpretation of weak components.",
+    "No qualified laser candidate, calibrated null, global false-alarm rate or sensitivity claim follows."
+  ],
+  "source_sha256": {
+    "PLAN.json": "eb621c261550485ebce5760ffbb7634688e9c4b2d43365326182049b33ed83cf",
+    "VISUAL_REVIEW_PLAN.json": "eba61ce856f311c61017a5204a154eb58e8ea03320c4429177cb69e272589350",
+    "FOLLOWUP_FREEZE.json": "4bd8f69133cb795c50003a50dbbc03edb23d975f3292f3101c8c1041d39db1a8",
+    "SELECTED_EVENTS.csv": "dbc257667d7787da5902e73609ddab5dec3320bfd99c5d9129e1b36c5814fbbb",
+    "NATIVE_MAPPING.json": "5999785ae74d05d19ddb494451d0d8e969fb10522554d40f4212c520a9125c5e",
+    "FIGURE_INDEX.json": "f96c8819422f0f6ae5da98e701521464eb7aec78520b77f45289ec0430575db6",
+    "FIBER_INVENTORY.json": "ee0e5fb71a9683661a1dbb01abc5959cc0f79cc4895951430ac3d2c6dfa9f590",
+    "primary_enlarged/render.py": "a86541e6ee0097ddbcb7398c06345066dffdc81f2c9d244574fdf3e83b329d5d",
+    "primary_enlarged/DISPLAY_SCALES.json": "34d543bd78703a589a5bea3f3a0fd9e438aeb6c97be9df5bc3595f0f3d33c4f6",
+    "primary_enlarged/save_review.py": "bd02b77bb7b079ac9966ad50d9fae84bffb629b2ef58a64592bb7e2a5edf8bd1",
+    "figures/REVIEW_01.png": "d15952ecb25232b32540676641a33c3c1b850f6e6fe229bf478d8101e4a239b0",
+    "primary_enlarged/CENTRAL_01.png": "2e02c6f8ab13c7980ae6c642ca7f6be8b05907ff9c3e49dea4ad1d142c896914"
+  },
+  "events": [
+    {
+      "review_id": "V2E2-0332",
+      "candidate_id": "V2E2-0332",
+      "dp_id": "ADP.2023-07-07T01:08:58.252",
+      "code": "A",
+      "evidence": "Order64 has a thin, gently sloping charge-like trail spanning columns about -8 to 0 and crossing the predicted central row/trace. The sharp native spike coincides with this localized track. The full-cutout scale is dominated by a separate bright adjacent trace; fixed central enlargement reveals the selected morphology.",
+      "provisional": true,
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        64
+      ],
+      "orders_seen": [
+        64
+      ],
+      "extracted_order_cutouts_inspected": 1,
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "atlas_pages_inspected": [
+        1
+      ],
+      "figure": "figures/REVIEW_01.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_01.png"
+      ],
+      "topocentric_air_angstrom": 6387.115352009812
+    },
+    {
+      "review_id": "V2E2-0333",
+      "candidate_id": "V2E2-0333",
+      "dp_id": "ADP.2023-07-07T01:08:58.252",
+      "code": "A",
+      "evidence": "Order66 shows a compact bright off-center deposit around column -2,row +1 with a thin diagonal tail extending through the central trace near row0. Its geometry is charge-like and accompanies the narrow native enhancement. The far-right bright adjacent trace dominates the full atlas scale and is distinct from this central contaminant.",
+      "provisional": true,
+      "all_covering_orders_mapping_verified": true,
+      "covering_orders": [
+        66
+      ],
+      "orders_seen": [
+        66
+      ],
+      "extracted_order_cutouts_inspected": 1,
+      "missing_full_cutout_orders": [],
+      "unsupported_orders": [],
+      "atlas_pages_inspected": [
+        1
+      ],
+      "figure": "figures/REVIEW_01.png",
+      "enlarged_figures": [
+        "primary_enlarged/CENTRAL_01.png"
+      ],
+      "topocentric_air_angstrom": 6513.258950080446
+    }
+  ]
+}
