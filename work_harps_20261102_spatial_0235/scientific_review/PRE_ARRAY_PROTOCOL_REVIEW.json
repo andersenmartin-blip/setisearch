@@ -1,0 +1,88 @@
+{
+  "status": "PRE_ARRAY_SCIENTIFIC_PROTOCOL_GUARDRAILS_PENDING_EXACT_IMPLEMENTATION_REVIEW",
+  "created_utc": "2026-11-02T12:24:53.908309+00:00",
+  "scope": "One posthoc detector-space diagnostic of existing V2E2-0235 discovery evidence. It measures conformity to a local trace-plus-background model, not photon/charge attribution.",
+  "fixed_geometry": {
+    "event": "V2E2-0235",
+    "dp_id": "ADP.2023-02-23T01:01:36.791",
+    "raw_id": "HARPS.2023-02-22T07:40:53.531",
+    "order": 50,
+    "native_pixel": 956,
+    "raw_row": 3139,
+    "raw_column": 2323.7701943175816,
+    "left_flank_half_open": [
+      -280,
+      -80
+    ],
+    "right_flank_half_open": [
+      81,
+      281
+    ],
+    "existing_local_peak_offsets_pixels": [
+      0.01777434312210201,
+      -0.04155844155844156
+    ],
+    "existing_local_mapping_correlations": [
+      0.9989969853560235,
+      0.9938103916493565
+    ],
+    "interpretation": "Prior registration has strong local support. Keep the accepted header-polynomial trace and orientation fixed; do not recenter, shift or widen the template from the target residual."
+  },
+  "scientific_guardrails": [
+    {
+      "topic": "Separation of training and evaluation",
+      "requirement": "Shared trace templates and any shared background training must use rows disjoint from heldout controls and the central target; include smoothing/interpolation support in that accounting. Choose control positions by frozen coordinates, not residual quality. Apply identical parameterization/masks/fit rules to target and controls, while allowing their fitted amplitude/background coefficients to differ."
+    },
+    {
+      "topic": "Trace curvature and template variation",
+      "requirement": "Follow the accepted trace polynomial as dispersion varies, rather than one constant detector column throughout the flanks. Retain fixed left-trained and right-trained template predictions as sensitivity diagnostics, without selecting whichever fits the target best or adjusting the target trace."
+    },
+    {
+      "topic": "Native detector pixels and interpolation",
+      "requirement": "Retain detector-grid target/control images and signed residuals. If fractional-pixel interpolation is used, document its operator and phase; it spreads compact deposits and correlates neighboring samples. Resampled pixel concentration is not an independent-pixel charge signature."
+    },
+    {
+      "topic": "Signed data and backgrounds",
+      "requirement": "Preserve signed OLS coefficients, fitted backgrounds and residuals; do not clip negative backgrounds or residuals to zero. Predeclare normalization denominators and mark zero/tiny or otherwise invalid denominators unavailable. Positive-part summaries, if used, must be explicitly named and accompanied by negative-part summaries."
+    },
+    {
+      "topic": "Residual denominator",
+      "requirement": "An OLS intercept makes the total signed residual approximately zero by construction. Do not divide an off-trace residual sum by that signed total. Distinguish bounded L1 spatial concentration, such as sum(abs(residual)) outside a fixed band divided by sum(abs(residual)) over the ROI, from residual-to-signal magnitude, which can exceed one. Neither is a photon or charge fraction."
+    },
+    {
+      "topic": "Model flexibility",
+      "requirement": "A free trace amplitude per dispersion row can absorb trace-aligned contamination. Conversely a compact residual may reflect template mismatch, curvature, interpolation or background errors. A small residual does not prove photons; a large residual does not establish an artifact-only origin. Photon/charge mixtures remain possible."
+    },
+    {
+      "topic": "Numerical model identifiability",
+      "requirement": "Record the design rank and conditioning for the frozen trace/background basis. Avoid a target-selected extra basis term, target-fitted shift or alternate mask that removes the compact feature."
+    },
+    {
+      "topic": "Control comparability",
+      "requirement": "Report fitted intensity, background and local noise context for target and controls. Equal geometry does not equalize noise or line slope; unweighted raw-ADU residuals grow with intensity-dependent noise. Control ranks are descriptive model-adequacy context, not calibrated p-values or an origin classifier."
+    },
+    {
+      "topic": "Dependence and coverage",
+      "requirement": "Controls share the same exposure and order; only order50 covers this event. They are not independent replication. Do not count control rows or resampled neighboring pixels as independent events."
+    },
+    {
+      "topic": "No response-driven expansion",
+      "requirement": "Retain failed/unavailable diagnostics, close the frozen scope after the specified target and controls, and keep the original U adjudication. Do not alter the extraction, select another exposure or expand the control search because the result is inconvenient."
+    }
+  ],
+  "expected_scientific_product": "Signed detector-space data/model/residual maps, fixed left/right template sensitivity, target-versus-heldout-control metric table with brightness/denominator/rank diagnostics, and an explicit statement of whether model inadequacy is localized. No physical-origin label or statistical significance is implied.",
+  "prior_adjudication": "Compact asymmetric patch below and left of the predicted trace; short multi-row excess allowed possible charge contamination or a photon/charge mixture. Root retained U after disagreement between reviewers.",
+  "review_boundary": "This records protocol requirements before new-phase raw-array access. Exact implementation approval is still pending; no raw values or new-phase measured results were inspected.",
+  "source_hashes": {
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/NATIVE_MAPPING.json": "e02971783ec66d60ca69d500cd6b352e3e31453d8623b44816eba2f5d5777a8c",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/LOCAL_TRACE_AUDIT.json": "1c618179af1c7d973b9eab30e939f8b524a4671cc0f848414c66de4e97a5d623",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/FIVE_WINDOW_MAPPING_AUDIT.json": "9d713c3c1dbf57c00bb2d2db227a4f6787dcbbbc1e2176f78ad1edeaa956cbbf",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/ROOT_ADJUDICATION.json": "7e67d85714e632f877605dfc52fa2ad7d13362e7cce3acf6da63b76fcaaf830c",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/registration.py": "eaa68430bb7fe542da2551165640ba288071ef247237264f50638f930c27d837",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/mapping_quality.py": "a5328d4e5dbf26f0e13d1c18192822a613388b26c63c55ff89ba90654d268d42"
+  },
+  "new_network_requests": 0,
+  "new_phase_raw_array_values_read": 0,
+  "labels_changed": false,
+  "execution_authorized_by_review": false
+}

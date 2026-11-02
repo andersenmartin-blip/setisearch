@@ -1,0 +1,297 @@
+{
+  "schema": "HARPS_SPATIAL0235_INPUT_METADATA_AUDIT_V1",
+  "status": "PASS_METADATA_ONLY_PENDING_RESTORED_BYTES",
+  "checked_utc": "2026-11-02T12:23:50.038218+00:00",
+  "baseline_commit": "128379bfd201fe03a7d8ee88adfc8ecf2e244270",
+  "script_sha256": "2816502c4ce2c0ce1b0636684b0fff7954e1d48f7745208bb363b0385e29fe13",
+  "checks": [
+    {
+      "check": "one raw and one ancillary product",
+      "pass": true
+    },
+    {
+      "check": "exact DP raw ancillary relation",
+      "pass": true
+    },
+    {
+      "check": "single downloaded instance no duplicated raw exposure",
+      "pass": true
+    },
+    {
+      "check": "verified complete original transfer identities",
+      "pass": true
+    },
+    {
+      "check": "science and date bindings",
+      "pass": true
+    },
+    {
+      "check": "single event covering order50",
+      "pass": true
+    },
+    {
+      "check": "native metadata links source product hashes",
+      "pass": true
+    },
+    {
+      "check": "fixed original orientation",
+      "pass": true
+    },
+    {
+      "check": "saved coordinate relation",
+      "pass": true
+    },
+    {
+      "check": "existing event full and mapped",
+      "pass": true
+    },
+    {
+      "check": "wide window within one chip and detector",
+      "pass": true
+    },
+    {
+      "check": "two complete local control windows",
+      "pass": true
+    },
+    {
+      "check": "native reverse-direction mapping exact",
+      "pass": true
+    },
+    {
+      "check": "all five saved trace windows supported",
+      "pass": true
+    },
+    {
+      "check": "candidate-excluded window population",
+      "pass": true
+    },
+    {
+      "check": "unique native fiberA exact raw",
+      "pass": true
+    },
+    {
+      "check": "fiberB calibration cannot be sky control",
+      "pass": true
+    },
+    {
+      "check": "one archived input package",
+      "pass": true
+    },
+    {
+      "check": "archived exact member RAW",
+      "pass": true
+    },
+    {
+      "check": "archived exact member ANCILLARY",
+      "pass": true
+    },
+    {
+      "check": "input package known identity",
+      "pass": true
+    },
+    {
+      "check": "cutout archived hash matches native mapping",
+      "pass": true
+    },
+    {
+      "check": "source declares zero-based array coordinates",
+      "pass": true
+    },
+    {
+      "check": "source raw trim stitch no transpose",
+      "pass": true
+    },
+    {
+      "check": "source cutout convention exact",
+      "pass": true
+    },
+    {
+      "check": "old batch03 tracked files unchanged",
+      "pass": true
+    }
+  ],
+  "check_count": 26,
+  "inputs": {
+    "RAW": {
+      "archive_id": "HARPS.2023-02-22T07:40:53.531",
+      "relative_path": "v2/extension02/raw_followup_batch03/products/HARPS.2023-02-22T07_40_53.531.fits.Z",
+      "sha256": "32643c330bfaf0a5e0ad8ff5d1d651c9feed3893a684adeba705aa045131a9b4",
+      "bytes": 19767489,
+      "source_science_sha256": "a2ceff82da6696b30491b403219c15e920192fda7e13c623fcb6f5fdd41f052c"
+    },
+    "ANCILLARY": {
+      "archive_id": "ADP.2023-02-23T01:01:36.792",
+      "relative_path": "v2/extension02/raw_followup_batch03/products/ADP.2023-02-23T01_01_36.792.tar",
+      "sha256": "527f6e8efd09d77a15e923b95a29c919874961b280bd8de2a1b5f5b5184dfe29",
+      "bytes": 6952960,
+      "source_science_sha256": "a2ceff82da6696b30491b403219c15e920192fda7e13c623fcb6f5fdd41f052c"
+    }
+  },
+  "archive": {
+    "filename": "SETI_HARPS_RAW_BATCH03_INPUTS_PART8_2026-11-01.zip",
+    "sha256": "f950ce0c99069c87f792f084237e5971dfba6b9480231cfbc34af2d5b2aa6096",
+    "bytes": 99302855
+  },
+  "cutout": {
+    "path": "native/V2E2-0235_o50.npz",
+    "bytes": 8473,
+    "sha256": "d70580a306b873a49e585bc66750bf12ad838306c54c40915a8d9fe7bc812c51"
+  },
+  "reference_grid": {
+    "path": "reference/ADP.2023-02-23T01_01_36.791.json",
+    "bytes": 127549,
+    "sha256": "5572ab904e9117a238217cc676f903c6e0bb8b53bc0f61372900766686852f52"
+  },
+  "native_member": "data/reduced/2023-02-21/HARPS.2023-02-22T07:40:53.531_e2ds_A.fits",
+  "axis_contract": {
+    "index_origin": 0,
+    "native_array": "[zero-based order, zero-based dispersion pixel]",
+    "raw_stitched": "[detector row, cross-dispersion column]; hstack(chip1[:,50:2098], chip2[:,50:2098])",
+    "native_dispersion_to_raw_row": "raw_row = 4095 - native_pixel",
+    "trace_argument": "4095 - native_pixel, no +1 offset",
+    "column_flip": false,
+    "chip2_column": "stitched_column - 2048 + 50",
+    "event_center": {
+      "native_order": 50,
+      "native_pixel": 956,
+      "raw_row": 3139,
+      "raw_stitched_column": 2323.7701943175816,
+      "chip2_physical_column": 325.7701943175816
+    },
+    "old_wide_cutout_half_open": {
+      "rows": [
+        3124,
+        3155
+      ],
+      "stitched_columns": [
+        2308,
+        2341
+      ],
+      "physical_chip": 2,
+      "chip_columns": [
+        310,
+        343
+      ]
+    },
+    "old_inner_cutout_half_open": {
+      "rows": [
+        3129,
+        3150
+      ],
+      "stitched_columns": [
+        2312,
+        2337
+      ],
+      "nested_wide_indices": [
+        [
+          5,
+          26
+        ],
+        [
+          4,
+          29
+        ]
+      ]
+    },
+    "native_snippet_half_open": [
+      936,
+      977
+    ],
+    "local_controls": [
+      {
+        "native_half_open": [
+          676,
+          876
+        ],
+        "raw_rows_half_open": [
+          3220,
+          3420
+        ],
+        "samples_in_saved_metadata": 200
+      },
+      {
+        "native_half_open": [
+          1037,
+          1237
+        ],
+        "raw_rows_half_open": [
+          2859,
+          3059
+        ],
+        "samples_in_saved_metadata": 200
+      }
+    ],
+    "candidate_exclusion_native_inclusive": [
+      876,
+      1036
+    ]
+  },
+  "coverage_limit": "The saved 31x33 event cutout does not contain flanking trace-control rows. Fresh bounded extraction requires the exact full raw input after release. No new trace fit or orientation selection is justified.",
+  "fiberB_role": "FP simultaneous-calibration context, not an independent sky fiber.",
+  "scientific_sources_preserved": {
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/products/MANIFEST.json": {
+      "sha256": "b29f012bf3129b567503fdfea0e725969bdac3b82db5bfc931e453f191e94fd1",
+      "bytes": 116166
+    },
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/NATIVE_MAPPING.json": {
+      "sha256": "e02971783ec66d60ca69d500cd6b352e3e31453d8623b44816eba2f5d5777a8c",
+      "bytes": 207423
+    },
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/LOCAL_TRACE_AUDIT.json": {
+      "sha256": "1c618179af1c7d973b9eab30e939f8b524a4671cc0f848414c66de4e97a5d623",
+      "bytes": 182987
+    },
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/FIVE_WINDOW_MAPPING_AUDIT.json": {
+      "sha256": "9d713c3c1dbf57c00bb2d2db227a4f6787dcbbbc1e2176f78ad1edeaa956cbbf",
+      "bytes": 652014
+    },
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/FIBER_INVENTORY.json": {
+      "sha256": "95c64e9caf9376480a330d7cbd9d7b36eb4accac1bd9b3012fceeb83883829a0",
+      "bytes": 197987
+    },
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/checkpoints/INPUT_ARCHIVES.json": {
+      "sha256": "7ff8624687bb90a253f22c9b69813697dc236e7d69e889fb42457bf94ff5fb73",
+      "bytes": 27664
+    },
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/EVIDENCE_ARCHIVE.json": {
+      "sha256": "cbd9a23a3d1f699646cab2cb969332339acb72c4cf7c22a4e175a1979f0bcac5",
+      "bytes": 31358
+    },
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/EVIDENCE_PARTS.json": {
+      "sha256": "65c36afd08a50079f930b9a7972b9582c2f5d571d5d539827a522afcec38db1b",
+      "bytes": 575
+    },
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/PLAN.json": {
+      "sha256": "0745cff5b1a90e712a34f63f2d56f7b606cfbe2c175c962ae457110c3d09e242",
+      "bytes": 7200
+    },
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/extract_native.py": {
+      "sha256": "fbcfbf843cc4b090644641a3eb8201ae16503b639b993cc1091b88b5361c21bb",
+      "bytes": 14739
+    },
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/registration.py": {
+      "sha256": "eaa68430bb7fe542da2551165640ba288071ef247237264f50638f930c27d837",
+      "bytes": 5003
+    },
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/mapping_quality.py": {
+      "sha256": "a5328d4e5dbf26f0e13d1c18192822a613388b26c63c55ff89ba90654d268d42",
+      "bytes": 3915
+    },
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/local_registration.py": {
+      "sha256": "52414980ba576a8c353cd9f1d2c0cad45fa1cfb1c939349a9c998f51eb420e38",
+      "bytes": 1713
+    },
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/SELECTED_EVENTS.csv": {
+      "sha256": "008bd2e33a4d664bfc95952aa6a1fcc69d6e76a1ae11a0fc787caee2f4efea61",
+      "bytes": 23252
+    },
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/SELECTED_EXPOSURES.csv": {
+      "sha256": "40e1c6304a4994d8c062923a4c4781602529279a7a0e336a1c05429d62818073",
+      "bytes": 28224
+    }
+  },
+  "network_requests": 0,
+  "raw_or_native_array_values_read": 0,
+  "new_science_calculations": 0,
+  "scope": "Saved identity/geometry metadata and source conventions; no local flux, spatial morphology, or origin assessment."
+}

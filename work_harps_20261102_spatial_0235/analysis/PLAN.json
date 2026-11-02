@@ -1,0 +1,201 @@
+{
+  "schema": "HARPS_SPATIAL_0235_PROSPECTIVE_V1",
+  "created_utc": "2026-11-02T12:31:25.933477+00:00",
+  "phase": "POST_HOC_SINGLE_EVENT_SPATIAL_SUPPORT",
+  "event": "V2E2-0235",
+  "dp_id": "ADP.2023-02-23T01:01:36.791",
+  "raw_id": "HARPS.2023-02-22T07:40:53.531",
+  "ancillary_id": "ADP.2023-02-23T01:01:36.792",
+  "original_classification": "U",
+  "native_order": 50,
+  "native_pixel": 956,
+  "raw_center_row": 3139,
+  "raw_center_column": 2323.7701943175816,
+  "orientation": {
+    "row_flip": true,
+    "column_flip": false,
+    "argument_flip": true
+  },
+  "trace_coefficients_ascending": [
+    2313.85677060941,
+    0.0157320801882318,
+    -3.92717582834788e-06,
+    -2.47112094756709e-11,
+    -9.83103117642107e-17
+  ],
+  "trace_rule": "Evaluate the inherited ascending polynomial directly at zero-based raw row, because native x=4095-row and argument_flip=true. No +1, recentering, refit or orientation change.",
+  "raw_path": "work_harps_20261102_spatial_0235/inputs/derived/HARPS.2023-02-22T07_40_53.531.fits",
+  "raw_sha256": "52fe1d9a69c102188d0e2b75490f9f933b3906e47b8fca3a2b89622c6851797f",
+  "input_inventory_path": "work_harps_20261102_spatial_0235/inputs/INPUT_INVENTORY.json",
+  "pixel_read_rule": "Use only HDU2.section for331 declared rows,25 native columns per row, total8275 observed pixels. Stitched columns map to chip2 physical column c\u22122048+50. Preserve all values and exact coordinates in SELECTED_NATIVE_PIXELS.npz before template fits.",
+  "raw_flanks_relative_half_open": [
+    [
+      -280,
+      -80
+    ],
+    [
+      81,
+      281
+    ]
+  ],
+  "native_flanks_relative_half_open": [
+    [
+      -280,
+      -80
+    ],
+    [
+      81,
+      281
+    ]
+  ],
+  "flank_convention": "Native-relative[-280,-80) maps to raw absolute[3220,3420); native[81,281) maps to raw[2859,3059). Row flip reverses labels; their sorted raw-offset union is unchanged.",
+  "target_relative_raw_rows_half_open": [
+    -5,
+    6
+  ],
+  "control_center_relative_raw_rows": [
+    -255,
+    -205,
+    -155,
+    -105,
+    106,
+    156,
+    206,
+    256
+  ],
+  "control_rows": "Each center\u00b15 inclusive,11rows. Eight coordinate-selected windows,88 rows, mutually disjoint and target excluded.",
+  "template_partition": "All400 flank rows excluding each control center\u00b110 inclusive.232 training rows,116 per raw flank.80 buffer rows unmeasured. Background columns follow the same row partition; no held-out control pixels enter templates.",
+  "crossdispersion_columns": "25 native columns round(trace)+j,j=-12..12; retain exact fractional d=column\u2212trace. No target/control raw interpolation.",
+  "background": "Fixed row median of native pixels with9\u2264|d|\u226412, minimum6 pixels; descriptive outer MAD\u00d71.4826 reported separately. No fitted intercept or slope. Actual masks/counts vary with fractional phase. Record negative- and positive-outer medians separately without alternate fits; this exposes asymmetry near the FP fiber.",
+  "template_training": "For each finite training row, subtract fixed background; interpolate only its training profile onto integer true-offset grid\u22128..8. Divide by its signed grid sum if strictly positive; otherwise retain UNUSABLE disposition. Pointwise median of normalized profiles, then divide by its signed sum if positive. All signs preserved; no clipping.",
+  "templates": {
+    "pooled": {
+      "declared_rows": 232,
+      "minimum_usable": 200
+    },
+    "negative_raw_flank": {
+      "declared_rows": 116,
+      "minimum_usable": 100
+    },
+    "positive_raw_flank": {
+      "declared_rows": 116,
+      "minimum_usable": 100
+    }
+  },
+  "template_policy": "Report pooled primary plus both flank-only sensitivity templates. No outcome-based choice, fallback or best-template selection. Blocked template/window slots remain explicit.",
+  "model": "At observed native pixels|d|\u22648, interpolate fixed template to exact d and normalize its signed sampled sum to1. Fit one unconstrained signed OLS amplitude A=T\u00b7(raw\u2212background)/(T\u00b7T). Model=background+A*T. No spatial shift, variable width, pixel clipping, cosmic-ray rejection or extraction modification.",
+  "metrics": {
+    "primary": "Residual off-trace L1 fraction: sum|r| over3<|d|\u22648 divided by sum|r| over|d|\u22648. Explicit zero denominator flag.",
+    "support": "On/off-trace L1, total/signed residual sums, largest pixel |residual|/L1, L1 centroid relative to fixed trace and window center. Also report negative residual sum and mean absolute residual per native on/off-band pixel to expose unequal band areas.",
+    "positive_residual": "Separately named sum and crossdispersion/dispersion centroid of max(residual,0); null if zero. These are not photon or charge fractions.",
+    "context": "Per-row amplitude,background,outerMAD proxy,RMS and pixel counts; window amplitude sum,median background/noise proxy. Individual negative/positive outer medians are retained for training and fitted rows.",
+    "empirical": "All eight held-out coordinate controls shown individually. Report number controls\u2265target for predeclared metrics only; no p-value, calibrated significance, threshold or classifier."
+  },
+  "outputs": "All27 template\u00d7window slots,297 row fits when valid; target/control raw/model/residual maps for all declared templates; archive exact observed bounded pixel matrix and coordinate vectors.",
+  "release_contract": {
+    "schema": "HARPS_SPATIAL_0235_RELEASE_V1",
+    "default_file": "ROOT_RELEASE.json",
+    "required_fields": [
+      "publication_commit",
+      "publication_readback_verified",
+      "plan_sha256",
+      "analysis_script_sha256",
+      "input_inventory_path",
+      "input_inventory_sha256"
+    ],
+    "guard": "Require exact hashes and verified public publication before any target/control values. No network. Refuse existing results. Recheck all sources/input/release after analysis."
+  },
+  "plot_script_sha256": "41c6bb55cc7a573616a862e60b319a358d36fef65c5829deeda086c22f4eaa0e",
+  "plot_rule": "Target raw/model/residual for all3templates; pooled raw/model/residual for target+all8controls; alltemplates/controlL1 metrics. Native pixel display, no smoothing; raw/model paired minmax eachwindow, common symmetric residual scale across all windows/templates.",
+  "limitations": [
+    "Explicitly posthoc spatial diagnostic of one previously ambiguous event; no classifier or physical-origin claim and U remains unchanged.",
+    "Template training and controls are disjoint, but all windows share one exposure/order; correlated local empirical context is not a calibrated noise distribution.",
+    "Spatial profile may vary with dispersion, fractional pixel phase, curvature, instrumental response and spectral structure. Training-only interpolation and fixed empirical templates may smear or mismatch the true profile; flank-only sensitivities are reported without selecting a favorite.",
+    "Nearest fiberB order49 FP calibration trace center is about+16.354 pixels from A50 at target; no neighboring center enters\u00b112, but positive background band9..12 lies only4.35..7.35pixels from that FP center. Unknown wings may contaminate background/template; two-sided median does not establish absence. FiberB is not sky.",
+    "Raw ADU measurements have no modeled gain/read-noise/Poisson/bias/flat calibration or formal uncertainty. Outer MAD is descriptive only.",
+    "Off-trace L1 fraction and positive residual centroids quantify model discrepancy; neither estimates photon/charge probability or establishes contamination origin.",
+    "Native target/control pixels are retained unchanged. No historical spectrum/extraction is recomputed, corrected or relabeled."
+  ],
+  "source_hashes": {
+    "work_harps_20261102_spatial_0235/inputs/TRACE_METADATA.json": "293a748ebf419b8156be626be18dffe0867d39e4436e92e2e26e3fecec01c67d",
+    "work_harps_20261102_spatial_0235/inputs/INPUT_INVENTORY.json": "d3c9b750ac8221e12c841625efc7c53c6964ad0d44413afee0c92a5ba720a5c7",
+    "work_harps_20261102_spatial_0235/inputs/RESTORE_RECEIPT.json": "2e6b9a1af4fc13512251e836887da88f384f3c5e952dd2833e527dabcc355f8b",
+    "work_harps_20261102_spatial_0235/analysis/measure_spatial.py": "17e1f666896fc504105689675611261bbe376ddb325e342ae21101cf33b1d12b",
+    "work_harps_20261102_spatial_0235/analysis/plot_spatial.py": "41c6bb55cc7a573616a862e60b319a358d36fef65c5829deeda086c22f4eaa0e",
+    "work_harps_20261102_spatial_0235/BASELINE_VERIFICATION.json": "73f1e09b1406de4462a73d627a0166c0b2e5194b41fd98308cc1d1f5c705eaca",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/NATIVE_MAPPING.json": "e02971783ec66d60ca69d500cd6b352e3e31453d8623b44816eba2f5d5777a8c",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/LOCAL_TRACE_AUDIT.json": "1c618179af1c7d973b9eab30e939f8b524a4671cc0f848414c66de4e97a5d623",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/FIVE_WINDOW_MAPPING_AUDIT.json": "9d713c3c1dbf57c00bb2d2db227a4f6787dcbbbc1e2176f78ad1edeaa956cbbf",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/EVIDENCE_ARCHIVE.json": "cbd9a23a3d1f699646cab2cb969332339acb72c4cf7c22a4e175a1979f0bcac5",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/EVIDENCE_PARTS.json": "65c36afd08a50079f930b9a7972b9582c2f5d571d5d539827a522afcec38db1b",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/checkpoints/INPUT_ARCHIVES.json": "7ff8624687bb90a253f22c9b69813697dc236e7d69e889fb42457bf94ff5fb73",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/checkpoints/LIBRARY_INPUTS.json": "e2fdd4797fb210c5d8296cb345516dbbc18515374e5c33ae3cf7bb9a97c3dc61",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/extract_native.py": "fbcfbf843cc4b090644641a3eb8201ae16503b639b993cc1091b88b5361c21bb",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/local_registration.py": "52414980ba576a8c353cd9f1d2c0cad45fa1cfb1c939349a9c998f51eb420e38",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/registration.py": "eaa68430bb7fe542da2551165640ba288071ef247237264f50638f930c27d837",
+    "work_harps_20261102_may_quality/scientific_review/NEXT_STEP.md": "6e871013cb94639e8a54d8a5b4b27a45f70715bbc520f2012abf2013a9831a0f",
+    "work_harps_20261102_spatial_0235/inputs/source_products/HARPS.2023-02-22T07_40_53.531.fits.Z": "32643c330bfaf0a5e0ad8ff5d1d651c9feed3893a684adeba705aa045131a9b4",
+    "work_harps_20261102_spatial_0235/inputs/source_products/ADP.2023-02-23T01_01_36.792.tar": "527f6e8efd09d77a15e923b95a29c919874961b280bd8de2a1b5f5b5184dfe29",
+    "work_harps_20261102_spatial_0235/inputs/evidence/native/V2E2-0235_o50.npz": "d70580a306b873a49e585bc66750bf12ad838306c54c40915a8d9fe7bc812c51",
+    "work_harps_20261102_spatial_0235/inputs/evidence/reference/ADP.2023-02-23T01_01_36.791.json": "5572ab904e9117a238217cc676f903c6e0bb8b53bc0f61372900766686852f52",
+    "work_harps_20261102_spatial_0235/inputs/derived/HARPS.2023-02-22T07_40_53.531_e2ds_A.fits": "eb65a2cf012a2d7fff26d25f741271de1c3a7aeb0c8aaedac1e2c3616ce2fd64",
+    "work_harps_20261102_spatial_0235/inputs/derived/HARPS.2023-02-22T07_40_53.531_e2ds_B.fits": "7eddcac6fdd760083ff0d56a087f96533b2923a3aa72405b0de0ab7cc436cf98",
+    "work_harps_20261102_spatial_0235/inputs/derived/HARPS.2023-02-22T07_40_53.531.fits": "52fe1d9a69c102188d0e2b75490f9f933b3906e47b8fca3a2b89622c6851797f",
+    "work_harps_20261102_spatial_0235/input_audit/RESTORED_INPUT_AUDIT.json": "84a2c5de9cae06ecaae56615b84769b837c6e02d81b6477b355b5d0e97152aa3",
+    "work_harps_20261102_spatial_0235/input_audit/AUDIT_ARTIFACTS.json": "58d73839a3fb8c59fcbd527ed4ca30444d875c88e57ca2d0c4ea61ff4a08c1ff",
+    "work_harps_20261102_spatial_0235/input_audit/DRAFT_BEFORE_SEVENTH_B_HEADER_INPUT.json": "c48cf9b49845b1b16df16080cafecdc480a33669f9b1648f2d3d484a9dd504eb",
+    "work_harps_20261102_spatial_0235/input_audit/INPUT_METADATA_AUDIT.json": "72c8216bb8217803068cb051cc96fcabe1382331379764c3abfc7bdba8854e12",
+    "work_harps_20261102_spatial_0235/input_audit/NEIGHBOR_GEOMETRY_AUDIT.json": "d9bcfbcac8c834baa2da2b4c5df0415592933c84ed0fafb11220f913047edcbf",
+    "work_harps_20261102_may_quality/comparison/results/OUTPUT_HASHES.json": "7750f2b45eb69cb6b1d3f09c71e1966589ea84ae3f15507271729d9350f4d1c5",
+    "work_harps_20261102_may_quality/comparison/results/ALL_COMPARISON_MEASUREMENTS.csv": "c53617c9d362b3c120ed26b2d6bc41cfc401ad13fbfe4df9f566c2c3a7bb9c93",
+    "work_harps_20261102_may_quality/comparison/results/ALL_COMPARISON_MEASUREMENTS.json": "ba58cf83e32aa888699664aa4db08bebb92bde1398ca00395b90293f707f02fe",
+    "work_harps_20261102_may_quality/comparison/results/EVENT_RESULTS.json": "fc79cc1da66482eac2b06cec485d94dd43b0e3d2ff2b2d010fc7926eb85e5e87",
+    "work_harps_20261102_may_quality/comparison/results/PAYLOAD_HEADER_VALIDATION.json": "290a0fd3033aa83a6bd6c4d5ea9f466e6e46117f61edd1c846285181fe50f7b0",
+    "work_harps_20261102_may_quality/comparison/results/STARTED.json": "09e90c80fb6adac7719e39605315a2be1f7c7ac087cbb70cf4a128262688ffc7",
+    "work_harps_20261102_may_quality/comparison/results/SUMMARY.json": "3170dadf417c0906fca284c10976572e9e2007c62004b1b8142147f5b6399576",
+    "work_harps_20261102_may_quality/comparison/results/profiles/V2E2-0229_ADP.2017-05-21T01_01_50.278_barycentric.npz": "7faad694288b5a34a0192c4be0953db3af8ebb1c1a2ad2275884f6fc50351794",
+    "work_harps_20261102_may_quality/comparison/results/profiles/V2E2-0229_ADP.2017-05-21T01_01_50.278_topocentric.npz": "1e3b6f6ccf4b69f20ca30cc5bea261723ef7a760806073a507ffed0e0cb65b3e",
+    "work_harps_20261102_may_quality/comparison/results/profiles/V2E2-0231_ADP.2017-05-21T01_01_50.278_barycentric.npz": "50c52c481a5944d55ce64686efe01e12def716007fcdfce606446b193e4cb631",
+    "work_harps_20261102_may_quality/comparison/results/profiles/V2E2-0231_ADP.2017-05-21T01_01_50.278_topocentric.npz": "5256cd49b45bcd012e283dc4227c3a385f25e08a54d1942edd97106ecd75ab89",
+    "work_harps_20261102_may_quality/comparison/results/profiles/V2E2-0234_ADP.2017-05-21T01_01_50.278_barycentric.npz": "6daa04fbd084fb75a742ad51b96d9a7fa80ab6cc09674ce9c151a0c38c70c236",
+    "work_harps_20261102_may_quality/comparison/results/profiles/V2E2-0234_ADP.2017-05-21T01_01_50.278_topocentric.npz": "5cbbb56eccee6b68eb1bad772893118a0f7aa1e146abd4d0d69742d06d7aec20",
+    "work_harps_20261102_may_quality/comparison/results/profiles/V2E2-0235_ADP.2017-05-21T01_01_50.278_barycentric.npz": "6aa3e2a807a43aabb6f6e75f8220f87ca07695fa3e11a0095510d2b0610915d7",
+    "work_harps_20261102_may_quality/comparison/results/profiles/V2E2-0235_ADP.2017-05-21T01_01_50.278_topocentric.npz": "9970a8f3a2f2f7739989f781e908ae5cf6c29a9f80243550a1e6752600758b53",
+    "work_harps_20261102_may_quality/comparison/results/profiles/V2E2-0236_ADP.2017-05-21T01_01_50.278_barycentric.npz": "5fa919d2788432eb4d4eef83adefd13df059e01ad2246482cf5d51c8d0207244",
+    "work_harps_20261102_may_quality/comparison/results/profiles/V2E2-0236_ADP.2017-05-21T01_01_50.278_topocentric.npz": "c56bc5c4ec95d30b50133bc11be88ff47f9de85adbb2842783b42b651cf8fc6f",
+    "work_harps_20261102_may_quality/comparison/results/profiles/V2E2-0237_ADP.2017-05-21T01_01_50.278_barycentric.npz": "6daa04fbd084fb75a742ad51b96d9a7fa80ab6cc09674ce9c151a0c38c70c236",
+    "work_harps_20261102_may_quality/comparison/results/profiles/V2E2-0237_ADP.2017-05-21T01_01_50.278_topocentric.npz": "29b9082c0b10d2fa80b4efeace707b20eb7d528076a2860e545a760f4ed220f0",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/OUTPUT_HASHES.json": "6bfb692f02a3d634094ce1dc4872ebeaa8461afad5027bc7ee20df905332fc73",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/ALL_COMPARISON_MEASUREMENTS.csv": "4b6986af5ce451d13cf42cf1a97e3f0fc39d909a7032d7844e483746282f5aac",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/ALL_COMPARISON_MEASUREMENTS.json": "1fb6713010132f9147f594e940917f512f2ba025724fbccebbeb9d5de8756a3e",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/EVENT_RESULTS.json": "bd87b1dc9d8144d56397ddf3c7e054d7224ed7224cd596b6baf83fbceba36091",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/PAYLOAD_HEADER_VALIDATION.json": "fe82f258f4d75ae7550d910bb5b4acb78ea846e149e273b5fd9ce2801083ee02",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/STARTED.json": "b250aec7ba4e8540e4c06e3028990cefcaa9d6c88058bd5ad644538d6426169a",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/SUMMARY.json": "7f8cf0c2dbe06ca1943ec777d6b64ac84d1cc5a2f13b63cc49a13b220ad01b04",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/profiles/V2E2-0229_ADP.2017-05-23T01_01_52.459_barycentric.npz": "afec19971f8687d4795a17b9a9d9ee87c03d8e03ef1cb86d9bdc2a1bccf1c664",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/profiles/V2E2-0229_ADP.2017-05-23T01_01_52.459_topocentric.npz": "a1876927865e880504ce169a9eae566b2e0e47595a977baf48ac15dfcfb1dd83",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/profiles/V2E2-0229_ADP.2018-01-21T01_01_37.761_barycentric.npz": "39186a2a25808399edb363273c2b663108342c591b3eeeee83b43c9b81b3773a",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/profiles/V2E2-0229_ADP.2018-01-21T01_01_37.761_topocentric.npz": "d583414565d67f4645a60ff84e78ce0c31a970fc2bb350a1dacd88c0c2735740",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/profiles/V2E2-0231_ADP.2017-05-23T01_01_52.459_barycentric.npz": "a15471210e805fd1f6b4c5d2b2a6be646383244dae7e5b89b6a5911a6694c438",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/profiles/V2E2-0231_ADP.2017-05-23T01_01_52.459_topocentric.npz": "981e95124907a8208a580a72c54ec01696d2f9fa504341744020a4fc14a3941e",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/profiles/V2E2-0231_ADP.2018-01-21T01_01_37.761_barycentric.npz": "90e85a349f2559579279ffd803f9b3d2a907d456ba28aef400f5c56bae7cea11",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/profiles/V2E2-0231_ADP.2018-01-21T01_01_37.761_topocentric.npz": "89679b91ad2cf2f0e3f0141c5b30d36c82a4e624d4b15119601caae383a0da64",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/profiles/V2E2-0234_ADP.2017-05-23T01_01_52.459_barycentric.npz": "b507ab7632a7f006fe556d17191aaad6232f67f7b28a85b6d9f831e5fd32a5e9",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/profiles/V2E2-0234_ADP.2017-05-23T01_01_52.459_topocentric.npz": "1ce00cd4e38caab67cd7d32b7ba8fe47689e9acd4f8aea513aee18396b6a945b",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/profiles/V2E2-0234_ADP.2018-01-21T01_01_37.761_barycentric.npz": "a908e3da04fc2746a76de02259b3f4c67cd37d008710a15b11a85db90ec0ed1a",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/profiles/V2E2-0234_ADP.2018-01-21T01_01_37.761_topocentric.npz": "b146a56f5361310f6dafb7006ce003ec83ed7927b1c3f2eb41f42dbf2961966b",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/profiles/V2E2-0235_ADP.2017-05-23T01_01_52.459_barycentric.npz": "d2abc1c25a660fec7c329997b9e690de262841da14c2c5a428c4d790a8839d75",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/profiles/V2E2-0235_ADP.2017-05-23T01_01_52.459_topocentric.npz": "bd0c4d5e1a327d5748cbf73ae929d3894d685fae8baef93f525a50be7a1aa98d",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/profiles/V2E2-0235_ADP.2018-01-21T01_01_37.761_barycentric.npz": "03cc3e9e9822987f104f19473f71866efd0de8fc29876e1dcb4bb61e8a49253c",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/profiles/V2E2-0235_ADP.2018-01-21T01_01_37.761_topocentric.npz": "e7e0249b6dee988d5ccad1798141823c13e0bf80e96e1dd7cfd0c5cc32f5fc73",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/profiles/V2E2-0236_ADP.2017-05-23T01_01_52.459_barycentric.npz": "3ab38037606f44ce4e29196f9480b9e299d7e5e98d9538045ee7f2cf92ee15f4",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/profiles/V2E2-0236_ADP.2017-05-23T01_01_52.459_topocentric.npz": "299b168fd4670a0a036c9b4dbe35eae191296e255bfd8164acb692723b7b6deb",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/profiles/V2E2-0236_ADP.2018-01-21T01_01_37.761_barycentric.npz": "315a07edf6e7a4aefdee7e4423acec61a8345e57a92565f7280f2ca4f9b1645b",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/profiles/V2E2-0236_ADP.2018-01-21T01_01_37.761_topocentric.npz": "06a738fd1de6f5da39b9cd41476f3945bd4107edeac430fd189360465a66f15e",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/profiles/V2E2-0237_ADP.2017-05-23T01_01_52.459_barycentric.npz": "b507ab7632a7f006fe556d17191aaad6232f67f7b28a85b6d9f831e5fd32a5e9",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/profiles/V2E2-0237_ADP.2017-05-23T01_01_52.459_topocentric.npz": "f77606b222b0389467434dbeebaf6463ddddad45aa6e4e21f6f4448290539290",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/profiles/V2E2-0237_ADP.2018-01-21T01_01_37.761_barycentric.npz": "a908e3da04fc2746a76de02259b3f4c67cd37d008710a15b11a85db90ec0ed1a",
+    "work_harps_20261102_berv_followup/prospective_comparison/results/profiles/V2E2-0237_ADP.2018-01-21T01_01_37.761_topocentric.npz": "a7242019e7e2d28ba3425b5ffdb9d35bc826c6ebe3634e700b90b4157eddffa9"
+  },
+  "failure_accounting": "Save all8275 declared raw pixel values/coordinates before fitting. Retain every232 training row disposition and all27 template/window slots even when a template lacks support or a window is invalid; explicit BLOCKED records and null empirical metrics. Do not substitute controls or templates."
+}

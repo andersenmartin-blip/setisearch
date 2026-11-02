@@ -1,0 +1,82 @@
+{
+  "status": "PASS_SCIENTIFIC_DESCRIPTIVE_METHOD_AT_RECORDED_CODE_HASH_PENDING_PUBLICATION",
+  "reviewed_utc": "2026-11-02T12:32:24.380416+00:00",
+  "analysis_script_sha256": "17e1f666896fc504105689675611261bbe376ddb325e342ae21101cf33b1d12b",
+  "trace_metadata_sha256": "293a748ebf419b8156be626be18dffe0867d39e4436e92e2e26e3fecec01c67d",
+  "pre_array_guardrail_sha256": "fa7802a8761395c888c1c823a37d765a796d065b0cbf4f02eb35e52ec143ce4d",
+  "array_values_read_by_reviewer": 0,
+  "network_requests_by_reviewer": 0,
+  "scope": "Scientific method review only; independent technical preflight and exact root release still govern execution. No final PLAN existed at this review. Any change to the recorded analysis script requires a new review receipt.",
+  "findings": [
+    {
+      "item": "Sampling independence",
+      "assessment": "232 training rows are separate from eight 11-row heldout control windows and the 11-row target, with additional five-row control buffers. The shared pooled and individual-flank templates are trained without the target or control rows."
+    },
+    {
+      "item": "Coordinates",
+      "assessment": "The code labels offsets relative_raw_row and evaluates the frozen polynomial on absolute raw rows. Header metadata confirms native_pixel=4095\u2212raw_row and argument_flip=true, so the polynomial argument is raw row. The paired original flank union is preserved; native minus-side maps to raw plus-side."
+    },
+    {
+      "item": "Fitting",
+      "assessment": "The current implementation uses a median of fixed outer pixels for each row background, followed by one unconstrained least-squares trace amplitude over the fixed inner band. It is not a joint amplitude/intercept OLS fit. Its residual sum therefore need not be zero. Signed amplitudes/backgrounds/residuals and signed training normalization are retained; failed positive normalization is an explicit failure."
+    },
+    {
+      "item": "Evaluation grid",
+      "assessment": "Target and control data remain native detector pixels. Training profiles are interpolated onto a shared trace-centered grid and the template is evaluated back at each row native-pixel offset. This preserves observed detector compactness but the interpolated template still introduces modeling/phase dependence."
+    },
+    {
+      "item": "Sensitivity",
+      "assessment": "Pooled, negative-raw-flank and positive-raw-flank templates are all reported. No target-driven selection, shift or width adjustment is present. Differences between these templates should be presented as model sensitivity, not used to select a preferred interpretation."
+    },
+    {
+      "item": "Metrics",
+      "assessment": "Spatial fractions use residual L1, not the signed residual total. Signed residual sums plus explicitly positive and negative residual sums are retained. On/off-trace mean absolute residuals per pixel are included, which clarifies unequal pixel area. Off-trace fraction alone is not evidence of a deposit."
+    },
+    {
+      "item": "Controls and interpretation",
+      "assessment": "Amplitude/background/outer-MAD context accompany the controls. Empirical comparisons are explicitly not probabilities, classifiers or photon fractions. Only model inadequacy/localization may be described; trace-aligned charge may be absorbed and a compact residual need not imply artifact-only origin."
+    },
+    {
+      "item": "Failed diagnostics",
+      "assessment": "Training and target/control failures are retained as blocked records. All three declared templates and all nine window slots remain accounted; no successful-only template selection or replacement control occurs."
+    }
+  ],
+  "header_only_neighbor_geometry": {
+    "A": [
+      {
+        "fiber": "A",
+        "order_index": 49,
+        "raw_column": 2258.1858643341798,
+        "offset_from_A50_pixels": -65.58432998340186
+      },
+      {
+        "fiber": "A",
+        "order_index": 51,
+        "raw_column": 2390.468175045276,
+        "offset_from_A50_pixels": 66.69798072769436
+      }
+    ],
+    "B": [
+      {
+        "fiber": "B",
+        "order_index": 49,
+        "raw_column": 2340.1241325907654,
+        "offset_from_A50_pixels": 16.353938273183758
+      },
+      {
+        "fiber": "B",
+        "order_index": 48,
+        "raw_column": 2274.545032752536,
+        "offset_from_A50_pixels": -49.22516156504571
+      }
+    ]
+  },
+  "background_caveat": "Nearest B trace lies +16.3539382732 pixels from A at the target row. The positive background samples near A+9\u202612 approach the B trace to approximately 4.4\u20267.4 pixels. No B-array values were read; contamination is unknown. Separate negative/positive outer medians are now prespecified for training and evaluated rows. Use them to describe background asymmetry; do not invent a target-driven correction. Outer samples remain an estimator, not demonstrated pure bias/sky.",
+  "remaining_report_guards": [
+    "Do not equate a large residual or empirical rank with a charge classification.",
+    "Do not treat low residuals as proof of photons or derive a physical charge/photon fraction.",
+    "No calibrated error model, independent replicate or physical-origin assignment is supplied by this one-exposure/order diagnostic.",
+    "Keep the frozen target, controls, failed diagnostics, original extraction and U label unchanged."
+  ],
+  "execution_authorized_by_review": false
+}
