@@ -1,0 +1,29 @@
+{
+  "status": "PASS_COMPACT_PROSPECTIVE_C002_AUDIT",
+  "created_utc": "2026-11-02T18:58:04.414819+00:00",
+  "checks_passed": 256,
+  "synthetic_scalar_values_compared": 34055,
+  "maximum_synthetic_absolute_difference": 2.220446049250313e-16,
+  "plan_sha256": "3cfcc7ad2007357edb49c39320d33976d5348ea9a3f03b2d700f6bc4cb3e3efe",
+  "analysis_script_sha256": "f23907237b2ea3f45bed05d598ed6d1e95d70b60cddd09ae86c6cb90049d002d",
+  "independent_math_sha256": "468f43a4be1a8f7485fafd2aadc29d2ff7eda93b754d0c76d95d05e76f86565b",
+  "audit_script_sha256": "73882e21ff250418fe67546dc9eb692a9a10831fb62629ed41417daee5802861",
+  "source_hashes_verified": 41,
+  "observational_arrays_read": 0,
+  "network_requests": 0,
+  "production_import_scope": "Synthetic function harness only; independent math imports no production code; actual audit imports no production functions.",
+  "scope": [
+    "Exact common 3868.6025 \u00c5 barycentric anchor and fixed 0033 May 2022 topocentric BERV anchor; native-to-bary transform unchanged.",
+    "601-point grid; 51 core / 550 broad points and exact 41 / 440 minimum common supports.",
+    "Pooled signed-flank median with 20 finite samples required separately per flank; no fitted background, shift or width.",
+    "Raw-only missing-coverage and nonpositive-reference outcomes remain explicit; raw Pearson and normalized RMS are separately gated.",
+    "Header-before-array source structure, exact 18 profiles / 36 comparisons, inventory/release/source bindings.",
+    "Order 2 has geometric full-core coverage but missing right flank and at most 366 broad grid points; historical local/baseline mapping failures remain explicit despite later five-window support.",
+    "One record, both native orders/raw panels and one May 2022 discovery reference. C002 core was visible between the C003 negative flank and core, outside C004; wider context overlaps both. No blind or independent validation claim."
+  ],
+  "inherited_zero_variance_guard": "The previously corrected exact zero-range guard is preserved; constant noninteger profiles cannot acquire a Pearson value from rounding-scale standard deviations.",
+  "limitations": [
+    "This is source/synthetic preflight only; actual input/profile arithmetic awaits root release and completed run.",
+    "No physical-origin assignment, independent detection, calibrated uncertainty or classification change follows."
+  ]
+}
