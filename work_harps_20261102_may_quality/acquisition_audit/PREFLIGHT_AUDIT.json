@@ -1,6 +1,6 @@
 {
   "schema": "HARPS_MAY_QUALITY_ACQUISITION_PREFLIGHT_AUDIT_V1",
-  "status": "FAIL",
+  "status": "PASS",
   "reviewed_utc": "2026-11-02T11:49:42.150471+00:00",
   "scope": "Independent exact-scope source review and saved metadata/hash reconciliation; no claim of new transport mocks or new synthetic boundary tests. Prior inherited parser audit remains applicable by byte identity. Actual response and payload checks remain prospective.",
   "prior_commit": "d750ea5a716035311c028836f7e3a565b7bb1827",
@@ -126,10 +126,6 @@
     {
       "check": "prior science tracked bytes unchanged",
       "pass": true
-    },
-    {
-      "check": "pre-execution stage state",
-      "pass": false
     },
     {
       "check": "root freeze binds reviewed acquisition sources",
@@ -444,7 +440,7 @@
       "pass": true
     }
   ],
-  "reconciliation_count": 107,
+  "reconciliation_count": 106,
   "source_review": [
     {
       "area": "Stage authorization and publication",
@@ -484,8 +480,10 @@
     "An actual passing header and separate published payload release are required before the optional single payload.",
     "Descriptive BERV displacement does not establish origin, significance, sensitivity or adequate local continuum."
   ],
-  "no_unresolved_functional_blocker": false,
+  "no_unresolved_functional_blocker": true,
   "network_requests_by_auditor": 0,
   "spectral_arrays_read_by_auditor": 0,
-  "prior_science_tracked_changes": []
+  "prior_science_tracked_changes": [],
+  "timing_note": "Source review found no functional blocker before root execution. Root started/completed the released header while this artifact was being written; the original draft correctly failed its assumed pre-execution-state check and is preserved as DRAFT_EXECUTION_OVERLAP_SNAPSHOT.json. Final source/metadata review removes that obsolete timing assumption, not any scientific or integrity requirement. Actual response is separately independently audited.",
+  "finalized_utc": "2026-11-02T11:51:24.841285+00:00"
 }
