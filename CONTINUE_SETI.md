@@ -1,8 +1,16 @@
-# Continue SETI from the completed C003 / HD106515A group context
+# Continue SETI from the completed C005 / HD106515A group context
 
-Read [the current machine-readable state](work_harps_20261102_c003_context/CONTINUATION_STATE.json), fetch current GitHub and compare its source hashes before new work. Another session may have advanced the project. The [previous accelerated checkpoint](work_seti_20261102_accelerated/CONTINUATION_STATE.json) is preserved unchanged. Rubin remains explicitly advanced to **2–8 November 2026**. Earlier checkpoints and calendar dates are historical.
+Read [the current machine-readable state](work_harps_20261102_c005_context/CONTINUATION_STATE.json), fetch current GitHub and compare its source hashes before new work. Another session may have advanced the project. The [previous accelerated checkpoint](work_seti_20261102_accelerated/CONTINUATION_STATE.json) is preserved unchanged. Rubin remains explicitly advanced to **2–8 November 2026**. Earlier checkpoints and calendar dates are historical.
 
-## Latest completed C003 group context
+## Latest completed C005 group context
+
+[The 3882 Å HD106515A comparison](work_harps_20261102_c005_context/README.md) is complete: seven existing epochs, all five discovery references, ten native-order contexts, 34 profiles and 180 comparisons. All 33 method/input files were read back from `b9e06d67e3a499dd93bf1b718820a18b0ddbe395` before calculation. No new acquisition or observation was added.
+
+The core and surrounding spectrum recur in barycentric coordinates against every reference: nonself core r = 0.912055–0.994226 and broader r = 0.947577–0.994515. Fixed topocentric-core comparisons can concern neighboring structure because later feature centers move outside the anchor window. Near-BERV exceptions and all references are retained; no physical-origin classification follows.
+
+All 34 profiles have full coverage and valid positive references. Two order 4 topocentric profiles, 0035 and 0054, retain low-reference flags; none is discarded. All 180 Pearson/RMS values and 20 self-pairs are reported. [Independent arithmetic](work_harps_20261102_c005_context/independent_audit/NUMERICAL_AUDIT.json) passes 895 checks / 135,577 scalars. All five U labels remain unchanged. [Complete measurements and eight figures](work_harps_20261102_c005_context/analysis/RESULTS_REPORT.md).
+
+## Earlier completed C003 group context
 
 [The HD106515 A comparison](work_harps_20261102_c003_context/README.md) is complete: seven existing epochs, all five discovery references, eight covering native-order contexts,30 profiles and172 comparisons. All 31 method/input files were read back from `d1046d8306ba34699f0eab9af57be145316eef76` before the calculation. No acquisition or new observation was added.
 
@@ -77,19 +85,21 @@ The [one-degree metadata extension](work_rubin_20261102/extension_feasibility/RE
 
 [Combined status](work_rubin_20261102/COMBINED_STATUS.json): **190 selected main objects; 861 source and 130 forced measurements; 2 primary numerical objects / 7 October rows and 4 secondary objects / 16 rows.** The primary objects are contained within the secondary set. This remains a limited feasibility study: minimum 50 unmet, no qualified null, no physical-origin assignment. All 10 main requests succeeded without retry. The original 20 development objects are separate; 36 controls are not multiplied by the number of cohorts. Do not repeat the completed 188+2 search or re-expand the same field merely to resume.
 
-## Next work after the completed C003 phase
+## Next work after the completed C005 phase
 
-Use [the exact C005 handoff](work_harps_20261102_c003_context/NEXT_ACTION.json): first remaining original queue row4, V2E2-0023, belongs to C005/R005 near3882.04 Å. Include all five members and all seven existing same-target epochs. This is fixed queue order, selected before C003 results. Verify coverage afresh at the new wavelength and inventory its distinct May2022 discovery native product before a separate bounded method. [Evidence requirements](work_harps_20261102_c003_context/scientific_review/NEXT_STEP.md).
+Use [the exact C006 handoff](work_harps_20261102_c005_context/NEXT_ACTION.json): first remaining original queue row 5, V2E2-0025. Include all three records 0025/0042/0043 and both R006/R007 neighborhoods near 4310 Å, with all seven existing cohort epochs. There are only two distinct discovery products; 0042/0043 share one exposure and must not become duplicate references. This queue choice was frozen before C005 results. [Evidence requirements](work_harps_20261102_c005_context/scientific_review/NEXT_STEP.md) define the separate next context.
 
-C001, C003 and the0235 spatial/background phases are complete with unchanged U labels. Do not replay them or add fitting/normalization variants merely to resume.
+C001, C003, C005 and the 0235 spatial/background phases are complete with unchanged U labels. Do not replay them or add variants merely to resume.
 
 Do not automatically select another unused May spectrum to seek a stronger correlation. The separate quality-reference phase and the earlier monthly-selection phase are both closed. The remaining saved metadata pool contains 15 unused products (eight May, seven January), retained as inventory rather than an execution queue. All ten original queue identities and four uncovered HD135204 records remain explicit; the earlier zero-row query is not proof of archive-wide absence.
 
-Rubin's [next-data-route review](work_rubin_20261102/next_data_route/README.md) remains complete and stopped. Reopen only a distinct prospective route with adequate public stellar history, provenance and quality. Preserve 190 main identities and unchanged detector; the 500-object ceiling leaves 310 further unique slots. Minimum50 remains unmet. No new Rubin query was made in the May quality, spatial, C001 or C003 context phases.
+Rubin's [next-data-route review](work_rubin_20261102/next_data_route/README.md) remains complete and stopped. Reopen only a distinct prospective route with adequate public stellar history, provenance and quality. Preserve 190 main identities and unchanged detector; the 500-object ceiling leaves 310 further unique slots. Minimum50 remains unmet. No new Rubin query was made in the May quality, spatial, C001, C003 or C005 context phases.
 
 All 35 fixed mapping diagnoses, both normalization follow-ups and the original 4,370 epoch profiles are complete. Do not repeat them merely to resume. All 185 U and 35 M remain unchanged.
 
 ## Restore and maintain continuity
+
+For C005, [preservation instructions](work_harps_20261102_c005_context/preservation/README.md) bind 17 compact source windows, 34 profiles and ten exact raw-panel copies: 61 NPZs totaling 707,244 bytes. Three existing archives restore all 27 original input files. No live archive query is needed; reproduce in a separate copy.
 
 For C003, [preservation instructions](work_harps_20261102_c003_context/preservation/README.md) bind15compact source windows,30profiles and8exact raw-panel copies:53NPZs totaling568,599bytes. The three existing archives restore all25original input files without new acquisition. Preserve the completed directory and reproduce in a separate copy.
 

@@ -1,0 +1,192 @@
+{
+  "schema": "SETI_NEXT_FIXED_QUEUE_HANDOFF_V1",
+  "created_utc": "2026-11-02T16:46:10.936984+00:00",
+  "status": "PREPARED_METADATA_HANDOFF_NOT_EXECUTED",
+  "kind": "JOINT_PROFILE_CONTEXT_C006_HD106515A",
+  "selection": "Original ACTION_QUEUE first remaining row after completed C001,C003 and completed C005; take entire corresponding core-overlap group, independent of C005 outcomes.",
+  "target": "HD106515A",
+  "events": [
+    "V2E2-0025",
+    "V2E2-0042",
+    "V2E2-0043"
+  ],
+  "core_overlap_group": "C006",
+  "resolution_groups": [
+    "R006",
+    "R007"
+  ],
+  "queue_rows": [
+    {
+      "queue_index": "5",
+      "candidate_id": "V2E2-0025",
+      "target": "HD106515A",
+      "dp_id": "ADP.2022-01-06T01:08:04.689",
+      "current_code_unchanged": "U",
+      "primary_evidence_route": "JOINT_PROFILE_CONTEXT",
+      "any_low_continuum_context": "False",
+      "frame_span_below_one_resolution_element": "False",
+      "resolution_group": "R007",
+      "core_overlap_group": "C006",
+      "next_evidence_needed": "Joint profile context: compare the complete neighboring absorption/emission pattern and all raw-order panels for the group; quantify free-width models with calibration and uncertainties only in a separately frozen analysis.",
+      "priority_context": "After pending raw review and project mapping-limited queue; route is not a likelihood ranking."
+    },
+    {
+      "queue_index": "12",
+      "candidate_id": "V2E2-0042",
+      "target": "HD106515A",
+      "dp_id": "ADP.2023-01-01T01:10:52.479",
+      "current_code_unchanged": "U",
+      "primary_evidence_route": "JOINT_PROFILE_CONTEXT",
+      "any_low_continuum_context": "False",
+      "frame_span_below_one_resolution_element": "False",
+      "resolution_group": "R006",
+      "core_overlap_group": "C006",
+      "next_evidence_needed": "Joint profile context: compare the complete neighboring absorption/emission pattern and all raw-order panels for the group; quantify free-width models with calibration and uncertainties only in a separately frozen analysis.",
+      "priority_context": "After pending raw review and project mapping-limited queue; route is not a likelihood ranking."
+    },
+    {
+      "queue_index": "13",
+      "candidate_id": "V2E2-0043",
+      "target": "HD106515A",
+      "dp_id": "ADP.2023-01-01T01:10:52.479",
+      "current_code_unchanged": "U",
+      "primary_evidence_route": "JOINT_PROFILE_CONTEXT",
+      "any_low_continuum_context": "False",
+      "frame_span_below_one_resolution_element": "False",
+      "resolution_group": "R007",
+      "core_overlap_group": "C006",
+      "next_evidence_needed": "Joint profile context: compare the complete neighboring absorption/emission pattern and all raw-order panels for the group; quantify free-width models with calibration and uncertainties only in a separately frozen analysis.",
+      "priority_context": "After pending raw review and project mapping-limited queue; route is not a likelihood ranking."
+    }
+  ],
+  "existing_context": [
+    {
+      "candidate_id": "V2E2-0025",
+      "dp_id": "ADP.2022-01-06T01:08:04.689",
+      "source_input_sha256": "fa9d47853b1d2f500e30c0b5f92e945ace9d30bc8020889ac5c519e144df8690",
+      "center_bary_air_angstrom": "4310.585",
+      "other_epochs": "6",
+      "berv_span_km_s": "59.6098131157401",
+      "berv_span_resolution_elements": "22.866247383415203",
+      "raw_evidence": "Smooth broad native bump and spatially extended trace-centered raw excess in order19. No narrow cross-trace streak.",
+      "raw_evidence_table": "../raw_followup_batch02/ADOPTED_DISPOSITIONS.csv",
+      "any_low_continuum_context": "False",
+      "resolution_group": "R007"
+    },
+    {
+      "candidate_id": "V2E2-0042",
+      "dp_id": "ADP.2023-01-01T01:10:52.479",
+      "source_input_sha256": "d1af5f5bf08b2e5c55b3100fd8f22ca1dd7de059d427bd01f899f30a561aac04",
+      "center_bary_air_angstrom": "4310.304999999999",
+      "other_epochs": "6",
+      "berv_span_km_s": "59.6098131157401",
+      "berv_span_resolution_elements": "22.866247383415203",
+      "raw_evidence": "Broad asymmetric native bump and smooth trace-centered raw excess in order19. A separate off-trace feature is not at the core.",
+      "raw_evidence_table": "../raw_followup_batch02/ADOPTED_DISPOSITIONS.csv",
+      "any_low_continuum_context": "False",
+      "resolution_group": "R006"
+    },
+    {
+      "candidate_id": "V2E2-0043",
+      "dp_id": "ADP.2023-01-01T01:10:52.479",
+      "source_input_sha256": "d1af5f5bf08b2e5c55b3100fd8f22ca1dd7de059d427bd01f899f30a561aac04",
+      "center_bary_air_angstrom": "4310.605",
+      "other_epochs": "6",
+      "berv_span_km_s": "59.6098131157401",
+      "berv_span_resolution_elements": "22.866247383415203",
+      "raw_evidence": "Smooth broad native bump with extended trace-centered raw enhancement in order19; no decisive charge streak.",
+      "raw_evidence_table": "../raw_followup_batch02/ADOPTED_DISPOSITIONS.csv",
+      "any_low_continuum_context": "False",
+      "resolution_group": "R007"
+    }
+  ],
+  "distinct_discovery_products": [
+    "ADP.2022-01-06T01:08:04.689",
+    "ADP.2023-01-01T01:10:52.479"
+  ],
+  "distinct_discovery_product_count": 2,
+  "reference_dependency": "V2E2-0042 and0043 are separate wavelength records from the same ADP.2023-01-01T01:10:52.479 exposure. Preserve both records in a joint4310Agroup but deduplicate product/exposure references; threecatalogrecords are not threeindependentobservations.",
+  "existing_cohort_epochs": [
+    {
+      "dp_id": "ADP.2022-01-06T01:08:04.689",
+      "date_obs": "2022-01-05T07:04:47.115",
+      "mjd_obs": 59584.29498977,
+      "berv_km_s": 30.1380355615464,
+      "exptime": 899.9964,
+      "is_C006_discovery_product": true
+    },
+    {
+      "dp_id": "ADP.2022-03-08T01:01:37.342",
+      "date_obs": "2022-03-07T04:52:12.631",
+      "mjd_obs": 59645.20292398,
+      "berv_km_s": 10.77158288517,
+      "exptime": 899.9964,
+      "is_C006_discovery_product": false
+    },
+    {
+      "dp_id": "ADP.2022-05-08T01:01:37.876",
+      "date_obs": "2022-05-07T05:12:25.401",
+      "mjd_obs": 59706.21696067,
+      "berv_km_s": -18.8907517532076,
+      "exptime": 899.9965,
+      "is_C006_discovery_product": false
+    },
+    {
+      "dp_id": "ADP.2023-01-01T01:10:52.479",
+      "date_obs": "2022-12-31T07:26:25.382",
+      "mjd_obs": 59944.310016,
+      "berv_km_s": 30.3750612537025,
+      "exptime": 1799.9962,
+      "is_C006_discovery_product": true
+    },
+    {
+      "dp_id": "ADP.2023-03-23T01:02:04.831",
+      "date_obs": "2023-03-22T04:52:14.904",
+      "mjd_obs": 60025.20295028,
+      "berv_km_s": 3.26509772194068,
+      "exptime": 899.9962,
+      "is_C006_discovery_product": false
+    },
+    {
+      "dp_id": "ADP.2023-05-25T01:01:39.293",
+      "date_obs": "2023-05-24T03:32:27.955",
+      "mjd_obs": 60088.14754578,
+      "berv_km_s": -24.4076064506785,
+      "exptime": 899.9961,
+      "is_C006_discovery_product": false
+    },
+    {
+      "dp_id": "ADP.2023-07-05T01:02:00.053",
+      "date_obs": "2023-07-03T23:55:27.533",
+      "mjd_obs": 60128.99684645,
+      "berv_km_s": -29.2347518620376,
+      "exptime": 899.9962,
+      "is_C006_discovery_product": false
+    }
+  ],
+  "existing_cohort_epoch_count": 7,
+  "berv_span_km_s": 59.6098131157401,
+  "catalog_group_midpoint_bary_air_angstrom": 4310.455,
+  "midpoint_status": "Metadata-derived proposal, not a released analysis plan.",
+  "action": "Prepare a separately frozen joint C006 context near4310.455A for all three catalog records, both R006/R007 neighborhoods and all seven existing HD106515A cohort epochs. Deduplicate the two discovery products:0042/0043 share one exposure. Inventory exact native/raw covering-order evidence and coverage at this distinct wavelength before any new arrays; preserve both record histories and all raw panels. Freeze one group center/anchor, full core union, wider context, support gates and the complete unique-reference set. No old pipeline replay, free fits, favorable reference selection or double-counted observing time.",
+  "handoff_path": "work_harps_20261102_c005_context/scientific_review/NEXT_STEP.md",
+  "new_diagnostic_frozen": false,
+  "new_diagnostic_executed": false,
+  "new_archive_requests_planned": 0,
+  "new_pixels_read": 0,
+  "current_phase_closed": "work_harps_20261102_c005_context/GROUP_CLOSURE.json",
+  "prior_and_next_labels_unchanged": true,
+  "reopen_completed_groups": false,
+  "standing_authorization": "Autonomous bounded continuation and public GitHub documentation authorized. Scientific freezes do not require another user permission request.",
+  "rubin_status": "STOPPED_LIMITED_FEASIBILITY_MINIMUM50_UNMET",
+  "no_background_execution": true,
+  "source_hashes": {
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/ACTION_QUEUE.csv": "d789d5ad03963cfe68c0e8d70d0e7e7c199599fb36a2ff2760426e8e69f7267b",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/EVENT_CONTEXT.csv": "2d8129e7963e2678035cf4b915c3c3503529b399d61fe6e8233484d0ee2321d7",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/CORE_OVERLAP_GROUPS.csv": "39cbcc225161abfb8a986fec91583dd3591806d589c7154171fb80d026b305ab",
+    "work_harps_20261101/v2/extension02/epoch_followup/ALL_EPOCH_MEASUREMENTS.csv": "de5b7175959ce7d25aec435d68def4b4e5d471292fd9de19c62ed17567b3f649",
+    "work_harps_20261101/v2/CURRENT_V2_DISPOSITIONS.csv": "f2bbb73b08ae7dc60b9387495a05d1d6e98ece7571eff9a979ae0b1af139a279",
+    "work_harps_20261102_c005_context/scientific_review/NEXT_GROUP_METADATA.json": "b1f5272ead302b94779d95d7339d738c4a770ac0fac9b680ca426e7de2d5a85f",
+    "work_harps_20261102_c005_context/scientific_review/NEXT_STEP.md": "61293c6de0f28f921d7390f20011c21b0734dd147d7dc8471a6beb78fc2bfb17"
+  }
+}
