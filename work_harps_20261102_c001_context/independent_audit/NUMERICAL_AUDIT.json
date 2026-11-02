@@ -1,0 +1,141 @@
+{
+  "status": "PASS_INDEPENDENT_C001_NUMERICAL_RECONSTRUCTION",
+  "created_utc": "2026-11-02T14:07:45.314263+00:00",
+  "checks_passed": 504,
+  "scalar_values_compared": 76086,
+  "profiles_reconstructed": 20,
+  "comparisons_reconstructed": 64,
+  "bounded_input_records_reconstructed": 10,
+  "preserved_raw_context_files_verified": 4,
+  "source_hashes_verified": 39,
+  "raw_only_slots": [
+    {
+      "kind": "native",
+      "dp_id": "ADP.2023-02-23T01:01:36.783",
+      "order": 3,
+      "frame": "barycentric",
+      "reasons": [
+        "MISSING_LEFT_FLANK_COVERAGE"
+      ]
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2023-02-23T01:01:36.783",
+      "order": 3,
+      "frame": "topocentric",
+      "reasons": [
+        "MISSING_LEFT_FLANK_COVERAGE"
+      ]
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2023-03-01T01:01:30.551",
+      "order": 3,
+      "frame": "barycentric",
+      "reasons": [
+        "MISSING_LEFT_FLANK_COVERAGE"
+      ]
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2023-03-01T01:01:30.551",
+      "order": 3,
+      "frame": "topocentric",
+      "reasons": [
+        "MISSING_LEFT_FLANK_COVERAGE"
+      ]
+    }
+  ],
+  "native_input_counts": [
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2023-02-23T01:01:36.783",
+      "order": null,
+      "samples": 602
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2023-02-24T01:01:17.499",
+      "order": null,
+      "samples": 603
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2023-02-27T01:01:03.513",
+      "order": null,
+      "samples": 604
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2023-02-28T01:02:17.095",
+      "order": null,
+      "samples": 605
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2023-03-01T01:01:30.551",
+      "order": null,
+      "samples": 605
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2023-03-02T01:01:24.353",
+      "order": null,
+      "samples": 606
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2023-02-23T01:01:36.783",
+      "order": 2,
+      "samples": 582
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2023-02-23T01:01:36.783",
+      "order": 3,
+      "samples": 323
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2023-03-01T01:01:30.551",
+      "order": 2,
+      "samples": 585
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2023-03-01T01:01:30.551",
+      "order": 3,
+      "samples": 325
+    }
+  ],
+  "maximum_absolute_differences_by_kind": {
+    "comparison": 4.267974862415258e-13,
+    "input_barycentric_wavelength": 4.547473508864641e-13,
+    "input_metadata": 0.0,
+    "input_signed_source_flux": 0.0,
+    "input_source_error": 0.0,
+    "input_source_indices": 0.0,
+    "input_source_wavelength": 4.547473508864641e-13,
+    "profile_metric": 0.0,
+    "profile_normalized_flux": 3.3370195495763255e-11,
+    "profile_offset": 0.0,
+    "profile_requested_bary_wave": 0.0,
+    "profile_signed_raw_flux": 2.9450006877596024e-09
+  },
+  "production_functions_imported": false,
+  "network_requests": 0,
+  "prior_epoch_pipeline_rerun": false,
+  "classifications_changed": 0,
+  "source_hashes": {
+    "work_harps_20261102_c001_context/analysis/PLAN.json": "423f899cb652db1d9c835fce2126fcc3780e8babf88553820bd192b61ff6ffe9",
+    "work_harps_20261102_c001_context/analysis/ROOT_RELEASE.json": "10c061fcfffba441eae319150f9f968940ffac297128365fd3ac6dedf4c8ebfd",
+    "work_harps_20261102_c001_context/analysis/results/OUTPUT_HASHES.json": "35969a2c7a6db7231d7c6eb55a7ecec12fcae2bb4008c327d51a1bd1166cfada",
+    "work_harps_20261102_c001_context/independent_audit/independent_math.py": "9b5f3ce5e46e4caa03d4c864fcba590e524253b5a4d727da741395cae0e2fdcc"
+  },
+  "audit_script_sha256": "d76bcaf2a99e12fdddf9ce8feb389dfb23c115ffdaab32f0dc89d0ea3cedfdad",
+  "limitations": [
+    "Independent bounded input/profile arithmetic and lineage verification only; no origin, significance or classifier conclusion.",
+    "Raw-only coverage failures remain distinct from nonpositive continuum. Raw Pearson and normalized RMS retain separate support gates.",
+    "Six archival epochs and two nearby discovery records are correlated; this audit adds no independent observations."
+  ]
+}

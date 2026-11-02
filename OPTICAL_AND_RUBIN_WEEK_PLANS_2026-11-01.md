@@ -26,6 +26,8 @@ Adgang, dataproveniens og de faktisk gennemførte trin dokumenteres under `work_
 
 **Afsluttende baggrundskontrol:** Begge særskilt fastlagte side-estimatorer er kørt på de samme gemte pixels; alle 18 udfald og 198 rækkefit er efterregnet. Den større, koncentrerede afvigelse nær sporet består. V2E2-0235 afsluttes som U uden flere varianter i denne fortsættelse. Næste afgrænsede arbejde er fælles profil-/ordenskontekst for den eksisterende køs første gruppe C001 på HD103991, ikke flere referenceepoker til 0235.
 
+**Afsluttet C001-gruppekontekst:** De to HD103991-poster ved3852Å er sammenlignet i seks eksisterende epoker og begge native ordener.20 profiludfald og64 sammenligningsudfald er bevaret og efterregnet. Det brede mønster er generelt mere barycentrisk sammenfaldende; kernen afhænger mere af referencevalget. Orden3 mangler venstre referenceområde og har svagt signal. Begge poster forbliverU. Næste hele gruppe i original køorden er C003 med fem HD106515A-poster; tidligere analyser genkøres ikke. Se [rapporten](work_harps_20261102_c001_context/README.md).
+
 To selvstændige arbejdsuger for Martin Andersens SETI-projekt. Første prioritet er en optisk lasersøgning i HARPS-spektre; anden prioritet er en søgning efter usædvanlige stjernedæmpninger i Rubin-data. Hver uge skal ende med en afsluttet, afgrænset analyse eller en præcis opgørelse af, hvorfor den blev delvis eller blokeret.
 
 **Godkendt start:** 1. november 2026. HARPS-ugen løber 1.–7. november, og Rubin-ugen 8.–14. november, Europe/Copenhagen. Arbejdet er startet efter Martins godkendelse. Der er ikke oprettet automatisk baggrundskørsel; fremdrift dokumenteres fra de faktisk udførte arbejdssessioner.

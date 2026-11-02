@@ -1,3 +1,15 @@
+## Aktuel SETI-status — HD103991-gruppen analyseret (2. november 2026)
+
+**De to poster omkring 3852 Å er nu sammenlignet samlet i seks eksisterende arkivepoker.** Alle 20 profiludfald og 64 sammenligningsudfald er bevaret og uafhængigt efterregnet. Det omgivende spektralmønster stemmer generelt bedst overens i barycentrisk ramme; kerneområdets opførsel afhænger mere af referenceepoken. Det afgør ikke signalets ophav.
+
+Orden 2 følger det samlede spektrum tæt. Orden 3 har svagt signal og mangler hele venstre referenceområde i den bredere analyse; dens fire profiler er derfor bevaret uden normalisering. Manglende dækning er holdt adskilt fra lave eller negative målte fluxværdier. **Begge poster forbliver U.**
+
+[**Fortsæt her**](CONTINUE_SETI.md) · [Ny rapport og evidens](work_harps_20261102_c001_context/README.md) · [Alle figurer og målinger](work_harps_20261102_c001_context/analysis/RESULTS_REPORT.md) · [Aktuel maskinlæsbar tilstand](work_harps_20261102_c001_context/CONTINUATION_STATE.json)
+
+Næste hele gruppe i den eksisterende kø er fem HD106515A-poster omkring 3869,75 Å (C003). Hovedprøve, klassifikationer, den afsluttede 5548 Å-sag og Rubins begrænsede forstudie er bevaret. Ingen kvalificeret laserkandidat eller kalibreret nulresultat. Alle statusafsnit nedenfor er historiske.
+
+---
+
 ## Aktuel SETI-status — rumlig råbilledanalyse afsluttet (2. november 2026)
 
 **V2E2-0235 ved 5548,09 Å er nu undersøgt kvantitativt i den gemte HARPS-eksponering.** 8.275 native detektorpixels dækker målområdet, otte adskilte kontrolområder og 232 profiltræningsrækker. Metoden blev offentliggjort før den nye beregning; alle 27 sammenligninger med tre fastlagte profilmodeller er gennemført.
