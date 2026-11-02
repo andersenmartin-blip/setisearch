@@ -1,0 +1,144 @@
+{
+  "schema": "HARPS_BERV_HEADER_RESULTS_V1",
+  "status": "COMPLETE",
+  "completed_utc": "2026-11-02T11:48:51.844757+00:00",
+  "plan_sha256": "8339043d655912453c0abda13d08f942fa97f451385f04877ec27d0a017340d7",
+  "root_release_sha256": "61b201fa6558886d74cc43be754240a4f8f1516dbbaa524e06bdee527e982d3f",
+  "code_hashes": {
+    "acquire.py": "03bbd50ae530770397e574e581fb102761bfe2f9c0f5e827640a491e1c5e1d3b",
+    "header_tools.py": "bdc1a93fb40e52c40916c078d703f12fe58f794068d66a8dad4a160359186039",
+    "prepare_plan.py": "33c9d79f152a95489285667bd47c3c467a68afe57b1067625faf278798a3909c"
+  },
+  "requests_attempted": 1,
+  "response_bytes": 227674,
+  "stop_reason": null,
+  "results": [
+    {
+      "job_index": 0,
+      "dp_id": "ADP.2017-05-21T01:01:50.278",
+      "target": "HD122640",
+      "month_number": 5,
+      "body_path": "responses/ADP.2017-05-21T01_01_50.278.body",
+      "body_sha256": "6a6471faf0b9d6b1f8f98248a886706fe6234912665ceccd9110fbfc0427e652",
+      "receipt_path": "receipts/header.json",
+      "receipt_sha256": "f27a154846184a04f364815031a0a0185165aef04ee3279e51e4bab7bfe543ce",
+      "inspection": {
+        "checks": {
+          "exact_adp_identity": true,
+          "instrument_harps": true,
+          "canonical_target": true,
+          "barycentric_spectral_frame": true,
+          "single_exposure": true,
+          "resolving_power_115000": true,
+          "not_explicit_eggs": true,
+          "one_raw_progenitor": true,
+          "raw_progenitor_matches_metadata": true,
+          "complete_provenance_exactly_one_expected_raw": true,
+          "mjd_matches_within_1e_7_day": true,
+          "date_obs_matches_mjd_within_0p02s": true,
+          "exptime_matches_within_0p02s": true,
+          "position_matches_metadata_within_1arcsec": true,
+          "berv_within_inherited_100km_s_sanity_gate": true,
+          "finite_valid_equatorial_coordinates": true,
+          "high_resolution_HEFS_explicit_false": true,
+          "date_obs_matches_exact_raw_within_0p02s": true
+        },
+        "failures": [],
+        "status": "PASS_RECORDED_BERV",
+        "mode_status": "HIGH_RESOLUTION_HEFS_CLOSED",
+        "berv_km_s": -9.84628486624399,
+        "primary_header": {
+          "ARCFILE": "ADP.2017-05-21T01:01:50.278.fits",
+          "OBJECT": "HD 122640",
+          "INSTRUME": "HARPS",
+          "RA": 210.903904,
+          "DEC": -27.00858,
+          "DATE-OBS": "2017-05-20T02:21:45.846",
+          "MJD-OBS": 57893.0984473,
+          "EXPTIME": 1199.9982,
+          "NCOMBINE": 1,
+          "SPECSYS": "BARYCENT",
+          "HIERARCH ESO DRS BERV": -9.84628486624399,
+          "SPEC_RES": 115000.0,
+          "PROCSOFT": "HARPS_3.8",
+          "OBSTECH": "ECHELLE",
+          "ORIGFILE": "HARPS.2017-05-20T02:21:45.847_s1d_A_DRS_HARPS_3.8_ESOSDP.fits",
+          "WAVELMIN": 378.171,
+          "WAVELMAX": 691.259,
+          "SPEC_BIN": 0.001,
+          "FLUXCAL": "UNCALIBRATED",
+          "HIERARCH ESO INS OPTI2 NAME": "HARPS",
+          "HIERARCH ESO INS HEFS ST": false,
+          "HIERARCH ESO INS MODE": "HARPS",
+          "HIERARCH ESO DRS VERSION": "HARPS_3.8",
+          "PROV1": "HARPS.2017-05-20T02:21:45.847.fits"
+        },
+        "raw_progenitor_ids": [
+          "HARPS.2017-05-20T02:21:45.847"
+        ],
+        "position_difference_arcsec": 0.0,
+        "table_units_air_wavelength_compatibility": "PROVISIONAL_REQUIRE_PAYLOAD_HEADERS_BEFORE_ARRAY_ACCESS",
+        "parser": {
+          "rendering": "HTML_PRE",
+          "primary_cards": 3078,
+          "primary_only": true,
+          "compatibility_card_evidence": [
+            "PROCSOFT= 'HARPS_3.8'      /         ",
+            "OBSTECH = 'ECHELLE'        / Observation technique",
+            "SPEC_RES=         115000.0 / Reference spectral resolving power",
+            "HIERARCH ESO INS HEFS ST = F / High Eff. Fiber Shutter If T=EGGS",
+            "HIERARCH ESO INS MODE = 'HARPS' / Instrument mode used.",
+            "HIERARCH ESO DRS BERV = -9.84628486624399 / Barycentric Earth Radial Velocity",
+            "HIERARCH ESO DRS BERVMX = 31.1052043988054 / Maximum BERV"
+          ]
+        },
+        "large_shift_gate": {
+          "threshold_km_s": 26.06890939130435,
+          "comparison": ">=",
+          "per_event": [
+            {
+              "candidate_id": "V2E2-0229",
+              "discovery_berv_km_s": 27.2411836963856,
+              "absolute_delta_km_s": 37.08746856262959,
+              "passes": true
+            },
+            {
+              "candidate_id": "V2E2-0231",
+              "discovery_berv_km_s": 27.2411836963856,
+              "absolute_delta_km_s": 37.08746856262959,
+              "passes": true
+            },
+            {
+              "candidate_id": "V2E2-0234",
+              "discovery_berv_km_s": 26.7848884193233,
+              "absolute_delta_km_s": 36.631173285567286,
+              "passes": true
+            },
+            {
+              "candidate_id": "V2E2-0235",
+              "discovery_berv_km_s": 26.7848884193233,
+              "absolute_delta_km_s": 36.631173285567286,
+              "passes": true
+            },
+            {
+              "candidate_id": "V2E2-0236",
+              "discovery_berv_km_s": 26.3486734120334,
+              "absolute_delta_km_s": 36.19495827827739,
+              "passes": true
+            },
+            {
+              "candidate_id": "V2E2-0237",
+              "discovery_berv_km_s": 26.3486734120334,
+              "absolute_delta_km_s": 36.19495827827739,
+              "passes": true
+            }
+          ],
+          "passes_all_six": true,
+          "meaning": "Descriptive planning displacement; no classification or power calibration."
+        }
+      },
+      "status": "PASS_RECORDED_BERV"
+    }
+  ],
+  "spectral_arrays_requested_or_read": false
+}

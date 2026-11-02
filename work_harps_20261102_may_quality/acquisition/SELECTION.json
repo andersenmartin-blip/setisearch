@@ -1,0 +1,122 @@
+{
+  "schema": "HARPS_MAY_QUALITY_SELECTION_V1",
+  "status": "PROPOSED_PENDING_SEPARATE_PAYLOAD_RELEASE",
+  "selection_rule": "Highest finite positive saved ObsCore average SNR among nine unused HD122640 observations in May 2017; ties lexicographically smallest dp_id. This quality phase was motivated posthoc by low continuum in the completed May reference; no unseen line flux enters selection.",
+  "header_results_sha256": "ced4b435e2f80390169461ccf6f29181cfcad370bd98c474b4c2685ed6739b43",
+  "header_plan_sha256": "8339043d655912453c0abda13d08f942fa97f451385f04877ec27d0a017340d7",
+  "header_batch_status": "COMPLETE",
+  "all_planned_jobs_attempted": true,
+  "header_sampling_is_partial": false,
+  "selected": [
+    {
+      "selection_index": 0,
+      "header_result_job_index": 0,
+      "dp_id": "ADP.2017-05-21T01:01:50.278",
+      "target": "HD122640",
+      "berv_km_s": -9.84628486624399,
+      "source_file_ids": [
+        "HARPS.2017-05-20T02:21:45.847"
+      ],
+      "metadata": {
+        "dp_id": "ADP.2017-05-21T01:01:50.278",
+        "obs_publisher_did": "ivo://eso.org/ID?ADP.2017-05-21T01:01:50.278",
+        "obs_id": "7",
+        "target_name": "HD 122640",
+        "s_ra": 210.903904,
+        "s_dec": -27.00858,
+        "instrument_name": "HARPS",
+        "obs_collection": "HARPS",
+        "dataproduct_type": "spectrum",
+        "t_min": 57893.0984473,
+        "t_max": 57893.11233617,
+        "t_exptime": 1199.998,
+        "em_min": 3.78171e-07,
+        "em_max": 6.91259e-07,
+        "em_res_power": 115000.0,
+        "snr": 77.8,
+        "proposal_id": "099.C-0798(A)",
+        "n_obs": 1,
+        "multi_ob": "S",
+        "obs_release_date": "2018-05-20T02:51:30.117Z",
+        "access_url": "https://archive.eso.org/datalink/links?ID=ivo://eso.org/ID?ADP.2017-05-21T01:01:50.278",
+        "access_estsize": 5264,
+        "archive_id": "ADP.2017-05-21T01:01:50.278",
+        "eso_category": "SCIENCE.SPECTRUM",
+        "source_file": "HARPS.2017-05-20T02:21:45.847"
+      },
+      "primary_header": {
+        "ARCFILE": "ADP.2017-05-21T01:01:50.278.fits",
+        "OBJECT": "HD 122640",
+        "INSTRUME": "HARPS",
+        "RA": 210.903904,
+        "DEC": -27.00858,
+        "DATE-OBS": "2017-05-20T02:21:45.846",
+        "MJD-OBS": 57893.0984473,
+        "EXPTIME": 1199.9982,
+        "NCOMBINE": 1,
+        "SPECSYS": "BARYCENT",
+        "HIERARCH ESO DRS BERV": -9.84628486624399,
+        "SPEC_RES": 115000.0,
+        "PROCSOFT": "HARPS_3.8",
+        "OBSTECH": "ECHELLE",
+        "ORIGFILE": "HARPS.2017-05-20T02:21:45.847_s1d_A_DRS_HARPS_3.8_ESOSDP.fits",
+        "WAVELMIN": 378.171,
+        "WAVELMAX": 691.259,
+        "SPEC_BIN": 0.001,
+        "FLUXCAL": "UNCALIBRATED",
+        "HIERARCH ESO INS OPTI2 NAME": "HARPS",
+        "HIERARCH ESO INS HEFS ST": false,
+        "HIERARCH ESO INS MODE": "HARPS",
+        "HIERARCH ESO DRS VERSION": "HARPS_3.8",
+        "PROV1": "HARPS.2017-05-20T02:21:45.847.fits"
+      },
+      "header_body_path": "responses/ADP.2017-05-21T01_01_50.278.body",
+      "header_body_sha256": "6a6471faf0b9d6b1f8f98248a886706fe6234912665ceccd9110fbfc0427e652",
+      "header_receipt_path": "receipts/header.json",
+      "header_receipt_sha256": "f27a154846184a04f364815031a0a0185165aef04ee3279e51e4bab7bfe543ce"
+    }
+  ],
+  "planned_candidate_dp_id": "ADP.2017-05-21T01:01:50.278",
+  "payload_readiness_gate": {
+    "c_km_s": 299792.458,
+    "resolving_power": 115000,
+    "minimum_resolution_elements": 10,
+    "minimum_absolute_delta_km_s": 26.06890939130435,
+    "comparison": ">=",
+    "requirement": "Absolute candidate BERV displacement from EACH of the six preserved discovery BERV values must meet the threshold. Repeated discovery exposures remain six explicit checks.",
+    "meaning": "Descriptive large-shift planning benchmark, not classification, sensitivity or power; no need to extend the known 40.3634787209574 km/s range.",
+    "discovery_events": [
+      {
+        "candidate_id": "V2E2-0229",
+        "discovery_dp_id": "ADP.2023-02-21T01:01:25.308",
+        "discovery_berv_km_s": 27.2411836963856
+      },
+      {
+        "candidate_id": "V2E2-0231",
+        "discovery_dp_id": "ADP.2023-02-21T01:01:25.308",
+        "discovery_berv_km_s": 27.2411836963856
+      },
+      {
+        "candidate_id": "V2E2-0234",
+        "discovery_dp_id": "ADP.2023-02-23T01:01:36.791",
+        "discovery_berv_km_s": 26.7848884193233
+      },
+      {
+        "candidate_id": "V2E2-0235",
+        "discovery_dp_id": "ADP.2023-02-23T01:01:36.791",
+        "discovery_berv_km_s": 26.7848884193233
+      },
+      {
+        "candidate_id": "V2E2-0236",
+        "discovery_dp_id": "ADP.2023-02-25T01:01:19.535",
+        "discovery_berv_km_s": 26.3486734120334
+      },
+      {
+        "candidate_id": "V2E2-0237",
+        "discovery_dp_id": "ADP.2023-02-25T01:01:19.535",
+        "discovery_berv_km_s": 26.3486734120334
+      }
+    ]
+  },
+  "spectral_payload_acquisition_authorized": false
+}
