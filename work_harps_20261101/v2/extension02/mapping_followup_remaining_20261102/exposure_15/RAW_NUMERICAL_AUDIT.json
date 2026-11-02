@@ -1,0 +1,55 @@
+{
+  "schema": "SETI_REMAINING_REFERENCE_NUMERICAL_AUDIT_V1",
+  "dp_id": "ADP.2025-06-10T01:01:31.991",
+  "review_ids": [
+    "V2E2-0259"
+  ],
+  "created_utc": "2026-11-02T07:54:19.002184+00:00",
+  "status": "PASS",
+  "independence": "No project analysis modules imported. Independent centered-dot Pearson, average-rank implementation, direct 7-term aperture summation, Horner coordinates checked against direct-power sums, clipping and summary reconstruction. NumPy/SciPy median filtering and Astropy FITS decoding are shared primitives.",
+  "coverage": {
+    "raw_pairs": 1,
+    "orders": 72,
+    "reference_windows": 360,
+    "measured_windows": 358,
+    "unavailable_windows": 2,
+    "offset_correlations": 3222,
+    "valid_subwindows": 3719,
+    "prior_reference_windows": 5,
+    "metrics_compared": 8959
+  },
+  "max_absolute_metric_errors": {
+    "original_pearson": 3.219646771412954e-15,
+    "spearman": 3.3306690738754696e-16,
+    "winsorized_pearson": 2.9976021664879227e-15,
+    "offset": 4.551914400963142e-15,
+    "subwindow": 3.3306690738754696e-15,
+    "summary_original_pearson": 2.55351295663786e-15,
+    "summary_spearman": 2.220446049250313e-16,
+    "summary_winsorized_pearson": 1.9984014443252818e-15,
+    "summary_subwindow": 1.1102230246251565e-15,
+    "summary_offset": 3.1086244689504383e-15,
+    "original_reference": 6.661338147750939e-16
+  },
+  "max_horner_vs_direct_power_column_error_pixels": 9.094947017729282e-13,
+  "metric_absolute_tolerance": 1e-10,
+  "mismatches": [],
+  "checked_outputs_sha256": {
+    "work_harps_20261101/v2/extension02/mapping_followup_remaining_20261102/exposure_15/RAW_DIAGNOSTIC_PLAN.json": "6ad7d07eac55e47d4905072e07831a9f8be630d7ed67d7c8d849957ffddf5512",
+    "work_harps_20261101/v2/extension02/mapping_followup_remaining_20261102/diagnose_exposure.py": "34f9bd3afc0e32e4ed10f0a6fc85d2863c5c53d598029889f9b606739c027439",
+    "work_harps_20261101/v2/extension02/mapping_followup_remaining_20261102/exposure_15/RAW_REFERENCE_DIAGNOSTICS.json": "ebcf733a2eeaf8c8ad464ceee50dcf0069757c8f1630f5cb5421bfb781a80f00",
+    "work_harps_20261101/v2/extension02/mapping_followup_remaining_20261102/exposure_15/RAW_REFERENCE_SUMMARY.json": "26dbf353e46ce17bbf28b1663a18bca8bc548d3566162bc13eb59eb6ee5060e5"
+  },
+  "auditor_script_sha256": "59a718fc10706c687fdaa5eb6d1c86d962621810253b4f325d42a73ab8820001",
+  "input_product_sha256": {
+    "RAW": "36fd13cf396727ad97552c037c88c5e2bc247dab15f3a22c8f697a03883ddddc",
+    "ANCILLARY": "02991cf79385bcc81d13b71744e95ca6c48f9e153a1ae999d0516580ceaecf87"
+  },
+  "input_and_source_hashes_unchanged": true,
+  "no_current_dispositions_changed": true,
+  "limitations": [
+    "One selected exposure; no independent population or calibrated significance.",
+    "Numerical reproduction does not identify the cause of low reference correlation or any physical signal origin.",
+    "Any missing pixels remain unavailable and all existing M labels must be retained."
+  ]
+}

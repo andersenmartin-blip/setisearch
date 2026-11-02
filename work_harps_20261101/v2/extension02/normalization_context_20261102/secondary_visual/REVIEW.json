@@ -1,0 +1,88 @@
+{
+  "created_utc": "2026-11-02T08:22:34.039008+00:00",
+  "reviewer": "batch05_secondary",
+  "status": "PASS_DESCRIPTIVE_FIGURE_REVIEW_WITH_MAPPING_CAVEAT",
+  "scope": {
+    "figures_inspected": 6,
+    "focused_profile_rows_inspected": 8,
+    "raw_order_contexts_inspected": 12,
+    "events": 2,
+    "origin_classifications_changed": 0
+  },
+  "viewed_files": [
+    {
+      "path": "figures/EPOCH_NORMALIZATION.png",
+      "sha256": "f9f704ef3771a17a050ff1728b99f51b186815dc2a12ea64a7e4476b71a749a7"
+    },
+    {
+      "path": "figures/V2E2-0092_FOCUSED_PROFILES.png",
+      "sha256": "bb394a4dba28bf3770c454f5492e468abe741d0985eca855f730d0fa0068725b"
+    },
+    {
+      "path": "figures/V2E2-0104_FOCUSED_PROFILES.png",
+      "sha256": "eac5651ed40776bd658829d2a5f24c5cf260369932ab423cbc1a7e0d033e410a"
+    },
+    {
+      "path": "figures/RAW_CONTEXT_01.png",
+      "sha256": "fabb4bbfb126b09f2662e1cc8752da678e25179c7f91410d6b8e8c7b678cf71f"
+    },
+    {
+      "path": "figures/RAW_CONTEXT_02.png",
+      "sha256": "3317e79e9a15f30fb7ba43a3e5329c2d32705bb24afcbcbe27bf2dcc1271929a"
+    },
+    {
+      "path": "figures/RAW_CONTEXT_03.png",
+      "sha256": "7b3ffeafbe8c1cbcdf785903f426139e8af9354f484e2ad048f647527dd06c97"
+    }
+  ],
+  "inputs_checked": [
+    {
+      "path": "PLAN.json",
+      "sha256": "16e85105173f77fe3a41be5b45dccce4e80474b8655aad1894df9da2b59c92a6"
+    },
+    {
+      "path": "SUMMARY.json",
+      "sha256": "b212e22bf47760c1400734ac6482fb945419affdcc4e4c1c550e13462804f7ee"
+    },
+    {
+      "path": "FIGURE_INDEX.json",
+      "sha256": "484a1223413cc910c86bd97e1b06891d04bbabc1ad8faed369a36030fdd7fca2"
+    },
+    {
+      "path": "plot_context.py",
+      "sha256": "20de741185e0fdbf169379de0132fd86055afd7956f0f0e8c4a1462c17599e58"
+    }
+  ],
+  "findings": [
+    {
+      "item": "Epoch normalization",
+      "assessment": "Both discovery markers are above the existing median/noise=3 boundary. The same later observation2023-08-27 lies below it for both selected wavelength windows, consistent with the summary. Declining local median and roughly similar noise proxy are separately shown; the proxy is explicitly not a calibrated error."
+    },
+    {
+      "item": "Unnormalized and normalized profiles",
+      "assessment": "All8 focused frame profiles show original merged flux, every covering native order, and saved normalized residual separately. Native/merged amplitude conventions and per-panel scales are explicitly distinguished. The low reference profiles remain visibly noisy without being treated as invalid or a null detection."
+    },
+    {
+      "item": "Correlations and normalization",
+      "assessment": "Positive scalar normalization alone cannot change Pearson correlation. The plots and summary do not claim that the low continuum explains the correlation differences or determines physical origin."
+    },
+    {
+      "item": "Raw context coverage",
+      "assessment": "All12 event/exposure/frame/order contexts are displayed with signed symmetric excess scales and unchanged coordinates. Frame alternatives in the discovery exposure are identical views, not independent evidence. Pixel noise and background residuals remain visible."
+    },
+    {
+      "item": "Local mapping caveat",
+      "assessment": "ForV2E2-0092 in the2023-08-27 barycentric context, the strongest visible trace-centered-looking structure is displaced about+4 detector columns relative to the inherited crosshair. This is a visual diagnostic limitation; inherited header/global geometry must not be described as a fresh local mapping certification of that off-discovery window. No correction or new label is inferred."
+    },
+    {
+      "item": "Date-label correction",
+      "assessment": "Initial focused/raw figures used archive product dates. Regenerated figures were re-viewed and now label actual observation dates2022-01-06,2023-07-01 and2023-08-27, consistent with the epoch overview. This was a display correction only."
+    }
+  ],
+  "limitations": [
+    "This review inspected rendered figures and metadata; the separate numeric audit belongs to mapping_review and was not repeated.",
+    "Different frame centers and low-signal windows do not establish an origin or a reproducible laser candidate.",
+    "Both originalU labels remain unchanged; no mapping promotion, calibrated sensitivity or globalfalsealarm claim."
+  ],
+  "review_process": "Separate AI-agent figure review, informed by plan and summary; not blinded external or human validation."
+}

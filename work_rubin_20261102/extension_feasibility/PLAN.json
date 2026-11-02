@@ -1,0 +1,159 @@
+{
+  "created_utc": "2026-11-02T08:33:35.002420+00:00",
+  "status": "FROZEN_BEFORE_ONE_LARGER_CONE_REQUEST",
+  "purpose": "Determine metadata-only temporal and quality necessary conditions for boundedadditionalmain sample; original188fixed, no relaxedmethod, max312futureadditionalIDs and500total. NoGaiaqueries orflux/uncertainty/anomalyvalues.",
+  "cone_job": {
+    "job_id": "cone_one_degree",
+    "method": "GET",
+    "endpoint": "https://api.lsst.fink-portal.org/api/v1/conesearch",
+    "payload": {
+      "ra": "8.986275",
+      "dec": "-42.709834",
+      "radius": "3600",
+      "n": "100",
+      "startdate": "2026-10-01",
+      "stopdate": "2026-11-01",
+      "kind": "across",
+      "columns": "r:diaObjectId,r:diaSourceId,r:ra,r:dec,r:firstDiaSourceMjdTai,r:lastDiaSourceMjdTai,r:nDiaSources,r:observation_reason,f:firstDiaSourceMjdTaiFink",
+      "output-format": "json"
+    },
+    "path": "metadata/cone_one_degree.json"
+  },
+  "cone_allowed_response_keys": [
+    "r:diaObjectId",
+    "r:diaSourceId",
+    "r:ra",
+    "r:dec",
+    "r:firstDiaSourceMjdTai",
+    "r:lastDiaSourceMjdTai",
+    "r:nDiaSources",
+    "r:observation_reason",
+    "f:firstDiaSourceMjdTaiFink",
+    "r:midpointMjdTai",
+    "v:separation_degree"
+  ],
+  "cone_bounds": {
+    "max_rows_and_objects": 5000,
+    "max_response_bytes": 3000000,
+    "max_attempts": 2,
+    "n100_semantics": "Prior n100 returned433rows; noexhaustivenessclaim. Exactly100rows,>=5000rows/objects orbytecap causes explicitstop; no smallerqueryorotherfieldfallback.",
+    "coordinate_validation": "All RA in[0,360), Dec in[-90,90], finite and recomputed center separation<=1degree+1e-9deg; any invalid/out-of-field row stops before history."
+  },
+  "history_columns": [
+    "r:diaObjectId",
+    "r:diaSourceId",
+    "r:midpointMjdTai",
+    "r:band",
+    "r:visit",
+    "r:detector",
+    "r:exposureTime",
+    "r:timeProcessedMjdTai",
+    "r:timeWithdrawnMjdTai",
+    "r:centroid_flag",
+    "r:forced_PsfFlux_flag",
+    "r:forced_PsfFlux_flag_edge",
+    "r:forced_PsfFlux_flag_noGoodPixels",
+    "r:pixelFlags",
+    "r:pixelFlags_bad",
+    "r:pixelFlags_crCenter",
+    "r:pixelFlags_edge",
+    "r:pixelFlags_nodata",
+    "r:pixelFlags_nodataCenter",
+    "r:pixelFlags_offimage",
+    "r:pixelFlags_interpolatedCenter",
+    "r:pixelFlags_saturatedCenter",
+    "r:pixelFlags_streakCenter",
+    "r:pixelFlags_suspectCenter",
+    "r:pixelFlags_injected",
+    "r:pixelFlags_injectedCenter",
+    "r:pixelFlags_injected_template",
+    "r:pixelFlags_injected_templateCenter",
+    "r:glint_trail",
+    "r:isDipole"
+  ],
+  "history_bounds": {
+    "max_objects": 1000,
+    "selection": "Exactinitial433 and<=2arcsecinitialpositions excluded; remainingascendingnumericDiaIDfirst1000. Allbeyondcapexplicit. Not a mainselection. Gaia/devcounterpart checks stillrequired beforeanyfuturemainselection.",
+    "batch_ids": 100,
+    "max_total_charged_bytes": 20000000,
+    "max_response_bytes": 4000000,
+    "max_workers": 2,
+    "max_attempts": 2,
+    "retry": "One identical retry only HTTP500/502/503/504, timeout, connection reset/aborted/broken pipe (including URLError wrapping those exact exceptions). Other URLError, denial, redirect, parse or bytecap failures are terminal. Unknown bytes charge full reservation; no replacement."
+  },
+  "feasibility_method": {
+    "critical_flags": [
+      "centroid_flag",
+      "forced_PsfFlux_flag",
+      "forced_PsfFlux_flag_edge",
+      "forced_PsfFlux_flag_noGoodPixels",
+      "pixelFlags",
+      "pixelFlags_bad",
+      "pixelFlags_crCenter",
+      "pixelFlags_edge",
+      "pixelFlags_nodata",
+      "pixelFlags_nodataCenter",
+      "pixelFlags_offimage",
+      "pixelFlags_interpolatedCenter",
+      "pixelFlags_saturatedCenter",
+      "pixelFlags_streakCenter",
+      "pixelFlags_suspectCenter",
+      "pixelFlags_injected",
+      "pixelFlags_injectedCenter",
+      "pixelFlags_injected_template",
+      "pixelFlags_injected_templateCenter",
+      "glint_trail",
+      "isDipole"
+    ],
+    "explicit_false_required": true,
+    "withdrawal_rule": "Finite nonnullwithdrawal excluded; missing/nonfinitestatus retainedunknown asoriginalmethod.",
+    "source_identity_duplicates": "Metadata-conflicting sameSourceID excluded; exactmetadata repetitionscollapsed andlogged. Photometricconflicts cannotbe detectedwithmetadataonly.",
+    "same_object_visit_band_duplicates": "AllmultipleSourceIDs excludedincludingacrossdetectors asfixedmethod.",
+    "utc_test_window": [
+      "2026-10-01T00:00:00",
+      "2026-11-01T00:00:00"
+    ],
+    "tai_test_window": [
+      61314.00042824074,
+      61345.00042824074
+    ],
+    "baseline_days": 180,
+    "min_unique_prior_visits": 5,
+    "min_earlier_utc_dates": 3,
+    "same_band": true,
+    "whole_test_UTC_day_excluded": true,
+    "counts_only": "Report necessary temporal/qualitycondition only; no validflux/error,B/scale,deficit,evaluable or50-objectclaim. Allfailed/empty/missinghistoriesexplicit."
+  },
+  "no_new_main_science_selection": true,
+  "original188_unchanged": true,
+  "frozen_sources": [
+    {
+      "path": "method_review/CONFIG.json",
+      "sha256": "afb7368008177f4e04d64eae1f188db9d48cc5c3c490d5f7dda527efd8339d48"
+    },
+    {
+      "path": "method_review/detector.py",
+      "sha256": "749d5eb83c74d6629cd9a312cd4ce3c4d07489d994fe4cff7b40c2b3ac6a93bb"
+    },
+    {
+      "path": "gaia_selection/MAIN_SELECTION.csv",
+      "sha256": "0983fb2d308c1c734fd89cf57368f6539c81149f12328089c516f077aa1ea14a"
+    },
+    {
+      "path": "access_pilot/DEVELOPMENT_SELECTION.csv",
+      "sha256": "5d2726af407b46dad2cf05a0c22858c3328eeb35ad8765b038762e0f8ed2a887"
+    },
+    {
+      "path": "access_pilot/MAIN_METADATA_CANDIDATES_UNMATCHED.csv",
+      "sha256": "0812a9d23d6af0da99b7cb1bda980e6874ed5dea7089b48b237b39aa4c17be90"
+    },
+    {
+      "path": "access_pilot/metadata/cone_october_n100.json.receipt.json",
+      "sha256": "0cac0518f0eb929e8edc6bd72a4273689bdbd7abb01764bf1e24c444f8d37775"
+    }
+  ],
+  "script_sha256": "66523d7cff21e2adbb8beb7aa4a6b4ec7cf4c6ce48f1f38e608417afe811b172",
+  "independent_preflight_required": "independent_review/PREFLIGHT.json status startsPASS and exact plan_sha256 plus script_sha256 before any request",
+  "analyzer_sha256": "f4f0141d88239456d4d8835248b8f809f4dd460544820bc6853652ad5d77d3db",
+  "wall_clock_bound": "No new request starts at or after two hours from CONE_STARTED.utc; each request timeout45 seconds."
+}

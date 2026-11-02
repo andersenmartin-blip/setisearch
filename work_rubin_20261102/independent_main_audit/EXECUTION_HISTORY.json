@@ -1,0 +1,21 @@
+{
+  "scope": "Independent auditor execution history only",
+  "development": "Final corrected method crosscheck passed; source helper isolated so later main-audit orchestration edits do not change recovery provenance.",
+  "recovery": "Full36-control reconstruction passed before main acquisition.",
+  "main_attempts": [
+    {
+      "sequence": 1,
+      "status": "STOPPED_BEFORE_AUDIT_REPORT",
+      "reason": "Metadata glob matched .json.receipt.json files as well as data lists; TypeError while iterating receipt dict keys. All production comparisons had run but no report was issued.",
+      "production_science_changed": false
+    },
+    {
+      "sequence": 2,
+      "status": "PASS",
+      "correction": "Metadata filenames restricted to main_candidate_sources_[0-9][0-9].json. No numerical or scientific-rule change.",
+      "comparisons": 33609,
+      "discrepancies": 0
+    }
+  ],
+  "finalized_utc": "2026-11-02T08:30:26.803640+00:00"
+}

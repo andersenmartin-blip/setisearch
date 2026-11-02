@@ -1,0 +1,128 @@
+{
+  "schema": "SETI_MAPPING_REMAINING_PREFLIGHT_AUDIT_V1",
+  "created_utc": "2026-11-02T07:51:15.426644+00:00",
+  "status": "PASS",
+  "checks_passed": 23,
+  "checks_total": 23,
+  "checks": [
+    {
+      "name": "syntax_valid",
+      "pass": true
+    },
+    {
+      "name": "frozen_script_runner_and_input_hashes",
+      "pass": true
+    },
+    {
+      "name": "prior_fixed_plan_hash",
+      "pass": true
+    },
+    {
+      "name": "all_frozen_source_hashes",
+      "pass": true
+    },
+    {
+      "name": "queue_source_state_hash",
+      "pass": true
+    },
+    {
+      "name": "exact_stable_remaining_queue",
+      "pass": true
+    },
+    {
+      "name": "exact_per_exposure_record_ids",
+      "pass": true
+    },
+    {
+      "name": "twenty_frozen_plans_exact_identity_and_methods",
+      "pass": true
+    },
+    {
+      "name": "forty_exact_manifest_products",
+      "pass": true
+    },
+    {
+      "name": "complete_original_candidate_masks",
+      "pass": true
+    },
+    {
+      "name": "all_M_covering_orders_have_prior_baselines",
+      "pass": true
+    },
+    {
+      "name": "all72_orders_no_control_selection",
+      "pass": true
+    },
+    {
+      "name": "helper_functions_byte_identical",
+      "pass": true
+    },
+    {
+      "name": "numerical_analysis_block_byte_identical",
+      "pass": true
+    },
+    {
+      "name": "raw_loading_identity_and_candidate_guard_byte_identical",
+      "pass": true
+    },
+    {
+      "name": "exact_archive_metadata_and_members",
+      "pass": true
+    },
+    {
+      "name": "archive_and_product_totals",
+      "pass": true
+    },
+    {
+      "name": "no_raw_network_or_partial_inputs",
+      "pass": true
+    },
+    {
+      "name": "runner_selfhash_guard",
+      "pass": true
+    },
+    {
+      "name": "runner_stops_on_child_failure",
+      "pass": true
+    },
+    {
+      "name": "no_existing_output_markers",
+      "pass": true
+    },
+    {
+      "name": "missing_input_guard_exercised",
+      "pass": true
+    },
+    {
+      "name": "changed_length_guard_exercised",
+      "pass": true
+    }
+  ],
+  "coverage": {
+    "remaining_records": 34,
+    "remaining_exposures": 20,
+    "canonical_products": 40,
+    "archives": 17,
+    "planned_orders": 1440,
+    "planned_windows": 7200,
+    "previous_reference_windows_to_reproduce": 640
+  },
+  "reviewed_hashes": {
+    "PLAN.json": "6ef2a4065e6d449629fab47634253cc918a0f74abfbad60e8eda120b727828bb",
+    "diagnose_exposure.py": "34f9bd3afc0e32e4ed10f0a6fc85d2863c5c53d598029889f9b606739c027439",
+    "run_remaining.py": "64606a65a84da9de12f66003b46286111ff0dacc849679c295ec027bbc6fc8e7",
+    "EXPOSURE_QUEUE.json": "e82ca986171e8a69ff0d6167894f4adfd984645a0062e9f15eb559c584b88199",
+    "REQUIRED_INPUTS.json": "3c9b0496f63e45a1664bffb7826a2a5a22d3207561d2f98d43eefd539661fea2"
+  },
+  "additional_archive_provenance_hashes": {
+    "work_harps_20261101/v2/triage_batch02/INPUT_CHECKPOINTS.json": "a3193c4c5014891d3e695020b2ec2124708020404747f95ca28f0aecdd3b9169",
+    "work_harps_20261101/v2/extension02/raw_followup/checkpoints/RAW_INPUT_CHECKPOINTS.json": "c73a2f1aee049f80566d4855fabe1a6e1f98624b308a76de24b13922350ac8ab"
+  },
+  "auditor_script_sha256": "c7c11e6ff91191a269e5d94f959f88941eaa63706d20d33b5a2b3baf6cc9b105",
+  "raw_FITS_arrays_read": 0,
+  "limitations": [
+    "Metadata/code and negative input-guard preflight only; raw numerical execution and independent audit remain required.",
+    "Prior one-exposure diagnostic informed this extension; all metrics remain descriptive and no acceptance gates or M codes are changed.",
+    "Runner is fresh-run-only and stops on failure; resumption after partial completion requires an explicit preserved-output continuation."
+  ]
+}

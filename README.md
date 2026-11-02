@@ -1,3 +1,28 @@
+## Aktuel SETI-status — Rubin fremrykket og første hovedanalyse afsluttet (2. november 2026)
+
+**Rubin-arbejdet er fremrykket til 2.–8. november og har allerede nået en første analyse af rigtige data.** Metode, kode og 188 Gaia-associerede objekter blev publiceret før hovedflux blev åbnet. Alle otte dataforespørgsler lykkedes. Resultatet er dog et begrænset gennemførlighedsstudie: datakvalitet og manglende historik efterlader kun 2 numerisk vurderbare objekter i hovedsporet og separat 3 i forced-photometry-sporet. De to hovedobjekter indgår i de tre supplerende; tallene skal ikke lægges sammen.
+
+| Rubin, oktober 2026 | Hovedspor | Separat forced-spor |
+|---|---:|---:|
+| Objekter i den fastlagte opgørelse | 188 | 188 |
+| Objekter med returnerede målinger | 188 | 10 |
+| Unikke historiske målinger | 807 | 77 |
+| Numerisk vurderbare objekter | 2 | 3 |
+| Numerisk vurderbare oktobermålinger | 7 | 14 |
+| Målinger som passerer begge kriterier | 0 | 0 |
+
+**Minimumskravet på 50 vurderbare stjerneforløb er ikke opfyldt.** Alle vurderbare baselines ligger omkring 108–112 dage før testmålingerne; ukendt tilbagetrækningsstatus og manglende forced-kvalitetsflag bevares. Nul træf er derfor ikke et kvalificeret nulresultat. De 36 separate udviklingskontroller gav 18 genfundne, observerede lysfald og 18 uobserverede hændelser i tidsmæssige huller. Kontrolplaceringerne må ikke bruges som en samlet følsomhedsprocent. Den uafhængige hovedkontrol består med 33.609 sammenligninger uden afvigelser.
+
+**HARPS-opfølgningen er samtidig udvidet:** Alle 35 mapping-begrænsede poster er diagnosticeret over 21 eksponeringer, 1.512 ordener og 7.517 målte referencevinduer. De sidste 20 eksponeringer er kontrolleret uafhængigt med 179.698 numeriske sammenligninger. Normaliseringsopfølgningen af V2E2-0092 og V2E2-0104 omfatter 28 profiler og viser, at de lave lokale fluxniveauer gælder en senere referenceobservation. Positiv skalering alene ændrer ikke korrelationen. Begge poster forbliver uafklarede.
+
+HARPS-totalerne er uændrede: **403 foreløbige detektorartefakter / 46 O I-forenelige / 185 uafklarede / 35 mapping-begrænsede / 0 uden første rågennemgang**. Hovedprøven er stadig 300 eksponeringer af 20 stjerner og 70,875 timer. Ingen kvalificeret laser- eller anden technosignaturkandidat er identificeret.
+
+[**Fortsæt her**](CONTINUE_SETI.md) · [Rubin-resultat og figur](work_rubin_20261102/main_analysis/README.md) · [Samlet mapping-diagnose](work_harps_20261101/v2/extension02/mapping_followup_remaining_20261102/README.md) · [Normaliseringsopfølgning](work_harps_20261101/v2/extension02/normalization_context_20261102/README.md) · [Aktuel maskinlæsbar tilstand](work_seti_20261102_accelerated/CONTINUATION_STATE.json)
+
+En separat metadataundersøgelse af et større Rubin-felt er afsluttet: 940 nye objekter, 8.277 metadatarækker og 104 objekter, der opfylder de nødvendige tids- og kvalitetskrav. Gaia-match og fotometrisk præcision mangler endnu, så 104 er ikke et antal vurderbare stjerner. De oprindelige 188 objekter og analyser erstattes ikke. Originaldata, kode, begrænsninger, kontroller og gendannelig evidens bevares. Ingen automatisk baggrundssøgning er konfigureret. Alle statusafsnit nedenfor er historiske.
+
+---
+
 ## Aktuel SETI-status — første rågennemgang afsluttet (2. november 2026)
 
 **Alle 669 V2-poster er nu råbilledgennemgået.** De to sidste poster på HD141937 har begge foreløbig detektorartefakt-morfologi. De originale filer kunne nu hentes; to separate billedvurderinger og den numeriske kontrol er afsluttet. De øvrige 667 afgørelser er bevaret.

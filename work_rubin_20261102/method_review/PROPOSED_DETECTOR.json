@@ -1,0 +1,34 @@
+{
+  "status": "PROPOSED_PENDING_DEVELOPMENT_ASSESSMENT",
+  "main_sample_access_authorized_by_this_file": false,
+  "depth_mag": 0.3,
+  "flux_ratio_threshold": 0.7585775750291838,
+  "baseline_context_each_side_days": 30,
+  "exclude_tested_utc_date": true,
+  "baseline_min_unique_visits": 5,
+  "baseline_min_distinct_other_utc_dates": 3,
+  "baseline_location": "median",
+  "baseline_scale": "max(1.4826*MAD,median(scienceFluxErr))",
+  "baseline_min_B_over_scale": 10,
+  "deficit_score": "(baseline-scienceFlux)/sqrt(scienceFluxErr**2+baseline_scale**2)",
+  "deficit_score_min": 5,
+  "score_is_gaussian_significance": false,
+  "unknown_flags_are_false": false,
+  "merge_source_and_forced_photometry": false,
+  "injections": {
+    "total": 36,
+    "depths_mag_proposed": [
+      0.3,
+      0.6,
+      1.0
+    ],
+    "durations_days": null,
+    "placements_per_depth_duration": 4,
+    "gap_placements_per_combination": 2,
+    "observation_placements_per_combination": 2,
+    "freeze_required_before_main_flux": true,
+    "quoted_uncertainties_changed": false
+  },
+  "pilot_minimum_evaluable_main_objects": 50,
+  "scope": "Same-band direct science flux, original alert-selected sample, conditional post-processing sensitivity only."
+}

@@ -1,0 +1,108 @@
+{
+  "schema": "RUBIN_ACCESS_INDEPENDENT_AUDIT_V1",
+  "created_utc": "2026-11-02T07:59:47.237674+00:00",
+  "status": "PASS",
+  "checks": 9650,
+  "checks_by_category": {
+    "selection": 4778,
+    "receipts": 97,
+    "metadata": 25,
+    "streams": 592,
+    "identifiers": 1755,
+    "summary": 49,
+    "inventory": 2032,
+    "quality supplement": 260,
+    "cutouts": 62
+  },
+  "failures": [],
+  "counts": {
+    "cone_metadata_objects": 433,
+    "development_objects": 20,
+    "source_rows": 259,
+    "source_objects": 20,
+    "forced_rows": 326,
+    "forced_objects": 14,
+    "remaining_metadata_objects": 413,
+    "remaining_metadata_history_rows": 3596,
+    "main_photometry_rows": 0,
+    "fits_products": 6,
+    "receipt_count": 22,
+    "raw_payload_bytes": 731849,
+    "band_inventory_rows": 114
+  },
+  "uncertainty_planes": [
+    {
+      "path": "raw/cutouts/170587116600295459_171141221765349424_Difference.fits",
+      "uncertainty_type": "VarianceUncertainty",
+      "primary_unit": "nJy",
+      "variance_nonnegative_pixels": 900,
+      "variance_finite_pixels": 900
+    },
+    {
+      "path": "raw/cutouts/170587116600295459_171141221765349424_Science.fits",
+      "uncertainty_type": "VarianceUncertainty",
+      "primary_unit": "nJy",
+      "variance_nonnegative_pixels": 900,
+      "variance_finite_pixels": 900
+    },
+    {
+      "path": "raw/cutouts/170587116600295459_171141221765349424_Template.fits",
+      "uncertainty_type": "VarianceUncertainty",
+      "primary_unit": "nJy",
+      "variance_nonnegative_pixels": 900,
+      "variance_finite_pixels": 900
+    },
+    {
+      "path": "raw/cutouts/170587116600295514_171141228744671274_Difference.fits",
+      "uncertainty_type": "VarianceUncertainty",
+      "primary_unit": "nJy",
+      "variance_nonnegative_pixels": 900,
+      "variance_finite_pixels": 900
+    },
+    {
+      "path": "raw/cutouts/170587116600295514_171141228744671274_Science.fits",
+      "uncertainty_type": "VarianceUncertainty",
+      "primary_unit": "nJy",
+      "variance_nonnegative_pixels": 900,
+      "variance_finite_pixels": 900
+    },
+    {
+      "path": "raw/cutouts/170587116600295514_171141228744671274_Template.fits",
+      "uncertainty_type": "VarianceUncertainty",
+      "primary_unit": "nJy",
+      "variance_nonnegative_pixels": 900,
+      "variance_finite_pixels": 900
+    }
+  ],
+  "additional_quality_flags_not_in_listed22_inventory": {
+    "r:pixelFlags": {
+      "False": 259
+    },
+    "r:pixelFlags_interpolatedCenter": {
+      "False": 259
+    }
+  },
+  "limits": [
+    "Read-only offline audit; no network requests and no signal/origin classification.",
+    "Local request/response provenance, hashes and schema consistency verified; this is not independent archive authenticity validation.",
+    "The433-row cone response exceeded requested n100 and is not an exhaustive regional catalog.",
+    "Only exact20development Rubin IDs are currently excluded; coordinate-associated/Gaia-counterpart exclusion still requires independent crossmatch before main sample.",
+    "Listed-22 source quality inventory excludes separate pixelFlags and pixelFlags_interpolatedCenter supplement; future eligibility must explicitly apply all chosen flags.",
+    "UNCERT planes store VarianceUncertainty, not standard deviation.",
+    "No main science selection or main photometry search has been performed.",
+    "Astropy TAI-to-UTC conversion shares upstream library with original validator; scalar joins and inventories implemented independently."
+  ],
+  "file_sha256": {
+    "DEVELOPMENT_FREEZE.json": "5baa4f2f294574a83d95a3668d86626d79f0ab40f43a06f2dd0cf6cbd06f4c6b",
+    "DEVELOPMENT_SELECTION.csv": "5d2726af407b46dad2cf05a0c22858c3328eeb35ad8765b038762e0f8ed2a887",
+    "DEVELOPMENT_VALIDATION.json": "c913a311bc0ed7270658a697a3e7fffd2f32b36d87286cfb6b76fa456f20679a",
+    "DEVELOPMENT_OBJECT_INVENTORY.csv": "3e07f4d9caf97d800a8cb34ad80497dd03d42a1f7822ecee2d65cd628de6fdfb",
+    "DEVELOPMENT_BAND_COVERAGE.csv": "e2aa75fd7e9b0695a824b43c1e251ea0146bc8444f79a0cbdd0930cda01f7607",
+    "CUTOUT_VALIDATION.json": "9f4cc77ba2f962fb70ce19c41c8bc9758525b51a76087fa42ee2b312a78422a4",
+    "METADATA_MAIN_ACQUISITION.json": "60afc0fa2a960b0f73a29b99d4dc29ba7543e1dc9a624d556bcec25d879d1cfd",
+    "MAIN_METADATA_CANDIDATES_UNMATCHED.csv": "0812a9d23d6af0da99b7cb1bda980e6874ed5dea7089b48b237b39aa4c17be90",
+    "validate_development.py": "e0d748659f47425432fdf8b26663ef0455127a7efbba1ba0ca51ad6f76d0c67f",
+    "access.py": "02efedd13698083933f379a0c885a1216c3c05b155f3f67ca5ce73c31b345b44"
+  },
+  "audit_script_sha256": "0b58e022cf1eb561aa81bb78441008d69541b6bf0d606e20aac312dc6bd9dea7"
+}

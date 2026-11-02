@@ -11,6 +11,9 @@ Alle øvrige videnskabelige begrænsninger bevares: højst 500 hovedobjekter med
 Adgang, dataproveniens og de faktisk gennemførte trin dokumenteres under `work_rubin_20261102/`. De 35 HARPS-mappingbegrænsninger og 185 uafklarede strukturer bevares; fremskyndelsen er ikke en ophavsbestemmelse eller afslutning af disse sager.
 
 
+**Udført 2. november:** Alle 35 HARPS-mappingtilfælde har nu den faste rådiagnose over 21 eksponeringer, og de to normaliseringsopfølgninger er afsluttet uden ændrede klassifikationer. Rubin er nået gennem adgang, separat udvikling, 36 kontrolinjektioner og en offentliggjort metode før hovedanalysen af 188 Gaia-associerede objekter. Kun 2 objekter er numerisk vurderbare i hovedsporet og separat 3 i forced-sporet; minimum 50 er ikke nået. Der er ingen tærskelpasserende målinger, men heller intet kvalificeret nulresultat. En separat, fast afgrænset metadataundersøgelse af et større felt vurderer næste datamulighed. Se [aktuel fortsættelse](CONTINUE_SETI.md).
+
+
 To selvstændige arbejdsuger for Martin Andersens SETI-projekt. Første prioritet er en optisk lasersøgning i HARPS-spektre; anden prioritet er en søgning efter usædvanlige stjernedæmpninger i Rubin-data. Hver uge skal ende med en afsluttet, afgrænset analyse eller en præcis opgørelse af, hvorfor den blev delvis eller blokeret.
 
 **Godkendt start:** 1. november 2026. HARPS-ugen løber 1.–7. november, og Rubin-ugen 8.–14. november, Europe/Copenhagen. Arbejdet er startet efter Martins godkendelse. Der er ikke oprettet automatisk baggrundskørsel; fremdrift dokumenteres fra de faktisk udførte arbejdssessioner.

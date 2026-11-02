@@ -1,0 +1,58 @@
+{
+  "schema": "SETI_MAPPING_REMAINING_AGGREGATE_AUDIT_V1",
+  "created_utc": "2026-11-02T07:55:01.961972+00:00",
+  "status": "PASS",
+  "checks_passed": 7,
+  "checks_total": 7,
+  "checks": [
+    {
+      "name": "full_order_coverage",
+      "pass": true
+    },
+    {
+      "name": "every_metric_and_delta_matches_per_exposure_summary",
+      "pass": true
+    },
+    {
+      "name": "selected_and_failed_subsets_exact",
+      "pass": true
+    },
+    {
+      "name": "failed28_summary_exact",
+      "pass": true
+    },
+    {
+      "name": "every_order_group_exact",
+      "pass": true
+    },
+    {
+      "name": "coverage_counts_exact",
+      "pass": true
+    },
+    {
+      "name": "no_origin_or_exposure_inflation",
+      "pass": true
+    }
+  ],
+  "coverage": {
+    "exposures": 21,
+    "all_order_rows": 1512,
+    "selected_order_rows": 43,
+    "failed_order_rows": 28,
+    "reference_windows": 7560,
+    "measured_windows": 7517,
+    "unavailable_windows": 43,
+    "prior_reference_windows": 650
+  },
+  "output_sha256": {
+    "SUMMARY.json": "2b2a72a0b8ab64b5738f5fb0bf294017e0295c750a0270358660683b43dc1e98",
+    "ALL_1512_ORDER_DIAGNOSTICS.csv": "68c45ea8b511936d3a0ab42e07224050bda4b1f631d2807a53da019c81a520d0",
+    "SELECTED_43_ORDER_DIAGNOSTICS.csv": "e9923724d2dcff47fb786fa9ed3137c216355fa6a019d26d2f2c5f8a923a74b0",
+    "FAILED_28_ORDER_DIAGNOSTICS.csv": "4aa9fe57fb6c05c6dd893b58b25b16bfecbfe4d90151f84d09cfa937df407704"
+  },
+  "auditor_script_sha256": "72a667d6dc626bd475038e226472c40b5c158f8ce4a3b3ceb5d01d8fe9435555",
+  "limitations": [
+    "Aggregation audit; pixel-level reconstruction is recorded separately in NUMERICAL_AUDIT.json and the prior exposure audit.",
+    "Counts above0.8 for alternate metrics remain descriptive and do not alter original mapping gates."
+  ]
+}
