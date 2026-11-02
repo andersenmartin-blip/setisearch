@@ -1,0 +1,108 @@
+"""Restore exact existing C001 inputs; inspect FITS/NPY headers, never array values."""
+import argparse, ast, csv, hashlib, io, json, re, struct, tarfile, zipfile
+from pathlib import Path
+from astropy.io import fits
+
+HERE=Path(__file__).resolve().parent
+REPO=HERE.parents[1]
+OLD=REPO/'work_harps_20261101/v2/extension02'
+EVENTS={'V2E2-0001':'ADP.2023-02-23T01:01:36.783','V2E2-0016':'ADP.2023-03-01T01:01:30.551'}
+def digest(b):return hashlib.sha256(b).hexdigest()
+def sha(p):return digest(p.read_bytes())
+def read(p):return json.loads(p.read_bytes())
+def write(n,x):(HERE/n).write_text(json.dumps(x,indent=2,allow_nan=False)+'\n')
+def record(p):return {'path':str(p.relative_to(REPO)),'bytes':p.stat().st_size,'sha256':sha(p)}
+def retain(p,b,expected=None):
+    if expected:assert len(b)==int(expected['bytes']) and digest(b)==expected['sha256'],str(p)
+    p.parent.mkdir(parents=True,exist_ok=True)
+    if p.exists():assert p.read_bytes()==b,'Differing existing file: '+str(p)
+    else:
+        with p.open('xb') as f:f.write(b)
+    return record(p)
+def npy_headers(p):
+    out=[]
+    with zipfile.ZipFile(p) as z:
+        for name in z.namelist():
+            assert name.endswith('.npy')
+            with z.open(name) as f:
+                assert f.read(6)==b'\x93NUMPY'
+                version=tuple(f.read(2));assert version in [(1,0),(2,0),(3,0)]
+                n=struct.unpack('<H' if version==(1,0) else '<I',f.read(2 if version==(1,0) else 4))[0];assert n<=65536
+                h=ast.literal_eval(f.read(n).decode('utf-8' if version==(3,0) else 'latin1').strip())
+                out.append({'key':name[:-4],'shape':list(h['shape']),'dtype':h['descr'],'fortran_order':h['fortran_order']})
+    return out
+def header(p):
+    with fits.open(p,memmap=True,lazy_load_hdus=False,do_not_scale_image_data=True) as h:
+        return [x.header.copy() for x in h]
+def compact(h,keys):return {k:h.get(k) for k in keys}
+
+def main():
+    ap=argparse.ArgumentParser();ap.add_argument('--archive-dir',type=Path,action='append',required=True);a=ap.parse_args()
+    source_names=['acquisition/DOWNLOAD_MANIFEST.csv','checkpoints/INPUT_CHECKPOINTS.json','epoch_followup/INPUT_CHECKS.json','epoch_followup/EVENT_RESULTS.json','raw_followup/checkpoints/RAW_INPUT_CHECKPOINTS.json','raw_followup/NATIVE_MAPPING.json','raw_followup/extract_native.py','raw_followup/mapping_followup/MAPPING_AUDIT.json','raw_followup/mapping_followup/EVIDENCE_ARCHIVE.json','raw_followup_batch02/checkpoints/INPUT_ARCHIVES.json','raw_followup_batch02/NATIVE_MAPPING.json','raw_followup_batch02/EVIDENCE_ARCHIVE.json','raw_followup_batch02/EVIDENCE_PARTS.json']
+    source_hashes={str((OLD/n).relative_to(REPO)):sha(OLD/n) for n in source_names}
+    epochs=[r for r in read(OLD/'epoch_followup/INPUT_CHECKS.json') if r['target']=='HD103991'];assert len(epochs)==6
+    downloads={r['dp_id']:r for r in csv.DictReader((OLD/'acquisition/DOWNLOAD_MANIFEST.csv').open()) if r['canonical_target']=='HD103991'}
+    assert set(downloads)=={r['dp_id'] for r in epochs}
+    science_part=next(p for p in read(OLD/'checkpoints/INPUT_CHECKPOINTS.json')['parts'] if all(r['dp_id'] in p['exposure_ids'] for r in epochs))
+    raw1=read(OLD/'raw_followup/checkpoints/RAW_INPUT_CHECKPOINTS.json')['parts']
+    raw2=read(OLD/'raw_followup_batch02/checkpoints/INPUT_ARCHIVES.json')['archives']
+    ancillary_names={'V2E2-0001':'ADP.2023-02-23T01_01_36.784.tar','V2E2-0016':'ADP.2023-03-01T01_01_30.552.tar'}
+    selected_parts={};members={}
+    for event,parts in [('V2E2-0001',raw1),('V2E2-0016',raw2)]:
+        part=next(p for p in parts if any(Path(m.get('path',m.get('relative_path',''))).name==ancillary_names[event] for m in p.get('members',p.get('products',[]))))
+        selected_parts[event]=part
+        members[event]=next(m for m in part.get('members',part.get('products',[])) if Path(m.get('path',m.get('relative_path',''))).name==ancillary_names[event])
+    archives=[];archive_paths={}
+    for p in [science_part,*selected_parts.values()]:
+        found=[d/p['filename'] for d in a.archive_dir if (d/p['filename']).is_file()];assert found,'Missing '+p['filename']
+        cache=found[0];assert cache.stat().st_size==p['bytes'] and sha(cache)==p['sha256']
+        archive_paths[p['filename']]=cache;archives.append({k:p[k] for k in ['filename','bytes','sha256']})
+    files=[];merged=[]
+    with zipfile.ZipFile(archive_paths[science_part['filename']]) as z:
+        for e in epochs:
+            d=downloads[e['dp_id']];m=next(m for m in science_part['members'] if m['path']==d['relative_path']);assert m['sha256']==d['sha256']==e['sha256']
+            p=HERE/'merged'/Path(m['path']).name;files.append(retain(p,z.read(m['path']),m));h=header(p);ph,th=h
+            assert ph['ARCFILE'].removesuffix('.fits')==e['dp_id'] and ph['INSTRUME']=='HARPS' and ph['OBJECT'].replace(' ','')=='HD103991'
+            assert ph['SPECSYS']=='BARYCENT' and ph['NCOMBINE']==1 and th['NAXIS2']==1
+            assert [th['TTYPE'+str(i)] for i in [1,2,3]]==['WAVE','FLUX','ERR']
+            assert th['TUNIT1']=='angstrom' and th['TUNIT2']==th['TUNIT3']=='adu'
+            assert abs(ph['ESO DRS BERV']-e['berv_km_s'])<1e-10
+            assert ph['PROV1'].removesuffix('.fits')==d['expected_raw_progenitor_id']
+            merged.append({'dp_id':e['dp_id'],'raw_id':d['expected_raw_progenitor_id'],'file':record(p),'discovery_for':[k for k,v in EVENTS.items() if v==e['dp_id']],'date_obs':e['date_obs'],'mjd_obs':e['mjd_obs'],'berv_km_s':e['berv_km_s'],'primary_header':compact(ph,['ARCFILE','PROV1','INSTRUME','OBJECT','DATE-OBS','EXPTIME','MJD-OBS','SPECSYS','FLUXCAL','NCOMBINE','WAVELMIN','WAVELMAX','SPEC_BIN','SPEC_RES','SNR','ESO DRS BERV']),'table_header':compact(th,['NAXIS1','NAXIS2','TTYPE1','TTYPE2','TTYPE3','TFORM1','TFORM2','TFORM3','TUNIT1','TUNIT2','TUNIT3','TUCD1','TCOMM3']),'archive_member':m['path']})
+    original=read(OLD/'raw_followup/NATIVE_MAPPING.json');later=read(OLD/'raw_followup/mapping_followup/MAPPING_AUDIT.json');second=read(OLD/'raw_followup_batch02/NATIVE_MAPPING.json')
+    native=[];mapping=[]
+    for event,dp in EVENTS.items():
+        pinfo=selected_parts[event];m=members[event];member=m.get('path',m.get('relative_path'))
+        with zipfile.ZipFile(archive_paths[pinfo['filename']]) as z:
+            anc=HERE/'source_products'/ancillary_names[event];files.append(retain(anc,z.read(member),m))
+        old=original if event=='V2E2-0001' else second;spec=next(s for s in old['spectra'] if s['dp_id']==dp)
+        with tarfile.open(anc) as t:
+            tm=t.getmember(spec['native_member']);assert tm.isfile()
+            p=HERE/'native'/Path(tm.name.replace(':','_')).name;files.append(retain(p,t.extractfile(tm).read()))
+        nh=header(p)[0];assert nh['NAXIS1']==4096 and nh['NAXIS2']==72 and nh['INSTRUME']=='HARPS' and nh['OBJECT'].replace(' ','')=='HD103991'
+        assert nh['DATE-OBS']==spec['date_obs'] and abs(nh['ESO DRS BERV']-spec['berv_km_s'])<1e-10
+        degree=int(nh['ESO DRS CAL TH DEG LL']);ldeg=int(nh['ESO DRS CAL LOC DEG CTR'])
+        orders={str(o):{'wavelength_coefficients_ascending':[nh['ESO DRS CAL TH COEFF LL'+str(o*(degree+1)+j)] for j in range(degree+1)],'trace_coefficients_ascending':[nh['ESO DRS CAL LOC CTR'+str(o*(ldeg+1)+j)] for j in range(ldeg+1)]} for o in [2,3]}
+        native.append({'event':event,'dp_id':dp,'file':record(p),'ancillary_file':record(anc),'ancillary_archive_member':member,'native_tar_member':tm.name,'numpy_shape_from_header':[nh['NAXIS2'],nh['NAXIS1']],'wavelength_polynomial_degree':degree,'trace_polynomial_degree':ldeg,'orders':orders,'wavelength_polynomial_argument':'zero-based native pixel,0..4095','inherited_wavelength_representation':'topocentric air angstrom, as in the unchanged historical extractor; merged spectra are barycentric air angstrom','flux_unit_header':nh.get('BUNIT'),'primary_header':compact(nh,['INSTRUME','OBJECT','DATE-OBS','MJD-OBS','EXPTIME','ESO DRS BERV','BUNIT','ESO DRS CAL TH FILE','ESO DRS CAL LOC FILE']),'orientation':{k:spec['grid_best'][k] for k in ['row_flip','argument_flip','column_flip']}})
+        for r in old['orders']:
+            if r['review_id']==event:
+                entry={'event':event,'dp_id':dp,'order':r['order'],'native_pixel':r['native_pixel'],'raw_row':r['raw_row'],'raw_column':r['raw_column'],'original_grid_mapping_usable':r['grid_mapping_usable'],'original_local_mapping_usable':r['local_mapping_usable'],'original_baseline_mapping_verified':r.get('baseline_mapping_verified',r['mapping_verified']),'final_reference_mapping_supported':next(q['reference_mapping_supported'] for q in later['orders'] if q['review_id']==event and q['order']==r['order']) if event=='V2E2-0001' else r['five_window_mapping_supported'],'registration_changed':False}
+                mapping.append(entry)
+    e1=OLD/'raw_followup/mapping_followup';e1m=read(e1/'EVIDENCE_ARCHIVE.json');e1bytes=(e1/e1m['filename']).read_bytes();assert len(e1bytes)==e1m['bytes'] and digest(e1bytes)==e1m['sha256']
+    e2=OLD/'raw_followup_batch02';e2m=read(e2/'EVIDENCE_ARCHIVE.json');parts=read(e2/'EVIDENCE_PARTS.json');chunks=[]
+    for part in parts['parts']:
+        b=(e2/part['path']).read_bytes();assert len(b)==part['bytes'] and digest(b)==part['sha256'];chunks.append(b)
+    e2bytes=b''.join(chunks);assert len(e2bytes)==e2m['bytes'] and digest(e2bytes)==e2m['sha256']
+    cutouts=[]
+    for event,data,manifest in [('V2E2-0001',e1bytes,e1m['files']),('V2E2-0016',e2bytes,e2m['members'])]:
+        with zipfile.ZipFile(io.BytesIO(data)) as z:
+            for order in [2,3]:
+                m=next(m for m in manifest if Path(m['path']).name==event+'_o'+str(order).zfill(2)+'.npz');p=HERE/'evidence'/Path(m['path']).name
+                files.append(retain(p,z.read(m['path']),m));cutouts.append({'event':event,'order':order,'file':record(p),'npy_headers':npy_headers(p),'archive_member':m['path']})
+    assert len(files)==14 and len(mapping)==4
+    assert all(sha(REPO/n)==h for n,h in source_hashes.items())
+    inventory={'schema':'HARPS_C001_EXACT_INPUT_INVENTORY_V1','status':'PASS_HEADER_ONLY_RESTORATION','target':'HD103991','events':EVENTS,'merged_spectra':merged,'native_products':native,'saved_native_raw_cutouts':cutouts,'mapping_records':mapping,'archives':archives,'files':files,'source_hashes':source_hashes,'science_array_values_interpreted':0,'network_requests':0,'historical_files_modified':False,'full_raw_products_restored':False,'full_raw_note':'Original raw products remain available in the same verified discovery archives; this broader-profile phase restores native A and existing raw cutouts only.'}
+    write('INPUT_INVENTORY.json',inventory);write('RESTORE_RECEIPT.json',{'status':'PASS','files':len(files),'merged_spectra':6,'native_A_products':2,'covering_orders':4,'saved_cutouts':4,'source_hashes_unchanged':True,'all_files_verified':True,'science_array_values_interpreted':0,'network_requests':0})
+    print(json.dumps({'status':'PASS','files':len(files),'merged':6,'native_A':2,'orders':4,'cutout_shapes':cutouts,'inventory_sha256':sha(HERE/'INPUT_INVENTORY.json')},indent=2))
+
+if __name__=='__main__':main()

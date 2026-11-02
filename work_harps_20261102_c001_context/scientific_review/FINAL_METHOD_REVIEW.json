@@ -1,0 +1,45 @@
+{
+  "status": "PASS_EXACT_SOURCE_ONLY_SCIENTIFIC_PREFLIGHT",
+  "reviewed_utc": "2026-11-02T14:03:09.058789+00:00",
+  "checks": [
+    "Exact final plan after numerical guard correction",
+    "Exact reviewed final scientific source",
+    "Exact plot source",
+    "Fixed two C001 identities",
+    "Common midpoint and first-discovery anchor",
+    "Exactly six existing cohort epochs",
+    "Fixed broader grid",
+    "Declared common-support rules",
+    "Complete slot accounting",
+    "Review precedes release and new output arrays",
+    "Earlier scientific note immutable"
+  ],
+  "plan_sha256": "423f899cb652db1d9c835fce2126fcc3780e8babf88553820bd192b61ff6ffe9",
+  "analysis_script_sha256": "36d3a86a859d63a9e30a38b8a12d95bfceeabe4d73777aebb959222d5ce4ae02",
+  "plot_script_sha256": "30c5bce60a487c622f3b18148d3b81bb37f13ca6ab780120181521a250ade364",
+  "input_inventory_sha256": "e5a14bf22d63cbd568b2868ebfd153860a15605c6054958830f0778306763ef8",
+  "scientific_findings": [
+    "Frame equations are correct for one shared center and anchor. Native topocentric-air wavelengths convert to barycentric once, then merged/native profiles use the same requested frame grid. Both discovery references are resampled on this common grid, without event-specific recentering.",
+    "The useful addition is core-versus-surrounding-pattern context against both discovery references. Signed flux remains intact; there is no fitted continuum, line, width, lag, center or drift optimization. Raw Pearson and normalized RMS are descriptive shape metrics.",
+    "Per-profile/per-frame normalization uses a signed pooled flank median, requiring at least20 finite native samples separately in each fixed flank and a positive pooled median. Missing, insufficient and nonpositive reference cases remain distinct and raw-only. Noise pairs stay within one flank and do not bridge gaps.",
+    "Native order3 lacks the left broad-window normalization flank by header geometry. Raw-only status here means missing coverage, distinct from historically low/nonpositive local continuum. A finite raw-core Pearson can still occur; it must not be called independent corroboration. No extrapolation or smaller window is introduced.",
+    "Native flux units are explicitly unspecified while merged ADU is verified. Native-to-merged normalized RMS is separate-scaling shape context, not physical flux ratio. Positive scalar normalization alone does not change Pearson correlation.",
+    "All six merged epochs, four native order/exposure combinations and four historical raw panels remain present, with self/shared-exposure flags and failed slots retained. Geometry support and native signal usefulness remain separate; historical mapping/epoch values and U labels are untouched.",
+    "Plot rules retain signed values, raw-only annotations and unit labels; frame limits are shared where declared and separate raw-panel scales are disclosed. Full fixed windows are preserved.",
+    "Final prospective corrections replace exact-zero standard-deviation testing with a peak-to-peak constant-array guard and fail closed on selected flux/error shape mismatch. These correct numerical validity checks without changing frames, normalization, windows or estimators."
+  ],
+  "frame_bookkeeping_from_saved_metadata": {
+    "topocentric_anchor_air_angstrom": 3852.17509132224,
+    "accepted_detection_topocentric_centers_air_angstrom": {
+      "V2E2-0001": 3852.190090475719,
+      "V2E2-0016": 3852.1915651199924
+    },
+    "interpretation": "Coordinate bookkeeping only, not an independent origin test."
+  },
+  "limits": "Scientific source review only; separate numerical/input audits and exact publication/release still govern execution. The six cohort epochs span about1.225 nominal resolution elements. Correlated records, absent calibrated errors and flank reference structure preclude significance, measured-linewidth or physical-origin claims.",
+  "next_queue_rule": "Choose the next whole uncompleted group by original ACTION_QUEUE row order. Root identifies row3 as C003/HD106515A, not numerical groupC002; this review executes no later group.",
+  "observational_arrays_read": 0,
+  "network_requests": 0,
+  "labels_changed": false,
+  "execution_authorized_by_review": false
+}

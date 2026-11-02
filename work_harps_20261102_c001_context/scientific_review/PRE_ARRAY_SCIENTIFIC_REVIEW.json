@@ -1,0 +1,101 @@
+{
+  "status": "PRE_ARRAY_SCIENTIFIC_PROTOCOL_REVIEW_PENDING_EXACT_CODE_AND_PLAN",
+  "created_utc": "2026-11-02T13:50:59.919950+00:00",
+  "group": "C001/R001 HD103991",
+  "queue_indices": [
+    1,
+    2
+  ],
+  "records": [
+    "V2E2-0001",
+    "V2E2-0016"
+  ],
+  "scope": "One group-level broader-profile context comparison using exactly six existing merged spectra, plus the two discovery exposures native orders2/3 and preserved raw context. It does not rerun completed mapping/epoch work or search new events.",
+  "fixed_joint_geometry": {
+    "barycentric_center_air_angstrom": 3852.3925,
+    "topocentric_anchor_center_air_angstrom": 3852.17509132224,
+    "anchor_dp_id": "ADP.2023-02-23T01:01:36.783",
+    "anchor_record": "V2E2-0001",
+    "anchor_berv_km_s": 16.9196571680147,
+    "grid_half_width_angstrom": 3.0,
+    "grid_step_angstrom": 0.01,
+    "grid_samples": 601,
+    "nominal_core_half_width_angstrom": 0.265,
+    "actual_core_sample_centers_range_angstrom": [
+      -0.26,
+      0.26
+    ],
+    "core_sample_centers": 53,
+    "broader_pattern": "0.265 < abs(x) <= 3",
+    "reference_flanks": "1.5 <= abs(x) <= 3",
+    "frame_equations": {
+      "merged_barycentric": "requested barycentric wavelength = cb + x",
+      "merged_topocentric": "requested barycentric wavelength = (ct + x) * (1 + BERV_epoch/c)",
+      "native_barycentric": "requested native topocentric wavelength = (cb + x) / (1 + BERV_epoch/c)",
+      "native_topocentric": "requested native topocentric wavelength = ct + x"
+    },
+    "reference_requirement": "Both discovery-reference profiles must be sampled on this same joint grid and same BERV anchor. Do not preserve separate per-event center or anchor offsets from the old epoch tables."
+  },
+  "existing_six_epochs": [
+    {
+      "dp_id": "ADP.2023-02-23T01:01:36.783",
+      "date_obs": "2023-02-22T06:23:48.539",
+      "berv_km_s": "16.9196571680147"
+    },
+    {
+      "dp_id": "ADP.2023-02-24T01:01:17.499",
+      "date_obs": "2023-02-23T07:09:34.479",
+      "berv_km_s": "16.4295552925342"
+    },
+    {
+      "dp_id": "ADP.2023-02-27T01:01:03.513",
+      "date_obs": "2023-02-26T07:07:40.801",
+      "berv_km_s": "15.1973358631226"
+    },
+    {
+      "dp_id": "ADP.2023-02-28T01:02:17.095",
+      "date_obs": "2023-02-27T08:32:54.036",
+      "berv_km_s": "14.630329793747"
+    },
+    {
+      "dp_id": "ADP.2023-03-01T01:01:30.551",
+      "date_obs": "2023-02-28T06:06:39.357",
+      "berv_km_s": "14.4701720470153"
+    },
+    {
+      "dp_id": "ADP.2023-03-02T01:01:24.353",
+      "date_obs": "2023-03-01T09:10:00.121",
+      "berv_km_s": "13.7264285926878"
+    }
+  ],
+  "scientific_reading_order": [
+    "Start with original signed merged/native flux, wavelength coverage and data gaps before normalized panels. Order3 can be low or nonpositive despite no inherited merged low-continuum flag; geometry support and useful spectral signal are separate questions.",
+    "Use fixed flank medians as reference levels, not assumed line-free continua. Keep positive, nonpositive and missing medians explicit; only adequate positive reference levels may support normalized panels. Do not divide by absolute median, clip negatives or substitute a better-looking order.",
+    "Compare the fixed shared core and the broader surrounding pattern separately, against both discovery references. Zero-lag correlations and RMS can show whether the selected core follows the same spectral pattern as its surroundings; no lag/center/width search is justified.",
+    "Keep the surrounding pattern in the data. Root requested signed flux and fixed flank scaling rather than an additional fitted line-background that might remove relevant broad structure. No new Gaussian, free-width or continuum model is needed for this context task.",
+    "Maintain common finite-support masks per comparison and report support counts/coverage. Near native order3 edges, missing coverage remains missing; do not extrapolate or shrink the frozen window. Do not bridge gaps or the separation between flanks when computing adjacent-difference noise proxies.",
+    "Display both raw-order contexts with their original registration and gate history. Failed earlier local checks and later supported wider-reference checks both remain recorded; there is no new mapping fit or origin promotion."
+  ],
+  "interpretation_limits": [
+    "The two event centers differ by0.0300Angstrom, about0.896 nominal resolution elements, and belong to one overlapping group. They are not two independent confirmations.",
+    "The six existing epochs span3.1932285753km/s, about1.224918 nominal resolution elements. Frame preference at this modest displacement is descriptive, not a calibrated discriminator or stellar-rest-frame identification.",
+    "Native e2ds and merged flux scales differ. Fixed-reference normalized amplitudes, frame-dependent normalization differences and native/merged ratios are not calibrated line fluxes. Positive scalar scaling alone does not alter Pearson correlation.",
+    "The historical fixed Gaussian width is a template parameter, not a measured linewidth. A calibrated free-width analysis would be a separate method and is outside this task.",
+    "Raw-order agreement cannot be claimed from an unusable order3 panel. Fixed broad correlations may be dominated by neighboring structure; core and surrounding-pattern results must both be shown.",
+    "Missing original positive ERR support and correlated samples prevent significance or physical-origin claims. All current U labels remain unchanged."
+  ],
+  "source_hashes": {
+    "work_harps_20261102_spatial_0235/NEXT_ACTION.json": "1b92fef68451700276eec7a2b3037cf099cb6d96a2717f3f995ccf66400c16e4",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/ACTION_QUEUE.csv": "d789d5ad03963cfe68c0e8d70d0e7e7c199599fb36a2ff2760426e8e69f7267b",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/EVENT_CONTEXT.csv": "2d8129e7963e2678035cf4b915c3c3503529b399d61fe6e8233484d0ee2321d7",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/CORE_OVERLAP_GROUPS.csv": "39cbcc225161abfb8a986fec91583dd3591806d589c7154171fb80d026b305ab",
+    "work_harps_20261101/v2/extension02/epoch_followup/measure_epochs.py": "2d533c408f294c6424bdecd35a44d9b161f8c0470da173ecc1c16c260734bc08",
+    "work_harps_20261101/v2/extension02/epoch_followup/ALL_EPOCH_MEASUREMENTS.csv": "de5b7175959ce7d25aec435d68def4b4e5d471292fd9de19c62ed17567b3f649",
+    "work_harps_20261101/v2/extension02/raw_followup/mapping_followup/FOLLOWUP_DISPOSITIONS.csv": "af19879078c2fa0415e1945d0bba798b6ff7f1a3b8d9b9002284e8625c63dd67",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/ADOPTED_DISPOSITIONS.csv": "2f0ec0b80f7c30be209b4c60d2fc51d0258dd34a46161064d344aa844fd68bf2"
+  },
+  "observational_arrays_read": 0,
+  "new_network_requests": 0,
+  "labels_changed": false,
+  "execution_authorized_by_review": false
+}

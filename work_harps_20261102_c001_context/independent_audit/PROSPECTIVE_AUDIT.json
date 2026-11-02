@@ -1,0 +1,26 @@
+{
+  "status": "PASS_COMPACT_PROSPECTIVE_C001_AUDIT",
+  "created_utc": "2026-11-02T14:04:04.827483+00:00",
+  "checks_passed": 129,
+  "synthetic_scalar_values_compared": 19500,
+  "maximum_synthetic_absolute_difference": 2.220446049250313e-16,
+  "plan_sha256": "423f899cb652db1d9c835fce2126fcc3780e8babf88553820bd192b61ff6ffe9",
+  "analysis_script_sha256": "36d3a86a859d63a9e30a38b8a12d95bfceeabe4d73777aebb959222d5ce4ae02",
+  "independent_math_sha256": "9b5f3ce5e46e4caa03d4c864fcba590e524253b5a4d727da741395cae0e2fdcc",
+  "audit_script_sha256": "90ed63bea763b4ef5cb24f3ff3ad39977a2934321d69eb258b3933bd8b8cae5b",
+  "source_hashes_verified": 39,
+  "observational_arrays_read": 0,
+  "network_requests": 0,
+  "scope": [
+    "Exact common3852.3925\u00c5 barycentric anchor and fixed0001 topocentric BERV anchor; native-to-bary transform unchanged.",
+    "601-point grid;53core/548broad points and exact43/439 minimum common supports.",
+    "Pooled signed-flank median with20finite samples required separately per flank; no fitted background, shift or width.",
+    "Raw-only missing-coverage and nonpositive-reference outcomes remain explicit; raw Pearson and normalized RMS are separately gated.",
+    "Header-before-array source structure, exact20profiles/64comparisons, inventory/release/source bindings."
+  ],
+  "resolved_issue": "Constant noninteger profiles now use exact zero-range detection before Pearson; rounding-scale nonzero standard deviations no longer bypass the zero-variance guard.",
+  "limitations": [
+    "This is source/synthetic preflight only; actual input/profile arithmetic awaits root release and completed run.",
+    "No physical-origin assignment, independent detection, calibrated uncertainty or classification change follows."
+  ]
+}
