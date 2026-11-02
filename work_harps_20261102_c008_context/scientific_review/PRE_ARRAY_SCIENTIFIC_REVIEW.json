@@ -1,0 +1,224 @@
+{
+  "schema": "HARPS_C008_PROSPECTIVE_SCIENTIFIC_REVIEW_V1",
+  "status": "PASS_FIXED_DESCRIPTIVE_PROTOCOL_EXACT_IMPLEMENTATION_REVIEW_TO_FOLLOW",
+  "reviewed_utc": "2026-11-02T19:56:49.449494+00:00",
+  "observational_array_values_read_for_new_phase": false,
+  "network_requests": 0,
+  "historical_files_modified": false,
+  "group": "C008",
+  "resolution_groups": [
+    "R009"
+  ],
+  "target": "HD106515A",
+  "events": {
+    "V2E2-0047": "ADP.2023-03-23T01:02:04.831"
+  },
+  "purpose": "Singleton descriptive context of V2E2-0047, all seven existing epochs and one fixed March 2023 discovery reference. No new detection search or origin classifier. This wavelength is disjoint from prior bounded C001\u2013C007 windows but already has original epoch/raw evidence.",
+  "fixed_geometry": {
+    "center_bary_air_angstrom": 5182.005,
+    "core_halfwidth_angstrom": 0.25,
+    "core_basis": "Original catalog-centered +/-0.25 Angstrom window, not a fitted linewidth.",
+    "grid": "601 centers from -3 to +3 Angstrom in 0.01 Angstrom steps; 51 core and 550 surrounding centers.",
+    "common_support_core_minimum": 41,
+    "common_support_surrounding_minimum": 440,
+    "anchor_dp_id": "ADP.2023-03-23T01:02:04.831",
+    "anchor_berv_km_s": 3.26509772194068,
+    "fixed_topocentric_anchor_air_angstrom": 5181.9485623946,
+    "anchor_change_from_prior_phases": "The sole C008 discovery is March 2023. Do not inherit the C002 May 2022, C004 March 2022 or earlier January anchors."
+  },
+  "scope_counts": {
+    "merged_epochs": 7,
+    "catalog_records": 1,
+    "distinct_discovery_references": 1,
+    "measured_native_order_exposure_combinations": 1,
+    "structural_exclusions": 0,
+    "preserved_event_raw_panels": 1,
+    "merged_profiles": 14,
+    "native_profiles": 2,
+    "all_profiles": 16,
+    "merged_comparison_records": 28,
+    "native_comparison_records": 4,
+    "all_comparison_records": 32,
+    "identical_product_self_records": 4,
+    "bounded_source_windows": 8
+  },
+  "header_only_coverage_checks": [
+    {
+      "dp_id": "ADP.2023-03-23T01:02:04.831",
+      "events": [
+        "V2E2-0047"
+      ],
+      "order": 43,
+      "header_endpoint_topocentric_air_angstrom": [
+        5156.37162001017,
+        5214.417647930924
+      ],
+      "fixed_frame_header_geometry": {
+        "barycentric": {
+          "header_endpoint_air_angstrom": [
+            5156.427779052136,
+            5214.474439163423
+          ],
+          "offset_endpoints_from_frame_center_angstrom": [
+            -25.57722094786368,
+            32.469439163422976
+          ],
+          "context_air_angstrom": [
+            5179.005,
+            5185.005
+          ],
+          "core_air_angstrom": [
+            5181.755,
+            5182.255
+          ],
+          "full_context_geometrically_covered": true,
+          "full_core_geometrically_covered": true,
+          "negative_reference_flank_geometrically_covered": true,
+          "positive_reference_flank_geometrically_covered": true
+        },
+        "topocentric": {
+          "header_endpoint_air_angstrom": [
+            5156.37162001017,
+            5214.417647930924
+          ],
+          "offset_endpoints_from_frame_center_angstrom": [
+            -25.576942384430367,
+            32.4690855363242
+          ],
+          "context_air_angstrom": [
+            5178.9485623946,
+            5184.9485623946
+          ],
+          "core_air_angstrom": [
+            5181.6985623946,
+            5182.1985623946
+          ],
+          "full_context_geometrically_covered": true,
+          "full_core_geometrically_covered": true,
+          "negative_reference_flank_geometrically_covered": true,
+          "positive_reference_flank_geometrically_covered": true
+        }
+      }
+    }
+  ],
+  "coverage_interpretation": "Fresh all-72-order scan identifies only order 43 covering the original center. Both fixed-frame contexts, cores and complete reference flanks lie within its header-derived coordinate range. This does not guarantee finite flux, a positive valid reference, small noise or any physical origin. Do not inherit C002 order 2 coverage/mapping failures at this distinct wavelength.",
+  "reference_dependence": "One fixed discovery among seven reused epochs. Four self comparisons and same-exposure native/merged agreement add no independent observations or detections.",
+  "prior_window_dependence": {
+    "C008_window_bary_air_angstrom": [
+      5179.005,
+      5185.005
+    ],
+    "C008_original_core_bary_air_angstrom": [
+      5181.755,
+      5182.255
+    ],
+    "C008_reference_flanks_bary_air_angstrom": [
+      [
+        5179.005,
+        5180.505
+      ],
+      [
+        5183.505,
+        5185.005
+      ]
+    ],
+    "overlaps_prior_C001_through_C007_bounded_windows": false,
+    "interpretation": "The selected wavelength window is disjoint from previous C001\u2013C007 bounded contexts. Original epoch/profile and raw investigations of 0047 already exist, and the same seven HD106515A observing products are reused. Wavelength separation does not make this blind, untouched or independent validation."
+  },
+  "frame_caveat": "The March 2023 discovery anchor remains fixed. Five expected barycentrically coherent centers fall outside the +/-0.25 Angstrom topocentric core; only March 2022 and the March 2023 discovery center lie inside. Those correlations may describe neighboring structure. Coordinates below are metadata predictions, not fitted peaks; no recentering or alternative anchor.",
+  "metadata_expected_feature_locations": [
+    {
+      "dp_id": "ADP.2022-01-06T01:08:04.689",
+      "date_obs": "2022-01-05T07:04:47.115",
+      "berv_km_s": 30.1380355615464,
+      "expected_center_topocentric_air_angstrom": 5181.484107135236,
+      "expected_center_offset_from_fixed_anchor_angstrom": -0.46445525936451304,
+      "expected_center_inside_fixed_core": false
+    },
+    {
+      "dp_id": "ADP.2022-03-08T01:01:37.342",
+      "date_obs": "2022-03-07T04:52:12.631",
+      "berv_km_s": 10.77158288517,
+      "expected_center_topocentric_air_angstrom": 5181.8188165607935,
+      "expected_center_offset_from_fixed_anchor_angstrom": -0.1297458338067372,
+      "expected_center_inside_fixed_core": true
+    },
+    {
+      "dp_id": "ADP.2022-05-08T01:01:37.876",
+      "date_obs": "2022-05-07T05:12:25.401",
+      "berv_km_s": -18.8907517532076,
+      "expected_center_topocentric_air_angstrom": 5182.331553041142,
+      "expected_center_offset_from_fixed_anchor_angstrom": 0.38299064654165704,
+      "expected_center_inside_fixed_core": false
+    },
+    {
+      "dp_id": "ADP.2023-01-01T01:10:52.479",
+      "date_obs": "2022-12-31T07:26:25.382",
+      "berv_km_s": 30.3750612537025,
+      "expected_center_topocentric_air_angstrom": 5181.480010899988,
+      "expected_center_offset_from_fixed_anchor_angstrom": -0.46855149461225665,
+      "expected_center_inside_fixed_core": false
+    },
+    {
+      "dp_id": "ADP.2023-03-23T01:02:04.831",
+      "date_obs": "2023-03-22T04:52:14.904",
+      "berv_km_s": 3.26509772194068,
+      "expected_center_topocentric_air_angstrom": 5181.9485623946,
+      "expected_center_offset_from_fixed_anchor_angstrom": 0.0,
+      "expected_center_inside_fixed_core": true
+    },
+    {
+      "dp_id": "ADP.2023-05-25T01:01:39.293",
+      "date_obs": "2023-05-24T03:32:27.955",
+      "berv_km_s": -24.4076064506785,
+      "expected_center_topocentric_air_angstrom": 5182.426927348493,
+      "expected_center_offset_from_fixed_anchor_angstrom": 0.47836495389310585,
+      "expected_center_inside_fixed_core": false
+    },
+    {
+      "dp_id": "ADP.2023-07-05T01:02:00.053",
+      "date_obs": "2023-07-03T23:55:27.533",
+      "berv_km_s": -29.2347518620376,
+      "expected_center_topocentric_air_angstrom": 5182.510380975963,
+      "expected_center_offset_from_fixed_anchor_angstrom": 0.5618185813627861,
+      "expected_center_inside_fixed_core": false
+    }
+  ],
+  "normalization": "Signed native-source-sample pooled median over 1.5<=abs(offset)<=3 Angstrom; at least 20 finite samples required separately in EACH flank and a positive pooled reference. Preserve missing, nonpositive and low-reference outcomes. No clipping, sign flip, moved flank, extrapolation or fitted baseline. Structured flanks are reference levels, not proven line-free continua.",
+  "statistics": "Unshifted raw Pearson and normalized RMS with fixed support gates; positive scalar normalization leaves Pearson invariant. No origin threshold, free lag, linewidth, RV, significance calibration or sensitivity estimate. Missing ERR and descriptive first differences are not a formal uncertainty model.",
+  "historical_mapping_caveats": [
+    {
+      "event": "V2E2-0047",
+      "dp_id": "ADP.2023-03-23T01:02:04.831",
+      "order": 43,
+      "native_pixel": 1643,
+      "raw_row": 2452,
+      "raw_column": 1913.5151281740232,
+      "original_grid_mapping_usable": true,
+      "original_local_mapping_usable": true,
+      "original_baseline_mapping_verified": true,
+      "final_reference_mapping_supported": true,
+      "registration_changed": false
+    }
+  ],
+  "raw_and_native_limits": [
+    "All order 43 historical global/local/baseline/five-window mapping flags are true and independently matched to the original table. They remain historical diagnostics; no new registration or physical-origin validation follows.",
+    "Primary and secondary historical reviews retain U for a broad asymmetric native shoulder/bump and extended trace-width central structure against a structured reference. Preserve the exact complete raw/excess panel and historical subtraction without new pixel statistics, fitting, classifier or masking.",
+    "Native BUNIT is absent; extracted units remain unspecified. Merged ADU are uncalibrated. Same-exposure native/merged agreement is not independent confirmation or a physical flux ratio.",
+    "Catalog template widths are not measured physical linewidths. V2E2-0047 remains U; morphology alone establishes neither a qualified laser candidate nor a calibrated null."
+  ],
+  "next_group_fixed_before_results": "NEXT_GROUP_METADATA.json fixes C009 / V2E2-0050 at original row 18, center 6802.02 Angstrom, same March 2023 discovery. Preserve root-adopted U despite historical reviewer A votes and the recorded possible artifact/spectral blend; no next analysis executed.",
+  "source_sha256": {
+    "work_harps_20261102_c008_context/inputs/INPUT_INVENTORY.json": "80cce49d1000211f735449d65efc27b447de85bdd9e5ba9fbbbfac924e21f890",
+    "work_harps_20261102_c002_context/NEXT_ACTION.json": "d69144bd5cf8bbf14319797bb518c301957d8961caf76fd0c5f86c4a39855a65",
+    "work_harps_20261102_c002_context/scientific_review/NEXT_STEP.md": "1fb4d75610b9d8326f3c47a60e1d1899b0ff222e6600341e7398c541d84b4103",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/NATIVE_MAPPING.json": "caae2e56ce6631f72133db99160be1719b8904a7a9c3d9ad782282e909b09393",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/PRIMARY_VISUAL_REVIEW.json": "29ebe465be6acc16be5fc17769c0fc191a773982a1b20bfa45e9710144de193e",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/SECONDARY_VISUAL_REVIEW.json": "4fb2db1c0508902b234f50ab09b3a20e7f111d16ab98610479115fc0da715b50",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/ACTION_QUEUE.csv": "d789d5ad03963cfe68c0e8d70d0e7e7c199599fb36a2ff2760426e8e69f7267b",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/EVENT_CONTEXT.csv": "2d8129e7963e2678035cf4b915c3c3503529b399d61fe6e8233484d0ee2321d7",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/CORE_OVERLAP_GROUPS.csv": "39cbcc225161abfb8a986fec91583dd3591806d589c7154171fb80d026b305ab",
+    "work_harps_20261101/v2/extension02/epoch_followup/ALL_EPOCH_MEASUREMENTS.csv": "de5b7175959ce7d25aec435d68def4b4e5d471292fd9de19c62ed17567b3f649",
+    "work_harps_20261101/v2/CURRENT_V2_DISPOSITIONS.csv": "f2bbb73b08ae7dc60b9387495a05d1d6e98ece7571eff9a979ae0b1af139a279"
+  }
+}

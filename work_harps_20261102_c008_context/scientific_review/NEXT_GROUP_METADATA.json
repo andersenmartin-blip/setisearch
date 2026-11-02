@@ -1,0 +1,127 @@
+{
+  "schema": "HARPS_C008_NEXT_FIXED_QUEUE_GROUP_METADATA_V1",
+  "status": "METADATA_ONLY_FUTURE_HANDOFF_NO_EXECUTION",
+  "created_utc": "2026-11-02T19:56:49.417322+00:00",
+  "selection_rule": "Original ACTION_QUEUE first remaining row after completed C001 through C007 and currently planned C008. Preserve singleton route independently of C008 outcomes.",
+  "next_core_group": "C009",
+  "resolution_groups": [
+    "R010"
+  ],
+  "first_remaining_queue_index": 18,
+  "members": [
+    {
+      "queue_index": 18,
+      "candidate_id": "V2E2-0050",
+      "target": "HD106515A",
+      "discovery_dp_id": "ADP.2023-03-23T01:02:04.831",
+      "center_bary_air_angstrom": 6802.02,
+      "resolution_group": "R010",
+      "current_code": "U",
+      "route": "INDIVIDUAL_PROFILE_CONTEXT",
+      "historical_raw_evidence": "Both reviewers describe a compact slanted charge cluster in order70. Root retains U: the weak asymmetric excess lies over broader residual structure, so visual morphology alone does not sufficiently exclude a photon/spectral contribution. All-order mapping passes. Possible artifact/spectral blend remains unresolved; this is not a qualified laser candidate."
+    }
+  ],
+  "distinct_discovery_products": [
+    "ADP.2023-03-23T01:02:04.831"
+  ],
+  "distinct_discovery_product_count": 1,
+  "reference_dependency": "One fixed March 2023 discovery product among the same seven original-cohort HD106515A epochs. It is also the C008 discovery product. Preserve shared observing products without counting additional observations.",
+  "existing_same_target_epochs": [
+    {
+      "dp_id": "ADP.2022-01-06T01:08:04.689",
+      "date_obs": "2022-01-05T07:04:47.115",
+      "mjd_obs": 59584.29498977,
+      "berv_km_s": 30.1380355615464,
+      "exptime": 899.9964,
+      "is_C009_discovery_product": false
+    },
+    {
+      "dp_id": "ADP.2022-03-08T01:01:37.342",
+      "date_obs": "2022-03-07T04:52:12.631",
+      "mjd_obs": 59645.20292398,
+      "berv_km_s": 10.77158288517,
+      "exptime": 899.9964,
+      "is_C009_discovery_product": false
+    },
+    {
+      "dp_id": "ADP.2022-05-08T01:01:37.876",
+      "date_obs": "2022-05-07T05:12:25.401",
+      "mjd_obs": 59706.21696067,
+      "berv_km_s": -18.8907517532076,
+      "exptime": 899.9965,
+      "is_C009_discovery_product": false
+    },
+    {
+      "dp_id": "ADP.2023-01-01T01:10:52.479",
+      "date_obs": "2022-12-31T07:26:25.382",
+      "mjd_obs": 59944.310016,
+      "berv_km_s": 30.3750612537025,
+      "exptime": 1799.9962,
+      "is_C009_discovery_product": false
+    },
+    {
+      "dp_id": "ADP.2023-03-23T01:02:04.831",
+      "date_obs": "2023-03-22T04:52:14.904",
+      "mjd_obs": 60025.20295028,
+      "berv_km_s": 3.26509772194068,
+      "exptime": 899.9962,
+      "is_C009_discovery_product": true
+    },
+    {
+      "dp_id": "ADP.2023-05-25T01:01:39.293",
+      "date_obs": "2023-05-24T03:32:27.955",
+      "mjd_obs": 60088.14754578,
+      "berv_km_s": -24.4076064506785,
+      "exptime": 899.9961,
+      "is_C009_discovery_product": false
+    },
+    {
+      "dp_id": "ADP.2023-07-05T01:02:00.053",
+      "date_obs": "2023-07-03T23:55:27.533",
+      "mjd_obs": 60128.99684645,
+      "berv_km_s": -29.2347518620376,
+      "exptime": 899.9962,
+      "is_C009_discovery_product": false
+    }
+  ],
+  "discovery_anchor_dp_id": "ADP.2023-03-23T01:02:04.831",
+  "discovery_anchor_berv_km_s": 3.26509772194068,
+  "berv_min_km_s": -29.2347518620376,
+  "berv_max_km_s": 30.3750612537025,
+  "berv_span_km_s": 59.6098131157401,
+  "wavelength_dependency": {
+    "C009_center_bary_air_angstrom": 6802.02,
+    "C009_original_core_bary_air_angstrom": [
+      6801.77,
+      6802.27
+    ],
+    "proposed_C009_window_bary_air_angstrom": [
+      6799.02,
+      6805.02
+    ],
+    "overlaps_completed_or_current_C001_through_C008_bounded_windows": false,
+    "interpretation": "C009 proposed window is disjoint in wavelength from completed/current C001\u2013C008 bounded contexts. It shares all seven observations and already has original epoch/profile and raw evidence. No blind, untouched or independent-observation claim follows. Fresh order/header/mapping inventory is required."
+  },
+  "historical_review_disagreement": {
+    "primary_code": "A",
+    "secondary_code": "A",
+    "root_adopted_code": "U",
+    "root_override_preserved": true,
+    "qualification": "Both reviewers described a compact slanted cluster in order 70. The secondary review also retained broad residual structure and an underlying spectral contribution. Root conservatively adopted U because a photon/spectral contribution or artifact/spectral blend could not be excluded. Do not replace the adopted U with the earlier reviewer A votes or imply a qualified laser candidate. No new interpretation or classification is performed by this metadata handoff."
+  },
+  "new_array_reads": 0,
+  "new_queries": 0,
+  "labels_changed": 0,
+  "source_sha256": {
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/ACTION_QUEUE.csv": "d789d5ad03963cfe68c0e8d70d0e7e7c199599fb36a2ff2760426e8e69f7267b",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/EVENT_CONTEXT.csv": "2d8129e7963e2678035cf4b915c3c3503529b399d61fe6e8233484d0ee2321d7",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/CORE_OVERLAP_GROUPS.csv": "39cbcc225161abfb8a986fec91583dd3591806d589c7154171fb80d026b305ab",
+    "work_harps_20261101/v2/extension02/epoch_followup/ALL_EPOCH_MEASUREMENTS.csv": "de5b7175959ce7d25aec435d68def4b4e5d471292fd9de19c62ed17567b3f649",
+    "work_harps_20261101/v2/CURRENT_V2_DISPOSITIONS.csv": "f2bbb73b08ae7dc60b9387495a05d1d6e98ece7571eff9a979ae0b1af139a279",
+    "work_harps_20261102_c002_context/NEXT_ACTION.json": "d69144bd5cf8bbf14319797bb518c301957d8961caf76fd0c5f86c4a39855a65",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/PRIMARY_VISUAL_REVIEW.json": "29ebe465be6acc16be5fc17769c0fc191a773982a1b20bfa45e9710144de193e",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/SECONDARY_VISUAL_REVIEW.json": "4fb2db1c0508902b234f50ab09b3a20e7f111d16ab98610479115fc0da715b50",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/REVIEW_COMPARISON.json": "c143bb067e555b4fd1c99ca6288522467fa1e5560da1084ac475f2a54f96ad90",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/ADOPTED_DISPOSITIONS.csv": "2f0ec0b80f7c30be209b4c60d2fc51d0258dd34a46161064d344aa844fd68bf2"
+  }
+}

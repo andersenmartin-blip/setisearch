@@ -1,0 +1,315 @@
+{
+  "schema": "HARPS_C008_INDIVIDUAL_PROFILE_CONTEXT_V1",
+  "created_utc": "2026-11-02T19:58:15.503668+00:00",
+  "status": "METHOD_FROZEN_BEFORE_ARRAY_VALUES",
+  "scope": "Singleton C008 / R009 record V2E2-0047 on HD106515A at 5182.005 Angstrom, chosen by original queue row 17. Retain all seven existing cohort epochs and the one fixed March 2023 discovery reference. The bounded wavelength window is disjoint from completed C001\u2013C007 contexts, but original epoch/raw evidence and the same seven observing products already exist. This is not blind, untouched or independent observing evidence.",
+  "events": {
+    "V2E2-0047": "ADP.2023-03-23T01:02:04.831"
+  },
+  "merged_dp_ids": [
+    "ADP.2022-01-06T01:08:04.689",
+    "ADP.2022-03-08T01:01:37.342",
+    "ADP.2022-05-08T01:01:37.876",
+    "ADP.2023-01-01T01:10:52.479",
+    "ADP.2023-03-23T01:02:04.831",
+    "ADP.2023-05-25T01:01:39.293",
+    "ADP.2023-07-05T01:02:00.053"
+  ],
+  "discovery_dp_ids": [
+    "ADP.2023-03-23T01:02:04.831"
+  ],
+  "inventory_path": "work_harps_20261102_c008_context/inputs/INPUT_INVENTORY.json",
+  "group_center_bary_air_angstrom": 5182.005,
+  "accepted_event_centers_bary_air_angstrom": [
+    5182.005
+  ],
+  "anchor_dp_id": "ADP.2023-03-23T01:02:04.831",
+  "anchor_berv_km_s": 3.26509772194068,
+  "c_km_s": 299792.458,
+  "frames": {
+    "barycentric": "Query barycentric wavelength cb+x. Native topocentric-air wavelength first multiplied by(1+BERVepoch/c) once.",
+    "topocentric": "One fixed ct = cb/(1+BERVdiscovery/c), anchored to V2E2-0047 observed on 2023-03-22 with BERV 3.26509772194068 km/s. Query barycentric wavelength (ct+x)*(1+BERVepoch/c), equivalent to native topocentric wavelength ct+x. No inherited May 2022, March 2022 or January anchor and no recentering. Other features may leave the core.",
+    "native_polynomial": "Ascending coefficient polynomial at zero-based native pixel0..4095, inherited topocentric air convention; no wavelength unit/air-vacuum conversion."
+  },
+  "grid": {
+    "construction": "arange(-300,301)/100",
+    "samples": 601,
+    "step_angstrom": 0.01,
+    "window_angstrom": [
+      -3,
+      3
+    ],
+    "core": "abs(x)<=0.25: 51 sampled centers [-0.25,+0.25]. The original core is 5181.755\u20135182.255 Angstrom; it is not a fitted linewidth.",
+    "broad_pattern": "0.25<abs(x)<=3: 550 sampled centers.",
+    "interpolation": "Linear without extrapolation; mask brackets >1.51 times the median full-source barycentric wavelength step. Save selected source points plus one bracket on each side and the exact full-source spacing."
+  },
+  "normalization": {
+    "rule": "Per profile and frame, pooled signed median of native samples with 1.5<=abs(frame offset)<=3, requiring at least 20 finite samples separately in each flank and a positive pooled median. No fitted background, continuum or line model.",
+    "missing": "Zero native left/right coverage is MISSING_LEFT/RIGHT_FLANK_COVERAGE; insufficient finite counts are separate. Invalid or nonpositive references keep raw-only arrays and block normalized RMS. No moved flanks, sign flip, shrink or extrapolation.",
+    "context": "Separate left/right native and finite counts, medians and nonpositive fractions; available median distinct from valid reference; signed-window nonpositive fraction and positive finite ERR coverage. Native BUNIT unspecified; merged ADU verified.",
+    "noise": "First-difference 1.4826 MAD / sqrt(2) of finite adjacent source samples with both endpoints in the same fixed flank and spacing <=1.51 times median step. Never bridge flanks or gaps. Descriptive low-reference flag median<=3*proxy only if reference valid; no formal SNR.",
+    "structured_neighbor": "Use the complete fixed flanks without masks or an assumed line-free region. This wavelength window is separate from C001\u2013C007 bounded windows, but previous event/epoch/raw evidence exists. Any surrounding structure remains in the pooled median. Fixed reference levels are not fitted or established line-free continua."
+  },
+  "comparisons": {
+    "merged": "7 epochs \u00d7 1 fixed discovery reference \u00d7 2 frames \u00d7 2 regions = 28 records, including 4 identical-product self-comparisons.",
+    "native": "1 discovery covering order \u00d7 2 frames \u00d7 2 regions = 4 same-exposure native-to-merged records. Shared extraction is not independent confirmation or a physical flux ratio. Keep invalid references or insufficient support explicit.",
+    "statistics": "Unshifted raw Pearson requires at least ceil(.8*Nregion) common finite raw samples and nonzero exact range. Normalized RMS requires that support in common finite normalized samples. Raw-only profiles block normalized RMS but retain adequately covered raw Pearson. Counts and reasons remain explicit.",
+    "minimum_common_core": 41,
+    "minimum_common_broad": 440,
+    "self_and_dependency_flags": "same_exposure and identical_product_self_pair flags are explicit. Retain the one fixed March 2023 reference and all seven reused epochs. A distinct bounded wavelength region and same-exposure native extraction do not supply independent observations or detections."
+  },
+  "slots": {
+    "merged_profiles": 14,
+    "native_profiles": 2,
+    "all_profiles": 16,
+    "merged_comparisons": 28,
+    "native_comparisons": 4,
+    "all_comparisons": 32,
+    "identical_product_self_comparisons": 4,
+    "saved_raw_order_panels": 1,
+    "structurally_excluded_native_order_pairs": 0,
+    "expected_bounded_input_windows": 8,
+    "distinct_discovery_products": 1,
+    "discovery_records": 1
+  },
+  "bounded_arrays": "Save eight pre-interpolation source windows with exact indices, original-frame and barycentric wavelengths, signed flux, ERR (NaN for unavailable native errors), source hashes, BERV and full-source spacing. Read only the available union required by both fixed-frame windows plus brackets. Full merged coordinates locate slices; native coordinates derive from headers. No extrapolation or new original-pipeline run.",
+  "headers": "Check all seven merged headers and the discovery native header before new flux access: exact identity/hash, recorded metadata, numeric BERV, merged BARYCENT air Angstrom/ADU and unique WAVE/FLUX/ERR single-exposure tables, native 72\u00d74096 shape and unchanged degree/order 43 coefficients. Failed slots remain explicit; coordinate coverage is distinct from flux quality, reference validity and mapping reliability.",
+  "preserved_raw_context": "Copy the exact historical V2E2-0047 order 43 raw/native NPZ. Display original raw_cutout/raw_excess after release using separate full scales. Preserve all primary, secondary, adopted and distinct historical mapping stages. No new registration, subtraction, detector model or independent pixel claim.",
+  "release_contract": {
+    "schema": "HARPS_C008_GROUP_RELEASE_V1",
+    "file": "ROOT_RELEASE.json",
+    "required_fields": [
+      "publication_commit",
+      "publication_readback_verified",
+      "plan_sha256",
+      "script_sha256",
+      "inventory_path",
+      "inventory_sha256"
+    ],
+    "policy": "Exact public method freeze and input hashes before new observed values; no network; one-shot output refuses overwrite; all source and release hashes rechecked after execution."
+  },
+  "plot_script_sha256": "44564b2217986ea443f1551cd93bc549d7d6e538de2200de2d10efef28d91fb6",
+  "plot_rules": "Four figures: all seven merged broad/core profiles with signed and normalized flux in both frames; the native order 43 context; the historical raw/excess pair. One 0047/R009 catalog/discovery marker, not a fitted peak. Keep any raw-only annotations, low reference outcomes and partial support; no smoothing, clipping or favorable selection. Matching merged-frame and native raw-frame scales retain every finite value with 5 percent margins. Raw panels use separate full extrema.",
+  "limitations": [
+    "Post-detection context of one U record and seven reused original-cohort exposures; no new observing time, independent detection or archive-wide completeness. V2E2-0047 remains U.",
+    "The fixed C008 wavelength window 5179.005\u20135185.005 Angstrom is disjoint from completed C001\u2013C007 bounded contexts. Original event/epoch/raw evidence and all seven observations were already used. Distinct wavelength context does not imply blind, untouched or independent evidence.",
+    "The sole fixed discovery reference is observed on 2023-03-22 with BERV 3.26509772194068 km/s. Do not inherit any earlier anchor. The seven-epoch BERV span 59.6098131157401 km/s is coordinate separation, not calibrated origin discrimination.",
+    "The fixed topocentric core is not recentered on other epochs. A coherent center can leave the original \u00b10.25 Angstrom core, causing comparisons to describe neighboring structure in the anchor window.",
+    "All fixed flank structure remains in the pooled medians. These are reference levels, not line-free continua. No fitted widths, centers, lags, RV, drift, background, masks or moved flanks.",
+    "Fresh 72-order header scan identifies order 43 alone as covering the original feature center. Both \u00b13 Angstrom windows and flanks lie inside its header endpoints, but geometric coverage is not a guarantee of finite flux, positive references, false low flags or usable comparisons.",
+    "Historical global/local/baseline/five-window mapping stages are true for order 43 and are retained distinctly. They are existing diagnostics, not new mapping or origin validation.",
+    "Native BUNIT absent; native extracted units unspecified. Merged ADU and native scales differ; same-exposure extraction agreement is not independent confirmation or a physical flux ratio.",
+    "ERR coverage and descriptive first-difference proxies do not establish a formal uncertainty model, significance, physical linewidth, false-alarm rate, sensitivity or qualified null.",
+    "All prior extraction, mapping, raw panels, labels, epoch outputs and completed contexts remain unchanged."
+  ],
+  "source_hashes": {
+    "work_harps_20261102_c008_context/analysis/compare_group.py": "e81128b2e14cf83c39860d085a4aa988fa9fc4d53063ffb029bed0baea058618",
+    "work_harps_20261102_c008_context/analysis/plot_group.py": "44564b2217986ea443f1551cd93bc549d7d6e538de2200de2d10efef28d91fb6",
+    "work_harps_20261102_c008_context/analysis/README.md": "bd5852f5c87357fc50b8d629e201f306b11b383ce7883899aa0237c9e73b8d3c",
+    "work_harps_20261102_c008_context/analysis/prepare_plan.py": "b746bd4ce735de0903add0fa946222efcd1ef5fad4d52c7a02a5b2de14fe867a",
+    "work_harps_20261102_c008_context/analysis/synthetic_preflight.py": "a64ea067489c5364c9cec2ec69b9042d84dbfc4d6f366ab19f143743d1c2c73d",
+    "work_harps_20261102_c008_context/inputs/INPUT_INVENTORY.json": "80cce49d1000211f735449d65efc27b447de85bdd9e5ba9fbbbfac924e21f890",
+    "work_harps_20261102_c008_context/inputs/RESTORE_RECEIPT.json": "c2e3873b28716dfa065a7acf22222327cdc8d106b71d80faef3432b5fa1da003",
+    "work_harps_20261102_c008_context/inputs/restore_inputs.py": "0809ba178ae5b316c96b541b5381d2813ea65f26e99a7a959d410db9f2270b6a",
+    "work_harps_20261102_c008_context/BASELINE_VERIFICATION.json": "046876cc36e73982a466b9a96e400db899942f0aaa1303ec47405b3afed8f44b",
+    "work_harps_20261102_c008_context/input_audit/INPUT_AUDIT.json": "206f3b7e42821b7b7eebcb5b1e89e408313b2a4c329121f61009c59e4a5c9dbf",
+    "work_harps_20261102_c008_context/input_audit/audit_inputs.py": "2077e8c74b8d47f5ed61de511e9941adffb151e9da18479fd30f0ce7b1500ba9",
+    "work_harps_20261102_c002_context/NEXT_ACTION.json": "d69144bd5cf8bbf14319797bb518c301957d8961caf76fd0c5f86c4a39855a65",
+    "work_harps_20261102_c002_context/scientific_review/NEXT_STEP.md": "1fb4d75610b9d8326f3c47a60e1d1899b0ff222e6600341e7398c541d84b4103",
+    "work_harps_20261102_c002_context/analysis/compare_group.py": "f23907237b2ea3f45bed05d598ed6d1e95d70b60cddd09ae86c6cb90049d002d",
+    "work_harps_20261102_c002_context/analysis/PLAN.json": "3cfcc7ad2007357edb49c39320d33976d5348ea9a3f03b2d700f6bc4cb3e3efe",
+    "work_harps_20261102_c002_context/analysis/plot_group.py": "83b99fd92c03b4e9cbdb3d2a904c696728bf94016cfefaba924f8bdc000b0037",
+    "work_harps_20261102_c001_context/analysis/PLAN.json": "423f899cb652db1d9c835fce2126fcc3780e8babf88553820bd192b61ff6ffe9",
+    "work_harps_20261102_c003_context/analysis/PLAN.json": "9aca980ede2261e4ca570740209c96e8c92e364f39fc56e55722d18de8cba47b",
+    "work_harps_20261102_c004_context/analysis/PLAN.json": "044cabc2adafd835cb4882afb506488752c6f0d91743ca564cc076a0031b1670",
+    "work_harps_20261102_c005_context/analysis/PLAN.json": "e534917c110f9461d3aecbea52e25875102c56451f928ab5fc79beb50b6fb62a",
+    "work_harps_20261102_c006_context/analysis/PLAN.json": "fbb1334412e103c9991fac9681a71a5d0c6cf5f5acdab08dbf17825567fa0039",
+    "work_harps_20261102_c007_context/analysis/PLAN.json": "6047736562d39b0ec3700af24136eeb30faad74f1edbf3070a863b5c0b6bbcbb",
+    "work_harps_20261102_c008_context/inputs/merged/ADP.2022-01-06T01_08_04.689.fits": "fa9d47853b1d2f500e30c0b5f92e945ace9d30bc8020889ac5c519e144df8690",
+    "work_harps_20261102_c008_context/inputs/merged/ADP.2022-03-08T01_01_37.342.fits": "a8c7709ced49bd5d7c923d0fdd70b176b0f06e83464a32aa9518939eeee1cf76",
+    "work_harps_20261102_c008_context/inputs/merged/ADP.2022-05-08T01_01_37.876.fits": "6a4a0ccdf67c55047c101ec11d2dfab69028f9bcc9f9bf3eec906f55cb1dcdd3",
+    "work_harps_20261102_c008_context/inputs/merged/ADP.2023-01-01T01_10_52.479.fits": "d1af5f5bf08b2e5c55b3100fd8f22ca1dd7de059d427bd01f899f30a561aac04",
+    "work_harps_20261102_c008_context/inputs/merged/ADP.2023-03-23T01_02_04.831.fits": "70027aa9d682c75a786a7c26da7e4b56333b4d7b0434f8ae57b0b4ba389cbfee",
+    "work_harps_20261102_c008_context/inputs/merged/ADP.2023-05-25T01_01_39.293.fits": "e636cc6695f5168406c2aa95e5716acf324fe51ae5694a7a50230d971dccc739",
+    "work_harps_20261102_c008_context/inputs/merged/ADP.2023-07-05T01_02_00.053.fits": "807fbc3ebb7e26144011de408ac3923c7e97495d9a70e9394c41ad317f172464",
+    "work_harps_20261102_c008_context/inputs/source_products/ADP.2023-03-23T01_02_04.832.tar": "9c74aae17dcfa2c2bc093ccb7f25fe622b1fe27942b7ba1dacef533a0f4da64e",
+    "work_harps_20261102_c008_context/inputs/native/HARPS.2023-03-22T04_52_14.904_e2ds_A.fits": "08275d998a62c8552efb348cdf5b7bf4d8ef9e8d8d9f99bca63f7e7dbd9bc1a4",
+    "work_harps_20261102_c008_context/inputs/evidence/V2E2-0047_o43.npz": "8569fc0635fba9c9c944bff736ab3f4b1b6fb7a720439754899a1184abd18c93",
+    "work_harps_20261101/v2/extension02/acquisition/DOWNLOAD_MANIFEST.csv": "f00d662b796b2ef9c8556e695dd03f49f4ad2560afcdda4b21faf833f82c3cef",
+    "work_harps_20261101/v2/extension02/checkpoints/INPUT_CHECKPOINTS.json": "84adbe7ce694136147312707d7719e75c213c5d81df54a425bc88bbd16931a68",
+    "work_harps_20261101/v2/extension02/epoch_followup/INPUT_CHECKS.json": "9ecaf32369f4ada56f5f9a324f1038127c9db4af37728d7c821f2a160a84af0c",
+    "work_harps_20261101/v2/extension02/epoch_followup/EVENT_RESULTS.json": "571c15ca11d358d393fbc2d88a240c573963de924dcee3f591a331403535a3d7",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/checkpoints/INPUT_ARCHIVES.json": "d0c6d345f057e1054c4c8d51c5a0812163c0f61f12299f396049e4bd709ca36b",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/NATIVE_MAPPING.json": "caae2e56ce6631f72133db99160be1719b8904a7a9c3d9ad782282e909b09393",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/extract_native.py": "fbcfbf843cc4b090644641a3eb8201ae16503b639b993cc1091b88b5361c21bb",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/EVIDENCE_ARCHIVE.json": "c3098bf03493191767eaa32b46d220fafb88589c77d33a4c2eb2e11cff7bfb9c",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/EVIDENCE_PARTS.json": "fd2d331dbb125e8599a4728f9f756cbbd5767c3b438194f4ae3566bda549fc9f",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/ADOPTED_DISPOSITIONS.csv": "2f0ec0b80f7c30be209b4c60d2fc51d0258dd34a46161064d344aa844fd68bf2",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/PRIMARY_VISUAL_REVIEW.json": "29ebe465be6acc16be5fc17769c0fc191a773982a1b20bfa45e9710144de193e",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/SECONDARY_VISUAL_REVIEW.json": "4fb2db1c0508902b234f50ab09b3a20e7f111d16ab98610479115fc0da715b50",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/REVIEW_COMPARISON.json": "c143bb067e555b4fd1c99ca6288522467fa1e5560da1084ac475f2a54f96ad90"
+  },
+  "included_native_order_pairs": [
+    {
+      "dp_id": "ADP.2023-03-23T01:02:04.831",
+      "order": 43
+    }
+  ],
+  "excluded_native_order_pairs": [],
+  "native_order_coverage": [
+    {
+      "event": "V2E2-0047",
+      "dp_id": "ADP.2023-03-23T01:02:04.831",
+      "order": 43,
+      "status": "COVERING_LINE",
+      "header_endpoint_topocentric_air_angstrom": [
+        5156.37162001017,
+        5214.417647930924
+      ],
+      "original_topocentric_feature_center_air_angstrom": 5181.9485623946,
+      "source_file": {
+        "path": "work_harps_20261102_c008_context/inputs/native/HARPS.2023-03-22T04_52_14.904_e2ds_A.fits",
+        "bytes": 1428480,
+        "sha256": "08275d998a62c8552efb348cdf5b7bf4d8ef9e8d8d9f99bca63f7e7dbd9bc1a4"
+      },
+      "selected_for_profile": true,
+      "saved_raw_panel_exists": true
+    }
+  ],
+  "excluded_native_order_evidence": [],
+  "native_order_selection": "Historical order 43 alone is retained after the fresh all-72-order header check against the original topocentric feature center. No structural exclusions. Both full frame windows fit inside this order; flux quality and normalization remain unmeasured until release, separately from historical mapping stages.",
+  "preserved_event_raw_pairs": [
+    {
+      "event": "V2E2-0047",
+      "dp_id": "ADP.2023-03-23T01:02:04.831",
+      "order": 43
+    }
+  ],
+  "event_markers": [
+    {
+      "event": "V2E2-0047",
+      "resolution_group": "R009",
+      "center_bary_air_angstrom": 5182.005,
+      "barycentric_offset_angstrom": 0.0,
+      "discovery_topocentric_offset_angstrom": 0.0,
+      "color": "#b8292f"
+    }
+  ],
+  "native_fixed_frame_header_geometry": [
+    {
+      "dp_id": "ADP.2023-03-23T01:02:04.831",
+      "order": 43,
+      "fixed_frame_header_geometry": {
+        "barycentric": {
+          "header_endpoint_air_angstrom": [
+            5156.427779052136,
+            5214.474439163423
+          ],
+          "offset_endpoints_from_frame_center_angstrom": [
+            -25.57722094786368,
+            32.469439163422976
+          ],
+          "context_air_angstrom": [
+            5179.005,
+            5185.005
+          ],
+          "core_air_angstrom": [
+            5181.755,
+            5182.255
+          ],
+          "full_context_geometrically_covered": true,
+          "full_core_geometrically_covered": true,
+          "negative_reference_flank_geometrically_covered": true,
+          "positive_reference_flank_geometrically_covered": true
+        },
+        "topocentric": {
+          "header_endpoint_air_angstrom": [
+            5156.37162001017,
+            5214.417647930924
+          ],
+          "offset_endpoints_from_frame_center_angstrom": [
+            -25.576942384430367,
+            32.4690855363242
+          ],
+          "context_air_angstrom": [
+            5178.9485623946,
+            5184.9485623946
+          ],
+          "core_air_angstrom": [
+            5181.6985623946,
+            5182.1985623946
+          ],
+          "full_context_geometrically_covered": true,
+          "full_core_geometrically_covered": true,
+          "negative_reference_flank_geometrically_covered": true,
+          "positive_reference_flank_geometrically_covered": true
+        }
+      }
+    }
+  ],
+  "prior_bounded_window_geometry": [
+    {
+      "group": "C001",
+      "window_bary_air_angstrom": [
+        3849.3925,
+        3855.3925
+      ],
+      "disjoint_from_C008": true,
+      "plan_path": "work_harps_20261102_c001_context/analysis/PLAN.json"
+    },
+    {
+      "group": "C002",
+      "window_bary_air_angstrom": [
+        3865.6025,
+        3871.6025
+      ],
+      "disjoint_from_C008": true,
+      "plan_path": "work_harps_20261102_c002_context/analysis/PLAN.json"
+    },
+    {
+      "group": "C003",
+      "window_bary_air_angstrom": [
+        3866.75125,
+        3872.75125
+      ],
+      "disjoint_from_C008": true,
+      "plan_path": "work_harps_20261102_c003_context/analysis/PLAN.json"
+    },
+    {
+      "group": "C004",
+      "window_bary_air_angstrom": [
+        3869.245,
+        3875.245
+      ],
+      "disjoint_from_C008": true,
+      "plan_path": "work_harps_20261102_c004_context/analysis/PLAN.json"
+    },
+    {
+      "group": "C005",
+      "window_bary_air_angstrom": [
+        3879.0375,
+        3885.0375
+      ],
+      "disjoint_from_C008": true,
+      "plan_path": "work_harps_20261102_c005_context/analysis/PLAN.json"
+    },
+    {
+      "group": "C006",
+      "window_bary_air_angstrom": [
+        4307.455,
+        4313.455
+      ],
+      "disjoint_from_C008": true,
+      "plan_path": "work_harps_20261102_c006_context/analysis/PLAN.json"
+    },
+    {
+      "group": "C007",
+      "window_bary_air_angstrom": [
+        4309.7,
+        4315.7
+      ],
+      "disjoint_from_C008": true,
+      "plan_path": "work_harps_20261102_c007_context/analysis/PLAN.json"
+    }
+  ]
+}
