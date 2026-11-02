@@ -1,0 +1,396 @@
+{
+  "schema": "HARPS_C005_JOINT_PROFILE_CONTEXT_V1",
+  "created_utc": "2026-11-02T16:29:26.047147+00:00",
+  "status": "METHOD_FROZEN_BEFORE_ARRAY_VALUES",
+  "scope": "All seven existing HD106515A spectra in the original extension02 cohort, not archive-wide completeness. One overlapping C005/R005 group with all five U labels unchanged. The seven exposures are reused from C003 at a distinct wavelength; this is not an independent exposure sample.",
+  "events": {
+    "V2E2-0023": "ADP.2022-01-06T01:08:04.689",
+    "V2E2-0029": "ADP.2022-03-08T01:01:37.342",
+    "V2E2-0035": "ADP.2022-05-08T01:01:37.876",
+    "V2E2-0046": "ADP.2023-03-23T01:02:04.831",
+    "V2E2-0054": "ADP.2023-07-05T01:02:00.053"
+  },
+  "merged_dp_ids": [
+    "ADP.2022-01-06T01:08:04.689",
+    "ADP.2022-03-08T01:01:37.342",
+    "ADP.2022-05-08T01:01:37.876",
+    "ADP.2023-01-01T01:10:52.479",
+    "ADP.2023-03-23T01:02:04.831",
+    "ADP.2023-05-25T01:01:39.293",
+    "ADP.2023-07-05T01:02:00.053"
+  ],
+  "discovery_dp_ids": [
+    "ADP.2022-01-06T01:08:04.689",
+    "ADP.2022-03-08T01:01:37.342",
+    "ADP.2022-05-08T01:01:37.876",
+    "ADP.2023-03-23T01:02:04.831",
+    "ADP.2023-07-05T01:02:00.053"
+  ],
+  "inventory_path": "work_harps_20261102_c005_context/inputs/INPUT_INVENTORY.json",
+  "group_center_bary_air_angstrom": 3882.0375,
+  "accepted_event_centers_bary_air_angstrom": [
+    3882.035,
+    3882.035,
+    3882.0375,
+    3882.035,
+    3882.04
+  ],
+  "anchor_dp_id": "ADP.2022-01-06T01:08:04.689",
+  "anchor_berv_km_s": 30.1380355615464,
+  "c_km_s": 299792.458,
+  "frames": {
+    "barycentric": "Query barycentric wavelength cb+x. Native topocentric-air wavelength first multiplied by(1+BERVepoch/c) once.",
+    "topocentric": "One fixed ct=cb/(1+BERVfirst/c); query barycentric wavelength (ct+x)*(1+BERVepoch/c). Equivalently native topocentric wavelength=ct+x. All five discoveries/orders share this anchor; no per-epoch recentering. At large BERV differences a later discovery feature can lie outside the fixed topocentric core, which then samples neighbors in the anchor window rather than that feature center.",
+    "native_polynomial": "Ascending coefficient polynomial at zero-based native pixel0..4095, inherited topocentric air convention; no wavelength unit/air-vacuum conversion."
+  },
+  "grid": {
+    "construction": "arange(-300,301)/100",
+    "samples": 601,
+    "step_angstrom": 0.01,
+    "window_angstrom": [
+      -3,
+      3
+    ],
+    "core": "abs(x)<=.2525: 51 sampled centers [-.25,.25]. Exact nominal union of all five original \u00b1.25 \u00c5 cores, extrema 3882.035 and 3882.040 \u00c5, midpoint 3882.0375 \u00c5.",
+    "broad_pattern": ".2525<abs(x)<=3: 550 centers",
+    "interpolation": "Linear without extrapolation; mask brackets >1.51\u00d7median full-source barycentric wavelength step. Save selected sourcepoints plusonebracket eachside and exact full-source spacing."
+  },
+  "normalization": {
+    "rule": "Per profile and frame, pooled signed median of native samples with 1.5<=abs(frame offset)<=3, requiring at least 20 finite samples separately in each flank and a positive pooled median. No fitted background, continuum or line model.",
+    "missing": "Zero native left/right coverage is MISSING_LEFT/RIGHT_FLANK_COVERAGE; insufficient finite counts are separate. Invalid or nonpositive references keep raw-only arrays and block normalized RMS. No moved flanks, sign flip, shrink or extrapolation.",
+    "context": "Separate left/right native and finite counts, medians and nonpositive fractions; available median distinct from valid reference; signed-window nonpositive fraction and positive finite ERR coverage. Native BUNIT unspecified; merged ADU verified.",
+    "noise": "First-difference 1.4826 MAD / sqrt(2) of finite adjacent source samples with both endpoints in the same fixed flank and spacing <=1.51 times median step. Never bridge flanks or gaps. Descriptive low-reference flag median<=3*proxy only if reference valid; no formal SNR."
+  },
+  "comparisons": {
+    "merged": "7 epochs \u00d7 5 fixed discovery references \u00d7 2 frames \u00d7 2 regions = 140 records, including 20 identical-product self-comparisons. No result-based reference choice.",
+    "native": "10 historically covering discovery/order pairs \u00d7 2 frames \u00d7 2 regions = 40 same-exposure native-to-merged records. No cross-order physical flux ratio.",
+    "statistics": "Unshifted raw Pearson requires at least ceil(.8*Nregion) common finite raw samples and nonzero exact range. Normalized RMS requires that support in common finite normalized samples. Raw-only profiles block normalized RMS but retain adequately covered raw Pearson. Counts and reasons remain explicit.",
+    "minimum_common_core": 41,
+    "minimum_common_broad": 440,
+    "self_and_dependency_flags": "same_exposure and identical_product_self_pair; events overlap and discovery references are reused."
+  },
+  "slots": {
+    "merged_profiles": 14,
+    "native_profiles": 20,
+    "all_profiles": 34,
+    "merged_comparisons": 140,
+    "native_comparisons": 40,
+    "all_comparisons": 180,
+    "identical_product_self_comparisons": 20,
+    "saved_raw_order_panels": 10,
+    "structurally_excluded_native_order_pairs": 0,
+    "expected_bounded_input_windows": 17
+  },
+  "bounded_arrays": "Save 17 pre-interpolation source windows with exact source indices, original-frame and barycentric wavelengths, signed flux, ERR (NaN for unavailable native errors), source hashes, BERV and full-coordinate spacing. Analyze only the union required by both fixed-frame windows plus bracketing samples. Full merged coordinate vectors locate slices; native coordinates derive from headers.",
+  "headers": "Verify all seven merged and five native headers before flux access: exact hashes and identity, recorded metadata, numeric BERV, merged BARYCENT air Angstrom/ADU with unique WAVE/FLUX/ERR single-exposure one-row tables, native 72\u00d74096 shape and unchanged polynomial degree and order 3/4 coefficients. Failed selected slots remain explicit. Full coordinate support does not establish flux quality.",
+  "preserved_raw_context": "Copy all ten exact stored raw/native NPZs; display original raw_cutout and raw_excess only after release, with provenance and separate full-value panel scales. Preserve historical primary, secondary and adopted review records in the input inventory. No new pixels, mapping, background fit or historical correction.",
+  "release_contract": {
+    "schema": "HARPS_C005_GROUP_RELEASE_V1",
+    "file": "ROOT_RELEASE.json",
+    "required_fields": [
+      "publication_commit",
+      "publication_readback_verified",
+      "plan_sha256",
+      "script_sha256",
+      "inventory_path",
+      "inventory_sha256"
+    ],
+    "policy": "Exact public method freeze and input hashes before new observed values; no network; one-shot output refuses overwrite; all source and release hashes rechecked after execution."
+  },
+  "plot_script_sha256": "54af1fb91415e6ebb7a2e5d203124e1fa8f60f116d92af51c13ade5827dde4d6",
+  "plot_rules": "Eight figures: seven-epoch merged broad/core (raw and normalized, both frames); all ten selected native contexts in three fixed pages of 4+4+2 rows; all ten preserved raw/excess pairs in the same fixed pagination. Retain raw-only annotations and signed values. All finite values plus 5 percent bounds, matched merged frame and native raw frame limits per order; separate raw-panel scales. No smoothing, clipping or favorable epoch/reference choice. Fixed topocentric-core anchor caveat displayed.",
+  "limitations": [
+    "Post-detection joint context of five correlated records and seven original-cohort exposures, not independent detections or archive-wide completeness. All five U labels unchanged. C003 used the same seven exposures at a distinct wavelength.",
+    "Recorded BERV span 59.6098131157401 km/s (22.8662473834 nominal resolution elements) describes coordinate separation, not calibrated origin discrimination or survey sensitivity.",
+    "One first-discovery topocentric anchor is fixed. At large BERV differences later feature centers can leave the \u00b1.2525 \u00c5 topocentric core; those comparisons describe a fixed coordinate window, possibly neighboring structure. No recentering or favorable reference choice.",
+    "Fixed flanks contain spectral structure; their median is a reference level, not proven quiet continuum. No fitted background, width, center, lag, stellar velocity or drift correction.",
+    "Fresh header geometry supplies full 601-point and both-flank coordinate support for all ten selected orders 3/4 in both frames. It does not assume finite, positive or high-quality flux. Missing or invalid actual outcomes remain explicit with unchanged gates.",
+    "Native BUNIT absent; native extracted flux units unspecified. Merged ADU and native/order extraction scales differ. Normalized RMS is shape context, not a physical flux ratio or independent confirmation.",
+    "Historical raw panels and distinct primary, secondary and adopted review records are preserved. Separate off-trace pixels or noisy contexts are not erased or assigned an origin by this diagnostic.",
+    "Missing positive ERR and the descriptive first-difference noise proxy do not provide formal SNR, calibrated significance, false-alarm rate, physical flux or completeness.",
+    "All earlier epoch metrics, native extraction, mapping dispositions and raw panels remain unchanged. No original pipeline rerun or label change."
+  ],
+  "source_hashes": {
+    "work_harps_20261102_c005_context/analysis/compare_group.py": "cda3acb913b53602ebb65bcec5a139f2df831fc83e1debe27b3123412b29079c",
+    "work_harps_20261102_c005_context/analysis/plot_group.py": "54af1fb91415e6ebb7a2e5d203124e1fa8f60f116d92af51c13ade5827dde4d6",
+    "work_harps_20261102_c005_context/analysis/README.md": "792a39499b0e1056aac54bc7dfa6047c7b93e5c50fe0b4a10160bcfa6ab512a9",
+    "work_harps_20261102_c005_context/inputs/INPUT_INVENTORY.json": "13154b2d280c5b9df876730184e1d86a935d3a30ea342648f89eb453e0248919",
+    "work_harps_20261102_c005_context/inputs/RESTORE_RECEIPT.json": "f7d3a209f67b1f696b29d771f5f543cf0ca213a6ffa10b0d479cf98a6bf01f80",
+    "work_harps_20261102_c005_context/inputs/restore_inputs.py": "cc416a44ff2bc0f7f4c74d0349cd595f178d9898959fb97be34a7702b12d5316",
+    "work_harps_20261102_c005_context/BASELINE_VERIFICATION.json": "26a203ac5fe875d8d986b84415f5563c19cf6ec8f16021690d9898c4577fec96",
+    "work_harps_20261102_c005_context/input_audit/INPUT_AUDIT.json": "3073080d9ca7bfd5e4ca7cbc9f463613c55c174128d20c04a0dd4a8231a16915",
+    "work_harps_20261102_c005_context/input_audit/audit_inputs.py": "dd32c71614ef29bad3063a9a3a3f288df7d9d1f7119a9815b92ad3b88c78c215",
+    "work_harps_20261102_c003_context/NEXT_ACTION.json": "e9a3787e58ae28fa77572e2c0d30373dd6e5020bf1873e630595d8c472e327f8",
+    "work_harps_20261102_c003_context/scientific_review/NEXT_STEP.md": "fc61072c341f5d348058804c5dfc35214dd659a2368db894161a0d7a1e66d59f",
+    "work_harps_20261102_c003_context/analysis/compare_group.py": "b9cb8938d291ec1c63ff153b2c6693532473398f3f5d2450e948b10ddc58fb2d",
+    "work_harps_20261102_c003_context/analysis/PLAN.json": "9aca980ede2261e4ca570740209c96e8c92e364f39fc56e55722d18de8cba47b",
+    "work_harps_20261102_c003_context/analysis/plot_group.py": "ad5fe3c745cbabb97ebe7c3e74cc9e5ad07dd9a02ac0067d85f84b891ff4ef67",
+    "work_harps_20261102_c005_context/inputs/merged/ADP.2022-01-06T01_08_04.689.fits": "fa9d47853b1d2f500e30c0b5f92e945ace9d30bc8020889ac5c519e144df8690",
+    "work_harps_20261102_c005_context/inputs/merged/ADP.2022-03-08T01_01_37.342.fits": "a8c7709ced49bd5d7c923d0fdd70b176b0f06e83464a32aa9518939eeee1cf76",
+    "work_harps_20261102_c005_context/inputs/merged/ADP.2022-05-08T01_01_37.876.fits": "6a4a0ccdf67c55047c101ec11d2dfab69028f9bcc9f9bf3eec906f55cb1dcdd3",
+    "work_harps_20261102_c005_context/inputs/merged/ADP.2023-01-01T01_10_52.479.fits": "d1af5f5bf08b2e5c55b3100fd8f22ca1dd7de059d427bd01f899f30a561aac04",
+    "work_harps_20261102_c005_context/inputs/merged/ADP.2023-03-23T01_02_04.831.fits": "70027aa9d682c75a786a7c26da7e4b56333b4d7b0434f8ae57b0b4ba389cbfee",
+    "work_harps_20261102_c005_context/inputs/merged/ADP.2023-05-25T01_01_39.293.fits": "e636cc6695f5168406c2aa95e5716acf324fe51ae5694a7a50230d971dccc739",
+    "work_harps_20261102_c005_context/inputs/merged/ADP.2023-07-05T01_02_00.053.fits": "807fbc3ebb7e26144011de408ac3923c7e97495d9a70e9394c41ad317f172464",
+    "work_harps_20261102_c005_context/inputs/source_products/ADP.2022-01-06T01_08_04.690.tar": "7ed959467fb24663d4ae10ac4f58cfff87bdb52cb17b38e78a5f82538c030ca2",
+    "work_harps_20261102_c005_context/inputs/native/HARPS.2022-01-05T07_04_47.116_e2ds_A.fits": "1a75532615c208bcfe2cfbc31b0a317553c1a63181518ccff4aa86b730c6f224",
+    "work_harps_20261102_c005_context/inputs/source_products/ADP.2022-03-08T01_01_37.343.tar": "530db1635f0c6fbf21862ec1c3ded2b9b61552855e1d506ccc8baecbef1c3372",
+    "work_harps_20261102_c005_context/inputs/native/HARPS.2022-03-07T04_52_12.632_e2ds_A.fits": "6e1639a8d122f0916dae697265db929f124d806bac2896050576b317fa1d347e",
+    "work_harps_20261102_c005_context/inputs/source_products/ADP.2022-05-08T01_01_37.877.tar": "b2097e973630447a348b5aea676b013e6f06c0d97d1b9930d96f0b34c320a79d",
+    "work_harps_20261102_c005_context/inputs/native/HARPS.2022-05-07T05_12_25.402_e2ds_A.fits": "c446202ba322ac6eb8a272dab44dc121d39181a33747ab88ca6229c50f8ffbc8",
+    "work_harps_20261102_c005_context/inputs/source_products/ADP.2023-03-23T01_02_04.832.tar": "9c74aae17dcfa2c2bc093ccb7f25fe622b1fe27942b7ba1dacef533a0f4da64e",
+    "work_harps_20261102_c005_context/inputs/native/HARPS.2023-03-22T04_52_14.904_e2ds_A.fits": "08275d998a62c8552efb348cdf5b7bf4d8ef9e8d8d9f99bca63f7e7dbd9bc1a4",
+    "work_harps_20261102_c005_context/inputs/source_products/ADP.2023-07-05T01_02_00.054.tar": "b15e2f526b5c442ac6d447dd67821cf3ee4b1f3417d8d3aeb4ba95e0844a1686",
+    "work_harps_20261102_c005_context/inputs/native/HARPS.2023-07-03T23_55_27.533_e2ds_A.fits": "a95f5b14ca5607bd43a55ba9240148bf821a098ded200a0f05585f08aed04a8b",
+    "work_harps_20261102_c005_context/inputs/evidence/V2E2-0023_o03.npz": "2d872cbd26e970b0821fbf1d602453abf3a3c7c88c87455e736b758597fbcac5",
+    "work_harps_20261102_c005_context/inputs/evidence/V2E2-0023_o04.npz": "2376048742cd6ddd3dff7bdff1848bd194012e098e96d5779c393683215f5967",
+    "work_harps_20261102_c005_context/inputs/evidence/V2E2-0029_o03.npz": "d9786aa4fb4cd09e6dc072e2126b58fdaceb32200895357afdab42bec5ebea66",
+    "work_harps_20261102_c005_context/inputs/evidence/V2E2-0029_o04.npz": "9f637ffa6cd093067284051b47f1eaefdba5b95fc81d35b82115f2fb2dc7c538",
+    "work_harps_20261102_c005_context/inputs/evidence/V2E2-0035_o03.npz": "1b010df09f9168055c8a34e73bd8bf5dafcbf6c7090bb2fa8a08daa9cd36d6db",
+    "work_harps_20261102_c005_context/inputs/evidence/V2E2-0035_o04.npz": "46f3bd7d592227f325f027fdde9e5f0cd19319a2638ae8c0b9b965d50caa658d",
+    "work_harps_20261102_c005_context/inputs/evidence/V2E2-0046_o03.npz": "c133cbca17b6e9946601a4a83e62d4456a26baae7a11eadccf158e7ff9f6d62c",
+    "work_harps_20261102_c005_context/inputs/evidence/V2E2-0046_o04.npz": "b202be2e2a6634c5c85f7e2bffe8e79e4cafa8127f8aa532e5c4ef9c8c33fb4b",
+    "work_harps_20261102_c005_context/inputs/evidence/V2E2-0054_o03.npz": "c53297ca32ab7eff03e2415cb379bb6d281db55546f3a7a493bab714043423e1",
+    "work_harps_20261102_c005_context/inputs/evidence/V2E2-0054_o04.npz": "e9b0cf0180628304d42cb4a1c25e418ef94d12dc8b5863747887df49c0ef955b",
+    "work_harps_20261101/v2/extension02/acquisition/DOWNLOAD_MANIFEST.csv": "f00d662b796b2ef9c8556e695dd03f49f4ad2560afcdda4b21faf833f82c3cef",
+    "work_harps_20261101/v2/extension02/checkpoints/INPUT_CHECKPOINTS.json": "84adbe7ce694136147312707d7719e75c213c5d81df54a425bc88bbd16931a68",
+    "work_harps_20261101/v2/extension02/epoch_followup/INPUT_CHECKS.json": "9ecaf32369f4ada56f5f9a324f1038127c9db4af37728d7c821f2a160a84af0c",
+    "work_harps_20261101/v2/extension02/epoch_followup/EVENT_RESULTS.json": "571c15ca11d358d393fbc2d88a240c573963de924dcee3f591a331403535a3d7",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/checkpoints/INPUT_ARCHIVES.json": "d0c6d345f057e1054c4c8d51c5a0812163c0f61f12299f396049e4bd709ca36b",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/NATIVE_MAPPING.json": "caae2e56ce6631f72133db99160be1719b8904a7a9c3d9ad782282e909b09393",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/extract_native.py": "fbcfbf843cc4b090644641a3eb8201ae16503b639b993cc1091b88b5361c21bb",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/EVIDENCE_ARCHIVE.json": "c3098bf03493191767eaa32b46d220fafb88589c77d33a4c2eb2e11cff7bfb9c",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/EVIDENCE_PARTS.json": "fd2d331dbb125e8599a4728f9f756cbbd5767c3b438194f4ae3566bda549fc9f",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/ADOPTED_DISPOSITIONS.csv": "2f0ec0b80f7c30be209b4c60d2fc51d0258dd34a46161064d344aa844fd68bf2",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/PRIMARY_VISUAL_REVIEW.json": "29ebe465be6acc16be5fc17769c0fc191a773982a1b20bfa45e9710144de193e",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/SECONDARY_VISUAL_REVIEW.json": "4fb2db1c0508902b234f50ab09b3a20e7f111d16ab98610479115fc0da715b50",
+    "work_harps_20261101/v2/extension02/raw_followup_batch02/REVIEW_COMPARISON.json": "c143bb067e555b4fd1c99ca6288522467fa1e5560da1084ac475f2a54f96ad90"
+  },
+  "included_native_order_pairs": [
+    {
+      "dp_id": "ADP.2022-01-06T01:08:04.689",
+      "order": 3
+    },
+    {
+      "dp_id": "ADP.2022-01-06T01:08:04.689",
+      "order": 4
+    },
+    {
+      "dp_id": "ADP.2022-03-08T01:01:37.342",
+      "order": 3
+    },
+    {
+      "dp_id": "ADP.2022-03-08T01:01:37.342",
+      "order": 4
+    },
+    {
+      "dp_id": "ADP.2022-05-08T01:01:37.876",
+      "order": 3
+    },
+    {
+      "dp_id": "ADP.2022-05-08T01:01:37.876",
+      "order": 4
+    },
+    {
+      "dp_id": "ADP.2023-03-23T01:02:04.831",
+      "order": 3
+    },
+    {
+      "dp_id": "ADP.2023-03-23T01:02:04.831",
+      "order": 4
+    },
+    {
+      "dp_id": "ADP.2023-07-05T01:02:00.053",
+      "order": 3
+    },
+    {
+      "dp_id": "ADP.2023-07-05T01:02:00.053",
+      "order": 4
+    }
+  ],
+  "excluded_native_order_pairs": [],
+  "native_order_coverage": [
+    {
+      "event": "V2E2-0023",
+      "dp_id": "ADP.2022-01-06T01:08:04.689",
+      "order": 3,
+      "status": "COVERING_LINE",
+      "header_endpoint_topocentric_air_angstrom": [
+        3851.27174624929,
+        3894.4977623243853
+      ],
+      "original_topocentric_feature_center_air_angstrom": 3881.6447795482122,
+      "source_file": {
+        "path": "work_harps_20261102_c005_context/inputs/native/HARPS.2022-01-05T07_04_47.116_e2ds_A.fits",
+        "bytes": 1428480,
+        "sha256": "1a75532615c208bcfe2cfbc31b0a317553c1a63181518ccff4aa86b730c6f224"
+      },
+      "selected_for_profile": true,
+      "saved_raw_panel_exists": true
+    },
+    {
+      "event": "V2E2-0023",
+      "dp_id": "ADP.2022-01-06T01:08:04.689",
+      "order": 4,
+      "status": "COVERING_LINE",
+      "header_endpoint_topocentric_air_angstrom": [
+        3875.79672709284,
+        3919.299832462063
+      ],
+      "original_topocentric_feature_center_air_angstrom": 3881.6447795482122,
+      "source_file": {
+        "path": "work_harps_20261102_c005_context/inputs/native/HARPS.2022-01-05T07_04_47.116_e2ds_A.fits",
+        "bytes": 1428480,
+        "sha256": "1a75532615c208bcfe2cfbc31b0a317553c1a63181518ccff4aa86b730c6f224"
+      },
+      "selected_for_profile": true,
+      "saved_raw_panel_exists": true
+    },
+    {
+      "event": "V2E2-0029",
+      "dp_id": "ADP.2022-03-08T01:01:37.342",
+      "order": 3,
+      "status": "COVERING_LINE",
+      "header_endpoint_topocentric_air_angstrom": [
+        3851.27147613778,
+        3894.4976198373133
+      ],
+      "original_topocentric_feature_center_air_angstrom": 3881.895522977608,
+      "source_file": {
+        "path": "work_harps_20261102_c005_context/inputs/native/HARPS.2022-03-07T04_52_12.632_e2ds_A.fits",
+        "bytes": 1428480,
+        "sha256": "6e1639a8d122f0916dae697265db929f124d806bac2896050576b317fa1d347e"
+      },
+      "selected_for_profile": true,
+      "saved_raw_panel_exists": true
+    },
+    {
+      "event": "V2E2-0029",
+      "dp_id": "ADP.2022-03-08T01:01:37.342",
+      "order": 4,
+      "status": "COVERING_LINE",
+      "header_endpoint_topocentric_air_angstrom": [
+        3875.7961497467,
+        3919.299821515039
+      ],
+      "original_topocentric_feature_center_air_angstrom": 3881.895522977608,
+      "source_file": {
+        "path": "work_harps_20261102_c005_context/inputs/native/HARPS.2022-03-07T04_52_12.632_e2ds_A.fits",
+        "bytes": 1428480,
+        "sha256": "6e1639a8d122f0916dae697265db929f124d806bac2896050576b317fa1d347e"
+      },
+      "selected_for_profile": true,
+      "saved_raw_panel_exists": true
+    },
+    {
+      "event": "V2E2-0035",
+      "dp_id": "ADP.2022-05-08T01:01:37.876",
+      "order": 3,
+      "status": "COVERING_LINE",
+      "header_endpoint_topocentric_air_angstrom": [
+        3851.27210134526,
+        3894.4973141740415
+      ],
+      "original_topocentric_feature_center_air_angstrom": 3882.282133332359,
+      "source_file": {
+        "path": "work_harps_20261102_c005_context/inputs/native/HARPS.2022-05-07T05_12_25.402_e2ds_A.fits",
+        "bytes": 1428480,
+        "sha256": "c446202ba322ac6eb8a272dab44dc121d39181a33747ab88ca6229c50f8ffbc8"
+      },
+      "selected_for_profile": true,
+      "saved_raw_panel_exists": true
+    },
+    {
+      "event": "V2E2-0035",
+      "dp_id": "ADP.2022-05-08T01:01:37.876",
+      "order": 4,
+      "status": "COVERING_LINE",
+      "header_endpoint_topocentric_air_angstrom": [
+        3875.79613780428,
+        3919.2999305133726
+      ],
+      "original_topocentric_feature_center_air_angstrom": 3882.282133332359,
+      "source_file": {
+        "path": "work_harps_20261102_c005_context/inputs/native/HARPS.2022-05-07T05_12_25.402_e2ds_A.fits",
+        "bytes": 1428480,
+        "sha256": "c446202ba322ac6eb8a272dab44dc121d39181a33747ab88ca6229c50f8ffbc8"
+      },
+      "selected_for_profile": true,
+      "saved_raw_panel_exists": true
+    },
+    {
+      "event": "V2E2-0046",
+      "dp_id": "ADP.2023-03-23T01:02:04.831",
+      "order": 3,
+      "status": "COVERING_LINE",
+      "header_endpoint_topocentric_air_angstrom": [
+        3851.27028788661,
+        3894.4963666977565
+      ],
+      "original_topocentric_feature_center_air_angstrom": 3881.992720465442,
+      "source_file": {
+        "path": "work_harps_20261102_c005_context/inputs/native/HARPS.2023-03-22T04_52_14.904_e2ds_A.fits",
+        "bytes": 1428480,
+        "sha256": "08275d998a62c8552efb348cdf5b7bf4d8ef9e8d8d9f99bca63f7e7dbd9bc1a4"
+      },
+      "selected_for_profile": true,
+      "saved_raw_panel_exists": true
+    },
+    {
+      "event": "V2E2-0046",
+      "dp_id": "ADP.2023-03-23T01:02:04.831",
+      "order": 4,
+      "status": "COVERING_LINE",
+      "header_endpoint_topocentric_air_angstrom": [
+        3875.79518031092,
+        3919.298519742817
+      ],
+      "original_topocentric_feature_center_air_angstrom": 3881.992720465442,
+      "source_file": {
+        "path": "work_harps_20261102_c005_context/inputs/native/HARPS.2023-03-22T04_52_14.904_e2ds_A.fits",
+        "bytes": 1428480,
+        "sha256": "08275d998a62c8552efb348cdf5b7bf4d8ef9e8d8d9f99bca63f7e7dbd9bc1a4"
+      },
+      "selected_for_profile": true,
+      "saved_raw_panel_exists": true
+    },
+    {
+      "event": "V2E2-0054",
+      "dp_id": "ADP.2023-07-05T01:02:00.053",
+      "order": 3,
+      "status": "COVERING_LINE",
+      "header_endpoint_topocentric_air_angstrom": [
+        3851.27030239588,
+        3894.4963125148174
+      ],
+      "original_topocentric_feature_center_air_angstrom": 3882.418600399638,
+      "source_file": {
+        "path": "work_harps_20261102_c005_context/inputs/native/HARPS.2023-07-03T23_55_27.533_e2ds_A.fits",
+        "bytes": 1428480,
+        "sha256": "a95f5b14ca5607bd43a55ba9240148bf821a098ded200a0f05585f08aed04a8b"
+      },
+      "selected_for_profile": true,
+      "saved_raw_panel_exists": true
+    },
+    {
+      "event": "V2E2-0054",
+      "dp_id": "ADP.2023-07-05T01:02:00.053",
+      "order": 4,
+      "status": "COVERING_LINE",
+      "header_endpoint_topocentric_air_angstrom": [
+        3875.79471378238,
+        3919.2984848005754
+      ],
+      "original_topocentric_feature_center_air_angstrom": 3882.418600399638,
+      "source_file": {
+        "path": "work_harps_20261102_c005_context/inputs/native/HARPS.2023-07-03T23_55_27.533_e2ds_A.fits",
+        "bytes": 1428480,
+        "sha256": "a95f5b14ca5607bd43a55ba9240148bf821a098ded200a0f05585f08aed04a8b"
+      },
+      "selected_for_profile": true,
+      "saved_raw_panel_exists": true
+    }
+  ],
+  "excluded_native_order_evidence": [],
+  "native_order_selection": "All five discoveries historically cover orders 3 and 4 at their exact original event-specific topocentric feature centers. Fresh header endpoints verify all ten pairs. No structural exclusions or new mapping; preserve every existing panel and historical review disposition. Coordinate coverage does not assume positive or usable flux."
+}

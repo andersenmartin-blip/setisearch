@@ -1,0 +1,184 @@
+{
+  "schema": "HARPS_C005_PROSPECTIVE_SCIENTIFIC_REVIEW_V1",
+  "status": "PASS_FIXED_DESCRIPTIVE_PROTOCOL_EXACT_IMPLEMENTATION_REVIEW_TO_FOLLOW",
+  "reviewed_utc": "2026-11-02T16:27:12.038130+00:00",
+  "observational_array_values_read_for_new_phase": false,
+  "network_requests": 0,
+  "historical_files_modified": false,
+  "group": "C005",
+  "resolution_group": "R005",
+  "target": "HD106515A",
+  "events": {
+    "V2E2-0023": "ADP.2022-01-06T01:08:04.689",
+    "V2E2-0029": "ADP.2022-03-08T01:01:37.342",
+    "V2E2-0035": "ADP.2022-05-08T01:01:37.876",
+    "V2E2-0046": "ADP.2023-03-23T01:02:04.831",
+    "V2E2-0054": "ADP.2023-07-05T01:02:00.053"
+  },
+  "purpose": "One joint central-versus-surrounding spectral context across all seven existing epochs, both fixed frames, all five discovery references and every historical covering native order. No origin classifier or new detection search.",
+  "fixed_geometry": {
+    "center_bary_air_angstrom": 3882.0375,
+    "core_halfwidth_angstrom": 0.2525,
+    "core_basis": "Catalog extrema3882.035\u20133882.040A expanded by original\u00b1.25A cores; common midpoint3882.0375A. No fitted linewidth.",
+    "grid": "601points -3to+3A at.01A;51corecenters[-.25,.25],550surroundingcenters",
+    "common_support_core_minimum": 41,
+    "common_support_surrounding_minimum": 440,
+    "anchor_berv_km_s": 30.1380355615464,
+    "fixed_topocentric_anchor_air_angstrom": 3881.6472792969134
+  },
+  "scope_counts": {
+    "merged_epochs": 7,
+    "distinct_discovery_references": 5,
+    "measured_native_order_exposure_combinations": 10,
+    "structural_exclusions": 0,
+    "preserved_raw_panels": 10,
+    "merged_profiles": 14,
+    "native_profiles": 20,
+    "all_profiles": 34,
+    "merged_comparison_records": 140,
+    "native_comparison_records": 40,
+    "all_comparison_records": 180,
+    "identical_product_self_records": 20
+  },
+  "header_only_coverage_checks": [
+    {
+      "event": "V2E2-0023",
+      "order": 3,
+      "historical_center_covered": true,
+      "nominal_both_frame_windows_inside_header_endpoints": true
+    },
+    {
+      "event": "V2E2-0023",
+      "order": 4,
+      "historical_center_covered": true,
+      "nominal_both_frame_windows_inside_header_endpoints": true
+    },
+    {
+      "event": "V2E2-0029",
+      "order": 3,
+      "historical_center_covered": true,
+      "nominal_both_frame_windows_inside_header_endpoints": true
+    },
+    {
+      "event": "V2E2-0029",
+      "order": 4,
+      "historical_center_covered": true,
+      "nominal_both_frame_windows_inside_header_endpoints": true
+    },
+    {
+      "event": "V2E2-0035",
+      "order": 3,
+      "historical_center_covered": true,
+      "nominal_both_frame_windows_inside_header_endpoints": true
+    },
+    {
+      "event": "V2E2-0035",
+      "order": 4,
+      "historical_center_covered": true,
+      "nominal_both_frame_windows_inside_header_endpoints": true
+    },
+    {
+      "event": "V2E2-0046",
+      "order": 3,
+      "historical_center_covered": true,
+      "nominal_both_frame_windows_inside_header_endpoints": true
+    },
+    {
+      "event": "V2E2-0046",
+      "order": 4,
+      "historical_center_covered": true,
+      "nominal_both_frame_windows_inside_header_endpoints": true
+    },
+    {
+      "event": "V2E2-0054",
+      "order": 3,
+      "historical_center_covered": true,
+      "nominal_both_frame_windows_inside_header_endpoints": true
+    },
+    {
+      "event": "V2E2-0054",
+      "order": 4,
+      "historical_center_covered": true,
+      "nominal_both_frame_windows_inside_header_endpoints": true
+    }
+  ],
+  "coverage_interpretation": "Every historical event center and both nominal\u00b13A frame windows lie inside recorded order3/4 endpoints. This is coordinate support, not an observed flux/quality guarantee. Runtime finite-sample/gap/normalization failures must still remain explicit; do not carry C003order2 exclusions into this phase.",
+  "frame_caveat": "The firstdiscovery sets one topocentric anchor. At varying BERV, a barycentric-coherent feature can leave its fixedcore; later-reference topocentriccore correlations then describe neighboringstructure at the anchor rather than eachlaterfeature. Preserve allfive references, fixedcoordinates and fullsurroundingpattern; no recentering or favorable-reference selection.",
+  "metadata_expected_feature_locations": [
+    {
+      "dp_id": "ADP.2022-01-06T01:08:04.689",
+      "date_obs": "2022-01-05T07:04:47.115",
+      "berv_km_s": 30.1380355615464,
+      "expected_common_feature_topocentric_air_angstrom": 3881.6472792969134,
+      "expected_offset_from_fixed_anchor_angstrom": 0.0,
+      "expected_center_inside_fixed_core": true
+    },
+    {
+      "dp_id": "ADP.2022-03-08T01:01:37.342",
+      "date_obs": "2022-03-07T04:52:12.631",
+      "berv_km_s": 10.77158288517,
+      "expected_common_feature_topocentric_air_angstrom": 3881.898022887786,
+      "expected_offset_from_fixed_anchor_angstrom": 0.2507435908723892,
+      "expected_center_inside_fixed_core": true
+    },
+    {
+      "dp_id": "ADP.2022-05-08T01:01:37.876",
+      "date_obs": "2022-05-07T05:12:25.401",
+      "berv_km_s": -18.8907517532076,
+      "expected_common_feature_topocentric_air_angstrom": 3882.282133332359,
+      "expected_offset_from_fixed_anchor_angstrom": 0.6348540354456418,
+      "expected_center_inside_fixed_core": false
+    },
+    {
+      "dp_id": "ADP.2023-01-01T01:10:52.479",
+      "date_obs": "2022-12-31T07:26:25.382",
+      "berv_km_s": 30.3750612537025,
+      "expected_common_feature_topocentric_air_angstrom": 3881.644210650928,
+      "expected_offset_from_fixed_anchor_angstrom": -0.003068645985422336,
+      "expected_center_inside_fixed_core": true
+    },
+    {
+      "dp_id": "ADP.2023-03-23T01:02:04.831",
+      "date_obs": "2023-03-22T04:52:14.904",
+      "berv_km_s": 3.26509772194068,
+      "expected_common_feature_topocentric_air_angstrom": 3881.9952204382143,
+      "expected_offset_from_fixed_anchor_angstrom": 0.3479411413009075,
+      "expected_center_inside_fixed_core": false
+    },
+    {
+      "dp_id": "ADP.2023-05-25T01:01:39.293",
+      "date_obs": "2023-05-24T03:32:27.955",
+      "berv_km_s": -24.4076064506785,
+      "expected_common_feature_topocentric_air_angstrom": 3882.3535818619675,
+      "expected_offset_from_fixed_anchor_angstrom": 0.7063025650541022,
+      "expected_center_inside_fixed_core": false
+    },
+    {
+      "dp_id": "ADP.2023-07-05T01:02:00.053",
+      "date_obs": "2023-07-03T23:55:27.533",
+      "berv_km_s": -29.2347518620376,
+      "expected_common_feature_topocentric_air_angstrom": 3882.4161001558227,
+      "expected_offset_from_fixed_anchor_angstrom": 0.7688208589092937,
+      "expected_center_inside_fixed_core": false
+    }
+  ],
+  "normalization": "Inherited signed native-sample pooledmedian over1.5<=|offset|<=3A, >=20finite samples separately on eachflank, positive reference required. Retain raw-only/blocked reasons without shrinkingwindow, extrapolation, clipping or signflip. Flanks are structuredreferencelevels, not establishedquietcontinuum. No fittedbackground.",
+  "statistics": "Unshifted rawPearson and normalizedRMS with fixedcommon-support gates; no new threshold, lag, stellarRV or width fit. Positive scalar normalization cannot alter Pearson. Missing ERR and a first-differenceproxy cannot yield calibratedsignificance.",
+  "raw_and_native_limits": [
+    "Order3/4 reductions and merged spectra share observations and extractionlineage; correlations are not independentobservationalconfirmation.",
+    "Native BUNIT absent, mergedADU; no calibratedphysicalfluxratio betweenproducts.",
+    "Allten historical rawpanels/mappingdecisions remain exact; distinctofftrace0023order4pixel and noisier0054order4 context retained, without a newdetector classifier.",
+    "Five closecatalogcenters describe oneoverlappinggroup; seven exposures and reusedreferences are not multipleindependentsignaltrials.",
+    "59.6098131157401km/sBERVspan is descriptivegeometry, not calibratedorigin-discrimination power.",
+    "Allfive Ulabels and oldpipelines remainunchanged."
+  ],
+  "next_group_fixed_before_results": "scientific_review/NEXT_GROUP_METADATA.json: C006 includes0025/0042/0043 atrows5/12/13, spansR006andR007, butonlytwo distinctdiscoveryproducts. Preserveallrecords anddeduplicatefuture productreferences.",
+  "source_sha256": {
+    "work_harps_20261102_c005_context/inputs/INPUT_INVENTORY.json": "13154b2d280c5b9df876730184e1d86a935d3a30ea342648f89eb453e0248919",
+    "work_harps_20261101/v2/extension02/epoch_followup/ALL_EPOCH_MEASUREMENTS.csv": "de5b7175959ce7d25aec435d68def4b4e5d471292fd9de19c62ed17567b3f649",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/ACTION_QUEUE.csv": "d789d5ad03963cfe68c0e8d70d0e7e7c199599fb36a2ff2760426e8e69f7267b",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/EVENT_CONTEXT.csv": "2d8129e7963e2678035cf4b915c3c3503529b399d61fe6e8233484d0ee2321d7",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/CORE_OVERLAP_GROUPS.csv": "39cbcc225161abfb8a986fec91583dd3591806d589c7154171fb80d026b305ab",
+    "work_harps_20261101/v2/CURRENT_V2_DISPOSITIONS.csv": "f2bbb73b08ae7dc60b9387495a05d1d6e98ece7571eff9a979ae0b1af139a279"
+  }
+}
