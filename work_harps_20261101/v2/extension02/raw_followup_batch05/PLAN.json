@@ -1,0 +1,117 @@
+{
+  "created_utc": "2026-11-02T07:25:41.754997+00:00",
+  "status": "PROSPECTIVE_BATCH05_METHOD_AND_QUEUE_RULE_BEFORE_NEW_RAW_PAYLOAD",
+  "scope": "Bounded raw/native follow-up of the two remaining pending V2 records V2E2-0332 and V2E2-0333 in one extension02 MAIN100 exposure HD141937. The batch04 HEAD503 failure is preserved; this separate prospective batch allows two bounded new HEAD attempts per exact original product identity. All 334 previously raw-reviewed new V2 events remain unchanged.",
+  "selection_rule": {
+    "order_source": "v2/extension02/MAIN100.csv row order",
+    "priority": "Entire remaining pending N queue in frozen MAIN100 order. No ranking or replacements.",
+    "max_unique_exposures": 1,
+    "expected_selection_indices": [
+      99
+    ],
+    "expected_V2_events": 2,
+    "events": "Review every accepted V2 event in selected exposures; every record must be pending N. No deduplication or replacement. All selected exposures must have no accepted V1 event.",
+    "no_replacements": true,
+    "input_requirement": "Final production accounts for all100 spectra; selected merged input SHA256, provenance and metadata must match.",
+    "expected_pending_events_before": 2,
+    "expected_pending_exposures_before": 1,
+    "expected_previously_selected_records": 340,
+    "expected_current_V2_codes": {
+      "A": 192,
+      "O": 21,
+      "U": 90,
+      "M": 31,
+      "N": 2
+    }
+  },
+  "acquisition_bounds": {
+    "max_raw_products": 1,
+    "max_ancillary_products": 1,
+    "payload_cap_bytes": 100000000,
+    "workers": 1,
+    "max_attempts_per_product": 2,
+    "metadata_first": true,
+    "replacement_prohibited": true,
+    "no_fallback_publication": true,
+    "rule": "Validate metadata, unambiguous product identity, parent archive exposure, remote advertised sizes and candidate source hashes before preparing download jobs. If selected set cannot fit payload cap, keep selected exposures fixed; acquire only complete raw+ancillary pairs fitting in selected order, record omitted pairs and reason. Never replace unavailable/oversized selections with later exposures. Attempt bytes including retries count against cap; partial files cannot be used.",
+    "transport": "No redirects. HTTP401/403 are terminal for a product and not retried; no alternate host,path,credential or proxy fallback. Retry at most once for other errors within conservative byte cap."
+  },
+  "publication_gate": "Prepare selection/provenance/jobs locally after final production; stop before all raw or ancillary downloads until root has reviewed and verified prospective plan/code/selection publication. No local self-approval marker substitutes for root instruction.",
+  "native_review": {
+    "baseline": "Byte-identical batch04 native extraction, mapping-quality, global-registration and local-registration methods. Retain original descriptive local flags and require global plus five-window support for every covering order.",
+    "wavelength": "Classical inverseBERV to topocentric air for mapping; all overlapping native orders; raw DATE-OBS and archiveID checks.",
+    "reference": "Existing 24-region6-order global reference must pass. Five-window per-order quality is applied prospectively to every covering order without coordinate or orientation adjustment. Event mapping is supported only if global reference and every covering-order five-window gate and full-cutout availability pass.",
+    "raw_cutouts": "Fixed31x33 raw cutouts with background median from first10/last10 dispersion rows; preserve original21x25 central cutout using wider[5:26,4:29], recompute its original first5/last5 background, retain41-point native snippets.",
+    "fiber_context": "Record raw/native fiberB mode and TAR product membership; Bpresence does not imply sky.",
+    "wider_followup": "Five-window mapping is prospective for all selected events in this batch; historical earlier-batch mapping methods are retained and not overwritten.",
+    "interpretation": "Descriptive provisional morphology only; no automatic extraterrestrial/particle/atmospheric origin assignment; preserve original production catalogs and dispositions."
+  },
+  "immutable_scope_hashes": {
+    "MAIN100.csv": "680611bead7df87711ac802f0b4221d550345d6c4c900fef77591486ac9ceb71",
+    "FREEZE.json": "837255ab49b1902f0f6dad8d4b3714d7edd6e68f36ef443b871bd5c4b96c4cbb",
+    "PROTOCOL.json": "b3b1fc437ab3c0df0bbac68e56309999c25da02aa58860a8480b13cf24e8149b"
+  },
+  "write_boundary": "Only new v2/extension02/raw_followup_batch05/ until reviewed results are deliberately reconciled by root into current status files.",
+  "mapping_quality": {
+    "reference_windows_half_open": [
+      [
+        128,
+        768
+      ],
+      [
+        896,
+        1536
+      ],
+      [
+        1664,
+        2304
+      ],
+      [
+        2432,
+        3072
+      ],
+      [
+        3200,
+        3968
+      ]
+    ],
+    "candidate_exclusion_half_width_pixels": 80,
+    "minimum_samples_per_reference_window": 200,
+    "minimum_valid_reference_windows": 3,
+    "median_correlation_strict_minimum": 0.8,
+    "maximum_median_abs_peak_offset": 0.75,
+    "minimum_windows_within_one_pixel": 3
+  },
+  "queue_snapshot": {
+    "source_revision": "ce5e544d22d7009a03ad26e938fa98a8d7119d9d",
+    "sources": [
+      {
+        "source_path": "work_harps_20261101/v2/extension02/raw_followup/CURRENT_V2_ALL336_DISPOSITIONS.csv",
+        "snapshot_path": "inputs/CURRENT_V2_ALL336_DISPOSITIONS.csv",
+        "sha256": "cb9a7c5dc0176e338ffd0574c3f2515c989cf4f39efc4912bc775529be0359b8"
+      },
+      {
+        "source_path": "work_harps_20261101/v2/extension02/raw_followup_batch04/CONTINUATION_STATE.json",
+        "snapshot_path": "inputs/CONTINUATION_STATE.json",
+        "sha256": "e92bdf3e5ce19a3e61f6f8fdeffefbb9e992fd501f5a674af16b8572c060bffd"
+      },
+      {
+        "source_path": "work_harps_20261101/v2/extension02/raw_followup/CURRENT_SELECTED_EVENT_DISPOSITIONS.csv",
+        "snapshot_path": "inputs/CURRENT_SELECTED_EVENT_DISPOSITIONS.csv",
+        "sha256": "ff9a43f39903a0f113811b8e34474011b589287ff4328afa1c6242eb04453930"
+      },
+      {
+        "source_path": "work_harps_20261101/v2/extension02/raw_followup/CURRENT_SUMMARY.json",
+        "snapshot_path": "inputs/CURRENT_SUMMARY.json",
+        "sha256": "af542fa56d51516c9f5fcefbfe5177865f8b0d07340292a0bea09d0fd6c8c880"
+      },
+      {
+        "source_path": "work_harps_20261101/v2/CURRENT_V2_DISPOSITIONS.csv",
+        "snapshot_path": "inputs/CURRENT_V2_DISPOSITIONS.csv",
+        "sha256": "acdbbfa698c9a963bc12b71152b1a1aa3acc13e608ef7641efa025cfcf15e363"
+      }
+    ],
+    "reason": "Freeze copies before updating live current status; source hashes must match live sources during preparation."
+  },
+  "cache_check": "CACHE_CHECK.json compares exact selected archive identities against prior canonical product manifests; no accepted previous pair has these identities. Partial/transient names are excluded from reuse."
+}
