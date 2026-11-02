@@ -27,6 +27,13 @@ def main():
         checks.equal(digest(RUBIN.parent/name), expected, 'unchanged_development_input/' + name)
     checks.equal(digest(acquire/'PLAN.json'), release['acquisition_plan_sha256'], 'release/acquisition_plan_hash')
     checks.equal(digest(acquire/'acquire_main.py'), release['acquisition_script_sha256'], 'release/acquisition_script_hash')
+    preflight=load(HERE/'PREFLIGHT.json')
+    checks.equal(digest(acquire/'PLAN.json'),preflight['plan_sha256'],'independent_preflight_plan')
+    checks.equal(digest(acquire/'MAIN_SELECTION_FROZEN.csv'),preflight['selection_sha256'],'independent_preflight_selection')
+    for name,expected in plan['code_hashes'].items():
+        checks.equal(digest(acquire/name),expected,'extension_frozen_code/'+name)
+    for name,expected in load(RUBIN/'main_analysis/OUTPUT_HASHES.json').items():
+        checks.equal(digest(RUBIN/'main_analysis'/name),expected,'original_main_outputs_preserved/'+name)
     selection = list(csv.DictReader((acquire/'MAIN_SELECTION_FROZEN.csv').open()))
     selected = [r['diaObjectId'] for r in selection]
     checks.equal(selected, plan['selected_ids'], 'exact_selection_order')

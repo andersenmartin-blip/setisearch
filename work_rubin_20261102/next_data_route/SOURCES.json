@@ -1,0 +1,51 @@
+{
+  "created_utc": "2026-11-02T09:09:26.998759+00:00",
+  "sources": [
+    {
+      "id": "rubin_brokers",
+      "url": "https://rubinobservatory.org/for-scientists/data-products/alerts-and-brokers",
+      "retrieved_date_utc": "2026-11-02",
+      "kind": "official Rubin documentation",
+      "findings": "Lasair is a full-stream Rubin broker. SQL, contextual crossmatching, and ready-made Gaia white-dwarf resources are advertised. This does not establish a complete Gaia-first stable-star archive."
+    },
+    {
+      "id": "lasair_api",
+      "url": "https://lasair.readthedocs.io/en/main/core_functions/rest-api.html",
+      "retrieved_date_utc": "2026-11-02",
+      "kind": "official Lasair documentation v4.1.0",
+      "findings": "API authentication uses a personal key obtained from the logged-in profile. User-token limits: 100 calls/hour and 10,000 query rows; power access requires contact. The displayed query/object examples target Lasair-ZTF; no anonymous Rubin direct-science plus forced-quality history contract is established here."
+    },
+    {
+      "id": "lasair_account",
+      "url": "https://lasair.readthedocs.io/en/main/more_info/account.html",
+      "retrieved_date_utc": "2026-11-02",
+      "kind": "official Lasair documentation v4.1.0",
+      "findings": "Registration with an email address enables API/client and personal query/watchlist facilities. No account was created or used."
+    },
+    {
+      "id": "lasair_lightcurve",
+      "url": "https://lasair.readthedocs.io/en/main/concepts/lightcurve.html",
+      "retrieved_date_utc": "2026-11-02",
+      "kind": "official Lasair documentation v4.1.0",
+      "findings": "LSST lightcurves are described as difference flux in nJy; the forced measurement is also described on difference images. This is not documentation of direct scienceFlux plus errors and quality fields."
+    },
+    {
+      "id": "lasair_faq",
+      "url": "https://lasair.readthedocs.io/en/main/more_info/faqs.html",
+      "retrieved_date_utc": "2026-11-02",
+      "kind": "official Lasair documentation v4.1.0",
+      "findings": "Historical alert queries and watchlists are described, including a past-object crossmatch for watchlists below 10,000 sources. These remain alert-associated objects, not an unconditional stellar forced-photometry survey."
+    },
+    {
+      "id": "fink_statistics",
+      "url": "https://doc.lsst.fink-broker.org/services/api/statistics/",
+      "retrieved_date_utc": "2026-11-02",
+      "kind": "official Fink/LSST documentation",
+      "findings": "Statistics API supports YYYYMM selection; each returned row represents an observing night. Only aggregate metadata are needed for this feasibility step."
+    }
+  ],
+  "alternative_brokers_investigated": [
+    "Lasair"
+  ],
+  "new_science_acquisition": false
+}

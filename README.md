@@ -1,3 +1,19 @@
+## Aktuel SETI-status — Rubin-prøven og feltudvidelsen afsluttet (2. november 2026)
+
+**Rubin er fremrykket til 2.–8. november. Første prøve og en separat udvidelse er nu gennemført: 190 udvalgte Gaia-associerede objekter, 861 source-målinger og 130 forced-målinger.** Metode og udvælgelse blev publiceret og kontrolleret før begge hovedkørsler.
+
+Kun **2 objekter** kan vurderes numerisk i hovedsporet (7 oktobermålinger). Det separate forced-spor giver **4 objekter** (16 målinger), herunder de to hovedobjekter. Ingen måling passerer begge fastlagte lysfaldskriterier. **Minimum 50 vurderbare stjerneforløb er ikke nået; der foreligger intet kvalificeret nulresultat.** Lange referencehuller og uløst kvalitetsinformation bevares.
+
+Udvidelsen er undersøgt helt frem til analyse: 940 nye metadataforløb gav 104 med nødvendige tids-/kvalitetsbetingelser, men kun to bestod Gaia-kravene. Begge blev analyseret separat med uændret metode. Ingen gav en brugbar hovedsporsbaseline; én gav to vurderbare forced-målinger. Uafhængige kontroller består for både hovedprøven og udvidelsen.
+
+**HARPS:** Den faste rådiagnose er afsluttet for alle 35 mapping-begrænsede poster i 21 eksponeringer. De to normaliseringsopfølgninger er også afsluttet. Klassifikationer og dækning er bevaret: 403 foreløbige artefakter / 46 O I-forenelige / 185 uafklarede / 35 mapping-begrænsede; 300 eksponeringer, 20 stjerner og 70,875 timer. Ingen kvalificeret laserkandidat.
+
+[**Fortsæt her**](CONTINUE_SETI.md) · [Rubin samlet](work_rubin_20261102/README.md) · [Udvidelsens resultat](work_rubin_20261102/extension_main_analysis/README.md) · [HARPS mapping-diagnose](work_harps_20261101/v2/extension02/mapping_followup_remaining_20261102/README.md) · [Maskinlæsbar tilstand](work_seti_20261102_accelerated/CONTINUATION_STATE.json)
+
+En efterfølgende datavejskontrol gav ingen ny brugbar Rubin-prøve: Finks septemberstatistik var tom, og den undersøgte alternative API kræver en personlig token; den nødvendige Rubin-fotometri er ikke verificeret dér. Det beviser ikke manglende observationer. Næste arbejde er den dokumenterede HARPS-opfølgningskø; Rubin kræver bedre tidsdækning og kvalitetsoplysninger for stjerner. Den næste konkrete metadataopfølgning gælder HD122640 (først V2E2-0229) og HD135204: selv alle eksisterende epoker giver kun 2,238 og 1,714 km/s i BERV-spænd, så der skal undersøges bredere observationsdatoer. De afsluttede prøver genkøres ikke som ny forskning, og kravene sænkes ikke for at opnå et bestemt antal. Alle statusafsnit nedenfor er historiske. Ingen automatisk baggrundssøgning er konfigureret.
+
+---
+
 ## Aktuel SETI-status — Rubin fremrykket og første hovedanalyse afsluttet (2. november 2026)
 
 **Rubin-arbejdet er fremrykket til 2.–8. november og har allerede nået en første analyse af rigtige data.** Metode, kode og 188 Gaia-associerede objekter blev publiceret før hovedflux blev åbnet. Alle otte dataforespørgsler lykkedes. Resultatet er dog et begrænset gennemførlighedsstudie: datakvalitet og manglende historik efterlader kun 2 numerisk vurderbare objekter i hovedsporet og separat 3 i forced-photometry-sporet. De to hovedobjekter indgår i de tre supplerende; tallene skal ikke lægges sammen.

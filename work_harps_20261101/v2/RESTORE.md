@@ -12,7 +12,7 @@ Hovedprøven er fortsat 300 eksponeringer af 20 stjerner, 70.874650833 timer. V1
 
 [De 90 nye U-poster](extension02/unresolved_context_20261102/README.md) har en udtømmende opfølgningskø og grupper af overlappende profiler. Ældre 95 U-poster er bevaret uden ny gruppering. Gruppetal er ikke uafhængige signaler. Epokekontrollen er afsluttet: 2.185 par og 4.370 profiler.
 
-Rubin er fremrykket til 2.–8. november. [Første hovedanalyse](../../work_rubin_20261102/main_analysis/README.md) er afsluttet med 188 udvalgte objekter, men kun 2 numerisk vurderbare i hovedsporet og separat 3 i forced-sporet. Minimum 50 er ikke opfyldt. Ingen tærskelpasserende måling og intet kvalificeret nulresultat. Brug det fælles fortsættelsespunkt til den aktuelle metadataopfølgning.
+Rubin er fremrykket til 2.–8. november. [Første hovedanalyse](../../work_rubin_20261102/main_analysis/README.md) er afsluttet med 188 udvalgte objekter, men kun 2 numerisk vurderbare i hovedsporet og separat 3 i forced-sporet. Minimum 50 er ikke opfyldt. Ingen tærskelpasserende måling og intet kvalificeret nulresultat. Den efterfølgende metadata/Gaia-udvidelse er også gennemført helt til analyse. Samlet Rubin-status er 190 udvalgte objekter, 2 numerisk vurderbare i hovedsporet og separat 4 i forced-sporet. Brug det fælles fortsættelsespunkt til næste afgrænsede datamulighed.
 
 ## Input og reproduktion
 

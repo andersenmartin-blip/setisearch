@@ -1,0 +1,113 @@
+{
+  "schema": "RUBIN_MAIN_ACQUISITION_MANIFEST_V1",
+  "completed_utc": "2026-11-02T08:57:03.658917+00:00",
+  "objects_selected": 2,
+  "jobs": [
+    {
+      "job_id": "sources_01",
+      "status": "COMPLETE",
+      "object_ids": [
+        "170587117148176510",
+        "313791827794198596"
+      ],
+      "returned_objects": [
+        "170587117148176510",
+        "313791827794198596"
+      ],
+      "rows": 54,
+      "canonical_path": "raw/sources_01.json",
+      "sha256": "e3799076add4564fbf6604f2d6077d714adb18a2a82757d01ddfaa852badbd5e",
+      "bytes": 87387,
+      "attempts": [
+        {
+          "job_id": "sources_01",
+          "attempt": 1,
+          "started_utc": "2026-11-02T08:56:56.565310+00:00",
+          "elapsed_seconds": 6.678133520999836,
+          "endpoint": "https://api.lsst.fink-portal.org/api/v1/sources",
+          "payload": {
+            "diaObjectId": "170587117148176510,313791827794198596",
+            "columns": "r:diaObjectId,r:diaSourceId,r:ra,r:dec,r:midpointMjdTai,r:band,r:visit,r:detector,r:exposureTime,r:scienceFlux,r:scienceFluxErr,r:templateFlux,r:templateFluxErr,r:psfFlux,r:psfFluxErr,r:observation_reason,r:target_name,r:timeProcessedMjdTai,r:timeWithdrawnMjdTai,r:isNegative,r:reliability,r:reliabilityVersion,r:ssObjectId,r:parentDiaSourceId,r:pixelFlags,r:pixelFlags_bad,r:pixelFlags_crCenter,r:pixelFlags_edge,r:pixelFlags_injected,r:pixelFlags_injectedCenter,r:pixelFlags_injected_template,r:pixelFlags_injected_templateCenter,r:pixelFlags_interpolatedCenter,r:pixelFlags_nodata,r:pixelFlags_nodataCenter,r:pixelFlags_offimage,r:pixelFlags_saturatedCenter,r:pixelFlags_streakCenter,r:pixelFlags_suspectCenter,r:psfFlux_flag,r:psfFlux_flag_edge,r:psfFlux_flag_noGoodPixels,r:forced_PsfFlux_flag,r:forced_PsfFlux_flag_edge,r:forced_PsfFlux_flag_noGoodPixels,r:centroid_flag,r:isDipole,r:glint_trail,f:lsst_schema_version,f:fink_broker_version,f:fink_science_version,f:xm_gaiadr3_DR3Name,f:xm_gaiadr3_Plx,f:xm_gaiadr3_e_Plx,f:xm_gaiadr3_VarFlag,f:xm_simbad_otype,f:xm_vsx_Type",
+            "output-format": "json"
+          },
+          "http_status": 200,
+          "headers": {
+            "server": "envoy",
+            "date": "Mon, 02 Nov 2026 08:57:02 GMT",
+            "content-type": "application/json",
+            "content-length": "87387",
+            "access-control-allow-origin": "*",
+            "access-control-allow-headers": "Content-Type,Authorization",
+            "access-control-allow-methods": "GET,PUT,POST,DELETE,OPTIONS",
+            "x-envoy-upstream-service-time": "1226",
+            "connection": "close"
+          },
+          "bytes_saved": 87387,
+          "sha256": "e3799076add4564fbf6604f2d6077d714adb18a2a82757d01ddfaa852badbd5e",
+          "path": "attempts/sources_01_attempt01.body",
+          "complete": true,
+          "error": null,
+          "unknown_remaining_response_bytes": false,
+          "charged_bytes": 87387,
+          "total_charged_at_completion": 87387
+        }
+      ]
+    },
+    {
+      "job_id": "fp_01",
+      "status": "COMPLETE",
+      "object_ids": [
+        "170587117148176510",
+        "313791827794198596"
+      ],
+      "returned_objects": [
+        "170587117148176510",
+        "313791827794198596"
+      ],
+      "rows": 53,
+      "canonical_path": "raw/fp_01.json",
+      "sha256": "e2ef3617273a21d33e9f7cb5aadf047ceb43ec475eceb01e7f7baef0ef388631",
+      "bytes": 18829,
+      "attempts": [
+        {
+          "job_id": "fp_01",
+          "attempt": 1,
+          "started_utc": "2026-11-02T08:56:56.567476+00:00",
+          "elapsed_seconds": 7.090487202000077,
+          "endpoint": "https://api.lsst.fink-portal.org/api/v1/fp",
+          "payload": {
+            "diaObjectId": "170587117148176510,313791827794198596",
+            "columns": "r:band,r:dec,r:detector,r:diaForcedSourceId,r:diaObjectId,r:midpointMjdTai,r:psfFlux,r:psfFluxErr,r:ra,r:scienceFlux,r:scienceFluxErr,r:timeProcessedMjdTai,r:timeWithdrawnMjdTai,r:visit",
+            "output-format": "json"
+          },
+          "http_status": 200,
+          "headers": {
+            "server": "envoy",
+            "date": "Mon, 02 Nov 2026 08:57:03 GMT",
+            "content-type": "application/json",
+            "content-length": "18829",
+            "access-control-allow-origin": "*",
+            "access-control-allow-headers": "Content-Type,Authorization",
+            "access-control-allow-methods": "GET,PUT,POST,DELETE,OPTIONS",
+            "x-envoy-upstream-service-time": "1905",
+            "connection": "close"
+          },
+          "bytes_saved": 18829,
+          "sha256": "e2ef3617273a21d33e9f7cb5aadf047ceb43ec475eceb01e7f7baef0ef388631",
+          "path": "attempts/fp_01_attempt01.body",
+          "complete": true,
+          "error": null,
+          "unknown_remaining_response_bytes": false,
+          "charged_bytes": 18829,
+          "total_charged_at_completion": 106216
+        }
+      ]
+    }
+  ],
+  "charged_bytes": 106216,
+  "reserved_bytes": 0,
+  "all_jobs_complete": true,
+  "new_selection_or_replacement": false,
+  "scientific_analysis_run": false,
+  "publication_commit": "c9f375268ee628088d808842afbd7445def7c9b6"
+}

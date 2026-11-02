@@ -1,0 +1,42 @@
+{
+  "schema": "RUBIN_NEXT_DATA_ROUTE_METADATA_PLAN_V1",
+  "created_utc": "2026-11-02T09:09:26.998759+00:00",
+  "status": "FROZEN_BEFORE_REQUEST",
+  "authorization": "Parent instruction 2026-11-02: execute exactly one public September 2026 aggregate-statistics request after freezing request and limits.",
+  "purpose": "Separate September availability feasibility only; completed October sample and detector remain unchanged.",
+  "provider": "Fink/LSST",
+  "method": "GET",
+  "endpoint": "https://api.lsst.fink-portal.org/api/v1/statistics",
+  "parameters": {
+    "date": "202609",
+    "columns": "f:night,f:alerts,f:objects,f:visits",
+    "output-format": "json"
+  },
+  "allowlisted_response_fields": [
+    "f:night",
+    "f:alerts",
+    "f:objects",
+    "f:visits"
+  ],
+  "max_requests": 1,
+  "retries": 0,
+  "follow_redirects": false,
+  "timeout_seconds": 30,
+  "max_response_bytes": 2097152,
+  "overflow_detection_extra_byte": 1,
+  "max_expected_rows": 30,
+  "date_window": "2026-09-01 through 2026-09-30 observing-night labels",
+  "new_star_ids": 0,
+  "new_flux_rows": 0,
+  "charge_DKK": 0,
+  "remaining_main_unique_stars_before_and_after": 310,
+  "decision_rule": {
+    "empty_or_two_or_fewer_nonzero_nights": "No evidence of a denser monthly alert-availability window; stop this route evaluation.",
+    "three_or_more_nonzero_nights": "May justify designing a separate bounded field/stellar-metadata feasibility plan; does not establish per-star cadence, direct scienceFlux coverage, quality, or 50 evaluable stars.",
+    "errors_unexpected_fields_or_out_of_month_rows": "Preserve receipt, mark unavailable or unexpected response, stop without retry or alternate month.",
+    "no_automatic_followup": "No cone, Gaia, object-history, forced-photometry, cutout, or additional month query is authorized by this plan."
+  },
+  "thresholds_unchanged": true,
+  "alternative_broker": "Lasair",
+  "alternative_decision": "BLOCKED_UNDER_NO_ACCOUNT_AND_DOCUMENTED_DATA_REQUIREMENTS"
+}

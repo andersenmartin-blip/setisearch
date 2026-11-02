@@ -1,0 +1,66 @@
+{
+  "schema": "RUBIN_NEXT_DATA_ROUTE_DECISION_V1",
+  "completed_utc": "2026-11-02T09:12:27.458415+00:00",
+  "alternative_brokers_investigated": [
+    "Lasair"
+  ],
+  "alternative_status": "NO_VERIFIED_ANONYMOUS_ROUTE_IN_THIS_BOUNDED_REVIEW",
+  "claim_scope": "Documentation-based accessibility decision for this anonymous review, not proof that Lasair lacks the measurements internally or a permanent user prohibition on authenticated access.",
+  "lasair": {
+    "rubin_official_full_stream_broker": true,
+    "selection_reason": "Officially advertised SQL/crossmatch and public Gaia white-dwarf resources provide a concrete stellar-query lead.",
+    "documented_api_requires_personal_token": true,
+    "token_obtained_after_login": true,
+    "normal_user_limits": {
+      "calls_per_hour": 100,
+      "query_rows": 10000
+    },
+    "power_user_limits": {
+      "calls_per_hour": 10000,
+      "query_rows": 1000000,
+      "requires_contact": true
+    },
+    "documented_cone_max_arcseconds": 1000,
+    "normal_query_default_rows": 1000,
+    "anonymous_rubin_direct_science_plus_forced_quality_history_contract_verified": false,
+    "gaia_white_dwarf_resource_advertised": true,
+    "complete_gaia_first_stellar_forced_archive_verified": false,
+    "api_documentation_caveat": "Displayed query/object examples are Lasair-ZTF; they cannot establish Rubin field availability.",
+    "photometry_caveat": "Lightcurve documentation describes difference flux, including forced measurements. Direct scienceFlux/errors and row-level quality/withdrawal are not verified here.",
+    "account_created_or_login_attempted": false,
+    "api_endpoints_probed": false,
+    "charge_required": "Not established from reviewed documentation; route fails account/data-contract gates regardless.",
+    "personal_token_available_for_this_review": false
+  },
+  "fink_september": {
+    "plan_sha256": "518902865328263b7099c2442cc9a1cb832e15635fae5a5afc370b4092fc420e",
+    "receipt_sha256": "e55ec992f3e2f4ef19187e8cb9c75bf5b877e8175d9e6d7bdf55f72f07b960ed",
+    "request_count": 1,
+    "http_status": 200,
+    "returned_rows": 0,
+    "returned_nonzero_nights": 0,
+    "body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "body_bytes": 2,
+    "outcome": "NO_RETURNED_MONTHLY_STATISTICS",
+    "interpretation": "The queried public endpoint returned no September rows. This is not evidence that Rubin made no September observations or that all public history is absent.",
+    "new_sampling_plan_justified": false
+  },
+  "single_next_step": {
+    "action": "STOP_THIS_DATA_ROUTE_BRANCH",
+    "reason": "Lasair lacks a verified route meeting the account-free/direct-science requirements, and the one allowed alternative-month metadata check returned no nights.",
+    "new_acquisition_authorized_or_planned_here": false,
+    "reopen_requirement": "A documented public Rubin route with adequate cadence, direct-flux errors, and quality history must be established before freezing a new stellar sample. No automated check or future query has been scheduled."
+  },
+  "scope_preserved": {
+    "charged_DKK": 0,
+    "new_main_stars": 0,
+    "main_unique_stars_used": 190,
+    "remaining_main_unique_stars": 310,
+    "total_main_cap": 500,
+    "new_flux_rows": 0,
+    "existing_results_or_detector_changed": false,
+    "october_month_replaced": false,
+    "other_month_or_field_queries": 0,
+    "ztf_substitution": false
+  }
+}

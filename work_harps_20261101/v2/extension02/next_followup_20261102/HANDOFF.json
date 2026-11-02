@@ -1,0 +1,203 @@
+{
+  "schema": "HARPS_METADATA_ONLY_NEXT_FOLLOWUP_V1",
+  "status": "READY_FOR_BOUNDED_BROADER_DATE_METADATA_PREFLIGHT_NO_NEW_SCIENCE",
+  "scope": {
+    "metadata_only": true,
+    "science_arrays_read": 0,
+    "network_requests": 0,
+    "new_acquisitions": 0,
+    "original_labels_changed": 0
+  },
+  "first_route": "FRAME_BASELINE_CONTEXT",
+  "first_event": "V2E2-0229",
+  "first_target": "HD122640",
+  "queue_ids_by_target": {
+    "HD122640": [
+      "V2E2-0229",
+      "V2E2-0231",
+      "V2E2-0234",
+      "V2E2-0235",
+      "V2E2-0236",
+      "V2E2-0237"
+    ],
+    "HD135204": [
+      "V2E2-0303",
+      "V2E2-0305",
+      "V2E2-0308",
+      "V2E2-0309"
+    ]
+  },
+  "candidate_id_namespace_warning": "V2E2-0231 is an unresolved extension02 event; V2-0231 is an older mapping event. Do not conflate them.",
+  "coverage": [
+    {
+      "target": "HD122640",
+      "scope": "extension02_only",
+      "exposures": 3,
+      "observation_first_utc": "2023-02-20T07:24:43.232",
+      "observation_last_utc": "2023-02-24T07:25:10.837",
+      "berv_min_km_s": 26.3486734120334,
+      "berv_max_km_s": 27.2411836963856,
+      "berv_span_km_s": 0.8925102843522019,
+      "nominal_resolution_km_s": 2.6068909391304347,
+      "span_resolution_elements": 0.3423657932732358,
+      "below_one_resolution_element": true
+    },
+    {
+      "target": "HD122640",
+      "scope": "earlier200_only",
+      "exposures": 11,
+      "observation_first_utc": "2023-02-19T08:15:06.680",
+      "observation_last_utc": "2023-03-01T05:59:17.361",
+      "berv_min_km_s": 25.1998223987202,
+      "berv_max_km_s": 27.4377322691831,
+      "berv_span_km_s": 2.2379098704629,
+      "nominal_resolution_km_s": 2.6068909391304347,
+      "span_resolution_elements": 0.8584593382373666,
+      "below_one_resolution_element": true
+    },
+    {
+      "target": "HD122640",
+      "scope": "all_existing300",
+      "exposures": 14,
+      "observation_first_utc": "2023-02-19T08:15:06.680",
+      "observation_last_utc": "2023-03-01T05:59:17.361",
+      "berv_min_km_s": 25.1998223987202,
+      "berv_max_km_s": 27.4377322691831,
+      "berv_span_km_s": 2.2379098704629,
+      "nominal_resolution_km_s": 2.6068909391304347,
+      "span_resolution_elements": 0.8584593382373666,
+      "below_one_resolution_element": true
+    },
+    {
+      "target": "HD135204",
+      "scope": "extension02_only",
+      "exposures": 5,
+      "observation_first_utc": "2023-02-19T09:13:59.659",
+      "observation_last_utc": "2023-02-25T07:23:12.087",
+      "berv_min_km_s": 27.5778777499954,
+      "berv_max_km_s": 28.303447159958,
+      "berv_span_km_s": 0.7255694099625991,
+      "nominal_resolution_km_s": 2.6068909391304347,
+      "span_resolution_elements": 0.27832748929827617,
+      "below_one_resolution_element": true
+    },
+    {
+      "target": "HD135204",
+      "scope": "earlier200_only",
+      "exposures": 10,
+      "observation_first_utc": "2023-02-19T07:23:26.504",
+      "observation_last_utc": "2023-03-01T07:37:25.726",
+      "berv_min_km_s": 26.7761413345086,
+      "berv_max_km_s": 28.4902624545296,
+      "berv_span_km_s": 1.714121120020998,
+      "nominal_resolution_km_s": 2.6068909391304347,
+      "span_resolution_elements": 0.6575346495288243,
+      "below_one_resolution_element": true
+    },
+    {
+      "target": "HD135204",
+      "scope": "all_existing300",
+      "exposures": 15,
+      "observation_first_utc": "2023-02-19T07:23:26.504",
+      "observation_last_utc": "2023-03-01T07:37:25.726",
+      "berv_min_km_s": 26.7761413345086,
+      "berv_max_km_s": 28.4902624545296,
+      "berv_span_km_s": 1.714121120020998,
+      "nominal_resolution_km_s": 2.6068909391304347,
+      "span_resolution_elements": 0.6575346495288243,
+      "below_one_resolution_element": true
+    }
+  ],
+  "existing_catalog_inventory": {
+    "eligible_rows_for_two_targets": 19,
+    "unused_after_existing300": 0,
+    "coverage_claim": "Only the saved eligible inventory is exhausted, not the ESO archive."
+  },
+  "next_action": {
+    "kind": "PROSPECTIVE_METADATA_PREFLIGHT_ONLY",
+    "targets_in_order": [
+      "HD122640",
+      "HD135204"
+    ],
+    "purpose": "Find public same-target HARPS single-exposure metadata outside the existing 2023-02-19 to 2023-03-01 observation interval, to assess whether wider BERV separation is available.",
+    "bounds_to_freeze_before_execution": {
+      "target_queries_max": 2,
+      "attempts_per_query_max": 1,
+      "rows_per_target_max": 1000,
+      "response_bytes_per_query_max": 4194304,
+      "timeout_seconds_per_query": 30,
+      "redirects": 0,
+      "science_payload_downloads": 0
+    },
+    "before_request": "Verify the official metadata contract, then freeze exact ADQL/parameters, target coordinates/aliases, public-access checks, exclusion of all300 DP/raw IDs, output paths, caps and failure handling. This handoff does not execute that plan.",
+    "selection_rule": "Metadata inventory only: same verified target, HARPS, public single-exposure science product, valid time/coordinate provenance. Do not rank on spectral values. Preserve all returned exclusions and truncation flags.",
+    "berv_gate": "Observation date alone does not establish BERV. Verify recorded per-exposure BERV through a documented metadata/header route under a separate bounded plan before selecting science payloads. Aim to exceed the existing sub-resolution span; one nominal resolution element is a descriptive planning benchmark, not a classification or statistical-power threshold.",
+    "stop": "If both queries yield no suitable new epochs, lack public metadata, exceed caps or fail, record the precise limitation and stop this route without retrying or opening spectra. Any new header/payload acquisition requires its own frozen scope.",
+    "later_science": "Only after useful verified BERV coverage: freeze an event-specific same-target comparison using the10 listed events and exact newly selected epochs; inherit existing frame/normalization conventions, retain stellar-RV, wavelength-calibration and photon-origin uncertainty. No new classifier or label update implied."
+  },
+  "do_not_repeat": {
+    "mapping": {
+      "status": "COMPLETE_DESCRIPTIVE_ALL35_REMAIN_M",
+      "records": 35,
+      "exposures": 21,
+      "source": "work_harps_20261101/v2/extension02/mapping_followup_remaining_20261102/SUMMARY.json"
+    },
+    "normalization": {
+      "status": "COMPLETE_DESCRIPTIVE_NORMALIZATION_CONTEXT",
+      "events": [
+        "V2E2-0092",
+        "V2E2-0104"
+      ],
+      "source": "work_harps_20261101/v2/extension02/normalization_context_20261102/SUMMARY.json",
+      "finding": "All4 low profiles are a later reference epoch, neither discovery is low; positive scalar normalization alone cannot increase Pearson correlation."
+    },
+    "epoch_pipeline": "Original extension02 all336 comparison is complete:2185 pairs/4370 profiles. Do not rerun to recreate this metadata inventory.",
+    "Rubin": {
+      "source": "work_rubin_20261102/next_data_route/README.md",
+      "status": "STOPPED_AFTER_ONE_EMPTY_SEPTEMBER_REQUEST_AND_ONE_ACCOUNT_GATED_ALTERNATIVE",
+      "main_stars_used": 190,
+      "main_ceiling": 500,
+      "remaining_ceiling": 310,
+      "source_evaluable": 2,
+      "forced_evaluable_separate": 4,
+      "minimum50_met": false,
+      "new_requests_authorized_by_this_handoff": 0
+    }
+  },
+  "preserved_current_counts": {
+    "U": 185,
+    "A": 403,
+    "O": 46,
+    "M": 35
+  },
+  "input_manifest_paths": [
+    "work_harps_20261101/acquisition/DOWNLOAD_MANIFEST.json",
+    "work_harps_20261101/v2/acquisition/DOWNLOAD_MANIFEST.json",
+    "work_harps_20261101/v2/extension02/acquisition/DOWNLOAD_MANIFEST.json"
+  ],
+  "saved_input_archives": [
+    {
+      "cohort": "initial100",
+      "name": "SETI_HARPS_INPUT_CHECKPOINT_2026-11-01.zip",
+      "bytes": 226849385,
+      "sha256": "a9562b266fac4a481777162d85311d41ca6a6effd10ac74f8bd5d3a50346cfc7",
+      "library_file_id": "libfile_728e045275c08191b7a390bf2fc08db1",
+      "source": "work_harps_20261101/README.md"
+    },
+    {
+      "cohort": "v2_first100",
+      "name": "SETI_HARPS_V2_INPUTS_2026-11-01.zip",
+      "bytes": 395957057,
+      "sha256": "8afd05a57d9c5e82488a9660704c0a77588f53b7e93434666dabe368a7c1662f",
+      "library_file_id": "libfile_be85ea6d8e9c81918350b1141689f52e",
+      "source": "work_harps_20261101/v2/README.md"
+    },
+    {
+      "cohort": "extension02",
+      "exact_parts_and_members": "work_harps_20261101/v2/extension02/checkpoints/INPUT_CHECKPOINTS.json",
+      "saved_receipts": "work_harps_20261101/v2/extension02/checkpoints/LIBRARY_INPUTS.json"
+    }
+  ],
+  "restore_note": "No binary inputs are needed for this metadata-only task. Future restore uses staging and exact member hashes in EXISTING_TARGET_EXPOSURES.csv; old absolute scratch paths must not be reused. Product hashes here are archived manifest claims, not freshly rehashed arrays.",
+  "source_hash_manifest": "SOURCE_HASHES.json"
+}

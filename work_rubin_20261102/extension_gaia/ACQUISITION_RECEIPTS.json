@@ -1,0 +1,37 @@
+[
+  {
+    "attempt": 1,
+    "started_utc": "2026-11-02T08:52:33.477366+00:00",
+    "url": "https://gea.esac.esa.int/tap-server/tap/sync",
+    "method": "POST",
+    "query_sha256": "50bfd1758ad68cb591684287340b11d14584c685f06bbed116dd9e09471793e8",
+    "timeout_seconds": 45,
+    "payload": "REQUEST=doQuery&LANG=ADQL&FORMAT=csv&MAXREC=50000&QUERY=SELECT+TOP+50000+source_id%2Cra%2Cdec%2Cref_epoch%2Cra_error%2Cdec_error%2Cpmra%2Cpmdec%2Cpmra_error%2Cpmdec_error%2Cpmra_pmdec_corr%2Cparallax%2Cparallax_error%2Cparallax_over_error%2Cradial_velocity%2Cradial_velocity_error%2Cruwe%2Cduplicated_source%2Castrometric_params_solved%2Cphot_g_mean_mag%2Cra_pmra_corr%2Cdec_pmdec_corr%2Cra_dec_corr+FROM+gaiadr3.gaia_source+WHERE+1%3DCONTAINS%28POINT%28%27ICRS%27%2Cra%2Cdec%29%2CCIRCLE%28%27ICRS%27%2C8.986275%2C-42.709834%2C1.1%29%29+ORDER+BY+source_id",
+    "response_byte_cap": 8000000,
+    "headers": {
+      "date": "Mon, 02 Nov 2026 08:52:39 GMT",
+      "server": "envoy",
+      "set-cookie": "JSESSIONID=040AA1F0245D8908BA3ED0440395BF8A; Path=/tap-server; Secure; HttpOnly",
+      "content-disposition": "attachment;filename=\"c262a178-d69a-11f1-b71e-bc97e148b76b-O-result.csv\"",
+      "x-content-type-options": "nosniff",
+      "x-xss-protection": "0",
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "pragma": "no-cache",
+      "expires": "0",
+      "x-frame-options": "SAMEORIGIN",
+      "content-type": "text/csv",
+      "x-envoy-upstream-service-time": "22910",
+      "connection": "close",
+      "transfer-encoding": "chunked"
+    },
+    "http_status": 200,
+    "error": null,
+    "status": "SUCCESS",
+    "response_bytes_saved": 3121898,
+    "sha256": "eec95ddbbd8ffcc1c8a53757a48b1b270f2a8358b6a93573f179c21b9834f6bd",
+    "unknown_remaining_bytes": false,
+    "charged_bytes": 3121898,
+    "catalog_rows": 13202,
+    "path": "ATTEMPT_01.body"
+  }
+]
