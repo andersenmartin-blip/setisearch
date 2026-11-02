@@ -1,0 +1,86 @@
+{
+  "schema": "SETI_NEXT_FIXED_QUEUE_HANDOFF_V1",
+  "created_utc": "2026-11-02T12:52:25.151587+00:00",
+  "status": "PREPARED_METADATA_HANDOFF_NOT_EXECUTED",
+  "kind": "JOINT_PROFILE_CONTEXT_C001_HD103991",
+  "selection": "First two rows in the existing unchanged ACTION_QUEUE, not ranked by new residuals/correlations. Completed normalization and frame follow-ups are preserved.",
+  "target": "HD103991",
+  "events": [
+    "V2E2-0001",
+    "V2E2-0016"
+  ],
+  "core_overlap_group": "C001",
+  "resolution_group": "R001",
+  "queue_rows": [
+    {
+      "queue_index": "1",
+      "candidate_id": "V2E2-0001",
+      "target": "HD103991",
+      "dp_id": "ADP.2023-02-23T01:01:36.783",
+      "current_code_unchanged": "U",
+      "primary_evidence_route": "JOINT_PROFILE_CONTEXT",
+      "any_low_continuum_context": "False",
+      "frame_span_below_one_resolution_element": "False",
+      "resolution_group": "R001",
+      "core_overlap_group": "C001",
+      "next_evidence_needed": "Joint profile context: compare the complete neighboring absorption/emission pattern and all raw-order panels for the group; quantify free-width models with calibration and uncertainties only in a separately frozen analysis.",
+      "priority_context": "After pending raw review and project mapping-limited queue; route is not a likelihood ranking."
+    },
+    {
+      "queue_index": "2",
+      "candidate_id": "V2E2-0016",
+      "target": "HD103991",
+      "dp_id": "ADP.2023-03-01T01:01:30.551",
+      "current_code_unchanged": "U",
+      "primary_evidence_route": "JOINT_PROFILE_CONTEXT",
+      "any_low_continuum_context": "False",
+      "frame_span_below_one_resolution_element": "False",
+      "resolution_group": "R001",
+      "core_overlap_group": "C001",
+      "next_evidence_needed": "Joint profile context: compare the complete neighboring absorption/emission pattern and all raw-order panels for the group; quantify free-width models with calibration and uncertainties only in a separately frozen analysis.",
+      "priority_context": "After pending raw review and project mapping-limited queue; route is not a likelihood ranking."
+    }
+  ],
+  "existing_context": [
+    {
+      "candidate_id": "V2E2-0001",
+      "dp_id": "ADP.2023-02-23T01:01:36.783",
+      "source_input_sha256": "1340a2113a53f8b95ea48803ace6c80ba0dbfef3cb3b39c9d9069c0ce62c10de",
+      "center_bary_air_angstrom": "3852.4075000000003",
+      "other_epochs": "5",
+      "berv_span_km_s": "3.193228575326902",
+      "berv_span_resolution_elements": "1.2249183605632727",
+      "raw_evidence": "Both covering-order geometries now satisfy the fixed wider-reference gate. Order2 shows a modest broad fibre-associated enhancement; order3 remains noisy with near-zero side continuum, making its large normalized excursions unreliable. No distinct charge track or unique physical origin is established.",
+      "raw_evidence_table": "mapping_followup/FOLLOWUP_DISPOSITIONS.csv",
+      "any_low_continuum_context": "False"
+    },
+    {
+      "candidate_id": "V2E2-0016",
+      "dp_id": "ADP.2023-03-01T01:01:30.551",
+      "source_input_sha256": "98a5782de0b9e3e9d8d89e8a3c2e70ea4c3d226b4f24d35e388941f8af40678a",
+      "center_bary_air_angstrom": "3852.3775",
+      "other_epochs": "5",
+      "berv_span_km_s": "3.193228575326902",
+      "berv_span_resolution_elements": "1.2249183605632727",
+      "raw_evidence": "Order2 has a broad smooth native bump and diffuse trace-centered raw enhancement. Order3 is extremely low signal with nonpositive side normalization and cannot independently corroborate a line. No definite charge streak.",
+      "raw_evidence_table": "../raw_followup_batch02/ADOPTED_DISPOSITIONS.csv",
+      "any_low_continuum_context": "False"
+    }
+  ],
+  "action": "Prepare one group-level broader spectral/native-order context comparison for both C001 records together. Verify existing saved inputs, all covering raw orders and exact wavelength/frame definitions; freeze the bounded comparison before opening a new wider array window. Preserve low/nonpositive native order3 continuum even though merged-spectrum inherited flags are false. Do not interpret fixed template widths as measured linewidths or assign origin from two correlated records.",
+  "handoff_path": "work_harps_20261102_spatial_0235/scientific_review/NEXT_STEP.md",
+  "new_diagnostic_frozen": false,
+  "new_diagnostic_executed": false,
+  "new_archive_requests_planned": 0,
+  "new_pixels_read": 0,
+  "reopen_V2E2_0235": false,
+  "no_further_0235_variants_in_this_continuation": true,
+  "standing_authorization": "Autonomous bounded continuation and public GitHub documentation authorized. Scientific freezes do not require another user permission request.",
+  "rubin_status": "STOPPED_LIMITED_FEASIBILITY_MINIMUM50_UNMET",
+  "no_background_execution": true,
+  "source_hashes": {
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/ACTION_QUEUE.csv": "d789d5ad03963cfe68c0e8d70d0e7e7c199599fb36a2ff2760426e8e69f7267b",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/EVENT_CONTEXT.csv": "2d8129e7963e2678035cf4b915c3c3503529b399d61fe6e8233484d0ee2321d7",
+    "work_harps_20261102_spatial_0235/scientific_review/NEXT_STEP.md": "004fa4c5c0f251ee21b0f46483c010533eb482c0acb575c3e41d7f9e4418d2d5"
+  }
+}

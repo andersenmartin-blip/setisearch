@@ -1,0 +1,136 @@
+{
+  "schema": "HARPS_SPATIAL0235_BACKGROUND_SENSITIVITY_PLAN_V1",
+  "status": "PROSPECTIVE_NOT_EXECUTED",
+  "created_utc": "2026-11-02T12:50:38.011529+00:00",
+  "scope": "Final bounded posthoc estimator-sensitivity check for V2E2-0235 using only already measured and saved native pixels. Exactly two backgrounds; no additional pixel footprint, geometry fit, selection, origin assignment or classification change.",
+  "estimators": [
+    "negative_side",
+    "positive_side"
+  ],
+  "background_contract": {
+    "true_crossdisp_coordinate": "d=round(saved_trace_column)+j-saved_trace_column; j=-12..12; no recentering",
+    "negative_side": "median of exactly three native pixels with -12<=d<=-9",
+    "positive_side": "median of exactly three native pixels with 9<=d<=12",
+    "both_side_medians": "Both original three-pixel side medians are computed from the full geometric outer masks as context regardless of selected estimator. Empty masks are rejected.",
+    "noise_context": "1.4826*MAD of chosen three side pixels, descriptive only; no error model or fit weighting."
+  },
+  "training": {
+    "relative_raw_flanks_half_open": [
+      [
+        -280,
+        -80
+      ],
+      [
+        81,
+        281
+      ]
+    ],
+    "held_out_control_centers": [
+      -255,
+      -205,
+      -155,
+      -105,
+      106,
+      156,
+      206,
+      256
+    ],
+    "withheld_interval_each_control": "center-10 through center+10 inclusive",
+    "fixed_rows": 232,
+    "per_flank": 116,
+    "minimum_valid_rows": 200,
+    "template_count_per_estimator": 1,
+    "template_name": "pooled",
+    "method": "Recompute signed background-subtracted profiles on true d grid -8..8 by same linear interpolation, normalize each by positive signed sum, coordinatewise median, then normalize signed median sum. Retain negative samples; no clipping or replacement. All232 dispositions retained."
+  },
+  "windows": {
+    "target_relative_raw_rows": [
+      -5,
+      5
+    ],
+    "control_centers": [
+      -255,
+      -205,
+      -155,
+      -105,
+      106,
+      156,
+      206,
+      256
+    ],
+    "rows_per_window": 11,
+    "window_count_per_estimator": 9,
+    "window_rows_native_unresampled": true,
+    "expected_window_records": 18,
+    "expected_row_records": 198,
+    "blocked_policy": "Keep all18 window slots and all198 row slots; blocked rows have explicit reasons. Preserve maps/raw and NaN model/residual arrays for blocked windows. No replacement or tuning."
+  },
+  "fit_contract": {
+    "fit_mask": "abs(d)<=8",
+    "on_trace": "abs(d)<=3",
+    "off_trace": "3<abs(d)<=8",
+    "amplitude": "One signed unweighted OLS amplitude; fixed background and template, no intercept, no centroid/width/trace refit. Evaluated template renormalized by signed sum separately perrow.",
+    "window_aggregation": "Original measure_spatial.py window_metrics copied unchanged except explicit estimator argument forwarding. Preserve L1, positive/negative/signed sums, centroids, zero-denominator flags and on/off per-pixel mean absolute residuals."
+  },
+  "selected_pixels_path": "work_harps_20261102_spatial_0235/analysis/results/SELECTED_NATIVE_PIXELS.npz",
+  "original_window_metrics_path": "work_harps_20261102_spatial_0235/analysis/results/WINDOW_METRICS.json",
+  "input_limits": {
+    "selected_raw_shape": [
+      331,
+      25
+    ],
+    "unique_saved_pixels": 8275,
+    "new_native_pixels": 0,
+    "raw_FITS_reads": 0,
+    "network_requests": 0
+  },
+  "outputs": [
+    "TRAINING_DISPOSITIONS.json",
+    "TEMPLATES.json",
+    "WINDOW_METRICS.json",
+    "WINDOW_METRICS.csv",
+    "ROW_METRICS.csv",
+    "ORIGINAL_POOLED_COMPARISON.json",
+    "EMPIRICAL_CONTEXT.json",
+    "SPATIAL_ARRAYS.npz",
+    "SUMMARY.json",
+    "OUTPUT_HASHES.json"
+  ],
+  "comparison": "All18 outcomes compare the same numeric aggregate metrics to the original pooled two-sided estimator for the identical window. Each estimator retains all8 coordinate-selected control outcomes and target/control context for every numeric residual/amplitude metric. Raw/model/residual, true-offset maps, fit/background masks and original row/stitched/chip maps are saved separately by estimator and window.",
+  "release": {
+    "schema": "HARPS_SPATIAL0235_BACKGROUND_SENSITIVITY_RELEASE_V1",
+    "require_execute_flag": true,
+    "no_execution_until_root_public_freeze": true,
+    "one_attempt_result_directory_immutable": true,
+    "required_bindings": [
+      "plan_sha256",
+      "script_sha256",
+      "freeze_path",
+      "freeze_sha256",
+      "publication_commit",
+      "publication_readback_verified",
+      "publication_receipt_path",
+      "publication_receipt_sha256"
+    ]
+  },
+  "source_hashes": {
+    "work_harps_20261102_spatial_0235/analysis/PLAN.json": "e50124773e52f4857ade054bde0b8afa47b916317e9009326bdfe45a27aea55d",
+    "work_harps_20261102_spatial_0235/analysis/measure_spatial.py": "17e1f666896fc504105689675611261bbe376ddb325e342ae21101cf33b1d12b",
+    "work_harps_20261102_spatial_0235/analysis/results/OUTPUT_HASHES.json": "672c107517bfe36f84a85e26c0ad329065ab771c577dedcee0e9e035e4eaa13c",
+    "work_harps_20261102_spatial_0235/analysis/results/SELECTED_NATIVE_PIXELS.npz": "ccbd63ed7bb47295abebaf0229c9d51808131c82ad7d4d1cee21dfc689c8e5b2",
+    "work_harps_20261102_spatial_0235/analysis/results/WINDOW_METRICS.json": "9d02e20a225c79aacfcd32b31b0539bb106e911068e3f9e33a883482e50cf30d",
+    "work_harps_20261102_spatial_0235/analysis/results/ROW_METRICS.csv": "903175b48ea4fda5fbd0b62aa1406d14da5f748cbefc80eab50e482b88220c02",
+    "work_harps_20261102_spatial_0235/analysis/results/SUMMARY.json": "a147f0c0808bf0fb23561b49ad0897b973317794700977068d3398114bf411fb",
+    "work_harps_20261102_spatial_0235/analysis/ROOT_RELEASE.json": "80f0aec445e36981cb65f41ed48b10b411a475a36b41215aa2c15b9d6e7434b2",
+    "work_harps_20261102_spatial_0235/PROSPECTIVE_PUBLICATION_RECEIPT.json": "4e2cdfece36d879ddf3dc8e4055730ef244d26438c43cf197eed9cbaffc55f03"
+  },
+  "runner_sha256": "e7dbec1598d75f851e49b7f03f956d787f7fc0b4a5fe470c88f6b7e6491a72b3",
+  "limitations": [
+    "Posthoc estimator sensitivity using the same observed pixels and same fixed controls; no independent observation.",
+    "Three-pixel background medians and MAD proxies are not calibrated noise models.",
+    "Positive-side background is geometrically closer to FP fiberB49, but outcomes do not identify FP contamination or any physical origin.",
+    "Eight local controls are dependent and not a significance distribution.",
+    "No model selection or preferred-background choice from these outcomes; both estimators and all failures are reported.",
+    "The original U label and all prior numerical outputs remain unchanged."
+  ]
+}
