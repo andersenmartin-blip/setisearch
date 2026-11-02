@@ -1,0 +1,39 @@
+{
+  "schema": "HARPS_BERV_HEADER_RESULTS_V1",
+  "status": "COMPLETE_WITH_STOP",
+  "completed_utc": "2026-11-02T10:38:51.664831+00:00",
+  "plan_sha256": "28d9ce9d78a288c72c6a4a6e0ebcb4b6c17108eeaecd4dbee6fdc53b81b40dac",
+  "root_release_sha256": "2910ad524fc64f025130ecc1429f6c284aa4ccb6ce2b85395b77bb1596cd9004",
+  "code_hashes": {
+    "header_tools.py": "bdc1a93fb40e52c40916c078d703f12fe58f794068d66a8dad4a160359186039",
+    "make_plan.py": "ffad1092ccc3e66cbc29273704c694b98267433af6f2264230ffc530ddbcb82e",
+    "fetch_headers.py": "e691dc8db758b33fe1618d2128a8d302455592eef3d8c345b6651e987572f830",
+    "select_extremes.py": "54326390c0cffc16176c36a2a31d78ae3039a9c1329827f9232a8b7e0904fa6d"
+  },
+  "requests_attempted": 1,
+  "response_bytes": 2639,
+  "stop_reason": "HEADER_FORMAT_FAILURE",
+  "results": [
+    {
+      "job_index": 0,
+      "target": "HD122640",
+      "dp_id": "ADP.2018-01-21T01:01:37.761",
+      "month_number": 1,
+      "body_path": "responses/ADP.2018-01-21T01_01_37.761.body",
+      "body_sha256": "1426e0f2f7c9a3f82635980c0b8f1f1ed747f466e2b0c3ab2d5281b6c0f82702",
+      "receipt_path": "receipts/ADP.2018-01-21T01_01_37.761.json",
+      "receipt_sha256": "e4a0826f5bc8a3274aedf0a1b5862f8fc52d16bcdf1a87cdd7c743ff7ba6bd20",
+      "status": "UNRECOGNIZED_HEADER_RESPONSE",
+      "reason": "Expected exactly one primary SIMPLE block"
+    },
+    {
+      "job_index": 1,
+      "target": "HD122640",
+      "dp_id": "ADP.2017-05-23T01:01:52.459",
+      "month_number": 5,
+      "status": "NOT_REQUESTED_BATCH_STOPPED",
+      "reason": "HEADER_FORMAT_FAILURE"
+    }
+  ],
+  "spectral_arrays_requested_or_read": false
+}

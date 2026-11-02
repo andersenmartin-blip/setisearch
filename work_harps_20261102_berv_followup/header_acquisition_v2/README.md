@@ -1,0 +1,5 @@
+This separate prospective amendment preserves literal colons in ESO's documented `/hdr?DpId=ADP...` URL, after strict ADP-ID validation. The failed original plan, code, response and results remain unchanged; its endpoint error echoed percent-encoded `%3A` literally. The official URL-only receipt is retained under docs/.
+
+Only URL construction in make_plan.py and URL validation in fetch_headers.py changed. Scientific parser and extreme-selection code are byte-identical to the published original. Exact two HD122640 January/May epochs, selection, criteria, BERV benchmarks and readiness gate remain unchanged. No HD135204 job is added.
+
+Each new job gets one attempt, 30 seconds, 512 KiB, no redirects/retries; first job remains canary. Including the original failure, the cumulative target-header bound is three requests and 1,051,215 response bytes. Original evidence and documentation are hash-bound plan inputs. No spectrum acquisition is authorized; separate exact ROOT_RELEASE is required before target requests.

@@ -1,0 +1,199 @@
+{
+  "schema": "HARPS_BERV_HEADER_PLAN_V1",
+  "created_utc": "2026-11-02T10:44:47.936746+00:00",
+  "status": "FROZEN_IDS_PENDING_ROOT_RELEASE",
+  "selection_rule": "For each target and calendar month NUMBER 1..12 across ALL years, latest eligible t_min; ties lexicographically smallest dp_id. No flux/BERV used. Missing months remain absent.",
+  "request_order": "HD122640 then HD135204, month number ascending; first job is canary.",
+  "scope": "Additional archival follow-up outside the original 300-spectrum survey; no prior result or threshold changes.",
+  "inputs": [
+    {
+      "path": "work_harps_20261102_berv_followup/metadata_search_v2/CANDIDATES.json",
+      "sha256": "262af1322378295779d9ee8832619ea9ce7f8929ed367a921f53e2ab6972d0ff"
+    },
+    {
+      "path": "work_harps_20261102_berv_followup/metadata_search_v2/TARGETS.json",
+      "sha256": "d5a39867b2d9edfb401da10e01ad1819b4c9d2272d55182048acf85fc216faee"
+    },
+    {
+      "path": "work_harps_20261102_berv_followup/metadata_search_v2/SUMMARY.json",
+      "sha256": "a4e4df09f057a35d2b3591180f7b22751f903f87b6d26754eb0e41c523c928e3"
+    },
+    {
+      "path": "work_harps_20261101/v2/extension02/next_followup_20261102/BERV_COVERAGE.csv",
+      "sha256": "e430e209f446d741fdfd91c7fea0256bc7ddffbc501db2207165a44dbb793a2d"
+    },
+    {
+      "path": "work_harps_20261102_berv_followup/header_acquisition/PLAN.json",
+      "sha256": "28d9ce9d78a288c72c6a4a6e0ebcb4b6c17108eeaecd4dbee6fdc53b81b40dac"
+    },
+    {
+      "path": "work_harps_20261102_berv_followup/header_acquisition/ROOT_RELEASE.json",
+      "sha256": "2910ad524fc64f025130ecc1429f6c284aa4ccb6ce2b85395b77bb1596cd9004"
+    },
+    {
+      "path": "work_harps_20261102_berv_followup/header_acquisition/HEADER_RESULTS.json",
+      "sha256": "4ac1d13eb49bc92a4db9abf24f809507a7d8a25af34a8ef428e587162b91cf34"
+    },
+    {
+      "path": "work_harps_20261102_berv_followup/header_acquisition/responses/ADP.2018-01-21T01_01_37.761.body",
+      "sha256": "1426e0f2f7c9a3f82635980c0b8f1f1ed747f466e2b0c3ab2d5281b6c0f82702"
+    },
+    {
+      "path": "work_harps_20261102_berv_followup/header_acquisition_v2/docs/URL_BUILDER_RECEIPT.json",
+      "sha256": "8b7d6c53159c3268dd381d75648cd80c5d1cc342184a526b31fed653674692b7"
+    },
+    {
+      "path": "work_harps_20261102_berv_followup/header_acquisition_v2/docs/URL_BUILDER_RESPONSE.txt",
+      "sha256": "b2f8d1835e1842c3841e2890e3a7e865f7e63c288aed08aad3af8f745b38135c"
+    }
+  ],
+  "code_hashes": {
+    "header_tools.py": "bdc1a93fb40e52c40916c078d703f12fe58f794068d66a8dad4a160359186039",
+    "make_plan.py": "97320824dce8ee5ab5fb67ef70129e51000eebc82c2166d1ed52981f6af51d89",
+    "fetch_headers.py": "a3e76364492f9edf29f190fceb836d20b32a93d3003e4be1622bcaab5d15480b",
+    "select_extremes.py": "54326390c0cffc16176c36a2a31d78ae3039a9c1329827f9232a8b7e0904fa6d"
+  },
+  "jobs": [
+    {
+      "job_index": 0,
+      "target": "HD122640",
+      "month_number": 1,
+      "dp_id": "ADP.2018-01-21T01:01:37.761",
+      "source_file_ids": [
+        "HARPS.2018-01-20T08:50:34.271"
+      ],
+      "metadata": {
+        "dp_id": "ADP.2018-01-21T01:01:37.761",
+        "obs_publisher_did": "ivo://eso.org/ID?ADP.2018-01-21T01:01:37.761",
+        "obs_id": "29",
+        "target_name": "HD122640",
+        "s_ra": 210.904531,
+        "s_dec": -27.01044,
+        "instrument_name": "HARPS",
+        "obs_collection": "HARPS",
+        "dataproduct_type": "spectrum",
+        "t_min": 58138.36845221,
+        "t_max": 58138.37886886,
+        "t_exptime": 899.998,
+        "em_min": 3.7822300000000004e-07,
+        "em_max": 6.913500000000001e-07,
+        "em_res_power": 115000.0,
+        "snr": 77.1,
+        "proposal_id": "0100.C-0836(A)",
+        "n_obs": 1,
+        "multi_ob": "S",
+        "obs_release_date": "2019-01-20T09:11:05.307Z",
+        "access_url": "https://archive.eso.org/datalink/links?ID=ivo://eso.org/ID?ADP.2018-01-21T01:01:37.761",
+        "access_estsize": 5264,
+        "archive_id": "ADP.2018-01-21T01:01:37.761",
+        "eso_category": "SCIENCE.SPECTRUM",
+        "source_file": "HARPS.2018-01-20T08:50:34.271"
+      },
+      "url": "https://archive.eso.org/hdr?DpId=ADP.2018-01-21T01:01:37.761"
+    },
+    {
+      "job_index": 1,
+      "target": "HD122640",
+      "month_number": 5,
+      "dp_id": "ADP.2017-05-23T01:01:52.459",
+      "source_file_ids": [
+        "HARPS.2017-05-22T05:20:05.415"
+      ],
+      "metadata": {
+        "dp_id": "ADP.2017-05-23T01:01:52.459",
+        "obs_publisher_did": "ivo://eso.org/ID?ADP.2017-05-23T01:01:52.459",
+        "obs_id": "10",
+        "target_name": "HD 122640",
+        "s_ra": 210.90368,
+        "s_dec": -27.01161,
+        "instrument_name": "HARPS",
+        "obs_collection": "HARPS",
+        "dataproduct_type": "spectrum",
+        "t_min": 57895.2222849,
+        "t_max": 57895.23617377,
+        "t_exptime": 1199.998,
+        "em_min": 3.78168e-07,
+        "em_max": 6.91256e-07,
+        "em_res_power": 115000.0,
+        "snr": 16.6,
+        "proposal_id": "099.C-0798(A)",
+        "n_obs": 1,
+        "multi_ob": "S",
+        "obs_release_date": "2018-05-22T05:46:05.217Z",
+        "access_url": "https://archive.eso.org/datalink/links?ID=ivo://eso.org/ID?ADP.2017-05-23T01:01:52.459",
+        "access_estsize": 5264,
+        "archive_id": "ADP.2017-05-23T01:01:52.459",
+        "eso_category": "SCIENCE.SPECTRUM",
+        "source_file": "HARPS.2017-05-22T05:20:05.415"
+      },
+      "url": "https://archive.eso.org/hdr?DpId=ADP.2017-05-23T01:01:52.459"
+    }
+  ],
+  "limits": {
+    "max_jobs": 24,
+    "max_jobs_per_target": 12,
+    "timeout_seconds": 30,
+    "max_response_bytes": 524288,
+    "max_total_response_bytes": 12582912,
+    "attempts_per_job": 1,
+    "retries": 0,
+    "redirects": 0
+  },
+  "canary_rule": "Unexpected format or any validation failure on first job stops all remaining jobs. Any later format failure also stops remaining jobs; ordinary identity/BERV failures are retained as exclusions.",
+  "cap_rule": "Never read beyond the byte cap. A response reaching the cap is incomplete even if its true length might equal the cap; no overflow probe and no spectrum fallback.",
+  "identity_tolerances": {
+    "mjd_days": 1e-07,
+    "date_mjd_seconds": 0.02,
+    "exposure_seconds": 0.02,
+    "position_vs_metadata_arcsec": 1
+  },
+  "spectral_arrays_allowed": false,
+  "primary_only_parser": true,
+  "mode_eligibility": "SPEC_RES=115000 required; HEFS ST=true excluded as EGGS; HEFS ST=false supports high-resolution mode regardless of INS MODE string. Missing/nonboolean HEFS remains pending and is excluded from automatic extrema selection.",
+  "berv_sanity_gate_km_s": 100,
+  "existing_berv_benchmark": {
+    "HD122640": {
+      "scope": "all_existing300",
+      "existing_exposures": 14,
+      "minimum_berv_km_s": 25.1998223987202,
+      "maximum_berv_km_s": 27.4377322691831,
+      "span_km_s": 2.2379098704629
+    },
+    "HD135204": {
+      "scope": "all_existing300",
+      "existing_exposures": 15,
+      "minimum_berv_km_s": 26.7761413345086,
+      "maximum_berv_km_s": 28.4902624545296,
+      "span_km_s": 1.714121120020998
+    }
+  },
+  "extreme_selection_rule": "HD122640 then HD135204; minimum then maximum verified BERV among PASS_RECORDED_BERV headers; each equal-BERV tie lexicographically smallest dp_id; identical selected dp_id deduplicated. Propose payloads only for targets whose combined existing+passing-new span exceeds c/R. No outcome-driven sample expansion.",
+  "payload_readiness_gate": {
+    "comparison": "strictly greater than",
+    "combined_span_km_s_threshold": 2.6068909391304347,
+    "meaning": "Descriptive planning displacement only, not statistical power, origin classification, or adequacy."
+  },
+  "span_diagnostics": "Report existing, new, and combined BERV span, combined span increase, and span/(299792.458/115000). These are descriptive displacement scales, not origin or adequacy claims.",
+  "representation_compatibility": "Must still verify full payload headers before any array access; header BERV selection alone is not spectrum compatibility.",
+  "required_release": {
+    "filename": "ROOT_RELEASE.json",
+    "approved": true,
+    "plan_sha256": "exact SHA256 of PLAN.json",
+    "code_hashes": "exact match to plan code_hashes"
+  },
+  "technical_amendment": {
+    "version": 2,
+    "reason": "ESO header endpoint echoed percent-encoded colons as invalid dp_id; preserve literal colons exactly as official URL-only contract.",
+    "original_failed_plan_sha256": "28d9ce9d78a288c72c6a4a6e0ebcb4b6c17108eeaecd4dbee6fdc53b81b40dac",
+    "original_failure_body_sha256": "1426e0f2f7c9a3f82635980c0b8f1f1ed747f466e2b0c3ab2d5281b6c0f82702",
+    "same_ids_parser_selection_criteria_and_gate": true,
+    "prior_target_header_requests": 1,
+    "new_max_target_header_requests": 2,
+    "cumulative_max_target_header_requests": 3,
+    "prior_response_bytes": 2639,
+    "new_effective_response_byte_ceiling": 1048576,
+    "cumulative_response_byte_ceiling": 1051215,
+    "no_retry_of_original_run": true,
+    "no_actual_v2_header_requests_before_release": true
+  }
+}

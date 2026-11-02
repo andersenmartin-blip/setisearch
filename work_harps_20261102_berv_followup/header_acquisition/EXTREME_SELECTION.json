@@ -1,0 +1,62 @@
+{
+  "schema": "HARPS_BERV_EXTREME_SELECTION_V1",
+  "status": "PROPOSED_PENDING_SEPARATE_PAYLOAD_RELEASE",
+  "selection_rule": "HD122640 then HD135204; minimum then maximum verified BERV among PASS_RECORDED_BERV headers; each equal-BERV tie lexicographically smallest dp_id; identical selected dp_id deduplicated. Propose payloads only for targets whose combined existing+passing-new span exceeds c/R. No outcome-driven sample expansion.",
+  "payload_readiness_gate": {
+    "comparison": "strictly greater than",
+    "combined_span_km_s_threshold": 2.6068909391304347,
+    "meaning": "Descriptive planning displacement only, not statistical power, origin classification, or adequacy."
+  },
+  "header_results_sha256": "4ac1d13eb49bc92a4db9abf24f809507a7d8a25af34a8ef428e587162b91cf34",
+  "header_plan_sha256": "28d9ce9d78a288c72c6a4a6e0ebcb4b6c17108eeaecd4dbee6fdc53b81b40dac",
+  "header_batch_status": "COMPLETE_WITH_STOP",
+  "all_planned_jobs_attempted": false,
+  "header_sampling_is_partial": true,
+  "selected": [],
+  "target_summary": {
+    "HD122640": {
+      "verified_headers": 0,
+      "candidate_extreme_epochs": 0,
+      "candidate_extreme_dp_ids": [],
+      "recorded_berv_span_km_s": null,
+      "existing_berv_benchmark": {
+        "scope": "all_existing300",
+        "existing_exposures": 14,
+        "minimum_berv_km_s": 25.1998223987202,
+        "maximum_berv_km_s": 27.4377322691831,
+        "span_km_s": 2.2379098704629
+      },
+      "combined_span_km_s": 2.2379098704629,
+      "combined_span_increase_km_s": 0,
+      "extends_existing_range": false,
+      "new_span_resolution_elements_R115000": null,
+      "combined_span_resolution_elements_R115000": 0.8584593382373666,
+      "payload_readiness_gate_passed": false,
+      "selected_epochs": 0,
+      "no_origin_or_completeness_claim": true
+    },
+    "HD135204": {
+      "verified_headers": 0,
+      "candidate_extreme_epochs": 0,
+      "candidate_extreme_dp_ids": [],
+      "recorded_berv_span_km_s": null,
+      "existing_berv_benchmark": {
+        "scope": "all_existing300",
+        "existing_exposures": 15,
+        "minimum_berv_km_s": 26.7761413345086,
+        "maximum_berv_km_s": 28.4902624545296,
+        "span_km_s": 1.714121120020998
+      },
+      "combined_span_km_s": 1.714121120020998,
+      "combined_span_increase_km_s": 0,
+      "extends_existing_range": false,
+      "new_span_resolution_elements_R115000": null,
+      "combined_span_resolution_elements_R115000": 0.6575346495288243,
+      "payload_readiness_gate_passed": false,
+      "selected_epochs": 0,
+      "no_origin_or_completeness_claim": true
+    }
+  },
+  "spectral_payload_acquisition_authorized": false,
+  "representation_compatibility": "Provisional until independent payload header checks before arrays; pipeline/version changes must be flagged."
+}
