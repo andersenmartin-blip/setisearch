@@ -1,0 +1,53 @@
+{
+  "schema": "HARPS_C007_FINAL_SCIENTIFIC_METHOD_REVIEW_V1",
+  "status": "PASS_SOURCE_ONLY_BEFORE_ARRAY_RELEASE",
+  "reviewed_utc": "2026-11-02T17:54:17.237878+00:00",
+  "plan_sha256": "6047736562d39b0ec3700af24136eeb30faad74f1edbf3070a863b5c0b6bbcbb",
+  "script_sha256": "af9ceeb8d3a6f79f64a17f7f9e144f5b0a5dcaa67b7a01ded6213c4ed47ef7f1",
+  "plot_script_sha256": "d6604c02c0efbf2427fea3ac250c34045092af31b3da045b930c7265d642bcd0",
+  "inventory_sha256": "b986603788b89f6cedef36ca9167feef9c46a87287ace28009bc2655e2dea7cd",
+  "bound_source_hashes_verified": 39,
+  "failed_source_hashes": [],
+  "scope_checks": [
+    "Singleton C007 / V2E2-0026 / R008, all seven existing target epochs and exactly one fixed discovery reference. No extra reference or acquisition.",
+    "Fixed catalog center 4312.700 \u00c5, original core \u00b10.25 \u00c5, 51 core/550 surrounding grid centers and support minima 41/440. No fitted widths or recentering.",
+    "One unique discovery/order 19 context and one historical raw panel, zero structural exclusions, 16 profiles, 32 comparison records and four explicitly flagged identical-product self rows.",
+    "Signed-flux interpolation, gap masking, two-sided pooled positive reference, finite-support gates, raw Pearson and normalized RMS are inherited without numerical changes. Eleven C006 functions are AST-identical, including profile, comparison and header checks.",
+    "Fresh all-72-order header scan confirms the sole original-center covering order 19; both frame windows have coordinate coverage. Finite flux and normalization remain runtime checks, with all failed/raw-only outcomes retained.",
+    "0026 original local_mapping_usable=false and baseline_mapping_verified=false are preserved alongside true global and later five-window support. Native/merged agreement or fresh coverage cannot retroactively validate raw mapping.",
+    "One fixed topocentric anchor cannot follow barycentric-coherent features. Metadata places the expected center outside the \u00b10.25 \u00c5 core in five epochs; comparisons describe the fixed anchor window and possibly neighboring structure.",
+    "C007 core was already interpreted within C006 positive reference flank; C007 negative flank contains the complete original C006 joint core. Known structured neighbors stay unmasked. No untouched, blind or independent-value claim.",
+    "All four plots preserve signed/scaled profiles, the event marker and seven-epoch identities, full finite data ranges, same-frame comparison limits and the historical raw/excess pair. Native scales have unspecified units.",
+    "No free width, shift, stellar RV, continuum, background or drift; no origin threshold, original pipeline replay or label change. Missing ERR and descriptive proxies cannot provide calibrated significance."
+  ],
+  "unchanged_C006_functions_by_AST": [
+    "sha",
+    "read",
+    "dump",
+    "location",
+    "value",
+    "normalized_name",
+    "inspect_headers",
+    "sampling_parameters",
+    "profile",
+    "comparison",
+    "write_csv"
+  ],
+  "changed_C006_functions_by_AST": [
+    "validate",
+    "main"
+  ],
+  "implementation_delta_summary": "Reviewed deltas are singleton identities and counts, center/core constants, scope-validation messages and output summary. Numerical functions and header interpretation are unchanged. Plots adapt to one native/raw row and singleton labels, preserving axes/scales.",
+  "scientific_caveats_reference": "scientific_review/PRE_ARRAY_SCIENTIFIC_REVIEW.json",
+  "scientific_caveats_sha256": "cc5dc0bde703ae78526ddfdaf4ca9d5b365ff3949f2e4d52ab2206afc528f22f",
+  "future_queue_metadata_reference": "scientific_review/NEXT_GROUP_METADATA.json",
+  "future_queue_metadata_sha256": "fd63a5c2125ee95c847064fc62b733ec48b32c7af3acdeb9a49813d3313f3a01",
+  "production_module_imported": false,
+  "production_executed": false,
+  "observational_array_values_read_for_new_phase": false,
+  "source_hashing_only_may_read_file_bytes": true,
+  "network_requests": 0,
+  "release_present_at_review": false,
+  "results_present_at_review": false,
+  "labels_modified": false
+}

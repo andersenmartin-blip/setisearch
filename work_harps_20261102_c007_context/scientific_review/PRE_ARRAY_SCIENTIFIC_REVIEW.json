@@ -1,0 +1,177 @@
+{
+  "schema": "HARPS_C007_PROSPECTIVE_SCIENTIFIC_REVIEW_V1",
+  "status": "PASS_FIXED_DESCRIPTIVE_PROTOCOL_EXACT_IMPLEMENTATION_REVIEW_TO_FOLLOW",
+  "reviewed_utc": "2026-11-02T17:52:29.281813+00:00",
+  "observational_array_values_read_for_new_phase": false,
+  "network_requests": 0,
+  "historical_files_modified": false,
+  "group": "C007",
+  "resolution_groups": [
+    "R008"
+  ],
+  "target": "HD106515A",
+  "events": {
+    "V2E2-0026": "ADP.2022-01-06T01:08:04.689"
+  },
+  "purpose": "One individual-profile context for V2E2-0026 across all seven existing target epochs and the one fixed discovery reference, in two fixed frames. No new detection search or origin classifier. Its central flux was already seen in the completed C006 wider window.",
+  "fixed_geometry": {
+    "center_bary_air_angstrom": 4312.7,
+    "core_halfwidth_angstrom": 0.25,
+    "core_basis": "Original catalog center and \u00b10.25 \u00c5 context, not a fitted linewidth.",
+    "grid": "601 centers from \u22123 to +3 \u00c5 by 0.01 \u00c5; 51 core centers from \u22120.25 to +0.25 and 550 surrounding centers.",
+    "common_support_core_minimum": 41,
+    "common_support_surrounding_minimum": 440,
+    "anchor_berv_km_s": 30.1380355615464,
+    "fixed_topocentric_anchor_air_angstrom": 4312.266489291718
+  },
+  "scope_counts": {
+    "merged_epochs": 7,
+    "catalog_records": 1,
+    "distinct_discovery_references": 1,
+    "measured_native_order_exposure_combinations": 1,
+    "structural_exclusions": 0,
+    "preserved_event_raw_panels": 1,
+    "merged_profiles": 14,
+    "native_profiles": 2,
+    "all_profiles": 16,
+    "merged_comparison_records": 28,
+    "native_comparison_records": 4,
+    "all_comparison_records": 32,
+    "identical_product_self_records": 4
+  },
+  "header_only_coverage_checks": [
+    {
+      "dp_id": "ADP.2022-01-06T01:08:04.689",
+      "events": [
+        "V2E2-0026"
+      ],
+      "order": 19,
+      "header_endpoint_topocentric_air_angstrom": [
+        4285.09765984656,
+        4333.250317231099
+      ],
+      "barycentric_frame_window_inside_header_endpoints": true,
+      "topocentric_frame_window_inside_header_endpoints": true
+    }
+  ],
+  "coverage_interpretation": "Fresh all-72-order native header scan identifies only order 19 covering the original center. Its two \u00b13 \u00c5 frame windows lie inside header endpoints; this is coordinate support, not a finite-flux, quality, normalization or detector-mapping guarantee. Retain all runtime support outcomes.",
+  "reference_dependence": "One discovery product reused in several prior contexts; all seven exposures are the same original target cohort, not independent observing time or new archive acquisition. A high same-exposure native/merged correlation is extraction agreement, not independent confirmation.",
+  "prior_window_dependence": {
+    "C007_window_bary_air_angstrom": [
+      4309.7,
+      4315.7
+    ],
+    "C006_window_bary_air_angstrom": [
+      4307.455,
+      4313.455
+    ],
+    "window_intersection_bary_air_angstrom": [
+      4309.7,
+      4313.455
+    ],
+    "continuous_overlap_width_angstrom": 3.755,
+    "C007_core_inside_C006_positive_flank": true,
+    "C006_original_joint_core_inside_C007_negative_flank": true,
+    "C006_catalog_centers_bary_air_angstrom": [
+      4310.585,
+      4310.305,
+      4310.605
+    ],
+    "C006_catalog_offsets_from_C007_angstrom": [
+      -2.115,
+      -2.395,
+      -2.095
+    ],
+    "interpretation": "C007 core is already visible in C006 positive reference flank. Reciprocally all three C006 catalog centers and their complete original core union lie within C007 negative reference flank. Retain known structured neighbors without masking, alternate flanks or claims of untouched/independent data."
+  },
+  "frame_caveat": "The first-discovery topocentric anchor is fixed. A barycentrically coherent center leaves the fixed \u00b10.25 \u00c5 topocentric core in five of seven epochs; those comparisons concern the fixed window and potentially neighboring structure, not a recentered feature. Metadata offsets are not fitted peak positions.",
+  "metadata_expected_feature_locations": [
+    {
+      "dp_id": "ADP.2022-01-06T01:08:04.689",
+      "date_obs": "2022-01-05T07:04:47.115",
+      "berv_km_s": 30.1380355615464,
+      "expected_center_topocentric_air_angstrom": 4312.266489291718,
+      "expected_center_offset_from_fixed_anchor_angstrom": 0.0,
+      "expected_center_inside_fixed_core": true
+    },
+    {
+      "dp_id": "ADP.2022-03-08T01:01:37.342",
+      "date_obs": "2022-03-07T04:52:12.631",
+      "berv_km_s": 10.77158288517,
+      "expected_center_topocentric_air_angstrom": 4312.545049682842,
+      "expected_center_offset_from_fixed_anchor_angstrom": 0.27856039112339204,
+      "expected_center_inside_fixed_core": false
+    },
+    {
+      "dp_id": "ADP.2022-05-08T01:01:37.876",
+      "date_obs": "2022-05-07T05:12:25.401",
+      "berv_km_s": -18.8907517532076,
+      "expected_center_topocentric_air_angstrom": 4312.971772277436,
+      "expected_center_offset_from_fixed_anchor_angstrom": 0.7052829857175311,
+      "expected_center_inside_fixed_core": false
+    },
+    {
+      "dp_id": "ADP.2023-01-01T01:10:52.479",
+      "date_obs": "2022-12-31T07:26:25.382",
+      "berv_km_s": 30.3750612537025,
+      "expected_center_topocentric_air_angstrom": 4312.263080218637,
+      "expected_center_offset_from_fixed_anchor_angstrom": -0.0034090730814568815,
+      "expected_center_inside_fixed_core": true
+    },
+    {
+      "dp_id": "ADP.2023-03-23T01:02:04.831",
+      "date_obs": "2023-03-22T04:52:14.904",
+      "berv_km_s": 3.26509772194068,
+      "expected_center_topocentric_air_angstrom": 4312.653030060603,
+      "expected_center_offset_from_fixed_anchor_angstrom": 0.3865407688845153,
+      "expected_center_inside_fixed_core": false
+    },
+    {
+      "dp_id": "ADP.2023-05-25T01:01:39.293",
+      "date_obs": "2023-05-24T03:32:27.955",
+      "berv_km_s": -24.4076064506785,
+      "expected_center_topocentric_air_angstrom": 4313.051147109245,
+      "expected_center_offset_from_fixed_anchor_angstrom": 0.7846578175267496,
+      "expected_center_inside_fixed_core": false
+    },
+    {
+      "dp_id": "ADP.2023-07-05T01:02:00.053",
+      "date_obs": "2023-07-03T23:55:27.533",
+      "berv_km_s": -29.2347518620376,
+      "expected_center_topocentric_air_angstrom": 4313.120601009654,
+      "expected_center_offset_from_fixed_anchor_angstrom": 0.8541117179356661,
+      "expected_center_inside_fixed_core": false
+    }
+  ],
+  "normalization": "Signed native-sample pooled median over 1.5 \u2264 |offset| \u2264 3 \u00c5 with at least 20 finite samples separately in both flanks and a positive pooled reference. Keep invalid/raw-only outcomes and reasons; no clipping, sign flip, moved window, extrapolation or fitted baseline. Structured flanks are reference levels, not demonstrated line-free continua.",
+  "statistics": "Raw unshifted Pearson and normalized RMS keep fixed support gates. No lag, width, RV, origin threshold, calibrated false-alarm probability or sensitivity is introduced. Positive scalar normalization leaves Pearson invariant. Missing ERR and a first-difference noise proxy are not formal uncertainties.",
+  "historical_mapping_caveats": [
+    {
+      "event": "V2E2-0026",
+      "original_grid_mapping_usable": true,
+      "original_local_mapping_usable": false,
+      "original_baseline_mapping_verified": false,
+      "final_reference_mapping_supported": true,
+      "registration_changed": false
+    }
+  ],
+  "raw_and_native_limits": [
+    "0026 initial local_mapping_usable and baseline_mapping_verified remain false, alongside true global and later five-window support. Fresh coordinate coverage or spectral extraction agreement cannot retroactively validate detector mapping.",
+    "Preserve the single historical raw/excess panel and its inherited background. No new raw registration, subtraction or detector-origin classifier.",
+    "Native BUNIT is absent; native units remain unspecified. Merged ADU are uncalibrated. Native/merged heights are not physical flux ratios.",
+    "The C007 queue choice was fixed before C006 results, but C007 central flux was subsequently seen in C006. Do not claim blind interpretation, independent pixels or extra observing time.",
+    "The catalog fixed-template FWHM is not a measured physical linewidth. The U label remains unchanged; descriptive morphology alone does not establish a laser candidate, origin or calibrated null."
+  ],
+  "next_group_fixed_before_results": "NEXT_GROUP_METADATA.json fixes C004 / 0028,0045,0052 at original queue rows 8,15,20 and 3872.245 \u00c5. Its entire original core was already visible inside completed C003 positive reference flank; retain that separate prior-window dependence.",
+  "source_sha256": {
+    "work_harps_20261102_c007_context/inputs/INPUT_INVENTORY.json": "b986603788b89f6cedef36ca9167feef9c46a87287ace28009bc2655e2dea7cd",
+    "work_harps_20261102_c006_context/NEXT_ACTION.json": "992610326e94d4233a5db9d0572038650e4b3aed92b9e21682eff788a7a57793",
+    "work_harps_20261102_c006_context/scientific_review/NEXT_STEP.md": "fedd4bbec3cf495d0bd6ef8d88f842b688794d557ed27371b6257406f8749ca9",
+    "work_harps_20261102_c006_context/analysis/PLAN.json": "fbb1334412e103c9991fac9681a71a5d0c6cf5f5acdab08dbf17825567fa0039",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/ACTION_QUEUE.csv": "d789d5ad03963cfe68c0e8d70d0e7e7c199599fb36a2ff2760426e8e69f7267b",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/EVENT_CONTEXT.csv": "2d8129e7963e2678035cf4b915c3c3503529b399d61fe6e8233484d0ee2321d7",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/CORE_OVERLAP_GROUPS.csv": "39cbcc225161abfb8a986fec91583dd3591806d589c7154171fb80d026b305ab",
+    "work_harps_20261101/v2/extension02/epoch_followup/ALL_EPOCH_MEASUREMENTS.csv": "de5b7175959ce7d25aec435d68def4b4e5d471292fd9de19c62ed17567b3f649",
+    "work_harps_20261101/v2/CURRENT_V2_DISPOSITIONS.csv": "f2bbb73b08ae7dc60b9387495a05d1d6e98ece7571eff9a979ae0b1af139a279"
+  }
+}
