@@ -1,0 +1,42 @@
+{
+  "status": "COMPLETE_FIXED_GROUP_CONTEXT",
+  "completed_utc": "2026-11-02T14:54:08.482665+00:00",
+  "group": "C003",
+  "target": "HD106515A",
+  "events": [
+    "V2E2-0022",
+    "V2E2-0027",
+    "V2E2-0044",
+    "V2E2-0051",
+    "V2E2-0053"
+  ],
+  "merged_epochs": 7,
+  "native_discovery_orders": 8,
+  "structurally_excluded_native_orders": 2,
+  "profile_slots": 30,
+  "comparison_slots": 172,
+  "identical_product_self_comparisons": 20,
+  "raw_only_normalization_slots": 6,
+  "blocked_source_profile_slots": 0,
+  "preserved_raw_context_panels": 8,
+  "group_center_bary_air_angstrom": 3869.75125,
+  "topocentric_anchor_air_angstrom": 3869.3622643053627,
+  "anchor_berv_km_s": 30.1380355615464,
+  "old_epoch_pipeline_rerun": false,
+  "labels_changed": 0,
+  "origin_assignments": 0,
+  "release_sha256": "ac5ac3bad24ba795d16cdab35aedcf476c3f963a9e793fddeb89de59443d2b57",
+  "plan_sha256": "9aca980ede2261e4ca570740209c96e8c92e364f39fc56e55722d18de8cba47b",
+  "script_sha256": "b9cb8938d291ec1c63ff153b2c6693532473398f3f5d2450e948b10ddc58fb2d",
+  "limitations": [
+    "Post-detection joint context of five correlated records and seven original-cohort epochs, not independent detections or archive-wide completeness. All five U labels unchanged.",
+    "Recorded cohort BERV span 59.6098131157401 km/s (22.8662473834 nominal resolution elements) describes coordinate separation; it is not calibrated origin discrimination or survey sensitivity.",
+    "The single first-discovery topocentric anchor is intentionally fixed. At large BERV differences later feature centers move outside its \u00b1.25625 \u00c5 core. Their topocentric-core comparisons describe the fixed coordinate window, possibly neighboring structure; never recenter or choose a favorable reference.",
+    "Fixed flanks contain spectral structure; their median is a reference level, not established quiet continuum. No fitted background, width, center, lag, stellar RV or drift correction.",
+    "Header geometry gives no positive normalization-flank coverage for the three selected order2 contexts; retain raw-only signed profiles and explicit missing-right-coverage. No missing-coverage inference should be relabeled as nonpositive continuum.",
+    "Order2 is structurally noncovering at the original feature center for0051/0053 and unmeasured. Eight historical covering-order pairs/raw panels remain; no fallback mapping or partial-order substitution.",
+    "Native BUNIT absent; native extracted flux units unspecified. Merged ADU and native/order extraction scales differ. Normalized RMS describes shape, not physical flux ratios or independent confirmation.",
+    "Missing positive ERR and descriptive first-difference noise proxy do not provide formal SNR, calibrated significance, false-alarm rate, physical flux or completeness.",
+    "All historical epoch metrics, native extraction, mapping dispositions and raw panels remain unchanged inputs. No original pipeline rerun or labels changed."
+  ]
+}

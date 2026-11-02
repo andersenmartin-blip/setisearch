@@ -110,6 +110,8 @@ Opgør særskilt: forespurgte objekter, objekter med Rubin-data, vurderbare forl
 
 Hvis en del af hændelserne ikke kan færdigvurderes, markeres analysen som delvis. Ingen tidsperiode, målgruppe eller tærskel udvides efterfølgende alene for at finde et interessant resultat.
 
+**2. november — C003 afsluttet:** [Den fælles HD106515A-analyse](work_harps_20261102_c003_context/README.md) omfatter7eksisterende epoker,30profiler og172sammenligningsudfald. Kernen og omgivelserne har høj barycentrisk formoverensstemmelse; alle fem poster forbliverU. Otte dækkende ordensammenhænge, seks profiler uden normalisering og to strukturelt manglende orden2-kontekster er registreret særskilt. Uafhængig kontrol består med117.053skalarsammenligninger. Næste faste gruppe erC005ved3882,04Å. Ingen ny arkivhentning eller Rubin-forespørgsel.
+
 # Leverancer og opfølgning
 
 Hver uge leverer:

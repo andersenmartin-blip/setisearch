@@ -1,6 +1,6 @@
 # Gendannelse og fortsættelse af HARPS-arbejdet
 
-Start i [CONTINUE_SETI.md](../../CONTINUE_SETI.md) og [aktuel maskinlæsbar tilstand](../../work_harps_20261102_c001_context/CONTINUATION_STATE.json). Hent seneste GitHub og sammenlign kildehashes. Branch: `optical-harps-week-20261101`; fortsættelsespunktet spejles på `main`.
+Start i [CONTINUE_SETI.md](../../CONTINUE_SETI.md) og [aktuel maskinlæsbar tilstand](../../work_harps_20261102_c003_context/CONTINUATION_STATE.json). Hent seneste GitHub og sammenlign kildehashes. Branch: `optical-harps-week-20261101`; fortsættelsespunktet spejles på `main`.
 
 Alle 669 V2-poster har første råbilledgennemgang: **403 A / 46 O / 185 U / 35 M / 0 N**. Ældre 333: uændret 209 A / 25 O / 95 U / 4 M. Nye 336: 194 A / 21 O / 90 U / 31 M. Batch05 ændrer kun V2E2-0332 og V2E2-0333 fra N til foreløbig A; øvrige 667 poster bevares. Gennemgang er ikke sikker ophavsbestemmelse.
 
@@ -14,11 +14,17 @@ Hovedprøven er fortsat 300 eksponeringer af 20 stjerner, 70.874650833 timer. V1
 
 Rubin er fremrykket til 2.–8. november. [Første hovedanalyse](../../work_rubin_20261102/main_analysis/README.md) er afsluttet med 188 udvalgte objekter, men kun 2 numerisk vurderbare i hovedsporet og separat 3 i forced-sporet. Minimum 50 er ikke opfyldt. Ingen tærskelpasserende måling og intet kvalificeret nulresultat. Den efterfølgende metadata/Gaia-udvidelse er også gennemført helt til analyse. Samlet Rubin-status er 190 udvalgte objekter, 2 numerisk vurderbare i hovedsporet og separat 4 i forced-sporet. Brug det fælles fortsættelsespunkt til næste afgrænsede datamulighed.
 
+## Afsluttet C003-kontekst på HD106515A
+
+[C003-resultatet](../../work_harps_20261102_c003_context/README.md) bevarer30profiler,172sammenligningsudfald og alle femU-statusser. De15præcise kildevinduer,30profiler og8råpaneler ligger direkte i repository; to ikke-dækkende orden2-kontekster er særskilt metadata. [Gendannelsesvejledningen](../../work_harps_20261102_c003_context/preservation/README.md) beskriver fuld gendannelse af25inputs fra tre eksisterende arkiver og separat reproduktion. Ingen ny ESO-hentning kræves.
+
+Det aktuelle næste trin er [C005 nær3882,04Å](../../work_harps_20261102_c003_context/NEXT_ACTION.json), valgt fra oprindelig kø-række4. Ældre næste-trin-formuleringer nedenfor er historiske.
+
 ## Afsluttet C001-kontekst på HD103991
 
 [Den fælles analyse](../../work_harps_20261102_c001_context/README.md) har20 profiludfald og64 sammenligningsudfald fra seks allerede arkiverede spektre og begge discovery-ordenpar. Begge poster forbliverU; orden3's manglende referenceflank holdes eksplicit adskilt fra lave fluxværdier. De ti præcise kildevinduer før interpolation, tyve profiler og fire råpaneler ligger direkte i repository. [Gendannelsesvejledningen](../../work_harps_20261102_c001_context/preservation/README.md) dokumenterer også fuld gendannelse af14 inputs fra tre eksisterende arkiver, uden ny ESO-hentning. Bevar afsluttede udfald og engangsguards; reproduktion sker i en separat kopi.
 
-Det aktuelle næste trin er [C003-gruppen på HD106515A](../../work_harps_20261102_c001_context/NEXT_ACTION.json). Ældre næste-trin-formuleringer nedenfor er historiske.
+Det daværende næste trin var [C003-gruppen på HD106515A](../../work_harps_20261102_c001_context/NEXT_ACTION.json). Ældre næste-trin-formuleringer nedenfor er historiske.
 
 ## Afsluttet rumlig diagnose af V2E2-0235
 

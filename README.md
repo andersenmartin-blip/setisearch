@@ -1,3 +1,15 @@
+## Aktuel SETI-status — HD106515 A ved 3869,75 Å analyseret (2. november 2026)
+
+**Fem poster er nu undersøgt samlet i syv eksisterende arkivepoker med næsten 60 km/s BERV-spænd.** Både kernen og det omgivende spektralmønster stemmer tæt overens i barycentrisk ramme. Alle 30 profiler og172 sammenligningsudfald er bevaret; uafhængig efterregning består med 807 kontroller og117.053 skalarsammenligninger.
+
+Orden3 dækker hele vinduet i alle fem discovery-observationer. Tre orden2-kontekster mangler højre referenceområde og bevares uden normalisering; to andre orden2-kontekster dækker slet ikke linjens placering og er eksplicit udeladt. Den faste topocentriske kerne følger ikke linjen mellem epokerne, og tallene er ikke en kalibreret ophavstest. **Alle fem poster forbliver U; ingen kvalificeret laserkandidat.**
+
+[**Fortsæt her**](CONTINUE_SETI.md) · [Ny rapport og evidens](work_harps_20261102_c003_context/README.md) · [Figurer og målinger](work_harps_20261102_c003_context/analysis/RESULTS_REPORT.md) · [Aktuel maskinlæsbar tilstand](work_harps_20261102_c003_context/CONTINUATION_STATE.json)
+
+Næste hele gruppe i den oprindelige kø er C005: fem HD106515 A-poster omkring 3882,04 Å. Hovedprøve, klassifikationer og Rubins begrænsede forstudie er uændrede. Alle statusafsnit nedenfor er historiske.
+
+---
+
 ## Aktuel SETI-status — HD103991-gruppen analyseret (2. november 2026)
 
 **De to poster omkring 3852 Å er nu sammenlignet samlet i seks eksisterende arkivepoker.** Alle 20 profiludfald og 64 sammenligningsudfald er bevaret og uafhængigt efterregnet. Det omgivende spektralmønster stemmer generelt bedst overens i barycentrisk ramme; kerneområdets opførsel afhænger mere af referenceepoken. Det afgør ikke signalets ophav.
