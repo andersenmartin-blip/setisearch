@@ -124,6 +124,8 @@ Hvis en del af hændelserne ikke kan færdigvurderes, markeres analysen som delv
 
 **2. november — C008 afsluttet:** [Den individuelle analyse ved 5182,005 Å](work_harps_20261102_c008_context/README.md) omfatter syv eksisterende epoker, 16 profiler og 32 sammenligninger med én fast discovery-reference. V2E2-0047 forbliver U; tidligere mapping-diagnoser og genbrug af oprindelige observationer er bevaret. Uafhængig efterregning består med 63.374 skalarsammenligninger. Næste faste punkt er C009 ved 6802,02 Å med én reference og bevaret uafklaret råmorfologi. Ingen ny arkivhentning eller Rubin-forespørgsel.
 
+**3. november — C009 afsluttet:** Den centrale spektralform afviger fra alle seks andre epoker, mens omgivelserne stemmer bedst overens barycentrisk. [Den individuelle analyse ved 6802,02 Å](work_harps_20261103_c009_context/README.md) omfatter syv eksisterende epoker, 16 profiler og 32 sammenligninger med én fast discovery-reference. V2E2-0050 forbliver U; tidligere mapping-diagnoser og genbrug af oprindelige observationer er bevaret. Uafhængig efterregning består med 63.354 skalarsammenligninger. Næste faste punkt er C010 på HD112410 ved 3823,065 Å med målets egne syv epoker, én april 2025-reference og bevarede historiske mapping-begrænsninger. Ingen ny arkivhentning eller Rubin-forespørgsel.
+
 # Leverancer og opfølgning
 
 Hver uge leverer:

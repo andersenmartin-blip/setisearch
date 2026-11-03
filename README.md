@@ -1,3 +1,17 @@
+## Aktuel SETI-status — HD106515A ved 6802,02 Å analyseret (3. november 2026)
+
+Den centrale C009-form er negativt korreleret med kernen fra fundobservationen i marts 2023 i alle seks andre epoker i barycentriske koordinater. Omgivelserne har bedst barycentrisk overensstemmelse i alle seks sammenligninger. V2E2-0050 forbliver U.
+
+**C009 er færdig: syv eksisterende epoker, 16 profiler og 32 sammenligninger.** Den faste discovery-reference er fra marts 2023. 16 profiler har positiv normalisering; 0 er uden normalisering og 0 er blokeret. Alle 4 selvsammenligninger er markeret.
+
+Uafhængig efterregning består med 428 kontroller og 63.354 skalarsammenligninger. **V2E2-0050 forbliver U.** Bølgelængden er adskilt fra C001–C008, men tidligere epoke-/råanalyse og de samme syv observationer er genbrugt. De historiske mapping-diagnoser og de oprindelige A/A-vurderinger med vedtaget U i orden 70 er bevaret; ingen ny ophavsbestemmelse følger.
+
+[**Fortsæt her**](CONTINUE_SETI.md) · [Rapport](work_harps_20261103_c009_context/README.md) · [Figurer og målinger](work_harps_20261103_c009_context/analysis/RESULTS_REPORT.md) · [Aktuel maskinlæsbar tilstand](work_harps_20261103_c009_context/CONTINUATION_STATE.json)
+
+Næste punkt i den oprindelige kø er C010 på HD112410 ved 3823,065 Å: én post fra discovery-observationen 29. april 2025 og målets egne syv epoker. De historiske begrænsninger i orden 1 og den vedtagne U bevares. Hovedprøve, klassifikationer og Rubins begrænsede forstudie er uændrede. Alle statusafsnit nedenfor er historiske.
+
+---
+
 ## Aktuel SETI-status — HD106515A ved 5182,005 Å analyseret (2. november 2026)
 
 **C008 er færdig: syv eksisterende epoker, 16 profiler og 32 sammenligninger.** Den faste discovery-reference er fra marts 2023. 16 profiler har positiv normalisering; 0 er uden normalisering og 0 er blokeret. Alle 4 selvsammenligninger er markeret.
