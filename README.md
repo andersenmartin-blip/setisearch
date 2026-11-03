@@ -1,3 +1,17 @@
+## Aktuel SETI-status — HD112410 ved 3823,065 Å analyseret (3. november 2026)
+
+Kernen stemmer bedst overens i barycentriske koordinater i alle 6 sammenligninger, målt med både korrelation og normaliseret RMS. Omgivelserne stemmer bedst overens i barycentriske koordinater i alle 6 sammenligninger, målt med både korrelation og normaliseret RMS. V2E2-0086 forbliver U. 16 af 16 profilrækker indeholder bevarede ikke-positive originalpunkter, selv om de gyldige reference-medianer er positive. Profilform og skaleret amplitude varierer mellem epokerne.
+
+**C010 er færdig: syv eksisterende målspecifikke epoker, 16 profiler og 32 sammenligninger.** Discovery-reference er fra 29. april 2025. 16 profiler har positiv normalisering; 0 er uden normalisering og 0 er blokeret. Alle 4 selvsammenligninger er markeret.
+
+Uafhængig efterregning består med 432 kontroller og 63.469 skalarsammenligninger. **V2E2-0086 forbliver U.** De syv HD112410-observationer og tidligere epoke-/råanalyse findes allerede. Orden 1s oprindelige lokale mapping- og baseline-begrænsninger er bevaret sammen med de senere understøttede diagnoser; ingen ny ophavsbestemmelse følger.
+
+[**Fortsæt her**](CONTINUE_SETI.md) · [Rapport](work_harps_20261103_c010_context/README.md) · [Figurer og målinger](work_harps_20261103_c010_context/analysis/RESULTS_REPORT.md) · [Aktuel maskinlæsbar tilstand](work_harps_20261103_c010_context/CONTINUATION_STATE.json)
+
+Næste punkt i den oprindelige kø er C012 på HD112410 ved 3869,2675 Å, oprindelig kø-række 24. Dets præcise mål, epoker, discovery-reference og historiske begrænsninger bevares i overdragelsen. Gruppenumre bestemmer ikke rækkefølgen. Hovedprøve, klassifikationer og Rubins begrænsede forstudie er uændrede. Alle statusafsnit nedenfor er historiske.
+
+---
+
 ## Aktuel SETI-status — HD106515A ved 6802,02 Å analyseret (3. november 2026)
 
 Den centrale C009-form er negativt korreleret med kernen fra fundobservationen i marts 2023 i alle seks andre epoker i barycentriske koordinater. Omgivelserne har bedst barycentrisk overensstemmelse i alle seks sammenligninger. V2E2-0050 forbliver U.
