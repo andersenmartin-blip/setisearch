@@ -1,0 +1,874 @@
+{
+  "schema": "HARPS_C016_INPUT_AUDIT_V1",
+  "status": "PASS",
+  "checked_utc": "2026-11-03T14:13:05.177984+00:00",
+  "inventory_sha256": "ef8b5ebe21e6ab03f037691c6582a3b70187a77908274c46e08e89e430f99cce",
+  "restore_script_sha256": "36451bef2b6557dfd81f765f36eeca7878dd525607b9d656ccca2b5fff5fd018",
+  "audit_script_sha256": "c62ebe61b89add771da8a14e5b68677217ee58381f6ea7ab6bb281bd21d059f4",
+  "baseline_commit": "48bf48e93e7eb772993ba3b166f8035f309debff",
+  "check_count": 1157,
+  "checks_by_scope": {
+    "inventory": 3,
+    "anchor": 2,
+    "scope": 5,
+    "restored_bytes": 19,
+    "historical_sources": 14,
+    "archive": 9,
+    "merged_identity": 16,
+    "target_cohort": 3,
+    "archive_members": 19,
+    "merged_headers": 35,
+    "dates": 7,
+    "merged_units": 7,
+    "native_identity": 12,
+    "native_headers": 16,
+    "mapping": 16,
+    "line_coverage": 16,
+    "wavelength_geometry": 20,
+    "all_order_geometry": 576,
+    "all_order_common_geometry": 288,
+    "deduplication": 1,
+    "mapping_history": 4,
+    "evidence_archive": 2,
+    "raw_source_identity": 4,
+    "NPY_headers": 4,
+    "review_custody": 4,
+    "review_chain": 8,
+    "current_disposition": 1,
+    "original_queue": 1,
+    "immutability": 2,
+    "prior_dependency": 31,
+    "existing_evidence_dependency": 12
+  },
+  "failures": [],
+  "target": "HD114386",
+  "input_counts": {
+    "merged": 7,
+    "native_A": 4,
+    "ancillary": 4,
+    "saved_cutouts": 4,
+    "archives": 3
+  },
+  "anchor": {
+    "dp_id": "ADP.2022-03-08T01:01:37.348",
+    "berv_km_s": 19.1606928163471,
+    "barycentric_common_midpoint_center_A": 4303.7875,
+    "topocentric_common_center_A": 4303.512448784194,
+    "policy": "First original-queue discovery; exact event-specific catalog/discovery markers are retained separately."
+  },
+  "exact_individual_event_centers_bary_air_A": {
+    "V2E2-0094": 4303.785,
+    "V2E2-0096": 4303.785,
+    "V2E2-0098": 4303.785,
+    "V2E2-0110": 4303.79
+  },
+  "distinct_discovery_products": {
+    "V2E2-0094": "ADP.2022-03-08T01:01:37.348",
+    "V2E2-0096": "ADP.2022-05-17T01:02:16.724",
+    "V2E2-0098": "ADP.2023-01-03T01:08:17.803",
+    "V2E2-0110": "ADP.2023-08-29T01:02:07.487"
+  },
+  "merged_headers": [
+    {
+      "dp_id": "ADP.2022-01-12T01:34:46.931",
+      "berv_km_s": 26.7544256646121,
+      "date_obs": "2022-01-06T07:12:17.718",
+      "wavelength_unit": "air Angstrom",
+      "frame": "BARYCENT",
+      "flux_unit": "ADU, uncalibrated",
+      "ERR": "Declared unavailable/NaN; no sample values read"
+    },
+    {
+      "dp_id": "ADP.2022-03-08T01:01:37.348",
+      "berv_km_s": 19.1606928163471,
+      "date_obs": "2022-03-07T06:25:44.466",
+      "wavelength_unit": "air Angstrom",
+      "frame": "BARYCENT",
+      "flux_unit": "ADU, uncalibrated",
+      "ERR": "Declared unavailable/NaN; no sample values read"
+    },
+    {
+      "dp_id": "ADP.2022-05-17T01:02:16.724",
+      "berv_km_s": -10.767337430651,
+      "date_obs": "2022-05-16T02:17:40.312",
+      "wavelength_unit": "air Angstrom",
+      "frame": "BARYCENT",
+      "flux_unit": "ADU, uncalibrated",
+      "ERR": "Declared unavailable/NaN; no sample values read"
+    },
+    {
+      "dp_id": "ADP.2023-01-03T01:08:17.803",
+      "berv_km_s": 26.1642125597642,
+      "date_obs": "2023-01-02T07:03:31.892",
+      "wavelength_unit": "air Angstrom",
+      "frame": "BARYCENT",
+      "flux_unit": "ADU, uncalibrated",
+      "ERR": "Declared unavailable/NaN; no sample values read"
+    },
+    {
+      "dp_id": "ADP.2023-04-30T01:01:26.803",
+      "berv_km_s": -3.01768121644975,
+      "date_obs": "2023-04-29T00:34:30.412",
+      "wavelength_unit": "air Angstrom",
+      "frame": "BARYCENT",
+      "flux_unit": "ADU, uncalibrated",
+      "ERR": "Declared unavailable/NaN; no sample values read"
+    },
+    {
+      "dp_id": "ADP.2023-07-02T01:01:43.313",
+      "berv_km_s": -24.8175760325439,
+      "date_obs": "2023-07-01T02:08:22.572",
+      "wavelength_unit": "air Angstrom",
+      "frame": "BARYCENT",
+      "flux_unit": "ADU, uncalibrated",
+      "ERR": "Declared unavailable/NaN; no sample values read"
+    },
+    {
+      "dp_id": "ADP.2023-08-29T01:02:07.487",
+      "berv_km_s": -22.2235735125819,
+      "date_obs": "2023-08-27T23:33:30.418",
+      "wavelength_unit": "air Angstrom",
+      "frame": "BARYCENT",
+      "flux_unit": "ADU, uncalibrated",
+      "ERR": "Declared unavailable/NaN; no sample values read"
+    }
+  ],
+  "raw_identifier_timestamp_offsets": [
+    {
+      "dp_id": "ADP.2022-01-12T01:34:46.931",
+      "raw_id": "HARPS.2022-01-06T07:12:17.718",
+      "header_DATE_OBS": "2022-01-06T07:12:17.718",
+      "raw_identifier_minus_header_milliseconds": 0.0,
+      "policy": "Exact identifiers preserved; existing millisecond offset recorded, not string-normalized."
+    },
+    {
+      "dp_id": "ADP.2022-03-08T01:01:37.348",
+      "raw_id": "HARPS.2022-03-07T06:25:44.467",
+      "header_DATE_OBS": "2022-03-07T06:25:44.466",
+      "raw_identifier_minus_header_milliseconds": 1.0,
+      "policy": "Exact identifiers preserved; existing millisecond offset recorded, not string-normalized."
+    },
+    {
+      "dp_id": "ADP.2022-05-17T01:02:16.724",
+      "raw_id": "HARPS.2022-05-16T02:17:40.312",
+      "header_DATE_OBS": "2022-05-16T02:17:40.312",
+      "raw_identifier_minus_header_milliseconds": 0.0,
+      "policy": "Exact identifiers preserved; existing millisecond offset recorded, not string-normalized."
+    },
+    {
+      "dp_id": "ADP.2023-01-03T01:08:17.803",
+      "raw_id": "HARPS.2023-01-02T07:03:31.893",
+      "header_DATE_OBS": "2023-01-02T07:03:31.892",
+      "raw_identifier_minus_header_milliseconds": 1.0,
+      "policy": "Exact identifiers preserved; existing millisecond offset recorded, not string-normalized."
+    },
+    {
+      "dp_id": "ADP.2023-04-30T01:01:26.803",
+      "raw_id": "HARPS.2023-04-29T00:34:30.413",
+      "header_DATE_OBS": "2023-04-29T00:34:30.412",
+      "raw_identifier_minus_header_milliseconds": 1.0,
+      "policy": "Exact identifiers preserved; existing millisecond offset recorded, not string-normalized."
+    },
+    {
+      "dp_id": "ADP.2023-07-02T01:01:43.313",
+      "raw_id": "HARPS.2023-07-01T02:08:22.573",
+      "header_DATE_OBS": "2023-07-01T02:08:22.572",
+      "raw_identifier_minus_header_milliseconds": 1.0,
+      "policy": "Exact identifiers preserved; existing millisecond offset recorded, not string-normalized."
+    },
+    {
+      "dp_id": "ADP.2023-08-29T01:02:07.487",
+      "raw_id": "HARPS.2023-08-27T23:33:30.418",
+      "header_DATE_OBS": "2023-08-27T23:33:30.418",
+      "raw_identifier_minus_header_milliseconds": 0.0,
+      "policy": "Exact identifiers preserved; existing millisecond offset recorded, not string-normalized."
+    }
+  ],
+  "native_coverage": [
+    {
+      "event": "V2E2-0094",
+      "dp_id": "ADP.2022-03-08T01:01:37.348",
+      "order": 19,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        4285.09779604887,
+        4333.250171281799
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        4285.371670325447,
+        4333.527123130362
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -18.415829674553606,
+        29.739623130361906
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151
+    },
+    {
+      "event": "V2E2-0094",
+      "dp_id": "ADP.2022-03-08T01:01:37.348",
+      "order": 19,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        4285.09779604887,
+        4333.250171281799
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        4285.09779604887,
+        4333.250171281799
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -18.414652735324125,
+        29.73772249760532
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151
+    },
+    {
+      "event": "V2E2-0096",
+      "dp_id": "ADP.2022-05-17T01:02:16.724",
+      "order": 19,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        4285.09770339571,
+        4333.2503414105095
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        4284.943799947959,
+        4333.094708513976
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -18.84370005204164,
+        29.307208513975638
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151
+    },
+    {
+      "event": "V2E2-0096",
+      "dp_id": "ADP.2022-05-17T01:02:16.724",
+      "order": 19,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        4285.09770339571,
+        4333.2503414105095
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        4285.09770339571,
+        4333.2503414105095
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -18.414745388484334,
+        29.737892626315443
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151
+    },
+    {
+      "event": "V2E2-0098",
+      "dp_id": "ADP.2023-01-03T01:08:17.803",
+      "order": 19,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        4285.09523100635,
+        4333.24856587709
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        4285.469210202527,
+        4333.626747627586
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -18.31828979747297,
+        29.83924762758579
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151
+    },
+    {
+      "event": "V2E2-0098",
+      "dp_id": "ADP.2023-01-03T01:08:17.803",
+      "order": 19,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        4285.09523100635,
+        4333.24856587709
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        4285.09523100635,
+        4333.24856587709
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -18.41721777784369,
+        29.736117092896166
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151
+    },
+    {
+      "event": "V2E2-0110",
+      "dp_id": "ADP.2023-08-29T01:02:07.487",
+      "order": 19,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        4285.09569701922,
+        4333.248198278159
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        4284.778043466938,
+        4332.926975187608
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -19.009456533062803,
+        29.139475187607786
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151
+    },
+    {
+      "event": "V2E2-0110",
+      "dp_id": "ADP.2023-08-29T01:02:07.487",
+      "order": 19,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        4285.09569701922,
+        4333.248198278159
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        4285.09569701922,
+        4333.248198278159
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -18.416751764973924,
+        29.73574949396516
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151
+    }
+  ],
+  "mapping_gate_history": [
+    {
+      "event": "V2E2-0094",
+      "order": 19,
+      "old_global": true,
+      "old_local": true,
+      "old_baseline_verified": true,
+      "final_reference_supported": true,
+      "native_pixel": 1414,
+      "raw_row": 2681
+    },
+    {
+      "event": "V2E2-0096",
+      "order": 19,
+      "old_global": true,
+      "old_local": true,
+      "old_baseline_verified": true,
+      "final_reference_supported": true,
+      "native_pixel": 1449,
+      "raw_row": 2646
+    },
+    {
+      "event": "V2E2-0098",
+      "order": 19,
+      "old_global": true,
+      "old_local": true,
+      "old_baseline_verified": true,
+      "final_reference_supported": true,
+      "native_pixel": 1406,
+      "raw_row": 2689
+    },
+    {
+      "event": "V2E2-0110",
+      "order": 19,
+      "old_global": true,
+      "old_local": true,
+      "old_baseline_verified": true,
+      "final_reference_supported": true,
+      "native_pixel": 1463,
+      "raw_row": 2632
+    }
+  ],
+  "excluded_native_orders": [],
+  "limits": [
+    "All coordinate-support counts derive from fresh monotone header polynomials for each distinct product; finite flux, actual gaps and reference quality remain unassessed.",
+    "The fixed common midpoint/first-queue March anchor does not replace exact individual catalog/discovery markers or imply a measured linewidth.",
+    "Native BUNIT is absent; retain instrumental/native flux labels without asserted calibrated ADU equivalence to merged flux.",
+    "Topocentric air convention is inherited from the archived extractor, without a new wavelength solution.",
+    "Every original order-19 global/local/baseline/later-five-window stage is true; no other-wavelength discrepancy or old-target quality is transferred. No new registration/mapping is performed.",
+    "ERR is declared unavailable; no positive uncertainty support is inferred."
+  ],
+  "source_hashes": {
+    "work_harps_20261101/v2/extension02/acquisition/DOWNLOAD_MANIFEST.csv": "f00d662b796b2ef9c8556e695dd03f49f4ad2560afcdda4b21faf833f82c3cef",
+    "work_harps_20261101/v2/extension02/checkpoints/INPUT_CHECKPOINTS.json": "84adbe7ce694136147312707d7719e75c213c5d81df54a425bc88bbd16931a68",
+    "work_harps_20261101/v2/extension02/epoch_followup/INPUT_CHECKS.json": "9ecaf32369f4ada56f5f9a324f1038127c9db4af37728d7c821f2a160a84af0c",
+    "work_harps_20261101/v2/extension02/epoch_followup/EVENT_RESULTS.json": "571c15ca11d358d393fbc2d88a240c573963de924dcee3f591a331403535a3d7",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/checkpoints/INPUT_ARCHIVES.json": "7ff8624687bb90a253f22c9b69813697dc236e7d69e889fb42457bf94ff5fb73",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/NATIVE_MAPPING.json": "e02971783ec66d60ca69d500cd6b352e3e31453d8623b44816eba2f5d5777a8c",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/extract_native.py": "fbcfbf843cc4b090644641a3eb8201ae16503b639b993cc1091b88b5361c21bb",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/EVIDENCE_ARCHIVE.json": "cbd9a23a3d1f699646cab2cb969332339acb72c4cf7c22a4e175a1979f0bcac5",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/EVIDENCE_PARTS.json": "65c36afd08a50079f930b9a7972b9582c2f5d571d5d539827a522afcec38db1b",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/ADOPTED_DISPOSITIONS.csv": "c707f42c1774600161b7c60f7b216696ed2ca8400437a288cab2238dcc59c192",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/PRIMARY_VISUAL_REVIEW.json": "a84ddd8ba0db9017a48a5b326697a2100789be213a94330091f3a900a724ff41",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/SECONDARY_VISUAL_REVIEW.json": "ecbf294a72c0159e4d7cb70479d34c87b04bb264e2f0b61c6643f085848616e6",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/REVIEW_COMPARISON.json": "80f6fba0a1024d37a3f8ada508826d9bd2e0cc7d5600c5cfd0a492c904e84fa6",
+    "work_harps_20261103_c011_context/NEXT_ACTION.json": "d69c0100578cba0e65ae6667f012199783b65f029273c2c5a9fd69dfd64ba7b3"
+  },
+  "network_requests": 0,
+  "new_flux_or_pixel_values_interpreted": 0,
+  "raw_images_restored_or_read": false,
+  "prior_wavelength_dependency": {
+    "C016_window_bary_air_A": [
+      4300.7875,
+      4306.7875
+    ],
+    "completed_windows": [
+      {
+        "group": "C001",
+        "target": "HD103991",
+        "center_bary_air_A": 3852.3925,
+        "window_bary_air_A": [
+          3849.3925,
+          3855.3925
+        ],
+        "numeric_overlap_bary_air_A": null,
+        "shared_merged_dp_ids": []
+      },
+      {
+        "group": "C003",
+        "target": "HD106515A",
+        "center_bary_air_A": 3869.75125,
+        "window_bary_air_A": [
+          3866.75125,
+          3872.75125
+        ],
+        "numeric_overlap_bary_air_A": null,
+        "shared_merged_dp_ids": []
+      },
+      {
+        "group": "C005",
+        "target": "HD106515A",
+        "center_bary_air_A": 3882.0375,
+        "window_bary_air_A": [
+          3879.0375,
+          3885.0375
+        ],
+        "numeric_overlap_bary_air_A": null,
+        "shared_merged_dp_ids": []
+      },
+      {
+        "group": "C006",
+        "target": "HD106515A",
+        "center_bary_air_A": 4310.455,
+        "window_bary_air_A": [
+          4307.455,
+          4313.455
+        ],
+        "numeric_overlap_bary_air_A": null,
+        "shared_merged_dp_ids": []
+      },
+      {
+        "group": "C007",
+        "target": "HD106515A",
+        "center_bary_air_A": 4312.7,
+        "window_bary_air_A": [
+          4309.7,
+          4315.7
+        ],
+        "numeric_overlap_bary_air_A": null,
+        "shared_merged_dp_ids": []
+      },
+      {
+        "group": "C004",
+        "target": "HD106515A",
+        "center_bary_air_A": 3872.245,
+        "window_bary_air_A": [
+          3869.245,
+          3875.245
+        ],
+        "numeric_overlap_bary_air_A": null,
+        "shared_merged_dp_ids": []
+      },
+      {
+        "group": "C002",
+        "target": "HD106515A",
+        "center_bary_air_A": 3868.6025,
+        "window_bary_air_A": [
+          3865.6025,
+          3871.6025
+        ],
+        "numeric_overlap_bary_air_A": null,
+        "shared_merged_dp_ids": []
+      },
+      {
+        "group": "C008",
+        "target": "HD106515A",
+        "center_bary_air_A": 5182.005,
+        "window_bary_air_A": [
+          5179.005,
+          5185.005
+        ],
+        "numeric_overlap_bary_air_A": null,
+        "shared_merged_dp_ids": []
+      },
+      {
+        "group": "C009",
+        "target": "HD106515A",
+        "center_bary_air_A": 6802.02,
+        "window_bary_air_A": [
+          6799.02,
+          6805.02
+        ],
+        "numeric_overlap_bary_air_A": null,
+        "shared_merged_dp_ids": []
+      },
+      {
+        "group": "C010",
+        "target": "HD112410",
+        "center_bary_air_A": 3823.0649999999996,
+        "window_bary_air_A": [
+          3820.0649999999996,
+          3826.0649999999996
+        ],
+        "numeric_overlap_bary_air_A": null,
+        "shared_merged_dp_ids": []
+      },
+      {
+        "group": "C012",
+        "target": "HD112410",
+        "center_bary_air_A": 3869.2675,
+        "window_bary_air_A": [
+          3866.2675,
+          3872.2675
+        ],
+        "numeric_overlap_bary_air_A": null,
+        "shared_merged_dp_ids": []
+      },
+      {
+        "group": "C011",
+        "target": "HD112410",
+        "center_bary_air_A": 3865.6775000000002,
+        "window_bary_air_A": [
+          3862.6775000000002,
+          3868.6775000000002
+        ],
+        "numeric_overlap_bary_air_A": null,
+        "shared_merged_dp_ids": []
+      }
+    ],
+    "disjoint_from_all_twelve_completed_bounded_contexts": true,
+    "interpretation": "New target-specific HD114386 products are separate from prior bounded-group products. Its seven observations and original C016 epoch/native/raw evidence already existed, and also supplied completed blue normalization contexts. This dependent post-detection context adds no observation, blind/untouched data or independent observing evidence. Earlier 0092 raw-window discrepancies remain local and do not alter the four historically supported order-19 panels."
+  },
+  "additional_source_hashes": {
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/CORE_OVERLAP_GROUPS.csv": "39cbcc225161abfb8a986fec91583dd3591806d589c7154171fb80d026b305ab",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/SELECTED_EVENTS.csv": "008bd2e33a4d664bfc95952aa6a1fcc69d6e76a1ae11a0fc787caee2f4efea61",
+    "work_harps_20261103_c011_context/NEXT_ACTION.json": "d69c0100578cba0e65ae6667f012199783b65f029273c2c5a9fd69dfd64ba7b3",
+    "work_harps_20261103_c011_context/scientific_review/NEXT_GROUP_METADATA.json": "d8b7ac8553115229f52d55a2cf6beaf20a543ad2278b0f96553fb29d27cf595b",
+    "work_harps_20261101/v2/CURRENT_V2_DISPOSITIONS.csv": "f2bbb73b08ae7dc60b9387495a05d1d6e98ece7571eff9a979ae0b1af139a279",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/ACTION_QUEUE.csv": "d789d5ad03963cfe68c0e8d70d0e7e7c199599fb36a2ff2760426e8e69f7267b",
+    "work_harps_20261101/v2/extension02/epoch_followup/ALL_EPOCH_MEASUREMENTS.csv": "de5b7175959ce7d25aec435d68def4b4e5d471292fd9de19c62ed17567b3f649",
+    "work_harps_20261101/v2/extension02/normalization_context_20261102/PLAN.json": "16e85105173f77fe3a41be5b45dccce4e80474b8655aad1894df9da2b59c92a6",
+    "work_harps_20261101/v2/extension02/normalization_context_20261102/SUMMARY.json": "b212e22bf47760c1400734ac6482fb945419affdcc4e4c1c550e13462804f7ee",
+    "work_harps_20261101/v2/extension02/normalization_context_20261102/README.md": "331f9115a241951182bbd96cd64cb24f9f8027f9622658359e0f4011bc69ac2d",
+    "work_harps_20261102_c001_context/analysis/PLAN.json": "423f899cb652db1d9c835fce2126fcc3780e8babf88553820bd192b61ff6ffe9",
+    "work_harps_20261102_c003_context/analysis/PLAN.json": "9aca980ede2261e4ca570740209c96e8c92e364f39fc56e55722d18de8cba47b",
+    "work_harps_20261102_c005_context/analysis/PLAN.json": "e534917c110f9461d3aecbea52e25875102c56451f928ab5fc79beb50b6fb62a",
+    "work_harps_20261102_c006_context/analysis/PLAN.json": "fbb1334412e103c9991fac9681a71a5d0c6cf5f5acdab08dbf17825567fa0039",
+    "work_harps_20261102_c007_context/analysis/PLAN.json": "6047736562d39b0ec3700af24136eeb30faad74f1edbf3070a863b5c0b6bbcbb",
+    "work_harps_20261102_c004_context/analysis/PLAN.json": "044cabc2adafd835cb4882afb506488752c6f0d91743ca564cc076a0031b1670",
+    "work_harps_20261102_c002_context/analysis/PLAN.json": "3cfcc7ad2007357edb49c39320d33976d5348ea9a3f03b2d700f6bc4cb3e3efe",
+    "work_harps_20261102_c008_context/analysis/PLAN.json": "22824f0319684b6c27022023946f2806cdd00d4604dc74493f8b7f074e2bf31f",
+    "work_harps_20261103_c009_context/analysis/PLAN.json": "b66a3428c61fd703d17526ce0642246f8262aa612f6cc1b68167dab2e92e0b66",
+    "work_harps_20261103_c010_context/analysis/PLAN.json": "a17103d238df587dfdf45d61d3b6500971dc6e8066f0e6b738bde4720c5b04e9",
+    "work_harps_20261103_c012_context/analysis/PLAN.json": "247b79d76ef2129f4cf369ec6dd5e188d25a827c7c2d6f627d560942cd087aee",
+    "work_harps_20261103_c011_context/analysis/PLAN.json": "95aafe1f5985cdb57a112f787bfd3f999ff1cccf310905e85c25eb97fb4691a0"
+  },
+  "historical_review_chains": [
+    {
+      "event": "V2E2-0094",
+      "primary_code": "U",
+      "secondary_code": "U",
+      "root_adopted_code": "U",
+      "qualification": "Broad native bump with a second nearby shoulder; raw enhancement remains trace-confined and diffuse. Spectral structure remains unresolved.",
+      "no_classification_performed_by_input_audit": true
+    },
+    {
+      "event": "V2E2-0096",
+      "primary_code": "U",
+      "secondary_code": "U",
+      "root_adopted_code": "U",
+      "qualification": "Broad native peak and nearby secondary structure accompany a weak, trace-confined raw excess; origin cannot be assigned from this morphology.",
+      "no_classification_performed_by_input_audit": true
+    },
+    {
+      "event": "V2E2-0098",
+      "primary_code": "U",
+      "secondary_code": "U",
+      "root_adopted_code": "U",
+      "qualification": "Broad structured native feature with a weak diffuse central raw enhancement; no clear compact charge morphology is established.",
+      "no_classification_performed_by_input_audit": true
+    },
+    {
+      "event": "V2E2-0110",
+      "primary_code": "U",
+      "secondary_code": "U",
+      "root_adopted_code": "U",
+      "qualification": "Broad native bump and secondary spectral structure accompany only a weak diffuse central raw enhancement.",
+      "no_classification_performed_by_input_audit": true
+    }
+  ],
+  "all_order_header_geometry_count": 288,
+  "common_context_geometry": {
+    "barycentric_window_air_A": [
+      4300.7875,
+      4306.7875
+    ],
+    "barycentric_core_air_A": [
+      4303.5375,
+      4304.0375
+    ],
+    "topocentric_window_air_A": [
+      4300.512448784194,
+      4306.512448784194
+    ],
+    "topocentric_core_air_A": [
+      4303.262448784194,
+      4303.762448784194
+    ],
+    "coverage_count_core_policy": "Fixed common group core, distinct from each original member-centered core."
+  },
+  "exact_individual_original_cores_bary_air_A": {
+    "V2E2-0094": [
+      4303.535,
+      4304.035
+    ],
+    "V2E2-0096": [
+      4303.535,
+      4304.035
+    ],
+    "V2E2-0098": [
+      4303.535,
+      4304.035
+    ],
+    "V2E2-0110": [
+      4303.54,
+      4304.04
+    ]
+  },
+  "support_assessment_scope": {
+    "coordinate_support": "Header-polynomial geometry only",
+    "finite_sample_support_assessed": false,
+    "reference_quality_assessed": false,
+    "no_usable_normalization_or_finite_flux_inferred": true
+  },
+  "unique_native_coverage": [
+    {
+      "dp_id": "ADP.2022-03-08T01:01:37.348",
+      "order": 19,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        4285.09779604887,
+        4333.250171281799
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        4285.371670325447,
+        4333.527123130362
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -18.415829674553606,
+        29.739623130361906
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151,
+      "discovery_for": [
+        "V2E2-0094"
+      ]
+    },
+    {
+      "dp_id": "ADP.2022-03-08T01:01:37.348",
+      "order": 19,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        4285.09779604887,
+        4333.250171281799
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        4285.09779604887,
+        4333.250171281799
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -18.414652735324125,
+        29.73772249760532
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151,
+      "discovery_for": [
+        "V2E2-0094"
+      ]
+    },
+    {
+      "dp_id": "ADP.2022-05-17T01:02:16.724",
+      "order": 19,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        4285.09770339571,
+        4333.2503414105095
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        4284.943799947959,
+        4333.094708513976
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -18.84370005204164,
+        29.307208513975638
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151,
+      "discovery_for": [
+        "V2E2-0096"
+      ]
+    },
+    {
+      "dp_id": "ADP.2022-05-17T01:02:16.724",
+      "order": 19,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        4285.09770339571,
+        4333.2503414105095
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        4285.09770339571,
+        4333.2503414105095
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -18.414745388484334,
+        29.737892626315443
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151,
+      "discovery_for": [
+        "V2E2-0096"
+      ]
+    },
+    {
+      "dp_id": "ADP.2023-01-03T01:08:17.803",
+      "order": 19,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        4285.09523100635,
+        4333.24856587709
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        4285.469210202527,
+        4333.626747627586
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -18.31828979747297,
+        29.83924762758579
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151,
+      "discovery_for": [
+        "V2E2-0098"
+      ]
+    },
+    {
+      "dp_id": "ADP.2023-01-03T01:08:17.803",
+      "order": 19,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        4285.09523100635,
+        4333.24856587709
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        4285.09523100635,
+        4333.24856587709
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -18.41721777784369,
+        29.736117092896166
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151,
+      "discovery_for": [
+        "V2E2-0098"
+      ]
+    },
+    {
+      "dp_id": "ADP.2023-08-29T01:02:07.487",
+      "order": 19,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        4285.09569701922,
+        4333.248198278159
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        4284.778043466938,
+        4332.926975187608
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -19.009456533062803,
+        29.139475187607786
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151,
+      "discovery_for": [
+        "V2E2-0110"
+      ]
+    },
+    {
+      "dp_id": "ADP.2023-08-29T01:02:07.487",
+      "order": 19,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        4285.09569701922,
+        4333.248198278159
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        4285.09569701922,
+        4333.248198278159
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -18.416751764973924,
+        29.73574949396516
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151,
+      "discovery_for": [
+        "V2E2-0110"
+      ]
+    }
+  ],
+  "deduplication": "Four events in four distinct discovery products supply four native order-19 contexts and four preserved raw panels, or eight product/order/frame contexts. Both frames of each product reuse one exposure. All seven HD114386 epochs and original epoch/native/raw evidence already existed."
+}
