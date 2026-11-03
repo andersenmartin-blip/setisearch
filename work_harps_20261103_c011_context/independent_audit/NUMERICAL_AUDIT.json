@@ -1,0 +1,103 @@
+{
+  "status": "PASS_INDEPENDENT_C011_NUMERICAL_RECONSTRUCTION",
+  "created_utc": "2026-11-03T13:12:46.216013+00:00",
+  "checks_passed": 481,
+  "scalar_values_compared": 71203,
+  "profiles_reconstructed": 18,
+  "comparisons_reconstructed": 36,
+  "bounded_input_records_reconstructed": 9,
+  "preserved_raw_context_files_verified": 2,
+  "identical_product_self_comparisons": 4,
+  "metadata_excluded_native_orders": 0,
+  "source_hashes_verified": 50,
+  "raw_only_slots": [],
+  "native_input_counts": [
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2025-04-30T01:01:50.866",
+      "order": null,
+      "samples": 614
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2025-05-29T01:01:14.389",
+      "order": null,
+      "samples": 602
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2025-05-31T01:00:40.754",
+      "order": null,
+      "samples": 602
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2025-06-23T01:01:21.159",
+      "order": null,
+      "samples": 610
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2025-06-28T01:01:54.495",
+      "order": null,
+      "samples": 611
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2025-07-11T01:01:15.079",
+      "order": null,
+      "samples": 614
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2025-08-08T01:03:04.017",
+      "order": null,
+      "samples": 618
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2025-05-29T01:01:14.389",
+      "order": 2,
+      "samples": 657
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2025-05-29T01:01:14.389",
+      "order": 3,
+      "samples": 536
+    }
+  ],
+  "maximum_absolute_differences_by_kind": {
+    "comparison": 5.5011550870176507e-14,
+    "input_barycentric_wavelength": 4.547473508864641e-13,
+    "input_metadata": 0.0,
+    "input_signed_source_flux": 0.0,
+    "input_source_error": 0.0,
+    "input_source_indices": 0.0,
+    "input_source_wavelength": 4.547473508864641e-13,
+    "profile_metric": 0.0,
+    "profile_normalized_flux": 3.893063649229589e-11,
+    "profile_offset": 0.0,
+    "profile_requested_bary_wave": 0.0,
+    "profile_signed_raw_flux": 1.6890595588847646e-09
+  },
+  "production_functions_imported": false,
+  "network_requests": 0,
+  "prior_epoch_pipeline_rerun": false,
+  "classifications_changed": 0,
+  "source_hashes": {
+    "work_harps_20261103_c011_context/analysis/PLAN.json": "95aafe1f5985cdb57a112f787bfd3f999ff1cccf310905e85c25eb97fb4691a0",
+    "work_harps_20261103_c011_context/analysis/ROOT_RELEASE.json": "8aecc1e5cabf564c80a89771fc05bdd9bab53c3d15a886716b1f6515b9369d01",
+    "work_harps_20261103_c011_context/analysis/results/OUTPUT_HASHES.json": "b0911c6470e1ebe1103b8555925546207e2b96bb13bc395db5b92234f7fd4b7e",
+    "work_harps_20261103_c011_context/independent_audit/independent_math.py": "13cda464c8383cb5bce5902c92ae4da0cada0cfb2ea308780831c588478683b5",
+    "work_harps_20261103_c011_context/independent_audit/audit_prospective.py": "d3b0381eee42d3ab6467e865180366a633ae24baf974a59cf76d4388ff85a086",
+    "work_harps_20261103_c011_context/independent_audit/audit_actual.py": "ca707512c4530af6f817db6c2dd580c47ab7e1657ffdfec06478f342a309578f",
+    "work_harps_20261103_c011_context/independent_audit/PROSPECTIVE_AUDIT.json": "c8f46ebeb554edebbe4421a53d47a495ff4dbba39d2edceac769759fa5bb25a4"
+  },
+  "audit_script_sha256": "ca707512c4530af6f817db6c2dd580c47ab7e1657ffdfec06478f342a309578f",
+  "limitations": [
+    "Independent bounded input/profile arithmetic and lineage verification only; no origin, significance or classifier conclusion.",
+    "Raw-only coverage failures remain distinct from nonpositive continuum. Raw Pearson and normalized RMS retain separate support gates.",
+    "Seven original HD112410 archival epochs and one discovery record were already used in the original epoch/raw investigations; no HD106515A cohort is transferred. The C011/C012 surrounding windows overlap by 2.4100000000003092 \u00c5 on the same seven HD112410 observations, although the C011 core is outside the C012 window. Original epoch/raw evidence and possible shared context/reference pixels make this dependent post-detection context. This audit adds no independent observations or blind validation."
+  ]
+}

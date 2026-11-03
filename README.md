@@ -1,3 +1,17 @@
+## Aktuel SETI-status — HD112410 ved 3865,6775 Å analyseret (3. november 2026)
+
+Kernen stemmer bedst overens i barycentriske koordinater i alle 6 sammenligninger, målt med både korrelation og normaliseret RMS. Omgivelserne stemmer bedst overens i barycentriske koordinater i alle 6 sammenligninger, målt med både korrelation og normaliseret RMS. V2E2-0089 forbliver U. 6 af 18 profilrækker indeholder bevarede ikke-positive originalpunkter, selv om de gyldige reference-medianer er positive. Profilform og skaleret amplitude varierer mellem epokerne. 2 profilrækker har flag for lavt referenceniveau (native orden 2); deres gyldige positive normaliseringer og flag bevares.
+
+**C011 er færdig: syv eksisterende målspecifikke epoker, 18 profiler og 36 sammenligninger.** Discovery-reference er fra 28. maj 2025. 18 profiler har positiv normalisering; 0 er uden normalisering og 0 er blokeret. Alle 4 selvsammenligninger er markeret. Det brede C011-vindue overlapper C012 med 2,41 Å på de samme observationer, mens C011-kernen ligger uden for C012-vinduet.
+
+Uafhængig efterregning består med 481 kontroller og 71.203 skalarsammenligninger. **V2E2-0089 forbliver U.** De syv HD112410-observationer og tidligere epoke-/råanalyse findes allerede. Orden 2 og 3 er begge understøttet på alle fire historiske mapping-trin. C012s begrænsninger for orden 2 overføres ikke. Ingen ny ophavsbestemmelse følger.
+
+[**Fortsæt her**](CONTINUE_SETI.md) · [Rapport](work_harps_20261103_c011_context/README.md) · [Figurer og målinger](work_harps_20261103_c011_context/analysis/RESULTS_REPORT.md) · [Aktuel maskinlæsbar tilstand](work_harps_20261103_c011_context/CONTINUATION_STATE.json)
+
+Næste punkt i den oprindelige kø er C016 på HD114386 med medlemscentre 4303,785–4303,79 Å, oprindelig kø-række 27. Dets præcise mål, epoker, discovery-produkter og historiske begrænsninger bevares i overdragelsen. Gruppenumre bestemmer ikke rækkefølgen. Foreslået fælles center er 4303,7875 Å med alle 4 discovery-produkter bevaret. De afsluttede normaliseringsdiagnoser for C013, C014 gentages ikke; deres U er uændret. Hovedprøve, klassifikationer og Rubins begrænsede forstudie er uændrede. Alle statusafsnit nedenfor er historiske.
+
+---
+
 ## Aktuel SETI-status — HD112410 ved 3869,2675 Å analyseret (3. november 2026)
 
 Kernen stemmer bedst overens i barycentriske koordinater i alle 6 sammenligninger, målt med både korrelation og normaliseret RMS. Omgivelserne stemmer bedst overens i barycentriske koordinater i alle 6 sammenligninger, målt med både korrelation og normaliseret RMS. V2E2-0087 forbliver U. 4 af 18 profilrækker indeholder bevarede ikke-positive originalpunkter, selv om de gyldige reference-medianer er positive. Profilform og skaleret amplitude varierer mellem epokerne.
