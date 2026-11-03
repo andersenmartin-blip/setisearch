@@ -1,0 +1,2046 @@
+{
+  "schema": "HARPS_C018_INPUT_AUDIT_V1",
+  "status": "PASS",
+  "checked_utc": "2026-11-03T17:49:15.500964+00:00",
+  "inventory_sha256": "dea91e8d3288079c5d0fbfb1df5922ba1156375515a6714a426edba1afed8fa5",
+  "restore_script_sha256": "47dbcbe51acd3c01cd8d4775ab648795386e5a1ef86243839f024c2397bef32a",
+  "audit_script_sha256": "cdd1b2d794104df1ca980201d9c056daed8580652141ea1d2c4d8a7121a101b2",
+  "baseline_commit": "70fcd37632223f4b761fb4d9555a044d792a8d15",
+  "check_count": 2095,
+  "checks_by_scope": {
+    "inventory": 3,
+    "anchor": 2,
+    "scope": 5,
+    "restored_bytes": 35,
+    "historical_sources": 34,
+    "archive": 15,
+    "merged_identity": 16,
+    "target_cohort": 3,
+    "archive_members": 35,
+    "merged_headers": 35,
+    "dates": 7,
+    "merged_units": 7,
+    "native_identity": 21,
+    "native_headers": 35,
+    "mapping": 49,
+    "line_coverage": 56,
+    "wavelength_geometry": 70,
+    "all_order_geometry": 1008,
+    "all_order_common_geometry": 504,
+    "deduplication": 1,
+    "mapping_history": 14,
+    "mapping_source_identity": 14,
+    "evidence_archive": 6,
+    "raw_source_identity": 14,
+    "NPY_headers": 14,
+    "review_custody": 11,
+    "review_chain": 12,
+    "review_0128_original": 2,
+    "review_0128_later": 5,
+    "current_disposition": 1,
+    "original_queue": 1,
+    "immutability": 2,
+    "prior_dependency": 51,
+    "existing_evidence_dependency": 7
+  },
+  "failures": [],
+  "target": "HD114783",
+  "input_counts": {
+    "merged": 7,
+    "native_A": 7,
+    "ancillary": 7,
+    "saved_original_cutouts": 14,
+    "archives": 5
+  },
+  "anchor": {
+    "dp_id": "ADP.2022-01-22T01:09:14.958",
+    "berv_km_s": 29.658729150824,
+    "barycentric_common_midpoint_center_A": 3869.33375,
+    "topocentric_common_center_A": 3868.9509913064876,
+    "policy": "First original-queue discovery fixes common coordinates; all seven discoveries remain separate references."
+  },
+  "exact_individual_event_centers_bary_air_A": {
+    "V2E2-0114": 3869.3349999999996,
+    "V2E2-0119": 3869.3325,
+    "V2E2-0124": 3869.3325,
+    "V2E2-0128": 3869.335,
+    "V2E2-0133": 3869.3349999999996,
+    "V2E2-0134": 3869.3325,
+    "V2E2-0138": 3869.335
+  },
+  "exact_individual_original_cores_bary_air_A": {
+    "V2E2-0114": [
+      3869.0849999999996,
+      3869.5849999999996
+    ],
+    "V2E2-0119": [
+      3869.0825,
+      3869.5825
+    ],
+    "V2E2-0124": [
+      3869.0825,
+      3869.5825
+    ],
+    "V2E2-0128": [
+      3869.085,
+      3869.585
+    ],
+    "V2E2-0133": [
+      3869.0849999999996,
+      3869.5849999999996
+    ],
+    "V2E2-0134": [
+      3869.0825,
+      3869.5825
+    ],
+    "V2E2-0138": [
+      3869.085,
+      3869.585
+    ]
+  },
+  "distinct_discovery_products": {
+    "V2E2-0114": "ADP.2022-01-22T01:09:14.958",
+    "V2E2-0119": "ADP.2022-02-06T01:07:28.382",
+    "V2E2-0124": "ADP.2022-05-06T01:04:00.123",
+    "V2E2-0128": "ADP.2023-01-17T01:07:48.581",
+    "V2E2-0133": "ADP.2023-03-23T01:02:04.833",
+    "V2E2-0134": "ADP.2023-05-16T01:01:18.574",
+    "V2E2-0138": "ADP.2023-07-02T01:01:43.311"
+  },
+  "common_context_geometry": {
+    "barycentric_window_air_A": [
+      3866.33375,
+      3872.33375
+    ],
+    "barycentric_core_air_A": [
+      3869.08375,
+      3869.58375
+    ],
+    "topocentric_window_air_A": [
+      3865.9509913064876,
+      3871.9509913064876
+    ],
+    "topocentric_core_air_A": [
+      3868.7009913064876,
+      3869.2009913064876
+    ],
+    "coverage_count_core_policy": "Fixed common group metric core; original member cores/markers remain distinct."
+  },
+  "merged_headers": [
+    {
+      "dp_id": "ADP.2022-01-22T01:09:14.958",
+      "berv_km_s": 29.658729150824,
+      "date_obs": "2022-01-21T06:51:10.597",
+      "wavelength_unit": "air Angstrom",
+      "frame": "BARYCENT",
+      "flux_unit": "ADU, uncalibrated",
+      "ERR": "Declared unavailable/NaN; no sample values read"
+    },
+    {
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "berv_km_s": 26.6810328154809,
+      "date_obs": "2022-02-05T07:45:49.762",
+      "wavelength_unit": "air Angstrom",
+      "frame": "BARYCENT",
+      "flux_unit": "ADU, uncalibrated",
+      "ERR": "Declared unavailable/NaN; no sample values read"
+    },
+    {
+      "dp_id": "ADP.2022-05-06T01:04:00.123",
+      "berv_km_s": -13.0224949575637,
+      "date_obs": "2022-05-05T04:29:52.854",
+      "wavelength_unit": "air Angstrom",
+      "frame": "BARYCENT",
+      "flux_unit": "ADU, uncalibrated",
+      "ERR": "Declared unavailable/NaN; no sample values read"
+    },
+    {
+      "dp_id": "ADP.2023-01-17T01:07:48.581",
+      "berv_km_s": 30.0089342598494,
+      "date_obs": "2023-01-16T08:57:12.202",
+      "wavelength_unit": "air Angstrom",
+      "frame": "BARYCENT",
+      "flux_unit": "ADU, uncalibrated",
+      "ERR": "Declared unavailable/NaN; no sample values read"
+    },
+    {
+      "dp_id": "ADP.2023-03-23T01:02:04.833",
+      "berv_km_s": 9.06673865086741,
+      "date_obs": "2023-03-22T05:08:39.608",
+      "wavelength_unit": "air Angstrom",
+      "frame": "BARYCENT",
+      "flux_unit": "ADU, uncalibrated",
+      "ERR": "Declared unavailable/NaN; no sample values read"
+    },
+    {
+      "dp_id": "ADP.2023-05-16T01:01:18.574",
+      "berv_km_s": -17.1985506565257,
+      "date_obs": "2023-05-15T04:12:13.093",
+      "wavelength_unit": "air Angstrom",
+      "frame": "BARYCENT",
+      "flux_unit": "ADU, uncalibrated",
+      "ERR": "Declared unavailable/NaN; no sample values read"
+    },
+    {
+      "dp_id": "ADP.2023-07-02T01:01:43.311",
+      "berv_km_s": -29.0643174950811,
+      "date_obs": "2023-07-01T01:49:25.439",
+      "wavelength_unit": "air Angstrom",
+      "frame": "BARYCENT",
+      "flux_unit": "ADU, uncalibrated",
+      "ERR": "Declared unavailable/NaN; no sample values read"
+    }
+  ],
+  "raw_identifier_timestamp_offsets": [
+    {
+      "dp_id": "ADP.2022-01-22T01:09:14.958",
+      "raw_id": "HARPS.2022-01-21T06:51:10.597",
+      "header_DATE_OBS": "2022-01-21T06:51:10.597",
+      "raw_identifier_minus_header_milliseconds": 0.0,
+      "policy": "Exact identifiers preserved; existing millisecond offset recorded, not string-normalized."
+    },
+    {
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "raw_id": "HARPS.2022-02-05T07:45:49.762",
+      "header_DATE_OBS": "2022-02-05T07:45:49.762",
+      "raw_identifier_minus_header_milliseconds": 0.0,
+      "policy": "Exact identifiers preserved; existing millisecond offset recorded, not string-normalized."
+    },
+    {
+      "dp_id": "ADP.2022-05-06T01:04:00.123",
+      "raw_id": "HARPS.2022-05-05T04:29:52.855",
+      "header_DATE_OBS": "2022-05-05T04:29:52.854",
+      "raw_identifier_minus_header_milliseconds": 1.0,
+      "policy": "Exact identifiers preserved; existing millisecond offset recorded, not string-normalized."
+    },
+    {
+      "dp_id": "ADP.2023-01-17T01:07:48.581",
+      "raw_id": "HARPS.2023-01-16T08:57:12.203",
+      "header_DATE_OBS": "2023-01-16T08:57:12.202",
+      "raw_identifier_minus_header_milliseconds": 1.0,
+      "policy": "Exact identifiers preserved; existing millisecond offset recorded, not string-normalized."
+    },
+    {
+      "dp_id": "ADP.2023-03-23T01:02:04.833",
+      "raw_id": "HARPS.2023-03-22T05:08:39.608",
+      "header_DATE_OBS": "2023-03-22T05:08:39.608",
+      "raw_identifier_minus_header_milliseconds": 0.0,
+      "policy": "Exact identifiers preserved; existing millisecond offset recorded, not string-normalized."
+    },
+    {
+      "dp_id": "ADP.2023-05-16T01:01:18.574",
+      "raw_id": "HARPS.2023-05-15T04:12:13.093",
+      "header_DATE_OBS": "2023-05-15T04:12:13.093",
+      "raw_identifier_minus_header_milliseconds": 0.0,
+      "policy": "Exact identifiers preserved; existing millisecond offset recorded, not string-normalized."
+    },
+    {
+      "dp_id": "ADP.2023-07-02T01:01:43.311",
+      "raw_id": "HARPS.2023-07-01T01:49:25.439",
+      "header_DATE_OBS": "2023-07-01T01:49:25.439",
+      "raw_identifier_minus_header_milliseconds": 0.0,
+      "policy": "Exact identifiers preserved; existing millisecond offset recorded, not string-normalized."
+    }
+  ],
+  "native_coverage": [
+    {
+      "event": "V2E2-0114",
+      "dp_id": "ADP.2022-01-22T01:09:14.958",
+      "order": 2,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3827.05577795221,
+        3870.0072481727316
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3827.434391915752,
+        3870.390111362656
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -41.89935808424798,
+        1.0563613626563892
+      ],
+      "grid_samples_geometrically_covered": 406,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0
+    },
+    {
+      "event": "V2E2-0114",
+      "dp_id": "ADP.2022-01-22T01:09:14.958",
+      "order": 2,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3827.05577795221,
+        3870.0072481727316
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3827.05577795221,
+        3870.0072481727316
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -41.89521335427753,
+        1.0562568662439844
+      ],
+      "grid_samples_geometrically_covered": 406,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0
+    },
+    {
+      "event": "V2E2-0114",
+      "dp_id": "ADP.2022-01-22T01:09:14.958",
+      "order": 3,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3851.27138904318,
+        3894.4977661376442
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.6523986782317,
+        3894.8830521958553
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -17.681351321768034,
+        25.54930219585549
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151
+    },
+    {
+      "event": "V2E2-0114",
+      "dp_id": "ADP.2022-01-22T01:09:14.958",
+      "order": 3,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3851.27138904318,
+        3894.4977661376442
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.27138904318,
+        3894.4977661376442
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -17.679602263307515,
+        25.546774831156654
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151
+    },
+    {
+      "event": "V2E2-0119",
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "order": 2,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3827.05592201082,
+        3870.0070777807728
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3827.396523656782,
+        3870.3515020085442
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -41.937226343217844,
+        1.0177520085444485
+      ],
+      "grid_samples_geometrically_covered": 402,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0
+    },
+    {
+      "event": "V2E2-0119",
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "order": 2,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3827.05592201082,
+        3870.0070777807728
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3827.05592201082,
+        3870.0070777807728
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -41.89506929566778,
+        1.0560864742851663
+      ],
+      "grid_samples_geometrically_covered": 406,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0
+    },
+    {
+      "event": "V2E2-0119",
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "order": 3,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3851.27134612781,
+        3894.4979569967977
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.614102906459,
+        3894.844560872304
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -17.71964709354097,
+        25.51081087230432
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151
+    },
+    {
+      "event": "V2E2-0119",
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "order": 3,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3851.27134612781,
+        3894.4979569967977
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.27134612781,
+        3894.4979569967977
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -17.679645178677674,
+        25.546965690310117
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151
+    },
+    {
+      "event": "V2E2-0124",
+      "dp_id": "ADP.2022-05-06T01:04:00.123",
+      "order": 2,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3827.05611430017,
+        3870.007107301844
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3826.8898732303205,
+        3869.839000510977
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -42.443876769679264,
+        0.5052505109770209
+      ],
+      "grid_samples_geometrically_covered": 351,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0
+    },
+    {
+      "event": "V2E2-0124",
+      "dp_id": "ADP.2022-05-06T01:04:00.123",
+      "order": 2,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3827.05611430017,
+        3870.007107301844
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3827.05611430017,
+        3870.007107301844
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -41.89487700631753,
+        1.056115995356322
+      ],
+      "grid_samples_geometrically_covered": 406,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0
+    },
+    {
+      "event": "V2E2-0124",
+      "dp_id": "ADP.2022-05-06T01:04:00.123",
+      "order": 3,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3851.27189225561,
+        3894.4976229097265
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.104599291899,
+        3894.3284522908425
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -18.22915070810086,
+        24.994702290842724
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151
+    },
+    {
+      "event": "V2E2-0124",
+      "dp_id": "ADP.2022-05-06T01:04:00.123",
+      "order": 3,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3851.27189225561,
+        3894.4976229097265
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.27189225561,
+        3894.4976229097265
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -17.67909905087754,
+        25.546631603238893
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151
+    },
+    {
+      "event": "V2E2-0128",
+      "dp_id": "ADP.2023-01-17T01:07:48.581",
+      "order": 2,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3827.0544102952,
+        3870.006047672177
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3827.4374947295896,
+        3870.393431523807
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -41.896255270410165,
+        1.059681523807285
+      ],
+      "grid_samples_geometrically_covered": 406,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0
+    },
+    {
+      "event": "V2E2-0128",
+      "dp_id": "ADP.2023-01-17T01:07:48.581",
+      "order": 2,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3827.0544102952,
+        3870.006047672177
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3827.0544102952,
+        3870.006047672177
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -41.89658101128771,
+        1.0550563656893246
+      ],
+      "grid_samples_geometrically_covered": 406,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0
+    },
+    {
+      "event": "V2E2-0128",
+      "dp_id": "ADP.2023-01-17T01:07:48.581",
+      "order": 3,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3851.27016967241,
+        3894.4972296844776
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.655678080825,
+        3894.8870650796716
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -17.678071919174727,
+        25.553315079671847
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151
+    },
+    {
+      "event": "V2E2-0128",
+      "dp_id": "ADP.2023-01-17T01:07:48.581",
+      "order": 3,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3851.27016967241,
+        3894.4972296844776
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.27016967241,
+        3894.4972296844776
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -17.6808216340778,
+        25.546238377989994
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151
+    },
+    {
+      "event": "V2E2-0133",
+      "dp_id": "ADP.2023-03-23T01:02:04.833",
+      "order": 2,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3827.05427033424,
+        3870.0058612580433
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3827.1700134089765,
+        3870.1229033342697
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -42.16373659102328,
+        0.7891533342699404
+      ],
+      "grid_samples_geometrically_covered": 379,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0
+    },
+    {
+      "event": "V2E2-0133",
+      "dp_id": "ADP.2023-03-23T01:02:04.833",
+      "order": 2,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3827.05427033424,
+        3870.0058612580433
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3827.05427033424,
+        3870.0058612580433
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -41.89672097224775,
+        1.0548699515557018
+      ],
+      "grid_samples_geometrically_covered": 406,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0
+    },
+    {
+      "event": "V2E2-0133",
+      "dp_id": "ADP.2023-03-23T01:02:04.833",
+      "order": 3,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3851.27028788661,
+        3894.4963666977565
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.3867633356826,
+        3894.6141494497615
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -17.946986664317137,
+        25.280399449761717
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151
+    },
+    {
+      "event": "V2E2-0133",
+      "dp_id": "ADP.2023-03-23T01:02:04.833",
+      "order": 3,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3851.27028788661,
+        3894.4963666977565
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.27028788661,
+        3894.4963666977565
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -17.680703419877773,
+        25.545375391268863
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151
+    },
+    {
+      "event": "V2E2-0134",
+      "dp_id": "ADP.2023-05-16T01:01:18.574",
+      "order": 2,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3827.0543098272,
+        3870.005932287088
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3826.834758648855,
+        3869.7839170519096
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -42.49899135114492,
+        0.45016705190982975
+      ],
+      "grid_samples_geometrically_covered": 346,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0
+    },
+    {
+      "event": "V2E2-0134",
+      "dp_id": "ADP.2023-05-16T01:01:18.574",
+      "order": 2,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3827.0543098272,
+        3870.005932287088
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3827.0543098272,
+        3870.005932287088
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -41.89668147928751,
+        1.0549409806003496
+      ],
+      "grid_samples_geometrically_covered": 406,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0
+    },
+    {
+      "event": "V2E2-0134",
+      "dp_id": "ADP.2023-05-16T01:01:18.574",
+      "order": 3,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3851.27014455048,
+        3894.496672594678
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.0492041535304,
+        3894.2732523700593
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -18.284545846469427,
+        24.939502370059472
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151
+    },
+    {
+      "event": "V2E2-0134",
+      "dp_id": "ADP.2023-05-16T01:01:18.574",
+      "order": 3,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3851.27014455048,
+        3894.496672594678
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.27014455048,
+        3894.496672594678
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -17.680846756007668,
+        25.54568128819028
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151
+    },
+    {
+      "event": "V2E2-0138",
+      "dp_id": "ADP.2023-07-02T01:01:43.311",
+      "order": 2,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3827.05430473111,
+        3870.0060154049775
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3826.683278981744,
+        3869.6308255676813
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -42.65047101825576,
+        0.29707556768153154
+      ],
+      "grid_samples_geometrically_covered": 330,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0
+    },
+    {
+      "event": "V2E2-0138",
+      "dp_id": "ADP.2023-07-02T01:01:43.311",
+      "order": 2,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3827.05430473111,
+        3870.0060154049775
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3827.05430473111,
+        3870.0060154049775
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -41.89668657537777,
+        1.0550240984898664
+      ],
+      "grid_samples_geometrically_covered": 406,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0
+    },
+    {
+      "event": "V2E2-0138",
+      "dp_id": "ADP.2023-07-02T01:01:43.311",
+      "order": 3,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3851.2700106238,
+        3894.496317334823
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3850.896637207087,
+        3894.1187532086083
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -18.437112792912558,
+        24.785003208608487
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151
+    },
+    {
+      "event": "V2E2-0138",
+      "dp_id": "ADP.2023-07-02T01:01:43.311",
+      "order": 3,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3851.2700106238,
+        3894.496317334823
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.2700106238,
+        3894.496317334823
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -17.680980682687732,
+        25.54532602833524
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151
+    }
+  ],
+  "mapping_gate_history": [
+    {
+      "event": "V2E2-0114",
+      "order": 2,
+      "old_global": true,
+      "old_local": false,
+      "old_baseline_verified": false,
+      "final_reference_supported": true,
+      "native_pixel": 3975,
+      "raw_row": 120,
+      "raw_column": 70.19698562175952,
+      "original_mapping_source": "raw_followup_batch03/NATIVE_MAPPING.json"
+    },
+    {
+      "event": "V2E2-0114",
+      "order": 3,
+      "old_global": true,
+      "old_local": true,
+      "old_baseline_verified": true,
+      "final_reference_supported": true,
+      "native_pixel": 1518,
+      "raw_row": 2577,
+      "raw_column": 126.3089527328914,
+      "original_mapping_source": "raw_followup_batch03/NATIVE_MAPPING.json"
+    },
+    {
+      "event": "V2E2-0119",
+      "order": 2,
+      "old_global": true,
+      "old_local": false,
+      "old_baseline_verified": false,
+      "final_reference_supported": true,
+      "native_pixel": 3979,
+      "raw_row": 116,
+      "raw_column": 70.10387486356404,
+      "original_mapping_source": "raw_followup_batch03/NATIVE_MAPPING.json"
+    },
+    {
+      "event": "V2E2-0119",
+      "order": 3,
+      "old_global": true,
+      "old_local": true,
+      "old_baseline_verified": true,
+      "final_reference_supported": true,
+      "native_pixel": 1521,
+      "raw_row": 2574,
+      "raw_column": 126.32266927762566,
+      "original_mapping_source": "raw_followup_batch03/NATIVE_MAPPING.json"
+    },
+    {
+      "event": "V2E2-0124",
+      "order": 2,
+      "old_global": true,
+      "old_local": false,
+      "old_baseline_verified": false,
+      "final_reference_supported": true,
+      "native_pixel": 4037,
+      "raw_row": 58,
+      "raw_column": 68.76343945865466,
+      "original_mapping_source": "raw_followup_batch03/NATIVE_MAPPING.json"
+    },
+    {
+      "event": "V2E2-0124",
+      "order": 3,
+      "old_global": true,
+      "old_local": true,
+      "old_baseline_verified": true,
+      "final_reference_supported": true,
+      "native_pixel": 1568,
+      "raw_row": 2527,
+      "raw_column": 126.50293959766044,
+      "original_mapping_source": "raw_followup_batch03/NATIVE_MAPPING.json"
+    },
+    {
+      "event": "V2E2-0128",
+      "order": 2,
+      "old_global": true,
+      "old_local": false,
+      "old_baseline_verified": false,
+      "final_reference_supported": true,
+      "native_pixel": 3975,
+      "raw_row": 120,
+      "raw_column": 69.28772567711391,
+      "original_mapping_source": "raw_followup/NATIVE_MAPPING.json"
+    },
+    {
+      "event": "V2E2-0128",
+      "order": 3,
+      "old_global": true,
+      "old_local": true,
+      "old_baseline_verified": true,
+      "final_reference_supported": true,
+      "native_pixel": 1518,
+      "raw_row": 2577,
+      "raw_column": 125.41256177989553,
+      "original_mapping_source": "raw_followup/NATIVE_MAPPING.json"
+    },
+    {
+      "event": "V2E2-0133",
+      "order": 2,
+      "old_global": true,
+      "old_local": false,
+      "old_baseline_verified": false,
+      "final_reference_supported": true,
+      "native_pixel": 4005,
+      "raw_row": 90,
+      "raw_column": 68.58320560704348,
+      "original_mapping_source": "raw_followup_batch03/NATIVE_MAPPING.json"
+    },
+    {
+      "event": "V2E2-0133",
+      "order": 3,
+      "old_global": true,
+      "old_local": true,
+      "old_baseline_verified": true,
+      "final_reference_supported": true,
+      "native_pixel": 1542,
+      "raw_row": 2553,
+      "raw_column": 125.49057468188454,
+      "original_mapping_source": "raw_followup_batch03/NATIVE_MAPPING.json"
+    },
+    {
+      "event": "V2E2-0134",
+      "order": 2,
+      "old_global": true,
+      "old_local": false,
+      "old_baseline_verified": false,
+      "final_reference_supported": true,
+      "native_pixel": 4044,
+      "raw_row": 51,
+      "raw_column": 67.7237071871035,
+      "original_mapping_source": "raw_followup_batch03/NATIVE_MAPPING.json"
+    },
+    {
+      "event": "V2E2-0134",
+      "order": 3,
+      "old_global": true,
+      "old_local": true,
+      "old_baseline_verified": true,
+      "final_reference_supported": true,
+      "native_pixel": 1573,
+      "raw_row": 2522,
+      "raw_column": 125.64620367838238,
+      "original_mapping_source": "raw_followup_batch03/NATIVE_MAPPING.json"
+    },
+    {
+      "event": "V2E2-0138",
+      "order": 2,
+      "old_global": true,
+      "old_local": false,
+      "old_baseline_verified": false,
+      "final_reference_supported": true,
+      "native_pixel": 4061,
+      "raw_row": 34,
+      "raw_column": 67.34580347195079,
+      "original_mapping_source": "raw_followup_batch03/NATIVE_MAPPING.json"
+    },
+    {
+      "event": "V2E2-0138",
+      "order": 3,
+      "old_global": true,
+      "old_local": true,
+      "old_baseline_verified": true,
+      "final_reference_supported": true,
+      "native_pixel": 1587,
+      "raw_row": 2508,
+      "raw_column": 125.7023884707392,
+      "original_mapping_source": "raw_followup_batch03/NATIVE_MAPPING.json"
+    }
+  ],
+  "excluded_native_orders": [],
+  "limits": [
+    "All coordinate-support counts derive only from fresh header polynomials. Finite samples, actual gaps, reference quality and usable normalization remain unassessed.",
+    "The exact catalog-extrema midpoint/common core and first-queue January anchor remain separate from seven exact original member centers/cores and discovery markers. No post-value core expansion or fitted linewidth is introduced.",
+    "Every original order2 has true global support but false local/baseline support; every original order3 has all three true. Later five-window support is true for both. These stages remain distinct, including 0128 separate source records.",
+    "0128 original primary I, secondary M normalized I and adopted baseline I remain distinct from later U/U and current U. All other members retain original U/U/U; current seven labels remain U.",
+    "Original 0128 baseline NPZ members are restored exactly. Later wider NPZ containers have different bytes; this audit verifies their identity and recorded preservation/unchanged-coordinate statements without decoding them or rerunning pixel-equality reconstruction.",
+    "Native BUNIT is absent; native flux remains instrumental with no asserted calibrated ADU equivalence to merged flux. Air-wavelength convention remains inherited from the archived extractor, without a new solution.",
+    "ERR is declared unavailable; no positive uncertainty support is inferred.",
+    "All seven observations and original C018 epoch/raw plus 0128 followup evidence already existed. No new, blind, untouched or independent observing evidence is claimed."
+  ],
+  "source_hashes": {
+    "work_harps_20261101/v2/extension02/acquisition/DOWNLOAD_MANIFEST.csv": "f00d662b796b2ef9c8556e695dd03f49f4ad2560afcdda4b21faf833f82c3cef",
+    "work_harps_20261101/v2/extension02/checkpoints/INPUT_CHECKPOINTS.json": "84adbe7ce694136147312707d7719e75c213c5d81df54a425bc88bbd16931a68",
+    "work_harps_20261101/v2/extension02/epoch_followup/INPUT_CHECKS.json": "9ecaf32369f4ada56f5f9a324f1038127c9db4af37728d7c821f2a160a84af0c",
+    "work_harps_20261101/v2/extension02/epoch_followup/EVENT_RESULTS.json": "571c15ca11d358d393fbc2d88a240c573963de924dcee3f591a331403535a3d7",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/checkpoints/INPUT_ARCHIVES.json": "7ff8624687bb90a253f22c9b69813697dc236e7d69e889fb42457bf94ff5fb73",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/NATIVE_MAPPING.json": "e02971783ec66d60ca69d500cd6b352e3e31453d8623b44816eba2f5d5777a8c",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/extract_native.py": "fbcfbf843cc4b090644641a3eb8201ae16503b639b993cc1091b88b5361c21bb",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/EVIDENCE_ARCHIVE.json": "cbd9a23a3d1f699646cab2cb969332339acb72c4cf7c22a4e175a1979f0bcac5",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/EVIDENCE_PARTS.json": "65c36afd08a50079f930b9a7972b9582c2f5d571d5d539827a522afcec38db1b",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/ADOPTED_DISPOSITIONS.csv": "c707f42c1774600161b7c60f7b216696ed2ca8400437a288cab2238dcc59c192",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/PRIMARY_VISUAL_REVIEW.json": "a84ddd8ba0db9017a48a5b326697a2100789be213a94330091f3a900a724ff41",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/SECONDARY_VISUAL_REVIEW.json": "ecbf294a72c0159e4d7cb70479d34c87b04bb264e2f0b61c6643f085848616e6",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/REVIEW_COMPARISON.json": "80f6fba0a1024d37a3f8ada508826d9bd2e0cc7d5600c5cfd0a492c904e84fa6",
+    "work_harps_20261101/v2/extension02/raw_followup/checkpoints/RAW_INPUT_CHECKPOINTS.json": "c73a2f1aee049f80566d4855fabe1a6e1f98624b308a76de24b13922350ac8ab",
+    "work_harps_20261101/v2/extension02/raw_followup/NATIVE_MAPPING.json": "7aa89a0f43c20971e77523b488482ae27974491e20338b7513655f323287e1d4",
+    "work_harps_20261101/v2/extension02/raw_followup/extract_native.py": "989d8596d1062174a8af8320c68c99bb97b5832487197026f96723b779af1ef6",
+    "work_harps_20261101/v2/extension02/raw_followup/RAW_BASELINE_EVIDENCE_MANIFEST.json": "132d35c35a32bb7091ae745c9d53981d204a02cddf402647e77ece5bfbd1bc37",
+    "work_harps_20261101/v2/extension02/raw_followup/RAW_BASELINE_EVIDENCE.zip": "4c906bcd33fdef20b4045e65df73d34e5871eeb333b905cf16316a7210866996",
+    "work_harps_20261101/v2/extension02/raw_followup/PRIMARY_VISUAL_REVIEW.json": "e72ef23e42bbb2c74696f4f3f4307780730989d3cd345a6b96fef66bfa1365b9",
+    "work_harps_20261101/v2/extension02/raw_followup/audit/INDEPENDENT_VISUAL_NOTES.json": "5404ca51a59b23f568d34cc1e22abcaaf2a40ec38a1a91b4612696040de338cf",
+    "work_harps_20261101/v2/extension02/raw_followup/REVIEW_AGREEMENT.json": "4f391cef83c78917bec908ccfe94be4fa2fe6575d65e481cf6e259c8d04b8be6",
+    "work_harps_20261101/v2/extension02/raw_followup/BASELINE_SELECTED_EVENT_DISPOSITIONS.csv": "bae482548dfd9138703776b74c47d7f3e715685a59202360beae19a77151259b",
+    "work_harps_20261101/v2/extension02/raw_followup/CURRENT_SELECTED_EVENT_DISPOSITIONS.csv": "b86e44d62246761b36e8f0050c5be72516e035f2f4a8a8739002ba37d41c2549",
+    "work_harps_20261101/v2/extension02/raw_followup/mapping_followup/MAPPING_AUDIT.json": "859591a24107cfc47d7bad082421aa8222466aeac470715ce7ffb040c7f72034",
+    "work_harps_20261101/v2/extension02/raw_followup/mapping_followup/FIRST_VISUAL_NOTES.json": "6524534250f024f42dcfe9d3ceccb91428701b69eaefa862712d34f6125e681d",
+    "work_harps_20261101/v2/extension02/raw_followup/mapping_followup/SECOND_VISUAL_NOTES.json": "81672f298fc55364b3f0ab316024e72965bc59df7cfa0f2f11c4de4100b81362",
+    "work_harps_20261101/v2/extension02/raw_followup/mapping_followup/FOLLOWUP_DISPOSITIONS.csv": "af19879078c2fa0415e1945d0bba798b6ff7f1a3b8d9b9002284e8625c63dd67",
+    "work_harps_20261101/v2/extension02/raw_followup/mapping_followup/PRESERVED_INPUT_HASHES.json": "6444f065cb87e9f95965059bf343b674d47cacbebf385d14a4fd014131ca6944",
+    "work_harps_20261101/v2/extension02/raw_followup/mapping_followup/VERIFICATION.json": "2f7494d435bf3bcbe5baee9f019079e9c1f72f20634754e30a3492435522537e",
+    "work_harps_20261101/v2/extension02/raw_followup/mapping_followup/FINAL_REVIEW_SUMMARY.json": "b0b348e1f93c546be01b142b989822428807fb0c6d8ab4221d608d344d805bf5",
+    "work_harps_20261101/v2/extension02/raw_followup/mapping_followup/EVIDENCE_ARCHIVE.json": "22e3b9a514c85a4b5839a02d4fda2fb7eca1a5d37dd51372603f6cff3eaf8441",
+    "work_harps_20261101/v2/extension02/raw_followup/mapping_followup/MAPPING_FOLLOWUP_EVIDENCE.zip": "85f3ea5bcfca0af61d72b068ea6cf6c69b9d3ddf61e377983aaaaecf04f97b1e",
+    "work_harps_20261103_c015_context/NEXT_ACTION.json": "efd81bf30bdc78e2073e559b5ab17f5409943b157bd25a200e0f04db32931ecb",
+    "work_harps_20261101/v2/CURRENT_V2_DISPOSITIONS.csv": "f2bbb73b08ae7dc60b9387495a05d1d6e98ece7571eff9a979ae0b1af139a279"
+  },
+  "network_requests": 0,
+  "new_flux_or_pixel_values_interpreted": 0,
+  "raw_images_restored_or_read": false,
+  "historical_review_custody": {
+    "batch03_original_U_U_U_members": [
+      "V2E2-0114",
+      "V2E2-0119",
+      "V2E2-0124",
+      "V2E2-0133",
+      "V2E2-0134",
+      "V2E2-0138"
+    ],
+    "0128_original_primary": "I",
+    "0128_original_secondary": "M",
+    "0128_original_secondary_normalized": "I",
+    "0128_original_adopted_baseline": "I",
+    "0128_later_primary": "U",
+    "0128_later_secondary": "U",
+    "0128_current_adopted": "U",
+    "0128_original_baseline_panels": [
+      {
+        "path": "native/V2E2-0128_o02.npz",
+        "bytes": 2993,
+        "sha256": "611ae2dc067904173f901bf03208b6191a3df2adacbcb78179cce75c4a5576ee"
+      },
+      {
+        "path": "native/V2E2-0128_o03.npz",
+        "bytes": 3158,
+        "sha256": "99477055051b5e031ccd24afafa3371506c0178621d808d8f5325e23fc3d4be6"
+      }
+    ],
+    "0128_later_distinct_containers": [
+      {
+        "path": "v2/extension02/raw_followup/mapping_followup/native/V2E2-0128_o02.npz",
+        "bytes": 4113,
+        "sha256": "b3186a27ec1723f151559afd6395aa7a654b8175b8033c8d9823cf2fd832c49e"
+      },
+      {
+        "path": "v2/extension02/raw_followup/mapping_followup/native/V2E2-0128_o03.npz",
+        "bytes": 4614,
+        "sha256": "5ad2c88c52ac502ec681fcde044b9bd25b0cabe087a2b50e589c03b936c51669"
+      }
+    ],
+    "0128_later_pixel_preservation_is_recorded_prior_evidence_not_a_new_test": true,
+    "no_classification_performed_by_input_audit": true
+  },
+  "prior_wavelength_dependency": {
+    "C018_window_bary_air_A": [
+      3866.33375,
+      3872.33375
+    ],
+    "completed_windows": [
+      {
+        "group": "C001",
+        "target": "HD103991",
+        "center_bary_air_A": 3852.3925,
+        "window_bary_air_A": [
+          3849.3925,
+          3855.3925
+        ],
+        "numeric_overlap_bary_air_A": null,
+        "shared_merged_dp_ids": []
+      },
+      {
+        "group": "C003",
+        "target": "HD106515A",
+        "center_bary_air_A": 3869.75125,
+        "window_bary_air_A": [
+          3866.75125,
+          3872.75125
+        ],
+        "numeric_overlap_bary_air_A": [
+          3866.75125,
+          3872.33375
+        ],
+        "shared_merged_dp_ids": []
+      },
+      {
+        "group": "C005",
+        "target": "HD106515A",
+        "center_bary_air_A": 3882.0375,
+        "window_bary_air_A": [
+          3879.0375,
+          3885.0375
+        ],
+        "numeric_overlap_bary_air_A": null,
+        "shared_merged_dp_ids": []
+      },
+      {
+        "group": "C006",
+        "target": "HD106515A",
+        "center_bary_air_A": 4310.455,
+        "window_bary_air_A": [
+          4307.455,
+          4313.455
+        ],
+        "numeric_overlap_bary_air_A": null,
+        "shared_merged_dp_ids": []
+      },
+      {
+        "group": "C007",
+        "target": "HD106515A",
+        "center_bary_air_A": 4312.7,
+        "window_bary_air_A": [
+          4309.7,
+          4315.7
+        ],
+        "numeric_overlap_bary_air_A": null,
+        "shared_merged_dp_ids": []
+      },
+      {
+        "group": "C004",
+        "target": "HD106515A",
+        "center_bary_air_A": 3872.245,
+        "window_bary_air_A": [
+          3869.245,
+          3875.245
+        ],
+        "numeric_overlap_bary_air_A": [
+          3869.245,
+          3872.33375
+        ],
+        "shared_merged_dp_ids": []
+      },
+      {
+        "group": "C002",
+        "target": "HD106515A",
+        "center_bary_air_A": 3868.6025,
+        "window_bary_air_A": [
+          3865.6025,
+          3871.6025
+        ],
+        "numeric_overlap_bary_air_A": [
+          3866.33375,
+          3871.6025
+        ],
+        "shared_merged_dp_ids": []
+      },
+      {
+        "group": "C008",
+        "target": "HD106515A",
+        "center_bary_air_A": 5182.005,
+        "window_bary_air_A": [
+          5179.005,
+          5185.005
+        ],
+        "numeric_overlap_bary_air_A": null,
+        "shared_merged_dp_ids": []
+      },
+      {
+        "group": "C009",
+        "target": "HD106515A",
+        "center_bary_air_A": 6802.02,
+        "window_bary_air_A": [
+          6799.02,
+          6805.02
+        ],
+        "numeric_overlap_bary_air_A": null,
+        "shared_merged_dp_ids": []
+      },
+      {
+        "group": "C010",
+        "target": "HD112410",
+        "center_bary_air_A": 3823.0649999999996,
+        "window_bary_air_A": [
+          3820.0649999999996,
+          3826.0649999999996
+        ],
+        "numeric_overlap_bary_air_A": null,
+        "shared_merged_dp_ids": []
+      },
+      {
+        "group": "C012",
+        "target": "HD112410",
+        "center_bary_air_A": 3869.2675,
+        "window_bary_air_A": [
+          3866.2675,
+          3872.2675
+        ],
+        "numeric_overlap_bary_air_A": [
+          3866.33375,
+          3872.2675
+        ],
+        "shared_merged_dp_ids": []
+      },
+      {
+        "group": "C011",
+        "target": "HD112410",
+        "center_bary_air_A": 3865.6775000000002,
+        "window_bary_air_A": [
+          3862.6775000000002,
+          3868.6775000000002
+        ],
+        "numeric_overlap_bary_air_A": [
+          3866.33375,
+          3868.6775000000002
+        ],
+        "shared_merged_dp_ids": []
+      },
+      {
+        "group": "C016",
+        "target": "HD114386",
+        "center_bary_air_A": 4303.7875,
+        "window_bary_air_A": [
+          4300.7875,
+          4306.7875
+        ],
+        "numeric_overlap_bary_air_A": null,
+        "shared_merged_dp_ids": []
+      },
+      {
+        "group": "C015",
+        "target": "HD114386",
+        "center_bary_air_A": 3869.915,
+        "window_bary_air_A": [
+          3866.915,
+          3872.915
+        ],
+        "numeric_overlap_bary_air_A": [
+          3866.915,
+          3872.33375
+        ],
+        "shared_merged_dp_ids": []
+      }
+    ],
+    "other_target_numeric_overlap_groups": [
+      "C002",
+      "C003",
+      "C004",
+      "C011",
+      "C012",
+      "C015"
+    ],
+    "interpretation": "Target changes to HD114783 with a distinct exact seven-product cohort. Numerical overlaps with older target windows share no source observations or pixels. Original C018 epoch/native/raw and 0128 wider mapping evidence already existed and are retained as dependent post-detection context."
+  },
+  "reference_pair_dependence": {
+    "observations": 7,
+    "references": 7,
+    "other_epochs_per_reference": 6,
+    "directed_nonself_pairs_per_frame_region": 42,
+    "unordered_observation_pairs": 21,
+    "reciprocal_duplicate_directed_records": 21,
+    "interpretation": "These are metadata combinatorics of seven reused observations, not independent samples or new numerical comparisons."
+  },
+  "additional_source_hashes": {
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/CORE_OVERLAP_GROUPS.csv": "39cbcc225161abfb8a986fec91583dd3591806d589c7154171fb80d026b305ab",
+    "work_harps_20261101/v2/extension02/raw_followup_batch03/SELECTED_EVENTS.csv": "008bd2e33a4d664bfc95952aa6a1fcc69d6e76a1ae11a0fc787caee2f4efea61",
+    "work_harps_20261101/v2/extension02/raw_followup/SELECTED_EVENTS.csv": "c5f396fda26b44894fdf764bb024ac847e3a79a33ead0ad307074a08b0eaac88",
+    "work_harps_20261103_c015_context/NEXT_ACTION.json": "efd81bf30bdc78e2073e559b5ab17f5409943b157bd25a200e0f04db32931ecb",
+    "work_harps_20261103_c015_context/scientific_review/NEXT_GROUP_METADATA.json": "ed9c14bb9f0dec8a47bb3de586cbaf053f5fb4c8ad5b985d8aff57a8e5ceba3f",
+    "work_harps_20261101/v2/CURRENT_V2_DISPOSITIONS.csv": "f2bbb73b08ae7dc60b9387495a05d1d6e98ece7571eff9a979ae0b1af139a279",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/ACTION_QUEUE.csv": "d789d5ad03963cfe68c0e8d70d0e7e7c199599fb36a2ff2760426e8e69f7267b",
+    "work_harps_20261101/v2/extension02/epoch_followup/ALL_EPOCH_MEASUREMENTS.csv": "de5b7175959ce7d25aec435d68def4b4e5d471292fd9de19c62ed17567b3f649",
+    "work_harps_20261101/v2/extension02/raw_followup/NATIVE_MAPPING.json": "7aa89a0f43c20971e77523b488482ae27974491e20338b7513655f323287e1d4",
+    "work_harps_20261101/v2/extension02/raw_followup/RAW_BASELINE_EVIDENCE_MANIFEST.json": "132d35c35a32bb7091ae745c9d53981d204a02cddf402647e77ece5bfbd1bc37",
+    "work_harps_20261101/v2/extension02/raw_followup/RAW_BASELINE_EVIDENCE.zip": "4c906bcd33fdef20b4045e65df73d34e5871eeb333b905cf16316a7210866996",
+    "work_harps_20261101/v2/extension02/raw_followup/PRIMARY_VISUAL_REVIEW.json": "e72ef23e42bbb2c74696f4f3f4307780730989d3cd345a6b96fef66bfa1365b9",
+    "work_harps_20261101/v2/extension02/raw_followup/audit/INDEPENDENT_VISUAL_NOTES.json": "5404ca51a59b23f568d34cc1e22abcaaf2a40ec38a1a91b4612696040de338cf",
+    "work_harps_20261101/v2/extension02/raw_followup/REVIEW_AGREEMENT.json": "4f391cef83c78917bec908ccfe94be4fa2fe6575d65e481cf6e259c8d04b8be6",
+    "work_harps_20261101/v2/extension02/raw_followup/BASELINE_SELECTED_EVENT_DISPOSITIONS.csv": "bae482548dfd9138703776b74c47d7f3e715685a59202360beae19a77151259b",
+    "work_harps_20261101/v2/extension02/raw_followup/CURRENT_SELECTED_EVENT_DISPOSITIONS.csv": "b86e44d62246761b36e8f0050c5be72516e035f2f4a8a8739002ba37d41c2549",
+    "work_harps_20261101/v2/extension02/raw_followup/mapping_followup/MAPPING_AUDIT.json": "859591a24107cfc47d7bad082421aa8222466aeac470715ce7ffb040c7f72034",
+    "work_harps_20261101/v2/extension02/raw_followup/mapping_followup/FIRST_VISUAL_NOTES.json": "6524534250f024f42dcfe9d3ceccb91428701b69eaefa862712d34f6125e681d",
+    "work_harps_20261101/v2/extension02/raw_followup/mapping_followup/SECOND_VISUAL_NOTES.json": "81672f298fc55364b3f0ab316024e72965bc59df7cfa0f2f11c4de4100b81362",
+    "work_harps_20261101/v2/extension02/raw_followup/mapping_followup/FOLLOWUP_DISPOSITIONS.csv": "af19879078c2fa0415e1945d0bba798b6ff7f1a3b8d9b9002284e8625c63dd67",
+    "work_harps_20261101/v2/extension02/raw_followup/mapping_followup/FINAL_REVIEW_SUMMARY.json": "b0b348e1f93c546be01b142b989822428807fb0c6d8ab4221d608d344d805bf5",
+    "work_harps_20261101/v2/extension02/raw_followup/mapping_followup/VERIFICATION.json": "2f7494d435bf3bcbe5baee9f019079e9c1f72f20634754e30a3492435522537e",
+    "work_harps_20261101/v2/extension02/raw_followup/mapping_followup/EVIDENCE_ARCHIVE.json": "22e3b9a514c85a4b5839a02d4fda2fb7eca1a5d37dd51372603f6cff3eaf8441",
+    "work_harps_20261101/v2/extension02/raw_followup/mapping_followup/MAPPING_FOLLOWUP_EVIDENCE.zip": "85f3ea5bcfca0af61d72b068ea6cf6c69b9d3ddf61e377983aaaaecf04f97b1e",
+    "work_harps_20261102_c001_context/analysis/PLAN.json": "423f899cb652db1d9c835fce2126fcc3780e8babf88553820bd192b61ff6ffe9",
+    "work_harps_20261102_c003_context/analysis/PLAN.json": "9aca980ede2261e4ca570740209c96e8c92e364f39fc56e55722d18de8cba47b",
+    "work_harps_20261102_c005_context/analysis/PLAN.json": "e534917c110f9461d3aecbea52e25875102c56451f928ab5fc79beb50b6fb62a",
+    "work_harps_20261102_c006_context/analysis/PLAN.json": "fbb1334412e103c9991fac9681a71a5d0c6cf5f5acdab08dbf17825567fa0039",
+    "work_harps_20261102_c007_context/analysis/PLAN.json": "6047736562d39b0ec3700af24136eeb30faad74f1edbf3070a863b5c0b6bbcbb",
+    "work_harps_20261102_c004_context/analysis/PLAN.json": "044cabc2adafd835cb4882afb506488752c6f0d91743ca564cc076a0031b1670",
+    "work_harps_20261102_c002_context/analysis/PLAN.json": "3cfcc7ad2007357edb49c39320d33976d5348ea9a3f03b2d700f6bc4cb3e3efe",
+    "work_harps_20261102_c008_context/analysis/PLAN.json": "22824f0319684b6c27022023946f2806cdd00d4604dc74493f8b7f074e2bf31f",
+    "work_harps_20261103_c009_context/analysis/PLAN.json": "b66a3428c61fd703d17526ce0642246f8262aa612f6cc1b68167dab2e92e0b66",
+    "work_harps_20261103_c010_context/analysis/PLAN.json": "a17103d238df587dfdf45d61d3b6500971dc6e8066f0e6b738bde4720c5b04e9",
+    "work_harps_20261103_c012_context/analysis/PLAN.json": "247b79d76ef2129f4cf369ec6dd5e188d25a827c7c2d6f627d560942cd087aee",
+    "work_harps_20261103_c011_context/analysis/PLAN.json": "95aafe1f5985cdb57a112f787bfd3f999ff1cccf310905e85c25eb97fb4691a0",
+    "work_harps_20261103_c016_context/analysis/PLAN.json": "1df97d5a7b8d147b22a5003812c7da4e6321d4e00c6484cb2c332732d8036f55",
+    "work_harps_20261103_c015_context/analysis/PLAN.json": "8f1bab6cd274e703d96d4a707b6ef189fb0ca1c13e5d977ed8d65bd6916fc3a4"
+  },
+  "all_order_header_geometry_count": 504,
+  "support_assessment_scope": {
+    "coordinate_support": "Header-polynomial geometry only",
+    "finite_sample_support_assessed": false,
+    "reference_quality_assessed": false,
+    "no_usable_normalization_or_finite_flux_inferred": true
+  },
+  "unique_native_coverage": [
+    {
+      "dp_id": "ADP.2022-01-22T01:09:14.958",
+      "order": 2,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3827.05577795221,
+        3870.0072481727316
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3827.434391915752,
+        3870.390111362656
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -41.89935808424798,
+        1.0563613626563892
+      ],
+      "grid_samples_geometrically_covered": 406,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0,
+      "discovery_for": [
+        "V2E2-0114"
+      ]
+    },
+    {
+      "dp_id": "ADP.2022-01-22T01:09:14.958",
+      "order": 2,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3827.05577795221,
+        3870.0072481727316
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3827.05577795221,
+        3870.0072481727316
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -41.89521335427753,
+        1.0562568662439844
+      ],
+      "grid_samples_geometrically_covered": 406,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0,
+      "discovery_for": [
+        "V2E2-0114"
+      ]
+    },
+    {
+      "dp_id": "ADP.2022-01-22T01:09:14.958",
+      "order": 3,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3851.27138904318,
+        3894.4977661376442
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.6523986782317,
+        3894.8830521958553
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -17.681351321768034,
+        25.54930219585549
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151,
+      "discovery_for": [
+        "V2E2-0114"
+      ]
+    },
+    {
+      "dp_id": "ADP.2022-01-22T01:09:14.958",
+      "order": 3,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3851.27138904318,
+        3894.4977661376442
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.27138904318,
+        3894.4977661376442
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -17.679602263307515,
+        25.546774831156654
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151,
+      "discovery_for": [
+        "V2E2-0114"
+      ]
+    },
+    {
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "order": 2,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3827.05592201082,
+        3870.0070777807728
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3827.396523656782,
+        3870.3515020085442
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -41.937226343217844,
+        1.0177520085444485
+      ],
+      "grid_samples_geometrically_covered": 402,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0,
+      "discovery_for": [
+        "V2E2-0119"
+      ]
+    },
+    {
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "order": 2,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3827.05592201082,
+        3870.0070777807728
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3827.05592201082,
+        3870.0070777807728
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -41.89506929566778,
+        1.0560864742851663
+      ],
+      "grid_samples_geometrically_covered": 406,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0,
+      "discovery_for": [
+        "V2E2-0119"
+      ]
+    },
+    {
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "order": 3,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3851.27134612781,
+        3894.4979569967977
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.614102906459,
+        3894.844560872304
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -17.71964709354097,
+        25.51081087230432
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151,
+      "discovery_for": [
+        "V2E2-0119"
+      ]
+    },
+    {
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "order": 3,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3851.27134612781,
+        3894.4979569967977
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.27134612781,
+        3894.4979569967977
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -17.679645178677674,
+        25.546965690310117
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151,
+      "discovery_for": [
+        "V2E2-0119"
+      ]
+    },
+    {
+      "dp_id": "ADP.2022-05-06T01:04:00.123",
+      "order": 2,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3827.05611430017,
+        3870.007107301844
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3826.8898732303205,
+        3869.839000510977
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -42.443876769679264,
+        0.5052505109770209
+      ],
+      "grid_samples_geometrically_covered": 351,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0,
+      "discovery_for": [
+        "V2E2-0124"
+      ]
+    },
+    {
+      "dp_id": "ADP.2022-05-06T01:04:00.123",
+      "order": 2,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3827.05611430017,
+        3870.007107301844
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3827.05611430017,
+        3870.007107301844
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -41.89487700631753,
+        1.056115995356322
+      ],
+      "grid_samples_geometrically_covered": 406,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0,
+      "discovery_for": [
+        "V2E2-0124"
+      ]
+    },
+    {
+      "dp_id": "ADP.2022-05-06T01:04:00.123",
+      "order": 3,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3851.27189225561,
+        3894.4976229097265
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.104599291899,
+        3894.3284522908425
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -18.22915070810086,
+        24.994702290842724
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151,
+      "discovery_for": [
+        "V2E2-0124"
+      ]
+    },
+    {
+      "dp_id": "ADP.2022-05-06T01:04:00.123",
+      "order": 3,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3851.27189225561,
+        3894.4976229097265
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.27189225561,
+        3894.4976229097265
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -17.67909905087754,
+        25.546631603238893
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151,
+      "discovery_for": [
+        "V2E2-0124"
+      ]
+    },
+    {
+      "dp_id": "ADP.2023-01-17T01:07:48.581",
+      "order": 2,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3827.0544102952,
+        3870.006047672177
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3827.4374947295896,
+        3870.393431523807
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -41.896255270410165,
+        1.059681523807285
+      ],
+      "grid_samples_geometrically_covered": 406,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0,
+      "discovery_for": [
+        "V2E2-0128"
+      ]
+    },
+    {
+      "dp_id": "ADP.2023-01-17T01:07:48.581",
+      "order": 2,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3827.0544102952,
+        3870.006047672177
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3827.0544102952,
+        3870.006047672177
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -41.89658101128771,
+        1.0550563656893246
+      ],
+      "grid_samples_geometrically_covered": 406,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0,
+      "discovery_for": [
+        "V2E2-0128"
+      ]
+    },
+    {
+      "dp_id": "ADP.2023-01-17T01:07:48.581",
+      "order": 3,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3851.27016967241,
+        3894.4972296844776
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.655678080825,
+        3894.8870650796716
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -17.678071919174727,
+        25.553315079671847
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151,
+      "discovery_for": [
+        "V2E2-0128"
+      ]
+    },
+    {
+      "dp_id": "ADP.2023-01-17T01:07:48.581",
+      "order": 3,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3851.27016967241,
+        3894.4972296844776
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.27016967241,
+        3894.4972296844776
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -17.6808216340778,
+        25.546238377989994
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151,
+      "discovery_for": [
+        "V2E2-0128"
+      ]
+    },
+    {
+      "dp_id": "ADP.2023-03-23T01:02:04.833",
+      "order": 2,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3827.05427033424,
+        3870.0058612580433
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3827.1700134089765,
+        3870.1229033342697
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -42.16373659102328,
+        0.7891533342699404
+      ],
+      "grid_samples_geometrically_covered": 379,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0,
+      "discovery_for": [
+        "V2E2-0133"
+      ]
+    },
+    {
+      "dp_id": "ADP.2023-03-23T01:02:04.833",
+      "order": 2,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3827.05427033424,
+        3870.0058612580433
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3827.05427033424,
+        3870.0058612580433
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -41.89672097224775,
+        1.0548699515557018
+      ],
+      "grid_samples_geometrically_covered": 406,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0,
+      "discovery_for": [
+        "V2E2-0133"
+      ]
+    },
+    {
+      "dp_id": "ADP.2023-03-23T01:02:04.833",
+      "order": 3,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3851.27028788661,
+        3894.4963666977565
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.3867633356826,
+        3894.6141494497615
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -17.946986664317137,
+        25.280399449761717
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151,
+      "discovery_for": [
+        "V2E2-0133"
+      ]
+    },
+    {
+      "dp_id": "ADP.2023-03-23T01:02:04.833",
+      "order": 3,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3851.27028788661,
+        3894.4963666977565
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.27028788661,
+        3894.4963666977565
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -17.680703419877773,
+        25.545375391268863
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151,
+      "discovery_for": [
+        "V2E2-0133"
+      ]
+    },
+    {
+      "dp_id": "ADP.2023-05-16T01:01:18.574",
+      "order": 2,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3827.0543098272,
+        3870.005932287088
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3826.834758648855,
+        3869.7839170519096
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -42.49899135114492,
+        0.45016705190982975
+      ],
+      "grid_samples_geometrically_covered": 346,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0,
+      "discovery_for": [
+        "V2E2-0134"
+      ]
+    },
+    {
+      "dp_id": "ADP.2023-05-16T01:01:18.574",
+      "order": 2,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3827.0543098272,
+        3870.005932287088
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3827.0543098272,
+        3870.005932287088
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -41.89668147928751,
+        1.0549409806003496
+      ],
+      "grid_samples_geometrically_covered": 406,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0,
+      "discovery_for": [
+        "V2E2-0134"
+      ]
+    },
+    {
+      "dp_id": "ADP.2023-05-16T01:01:18.574",
+      "order": 3,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3851.27014455048,
+        3894.496672594678
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.0492041535304,
+        3894.2732523700593
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -18.284545846469427,
+        24.939502370059472
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151,
+      "discovery_for": [
+        "V2E2-0134"
+      ]
+    },
+    {
+      "dp_id": "ADP.2023-05-16T01:01:18.574",
+      "order": 3,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3851.27014455048,
+        3894.496672594678
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.27014455048,
+        3894.496672594678
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -17.680846756007668,
+        25.54568128819028
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151,
+      "discovery_for": [
+        "V2E2-0134"
+      ]
+    },
+    {
+      "dp_id": "ADP.2023-07-02T01:01:43.311",
+      "order": 2,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3827.05430473111,
+        3870.0060154049775
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3826.683278981744,
+        3869.6308255676813
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -42.65047101825576,
+        0.29707556768153154
+      ],
+      "grid_samples_geometrically_covered": 330,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0,
+      "discovery_for": [
+        "V2E2-0138"
+      ]
+    },
+    {
+      "dp_id": "ADP.2023-07-02T01:01:43.311",
+      "order": 2,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3827.05430473111,
+        3870.0060154049775
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3827.05430473111,
+        3870.0060154049775
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -41.89668657537777,
+        1.0550240984898664
+      ],
+      "grid_samples_geometrically_covered": 406,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 0,
+      "discovery_for": [
+        "V2E2-0138"
+      ]
+    },
+    {
+      "dp_id": "ADP.2023-07-02T01:01:43.311",
+      "order": 3,
+      "frame": "barycentric",
+      "native_wavelength_domain_air_A": [
+        3851.2700106238,
+        3894.496317334823
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3850.896637207087,
+        3894.1187532086083
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -18.437112792912558,
+        24.785003208608487
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151,
+      "discovery_for": [
+        "V2E2-0138"
+      ]
+    },
+    {
+      "dp_id": "ADP.2023-07-02T01:01:43.311",
+      "order": 3,
+      "frame": "topocentric",
+      "native_wavelength_domain_air_A": [
+        3851.2700106238,
+        3894.496317334823
+      ],
+      "fixed_frame_header_endpoint_air_A": [
+        3851.2700106238,
+        3894.496317334823
+      ],
+      "fixed_frame_offset_endpoint_air_A": [
+        -17.680980682687732,
+        25.54532602833524
+      ],
+      "grid_samples_geometrically_covered": 601,
+      "core_covered": 51,
+      "negative_flank_covered": 151,
+      "positive_flank_covered": 151,
+      "discovery_for": [
+        "V2E2-0138"
+      ]
+    }
+  ],
+  "deduplication": "Seven events/discovery exposures supply fourteen product/order contexts and fourteen original raw panels, or twenty-eight frame contexts. All seven discoveries are references, but only seven observations exist; frames, overlapping orders and reciprocal references are dependent."
+}
