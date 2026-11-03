@@ -1,0 +1,97 @@
+{
+  "status": "PASS_INDEPENDENT_C015_NUMERICAL_RECONSTRUCTION",
+  "created_utc": "2026-11-03T14:54:23.914491+00:00",
+  "checks_passed": 455,
+  "scalar_values_compared": 63724,
+  "profiles_reconstructed": 16,
+  "comparisons_reconstructed": 32,
+  "bounded_input_records_reconstructed": 8,
+  "preserved_raw_context_files_verified": 1,
+  "identical_product_self_comparisons": 4,
+  "metadata_excluded_native_orders": 0,
+  "source_hashes_verified": 56,
+  "raw_only_slots": [],
+  "native_input_counts": [
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2022-01-12T01:34:46.931",
+      "order": null,
+      "samples": 650
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2022-03-08T01:01:37.348",
+      "order": null,
+      "samples": 641
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2022-05-17T01:02:16.724",
+      "order": null,
+      "samples": 602
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2023-01-03T01:08:17.803",
+      "order": null,
+      "samples": 650
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2023-04-30T01:01:26.803",
+      "order": null,
+      "samples": 612
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2023-07-02T01:01:43.313",
+      "order": null,
+      "samples": 620
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2023-08-29T01:02:07.487",
+      "order": null,
+      "samples": 617
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2022-05-17T01:02:16.724",
+      "order": 3,
+      "samples": 552
+    }
+  ],
+  "maximum_absolute_differences_by_kind": {
+    "comparison": 4.135580766728708e-15,
+    "input_barycentric_wavelength": 4.547473508864641e-13,
+    "input_metadata": 0.0,
+    "input_signed_source_flux": 0.0,
+    "input_source_error": 0.0,
+    "input_source_indices": 0.0,
+    "input_source_wavelength": 4.547473508864641e-13,
+    "profile_metric": 0.0,
+    "profile_normalized_flux": 4.321321078748497e-12,
+    "profile_offset": 0.0,
+    "profile_requested_bary_wave": 0.0,
+    "profile_signed_raw_flux": 8.644178706163075e-10
+  },
+  "production_functions_imported": false,
+  "network_requests": 0,
+  "prior_epoch_pipeline_rerun": false,
+  "classifications_changed": 0,
+  "source_hashes": {
+    "work_harps_20261103_c015_context/analysis/PLAN.json": "8f1bab6cd274e703d96d4a707b6ef189fb0ca1c13e5d977ed8d65bd6916fc3a4",
+    "work_harps_20261103_c015_context/analysis/ROOT_RELEASE.json": "bdb44f15409073fec3fc7091fe027b58b575b74a2d3fc45990885a99a25eed66",
+    "work_harps_20261103_c015_context/analysis/results/OUTPUT_HASHES.json": "612a2600752381d35c8895cd8176d39c72c19795bf18ce65fe720472e97eebab",
+    "work_harps_20261103_c015_context/independent_audit/independent_math.py": "8aee8d3465b80a88819e8e347845c602f3d3d77389bcf75572b23252c1ca979e",
+    "work_harps_20261103_c015_context/independent_audit/audit_prospective.py": "421f15fffe18cdbea66322bd1f5e84f6b5d74b103bfe4ca82256e79089986b02",
+    "work_harps_20261103_c015_context/independent_audit/audit_actual.py": "7bc6cd3db19a63671ec1bb0a655c4e9adb68099ab070080d2ad98e5ed72f5c82",
+    "work_harps_20261103_c015_context/independent_audit/PROSPECTIVE_AUDIT.json": "829d57e02e6f2ce463540d2288f7cf3e4948afcbeda457eb69bdc6a48207cdd1"
+  },
+  "audit_script_sha256": "7bc6cd3db19a63671ec1bb0a655c4e9adb68099ab070080d2ad98e5ed72f5c82",
+  "limitations": [
+    "Independent bounded input/profile arithmetic and lineage verification only; no origin, significance or classifier conclusion.",
+    "Raw-only coverage failures remain distinct from nonpositive continuum. Raw Pearson and normalized RMS retain separate support gates.",
+    "Seven original HD114386 archival epochs and the original 0095 record already supplied epoch/raw evidence and completed blue normalization contexts. The C015 window is disjoint from current C016 and completed same-target normalization windows. Numerical overlap with older HD112410 or HD106515A contexts uses different observing products and source pixels. No independent observation, blind validation, normalization replay or origin conclusion follows."
+  ]
+}
