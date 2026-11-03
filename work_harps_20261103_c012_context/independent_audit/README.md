@@ -1,0 +1,19 @@
+# Independent C012 arithmetic verification
+
+C012 is the singleton V2E2-0087 on **HD112410**, original queue row 24 / R013. The seven exact existing HD112410 products span April–August 2025 and **21.30284860830273 km/s** in BERV. Original epoch/profile and raw investigations already exist; these are reused archival observations.
+
+The sole fixed discovery reference is **ADP.2025-04-30T01:01:50.866**, observed on **29 April 2025**, with BERV **3.40485846065643 km/s**. The catalog barycentric center is **3869.2675 Å**. The wavelength-specific fixed topocentric center is **3869.2235557371996 Å**, recomputed as that exact float divided by `1 + BERV/299792.458`; no earlier numeric anchor or other target cohort is transferred.
+
+`independent_math.py` implements scalar interpolation using binary search, a signed pooled-flank median, first-difference MAD, common-support Pearson correlation and normalized RMS. It imports no production code. The 601-point grid has 51 core points and 550 surrounding points, with minimum common support of 41 and 440. Fixed flanks lie 1.5–3 Å from the frame center, require at least 20 finite samples each and retain the sign of the pooled reference. No background, shift or width is fitted.
+
+`audit_prospective.py` checks the exact cohort, singleton identity, fixed geometry, all 72 native header polynomials, source bindings, unchanged estimators and historical mapping stages. Synthetic fixtures exercise gaps, nonfinite flux, missing flanks, nonpositive references, zero variance, frame transforms and exact support boundaries. Analytic flux on header-derived coordinates tests both selected orders; separate 19/20 finite-flank fixtures check the finite-count gate. Only this synthetic harness imports production functions as test subjects. It opens no observational arrays.
+
+The fresh exact-header scan selects **orders 2 and 3**. Order 2 covers the full core but ends near +0.7764 Å in both frames, has no right reference flank and at most **327 broad points**, below the 440-point gate. It must remain as a partial raw-only source, with core Pearson considered separately from unavailable normalized RMS and insufficient broad support. Order 3 geometrically covers the full window and both flanks. Actual finite flux and reference levels remain to be checked after release.
+
+Historical order 2 retains **global grid true, original local usable false, original baseline verified false and later five-window support true**. Order 3 retains all four flags true. These distinct stages remain unchanged; later support does not repair the original order 2 local/baseline limitations. Both original raw-order panels are preserved byte for byte.
+
+Primary, secondary and root-adopted reviews all retain **U** for a broad enhancement shared by orders 2 and 3, noisier in order 2 and smoother in order 3, with raw structure following the trace. Their exact evidence and provisional adoption remain preserved, without an origin assignment.
+
+After root public release and production completion with a stable output ledger, `audit_actual.py --authorized-after-root-run` reopens exact sources and reconstructs nine bounded source windows, all 18 profiles and all 36 comparisons. It verifies both historical raw copies and retains four labelled identical-product self comparisons. The actual reconstruction imports no production functions and checks that all three audit sources match the prospective freeze. Reports are one-shot outputs; failures are retained rather than replaced by adjusted analysis.
+
+C012 is disjoint in wavelength from C010 while reusing its seven HD112410 observations. Numerical wavelength overlaps with prior HD106515A C002/C003/C004 windows concern another target and observing products. Original C012 epoch/raw evidence already exists. These checks verify arithmetic and lineage, adding no independent observations, blind validation, calibrated uncertainty, physical-origin conclusion or classification change.

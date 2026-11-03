@@ -1,0 +1,30 @@
+{
+  "status": "PASS_COMPACT_PROSPECTIVE_C012_AUDIT",
+  "created_utc": "2026-11-03T12:39:28.470526+00:00",
+  "checks_passed": 300,
+  "synthetic_scalar_values_compared": 46177,
+  "maximum_synthetic_absolute_difference": 2.220446049250313e-16,
+  "plan_sha256": "247b79d76ef2129f4cf369ec6dd5e188d25a827c7c2d6f627d560942cd087aee",
+  "analysis_script_sha256": "958cc24162841583d85e032e54d9be84416d20d36054ba548adf2b053d4c76ec",
+  "independent_math_sha256": "d7f3831f314e69a2b2c44ccc7dfcd4ae821f6dfc759cbde41a86f8d735680372",
+  "audit_script_sha256": "ebe403cc0144bb507723fb34b3d52c9e6db1266e8520d4cbb83cc40a9d96d6e3",
+  "actual_audit_script_sha256": "7c0feee2f1ed70001c96923207d753b5491cf563ad211b684423411586772205",
+  "source_hashes_verified": 49,
+  "observational_arrays_read": 0,
+  "network_requests": 0,
+  "production_import_scope": "Synthetic function harness only; independent math imports no production code; actual audit imports no production functions.",
+  "scope": [
+    "Exact common 3869.2675 \u00c5 barycentric anchor and fixed 0087 April 2025 topocentric BERV anchor; native-to-bary transform unchanged.",
+    "601-point grid; 51 core / 550 broad points and exact 41 / 440 minimum common supports.",
+    "Pooled signed-flank median with 20 finite samples required separately per flank; no fitted background, shift or width.",
+    "Raw-only missing-coverage and nonpositive-reference outcomes remain explicit; raw Pearson and normalized RMS are separately gated.",
+    "Header-before-array source structure, exact 18 profiles / 36 comparisons, inventory/release/source bindings.",
+    "Fresh all-72-order header scan selects orders 2 and 3; order 2 retains the core but has no right flank and only 327 broad grid points. Order 3 has geometric full-window coverage. Finite flux/reference support remains to be measured after release. All historical mapping stages retained.",
+    "One record, two native orders/raw panels and one April 2025 discovery reference in its own HD112410 cohort. Order 2 local/baseline mapping failures, order 3 all-true mapping stages, and U/U/U reviews remain explicit. C012 is disjoint from C010 but reuses its seven HD112410 observations. Numerical overlaps with prior HD106515A C002/C003/C004 windows use different target pixels. No blind or independent validation claim."
+  ],
+  "inherited_zero_variance_guard": "The previously corrected exact zero-range guard is preserved; constant noninteger profiles cannot acquire a Pearson value from rounding-scale standard deviations.",
+  "limitations": [
+    "This is source/synthetic preflight only; actual input/profile arithmetic awaits root release and completed run.",
+    "No physical-origin assignment, independent detection, calibrated uncertainty or classification change follows."
+  ]
+}
