@@ -1,0 +1,127 @@
+{
+  "status": "PASS_INDEPENDENT_C021_NUMERICAL_RECONSTRUCTION",
+  "created_utc": "2026-11-03T19:29:47.323137+00:00",
+  "checks_passed": 834,
+  "scalar_values_compared": 94802,
+  "profiles_reconstructed": 24,
+  "comparisons_reconstructed": 160,
+  "bounded_input_records_reconstructed": 12,
+  "preserved_raw_context_files_verified": 5,
+  "identical_product_self_comparisons": 20,
+  "metadata_excluded_native_orders": 0,
+  "distinct_observing_epochs": 7,
+  "merged_nonself_comparison_rows": 120,
+  "merged_nonself_rows_per_frame_region": 30,
+  "distinct_unordered_pairs_per_frame_region": 20,
+  "reciprocal_discovery_pairs_per_frame_region": 10,
+  "repeated_reference_rows_are_independent_observations": false,
+  "source_hashes_verified": 92,
+  "raw_only_slots": [],
+  "native_input_counts": [
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2022-01-22T01:09:14.958",
+      "order": null,
+      "samples": 602
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "order": null,
+      "samples": 606
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2022-05-06T01:04:00.123",
+      "order": null,
+      "samples": 663
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2023-01-17T01:07:48.581",
+      "order": null,
+      "samples": 603
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2023-03-23T01:02:04.833",
+      "order": null,
+      "samples": 631
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2023-05-16T01:01:18.574",
+      "order": null,
+      "samples": 669
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2023-07-02T01:01:43.311",
+      "order": null,
+      "samples": 686
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2022-01-22T01:09:14.958",
+      "order": 19,
+      "samples": 507
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "order": 19,
+      "samples": 510
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2022-05-06T01:04:00.123",
+      "order": 19,
+      "samples": 559
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2023-01-17T01:07:48.581",
+      "order": 19,
+      "samples": 507
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2023-07-02T01:01:43.311",
+      "order": 19,
+      "samples": 579
+    }
+  ],
+  "maximum_absolute_differences_by_kind": {
+    "comparison": 5.9492168136277e-13,
+    "input_barycentric_wavelength": 9.094947017729282e-13,
+    "input_metadata": 0.0,
+    "input_signed_source_flux": 0.0,
+    "input_source_error": 0.0,
+    "input_source_indices": 0.0,
+    "input_source_wavelength": 9.094947017729282e-13,
+    "profile_metric": 0.0,
+    "profile_normalized_flux": 1.7739809621275526e-11,
+    "profile_offset": 0.0,
+    "profile_requested_bary_wave": 0.0,
+    "profile_signed_raw_flux": 5.6735188991297036e-08
+  },
+  "production_functions_imported": false,
+  "network_requests": 0,
+  "prior_epoch_pipeline_rerun": false,
+  "classifications_changed": 0,
+  "source_hashes": {
+    "work_harps_20261103_c021_context/analysis/PLAN.json": "9bcd1af103d6f3ee007da0e98cab5af8b2235508d68b9de98b258dc1e9630cdf",
+    "work_harps_20261103_c021_context/analysis/ROOT_RELEASE.json": "85561cdf2b90e59b5ffd1229d94d388912380839868dc4feda7c6312e8379aa8",
+    "work_harps_20261103_c021_context/analysis/results/OUTPUT_HASHES.json": "d5b90db69fb0877f7c0dfe9eed11bcb3ab502903eae06e98a29aa3552ab00483",
+    "work_harps_20261103_c021_context/independent_audit/independent_math.py": "61f78c35ac45e5e0732992031d87d866517988e609f62dbc649ce31f85781bd3",
+    "work_harps_20261103_c021_context/independent_audit/audit_prospective.py": "dd297648e966688eec29d3a8e92e69ee61d2c119e1976b8710bcb27a218c8bec",
+    "work_harps_20261103_c021_context/independent_audit/audit_actual.py": "e88f518fcd65ee47c4ab6749555508a29a5c9a67b5a1a1bc2d5fe380846b5a3b",
+    "work_harps_20261103_c021_context/independent_audit/PROSPECTIVE_AUDIT.json": "9a87b53cd3af9666cc1dd4da792694cafdf9f4ef19e45e745efc67f8ab6676eb"
+  },
+  "audit_script_sha256": "e88f518fcd65ee47c4ab6749555508a29a5c9a67b5a1a1bc2d5fe380846b5a3b",
+  "limitations": [
+    "Independent bounded input/profile arithmetic and lineage verification only; no origin, significance or classifier conclusion.",
+    "Raw-only coverage failures remain distinct from nonpositive continuum. Raw Pearson and normalized RMS retain separate support gates.",
+    "Seven original HD114783 epochs and five exact discovery references already supplied original epoch/raw evidence; July replaces the previous phase May reference. C021 reuses observations/native products with disjoint newly bounded spectral windows from C018/C019, without claiming independence of whole raw cutouts. Mixed original mapping stages and original0130 I/M-normalized-I/baseline-I remain separate from later unchanged-coordinate U adoption. No independent observing time, blind validation, mapping/normalization replay or origin conclusion follows."
+  ]
+}
