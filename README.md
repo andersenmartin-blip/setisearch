@@ -1,3 +1,17 @@
+## Aktuel SETI-status — HD112410 ved 3869,2675 Å analyseret (3. november 2026)
+
+Kernen stemmer bedst overens i barycentriske koordinater i alle 6 sammenligninger, målt med både korrelation og normaliseret RMS. Omgivelserne stemmer bedst overens i barycentriske koordinater i alle 6 sammenligninger, målt med både korrelation og normaliseret RMS. V2E2-0087 forbliver U. 4 af 18 profilrækker indeholder bevarede ikke-positive originalpunkter, selv om de gyldige reference-medianer er positive. Profilform og skaleret amplitude varierer mellem epokerne.
+
+**C012 er færdig: syv eksisterende målspecifikke epoker, 18 profiler og 36 sammenligninger.** Discovery-reference er fra 29. april 2025. 16 profiler har positiv normalisering; 2 er uden normalisering og 0 er blokeret. Alle 4 selvsammenligninger er markeret.
+
+Uafhængig efterregning består med 481 kontroller og 70.371 skalarsammenligninger. **V2E2-0087 forbliver U.** De syv HD112410-observationer og tidligere epoke-/råanalyse findes allerede. Orden 2s oprindelige lokale mapping- og baseline-begrænsninger er bevaret sammen med de senere understøttede diagnoser; orden 3 er understøttet på alle fire trin. Ingen ny ophavsbestemmelse følger.
+
+[**Fortsæt her**](CONTINUE_SETI.md) · [Rapport](work_harps_20261103_c012_context/README.md) · [Figurer og målinger](work_harps_20261103_c012_context/analysis/RESULTS_REPORT.md) · [Aktuel maskinlæsbar tilstand](work_harps_20261103_c012_context/CONTINUATION_STATE.json)
+
+Næste punkt i den oprindelige kø er C011 på HD112410 ved 3865,6775 Å, oprindelig kø-række 25. Dets præcise mål, epoker, discovery-reference og historiske begrænsninger bevares i overdragelsen. Gruppenumre bestemmer ikke rækkefølgen. Hovedprøve, klassifikationer og Rubins begrænsede forstudie er uændrede. Alle statusafsnit nedenfor er historiske.
+
+---
+
 ## Aktuel SETI-status — HD112410 ved 3823,065 Å analyseret (3. november 2026)
 
 Kernen stemmer bedst overens i barycentriske koordinater i alle 6 sammenligninger, målt med både korrelation og normaliseret RMS. Omgivelserne stemmer bedst overens i barycentriske koordinater i alle 6 sammenligninger, målt med både korrelation og normaliseret RMS. V2E2-0086 forbliver U. 16 af 16 profilrækker indeholder bevarede ikke-positive originalpunkter, selv om de gyldige reference-medianer er positive. Profilform og skaleret amplitude varierer mellem epokerne.

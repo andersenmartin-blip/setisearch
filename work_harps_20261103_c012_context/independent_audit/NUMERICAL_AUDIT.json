@@ -1,0 +1,122 @@
+{
+  "status": "PASS_INDEPENDENT_C012_NUMERICAL_RECONSTRUCTION",
+  "created_utc": "2026-11-03T12:44:38.919135+00:00",
+  "checks_passed": 481,
+  "scalar_values_compared": 70371,
+  "profiles_reconstructed": 18,
+  "comparisons_reconstructed": 36,
+  "bounded_input_records_reconstructed": 9,
+  "preserved_raw_context_files_verified": 2,
+  "identical_product_self_comparisons": 4,
+  "metadata_excluded_native_orders": 0,
+  "source_hashes_verified": 49,
+  "raw_only_slots": [
+    {
+      "kind": "native",
+      "dp_id": "ADP.2025-04-30T01:01:50.866",
+      "order": 2,
+      "frame": "barycentric",
+      "reasons": [
+        "MISSING_RIGHT_FLANK_COVERAGE"
+      ]
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2025-04-30T01:01:50.866",
+      "order": 2,
+      "frame": "topocentric",
+      "reasons": [
+        "MISSING_RIGHT_FLANK_COVERAGE"
+      ]
+    }
+  ],
+  "native_input_counts": [
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2025-04-30T01:01:50.866",
+      "order": null,
+      "samples": 602
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2025-05-29T01:01:14.389",
+      "order": null,
+      "samples": 613
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2025-05-31T01:00:40.754",
+      "order": null,
+      "samples": 614
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2025-06-23T01:01:21.159",
+      "order": null,
+      "samples": 621
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2025-06-28T01:01:54.495",
+      "order": null,
+      "samples": 623
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2025-07-11T01:01:15.079",
+      "order": null,
+      "samples": 626
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2025-08-08T01:03:04.017",
+      "order": null,
+      "samples": 629
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2025-04-30T01:01:50.866",
+      "order": 2,
+      "samples": 424
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2025-04-30T01:01:50.866",
+      "order": 3,
+      "samples": 548
+    }
+  ],
+  "maximum_absolute_differences_by_kind": {
+    "comparison": 1.0758061108617767e-13,
+    "input_barycentric_wavelength": 4.547473508864641e-13,
+    "input_metadata": 0.0,
+    "input_signed_source_flux": 0.0,
+    "input_source_error": 0.0,
+    "input_source_indices": 0.0,
+    "input_source_wavelength": 4.547473508864641e-13,
+    "profile_metric": 0.0,
+    "profile_normalized_flux": 5.240141653928276e-12,
+    "profile_offset": 0.0,
+    "profile_requested_bary_wave": 0.0,
+    "profile_signed_raw_flux": 1.8953301150759216e-09
+  },
+  "production_functions_imported": false,
+  "network_requests": 0,
+  "prior_epoch_pipeline_rerun": false,
+  "classifications_changed": 0,
+  "source_hashes": {
+    "work_harps_20261103_c012_context/analysis/PLAN.json": "247b79d76ef2129f4cf369ec6dd5e188d25a827c7c2d6f627d560942cd087aee",
+    "work_harps_20261103_c012_context/analysis/ROOT_RELEASE.json": "492768bbe412cd37367e82a87cc6a1411202c72dfe88ade59d9fbaa229c1663b",
+    "work_harps_20261103_c012_context/analysis/results/OUTPUT_HASHES.json": "d28f98192a5e4483b9ee20f4c99223a87aaf3efb390dbca8b697133a45c64175",
+    "work_harps_20261103_c012_context/independent_audit/independent_math.py": "d7f3831f314e69a2b2c44ccc7dfcd4ae821f6dfc759cbde41a86f8d735680372",
+    "work_harps_20261103_c012_context/independent_audit/audit_prospective.py": "ebe403cc0144bb507723fb34b3d52c9e6db1266e8520d4cbb83cc40a9d96d6e3",
+    "work_harps_20261103_c012_context/independent_audit/audit_actual.py": "7c0feee2f1ed70001c96923207d753b5491cf563ad211b684423411586772205",
+    "work_harps_20261103_c012_context/independent_audit/PROSPECTIVE_AUDIT.json": "d1e879b40799be8226698449a8e9e418ca179ee46545682b6296a0c8f4408e06"
+  },
+  "audit_script_sha256": "7c0feee2f1ed70001c96923207d753b5491cf563ad211b684423411586772205",
+  "limitations": [
+    "Independent bounded input/profile arithmetic and lineage verification only; no origin, significance or classifier conclusion.",
+    "Raw-only coverage failures remain distinct from nonpositive continuum. Raw Pearson and normalized RMS retain separate support gates.",
+    "Seven original HD112410 archival epochs and one discovery record were already used in the original epoch/raw investigations; no HD106515A cohort is transferred. The C012 window is disjoint from C010 but reuses its seven HD112410 observations; numerical wavelength overlaps with prior HD106515A C002/C003/C004 windows use different target pixels. Original epoch/raw evidence already exists. This audit adds no independent observations or blind validation."
+  ]
+}

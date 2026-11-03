@@ -1,8 +1,18 @@
-# Continue SETI from the completed C010 / HD112410 individual context
+# Continue SETI from the completed C012 / HD112410 individual context
 
-Read [the current machine-readable state](work_harps_20261103_c010_context/CONTINUATION_STATE.json), fetch current GitHub and compare its source hashes before new work. Another session may have advanced the project. The [previous accelerated checkpoint](work_seti_20261102_accelerated/CONTINUATION_STATE.json) is preserved unchanged. Rubin remains explicitly advanced to **2–8 November 2026**. Earlier checkpoints and calendar dates are historical.
+Read [the current machine-readable state](work_harps_20261103_c012_context/CONTINUATION_STATE.json), fetch current GitHub and compare its source hashes before new work. Another session may have advanced the project. The [previous accelerated checkpoint](work_seti_20261102_accelerated/CONTINUATION_STATE.json) is preserved unchanged. Rubin remains explicitly advanced to **2–8 November 2026**. Earlier checkpoints and calendar dates are historical.
 
-## Latest completed C010 individual context
+## Latest completed C012 individual context
+
+All six other HD112410 epochs agree better with the fixed discovery profile in barycentric coordinates than in the fixed topocentric frame, in both the original core and surrounding window. V2E2-0087 remains U. The central broad structure and surrounding peaks recur with retained shape, amplitude and reference-level differences. This is a descriptive comparison of saved spectra, without a line identification, physical-origin assignment, qualified laser candidate, significance estimate or calibrated null.
+
+[The 3869.2675 Å HD112410 context](work_harps_20261103_c012_context/README.md) is complete: seven existing target-specific epochs, one April 2025 discovery reference, 18 profiles and 36 comparisons. The exact scientific center is `3869.2675` Å; the fixed anchor uses BERV 3.40485846065643 km/s. All 25 method/input files were read back from `3815808d874c9cf927da83dc287631e18de3bdd4` before execution.
+
+16 of 18 profiles have full 601-point raw coverage; 16 have usable positive normalization, 2 are raw-only and 0 are blocked. Low-reference flags are 0 true, 16 false and 2 null. All 34 evaluable Pearson and 32 normalized RMS values are retained, including 4 labelled identical-product self-comparisons; 2 Pearson slots and 4 RMS slots remain explicitly unevaluable under the fixed rules. Positive finite ERR support is absent in 18 profiles. 4 of 18 profile rows retain nonpositive signed original samples; valid positive pooled references do not imply positive individual samples. merged: 0–3 nonpositive samples among 599–600 finite original source samples per window; native: 0–2 nonpositive samples among 423–546 finite original source samples per window. Frame rows reuse their source observations. All signs remain unchanged; no clipping was introduced. Order 2 original local/baseline mapping failures remain distinct from true global and later five-window diagnostics; order 3 retains all four true stages. All U reviews and original epoch/raw evidence remain explicit.
+
+[Independent arithmetic](work_harps_20261103_c012_context/independent_audit/NUMERICAL_AUDIT.json) passes 481 checks / 70,371 scalars. [Report and figures](work_harps_20261103_c012_context/analysis/RESULTS_REPORT.md). No new observations, acquisition, free fits or old pipeline replay were added.
+
+## Earlier completed C010 individual context
 
 All six other HD112410 epochs align better with the fixed discovery profile in barycentric coordinates than in the fixed topocentric frame, in both the original core and surrounding window. V2E2-0086 remains U. The central broad structure and its surrounding pattern are present with substantial shape, amplitude and reference-level differences. The comparison describes these saved spectra; it does not identify a line or physical origin, qualify a laser candidate, establish significance or calibrate a null result.
 
@@ -145,19 +155,21 @@ The [one-degree metadata extension](work_rubin_20261102/extension_feasibility/RE
 
 [Combined status](work_rubin_20261102/COMBINED_STATUS.json): **190 selected main objects; 861 source and 130 forced measurements; 2 primary numerical objects / 7 October rows and 4 secondary objects / 16 rows.** The primary objects are contained within the secondary set. This remains a limited feasibility study: minimum 50 unmet, no qualified null, no physical-origin assignment. All 10 main requests succeeded without retry. The original 20 development objects are separate; 36 controls are not multiplied by the number of cohorts. Do not repeat the completed 188+2 search or re-expand the same field merely to resume.
 
-## Next work after the completed C010 phase
+## Next work after the completed C012 phase
 
-Use [the exact C012 handoff](work_harps_20261103_c010_context/NEXT_ACTION.json): original queue row 24, V2E2-0087 on HD112410 at 3869.2675 Å / R013. [Evidence requirements](work_harps_20261103_c010_context/scientific_review/NEXT_STEP.md) retain exact identities, target-specific epochs, the fixed discovery reference and historical mapping limits. Same April 2025 discovery and same seven HD112410 epochs as C010; no added observation. Recompute the anchor at the C012 wavelength rather than copying C010 or HD106515A. Original C012 epoch/raw evidence already existed.
+Use [the exact C011 handoff](work_harps_20261103_c012_context/NEXT_ACTION.json): original queue row 25, V2E2-0089 on HD112410 at 3865.6775 Å / R012. [Evidence requirements](work_harps_20261103_c012_context/scientific_review/NEXT_STEP.md) retain exact identities, target-specific epochs, the fixed discovery reference and historical mapping limits. Same seven HD112410 epochs as C010/C012, but own May 28 2025 discovery replaces the April 29 discovery reference. Recompute the new wavelength-specific anchor. Original C011 epoch/profile/raw evidence already existed; no added observation. The exact next scientific center is `3865.6775000000002` Å. Broader C011/C012 windows overlap on the same seven observing products, although the original C011 core lies below the C012 window. Same observations and possible reused surrounding/reference pixels make this dependent post-detection context, not blind or independent evidence. Reinventory header coverage and raw mapping at C011 before values.
 
-C001 through C010 and the 0235 spatial/background phases are complete with unchanged U labels. Do not replay them or add variants merely to resume.
+C001 through C010, C012 and the 0235 spatial/background phases are complete with unchanged U labels. Do not replay them or add variants merely to resume.
 
 Do not automatically select another unused May spectrum to seek a stronger correlation. The separate quality-reference phase and the earlier monthly-selection phase are both closed. The remaining saved metadata pool contains 15 unused products (eight May, seven January), retained as inventory rather than an execution queue. All ten original queue identities and four uncovered HD135204 records remain explicit; the earlier zero-row query is not proof of archive-wide absence.
 
-Rubin's [next-data-route review](work_rubin_20261102/next_data_route/README.md) remains complete and stopped. Reopen only a distinct prospective route with adequate public stellar history, provenance and quality. Preserve 190 main identities and unchanged detector; the 500-object ceiling leaves 310 further unique slots. Minimum50 remains unmet. No new Rubin query was made in the May quality, spatial, C001, C002, C003, C004, C005, C006, C007, C008, C009 or C010 context phases.
+Rubin's [next-data-route review](work_rubin_20261102/next_data_route/README.md) remains complete and stopped. Reopen only a distinct prospective route with adequate public stellar history, provenance and quality. Preserve 190 main identities and unchanged detector; the 500-object ceiling leaves 310 further unique slots. Minimum50 remains unmet. No new Rubin query was made in the May quality, spatial, C001, C002, C003, C004, C005, C006, C007, C008, C009, C010 or C012 context phases.
 
 All 35 fixed mapping diagnoses, both normalization follow-ups and the original 4,370 epoch profiles are complete. Do not repeat them merely to resume. All 185 U and 35 M remain unchanged.
 
 ## Restore and maintain continuity
+
+For C012, [preservation instructions](work_harps_20261103_c012_context/preservation/README.md) bind 9 source windows, 18 profiles and 2 historical raw-panel copies: 29 NPZs totaling 317,583 bytes. Exact existing archives restore the target-specific inputs without a live query. Reproduce in a separate copy.
 
 For C010, [preservation instructions](work_harps_20261103_c010_context/preservation/README.md) bind 8 source windows, 16 profiles and 1 historical raw-panel copy: 25 NPZs totaling 292,148 bytes. Exact existing archives restore the target-specific inputs without a live query. Reproduce in a separate copy.
 
