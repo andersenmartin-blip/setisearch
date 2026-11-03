@@ -1,6 +1,6 @@
 # Gendannelse og fortsættelse af HARPS-arbejdet
 
-Start i [CONTINUE_SETI.md](../../CONTINUE_SETI.md) og [aktuel maskinlæsbar tilstand](../../work_harps_20261103_c011_context/CONTINUATION_STATE.json). Hent seneste GitHub og sammenlign kildehashes. Branch: `optical-harps-week-20261101`; fortsættelsespunktet spejles på `main`.
+Start i [CONTINUE_SETI.md](../../CONTINUE_SETI.md) og [aktuel maskinlæsbar tilstand](../../work_harps_20261103_c016_context/CONTINUATION_STATE.json). Hent seneste GitHub og sammenlign kildehashes. Branch: `optical-harps-week-20261101`; fortsættelsespunktet spejles på `main`.
 
 Alle 669 V2-poster har første råbilledgennemgang: **403 A / 46 O / 185 U / 35 M / 0 N**. Ældre 333: uændret 209 A / 25 O / 95 U / 4 M. Nye 336: 194 A / 21 O / 90 U / 31 M. Batch05 ændrer kun V2E2-0332 og V2E2-0333 fra N til foreløbig A; øvrige 667 poster bevares. Gennemgang er ikke sikker ophavsbestemmelse.
 
@@ -14,13 +14,23 @@ Hovedprøven er fortsat 300 eksponeringer af 20 stjerner, 70.874650833 timer. V1
 
 Rubin er fremrykket til 2.–8. november. [Første hovedanalyse](../../work_rubin_20261102/main_analysis/README.md) er afsluttet med 188 udvalgte objekter, men kun 2 numerisk vurderbare i hovedsporet og separat 3 i forced-sporet. Minimum 50 er ikke opfyldt. Ingen tærskelpasserende måling og intet kvalificeret nulresultat. Den efterfølgende metadata/Gaia-udvidelse er også gennemført helt til analyse. Samlet Rubin-status er 190 udvalgte objekter, 2 numerisk vurderbare i hovedsporet og separat 4 i forced-sporet. Brug det fælles fortsættelsespunkt til næste afgrænsede datamulighed.
 
+## Afsluttet C016-kontekst på HD114386
+
+Kernen: 24 af 24 epoke/reference-par har højere barycentrisk korrelation og 0 højere topocentrisk korrelation; normaliseret RMS er lavest barycentrisk i 24 og topocentrisk i 0. Omgivelserne: 24 af 24 epoke/reference-par har højere barycentrisk korrelation og 0 højere topocentrisk korrelation; normaliseret RMS er lavest barycentrisk i 24 og topocentrisk i 0. Alle fire poster forbliver U. Par med genbrugte og gensidige referencer er afhængige; der er fortsat kun syv observationer. 0 af 22 profilrækker har bevarede ikke-positive originalpunkter. 3 af syv forudsagte fælles centre ligger inden for den faste topocentriske kerne og 4 udenfor; det er forventede centerpositioner, ikke fuld målt profildækning.
+
+[C016-resultatet](../../work_harps_20261103_c016_context/README.md) bevarer 22 profiler, 128 sammenligninger, alle fire discovery-referencer og V2E2-0094/0096/0098/0110 som U. Fælles midtpunkt, originale katalogmarkører og originale kerner står særskilt; fælles kerne er ikke hele foreningen af de individuelle kerner. Der er kun syv observationer, selv om hver reference sammenlignes med seks andre epoker. Alle fire historiske orden-19-kontekster har understøttede mapping-trin; uafhængig bekræftelse eller ophavsbestemmelse følger ikke.
+
+11 kildevinduer, 22 profiler og 4 råpaneler ligger direkte i repository. [Gendannelsesvejledningen](../../work_harps_20261103_c016_context/preservation/README.md) beskriver præcise inputs fra eksisterende arkiver og separat reproduktion. Målets egne januar 2022–august 2023-epoker og alle fire referencer bruges; ingen HD112410-produkter eller numerisk anchor overføres.
+
+Det aktuelle næste trin er [C015 på HD114386 ved 3869,915 Å](../../work_harps_20261103_c016_context/NEXT_ACTION.json), oprindelig kø-række 28. De præcise observationer, egen reference og historiske begrænsninger står i handoff. Afsluttede normaliseringsdiagnoser og C016 gentages ikke. Ældre næste-trin-formuleringer nedenfor er historiske.
+
 ## Afsluttet C011-kontekst på HD112410
 
 Kernen stemmer bedst overens i barycentriske koordinater i alle 6 sammenligninger, målt med både korrelation og normaliseret RMS. Omgivelserne stemmer bedst overens i barycentriske koordinater i alle 6 sammenligninger, målt med både korrelation og normaliseret RMS. V2E2-0089 forbliver U. 6 af 18 profilrækker indeholder bevarede ikke-positive originalpunkter, selv om de gyldige reference-medianer er positive. Profilform og skaleret amplitude varierer mellem epokerne. 2 profilrækker har flag for lavt referenceniveau (native orden 2); deres gyldige positive normaliseringer og flag bevares.
 
 [C011-resultatet](../../work_harps_20261103_c011_context/README.md) bevarer 18 profiler, 36 sammenligninger og V2E2-0089 som U. 9 kildevinduer, 18 profiler og 2 råpaneler ligger direkte i repository. [Gendannelsesvejledningen](../../work_harps_20261103_c011_context/preservation/README.md) beskriver præcise inputs fra eksisterende arkiver og separat reproduktion. Målets egne syv epoker genbruges fra C010/C012 med egen maj 2025-reference og særskilt bølgelængdespecifik anchor. Det brede vindue overlapper C012 på de samme observationer, mens C011-kernen ligger uden for C012-vinduet. Orden 2 og 3 er begge understøttet på alle fire historiske mapping-trin.
 
-Det aktuelle næste trin er [C016 på HD114386 med medlemscentre 4303,785–4303,79 Å](../../work_harps_20261103_c011_context/NEXT_ACTION.json), oprindelig kø-række 27. De præcise målspecifikke observationer og historiske begrænsninger står i handoff. Ældre næste-trin-formuleringer nedenfor er historiske.
+Det daværende næste trin var [C016 på HD114386 med medlemscentre 4303,785–4303,79 Å](../../work_harps_20261103_c011_context/NEXT_ACTION.json), oprindelig kø-række 27. De præcise målspecifikke observationer og historiske begrænsninger står i handoff. Ældre næste-trin-formuleringer nedenfor er historiske.
 
 ## Afsluttet C012-kontekst på HD112410
 

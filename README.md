@@ -1,3 +1,17 @@
+## Aktuel SETI-status — fælles HD114386-kontekst ved 4303,7875 Å analyseret (3. november 2026)
+
+Kernen: 24 af 24 epoke/reference-par har højere barycentrisk korrelation og 0 højere topocentrisk korrelation; normaliseret RMS er lavest barycentrisk i 24 og topocentrisk i 0. Omgivelserne: 24 af 24 epoke/reference-par har højere barycentrisk korrelation og 0 højere topocentrisk korrelation; normaliseret RMS er lavest barycentrisk i 24 og topocentrisk i 0. Alle fire poster forbliver U. Par med genbrugte og gensidige referencer er afhængige; der er fortsat kun syv observationer. 0 af 22 profilrækker har bevarede ikke-positive originalpunkter. 3 af syv forudsagte fælles centre ligger inden for den faste topocentriske kerne og 4 udenfor; det er forventede centerpositioner, ikke fuld målt profildækning.
+
+**C016 er færdig: syv eksisterende målspecifikke epoker, fire discovery-produkter, 22 profiler og 128 sammenligninger.** Alle fire referencer og oprindelige katalogcentre bevares. Det fælles center er midtpunktet af de oprindelige centre, ikke et tilpasset maksimum; den fælles kerne afviger 0,0025 Å ved kanterne fra de yderste individuelle kerner. Alle originale kerneintervaller ligger inden for den brede kontekst; profilernes datadækning opgøres særskilt.
+
+22 profiler har positiv normalisering; 0 er uden normalisering og 0 er blokeret. Alle 16 selvsammenligninger er markeret. Uafhængig efterregning består med 700 kontroller og 86.525 skalarsammenligninger. Alle fire oprindelige orden-19-kontekster har understøttede mapping-trin og U er uændret. Genbrugte observationer og gensidige referencer er ikke uafhængig bekræftelse.
+
+[**Fortsæt her**](CONTINUE_SETI.md) · [Rapport](work_harps_20261103_c016_context/README.md) · [Figurer og målinger](work_harps_20261103_c016_context/analysis/RESULTS_REPORT.md) · [Aktuel maskinlæsbar tilstand](work_harps_20261103_c016_context/CONTINUATION_STATE.json)
+
+Næste punkt i den oprindelige kø er C015 på HD114386 ved 3869,915 Å, oprindelig kø-række 28. De præcise observationer, egen discovery-reference og historiske begrænsninger bevares i overdragelsen. C013/C014s afsluttede normaliseringsdiagnoser og den nu afsluttede C016-gruppe gentages ikke; gruppenumre bestemmer ikke rækkefølgen. Hovedprøve, klassifikationer og Rubins begrænsede forstudie er uændrede. Alle statusafsnit nedenfor er historiske.
+
+---
+
 ## Aktuel SETI-status — HD112410 ved 3865,6775 Å analyseret (3. november 2026)
 
 Kernen stemmer bedst overens i barycentriske koordinater i alle 6 sammenligninger, målt med både korrelation og normaliseret RMS. Omgivelserne stemmer bedst overens i barycentriske koordinater i alle 6 sammenligninger, målt med både korrelation og normaliseret RMS. V2E2-0089 forbliver U. 6 af 18 profilrækker indeholder bevarede ikke-positive originalpunkter, selv om de gyldige reference-medianer er positive. Profilform og skaleret amplitude varierer mellem epokerne. 2 profilrækker har flag for lavt referenceniveau (native orden 2); deres gyldige positive normaliseringer og flag bevares.

@@ -1,0 +1,11 @@
+# Next fixed unfinished original-queue route: C015 / R016
+
+After C016, continue original ACTION_QUEUE row 28: V2E2-0095 on HD114386, exact catalog center 3869.915 Å, route INDIVIDUAL_PROFILE_CONTEXT. Keep all four current C016 members at rows 27/29/30/32 together as completed work. The NORMALIZATION_CONTEXT routes for C013/0092 row 26 and C014/0104 row 31 are already complete and remain skipped; their unresolved U labels do not justify replay.
+
+C015 reuses the same seven HD114386 January 2022–August 2023 observations, BERV span 51.572001697156 km/s. Its own reference is ADP.2022-05-17T01:02:16.724, observed 2022-05-16T02:17:40.312, BERV −10.767337430651 km/s. This is one of C016’s four discovery products, but the C015 wavelength-specific fixed anchor is newly computed as 3870.0539967497375 Å under center/(1+BERV/c). Do not transfer C016’s March common anchor, four-reference joint design or order-19 scope.
+
+The original catalog core is [3869.665, 3870.165] Å; a proposed ±3 Å context is [3866.915, 3872.915] Å. It is disjoint from C016’s [4300.7875, 4306.7875] Å window and the completed 0092/0104 normalization windows. Numerical overlap with earlier HD106515A and HD112410 blue windows shares no source pixels or observations because those are other targets. Original C015 epoch/profile/raw evidence already exists; no blind, untouched, independent-data or new observing-time claim follows.
+
+Historical raw mapping records order 3 only, with true global-grid, original local usable, baseline verified and later five-window support. Primary, secondary and adopted reviews are U/U/U for a broad multi-sample native feature and diffuse trace-associated enhancement without a distinct charge track. Fresh all-order headers must establish actual covering orders and context/core/flank support; mapping support does not establish finite flux, reference quality or physical origin.
+
+Before future values, hash exact target-specific inputs, freeze the own May reference and wavelength-specific geometry, fresh covering-order/raw/mapping inventory, signed reference rules, support gates and complete figures with explicit invalid outcomes. Preserve all existing outputs and labels. This is metadata handoff only: no C015 array analysis, new acquisition or replay of completed diagnostics was executed.
