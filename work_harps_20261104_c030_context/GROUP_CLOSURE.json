@@ -1,0 +1,191 @@
+{
+  "schema": "HARPS_C030_DIAGNOSTIC_CLOSURE_V1",
+  "created_utc": "2026-11-04T21:33:57.962044+00:00",
+  "status": "COMPLETE_FIXED_JOINT_CONTEXT_ALL_U_UNCHANGED",
+  "target": "HD126093",
+  "events": [
+    "V2E2-0262",
+    "V2E2-0263",
+    "V2E2-0267",
+    "V2E2-0268",
+    "V2E2-0273",
+    "V2E2-0275",
+    "V2E2-0276",
+    "V2E2-0281"
+  ],
+  "current_codes": {
+    "V2E2-0262": "U",
+    "V2E2-0263": "U",
+    "V2E2-0267": "U",
+    "V2E2-0268": "U",
+    "V2E2-0273": "U",
+    "V2E2-0275": "U",
+    "V2E2-0276": "U",
+    "V2E2-0281": "U"
+  },
+  "summary": {
+    "status": "COMPLETE_FIXED_GROUP_CONTEXT",
+    "completed_utc": "2026-11-04T21:27:47.179360+00:00",
+    "group": "C030",
+    "target": "HD126093",
+    "events": [
+      "V2E2-0262",
+      "V2E2-0263",
+      "V2E2-0267",
+      "V2E2-0268",
+      "V2E2-0273",
+      "V2E2-0275",
+      "V2E2-0276",
+      "V2E2-0281"
+    ],
+    "merged_epochs": 6,
+    "distinct_discovery_products": 5,
+    "discovery_records": 8,
+    "native_discovery_orders": 10,
+    "structurally_excluded_native_orders": 0,
+    "profile_slots": 32,
+    "comparison_slots": 160,
+    "identical_product_self_comparisons": 20,
+    "raw_only_normalization_slots": 0,
+    "blocked_source_profile_slots": 0,
+    "preserved_raw_context_panels": 16,
+    "group_center_bary_air_angstrom": 3867.13125,
+    "topocentric_anchor_air_angstrom": 3867.0568132302437,
+    "anchor_berv_km_s": 5.77068898867443,
+    "old_epoch_pipeline_rerun": false,
+    "labels_changed": 0,
+    "origin_assignments": 0,
+    "release_sha256": "a66e2a445687f0a86cbc40bedb8a81d392fa24cf371056109ce0e961aa31906f",
+    "plan_sha256": "33c53cef712a67f1e7331c79e58f6cf625a5828e3546a6d0d5c45f8aca03f98f",
+    "script_sha256": "bb7896404b5bfaced1bd0ba094a2e2ae7cfa7500554498438116d34394d292eb",
+    "limitations": [
+      "Eight current U records, five discovery references, six reused observations, previously exposed epoch/raw values and C029 broad context. No new observing time,blind validation,physical origin,qualified laser or calibrated survey null.",
+      "Metadata midrange3867.13125 \u00b10.25 common core differs from every original core. Exact eight centers,original boundaries and support counts remain. Surrounding region contains original member-core edges. No full-original-core correlation is claimed.",
+      "One April anchor,own epoch BERVs,no fitted center,width,lag,stellarRV,drift,continuum,background or mask. Fixed topocentric windows can sample neighboring structure.",
+      "360fresh header scans select10native product/order windows. Preserve all partial,nonfinite,nonpositive,low,raw-only and blocked outcomes; original broad-window edges can lack coverage while core and sufficient flanks remain.",
+      "Original local/baseline mapping true for0267/0268/0273,false for0262/0263/0275/0276/0281. Global/later support true throughout. Eight broad diffuse trace-centered U/U/U chains retained; no0261-specific blend caution applies.",
+      "25directed nonself rows per frame/region represent15unordered relationships and10reciprocal pairs among six observations,not25independent samples or confirmations. Native/merged comparisons share exposures.",
+      "Audit exact C029 source-index overlap using metadata only. Additional June/July native/order windows are existing observations,not new or untouched validation.",
+      "Signed structured flanks are not calibrated continua. Merged uncalibratedADU and native unspecified units use separate divisors; no physical flux ratio. ERR/noise proxies/lowflags do not calibrate significance,false-alarm probability,sensitivity or linewidth.",
+      "Completed exact routes stay closed with physical codes unchanged. Rubin limited feasibility,min50unmet. Separate arithmetic and fresh processes are run by the same assistant,not separate-agent or human review."
+    ]
+  },
+  "numerical_audit": {
+    "status": "PASS_INDEPENDENT_C030_NUMERICAL_RECONSTRUCTION",
+    "checks_passed": 930,
+    "scalar_values_compared": 127836,
+    "profiles_reconstructed": 32,
+    "comparisons_reconstructed": 160,
+    "bounded_input_records_reconstructed": 16,
+    "preserved_raw_context_files_verified": 16
+  },
+  "quality_summary": {
+    "profile_slots": 32,
+    "comparison_slots": 160,
+    "evaluable_pearson_values": 160,
+    "evaluable_normalized_rms_values": 160,
+    "profiles_with_full601_support": 22,
+    "partial_profile_slots": 10,
+    "positive_reference_profiles": 32,
+    "low_reference_profiles": 2,
+    "low_reference_slots": [
+      {
+        "kind": "native",
+        "dp_id": "ADP.2025-07-17T01:03:21.039",
+        "order": 2,
+        "frame": "barycentric",
+        "flank_reference": 31.387112617492676,
+        "first_difference_noise_proxy": 14.770474746099303
+      },
+      {
+        "kind": "native",
+        "dp_id": "ADP.2025-07-17T01:03:21.039",
+        "order": 2,
+        "frame": "topocentric",
+        "flank_reference": 32.86086463928223,
+        "first_difference_noise_proxy": 13.681556599384319
+      }
+    ],
+    "profiles_with_nonpositive_original_samples": 12,
+    "observing_products_with_nonpositive_samples": 5,
+    "positive_finite_ERR_samples": 0,
+    "raw_only_slots": 0,
+    "blocked_slots": 0,
+    "frame_wins": {
+      "core": {
+        "nonself_directed_pairs": 25,
+        "distinct_unordered_relationships": 15,
+        "reciprocal_discovery_pairs": 10,
+        "barycentric_raw_r_higher": 24,
+        "topocentric_raw_r_higher": 1,
+        "raw_r_ties": 0,
+        "raw_r_unmeasurable": 0,
+        "barycentric_normalized_rms_lower": 25,
+        "topocentric_normalized_rms_lower": 0,
+        "normalized_rms_ties": 0,
+        "rms_unmeasurable": 0
+      },
+      "broad_pattern": {
+        "nonself_directed_pairs": 25,
+        "distinct_unordered_relationships": 15,
+        "reciprocal_discovery_pairs": 10,
+        "barycentric_raw_r_higher": 24,
+        "topocentric_raw_r_higher": 1,
+        "raw_r_ties": 0,
+        "raw_r_unmeasurable": 0,
+        "barycentric_normalized_rms_lower": 25,
+        "topocentric_normalized_rms_lower": 0,
+        "normalized_rms_ties": 0,
+        "rms_unmeasurable": 0
+      }
+    },
+    "exceptions": [
+      {
+        "region": "core",
+        "quantity": "raw_pearson",
+        "dp_id": "ADP.2025-06-26T01:01:08.565",
+        "reference_dp_id": "ADP.2025-06-28T01:01:54.505",
+        "barycentric_value": 0.9080210940394396,
+        "topocentric_value": 0.911620274605607
+      },
+      {
+        "region": "broad_pattern",
+        "quantity": "raw_pearson",
+        "dp_id": "ADP.2025-06-26T01:01:08.565",
+        "reference_dp_id": "ADP.2025-06-28T01:01:54.505",
+        "barycentric_value": 0.8987892455194171,
+        "topocentric_value": 0.9005765757525648
+      }
+    ],
+    "original_member_support_records": 256,
+    "all_original_member_core_grid_samples_finite": true,
+    "original_member_core_grid_centers_each": [
+      50
+    ]
+  },
+  "source_bindings_unchanged": 70,
+  "shared_C029_source_inputs": 12,
+  "additional_native_inputs_not_new_observations": 4,
+  "source_pixel_dependency_audit_sha256": "242ded046207c885049c11d4a25d9dfedd6231a57c30ffa359ba350e9c8a3d0d",
+  "original_member_core_support_sha256": "88a0b63ad843da417b430f063c857dc9f155bd31b582e826ebbb58ca0c324a6b",
+  "source_pixel_independence_claim": false,
+  "common_core_covers_original_member_core_union": false,
+  "directed_nonself_pairs_per_frame_region": 25,
+  "distinct_unordered_pairs_per_frame_region": 15,
+  "reciprocal_pairs": 10,
+  "new_observing_time_seconds": 0,
+  "new_archive_queries": 0,
+  "new_origin_assignments": 0,
+  "labels_changed": 0,
+  "new_C030_variants_planned": 0,
+  "successful_observed_executions": 1,
+  "next_original_queue_group": "C031",
+  "next_original_queue_row": 66,
+  "next_target": "HD126093",
+  "next_existing_epoch_count": 6,
+  "next_record_count": 4,
+  "next_discovery_product_count": 4,
+  "next_action_sha256": "cfa5abca8d5a9cf5b6e5e5548d95f0e845da3bdd056b0d6f4e9db4348c1ca0fe",
+  "fixed_plan_sha256": "33c53cef712a67f1e7331c79e58f6cf625a5828e3546a6d0d5c45f8aca03f98f",
+  "full_result_report_sha256": "ed1a0a228e5b0a7a7235bcb79bc799a02fbdb034d54fdf12f0b2f15c60efd80c"
+}
